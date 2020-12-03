@@ -1,0 +1,65 @@
+input:
+  _url: http://arnotts.ie
+  URL: https://www.arnotts.ie/chanel/eau-de-parfum-spray/103485063.html?cgid=root#q=perfume&start=1
+extractions:
+  - html: https://workbench.import.io/html/run=918aeff5-1860-4b97-a4d3-2dd32eea3e62/task=6d9edf8b-f53e-4507-9c80-dbed7ef6a9cd/979a62d5-7022-44e4-a0fa-7940986731f8.html
+    extractionConfigId: product/details/stores/a/arnotts/IE/extract
+    data:
+      - group:
+          - category:
+              - text: Beauty
+                xpath: /html/body/div[1]/div[6]/div[2]/div[2]/a[1]
+              - text: Fragrance
+                xpath: /html/body/div[1]/div[6]/div[2]/div[3]/a[1]
+              - text: Women's Fragrances
+                xpath: /html/body/div[1]/div[6]/div[2]/div[4]/a[1]
+            image:
+              - text: https://i8.amplience.net/i/arnotts/103485063_ar_01?$detail_main_ar$
+                xpath: /html/body/div[1]/div[6]/div[3]/div[2]/div[2]/div[2]/a[1]/img[1]/@src
+            imageAlt:
+              - text: Eau De Parfum Spray
+                xpath: /html/body/div[1]/div[6]/div[3]/div[2]/div[2]/div[2]/a[1]/img[1]/@alt
+            alternateImages:
+              - text: https://i8.amplience.net/i/arnotts/103485063_ar_02?$prodgrid_recommend_ar$
+                xpath: /html/body/div[1]/div[6]/div[3]/div[2]/div[2]/div[1]/div[1]/ul[1]/li[2]/a[1]/img[1]/@src
+              - text: https://i8.amplience.net/i/arnotts/103485063_ar_03?$prodgrid_recommend_ar$
+                xpath: /html/body/div[1]/div[6]/div[3]/div[2]/div[2]/div[1]/div[1]/ul[1]/li[3]/a[1]/img[1]/@src
+            nameExtended:
+              - text: Eau De Parfum Spray
+                xpath: /html/body/div[1]/div[6]/div[3]/div[2]/div[3]/div[1]/h1[2]/span[1]
+            description:
+              - text: >-
+                  The essence of a bold, free woman. An oriental fragrance with
+                  a strong personality, yet surprisingly fresh.
+
+                  An oriental fragrance with a strong personality, yet surprisingly fresh.
+
+                  Sparks of fresh and vibrant orange immediately awaken the senses. A clear and sensual heart reveals the transparent accords of Jasmine and Rose. The trail unfurls the pure accents of Patchouli and Vetiver that emphasise the slender structure of the composition.
+                xpath: /html/body/div[1]/div[6]/div[3]/div[2]/div[3]/div[1]/div[1]/div[4]/div[3]/div[1]/div[1]/div[1]
+            sku:
+              - text: "103485063"
+                xpath: /html/body/div[1]/div[6]/div[3]/div[2]/div[3]/div[1]/div[1]/form[1]/fieldset[1]/div[1]/div[1]/input[2]/@value
+            variantId:
+              - text: "103485063"
+                xpath: /html/body/div[1]/div[6]/div[3]/div[2]/div[3]/div[1]/div[1]/form[1]/fieldset[1]/div[1]/div[1]/input[2]/@value
+            name:
+              - text: Eau De Parfum Spray
+                xpath: /html/body/div[1]/div[6]/div[3]/div[2]/div[3]/div[1]/h1[2]/span[1]
+            variantInformation:
+              - text: "You have selected: Clear"
+                xpath: /html/body/div[1]/div[6]/div[3]/div[2]/div[3]/div[1]/div[1]/div[3]/div[1]
+            firstVariant:
+              - text: "103485063"
+                xpath: /html/body/div[1]/div[6]/div[3]/div[2]/div[3]/div[1]/div[1]/div[4]/div[1]/a[1]/@data-pid
+            productUrl:
+              - text: https://www.arnotts.ie/chanel/eau-de-parfum-spray/103485063.html?cgid=root#q=perfume&start=1
+                xpath: /html/body/div[4]
+            availabilityText:
+              - text: Out of Stock
+                xpath: /html/body/div[5]
+            descriptionBullets:
+              - text: "0"
+            variantCount:
+              - text: "2"
+        xpath: /html
+    timestamp: 1606979590073

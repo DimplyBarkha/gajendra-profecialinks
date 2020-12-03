@@ -1,0 +1,64 @@
+input:
+  _url: http://arnotts.ie
+  URL: https://www.arnotts.ie/on/demandware.store/Sites-arnotts-global-Site/en_IE/Product-Variation?pid=120389815&dwvar_120389815_size=Super%20King
+extractions:
+  - html: https://workbench.import.io/html/run=d167b9c0-b7b2-4c9a-b823-f0a690b4772d/task=9f4a6be9-69e8-422f-a83e-5e1393077fb4/558ec2ff-10f7-48de-ac61-5b49548ae394.html
+    extractionConfigId: product/details/stores/a/arnotts/IE/extract
+    data:
+      - group:
+          - image:
+              - text: https://i8.amplience.net/i/arnotts/120389815_ar_01?$detail_main_ar$
+                xpath: /html/body/div[1]/div[6]/div[2]/div[2]/div[3]/div[1]/a[1]/img[1]/@src
+            imageAlt:
+              - text: Goose Feather & Down Mattress Topper
+                xpath: /html/body/div[1]/div[6]/div[2]/div[2]/div[3]/div[1]/a[1]/img[1]/@alt
+            nameExtended:
+              - text: Goose Feather & Down Mattress Topper
+                xpath: /html/body/div[1]/div[6]/div[2]/div[2]/div[4]/div[1]/h1[1]/span[1]
+            listPrice:
+              - text: €324.62
+                xpath: /html/body/div[1]/div[6]/div[2]/div[2]/div[2]/div[1]/span[2]
+            price:
+              - text: €162.31
+                xpath: /html/body/div[1]/div[6]/div[2]/div[2]/div[4]/div[1]/div[1]/div[1]/div[1]/span[1]
+            description:
+              - text: White goose feather & down filling. 100% Cambric Cotton cover. Cassette
+                  construction to keep filling in place. Eleasticated corner
+                  straps for secure attachment to any depth mattress
+                xpath: /html/body/div[1]/div[6]/div[2]/div[2]/div[4]/div[1]/div[1]/div[4]/div[3]/div[1]/div[1]/div[1]
+            brandText:
+              - text: ARNOTTS HOTEL COLLECTION
+                xpath: /html/body/div[1]/div[6]/div[2]/div[2]/div[4]/div[1]/h1[1]/a[1]/span[1]
+            sku:
+              - text: "120389866"
+                xpath: /html/body/div[1]/div[6]/div[2]/div[2]/div[4]/div[1]/div[1]/form[1]/fieldset[1]/div[1]/div[1]/input[2]/@value
+            variantId:
+              - text: "120389866"
+                xpath: /html/body/div[1]/div[6]/div[2]/div[2]/div[4]/div[1]/div[1]/form[1]/fieldset[1]/div[1]/div[1]/input[2]/@value
+            color:
+              - text: White
+                xpath: /html/body/div[1]/div[6]/div[2]/div[2]/div[4]/div[1]/div[1]/div[3]/ul[1]/li[1]/div[2]/ul[1]/li[1]/a[1]/img[1]/@alt
+            name:
+              - text: Goose Feather & Down Mattress Topper
+                xpath: /html/body/div[1]/div[6]/div[2]/div[2]/div[4]/div[1]/h1[1]/span[1]
+            brandLink:
+              - text: https://www.arnotts.ie/brands/arnotts-hotel-collection/
+                xpath: /html/body/div[1]/div[6]/div[2]/div[2]/div[4]/div[1]/h1[1]/a[1]/@href
+            variantInformation:
+              - text: "You have selected: White, Super King"
+                xpath: /html/body/div[1]/div[6]/div[2]/div[2]/div[4]/div[1]/div[1]/div[3]/div[1]
+            firstVariant:
+              - text: "120389866"
+                xpath: /html/body/div[1]/div[6]/div[2]/div[2]/div[4]/div[1]/div[1]/div[4]/div[1]/a[1]/@data-pid
+            productUrl:
+              - text: https://www.arnotts.ie/on/demandware.store/Sites-arnotts-global-Site/en_IE/Product-Variation?pid=120389815&dwvar_120389815_size=Super%20King
+                xpath: /html/body/div[4]
+            availabilityText:
+              - text: In stock
+                xpath: /html/body/div[5]
+            descriptionBullets:
+              - text: "0"
+            variantCount:
+              - text: "4"
+        xpath: /html/body
+    timestamp: 1606980883713

@@ -1,0 +1,74 @@
+input:
+  _url: http://arnotts.ie
+  URL: https://www.arnotts.ie/ted-baker/sparkls-glitter-iphone-6%2F6s%2F7%2F8-case/135815442.html?cgid=root&dwvar_135815442_color=Pink#q=phone&lang=en_IE&start=1
+extractions:
+  - html: https://workbench.import.io/html/run=d167b9c0-b7b2-4c9a-b823-f0a690b4772d/task=6214b7ad-96f1-4154-a277-9bd37224ebe8/e320a328-80a1-472e-afa2-af7633edd0c5.html
+    extractionConfigId: product/details/stores/a/arnotts/IE/extract
+    data:
+      - group:
+          - image:
+              - text: https://i8.amplience.net/i/arnotts/135815442_ar_01?$detail_main_ar$
+                xpath: /html/body/div[1]/div[6]/div[3]/div[2]/div[3]/div[2]/a[1]/img[1]/@src
+            imageAlt:
+              - text: Sparkls Glitter iPhone 6/6s/7/8 Case
+                xpath: /html/body/div[1]/div[6]/div[3]/div[2]/div[3]/div[2]/a[1]/img[1]/@alt
+            alternateImages:
+              - text: https://i8.amplience.net/i/arnotts/135815442_ar_02?$prodgrid_recommend_ar$
+                xpath: /html/body/div[1]/div[6]/div[3]/div[2]/div[3]/div[1]/div[1]/ul[1]/li[2]/a[1]/img[1]/@src
+              - text: https://i8.amplience.net/i/arnotts/135815442_ar_03?$prodgrid_recommend_ar$
+                xpath: /html/body/div[1]/div[6]/div[3]/div[2]/div[3]/div[1]/div[1]/ul[1]/li[3]/a[1]/img[1]/@src
+              - text: https://i8.amplience.net/i/arnotts/135815442_ar_04?$prodgrid_recommend_ar$
+                xpath: /html/body/div[1]/div[6]/div[3]/div[2]/div[3]/div[1]/div[1]/ul[1]/li[4]/a[1]/img[1]/@src
+            category:
+              - text: Women
+                xpath: /html/body/div[1]/div[6]/div[2]/div[2]/a[1]
+              - text: Accessories
+                xpath: /html/body/div[1]/div[6]/div[2]/div[3]/a[1]
+            nameExtended:
+              - text: Sparkls Glitter iPhone 6/6s/7/8 Case
+                xpath: /html/body/div[1]/div[6]/div[3]/div[2]/div[4]/div[1]/h1[1]/span[1]
+            price:
+              - text: €38.00
+                xpath: /html/body/div[1]/div[6]/div[3]/div[2]/div[4]/div[1]/div[1]/div[1]/div[1]/span[1]
+            description:
+              - text: Give your phone a fresh upgrade with Ted Baker's Sparkls Glitter iPhone
+                  Case. Drawing the eye with a glittery finish, this high-shine
+                  accessory will add a dazzling touch to your everyday
+                  ensembles.
+                xpath: /html/body/div[1]/div[6]/div[3]/div[2]/div[4]/div[1]/div[1]/div[4]/div[3]/div[1]/div[1]/div[1]
+            brandText:
+              - text: TED BAKER
+                xpath: /html/body/div[1]/div[6]/div[3]/div[2]/div[4]/div[1]/h1[1]/a[1]/span[1]
+            sku:
+              - text: "135815451"
+                xpath: /html/body/div[1]/div[6]/div[3]/div[2]/div[4]/div[1]/div[1]/form[1]/fieldset[1]/div[1]/div[1]/input[2]/@value
+            variantId:
+              - text: "135815451"
+                xpath: /html/body/div[1]/div[6]/div[3]/div[2]/div[4]/div[1]/div[1]/form[1]/fieldset[1]/div[1]/div[1]/input[2]/@value
+            color:
+              - text: Pink
+                xpath: /html/body/div[1]/div[6]/div[3]/div[2]/div[4]/div[1]/div[1]/div[3]/ul[1]/li[1]/div[2]
+            name:
+              - text: Sparkls Glitter iPhone 6/6s/7/8 Case
+                xpath: /html/body/div[1]/div[6]/div[3]/div[2]/div[4]/div[1]/h1[1]/span[1]
+            brandLink:
+              - text: https://www.arnotts.ie/brands/ted-baker/
+                xpath: /html/body/div[1]/div[6]/div[3]/div[2]/div[4]/div[1]/h1[1]/a[1]/@href
+            variantInformation:
+              - text: "You have selected: Pink"
+                xpath: /html/body/div[1]/div[6]/div[3]/div[2]/div[4]/div[1]/div[1]/div[3]/div[1]
+            firstVariant:
+              - text: "135815451"
+                xpath: /html/body/div[1]/div[6]/div[3]/div[2]/div[4]/div[1]/div[1]/div[4]/div[1]/a[1]/@data-pid
+            productUrl:
+              - text: https://www.arnotts.ie/ted-baker/sparkls-glitter-iphone-6%2F6s%2F7%2F8-case/135815442.html?cgid=root&dwvar_135815442_color=Pink#q=phone&lang=en_IE&start=1
+                xpath: /html/body/div[4]
+            availabilityText:
+              - text: In stock
+                xpath: /html/body/div[5]
+            descriptionBullets:
+              - text: "0"
+            variantCount:
+              - text: "1"
+        xpath: /html/body
+    timestamp: 1606980885247

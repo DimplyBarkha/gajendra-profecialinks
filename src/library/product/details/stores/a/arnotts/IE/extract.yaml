@@ -53,10 +53,7 @@ fields:
   description: Availability as described on page for the selected variant. If there
     is no availability but the product can be added to cart, this field should be
     "In Stock"
-  xpath: //div[contains(@class, "product-details")]//div[@id="product-content"]//meta[@itemprop='availability']/@content 
-  regExp: instock
-  regExpReplace: In Stock
-  defaultValue: Out of Stock
+  xpath: //div[@id="availability"]
 - name: description
   singleValue: false
   description: Product description supplied by website - may be concatenanted from
@@ -133,7 +130,7 @@ fields:
 - name: variantCount
   singleValue: true
   description: Number of variants listed
-  xpath: count(//select[@class="variation-select"]//option[contains(@value, 'https:')]/@data-lgimg|//div[@class="product-variations"]//li[contains(@class, "selectable")])
+  xpath: count(//ul[@class="swatches color"]//li//a[@href]|//select[@class="variation-select" and not(//ul[@class="swatches color"]//li//a[@href])]//option[@data-lgimg])
 - name: color
   singleValue: true
   description: A textual description of the colour
@@ -160,9 +157,6 @@ fields:
 - name: asin
   singleValue: true
   description:
-  manualSelector: span.product-collection
-  regExp: (.+)
-  regExpReplace: BE$1 
 - name: coupon
   singleValue: true
   description: Text of any coupon offer
@@ -181,7 +175,6 @@ fields:
 - name: internationalShipping
   singleValue: true
   description: Text next to bullet point
-  xpath: //div[@class="product-delivery-details-message"]
 - name: salesRank
   singleValue: false
   description: Amazon best selling rank from product details (linked back) - needs
@@ -211,8 +204,6 @@ fields:
 - name: videoLength
   singleValue: false
   description: 
-  xpath: //div[@class='vjs-duration-display']
-  regExp: \d+:\d+
 - name: ingredientImagePresent
   singleValue: true
   description: 
@@ -222,12 +213,9 @@ fields:
 - name: largeImageCount
   singleValue: true
   description: 
-  xpath: count(//li[@class='thumb carousel-item'])
 - name: variantAsins
   singleValue: true
-  description:
-  xpath: //option[contains(@value, 'https:')]/@value
-  regExp: =\d{9} 
+  description: 
 - name: primeFlag
   singleValue: true
   description: 
@@ -242,7 +230,6 @@ fields:
 - name: featureBullets
   singleValue: false
   description: 
-  xpath: //div[@itemprop='description']//li
 - name: otherSellersName
   singleValue: false
   description: 
@@ -257,7 +244,6 @@ fields:
 - name: secondaryImageTotal
   singleValue: true
   description: 
-  xpath: count(//li[@class='thumb carousel-item'])-1
 - name: news
   singleValue: true
   description: 
@@ -406,7 +392,7 @@ fields:
 - name: warranty
   singleValue: true
   description: Guarantee associated with the product
-  xpath: //*[contains(text(), 'Warranty')] | //*[contains(text(), 'guarantee')]
+  xpath: //label[contains(text(), "Product Details")]//following-sibling::div//span[contains(text(), "Warranty")]|//label[contains(text(), "Product Details")]//following-sibling::div//span[contains(text(), "guarantee")]
 - name: storage
   singleValue: true
   description: Suggested storage location for product
@@ -437,7 +423,6 @@ fields:
 - name: promotion
   singleValue: true
   description: promotion text on product page
-  manualSelector: span.promo-flag
 - name: alcoholContent
   singleValue: true
   description: Alcohol content information
@@ -473,7 +458,6 @@ fields:
 - name: additionalDescBulletInfo
   singleValue: false
   description: 
-  xpath: //div[@itemprop='description']//li
 - name: prop65Warning
   singleValue: true
   description: 

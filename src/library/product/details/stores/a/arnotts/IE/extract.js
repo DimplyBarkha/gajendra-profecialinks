@@ -23,9 +23,10 @@ module.exports = {
 
       const productUrl = window.location.href;
       if (productUrl) addElementToDocument('product_url', productUrl);
+      const availabilityElem = document.querySelector(' div.product-detail button[title="Add to Bag"]');
+      const availability = availabilityElem ? 'In stock' : 'Out of Stock';
+      if (availability) addElementToDocument('availability', availability);
     });
-
-    await context.extract(productDetails, { transform });
 
     await context.extract(productDetails, { transform });
   },
