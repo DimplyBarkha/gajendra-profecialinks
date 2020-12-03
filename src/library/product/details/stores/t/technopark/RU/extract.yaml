@@ -34,7 +34,7 @@ fields:
     xpath: //span[@class='price product-card__price']/text()
   - name: availabilityText
     singleValue:  false
-    xpath: //div[contains(@class,'product-card__availability')]/text()
+    xpath:  //div[contains(@class,'product-card__availability')][not(contains(@class,"not-available"))]
     regExp: (.+)
     regExpReplace: In Stock
     defaultValue: Out of Stock
@@ -75,12 +75,12 @@ fields:
     description: GTIN code (includes UPC/EAN)
   - name: sku
     singleValue:  false
-    xpath: //body/section[@class='product']/meta[1]/@content
+    xpath: //section[@class='product']//meta[@itemprop="sku"]/@content
     description: The store-specific product identifie
   - name: variantId
     singleValue:  false
     description: Identifier for a variant from a store where variants share the same sku
-    xpath: //body/section[@class='product']/meta[1]/@content
+    xpath: //section[@class='product']//meta[@itemprop="sku"]/@content
   - name: mpc
     singleValue:  false
     description: The manufacturer model code (unique) of the product
