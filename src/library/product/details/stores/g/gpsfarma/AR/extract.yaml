@@ -20,7 +20,7 @@ fields:
     xpath: //div[@class='breadcrumbs']//ul//li[contains(@class,'category')]//a
   - name: nameExtended
     singleValue: false
-    xpath: concat(//div[@class='product-name']//span[@class='h1'],' - ',//div[@class='product-name']//div[@class='marca_med'])  
+    xpath: concat(//div[@class='product-name']//div[@class='marca_med'],' - ',//div[@class='product-name']//span[@class='h1'])
   - name: price
     singleValue: false
     xpath: //div[@class='price-info']//span[contains(@class,'price') and contains(@id,'product-price-')]
@@ -29,7 +29,9 @@ fields:
     xpath: //div[@class='price-info']//span[@class='price' and contains(@id,'old-price-')]
   - name: availabilityText
     singleValue: false
-    xpath: //div[@class='product-img-box']//div[@class='product-availability']//span[@class='label' and text()='Disponibilidad:']/parent::p/span[@class='value']
+    xpath: //div[@class='add-to-cart']//div[@class='add-to-cart-buttons']//input[@class='button btn-cart sin-stock' and @value='Sin stock']/@value
+    regExp: (.+)
+    regExpReplace: Out of Stock
     defaultValue: In Stock
   - name: description
     singleValue: false
@@ -42,10 +44,10 @@ fields:
     xpath: //div[@class='product-name']//div[@class='marca_med']  
   - name: quantity
     singleValue: false
-    xpath: //div[@class='add-to-cart']//input[@id='qty']/@value  
-  - name: gtin
-    singleValue: false
-    xpath: //table[@id='product-attribute-specs-table']//th[text()='Código de Barra']/parent::tr/td
+    xpath: //div[@class='product-name']//span[@class='prod-especial-info']
+  #- name: gtin
+  #  singleValue: false
+  #  xpath: //table[@id='product-attribute-specs-table']//th[text()='Código de Barra']/parent::tr/td
   - name: sku
     singleValue: false
     xpath: //table[@id='product-attribute-specs-table']//th[text()='SKU.']/parent::tr/td
@@ -54,10 +56,19 @@ fields:
     xpath: //form[@id='product_addtocart_form']//div[@class='no-display']//input[@name='product']/@value    
   - name: variantCount
     singleValue: false
-    defaultValue: '0'
+    defaultValue: "0"
   - name: name
     singleValue: false
     xpath: //div[@class='product-name']//span[@class='h1']
-  - name: specifications
+  #- name: specifications
+  #  singleValue: false
+  #  xpath: //table[@id='product-attribute-specs-table']//tbody//tr
+  - name: manufacturer
     singleValue: false
-    xpath: //table[@id='product-attribute-specs-table']//tbody//tr
+    xpath: //script[contains(text(),'window.dataLayer.push({')]/text()
+  - name: promotion
+    singleValue: false
+    xpath: //div[@class='price-info']//div[@class='labelWrapper']/img[@class='label-a-default']/@src
+  - name: imageZoomFeaturePresent
+    singleValue: false
+    defaultValue: "Yes"
