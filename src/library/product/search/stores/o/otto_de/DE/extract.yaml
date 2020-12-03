@@ -16,9 +16,7 @@ fields:
     regExpReplace: https://www.otto.de$1
   - name: price
     singleValue: single
-    xpath: //span[@class='value']/text()
-    #regExp: (.+),(.+)
-    #regExpReplace: $1.$2
+    xpath: //html//div[@id='price']
   - name: manufacturer
     singleValue: false
     xpath: //p[@class='brand']
