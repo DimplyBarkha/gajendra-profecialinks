@@ -1,8 +1,7 @@
 
 module.exports = {
-  implements: 'navigation/paginate',
+  implements: 'product/search/paginate',
   parameterValues: {
-    template: null,
     country: 'CA',
     store: 'londondrugs',
     nextLinkSelector: null,
