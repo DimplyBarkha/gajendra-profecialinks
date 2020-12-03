@@ -24,21 +24,20 @@ const transform = (data) => {
     };
       for (const { group } of data) {
         for (let row of group) {
-          
-          if (row.availabilityText) {            
-            row.availabilityText.forEach(item => {
-              if (item.text == 'Out of Stock'){
-                delete row.quantity;
-              }
+          if(row.additionalDescBulletInfo){
+            let arr_info = [];
+            row.additionalDescBulletInfo.forEach(item=>{
+              arr_info.push(item.text);
             });            
-          }
+            row.additionalDescBulletInfo = [{'text':'| '+arr_info.join(' | ')}];
+          }          
           if (row.descriptionBullets) {
             row.descriptionBullets = [{'text':row.descriptionBullets.length,'xpath':row.descriptionBullets[0].xpath}];
           }
           if (row.description) {
             let info = [];          
             row.description.forEach(item => {
-              info.push(item.text.replace(/(\s*\n\s*)+/g, ' | ').trim());            
+              info.push(item.text.replace(/(\s*\n\s*)+/g, ' || ').trim());            
             });
             row.description = [{'text':info.join(' | '),'xpath':row.description[0].xpath}];          
           }
