@@ -175,7 +175,7 @@ module.exports = {
       }
 
       for (const item of videos) {
-        const divEl =  document.createElement('div');
+        const divEl =  document.createElement('import-video');
         divEl.setAttribute('src', item);
         document.body.appendChild(divEl);
       }

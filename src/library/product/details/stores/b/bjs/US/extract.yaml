@@ -156,10 +156,6 @@ fields:
     singleValue: false
     description: Images within the third party description
     xpath: //body/@import-enhanced-content
-  - name: videos
-    singleValue: false
-    description: URLs of videos on page
-    xpath: //import-video/@src
   - name: name
     singleValue: true
     description: The product name
@@ -525,3 +521,7 @@ fields:
     xpath: //script[@data-flix-mpn]/@data-flix-mpn
   - name: productUrl
     xpath: //link[@rel='canonical']/@href
+  - name: videos
+    singleValue: false
+    description: URLs of videos on page
+    xpath: //import-video/@src
