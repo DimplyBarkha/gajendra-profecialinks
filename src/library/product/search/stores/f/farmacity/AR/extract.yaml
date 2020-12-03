@@ -23,7 +23,7 @@ fields:
     xpath: //div[@class="product-card active"]/@data-sku-reference
   - name: price
     singleValue: false
-    xpath: //a[@class="product-card-information"]//div[@class="product-card-price"]//span[@class="best-price"]
+    xpath: //a[@class="product-card-information"]//div[@class="product-card-price"]/span[@class="old-price" or @class="best-price"][text()][1]
   - name: rank
     singleValue: false
     defaultValue: 1
