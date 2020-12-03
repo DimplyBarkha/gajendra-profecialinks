@@ -99,3 +99,6 @@ fields:
   - name: energyEfficiency
     singleValue: false
     xpath: //div[@class='productdetail-rightpart']//div[contains(@class,'js-energylabel-show-etikette')]
+  - name: manufacturer
+    singleValue: false
+    xpath: //h1[contains(@itemprop,'name')]/span
