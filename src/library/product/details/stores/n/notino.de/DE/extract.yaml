@@ -22,7 +22,7 @@ fields:
   - name: category
     singleValue: false
     description: The categories (e.g. from breadcrumbs)
-    xpath: (//div[@class="styled__BreadcrumbInsideWrapper-sc-1pbk7u7-1 cwPbkK"]/a[position()>=2])
+    xpath: //span[@class="styled__Description-sc-3sotvb-4 jmRfQZ"]
   - name: nameExtended
     singleValue: true
     description: The product name, prefixing "${brand} - " if not included in "name"
@@ -31,13 +31,13 @@ fields:
   - name: listPrice
     singleValue: true
     description: The stated undiscounted price for the product
-    xpath: (//span[@class="styled__PriceWrapper-wpdhab-5 lgUoac"])
+    xpath: (//div[@id="pd-price"])
     type: CURRENCY
   - name: price
     singleValue: true
     description: The offered price for the selected product variant - if a user
       clicks add to basket this is the price they would be charged
-    xpath: (//div[@id="pd-price"])
+    xpath: (//span[@class="styled__PriceWrapper-wpdhab-5 lgUoac"])
     type: CURRENCY
   - name: availabilityText
     singleValue: true
