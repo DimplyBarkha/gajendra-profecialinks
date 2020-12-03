@@ -1,10 +1,10 @@
-
+const { transform } = require('../../../../shared');
 module.exports = {
   implements: 'product/search/extract',
   parameterValues: {
     country: 'US',
     store: 'safeway_95125',
-    transform: null,
+    transform,
     domain: 'safeway.com',
     zipcode: '95125',
   },
