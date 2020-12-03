@@ -69,6 +69,19 @@ module.exports = {
         }
         addElementToDocument('aggregate_rating', rating);
       }
+      const productDetails = document.querySelectorAll('dd[class*="product-details__content-value"]');
+      if (productDetails.length) {
+        let dimensions = '';
+        for (let i = 0; i < productDetails.length; i++) {
+          if (productDetails[i].innerText.includes('cm')) {
+            dimensions += productDetails[i].innerText + ' ';
+          }
+        }
+        if (dimensions) {
+          dimensions = dimensions.trim().replace(/\scm\s/g, ' cm x ');
+          addElementToDocument('product_dimensions', dimensions);
+        }
+      }
     });
     return await context.extract(productDetails, { transform });
   },

@@ -100,7 +100,7 @@ fields:
     regExp: ([^\/]+)\/[^\/]+$
     regExpReplace: $1
   - name: mpc
-    singleValue: tru
+    singleValue: true
     description: The manufacturer model code (unique) of the product
   - name: packSize
     singleValue: true
@@ -123,10 +123,10 @@ fields:
   - name: aggregateRatingText
     singleValue: true
     description: The stated aggregate rating
-    xpath: //div[@id='aggregate_rating']
   - name: aggregateRating
     singleValue: true
     description: The stated aggregate rating normalized to be out of 5
+    xpath: //div[@id='aggregate_rating']
   - name: shippingInfo
     singleValue: true
     description: Shipping information for the product
@@ -136,30 +136,38 @@ fields:
   - name: shippingWeight
     singleValue: true
     description: Stated shipping weight
+    xpath: //dt[contains(@class,'product-details__content-title') and contains(.,'Peso del producto con caja')]/following-sibling::dd[1]
   - name: variantCount
     singleValue: true
     description: Number of variants listed
+    defaultValue: '0'
   - name: color
     singleValue: true
     description: A textual description of the colour
+    xpath: //dt[contains(@class,'product-details__content-title') and contains(.,'Color')]/following-sibling::dd[1]
   - name: colorCode
     singleValue: true
     description: A code description of the color (e.g. RGB hex)
   - name: manufacturerDescription
     singleValue: false
     description: The extended description of the product supplied by the lister
+    xpath: //div[@class='flix-content']//div[@style]
   - name: manufacturerImages
     singleValue: false
     description: Images within the third party description
+    xpath: //div[@class='flix-content']//img/@srcset
   - name: videos
     singleValue: false
     description: URLs of videos on page
+    xpath: //div[contains(@class,'fullJwPlayerWarp') and contains(@class,'fullPlaylist')]/input/@value
   - name: name
     singleValue: true
     description: The product name
+    xpath: //h1[contains(@class,"product-header__name")]
   - name: inStorePrice
     singleValue: true
     description: Price in the selected store
+    xpath: //span[@class="buybox__price"] | //span[contains(@class, "buybox__price--current") and not (//span[@class="buybox__price"])]
   - name: asin
     singleValue: true
     description:
@@ -260,6 +268,7 @@ fields:
     singleValue: true
     description: List of Ingredients from site - can be string of data if no discernible
       start/end point
+    xpath: //p[contains(text(),"Ingredientes")]/following-sibling::p[contains(@class,"ingredients__content")]
   - name: servingSize
     singleValue: true
     description: The size of serving Nutritional information is based on.
@@ -273,6 +282,7 @@ fields:
     singleValue: true
     description: Nutritional Information for Calories Per Serving content - Usually
       based on per 100g serving
+    xpath: //div[@class="nutrition-graph__text-graph"]/p[not(contains(@class,"nutrition-graph__energy-value"))]
   - name: caloriesFromFatPerServing
     singleValue: true
     description: Nutritional Information for Calories From Fat content - Usually based
@@ -281,16 +291,24 @@ fields:
     singleValue: true
     description: Nutritional Information for Total Fat content - Usually based on per
       100g serving
+    xpath: //span[@class="nutrition-legend__fats"]/following-sibling::span
+    regExp: ^[^\s]+
   - name: totalFatPerServingUom
     singleValue: true
     description: Unit of Measure Data for Total Fat content
+    xpath: //span[@class="nutrition-legend__fats"]/following-sibling::span
+    regExp: '[^\s]$'
   - name: saturatedFatPerServing
     singleValue: true
     description: Nutritional Information for Saturated Fat content - Usually based on
       per 100g serving
+    xpath: //span[@class="nutrition-legend__fats"]/parent::p/following-sibling::div/p/span
+    regExp: ^[^\s]+
   - name: saturatedFatPerServingUom
     singleValue: true
     description: Unit of Measure Data for Saturated Fat content
+    xpath: //span[@class="nutrition-legend__fats"]/parent::p/following-sibling::div/p/span
+    regExp: '[^\s]$'
   - name: transFatPerServing
     singleValue: true
     description: Nutritional Information for Trans Fat content - Usually based on per
@@ -309,20 +327,33 @@ fields:
     singleValue: true
     description: Nutritional Information for Sodium content - Usually based on per 100g
       serving
+    xpath: //p[contains(text(),"Ingredientes")]/following-sibling::p
+    regExp: sodio\s\((\d+)(.+)
+    regExpReplace: $1
   - name: sodiumPerServingUom
     singleValue: true
     description: Unit of Measure Data for Sodium content
+    xpath: //p[contains(text(),"Ingredientes")]/following-sibling::p
+    regExp: calcio\s\([^\s]+\s([^\)]+)
+    regExpReplace: $1
   - name: totalCarbPerServing
     singleValue: true
     description: Nutritional Information for Total Carbohydrate content - Usually based
       on per 100g serving
+    xpath: //span[@class="nutrition-legend__hydrates"]/following-sibling::span
+    regExp: ^[^\s]+
   - name: totalCarbPerServingUom
     singleValue: true
     description: Unit of Measure Data for Total Carbohydrate content
+    xpath: //span[@class="nutrition-legend__hydrates"]/following-sibling::span
+    regExp: '[^\s]$'
   - name: dietaryFibrePerServing
     singleValue: true
     description: Nutritional Information for Dietary Fibre content - Usually based on
       per 100g serving
+    xpath: //p[contains(.,'Fibras')]
+    regExp: Fibras brutas:\s(\d+(?:,\d+)|\d)
+    regExpReplace: $1
   - name: dietaryFibrePerServingUom
     singleValue: true
     description: Unit of Measure Data for Dietary Fibre content
@@ -330,16 +361,24 @@ fields:
     singleValue: true
     description: Nutritional Information for Total Sugar content - Usually based on
       per 100g serving
+    xpath: //span[@class="nutrition-legend__hydrates"]/parent::p/following-sibling::div/p/span
+    regExp: ^[^\s]+
   - name: totalSugarsPerServingUom
     singleValue: true
     description: Unit of Measure Data for Total Sugar content
+    xpath: //span[@class="nutrition-legend__hydrates"]/parent::p/following-sibling::div/p/span
+    regExp: '[^\s]$'
   - name: proteinPerServing
     singleValue: true
     description: Nutritional Information for Protein content - Usually based on per
       100g serving
+    xpath: //span[@class="nutrition-legend__proteins"]/following-sibling::span
+    regExp: ^[^\s]+
   - name: proteinPerServingUom
     singleValue: true
     description: Unit of Measure Data for Protein
+    xpath: //span[@class="nutrition-legend__proteins"]/following-sibling::span
+    regExp: '[^\s]$'
   - name: vitaminAPerServing
     singleValue: true
     description: Nutritional Information for Vitamin A content - Usually based on per
@@ -358,9 +397,15 @@ fields:
     singleValue: true
     description: Nutritional Information for Calcium content - Usually based on per
       100g serving
+    xpath: //p[contains(text(),"Ingredientes")]/following-sibling::p
+    regExp: calcio\s\((\d+)(.+)
+    regExpReplace: $1
   - name: calciumPerServingUom
     singleValue: true
     description: Unit of Measure Data for Calcium
+    xpath: //p[contains(text(),"Ingredientes")]/following-sibling::p
+    regExp: calcio\s\([^\s]+\s([^\)]+)
+    regExpReplace: $1
   - name: ironPerServing
     singleValue: true
     description: Nutritional Information for Iron content - Usually based on per 100g
@@ -375,22 +420,33 @@ fields:
     singleValue: true
     description: Nutritional Information for Magnesium content - Usually based on per
       100g serving
+    xpath: //p[contains(text(),"Ingredientes")]/following-sibling::p
+    regExp: magnesio\s\((\d+)(.+)
+    regExpReplace: $1
   - name: magnesiumPerServingUom
     singleValue: true
     description: Unit of Measure Data for Magnesium
+    xpath: //p[contains(text(),"Ingredientes")]/following-sibling::p
+    regExp: magnesio\s\([^\s]+\s([^\)]+)
+    regExpReplace: $1
   - name: saltPerServing
     singleValue: true
     description: Nutritional Information for Salt content - Usually based on per 100g
       serving
+    xpath: //span[@class="nutrition-legend__salt"]/following-sibling::span
+    regExp: ^[^\s]+
   - name: saltPerServingUom
     singleValue: true
     description: Unit of Measure Data for Salt
+    xpath: //span[@class="nutrition-legend__salt"]/following-sibling::span
+    regExp: '[^\s]$'
   - name: dietaryInformation
     singleValue: true
     description:
   - name: specifications
     singleValue: true
     description: The physical dimensions of the product including packaging.
+    xpath: //div[@id='product_dimensions']
   - name: warranty
     singleValue: true
     description: Guarantee associated with the product
@@ -464,6 +520,7 @@ fields:
     singleValue: true
     description: Recommended age displayed on the product page. https://www.amazon.com/LEGO-Classic-Medium-Creative-Brick/dp/B00NHQFA1I
     example: 4 - 99 years
+    xpath: //dt[contains(@class,'product-details__content-title') and contains(.,'Edad recomendada')]/following-sibling::dd[1]
   - name: energyEfficiency
     singleValue: true
     description: Energy rating of a product. https://www.amazon.de/Siemens-WM16W541-Waschmaschine-Schnellwaschprogramm-Nachlegefunktion/dp/B015FJFK14
