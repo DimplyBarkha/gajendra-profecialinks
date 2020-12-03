@@ -19,8 +19,8 @@ fields:
     singleValue: false
     xpath: //meta[@property="product:category"]/@content
   - name: nameExtended
-    singleValue: false
-    xpath: //div[contains(@class,"page-title-wrapper product")]//h1[contains(@class,"page-title")]
+    singleValue: false 
+    xpath: concat(//div[contains(@class,"page-title-wrapper product")]//h1[contains(@class,"page-title")],' ',//div[@class="product-attribute-option"])
   - name: price
     singleValue: false
     xpath: //span[@data-price-type="finalPrice"]//span[@class="price"]
@@ -32,10 +32,12 @@ fields:
     xpath: //meta[@property="product:brand"]/@content
   - name: manufacturer
     singleValue: false  
-    xpath: //meta[@property="product:brand"]/@content
   - name: description
     singleValue: false
-    xpath: //meta[@itemprop="description"]/@content
+    xpath: //meta[@name="description"]/@content
+  - name: metaKeywords
+    singleValue: false
+    xpath: //meta[@name="keywords"]/@content
   - name: specifications
     singleValue: false
     xpath: //div[contains(@class,"additional-attributes-wrapper table-wrapper")]//table//tr
