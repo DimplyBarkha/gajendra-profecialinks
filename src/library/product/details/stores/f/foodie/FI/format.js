@@ -47,7 +47,7 @@ const transform = (data) => {
       }
       if (row.pricePerUnit) {
         row.pricePerUnit.forEach(item => {
-          item.text = item.text.replace(',', '.');
+          // item.text = item.text.replace(',', '.');
           item.text = item.text.replace(/€\/.+/, '');
         });
       }
@@ -68,7 +68,7 @@ const transform = (data) => {
       }
       if (row.price) {
         row.price.forEach(item => {
-          item.text = item.text.replace(' ', '.');
+          item.text = item.text.replace(' ', ',');
         });
       }
     }
