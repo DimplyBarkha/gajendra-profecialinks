@@ -10,6 +10,7 @@ module.exports = {
   },
   implementation: async ({ inputString }, { country, domain, transform: transformParam }, context, { productDetails }) => {
     await context.waitForSelector('.pr-snippet-stars-reco-inline .pr-snippet-rating-decimal');
+    await context.waitForSelector('.productimageblock #magic-zoom-id');
     await context.evaluate(async function () {
       function addElementToDocument(key, value) {
         const catElement = document.createElement('div');
