@@ -7,7 +7,7 @@ fields:
     xpath: //tr[contains(.,'Potencia')]//b
   - name: promotion
     singleValue: false
-    xpath: //span[contains(@class,"f-productOffer-optionType")] | //span[contains(@class,"f-productOffer-commercial")]
+    xpath: //span[@class="f-alertOfferLabel"][not(ancestor::span[contains(@class,"f-alertOffer--standard")])]
   - name: _input
     xpath: //link[@rel="canonical"]/@href
   - name: clearProductName
