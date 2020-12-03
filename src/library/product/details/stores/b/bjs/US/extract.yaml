@@ -81,7 +81,9 @@ fields:
     description: GTIN code (includes UPC/EAN)
   - name: sku
     singleValue: true
-    xpath: //div[@id="retailer_product_code_added"]
+    xpath: //meta[@property='og:url']/@content
+    regExp: \/(\d+)
+    regExpReplace: $1
     description: The store-specific product identifier
   - name: variantId
     singleValue: true
@@ -157,6 +159,7 @@ fields:
   - name: videos
     singleValue: false
     description: URLs of videos on page
+    xpath: //import-video/@src
   - name: name
     singleValue: true
     description: The product name
@@ -511,11 +514,11 @@ fields:
   - name: upc
     xpath: //div[@class='desktop-only']//th[text()='upc']/../*[last()]
   - name: shownImages
-    xpath: //div[@id='magic-scroll-id']/div[@class='mcs-wrapper']//div[@class='mcs-item']//a[not(contains(@href, 'javascript'))]//img/@src
+    xpath: //div[@class='productimageblock'][count(*)=1]//a[@id='magic-zoom-id']/@href | //div[@class='productimageblock'][count(*)>1]//div[@id='magic-scroll-id']/div[@class='mcs-wrapper']//div[@class='mcs-item']//a[not(contains(@href, 'javascript'))]//img/@src
     regExp: (.*)\?
     regExpReplace: $1
   - name: highQualityImages
-    xpath: //div[@id='magic-scroll-id']/div[@class='mcs-wrapper']//div[@class='mcs-item']//a[not(contains(@href, 'javascript'))]//img/@src
+    xpath: //div[@class='productimageblock'][count(*)=1]//a[@id='magic-zoom-id']/@href | //div[@class='productimageblock'][count(*)>1]//div[@id='magic-scroll-id']/div[@class='mcs-wrapper']//div[@class='mcs-item']//a[not(contains(@href, 'javascript'))]//img/@src
     regExp: (.*)\?
     regExpReplace: $1
   - name: mpn

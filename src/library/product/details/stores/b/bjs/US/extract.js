@@ -162,6 +162,22 @@ module.exports = {
       document.body.setAttribute('import-rating', rating);
       document.body.setAttribute('import-reviews', reviews);
       document.body.setAttribute('import-enhanced-content', 'false');
+
+      const videoItems = document.querySelectorAll('.thumbnailvideoimage');
+      const videos = [];
+
+      for (const video of videoItems) {
+        video.click();
+        await new Promise(resolve => setTimeout(resolve, 3000));
+        const videoEl = document.querySelector('video');
+        videos.push(videoEl.src);
+      }
+
+      for (const item of videos) {
+        const divEl =  document.createElement('div');
+        divEl.setAttribute('src', item);
+        document.body.appendChild(divEl);
+      }
     });
     await context.extract(productDetails, { transform: transformParam });
   },
