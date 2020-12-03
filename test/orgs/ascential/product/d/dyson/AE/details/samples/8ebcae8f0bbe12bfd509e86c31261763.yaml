@@ -1,0 +1,225 @@
+input:
+  _url: http://dyson.ae
+  URL: https://www.dyson.ae/en-AE/dyson-v11-absolute-pro-gold
+extractions:
+  - html: https://workbench.import.io/html/run=77da335e-a681-40ae-af58-a4b8df59fc1e/task=cd34be8f-5170-488e-bcdf-63234b464f30/e3f47a1c-4c29-4dab-8403-adda69c9c64e.html
+    extractionConfigId: product/details/stores/d/dyson/AE/extract
+    data:
+      - group:
+          - productUrl:
+              - text: https://www.dyson.ae/en-AE/dyson-v11-absolute-pro-gold
+                xpath: /html/body/div[7]
+            image:
+              - text: https://dyson-h.assetsadobe2.com/is/image/content/dam/dyson/leap-petite-global/dynamic-media/vacuums/sticks/248n/primary-image/magento-248n-primary.png?$responsive$&fmt=png-alpha&cropPathE=desktop&fit=stretch,1&wid=960
+                xpath: /html/body/div[4]/main[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/img[1]/@src
+            imageAlt:
+              - text: https://dyson-h.assetsadobe2.com/is/image/content/dam/dyson/leap-petite-global/dynamic-media/vacuums/sticks/248n/primary-image/magento-248n-primary.png?$responsive$&fmt=png-alpha&cropPathE=desktop&fit=stretch,1&wid=960
+                xpath: /html/body/div[4]/main[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/img[1]/@src
+            alternateImages:
+              - text: https://dyson-h.assetsadobe2.com/is/image/content/dam/dyson/leap-petite-global/products/floorcare/sticks/248f/variants/lb-absolute-nickel-blue/perfect-product-page/gallery/V11-complete-gallery-image-1.jpg?&cropPathE=desktop&fit=stretch,1&fmt=pjpeg&wid=1920
+                xpath: /html/body/div[5]/aside[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/picture[1]/img[1]/@src
+            metaKeywords:
+              - text: V11 Absolute Pro (Gold)
+                xpath: /html/head[1]/meta[3]/@content
+            nameExtended:
+              - text: Dyson V11™ Absolute Pro Cordless Vacuum Gold
+                xpath: /html/body/div[4]/main[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/img[1]/@alt
+            listPrice:
+              - text: AED2,999.00
+                xpath: /html/body/div[4]/main[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/strong[1]/span[1]/span[1]/span[1]
+            price:
+              - text: AED2,999.00
+                xpath: /html/body/div[4]/main[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/strong[1]/span[1]/span[1]/span[1]
+            availabilityText:
+              - text: In Stock
+                xpath: /html/body/div[12]
+            description:
+              - text: >-
+                  Latest technology with additional battery for even
+                  longer-lasting power. 
+                   
+
+                   
+
+                   
+                  Captures 99.97% of particles as small as 0.3 microns,* to help create a cleaner, healthier home.
+                xpath: /html/body/div[4]/main[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[2]
+            weightNet:
+              - text: 2.97kg
+                xpath: /html/body/div[4]/main[1]/div[2]/div[1]/div[14]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/ul[1]/li[2]/div[1]/span[1]/em[1]/span[1]
+            sku:
+              - text: 327939-01
+                xpath: /html/body/div[4]/main[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[2]/meta[2]/@content
+            variantId:
+              - text: 327939-01
+                xpath: /html/body/div[4]/main[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[2]/meta[2]/@content
+            mpc:
+              - text: 327939-01
+                xpath: /html/body/div[4]/main[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[2]/meta[2]/@content
+            ratingCount:
+              - text: "81"
+                xpath: /html/body/div[4]/main[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[2]/a[1]/span[1]
+            aggregateRating:
+              - text: "4.8"
+                xpath: /html/body/div[4]/main[1]/div[2]/div[1]/div[6]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/span[1]
+            shippingInfo:
+              - text: Free 2 day shipping
+                xpath: /html/body/div[4]/main[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[2]
+            manufacturerDescription:
+              - text: Integrated power management system
+                xpath: /html/body/div[4]/main[1]/div[2]/div[1]/div[12]/div[1]/div[1]/div[1]/ul[1]/li[1]/div[1]/h2[1]/text()[1]
+              - text: Dyson's battery technology and battery-saving trigger help to provide our
+                  longest run time by only using power when you need it.
+                xpath: /html/body/div[4]/main[1]/div[2]/div[1]/div[12]/div[1]/div[1]/div[1]/ul[1]/li[1]/div[1]/p[1]/text()[1]
+              - text: Powerful cleaning on floors and carpets
+                xpath: /html/body/div[4]/main[1]/div[2]/div[1]/div[12]/div[1]/div[1]/div[1]/ul[1]/li[2]/div[1]/h2[1]/text()[1]
+              - text: An integrated digital motor spins the brush bar up to 60 times a second.
+                  It drives stiff nylon bristles deep into carpet to remove
+                  dirt, and carbon fibre filaments capture fine dust on hard
+                  floors.
+                xpath: /html/body/div[4]/main[1]/div[2]/div[1]/div[12]/div[1]/div[1]/div[1]/ul[1]/li[2]/div[1]/p[1]/text()[1]
+              - text: Intelligently reports in real time
+                xpath: /html/body/div[4]/main[1]/div[2]/div[1]/div[12]/div[1]/div[1]/div[1]/ul[1]/li[3]/div[1]/h2[1]/text()[1]
+              - text: Monitors system performance 8,000 times a second, then reports in real
+                  time on the LCD screen.
+                xpath: /html/body/div[4]/main[1]/div[2]/div[1]/div[12]/div[1]/div[1]/div[1]/ul[1]/li[3]/div[1]/p[1]/text()[1]
+              - text: The right cleaning mode for the right task
+                xpath: /html/body/div[4]/main[1]/div[2]/div[1]/div[12]/div[1]/div[1]/div[1]/ul[1]/li[4]/div[1]/h2[1]/text()[1]
+              - text: Three cleaning modes optimised for a variety of tasks. The right balance
+                  of power and run time, where you need it.
+                xpath: /html/body/div[4]/main[1]/div[2]/div[1]/div[12]/div[1]/div[1]/div[1]/ul[1]/li[4]/div[1]/p[1]/text()[1]
+              - text: "'Point and shoot' hygienic bin emptying"
+                xpath: /html/body/div[4]/main[1]/div[2]/div[1]/div[12]/div[1]/div[1]/div[1]/ul[1]/li[5]/div[1]/h2[1]/text()[1]
+              - text: The 'point and shoot' mechanism hygienically ejects dust and debris deep
+                  into your bin, in one action – so there's no need to touch the
+                  dirt.
+                xpath: /html/body/div[4]/main[1]/div[2]/div[1]/div[12]/div[1]/div[1]/div[1]/ul[1]/li[5]/div[1]/p[1]/text()[1]
+              - text: Drop-in docking
+                xpath: /html/body/div[4]/main[1]/div[2]/div[1]/div[12]/div[1]/div[1]/div[1]/ul[1]/li[6]/div[1]/h2[1]/text()[1]
+              - text: The Dyson V11™ vacuum drops into the wall-mounted dock, to charge it and
+                  tidily store tools. So it's ready to grab and go.
+                xpath: /html/body/div[4]/main[1]/div[2]/div[1]/div[12]/div[1]/div[1]/div[1]/ul[1]/li[6]/div[1]/p[1]/text()[1]
+              - text: Click-in battery pack
+                xpath: /html/body/div[4]/main[1]/div[2]/div[1]/div[12]/div[1]/div[1]/div[1]/ul[1]/li[7]/div[1]/h2[1]/text()[1]
+              - text: Remove and replace at the press of a button for even longer cleans.²
+                  Click-in batteries can be charged on or off the machine.
+                xpath: /html/body/div[4]/main[1]/div[2]/div[1]/div[12]/div[1]/div[1]/div[1]/ul[1]/li[7]/div[1]/p[2]/text()[1]
+              - text: Powered by a Dyson Hyperdymium™ motor
+                xpath: /html/body/div[4]/main[1]/div[2]/div[1]/div[12]/div[1]/div[1]/div[1]/ul[1]/li[8]/div[1]/h2[1]/text()[1]
+              - text: Spins at up to 125,000rpm, creating the most powerful suction of any
+                  cordless vacuum.
+                xpath: /html/body/div[4]/main[1]/div[2]/div[1]/div[12]/div[1]/div[1]/div[1]/ul[1]/li[8]/div[1]/p[2]/text()[1]
+              - text: Radial Root Cyclone™ technology
+                xpath: /html/body/div[4]/main[1]/div[2]/div[1]/div[12]/div[1]/div[1]/div[1]/ul[1]/li[9]/div[1]/h2[1]/text()[1]
+              - text: 14 cyclones generate forces of 79,000g to fling dust into the bin without
+                  clogging the filter, so there’s no loss of suction.
+                xpath: /html/body/div[4]/main[1]/div[2]/div[1]/div[12]/div[1]/div[1]/div[1]/ul[1]/li[9]/div[1]/p[2]/text()[1]
+              - text: Fade-free power
+                xpath: /html/body/div[4]/main[1]/div[2]/div[1]/div[12]/div[1]/div[1]/div[1]/ul[1]/li[10]/div[1]/h2[1]/text()[1]
+              - text: The seven-cell nickel-cobalt-aluminum battery has the fade-free power to
+                  clean here, there and everywhere around your home.
+                xpath: /html/body/div[4]/main[1]/div[2]/div[1]/div[12]/div[1]/div[1]/div[1]/ul[1]/li[10]/div[1]/p[1]/text()[1]
+              - text: Whole-machine filtration
+                xpath: /html/body/div[4]/main[1]/div[2]/div[1]/div[12]/div[1]/div[1]/div[1]/ul[1]/li[11]/div[1]/h2[1]/text()[1]
+              - text: The fully-sealed filtration system traps 99.97% of particles as small as
+                  0.3 microns – expelling cleaner air.
+                xpath: /html/body/div[4]/main[1]/div[2]/div[1]/div[12]/div[1]/div[1]/div[1]/ul[1]/li[11]/div[1]/p[1]/text()[1]
+              - text: Acoustically engineered
+                xpath: /html/body/div[4]/main[1]/div[2]/div[1]/div[12]/div[1]/div[1]/div[1]/ul[1]/li[12]/div[1]/h2[1]/text()[1]
+              - text: Designed to absorb vibrations and dampen noise, to keep sound levels down.
+                xpath: /html/body/div[4]/main[1]/div[2]/div[1]/div[12]/div[1]/div[1]/div[1]/ul[1]/li[12]/div[1]/p[1]/text()[1]
+              - text: In-line configuration
+                xpath: /html/body/div[4]/main[1]/div[2]/div[1]/div[12]/div[1]/div[1]/div[1]/ul[1]/li[13]/div[1]/h2[1]/text()[1]
+              - text: The motor, bin and cyclone are aligned, so air is drawn into the cyclones
+                  in a straight line – helping to create powerful Dyson suction.
+                xpath: /html/body/div[4]/main[1]/div[2]/div[1]/div[12]/div[1]/div[1]/div[1]/ul[1]/li[13]/div[1]/p[1]/text()[1]
+              - text: Certified asthma and allergy friendly™.⁴
+                xpath: /html/body/div[4]/main[1]/div[2]/div[1]/div[12]/div[1]/div[1]/div[1]/ul[1]/li[14]/div[1]/h2[1]/text()[1]
+              - text: Meet or exceed standards for effectively removing allergen-containing dust
+                  from carpets and hard floors. Certified by Allergy Standards
+                  Limited.
+                xpath: /html/body/div[4]/main[1]/div[2]/div[1]/div[12]/div[1]/div[1]/div[1]/ul[1]/li[14]/div[1]/p[1]/text()[1]
+              - text: Helps create a healthier home
+                xpath: /html/body/div[4]/main[1]/div[2]/div[1]/div[12]/div[1]/div[1]/div[1]/ul[1]/li[15]/div[1]/h2[1]/text()[1]
+              - text: With advanced whole-machine filtration, the Dyson V11™ vacuum captures
+                  99.97% of particles as small as 0.3 microns – the size of
+                  common bacteria.*
+                xpath: /html/body/div[4]/main[1]/div[2]/div[1]/div[12]/div[1]/div[1]/div[1]/ul[1]/li[15]/div[1]/p[1]/text()[1]
+            manufacturerImages:
+              - text: https://dyson-h.assetsadobe2.com/is/image/content/dam/dyson/leap-petite-global/dynamic-media/vacuums/sticks/248f/primary/absolute-gold-gold-primary.png?$responsive$&fmt=png-alpha&cropPathE=desktop&fit=stretch,1&wid=960
+                xpath: /html/body/div[4]/main[1]/div[2]/div[1]/div[9]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/span[1]/div[1]/picture[1]/img[1]/@src
+              - text: https://dyson-h.assetsadobe2.com/is/image/content/dam/dyson/leap-petite-global/dynamic-media/vacuums/sticks/248f/square-tool/gold-torque-drive.png?$responsive$&cropPathE=square,1024&wid=112
+                xpath: /html/body/div[4]/main[1]/div[2]/div[1]/div[9]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/ul[1]/li[1]/div[1]/span[1]/img[1]/@src
+              - text: https://dyson-h.assetsadobe2.com/is/image/content/dam/dyson/leap-petite-global/dynamic-media/vacuums/sticks/248f/square-tool/Soft-Roller-Cleaner-head.png?$responsive$&cropPathE=square,1024&wid=112
+                xpath: /html/body/div[4]/main[1]/div[2]/div[1]/div[9]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/ul[1]/li[2]/div[1]/span[1]/img[1]/@src
+              - text: https://dyson-h.assetsadobe2.com/is/image/content/dam/dyson/leap-petite-global/dynamic-media/vacuums/sticks/248f/square-tool/Doking-station.png?$responsive$&cropPathE=square,1024&wid=112
+                xpath: /html/body/div[4]/main[1]/div[2]/div[1]/div[9]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/ul[1]/li[3]/div[1]/span[1]/img[1]/@src
+              - text: https://dyson-h.assetsadobe2.com/is/image/content/dam/dyson/leap-petite-global/dynamic-media/vacuums/sticks/248f/square-tool/Charger.png?$responsive$&cropPathE=square,1024&wid=112
+                xpath: /html/body/div[4]/main[1]/div[2]/div[1]/div[9]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/ul[1]/li[4]/div[1]/span[1]/img[1]/@src
+              - text: https://dyson-h.assetsadobe2.com/is/image/content/dam/dyson/leap-petite-global/dynamic-media/vacuums/sticks/248f/square-tool/Quick-release-crevice-tool.png?$responsive$&cropPathE=square,1024&wid=112
+                xpath: /html/body/div[4]/main[1]/div[2]/div[1]/div[9]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/ul[1]/li[5]/div[1]/span[1]/img[1]/@src
+              - text: https://dyson-h.assetsadobe2.com/is/image/content/dam/dyson/leap-petite-global/dynamic-media/vacuums/sticks/248f/square-tool/Quick-release-combination-tool.png?$responsive$&cropPathE=square,1024&wid=112
+                xpath: /html/body/div[4]/main[1]/div[2]/div[1]/div[9]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/ul[1]/li[6]/div[1]/span[1]/img[1]/@src
+              - text: https://dyson-h.assetsadobe2.com/is/image/content/dam/dyson/leap-petite-global/dynamic-media/vacuums/sticks/248f/square-tool/mini-motorised-tool.png?$responsive$&cropPathE=square,1024&wid=112
+                xpath: /html/body/div[4]/main[1]/div[2]/div[1]/div[9]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/ul[1]/li[7]/div[1]/span[1]/img[1]/@src
+              - text: https://dyson-h.assetsadobe2.com/is/image/content/dam/dyson/leap-petite-global/dynamic-media/vacuums/sticks/248f/square-tool/Quick-release-mini-soft-dusting-brush.png?$responsive$&cropPathE=square,1024&wid=112
+                xpath: /html/body/div[4]/main[1]/div[2]/div[1]/div[9]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/ul[1]/li[8]/div[1]/span[1]/img[1]/@src
+              - text: https://dyson-h.assetsadobe2.com/is/image/content/dam/dyson/leap-petite-global/dynamic-media/vacuums/sticks/248f/square-tool/Quick-release-stubborn-dirt-brush.png?$responsive$&cropPathE=square,1024&wid=112
+                xpath: /html/body/div[4]/main[1]/div[2]/div[1]/div[9]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/ul[1]/li[9]/div[1]/span[1]/img[1]/@src
+              - text: https://dyson-h.assetsadobe2.com/is/image/content/dam/dyson/leap-petite-global/dynamic-media/vacuums/sticks/248f/square-tool/Wand-Storage-clip.png?$responsive$&cropPathE=square,1024&wid=112
+                xpath: /html/body/div[4]/main[1]/div[2]/div[1]/div[9]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/ul[1]/li[10]/div[1]/span[1]/img[1]/@src
+              - text: https://dyson-h.assetsadobe2.com/is/image/content/dam/dyson/images/products/squaretool/970425-01.png?$responsive$&cropPathE=square,1024&wid=112
+                xpath: /html/body/div[4]/main[1]/div[2]/div[1]/div[9]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/ul[1]/li[11]/div[1]/span[1]/img[1]/@src
+              - text: https://dyson-h.assetsadobe2.com/is/image/content/dam/dyson/leap-petite-global/products/floorcare/sticks/248f/variants/featurette/PDP_features_battery.jpg?$responsive$&cropPathE=desktop&fit=stretch,1&wid=3840
+                xpath: /html/body/div[4]/main[1]/div[2]/div[1]/div[12]/div[1]/div[1]/div[1]/ul[1]/li[1]/div[1]/img[1]/@src
+              - text: https://dyson-h.assetsadobe2.com/is/image/content/dam/dyson/leap-petite-global/products/floorcare/sticks/248f/variants/featurette/PDP_auto-two.jpg?$responsive$&cropPathE=desktop&fit=stretch,1&wid=3840
+                xpath: /html/body/div[4]/main[1]/div[2]/div[1]/div[12]/div[1]/div[1]/div[1]/ul[1]/li[2]/div[1]/img[1]/@src
+              - text: https://dyson-h.assetsadobe2.com/is/image/content/dam/dyson/leap-petite-global/products/floorcare/sticks/248f/variants/featurette/PDP_LCD_tick.jpg?$responsive$&cropPathE=desktop&fit=stretch,1&wid=3840
+                xpath: /html/body/div[4]/main[1]/div[2]/div[1]/div[12]/div[1]/div[1]/div[1]/ul[1]/li[3]/div[1]/img[1]/@src
+              - text: https://dyson-h.assetsadobe2.com/is/image/content/dam/dyson/leap-petite-global/products/floorcare/sticks/248f/variants/featurette/PDP_auto_2_gold_LB.jpg?$responsive$&cropPathE=desktop&fit=stretch,1&wid=3840
+                xpath: /html/body/div[4]/main[1]/div[2]/div[1]/div[12]/div[1]/div[1]/div[1]/ul[1]/li[4]/div[1]/img[1]/@src
+              - text: https://dyson-h.assetsadobe2.com/is/image/content/dam/dyson/leap-petite-global/products/floorcare/sticks/248f/variants/featurette/PDP_bin_empty-gold-LB.jpg?$responsive$&cropPathE=desktop&fit=stretch,1&wid=3840
+                xpath: /html/body/div[4]/main[1]/div[2]/div[1]/div[12]/div[1]/div[1]/div[1]/ul[1]/li[5]/div[1]/img[1]/@src
+              - text: https://dyson-h.assetsadobe2.com/is/image/content/dam/dyson/leap-petite-global/products/floorcare/sticks/248f/variants/featurette/PDP_docking-gold-LB.jpg?$responsive$&cropPathE=desktop&fit=stretch,1&wid=3840
+                xpath: /html/body/div[4]/main[1]/div[2]/div[1]/div[12]/div[1]/div[1]/div[1]/ul[1]/li[6]/div[1]/img[1]/@src
+              - text: https://dyson-h.assetsadobe2.com/is/image/content/dam/dyson/leap-petite-global/products/floorcare/sticks/248l-j/variants/features/Feature-7.jpg?$responsive$&cropPathE=desktop&fit=stretch,1&wid=3840
+                xpath: /html/body/div[4]/main[1]/div[2]/div[1]/div[12]/div[1]/div[1]/div[1]/ul[1]/li[7]/div[1]/p[1]/img[1]/@src
+              - text: https://dyson-h.assetsadobe2.com/is/image/content/dam/dyson/leap-petite-global/products/floorcare/sticks/248l-j/variants/features/Tech-2.jpg?$responsive$&cropPathE=desktop&fit=stretch,1&wid=3840
+                xpath: /html/body/div[4]/main[1]/div[2]/div[1]/div[12]/div[1]/div[1]/div[1]/ul[1]/li[8]/div[1]/p[1]/img[1]/@src
+              - text: https://dyson-h.assetsadobe2.com/is/image/content/dam/dyson/leap-petite-global/products/floorcare/sticks/248l-j/variants/features/Tech-3.jpg?$responsive$&cropPathE=desktop&fit=stretch,1&wid=3840
+                xpath: /html/body/div[4]/main[1]/div[2]/div[1]/div[12]/div[1]/div[1]/div[1]/ul[1]/li[9]/div[1]/p[1]/img[1]/@src
+              - text: https://dyson-h.assetsadobe2.com/is/image/content/dam/dyson/leap-petite-global/products/floorcare/sticks/248f/variants/featurette/PDP_tech_battery.jpg?$responsive$&cropPathE=desktop&fit=stretch,1&wid=3840
+                xpath: /html/body/div[4]/main[1]/div[2]/div[1]/div[12]/div[1]/div[1]/div[1]/ul[1]/li[10]/div[1]/img[1]/@src
+              - text: https://dyson-h.assetsadobe2.com/is/image/content/dam/dyson/leap-petite-global/products/floorcare/sticks/248f/variants/featurette/PDP_tech_filtration.jpg?$responsive$&cropPathE=desktop&fit=stretch,1&wid=3840
+                xpath: /html/body/div[4]/main[1]/div[2]/div[1]/div[12]/div[1]/div[1]/div[1]/ul[1]/li[11]/div[1]/img[1]/@src
+              - text: https://dyson-h.assetsadobe2.com/is/image/content/dam/dyson/leap-petite-global/products/floorcare/sticks/248f/variants/featurette/PDP_acoustics.jpg?$responsive$&cropPathE=desktop&fit=stretch,1&wid=3840
+                xpath: /html/body/div[4]/main[1]/div[2]/div[1]/div[12]/div[1]/div[1]/div[1]/ul[1]/li[12]/div[1]/img[1]/@src
+              - text: https://dyson-h.assetsadobe2.com/is/image/content/dam/dyson/leap-petite-global/products/floorcare/sticks/248f/variants/featurette/PDP_tech_config.jpg?$responsive$&cropPathE=desktop&fit=stretch,1&wid=3840
+                xpath: /html/body/div[4]/main[1]/div[2]/div[1]/div[12]/div[1]/div[1]/div[1]/ul[1]/li[13]/div[1]/img[1]/@src
+              - text: https://dyson-h.assetsadobe2.com/is/image/content/dam/dyson/newzealand/floorcare/cord-free/sticks/v10/variant/v10-absolute/nz-only-row-floorcare-cordfree-v10-variant-certified-ashma-allergy-friendly.jpg?$responsive$&cropPathE=desktop&fit=stretch,1&wid=634
+                xpath: /html/body/div[4]/main[1]/div[2]/div[1]/div[12]/div[1]/div[1]/div[1]/ul[1]/li[14]/div[1]/img[1]/@src
+              - text: https://dyson-h.assetsadobe2.com/is/image/content/dam/dyson/leap-petite-global/products/floorcare/sticks/248f/variants/featurette/PDP_healthy_home.jpg?$responsive$&cropPathE=desktop&fit=stretch,1&wid=3840
+                xpath: /html/body/div[4]/main[1]/div[2]/div[1]/div[12]/div[1]/div[1]/div[1]/ul[1]/li[15]/div[1]/img[1]/@src
+              - text: https://dyson-h.assetsadobe2.com/is/image/content/dam/dyson/leap-petite-global/products/floorcare/sticks/248f/variants/lb-absolute-pro-gold-gold/PDP_spec_absolute_gold.jpg?$responsive$&fmt=png-alpha&cropPathE=desktop&fit=stretch,1&wid=960
+                xpath: /html/body/div[4]/main[1]/div[2]/div[1]/div[14]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/picture[1]/img[1]/@src
+            videos:
+              - text: https://f1.media.brightcove.com/4/2310970329001/2310970329001_6031845005001_6031842078001.mp4?pubId=2310970329001&videoId=6031842078001
+                xpath: /html/body/div[5]/aside[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/video[1]/source[1]/@src
+            name:
+              - text: Dyson V11™ Absolute Pro Cordless Vacuum Gold
+                xpath: /html/body/div[4]/main[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/img[1]/@alt
+            specifications:
+              - text: Height 261mm | Length 1286mm | Width 250mm
+                xpath: /html/body/div[14]
+            brandText:
+              - text: Dyson
+            manufacturer:
+              - text: Dyson
+            descriptionBullets:
+              - text: "0"
+            variantCount:
+              - text: "0"
+            privacyPolicy:
+              - text: "true"
+        xpath: /
+    timestamp: 1606993338249

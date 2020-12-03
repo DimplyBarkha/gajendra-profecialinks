@@ -1,0 +1,181 @@
+input:
+  _url: http://dyson.ae
+  URL: https://www.dyson.ae/en-AE/dyson-v8-absolute
+extractions:
+  - html: https://workbench.import.io/html/run=77da335e-a681-40ae-af58-a4b8df59fc1e/task=8c38d60a-2d3b-4eea-9f7c-09d3cd21f3e1/6cfee173-207c-478f-bb21-823ca75da844.html
+    extractionConfigId: product/details/stores/d/dyson/AE/extract
+    data:
+      - group:
+          - productUrl:
+              - text: https://www.dyson.ae/en-AE/dyson-v8-absolute
+                xpath: /html/body/div[8]
+            image:
+              - text: https://dyson-h.assetsadobe2.com/is/image//content/dam/dyson/products/cord-free-vacuums/sticks/dyson-v8-vacuums/variant/cord-free-sticks-dyson-v8-variant-absolute-hero.jpg?$responsive$&cropPathE=desktop&fit=stretch,1&wid=1920
+                xpath: /html/body/div[5]/main[1]/div[2]/div[1]/div[2]/div[2]/div[1]/picture[1]/img[1]/@src
+            imageAlt:
+              - text: alt
+                xpath: /html/body/div[5]/main[1]/div[2]/div[1]/div[2]/div[2]/div[1]/picture[1]/img[1]/@alt
+            alternateImages:
+              - text: https://dyson-h.assetsadobe2.com/is/image/content/dam/dyson/products/cord-free-vacuums/sticks/dyson-v8-vacuums/variant/cord-free-sticks-dyson-v8-variant-absolute-brush-bar.jpg?cropPathE=desktop&fit=stretch,1&fmt=pjpeg&wid=960
+                xpath: /html/body/div[5]/main[1]/div[2]/div[1]/div[5]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/picture[1]/img[1]/@src
+              - text: https://dyson-h.assetsadobe2.com/is/image/content/dam/dyson/products/cord-free-vacuums/sticks/dyson-v8-vacuums/variant/cord-free-sticks-dyson-v8-variant-absolute-anti-static.jpg?cropPathE=desktop&fit=stretch,1&fmt=pjpeg&wid=960
+                xpath: /html/body/div[5]/main[1]/div[2]/div[1]/div[5]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[2]/div[1]/picture[1]/img[1]/@src
+            metaKeywords:
+              - text: Dyson V8 Absolute
+                xpath: /html/head[1]/meta[3]/@content
+            nameExtended:
+              - text: Deep cleans carpets.
+                xpath: /html/body/div[5]/main[1]/div[2]/div[1]/div[5]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/h2[1]
+            listPrice:
+              - text: AED1,899.00
+                xpath: /html/body/div[5]/main[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/strong[1]/span[1]/span[1]/span[1]
+            price:
+              - text: AED1,899.00
+                xpath: /html/body/div[5]/main[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/strong[1]/span[1]/span[1]/span[1]
+            availabilityText:
+              - text: In Stock
+                xpath: /html/body/div[13]
+            weightNet:
+              - text: 2.61kg
+                xpath: /html/body/div[5]/main[1]/div[2]/div[1]/div[12]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/ul[1]/li[3]/div[1]/span[1]/em[1]/span[1]
+            sku:
+              - text: 227408-01
+                xpath: /html/body/div[5]/main[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/meta[2]/@content
+            variantId:
+              - text: 227408-01
+                xpath: /html/body/div[5]/main[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/meta[2]/@content
+            mpc:
+              - text: 227408-01
+                xpath: /html/body/div[5]/main[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/meta[2]/@content
+            shippingInfo:
+              - text: Free 2 day shipping Within the United Arab Emirates
+                xpath: /html/body/div[5]/main[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[2]
+            manufacturerDescription:
+              - text: Powered by the Dyson digital motor V8
+                xpath: /html/body/div[5]/main[1]/div[2]/div[1]/div[10]/div[1]/div[1]/div[1]/ul[1]/li[1]/div[1]/h2[1]/text()[1]
+              - text: Spins at up to 110,000rpm to create powerful suction.
+                xpath: /html/body/div[5]/main[1]/div[2]/div[1]/div[10]/div[1]/div[1]/div[1]/ul[1]/li[1]/div[1]/p[1]/text()[1]
+              - text: Up to 40 minutes of fade-free suction
+                xpath: /html/body/div[5]/main[1]/div[2]/div[1]/div[10]/div[1]/div[1]/div[1]/ul[1]/li[2]/div[1]/h2[1]/text()[1]
+              - text: Powerful suction for whole-home cleaning.
+                xpath: /html/body/div[5]/main[1]/div[2]/div[1]/div[10]/div[1]/div[1]/div[1]/ul[1]/li[2]/div[1]/p[1]/text()[1]
+              - text: No-touch bin emptying
+                xpath: /html/body/div[5]/main[1]/div[2]/div[1]/div[10]/div[1]/div[1]/div[1]/ul[1]/li[3]/div[1]/h2[1]/text()[1]
+              - text: No need to touch the dirt – just push the button to release it into your
+                  bin.
+                xpath: /html/body/div[5]/main[1]/div[2]/div[1]/div[10]/div[1]/div[1]/div[1]/ul[1]/li[3]/div[1]/p[1]/text()[1]
+              - text: Advanced filtration
+                xpath: /html/body/div[5]/main[1]/div[2]/div[1]/div[10]/div[1]/div[1]/div[1]/ul[1]/li[4]/div[1]/h2[1]/text()[1]
+              - text: Captures allergens and expels cleaner air than the air you breathe.
+                xpath: /html/body/div[5]/main[1]/div[2]/div[1]/div[10]/div[1]/div[1]/div[1]/ul[1]/li[4]/div[1]/p[1]/text()[1]
+              - text: Combination tool
+                xpath: /html/body/div[5]/main[1]/div[2]/div[1]/div[10]/div[1]/div[1]/div[1]/ul[1]/li[5]/div[1]/h2[1]/text()[1]
+              - text: Two tools in one, for simple switching between surfaces.
+                xpath: /html/body/div[5]/main[1]/div[2]/div[1]/div[10]/div[1]/div[1]/div[1]/ul[1]/li[5]/div[1]/p[1]/text()[1]
+              - text: Crevice tool
+                xpath: /html/body/div[5]/main[1]/div[2]/div[1]/div[10]/div[1]/div[1]/div[1]/ul[1]/li[6]/div[1]/h2[1]/text()[1]
+              - text: Designed for precise cleaning around edges and narrow gaps.
+                xpath: /html/body/div[5]/main[1]/div[2]/div[1]/div[10]/div[1]/div[1]/div[1]/ul[1]/li[6]/div[1]/p[1]/text()[1]
+              - text: Mini motorised tool
+                xpath: /html/body/div[5]/main[1]/div[2]/div[1]/div[10]/div[1]/div[1]/div[1]/ul[1]/li[7]/div[1]/h2[1]/text()[1]
+              - text: Motorised brush bar tackles hair and ground-in dirt, in tight spaces.
+                xpath: /html/body/div[5]/main[1]/div[2]/div[1]/div[10]/div[1]/div[1]/div[1]/ul[1]/li[7]/div[1]/p[1]/text()[1]
+              - text: Easily reaches up high
+                xpath: /html/body/div[5]/main[1]/div[2]/div[1]/div[10]/div[1]/div[1]/div[1]/ul[1]/li[8]/div[1]/h2[1]/text()[1]
+              - text: Lightweight and ergonomic to clean high-up places with one smooth motion.
+                xpath: /html/body/div[5]/main[1]/div[2]/div[1]/div[10]/div[1]/div[1]/div[1]/ul[1]/li[8]/div[1]/p[1]/text()[1]
+              - text: Quickly transforms to a handheld
+                xpath: /html/body/div[5]/main[1]/div[2]/div[1]/div[10]/div[1]/div[1]/div[1]/ul[1]/li[9]/div[1]/h2[1]/text()[1]
+              - text: Changes to a handheld vacuum and back again, in just one click.
+                xpath: /html/body/div[5]/main[1]/div[2]/div[1]/div[10]/div[1]/div[1]/div[1]/ul[1]/li[9]/div[1]/p[1]/text()[1]
+              - text: Two power modes
+                xpath: /html/body/div[5]/main[1]/div[2]/div[1]/div[10]/div[1]/div[1]/div[1]/ul[1]/li[10]/div[1]/h2[1]/text()[1]
+              - text: Switch between MAX mode for up to 7 minutes of high power, and Powerful
+                  mode for longer cleaning.
+                xpath: /html/body/div[5]/main[1]/div[2]/div[1]/div[10]/div[1]/div[1]/div[1]/ul[1]/li[10]/div[1]/p[1]/text()[1]
+              - text: 2 Tier Radial™ cyclones
+                xpath: /html/body/div[5]/main[1]/div[2]/div[1]/div[10]/div[1]/div[1]/div[1]/ul[1]/li[11]/div[1]/h2[1]/text()[1]
+              - text: 15 cyclones create strong centrifugal forces, to capture microscopic dirt.
+                xpath: /html/body/div[5]/main[1]/div[2]/div[1]/div[10]/div[1]/div[1]/div[1]/ul[1]/li[11]/div[1]/p[1]/text()[1]
+              - text: Docking station
+                xpath: /html/body/div[5]/main[1]/div[2]/div[1]/div[10]/div[1]/div[1]/div[1]/ul[1]/li[12]/div[1]/h2[1]/text()[1]
+              - text: Tidily stores and recharges your Dyson V8™ vacuum, so it’s always ready
+                  for use.
+                xpath: /html/body/div[5]/main[1]/div[2]/div[1]/div[10]/div[1]/div[1]/div[1]/ul[1]/li[12]/div[1]/p[1]/text()[1]
+              - text: Certified asthma and allergy friendly™.²
+                xpath: /html/body/div[5]/main[1]/div[2]/div[1]/div[10]/div[1]/div[1]/div[1]/ul[1]/li[13]/div[1]/h2[1]/text()[1]
+              - text: Meet or exceed standards for effectively removing allergen-containing dust
+                  from carpets and hard floors. Certified by Allergy Standards
+                  Limited.
+                xpath: /html/body/div[5]/main[1]/div[2]/div[1]/div[10]/div[1]/div[1]/div[1]/ul[1]/li[13]/div[1]/p[1]/text()[1]
+            manufacturerImages:
+              - text: https://dyson-h.assetsadobe2.com/is/image/content/dam/dyson/leap-petite-global/markets/uae-saudi/uae-en/products/floorcare/cord-free/v8/v8-absolute-primary.png?$responsive$&fmt=png-alpha&cropPathE=desktop&fit=stretch,1&wid=960
+                xpath: /html/body/div[5]/main[1]/div[2]/div[1]/div[7]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/span[1]/div[1]/picture[1]/img[1]/@src
+              - text: https://www.dyson.ae/media/wysiwyg/967813-01.jpeg
+                xpath: /html/body/div[5]/main[1]/div[2]/div[1]/div[7]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/ul[1]/li[1]/div[1]/span[1]/img[1]/@src
+              - text: https://www.dyson.ae/media/wysiwyg/967612-01.jpeg
+                xpath: /html/body/div[5]/main[1]/div[2]/div[1]/div[7]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/ul[1]/li[2]/div[1]/span[1]/img[1]/@src
+              - text: https://www.dyson.ae/media/wysiwyg/967741-01.jpeg
+                xpath: /html/body/div[5]/main[1]/div[2]/div[1]/div[7]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/ul[1]/li[3]/div[1]/span[1]/img[1]/@src
+              - text: https://www.dyson.ae/media/wysiwyg/967766-01.jpeg
+                xpath: /html/body/div[5]/main[1]/div[2]/div[1]/div[7]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/ul[1]/li[4]/div[1]/span[1]/img[1]/@src
+              - text: https://www.dyson.ae/media/wysiwyg/966489-04.jpeg
+                xpath: /html/body/div[5]/main[1]/div[2]/div[1]/div[7]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/ul[1]/li[5]/div[1]/span[1]/img[1]/@src
+              - text: https://www.dyson.ae/media/wysiwyg/967483-01.jpeg
+                xpath: /html/body/div[5]/main[1]/div[2]/div[1]/div[7]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/ul[1]/li[6]/div[1]/span[1]/img[1]/@src
+              - text: https://www.dyson.ae/media/wysiwyg/967482-01.jpeg
+                xpath: /html/body/div[5]/main[1]/div[2]/div[1]/div[7]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/ul[1]/li[7]/div[1]/span[1]/img[1]/@src
+              - text: https://www.dyson.ae/media/wysiwyg/967479-01.jpeg
+                xpath: /html/body/div[5]/main[1]/div[2]/div[1]/div[7]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/ul[1]/li[8]/div[1]/span[1]/img[1]/@src
+              - text: https://www.dyson.ae/media/wysiwyg/cord-free-sticks-dyson-v8-variant-absolute-digital-motor.jpg
+                xpath: /html/body/div[5]/main[1]/div[2]/div[1]/div[10]/div[1]/div[1]/div[1]/ul[1]/li[1]/div[1]/img[1]/@src
+              - text: https://dyson-h.assetsadobe2.com/is/image//content/dam/dyson/products/cord-free-vacuums/sticks/dyson-v8-vacuums/variant/cord-free-sticks-dyson-v8-variant-absolute-40-minutes.jpg?cropPathE=tablet&fit=stretch,1&fmt=pjpeg&wid=634
+                xpath: /html/body/div[5]/main[1]/div[2]/div[1]/div[10]/div[1]/div[1]/div[1]/ul[1]/li[2]/div[1]/img[1]/@src
+              - text: https://www.dyson.ae/media/wysiwyg/cord-free-vacuums-v8-stick-absolute-no-dirt.jpg
+                xpath: /html/body/div[5]/main[1]/div[2]/div[1]/div[10]/div[1]/div[1]/div[1]/ul[1]/li[3]/div[1]/img[1]/@src
+              - text: https://www.dyson.ae/media/wysiwyg/cord-free-sticks-dyson-v8-variant-absolute-advanced-filtration.jpg
+                xpath: /html/body/div[5]/main[1]/div[2]/div[1]/div[10]/div[1]/div[1]/div[1]/ul[1]/li[4]/div[1]/img[1]/@src
+              - text: https://www.dyson.ae/media/wysiwyg/cord-free-sticks-dyson-v8-variant-absolute-combo-tool.jpg
+                xpath: /html/body/div[5]/main[1]/div[2]/div[1]/div[10]/div[1]/div[1]/div[1]/ul[1]/li[5]/div[1]/img[1]/@src
+              - text: https://www.dyson.ae/media/wysiwyg/cord-free-sticks-dyson-v8-variant-absolute-crevice-tool.jpg
+                xpath: /html/body/div[5]/main[1]/div[2]/div[1]/div[10]/div[1]/div[1]/div[1]/ul[1]/li[6]/div[1]/img[1]/@src
+              - text: https://www.dyson.ae/media/wysiwyg/cord-free-sticks-dyson-v8-variant-absolute-motorised-tool.jpg
+                xpath: /html/body/div[5]/main[1]/div[2]/div[1]/div[10]/div[1]/div[1]/div[1]/ul[1]/li[7]/div[1]/img[1]/@src
+              - text: https://www.dyson.ae/media/wysiwyg/cord-free-sticks-dyson-v8-variant-absolute-reaches-up-high.jpg
+                xpath: /html/body/div[5]/main[1]/div[2]/div[1]/div[10]/div[1]/div[1]/div[1]/ul[1]/li[8]/div[1]/img[1]/@src
+              - text: https://www.dyson.ae/media/wysiwyg/cord-free-sticks-dyson-v8-variant-absolute-quick-handheld.jpg
+                xpath: /html/body/div[5]/main[1]/div[2]/div[1]/div[10]/div[1]/div[1]/div[1]/ul[1]/li[9]/div[1]/img[1]/@src
+              - text: https://www.dyson.ae/media/wysiwyg/cord-free-vacuums-v8-stick-absolute-power-modes.jpg
+                xpath: /html/body/div[5]/main[1]/div[2]/div[1]/div[10]/div[1]/div[1]/div[1]/ul[1]/li[10]/div[1]/img[1]/@src
+              - text: https://www.dyson.ae/media/wysiwyg/cord-free-sticks-dyson-v8-variant-absolute-centrifugal-forces.jpg
+                xpath: /html/body/div[5]/main[1]/div[2]/div[1]/div[10]/div[1]/div[1]/div[1]/ul[1]/li[11]/div[1]/img[1]/@src
+              - text: https://www.dyson.ae/media/wysiwyg/cord-free-sticks-dyson-v8-variant-absolute-docking-station.jpg
+                xpath: /html/body/div[5]/main[1]/div[2]/div[1]/div[10]/div[1]/div[1]/div[1]/ul[1]/li[12]/div[1]/img[1]/@src
+              - text: https://dyson-h.assetsadobe2.com/is/image/content/dam/dyson/newzealand/floorcare/cord-free/sticks/v10/variant/v10-absolute/nz-only-row-floorcare-cordfree-v10-variant-certified-ashma-allergy-friendly.jpg?$responsive$&cropPathE=desktop&fit=stretch,1&wid=634
+                xpath: /html/body/div[5]/main[1]/div[2]/div[1]/div[10]/div[1]/div[1]/div[1]/ul[1]/li[13]/div[1]/img[1]/@src
+              - text: https://dyson-h.assetsadobe2.com/is/image//content/dam/dyson/products/cord-free-vacuums/sticks/dyson-v8-vacuums/variant/cord-free-sticks-dyson-v8-variant-absolute-specifications.jpg?$responsive$&fmt=png-alpha&cropPathE=desktop&fit=stretch,1&wid=960
+                xpath: /html/body/div[5]/main[1]/div[2]/div[1]/div[12]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/picture[1]/img[1]/@src
+            videos:
+              - text: https://f1.media.brightcove.com/4/2310970329001/2310970329001_5728808688001_5728798978001.mp4?pubId=2310970329001&videoId=5728798978001
+                xpath: /html/body/div[4]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/video[1]/source[1]/@src
+            name:
+              - text: Deep cleans carpets.
+                xpath: /html/body/div[5]/main[1]/div[2]/div[1]/div[5]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/h2[1]
+            specifications:
+              - text: Height 250mm | Length 1244mm | Width 224mm
+                xpath: /html/body/div[15]
+            warranty:
+              - text: 2 year warranty Includes parts and labour
+                xpath: /html/body/div[5]/main[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[3]
+            brandText:
+              - text: Dyson
+            manufacturer:
+              - text: Dyson
+            descriptionBullets:
+              - text: "0"
+            variantCount:
+              - text: "0"
+            privacyPolicy:
+              - text: "true"
+        xpath: /
+    timestamp: 1606993338264
