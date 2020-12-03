@@ -40,12 +40,6 @@ module.exports = {
         const prodThumbImg = e.currentSrc;
         e.setAttribute('prodThumb', prodThumbImg);
       });
-
-      const row = document.querySelectorAll('tr.pr');
-      row.forEach((e, index) => {
-        const n = (index + 1).toString();
-        e.setAttribute('index', n);
-      });
     });
 
     return await context.extract(productDetails, { transform });

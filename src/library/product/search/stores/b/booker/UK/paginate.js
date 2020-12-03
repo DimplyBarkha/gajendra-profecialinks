@@ -4,10 +4,10 @@ module.exports = {
   parameterValues: {
     country: 'UK',
     store: 'booker',
-    nextLinkSelector: '#pagingCtrls > span > a:not(.pagerSelected)',
+    nextLinkSelector: 'a.pagerDeselected:last-child',
     mutationSelector: null,
     spinnerSelector: null,
-    loadedSelector: 'span#BPLIC table',
+    loadedSelector: 'td.siteContent',
     noResultsXPath: 'div.boxValidationError',
     domain: 'booker.co.uk',
   },
