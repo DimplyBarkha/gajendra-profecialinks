@@ -4,7 +4,7 @@ module.exports = {
   parameterValues: {
     domain: 'bedbathbeyond.com',
     prefix: null,
-    url: 'https://www.bedbathandbeyond.com/store/product/slug/{id}',
+    url: null,
     country: 'US',
     store: 'bedbathbeyond',
     zipcode: '',

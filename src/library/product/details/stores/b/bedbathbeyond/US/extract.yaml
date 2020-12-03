@@ -3,88 +3,275 @@ regionsSelector: null
 recordSelector: null
 recordXPath: null
 fields:
-  - name: quantity
-    singleValue: false
-    xpath: //button[@id='qtySelect-button']//span[contains(@class,'CustomSelect-inline_')]    
-  - name: availabilityText
-    SingleValue: false    
-    defaultValue: 'In Stock'
-    xpath: //div[@id='atc-cta']//button[@data-locator='pdp-addtocartbutton' and contains(text(),'Out of Stock')]
-  - name: price
-    SingleValue: false    
-    xpath: //div[@itemprop="offers"]//div[@id='item-price']//span[@data-locator='pdp-pricetext']
-  - name: promotion
-    singleValue: false
-    xpath: //div[@itemprop="offers"]//div[@id='PdpPricePanel']//div[contains(text(),'You save ')]
-  - name: image
-    singleValue: false
-    xpath: //div[@class='slick-initialized slick-slider']//div[@class='slick-list']//div[contains(@class,'slick-slide slick-active')]//a//img/@src
-  - name: imageAlt
-    singleValue: false
-    xpath: //div[@class='slick-initialized slick-slider']//div[@class='slick-list']//div[contains(@class,'slick-slide slick-active')]//a//img/@alt
-  - name: alternateImages
-    singleValue: false
-    xpath: //div[@id='rclModal']//ul[contains(@class,'ProductMediaCarouselStyle_')]//li[not(@class='slick-active')]//button/img/@src | //div[@class='slick-initialized slick-slider']//ul[contains(@class,'ProductMediaCarouselStyle_')]//li[not(@class='slick-active')]//img[contains(@class,'ProductMediaCarouselStyle_')]/@src
-  - name: metaKeywords
-    singleValue: false
-    xpath: //title
-  - name: category
-    SingleValue: false
-    xpath: //ul[@data-locator='Breadcrumbs']//li[@itemprop='itemListElement']//a[@itemprop='item']//span[@itemprop='name']
-  - name: brandText
-    SingleValue: false
-    xpath: //a[@itemprop='brand']//span[@itemprop='name']
-  - name: nameExtended
-    SingleValue: false    
-    xpath: //h1[@data-locator="pdp-productnametext"]
-  - name: name
-    singleValue: false
-    xpath: //h1[@data-locator="pdp-productnametext"]
-  - name: listPrice
-    singleValue: false
-    xpath: //div[@itemprop='offers']//div[@data-locator='pdp-waspricingcrossedlabel']
-  - name: weightNet
-    singleValue: false
-    xpath: //div[@id='specs']//div[contains(@class,'cell Specs_') and contains(text(),'Weight')]/parent::div[contains(@class,'grid-x Specs_')]/div[2]
-  - name: color
-    singleValue: false
-    xpath: //div[@id='specs']//div[contains(@class,'cell Specs_') and contains(text(),'Color')]/parent::div[contains(@class,'grid-x Specs_')]/div[2]
-  - name: sku
-    singleValue: false
-    xpath: //span[@itemprop='sku']/@content
-  - name: variantId
-    SingleValue: false
-    xpath: //meta[@property="og:url"]/@content
-  - name: ratingCount
-    SingleValue: false
-    xpath: //a[@data-locator='pdp-reviewslink']//meta[@itemprop="reviewCount"]/@content
-  - name: aggregateRating
-    SingleValue: false    
-    xpath: //a[@data-locator='pdp-reviewslink']//span[@itemprop="ratingValue"]
-  - name: additionalDescBulletInfo
-    singleValue: false
-    xpath: //div[@id='productDetails']//div[contains(@class,'mt2 Overview_')]//ul//li
-  - name: description
-    singleValue: false
-    xpath: //div[@id='productDetails']//div[@itemprop='description']
-  - name: descriptionBullets
-    singleValue: false
-    xpath: //div[@id='productDetails']//div[contains(@class,'mt2 Overview_')]//ul//li
-  - name: variantCount
-    singleValue: false
-    xpath: '0'
-  - name: manufacturerDescription
-    SingleValue: false
-    xpath: //div[@id='wc-aplus']
-  - name: videos
-    SingleValue: false
-    xpath: //div[@id='rclModal']//ul[contains(@class,'ProductMediaCarouselStyle_')]//li//button/img[@alt='Video']/@src
-  - name: specifications
-    SingleValue: false    
-    xpath: //div[@id='specs']//div[@class='grid-x Specs_5UF8Em']//div[@class='grid-x Specs_2u7UG5']
-  - name: warranty
-    singleValue: false
-    xpath: //div[@id='features']//dl[@class='Features_5pYcls grid-x']//dt[text()='Warranty']/parent::div/dd
-  - name: variantInformation
-    singleValue: false
-    xpath: //ul[contains(@class,'rclCustomTiles CustomSelect-inline_')]//li[contains(@class,'tilesItem')]//button/@value
+- name: _input
+  singleValue: false
+- name: _url
+  singleValue: false
+- name: productUrl
+  singleValue: false
+  xpath: //ancestor::html//link[@rel="canonical"]/@href
+- name: _pageTimeStamp
+  singleValue: false
+- name: image
+  singleValue: true
+  description: URL of the main product image
+  xpath: //img[contains(@class, "ProductMediaCarouselStyle")]/@src
+- name: imageAlt
+  singleValue: true
+  description: Alt text of the main product image
+  xpath: //img[contains(@class, "ProductMediaCarouselStyle")]/@alt
+- name: alternateImages
+  singleValue: false
+  description: Other product images (not in manufacturer description)
+  xpath: (//div[@id="rclModal"]//ul//img/@src)[position()>1]
+- name: metaKeywords
+  singleValue: true
+  description: The <meta> keywords content
+  xpath: //meta[@name='keywords']/@content
+- name: category
+  singleValue: false
+  description: The categories (e.g. from breadcrumbs)
+  xpath: //ul[contains(@class, "Breadcrumbs-inline")]//li/a/@title
+- name: nameExtended
+  singleValue: true
+  description: The product name, prefixing "${brand} - " if not included in "name"
+    and appending " - ${variantType}" if necessary (fixed per feed)
+  xpath: //div[contains(@class, "ProductDetailsLayout")]/h1
+- name: listPrice
+  singleValue: true
+  description: The stated undiscounted price for the product
+  xpath: //div[contains(@class, "ProductDetailsLayout-inline")]//div[@data-locator="pdp-waspricingcrossedlabel"]
+  regExp: ([\d\$\.]+)
+- name: price
+  singleValue: true
+  description: The offered price for the selected product variant - if a user clicks
+    add to basket this is the price they would be charged
+  xpath: //div[@itemprop="offers"]//span[contains(@class, "PDPPrice-inline")]
+- name: availabilityText
+  singleValue: true
+  description: Availability as described on page for the selected variant. If there
+    is no availability but the product can be added to cart, this field should be
+    "In Stock"
+  xpath: //link[@itemprop="availability"]/@href
+  regExp: ([a-zA-Z]+)$
+- name: description
+  singleValue: false
+  description: Product description supplied by website - may be concatenanted from
+    multiple places; specifically not the manufacturer description
+  xpath: //body/@description
+- name: descriptionBullets
+  singleValue: true
+  description: Number of ul > li tags in the description
+  xpath: count(//div[@id="overview"]//li)
+- name: brandText
+  singleValue: true
+  description: Product brand shown - this may actually NOT be just a brand name, e.g.
+    "Visit the Gillette Store"
+  xpath: //a[@itemprop="brand"]
+- name: manufacturer
+  singleValue: true
+  description: Product manufacturer
+  xpath: //a[@itemprop="brand"]
+- name: quantity
+  singleValue: true
+  description: Quantity as described on the page
+- name: weightNet
+  singleValue: true
+  description: Net weight as described on the page
+  xpath: //div[@id="overview"]//li[contains(text(), "Weighs")]
+  regExp: ([\d.]+ [a-zA-Z%]+)
+- name: weightGross
+  singleValue: true
+  description: Gross weight as described on the page
+- name: gtin
+  singleValue: true
+  description: GTIN code (includes UPC/EAN)
+- name: sku
+  singleValue: true
+  description: The store-specific product identifier
+  xpath: //span[@itemprop="sku"]/@content
+- name: variantId
+  singleValue: true
+  description: Identifier for a variant from a store where variants share the same
+    sku
+  xpath: //span[@itemprop="sku"]/@content
+- name: mpc
+  singleValue: true
+  description: The manufacturer model code (unique) of the product
+  xpath: //li[contains(text(), "Model") or contains(text(), "MODEL")]/text()
+  regExp: ([MmOoDdEeLl]+) (.+)
+  regExpReplace: $2
+- name: packSize
+  singleValue: true
+  description: The number of packs in the product offer (if stated separately on the
+    site to quantity)
+  xpath: //dt[contains(text(), "Set Size")]/..//span
+- name: legalDisclaimer
+  singleValue: true
+  description: Content under "legal disclaimer" header
+- name: directions
+  singleValue: true
+  description: Content under "directions" header
+- name: warnings
+  singleValue: true
+  description: Content under "warnings" header
+- name: ratingCount
+  singleValue: true
+  description: The number of ratings
+  xpath: //meta[contains(@itemprop, "reviewCount")]/@content
+- name: aggregateRatingText
+  singleValue: true
+  description: The stated aggregate rating
+- name: aggregateRating
+  singleValue: false
+  description: The stated aggregate rating normalized to be out of 5
+  xpath: //section[@id="reviews"]/div/div[1]/div[1]/div/div[1]/div[1]
+- name: shippingInfo
+  singleValue: true
+  description: Shipping information for the product
+- name: shippingDimensions
+  singleValue: true
+  description: Stated shipping dimensions
+- name: shippingWeight
+  singleValue: true
+  description: Stated shipping weight
+- name: variantCount
+  singleValue: true
+  description: Number of variants listed
+- name: color
+  singleValue: false
+  description: A textual description of the colour
+  xpath: //span[contains(text(), "Color")]/span | //div[contains(text(), "Color")]/following-sibling::div
+- name: colorCode
+  singleValue: true
+  description: A code description of the color (e.g. RGB hex)
+- name: manufacturerDescription
+  singleValue: false
+  description: The extended description of the product supplied by the lister
+  xpath: //div[contains(@class, "wc-rich-content-description")]
+- name: manufacturerImages
+  singleValue: false
+  description: Images within the third party description
+  xpath: //img[contains(@class, "wc-media wc-image")]/@src
+- name: videos
+  singleValue: false
+  description: URLs of videos on page
+- name: name
+  singleValue: true
+  description: The product name
+  xpath: //div[contains(@class, "ProductDetailsLayout")]/h1
+- name: specifications
+  singleValue: true
+  description: The physical dimensions of the product including packaging.
+- name: warranty
+  singleValue: true
+  description: Guarantee associated with the product
+  xpath: //div[@id="overview"]//li[contains(text(), "warranty")]
+  regExp: \d+-[a-zA-Z]+
+- name: storage
+  singleValue: true
+  description: Suggested storage location for product
+- name: countryOfOrigin
+  singleValue: true
+  description: The country from which the product originates
+  xpath: //li[contains(text(),"Manufactured in")] | //div[contains(@class, 'Overview')]//li[contains(text(),'Made in')]
+- name: allergyAdvice
+  singleValue: true
+  description: Allergy information associated with the product
+- name: recyclingInformation
+  singleValue: true
+  description: Recycling information associated with the product
+- name: productOtherInformation
+  singleValue: false
+  description: Any other product information
+- name: packaging
+  singleValue: true
+  description: Packaging information
+- name: additives
+  singleValue: true
+  description: List of additives in the product
+- name: pricePerUnit
+  singleValue: true
+  description: Price of the product split into certain units
+- name: pricePerUnitUom
+  singleValue: true
+  description: The unit of measurement used in price_per_unit
+- name: promotion
+  singleValue: true
+  description: promotion text on product page
+  xpath: //div[@itemprop="offers"]//div[@id="item-price"]/following-sibling::div[not(@data-locator)]
+- name: alcoholContent
+  singleValue: true
+  description: Alcohol content information
+- name: newVersion
+  singleValue: true
+  description: In product page, information about a new version of the product (https://www.amazon.es/DODOT-Sensitive-Pa%C3%B1ales-Talla-240/dp/B01ELA8U0Q/ref=sr_1_4?__mk_es_ES=%C3%85M%C3%85%C5%BD%C3%95%C3%91&dchild=1&keywords=dodot%2B-%2Bpa%C3%B1ales%2Bpara%2Bni&qid=1589984387&sr=8-4&th=1)
+- name: newAsin
+  singleValue: true
+  description: In product page, information about a new version of the product - new
+    asin info
+- name: newDescription
+  singleValue: true
+  description: In product page, information about a new version of the product - new
+    desription info
+- name: variantInformation
+  singleValue: true
+  description: colour / scent / flavour / other
+- name: firstVariant
+  singleValue: true
+  description: Unique identifier for a collection of variants. For a subset of core
+    feeds (43) we have a column "first_variant" that is populated with a common code
+    to link all variants for a product. method 1 (Preferred) = use common tag (Could
+    be parent sku) that is same value for all variants of a product. method 2 = first_variant
+    method technique, Identify the first varient in the sequence and use this rpc
+    to populate "first_variant" for all variants of a product, this rpc becomes the
+    common link between other variants. method 3 = apply some logic to determine link
+    between variants, this will need analysis
+- name: variants
+  singleValue: false
+  description: 
+- name: additionalDescBulletInfo
+  singleValue: false
+  description: 
+- name: prop65Warning
+  singleValue: true
+  description: 
+- name: ageSuitability
+  singleValue: true
+  description: Recommended age displayed on the product page. https://www.amazon.com/LEGO-Classic-Medium-Creative-Brick/dp/B00NHQFA1I
+  example: 4 - 99 years
+- name: energyEfficiency
+  singleValue: true
+  description: Energy rating of a product. https://www.amazon.de/Siemens-WM16W541-Waschmaschine-Schnellwaschprogramm-Nachlegefunktion/dp/B015FJFK14
+  example: A+, A+++, B
+- name: technicalInformationPdfPresent
+  singleValue: true
+  description: If there is for example a manual in pdf format on the website. ['Yes','No']
+  example: https://www.amazon.de/Hasbro-Spiele-44220100-Mastermind-Kinderspiel/dp/B0007OHUG6
+  defaultValue: No
+- name: termsAndConditions
+  singleValue: true
+  description: Terms and conditions information text ['Yes','No']
+  defaultValue: No
+- name: privacyPolicy
+  singleValue: true
+  description: Privacy Policy information text ['Yes','No']
+  defaultValue: No
+- name: customerServiceAvailability
+  singleValue: true
+  description: Information related to customer service availability (text), ['Yes','No']
+  defaultValue: No
+- name: materials
+  singleValue: true
+  description: Materials used to make the product
+  example: https://www.jdsports.co.uk/product/blue-adidas-linear-20-reversible-wind-breaker-jacket/15988125/
+- name: Image360Present
+  singleValue: true
+  description: If 360 image is present in the carousel ['Yes','No']
+  example: https://www.amazon.com/Trinsic-Single-Handle-Magnetic-Champagne-9159-CZ-DST/dp/B0050EN8E6
+  defaultValue: No
+- name: imageZoomFeaturePresent
+  singleValue: true
+  description: If Zoom feature is available for Main image or images in the carousel,['Yes','No']
+  example: https://www.zalando.de/adidas-neo-sneaker-low-blackwhite-a4315i002-q11.html
+  defaultValue: Yes
