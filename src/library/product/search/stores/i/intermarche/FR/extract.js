@@ -10,29 +10,25 @@ module.exports = {
   implementation: async (inputs, parameters, context, dependencies) => {
     const { transform } = parameters;
     const { productDetails } = dependencies;
-    await context.evaluate(() => {
-      function delay(delayInms) {
-        return new Promise((resolve) => {
-          setTimeout(() => {
-            resolve(2);
-          }, delayInms);
-        });
-      }
-      let scrollTop = 500;
-      while (true) {
+
+    await context.evaluate(async function () {
+      let scrollTop = 0;
+      while (scrollTop !== 40000) {
+        await stall(500);
+        scrollTop += 1000;
         window.scroll(0, scrollTop);
-        scrollTop += 500;
-        if (scrollTop === 10000) {
+        if (scrollTop === 40000) {
+          await stall(7000);
           break;
         }
       }
-      async function sample() {
-        console.log("a");
-        console.log("waiting...");
-        let delayres = await delay(3000);
-        console.log("b");
+      function stall(ms) {
+        return new Promise((resolve, reject) => {
+          setTimeout(() => {
+            resolve();
+          }, ms);
+        });
       }
-      sample();
       function addHiddenDiv(id, content, index) {
         const newDiv = document.createElement("div");
         newDiv.id = id;
