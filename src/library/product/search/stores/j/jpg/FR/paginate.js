@@ -4,7 +4,7 @@ module.exports = {
   parameterValues: {
     country: 'FR',
     store: 'jpg',
-    nextLinkSelector: "#Pager > span.scTrack.pager-arrow.next.formLabel",
+    nextLinkSelector: 'a[class="js-pagination-next-button pagination-button__next "]',
     mutationSelector: null,
     spinnerSelector: null,
     loadedSelector: 'body',

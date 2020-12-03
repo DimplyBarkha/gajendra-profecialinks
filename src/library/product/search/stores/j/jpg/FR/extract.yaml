@@ -5,37 +5,22 @@ recordXPath: null
 fields:
   - name: id
     singleValue: false
-    xpath: //div[@itemprop="productID"]//span[contains(text(),'Référence')]/following-sibling::text()    
+    xpath: //div[@id="toolbar__all_anchor"]//figcaption//span[contains(text(),'WW')]   
   - name: _url
     singleValue: false
     xpath: ancestor::html//div[@id="pd_url"]
   - name: name
     singleValue: false
-    xpath: //div[@class='itemDetails']/h3[@id='skuName']/a[@class='desc4 scTrack pfm']
+    xpath: //div[@id="toolbar__all_anchor"]//span//@title
   - name: productUrl
     singleValue: false 
-    xpath: //h3[@id="skuName"]//a/@href
-    regExp: (/.+)
-    regExpReplace: https://www.jpg.fr$1     
+    xpath: //div[@id="toolbar__all_anchor"]//article/a[@title]/@href
   - name: thumbnail
     singleValue: false
-    xpath: //div[@class='searchImgContainer']/a[@class='Img_Sku scTrack pfm']/img[@id='SkuPageMainImg']/@src
-    regExp: (.+)(ban)(.+)
-    regExpReplace: $1THB$3  
-  - name: aggregateRating2
-    singleValue: false
-    type: NUMBER
-    xpath: //div[@class="itemDetails"]//span[@id="productRating"]/text()
-  - name: reviewCount
-    singleValue: false
-    xpath: //div[@class="itemDetails"]//span[@itemprop="reviewCount"]/text()
+    xpath: //div[@id="toolbar__all_anchor"]//figure//img//@src  
   - name: price
     singleValue: false  
     type: CURRENCY
-    xpath: //div[@class='pricePh clear']/strong[@class='price']/span[@id='SkuPriceUpdate'] 
-  - name: manufacturer
-    singleValue: false 
-    xpath: //div[@itemprop="description"]//*[starts-with(text(),'Marques')]/text() 
-    regExp: Marques:(.+\w)
-    regExpReplace: $1
+    xpath: //span[@class="price-value"] 
+ 
   
