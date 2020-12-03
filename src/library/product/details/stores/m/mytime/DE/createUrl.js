@@ -4,7 +4,7 @@ module.exports = {
   parameterValues: {
     domain: 'mytime.de',
     prefix: null,
-    url: null,
+    url: 'https://www.mytime.de/_{id}',
     country: 'DE',
     store: 'mytime',
     zipcode: '',
