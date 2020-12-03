@@ -24,7 +24,43 @@ module.exports = {
         else result = elem ? elem.singleNodeValue : '';
         return result && result.trim ? result.trim() : result;
       };
-      const xyz = getXpath("//div[@class='star-ratings']/div[@class='stars-empty']/@style", 'nodeValue');
+      const getAllXpath = (xpath, prop) => {
+        const nodeSet = document.evaluate(xpath, document, null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
+        const result = [];
+        for (let index = 0; index < nodeSet.snapshotLength; index++) {
+          const element = nodeSet.snapshotItem(index);
+          if (element) result.push(prop ? element[prop] : element.nodeValue);
+        }
+        return result;
+      };
+      var Description = getAllXpath("//div[@class='product-detail__description-inner']/p[position()>1]/text()", 'nodeValue');
+      if (Description != null) {
+        var ppp = Description.join(" || ")
+        addElementToDocument('desc', ppp);
+      }
+
+      var specification = getAllXpath("//dl[@class='product-specifications-list']/dt/text()", 'nodeValue');
+      var aaa = []
+      if (specification != null) {
+        for (var i = 0; i < specification.length; i++) {
+          if (specification[i].length != 150) {
+            aaa.push(specification[i]);
+          }
+        }
+        var bbb = getAllXpath("//dl[@class='product-specifications-list']/dd/text()", 'nodeValue');
+        var final = ""
+        for (var i = 0; i < aaa.length; i++) {
+          final = final + aaa[i] + ":" + bbb[i];
+          if (aaa[i + 1] != undefined) {
+            final = final + " || "
+          }
+        }
+        addElementToDocument('spec', final);
+      }
+
+
+
+      var xyz = getXpath("//div[@class='star-ratings']/div[@class='stars-empty']/@style", 'nodeValue');
       if (xyz != null) {
         var abc = xyz.split(": ")[1]
         var width = abc.slice(0, -2);

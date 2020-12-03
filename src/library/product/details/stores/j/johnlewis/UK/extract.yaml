@@ -37,8 +37,7 @@ fields:
     defaultValue: Out of Stock
   - name: description
     singleValue: false
-    description: Product description supplied by website - may be concatenanted from
-      multiple places; specifically not the manufacturer description
+    xpath: //html//div[@id="desc"]
   - name: descriptionBullets
     singleValue: true
     description: Number of ul > li tags in the description
@@ -71,7 +70,7 @@ fields:
     xpath: //div[@id="store-stock-app"]/@data-product-code
   - name: mpc
     singleValue: true
-    description: The manufacturer model code (unique) of the product
+    xpath: //dl[@class="product-specifications-list"]/dt[contains(text(),'Manufacturer Part Number (MPN)')]/following-sibling::dd[1]/text()
   - name: packSize
     singleValue: true
     description: The number of packs in the product offer (if stated separately on
@@ -164,7 +163,7 @@ fields:
     type: NUMBER
   - name: specifications
     singleValue: true
-    description: The physical dimensions of the product including packaging.
+    xpath: //html//div[@id="spec"]
   - name: warranty
     singleValue: true
     xpath: //p[@class="additional-service-options-item__description"]/text()
