@@ -35,7 +35,7 @@ const transform = (data) => {
             }
             if(row.aggregateRating){
                 row.aggregateRating.forEach(item=>{
-                    item.text=item.text.replace('Рейтинг товара ','').replace(' из 5','');
+                    item.text=item.text.replace('Рейтинг товара ','').replace(' из 5','').replace('.',',');
                 })
             }
             if(row.reviewCount){
