@@ -133,6 +133,7 @@ fields:
     singleValue: true
     description: Number of variants listed
     type: NUMBER
+    xpath: count(//li[@data-test='variant-picker']/div//a | //li[@data-test='variant-picker']/div//option )
   - name: color
     singleValue: true
     description: A textual description of the colour
@@ -155,6 +156,7 @@ fields:
   - name: name
     singleValue: true
     description: The product name
+    xpath: //h1[@class='cBkpLHWDpS5Fk2ZVL3a2F SoOS33GkUDItBfCHPEDIm _2WmfxIYARu76srqjRa7Kpv _2qvE_7NYIQCfs6GTiLSlx- _2PvHyaWa9cVWfxl_Sdav41 _2QdEKSaQdOoasgjpGimIEA']
   - name: inStorePrice
     singleValue: true
     description: Price in the selected store
