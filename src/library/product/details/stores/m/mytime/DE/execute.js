@@ -5,8 +5,8 @@ module.exports = {
     country: 'DE',
     store: 'mytime',
     domain: 'mytime.de',
-    loadedSelector: null,
-    noResultsXPath: null,
+    loadedSelector: '.product-page',
+    noResultsXPath: '//picture[@data-alt="Wechsler-Fehlserseite"]',
     zipcode: '',
   },
 };
