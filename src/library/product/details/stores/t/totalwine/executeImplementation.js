@@ -57,7 +57,8 @@ const implementation = async function (
   // Check if variants exists
   const variantsExist = await context.evaluate(function () {
     const variants = document.querySelectorAll('ul[role="listbox"][class*="reset"] > li');
-    return variants.length > 1;
+    // return variants.length > 1;
+    return !!variants
   });
 
   if (!variantsExist) {
