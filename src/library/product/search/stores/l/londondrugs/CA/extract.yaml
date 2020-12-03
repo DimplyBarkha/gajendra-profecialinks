@@ -1,0 +1,37 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: id
+    singleValue: false
+    description: Unique id (within this extractor)
+    xpath: //input[@name="productId"]/@value
+  - name: productUrl
+    singleValue: false
+    description: The URL for the product details page
+    xpath: //a[@class="product-image-link"]/@href
+  - name: thumbnail
+    singleValue: false
+    description: The URL for the product thumbnail image
+    xpath: //a[@class="product-image-link"]/img/@src
+  - name: name
+    singleValue: false
+    description: The product name
+    xpath: //h3[@class="ld-sg-heading--product-tile"]
+  - name: reviewCount
+    singleValue: false
+    description: The number of reviews
+    xpath: //span[@class="bv-rating-label"]
+    regExp: (\d+)
+  - name: aggregateRating
+    singleValue: true
+    xpath: //div[@id='aggregateRating']/text()
+  - name: price
+    singleValue: false
+    description: The offered price for the product
+    xpath: //ul[@class='product-tile-pricing']//li/p
+  - name: rank
+    description: search/listing rank
+  - name: rankOrganic
+    description: The position (rank) within the list excluding sponsored/paid results
