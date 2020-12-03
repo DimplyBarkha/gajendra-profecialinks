@@ -1,0 +1,28 @@
+input:
+  _url: http://dyson.com
+  URL: https://www.dyson.com/lighting/task-lighting/dyson-lightcycle-morph/dyson-lightcycle-morph-desk-white-silver
+extractions:
+  - html: https://workbench.import.io/html/run=e4b5d575-126b-47d9-b9a6-7cb6e6c830bd/task=a23817c9-1ff3-41bc-9058-2cbc4dadd42d/872c52ff-9f79-4692-954d-2bbf9245ea9c.html
+    extractionConfigId: product/details/stores/d/dyson/US/variantsExtract
+    data:
+      - group:
+          - variantId:
+              - text: https://www.dyson.com/lighting/task-lighting/dyson-lightcycle-morph/dyson-lightcycle-morph-desk-black
+                xpath: /html/body/ol[1]/li[1]/@variant_url
+            variantUrl:
+              - text: https://www.dyson.com/lighting/task-lighting/dyson-lightcycle-morph/dyson-lightcycle-morph-desk-black
+                xpath: /html/body/ol[1]/li[1]/@variant_url
+          - variantId:
+              - text: https://www.dyson.com/lighting/task-lighting/dyson-lightcycle-morph/dyson-lightcycle-morph-desk-white-silver
+                xpath: /html/body/ol[1]/li[2]/@variant_url
+            variantUrl:
+              - text: https://www.dyson.com/lighting/task-lighting/dyson-lightcycle-morph/dyson-lightcycle-morph-desk-white-silver
+                xpath: /html/body/ol[1]/li[2]/@variant_url
+          - variantId:
+              - text: https://www.dyson.com/lighting/task-lighting/dyson-lightcycle-morph/dyson-lightcycle-morph-desk-black-brass
+                xpath: /html/body/ol[1]/li[3]/@variant_url
+            variantUrl:
+              - text: https://www.dyson.com/lighting/task-lighting/dyson-lightcycle-morph/dyson-lightcycle-morph-desk-black-brass
+                xpath: /html/body/ol[1]/li[3]/@variant_url
+        xpath: /html
+    timestamp: 1607008070441
