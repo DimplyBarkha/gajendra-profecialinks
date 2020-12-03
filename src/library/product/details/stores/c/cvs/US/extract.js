@@ -188,6 +188,7 @@ module.exports = {
         if (records[0].allMeta) {
           const product = records[0].allMeta;
           if (product) {
+            addHiddenDiv('ii_mpc', product.p_Product_ID);
             if (product.variants.length) {
               const skuArray = [];
               // Looping for each variant

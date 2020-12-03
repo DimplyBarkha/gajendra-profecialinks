@@ -16,8 +16,8 @@ fields:
   #   defaultValue: false
   # - name: Image360Present
   #   singleValue: true
-    # xpath: //div[@id='ii_image360']
-    # xpath: boolean(//div[contains(@id, 'wc-360-view-2e50e148')])
+  # xpath: //div[@id='ii_image360']
+  # xpath: boolean(//div[contains(@id, 'wc-360-view-2e50e148')])
   - name: imageZoomFeaturePresent
     defaultValue: "No"
     xpath: //div[@id='ii_imageZoom']
@@ -38,9 +38,9 @@ fields:
     # xpath: //div[@class='css-1dbjc4n r-13awgt0 r-1mlwlqe r-dnmrzs']//div[@class='htmlView']/ul/li
     # xpath: (//div[@class='css-1dbjc4n r-13qz1uu']//div[contains(.,'Details')]//div[@class="htmlView"])[1]//li|//div[@class='css-1dbjc4n r-13awgt0 r-1mlwlqe r-dnmrzs']//div[@class='htmlView']/ul/li
   # - name: dietaryInformation
-    # singleValue: true
-    # xpath: //div[@class='css-1dbjc4n r-13qz1uu']//div[contains(.,'Ingredients')]//div[@class='htmlView']
-    # xpath: //div[@id='ii_Ingredients']
+  # singleValue: true
+  # xpath: //div[@class='css-1dbjc4n r-13qz1uu']//div[contains(.,'Ingredients')]//div[@class='htmlView']
+  # xpath: //div[@id='ii_Ingredients']
   # - name: factImagePresent
   #   singleValue: true
   #   defaultValue: "No"
@@ -69,15 +69,15 @@ fields:
     # xpath: count((//div[contains(@id, "zoom-carousel")]//img[contains(@src,"https")])[position()>1]/@src)
   # - name: productOtherInformation !!!!!!!!!!!!!!!
   #   xpath: //div[@id="ii_manufHTML"]//div[contains(@class, "wc-fragment")]//div[not (contains(., "Is the information in this section helpful")) and not (contains(., "The information above is")) and not (contains(., ".wc"))]//text()[not(contains(.,"layout:")) and not(contains(.,".jpg"))]
-    # singleValue: false
-    # selector: div.wc-rich-content-description
+  # singleValue: false
+  # selector: div.wc-rich-content-description
   - name: shippingInfo
     xpath: //div[@id='ii_shipping']
     # singleValue: true
     # selector: h1[aria-label="Ships free with CarePass"]
   - name: packSize
     xpath: //div[@id='ii_packSize']
-  - name: gtin 
+  - name: gtin
     xpath: //div[@id='ii_gtin']
     # xpath: (//div[contains(@id, 'zoom-carousel')]//img/@src)[1]
     regExp: ([0-9]+)
@@ -102,7 +102,7 @@ fields:
     singleValue: true
   - name: productUrl
     xpath: //div[@id='ii_productUrl']
-    regExp: >- 
+    regExp: >-
       ^(.*)$
     regExpReplace: >-
       https://www.cvs.com$1
@@ -119,7 +119,7 @@ fields:
     xpath: //div[@id='ii_metaKeywords']
     # selector: h1.css-4rbku5.css-901oao.r-1jn44m2.r-1ui5ee8.r-vw2c0b.r-16krg75
   - name: price
-  #   # xpath: //div[@class='css-901oao r-cme181 r-1jn44m2 r-111xbm8 r-b88u0q']
+    #   # xpath: //div[@class='css-901oao r-cme181 r-1jn44m2 r-111xbm8 r-b88u0q']
     xpath: //div[@id='ii_price']
   - name: listPrice
     xpath: //div[@id='ii_listPrice']
@@ -127,16 +127,16 @@ fields:
     # singleValue: true
     # selector: div.css-901oao.r-1khnkhu.r-1jn44m2.r-1b43r93.r-5fcqz0.r-m611by
     # regExp: ([$.0-9]+$)
-  - name: availabilityText 
+  - name: availabilityText
     # singleValue: true
     # selector: div.css-901oao.r-v857uc.r-1jn44m2.r-1i10wst.r-vw2c0b.r-9qu9m4
     defaultValue: In Stock
     xpath: //div[@id='ii_availability']
   # - name: inStorePrice
   #   xpath: //div[@id='ii_variantPrice']
-    # xpath: //div[@class='css-901oao r-cme181 r-1jn44m2 r-111xbm8 r-b88u0q']
-    # singleValue: true
-    # selector: div.css-901oao.r-cme181.r-1jn44m2.r-111xbm8.r-b88u0q
+  # xpath: //div[@class='css-901oao r-cme181 r-1jn44m2 r-111xbm8 r-b88u0q']
+  # singleValue: true
+  # selector: div.css-901oao.r-cme181.r-1jn44m2.r-111xbm8.r-b88u0q
   # - name: inStorePriceSymbol
   #   xpath: //div[@class='css-901oao r-cme181 r-1jn44m2 r-111xbm8 r-b88u0q']
   #   # singleValue: true
@@ -191,20 +191,20 @@ fields:
     xpath: //div[@id='ii_alternateImages']
   - name: ratingCount
     xpath: //div[@id='ii_reviewCount']
-    defaultValue: '0'
+    defaultValue: "0"
     # xpath: //div[@class='css-1dbjc4n r-obd0qt r-18u37iz']//a
     regExp: ([0-9])+
   - name: aggregateRating
     xpath: //div[@id='ii_rating']
-    defaultValue: '0'
+    defaultValue: "0"
     # xpath: //div[@class='css-1dbjc4n']//div[@class='css-901oao r-1enofrn r-b88u0q r-m2pi6t']
   - name: manufacturerImages
     # xpath: //div[@id='wc-aplus']//img/@src[not (contains(., "syndigo.svg"))]
     xpath: //div[@id='ii_iframeImg']|//div[@id='ii_manufHTML']//div[@id="wc-aplus"]//img[not(contains(@src,"syndigo.svg"))]/@src[contains(., "https:")]
     # xpath: //div[@id='ii_manufHTML']//div[@id="wc-aplus"]//div[not(contains(@class,'wc-comparison'))]//img/@src[not (contains(., "syndigo.svg"))]
-  # - name: allergyAdvice 
-    # xpath: //div[@class='css-1dbjc4n r-13qz1uu']//div[contains(.,'Warnings')]//div[@class='htmlView']
-    # xpath: //div[@id='ii_warnings']
+  # - name: allergyAdvice
+  # xpath: //div[@class='css-1dbjc4n r-13qz1uu']//div[contains(.,'Warnings')]//div[@class='htmlView']
+  # xpath: //div[@id='ii_warnings']
   - name: dietaryFiberPerServing
     xpath: //div[contains(@id, 'Dietary Fiber')]
     regExp: (^[.0-9]+)
@@ -276,7 +276,7 @@ fields:
     # xpath: //div[@class="css-1dbjc4n r-13awgt0 r-1mlwlqe r-dnmrzs"]//div[@class="css-901oao r-1jn44m2 r-1enofrn"]
     # regExp: ([.0-9]+ ((CT)))
     # selector: div[style].css-1dbjc4n.r-18u37iz.r-15d164r > div.css-901oao:nth-of-type(2)
-  - name: servingSize 
+  - name: servingSize
     xpath: //div[@id='ii_servingSize']
     # selector: div[style].css-1dbjc4n:nth-of-type(3) > div[style].css-1dbjc4n.r-18u37iz:nth-of-type(1) > div.css-901oao:nth-of-type(2)
     # xpath: (//div[@class='css-1dbjc4n r-18u37iz' and (contains(., 'Serving Size'))]/div)[2]
@@ -286,7 +286,7 @@ fields:
     # xpath: (//div[@class='css-1dbjc4n r-18u37iz' and (contains(., 'Serving Size'))]/div)[2]
     # selector: div[style].css-1dbjc4n:nth-of-type(3) > div[style].css-1dbjc4n.r-18u37iz:nth-of-type(1) > div.css-901oao:nth-of-type(2)
     # regExp: ([-a-z]+$)
-  - name: manufacturerDescription 
+  - name: manufacturerDescription
     singleValue: false
     # xpath: //div[@id='ii_manufDescription']
     xpath: //div[@id="ii_manufHTML"]//div[contains(@class, "wc-fragment")]//*[not (contains(., "Is the information in this section helpful")) and not (contains(., "The information above is")) and not (contains(., ".wc"))]//text()[not(contains(.,"layout:")) and not(contains(.,".jpg")) and not(contains(.,".png"))]
@@ -301,13 +301,13 @@ fields:
     xpath: //div[@id='ii_manufHTML']//div[contains(@class, "wc-meta")]/@wcobj[not(contains(.,".jpg"))]|//div[@id='ii_manufHTML']//div[contains(@class, "media-wrap")]//@data-src[not(contains(.,".jpg"))]|//div[@id='ii_manufHTML']//div[contains(@class, "wc-meta")]//meta[contains(@content, 'mp4')]/@content[not(contains(.,".jpg"))]|//div[@wc-movie]/@wcobj
   # - name: coupon
   #   singleValue: true
-  - name: variantCount 
+  - name: variantCount
     xpath: //div[@id="ii_totalRecordCount"]
     # xpath: //div[@class='css-1dbjc4n r-13awgt0 r-1mlwlqe r-dnmrzs']//div[@class='css-901oao r-1jn44m2 r-1enofrn']
     # regExp: ^[0-9]+
   - name: _input
     singleValue: true
-  - name: imageAlt 
+  - name: imageAlt
     xpath: //div[@id='ii_imageAlt']
     # singleValue: true
     # xpath: (//div[contains(@id,'zoom-carousel')]//img)[2]/@src
@@ -340,5 +340,21 @@ fields:
   - name: magnesiumPerServingUom
     xpath: //div[contains(@id, 'Magnesium')]
     regExp: ([g|mg|mcg|IU]+$)
-  
-  
+  # ---------------------------------------
+  # ---------------------------------------
+  # --------------- Salsify ---------------
+  # ---------------------------------------
+  # ---------------------------------------
+  - name: priceCurrency
+    defaultValue: USD
+  - name: shownImages
+    xpath: //div[@id='ii_image'] | //div[@id='ii_alternateImages']
+  - name: highQualityImages
+    xpath: //div[@id='ii_image'] | //div[@id='ii_alternateImages']
+  - name: mpc
+    xpath: //div[@id='ii_mpc']
+  - name: otherSellersAvailability
+    defaultValue: In Stock
+    xpath: //div[@id='ii_availability']
+  - name: otherSellersPrice
+    xpath: //div[@id='ii_price']

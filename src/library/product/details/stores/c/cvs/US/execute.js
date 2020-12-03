@@ -52,6 +52,14 @@ module.exports = {
   path: './stores/${store[0:1]}/${store}/${country}/execute',
   implementation: async (inputs, parameters, context, dependencies) => {
     let { url, id } = inputs;
+
+    if (url) {
+      let sku = url.match(/\d+/g);
+      sku = sku.length ? sku[0] : null;
+      id = sku;
+      url = null;
+    }
+
     if (!url) {
       if (!id) {
         throw new Error('no id provided');
