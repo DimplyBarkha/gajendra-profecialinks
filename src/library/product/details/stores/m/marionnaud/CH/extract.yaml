@@ -17,13 +17,13 @@ fields:
     xpath: //ul[@class="breadcrumb__container"]/li[position()>1]/a/span
   - name: nameExtended
     singleValue: false
-    xpath: //span[contains(@class,"product-section-info-naming__range-name")]
+    xpath: //h1[@class="product-section-info-naming__container"]
   - name: listPrice
     singleValue: false
     xpath: //div[contains(@class,"product-section-info")]//div[contains(@class,"product-section-cost__price--old")]
   - name: price
     singleValue: false
-    xpath: //div[contains(@class,"product-section-info")]//div[contains(@class,"product-section-cost__price--new")]
+    xpath: //div[contains(@class,"product-section-info")]//div[contains(@class,"product-section-cost__price--new")] | //div[contains(@class,"product-section-info")]//div[@class="product-section-cost__price"]
   - name: availabilityText
     singleValue: false
     defaultValue: In Stock
@@ -50,4 +50,4 @@ fields:
     xpath: //div[contains(@class,"product-variants-container")]/div[@class="product-variant" and not(@data-ref="unit")]/div/@data-code
   - name: variantInformation
     singleValue: false
-    xpath: //div[contains(@class,"product-variants-container")]/div[@class="product-variant" and not(@data-ref="unit")]//span[@class="product-variant__value"]
+    xpath: //div[contains(@class,"product-variants-container")]/div[@class="product-variant" and not(@data-ref="unit")]//span[@class="product-variant__value"] | //div[@class="product-section-selected-variant-name"]
