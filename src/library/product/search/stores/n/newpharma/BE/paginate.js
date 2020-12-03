@@ -3,7 +3,7 @@ module.exports = {
   implements: 'navigation/paginate',
   parameterValues: {
     template: null,
-    country: 'NL',
+    country: 'BE',
     store: 'newpharma',
     nextLinkSelector: '.next>a',
     nextLinkXpath: null, // '(//a[@id="page_bottom_next_2"])[1]',

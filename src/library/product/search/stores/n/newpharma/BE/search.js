@@ -2,7 +2,7 @@
 module.exports = {
   implements: 'product/search',
   parameterValues: {
-    country: 'NL',
+    country: 'BE',
     store: 'newpharma',
     domain: 'newpharma.nl',
     zipcode: "''",

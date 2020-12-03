@@ -12,7 +12,9 @@ fields:
     singleValue: true
   - name: name
     singleValue: false
-    xpath: //div[@class="details"]/a/@title
+    xpath: //div[@class="product js-product-row product--desktop "]/@data-google-360
+    regExp: '"name":"(\w.*?)"'
+    regExpReplace: $1
   - name: productUrl
     singleValue: false
     xpath: //div[@class="details"]/a/@producturl
@@ -25,13 +27,13 @@ fields:
     singleValue: false
   - name: aggregateRating2
     singleValue: false
-    xpath: //div[@class="product js-product-row product--desktop "]/@data-google-360
-    regExp: '"rating":"(.*?)"'
-    regExpReplace: $1
+    xpath: //div[@class="details"]/a/@rating
+    type: STRING
   - name: reviewCount
     singleValue: false
     xpath: //div[@class="c-rating-star__text"]
-    regExp: '([0-9]\w+)'
+    regExp: '([0-9]+)'
+    regExpReplace: $1
   - name: ratingCount
     singleValue: false
   - name: price
