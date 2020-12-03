@@ -57,7 +57,7 @@ module.exports = {
       var specificationsStr = getAllXpath(specificationsXpath, 'innerText').join(' || ');
       addElementToDocument('added_specifications', specificationsStr);
 
-      const secondaryImageTotalXpath="//div[@class='product-img-box']//div[@class='more-views']//ul//li//a/@href";
+      const secondaryImageTotalXpath = "//div[@class='product-img-box']//div[@class='more-views']//ul//li//a/@href";
       var secondaryImages = getAllXpath(secondaryImageTotalXpath, 'nodeValue');
       addElementToDocument('added_secondaryImageTotal', secondaryImages.length);
     });
