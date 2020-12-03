@@ -134,8 +134,8 @@ fields:
     xpath: //div[contains(translate(string(), 'Material', 'Material'), 'Material')]/div[@class="value"]
   - name: firstVariant
     singleValue: false
-    xpath: //div[@class="modelNo"]//span[@aria-hidden="true"]
-    regExp: (\Item\s#)(.*)\s(.*)
+    xpath: (//div[@class="modelNo"]//span[@aria-hidden="true"])[1]
+    regExp: (\Item.*#)(.*)
     regExpReplace: $2
   - name: quantity
     singleValue: true
