@@ -55,7 +55,13 @@ const transform = (data) => {
         if(row.aggregateRating){
           row.aggregateRating[0].text = (row.aggregateRating[0].text).replace(".",",");
         }
-
+        if(row.category){
+          for(var i=0;i<row.category.length;i++){
+            if(i == row.category.length - 1){
+              row.category.splice(i,1);
+            }
+          }
+        }
         if(row.availabilityText){
           var isDisabled = 0;
           const classes = (row.availabilityText[0].text).split(" ");
