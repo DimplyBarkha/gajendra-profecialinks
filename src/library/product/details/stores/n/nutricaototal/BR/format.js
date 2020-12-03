@@ -33,7 +33,8 @@ const transform = (data) => {
 
           if (row.aggregateRating) {
             row.aggregateRating.forEach(item => {
-              item.text = (parseInt(item.text) * 5) / 100;            
+              item.text = (parseInt(item.text) * 5) / 100;
+              item.text = String(item.text).replace(/\./g, ',');
             });
           }
         }

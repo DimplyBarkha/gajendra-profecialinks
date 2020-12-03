@@ -11,9 +11,13 @@ fields:
     xpath: //div[@data-gallery-role="stage-shaft"]//div[@data-active='true']//img/@alt
   - name: alternateImages
     singleValue: false
-    xpath: //div[@data-gallery-role="stage-shaft"]//div[not(@data-active='true')]//img/@src
-    regExp: (.+\/)\d+x\d+\/(.+)
-    regExpReplace: $1$2
+    #https://www.nutricaototal.com.br/pub/media/catalog/product/cache/thumbnail/80x100/beff4985b56e3afdbeabfc89641a4582/5/d/5daf44bb7b5bae0e072e5e26_3.jpg
+    xpath: //div[@class="fotorama__nav__shaft"]//div[@data-gallery-role="nav-frame" and not(@data-active="true")]//img/@src
+    regExp: (.+\/)thumbnail\/\d+x\d+\/\w+\/(.+)
+    regExpReplace: $1image/e9c3970ab036de70892d86c6d221abfe/$2
+  - name: secondaryImageTotal
+    singleValue: false
+    xpath: count(//div[@class="fotorama__nav__shaft"]//div[@data-gallery-role="nav-frame" and not(@data-active="true")]//img/@src)
   - name: metaKeywords
     singleValue: false
     xpath: //meta[@name="keywords"]/@content  
@@ -56,3 +60,9 @@ fields:
   - name: name
     singleValue: false
     xpath: //h1[@class='page-title']//span[@itemprop="name"]  
+  - name: ingredientsList
+    singleValue: false
+    xpath: //div[@id='product.info.description']//div[@class='product attribute description']//div[@class='value']//p/strong[contains(text(),'Ingredientes:')]/parent::p/following-sibling::p[1]
+  - name: warnings
+    singleValue: false
+    xpath: //div[@id='product.info.description']//div[@class='product attribute description']//div[@class='value']//div/strong[contains(text(),'Modo de Conservação')]/parent::div/parent::div/parent::td/following-sibling::td[@id='valueViewContainer']
