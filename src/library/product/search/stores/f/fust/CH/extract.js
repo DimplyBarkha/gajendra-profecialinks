@@ -14,11 +14,11 @@ module.exports = {
     const applyScroll = async function (context) {
       await context.evaluate(async function () {
         let scrollTop = 0;
-        while (scrollTop !== 5000) {
+        while (scrollTop !== 20000) {
           await stall(1000);
           scrollTop += 1000;
           window.scroll(0, scrollTop);
-          if (scrollTop === 5000) {
+          if (scrollTop === 20000) {
             await stall(1000);
             break;
           }
