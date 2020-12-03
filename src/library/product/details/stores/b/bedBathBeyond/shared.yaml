@@ -179,8 +179,8 @@ fields:
     defaultValue: No  
   - name: videos
     xpath: ancestor::html//button[@data-locator="pdp-productalternateimage"]/img[@alt="Video"]/@src
-    regExp: ([^/]+)/thumbnail/
-    regExpReplace: https://video.bedbathandbeyond.com/tvpembed/$1
+    regExp: (\/\/v.tvpage.com)(\/)([0-9]{3,})\/([0-9]{2,})(.+)
+    regExpReplace: https://video.bedbathandbeyond.com/tvpembed/$4
     singleValue: false
     description: URLs of videos on page
   - name: manufacturerVideos
