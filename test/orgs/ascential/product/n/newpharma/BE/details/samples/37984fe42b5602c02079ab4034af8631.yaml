@@ -1,0 +1,76 @@
+input:
+  id: 188302
+  _url: http://newpharma.be
+extractions:
+  - html: https://workbench.import.io/html/run=fcac2f61-66ac-4225-afef-9ea3d4d62592/task=d63cde9b-0978-4813-ba79-b8547a69c241/d2e55f9a-d2ee-4400-963c-6917ee0ae351.html
+    extractionConfigId: product/details/stores/n/newpharma/BE/extract
+    data:
+      - group:
+          - productUrl:
+              - text: https://www.newpharma.be/pharmacie/gaviscon/188302/gaviscon-menthe-suspension-buvable-500ml.html
+                xpath: /html/body/div[11]
+            image:
+              - text: https://img.newpharma.net/images/products/fr/500/gaviscon-menthe-suspension-buvable-500ml.2002.jpg
+                xpath: /html/body/div[5]/div[1]/div[1]/div[2]/div[1]/a[1]/img[1]/@src
+            imageAlt:
+              - text: Gaviscon Menthe Suspension Buvable 500ml
+                xpath: /html/body/div[5]/div[1]/div[1]/div[2]/div[1]/a[1]/img[1]/@alt
+            category:
+              - text: Accueil
+                xpath: /html/body/div[2]/div[1]/div[1]/ul[1]/li[1]
+              - text: Médicaments (sans prescription)
+                xpath: /html/body/div[2]/div[1]/div[1]/ul[1]/li[2]
+              - text: Acidité gastrique - Digestion
+                xpath: /html/body/div[2]/div[1]/div[1]/ul[1]/li[3]
+              - text: Liquides
+                xpath: /html/body/div[2]/div[1]/div[1]/ul[1]/li[4]
+            nameExtended:
+              - text: Gaviscon Menthe Suspension Buvable 500ml
+                xpath: /html/body/div[5]/div[1]/div[1]/div[1]/h1[1]
+            price:
+              - text: 13,44
+                xpath: /html/body/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]
+            availabilityText:
+              - text: En stock !
+                xpath: /html/body/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[2]/div[1]/form[1]/div[1]/div[1]
+            manufacturer:
+              - text: Gaviscon
+                xpath: /html/body/div[5]/div[1]/div[1]/div[1]/div[1]/a[1]
+            weightNet:
+              - text: 846 gr
+                xpath: /html/body/div[5]/div[1]/div[1]/div[4]/div[2]/div[1]/div[2]/div[2]/table[1]/tbody[1]/tr[4]/td[1]
+            sku:
+              - text: "188302"
+                xpath: /html/body/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[2]/@data-productid
+            ratingCount:
+              - text: "0"
+                xpath: /html/body/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/a[1]
+            shippingInfo:
+              - text: Commandé avant 16h, livré chez vous demain ou en 24h en point relais
+                xpath: /html/body/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[2]/div[3]
+            manufacturerDescription:
+              - text: >-
+                  Indications:
+
+                  Traitement des symptômes du reflux gastro-oesophagien tels que la régurgitation acide, les brûlures d'estomac, l'indigestion, qui se produisent lors du reflux du contenu gastrique, par exemple après une intervention chirurgicale gastrique, lors d'une hernie hiatale, pendant la grossesse, ou suite à une oesophagite par reflux.
+                   
+                  Composition:
+
+                  Alginate de sodium 500 mg — Bicarbonate de sodium 267 mg — Carbonate de calcium — Carbomère — Parahydroxybenzoate de méthyle — Parahydroxybenzoate de propyle — Saccharinate de sodium — Essence de menthe — Hydroxyde de sodium — Eau purifiée ad 10 ml.
+                   
+                  Posologie et mode d'emploi: Bien agiter avant l'emploi.
+
+                  Adultes et enfants de plus de 12 ans: 10 à 20 ml (2 à 4 cuillerées à café) après les repas et au coucher.
+
+                  Enfants de moins de 12 ans : 5 à 10 ml après les repas et au coucher. Si on le désire, ces doses peuvent être diluées dans de l'eau, mais il est conseillé de ne pas ajouter plus d'une quantité égale d'eau. Bien mélanger.
+                xpath: /html/body/div[5]/div[1]/div[1]/div[4]/div[2]/div[1]/div[2]/div[1]
+            name:
+              - text: Gaviscon Menthe Suspension Buvable 500ml
+                xpath: /html/body/div[5]/div[1]/div[1]/div[1]/h1[1]
+            brandLink:
+              - text: https://www.newpharma.be/pharmacie/brands/gaviscon/04903.html
+                xpath: /html/body/div[12]
+            imageZoomFeaturePresent:
+              - text: "true"
+        xpath: /
+    timestamp: 1606995568320
