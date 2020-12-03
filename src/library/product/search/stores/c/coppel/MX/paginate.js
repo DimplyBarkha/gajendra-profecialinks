@@ -4,7 +4,7 @@ module.exports = {
   parameterValues: {
     country: 'MX',
     store: 'coppel',
-    nextLinkSelector: null,
+    nextLinkSelector: 'button#WC_SearchBasedNavigationResults_pagination_link_right_categoryResults',
     mutationSelector: null,
     spinnerSelector: null,
     loadedSelector: null,

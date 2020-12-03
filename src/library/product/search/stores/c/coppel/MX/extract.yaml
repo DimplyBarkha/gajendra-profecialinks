@@ -23,18 +23,22 @@ fields:
     regExp: [/\d+/]
   - name: ratingCount
     singleValue: true
-    description: URL of the main product image
+    description: The number of ratings
     xpath:
     regExp: [/\d+/]
   - name: price
     singleValue: true
-    description: Alt text of the main product image
-    xpath: //*[contains(@id,"offerPrice_")]//text()
+    description: offered price for the selected product
+    xpath: //*[contains(@id,"ProductInfoPrice_")]/@value
   - name: listPrice
     singleValue: true
     description: Alt text of the main product image
-    xpath: //*[contains(@class,"listPrice_")]//text()
+    xpath: //*[contains(@class,"listPrice_")]
   - name: manufacturer
     singleValue: true
-    description: Alt text of the main product image
+    description: product Manufacturer
     xpath: //*[contains(@id,"ProductInfoBrand_")]/@value
+  - name: thumbnail
+    singleValue: true
+    description: URL of the main product image
+    xpath: //*[contains(@id,"catalogEntry_img")]/img/@src
