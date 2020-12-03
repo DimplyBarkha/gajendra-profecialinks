@@ -32,7 +32,7 @@ fields:
     xpath: //div[contains(@class,"pdp-details-features")]//li
   - name: sku
     singleValue: false
-    xpath: //div[@class="pdp-header__main"]//span[@class="js-product-title-id"]
+    xpath: //div[contains(@data-component,"PDPBuyBox")]/@data-config
   - name: ratingCount
     singleValue: false
     xpath: //div[@class="pdp-header__reviews "]//div[contains(@class,"bv_text")]
@@ -78,7 +78,7 @@ fields:
     xpath: //meta[@property="og:url"]/@content
   - name: variantId
     singleValue: false
-    xpath: //div[@class="pdp-header__main"]//span[@class="js-product-title-id"]
+    xpath: //div[contains(@data-component,"PDPBuyBox")]/@data-config
   - name: firstVariant
     singleValue: false
     xpath: //div[contains(@class,"sku-selectors__select")]//select/option[position()=2]/@value
