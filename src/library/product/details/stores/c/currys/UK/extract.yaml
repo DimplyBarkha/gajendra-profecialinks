@@ -40,10 +40,7 @@ fields:
   xpath: //div[@id='product-actions']//span[contains(@class,'ProductPriceBlock__Price-kTVxGg')]
 - name: availabilityText
   singleValue: false
-  xpath: //div[@id='product-actions']//span[@data-name='AddToBasket']/@data-name
-  regExp: (.+)
-  regExpReplace: In Stock
-  defaultValue: Out of Stock
+  xpath: //div[@id="product-availability"]
 - name:  description
   singleValue: false
   xpath: //div[@id='product-info']
@@ -130,9 +127,7 @@ fields:
 - name: manufacturerImages
   singleValue: false
 - name: videos
-  xpath: //video/source/@src
-  regExp: (.+)
-  regExpReplace: https:$1
+  xpath: //div[@id="product-videos"]
   singleValue: false
   description: URLs of videos on page
 - name: name
@@ -304,8 +299,9 @@ fields:
     between variants, this will need analysis
 - name: variants
   singleValue: false
-  xpath: //script[@id='app.settings']
-  # ???
+  xpath: //div[@class='no-tablet']//ul[@class='dc-product-swatches-list']//li[contains(@class,'dc-product-swatch')]/a/@href
+  regExp: (.+-)(\d+)-
+  regExpReplace: $2
 - name: additionalDescBulletInfo
   singleValue: false
   xpath: //div[@class='no-tablet']//div[contains(@class,'product-highlight')]//ul[@class='to-print']//li    

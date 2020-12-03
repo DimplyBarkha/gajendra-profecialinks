@@ -1,13 +1,13 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: '//div[@class="no-tablet"]//a[@class="dc-product-swatch-link"]'
+recordXPath: null
 fields:
 - name: variantId
   singleValue: false
-  xpath: //link[@rel="canonical"]/@href
-  regExp: (.+-)(\d+)-
-  regExpReplace: $2
+  xpath: //div[@id='product_variant']
 - name: variantUrl
-  xpath: //link[@rel="canonical"]/@href
+  xpath: //div[@id='product_variant']
+  regExp: (\d+)
+  regExpReplace: https://www.currys.co.uk/gbuk/x/-$1-pdt.html
   singleValue: false    
