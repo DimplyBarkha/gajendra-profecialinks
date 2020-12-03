@@ -47,14 +47,12 @@ const transform = (data) => {
       }
       row.availabilityText = [{ text }];
       if (row.manufacturerDescription) {
-        console.log('manufacturerDescription: Cleaning in progress..');
         const manufacturerDescriptionText = row.manufacturerDescription[0].text;
-        const manufacturerDescription = manufacturerDescriptionText.replace(/^(From the manufacturer[s\s])(.*)$/, '$2')
+        const manufacturerDescription = manufacturerDescriptionText
+          .replace(/^(From the manufacturer[s\s])(.*)$/, '$2')
           .replace(/(.*)(Show less)$/, '$1')
           .replace(/(.*)(Show more)$/, '$1');
-        console.log(`manufacturerDescription: ${manufacturerDescription}`);
-        row.manufacturerDescription[0].text = manufacturerDescription;
-        console.log('manufacturerDescription: Cleaning completed..');
+        row.manufacturerDescription = [{ text: manufacturerDescription }];
       }
     }
   }

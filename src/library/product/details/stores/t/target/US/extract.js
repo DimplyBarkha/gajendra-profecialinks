@@ -1,10 +1,12 @@
+const { transform } = require('./transform');
+
 async function implementation (
   inputs,
   parameters,
   context,
   dependencies,
 ) {
-  const { transform } = parameters;
+  const { transform: transformParam } = parameters;
   const { productDetails } = dependencies;
 
   await context.waitForXPath('//li');
@@ -48,9 +50,8 @@ async function implementation (
     const manufacturerCTA = await context.evaluate((selector) => !!document.querySelector(selector), manufacturerCTASelector);
 
     if (manufacturerCTA) {
-      console.log('hastheCTA');
-      await new Promise((resolve, reject) => setTimeout(resolve, 20000));
-      await context.waitForSelector('#wc-power-page', { timeout: 30000 });
+      console.log('============hastheCTA============');
+      await context.waitForSelector('#wc-power-page', { timeout: 50000 });
       await context.click(manufacturerCTASelector);
       await context.waitForSelector('.wc-fragment', { timeout: 10000 });
     }
@@ -58,9 +59,11 @@ async function implementation (
     console.log(`Manufacturer content is not loaded ${error.message}`);
   }
 
-  await context.evaluate(async function () {
+  const manuf = await context.evaluate(async function () {
     let parentData = {};
     let origData = {};
+
+    const onlyUnique = (value, index, self) => self.indexOf(value) === index;
 
     function addHiddenDiv (el, className, content) {
       const newDiv = document.createElement('div');
@@ -469,11 +472,8 @@ async function implementation (
       addHiddenDiv(newDiv, 'customerServiceAvailability', 'Yes');
 
       const zoom = document.querySelector('.ZoomedImage__Zoomed-sc-1j8d1oa-0.dwtKdC') || document.querySelector('.TapToZoomText-r290sk-0');
-      if (zoom) {
-        addHiddenDiv(newDiv, 'zoom', 'Yes');
-      } else {
-        addHiddenDiv(newDiv, 'zoom', 'No');
-      }
+      addHiddenDiv(newDiv, 'rotate', zoom ? 'Yes' : 'No');
+
 
       let rotate = document.querySelector('button[data-test="button-model-viewer"]');
       if (!rotate) {
@@ -484,11 +484,8 @@ async function implementation (
           }
         });
       }
-      if (rotate) {
-        addHiddenDiv(newDiv, 'rotate', 'Yes');
-      } else {
-        addHiddenDiv(newDiv, 'rotate', 'No');
-      }
+
+      addHiddenDiv(newDiv, 'rotate', rotate ? 'Yes' : 'No');
 
       if (!secondaryImages.length) {
         const moreImageBtn = document.querySelector('.styles__LegendGridButtonOverlay-beej2j-13');
@@ -617,10 +614,7 @@ async function implementation (
 
       addHiddenDiv(newDiv, 'pdf', hasTechnicalInfoPDF);
 
-      function onlyUnique (value, index, self) {
-        return self.indexOf(value) === index;
-      }
-      console.log('manufacturDesc', manufacturerDesc);
+      console.log('manufacturDesc: %o', manufacturerDesc);
 
       if (!manufacturerDesc && mfgNode) {
         manufacturerDesc = mfgNode.innerText;
@@ -642,6 +636,8 @@ async function implementation (
 
       if (manufacturerDesc && manufacturerDesc !== 'Loading, please wait...') {
         addHiddenDiv(newDiv, 'manufacturerDesc', manufacturerDesc);
+      } else {
+        return manufacturerDesc;
       }
       console.log('manufacturDesc', manufacturerDesc);
       addHiddenDiv(newDiv, 'manufacturerImgs', manufacturerImgs.filter(img => !img.includes('/assets/') && !img.includes('/resources/')).filter(onlyUnique).join('|'));
@@ -735,9 +731,7 @@ async function implementation (
                 await getProductInfo(variant, parentRes.product.item.product_description.title, parentRes.product.item.child_items.length);
               });
             })
-            .catch(e => {
-              console.log('parent does not exist');
-            });
+            .catch(() => console.log('parent does not exist'));
         } else if (res && res.product && res.product.item && res.product.item.child_items) {
           for (const variant of res.product.item.child_items) {
             await getProductInfo(variant, res.product.item.product_description.title, res.product.item.child_items.length);
@@ -750,17 +744,18 @@ async function implementation (
 
     await stall(12000);
   });
+  console.log(manuf)
 
-  await context.extract(productDetails, { transform });
+  console.u();
+  await context.extract(productDetails, { transform: transformParam });
 }
 
-const { transform } = require('./shared');
 module.exports = {
   implements: 'product/details/extract',
   parameterValues: {
     country: 'US',
     store: 'target',
-    transform: transform,
+    transform,
     domain: 'target.com',
   },
   implementation,
