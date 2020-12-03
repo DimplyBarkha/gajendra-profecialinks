@@ -5,7 +5,7 @@ module.exports = {
     store: 'footlocker',
     domain: 'footlocker.co.uk',
     loadedSelector: 'div[class*="product-details--summary"]',
-    noResultsXPath: '//*[contains(.,"not found")] ',
+    noResultsXPath: '//*[contains(text(),"not found")]',
     zipcode: '',
   },
 };

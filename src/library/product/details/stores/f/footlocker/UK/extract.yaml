@@ -1,7 +1,7 @@
 singleRecord: true
 regionsSelector: null
 recordSelector: null
-recordXPath: /html/body/main/div
+recordXPath: null
 fields: 
   - name: image
     description: URL of the main product image
@@ -67,7 +67,7 @@ fields:
     xpath: //span[contains(@class,"fl-error hide")]//@data-inventory-level-sku
   - name: variantId
     description: Identifier for a variant from a store where variants share the same sku
-    xpath: //body/@variant-id
+    xpath: //body/@variant
   - name: mpc
     description: The manufacturer model code (unique) of the product
   - name: packSize
@@ -99,7 +99,7 @@ fields:
     description: Stated shipping weight
   - name: variantCount
     description: Number of variants listed
-    xpath: count(//div[@id="variantId"]/@data)
+    xpath: count(//section[3]//button)
     type: NUMBER
   - name: color
     description: A textual description of the colour
@@ -337,8 +337,6 @@ fields:
   - name: variantInformation
     description: colour / scent / flavour / other
     xpath: (//button[contains(@class,"is-selected")]//span)[3]
-    regExp: (:)(.+)
-    regExpReplace: $2
   - name: firstVariant
     description: Unique identifier for a collection of variants. For a subset of
       core feeds (43) we have a column "first_variant" that is populated with a
@@ -352,7 +350,7 @@ fields:
     xpath: //span[contains(@class,"fl-error hide")]//@data-inventory-level-sku
   - name: variants
     description: null
-    xpath: //div[@id="variantId"]/@data
+    xpath: //div[@id="variantid"]/@data
   - name: additionalDescBulletInfo
     description: null
   - name: prop65Warning
