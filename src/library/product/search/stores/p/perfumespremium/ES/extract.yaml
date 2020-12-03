@@ -1,19 +1,22 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: null
+recordXPath: '//div[@class="product-item-info"]'
 fields:
   - name: id
     singleValue: false
   - name: searchUrl
+    xpath: ancestor::html//div[@id="searchUrl"][last()]
     singleValue: true
   - name: name
     singleValue: false
   - name: productUrl
+    xpath: //a[contains(@class, "product-item-photo")]/@href
     singleValue: false
   - name: gtin
     singleValue: false
   - name: thumbnail
+    xpath: //img[@class="product-image-photo"]/@src
     singleValue: false
   - name: aggregateRating
     singleValue: false
