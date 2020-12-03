@@ -4,7 +4,7 @@ module.exports = {
   parameterValues: {
     domain: 'monsterpetsupplies.co.uk',
     prefix: null,
-    url: null,
+    url: 'https://www.monsterpetsupplies.co.uk/search/{id}',
     country: 'UK',
     store: 'monsterpetsupplies',
     zipcode: '',

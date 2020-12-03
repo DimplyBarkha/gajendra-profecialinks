@@ -9,43 +9,57 @@ fields:
   singleValue: false
 - name: productUrl
   singleValue: false
+  xpath: (//link[@rel="canonical"])[1]
 - name: _pageTimeStamp
   singleValue: false
 - name: image
   singleValue: true
   description: URL of the main product image
+  xpath: //img[@role="presentation"]/@src
 - name: imageAlt
   singleValue: true
   description: Alt text of the main product image
+  xpath: (//div[@id="productImageWrapper"]//img/@alt)[1]
 - name: alternateImages
   singleValue: false
   description: Other product images (not in manufacturer description)
+  xpath: (//div[contains(@class, "monster-pet-product clearfix")]//div[@id="productShowcaseInner"]//li/img/@src)
 - name: metaKeywords
   singleValue: true
   description: The <meta> keywords content
+  xpath: //meta[@name="keywords"]/@content
 - name: category
   singleValue: false
   description: The categories (e.g. from breadcrumbs)
+  xpath: (//div[contains(@class, "breadcrumbs-inner")]//a)[position()>2]
 - name: nameExtended
   singleValue: true
   description: The product name, prefixing "${brand} - " if not included in "name"
     and appending " - ${variantType}" if necessary (fixed per feed)
+  xpath: //div[@id="name"]
 - name: listPrice
   singleValue: true
   description: The stated undiscounted price for the product
+  xpath: //div[@target="to-add"]//p[contains(@class, "discount")]
+  regExp: £\d+\.?(\d+)?
 - name: price
   singleValue: true
   description: The offered price for the selected product variant - if a user clicks
     add to basket this is the price they would be charged
+  xpath: //div[@id="price"]
+  regExp: (.+)
+  regExpReplace: £$1
 - name: availabilityText
   singleValue: true
   description: Availability as described on page for the selected variant. If there
     is no availability but the product can be added to cart, this field should be
     "In Stock"
+  xpath: //div[@id="availability"]
 - name: description
   singleValue: false
   description: Product description supplied by website - may be concatenanted from
     multiple places; specifically not the manufacturer description
+  xpath: //div[@itemprop="description"]//p
 - name: descriptionBullets
   singleValue: true
   description: Number of ul > li tags in the description
@@ -71,10 +85,13 @@ fields:
 - name: sku
   singleValue: true
   description: The store-specific product identifier
+  xpath: //div[@id="sku"]
+  regExp: ^[a-zA-Z0-9]*
 - name: variantId
-  singleValue: true
-  description: Identifier for a variant from a store where variants share the same
-    sku
+  singleValue: false
+  description: Identifier for a variant from a store where variants share the same sku
+  xpath: //div[@id="sku"]
+  regExp: (\d+)$
 - name: mpc
   singleValue: tru
   description: The manufacturer model code (unique) of the product
@@ -397,6 +414,7 @@ fields:
 - name: promotion
   singleValue: true
   description: promotion text on product page
+  xpath: //div[@target="to-add"]//p[contains(@class, "save-message")]
 - name: alcoholContent
   singleValue: true
   description: Alcohol content information

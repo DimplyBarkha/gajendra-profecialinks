@@ -5,8 +5,8 @@ module.exports = {
     country: 'UK',
     store: 'monsterpetsupplies',
     domain: 'monsterpetsupplies.co.uk',
-    loadedSelector: null,
-    noResultsXPath: null,
+    loadedSelector: 'h1[itemprop="name"]',
+    noResultsXPath: '//h1[contains(text(), "No results for")]',
     zipcode: '',
   },
 };
