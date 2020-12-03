@@ -44,6 +44,42 @@ const transform = (data) => {
           },
         ];
       }
+
+      if (row.directions) {
+        let text = '';
+        row.directions.forEach(item => {
+          text = row.directions.map(elm => elm.text).join(' ');
+        });
+        row.directions = [
+          {
+            text: text,
+          },
+        ];
+      } 
+
+      if (row.ingredientsList) {
+        let text = '';
+        row.ingredientsList.forEach(item => {
+          text = row.ingredientsList.map(elm => elm.text).join(' ');
+        });
+        row.ingredientsList = [
+          {
+            text: text,
+          },
+        ];
+      } 
+
+      if (row.warnings) {
+        let text = '';
+        row.warnings.forEach(item => {
+          text = row.warnings.map(elm => elm.text).join(' ');
+        });
+        row.warnings = [
+          {
+            text: text,
+          },
+        ];
+      } 
     }
   }
   const clean = text => text.toString()

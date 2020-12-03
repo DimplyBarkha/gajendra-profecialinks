@@ -39,7 +39,7 @@ fields:
   - name: variantId
     xpath: //span[@data-qa-id="product-attribute-pzn"]
   - name: directions
-    xpath: //p//*[contains(text(), "Anwendung")]/parent::p/text() | //p//*[contains(text(), "Anwendung")]/parent::p/following-sibling::ul |  //h3[contains(text(), "Anwendung")]/following-sibling::ul[1] | //p//*[contains(text(), "Anwendung")]/parent::p/following-sibling::ol
+    xpath: //div[@id="productAdditonalInfos.headline"]//strong[contains(text(),'Anwendung')]/following-sibling::text() |//h3[contains(text(),'Indikation/Anwendung')]/following-sibling::*[1] | //p//*[contains(text(), "Anwendung")]/parent::p/text() | //p//*[contains(text(), "Anwendung")]/parent::p/following-sibling::ul |  //h3[contains(text(), "Anwendung")]/following-sibling::ul[1] | //p//*[contains(text(), "Anwendung")]/parent::p/following-sibling::ol
   - name: warnings
     xpath: //p//*[contains(text(), "Warnhinweise:")]/ancestor::p/following-sibling::p[1]
   - name: ratingCount
@@ -55,7 +55,7 @@ fields:
   - name: name
     xpath: //h1[contains(@class,"o-ProductTemplate__heading")]
   - name: ingredientsList
-    xpath: //*[@id="productActiveIngredients.headline"]//div[contains(@class,"o-ProductAdditionalInformation")]
+    xpath: //*[@id="productActiveIngredients.headline"]//div[contains(@class,"o-ProductAdditionalInformation")] | //div[@id="productAdditonalInfos.headline"]//strong[contains(text(),'Inhaltsstoffe')]/parent::p/text()
   - name: productOtherInformation
     xpath: //div[@id="productAdditonalInfos.headline"]
   - name: mpc
