@@ -21,6 +21,7 @@ module.exports.transform = (data, context) => {
           if (item.text.match(/([0-9]+[,]?[0-9]*) out (.*)/)) {
             item.text = item.text.replace(/([0-9]+[,]?[0-9]*) out (.*)/, '$1');
           }
+          item.text = item.text.replace('.', ',');
         });
       }
       if (row.productUrl) {
