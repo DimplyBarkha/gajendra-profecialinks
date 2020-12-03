@@ -1,0 +1,388 @@
+input:
+  _url: http://did.ie
+  URL: https://www.did.ie/dyson-pure-cool-desk-air-purifier-white-silver-310154-01-310154-01-prd
+extractions:
+  - html: https://workbench.import.io/html/run=0981281e-d961-442b-afba-67b44a67d624/task=2ae53900-3b66-4227-81a0-518f376b241e/78b33cc5-d58a-4199-bfa8-2b90184adbe4.html
+    extractionConfigId: product/details/stores/d/did/IE/extract
+    data:
+      - group:
+          - image:
+              - text: https://www.did.ie/media/catalog/product/cache/1/image/450x450/9df78eab33525d08d6e5fb8d27136e95/3/1/310154-01.jpg
+                xpath: /html/body/div[4]/div[4]/div[4]/div[1]/div[2]/div[5]/div[1]/form[1]/div[2]/div[1]/div[1]/a[1]/figure[1]/img[1]/@src
+            imageAlt:
+              - text: 310154-01_Dyson Pure Cool Desk Air Purifier - White & Silver-1
+                xpath: /html/body/div[4]/div[4]/div[4]/div[1]/div[2]/div[5]/div[1]/form[1]/div[2]/div[1]/div[1]/a[1]/figure[1]/img[1]/@alt
+            alternateImages:
+              - text: https://www.did.ie/media/catalog/product/cache/1/image/9df78eab33525d08d6e5fb8d27136e95/3/1/310154-01.jpg
+                xpath: /html/body/div[4]/div[4]/div[4]/div[1]/div[2]/div[5]/div[1]/form[1]/div[2]/div[1]/div[3]/div[1]/a[1]/@href
+              - text: https://www.did.ie/media/catalog/product/cache/1/image/9df78eab33525d08d6e5fb8d27136e95/3/1/310154-01_1.jpg
+                xpath: /html/body/div[4]/div[4]/div[4]/div[1]/div[2]/div[5]/div[1]/form[1]/div[2]/div[1]/div[3]/div[1]/a[2]/@href
+              - text: https://www.did.ie/media/catalog/product/cache/1/image/9df78eab33525d08d6e5fb8d27136e95/3/1/310154-01_2.jpg
+                xpath: /html/body/div[4]/div[4]/div[4]/div[1]/div[2]/div[5]/div[1]/form[1]/div[2]/div[1]/div[3]/div[1]/a[3]/@href
+              - text: https://www.did.ie/media/catalog/product/cache/1/image/9df78eab33525d08d6e5fb8d27136e95/3/1/310154-01_3.jpg
+                xpath: /html/body/div[4]/div[4]/div[4]/div[1]/div[2]/div[5]/div[1]/form[1]/div[2]/div[1]/div[3]/div[1]/a[4]/@href
+              - text: https://www.did.ie/media/catalog/product/cache/1/image/9df78eab33525d08d6e5fb8d27136e95/d/p/dp04_app_001-cmyk-bkphone-celc-a6_refw.psd_preview.jpg
+                xpath: /html/body/div[4]/div[4]/div[4]/div[1]/div[2]/div[5]/div[1]/form[1]/div[2]/div[1]/div[3]/div[1]/a[5]/@href
+              - text: https://www.did.ie/media/catalog/product/cache/1/image/9df78eab33525d08d6e5fb8d27136e95/d/p/dp04_blknk_008-cmyk-summerset-a3_mix.psd_preview.jpg
+                xpath: /html/body/div[4]/div[4]/div[4]/div[1]/div[2]/div[5]/div[1]/form[1]/div[2]/div[1]/div[3]/div[1]/a[6]/@href
+              - text: https://www.did.ie/media/catalog/product/cache/1/image/9df78eab33525d08d6e5fb8d27136e95/d/p/dp04_app_001-rgb-bkphone-celc-a5_refw.psd_preview.jpg
+                xpath: /html/body/div[4]/div[4]/div[4]/div[1]/div[2]/div[5]/div[1]/form[1]/div[2]/div[1]/div[3]/div[1]/a[7]/@href
+              - text: https://www.did.ie/media/catalog/product/cache/1/image/9df78eab33525d08d6e5fb8d27136e95/d/p/dp04_whsil_008-cmyk-nochuff-nonasties-crop-a6_mix.psd_preview.jpg
+                xpath: /html/body/div[4]/div[4]/div[4]/div[1]/div[2]/div[5]/div[1]/form[1]/div[2]/div[1]/div[3]/div[1]/a[8]/@href
+              - text: https://www.did.ie/media/catalog/product/cache/1/image/9df78eab33525d08d6e5fb8d27136e95/d/p/dp04_gene_004-qq-tp04-filthepaglasscfghost-a6_refw.psd_preview.jpg
+                xpath: /html/body/div[4]/div[4]/div[4]/div[1]/div[2]/div[5]/div[1]/form[1]/div[2]/div[1]/div[3]/div[1]/a[9]/@href
+              - text: https://www.did.ie/media/catalog/product/cache/1/image/9df78eab33525d08d6e5fb8d27136e95/d/p/dp04_whsil_008-qq-360projection-a5_mix.psd_preview.jpg
+                xpath: /html/body/div[4]/div[4]/div[4]/div[1]/div[2]/div[5]/div[1]/form[1]/div[2]/div[1]/div[3]/div[1]/a[10]/@href
+              - text: https://www.did.ie/media/catalog/product/cache/1/image/9df78eab33525d08d6e5fb8d27136e95/d/p/dp04_whsil_008-qq-360projmaster-ext-a5_cmyk.psd_preview.jpg
+                xpath: /html/body/div[4]/div[4]/div[4]/div[1]/div[2]/div[5]/div[1]/form[1]/div[2]/div[1]/div[3]/div[1]/a[11]/@href
+              - text: https://www.did.ie/media/catalog/product/cache/1/image/9df78eab33525d08d6e5fb8d27136e95/d/p/dp04_whsil_008-qq-360projmaster-ext-a5_rgb.psd_preview.jpg
+                xpath: /html/body/div[4]/div[4]/div[4]/div[1]/div[2]/div[5]/div[1]/form[1]/div[2]/div[1]/div[3]/div[1]/a[12]/@href
+              - text: https://www.did.ie/media/catalog/product/cache/1/image/9df78eab33525d08d6e5fb8d27136e95/d/p/dp04_whsil_008-summerset-a6_mix.psd_preview.jpg
+                xpath: /html/body/div[4]/div[4]/div[4]/div[1]/div[2]/div[5]/div[1]/form[1]/div[2]/div[1]/div[3]/div[1]/a[13]/@href
+              - text: https://www.did.ie/media/catalog/product/cache/1/image/9df78eab33525d08d6e5fb8d27136e95/d/p/dp04_whsil_008-winterset-a6_mix.psd_preview.jpg
+                xpath: /html/body/div[4]/div[4]/div[4]/div[1]/div[2]/div[5]/div[1]/form[1]/div[2]/div[1]/div[3]/div[1]/a[14]/@href
+              - text: https://www.did.ie/media/catalog/product/cache/1/image/9df78eab33525d08d6e5fb8d27136e95/d/p/dp04_whsil_012-rgb-linkcarousel1-1b-a5_mix.psd_preview.jpg
+                xpath: /html/body/div[4]/div[4]/div[4]/div[1]/div[2]/div[5]/div[1]/form[1]/div[2]/div[1]/div[3]/div[1]/a[15]/@href
+              - text: https://www.did.ie/media/catalog/product/cache/1/image/9df78eab33525d08d6e5fb8d27136e95/d/p/dp04_whsil_012-cmyk-linkcarousel1-1a-a6_mix.psd_preview.jpg
+                xpath: /html/body/div[4]/div[4]/div[4]/div[1]/div[2]/div[5]/div[1]/form[1]/div[2]/div[1]/div[3]/div[1]/a[16]/@href
+              - text: https://www.did.ie/media/catalog/product/cache/1/image/9df78eab33525d08d6e5fb8d27136e95/d/p/dp04_whsil_12-907-dl-night-a6_mix.psd_preview.jpg
+                xpath: /html/body/div[4]/div[4]/div[4]/div[1]/div[2]/div[5]/div[1]/form[1]/div[2]/div[1]/div[3]/div[1]/a[17]/@href
+              - text: https://www.did.ie/media/catalog/product/cache/1/image/9df78eab33525d08d6e5fb8d27136e95/d/p/dp04_whsil_20-rgb-chuff-wide-nasties-a5_mix.psd_preview.jpg
+                xpath: /html/body/div[4]/div[4]/div[4]/div[1]/div[2]/div[5]/div[1]/form[1]/div[2]/div[1]/div[3]/div[1]/a[18]/@href
+              - text: https://www.did.ie/media/catalog/product/cache/1/image/9df78eab33525d08d6e5fb8d27136e95/d/p/dp04_whsil_21-rgb-chuff-wide-nonasties-a5_mix.psd_preview.jpg
+                xpath: /html/body/div[4]/div[4]/div[4]/div[1]/div[2]/div[5]/div[1]/form[1]/div[2]/div[1]/div[3]/div[1]/a[19]/@href
+              - text: https://www.did.ie/media/catalog/product/cache/1/image/9df78eab33525d08d6e5fb8d27136e95/d/p/dp04_whsil_34-cmyk-chuff-summer-a5_mix.psd_preview.jpg
+                xpath: /html/body/div[4]/div[4]/div[4]/div[1]/div[2]/div[5]/div[1]/form[1]/div[2]/div[1]/div[3]/div[1]/a[20]/@href
+              - text: https://www.did.ie/media/catalog/product/cache/1/image/9df78eab33525d08d6e5fb8d27136e95/d/p/dp04_whsil_34-cmyk-chuff-winter-a6_mix.psd_preview.jpg
+                xpath: /html/body/div[4]/div[4]/div[4]/div[1]/div[2]/div[5]/div[1]/form[1]/div[2]/div[1]/div[3]/div[1]/a[21]/@href
+              - text: https://www.did.ie/media/catalog/product/cache/1/image/9df78eab33525d08d6e5fb8d27136e95/d/p/dp04_whsil_at.jpg
+                xpath: /html/body/div[4]/div[4]/div[4]/div[1]/div[2]/div[5]/div[1]/form[1]/div[2]/div[1]/div[3]/div[1]/a[22]/@href
+            category:
+              - text: Clearance/Ex-Display Dyson Pure Cool Desk Air Purifier - White & Silver |
+                  310154-01
+                xpath: /html/body/div[4]/div[4]/div[3]/div[2]/ul[1]/li[2]
+            nameExtended:
+              - text: Clearance/Ex-Display Dyson Pure Cool Desk Air Purifier - White & Silver |
+                  310154-01
+                xpath: /html/body/div[4]/div[4]/div[4]/div[1]/div[2]/div[5]/div[1]/form[1]/div[3]/div[2]/h1[1]
+            availabilityText:
+              - text: In Stock
+                xpath: /html/body/div[4]/div[4]/div[4]/div[1]/div[2]/div[5]/div[1]/form[1]/div[3]/div[3]
+            description:
+              - text: To purify a whole family room properly, the Dyson Pure Cool™ purifying fan
+                  goes beyond standard test conditions, by also automatically
+                  sensing particles and gases, capturing 99.95% of ultrafine
+                  particles, and projecting and circulating purified air using
+                  Air Multiplier™ technology. Only the Dyson purifying fan is
+                  designed and tested to do all of this.
+                xpath: /html/body/div[4]/div[4]/div[4]/div[1]/div[2]/div[5]/div[1]/form[1]/div[3]/div[4]
+              - text: >-
+                  Clearance/Ex-Display Dyson Pure Cool Desk Air Purifier - White
+                  & Silver | 310154-01
+                   
+                  310154-01
+                   
+
+                   
+
+                   
+                  Captures pollutants with 360° sealed HEPA and activated carbon filters
+                   
+                  The fully-sealed filter system combines an activated carbon filter to remove gases, and a Glass HEPA filter that captures 99.95% of microscopic allergens and pollutants.
+                   
+                  Senses pollutants in real time
+                   
+                  Automatically senses particles and gases in you room, then diagnoses and reports them on the LCD screen.
+                   
+                  Projects powerful airflow
+                   
+                  Air Multiplier™technology delivers over 290 litres per second of smooth, yet powerful airflow – circulating purified air throughout the whole room.
+                   
+                  Suitable for use around the home
+                   
+                  Dyson Pure Cool™ offers whole room coverage throughout the home.
+                   
+                  2 in 1 purifier and fan
+                   
+                  Purifies all year round. Cools you in summer.
+                   
+                  Sleep timer
+                   
+                  Dyson Pure Cool™ can be programmed to turn off after pre-set intervals, from 15 minutes to 9 hours. 
+                   
+                  Quiet Mark accreditation
+                   
+                  Awarded for improved sound quality.
+                   
+                  Quick & easy filter changing
+                   
+                  Low maintenance, easily changeable filters. With built-in notification when they require replacing.
+                   
+                  Safe
+                   
+                  Automatically shuts off when tipped over. No fast-spinning blades.
+                   
+                  Oscillates up to 350°
+                   
+                  Adjustable oscillation angle from 45° to 350°, to help project purified air around the whole room.
+                   
+                  Diffused mode for winter. Purifies without cooling you.
+                   
+                  In diffused mode air is projected through the back of the machine, whilst maintaining effective purification.
+                   
+                  Night-time mode
+                   
+                  Monitors and purifies using its quietest settings, with a dimmed display.
+                   
+                  Remote control
+                   
+                  Curved and magnetised to store neatly on top of the machine.
+                   
+                  Dyson Link App
+                   
+                  Control your purifying fan from anywhere via the Dyson Link app. Set scheduling and monitor air quality on the go.
+                   
+                  Voice control
+                   
+                  Using a compatible voice service, control your machine with simple, spoken instructions.
+                xpath: /html/body/div[4]/div[4]/div[4]/div[1]/div[2]/div[6]/div[2]/div[1]
+            brandText:
+              - text: Dyson
+                xpath: /html/body/div[4]/div[4]/div[4]/div[1]/div[2]/div[6]/div[2]/div[2]/div[1]/table[1]/tbody[1]/tr[4]/td[1]
+            manufacturer:
+              - text: Dyson
+                xpath: /html/body/div[4]/div[4]/div[4]/div[1]/div[2]/div[6]/div[2]/div[2]/div[1]/table[1]/tbody[1]/tr[4]/td[1]
+            weightNet:
+              - text: "4.65"
+                xpath: /html/body/div[4]/div[4]/div[4]/div[1]/div[2]/div[6]/div[2]/div[2]/div[1]/table[1]/tbody[1]/tr[28]/td[1]
+            variantId:
+              - text: 310154-01
+                xpath: /html/body/div[4]/div[4]/div[4]/div[1]/div[2]/div[8]/div[2]
+            color:
+              - text: White & Silver
+                xpath: /html/body/div[4]/div[4]/div[4]/div[1]/div[2]/div[6]/div[2]/div[2]/div[1]/table[1]/tbody[1]/tr[5]/td[1]
+            name:
+              - text: Clearance/Ex-Display Dyson Pure Cool Desk Air Purifier - White & Silver |
+                  310154-01
+                xpath: /html/body/div[4]/div[4]/div[4]/div[1]/div[2]/div[5]/div[1]/form[1]/div[3]/div[2]/h1[1]
+            specifications:
+              - text: >-
+                  Promotion 
+                   
+                   Clearance Model 
+                   
+                   
+                   
+                   Warranty 
+                   
+                   2 Years 
+                   
+                   
+                   
+                   General 
+                   General 
+                   
+                   
+                   
+                   Brand 
+                   
+                   Dyson 
+                   
+                   
+                   
+                   Colour 
+                   
+                   White & Silver 
+                   
+                   
+                   
+                   Product Type 
+                   
+                   
+                   
+                   
+                   
+                   Power Source 
+                   
+                   Mains 
+                   
+                   
+                   
+                   Number of Settings 
+                   
+                   10 
+                   
+                   
+                   
+                   Timer 
+                   
+                   Yes 
+                   
+                   
+                   
+                   Cord Storage 
+                   
+                   No 
+                   
+                   
+                   
+                   Tank Capacity (l) 
+                   
+                   N/A 
+                   
+                   
+                   
+                   Cord Length (m) 
+                   
+                   1.85 
+                   
+                   
+                   
+                   Functions 
+                   Functions 
+                   
+                   
+                   
+                   Control Type 
+                   
+                   Remote 
+                   
+                   
+                   
+                   Remote Control 
+                   
+                   Yes 
+                   
+                   
+                   
+                   Adjustable Temperature 
+                   
+                   N/A 
+                   
+                   
+                   
+                   Anti-Frost Function 
+                   
+                   No 
+                   
+                   
+                   
+                   Air Flow Rate 
+                   
+                   290 l 
+                   
+                   
+                   
+                   Noise Level (dB) 
+                   
+                   62.5 
+                   
+                   
+                   
+                   Maximum Operating Temperature (°C) 
+                   
+                   
+                   
+                   
+                   
+                   Moisture Extraction (l/24h) 
+                   
+                   N/A 
+                   
+                   
+                   
+                   Features 
+                   Features 
+                   
+                   
+                   
+                   Features 
+                   
+                   Removable filter, Auto shut-off, Glass hepa filter, Draught-free diffused mode 
+                   
+                   
+                   
+                   Dimensions 
+                   Dimensions 
+                   
+                   
+                   
+                   Width (mm) 
+                   
+                   352.00 
+                   
+                   
+                   
+                   Depth (mm) 
+                   
+                   223.00 
+                   
+                   
+                   
+                   Height (mm) 
+                   
+                   691.00 
+                   
+                   
+                   
+                   Weight (kg) 
+                   
+                   4.65
+                xpath: /html/body/div[4]/div[4]/div[4]/div[1]/div[2]/div[6]/div[2]/div[2]
+            warranty:
+              - text: 2 Years
+                xpath: /html/body/div[4]/div[4]/div[4]/div[1]/div[2]/div[6]/div[2]/div[2]/div[1]/table[1]/tbody[1]/tr[2]/td[1]
+            promotion:
+              - text: Clearance Model
+                xpath: /html/body/div[4]/div[4]/div[4]/div[1]/div[2]/div[6]/div[2]/div[2]/div[1]/table[1]/tbody[1]/tr[1]/td[1]
+            firstVariant:
+              - text: 310154-01
+                xpath: /html/body/div[4]/div[4]/div[4]/div[1]/div[2]/div[8]/div[2]
+            variants:
+              - text: 310154-01
+                xpath: /html/body/div[4]/div[4]/div[4]/div[1]/div[2]/div[8]/div[2]
+            termsAndConditions:
+              - text: Yes
+                xpath: /html/body/div[4]/div[4]/div[4]/div[1]/div[2]/div[6]/div[2]/div[5]/div[1]/div[1]/p[24]/strong[1]
+            listPrice:
+              - text: €449.99
+                xpath: /html/body/div[4]/div[4]/div[4]/div[1]/div[2]/div[5]/div[1]/form[1]/div[3]/div[7]/div[1]/div[1]/p[1]/span[1]
+            price:
+              - text: €439.99
+                xpath: /html/body/div[4]/div[4]/div[4]/div[1]/div[2]/div[5]/div[1]/form[1]/div[3]/div[7]/div[1]/div[1]/p[2]
+            descriptionBullets:
+              - text: "0"
+                type: NUMBER
+                raw: "0"
+                locale: en
+                value: 0
+            variantCount:
+              - text: "1"
+                type: NUMBER
+                raw: "1"
+                locale: en
+                value: 1
+            inStorePrice:
+              - text: €439.99
+                xpath: /html/body/div[4]/div[4]/div[4]/div[1]/div[2]/div[5]/div[1]/form[1]/div[3]/div[7]/div[1]/div[1]/p[2]
+            coupon:
+              - text: Save €10.00
+                xpath: /html/body/div[4]/div[4]/div[4]/div[1]/div[2]/div[5]/div[1]/form[1]/div[3]/div[7]/div[1]/div[1]/p[3]
+            largeImageCount:
+              - text: "22"
+                type: NUMBER
+                raw: "22"
+                locale: en
+                value: 22
+            technicalInformationPdfPresent:
+              - text: No
+            privacyPolicy:
+              - text: No
+            customerServiceAvailability:
+              - text: No
+            Image360Present:
+              - text: No
+            imageZoomFeaturePresent:
+              - text: Yes
+        xpath: /html
+    timestamp: 1606997073591
