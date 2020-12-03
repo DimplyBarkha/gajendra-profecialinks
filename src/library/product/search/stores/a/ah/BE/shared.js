@@ -17,8 +17,10 @@ const transform = (data) => {
       gr['rankOrganic'] = [{ text: index + 1 }];
       gr['_input'] = url;
       gr['_url'] = filterSearch;
-      if (gr && gr.price) gr.price[0].text = '€ ' + gr.price[0].text;
-      if (gr && gr.productUrl)gr.productUrl[0].text = 'https://www.ah.be' + gr.productUrl[0].text;
+      if (gr && gr.productUrl && gr.productUrl.length) {
+        gr.productUrl[0].text = 'https://www.ah.be' + gr.productUrl[0].text;
+        gr['id'] = [{ text: 'wi' + gr.productUrl[0].text.match(/\d+/g).join() }];
+      }
     });
   });
   return data;
