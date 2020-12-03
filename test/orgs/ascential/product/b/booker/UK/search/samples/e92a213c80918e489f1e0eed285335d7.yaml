@@ -2,7 +2,7 @@ input:
   keywords: Glass Cleaner
   _url: http://booker.co.uk
 extractions:
-  - html: https://workbench.import.io/html/run=eb17a5d1-1a7d-4f97-973f-9f88472b964f/task=1a30a76a-9149-47ea-a965-94bbcfe54592/1afa7688-9a2f-49a7-b29c-918185c542b2.html
+  - html: https://workbench.import.io/html/run=96a14a39-5efa-4363-8cca-11eb9ff87953/task=7a3dee4f-db40-4189-b287-54db4eeb6c2c/5bcb6a9f-c7e7-448e-b9a9-c66d429740c7.html
     extractionConfigId: product/search/stores/b/booker/UK/extract
     data:
       - group:
@@ -18,6 +18,9 @@ extractions:
             thumbnail:
               - text: https://www.booker.co.uk/bbimages/1/a8691e96-11c2-427c-a523-958a46042972.jpg
                 xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[2]/div[4]/span[1]/table[1]/tbody[1]/tr[1]/td[2]/a[1]/img[1]/@prodthumb
+            price:
+              - text: £14.49
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[2]/div[4]/span[1]/table[1]/tbody[1]/tr[1]/td[6]/ul[1]/li[1]/text()[1]
             rank:
               - text: "1"
                 xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[2]/div[4]/span[1]/table[1]/tbody[1]/tr[1]/@index
@@ -40,6 +43,9 @@ extractions:
             thumbnail:
               - text: https://www.booker.co.uk/bbimages/1/a8691e96-11c2-427c-a523-958a46042972.jpg
                 xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[2]/div[4]/span[1]/table[1]/tbody[1]/tr[2]/td[2]/a[1]/img[1]/@prodthumb
+            price:
+              - text: £8.49
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[2]/div[4]/span[1]/table[1]/tbody[1]/tr[2]/td[6]/ul[1]/li[1]/text()[1]
             rank:
               - text: "2"
                 xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[2]/div[4]/span[1]/table[1]/tbody[1]/tr[2]/@index
@@ -62,6 +68,9 @@ extractions:
             thumbnail:
               - text: https://www.booker.co.uk/bbimages/1/7b37125b-8b18-4841-b160-a20b8856bf13.jpg
                 xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[2]/div[4]/span[1]/table[1]/tbody[1]/tr[3]/td[2]/a[1]/img[1]/@prodthumb
+            price:
+              - text: £15.99
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[2]/div[4]/span[1]/table[1]/tbody[1]/tr[3]/td[6]/ul[1]/li[1]/text()[1]
             rank:
               - text: "3"
                 xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[2]/div[4]/span[1]/table[1]/tbody[1]/tr[3]/@index
@@ -84,6 +93,9 @@ extractions:
             thumbnail:
               - text: https://www.booker.co.uk/bbimages/1/7b37125b-8b18-4841-b160-a20b8856bf13.jpg
                 xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[2]/div[4]/span[1]/table[1]/tbody[1]/tr[4]/td[2]/a[1]/img[1]/@prodthumb
+            price:
+              - text: £2.99
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[2]/div[4]/span[1]/table[1]/tbody[1]/tr[4]/td[6]/ul[1]/li[1]/text()[1]
             rank:
               - text: "4"
                 xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[2]/div[4]/span[1]/table[1]/tbody[1]/tr[4]/@index
@@ -106,6 +118,9 @@ extractions:
             thumbnail:
               - text: https://www.booker.co.uk/bbimages/1/d245fbd4-a16f-40d9-b0cb-19931ad73502.jpg
                 xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[2]/div[4]/span[1]/table[1]/tbody[1]/tr[5]/td[2]/a[1]/img[1]/@prodthumb
+            price:
+              - text: £153.99
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[2]/div[4]/span[1]/table[1]/tbody[1]/tr[5]/td[6]/ul[1]/li[1]/text()[1]
             rank:
               - text: "5"
                 xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[2]/div[4]/span[1]/table[1]/tbody[1]/tr[5]/@index
@@ -128,6 +143,9 @@ extractions:
             thumbnail:
               - text: https://www.booker.co.uk/bbimages/1/d245fbd4-a16f-40d9-b0cb-19931ad73502.jpg
                 xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[2]/div[4]/span[1]/table[1]/tbody[1]/tr[6]/td[2]/a[1]/img[1]/@prodthumb
+            price:
+              - text: £10.29
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[2]/div[4]/span[1]/table[1]/tbody[1]/tr[6]/td[6]/ul[1]/li[1]/text()[1]
             rank:
               - text: "6"
                 xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[2]/div[4]/span[1]/table[1]/tbody[1]/tr[6]/@index
@@ -139,17 +157,20 @@ extractions:
               - text: https://www.booker.co.uk/catalog/products.aspx?categoryName=Default%20Catalog&keywords=Glass+Cleaner&view=UnGrouped
                 xpath: /html/body/div[1]/@content
           - id:
-              - text: "808279"
+              - text: "253919"
                 xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[2]/div[4]/span[1]/table[1]/tbody[1]/tr[7]/td[1]
             name:
-              - text: Mr Muscle® Window & Glass 750ml
+              - text: Clean Pro+ Glass Renovator H5 4kg
                 xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[2]/div[4]/span[1]/table[1]/tbody[1]/tr[7]/td[4]/div[1]/div[1]/a[1]
             productUrl:
-              - text: https://www.booker.co.uk/catalog/productinformation.aspx?code=808279&settype=03&categoryName=305361&CSUrl=https%3a%2f%2fwww.booker.co.uk%2fcatalog%2fproducts.aspx%3fcategoryName%3dDefault%2520Catalog%26keywords%3dGlass%2520Cleaner%26view%3dUnGrouped
+              - text: https://www.booker.co.uk/catalog/productinformation.aspx?code=253919&settype=03&categoryName=305361&CSUrl=https%3a%2f%2fwww.booker.co.uk%2fcatalog%2fproducts.aspx%3fcategoryName%3dDefault%2520Catalog%26keywords%3dGlass%2520Cleaner%26view%3dUnGrouped
                 xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[2]/div[4]/span[1]/table[1]/tbody[1]/tr[7]/td[4]/div[1]/div[1]/a[1]/@produrl
             thumbnail:
-              - text: https://www.booker.co.uk/bbimages/1/15516454-8d25-46ea-8ac8-2c900aa301ad.jpg
+              - text: https://www.booker.co.uk/bbimages/1/ee0c364b-990c-4c58-a33f-8bef59efae71.jpg
                 xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[2]/div[4]/span[1]/table[1]/tbody[1]/tr[7]/td[2]/a[1]/img[1]/@prodthumb
+            price:
+              - text: £17.99
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[2]/div[4]/span[1]/table[1]/tbody[1]/tr[7]/td[6]/ul[1]/li[1]/text()[1]
             rank:
               - text: "7"
                 xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[2]/div[4]/span[1]/table[1]/tbody[1]/tr[7]/@index
@@ -161,17 +182,20 @@ extractions:
               - text: https://www.booker.co.uk/catalog/products.aspx?categoryName=Default%20Catalog&keywords=Glass+Cleaner&view=UnGrouped
                 xpath: /html/body/div[1]/@content
           - id:
-              - text: "808238"
+              - text: "240538"
                 xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[2]/div[4]/span[1]/table[1]/tbody[1]/tr[8]/td[1]
             name:
-              - text: Mr Muscle® Window & Glass 750ml
+              - text: Mr Muscle Window & Glass Spray 500ml
                 xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[2]/div[4]/span[1]/table[1]/tbody[1]/tr[8]/td[4]/div[1]/div[1]/a[1]
             productUrl:
-              - text: https://www.booker.co.uk/catalog/productinformation.aspx?code=808238&settype=03&categoryName=305361&CSUrl=https%3a%2f%2fwww.booker.co.uk%2fcatalog%2fproducts.aspx%3fcategoryName%3dDefault%2520Catalog%26keywords%3dGlass%2520Cleaner%26view%3dUnGrouped
+              - text: https://www.booker.co.uk/catalog/productinformation.aspx?code=240538&categoryName=302486&CSUrl=https%3a%2f%2fwww.booker.co.uk%2fcatalog%2fproducts.aspx%3fcategoryName%3dDefault%2520Catalog%26keywords%3dGlass%2520Cleaner%26view%3dUnGrouped
                 xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[2]/div[4]/span[1]/table[1]/tbody[1]/tr[8]/td[4]/div[1]/div[1]/a[1]/@produrl
             thumbnail:
-              - text: https://www.booker.co.uk/bbimages/1/15516454-8d25-46ea-8ac8-2c900aa301ad.jpg
+              - text: https://www.booker.co.uk/bbimages/1/5c43131c-942c-4347-9003-54d5d4b6840e.jpg
                 xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[2]/div[4]/span[1]/table[1]/tbody[1]/tr[8]/td[2]/a[1]/img[1]/@prodthumb
+            price:
+              - text: £9.85
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[2]/div[4]/span[1]/table[1]/tbody[1]/tr[8]/td[6]/ul[1]/li[1]/text()[1]
             rank:
               - text: "8"
                 xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[2]/div[4]/span[1]/table[1]/tbody[1]/tr[8]/@index
@@ -183,17 +207,20 @@ extractions:
               - text: https://www.booker.co.uk/catalog/products.aspx?categoryName=Default%20Catalog&keywords=Glass+Cleaner&view=UnGrouped
                 xpath: /html/body/div[1]/@content
           - id:
-              - text: "253919"
+              - text: "250964"
                 xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[2]/div[4]/span[1]/table[1]/tbody[1]/tr[9]/td[1]
             name:
-              - text: Clean Pro+ Glass Renovator H5 4kg
+              - text: Domestos Pro Formula Glass & Multi Surface 750ml
                 xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[2]/div[4]/span[1]/table[1]/tbody[1]/tr[9]/td[4]/div[1]/div[1]/a[1]
             productUrl:
-              - text: https://www.booker.co.uk/catalog/productinformation.aspx?code=253919&settype=03&categoryName=305361&CSUrl=https%3a%2f%2fwww.booker.co.uk%2fcatalog%2fproducts.aspx%3fcategoryName%3dDefault%2520Catalog%26keywords%3dGlass%2520Cleaner%26view%3dUnGrouped
+              - text: https://www.booker.co.uk/catalog/productinformation.aspx?code=250964&categoryName=305360&CSUrl=https%3a%2f%2fwww.booker.co.uk%2fcatalog%2fproducts.aspx%3fcategoryName%3dDefault%2520Catalog%26keywords%3dGlass%2520Cleaner%26view%3dUnGrouped
                 xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[2]/div[4]/span[1]/table[1]/tbody[1]/tr[9]/td[4]/div[1]/div[1]/a[1]/@produrl
             thumbnail:
-              - text: https://www.booker.co.uk/bbimages/1/ee0c364b-990c-4c58-a33f-8bef59efae71.jpg
+              - text: https://www.booker.co.uk/bbimages/1/34e86608-17cb-42a5-a9d9-e8edbee35db1.jpg
                 xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[2]/div[4]/span[1]/table[1]/tbody[1]/tr[9]/td[2]/a[1]/img[1]/@prodthumb
+            price:
+              - text: £15.99
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[2]/div[4]/span[1]/table[1]/tbody[1]/tr[9]/td[6]/ul[1]/li[1]/text()[1]
             rank:
               - text: "9"
                 xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[2]/div[4]/span[1]/table[1]/tbody[1]/tr[9]/@index
@@ -205,17 +232,20 @@ extractions:
               - text: https://www.booker.co.uk/catalog/products.aspx?categoryName=Default%20Catalog&keywords=Glass+Cleaner&view=UnGrouped
                 xpath: /html/body/div[1]/@content
           - id:
-              - text: "73058"
+              - text: "250965"
                 xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[2]/div[4]/span[1]/table[1]/tbody[1]/tr[10]/td[1]
             name:
-              - text: Windolene Window Cleaner 4ACTION Glass & Shiny Surfaces 500ml
+              - text: Domestos Pro Formula Glass & Multi Surface 750ml
                 xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[2]/div[4]/span[1]/table[1]/tbody[1]/tr[10]/td[4]/div[1]/div[1]/a[1]
             productUrl:
-              - text: https://www.booker.co.uk/catalog/productinformation.aspx?code=73058&categoryName=302486&CSUrl=https%3a%2f%2fwww.booker.co.uk%2fcatalog%2fproducts.aspx%3fcategoryName%3dDefault%2520Catalog%26keywords%3dGlass%2520Cleaner%26view%3dUnGrouped
+              - text: https://www.booker.co.uk/catalog/productinformation.aspx?code=250965&categoryName=305360&CSUrl=https%3a%2f%2fwww.booker.co.uk%2fcatalog%2fproducts.aspx%3fcategoryName%3dDefault%2520Catalog%26keywords%3dGlass%2520Cleaner%26view%3dUnGrouped
                 xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[2]/div[4]/span[1]/table[1]/tbody[1]/tr[10]/td[4]/div[1]/div[1]/a[1]/@produrl
             thumbnail:
-              - text: https://www.booker.co.uk/bbimages/1/12e1c857-cea1-4a43-bb20-256e7895ab1e.jpg
+              - text: https://www.booker.co.uk/bbimages/1/34e86608-17cb-42a5-a9d9-e8edbee35db1.jpg
                 xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[2]/div[4]/span[1]/table[1]/tbody[1]/tr[10]/td[2]/a[1]/img[1]/@prodthumb
+            price:
+              - text: £2.99
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[2]/div[4]/span[1]/table[1]/tbody[1]/tr[10]/td[6]/ul[1]/li[1]/text()[1]
             rank:
               - text: "10"
                 xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[2]/div[4]/span[1]/table[1]/tbody[1]/tr[10]/@index
@@ -226,15 +256,21 @@ extractions:
             searchUrl:
               - text: https://www.booker.co.uk/catalog/products.aspx?categoryName=Default%20Catalog&keywords=Glass+Cleaner&view=UnGrouped
                 xpath: /html/body/div[1]/@content
-          - name:
-              - text: Mixed Glass 2 Hole Slimline Bin Lid Green Sgl
+          - id:
+              - text: "73058"
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[2]/div[4]/span[1]/table[1]/tbody[1]/tr[11]/td[1]
+            name:
+              - text: Windolene Window Cleaner 4ACTION Glass & Shiny Surfaces 500ml
                 xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[2]/div[4]/span[1]/table[1]/tbody[1]/tr[11]/td[4]/div[1]/div[1]/a[1]
             productUrl:
-              - text: https://www.booker.co.uk/catalog/productinformation.aspx?code=1012815&categoryName=309409&CSUrl=https%3a%2f%2fwww.booker.co.uk%2fcatalog%2fproducts.aspx%3fcategoryName%3dDefault%2520Catalog%26keywords%3dGlass%2520Cleaner%26view%3dUnGrouped
+              - text: https://www.booker.co.uk/catalog/productinformation.aspx?code=73058&categoryName=302486&CSUrl=https%3a%2f%2fwww.booker.co.uk%2fcatalog%2fproducts.aspx%3fcategoryName%3dDefault%2520Catalog%26keywords%3dGlass%2520Cleaner%26view%3dUnGrouped
                 xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[2]/div[4]/span[1]/table[1]/tbody[1]/tr[11]/td[4]/div[1]/div[1]/a[1]/@produrl
             thumbnail:
-              - text: https://www.booker.co.uk/bbimages/71278/1c6fa986-b938-4f38-babf-9572d457841a.jpg
+              - text: https://www.booker.co.uk/bbimages/1/12e1c857-cea1-4a43-bb20-256e7895ab1e.jpg
                 xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[2]/div[4]/span[1]/table[1]/tbody[1]/tr[11]/td[2]/a[1]/img[1]/@prodthumb
+            price:
+              - text: £5.79
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[2]/div[4]/span[1]/table[1]/tbody[1]/tr[11]/td[6]/ul[1]/li[1]/text()[1]
             rank:
               - text: "11"
                 xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[2]/div[4]/span[1]/table[1]/tbody[1]/tr[11]/@index
@@ -245,5 +281,27 @@ extractions:
             searchUrl:
               - text: https://www.booker.co.uk/catalog/products.aspx?categoryName=Default%20Catalog&keywords=Glass+Cleaner&view=UnGrouped
                 xpath: /html/body/div[1]/@content
+          - name:
+              - text: Mixed Glass 2 Hole Slimline Bin Lid Green Sgl
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[2]/div[4]/span[1]/table[1]/tbody[1]/tr[12]/td[4]/div[1]/div[1]/a[1]
+            productUrl:
+              - text: https://www.booker.co.uk/catalog/productinformation.aspx?code=1012815&categoryName=309409&CSUrl=https%3a%2f%2fwww.booker.co.uk%2fcatalog%2fproducts.aspx%3fcategoryName%3dDefault%2520Catalog%26keywords%3dGlass%2520Cleaner%26view%3dUnGrouped
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[2]/div[4]/span[1]/table[1]/tbody[1]/tr[12]/td[4]/div[1]/div[1]/a[1]/@produrl
+            thumbnail:
+              - text: https://www.booker.co.uk/bbimages/71278/1c6fa986-b938-4f38-babf-9572d457841a.jpg
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[2]/div[4]/span[1]/table[1]/tbody[1]/tr[12]/td[2]/a[1]/img[1]/@prodthumb
+            price:
+              - text: £21.99
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[2]/div[4]/span[1]/table[1]/tbody[1]/tr[12]/td[6]/ul[1]/li[1]/text()[1]
+            rank:
+              - text: "12"
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[2]/div[4]/span[1]/table[1]/tbody[1]/tr[12]/@index
+                type: NUMBER
+                raw: "12"
+                locale: en_GB
+                value: 12
+            searchUrl:
+              - text: https://www.booker.co.uk/catalog/products.aspx?categoryName=Default%20Catalog&keywords=Glass+Cleaner&view=UnGrouped
+                xpath: /html/body/div[1]/@content
         xpath: /html
-    timestamp: 1605525540877
+    timestamp: 1606991287462

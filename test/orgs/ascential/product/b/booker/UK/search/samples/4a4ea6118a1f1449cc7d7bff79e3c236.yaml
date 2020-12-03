@@ -2,22 +2,25 @@ input:
   keywords: Scotch Whisky Single Malt
   _url: http://booker.co.uk
 extractions:
-  - html: https://workbench.import.io/html/run=eb17a5d1-1a7d-4f97-973f-9f88472b964f/task=659d9533-f9a4-48a1-a4b1-361aff293e4e/f94df469-4106-48c1-ba95-803c58f4a02f.html
+  - html: https://workbench.import.io/html/run=96a14a39-5efa-4363-8cca-11eb9ff87953/task=316087d5-4cb4-4749-a45d-0f6648426ad5/7151532e-e9ad-4074-aa83-342446eb5f6d.html
     extractionConfigId: product/search/stores/b/booker/UK/extract
     data:
       - group:
           - id:
-              - text: "818360"
+              - text: "902627"
                 xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[2]/div[4]/span[1]/table[1]/tbody[1]/tr[1]/td[1]
             name:
-              - text: Glenfiddich 12 Year Old Single Malt Scotch Whisky 70cl
+              - text: Talisker 10 Year Old Single Malt Scotch Whisky 70cl with Gift Box
                 xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[2]/div[4]/span[1]/table[1]/tbody[1]/tr[1]/td[4]/div[1]/div[1]/a[1]
             productUrl:
-              - text: https://www.booker.co.uk/catalog/productinformation.aspx?code=818360&settype=03&categoryName=307851&CSUrl=https%3a%2f%2fwww.booker.co.uk%2fcatalog%2fproducts.aspx%3fcategoryName%3dDefault%2520Catalog%26keywords%3dScotch%2520Whisky%2520Single%2520Malt%26view%3dUnGrouped
+              - text: https://www.booker.co.uk/catalog/productinformation.aspx?code=902627&settype=03&categoryName=307851&CSUrl=https%3a%2f%2fwww.booker.co.uk%2fcatalog%2fproducts.aspx%3fcategoryName%3dDefault%2520Catalog%26keywords%3dScotch%2520Whisky%2520Single%2520Malt%26view%3dUnGrouped
                 xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[2]/div[4]/span[1]/table[1]/tbody[1]/tr[1]/td[4]/div[1]/div[1]/a[1]/@produrl
             thumbnail:
-              - text: https://www.booker.co.uk/bbimages/1/43a14451-8074-4429-bfbc-dcd1a896e9ca.jpg
+              - text: https://www.booker.co.uk/bbimages/1/989fc4eb-6493-4699-85aa-cd0616a64fb1.jpg
                 xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[2]/div[4]/span[1]/table[1]/tbody[1]/tr[1]/td[2]/a[1]/img[1]/@prodthumb
+            price:
+              - text: £185.94
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[2]/div[4]/span[1]/table[1]/tbody[1]/tr[1]/td[6]/ul[1]/li[1]/text()[1]
             rank:
               - text: "1"
                 xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[2]/div[4]/span[1]/table[1]/tbody[1]/tr[1]/@index
@@ -29,17 +32,20 @@ extractions:
               - text: https://www.booker.co.uk/catalog/products.aspx?categoryName=Default%20Catalog&keywords=Scotch+Whisky+Single+Malt&view=UnGrouped
                 xpath: /html/body/div[1]/@content
           - id:
-              - text: "818370"
+              - text: "764068"
                 xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[2]/div[4]/span[1]/table[1]/tbody[1]/tr[2]/td[1]
             name:
-              - text: Glenfiddich 12 Year Old Single Malt Scotch Whisky 70cl
+              - text: Talisker 10 Year Old Single Malt Scotch Whisky 70cl with Gift Box
                 xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[2]/div[4]/span[1]/table[1]/tbody[1]/tr[2]/td[4]/div[1]/div[1]/a[1]
             productUrl:
-              - text: https://www.booker.co.uk/catalog/productinformation.aspx?code=818370&settype=03&categoryName=307851&CSUrl=https%3a%2f%2fwww.booker.co.uk%2fcatalog%2fproducts.aspx%3fcategoryName%3dDefault%2520Catalog%26keywords%3dScotch%2520Whisky%2520Single%2520Malt%26view%3dUnGrouped
+              - text: https://www.booker.co.uk/catalog/productinformation.aspx?code=764068&settype=03&categoryName=307851&CSUrl=https%3a%2f%2fwww.booker.co.uk%2fcatalog%2fproducts.aspx%3fcategoryName%3dDefault%2520Catalog%26keywords%3dScotch%2520Whisky%2520Single%2520Malt%26view%3dUnGrouped
                 xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[2]/div[4]/span[1]/table[1]/tbody[1]/tr[2]/td[4]/div[1]/div[1]/a[1]/@produrl
             thumbnail:
-              - text: https://www.booker.co.uk/bbimages/1/43a14451-8074-4429-bfbc-dcd1a896e9ca.jpg
+              - text: https://www.booker.co.uk/bbimages/1/989fc4eb-6493-4699-85aa-cd0616a64fb1.jpg
                 xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[2]/div[4]/span[1]/table[1]/tbody[1]/tr[2]/td[2]/a[1]/img[1]/@prodthumb
+            price:
+              - text: £30.99
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[2]/div[4]/span[1]/table[1]/tbody[1]/tr[2]/td[6]/ul[1]/li[1]/text()[1]
             rank:
               - text: "2"
                 xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[2]/div[4]/span[1]/table[1]/tbody[1]/tr[2]/@index
@@ -51,17 +57,20 @@ extractions:
               - text: https://www.booker.co.uk/catalog/products.aspx?categoryName=Default%20Catalog&keywords=Scotch+Whisky+Single+Malt&view=UnGrouped
                 xpath: /html/body/div[1]/@content
           - id:
-              - text: "5041"
+              - text: "818360"
                 xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[2]/div[4]/span[1]/table[1]/tbody[1]/tr[3]/td[1]
             name:
-              - text: Laphroaig Islay Single Malt Scotch Whisky 10 Year Old 70cl
+              - text: Glenfiddich 12 Year Old Single Malt Scotch Whisky 70cl
                 xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[2]/div[4]/span[1]/table[1]/tbody[1]/tr[3]/td[4]/div[1]/div[1]/a[1]
             productUrl:
-              - text: https://www.booker.co.uk/catalog/productinformation.aspx?code=5041&settype=03&categoryName=307851&CSUrl=https%3a%2f%2fwww.booker.co.uk%2fcatalog%2fproducts.aspx%3fcategoryName%3dDefault%2520Catalog%26keywords%3dScotch%2520Whisky%2520Single%2520Malt%26view%3dUnGrouped
+              - text: https://www.booker.co.uk/catalog/productinformation.aspx?code=818360&settype=03&categoryName=307851&CSUrl=https%3a%2f%2fwww.booker.co.uk%2fcatalog%2fproducts.aspx%3fcategoryName%3dDefault%2520Catalog%26keywords%3dScotch%2520Whisky%2520Single%2520Malt%26view%3dUnGrouped
                 xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[2]/div[4]/span[1]/table[1]/tbody[1]/tr[3]/td[4]/div[1]/div[1]/a[1]/@produrl
             thumbnail:
-              - text: https://www.booker.co.uk/bbimages/1/4c81ffd1-76a8-48b0-87a4-47d7ac18f8fd.jpg
+              - text: https://www.booker.co.uk/bbimages/1/43a14451-8074-4429-bfbc-dcd1a896e9ca.jpg
                 xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[2]/div[4]/span[1]/table[1]/tbody[1]/tr[3]/td[2]/a[1]/img[1]/@prodthumb
+            price:
+              - text: £137.89
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[2]/div[4]/span[1]/table[1]/tbody[1]/tr[3]/td[6]/ul[1]/li[1]/text()[1]
             rank:
               - text: "3"
                 xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[2]/div[4]/span[1]/table[1]/tbody[1]/tr[3]/@index
@@ -73,17 +82,20 @@ extractions:
               - text: https://www.booker.co.uk/catalog/products.aspx?categoryName=Default%20Catalog&keywords=Scotch+Whisky+Single+Malt&view=UnGrouped
                 xpath: /html/body/div[1]/@content
           - id:
-              - text: "5074"
+              - text: "818370"
                 xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[2]/div[4]/span[1]/table[1]/tbody[1]/tr[4]/td[1]
             name:
-              - text: Laphroaig Islay Single Malt Scotch Whisky 10 Year Old 70cl
+              - text: Glenfiddich 12 Year Old Single Malt Scotch Whisky 70cl
                 xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[2]/div[4]/span[1]/table[1]/tbody[1]/tr[4]/td[4]/div[1]/div[1]/a[1]
             productUrl:
-              - text: https://www.booker.co.uk/catalog/productinformation.aspx?code=5074&settype=03&categoryName=307851&CSUrl=https%3a%2f%2fwww.booker.co.uk%2fcatalog%2fproducts.aspx%3fcategoryName%3dDefault%2520Catalog%26keywords%3dScotch%2520Whisky%2520Single%2520Malt%26view%3dUnGrouped
+              - text: https://www.booker.co.uk/catalog/productinformation.aspx?code=818370&settype=03&categoryName=307851&CSUrl=https%3a%2f%2fwww.booker.co.uk%2fcatalog%2fproducts.aspx%3fcategoryName%3dDefault%2520Catalog%26keywords%3dScotch%2520Whisky%2520Single%2520Malt%26view%3dUnGrouped
                 xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[2]/div[4]/span[1]/table[1]/tbody[1]/tr[4]/td[4]/div[1]/div[1]/a[1]/@produrl
             thumbnail:
-              - text: https://www.booker.co.uk/bbimages/1/4c81ffd1-76a8-48b0-87a4-47d7ac18f8fd.jpg
+              - text: https://www.booker.co.uk/bbimages/1/43a14451-8074-4429-bfbc-dcd1a896e9ca.jpg
                 xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[2]/div[4]/span[1]/table[1]/tbody[1]/tr[4]/td[2]/a[1]/img[1]/@prodthumb
+            price:
+              - text: £22.99
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[2]/div[4]/span[1]/table[1]/tbody[1]/tr[4]/td[6]/ul[1]/li[1]/text()[1]
             rank:
               - text: "4"
                 xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[2]/div[4]/span[1]/table[1]/tbody[1]/tr[4]/@index
@@ -95,17 +107,20 @@ extractions:
               - text: https://www.booker.co.uk/catalog/products.aspx?categoryName=Default%20Catalog&keywords=Scotch+Whisky+Single+Malt&view=UnGrouped
                 xpath: /html/body/div[1]/@content
           - id:
-              - text: "128608"
+              - text: "5041"
                 xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[2]/div[4]/span[1]/table[1]/tbody[1]/tr[5]/td[1]
             name:
-              - text: Old Pulteney Twelve Years Old Single Malt Scotch Whisky 70cl
+              - text: Laphroaig Islay Single Malt Scotch Whisky 10 Year Old 70cl
                 xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[2]/div[4]/span[1]/table[1]/tbody[1]/tr[5]/td[4]/div[1]/div[1]/a[1]
             productUrl:
-              - text: https://www.booker.co.uk/catalog/productinformation.aspx?code=128608&settype=03&categoryName=307851&CSUrl=https%3a%2f%2fwww.booker.co.uk%2fcatalog%2fproducts.aspx%3fcategoryName%3dDefault%2520Catalog%26keywords%3dScotch%2520Whisky%2520Single%2520Malt%26view%3dUnGrouped
+              - text: https://www.booker.co.uk/catalog/productinformation.aspx?code=5041&settype=03&categoryName=307851&CSUrl=https%3a%2f%2fwww.booker.co.uk%2fcatalog%2fproducts.aspx%3fcategoryName%3dDefault%2520Catalog%26keywords%3dScotch%2520Whisky%2520Single%2520Malt%26view%3dUnGrouped
                 xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[2]/div[4]/span[1]/table[1]/tbody[1]/tr[5]/td[4]/div[1]/div[1]/a[1]/@produrl
             thumbnail:
-              - text: https://www.booker.co.uk/bbimages/1/17eb69c9-bf66-4999-90ec-05bc3c341eb4.jpg
+              - text: https://www.booker.co.uk/bbimages/1/4c81ffd1-76a8-48b0-87a4-47d7ac18f8fd.jpg
                 xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[2]/div[4]/span[1]/table[1]/tbody[1]/tr[5]/td[2]/a[1]/img[1]/@prodthumb
+            price:
+              - text: £149.89
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[2]/div[4]/span[1]/table[1]/tbody[1]/tr[5]/td[6]/ul[1]/li[1]/text()[1]
             rank:
               - text: "5"
                 xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[2]/div[4]/span[1]/table[1]/tbody[1]/tr[5]/@index
@@ -117,17 +132,20 @@ extractions:
               - text: https://www.booker.co.uk/catalog/products.aspx?categoryName=Default%20Catalog&keywords=Scotch+Whisky+Single+Malt&view=UnGrouped
                 xpath: /html/body/div[1]/@content
           - id:
-              - text: "747180"
+              - text: "5074"
                 xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[2]/div[4]/span[1]/table[1]/tbody[1]/tr[6]/td[1]
             name:
-              - text: Old Pulteney Twelve Years Old Single Malt Scotch Whisky 70cl
+              - text: Laphroaig Islay Single Malt Scotch Whisky 10 Year Old 70cl
                 xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[2]/div[4]/span[1]/table[1]/tbody[1]/tr[6]/td[4]/div[1]/div[1]/a[1]
             productUrl:
-              - text: https://www.booker.co.uk/catalog/productinformation.aspx?code=747180&settype=03&categoryName=307851&CSUrl=https%3a%2f%2fwww.booker.co.uk%2fcatalog%2fproducts.aspx%3fcategoryName%3dDefault%2520Catalog%26keywords%3dScotch%2520Whisky%2520Single%2520Malt%26view%3dUnGrouped
+              - text: https://www.booker.co.uk/catalog/productinformation.aspx?code=5074&settype=03&categoryName=307851&CSUrl=https%3a%2f%2fwww.booker.co.uk%2fcatalog%2fproducts.aspx%3fcategoryName%3dDefault%2520Catalog%26keywords%3dScotch%2520Whisky%2520Single%2520Malt%26view%3dUnGrouped
                 xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[2]/div[4]/span[1]/table[1]/tbody[1]/tr[6]/td[4]/div[1]/div[1]/a[1]/@produrl
             thumbnail:
-              - text: https://www.booker.co.uk/bbimages/1/17eb69c9-bf66-4999-90ec-05bc3c341eb4.jpg
+              - text: https://www.booker.co.uk/bbimages/1/4c81ffd1-76a8-48b0-87a4-47d7ac18f8fd.jpg
                 xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[2]/div[4]/span[1]/table[1]/tbody[1]/tr[6]/td[2]/a[1]/img[1]/@prodthumb
+            price:
+              - text: £24.99
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[2]/div[4]/span[1]/table[1]/tbody[1]/tr[6]/td[6]/ul[1]/li[1]/text()[1]
             rank:
               - text: "6"
                 xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[2]/div[4]/span[1]/table[1]/tbody[1]/tr[6]/@index
@@ -139,17 +157,20 @@ extractions:
               - text: https://www.booker.co.uk/catalog/products.aspx?categoryName=Default%20Catalog&keywords=Scotch+Whisky+Single+Malt&view=UnGrouped
                 xpath: /html/body/div[1]/@content
           - id:
-              - text: "233292"
+              - text: "191069"
                 xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[2]/div[4]/span[1]/table[1]/tbody[1]/tr[7]/td[1]
             name:
-              - text: Glenmorangie The Original Highland Single Malt Scotch Whisky 70cl
+              - text: The Glenlivet Founder's Reserve Single Malt Scotch Whisky 70cl
                 xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[2]/div[4]/span[1]/table[1]/tbody[1]/tr[7]/td[4]/div[1]/div[1]/a[1]
             productUrl:
-              - text: https://www.booker.co.uk/catalog/productinformation.aspx?code=233292&settype=03&categoryName=307851&CSUrl=https%3a%2f%2fwww.booker.co.uk%2fcatalog%2fproducts.aspx%3fcategoryName%3dDefault%2520Catalog%26keywords%3dScotch%2520Whisky%2520Single%2520Malt%26view%3dUnGrouped
+              - text: https://www.booker.co.uk/catalog/productinformation.aspx?code=191069&settype=03&categoryName=307851&CSUrl=https%3a%2f%2fwww.booker.co.uk%2fcatalog%2fproducts.aspx%3fcategoryName%3dDefault%2520Catalog%26keywords%3dScotch%2520Whisky%2520Single%2520Malt%26view%3dUnGrouped
                 xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[2]/div[4]/span[1]/table[1]/tbody[1]/tr[7]/td[4]/div[1]/div[1]/a[1]/@produrl
             thumbnail:
-              - text: https://www.booker.co.uk/bbimages/1/6a772551-8d5b-4645-b7cb-20513b518f78.jpg
+              - text: https://www.booker.co.uk/bbimages/1/c475f85a-023c-43c2-a8d4-3bf346c3fe0b.jpg
                 xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[2]/div[4]/span[1]/table[1]/tbody[1]/tr[7]/td[2]/a[1]/img[1]/@prodthumb
+            price:
+              - text: £119.94
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[2]/div[4]/span[1]/table[1]/tbody[1]/tr[7]/td[6]/ul[1]/li[1]/text()[1]
             rank:
               - text: "7"
                 xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[2]/div[4]/span[1]/table[1]/tbody[1]/tr[7]/@index
@@ -161,17 +182,20 @@ extractions:
               - text: https://www.booker.co.uk/catalog/products.aspx?categoryName=Default%20Catalog&keywords=Scotch+Whisky+Single+Malt&view=UnGrouped
                 xpath: /html/body/div[1]/@content
           - id:
-              - text: "47423"
+              - text: "191073"
                 xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[2]/div[4]/span[1]/table[1]/tbody[1]/tr[8]/td[1]
             name:
-              - text: Glenmorangie The Original Highland Single Malt Scotch Whisky 70cl
+              - text: The Glenlivet Founder's Reserve Single Malt Scotch Whisky 70cl
                 xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[2]/div[4]/span[1]/table[1]/tbody[1]/tr[8]/td[4]/div[1]/div[1]/a[1]
             productUrl:
-              - text: https://www.booker.co.uk/catalog/productinformation.aspx?code=47423&settype=03&categoryName=307851&CSUrl=https%3a%2f%2fwww.booker.co.uk%2fcatalog%2fproducts.aspx%3fcategoryName%3dDefault%2520Catalog%26keywords%3dScotch%2520Whisky%2520Single%2520Malt%26view%3dUnGrouped
+              - text: https://www.booker.co.uk/catalog/productinformation.aspx?code=191073&settype=03&categoryName=307851&CSUrl=https%3a%2f%2fwww.booker.co.uk%2fcatalog%2fproducts.aspx%3fcategoryName%3dDefault%2520Catalog%26keywords%3dScotch%2520Whisky%2520Single%2520Malt%26view%3dUnGrouped
                 xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[2]/div[4]/span[1]/table[1]/tbody[1]/tr[8]/td[4]/div[1]/div[1]/a[1]/@produrl
             thumbnail:
-              - text: https://www.booker.co.uk/bbimages/1/6a772551-8d5b-4645-b7cb-20513b518f78.jpg
+              - text: https://www.booker.co.uk/bbimages/1/c475f85a-023c-43c2-a8d4-3bf346c3fe0b.jpg
                 xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[2]/div[4]/span[1]/table[1]/tbody[1]/tr[8]/td[2]/a[1]/img[1]/@prodthumb
+            price:
+              - text: £19.99
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[2]/div[4]/span[1]/table[1]/tbody[1]/tr[8]/td[6]/ul[1]/li[1]/text()[1]
             rank:
               - text: "8"
                 xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[2]/div[4]/span[1]/table[1]/tbody[1]/tr[8]/@index
@@ -183,17 +207,20 @@ extractions:
               - text: https://www.booker.co.uk/catalog/products.aspx?categoryName=Default%20Catalog&keywords=Scotch+Whisky+Single+Malt&view=UnGrouped
                 xpath: /html/body/div[1]/@content
           - id:
-              - text: "236969"
+              - text: "233292"
                 xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[2]/div[4]/span[1]/table[1]/tbody[1]/tr[9]/td[1]
             name:
-              - text: Jura Aged 10 Years Single Malt Scotch Whisky 70cl
+              - text: Glenmorangie The Original Highland Single Malt Scotch Whisky 70cl
                 xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[2]/div[4]/span[1]/table[1]/tbody[1]/tr[9]/td[4]/div[1]/div[1]/a[1]
             productUrl:
-              - text: https://www.booker.co.uk/catalog/productinformation.aspx?code=236969&settype=03&categoryName=307851&CSUrl=https%3a%2f%2fwww.booker.co.uk%2fcatalog%2fproducts.aspx%3fcategoryName%3dDefault%2520Catalog%26keywords%3dScotch%2520Whisky%2520Single%2520Malt%26view%3dUnGrouped
+              - text: https://www.booker.co.uk/catalog/productinformation.aspx?code=233292&settype=03&categoryName=307851&CSUrl=https%3a%2f%2fwww.booker.co.uk%2fcatalog%2fproducts.aspx%3fcategoryName%3dDefault%2520Catalog%26keywords%3dScotch%2520Whisky%2520Single%2520Malt%26view%3dUnGrouped
                 xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[2]/div[4]/span[1]/table[1]/tbody[1]/tr[9]/td[4]/div[1]/div[1]/a[1]/@produrl
             thumbnail:
-              - text: https://www.booker.co.uk/bbimages/1/0ec137d0-c001-499e-b2ff-245489444257.jpg
+              - text: https://www.booker.co.uk/bbimages/1/6a772551-8d5b-4645-b7cb-20513b518f78.jpg
                 xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[2]/div[4]/span[1]/table[1]/tbody[1]/tr[9]/td[2]/a[1]/img[1]/@prodthumb
+            price:
+              - text: £173.94
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[2]/div[4]/span[1]/table[1]/tbody[1]/tr[9]/td[6]/ul[1]/li[1]/text()[1]
             rank:
               - text: "9"
                 xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[2]/div[4]/span[1]/table[1]/tbody[1]/tr[9]/@index
@@ -205,17 +232,20 @@ extractions:
               - text: https://www.booker.co.uk/catalog/products.aspx?categoryName=Default%20Catalog&keywords=Scotch+Whisky+Single+Malt&view=UnGrouped
                 xpath: /html/body/div[1]/@content
           - id:
-              - text: "237002"
+              - text: "47423"
                 xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[2]/div[4]/span[1]/table[1]/tbody[1]/tr[10]/td[1]
             name:
-              - text: Jura Aged 10 Years Single Malt Scotch Whisky 70cl
+              - text: Glenmorangie The Original Highland Single Malt Scotch Whisky 70cl
                 xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[2]/div[4]/span[1]/table[1]/tbody[1]/tr[10]/td[4]/div[1]/div[1]/a[1]
             productUrl:
-              - text: https://www.booker.co.uk/catalog/productinformation.aspx?code=237002&settype=03&categoryName=307851&CSUrl=https%3a%2f%2fwww.booker.co.uk%2fcatalog%2fproducts.aspx%3fcategoryName%3dDefault%2520Catalog%26keywords%3dScotch%2520Whisky%2520Single%2520Malt%26view%3dUnGrouped
+              - text: https://www.booker.co.uk/catalog/productinformation.aspx?code=47423&settype=03&categoryName=307851&CSUrl=https%3a%2f%2fwww.booker.co.uk%2fcatalog%2fproducts.aspx%3fcategoryName%3dDefault%2520Catalog%26keywords%3dScotch%2520Whisky%2520Single%2520Malt%26view%3dUnGrouped
                 xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[2]/div[4]/span[1]/table[1]/tbody[1]/tr[10]/td[4]/div[1]/div[1]/a[1]/@produrl
             thumbnail:
-              - text: https://www.booker.co.uk/bbimages/1/0ec137d0-c001-499e-b2ff-245489444257.jpg
+              - text: https://www.booker.co.uk/bbimages/1/6a772551-8d5b-4645-b7cb-20513b518f78.jpg
                 xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[2]/div[4]/span[1]/table[1]/tbody[1]/tr[10]/td[2]/a[1]/img[1]/@prodthumb
+            price:
+              - text: £28.99
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[2]/div[4]/span[1]/table[1]/tbody[1]/tr[10]/td[6]/ul[1]/li[1]/text()[1]
             rank:
               - text: "10"
                 xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[2]/div[4]/span[1]/table[1]/tbody[1]/tr[10]/@index
@@ -226,15 +256,21 @@ extractions:
             searchUrl:
               - text: https://www.booker.co.uk/catalog/products.aspx?categoryName=Default%20Catalog&keywords=Scotch+Whisky+Single+Malt&view=UnGrouped
                 xpath: /html/body/div[1]/@content
-          - name:
-              - text: Talisker Skye Single Malt Scotch Whisky 70cl
+          - id:
+              - text: "191176"
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[2]/div[4]/span[1]/table[1]/tbody[1]/tr[11]/td[1]
+            name:
+              - text: Loch Lomond Original Single Malt Scotch Whisky 70cl
                 xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[2]/div[4]/span[1]/table[1]/tbody[1]/tr[11]/td[4]/div[1]/div[1]/a[1]
             productUrl:
-              - text: https://www.booker.co.uk/catalog/productinformation.aspx?code=1011014&categoryName=307851&CSUrl=https%3a%2f%2fwww.booker.co.uk%2fcatalog%2fproducts.aspx%3fcategoryName%3dDefault%2520Catalog%26keywords%3dScotch%2520Whisky%2520Single%2520Malt%26view%3dUnGrouped
+              - text: https://www.booker.co.uk/catalog/productinformation.aspx?code=191176&categoryName=307851&CSUrl=https%3a%2f%2fwww.booker.co.uk%2fcatalog%2fproducts.aspx%3fcategoryName%3dDefault%2520Catalog%26keywords%3dScotch%2520Whisky%2520Single%2520Malt%26view%3dUnGrouped
                 xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[2]/div[4]/span[1]/table[1]/tbody[1]/tr[11]/td[4]/div[1]/div[1]/a[1]/@produrl
             thumbnail:
-              - text: https://www.booker.co.uk/bbimages/71172/b7eebacb-d04b-4d21-8b14-94e13866902c.jpg
+              - text: https://www.booker.co.uk/bbimages/1/02ce015c-0b66-41b7-b493-89375dcf5a9d.jpg
                 xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[2]/div[4]/span[1]/table[1]/tbody[1]/tr[11]/td[2]/a[1]/img[1]/@prodthumb
+            price:
+              - text: £101.94
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[2]/div[4]/span[1]/table[1]/tbody[1]/tr[11]/td[6]/ul[1]/li[1]/text()[1]
             rank:
               - text: "11"
                 xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[2]/div[4]/span[1]/table[1]/tbody[1]/tr[11]/@index
@@ -245,15 +281,21 @@ extractions:
             searchUrl:
               - text: https://www.booker.co.uk/catalog/products.aspx?categoryName=Default%20Catalog&keywords=Scotch+Whisky+Single+Malt&view=UnGrouped
                 xpath: /html/body/div[1]/@content
-          - name:
-              - text: AnCnoc 12 Years Old Highland Single Malt Scotch Whisky 70cl
+          - id:
+              - text: "191177"
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[2]/div[4]/span[1]/table[1]/tbody[1]/tr[12]/td[1]
+            name:
+              - text: Loch Lomond Original Single Malt Scotch Whisky 70cl
                 xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[2]/div[4]/span[1]/table[1]/tbody[1]/tr[12]/td[4]/div[1]/div[1]/a[1]
             productUrl:
-              - text: https://www.booker.co.uk/catalog/productinformation.aspx?code=1008964&categoryName=307851&CSUrl=https%3a%2f%2fwww.booker.co.uk%2fcatalog%2fproducts.aspx%3fcategoryName%3dDefault%2520Catalog%26keywords%3dScotch%2520Whisky%2520Single%2520Malt%26view%3dUnGrouped
+              - text: https://www.booker.co.uk/catalog/productinformation.aspx?code=191177&categoryName=307851&CSUrl=https%3a%2f%2fwww.booker.co.uk%2fcatalog%2fproducts.aspx%3fcategoryName%3dDefault%2520Catalog%26keywords%3dScotch%2520Whisky%2520Single%2520Malt%26view%3dUnGrouped
                 xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[2]/div[4]/span[1]/table[1]/tbody[1]/tr[12]/td[4]/div[1]/div[1]/a[1]/@produrl
             thumbnail:
-              - text: https://www.booker.co.uk/bbimages/1/72c2c90d-60bc-419a-9f80-aabe8d9bfaa5.jpg
+              - text: https://www.booker.co.uk/bbimages/1/02ce015c-0b66-41b7-b493-89375dcf5a9d.jpg
                 xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[2]/div[4]/span[1]/table[1]/tbody[1]/tr[12]/td[2]/a[1]/img[1]/@prodthumb
+            price:
+              - text: £16.99
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[2]/div[4]/span[1]/table[1]/tbody[1]/tr[12]/td[6]/ul[1]/li[1]/text()[1]
             rank:
               - text: "12"
                 xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[2]/div[4]/span[1]/table[1]/tbody[1]/tr[12]/@index
@@ -273,6 +315,9 @@ extractions:
             thumbnail:
               - text: https://www.booker.co.uk/bbimages/71172/760e626e-2399-4423-b395-86fe7a06ad0e.jpg
                 xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[2]/div[4]/span[1]/table[1]/tbody[1]/tr[13]/td[2]/a[1]/img[1]/@prodthumb
+            price:
+              - text: £33.99
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[2]/div[4]/span[1]/table[1]/tbody[1]/tr[13]/td[6]/ul[1]/li[1]/text()[1]
             rank:
               - text: "13"
                 xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[2]/div[4]/span[1]/table[1]/tbody[1]/tr[13]/@index
@@ -284,14 +329,17 @@ extractions:
               - text: https://www.booker.co.uk/catalog/products.aspx?categoryName=Default%20Catalog&keywords=Scotch+Whisky+Single+Malt&view=UnGrouped
                 xpath: /html/body/div[1]/@content
           - name:
-              - text: Bunnahabhain Islay Single Malt Scotch Whisky 70cl
+              - text: Aberlour A'bunadh Single Malt Scotch Whisky 70cl
                 xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[2]/div[4]/span[1]/table[1]/tbody[1]/tr[14]/td[4]/div[1]/div[1]/a[1]
             productUrl:
-              - text: https://www.booker.co.uk/catalog/productinformation.aspx?code=1017365&categoryName=307851&CSUrl=https%3a%2f%2fwww.booker.co.uk%2fcatalog%2fproducts.aspx%3fcategoryName%3dDefault%2520Catalog%26keywords%3dScotch%2520Whisky%2520Single%2520Malt%26view%3dUnGrouped
+              - text: https://www.booker.co.uk/catalog/productinformation.aspx?code=1012878&categoryName=307851&CSUrl=https%3a%2f%2fwww.booker.co.uk%2fcatalog%2fproducts.aspx%3fcategoryName%3dDefault%2520Catalog%26keywords%3dScotch%2520Whisky%2520Single%2520Malt%26view%3dUnGrouped
                 xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[2]/div[4]/span[1]/table[1]/tbody[1]/tr[14]/td[4]/div[1]/div[1]/a[1]/@produrl
             thumbnail:
-              - text: https://www.booker.co.uk/bbimages/71172/281c9c73-9bc1-414e-ad1a-2cae6c85ce83.jpg
+              - text: https://www.booker.co.uk/bbimages/71172/1732eb61-c35d-4bc5-9662-63aefcf26ace.jpg
                 xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[2]/div[4]/span[1]/table[1]/tbody[1]/tr[14]/td[2]/a[1]/img[1]/@prodthumb
+            price:
+              - text: £59.99
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[2]/div[4]/span[1]/table[1]/tbody[1]/tr[14]/td[6]/ul[1]/li[1]/text()[1]
             rank:
               - text: "14"
                 xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[2]/div[4]/span[1]/table[1]/tbody[1]/tr[14]/@index
@@ -311,6 +359,9 @@ extractions:
             thumbnail:
               - text: https://www.booker.co.uk/bbimages/71172/7494d317-4703-4349-9b58-15d1f1af70eb.jpg
                 xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[2]/div[4]/span[1]/table[1]/tbody[1]/tr[15]/td[2]/a[1]/img[1]/@prodthumb
+            price:
+              - text: £23.99
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[2]/div[4]/span[1]/table[1]/tbody[1]/tr[15]/td[6]/ul[1]/li[1]/text()[1]
             rank:
               - text: "15"
                 xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[2]/div[4]/span[1]/table[1]/tbody[1]/tr[15]/@index
@@ -330,6 +381,9 @@ extractions:
             thumbnail:
               - text: https://www.booker.co.uk/bbimages/71172/141abccb-b40d-46d3-9efc-0ff81c452692.jpg
                 xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[2]/div[4]/span[1]/table[1]/tbody[1]/tr[16]/td[2]/a[1]/img[1]/@prodthumb
+            price:
+              - text: £24.99
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[2]/div[4]/span[1]/table[1]/tbody[1]/tr[16]/td[6]/ul[1]/li[1]/text()[1]
             rank:
               - text: "16"
                 xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[2]/div[4]/span[1]/table[1]/tbody[1]/tr[16]/@index
@@ -341,14 +395,17 @@ extractions:
               - text: https://www.booker.co.uk/catalog/products.aspx?categoryName=Default%20Catalog&keywords=Scotch+Whisky+Single+Malt&view=UnGrouped
                 xpath: /html/body/div[1]/@content
           - name:
-              - text: Aberlour A'bunadh Single Malt Scotch Whisky 70cl
+              - text: Bunnahabhain Islay Single Malt Scotch Whisky 70cl
                 xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[2]/div[4]/span[1]/table[1]/tbody[1]/tr[17]/td[4]/div[1]/div[1]/a[1]
             productUrl:
-              - text: https://www.booker.co.uk/catalog/productinformation.aspx?code=1012878&categoryName=307851&CSUrl=https%3a%2f%2fwww.booker.co.uk%2fcatalog%2fproducts.aspx%3fcategoryName%3dDefault%2520Catalog%26keywords%3dScotch%2520Whisky%2520Single%2520Malt%26view%3dUnGrouped
+              - text: https://www.booker.co.uk/catalog/productinformation.aspx?code=1017365&categoryName=307851&CSUrl=https%3a%2f%2fwww.booker.co.uk%2fcatalog%2fproducts.aspx%3fcategoryName%3dDefault%2520Catalog%26keywords%3dScotch%2520Whisky%2520Single%2520Malt%26view%3dUnGrouped
                 xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[2]/div[4]/span[1]/table[1]/tbody[1]/tr[17]/td[4]/div[1]/div[1]/a[1]/@produrl
             thumbnail:
-              - text: https://www.booker.co.uk/bbimages/71172/1732eb61-c35d-4bc5-9662-63aefcf26ace.jpg
+              - text: https://www.booker.co.uk/bbimages/71172/281c9c73-9bc1-414e-ad1a-2cae6c85ce83.jpg
                 xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[2]/div[4]/span[1]/table[1]/tbody[1]/tr[17]/td[2]/a[1]/img[1]/@prodthumb
+            price:
+              - text: £31.99
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[2]/div[4]/span[1]/table[1]/tbody[1]/tr[17]/td[6]/ul[1]/li[1]/text()[1]
             rank:
               - text: "17"
                 xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[2]/div[4]/span[1]/table[1]/tbody[1]/tr[17]/@index
@@ -360,14 +417,17 @@ extractions:
               - text: https://www.booker.co.uk/catalog/products.aspx?categoryName=Default%20Catalog&keywords=Scotch+Whisky+Single+Malt&view=UnGrouped
                 xpath: /html/body/div[1]/@content
           - name:
-              - text: Glengoyne 10 Year Old Highland Single Malt Scotch Whisky, 70cl
+              - text: Jura Aged 10 Years Single Malt Scotch Whisky 70cl
                 xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[2]/div[4]/span[1]/table[1]/tbody[1]/tr[18]/td[4]/div[1]/div[1]/a[1]
             productUrl:
-              - text: https://www.booker.co.uk/catalog/productinformation.aspx?code=1013060&categoryName=307851&CSUrl=https%3a%2f%2fwww.booker.co.uk%2fcatalog%2fproducts.aspx%3fcategoryName%3dDefault%2520Catalog%26keywords%3dScotch%2520Whisky%2520Single%2520Malt%26view%3dUnGrouped
+              - text: https://www.booker.co.uk/catalog/productinformation.aspx?code=1011989&categoryName=307851&CSUrl=https%3a%2f%2fwww.booker.co.uk%2fcatalog%2fproducts.aspx%3fcategoryName%3dDefault%2520Catalog%26keywords%3dScotch%2520Whisky%2520Single%2520Malt%26view%3dUnGrouped
                 xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[2]/div[4]/span[1]/table[1]/tbody[1]/tr[18]/td[4]/div[1]/div[1]/a[1]/@produrl
             thumbnail:
-              - text: https://www.booker.co.uk/bbimages/71172/2c9c53e7-e024-4daa-bc3b-8c0efb269c49.jpg
+              - text: https://www.booker.co.uk/bbimages/71172/51f842de-847a-417f-a91a-b94bc40d1912.jpg
                 xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[2]/div[4]/span[1]/table[1]/tbody[1]/tr[18]/td[2]/a[1]/img[1]/@prodthumb
+            price:
+              - text: £24.99
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[2]/div[4]/span[1]/table[1]/tbody[1]/tr[18]/td[6]/ul[1]/li[1]/text()[1]
             rank:
               - text: "18"
                 xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[2]/div[4]/span[1]/table[1]/tbody[1]/tr[18]/@index
@@ -387,6 +447,9 @@ extractions:
             thumbnail:
               - text: https://www.booker.co.uk/bbimages/71172/8abd0e5d-3ee7-4a10-95a3-a3bf4c0b6d4b.jpg
                 xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[2]/div[4]/span[1]/table[1]/tbody[1]/tr[19]/td[2]/a[1]/img[1]/@prodthumb
+            price:
+              - text: £19.99
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[2]/div[4]/span[1]/table[1]/tbody[1]/tr[19]/td[6]/ul[1]/li[1]/text()[1]
             rank:
               - text: "19"
                 xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[2]/div[4]/span[1]/table[1]/tbody[1]/tr[19]/@index
@@ -397,18 +460,18 @@ extractions:
             searchUrl:
               - text: https://www.booker.co.uk/catalog/products.aspx?categoryName=Default%20Catalog&keywords=Scotch+Whisky+Single+Malt&view=UnGrouped
                 xpath: /html/body/div[1]/@content
-          - id:
-              - text: "216482"
-                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[2]/div[4]/span[1]/table[1]/tbody[1]/tr[20]/td[1]
-            name:
-              - text: Auchentoshan American Oak Single Malt Scotch Whisky 70cl
+          - name:
+              - text: Talisker Skye Single Malt Scotch Whisky 70cl
                 xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[2]/div[4]/span[1]/table[1]/tbody[1]/tr[20]/td[4]/div[1]/div[1]/a[1]
             productUrl:
-              - text: https://www.booker.co.uk/catalog/productinformation.aspx?code=216482&categoryName=307851&CSUrl=https%3a%2f%2fwww.booker.co.uk%2fcatalog%2fproducts.aspx%3fcategoryName%3dDefault%2520Catalog%26keywords%3dScotch%2520Whisky%2520Single%2520Malt%26view%3dUnGrouped
+              - text: https://www.booker.co.uk/catalog/productinformation.aspx?code=1011014&categoryName=307851&CSUrl=https%3a%2f%2fwww.booker.co.uk%2fcatalog%2fproducts.aspx%3fcategoryName%3dDefault%2520Catalog%26keywords%3dScotch%2520Whisky%2520Single%2520Malt%26view%3dUnGrouped
                 xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[2]/div[4]/span[1]/table[1]/tbody[1]/tr[20]/td[4]/div[1]/div[1]/a[1]/@produrl
             thumbnail:
-              - text: https://www.booker.co.uk/bbimages/1/2fe99e73-e96e-48f6-8e90-97427f91d5a8.jpg
+              - text: https://www.booker.co.uk/bbimages/71172/b7eebacb-d04b-4d21-8b14-94e13866902c.jpg
                 xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[2]/div[4]/span[1]/table[1]/tbody[1]/tr[20]/td[2]/a[1]/img[1]/@prodthumb
+            price:
+              - text: £28.99
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[2]/div[4]/span[1]/table[1]/tbody[1]/tr[20]/td[6]/ul[1]/li[1]/text()[1]
             rank:
               - text: "20"
                 xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[2]/div[4]/span[1]/table[1]/tbody[1]/tr[20]/@index
@@ -419,18 +482,18 @@ extractions:
             searchUrl:
               - text: https://www.booker.co.uk/catalog/products.aspx?categoryName=Default%20Catalog&keywords=Scotch+Whisky+Single+Malt&view=UnGrouped
                 xpath: /html/body/div[1]/@content
-          - id:
-              - text: "216483"
-                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[2]/div[4]/span[1]/table[1]/tbody[1]/tr[21]/td[1]
-            name:
-              - text: Auchentoshan American Oak Single Malt Scotch Whisky 70cl
+          - name:
+              - text: Glengoyne 10 Year Old Highland Single Malt Scotch Whisky, 70cl
                 xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[2]/div[4]/span[1]/table[1]/tbody[1]/tr[21]/td[4]/div[1]/div[1]/a[1]
             productUrl:
-              - text: https://www.booker.co.uk/catalog/productinformation.aspx?code=216483&categoryName=307851&CSUrl=https%3a%2f%2fwww.booker.co.uk%2fcatalog%2fproducts.aspx%3fcategoryName%3dDefault%2520Catalog%26keywords%3dScotch%2520Whisky%2520Single%2520Malt%26view%3dUnGrouped
+              - text: https://www.booker.co.uk/catalog/productinformation.aspx?code=1013060&categoryName=307851&CSUrl=https%3a%2f%2fwww.booker.co.uk%2fcatalog%2fproducts.aspx%3fcategoryName%3dDefault%2520Catalog%26keywords%3dScotch%2520Whisky%2520Single%2520Malt%26view%3dUnGrouped
                 xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[2]/div[4]/span[1]/table[1]/tbody[1]/tr[21]/td[4]/div[1]/div[1]/a[1]/@produrl
             thumbnail:
-              - text: https://www.booker.co.uk/bbimages/1/2fe99e73-e96e-48f6-8e90-97427f91d5a8.jpg
+              - text: https://www.booker.co.uk/bbimages/71172/2c9c53e7-e024-4daa-bc3b-8c0efb269c49.jpg
                 xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[2]/div[4]/span[1]/table[1]/tbody[1]/tr[21]/td[2]/a[1]/img[1]/@prodthumb
+            price:
+              - text: £22.99
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[2]/div[4]/span[1]/table[1]/tbody[1]/tr[21]/td[6]/ul[1]/li[1]/text()[1]
             rank:
               - text: "21"
                 xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[2]/div[4]/span[1]/table[1]/tbody[1]/tr[21]/@index
@@ -441,15 +504,21 @@ extractions:
             searchUrl:
               - text: https://www.booker.co.uk/catalog/products.aspx?categoryName=Default%20Catalog&keywords=Scotch+Whisky+Single+Malt&view=UnGrouped
                 xpath: /html/body/div[1]/@content
-          - name:
-              - text: Loch Lomond Original Single Malt Scotch Whisky 70cl
+          - id:
+              - text: "95045"
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[2]/div[4]/span[1]/table[1]/tbody[1]/tr[22]/td[1]
+            name:
+              - text: The Singleton of Dufftown 12 Year old Single Malt Scotch Whisky 70cl
                 xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[2]/div[4]/span[1]/table[1]/tbody[1]/tr[22]/td[4]/div[1]/div[1]/a[1]
             productUrl:
-              - text: https://www.booker.co.uk/catalog/productinformation.aspx?code=1008794&categoryName=307851&CSUrl=https%3a%2f%2fwww.booker.co.uk%2fcatalog%2fproducts.aspx%3fcategoryName%3dDefault%2520Catalog%26keywords%3dScotch%2520Whisky%2520Single%2520Malt%26view%3dUnGrouped
+              - text: https://www.booker.co.uk/catalog/productinformation.aspx?code=95045&categoryName=307851&CSUrl=https%3a%2f%2fwww.booker.co.uk%2fcatalog%2fproducts.aspx%3fcategoryName%3dDefault%2520Catalog%26keywords%3dScotch%2520Whisky%2520Single%2520Malt%26view%3dUnGrouped
                 xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[2]/div[4]/span[1]/table[1]/tbody[1]/tr[22]/td[4]/div[1]/div[1]/a[1]/@produrl
             thumbnail:
-              - text: https://www.booker.co.uk/bbimages/71172/056c569d-4503-439a-8495-9e1425ea178b.jpg
+              - text: https://www.booker.co.uk/bbimages/1/20200438-f3e4-4b78-b07c-a1945854da0f.jpg
                 xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[2]/div[4]/span[1]/table[1]/tbody[1]/tr[22]/td[2]/a[1]/img[1]/@prodthumb
+            price:
+              - text: £155.94
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[2]/div[4]/span[1]/table[1]/tbody[1]/tr[22]/td[6]/ul[1]/li[1]/text()[1]
             rank:
               - text: "22"
                 xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[2]/div[4]/span[1]/table[1]/tbody[1]/tr[22]/@index
@@ -460,15 +529,21 @@ extractions:
             searchUrl:
               - text: https://www.booker.co.uk/catalog/products.aspx?categoryName=Default%20Catalog&keywords=Scotch+Whisky+Single+Malt&view=UnGrouped
                 xpath: /html/body/div[1]/@content
-          - name:
-              - text: Bowmore No. 1 Single Malt Scotch Whisky 70cl
+          - id:
+              - text: "95046"
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[2]/div[4]/span[1]/table[1]/tbody[1]/tr[23]/td[1]
+            name:
+              - text: The Singleton of Dufftown 12 Year old Single Malt Scotch Whisky 70cl
                 xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[2]/div[4]/span[1]/table[1]/tbody[1]/tr[23]/td[4]/div[1]/div[1]/a[1]
             productUrl:
-              - text: https://www.booker.co.uk/catalog/productinformation.aspx?code=1008786&categoryName=307851&CSUrl=https%3a%2f%2fwww.booker.co.uk%2fcatalog%2fproducts.aspx%3fcategoryName%3dDefault%2520Catalog%26keywords%3dScotch%2520Whisky%2520Single%2520Malt%26view%3dUnGrouped
+              - text: https://www.booker.co.uk/catalog/productinformation.aspx?code=95046&categoryName=307851&CSUrl=https%3a%2f%2fwww.booker.co.uk%2fcatalog%2fproducts.aspx%3fcategoryName%3dDefault%2520Catalog%26keywords%3dScotch%2520Whisky%2520Single%2520Malt%26view%3dUnGrouped
                 xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[2]/div[4]/span[1]/table[1]/tbody[1]/tr[23]/td[4]/div[1]/div[1]/a[1]/@produrl
             thumbnail:
-              - text: https://www.booker.co.uk/bbimages/71172/387fa82c-caa7-46be-901d-5a382c151937.jpg
+              - text: https://www.booker.co.uk/bbimages/1/20200438-f3e4-4b78-b07c-a1945854da0f.jpg
                 xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[2]/div[4]/span[1]/table[1]/tbody[1]/tr[23]/td[2]/a[1]/img[1]/@prodthumb
+            price:
+              - text: £25.99
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[2]/div[4]/span[1]/table[1]/tbody[1]/tr[23]/td[6]/ul[1]/li[1]/text()[1]
             rank:
               - text: "23"
                 xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[2]/div[4]/span[1]/table[1]/tbody[1]/tr[23]/@index
@@ -480,14 +555,17 @@ extractions:
               - text: https://www.booker.co.uk/catalog/products.aspx?categoryName=Default%20Catalog&keywords=Scotch+Whisky+Single+Malt&view=UnGrouped
                 xpath: /html/body/div[1]/@content
           - name:
-              - text: Tomatin Legacy Highland Single Malt Scotch Whisky 700ml
+              - text: Aberfeldy 12-year-old Single Malt Scotch Whisky 700ml
                 xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[2]/div[4]/span[1]/table[1]/tbody[1]/tr[24]/td[4]/div[1]/div[1]/a[1]
             productUrl:
-              - text: https://www.booker.co.uk/catalog/productinformation.aspx?code=1008814&categoryName=307851&CSUrl=https%3a%2f%2fwww.booker.co.uk%2fcatalog%2fproducts.aspx%3fcategoryName%3dDefault%2520Catalog%26keywords%3dScotch%2520Whisky%2520Single%2520Malt%26view%3dUnGrouped
+              - text: https://www.booker.co.uk/catalog/productinformation.aspx?code=1013539&categoryName=307851&CSUrl=https%3a%2f%2fwww.booker.co.uk%2fcatalog%2fproducts.aspx%3fcategoryName%3dDefault%2520Catalog%26keywords%3dScotch%2520Whisky%2520Single%2520Malt%26view%3dUnGrouped
                 xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[2]/div[4]/span[1]/table[1]/tbody[1]/tr[24]/td[4]/div[1]/div[1]/a[1]/@produrl
             thumbnail:
-              - text: https://www.booker.co.uk/bbimages/71172/e5400d73-6e15-4538-9627-04e9f7a479b8.jpg
+              - text: https://www.booker.co.uk/bbimages/71172/48de00d8-34f0-44d6-b5b2-09647631ad66.jpg
                 xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[2]/div[4]/span[1]/table[1]/tbody[1]/tr[24]/td[2]/a[1]/img[1]/@prodthumb
+            price:
+              - text: £28.99
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[2]/div[4]/span[1]/table[1]/tbody[1]/tr[24]/td[6]/ul[1]/li[1]/text()[1]
             rank:
               - text: "24"
                 xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[2]/div[4]/span[1]/table[1]/tbody[1]/tr[24]/@index
@@ -499,14 +577,17 @@ extractions:
               - text: https://www.booker.co.uk/catalog/products.aspx?categoryName=Default%20Catalog&keywords=Scotch+Whisky+Single+Malt&view=UnGrouped
                 xpath: /html/body/div[1]/@content
           - name:
-              - text: Lagavulin 16 Years Old Single Malt Scotch Whisky 70cl
+              - text: Tamnavulin Speyside Single Malt Scotch Whisky 70cl
                 xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[2]/div[4]/span[1]/table[1]/tbody[1]/tr[25]/td[4]/div[1]/div[1]/a[1]
             productUrl:
-              - text: https://www.booker.co.uk/catalog/productinformation.aspx?code=1008834&categoryName=307851&CSUrl=https%3a%2f%2fwww.booker.co.uk%2fcatalog%2fproducts.aspx%3fcategoryName%3dDefault%2520Catalog%26keywords%3dScotch%2520Whisky%2520Single%2520Malt%26view%3dUnGrouped
+              - text: https://www.booker.co.uk/catalog/productinformation.aspx?code=1011062&categoryName=307851&CSUrl=https%3a%2f%2fwww.booker.co.uk%2fcatalog%2fproducts.aspx%3fcategoryName%3dDefault%2520Catalog%26keywords%3dScotch%2520Whisky%2520Single%2520Malt%26view%3dUnGrouped
                 xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[2]/div[4]/span[1]/table[1]/tbody[1]/tr[25]/td[4]/div[1]/div[1]/a[1]/@produrl
             thumbnail:
-              - text: https://www.booker.co.uk/bbimages/71172/4f2a602b-009f-4e1e-b334-58a86c86687a.jpg
+              - text: https://www.booker.co.uk/bbimages/71172/f095275e-5b41-42cd-9717-bd31698a7f10.jpg
                 xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[2]/div[4]/span[1]/table[1]/tbody[1]/tr[25]/td[2]/a[1]/img[1]/@prodthumb
+            price:
+              - text: £19.99
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[2]/div[4]/span[1]/table[1]/tbody[1]/tr[25]/td[6]/ul[1]/li[1]/text()[1]
             rank:
               - text: "25"
                 xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[2]/div[4]/span[1]/table[1]/tbody[1]/tr[25]/@index
@@ -518,14 +599,17 @@ extractions:
               - text: https://www.booker.co.uk/catalog/products.aspx?categoryName=Default%20Catalog&keywords=Scotch+Whisky+Single+Malt&view=UnGrouped
                 xpath: /html/body/div[1]/@content
           - name:
-              - text: Talisker 10 Year Old Single Malt Scotch Whisky 70cl with Gift Box
+              - text: Ardbeg 10 Years Old Single Malt Islay Scotch Whisky 70cl
                 xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[2]/div[4]/span[1]/table[1]/tbody[1]/tr[26]/td[4]/div[1]/div[1]/a[1]
             productUrl:
-              - text: https://www.booker.co.uk/catalog/productinformation.aspx?code=1008790&categoryName=307851&CSUrl=https%3a%2f%2fwww.booker.co.uk%2fcatalog%2fproducts.aspx%3fcategoryName%3dDefault%2520Catalog%26keywords%3dScotch%2520Whisky%2520Single%2520Malt%26view%3dUnGrouped
+              - text: https://www.booker.co.uk/catalog/productinformation.aspx?code=1011819&categoryName=307851&CSUrl=https%3a%2f%2fwww.booker.co.uk%2fcatalog%2fproducts.aspx%3fcategoryName%3dDefault%2520Catalog%26keywords%3dScotch%2520Whisky%2520Single%2520Malt%26view%3dUnGrouped
                 xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[2]/div[4]/span[1]/table[1]/tbody[1]/tr[26]/td[4]/div[1]/div[1]/a[1]/@produrl
             thumbnail:
-              - text: https://www.booker.co.uk/bbimages/71172/a8f4321c-78fa-40c8-b1d3-32314243584f.jpg
+              - text: https://www.booker.co.uk/bbimages/71172/77aa3f89-2742-44c6-9ca1-0f11958a319f.jpg
                 xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[2]/div[4]/span[1]/table[1]/tbody[1]/tr[26]/td[2]/a[1]/img[1]/@prodthumb
+            price:
+              - text: £31.49
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[2]/div[4]/span[1]/table[1]/tbody[1]/tr[26]/td[6]/ul[1]/li[1]/text()[1]
             rank:
               - text: "26"
                 xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[2]/div[4]/span[1]/table[1]/tbody[1]/tr[26]/@index
@@ -537,14 +621,17 @@ extractions:
               - text: https://www.booker.co.uk/catalog/products.aspx?categoryName=Default%20Catalog&keywords=Scotch+Whisky+Single+Malt&view=UnGrouped
                 xpath: /html/body/div[1]/@content
           - name:
-              - text: Tamnavulin Speyside Single Malt Scotch Whisky 70cl
+              - text: Cragganmore 12 Years Old Single Malt Scotch Whisky 70cl
                 xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[2]/div[4]/span[1]/table[1]/tbody[1]/tr[27]/td[4]/div[1]/div[1]/a[1]
             productUrl:
-              - text: https://www.booker.co.uk/catalog/productinformation.aspx?code=1011062&categoryName=307851&CSUrl=https%3a%2f%2fwww.booker.co.uk%2fcatalog%2fproducts.aspx%3fcategoryName%3dDefault%2520Catalog%26keywords%3dScotch%2520Whisky%2520Single%2520Malt%26view%3dUnGrouped
+              - text: https://www.booker.co.uk/catalog/productinformation.aspx?code=1008798&categoryName=307851&CSUrl=https%3a%2f%2fwww.booker.co.uk%2fcatalog%2fproducts.aspx%3fcategoryName%3dDefault%2520Catalog%26keywords%3dScotch%2520Whisky%2520Single%2520Malt%26view%3dUnGrouped
                 xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[2]/div[4]/span[1]/table[1]/tbody[1]/tr[27]/td[4]/div[1]/div[1]/a[1]/@produrl
             thumbnail:
-              - text: https://www.booker.co.uk/bbimages/71172/f095275e-5b41-42cd-9717-bd31698a7f10.jpg
+              - text: https://www.booker.co.uk/bbimages/71172/096ee6bf-a2ae-4a4b-809b-67472e7bd76d.jpg
                 xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[2]/div[4]/span[1]/table[1]/tbody[1]/tr[27]/td[2]/a[1]/img[1]/@prodthumb
+            price:
+              - text: £28.99
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[2]/div[4]/span[1]/table[1]/tbody[1]/tr[27]/td[6]/ul[1]/li[1]/text()[1]
             rank:
               - text: "27"
                 xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[2]/div[4]/span[1]/table[1]/tbody[1]/tr[27]/@index
@@ -556,14 +643,17 @@ extractions:
               - text: https://www.booker.co.uk/catalog/products.aspx?categoryName=Default%20Catalog&keywords=Scotch+Whisky+Single+Malt&view=UnGrouped
                 xpath: /html/body/div[1]/@content
           - name:
-              - text: Ardbeg 10 Years Old Single Malt Islay Scotch Whisky 70cl
+              - text: Dalwhinnie 15 Years Old Single Malt Scotch Whisky 70cl
                 xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[2]/div[4]/span[1]/table[1]/tbody[1]/tr[28]/td[4]/div[1]/div[1]/a[1]
             productUrl:
-              - text: https://www.booker.co.uk/catalog/productinformation.aspx?code=1011819&categoryName=307851&CSUrl=https%3a%2f%2fwww.booker.co.uk%2fcatalog%2fproducts.aspx%3fcategoryName%3dDefault%2520Catalog%26keywords%3dScotch%2520Whisky%2520Single%2520Malt%26view%3dUnGrouped
+              - text: https://www.booker.co.uk/catalog/productinformation.aspx?code=1008788&categoryName=307851&CSUrl=https%3a%2f%2fwww.booker.co.uk%2fcatalog%2fproducts.aspx%3fcategoryName%3dDefault%2520Catalog%26keywords%3dScotch%2520Whisky%2520Single%2520Malt%26view%3dUnGrouped
                 xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[2]/div[4]/span[1]/table[1]/tbody[1]/tr[28]/td[4]/div[1]/div[1]/a[1]/@produrl
             thumbnail:
-              - text: https://www.booker.co.uk/bbimages/71172/77aa3f89-2742-44c6-9ca1-0f11958a319f.jpg
+              - text: https://www.booker.co.uk/bbimages/71172/82923faa-3e40-432c-92e3-6eb515b5b663.jpg
                 xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[2]/div[4]/span[1]/table[1]/tbody[1]/tr[28]/td[2]/a[1]/img[1]/@prodthumb
+            price:
+              - text: £29.99
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[2]/div[4]/span[1]/table[1]/tbody[1]/tr[28]/td[6]/ul[1]/li[1]/text()[1]
             rank:
               - text: "28"
                 xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[2]/div[4]/span[1]/table[1]/tbody[1]/tr[28]/@index
@@ -575,14 +665,17 @@ extractions:
               - text: https://www.booker.co.uk/catalog/products.aspx?categoryName=Default%20Catalog&keywords=Scotch+Whisky+Single+Malt&view=UnGrouped
                 xpath: /html/body/div[1]/@content
           - name:
-              - text: Aberfeldy 12-year-old Single Malt Scotch Whisky 700ml
+              - text: Bowmore No. 1 Single Malt Scotch Whisky 70cl
                 xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[2]/div[4]/span[1]/table[1]/tbody[1]/tr[29]/td[4]/div[1]/div[1]/a[1]
             productUrl:
-              - text: https://www.booker.co.uk/catalog/productinformation.aspx?code=1013539&categoryName=307851&CSUrl=https%3a%2f%2fwww.booker.co.uk%2fcatalog%2fproducts.aspx%3fcategoryName%3dDefault%2520Catalog%26keywords%3dScotch%2520Whisky%2520Single%2520Malt%26view%3dUnGrouped
+              - text: https://www.booker.co.uk/catalog/productinformation.aspx?code=1008786&categoryName=307851&CSUrl=https%3a%2f%2fwww.booker.co.uk%2fcatalog%2fproducts.aspx%3fcategoryName%3dDefault%2520Catalog%26keywords%3dScotch%2520Whisky%2520Single%2520Malt%26view%3dUnGrouped
                 xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[2]/div[4]/span[1]/table[1]/tbody[1]/tr[29]/td[4]/div[1]/div[1]/a[1]/@produrl
             thumbnail:
-              - text: https://www.booker.co.uk/bbimages/71172/48de00d8-34f0-44d6-b5b2-09647631ad66.jpg
+              - text: https://www.booker.co.uk/bbimages/71172/387fa82c-caa7-46be-901d-5a382c151937.jpg
                 xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[2]/div[4]/span[1]/table[1]/tbody[1]/tr[29]/td[2]/a[1]/img[1]/@prodthumb
+            price:
+              - text: £22.99
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[2]/div[4]/span[1]/table[1]/tbody[1]/tr[29]/td[6]/ul[1]/li[1]/text()[1]
             rank:
               - text: "29"
                 xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[2]/div[4]/span[1]/table[1]/tbody[1]/tr[29]/@index
@@ -594,14 +687,17 @@ extractions:
               - text: https://www.booker.co.uk/catalog/products.aspx?categoryName=Default%20Catalog&keywords=Scotch+Whisky+Single+Malt&view=UnGrouped
                 xpath: /html/body/div[1]/@content
           - name:
-              - text: Dalwhinnie 15 Years Old Single Malt Scotch Whisky 70cl
+              - text: Lagavulin 16 Years Old Single Malt Scotch Whisky 70cl
                 xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[2]/div[4]/span[1]/table[1]/tbody[1]/tr[30]/td[4]/div[1]/div[1]/a[1]
             productUrl:
-              - text: https://www.booker.co.uk/catalog/productinformation.aspx?code=1008788&categoryName=307851&CSUrl=https%3a%2f%2fwww.booker.co.uk%2fcatalog%2fproducts.aspx%3fcategoryName%3dDefault%2520Catalog%26keywords%3dScotch%2520Whisky%2520Single%2520Malt%26view%3dUnGrouped
+              - text: https://www.booker.co.uk/catalog/productinformation.aspx?code=1008834&categoryName=307851&CSUrl=https%3a%2f%2fwww.booker.co.uk%2fcatalog%2fproducts.aspx%3fcategoryName%3dDefault%2520Catalog%26keywords%3dScotch%2520Whisky%2520Single%2520Malt%26view%3dUnGrouped
                 xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[2]/div[4]/span[1]/table[1]/tbody[1]/tr[30]/td[4]/div[1]/div[1]/a[1]/@produrl
             thumbnail:
-              - text: https://www.booker.co.uk/bbimages/71172/82923faa-3e40-432c-92e3-6eb515b5b663.jpg
+              - text: https://www.booker.co.uk/bbimages/71172/4f2a602b-009f-4e1e-b334-58a86c86687a.jpg
                 xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[2]/div[4]/span[1]/table[1]/tbody[1]/tr[30]/td[2]/a[1]/img[1]/@prodthumb
+            price:
+              - text: £44.99
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[2]/div[4]/span[1]/table[1]/tbody[1]/tr[30]/td[6]/ul[1]/li[1]/text()[1]
             rank:
               - text: "30"
                 xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[2]/div[4]/span[1]/table[1]/tbody[1]/tr[30]/@index
@@ -613,14 +709,17 @@ extractions:
               - text: https://www.booker.co.uk/catalog/products.aspx?categoryName=Default%20Catalog&keywords=Scotch+Whisky+Single+Malt&view=UnGrouped
                 xpath: /html/body/div[1]/@content
           - name:
-              - text: Cragganmore 12 Years Old Single Malt Scotch Whisky 70cl
+              - text: Glenkinchie 12 Years Old Single Malt Scotch Whisky 70cl
                 xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[2]/div[4]/span[1]/table[1]/tbody[1]/tr[31]/td[4]/div[1]/div[1]/a[1]
             productUrl:
-              - text: https://www.booker.co.uk/catalog/productinformation.aspx?code=1008798&categoryName=307851&CSUrl=https%3a%2f%2fwww.booker.co.uk%2fcatalog%2fproducts.aspx%3fcategoryName%3dDefault%2520Catalog%26keywords%3dScotch%2520Whisky%2520Single%2520Malt%26view%3dUnGrouped
+              - text: https://www.booker.co.uk/catalog/productinformation.aspx?code=1008792&categoryName=307851&CSUrl=https%3a%2f%2fwww.booker.co.uk%2fcatalog%2fproducts.aspx%3fcategoryName%3dDefault%2520Catalog%26keywords%3dScotch%2520Whisky%2520Single%2520Malt%26view%3dUnGrouped
                 xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[2]/div[4]/span[1]/table[1]/tbody[1]/tr[31]/td[4]/div[1]/div[1]/a[1]/@produrl
             thumbnail:
-              - text: https://www.booker.co.uk/bbimages/71172/096ee6bf-a2ae-4a4b-809b-67472e7bd76d.jpg
+              - text: https://www.booker.co.uk/bbimages/71172/84d0f2d8-847a-4c4d-9d37-977f2c3313d7.jpg
                 xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[2]/div[4]/span[1]/table[1]/tbody[1]/tr[31]/td[2]/a[1]/img[1]/@prodthumb
+            price:
+              - text: £28.99
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[2]/div[4]/span[1]/table[1]/tbody[1]/tr[31]/td[6]/ul[1]/li[1]/text()[1]
             rank:
               - text: "31"
                 xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[2]/div[4]/span[1]/table[1]/tbody[1]/tr[31]/@index
@@ -632,14 +731,17 @@ extractions:
               - text: https://www.booker.co.uk/catalog/products.aspx?categoryName=Default%20Catalog&keywords=Scotch+Whisky+Single+Malt&view=UnGrouped
                 xpath: /html/body/div[1]/@content
           - name:
-              - text: Glenkinchie 12 Years Old Single Malt Scotch Whisky 70cl
+              - text: Talisker™ Aged 18 Years Single Malt Scotch Whisky 70cl
                 xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[2]/div[4]/span[1]/table[1]/tbody[1]/tr[32]/td[4]/div[1]/div[1]/a[1]
             productUrl:
-              - text: https://www.booker.co.uk/catalog/productinformation.aspx?code=1008792&categoryName=307851&CSUrl=https%3a%2f%2fwww.booker.co.uk%2fcatalog%2fproducts.aspx%3fcategoryName%3dDefault%2520Catalog%26keywords%3dScotch%2520Whisky%2520Single%2520Malt%26view%3dUnGrouped
+              - text: https://www.booker.co.uk/catalog/productinformation.aspx?code=1011476&categoryName=307851&CSUrl=https%3a%2f%2fwww.booker.co.uk%2fcatalog%2fproducts.aspx%3fcategoryName%3dDefault%2520Catalog%26keywords%3dScotch%2520Whisky%2520Single%2520Malt%26view%3dUnGrouped
                 xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[2]/div[4]/span[1]/table[1]/tbody[1]/tr[32]/td[4]/div[1]/div[1]/a[1]/@produrl
             thumbnail:
-              - text: https://www.booker.co.uk/bbimages/71172/84d0f2d8-847a-4c4d-9d37-977f2c3313d7.jpg
+              - text: https://www.booker.co.uk/bbimages/71172/6c66aa1b-6b94-42a6-8e45-6ae869e91083.jpg
                 xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[2]/div[4]/span[1]/table[1]/tbody[1]/tr[32]/td[2]/a[1]/img[1]/@prodthumb
+            price:
+              - text: £59.99
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[2]/div[4]/span[1]/table[1]/tbody[1]/tr[32]/td[6]/ul[1]/li[1]/text()[1]
             rank:
               - text: "32"
                 xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[2]/div[4]/span[1]/table[1]/tbody[1]/tr[32]/@index
@@ -651,14 +753,17 @@ extractions:
               - text: https://www.booker.co.uk/catalog/products.aspx?categoryName=Default%20Catalog&keywords=Scotch+Whisky+Single+Malt&view=UnGrouped
                 xpath: /html/body/div[1]/@content
           - name:
-              - text: Talisker Port Ruighe Single Malt Scotch Whisky 70cl
+              - text: Tomatin Legacy Highland Single Malt Scotch Whisky 700ml
                 xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[2]/div[4]/span[1]/table[1]/tbody[1]/tr[33]/td[4]/div[1]/div[1]/a[1]
             productUrl:
-              - text: https://www.booker.co.uk/catalog/productinformation.aspx?code=1011480&categoryName=307851&CSUrl=https%3a%2f%2fwww.booker.co.uk%2fcatalog%2fproducts.aspx%3fcategoryName%3dDefault%2520Catalog%26keywords%3dScotch%2520Whisky%2520Single%2520Malt%26view%3dUnGrouped
+              - text: https://www.booker.co.uk/catalog/productinformation.aspx?code=1008814&categoryName=307851&CSUrl=https%3a%2f%2fwww.booker.co.uk%2fcatalog%2fproducts.aspx%3fcategoryName%3dDefault%2520Catalog%26keywords%3dScotch%2520Whisky%2520Single%2520Malt%26view%3dUnGrouped
                 xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[2]/div[4]/span[1]/table[1]/tbody[1]/tr[33]/td[4]/div[1]/div[1]/a[1]/@produrl
             thumbnail:
-              - text: https://www.booker.co.uk/bbimages/71172/4044bc13-c7a1-456b-90d0-b16a62b18a39.jpg
+              - text: https://www.booker.co.uk/bbimages/71172/e5400d73-6e15-4538-9627-04e9f7a479b8.jpg
                 xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[2]/div[4]/span[1]/table[1]/tbody[1]/tr[33]/td[2]/a[1]/img[1]/@prodthumb
+            price:
+              - text: £19.99
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[2]/div[4]/span[1]/table[1]/tbody[1]/tr[33]/td[6]/ul[1]/li[1]/text()[1]
             rank:
               - text: "33"
                 xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[2]/div[4]/span[1]/table[1]/tbody[1]/tr[33]/@index
@@ -670,14 +775,17 @@ extractions:
               - text: https://www.booker.co.uk/catalog/products.aspx?categoryName=Default%20Catalog&keywords=Scotch+Whisky+Single+Malt&view=UnGrouped
                 xpath: /html/body/div[1]/@content
           - name:
-              - text: Talisker™ Aged 18 Years Single Malt Scotch Whisky 70cl
+              - text: Talisker Port Ruighe Single Malt Scotch Whisky 70cl
                 xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[2]/div[4]/span[1]/table[1]/tbody[1]/tr[34]/td[4]/div[1]/div[1]/a[1]
             productUrl:
-              - text: https://www.booker.co.uk/catalog/productinformation.aspx?code=1011476&categoryName=307851&CSUrl=https%3a%2f%2fwww.booker.co.uk%2fcatalog%2fproducts.aspx%3fcategoryName%3dDefault%2520Catalog%26keywords%3dScotch%2520Whisky%2520Single%2520Malt%26view%3dUnGrouped
+              - text: https://www.booker.co.uk/catalog/productinformation.aspx?code=1011480&categoryName=307851&CSUrl=https%3a%2f%2fwww.booker.co.uk%2fcatalog%2fproducts.aspx%3fcategoryName%3dDefault%2520Catalog%26keywords%3dScotch%2520Whisky%2520Single%2520Malt%26view%3dUnGrouped
                 xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[2]/div[4]/span[1]/table[1]/tbody[1]/tr[34]/td[4]/div[1]/div[1]/a[1]/@produrl
             thumbnail:
-              - text: https://www.booker.co.uk/bbimages/71172/6c66aa1b-6b94-42a6-8e45-6ae869e91083.jpg
+              - text: https://www.booker.co.uk/bbimages/71172/4044bc13-c7a1-456b-90d0-b16a62b18a39.jpg
                 xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[2]/div[4]/span[1]/table[1]/tbody[1]/tr[34]/td[2]/a[1]/img[1]/@prodthumb
+            price:
+              - text: £39.99
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[2]/div[4]/span[1]/table[1]/tbody[1]/tr[34]/td[6]/ul[1]/li[1]/text()[1]
             rank:
               - text: "34"
                 xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[2]/div[4]/span[1]/table[1]/tbody[1]/tr[34]/@index
@@ -689,17 +797,20 @@ extractions:
               - text: https://www.booker.co.uk/catalog/products.aspx?categoryName=Default%20Catalog&keywords=Scotch+Whisky+Single+Malt&view=UnGrouped
                 xpath: /html/body/div[1]/@content
           - id:
-              - text: "730860"
+              - text: "263199"
                 xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[2]/div[4]/span[1]/table[1]/tbody[1]/tr[35]/td[1]
             name:
-              - text: Glen Moray Speyside Single Malt Scotch Whisky 70cl
+              - text: Glenfairn Sweet Speyside Single Malt Scotch Whisky 70cl
                 xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[2]/div[4]/span[1]/table[1]/tbody[1]/tr[35]/td[4]/div[1]/div[1]/a[1]
             productUrl:
-              - text: https://www.booker.co.uk/catalog/productinformation.aspx?code=730860&categoryName=307851&CSUrl=https%3a%2f%2fwww.booker.co.uk%2fcatalog%2fproducts.aspx%3fcategoryName%3dDefault%2520Catalog%26keywords%3dScotch%2520Whisky%2520Single%2520Malt%26view%3dUnGrouped
+              - text: https://www.booker.co.uk/catalog/productinformation.aspx?code=263199&categoryName=307851&CSUrl=https%3a%2f%2fwww.booker.co.uk%2fcatalog%2fproducts.aspx%3fcategoryName%3dDefault%2520Catalog%26keywords%3dScotch%2520Whisky%2520Single%2520Malt%26view%3dUnGrouped
                 xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[2]/div[4]/span[1]/table[1]/tbody[1]/tr[35]/td[4]/div[1]/div[1]/a[1]/@produrl
             thumbnail:
-              - text: https://www.booker.co.uk/bbimages/1/e0f6b2d4-b264-4950-a8cb-b7cf69f46a2d.jpg
+              - text: https://www.booker.co.uk/bbimages/1/1d8fbfab-e95b-4ef3-b4c5-172b77b0f3b5.jpg
                 xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[2]/div[4]/span[1]/table[1]/tbody[1]/tr[35]/td[2]/a[1]/img[1]/@prodthumb
+            price:
+              - text: £79.69
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[2]/div[4]/span[1]/table[1]/tbody[1]/tr[35]/td[6]/ul[1]/li[1]/text()[1]
             rank:
               - text: "35"
                 xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[2]/div[4]/span[1]/table[1]/tbody[1]/tr[35]/@index
@@ -711,17 +822,20 @@ extractions:
               - text: https://www.booker.co.uk/catalog/products.aspx?categoryName=Default%20Catalog&keywords=Scotch+Whisky+Single+Malt&view=UnGrouped
                 xpath: /html/body/div[1]/@content
           - id:
-              - text: "730870"
+              - text: "263212"
                 xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[2]/div[4]/span[1]/table[1]/tbody[1]/tr[36]/td[1]
             name:
-              - text: Glen Moray Speyside Single Malt Scotch Whisky 70cl
+              - text: Glenfairn Sweet Speyside Single Malt Scotch Whisky 70cl
                 xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[2]/div[4]/span[1]/table[1]/tbody[1]/tr[36]/td[4]/div[1]/div[1]/a[1]
             productUrl:
-              - text: https://www.booker.co.uk/catalog/productinformation.aspx?code=730870&categoryName=307851&CSUrl=https%3a%2f%2fwww.booker.co.uk%2fcatalog%2fproducts.aspx%3fcategoryName%3dDefault%2520Catalog%26keywords%3dScotch%2520Whisky%2520Single%2520Malt%26view%3dUnGrouped
+              - text: https://www.booker.co.uk/catalog/productinformation.aspx?code=263212&categoryName=307851&CSUrl=https%3a%2f%2fwww.booker.co.uk%2fcatalog%2fproducts.aspx%3fcategoryName%3dDefault%2520Catalog%26keywords%3dScotch%2520Whisky%2520Single%2520Malt%26view%3dUnGrouped
                 xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[2]/div[4]/span[1]/table[1]/tbody[1]/tr[36]/td[4]/div[1]/div[1]/a[1]/@produrl
             thumbnail:
-              - text: https://www.booker.co.uk/bbimages/1/e0f6b2d4-b264-4950-a8cb-b7cf69f46a2d.jpg
+              - text: https://www.booker.co.uk/bbimages/1/1d8fbfab-e95b-4ef3-b4c5-172b77b0f3b5.jpg
                 xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[2]/div[4]/span[1]/table[1]/tbody[1]/tr[36]/td[2]/a[1]/img[1]/@prodthumb
+            price:
+              - text: £13.29
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[2]/div[4]/span[1]/table[1]/tbody[1]/tr[36]/td[6]/ul[1]/li[1]/text()[1]
             rank:
               - text: "36"
                 xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[2]/div[4]/span[1]/table[1]/tbody[1]/tr[36]/@index
@@ -732,15 +846,21 @@ extractions:
             searchUrl:
               - text: https://www.booker.co.uk/catalog/products.aspx?categoryName=Default%20Catalog&keywords=Scotch+Whisky+Single+Malt&view=UnGrouped
                 xpath: /html/body/div[1]/@content
-          - name:
-              - text: Glenfairn Sweet Speyside Single Malt Scotch Whisky 70cl
+          - id:
+              - text: "263197"
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[2]/div[4]/span[1]/table[1]/tbody[1]/tr[37]/td[1]
+            name:
+              - text: Glenfairn Floral Highland Single Malt Scotch Whisky 70cl
                 xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[2]/div[4]/span[1]/table[1]/tbody[1]/tr[37]/td[4]/div[1]/div[1]/a[1]
             productUrl:
-              - text: https://www.booker.co.uk/catalog/productinformation.aspx?code=1017338&categoryName=307851&CSUrl=https%3a%2f%2fwww.booker.co.uk%2fcatalog%2fproducts.aspx%3fcategoryName%3dDefault%2520Catalog%26keywords%3dScotch%2520Whisky%2520Single%2520Malt%26view%3dUnGrouped
+              - text: https://www.booker.co.uk/catalog/productinformation.aspx?code=263197&categoryName=307851&CSUrl=https%3a%2f%2fwww.booker.co.uk%2fcatalog%2fproducts.aspx%3fcategoryName%3dDefault%2520Catalog%26keywords%3dScotch%2520Whisky%2520Single%2520Malt%26view%3dUnGrouped
                 xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[2]/div[4]/span[1]/table[1]/tbody[1]/tr[37]/td[4]/div[1]/div[1]/a[1]/@produrl
             thumbnail:
-              - text: https://www.booker.co.uk/bbimages/71172/8ee920d3-9b3b-482b-8e87-375ab2765e12.jpg
+              - text: https://www.booker.co.uk/bbimages/1/1cfa48b2-0dc6-48ef-9049-7f537c582c4e.jpg
                 xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[2]/div[4]/span[1]/table[1]/tbody[1]/tr[37]/td[2]/a[1]/img[1]/@prodthumb
+            price:
+              - text: £79.69
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[2]/div[4]/span[1]/table[1]/tbody[1]/tr[37]/td[6]/ul[1]/li[1]/text()[1]
             rank:
               - text: "37"
                 xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[2]/div[4]/span[1]/table[1]/tbody[1]/tr[37]/@index
@@ -751,15 +871,21 @@ extractions:
             searchUrl:
               - text: https://www.booker.co.uk/catalog/products.aspx?categoryName=Default%20Catalog&keywords=Scotch+Whisky+Single+Malt&view=UnGrouped
                 xpath: /html/body/div[1]/@content
-          - name:
-              - text: Cardhu Gold Reserve Single Malt Scotch Whisky 70cl
+          - id:
+              - text: "263198"
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[2]/div[4]/span[1]/table[1]/tbody[1]/tr[38]/td[1]
+            name:
+              - text: Glenfairn Floral Highland Single Malt Scotch Whisky 70cl
                 xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[2]/div[4]/span[1]/table[1]/tbody[1]/tr[38]/td[4]/div[1]/div[1]/a[1]
             productUrl:
-              - text: https://www.booker.co.uk/catalog/productinformation.aspx?code=1011633&categoryName=307851&CSUrl=https%3a%2f%2fwww.booker.co.uk%2fcatalog%2fproducts.aspx%3fcategoryName%3dDefault%2520Catalog%26keywords%3dScotch%2520Whisky%2520Single%2520Malt%26view%3dUnGrouped
+              - text: https://www.booker.co.uk/catalog/productinformation.aspx?code=263198&categoryName=307851&CSUrl=https%3a%2f%2fwww.booker.co.uk%2fcatalog%2fproducts.aspx%3fcategoryName%3dDefault%2520Catalog%26keywords%3dScotch%2520Whisky%2520Single%2520Malt%26view%3dUnGrouped
                 xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[2]/div[4]/span[1]/table[1]/tbody[1]/tr[38]/td[4]/div[1]/div[1]/a[1]/@produrl
             thumbnail:
-              - text: https://www.booker.co.uk/bbimages/71172/7336d4df-c75b-49f4-bf6a-e1b6e97f9583.jpg
+              - text: https://www.booker.co.uk/bbimages/1/1cfa48b2-0dc6-48ef-9049-7f537c582c4e.jpg
                 xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[2]/div[4]/span[1]/table[1]/tbody[1]/tr[38]/td[2]/a[1]/img[1]/@prodthumb
+            price:
+              - text: £13.29
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[2]/div[4]/span[1]/table[1]/tbody[1]/tr[38]/td[6]/ul[1]/li[1]/text()[1]
             rank:
               - text: "38"
                 xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[2]/div[4]/span[1]/table[1]/tbody[1]/tr[38]/@index
@@ -779,6 +905,9 @@ extractions:
             thumbnail:
               - text: https://www.booker.co.uk/bbimages/71172/5f074569-930b-42f8-9cdb-ac42b1240612.jpg
                 xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[2]/div[4]/span[1]/table[1]/tbody[1]/tr[39]/td[2]/a[1]/img[1]/@prodthumb
+            price:
+              - text: £18.99
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[2]/div[4]/span[1]/table[1]/tbody[1]/tr[39]/td[6]/ul[1]/li[1]/text()[1]
             rank:
               - text: "39"
                 xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[2]/div[4]/span[1]/table[1]/tbody[1]/tr[39]/@index
@@ -790,14 +919,17 @@ extractions:
               - text: https://www.booker.co.uk/catalog/products.aspx?categoryName=Default%20Catalog&keywords=Scotch+Whisky+Single+Malt&view=UnGrouped
                 xpath: /html/body/div[1]/@content
           - name:
-              - text: Glenfairn Floral Highland Single Malt Scotch Whisky 70cl
+              - text: Cardhu Gold Reserve Single Malt Scotch Whisky 70cl
                 xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[2]/div[4]/span[1]/table[1]/tbody[1]/tr[40]/td[4]/div[1]/div[1]/a[1]
             productUrl:
-              - text: https://www.booker.co.uk/catalog/productinformation.aspx?code=1017337&categoryName=307851&CSUrl=https%3a%2f%2fwww.booker.co.uk%2fcatalog%2fproducts.aspx%3fcategoryName%3dDefault%2520Catalog%26keywords%3dScotch%2520Whisky%2520Single%2520Malt%26view%3dUnGrouped
+              - text: https://www.booker.co.uk/catalog/productinformation.aspx?code=1011633&categoryName=307851&CSUrl=https%3a%2f%2fwww.booker.co.uk%2fcatalog%2fproducts.aspx%3fcategoryName%3dDefault%2520Catalog%26keywords%3dScotch%2520Whisky%2520Single%2520Malt%26view%3dUnGrouped
                 xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[2]/div[4]/span[1]/table[1]/tbody[1]/tr[40]/td[4]/div[1]/div[1]/a[1]/@produrl
             thumbnail:
-              - text: https://www.booker.co.uk/bbimages/71172/398052ce-5dc3-4cec-9366-e7e7e2140722.jpg
+              - text: https://www.booker.co.uk/bbimages/71172/7336d4df-c75b-49f4-bf6a-e1b6e97f9583.jpg
                 xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[2]/div[4]/span[1]/table[1]/tbody[1]/tr[40]/td[2]/a[1]/img[1]/@prodthumb
+            price:
+              - text: £37.99
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[2]/div[4]/span[1]/table[1]/tbody[1]/tr[40]/td[6]/ul[1]/li[1]/text()[1]
             rank:
               - text: "40"
                 xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[2]/div[4]/span[1]/table[1]/tbody[1]/tr[40]/@index
@@ -808,15 +940,21 @@ extractions:
             searchUrl:
               - text: https://www.booker.co.uk/catalog/products.aspx?categoryName=Default%20Catalog&keywords=Scotch+Whisky+Single+Malt&view=UnGrouped
                 xpath: /html/body/div[1]/@content
-          - name:
-              - text: Speyburn Bradan Orach Speyside Single Malt Scotch Whisky 70cl
+          - id:
+              - text: "730860"
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[2]/div[4]/span[1]/table[1]/tbody[1]/tr[41]/td[1]
+            name:
+              - text: Glen Moray Speyside Single Malt Scotch Whisky 70cl
                 xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[2]/div[4]/span[1]/table[1]/tbody[1]/tr[41]/td[4]/div[1]/div[1]/a[1]
             productUrl:
-              - text: https://www.booker.co.uk/catalog/productinformation.aspx?code=1011022&categoryName=307851&CSUrl=https%3a%2f%2fwww.booker.co.uk%2fcatalog%2fproducts.aspx%3fcategoryName%3dDefault%2520Catalog%26keywords%3dScotch%2520Whisky%2520Single%2520Malt%26view%3dUnGrouped
+              - text: https://www.booker.co.uk/catalog/productinformation.aspx?code=730860&categoryName=307851&CSUrl=https%3a%2f%2fwww.booker.co.uk%2fcatalog%2fproducts.aspx%3fcategoryName%3dDefault%2520Catalog%26keywords%3dScotch%2520Whisky%2520Single%2520Malt%26view%3dUnGrouped
                 xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[2]/div[4]/span[1]/table[1]/tbody[1]/tr[41]/td[4]/div[1]/div[1]/a[1]/@produrl
             thumbnail:
-              - text: https://www.booker.co.uk/bbimages/71172/0284d735-fdf2-4701-b868-8cf1adea5c32.jpg
+              - text: https://www.booker.co.uk/bbimages/1/e0f6b2d4-b264-4950-a8cb-b7cf69f46a2d.jpg
                 xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[2]/div[4]/span[1]/table[1]/tbody[1]/tr[41]/td[2]/a[1]/img[1]/@prodthumb
+            price:
+              - text: £86.94
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[2]/div[4]/span[1]/table[1]/tbody[1]/tr[41]/td[6]/ul[1]/li[1]/text()[1]
             rank:
               - text: "41"
                 xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[2]/div[4]/span[1]/table[1]/tbody[1]/tr[41]/@index
@@ -827,15 +965,21 @@ extractions:
             searchUrl:
               - text: https://www.booker.co.uk/catalog/products.aspx?categoryName=Default%20Catalog&keywords=Scotch+Whisky+Single+Malt&view=UnGrouped
                 xpath: /html/body/div[1]/@content
-          - name:
-              - text: Lagavulin Distillers Edition Single Malt Scotch Whisky 70cl
+          - id:
+              - text: "730870"
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[2]/div[4]/span[1]/table[1]/tbody[1]/tr[42]/td[1]
+            name:
+              - text: Glen Moray Speyside Single Malt Scotch Whisky 70cl
                 xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[2]/div[4]/span[1]/table[1]/tbody[1]/tr[42]/td[4]/div[1]/div[1]/a[1]
             productUrl:
-              - text: https://www.booker.co.uk/catalog/productinformation.aspx?code=1011477&categoryName=307851&CSUrl=https%3a%2f%2fwww.booker.co.uk%2fcatalog%2fproducts.aspx%3fcategoryName%3dDefault%2520Catalog%26keywords%3dScotch%2520Whisky%2520Single%2520Malt%26view%3dUnGrouped
+              - text: https://www.booker.co.uk/catalog/productinformation.aspx?code=730870&categoryName=307851&CSUrl=https%3a%2f%2fwww.booker.co.uk%2fcatalog%2fproducts.aspx%3fcategoryName%3dDefault%2520Catalog%26keywords%3dScotch%2520Whisky%2520Single%2520Malt%26view%3dUnGrouped
                 xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[2]/div[4]/span[1]/table[1]/tbody[1]/tr[42]/td[4]/div[1]/div[1]/a[1]/@produrl
             thumbnail:
-              - text: https://www.booker.co.uk/bbimages/71172/42478aae-5e1e-4603-a60a-e4fd07878c5a.jpg
+              - text: https://www.booker.co.uk/bbimages/1/e0f6b2d4-b264-4950-a8cb-b7cf69f46a2d.jpg
                 xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[2]/div[4]/span[1]/table[1]/tbody[1]/tr[42]/td[2]/a[1]/img[1]/@prodthumb
+            price:
+              - text: £14.49
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[2]/div[4]/span[1]/table[1]/tbody[1]/tr[42]/td[6]/ul[1]/li[1]/text()[1]
             rank:
               - text: "42"
                 xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[2]/div[4]/span[1]/table[1]/tbody[1]/tr[42]/@index
@@ -846,14 +990,17 @@ extractions:
             searchUrl:
               - text: https://www.booker.co.uk/catalog/products.aspx?categoryName=Default%20Catalog&keywords=Scotch+Whisky+Single+Malt&view=UnGrouped
                 xpath: /html/body/div[1]/@content
-          - name:
-              - text: The Glenlivet Founder's Reserve Single Malt Scotch Whisky 70cl
+          - id:
+              - text: "747200"
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[2]/div[4]/span[1]/table[1]/tbody[1]/tr[43]/td[1]
+            name:
+              - text: AnCnoc 12 Years Old Highland Single Malt Scotch Whisky 70cl
                 xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[2]/div[4]/span[1]/table[1]/tbody[1]/tr[43]/td[4]/div[1]/div[1]/a[1]
             productUrl:
-              - text: https://www.booker.co.uk/catalog/productinformation.aspx?code=1011024&categoryName=307851&CSUrl=https%3a%2f%2fwww.booker.co.uk%2fcatalog%2fproducts.aspx%3fcategoryName%3dDefault%2520Catalog%26keywords%3dScotch%2520Whisky%2520Single%2520Malt%26view%3dUnGrouped
+              - text: https://www.booker.co.uk/catalog/productinformation.aspx?code=747200&categoryName=307851&CSUrl=https%3a%2f%2fwww.booker.co.uk%2fcatalog%2fproducts.aspx%3fcategoryName%3dDefault%2520Catalog%26keywords%3dScotch%2520Whisky%2520Single%2520Malt%26view%3dUnGrouped
                 xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[2]/div[4]/span[1]/table[1]/tbody[1]/tr[43]/td[4]/div[1]/div[1]/a[1]/@produrl
             thumbnail:
-              - text: https://www.booker.co.uk/bbimages/71172/44800cc7-c2f2-4c47-ab17-1c51a6a604b8.jpg
+              - text: https://www.booker.co.uk/bbimages/1/b17c58e8-3726-4a4e-b17b-e9ea191cbdd6.jpg
                 xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[2]/div[4]/span[1]/table[1]/tbody[1]/tr[43]/td[2]/a[1]/img[1]/@prodthumb
             rank:
               - text: "43"
@@ -865,14 +1012,17 @@ extractions:
             searchUrl:
               - text: https://www.booker.co.uk/catalog/products.aspx?categoryName=Default%20Catalog&keywords=Scotch+Whisky+Single+Malt&view=UnGrouped
                 xpath: /html/body/div[1]/@content
-          - name:
-              - text: Glenmorangie 18 Years Old 70cl Single Malt Scotch Whisky
+          - id:
+              - text: "747210"
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[2]/div[4]/span[1]/table[1]/tbody[1]/tr[44]/td[1]
+            name:
+              - text: AnCnoc 12 Years Old Highland Single Malt Scotch Whisky 70cl
                 xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[2]/div[4]/span[1]/table[1]/tbody[1]/tr[44]/td[4]/div[1]/div[1]/a[1]
             productUrl:
-              - text: https://www.booker.co.uk/catalog/productinformation.aspx?code=1011310&categoryName=307851&CSUrl=https%3a%2f%2fwww.booker.co.uk%2fcatalog%2fproducts.aspx%3fcategoryName%3dDefault%2520Catalog%26keywords%3dScotch%2520Whisky%2520Single%2520Malt%26view%3dUnGrouped
+              - text: https://www.booker.co.uk/catalog/productinformation.aspx?code=747210&categoryName=307851&CSUrl=https%3a%2f%2fwww.booker.co.uk%2fcatalog%2fproducts.aspx%3fcategoryName%3dDefault%2520Catalog%26keywords%3dScotch%2520Whisky%2520Single%2520Malt%26view%3dUnGrouped
                 xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[2]/div[4]/span[1]/table[1]/tbody[1]/tr[44]/td[4]/div[1]/div[1]/a[1]/@produrl
             thumbnail:
-              - text: https://www.booker.co.uk/bbimages/71172/dde251f2-c2c1-4691-b3f8-8e45a081da03.jpg
+              - text: https://www.booker.co.uk/bbimages/1/b17c58e8-3726-4a4e-b17b-e9ea191cbdd6.jpg
                 xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[2]/div[4]/span[1]/table[1]/tbody[1]/tr[44]/td[2]/a[1]/img[1]/@prodthumb
             rank:
               - text: "44"
@@ -896,6 +1046,9 @@ extractions:
             thumbnail:
               - text: https://www.booker.co.uk/bbimages/1/f063e1c5-3e1b-4159-be75-3122da12d6fb.jpg
                 xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[2]/div[4]/span[1]/table[1]/tbody[1]/tr[45]/td[2]/a[1]/img[1]/@prodthumb
+            price:
+              - text: £95.94
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[2]/div[4]/span[1]/table[1]/tbody[1]/tr[45]/td[6]/ul[1]/li[1]/text()[1]
             rank:
               - text: "45"
                 xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[2]/div[4]/span[1]/table[1]/tbody[1]/tr[45]/@index
@@ -918,6 +1071,9 @@ extractions:
             thumbnail:
               - text: https://www.booker.co.uk/bbimages/1/f063e1c5-3e1b-4159-be75-3122da12d6fb.jpg
                 xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[2]/div[4]/span[1]/table[1]/tbody[1]/tr[46]/td[2]/a[1]/img[1]/@prodthumb
+            price:
+              - text: £15.99
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[2]/div[4]/span[1]/table[1]/tbody[1]/tr[46]/td[6]/ul[1]/li[1]/text()[1]
             rank:
               - text: "46"
                 xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[2]/div[4]/span[1]/table[1]/tbody[1]/tr[46]/@index
@@ -937,6 +1093,9 @@ extractions:
             thumbnail:
               - text: https://www.booker.co.uk/bbimages/71172/c341d86b-ec8b-4b29-b2ca-31080cc324e3.jpg
                 xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[2]/div[4]/span[1]/table[1]/tbody[1]/tr[47]/td[2]/a[1]/img[1]/@prodthumb
+            price:
+              - text: £59.99
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[2]/div[4]/span[1]/table[1]/tbody[1]/tr[47]/td[6]/ul[1]/li[1]/text()[1]
             rank:
               - text: "47"
                 xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[2]/div[4]/span[1]/table[1]/tbody[1]/tr[47]/@index
@@ -948,14 +1107,17 @@ extractions:
               - text: https://www.booker.co.uk/catalog/products.aspx?categoryName=Default%20Catalog&keywords=Scotch+Whisky+Single+Malt&view=UnGrouped
                 xpath: /html/body/div[1]/@content
           - name:
-              - text: Highland Park 12 Year Old Single Malt Scotch Whisky 70cl
+              - text: Glenmorangie 18 Years Old 70cl Single Malt Scotch Whisky
                 xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[2]/div[4]/span[1]/table[1]/tbody[1]/tr[48]/td[4]/div[1]/div[1]/a[1]
             productUrl:
-              - text: https://www.booker.co.uk/catalog/productinformation.aspx?code=1011026&categoryName=307851&CSUrl=https%3a%2f%2fwww.booker.co.uk%2fcatalog%2fproducts.aspx%3fcategoryName%3dDefault%2520Catalog%26keywords%3dScotch%2520Whisky%2520Single%2520Malt%26view%3dUnGrouped
+              - text: https://www.booker.co.uk/catalog/productinformation.aspx?code=1011310&categoryName=307851&CSUrl=https%3a%2f%2fwww.booker.co.uk%2fcatalog%2fproducts.aspx%3fcategoryName%3dDefault%2520Catalog%26keywords%3dScotch%2520Whisky%2520Single%2520Malt%26view%3dUnGrouped
                 xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[2]/div[4]/span[1]/table[1]/tbody[1]/tr[48]/td[4]/div[1]/div[1]/a[1]/@produrl
             thumbnail:
-              - text: https://www.booker.co.uk/bbimages/1/e16a5bdd-f727-4e84-959c-a9afc39bb311.jpg
+              - text: https://www.booker.co.uk/bbimages/71172/dde251f2-c2c1-4691-b3f8-8e45a081da03.jpg
                 xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[2]/div[4]/span[1]/table[1]/tbody[1]/tr[48]/td[2]/a[1]/img[1]/@prodthumb
+            price:
+              - text: £62.89
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[2]/div[4]/span[1]/table[1]/tbody[1]/tr[48]/td[6]/ul[1]/li[1]/text()[1]
             rank:
               - text: "48"
                 xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[2]/div[4]/span[1]/table[1]/tbody[1]/tr[48]/@index
@@ -967,14 +1129,17 @@ extractions:
               - text: https://www.booker.co.uk/catalog/products.aspx?categoryName=Default%20Catalog&keywords=Scotch+Whisky+Single+Malt&view=UnGrouped
                 xpath: /html/body/div[1]/@content
           - name:
-              - text: The Balvenie DoubleWood Aged 12 Years Single Malt Scotch Whisky 70cl
+              - text: Speyburn Bradan Orach Speyside Single Malt Scotch Whisky 70cl
                 xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[2]/div[4]/span[1]/table[1]/tbody[1]/tr[49]/td[4]/div[1]/div[1]/a[1]
             productUrl:
-              - text: https://www.booker.co.uk/catalog/productinformation.aspx?code=1008816&categoryName=307851&CSUrl=https%3a%2f%2fwww.booker.co.uk%2fcatalog%2fproducts.aspx%3fcategoryName%3dDefault%2520Catalog%26keywords%3dScotch%2520Whisky%2520Single%2520Malt%26view%3dUnGrouped
+              - text: https://www.booker.co.uk/catalog/productinformation.aspx?code=1011022&categoryName=307851&CSUrl=https%3a%2f%2fwww.booker.co.uk%2fcatalog%2fproducts.aspx%3fcategoryName%3dDefault%2520Catalog%26keywords%3dScotch%2520Whisky%2520Single%2520Malt%26view%3dUnGrouped
                 xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[2]/div[4]/span[1]/table[1]/tbody[1]/tr[49]/td[4]/div[1]/div[1]/a[1]/@produrl
             thumbnail:
-              - text: https://www.booker.co.uk/bbimages/2/06c13c22-9f7c-4375-b759-35ee62b16002.jpg
+              - text: https://www.booker.co.uk/bbimages/71172/0284d735-fdf2-4701-b868-8cf1adea5c32.jpg
                 xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[2]/div[4]/span[1]/table[1]/tbody[1]/tr[49]/td[2]/a[1]/img[1]/@prodthumb
+            price:
+              - text: £18.99
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[2]/div[4]/span[1]/table[1]/tbody[1]/tr[49]/td[6]/ul[1]/li[1]/text()[1]
             rank:
               - text: "49"
                 xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[2]/div[4]/span[1]/table[1]/tbody[1]/tr[49]/@index
@@ -986,14 +1151,17 @@ extractions:
               - text: https://www.booker.co.uk/catalog/products.aspx?categoryName=Default%20Catalog&keywords=Scotch+Whisky+Single+Malt&view=UnGrouped
                 xpath: /html/body/div[1]/@content
           - name:
-              - text: The Singleton of Dufftown 12 Year old Single Malt Scotch Whisky 70cl
+              - text: Lagavulin Distillers Edition Single Malt Scotch Whisky 70cl
                 xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[2]/div[4]/span[1]/table[1]/tbody[1]/tr[50]/td[4]/div[1]/div[1]/a[1]
             productUrl:
-              - text: https://www.booker.co.uk/catalog/productinformation.aspx?code=1011033&categoryName=307851&CSUrl=https%3a%2f%2fwww.booker.co.uk%2fcatalog%2fproducts.aspx%3fcategoryName%3dDefault%2520Catalog%26keywords%3dScotch%2520Whisky%2520Single%2520Malt%26view%3dUnGrouped
+              - text: https://www.booker.co.uk/catalog/productinformation.aspx?code=1011477&categoryName=307851&CSUrl=https%3a%2f%2fwww.booker.co.uk%2fcatalog%2fproducts.aspx%3fcategoryName%3dDefault%2520Catalog%26keywords%3dScotch%2520Whisky%2520Single%2520Malt%26view%3dUnGrouped
                 xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[2]/div[4]/span[1]/table[1]/tbody[1]/tr[50]/td[4]/div[1]/div[1]/a[1]/@produrl
             thumbnail:
-              - text: https://www.booker.co.uk/bbimages/2/3ddd3e28-11a3-4d5c-aceb-b6b7fad8d0b0.jpg
+              - text: https://www.booker.co.uk/bbimages/71172/42478aae-5e1e-4603-a60a-e4fd07878c5a.jpg
                 xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[2]/div[4]/span[1]/table[1]/tbody[1]/tr[50]/td[2]/a[1]/img[1]/@prodthumb
+            price:
+              - text: £59.99
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[2]/div[4]/span[1]/table[1]/tbody[1]/tr[50]/td[6]/ul[1]/li[1]/text()[1]
             rank:
               - text: "50"
                 xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[2]/div[4]/span[1]/table[1]/tbody[1]/tr[50]/@index
@@ -1005,14 +1173,17 @@ extractions:
               - text: https://www.booker.co.uk/catalog/products.aspx?categoryName=Default%20Catalog&keywords=Scotch+Whisky+Single+Malt&view=UnGrouped
                 xpath: /html/body/div[1]/@content
           - name:
-              - text: Aberlour Distillery 12 Years Old Speyside Single Malt Scotch Whisky 70cl
+              - text: Old Pulteney Twelve Years Old Single Malt Scotch Whisky 70cl
                 xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[2]/div[4]/span[1]/table[1]/tbody[1]/tr[51]/td[4]/div[1]/div[1]/a[1]
             productUrl:
-              - text: https://www.booker.co.uk/catalog/productinformation.aspx?code=1008787&categoryName=307851&CSUrl=https%3a%2f%2fwww.booker.co.uk%2fcatalog%2fproducts.aspx%3fcategoryName%3dDefault%2520Catalog%26keywords%3dScotch%2520Whisky%2520Single%2520Malt%26view%3dUnGrouped
+              - text: https://www.booker.co.uk/catalog/productinformation.aspx?code=1011041&categoryName=307851&CSUrl=https%3a%2f%2fwww.booker.co.uk%2fcatalog%2fproducts.aspx%3fcategoryName%3dDefault%2520Catalog%26keywords%3dScotch%2520Whisky%2520Single%2520Malt%26view%3dUnGrouped
                 xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[2]/div[4]/span[1]/table[1]/tbody[1]/tr[51]/td[4]/div[1]/div[1]/a[1]/@produrl
             thumbnail:
-              - text: https://www.booker.co.uk/bbimages/1/f7d2f3c0-846a-417a-b225-f55b8f664710.jpg
+              - text: https://www.booker.co.uk/bbimages/71172/d52fef78-eff9-44af-8141-6c6777065acf.jpg
                 xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[2]/div[4]/span[1]/table[1]/tbody[1]/tr[51]/td[2]/a[1]/img[1]/@prodthumb
+            price:
+              - text: £22.99
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[2]/div[4]/span[1]/table[1]/tbody[1]/tr[51]/td[6]/ul[1]/li[1]/text()[1]
             rank:
               - text: "51"
                 xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[2]/div[4]/span[1]/table[1]/tbody[1]/tr[51]/@index
@@ -1023,5 +1194,49 @@ extractions:
             searchUrl:
               - text: https://www.booker.co.uk/catalog/products.aspx?categoryName=Default%20Catalog&keywords=Scotch+Whisky+Single+Malt&view=UnGrouped
                 xpath: /html/body/div[1]/@content
+          - name:
+              - text: The Balvenie DoubleWood Aged 12 Years Single Malt Scotch Whisky 70cl
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[2]/div[4]/span[1]/table[1]/tbody[1]/tr[52]/td[4]/div[1]/div[1]/a[1]
+            productUrl:
+              - text: https://www.booker.co.uk/catalog/productinformation.aspx?code=1008816&categoryName=307851&CSUrl=https%3a%2f%2fwww.booker.co.uk%2fcatalog%2fproducts.aspx%3fcategoryName%3dDefault%2520Catalog%26keywords%3dScotch%2520Whisky%2520Single%2520Malt%26view%3dUnGrouped
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[2]/div[4]/span[1]/table[1]/tbody[1]/tr[52]/td[4]/div[1]/div[1]/a[1]/@produrl
+            thumbnail:
+              - text: https://www.booker.co.uk/bbimages/2/06c13c22-9f7c-4375-b759-35ee62b16002.jpg
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[2]/div[4]/span[1]/table[1]/tbody[1]/tr[52]/td[2]/a[1]/img[1]/@prodthumb
+            price:
+              - text: £34.99
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[2]/div[4]/span[1]/table[1]/tbody[1]/tr[52]/td[6]/ul[1]/li[1]/text()[1]
+            rank:
+              - text: "52"
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[2]/div[4]/span[1]/table[1]/tbody[1]/tr[52]/@index
+                type: NUMBER
+                raw: "52"
+                locale: en_GB
+                value: 52
+            searchUrl:
+              - text: https://www.booker.co.uk/catalog/products.aspx?categoryName=Default%20Catalog&keywords=Scotch+Whisky+Single+Malt&view=UnGrouped
+                xpath: /html/body/div[1]/@content
+          - name:
+              - text: Aberlour Distillery 12 Years Old Speyside Single Malt Scotch Whisky 70cl
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[2]/div[4]/span[1]/table[1]/tbody[1]/tr[53]/td[4]/div[1]/div[1]/a[1]
+            productUrl:
+              - text: https://www.booker.co.uk/catalog/productinformation.aspx?code=1008787&categoryName=307851&CSUrl=https%3a%2f%2fwww.booker.co.uk%2fcatalog%2fproducts.aspx%3fcategoryName%3dDefault%2520Catalog%26keywords%3dScotch%2520Whisky%2520Single%2520Malt%26view%3dUnGrouped
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[2]/div[4]/span[1]/table[1]/tbody[1]/tr[53]/td[4]/div[1]/div[1]/a[1]/@produrl
+            thumbnail:
+              - text: https://www.booker.co.uk/bbimages/1/f7d2f3c0-846a-417a-b225-f55b8f664710.jpg
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[2]/div[4]/span[1]/table[1]/tbody[1]/tr[53]/td[2]/a[1]/img[1]/@prodthumb
+            price:
+              - text: £28.49
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[2]/div[4]/span[1]/table[1]/tbody[1]/tr[53]/td[6]/ul[1]/li[1]/text()[1]
+            rank:
+              - text: "53"
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[2]/div[4]/span[1]/table[1]/tbody[1]/tr[53]/@index
+                type: NUMBER
+                raw: "53"
+                locale: en_GB
+                value: 53
+            searchUrl:
+              - text: https://www.booker.co.uk/catalog/products.aspx?categoryName=Default%20Catalog&keywords=Scotch+Whisky+Single+Malt&view=UnGrouped
+                xpath: /html/body/div[1]/@content
         xpath: /html
-    timestamp: 1605525525328
+    timestamp: 1606991290932
