@@ -20,7 +20,7 @@ fields:
     singleValue: false
     xpath: //li[@class="moreInfos-item"]/span[contains(text(),"Modelo")]/following-sibling::span
   - name: manufacturer
-    xpath: //p[contains(@class, "Article-descSub")]//span//a|//li[@class="moreInfos-item"]/span[contains(text(),"Fabricante/Marca")]/following-sibling::span
+    xpath: //p[contains(@class, "Article-descSub")]//span[@class=""]//a|//li[@class="moreInfos-item"]/span[contains(text(),"Fabricante/Marca")]/following-sibling::span
     # xpath: //li[@class="moreInfos-item"]/span[contains(text(),"Fabricante/Marca")]/following-sibling::span
   - name: ratingCount
     singleValue: false
@@ -50,7 +50,7 @@ fields:
     xpath: //span[contains(@class,"Article-rate")]/span/span[contains(@class,"f-star")]
   - name: gtin
     singleValue: false
-    xpath: (//span/@data-ean)[1]
+    xpath: //span/@data-ean
   - name: soldBy
     singleValue: false
     xpath: //div[contains(@class, "sellBy")]/a
