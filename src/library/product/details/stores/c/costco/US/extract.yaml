@@ -22,7 +22,8 @@ fields:
     singleValue: false
   - name: category
     singleValue: false
-    xpath: //li[position()>1]//span[@itemprop="name"]/text()
+    xpath: //ul[@id="crumbs_ul"]//li[position()>1]//span[@itemprop="name"]/text()
+  # //li[position()>1]//span[@itemprop="name"]/text()
   # - name: inStorePrice
   #   xpath: //div[@class="online-price active"]//span[@class="op-value"] | //div[@class="online-price active"]//span[@class="currency"]
   - name: listPrice
