@@ -8,7 +8,7 @@ async function implementation (
 ) {
   const { transform } = parameters;
   const { productDetails } = dependencies;
-  await context.waitForXPath('//div/@data-asin');
+  await context.waitForXPath('//div[@class="tile__product-slide-rating-wrapper"]/e2-rating/@reviews-number');
   return await context.extract(productDetails, { transform });
 }
 module.exports = {

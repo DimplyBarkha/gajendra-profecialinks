@@ -18,6 +18,9 @@ async function implementation(
 ) {
   const { transform } = parameters;
   const { productDetails } = dependencies;
+  await context.waitForXPath('//div[@class="tile__product-slide-rating-wrapper"]');
+  // await context.waitForXPath('//div[@class="tile__product-slide-rating-wrapper"]');
+  // await stall(2000);
   await context.evaluate(async function () {
     let scrollTop = 0;
     while (scrollTop !== 1000) {
@@ -29,6 +32,7 @@ async function implementation(
         break;
       }
     }
+
     function stall(ms) {
       return new Promise((resolve, reject) => {
         setTimeout(() => {
@@ -36,6 +40,7 @@ async function implementation(
         }, ms);
       });
     }
+  
   
   function addHiddenDiv(id, content, index) {
     const newDiv = document.createElement('div');
