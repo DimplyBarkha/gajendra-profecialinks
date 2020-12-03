@@ -48,7 +48,6 @@ async function implementation(
         addHiddenDiv('price', price[i], i);
       }
     }
-
   });
   return await context.extract(productDetails, { transform });
 };

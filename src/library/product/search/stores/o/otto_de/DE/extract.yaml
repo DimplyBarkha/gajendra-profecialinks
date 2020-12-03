@@ -15,10 +15,10 @@ fields:
     regExp: (.*)
     regExpReplace: https://www.otto.de$1
   - name: price
-    singleValue: false
-    xpath: //span[@class='value']
-    regExp: (.+),(.+)
-    regExpReplace: $1.$2
+    singleValue: single
+    xpath: //span[@class='value']/text()
+    #regExp: (.+),(.+)
+    #regExpReplace: $1.$2
   - name: manufacturer
     singleValue: false
     xpath: //p[@class='brand']
