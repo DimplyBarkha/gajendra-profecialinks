@@ -1,4 +1,3 @@
-
 /**
  *
  * @param { { URL: string, id: any, RPC: string, SKU: string, date: any, days: number, results} } inputs
@@ -16,7 +15,7 @@ async function implementation (
   const id = RPC || SKU || inputs.id;
   const length = (results) => results.reduce((acc, { group }) => acc + (Array.isArray(group) ? group.length : 0), 0);
 
-  const date = new Date(days ? new Date().setDate(new Date().getDate() - days) : dateOrigin);
+  const date = new Date(dateOrigin || new Date().setDate(new Date().getDate() - days));
   console.log(`Date Limit: "${date}"`);
 
   const resultsReturned = await execute({ url, id, zipcode, date, days });
