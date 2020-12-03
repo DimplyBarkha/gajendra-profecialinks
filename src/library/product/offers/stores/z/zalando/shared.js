@@ -84,12 +84,31 @@ async function implementation (
       document.querySelector(appendSelector).append(container);
     }
   
-    function getData () {
+    async function getData () {
+      async function getPartnerDetails(partnerId) {
+      async function getJsonObject () {
+          const API = window.location.href;
+          const res = await fetch(API);
+          const html = await res.text();
+          const doc = new DOMParser().parseFromString(html, 'text/html');
+          return Array.from(doc.querySelectorAll('script')).find(elm => elm.innerText.includes('deliveryOptions')).innerText
+        }
+  
+        const json = await  getJsonObject();
+          const partnerUrl = 'https:\/\/en.zalando.de\/checkout\/partner\/' + partnerId;
+          const partnerNameRegex = new RegExp(`"text":"([^"]+)","isHighlighted":[^:]+,"uri":"${partnerUrl}`);
+          if(json.match(partnerNameRegex)) { return json.match(partnerNameRegex)[1]};
+        return "";
+      }
       const jsonData = JSON.parse(document.querySelector('[id="z-vegas-pdp-props"]').innerText.match(/(\[{.+}\])\]\>$/)[1]);
       const { id, name, reviewsCount, roundedAverageStarRating } = jsonData[0].model.articleInfo;
       const image = jsonData[0].model.articleInfo?.media?.images[0]?.sources?.detail;
       const brand = jsonData[0].model.articleInfo?.brand?.name;
-      return [{ productId: id, name, reviewsCount, roundedAverageStarRating, image, brand, units: jsonData[0].model.articleInfo.units}];
+      const units = jsonData[0].model.articleInfo.units;
+      for(const unit of units) {
+        unit.merchantName = await getPartnerDetails(unit.merchantId)
+      }
+      return [{ productId: id, name, reviewsCount, roundedAverageStarRating, image, brand, units }];
     }
     const data = await context.evaluate(getData);
     await context.evaluate(addDynamicTable, data, 'footer');

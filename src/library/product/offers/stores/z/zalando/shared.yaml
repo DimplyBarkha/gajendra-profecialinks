@@ -23,6 +23,7 @@ fields:
       'src, img' attribute only select the class that contains it and import
       will scrape the image properly
   - name: resellerName
+    xpath: ./td[@class="merchantName"]
     description: reseller_name - Seller Name, if the website does not have sellers,
       put the website name as seller
   - name: resellerId
