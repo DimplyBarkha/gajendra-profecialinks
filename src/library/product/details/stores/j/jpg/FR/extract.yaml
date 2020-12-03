@@ -5,66 +5,68 @@ recordXPath: null
 fields:
   - name: image
     singleValue: true
-    xpath: //div[@class='skuImageInner']/div[@id='skuZoomImage']/img[@id='SkuPageMainImg']/@src
-  - name: imageAlt
-    singleValue: true
-    xpath: //div[@class='skuImageInner']/div[@id='skuZoomImage']/img[@id='SkuPageMainImg']/@alt
+    xpath: //main[@class="container"]//li[@class="sku-slider-item js-sku-slider-item flex row tns-item tns-slide-active"]//img//@srcset 
   - name: alternateImages
     singleValue: false
-    xpath: //li[@class='itemThumb']/img/@src  
+    xpath: //div[@aria-label="Carousel Pagination"]//div[@data-nav][position()>1]//img//@src 
   - name: category
     singleValue: false
-    xpath: //li/a[@class='scTrack scnavlink']/span
+    xpath: //ol[@class="page-breadcrumb"]//span//a//@title
   - name: nameExtended
     singleValue: true
-    xpath: //div[@class='skuProductNames']/h1[@class='skuName']/text()
+    xpath: //h1[@class="product-sku__title"]//text()
+  - name: name
+    singleValue: true
+    xpath: //h1[@class="product-sku__title"]//text()
   - name: listPrice
     singleValue: true    
     type: CURRENCY
-    xpath: (//div[@class='savingStory']/div[1]/span[@class='strike darkGray'])[1]
+    xpath: //span[@class="product-sku__old-price"]//text()
   - name: price
     singleValue: true
     type: CURRENCY
-    xpath: //span[@id='skuPriceLabel']/span[@id='SkuPriceUpdate']
+    xpath: //span[@class="product-sku__price-min"]//text()
   - name: availabilityText
     singleValue: true
-    xpath: //a[@class="button BtnL BtnO scTrack cta"]//span/text()
+    xpath: //button[@id="addToCart"]//span[contains(text(),'Ajouter au panier')]
     regExp: (.+)
     regExpReplace: In Stock
+    defaultValue: Out of Stock
   - name: description
     singleValue: false
-    xpath: //div[@class='panelInner  clear']/div[@class='qOverflow']/ul
+    xpath: //div[@class='description-sku__figure-text']
   - name: descriptionBullets
     singleValue: true    
     type: NUMBER
-    xpath: count(//div[@class='panelInner  clear']/div[@class='qOverflow']/ul/li)
+    xpath: count(//div[@class='description-sku__figure-text']/ul/li)
   - name: brandText
     singleValue: true
-    xpath: //div[@class="skuSpecificsCnt"]//span[normalize-space(text())='Marques']/following-sibling::text()
-    regExp: ([A-Za-z0-9_.-].*)  
+    xpath: (//div[@class="product-sku__reinsurance-container"]//@data-mf | //div[@id="feature"]//span[contains(text(),'arque')]/following-sibling::*)[1]
   - name: weightNet
     singleValue: true
-    xpath: //div[@class='skuSpecificsCnt']//span[normalize-space(text())='Poids']/following-sibling::text() | //div[@class='skuSpecificsCnt']//span[normalize-space(text())='Grammage']/following-sibling::text()
-    regExp: ([A-Za-z0-9_.-].*)  
+    xpath: (//span[contains(text(),'Grammage')]/following-sibling::strong|//span[contains(text(),'Poids')]/following-sibling::strong)[1]    
   - name: sku
     singleValue: true
-    xpath: //input[@id="SkuData_FindNumber"]/@value
+    xpath: //input[@name="SKU"]//@value
+  - name: gtin
+    singleValue: true
+    xpath: //div[@class="product-sku__reinsurance-container"]//@data-upcean
   - name: mpc
     singleValue: true
-    xpath: (//span[contains(text(),'Référence')]/following-sibling::text())[1]    
+    xpath: //div[@class="col product-sku__ref"]/text()    
   - name: shippingDimensions
     singleValue: true
-    xpath: //html//div[@id='shipping']  
+    xpath: concat(//span[contains(text(),'Hauteur')]/following-sibling::strong,"|",//span[contains(text(),'Largeur')]/following-sibling::strong) 
   - name: secondaryImageTotal
     singleValue: true
     type: NUMBER
-    xpath: count(//li[@class='itemThumb']/img/@src)  
+    xpath: count(//main[@class="container"]//li[position()>1]//img//@srcset)  
   - name: specifications
     singleValue: true
-    xpath: //div[@class="skuSpecificsCnt"]  
+    xpath: concat(//div[@class="description-sku-wrapper__section container"],//div[@class='description-sku__figure-text'])  
   - name: promotion
     singleValue: true
-    xpath: (//div[@class='savingStory']/div[2])[1]  
+    xpath: concat((//div[@class="product-sku__price-table__row row3"]//text())[1]," ",(//div[@class="product-sku__price-table__row row3"]//text())[3])   
   - name: technicalInformationPdfPresent
     singleValue: true
     description: If there is for example a manual in pdf format on the website. ['Yes','No']
