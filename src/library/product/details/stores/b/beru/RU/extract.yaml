@@ -479,7 +479,9 @@ fields:
       this will need analysis
   - name: variants
     singleValue: false
-    description: null
+    xpath: //span[@class='b_18ouxBEWKA']/@data-auto
+    regExp: radio-group-value-(.*)radio-group
+    regExpReplace: $1
   - name: additionalDescBulletInfo
     singleValue: false
     description: null

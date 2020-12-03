@@ -508,8 +508,7 @@ async function implementation(inputs, parameters, context, dependencies) {
       ingredients = ingredientsData.textContent;
     }
     addHiddenDiv('ingredients', ingredients);
-    var xpaths ;
-    xpaths = document.querySelector('button[data-text="Accept all"]').innerHTML
+   
     // var popUP = document.evaluate(
     //   xpath,
     //   document,
@@ -517,8 +516,7 @@ async function implementation(inputs, parameters, context, dependencies) {
     //   XPathResult.FIRST_ORDERED_NODE_TYPE,
     //   null
     // ).singleNodeValue;
-    console.log('s', xpaths);
-    addHiddenDiv('xpaths', xpaths);
+ 
 
     var specificationList;
     let specification = '';
@@ -532,7 +530,36 @@ async function implementation(inputs, parameters, context, dependencies) {
         '|';
     });
     addHiddenDiv('specification', specification);
+    
+    let variantsInfo = document.querySelectorAll('span.b_1vzk4iYy5n')
+    if (variantsInfo) {
+      variantsInfo.forEach((element) => {
+        const secondaryImageLink = document.createElement('div');
+        secondaryImageLink.setAttribute('class', 'variantsInfoData');
+        element.click();
+        secondaryImageLink.setAttribute('href', element.textContent);
+        document.body.appendChild(secondaryImageLink);
+      });
+    let variantsImgInfo = document.querySelectorAll('div.b_vsxt0dVvL4 img.b_ZM3OPI2WFF')
+    if (variantsImgInfo) {
+      variantsImgInfo.forEach((element) => {
+        const secondaryImageLink = document.createElement('div');
+        secondaryImageLink.setAttribute('class', 'variantsInfoData');
+        element.click();
+        secondaryImageLink.setAttribute('href', element.textContent);
+        document.body.appendChild(secondaryImageLink);
+      });
+      // const secondaryImageCount = document.createElement('div');
+      // secondaryImageCount.setAttribute('class', 'alternateImagesCountTotal');
+      // // @ts-ignore
+      // secondaryImageCount.setAttribute('sum', alternateImagesCount);
+      // document.body.appendChild(secondaryImageCount);
+    }
+
+    }
+  
   });
+   
  
   return await context.extract(productDetails, { transform });
 }
