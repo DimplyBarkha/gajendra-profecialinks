@@ -1,71 +1,74 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: //div[@id="Master"]
+recordXPath: //main[@class="container"]
 fields:
   - name: image
     singleValue: false
-    xpath: //div[@id="skuZoomImage"]/img/@data-zoomimage
-  - name: imageAlt
-    singleValue: false
-    xpath: //div[@id="skuZoomImage"]/img/@alt
+    xpath: //section[contains(@class,"sku-slider")]//ul[contains(@class,"js-sku-slider")]/li[contains(@class,"sku-slider-item") and contains(@class,"tns-slide-active")]/img/@src
   - name: alternateImages
     singleValue: false
-    xpath: //ul[@class="carouselInner"]/li[position()>1]/img/@data-zoomimage
+    xpath: //section[contains(@class,"sku-slider")]//ul[contains(@class,"js-sku-slider")]/li[contains(@class,"sku-slider-item") and not(contains(@class,"tns-slide-active"))]/img/@src
   - name: category
     singleValue: false
-    xpath: //div[@id="skuBreadCrumbs"]/ol/li/a/span
+    xpath: //ol[@class="page-breadcrumb"]/li[contains(@class,"page-breadcrumb__item--active")]//a[@class="page-breadcrumb__link"]/@title
   - name: nameExtended
     singleValue: false
-    xpath: //h1[@class="skuName"]
+    xpath: //h1[@class="product-sku__title"]
   - name: listPrice
     singleValue: false
-    xpath: //div[@id="SkuSaveStory"]//span[@class="strike darkGray"]
+    xpath: //span[@class="product-sku__old-price"]
   - name: price
     singleValue: false
-    xpath: //span[@id="skuPriceLabel"]/span[@id="SkuPriceUpdate"] |//span[@id="skuPriceLabel"]/span[@content="EUR"]
+    xpath: //span[@class="product-sku__price-min"]
   - name: availabilityText
     singleValue: false
     defaultValue: In Stock
   - name: description
     singleValue: false
-    xpath: //div[contains(@class,"productHighlights")]/ul/li
+    xpath: //h1[@class="product-sku__title"]
+  - name: manufacturerDescription
+    singleValue: false
+    xpath: //div[@id="long_description"]//h1[@class="description-sku__title txt-center"]/following-sibling::*/ul//li
   - name: descriptionBullets
     singleValue: false
-    xpath: //div[contains(@class,"productHighlights") and contains(@class,"skuDetailCol1")]/ul/li
+    xpath: //div[contains(@class,"product-sku-wrapper__section")]//div[@class="product-sku__details"]/ul/li
   - name: brandText
     singleValue: false
-    xpath: //div[contains(@class,"EffortItemCode")]/div[contains(@class,"SL_m")]/text()
+    xpath: //div[@class="js-energetic-perf-container"]/@data-mf
   - name: sku
     singleValue: false
-    xpath: //div[contains(@class,"EffortItemCode")]/div[@class="formLabel"]/text()
+    xpath: //div[contains(@class,"product-sku-wrapper__section")]//div[contains(@class,"product-sku__ref")]
   - name: mpc
     singleValue: false
-    xpath: //div[@id="skuTabSpecifications"]//table//td/span[text()="Modèle"]/parent::*/text()
+    xpath: //div[contains(@class,"description-sku-wrapper__section") and @id="feature"]//li/span[contains(text(),"Matériau")]/following-sibling::*
   - name: manufacturer
     singleValue: false
-    xpath: //div[@id="skuTabSpecifications"]//table//td/span[text()="Réf Fabricant"]/parent::*/text()
+    xpath: //div[@class="js-energetic-perf-container"]/@data-mf
+  - name: gtin
+    singleValue: false
+    xpath: //div[@class="js-energetic-perf-container"]/@data-upcean
   - name: variantId
     singleValue: false
-    xpath: //div[contains(@class,"EffortItemCode")]/div[@class="formLabel"]/text()
+    xpath: //div[contains(@class,"product-sku-wrapper__section")]//div[contains(@class,"product-sku__ref")]
   - name: variantCount
     singleValue: false
     defaultValue: '0'
   - name: color
     singleValue: false
-    xpath: //div[@id="skuTabSpecifications"]//table//td/span[text()="Couleur"]/parent::*/text()
+    xpath: //div[contains(@class,"description-sku-wrapper__section") and @id="feature"]//li/span[contains(text(),"Couleur")]/following-sibling::*
   - name: name
     singleValue: false
-    xpath: //h1[@class="skuName"]
+    xpath: //h1[@class="product-sku__title"]
   - name: featureBullets
     singleValue: false
-    xpath: //div[contains(@class,"productHighlights")]/ul/li
+    xpath: //div[contains(@class,"product-sku-wrapper__section")]//div[@class="product-sku__details"]/ul/li
   - name: imageZoomFeaturePresent
     singleValue: false
     defaultValue: Yes
-  - name: manufacturerDescription
+  - name: packSize
     singleValue: false
-    xpath: //div[@data-ccs-cc-inline-jumplink="Caractéristiques"]/div[contains(@class,"ccs-cc-inline-features-block")]//div[contains(@class,"ccs-cc-inline-feature-description")]
-  - name: manufacturerImages
+    xpath: //div[@class="product-sku__pack"]/p[contains(text(),"paquet")]
+  - name: materials
     singleValue: false
-    xpath: //div[@data-ccs-cc-inline-jumplink="Caractéristiques"]/div[contains(@class,"ccs-cc-inline-features-block")]//div[contains(@class,"ccs-cc-inline-thumbnail")]/img/@src
+    xpath: //div[contains(@class,"description-sku-wrapper__section") and @id="feature"]//li/span[contains(text(),"Matériau")]/following-sibling::*

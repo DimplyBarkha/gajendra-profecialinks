@@ -26,22 +26,12 @@ const transform = (data) => {
     for (let row of group) {
       if(row.sku){
         row.sku.forEach(item=>{
-          item.text=item.text.replace('WW-','');
+          item.text=item.text.replace('WW -','');
         })
       }
       if(row.variantId){
         row.variantId.forEach(item=>{
-          item.text=item.text.replace('WW-','');
-        })
-      }
-      if(row.mpc){
-        row.mpc.forEach(item=>{
-          item.text=item.text.replace(': ','');
-        })
-      }
-      if(row.manufacturer){
-        row.manufacturer.forEach(item=>{
-          item.text=item.text.replace(': ','');
+          item.text=item.text.replace('WW -','');
         })
       }
       if(row.color){
@@ -49,31 +39,15 @@ const transform = (data) => {
           item.text=item.text.replace(': ','');
         })
       }
-      if(row.mpc){
-        row.mpc.forEach(item=>{
-          item.text=item.text.replace(': ','');
-        })
-      }
-      if(row.image){
-        row.image.forEach(item=>{
-          item.text="http:"+item.text;
-        })
-      }
-      if(row.alternateImages){
-        row.alternateImages.forEach(item=>{
-          item.text="http:"+item.text;
-        })
-      }
       if(row.price){
-        let priceStr='';
         row.price.forEach(item=>{
-          if(priceStr==''){
-            priceStr=item.text;
-          }else{
-            priceStr=priceStr+" "+item.text;
-          }
+          item.text=item.text.replace(',','.');
         })
-        row.price=[{"text":priceStr}];
+      }
+      if(row.listPrice){
+        row.listPrice.forEach(item=>{
+          item.text=item.text.replace(',','.');
+        })
       }
       if(row.description){
         let inf=[];
