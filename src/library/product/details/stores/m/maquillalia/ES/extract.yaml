@@ -64,6 +64,7 @@ fields:
     singleValue: true
     description: Quantity as described on the page
     xpath: //span[@class="prdct-unit"]
+    regExp: \s.+
   - name: weightNet
     singleValue: true
     description: Net weight as described on the page
@@ -434,8 +435,8 @@ fields:
     description: The unit of measurement used in price_per_unit
     xpath: (//div[@class="taxtx"])[1]/span[2]
     # regExp: (Precio por )(.+)(:.+)
-    regExp: (\d|u)(.+:)
     # regExpReplace: $2
+    regExp: (\d|u)(.+:)
   - name: promotion
     singleValue: true
     description: promotion text on product page
