@@ -21,6 +21,8 @@ fields:
   description: Alt text of the main product image
 - name: alternateImages
   xpath: //div[@class="amp-anim-container"]/li/img/@src
+  regExp: (.+)(\$\d+)
+  regExpReplace: $1
   singleValue: false
   description: Other product images (not in manufacturer description)
 - name: metaKeywords
