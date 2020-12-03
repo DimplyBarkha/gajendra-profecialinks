@@ -46,9 +46,15 @@ const transform = (data) => {
       }
       if (row.price && (!row.price[0].text.includes('$'))) {
         row.price[0].text = '$'.concat(row.price[0].text);
+        if (row.price[0].text.includes('_')) {
+          row.price[0].text = '';
+        }
       }
       if (row.listPrice && (!row.listPrice[0].text.includes('$'))) {
         row.listPrice[0].text = '$'.concat(row.listPrice[0].text);
+        if (row.price[0].text.includes('_')) {
+          row.price[0].text = '';
+        }
         if (row.price[0].text === row.listPrice[0].text) {
           delete row.listPrice;
         }
@@ -70,6 +76,20 @@ const transform = (data) => {
         } else {
           delete row.quantity;
         }
+      }
+      if (row.pricePerUnitUom) {
+        if (row.pricePerUnitUom[0].text.includes('_')) {
+          row.pricePerUnitUom[0].text = '';
+        }
+      }
+      if (row.fastTrack) {
+        var fastText = '';
+        row.fastTrack.forEach((ele) => {
+          if (ele.text) {
+            fastText += ' ' + ele.text.trim();
+          }
+        });
+        row.fastTrack[0].text = fastText;
       }
     }
   }
