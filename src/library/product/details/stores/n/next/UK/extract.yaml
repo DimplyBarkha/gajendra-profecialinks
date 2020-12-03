@@ -9,41 +9,54 @@ fields:
   singleValue: false
 - name: productUrl
   singleValue: false
+  xpath: //div[@id="product-url"]/@title
 - name: _pageTimeStamp
   singleValue: false
 - name: image
   singleValue: true
+  xpath: //div[@class="ShotView"]//img/@src
   description: URL of the main product image
 - name: imageAlt
   singleValue: true
+  xpath: //div[@class="ShotView"]//img/@alt
   description: Alt text of the main product image
 - name: alternateImages
   singleValue: false
+  xpath: //div[@class="ThumbNailNavClip"]//li[not(contains(@class, "first selected"))]//img/@src
   description: Other product images (not in manufacturer description)
 - name: metaKeywords
   singleValue: true
   description: The <meta> keywords content
 - name: category
   singleValue: false
+  xpath: //ul[@class="Breadcrumbs"]/li
   description: The categories (e.g. from breadcrumbs)
 - name: nameExtended
   singleValue: true
+  xpath: //div[@class="Title"]/h1
   description: The product name, prefixing "${brand} - " if not included in "name"
     and appending " - ${variantType}" if necessary (fixed per feed)
 - name: listPrice
   singleValue: true
+  xpath: //div[@class="nowPrice"]/span
   description: The stated undiscounted price for the product
 - name: price
   singleValue: true
+  xpath: //div[@class="nowPrice"]/span
   description: The offered price for the selected product variant - if a user clicks
     add to basket this is the price they would be charged
 - name: availabilityText
   singleValue: true
+  xpath: //div[@class="AddToBag"]/a[contains(@class, "Enabled")]
+  regExp: (.+)
+  regExpReplace: 'In Stock'
+  defaultValue: 'Out of Stock'
   description: Availability as described on page for the selected variant. If there
     is no availability but the product can be added to cart, this field should be
     "In Stock"
 - name: description
   singleValue: false
+  xpath: //div[@id="ToneOfVoice"]
   description: Product description supplied by website - may be concatenanted from
     multiple places; specifically not the manufacturer description
 - name: descriptionBullets
@@ -51,6 +64,7 @@ fields:
   description: Number of ul > li tags in the description
 - name: brandText
   singleValue: true
+  xpath: //div[@class="itemsContainer"]//article/@data-brand
   description: Product brand shown - this may actually NOT be just a brand name, e.g.
     "Visit the Gillette Store"
 - name: manufacturer
@@ -70,9 +84,11 @@ fields:
   description: GTIN code (includes UPC/EAN)
 - name: sku
   singleValue: true
+  xpath: //div[@class="ItemNumber"]
   description: The store-specific product identifier
 - name: variantId
   singleValue: true
+  xpath: //div[@class="ItemNumber"]
   description: Identifier for a variant from a store where variants share the same
     sku
 - name: mpc
@@ -93,12 +109,15 @@ fields:
   description: Content under "warnings" header
 - name: ratingCount
   singleValue: true
+  xpath: //span[@class="reviewCount"]
+  regExp: \d+
   description: The number of ratings
 - name: aggregateRatingText
   singleValue: true
   description: The stated aggregate rating
 - name: aggregateRating
   singleValue: true
+  xpath: //span[@class="Rating"]/span/@data-starrating
   description: The stated aggregate rating normalized to be out of 5
 - name: shippingInfo
   singleValue: true
@@ -111,9 +130,11 @@ fields:
   description: Stated shipping weight
 - name: variantCount
   singleValue: true
+  xpath: count(//label[text()="Colour"]/parent::div//ul[@class="dk_options_inner"]/li)
   description: Number of variants listed
 - name: color
   singleValue: true
+  xpath: //div[contains(@id, "dk_container_Colour")]/a/text()
   description: A textual description of the colour
 - name: colorCode
   singleValue: true
@@ -129,6 +150,7 @@ fields:
   description: URLs of videos on page
 - name: name
   singleValue: true
+  xpath: //div[@class="Title"]/h1
   description: The product name
 - name: inStorePrice
   singleValue: true
@@ -460,6 +482,7 @@ fields:
   defaultValue: false
 - name: materials
   singleValue: true
+  xpath: //div[@id="Composition"]
   description: Materials used to make the product
   example: https://www.jdsports.co.uk/product/blue-adidas-linear-20-reversible-wind-breaker-jacket/15988125/
 - name: Image360Present
@@ -469,6 +492,7 @@ fields:
   defaultValue: false
 - name: imageZoomFeaturePresent
   singleValue: true
+  xpath: //div[@alt="SuperZoom"]/@class
   description: If Zoom feature is available for Main image or images in the carousel,['Yes','No']
   example: https://www.zalando.de/adidas-neo-sneaker-low-blackwhite-a4315i002-q11.html
-  defaultValue: false
+  # defaultValue: 'No'

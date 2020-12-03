@@ -5,8 +5,8 @@ module.exports = {
     country: 'UK',
     store: 'next',
     domain: 'next.co.uk',
-    loadedSelector: null,
-    noResultsXPath: null,
+    loadedSelector: 'div[class="itemsContainer"]',
+    noResultsXPath: '//div[@class="Error Error404"]',
     zipcode: '',
   },
 };
