@@ -15,17 +15,16 @@ module.exports = {
     dependencies,
   ) => {
     await context.evaluate(async function () {
-      var text = '';
+      let text = '';
+      let bulletText = '';
       if (document.querySelector('#react-tabs-0')) {
         document.querySelector('#react-tabs-0').click();
       }
-      var bulletText = '';
-      var value = document.querySelector('div#productDetailDescription > div > div > div > div');
+      const value = document.querySelector('div.sc-10utft9-2');
+      const val = document.querySelector('div.ckContent');
       if (value) {
         getDesc(value);
-      }
-      var val = document.querySelector('div#productDetailDescription > div > div > div');
-      if (val) {
+      } else if (val) {
         getDesc(val);
       }
       function getDesc (data) {
@@ -40,8 +39,8 @@ module.exports = {
           }
         });
       }
-      var description = document.createElement('div');
-      var bulletDescription = document.createElement('div');
+      const description = document.createElement('div');
+      const bulletDescription = document.createElement('div');
       description.id = 'desc';
       bulletDescription.id = 'bulletdesc';
       description.innerText = text.replace(/\s{2,}/g, ' ');

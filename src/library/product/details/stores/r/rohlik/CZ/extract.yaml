@@ -39,7 +39,7 @@ fields:
     xpath: count(//div[@id="productDetailDescription"]//ul//li)
   - name: brandText
     xpath: //div[@id="productDetail"]//h2
-    regExp: (^\s*([a-zA-Z0-9]+))
+    regExp: (^\S*)
   - name: manufacturer
     xpath: //p[contains(.,'Výrobce')]/following-sibling::p[1]/text()[1]
   - name: quantity
@@ -211,7 +211,7 @@ fields:
 #     singleValue: true
 #     description: null
   - name: ingredientsList
-    xpath: //h3[contains(.,'Složení')]/following-sibling::table/tbody/tr | //div[@class="textualIngredients"]
+    xpath: //h3[contains(.,'Složení')]/following-sibling::table/tbody/tr | //div[@class="textualIngredients"]//p
   - name: servingSize
     description: The size of serving Nutritional information is based on.
     xpath: //h3[contains(.,'Nutriční hodnoty')]
@@ -225,7 +225,9 @@ fields:
 #     description: Suggested number of servings of the product.
 #     type: NUMBER
   - name: caloriesPerServing
-    xpath: //td[contains(.,'Energetická hodnota')]/following-sibling::td//text()[position()=3]
+    xpath: //td[contains(.,'Energetická hodnota')]/following-sibling::td//text()
+    regExp: (\/)(\d+)
+    regExpReplace: $2
 #   - name: caloriesFromFatPerServing
 #     singleValue: true
 #     description: Nutritional Information for Calories From Fat content - Usually

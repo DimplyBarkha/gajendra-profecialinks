@@ -14,10 +14,24 @@ const transform = (data) => {
         });
         row.description = [{ text }];
       }
+      if (row.price) {
+        let text = '';
+        row.price.forEach(item => {
+          text = row.price.map(elm => elm.text).join(' ').replace(/,/g, '.');
+        });
+        row.price = [{ text }];
+      }
+      if (row.pricePerUnit) {
+        let text = '';
+        row.pricePerUnit.forEach(item => {
+          text = row.pricePerUnit.map(elm => elm.text).join(' ').replace(/,/g, '.');
+        });
+        row.pricePerUnit = [{ text }];
+      }
       if (row.ingredientsList) {
         let text = '';
         row.ingredientsList.forEach(item => {
-          text = row.ingredientsList.map(elm => elm.text).join(' ');
+          text = row.ingredientsList.map(elm => elm.text).join(', ');
         });
         row.ingredientsList = [{ text }];
       }
@@ -72,7 +86,7 @@ const transform = (data) => {
     .replace(/&amp;nbsp;/g, ' ')
     .replace(/&amp;#160/g, ' ')
     .replace(/\u00A0/g, ' ')
-    .replace(/\s{2,}/g, ' ')
+    .replace(/\s{2,}/g, '  ')
     .replace(/"\s{1,}/g, '"')
     .replace(/\s{1,}"/g, '"')
     .replace(/^ +| +$|( )+/g, ' ')
