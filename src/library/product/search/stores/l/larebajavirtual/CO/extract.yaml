@@ -8,9 +8,8 @@ fields:
     xpath: //div[@class='nameProduct']/a/@title
   - name: price
     singleValue: false
-    xpath: //div[@class='priceFinal']/text()
-    type: CURRENCY
-    regExp: (.+)
+    xpath: //div[@class='priceFinal']
+    regExp: \$(.+)
     regExpReplace: $1
   - name: id
     singleValue: false
