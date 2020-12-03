@@ -26,7 +26,7 @@ fields:
     xpath: //div[@class='product-details-page-details__content__prices']//span[@class='price selling-price-list__item__price selling-price-list__item__price--was-price']
   - name: price
     singleValue: false
-    xpath: //div[@class='product-details-page-details__content__prices']//span[@class='price selling-price-list__item__price selling-price-list__item__price--now-price']
+    xpath: //div[@class='product-details-page-details__content__prices']//span[@class='price selling-price-list__item__price selling-price-list__item__price--now-price']//span[@class='price__value selling-price-list__item__price selling-price-list__item__price--now-price__value']
   - name: availabilityText
     singleValue: false
     xpath: //div[@class='product-details-page-details__content__name']//button[@data-track-link-name="add-to-cart-open"]//span[text()='Add']
