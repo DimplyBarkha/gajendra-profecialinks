@@ -145,6 +145,13 @@ const transform = (data) => {
           if (row.variantCount) {
             row.variantCount = [{'text':row.variantCount.length,'xpath':row.variantCount[0].xpath}];
           }
+          if (row.imageZoomFeaturePresent) {
+            if (row.imageZoomFeaturePresent.length) {
+              row.imageZoomFeaturePresent[0].text = 'Yes';
+            } else {
+              row.imageZoomFeaturePresent = [{ text: 'No', xpath: '' }];
+            }
+          }
         }
       }
       return cleanUp(data);

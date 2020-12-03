@@ -88,4 +88,9 @@ fields:
   - name: variantCount
     singleValue: false
     xpath: //div[@class='hidden-xs']//div[@class='product-details__row model-variations']//div[@class='model-variations__item-container']//a
-  
+  - name: imageZoomFeaturePresent
+    singleValue: false
+    description: If Zoom feature is available for Main image or images in the
+      carousel,['Yes','No']
+    defaultValue: No
+    xpath: //figure[contains(@data-vc-component,'hover-zoom')]
