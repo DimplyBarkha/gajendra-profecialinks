@@ -5,10 +5,10 @@ recordXPath: null
 fields:
   - name: image
     singleValue: false
-    xpath: (//li/a/img[contains(@class,"pdpMod_Mobile_GalleryImage")])[1]/@src
+    xpath: (//li/a/img[contains(@class,"pdpMod_Mobile_GalleryImage")])[1]/@src | //img[contains(@class,"primary-image lazy loaded")]/@src
   - name: imageAlt
     singleValue: false
-    xpath: (//li/a/img[contains(@class,"pdpMod_Mobile_GalleryImage")])[1]/@title
+    xpath: (//li/a/img[contains(@class,"pdpMod_Mobile_GalleryImage")])[1]/@title | //img[contains(@class,"primary-image lazy loaded")]/@alt
   - name: alternateImages
     singleValue: false
     xpath: //li[position()>1]/a/img[contains(@class,"pdpMod_Mobile_GalleryImage")]/@src 
@@ -75,7 +75,7 @@ fields:
     description: Identifier for a variant from a store where variants share the same sku
   - name: mpc
     singleValue: false
-    xpath: //td[contains(text(), "Modelo")]//following-sibling::td
+    xpath: //td[contains(text(), "Modelo")]//following-sibling::td | //li[contains(text(),"Modelo")]
     description: The manufacturer model code (unique) of the product
   - name: packSize
     singleValue: false
@@ -135,7 +135,7 @@ fields:
     description: The product name
   - name: specifications
     singleValue: false
-    xpath: //table[@class="table-data-product-details"]//tr
+    xpath: //table[@class="table-data-product-details"]//tr//td
     description: The physical dimensions of the product including packaging.
   - name: warranty
     singleValue: false
