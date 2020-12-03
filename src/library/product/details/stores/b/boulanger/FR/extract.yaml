@@ -120,7 +120,6 @@ fields:
   description: The number of ratings
   xpath: (//a[contains(text(), 'Avis clients')]/span)[1]
   regExp: (\d+)
-  regExpReplace: $1
 - name: aggregateRatingText
   singleValue: true
   description: The stated aggregate rating
