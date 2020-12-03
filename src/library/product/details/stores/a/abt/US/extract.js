@@ -97,6 +97,12 @@ async function implementation (
         if (videoSrc) addElementToDocument('video', 'https://www.youtube.com/watch?v='.concat(videoSrc));
       }
     }
+    var iframeVideo = document.querySelector('iframe[title="Product Videos"]')
+    if(iframeVideo){
+    let iframeVideoContents = iframeVideo.contentWindow.document.body
+    let videoUrl = iframeVideoContents.querySelector('video').src
+    if(videoUrl) addElementToDocument('video1',videoUrl);
+  }
   });
   await context.extract(productDetails, { transform });
 }
