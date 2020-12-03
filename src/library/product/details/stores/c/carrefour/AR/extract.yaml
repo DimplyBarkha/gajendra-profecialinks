@@ -71,10 +71,7 @@ fields:
     xpath: //div[contains(@class,'descripcion-content')]//div[contains(@class,'flix-std')]
   - name: countryOfOrigin
     singleValue: false
-    xpath: //div[@class='especifiacion-box']//span[contains(text(),'Origen')]//following-sibling::span
-  - name: quantity
-    singleValue: false
-    xpath: //div[@class='especifiacion-box']//span[contains(text(),'Unidad de medida')]//following-sibling::span
+    xpath: //div[@class='especifiacion-box']//span[contains(text(),'Origen')]//following-sibling::span  
   - name: pricePerUnit
     singleValue: false
     xpath: //div[@class='especifiacion-box']//span[contains(text(),'Precio por unidad de medida')]//following-sibling::span
@@ -90,3 +87,9 @@ fields:
   - name: imageZoomFeaturePresent
     singleValue: false
     defaultValue: Yes
+  - name: weightNet
+    singleValue: true
+    xpath: //div[@class='especifiacion-box']//span[normalize-space()='Peso' or normalize-space()='Peso de la caja']//following-sibling::span
+  - name: color
+    singleValue: true
+    xpath: //div[@class='especifiacion-box']//span[contains(text(),'Color')]//following-sibling::span
