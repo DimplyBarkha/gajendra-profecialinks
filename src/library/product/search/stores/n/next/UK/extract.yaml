@@ -14,6 +14,8 @@ fields:
   - name: productUrl
     singleValue: false
     xpath: //div[@class="Info"]/h2/a/@href
+    regExp: (.+)
+    regExpReplace: https:$1
   - name: gtin
     singleValue: false
   - name: thumbnail
