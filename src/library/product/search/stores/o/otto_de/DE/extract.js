@@ -47,7 +47,14 @@ async function implementation(
         price[i] = price[i].replace(",", ".")
         addHiddenDiv('price', price[i], i);
       }
-    }
+    // var idd = getAllXpath("//a[@class='productLink']/@href", 'nodeValue');
+    // if (idd != null) {
+    //   var regexp = /variationId=(.*)/;
+    //   let result = idd.search(regexp);
+    //   newidd=result[1]
+    //   addHiddenDiv('newidd', newidd, i);
+    //   }
+     }
   });
   return await context.extract(productDetails, { transform });
 };

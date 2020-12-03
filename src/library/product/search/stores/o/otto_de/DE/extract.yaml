@@ -23,8 +23,6 @@ fields:
   - name: reviewCount
     singleValue: false
     xpath: //span[@class= 'nrOfReviews']
-    regExp: (\d+)
-    regExpReplace: $1
   - name: rank
     singleValue: false
     xpath:
@@ -33,9 +31,7 @@ fields:
     xpath:
   - name: id
     singleValue: false
-    xpath: //a[@class='productLink']/@href
-    regExp: variationId=(.*)
-    regExpReplace: $1
+    xpath: //article[@class='product clearfix']/@data-productid
   - name: aggregateRating
     singleValue: false
     xpath: //a[@class='rating']
