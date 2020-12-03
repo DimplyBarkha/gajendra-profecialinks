@@ -5,8 +5,10 @@ recordXPath: //div[@class="nm-search-results-container"]/ul[@class="neemu-produc
 fields:
   - name: rankOrganic
     SingleValue: false
+    defaultValue: 1
   - name: rank
-    SingleValue: false    
+    SingleValue: false
+    defaultValue: 1    
   - name: id
     SingleValue: false
     xpath: //li[@class="nm-product-item"]/@data-pid
@@ -27,7 +29,7 @@ fields:
     xpath: //div[@class="nm-product-info"]//span[@class="ts-shelf-right ts-shelf-rate-count ts-shelf-rate-enabled"]
   - name: price
     SingleValue: false
-    xpath: //li[@class="nm-product-item"]//div[@class="nm-product-info"]//a[@class="nm-offer"]//div[@class="nm-price-value"]
+    xpath: //a[@class="nm-offer"]//div[@class="nm-price-value" or @class="nm-price-value nm-price-only"] | //a[@class="nm-offer"]//span[@class="nm-price-value"]
   - name: brandText
     SingleValue: false
     xpath: //div[@class="linx-category"]//a[@class="linx-brand"]
