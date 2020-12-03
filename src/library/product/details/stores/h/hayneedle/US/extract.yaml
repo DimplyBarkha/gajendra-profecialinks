@@ -1,0 +1,79 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: shownImages
+    singleValue: false
+    xpath: //button[contains(@class, "product-images__imageContainer")]//img//@src
+    regExp: (.+)(76,76)(.+)
+    regExpReplace: https:$11000,1000$3
+  - name: nameExtended
+    singleValue: true
+    xpath: //h1
+  - name: price
+    singleValue: true
+    xpath: //div[contains(@class ,"price-details")]//div//div/@aria-label
+  - name: availabilityText
+    singleValue: true
+    xpath: //div[contains(@class,"item-info-right-container")]//button[@data-automation-id="add-to-cart-button"]
+    regExp: ADD TO CART
+    regExpReplace: In stock
+    defaultValue: Out of Stock
+  - name: brandText
+    singleValue: true
+    xpath: (//a[contains(@class, "product-brand__brand")])[1]
+  - name: description
+    singleValue: false
+    xpath: //div[contains(@data-automation-id,"accordion-section-details-Description")]
+  - name: featureBullets
+    singleValue: false
+    xpath: //table//tr//@bullet
+  - name: featureHighlights
+    singleValue: false
+    xpath: //table//tr//@bullet
+  - name: mpc
+    singleValue: true
+    xpath: (//div[@class="model product-data"]//span)[2]
+  - name: questionsCount
+    singleValue: true
+    xpath: //div[contains(@class,"price-box__reviewsQAndA")]
+    regExp: (\d+)
+  - name: ratingCount
+    singleValue: true
+    xpath: //span[contains(@class,"pr-snippet-review-count")]
+    regExp: (\d+)
+  - name: aggregateRating
+    singleValue: true
+    xpath: //span[contains(@class,"pr-review-snapshot-snippets")]
+  - name: category
+    singleValue: false
+    xpath: //div[@data-automation-id="breadcrumbs-container"]//div[contains(@class,'breadcrumbs__breadcrumb')]
+  - name: highQualityImages
+    singleValue: false
+    xpath: //button[contains(@class, "product-images__imageContainer")]//img//@src
+    regExp: (.+)(76,76)(.+)
+    regExpReplace: https:$11000,1000$3
+  - name: sku
+    singleValue: true
+    xpath: //span[@data-automation-id="product-breadcrumb-sku"]
+    regExp: (Item\s#\s)(.+)
+    regExpReplace: $2
+  - name: productUrl
+    singleValue: true
+    xpath: //link[@rel="canonical"]/@href
+  # - name: variantInformation
+  #   singleValue: true
+  #   xpath: concat(//div[@class="shop-product-variations"]//div[contains(@class, "variation-header modal-wrapper")]//span, //div[@class="shop-product-variations"]//div[contains(@class, "variation-header modal-wrapper")]//div, //div[@class="shop-product-variations"]//span[contains(@class, "variation-dropdown-tile")]//p)
+  - name: specifications
+    singleValue: true
+    xpath: //body//@specifications
+  # - name: upc
+  #   singleValue: true
+  #   xpath: //body//@upc
+  # - name: manufacturerImages
+  #   singleValue: true
+  #   xpath: //div[contains(@class,"manufacturer-content-wrapper")]
+  # - name: videos
+  #   singleValue: false
+  #   xpath: //body//@video
