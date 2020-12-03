@@ -36,6 +36,17 @@ const transform = (data) => {
           }
         });
       }
+
+      if (row.inTheBoxUrl && row.inTheBoxUrl[0]) {
+        row.inTheBoxUrl.forEach(item => {
+          if (item.text.includes(' 200w')) {
+            const imgUrl = item.text.split(' 200w, ')[0];
+            if (!(item.text.includes('http'))) {
+              item.text = 'https:' + imgUrl;
+            }
+          }
+        });
+      }
     }
   }
   data.forEach(obj => obj.group.forEach(row => Object.keys(row).forEach(header => row[header].forEach(el => {

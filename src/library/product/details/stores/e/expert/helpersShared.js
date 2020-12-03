@@ -35,17 +35,56 @@ class SharedHelpers {
     }, xpath);
   }
 
-  async goToiFrameLink (apiManufCall, link, imgSelector, getAttrImgSrc, vidSelector, getAttrVidSrc) {
+  async goToiFrameLink (apiManufCall, link, imgSelector, getAttrImgSrc, vidSelector, getAttrVidSrc, inBoxSelector, comparisionTableSelector) {
     let content = null;
     let image = null;
     let video = null;
+    let inBoxText = null;
+    let inBoxUrls = null;
+    let comparisionText = null;
     await this.context.goto(apiManufCall, {
       timeout: 100000,
       waitUntil: 'load',
     });
+    await this.context.evaluate(async () => {
+      await new Promise((resolve) => setTimeout(resolve, 5000));
+
+      async function infiniteScroll () {
+        let prevScroll = document.documentElement.scrollTop;
+        while (true) {
+          window.scrollBy(0, document.documentElement.clientHeight);
+          await new Promise(resolve => setTimeout(resolve, 1000));
+          const currentScroll = document.documentElement.scrollTop;
+          if (currentScroll === prevScroll) {
+            break;
+          }
+          prevScroll = currentScroll;
+        }
+      }
+      await infiniteScroll();
+    });
     const text = await this.context.evaluate(async function () {
       return document.querySelector('body').innerText;
     });
+    if (inBoxSelector) {
+      inBoxText = await this.context.evaluate(async function (inBoxSelector) {
+        return document.querySelector(inBoxSelector) ? document.querySelector(inBoxSelector).innerText : '';
+      }, inBoxSelector);
+      inBoxUrls = await this.context.evaluate(async function (inBoxSelector, getAttrImgSrc) {
+        const images = document.querySelectorAll(inBoxSelector+' img');
+        const imagesSrc = [];
+        [...images].forEach((element) => {
+          imagesSrc.push(element.getAttribute(getAttrImgSrc));
+        });
+        return imagesSrc;
+      }, inBoxSelector, getAttrImgSrc);
+    }
+    if (comparisionTableSelector) {
+      comparisionText = await this.context.evaluate(async function (comparisionTableSelector) {
+        return !!document.querySelector(comparisionTableSelector);
+      }, comparisionTableSelector);
+    }
+    console.log(inBoxText);
     content = text;
     const images = await this.context.evaluate(async function (imgSelector, getAttrImgSrc) {
       const images = document.querySelectorAll(imgSelector);
@@ -71,7 +110,7 @@ class SharedHelpers {
       }, vidSelector, getAttrVidSrc);
     }
     await this.context.goto(link);
-    return { content: content, image: image, video: video };
+    return { content: content, image: image, video: video, inBoxText: inBoxText, inBoxUrls: inBoxUrls, comparisionText: comparisionText };
   }
 }
 module.exports = SharedHelpers;

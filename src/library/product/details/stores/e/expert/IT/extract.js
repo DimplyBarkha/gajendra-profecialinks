@@ -190,7 +190,7 @@ await context.goto(productUrl, { timeout: 50000, waitUntil: 'load', checkBlocked
       let scriptData = scriptNode.textContent;
       JSONArr = JSON.parse(scriptData);
     }
-    const offerText = JSONArr ? JSONArr.offers : '';
+    const offerText = JSONArr ? JSONArr.offers : null;
     let availabilityText = offerText ? offerText.availability : '';
     if (availabilityText.includes('OutOfStock')) {
       availabilityText = 'Out of Stock';
@@ -257,6 +257,13 @@ await context.goto(productUrl, { timeout: 50000, waitUntil: 'load', checkBlocked
     }
     addHiddenDiv('ex_description', finalDes);
   });
+  await context.waitForSelector('#flix-comp', { timeout: 45000 });
+
+  try {
+    await context.waitForSelector('#flix-comp', { timeout: 45000 });
+  } catch (error) {
+    console.log(error);
+  }
 
   try {
     await new Promise((resolve) => setTimeout(resolve, 6000));

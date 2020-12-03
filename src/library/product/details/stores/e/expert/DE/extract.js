@@ -20,6 +20,9 @@ module.exports = {
     let content = null;
     let image = null;
     let manufVideo = null;
+    let inBoxText = null;
+    let inBoxUrls = null;
+    let comparisionText = null;
 
     const link = await context.evaluate(function () {
       return window.location.href;
@@ -32,9 +35,26 @@ module.exports = {
     console.log(apiManufCall);
 
     if (apiManufCall) {
-      const obj = await sharedhelpers.goToiFrameLink(apiManufCall, link, 'div.wrapper img[data-src]', 'data-src', 'div.wrapper div.play-btn', 'data-video');
+      const obj = await sharedhelpers.goToiFrameLink(apiManufCall, link, 'div.wrapper img[data-src]', 'data-src', 'div.wrapper div.play-btn', 'data-video', '.in-the-box', '.compare-headline');
       content = obj.content;
       image = obj.image;
+      inBoxText = obj.inBoxText;
+      inBoxUrls = obj.inBoxUrls;
+      comparisionText = obj.comparisionText;
+
+      console.log('obj')
+
+      console.log(obj)
+
+      if (inBoxUrls.length) {
+        inBoxUrls.forEach((element) => {
+          sharedhelpers.addHiddenInfo('ii_inBoxUrls', element);
+        });
+      }
+      sharedhelpers.addHiddenInfo('ii_comparisionText', comparisionText);
+      console.log('inBoxText');
+      console.log(inBoxText);
+      sharedhelpers.addHiddenInfo('ii_inBoxText', inBoxText);
       sharedhelpers.addHiddenInfo('ii_manufContent', content);
       if (image.length) {
         sharedhelpers.addHiddenInfo('ii_manufContentImg', image.join(' || '));

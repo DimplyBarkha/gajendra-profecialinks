@@ -150,6 +150,17 @@ const transform = (data, context) => {
           });
         }
 
+        if (row.inTheBoxUrl && row.inTheBoxUrl[0]) {
+          row.inTheBoxUrl.forEach(item => {
+            if (item.text.includes(' 200w')) {
+              const imgUrl = item.text.split(' 200w, ')[0];
+              if (!(item.text.includes('http'))) {
+                item.text = 'https:' + imgUrl;
+              }
+            }
+          });
+        }
+
         if (row.videos && row.videos[0]) {
           row.videos.forEach(item => {
             if (!(item.text.includes('http'))) {
