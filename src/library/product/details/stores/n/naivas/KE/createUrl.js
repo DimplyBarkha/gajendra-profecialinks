@@ -4,7 +4,7 @@ module.exports = {
   parameterValues: {
     domain: 'naivas.co.ke',
     prefix: null,
-    url: null,
+    // url: 'https://www.naivas.co.ke/search?q={id}',
     country: 'KE',
     store: 'naivas',
     zipcode: '',

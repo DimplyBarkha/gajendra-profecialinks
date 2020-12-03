@@ -5,7 +5,7 @@ recordXPath: //div[@class="storeProducts row"]//app-product-item
 fields: 
   - name: id
     singleValue: false
-    xpath: //img[@itemprop="image"]
+    xpath: //img[@itemprop="image"]/@src
     regExp: productImage\W(.+)\WJPG
     regExpReplace: $1
   - name: rankOrganic
@@ -15,26 +15,26 @@ fields:
     xpath: //span[@itemprop="name"]
   - name: productUrl
     singleValue: false
-    xpath: //div[@_ngcontent-naivas-app-c11]/a/@href
+    xpath: //div[@class=" text-small"]/a/@href
     regExp: (.+)
     regExpReplace: https://www.naivas.co.ke$1
   - name: gtin
-    singleValue: true
+    singleValue: false
   - name: thumbnail
     singleValue: false
-    xpath: //img[@itemprop="image"]
+    xpath: //img[@itemprop="image"]/@src    
   - name: aggregateRating
-    singleValue: true
-  - name: reviewCount
-    singleValue: true
+    singleValue: false
+  - name: reviewCount+
+    singleValue: false
   - name: price
     singleValue: false
     xpath: //span[@class="product-price txt-md"]
   - name: manufacturer
-    singleValue: true
+    singleValue: false
   - name: soldBy
-    singleValue: true
+    singleValue: false
   - name: rank
-    singleValue: true
+    singleValue: false
   - name: endorsementText
-    singleValue: true
+    singleValue: false
