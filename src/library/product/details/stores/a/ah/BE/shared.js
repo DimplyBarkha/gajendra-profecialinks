@@ -23,16 +23,24 @@ const transform = (data) => {
     el.group.forEach(gr => {
       try {
         gr['_url'] = gr.url;
-        if (gr && gr.category.length) gr.category.shift();
-        if (gr && gr.variantId.length) {
+        if (gr && gr.category && gr.category.length) gr.category.shift();
+        if (gr && gr.variantId && gr.variantId.length) {
           const mainData = JSON.parse(gr.variantId[0].text);
           gr.variantId[0].text = mainData.sku;
           gr['_input'] = [{ text: mainData.sku }];
           if (gr && gr.quantity.length) gr.quantity[0].text = mainData.weight;
         }
-        if (gr && gr.direction.length) gr.direction = [{ text: gr.direction.find(e => e.text.includes('Bewaren')).text.slice(8, 10000) }];
-        if (gr && gr.storage.length) gr.storage = [{ text: gr.storage.find(e => e.text.includes('Bewaren')).text.slice(8, 10000) }];
-        if (gr && gr.servingSize.length) {
+        if (gr && gr.direction && gr.direction.length) {
+          const data = gr.direction.find(e => e.text.includes('Bewaren'));
+          if (data) {
+            gr.direction = [{ text: data.text.slice(8, 10000) }];
+            gr.storage = [{ text: data.text.slice(8, 10000) }];
+          } else {
+            gr.direction = [];
+            gr.storage = [];
+          }
+        }
+        if (gr && gr.servingSize && gr.servingSize.length) {
           const size = onlyNumbersAndDot(gr.servingSize[0].text);
           gr.servingSize[0].text = 'Per ' + size;
         }
