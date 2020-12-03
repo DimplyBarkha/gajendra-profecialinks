@@ -20,6 +20,8 @@ fields:
   - name: productUrl
     singleValue: false
     xpath: //div[@class="rzgLFq _1rUvhT"]/div/div[@class="_35THZ2"]/a/@href
+    regExp: (fr/.*)
+    regExpReplace: https://www.microspot.ch/$1
   - name: aggregateRating2
     singleValue: false
     xpath: //html//div[@id="rat"]
