@@ -90,13 +90,13 @@ module.exports = {
           addElementToDocument('added_rating', aggregateNewValue.replace(/\./g, ','));
         } else {
           const ratingAlternateXpath = getXpath("//div[@class='absnippert2contain']/img/@alt", 'nodeValue');
-          if (!ratingAlternateXpath.includes('alaScore')) {
+          if (ratingAlternateXpath != null && !ratingAlternateXpath.includes('alaScore')) {
             addElementToDocument('added_rating', ratingAlternateXpath);
           } else {
             const ratingAlternateXpath = getXpath("//div[@class='absnippert2contain']/img/@alt", 'nodeValue');
-            if (ratingAlternateXpath.includes('alaScore')) {
+            if (ratingAlternateXpath != null && ratingAlternateXpath.includes('alaScore')) {
               // @ts-ignore
-              if (document.getElementById('frame_content').contentWindow.document.querySelector('.topsummary_text') !== null) {
+              if (document.getElementById('frame_content') != null && document.getElementById('frame_content').contentWindow.document.querySelector('.topsummary_text') !== null) {
                 // @ts-ignore
                 const aggregateRatingSummary = document.getElementById('frame_content').contentWindow.document.querySelector('.topsummary_text').innerText;
                 if (aggregateRatingSummary !== null && aggregateRatingSummary.includes('La media della valutazione per questo')) {
@@ -121,6 +121,7 @@ module.exports = {
       }
       const specificInfoXpath = getAllXpath("//ul[@class='content__Tech__block']//li[@class='content__Tech__row']", 'innerText');
       addElementToDocument('added_specific_information', specificInfoXpath.join('||'));
+      // const videoUrlPath = getXpath("//div[contains(@class,'fullJwPlayerWarp')]//input[@class='flix-jw']/@value", 'nodeValue');
       const videoUrlPath = getAllXpath("//input[@class='flix-jw']/@value", 'nodeValue');
       if (videoUrlPath.length > 0) {
         for (let i = 0; i < videoUrlPath.length; i++) {
@@ -190,12 +191,14 @@ module.exports = {
         var matchData = scriptData.match(/("identifier":")([^"]+)/i);
         addElementToDocument('added_gtin', matchData[2]);
       }
+      // secondary image Total
+      // const videoAlignXpath2 = getXpath("//script[@id='popup-product-detail-main'][contains(text(),'youtube')]", 'innerText');
       const videoAlignXpath3 = getXpath("//div[@class='video-wrapper']//iframe/@src", 'nodeValue');
       if (videoAlignXpath3 !== null) {
         addElementToDocument('added_video_url', videoAlignXpath3);
       }
       // @ts-ignore
-      if (document.getElementById('frame_content').contentWindow.document.getElementById('abtabtags_count') !== null) {
+      if (document.getElementById('frame_content') != null && document.getElementById('frame_content').contentWindow.document.getElementById('abtabtags_count') !== null) {
         // @ts-ignore
         const ratingCountXpath = document.getElementById('frame_content').contentWindow.document.getElementById('abtabtags_count').innerText;
         addElementToDocument('added_rating_count', ratingCountXpath.substring(ratingCountXpath.indexOf('(') + 1, ratingCountXpath.lastIndexOf(')')));
