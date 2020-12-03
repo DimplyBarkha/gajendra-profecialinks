@@ -23,7 +23,7 @@ fields:
     xpath: //div[@id="SkuSaveStory"]//span[@class="strike darkGray"]
   - name: price
     singleValue: false
-    xpath: //span[@id="skuPriceLabel"]/span[@id="SkuPriceUpdate"] |//span[@id="skuPriceLabel"]/span[@content="EUR"]
+    xpath: //span[@id="skuPriceLabel"]/span[@id="SkuPriceUpdate"]/text()
   - name: availabilityText
     singleValue: false
     defaultValue: In Stock
@@ -36,15 +36,15 @@ fields:
   - name: brandText
     singleValue: false
     xpath: //div[contains(@class,"EffortItemCode")]/div[contains(@class,"SL_m")]/text()
+  - name: manufacturer
+    singleValue: false
+    xpath: //div[contains(@class,"EffortItemCode")]/div[contains(@class,"SL_m")]/text()
   - name: sku
     singleValue: false
     xpath: //div[contains(@class,"EffortItemCode")]/div[@class="formLabel" and contains(@content,'mpn')]/text()
   - name: mpc
     singleValue: false
     xpath: //div[@id="skuTabSpecifications"]//table//td/span[text()="Modèle"]/parent::*/text()
-  - name: manufacturer
-    singleValue: false
-    xpath: //div[@id="skuTabSpecifications"]//table//td/span[text()="Réf Fabricant"]/parent::*/text()
   - name: variantId
     singleValue: false
     xpath: //div[contains(@class,"EffortItemCode")]/div[@class="formLabel" and contains(@content,'mpn')]/text()

@@ -64,17 +64,6 @@ const transform = (data) => {
           item.text="http:"+item.text;
         })
       }
-      if(row.price){
-        let priceStr='';
-        row.price.forEach(item=>{
-          if(priceStr==''){
-            priceStr=item.text;
-          }else{
-            priceStr=priceStr+" "+item.text;
-          }
-        })
-        row.price=[{"text":priceStr}];
-      }
       if(row.description){
         let inf=[];
         row.description.forEach(item=>{

@@ -1,4 +1,4 @@
-const {transform}=require('../FR/foramt')
+const {transform}=require('../SE/foramt')
 module.exports = {
   implements: 'product/details/extract',
   parameterValues: {
