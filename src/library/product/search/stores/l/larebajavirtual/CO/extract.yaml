@@ -9,6 +9,7 @@ fields:
   - name: price
     singleValue: false
     xpath: //div[@class='priceFinal']/text()
+    type: CURRENCY
     regExp: \$(.+)
     regExpReplace: $1
   - name: id
