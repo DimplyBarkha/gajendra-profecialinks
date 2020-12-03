@@ -21,13 +21,16 @@ fields:
   - name: nameExtended
     singleValue: true
     xpath: //div[@class='ProductTitleBar_TitleIconContainer']/div[@class='ProductTitleBar_Title']
+  - name: name
+    singleValue: true
+    xpath: //div[@class='ProductTitleBar_TitleIconContainer']/div[@class='ProductTitleBar_Title']
   - name: listPrice
     singleValue: true
     description: The stated undiscounted price for the product
   - name: price
     singleValue: true
-    description: The offered price for the selected product variant - if a user
-      clicks add to basket this is the price they would be charged
+    type: CURRENCY
+    xpath: (//div[@class="Prices_PriceText"]//text())[1]
   - name: availabilityText
     singleValue: true
     xpath: (//div[@class="AddToBasket_ButtonContainer hasButtons"])[1]//a[@onclick]/text()
@@ -43,15 +46,18 @@ fields:
     type: NUMBER
   - name: brandText
     singleValue: true
-    description: Product brand shown - this may actually NOT be just a brand name,
-      e.g. "Visit the Gillette Store"
+    xpath: //div[@class='ProductTitleBar_TitleIconContainer']/div[@class='ProductTitleBar_Title']
+    regExp: (\w+)
+    regExpReplace: $1
   - name: manufacturer
     singleValue: true
     description: Product manufacturer
   - name: quantity
     singleValue: true
-    xpath: (//div[@class="CollapsiblePanel_SubContainer"]//div//text())[1]
-    regExp: \d.{0,4}
+    xpath: //div[@class='quantity'] 
+  - name: packSize
+    singleValue: true
+    xpath: //div[@class='quantity1']
   - name: weightNet
     singleValue: true
     description: Net weight as described on the page
@@ -63,7 +69,7 @@ fields:
     description: GTIN code (includes UPC/EAN)
   - name: sku
     singleValue: true
-    description: The store-specific product identifier
+    xpath: //div[@class="CollapsiblePanelHead_HeaderTitle"]/text()
   - name: variantId
     singleValue: true
     xpath: //div[@class="CollapsiblePanelHead_HeaderTitle"]/text()
