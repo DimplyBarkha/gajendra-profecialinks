@@ -33,7 +33,7 @@ fields:
     xpath: //div[@data-tile-start]//div[contains(@class,"product standard") and @data-pid]/@data-pid | //body[contains(@class,"product-details-page")]//div[@data-ttsku]/@data-ttsku
   - name: aggregateRating2
     singleValue: false
-    xpath: //div[@data-tile-start]//div[contains(@class,"ratings")]/div[@data-productid]/@data-starrating | //body[contains(@class,"product-details-page")]//div[contains(@class,"product-secondary-section")]//div[contains(@class,"ratings")]/span
+    xpath: //div[@data-tile-start]//div[contains(@class,"ratings")]/div[@data-productid]/@data-starrating | //body[contains(@class,"product-details-page")]//span[contains(@class,"tt-c-reviews-summary__rating-number")]
   - name: ratingCount
     singleValue: false
     xpath: //body[contains(@class,"product-details-page")]//div[contains(@class,"product-secondary-section")]//div[contains(@class,"ratings")]//a[contains(@class,"reviews")]
