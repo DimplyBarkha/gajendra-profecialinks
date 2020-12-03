@@ -15,14 +15,16 @@ module.exports = {
     context,
     dependencies,
   ) => {
-    await context.waitForSelector('#start-of-content');
-    // Check if cookies pop-up appeared
-    const doesPopupExist = await context.evaluate(function () {
-      return Boolean(document.querySelector('#cookie-popup'));
-    });
-    if (doesPopupExist) {
-      await context.click('#accept-cookies');
-    }
+    const { transform } = parameters;
+    const { productDetails } = dependencies;
+    // await context.waitForSelector('#start-of-content');
+    // // Check if cookies pop-up appeared
+    // const doesPopupExist = await context.evaluate(function () {
+    //   return Boolean(document.querySelector('#cookie-popup'));
+    // });
+    // if (doesPopupExist) {
+    //   await context.click('#accept-cookies');
+    // }
     //
     await context.evaluate(async function () {
       function addElementToDocument (key, value) {
@@ -33,14 +35,13 @@ module.exports = {
         document.body.appendChild(catElement);
       }
       try {
-        addElementToDocument('variantCount', document.getElementsByClassName('product-recommendations_link__1b2lR').length);
-        addElementToDocument('additional_desc_bullet_count', document.getElementsByClassName('product-info-description__list-item').length);
+        addElementToDocument('url', location.href);
+        // addElementToDocument('additional_desc_bullet_count', document.getElementsByClassName('product-info-description__list-item').length);
       } catch (e) {
         console.log(e);
       }
     });
-    const { transform } = parameters;
-    const { productDetails } = dependencies;
+
     return await context.extract(productDetails, { transform });
   },
 };
