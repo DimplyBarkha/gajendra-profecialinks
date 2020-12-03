@@ -44,6 +44,5 @@ const transform = (data) => {
       }
     }
     return cleanUp(data);
-  };
-  
-  module.exports = { transform };
+  };  
+module.exports = { transform };
