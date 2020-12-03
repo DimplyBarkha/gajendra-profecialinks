@@ -42,6 +42,9 @@ fields:
   - name: eangtin
     singleValue: false
     xpath: //table[@id="product-attribute-specs-table"]//th[text()='EAN']//following-sibling::td
+  - name: gtin
+    singleValue: false
+    xpath: //table[@id="product-attribute-specs-table"]//th[text()='EAN']//following-sibling::td
   - name: sku
     singleValue: false
     xpath: //div[@itemprop="sku"]
@@ -72,4 +75,6 @@ fields:
     #"ratingValue":"5.0"
     regExp: \"ratingValue\"\s*:\s*\"(.+?)\"
     regExpReplace: $1
-  
+  - name: variantInformation
+    singleValue: false
+    xpath: //div[contains(@class,'swatch-attribute-options')]//div[contains(@class,'swatch-option') and contains(@class,'selected')]//span[contains(@class,'custom-option-format')]
