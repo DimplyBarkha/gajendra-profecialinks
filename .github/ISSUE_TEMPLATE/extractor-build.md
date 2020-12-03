@@ -166,7 +166,7 @@ This branch is now used to commit new changes. Similarly as before, always refer
 - [ ] In workbench, change the source parameter called `state` from `staging` to `scaleTest`
 - [ ] System runs automated flow at scheduled time on the full input file, when this is done collect the resulting output `.csv` file
 - [ ] In workbench, revert the source parameter called `state` from `scaleTest` back to `staging`
-- [ ] Manual QA1 : Submit the scale test output csv for manual QA file according to SA instructions
+- [ ] Manual QA1 : Submit the scale test output csv for manual QA file according to SA instructions. To submit your csv, simply share the link to the output file on the tracking sheet.
 - [ ] Add `Q1` Label
 - [ ] Update sample input file to include the input rows tested by manual QA1
 - [ ] Additional testing is done with a manual flow on the sample input file. Update extractor code to match expected accuracy level
