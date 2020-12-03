@@ -30,7 +30,7 @@ fields:
   - name: listPrice
     singleValue: true
     description: The stated undiscounted price for the product
-    xpath: //div[@class="vip__price-box-price stroke"]
+    # xpath: //div[@class="vip__price-box-price stroke"]
   - name: price
     singleValue: true
     description: The offered price for the selected product variant - if a user
@@ -79,6 +79,8 @@ fields:
   - name: gtin
     singleValue: true
     description: GTIN code (includes UPC/EAN)
+    xpath: (//*[contains(text(),'EAN kode:')])[1]
+    regExp: (\d+)
   - name: sku
     singleValue: true
     description: The store-specific product identifier
@@ -147,6 +149,7 @@ fields:
   - name: manufacturerImages
     singleValue: false
     description: Images within the third party description
+    xpath: (//section[@class="vip__superspecs__outer"])//img/@src
   - name: videos
     singleValue: false
     description: URLs of videos on page
@@ -426,7 +429,7 @@ fields:
   - name: productOtherInformation
     singleValue: false
     description: Any other product information
-    xpath: //*[contains(text(),'Specifikationer')]/following::section[@class="vip__addition-info__outer js-sniff-color"]//p
+    # xpath: //*[contains(text(),'Specifikationer')]/following::section[@class="vip__addition-info__outer js-sniff-color"]//p
   - name: packaging
     singleValue: true
     description: Packaging information
@@ -523,8 +526,8 @@ fields:
     description: If Zoom feature is available for Main image or images in the
       carousel,['Yes','No']
     example: https://www.zalando.de/adidas-neo-sneaker-low-blackwhite-a4315i002-q11.html
-    defaultValue: No
-  - name: url
+    defaultValue: Yesx
+  - name: url.////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     singleValue: true
     description: The URL of the product
     xpath: //link[@rel="canonical"]/@href
