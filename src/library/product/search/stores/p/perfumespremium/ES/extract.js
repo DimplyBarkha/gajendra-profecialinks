@@ -15,7 +15,7 @@ async function implementation(inputs, parameters, context, dependencies) {
     const searchUrl = window.location.href;
     addElementToDocument('searchUrl', searchUrl);
 
-    const products = document.querySelectorAll('div[class="col-lg-4 col-md-4 col-sm-4 col-xs-6 item card-col"]');
+    const products = document.querySelectorAll('div.product-item-info');
     products.forEach((product, index) => {
       // set rank
       product.setAttribute('rank', (index + 1).toString());

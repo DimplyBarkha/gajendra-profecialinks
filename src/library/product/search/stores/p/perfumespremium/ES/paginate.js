@@ -11,7 +11,7 @@ module.exports = {
     spinnerSelector: null,
     loadedSelector: 'div.products-grid',
     loadedXpath: null,
-    noResultsXPath: null,
+    noResultsXPath: '//div[@class="message notice"]/div[contains(text(), "La búsqueda no ha devuelto ningún resultado.")]',
     stopConditionSelectorOrXpath: null,
     resultsDivSelector: null,
     openSearchDefinition: null,
