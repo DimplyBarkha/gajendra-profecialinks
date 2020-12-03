@@ -18,9 +18,8 @@ module.exports.transform = (data, context) => {
     for (const row of group) {
       if (row.aggregateRating2) {
         row.aggregateRating2.forEach(item => {
-          item.text = item.text.replace(',', '.');
-          if (item.text.match(/([0-9]+[.]?[0-9]*) out (.*)/)) {
-            item.text = item.text.replace(/([0-9]+[.]?[0-9]*) out (.*)/, '$1');
+          if (item.text.match(/([0-9]+[,]?[0-9]*) out (.*)/)) {
+            item.text = item.text.replace(/([0-9]+[,]?[0-9]*) out (.*)/, '$1');
           }
         });
       }
