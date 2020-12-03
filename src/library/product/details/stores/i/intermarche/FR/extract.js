@@ -74,9 +74,9 @@ module.exports = {
           ".styled__ProductConditionnement-rc4bd7-2.kvnQKM"
         );
         var t = size[2].innerText;
-        var s = t.split(" ");
+        var s = t.split(" de ");
         var p = s.reverse();
-        addHiddenDiv("ii_" + "size", p[1] + " " + p[0]);
+        addHiddenDiv("ii_" + "size", p[0]);
       }
     });
     await context.extract(dependencies.productDetails);
