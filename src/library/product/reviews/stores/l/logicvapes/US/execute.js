@@ -1,13 +1,14 @@
 
 module.exports = {
-  implements: 'product/search/execute',
+  implements: 'product/reviews/execute',
   parameterValues: {
     country: 'US',
     store: 'logicvapes',
     domain: 'logicvapes.us',
-    url: 'https://www.logicvapes.us/shop',
-    loadedSelector: 'div.products-list-category',
+    loadedSelector: 'section#product-page',
     noResultsXPath: '//p[contains(text(),"page you are looking for doesn\'t exist")]',
+    reviewUrl: null,
+    sortButtonSelector: null,
     zipcode: '',
   },
 };
