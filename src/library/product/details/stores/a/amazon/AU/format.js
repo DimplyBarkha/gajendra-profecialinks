@@ -31,6 +31,13 @@ const transform = (data) => {
             item.text =  Number(item.text);
           });
         }
+        if (row.ratingCount) {
+          row.ratingCount.forEach(item => {
+            item.text = item.text.replace(/\s*/g, '').trim();
+            item.text = item.text.replace('ratings', '').trim();
+            item.text =  Number(item.text);
+          });
+        }
         if (row.aggregateRating) {
             row.aggregateRating.forEach(item => {
               item.text = item.text.replace(/\s*/g, '').trim();
@@ -42,6 +49,11 @@ const transform = (data) => {
             row.brandText.forEach(item => {
               item.text = item.text.replace("Brand: ", '').trim();
             });
+        }
+        if (row.price) {
+          row.price.forEach(item => {
+            item.text = '$' + item.text;
+          });
         }
         if (row.manufacturer) {
             row.manufacturer.forEach(item => {
