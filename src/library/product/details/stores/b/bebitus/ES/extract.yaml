@@ -33,13 +33,18 @@ fields:
   - name: weightNet
   - name: weightGross
   - name: gtin
-    xpath: //h2[@class="product-description-ean"]
-    regExp: (\d+)
+    xpath: //h1[@itemprop="name"]/@sku
+    regExp: (:)(.+)
+    regExpReplace: $2
   - name: sku
   - name: eangtin
     xpath: //h1[@itemprop="name"]/@sku
+    regExp: (:)(.+)
+    regExpReplace: $2
   - name: variantId
     xpath: //h1[@itemprop="name"]/@sku
+    regExp: (:)(.+)
+    regExpReplace: $2
   - name: mpc
   - name: packSize
     xpath: //div[@class="variant-2-panel scroll-pane active"]//div[@itemprop="name"]
