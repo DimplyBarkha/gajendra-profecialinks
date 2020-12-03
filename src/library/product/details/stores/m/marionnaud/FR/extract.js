@@ -31,7 +31,7 @@ async function implementation (
     const Price1 = getAllXpath("//div[@class='price-list']//div[@class='finalPrice']/text()[1]",'nodeValue');
     const Price2 = getAllXpath("//div[@class='price-list']//div[@class='finalPrice']/sup/text()",'nodeValue');
     const Price3 = Price2[0].replace("€", ".");
-    let finalprice=Price1[0] + Price3+"€";
+    let finalprice=Price1[0] + Price3+'€';
     addHiddenDiv('price', finalprice);
   // @ts-ignore
   const brandText = window.dataLayer[0].ecommerce.detail.products[0].brand;
@@ -47,13 +47,28 @@ async function implementation (
      const variantId = window.dataLayer[0].ecommerce.detail.products[0].variant;
   addHiddenDiv('variantId', variantId)
   //gtin
-  const productInfo=document.getElementById('auditedOpinionsInfo').getAttribute('data-auditedopinionurl');
-  const splitProductInfo=productInfo.split('&')
-  console.log(splitProductInfo)
-  const getGtin=splitProductInfo[5]
-  const gtinData=getGtin.split('=')
-  const gtinValue=gtinData[1]
-  addHiddenDiv('gtinValue', gtinValue)
+  // const productInfo=document.getElementById('auditedOpinionsInfo').getAttribute('data-auditedopinionurl');
+  // const splitProductInfo=productInfo.split('&')
+  // console.log(splitProductInfo)
+  // const getGtin=splitProductInfo[5]
+  // const gtinData=getGtin.split('=')
+  // const gtinValue=gtinData[1]
+  // addHiddenDiv('gtinValue', gtinValue)
+  
+  try{
+  const productInfo=document.querySelectorAll('#auditedOpinionsInfo')[0];
+  if(productInfo.attributes[5].value !== ''){
+    const splitProductInfo=productInfo.attributes[5].value.split('&')
+    const getGtin=splitProductInfo[5]
+    const gtinData=getGtin.split('=')
+    const gtinValue=gtinData[1]
+    addHiddenDiv('gtinValue', gtinValue)
+  }
+}
+catch(error){
+
+}
+
  
    // @ts-ignore
   //  let warningInfo="";

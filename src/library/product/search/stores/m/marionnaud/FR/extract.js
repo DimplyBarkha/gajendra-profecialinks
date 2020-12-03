@@ -25,25 +25,6 @@ implementation: async (
       const originalDiv = document.querySelectorAll("li[class='col-lg-3 col-md-3 col-sm-4']")[index];
       originalDiv.parentNode.insertBefore(newDiv, originalDiv);
     }
-    // let rankOrganic;
-    // let url = window.location.href;
-    // let checkPageNumber = url.split('&')[2];
-    // try {
-    //   if (checkPageNumber.startsWith('page=')) {
-    //     rankOrganic = checkPageNumber.replace('page=', '');
-    //   }
-    // }
-    // catch (err) {
-    // }
-    // if (!rankOrganic) {
-    //   rankOrganic = 1;
-    // } else {
-    //   rankOrganic = (parseInt(rankOrganic) * 100) + 1;
-    // }
-    // const urlProduct = document.querySelectorAll("li[class='col-lg-3 col-md-3 col-sm-4']");
-    //   for (let i = 0; i < urlProduct.length; i++) {
-    //     addHiddenDiv('rankOrganic', rankOrganic++, i);
-    //   }
     const price = document.querySelectorAll('div.productMainLink div.infoTextCarousel div span.lineinner');
     //const length1=price.length
     for (let k = 0; k < price.length; k++) {
@@ -69,7 +50,7 @@ implementation: async (
     for(let i=0;i< thumbnail.length;i++){
       let thumbnailSrc=document.querySelectorAll("div.product_img img.primImg.primaryImage_prodcat")[i].getAttribute('data-src')
       let finalImageSrc=' https://www.marionnaud.fr'+thumbnailSrc
-      addHiddenDiv('thumbnailSrc', finalImageSrc, i);
+      addHiddenDiv('thumbnailSrc', finalImageSrc, i); 
     }
     const productUrl=document.querySelectorAll("a.ProductInfoAnchor")
     for(let i=0;i<productUrl.length;i++){

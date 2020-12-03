@@ -30,12 +30,12 @@ fields:
   - name: category
     singleValue: false
     description: The categories (e.g. from breadcrumbs)
-    xpath: //*[@id="top-bar"]/div[5]/div/div/ol/li[not(contains(@class, "back-btn"))] [not(contains(@class, "home"))]
+    xpath: //div[@class="breadcrumb-section"]/ol/li[position()>1 and position()<last()]/a
   - name: nameExtended
     singleValue: true
     description: The product name, prefixing "${brand} - " if not included in "name"
       and appending " - ${variantType}" if necessary (fixed per feed)
-    xpath: //h1[@class='productNameInfo ']/span[@class='producRangeName']
+    xpath: //h1[@class='productNameInfo ']
   - name: listPrice
     singleValue: true
     description: The stated undiscounted price for the product
@@ -45,7 +45,6 @@ fields:
     description: The offered price for the selected product variant - if a user
       clicks add to basket this is the price they would be charged
     xpath: //div[@id='price']
-    type: TEXT
   - name: availabilityText
     singleValue: true
     description: Availability as described on page for the selected variant. If
@@ -56,11 +55,10 @@ fields:
     singleValue: true
     description: Product description supplied by website - may be concatenanted from
       multiple places; specifically not the manufacturer description
-    xpath: //*[@id="productTabs"]/div[@class='productInformationSection']/div[1][@class='row']/div/div[2]/p[1]
+    xpath: //*[@id="productTabs"]/div[@class='productInformationSection']/div[1][@class='row']/div/div[2]/p[1] | //*[@id="productTabs"]/div[@class='productInformationSection']/div[1][@class='row']/div/div[2]/p/font[2]/font/text()
   - name: descriptionBullets
     singleValue: true
     description: Number of ul > li tags in the description
-    type: NUMBER
   - name: brandText
     singleValue: true
     description: Product brand shown - this may actually NOT be just a brand name,
@@ -72,8 +70,7 @@ fields:
   - name: quantity
     singleValue: true
     description: Quantity as described on the page
-    xpath: //div[@class='select']//div[@class='select-styled']
-    type: NUMBER
+    xpath: //div[@class='onHover_QuantitySelect']//div[@class='select']//div[@class='select-styled']
   - name: weightNet
     singleValue: true
     description: Net weight as described on the page
@@ -93,6 +90,9 @@ fields:
     singleValue: true
     description: Identifier for a variant from a store where variants share the same sku
     xpath: //div[@id='variantId']
+  - name: variantInformation
+    singleValue: true
+    xpath: //div[@class='size-box-wrapper']//span
   - name: mpc
     singleValue: true
     description: The manufacturer model code (unique) of the product
@@ -110,7 +110,6 @@ fields:
   - name: warnings
     singleValue: true
     description: Content under "warnings" header
-    type: TEXT
     xpath: //div[@id='warningInfo']
   - name: ratingCount
     singleValue: true
@@ -163,7 +162,7 @@ fields:
   - name: name
     singleValue: true
     description: The product name
-    xpath: //h1[@class='productNameInfo ']
+    xpath: //h1[@class='productNameInfo ']/span[@class='productName']
   - name: inStorePrice
     singleValue: true
     description: Price in the selected store
@@ -223,7 +222,6 @@ fields:
   - name: largeImageCount
     singleValue: true
     description: null
-    type: NUMBER
   - name: variantAsins
     singleValue: true
     description: null
@@ -254,7 +252,7 @@ fields:
   - name: secondaryImageTotal
     singleValue: true
     description: null
-    xpath: count(//*[@id="images_old_gallary"]/li)-1
+    xpath: count(//*[@id="images_old_gallary"]/li[position()>1])
     type: NUMBER
   - name: news
     singleValue: true
@@ -279,7 +277,6 @@ fields:
   - name: numberOfServingsInPackage
     singleValue: true
     description: Suggested number of servings of the product.
-    type: NUMBER
   - name: caloriesPerServing
     singleValue: true
     description: Nutritional Information for Calories Per Serving content - Usually
@@ -288,12 +285,10 @@ fields:
     singleValue: true
     description: Nutritional Information for Calories From Fat content - Usually
       based on per 100g serving
-    type: NUMBER
   - name: totalFatPerServing
     singleValue: true
     description: Nutritional Information for Total Fat content - Usually based on
       per 100g serving
-    type: NUMBER
   - name: totalFatPerServingUom
     singleValue: true
     description: Unit of Measure Data for Total Fat content
@@ -301,7 +296,6 @@ fields:
     singleValue: true
     description: Nutritional Information for Saturated Fat content - Usually based
       on per 100g serving
-    type: NUMBER
   - name: saturatedFatPerServingUom
     singleValue: true
     description: Unit of Measure Data for Saturated Fat content
@@ -309,7 +303,6 @@ fields:
     singleValue: true
     description: Nutritional Information for Trans Fat content - Usually based on
       per 100g serving
-    type: NUMBER
   - name: transFatPerServingUom
     singleValue: true
     description: Unit of Measure Data for Trans Fat content
@@ -317,7 +310,6 @@ fields:
     singleValue: true
     description: Nutritional Information for Cholesterol content - Usually based on
       per 100g serving
-    type: NUMBER
   - name: cholesterolPerServingUom
     singleValue: true
     description: Unit of Measure Data for Cholesterol content
@@ -325,7 +317,6 @@ fields:
     singleValue: true
     description: Nutritional Information for Sodium content - Usually based on per
       100g serving
-    type: NUMBER
   - name: sodiumPerServingUom
     singleValue: true
     description: Unit of Measure Data for Sodium content
@@ -333,7 +324,6 @@ fields:
     singleValue: true
     description: Nutritional Information for Total Carbohydrate content - Usually
       based on per 100g serving
-    type: NUMBER
   - name: totalCarbPerServingUom
     singleValue: true
     description: Unit of Measure Data for Total Carbohydrate content
@@ -341,7 +331,6 @@ fields:
     singleValue: true
     description: Nutritional Information for Dietary Fibre content - Usually based
       on per 100g serving
-    type: NUMBER
   - name: dietaryFibrePerServingUom
     singleValue: true
     description: Unit of Measure Data for Dietary Fibre content
@@ -349,7 +338,6 @@ fields:
     singleValue: true
     description: Nutritional Information for Total Sugar content - Usually based on
       per 100g serving
-    type: NUMBER
   - name: totalSugarsPerServingUom
     singleValue: true
     description: Unit of Measure Data for Total Sugar content
@@ -357,7 +345,6 @@ fields:
     singleValue: true
     description: Nutritional Information for Protein content - Usually based on per
       100g serving
-    type: NUMBER
   - name: proteinPerServingUom
     singleValue: true
     description: Unit of Measure Data for Protein
@@ -365,7 +352,6 @@ fields:
     singleValue: true
     description: Nutritional Information for Vitamin A content - Usually based on
       per 100g serving
-    type: NUMBER
   - name: vitaminAPerServingUom
     singleValue: true
     description: Unit of Measure Data for Vitamin A
@@ -373,7 +359,6 @@ fields:
     singleValue: true
     description: Nutritional Information for Vitamin C content - Usually based on
       per 100g serving
-    type: NUMBER
   - name: vitaminCPerServingUom
     singleValue: true
     description: Unit of Measure Data for Vitamin C
@@ -381,7 +366,6 @@ fields:
     singleValue: true
     description: Nutritional Information for Calcium content - Usually based on per
       100g serving
-    type: NUMBER
   - name: calciumPerServingUom
     singleValue: true
     description: Unit of Measure Data for Calcium
@@ -389,7 +373,6 @@ fields:
     singleValue: true
     description: Nutritional Information for Iron content - Usually based on per
       100g serving
-    type: NUMBER
   - name: ironPerServingUom
     singleValue: true
     description: Unit of Measure Data for Iron
@@ -400,7 +383,6 @@ fields:
     singleValue: true
     description: Nutritional Information for Magnesium content - Usually based on
       per 100g serving
-    type: NUMBER
   - name: magnesiumPerServingUom
     singleValue: true
     description: Unit of Measure Data for Magnesium
@@ -408,7 +390,6 @@ fields:
     singleValue: true
     description: Nutritional Information for Salt content - Usually based on per
       100g serving
-    type: NUMBER
   - name: saltPerServingUom
     singleValue: true
     description: Unit of Measure Data for Salt
