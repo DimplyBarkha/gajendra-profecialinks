@@ -70,7 +70,7 @@ async function implementation (
       const quantity = getSingleText(qtyXpath, document, index - 1);
       addHiddenDiv('my-qty', quantity);
 
-      const variantIdXpath = '//h2[contains(@class,"rd__headline--80")]/@title';
+      const variantIdXpath = '//h2[contains(@class,"rd__headline--80")]/@title | //div[@data-vendor]/@data-product-id';
       const variantId = getSingleText(variantIdXpath, document, index - 1);
       addHiddenDiv('my-variantId', variantId);
       let variantInf = "";
@@ -80,7 +80,7 @@ async function implementation (
         addHiddenDiv('my-variantInf', variantInf);
       }
 
-      const priceXpath = '//span[contains(@class,"rd__headline--130")]/text()';
+      const priceXpath = '//span[contains(@class,"rd__headline--130")]/text() | //div[contains(@class,"rd__order-detail__header rd__list-services__headline")]//span[contains(@class,"rd__headline--130")]/text()';
       const price = getSingleText(priceXpath, document, index - 1);
       addHiddenDiv('my-price', price);
 
@@ -93,7 +93,7 @@ async function implementation (
       const availab1 = getSingleText(availabXpath1, document, index);
       addHiddenDiv('my-availab1', availab1);
 
-      const listPriceXpath = '//div[@class="rd__product-details__options__price__item__amount sd__product-details__options__price__item__amount"]//div[contains(@class,"sd__product-details__options__price__item__quantity")]';
+      const listPriceXpath = '//div[@class="rd__product-details__options__price__item__amount sd__product-details__options__price__item__amount"]//div[contains(@class,"sd__product-details__options__price__item__quantity")] | //div[contains(text(), "Precio base hidratante:")]//..//following-sibling::span[@class="rd__headline--130"]';
       const listPrice = getSingleText(listPriceXpath, document, index - 1);
       addHiddenDiv('my-listPrice', listPrice);
 
