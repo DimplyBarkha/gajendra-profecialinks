@@ -25,7 +25,7 @@ fields:
     #xpath: //div[@class="description text-center"]/a/text()
     xpath: //a[@class="product-page-link"]/@title
     singleValue: false
-    regExp: \s\W(.+)\W
+    regExp: \(([^)]*)\)[^(]*$
     regExpReplace: $1
   - name: id1
     xpath: //input[@name="SKU"]/@value
