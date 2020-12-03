@@ -5,8 +5,8 @@ module.exports = {
     country: 'US',
     store: 'safeway_95125',
     transform: null,
-    domain: 'safeway_95125.us',
-    zipcode: '',
+    domain: 'safeway.com',
+    zipcode: '95125',
   },
   implementation: async function (
     inputs,

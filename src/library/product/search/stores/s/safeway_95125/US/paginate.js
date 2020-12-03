@@ -15,7 +15,7 @@ module.exports = {
     stopConditionSelectorOrXpath: null,
     resultsDivSelector: null,
     openSearchDefinition: null,
-    domain: 'safeway_95125.us',
-    zipcode: '',
+    domain: 'safeway.com',
+    zipcode: '95125',
   },
 };

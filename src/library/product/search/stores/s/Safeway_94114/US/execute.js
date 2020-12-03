@@ -4,10 +4,10 @@ module.exports = {
   parameterValues: {
     country: 'US',
     store: 'safeway_94114',
-    domain: 'safeway_94114.us',
+    domain: 'safeway.com',
     url: 'https://www.safeway.com/shop/search-results.html?q={searchTerms}',
     loadedSelector: null,
     noResultsXPath: null,
-    zipcode: '',
+    zipcode: '94114',
   },
 };

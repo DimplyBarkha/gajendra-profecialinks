@@ -2,10 +2,10 @@
 module.exports = {
   implements: 'navigation/goto',
   parameterValues: {
-    domain: 'safeway_95125.us',
-    timeout: null,
+    domain: 'safeway.com',
+    timeout: 60000,
     country: 'US',
-    store: 'safeway_95125',
+    store: 'safeway',
     zipcode: '',
   },
 };

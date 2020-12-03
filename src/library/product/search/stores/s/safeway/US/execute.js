@@ -4,7 +4,7 @@ module.exports = {
   parameterValues: {
     country: 'US',
     store: 'safeway',
-    domain: 'safeway.us',
+    domain: 'safeway.com',
     url: 'https://www.safeway.com/shop/search-results.html?q={searchTerms}',
     loadedSelector: null,
     noResultsXPath: null,
