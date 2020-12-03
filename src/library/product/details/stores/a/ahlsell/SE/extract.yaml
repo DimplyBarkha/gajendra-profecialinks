@@ -11,7 +11,7 @@ fields:
     xpath: //div[@class="article-information"]/@data-name
   - name: sku
     singleValue: false
-    xpath: //div[@class="article-information"]/@data-id
+    xpath: //div[@class="article-information"]/@data-variant
   - name: variantId
     singleValue: false
     xpath: //div[@class="article-information"]/@data-variant
@@ -38,7 +38,7 @@ fields:
     xpath:  //div[@class="technical-data"]//div[contains(@class,"step-attributes clearfix")]//ul[contains(@class,"jsSpecs specs ")]//li 
   - name: category
     singleValue: false
-    xpath: //div[@class="breadcrumbs"]//span[not(contains(position(),1)) and  not(contains(position(),2))]//a
+    xpath: //div[@class="breadcrumbs"]//span[not(contains(position(),1))]//a
   - name: image
     singleValue: false 
     xpath: //div[@class="slider-wrapper"]//ul[@class="slider"]//li[position()=1]/img/@src
