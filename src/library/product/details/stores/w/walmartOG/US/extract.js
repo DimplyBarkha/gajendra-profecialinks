@@ -27,7 +27,7 @@ module.exports = {
         }
       });
 
-      if (storeID === null) {
+      if (!storeID) {
         await context.waitForSelector('button[label="Change store"]');
         await context.click('button[label="Change store"]');
         await context.waitForSelector('li[data-automation-id="selectFlyoutItem"] span[class^="AddressPanel__label"]');
