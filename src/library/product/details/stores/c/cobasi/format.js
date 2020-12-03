@@ -30,15 +30,33 @@ const transform = (data) => {
             row.alternateImages.forEach(item => {                    
                 item.text = "https://www.cobasi.com.br" + item.text;
             });
-		}
-		if (row.listPrice) {
+        }
+        if (row.listPrice) {
             row.listPrice.forEach(item => {                    
                 item.text = item.text.replace(/[De: ]/g, '').trim();
             });
         }
-		if (row.price) {
+        if (row.price) {
             row.price.forEach(item => {                    
                 item.text = item.text.replace(/[Por: | à vista]/g, '').trim();
+            });
+        }
+        if (row.online_price) {
+            row.online_price.forEach(item => {                    
+                item.text = item.text.replace(/[Por: | à vista]/g, '').trim();
+            });
+        }
+        if (row.retailer_product_code) {
+            row.retailer_product_code.forEach(item => {                    
+                item.text = item.text.replace("ts-js-shelf-", '').trim();
+            });
+        }
+        if (row.upc) {
+            let upc_text = '';
+            row.upc.forEach(item => {
+                upc_text = item.text;
+                upc_text = upc_text.substring( upc_text.lastIndexOf("productEans")+15, upc_text.lastIndexOf("skuStocks")-3 ).trim();
+                item.text = upc_text.substring(0, upc_text.indexOf('"'));
             });
         }
       }

@@ -15,41 +15,63 @@ fields:
   - name: category
     singleValue: false
     xpath: //div[@class="bread-crumb"]//li[2]//a//span[@itemprop="name"]
+  - name: subcategory
+    singleValue: false
+    xpath: //div[@class="bread-crumb"]//li[@class="last"]//a//span[@itemprop="name"]
   - name: nameExtended
     singleValue: false
     xpath: //h1[@class="product__name"]
+  - name: upc
+    singleValue: false
+    xpath: //script[contains(., "productEans")]
   - name: listPrice
     singleValue: false
     xpath: //span[@class="d-block price__de"]
   - name: price
     singleValue: false
     xpath: //span[@class="d-block price__por"]
+  - name: online_price
+    singleValue: false
+    xpath: //span[@class="d-block price__por"]
+  - name: online_price_currency
+    singleValue: false
+    xpath: //meta[@name="currency"]/@content
+  - name: shipping_details
+    singleValue: false
+    xpath: //div[@class="seller__info d-none d-sm-block mt-4"]/p
+  - name: variant_information
+    singleValue: false
+    xpath: //div[@class="sku__selected js-sku-selected"]
   - name: availabilityText
     singleValue: false    
     defaultValue: "In Stock"
   - name: description
     singleValue: false
-    xpath: //div[@class="productDescription"]
+    xpath: concat(//div[@class="product__brand"]//a, ' - ', //div[@class="productDescription"])
   - name: brandText
     singleValue: false
     xpath: //div[@class="product__brand"]//a
   - name: quantity
     singleValue: false
     xpath: //div[@class="quantity__selector"]//input[@type="number"]/@value
+  - name: size
+    singleValue: false
+    xpath: //div[@class="quantity__selector"]//input[@type="number"]/@value
   - name: sku
     singleValue: false
-    xpath: //span[@class="js-sku-selected"]//@data-currentsku
+    xpath: //span[@class="js-sku-selected"]//@data-currentsku | //div[@class="sku__selected js-sku-selected"]//@data-currentsku
   - name: variantId
     singleValue: false
-    xpath: //span[@class="js-sku-selected"]//@data-currentsku
+    xpath: //span[@class="js-sku-selected"]//@data-currentsku | //div[@class="sku__selected js-sku-selected"]//@data-currentsku
+  - name: retailer_product_code
+    singleValue: false
+    xpath: //div[@class="ts-shelf-container"]/@id
   - name: ratingCount
     singleValue: false
     xpath: //span[@itemprop="ratingCount"]
-    type: NUMBER
   - name: aggregateRating
     singleValue: false
     xpath: //div[@itemprop="aggregateRating"]//span[@itemprop="ratingValue"]
-    type: NUMBER
   - name: name
     singleValue: false
     xpath: //h1[@class="product__name"]
