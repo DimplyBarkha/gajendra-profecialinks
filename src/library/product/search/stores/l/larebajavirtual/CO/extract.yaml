@@ -9,8 +9,7 @@ fields:
   - name: price
     singleValue: false
     xpath: //div[@class='priceFinal']/text()
-    regExp: (\$\d+)\.(\d+)
-    regExpReplace: $1.$2
+    type: CURRENCY
   - name: id
     singleValue: false
     xpath: //input[@id='codigo-producto-gtm']/@value
