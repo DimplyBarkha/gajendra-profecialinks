@@ -6,6 +6,7 @@ async function implementation (
   context,
   dependencies,
 ) {
+  const { transform } = parameters;
   const { productDetails } = dependencies;
   await new Promise(resolve => setTimeout(resolve, 2000));
 
@@ -38,9 +39,11 @@ async function implementation (
     const dataObj = findJsonData('(', ');')
     const data = dataObj.ecommerce.impressions;
     console.log('data ===', JSON.stringify(dataObj));
+    // await new Promise(resolve => setTimeout(resolve, 2000));
     const arr = document.querySelectorAll('div>ol>li.product-item');
     for (let i = 0; i < arr.length; i++) {
       const doc = arr[i];
+      console.log('in loop i ===', i);
       addElementToDocument(doc, 'added-id', data[i].id.replace('conf_', ''));
       let desc = '';
       const descSelc = doc.querySelector('div.product-item-description');
@@ -48,9 +51,10 @@ async function implementation (
         desc = descSelc.textContent.trim();
       }
       const fullName = `${data[i].brand} ${data[i].name} ${desc}`;
+      console.log('in loop end $$ i ===', i);
       addElementToDocument(doc, 'added-name', fullName.trim());
     }
-  });
+  }); // , { transform }
   return await context.extract(productDetails, { transform });
 }
 module.exports = {
@@ -62,5 +66,5 @@ module.exports = {
     domain: 'beautye.it',
     zipcode: '',
   },
-  implementation,
+ implementation,
 };

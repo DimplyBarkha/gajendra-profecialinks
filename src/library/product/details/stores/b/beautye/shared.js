@@ -24,6 +24,14 @@ const transform = (data) => {
 
   for (const { group } of data) {
     for (const row of group) {
+      if (row.sku) {
+        row.sku.forEach(item => {
+          if(item.text.indexOf("conf_") !== -1){
+            item.text = item.text.replace(/conf_/, '');
+            row.variantId[0].text = item.text;
+          }
+        });
+      }
       if (row.specifications) {
         let text = '';
         row.specifications.forEach(item => {

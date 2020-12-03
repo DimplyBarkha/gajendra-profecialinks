@@ -17,8 +17,10 @@ async function implementation (
     for (let j = 0; j < variantLength; j++) {
       try {
         try {
-          await context.evaluate( (j) => {
-            return document.querySelectorAll('div.swatch-option')[j].click();
+          await context.evaluate(async (j) => {
+            const variantDoc = document.querySelectorAll('div.swatch-option')[j].click();
+            await new Promise((resolve, reject) => setTimeout(resolve, 1000));
+            return variantDoc;
           }, j);
           console.log('Inside variants', j);
         } catch (err) {}

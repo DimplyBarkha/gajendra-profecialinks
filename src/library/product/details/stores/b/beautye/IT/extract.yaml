@@ -55,7 +55,8 @@ fields:
     type: NUMBER
   - name: brandText
     singleValue: false
-    xpath: //div[@class="box-tocart"]//button/@data-brand | //div[@class="product_logo_link"]//img/@src
+    xpath: //div[@class="box-tocart"]//button/@data-brand | //span[@class="brand-no-link"]
+    #| //div[@class="product_logo_link"]//img/@src
     # //span[@class="brand-no-link"]
   - name: manufacturer
     singleValue: false
@@ -71,14 +72,17 @@ fields:
     description: Gross weight as described on the page
   - name: gtin
     singleValue: false
-    description: GTIN code (includes UPC/EAN)
+    xpath: //div[@class="price-box price-final_price"]/@data-product-id
   - name: sku
     singleValue: false
     xpath: //meta[@itemprop="sku"]/@content
-    description: The store-specific product identifier
+    # regExp: conf_([^"]+)
+    # regExpReplace: $1
   - name: variantId
     singleValue: false
     xpath: //meta[@itemprop="sku"]/@content
+    # regExp: conf_([^"]+)
+    # regExpReplace: $1
     #xpath: //div[@class="fotorama__caption__wrap"]/@id
     # regExp: labelledby(.+)
     # regExpReplace: $1
