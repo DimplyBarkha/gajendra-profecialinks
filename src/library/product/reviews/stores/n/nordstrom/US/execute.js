@@ -79,7 +79,7 @@ async function implementation (
     const timestamp = new Date(lastDate).getTime() - (30 * 24 * 60 * 60 * 1000);
     console.log('timestamp' + timestamp);
     console.log(new Date(reviewDate).getTime());
-    if (new Date(reviewDate).getTime() > timestamp) {
+    if (new Date(reviewDate).getTime() >= timestamp) {
       console.log('True');
       return true;
     }
