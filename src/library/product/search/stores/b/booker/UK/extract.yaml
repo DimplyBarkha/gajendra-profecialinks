@@ -5,7 +5,7 @@ recordXPath: //tr[@class='pr']
 fields:
   - name: id
     singleValue: false
-    xpath: //td[@class='packm']
+    xpath: //td[contains(@class,'packm')]
   - name: searchUrl
     singleValue: false
     xpath: ancestor::html//div[@id='pageURL']/@content
