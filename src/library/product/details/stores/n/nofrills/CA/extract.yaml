@@ -38,9 +38,7 @@ fields:
     xpath: //div[@class='product-details-page-description__body']  
   - name: quantity
     singleValue: false
-    xpath: //div[@class='product-details-page-details__content__name']//button[@data-track-link-name="add-to-cart-open"]//span[text()='Add']
-    regExp: (.+)
-    regExpReplace: 1  
+    xpath: //div[@class='product-name product-name--product-details-page']//span[@class="product-name__item product-name__item--package-size"]
   - name: sku
     singleValue: false
     xpath: //span[@class='product-number__code']
