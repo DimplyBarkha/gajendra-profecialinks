@@ -21,7 +21,10 @@ fields:
     xpath: //span[contains(@class,'price-wrapper')]//span[contains(@class,'price')]
   - name: thumbnail
     singleValue: false
-    xpath: //div[@class='image']//img/@src    
+    xpath: //div[@class='image']//img/@src | //div[@class='image']//img/@data-pfbx-lazy
   - name: aggregateRating2
     SingleValue: false
     xpath: //div[contains(@class,'rating-stars')]/@data-rating
+  - name: searchUrl
+    singleValue: false
+    xpath: //div[@id='page_url']

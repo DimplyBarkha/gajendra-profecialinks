@@ -15,9 +15,9 @@ fields:
   - name: alternateImages
     singleValue: false
     xpath: //div[@class='carousel-inner']//div[@class='item']//a[@class='main-image-link']//img[@itemprop='contentUrl']/@src
-  - name: quantity
-    singleValue: false    
-    defaultValue: 1
+  # - name: quantity
+  #   singleValue: false    
+  #   defaultValue: 1
   - name: availabilityText
     singleValue: false
     xpath: //div[@class='stock-info clearfix']//h3[@class='stock-info__status stock-info__status--in_stock']
@@ -57,13 +57,13 @@ fields:
     xpath: //div[@class='product-rating']//section[@class='rating-container']//span[@itemprop='ratingValue']
   - name: additionalDescBulletInfo
     singleValue: false
-    xpath: //div[@class='product-short-description-container']//p[@class='product-short-description']
+    xpath: //div[@class='product-desc-box__description']//div[@class='static-page__area']//ul//li
   - name: description
     singleValue: false
-    xpath: //div[@class='product-desc-box__description']//div[@class='static-page__area']
+    xpath: //div[@id='page_description']
   - name: descriptionBullets
     singleValue: false
-    xpath: //div[@class='product-short-description-container']//p[@class='product-short-description']
+    xpath: count(//div[@class='product-desc-box__description']//div[@class='static-page__area']//ul//li)
   - name: manufacturer
     singleValue: false
     xpath: //div[@class='product-desc-box__description']//div[contains(@class,'product-specification product-desc-box__long')]//dt[@title='Gyártó']/following-sibling::dd[1]//span
@@ -94,3 +94,12 @@ fields:
       carousel,['Yes','No']
     defaultValue: No
     xpath: //figure[contains(@data-vc-component,'hover-zoom')]
+  - name: category
+    singleValue: false
+    xpath: //ul[contains(@class,'breadcrumb')]//li[contains(@class,'breadcrumb__item')][position() > 1]
+  - name: manufacturerImages
+    singleValue: false
+    xpath: //div[@class='product-desc-box__description']//img//@src
+  - name: manufacturerDescription
+    singleValue: false
+    xpath: string(//div[@id='product-description']//section[contains(@class,'col-sm-7')]//div[contains(@class,'product-description')]//*[not(contains(@class,'json') or self::script)])

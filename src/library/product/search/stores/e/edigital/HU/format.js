@@ -3,8 +3,8 @@
  * @param {ImportIO.Group[]} data
  * @returns {ImportIO.Group[]}
  */
-const transform = (data) => {
-    const cleanUp = (data, context) => {
+const transform = (data, context) => {
+    const cleanUp = (data) => {
       const clean = text => text.toString()
       .replace(/\r\n|\r|\n/g, ' ')
       .replace(/&amp;nbsp;/g, ' ')
@@ -22,22 +22,31 @@ const transform = (data) => {
       }))));
       return data;
     };
+    const state = context.getState();
+    let orgRankCounter = state.orgRankCounter || 0;
+    let rankCounter = state.rankCounter || 0;
     var p_count = 1;
       for (const { group } of data) {
         for (let row of group) {
           
-          if (row.id ) {
-            row.rankOrganic = [{'text':p_count}];
-            row.rank = [{'text':p_count}];
-            p_count = p_count + 1;
-          }
+        rankCounter += 1;
+        if (!row.sponsored) {
+          orgRankCounter += 1;
+          row.rankOrganic = [{ text: orgRankCounter }];
+        }
+        row.rank = [{ text: rankCounter }];
           if (row.thumbnail) {
             row.thumbnail.forEach(item => {
                 item.text = "https:" + item.text;
             });
           }
+          if(row.aggregateRating2){
+            row.aggregateRating2[0].text = Number(row.aggregateRating2[0].text).toFixed(2);
+          }
         }
       }
+      context.setState({ rankCounter });
+      context.setState({ orgRankCounter });
       return cleanUp(data);
     };
     module.exports = { transform };

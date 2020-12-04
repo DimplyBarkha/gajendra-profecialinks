@@ -5,10 +5,9 @@ recordXPath: //div[@class='hidden-xs']//div[@class='product-details__row model-v
 fields:
   - name: variantId
     singleValue: false
-    xpath: //a/@href
+    xpath: //div[contains(@class,'page_url')]
+    regExp: (.*)-p(.*)
+    regExpReplace: $2
   - name: variantUrl
     singleValue: false
-    xpath: //a/@href
-  - name: variant
-    singleValue: false
-    xpath: //a//img/@alt | //a
+    xpath: //div[contains(@class,'page_url')]

@@ -37,18 +37,18 @@ const transform = (data) => {
                 item.text = "https:" + item.text;
             });
           }
-          if (row.additionalDescBulletInfo) {            
-            row.additionalDescBulletInfo.forEach(item => {
-              item.text = "|" + item.text.replace(/(\s*\n\s*)+/g, ' | ').trim();            
-            });
-          }
-          if (row.descriptionBullets) {
-            row.descriptionBullets.forEach(item => {
-               let info = item.text.split("\n");
-               item.text = info.length;
+          // if (row.additionalDescBulletInfo) {            
+          //   row.additionalDescBulletInfo.forEach(item => {
+          //     item.text = "||" + item.text.replace(/(\s*\n\s*)+/g, ' || ').trim();            
+          //   });
+          // }
+          // if (row.descriptionBullets) {
+          //   row.descriptionBullets.forEach(item => {
+          //      let info = item.text.split("\n");
+          //      item.text = info.length;
               
-            });
-          }
+          //   });
+          // }
           if (row.alternateImages) {
             row.alternateImages.forEach(item => {
                 item.text = "https:" + item.text;
@@ -69,7 +69,7 @@ const transform = (data) => {
           if (row.nameExtended) {            
             row.nameExtended.forEach(item => {
                 if(brand != ''){
-                    item.text = item.text + " - " + brand;
+                    item.text = brand + " - " + item.text;
                 }
             });
           }
@@ -87,7 +87,7 @@ const transform = (data) => {
             });
             
             if (info.length>0){
-              row.specifications = [{'text':info.join(' | '),'xpath':row.specifications[0].xpath}];            
+              row.specifications = [{'text':info.join(' || '),'xpath':row.specifications[0].xpath}];            
             }
           }
           if (row.metaKeywords) {
@@ -151,6 +151,9 @@ const transform = (data) => {
             } else {
               row.imageZoomFeaturePresent = [{ text: 'No', xpath: '' }];
             }
+          }
+          if(row.category){
+            row.category.splice(row.category.length - 1,1);
           }
         }
       }
