@@ -24,14 +24,9 @@ const transform = (data) => {
     };
     for (const { group } of data) {
       for (let row of group) {
-        if(row.sku){
-            row.sku.forEach(item=>{
-                item.text=item.text.replace('ברקוד מוצר:','').trim();
-            })
-        }
-        if(row.mpc){
-          row.mpc.forEach(item=>{
-              item.text=item.text.replace('ברקוד מוצר:','').trim();
+        if(row.image){
+          row.image.forEach(item=>{
+            item.text=item.text.replace("zoomImage:'",'').replace("'",'');
           })
         }
         if(row.nameExtended){

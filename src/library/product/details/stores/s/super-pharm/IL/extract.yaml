@@ -38,13 +38,13 @@ fields:
     xpath: //div[@class="quantity-of-product"]
   - name: sku
     singleValue: false
-    xpath: //div[@id="product-info"]//div[@class="content-side"]/h5[text()="תיאור המוצר"]/following-sibling::p[2]
+    xpath: //div[@class="bottom-details"]/div[contains(@class,"add-to-basket")]//button[contains(@class,"favorite-button")]/@data-favorite-id
   - name: variantId
     singleValue: false
-    xpath: //div[@class="bottom-details"]/div[@class="add-to-basket "]/@data-id
+    xpath: //div[@class="bottom-details"]/div[contains(@class,"add-to-basket")]/@data-id
   - name: mpc
     singleValue: false
-    xpath: //div[@id="product-info"]//div[@class="content-side"]/h5[text()="תיאור המוצר"]/following-sibling::p[2]
+    xpath: //div[@class="bottom-details"]/div[contains(@class,"add-to-basket")]//button[contains(@class,"favorite-button")]/@data-favorite-id
   - name: directions
     singleValue: false
     xpath: //div[@class="content-side product-properties"]//span[@class="property-name" and text()="הוראות שימוש:"]/parent::*/text()
