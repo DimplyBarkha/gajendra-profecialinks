@@ -1,7 +1,7 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: null
+recordXPath: //ul[@id="articleList"]/li
 fields:
   - name: id
     singleValue: false
@@ -9,7 +9,6 @@ fields:
     regExp: (\d+)
   - name: searchUrl
     singleValue: true
-    xpath: //div[@id="searchUrl"][last()]
   - name: name
     singleValue: false
     xpath: //ul[@id="articleList"]//header/h2
@@ -20,6 +19,7 @@ fields:
     singleValue: false
   - name: thumbnail
     singleValue: false
+    xpath: //ul[@id="articleList"]/li//img/@src
   - name: aggregateRating
     singleValue: false
   - name: aggregateRating2
@@ -30,6 +30,7 @@ fields:
     singleValue: false
   - name: price
     singleValue: false
+    xpath: //ul[@id="articleList"]/li//div[@class="pricing"]/div[@class="pricing__new"]
   - name: manufacturer
     singleValue: true
   - name: soldBy

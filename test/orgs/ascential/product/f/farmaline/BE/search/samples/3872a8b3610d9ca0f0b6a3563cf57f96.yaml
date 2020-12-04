@@ -1,0 +1,115 @@
+input:
+  keywords: Agent de nettoyage
+  _url: http://farmaline.be
+extractions:
+  - html: https://workbench.import.io/html/run=92cf8cb0-8645-4434-888f-1b116d789db7/task=87822012-c29f-4763-a76e-e26077281bb8/329d8c40-7cb1-4c7c-984e-c35dfd298a21.html
+    extractionConfigId: product/search/stores/f/farmaline/BE/extract
+    data:
+      - group:
+          - id:
+              - text: "460411"
+                xpath: /html/body/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/ul[1]/li[1]/article[1]/div[1]/input[1]/@id
+            name:
+              - text: Elmex Brosse à Dents Medium Nettoyage Intense
+                xpath: /html/body/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/ul[1]/li[1]/article[1]/div[1]/a[1]/header[1]/h2[1]
+            productUrl:
+              - text: https://www.farmaline.be/apotheek/bestellen/elmex-brosse-a-dents-medium-nettoyage-intense-1-stuk/
+                xpath: /html/body/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/ul[1]/li[1]/article[1]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://imgcdn.farmaline.be/web/cache/thumbs/f/0/0/0/0/5/0/2/4/files/135356_elmex-brosse-a-dents-medium-nettoyage-intense-1-stuk_nl-thumb-1_200x200.webp
+                xpath: /html/body/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/ul[1]/li[1]/article[1]/div[1]/a[1]/div[1]/div[1]/img[1]/@src
+            price:
+              - text: € 4,48
+                xpath: /html/body/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/ul[1]/li[1]/article[1]/div[1]/a[1]/div[1]/div[2]/div[1]/div[2]
+          - id:
+              - text: "63133"
+                xpath: /html/body/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/ul[1]/li[2]/article[1]/div[1]/input[1]/@id
+            name:
+              - text: Soria Natural 23-S Ribes Nigrum XXI
+                xpath: /html/body/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/ul[1]/li[2]/article[1]/div[1]/a[1]/header[1]/h2[1]
+            productUrl:
+              - text: https://www.farmaline.be/apotheek/bestellen/soria-natural-23-s-ribes-nigrum-xxi/
+                xpath: /html/body/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/ul[1]/li[2]/article[1]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://imgcdn.farmaline.be/web/cache/thumbs/3/3/9/6/8/7/6/files/1407587_soria-natural-23-s-ribes-nigrum-xxi_nl-thumb-1_200x200.webp
+                xpath: /html/body/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/ul[1]/li[2]/article[1]/div[1]/a[1]/div[1]/div[1]/img[1]/@src
+            price:
+              - text: € 18,37
+                xpath: /html/body/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/ul[1]/li[2]/article[1]/div[1]/a[1]/div[1]/div[2]/div[1]/div[2]
+          - id:
+              - text: "63770"
+                xpath: /html/body/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/ul[1]/li[3]/article[1]/div[1]/input[1]/@id
+            name:
+              - text: Soria Natural 29-S Pau d'Arco
+                xpath: /html/body/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/ul[1]/li[3]/article[1]/div[1]/a[1]/header[1]/h2[1]
+            productUrl:
+              - text: https://www.farmaline.be/apotheek/bestellen/soria-natural-29-s-pau-darco/
+                xpath: /html/body/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/ul[1]/li[3]/article[1]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://imgcdn.farmaline.be/web/cache/thumbs/3/4/1/3/1/1/9/files/58453_soria-natural-29-s-pau-darco_nl-thumb-1_200x200.webp
+                xpath: /html/body/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/ul[1]/li[3]/article[1]/div[1]/a[1]/div[1]/div[1]/img[1]/@src
+            price:
+              - text: € 18,37
+                xpath: /html/body/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/ul[1]/li[3]/article[1]/div[1]/a[1]/div[1]/div[2]/div[1]/div[2]
+          - id:
+              - text: "63754"
+                xpath: /html/body/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/ul[1]/li[4]/article[1]/div[1]/input[1]/@id
+            name:
+              - text: Soria Natural 03-S Trigonella XXI
+                xpath: /html/body/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/ul[1]/li[4]/article[1]/div[1]/a[1]/header[1]/h2[1]
+            productUrl:
+              - text: https://www.farmaline.be/apotheek/bestellen/soria-natural-03-s-trigonella-xxi/
+                xpath: /html/body/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/ul[1]/li[4]/article[1]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://imgcdn.farmaline.be/web/cache/thumbs/3/4/1/3/1/0/1/files/1401591_soria-natural-03-s-trigonella-xxi_nl-thumb-1_200x200.webp
+                xpath: /html/body/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/ul[1]/li[4]/article[1]/div[1]/a[1]/div[1]/div[1]/img[1]/@src
+            price:
+              - text: € 17,78
+                xpath: /html/body/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/ul[1]/li[4]/article[1]/div[1]/a[1]/div[1]/div[2]/div[1]/div[2]
+          - id:
+              - text: "64532"
+                xpath: /html/body/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/ul[1]/li[5]/article[1]/div[1]/input[1]/@id
+            name:
+              - text: Soria Natural 08-S Calaguala XXI
+                xpath: /html/body/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/ul[1]/li[5]/article[1]/div[1]/a[1]/header[1]/h2[1]
+            productUrl:
+              - text: https://www.farmaline.be/apotheek/bestellen/soria-natural-08-s-calaguala-xxi/
+                xpath: /html/body/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/ul[1]/li[5]/article[1]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://imgcdn.farmaline.be/web/cache/thumbs/3/4/3/1/1/4/5/files/974558_soria-natural-08-s-calaguala-xxi_nl-thumb-1_200x200.webp
+                xpath: /html/body/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/ul[1]/li[5]/article[1]/div[1]/a[1]/div[1]/div[1]/img[1]/@src
+            price:
+              - text: € 18,37
+                xpath: /html/body/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/ul[1]/li[5]/article[1]/div[1]/a[1]/div[1]/div[2]/div[1]/div[2]
+          - id:
+              - text: "63132"
+                xpath: /html/body/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/ul[1]/li[6]/article[1]/div[1]/input[1]/@id
+            name:
+              - text: Soria Natural 10-C Diurín XXI
+                xpath: /html/body/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/ul[1]/li[6]/article[1]/div[1]/a[1]/header[1]/h2[1]
+            productUrl:
+              - text: https://www.farmaline.be/apotheek/bestellen/soria-natural-10-c-diurin-xxi/
+                xpath: /html/body/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/ul[1]/li[6]/article[1]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://imgcdn.farmaline.be/web/cache/thumbs/3/3/6/4/7/7/5/files/306681_soria-natural-10-c-diurin-xxi_nl-thumb-1_200x200.webp
+                xpath: /html/body/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/ul[1]/li[6]/article[1]/div[1]/a[1]/div[1]/div[1]/img[1]/@src
+            price:
+              - text: € 18,37
+                xpath: /html/body/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/ul[1]/li[6]/article[1]/div[1]/a[1]/div[1]/div[2]/div[1]/div[2]
+          - id:
+              - text: "1039445"
+                xpath: /html/body/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/ul[1]/li[7]/article[1]/div[1]/input[1]/@id
+            name:
+              - text: Oral B Refill Sensitive eb60 6+2 + Sony Earphones GRATIS
+                xpath: /html/body/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/ul[1]/li[7]/article[1]/div[1]/a[1]/header[1]/h2[1]
+            productUrl:
+              - text: https://www.farmaline.be/apotheek/bestellen/oral-b-refill-sensitive-eb60-62-sony-earphones-gratis/
+                xpath: /html/body/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/ul[1]/li[7]/article[1]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://imgcdn.farmaline.be/web/cache/thumbs/3/9/5/8/7/2/5/files/853165_oral-b-refill-sensitive-eb60-62-sony-earphones-gratis_nl-thumb-1_200x200.webp
+                xpath: /html/body/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/ul[1]/li[7]/article[1]/div[1]/a[1]/div[1]/div[1]/img[1]/@src
+            price:
+              - text: € 33,97
+                xpath: /html/body/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/ul[1]/li[7]/article[1]/div[1]/a[1]/div[1]/div[2]/div[1]/div[2]
+        xpath: /html
+    timestamp: 1607088631435

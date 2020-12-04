@@ -1,0 +1,25 @@
+input:
+  keywords: Allesreiniger
+  _url: http://farmaline.be
+extractions:
+  - html: https://workbench.import.io/html/run=92cf8cb0-8645-4434-888f-1b116d789db7/task=e51c7495-1347-46f2-b889-33017d1c88dc/c05f4bfe-7b1c-4be8-9239-4c16113d5cb0.html
+    extractionConfigId: product/search/stores/f/farmaline/BE/extract
+    data:
+      - group:
+          - id:
+              - text: "1065176"
+                xpath: /html/body/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/ul[1]/li[1]/article[1]/div[1]/input[1]/@id
+            name:
+              - text: Dettolpharma Vloeibare Allesreiniginer Fresh
+                xpath: /html/body/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/ul[1]/li[1]/article[1]/div[1]/a[1]/header[1]/h2[1]
+            productUrl:
+              - text: https://www.farmaline.be/apotheek/bestellen/dettolpharma-vloeibare-allesreiniginer-fresh/
+                xpath: /html/body/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/ul[1]/li[1]/article[1]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://imgcdn.farmaline.be/web/cache/thumbs/4/1/8/1/4/1/8/files/1430658_dettolpharma-vloeibare-allesreiniginer-fresh_nl-thumb-1_200x200.webp
+                xpath: /html/body/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/ul[1]/li[1]/article[1]/div[1]/a[1]/div[1]/div[1]/img[1]/@src
+            price:
+              - text: € 12,32
+                xpath: /html/body/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/ul[1]/li[1]/article[1]/div[1]/a[1]/div[1]/div[2]/div[2]/div[2]
+        xpath: /html
+    timestamp: 1607088632737
