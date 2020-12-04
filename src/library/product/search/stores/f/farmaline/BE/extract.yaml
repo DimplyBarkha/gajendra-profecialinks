@@ -6,13 +6,16 @@ fields:
   - name: id
     singleValue: false
     xpath: //ul[@id="articleList"]/li/article/div/input/@id
-    regExp: d+
+    regExp: (\d+)
   - name: searchUrl
     singleValue: true
+    xpath: //div[@id="searchUrl"][last()]
   - name: name
     singleValue: false
+    xpath: //ul[@id="articleList"]//header/h2
   - name: productUrl
     singleValue: false
+    xpath: //ul[@id="articleList"]/li/article/div[@class="product-teaser__top"]/a/@href
   - name: gtin
     singleValue: false
   - name: thumbnail
