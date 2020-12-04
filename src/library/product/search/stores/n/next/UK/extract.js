@@ -17,10 +17,9 @@ async function implementation (
       document.querySelector('div[class="lightbox_background"]').remove();
     };
     if (document.querySelector('div[class~="CookieConsent"]') !== null) {
-      document.querySelector('div[class~="CookieConsent"]').remove();
+      document.querySelector('div[class="CookieConsentCross"]').click();
     }
   });
-  await context.click('div[class="ResultsHeader"]');
 
   await context.evaluate(async function () {
     //scroll the page
