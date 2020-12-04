@@ -6,41 +6,62 @@ fields:
   - name: image
     singleValue: true
     description: URL of the main product image
+    xpath: //div[@data-component="productDetailImages"]//div[contains(@class,'img-large')]//img/@src
   - name: imageAlt
     singleValue: true
     description: Alt text of the main product image
+    xpath: //div[@data-component="productDetailImages"]//div[contains(@class,'img-large')]//img/@alt
   - name: alternateImages
     singleValue: false
     description: Other product images (not in manufacturer description)
+    #xpath: //div[@class="thumb-slider-container"]//div[contains(@class,'thumb-slider')]//div[contains(@class,'slick-slide') and contains(@class,'slick-active')]//div[contains(@class,'thumb-item-image')]/@data-img-large
+    #xpath: //div[contains(@class,'slick-active')]//div[contains(@class,'thumb-item-image')]//img[position()>1]/@src
+    #xpath: //div[contains(@class,'slick-active')and @data-slick-index!="0"]//div[contains(@class,'thumb-item-image')]//img/@src
+    xpath: //div[contains(@class,'slick-active') and @data-slick-index!="0" or (@class="slick-slide")]//div[contains(@class,'thumb-item-image')]//img/@src
   - name: metaKeywords
     singleValue: true
     description: The <meta> keywords content
+    xpath: //meta[@name='keywords']/@content
   - name: category
     singleValue: false
     description: The categories (e.g. from breadcrumbs)
+    xpath: //div[@class="breadcrumbs"]//ol//li[position()>1 and position()<last()]//a
   - name: nameExtended
     singleValue: true
     description: The product name, prefixing "${brand} - " if not included in "name"
       and appending " - ${variantType}" if necessary (fixed per feed)
+    xpath: //div[@class="added_product_description"]
+    #xpath: //div[contains(@class,'hidden-tab-up')]//div[@data-component="productDetailInfo"]//h4
   - name: listPrice
     singleValue: true
     description: The stated undiscounted price for the product
+    xpath: //div[@class='added_listprice']
+    #xpath: //div[@class="product-detail-main-container"]/@data-gtm-price-full
+    #regExp: [^(.*)$]
+    #regExpReplace: 'EUR$1'
   - name: price
     singleValue: true
     description: The offered price for the selected product variant - if a user
       clicks add to basket this is the price they would be charged
+    xpath: //div[@class='added_product_price']
+    #xpath: //div[@class="product-detail-main-container"]/@data-gtm-price
+    #regExp: [^(.*)$]
+    #regExpReplace: 'EUR$1'
   - name: availabilityText
     singleValue: true
     description: Availability as described on page for the selected variant. If
       there is no availability but the product can be added to cart, this field
       should be "In Stock"
-    regExp: (.+)
+    #xpath: //div[@class="added_availability"]
+    xpath: //div[@class='product-detail-main-container']/@data-gtm-avail2
+    regExp: (disponibile)
     regExpReplace: In Stock
     defaultValue: Out of Stock
   - name: description
     singleValue: false
     description: Product description supplied by website - may be concatenanted from
       multiple places; specifically not the manufacturer description
+    xpath: //div[@class="added_description"]
   - name: descriptionBullets
     singleValue: true
     description: Number of ul > li tags in the description
@@ -49,9 +70,11 @@ fields:
     singleValue: true
     description: Product brand shown - this may actually NOT be just a brand name,
       e.g. "Visit the Gillette Store"
+    xpath: //div[@class='added_brand']
   - name: manufacturer
     singleValue: true
     description: Product manufacturer
+    xpath: //div[@class="added_manufacturer"]
   - name: quantity
     singleValue: true
     description: Quantity as described on the page
@@ -60,21 +83,27 @@ fields:
   - name: weightNet
     singleValue: true
     description: Net weight as described on the page
+    xpath: //div[@class="added_weight"]
+    #xpath: //div[@data-target="specifiche"]//div/p[contains(text(),'Peso')]/parent::div/following-sibling::div
   - name: weightGross
     singleValue: true
     description: Gross weight as described on the page
   - name: gtin
     singleValue: true
     description: GTIN code (includes UPC/EAN)
+    xpath: //div[@class="added_gtin"]
   - name: sku
     singleValue: true
     description: The store-specific product identifier
+    xpath: //div/@data-product-sku
   - name: variantId
     singleValue: true
     description: Identifier for a variant from a store where variants share the same sku
+    xpath: //div[@class="product-detail-main-container"]/@data-pcode
   - name: mpc
     singleValue: true
     description: The manufacturer model code (unique) of the product
+    xpath: //div[@class='added_mpn']
   - name: packSize
     singleValue: true
     description: The number of packs in the product offer (if stated separately on
@@ -92,19 +121,26 @@ fields:
     singleValue: true
     description: The number of ratings
     type: NUMBER
+    xpath: //div[@class='added_rating_count']
   - name: aggregateRatingText
     singleValue: true
     description: The stated aggregate rating
   - name: aggregateRating
     singleValue: true
     description: The stated aggregate rating normalized to be out of 5
-    type: NUMBER
+    xpath: //div[@class='added_rating']
+    #type: NUMBER
   - name: shippingInfo
     singleValue: true
     description: Shipping information for the product
+    #xpath: //div[@class="withdrawal-holder box-container"]//p[@class="services__item"]
+    #regExp: ( MediaWorld )
+    #regExpReplace: $1
+    xpath: //div[@class="added_seller_detail"]
   - name: shippingDimensions
     singleValue: true
     description: Stated shipping dimensions
+    xpath: //div[@data-target='specifiche']//div/p[contains(text(),'Dimensioni:') or contains(text(),'Dimensioni (LxAxP):')]/parent::div/following-sibling::div
   - name: shippingWeight
     singleValue: true
     description: Stated shipping weight
@@ -112,6 +148,7 @@ fields:
     singleValue: true
     description: Number of variants listed
     type: NUMBER
+    xpath: count(//div[@data-component="productDetailInfo"]//ul[@class="variant-list"]//li[position()>1])
   - name: color
     singleValue: true
     description: A textual description of the colour
@@ -121,15 +158,23 @@ fields:
   - name: manufacturerDescription
     singleValue: false
     description: The extended description of the product supplied by the lister
+    #xpath: //div[@id='flix-inpage']//div[contains(@class,'flix-std-content')][text()]
+    xpath: //div[@class="added_manufacture"]
   - name: manufacturerImages
     singleValue: false
     description: Images within the third party description
+    #xpath: //div[@id='flix-inpage']//img//@srcset | //div[@id='flix-inpage']//img//@data-img-src|//div[@id='flix-inpage']//img//@data-srcset
+    #regExp: [^(.*)$]
+    #regExpReplace: 'http:$1'
+    xpath: //div[@class="added_manufactureImage"]
   - name: videos
     singleValue: false
     description: URLs of videos on page
+    xpath: //div[@class="added_video_url"]
   - name: name
     singleValue: true
     description: The product name
+    xpath: //div[contains(@class,'hidden-tab-up')]//div[@data-component="productDetailInfo"]//h1
   - name: inStorePrice
     singleValue: true
     description: Price in the selected store
@@ -221,6 +266,11 @@ fields:
     singleValue: true
     description: null
     type: NUMBER
+    xpath: count(//div[contains(@class,'slick-active') and @data-slick-index!="0" or (@class="slick-slide")]//div[contains(@class,'thumb-item-image')]//img)
+    #xpath: //div[@class="added_secondary"]
+    #xpath: count(//ul[@class="slick-dots"]//li[not(@class="slick-active")]|//div[@class="thumb-slider-container"]//div[@class="slick-track"]//div[@class='slick-slide slick-active'])
+    #xpath: count(//ul[@class="slick-dots"]//li[not(@class="slick-active")])
+    #xpath: count(//div[@class="thumb-slider-container"]//div[contains(@class,'thumb-slider')]//div[contains(@class,'slick-slide') and contains(@class,'slick-active')]//div[contains(@class,'thumb-item-image')]/@data-img-large)
   - name: news
     singleValue: true
     description: null
@@ -382,9 +432,14 @@ fields:
   - name: specifications
     singleValue: true
     description: The physical dimensions of the product including packaging.
+    xpath: //div[@class="added_specific_information"]
   - name: warranty
     singleValue: true
     description: Guarantee associated with the product
+    #xpath: //div[@class="added_warranty"]
+    xpath: //div[@data-target="resi"]//p/text()[preceding-sibling::br and contains(.,'dalla Garanzia Legale')]
+    regExp: (\d+)(.*)
+    regExpReplace: $1$2
   - name: storage
     singleValue: true
     description: Suggested storage location for product
@@ -433,6 +488,7 @@ fields:
   - name: variantInformation
     singleValue: true
     description: colour / scent / flavour / other
+    xpath: //div[@class="added_variantInfo"]
   - name: firstVariant
     singleValue: true
     description: Unique identifier for a collection of variants. For a subset of
@@ -463,6 +519,7 @@ fields:
     description: Energy rating of a product.
       https://www.amazon.de/Siemens-WM16W541-Waschmaschine-Schnellwaschprogramm-Nachlegefunktion/dp/B015FJFK14
     example: A+, A+++, B
+    xpath: //div[@class="added_energy"]
   - name: technicalInformationPdfPresent
     singleValue: true
     description: If there is for example a manual in pdf format on the website. ['Yes','No']
