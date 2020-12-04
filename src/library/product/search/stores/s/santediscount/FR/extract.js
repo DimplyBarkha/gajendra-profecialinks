@@ -5,6 +5,6 @@ module.exports = {
     country: 'FR',
     store: 'santediscount',
     transform: transform,
-    domain: 'santediscount.com',
+    domain: 'santediscount.fr',
   },
 };
