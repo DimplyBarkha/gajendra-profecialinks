@@ -1,0 +1,118 @@
+singleRecord: true
+regionsSelector: null
+recordSelector: null
+recordXPath:  null
+fields:
+  - name: image
+    xpath: (//a[@class='image']/@href)[1]
+  - name: nameExtended
+    xpath: //h1[not(contains(text(),"Page not found"))]
+  - name: price
+    xpath: //div[contains(@class,'box__Box')]//span[contains(text(),'$')]
+  - name: availabilityText
+    xpath: //div[contains(@class,'box__Box')]//button[contains(text(),"Add")]
+    regExp: (.+)
+    regExpReplace: In stock
+    defaultValue: Out of stock
+  - name: description
+    xpath: //h2[contains(text(),"Product Information")]/following-sibling::div[1]
+  - name: brandText
+    xpath: //h2[contains(text(),"Brand")]/following-sibling::div
+  - name: sku
+    xpath: //body/@sku
+  - name: productUrl
+    xpath: //body/@url
+  - name: caloriesPerServing
+    xpath: //b[contains(text(),"Calories")]/parent::td/text()
+  - name: alternateImages
+    xpath: //a[@class='image'][position()>1]/@href
+  - name: ingredientsList
+    xpath: //h2[contains(text(),'Ingredients')]/following-sibling::div[1]
+  - name: storage
+    xpath: //h2[contains(text(),'Storage')]/following-sibling::div[1]
+  - name: pricePerUnit
+    xpath: //div[contains(@class,'box__Box')]/div[2]/span[2]
+    regExp: (\$\d.?\d+)
+  - name: pricePerUnitUom
+    xpath: //div[contains(@class,'box__Box')]/div[2]/span[2]
+    regExp: (\s)(\d+\w+)
+    regExpReplace: $2
+  - name: countryOfOrigin
+    xpath:  //h2[contains(text(),'Country Of Origin')]/following-sibling::div[1]
+  - name: quantity
+    xpath: //div[contains(@class,'box__Box')]/div[2]/span[1]
+  - name: recyclingInformation
+    xpath: //h2[contains(text(),'Recycling')]/following-sibling::div[1]
+# serving
+  - name: proteinPerServing 
+    xpath: //b[contains(text(),"Protein")]/parent::td/text()
+    regExp: ^[^\s]+
+  - name: proteinPerServingUom 
+    xpath: //b[contains(text(),"Protein")]/parent::td/text()
+    regExp: '[^\s]$'
+  - name: totalFatPerServing 
+    xpath: //b[contains(text(),"Fat")]/parent::td/text()
+    regExp: ^[^\s]+
+  - name: totalFatPerServingUom 
+    xpath: //b[contains(text(),"Fat")]/parent::td/text()
+    regExp: '[^\s]$'
+  - name: dietaryFibrePerServing 
+    xpath: //td[contains(text(),"Fibre")]
+    regExp: (\d+(?:\.\d+)?)
+  - name: dietaryFibrePerServingUom 
+    xpath: //td[contains(text(),"Fibre")]
+    regExp: '[^\s]$'
+  - name: SaturatedFatPerServing 
+    xpath: //td[contains(text(),"Saturated")]
+    regExp: (\d+(?:\.\d+)?)
+  - name: SaturatedFatPerServingUom 
+    xpath: //td[contains(text(),"Saturated")]
+    regExp: '[^\s]$'
+  - name: TransFatPerServing 
+    xpath: //td[contains(text(),"Trans")]
+    regExp:  (\d+(?:\.\d+)?)
+  - name: TransFatPerServingUom 
+    xpath: //td[contains(text(),"Trans")]
+    regExp: '[^\s]$'
+  - name: CholesterolPerServing
+    xpath: //b[contains(text(),"Cholesterol")]/parent::td/text()
+    regExp:  ^[^\s]+
+  - name: CholesterolPerServingUom 
+    xpath: //b[contains(text(),"Cholesterol")]/parent::td/text()
+    regExp: '[^\s]$'
+  - name: SodiumPerServing
+    xpath: //b[contains(text(),"Sodium")]/parent::td/text()
+    regExp: ^[^\s]+
+  - name: SodiumPerServingUom 
+    xpath: //b[contains(text(),"Sodium")]/parent::td/text()
+    regExp: '[^\s]$'
+  - name: TotalCarbPerServing
+    xpath: //b[contains(text(),"Carbohydrate")]/parent::td/text()
+    regExp: ^[^\s]+
+  - name: TotalCarbPerServingUom 
+    xpath: //b[contains(text(),"Carbohydrate")]/parent::td/text()
+    regExp: '[^\s]$'
+  - name: TotalSugarsPerServing
+    xpath: //td[contains(text(),"Sugars")]
+    regExp: (\d+(?:\.\d+)?)
+  - name: TotalSugarsPerServingUom 
+    xpath: //td[contains(text(),"Sugars")]
+    regExp: '[^\s]$'
+  # - name: CalciumPerServing
+  #   xpath: 
+  #   regExp: 
+  # - name: CalciumPerServingUom 
+  #   xpath: 
+  #   regExp: 
+  # - name: vitaminAPerServing 
+  #   xpath: 
+  #   regExp: 
+  # - name: vitaminAPerServingUom 
+  #   xpath: 
+  #   regExp:
+  # - name: vitaminCPerServing 
+  #   xpath: 
+  #   regExp: 
+  # - name: vitaminCPerServingUom 
+  #   xpath: 
+  #   regExp: 
