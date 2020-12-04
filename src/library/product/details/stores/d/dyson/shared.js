@@ -282,12 +282,12 @@ async function implementation (inputs, parameters, context, dependencies) {
       else thirdManuDescText = `${thirdManuDescText} ${elem.innerText}`;
     });
 
-    // const imgs =
-    // "//div[@class='par parsys']/*[contains(concat(' ',normalize-space(@class),' '),' column-control') or (contains(concat(' ',normalize-space(@class),' '),' parbase ') and (contains(concat(' ',normalize-space(@class),' '),' full-widthimage ') or contains(concat(' ',normalize-space(@class),' '),' rich-content ') or contains(concat(' ',normalize-space(@class),' '),' text ') or contains(concat(' ',normalize-space(@class),' '),' container-par ')))][not(.//*[contains(concat(' ',normalize-space(@class),' '),' icon-arrow ')])][not(contains(concat(' ',normalize-space(@class),' '),' recs-container '))]//img/@src";
+    const imgs =
+    "//div[@class='par parsys']/*[contains(concat(' ',normalize-space(@class),' '),' column-control') or (contains(concat(' ',normalize-space(@class),' '),' parbase ') and (contains(concat(' ',normalize-space(@class),' '),' full-widthimage ') or contains(concat(' ',normalize-space(@class),' '),' rich-content ') or contains(concat(' ',normalize-space(@class),' '),' text ') or contains(concat(' ',normalize-space(@class),' '),' container-par ')))][not(.//*[contains(concat(' ',normalize-space(@class),' '),' icon-arrow ')])][not(contains(concat(' ',normalize-space(@class),' '),' recs-container '))]//img/@src";
     const otherDescription = "//ul[contains(@class,'product-specification__specification-container')]//li";
     addElementToDocument('added_productOtherInformation', getAllXpath(otherDescription, 'innerText').join(' '));
     addElementToDocument('added_manufacturerDescription', `${firstManuDesc} ${secondManuDescText} ${thirdManuDescText}`);
-    // addElementToDocument('added_manufacturerImages', getAllXpath(imgs));
+    addElementToDocument('added_manufacturerImages', getAllXpath(imgs));
 
     // Get the description bullets
     const descBullets = getAllXpath(
@@ -304,7 +304,7 @@ async function implementation (inputs, parameters, context, dependencies) {
     );
 
     // get availability text
-    const availabilityText = document.querySelector('nav form.add-to-basket-form > a') ? 'In Stock' : 'Out of Stock';
+    const availabilityText = document.querySelector('nav form.add-to-basket-form') ? 'In Stock' : 'Out of Stock';
     addElementToDocument('added_availabilityText', availabilityText);
   });
   return await context.extract(productDetails, { transform: parameters.transform });
