@@ -19,7 +19,7 @@ fields:
     xpath: ancestor::html//*[@itemprop="brand"]/..
   - name: sku
     description: The store-specific product identifier
-    xpath: //*[@itemprop="sku"]/@content
+    xpath: ancestor::html//*[@itemprop="sku"]/@content
   - name: reviewDate
     type: DATETIME
     description: Date the review was made
@@ -27,6 +27,7 @@ fields:
   - name: reviewRating
     type: NUMBER
     description: Rating normalized to be out of 5
+    xpath: //meta[@itemprop="ratingValue"]/@content
   - name: reviewText
     description: The text of the review
     xpath: //*[@itemprop="reviewBody"]
@@ -61,4 +62,4 @@ fields:
     xpath: //*[@itemprop="author"]
   - name: aggregateRating
     description: The product rating
-    xpath: //meta[@itemprop="ratingValue"]/@content
+    xpath: (ancestor::html//span[contains(@class,"bv-secondary-rating-summary-rating")])[1]
