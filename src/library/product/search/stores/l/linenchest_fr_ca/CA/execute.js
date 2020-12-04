@@ -6,8 +6,8 @@ module.exports = {
     store: 'linenchest_fr_ca',
     domain: 'linenchest.com',
     url: 'https://www.linenchest.com/fr_ca/catalogsearch/result/?q={searchTerms}',
-    loadedSelector: 'div.with-facets div.ais-Hits',
-    // noResultsXPath: '//div[@class="result-wrapper"]/a/@data-objectid',
+    loadedSelector: 'ol.ais-Hits-list li.ais-Hits-item',
+    noResultsXPath: '//div[@class="no-results"]//b[contains(.,"Aucun produit pour")]',
     zipcode: '',
   },
 };

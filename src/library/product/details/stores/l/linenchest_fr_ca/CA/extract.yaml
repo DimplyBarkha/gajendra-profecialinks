@@ -5,13 +5,13 @@ recordXPath: null
 fields:
   - name: image
     singleValue: false
-    xpath: (//a[contains(@class,"mt-thumb-switcher")]/@href)[position()=1] | //a[contains(@class,"mz-thumb mz-thumb-selected")]/@href
+    xpath: //a[contains(@class,"mz-thumb mz-thumb-selected")]/img/@alt | //meta[@property="og:image"]/@content | //a[@class="MagicZoom"]/@href | (//a[contains(@class,"mt-thumb-switcher")]/@href)[position()=1] 
   - name: imageAlt
     singleValue: false
-    description: Alt text of the main product image
+    xpath: //a[contains(@class,"mz-thumb mz-thumb-selected")]/img/@alt
   - name: alternateImages
     singleValue: false
-    xpath: (//a[contains(@class,"mt-thumb-switcher")]/@href)[position()>1]
+    xpath: (//a[contains(@class,"mt-thumb-switcher") and not(contains(@class,"video-selector"))]/@href)[position()>1]
   - name: metaKeywords
     singleValue: false
     description: The <meta> keywords content
@@ -20,7 +20,7 @@ fields:
     xpath: (//ul[@class="items"]/li)[position()>1][position()<last()]
   - name: nameExtended
     singleValue: false
-    xpath: //meta[@name="title"]/@content
+    xpath: //span[@itemprop="name"]/text()
   - name: listPrice
     singleValue: false
     xpath: //span[@data-price-type="oldPrice"]/span
@@ -29,18 +29,16 @@ fields:
     xpath: //span[@data-price-type="finalPrice"]/span
   - name: availabilityText
     singleValue: false
-    description: Availability as described on page for the selected variant. If
-      there is no availability but the product can be added to cart, this field
-      should be "In Stock"
+    xpath: //meta[@property="product:availability"]//@content
     regExp: (.+)
     regExpReplace: In Stock
     defaultValue: Out of Stock
   - name: description
     singleValue: false
-    xpath: //div[@itemprop="description"]/p/text()
-  - name: descriptionBullets
-    singleValue: false
-    xpath: //div[@itemprop="more_infos"]/ul/li
+    xpath: //div[@itemprop="description"] | //div[@class="product attribute more-infos"]//div[@itemprop="more_infos"]//ul| //div[@class="product attribute user-care"]//div[@itemprop="user_care"]//ul
+  # - name: descriptionBullets
+  #   singleValue: false
+  #   xpath: count(//div[@itemprop="more_infos"]/ul/li)
   - name: brandText
     singleValue: false
     xpath: //div[@itemprop="manufacturer"]
@@ -111,7 +109,7 @@ fields:
     type: NUMBER
   - name: color
     singleValue: false
-    description: A textual description of the colour
+    xpath: //meta[@property="product:color"]/@content
   - name: colorCode
     singleValue: false
     description: A code description of the color (e.g. RGB hex)
@@ -123,10 +121,10 @@ fields:
     description: Images within the third party description
   - name: videos
     singleValue: false
-    description: URLs of videos on page
+    xpath: //a[contains(@class,"video-selector") and not(contains(@class,"mz-thumb"))]/@data-video
   - name: name
     singleValue: false
-    description: The product name
+    xpath: //span[@itemprop="name"]/text() | //meta[@name="og:title"]/@content
   - name: inStorePrice
     singleValue: false
     description: Price in the selected store
@@ -216,7 +214,7 @@ fields:
     description: null
   - name: secondaryImageTotal
     singleValue: false
-    xpath: count((//a[contains(@class,"mt-thumb-switcher")]/@href)[position()>1])
+    xpath: count((//a[contains(@class,"mt-thumb-switcher") and not(contains(@class,"video-selector"))]/@href)[position()>1])
   - name: news
     singleValue: false
     description: null
@@ -445,7 +443,7 @@ fields:
     description: null
   - name: additionalDescBulletInfo
     singleValue: false
-    xpath: count(//div[@itemprop="more_infos"]/ul/li/text())
+    xpath: //div[@itemprop="more_infos"]/ul/li/text()
   - name: prop65Warning
     singleValue: false
     description: null
