@@ -70,6 +70,14 @@ const transform = (data) => {
         row.price = [{ text }];
       }
 
+      if (row.listPrice) {
+        let text = '';
+        row.listPrice.forEach(item => {
+          text = item.text.replace(/,/g, '.');
+        });
+        row.listPrice = [{ text }];
+      }
+
       if (row.caloriesPerServing) {
         let text = '';
         row.caloriesPerServing.forEach(item => {
