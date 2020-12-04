@@ -1,0 +1,22 @@
+input:
+  _url: http://zalando.de
+  URL: https://en.zalando.de/rains-bum-bag-mini-bum-bag-ri054h00q-g11.html
+extractions:
+  - html: https://workbench.import.io/html/run=69186a25-d0e9-41db-a851-95416236a895/task=52e099c8-ecb8-436a-b723-23364c275f20/5723e4a5-6c00-4ace-b39b-943466dd09eb.html
+    extractionConfigId: product/details/stores/z/zalando/DE/variantsExtract
+    data:
+      - group:
+          - variantId:
+              - text: ri054h00q-g11
+                xpath: /html/body/ol[1]/li[1]/@variant_id
+            variantUrl:
+              - text: https://en.zalando.de/rains-bum-bag-mini-bum-bag-ri054h00q-g11.html
+                xpath: /html/body/ol[1]/li[1]/@variant_url
+          - variantId:
+              - text: ri054h00q-a11
+                xpath: /html/body/ol[1]/li[2]/@variant_id
+            variantUrl:
+              - text: https://en.zalando.de/rains-bum-bag-mini-bum-bag-foggy-white-ri054h00q-a11.html
+                xpath: /html/body/ol[1]/li[2]/@variant_url
+        xpath: /html
+    timestamp: 1606733702860

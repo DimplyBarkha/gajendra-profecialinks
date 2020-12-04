@@ -1,0 +1,16 @@
+input:
+  _url: http://zalando.de
+  URL: https://en.zalando.de/pai-skincare-rosehip-bioregenerate-face-oil-pah34g00i-s11.html
+extractions:
+  - html: https://workbench.import.io/html/run=69186a25-d0e9-41db-a851-95416236a895/task=f5cd6866-91c8-4a2d-a4fa-2e54f63556f1/f43bfb14-2cec-4916-8172-fbc51f6e3217.html
+    extractionConfigId: product/details/stores/z/zalando/DE/variantsExtract
+    data:
+      - group:
+          - variantId:
+              - text: pah34g00i-s11
+                xpath: /html/body/ol[1]/li[1]/@variant_id
+            variantUrl:
+              - text: https://en.zalando.de/pai-skincare-rosehip-bioregenerate-face-oil-pah34g00i-s11.html
+                xpath: /html/body/ol[1]/li[1]/@variant_url
+        xpath: /html
+    timestamp: 1606733698142
