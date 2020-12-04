@@ -14,10 +14,15 @@ const transform = (data) => {
   const filterSearch = searchTerms.filter(e => e)[0].input;
   const url = urlCustom.filter(e => e)[0].url;
   data.forEach(el => {
-    el.group.forEach(gr => {
+    el.group.forEach((gr, index) => {
       try {
         gr['_input'] = filterSearch;
         gr['_url'] = url;
+        gr['rankOrganic'] = [{ text: index + 1 }];
+        try {
+        }catch (e) {
+          console.log(e);
+        }
       } catch (e) {
         console.log(e);
       }

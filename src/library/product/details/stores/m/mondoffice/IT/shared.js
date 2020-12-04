@@ -1,52 +1,35 @@
-
 /**
  *
  * @param {ImportIO.Group[]} data
  * @returns {ImportIO.Group[]}
  */
 const transform = (data) => {
+  function removeExtraSpace (data) {
+    const a = [];
+    data.forEach(e => {
+      e.text = e.text.replace(/\s+/g, ' ').trim();
+      a.push(e);
+    });
+    return a;
+  }
+  function onlyNumbersAndDot (string) {
+    return string.replace(',', '.').replace(/[^\d\.]/g, '').replace(/\./, 'x').replace(/\./g, '').replace(/x/, ".");string = Math.round( parseFloat(string) * 100) / 100;
+  }
   data.forEach(e => {
     e.group.forEach(gr => {
       try {
-        // if (gr.online_price) gr.online_price[0].text = gr.online_price[0].text.replace(/[^\d,]+/g, '');
-        if (gr.sku) gr.sku[0].text = gr.sku[0].text.replace(/[^\d,]+/g, '');
-        // const a = gr.retailer_product_code.find(e => e.text.includes('logEvent')).text;
-        // if (gr.retailer_product_code && a) {
-        //   const indexS = a.indexOf('ProductId=');
-        //   const indexE = a.indexOf('&MfgId');
-        //   gr.retailer_product_code = [{ text: a.slice(indexS, indexE) }];
-        // }
-        // if (gr.online_price_currency) gr.online_price_currency[0].text = gr.online_price_currency[0].text.replace(/[\d\., ]/g, '').charAt(0);
-        // if (gr.products_per_page) gr.products_per_page[0].text = gr.products_per_page[0].text = 0;
-        if (gr.mpc) {
-          try {
-            gr.mpc = [gr.mpc.find(el => el.text.includes('MPN'))];
-            gr.mpc[0].text = gr.mpc[0].text.substring(5, 20);
-          } catch (e) {
-            gr.mpc = [];
-          }
+        gr['_url'] = gr.url;
+        if (gr && gr.category && gr.category.length) gr.category.shift();
+        if (gr && gr.description && gr.description.length) gr.description = removeExtraSpace(gr.description);
+        if (gr && gr.price && gr.price.length) gr.price[0].text = onlyNumbersAndDot(gr.price[0].text);
+        if (gr && gr.sku && gr.sku.length) {
+          gr['mpc'] = [{ text: gr.sku[0].text }];
+          gr.sku[0].text = onlyNumbersAndDot(gr.sku[0].text);
+          gr['_input'] = [{ text: onlyNumbersAndDot(gr.sku[0].text) }];
         }
-        if (gr.packSize) {
-          try {
-            const b = gr.packSize.find(e => e.text.includes('Dimensione punta :')).text;
-            const index = b.indexOf(':');
-            const size = b.slice(index + 1, 100);
-            gr.packSize = [{ text: size }];
-          } catch (e) {
-            gr.packSize = [];
-          }
-        }
-        if (gr.color) {
-          try {
-            const b = gr.color.find(e => e.text.includes('Colore :')).text;
-            const index = b.indexOf(':');
-            const size = b.slice(index + 1, 100);
-            gr.color = [{ text: size }];
-          } catch (e) {
-            gr.color = [];
-          }
-        }
-        if (gr && gr.url) gr['_url'] = gr.url;
+        if (gr && gr.specification && gr.specification.length) gr.specification = [{ text: gr.specification.map(e => e.text).join(' ') }];
+        if (gr && gr.descriptionBullets && gr.descriptionBullets.length) gr.descriptionBullets = [{ text: gr.descriptionBullets.length }];
+        if (gr && gr.secondaryImageTotal && gr.secondaryImageTotal.length) gr.secondaryImageTotal = [{ text: gr.secondaryImageTotal.length }];
       } catch (e) {
         console.log(e);
       }
@@ -55,4 +38,4 @@ const transform = (data) => {
   return data;
 };
 
-module.exports = { transform };
+module.exports = {transform};

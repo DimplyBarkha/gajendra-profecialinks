@@ -1,4 +1,4 @@
-const { transform } = require('./shared');
+const {transform} = require('./shared');
 module.exports = {
   implements: 'product/details/extract',
   parameterValues: {
@@ -14,19 +14,30 @@ module.exports = {
     context,
     dependencies,
   ) => {
+    const {transform} = parameters;
+    const {productDetails} = dependencies;
     await context.evaluate(async function () {
-      function addElementToDocument (key, value) {
+      function addElementToDocument(key, value) {
         const catElement = document.createElement('div');
         catElement.id = key;
         catElement.textContent = value;
         catElement.style.display = 'none';
         document.body.appendChild(catElement);
       }
-      addElementToDocument('descriptionBullets', document.querySelectorAll('.description-sku__figure-text > ul > li').length);
+
+      const bread = document.querySelectorAll('.page-breadcrumb__item');
+      if (bread) {
+        addElementToDocument('breadCramb', '');
+        const a = document.getElementById('breadCramb');
+        for (let i = 0; i < bread.length; i++) {
+          const newContent = document.createElement('p');
+          newContent.innerHTML = bread[i].innerText;
+          a.appendChild(newContent);
+        }
+      }
       addElementToDocument('url', location.href);
     });
-    const { transform } = parameters;
-    const { productDetails } = dependencies;
-    return await context.extract(productDetails, { transform });
+    await context.waitForSelector('#breadCramb');
+    return await context.extract(productDetails, {transform});
   },
 };

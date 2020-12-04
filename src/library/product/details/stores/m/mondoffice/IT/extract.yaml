@@ -12,6 +12,9 @@ fields:
   - name: alternateImages
     singleValue: false
     xpath: //div[@id='customize-thumbnails']/div/img/@src
+  - name: secondaryImageTotal
+    singleValue: false
+    xpath: //div[@id='customize-thumbnails']/div/img/@src
   - name: metaKeywords
     singleValue: true
     xpath: //meta[@name='keywords']/@content
@@ -22,45 +25,32 @@ fields:
     xpath: //div[@id='url']
   - name: category
     singleValue: false
-    xpath: //ol[@class='page-breadcrumb']/li/div[@id='first-level']/span/a
+    xpath: //div[@id='breadCramb']/p
   - name: nameExtended
     singleValue: true
-    xpath: //h1[@class='product-sku__title']
+    xpath: //div[@class='product-sku col x-large']/h1[@class='product-sku__title']
   - name: price
     singleValue: true
     xpath: //span[@class='product-sku__price-min']
-    type: CURRENCY
+  - name: availabilityText
+    singleValue: true
+    defaultValue: In Stock.
   - name: description
     singleValue: false
-    xpath: //div[@id='long_description']
-    type: TEXT
+    xpath: //div[@class='description-sku__figure-text']/ul/li
   - name: descriptionBullets
-    singleValue: true
-    xpath: //div[@id='descriptionBullets']
-#  - name: brandText
-#    singleValue: true
-#    xpath: //div[@id='descriptionBullets']
-  - name: quantity
-    singleValue: true
-    xpath: //input[@id='articleQuantity']/@value
-  - name: variantCount
-    singleValue: true
-    xpath: //input[@id='articleQuantity']/@value
+    singleValue: false
+    xpath: //div[@class='description-sku__figure-text']/ul/li
   - name: sku
     singleValue: true
     xpath: //div[@class='col product-sku__ref']
-  - name: mpc
+  - name: specification
     singleValue: false
-    xpath: //ul[@class='col wrap']/li
-  - name: packSize
-    singleValue: false
-    xpath: //div[@class='description-sku__attribute attribute-col-3']/ul/li
-  - name: availabilityText
-    singleValue: true
-    defaultValue: In Stock
-  - name: color
-    singleValue: false
-    xpath: //div[@class='product-sku__details']/ul/li
-  - name: name
-    singleValue: false
-    xpath: //h1[@class='product-sku__title']
+    xpath: //div[@class='description-sku__attribute attribute-col-3']/ul[@class='col wrap']/li
+
+
+
+
+
+
+
