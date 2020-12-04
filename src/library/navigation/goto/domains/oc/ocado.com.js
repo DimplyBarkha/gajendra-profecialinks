@@ -1,10 +1,11 @@
 
 module.exports = {
-  implements: 'product/details',
+  implements: 'navigation/goto',
   parameterValues: {
+    domain: 'ocado.com',
+    timeout: null,
     country: 'UK',
     store: 'ocado',
-    domain: 'ocado.com',
     zipcode: "''",
   },
 };

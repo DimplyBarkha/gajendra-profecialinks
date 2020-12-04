@@ -1,10 +1,10 @@
 
 module.exports = {
-  implements: 'product/details',
+  implements: 'navigation/goto/setZipCode',
   parameterValues: {
     country: 'UK',
-    store: 'ocado',
     domain: 'ocado.com',
+    store: 'ocado',
     zipcode: "''",
   },
 };

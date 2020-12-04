@@ -4,7 +4,7 @@ module.exports = {
   parameterValues: {
     country: 'UK',
     store: 'ocado',
-    domain: 'ocado.uk',
+    domain: 'ocado.com',
     loadedSelector: 'div#main-content',
     noResultsXPath: '//div[@class="nf-resourceNotFound"]',
     zipcode: "''",

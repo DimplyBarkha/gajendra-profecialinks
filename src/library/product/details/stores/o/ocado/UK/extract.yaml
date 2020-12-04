@@ -6,6 +6,7 @@ fields:
   - name: image
     singleValue: true
     description: URL of the main product image
+    xpath: //div[contains(@class,'bop-gallery__item bop-gallery__item--chosen bop-gallery__itemImage')]/img
   - name: imageAlt
     singleValue: true
     description: Alt text of the main product image
@@ -29,7 +30,7 @@ fields:
     singleValue: true
     description: The offered price for the selected product variant - if a user
       clicks add to basket this is the price they would be charged
-    xpath: //h2[contains(@class,'bop-price__currency')]
+    xpath: //div[contains(@class,'bop-price__wrapper')]//h2//meta
   - name: availabilityText
     singleValue: true
     description: Availability as described on page for the selected variant. If
@@ -63,6 +64,7 @@ fields:
   - name: weightNet
     singleValue: true
     description: Net weight as described on the page
+    xpath: //span[contains(@class,'bop-catchWeight')]
   - name: weightGross
     singleValue: true
     description: Gross weight as described on the page
@@ -82,7 +84,7 @@ fields:
     singleValue: true
     description: The number of packs in the product offer (if stated separately on
       the site to quantity)
-  - name: product_grocery_disclaimer
+  - name: legalDisclaimer
     singleValue: true
     description: Content under "legal disclaimer" header
     xpath: //p[contains(@class,'gn-content__caption')]
@@ -132,7 +134,7 @@ fields:
   - name: videos
     singleValue: false
     description: URLs of videos on page
-  - name: product_name
+  - name: name
     singleValue: true
     description: The product name
     xpath: //header[contains(@class,'bop-title')]//h2
@@ -236,7 +238,7 @@ fields:
   - name: fastTrack
     singleValue: true
     description: null
-  - name: product_grocery_ingredients
+  - name: ingredientsList
     singleValue: true
     description: List of Ingredients from site - can be string of data if no
       discernible start/end point
@@ -400,7 +402,7 @@ fields:
     singleValue: true
     description: The country from which the product originates
     xpath: //*[@id="productInformation"]/div[2]/div[1]/div[2]/div/div[3]/div
-  - name: product_grocery_allergens
+  - name: allergyAdvice
     singleValue: true
     description: Allergy information associated with the product
     xpath: //*[@id="productInformation"]/div[3]/div[2]/div[2]/div/div[2]/div
@@ -492,14 +494,17 @@ fields:
     singleValue: true
     description: Materials used to make the product
     xpath: //*[@id="productInformation"]/div[3]/div[2]/div[2]/div/div[1]/div
+    example: https://www.jdsports.co.uk/product/blue-adidas-linear-20-reversible-wind-breaker-jacket/15988125/
   - name: Image360Present
     singleValue: true
     description: If 360 image is present in the carousel ['Yes','No']
+    example: https://www.amazon.com/Trinsic-Single-Handle-Magnetic-Champagne-9159-CZ-DST/dp/B0050EN8E6
     defaultValue: No
   - name: imageZoomFeaturePresent
     singleValue: true
     description: If Zoom feature is available for Main image or images in the
       carousel,['Yes','No']
+    example: https://www.zalando.de/adidas-neo-sneaker-low-blackwhite-a4315i002-q11.html
     defaultValue: No
 
 

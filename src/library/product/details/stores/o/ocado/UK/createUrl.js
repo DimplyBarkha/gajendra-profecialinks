@@ -2,7 +2,7 @@
 module.exports = {
   implements: 'product/details/createUrl',
   parameterValues: {
-    domain: 'ocado.uk',
+    domain: 'ocado.com',
     prefix: null,
     url: null,
     country: 'UK',
