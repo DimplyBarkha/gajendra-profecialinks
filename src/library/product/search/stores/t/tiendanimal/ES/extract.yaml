@@ -5,7 +5,7 @@ recordXPath: //div[contains(@class,'mt3')]//div[contains(@class,'flex')]//div[co
 fields:
   - name: id
     SingleValue: false
-    xpath: //div[@class='wrap']//a[contains(@class,'teaser__title')]//@href
+    xpath: //div[contains(@class,' js-item-carousel')]//@data-mta
   - name: productUrl
     SingleValue: false
     xpath: //div[@class='wrap']//a[contains(@class,'teaser__title')]//@href
