@@ -59,7 +59,6 @@ fields:
   singleValue: false
   description: Product description supplied by website - may be concatenanted from
     multiple places; specifically not the manufacturer description
-  xpath: //div[@itemprop="description"]//p
 - name: descriptionBullets
   singleValue: true
   description: Number of ul > li tags in the description
@@ -129,6 +128,7 @@ fields:
 - name: variantCount
   singleValue: true
   description: Number of variants listed
+  xpath: count(//div[@class="price-wrap"])
 - name: color
   singleValue: true
   description: A textual description of the colour
@@ -138,6 +138,7 @@ fields:
 - name: manufacturerDescription
   singleValue: false
   description: The extended description of the product supplied by the lister
+  xpath: //div[@itemprop="description"]//p
 - name: manufacturerImages
   singleValue: false
   description: Images within the third party description
@@ -147,6 +148,7 @@ fields:
 - name: name
   singleValue: true
   description: The product name
+  xpath: //h1[@itemprop="name"]
 - name: inStorePrice
   singleValue: true
   description: Price in the selected store
@@ -432,6 +434,7 @@ fields:
 - name: variantInformation
   singleValue: true
   description: colour / scent / flavour / other
+  xpath: //div[@target="to-add"]//h5[@class="variant-title"]
 - name: firstVariant
   singleValue: true
   description: Unique identifier for a collection of variants. For a subset of core
@@ -442,9 +445,11 @@ fields:
     to populate "first_variant" for all variants of a product, this rpc becomes the
     common link between other variants. method 3 = apply some logic to determine link
     between variants, this will need analysis
+  xpath: //div[@id="sku"]
+  regExp: ^[a-zA-Z0-9]*
 - name: variants
   singleValue: false
-  description: 
+  description: //meta[@itemprop="sku"]
 - name: additionalDescBulletInfo
   singleValue: false
   description: 
