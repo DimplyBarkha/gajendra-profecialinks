@@ -9,6 +9,8 @@ fields:
     xpath: //h1[not(contains(text(),"Page not found"))]
   - name: price
     xpath: //div[contains(@class,'box__Box')]//span[contains(text(),'$')]
+  - name: listPrice
+    xpath: //div[contains(@class,'box__Box')]//s[contains(text(),'$')]
   - name: availabilityText
     xpath: //div[contains(@class,'box__Box')]//button[contains(text(),"Add")]
     regExp: (.+)
@@ -30,6 +32,10 @@ fields:
     xpath: //h2[contains(text(),'Ingredients')]/following-sibling::div[1]
   - name: storage
     xpath: //h2[contains(text(),'Storage')]/following-sibling::div[1]
+  - name: legalDisclaimer
+    xpath: //h2[contains(text(),'Disclaimer')]/following-sibling::div[1]
+  - name: productOtherInformation
+    xpath: //h2[contains(text(),'Other Information')]/following-sibling::div[1]
   - name: pricePerUnit
     xpath: //div[contains(@class,'box__Box')]/div[2]/span[2]
     regExp: (\$\d.?\d+)
@@ -43,6 +49,10 @@ fields:
     xpath: //div[contains(@class,'box__Box')]/div[2]/span[1]
   - name: recyclingInformation
     xpath: //h2[contains(text(),'Recycling')]/following-sibling::div[1]
+  - name: promotion
+    xpath: //div[contains(@class,'box__Box')]//span[contains(text(),'OFF')]
+  - name: dietarySymbols
+    xpath: //div[contains(@class,'box__Box')]//span[contains(@name,'free')]/@title
 # serving
   - name: proteinPerServing 
     xpath: //b[contains(text(),"Protein")]/parent::td/text()
