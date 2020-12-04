@@ -5,8 +5,7 @@ recordXPath: //div[@class="col-6 col-md-4 col-lg-3"]
 fields:
   - name: id
     singleValue: true
-    # xpath: //article/@data-code
-    selector: article > section > div.tile__product-slide-details > div.tile__product-slide-rating-wrapper > e2-rating, rating
+    xpath: //article/@data-code
   - name: rankOrganic
     defaultValue: false
   - name: name
@@ -23,6 +22,7 @@ fields:
   - name: aggregateRating
     singleValue: false
     xpath: //div[@class="tile__product-slide-rating-wrapper"]/e2-rating/@rating
+    # type: TEXT
   - name: thumbnail
     singleValue: true
     xpath: //a[@class="ClickSearchResultEvent_Class tile__product-slide-link"]/img/@src
