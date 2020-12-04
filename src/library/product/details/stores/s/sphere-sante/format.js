@@ -22,7 +22,9 @@ const transform = (data) => {
         const additionalDescBulletInfoArr = row.additionalDescBulletInfo.map((item) => {
           return item.text;
         });
-        if (additionalDescBulletInfoArr.length > 1) additionalDescBulletInfoArr[0] = '|| ' + additionalDescBulletInfoArr[0];
+        if (additionalDescBulletInfoArr.length > 1) {
+          additionalDescBulletInfoArr[0] = '|| ' + additionalDescBulletInfoArr[0];
+        }
         clean(row.additionalDescBulletInfo = [{ text: additionalDescBulletInfoArr.join(' | '), xpath: row.additionalDescBulletInfo[0].xpath }]);
       }
       if (row.description) {
