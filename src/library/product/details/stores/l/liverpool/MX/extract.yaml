@@ -18,6 +18,7 @@ fields:
   - name: category
     singleValue: false
     description: The categories (e.g. from breadcrumbs)
+    xpath: //a[@class="a-breadcrumb__label"][not(contains(text(),'Home'))]
   - name: nameExtended
     singleValue: true
     description: The product name, prefixing "${brand} - " if not included in "name"
@@ -58,8 +59,7 @@ fields:
   - name: quantity
     singleValue: true
     description: Quantity as described on the page
-    regExp: (?:\s?([\d\.]+\s?)([bB]ar[s]?|[cC]ount|[cC]t|[fF][lL][\.]?\s?[oO][zZ][\.]?|FO|[mM][lL]|[oO][zZ][\.]?|pc|[pP]int|[pP]ops|qt|[wW]ipe[s]?).?)$|(?:\s?([\d\.]+\s?)([bB]ar[s]?|[cC]ount|[cC]|[fF][lL][\.]?\s?[oO][zZ][\.]?|FO|[mM][lL]|[oO][zZ][\.]?|pc|[pP]int|[pP]ops|qt|[wW]ipe[s]?).?\s?[\&\-\w\s]+)$
-    regExpReplace: $1$2$3$4
+    xpath: //ul[@class="p-0 m-0 m-product__size dBlock -noScroll"]
   - name: weightNet
     singleValue: true
     description: Net weight as described on the page
@@ -112,7 +112,6 @@ fields:
   - name: shippingDimensions
     singleValue: true
     description: Stated shipping dimensions
-    xpath: //ul[@class="p-0 m-0 m-product__size dBlock -noScroll"]
   - name: shippingWeight
     singleValue: true
     description: Stated shipping weight
@@ -123,6 +122,8 @@ fields:
   - name: color
     singleValue: true
     description: A textual description of the colour
+    type: TEXT
+    xpath: //p[contains(text(),'Color')]/span
   - name: colorCode
     singleValue: true
     description: A code description of the color (e.g. RGB hex)
