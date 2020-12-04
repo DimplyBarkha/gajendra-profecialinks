@@ -6,8 +6,8 @@ module.exports = {
     store: 'bloomingdales',
     domain: 'bloomingdales.com',
     url: 'https://www.bloomingdales.com/shop/search?keyword={searchTerms}',
-    loadedSelector: null,
-    noResultsXPath: null,
+    loadedSelector: 'div[class="sortableGrid"]',
+    noResultsXPath: '//div[@class="zeroResultsSearchMessage"]',
     zipcode: '',
   },
 };

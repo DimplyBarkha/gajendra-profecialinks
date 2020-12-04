@@ -1,8 +1,7 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: //div[contains(@class,"sortableGrid")]//ul[contains(@class,"items")]//li[contains(@class,"cell")]
-  # //div[@class="sortableGrid"]//ul[@class="items grid-x grid-padding-x"]//li[@class="small-6 medium-4 large-4 cell"]
+recordXPath: //div[@class="productThumbnail"]
 fields:
   - name: id
     singleValue: false
@@ -12,10 +11,10 @@ fields:
     xpath: ancestor::html//div[@id='added-searchurl']
   - name: name
     singleValue: false
-    xpath: //div[@class="productDescription"]
+    xpath: //div[@class="productDescription"]//span[last()]
   - name: productUrl
     singleValue: false
-    xpath: //div[@class="productThumbnail"]//a//@href
+    xpath: //div[@class="productThumbnail"]/a/@href
     regExp: (.+)
     regExpReplace: https://www.bloomingdales.com$1
   - name: gtin
@@ -23,11 +22,8 @@ fields:
   - name: thumbnail
     singleValue: false
     xpath: //picture[@class="primary-image"]//img//@src
-    # //picture[@class="alt-image"]//img//@data-lazysrc
   - name: aggregateRating
     singleValue: false
-    # xpath: //div[@id="added_aggregateRating"]/text()
-    # //div[@class="repeat-star-icon rating"]//@style
   - name: aggregateRating2
     singleValue: false
     xpath: //div[@id="added_aggregateRating"]/text()
@@ -40,9 +36,10 @@ fields:
     singleValue: false
   - name: price
     singleValue: false
-    xpath: //span[@class="regular"]//text()
+    xpath: //div[@class="tnPrice"]//text()
   - name: manufacturer
-    singleValue: true
+    singleValue: false
+    xpath: //span[@class="brand"]
   - name: soldBy
     singleValue: true
   - name: endorsementText

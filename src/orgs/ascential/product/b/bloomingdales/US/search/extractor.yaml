@@ -4,3 +4,17 @@ parameters:
   domain: bloomingdales.com
   store: bloomingdales
   zipcode: ""
+proxy:
+  zone: ZUS  
+  type: DATA_CENTER
+policy:
+  numberRetries: 3
+  priority: MEDIUM
+  retryDelay: 120
+  backoffPolicy: EXPONENTIAL
+  retryWithResidentialProxyAfter: 3
+meta:
+  branches:
+    bloomingdales_us:
+      extractor: 81b45b0f-5e56-4c12-bfb8-3b0bd688c1ca
+      legacyAccountId: 63fd92cf-ba0e-42f9-9361-28797373bac8

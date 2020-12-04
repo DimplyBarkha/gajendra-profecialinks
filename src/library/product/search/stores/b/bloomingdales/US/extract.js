@@ -19,7 +19,6 @@ module.exports = {
           document.body.appendChild(newDiv);
         } else {
           const originalDiv = document.querySelectorAll('div.sortableGrid ul.items li.cell div.repeat-star-icon.rating')[index];
-          // originalDiv.parentNode.insertBefore(newDiv, originalDiv);
           originalDiv.appendChild(newDiv);
         }
       }
