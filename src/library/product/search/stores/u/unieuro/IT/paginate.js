@@ -1,15 +1,16 @@
-
 module.exports = {
   implements: 'product/search/paginate',
   parameterValues: {
     country: 'IT',
     store: 'unieuro',
-    nextLinkSelector: '#instant-results > div.listing-container > main > div.global-pagination > span.pagination-menu > span > div > span > ul > li:last-child > a.go-to-page',
+    nextLinkSelector: null,
     mutationSelector: null,
     spinnerSelector: null,
-    loadedSelector: 'body',
+    loadedSelector: null,
     noResultsXPath: "//div[@id='no-results-message']/p",
-    openSearchDefinition: null,
+    openSearchDefinition: {
+      template: 'https://www.unieuro.it/online/?q={searchTerms}&p={page}',
+      },
     domain: 'unieuro.it',
     zipcode: '',
   },
