@@ -6,3 +6,13 @@ fields:
     xpath: (//div[contains(concat(' ',normalize-space(@class),' '),' reasons-to-buy__overlay-content-container ')][not(.//*[contains(text(), 'hemma')])][.//*[contains(text(),'frakt ')] or .//*[contains(text(),'retur')]])[1]
   - name: warranty
     xpath: (//div[contains(concat(' ',normalize-space(@class),' '),' reasons-to-buy__overlay-content-container ')][.//*[contains(text(),' garanti')]])[1]
+  - name: termsAndConditions
+    singleValue: true
+    description: Terms and conditions information text ['Yes','No']
+    defaultValue: false
+    xpath: boolean(//div[@class="footer__column"]//li/a[contains(text(), "Allmänna villkor")])
+  - name: privacyPolicy
+    singleValue: true
+    description: Privacy Policy information text ['Yes','No']
+    defaultValue: false
+    xpath: boolean(//div[@class="footer__column"]//li/a[contains(text(), "Personuppgiftspolicy och cookies")])
