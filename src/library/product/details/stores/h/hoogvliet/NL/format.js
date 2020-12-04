@@ -46,11 +46,26 @@ const transform = (data) => {
       if (row.price) {
         row.price.forEach(item => {
           item.text = item.text.replace(/\s+/g, '');
+          item.text = item.text.replace('.', ',');
+          item.text = item.text.trim();
+        });
+      }
+      if (row.listPrice) {
+        row.listPrice.forEach(item => {
+          item.text = item.text.replace(/\s+/g, '');
+          item.text = item.text.replace('.', ',');
           item.text = item.text.trim();
         });
       }
       if (row.pricePerUnit) {
         row.pricePerUnit.forEach(item => {
+          item.text = item.text.replace('Prijs per:', '');
+          item.text = item.text.replace('.', ',');
+          item.text = item.text.trim();
+        });
+      }
+      if (row.pricePerUnitUom) {
+        row.pricePerUnitUom.forEach(item => {
           item.text = item.text.replace('Prijs per:', '');
           item.text = item.text.trim();
         });

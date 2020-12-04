@@ -48,10 +48,7 @@ fields:
     xpath: //div[contains(@class,'product-info')]//button[text()='Toevoegen']/@data-track-click
     #"brand" : "Buitengewoon",
     regExp: \"brand\"\s*:\s*\"(.+?)\"
-    regExpReplace: $1
-  - name: manufacturer
-    singleValue: false
-    xpath: //div[contains(@class,'product-info-block')]//h3[contains(text(),'Leverancier')]//following-sibling::p[1]
+    regExpReplace: $1  
   - name: sku
     singleValue: false
     xpath: //div[contains(@class,'addToCart')]//input[@name="SKU"]/@value
@@ -84,6 +81,12 @@ fields:
     singleValue: false
     xpath: //div[contains(@class,'price-per-unit')]
     # Price per: kilo € 5.82
+    regExp: (€.+)
+    regExpReplace: $1
+  - name: pricePerUnitUom
+    singleValue: false
+    xpath: //div[contains(@class,'price-per-unit')]
+    # Price per: kilo € 5.82
     regExp: (.+?)€
     regExpReplace: $1
   - name: weightNet
@@ -96,8 +99,17 @@ fields:
     singleValue: false
     xpath: //table//tr[td[contains(text(),'Kilojoule')]]/td[not(contains(@class,'first-text'))]
   - name: totalFatPerServing
+    singleValue: false    
+    xpath: //table//tr[td[contains(text(),'Totale vetten')]]/td[not(contains(@class,'first-text'))]
+    # 19 Gram
+    regExp: (.+?)\s+
+    regExpReplace: $1
+  - name: totalFatPerServingUom
     singleValue: false
     xpath: //table//tr[td[contains(text(),'Totale vetten')]]/td[not(contains(@class,'first-text'))]
+    # 19 Gram
+    regExp: \s+(.+)
+    regExpReplace: $1
   - name: saturatedFatPerServing
     singleValue: false
     xpath: //table//tr[td[contains(text(),'Vetzuren')][contains(text(),'verzadigd')]]/td[not(contains(@class,'first-text'))]
