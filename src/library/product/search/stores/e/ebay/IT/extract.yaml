@@ -4,7 +4,7 @@ recordSelector: null
 recordXPath: //ul[contains(@class, "srp-results")]/li[contains(@class, "s-item")]
 fields:
   - name: id
-    xpath: //li[contains(@class,"s-item")]/@data-view
+    xpath: //li[contains(@class, "s-item")]//div[contains(@class, "s-item__image-section")]//a/@href
   - name: name
     xpath: //h3[contains(@class,"s-item__title")]
   - name: price

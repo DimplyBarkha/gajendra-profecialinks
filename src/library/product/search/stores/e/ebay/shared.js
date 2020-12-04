@@ -24,6 +24,16 @@ const transform = (data, context) => {
   const productCodes = state.productCodes || [];
   for (const { group } of data) {
     for (const row of group) {
+      if (row.id) {
+        const newId = row.id[0].text.split('?')[0].split('/');
+
+        row.id = [
+          {
+            text: newId[newId.length - 1],
+          },
+        ];
+      }
+
       rankCounter += 1;
       if (!row.sponsored) {
         orgRankCounter += 1;
