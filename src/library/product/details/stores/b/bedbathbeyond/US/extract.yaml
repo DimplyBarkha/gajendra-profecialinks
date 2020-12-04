@@ -139,16 +139,16 @@ fields:
   singleValue: true
   description: Number of variants listed
 - name: color
-  singleValue: false
+  singleValue: true
   description: A textual description of the colour
   xpath: //span[contains(text(), "Color")]/span | //div[contains(text(), "Color")]/following-sibling::div
 - name: colorCode
   singleValue: true
   description: A code description of the color (e.g. RGB hex)
 - name: manufacturerDescription
-  singleValue: false
+  singleValue: true
   description: The extended description of the product supplied by the lister
-  xpath: //div[contains(@class, "wc-rich-content-description")]
+  xpath: //body/@manufacturerdescription
 - name: manufacturerImages
   singleValue: false
   description: Images within the third party description
