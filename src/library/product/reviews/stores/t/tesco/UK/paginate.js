@@ -5,6 +5,7 @@ async function implementation (
   context,
   dependencies,
 ) {
+  const { page } = inputs;
   const { loadedSelector, noResultsXPath, nextLinkXpath } = parameters;
 
   if (loadedSelector) {
@@ -43,32 +44,34 @@ async function implementation (
     return false;
   }
 
-  let lastReviewDate = null;
-
-  // Get the last review date in the page 1
-  if (!lastReviewDate) {
-    lastReviewDate = await context.evaluate(function () {
-      return document.querySelectorAll('div#review-data > article > section:first-child > p > span.submission-time')[0].textContent;
-    });
+  if (nextLinkXpath) {
+    const hasNextLink = await context.evaluate(({ selector }) => {
+      const elem = document.evaluate(selector, document, null, XPathResult.ANY_UNORDERED_NODE_TYPE, null).singleNodeValue;
+      if (!elem) return false;
+      console.log('Clicking', selector);
+      elem.click();
+      return true;
+    }, { selector: nextLinkXpath });
+    if (!hasNextLink) return false;
   }
 
-  const reviewDate = await context.evaluate(function () {
-    return document.querySelectorAll('div#review-data > article > section:first-child > p > span.submission-time')[0].textContent;
+  await context.waitForNavigation({ timeout: 40000 });
+  await new Promise((resolve, reject) => setTimeout(resolve, 15000));
+
+  const lastReviewDate = await context.evaluate(function () {
+    return document.querySelector('div#review-data > article > section:first-child > p > span.submission-time').textContent;
   });
+
+  console.log('page' + page);
+
+  const reviewDate = await context.evaluate(function (page) {
+    const elePosition = (page - 1) * 10 + 1;
+    console.log('elePosition' + elePosition);
+    return document.querySelector(`div#review-data > article > section:nth-child(${elePosition}) > p > span.submission-time`).textContent;
+  }, page);
 
   // check if the review in the current page should be extracted or not
   if (checkIfReviewIsFromLast30Days(lastReviewDate, reviewDate)) {
-    if (nextLinkXpath) {
-      const hasNextLink = await context.evaluate(({ selector }) => {
-        const elem = document.evaluate(selector, document, null, XPathResult.ANY_UNORDERED_NODE_TYPE, null).singleNodeValue;
-        if (!elem) return false;
-        console.log('Clicking', selector);
-        elem.click();
-        return true;
-      }, { selector: nextLinkXpath });
-      if (!hasNextLink) return false;
-    }
-    await context.waitForNavigation({ timeout: 40000 });
     return true;
   }
   return false;
