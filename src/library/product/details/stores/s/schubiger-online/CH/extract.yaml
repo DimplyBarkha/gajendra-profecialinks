@@ -509,3 +509,7 @@ fields:
     description: If Zoom feature is available for Main image or images in the
       carousel,['Yes','No']
     example: https://www.zalando.de/adidas-neo-sneaker-low-blackwhite-a4315i002-q11.html
+  - name: hasComparisonTable
+    singleValue: true
+    xpath: boolean(//button[@class="c-product-detail-infos__compare-btn"])
+    
