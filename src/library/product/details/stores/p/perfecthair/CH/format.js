@@ -34,12 +34,23 @@ const transform = (data) => {
         if (row.listPrice) {
           row.listPrice.forEach(item => {
             item.text = item.text.replace(/(\s*\.\s*)+/g, ',').trim();
+            item.text = item.text.replace(/(\s*\*\s*)+/g, '').trim();
           });
         }
-        
+        if (row.price) {
+          row.price.forEach(item => {
+            item.text = item.text.replace(/(\s*\.\s*)+/g, ',').trim();
+            item.text = item.text.replace(/(\s*\*\s*)+/g, '').trim();
+          });
+        }
         if (row.productOtherInformation) {
           row.productOtherInformation.map(item => {
             item.text = item.text.replace(/\n /, " ").replace(/\n /gm, "");
+          });
+        }
+        if (row.imageAlt) {
+          row.imageAlt.map(item => {
+            item.text = item.text.replace(/(\s*Preview:\s*\s*)+/g, '');
           });
         }
         if (row.specifications) {
@@ -62,6 +73,31 @@ const transform = (data) => {
                 info.push(item.text.replace(/(\s*\n\s*)+/g, ' ').trim());            
             });
             row.description = [{'text':info.join(' | '),'xpath':row.description[0].xpath}];          
+        }
+        if (row.variantInformation) {
+          let info = [];          
+          row.variantInformation.forEach(item => {
+              info.push(item.text.trim());            
+          });
+          row.variantInformation = [{'text':info.join(' | '),'xpath':row.variantInformation[0].xpath}];          
+        }
+        if (row.gtin && row.gtin.length>0) {          
+          let item = row.gtin[0];
+          var matches = /dataLayer\.push\((.*?)\)\;/isg.exec(item.text);
+          console.log(matches[1]);
+          if (matches){                
+            try {
+              let json_data = JSON.parse(matches[1]);
+              if (json_data['productEAN']){
+                row.gtin = [{'text':json_data['productEAN'],'xpath':row.gtin[0].xpath}];                  
+              }
+            } catch (error) {
+              delete row.gtin;                
+            }
+          }
+          else{
+            delete row.gtin;              
+          }          
         }
       }
     }
