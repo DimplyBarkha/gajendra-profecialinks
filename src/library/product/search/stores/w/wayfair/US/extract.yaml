@@ -1,0 +1,52 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: //div[contains(@class,"BrowseCard")]
+fields:
+  - name: searchUrl
+    xpath: //@searchurl
+  - name: productUrl
+    description: The URL for the product details page
+    xpath: //a[contains(@class,"ProductCard")]//@href
+  - name: thumbnail
+    description: The URL for the product thumbnail image
+    xpath: //div[contains(@class,"BrowseProductCardImage")]//img/@src
+  - name: name
+    description: The product name
+    xpath: //h2[@class="ProductCard-name"] | //div[contains(@class,"header-name")]/p
+  - name: reviewCount
+    description: The number of reviews
+    xpath: //p[@class="pl-ReviewStars-reviews"]
+  - name: price
+    description: The offered price for the product
+    xpath: //div[@data-codeception-id="ProductPricing"]/span[1] |  //div[contains(@class,"ProductCard-pricing")]
+    regExp: (\d+)(.)(\d+)
+  - name: manufacturer
+    description: Product manufacturer
+    xpath: //p[@class="ProductCard-manufacturer"] | //h2[contains(@class,'manufacture')]
+    regExp: (by\s)(.+)
+    regExpReplace: $2
+  - name: rank
+    singleValue: true
+    description: search/listing rank
+    type: NUMBER    
+  - name: rankOrganic
+    singleValue: true
+    description: The position (rank) within the list excluding sponsored/paid results
+    type: NUMBER 
+  - name: sponsored
+    description: Is sponsored/paid
+    xpath: //div[@class="FeaturedProductFlag"]/text()
+
+#  Should these be source specific formulas or in the extractor? 
+  - name: id
+    description: Unique id (within this extractor)
+    xpath: //@skudetail
+  - name: nameExtended
+    singleValue: true
+    description: The product name, prefixing "${brand} - " if not included in "name" and appending " - ${variantType}" if necessary (fixed per extractor)
+  - name: aggregateRating2
+    description: The stated aggregate rating normalized to be out of 5
+    xpath: //div[@class="pl-ReviewStars-rating"]/@style
+    regExp: (\d+)
+
