@@ -296,6 +296,21 @@ module.exports = {
 
       const apluseImages = getPathDirections('//div[contains(@class,"fullJwPlayerWarp")]/input/@value').length > 0 ? getPathDirections('//div[contains(@class,"fullJwPlayerWarp")]/input/@value').map(e => { return e.playlist.length > 1 ? e.playlist.map(i => { return 'https:' + i.image; }) : 'https:' + e.playlist[0].image; }).join(' | ') : '';
 
+      //getting video from more from product section
+      let videoSelector2 ='div[class*="inpage_selector_video"] input';
+      let videoSelectorNode = document.querySelector(videoSelector2);
+      if(videoSelectorNode && videoSelectorNode.hasAttribute('value')) {
+        let data = videoSelectorNode.getAttribute('value');
+        data = JSON.parse(data);
+        if(data.playlist && data.playlist.length > 0) {
+          data.playlist.forEach(q => {
+            if(q.file) {
+              addElementToDocument("video",q.file.replace(/(https:|http:)?(.+)/g, "https:$2"));
+            }
+          });
+        }
+      }
+
       addElementToDocument('videos', videos);
       addElementToDocument('apluseImages', apluseImages);
       // Secondry Image
