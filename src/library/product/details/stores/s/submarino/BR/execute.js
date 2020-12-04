@@ -5,7 +5,7 @@ module.exports = {
     country: 'BR',
     store: 'submarino',
     domain: 'submarino.com.br',
-    loadedSelector: 'body html',
+    loadedSelector: 'html body',
     noResultsXPath: '//div[contains(@data-component, "productgrid")]',
     zipcode: '',
   },
