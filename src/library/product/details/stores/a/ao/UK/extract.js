@@ -18,7 +18,7 @@ async function implementation (
     const url = window.location.href.replace(/%20/g, ' ');
     addHiddenDiv('detail-url', url);
     // @ts-ignore
-    const manufacturer=window._nRepData["context"].manufacturer
+    const manufacturer= window && window._nRepData && window._nRepData["context"] ? window._nRepData["context"].manufacturer : '';
     addHiddenDiv('detail-manufacturer', manufacturer);
   });
   return await context.extract(productDetails, { transform });
