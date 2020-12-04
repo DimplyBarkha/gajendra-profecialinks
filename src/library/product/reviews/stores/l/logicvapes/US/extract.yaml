@@ -14,7 +14,8 @@ fields:
       [0-9,.]+
   - name: productRange
     singleValue: false
-    xpath: //ul[@class="breadcrumb"]/li[position()=2]
+    xpath: //div[@id="my-product-range"]
+    # xpath: //ul[@class="breadcrumb"]/li[position()=2]
   - name: productFamily
     singleValue: false
     xpath: //ul[@class="breadcrumb"]/li
