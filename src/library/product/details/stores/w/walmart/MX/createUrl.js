@@ -4,9 +4,9 @@ module.exports = {
   parameterValues: {
     domain: 'walmart.com.mx',
     prefix: null,
-    url: 'https://www.walmart.com.mx/productos?Ntt={id}&crossBanner=false',
+    url: null,
     country: 'MX',
-    zipcode: '',
     store: 'walmart',
+    zipcode: "''",
   },
 };

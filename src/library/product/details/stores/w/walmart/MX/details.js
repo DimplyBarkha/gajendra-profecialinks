@@ -5,6 +5,6 @@ module.exports = {
     country: 'MX',
     store: 'walmart',
     domain: 'walmart.com.mx',
-    zipcode: '',
+    zipcode: "''",
   },
 };

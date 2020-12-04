@@ -5,8 +5,8 @@ module.exports = {
     country: 'MX',
     store: 'walmart',
     domain: 'walmart.com.mx',
-    loadedSelector: "div[class*='product_container']",
-    noResultsXPath: "//div[contains(@class,'no-results_container')]",
-    zipcode: '',
+    loadedSelector: null,
+    noResultsXPath: '//div[@class="no-results-v2_container__2vlId"]',
+    zipcode: "''",
   },
 };
