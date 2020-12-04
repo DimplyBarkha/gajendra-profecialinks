@@ -1,0 +1,46 @@
+input:
+  keywords: 625gr
+  _url: http://e-fresh.gr
+extractions:
+  - html: https://workbench.import.io/html/run=54d3e309-9934-4a8a-b712-7f08adecd42e/task=747a18e5-ed95-4c9a-ab5c-be6a125b81e3/1bac4cf7-f322-4caf-8c25-57cdd067a8aa.html
+    extractionConfigId: product/search/stores/e/e-fresh/GR/extract
+    data:
+      - group:
+          - id:
+              - text: "4100006179"
+                xpath: /html/body/div[3]/div[5]/div[1]/div[1]/div[1]/div[2]/div[4]/div[2]/div[1]/div[1]/@productid
+            name:
+              - text: Δημητριακά Nesquik Nestle (625g)
+                xpath: /html/body/div[3]/div[5]/div[1]/div[1]/div[1]/div[2]/div[4]/div[2]/div[1]/div[1]/a[1]/h3[1]
+            productUrl:
+              - text: https://www.e-fresh.gr/el/product/4100006179
+                xpath: /html/body/div[3]/div[5]/div[1]/div[1]/div[1]/div[2]/div[4]/div[2]/div[1]/div[1]/@producturl
+            gtin:
+              - text: "4100006179"
+                xpath: /html/body/div[3]/div[5]/div[1]/div[1]/div[1]/div[2]/div[4]/div[2]/div[1]/div[1]/@productid
+            thumbnail:
+              - text: https://dj0m4io8o9yuz.cloudfront.net/storage/media/catalog/products/410/9/4100006179/thumbs/4100006179-200x200_crop_thumb.jpg?id=1592203899
+                xpath: /html/body/div[3]/div[5]/div[1]/div[1]/div[1]/div[2]/div[4]/div[2]/div[1]/div[1]/a[1]/img[1]/@data-src
+            price:
+              - text: 4.68 €
+                xpath: /html/body/div[3]/div[5]/div[1]/div[1]/div[1]/div[2]/div[4]/div[2]/div[1]/div[1]/div[7]/div[2]/span[1]/div[1]/div[1]/div[1]
+          - id:
+              - text: "4100006172"
+                xpath: /html/body/div[3]/div[5]/div[1]/div[1]/div[1]/div[2]/div[4]/div[2]/div[2]/div[1]/@productid
+            name:
+              - text: ΔΗΜΗΤΡΙΑΚ’ HONEY CHEERIOS NESTLE (625G)
+                xpath: /html/body/div[3]/div[5]/div[1]/div[1]/div[1]/div[2]/div[4]/div[2]/div[2]/div[1]/a[1]/h3[1]
+            productUrl:
+              - text: https://www.e-fresh.gr/el/product/4100006172
+                xpath: /html/body/div[3]/div[5]/div[1]/div[1]/div[1]/div[2]/div[4]/div[2]/div[2]/div[1]/@producturl
+            gtin:
+              - text: "4100006172"
+                xpath: /html/body/div[3]/div[5]/div[1]/div[1]/div[1]/div[2]/div[4]/div[2]/div[2]/div[1]/@productid
+            thumbnail:
+              - text: https://dj0m4io8o9yuz.cloudfront.net/storage/media/catalog/products/410/2/4100006172/thumbs/4100006172-1-200x200_crop_thumb.jpg?id=1587578259
+                xpath: /html/body/div[3]/div[5]/div[1]/div[1]/div[1]/div[2]/div[4]/div[2]/div[2]/div[1]/a[1]/img[1]/@data-src
+            price:
+              - text: 5.20 €
+                xpath: /html/body/div[3]/div[5]/div[1]/div[1]/div[1]/div[2]/div[4]/div[2]/div[2]/div[1]/div[7]/div[2]/span[1]/div[1]/div[1]/div[1]
+        xpath: /html
+    timestamp: 1607093182160
