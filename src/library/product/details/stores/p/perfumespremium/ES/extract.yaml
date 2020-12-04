@@ -128,7 +128,7 @@ fields:
   singleValue: true
   description: Stated shipping weight
 - name: variantCount
-  xpath: count(//select[@class="super-attribute-select"]/option[position() > 1])
+  xpath: count(//select[@class="super-attribute-select"]/option[position() > 1] | //table[@id="super-product-table"]//tbody/tr//div/@data-product-id)
   singleValue: true
   description: Number of variants listed
 - name: color
@@ -448,7 +448,7 @@ fields:
     common link between other variants. method 3 = apply some logic to determine link
     between variants, this will need analysis
 - name: variants
-  xpath: //select[@class="super-attribute-select"]/option[position() > 1]/@value
+  xpath: //select[@class="super-attribute-select"]/option[position() > 1]/@value|//table[@id="super-product-table"]//tbody/tr//div/@data-product-id
   singleValue: false
   description: 
 - name: additionalDescBulletInfo

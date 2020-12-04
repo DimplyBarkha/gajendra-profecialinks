@@ -4,6 +4,21 @@ async function implementation(inputs, parameters, context, dependencies) {
   const { transform } = parameters;
   const { productDetails } = dependencies;
 
+  // if we're on search site we should click and select first item
+  var detailsPage = await context.evaluate(async () => {
+    if (document.querySelector('a.product-item-link') != null) {
+      var productLink = document.querySelector('a.product-item-link').getAttribute('href');
+    }
+
+    return productLink;
+  });
+
+  // check if detailsPage exists
+  if (detailsPage) {
+    await context.goto(detailsPage);
+  }
+
+  await new Promise((resolve) => setTimeout(resolve, 8000));
 
   await context.evaluate(async () => {
     function addElementToDocument(key, value) {
