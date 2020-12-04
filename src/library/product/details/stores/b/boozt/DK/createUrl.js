@@ -4,7 +4,7 @@ module.exports = {
   parameterValues: {
     domain: 'boozt.com',
     prefix: null,
-    url: null,
+    url: 'https://www.boozt.com/dk/da/brand/product_{id}',
     country: 'DK',
     store: 'boozt',
     zipcode: '',

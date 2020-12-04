@@ -90,14 +90,15 @@ fields:
   singleValue: true
   description: The store-specific product identifier
 - name: variantId
-  xpath: //span[@class="pp-content__meta-text"][1]/text()
-  regExp: (\d{1,}) 
-  regExpReplace: $1
+  xpath: //div/@data-product
   singleValue: true
   description: Identifier for a variant from a store where variants share the same
     sku
 - name: mpc
-  singleValue: tru
+  xpath: //span[@class="pp-content__meta-text"][1]/text()
+  regExp: (\d{1,}) 
+  regExpReplace: $1
+  singleValue: true
   description: The manufacturer model code (unique) of the product
 - name: packSize
   singleValue: true
@@ -124,7 +125,6 @@ fields:
   singleValue: true
   description: The stated aggregate rating normalized to be out of 5
 - name: shippingInfo
-  xpath: //div[@class="pp-tabs__content pp-content pp-content--shipping clearfix"]/div[@class="pp-content__section clearfix"]
   singleValue: true
   description: Shipping information for the product
 - name: shippingDimensions

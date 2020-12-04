@@ -24,16 +24,11 @@ module.exports = {
 
       // iteration through all the buttons and click on them for loading the div with text
       for (let i = 0; i < infoBtns.length; i++) {
-        if (infoBtns[i].innerText === 'BÆREDYGTIG FASHION' || infoBtns[i].innerText === 'TØJPLEJE') {
+        if (infoBtns[i].innerText === 'BÆREDYGTIG FASHION' || infoBtns[i].innerText === 'TØJPLEJE' || infoBtns[i].innerText === 'CARE TIPS') {
           infoBtns[i].click();
           await new Promise((resolve, reject) => setTimeout(resolve, 1000));
           const careTips = document.querySelector('div.pp-tabs__content.pp-content').innerText;
           allInfoRaw.careTips = careTips;
-        } else if (infoBtns[i].innerText === 'LEVERING & RETURNERING') {
-          infoBtns[i].click();
-          await new Promise((resolve, reject) => setTimeout(resolve, 1000));
-          const shippingInfo = document.querySelector('div.pp-tabs__content.pp-content > div.pp-content__section').innerText;
-          allInfoRaw.shippingInfo = shippingInfo;
         }
       }
       return allInfoRaw;
@@ -49,12 +44,5 @@ module.exports = {
       dataRef[0].data[0].group[0].productOtherInformation[0].push({ text: allInfo.careTips });
     }
 
-    if (!('shippingInfo' in dataRef[0].data[0].group[0])) {
-      dataRef[0].data[0].group[0].shippingInfo = [{ text: allInfo.shippingInfo }];
-    } else if ('text' in dataRef[0].data[0].group[0].shippingInfo[0]) {
-      dataRef[0].data[0].group[0].shippingInfo[0].text = allInfo.shippingInfo;
-    } else {
-      dataRef[0].data[0].group[0].shippingInfo[0].push({ text: allInfo.shippingInfo });
-    }
   },
 };
