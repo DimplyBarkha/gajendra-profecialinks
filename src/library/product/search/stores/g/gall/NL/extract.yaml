@@ -12,9 +12,11 @@ fields:
   - name: price
     SingleValue: false
     xpath: //div[@class="c-product-grid"]//div[@class="price__value"]/@content
+    type: NUMBER
   - name: listPrice
     SingleValue: false
     xpath: //div[@class="c-product-grid"]//div[@class="price__value price__value--list"]/@content
+    type: NUMBER
   - name: thumbnail
     SingleValue: false
     xpath: //div[@class="c-product-grid"]//div[@class="product-tile__image-container"]//img[contains(@class,"image__default u-hidden-with-nojs")]/@src 

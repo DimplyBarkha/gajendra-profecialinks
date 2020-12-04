@@ -32,11 +32,13 @@ const transform = (data) => {
         }
         if (row.price) {
             row.price.forEach(item => {
+              item.text = parseFloat(item.text);
               item.text = ' € ' + item.text;
             });
           }
           if (row.listPrice) {
             row.listPrice.forEach(item => {
+              item.text = parseFloat(item.text);
               item.text = ' € ' + item.text;
             });
           }

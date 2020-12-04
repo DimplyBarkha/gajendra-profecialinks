@@ -17,16 +17,26 @@ fields:
     xpath: //div[(contains(@class,'product-info__image-container o-col-6 '))]//img[(contains(@class,' u-hidden-with-nojs'))]/@alt
   - name: alternateImages
     singleValue: false 
-    xpath: //div[(contains(@class,'product-info__image-container o-col-6 '))]//img[(contains(@class,' u-hidden-with-nojs'))]/@src
   - name: category
     singleValue: false
     xpath: //div[@class="a-breadcrumb"]//ol[@class="breadcrumb__list"]//li//a
+  - name: metaKeywords
+    singleValue: false
+    xpath: //meta[@name="keywords"]/@content
+  - name: countryOfOrigin
+    singleValue: false
+    xpath: //section[@class="m-product-region"]//h3[@class="h5"]
   - name: price
     singleValue: false
     xpath: //div[@class="a-price"]//div[@class="price__value"]
   - name: listPrice
     singleValue: false
     xpath: //div[@class="a-price"]//div[(contains(@class,'price__value price__value--list'))]
+  - name: gtin
+    singleValue: false  
+    xpath: //script[contains(text(), "gtin8")][1]/text()
+    regExp: gtin8":([^,]+)
+    regExpReplace: $1
   - name: brandText
     singleValue: false  
     xpath: //script[contains(text(), "brand")][1]/text()
@@ -34,9 +44,6 @@ fields:
     regExpReplace: $1
   - name: manufacturer
     singleValue: false  
-    xpath: //script[contains(text(), "brand")][1]/text()
-    regExp: brand":([^,]+)
-    regExpReplace: $1
   - name: description
     singleValue: false
     xpath: //div[(contains(@class,'u-hidden u-visible-up--md'))]//div[(contains(@class,'product-info__description s-rich-text'))]//p
@@ -45,7 +52,6 @@ fields:
     xpath: //div[(contains(@class,'u-hidden u-visible-up--md'))]//dl[(contains(@class,'c-product-attributes product-info__attributes'))]//div[@class="product-attributes__row"]
   - name: descriptionBullets
     singleValue: false    
-    xpath: //div[(contains(@class,'u-hidden u-visible-up--md'))]//dl[(contains(@class,'c-product-attributes product-info__attributes'))]//div[@class="product-attributes__row"]
   - name: sku
     singleValue: false
     xpath: //div[@class="m-add-to-cart"]//button[1]/@data-pid
@@ -55,12 +61,21 @@ fields:
   - name: reviewCount
     singleValue: false 
     xpath: //div[contains(@class,"u-hidden u-visible-up--md")]//div[contains(@class,"a-rating product-info__rating")]//a//span
+  - name: ratingCount
+    singleValue: false 
+    xpath: //div[contains(@class,"u-hidden u-visible-up--md")]//div[contains(@class,"a-rating product-info__rating")]//a//span
   - name: variantCount
     singleValue: false
-    defaultValue: 0 
+    defaultValue: '1'
   - name: imageZoomFeaturePresent
     singleValue: false
-    defaultValue: 'yes'
+    defaultValue: 'no'
+  - name: termsAndConditions
+    singleValue: false
+    defaultValue: 'Yes'
+  - name: privacyPolicy
+    singleValue: false
+    defaultValue: 'Yes'
   - name: availabilityText
     singleValue: false
     defaultValue: 'In Stock'

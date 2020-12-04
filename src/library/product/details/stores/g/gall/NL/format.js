@@ -31,33 +31,37 @@ const transform = (data) => {
             item.text =  Number(item.text);
           });
         }
+        if (row.ratingCount) {
+          row.ratingCount.forEach(item => {
+            item.text = item.text.replace(/\s*/g, '').trim();
+            item.text = item.text.replace("Reviews", '').trim();
+            item.text =  Number(item.text);
+          });
+        }
         if (row.price) {
             row.price.forEach(item => {
               item.text = item.text.replace(/\s*/g, '').trim();
-              item.text = ' € ' + item.text;
+              item.text = ' € ' + item.text.replace(/\d(?=(\d{3})+\.)/g, "$&,");
             });
         }
         if (row.listPrice) {
             row.listPrice.forEach(item => {
-              item.text = ' € ' + item.text;
+              item.text = ' € ' + item.text.replace(/\d(?=(\d{3})+\.)/g, "$&,");
+            });
+        }
+        if (row.gtin) {
+            row.gtin.forEach(item => {
+                item.text = item.text.slice(1,-1);
             });
         }
         if (row.brandText) {
-            row.brandText.forEach(item => {
-                item.text = item.text.slice(1,-1);
-            });
-        }
-        if (row.manufacturer) {
-            row.manufacturer.forEach(item => {
-                item.text = item.text.slice(1,-1);
-            });
-        }
+          row.brandText.forEach(item => {
+              item.text = item.text.slice(1,-1);
+          });
+      }
         if (row.description) {
             let description_ar = [];
             row.description.forEach(item => {
-              item.text = item.text.replace("#", '||').trim();
-              item.text = item.text.replace(", ", '||').trim();
-              item.text = item.text.replace(". ", '||').trim();
               description_ar.push(item.text);
             });
             if (description_ar.length) {
@@ -65,22 +69,14 @@ const transform = (data) => {
             }
         }
         if (row.specifications) {
-            var rowItem = ''
-            var rowCounter = 1
-            row.specifications.forEach(item => {
-              if((rowCounter % 2)){
-                rowItem = rowItem +  item.text 
-              } else{
-                rowItem = rowItem +  item.text + ' || '
-              }
-              rowCounter = rowCounter + 1
-            });
-            row.specifications = [{'text':rowItem, 'xpath': row.specifications[0].xpath}]
-            //console.log(row.specifications)
+          let specifications_ar = [];
+          row.specifications.forEach(item => {
+            specifications_ar.push(item.text);
+          });
+          if (specifications_ar.length) {
+            row.specifications = [{ "text": specifications_ar.join(" || "), 'xpath': row.specifications[0].xpath }];
+          }
         }
-        if (row.descriptionBullets) {
-          row.descriptionBullets = [{'text':row.descriptionBullets.length, 'xpath':row.descriptionBullets[0].xpath}];              
-        } 
         if (row.category) {
             if (row.category.length) {
               row.category.splice(0, 1);
