@@ -96,7 +96,7 @@ module.exports = {
     }
     //clicking on specification button
     await context.evaluate( async function(){
-    const specButton = document.querySelector('.ivy-tabs-tablist.ember-view a:nth-child(2)');
+    const specButton = document.querySelector('div[class*="c-product-detail"] a *[data-component*="c-product-specifications"]');
     if(specButton){
       specButton.click();
     }
