@@ -5,8 +5,8 @@ module.exports = {
     country: 'AT',
     store: 'bellaffair',
     domain: 'bellaffair.at',
-    loadedSelector: 'html',
-    noResultsXPath: '//div[@class="column-two clear"]',
+    loadedSelector: 'html body',
+    noResultsXPath: null,
     zipcode: '',
   },
 };
