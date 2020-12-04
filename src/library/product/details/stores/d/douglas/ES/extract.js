@@ -70,7 +70,7 @@ async function implementation (
       const quantity = getSingleText(qtyXpath, document, index - 1);
       addHiddenDiv('my-qty', quantity);
 
-      const variantIdXpath = '//h2[contains(@class,"rd__headline--80")]/@title | //div[@data-vendor]/@data-product-id';
+      const variantIdXpath = '//div[@data-vendor]/@data-product-id |//h2[contains(@class,"rd__headline--80")]/@title';
       const variantId = getSingleText(variantIdXpath, document, index - 1);
       addHiddenDiv('my-variantId', variantId);
       let variantInf = "";
@@ -142,11 +142,11 @@ async function implementation (
       const quantity = getSingleText(qtyXpath, document, index);
       addHiddenDiv1('my-qty', quantity);
 
-      const variantIdXpath = '//h2[contains(@class,"rd__headline--80")]/@title';
+      const variantIdXpath = '//div[@data-vendor]/@data-product-id | //h2[contains(@class,"rd__headline--80")]/@title';
       const variantId = getSingleText(variantIdXpath, document, index-1);
       addHiddenDiv1('my-variantId', variantId);
 
-      const priceXpath = '//span[contains(@class,"rd__headline--130")]/text()';
+      const priceXpath = '//span[contains(@class,"rd__headline--130")]/text() | //div[contains(@class,"rd__order-detail__header rd__list-services__headline")]//span[contains(@class,"rd__headline--130")]/text()';
       const price = getSingleText(priceXpath, document, index);
       addHiddenDiv1('my-price', price);
       let variantInf = "";
@@ -160,7 +160,7 @@ async function implementation (
       const availab = getSingleText(availabXpath, document, index-1);
       addHiddenDiv1('my-availab', availab);
 
-      const listPriceXpath = '//div[contains(@class,"rd__headline--100 rd__copytext--50")]';
+      const listPriceXpath = '//div[@class="rd__product-details__options__price__item__amount sd__product-details__options__price__item__amount"]//div[contains(@class,"sd__product-details__options__price__item__quantity")] | //div[contains(@class,"rd__headline--100 rd__copytext--50")]';
       const listPrice = getSingleText(listPriceXpath, document, index-1 );
       addHiddenDiv1('my-listPrice', listPrice);
 
@@ -176,7 +176,7 @@ async function implementation (
       return [`#variantId:${variantId}`, `#availab:${availab}`, `#availab1:${availab1}`, `#color1:${color}`, `#listPrice1:${listPrice}`,`#variantInf1:${variantInf}`];
     }, index, variantLength1);
   }
-  await new Promise((resolve, reject) => setTimeout(resolve, 3000));
+  await new Promise((resolve, reject) => setTimeout(resolve, 5000));
 
 
   await context.evaluate(async function () {
