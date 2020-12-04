@@ -1,5 +1,32 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: null
-fields: null
+# recordXPath: null
+recordXPath: "//ul[contains(@class,'products-grid')]//li[contains(@class,'item')]"
+
+fields:
+  - name: id
+    singleValue: false
+    xpath: //ul[contains(@class,'products-grid')]//li[contains(@class,'item')]/@data-sku
+  - name: productUrl
+    singleValue: false
+    xpath: //ul[contains(@class,'products-grid')]//li[contains(@class,'item')]//a[contains(@class, 'product-image')]//@href
+  - name: thumbnail
+    singleValue: false
+    xpath: //ul[contains(@class,'products-grid')]//li[contains(@class,'item')]//a[contains(@class, 'product-image')]//img//@src
+  - name: name
+    singleValue: false
+    xpath: //ul[contains(@class,'products-grid')]//li[contains(@class,'item')]//h2
+  - name: price
+    singleValue: false
+    xpath: //ul[contains(@class,'products-grid')]//li[contains(@class,'item')]//div[contains(@class,'product-price')]//p[contains(@class,'special-price')]
+  - name: brandText
+    singleValue: false
+    xpath: //ul[contains(@class,'products-grid')]//li[contains(@class,'item')]//div[contains(@class,'product-attributes')]//li[1]
+  - name: rank
+    singleValue: false
+  - name: rankOrganic
+    singleValue: true
+  - name: searchUrl
+    singleValue: false
+    xpath: //div[@id="page_url"]

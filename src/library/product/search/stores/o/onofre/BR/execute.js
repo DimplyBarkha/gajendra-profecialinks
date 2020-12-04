@@ -5,9 +5,9 @@ module.exports = {
     country: 'BR',
     store: 'onofre',
     domain: 'busca.onofre.com.br',
-    url: null,
-    loadedSelector: null,
-    noResultsXPath: null,
+    url: 'https://busca.onofre.com.br/search?w={searchTerms}',
+    loadedSelector: 'ul.products-grid li.item',
+    noResultsXPath: '//div[@class="sli_noresults_container_inner"]',
     zipcode: '',
   },
 };
