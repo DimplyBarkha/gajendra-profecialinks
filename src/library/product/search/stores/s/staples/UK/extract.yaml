@@ -1,0 +1,47 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: name
+    singleValue: false
+    xpath: //div[@class="detailsBlk"]//h3[@id="skuName"]
+  - name: productUrl
+    singleValue: false
+    xpath: //div[@class="detailsBlk"]//div[@class="searchImgContainer"]//a//@href
+    regExp: (.+)
+    regExpReplace: https://www.staples.co.uk$1   
+  - name: price
+    singleValue: false
+    xpath: //div[@id='ResultsSection']//strong[@class='price']//span[@itemprop='price']/text()
+  - name: thumbnail
+    singleValue: false
+    xpath: //div[@class="searchImgContainer"]//@src
+    regExp: (.+)
+    regExpReplace: https:$1
+  - name: id
+    singleValue: false
+    xpath: //div[@itemprop='productID']
+    regExp: (\d*)
+    regExpReplace: $1
+  - name: gtin
+    singleValue: false
+    xpath: //div[@itemprop='ean']
+    regExp: (\d*)
+    regExpReplace: $1  
+  - name: aggregateRating
+    singleValue: false
+    xpath: //div[@itemprop="aggregateRating"]//span[@id="productRating"]//text() 
+  - name: reviewCount
+    singleValue: false
+    xpath: //div[@itemprop="aggregateRating"]//span[@class="link"]//text()
+  - name: ratingCount
+    singleValue: false
+    xpath:
+  - name: searchUrl
+    singleValue: true
+    xpath: ancestor::html//div[@id='added-searchurl']
+  - name: endorsementText
+    singleValue: false
+    # xpath: concat(//div[contains(@class,"product-grid__card")]//div[contains(@class,'product-card__badge')]//div[@class='coolblues-choice-label']//span[1]/text(), '', //div[contains(@class,"product-grid__card")]//div[contains(@class,'product-card__badge')]//div[@class='coolblues-choice-label']//span[2]/text())
+
