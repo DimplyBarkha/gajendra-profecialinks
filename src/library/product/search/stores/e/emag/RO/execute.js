@@ -5,9 +5,9 @@ module.exports = {
     country: 'RO',
     store: 'emag',
     domain: 'emag.ro',
-    url: null,
-    loadedSelector: null,
-    noResultsXPath: null,
+    url: 'https://www.emag.ro/search/{searchTerms}',
+    loadedSelector: 'div[id="card_grid"]',
+    noResultsXPath: '//span[text()="0 rezultate pentru:"]',
     zipcode: '',
   },
 };
