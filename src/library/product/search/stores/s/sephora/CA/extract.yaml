@@ -21,3 +21,9 @@ fields:
   - name: aggregateRating
     singleValue: false
     xpath: //div[@class="css-jp4jy6" and contains(@data-comp,"StarRating")]/@aria-label
+  - name: reviewCount
+    singleValue: false
+    xpath: //span[@class="css-1dk1ux" and contains(@aria-label,"reviews")]
+  - name: ratingCount
+    singleValue: false
+    xpath: //span[@class="css-1dk1ux" and contains(@aria-label,"reviews")]

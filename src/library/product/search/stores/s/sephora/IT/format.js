@@ -26,20 +26,14 @@ const transform = (data) => {
       var rank = 1;
       for (let row of group) {      
         if(row.thumbnail){
-            row.thumbnail.forEach(item=>{
-                item.text="https://www.sephora.com/"+item.text;
-            })
-        }
-        if(row.id){
-            row.id.forEach(item=>{
-                let idAr=item.text.split(' ');
-                item.text=idAr[0];
-            })
+          row.thumbnail.forEach(item=>{
+              item.text="https://www.sephora.com/"+item.text;
+          })
         }
         if(row.aggregateRating){
-            row.aggregateRating.forEach(item=>{
-                item.text=item.text.replace(' stars','');
-            })
+          row.aggregateRating.forEach(item=>{
+              item.text=item.text.replace(' stars','');
+          })
         }         
         row.rank = [{ "text": rank }];
         row.rankOrganic = [{ "text": rank }];
