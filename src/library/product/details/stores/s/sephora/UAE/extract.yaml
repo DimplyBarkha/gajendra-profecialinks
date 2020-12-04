@@ -11,6 +11,7 @@ fields:
   - name: manufacturerDescription 
     singleValue: false
     # xpath: //div[contains(@class, "brand-content-block")]//text()
+    xpath: //div[contains(@class,"brand-content-body ")]//p//text()
   - name: manufacturerImages
     singleValue: false
     # xpath: //div[contains(@class, "brand-content-block")]//img/@src
