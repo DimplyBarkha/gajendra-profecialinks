@@ -30,6 +30,21 @@ const transform = (data) => {
           item.text = item.text.replace(':', '.').trim();
         });
       }
+      if (row.image) {
+        var tempImage = row.image[0].text;
+        var arrVal = tempImage.split(',');
+        if (arrVal.length === 2) {
+          tempImage = arrVal[1];
+        }
+        if (arrVal.length === 1) {
+          tempImage = arrVal[0];
+        }
+        tempImage = tempImage.replace('2x', '');
+        tempImage = tempImage.trim();
+        if (tempImage) {
+          row.image = [{ text: tempImage }];
+        }
+      }
       if (row.description) {
         var arrBullets = [];
         row.description.forEach(item => {
@@ -50,37 +65,37 @@ const transform = (data) => {
           var match = item.text.match(/Energie\s*([\d|\.]+)(.+?),/);
           if (match) {
             row.caloriesPerServing = [{ text: match[1].trim() }];
-            row.caloriesPerServingUOM = [{ text: match[2].trim() }];
+            // row.caloriesPerServingUOM = [{ text: match[2].trim() }];
           }
           match = item.text.match(/Vetten\s*([\d|\.]+)(.+?),/);
           if (match) {
             row.totalFatPerServing = [{ text: match[1].trim() }];
-            row.totalFatPerServingUOM = [{ text: match[2].trim() }];
+            row.totalFatPerServingUom = [{ text: match[2].trim() }];
           }
           match = item.text.match(/Koolhydraten\s*([\d|\.]+)(.+?),/);
           if (match) {
             row.totalCarbPerServing = [{ text: match[1].trim() }];
-            row.totalCarbPerServingUOM = [{ text: match[2].trim() }];
+            row.totalCarbPerServingUom = [{ text: match[2].trim() }];
           }
           match = item.text.match(/Eiwitten\s*([\d|\.]+)(.+?),/);
           if (match) {
             row.proteinPerServing = [{ text: match[1].trim() }];
-            row.proteinPerServingUOM = [{ text: match[2].trim() }];
+            row.proteinPerServingUom = [{ text: match[2].trim() }];
           }
           match = item.text.match(/Suikers\s*([\d|\.]+)(.+?),/);
           if (match) {
             row.totalSugarPerServing = [{ text: match[1].trim() }];
-            row.totalSugarPerServingUOM = [{ text: match[2].trim() }];
+            row.totalSugarPerServingUom = [{ text: match[2].trim() }];
           }
           match = item.text.match(/Zout\s*([\d|\.]+)(.+?),/);
           if (match) {
             row.saltPerServing = [{ text: match[1].trim() }];
-            row.saltPerServingUOM = [{ text: match[2].trim() }];
+            row.saltPerServingUom = [{ text: match[2].trim() }];
           }
           match = item.text.match(/Voedingsvezel\s*([\d|\.]+)(.+?),/);
           if (match) {
             row.dietaryFibrePerServing = [{ text: match[1] }];
-            row.dietaryFibrePerServingUOM = [{ text: match[2] }];
+            row.dietaryFibrePerServingUom = [{ text: match[2] }];
           }
         });
         delete row.nutrients;
