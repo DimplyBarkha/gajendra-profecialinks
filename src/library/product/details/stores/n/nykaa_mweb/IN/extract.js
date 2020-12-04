@@ -1,10 +1,11 @@
+const { cleanUp } = require('../../../../shared');
 
 module.exports = {
   implements: 'product/details/extract',
   parameterValues: {
     country: 'IN',
     store: 'nykaa_mweb',
-    transform: null,
+    transform: cleanUp,
     domain: 'nykaa.com',
     zipcode: "''",
   },
