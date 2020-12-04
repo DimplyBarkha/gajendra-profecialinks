@@ -1,0 +1,102 @@
+input:
+  id: 4501020240
+  _url: http://mytime.de
+extractions:
+  - html: https://workbench.import.io/html/run=2888a3e6-6b05-4230-897f-d83ff16701db/task=5790522f-e79c-4314-b0f9-03a3269d02be/a8370456-eedd-466b-add5-e960d8decd67.html
+    extractionConfigId: product/details/stores/m/mytime/DE/extract
+    data:
+      - group:
+          - productUrl:
+              - text: https://www.mytime.de/hipp_babysanft_pflegecreme_sensitiv_gesicht_und_koerper_4501020240.html
+                xpath: /html/head[1]/link[1]/@href
+            image:
+              - text: https://d2jdyzt6tc17s.cloudfront.net/products/images2/4501020240_4062300373266_01.jpg.jpg
+                xpath: /html/body/div[1]/div[1]/main[1]/article[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/img[1]/@src
+            imageAlt:
+              - text: Hipp Babysanft Pflegecreme sensitiv Gesicht & Körper
+                xpath: /html/body/div[1]/div[1]/main[1]/article[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/img[1]/@alt
+            alternateImages:
+              - text: https://d2jdyzt6tc17s.cloudfront.net/products/images2/4501020240_4062300373266_02.jpg.jpg
+                xpath: /html/body/div[1]/div[1]/main[1]/article[1]/div[1]/div[1]/div[1]/div[2]/div[2]/img[1]/@src
+            category:
+              - text: Alle Kategorien
+                xpath: /html/body/div[1]/div[1]/main[1]/article[1]/div[1]/nav[1]/ol[1]/li[2]/a[1]/span[1]
+              - text: Baby
+                xpath: /html/body/div[1]/div[1]/main[1]/article[1]/div[1]/nav[1]/ol[1]/li[3]/a[1]/span[1]
+              - text: Babypflege
+                xpath: /html/body/div[1]/div[1]/main[1]/article[1]/div[1]/nav[1]/ol[1]/li[4]/a[1]/span[1]
+              - text: Hautpflege
+                xpath: /html/body/div[1]/div[1]/main[1]/article[1]/div[1]/nav[1]/ol[1]/li[5]/a[1]/span[1]
+            nameExtended:
+              - text: Hipp Babysanft Pflegecreme sensitiv Gesicht & Körper
+                xpath: /html/body/div[1]/div[1]/main[1]/article[1]/div[1]/div[2]/header[1]/h1[1]/span[1]
+            price:
+              - text: 2,23 €
+                xpath: /html/body/div[1]/div[1]/main[1]/article[1]/div[1]/div[2]/div[2]/div[1]/div[1]/strong[1]
+            availabilityText:
+              - text: In Stock
+                xpath: /html/body/div[3]
+            description:
+              - text: >-
+                  Hipp Pflegecreme pflegt intensiv und schützt die Haut
+                  zuverlässig mit natürlichem Bio-Mandelöl. Die Creme lässt sich
+                  leicht verteilen, zieht schnell ein und bewahrt die Haut
+                  babyweich. Ideal für die ganze Familie - auch für die Hände.
+                  Auch zur Pflege von zu Neurodermitis neigender Haut geeignet.
+                   Sensitiv: Ohne Mineralöl und entwickelt um Allergie-Risiken zu minimieren. Mit zartem Duft ohne allergieverdächtige Duftstoffe (gem. Kosmetik VO). Ohne ätherische Öle, weil einige davon zu Allergien führen können. Ohne PEG-Emulgatoren, ohne Parabene und ohne tierische Rohstoffe.
+                xpath: /html/body/div[1]/div[1]/main[1]/article[1]/div[1]/div[3]/ul[2]/li[1]/div[1]/ul[1]/li[1]/p[1]
+            brandText:
+              - text: Hipp
+                xpath: /html/head[1]/meta[26]/@content
+            manufacturer:
+              - text: Hipp
+                xpath: /html/head[1]/meta[26]/@content
+            quantity:
+              - text: 75 ml
+                xpath: /html/body/div[1]/div[1]/main[1]/article[1]/div[1]/div[2]/header[1]/h1[1]/small[1]
+            gtin:
+              - text: "4062300373266"
+                xpath: /html/body/div[1]/div[1]/main[1]/article[1]/div[1]/div[2]/meta[2]/@content
+            sku:
+              - text: "4501020240"
+                xpath: /html/body/div[1]/div[1]/main[1]/article[1]/div[1]/div[2]/meta[1]/@content
+            variantId:
+              - text: "4501020240"
+                xpath: /html/body/div[1]/div[1]/main[1]/article[1]/div[1]/div[2]/meta[1]/@content
+            name:
+              - text: Hipp Babysanft Pflegecreme sensitiv Gesicht & Körper
+                xpath: /html/body/div[1]/div[1]/main[1]/article[1]/div[1]/div[2]/header[1]/h1[1]/span[1]
+            ingredientsList:
+              - text: Aqua, Helianthus Annuus Hybrid Oil, Cocoglycerides, Cetearyl Alcohol,
+                  Glycerin, Myristyl Myristate, Prunus Amygdalus Dulcis Oil,
+                  Phenoxyethanol, Panthenol, Cetearyl Glucoside, Behenyl
+                  Alcohol, Myristyl Alcohol, Sodium Carboxymethyl Betaglucan,
+                  Xanthan Gum, Myristyl Glucoside, Sodium Anisate, Parfum.
+                xpath: /html/body/div[1]/div[1]/main[1]/article[1]/div[1]/div[3]/ul[2]/li[1]/div[1]/ul[1]/li[5]/p[1]
+            countryOfOrigin:
+              - text: Schweiz
+                xpath: /html/body/div[1]/div[1]/main[1]/article[1]/div[1]/div[3]/ul[2]/li[1]/div[1]/ul[1]/li[7]/p[1]
+            pricePerUnit:
+              - text: 2,97 €/100 ml
+                xpath: /html/body/div[1]/div[1]/main[1]/article[1]/div[1]/div[2]/div[2]/div[1]/em[1]
+            pricePerUnitUom:
+              - text: ml
+                xpath: /html/body/div[1]/div[1]/main[1]/article[1]/div[1]/div[2]/div[2]/div[1]/em[1]
+            additionalDescBulletInfo:
+              - text: "|| Hauttyp - empfindliche Haut || Verpackungsart - Tube || dermatologisch
+                  getestet - ja || Inhaltsstoffe - Aqua, Helianthus Annuus
+                  Hybrid Oil, Cocoglycerides, Cetearyl Alcohol, Glycerin,
+                  Myristyl Myristate, Prunus Amygdalus Dulcis Oil,
+                  Phenoxyethanol, Panthenol, Cetearyl Glucoside, Behenyl
+                  Alcohol, Myristyl Alcohol, Sodium Carboxymethyl Betaglucan,
+                  Xanthan Gum, Myristyl Glucoside, Sodium Anisate, Parfum. ||
+                  Kinder - Ja || Herkunftsland - Schweiz || Artikelnummer -
+                  4501020240 "
+            imageZoomFeaturePresent:
+              - text: No
+            descriptionBullets:
+              - text: "7"
+            aggregateRating:
+              - text: "0"
+        xpath: /
+    timestamp: 1607075930808

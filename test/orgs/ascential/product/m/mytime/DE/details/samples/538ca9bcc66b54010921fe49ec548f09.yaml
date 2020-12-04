@@ -1,0 +1,184 @@
+input:
+  id: 4505010980
+  _url: http://mytime.de
+extractions:
+  - html: https://workbench.import.io/html/run=2888a3e6-6b05-4230-897f-d83ff16701db/task=9a152210-b531-4213-b6fd-10a29ad818ce/6c3406fa-4708-4790-8ce9-134441a26873.html
+    extractionConfigId: product/details/stores/m/mytime/DE/extract
+    data:
+      - group:
+          - productUrl:
+              - text: https://www.mytime.de/garden_gourmet_vegetarische_gemuesebaellchen_4505010980.html
+                xpath: /html/head[1]/link[1]/@href
+            image:
+              - text: https://d2jdyzt6tc17s.cloudfront.net/products/images2/4505010980_7290010739820_01.jpg.jpg
+                xpath: /html/body/div[1]/div[1]/main[1]/article[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/img[1]/@src
+            imageAlt:
+              - text: Garden Gourmet Vegetarische Gemüsebällchen
+                xpath: /html/body/div[1]/div[1]/main[1]/article[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/img[1]/@alt
+            alternateImages:
+              - text: https://d2jdyzt6tc17s.cloudfront.net/products/images2/4505010980_7290010739820_02.jpg.jpg
+                xpath: /html/body/div[1]/div[1]/main[1]/article[1]/div[1]/div[1]/div[1]/div[2]/div[2]/img[1]/@src
+              - text: https://d2jdyzt6tc17s.cloudfront.net/products/images2/4505010980_7290010739820_03.jpg.jpg
+                xpath: /html/body/div[1]/div[1]/main[1]/article[1]/div[1]/div[1]/div[1]/div[2]/div[3]/img[1]/@src
+            category:
+              - text: Alle Kategorien
+                xpath: /html/body/div[1]/div[1]/main[1]/article[1]/div[1]/nav[1]/ol[1]/li[2]/a[1]/span[1]
+              - text: Frische & Kühlung
+                xpath: /html/body/div[1]/div[1]/main[1]/article[1]/div[1]/nav[1]/ol[1]/li[3]/a[1]/span[1]
+              - text: Fleisch- & Wurstwaren
+                xpath: /html/body/div[1]/div[1]/main[1]/article[1]/div[1]/nav[1]/ol[1]/li[4]/a[1]/span[1]
+              - text: Fleisch- & Wurstersatz
+                xpath: /html/body/div[1]/div[1]/main[1]/article[1]/div[1]/nav[1]/ol[1]/li[5]/a[1]/span[1]
+            nameExtended:
+              - text: Garden Gourmet Vegetarische Gemüsebällchen
+                xpath: /html/body/div[1]/div[1]/main[1]/article[1]/div[1]/div[2]/header[1]/h1[1]/span[1]
+            price:
+              - text: 2,44 €
+                xpath: /html/body/div[1]/div[1]/main[1]/article[1]/div[1]/div[2]/div[2]/div[1]/div[1]/strong[1]
+            availabilityText:
+              - text: In Stock
+                xpath: /html/body/div[3]
+            description:
+              - text: 'Diese vegetarischen Gemüsebällchen haben es in sich - und zwar ganz viel
+                  Gemüse: Karotten, Mais, Erbsen, Zwiebeln und rote Paprika. Ein
+                  wahres "Best-of-Gemüsebeet", das in wunderbar mundgerechten
+                  Bällchen daherkommt. Ob als Beilage oder als kleiner Snack für
+                  zwischendurch: Für diese Veggi-Bällchen findet sich einfach
+                  immer eine genussvolle Gelegenheit.'
+                xpath: /html/body/div[1]/div[1]/main[1]/article[1]/div[1]/div[3]/ul[2]/li[1]/div[1]/ul[1]/li[1]/p[1]
+            brandText:
+              - text: Garden Gourmet
+                xpath: /html/head[1]/meta[26]/@content
+            manufacturer:
+              - text: Garden Gourmet
+                xpath: /html/head[1]/meta[26]/@content
+            quantity:
+              - text: 200 g
+                xpath: /html/body/div[1]/div[1]/main[1]/article[1]/div[1]/div[2]/header[1]/h1[1]/small[1]
+            gtin:
+              - text: "7290010739820"
+                xpath: /html/body/div[1]/div[1]/main[1]/article[1]/div[1]/div[2]/meta[2]/@content
+            sku:
+              - text: "4505010980"
+                xpath: /html/body/div[1]/div[1]/main[1]/article[1]/div[1]/div[2]/meta[1]/@content
+            variantId:
+              - text: "4505010980"
+                xpath: /html/body/div[1]/div[1]/main[1]/article[1]/div[1]/div[2]/meta[1]/@content
+            directions:
+              - text: "Zubereitung in der Pfanne: 4-5 Minuten bei mittlerer Hitze mit etwas Öl
+                  anbraten. Zwischendurch wenden. Zubereitung im Backofen: 6
+                  Minuten im vorgeheizten Backofen bei 180°C backen.
+                  Zwischendurch wenden. Nicht zum Einfrieren geeignet."
+                xpath: /html/body/div[1]/div[1]/main[1]/article[1]/div[1]/div[3]/ul[2]/li[1]/div[1]/ul[1]/li[5]/p[1]
+            ratingCount:
+              - text: "2"
+                xpath: /html/body/div[1]/div[1]/main[1]/article[1]/div[1]/div[2]/header[1]/div[1]/div[1]/span[6]
+            name:
+              - text: Garden Gourmet Vegetarische Gemüsebällchen
+                xpath: /html/body/div[1]/div[1]/main[1]/article[1]/div[1]/div[2]/header[1]/h1[1]/span[1]
+            ingredientsList:
+              - text: >-
+                  Vegetarische Gemüsebällchen mit Karotten, Erbsen und Mais auf
+                  Basis von Sojaeiweiß und Weizeneiweiß, gegart. 
+                   35% Gemüse (10% Karotten, 9% Erbsen, 7% Mais, 5% SELLERIE, 2% Zwiebeln, 2% rote Paprika), Trinkwasser, pflanzliche Öle (Raps, Sonnenblume), 8% SOJAEIWEIß, 6% WEIZENEIWEIß, HÜHNEREI-EIWEIßPULVER, Apfelmark, Zwiebelpulver, Maisstärke, Salz, Branntweinessig, Erbsenfasern, Erbsenstärke, Gewürze (schwarzer Pfeffer, Kurkuma), natürliches Aroma. Unter Schutzatmosphäre verpackt. Kann SESAM und SENF enthalten.
+                xpath: /html/body/div[1]/div[1]/main[1]/article[1]/div[1]/div[3]/ul[2]/li[3]/div[1]/ul[1]/li[1]
+            caloriesPerServing:
+              - text: 220 kcal
+                xpath: /html/body/div[1]/div[1]/main[1]/article[1]/div[1]/div[3]/ul[2]/li[2]/div[1]/fieldset[1]/table[1]/tbody[1]/tr[4]/td[2]
+            totalFatPerServing:
+              - text: 15,0 g
+                xpath: /html/body/div[1]/div[1]/main[1]/article[1]/div[1]/div[3]/ul[2]/li[2]/div[1]/fieldset[1]/table[1]/tbody[1]/tr[5]/td[2]
+            totalFatPerServingUom:
+              - text: g
+                xpath: /html/body/div[1]/div[1]/main[1]/article[1]/div[1]/div[3]/ul[2]/li[2]/div[1]/fieldset[1]/table[1]/tbody[1]/tr[5]/td[2]
+            saturatedFatPerServing:
+              - text: 1,7 g
+                xpath: /html/body/div[1]/div[1]/main[1]/article[1]/div[1]/div[3]/ul[2]/li[2]/div[1]/fieldset[1]/table[1]/tbody[1]/tr[6]/td[2]
+            saturatedFatPerServingUom:
+              - text: g
+                xpath: /html/body/div[1]/div[1]/main[1]/article[1]/div[1]/div[3]/ul[2]/li[2]/div[1]/fieldset[1]/table[1]/tbody[1]/tr[6]/td[2]
+            totalCarbPerServing:
+              - text: 3,0 g
+                xpath: /html/body/div[1]/div[1]/main[1]/article[1]/div[1]/div[3]/ul[2]/li[2]/div[1]/fieldset[1]/table[1]/tbody[1]/tr[7]/td[2]
+            totalCarbPerServingUom:
+              - text: g
+                xpath: /html/body/div[1]/div[1]/main[1]/article[1]/div[1]/div[3]/ul[2]/li[2]/div[1]/fieldset[1]/table[1]/tbody[1]/tr[7]/td[2]
+            dietaryFibrePerServing:
+              - text: 8,3 g
+                xpath: /html/body/div[1]/div[1]/main[1]/article[1]/div[1]/div[3]/ul[2]/li[2]/div[1]/fieldset[1]/table[1]/tbody[1]/tr[11]/td[2]
+            dietaryFibrePerServingUom:
+              - text: g
+                xpath: /html/body/div[1]/div[1]/main[1]/article[1]/div[1]/div[3]/ul[2]/li[2]/div[1]/fieldset[1]/table[1]/tbody[1]/tr[11]/td[2]
+            totalSugarsPerServing:
+              - text: 2,8 g
+                xpath: /html/body/div[1]/div[1]/main[1]/article[1]/div[1]/div[3]/ul[2]/li[2]/div[1]/fieldset[1]/table[1]/tbody[1]/tr[8]/td[2]
+            totalSugarsPerServingUom:
+              - text: g
+                xpath: /html/body/div[1]/div[1]/main[1]/article[1]/div[1]/div[3]/ul[2]/li[2]/div[1]/fieldset[1]/table[1]/tbody[1]/tr[8]/td[2]
+            proteinPerServing:
+              - text: 14,0 g
+                xpath: /html/body/div[1]/div[1]/main[1]/article[1]/div[1]/div[3]/ul[2]/li[2]/div[1]/fieldset[1]/table[1]/tbody[1]/tr[9]/td[2]
+            proteinPerServingUom:
+              - text: g
+                xpath: /html/body/div[1]/div[1]/main[1]/article[1]/div[1]/div[3]/ul[2]/li[2]/div[1]/fieldset[1]/table[1]/tbody[1]/tr[9]/td[2]
+            saltPerServing:
+              - text: 1,4 g
+                xpath: /html/body/div[1]/div[1]/main[1]/article[1]/div[1]/div[3]/ul[2]/li[2]/div[1]/fieldset[1]/table[1]/tbody[1]/tr[10]/td[2]
+            saltPerServingUom:
+              - text: g
+                xpath: /html/body/div[1]/div[1]/main[1]/article[1]/div[1]/div[3]/ul[2]/li[2]/div[1]/fieldset[1]/table[1]/tbody[1]/tr[10]/td[2]
+            dietaryInformation:
+              - text: "|| Vegetarisch - Ja || Vegetarische Gemüsebällchen mit Karotten, Erbsen
+                  und Mais auf Basis von Sojaeiweiß und Weizeneiweiß, gegart. -
+                  35% Gemüse (10% Karotten, 9% Erbsen, 7% Mais, 5% SELLERIE, 2%
+                  Zwiebeln, 2% rote Paprika), Trinkwasser, pflanzliche Öle
+                  (Raps, Sonnenblume), 8% SOJAEIWEIß, 6% WEIZENEIWEIß,
+                  HÜHNEREI-EIWEIßPULVER, Apfelmark, Zwiebelpulver, Maisstärke,
+                  Salz, Branntweinessig, Erbsenfasern, Erbsenstärke, Gewürze
+                  (schwarzer Pfeffer, Kurkuma), natürliches Aroma. Unter
+                  Schutzatmosphäre verpackt. Kann SESAM und SENF enthalten. "
+            storage:
+              - text: Kühl aufbewahren.
+                xpath: /html/body/div[1]/div[1]/main[1]/article[1]/div[1]/div[3]/ul[2]/li[1]/div[1]/ul[1]/li[2]/p[1]
+            countryOfOrigin:
+              - text: Tschechien
+                xpath: /html/body/div[1]/div[1]/main[1]/article[1]/div[1]/div[3]/ul[2]/li[1]/div[1]/ul[1]/li[7]/p[1]
+            allergyAdvice:
+              - text: |-
+                  glutenhaltiges Getreide 
+                   Ja
+                xpath: /html/body/div[1]/div[1]/main[1]/article[1]/div[1]/div[3]/ul[2]/li[3]/div[1]/ul[1]/li[2]
+            packaging:
+              - text: Fertigpackung
+                xpath: /html/body/div[1]/div[1]/main[1]/article[1]/div[1]/div[3]/ul[2]/li[1]/div[1]/ul[1]/li[4]/p[1]
+            pricePerUnit:
+              - text: 1,22 €/100 g
+                xpath: /html/body/div[1]/div[1]/main[1]/article[1]/div[1]/div[2]/div[2]/div[1]/em[1]
+            pricePerUnitUom:
+              - text: g
+                xpath: /html/body/div[1]/div[1]/main[1]/article[1]/div[1]/div[2]/div[2]/div[1]/em[1]
+            promotion:
+              - text: |-
+                  Kaufe 1 Stück -> 0,50 Euro weniger
+                   
+                  Gültig von 15.10.2020 bis 28.02.2021
+                   Zu den Aktionsprodukten
+                xpath: /html/body/div[1]/div[1]/main[1]/article[1]/div[1]/div[1]/aside[1]
+            additionalDescBulletInfo:
+              - text: "|| Haltbarkeit & Lagerung - Kühl aufbewahren. || Verpackungsart - Schale
+                  || Verpackungsform - Fertigpackung || Anwendungs- &
+                  Gebrauchshinweise - Zubereitung in der Pfanne: 4-5 Minuten bei
+                  mittlerer Hitze mit etwas Öl anbraten. Zwischendurch wenden.
+                  Zubereitung im Backofen: 6 Minuten im vorgeheizten Backofen
+                  bei 180°C backen. Zwischendurch wenden. Nicht zum Einfrieren
+                  geeignet. || Vegetarisch - Ja || Herkunftsland - Tschechien ||
+                  Haltbarkeit - Ungeöffnet mindestens 4 Tage haltbar ||
+                  Artikelnummer - 4505010980 "
+            imageZoomFeaturePresent:
+              - text: No
+            descriptionBullets:
+              - text: "8"
+            aggregateRating:
+              - text: "3"
+        xpath: /
+    timestamp: 1607075934606

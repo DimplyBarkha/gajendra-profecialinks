@@ -1,0 +1,134 @@
+input:
+  id: 4501020331
+  _url: http://mytime.de
+extractions:
+  - html: https://workbench.import.io/html/run=2888a3e6-6b05-4230-897f-d83ff16701db/task=737e8e87-4206-4ca4-81a0-ad1f287c2f9c/4c3e87e5-d1b9-4838-8cdc-ea48d4200cf2.html
+    extractionConfigId: product/details/stores/m/mytime/DE/extract
+    data:
+      - group:
+          - productUrl:
+              - text: https://www.mytime.de/buebchen_babypflege_baby_wundschutz_creme_sensitiv_4501020331.html
+                xpath: /html/head[1]/link[1]/@href
+            image:
+              - text: https://d2jdyzt6tc17s.cloudfront.net/products/images2/4501020331_4053800002459_01.jpg.jpg
+                xpath: /html/body/div[1]/div[1]/main[1]/article[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/img[1]/@src
+            imageAlt:
+              - text: Bübchen Babypflege Baby Wundschutz Creme sensitiv
+                xpath: /html/body/div[1]/div[1]/main[1]/article[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/img[1]/@alt
+            alternateImages:
+              - text: https://d2jdyzt6tc17s.cloudfront.net/products/images2/4501020331_4053800002459_02.jpg.jpg
+                xpath: /html/body/div[1]/div[1]/main[1]/article[1]/div[1]/div[1]/div[1]/div[2]/div[2]/img[1]/@src
+              - text: https://d2jdyzt6tc17s.cloudfront.net/products/images2/4501020331_4053800002459_03.jpg.jpg
+                xpath: /html/body/div[1]/div[1]/main[1]/article[1]/div[1]/div[1]/div[1]/div[2]/div[3]/img[1]/@src
+              - text: https://d2jdyzt6tc17s.cloudfront.net/products/images2/4501020331_4053800002459_04.jpg.jpg
+                xpath: /html/body/div[1]/div[1]/main[1]/article[1]/div[1]/div[1]/div[1]/div[2]/div[4]/img[1]/@src
+              - text: https://d2jdyzt6tc17s.cloudfront.net/products/images2/4501020331_4053800002459_05.jpg.jpg
+                xpath: /html/body/div[1]/div[1]/main[1]/article[1]/div[1]/div[1]/div[1]/div[2]/div[5]/img[1]/@src
+              - text: https://d2jdyzt6tc17s.cloudfront.net/products/images2/4501020331_4053800002459_06.jpg.jpg
+                xpath: /html/body/div[1]/div[1]/main[1]/article[1]/div[1]/div[1]/div[1]/div[2]/div[6]/img[1]/@src
+            category:
+              - text: Alle Kategorien
+                xpath: /html/body/div[1]/div[1]/main[1]/article[1]/div[1]/nav[1]/ol[1]/li[2]/a[1]/span[1]
+              - text: Baby
+                xpath: /html/body/div[1]/div[1]/main[1]/article[1]/div[1]/nav[1]/ol[1]/li[3]/a[1]/span[1]
+              - text: Babypflege
+                xpath: /html/body/div[1]/div[1]/main[1]/article[1]/div[1]/nav[1]/ol[1]/li[4]/a[1]/span[1]
+              - text: Hautpflege
+                xpath: /html/body/div[1]/div[1]/main[1]/article[1]/div[1]/nav[1]/ol[1]/li[5]/a[1]/span[1]
+            nameExtended:
+              - text: Bübchen Babypflege Baby Wundschutz Creme sensitiv
+                xpath: /html/body/div[1]/div[1]/main[1]/article[1]/div[1]/div[2]/header[1]/h1[1]/span[1]
+            price:
+              - text: 3,69 €
+                xpath: /html/body/div[1]/div[1]/main[1]/article[1]/div[1]/div[2]/div[2]/div[1]/div[1]/strong[1]
+            availabilityText:
+              - text: In Stock
+                xpath: /html/body/div[3]
+            description:
+              - text: Das Bübchen Kinder Shampoo reinigt Haar und Kopfhaut schonend; für leicht
+                  kämmbares und natürlich seidiges Kinderhaar. Kamille wirkt
+                  reizlindernd und beruhigend. Weizenprotein schützt das Haar
+                  und kräftigt es so. Dabei ohne Farbstoffe; pH-hautneutral und
+                  mild zu den Augen. Alle Bübchen Babypflege Produkte werden von
+                  der Deutschen Haut- und Allergiehilfe e.V. für die Hautpflege
+                  von Babys und Kindern getestet und empfohlen. Bübchen Pflege
+                  basiert außerdem auf dem Wissen und den Studien von Hebammen,
+                  Dermatologen und Gynäkologen. Babypflege-Experte seit über 50
+                  Jahren. Bereits 1961 begann Ewald Hermes, der Gründer der
+                  Marke Bübchen, damit, Babypflegeprodukte zu entwickeln, die
+                  genau auf die Bedürfnisse zarter Babyhaut abgestimmt sind.
+                  Intensive Forschung, strenge Kontrollen, beste Qualität und
+                  die sorgfältige Auswahl natürlicher Wirk- und Pflegestoffe ist
+                  das Versprechen an Sie.
+                xpath: /html/body/div[1]/div[1]/main[1]/article[1]/div[1]/div[3]/ul[2]/li[1]/div[1]/ul[1]/li[1]/p[1]
+            brandText:
+              - text: Bübchen
+                xpath: /html/head[1]/meta[26]/@content
+            manufacturer:
+              - text: Bübchen
+                xpath: /html/head[1]/meta[26]/@content
+            quantity:
+              - text: 500 ml
+                xpath: /html/body/div[1]/div[1]/main[1]/article[1]/div[1]/div[2]/header[1]/h1[1]/small[1]
+            gtin:
+              - text: "4053800002459"
+                xpath: /html/body/div[1]/div[1]/main[1]/article[1]/div[1]/div[2]/meta[2]/@content
+            sku:
+              - text: "4501020331"
+                xpath: /html/body/div[1]/div[1]/main[1]/article[1]/div[1]/div[2]/meta[1]/@content
+            variantId:
+              - text: "4501020331"
+                xpath: /html/body/div[1]/div[1]/main[1]/article[1]/div[1]/div[2]/meta[1]/@content
+            directions:
+              - text: Feuchtigkeit
+                xpath: /html/body/div[1]/div[1]/main[1]/article[1]/div[1]/div[3]/ul[2]/li[1]/div[1]/ul[1]/li[3]/p[1]
+            ratingCount:
+              - text: "1"
+                xpath: /html/body/div[1]/div[1]/main[1]/article[1]/div[1]/div[2]/header[1]/div[1]/div[1]/span[6]
+            name:
+              - text: Bübchen Babypflege Baby Wundschutz Creme sensitiv
+                xpath: /html/body/div[1]/div[1]/main[1]/article[1]/div[1]/div[2]/header[1]/h1[1]/span[1]
+            ingredientsList:
+              - text: Aqua, Zinc Oxide, Isopropyl Palmitate, Helianthus Annuus Seed Oil,
+                  Glycerin, Polyglyceryl-3 Polyricinoleate, Butylene Gylcol,
+                  Polyglyceryl-3 Diisostearate, Prunus Amygdalus Dulcis Oil,
+                  Hexyldecanol, Hexyldecyl Laurate, Panthenol, Butyrospermum
+                  Parkii Butter, Cera Alba, Chamomilla Recutita Flower Extract,
+                  Citric Acid, Glycine Soja Oil, Heliotropine, Tocopherol, Zinc
+                  Stearate, Zinc Sulfate, FIL.1160.V00.
+                xpath: /html/body/div[1]/div[1]/main[1]/article[1]/div[1]/div[3]/ul[2]/li[1]/div[1]/ul[1]/li[7]/p[1]
+            countryOfOrigin:
+              - text: Deutschland
+                xpath: /html/body/div[1]/div[1]/main[1]/article[1]/div[1]/div[3]/ul[2]/li[1]/div[1]/ul[1]/li[11]/p[1]
+            pricePerUnit:
+              - text: 7,38 €/1 l
+                xpath: /html/body/div[1]/div[1]/main[1]/article[1]/div[1]/div[2]/div[2]/div[1]/em[1]
+            pricePerUnitUom:
+              - text: l
+                xpath: /html/body/div[1]/div[1]/main[1]/article[1]/div[1]/div[2]/div[2]/div[1]/em[1]
+            additionalDescBulletInfo:
+              - text: "|| Hauttyp - empfindliche Haut || Anwendungszweck - Feuchtigkeit || Art -
+                  Creme || Verpackungsart - Dose || dermatologisch getestet - ja
+                  || Inhaltsstoffe - Aqua, Zinc Oxide, Isopropyl Palmitate,
+                  Helianthus Annuus Seed Oil, Glycerin, Polyglyceryl-3
+                  Polyricinoleate, Butylene Gylcol, Polyglyceryl-3
+                  Diisostearate, Prunus Amygdalus Dulcis Oil, Hexyldecanol,
+                  Hexyldecyl Laurate, Panthenol, Butyrospermum Parkii Butter,
+                  Cera Alba, Chamomilla Recutita Flower Extract, Citric Acid,
+                  Glycine Soja Oil, Heliotropine, Tocopherol, Zinc Stearate,
+                  Zinc Sulfate, FIL.1160.V00. || ph-Wert - keine Angabe ||
+                  Anwendungshinweise - Baby Wundschutz Creme bei jedem
+                  Windelwechsel dünn auftragen. So wird zarte Haut zuverlässig
+                  vor Nässe und Wundwerden geschützt, auch in den langen
+                  Nachtpausen. Die Creme lässt sich leicht verteilen und mit
+                  Bübchen Comfort Pflegetüchern auch wieder gut entfernen. ||
+                  Kinder - Ja || Herkunftsland - Deutschland || Artikelnummer -
+                  4501020331 "
+            imageZoomFeaturePresent:
+              - text: No
+            descriptionBullets:
+              - text: "11"
+            aggregateRating:
+              - text: "5"
+        xpath: /
+    timestamp: 1607075932322

@@ -1,0 +1,158 @@
+input:
+  id: 4513030479
+  _url: http://mytime.de
+extractions:
+  - html: https://workbench.import.io/html/run=2888a3e6-6b05-4230-897f-d83ff16701db/task=64c208ce-faea-4d88-8597-634323a9850c/c24e930f-8df8-4ffd-b49a-f293dd0c1bdc.html
+    extractionConfigId: product/details/stores/m/mytime/DE/extract
+    data:
+      - group:
+          - productUrl:
+              - text: https://www.mytime.de/sodastream_getraenkesirup_ohne_zucker_waldmeister_4513030479.html
+                xpath: /html/head[1]/link[1]/@href
+            image:
+              - text: https://d2jdyzt6tc17s.cloudfront.net/products/images2/4513030479_8718692611795_01.jpg.jpg
+                xpath: /html/body/div[1]/div[1]/main[1]/article[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/img[1]/@src
+            imageAlt:
+              - text: SodaStream Getränkesirup ohne Zucker Waldmeister
+                xpath: /html/body/div[1]/div[1]/main[1]/article[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/img[1]/@alt
+            alternateImages:
+              - text: https://d2jdyzt6tc17s.cloudfront.net/products/images2/4513030479_8718692611795_02.jpg.jpg
+                xpath: /html/body/div[1]/div[1]/main[1]/article[1]/div[1]/div[1]/div[1]/div[2]/div[2]/img[1]/@src
+              - text: https://d2jdyzt6tc17s.cloudfront.net/products/images2/4513030479_8718692611795_03.jpg.jpg
+                xpath: /html/body/div[1]/div[1]/main[1]/article[1]/div[1]/div[1]/div[1]/div[2]/div[3]/img[1]/@src
+            category:
+              - text: Alle Kategorien
+                xpath: /html/body/div[1]/div[1]/main[1]/article[1]/div[1]/nav[1]/ol[1]/li[2]/a[1]/span[1]
+              - text: Getränke
+                xpath: /html/body/div[1]/div[1]/main[1]/article[1]/div[1]/nav[1]/ol[1]/li[3]/a[1]/span[1]
+              - text: Sirup
+                xpath: /html/body/div[1]/div[1]/main[1]/article[1]/div[1]/nav[1]/ol[1]/li[4]/a[1]/span[1]
+            nameExtended:
+              - text: SodaStream Getränkesirup ohne Zucker Waldmeister
+                xpath: /html/body/div[1]/div[1]/main[1]/article[1]/div[1]/div[2]/header[1]/h1[1]/span[1]
+            price:
+              - text: 4,41 €
+                xpath: /html/body/div[1]/div[1]/main[1]/article[1]/div[1]/div[2]/div[2]/div[1]/div[1]/strong[1]
+            availabilityText:
+              - text: In Stock
+                xpath: /html/body/div[3]
+            description:
+              - text: >-
+                  Getränke einfach selbst machen!
+
+                  Ihre Vorteile: nur 1kcal pro 100ml, sekundenschnell frisch zubereitet, einfach mit Wasser im Glas oder in der Flasche mischen, nach Ihrem Geschmack, 375 ml, ausreichend für ca. 9 Liter Fertiggetränk.
+                xpath: /html/body/div[1]/div[1]/main[1]/article[1]/div[1]/div[3]/ul[2]/li[1]/div[1]/ul[1]/li[1]/p[1]
+            brandText:
+              - text: Soda Stream
+                xpath: /html/head[1]/meta[26]/@content
+            manufacturer:
+              - text: Soda Stream
+                xpath: /html/head[1]/meta[26]/@content
+            quantity:
+              - text: 375 ml
+                xpath: /html/body/div[1]/div[1]/main[1]/article[1]/div[1]/div[2]/header[1]/h1[1]/small[1]
+            gtin:
+              - text: "8718692611795"
+                xpath: /html/body/div[1]/div[1]/main[1]/article[1]/div[1]/div[2]/meta[2]/@content
+            sku:
+              - text: "4513030479"
+                xpath: /html/body/div[1]/div[1]/main[1]/article[1]/div[1]/div[2]/meta[1]/@content
+            variantId:
+              - text: "4513030479"
+                xpath: /html/body/div[1]/div[1]/main[1]/article[1]/div[1]/div[2]/meta[1]/@content
+            directions:
+              - text: "Dosierung: 1 Teil Sirup + 23 Teile Wasser im Glas oder in der Flasche
+                  mischen.Zubereitung: Vor Gebrauch schütteln!1. Flasche mit
+                  gesprudeltem Wasser bereitstellen.2. Dosierkappe bis zur
+                  Messlinie mit Sirup füllen. Linien für 0,25/0,5/1L Getränk.3.
+                  Flasche schräg halten und langsam den Sirup eingießen.4.
+                  Flasche verschließen und leicht schwenken. Fertig!"
+                xpath: /html/body/div[1]/div[1]/main[1]/article[1]/div[1]/div[3]/ul[2]/li[1]/div[1]/ul[1]/li[7]/p[1]
+            ratingCount:
+              - text: "1"
+                xpath: /html/body/div[1]/div[1]/main[1]/article[1]/div[1]/div[2]/header[1]/div[1]/div[1]/span[6]
+            name:
+              - text: SodaStream Getränkesirup ohne Zucker Waldmeister
+                xpath: /html/body/div[1]/div[1]/main[1]/article[1]/div[1]/div[2]/header[1]/h1[1]/span[1]
+            ingredientsList:
+              - text: >-
+                  Getränkesirup mit Waldmeistergeschmack. Mit Süßungsmitteln. 
+                   Wasser, Säuerungsmittel (Citronensäure), Aroma, Süßungsmittel (Acesulfam K, Sucralose), färbendes Lebensmittel (Färberdistelextrakt), Farbstoff (Brillantblau FCF), Konservierungsstoff (Kaliumsorbat).
+                xpath: /html/body/div[1]/div[1]/main[1]/article[1]/div[1]/div[3]/ul[2]/li[3]/div[1]/ul[1]/li[1]
+            caloriesPerServing:
+              - text: 1 kcal
+                xpath: /html/body/div[1]/div[1]/main[1]/article[1]/div[1]/div[3]/ul[2]/li[2]/div[1]/fieldset[1]/table[1]/tbody[1]/tr[4]/td[2]
+            totalFatPerServing:
+              - text: 0,0 g
+                xpath: /html/body/div[1]/div[1]/main[1]/article[1]/div[1]/div[3]/ul[2]/li[2]/div[1]/fieldset[1]/table[1]/tbody[1]/tr[5]/td[2]
+            totalFatPerServingUom:
+              - text: g
+                xpath: /html/body/div[1]/div[1]/main[1]/article[1]/div[1]/div[3]/ul[2]/li[2]/div[1]/fieldset[1]/table[1]/tbody[1]/tr[5]/td[2]
+            saturatedFatPerServing:
+              - text: 0,0 g
+                xpath: /html/body/div[1]/div[1]/main[1]/article[1]/div[1]/div[3]/ul[2]/li[2]/div[1]/fieldset[1]/table[1]/tbody[1]/tr[6]/td[2]
+            saturatedFatPerServingUom:
+              - text: g
+                xpath: /html/body/div[1]/div[1]/main[1]/article[1]/div[1]/div[3]/ul[2]/li[2]/div[1]/fieldset[1]/table[1]/tbody[1]/tr[6]/td[2]
+            totalCarbPerServing:
+              - text: 0,0 g
+                xpath: /html/body/div[1]/div[1]/main[1]/article[1]/div[1]/div[3]/ul[2]/li[2]/div[1]/fieldset[1]/table[1]/tbody[1]/tr[7]/td[2]
+            totalCarbPerServingUom:
+              - text: g
+                xpath: /html/body/div[1]/div[1]/main[1]/article[1]/div[1]/div[3]/ul[2]/li[2]/div[1]/fieldset[1]/table[1]/tbody[1]/tr[7]/td[2]
+            totalSugarsPerServing:
+              - text: 0,0 g
+                xpath: /html/body/div[1]/div[1]/main[1]/article[1]/div[1]/div[3]/ul[2]/li[2]/div[1]/fieldset[1]/table[1]/tbody[1]/tr[8]/td[2]
+            totalSugarsPerServingUom:
+              - text: g
+                xpath: /html/body/div[1]/div[1]/main[1]/article[1]/div[1]/div[3]/ul[2]/li[2]/div[1]/fieldset[1]/table[1]/tbody[1]/tr[8]/td[2]
+            proteinPerServing:
+              - text: 0,0 g
+                xpath: /html/body/div[1]/div[1]/main[1]/article[1]/div[1]/div[3]/ul[2]/li[2]/div[1]/fieldset[1]/table[1]/tbody[1]/tr[9]/td[2]
+            proteinPerServingUom:
+              - text: g
+                xpath: /html/body/div[1]/div[1]/main[1]/article[1]/div[1]/div[3]/ul[2]/li[2]/div[1]/fieldset[1]/table[1]/tbody[1]/tr[9]/td[2]
+            saltPerServing:
+              - text: 0,0 g
+                xpath: /html/body/div[1]/div[1]/main[1]/article[1]/div[1]/div[3]/ul[2]/li[2]/div[1]/fieldset[1]/table[1]/tbody[1]/tr[10]/td[2]
+            saltPerServingUom:
+              - text: g
+                xpath: /html/body/div[1]/div[1]/main[1]/article[1]/div[1]/div[3]/ul[2]/li[2]/div[1]/fieldset[1]/table[1]/tbody[1]/tr[10]/td[2]
+            storage:
+              - text: Nach dem Öffnen bei Raumtemperatur trocken lagern.
+                xpath: /html/body/div[1]/div[1]/main[1]/article[1]/div[1]/div[3]/ul[2]/li[1]/div[1]/ul[1]/li[4]/p[1]
+            allergyAdvice:
+              - text: |-
+                  glutenhaltiges Getreide 
+                   Nein
+                xpath: /html/body/div[1]/div[1]/main[1]/article[1]/div[1]/div[3]/ul[2]/li[3]/div[1]/ul[1]/li[2]
+            packaging:
+              - text: Fertigpackung
+                xpath: /html/body/div[1]/div[1]/main[1]/article[1]/div[1]/div[3]/ul[2]/li[1]/div[1]/ul[1]/li[6]/p[1]
+            pricePerUnit:
+              - text: 11,76 €/1 l
+                xpath: /html/body/div[1]/div[1]/main[1]/article[1]/div[1]/div[2]/div[2]/div[1]/em[1]
+            pricePerUnitUom:
+              - text: l
+                xpath: /html/body/div[1]/div[1]/main[1]/article[1]/div[1]/div[2]/div[2]/div[1]/em[1]
+            additionalDescBulletInfo:
+              - text: "|| Inhalt - 0,375 l || Serie - Soda Stream Getränkesirup ohne Zucker ||
+                  Haltbarkeit & Lagerung - Nach dem Öffnen bei Raumtemperatur
+                  trocken lagern. || Verpackungsart - Flasche || Verpackungsform
+                  - Fertigpackung || Anwendungs- & Gebrauchshinweise -
+                  Dosierung: 1 Teil Sirup + 23 Teile Wasser im Glas oder in der
+                  Flasche mischen.Zubereitung: Vor Gebrauch schütteln!1. Flasche
+                  mit gesprudeltem Wasser bereitstellen.2. Dosierkappe bis zur
+                  Messlinie mit Sirup füllen. Linien für 0,25/0,5/1L Getränk.3.
+                  Flasche schräg halten und langsam den Sirup eingießen.4.
+                  Flasche verschließen und leicht schwenken. Fertig! ||
+                  Haltbarkeit - Ungeöffnet mindestens 60 Tage haltbar ||
+                  Artikelnummer - 4513030479 "
+            imageZoomFeaturePresent:
+              - text: No
+            descriptionBullets:
+              - text: "8"
+            aggregateRating:
+              - text: "1"
+        xpath: /
+    timestamp: 1607075932612
