@@ -13,8 +13,8 @@ fields:
     singleValue: true
     xpath: //div[@class="current-price-container"]/span[@class="current-price  "]/text()
   - name: description
-    singleValue: false
-    xpath: //div[@class="ExternalClassD820CB8F6561420397B6CA3CAB01E5F0"]/text()
+    singleValue: true
+    xpath: //div[@class="tabs-content"]/ul/li/span[contains(text(),'ΠΕΡΙΓΡΑΦΗ')]/following::div[1]/div/text()
   - name: alternateImages
     singleValue: false
     xpath: //div[@class="selected-product gallery-thumbs"]//div[@class="slick-track"]/li[position()>1]//img/@src
@@ -24,23 +24,29 @@ fields:
     singleValue: true
     xpath: //span[@class="sku-code"]/text()
   - name: name
-    singleValue: false
+    singleValue: true
     xpath: //h1[@class="title"]/text()
   - name: promotion
-    singleValue: false
-    xpath: //span[@class="tag discount "]/text()
+    singleValue: true
+    xpath: //div[@class="current-price-container"]/span[@class="tag discount "]/text()
   - name: brandText
-    singleValue: false
+    singleValue: true
     xpath: //h3[@class="manufacturer"]/a/text()
   - name: nameExtended
-    singleValue: false
+    singleValue: true
     xpath: concat(//h3[@class="manufacturer"]/a/text()," ",//h1[@class="title"]/text())
   - name: ingredientsList
     singleValue: false
     xpath: //div[@class="attribute Products_CustomData_1"]/div/div/text()
-  - name: url
+  # - name: url
+  #   singleValue: true
+  #   xpath: //meta[@property="og:url"]/@content
+  - name: imageZoomFeaturePresent
     singleValue: true
-    xpath: //meta[@property="og:url"]/@content
+    example: https://www.zalando.de/adidas-neo-sneaker-low-blackwhite-a4315i002-q11.html
+    defaultValue: Yes
+
+
 
 
 
