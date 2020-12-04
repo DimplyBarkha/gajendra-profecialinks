@@ -84,3 +84,7 @@ fields:
     xpath: //div[contains(@class,"ProductVariantsContainer")]//ul//li//a[not(contains(@title,"Sizing"))]/@title
   - name: packSize
     xpath: //ul//li[contains(.,"pack")]|//ul//li[contains(.,"Pack")]//ul//li[contains(.,"pack")]|//ul//li[contains(.,"Pack")][not(contains(.,"Pack "))]
+  - name: unInterruptedPDP
+    singleValue: false
+    xpath: //div[@class="ExternalRecommendations"]//h3[@class="title"]
+    description: Titles of products in the sections 'you may also like' or 'sponsored products'. Combine results from Max 3 sections
