@@ -16,8 +16,17 @@ module.exports = {
     dependencies,
   ) {
     await context.goto('https://www.sphere-sante.com/');
-    await context.setInputValue('input.search-input.searchTrack', inputs.id);
-    await new Promise(resolve => setTimeout(resolve, 30000));
-    await context.clickAndWaitForNavigation('.autocomplete-suggestions.content .column.products_search .autocomplete-suggestion.row', {}, { timeout: 50000 });
+    console.log(inputs.id);
+    // await context.evaluate('.searchBarHeader .search-input.searchTrack', inputs.id);
+    await context.evaluate(async function (inputs) {
+      document.querySelector('.searchBarHeader .search-input.searchTrack').value = inputs.id;
+    }, inputs);
+    await new Promise((resolve, reject) => setTimeout(resolve, 2000));
+    await context.click('.searchfbutton.searchButtonTrack.searchBarHeader-image');
+    // await context.click('div.produit-title-rating');
+    await context.evaluate(async function (inputs) {
+      document.querySelector('div.produit-title-rating').click();
+    });
+    await new Promise((resolve, reject) => setTimeout(resolve, 10000));
   },
 };
