@@ -14,11 +14,11 @@ module.exports = {
     await context.evaluate(async () => {
       let scrollTop = 0;
       while (scrollTop !== 20000) {
-        await stall(500);
+        await stall(1000);
         scrollTop += 1000;
         window.scroll(0, scrollTop);
         if (scrollTop === 20000) {
-          await stall(5000);
+          await stall(10000);
           break;
         }
       }
