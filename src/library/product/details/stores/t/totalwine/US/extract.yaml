@@ -59,7 +59,7 @@ fields:
   - name: brandText
     description: Product brand shown - this may actually NOT be just a brand name,
       e.g. "Visit the Gillette Store"
-    xpath: //div[contains(., 'BRAND')]/following-sibling::div/a
+    xpath: //div[contains(., 'BRAND')]/following-sibling::div[1]/span | //div[contains(., 'BRAND')]/following-sibling::div/a
   - name: manufacturer
     description: Product manufacturer
   - name: quantity
@@ -452,3 +452,5 @@ fields:
   - name: variantsInfo
     xpath: /html/body/@variations
     regExp: '[^|]+'
+  - name: attributes
+    xpath: //div[contains(@class,"detailsTableRow")]
