@@ -34,6 +34,23 @@ const transform = (data) => {
           text: row.additionalDescBulletInfo.length,
         }];
       }
+    if (row.price) {
+        row.price.forEach(item => {
+          item.text = item.text.replace('$', ' ').trim();
+          console.log("test",item.text);
+        });
+      }
+      if (row.listPrice) {
+        row.listPrice.forEach(item => {
+          item.text = item.text.replace('$', ' ').trim();
+        });
+      }
+
+      if (row.quantity) {
+        row.quantity.forEach(item => {
+          item.text = item.text.slice(5);
+        });
+      }
       if (row.description) {
         let text = '';
         if (row.description[0].text.includes('Key Benefits')) {
