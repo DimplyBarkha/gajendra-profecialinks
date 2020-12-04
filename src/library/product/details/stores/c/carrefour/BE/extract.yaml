@@ -26,7 +26,7 @@ fields:
     xpath: //h1//div[@class='prod-title']
   - name: availabilityText
     singleValue: false
-    xpath: //*[contains(@id,"productid")]//div[contains(@class,'pdp-priceSection')]//button[contains(@class,'btn_add_to_cart')]//span[text()='Toevoegen']
+    xpath: //*[contains(@id,"productid")]//div[contains(@class,'pdp-priceSection')]//button[contains(@class,'btn_add_to_cart')]//span[text()='Ajouter']
     regExp: (.+)
     regExpReplace: In Stock
     defaultValue: Out of Stock
@@ -35,7 +35,7 @@ fields:
     xpath: //*[contains(@id,"productid")]//div[contains(@class,'pdp-priceSection')]//div[@class='prod-price-sec']//span[@class='prod-price']  
   - name:  description
     singleValue: false
-    xpath: //div[contains(@class,'pdp-sec-style') and not(contains(@class,'hidden-xs'))]//h3[text()='Productomschrijving']//parent::div//following-sibling::div
+    xpath: //div[contains(@class,'pdp-sec-style') and not(contains(@class,'hidden-xs'))]//h3[text()='Description du produit']//parent::div//following-sibling::div
   - name: brandText
     singleValue: false
     xpath: //h1//div[@class='prod-brand']
@@ -60,13 +60,52 @@ fields:
     xpath: //span[@class="prod-promotions"]//p[@class='promotion']
   - name: ingredientsList
     singleValue: false
-    xpath: //div[contains(@class,'pdp-sec-style') and not(contains(@class,'hidden-xs'))]//h3[text()='Ingrediënten']//parent::div//following-sibling::div[1]  
-  - name: countryOfOrigin
-    singleValue: false
-    xpath: //div[contains(@class,'pdp-sec-style') and not(contains(@class,'hidden-xs'))]//h3[text()='Land van oorsprong']//parent::div//following-sibling::div
+    xpath: //div[contains(@class,'pdp-sec-style') and not(contains(@class,'hidden-xs'))]//h3[text()='Ingrédients']//parent::div//following-sibling::div[1]  
   - name: storage
     singleValue: false
-    xpath: //div[contains(@class,'pdp-sec-style') and not(contains(@class,'hidden-xs'))]//h3[text()='Bewaring']//parent::div//following-sibling::div[1]
-  - name: pricePerUnit
+    xpath: //div[contains(@class,'pdp-sec-style') and not(contains(@class,'hidden-xs'))]//h3[text()='Bewaring']//parent::div//following-sibling::div[1]  
+  - name: numberOfServingsInPackage
     singleValue: false
-    xpath: //*[contains(@id,"productid")]//div[contains(@class,'pdp-priceSection')]//div[@class='prod-price-sec']//span[@class='prod-price']
+    xpath: //div[@class="dataDecode"]//table//td[contains(text(),'portions')]
+  - name: totalCarbPerServing
+    singleValue: false
+    xpath: (//div[@class="dataDecode"]//tbody//tr//td[normalize-space()='Glucides']//following-sibling::td)[1]
+  - name: dietaryFibrePerServing
+    singleValue: false
+    xpath: (//div[@class="dataDecode"]//tbody//tr//td[normalize-space()='Fibres alimentaires']//following-sibling::td)[1]
+  - name: saturatedFatPerServing
+    singleValue: false
+    xpath: (//div[@class="dataDecode"]//tbody//tr//td[normalize-space()='dont acides gras saturés']//following-sibling::td)[1]
+  - name: proteinPerServing
+    singleValue: false
+    xpath: (//div[@class="dataDecode"]//tbody//tr//td[normalize-space()='Protéines']//following-sibling::td)[1]
+  - name: totalFatPerServing
+    singleValue: false
+    xpath: (//div[@class="dataDecode"]//tbody//tr//td[normalize-space()='Matières grasses']//following-sibling::td)[1]
+  - name: caloriesPerServing
+    singleValue: false
+    xpath: (//div[@class="dataDecode"]//tbody//tr//td[normalize-space()='Energie2']//following-sibling::td)[1]
+  - name: saltPerServing
+    singleValue: false
+    xpath: (//div[@class="dataDecode"]//tbody//tr//td[normalize-space()='Sel']//following-sibling::td)[1]
+  - name: totalSugarsPerServing
+    singleValue: false
+    xpath: (//div[@class="dataDecode"]//tbody//tr//td[normalize-space()='dont sucres']//following-sibling::td)[1]
+  - name: recyclingInformation
+    singleValue: false
+    xpath: //div[contains(@class,'pdp-sec-style') and not(contains(@class,'hidden-xs'))]//h3[text()='Tri des déchets']//parent::div//following-sibling::div[1]
+  - name: packaging
+    singleValue: false
+    xpath: (//h4[text()='Emballage']//parent::div//following-sibling::div)[1]
+  - name: pricePerUnit
+    singleValue: true
+    xpath: //*[contains(@id,"productid")]//div[contains(@class,'pdp-priceSection')]//div[@class='prod-price-comparison'][1]
+  - name: countryOfOrigin
+    singleValue: true
+    xpath: //div[contains(@class,'pdp-sec-style') and not(contains(@class,'hidden-xs'))]//h3[text()="Pays d'origine"]//parent::div//following-sibling::div
+  - name: imageZoomFeaturePresent
+    singleValue: false
+    xpath: //span[contains(@class,'con-search-magnifying-glass')]
+    regExp: (.+)
+    regExpReplace: Yes
+    defaultValue: No
