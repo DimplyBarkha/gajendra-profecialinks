@@ -40,7 +40,7 @@ async function implementation (
       return result;
     };
     // enhanced\_content
-    const nutrientsXpath = getAllXpath('//table//tr', 'innerHTML');
+    const nutrientsXpath = getAllXpath('//table[@class="widget__table"]//tr', 'innerHTML');
     return nutrientsXpath;
   });
   await context.goto(URL.toString());
