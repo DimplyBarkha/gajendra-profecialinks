@@ -29,13 +29,6 @@ const transform = (data) => {
           item.text="https://www.marionnaud.at"+item.text;
         })
       }
-      if(row.nameExtended){
-        let inf=[]
-        row.nameExtended.forEach(item=>{
-          inf.push(item.text);
-        })
-        row.nameExtended=[{"text":inf[1]+" - "+inf[0]}];
-      }
       if(row.variants){
         let inf=[]
         row.variants.forEach(item=>{
