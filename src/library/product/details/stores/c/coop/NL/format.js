@@ -45,6 +45,46 @@ const transform = (data) => {
           row.variantId = row.sku = [{ text: scriptJSON.id }];
         }
       }
+      if (row.nutrients) {
+        row.nutrients.forEach(item => {
+          var match = item.text.match(/Energie\s*([\d|\.]+)(.+?),/);
+          if (match) {
+            row.caloriesPerServing = [{ text: match[1].trim() }];
+            row.caloriesPerServingUOM = [{ text: match[2].trim() }];
+          }
+          match = item.text.match(/Vetten\s*([\d|\.]+)(.+?),/);
+          if (match) {
+            row.totalFatPerServing = [{ text: match[1].trim() }];
+            row.totalFatPerServingUOM = [{ text: match[2].trim() }];
+          }
+          match = item.text.match(/Koolhydraten\s*([\d|\.]+)(.+?),/);
+          if (match) {
+            row.totalCarbPerServing = [{ text: match[1].trim() }];
+            row.totalCarbPerServingUOM = [{ text: match[2].trim() }];
+          }
+          match = item.text.match(/Eiwitten\s*([\d|\.]+)(.+?),/);
+          if (match) {
+            row.proteinPerServing = [{ text: match[1].trim() }];
+            row.proteinPerServingUOM = [{ text: match[2].trim() }];
+          }
+          match = item.text.match(/Suikers\s*([\d|\.]+)(.+?),/);
+          if (match) {
+            row.totalSugarPerServing = [{ text: match[1].trim() }];
+            row.totalSugarPerServingUOM = [{ text: match[2].trim() }];
+          }
+          match = item.text.match(/Zout\s*([\d|\.]+)(.+?),/);
+          if (match) {
+            row.saltPerServing = [{ text: match[1].trim() }];
+            row.saltPerServingUOM = [{ text: match[2].trim() }];
+          }
+          match = item.text.match(/Voedingsvezel\s*([\d|\.]+)(.+?),/);
+          if (match) {
+            row.dietaryFibrePerServing = [{ text: match[1] }];
+            row.dietaryFibrePerServingUOM = [{ text: match[2] }];
+          }
+        });
+        delete row.nutrients;
+      }
     }
   }
   return cleanUp(data);

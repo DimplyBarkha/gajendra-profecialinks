@@ -40,31 +40,27 @@ fields:
     defaultValue: '0'
   - name: servingSize
     singleValue: false
-    xpath: //span[@data-resource-id='per-100']
+    xpath: //div[@id="iframe_data"]//span[@data-resource-id='per-100']
   # - name: servingSizeUom
   #   singleValue: false
   #   xpath: //span[@class='nutrient-portion-uom']
+  - name: nutrients
+    singleValue: false
+    xpath: //div[@id="iframe_data"]  
   - name: caloriesPerServing
     singleValue: false
-    xpath: //tr//td[contains(text(),'Energie')]/following-sibling::td      
   - name: totalFatPerServing
     singleValue: false
-    xpath: //tr//td[contains(text(),'Vetten')]/following-sibling::td      
   - name: totalCarbPerServing
     singleValue: false
-    xpath: //tr//td[contains(text(),'Koolhydraten')]/following-sibling::td      
   - name: proteinPerServing
     singleValue: false
-    xpath: //tr//td[contains(text(),'Eiwitten')]/following-sibling::td      
   - name: totalSugarPerServing
     singleValue: false
-    xpath: //tr//td[contains(text(),'Suikers')]/following-sibling::td      
   - name: saltPerServing
     singleValue: false
-    xpath: //tr//td[contains(text(),'Zout')]/following-sibling::td
   - name: dietaryFibrePerServing
     singleValue: false
-    xpath: //tr//td[contains(text(),'Voedingsvezel')]/following-sibling::td      
   - name: ingredientsList
     singleValue: false
     xpath: //div[@class='allergyInfo']
