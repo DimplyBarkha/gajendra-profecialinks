@@ -14,4 +14,4 @@ fields:
   - name: gtin
     singleValue: false
     xpath: //div[contains(@id, 'detail-bullets')]//div[contains(@class, 'content')]//ul/li//*[contains(text(), 'UPC')]/following-sibling::text()[1] | //span[contains(text(),"UPC") and contains(@class,"a-text")]//following-sibling::span | //*[normalize-space(text())="UPC"]/following-sibling::*[1]
-    regExp: ^[^\s]+
+    regExp: \w+

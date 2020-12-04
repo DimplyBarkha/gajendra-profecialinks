@@ -361,6 +361,10 @@ const transform = (data, context) => {
         row.availabilityText = row.availabilityTextFreshUnavailable;
         delete row.availabilityTextFreshUnavailable;
       }
+      if (row.gtin) {
+        const text = row.gtin.slice(0, 10).map(elm => elm.text).join(' ');
+        row.gtin = [{ text }];
+      }
       Object.keys(row).forEach(header => {
         row[header].forEach(el => {
           el.text = clean(el.text);
