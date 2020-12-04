@@ -446,6 +446,7 @@ fields:
   - name: promotion
     singleValue: true
     description: promotion text on product page
+    xpath: //strong[@class='_1BgFAbwo_xcNkFE6kw0SrS']
   - name: alcoholContent
     singleValue: true
     description: Alcohol content information
@@ -464,6 +465,7 @@ fields:
   - name: variantInformation
     singleValue: true
     description: colour / scent / flavour / other
+    xpath: //li[@data-test='variant-picker']/div/div[1]/text() | //li[@data-test='variant-picker']/div/label/text()
   - name: firstVariant
     singleValue: true
     description: Unique identifier for a collection of variants. For a subset of
@@ -475,12 +477,15 @@ fields:
       all variants of a product, this rpc becomes the common link between other
       variants. method 3 = apply some logic to determine link between variants,
       this will need analysis
+    xpath: //li[@data-test='variant-picker']//a[1]/@title
   - name: variants
     singleValue: false
     description: null
+    xpath: //li[@data-test='variant-picker']//a/@title | //li[@data-test='variant-picker']//option/text()
   - name: additionalDescBulletInfo
     singleValue: false
     description: null
+    xpath: //ul[@class='icEAdXPcKgFqrw7gnMYbo']/li
   - name: prop65Warning
     singleValue: true
     description: null
@@ -510,7 +515,10 @@ fields:
   - name: customerServiceAvailability
     singleValue: true
     description: Information related to customer service availability (text), ['Yes','No']
-    defaultValue: No
+    xpath: //div[@class='product-customercare _3iD7p8TR5w-4FiF2waOMXS']/span
+    regExp: (.+)
+    regExpReplace: 'Yes'
+    defaultValue: 'No'
   - name: materials
     singleValue: true
     description: Materials used to make the product
