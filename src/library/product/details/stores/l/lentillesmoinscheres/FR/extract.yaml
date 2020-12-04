@@ -20,7 +20,7 @@ fields:
   - name: category
     singleValue: false
     description: The categories (e.g. from breadcrumbs)
-    xpath: (//span[(position()>=10 and position()<12)]/a/span)
+    xpath: //span[@typeof="v:Breadcrumb"][position()>1 and position()<5]//a//text()
   - name: nameExtended
     singleValue: true
     description: The product name, prefixing "${brand} - " if not included in "name"
@@ -75,12 +75,15 @@ fields:
   - name: sku
     singleValue: true
     description: The store-specific product identifier
+    xpath: //input[@name="PRODUCTID"]/@value
   - name: variantId
     singleValue: true
     description: Identifier for a variant from a store where variants share the same sku
+    xpath: //input[@name="PRODUCTID"]/@value
   - name: mpc
     singleValue: true
     description: The manufacturer model code (unique) of the product
+    xpath: //input[@name="PRODUCTID"]/@value
   - name: packSize
     singleValue: true
     description: The number of packs in the product offer (if stated separately on
@@ -107,13 +110,14 @@ fields:
   - name: aggregateRating
     singleValue: true
     description: The stated aggregate rating normalized to be out of 5
-    xpath: //div[@class="number-rating"]
+    xpath: (//div[@class="number-rating"]//text())[1]
   - name: shippingInfo
     singleValue: true
     description: Shipping information for the product
   - name: shippingDimensions
     singleValue: true
     description: Stated shipping dimensions
+    xpath: //li[@class="diametre"]/text()[2]
   - name: shippingWeight
     singleValue: true
     description: Stated shipping weight
