@@ -62,10 +62,6 @@ fields:
     singleValue: true
     description: The product name
     xpath: //div[@class="product-page_name-box"]/h1/text()
-  - name: productUrl
-    singleValue: true
-    description: The URL for the product details page
-    xpath:
   - name: manufacturerDescription
     singleValue: false
     description: The extended description of the product supplied by the lister
@@ -118,5 +114,8 @@ fields:
   - name: onlinepricecurrency
     singleValue: true
     xpath: //meta[@itemprop="currency"]/@content
+  - name: url
+    singleValue: true
+    xpath: //link[@rel="canonical"]/@href
 
     
