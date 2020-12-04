@@ -44,12 +44,15 @@ const transform = (data) => {
       if (row.alternateImages) {
         const alternateImagesArr = row.alternateImages.map((item) => {
           const regExV1 = /(.*)60x60(.*)/;
-          if (regExV1.test(item.text)) {
-            return { text: `${item.text.match(/(.*)60x60(.*)/)[1]}280x430${item.text.match(/(.*)60x60(.*)/)[2]}` };
-          }
           const regExV2 = /(.*)w_60,h_60(.*)/;
-          if (regExV2.test(item.text)) {
+          if (regExV1.test(item.text)) {
+            console.log('Alternate Images 60x60 Console: ', regExV1.test(item.text));
+            return { text: `${item.text.match(/(.*)60x60(.*)/)[1]}280x430${item.text.match(/(.*)60x60(.*)/)[2]}` };
+          } else if (regExV2.test(item.text)) {
+            console.log('Alternate Images w_60,h_60 Console: ', regExV2.test(item.text));
             return { text: `${item.text.match(/(.*)w_60,h_60(.*)/)[1]}w_280,h_430${item.text.match(/(.*)w_60,h_60(.*)/)[2]}` };
+          } else {
+            return '';
           }
         });
         const alternateImagesResult = alternateImagesArr && alternateImagesArr.slice(1);

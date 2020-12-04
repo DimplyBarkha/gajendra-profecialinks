@@ -9,11 +9,11 @@ async function implementation (
   const { transform } = parameters;
   const { productDetails } = dependencies;
 
-  // to close popup on kids' products
-  const closeKidsProductPopup = await context.evaluate(function () {
+  // to close random popups
+  const closeRandomPopups = await context.evaluate(function () {
     return !!document.evaluate('//button[@data-dmid="layer-header-close-button"]', document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
   });
-  if (closeKidsProductPopup) {
+  if (closeRandomPopups) {
     await context.click('button[data-dmid="layer-header-close-button"]');
   }
 

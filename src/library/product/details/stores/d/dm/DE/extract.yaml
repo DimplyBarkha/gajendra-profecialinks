@@ -46,7 +46,7 @@ fields:
     xpath: //button[@aria-label="Wichtiger Hinweis"]/following-sibling::div | //button[@aria-label="Warnhinweise"]/following-sibling::div
   - name: alternateImages
     singleValue: false
-    xpath: //div[@data-dmid="detail-image-slider-container"]//div[@data-dmid="thumbnail-container"]//button[@data-dmid="thumbnail-button"]//img/@src
+    xpath: //div[@data-dmid="detail-image-slider-container"]//div[@data-dmid="thumbnail-container"]//button[@data-dmid="thumbnail-button"]//img[not(contains(@src, "youtube"))]/@src
   - name: ratingCount
     singleValue: true
     defaultValue: 0
