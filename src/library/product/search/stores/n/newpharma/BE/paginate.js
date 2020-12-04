@@ -6,7 +6,7 @@ module.exports = {
     country: 'BE',
     store: 'newpharma',
     nextLinkSelector: null,
-    nextLinkXpath: null,
+    nextLinkXpath: '(//td[@class="next"][contains(.,"Suiv")])[1]',
     mutationSelector: null,
     spinnerSelector: null,
     loadedSelector: 'div.product.js-product-row img',
