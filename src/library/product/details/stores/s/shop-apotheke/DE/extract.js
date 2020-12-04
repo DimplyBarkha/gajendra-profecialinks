@@ -10,6 +10,8 @@ module.exports = {
   },
   implementation: async (inputs, { country, domain, transform }, context, { productDetails }) => {
     await context.evaluate(async function () {
+      const productUrl = window.location.href;
+      document.body.setAttribute('url',productUrl);
       // @ts-ignore
       const dataObj = window.dataLayer[0].product;
 

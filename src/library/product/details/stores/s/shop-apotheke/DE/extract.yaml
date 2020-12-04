@@ -4,7 +4,7 @@ recordSelector: null
 recordXPath: null
 fields:
   - name: productUrl
-    xpath: //meta[@property="og:url"]/@content
+    xpath: //body/@url
   - name: image
     xpath: //a[@class='append_image'][1]/@href
   - name: imageAlt
@@ -18,7 +18,7 @@ fields:
   - name: nameExtended
     xpath: //h1[contains(@class,"o-ProductTemplate__heading")]
   - name: listPrice
-    xpath: //*[contains(@class,'m-ProductVariant__label--last')]/div[2]
+    xpath: //div[contains(@class,"m-ProductVariant__label--checked")]//span[contains(@class,"a-PriceOld--price")]
   - name: price
     xpath: //div[@id='pd_price']
   - name: availabilityText
