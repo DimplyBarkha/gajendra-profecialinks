@@ -22,21 +22,26 @@ const transform = (data, context) => {
   const productCodes = state.productCodes || [];
   for (const { group } of data) {
     for (const row of group) {
-      rankCounter += 1;
+      if (row.id) {
+        rankCounter += 1;
+      }
       if (!row.sponsored) {
         orgRankCounter += 1;
         row.rankOrganic = [{ text: orgRankCounter }];
       }
       row.rank = [{ text: rankCounter }];
-      if (row.price) {
-        row.price.forEach(item => {
-          item.text = item.text.substr(0, item.text.indexOf('-') - 1);
-        });
-      }
       if (row.reviewCount) {
         row.reviewCount.forEach(item => {
           item.text = item.text.substr(item.text.indexOf('(') + 1);
           item.text = item.text.substr(0, item.text.indexOf(')'));
+        });
+      }
+      if (row.thumbnail) {
+        row.thumbnail.forEach(item => {
+          item.text = item.text.replace(/(\?.*$)/, '').trim();
+          if (item.text.startsWith('//')) {
+            item.text = 'https:' + item.text.trim();
+          }
         });
       }
       Object.keys(row).forEach(header => row[header].forEach(el => {

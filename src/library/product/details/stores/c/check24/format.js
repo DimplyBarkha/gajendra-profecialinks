@@ -19,10 +19,16 @@ const transform = (data, context) => {
   for (const { group } of data) {
     for (const row of group) {
       if (row.additionalDescBulletInfo) {
-        const variantArray = row.additionalDescBulletInfo.map((item) => {
+        const descArray = row.additionalDescBulletInfo.map((item) => {
           return item.text;
         });
-        row.additionalDescBulletInfo = [{ text: variantArray.join('||'), xpath: row.additionalDescBulletInfo[0].xpath }];
+        row.additionalDescBulletInfo = [{ text: descArray.join('||'), xpath: row.additionalDescBulletInfo[0].xpath }];
+      }
+      if (row.variantInformation) {
+        const variantArray = row.variantInformation.map((item) => {
+          return item.text;
+        });
+        row.variantInformation = [{ text: variantArray.join('||'), xpath: row.variantInformation[0].xpath }];
       }
       if (row.ratingCount) {
         row.ratingCount.forEach(item => {

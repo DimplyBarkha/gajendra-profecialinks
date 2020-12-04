@@ -83,7 +83,7 @@ fields:
     xpath: //div[@class="price-info__info-text qa-points-info"]
   - name: variantInformation
     singleValue: false
-    xpath: //div//*[contains(text(),'Farbe:')]//following::div[1]//span
+    xpath: //div//*[contains(text(),'Farbe:')]//following::div[1]//span | //div//*[contains(text(),'Größe:')]//following::div[1]//span
   - name: firstVariant
     singleValue: false
     xpath: //div[@class="pdp-top grid-x"]//div[@class="cell auto grid-y"]//div//@data-id
@@ -99,3 +99,6 @@ fields:
     regExp: (.+)
     regExpReplace: In Stock
     defaultValue: Out of Stock
+  - name: _url
+    singleValue: false
+    xpath: //link[@rel="canonical"]//@href
