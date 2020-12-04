@@ -8,7 +8,7 @@ fields:
     xpath: //meta[@property="og:url"]/@content
   - name: image
     singleValue: false
-    xpath: //div[contains(@class,'fa--image-gallery-item__desktop')]/div/img[contains(@src,'_1?') or contains(@src,'_01?')][1]/@src
+    xpath: //div[contains(@class,'fa--image-gallery-item__desktop')]/img/@src
   - name: category
     singleValue: false
     xpath: //ol[contains(@class,'breadcrum')]/li[position() >1 ]
@@ -19,16 +19,16 @@ fields:
     regExpReplace: $1
   - name: imageAlt
     singleValue: false
-    xpath: //meta[@property="og:image:alt"]/@content
+    xpath: //div[contains(@class,'fa--image-gallery-item__desktop')]/img/@alt
   - name: alternateImages
     singleValue: false
-    xpath: //div[contains(@class,'fa--image-gallery-item__desktop')]/div/img[contains(@src,'_') and not(contains(@src,'_1?'))]/@src
+    xpath: //div[contains(@class,'carousel-wrapper') and not(contains(@class,'active'))]//img/@src
   - name: metaKeywords
     singleValue: false
     xpath: //meta[@name="keywords"]/@content
-  - name: promotion
-    singleValue: false
-    xpath: //span[contains(@class,'pod-badges-item')]
+  # - name: promotion
+  #   singleValue: false
+  #   xpath: //span[contains(@class,'pod-badges-item')]
   - name: mpc
     singleValue: false
     xpath: //td[contains(text(),'Modelo')]/following-sibling::td[1]
@@ -90,7 +90,7 @@ fields:
     xpath: //div[@itemprop='ratingValue']
   - name: videos
     singleValue: false
-    xpath: concat(substring-after(//img[contains(@id,'https://www.youtube.com/')]/@id, 'image-') , //iframe[contains(@src,'youtube')]/@src)
+    xpath: //iframe[contains(@src,'youtube')]/@src
   - name: specifications
     singleValue: false
     xpath: //table[contains(@class,'specification-table')]
@@ -102,7 +102,7 @@ fields:
     xpath: //div[contains(@class,'fb-product-information__product-information-tab')]
   - name: color
     singleValue: false
-    xpath: //div[contains(@class,'color-swatch-container')]//span[contains(@class,'normal')]
+    xpath: //div[contains(@class,'color')]//span[contains(@class,'normal')]
   - name: imageZoomFeaturePresent
     singleValue: false
     defaultValue: 'Yes'
