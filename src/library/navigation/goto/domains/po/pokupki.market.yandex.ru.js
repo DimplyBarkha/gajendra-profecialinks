@@ -35,7 +35,7 @@ module.exports = {
     console.log('Status :', responseStatus.status);
     console.log('URL :', responseStatus.url);
 
-    const captchaFrame = "iframe[_src*='captcha']:not([title]), iframe[src*='captcha']:not([title])";
+    const captchaFrame = "form.form.form_error_no";
     try {
       await context.waitForSelector(captchaFrame);
     } catch (e) {
