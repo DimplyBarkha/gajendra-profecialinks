@@ -135,7 +135,7 @@ async function implementation(
 
   // updating the zip change using an API
   await context.evaluate(async function (zipcode) {
-    const zipAndStoreDetails = { //hold the
+    const zipAndStoreDetails = { //holds the zipcode and respective restraunts to select
       '45209': {
         name: 'Hyde Park',
         locationId: '01400355'
