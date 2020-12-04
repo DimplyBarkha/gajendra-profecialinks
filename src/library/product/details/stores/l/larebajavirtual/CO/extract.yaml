@@ -31,7 +31,7 @@ fields:
     xpath: //div[@class='descripciones']/div/h1
     description: The product name, prefixing "${brand} - " if not included in "name"
       and appending " - ${variantType}" if necessary (fixed per feed)
-  - name: listPrice
+  - name: price
     singleValue: true
     xpath: //span[@style='font-weight:bolder;']|(//td[@valign='bottom']/div/span[@class='ahora'])[1]
     description: The stated undiscounted price for the product
