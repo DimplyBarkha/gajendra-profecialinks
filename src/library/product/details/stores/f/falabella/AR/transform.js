@@ -55,7 +55,7 @@ const transform = (data) => {
           item.text = item.text.split('?')[0]
         });
       }
-      if (row.alternateImages) {
+      if (row.alternateImages && row.alternateImages.length) {
         row.alternateImages.forEach(item => {
           item.text = item.text.split('?')[0]
         });
@@ -72,6 +72,12 @@ const transform = (data) => {
           }
         });
 
+        const unq = [...new Set(row.alternateImages.map(item => item.text))];
+
+        row.alternateImages = [];
+        unq.forEach((item) => {
+          row.alternateImages.push({ text: item });
+        });
         row.secondaryImageTotal = [{ text: row.alternateImages ? row.alternateImages.length : 0 }];
       }
     }

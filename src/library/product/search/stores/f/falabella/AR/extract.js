@@ -32,6 +32,7 @@ async function implementation(
       }
     });
   };
+  await applyScroll(context);
   await context.evaluate(async function () {
 
     let URL = window.location.href;
@@ -52,7 +53,6 @@ async function implementation(
     }
     return result;
   });
-  await applyScroll(context);
   return await context.extract(productDetails, { transform });
 }
 module.exports = {

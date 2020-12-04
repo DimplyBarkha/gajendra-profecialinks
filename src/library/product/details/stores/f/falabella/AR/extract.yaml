@@ -22,7 +22,7 @@ fields:
     xpath: //div[contains(@class,'fa--image-gallery-item__desktop')]/img/@alt
   - name: alternateImages
     singleValue: false
-    xpath: //div[contains(@class,'carousel-wrapper') and not(contains(@class,'active'))]//img/@src
+    xpath: //div[contains(@class,'fa--image-gallery-item__desktop')]/div/img[contains(@src,'_') and not(contains(@src,'_1?'))]/@src
   - name: metaKeywords
     singleValue: false
     xpath: //meta[@name="keywords"]/@content
@@ -67,9 +67,6 @@ fields:
   - name: descriptionBullets
     singleValue: false
     xpath: count(//div[contains(@class,'specifications-list')]/ul/li)
-  - name: secondaryImageTotal
-    singleValue: false
-    xpath: count(//div[contains(@class,'fa--image-gallery-item__desktop')]/div/img[contains(@src,'_') and not(contains(@src,'_1?'))]/@src)
   - name: brandText
     singleValue: false
     xpath: //div/@data-brand
