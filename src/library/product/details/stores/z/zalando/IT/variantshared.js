@@ -18,8 +18,10 @@ const cleanUp = (data, context) => {
     .replace(/[\uD800-\uDBFF][\uDC00-\uDFFF]/g, ' ');
   for (const { group } of data) {
     for (const row of group) {
-      if (row.price) {
-        row.price[0].text = row.price[0].text.replace('.', ',');
+      if (row.variantUrl) {
+        if (!row.variantUrl[0].text.includes('https://www.zalando.it')) {
+          row.variantUrl[0].text = `https://www.zalando.it${row.variantUrl[0].text}`
+        }
       }
     }
   }

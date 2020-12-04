@@ -5,6 +5,6 @@ module.exports = {
     country: 'IT',
     store: 'zalando',
     domain: 'zalando.it',
-    zipcode: "''",
+    zipcode: "",
   },
 };

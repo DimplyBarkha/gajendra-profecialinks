@@ -40,7 +40,7 @@ async function implementation(
       const jsonData = scriptElement && scriptElement.innerText && JSON.parse(scriptElement.innerText);
       const imageArray = jsonData && jsonData.image;
       const primaryImage = imageArray && imageArray.slice(0, 1);
-      const primaryImageWithIncreasedSize = primaryImage.map((element) => element && element.replace(/(.+)(\?)(imwidth=)(\d+)/g, '$1$2$3500'));
+      const primaryImageWithIncreasedSize = primaryImage.map((element) => element && element.replace(/(.+)(\?)(imwidth=)(\d+)/g, '$1$2$31800'));
       return primaryImageWithIncreasedSize[0];
     }
 
@@ -49,7 +49,7 @@ async function implementation(
       const jsonData = scriptElement && scriptElement.innerText && JSON.parse(scriptElement.innerText);
       const imageArray = jsonData && jsonData.image;
       const secondaryImages = imageArray && imageArray.slice(1);
-      const secondaryImagesWithIncreasedSize = secondaryImages.map((element) => element && element.replace(/(.+)(\?)(imwidth=)(\d+)/g, '$1$2$3500'));
+      const secondaryImagesWithIncreasedSize = secondaryImages.map((element) => element && element.replace(/(.+)(\?)(imwidth=)(\d+)/g, '$1$2$31800'));
       const secondaryImageJoinedByPipe = secondaryImagesWithIncreasedSize.map(element => element && element.trim()).join(' | ');
       return secondaryImageJoinedByPipe
     }
@@ -149,7 +149,7 @@ async function implementation(
   // }
   return await context.extract(productDetails, { transform });
 }
-const cleanUp = require('./shared');
+const { cleanUp } = require('./shared');
 module.exports = {
   implements: 'product/details/extract',
   parameterValues: {
