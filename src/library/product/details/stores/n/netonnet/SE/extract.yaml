@@ -126,7 +126,8 @@ fields:
     xpath: (//td//font[contains(text(), 'Width (shipping)')]/following::td[1]|//td//font[contains(text(), 'Depth (shipping)')]/following::td[1]|//td//font[contains(text(), 'Height (shipping)')]/following::td[1]|//td//font[contains(text(), "Weight (shipping)") ]/following::td[1]|//td//font[contains(text(), 'Shipping width')]/following::td[1]|//td//font[contains(text(), 'Shipping depth')]/following::td[1]|//td//font[contains(text(), 'Shipping height')]/following::td[1]|//td//font[contains(text(), "Shipping weight") ]/following::td[1]|//td[contains(text(), 'Bredde (forsendelse)')]/following::td[1]|//td[contains(text(), 'Dybde (forsendelse)')]/following::td[1]|//td[contains(text(), 'Høyde (forsendelse)')]/following::td[1]|//td[contains(text(), "Vekt (forsendelse)")]/following::td[1]|//td[contains(text(), 'Fraktbredde')]/following::td[1]|//td[contains(text(), 'Fraktdybde')]/following::td[1]|//td[contains(text(), 'Frakthøyde')]/following::td[1]|//td[contains(text(), "Fraktvekt")]/following::td[1]| //td[contains(text(), 'Höjd')]/following::td[1] | //td[contains(text(), 'Bredd')]/following::td[1] | //td[contains(text(), 'Djup')]/following::td[1])
   - name: manufacturerDescription
     singleValue: false
-    xpath: //div[@id='collapseFive']//div[@class='panel-body']//div[@class='row']//div[@class='col-xs-12']//p//text()
+    xpath: //div[@id='collapseFive']//div[@class='panel-body']//div[@class='row']//img//../../..//div[contains(@class,'col')]//p
+    # xpath: //div[@id='collapseFive']//div[@class='panel-body']//div[@class='row']//div[@class='col-xs-12']//p//text()
   - name: secondaryImageTotal
     singleValue: false
     xpath: count(//div[@class='owl-item']//img[contains(@class,'productImage')]//@data-src)
