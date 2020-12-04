@@ -30,6 +30,11 @@ const transform = (data) => {
                 row.rank = [{'text':p_count}];
                 p_count = p_count + 1;
             }
+            if (row.price) {
+                row.price.forEach(item => {                    
+                    item.text = item.text.substring(1);
+                });
+            }
             if (row.productUrl) {
                 row.productUrl.forEach(item => {                    
                     item.text = "https://www.walmart.ca/" + item.text;
