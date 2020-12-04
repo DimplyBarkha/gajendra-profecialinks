@@ -91,7 +91,7 @@ async function implementation (
   });
 
   if (!url && openSearchDefinition) {
-    const { pageStartNb = 1, indexOffset, pageOffset, pageIndexMultiplier, template } = openSearchDefinition;
+    const { pageStartNb = 0, indexOffset, pageOffset, pageIndexMultiplier, template } = openSearchDefinition;
     const pageNb = page + pageStartNb - 1;
     url = template
       .replace(/{searchTerms}/g, encodeURIComponent(keywords))
