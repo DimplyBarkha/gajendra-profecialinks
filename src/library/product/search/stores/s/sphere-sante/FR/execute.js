@@ -18,7 +18,7 @@ module.exports = {
   ) {
     await context.goto('https://www.sphere-sante.com/');
     await context.setInputValue('input.search-input.searchTrack', inputs.keywords);
-    await new Promise(resolve => setTimeout(resolve, 30000));
+    await new Promise(resolve => setTimeout(resolve, 2000));
     await context.clickAndWaitForNavigation('.searchfbutton.searchButtonTrack.searchBarHeader-image', {}, { timeout: 100000 });
     if (parameters.loadedSelector) {
       await context.waitForFunction(function (sel, xp) {
