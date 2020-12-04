@@ -40,10 +40,10 @@ fields:
     singleValue: false
     xpath: //div[contains(@class,"u-margin-large--bottom@small-tiny")]//div[@data-qa-id="product-rating"]//a[contains(@class,"m-StarRating__reviews-locator")]/span
   - name: aggregateRating
-    singleValue: true
+    singleValue: false
     xpath: //div[contains(@class,"u-margin-large--bottom@small-tiny")]//div[@data-qa-id="product-rating"]/a/span
   - name: variantCount
-    singleValue: true
+    singleValue: false
     xpath: //div[@id="h_ProductVariants"]//li[contains(@class,"m-ProductVariants__item")]/div/@class
   - name: manufacturerDescription
     singleValue: false
