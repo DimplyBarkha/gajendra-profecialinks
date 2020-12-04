@@ -87,8 +87,6 @@ fields:
   - name: gtin
     singleValue: false
     xpath: //div[contains(@id, 'detail-bullets')]//div[contains(@class, 'content')]//ul/li//*[contains(text(), 'UPC')]/following-sibling::text()[1] | //span[contains(text(),"UPC") and contains(@class,"a-text")]//following-sibling::span | //*[normalize-space(text())="UPC"]/following-sibling::*[1]
-  - name: asin
-    xpath: //div[contains(@id, 'detail-bullets')]//div[contains(@class, 'content')]//ul/li//*[contains(text(), 'ASIN')]/../../text()
   - name: variantId
     singleValue: false
     # xpath: //script[contains(@type,"a-state") and contains(text(), "parentAsin")]
@@ -180,7 +178,7 @@ fields:
     xpath: //div[@id='added-url']
   - name: asin
     #singleValue: true
-    xpath: //div[@id='added-asin']
+    xpath: //div[@id='added-asin'] | //div[contains(@id, 'detail-bullets')]//div[contains(@class, 'content')]//ul/li//*[contains(text(), 'ASIN')]/../../text()
     regExp: ^\w+
   - name: sku
   - name: coupon
@@ -717,3 +715,4 @@ fields:
     # xpath: //*[contains(@class,"priceBlockSavingsString")]
     # regExp: '\(([\d,.%\s]+)\)'
     # regExpReplace: $1
+    
