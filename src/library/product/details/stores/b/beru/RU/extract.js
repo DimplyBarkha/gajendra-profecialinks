@@ -13,11 +13,36 @@ module.exports = {
 async function implementation(inputs, parameters, context, dependencies) {
   const { transform } = parameters;
   const { productDetails } = dependencies;
-
+  let urlredirect = ''
   const mainUrl = await context.evaluate(() => {
     return window.location.href;
   });
   console.log('mainUrl---->', mainUrl);
+  if(mainUrl.includes('https://pokupki.market.yandex.ru/showcaptcha?cc=1&retpath=https%3A/')) {
+    urlredirect =  mainUrl.replace('https://pokupki.market.yandex.ru/showcaptcha?cc=1&retpath=https%3A/', '')
+  }
+  if(urlredirect) {
+    await context.setBlockAds(false);
+    await context.setLoadAllResources(true);
+    await context.setLoadImages(true);
+    await context.setJavaScriptEnabled(true);
+    await context.setAntiFingerprint(false);
+    await context.setUseRelayProxy(false);
+    await context.goto(urlredirect, {
+      timeout: 50000,
+      waitUntil: 'load',
+      checkBlocked: true,
+    });
+    try {
+    } catch (error) {
+      console.log('Cookie button click fail');
+    }
+    try {
+      // await context.waitForSelector('p.category');
+    } catch (error) {
+      console.log('selector not present');
+    }
+  }
   let url = '';
   try {
     url = await context.evaluate(() => {
