@@ -1,0 +1,151 @@
+input:
+  _url: http://dyson.se
+  URL: https://www.dyson.se/belysning/arbetsbelysning/dyson-lightcycle-morph/bordslampa-svart
+extractions:
+  - html: https://workbench.import.io/html/run=91423214-03b6-4b21-87cc-d697e4eac75c/task=34a2f5fa-9b06-41e4-b5bb-1ee29dded1e6/3e3abcb5-7f88-483c-9e11-16499e7e919c.html
+    extractionConfigId: product/details/stores/d/dyson/SE/extract
+    data:
+      - group:
+          - category:
+              - text: Belysning
+                xpath: /html/body/nav[1]/div[1]/div[1]/div[1]/div[1]/nav[1]/div[2]/div[1]/div[1]/nav[1]/ol[1]/li[2]/span[1]/a[1]/span[1]
+              - text: Dyson arbetsbelysning
+                xpath: /html/body/nav[1]/div[1]/div[1]/div[1]/div[1]/nav[1]/div[2]/div[1]/div[1]/nav[1]/ol[1]/li[3]/span[1]/a[1]/span[1]
+              - text: Dyson Lightcycle™ Morph
+                xpath: /html/body/nav[1]/div[1]/div[1]/div[1]/div[1]/nav[1]/div[2]/div[1]/div[1]/nav[1]/ol[1]/li[4]/span[1]/a[1]/span[1]
+            image:
+              - text: https://dyson-h.assetsadobe2.com/is/image/content/dam/dyson/products/lighting/lightcycle-morph/pdp/black-black/desk/01%20hero.jpg?$responsive$&cropPathE=desktop&fit=stretch,1&wid=1920
+                xpath: /html/body/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/img[1]/@src
+            imageAlt:
+              - text: Dyson Lightcycle Morph-lampan
+                xpath: /html/body/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/img[1]/@alt
+            description:
+              - text: >-
+                  Dyson Lightcycle Morph™ bordslampa (svart/svart)
+                   
+                  Ändrar. Justerar. Och läser intelligent av dagsljuset där du befinner dig.
+                   
+                  Med en ljuskvalitet som varar i upp till 60 år¹
+                xpath: /html/body/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]
+            ratingCount:
+              - text: "2"
+                xpath: /html/body/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/p[1]
+            aggregateRatingText:
+              - text: "4.5"
+                xpath: /html/body/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/@aria-label
+            aggregateRating:
+              - text: "4.5"
+                xpath: /html/body/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/@aria-label
+            shippingInfo:
+              - text: |-
+                  Gratis flexibel frakt 
+                  och gratis retur
+                xpath: /html/body/main[1]/div[2]/div[2]/div[1]/div[1]/section[1]/div[1]/div[1]/ul[1]/li[2]
+            name:
+              - text: Dyson Lightcycle Morph™ bordslampa (svart/svart)
+                xpath: /html/body/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/h1[1]
+            specifications:
+              - text: |-
+                  Höjd
+                   
+                   523 mm 
+                   
+                   
+                   
+                  Längd
+                   
+                   414 mm 
+                   
+                   
+                   
+                  Bredd
+                   
+                   200 mm
+                xpath: /html/body/main[1]/div[2]/div[8]/section[1]/div[1]/div[1]/ul[1]
+            warranty:
+              - text: |-
+                  2 års garanti 
+                  Aktiveras automatiskt
+                xpath: /html/body/main[1]/div[2]/div[2]/div[1]/div[1]/section[1]/div[1]/div[1]/ul[1]/li[3]
+            firstVariant:
+              - text: Vit / Silver
+                xpath: /html/body/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[2]/div[2]/a[1]/span[1]/img[1]/@alt
+            variants:
+              - text: Vit / Silver
+                xpath: /html/body/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[2]/div[2]/a[1]/span[1]/img[1]/@alt
+              - text: Svart - Selected colour
+                xpath: /html/body/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/span[1]/img[1]/@alt
+            weightNet:
+              - text: |-
+                  Vikt
+                   
+                   3,5 kg
+                xpath: /html/body/main[1]/div[2]/div[8]/section[1]/div[1]/ul[1]/li[1]
+            productUrl:
+              - text: https://www.dyson.se/belysning/arbetsbelysning/dyson-lightcycle-morph/bordslampa-svart
+                xpath: /html/body/div[7]
+            brandText:
+              - text: Dyson
+                xpath: /html/body/div[8]
+            sku:
+              - text: 294643-01
+                xpath: /html/body/div[9]
+            variantId:
+              - text: 294643-01
+                xpath: /html/body/div[9]
+            mpc:
+              - text: 294643-01
+                xpath: /html/body/div[9]
+            color:
+              - text: Black-Black
+                xpath: /html/body/div[10]
+            price:
+              - text: 5790 kr
+                xpath: /html/body/div[12]
+            nameExtended:
+              - text: Dyson Lightcycle Morph™ bordslampa (svart/svart) - Vit / Silver
+                xpath: /html/body/div[13]
+            variantInformation:
+              - text: Svart
+                xpath: /html/body/div[14]
+            productOtherInformation:
+              - text: Vikt 3,5 kg Ljuskälla LED CRI 90 MIN Nominell effekt 11,2 W Livslängd för
+                  LED-lampa 181 000 hrs Verkningsgrad 80 % R9 48 MIN Frekvens
+                  50/60 hz Färgtemperatur med lampan fäst 1800-3400 K
+                  Färgtemperatur med lampan ej fäst 2700-6500 K Ljuseffekt ² 850
+                  lm Genomsnittligt lux-värde ³ 1 546 lx Flimmer ⁴ <1 %
+                  Ljuseffektivitet 75 l/W Elklassificering Class III
+                  Energiförbrukning i standby-läge <0.5 W Nätspänning 100-240 V
+                  Strålvinkel 78 °
+                xpath: /html/body/div[15]
+            manufacturerDescription:
+              - text: Nyckelfunktioner Arbetsljus Fokuserad, kraftfull belysning. Främjar
+                  visuell prestanda.² Indirekt ljus Rotera det optiska huvudet
+                  för mjuk bakgrundsbelysning eller för att förstärka känslan av
+                  rymd. Punktljus Högkvalitativ belysning för att visa upp konst
+                  och dekorativa detaljer. Stämningsljus Skapar ett lugnande
+                  sken för en avslappnande miljö, med svagt blått ljus. Allt
+                  kontrolleras genom Dyson Link-appen³ Justera ljuset för din
+                  ålder, uppgift, stämning och tid på dagen. Magnetisk 'touch
+                  glide' anslutning Det optiska huvudet är förseglat mot stammen
+                  för att skapa ett avkopplande orange sken.
+                xpath: /html/body/div[16]
+            availabilityText:
+              - text: In Stock
+                xpath: /html/body/div[20]
+            manufacturer:
+              - text: Dyson
+            descriptionBullets:
+              - text: "0"
+            variantCount:
+              - text: "2"
+            technicalInformationPdfPresent:
+              - text: "false"
+            termsAndConditions:
+              - text: "false"
+            privacyPolicy:
+              - text: "false"
+            customerServiceAvailability:
+              - text: "false"
+        xpath: /html/body
+    timestamp: 1607089849571

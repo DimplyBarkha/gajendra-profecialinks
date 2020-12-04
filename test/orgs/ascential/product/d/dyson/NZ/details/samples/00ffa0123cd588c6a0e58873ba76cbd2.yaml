@@ -1,0 +1,117 @@
+input:
+  _url: http://dyson.co.nz
+  URL: https://www.dyson.co.nz/dyson-pure-cool-me-gunmetal-copper
+extractions:
+  - html: https://workbench.import.io/html/run=5a9b9ae3-3f73-4942-9e75-905f6e7e6a9d/task=453a8aee-6e87-4b52-8a2c-75eb3fb80176/d1962e21-5435-4aaf-86b3-5e01a1a3fea5.html
+    extractionConfigId: product/details/stores/d/dyson/NZ/extract
+    data:
+      - group:
+          - productUrl:
+              - text: https://www.dyson.co.nz/dyson-pure-cool-me-gunmetal-copper
+                xpath: /html/head[1]/link[8]/@href
+            image:
+              - text: https://dyson-h.assetsadobe2.com/is/image/content/dam/dyson/leap-petite-global/products/ec/619/varient/gun-metal-copper/ppp/magento-hero_619-GMTCO_ppp.png?scl=1&fmt=png-alpha
+                xpath: /html/body/div[5]/main[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/img[1]/@src
+            imageAlt:
+              - text: Dyson Pure Cool Me™ personal purifier fan (Gunmetal/Copper)
+                xpath: /html/body/div[5]/main[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/img[1]/@alt
+            metaKeywords:
+              - text: Choose your Dyson Pure Cool Me™ personal purifier fan. Available direct
+                  from Dyson, in a selection of colours.
+                xpath: /html/head[1]/meta[3]/@content
+            nameExtended:
+              - text: Dyson Pure Cool Me™ personal purifier fan (Gunmetal/Copper)
+                xpath: /html/body/div[5]/main[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/img[1]/@alt
+            price:
+              - text: NZ$549.00
+                xpath: /html/body/div[5]/main[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/strong[1]/span[1]/span[1]/span[1]
+            availabilityText:
+              - text: In Stock
+                xpath: /html/body/div[8]
+            description:
+              - text: |-
+                  Senses particles and gases
+                   
+                   
+                   
+                  Captures pollutants you can't see
+                   
+                   
+                   
+                  Purified air to cool you1
+                   
+                   
+                   
+                  Focused, personal airflow
+                xpath: /html/body/div[5]/main[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[2]
+            weightNet:
+              - text: 2.8kg
+                xpath: /html/body/div[5]/main[1]/div[2]/div[7]/div[1]/div[1]/div[1]/ul[1]/li[4]/div[1]/span[1]/em[1]/span[1]
+            sku:
+              - text: 275920-01
+                xpath: /html/body/div[5]/main[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[2]/meta[2]/@content
+            variantId:
+              - text: 275920-01
+                xpath: /html/body/div[5]/main[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[2]/meta[2]/@content
+            mpc:
+              - text: 275920-01
+                xpath: /html/body/div[5]/main[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[2]/meta[2]/@content
+            manufacturerDescription:
+              - text: All features Focused, personal cooling Delivers cooling, purified airflow
+                  – wherever you need it.1 Captures gases and 99.95% of
+                  pollutants2 An activated carbon and glass HEPA filter captures
+                  gases and 99.95% of ultrafine particles from the air around
+                  you.2 Dyson Core Flow™ technology Only Dyson personal
+                  purifying fans use Dyson Core Flow™ technology. This guides
+                  high-velocity air jets over a convex surface. They coalesce to
+                  project a focused stream of air. Precise airflow control This
+                  unique dome mechanism controls the strength of each air jet,
+                  so you can direct airflow precisely where you need it. Smooth
+                  oscillation Set your machine to rotate from side to side, to
+                  deliver airflow through a 70˚ range. Sleep timer At night, you
+                  can set the sleep timer for between 15 minutes and 8 hours. So
+                  you can keep cool and comfortable while you rest. Easy filter
+                  maintenance Built-in reminders show you when your filter needs
+                  changing.3 It’s quick and easy to do, to ensure you're always
+                  breathing purified air. Sensitive Choice Sensitive Choice®
+                  approved Certified Asthma & Allergy friendly™ Dyson purifiers
+                  are certified asthma & allergy friendly™ by Airmid Healthgroup
+                  laboratories
+                xpath: /html/body/div[10]
+            manufacturerImages:
+              - text: https://dyson-h.assetsadobe2.com/is/image/content/dam/dyson/leap-petite-global/products/ec/619/varient/featurettes/white-silver/air-quality-purifier-619-variant-office-whsil.jpg?$responsive$&cropPathE=desktop&fit=stretch,1&wid=3840
+                xpath: /html/body/div[5]/main[1]/div[2]/div[5]/div[1]/div[1]/div[1]/ul[1]/li[1]/div[1]/img[1]/@src
+              - text: https://dyson-h.assetsadobe2.com/is/image/content/dam/dyson/leap-petite-global/products/ec/619/varient/featurettes/air-quality-purifier-619-variant-filter-updated.jpg?$responsive$&cropPathE=desktop&fit=stretch,1&wid=3840
+                xpath: /html/body/div[5]/main[1]/div[2]/div[5]/div[1]/div[1]/div[1]/ul[1]/li[2]/div[1]/img[1]/@src
+              - text: https://dyson-h.assetsadobe2.com/is/image/content/dam/dyson/leap-petite-global/products/ec/619/varient/featurettes/air-quality-purifier-619-variant-core-flow-updated.jpg?$responsive$&cropPathE=desktop&fit=stretch,1&wid=3840
+                xpath: /html/body/div[5]/main[1]/div[2]/div[5]/div[1]/div[1]/div[1]/ul[1]/li[3]/div[1]/img[1]/@src
+              - text: https://dyson-h.assetsadobe2.com/is/image/content/dam/dyson/leap-petite-global/products/ec/619/varient/featurettes/white-silver/air-quality-purifier-619-variant-airflow-control-whsil.jpg?$responsive$&cropPathE=desktop&fit=stretch,1&wid=3840
+                xpath: /html/body/div[5]/main[1]/div[2]/div[5]/div[1]/div[1]/div[1]/ul[1]/li[4]/div[1]/img[1]/@src
+              - text: https://dyson-h.assetsadobe2.com/is/image/content/dam/dyson/leap-petite-global/products/ec/619/overview/air-quality-purifier-pure-cool-me-overview-oscillation.jpg?$responsive$&cropPathE=desktop&fit=stretch,1&wid=3840
+                xpath: /html/body/div[5]/main[1]/div[2]/div[5]/div[1]/div[1]/div[1]/ul[1]/li[5]/div[1]/img[1]/@src
+              - text: https://dyson-h.assetsadobe2.com/is/image/content/dam/dyson/leap-petite-global/products/ec/619/varient/featurettes/white-silver/air-quality-purifier-619-variant-sleep-whsil.jpg?$responsive$&cropPathE=desktop&fit=stretch,1&wid=3840
+                xpath: /html/body/div[5]/main[1]/div[2]/div[5]/div[1]/div[1]/div[1]/ul[1]/li[6]/div[1]/img[1]/@src
+              - text: https://dyson-h.assetsadobe2.com/is/image/content/dam/dyson/leap-petite-global/products/ec/619/varient/featurettes/white-silver/air-quality-purifier-619-variant-filter-change-whsil.jpg?$responsive$&cropPathE=desktop&fit=stretch,1&wid=3840
+                xpath: /html/body/div[5]/main[1]/div[2]/div[5]/div[1]/div[1]/div[1]/ul[1]/li[7]/div[1]/img[1]/@src
+              - text: https://dyson-h.assetsadobe2.com/is/image/content/dam/dyson/leap-petite-global/markets/new-zealand/3rd-party-logos/sensitive-choice-NZ-featurette-update.jpg?$responsive$&cropPathE=desktop&fit=stretch,1&wid=3840
+                xpath: /html/body/div[5]/main[1]/div[2]/div[5]/div[1]/div[1]/div[1]/ul[1]/li[8]/div[1]/img[1]/@src
+              - text: https://dyson-h.assetsadobe2.com/is/image/content/dam/dyson/countries/us/campaigns/vacuums/pet-owners/us-campaign-vacuums-pet-owners-tools-asthma-allergy-certified.jpg
+                xpath: /html/body/div[5]/main[1]/div[2]/div[5]/div[1]/div[1]/div[1]/ul[1]/li[9]/div[1]/img[1]/@src
+              - text: https://dyson-h.assetsadobe2.com/is/image/content/dam/dyson/leap-petite-global/products/ec/619/varient/gun-metal-copper/air-quality-619-variant-spec-gmtco.jpg?$responsive$&fmt=png-alpha&cropPathE=desktop&fit=stretch,1&wid=960
+                xpath: /html/body/div[5]/main[1]/div[2]/div[7]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/picture[1]/img[1]/@src
+            name:
+              - text: Dyson Pure Cool Me™ personal purifier fan (Gunmetal/Copper)
+                xpath: /html/body/div[5]/main[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/img[1]/@alt
+            specifications:
+              - text: Height 401mm | Width 245mm
+                xpath: /html/body/div[12]
+            brandText:
+              - text: Dyson
+            manufacturer:
+              - text: Dyson
+            descriptionBullets:
+              - text: "0"
+            variantCount:
+              - text: "0"
+        xpath: /
+    timestamp: 1607082473414

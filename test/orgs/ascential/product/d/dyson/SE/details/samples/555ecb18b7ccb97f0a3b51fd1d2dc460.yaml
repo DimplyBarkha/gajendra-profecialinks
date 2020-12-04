@@ -1,0 +1,151 @@
+input:
+  _url: http://dyson.se
+  URL: https://www.dyson.se/luftvard/luftrenare/dyson-pure-hot-cool/vit-hp04
+extractions:
+  - html: https://workbench.import.io/html/run=91423214-03b6-4b21-87cc-d697e4eac75c/task=58842039-9048-4933-9430-3f8b1c731c57/68be8ab7-9072-4a19-ac64-4b45ea7f2cf3.html
+    extractionConfigId: product/details/stores/d/dyson/SE/extract
+    data:
+      - group:
+          - image:
+              - text: https://dyson-h.assetsadobe2.com/is/image/content/dam/dyson/products/air-treatment/purehotandcool/eu-pure-hot-plus-cool/pdp/pure-hot-cool-hp04-white-silver/Dyson-Pure-Hot-Cool-WHT-purifier-PDP-hero.jpg?$responsive$&cropPathE=desktop&fit=stretch,1&wid=1920
+                xpath: /html/body/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/img[1]/@src
+            imageAlt:
+              - text: Dyson Pure Hot+Cool™-luftrenande värmefläktar
+                xpath: /html/body/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/img[1]/@alt
+            description:
+              - text: >-
+                  Dyson Pure Hot+Cool™ luftrenare/fläkt vit
+                   
+                  3 i 1: Luftrenare, fläkt och värmefläkt. Renar luften samtidigt som den värmer eller svalkar på ett intelligent sätt.
+                xpath: /html/body/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]
+            ratingCount:
+              - text: "36"
+                xpath: /html/body/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/a[1]/p[1]
+            aggregateRatingText:
+              - text: "4.1"
+                xpath: /html/body/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/a[1]/@aria-label
+            aggregateRating:
+              - text: "4.1"
+                xpath: /html/body/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/a[1]/@aria-label
+            name:
+              - text: Dyson Pure Hot+Cool™ luftrenare/fläkt vit
+                xpath: /html/body/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/h1[1]
+            firstVariant:
+              - text: Vit / Silver - Selected colour
+                xpath: /html/body/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/span[1]/img[1]/@alt
+            variants:
+              - text: Vit / Silver - Selected colour
+                xpath: /html/body/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/span[1]/img[1]/@alt
+              - text: Svart / Nickel
+                xpath: /html/body/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[2]/div[2]/a[1]/span[1]/img[1]/@alt
+            shippingInfo:
+              - text: |-
+                  Gratis flexibel frakt 
+                  och gratis retur
+                xpath: /html/body/main[1]/div[2]/div[4]/div[1]/div[1]/section[1]/div[1]/div[1]/ul[1]/li[2]
+            warranty:
+              - text: |-
+                  2 års garanti 
+                  Aktiveras automatiskt
+                xpath: /html/body/main[1]/div[2]/div[4]/div[1]/div[1]/section[1]/div[1]/div[1]/ul[1]/li[3]
+            specifications:
+              - text: |-
+                  Höjd
+                   
+                   764 mm 
+                   
+                   
+                   
+                  Längd
+                   
+                   248 mm 
+                   
+                   
+                   
+                  Bredd
+                   
+                   248 mm
+                xpath: /html/body/main[1]/div[2]/div[19]/section[1]/div[1]/div[1]/ul[1]
+            weightNet:
+              - text: |-
+                  Vikt
+                   
+                   4,98 kg
+                xpath: /html/body/main[1]/div[2]/div[19]/section[1]/div[1]/ul[1]/li[7]
+            category:
+              - text: Luftvård
+                xpath: /html/body/nav[1]/div[1]/div[1]/div[1]/div[1]/nav[1]/div[2]/div[1]/div[1]/nav[1]/ol[1]/li[2]/span[1]/a[1]/span[1]
+              - text: Luftrenande fläktar
+                xpath: /html/body/nav[1]/div[1]/div[1]/div[1]/div[1]/nav[1]/div[2]/div[1]/div[1]/nav[1]/ol[1]/li[3]/span[1]/a[1]/span[1]
+              - text: Dyson Pure Hot+Cool™ luftrenare värmefläkt och fläkt
+                xpath: /html/body/nav[1]/div[1]/div[1]/div[1]/div[1]/nav[1]/div[2]/div[1]/div[1]/nav[1]/ol[1]/li[4]/span[1]/a[1]/span[1]
+            productUrl:
+              - text: https://www.dyson.se/luftvard/luftrenare/dyson-pure-hot-cool/vit-hp04
+                xpath: /html/body/div[7]
+            brandText:
+              - text: Dyson
+                xpath: /html/body/div[8]
+            sku:
+              - text: 244280-01
+                xpath: /html/body/div[9]
+            variantId:
+              - text: 244280-01
+                xpath: /html/body/div[9]
+            mpc:
+              - text: 244280-01
+                xpath: /html/body/div[9]
+            color:
+              - text: White-Silver
+                xpath: /html/body/div[10]
+            price:
+              - text: 6690 kr
+                xpath: /html/body/div[12]
+            nameExtended:
+              - text: Dyson Pure Hot+Cool™ luftrenare/fläkt vit - Vit / Silver - Selected colour
+                xpath: /html/body/div[13]
+            variantInformation:
+              - text: Vit / Silver
+                xpath: /html/body/div[14]
+            productOtherInformation:
+              - text: Inställning för maximalt luftflöde 290 l/s Oscilleringsvinkel 350 °
+                  Sladdlängd 1,8 m Antal hastighetsinställningar 10 Överdelens
+                  bredd 205 mm Överdelens djup 130 mm Vikt 4,98 kg Fotens
+                  diameter 248 mm
+                xpath: /html/body/div[15]
+            manufacturerDescription:
+              - text: Dyson Pure Hot+Cool™-luftrenande värmefläkt känner av skadliga
+                  föroreningar och gaser innan den fångar upp dem i maskinens
+                  aktiva kolfilter och förseglade HEPA-filter. Därefter sprider
+                  den renad luft runt i hela rummet med hjälp av Air
+                  Multiplier™-teknik, medan den diagnostiserar och rapporterar
+                  resultaten i realtid. Nyckelfunktioner Känner av Känner
+                  automatiskt av luftburna partiklar och gaser, diagnostiserar
+                  sedan och rapporterar dem i realtid. Fångar Aktivr kolfibrer
+                  avlägsnar gaser. Slutna HEPA-filter fångar upp 99,95 % av
+                  ultrafina partiklar så som allergener och förorenande ämnen.²
+                  Sprider Endast Dyson-luftrenande fläktar och värmare har Air
+                  Multiplier™-teknik och 350° oscillation för att sprida luft
+                  runt i hela rummet.³
+                xpath: /html/body/div[16]
+            videos:
+              - text: www.dyson.se/content/dam/dyson/video/products/primary/244280-01.mp4
+                xpath: /html/body/div[19]/ul[1]/li[1]
+            availabilityText:
+              - text: In Stock
+                xpath: /html/body/div[20]
+            manufacturer:
+              - text: Dyson
+            descriptionBullets:
+              - text: "0"
+            variantCount:
+              - text: "2"
+            technicalInformationPdfPresent:
+              - text: "false"
+            termsAndConditions:
+              - text: "false"
+            privacyPolicy:
+              - text: "false"
+            customerServiceAvailability:
+              - text: "false"
+        xpath: /html
+    timestamp: 1607089844170

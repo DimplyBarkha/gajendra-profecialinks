@@ -1,0 +1,143 @@
+input:
+  _url: http://dyson.se
+  URL: https://www.dyson.se/luftvard/luftrenare/dyson-pure-cool-me/dyson-pure-cool-me-white-silver
+extractions:
+  - html: https://workbench.import.io/html/run=91423214-03b6-4b21-87cc-d697e4eac75c/task=55a860b5-6221-4ea5-be26-79c472bd6087/eca4dbcd-05eb-41a4-84f4-a943c9d67adb.html
+    extractionConfigId: product/details/stores/d/dyson/SE/extract
+    data:
+      - group:
+          - category:
+              - text: Luftvård
+                xpath: /html/body/nav[1]/div[1]/div[1]/div[1]/div[1]/nav[1]/div[2]/div[1]/div[1]/nav[1]/ol[1]/li[2]/span[1]/a[1]/span[1]
+              - text: Luftrenande fläktar
+                xpath: /html/body/nav[1]/div[1]/div[1]/div[1]/div[1]/nav[1]/div[2]/div[1]/div[1]/nav[1]/ol[1]/li[3]/span[1]/a[1]/span[1]
+              - text: Dyson Pure Cool Me™ luftrenande fläktar
+                xpath: /html/body/nav[1]/div[1]/div[1]/div[1]/div[1]/nav[1]/div[2]/div[1]/div[1]/nav[1]/ol[1]/li[4]/span[1]/a[1]/span[1]
+            image:
+              - text: https://dyson-h.assetsadobe2.com/is/image/content/dam/dyson/products/air-treatment/pure-cool-me/Variant/air-quality-pure-cool-me-variant-hero-whsil_1.jpg?$responsive$&cropPathE=desktop&fit=stretch,1&wid=1920
+                xpath: /html/body/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/img[1]/@src
+            imageAlt:
+              - text: Dyson Pure Cool Me i vit och silver
+                xpath: /html/body/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/img[1]/@alt
+            description:
+              - text: >-
+                  Dyson Pure Cool Me™ personlig luftrenare
+                   
+                  2 i 1: Luftrenare och fläkt. Den första personliga luftrenande fläkten från Dyson.
+                xpath: /html/body/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]
+            ratingCount:
+              - text: "26"
+                xpath: /html/body/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/a[1]/p[1]
+            aggregateRatingText:
+              - text: "4.4"
+                xpath: /html/body/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/a[1]/@aria-label
+            aggregateRating:
+              - text: "4.4"
+                xpath: /html/body/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/a[1]/@aria-label
+            shippingInfo:
+              - text: |-
+                  Gratis flexibel frakt 
+                  och gratis retur
+                xpath: /html/body/main[1]/div[2]/div[2]/div[1]/div[1]/section[1]/div[1]/div[1]/ul[1]/li[2]
+            name:
+              - text: Dyson Pure Cool Me™ personlig luftrenare
+                xpath: /html/body/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/h1[1]
+            specifications:
+              - text: |-
+                  Höjd
+                   
+                   401 mm 
+                   
+                   
+                   
+                  Längd
+                   
+                   247 mm 
+                   
+                   
+                   
+                  Bredd
+                   
+                   254 mm
+                xpath: /html/body/main[1]/div[2]/div[10]/section[1]/div[1]/div[1]/ul[1]
+            warranty:
+              - text: |-
+                  2 års garanti 
+                  Aktiveras automatiskt
+                xpath: /html/body/main[1]/div[2]/div[2]/div[1]/div[1]/section[1]/div[1]/div[1]/ul[1]/li[3]
+            firstVariant:
+              - text: Vit / Silver - Selected colour
+                xpath: /html/body/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/span[1]/img[1]/@alt
+            variants:
+              - text: Vit / Silver - Selected colour
+                xpath: /html/body/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/span[1]/img[1]/@alt
+            weightNet:
+              - text: |-
+                  Vikt
+                   
+                   2,71 kg
+                xpath: /html/body/main[1]/div[2]/div[10]/section[1]/div[1]/ul[1]/li[1]
+            productUrl:
+              - text: https://www.dyson.se/luftvard/luftrenare/dyson-pure-cool-me/dyson-pure-cool-me-white-silver
+                xpath: /html/body/div[7]
+            brandText:
+              - text: Dyson
+                xpath: /html/body/div[8]
+            sku:
+              - text: 275910-01
+                xpath: /html/body/div[9]
+            variantId:
+              - text: 275910-01
+                xpath: /html/body/div[9]
+            mpc:
+              - text: 275910-01
+                xpath: /html/body/div[9]
+            color:
+              - text: White-Silver
+                xpath: /html/body/div[10]
+            price:
+              - text: 3090 kr
+                xpath: /html/body/div[12]
+            listPrice:
+              - text: 3590 kr
+                xpath: /html/body/div[13]
+            nameExtended:
+              - text: Dyson Pure Cool Me™ personlig luftrenare - Vit / Silver - Selected colour
+                xpath: /html/body/div[14]
+            variantInformation:
+              - text: Vit / Silver
+                xpath: /html/body/div[15]
+            productOtherInformation:
+              - text: Vikt 2,71 kg Oscilleringsvinkel 70 ° Antal hastighetsinställningar 10
+                xpath: /html/body/div[16]
+            manufacturerDescription:
+              - text: Svalt, renat luftflöde när till hands Vår personliga luftrenare är
+                  konstruerad för att förbättra din luftkvalitet. Maskinens
+                  förseglade filter består av ett avancerat lager av aktivt kol
+                  och HEPA-filter i glas. Tillsammans fångar de upp gaser och
+                  ultrasmå partiklar från luften. Den använder sedan Dyson Core
+                  Flow™-teknik för att sprida sval, filtrerad luft - precis där
+                  du behöver den.
+                xpath: /html/body/div[17]
+            videos:
+              - text: www.dyson.se/content/dam/dyson/video/products/primary/275898-01.mp4
+                xpath: /html/body/div[20]/ul[1]/li[1]
+            availabilityText:
+              - text: In Stock
+                xpath: /html/body/div[21]
+            manufacturer:
+              - text: Dyson
+            descriptionBullets:
+              - text: "0"
+            variantCount:
+              - text: "2"
+            technicalInformationPdfPresent:
+              - text: "false"
+            termsAndConditions:
+              - text: "false"
+            privacyPolicy:
+              - text: "false"
+            customerServiceAvailability:
+              - text: "false"
+        xpath: /html/body
+    timestamp: 1607089845261
