@@ -20,7 +20,7 @@ fields:
     singleValue: false
     xpath: //li[@class="moreInfos-item"]/span[contains(text(),"Modelo")]/following-sibling::span
   - name: manufacturer
-    xpath: //p[contains(@class, "Article-descSub")]//span[@class=""]//a|//li[@class="moreInfos-item"]/span[contains(text(),"Fabricante/Marca")]/following-sibling::span
+    xpath: //p[contains(@class, "Article-descSub")]/span/a|//li[@class="moreInfos-item"]/span[contains(text(),"Fabricante/Marca")]/following-sibling::span | //div[@class="thumbnail-sub"]/span/a
     # xpath: //li[@class="moreInfos-item"]/span[contains(text(),"Fabricante/Marca")]/following-sibling::span
   - name: ratingCount
     singleValue: false
