@@ -91,7 +91,6 @@ fields:
   description: The number of ratings
   xpath: //div[@class='review-snapshot-ux2dot0__review_block']/descendant::span[@class='rating__reviewLinkWrapper rating__review_link rating__textDecoration']
   regExp: '([0-9]\w+)'
-  regExpReplace: $1
 - name: aggregateRatingText
   singleValue: false
   description: The stated aggregate rating
@@ -372,7 +371,7 @@ fields:
 - name: specifications
   singleValue: false
   description: The physical dimensions of the product including packaging.
-  xpath: //div[@id="ProdSpecSection"]
+  xpath: //div[@id="ProdSpecSection"]/descendant::tbody
 - name: warranty
   singleValue: true
   xpath: (//td[contains(., 'Warranty')]/following-sibling::td)[1]
