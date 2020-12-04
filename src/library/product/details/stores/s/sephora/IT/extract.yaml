@@ -17,7 +17,7 @@ fields:
     xpath: //nav[@aria-label="Breadcrumbs"]/ol/li/a
   - name: nameExtended
     singleValue: false
-    xpath: //h1[@class="css-1wd4e6l e65zztl0"]/span
+    xpath: //h1[@class="css-1wd4e6l e65zztl0"]/span | //h1[@class="css-1wd4e6l e65zztl0"]/following-sibling::*/text()[1]
   - name: listPrice
     singleValue: false
     xpath: //span[@data-at="price" and @class="css-12wmvlf"]
@@ -38,10 +38,10 @@ fields:
     xpath: //div[@data-at="sku_size"]/text()[1]
   - name: sku
     singleValue: false
-    xpath: //div[@data-at="sku_size"]/text()[2]
+    xpath: //div[@data-at="sku_size"]/text()
   - name: variantId
     singleValue: false
-    xpath: //div[@data-at="sku_size"]/text()[2]
+    xpath: //div[@data-at="sku_size"]/text()
   - name: directions
     singleValue: false
     xpath: //div[@data-at="product_tabs_section"]/div[@role="tabpanel" and @id="tabpanel1"]/div/text()
@@ -68,7 +68,7 @@ fields:
     xpath: //div[contains(@data-comp,"ProductSwatchItem")]/button[@aria-selected="true"]/@aria-label
   - name: firstVariant
     singleValue: false
-    xpath: //div[@data-at="sku_size"]/text()[2]
+    xpath: //div[@data-at="sku_size"]/text()
   - name: variants
     singleValue: false
     xpath: //div[contains(@data-comp,"ProductSwatchItem")]//img/@src

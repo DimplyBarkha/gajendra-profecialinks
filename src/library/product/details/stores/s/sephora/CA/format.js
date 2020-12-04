@@ -81,9 +81,18 @@ const transform = (data) => {
         })
       }
       if(row.quantity){
+        let rowDelete;
         row.quantity.forEach(item=>{
-          item.text=item.text.replace('SIZE ','');
+          if(item.text.indexOf('SIZE')==-1){
+            rowDelete=true;
+          }else{
+            item.text=item.text.replace('SIZE ','');
+            rowDelete=false
+          }
         })
+        if(rowDelete==true){
+          delete row.quantity;
+        }
       }
       if(row.ratingCount){
         row.ratingCount.forEach(item=>{
