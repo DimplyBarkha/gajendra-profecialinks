@@ -28,12 +28,14 @@ fields:
       and appending " - ${variantType}" if necessary (fixed per feed)
   - name: listPrice
     singleValue: true
-    xpath: (//div[@class="css-w2sp5s exz0zev2"])[2]
+    xpath: //div[@class="css-197ib7l e14k98vr0"]
+    type: NUMBER
     description: The stated undiscounted price for the product
   - name: price
     singleValue: true
     description: The offered price for the selected product variant - if a user
       clicks add to basket this is the price they would be charged
+    # xpath: //div[@class="css-197ib7l e14k98vr0"]
   - name: availabilityText
     singleValue: true
     xpath: //a[@class="css-18b6tdh exz0zev5"]
@@ -62,9 +64,11 @@ fields:
     description: Product manufacturer
   - name: quantity
     singleValue: true
+    xpath: //div[@class="_2asmB"]
+    regExp: .{4}$
     description: Quantity as described on the page
-    regExp: (?:\s?([\d\.]+\s?)([bB]ar[s]?|[cC]ount|[cC]t|[fF][lL][\.]?\s?[oO][zZ][\.]?|FO|[mM][lL]|[oO][zZ][\.]?|pc|[pP]int|[pP]ops|qt|[wW]ipe[s]?).?)$|(?:\s?([\d\.]+\s?)([bB]ar[s]?|[cC]ount|[cC]|[fF][lL][\.]?\s?[oO][zZ][\.]?|FO|[mM][lL]|[oO][zZ][\.]?|pc|[pP]int|[pP]ops|qt|[wW]ipe[s]?).?\s?[\&\-\w\s]+)$
-    regExpReplace: $1$2$3$4
+    # regExp: (?:\s?([\d\.]+\s?)([bB]ar[s]?|[cC]ount|[cC]t|[fF][lL][\.]?\s?[oO][zZ][\.]?|FO|[mM][lL]|[oO][zZ][\.]?|pc|[pP]int|[pP]ops|qt|[wW]ipe[s]?).?)$|(?:\s?([\d\.]+\s?)([bB]ar[s]?|[cC]ount|[cC]|[fF][lL][\.]?\s?[oO][zZ][\.]?|FO|[mM][lL]|[oO][zZ][\.]?|pc|[pP]int|[pP]ops|qt|[wW]ipe[s]?).?\s?[\&\-\w\s]+)$
+    # regExpReplace: $1$2$3$4
   - name: weightNet
     singleValue: true
     description: Net weight as described on the page
@@ -89,6 +93,7 @@ fields:
     description: The manufacturer model code (unique) of the product
   - name: packSize
     singleValue: true
+    xpath: //div[@class="_3-QN0"]
     description: The number of packs in the product offer (if stated separately on
       the site to quantity)
   - name: legalDisclaimer
@@ -141,9 +146,11 @@ fields:
     description: URLs of videos on page
   - name: name
     singleValue: true
+    xpath: //div[@class="css-1yzcbqr e1x44kgu1"]//@alt
     description: The product name
   - name: inStorePrice
     singleValue: true
+    # xpath: //div[@class="css-197ib7l e14k98vr0"]
     description: Price in the selected store
   - name: asin
     singleValue: true
@@ -420,6 +427,8 @@ fields:
     description: List of additives in the product
   - name: pricePerUnit
     singleValue: true
+    xpath: //div[@class="css-197ib7l e14k98vr0"]
+    defaultValue: €
     description: Price of the product split into certain units
   - name: pricePerUnitUom
     singleValue: true
