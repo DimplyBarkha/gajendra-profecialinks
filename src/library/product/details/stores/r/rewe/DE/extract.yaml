@@ -18,6 +18,14 @@ fields:
   - name: price
     xpath: //mark[@itemprop="price"]
   - name: availabilityText
+    xpath: //div[contains(@class,"pdr-NotAvailable__left")]
+    regExp: (.+)
+    regExpReplace: 'Out of Stock'
+    defaultValue : 'In Stock'
+  - name: availability
+    xpath: //div[contains(@class,"pdr-NotAvailable__left")]
+    regExp: (.+)
+    regExpReplace: 'Out of Stock'
   - name: description
     xpath: //div[contains(@class,"pdr-js-product-description-jumppoint")]/following-sibling::div
   - name: descriptionBullets
