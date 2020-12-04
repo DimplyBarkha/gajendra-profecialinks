@@ -35,7 +35,7 @@ module.exports = {
     console.log('Status :', responseStatus.status);
     console.log('URL :', responseStatus.url);
 
-    const captchaFrame = "div.input-wrapper__input-field div.captcha.i-bem.captcha_js_inited ";
+    const captchaFrame = "div.captcha.i-bem.captcha_js_inited ";
     try {
       await context.waitForSelector(captchaFrame);
     } catch (e) {
@@ -53,7 +53,7 @@ module.exports = {
       await context.waitForNavigation({ timeout });
       // @ts-ignore
       // eslint-disable-next-line no-undef
-      await context.evaluateInFrame('form', () => grecaptcha.execute());
+      await context.evaluateInFrame('div', () => grecaptcha.execute());
       console.log('solved captcha, waiting for page change');
       await context.waitForNavigation({ timeout });
       try {
