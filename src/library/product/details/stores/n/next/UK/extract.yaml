@@ -48,8 +48,6 @@ fields:
 - name: availabilityText
   singleValue: true
   xpath: //div[@class="AddToBag"]/a[contains(@class, "Enabled")]
-  regExp: (.+)
-  regExpReplace: 'In Stock'
   defaultValue: 'Out of Stock'
   description: Availability as described on page for the selected variant. If there
     is no availability but the product can be added to cart, this field should be
@@ -64,7 +62,6 @@ fields:
   description: Number of ul > li tags in the description
 - name: brandText
   singleValue: true
-  xpath: //div[@class="itemsContainer"]//article/@data-brand
   description: Product brand shown - this may actually NOT be just a brand name, e.g.
     "Visit the Gillette Store"
 - name: manufacturer

@@ -11,6 +11,25 @@ module.exports = {
   },
   implementation: async ({ inputString }, { country, domain, transform }, context, { productDetails }) => {
 
+    const dataConversion = (data) => {
+      for (let k = 0; k < data.length; k++) {
+        for (let i = 0; i < data[k].group.length; i++) {
+          if ('alternateImages' in data[k].group[i]) {
+            for (let j = 0; j < data[k].group[i].alternateImages.length; j++) {
+              data[k].group[i].alternateImages[j].text = data[k].group[i].alternateImages[j].text.replace('AltItemThumb', 'AltItemShot');
+              data[k].group[i].alternateImages[j].text = data[k].group[i].alternateImages[j].text.replace('minishot', 'shotview-315x472');
+            }
+          }
+          if ('availabilityText' in data[k].group[i] && data[k].group[i].availabilityText[0].text !== 'Out of Stock') {
+            data[k].group[i].availabilityText[0].text = 'In Stock';
+          }
+          if ('imageZoomFeaturePresent' in data[k].group[i] && data[k].group[i].imageZoomFeaturePresent[0].text !== 'No') {
+            data[k].group[i].imageZoomFeaturePresent[0].text = 'Yes';
+          }
+        }
+      }
+      return data;
+    };
     await new Promise((resolve) => setTimeout(resolve, 2000));
     await context.evaluate(async function () {
       //remove popups
@@ -22,6 +41,7 @@ module.exports = {
         document.querySelector('div[class~="CookieConsent"]').remove();
       }
     });
+
     await context.evaluate(async () => {
       // add productUrl
       var productUrl = window.location.href;
@@ -33,19 +53,22 @@ module.exports = {
         document.body.appendChild(element);
       }
     });
-    var data = await context.extract(productDetails, { transform });
-      for (let k = 0; k < data.length; k++) {
-        for (let i = 0; i < data[k].group.length; i++) {
-          if ('alternateImages' in data[k].group[i]) {
-            for (let j = 0; j < data[k].group[i].alternateImages.length; j++) {
-              data[k].group[i].alternateImages[j].text = data[k].group[i].alternateImages[j].text.replace('AltItemThumb', 'AltItemShot');
-            }
-          }
-          if ('imageZoomFeaturePresent' in data[k].group[i] && data[k].group[i].imageZoomFeaturePresent[0].text !== 'No') {
-            data[k].group[i].imageZoomFeaturePresent[0].text = 'Yes';
-          }
-        }
-      }
-    return data;
+    const variants = await context.evaluate(() => {
+      return document.querySelectorAll('div.colourList > div > ul > li > a').length});
+      console.log(variants);
+    if (variants !== 0) {
+      for (let i = 0; i < variants; i++) {
+        await context.evaluate((i) => {
+          document.querySelectorAll('div.colourList > div > ul > li > a')[i].click();
+          console.log(i);
+        }, i);
+        // wait for extraction
+        await new Promise((resolve, reject) => setTimeout(resolve, 3000));
+        dataConversion(await context.extract(productDetails, { transform }));
+      };
+    }
+    if (variants === 0) {
+      dataConversion(await context.extract(productDetails, { transform }));
+    }
   },
 };
