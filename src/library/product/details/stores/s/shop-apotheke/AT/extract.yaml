@@ -12,9 +12,12 @@ fields:
   - name: nameExtended
     singleValue: false
     xpath: //h1[contains(@class,"o-ProductTemplate__heading")] | //dl[@class="a-break-long-words"]/dt[text()="Marke"]/parent::*/dd/a
+  - name: listPrice
+    singleValue: false
+    xpath: //li[contains(@class,"m-ProductVariants__item")]/div/div//div[contains(@class,"o-ProductVariantAvailableDetails--price") and contains(@class,"u-hidden@pre-medium-small-tiny")]//span[@class="a-PriceOld--price"]/span[@class="a-Price"]
   - name: price
     singleValue: false
-    xpath: //li[contains(@class,"m-ProductVariants__list__firstItem")]//div[contains(@class,"o-ProductVariantAvailableDetails--price") and contains(@class,"u-hidden@pre-medium-small-tiny")]/span
+    xpath: //li[contains(@class,"m-ProductVariants__item")]//div[contains(@class,"o-ProductVariantAvailableDetails--price") and contains(@class,"u-hidden@pre-medium-small-tiny")]/span[@class="a-Price"]
   - name: availabilityText
     singleValue: false
     defaultValue: In Stock
@@ -26,7 +29,7 @@ fields:
     xpath: //dl[@class="a-break-long-words"]/dt[text()="Marke"]/parent::*/dd/a
   - name: manufacturer
     singleValue: false
-    xpath: //dl[@class="a-break-long-words"]/dt[text()="Hersteller"]/parent::*/dd/a
+    xpath: //dl[@class="a-break-long-words"]/dt[text()="Hersteller"]/parent::*/dd/a | //dl[@class="a-break-long-words"]/dt[text()="Hersteller"]/parent::*/dd
   - name: sku
     singleValue: false
     xpath: //dl[@class="a-break-long-words"]/dt[text()="PZN"]/parent::*/dd/span[@data-qa-id="product-attribute-pzn"]
@@ -37,16 +40,16 @@ fields:
     singleValue: false
     xpath: //div[contains(@class,"u-margin-large--bottom@small-tiny")]//div[@data-qa-id="product-rating"]//a[contains(@class,"m-StarRating__reviews-locator")]/span
   - name: aggregateRating
-    singleValue: true
+    singleValue: false
     xpath: //div[contains(@class,"u-margin-large--bottom@small-tiny")]//div[@data-qa-id="product-rating"]/a/span
   - name: variantCount
-    singleValue: true
+    singleValue: false
     xpath: //div[@id="h_ProductVariants"]//li[contains(@class,"m-ProductVariants__item")]/div/@class
   - name: manufacturerDescription
     singleValue: false
     xpath: //div[@id="o-ProductAdditionalInformation__teaser"]/p/text()
   - name: name
-    singleValue: true
+    singleValue: false
     xpath: //h1[contains(@class,"o-ProductTemplate__heading")]
   - name: variantInformation
     singleValue: false
