@@ -70,7 +70,7 @@ fields:
     description: Stated place the review was syndicated from
   - name: reviewUrl
     singleValue: false
-    description: A direct link to the review
+    xpath: ancestor::html//div[@id="#currentPageUrl"]
   - name: reviewedSku
     singleValue: false
     description: The SKU of the item that was reviewed (may be different from the
