@@ -21,7 +21,7 @@ module.exports = {
           await new Promise((resolve) => setTimeout(resolve, 10000));
         }
         iframe = document.querySelector('div#standoutDivAutomatico iframe') ? document.querySelector('div#standoutDivAutomatico iframe').getAttribute('src') : null;
-        iframe = 'https:' + iframe;
+        iframe = iframe && 'https:' + iframe;
         return iframe;
       });
       if (iframe) {
@@ -29,7 +29,6 @@ module.exports = {
         const manufactDes = await context.evaluate(() => {
           const desc = document.querySelectorAll("div[class*='tab-pane']") ? Array.from(document.querySelectorAll("div[class*='tab-pane']")) : '';
           if (desc && desc.length) {
-            console.log('----------------Hello', desc.length);
             let newDesc = '';
             desc.forEach(element => {
               newDesc += element.innerText + ' | ';

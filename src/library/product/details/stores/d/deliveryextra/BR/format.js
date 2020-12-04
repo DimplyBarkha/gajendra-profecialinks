@@ -4,7 +4,7 @@
  * @returns {ImportIO.Group[]}
  */
 const transform = (data) => {
-  const clean = text => text.toString()
+  const clean = text => text && text.toString()
     .replace(/\r\n|\r|\n/g, ' ')
     .replace(/&amp;nbsp;/g, ' ')
     .replace(/&amp;#160/g, ' ')
@@ -39,7 +39,7 @@ const transform = (data) => {
           var demo = row.servingSize[0].text;
           var regExString = new RegExp('(?:' + 'porção de' + ')(.[\\s\\S]*)(?:' + 'g' + ')', 'g');
           test = regExString.exec(demo);
-          test = test[1].trim() + 'g';
+          test = test && test[1].trim() + 'g';
           row.servingSize[0].text = test;
           row.servingSizeUom = [{ text: 'g' }];
         } else if (row.servingSize[0].text.length && row.servingSize[0].text.includes('Porção de')) {
@@ -47,7 +47,7 @@ const transform = (data) => {
           var demo1 = row.servingSize[0].text;
           var regExString1 = new RegExp('(?:' + 'Porção de' + ')(.[\\s\\S]*)(?:' + 'g' + ')', 'g');
           test1 = regExString1.exec(demo1);
-          test1 = test1[1].trim() + 'g';
+          test1 = test1 && test1[1].trim() + 'g';
           row.servingSize[0].text = test1;
           row.servingSizeUom = [{ text: 'g' }];
         }
