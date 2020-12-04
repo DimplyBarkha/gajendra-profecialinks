@@ -1,45 +1,30 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: //li[@class="ais-Hits-item"]
+recordXPath: //div[@id="algolia-right-container"]//ol[@class="ais-Hits-list"]//li[@class="ais-Hits-item"]
 fields:
-  - name: id
-    singleValue: false
-    xpath: 
-  - name: price
-    singleValue: false
-    xpath: //div[@class="hit-list-right"]//span[@itemprop="lowPrice"]
-  - name: productUrl
-    singleValue: false
-    xpath: //a[@class="result"]/@href
-    # regExp: (.+)
-    # regExpReplace: https://www.lowes.com$1
-    description: The URL for the product details page
-  - name: thumbnail
-    singleValue: false
-    xpath: //div[@class="hit-list-left"]//img[@itemprop="image"]/@src
-    regExp: (.+)
-    regExpReplace: https:$1
-    description: The URL for the product thumbnail image
   - name: name
     singleValue: false
-    xpath: //div[@class="hit-list-left"]//img[@itemprop="image"]/@alt
-  - name: aggregateRating
+    xpath: //div[@class="result-sub-content"]//h3[@class="result-title"]
+  - name: id
     singleValue: false
-    xpath: //div[@style]/span[@style]/span/text()
-    # regExp: (.+)(\sout.+)
-    # regExpReplace: $1
-  - name: ratingCount
+    xpath: //ol[@class="ais-Hits-list"]//li[@class="ais-Hits-item"]//a//@data-product-code
+  - name: thumbnail
     singleValue: false
-    xpath: 
-    regExp: \d+
-  - name: reviewCount
+    xpath: //div[@class="hit-list-left"]//div[@class="result-thumbnail js-result-thumbnail"]//img//@src
+    regExp: (.+)
+    regExpReplace: https:$1
+  - name: price
     singleValue: false
-    xpath: 
-    regExp: \d+
-  - name: rank
+    xpath: //div[@class="result-content grid"]//div[@class="result-sub-content"]//div[@class="price-wrapper"]//span[@itemprop="lowPrice"]
+  - name: productUrl
     singleValue: false
-    type: NUMBER
-  - name: rankOrganic
+    xpath: //ol[@class="ais-Hits-list"]//li[@class="ais-Hits-item"]//a//@href
+  - name: manufacturer
     singleValue: false
-    type: NUMBER
+    xpath: //div[@class="hit-list-right"]//div[@class="result-manufacturer"]
+  - name: aggregateRating2
+    singleValue: false
+    xpath: //div[@class="result-content grid"]//div[@class="lc-product-reviews-summary short"]
+    regExp: (.+\d)
+    regExpReplace: $1
