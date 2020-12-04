@@ -398,7 +398,7 @@ fields:
   - name: warranty
     singleValue: true
     description: Guarantee associated with the product
-    xpath: (//img[(contains(@src, "guarantee") or contains(@src, "warranty")) and (contains(@src, "year") or contains(@src, "yr"))]/ancestor::li)[1]
+    xpath: (//img[(contains(@src, "guarantee") or contains(@src, "warranty")) and (not(contains(@src, "money")) or contains(@src, "year") or contains(@src, "yr"))]/ancestor::li)[1]
   - name: storage
     singleValue: true
     description: Suggested storage location for product
