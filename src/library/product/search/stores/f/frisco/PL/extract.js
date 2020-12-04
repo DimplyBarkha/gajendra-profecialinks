@@ -27,7 +27,8 @@ module.exports = {
         let str = product[i].attributes[0].nodeValue; //Get the entire href
         var strArray = str.split(regex);
         var productIDArr = strArray[1].split(","); //Take the second part.
-        addHiddenDiv('id1', productIDArr[1],i);
+        let pid = productIDArr[1]; 
+        addHiddenDiv('id1', pid,i);
          }
     }
     await context.evaluate(getID);

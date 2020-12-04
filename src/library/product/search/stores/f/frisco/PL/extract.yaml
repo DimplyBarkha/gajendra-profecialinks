@@ -1,26 +1,26 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: //div[@class='product-box_holder hdm-Coolomat']
+recordXPath: //div[@class='product-box_holder']
 fields:
 - name: id
   singleValue: false
-  xpath: //div[@id="id1"]/text()
+  xpath: //div[@id="id1"]
 - name: name
   singleValue: false
-  xpath: //a[@class='product-box_image']/@title
+  xpath: //a[@class='product-box_image ']/@title
 - name: rankOrganic
   singleValue: false
 - name: productUrl
   singleValue: false
-  xpath: //a[@class='product-box_image']/@href
+  xpath: //a[@class='product-box_image ']/@href
   regExp: (.+)
   regExpReplace: https://frisco.pl$1
 - name: gtin
   singleValue: true
 - name: thumbnail
   singleValue: false
-  xpath: //a[@class='product-box_image']//img/@src
+  xpath: //a[@class='product-box_image ']/img/@src
 - name: aggregateRating
   singleValue: true
 - name: reviewCount

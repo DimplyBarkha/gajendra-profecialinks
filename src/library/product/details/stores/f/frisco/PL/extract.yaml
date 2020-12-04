@@ -11,7 +11,6 @@ fields:
     xpath: //div[@class="product-page_image"]/img/@alt
   - name: metaKeywords
     singleValue: true
-    xpath:   
   - name: category
     singleValue: false
     xpath: //div[@class="breadcrumbs"]/div[position()>1 and position()<last()]/a/text()
@@ -36,7 +35,6 @@ fields:
     xpath: //meta[@itemprop="brand"]/@content
   - name: quantity
     singleValue: true
-    xpath:
   - name: weightNet
     singleValue: true
     xpath: //span[contains(text(),'Waga:')]/following::span[1]/text()
@@ -93,7 +91,6 @@ fields:
     xpath: //div[@id="did"]/text()
   - name: countryOfOrigin
     singleValue: true
-    xpath:
   - name: allergyAdvice
     singleValue: true
     xpath: //div[@id="aid"]
@@ -107,7 +104,6 @@ fields:
     xpath: //div[@id="componentid"]
   - name: pricePerUnit
     singleValue: true
-    xpath: 
   - name: pricePerUnitUom
     singleValue: true
     xpath: //div[@class='product-page_labels-single green']
