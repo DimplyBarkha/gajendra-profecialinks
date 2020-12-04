@@ -111,6 +111,8 @@ fields:
   - name: unInterruptedPDP
     xpath: //div[contains(@id,'nume_html') and not(contains(.,'from this seller'))]//div[contains(@class,"mfe-reco")]
   - name: inTheBoxText
-    xpath: //p[contains(.,'In the Box')]/..//ul//li | //h1[contains(.,'In the box')]/..//span[@class="title"]
+    xpath: //p[contains(.,'In the Box')]/..//ul//li | //h1[contains(.,'In the box')]/..//span[@class="title"] | //div[contains(@class,'inthebox')]//span
   - name: inTheBoxUrl
-    xpath: //h1[contains(.,'In the box')]/..//span[@class="image"]//img/@src
+    xpath: //h1[contains(.,'In the box')]/..//span[@class="image"]//img/@src | //div[contains(@class,'inthebox')]//img/@src
+  - name: hasComparisonTable
+    defaultValue: No
