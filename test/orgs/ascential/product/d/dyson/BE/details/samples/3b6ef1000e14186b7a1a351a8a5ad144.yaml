@@ -1,0 +1,194 @@
+input:
+  _url: http://dyson.be
+  URL: https://www.dyson.be/nl_be/stofzuigers/sledestofzuigers/dyson-cinetic-big-ball/absolute-2
+extractions:
+  - html: https://workbench.import.io/html/run=e7197d7f-8417-496b-a6e9-a8096d10f343/task=609ce630-89f1-4955-80dd-7254895c5f5f/650e87a3-c687-4d66-9150-390f8810c14f.html
+    extractionConfigId: product/details/stores/d/dyson/BE/extract
+    data:
+      - group:
+          - image:
+              - text: https://dyson-h.assetsadobe2.com/is/image/content/dam/dyson/products/corded-vacuums/cylinders/dyson-cinetic-big-ball/variant/absolute-2/PSJ-EU-Products-VacuumCleaners-Cylinder-CineticBigBall-PDP-Hero-Absolute2.jpg?$responsive$&cropPathE=desktop&fit=stretch,1&wid=1920
+                xpath: /html/body/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/img[1]/@src
+            imageAlt:
+              - text: Dyson Cinetic Big Ball Absolute 2 sledestofzuiger
+                xpath: /html/body/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/img[1]/@alt
+            description:
+              - text: >-
+                  Dyson Cinetic Big Ball Absolute 2 stofzuiger
+                   
+                  De enige stofzuiger zonder onderhoud en zonder verlies aan zuigkracht.
+                xpath: /html/body/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]
+            ratingCount:
+              - text: "50"
+                xpath: /html/body/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/p[1]
+            aggregateRatingText:
+              - text: "4.4"
+                xpath: /html/body/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/@aria-label
+            aggregateRating:
+              - text: "4.4"
+                xpath: /html/body/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/@aria-label
+            name:
+              - text: Dyson Cinetic Big Ball Absolute 2 stofzuiger
+                xpath: /html/body/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/h1[1]
+            shippingInfo:
+              - text: |-
+                  Gratis bezorging en retour 
+                  Geleverd binnen 2-3 werkdagen
+                xpath: /html/body/main[1]/div[2]/div[2]/div[1]/div[1]/section[1]/div[1]/div[1]/ul[1]/li[2]
+            warranty:
+              - text: |-
+                  2 of 5 jaar garantie 
+                  Op onderdelen en arbeid
+                xpath: /html/body/main[1]/div[2]/div[2]/div[1]/div[1]/section[1]/div[1]/div[1]/ul[1]/li[3]
+            manufacturerImages:
+              - text: https://dyson-h.assetsadobe2.com/is/image/content/dam/dyson/images/products/primary/228415-01.png?$responsive$&fmt=png-alpha&cropPathE=desktop&fit=stretch,1&wid=242
+                xpath: /html/body/main[1]/div[2]/div[7]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/img[1]/@src
+              - text: https://dyson-h.assetsadobe2.com/is/image/content/dam/dyson/images/products/squaretool/968626-01.png?$responsive$&cropPathE=square,1024&wid=112
+                xpath: /html/body/main[1]/div[2]/div[7]/div[1]/div[1]/div[1]/div[2]/ul[1]/li[1]/span[1]/picture[1]/img[1]/@src
+              - text: https://dyson-h.assetsadobe2.com/is/image/content/dam/dyson/images/products/squaretool/967368-01.png?$responsive$&cropPathE=square,1024&wid=112
+                xpath: /html/body/main[1]/div[2]/div[7]/div[1]/div[1]/div[1]/div[2]/ul[1]/li[2]/span[1]/picture[1]/img[1]/@src
+              - text: https://dyson-h.assetsadobe2.com/is/image/content/dam/dyson/images/products/squaretool/967369-01.png?$responsive$&cropPathE=square,1024&wid=112
+                xpath: /html/body/main[1]/div[2]/div[7]/div[1]/div[1]/div[1]/div[2]/ul[1]/li[3]/span[1]/picture[1]/img[1]/@src
+              - text: https://dyson-h.assetsadobe2.com/is/image/content/dam/dyson/images/products/squaretool/966043-15.png?$responsive$&cropPathE=square,1024&wid=112
+                xpath: /html/body/main[1]/div[2]/div[7]/div[1]/div[1]/div[1]/div[2]/ul[1]/li[4]/span[1]/picture[1]/img[1]/@src
+              - text: https://dyson-h.assetsadobe2.com/is/image/content/dam/dyson/images/products/squaretool/967422-01.png?$responsive$&cropPathE=square,1024&wid=112
+                xpath: /html/body/main[1]/div[2]/div[7]/div[1]/div[1]/div[1]/div[2]/ul[1]/li[5]/span[1]/picture[1]/img[1]/@src
+              - text: https://dyson-h.assetsadobe2.com/is/image/content/dam/dyson/images/products/squaretool/967437-01.png?$responsive$&cropPathE=square,1024&wid=112
+                xpath: /html/body/main[1]/div[2]/div[7]/div[1]/div[1]/div[1]/div[2]/ul[1]/li[6]/span[1]/picture[1]/img[1]/@src
+              - text: https://dyson-h.assetsadobe2.com/is/image/content/dam/dyson/images/products/squaretool/967522-01.png?$responsive$&cropPathE=square,1024&wid=112
+                xpath: /html/body/main[1]/div[2]/div[7]/div[1]/div[1]/div[1]/div[2]/ul[1]/li[7]/span[1]/picture[1]/img[1]/@src
+            manufacturer:
+              - text: Dyson
+            descriptionBullets:
+              - text: "0"
+            variantCount:
+              - text: "0"
+            technicalInformationPdfPresent:
+              - text: "false"
+            customerServiceAvailability:
+              - text: "true"
+            termsAndConditions:
+              - text: "true"
+            privacyPolicy:
+              - text: "true"
+          - specifications:
+              - text: |-
+                  Hoogte
+                   
+                   347 mm 
+                   
+                   
+                   
+                  Lengte
+                   
+                   383 mm 
+                   
+                   
+                   
+                  Breedte
+                   
+                   295 mm
+                xpath: /html/body/main[1]/div[2]/div[17]/section[1]/div[1]/div[1]/ul[1]
+            manufacturerImages:
+              - text: https://dyson-h.assetsadobe2.com/is/image/content/dam/dyson/products/corded-vacuums/cylinders/dyson-cinetic-big-ball/variant/absolute-2/corded-dyson-cylinders-cinetic-variant15-spec-IRNK.jpg?$responsive$&fmt=png-alpha&cropPathE=desktop&fit=stretch,1&wid=615
+                xpath: /html/body/main[1]/div[2]/div[17]/section[1]/div[1]/div[1]/div[1]/div[1]/img[1]/@src
+            weightNet:
+              - text: |-
+                  Gewicht
+                   
+                   8,06 kg
+                xpath: /html/body/main[1]/div[2]/div[17]/section[1]/div[1]/ul[1]/li[3]
+            manufacturer:
+              - text: Dyson
+            descriptionBullets:
+              - text: "0"
+            variantCount:
+              - text: "0"
+            technicalInformationPdfPresent:
+              - text: "false"
+            customerServiceAvailability:
+              - text: "true"
+            termsAndConditions:
+              - text: "true"
+            privacyPolicy:
+              - text: "true"
+        xpath: /html/body/main[1]/div[2]
+      - group:
+          - category:
+              - text: Stofzuigers
+                xpath: /html/body/nav[1]/div[1]/div[1]/div[1]/div[1]/nav[1]/div[2]/div[1]/div[1]/nav[1]/ol[1]/li[2]/span[1]/a[1]/span[1]
+              - text: Sledestofzuigers
+                xpath: /html/body/nav[1]/div[1]/div[1]/div[1]/div[1]/nav[1]/div[2]/div[1]/div[1]/nav[1]/ol[1]/li[3]/span[1]/a[1]/span[1]
+              - text: Dyson Cinetic Big Ball™ stofzuigers
+                xpath: /html/body/nav[1]/div[1]/div[1]/div[1]/div[1]/nav[1]/div[2]/div[1]/div[1]/nav[1]/ol[1]/li[4]/span[1]/a[1]/span[1]
+            productUrl:
+              - text: https://www.dyson.be/nl_be/stofzuigers/sledestofzuigers/dyson-cinetic-big-ball/absolute-2
+                xpath: /html/body/div[7]
+            brandText:
+              - text: Dyson
+                xpath: /html/body/div[8]
+            sku:
+              - text: 228415-01
+                xpath: /html/body/div[9]
+            variantId:
+              - text: 228415-01
+                xpath: /html/body/div[9]
+            mpc:
+              - text: 228415-01
+                xpath: /html/body/div[9]
+            color:
+              - text: Iron-Iron
+                xpath: /html/body/div[10]
+            price:
+              - text: 499.00 €
+                xpath: /html/body/div[12]
+            nameExtended:
+              - text: Dyson Cinetic Big Ball Absolute 2 stofzuiger
+                xpath: /html/body/div[13]
+            productOtherInformation:
+              - text: Max. bereik 9,66 m Sugekraft (ved slangen) 160 AW Gewicht 8,06 kg
+                  Vloerzuigmond Dyson pneumatische vloerzuigmond
+                  Cycloontechnologie Dyson Cinetic™ wetenschap Filtratie
+                  Permanent, niet-wasbaar
+                xpath: /html/body/div[14]
+            manufacturerDescription:
+              - text: Ontworpen om overal grondig te reinigen. De Dyson Cinetic Big Ball™
+                  stofzuiger is de enige stofzuiger zonder aanschaf van
+                  stofzakken en zonder filters die moeten worden gewassen of
+                  vervangen. De 35 cyclonen van de Dyson Cinetic™ hebben
+                  trillende uiteinden, die voorkomen dat stof zich ophoopt en de
+                  cyclonen verstopt raken. De zwaarste onderdelen bevinden zich
+                  het dichtst bij de vloer, en dat lage zwaartepunt zorgt ervoor
+                  dat de stofzuiger zijn evenwicht behoudt en rechtop blijft
+                  staan. En als de stofzuiger omvalt, zet hij zich door de
+                  zwaartekracht automatisch weer rechtop. Met 3 vloerzuigmonden
+                  en 4 accessoires. Belangrijkste kenmerken Dyson Cinetic™
+                  wetenschap Ultra-efficiënte cyclonen vangen stof op zonder dat
+                  ze verstopt raken. Er is dus geen verlies van zuigkracht. Geen
+                  vuile filters om te wassen of te vervangen 35 zeer efficiënte
+                  cyclonen verwijderen microscopisch kleine stofdeeltjes zonder
+                  verstopping.Je hoeft dus geen filters te wassen of vervangen
+                  en er is geen verlies van zuigkracht. Je hoeft het vuil niet
+                  aan te raken Verwijdert stof en vuil in één handeling, zodatje
+                  het niet hoeft aan te raken.
+                xpath: /html/body/div[15]
+            availabilityText:
+              - text: Out of Stock
+                xpath: /html/body/div[19]
+            manufacturer:
+              - text: Dyson
+            descriptionBullets:
+              - text: "0"
+            variantCount:
+              - text: "0"
+            technicalInformationPdfPresent:
+              - text: "false"
+            customerServiceAvailability:
+              - text: "true"
+            termsAndConditions:
+              - text: "true"
+            privacyPolicy:
+              - text: "true"
+        xpath: /html/body
+        htmlExtraction: https://crawl-assets.import.io/html/run=e7197d7f-8417-496b-a6e9-a8096d10f343/task=609ce630-89f1-4955-80dd-7254895c5f5f/650e87a3-c687-4d66-9150-390f8810c14f.html
+    timestamp: 1607077158675

@@ -1,5 +1,7 @@
 extends: ../shared
 fields:
+  - name: manufacturerImages
+    xpath: //div[@id='added_manufacturerImages']//li
   - name: weightNet
     xpath: (//ul[contains(concat(' ',normalize-space(@class),' '),' product-specification__specification-container ')]//li[.//*[contains(text(), 'Gewicht')]])[1]
   - name: termsAndConditions

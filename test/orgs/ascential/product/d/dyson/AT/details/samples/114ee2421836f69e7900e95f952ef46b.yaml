@@ -2,7 +2,7 @@ input:
   _url: http://dyson.at
   URL: https://www.dyson.at/raumklima/luftreiniger-luftbefeuchter/dyson-pure-humidify-cool/weiss-silber
 extractions:
-  - html: https://workbench.import.io/html/run=a7bf2418-3561-41d8-82fb-fb96ea16ba01/task=24f39893-ff58-4f4f-b4e2-508c49062e03/ea4ea4ed-d5f8-4d47-a778-e778d5a4f214.html
+  - html: https://workbench.import.io/html/run=95f5c24a-9d1b-421e-ac71-eb39b80cef95/task=f9296060-31e5-43aa-895a-788b34b0e8ac/791bbee0-c4b7-4431-a351-f2639007023c.html
     extractionConfigId: product/details/stores/d/dyson/AT/extract
     data:
       - group:
@@ -40,7 +40,7 @@ extractions:
                   Luftreiniger, Luftbefeuchter und Ventilator in einem intelligenten Gerät
                 xpath: /html/body/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]
             ratingCount:
-              - text: "122"
+              - text: "124"
                 xpath: /html/body/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/a[1]/p[1]
             aggregateRatingText:
               - text: "4.3"
@@ -144,12 +144,35 @@ extractions:
                   für Schritt durch diesen unkomplizierten Vorgang geführt.
                   Dyson Luftreiniger entdecken
                 xpath: /html/body/div[16]
+            manufacturerImages:
+              - text: https://dyson-h.assetsadobe2.com/is/image/content/dam/dyson/products/air-treatment/purifier-humidifier/pure-humidify-cool/variants/feature-stacks/air-quality-pure-humidify-cool-variant-Sensor.jpg?cropPathE=desktop&fit=stretch,1&fmt=pjpeg&wid=634
+                xpath: /html/body/div[17]/ul[1]/li[1]
+              - text: https://dyson-h.assetsadobe2.com/is/image/content/dam/dyson/products/air-treatment/purifier-humidifier/pure-humidify-cool/variants/feature-stacks/air-quality-pure-humidify-cool-variant-filter.jpg?cropPathE=desktop&fit=stretch,1&fmt=pjpeg&wid=634
+                xpath: /html/body/div[17]/ul[1]/li[2]
+              - text: https://dyson-h.assetsadobe2.com/is/image/content/dam/dyson/products/air-treatment/purifier-humidifier/pure-humidify-cool/variants/feature-stacks/air-quality-pure-humidify-cool-variant-destroys.jpg?cropPathE=desktop&fit=stretch,1&fmt=pjpeg&wid=634
+                xpath: /html/body/div[17]/ul[1]/li[3]
+              - text: https://dyson-h.assetsadobe2.com/is/image/content/dam/dyson/products/air-treatment/purifier-humidifier/pure-humidify-cool/variants/feature-stacks/air-quality-pure-humidify-cool-variant-projects.jpg?cropPathE=desktop&fit=stretch,1&fmt=pjpeg&wid=634
+                xpath: /html/body/div[17]/ul[1]/li[4]
+              - text: https://dyson-h.assetsadobe2.com/is/image/content/dam/dyson/products/air-treatment/purifier-humidifier/pure-humidify-cool/variants/feature-stacks/air-quality-pure-humidify-cool-variant-cooling.jpg?cropPathE=desktop&fit=stretch,1&fmt=pjpeg&wid=634
+                xpath: /html/body/div[17]/ul[1]/li[5]
+              - text: https://dyson-h.assetsadobe2.com/is/image/content/dam/dyson/products/air-treatment/purifier-humidifier/pure-humidify-cool/variants/feature-stacks/air-quality-pure-humidify-cool-variant-app.jpg?cropPathE=desktop&fit=stretch,1&fmt=pjpeg&wid=634
+                xpath: /html/body/div[17]/ul[1]/li[6]
+              - text: https://dyson-h.assetsadobe2.com/is/image/content/dam/dyson/products/air-treatment/purifier-humidifier/pure-humidify-cool/variants/feature-stacks/air-quality-pure-humidify-cool-variant-diffuse-mode.jpg?cropPathE=desktop&fit=stretch,1&fmt=pjpeg&wid=634
+                xpath: /html/body/div[17]/ul[1]/li[7]
+              - text: https://dyson-h.assetsadobe2.com/is/image/content/dam/dyson/products/air-treatment/purifier-humidifier/pure-humidify-cool/variants/feature-stacks/air-quality-pure-humidify-cool-variant-breeze-mode.jpg?cropPathE=desktop&fit=stretch,1&fmt=pjpeg&wid=634
+                xpath: /html/body/div[17]/ul[1]/li[8]
+              - text: https://dyson-h.assetsadobe2.com/is/image/content/dam/dyson/products/air-treatment/purifier-humidifier/pure-humidify-cool/variants/feature-stacks/air-quality-pure-humidify-cool-variant-night-mode.jpg?cropPathE=desktop&fit=stretch,1&fmt=pjpeg&wid=634
+                xpath: /html/body/div[17]/ul[1]/li[9]
+              - text: https://dyson-h.assetsadobe2.com/is/image/content/dam/dyson/products/air-treatment/purifier-humidifier/pure-humidify-cool/variants/feature-stacks/air-quality-pure-humidify-cool-variant-timer.jpg?cropPathE=desktop&fit=stretch,1&fmt=pjpeg&wid=634
+                xpath: /html/body/div[17]/ul[1]/li[10]
+              - text: https://dyson-h.assetsadobe2.com/is/image/content/dam/dyson/products/air-treatment/purifier-humidifier/pure-humidify-cool/variants/feature-stacks/air-quality-pure-humidify-cool-variant-clean-cycle.jpg?cropPathE=desktop&fit=stretch,1&fmt=pjpeg&wid=634
+                xpath: /html/body/div[17]/ul[1]/li[11]
             videos:
               - text: www.dyson.at/content/dam/dyson/video/products/primary/275413-01.mp4
-                xpath: /html/body/div[18]/ul[1]/li[1]
+                xpath: /html/body/div[19]/ul[1]/li[1]
             availabilityText:
-              - text: In den Warenkorb
-                xpath: /html/body/div[19]
+              - text: In Stock
+                xpath: /html/body/div[20]
             manufacturer:
               - text: Dyson
             descriptionBullets:
@@ -165,4 +188,4 @@ extractions:
             privacyPolicy:
               - text: "true"
         xpath: /html/body
-    timestamp: 1607000508190
+    timestamp: 1607076704647

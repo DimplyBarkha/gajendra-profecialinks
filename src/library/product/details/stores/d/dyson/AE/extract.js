@@ -66,15 +66,6 @@ async function implementation (
       addHiddenDiv('reviewCount', 0);
     }
 
-    // document.querySelectorAll('.icon-info__body').forEach(el => {
-    //   if (el.innerText.includes('year guarantee')) {
-    //     addHiddenDiv('warranty', el.innerText);
-    //   }
-    //   if (el.innerText.includes('shipping')) {
-    //     addHiddenDiv('shippingInfo', el.innerText);
-    //   }
-    // });
-
     if (!document.getElementById('warranty')) {
       document.querySelectorAll('p').forEach(el => {
         if (el.innerText.includes('year guarantee') && !document.getElementById('warranty')) {
@@ -98,40 +89,6 @@ async function implementation (
     } else {
       addHiddenDiv('availabilityText', 'In Stock');
     }
-
-    // const manufacturerImages = [];
-    // let enhancedContent = '';
-    // document.querySelectorAll('.layout').forEach(el => {
-    //   if (el.querySelector('h2') &&
-    //   (el.querySelector('h2').innerText.includes('In the box') ||
-    //   el.querySelector('h2').innerText.includes('Key features') ||
-    //   el.querySelector('h2').innerText.includes('All features'))) {
-    //     enhancedContent += el.innerText + ' ';
-    //     el.querySelectorAll('img').forEach(img => {
-    //       manufacturerImages.push(img.getAttribute('src'));
-    //     });
-    //   }
-    // });
-    // if (enhancedContent) {
-    //   addHiddenDiv('hasEnhancedContent', 'Yes');
-    // }
-    // addHiddenDiv('enhancedContent', enhancedContent);
-    // addHiddenDiv('manufacturerImages', manufacturerImages.join(' | '));
-
-    // const alternateImages = [];
-    // if (document.querySelector('button[data-modal="product_mini_gallery_video"]')) {
-    //   document.querySelector('button[data-modal="product_mini_gallery_video"]').click();
-    //   await stall(1000);
-    //   if (document.querySelector('video')) {
-    //     addHiddenDiv('videos', document.querySelector('video').querySelector('source').getAttribute('src'));
-    //   }
-    //   document.getElementById('product_mini_gallery_video').querySelectorAll('picture').forEach(pic => {
-    //     if (pic.querySelector('img')) {
-    //       alternateImages.push(pic.querySelector('img').getAttribute('src'));
-    //     }
-    //   });
-    // }
-    // addHiddenDiv('alternateImages', alternateImages.join(' | '));
 
     const specifications = [];
     document.querySelectorAll('.spec').forEach(spec => {

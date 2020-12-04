@@ -99,7 +99,6 @@ async function implementation (
       addHiddenDiv('availabilityText', 'In Stock');
     }
 
-    const manufacturerImages = [];
     let enhancedContent = '';
     document.querySelectorAll('.layout').forEach(el => {
       if (el.querySelector('h2') &&
@@ -107,21 +106,21 @@ async function implementation (
       el.querySelector('h2').innerText.includes('Key features') ||
       el.querySelector('h2').innerText.includes('All features'))) {
         enhancedContent += el.innerText + ' ';
-        el.querySelectorAll('img').forEach(img => {
-          manufacturerImages.push(img.getAttribute('src'));
-        });
       }
     });
-    if (document.querySelector('.spec-set__image-set__image')) {
-      document.querySelector('.spec-set__image-set__image').querySelectorAll('img').forEach(img => {
-        manufacturerImages.push(img.getAttribute('src'));
-      });
-    }
     if (enhancedContent) {
       addHiddenDiv('hasEnhancedContent', 'Yes');
     }
     addHiddenDiv('enhancedContent', enhancedContent);
-    addHiddenDiv('manufacturerImages', manufacturerImages.join(' | '));
+
+    // Adding manufacturer description
+    const manufacturerDescription = [];
+    const manufacturerDescSnapshot = document.evaluate('//div[@class="hgroup"][h3[@class="rcc__title-size--heading_3"]] | //div[@class="promos__list"]/ul', document, null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
+    for (let m = 0; m < manufacturerDescSnapshot.snapshotLength; m++) {
+      const elem = manufacturerDescSnapshot.snapshotItem(m);
+      if (elem && elem.textContent) manufacturerDescription.push(elem.textContent);
+    }
+    addHiddenDiv('manufacturer_description', manufacturerDescription.join(' | '));
 
     const alternateImages = [];
     if (document.querySelector('button[data-modal="product_mini_gallery_video"]')) {
@@ -136,7 +135,7 @@ async function implementation (
         }
       });
     }
-    addHiddenDiv('alternateImages', alternateImages.join(' | '));
+    addHiddenDiv('alternate_images', alternateImages.join(' | '));
 
     const specifications = [];
     document.querySelectorAll('.spec').forEach(spec => {

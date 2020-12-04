@@ -2,7 +2,7 @@ input:
   _url: http://dyson.at
   URL: https://www.dyson.at/haarpflege/dyson-corrale-haarglaetter/geschenkedition-anthrazit-fuchsia
 extractions:
-  - html: https://workbench.import.io/html/run=a7bf2418-3561-41d8-82fb-fb96ea16ba01/task=f0eadfa0-2553-4564-a3bc-21bc0128756e/3655022d-d458-44f8-a4ff-7183d8f294e5.html
+  - html: https://workbench.import.io/html/run=95f5c24a-9d1b-421e-ac71-eb39b80cef95/task=78fe3428-3928-4a54-b7bc-d676cce4e281/cb3d97b7-b2b2-4a5f-8791-fa40caf9aa48.html
     extractionConfigId: product/details/stores/d/dyson/AT/extract
     data:
       - group:
@@ -139,12 +139,31 @@ extractions:
                   die Technologie der kabellosen Dyson Staubsauger bietet das
                   Gerät die Heizleistung eines Haarglätters mit Kabel.
                 xpath: /html/body/div[14]
+            manufacturerImages:
+              - text: https://dyson-h.assetsadobe2.com/is/image/content/dam/dyson/products/hair-care/556/variants/dark-nickel-fuchsia/celsius-images/556-Keyfeatures-OLEDscreen-DNKSFU-Celsius-1.jpg?cropPathE=desktop&fit=stretch,1&fmt=pjpeg&wid=634
+                xpath: /html/body/div[15]/ul[1]/li[1]
+              - text: https://dyson-h.assetsadobe2.com/is/image/content/dam/dyson/products/hair-care/556/variants/dark-nickel-fuchsia/celsius-images/556-Keyfeatures-Suitableforallhair-DNKSFU-Celsius-2.jpg?cropPathE=desktop&fit=stretch,1&fmt=pjpeg&wid=634
+                xpath: /html/body/div[15]/ul[1]/li[2]
+              - text: https://dyson-h.assetsadobe2.com/is/image/content/dam/dyson/products/hair-care/556/variants/dark-nickel-fuchsia/556-Keyfeatures-Upto40minscordless-DNKSFU-3.jpg?cropPathE=desktop&fit=stretch,1&fmt=pjpeg&wid=634
+                xpath: /html/body/div[15]/ul[1]/li[3]
+              - text: https://dyson-h.assetsadobe2.com/is/image/content/dam/dyson/products/hair-care/556/variants/dark-nickel-fuchsia/celsius-images/556-Keyfeatures-Stylecordedforlonger-DNKSFU-Celsius-4.jpg?cropPathE=desktop&fit=stretch,1&fmt=pjpeg&wid=634
+                xpath: /html/body/div[15]/ul[1]/li[4]
+              - text: https://dyson-h.assetsadobe2.com/is/image/content/dam/dyson/products/hair-care/556/variants/dark-nickel-fuchsia/556-Keyfeatures-Peaceofmind-DNKSFU-5.jpg?cropPathE=desktop&fit=stretch,1&fmt=pjpeg&wid=634
+                xpath: /html/body/div[15]/ul[1]/li[5]
+              - text: https://dyson-h.assetsadobe2.com/is/image/content/dam/dyson/products/hair-care/556/variants/dark-nickel-fuchsia/556-Keyfeatures-Readytotravel-DNKSFU-6.jpg?cropPathE=desktop&fit=stretch,1&fmt=pjpeg&wid=634
+                xpath: /html/body/div[15]/ul[1]/li[6]
+              - text: https://dyson-h.assetsadobe2.com/is/image/content/dam/dyson/products/hair-care/556/overview/556-Keyfeatures-Technology-Flexingplates-7.jpg?cropPathE=desktop&fit=stretch,1&fmt=pjpeg&wid=634
+                xpath: /html/body/div[15]/ul[1]/li[7]
+              - text: https://dyson-h.assetsadobe2.com/is/image/content/dam/dyson/products/hair-care/556/overview/Personalcare-556-OverviewPage-Animation-IHC.jpg?$responsive$&cropPathE=desktop&fit=stretch,1&wid=1920
+                xpath: /html/body/div[15]/ul[1]/li[8]
+              - text: https://dyson-h.assetsadobe2.com/is/image/content/dam/dyson/leap-petite-global/dynamic-media/personal-care/556/technology/Dyson-Corrale-Keyfeatures-Technology-4celllithiumbattery-9.jpg?cropPathE=desktop&fit=stretch,1&fmt=pjpeg&wid=634
+                xpath: /html/body/div[15]/ul[1]/li[9]
             videos:
               - text: www.dyson.at/content/dam/dyson/video/products/primary/371675-01.mp4
-                xpath: /html/body/div[16]/ul[1]/li[1]
+                xpath: /html/body/div[17]/ul[1]/li[1]
             availabilityText:
-              - text: Out of stock
-                xpath: /html/body/div[17]
+              - text: Out of Stock
+                xpath: /html/body/div[18]
             manufacturer:
               - text: Dyson
             descriptionBullets:
@@ -160,4 +179,4 @@ extractions:
             privacyPolicy:
               - text: "true"
         xpath: /html/body
-    timestamp: 1607000508688
+    timestamp: 1607076704946

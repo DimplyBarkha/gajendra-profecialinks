@@ -5,8 +5,8 @@ module.exports = {
     country: 'AT',
     store: 'dyson',
     domain: 'dyson.at',
-    loadedSelector: null,
-    noResultsXPath: null,
+    loadedSelector: 'div.product-hero',
+    noResultsXPath: '//h3[contains(text(), "Seite nicht gefunden werden.")]',
     zipcode: '',
   },
 };

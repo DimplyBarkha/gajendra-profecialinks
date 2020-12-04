@@ -5,8 +5,8 @@ module.exports = {
     country: 'CA',
     store: 'dyson',
     domain: 'dysoncanada.ca',
-    loadedSelector: null,
-    noResultsXPath: null,
+    loadedSelector: 'main.product',
+    noResultsXPath: `//h3[contains(text(), "page you're looking for can't be found.")]`,
     zipcode: '',
   },
 };

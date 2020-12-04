@@ -1,0 +1,141 @@
+input:
+  _url: http://dyson.be
+  URL: https://www.dyson.be/nl_be/haarstyling/dyson-airwrap-styler/dyson-airwrap-koper-cadeau-editie
+extractions:
+  - html: https://workbench.import.io/html/run=e7197d7f-8417-496b-a6e9-a8096d10f343/task=f461a2df-a059-4c7c-a67f-25eadf059270/db4dc0fe-fb35-4174-b67a-9a3141da6b52.html
+    extractionConfigId: product/details/stores/d/dyson/BE/extract
+    data:
+      - group:
+          - category:
+              - text: Haarstyling
+                xpath: /html/body/nav[1]/div[1]/div[1]/div[1]/div[1]/nav[1]/div[2]/div[1]/div[1]/nav[1]/ol[1]/li[2]/span[1]/a[1]/span[1]
+              - text: Dyson Airwrap™ multistyler
+                xpath: /html/body/nav[1]/div[1]/div[1]/div[1]/div[1]/nav[1]/div[2]/div[1]/div[1]/nav[1]/ol[1]/li[3]/span[1]/a[1]/span[1]
+            image:
+              - text: https://dyson-h.assetsadobe2.com/is/image/content/dam/dyson/products/hair-care/q4-gifting/pdp/airwrap/PC-Q4Gift-Leap-VariantPDP-Hero-AW-ROW.jpg?$responsive$&cropPathE=desktop&fit=stretch,1&wid=1920
+                xpath: /html/body/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/img[1]/@src
+            imageAlt:
+              - text: Dyson Airwrap™ Complete multistyler koper met opbergdoos en reisetui
+                xpath: /html/body/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/img[1]/@alt
+            description:
+              - text: >-
+                  Dyson Airwrap™ Complete multistyler koper cadeau editie
+                   
+                  Met opbergdoos en reisetui.
+                   
+                  All-in-one styler:
+                   
+                  Krullend. Golvend. Glad geföhnd haar. Zonder extreme hitte. Geschikt voor alle haartypen.
+                xpath: /html/body/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]
+            shippingInfo:
+              - text: |-
+                  Gratis bezorging en retour 
+                  Geleverd binnen 2-3 werkdagen
+                xpath: /html/body/main[1]/div[2]/div[2]/div[1]/div[1]/section[1]/div[1]/div[1]/ul[1]/li[2]
+            name:
+              - text: Dyson Airwrap™ Complete multistyler koper cadeau editie
+                xpath: /html/body/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/h1[1]
+            specifications:
+              - text: |-
+                  Hoogte
+                   
+                   272 mm 
+                   
+                   
+                   
+                  Lengte
+                   
+                   41 mm 
+                   
+                   
+                   
+                  Breedte
+                   
+                   48 mm
+                xpath: /html/body/main[1]/div[2]/div[14]/section[1]/div[1]/div[1]/ul[1]
+            warranty:
+              - text: |-
+                  2 of 5 jaar garantie 
+                  Op onderdelen en arbeid
+                xpath: /html/body/main[1]/div[2]/div[2]/div[1]/div[1]/section[1]/div[1]/div[1]/ul[1]/li[1]
+            manufacturerImages:
+              - text: https://dyson-h.assetsadobe2.com/is/image/content/dam/dyson/products/hair-care/q4-gifting/pdp/airwrap/PC-Q4Gift-Leap-VariantPDP-CopperCase-AW-ROW.jpg?$responsive$&cropPathE=desktop&fit=stretch,1&fmt=pjpeg&wid=1920
+                xpath: /html/body/main[1]/div[2]/div[5]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/img[1]/@src
+              - text: https://dyson-h.assetsadobe2.com/is/image/content/dam/dyson/products/hair-care/q4-gifting/pdp/airwrap/PC-Q4Gift-Leap-VariantPDP-Spec-AW-ROW.jpg?$responsive$&fmt=png-alpha&cropPathE=desktop&fit=stretch,1&wid=615
+                xpath: /html/body/main[1]/div[2]/div[14]/section[1]/div[1]/div[1]/div[1]/div[1]/img[1]/@src
+              - text: https://dyson-h.assetsadobe2.com/is/image/content/dam/dyson/products/hair-care/dyson-airwrap/671/overview/671-Overview-Module-5.jpg?$responsive$&cropPathE=desktop&fit=stretch,1&fmt=pjpeg&wid=1920
+                xpath: /html/body/main[1]/div[2]/div[16]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/img[1]/@src
+            weightNet:
+              - text: |-
+                  Gewicht
+                   
+                   0,63 kg
+                xpath: /html/body/main[1]/div[2]/div[14]/section[1]/div[1]/ul[1]/li[5]
+            productUrl:
+              - text: https://www.dyson.be/nl_be/haarstyling/dyson-airwrap-styler/dyson-airwrap-koper-cadeau-editie
+                xpath: /html/body/div[7]
+            brandText:
+              - text: Dyson
+                xpath: /html/body/div[8]
+            sku:
+              - text: 361309-01
+                xpath: /html/body/div[9]
+            variantId:
+              - text: 361309-01
+                xpath: /html/body/div[9]
+            mpc:
+              - text: 361309-01
+                xpath: /html/body/div[9]
+            price:
+              - text: 499.00 €
+                xpath: /html/body/div[12]
+            nameExtended:
+              - text: Dyson Airwrap™ Complete multistyler koper cadeau editie
+                xpath: /html/body/div[13]
+            productOtherInformation:
+              - text: Negatieve ionen Helpt statische elektriciteit voorkomen Geluidsniveau 77
+                  dBA Vermogen 1.300 W Snoerlengte 2,7 m Gewicht 0,63 kg
+                xpath: /html/body/div[14]
+            manufacturerDescription:
+              - text: "All-in-one styler: Krullend. Golvend. Glad maken. Stijl je haar in elk
+                  gewenst model, zonder extreme hitte. De lucht draait de krul
+                  vanzelf om de Airwrap heen. Zonder klemmen, handschoenen of
+                  onhandig wikkelmechanisme. Met 6 opzetstukken, inclusief
+                  pre-styling föhn en opbergdoos. Geschikt voor alle haartypen.
+                  Tutorials Bekijk de korte video-tutorials, die stap voor stap
+                  laten zien hoe je met de Dyson Airwrap™ multistyler
+                  verschillende haarstylen kan stylen. Volumineuze krullen
+                  Creëer losse, volumineuze krullen of golven op lang haar.
+                  Airwrap™ krulopzetstukken van 40 mm Inbegrepen bij Dyson
+                  Airwrap™ Complete Losse krullen of golvend haar Creëer en
+                  fixeer losse krullen of golvend haar. Ontdek hoe u losse
+                  krullen of golven creëert in kort tot halflang haar. Airwrap™
+                  krulopzetstukken van 40 mm Inbegrepen bij Dyson Airwrap™
+                  Complete Glad en steil Creëer glad en steil haar met de
+                  stevige gladmakende borstel. De stevige borstelharen houden
+                  onhandelbaar haar dat snel pluist in toom. Stevige gladmakende
+                  borstel Inbegrepen bij Dyson Airwrap™ Complete Belangrijkste
+                  technologie"
+                xpath: /html/body/div[15]
+            videos:
+              - text: www.dyson.be/content/dam/dyson/video/products/primary/361309-01.mp4
+                xpath: /html/body/div[18]/ul[1]/li[1]
+            availabilityText:
+              - text: In Stock
+                xpath: /html/body/div[19]
+            manufacturer:
+              - text: Dyson
+            descriptionBullets:
+              - text: "0"
+            variantCount:
+              - text: "0"
+            technicalInformationPdfPresent:
+              - text: "false"
+            customerServiceAvailability:
+              - text: "true"
+            termsAndConditions:
+              - text: "true"
+            privacyPolicy:
+              - text: "true"
+        xpath: /html/body
+    timestamp: 1607077156557

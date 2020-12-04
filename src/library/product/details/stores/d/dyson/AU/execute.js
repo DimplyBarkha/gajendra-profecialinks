@@ -5,8 +5,8 @@ module.exports = {
     country: 'AU',
     store: 'dyson',
     domain: 'dyson.com.au',
-    loadedSelector: null,
-    noResultsXPath: null,
+    loadedSelector: 'div.hero__body',
+    noResultsXPath: '//p[contains(text(), "The page you’re looking for can’t be found.")]',
     zipcode: '',
   },
 };

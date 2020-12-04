@@ -1,0 +1,22 @@
+input:
+  _url: http://dysoncanada.ca
+  URL: https://www.dysoncanada.ca/en/vacuum-cleaners/sticks/dyson-cyclone-v10-stick/dyson-cyclone-v10-motorhead
+extractions:
+  - html: https://workbench.import.io/html/run=15740152-8eaa-4522-a19c-b2c49bbf54b6/task=0244e49b-5d1e-479b-be71-b42161a60ce9/82638b95-164f-4374-9fbd-f50b0e21135d.html
+    extractionConfigId: product/details/stores/d/dyson/CA/variantsExtract
+    data:
+      - group:
+          - variantId:
+              - text: 244211-01-Nickel-Red-
+                xpath: /html/body/ol[1]/li[1]/@variant_id
+            variantUrl:
+              - text: https://www.dysoncanada.ca/en/vacuum-cleaners/sticks/dyson-cyclone-v10-stick/dyson-cyclone-v10-motorhead
+                xpath: /html/body/ol[1]/li[1]/@variant_url
+          - variantId:
+              - text: 324265-01-Black-Iron-
+                xpath: /html/body/ol[1]/li[2]/@variant_id
+            variantUrl:
+              - text: https://www.dysoncanada.ca/en/vacuum-cleaners/sticks/dyson-cyclone-v10-stick/dyson-cyclone-v10-motorhead-black
+                xpath: /html/body/ol[1]/li[2]/@variant_url
+        xpath: /html
+    timestamp: 1607092414409

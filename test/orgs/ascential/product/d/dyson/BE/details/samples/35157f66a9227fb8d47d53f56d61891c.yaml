@@ -1,0 +1,206 @@
+input:
+  _url: http://dyson.be
+  URL: https://www.dyson.be/nl_be/stofzuigers/draadloze-stofzuigers/dyson-v11/absolute-extra-pro-blauw
+extractions:
+  - html: https://workbench.import.io/html/run=e7197d7f-8417-496b-a6e9-a8096d10f343/task=f55bf2f4-2734-4a89-8415-a9f2e754f49b/4e9f6a43-edea-43b2-9180-23acd6a49499.html
+    extractionConfigId: product/details/stores/d/dyson/BE/extract
+    data:
+      - group:
+          - category:
+              - text: Stofzuigers
+                xpath: /html/body/nav[1]/div[1]/div[1]/div[1]/div[1]/nav[1]/div[2]/div[1]/div[1]/nav[1]/ol[1]/li[2]/span[1]/a[1]/span[1]
+              - text: Draadloze stofzuigers
+                xpath: /html/body/nav[1]/div[1]/div[1]/div[1]/div[1]/nav[1]/div[2]/div[1]/div[1]/nav[1]/ol[1]/li[3]/span[1]/a[1]/span[1]
+              - text: Dyson V11™ stofzuigers
+                xpath: /html/body/nav[1]/div[1]/div[1]/div[1]/div[1]/nav[1]/div[2]/div[1]/div[1]/nav[1]/ol[1]/li[4]/span[1]/a[1]/span[1]
+            image:
+              - text: https://dyson-h.assetsadobe2.com/is/image/content/dam/dyson/products/cord-free-vacuums/sticks/dyson-v11-vacuums/248l/pdp/absolute-extra-nickel-blue/248L_Variant_Hero_NL_LB_V11_Absolute_Extra_Pro_Nickel_Blue.jpg?$responsive$&cropPathE=desktop&fit=stretch,1&wid=1920
+                xpath: /html/body/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/img[1]/@src
+            imageAlt:
+              - text: Dyson V11 Absolute Extra Pro snoerloze stofzuiger blauw
+                xpath: /html/body/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/img[1]/@alt
+            description:
+              - text: >-
+                  Dyson V11 Absolute Extra Pro snoerloze stofzuiger blauw
+                   
+                  De nieuwste Dyson technologie. Dyson's krachtigste, intelligente snoerloze stofzuiger.¹ Tot 120 min. constante zuigkracht. ²
+                xpath: /html/body/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]
+            ratingCount:
+              - text: "86"
+                xpath: /html/body/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/a[1]/p[1]
+            aggregateRatingText:
+              - text: "4.8"
+                xpath: /html/body/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/a[1]/@aria-label
+            aggregateRating:
+              - text: "4.8"
+                xpath: /html/body/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/a[1]/@aria-label
+            shippingInfo:
+              - text: |-
+                  Gratis bezorging en retour 
+                  Geleverd binnen 2-3 werkdagen
+                xpath: /html/body/main[1]/div[2]/div[3]/div[1]/div[1]/section[1]/div[1]/div[1]/ul[1]/li[2]
+            name:
+              - text: Dyson V11 Absolute Extra Pro snoerloze stofzuiger blauw
+                xpath: /html/body/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/h1[1]
+            specifications:
+              - text: |-
+                  Lengte
+                   
+                   1.286 mm 
+                   
+                   
+                   
+                  Breedte
+                   
+                   261 mm 
+                   
+                   
+                   
+                  Hoogte
+                   
+                   261 mm
+                xpath: /html/body/main[1]/div[2]/div[11]/section[1]/div[1]/div[1]/ul[1]
+            manufacturerImages:
+              - text: https://dyson-h.assetsadobe2.com/is/image/content/dam/dyson/images/products/primary/347796-01.png?$responsive$&fmt=png-alpha&cropPathE=desktop&fit=stretch,1&wid=242
+                xpath: /html/body/main[1]/div[2]/div[7]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/img[1]/@src
+              - text: https://dyson-h.assetsadobe2.com/is/image/content/dam/dyson/images/products/squaretool/970100-05.png?$responsive$&cropPathE=square,1024&wid=112
+                xpath: /html/body/main[1]/div[2]/div[7]/div[1]/div[1]/div[1]/div[2]/ul[1]/li[1]/span[1]/picture[1]/img[1]/@src
+              - text: https://dyson-h.assetsadobe2.com/is/image/content/dam/dyson/images/products/squaretool/966489-15.png?$responsive$&cropPathE=square,1024&wid=112
+                xpath: /html/body/main[1]/div[2]/div[7]/div[1]/div[1]/div[1]/div[2]/ul[1]/li[2]/span[1]/picture[1]/img[1]/@src
+              - text: https://dyson-h.assetsadobe2.com/is/image/content/dam/dyson/images/products/squaretool/967479-05.png?$responsive$&cropPathE=square,1024&wid=112
+                xpath: /html/body/main[1]/div[2]/div[7]/div[1]/div[1]/div[1]/div[2]/ul[1]/li[3]/span[1]/picture[1]/img[1]/@src
+              - text: https://dyson-h.assetsadobe2.com/is/image/content/dam/dyson/images/products/squaretool/970425-01.png?$responsive$&cropPathE=square,1024&wid=112
+                xpath: /html/body/main[1]/div[2]/div[7]/div[1]/div[1]/div[1]/div[2]/ul[1]/li[4]/span[1]/picture[1]/img[1]/@src
+              - text: https://dyson-h.assetsadobe2.com/is/image/content/dam/dyson/images/products/squaretool/967482-01.png?$responsive$&cropPathE=square,1024&wid=112
+                xpath: /html/body/main[1]/div[2]/div[7]/div[1]/div[1]/div[1]/div[2]/ul[1]/li[5]/span[1]/picture[1]/img[1]/@src
+              - text: https://dyson-h.assetsadobe2.com/is/image/content/dam/dyson/images/products/squaretool/967612-01.png?$responsive$&cropPathE=square,1024&wid=112
+                xpath: /html/body/main[1]/div[2]/div[7]/div[1]/div[1]/div[1]/div[2]/ul[1]/li[6]/span[1]/picture[1]/img[1]/@src
+              - text: https://dyson-h.assetsadobe2.com/is/image/content/dam/dyson/images/products/squaretool/967766-01.png?$responsive$&cropPathE=square,1024&wid=112
+                xpath: /html/body/main[1]/div[2]/div[7]/div[1]/div[1]/div[1]/div[2]/ul[1]/li[7]/span[1]/picture[1]/img[1]/@src
+              - text: https://dyson-h.assetsadobe2.com/is/image/content/dam/dyson/images/products/squaretool/967765-01.png?$responsive$&cropPathE=square,1024&wid=112
+                xpath: /html/body/main[1]/div[2]/div[7]/div[1]/div[1]/div[1]/div[2]/ul[1]/li[8]/span[1]/picture[1]/img[1]/@src
+              - text: https://dyson-h.assetsadobe2.com/is/image/content/dam/dyson/images/products/squaretool/970778-01.png?$responsive$&cropPathE=square,1024&wid=112
+                xpath: /html/body/main[1]/div[2]/div[7]/div[1]/div[1]/div[1]/div[2]/ul[1]/li[9]/span[1]/picture[1]/img[1]/@src
+              - text: https://dyson-h.assetsadobe2.com/is/image/content/dam/dyson/images/products/squaretool/970011-01.png?$responsive$&cropPathE=square,1024&wid=112
+                xpath: /html/body/main[1]/div[2]/div[7]/div[1]/div[1]/div[1]/div[2]/ul[1]/li[10]/span[1]/picture[1]/img[1]/@src
+              - text: https://dyson-h.assetsadobe2.com/is/image/content/dam/dyson/images/products/squaretool/970129-01.png?$responsive$&cropPathE=square,1024&wid=112
+                xpath: /html/body/main[1]/div[2]/div[7]/div[1]/div[1]/div[1]/div[2]/ul[1]/li[11]/span[1]/picture[1]/img[1]/@src
+              - text: https://dyson-h.assetsadobe2.com/is/image/content/dam/dyson/images/products/squaretool/969350-03.png?$responsive$&cropPathE=square,1024&wid=112
+                xpath: /html/body/main[1]/div[2]/div[7]/div[1]/div[1]/div[1]/div[2]/ul[1]/li[12]/span[1]/picture[1]/img[1]/@src
+              - text: https://dyson-h.assetsadobe2.com/is/image/content/dam/dyson/products/cord-free-vacuums/sticks/dyson-v11-vacuums/248l/pdp/absolute-extra-pro-nickel-blue/248L_Spec_image_EU_LB_V11_Absolute_Extra_Pro_Nickel_Blue.jpg?$responsive$&fmt=png-alpha&cropPathE=desktop&fit=stretch,1&wid=615
+                xpath: /html/body/main[1]/div[2]/div[11]/section[1]/div[1]/div[1]/div[1]/div[1]/img[1]/@src
+              - text: https://dyson-h.assetsadobe2.com/is/image/content/dam/dyson/products/cord-free-vacuums/sticks/dyson-v11-vacuums/248l/pdp/Next%20up%20-%20Overview.jpg?$responsive$&cropPathE=desktop&fit=stretch,1&fmt=pjpeg&wid=960
+                xpath: /html/body/main[1]/div[2]/div[15]/div[1]/div[1]/div[1]/section[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/img[1]/@src
+              - text: https://dyson-h.assetsadobe2.com/is/image/content/dam/dyson/products/cord-free-vacuums/sticks/dyson-v11-vacuums/248l/pdp/Next%20up%20-%20Shop%20All.jpg?$responsive$&cropPathE=desktop&fit=stretch,1&fmt=pjpeg&wid=960
+                xpath: /html/body/main[1]/div[2]/div[15]/div[1]/div[1]/div[1]/section[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/img[1]/@src
+            weightNet:
+              - text: |-
+                  Gewicht
+                   
+                   2,97 kg
+                xpath: /html/body/main[1]/div[2]/div[11]/section[1]/div[1]/ul[1]/li[2]
+            productUrl:
+              - text: https://www.dyson.be/nl_be/stofzuigers/draadloze-stofzuigers/dyson-v11/absolute-extra-pro-blauw
+                xpath: /html/body/div[7]
+            brandText:
+              - text: Dyson
+                xpath: /html/body/div[8]
+            sku:
+              - text: 347796-01
+                xpath: /html/body/div[9]
+            variantId:
+              - text: 347796-01
+                xpath: /html/body/div[9]
+            mpc:
+              - text: 347796-01
+                xpath: /html/body/div[9]
+            color:
+              - text: Nickel-Iron-Blue
+                xpath: /html/body/div[10]
+            price:
+              - text: 749.00 €
+                xpath: /html/body/div[12]
+            listPrice:
+              - text: 799.00 €
+                xpath: /html/body/div[13]
+            nameExtended:
+              - text: Dyson V11 Absolute Extra Pro snoerloze stofzuiger blauw
+                xpath: /html/body/div[14]
+            productOtherInformation:
+              - text: Vloerzuigmond Hoog koppel & zachte roller Gewicht 2,97 kg Oplaadtijd 4,5
+                  hrs Gebruiksduur Tot 60 min Cycloontechnologie 14
+                  concentrische cyclonen Filtratie Geavanceerde filtratie in de
+                  hele machine Inhoud stofreservoir 0,76 L 220 AW
+                xpath: /html/body/div[15]
+            manufacturerDescription:
+              - text: De sterkste zuigkracht van alle snoerloze stofzuigers in gebruik²
+                  Snoerloos reinigen is nu nog eenvoudiger met de krachtigste,
+                  intelligentste snoerloze stofzuiger van Dyson.² Met constant
+                  accuvermogen en een accubesparende triggerfunctie. Controleert
+                  de systeemprestaties en rapporteert hierover in real time op
+                  het lcd-scherm, zodat u de controle hebt over uw
+                  schoonmaakklus. Kenmerken De juiste reinigingsstand voor de
+                  juiste taak Drie reinigingsstanden, geoptimaliseerd voor
+                  uiteenlopende taken. De juiste balans tussen vermogen en
+                  gebruiksduur, waar u die nodig hebt. Grondige reiniging van
+                  vloeren en tapijten Een geïntegreerde digitale motor roteert
+                  de borstel tot 60 keer per seconde. De stugge nylonborstels
+                  dringen diep door in tapijt om vuil te verwijderen, en de
+                  koolstofvezelharen verwijderen fijne stofdeeltjes van harde
+                  vloeren. Intelligente meldingen in real time Controleert de
+                  systeemprestaties 8000 keer per seconde, en rapporteert
+                  hierover in real time op het LCD-scherm. Uniek
+                  accubeheersysteem Dysons technologie voor
+                  vermogensoptimalisering en de accubesparende triggerfunctie
+                  dragen bij aan een optimale gebruiksduur, doordat u alleen
+                  vermogen gebruikt wanneer u dat nodig hebt. Hygiënisch legen
+                  van het stofreservoir met één enkele handeling Al het stof en
+                  vuil in het stofreservoir wordt door een handig mechanisme in
+                  één handeling hygiënisch en gericht uitgeworpen. U hoeft het
+                  vuil dus niet aan te raken. Drop-in oplaadstation U kunt uw
+                  Dyson V11™ stofzuiger eenvoudig in het oplaadstation aan de
+                  muur hangen om hem op te laden. Ook uw accessoires kunt u hier
+                  opbergen. Altijd binnen handbereik om snel aan de slag te
+                  gaan. Verwisselbare accu Met één druk op de knop te
+                  verwijderen en te vervangen, zodat u nog langer kunt
+                  stofzuigen³. De verwisselbare accu's kunnen in het apparaat of
+                  los worden opgeladen. Technologie Constante zuigkracht De
+                  zevencellige nikkel-kobalt-aluminiumaccu levert een constante
+                  zuigkracht waarmee u overal in en om het huis kunt
+                  schoonmaken. Aangedreven door een Dyson Hyperdymium™ motor
+                  Draait tot wel 125.000 toeren per minuut en is daarmee Dysons
+                  krachtigste snoerloze stofzuiger.² Radial Root Cyclone™
+                  technologie 14 cyclonen genereren krachten van 79.000g om stof
+                  het stofreservoir in te slingeren zonder het filter te
+                  verstoppen, zodat er geen zuigkracht verloren gaat. Filtratie
+                  in de hele machine Het volledig afgedichte filtratiesysteem
+                  vangt 99,97% van de deeltjes zo klein als 0,3 micrometer op –
+                  en blaast schonere lucht uit. Akoestisch ontwerp Zo ontworpen
+                  dat hij trillingen absorbeert en geluid dempt, voor een lager
+                  geluidsniveau. Inline configuratie De motor, het stofreservoir
+                  en de cycloon zijn uitgelijnd zodat de lucht in een rechte
+                  lijn de cyclonen in wordt gezogen, waardoor een sterke Dyson
+                  zuigkracht wordt gegenereerd.
+                xpath: /html/body/div[16]
+            videos:
+              - text: www.dyson.be/content/dam/dyson/video/products/primary/347796-01.mp4
+                xpath: /html/body/div[19]/ul[1]/li[1]
+            availabilityText:
+              - text: In Stock
+                xpath: /html/body/div[20]
+            manufacturer:
+              - text: Dyson
+            descriptionBullets:
+              - text: "0"
+            variantCount:
+              - text: "0"
+            technicalInformationPdfPresent:
+              - text: "false"
+            customerServiceAvailability:
+              - text: "true"
+            termsAndConditions:
+              - text: "true"
+            privacyPolicy:
+              - text: "true"
+        xpath: /html/body
+    timestamp: 1607077158103

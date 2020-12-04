@@ -1,0 +1,154 @@
+input:
+  _url: http://dyson.be
+  URL: https://www.dyson.be/nl_be/luchtbehandeling/luchtreiniger-luchtbevochtiger/dyson-pure-humidify-cool/wit-zilver
+extractions:
+  - html: https://workbench.import.io/html/run=e7197d7f-8417-496b-a6e9-a8096d10f343/task=8218c319-721d-4ef2-8229-fccd6f87efb2/c490ffe3-3166-4062-8bfc-9e1e27fe5692.html
+    extractionConfigId: product/details/stores/d/dyson/BE/extract
+    data:
+      - group:
+          - category:
+              - text: Luchtbehandeling
+                xpath: /html/body/nav[1]/div[1]/div[1]/div[1]/div[1]/nav[1]/div[2]/div[1]/div[1]/nav[1]/ol[1]/li[2]/span[1]/a[1]/span[1]
+              - text: Luchtbevochtigers
+                xpath: /html/body/nav[1]/div[1]/div[1]/div[1]/div[1]/nav[1]/div[2]/div[1]/div[1]/nav[1]/ol[1]/li[3]/span[1]/a[1]/span[1]
+              - text: Dyson Pure Humidify+Cool™
+                xpath: /html/body/nav[1]/div[1]/div[1]/div[1]/div[1]/nav[1]/div[2]/div[1]/div[1]/nav[1]/ol[1]/li[4]/span[1]/a[1]/span[1]
+            image:
+              - text: https://dyson-h.assetsadobe2.com/is/image/content/dam/dyson/products/air-treatment/purifier-humidifier/pure-humidify-cool/variants/white-silver/air-quality-pure-humidify-cool-variant-hero-WHSIL-BE_NL-MEI2020.jpg?$responsive$&cropPathE=desktop&fit=stretch,1&wid=1920
+                xpath: /html/body/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/img[1]/@src
+            imageAlt:
+              - text: Dyson Pure Humidify + Cool™ luchtreinigingsventilator met
+                  luchtbevochtiging wit
+                xpath: /html/body/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/img[1]/@alt
+            description:
+              - text: >-
+                  Dyson Pure Humidify+Cool Luchtreinigingsventilator en
+                  luchtbevochtiger Wit/Zilver
+                   
+                  3 in 1: Luchtreiniger, ventilator en luchtbevochtiger
+                   
+                  Reinigt en bevochtigt lucht met hygiënische nevel¹
+                xpath: /html/body/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]
+            ratingCount:
+              - text: "147"
+                xpath: /html/body/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/a[1]/p[1]
+            aggregateRatingText:
+              - text: "4.2"
+                xpath: /html/body/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/a[1]/@aria-label
+            aggregateRating:
+              - text: "4.2"
+                xpath: /html/body/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/a[1]/@aria-label
+            shippingInfo:
+              - text: |-
+                  Gratis bezorging en retour 
+                  Geleverd binnen 2-3 werkdagen
+                xpath: /html/body/main[1]/div[2]/div[2]/div[1]/div[1]/section[1]/div[1]/div[1]/ul[1]/li[2]
+            name:
+              - text: Dyson Pure Humidify+Cool Luchtreinigingsventilator en luchtbevochtiger
+                  Wit/Zilver
+                xpath: /html/body/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/h1[1]
+            specifications:
+              - text: |-
+                  Hoogte
+                   
+                   925 mm
+                xpath: /html/body/main[1]/div[2]/div[11]/section[1]/div[1]/div[1]/ul[1]
+            warranty:
+              - text: |-
+                  2 of 5 jaar garantie 
+                  Op onderdelen en arbeid
+                xpath: /html/body/main[1]/div[2]/div[2]/div[1]/div[1]/section[1]/div[1]/div[1]/ul[1]/li[1]
+            manufacturerImages:
+              - text: https://dyson-h.assetsadobe2.com/is/image/content/dam/dyson/products/air-treatment/purifier-humidifier/pure-humidify-cool/variants/white-silver/air-quality-pure-humidify-cool-variant-spec-whsil.jpg?$responsive$&fmt=png-alpha&cropPathE=desktop&fit=stretch,1&wid=615
+                xpath: /html/body/main[1]/div[2]/div[11]/section[1]/div[1]/div[1]/div[1]/div[1]/img[1]/@src
+            weightNet:
+              - text: |-
+                  Gewicht
+                   
+                   8,29 kg
+                xpath: /html/body/main[1]/div[2]/div[11]/section[1]/div[1]/ul[1]/li[1]
+            productUrl:
+              - text: https://www.dyson.be/nl_be/luchtbehandeling/luchtreiniger-luchtbevochtiger/dyson-pure-humidify-cool/wit-zilver
+                xpath: /html/body/div[6]
+            brandText:
+              - text: Dyson
+                xpath: /html/body/div[7]
+            sku:
+              - text: 275413-01
+                xpath: /html/body/div[8]
+            variantId:
+              - text: 275413-01
+                xpath: /html/body/div[8]
+            mpc:
+              - text: 275413-01
+                xpath: /html/body/div[8]
+            color:
+              - text: White-Silver
+                xpath: /html/body/div[9]
+            price:
+              - text: 699.00 €
+                xpath: /html/body/div[11]
+            nameExtended:
+              - text: Dyson Pure Humidify+Cool Luchtreinigingsventilator en luchtbevochtiger
+                  Wit/Zilver
+                xpath: /html/body/div[12]
+            productOtherInformation:
+              - text: Gewicht 8,29 kg 312 mm 280 mm
+                xpath: /html/body/div[13]
+            manufacturerDescription:
+              - text: Voor een gezondere omgeving De Dyson luchtreinigingsventilator met
+                  luchtbevochtiging helpt de luchtkwaliteit te verbeteren. Het
+                  HEPA-filter en actief koolstoffilter vangen gassen¹ en
+                  deeltjes² op. Dankzij de Air Multiplier™ technologie wordt
+                  vervolgens schone, bevochtigde lucht door de kamer verspreid³,
+                  die alleen koelt wanneer dat nodig is. Dyson Ultraviolet
+                  Cleanse-technologie verwijdert hygiënisch 99,9% van de
+                  bacteriën in het water. Maak verbinding met de Dyson Link-app
+                  voor intelligente luchtreinigingsbediening. Detecteert
+                  Detecteert automatisch deeltjes² en gassen¹, evenals de
+                  temperatuur en het vochtigheidsniveau, en analyseert en
+                  rapporteert deze in real time. Verwijdert HEPA-filter en
+                  actief koolstoffilter. Verwijdert gassen¹ en 99,95% van alle
+                  verontreinigende deeltjes.² Vernietigt De Dyson Ultraviolet
+                  Cleanse technologie verwijdert 99,9% van alle bacteriën in het
+                  water op hygiënische wijze. Circuleert De Dyson Air
+                  Multiplier™ technologie mengt en circuleert schone, vochtige
+                  lucht door de kamer.³ Verkoelt Bij warmer weer brengt een
+                  krachtige stroom schone, vochtige lucht verkoeling. Echte
+                  gegevens, in real time Controleer de luchtkwaliteit met de
+                  Dyson Link app.⁴ Verspreide stand Verspreidt de luchtstroom
+                  via de achterkant van het apparaat om de lucht te zuiveren en
+                  te bevochtigen zonder te koelen. Bries-stand De unieke
+                  algoritmen zorgen voor een afwisselende luchtstroom om een
+                  verfrissende bries te simuleren. Nachtstand Controleert,
+                  reinigt, bevochtigt en koelt de lucht op de stilste stand en
+                  met gedimd scherm. Slaaptimer U kunt het apparaat zo
+                  programmeren dat hij na een vooraf ingestelde periode tussen
+                  de 15 minuten en 9 uur wordt uitgeschakeld. Grondige
+                  reinigingscyclus Met één druk op de knop activeert u de
+                  grondige reinigingscyclus, waarna u een eenvoudig stappenplan
+                  volgt. Kieskeurig Best Reviewed - Mei 2020 De Dyson Pure
+                  Humidify+Cool is uitgeroepen tot Best Reviewed in Mei 2020.
+                xpath: /html/body/div[14]
+            videos:
+              - text: www.dyson.be/content/dam/dyson/video/products/primary/275413-01.mp4
+                xpath: /html/body/div[17]/ul[1]/li[1]
+            availabilityText:
+              - text: In Stock
+                xpath: /html/body/div[18]
+            manufacturer:
+              - text: Dyson
+            descriptionBullets:
+              - text: "0"
+            variantCount:
+              - text: "0"
+            technicalInformationPdfPresent:
+              - text: "false"
+            customerServiceAvailability:
+              - text: "true"
+            termsAndConditions:
+              - text: "true"
+            privacyPolicy:
+              - text: "true"
+        xpath: /html/body
+    timestamp: 1607077164397
