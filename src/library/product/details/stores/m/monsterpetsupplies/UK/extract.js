@@ -3,11 +3,9 @@ const { transform } = require('../../../../shared');
 async function implementation ({ url, id }, parameters, context, dependencies) {
   const { transform } = parameters;
   const { productDetails } = dependencies;
+  const prodId = id;
 
-  const skuCode = id;
-  await context.addToDom('sku_code', skuCode);
-
-  await context.evaluate(async () => {
+  await context.evaluate(async (prodId) => {
     var getSiblings = function (elem) {
       // Setup siblings array and get the first sibling
       var siblings = [];
@@ -31,12 +29,9 @@ async function implementation ({ url, id }, parameters, context, dependencies) {
       document.body.appendChild(div);
     }
 
-    const productId = id.toString();
-    console.log(id.toString());
-
-    const skuNode = document.querySelector('meta[content="' + productId + '"]');
+    const skuNode = document.querySelector('meta[content="' + prodId + '"]');
     const productNode = getSiblings(skuNode);
-    addElementToDom(id, 'sku');
+    addElementToDom(prodId, 'sku');
     productNode.forEach((element) => {
       addElementToDom(
         element.getAttribute('content'),
@@ -52,7 +47,9 @@ async function implementation ({ url, id }, parameters, context, dependencies) {
     if (elem) {
       elem.textContent = elem.textContent.match(availRegExp)[1];
     }
-  });
+
+    document.querySelector('img[class="zoomImg"]') ? addElementToDom('Yes', 'Zoom') : addElementToDom('No', 'Zoom');
+  }, prodId);
 
   return await context.extract(productDetails, { transform });
 }

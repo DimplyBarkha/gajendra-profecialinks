@@ -1,10 +1,11 @@
+const { transform } = require('../../../../shared');
 
 module.exports = {
   implements: 'product/search/extract',
   parameterValues: {
     country: 'UK',
     store: 'monsterpetsupplies',
-    transform: null,
+    transform: transform,
     domain: 'monsterpetsupplies.co.uk',
     zipcode: '',
   },

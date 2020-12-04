@@ -93,7 +93,7 @@ fields:
   xpath: //div[@id="sku"]
   regExp: (\d+)$
 - name: mpc
-  singleValue: tru
+  singleValue: true
   description: The manufacturer model code (unique) of the product
 - name: packSize
   singleValue: true
@@ -490,3 +490,4 @@ fields:
   description: If Zoom feature is available for Main image or images in the carousel,['Yes','No']
   example: https://www.zalando.de/adidas-neo-sneaker-low-blackwhite-a4315i002-q11.html
   defaultValue: false
+  xpath: //div[@id="Zoom"]
