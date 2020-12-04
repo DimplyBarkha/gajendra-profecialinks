@@ -59,7 +59,7 @@ fields:
 - name: descriptionBullets
   singleValue: true
   description: Number of ul > li tags in the description
-  xpath: count(//li[strong[contains(text(), 'Beschreibung')]])
+  xpath: count((//div[contains(@class,'product-accordion')])[2]/ul/li[position()>1])
 - name: brandText
   singleValue: true
   description: Product brand shown - this may actually NOT be just a brand name, e.g.
@@ -256,7 +256,7 @@ fields:
   singleValue: true
   description: List of Ingredients from site - can be string of data if no discernible
     start/end point
-  xpath: //li[strong[contains(text(), 'Inhaltsstoffe')]]/p | //li[@id='tab-ingredientsAndAllergens']//li[position()=1]/p | //li[strong[contains(text(), 'Zusammensetzung')]]/p
+  xpath: //li[strong[contains(text(), 'Inhaltsstoffe')]]/p | //li[@id='tab-ingredientsAndAllergens']//li[position()=1] | //li[strong[contains(text(), 'Zusammensetzung')]]/p
 - name: servingSize
   singleValue: true
   description: The size of serving Nutritional information is based on.
@@ -330,9 +330,12 @@ fields:
   singleValue: true
   description: Nutritional Information for Dietary Fibre content - Usually based on
     per 100g serving
+  xpath: //tr[td[contains(text(), 'Ballaststoffe')]]/td[last()]
 - name: dietaryFibrePerServingUom
   singleValue: true
   description: Unit of Measure Data for Dietary Fibre content
+  xpath: //tr[td[contains(text(), 'Ballaststoffe')]]/td[last()]
+  regExp: ([a-zA-Z]+)
 - name: totalSugarsPerServing
   singleValue: true
   description: Nutritional Information for Total Sugar content - Usually based on
@@ -374,9 +377,12 @@ fields:
   singleValue: true
   description: Nutritional Information for Calcium content - Usually based on per
     100g serving
+  xpath:  //li[strong[text()='Calcium']]/p
 - name: calciumPerServingUom
   singleValue: true
   description: Unit of Measure Data for Calcium
+  xpath: //li[strong[text()='Calcium']]/p
+  regExp: ([a-zA-Z]+\/[a-zA-Z]+)
 - name: ironPerServing
   singleValue: true
   description: Nutritional Information for Iron content - Usually based on per 100g
@@ -394,9 +400,12 @@ fields:
   singleValue: true
   description: Nutritional Information for Magnesium content - Usually based on per
     100g serving
+  xpath: //li[strong[contains(text(), 'Magnesium')]]/p
 - name: magnesiumPerServingUom
   singleValue: true
   description: Unit of Measure Data for Magnesium
+  xpath: //li[strong[contains(text(), 'Magnesium')]]/p
+  regExp: ([a-zA-Z]+\/[a-zA-Z]+)
 - name: saltPerServing
   singleValue: true
   description: Nutritional Information for Salt content - Usually based on per 100g
@@ -441,8 +450,9 @@ fields:
   description: Packaging information
   xpath: //li[strong[contains(text(), 'Verpackungsform')]]/p
 - name: additives
-  singleValue: true
+  singleValue: false
   description: List of additives in the product
+  xpath: //li[strong[(contains(text(), 'stoffe')) and not(contains(text(), 'Inhalt'))]]
 - name: pricePerUnit
   singleValue: true
   description: Price of the product split into certain units
@@ -455,6 +465,7 @@ fields:
 - name: promotion
   singleValue: true
   description: promotion text on product page
+  xpath: //aside[@class='product-promo']
 - name: alcoholContent
   singleValue: true
   description: Alcohol content information
@@ -488,7 +499,7 @@ fields:
 - name: additionalDescBulletInfo
   singleValue: false
   description: 
-  xpath: (//div[contains(@class,'product-accordion')])[2]//li[not(strong[contains(text(), 'Bes')]) and not(strong[contains(text(), 'Verpackungsform')]) and not(strong[contains(text(), 'Zusammensetzung')]) and not(strong[contains(text(), 'Fütterungsempfehlung')])  and not(strong[contains(text(), 'Zusammensetzung')]) and not(strong[contains(text(), 'Warnhinweise')])  and not(strong[contains(text(), 'Anwen')]) and not(strong[contains(text(), 'frei')]) and not(strong[contains(text(), 'Herkunftsland')]) and not(strong[contains(text(), 'nummer')]) and not(strong[contains(text(), 'Nachhaltigkeit')]) and not(strong[contains(text(), 'Vege')]) and not(strong[contains(text(), 'Warnhinweise')])  and not(strong[contains(text(), 'Anwen')]) and not(strong[contains(text(), 'frei')]) and not(strong[contains(text(), 'Herkunftsland')]) and not(strong[contains(text(), 'nummer')]) and not(strong[contains(text(), 'Nachhaltigkeit')]) and not(strong[contains(text(), 'Vege')]) and not(strong[contains(text(), 'Vegan')]) and not(strong[contains(text(), 'Haltbarkeit & Lagerung')]) and not(strong[contains(text(), 'Eisen')]) and not(strong[contains(text(), 'Vitamin A')]) and not(strong[contains(text(), 'Alter')])]
+  xpath: (//div[contains(@class,'product-accordion')])[2]/ul/li[position()>1]
 - name: prop65Warning
   singleValue: true
   description: 
