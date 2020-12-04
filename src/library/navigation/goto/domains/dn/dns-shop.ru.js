@@ -3,7 +3,7 @@ module.exports = {
   implements: 'navigation/goto',
   parameterValues: {
     domain: 'dns-shop.ru',
-    timeout: null,
+    timeout: 100000,
     country: 'RU',
     store: 'dns-shop',
     zipcode: '',

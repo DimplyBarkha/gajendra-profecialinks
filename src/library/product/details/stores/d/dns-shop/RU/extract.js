@@ -50,7 +50,21 @@ module.exports = {
     } catch (error) {
       console.log(error);
     }
-
+    await context.evaluate(async () =>{
+      const Button1 = document.querySelector('.owl-item:first-child .img img');
+      if(Button1){
+        Button1.click();
+        console.log('Button1 clicked');
+      }
+    });
+    await context.waitForSelector('.media-viewer__titles .media-viewer__title');
+    await context.evaluate(async () =>{
+      const Button2 = document.querySelector('.media-viewer__titles .media-viewer__title:nth-child(2)');
+      if(Button2){
+        Button2.click();
+        console.log('Button2 clicked');
+      }
+    });
     return await context.extract(productDetails, { transform });
   },
 };
