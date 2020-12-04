@@ -47,6 +47,31 @@ module.exports = {
           },
         ];
       }
+      if (row.additives) {
+        let text = '';
+        row.additives.forEach(item => {
+          text += `|| ${item.text.replace('\n', '-')} `;
+        });
+        row.additives = [
+          {
+            text: text,
+          },
+        ];
+      }
+      if (row.dietaryInformation) {
+        let text = '';
+        row.dietaryInformation.forEach(item => {
+          if (row.dietaryInformation.length > 1) {
+            text += `|| ${item.text.replace('\n', '-')} `;
+          } else text += item.text.replace('\n', '-');
+        });
+
+        row.dietaryInformation = [
+          {
+            text: text,
+          },
+        ];
+      }
     });
 
     return dataRef;
