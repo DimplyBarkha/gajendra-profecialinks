@@ -22,7 +22,9 @@ const transform = (data) => {
         const additionalDescBulletInfoArr = row.additionalDescBulletInfo.map((item) => {
           return item.text;
         });
-        additionalDescBulletInfoArr.unshift('|| ');
+        if (additionalDescBulletInfoArr.length > 1) {
+          additionalDescBulletInfoArr[0] = '|| ' + additionalDescBulletInfoArr[0];
+        }
         clean(row.additionalDescBulletInfo = [{ text: additionalDescBulletInfoArr.join(' | '), xpath: row.additionalDescBulletInfo[0].xpath }]);
       }
       if (row.description) {
@@ -57,18 +59,6 @@ const transform = (data) => {
           return item.text;
         });
         clean(row.variants = [{ text: variantsArr.join(' | '), xpath: row.variants[0].xpath }]);
-      }
-      if (row.price) {
-        const priceArr = row.price.map((item) => {
-          return typeof (item.text) === 'string' ? item.text.replace('.', ',') : '';
-        });
-        clean(row.price = [{ text: priceArr.join(''), xpath: row.price[0].xpath }]);
-      }
-      if (row.listPrice) {
-        const listPriceArr = row.listPrice.map((item) => {
-          return typeof (item.text) === 'string' ? item.text.replace('.', ',') : '';
-        });
-        clean(row.listPrice = [{ text: listPriceArr.join(''), xpath: row.listPrice[0].xpath }]);
       }
     }
   }
