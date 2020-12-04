@@ -1,14 +1,13 @@
-
 module.exports = {
   implements: 'navigation/paginate',
   parameterValues: {
     template: null,
     country: 'DE',
     store: 'rossmann',
-    nextLinkSelector: null,
+    nextLinkSelector: 'li[class="bv-content-pagination-buttons-item bv-content-pagination-buttons-item-next"] > a',
     nextLinkXpath: null,
     mutationSelector: null,
-    spinnerSelector: null,
+    spinnerSelector: 'div[id="bv-mbox-loading"]',
     loadedSelector: null,
     loadedXpath: null,
     noResultsXPath: null,
