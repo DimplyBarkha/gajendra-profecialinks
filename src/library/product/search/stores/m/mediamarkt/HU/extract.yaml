@@ -1,0 +1,25 @@
+singleRecord: false
+regionsSelector: null
+recordXPath: //ul[@data-gtm-prop-list-name="Search result list"]/li
+fields:
+  - name: thumbnail
+    singleValue: false
+    xpath: //img[@class="loaded"]/@src
+  - name: brandText
+    singleValue: false
+    xpath: ./script
+  - name: aggregateRating2
+    singleValue: false
+    xpath: //div[contains(@class,"rating")]/div/@class
+  - name: reviewCount
+    singleValue: false
+    xpath: //a[@class="clickable see-reviews"]
+  - name: ratingCount
+    singleValue: false
+    xpath: //a[@class="clickable see-reviews"]
+  - name: productUrl
+    singleValue: false
+    xpath: //a[@class="photo clickable"]/@href
+  - name: searchUrl
+    singleValue: false
+    xpath: //div[@id="page_url"]
