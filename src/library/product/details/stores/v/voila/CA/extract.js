@@ -1,4 +1,4 @@
-const { transform } = require('../../../../shared');
+const { transform } = require('../shared');
 
 module.exports = {
   implements: 'product/details/extract',
@@ -7,7 +7,6 @@ module.exports = {
     store: 'voila',
     transform,
     domain: 'voila.ca',
-    zipcode: '',
   },
   implementation: async (
     inputs,

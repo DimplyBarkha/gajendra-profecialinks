@@ -6,7 +6,6 @@ module.exports = {
     timeout: 50000,
     country: 'CA',
     store: 'voila',
-    zipcode: '',
   },
 
   implementation: async ({ url, zipcode, storeId }, parameters, context, dependencies) => {

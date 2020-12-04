@@ -5,6 +5,5 @@ module.exports = {
     country: 'CA',
     store: 'voila',
     domain: 'voila.ca',
-    zipcode: '',
   },
 };
