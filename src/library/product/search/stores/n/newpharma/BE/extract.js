@@ -4,6 +4,26 @@ const { transform } = require('../../../../shared');
 async function implementation (inputs, parameters, context, dependencies) {
   const { transform } = parameters;
   const { productDetails } = dependencies;
+
+  async function checkPopups() {
+    await context.evaluate(() => {
+      const popUp = document.querySelector('div[id="wps_popup"]');
+      if (popUp !== null) {
+        popUp.remove();
+      }
+      const popUpSecond = document.querySelector('div[id="js-cookie-policy-popup"]');
+      if (popUpSecond !== null) {
+        popUpSecond.remove();
+      }
+    });
+  }
+  // wating for popUp
+  await new Promise((resolve) => setTimeout(resolve, 3000));
+  await checkPopups();
+  // wating for more popUps
+  await new Promise((resolve) => setTimeout(resolve, 1000));
+  await checkPopups();
+
   await context.evaluate(async () => {
     const allProducts = document.querySelectorAll('div.product.js-product-row');
     allProducts.forEach((product, index) => {
