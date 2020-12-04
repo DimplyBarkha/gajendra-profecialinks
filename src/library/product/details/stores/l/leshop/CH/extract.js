@@ -25,6 +25,14 @@ module.exports = {
         newDiv.style.display = 'none';
         document.body.appendChild(newDiv);
       }
+      // Method to Retrieve Xpath content of a Single Node
+      const getXpath = (xpath, prop) => {
+        const elem = document.evaluate(xpath, document, null, XPathResult.ANY_UNORDERED_NODE_TYPE, null);
+        let result;
+        if (prop && elem && elem.singleNodeValue) result = elem.singleNodeValue[prop];
+        else result = elem ? elem.singleNodeValue : '';
+        return result && result.trim ? result.trim() : result;
+      };
       // @ts-ignore
       const image = document.querySelectorAll('aside[class="product-detail-image"]>div>div')[0].style.backgroundImage;
       addHiddenDiv('image', image.split('"')[1]);
@@ -68,21 +76,30 @@ module.exports = {
       }
       try {
         const servingSize = "product-detail-" + productID + "-nutrients";
-        // @ts-ignore
-        const rawservingSize = document.querySelector('dd[id="' + servingSize + '"]').innerText;
-        var finalservingSize = rawservingSize.split(':')[0];
-        if (finalservingSize.length < 15) {
-          try {
-            finalservingSize = finalservingSize.replace('enhalten', '');
-          } catch (error) {
-          }
-          try {
-            finalservingSize = finalservingSize.replace('contain', '');
-          } catch (error) {
-          }
-          addHiddenDiv('servingSize', finalservingSize);
-          addHiddenDiv('rawservingSizeUom', finalservingSize.replace(/[0-9]/g, ""));
+        var rawservingSize;
+        rawservingSize = getXpath("//dd[@id='" + servingSize + "']/table/thead/tr/th[2]/text()", 'nodeValue');
+        if (rawservingSize != null) {
+          addHiddenDiv('servingSize', rawservingSize);
+          addHiddenDiv('rawservingSizeUom', rawservingSize.replace(/[0-9]/g, ""));
         }
+        else {
+          // @ts-ignore
+          rawservingSize = document.querySelector('dd[id="' + servingSize + '"]').innerText;
+          var finalservingSize = rawservingSize.split(':')[0];
+          if (finalservingSize.length < 15) {
+            try {
+              finalservingSize = finalservingSize.replace('enhalten', '');
+            } catch (error) {
+            }
+            try {
+              finalservingSize = finalservingSize.replace('contain', '');
+            } catch (error) {
+            }
+            addHiddenDiv('servingSize', finalservingSize);
+            addHiddenDiv('rawservingSizeUom', finalservingSize.replace(/[0-9]/g, ""));
+          }
+        }
+
       } catch (error) {
 
       }
@@ -95,14 +112,7 @@ module.exports = {
       } catch (error) {
 
       }
-      // Method to Retrieve Xpath content of a Single Node
-      const getXpath = (xpath, prop) => {
-        const elem = document.evaluate(xpath, document, null, XPathResult.ANY_UNORDERED_NODE_TYPE, null);
-        let result;
-        if (prop && elem && elem.singleNodeValue) result = elem.singleNodeValue[prop];
-        else result = elem ? elem.singleNodeValue : '';
-        return result && result.trim ? result.trim() : result;
-      };
+
       try {
         const caloriesPerServing = "product-detail-" + productID + "-nutrients";
         // @ts-ignore
@@ -133,12 +143,14 @@ module.exports = {
           try {
             // @ts-ignore
             rawtotalFatPerServing = document.querySelector('dd[id="' + totalFatPerServing + '"]').innerText;
-            rawtotalFatPerServing = rawtotalFatPerServing.slice(rawtotalFatPerServing.indexOf('Fett '));
-            rawtotalFatPerServing = rawtotalFatPerServing.substring(4, rawtotalFatPerServing.indexOf(','));
-            addHiddenDiv('rawtotalFatPerServing', rawtotalFatPerServing);
-            rawtotalFatPerServingMeasure = rawtotalFatPerServing.replace(/[^\w\s]/gi, '');
-            rawtotalFatPerServingMeasure = rawtotalFatPerServingMeasure.replace(/[0-9]/g, '');
-            addHiddenDiv('rawtotalFatPerServingMeasure', rawtotalFatPerServingMeasure);
+            if (rawtotalFatPerServing.indexOf('Fett ') != -1) {
+              rawtotalFatPerServing = rawtotalFatPerServing.slice(rawtotalFatPerServing.indexOf('Fett '));
+              rawtotalFatPerServing = rawtotalFatPerServing.substring(4, rawtotalFatPerServing.indexOf(','));
+              addHiddenDiv('rawtotalFatPerServing', rawtotalFatPerServing);
+              rawtotalFatPerServingMeasure = rawtotalFatPerServing.replace(/[^\w\s]/gi, '');
+              rawtotalFatPerServingMeasure = rawtotalFatPerServingMeasure.replace(/[0-9]/g, '');
+              addHiddenDiv('rawtotalFatPerServingMeasure', rawtotalFatPerServingMeasure);
+            }
           } catch (error) {
 
           }
@@ -174,12 +186,14 @@ module.exports = {
           try {
             // @ts-ignore
             rawsodiumPerServing = document.querySelector('dd[id="' + sodiumPerServing + '"]').innerText;
-            rawsodiumPerServing = rawsodiumPerServing.slice(rawsodiumPerServing.indexOf('Natrium'));
-            rawsodiumPerServing = rawsodiumPerServing.substring(rawsodiumPerServing.indexOf(':'), rawsodiumPerServing.indexOf(','));
-            addHiddenDiv('rawsodiumPerServing', rawsodiumPerServing);
-            rawsodiumPerServingMeasure = rawsodiumPerServing.replace(/[^\w\s]/gi, '');
-            rawsodiumPerServingMeasure = rawsodiumPerServingMeasure.replace(/[0-9]/g, '');
-            addHiddenDiv('rawsodiumPerServingMeasure', rawsodiumPerServingMeasure);
+            if (rawsodiumPerServing.indexOf('Natrium') != -1) {
+              rawsodiumPerServing = rawsodiumPerServing.slice(rawsodiumPerServing.indexOf('Natrium'));
+              rawsodiumPerServing = rawsodiumPerServing.substring(rawsodiumPerServing.indexOf(':'), rawsodiumPerServing.indexOf(','));
+              addHiddenDiv('rawsodiumPerServing', rawsodiumPerServing);
+              rawsodiumPerServingMeasure = rawsodiumPerServing.replace(/[^\w\s]/gi, '');
+              rawsodiumPerServingMeasure = rawsodiumPerServingMeasure.replace(/[0-9]/g, '');
+              addHiddenDiv('rawsodiumPerServingMeasure', rawsodiumPerServingMeasure);
+            }
           } catch (error) {
 
           }
@@ -203,12 +217,14 @@ module.exports = {
           try {
             // @ts-ignore
             rawtotalCarbPerServing = document.querySelector('dd[id="' + totalCarbPerServing + '"]').innerText;
-            rawtotalCarbPerServing = rawtotalCarbPerServing.slice(rawtotalCarbPerServing.indexOf('Kohlenhydrate '));
-            rawtotalCarbPerServing = rawtotalCarbPerServing.substring(rawtotalCarbPerServing.indexOf(' '), rawtotalCarbPerServing.indexOf(','));
-            addHiddenDiv('rawtotalCarbPerServing', rawtotalCarbPerServing);
-            rawtotalCarbPerServingMeasure = rawtotalCarbPerServing.replace(/[^\w\s]/gi, '');
-            rawtotalCarbPerServingMeasure = rawtotalCarbPerServingMeasure.replace(/[0-9]/g, '');
-            addHiddenDiv('rawtotalCarbPerServingMeasure', rawtotalCarbPerServingMeasure);
+            if (rawtotalCarbPerServing.indexOf('Kohlenhydrate ') != -1) {
+              rawtotalCarbPerServing = rawtotalCarbPerServing.slice(rawtotalCarbPerServing.indexOf('Kohlenhydrate '));
+              rawtotalCarbPerServing = rawtotalCarbPerServing.substring(rawtotalCarbPerServing.indexOf(' '), rawtotalCarbPerServing.indexOf(','));
+              addHiddenDiv('rawtotalCarbPerServing', rawtotalCarbPerServing);
+              rawtotalCarbPerServingMeasure = rawtotalCarbPerServing.replace(/[^\w\s]/gi, '');
+              rawtotalCarbPerServingMeasure = rawtotalCarbPerServingMeasure.replace(/[0-9]/g, '');
+              addHiddenDiv('rawtotalCarbPerServingMeasure', rawtotalCarbPerServingMeasure);
+            }
           } catch (error) {
 
           }
@@ -221,7 +237,9 @@ module.exports = {
         const dietaryFibrePerServing = "product-detail-" + productID + "-nutrients";
         var rawdietaryFibrePerServing, rawdietaryFibrePerServingMeasure;
         var rawdietaryFibrePerServing = getXpath("//dd[@id='" + dietaryFibrePerServing + "']/table/tbody/tr/td[contains(text(),'Ballaststoffe')]/following-sibling::td/text()", 'nodeValue');
-
+        if (rawdietaryFibrePerServing == null) {
+          rawdietaryFibrePerServing = getXpath("//dd[@id='" + dietaryFibrePerServing + "']/table/tbody/tr/td[contains(text(),'Dietary')]/following-sibling::td/text()", 'nodeValue');
+        }
         if (rawdietaryFibrePerServing != null) {
           addHiddenDiv('rawdietaryFibrePerServing', rawdietaryFibrePerServing);
           rawdietaryFibrePerServingMeasure = rawdietaryFibrePerServing.replace(/[^\w\s]/gi, '');
@@ -232,12 +250,14 @@ module.exports = {
           try {
             // @ts-ignore
             rawdietaryFibrePerServing = document.querySelector('dd[id="' + dietaryFibrePerServing + '"]').innerText;
-            rawdietaryFibrePerServing = rawdietaryFibrePerServing.slice(rawdietaryFibrePerServing.indexOf('Ballaststoffe'));
-            rawdietaryFibrePerServing = rawdietaryFibrePerServing.substring(rawdietaryFibrePerServing.indexOf(' '), rawdietaryFibrePerServing.indexOf(','));
-            addHiddenDiv('rawdietaryFibrePerServing', rawdietaryFibrePerServing);
-            rawdietaryFibrePerServingMeasure = rawdietaryFibrePerServing.replace(/[^\w\s]/gi, '');
-            rawdietaryFibrePerServingMeasure = rawdietaryFibrePerServingMeasure.replace(/[0-9]/g, '');
-            addHiddenDiv('rawdietaryFibrePerServingMeasure', rawdietaryFibrePerServingMeasure);
+            if (rawdietaryFibrePerServing.indexOf('Ballaststoffe') != -1) {
+              rawdietaryFibrePerServing = rawdietaryFibrePerServing.slice(rawdietaryFibrePerServing.indexOf('Ballaststoffe'));
+              rawdietaryFibrePerServing = rawdietaryFibrePerServing.substring(rawdietaryFibrePerServing.indexOf(' '), rawdietaryFibrePerServing.indexOf(','));
+              addHiddenDiv('rawdietaryFibrePerServing', rawdietaryFibrePerServing);
+              rawdietaryFibrePerServingMeasure = rawdietaryFibrePerServing.replace(/[^\w\s]/gi, '');
+              rawdietaryFibrePerServingMeasure = rawdietaryFibrePerServingMeasure.replace(/[0-9]/g, '');
+              addHiddenDiv('rawdietaryFibrePerServingMeasure', rawdietaryFibrePerServingMeasure);
+            }
           } catch (error) {
 
           }
@@ -246,10 +266,22 @@ module.exports = {
 
       }
       try {
+        const proteinPerServing = "product-detail-" + productID + "-nutrients";
+        var rawproteinPerServing = getXpath("//dd[@id='" + proteinPerServing + "']/table/tbody/tr/td[contains(text(),'Protein')]/following-sibling::td/text()", 'nodeValue');
+        addHiddenDiv('rawproteinPerServing', rawproteinPerServing);
+        rawproteinPerServingMeasure = rawproteinPerServing.replace(/[^\w\s]/gi, '');
+        rawproteinPerServingMeasure = rawproteinPerServingMeasure.replace(/[0-9]/g, '');
+        addHiddenDiv('rawproteinPerServingMeasure', rawproteinPerServingMeasure);
+      } catch (error) {
+
+      }
+      try {
         const totalSugarsPerServing = "product-detail-" + productID + "-nutrients";
         var rawtotalSugarsPerServing, rawtotalSugarsPerServingMeasure;
         var rawtotalSugarsPerServing = getXpath("//dd[@id='" + totalSugarsPerServing + "']/table/tbody/tr/td[contains(text(),'davon Zucker')]/following-sibling::td/text()", 'nodeValue');
-
+        if (rawtotalSugarsPerServing == null) {
+          var rawtotalSugarsPerServing = getXpath("//dd[@id='" + totalSugarsPerServing + "']/table/tbody/tr/td[contains(text(),'sugar')]/following-sibling::td/text()", 'nodeValue');
+        }
         if (rawtotalSugarsPerServing != null) {
           addHiddenDiv('rawtotalSugarsPerServing', rawtotalSugarsPerServing);
           rawtotalSugarsPerServingMeasure = rawtotalSugarsPerServing.replace(/[^\w\s]/gi, '');
@@ -260,12 +292,14 @@ module.exports = {
           try {
             // @ts-ignore
             rawtotalSugarsPerServing = document.querySelector('dd[id="' + totalSugarsPerServing + '"]').innerText;
-            rawtotalSugarsPerServing = rawtotalSugarsPerServing.slice(rawtotalSugarsPerServing.indexOf('davon Zucker'));
-            rawtotalSugarsPerServing = rawtotalSugarsPerServing.substring(rawtotalSugarsPerServing.indexOf('<'), rawtotalSugarsPerServing.indexOf(','));
-            addHiddenDiv('rawtotalSugarsPerServing', rawtotalSugarsPerServing);
-            rawtotalSugarsPerServingMeasure = rawtotalSugarsPerServing.replace(/[^\w\s]/gi, '');
-            rawtotalSugarsPerServingMeasure = rawtotalSugarsPerServingMeasure.replace(/[0-9]/g, '');
-            addHiddenDiv('rawtotalSugarsPerServingMeasure', rawtotalSugarsPerServingMeasure);
+            if (rawtotalSugarsPerServing.indexOf('davon Zucker') != -1) {
+              rawtotalSugarsPerServing = rawtotalSugarsPerServing.slice(rawtotalSugarsPerServing.indexOf('davon Zucker'));
+              rawtotalSugarsPerServing = rawtotalSugarsPerServing.substring(rawtotalSugarsPerServing.indexOf('<'), rawtotalSugarsPerServing.indexOf(','));
+              addHiddenDiv('rawtotalSugarsPerServing', rawtotalSugarsPerServing);
+              rawtotalSugarsPerServingMeasure = rawtotalSugarsPerServing.replace(/[^\w\s]/gi, '');
+              rawtotalSugarsPerServingMeasure = rawtotalSugarsPerServingMeasure.replace(/[0-9]/g, '');
+              addHiddenDiv('rawtotalSugarsPerServingMeasure', rawtotalSugarsPerServingMeasure);
+            }
           } catch (error) {
 
           }
@@ -288,12 +322,14 @@ module.exports = {
           try {
             // @ts-ignore
             rawproteinPerServing = document.querySelector('dd[id="' + proteinPerServing + '"]').innerText;
-            rawproteinPerServing = rawproteinPerServing.slice(rawproteinPerServing.indexOf('Eiweiss'));
-            rawproteinPerServing = rawproteinPerServing.substring(rawproteinPerServing.indexOf(' '), rawproteinPerServing.indexOf(','));
-            addHiddenDiv('rawproteinPerServing', rawproteinPerServing);
-            rawproteinPerServingMeasure = rawproteinPerServing.replace(/[^\w\s]/gi, '');
-            rawproteinPerServingMeasure = rawproteinPerServingMeasure.replace(/[0-9]/g, '');
-            addHiddenDiv('rawproteinPerServingMeasure', rawproteinPerServingMeasure);
+            if (rawproteinPerServing.indexOf('Eiweiss') != -1) {
+              rawproteinPerServing = rawproteinPerServing.slice(rawproteinPerServing.indexOf('Eiweiss'));
+              rawproteinPerServing = rawproteinPerServing.substring(rawproteinPerServing.indexOf(' '), rawproteinPerServing.indexOf(','));
+              addHiddenDiv('rawproteinPerServing', rawproteinPerServing);
+              rawproteinPerServingMeasure = rawproteinPerServing.replace(/[^\w\s]/gi, '');
+              rawproteinPerServingMeasure = rawproteinPerServingMeasure.replace(/[0-9]/g, '');
+              addHiddenDiv('rawproteinPerServingMeasure', rawproteinPerServingMeasure);
+            }
           } catch (error) {
 
           }
@@ -315,12 +351,14 @@ module.exports = {
           try {
             // @ts-ignore
             rawvitaminAPerServing = document.querySelector('dd[id="' + vitaminAPerServing + '"]').innerText;
-            rawvitaminAPerServing = rawvitaminAPerServing.slice(rawvitaminAPerServing.indexOf('Vit A'));
-            rawvitaminAPerServing = rawvitaminAPerServing.substring(rawvitaminAPerServing.indexOf(':'), rawvitaminAPerServing.indexOf(';'));
-            addHiddenDiv('rawvitaminAPerServing', rawvitaminAPerServing);
-            rawvitaminAPerServingMeasure = rawvitaminAPerServing.replace(/[0-9]/g, '');
-            rawvitaminAPerServingMeasure = rawvitaminAPerServingMeasure.replace(':', '');
-            addHiddenDiv('rawvitaminAPerServingMeasure', rawvitaminAPerServingMeasure);
+            if (rawvitaminAPerServing.indexOf('Vit A') != -1) {
+              rawvitaminAPerServing = rawvitaminAPerServing.slice(rawvitaminAPerServing.indexOf('Vit A'));
+              rawvitaminAPerServing = rawvitaminAPerServing.substring(rawvitaminAPerServing.indexOf(':'), rawvitaminAPerServing.indexOf(';'));
+              addHiddenDiv('rawvitaminAPerServing', rawvitaminAPerServing);
+              rawvitaminAPerServingMeasure = rawvitaminAPerServing.replace(/[0-9]/g, '');
+              rawvitaminAPerServingMeasure = rawvitaminAPerServingMeasure.replace(':', '');
+              addHiddenDiv('rawvitaminAPerServingMeasure', rawvitaminAPerServingMeasure);
+            }
           } catch (error) {
 
           }
@@ -342,11 +380,13 @@ module.exports = {
           try {
             // @ts-ignore
             rawvitaminCPerServing = document.querySelector('dd[id="' + vitaminCPerServing + '"]').innerText;
-            rawvitaminCPerServing = rawvitaminCPerServing.slice(rawvitaminCPerServing.indexOf('Vitamin C'));
-            rawvitaminCPerServing = rawvitaminCPerServing.substring(rawvitaminCPerServing.indexOf(':'), rawvitaminCPerServing.indexOf(','));
-            addHiddenDiv('rawvitaminCPerServing', rawvitaminCPerServing);
-            rawvitaminCPerServingMeasure = rawvitaminCPerServing.replace(/[0-9]/g, '');
-            addHiddenDiv('rawvitaminCPerServingMeasure', rawvitaminCPerServingMeasure);
+            if (rawvitaminCPerServing.indexOf('Vitamin C') != -1) {
+              rawvitaminCPerServing = rawvitaminCPerServing.slice(rawvitaminCPerServing.indexOf('Vitamin C'));
+              rawvitaminCPerServing = rawvitaminCPerServing.substring(rawvitaminCPerServing.indexOf(':'), rawvitaminCPerServing.indexOf(','));
+              addHiddenDiv('rawvitaminCPerServing', rawvitaminCPerServing);
+              rawvitaminCPerServingMeasure = rawvitaminCPerServing.replace(/[0-9]/g, '');
+              addHiddenDiv('rawvitaminCPerServingMeasure', rawvitaminCPerServingMeasure);
+            }
           } catch (error) {
 
           }
@@ -369,10 +409,12 @@ module.exports = {
           try {
             // @ts-ignore
             rawcalciumPerServing = document.querySelector('dd[id="' + calciumPerServing + '"]').innerText;
-            rawcalciumPerServing = rawcalciumPerServing.slice(rawcalciumPerServing.indexOf('Calcium'));
-            rawcalciumPerServing = rawcalciumPerServing.substring(rawcalciumPerServing.indexOf(':'), rawcalciumPerServing.indexOf(';'));
-            rawcalciumPerServing = rawcalciumPerServing.replace(',', '.');
-            addHiddenDiv('rawcalciumPerServing', rawcalciumPerServing);
+            if (rawcalciumPerServing.indexOf('Calcium') != -1) {
+              rawcalciumPerServing = rawcalciumPerServing.slice(rawcalciumPerServing.indexOf('Calcium'));
+              rawcalciumPerServing = rawcalciumPerServing.substring(rawcalciumPerServing.indexOf(':'), rawcalciumPerServing.indexOf(';'));
+              rawcalciumPerServing = rawcalciumPerServing.replace(',', '.');
+              addHiddenDiv('rawcalciumPerServing', rawcalciumPerServing);
+            }
           } catch (error) {
 
           }
@@ -395,12 +437,14 @@ module.exports = {
           try {
             // @ts-ignore
             rawironPerServing = document.querySelector('dd[id="' + ironPerServing + '"]').innerText;
-            rawironPerServing = rawironPerServing.slice(rawironPerServing.indexOf('Eisen'));
-            rawironPerServing = rawironPerServing.substring(rawironPerServing.indexOf(':'), rawironPerServing.indexOf(','));
-            addHiddenDiv('rawironPerServing', rawironPerServing);
-            rawironPerServingMeasure = rawironPerServing.replace(/[^\w\s]/gi, '');
-            rawironPerServingMeasure = rawironPerServingMeasure.replace(/[0-9]/g, '');
-            addHiddenDiv('rawironPerServingMeasure', rawironPerServingMeasure);
+            if (rawironPerServing.indexOf('Eisen') != -1) {
+              rawironPerServing = rawironPerServing.slice(rawironPerServing.indexOf('Eisen'));
+              rawironPerServing = rawironPerServing.substring(rawironPerServing.indexOf(':'), rawironPerServing.indexOf(','));
+              addHiddenDiv('rawironPerServing', rawironPerServing);
+              rawironPerServingMeasure = rawironPerServing.replace(/[^\w\s]/gi, '');
+              rawironPerServingMeasure = rawironPerServingMeasure.replace(/[0-9]/g, '');
+              addHiddenDiv('rawironPerServingMeasure', rawironPerServingMeasure);
+            }
           } catch (error) {
 
           }
@@ -423,12 +467,14 @@ module.exports = {
           try {
             // @ts-ignore
             rawmagnesiumPerServing = document.querySelector('dd[id="' + magnesiumPerServing + '"]').innerText;
-            rawmagnesiumPerServing = rawmagnesiumPerServing.slice(rawmagnesiumPerServing.indexOf('Magnesium') + 10);
-            rawmagnesiumPerServing = rawmagnesiumPerServing.split(' ');
-            addHiddenDiv('rawmagnesiumPerServing', rawmagnesiumPerServing[1]);
-            rawmagnesiumPerServingMeasure = rawmagnesiumPerServing[1].replace(/[^\w\s]/gi, '');
-            rawmagnesiumPerServingMeasure = rawmagnesiumPerServingMeasure.replace(/[0-9]/g, '');
-            addHiddenDiv('rawmagnesiumPerServingMeasure', rawmagnesiumPerServingMeasure);
+            if (rawmagnesiumPerServing.indexOf('Magnesium') != -1) {
+              rawmagnesiumPerServing = rawmagnesiumPerServing.slice(rawmagnesiumPerServing.indexOf('Magnesium') + 10);
+              rawmagnesiumPerServing = rawmagnesiumPerServing.split(' ');
+              addHiddenDiv('rawmagnesiumPerServing', rawmagnesiumPerServing[1]);
+              rawmagnesiumPerServingMeasure = rawmagnesiumPerServing[1].replace(/[^\w\s]/gi, '');
+              rawmagnesiumPerServingMeasure = rawmagnesiumPerServingMeasure.replace(/[0-9]/g, '');
+              addHiddenDiv('rawmagnesiumPerServingMeasure', rawmagnesiumPerServingMeasure);
+            }
           } catch (error) {
 
           }
@@ -440,7 +486,9 @@ module.exports = {
         const saltPerServing = "product-detail-" + productID + "-nutrients";
         var rawsaltPerServing, rawsaltPerServingMeasure;
         var rawsaltPerServing = getXpath("//dd[@id='" + saltPerServing + "']/table/tbody/tr/td[contains(text(),'Salz')]/following-sibling::td/text()", 'nodeValue');
-
+        if (rawsaltPerServing == null) {
+          var rawsaltPerServing = getXpath("//dd[@id='" + saltPerServing + "']/table/tbody/tr/td[contains(text(),'Salt')]/following-sibling::td/text()", 'nodeValue');
+        }
         if (rawsaltPerServing != null) {
           addHiddenDiv('rawsaltPerServing', rawsaltPerServing);
           rawsaltPerServingMeasure = rawsaltPerServing.replace(/[^\w\s]/gi, '');
@@ -451,12 +499,14 @@ module.exports = {
           try {
             // @ts-ignore
             rawsaltPerServing = document.querySelector('dd[id="' + saltPerServing + '"]').innerText;
-            rawsaltPerServing = rawsaltPerServing.slice(rawsaltPerServing.indexOf('Salz'));
-            rawsaltPerServing = rawsaltPerServing.split(' ');
-            addHiddenDiv('rawsaltPerServing', rawsaltPerServing[1]);
-            rawsaltPerServingMeasure = rawsaltPerServing[1].replace(/[^\w\s]/gi, '');
-            rawsaltPerServingMeasure = rawsaltPerServingMeasure.replace(/[0-9]/g, '');
-            addHiddenDiv('rawsaltPerServingMeasure', rawsaltPerServingMeasure);
+            if (rawsaltPerServing.indexOf('Salz') != -1) {
+              rawsaltPerServing = rawsaltPerServing.slice(rawsaltPerServing.indexOf('Salz'));
+              rawsaltPerServing = rawsaltPerServing.split(' ');
+              addHiddenDiv('rawsaltPerServing', rawsaltPerServing[1]);
+              rawsaltPerServingMeasure = rawsaltPerServing[1].replace(/[^\w\s]/gi, '');
+              rawsaltPerServingMeasure = rawsaltPerServingMeasure.replace(/[0-9]/g, '');
+              addHiddenDiv('rawsaltPerServingMeasure', rawsaltPerServingMeasure);
+            }
           } catch (error) {
 
           }
@@ -480,6 +530,22 @@ module.exports = {
         var rawpricePerUnitMeasure = rawpricePerUnit.replace(/[^\w\s]/gi, '');
         rawpricePerUnitMeasure = rawpricePerUnitMeasure.replace(/[0-9]/g, '');
         addHiddenDiv('rawpricePerUnitMeasure', rawpricePerUnitMeasure);
+      } catch (error) {
+
+      }
+      try {
+        const description = "product-detail-" + productID + "-benefits";
+        // @ts-ignore
+        const rawdescription = document.querySelector('dd[id="' + description + '"]').innerText;
+        addHiddenDiv('rawdescription', rawdescription);
+      } catch (error) {
+
+      }
+      try {
+        const name = "product-detail-" + productID + "-description";
+        // @ts-ignore
+        const rawname = document.querySelector('h2[id="' + name + '"]').innerText;
+        addHiddenDiv('rawname', rawname);
       } catch (error) {
 
       }
