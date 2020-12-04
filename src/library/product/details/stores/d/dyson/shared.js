@@ -304,13 +304,8 @@ async function implementation (inputs, parameters, context, dependencies) {
     );
 
     // get availability text
-    const addToBasketButton = document.querySelector('.product-hero__button-container .add-to-basket .product-hero__button')
-      ? document.querySelector('.product-hero__button-container .add-to-basket .product-hero__button')
-      : null;
-    if (addToBasketButton) {
-      if (addToBasketButton.classList.contains('add-to-basket__form-button')) addElementToDocument('added_availabilityText', addToBasketButton.innerText);
-      else addElementToDocument('added_availabilityText', 'Out of stock');
-    } else addElementToDocument('added_availabilityText', 'Out of stock');
+    const availabilityText = document.querySelector('nav form.add-to-basket-form > a') ? 'In Stock' : 'Out of Stock';
+    addElementToDocument('added_availabilityText', availabilityText);
   });
   return await context.extract(productDetails, { transform: parameters.transform });
 }
