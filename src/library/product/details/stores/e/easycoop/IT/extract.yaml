@@ -8,10 +8,10 @@ fields:
     xpath: //div[@class="product__info"]//div[contains(@class,"product-title")]//h4[contains(@class,"product-title__name")]
   - name: nameExtended
     singleValue: false
-    xpath: //div[@class="product__info"]//div[contains(@class,"product-title")]//h4[contains(@class,"product-title__name")]
-  - name: category
+    xpath: //div[@class="product__info"]//div[contains(@class,"product-title")]
+  - name: quantity
     singleValue: false
-    xpath: //div[@class="product__top-container"]//nav[contains(@class,"breadcrumbs")]//ul//li
+    xpath: //div[@class="product__info"]//div[contains(@class,"product-title")]//h4[contains(@class,"product-title__name")]
   - name: price
     singleValue: false
     xpath: //div[@class="product__price"]//div[contains(@class,"price product__price")]//span[contains(@class,"price__final")]
@@ -29,11 +29,8 @@ fields:
     xpath: //div[@class="product__image-box"]//div[contains(@class,"swiper-slide")]//img/@src
   - name: description
     singleValue: false
-    xpath: //div[@class="product__details-wrapper"]//div[contains(@class,"product__attribute")]//p
+    xpath: //div[@class="product__details-wrapper"]//div[contains(@class,"product__attribute")]/h2[text()="Dettaglio prodotto"]/parent::*/div/p
   - name: brandText
-    singleValue: false
-    xpath: //div[@class="product__info"]//div[contains(@class,"product-title")]//h5[contains(@class,"product-title__brand")]
-  - name: manufacturer
     singleValue: false
     xpath: //div[@class="product__info"]//div[contains(@class,"product-title")]//h5[contains(@class,"product-title__brand")]
   - name: availabilityText
@@ -50,4 +47,4 @@ fields:
     defaultValue: 'yes'
   - name: variantCount
     singleValue: false
-    defaultValue: '1'
+    defaultValue: '0'
