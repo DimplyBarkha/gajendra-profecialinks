@@ -53,57 +53,33 @@ fields:
     xpath: //div[@class="tab-content"]//div[@id="details-tabs-pane-2"]//div//p/strong/span[text()="Składnik"]/parent::*/parent::*/span/span/text()
   - name: variantCount
     singleValue: false
-    defultValue: '0'
+    defaultValue: '0'
   - name: name
     singleValue: false
     xpath: //div[@class="mfcss_article-detail--title"]/h2/span
   - name: caloriesPerServing
     singleValue: false
     xpath: //div[@class="tab-content"]//div[@id="details-tabs-pane-2"]//div//p/strong/span[text()="Składnik"]/parent::*/parent::*/following-sibling::table//th[@class="miscTableHeader" and text()="Wartość energetyczna"]/parent::*/td[1]
-  - name: caloriesFromFatPerServing
-    singleValue: false
-    xpath: //div[@class="tab-content"]//div[@id="details-tabs-pane-2"]//div//p/strong/span[text()="Składnik"]/parent::*/parent::*/following-sibling::table//th[@class="miscTableHeader" and text()="Wartość energetyczna"]/parent::*/td[1]
   - name: totalFatPerServing
-    singleValue: false
-    xpath: //div[@class="tab-content"]//div[@id="details-tabs-pane-2"]//div//p/strong/span[text()="Składnik"]/parent::*/parent::*/following-sibling::table//th[@class="miscTableHeader" and text()="Tłuszcz"]/parent::*/td[1]
-  - name: totalFatPerServingUom
     singleValue: false
     xpath: //div[@class="tab-content"]//div[@id="details-tabs-pane-2"]//div//p/strong/span[text()="Składnik"]/parent::*/parent::*/following-sibling::table//th[@class="miscTableHeader" and text()="Tłuszcz"]/parent::*/td[1]
   - name: saturatedFatPerServing
     singleValue: false
     xpath: //div[@class="tab-content"]//div[@id="details-tabs-pane-2"]//div//p/strong/span[text()="Składnik"]/parent::*/parent::*/following-sibling::table//th[@class="miscTableHeader" and text()="w tym kwasy tłuszczowe nasycone"]/parent::*/td[1]
-  - name: saturatedFatPerServingUom
-    singleValue: false
-    xpath: //div[@class="tab-content"]//div[@id="details-tabs-pane-2"]//div//p/strong/span[text()="Składnik"]/parent::*/parent::*/following-sibling::table//th[@class="miscTableHeader" and text()="w tym kwasy tłuszczowe nasycone"]/parent::*/td[1]
   - name: totalCarbPerServing
     singleValue: false
     xpath: //div[@class="tab-content"]//div[@id="details-tabs-pane-2"]//div//p/strong/span[text()="Składnik"]/parent::*/parent::*/following-sibling::table//th[@class="miscTableHeader" and text()="Węglowodany"]/parent::*/td[1]
-  - name: totalCarbPerServingUom
-    singleValue: false
-    xpath: //div[@class="tab-content"]//div[@id="details-tabs-pane-2"]//div//p/strong/span[text()="Składnik"]/parent::*/parent::*/following-sibling::table//th[@class="miscTableHeader" and text()="Węglowodany"]/parent::*/td[1]
   - name: dietaryFibrePerServing
-    singleValue: false
-    xpath: //div[@class="tab-content"]//div[@id="details-tabs-pane-2"]//div//p/strong/span[text()="Składnik"]/parent::*/parent::*/following-sibling::table//th[@class="miscTableHeader" and text()="Błonnik"]/parent::*/td[1]
-  - name: dietaryFibrePerServingUom
     singleValue: false
     xpath: //div[@class="tab-content"]//div[@id="details-tabs-pane-2"]//div//p/strong/span[text()="Składnik"]/parent::*/parent::*/following-sibling::table//th[@class="miscTableHeader" and text()="Błonnik"]/parent::*/td[1]
   - name: totalSugarsPerServing
     singleValue: false
     xpath: //div[@class="tab-content"]//div[@id="details-tabs-pane-2"]//div//p/strong/span[text()="Składnik"]/parent::*/parent::*/following-sibling::table//th[@class="miscTableHeader" and text()="w tym cukry"]/parent::*/td[1]
     type: NUMBER
-  - name: totalSugarsPerServingUom
-    singleValue: false
-    xpath: //div[@class="tab-content"]//div[@id="details-tabs-pane-2"]//div//p/strong/span[text()="Składnik"]/parent::*/parent::*/following-sibling::table//th[@class="miscTableHeader" and text()="w tym cukry"]/parent::*/td[1]
   - name: proteinPerServing
     singleValue: false
     xpath: //div[@class="tab-content"]//div[@id="details-tabs-pane-2"]//div//p/strong/span[text()="Składnik"]/parent::*/parent::*/following-sibling::table//th[@class="miscTableHeader" and text()="Białko"]/parent::*/td[1]
-  - name: proteinPerServingUom
-    singleValue: false
-    xpath: //div[@class="tab-content"]//div[@id="details-tabs-pane-2"]//div//p/strong/span[text()="Składnik"]/parent::*/parent::*/following-sibling::table//th[@class="miscTableHeader" and text()="Białko"]/parent::*/td[1]
   - name: saltPerServing
-    singleValue: false
-    xpath: //div[@class="tab-content"]//div[@id="details-tabs-pane-2"]//div//p/strong/span[text()="Składnik"]/parent::*/parent::*/following-sibling::table//th[@class="miscTableHeader" and text()="Sól"]/parent::*/td[1]
-  - name: saltPerServingUom
     singleValue: false
     xpath: //div[@class="tab-content"]//div[@id="details-tabs-pane-2"]//div//p/strong/span[text()="Składnik"]/parent::*/parent::*/following-sibling::table//th[@class="miscTableHeader" and text()="Sól"]/parent::*/td[1]
   - name: technicalInformationPdfPresent
