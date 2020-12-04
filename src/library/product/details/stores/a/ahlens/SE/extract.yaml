@@ -67,8 +67,8 @@ fields:
     regExp: (\d+).*$
   - name: packSize
     singleValue: true 
-    type: NUMBER      
     xpath: //ul[@class="ul--plain"]/li[contains(text(),'pack')]
+    regExp: (\w.+)
   - name: brandText
     singleValue: true
     description: Product brand shown - this may actually NOT be just a brand name,
