@@ -1,0 +1,63 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: //div[starts-with(@class, "ProductGrid-inline")]//article
+fields:
+  - name: id
+    singleValue: false
+    xpath: ./@id
+  - name: searchUrl
+    singleValue: true
+  - name: name
+    singleValue: false
+    xpath: //div[@data-locator="product_tile_title"]/@title
+  - name: productUrl
+    singleValue: false
+    xpath: //div[@data-locator="product_tile_title"]/a/@href
+    regExp: ^([^?]+)
+    regExpReplace: https://www.bedbathandbeyond.ca$1
+  - name: gtin
+    singleValue: false
+  - name: thumbnail
+    singleValue: false
+    xpath: //div[starts-with(@class,"Thumbnail")]/img/@src
+    regExp: ^([^?]+)
+    regExpReplace: $1?&wid=2000&hei=2000
+  - name: aggregateRating
+    singleValue: false
+  - name: aggregateRating2
+    singleValue: false
+    xpath: ./@rating
+  - name: reviewCount
+    singleValue: false
+    xpath: //span[starts-with(@class,"Rating_")]
+  - name: ratingCount
+    singleValue: false
+    xpath: //span[starts-with(@class,"Rating_")]
+  - name: price
+    singleValue: false
+    xpath: //div[@data-locator="product_tile_price"]/span
+    regExp: ^([^-]+)
+  - name: manufacturer
+    singleValue: true
+  - name: soldBy
+    singleValue: true
+  - name: endorsementText
+    singleValue: false
+  - name: rank
+    singleValue: false
+    description: search/listing rank
+    type: NUMBER
+    xpath: //@rankorganic
+  - name: rankOrganic
+    singleValue: true
+    description: The position (rank) within the list excluding sponsored/paid results
+    type: NUMBER
+    xpath: //@rankorganic
+  - name: sponsored
+    singleValue: false
+    description: Is sponsored/paid
+    type: BOOLEAN
+  # - name: totalRecordCount
+  #   singleValue: true 
+  #   type: NUMBER
