@@ -79,17 +79,21 @@ module.exports = {
       // availabilityText = (availabilityText === 'temporary-out-of-stock') ? 'Out of Stock' : 'In stock';
       // addElementToDocument('addedAvailability', availabilityText);
 
-      const reviewNodeContent = getXpath("//div[@class='product-page--title-links']//div[contains(@class,'review-rating')]//span[contains(@class,'review-rating__reviews')]//a/text() | //div[@id='product-content']//div[contains(@class,'review-rating')]//span[contains(@class,'review-rating__reviews')]//a/text()", 'nodeValue');
-      var reviewContent = reviewNodeContent.substr((reviewNodeContent.indexOf('(') + 1), reviewNodeContent.length);
-      reviewContent = reviewContent.replace(/[^0-9]/g, '');
-      addElementToDocument('addedReviewCount', reviewContent);
+      const reviewNodeContent = getXpath("//div[contains(@class,'product-page--title-links')]//div[contains(@class,'review-rating')]//span[contains(@class,'review-rating__reviews')]//a/text() | //div[@id='product-content']//div[contains(@class,'review-rating')]//span[contains(@class,'review-rating__reviews')]//a/text()", 'nodeValue');
+      if (reviewNodeContent != null) {
+        var reviewContent = reviewNodeContent.substr((reviewNodeContent.indexOf('(') + 1), reviewNodeContent.length);
+        reviewContent = reviewContent.replace(/[^0-9]/g, '');
+        addElementToDocument('addedReviewCount', reviewContent);
+      }
 
-      const ratingNodeContent = getXpath("//div[@class='product-page--title-links']//div[contains(@class,'review-rating')]//div[@class='review-rating__icons']/@title | //div[@id='product-content']//div[contains(@class,'review-rating')]//div[@class='review-rating__icons']/@title", 'nodeValue');
+      const ratingNodeContent = getXpath("//div[contains(@class,'product-page--title-links')]//div[contains(@class,'review-rating')]//div[@class='review-rating__icons']/@title | //div[@id='product-content']//div[contains(@class,'review-rating')]//div[@class='review-rating__icons']/@title", 'nodeValue');
       // @ts-ignore
-      var ratingContent = ratingNodeContent.substr(0, ratingNodeContent.indexOf('van'));
-      ratingContent = ratingContent.replace(/[^0-9.]/g, '');
-      if (ratingContent) {
-        addElementToDocument('addedRatingCount', ratingContent.replace('.', ','));
+      if (ratingNodeContent != null) {
+        var ratingContent = ratingNodeContent.substr(0, ratingNodeContent.indexOf('van'));
+        ratingContent = ratingContent.replace(/[^0-9.]/g, '');
+        if (ratingContent) {
+          addElementToDocument('addedRatingCount', ratingContent.replace('.', ','));
+        }
       }
 
       const specificationsList = getAllXpath("//div[contains(@class,'js-specifications-content')]//div[contains(@class,'product-specs')]//dt/text()[normalize-space(.)] | //div[contains(@class,'js-specifications-content')]//div[contains(@class,'product-specs')]//dt//span[contains(@class,'product-specs__help-title')]/text()[normalize-space(.)] | //div[contains(@class,'js-specifications-content')]//div[contains(@class,'product-specs')]//dd/text()[normalize-space(.)] | //div[contains(@class,'js-specifications-content')]//div[contains(@class,'product-specs')]//dd//span[@class='screen-reader-only']/text()[normalize-space(.)]", 'nodeValue');
@@ -127,7 +131,6 @@ module.exports = {
         }
       };
     });
-    await context.extract(productDetails);
     const doesPopupExist = await context.evaluate(function () {
       return Boolean(document.querySelector('div.cookie button[name="accept_cookie"]'));
     });
@@ -135,5 +138,6 @@ module.exports = {
     if (doesPopupExist) {
       await context.click('div.cookie button[name="accept_cookie"]');
     }
+    await context.extract(productDetails);
   },
 };

@@ -31,15 +31,11 @@ fields:
     singleValue: true
     description: The stated undiscounted price for the product
     xpath: //div[@class='product-order'][1]//div[@class='js-desktop-order-block']//span[contains(@class,'sales-price')]//*[contains(@class,'sales-price__former')]/text()
-    regExp: (.+)
-    regExpReplace: $1
   - name: price
     singleValue: true
     description: The offered price for the selected product variant - if a user
       clicks add to basket this is the price they would be charged
     xpath: //div[@class='product-order'][1]//div[@class='js-desktop-order-block']//span[contains(@class,'sales-price')]//*[contains(@class,'sales-price__current')]/text()
-    regExp: (.+)
-    regExpReplace: $1
   - name: availabilityText
     singleValue: true
     description: Availability as described on page for the selected variant. If
