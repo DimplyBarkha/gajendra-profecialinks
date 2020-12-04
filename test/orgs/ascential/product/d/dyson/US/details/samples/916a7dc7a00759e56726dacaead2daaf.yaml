@@ -2,7 +2,7 @@ input:
   _url: http://dyson.com
   URL: https://www.dyson.com/air-treatment/purifiers/dyson-pure-cool-link/dyson-pure-cool-tower-tp01-black-nickel
 extractions:
-  - html: https://workbench.import.io/html/run=1df447a3-f8de-4411-8f3e-1189703d4742/task=4d3eb7c0-9e35-4eb4-bc16-9604e87b303e/8f6b6cc4-a22f-463b-b122-fe6ef1352788.html
+  - html: https://workbench.import.io/html/run=08f11d97-1c7f-4407-99d3-6c06319fab2b/task=426d7270-31fa-4ad6-9484-0a315d1307d6/71cb7a77-489f-499d-b768-01f8b288a28c.html
     extractionConfigId: product/details/stores/d/dyson/US/extract
     data:
       - group:
@@ -83,9 +83,26 @@ extractions:
                   smooth, uninterrupted, purified air. Cooling tower fan when
                   you need it.
                 xpath: /html/body/div[14]
+            manufacturerImages:
+              - text: https://dyson-h.assetsadobe2.com/is/image/content/dam/dyson/products/air-treatment/pure-cool/variant/features/air-quality-purifier-cool-link-tower-white-silver-variant-dual-function.jpg?cropPathE=desktop&fit=stretch,1&fmt=pjpeg&wid=634
+                xpath: /html/body/div[15]/ul[1]/li[1]
+              - text: https://dyson-h.assetsadobe2.com/is/image/content/dam/dyson/products/air-treatment/pure-cool/variant/features/air-quality-purifier-cool-link-tower-white-silver-variant-filter-US.jpg?cropPathE=desktop&fit=stretch,1&fmt=pjpeg&wid=634
+                xpath: /html/body/div[15]/ul[1]/li[2]
+              - text: https://dyson-h.assetsadobe2.com/is/image/content/dam/dyson/products/air-treatment/pure-cool/variant/air-quality-purifier-cool-link-tower-white-silver-variant-movement.jpg?cropPathE=desktop&fit=stretch,1&fmt=pjpeg&wid=634
+                xpath: /html/body/div[15]/ul[1]/li[3]
+              - text: https://dyson-h.assetsadobe2.com/is/image/content/dam/dyson/products/air-treatment/us-asthma-allergy-certified-purifiers.jpg?cropPathE=desktop&fit=stretch,1&fmt=pjpeg&wid=634
+                xpath: /html/body/div[15]/ul[1]/li[4]
+              - text: https://dyson-h.assetsadobe2.com/is/image/content/dam/dyson/products/air-treatment/Parent-Tested-Resized-Soft-Gray.jpg?cropPathE=desktop&fit=stretch,1&fmt=pjpeg&wid=634
+                xpath: /html/body/div[15]/ul[1]/li[5]
+              - text: https://dyson-h.assetsadobe2.com/is/image/content/dam/dyson/products/air-treatment/pure-cool/variant/air-quality-purifier-cool-link-variant-air-multiply.jpg?cropPathE=desktop&fit=stretch,1&fmt=pjpeg&wid=634
+                xpath: /html/body/div[15]/ul[1]/li[6]
+              - text: https://dyson-h.assetsadobe2.com/is/image/content/dam/dyson/products/air-treatment/pure-cool/variant/air-quality-purifier-cool-link-tower-variant-safe.jpg?cropPathE=desktop&fit=stretch,1&fmt=pjpeg&wid=634
+                xpath: /html/body/div[15]/ul[1]/li[7]
+              - text: https://dyson-h.assetsadobe2.com/is/image/content/dam/dyson/products/fans-and-heaters/cool/psj-assets/desk-cool-amo6-white-silver/Dyson-Cool-desk-fan-AM06-White-features-remote-control.jpg?cropPathE=desktop&fit=stretch,1&fmt=pjpeg&wid=634
+                xpath: /html/body/div[15]/ul[1]/li[8]
             videos:
               - text: www.dyson.com/content/dam/dyson/video/products/primary/305158-01.mp4
-                xpath: /html/body/div[16]/ul[1]/li[1]
+                xpath: /html/body/div[17]/ul[1]/li[1]
             name:
               - text: Dyson Pure Cool™ TP01 purifying fan (Black/Nickel).
                 xpath: /html/body/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/h1[1]
@@ -123,4 +140,4 @@ extractions:
             variantCount:
               - text: "0"
         xpath: /
-    timestamp: 1607006744911
+    timestamp: 1607072038775
