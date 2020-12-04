@@ -16,7 +16,7 @@ fields:
   - name: alternateImages
     singleValue: false
     description: Other product images (not in manufacturer description)
-    xpath: (//div[contains(@class, "image-holder slick-slide") and contains(@role, "option")]//a[contains(@class, "detail-thumbnail")]/@href)[position()>1]
+    xpath: //div[contains(@class, "image-holder slick-slide") and contains(@role, "option")]//a[contains(@class, "detail-thumbnail")]/@href
     regExp: (.+)
     regExpReplace: https://expert.at$1
   - name: metaKeywords
