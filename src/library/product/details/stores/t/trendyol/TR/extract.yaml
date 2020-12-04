@@ -22,7 +22,7 @@ fields:
   - name: nameExtended
     description: The product name, prefixing "${brand} - " if not included in "name"
       and appending " - ${variantType}" if necessary (fixed per feed)
-    xpath: concat(//div[@class="pr-in-cn"]/h1/a, ' - ' , //div[@class="pr-in-nm"]/span)
+    xpath: concat(//div[@class="pr-in-cn"]/h1/a, ' - ' , //div[@class="pr-in-cn"]//span)
   - name: listPrice
     description: The stated undiscounted price for the product
     xpath: //div[@class="pr-in-cn"]//span[@class="prc-org"]
