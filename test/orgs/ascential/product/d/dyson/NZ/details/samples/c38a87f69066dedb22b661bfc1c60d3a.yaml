@@ -1,0 +1,129 @@
+input:
+  _url: http://dyson.co.nz
+  URL: https://www.dyson.co.nz/dyson-corrale-straightener-purple-black
+extractions:
+  - html: https://workbench.import.io/html/run=5a9b9ae3-3f73-4942-9e75-905f6e7e6a9d/task=afa06164-68ff-4f23-bfe0-e1cb6f34103d/a46037e5-e34f-48f8-acdc-ed15dd467292.html
+    extractionConfigId: product/details/stores/d/dyson/NZ/extract
+    data:
+      - group:
+          - productUrl:
+              - text: https://www.dyson.co.nz/dyson-corrale-straightener-purple-black
+                xpath: /html/head[1]/link[8]/@href
+            image:
+              - text: https://dyson-h.assetsadobe2.com/is/image/content/dam/dyson/leap-petite-global/dynamic-media/personal-care/556/primary/Magento-Dyson-Corrale-Primary-PuBL-ppp.png?fmt=png-alpha&scl=1&fmt=png-alpha
+                xpath: /html/body/div[4]/main[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/img[1]/@src
+            imageAlt:
+              - text: Dyson Corrale™ straightener (Purple/Black)
+                xpath: /html/body/div[4]/main[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/img[1]/@alt
+            alternateImages:
+              - text: https://dyson-h.assetsadobe2.com/is/image/content/dam/dyson/leap-petite-global/products/personal-care/556/variant/ppp/corrale-gallery-image-1.jpg?&cropPathE=desktop&fit=stretch,1&fmt=pjpeg&wid=1920
+                xpath: /html/body/div[5]/aside[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/picture[1]/img[1]/@src
+              - text: https://dyson-h.assetsadobe2.com/is/image//content/dam/dyson/leap-petite-global/products/personal-care/556/variant/ppp/corrale-gallery-image-2-pu.jpg?&cropPathE=desktop&fit=stretch,1&fmt=pjpeg&wid=1920
+                xpath: /html/body/div[5]/aside[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/picture[1]/img[1]/@src
+              - text: https://dyson-h.assetsadobe2.com/is/image//content/dam/dyson/leap-petite-global/products/personal-care/556/variant/ppp/corrale-gallery-image-3-pu.jpg?&cropPathE=desktop&fit=stretch,1&fmt=pjpeg&wid=1920
+                xpath: /html/body/div[5]/aside[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[4]/picture[1]/img[1]/@src
+              - text: https://dyson-h.assetsadobe2.com/is/image/content/dam/dyson/leap-petite-global/products/personal-care/556/variant/ppp/corrale-gallery-image-4.jpg?&cropPathE=desktop&fit=stretch,1&fmt=pjpeg&wid=1920
+                xpath: /html/body/div[5]/aside[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[5]/picture[1]/img[1]/@src
+              - text: https://dyson-h.assetsadobe2.com/is/image/content/dam/dyson/leap-petite-global/products/personal-care/556/variant/ppp/corrale-gallery-image-5.jpg?&cropPathE=desktop&fit=stretch,1&fmt=pjpeg&wid=1920
+                xpath: /html/body/div[5]/aside[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[6]/picture[1]/img[1]/@src
+              - text: https://dyson-h.assetsadobe2.com/is/image/content/dam/dyson/leap-petite-global/products/personal-care/556/variant/ppp/corrale-gallery-image-6.jpg?&cropPathE=desktop&fit=stretch,1&fmt=pjpeg&wid=1920
+                xpath: /html/body/div[5]/aside[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[7]/picture[1]/img[1]/@src
+            metaKeywords:
+              - text: Dyson Corrale™ straightener (Purple/Black)
+                xpath: /html/head[1]/meta[3]/@content
+            nameExtended:
+              - text: Dyson Corrale™ straightener (Purple/Black)
+                xpath: /html/body/div[4]/main[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/img[1]/@alt
+            price:
+              - text: NZ$749.00
+                xpath: /html/body/div[4]/main[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/strong[1]/span[1]/span[1]/span[1]
+            availabilityText:
+              - text: In Stock
+                xpath: /html/body/div[7]
+            description:
+              - text: |-
+                  Enhanced styling. 
+                   
+                   
+                   
+                  Less hair damage.1
+                   
+                   
+                   
+                  Use corded or cord-free.
+                xpath: /html/body/div[4]/main[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[2]
+            sku:
+              - text: 323058-01
+                xpath: /html/body/div[4]/main[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[2]/meta[2]/@content
+            variantId:
+              - text: 323058-01
+                xpath: /html/body/div[4]/main[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[2]/meta[2]/@content
+            mpc:
+              - text: 323058-01
+                xpath: /html/body/div[4]/main[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[2]/meta[2]/@content
+            aggregateRatingText:
+              - text: "4.95"
+                xpath: /html/body/div[4]/main[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/span[1]/span[1]/span[1]
+            aggregateRating:
+              - text: "4.95"
+                xpath: /html/body/div[4]/main[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/span[1]/span[1]/span[1]
+            shippingInfo:
+              - text: Free Shipping
+                xpath: /html/body/div[4]/main[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[1]
+            manufacturerDescription:
+              - text: All features OLED screen Displays battery level, temperature control and
+                  charging status during use Suitable for all hair types Three
+                  precise heat settings – 165°C, 185°C and 210°C – to suit your
+                  hair type, length and desired style. Up to 30 minutes
+                  cord-free styling3 Delivers the thermal performance of a
+                  corded straightener. Recharges to 90% in just 40 minutes.
+                  Style corded, for longer run time To maximise styling time,
+                  start with your straightener fully charged and style with the
+                  cord. Peace of mind Auto shut-off after 10 minutes of
+                  inactivity, and Safety lock for immediate storage after use.
+                  Ready to travel Universal voltage and a Flight-ready feature
+                  let you travel abroad with your straightener.4 Flexing plates
+                  for less hair damage1 By gathering hair, flexing plates enable
+                  shiny, straight results with less heat. For less hair damage1,
+                  less frizz and fewer flyaways.2 Intelligent heat control
+                  Integrated sensor system regulates the temperature of the
+                  plates 100 times a second, ensuring constant power so heat
+                  never exceeds your chosen setting. Engineered for balance
+                  Weight is balanced in the hand to help give maximum control
+                  while styling. In the box Dyson Corrale™ straightener
+                  (Purple/Black) Charging dock Heat-resistant travel pouch
+                  Magnetic 360° charging cable
+                xpath: /html/body/div[9]
+            manufacturerImages:
+              - text: https://dyson-h.assetsadobe2.com/is/image/content/dam/dyson/leap-petite-global/dynamic-media/personal-care/556/primary/Magento-Dyson-Corrale-Primary-PuBL.png?$responsive$&fmt=png-alpha&cropPathE=desktop&fit=stretch,1&wid=960
+                xpath: /html/body/div[4]/main[1]/div[2]/div[5]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/span[1]/div[1]/picture[1]/img[1]/@src
+              - text: https://dyson-h.assetsadobe2.com/is/image/content/dam/dyson/leap-petite-global/dynamic-media/personal-care/556/lifestyle/Magento-charging-dock-purple-2.png?$responsive$&cropPathE=square,1024&wid=224
+                xpath: /html/body/div[4]/main[1]/div[2]/div[5]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/ul[1]/li[1]/div[1]/span[1]/img[1]/@src
+              - text: https://dyson-h.assetsadobe2.com/is/image/content/dam/dyson/leap-petite-global/dynamic-media/personal-care/556/lifestyle/Dyson-Corrale-Travel-Pouch-Lifestyle-Tools1.png?$responsive$&cropPathE=square,1024&wid=224
+                xpath: /html/body/div[4]/main[1]/div[2]/div[5]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/ul[1]/li[2]/div[1]/span[1]/img[1]/@src
+              - text: https://dyson-h.assetsadobe2.com/is/image/content/dam/dyson/leap-petite-global/dynamic-media/personal-care/556/lifestyle/Dyson-Corrale-Charging-Cable-Lifestyle-Tools1.png?$responsive$&cropPathE=square,1024&wid=224
+                xpath: /html/body/div[4]/main[1]/div[2]/div[5]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/ul[1]/li[3]/div[1]/span[1]/img[1]/@src
+              - text: https://dyson-h.assetsadobe2.com/is/image/content/dam/dyson/leap-petite-global/dynamic-media/personal-care/556/specs/Personalcare-556-VariantPDP-Specs-PUSBLK-Magento.jpg?$responsive$&fmt=png-alpha&cropPathE=desktop&fit=stretch,1&wid=960
+                xpath: /html/body/div[4]/main[1]/div[2]/div[8]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/picture[1]/img[1]/@src
+            videos:
+              - text: https://f1.media.brightcove.com/4/2310970329001/2310970329001_6114189954001_6114190551001.mp4?pubId=2310970329001&videoId=6114190551001
+                xpath: /html/body/div[10]
+            name:
+              - text: Dyson Corrale™ straightener (Purple/Black)
+                xpath: /html/body/div[4]/main[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/img[1]/@alt
+            specifications:
+              - text: Height 4.5cm | Width 4.1cm
+                xpath: /html/body/div[11]
+            warranty:
+              - text: 2 year guarantee
+                xpath: /html/body/div[6]
+            brandText:
+              - text: Dyson
+            manufacturer:
+              - text: Dyson
+            descriptionBullets:
+              - text: "0"
+            variantCount:
+              - text: "0"
+        xpath: /
+    timestamp: 1607082469511
