@@ -57,7 +57,7 @@ fields:
     xpath: //span[contains(@class,"f-priceBox-price--old")]
   - name: availabilityText
     singleValue: false
-    xpath: //span[@class="f-buyBox-availabilityStatus-available"]|//p[contains(string(), "en stock")]
+    xpath: //span[@class="f-buyBox-availabilityStatus-available"]|//p[contains(string(), "en stock")] | //span[@class="f-buyBox-availabilityStatus-available"]|//p[contains(string(), "En stock")]
     regExp: (.+)
     regExpReplace: In Stock
     defaultValue: Out of Stock
