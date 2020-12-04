@@ -17,7 +17,7 @@ fields:
     xpath: (//div[@class='product-fullscreen-gallery__main']//img)/@data-lazy
   - name: category
     singleValue: false
-    xpath: //ol[@class='e-breadcrumbs__list'][1]//li[contains(@class,'category')]
+    xpath: (//ol[@class='e-breadcrumbs__list'])[1]//li[contains(@class,'category')]
   - name: name
     singleValue: false
     xpath: //ol[@class='e-breadcrumbs__list']//li[contains(@class,'product')]//a/text()
