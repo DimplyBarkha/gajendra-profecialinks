@@ -18,6 +18,7 @@ module.exports = {
     const { productDetails } = dependencies;
     const cssProduct = "div.c-prod-card.--plp";
     const cssProductDetails = 'section.c-product-hero';
+    const cssNoProduct = 'body.page-no-results';
 
     const isSelectorAvailable = async (cssSelector) => {
       console.log(`Is selector available: ${cssSelector}`);
@@ -25,6 +26,13 @@ module.exports = {
         return !!document.querySelector(selector);
       }, cssSelector);
     };
+
+    const noResults = await isSelectorAvailable(cssNoProduct);
+
+    if (noResults) {
+      // throw new Error('ERROR: Failed to load product details page');
+      return;
+    }
 
     console.log('.....waiting......');
     await context.waitForSelector(cssProduct, { timeout: 10000 });
