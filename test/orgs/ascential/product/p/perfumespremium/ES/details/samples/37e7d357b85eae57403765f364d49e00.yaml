@@ -1,0 +1,95 @@
+input:
+  _url: http://perfumespremium.es
+  URL: https://www.perfumespremium.es/belleza-premium/hombre/fragrance/1-million-prive-eau-de-parfum-c81767
+extractions:
+  - html: https://workbench.import.io/html/run=aae0b149-6d14-4016-802f-4885fc70b387/task=41ab7fce-95a7-45e6-8c40-3e9814610e49/cfa0cd34-5be2-4644-a2db-bc3d452e6545.html
+    extractionConfigId: product/details/stores/p/perfumespremium/ES/extract
+    data:
+      - group:
+          - productUrl:
+              - text: https://www.perfumespremium.es/belleza-premium/hombre/fragrance/1-million-prive-eau-de-parfum-c81767
+                xpath: /html/body/div[4]
+            image:
+              - text: https://www.perfumespremium.es/media/catalog/product/cache/7a83b1c9000cd446e7acdf584f97e51b/3/3/3349667000013_2.jpg
+                xpath: /html/body/div[2]/main[1]/div[2]/div[1]/div[2]/div[2]/div[2]/div[2]/div[1]/div[3]/div[1]/img[1]/@src
+            imageAlt:
+              - text: http://www.pggrupo.com/files/images/3/W47brEnyqx/3349667000013.jpg
+                xpath: /html/body/div[2]/main[1]/div[2]/div[1]/div[2]/div[2]/div[2]/div[2]/div[1]/div[3]/div[1]/img[1]/@alt
+            alternateImages:
+              - text: https://www.perfumespremium.es/media/catalog/product/cache/b6060e338819d7c865ecb16f2a8a4875/3/3/3349667000013_1.jpg
+                xpath: /html/body/div[2]/main[1]/div[2]/div[1]/div[2]/div[2]/div[2]/div[2]/div[2]/div[1]/div[2]/div[2]/div[1]/img[1]/@src
+              - text: https://www.perfumespremium.es/media/catalog/product/cache/b6060e338819d7c865ecb16f2a8a4875/3/3/3349667000013_2.jpg
+                xpath: /html/body/div[2]/main[1]/div[2]/div[1]/div[2]/div[2]/div[2]/div[2]/div[2]/div[1]/div[2]/div[3]/div[1]/img[1]/@src
+            metaKeywords:
+              - text: 1 MILLION PRIVÉ EAU DE PARFUM; Compra 1 MILLION PRIVÉ EAU DE PARFUM;
+                  Compra 1 MILLION PRIVÉ EAU DE PARFUM online; compra 1 MILLION
+                  PRIVÉ EAU DE PARFUM de PACO RABANNE
+                xpath: /html/head[1]/meta[4]/@content
+            category:
+              - text: Página de inicio
+                xpath: /html/body/div[2]/div[2]/div[1]/ul[1]/li[1]
+              - text: Belleza Premium
+                xpath: /html/body/div[2]/div[2]/div[1]/ul[1]/li[2]
+              - text: Hombre
+                xpath: /html/body/div[2]/div[2]/div[1]/ul[1]/li[3]
+              - text: Fragancia
+                xpath: /html/body/div[2]/div[2]/div[1]/ul[1]/li[4]
+              - text: 1 MILLION PRIVÉ EAU DE PARFUM
+                xpath: /html/body/div[2]/div[2]/div[1]/ul[1]/li[5]
+            nameExtended:
+              - text: 1 MILLION PRIVÉ EAU DE PARFUM
+                xpath: /html/body/div[2]/main[1]/div[2]/div[1]/div[1]/div[1]/h1[1]/span[1]
+            listPrice:
+              - text: 71,00 €
+                xpath: /html/body/div[2]/main[1]/div[2]/div[1]/div[1]/div[3]/div[1]/span[2]/span[1]/span[2]/span[1]
+            price:
+              - text: 43,75 €
+                xpath: /html/body/div[2]/main[1]/div[2]/div[1]/div[1]/div[3]/div[1]/span[1]/span[1]/span[2]/span[1]
+            availabilityText:
+              - text: Disponible
+                xpath: /html/body/div[2]/main[1]/div[2]/div[1]/div[1]/div[5]/div[1]/span[1]
+            description:
+              - text: "Esta fragancia masculina es oriental amaderada y fue creada por el
+                  perfumista Christophe Raynud, todo un experto en el sector.
+                  Sus principales ingredientes son mandarina roja y canela, que
+                  eran también los grandes protagonistas de la edición original.
+                  Lo especial de One Million Privé está en su corazón, que
+                  incluye tabaco de hookah y está enriquecido con mirra. Familia
+                  Olfativa: Oriental. Notas:• Salida: Mandarina roja y canela. •
+                  Corazón: Tabaco y mirra. • Fondo: Pachulí y haba tonka."
+                xpath: /html/body/div[2]/main[1]/div[2]/div[1]/div[3]/div[1]/div[2]/div[1]/div[1]
+            brandText:
+              - text: PACO RABANNE
+                xpath: /html/body/div[2]/main[1]/div[2]/div[1]/div[3]/div[1]/div[4]/div[1]/table[1]/tbody[1]/tr[2]/td[1]
+            gtin:
+              - text: 0000000C81767
+                xpath: /html/body/div[2]/main[1]/div[2]/div[1]/div[3]/div[1]/div[4]/div[1]/table[1]/tbody[1]/tr[1]/td[1]
+            sku:
+              - text: C81767
+                xpath: /html/body/div[2]/main[1]/div[2]/div[1]/div[1]/div[5]/div[2]/div[1]
+            variantId:
+              - text: "89202"
+                xpath: /html/body/div[2]/main[1]/div[2]/div[1]/div[1]/div[3]/div[1]/@data-product-id
+            name:
+              - text: 1 MILLION PRIVÉ EAU DE PARFUM
+                xpath: /html/body/div[2]/main[1]/div[2]/div[1]/div[1]/div[1]/h1[1]/span[1]
+            productOtherInformation:
+              - text: Ean 0000000C81767 || marca PACO RABANNE || GENERO HOMBRE || TIPO DE
+                  PRODUCTO EAU DE PARFUM || GAMA PREMIUM || FAMILIA PERFUME ||
+                  SPRAY No
+                xpath: /html/body/div[5]
+            variantInformation:
+              - text: TAMAÑO
+                xpath: /html/body/div[2]/main[1]/div[2]/div[1]/div[1]/div[6]/form[1]/div[1]/div[1]/div[1]/label[1]/span[1]
+            variants:
+              - text: "1513"
+                xpath: /html/body/div[2]/main[1]/div[2]/div[1]/div[1]/div[6]/form[1]/div[1]/div[1]/div[1]/div[1]/select[1]/option[2]/@value
+              - text: "1500"
+                xpath: /html/body/div[2]/main[1]/div[2]/div[1]/div[1]/div[6]/form[1]/div[1]/div[1]/div[1]/div[1]/select[1]/option[3]/@value
+            imageZoomFeaturePresent:
+              - text: Yes
+                xpath: /html/body/div[6]
+            variantCount:
+              - text: "2"
+        xpath: /
+    timestamp: 1607085177233

@@ -5,8 +5,8 @@ module.exports = {
     country: 'ES',
     store: 'perfumespremium',
     domain: 'perfumespremium.es',
-    loadedSelector: null,
-    noResultsXPath: null,
+    loadedSelector: 'div.fotorama__loaded--img',
+    noResultsXPath: '//div[@class="img_404"]',
     zipcode: '',
   },
 };

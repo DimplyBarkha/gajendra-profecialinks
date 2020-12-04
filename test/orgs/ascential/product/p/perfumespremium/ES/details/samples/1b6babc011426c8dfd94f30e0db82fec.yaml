@@ -1,0 +1,79 @@
+input:
+  _url: http://perfumespremium.es
+  URL: https://www.perfumespremium.es/catalog/product/view/id/93474
+extractions:
+  - html: https://workbench.import.io/html/run=aae0b149-6d14-4016-802f-4885fc70b387/task=b2dbfbe5-717f-48fb-ae94-6a45158bd3d9/34f9e0aa-4748-45c9-8372-ec846990cf45.html
+    extractionConfigId: product/details/stores/p/perfumespremium/ES/extract
+    data:
+      - group:
+          - productUrl:
+              - text: https://www.perfumespremium.es/catalog/product/view/id/93474
+                xpath: /html/body/div[4]
+            image:
+              - text: https://www.perfumespremium.es/media/catalog/product/cache/7a83b1c9000cd446e7acdf584f97e51b/0/8/0800897090678_2.jpg
+                xpath: /html/body/div[2]/main[1]/div[2]/div[1]/div[2]/div[2]/div[2]/div[2]/div[1]/div[3]/div[1]/img[1]/@src
+            imageAlt:
+              - text: "#Thisiseverything Lip Loving Balm #Lolita 12 Gr"
+                xpath: /html/body/div[2]/main[1]/div[2]/div[1]/div[2]/div[2]/div[2]/div[2]/div[1]/div[3]/div[1]/img[1]/@alt
+            alternateImages:
+              - text: https://www.perfumespremium.es/media/catalog/product/cache/b6060e338819d7c865ecb16f2a8a4875/0/8/0800897090678.jpg
+                xpath: /html/body/div[2]/main[1]/div[2]/div[1]/div[2]/div[2]/div[2]/div[2]/div[2]/div[1]/div[2]/div[2]/div[1]/img[1]/@src
+              - text: https://www.perfumespremium.es/media/catalog/product/cache/b6060e338819d7c865ecb16f2a8a4875/0/8/0800897090678_1.jpg
+                xpath: /html/body/div[2]/main[1]/div[2]/div[1]/div[2]/div[2]/div[2]/div[2]/div[2]/div[1]/div[2]/div[3]/div[1]/img[1]/@src
+              - text: https://www.perfumespremium.es/media/catalog/product/cache/b6060e338819d7c865ecb16f2a8a4875/0/8/0800897090678_2.jpg
+                xpath: /html/body/div[2]/main[1]/div[2]/div[1]/div[2]/div[2]/div[2]/div[2]/div[2]/div[1]/div[2]/div[4]/div[1]/img[1]/@src
+            metaKeywords:
+              - text: "#Thisiseverything Lip Loving Balm #Lolita 12 Gr; Compra #Thisiseverything
+                  Lip Loving Balm #Lolita 12 Gr; Compra #Thisiseverything Lip
+                  Loving Balm #Lolita 12 Gr online; compra #Thisiseverything Lip
+                  Loving Balm #Lolita 12 Gr de NYX PROFESSIONAL MAKEUP"
+                xpath: /html/head[1]/meta[4]/@content
+            category:
+              - text: Página de inicio
+                xpath: /html/body/div[2]/div[2]/div[1]/ul[1]/li[1]
+              - text: "#Thisiseverything Lip Loving Balm #Lolita 12 Gr"
+                xpath: /html/body/div[2]/div[2]/div[1]/ul[1]/li[2]
+            nameExtended:
+              - text: "#Thisiseverything Lip Loving Balm #Lolita 12 Gr"
+                xpath: /html/body/div[2]/main[1]/div[2]/div[1]/div[1]/div[1]/h1[1]/span[1]
+            listPrice:
+              - text: 6,70 €
+                xpath: /html/body/div[2]/main[1]/div[2]/div[1]/div[1]/div[3]/div[1]/span[2]/span[1]/span[2]/span[1]
+            price:
+              - text: 5,45 €
+                xpath: /html/body/div[2]/main[1]/div[2]/div[1]/div[1]/div[3]/div[1]/span[1]/span[1]/span[2]/span[1]
+            availabilityText:
+              - text: Disponible
+                xpath: /html/body/div[2]/main[1]/div[2]/div[1]/div[1]/div[5]/div[1]/span[1]
+            description:
+              - text: "#Thisiseverything Lip Loving Balm #Lolita 12 Gr. NYX PROFESSIONAL MAKEUP.
+                  J64"
+                xpath: /html/body/div[2]/main[1]/div[2]/div[1]/div[3]/div[1]/div[2]/div[1]/div[1]
+            brandText:
+              - text: NYX PROFESSIONAL MAKEUP
+                xpath: /html/body/div[2]/main[1]/div[2]/div[1]/div[3]/div[1]/div[4]/div[1]/table[1]/tbody[1]/tr[2]/td[1]
+            quantity:
+              - text: 12 Gr
+                xpath: /html/body/div[2]/main[1]/div[2]/div[1]/div[1]/div[1]/h1[1]/span[1]
+            gtin:
+              - text: "0800897090678"
+                xpath: /html/body/div[2]/main[1]/div[2]/div[1]/div[3]/div[1]/div[4]/div[1]/table[1]/tbody[1]/tr[1]/td[1]
+            sku:
+              - text: "143855"
+                xpath: /html/body/div[2]/main[1]/div[2]/div[1]/div[1]/div[5]/div[2]/div[1]
+            variantId:
+              - text: "93474"
+                xpath: /html/body/div[2]/main[1]/div[2]/div[1]/div[1]/div[3]/div[1]/@data-product-id
+            name:
+              - text: "#Thisiseverything Lip Loving Balm #Lolita 12 Gr"
+                xpath: /html/body/div[2]/main[1]/div[2]/div[1]/div[1]/div[1]/h1[1]/span[1]
+            productOtherInformation:
+              - text: Ean 0800897090678 || marca NYX PROFESSIONAL MAKEUP || SPRAY No
+                xpath: /html/body/div[5]
+            imageZoomFeaturePresent:
+              - text: Yes
+                xpath: /html/body/div[6]
+            variantCount:
+              - text: "0"
+        xpath: /
+    timestamp: 1607085173837

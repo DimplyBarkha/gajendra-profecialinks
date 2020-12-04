@@ -1,0 +1,76 @@
+input:
+  _url: http://perfumespremium.es
+  URL: https://www.perfumespremium.es/marcas-a-z/t/tigi-catwalk-work-it-hair-spray-300ml-100306
+extractions:
+  - html: https://workbench.import.io/html/run=aae0b149-6d14-4016-802f-4885fc70b387/task=fed11626-9af5-4964-9df0-fe451ffc5cce/e4e21070-13ed-4956-8bc5-2fc27926eefd.html
+    extractionConfigId: product/details/stores/p/perfumespremium/ES/extract
+    data:
+      - group:
+          - productUrl:
+              - text: https://www.perfumespremium.es/marcas-a-z/t/tigi-catwalk-work-it-hair-spray-300ml-100306
+                xpath: /html/body/div[4]
+            image:
+              - text: https://www.perfumespremium.es/media/catalog/product/cache/7a83b1c9000cd446e7acdf584f97e51b/0/6/0615908425963.jpg
+                xpath: /html/body/div[2]/main[1]/div[2]/div[1]/div[2]/div[2]/div[2]/div[2]/div[1]/div[3]/div[1]/img[1]/@src
+            imageAlt:
+              - text: "0615908425963"
+                xpath: /html/body/div[2]/main[1]/div[2]/div[1]/div[2]/div[2]/div[2]/div[2]/div[1]/div[3]/div[1]/img[1]/@alt
+            metaKeywords:
+              - text: Tigi Catwalk Work It Hair Spray 300Ml; Compra Tigi Catwalk Work It Hair
+                  Spray 300Ml; Compra Tigi Catwalk Work It Hair Spray 300Ml
+                  online; compra Tigi Catwalk Work It Hair Spray 300Ml de TIGI
+                xpath: /html/head[1]/meta[4]/@content
+            category:
+              - text: Página de inicio
+                xpath: /html/body/div[2]/div[2]/div[1]/ul[1]/li[1]
+              - text: Marcas A-Z
+                xpath: /html/body/div[2]/div[2]/div[1]/ul[1]/li[2]
+              - text: T-Z
+                xpath: /html/body/div[2]/div[2]/div[1]/ul[1]/li[3]
+              - text: T
+                xpath: /html/body/div[2]/div[2]/div[1]/ul[1]/li[4]
+              - text: Tigi Catwalk Work It Hair Spray 300Ml
+                xpath: /html/body/div[2]/div[2]/div[1]/ul[1]/li[5]
+            nameExtended:
+              - text: Tigi Catwalk Work It Hair Spray 300Ml
+                xpath: /html/body/div[2]/main[1]/div[2]/div[1]/div[1]/div[1]/h1[1]/span[1]
+            listPrice:
+              - text: 12,60 €
+                xpath: /html/body/div[2]/main[1]/div[2]/div[1]/div[1]/div[3]/div[1]/span[2]/span[1]/span[2]/span[1]
+            price:
+              - text: 8,47 €
+                xpath: /html/body/div[2]/main[1]/div[2]/div[1]/div[1]/div[3]/div[1]/span[1]/span[1]/span[2]/span[1]
+            availabilityText:
+              - text: Disponible
+                xpath: /html/body/div[2]/main[1]/div[2]/div[1]/div[1]/div[5]/div[1]/span[1]
+            description:
+              - text: Tigi Catwalk Work It Hair Spray 300Ml
+                xpath: /html/body/div[2]/main[1]/div[2]/div[1]/div[3]/div[1]/div[2]/div[1]/div[1]
+            brandText:
+              - text: TIGI
+                xpath: /html/body/div[2]/main[1]/div[2]/div[1]/div[3]/div[1]/div[4]/div[1]/table[1]/tbody[1]/tr[2]/td[1]
+            quantity:
+              - text: 300Ml
+                xpath: /html/body/div[2]/main[1]/div[2]/div[1]/div[1]/div[1]/h1[1]/span[1]
+            gtin:
+              - text: "0615908425963"
+                xpath: /html/body/div[2]/main[1]/div[2]/div[1]/div[3]/div[1]/div[4]/div[1]/table[1]/tbody[1]/tr[1]/td[1]
+            sku:
+              - text: "100306"
+                xpath: /html/body/div[2]/main[1]/div[2]/div[1]/div[1]/div[5]/div[2]/div[1]
+            variantId:
+              - text: "56256"
+                xpath: /html/body/div[2]/main[1]/div[2]/div[1]/div[1]/div[3]/div[1]/@data-product-id
+            name:
+              - text: Tigi Catwalk Work It Hair Spray 300Ml
+                xpath: /html/body/div[2]/main[1]/div[2]/div[1]/div[1]/div[1]/h1[1]/span[1]
+            productOtherInformation:
+              - text: Ean 0615908425963 || marca TIGI || SPRAY No
+                xpath: /html/body/div[5]
+            imageZoomFeaturePresent:
+              - text: Yes
+                xpath: /html/body/div[6]
+            variantCount:
+              - text: "0"
+        xpath: /
+    timestamp: 1607085166304

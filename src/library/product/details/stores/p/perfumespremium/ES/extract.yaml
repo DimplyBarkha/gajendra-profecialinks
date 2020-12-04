@@ -8,41 +8,52 @@ fields:
 - name: _url
   singleValue: false
 - name: productUrl
+  xpath: //div[@id="url"]
   singleValue: false
 - name: _pageTimeStamp
   singleValue: false
 - name: image
+  xpath: //img[@id="magnifier-item-0"]/@src
   singleValue: true
   description: URL of the main product image
 - name: imageAlt
+  xpath: //img[@id="magnifier-item-0"]/@alt
   singleValue: true
   description: Alt text of the main product image
 - name: alternateImages
+  xpath: //div[@class="fotorama__nav__shaft"]//img/@src
   singleValue: false
   description: Other product images (not in manufacturer description)
 - name: metaKeywords
+  xpath: //meta[@name="keywords"]/@content
   singleValue: true
   description: The <meta> keywords content
 - name: category
+  xpath: //ul[@class="items"]/li
   singleValue: false
   description: The categories (e.g. from breadcrumbs)
 - name: nameExtended
+  xpath: //span[@itemprop="name"]
   singleValue: true
   description: The product name, prefixing "${brand} - " if not included in "name"
     and appending " - ${variantType}" if necessary (fixed per feed)
 - name: listPrice
+  xpath: //span[@data-price-type="oldPrice"]/span
   singleValue: true
   description: The stated undiscounted price for the product
 - name: price
+  xpath: //span[@data-price-type="finalPrice"]/span
   singleValue: true
   description: The offered price for the selected product variant - if a user clicks
     add to basket this is the price they would be charged
 - name: availabilityText
+  xpath: //div[@title="Disponibilidad"]/span
   singleValue: true
   description: Availability as described on page for the selected variant. If there
     is no availability but the product can be added to cart, this field should be
     "In Stock"
 - name: description
+  xpath: //div[contains(@class, "description")]/div[@class="value"]
   singleValue: false
   description: Product description supplied by website - may be concatenanted from
     multiple places; specifically not the manufacturer description
@@ -50,6 +61,7 @@ fields:
   singleValue: true
   description: Number of ul > li tags in the description
 - name: brandText
+  xpath: //td[@data-th="marca"]
   singleValue: true
   description: Product brand shown - this may actually NOT be just a brand name, e.g.
     "Visit the Gillette Store"
@@ -57,6 +69,9 @@ fields:
   singleValue: true
   description: Product manufacturer
 - name: quantity
+  xpath: //span[@itemprop="name"]
+  regExp: (\d+.(Gr|Ml))
+  regExpReplace: $1
   singleValue: true
   description: Quantity as described on the page
 - name: weightNet
@@ -66,12 +81,15 @@ fields:
   singleValue: true
   description: Gross weight as described on the page
 - name: gtin
+  xpath: //td[@data-th="Ean"]
   singleValue: true
   description: GTIN code (includes UPC/EAN)
 - name: sku
+  xpath: //div[@itemprop="sku"]
   singleValue: true
   description: The store-specific product identifier
 - name: variantId
+  xpath: //div[@class="product-info-price"]/div/@data-product-id
   singleValue: true
   description: Identifier for a variant from a store where variants share the same
     sku
@@ -110,6 +128,7 @@ fields:
   singleValue: true
   description: Stated shipping weight
 - name: variantCount
+  xpath: count(//select[@class="super-attribute-select"]/option[position() > 1])
   singleValue: true
   description: Number of variants listed
 - name: color
@@ -128,6 +147,7 @@ fields:
   singleValue: false
   description: URLs of videos on page
 - name: name
+  xpath: //span[@itemprop="name"]
   singleValue: true
   description: The product name
 - name: inStorePrice
@@ -380,6 +400,8 @@ fields:
   singleValue: true
   description: Recycling information associated with the product
 - name: productOtherInformation
+  # xpath: //table[@id="product-attribute-specs-table"]/tbody
+  xpath: //div[@id='productOtherInfo']
   singleValue: false
   description: Any other product information
 - name: packaging
@@ -412,6 +434,7 @@ fields:
   description: In product page, information about a new version of the product - new
     desription info
 - name: variantInformation
+  xpath: //div[contains(@class, "configurable ")]//label[@class="label"]/span
   singleValue: true
   description: colour / scent / flavour / other
 - name: firstVariant
@@ -425,6 +448,7 @@ fields:
     common link between other variants. method 3 = apply some logic to determine link
     between variants, this will need analysis
 - name: variants
+  xpath: //select[@class="super-attribute-select"]/option[position() > 1]/@value
   singleValue: false
   description: 
 - name: additionalDescBulletInfo
@@ -468,6 +492,7 @@ fields:
   example: https://www.amazon.com/Trinsic-Single-Handle-Magnetic-Champagne-9159-CZ-DST/dp/B0050EN8E6
   defaultValue: false
 - name: imageZoomFeaturePresent
+  xpath: //div[@id="imgzoom"]
   singleValue: true
   description: If Zoom feature is available for Main image or images in the carousel,['Yes','No']
   example: https://www.zalando.de/adidas-neo-sneaker-low-blackwhite-a4315i002-q11.html

@@ -1,0 +1,83 @@
+input:
+  _url: http://perfumespremium.es
+  URL: https://www.perfumespremium.es/212-men-deo-stick-75-gr-7608
+extractions:
+  - html: https://workbench.import.io/html/run=aae0b149-6d14-4016-802f-4885fc70b387/task=1c5754b8-877b-4066-b926-d3f68a001c06/877a7331-d12e-4b49-875e-d3b162cebd31.html
+    extractionConfigId: product/details/stores/p/perfumespremium/ES/extract
+    data:
+      - group:
+          - productUrl:
+              - text: https://www.perfumespremium.es/212-men-deo-stick-75-gr-7608
+                xpath: /html/body/div[4]
+            image:
+              - text: https://www.perfumespremium.es/media/catalog/product/cache/7a83b1c9000cd446e7acdf584f97e51b/8/4/8411061347508_1.jpg
+                xpath: /html/body/div[2]/main[1]/div[2]/div[1]/div[2]/div[2]/div[2]/div[2]/div[1]/div[3]/div[1]/img[1]/@src
+            imageAlt:
+              - text: 212 Men Deo Stick 75 Gr, CAROLINA HERRERA, 8411061347508
+                xpath: /html/body/div[2]/main[1]/div[2]/div[1]/div[2]/div[2]/div[2]/div[2]/div[1]/div[3]/div[1]/img[1]/@alt
+            alternateImages:
+              - text: https://www.perfumespremium.es/media/catalog/product/cache/b6060e338819d7c865ecb16f2a8a4875/8/4/8411061347508.jpg
+                xpath: /html/body/div[2]/main[1]/div[2]/div[1]/div[2]/div[2]/div[2]/div[2]/div[2]/div[1]/div[2]/div[2]/div[1]/img[1]/@src
+              - text: https://www.perfumespremium.es/media/catalog/product/cache/b6060e338819d7c865ecb16f2a8a4875/8/4/8411061347508_1.jpg
+                xpath: /html/body/div[2]/main[1]/div[2]/div[1]/div[2]/div[2]/div[2]/div[2]/div[2]/div[1]/div[2]/div[3]/div[1]/img[1]/@src
+            metaKeywords:
+              - text: 212 Men Deo Stick 75 Gr, CAROLINA HERRERA, perfumespremium.es, 212 Men Deo
+                  Stick 75 Gr online, 212 Men Deo Stick 75 Gr de CAROLINA
+                  HERRERA a los mejores precios, compra CAROLINA HERRERA al
+                  mejor precio online, moda, las mejores marcas originales de
+                  belleza, perfumes baratos, compra 212 Men Deo Stick 75 Gr al
+                  mejor precio en internet
+                xpath: /html/head[1]/meta[4]/@content
+            category:
+              - text: Página de inicio
+                xpath: /html/body/div[2]/div[2]/div[1]/ul[1]/li[1]
+              - text: 212 Men Deo Stick 75 Gr
+                xpath: /html/body/div[2]/div[2]/div[1]/ul[1]/li[2]
+            nameExtended:
+              - text: 212 Men Deo Stick 75 Gr
+                xpath: /html/body/div[2]/main[1]/div[2]/div[1]/div[1]/div[1]/h1[1]/span[1]
+            listPrice:
+              - text: 25,00 €
+                xpath: /html/body/div[2]/main[1]/div[2]/div[1]/div[1]/div[3]/div[1]/span[2]/span[1]/span[2]/span[1]
+            price:
+              - text: 14,61 €
+                xpath: /html/body/div[2]/main[1]/div[2]/div[1]/div[1]/div[3]/div[1]/span[1]/span[1]/span[2]/span[1]
+            availabilityText:
+              - text: Disponible
+                xpath: /html/body/div[2]/main[1]/div[2]/div[1]/div[1]/div[5]/div[1]/span[1]
+            description:
+              - text: La composición amaderada oriental es creada por Emilie Coppermann como un
+                  exploscóctel de vodka, maracuyá, menta helada, jengibre,
+                  pimienta negro, caviar de limón, cuero, especias, ámbar y
+                  madera de rey
+                xpath: /html/body/div[2]/main[1]/div[2]/div[1]/div[3]/div[1]/div[2]/div[1]/div[1]
+            brandText:
+              - text: CAROLINA HERRERA
+                xpath: /html/body/div[2]/main[1]/div[2]/div[1]/div[3]/div[1]/div[4]/div[1]/table[1]/tbody[1]/tr[2]/td[1]
+            quantity:
+              - text: 75 Gr
+                xpath: /html/body/div[2]/main[1]/div[2]/div[1]/div[1]/div[1]/h1[1]/span[1]
+            gtin:
+              - text: "8411061347508"
+                xpath: /html/body/div[2]/main[1]/div[2]/div[1]/div[3]/div[1]/div[4]/div[1]/table[1]/tbody[1]/tr[1]/td[1]
+            sku:
+              - text: "7608"
+                xpath: /html/body/div[2]/main[1]/div[2]/div[1]/div[1]/div[5]/div[2]/div[1]
+            variantId:
+              - text: "13731"
+                xpath: /html/body/div[2]/main[1]/div[2]/div[1]/div[1]/div[3]/div[1]/@data-product-id
+            name:
+              - text: 212 Men Deo Stick 75 Gr
+                xpath: /html/body/div[2]/main[1]/div[2]/div[1]/div[1]/div[1]/h1[1]/span[1]
+            productOtherInformation:
+              - text: Ean 8411061347508 || marca CAROLINA HERRERA || GENERO HOMBRE || TIPO DE
+                  PRODUCTO DESODORANTE || GAMA PREMIUM || FAMILIA PERFUME ||
+                  ZONA CUERPO || SPRAY No || TAMAÑO 75 ml
+                xpath: /html/body/div[5]
+            imageZoomFeaturePresent:
+              - text: Yes
+                xpath: /html/body/div[6]
+            variantCount:
+              - text: "0"
+        xpath: /
+    timestamp: 1607085173927

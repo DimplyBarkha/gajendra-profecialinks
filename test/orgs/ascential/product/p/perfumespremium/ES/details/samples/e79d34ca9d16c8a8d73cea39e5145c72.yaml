@@ -1,0 +1,135 @@
+input:
+  _url: http://perfumespremium.es
+  URL: https://www.perfumespremium.es/catalog/product/view/id/92060
+extractions:
+  - html: https://workbench.import.io/html/run=aae0b149-6d14-4016-802f-4885fc70b387/task=dce672f0-39d6-4ef6-b265-9ea8880289dc/c67ae686-4342-4c33-a46d-1a7235ac3e25.html
+    extractionConfigId: product/details/stores/p/perfumespremium/ES/extract
+    data:
+      - group:
+          - productUrl:
+              - text: https://www.perfumespremium.es/catalog/product/view/id/92060
+                xpath: /html/body/div[4]
+            image:
+              - text: https://www.perfumespremium.es/media/catalog/product/cache/7a83b1c9000cd446e7acdf584f97e51b/3/6/3600523296125_5.jpg
+                xpath: /html/body/div[2]/main[1]/div[2]/div[1]/div[2]/div[2]/div[2]/div[2]/div[1]/div[3]/div[1]/img[1]/@src
+            imageAlt:
+              - text: 3600523296125.jpg
+                xpath: /html/body/div[2]/main[1]/div[2]/div[1]/div[2]/div[2]/div[2]/div[2]/div[1]/div[3]/div[1]/img[1]/@alt
+            alternateImages:
+              - text: https://www.perfumespremium.es/media/catalog/product/cache/b6060e338819d7c865ecb16f2a8a4875/3/6/3600523296125_4.jpg
+                xpath: /html/body/div[2]/main[1]/div[2]/div[1]/div[2]/div[2]/div[2]/div[2]/div[2]/div[1]/div[2]/div[2]/div[1]/img[1]/@src
+              - text: https://www.perfumespremium.es/media/catalog/product/cache/b6060e338819d7c865ecb16f2a8a4875/3/6/3600523296125_5.jpg
+                xpath: /html/body/div[2]/main[1]/div[2]/div[1]/div[2]/div[2]/div[2]/div[2]/div[2]/div[1]/div[2]/div[3]/div[1]/img[1]/@src
+            metaKeywords:
+              - text: L´OREAL COLOR RICHE; Compra L´OREAL COLOR RICHE; Compra L´OREAL COLOR
+                  RICHE online; compra L´OREAL COLOR RICHE de L'OREAL PARIS
+                xpath: /html/head[1]/meta[4]/@content
+            category:
+              - text: Página de inicio
+                xpath: /html/body/div[2]/div[2]/div[1]/ul[1]/li[1]
+              - text: L´OREAL COLOR RICHE
+                xpath: /html/body/div[2]/div[2]/div[1]/ul[1]/li[2]
+            nameExtended:
+              - text: L´OREAL COLOR RICHE
+                xpath: /html/body/div[2]/main[1]/div[2]/div[1]/div[1]/div[1]/h1[1]/span[1]
+            listPrice:
+              - text: 13,95 €
+                xpath: /html/body/div[2]/main[1]/div[2]/div[1]/div[1]/div[3]/div[1]/span[2]/span[1]/span[2]/span[1]
+            price:
+              - text: 7,71 €
+                xpath: /html/body/div[2]/main[1]/div[2]/div[1]/div[1]/div[3]/div[1]/span[1]/span[1]/span[2]/span[1]
+            availabilityText:
+              - text: Disponible
+                xpath: /html/body/div[2]/main[1]/div[2]/div[1]/div[1]/div[5]/div[1]/span[1]
+            description:
+              - text: L’Oreal París nos trae esta barra de labios icónica. Una fórmula maestra
+                  que aporta un color intenso y una cremosidad inigualable.
+                  Hidratación y confort en tus labios. La gama de tonos más
+                  extensa, del perlado al crema, del rojo pasión al nude
+                  clásico.
+                xpath: /html/body/div[2]/main[1]/div[2]/div[1]/div[3]/div[1]/div[2]/div[1]/div[1]
+            brandText:
+              - text: L'OREAL PARIS
+                xpath: /html/body/div[2]/main[1]/div[2]/div[1]/div[3]/div[1]/div[4]/div[1]/table[1]/tbody[1]/tr[2]/td[1]
+            gtin:
+              - text: 0000000C89426
+                xpath: /html/body/div[2]/main[1]/div[2]/div[1]/div[3]/div[1]/div[4]/div[1]/table[1]/tbody[1]/tr[1]/td[1]
+            sku:
+              - text: C89426
+                xpath: /html/body/div[2]/main[1]/div[2]/div[1]/div[1]/div[5]/div[2]/div[1]
+            variantId:
+              - text: "92060"
+                xpath: /html/body/div[2]/main[1]/div[2]/div[1]/div[1]/div[3]/div[1]/@data-product-id
+            name:
+              - text: L´OREAL COLOR RICHE
+                xpath: /html/body/div[2]/main[1]/div[2]/div[1]/div[1]/div[1]/h1[1]/span[1]
+            productOtherInformation:
+              - text: Ean 0000000C89426 || marca L'OREAL PARIS || GENERO MUJER || TIPO DE
+                  PRODUCTO BARRA DE LABIOS || GAMA CONSUMO || FAMILIA MAQUILLAJE
+                  || SPRAY No
+                xpath: /html/body/div[5]
+            variantInformation:
+              - text: Color
+                xpath: /html/body/div[2]/main[1]/div[2]/div[1]/div[1]/div[6]/form[1]/div[1]/div[1]/div[1]/label[1]/span[1]
+            variants:
+              - text: "7878"
+                xpath: /html/body/div[2]/main[1]/div[2]/div[1]/div[1]/div[6]/form[1]/div[1]/div[1]/div[1]/div[1]/select[1]/option[2]/@value
+              - text: "8016"
+                xpath: /html/body/div[2]/main[1]/div[2]/div[1]/div[1]/div[6]/form[1]/div[1]/div[1]/div[1]/div[1]/select[1]/option[3]/@value
+              - text: "8022"
+                xpath: /html/body/div[2]/main[1]/div[2]/div[1]/div[1]/div[6]/form[1]/div[1]/div[1]/div[1]/div[1]/select[1]/option[4]/@value
+              - text: "8086"
+                xpath: /html/body/div[2]/main[1]/div[2]/div[1]/div[1]/div[6]/form[1]/div[1]/div[1]/div[1]/div[1]/select[1]/option[5]/@value
+              - text: "8089"
+                xpath: /html/body/div[2]/main[1]/div[2]/div[1]/div[1]/div[6]/form[1]/div[1]/div[1]/div[1]/div[1]/select[1]/option[6]/@value
+              - text: "8090"
+                xpath: /html/body/div[2]/main[1]/div[2]/div[1]/div[1]/div[6]/form[1]/div[1]/div[1]/div[1]/div[1]/select[1]/option[7]/@value
+              - text: "8091"
+                xpath: /html/body/div[2]/main[1]/div[2]/div[1]/div[1]/div[6]/form[1]/div[1]/div[1]/div[1]/div[1]/select[1]/option[8]/@value
+              - text: "8092"
+                xpath: /html/body/div[2]/main[1]/div[2]/div[1]/div[1]/div[6]/form[1]/div[1]/div[1]/div[1]/div[1]/select[1]/option[9]/@value
+              - text: "8093"
+                xpath: /html/body/div[2]/main[1]/div[2]/div[1]/div[1]/div[6]/form[1]/div[1]/div[1]/div[1]/div[1]/select[1]/option[10]/@value
+              - text: "8094"
+                xpath: /html/body/div[2]/main[1]/div[2]/div[1]/div[1]/div[6]/form[1]/div[1]/div[1]/div[1]/div[1]/select[1]/option[11]/@value
+              - text: "8095"
+                xpath: /html/body/div[2]/main[1]/div[2]/div[1]/div[1]/div[6]/form[1]/div[1]/div[1]/div[1]/div[1]/select[1]/option[12]/@value
+              - text: "8096"
+                xpath: /html/body/div[2]/main[1]/div[2]/div[1]/div[1]/div[6]/form[1]/div[1]/div[1]/div[1]/div[1]/select[1]/option[13]/@value
+              - text: "8097"
+                xpath: /html/body/div[2]/main[1]/div[2]/div[1]/div[1]/div[6]/form[1]/div[1]/div[1]/div[1]/div[1]/select[1]/option[14]/@value
+              - text: "8098"
+                xpath: /html/body/div[2]/main[1]/div[2]/div[1]/div[1]/div[6]/form[1]/div[1]/div[1]/div[1]/div[1]/select[1]/option[15]/@value
+              - text: "8099"
+                xpath: /html/body/div[2]/main[1]/div[2]/div[1]/div[1]/div[6]/form[1]/div[1]/div[1]/div[1]/div[1]/select[1]/option[16]/@value
+              - text: "8100"
+                xpath: /html/body/div[2]/main[1]/div[2]/div[1]/div[1]/div[6]/form[1]/div[1]/div[1]/div[1]/div[1]/select[1]/option[17]/@value
+              - text: "8101"
+                xpath: /html/body/div[2]/main[1]/div[2]/div[1]/div[1]/div[6]/form[1]/div[1]/div[1]/div[1]/div[1]/select[1]/option[18]/@value
+              - text: "8102"
+                xpath: /html/body/div[2]/main[1]/div[2]/div[1]/div[1]/div[6]/form[1]/div[1]/div[1]/div[1]/div[1]/select[1]/option[19]/@value
+              - text: "8103"
+                xpath: /html/body/div[2]/main[1]/div[2]/div[1]/div[1]/div[6]/form[1]/div[1]/div[1]/div[1]/div[1]/select[1]/option[20]/@value
+              - text: "8104"
+                xpath: /html/body/div[2]/main[1]/div[2]/div[1]/div[1]/div[6]/form[1]/div[1]/div[1]/div[1]/div[1]/select[1]/option[21]/@value
+              - text: "8105"
+                xpath: /html/body/div[2]/main[1]/div[2]/div[1]/div[1]/div[6]/form[1]/div[1]/div[1]/div[1]/div[1]/select[1]/option[22]/@value
+              - text: "8106"
+                xpath: /html/body/div[2]/main[1]/div[2]/div[1]/div[1]/div[6]/form[1]/div[1]/div[1]/div[1]/div[1]/select[1]/option[23]/@value
+              - text: "8107"
+                xpath: /html/body/div[2]/main[1]/div[2]/div[1]/div[1]/div[6]/form[1]/div[1]/div[1]/div[1]/div[1]/select[1]/option[24]/@value
+              - text: "8108"
+                xpath: /html/body/div[2]/main[1]/div[2]/div[1]/div[1]/div[6]/form[1]/div[1]/div[1]/div[1]/div[1]/select[1]/option[25]/@value
+              - text: "8133"
+                xpath: /html/body/div[2]/main[1]/div[2]/div[1]/div[1]/div[6]/form[1]/div[1]/div[1]/div[1]/div[1]/select[1]/option[26]/@value
+              - text: "8162"
+                xpath: /html/body/div[2]/main[1]/div[2]/div[1]/div[1]/div[6]/form[1]/div[1]/div[1]/div[1]/div[1]/select[1]/option[27]/@value
+              - text: "8196"
+                xpath: /html/body/div[2]/main[1]/div[2]/div[1]/div[1]/div[6]/form[1]/div[1]/div[1]/div[1]/div[1]/select[1]/option[28]/@value
+            imageZoomFeaturePresent:
+              - text: Yes
+                xpath: /html/body/div[6]
+            variantCount:
+              - text: "27"
+        xpath: /
+    timestamp: 1607085172810

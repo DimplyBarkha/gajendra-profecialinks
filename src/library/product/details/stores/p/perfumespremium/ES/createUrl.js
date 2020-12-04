@@ -4,7 +4,7 @@ module.exports = {
   parameterValues: {
     domain: 'perfumespremium.es',
     prefix: null,
-    url: null,
+    url: 'https://www.perfumespremium.es/catalog/product/view/{RPC}/',
     country: 'ES',
     store: 'perfumespremium',
     zipcode: '',
