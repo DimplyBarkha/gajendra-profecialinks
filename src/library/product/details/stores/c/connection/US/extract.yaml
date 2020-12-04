@@ -9,7 +9,7 @@ fields:
 - name: alternateImages
   singleValue: false
   description: Other product images (not in manufacturer description)
-  xpath: //*[@id="productImageCarousel"]/div/div/a/div/img/@src
+  xpath: //ul[@id='thumbList']/li/a/div/img/@src
 - name: nameExtended
   singleValue: true
   description: The product name, prefixing "${brand} - " if not included in "name"
@@ -29,9 +29,6 @@ fields:
   description: Availability as described on page for the selected variant. If
     there is no availability but the product can be added to cart, this field
     should be "In Stock"
-  regExp: (.+)
-  regExpReplace: In Stock
-  defaultValue: Out of Stock
   xpath: //div[@id="stock_status_added"]
 - name: description
   singleValue: false
@@ -47,7 +44,7 @@ fields:
   singleValue: true
   description: Product brand shown - this may actually NOT be just a brand name,
     e.g. "Visit the Gillette Store"
-  xpath: //span[@id="productNameLink"]//a/text() 
+  xpath: //span[@id="productNameLink"]/a/text() 
 - name: weightNet
   singleValue: true
   description: Net weight as described on the page
@@ -105,4 +102,8 @@ fields:
   description: If Zoom feature is available for Main image or images in the
       carousel,['Yes','No']
   example: https://www.connection.com/product/cyberpower-smart-app-2200va-online-lcd-2u-ups/ol2200rtxl2u/14709951
-  defaultValue: Yes  
+  defaultValue: Yes
+- name: name
+  singleValue: true
+  description: The product name
+  xpath: //div[@class='product-description']/text()    

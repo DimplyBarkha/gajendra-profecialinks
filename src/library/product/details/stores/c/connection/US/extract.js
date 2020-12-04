@@ -56,14 +56,17 @@ module.exports = {
 
       const availabilityadded = getAllXpath("//span[@id='productAvailability']/text()",'nodeValue');
       
-      if(availabilityadded[0] == 'In stock'  || availabilityadded[0] == 'Pre-Order'){
+      if(availabilityadded[0] == 'In Stock'  || availabilityadded[0] == 'Pre-Order' || availabilityadded[0] == 'Limited Quantity Available'){
         addElementToDocument('stock_status_added', 'In Stock');
       } else {
         addElementToDocument('stock_status_added', 'Out of Stock');
       }
 
-    const secondaryImgLength = getAllXpath("//div[@class='carousel-inner']//img/@src", 'nodeValue').length; 
-    addElementToDocument('secondary_imgcount_added',secondaryImgLength);
+    const secondaryImgLength = getAllXpath("//div[@class='carousel-inner']//img/@src", 'nodeValue'); 
+    if(secondaryImgLength){
+      addElementToDocument('secondary_imgcount_added',secondaryImgLength.length);
+    }
+  
       let scrollTop = 500;
       while (true) {
         window.scroll(0, scrollTop);
