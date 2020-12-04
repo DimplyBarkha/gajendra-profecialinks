@@ -8,8 +8,9 @@ async function implementation (inputs, parameters, context, dependencies) {
     const allProducts = document.querySelectorAll('div.product.js-product-row');
     allProducts.forEach((product, index) => {
       try {
+        const productUrl = `https:${product.querySelector('a.details__title').getAttribute('href')}`;
+        product.setAttribute('product-url', productUrl);
         const productJson = JSON.parse(product.getAttribute('data-google-360')).ecommerce.click.products[0];
-        console.log(productJson);
         if (productJson.rating.match(/\d(.\d)?/)) {
           product.setAttribute('product-rating', productJson.rating.match(/\d(.\d)?/)[0].replace('.', ','));
         }

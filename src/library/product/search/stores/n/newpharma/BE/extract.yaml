@@ -13,9 +13,7 @@ fields:
     xpath: //a[contains(@class, "details__title")] 
   - name: productUrl
     singleValue: false
-    xpath: //a[contains(@class, "details__title")]/@href
-    regExp: (.+)
-    regExpReplace: https:$1
+    xpath: //@product-url
   - name: gtin
     singleValue: false
   - name: thumbnail
