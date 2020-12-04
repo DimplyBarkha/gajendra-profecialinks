@@ -37,8 +37,12 @@ async function implementation (inputs, parameters, context, dependencies) {
       productSelectorURL.forEach(element => {
         if (!(productUrl.includes(element.href))) {
           productUrl.push(element.href);
-          name.push(productUrl[k].match('[^/]*$'));
-          k++;
+        }
+      });
+      const productSelectorName = document.querySelectorAll('h2.mq-product-title>a');
+      productSelectorName.forEach(element => {
+        if (!(name.includes(element.textContent))) {
+          name.push(element.textContent);
         }
       });
       const productSelectorID = document.querySelectorAll('div.mq-grid-item>article');
