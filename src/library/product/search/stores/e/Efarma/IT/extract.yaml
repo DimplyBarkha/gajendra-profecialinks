@@ -1,0 +1,35 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: //li[@class="clerk-grid-item item"]
+fields:
+  - name: id
+    singleValue: false
+    xpath: //li/@data-clerk-product-id
+  - name: name
+    singleValue: false
+    description: The product name
+    xpath: //h2[@class="product-name"]/a
+  - name: productUrl
+    singleValue: false
+    xpath: //h2[@class="product-name"]/a/@href
+  - name: thumbnail
+    singleValue: false
+    description: The URL for the product thumbnail image
+    xpath: //a[@class="product-image"]/img/@src
+    regExp: (https:\/\/www.bestwaywholesale.co.uk)?(.+)
+    regExpReplace: https://www.bestwaywholesale.co.uk$2
+  - name: price
+    singleValue: false
+    description: The offered price for the product
+    xpath: //p[@class="special-price"]//span[@class="price"]
+    # regExp: 
+    # regExpReplace: 
+  - name: rank
+    singleValue: false
+    description: search/listing rank
+    type: NUMBER
+  - name: rankOrganic
+    singleValue: true
+    description: The position (rank) within the list excluding sponsored/paid results
+    type: NUMBER
