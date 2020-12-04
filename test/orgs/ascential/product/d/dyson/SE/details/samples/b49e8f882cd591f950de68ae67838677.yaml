@@ -1,0 +1,148 @@
+input:
+  _url: http://dyson.se
+  URL: https://www.dyson.se/luftvard/luftrenare/dyson-pure-hot-cool-link/dyson-pure-hot-cool-white-silver-HP02
+extractions:
+  - html: https://workbench.import.io/html/run=91423214-03b6-4b21-87cc-d697e4eac75c/task=ec2d8bdb-5aaf-41b2-8b61-432ed7de8b19/1cadb251-7482-46b4-804c-d33c39468d32.html
+    extractionConfigId: product/details/stores/d/dyson/SE/extract
+    data:
+      - group:
+          - category:
+              - text: Luftvård
+                xpath: /html/body/nav[1]/div[1]/div[1]/div[1]/div[1]/nav[1]/div[2]/div[1]/div[1]/nav[1]/ol[1]/li[2]/span[1]/a[1]/span[1]
+              - text: Luftrenande fläktar
+                xpath: /html/body/nav[1]/div[1]/div[1]/div[1]/div[1]/nav[1]/div[2]/div[1]/div[1]/nav[1]/ol[1]/li[3]/span[1]/a[1]/span[1]
+              - text: Dyson Pure Hot + Cool Link™-luftrenande värmefläktar
+                xpath: /html/body/nav[1]/div[1]/div[1]/div[1]/div[1]/nav[1]/div[2]/div[1]/div[1]/nav[1]/ol[1]/li[4]/span[1]/a[1]/span[1]
+            image:
+              - text: https://dyson-h.assetsadobe2.com/is/image/content/dam/dyson/products/air-treatment/pure-hot-plus-cool-2018/Varient/Dyson-Pure-Hot-Cool-WHTSIL-purifier-PDP-hero-1.jpg?$responsive$&cropPathE=desktop&fit=stretch,1&wid=1920
+                xpath: /html/body/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/img[1]/@src
+            imageAlt:
+              - text: Dyson Pure Hot + Cool Link™-luftrenande värmefläkt
+                xpath: /html/body/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/img[1]/@alt
+            description:
+              - text: |-
+                  Dyson Pure Hot + Cool Link™ luftrenande fläkt
+                   
+                  3 i 1: Luftrenare, fläkt och värmefläkt.
+                xpath: /html/body/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]
+            ratingCount:
+              - text: "11"
+                xpath: /html/body/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/a[1]/p[1]
+            aggregateRatingText:
+              - text: "3.9"
+                xpath: /html/body/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/a[1]/@aria-label
+            aggregateRating:
+              - text: "3.9"
+                xpath: /html/body/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/a[1]/@aria-label
+            shippingInfo:
+              - text: |-
+                  Gratis flexibel frakt 
+                  och gratis retur
+                xpath: /html/body/main[1]/div[2]/div[4]/div[1]/div[1]/section[1]/div[1]/div[1]/ul[1]/li[2]
+            name:
+              - text: Dyson Pure Hot + Cool Link™ luftrenande fläkt
+                xpath: /html/body/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/h1[1]
+            specifications:
+              - text: |-
+                  Höjd
+                   
+                   632 mm 
+                   
+                   
+                   
+                  Längd
+                   
+                   112 mm 
+                   
+                   
+                   
+                  Bredd
+                   
+                   222 mm
+                xpath: /html/body/main[1]/div[2]/div[18]/section[1]/div[1]/div[1]/ul[1]
+            warranty:
+              - text: |-
+                  2 års garanti 
+                  Aktiveras automatiskt
+                xpath: /html/body/main[1]/div[2]/div[4]/div[1]/div[1]/section[1]/div[1]/div[1]/ul[1]/li[3]
+            weightNet:
+              - text: |-
+                  Vikt
+                   
+                   3,8 kg
+                xpath: /html/body/main[1]/div[2]/div[18]/section[1]/div[1]/ul[1]/li[3]
+            productUrl:
+              - text: https://www.dyson.se/luftvard/luftrenare/dyson-pure-hot-cool-link/dyson-pure-hot-cool-white-silver-HP02
+                xpath: /html/body/div[6]
+            brandText:
+              - text: Dyson
+                xpath: /html/body/div[7]
+            sku:
+              - text: 305576-01
+                xpath: /html/body/div[8]
+            variantId:
+              - text: 305576-01
+                xpath: /html/body/div[8]
+            mpc:
+              - text: 305576-01
+                xpath: /html/body/div[8]
+            color:
+              - text: White-Silver
+                xpath: /html/body/div[9]
+            price:
+              - text: 4090 kr
+                xpath: /html/body/div[11]
+            listPrice:
+              - text: 4590 kr
+                xpath: /html/body/div[12]
+            nameExtended:
+              - text: Dyson Pure Hot + Cool Link™ luftrenande fläkt
+                xpath: /html/body/div[13]
+            productOtherInformation:
+              - text: Inställning för maximalt luftflöde 20 l/s Sladdlängd 1,8 m Vikt 3,8 kg
+                  Oscilleringsvinkel 70 ° Antal hastighetsinställningar 10 Typ
+                  av luftvård Luftrenande värmefläkt Överdelens bredd 154 mm
+                  Överdelens djup 112 mm Fotens diameter 222 mm Modell Desk
+                  HEPA-filter 360 Glass Temperaturinställningar Yes - to the
+                  degree (0-37 degrees)
+                xpath: /html/body/div[14]
+            manufacturerDescription:
+              - text: Dyson Pure Hot + Cool Link ™ är en värmefläkt med luftrenare som värmer
+                  upp och kyler ner året runt, samtidigt som luften kring dig
+                  rensas. Med Dyson Link-appen kan du ställa in ett 7-dagars
+                  tidsprogram och lämna den lufttrenande värmefläkten att sköta
+                  sig själv. Maskinen är också kompatibel med röststyrning och
+                  har en magnetisk fjärrkontroll. Nyckelfunktioner
+                  Triple-funktion Renar luften året runt. Värmer med
+                  termostatstyrning på vintern. Kylande fläkt på sommaren.
+                  Övervakar, reagerar och renar automatiskt Auto-läget
+                  kontrollerar luftkvaliteten och justerar luftflödet för att
+                  uppnå bästa luftkvalitet, och rapporterar sedan direkt till
+                  din Dyson Link-app. Så du kan kontrollera din luftkvalitet
+                  inomhus, oavsett om du är hemma eller borta. 360 ° HEPA-filter
+                  Dyson 360 ° HEPA-filter tar bort 99,95 % av partiklar så små
+                  som 0,1 mikron - det är ungefär 100 gånger mindre än ett
+                  mänskligt hår.
+                xpath: /html/body/div[15]
+            videos:
+              - text: www.dyson.se/content/dam/dyson/video/products/primary/305576-01.mp4
+                xpath: /html/body/div[18]/ul[1]/li[1]
+            availabilityText:
+              - text: In Stock
+                xpath: /html/body/div[19]
+            manufacturer:
+              - text: Dyson
+            descriptionBullets:
+              - text: "0"
+            variantCount:
+              - text: "0"
+            technicalInformationPdfPresent:
+              - text: "false"
+            termsAndConditions:
+              - text: "false"
+            privacyPolicy:
+              - text: "false"
+            customerServiceAvailability:
+              - text: "false"
+        xpath: /html/body
+    timestamp: 1607089849637

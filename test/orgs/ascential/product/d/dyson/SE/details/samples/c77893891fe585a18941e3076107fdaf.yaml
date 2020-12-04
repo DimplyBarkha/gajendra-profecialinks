@@ -1,0 +1,151 @@
+input:
+  _url: http://dyson.se
+  URL: https://www.dyson.se/dammsugare/sladdlosa-dammsugare/dyson-cyclone-v10/dyson-cyclone-v10-absolute-pro
+extractions:
+  - html: https://workbench.import.io/html/run=91423214-03b6-4b21-87cc-d697e4eac75c/task=3368ce58-82b9-43e4-8279-781554fbd186/3b9cb594-72d3-41e9-ad8a-4fdff871f463.html
+    extractionConfigId: product/details/stores/d/dyson/SE/extract
+    data:
+      - group:
+          - image:
+              - text: https://dyson-h.assetsadobe2.com/is/image/content/dam/dyson/products/cord-free-vacuums/sticks/dyson-v10-vacuums/variant/v10-absolute/PSJ-EU-Product-Vacuums-Sticks-Dyson-V10-Absolute-IRSNKCO-PDP-Hero.jpg?$responsive$&cropPathE=desktop&fit=stretch,1&wid=1920
+                xpath: /html/body/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/img[1]/@src
+            imageAlt:
+              - text: Close up of Dyson Cyclone V10 vacuum cleaner
+                xpath: /html/body/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/img[1]/@alt
+            description:
+              - text: |-
+                  Dyson Cyclone V10 Absolute Pro-dammsugare
+                   
+                  Konstruerad för djupgående rengöring, var som helst.
+                xpath: /html/body/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]
+            ratingCount:
+              - text: "85"
+                xpath: /html/body/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/a[1]/p[1]
+            aggregateRatingText:
+              - text: "4.4"
+                xpath: /html/body/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/a[1]/@aria-label
+            aggregateRating:
+              - text: "4.4"
+                xpath: /html/body/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/a[1]/@aria-label
+            name:
+              - text: Dyson Cyclone V10 Absolute Pro-dammsugare
+                xpath: /html/body/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/h1[1]
+            shippingInfo:
+              - text: |-
+                  Gratis flexibel frakt 
+                  och gratis retur
+                xpath: /html/body/main[1]/div[2]/div[2]/div[1]/div[1]/section[1]/div[1]/div[1]/ul[1]/li[2]
+            warranty:
+              - text: |-
+                  2 års garanti 
+                  Aktiveras automatiskt
+                xpath: /html/body/main[1]/div[2]/div[2]/div[1]/div[1]/section[1]/div[1]/div[1]/ul[1]/li[3]
+            specifications:
+              - text: |-
+                  Höjd
+                   
+                   250 mm 
+                   
+                   
+                   
+                  Längd
+                   
+                   1 249 mm 
+                   
+                   
+                   
+                  Bredd
+                   
+                   256 mm
+                xpath: /html/body/main[1]/div[2]/div[16]/section[1]/div[1]/div[1]/ul[1]
+            weightNet:
+              - text: |-
+                  Vikt
+                   
+                   2,5 kg
+                xpath: /html/body/main[1]/div[2]/div[16]/section[1]/div[1]/ul[1]/li[1]
+            category:
+              - text: Dammsugare
+                xpath: /html/body/nav[1]/div[1]/div[1]/div[1]/div[1]/nav[1]/div[2]/div[1]/div[1]/nav[1]/ol[1]/li[2]/span[1]/a[1]/span[1]
+              - text: Sladdlösa dammsugare
+                xpath: /html/body/nav[1]/div[1]/div[1]/div[1]/div[1]/nav[1]/div[2]/div[1]/div[1]/nav[1]/ol[1]/li[3]/span[1]/a[1]/span[1]
+              - text: Dyson Cyclone V10™-dammsugare
+                xpath: /html/body/nav[1]/div[1]/div[1]/div[1]/div[1]/nav[1]/div[2]/div[1]/div[1]/nav[1]/ol[1]/li[4]/span[1]/a[1]/span[1]
+            productUrl:
+              - text: https://www.dyson.se/dammsugare/sladdlosa-dammsugare/dyson-cyclone-v10/dyson-cyclone-v10-absolute-pro
+                xpath: /html/body/div[7]
+            brandText:
+              - text: Dyson
+                xpath: /html/body/div[8]
+            sku:
+              - text: 295114-01
+                xpath: /html/body/div[9]
+            variantId:
+              - text: 295114-01
+                xpath: /html/body/div[9]
+            mpc:
+              - text: 295114-01
+                xpath: /html/body/div[9]
+            color:
+              - text: Iron-Nickel-Copper
+                xpath: /html/body/div[10]
+            price:
+              - text: 5490 kr
+                xpath: /html/body/div[12]
+            nameExtended:
+              - text: Dyson Cyclone V10 Absolute Pro-dammsugare
+                xpath: /html/body/div[13]
+            productOtherInformation:
+              - text: Vikt 2,5 kg Rengöringshuvud Direct drive-munstycke Laddningstid 3,5 hrs
+                  Cyklonteknik 14 koncentriska cykloner Filtrering Livslängd -
+                  Tvättas månadsvis Behållarens volym 0,76 L Sugkraft
+                  (kraftfullt läge) 15,8 AW Sugkraft (maxläge) 151 AW Maximal
+                  drifttid 60 min
+                xpath: /html/body/div[14]
+            manufacturerDescription:
+              - text: Dyson Cyclone V10™ Absolute Pro kommer med upp till 60 minuters kraftfull
+                  bibehållen sugförmåga.¹ Den 40% större behållaren betyder
+                  också färre avbrott. Avancerad filtrering säkerställer att
+                  dammsugaren släpper ut renare luft och tömningssystemet "point
+                  and shoot" möjliggör en mer hygienisk metod för att tömma
+                  behållaren. Inkluderar åtta verktyg och tillbehör för grundlig
+                  rengöring var som helst i hemmet. Teknologi Drivs med Dysons
+                  digitala V10-motor Våra banbrytande digitala motor snurrar med
+                  125 000 varv per minut, vilket ger starkare sugförmåga.⁴ Kraft
+                  som aldrig avtar Det sjucelliga
+                  nickel-kobolt-aluminiumbatteriet erbjuder kraft som aldrig
+                  avtar för att kunna städa överallt i ditt hem. 14 cykloner 14
+                  cykloner genererar krafter på mer än 79 000 g och slungar iväg
+                  mikroskopiska partiklar – såsom pollen och bakterier– in i
+                  behållaren. Filtrering i hela systemet Det fullständigt
+                  förseglade filtreringssystemet fångar 99,97 % av alla
+                  partiklar som är så små som 0,3 mikrometer - och släpper ut
+                  renare luft.⁵ Akustiskt konstruerad Utformad för att absorbera
+                  vibrationer och dämpa ljud, vilket håller nere ljudnivån.
+                  Placerade i en rak linje Motorn, behållaren och cyklonen
+                  sitter i rak linje, så luften dras rakt in i cyklonerna,
+                  vilket skapar den kraftiga sugeffekten. Utforska Dyson Cyclone
+                  V10™-dammsugare eller köp alla Dyson dammsugare
+                xpath: /html/body/div[15]
+            videos:
+              - text: www.dyson.se/content/dam/dyson/video/products/primary/295114-01.mp4
+                xpath: /html/body/div[18]/ul[1]/li[1]
+            availabilityText:
+              - text: Out of Stock
+                xpath: /html/body/div[19]
+            manufacturer:
+              - text: Dyson
+            descriptionBullets:
+              - text: "0"
+            variantCount:
+              - text: "0"
+            technicalInformationPdfPresent:
+              - text: "false"
+            termsAndConditions:
+              - text: "false"
+            privacyPolicy:
+              - text: "false"
+            customerServiceAvailability:
+              - text: "false"
+        xpath: /html
+    timestamp: 1607089844443
