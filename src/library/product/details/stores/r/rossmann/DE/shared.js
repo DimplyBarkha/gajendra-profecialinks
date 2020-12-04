@@ -51,6 +51,10 @@ const transform = (data) => {
           }
         }
       }
+
+      if (row.aggregateRating) {
+        row.aggregateRating[0].text = row.aggregateRating[0].text.replace('.', ',');
+      }
     }
   }
 
