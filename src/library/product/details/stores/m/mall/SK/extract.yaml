@@ -6,7 +6,7 @@ fields:
   - name: image
     singleValue: true
     description: URL of the main product image
-    xpath: (//div[@class="gallery-magnifier gallery-modal__slide"]/img/@src)[1]
+    xpath: (//div[@class="gallery"]//img//@src)[1]
   - name: alternateImages
     singleValue: false
     description: Other product images (not in manufacturer description)
