@@ -45,9 +45,7 @@ fields:
     xpath: //div[@class='pdp-price-info']//h1[@class='pdp-title']  
   - name: quantity
     singleValue: false
-    xpath: //div[contains(@class,'pdp-add-to-bag')]//span[contains(@class,'pdp-whiteBag')]/@class
-    regExp: (.+)
-    regExpReplace: 1  
+    xpath: //div[@id="sizeButtonsContainer"]//div[@class='size-buttons-size-buttons']//button//p[@class='size-buttons-unified-size']  
   - name: sku
     singleValue: false
     xpath: //span[@class='supplier-styleId']

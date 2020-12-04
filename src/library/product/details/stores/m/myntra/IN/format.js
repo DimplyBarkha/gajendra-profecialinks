@@ -33,6 +33,13 @@ const transform = (data) => {
             });
             row.coupon = [{'text':info.join(' | '),'xpath':row.coupon[0].xpath}];          
           }
+          if (row.quantity) {
+            let info = [];          
+            row.quantity.forEach(item => {
+                info.push(item.text.replace(/(\s*\n\s*)+/g, ', ').trim());            
+            });
+            row.quantity = [{'text':info.join(' | '),'xpath':row.quantity[0].xpath}];          
+          }
           if (row.description) {
             let info = [];          
             row.description.forEach(item => {
