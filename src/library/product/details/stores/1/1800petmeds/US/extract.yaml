@@ -1,0 +1,133 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: image
+    singleValue: true
+    xpath:  //div[@class="carousel-item active"]/img/@src
+  - name: imageAlt
+    singleValue: true
+    # xpath: //div[@class="image-container"]//a//img/@title
+    xpath: //*[@id="pdpCarousel-prod11772"]/div/div/img/@alt
+  - name: alternateImages
+    singleValue: false
+    xpath: //img[@class="pdp-thumb-image"]/@src
+  - name: metaKeywords
+    singleValue: true
+    xpath: //meta[@name="keywords"]/@content
+  - name: category
+    singleValue: false
+    xpath: //li[@class="breadcrumb-item "]//a//text()
+  - name: nameExtended
+    singleValue: true
+    xpath: //*[@id="maincontent"]/div/div/div/div/div/h1/text()
+  - name: listPrice
+    singleValue: true
+    xpath: //*[@id="maincontent"]/div/div/div/div/div/div/span/span[2]
+  - name: price
+    singleValue: true
+    xpath: //*[@id="maincontent"]/div/div/div/div/div/div/span/span[3]
+  - name: availabilityText
+    singleValue: true
+    regExp: (.+)
+    regExpReplace: In Stock
+    defaultValue: Out of Stock
+    xpath: //div[@class="add-to-cart-overlay"]/button
+  - name: description
+    singleValue: false
+    xpath: //*[@id="productInfo"]
+  - name: descriptionBullets
+    singleValue: true
+    description: Number of ul > li tags in the description
+    type: NUMBER
+    xpath: //div[@id="addEelementBullentCount"]
+  - name: brandText
+    singleValue: true
+    xpath: //*[@id="productInfo"]/p[5]
+  - name: manufacturer
+    singleValue: true
+    description: Product manufacturer
+  - name: quantity
+    singleValue: true
+    description: Quantity as described on the page
+    regExp: (?:\s?([\d\.]+\s?)([bB]ar[s]?|[cC]ount|[cC]t|[fF][lL][\.]?\s?[oO][zZ][\.]?|FO|[mM][lL]|[oO][zZ][\.]?|pc|[pP]int|[pP]ops|qt|[wW]ipe[s]?).?)$|(?:\s?([\d\.]+\s?)([bB]ar[s]?|[cC]ount|[cC]|[fF][lL][\.]?\s?[oO][zZ][\.]?|FO|[mM][lL]|[oO][zZ][\.]?|pc|[pP]int|[pP]ops|qt|[wW]ipe[s]?).?\s?[\&\-\w\s]+)$
+    regExpReplace: $1$2$3$4
+  - name: weightNet
+    singleValue: true
+    description: Net weight as described on the page
+  - name: weightGross
+    singleValue: true
+    description: Gross weight as described on the page
+  - name: gtin
+    singleValue: true
+    description: GTIN code (includes UPC/EAN)
+  - name: sku
+    singleValue: true
+    xpath: //button[@class="add-to-cart btn btn-primary"]/@data-pid
+  - name: variantId
+    singleValue: true
+    xpath: //button[@class="add-to-cart btn btn-primary"]/@data-pid
+  - name: mpc
+    singleValue: true
+    description: The manufacturer model code (unique) of the product
+  - name: packSize
+    singleValue: true
+    description: The number of packs in the product offer (if stated separately on
+      the site to quantity)
+  - name: legalDisclaimer
+    singleValue: true
+    description: Content under "legal disclaimer" header
+  - name: directions
+    singleValue: true
+    description: Content under "directions" header
+    xpath: //*[@id="howToUse"]
+  - name: warnings
+    singleValue: true
+    description: Content under "warnings" header
+    xpath: //*[@id="productInfo"]/p[4]
+  - name: aggregateRating
+    singleValue: true
+    description: The stated aggregate rating normalized to be out of 5
+    type: NUMBER
+    xpath: //div[@class="bv_avgRating_component_container notranslate"]/text()
+  - name: ratingCount
+    singleValue: true
+    type: NUMBER
+    xpath: //div[@class="bv_numReviews_text"]//text()
+  - name: name
+    singleValue: true
+    description: The product name
+    xpath: //*[@id="maincontent"]/div/div/div/div/div/h1/text()
+  - name: inStorePrice
+    singleValue: true
+    description: Price in the selected store
+  - name: ingredientsList
+    singleValue: true
+    xpath: //*[@id="ingredients"]/table
+  - name: storage
+    singleValue: true
+    description: Suggested storage location for product
+    xpath: //*[@id="howToUse"]/p
+  - name: variantInformation
+    singleValue: true
+    description: colour / scent / flavour / other
+    xpath: //div[@class="tile "]/div/button/div/text()
+  - name: variants
+    singleValue: true
+    description: colour / scent / flavour / other
+    xpath: //div[@class="tile "]/div/button/div/text()
+  - name: secondaryImageTotal
+    singleValue: true
+    description: Alt text of the main product image
+    xpath: count(//div[@class="pdp-thumbnails bootstrap mt-3"]//span[@class ="aux-img"]//img)
+  - name: quantity
+    singleValue: false
+    description: Alt text of the main product image
+    xpath: //div[@id="variantPackInfo"]
+  - name: variantInformation
+    singleValue: false
+    description: Alt text of the main product image
+    xpath: //div[@id="varaintInfo"]
+    
+  
