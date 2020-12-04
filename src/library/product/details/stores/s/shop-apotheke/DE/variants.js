@@ -1,10 +1,10 @@
 
 module.exports = {
-  implements: 'navigation/goto',
+  implements: 'product/details/variants',
   parameterValues: {
-    domain: 'shop-apotheke.com',
     country: 'DE',
     store: 'shop-apotheke',
-    timeout: 50000,
+    domain: 'shop-apotheke.com',
+    zipcode: '',
   },
 };

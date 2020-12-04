@@ -3,103 +3,85 @@ regionsSelector: null
 recordSelector: null
 recordXPath: null
 fields:
-  - name: url
-    singleValue: true
-    xpath: //meta[@property='og:url']
+  - name: productUrl
+    xpath: //meta[@property="og:url"]/@content
   - name: image
-    singleValue: true
-    xpath: //div[@id='pd_image']
+    xpath: //a[@class='append_image'][1]/@href
   - name: imageAlt
-    singleValue: true
-    xpath: //*[@id="tns1-item0"]//picture/img/@alt
+    xpath: (//ul[contains(@class,"ProductImageGallery__list")]//li/a//img/@alt)[1]
   - name: alternateImages
-    singleValue: false
-    xpath: //div[@class='o-ProductImageGallery__minor']/a/@href
+    xpath: //a[@class='append_image'][position()>1]/@href
   - name: metaKeywords
-    singleValue: true
-    xpath: //meta[@name='description']
+    xpath: //meta[@name='description']/@content
   - name: category
-    singleValue: false
     xpath: //div[@id='pd_category']
   - name: nameExtended
-    singleValue: true
-    xpath: //meta[@property='og:title']
+    xpath: //h1[contains(@class,"o-ProductTemplate__heading")]
   - name: listPrice
     xpath: //*[contains(@class,'m-ProductVariant__label--last')]/div[2]
-    singleValue: true
   - name: price
     xpath: //div[@id='pd_price']
-    singleValue: true
   - name: availabilityText
-    singleValue: true
-    xpath: //div[@id='pd_availabilityText'] 
+    xpath: //button[contains(@data-qa-id,'add-to-cart-button')]
+    regExp: (.+)
+    regExpReplace: In Stock
+    defaultValue: Out of Stock
   - name: description
-    singleValue: false
-    xpath: //div[@id='pd_description'] 
-  - name: descriptionBullets
-    singleValue: true
-    xpath: //*[@id="productActiveIngredients.headline"]
+    xpath: //h2[contains(text(),'Produktdetails & Pflichtangaben')]/following-sibling::div[1]
   - name: brandText
-    xpath: //ul[contains(@class,'m-ProductData')]//li[3]//dd
-    singleValue: true
+    xpath: //dt[contains(text(),'Marke')]/following-sibling::dd
   - name: manufacturer
-    xpath: //ul[contains(@class,'m-ProductData')]//li[4]//dd
-    singleValue: true
+    xpath: //dt[contains(text(),'Hersteller')]/following-sibling::dd
   - name: quantity
-    xpath: //div[@id='pd_quantity']
-    singleValue: true
-  - name: weightNet
-    singleValue: true
-  - name: weightGross
-    singleValue: true
-  - name: gtin
-    singleValue: true
+    xpath: //div[contains(@class,"m-ProductVariant__label--checked")]//div[contains(@class,"ProductVariant--units")]
   - name: sku
-    singleValue: true
-    xpath: //div[@id='pd_sku'] 
+    xpath: //span[@data-qa-id="product-attribute-pzn"]
   - name: variantId
-    singleValue: true
-    xpath: //div[@id='pd_variantId'] 
-  - name: mpc
-    singleValue: true
-  - name: packSize
-    singleValue: true
-  - name: legalDisclaimer
-    singleValue: true
+    xpath: //span[@data-qa-id="product-attribute-pzn"]
   - name: directions
-    singleValue: true
-    xpath: //p//*[contains(text(), "use:")]/ancestor::strong/following-sibling::font | //p//strong//*[contains(text(), "use")]/ancestor::p
+    xpath: //div[@id="productAdditonalInfos.headline"]//strong[contains(text(),'Anwendung')]/following-sibling::text() |//h3[contains(text(),'Indikation/Anwendung')]/following-sibling::*[1] | //p//*[contains(text(), "Anwendung")]/parent::p/text() | //p//*[contains(text(), "Anwendung")]/parent::p/following-sibling::ul |  //h3[contains(text(), "Anwendung")]/following-sibling::ul[1] | //p//*[contains(text(), "Anwendung")]/parent::p/following-sibling::ol
   - name: warnings
-    xpath: //p//*[contains(text(), "Warning:")]/ancestor::p/child::font
-    singleValue: true
+    xpath: //p//*[contains(text(), "Warnhinweise:")]/ancestor::p/following-sibling::p[1]
   - name: ratingCount
-    singleValue: true
-    xpath: //div[@id='pd_ratingCount'] 
-  - name: aggregateRatingText
-    singleValue: true
+    xpath: (//span[contains(text(),'Produktbewertungen')])[1]
+    regExp: (\d+)
+    regExpReplace: $1
   - name: aggregateRating
-    singleValue: true
-    xpath: //div[@id='pd_aggregateRating'] 
-  - name: shippingInfo
-    singleValue: true
-  - name: shippingDimensions
-    singleValue: true
-  - name: shippingWeight
-    singleValue: true
-  - name: variantCount
-    singleValue: true
-  - name: color
-    singleValue: true
-  - name: colorCode
-    singleValue: true
-  - name: manufacturerDescription
-    singleValue: true
-    xpath: .//*[contains(text(), "Product details & mandatory information")]/ancestor::h2/following-sibling::div
-  - name: manufacturerImages
-    singleValue: false
+    xpath: //h1[contains(@class,'ProductTemplate__heading')]/following-sibling::div/div[@data-qa-id="product-rating"]/a/span
+    regExp: (.+)\svon 5
+    regExpReplace: $1
   - name: videos
-    singleValue: false
-    xpath: //video[@class='a-Video a-fullwidth-image']/source/@src
+    xpath: //a[@data-qa-id="form-gallery-video-0"]//video/source[1]/@src | //div[contains(@class,'o-ProductAdditionalInformation')]//iframe/@src
   - name: name
-    singleValue: true
-    xpath: //meta[@property='og:title']
+    xpath: //h1[contains(@class,"o-ProductTemplate__heading")]
+  - name: ingredientsList
+    xpath: //*[@id="productActiveIngredients.headline"]//div[contains(@class,"o-ProductAdditionalInformation")] | //div[@id="productAdditonalInfos.headline"]//strong[contains(text(),'Inhaltsstoffe')]/parent::p/text()
+  - name: productOtherInformation
+    xpath: //div[@id="productAdditonalInfos.headline"]
+  - name: mpc
+    xpath: //div[@id='pd_mpn'] 
+  - name: variants
+    xpath: //div[@id="h_ProductVariants"]//ul//li//a/@data-product-variant-id
+  - name: variantCount
+    xpath: count(//ul[@class="a-list-reset"]//li[position()>1]/div[contains(@class,'m-ProductVariant')])
+  - name: variantInformation
+    xpath: //div[contains(@class,"m-ProductVariant__label--checked")]//div[contains(@class,"ProductVariant--units")]
+  - name: firstVariant
+    xpath: //span[@data-qa-id="product-attribute-pzn"]
+  - name: promotion
+    xpath: //div[contains(@class,"m-ProductVariant__label--checked")]//span[@class="o-ProductVariantMain__discount_badge"]
+  - name: secondaryImageTotal
+    xpath: count(//a[@class='append_image'][position()>1]/@href)
+  - name: technicalInformationPdfPresent
+    defaultValue: No
+  - name: termsAndConditions
+    defaultValue: No
+  - name: privacyPolicy
+    defaultValue: No
+  - name: customerServiceAvailability
+    defaultValue: No
+  - name: materials
+  - name: Image360Present
+    defaultValue: No
+  - name: imageZoomFeaturePresent
+    defaultValue: Yes
