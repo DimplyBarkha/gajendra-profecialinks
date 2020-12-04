@@ -19,7 +19,7 @@ async function implementation(
     const { transform } = parameters;
     const { productDetails } = dependencies;
     await context.evaluate(async function () {
-        const randomLink = document.evaluate("//button[@class='bm bn bo bp ce ai aj d7 bu bv er an bw cf l dd de bx es a0 g et di ev i eu bq br bs bt']/span", document, null, XPathResult.ANY_TYPE, null);
+        const randomLink = document.evaluate("//span[contains(.,'Visa fler')]",document).iterateNext()
         function addclass(xpathforpagination) {
             var elems = document.querySelectorAll(xpathforpagination);
             elems[0].classList.add('pagination');
