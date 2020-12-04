@@ -19,9 +19,6 @@ fields:
     description: Other product images (not in manufacturer description)
     regExp: (\/images.+)
     regExpReplace: https://www.larebajavirtual.com$1
-  - name: metaKeywords
-    singleValue: true
-    description: The <meta> keywords content
   - name: category
     singleValue: false
     xpath: //ol[@class='breadcrumb']/li[position()>1 and position()< last()]
@@ -31,6 +28,9 @@ fields:
     xpath: //div[@class='descripciones']/div/h1
     description: The product name, prefixing "${brand} - " if not included in "name"
       and appending " - ${variantType}" if necessary (fixed per feed)
+  - name: name
+    singleValue: true
+    xpath: //div[@class='descripciones']/div/h1
   - name: price
     singleValue: true
     xpath: //span[@style='font-weight:bolder;']|(//td[@valign='bottom']/div/span[@class='ahora'])[1]
@@ -44,14 +44,6 @@ fields:
     xpath: (//ol[@class='breadcrumb']/li/a/@href)[1]
     regExp: (\/catalogo.+)
     regExpReplace: https://www.larebajavirtual.com$1
-  - name: availabilityText
-    singleValue: true
-    description: Availability as described on page for the selected variant. If
-      there is no availability but the product can be added to cart, this field
-      should be "In Stock"
-    # regExp: (.+)
-    # regExpReplace: In Stock
-    # defaultValue: Out of Stock
   - name: description
     singleValue: false
     description: Product description supplied by website - may be concatenanted from
@@ -74,10 +66,10 @@ fields:
   - name: weightGross
     singleValue: true
     description: Gross weight as described on the page
-  - name: gtin
-    singleValue: true
-    xpath: (//button[@class='col-md-3 min']/@data-id)[1]|(//button[@class=' min']/@data-id)[1]
-    description: GTIN code (includes UPC/EAN)
+  # - name: gtin
+  #   singleValue: true
+  #   xpath: (//button[@class='col-md-3 min']/@data-id)[1]|(//button[@class=' min']/@data-id)[1]
+  #   description: GTIN code (includes UPC/EAN)
   - name: sku
     singleValue: true
     description: The store-specific product identifier
@@ -93,6 +85,9 @@ fields:
     xpath: (//div[@class='descripciones']/div/div/span)[1]
     description: The number of packs in the product offer (if stated separately on
       the site to quantity)
+  - name: quantity
+    singleValue: false
+    xpath: (//div[@class='descripciones']/div/div/span)[1]
   - name: ratingCount
     singleValue: true
     description: The number of ratings
