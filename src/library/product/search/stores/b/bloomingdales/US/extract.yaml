@@ -1,0 +1,64 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: //div[contains(@class,"sortableGrid")]//ul[contains(@class,"items")]//li[contains(@class,"cell")]
+  # //div[@class="sortableGrid"]//ul[@class="items grid-x grid-padding-x"]//li[@class="small-6 medium-4 large-4 cell"]
+fields:
+  - name: id
+    singleValue: false
+    xpath: //li[@class="small-6 medium-4 large-4 cell"]//div[@class="productThumbnail"][1]/@id
+  - name: searchUrl
+    singleValue: true
+    xpath: ancestor::html//div[@id='added-searchurl']
+  - name: name
+    singleValue: false
+    xpath: //div[@class="productDescription"]
+  - name: productUrl
+    singleValue: false
+    xpath: //div[@class="productThumbnail"]//a//@href
+    regExp: (.+)
+    regExpReplace: https://www.bloomingdales.com$1
+  - name: gtin
+    singleValue: false
+  - name: thumbnail
+    singleValue: false
+    xpath: //picture[@class="primary-image"]//img//@src
+    # //picture[@class="alt-image"]//img//@data-lazysrc
+  - name: aggregateRating
+    singleValue: false
+    # xpath: //div[@id="added_aggregateRating"]/text()
+    # //div[@class="repeat-star-icon rating"]//@style
+  - name: aggregateRating2
+    singleValue: false
+    xpath: //div[@id="added_aggregateRating"]/text()
+  - name: reviewCount
+    singleValue: false
+    xpath: //div[@class="productReviewsCount"]//text()
+    regExp: (\(([^)]+)\))
+    regExpReplace: $2
+  - name: ratingCount
+    singleValue: false
+  - name: price
+    singleValue: false
+    xpath: //span[@class="regular"]//text()
+  - name: manufacturer
+    singleValue: true
+  - name: soldBy
+    singleValue: true
+  - name: endorsementText
+    singleValue: false
+  - name: rank
+    singleValue: false
+    description: search/listing rank
+    type: NUMBER
+  - name: rankOrganic
+    singleValue: true
+    description: The position (rank) within the list excluding sponsored/paid results
+    type: NUMBER
+  - name: sponsored
+    singleValue: false
+    description: Is sponsored/paid
+    type: BOOLEAN
+  - name: totalRecordCount
+    singleValue: true 
+    type: NUMBER

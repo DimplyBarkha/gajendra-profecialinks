@@ -1,0 +1,20 @@
+robot: product/details
+parameters:
+  country: US
+  domain: bloomingdales.com
+  store: bloomingdales
+  zipcode: ""
+proxy:
+  zone: ZUS  
+  type: DATA_CENTER
+policy:
+  numberRetries: 3
+  priority: MEDIUM
+  retryDelay: 120
+  backoffPolicy: EXPONENTIAL
+  retryWithResidentialProxyAfter: 3
+meta:
+  branches:
+    dev:
+      extractor: e04468f0-6dfb-4bf3-81ce-377801109f91
+      legacyAccountId: 3bdc37aa-6cbf-4ef3-ab79-80ebff9e4671
