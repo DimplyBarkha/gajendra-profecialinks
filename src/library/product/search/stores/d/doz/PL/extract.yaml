@@ -1,0 +1,26 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: //div[@id="product-list"]//li[@class="product__list-item product"]
+fields:
+  - name: productUrl
+    xpath: //a[@class="product__image"]/@href
+    regExp: (.+)
+    regExpReplace: https://www.doz.pl$1
+    description: The URL for the product details page
+  - name: thumbnail
+    xpath: //a[@class="product__image"]/img/@src
+    description: The URL for the product thumbnail image
+  - name: name
+    xpath: //a[@class="product__image"]/@title
+    description: The product name
+  - name: id
+    xpath: //a[@class="product__image"]/@data-gtm-product-id
+    description: The store-specific product identifier
+  - name: price
+    xpath: //a[@class="btn btn--wide product__price"]/text()
+    description: The offered price for the product
+  - name: rank
+  - name: rankOrganic
+  - name: sponsored
+    defaultValue: false
