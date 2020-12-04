@@ -2,7 +2,7 @@ input:
   id: "257876"
   _url: http://booker.co.uk
 extractions:
-  - html: https://workbench.import.io/html/run=5a861312-7d82-4224-ae7a-c11e764d7472/task=a17aa9ec-520f-4776-8535-af3c070240dc/2ea5cb6e-6b46-440f-a0bf-05048390b503.html
+  - html: https://workbench.import.io/html/run=326254b8-a7e6-4f0f-9665-b4f203812999/task=82287416-9d31-432a-a6a7-9372369540f6/874992f8-5a78-46de-8761-d7c37df52ce9.html
     extractionConfigId: product/details/stores/b/booker/UK/extract
     data:
       - group:
@@ -45,9 +45,6 @@ extractions:
                   Microwave from Frozen. Defrost & Serve Hot or Cold. No
                   Artificial Colours or Preservatives. Suitable for vegetarians.
                 xpath: /html/body/form[1]/div[3]/div[8]/div[2]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[2]/div[3]/p[1]
-            servingSize:
-              - text: 100g
-                xpath: /html/body/form[1]/div[3]/div[8]/div[2]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[2]/div[7]/div[1]/table[1]/tbody[1]/tr[1]/th[2]
             caloriesPerServing:
               - text: 1693kJ
                 xpath: /html/body/form[1]/div[3]/div[8]/div[2]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[2]/div[7]/div[1]/table[1]/tbody[1]/tr[2]/td[1]
@@ -93,15 +90,6 @@ extractions:
             saltPerServingUom:
               - text: g
                 xpath: /html/body/form[1]/div[3]/div[8]/div[2]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[2]/div[7]/div[1]/table[1]/tbody[1]/tr[9]/td[1]
-            directions:
-              - text: Defrosting Guidelines For best results, remove all packaging whilst
-                  product is still frozen. Place on a serving plate and defrost
-                  in a refrigerator (5°C) for approximately 8 hours.
-                  Alternatively, remove the required amount of slices from the
-                  frozen product and defrost each slice on a plate in a
-                  refrigerator (5°C) for approximately 2 hours. Use within 48
-                  hours.
-                xpath: /html/body/form[1]/div[3]/div[8]/div[2]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[2]/div[8]/p[1]
             manufacturer:
               - text: "Produced for: Chef's Larder"
                 xpath: /html/body/form[1]/div[3]/div[8]/div[2]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[2]/div[10]/p[1]
@@ -138,19 +126,26 @@ extractions:
             servingSizeUom:
               - text: g
                 xpath: /html/body/div[5]
-            imageZoomFeaturePresent:
-              - text: Yes
+            servingSize:
+              - text: 100g
                 xpath: /html/body/div[6]
+            allergyAdvice:
+              - text: Contains Eggs || Contains Milk || May Contain Nuts || Contains Soya ||
+                  Contains Wheat
+                xpath: /html/body/div[7]
+            dietaryInformation:
+              - text: Free From Artificial Colours || Free From Artificial Preservatives
+                xpath: /html/body/div[8]
+            variantCount:
+              - text: "0"
             technicalInformationPdfPresent:
               - text: No
             customerServiceAvailability:
               - text: No
             Image360Present:
               - text: No
-            warnings:
-              - text: Contains EggsContains MilkMay Contain NutsContains SoyaContains Wheat
-            variantCount:
-              - text: "3"
+            imageZoomFeaturePresent:
+              - text: No
             ingredientsList:
               - text: "Chocolate Fudge Icing (54%),Chocolate Sponge (46%),Chocolate Fudge Icing
                   contains: Sugar, Water, Palm Oil, Fat Reduced Cocoa Powder
@@ -162,13 +157,9 @@ extractions:
                   Carbonate, Iron, Nicotinamide, Thiamin), Buttermilk (Milk),
                   Rapeseed Oil, Egg, Fat Reduced Cocoa Powder (3.5%), Egg Yolk,
                   Raising Agent (Sodium Bicarbonate)"
-            dietaryInformation:
-              - text: Free From Artificial ColoursFree From Artificial Preservatives
-            allergyAdvice:
-              - text: Contains EggsContains MilkMay Contain NutsContains SoyaContains Wheat
-            recyclingInformation:
-              - text: ""
+            productOtherInformation:
+              - text: © Booker 000520
             packaging:
               - text: Type Box
         xpath: /html
-    timestamp: 1607002824170
+    timestamp: 1607080189248

@@ -20,16 +20,17 @@ module.exports = {
     });
     if (branchSelected) {
       await context.click('a#SHC_ASC_BrowseUserLink');
-    } else if (LogoutBtn) await context.click('a#SHC_ASC_HyperLink2');
-
-    await context.waitForSelector('input[name="OutsideHomePageControl$CustomerNumber"]');
-    await context.setInputValue('input[name="OutsideHomePageControl$CustomerNumber"]', '703636209');
-    await context.click('input[name="OutsideHomePageControl$cmdCustomerNumber"]');
-    await context.waitForSelector('input[name="LoginControl$EmailSingle"]');
-    await context.setInputValue('input[name="LoginControl$EmailSingle"]', 'russell.kirkham@unilever.com');
-    await context.setInputValue('input[name="LoginControl$PasswordSingle"]', 'george');
-    await context.click('input[name="LoginControl$EnterEmailPasswordSubmit"]');
-    await context.waitForSelector('ul[id="tabmenu"]');
-    await context.goto(url, { timeout: 10000, waitUntil: 'load', checkBlocked: true });
+    };
+    if (!LogoutBtn) {
+      await context.waitForSelector('input[name="OutsideHomePageControl$CustomerNumber"]');
+      await context.setInputValue('input[name="OutsideHomePageControl$CustomerNumber"]', '703636209');
+      await context.click('input[name="OutsideHomePageControl$cmdCustomerNumber"]');
+      await context.waitForSelector('input[name="LoginControl$EmailSingle"]');
+      await context.setInputValue('input[name="LoginControl$EmailSingle"]', 'russell.kirkham@unilever.com');
+      await context.setInputValue('input[name="LoginControl$PasswordSingle"]', 'george');
+      await context.click('input[name="LoginControl$EnterEmailPasswordSubmit"]');
+      await context.waitForSelector('ul[id="tabmenu"]');
+      await context.goto(url, { timeout: 10000, waitUntil: 'load', checkBlocked: true });
+    }
   },
 };

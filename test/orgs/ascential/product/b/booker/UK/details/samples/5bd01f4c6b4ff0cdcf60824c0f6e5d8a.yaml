@@ -2,7 +2,7 @@ input:
   id: "488"
   _url: http://booker.co.uk
 extractions:
-  - html: https://workbench.import.io/html/run=5a861312-7d82-4224-ae7a-c11e764d7472/task=9aaffe85-2ebe-4976-bf85-4b3497c2ec57/8f95e150-62a3-4c9f-96d7-5122603a8107.html
+  - html: https://workbench.import.io/html/run=326254b8-a7e6-4f0f-9665-b4f203812999/task=6fe89f38-2c36-41aa-b67b-1a6bcd3d6e6c/4e8441e9-5847-4211-a1eb-147e569560a2.html
     extractionConfigId: product/details/stores/b/booker/UK/extract
     data:
       - group:
@@ -72,9 +72,6 @@ extractions:
                   yummy smooth milk chocolate Smarties® covered in more yummy
                   milk chocolate! www.smarties.co.uk
                 xpath: /html/body/form[1]/div[3]/div[8]/div[2]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[2]/div[2]/p[1]
-            servingSize:
-              - text: "100"
-                xpath: /html/body/form[1]/div[3]/div[8]/div[2]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[2]/div[6]/div[1]/table[1]/tbody[1]/tr[1]/th[2]
             caloriesPerServing:
               - text: 1941 kJ
                 xpath: /html/body/form[1]/div[3]/div[8]/div[2]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[2]/div[6]/div[1]/table[1]/tbody[1]/tr[2]/td[1]
@@ -156,19 +153,26 @@ extractions:
             servingSizeUom:
               - text: g
                 xpath: /html/body/div[5]
-            imageZoomFeaturePresent:
-              - text: Yes
+            servingSize:
+              - text: 100 g
                 xpath: /html/body/div[6]
+            allergyAdvice:
+              - text: Contains Milk || Contains Wheat
+                xpath: /html/body/div[7]
+            dietaryInformation:
+              - text: Free From Artificial Colours || Free From Artificial Flavours || Free From
+                  Artificial Preservatives
+                xpath: /html/body/div[8]
+            variantCount:
+              - text: "0"
             technicalInformationPdfPresent:
               - text: No
             customerServiceAvailability:
               - text: No
             Image360Present:
               - text: No
-            warnings:
-              - text: Contains MilkContains Wheat
-            variantCount:
-              - text: "0"
+            imageZoomFeaturePresent:
+              - text: No
             ingredientsList:
               - text: Sugar,Cocoa Butter,Skimmed Milk Powder,Cocoa Mass,Wheat Flour,Lactose and
                   Proteins from Whey (from Milk),Butterfat (from Milk),Rice
@@ -177,14 +181,9 @@ extractions:
                   Hibiscus),Spirulina Concentrate,Orange Extract,Glazing Agents
                   (Carnauba Wax, Beeswax),Natural Vanilla Flavouring,Invert
                   Sugar Syrup
-            dietaryInformation:
-              - text: Free From Artificial ColoursFree From Artificial FlavoursFree From
-                  Artificial Preservatives
-            allergyAdvice:
-              - text: Contains MilkContains Wheat
-            recyclingInformation:
+            productOtherInformation:
               - text: ""
             packaging:
               - text: Type Box
         xpath: /html
-    timestamp: 1607002827039
+    timestamp: 1607080190182

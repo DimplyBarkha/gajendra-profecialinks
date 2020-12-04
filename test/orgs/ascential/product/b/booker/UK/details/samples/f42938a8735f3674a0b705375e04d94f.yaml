@@ -2,7 +2,7 @@ input:
   id: "135923"
   _url: http://booker.co.uk
 extractions:
-  - html: https://workbench.import.io/html/run=5a861312-7d82-4224-ae7a-c11e764d7472/task=7e63c2b1-483e-4ff1-981d-64b381c8fac8/0caad39e-4e77-4084-9635-50e93a2db64c.html
+  - html: https://workbench.import.io/html/run=326254b8-a7e6-4f0f-9665-b4f203812999/task=534369d3-81c5-4bba-9b05-632147669e00/6b4f7dc5-e1c2-4ae0-b9ca-0c68548eed57.html
     extractionConfigId: product/details/stores/b/booker/UK/extract
     data:
       - group:
@@ -40,9 +40,6 @@ extractions:
               - text: Chilli rating - hot - 3. Bain marie stable. FSA 2012 salt target
                   compliant. Suitable for vegetarians.
                 xpath: /html/body/form[1]/div[3]/div[8]/div[2]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[2]/div[3]/p[1]
-            servingSize:
-              - text: 100g
-                xpath: /html/body/form[1]/div[3]/div[8]/div[2]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[2]/div[7]/div[1]/table[1]/tbody[1]/tr[1]/th[2]
             caloriesPerServing:
               - text: 352kJ/84kcal
                 xpath: /html/body/form[1]/div[3]/div[8]/div[2]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[2]/div[7]/div[1]/table[1]/tbody[1]/tr[2]/td[1]
@@ -88,12 +85,6 @@ extractions:
             saltPerServingUom:
               - text: g
                 xpath: /html/body/form[1]/div[3]/div[8]/div[2]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[2]/div[7]/div[1]/table[1]/tbody[1]/tr[9]/td[1]
-            directions:
-              - text: "Shake well before use. Preparation Instructions: Heat 30ml vegetable oil
-                  in a frying pan until hot. Add 1.0-1.5 kg diced meat and stir
-                  fry until thoroughly cooked. Add the contents of the container
-                  to the pan and heat thoroughly."
-                xpath: /html/body/form[1]/div[3]/div[8]/div[2]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[2]/div[8]/p[1]
             manufacturer:
               - text: Chef's Larder
                 xpath: /html/body/form[1]/div[3]/div[8]/div[2]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[2]/div[10]/p[1]
@@ -133,19 +124,25 @@ extractions:
             servingSizeUom:
               - text: g
                 xpath: /html/body/div[5]
-            imageZoomFeaturePresent:
-              - text: Yes
+            servingSize:
+              - text: 100g
                 xpath: /html/body/div[6]
+            allergyAdvice:
+              - text: Contains Mustard || Contains Wheat
+                xpath: /html/body/div[7]
+            dietaryInformation:
+              - text: Free From Artificial Colours
+                xpath: /html/body/div[8]
+            variantCount:
+              - text: "0"
             technicalInformationPdfPresent:
               - text: No
             customerServiceAvailability:
               - text: No
             Image360Present:
               - text: No
-            warnings:
-              - text: Contains MustardContains Wheat
-            variantCount:
-              - text: "2"
+            imageZoomFeaturePresent:
+              - text: No
             ingredientsList:
               - text: Water,Diced Red and Green Peppers (13%),Tomato Paste
                   (8%),Onion,Sugar,Rapeseed Oil,Modified Maize Starch,Coriander
@@ -156,13 +153,9 @@ extractions:
                   Pepper,Fenugreek,Mustard Flour,Bay Leaf,Nutmeg,Wheat Flour
                   (contains Calcium Carbonate, Iron, Nicotinamide,
                   Thiamin),Dried Oregano,Cayenne Pepper
-            dietaryInformation:
-              - text: Free From Artificial Colours
-            allergyAdvice:
-              - text: Contains MustardContains Wheat
-            recyclingInformation:
+            productOtherInformation:
               - text: ""
             packaging:
               - text: Type Plastic Bottle
         xpath: /html
-    timestamp: 1607002826376
+    timestamp: 1607080188459

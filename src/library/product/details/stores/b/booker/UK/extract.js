@@ -52,13 +52,44 @@ module.exports = {
       addElementToDocument('privacyPolicy', privacyPolicy);
 
       // Get serving size Uom
-      const servingSizeUom = document.evaluate('//h1[contains(.,"Nutrition")]/following-sibling::div/table//tr[1]/th[2]', document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null);
-      const servingSizeUomData = servingSizeUom && servingSizeUom.singleNodeValue ? servingSizeUom.singleNodeValue.textContent.replace(/.*\d+\s?(\w+)\s?.*/g, '$1') : '';
+      const servingSize = document.evaluate('//h1[contains(.,"Nutrition")]/following-sibling::div/table//tr[1]/th[2]', document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null);
+      const servingSizeUomData = servingSize && servingSize.singleNodeValue ? servingSize.singleNodeValue.textContent.replace(/([^\d]+\d+(\.?,?\d+)?\s?(\w+)\s?.*)/g, '$3') : '';
       addElementToDocument('servingSizeUom', servingSizeUomData);
+      const servingSizeData = servingSize && servingSize.singleNodeValue ? servingSize.singleNodeValue.textContent.replace(/([^\d]+(\d+(\.?,?\d+)?\s?\w+)\s?.*)/g, '$2') : '';
+      addElementToDocument('servingSize', servingSizeData);
 
-      // Get zoomIn feature
-      const zoomIn = document.querySelector('img[alt="Click for larger image"]') ? 'Yes' : 'No';
-      addElementToDocument('zoomIn', zoomIn);
+      // Get allergy advice
+      const allergyAdviceSection = document.evaluate('//h1[contains(.,"Allergy Advice")]/following-sibling::ul', document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null);
+      const allergyAdviceNodes = allergyAdviceSection && allergyAdviceSection.singleNodeValue ? allergyAdviceSection.singleNodeValue.querySelectorAll('li') : null;
+      if (allergyAdviceNodes) {
+        const allergyAdviceArr = [];
+        for (let x = 0; x < allergyAdviceNodes.length; x++) {
+          allergyAdviceArr.push(allergyAdviceNodes[x].textContent);
+        }
+        addElementToDocument('allergyAdvice', allergyAdviceArr.join(' || '));
+      }
+
+      // Get recyclingInfo
+      const recyclingInfoSection = document.evaluate('//h1[contains(.,"Recycling")]/following-sibling::ul', document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null);
+      const recyclingInfoNodes = recyclingInfoSection && recyclingInfoSection.singleNodeValue ? recyclingInfoSection.singleNodeValue.querySelectorAll('li') : null;
+      if (recyclingInfoNodes) {
+        const recyclingInfoArr = [];
+        for (let x = 0; x < recyclingInfoNodes.length; x++) {
+          recyclingInfoArr.push(recyclingInfoNodes[x].textContent);
+        }
+        addElementToDocument('recyclingInfo', recyclingInfoArr.join(' || '));
+      }
+
+      // Get dietaryInfo
+      const dietaryInfoSection = document.evaluate('//h1[contains(.,"Dietary Information")]/following-sibling::ul', document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null);
+      const dietaryInfoNodes = dietaryInfoSection && dietaryInfoSection.singleNodeValue ? dietaryInfoSection.singleNodeValue.querySelectorAll('li') : null;
+      if (dietaryInfoNodes) {
+        const dietaryInfoArr = [];
+        for (let x = 0; x < dietaryInfoNodes.length; x++) {
+          dietaryInfoArr.push(dietaryInfoNodes[x].textContent);
+        }
+        addElementToDocument('dietaryInfo', dietaryInfoArr.join(' || '));
+      }
     });
     await context.extract(productDetails, { transform });
   },
