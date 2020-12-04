@@ -1,0 +1,16 @@
+input:
+  _url: http://dyson.com
+  URL: https://www.dyson.com/air-treatment/purifiers/dyson-pure-cool-link/dyson-pure-cool-tower-tp01-black-nickel
+extractions:
+  - html: https://workbench.import.io/html/run=e4b5d575-126b-47d9-b9a6-7cb6e6c830bd/task=ae2042bb-9a0a-4157-adbf-4d98397ada71/4fc15f36-db7e-4613-97e8-dafda036f700.html
+    extractionConfigId: product/details/stores/d/dyson/US/variantsExtract
+    data:
+      - group:
+          - variantId:
+              - text: https://www.dyson.com/air-treatment/purifiers/dyson-pure-cool-link/dyson-pure-cool-tower-tp01-black-nickel
+                xpath: /html/body/ol[1]/li[1]/@variant_url
+            variantUrl:
+              - text: https://www.dyson.com/air-treatment/purifiers/dyson-pure-cool-link/dyson-pure-cool-tower-tp01-black-nickel
+                xpath: /html/body/ol[1]/li[1]/@variant_url
+        xpath: /html
+    timestamp: 1607008071340

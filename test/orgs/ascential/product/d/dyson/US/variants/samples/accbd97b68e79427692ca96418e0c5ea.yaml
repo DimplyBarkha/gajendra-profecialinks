@@ -1,0 +1,16 @@
+input:
+  _url: http://dyson.com
+  URL: https://www.dyson.com/air-treatment/purifiers/dyson-pure-cool-link/dyson-dp01-pure-cool-link-desk-white-silver
+extractions:
+  - html: https://workbench.import.io/html/run=e4b5d575-126b-47d9-b9a6-7cb6e6c830bd/task=ab78d0bb-c62f-4769-bd7f-91b4b51c3d8b/e01848ba-f5ea-45b6-8ba1-9c51e3652647.html
+    extractionConfigId: product/details/stores/d/dyson/US/variantsExtract
+    data:
+      - group:
+          - variantId:
+              - text: https://www.dyson.com/air-treatment/purifiers/dyson-pure-cool-link/dyson-dp01-pure-cool-link-desk-white-silver
+                xpath: /html/body/ol[1]/li[1]/@variant_url
+            variantUrl:
+              - text: https://www.dyson.com/air-treatment/purifiers/dyson-pure-cool-link/dyson-dp01-pure-cool-link-desk-white-silver
+                xpath: /html/body/ol[1]/li[1]/@variant_url
+        xpath: /html
+    timestamp: 1607008072537
