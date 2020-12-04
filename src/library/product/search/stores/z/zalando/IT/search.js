@@ -1,11 +1,10 @@
 
 module.exports = {
-  implements: 'navigation/goto',
+  implements: 'product/search',
   parameterValues: {
-    domain: 'zalando.it',
-    timeout: 50000,
     country: 'IT',
     store: 'zalando',
+    domain: 'zalando.it',
     zipcode: '',
   },
 };
