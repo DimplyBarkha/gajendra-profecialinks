@@ -55,6 +55,7 @@ fields:
     regExpReplace: $1
   - name: descriptionBullets
     description: Number of ul > li tags in the description
+    xpath: count(//div[contains(@class,'ShowMoreLess')]//p[contains(text(),'•')]/br)+1
     defaultValue: 0
   - name: brandText
     description: Product brand shown - this may actually NOT be just a brand name,
@@ -139,6 +140,9 @@ fields:
   - name: videos
     singleValue: false
     description: URLs of videos on page
+    xpath: //div[@class="container-slide"]/div[contains(@class,'video')]/@data-video-id
+    regExp: (.+)
+    regExpReplace: https://www.youtube.com/watch?v=$1
   - name: name
     description: The product name
     xpath: normalize-space(//h1[contains(@class,'page-title')])
@@ -481,6 +485,7 @@ fields:
   - name: additionalDescBulletInfo
     singleValue: false
     description: null
+    xpath: //div[contains(@class,'ShowMoreLess')]//p[contains(text(),'•')]
   - name: prop65Warning
     singleValue: true
     description: null
