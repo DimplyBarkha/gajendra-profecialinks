@@ -3,6 +3,11 @@ regionsSelector: null
 recordSelector: null
 recordXPath: null
 fields:
+  - name: ratingCount
+    singleValue: true
+    xpath: (//script[@type="application/ld+json"])[1]
+    regExp: ("reviewCount":")(\d+)
+    regExpReplace: $2
   - name: shownImages
     singleValue: false
     xpath: //button[contains(@class, "product-images__imageContainer")]//img//@src
@@ -39,13 +44,12 @@ fields:
     singleValue: true
     xpath: //div[contains(@class,"price-box__reviewsQAndA")]
     regExp: (\d+)
-  - name: ratingCount
-    singleValue: true
-    xpath: //span[contains(@class,"pr-snippet-review-count")]
-    regExp: (\d+)
   - name: aggregateRating
     singleValue: true
-    xpath: //span[contains(@class,"pr-review-snapshot-snippets")]
+    xpath: (//script[@type="application/ld+json"])[1]
+    regExp: ("ratingValue":")(\d+\.\d+)
+    regExpReplace: $2
+    # xpath: //span[contains(@class,"pr-review-snapshot-snippets")]
   - name: category
     singleValue: false
     xpath: //div[@data-automation-id="breadcrumbs-container"]//div[contains(@class,'breadcrumbs__breadcrumb')]
@@ -61,19 +65,7 @@ fields:
     regExpReplace: $2
   - name: productUrl
     singleValue: true
-    xpath: //link[@rel="canonical"]/@href
-  # - name: variantInformation
-  #   singleValue: true
-  #   xpath: concat(//div[@class="shop-product-variations"]//div[contains(@class, "variation-header modal-wrapper")]//span, //div[@class="shop-product-variations"]//div[contains(@class, "variation-header modal-wrapper")]//div, //div[@class="shop-product-variations"]//span[contains(@class, "variation-dropdown-tile")]//p)
+    xpath: //body//@producturl
   - name: specifications
     singleValue: true
     xpath: //body//@specifications
-  # - name: upc
-  #   singleValue: true
-  #   xpath: //body//@upc
-  # - name: manufacturerImages
-  #   singleValue: true
-  #   xpath: //div[contains(@class,"manufacturer-content-wrapper")]
-  # - name: videos
-  #   singleValue: false
-  #   xpath: //body//@video

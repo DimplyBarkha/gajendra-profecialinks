@@ -17,6 +17,7 @@ module.exports = {
           document.body.setAttribute('specifications', specificationText[2]);
         }
       }
+      document.body.setAttribute("producturl", window.location.href);
 
       let results = [];
       let query = document.evaluate(`//div[@id="productInfoTarget"]//ul[@data-automation-id="bullets"]//li`, document, null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null)
