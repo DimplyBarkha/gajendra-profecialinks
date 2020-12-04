@@ -27,7 +27,7 @@ fields:
   - name: aggregateRatingText
     singleValue: false
     description: The stated aggregate rating
-    xpath: //div[contains(@itemprop, "ratingValue")]
+    xpath: //div[@class="prodRating"]
   - name: ratingCount
     singleValue: false
     description: The number of ratings
@@ -69,4 +69,4 @@ fields:
     singleValue: false
     description: The stated aggregate rating normalized to be out of 5
     type: NUMBER
-    xpath: //div[contains(@itemprop, "ratingValue")]
+    xpath: //div[@class="prodRating"]
