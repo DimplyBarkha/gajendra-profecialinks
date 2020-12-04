@@ -104,3 +104,14 @@ fields:
     regExp: (.+)
     regExpReplace: 'Yes'
     defaultValue: 'No'
+  - name: hasComparisonTable
+    singleValue: true
+    xpath: //table[contains(@class,"table")]//tbody//tr//td
+    regExp: (.*)
+    regExpReplace: Yes
+    defaultValue: False
+  - name: inTheBoxUrl
+    xpath: //div[@class="in-the-box"]//img/@src
+  - name: inTheBoxText
+    xpath: //div[@class="in-the-box"]//p
+  - name: unInterruptedPDP
