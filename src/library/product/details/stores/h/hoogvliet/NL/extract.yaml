@@ -98,6 +98,13 @@ fields:
   - name: caloriesPerServing
     singleValue: false
     xpath: //table//tr[td[contains(text(),'Kilojoule')]]/td[not(contains(@class,'first-text'))]
+    regExp: (.+?)\s+
+    regExpReplace: $1
+  - name: caloriesPerServingUom
+    singleValue: false
+    xpath: //table//tr[td[contains(text(),'Kilojoule')]]/td[not(contains(@class,'first-text'))]
+    regExp: \s+(.+)
+    regExpReplace: $1
   - name: totalFatPerServing
     singleValue: false    
     xpath: //table//tr[td[contains(text(),'Totale vetten')]]/td[not(contains(@class,'first-text'))]
@@ -113,27 +120,91 @@ fields:
   - name: saturatedFatPerServing
     singleValue: false
     xpath: //table//tr[td[contains(text(),'Vetzuren')][contains(text(),'verzadigd')]]/td[not(contains(@class,'first-text'))]
+    regExp: (.+?)\s+
+    regExpReplace: $1
+  - name: saturatedFatPerServingUom
+    singleValue: false
+    xpath: //table//tr[td[contains(text(),'Vetzuren')][contains(text(),'verzadigd')]]/td[not(contains(@class,'first-text'))]
+    regExp: \s+(.+)
+    regExpReplace: $1
   - name: sodiumPerServing
     singleValue: false
     xpath: //table//tr[td[contains(text(),'natrium')]]/td[not(contains(@class,'first-text'))]
+    regExp: (.+?)\s+
+    regExpReplace: $1
+  - name: sodiumPerServingUom
+    singleValue: false
+    xpath: //table//tr[td[contains(text(),'natrium')]]/td[not(contains(@class,'first-text'))]
+    regExp: \s+(.+)
+    regExpReplace: $1   
+    
   - name: dietaryFibrePerServing
     singleValue: false
     xpath: //table//tr[td[contains(text(),'Voedingsvezels')]]/td[not(contains(@class,'first-text'))] 
+    regExp: (.+?)\s+
+    regExpReplace: $1
+  - name: dietaryFibrePerServingUom
+    singleValue: false
+    xpath: //table//tr[td[contains(text(),'Voedingsvezels')]]/td[not(contains(@class,'first-text'))] 
+    regExp: \s+(.+)
+    regExpReplace: $1    
   - name: totalSugarsPerServing
     singleValue: false
     xpath: //table//tr[td[contains(text(),'Suikers')]]/td[not(contains(@class,'first-text'))]
+    regExp: (.+?)\s+
+    regExpReplace: $1
+  - name: totalSugarsPerServingUom
+    singleValue: false
+    xpath: //table//tr[td[contains(text(),'Suikers')]]/td[not(contains(@class,'first-text'))]  
+    regExp: \s+(.+)
+    regExpReplace: $1    
   - name: proteinPerServing
     singleValue: false
+    xpath: (//table//tr[td[contains(text(),'Eiwitten')]]/td[not(contains(@class,'first-text'))])[1]
+    regExp: (.+?)\s+
+    regExpReplace: $1    
+  - name: proteinPerServingUom
+    singleValue: false
     xpath: //table//tr[td[contains(text(),'Eiwitten')]]/td[not(contains(@class,'first-text'))]
+    regExp: \s+(.+)
+    regExpReplace: $1    
   - name: saltPerServing
     singleValue: false
+    xpath: (//table//tr[td[contains(text(),'Zout')]]/td[not(contains(@class,'first-text'))])[1]
+    regExp: (.+?)\s+
+    regExpReplace: $1    
+  - name: saltPerServingUom
+    singleValue: false
     xpath: //table//tr[td[contains(text(),'Zout')]]/td[not(contains(@class,'first-text'))]
+    regExp: \s+(.+)
+    regExpReplace: $1
   - name: vitaminCPerServing
     singleValue: false
     xpath: //table//tr[td[contains(text(),'vitamine C')]]/td[not(contains(@class,'first-text'))] | //table//tr[td[contains(text(),'Vitamine C')]]/td[not(contains(@class,'first-text'))] 
+    regExp: (.+?)\s+
+    regExpReplace: $1  
+  - name: vitaminCPerServingUom
+    singleValue: false
+    xpath: //table//tr[td[contains(text(),'vitamine C')]]/td[not(contains(@class,'first-text'))] | //table//tr[td[contains(text(),'Vitamine C')]]/td[not(contains(@class,'first-text'))] 
+    regExp: \s+(.+)
+    regExpReplace: $1    
   - name: vitaminAPerServing
     singleValue: false
     xpath: //table//tr[td[contains(text(),'vitamine A')]]/td[not(contains(@class,'first-text'))] | //table//tr[td[contains(text(),'Vitamine A')]]/td[not(contains(@class,'first-text'))] 
+    regExp: (.+?)\s+
+    regExpReplace: $1
+  - name: vitaminAPerServingUom
+    singleValue: false
+    xpath: //table//tr[td[contains(text(),'vitamine A')]]/td[not(contains(@class,'first-text'))] | //table//tr[td[contains(text(),'Vitamine A')]]/td[not(contains(@class,'first-text'))] 
+    regExp: \s+(.+)
+    regExpReplace: $1    
   - name: totalCarbPerServing
     singleValue: false
     xpath: //h3[contains(text(),'Voedingswaarde')]//following-sibling::table//td[normalize-space()='Koolhydraten']//following-sibling::td
+    regExp: (.+?)\s+
+    regExpReplace: $1
+  - name: totalCarbPerServingUom
+    singleValue: false
+    xpath: //h3[contains(text(),'Voedingswaarde')]//following-sibling::table//td[normalize-space()='Koolhydraten']//following-sibling::td
+    regExp: \s+(.+)
+    regExpReplace: $1  
