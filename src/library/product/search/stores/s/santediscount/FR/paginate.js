@@ -9,6 +9,6 @@ module.exports = {
     spinnerSelector: null,
     loadedSelector: 'div.product-flag-wrapper',
     openSearchDefinition: null,
-    domain: 'santediscount.com',
+    domain: 'santediscount.fr',
   },
 };
