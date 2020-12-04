@@ -5,18 +5,20 @@ recordXPath: null
 fields:
   - name: productUrl
     xpath: //div//a[@class='product-title']/@href
+    type: URL
     regExp: (.+)
     regExpReplace: https://www.vons.com$1
     description: The URL for the product details page
   - name: thumbnail
     description: The URL for the product thumbnail image 
+    type: FILE
     xpath: //img[@class='ab-lazy loaded']/@src
     regExp: (.+)
     regExpReplace: https:$1
   - name: name
     singleValue: true
+    type: TEXT
     xpath: //div//a[@class='product-title']//text()
-    description: The product name
   - name: id
     singleValue: true
     description: The store-specific product identifier
@@ -25,5 +27,4 @@ fields:
     singleValue: true
     type: CURRENCY
     description: The offered price for the product
-    xpath: //div//span[@class='product-price product-strike-price']
-    regExp: '\$\d+(?:\.\d+)?'
+    xpath: //div//span[@class='product-price product-strike-price']/span/following-sibling::text()
