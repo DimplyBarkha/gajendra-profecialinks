@@ -2,7 +2,7 @@ input:
   id: "237197"
   _url: http://booker.co.uk
 extractions:
-  - html: https://workbench.import.io/html/run=326254b8-a7e6-4f0f-9665-b4f203812999/task=b615c235-8a2e-44bb-9170-1a4a4f20b5b6/77eea456-e24c-4d8b-a856-7a3429fbd50e.html
+  - html: https://workbench.import.io/html/run=e43fd03e-bd0e-4a98-9dcc-993044182e00/task=455231b1-290b-40a6-984a-da5800d73f54/e5fa8d26-68e3-446d-8997-37765eba5acc.html
     extractionConfigId: product/details/stores/b/booker/UK/extract
     data:
       - group:
@@ -33,6 +33,9 @@ extractions:
             variantId:
               - text: "237197"
                 xpath: /html/body/form[1]/div[3]/div[8]/div[2]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/div[2]/ul[1]/li[1]/span[1]
+            servingSize:
+              - text: 100ml
+                xpath: /html/body/form[1]/div[3]/div[8]/div[2]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[2]/div[6]/div[1]/table[1]/tbody[1]/tr[1]/th[2]
             caloriesPerServing:
               - text: 285kJ
                 xpath: /html/body/form[1]/div[3]/div[8]/div[2]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[2]/div[6]/div[1]/table[1]/tbody[1]/tr[2]/td[1]
@@ -186,12 +189,9 @@ extractions:
             servingSizeUom:
               - text: ml
                 xpath: /html/body/div[5]
-            servingSize:
-              - text: 100ml
-                xpath: /html/body/div[6]
             allergyAdvice:
               - text: Contains Fish || Contains Milk || Contains Soya
-                xpath: /html/body/div[7]
+                xpath: /html/body/div[6]
             variantCount:
               - text: "0"
             technicalInformationPdfPresent:
@@ -226,4 +226,4 @@ extractions:
             packaging:
               - text: Type Tub
         xpath: /html
-    timestamp: 1607080180584
+    timestamp: 1607090391245

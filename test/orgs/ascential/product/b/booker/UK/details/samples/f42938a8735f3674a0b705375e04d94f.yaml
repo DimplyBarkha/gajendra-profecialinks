@@ -2,7 +2,7 @@ input:
   id: "135923"
   _url: http://booker.co.uk
 extractions:
-  - html: https://workbench.import.io/html/run=326254b8-a7e6-4f0f-9665-b4f203812999/task=534369d3-81c5-4bba-9b05-632147669e00/6b4f7dc5-e1c2-4ae0-b9ca-0c68548eed57.html
+  - html: https://workbench.import.io/html/run=e43fd03e-bd0e-4a98-9dcc-993044182e00/task=0e89caef-2867-45f2-9fe7-ad05f6f14c20/17d2f98a-f58a-4d68-857c-b5c2d7b584da.html
     extractionConfigId: product/details/stores/b/booker/UK/extract
     data:
       - group:
@@ -40,6 +40,9 @@ extractions:
               - text: Chilli rating - hot - 3. Bain marie stable. FSA 2012 salt target
                   compliant. Suitable for vegetarians.
                 xpath: /html/body/form[1]/div[3]/div[8]/div[2]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[2]/div[3]/p[1]
+            servingSize:
+              - text: 100g
+                xpath: /html/body/form[1]/div[3]/div[8]/div[2]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[2]/div[7]/div[1]/table[1]/tbody[1]/tr[1]/th[2]
             caloriesPerServing:
               - text: 352kJ/84kcal
                 xpath: /html/body/form[1]/div[3]/div[8]/div[2]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[2]/div[7]/div[1]/table[1]/tbody[1]/tr[2]/td[1]
@@ -124,15 +127,12 @@ extractions:
             servingSizeUom:
               - text: g
                 xpath: /html/body/div[5]
-            servingSize:
-              - text: 100g
-                xpath: /html/body/div[6]
             allergyAdvice:
               - text: Contains Mustard || Contains Wheat
-                xpath: /html/body/div[7]
+                xpath: /html/body/div[6]
             dietaryInformation:
               - text: Free From Artificial Colours
-                xpath: /html/body/div[8]
+                xpath: /html/body/div[7]
             variantCount:
               - text: "0"
             technicalInformationPdfPresent:
@@ -158,4 +158,4 @@ extractions:
             packaging:
               - text: Type Plastic Bottle
         xpath: /html
-    timestamp: 1607080188459
+    timestamp: 1607090392732

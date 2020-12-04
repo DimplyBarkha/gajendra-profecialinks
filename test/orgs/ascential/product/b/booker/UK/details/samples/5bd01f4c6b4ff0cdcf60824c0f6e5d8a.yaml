@@ -2,7 +2,7 @@ input:
   id: "488"
   _url: http://booker.co.uk
 extractions:
-  - html: https://workbench.import.io/html/run=326254b8-a7e6-4f0f-9665-b4f203812999/task=6fe89f38-2c36-41aa-b67b-1a6bcd3d6e6c/4e8441e9-5847-4211-a1eb-147e569560a2.html
+  - html: https://workbench.import.io/html/run=e43fd03e-bd0e-4a98-9dcc-993044182e00/task=bd0bda97-8413-40b2-b958-b0adefcdc791/dd95fe2b-601a-4241-b811-a2ba12e49b1f.html
     extractionConfigId: product/details/stores/b/booker/UK/extract
     data:
       - group:
@@ -72,6 +72,9 @@ extractions:
                   yummy smooth milk chocolate Smarties® covered in more yummy
                   milk chocolate! www.smarties.co.uk
                 xpath: /html/body/form[1]/div[3]/div[8]/div[2]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[2]/div[2]/p[1]
+            servingSize:
+              - text: 100 g
+                xpath: /html/body/form[1]/div[3]/div[8]/div[2]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[2]/div[6]/div[1]/table[1]/tbody[1]/tr[1]/th[2]
             caloriesPerServing:
               - text: 1941 kJ
                 xpath: /html/body/form[1]/div[3]/div[8]/div[2]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[2]/div[6]/div[1]/table[1]/tbody[1]/tr[2]/td[1]
@@ -153,16 +156,13 @@ extractions:
             servingSizeUom:
               - text: g
                 xpath: /html/body/div[5]
-            servingSize:
-              - text: 100 g
-                xpath: /html/body/div[6]
             allergyAdvice:
               - text: Contains Milk || Contains Wheat
-                xpath: /html/body/div[7]
+                xpath: /html/body/div[6]
             dietaryInformation:
               - text: Free From Artificial Colours || Free From Artificial Flavours || Free From
                   Artificial Preservatives
-                xpath: /html/body/div[8]
+                xpath: /html/body/div[7]
             variantCount:
               - text: "0"
             technicalInformationPdfPresent:
@@ -186,4 +186,4 @@ extractions:
             packaging:
               - text: Type Box
         xpath: /html
-    timestamp: 1607080190182
+    timestamp: 1607090399480

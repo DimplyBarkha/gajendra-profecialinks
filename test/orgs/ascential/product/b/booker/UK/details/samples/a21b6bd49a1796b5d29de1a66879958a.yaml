@@ -2,7 +2,7 @@ input:
   id: "257876"
   _url: http://booker.co.uk
 extractions:
-  - html: https://workbench.import.io/html/run=326254b8-a7e6-4f0f-9665-b4f203812999/task=82287416-9d31-432a-a6a7-9372369540f6/874992f8-5a78-46de-8761-d7c37df52ce9.html
+  - html: https://workbench.import.io/html/run=e43fd03e-bd0e-4a98-9dcc-993044182e00/task=2fd116af-a5cf-40b5-b343-b2d289eb193d/adf59c3a-6af3-42d0-836d-0dddbe820c95.html
     extractionConfigId: product/details/stores/b/booker/UK/extract
     data:
       - group:
@@ -45,6 +45,9 @@ extractions:
                   Microwave from Frozen. Defrost & Serve Hot or Cold. No
                   Artificial Colours or Preservatives. Suitable for vegetarians.
                 xpath: /html/body/form[1]/div[3]/div[8]/div[2]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[2]/div[3]/p[1]
+            servingSize:
+              - text: 100g
+                xpath: /html/body/form[1]/div[3]/div[8]/div[2]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[2]/div[7]/div[1]/table[1]/tbody[1]/tr[1]/th[2]
             caloriesPerServing:
               - text: 1693kJ
                 xpath: /html/body/form[1]/div[3]/div[8]/div[2]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[2]/div[7]/div[1]/table[1]/tbody[1]/tr[2]/td[1]
@@ -126,16 +129,13 @@ extractions:
             servingSizeUom:
               - text: g
                 xpath: /html/body/div[5]
-            servingSize:
-              - text: 100g
-                xpath: /html/body/div[6]
             allergyAdvice:
               - text: Contains Eggs || Contains Milk || May Contain Nuts || Contains Soya ||
                   Contains Wheat
-                xpath: /html/body/div[7]
+                xpath: /html/body/div[6]
             dietaryInformation:
               - text: Free From Artificial Colours || Free From Artificial Preservatives
-                xpath: /html/body/div[8]
+                xpath: /html/body/div[7]
             variantCount:
               - text: "0"
             technicalInformationPdfPresent:
@@ -162,4 +162,4 @@ extractions:
             packaging:
               - text: Type Box
         xpath: /html
-    timestamp: 1607080189248
+    timestamp: 1607090391554

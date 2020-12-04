@@ -53,10 +53,8 @@ module.exports = {
 
       // Get serving size Uom
       const servingSize = document.evaluate('//h1[contains(.,"Nutrition")]/following-sibling::div/table//tr[1]/th[2]', document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null);
-      const servingSizeUomData = servingSize && servingSize.singleNodeValue ? servingSize.singleNodeValue.textContent.replace(/([^\d]+\d+(\.?,?\d+)?\s?(\w+)\s?.*)/g, '$3') : '';
+      const servingSizeUomData = servingSize && servingSize.singleNodeValue ? servingSize.singleNodeValue.textContent.replace(/([^\d]+\d*(\.?,?\d+)?\s?([gmlk%]+).*)/g, '$3') : '';
       addElementToDocument('servingSizeUom', servingSizeUomData);
-      const servingSizeData = servingSize && servingSize.singleNodeValue ? servingSize.singleNodeValue.textContent.replace(/([^\d]+(\d+(\.?,?\d+)?\s?\w+)\s?.*)/g, '$2') : '';
-      addElementToDocument('servingSize', servingSizeData);
 
       // Get allergy advice
       const allergyAdviceSection = document.evaluate('//h1[contains(.,"Allergy Advice")]/following-sibling::ul', document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null);
