@@ -79,16 +79,18 @@ module.exports = {
         return result;
       };
 
-      const availabilityStatusUrl = getXpath("//div[contains(@class,'pview-element')]//form[@class='pview-grid']//div[@class='price-container']//link[@itemprop='availability']/@href", 'nodeValue');
-      var availabilityStatusValue = 'Out of Stock';
-      if (availabilityStatusUrl.indexOf('InStock')) {
-        availabilityStatusValue = 'In stock';
+      const availabilityStatusUrl = getXpath("//div[contains(@class,'pview-element')]//div[@class='price-container']//link[@itemprop='availability']/@href", 'nodeValue');
+      if (availabilityStatusUrl !== null) {
+        var availabilityStatusValue = 'Out of Stock';
+        if (availabilityStatusUrl.indexOf('InStock')) {
+          availabilityStatusValue = 'In stock';
+        }
+        addElementToDocument('addedAvailabilityText', availabilityStatusValue);
       }
-      addElementToDocument('addedAvailabilityText', availabilityStatusValue);
 
-      const additionalDescription = getAllXpath("//table[@class='keyfacts']//tbody//tr//td/text()[normalize-space(.)] | //div[@id='text']//div[@class='text-box']//text()[normalize-space(.) and normalize-space(translate(/,'&#10;', '')) and normalize-space(translate(/,'&#09;', ''))]", 'nodeValue');
+      const additionalDescription = getAllXpath("//table[@class='keyfacts']//tbody//tr//td/text()[normalize-space(.)]", 'nodeValue');
       if (additionalDescription != null) {
-        var additionalDescriptionContent = additionalDescription.join(' ');
+        var additionalDescriptionContent = additionalDescription.join('');
         addElementToDocument('addedAdditionalDescription', additionalDescriptionContent);
       }
 

@@ -40,13 +40,6 @@ module.exports = {
       await context.click('button[id="uc-btn-accept-banner"]');
     }
     await context.evaluate(async function () {
-      function addElementToDocument (key, value) {
-        const catElement = document.createElement('div');
-        catElement.id = key;
-        catElement.textContent = value;
-        catElement.style.display = 'none';
-        document.body.appendChild(catElement);
-      }
       const getAllXpath = (xpath, prop) => {
         const nodeSet = document.evaluate(xpath, document, null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
         const result = [];
@@ -62,7 +55,6 @@ module.exports = {
         }
       }
       const variantObject = getAllXpath('//*[@data-family-attribute]//a[@data-id]/@data-id', 'nodeValue');
-      // addElementToDocument('variantId', variantObject);
       const targetElement = document.querySelector('body');
       const newUl = document.createElement('ul');
       newUl.id = 'variantsadd';
