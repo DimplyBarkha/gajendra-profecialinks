@@ -3,12 +3,6 @@ regionsSelector: null
 recordSelector: null
 recordXPath: null
 fields:
-  - name: rank
-    singleValue: false
-    xpath: //div[@id="rankOrganic"]/text()
-  - name: rankOrganic
-    singleValue: false
-    xpath: //div[@id="rankOrganic"]/text()
   - name: id
     singleValue: false
     xpath: //div[@class="ooB-mb12 ooB-mt6 artikelnummer"]/span/span
@@ -28,4 +22,4 @@ fields:
     # regExp: (\d+)
   - name: price
     singleValue: false
-    xpath: //div/p/span[contains(@id,'__minprice')]
+    xpath: //div[contains(@class,'galleryOffer')]/div[1]/div/div[1]/p/span[1]
