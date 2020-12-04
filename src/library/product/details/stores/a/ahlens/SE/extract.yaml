@@ -50,8 +50,7 @@ fields:
     defaultValue: In Stock
   - name: description
     singleValue: false
-    xpath: (//div[@class='ah-layout__item u-1/2'][2]/ng-include/div[@class='ah-pdp-info']/div | //div[@class='ah-layout__item u-1/2'][2]/ng-include/div[@class='ah-pdp-info']/ul[@class="ul--plain"]/li)
-    regExp: ([^•]+)
+    xpath: concat(//div[@class='ah-layout__item u-1/2'][2]/ng-include[1]/div[@class='ah-pdp-info']/div/p , //div[@class='ah-layout__item u-1/2'][2]/ng-include/div[@class='ah-pdp-info']/ul[@class="ul--plain"])
   - name: descriptionBullets
     singleValue: false    
     xpath: count(//ul[@class="ul--plain"]/li)
@@ -66,9 +65,10 @@ fields:
     singleValue: true   
     xpath: //ul[@class="ul--plain"]/li[contains(text(),'Volym')]
     regExp: (\d+).*$
-  # - name: packSize
-  #   singleValue: true   
-  #   xpath: //ul[@class="ul--plain"]/li[contains(text(),'Volym')]
+  - name: packSize
+    singleValue: true 
+    type: NUMBER      
+    xpath: //ul[@class="ul--plain"]/li[contains(text(),'pack')]
   - name: brandText
     singleValue: true
     description: Product brand shown - this may actually NOT be just a brand name,
@@ -80,7 +80,7 @@ fields:
     xpath: (//a[@class="a--light ah-favorite ah-svg-icon-btn"]/@sku)[1]
   - name: ingredientsList
     singleValue: true
-    xpath: //ul[@class="ah-pdp-info-list ah-faq"]/li/h2[contains(text(),'Ingredienser')]/ancestor::li/div
+    xpath: //ul[@class="ah-pdp-info-list ah-faq"]/li/h2[contains(text(),'Ingredienser')]/ancestor::li/div//text()
   - name: variantId
     singleValue: true
     description: Identifier for a variant from a store where variants share the same sku
@@ -121,7 +121,7 @@ fields:
   - name: termsAndConditions
     singleValue: true
     description: Terms and conditions information text ['Yes','No']
-    defaultValue: Yes
+    defaultValue: No
   - name: privacyPolicy
     singleValue: true
     description: Privacy Policy information text ['Yes','No']
@@ -129,11 +129,11 @@ fields:
   - name: customerServiceAvailability
     singleValue: true
     description: Information related to customer service availability (text), ['Yes','No']
-    defaultValue: Yes
+    defaultValue: No
   - name: materials
     singleValue: true
     description: Materials used to make the product
-    example: https://www.jdsports.co.uk/product/blue-adidas-linear-20-reversible-wind-breaker-jacket/15988125/
+    xpath: //ul//h2[contains(text(),'Material')]//following-sibling::div//text()
   - name: Image360Present
     singleValue: true
     description: If 360 image is present in the carousel ['Yes','No']
@@ -144,4 +144,4 @@ fields:
     description: If Zoom feature is available for Main image or images in the
       carousel,['Yes','No']
     example: https://www.zalando.de/adidas-neo-sneaker-low-blackwhite-a4315i002-q11.html
-    defaultValue: Yes
+    defaultValue: No
