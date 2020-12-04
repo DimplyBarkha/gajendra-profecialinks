@@ -351,6 +351,20 @@ const transform = (data, context) => {
           row.productForm = [{ text: text[0] }];
         }
       }
+      if (row.availabilityTextFresh) {
+        row.availabilityText = row.availabilityTextFresh;
+        delete row.availabilityTextFresh;
+      } else if (row.availabilityText && row.domain === 'AmazonFresh') {
+        delete row.availabilityText;
+      }
+      if (row.availabilityTextFreshUnavailable) {
+        row.availabilityText = row.availabilityTextFreshUnavailable;
+        delete row.availabilityTextFreshUnavailable;
+      }
+      if (row.gtin) {
+        const text = row.gtin.slice(0, 10).map(elm => elm.text).join(' ');
+        row.gtin = [{ text }];
+      }
       Object.keys(row).forEach(header => {
         row[header].forEach(el => {
           el.text = clean(el.text);

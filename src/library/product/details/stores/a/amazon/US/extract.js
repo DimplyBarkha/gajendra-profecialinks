@@ -113,7 +113,7 @@ async function implementation (
   }
   await helpers.addURLtoDocument('added-url');
   const asin = await context.evaluate(() => {
-    return window.location.href.match(/\/dp\/(\w+)/)[1];
+    return window.location.href.match(/\/dp\/(product\/)?(\w+)/)[2];
   });
   await helpers.addItemToDocument('added-asin', asin);
   const variants = await amazonHelp.getVariants();
