@@ -26,6 +26,13 @@ const transform = (data) => {
           row.image[index].text = text;
         });
       }
+      if (row.manufacturerImages) {
+        let text = "";
+        row.manufacturerImages.forEach((item, index) => {
+          text = item.text.replace("?$prod_tnsm$", "");
+          row.manufacturerImages[index].text = text;
+        });
+      }
       if (row.alternateImages) {
         let text = "";
         row.alternateImages.forEach((item, index) => {
@@ -46,8 +53,26 @@ const transform = (data) => {
         ];
       }
 
-      if (row.variantUrl) {
-        
+      if (row.manufacturerImages) {        
+        const manufacturerImage = [];
+        let dupUrl = "";
+        let urls = [];
+        row.manufacturerImages.forEach(item => {
+          console.log('item:: ', item.text);
+         urls =  row.manufacturerImages.filter(it => item.text === it.text);
+        if(urls && urls.length === 1 ){
+          manufacturerImage.push(item);
+        }else{
+          if(dupUrl !== item.text){
+            dupUrl =  item.text;
+            manufacturerImage.push(item);
+          }
+        }
+        });
+        row.manufacturerImages = manufacturerImage;        
+      }
+
+      if (row.variantUrl) {        
         const variantUrls = [];
         let dupUrl = "";
         let urls = [];
@@ -63,12 +88,10 @@ const transform = (data) => {
           }
         }
         });
-        row.variantUrl = variantUrls;
-        
+        row.variantUrl = variantUrls;        
       }
 
-      if (row.variantId) {
-        
+      if (row.variantId) {        
         const variantIds = [];
         let dup = "";
         let urls = [];
@@ -84,8 +107,7 @@ const transform = (data) => {
           }
         }
         });
-        row.variantId = variantIds;
-        
+        row.variantId = variantIds;        
       }
 
 

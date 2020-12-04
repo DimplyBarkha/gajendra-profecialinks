@@ -44,7 +44,7 @@ fields:
     xpath: //section[contains(@class,"article-page")]
   - name: manufacturerImages 
     singleValue: false
-    xpath: //div[contains(@class,"article-text")]/img/@src
+    xpath: //a[@class="acc-product-image"]//img/@href | //img[@class="product-image"]/@src | //section[@class="section product-inspiration"]//img/@src
     regExp: (.+)
     regExpReplace: https://www.elgiganten.se$1
   - name: videos
@@ -62,8 +62,8 @@ fields:
     xpath: //td[contains(text(),"EAN-kod")]/following-sibling::td | //meta[@itemprop="gtin8"]/@content
   - name: sku
     singleValue: false
-    # xpath: //p/@data-product-sku | //meta[@itemprop="productID"]/@content
-    xpath: //p/@data-product-sku
+    xpath: //p/@data-product-sku | //meta[@itemprop="productID"]/@content
+    # xpath: //p/@data-product-sku
   - name: variantId
     singleValue: false
     #xpath: //p/@data-product-sku | //meta[@itemprop="productID"]/@content
@@ -170,4 +170,8 @@ fields:
   - name: customerServiceAvailability
     singleValue: true
     defaultValue: Yes
+  - name: quantity
+    singleValue: false
+    xpath:  //td[contains(text(),"Skärmstorlek (tum/cm) ")]/following-sibling::td
+  
 
