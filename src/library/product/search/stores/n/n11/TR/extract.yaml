@@ -22,7 +22,7 @@ fields:
     xpath: //div[@id='url']
   - name: thumbnail
     singleValue: true
-    xpath: //ul[@class='clearfix']/li/div/div/a/img/@src
+    xpath: //ul[@class='clearfix']/li/div/div/a/img/@data-original
   - name: aggregateRating
     singleValue: true
     xpath: //ul[@class='clearfix']/li/div/div/div[@class='ratingCont']/span[position()=1]/@class
@@ -38,4 +38,6 @@ fields:
     singleValue: true
     xpath: //div/@data-position
     type: NUMBER
-
+  - name: soldBy
+    singleValue: true
+    xpath: //span[@class='sallerName']
