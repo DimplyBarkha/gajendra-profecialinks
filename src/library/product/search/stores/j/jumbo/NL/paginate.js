@@ -9,9 +9,7 @@ module.exports = {
     spinnerSelector: null,
     loadedSelector: '.rw',
     noResultsXPath: '//div[@class="error-state-wrapper text-center cl ctr"]/div[@class="server-error"]',
-    openSearchDefinition: {
-      template: 'https://www.jumbo.com/producten/?offSet=100&searchTerms={searchTerms}&pageSize={page}',
-    },
+    openSearchDefinition: null,
     domain: 'jumbo.com',
     zipcode: '',
   },
