@@ -10,7 +10,7 @@ fields:
     singleValue: false
     xpath: //div[@class="bread-crumb"]//li[position()>1]/a/span
   - name: price
-    singleValue: true
+    singleValue: false
     xpath: //div[contains(@class,"productPrice")]//em[contains(@class,"price-best-price")]/strong
   - name: availabilityText
     singleValue: false
@@ -29,7 +29,7 @@ fields:
     xpath: //div[@class="product-name"]//input[@id="___rc-p-id"]/@value
   - name: variantCount
     singleValue: false
-    defaultValue: 0
+    defaultValue: '0'
   - name: name
     singleValue: false
     xpath: //div[contains(@class,"product-name")]/h1/div[contains(@class,"productName")]
