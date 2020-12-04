@@ -6,6 +6,8 @@ fields:
   - name: image
     singleValue: true
     xpath: (//li[@data-carousel="productCarousel"]/img/@src)[1]
+    regExp: (//johnlewis.*)
+    regExpReplace: https:$1
   - name: imageAlt
     singleValue: true
     xpath: (//li[@data-carousel="productCarousel"]/img/@alt)[2]
@@ -89,7 +91,7 @@ fields:
     xpath: //div[@class="stars-caption"]/text()
     regExp: (\d+)
     type: NUMBER
-  - name: aggregateRating2
+  - name: aggregateRating
     singleValue: true
     xpath: //html//div[@id="star"]
     type: NUMBER
