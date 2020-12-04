@@ -19,11 +19,11 @@ fields:
   - name: thumbnail
     singleValue: false
     xpath: //div[@class='pt-figure']/img/@src
-  - name: aggregateRating2
+  - name: aggregateRating
     singleValue: false
     xpath: //div[@class='r-count']
-    regExp: (.+)\(
-    regExpReplace: $1
+    regExp: (^\d+)\.(\d+) \(
+    regExpReplace: $1,$2
   - name: reviewCount
     singleValue: true
     xpath: //div[@class='r-count']
