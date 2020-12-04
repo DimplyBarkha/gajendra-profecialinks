@@ -20,16 +20,16 @@ fields:
     xpath: //div[contains(@class,'fotorama__stage__shaft')]//div[not(contains(@class,'fotorama__active'))]//img/@src
   - name: category
     singleValue: false
-    xpath: //div[@class="breadcrumb"]//ul//li//a[not(@title='Ir para home')]
+    xpath: //div[@data-testid='breadcrumb']//span[contains(@class,'vtex-breadcrumb-1-x-arrow')]
   - name: name
     singleValue: false
-    xpath: //div[@class='header_info']//h2
+    xpath: //h1[contains(@class,'vtex-store-components-3-x-productNameContainer')]
   - name: nameExtended
     singleValue: false
-    xpath: //div[@class='header_info']//h2
+    xpath: //h1[contains(@class,'vtex-store-components-3-x-productNameContainer')]
   - name: availabilityText
     singleValue: false
-    xpath: //div[contains(@class,'hide_mobile')]//div[@class="carrinho_vitrine"]//div[contains(@class,"btn-neemu-addtocart")]
+    xpath: //div[@class='vtex-flex-layout-0-x-flexRow vtex-flex-layout-0-x-flexRow--productMainDetails']//span[@class='zonasul-add-to-cart-button-1-x-buttonAddPlus']
     regExp: (.+)
     regExpReplace: In Stock
     defaultValue: Out of Stock
@@ -41,7 +41,7 @@ fields:
     xpath: //div[@class='vtex-product-price-zonasul__difference']//span[@class='vtex-difference__de']
   - name: description
     singleValue: false
-    xpath: //h2[text()='Detalhe']//parent::div[@class='div_line']//p
+    xpath: //div[@class='vtex-store-components-3-x-productDescriptionText c-muted-1']
   - name: brandText
     singleValue: false
     xpath: //div[@class='div_line']//strong[text()='Marca:']//parent::p[string-length(text()) > 0]/text()

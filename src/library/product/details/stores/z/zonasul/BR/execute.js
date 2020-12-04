@@ -5,7 +5,7 @@ module.exports = {
     country: 'BR',
     store: 'zonasul',
     domain: 'zonasul.com.br',
-    loadedSelector: 'div.header_info',
+    loadedSelector: 'div.vtex-product-context-provider',
     noResultsXPath: "//span[contains(text(),'PAGE NOT FOUND')]",
     zipcode: '',
   },
