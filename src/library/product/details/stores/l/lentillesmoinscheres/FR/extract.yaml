@@ -20,7 +20,7 @@ fields:
   - name: category
     singleValue: false
     description: The categories (e.g. from breadcrumbs)
-    xpath: //div[@class="breadcrumbs_container"]
+    xpath: (//span[(position()>=10 and position()<12)]/a/span)
   - name: nameExtended
     singleValue: true
     description: The product name, prefixing "${brand} - " if not included in "name"
@@ -39,9 +39,10 @@ fields:
     description: Availability as described on page for the selected variant. If
       there is no availability but the product can be added to cart, this field
       should be "In Stock"
-    regExp: (.+)
-    regExpReplace: In Stock
-    defaultValue: Out of Stock
+    # regExp: (.+)
+    # regExpReplace: In Stock
+    # defaultValue: Out of Stock
+    xpath: //span[@content="in_stock"]/text()
   - name: description
     singleValue: false
     description: Product description supplied by website - may be concatenanted from
@@ -85,6 +86,8 @@ fields:
     description: The number of packs in the product offer (if stated separately on
       the site to quantity)
     xpath: (//span[@class="priceBox qty1"])[1]
+    regExp: (.*?)(\d+)\,
+    regExpReplace: $1
   - name: legalDisclaimer
     singleValue: true
     description: Content under "legal disclaimer" header
