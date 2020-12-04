@@ -72,8 +72,7 @@ fields:
   - name: quantity
     singleValue: true
     description: Quantity as described on the page
-    regExp: (?:\s?([\d\.]+\s?)([bB]ar[s]?|[cC]ount|[cC]t|[fF][lL][\.]?\s?[oO][zZ][\.]?|FO|[mM][lL]|[oO][zZ][\.]?|pc|[pP]int|[pP]ops|qt|[wW]ipe[s]?).?)$|(?:\s?([\d\.]+\s?)([bB]ar[s]?|[cC]ount|[cC]|[fF][lL][\.]?\s?[oO][zZ][\.]?|FO|[mM][lL]|[oO][zZ][\.]?|pc|[pP]int|[pP]ops|qt|[wW]ipe[s]?).?\s?[\&\-\w\s]+)$
-    regExpReplace: $1$2$3$4
+    xpath: //span[@id="selected-option-normal-select-1"]
   - name: weightNet
     singleValue: true
     description: Net weight as described on the page
@@ -126,7 +125,7 @@ fields:
   - name: shippingInfo
     singleValue: true
     description: Shipping information for the product
-    xpath: //div[@class="product-bg-container shipping-information"]//li
+    xpath: //div[@class="seller-name-rating-section"]/a
   - name: shippingDimensions
     singleValue: true
     description: Stated shipping dimensions
@@ -466,6 +465,7 @@ fields:
   - name: variantInformation
     singleValue: true
     description: colour / scent / flavour / other
+    xpath: //span[@id="selected-option-normal-select-1"]
   - name: firstVariant
     singleValue: true
     description: Unique identifier for a collection of variants. For a subset of
