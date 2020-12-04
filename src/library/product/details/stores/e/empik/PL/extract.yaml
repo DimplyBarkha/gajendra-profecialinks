@@ -1,4 +1,4 @@
-singleRecord: false
+singleRecord: true
 regionsSelector: null
 recordSelector: null
 recordXPath: null
@@ -52,3 +52,6 @@ fields:
   - name: colorCode
     singleValue: false
     xpath: //table[@class='productBaseInfo__info ']//tr[contains(@class,'row--text row--text  attributeName ta-attribute-row')]//td//div[@class='concept__color__element']//@style 
+  - name: manufacturer
+    singlevalue: false
+    xpath: //table[@class='det_list']//td[contains(@class,'productDetailsValue')]//span//a  
