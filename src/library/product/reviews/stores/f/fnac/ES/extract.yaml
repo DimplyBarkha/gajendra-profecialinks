@@ -9,6 +9,7 @@ fields:
   - name: reviewDate
     singleValue: false
     xpath: .//*[contains(@class,"f-reviews-date")]
+    type: DATETIME
     regExp: Publicada el (.+)
     regExpReplace: $1
   - name: reviewRating
