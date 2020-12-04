@@ -130,7 +130,7 @@ const transform = (data) => {
       }
       if(row.Image360Present){
         if(row.Image360Present[0]['text']=='3d'){
-          row.Image360Present = [{ "text":'Yes', "xpath": row.warranty[0]["xpath"] }];
+          row.Image360Present = [{ "text":'Yes', "xpath": row.Image360Present[0]["xpath"] }];
         }
       }else{
         row.Image360Present = [{ "text":'No'}];

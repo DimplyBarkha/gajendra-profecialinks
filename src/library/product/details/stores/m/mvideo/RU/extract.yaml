@@ -4,72 +4,72 @@ recordSelector: null
 recordXPath: null
 fields:
   - name: price
-    singleValue: false
-    xpath: //div[contains(@class,"o-pay__content")]//div[contains(@class,"c-pdp-price__current")]
+    singleValue: true
+    xpath: //div[contains(@class,"o-pay__content")]//div[contains(@class,"price__current")]
   - name: name
-    singleValue: false
+    singleValue: true
     xpath: //h1[@class='e-h1 sel-product-title']
   - name: description
-    singleValue: flase
-    xpath: //div[@class='o-about-product']//div[@class="collapse-text-initial"]
+    singleValue: false
+    xpath: (//div[@class='o-about-product']//div[@class="collapse-text-initial"])
   - name: category
     singleValue: false
-    xpath: //div[@class='c-breadcrumbs']//ul/li[position()>1]/a
+    xpath: (//div[@class='c-breadcrumbs']//ul/li[position()>1]/a)
   - name: sku
-    singleValue: false
+    singleValue: true
     xpath: //meta[@property="og:url"]/@content
   - name: image
-    singleValue: false
+    singleValue: true
     xpath: //img[@class='c-media-container__image']/@src
   - name: imageAlt
-    singleValue: false
+    singleValue: true
     xpath: //img[@class='c-media-container__image']/@alt
   - name: ratingCount
-    singleValue: false
+    singleValue: true
     xpath: //div[@class="c-star-rating"]//span[@class="c-link c-link_pseudo c-link_gray20 sel-product-tile-review"]
   - name: alternateImages
     singleValue: false
-    xpath: //div[@class="o-product-gallary__carousel"]//div[@class="c-carousel__item-wrapper"]//img[@class="c-carousel__img"]/@src
+    xpath: (//div[@class="o-product-gallary__carousel"]//div[@class="c-carousel__item-wrapper"]//img[@class="c-carousel__img"]/@src)
   - name: brandText
-    singleValue: false
+    singleValue: true
     xpath: //div[@class="c-brand-logo"]//img/@alt
   - name: metaKeywords
-    singleValue: false
+    singleValue: true
     xpath: //meta[@name='keywords']/@content
   - name: variantId
     singleValue: false
-    xpath: //meta[@property="og:url"]/@content
+    xpath: (//meta[@property="og:url"]/@content)
   - name: shippingInfo
     singleValue: false
-    xpath: //div[contains(@class,"sel-pdp-delivery-courier")]/a/@data-target
+    xpath: (//div[contains(@class,"sel-pdp-delivery-courier")]/a/@data-target)
   - name: listPrice
-    singleValue: false
+    singleValue: true
     xpath: //div[@class="u-mr-8 c-pdp-price__old"]
   - name: specifications
     singleValue: false
-    xpath: //div[@class="c-specification o-pdp-about-product-specification__block"]/table
+    xpath: (//div[@class="c-specification o-pdp-about-product-specification__block"])[1]//table
   - name: variants
     singleValue: false
-    xpath: //div[contains(@class,'c-multisku__group-controls')]//a/@href
+    xpath: (//div[contains(@class,'c-multisku__group-controls')]//a/@href)
   - name: variantCount
     singleValue: false    
   - name: weightNet
-    singleValue: false
+    singleValue: true
     xpath: //span[@class="product-details-overview-specification" and contains(text(), "Вес")]//ancestor::tbody//td[2]
   - name: nameExtended
-    singleValue: false
-    xpath: //h1[@class='e-h1 sel-product-title']
+    singleValue: true
+    xpath: //div[contains(@class,'title')]//h1
   - name: variantInformation
     singleValue: false
-    xpath: //div[contains(@class,'c-multisku__group-controls')]//span
+    xpath: (//div[contains(@class,'c-multisku__group-controls')]//span)
   - name: warranty
-    singleValue: false
+    singleValue: true
     xpath: //span[@class="product-details-overview-specification" and contains(text(), "Гарантия")]//ancestor::tr//td[2]
   - name: aggregateRating
-    singleValue: false
+    singleValue: true
     xpath: //div[@class="o-pdp-topic__raiting"]//span/@style
   - name: color
-    singleValue: false
+    singleValue: true
     xpath: //span[@class="product-details-overview-specification" and text()="Цвет"]/parent::td/parent::tr/td[2]/span
   - name: firstVariant
     singleValue: false
@@ -78,12 +78,12 @@ fields:
     xpath: //div[@class="c-notifications u-mt-16"]//span[@class="c-notifications__title"]
     defaultValue: "In Stock"
   - name: countryOfOrigin
-    singleValue: false
+    singleValue: true
     xpath: //span[@class="product-details-overview-specification" and contains(text(), "Страна")]//ancestor::tr//td[2]
   - name: Image360Present
-    singleValue: false
+    singleValue: true
     xpath: //i[contains(@class,"icon-360")]/parent::div/parent::a/@data-type
     defultValue: 'No'
   - name: technicalInformationPdfPresent
-    singleValue: flase
+    singleValue: true
     xpath: //li[@class="download-file"]//a[@class="download-file-title"]/@href
