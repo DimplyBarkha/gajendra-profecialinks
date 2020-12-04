@@ -12,15 +12,15 @@ module.exports = {
     await context.evaluate(async () => {
       
       let scrollTop = 0;
-      while (scrollTop !== 20000) {
-        await stall(500);
-        scrollTop += 1000;
-        window.scroll(0, scrollTop);
-        if (scrollTop === 20000) {
-          await stall(2000);
-          break;
-        }
-      }
+      // while (scrollTop !== 20000) {
+      //   await stall(500);
+      //   scrollTop += 1000;
+      //   window.scroll(0, scrollTop);
+      //   if (scrollTop === 20000) {
+      //     await stall(2000);
+      //     break;
+      //   }
+      // }
       function stall (ms) {
         return new Promise((resolve, reject) => {
           setTimeout(() => {
@@ -28,13 +28,15 @@ module.exports = {
           }, ms);
         });
       }
-      const moreButton = document.evaluate('div.clerk-load-more-button', document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null);
+      const moreButton = document.evaluate('//div[@class="clerk-load-more-button"]', document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null);
+      console.log("moreButton:: ", moreButton);
       if (moreButton && moreButton.singleNodeValue != null) {
         let index = 0;
-        while (index < 2) {
-          await new Promise((resolve, reject) => setTimeout(resolve, 1000));
+        while (index < 8) {
+         // await new Promise((resolve, reject) => setTimeout(resolve, 1000));
           try {
             moreButton.singleNodeValue.click();
+            await new Promise((resolve, reject) => setTimeout(resolve, 2000));
           // }catch(e) {}
             // await new Promise((resolve, reject) => setTimeout(resolve, 500));
             let scrollTop = 0;
@@ -43,14 +45,14 @@ module.exports = {
               scrollTop += 1000;
               window.scroll(0, scrollTop);
               if (scrollTop === 20000) {
-                await stall(2000);
+                await stall(500);
                 break;
               }
             }
           } catch (e) {}
           await new Promise((resolve, reject) => setTimeout(resolve, 1000));
           // let scrollTop = 0;
-          // index ++;
+          //index ++;
           const scrollTop = 0;
           index++;
         }
