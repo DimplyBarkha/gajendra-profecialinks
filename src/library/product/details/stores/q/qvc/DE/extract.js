@@ -46,9 +46,12 @@ async function implementation (
     });
 
     let manufacturerDesc=[],manufacturerImages=[];
+    let inBoxUrls = [];
+    let inBoxText = '';
+    let hasComparisionTable = '';
 
     // if (await checkExistance(document.querySelector('iframe#loadbeeIframeId'))) {
-    if(iframeLink!==null){
+    if(iframeLink!==null) {
     await context.goto(iframeLink, { timeout: 50000, waitUntil: 'networkidle0', checkBlocked: true });
     await context.waitForXPath('//img');
 
@@ -81,14 +84,34 @@ async function implementation (
       }
       return manufacturerImages;
     },manufacturerImages);
+
+      inBoxText = await context.evaluate(async () => {
+        return document.querySelector('.in-the-box') ? document.querySelector('.in-the-box').innerText : '';
+      });
+
+      console.log('inBoxText!@!@!@');
+      console.log(inBoxText);
+
+      inBoxUrls = await context.evaluate(async () => {
+        const images = document.querySelectorAll('.in-the-box img');
+        const imagesSrc = [];
+        [...images].forEach((element) => {
+          imagesSrc.push(element.getAttribute('data-src'));
+        });
+        return imagesSrc;
+      });
+
+      hasComparisionTable = await context.evaluate(async () => {
+        return !!document.querySelector('.compare-headline');
+      });
     }
 
   
     await context.goto(productUrl, { timeout: 50000, waitUntil: 'load', checkBlocked: true });
 
-    await context.evaluate(async (index, variantLength,manufacturerDesc,manufacturerImages) => {
+    await context.evaluate(async (index, variantLength, manufacturerDesc, manufacturerImages, inBoxUrls, inBoxText, hasComparisionTable) => {
       console.log('index of variant', index);
-     
+
       function addHiddenDiv (id, content) {
         const newDiv = document.createElement('div');
         newDiv.id = id;
@@ -117,6 +140,14 @@ async function implementation (
         }
         addHiddenDiv('aplusImages',aplusImages);
       }
+  
+      if (inBoxUrls.length) {
+        inBoxUrls.forEach((element) => {
+          addHiddenDiv('ii_inBoxUrls', element);
+        });
+      }
+      addHiddenDiv('ii_inBoxText', inBoxText);
+      addHiddenDiv('ii_comparisionText', hasComparisionTable);
       // Video API call
       var element = (document.querySelectorAll("div[class='videoThumbnails'] > div[class*='video']")) ? document.querySelectorAll("div[class='videoThumbnails'] > div[class*='video']") : null;
       const link = [];
@@ -149,7 +180,7 @@ async function implementation (
         skuNumber = (skuNumber.offers && skuNumber.offers[index]) ? skuNumber.offers[index].sku : '';
         skuNumber && addHiddenDiv('ii_sku', skuNumber);
       }
-    }, index, variantLength,manufacturerDesc,manufacturerImages);
+    }, index, variantLength,manufacturerDesc,manufacturerImages, inBoxUrls, inBoxText, hasComparisionTable);
   }
   async function scrollToImg () {
     await context.evaluate(async () => {
