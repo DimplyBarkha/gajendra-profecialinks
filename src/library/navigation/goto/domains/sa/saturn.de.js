@@ -2,12 +2,13 @@ module.exports = {
   implements: 'navigation/goto',
   parameterValues: {
     domain: 'saturn.de',
-    timeout: null,
+    timeout: 50000,
     country: 'DE',
     store: 'saturn',
     zipcode: '',
   },
   implementation: async ({ url }, parameters, context, dependencies) => {
+    const timeout = parameters.timeout ? parameters.timeout : 10000;
     async function getHtml (url) {
       const response = await fetch(url);
       return await response.text();
@@ -46,8 +47,17 @@ module.exports = {
         await context.evaluate(addHtml, html);
       }
     }
-
-    await context.goto(url);
+    await context.setBlockAds(false);
+    await context.setLoadAllResources(true);
+    await context.setLoadImages(true);
+    await context.setAntiFingerprint(false);
+    await context.setUseRelayProxy(false);
+    url = url + '#[!opt!]{"block_ads":false,"first_request_timeout":60,"load_timeout":60,"load_all_resources":true}[/!opt!]';
+    await context.goto(url, {
+      timeout,
+      waitUntil: 'load',
+      checkBlocked: true,
+    });
     await addEnhancedContent();
   },
 };

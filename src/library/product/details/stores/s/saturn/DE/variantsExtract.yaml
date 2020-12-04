@@ -1,15 +1,7 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: //div[contains(@class,"ProductVariantsstyled__StyledColorVariantsThumbsTest")]/a | /html[not(//div[contains(@class,"ProductVariantsstyled__StyledColorVariantsThumbsTest")]/a)]
+recordXPath: null
 fields:
-  - name: variant
-    xpath: ./div/picture/img/@alt | .//div[@data-test="mms-select-details-header"]/h1
-  - name: variantUrl
-    xpath: ./@href | .//link[@rel="canonical"]/@href
-    regExp: (https://www.saturn.de)?(.+)
-    regExpReplace: https://www.saturn.de$2
   - name: variantId
-    xpath: ./@href | .//link[@rel="canonical"]/@href
-    regExp: ([^-]+).html$
-    regExpReplace: $1
+    xpath: //div[@class="variants-id"]

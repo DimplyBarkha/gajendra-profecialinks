@@ -32,13 +32,13 @@ fields:
     description: The offered price for the selected product variant - if a user
       clicks add to basket this is the price they would be charged
   - name: availabilityText
-    xpath: //button[@id='pdp-add-to-cart-button'] | //div[@data-test="mms-delivery-online-availability_AVAILABLE"]//div/span[contains(@class,'Availabilitystyled')] | //div[@data-test="mms-delivery-online-availability_PARTIAL_AVAILABLE"]//div/span[contains(@class,'Availabilitystyled')]
+    xpath: //div[contains(@class,"StyledProductNotAvailable-zzayfy-0")]
     description: Availability as described on page for the selected variant. If
       there is no availability but the product can be added to cart, this field
       should be "In Stock"
     regExp: (.+)
-    regExpReplace: In Stock
-    defaultValue: Out of Stock
+    regExpReplace: Out of Stock
+    defaultValue: In Stock
   - name: description
     singleValue: false
     xpath: //div[@data-test="mms-accordion-description"]
@@ -115,7 +115,7 @@ fields:
   - name: shippingWeight
     description: Stated shipping weight
   - name: variantCount
-    xpath: count(//div[contains(@class,"ProductVariantsstyled__StyledColorVariantsThumbsTest")]/a)
+    xpath: //body/@variants-count
     description: Number of variants listed
     type: NUMBER
   - name: color
@@ -134,8 +134,7 @@ fields:
     singleValue: false
     description: Images within the third party description
   - name: videos
-    singleValue: false
-    xpath: //div[@id="enhanced-content"]//*[@data-video]/@data-video
+    xpath: //body/@videos
     description: URLs of videos on page
   - name: name
     description: The product name
@@ -210,6 +209,7 @@ fields:
   - name: secondaryImageTotal
     description: null
     type: NUMBER
+    xpath: count(//div[contains(@class,"ZoomImage__StyledZoomImage")]//source/@srcset)
   - name: news
     description: null
   - name: addonItem
@@ -371,9 +371,7 @@ fields:
     xpath: //label[contains(@class,"ProductVariantsstyled")]
     description: colour / scent / flavour / other
   - name: firstVariant
-    xpath: //div[contains(@class,"ProductVariantsstyled__StyledColorVariantsThumbsTest")]/a/@href
-    regExp: ([^-]+).html$
-    regExpReplace: $1
+    xpath: //body/@first-variant
     description: Unique identifier for a collection of variants. For a subset of
       core feeds (43) we have a column "first_variant" that is populated with a
       common code to link all variants for a product. method 1 (Preferred) = use
@@ -384,9 +382,7 @@ fields:
       variants. method 3 = apply some logic to determine link between variants,
       this will need analysis
   - name: variants
-    xpath: //div[contains(@class,"ProductVariantsstyled__StyledColorVariantsThumbsTest")]/a/@href
-    regExp: ([^-]+).html$
-    regExpReplace: $1
+    xpath: //body/@variants
     singleValue: false
     description: null
   - name: additionalDescBulletInfo
@@ -428,4 +424,4 @@ fields:
     description: If Zoom feature is available for Main image or images in the
       carousel,['Yes','No']
     example: https://www.zalando.de/adidas-neo-sneaker-low-blackwhite-a4315i002-q11.html
-    defaultValue: No
+    defaultValue: Yes
