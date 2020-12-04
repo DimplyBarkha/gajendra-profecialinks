@@ -3,8 +3,7 @@ module.exports = {
   implements: 'product/search',
   parameterValues: {
     country: 'US',
-    store: 'walmartOG',
-    domain: 'grocery.walmart.com',
-    zipcode: '72758',
+    store: 'foodservicedirect',
+    domain: 'foodservicedirect.com',
   },
 };
