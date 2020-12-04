@@ -1,0 +1,56 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: image
+    singleValue: true
+    xpath: //img[@id="image-main"]/@src
+  - name: imageAlt
+    singleValue: true
+    xpath: //img[@id="image-main"]/@alt
+  - name: alternateImages
+    singleValue: false
+    xpath: //ul[@class='thumbs']//li//a//img/@src
+  - name: metaKeywords
+    singleValue: true
+    xpath: //meta[@name="keywords"]
+  - name: category
+    singleValue: false
+    xpath: //div[@class='bread-crumb']//ul//li[position()>1]//a
+  - name: nameExtended
+    singleValue: true
+    xpath: (//div[contains(@class,"productName")])[1]
+  - name: listPrice
+    singleValue: true
+    defaultValue: 0
+    xpath: //strong[@class,"skuListPrice"]
+  - name: price
+    singleValue: true
+    defaultValue: 0
+    xpath: //strong[@class="skuPrice"]
+  - name: availabilityText
+    singleValue: true
+    defaultValue: Out of Stock
+    regExp: display:none
+    regExpReplace: In stock
+    xpath: //p[@class='unavailable-button']/@style
+  - name: description
+    singleValue: false
+    xpath: //div[@class='productDescription']
+  - name: brandText
+    singleValue: true
+    xpath: //div[@class='brand']
+  - name: quantity
+    singleValue: true
+    xpath: //input[@class='qty-control__field']/@value
+  - name: sku 
+    singleValue: true
+    xpath: //span[@class='hidden-sku-default']
+  - name: mpc
+    singleValue: true
+    xpath: //div[@class='skuReference']
+  - name: aggregateRating
+    singleValue: true
+    defaultValue: 0
+    xpath: (//span[@id='spnRatingProdutoTop'])[1]
