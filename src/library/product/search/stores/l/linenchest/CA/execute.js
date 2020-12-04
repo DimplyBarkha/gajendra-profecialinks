@@ -5,9 +5,9 @@ module.exports = {
     country: 'CA',
     store: 'linenchest',
     domain: 'linenchest.com',
-    url: null,
-    loadedSelector: null,
-    noResultsXPath: null,
+    url: 'https://www.linenchest.com/en_ca/catalogsearch/result/?q={searchTerms}',
+    loadedSelector: 'ol.ais-Hits-list li.ais-Hits-item',
+    noResultsXPath: '//div[@id="instant-empty-results-container"]//div[@class="no-results"]//b',
     zipcode: '',
   },
 };
