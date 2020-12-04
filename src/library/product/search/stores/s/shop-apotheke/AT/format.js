@@ -25,11 +25,11 @@ const transform = (data) => {
     for (const { group } of data) {
       var rank = 1;
       for (let row of group) {    
-          if(row.productUrl){
-              row.productUrl.forEach(item=>{
-                  item.text="https://www.shop-apotheke.at"+item.text;
-              })
-          }
+            if(row.productUrl){
+                row.productUrl.forEach(item=>{
+                    item.text="https://www.shop-apotheke.at"+item.text;
+                })
+            }
             if(row.id){
                 row.id.forEach(item=>{
                     let dataArr=item.text.replace('/baby/','').split('/');
@@ -48,6 +48,11 @@ const transform = (data) => {
             if(row.ratingCount){
                 row.ratingCount.forEach(item=>{
                     item.text=item.text.replace('(','').replace(')','');
+                })
+            }
+            if(row.aggregateRating){
+                row.aggregateRating.forEach(item=>{
+                    item.text=item.text.replace(' von 5','');
                 })
             }           
         row.rank = [{ "text": rank }];
