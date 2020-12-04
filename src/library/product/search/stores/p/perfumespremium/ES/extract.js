@@ -6,6 +6,25 @@ async function implementation(inputs, parameters, context, dependencies) {
 
 
   await context.evaluate(async () => {
+    let scrollTop = 0;
+    while (scrollTop !== 5000) {
+      await stall(1000);
+      scrollTop += 500;
+      window.scroll(0, scrollTop);
+      if (scrollTop === 5000) {
+        await stall(1000);
+        break;
+      }
+    }
+    function stall(ms) {
+      return new Promise((resolve, reject) => {
+        setTimeout(() => {
+          resolve();
+        }, ms);
+      });
+    }
+
+
     function addElementToDocument(key, value) {
       const catElement = document.createElement('div');
       catElement.id = key;
@@ -22,23 +41,7 @@ async function implementation(inputs, parameters, context, dependencies) {
       product.setAttribute('rank', (index + 1).toString());
     });
 
-    let scrollTop = 0;
-    while (scrollTop !== 8000) {
-      await stall(1000);
-      scrollTop += 1000;
-      window.scroll(0, scrollTop);
-      if (scrollTop === 8000) {
-        await stall(1000);
-        break;
-      }
-    }
-    function stall(ms) {
-      return new Promise((resolve, reject) => {
-        setTimeout(() => {
-          resolve();
-        }, ms);
-      });
-    }
+
   });
 
   return await context.extract(productDetails, { transform });
@@ -49,7 +52,7 @@ module.exports = {
   parameterValues: {
     country: 'ES',
     store: 'perfumespremium',
-    transform: null,
+    transform: transform,
     domain: 'perfumespremium.es',
     zipcode: '',
   },
