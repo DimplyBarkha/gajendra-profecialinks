@@ -1,0 +1,134 @@
+input:
+  _url: http://dyson.com
+  URL: https://www.dyson.com/air-treatment/purifiers/dyson-pure-cool-link/dyson-pure-cool-link-tower-white-silver
+extractions:
+  - html: https://workbench.import.io/html/run=1df447a3-f8de-4411-8f3e-1189703d4742/task=d86acab1-6751-486c-b6dc-69e6c573db39/510ac315-7aec-4814-b13c-697546c5a740.html
+    extractionConfigId: product/details/stores/d/dyson/US/extract
+    data:
+      - group:
+          - productUrl:
+              - text: https://www.dyson.com/air-treatment/purifiers/dyson-pure-cool-link/dyson-pure-cool-link-tower-white-silver
+                xpath: /html/head[1]/link[12]/@href
+            image:
+              - text: https://dyson-h.assetsadobe2.com/is/image/content/dam/dyson/images/products/primary/305158-01.png?$responsive$&cropPathE=desktop&fit=stretch,1&wid=960
+                xpath: /html/body/main[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/img[1]/@src
+            imageAlt:
+              - text: Dyson Pure Cool Link™ tower purifier fan
+                xpath: /html/body/main[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/img[1]/@alt
+            alternateImages:
+              - text: https://dyson-h.assetsadobe2.com/is/image/content/dam/dyson/images/products/gallery/us/air-treatment/purifiers/pure-cool/tp02/252504-01/252504-01-gallery-img-1.jpg
+                xpath: /html/body/main[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[3]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[2]/div[1]/img[1]/@data-src
+              - text: https://dyson-h.assetsadobe2.com/is/image/content/dam/dyson/images/products/gallery/us/air-treatment/purifiers/pure-cool/tp02/252504-01/252504-01-gallery-img-2.jpg
+                xpath: /html/body/main[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[3]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[3]/div[1]/img[1]/@data-src
+              - text: https://dyson-h.assetsadobe2.com/is/image/content/dam/dyson/images/products/gallery/us/air-treatment/purifiers/update-pure-files/TP02.jpg
+                xpath: /html/body/main[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[3]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[4]/div[1]/img[1]/@data-src
+              - text: https://dyson-h.assetsadobe2.com/is/image/content/dam/dyson/images/products/gallery/us/air-treatment/purifiers/pure-cool/tp02/252504-01/252504-01-gallery-img-4.jpg
+                xpath: /html/body/main[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[3]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[5]/div[1]/img[1]/@data-src
+              - text: https://dyson-h.assetsadobe2.com/is/image/content/dam/dyson/images/products/gallery/us/air-treatment/purifiers/pure-cool/tp02/252504-01/252504-01-gallery-img-5.jpg
+                xpath: /html/body/main[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[3]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[6]/div[1]/img[1]/@data-src
+              - text: https://dyson-h.assetsadobe2.com/is/image/content/dam/dyson/images/products/gallery/us/air-treatment/purifiers/pure-cool/tp02/252504-01/252504-01-gallery-img-6.jpg
+                xpath: /html/body/main[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[3]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[7]/div[1]/img[1]/@data-src
+            category:
+              - text: Shop
+                xpath: /html/body/nav[1]/div[1]/div[1]/div[1]/div[1]/nav[1]/div[2]/div[1]/div[1]/nav[1]/ol[1]/li[2]/span[1]/a[1]/span[1]
+              - text: Air treatment
+                xpath: /html/body/nav[1]/div[1]/div[1]/div[1]/div[1]/nav[1]/div[2]/div[1]/div[1]/nav[1]/ol[1]/li[3]/span[1]/a[1]/span[1]
+              - text: Air Purifier
+                xpath: /html/body/nav[1]/div[1]/div[1]/div[1]/div[1]/nav[1]/div[2]/div[1]/div[1]/nav[1]/ol[1]/li[4]/span[1]/a[1]/span[1]
+              - text: Dyson Pure Cool™
+                xpath: /html/body/nav[1]/div[1]/div[1]/div[1]/div[1]/nav[1]/div[2]/div[1]/div[1]/nav[1]/ol[1]/li[5]/span[1]/a[1]/span[1]
+            nameExtended:
+              - text: Dyson Pure Cool Link™ tower TP02 purifier fan (White/Silver)
+                xpath: /html/body/div[13]
+            listPrice:
+              - text: Was $499.99
+                xpath: /html/body/main[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]
+            price:
+              - text: 399.99 $
+                xpath: /html/body/div[11]
+            availabilityText:
+              - text: In Stock
+                xpath: /html/body/main[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[2]/div[1]/div[1]/div[1]/form[1]/a[1]/text()[1]
+            description:
+              - text: |-
+                  Dyson Pure Cool Link™ tower TP02 purifier fan (White/Silver)
+                   
+                  Intelligently purifies and cools you
+                   
+                  Sealed filter with HEPA and activated carbon
+                   
+                  Circulates purified air throughout the whole room
+                xpath: /html/body/main[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]
+            brandText:
+              - text: Dyson
+                xpath: /html/body/div[7]
+            sku:
+              - text: 305166-01
+                xpath: /html/body/div[8]
+            variantId:
+              - text: 305166-01
+                xpath: /html/body/div[8]
+            mpc:
+              - text: 305166-01
+                xpath: /html/body/div[8]
+            ratingCount:
+              - text: "130"
+                xpath: /html/body/main[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/a[1]/p[1]
+            aggregateRatingText:
+              - text: "4.7"
+                xpath: /html/body/main[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/a[1]/@aria-label
+            aggregateRating:
+              - text: "4.7"
+                xpath: /html/body/main[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/a[1]/@aria-label
+            shippingInfo:
+              - text: |-
+                  Free shipping 
+                  Exclusions apply
+                xpath: /html/body/main[1]/div[2]/div[5]/div[1]/div[1]/section[1]/div[1]/div[1]/ul[1]/li[2]
+            color:
+              - text: White-Silver
+                xpath: /html/body/div[9]
+            manufacturerDescription:
+              - text: Air Multiplier™ purifier fan technology projects a powerful stream of
+                  smooth, uninterrupted, purified air. Cooling tower fan when
+                  you need it.
+                xpath: /html/body/div[15]
+            videos:
+              - text: www.dyson.com/content/dam/dyson/video/products/primary/305158-01.mp4
+                xpath: /html/body/div[17]/ul[1]/li[1]
+            name:
+              - text: Dyson Pure Cool Link™ tower TP02 purifier fan (White/Silver)
+                xpath: /html/body/main[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/h1[1]
+            specifications:
+              - text: |-
+                  Height
+                   
+                   40 in 
+                   
+                   
+                   
+                  Length
+                   
+                   4.4 in 
+                   
+                   
+                   
+                  Width
+                   
+                   7.5 in
+                xpath: /html/body/main[1]/div[2]/div[20]/section[1]/div[1]/div[1]/ul[1]
+            warranty:
+              - text: |-
+                  2-year warranty 
+                  Includes parts and labor
+                xpath: /html/body/main[1]/div[2]/div[5]/div[1]/div[1]/section[1]/div[1]/div[1]/ul[1]/li[3]
+            manufacturer:
+              - text: Dyson
+            descriptionBullets:
+              - text: "0"
+            weightNet:
+              - text: 8.4 lb
+            variantCount:
+              - text: "0"
+        xpath: /
+    timestamp: 1607006739381

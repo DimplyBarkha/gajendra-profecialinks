@@ -1,0 +1,110 @@
+input:
+  _url: http://dyson.com
+  URL: https://www.dyson.com/air-treatment/purifiers/dyson-pure-cool-link/dyson-dp01-pure-cool-link-desk-white-silver
+extractions:
+  - html: https://workbench.import.io/html/run=1df447a3-f8de-4411-8f3e-1189703d4742/task=4496779a-ab18-4239-a2c8-3504a5449cef/ac2dfddd-e3c4-43c4-bde1-4b9e11f98ba6.html
+    extractionConfigId: product/details/stores/d/dyson/US/extract
+    data:
+      - group:
+          - productUrl:
+              - text: https://www.dyson.com/air-treatment/purifiers/dyson-pure-cool-link/dyson-dp01-pure-cool-link-desk-white-silver
+                xpath: /html/head[1]/link[12]/@href
+            image:
+              - text: https://dyson-h.assetsadobe2.com/is/image/content/dam/dyson/products/air-treatment/pure-cool/variant/air-quality-purifier-cool-link-desk-white-silver-variant-hero.jpg?$responsive$&cropPathE=desktop&fit=stretch,1&wid=1920
+                xpath: /html/body/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/img[1]/@src
+            imageAlt:
+              - text: Dyson Pure Cool Link™ desk purifier
+                xpath: /html/body/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/img[1]/@alt
+            category:
+              - text: Shop
+                xpath: /html/body/nav[1]/div[1]/div[1]/div[1]/div[1]/nav[1]/div[2]/div[1]/div[1]/nav[1]/ol[1]/li[2]/span[1]/a[1]/span[1]
+              - text: Air treatment
+                xpath: /html/body/nav[1]/div[1]/div[1]/div[1]/div[1]/nav[1]/div[2]/div[1]/div[1]/nav[1]/ol[1]/li[3]/span[1]/a[1]/span[1]
+              - text: Air Purifier
+                xpath: /html/body/nav[1]/div[1]/div[1]/div[1]/div[1]/nav[1]/div[2]/div[1]/div[1]/nav[1]/ol[1]/li[4]/span[1]/a[1]/span[1]
+              - text: Dyson Pure Cool™
+                xpath: /html/body/nav[1]/div[1]/div[1]/div[1]/div[1]/nav[1]/div[2]/div[1]/div[1]/nav[1]/ol[1]/li[5]/span[1]/a[1]/span[1]
+            nameExtended:
+              - text: Dyson Pure Cool Link™ desk purifier fan in (White/Silver).
+                xpath: /html/body/div[12]
+            description:
+              - text: >-
+                  Dyson Pure Cool Link™ desk purifier fan in (White/Silver).
+                   
+                  Automatically removes 99.97% of pollutants and allergens as small as 0.3 microns.
+                xpath: /html/body/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]
+            brandText:
+              - text: Dyson
+                xpath: /html/body/div[7]
+            sku:
+              - text: 308033-01
+                xpath: /html/body/div[8]
+            variantId:
+              - text: 308033-01
+                xpath: /html/body/div[8]
+            mpc:
+              - text: 308033-01
+                xpath: /html/body/div[8]
+            ratingCount:
+              - text: "10"
+                xpath: /html/body/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/a[1]/p[1]
+            aggregateRatingText:
+              - text: "4.2"
+                xpath: /html/body/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/a[1]/@aria-label
+            aggregateRating:
+              - text: "4.2"
+                xpath: /html/body/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/a[1]/@aria-label
+            shippingInfo:
+              - text: |-
+                  Free shipping 
+                  Exclusions apply
+                xpath: /html/body/main[1]/div[2]/div[4]/div[1]/div[1]/section[1]/div[1]/div[1]/ul[1]/li[2]
+            color:
+              - text: White-Silver
+                xpath: /html/body/div[9]
+            manufacturerDescription:
+              - text: Air Multiplier™ technology projects a powerful stream of smooth,
+                  uninterrupted, purified air. Cooling desk fan when you need
+                  it.
+                xpath: /html/body/div[14]
+            videos:
+              - text: www.dyson.com/content/dam/dyson/video/products/primary-locale/en_US/310150-01.mp4
+                xpath: /html/body/div[16]/ul[1]/li[1]
+            name:
+              - text: Dyson Pure Cool Link™ desk purifier fan in (White/Silver).
+                xpath: /html/body/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/h1[1]
+            specifications:
+              - text: |-
+                  Height
+                   
+                   24.25 in 
+                   
+                   
+                   
+                  Length
+                   
+                   14 in 
+                   
+                   
+                   
+                  Width
+                   
+                   8.7 in
+                xpath: /html/body/main[1]/div[2]/div[14]/section[1]/div[1]/div[1]/ul[1]
+            warranty:
+              - text: |-
+                  2-year warranty 
+                  Includes parts and labor
+                xpath: /html/body/main[1]/div[2]/div[4]/div[1]/div[1]/section[1]/div[1]/div[1]/ul[1]/li[3]
+            availabilityText:
+              - text: Out Of Stock
+            manufacturer:
+              - text: Dyson
+            descriptionBullets:
+              - text: "0"
+            weightNet:
+              - text: 6.6 lb
+            variantCount:
+              - text: "0"
+        xpath: /
+    timestamp: 1607006746138
