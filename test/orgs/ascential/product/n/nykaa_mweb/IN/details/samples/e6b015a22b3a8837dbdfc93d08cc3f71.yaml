@@ -1,0 +1,116 @@
+input:
+  _url: http://nykaa.com
+  URL: https://www.nykaa.com/L/p/858159
+extractions:
+  - html: https://workbench.import.io/html/run=ade864ce-b233-4418-8d9e-6941f38c1739/task=5df2e9ac-4784-4393-b758-d976a6e14dd0/474e01f3-fee8-438b-a263-bc4a43655b80.html
+    extractionConfigId: product/details/stores/n/nykaa_mweb/IN/extract
+    data:
+      - group:
+          - productUrl:
+              - text: https://www.nykaa.com/L/p/858159
+                xpath: /html/body/div[6]
+            image:
+              - text: https://images-static.nykaa.com/media/catalog/product/tr:w-344,h-344,cm-pad_resize/6/9/6902395784395_i1.png
+                xpath: /html/body/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/img[1]/@src
+            imageAlt:
+              - text: Wristwatch by Ted Baker London
+                xpath: /html/body/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/img[1]/@alt
+            alternateImages:
+              - text: https://images-static.nykaa.com/media/catalog/product/tr:w-344,h-344,cm-pad_resize/6/9/6902395784395_i29.png,https://images-static.nykaa.com/media/catalog/product/tr:w-344,h-344,cm-pad_resize/6/9/6902395784395_i39.png,https://images-static.nykaa.com/media/catalog/product/tr:w-344,h-344,cm-pad_resize/6/9/6902395784395_i4.png,https://images-static.nykaa.com/media/catalog/product/tr:w-344,h-344,cm-pad_resize/6/9/6902395784395_i5.png,https://images-static.nykaa.com/media/catalog/product/tr:w-344,h-344,cm-pad_resize/6/9/6902395784395_i7.png,https://images-static.nykaa.com/media/catalog/product/tr:w-344,h-344,cm-pad_resize/6/9/6902395784395_i8.png,https://images-static.nykaa.com/media/catalog/product/tr:w-344,h-344,cm-pad_resize/l/o/lorealauth_16_34.jpg
+                xpath: /html/body/div[7]
+            metaKeywords:
+              - text: L'Oreal Paris Rouge Signature Matte Liquid Lipstick - 149 I Enchant,
+                  Makeup, Lips, Lipstick
+                xpath: /html/head[1]/meta[3]/@content
+            category:
+              - text: Home
+                xpath: /html/body/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/ol[1]/li[1]
+              - text: Makeup
+                xpath: /html/body/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/ol[1]/li[2]
+              - text: Lips
+                xpath: /html/body/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/ol[1]/li[3]
+              - text: Liquid Lipstick
+                xpath: /html/body/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/ol[1]/li[4]
+            nameExtended:
+              - text: L'Oreal Paris Rouge Signature Matte Liquid Lipstick - 149 I Enchant(7ml)
+                xpath: /html/body/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[1]/h1[1]
+            price:
+              - text: ₹699
+                xpath: /html/body/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/span[2]/span[1]
+            availabilityText:
+              - text: In Stock
+                xpath: /html/body/div[9]
+            description:
+              - text: Explore the entire range of Liquid Lipstick available on Nykaa. Shop more
+                  L'Oreal Paris products here.You can browse through the
+                  complete world of L'Oreal Paris Liquid Lipstick .
+                xpath: /html/body/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[5]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[1]/div[1]/div[1]/div[1]/div[1]/div[1]/p[1]
+              - text: "MRP: 699"
+                xpath: /html/body/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[5]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[1]/div[1]/div[1]/div[1]/div[1]/div[1]/p[2]
+              - text: "Expiry Date: 15 March 2023"
+                xpath: /html/body/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[5]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[1]/div[1]/div[1]/div[1]/div[1]/div[1]/p[3]
+              - text: "Country of Origin: China"
+                xpath: /html/body/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[5]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[1]/div[1]/div[1]/div[1]/div[1]/div[1]/p[4]
+              - text: "Name of Mfg / Importer / Brand: L'Oreal India"
+                xpath: /html/body/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[5]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[1]/div[1]/div[1]/div[1]/div[1]/div[1]/p[5]
+              - text: "Address of Mfg / Importer / Brand: CHN - YICHANG TIANMI INTERNATIONAL
+                  COSMETICS CO., LTD., 443000, NO. 18 XIHU ROAD, XILING ECONOMIC
+                  DEVELOPING ZONE, YICHANG, CHINA"
+                xpath: /html/body/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[5]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[1]/div[1]/div[1]/div[1]/div[1]/div[1]/p[6]
+            brandText:
+              - text: L'Oreal Paris
+                xpath: /html/body/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[5]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[1]/div[1]/div[1]/div[1]/div[1]/div[1]/p[1]/a[2]
+            quantity:
+              - text: 7ml
+                xpath: /html/body/div[10]
+            directions:
+              - text: Apply starting in the center of your upper lip. Work from the center to
+                  outer edges of your lips, following the contour of your mouth.
+                  Then glide across the bottom lip and fill in. To take off, use
+                  an oil-based makeup remover or waterproof Micellar Water for
+                  best results.
+                xpath: /html/body/div[14]
+            manufacturerImages:
+              - text: https://adn-static1.nykaa.com/media/wysiwyg//LP_RSMLL_banner.jpg
+                xpath: /html/body/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[5]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/img[1]/@src
+              - text: https://adn-static1.nykaa.com/media/wysiwyg/LP_RSMLL_2.jpg
+                xpath: /html/body/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[5]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/img[1]/@src
+              - text: https://adn-static1.nykaa.com/media/wysiwyg/LP_RSMLL_3.jpg
+                xpath: /html/body/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[5]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/img[1]/@src
+              - text: https://adn-static1.nykaa.com/media/wysiwyg/LP_RSMLL_4.jpg
+                xpath: /html/body/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[5]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[4]/img[1]/@src
+              - text: https://adn-static1.nykaa.com/media/wysiwyg/LP_RSMLL_5.jpg
+                xpath: /html/body/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[5]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[5]/img[1]/@src
+            videos:
+              - text: https://www.youtube.com/embed/6FgnoFwdBqc
+                xpath: /html/body/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[2]/div[1]/div[2]/div[2]/iframe[1]/@src
+            name:
+              - text: L'Oreal Paris Rouge Signature Matte Liquid Lipstick - 149 I Enchant(7ml)
+                xpath: /html/body/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[1]/h1[1]
+            brandLink:
+              - text: https://www.nykaa.com/brands/loreal-paris/c/595?ptype=brand&id=595
+                xpath: /html/body/div[13]
+            secondaryImageTotal:
+              - text: "7"
+                xpath: /html/body/div[8]
+                type: NUMBER
+                raw: "7"
+                locale: en
+                value: 7
+            imageZoomFeaturePresent:
+              - text: Yes
+                xpath: /html/body/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/@class
+            technicalInformationPdfPresent:
+              - text: No
+            termsAndConditions:
+              - text: No
+            privacyPolicy:
+              - text: No
+            customerServiceAvailability:
+              - text: No
+            Image360Present:
+              - text: No
+            variantCount:
+              - text: "0"
+        xpath: /
+    timestamp: 1607081796495

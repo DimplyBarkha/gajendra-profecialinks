@@ -1,0 +1,150 @@
+input:
+  _url: http://nykaa.com
+  URL: https://www.nykaa.com/P/p/152918
+extractions:
+  - html: https://workbench.import.io/html/run=ade864ce-b233-4418-8d9e-6941f38c1739/task=59761eeb-65dc-4314-8316-82fcd8b8935e/a81a464c-ad72-481f-91ab-3c7a1e411f9d.html
+    extractionConfigId: product/details/stores/n/nykaa_mweb/IN/extract
+    data:
+      - group:
+          - productUrl:
+              - text: https://www.nykaa.com/P/p/152918
+                xpath: /html/body/div[6]
+            image:
+              - text: https://images-static.nykaa.com/media/catalog/product/tr:w-344,h-344,cm-pad_resize/7/1/71249338568_1.jpg
+                xpath: /html/body/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/img[1]/@src
+            imageAlt:
+              - text: Wristwatch by Ted Baker London
+                xpath: /html/body/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/img[1]/@alt
+            alternateImages:
+              - text: https://images-static.nykaa.com/media/catalog/product/tr:w-344,h-344,cm-pad_resize/7/1/71249338568.2.jpg,https://images-static.nykaa.com/media/catalog/product/tr:w-344,h-344,cm-pad_resize/7/1/71249338568.3.jpg,https://images-static.nykaa.com/media/catalog/product/tr:w-344,h-344,cm-pad_resize/7/1/71249338568.4.jpg,https://images-static.nykaa.com/media/catalog/product/tr:w-344,h-344,cm-pad_resize/7/1/71249338568.5.jpg,https://images-static.nykaa.com/media/catalog/product/tr:w-344,h-344,cm-pad_resize/7/1/71249338568.0.jpg,https://images-static.nykaa.com/media/catalog/product/tr:w-344,h-344,cm-pad_resize/n/y/nylp_acert.jpg_4_203.jpg
+                xpath: /html/body/div[7]
+            metaKeywords:
+              - text: >-
+                  L'Oreal Paris Pure Clay Mask Exfoliate & Refine Pores, Face
+                  Mask, Skin Mask, Charcoal Mask, Charcoal Face Mask, Facial At
+                  Home, Best Charcoal Mask, Charcoal Mask Cream, Clay Mask,
+                  Hydrating Face Mask, Black Charcoal Mask, Best Face Mask,
+                  Charcoal Facial, Charcoal Face Mask Price, Black Face Mask,
+                  Face Mask For Women, Loreal Charcoal Face Mask, Loreal
+                  Charcoal Face Mask Review, Loreal Charcoal Mask Reviews,
+                  Loreal Clay Mask Reviews, Face Mask For Combination Skin,
+                  Charcoal For Skin, Clay Mask For Pores, Facial For Dry Skin At
+                  Home, Loreal Face Pack, Cooling Face Mask, Green Face Mask,
+                  Best Clay Mask For Oily Skin, Clay Mask For Dry Skin, Best
+                  Clay Mask In India, Anti Aging Face Mask, Clay Face Pack, Buy
+                  Charcoal Face Mask, Beauty Charcoal, Clay Mask For Oily Skin,
+                  Exfoliating Mask, Black Charcoal Face Mask
+
+                  \n
+
+                  \nLoreal Paris, Loreal Paris Skin Mask, Pure Clay Mask, Pure Clay Mask Loreal, Pure Clay Mask L'Oreal, Loreal Clay Mask, L'Oreal Clay Mask, L Oreal Paris Pure Clay Mask, Loreal Face Mask, Loreal Pure Clay Mask Review
+                xpath: /html/head[1]/meta[3]/@content
+            category:
+              - text: Home
+                xpath: /html/body/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/ol[1]/li[1]
+              - text: Skin
+                xpath: /html/body/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/ol[1]/li[2]
+              - text: Masks
+                xpath: /html/body/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/ol[1]/li[3]
+              - text: Masks & Peels
+                xpath: /html/body/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/ol[1]/li[4]
+            nameExtended:
+              - text: L'Oreal Paris Pure Clay Mask Exfoliate & Refine Pores(48gm)
+                xpath: /html/body/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[1]/h1[1]
+            listPrice:
+              - text: ₹750
+                xpath: /html/body/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/span[1]/span[2]
+            price:
+              - text: ₹375
+                xpath: /html/body/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/span[2]/span[1]
+            availabilityText:
+              - text: In Stock
+                xpath: /html/body/div[9]
+            description:
+              - text: Explore the entire range of Masks & Peels available on Nykaa. Shop more
+                  L'Oreal Paris products here.You can browse through the
+                  complete world of L'Oreal Paris Masks & Peels .
+                xpath: /html/body/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[5]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[1]/div[1]/div[1]/div[1]/div[1]/div[1]/p[2]
+              - text: "MRP: 750"
+                xpath: /html/body/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[5]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[1]/div[1]/div[1]/div[1]/div[1]/div[1]/p[3]
+              - text: "Expiry Date: 15 April 2022"
+                xpath: /html/body/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[5]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[1]/div[1]/div[1]/div[1]/div[1]/div[1]/p[4]
+              - text: "Country of Origin: United States of America (the)"
+                xpath: /html/body/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[5]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[1]/div[1]/div[1]/div[1]/div[1]/div[1]/p[5]
+            brandText:
+              - text: L'Oreal Paris
+                xpath: /html/body/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[5]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[1]/div[1]/div[1]/div[1]/div[1]/div[1]/p[2]/a[2]
+            quantity:
+              - text: 48gm
+                xpath: /html/body/div[10]
+            sku:
+              - text: "152918"
+                xpath: /html/body/div[11]
+            ratingCount:
+              - text: "842"
+                xpath: /html/body/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/meta[1]/@content
+                type: NUMBER
+                raw: "842"
+                locale: en
+                value: 842
+            aggregateRating:
+              - text: 4,2
+                xpath: /html/body/div[12]
+            manufacturerImages:
+              - text: https://www.nykaa.com/media/wysiwyg/71249338568img1.jpg
+                xpath: /html/body/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[5]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/img[1]/@src
+              - text: https://www.nykaa.com/media/wysiwyg/71249338568img2.jpg
+                xpath: /html/body/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[5]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/img[1]/@src
+              - text: https://www.nykaa.com/media/wysiwyg/71249338568img3.jpg
+                xpath: /html/body/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[5]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/img[1]/@src
+              - text: https://www.nykaa.com/media/wysiwyg/71249338568img4.jpg
+                xpath: /html/body/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[5]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[4]/div[1]/div[1]/img[1]/@src
+              - text: https://www.nykaa.com/media/wysiwyg/71249338568img5.jpg
+                xpath: /html/body/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[5]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[4]/div[1]/div[2]/img[1]/@src
+              - text: https://www.nykaa.com/media/wysiwyg/71249338568img6.jpg
+                xpath: /html/body/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[5]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[4]/div[1]/div[3]/img[1]/@src
+              - text: https://www.nykaa.com/media/wysiwyg/71249338568img7.png
+                xpath: /html/body/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[5]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[5]/div[1]/img[1]/@src
+              - text: https://www.nykaa.com/media/wysiwyg/71249338568img8.png
+                xpath: /html/body/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[5]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[5]/div[2]/div[1]/div[1]/img[1]/@src
+              - text: https://www.nykaa.com/media/wysiwyg/71249338568img9.png
+                xpath: /html/body/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[5]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[5]/div[2]/div[1]/div[2]/img[1]/@src
+              - text: https://www.nykaa.com/media/wysiwyg/71249338568img10.jpg
+                xpath: /html/body/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[5]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[6]/img[1]/@src
+              - text: https://www.nykaa.com/media/wysiwyg/71249338568img11.jpg
+                xpath: /html/body/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[5]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[7]/img[1]/@src
+              - text: https://www.nykaa.com/media/wysiwyg/71249338568img12.jpg
+                xpath: /html/body/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[5]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[8]/img[1]/@src
+            videos:
+              - text: https://www.youtube.com/embed/6FgnoFwdBqc
+                xpath: /html/body/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[2]/div[1]/div[2]/div[2]/iframe[1]/@src
+            name:
+              - text: L'Oreal Paris Pure Clay Mask Exfoliate & Refine Pores(48gm)
+                xpath: /html/body/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[1]/h1[1]
+            brandLink:
+              - text: https://www.nykaa.com/brands/loreal-paris/c/595?ptype=brand&id=595
+                xpath: /html/body/div[13]
+            secondaryImageTotal:
+              - text: "6"
+                xpath: /html/body/div[8]
+                type: NUMBER
+                raw: "6"
+                locale: en
+                value: 6
+            imageZoomFeaturePresent:
+              - text: Yes
+                xpath: /html/body/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/@class
+            technicalInformationPdfPresent:
+              - text: No
+            termsAndConditions:
+              - text: No
+            privacyPolicy:
+              - text: No
+            customerServiceAvailability:
+              - text: No
+            Image360Present:
+              - text: No
+            variantCount:
+              - text: "0"
+        xpath: /
+    timestamp: 1607081796786

@@ -1,0 +1,153 @@
+input:
+  _url: http://nykaa.com
+  URL: https://www.nykaa.com/G/p/365703
+extractions:
+  - html: https://workbench.import.io/html/run=ade864ce-b233-4418-8d9e-6941f38c1739/task=e4da2a47-21e9-472e-8bea-1da9723e1d35/eea8f838-2d91-48a5-8553-c91fd631befe.html
+    extractionConfigId: product/details/stores/n/nykaa_mweb/IN/extract
+    data:
+      - group:
+          - productUrl:
+              - text: https://www.nykaa.com/G/p/365703
+                xpath: /html/body/div[6]
+            image:
+              - text: https://images-static.nykaa.com/media/catalog/product/tr:w-344,h-344,cm-pad_resize/8/9/8901526547036_1.jpg
+                xpath: /html/body/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/img[1]/@src
+            imageAlt:
+              - text: Wristwatch by Ted Baker London
+                xpath: /html/body/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/img[1]/@alt
+            alternateImages:
+              - text: https://images-static.nykaa.com/media/catalog/product/tr:w-344,h-344,cm-pad_resize/8/9/8901526547036_2.jpg,https://images-static.nykaa.com/media/catalog/product/tr:w-344,h-344,cm-pad_resize/8/9/8901526547036_3.jpg,https://images-static.nykaa.com/media/catalog/product/tr:w-344,h-344,cm-pad_resize/8/9/8901526547036_4.jpg,https://images-static.nykaa.com/media/catalog/product/tr:w-344,h-344,cm-pad_resize/8/9/8901526547036_5.jpg,https://images-static.nykaa.com/media/catalog/product/tr:w-344,h-344,cm-pad_resize/8/9/8901526547036_6.jpg,https://images-static.nykaa.com/media/catalog/product/tr:w-344,h-344,cm-pad_resize/8/9/8901526547036_0.jpg,https://images-static.nykaa.com/media/catalog/product/tr:w-344,h-344,cm-pad_resize/n/y/nygarnier_acert.jpg_1_85.jpg
+                xpath: /html/body/div[7]
+            metaKeywords:
+              - text: Garnier Light Complete Moisturising Serum-In-Lotion, Skin, Body, Lotion &
+                  Cream
+                xpath: /html/head[1]/meta[3]/@content
+            category:
+              - text: Home
+                xpath: /html/body/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/ol[1]/li[1]
+              - text: Personal Care
+                xpath: /html/body/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/ol[1]/li[2]
+              - text: Body
+                xpath: /html/body/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/ol[1]/li[3]
+              - text: Lotions & Creams
+                xpath: /html/body/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/ol[1]/li[4]
+            nameExtended:
+              - text: Garnier Light Complete Moisturising Serum-In-Lotion(125ml)
+                xpath: /html/body/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[1]/h1[1]
+            listPrice:
+              - text: ₹149
+                xpath: /html/body/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/span[1]/span[2]
+            price:
+              - text: ₹97
+                xpath: /html/body/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/span[2]/span[1]
+            availabilityText:
+              - text: In Stock
+                xpath: /html/body/div[9]
+            description:
+              - text: |-
+                  how will it benefit my skin
+                  What makes it'special
+                  how to use
+                  Pour the lotion into the
+                  palm of your hand
+                  Gently massage it 
+                  onto your skin
+                  Spread evenly all over
+                   your face and body
+                   
+                  For brighter skin,
+                  use daily
+                  The Light Complete Range
+                  Day & Night Face Wash
+                  Day Cream
+                  Night Cream
+                  Lotion
+                xpath: /html/body/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[5]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]
+              - text: Explore the entire range of Face Moisturizer & Day Cream available on
+                  Nykaa. Shop more Garnier products here.You can browse through
+                  the complete world of Garnier Face Moisturizer & Day Cream .
+                xpath: /html/body/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[5]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[1]/div[1]/div[1]/div[1]/div[1]/div[1]/p[1]
+              - text: "MRP: 149"
+                xpath: /html/body/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[5]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[1]/div[1]/div[1]/div[1]/div[1]/div[1]/p[2]
+              - text: "Expiry Date: 15 October 2021"
+                xpath: /html/body/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[5]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[1]/div[1]/div[1]/div[1]/div[1]/div[1]/p[3]
+              - text: "Country of Origin: India"
+                xpath: /html/body/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[5]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[1]/div[1]/div[1]/div[1]/div[1]/div[1]/p[4]
+            brandText:
+              - text: Garnier
+                xpath: /html/body/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[5]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[1]/div[1]/div[1]/div[1]/div[1]/div[1]/p[1]/a[2]
+            quantity:
+              - text: 125ml
+                xpath: /html/body/div[10]
+            sku:
+              - text: "365703"
+                xpath: /html/body/div[11]
+            directions:
+              - text: Smooth generously over entire body daily.
+                xpath: /html/body/div[14]
+            ratingCount:
+              - text: "892"
+                xpath: /html/body/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/meta[1]/@content
+                type: NUMBER
+                raw: "892"
+                locale: en
+                value: 892
+            aggregateRating:
+              - text: 4,2
+                xpath: /html/body/div[12]
+            manufacturerImages:
+              - text: https://www.nykaa.com/media/wysiwyg/8901526547081banner.jpg
+                xpath: /html/body/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[5]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/img[1]/@src
+              - text: https://www.nykaa.com/media/wysiwyg/8901526547081img1.jpg
+                xpath: /html/body/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[5]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/img[1]/@src
+              - text: https://www.nykaa.com/media/wysiwyg/8901526547081img2.jpg
+                xpath: /html/body/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[5]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[4]/img[1]/@src
+              - text: https://www.nykaa.com/media/wysiwyg/8901526547081img3.jpg
+                xpath: /html/body/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[5]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[6]/div[1]/div[1]/div[1]/img[1]/@src
+              - text: https://www.nykaa.com/media/wysiwyg/8901526547081img4.jpg
+                xpath: /html/body/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[5]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[6]/div[2]/div[1]/div[1]/img[1]/@src
+              - text: https://www.nykaa.com/media/wysiwyg/8901526547081img5.jpg
+                xpath: /html/body/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[5]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[7]/div[1]/div[1]/div[1]/img[1]/@src
+              - text: https://www.nykaa.com/media/wysiwyg/8901526547081img6.jpg
+                xpath: /html/body/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[5]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[7]/div[2]/div[1]/div[1]/img[1]/@src
+              - text: https://www.nykaa.com/media/wysiwyg/8901526547081img7.jpg
+                xpath: /html/body/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[5]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[9]/div[1]/img[1]/@src
+              - text: https://www.nykaa.com/media/wysiwyg/8901526547081img8.jpg
+                xpath: /html/body/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[5]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[9]/div[2]/img[1]/@src
+              - text: https://www.nykaa.com/media/wysiwyg/8901526547081img9.jpg
+                xpath: /html/body/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[5]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[9]/div[3]/img[1]/@src
+              - text: https://www.nykaa.com/media/wysiwyg/8901526547081img10.jpg
+                xpath: /html/body/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[5]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[9]/div[4]/img[1]/@src
+            videos:
+              - text: https://www.youtube.com/embed/6FgnoFwdBqc
+                xpath: /html/body/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[2]/div[1]/div[2]/div[2]/iframe[1]/@src
+            name:
+              - text: Garnier Light Complete Moisturising Serum-In-Lotion(125ml)
+                xpath: /html/body/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[1]/h1[1]
+            brandLink:
+              - text: https://www.nykaa.com/brands/garnier/c/593?ptype=brand&id=593
+                xpath: /html/body/div[13]
+            secondaryImageTotal:
+              - text: "7"
+                xpath: /html/body/div[8]
+                type: NUMBER
+                raw: "7"
+                locale: en
+                value: 7
+            imageZoomFeaturePresent:
+              - text: Yes
+                xpath: /html/body/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/@class
+            technicalInformationPdfPresent:
+              - text: No
+            termsAndConditions:
+              - text: No
+            privacyPolicy:
+              - text: No
+            customerServiceAvailability:
+              - text: No
+            Image360Present:
+              - text: No
+            variantCount:
+              - text: "0"
+        xpath: /
+    timestamp: 1607081798459

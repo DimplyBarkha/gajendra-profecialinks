@@ -1,0 +1,126 @@
+input:
+  _url: http://nykaa.com
+  URL: https://www.nykaa.com/M/p/304239
+extractions:
+  - html: https://workbench.import.io/html/run=ade864ce-b233-4418-8d9e-6941f38c1739/task=c06fffcd-e70a-4ece-ae21-5d8886e00284/d53030d7-02ff-4d1a-936f-4446bff9d5a7.html
+    extractionConfigId: product/details/stores/n/nykaa_mweb/IN/extract
+    data:
+      - group:
+          - productUrl:
+              - text: https://www.nykaa.com/M/p/304239
+                xpath: /html/body/div[6]
+            image:
+              - text: https://images-static.nykaa.com/media/catalog/product/tr:w-344,h-344,cm-pad_resize/6/9/6928820071793_men_expert_dessert_clay_facewash_100ml_i0.png
+                xpath: /html/body/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/img[1]/@src
+            imageAlt:
+              - text: Wristwatch by Ted Baker London
+                xpath: /html/body/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/img[1]/@alt
+            alternateImages:
+              - text: https://images-static.nykaa.com/media/catalog/product/tr:w-344,h-344,cm-pad_resize/l/o/loreal-1_36_48.jpg
+                xpath: /html/body/div[7]
+            metaKeywords:
+              - text: L'Oreal Men Expert Pure & Matte Desert Clay Yellow Foam, Mens, Skin Care,
+                  Face Wash
+                xpath: /html/head[1]/meta[3]/@content
+            category:
+              - text: Home
+                xpath: /html/body/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/ol[1]/li[1]
+              - text: Men's Store
+                xpath: /html/body/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/ol[1]/li[2]
+              - text: Skin Care
+                xpath: /html/body/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/ol[1]/li[3]
+              - text: Facewash
+                xpath: /html/body/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/ol[1]/li[4]
+            nameExtended:
+              - text: L'Oreal Men Expert Pure & Matte Desert Clay Yellow Foam(100ml)
+                xpath: /html/body/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[1]/h1[1]
+            listPrice:
+              - text: ₹499
+                xpath: /html/body/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/span[1]/span[2]
+            price:
+              - text: ₹374
+                xpath: /html/body/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/span[2]/span[1]
+            description:
+              - text: L'Oreal Paris Men Expert Desert Clay Facewash powered by Super Clay
+                  Absorbing Desert Clay, to clean up pollution particles even as
+                  small as PM2.5 and keeps skin fresh and matte for full
+                  day.This purifying facial foam thoroughly remove skin
+                  impurities, dirt and grime and ensures pure, clean, matte &
+                  fresh skin all day.
+                xpath: /html/body/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[5]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[1]/div[1]/div[1]/div[1]/div[1]/div[1]/p[1]
+              - text: "Features :"
+                xpath: /html/body/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[5]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[1]/div[1]/div[1]/div[1]/div[1]/div[1]/p[2]
+              - text: Additional Information :A global beauty care brand, L'Oreal Paris believes
+                  in the essence of helping every woman embrace her unique
+                  beauty while reinforcing her innate sense of self-worth with
+                  their internationally renowned, diversive products. The brand
+                  has wide range of affordable luxury, high-quality products in
+                  categories like skin care, hair care, hair color and makeup.
+                xpath: /html/body/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[5]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[1]/div[1]/div[1]/div[1]/div[1]/div[1]/p[3]
+              - text: Explore the entire range of Face Wash available on Nykaa. Shop more
+                  L'Oreal Paris products here.You can browse through the
+                  complete world of L'Oreal Paris Face Wash .
+                xpath: /html/body/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[5]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[1]/div[1]/div[1]/div[1]/div[1]/div[1]/p[4]
+              - text: "MRP: 499"
+                xpath: /html/body/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[5]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[1]/div[1]/div[1]/div[1]/div[1]/div[1]/p[5]
+              - text: "Expiry Date: 15 February 2023"
+                xpath: /html/body/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[5]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[1]/div[1]/div[1]/div[1]/div[1]/div[1]/p[6]
+              - text: "Country of Origin: China"
+                xpath: /html/body/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[5]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[1]/div[1]/div[1]/div[1]/div[1]/div[1]/p[7]
+              - text: "Name of Mfg / Importer / Brand: Cosmair Inc"
+                xpath: /html/body/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[5]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[1]/div[1]/div[1]/div[1]/div[1]/div[1]/p[8]
+              - text: "Address of Mfg / Importer / Brand: 101 Park Ave, New York, NY 10178,
+                  United States"
+                xpath: /html/body/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[5]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[1]/div[1]/div[1]/div[1]/div[1]/div[1]/p[9]
+            brandText:
+              - text: L'Oreal Paris
+                xpath: /html/body/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[5]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[1]/div[1]/div[1]/div[1]/div[1]/div[1]/p[4]/a[2]
+            quantity:
+              - text: 100ml
+                xpath: /html/body/div[10]
+            sku:
+              - text: "304239"
+                xpath: /html/body/div[11]
+            ratingCount:
+              - text: "50"
+                xpath: /html/body/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/meta[1]/@content
+                type: NUMBER
+                raw: "50"
+                locale: en
+                value: 50
+            aggregateRating:
+              - text: "4"
+                xpath: /html/body/div[12]
+            videos:
+              - text: https://www.youtube.com/embed/6FgnoFwdBqc
+                xpath: /html/body/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[2]/div[1]/div[2]/div[2]/iframe[1]/@src
+            name:
+              - text: L'Oreal Men Expert Pure & Matte Desert Clay Yellow Foam(100ml)
+                xpath: /html/body/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[1]/h1[1]
+            brandLink:
+              - text: https://www.nykaa.com/brands/loreal-paris/c/595?ptype=brand&id=595
+                xpath: /html/body/div[13]
+            secondaryImageTotal:
+              - text: "1"
+                xpath: /html/body/div[8]
+                type: NUMBER
+                raw: "1"
+                locale: en
+                value: 1
+            imageZoomFeaturePresent:
+              - text: Yes
+                xpath: /html/body/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/@class
+            technicalInformationPdfPresent:
+              - text: No
+            termsAndConditions:
+              - text: No
+            privacyPolicy:
+              - text: No
+            customerServiceAvailability:
+              - text: No
+            Image360Present:
+              - text: No
+            variantCount:
+              - text: "0"
+        xpath: /
+    timestamp: 1607081799750
