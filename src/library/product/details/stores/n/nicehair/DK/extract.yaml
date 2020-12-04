@@ -45,7 +45,7 @@ fields:
     xpath: //div[@class='accordion-item']//div[@class='accordion-header' and contains(.,'Beskrivelse')]/following-sibling::div[@class='accordion-body']//ul//li    
   - name: brandText
     singleValue: false
-    xpath: //div[@class='nosto_product']//span[@class='brand']  
+    xpath: //script[contains(text(),'dataLayer') and contains(text(),"'brand'")]/text()
   - name: quantity
     singleValue: false
     xpath: //input[@id='qty']/@value  
@@ -60,10 +60,7 @@ fields:
     xpath: //div[@class='nosto_product']//span[@class='review_count']      
   - name: aggregateRating
     singleValue: false
-    xpath: //div[@class='nosto_product']//span[@class='rating_value']
-  - name: variantCount
-    singleValue: false
-    defaultValue: "0"  
+    xpath: //div[@class='nosto_product']//span[@class='rating_value']    
   - name: videos
     singleValue: false
     xpath: //div[@class='image-slider slick-initialized slick-slider slick-dotted']//ul[@class='slick-dots']//li//a//div[@class='image-item-thumb video']/@style
@@ -76,3 +73,20 @@ fields:
   - name: manufacturerDescription
     singleValue: false
     xpath: //div[contains(@class,'accordion-item accordion-magazine')]//div[@class='accordion-header' and contains(.,'Relaterede magazine indlæg')]/following-sibling::div[@class='accordion-body']
+  - name: variantInformation
+    singleValue: false
+    xpath: //ul[@class="dropdown-menu"]//li//span[@class="product-name"]//a
+  - name: variants
+    singleValue: false
+    xpath: //ul[@class="dropdown-menu"]//li//img/@src
+    regExp: .+\/products\/(\d+)\/thumbnails.+
+    regExpReplace: $1
+  - name: firstVariant
+    singleValue: false
+    xpath: //ul[@class="dropdown-menu"]//li[1]//img/@src
+    regExp: .+\/products\/(\d+)\/thumbnails.+
+    regExpReplace: $1
+  - name: variantCount
+    singleValue: false
+    xpath: //ul[@class="dropdown-menu"]//li
+    defaultValue: "0"

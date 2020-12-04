@@ -24,7 +24,25 @@ const transform = (data) => {
     };
       for (const { group } of data) {
         for (let row of group) {
-                    
+          if (row.variantCount && row.variantCount[0]["text"] != "0") {            
+            row.variantCount = [{'text':row.variantCount.length,'xpath':row.variantCount[0].xpath}];          
+          }
+          
+          if (row.variantInformation) {
+            let info = [];          
+            row.variantInformation.forEach(item => {
+              info.push(item.text.replace(/(\s*\n\s*)+/g, ' | ').trim());            
+            });
+            row.variantInformation = [{'text':info.join(' | '),'xpath':row.variantInformation[0].xpath}];          
+          }
+          if (row.variants) {
+            let info = [];          
+            row.variants.forEach(item => {
+              info.push(item.text.replace(/(\s*\n\s*)+/g, ' | ').trim());            
+            });
+            row.variants = [{'text':info.join(' | '),'xpath':row.variants[0].xpath}];          
+          }
+
           if (row.description) {
             let info = [];          
             row.description.forEach(item => {
@@ -34,6 +52,33 @@ const transform = (data) => {
           }
           if(row.descriptionBullets){            
             row.descriptionBullets = [{'text':row.descriptionBullets.length, 'xpath':row.descriptionBullets[0].xpath}];
+          }
+
+          if (row.brandText) {            
+            row.brandText.forEach(item => {
+              item.text = item.text.replace(/(\s*\'\s*)+/g, '"');
+              var matches = /dataLayer\s*=\s*(\[.+\]);/isg.exec(item.text);              
+              
+              if (matches){                
+                try {
+                  let json_data = JSON.parse(matches[1]);                  
+                  if (json_data.length > 0){
+                    if (json_data[0]["ecommerce"]["detail"]["products"] && json_data[0]["ecommerce"]["detail"]["products"].length > 0){
+                      if (json_data[0]["ecommerce"]["detail"]["products"][0]["brand"]){
+                        item.text = json_data[0]["ecommerce"]["detail"]["products"][0]["brand"];
+                      }
+                    }
+                  }
+                } catch (error) {                  
+                  delete row.brandText;
+                  return false;
+                }
+              }
+              else{
+                delete row.brandText;
+                return false;
+              }
+            });
           }
                 
         }
