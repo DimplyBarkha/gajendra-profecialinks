@@ -56,7 +56,7 @@ async function implementation (
       await context.waitForSelector('.wc-fragment', { timeout: 10000 });
     }
   } catch (error) {
-    console.log(`Manufacturer content is not loaded ${error.message}`);
+    console.log(`Manufacturer content is not loaded: ${error.message}`);
   }
 
   const manuf = await context.evaluate(async function () {
@@ -97,8 +97,8 @@ async function implementation (
     }
 
     async function getProductInfo (variant, productName, variantCount = null) {
-      await fetch('https://salsify-ecdn.com/target/en-US/BTF/TCIN/' + variant.tcin + '/index.html')
-        .then(async function (response) {
+      await fetch(`https://salsify-ecdn.com/target/en-US/BTF/TCIN/${variant.tcin}/index.html`)
+        .then(async (response) => {
           const sometext = await response.text();
           const startText = '<body>';
           const endText = '</body>';
@@ -474,7 +474,6 @@ async function implementation (
       const zoom = document.querySelector('.ZoomedImage__Zoomed-sc-1j8d1oa-0.dwtKdC') || document.querySelector('.TapToZoomText-r290sk-0');
       addHiddenDiv(newDiv, 'rotate', zoom ? 'Yes' : 'No');
 
-
       let rotate = document.querySelector('button[data-test="button-model-viewer"]');
       if (!rotate) {
         document.querySelectorAll('.wc-demoted').forEach(e => {
@@ -556,6 +555,7 @@ async function implementation (
 
       const mfgNode = document.getElementById('wc-power-page');
       const frameContents = document.getElementById('frameContents' + variant.tcin);
+
       if (frameContents && frameContents.querySelector('#salsify-content')) {
         await stall(2000);
         manufacturerDesc = frameContents.innerText;
@@ -714,7 +714,7 @@ async function implementation (
     let parentId;
     await fetch(`${fullUrl}`)
       .then(data => data.json())
-      .then(async function (res) {
+      .then(async (res) => {
         console.log('productResponse', res);
         parentData = res;
         origData = res;
@@ -741,12 +741,9 @@ async function implementation (
           await getProductInfo(res.product.item, res.product.item.product_description.title);
         }
       });
-
     await stall(12000);
   });
-  console.log(manuf)
 
-  console.u();
   await context.extract(productDetails, { transform: transformParam });
 }
 
