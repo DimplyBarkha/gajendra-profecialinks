@@ -30,12 +30,12 @@ fields:
   - name: listPrice
     singleValue: true
     description: The stated undiscounted price for the product
-    xpath: //div[contains(@class,'pview-element')]//form[@class='pview-grid']//div[@class='price-container']//div[@class='price']//span[@class='canceled-price']//del/text()
+    xpath: //div[contains(@class,'pview-element')]//div[@class='price-container']//div[@class='price']//span[@class='canceled-price']//del/text()
   - name: price
     singleValue: true
     description: The offered price for the selected product variant - if a user
       clicks add to basket this is the price they would be charged
-    xpath: //div[contains(@class,'pview-element')]//form[@class='pview-grid']//div[@class='price-container']//div[@class='price']//strong/text()
+    xpath: //div[contains(@class,'pview-element')]//div[@class='price-container']//div[@class='price']//strong/text()
   - name: availabilityText
     singleValue: true
     description: Availability as described on page for the selected variant. If
