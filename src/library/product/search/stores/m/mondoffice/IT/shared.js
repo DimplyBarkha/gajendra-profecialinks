@@ -19,10 +19,6 @@ const transform = (data) => {
         gr['_input'] = filterSearch;
         gr['_url'] = url;
         gr['rankOrganic'] = [{ text: index + 1 }];
-        try {
-        }catch (e) {
-          console.log(e);
-        }
       } catch (e) {
         console.log(e);
       }
