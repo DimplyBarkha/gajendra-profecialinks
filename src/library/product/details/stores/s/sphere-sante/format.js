@@ -22,7 +22,7 @@ const transform = (data) => {
         const additionalDescBulletInfoArr = row.additionalDescBulletInfo.map((item) => {
           return item.text;
         });
-        if (additionalDescBulletInfoArr.length >= 1) additionalDescBulletInfoArr[0] = '|| ' + additionalDescBulletInfoArr[0];
+        if (additionalDescBulletInfoArr.length > 1) additionalDescBulletInfoArr[0] = '|| ' + additionalDescBulletInfoArr[0];
         clean(row.additionalDescBulletInfo = [{ text: additionalDescBulletInfoArr.join(' | '), xpath: row.additionalDescBulletInfo[0].xpath }]);
       }
       if (row.description) {
@@ -60,18 +60,6 @@ const transform = (data) => {
           return typeof (item.text) === 'string' ? item.text.replace(/\n \n/gm, ' : ') : ' ';
         });
         clean(row.promotion = [{ text: promotionArr.join(' | '), xpath: row.promotion[0].xpath }]);
-      }
-      if (row.aggregateRating) {
-        const aggregateRatingArr = row.aggregateRating.map((item) => {
-          return typeof (item.text) === 'string' ? item.text.replace('.', ',') : '';
-        });
-        clean(row.aggregateRating = [{ text: aggregateRatingArr.join(''), xpath: row.aggregateRating[0].xpath }]);
-      }
-      if (row.price) {
-        const priceArr = row.price.map((item) => {
-          return typeof (item.text) === 'string' ? item.text.replace('.', ',') : '';
-        });
-        clean(row.price = [{ text: priceArr.join(''), xpath: row.price[0].xpath }]);
       }
     }
   }
