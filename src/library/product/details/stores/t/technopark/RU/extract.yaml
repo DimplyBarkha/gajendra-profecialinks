@@ -130,7 +130,8 @@ fields:
   - name: manufacturerDescription
     singleValue: false
     description: The extended description of the product supplied by the lister
-    xpath: //*[@class="product__left-container"]//*[contains(@class,"product__desc")]//text()[not(parent::script or parent::style)]
+    xpath: //*[@class="product__left-container"]//*[contains(@class,"product__desc")]//div[contains(@class,"properties") or contains(@class,"picking")]//text()[not(parent::script or parent::style)]
+    # xpath: //*[@class="product__left-container"]//*[contains(@class,"product__desc")]//text()[not(parent::script or parent::style)]
   - name: manufacturerImages
     singleValue: false
     description: Images within the third party description
