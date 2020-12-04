@@ -1,0 +1,22 @@
+input:
+  _url: http://dyson.se
+  URL: https://www.dyson.se/belysning/arbetsbelysning/dyson-lightcycle-morph/bordslampa-svart
+extractions:
+  - html: https://workbench.import.io/html/run=9d6501b4-3307-462d-996a-622f69468cd9/task=a8e604c6-5e60-4250-a73b-aa4b381d0746/ad090996-45cf-49e3-9b44-2bdefc3f5ee7.html
+    extractionConfigId: product/details/stores/d/dyson/SE/variantsExtract
+    data:
+      - group:
+          - variantId:
+              - text: 294677-01-White-Silver-
+                xpath: /html/body/ol[1]/li[1]/@variant_id
+            variantUrl:
+              - text: https://www.dyson.se/belysning/arbetsbelysning/dyson-lightcycle-morph/dyson-lightcycle-morph-desk-white-silver
+                xpath: /html/body/ol[1]/li[1]/@variant_url
+          - variantId:
+              - text: 294643-01-Black-Black-
+                xpath: /html/body/ol[1]/li[2]/@variant_id
+            variantUrl:
+              - text: https://www.dyson.se/belysning/arbetsbelysning/dyson-lightcycle-morph/bordslampa-svart
+                xpath: /html/body/ol[1]/li[2]/@variant_url
+        xpath: /html
+    timestamp: 1607092807229

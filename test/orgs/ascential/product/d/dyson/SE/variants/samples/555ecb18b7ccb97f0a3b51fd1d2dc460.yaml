@@ -1,0 +1,22 @@
+input:
+  _url: http://dyson.se
+  URL: https://www.dyson.se/luftvard/luftrenare/dyson-pure-hot-cool/vit-hp04
+extractions:
+  - html: https://workbench.import.io/html/run=9d6501b4-3307-462d-996a-622f69468cd9/task=478f1007-8b44-44d6-afea-f7f708eff385/f95dd7aa-b930-433c-8416-8bcf1e17a3fd.html
+    extractionConfigId: product/details/stores/d/dyson/SE/variantsExtract
+    data:
+      - group:
+          - variantId:
+              - text: 244280-01-White-Silver-
+                xpath: /html/body/ol[1]/li[1]/@variant_id
+            variantUrl:
+              - text: https://www.dyson.se/luftvard/luftrenare/dyson-pure-hot-cool/vit-hp04
+                xpath: /html/body/ol[1]/li[1]/@variant_url
+          - variantId:
+              - text: 244289-01-Black-Nickel-
+                xpath: /html/body/ol[1]/li[2]/@variant_id
+            variantUrl:
+              - text: https://www.dyson.se/luftvard/luftrenare/dyson-pure-hot-cool/svart-hp04
+                xpath: /html/body/ol[1]/li[2]/@variant_url
+        xpath: /html
+    timestamp: 1607092808048
