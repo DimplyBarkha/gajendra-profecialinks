@@ -1,8 +1,8 @@
 #!/bin/sh
-import-io extractor:deploy -o ascential -p product/d/dyson/AE/details -b tdcm_dyson_AE_core
+# import-io extractor:deploy -o ascential -p product/d/dyson/AE/details -b tdcm_dyson_AE_core
 import-io extractor:deploy -o ascential -p product/d/dyson/AT/details -b tdcm_dyson_AT_core
-import-io extractor:deploy -o ascential -p product/d/dyson/AU/details -b staging
-import-io extractor:deploy -o ascential -p product/d/dyson/BE/details -b staging
+import-io extractor:deploy -o ascential -p product/d/dyson/AU/details -b tdcm_dyson_AU_core
+import-io extractor:deploy -o ascential -p product/d/dyson/BE/details -b tdcm_dyson_BE_core
 import-io extractor:deploy -o ascential -p product/d/dyson/CA/details -b staging
 import-io extractor:deploy -o ascential -p product/d/dyson/CH/details -b staging
 import-io extractor:deploy -o ascential -p product/d/dyson/DE/details -b staging
