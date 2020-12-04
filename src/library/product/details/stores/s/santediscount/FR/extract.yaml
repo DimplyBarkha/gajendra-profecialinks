@@ -1,0 +1,224 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: //main[@id="main-content"]
+fields:
+  - name: aggregateRating
+    xpath: //*/@review
+  - name: image
+    singleValue: true
+    xpath: //figure[@data-fancybox-href]/@data-fancybox-href
+  - name: quantity
+    xpath: //div[@class="std"]/text()[last()] | //div[@class="std"]//h2[contains(text(), "Conditionnement")]/following::p[1]
+  - name: imageAlt
+    xpath: //figure[@data-fancybox-href]/@title
+    singleValue: true
+  - name: alternateImages
+    xpath: //div[@class="product-image-thumbs"]//ul//li[position()>1]//img/@data-fancybox-src
+  - name: metaKeywords
+    xpath: //meta[@name="keywords"]/@content
+  - name: category
+    xpath: //nav[@id="breadcrumbs"]/ul/li[1]/a/@title
+  - name: nameExtended
+    xpath: //h1[@itemprop="name"]
+  - name: listPrice
+    xpath: //section[@class="product-view-essential"]//span[contains(@id, 'old-price')] | //section[@class="product-view-essential"]//li[contains(@class,'tier-price')]/span
+    regExp: \d+,\d+
+  - name: price
+    xpath: //section[@class="product-view-essential"]//span[@itemprop="price"]/@content
+  - name: availabilityText
+    xpath: //form[@id="product_addtocart_form"]//button[contains(@class,'btn-cart')]
+  - name: description
+    xpath: //div[@class="description-container"]/div[@class="std"]
+  - name: descriptionBullets
+    xpath: count(//div[@class="description-container"]/div[@class="std"]//ul[1]/li)
+  - name: brandText
+    xpath: //h2[@class="manufacturers"]/a[@title]
+  - name: manufacturer
+    xpath: //h2[@class="manufacturers"]/a[@title]
+  - name: weightNet
+  - name: weightGross
+  - name: gtin
+    xpath: //div[@class="product-view-header"]//meta[@itemprop="gtin13"]/@content
+  - name: sku
+    xpath: //div[@class="product-view-header"]//meta[@itemprop="sku"]/@content
+  - name: variantId
+  - name: mpc
+  - name: packSize
+  - name: legalDisclaimer
+  - name: directions
+    xpath: //h2[contains(text(), "Conseils d'utilisation")]/following::text()[1]
+  - name: warnings
+    xpath: //*[contains(text(), 'Attention')] | //*[contains(text(), 'Attention')]/following::ul[1]
+  - name: ratingCount
+    xpath: //div[@itemprop="ratingValue"]
+  - name: aggregateRatingText
+    xpath: //div[@itemprop="ratingValue"]
+  - name: shippingInfo
+  - name: shippingDimensions
+  - name: shippingWeight
+  - name: variantCount
+  - name: color
+  - name: colorCode
+  - name: manufacturerDescription
+  - name: manufacturerImages
+  - name: videos
+  - name: name
+  - name: inStorePrice
+  - name: asin
+  - name: coupon
+  - name: amazonChoice
+  - name: amazonChoiceCategory
+  - name: brandLink
+    xpath: '//h2[@class="manufacturers"]/a/@href'
+  - name: internationalShipping
+  - name: salesRank
+  - name: salesRankCategory
+  - name: subscriptionPrice
+  - name: subscribeAndSave
+  - name: heroQuickPromoHeadline
+  - name: heroQuickPromoImageUrl
+  - name: heroQuickPromoUrl
+  - name: pasin
+  - name: videoLength
+  - name: ingredientImagePresent
+  - name: factImagePresent
+  - name: largeImageCount
+  - name: variantAsins
+  - name: primeFlag
+  - name: lbb
+  - name: lbbPrice
+  - name: featureBullets
+  - name: otherSellersName
+  - name: otherSellersPrice
+  - name: otherSellersShipping
+  - name: secondaryImageTotal
+    xpath: count(//div[@class="product-image-thumbs"]//ul//li[position()>1])
+  - name: news
+  - name: addonItem
+  - name: fastTrack
+  - name: ingredientsList
+  - name: servingSize
+  - name: servingSizeUom
+  - name: numberOfServingsInPackage
+  - name: caloriesPerServing
+  - name: caloriesFromFatPerServing
+  - name: totalFatPerServing
+    xpath: //*[contains(text(), 'Lipides')]
+    regExp: (.*?):\s(.*)
+    regExpReplace: $2
+  - name: totalFatPerServingUom
+    xpath: //*[contains(text(), 'Lipides')]
+    regExp: (.*?):\s(.*)
+    regExpReplace: $2
+  - name: saturatedFatPerServing
+  - name: saturatedFatPerServingUom
+  - name: transFatPerServing
+  - name: transFatPerServingUom
+  - name: cholesterolPerServing
+  - name: cholesterolPerServingUom
+  - name: sodiumPerServing
+  - name: sodiumPerServingUom
+    xpath: //*[contains(text(), 'Sodium :')]
+    regExp: (.*?):\s(.*)
+    regExpReplace: $2
+  - name: totalCarbPerServing
+    xpath: //*[contains(text(), 'Glucides :')]
+    regExp: (.*?):\s(.*)
+    regExpReplace: $2
+  - name: totalCarbPerServingUom
+    xpath: //*[contains(text(), 'Glucides :')]
+    regExp: (.*?):\s(.*)
+    regExpReplace: $2
+  - name: dietaryFibrePerServing
+    xpath: //*[contains(text(), 'Fibres :')]
+    regExp: (.*?):\s(.*)
+    regExpReplace: $2
+  - name: dietaryFibrePerServingUom
+    xpath: //*[contains(text(), 'Fibres :')]
+    regExp: (.*?):\s(.*)
+    regExpReplace: $2
+  - name: totalSugarsPerServing
+  - name: totalSugarsPerServingUom
+    singleValue: true
+    description: Unit of Measure Data for Total Sugar content
+  - name: proteinPerServing
+    xpath: //div[@class="std"]//*[contains(text(), 'Protéines :')]
+    regExp: (.*?):\s(.*)
+    regExpReplace: $2
+  - name: proteinPerServingUom
+    xpath: //div[@class="std"]//*[contains(text(), 'Protéines :')]
+    regExp: (.*?):\s(.*)
+    regExpReplace: $2
+  - name: vitaminAPerServing
+  - name: vitaminAPerServingUom
+  - name: vitaminCPerServing
+  - name: vitaminCPerServingUom
+  - name: calciumPerServing
+    xpath: //*[contains(text(), 'Calcium :')]
+    regExp: (.*?):\s(.*)
+    regExpReplace: $2
+  - name: calciumPerServingUom
+    xpath: //*[contains(text(), 'Calcium :')]
+    regExp: (.*?):\s(.*)
+    regExpReplace: $2
+  - name: ironPerServing
+    xpath: //*[contains(text(), 'Fer :')]
+    regExp: (.*?):\s(.*)
+    regExpReplace: $2
+  - name: ironPerServingUom
+    xpath: //*[contains(text(), 'Fer :')]
+    regExp: (.*?):\s(.*)
+    regExpReplace: $2
+  - name: dietarySymbols
+  - name: magnesiumPerServing
+    xpath: //*[contains(text(), 'Manganèse :')]
+    regExp: (.*?):\s(.*)
+    regExpReplace: $2
+  - name: magnesiumPerServingUom
+    xpath: //*[contains(text(), 'Manganèse :')]
+    regExp: (.*?):\s(.*)
+    regExpReplace: $2
+  - name: saltPerServing
+  - name: saltPerServingUom
+  - name: dietaryInformation
+  - name: specifications
+  - name: warranty
+  - name: storage
+  - name: countryOfOrigin
+  - name: allergyAdvice
+    xpath: //*[contains(text(), 'Allergènes')]
+    regExp: (.*?):\s(.*)
+    regExpReplace: $2
+  - name: recyclingInformation
+  - name: productOtherInformation
+  - name: packaging
+  - name: additives
+  - name: pricePerUnit
+  - name: pricePerUnitUom
+  - name: promotion
+    xpath: //div[@class="product-view-media"]//span[contains(@class,"product-flag-value")]
+  - name: alcoholContent
+  - name: newVersion
+  - name: newAsin
+  - name: newDescription
+  - name: variantInformation
+  - name: firstVariant
+  - name: variants
+  - name: additionalDescBulletInfo
+  - name: prop65Warning
+  - name: ageSuitability
+  - name: energyEfficiency
+  - name: technicalInformationPdfPresent
+    defaultValue: No
+  - name: termsAndConditions
+    defaultValue: No
+  - name: privacyPolicy
+    defaultValue: No
+  - name: customerServiceAvailability
+    defaultValue: No
+  - name: materials
+  - name: Image360Present
+    defaultValue: No
+  - name: imageZoomFeaturePresent
+    defaultValue: No
