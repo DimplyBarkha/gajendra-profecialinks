@@ -52,7 +52,7 @@ fields:
   - name: promotion
     xpath: //div[contains(@class,'box__Box')]//span[contains(text(),'OFF')]
   - name: dietarySymbols
-    xpath: //div[contains(@class,'box__Box')]//span[contains(@name,'free')]/@title
+    xpath: //div[contains(@class,'box__Box')]//div//span[contains(@fill,'currentColor')]/@title
 # serving
   - name: proteinPerServing 
     xpath: //b[contains(text(),"Protein")]/parent::td/text()
@@ -72,40 +72,40 @@ fields:
   - name: dietaryFibrePerServingUom 
     xpath: //td[contains(text(),"Fibre")]
     regExp: '[^\s]$'
-  - name: SaturatedFatPerServing 
+  - name: saturatedFatPerServing 
     xpath: //td[contains(text(),"Saturated")]
     regExp: (\d+(?:\.\d+)?)
-  - name: SaturatedFatPerServingUom 
+  - name: saturatedFatPerServingUom 
     xpath: //td[contains(text(),"Saturated")]
     regExp: '[^\s]$'
-  - name: TransFatPerServing 
+  - name: transFatPerServing 
     xpath: //td[contains(text(),"Trans")]
     regExp:  (\d+(?:\.\d+)?)
-  - name: TransFatPerServingUom 
+  - name: transFatPerServingUom 
     xpath: //td[contains(text(),"Trans")]
     regExp: '[^\s]$'
-  - name: CholesterolPerServing
+  - name: cholesterolPerServing
     xpath: //b[contains(text(),"Cholesterol")]/parent::td/text()
     regExp:  ^[^\s]+
-  - name: CholesterolPerServingUom 
+  - name: cholesterolPerServingUom 
     xpath: //b[contains(text(),"Cholesterol")]/parent::td/text()
     regExp: '[^\s]$'
-  - name: SodiumPerServing
+  - name: sodiumPerServing
     xpath: //b[contains(text(),"Sodium")]/parent::td/text()
     regExp: ^[^\s]+
-  - name: SodiumPerServingUom 
+  - name: sodiumPerServingUom 
     xpath: //b[contains(text(),"Sodium")]/parent::td/text()
     regExp: '[^\s]$'
-  - name: TotalCarbPerServing
+  - name: totalCarbPerServing
     xpath: //b[contains(text(),"Carbohydrate")]/parent::td/text()
     regExp: ^[^\s]+
-  - name: TotalCarbPerServingUom 
+  - name: totalCarbPerServingUom 
     xpath: //b[contains(text(),"Carbohydrate")]/parent::td/text()
     regExp: '[^\s]$'
-  - name: TotalSugarsPerServing
+  - name: totalSugarsPerServing
     xpath: //td[contains(text(),"Sugars")]
     regExp: (\d+(?:\.\d+)?)
-  - name: TotalSugarsPerServingUom 
+  - name: totalSugarsPerServingUom 
     xpath: //td[contains(text(),"Sugars")]
     regExp: '[^\s]$'
   # - name: CalciumPerServing
