@@ -30,9 +30,36 @@ async function implementation (
   let manufacturerImages = [];
   let enhancedContent = [];
   let videos = [];
+  let inBoxUrls = [];
+  let inBoxText = '';
+  let hasComparisionTable = '';
   if (iframeUrl) {
     await context.goto(iframeUrl, { timeout: 50000 });
     await stall(2000);
+
+    await context.evaluate(async () => {
+      await new Promise((resolve) => setTimeout(resolve, 5000));
+
+      async function infiniteScroll () {
+        let prevScroll = document.documentElement.scrollTop;
+        while (true) {
+          window.scrollBy(0, document.documentElement.clientHeight);
+          await new Promise(resolve => setTimeout(resolve, 1000));
+          const currentScroll = document.documentElement.scrollTop;
+          if (currentScroll === prevScroll) {
+            break;
+          }
+          prevScroll = currentScroll;
+        }
+      }
+      await infiniteScroll();
+    });
+
+    try {
+      await context.waitForSelector('.in-the-box', { timeout: 45000 });
+    } catch (error) {
+      console.log('Not loading in-box content');
+    }
 
     manufacturerImages = await context.evaluate(function () {
       const manufacturerImages = [];
@@ -55,12 +82,29 @@ async function implementation (
       return document.body.innerText;
     });
 
+    inBoxText = await context.evaluate(async () => {
+      return document.querySelector('.in-the-box') ? document.querySelector('.in-the-box').innerText : '';
+    });
+
+    inBoxUrls = await context.evaluate(async () => {
+      const images = document.querySelectorAll('.in-the-box img');
+      const imagesSrc = [];
+      [...images].forEach((element) => {
+        imagesSrc.push(element.getAttribute('data-src'));
+      });
+      return imagesSrc;
+    });
+
+    hasComparisionTable = await context.evaluate(async () => {
+      return !!document.querySelector('.compare-headline');
+    });
+
     await context.goto(currentUrl, { timeout: 50000 });
   }
 
   await stall(3000);
 
-  await context.evaluate(async function (manufacturerImages, enhancedContent, videos) {
+  await context.evaluate(async function (manufacturerImages, enhancedContent, videos, inBoxUrls, inBoxText, hasComparisionTable) {
     if (document.querySelector('.cookies-overlay-dialog__accept-all-btn')) {
       document.querySelector('.cookies-overlay-dialog__accept-all-btn').click();
     }
@@ -118,6 +162,15 @@ async function implementation (
     if (document.querySelector('.priceOfProduct.product-price-panel-offer')) {
       addHiddenDiv('price', document.querySelector('.priceOfProduct.product-price-panel-offer').innerText.replace('*', ''));
     }
+  
+    if (inBoxUrls.length) {
+      addHiddenDiv('ii_inBoxUrls', inBoxUrls.join(' | '));
+      // inBoxUrls.forEach((element) => {
+      //   addHiddenDiv('ii_inBoxUrls', element);
+      // });
+    }
+    addHiddenDiv('ii_inBoxText', inBoxText);
+    addHiddenDiv('ii_comparisionText', hasComparisionTable);
 
     let inStore = false;
     let delivery = false;
@@ -195,7 +248,7 @@ async function implementation (
         }
       }
     }
-  }, manufacturerImages, enhancedContent, videos);
+  }, manufacturerImages, enhancedContent, videos, inBoxUrls, inBoxText, hasComparisionTable);
 
   return await context.extract(productDetails, { transform });
 }
