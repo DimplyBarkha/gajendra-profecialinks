@@ -21,6 +21,9 @@ const cleanUp = (data, context) => {
       if (row.price) {
         row.price[0].text = row.price[0].text.replace('.', ',');
       }
+      if (row.aggregateRating) {
+        row.aggregateRating[0].text = row.aggregateRating[0].text.replace('.', ',');
+      }
     }
   }
   data.forEach(obj => obj.group.forEach(row => Object.keys(row).forEach(header => row[header].forEach(el => {
