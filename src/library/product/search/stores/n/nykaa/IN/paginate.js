@@ -10,7 +10,7 @@ module.exports = {
     spinnerSelector: null,
     loadedSelector: null,
     loadedXpath: null,
-    noResultsXPath: null,
+    noResultsXPath: '//a[@class="search-again"] | //div[@class="page-title-search-result" and contains (.,"No results")]',
     stopConditionSelectorOrXpath: null,
     resultsDivSelector: null,
     openSearchDefinition: null,

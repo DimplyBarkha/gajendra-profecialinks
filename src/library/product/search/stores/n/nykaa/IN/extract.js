@@ -52,10 +52,12 @@ module.exports = {
           name: [{ text: product.name }],
           productUrl: [{ text: product.product_url }],
           thumbnail: [{ text: product.image_url }],
-          aggregateRating2: [{ text: String(product.rating).replace('.', ',') }],
+          aggregateRating2: [{ text: product.rating }],
           ratingCount: [{ text: product.rating_count }],
+          reviewCount: [{ text: product.rating_count }],
           price: [{ text: `₹${product.final_price}` }],
           rank: [{ text: index + 1 }],
+          rankOrganic: [{ text: index + 1 }],
         };
         productsArray.push(rowObject);
       });
