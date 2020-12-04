@@ -28,7 +28,8 @@ fields:
   - name: price
     singleValue: false
     xpath: //div[@class='li_prod_picture']/div[@class='li_prod_precio cgrid-price']/div[@class='middle-cont']/div[@class='li_precios middle-in']/span[@class='precio_normal ng-binding']
-    type: CURRENCY
+    regExp: (\$\d+)\.(.+)
+    regExpReplace: $1,$2
   - name: manufacturer
     singleValue: true
     # xpath: //h4[@class="product-manufacturer"]
