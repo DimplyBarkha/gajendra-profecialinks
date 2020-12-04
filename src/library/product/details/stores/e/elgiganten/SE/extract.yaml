@@ -44,6 +44,7 @@ fields:
     xpath: //section[contains(@class,"article-page")]
   - name: manufacturerImages 
     singleValue: false
+    # xpath:
     xpath: //a[@class="acc-product-image"]//img/@href | //img[@class="product-image"]/@src | //section[@class="section product-inspiration"]//img/@src
     regExp: (.+)
     regExpReplace: https://www.elgiganten.se$1

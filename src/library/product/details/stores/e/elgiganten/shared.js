@@ -216,6 +216,7 @@ const transform = (data) => {
           },
         ];
       }
+      
       if (row.additionalDescBulletInfo) {
         let text = '';
         row.additionalDescBulletInfo.forEach(item => {
