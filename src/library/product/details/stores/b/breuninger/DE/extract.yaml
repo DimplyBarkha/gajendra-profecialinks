@@ -230,3 +230,9 @@ fields:
     description: If 360 image is present in the carousel ['Yes','No']
     example: https://www.amazon.com/Trinsic-Single-Handle-Magnetic-Champagne-9159-CZ-DST/dp/B0050EN8E6
     defaultValue: "No" 
+  - name: inTheBoxUrl
+    xpath: //div[@class="in-the-box"]//img/@src
+  - name: inTheBoxText
+    xpath: //div[@class="in-the-box"]//p/b
+  - name: unInterruptedPDP
+    xpath: //div[contains(@id,'reco-panel')]//div[@class="shop-produkt__inner"]
