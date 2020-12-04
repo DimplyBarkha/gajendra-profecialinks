@@ -10,7 +10,7 @@ const transform = (data, context) => {
     const timestamp = new Date(lastDate).getTime() - (30 * 24 * 60 * 60 * 1000);
     console.log('timestamp' + timestamp);
     console.log(new Date(reviewDate).getTime());
-    if (new Date(reviewDate).getTime() > timestamp) {
+    if (new Date(reviewDate).getTime() >= timestamp) {
       console.log('True');
       return true;
     }
@@ -21,7 +21,7 @@ const transform = (data, context) => {
   const state = context.getState();
   let lastReviewDate = state.lastReviewDate || null;
 
-  data = data.filter(function (item) {
+  data = data.filter(function (item, index, data) {
     console.log('group length before' + item.group.length);
     item.group = item.group.filter(function (row) {
       if (!lastReviewDate) {

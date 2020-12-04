@@ -6,6 +6,6 @@ module.exports = {
     store: 'tesco',
     domain: 'tesco.com',
     zipcode: '',
-    mergeType: null,
+    mergeType: 'MERGE_ROWS',
   },
 };
