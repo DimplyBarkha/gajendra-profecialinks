@@ -6,13 +6,13 @@ fields:
   - name: productUrl
     xpath: //div[@class="extra-info-id"]
     regExp: (.+)
-    regExpReplace: https://www.rappi.com.mx/producto/$1
+    regExpReplace: https://www.rappi.com.co/producto/$1
   - name: thumbnail
     singleValue: false  
     #xpath: //app-img-ssr/img/@src
     xpath: //div[@class="extra-info-image"]
     regExp: (.+)
-    regExpReplace: https://images.rappi.com.mx/products/$1?d=136x136
+    regExpReplace: https://images.rappi.com/products/$1?d=136x136&e=webp
   - name: name
     singleValue: false
     xpath: //div[@class="extra-info-name"]
