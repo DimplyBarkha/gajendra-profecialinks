@@ -31,8 +31,8 @@ fields:
     singleValue: false 
     xpath: //div[@class="product-heading"]//h1
   - name: nameExtended
-    singleValue: false 
-    xpath: //div[@class="product-heading"]//h1
+    singleValue: false  
+    xpath: concat(//div[@class="product-heading"]//h1,'-',//select[@id="color-selector"]/option[2])
   - name: brandText
     singleValue: false  
     xpath: //div[@class="product-heading"]//h1[@class="prod-name"]//span[@class="link-wrapper"]
