@@ -33,13 +33,13 @@ async function implementation (
       variants.forEach(x => {
         const aHref = x.href;
         if (aHref) {
-          variantData = variantData.concat(`<span class="variant-id">${aHref.replace(/.*_(\d+)_-1.*/, "$1")}</span>`);
+          variantData = variantData.concat(`<span class="variant-id">${aHref.replace(/.*_(.*)_-1.*/, "$1")}</span>`);
           variantData = variantData.concat(`<span class="variant-url">${aHref}</span>`);
         }
       });
     } else {
       const aHref = window.location.href;
-      variantData = variantData.concat(`<span class="variant-id">${aHref.replace(/.*_(\d+)_-1.*/, "$1")}</span>`);
+      variantData = variantData.concat(`<span class="variant-id">${aHref.replace(/.*_(.*)_-1.*/, "$1")}</span>`);
       variantData = variantData.concat(`<span class="variant-url">${aHref}</span>`);
     }
     addHiddenDiv("custom-attr-product-variant", variantData);
