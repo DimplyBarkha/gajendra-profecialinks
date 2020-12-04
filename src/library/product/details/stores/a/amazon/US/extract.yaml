@@ -42,8 +42,10 @@ fields:
     xpath: (//*[@id="priceblock_ourprice"] | //div[contains(@id, "variation_size_name")]/ul/li/span/div/span/span[contains(@class, "selected")]//span[contains(@id, "_price")]/span[contains(@class, "Price")])[1]
   - name: availabilityText
     singleValue: false
-    xpath: (//*[contains(@id,'availability')] |  //*[contains(@id,'vailability')]//*[contains(text(),'tock')])[1]
-    defaultValue: 'InStock'
+    xpath: //div[@id='availability_feature_div']
+    regExp: ((.*)[uU]navailable(.*))
+    regExpReplace: Out of Stock
+    defaultValue: In Stock
   - name: unavailableMsg
     singleValue: false
     xpath: //span[contains(text(),"Currently unavailable")] | //span[contains(text(),"out of stock")]
