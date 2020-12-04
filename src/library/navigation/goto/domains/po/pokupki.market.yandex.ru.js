@@ -29,13 +29,13 @@ module.exports = {
       waitUntil: 'load',
       checkBlocked: false,
       antiCaptchaOptions: {
-        type: 'RECAPTCHA',
+        type: 'IMAGECAPTCHA',
       },
     });
     console.log('Status :', responseStatus.status);
     console.log('URL :', responseStatus.url);
 
-    const captchaFrame = "form.form.form_error_no , div.captcha-wrapper , body.b-page.b-page_service_default.b-page__body.i-ua.i-global.i-bem.i-ua_platform_other.i-ua_js_inited.i-global_js_inited";
+    const captchaFrame = "div.input-wrapper__input-field";
     try {
       await context.waitForSelector(captchaFrame);
     } catch (e) {
