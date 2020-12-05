@@ -96,13 +96,27 @@ const transform = (data) => {
                 });
                 row.description = [{'text':info.join(' | '),'xpath':row.description[0].xpath}];
             }
-            if (row.directions) {
+            if (row.additionalDescBulletInfo) {
                 let info = [];
-                row.directions.forEach(item => {
+                row.additionalDescBulletInfo.forEach(item => {
                 info.push(item.text.replace(/(\s*\n\s*)+/g, ' | ').trim());
                 });
-                row.directions = [{'text':info.join(' | '),'xpath':row.directions[0].xpath}];
-            }    
+                row.additionalDescBulletInfo = [{'text':info.join(' | '),'xpath':row.additionalDescBulletInfo[0].xpath}];
+            }
+            if (row.availabilityText) {          
+              row.availabilityText.forEach(item => {
+                 if(item.text.trim().includes("Add To Cart")){
+                    item.text = "In Stock";
+                 }else{
+                    item.text = "Out of Stock";
+                 }
+              });      
+            } 
+            if (row.termsAndConditions) {          
+              row.termsAndConditions.forEach(item => {
+                item.text = "Yes";
+              });      
+            }
         }
     }
     return cleanUp(data);

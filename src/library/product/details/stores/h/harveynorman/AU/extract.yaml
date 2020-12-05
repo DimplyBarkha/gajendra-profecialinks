@@ -36,10 +36,11 @@ fields:
     defaultValue: "In Stock"
   - name: description
     singleValue: false
-    xpath: //div[@id='productDescription']//div[contains(@class,'short-description')]//text()
+    xpath: //div[@id='productDescription']//div[contains(@class,'short-description') or contains(@class,'long-description')]/*[self::p or self::ul]
   - name: variantCount
     singleValue: false
     xpath: count(//fieldset//select//option[position() >1])
+    defaultValue: 0
   - name: variantInformation
     singleValue: false
     xpath: 
@@ -64,9 +65,31 @@ fields:
   - name: gtin
     singleValue: false
     xpath: (//script[@type='text/javascript'][contains(.,'HN_PAGE_INFO')])[1]//text()
-  - name: directions
-    singleValue: false
-    xpath: //div[@id='product-information']//div[@id='productCare']//p
   - name: quantity
     singleValue: false
     defaultValue: 1
+  - name: manufacturerImages
+    singleValue: false
+    xpath: //div[@id='productDescription']//div[contains(@class,'product-long-description')]//img
+  - name: descriptionBullets
+    singleValue: false
+    xpath: count(//div[@id='productDescription']//div[contains(@class,'product-long-description')]//ul//li)
+  - name: secondaryImageTotal
+    singleValue: false
+    xpath: count(//div[@class='product-carousel-wrapper']//div[contains(@class,'item') and position() >1]//img//@data-image-src)
+  - name: videoLength
+    singleValue: false
+    xpath: //div[@class='timecode']//div//text()
+  - name: mpc
+    singleValue: false
+    xpath: (//div[@id='product-specs']//tr//th[text()='Model']/following-sibling::td[@class="data"])[1]
+  - name: additionalDescBulletInfo
+    singleValue: false
+    xpath: //div[@id='productDescription']//div[contains(@class,'product-long-description')]//ul//li
+  - name: energyEfficiency
+    singleValue: false
+    xpath: //div[@id='product-specs']//tr//th[text()='Power Consumption (kWh/yr)']/following-sibling::td[@class="data"]
+  - name: termsAndConditions
+    singleValue: false
+    xpath: //div[@id='terms-and-conditions']//ul
+    defaultValue: "No"
