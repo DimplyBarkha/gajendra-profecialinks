@@ -1,0 +1,100 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: _input
+    singleValue: true 
+  - name: image
+    singleValue: true
+    xpath: //div//img[@name="mainImage"]/@src
+  - name: imageAlt
+    singleValue: true
+    xpath: //img[@name="mainImage"]/@alt
+  - name: alternateImages
+    singleValue: false
+    xpath: //div[@class='photo with-multiple-photo']//@src
+  - name: metaKeywords
+    singleValue: true
+    xpath: //meta[contains(@name,"keyword")]/@content
+  - name: _pageTimestamp
+    singleValue: true
+  - name: url
+    singleValue: true
+  - name: category
+    singleValue: false
+  - name: nameExtended
+    singleValue: true
+  - name: listPrice
+    singleValue: true
+    xpath: //dd[@class="listPrice"]//font/text()
+  - name: price
+    singleValue: true
+    xpath: //dd[@class="yourPrice"]//font/text()
+  - name: availabilityText
+    singleValue: true
+  - name: description
+    singleValue: true
+    xpath: //div[@class="product_short_description"]
+  - name: descriptionBullets
+    singleValue: true
+  - name: brandText
+    singleValue: true
+    xpath: //dd[@class="producer brand"]//font/text()
+  - name: manufacturer
+    singleValue: true
+    xpath: (//dd[@itemprop="brand"])[1]
+  - name: quantity
+    singleValue: true
+    xpath: //dd[@class="packageSize"]
+  - name: weightNet
+    singleValue: true
+  - name: weightGross
+    singleValue: true
+  - name: gtin
+    singleValue: true
+  - name: sku
+    singleValue: true
+  - name: variantId
+    singleValue: true
+  - name: mpc
+    singleValue: true
+  - name: packSize
+    singleValue: true
+    xpath: //dd[@class="packageSize"]//font/text()
+  - name: legalDisclaimer
+    singleValue: false
+  - name: directions
+    singleValue: false
+  - name: warnings
+    singleValue: true
+  - name: ratingCount
+    singleValue: true
+    xpath: //span[@itemprop="reviewCount"]//font/text()
+  - name: aggregateRatingText
+    singleValue: true
+  - name: aggregateRating
+    singleValue: true
+    xpath: //span[@class="rank"]//font/text()
+  - name: shippingInfo
+    singleValue: true
+  - name: shippingDimensions
+    singleValue: true
+  - name: shippingWeight
+    singleValue: true
+  - name: variantCount
+    singleValue: true
+  - name: color
+    singleValue: true
+  - name: colorCode
+    singleValue: true
+  - name: manufacturerDescription
+    singleValue: true
+  - name: manufacturerImages
+    singleValue: true
+  - name: videos
+    singleValue: true
+    xpath: //meta[@property="og:video"]/@content
+  - name: name
+    singleValue: true
+    xpath: //h1[@itemprop="name"]/text()
