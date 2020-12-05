@@ -1,4 +1,4 @@
-const { transform } = require('./transform');
+const { transform } = require('../transform');
 const { implementation } = require('../shared');
 
 module.exports = {
