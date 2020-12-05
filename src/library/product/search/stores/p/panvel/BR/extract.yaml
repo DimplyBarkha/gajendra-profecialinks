@@ -5,7 +5,7 @@ recordXPath: //div[contains(@class,"search-result__products")]/div
 fields:
   - name: name
     singleValue: false
-    xpath: //img[@class="item-img--loaded"]/@title 
+    xpath: //span[@class="box-produto__detalhes-nome"]  | //div[@class="item-img"]/img/@alt
   - name: id
     singleValue: false
     xpath: //div[contains(@class,"box-produto ")]//a/@href
@@ -19,12 +19,12 @@ fields:
   #   xpath:   concat(//span[@class="valorInt"],//span[@class="valorDec"],//span[@class="item-box-price__value text-bold"], //div[contains(@class,"box-produto ")]//span[@class="item-preco__valor text-bold"]/text(), //span[@class="item-preco__valor"]/text())  
   - name: productUrl
     singleValue: false
-    xpath: //div[contains(@class,"box-produto ")]//a/@href
+    xpath: //div[contains(@class,"box-produto ")]//a/@href 
   #   # regExp: (.+)
   #   # regExpReplace: 
   - name: thumbnail
     singleValue: false
-    xpath: //img[@class="item-img--loaded"]/@src 
+    xpath: //img[@class="item-img--loaded"]/@src | //picture/img/@src | //picture/source/@srcset
   - name: rank 
     singleValue: false
   - name: rankOrganic
