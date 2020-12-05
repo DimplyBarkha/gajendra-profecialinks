@@ -34,6 +34,17 @@ const transform = (data) => {
           row.productUrl.forEach(item=>{
               item.text="https://shop.super-pharm.co.il"+item.text;
           })
+        }
+        if(row.price){
+          let priceStr='';
+          row.price.forEach(item=>{
+              priceStr=item.text;
+          })
+          let priceStrAr=priceStr.split(' ');
+          if(priceStrAr.length>1)
+            row.price=[{"text":priceStrAr[1]+"."+priceStrAr[0]}];
+          else
+            row.price=[{"text":priceStrAr[0]+".00"}];
         }          
         row.rank = [{ "text": rank }];
         row.rankOrganic = [{ "text": rank }];
