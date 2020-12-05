@@ -106,7 +106,7 @@ fields:
   - name: videos
     singleValue: false
     description: URLs of videos on page
-    xpath: //div[@class="media-viewer-video__iframe-wrap"]/iframe/@src | //a[contains(@class, 'video')]//img//@data-src
+    xpath: //div[contains(@class,"media-viewer-video__iframe-wrap")]/iframe/@src | //a[contains(@class, 'video')]//img//@data-src
     # xpath: //a[contains(@class, 'video')]//img//@data-src
     # regExp: (.+)(vi\/)(.+)(\/)(.+)
     # regExpReplace: https://www.youtube.com/watch?v=$3
@@ -134,3 +134,6 @@ fields:
     singleValue: false
     description: The country from which the product originates
     xpath: //span[contains(text(), 'Страна-производитель:')]/following-sibling::*
+  - name: galleryVideos
+    singleValue: false
+    xpath: //div[contains(@class,"media-viewer-video__iframe-wrap")]/iframe/@src
