@@ -9,6 +9,9 @@ fields:
   - name: rank
     xpath: //div[contains(@class,'product-list product-list-holder')]//div[contains(@class,'row')]//div[contains(@class,'prd-list-item')]/div[contains(@class,'product-wrapper')]/div[contains(@class,'product-wrapper-container')]/@data-product-position
     singleValue: false
+  - name: rankOrganic
+    xpath: //div[contains(@class,'product-list product-list-holder')]//div[contains(@class,'row')]//div[contains(@class,'prd-list-item')]/div[contains(@class,'product-wrapper')]/div[contains(@class,'product-wrapper-container')]/@data-product-position
+    singleValue: false
   - name: name
     xpath: //div[contains(@class,'product-list product-list-holder')]//div[contains(@class,'row')]//div[contains(@class,'prd-list-item')]/div[contains(@class,'product-wrapper')]/div[contains(@class,'product-wrapper-container')]/@data-product-name
     singleValue: false
