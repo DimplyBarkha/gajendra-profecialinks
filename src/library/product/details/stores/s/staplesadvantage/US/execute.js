@@ -82,14 +82,14 @@ async function implementation (inputs, parameters, context, dependencies) {
     }
   });
 
-  await context.evaluate(() => {
-    let aggregateRating = document.querySelector('span.rating__rating_label');
+  // await context.evaluate(() => {
+  //   let aggregateRating = document.querySelector('span.rating__rating_label');
 
-    if (aggregateRating !== null) {
-      aggregateRating = aggregateRating.textContent.replace('.', ',');
-      document.querySelector('span.rating__rating_label').setAttribute('rating', aggregateRating);
-    }
-  });
+  //   if (aggregateRating !== null) {
+  //     aggregateRating = aggregateRating.textContent.replace('.', ',');
+  //     document.querySelector('span.rating__rating_label').setAttribute('rating', aggregateRating);
+  //   }
+  // });
 
   return await context.evaluate(function (xp) {
     const r = document.evaluate(
