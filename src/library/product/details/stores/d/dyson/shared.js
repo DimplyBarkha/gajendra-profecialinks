@@ -144,7 +144,7 @@ async function implementation (
     // deal with the price
     const listPrice = getXpath("(//div[@class='product-hero__price-top']/div[1])[1]", 'innerText');
     const price = getXpath("(//div[@class='product-hero__price-top']/div[@data-product-price])[1]", 'innerText');
-    
+
     // transform the price to avoid locale issue
     const localeCleaner = (price) => {
       // first remove all possible thousand spearators
@@ -223,7 +223,7 @@ async function implementation (
       ];
       // keep only letters and currency symbols
       const letter = RegExp(/[a-zA-Z\s]/);
-      let temp = (price || '').split('').filter(char => letter.test(char) || currSymb.includes(char)).join('');
+      const temp = (price || '').split('').filter(char => letter.test(char) || currSymb.includes(char)).join('');
       // split per groups of words and only returns the last one
       return temp.split(' ').filter(word => word).slice(-1);
     };

@@ -10,7 +10,7 @@ module.exports = {
   },
   implementation: async ({ url, zipcode, storeId }, parameters, context, dependencies) => {
     const timeout = parameters.timeout ? parameters.timeout : 40000;
-    url =  url.replace(/(https:\/\/shop.dyson.ru\/)?(.+)/g,"https://shop.dyson.ru$2");
+    url = url.replace(/(https:\/\/shop.dyson.ru\/)?(.+)/g, 'https://shop.dyson.ru$2');
     await context.goto(url, { timeout: timeout, waitUntil: 'load', checkBlocked: true, captureRequests: true });
     console.log(zipcode);
     if (zipcode) {
