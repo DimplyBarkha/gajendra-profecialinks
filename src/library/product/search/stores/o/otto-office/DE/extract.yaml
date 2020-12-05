@@ -17,9 +17,12 @@ fields:
     singleValue: false
     xpath: //a[@class="fftracking-productclick"]/img/@data-srcset
   - name: reviewCount
-    singleValue: true
+    singleValue: false
     xpath: //div[@class="ooB-rel item-rating-stars ooB-ib"]
     # regExp: (\d+)
   - name: price
     singleValue: false
     xpath: //div[contains(@class,'galleryOffer')]/div[1]/div/div[1]/p/span[1]
+    regExp: (\d),(\d.+)
+    regExReplace: $1.$2
+    type: CURRENCY
