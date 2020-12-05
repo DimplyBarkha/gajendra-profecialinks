@@ -1,5 +1,4 @@
 const { transform } = require('../../../../shared');
-const { Helpers } = require('../../../../../../helpers/helpers');
 
 const implementation = async (
   inputs,
@@ -8,7 +7,7 @@ const implementation = async (
   dependencies,
 ) => {
   const { transform } = parameters;
-  const { productDetails } = dependencies;
+  const { productDetails, Helpers: { Helpers } } = dependencies;
   const helpers = new Helpers(context);
 
   const url = 'https://www.' + parameters.domain;
