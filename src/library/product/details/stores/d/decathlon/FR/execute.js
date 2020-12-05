@@ -6,7 +6,7 @@ module.exports = {
     store: 'decathlon',
     domain: 'decathlon.fr',
     loadedSelector: 'div.product-display',
-    noResultsXPath: '//h1[contains(text(),"Erreur")] | //span[@data-tid="no-result-error"]',
+    noResultsXPath: '//h1[contains(text(),"Erreur")] | //div[@id="search-result-top"]//div[@class="title"]',
     zipcode: '',
   },
 };
