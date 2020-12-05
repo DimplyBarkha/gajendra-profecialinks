@@ -2,6 +2,7 @@ extends: ../shared
 fields:
   - name: availabilityText
     xpath: //div[contains(concat(' ',normalize-space(@class),' '),' product-hero ')]//form//*[contains(text(),'vagnen') or contains(text(), 'tillbehör')]//text()
+    # Add no default value, being take care in transform.js
   - name: weightNet
     xpath: (//ul[contains(concat(' ',normalize-space(@class),' '),' product-specification__specification-container ')]//li[.//*[contains(text(), 'Vikt')]])[1]
   - name: shippingInfo
