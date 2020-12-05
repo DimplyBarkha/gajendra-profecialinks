@@ -1,5 +1,56 @@
 singleRecord: false
 regionsSelector: null
-recordSelector: null
-recordXPath: null
-fields: null
+recordSelector: null # ul.row items.product-listing.product-list>div
+recordXPath: //ul[@class='row items product-listing product-list']/div
+fields:
+  - name: id
+    singleValue: false
+    xpath: //div[@class="item"]/@data-product-code
+  - name: searchUrl
+    singleValue: true
+  - name: name
+    singleValue: false
+    xpath: //div[@class="item"]/@data-product-name
+  - name: productUrl
+    singleValue: false
+    xpath: //div[@class="col-xs-5 col-sm-5 col-md-12 img-wrap"]/a/@url
+  - name: gtin
+    singleValue: false
+  - name: thumbnail
+    singleValue: false
+    xpath: //div[@class="col-xs-5 col-sm-5 col-md-12 img-wrap"]/a/img/@src
+  - name: aggregateRating
+    singleValue: false
+  - name: aggregateRating2
+    singleValue: false
+  - name: reviewCount
+    singleValue: false
+  - name: ratingCount
+    singleValue: false
+  - name: price
+    singleValue: false
+    xpath: //p[@class="item-prize"]
+  - name: manufacturer
+    singleValue: true
+  - name: soldBy
+    singleValue: true
+  - name: endorsementText
+    singleValue: false
+  - name: rank
+    singleValue: false
+    description: search/listing rank
+    type: NUMBER
+    xpath: //div[@class="col-xs-5 col-sm-5 col-md-12 img-wrap"]/a/@rank
+  - name: rankOrganic
+    singleValue: false
+    description: The position (rank) within the list excluding sponsored/paid results
+    type: NUMBER
+    xpath: //div[@class="col-xs-5 col-sm-5 col-md-12 img-wrap"]/a/@rank
+  - name: sponsored
+    singleValue: false
+    description: Is sponsored/paid
+    type: BOOLEAN
+  # - name: totalRecordCount
+  #   singleValue: true 
+  #   xpath: ancestor::html//p[contains(@name, 'searchresultcount')]/strong/text()
+  #   type: NUMBER
