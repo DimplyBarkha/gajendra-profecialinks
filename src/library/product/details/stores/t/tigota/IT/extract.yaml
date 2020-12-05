@@ -18,6 +18,9 @@ fields:
   - name: sku
     singleValue: false
     xpath: //div[@class='product-add-form']//form/@data-product-sku
+  - name: category
+    singleValue: false
+    xpath: //div[@class="breadcrumbs"]//ul//li[not(contains(position(),1)) and not(contains(position(),last()))]//a
   - name: variantId
     singleValue: false
     xpath: //div[@class='product-add-form']//form/@data-product-sku
