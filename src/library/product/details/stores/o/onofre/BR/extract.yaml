@@ -116,7 +116,7 @@ fields:
     defaultValue: 'Yes'
   - name: directions
     singleValue: false
-    xpath: (//div[@class='product-description']//p//strong[contains(text(),'Modo de usar:')]//..)[1]
+    xpath: (//div[@class='product-description']//p//strong[contains(text(),'Modo de usar:')]//..)[1] | (//div[@class='product-description']//p//b[contains(text(),'Modo de usar:')]//..)[1]
   - name: warnings
     singleValue: false
     xpath: //div[contains(@class,'product-description')]//p[contains(@style, '1px solid')]
