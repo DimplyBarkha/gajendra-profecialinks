@@ -34,9 +34,19 @@ const transform = (data) => {
               item.text = 'https://www.petburada.com' + item.text;
             });
         }
-        if (row.alternateImages) {
-            row.alternateImages.forEach(item => {
-              item.text = 'https://www.petburada.com' + item.text;
+        if (row.image) {
+          row.image.forEach(item => {
+            item.text = 'https://www.petburada.com' + item.text;
+          });
+        }
+       if (row.price) {
+        row.price.forEach(item => {
+          item.text = '₺ ' + item.text;
+        });
+       }
+        if (row.listPrice) {
+            row.listPrice.forEach(item => {
+              item.text = '₺ ' + item.text;
             });
         }
         if (row.mpc) {
