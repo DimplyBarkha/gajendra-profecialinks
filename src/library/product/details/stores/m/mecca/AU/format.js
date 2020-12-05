@@ -37,29 +37,12 @@ const transform = (data) => {
           item.text = item.text.trim();
         });
       }
-      // if (row.listPrice) {
-      //   row.listPrice.forEach(item => {
-      //     item.text = item.text.replace('.', '');
-      //     item.text = item.text.replace(',', '.');
-      //   });
-      // }
-      // if (row.variantCount) {
-      //   row.variantCount = [{ 'text': row.variantCount.length }];
-      // }
-      // if (row.variants) {
-      //   var arr_temp = [];
-      //   row.price.forEach(item => {
-      //     arr_temp.push(item.text);
-      //   });
-      //   row.variants = [{ 'text': arr_temp.join('|') }];
-      // }
-      // if (row.additionalDescBulletInfo) {
-      //   var arr_temp = [];
-      //   row.price.forEach(item => {
-      //     arr_temp.push(item.text);
-      //   });
-      //   row.additionalDescBulletInfo = [{ 'text': '||' + arr_temp.join('||') }];
-      // }
+      if (row.quantity) {
+        row.quantity.forEach(item => {
+          item.text = item.text.replace('Size:', '');
+          item.text = item.text.trim();
+        });
+      }
     }
   }
   return cleanUp(data);

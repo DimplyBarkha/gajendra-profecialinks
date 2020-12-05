@@ -17,7 +17,7 @@ fields:
     xpath: //meta[@name='keywords']/@content
   - name: name
     singleValue: false
-    xpath: //h2[contains(@class,'productName')]
+    xpath: //header[contains(@class,'headerContainer')]
   - name: nameExtended
     singleValue: false
     xpath: //header[contains(@class,'headerContainer')]
@@ -63,3 +63,9 @@ fields:
   - name: imageZoomFeaturePresent
     singleValue: false
     defaultValue: Yes
+  - name: mpc
+    singleValue: false
+    xpath: //meta[@itemprop='mpn']//@content
+  - name: quantity
+    singleValue: false
+    xpath: //section[@class='css-1piegy2-productInfoContainer']//p[@class='css-gy3mpn-xSmall-sansSerif-small-sansSerif-sizeLabel']    
