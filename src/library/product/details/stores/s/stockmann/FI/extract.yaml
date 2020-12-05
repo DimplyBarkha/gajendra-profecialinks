@@ -53,16 +53,16 @@ fields:
     xpath: //h2[@class='brand-name']//a
   - name: mpc
     singleValue: false
-    xpath: //h2[text()='Lisätietoja']//following-sibling::div[contains(@class,'content')]//table//tr//th//div[text()='Valmistajan tuotenumero']//parent::th//following-sibling::td
+    xpath: //tr//th//div[@data-property='manufacturerSKU']/ancestor::tr//td
   - name: sku
     singleValue: false    
-    xpath: //script[contains(text(),'sku') and contains(text(),'mpn')]
+    xpath: //div[@id='maincontent']//script[@type='application/ld+json' and contains(text(),'sku')]
     #"sku":"10574502055-1"
     regExp: \"sku\"\s*:\s*\"(.+?)\"
     regExpReplace: $1
   - name: variantId
     singleValue: false
-    xpath: //script[contains(text(),'sku') and contains(text(),'mpn')]
+    xpath: //div[@id='maincontent']//script[@type='application/ld+json' and contains(text(),'sku')]
     #"sku":"10574502055-1"
     regExp: \"sku\"\s*:\s*\"(.+?)\"
     regExpReplace: $1
@@ -91,3 +91,9 @@ fields:
   - name: materials
     singleValue: false
     xpath: //h2[text()='Lisätietoja']//following-sibling::div[contains(@class,'content')]//table//tr//th//div[text()='Materiaali']//parent::th//following-sibling::td
+  - name: packSize
+    singleValue: false
+    xpath: //tr//th//div[@data-property='packingSize']/ancestor::tr//td
+  - name: quantity
+    singleValue: false
+    xpath: //tr//th//div[@data-property='sizeInformation']/ancestor::tr//td
