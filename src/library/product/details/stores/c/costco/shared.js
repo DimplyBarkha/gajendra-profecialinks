@@ -112,6 +112,19 @@ const transform = (data) => {
           item.text = item.text.replace('Model ', '');
         }
       }
+
+      if (row.myPrice) {
+        row.price = row.myPrice;
+      } else {
+        if (row.price && row.price.length == 2) {
+          let text = '';
+          row.price.forEach(item => {
+            text = text + item.text;
+          });
+          row.price = [{text: text, },];
+        }
+      }
+
       if (row.description) {
         let text = '';
         row.description.forEach(item => {
@@ -119,7 +132,7 @@ const transform = (data) => {
         });
         row.description = [
           {
-            text: text + '  ' + myDesc,
+            text: text + ' ' + myDesc,
           },
         ];
       }

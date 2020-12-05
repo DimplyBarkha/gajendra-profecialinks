@@ -58,9 +58,7 @@ module.exports = {
         featuresNode.forEach((ele) => {
           if (ele.innerText) {
             featureText += '||' + ele.innerText;
-            if (detailsDesc) {
-              detailsDesc = detailsDesc.replace(ele.innerText, '');
-            }
+            detailsDesc = detailsDesc.replace(ele.innerText, '');
           }
         });
         if (index !== -1) {

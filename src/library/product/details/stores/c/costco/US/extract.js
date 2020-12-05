@@ -16,6 +16,7 @@ module.exports = {
     const { productDetails } = dependencies;
     await new Promise(resolve => setTimeout(resolve, 2000));
     await context.evaluate(async () => {
+
       const moreBtn = document.querySelectorAll('div.flix-text-center>div.flix-btn-tech-ctrl');
       if (moreBtn) {
         try {
@@ -34,58 +35,67 @@ module.exports = {
     await new Promise(resolve => setTimeout(resolve, 2000));
     await context.evaluate(async () => {
       const moreBtn = document.querySelectorAll('div input[name="view-more"]');
-      if (moreBtn) {
-        try {
-          moreBtn[0].click();
-        } catch (err) {
-
+      if (moreBtn && moreBtn.length > 0) {
+        for(let cnt = 0; cnt < moreBtn.length; cnt++) {
+          try {
+            moreBtn[cnt].click();
+          } catch (err) {
+  
+          }
+          await new Promise(resolve => setTimeout(resolve, 5000));
         }
-        return 'Btn clicked';
       }
     });
-    await new Promise(resolve => setTimeout(resolve, 2000));
+    
+    await new Promise(resolve => setTimeout(resolve, 1000));
     await context.evaluate(async () => {
-      const moreBtn = document.querySelectorAll('div input[name="view-more"]');
-      if (moreBtn) {
-        try {
-          moreBtn[0].click();
-        } catch (err) {
-
-        }
-        return 'Btn clicked';
-      }
-    });
-    await new Promise(resolve => setTimeout(resolve, 3000));
-    await context.evaluate(async () => {
-      // const descNode = document.querySelector('div.product-info-description');
-      let desc = '';
+      const descNode = document.querySelector('div.product-info-description');
+      let manuFacturerDesc = '';
       const images = [];
-      // if (descNode && descNode.innerText) {
-      //   desc = descNode.innerText;
-      //   desc = desc.replace(/\n{1,}"/g, ' ').replace(/\s{1,}"/g, ' ');
-      // }
+      if (descNode && descNode.outerText) {
+        manuFacturerDesc = descNode.outerText;
+        manuFacturerDesc = manuFacturerDesc.replace(/\n{1,}"/g, ' ').replace(/\s{1,}"/g, ' ');
+      }
       try {
         const descNode1 = document.querySelector('div.syndi_powerpage');
         await new Promise(resolve => setTimeout(resolve, 2000));
         if (descNode1 && descNode1.shadowRoot) {
           const fetchNode = descNode1.shadowRoot.firstChild;
-          const text = fetchNode.innerText;
-          desc = desc + text;
-          desc = desc.replace(/\n{1,}"/g, ' ').replace(/\s{1,}"/g, ' ');
+          let text = fetchNode.innerText;
+          text = text.replace(/\n{1,}"/g, ' ').replace(/\s{1,}"/g, ' ');
+          manuFacturerDesc = manuFacturerDesc + text;
           const manImages = fetchNode.querySelectorAll('img');
           if (manImages && manImages.length > 0) {
             for (let i = 0; i < manImages.length; i++) {
-              images.push(manImages[i].src);
+              let img = manImages[i].src;
+              img = img.replace('/240.', '/480');
+              images.push(img);
             }
           }
         }
       } catch (err) { }
+
+      try {
+        const iframeElem = document.querySelector('iframe[id="wcframable1-0"]');
+        const iframeBody = iframeElem.contentWindow.document.body;
+        let iframeImages = iframeBody.querySelectorAll('img');
+        if (iframeImages && iframeImages.length > 0) {
+          for (let i = 0; i < iframeImages.length; i++) {
+            let img = iframeImages[i].src;
+            images.push(img);
+          }
+        }
+        let ifameTxt = iframeBody.innerText;
+        ifameTxt = ifameTxt.replace(/\n{1,}"/g, ' ').replace(/\s{1,}"/g, ' ');
+        manuFacturerDesc = manuFacturerDesc + ifameTxt;
+      } catch (err) {}
       if (images.length > 0) {
-        const image = images.join(' | ');
-        addHiddenDiv('manuf-images', image);
+        for (let x = 0; x < images.length; x++) {
+          addHiddenDiv(`manuf-images-${x}`, images[x]);
+        }
       }
-      if (desc.length > 0) {
-        // addHiddenDiv('product-desc', desc);
+      if (manuFacturerDesc.length > 0) {
+        addHiddenDiv('manufacturer-desc', manuFacturerDesc);
       }
       function addHiddenDiv (id, content) {
         const newDiv = document.createElement('div');
@@ -94,7 +104,7 @@ module.exports = {
         newDiv.style.display = 'none';
         document.body.appendChild(newDiv);
       }
-      return [`desc.length = ${desc.length}`, `images : ${images.length}`];
+      return [`desc.length = ${manuFacturerDesc.length}`, `images : ${images.length}`];
     });
     await new Promise(resolve => setTimeout(resolve, 2000));
     // await context.evaluate(async function () {
@@ -105,6 +115,7 @@ module.exports = {
     //   }
     // });
     await context.evaluate(async function () {
+     try {
       const iframe = document.querySelector('[title="Product Videos"]');
       if (iframe) {
         const video = iframe.contentWindow.document.getElementsByTagName('video');
@@ -131,6 +142,7 @@ module.exports = {
           });
         }
       }
+    } catch (err) {}
     });
 
     await new Promise(resolve => setTimeout(resolve, 1000));
@@ -168,6 +180,7 @@ module.exports = {
     // }
         async function preparePage () {
           await new Promise(resolve => setTimeout(resolve, 1000));
+          try {
           await context.evaluate(async () => {
             const iframe = document.querySelector('[title="Product Videos"]');
             if (iframe) {
@@ -196,6 +209,7 @@ module.exports = {
               }
             }
           });
+        } catch (err) {}
         }
         // await new Promise(resolve => setTimeout(resolve, 50000));
         // await context.evaluate(async function () {
