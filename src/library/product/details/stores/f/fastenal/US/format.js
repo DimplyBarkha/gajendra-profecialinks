@@ -30,7 +30,7 @@ const transform = (data) => {
                 });
               }
               if (row.Image360Present) {
-                row.image360Present.forEach(item => {
+                row.Image360Present.forEach(item => {
                     item.text = "https:" +item.text;
                 });
               }
