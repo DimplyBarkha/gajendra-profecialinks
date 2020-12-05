@@ -15,12 +15,15 @@ fields:
   - name: category
     singleValue: false
     xpath: //ol[contains(@class,"breadcrumb")]/li[position()>1]/a
+  - name: quantity
+    singleValue: false
+    xpath: //div[@class="mak-content__box-pad"]//div[contains(@class,"mak-content__box-tiny")]/div[text()="Size"]/parent::*/div[2]
   - name: nameExtended
     singleValue: false
     xpath: //span[contains(@itemprop,"name")]
   - name: price
     singleValue: false
-    xpath: //div[contains(@class,'product-ProductNamePrice')]/p
+    xpath: //div[contains(@class,'product-ProductNamePrice')]/p/text() | //div[contains(@class,'product-ProductNamePrice')]/p/span
   - name: brandText
     singleValue: false
     xpath: //span[contains(@itemprop,"brand")]

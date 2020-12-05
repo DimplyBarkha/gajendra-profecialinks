@@ -40,6 +40,22 @@ const transform = (data) => {
             item.text = item.text.replace(/\n\s*\n\s*/g, ' : ').trim();
           });
         }
+        if(row.price){
+          let priceStr='';
+          row.price.forEach(item=>{
+            if(priceStr==''){
+              priceStr=item.text;
+            }else{
+              priceStr=priceStr+"."+item.text;
+            }
+          })
+          row.price=[{"text":priceStr}];
+        }
+        if(row.quantity){
+          row.quantity.forEach(item=>{
+            item.text="Size "+item.text;
+          })
+        }
       }
     }
     return cleanUp(data);
