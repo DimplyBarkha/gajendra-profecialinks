@@ -8,7 +8,7 @@ fields:
     xpath: //div[@class="spex-contentBlock"]//h1[@class="spex-productImageWithTitle__title"]
   - name: nameExtended
     singleValue: false 
-    xpath: //div[@class="spex-contentBlock"]//h1[@class="spex-productImageWithTitle__title"]
+    xpath: //div[@class="spex-productImageWithTitle__imageContainer"]//img[@class="spex-productImageWithTitle__image"]/@alt
   - name: image
     singleValue: false 
     xpath: //div[@class="spex-productImageWithTitle__imageContainer"]//img[@class="spex-productImageWithTitle__image"]/@src
@@ -47,3 +47,9 @@ fields:
     xpath: //script[contains(@type, "application/ld+json") and contains(text(), "brand")][1]/text()
     regExp: brand":([^}]+)
     regExpReplace: $1
+  - name: variantInformation
+    singleValue: false
+    xpath: //section[contains(@class,'spex-selectionInput spex-selectionInput--fullBorder')]//span[@class="spex-selectionInput__title"]
+  - name: pack_size
+    singleValue: false
+    xpath: //div[@id="LensHeadlinePlural"]/var[@name="packageSize"]

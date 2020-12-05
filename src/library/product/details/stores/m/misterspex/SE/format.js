@@ -73,6 +73,13 @@ const transform = (data) => {
               info.push(item.text);
             });
         }
+        if(row.variantInformation){
+          var strVariantInfo = ''
+          row.variantInformation.forEach(item => {
+            strVariantInfo = strVariantInfo + item.text + ' | '
+          })
+           row.variantInformation = [{"text": strVariantInfo, "xpath": row.variantInformation[0].xpath}]
+        }     
         if (row.descriptionBullets) {
           row.descriptionBullets = [{'text':row.descriptionBullets.length, 'xpath':row.descriptionBullets[0].xpath}];              
         } 
