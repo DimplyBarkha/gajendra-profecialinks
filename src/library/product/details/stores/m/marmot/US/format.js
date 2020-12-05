@@ -58,6 +58,14 @@ const transform = (data) => {
           item.text = item.text.replace('Main Fabric:', '');
         });
       }
+      if (row.nameExtended) {
+        if (!row.brandText) {
+          row.brandText = [{ text: 'Marmot' }];
+        }
+        if (row.brandText) {
+          row.nameExtended = [{ text: row.brandText[0].text + ' - ' + row.nameExtended[0].text }];
+        }
+      }
       if (row.specifications) {
         var arrSpec = [];
         row.specifications.forEach(item => {

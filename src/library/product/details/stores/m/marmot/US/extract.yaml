@@ -84,4 +84,12 @@ fields:
     xpath: //h5[normalize-space()='Specifications']//following-sibling::ul//li[contains(text(),'Product Weight')]    
   - name: materials
     singleValue: false
-    xpath: //h5[normalize-space()='Specifications']//following-sibling::ul//li[contains(text(),'Main Fabric')]    
+    xpath: //h5[normalize-space()='Specifications']//following-sibling::ul//li[contains(text(),'Main Fabric')]
+  - name: brandText
+    singleValue: false
+    xpath: //script[contains(text(),'brand')]
+    regExp: \"brand\":\"(.+?)\"
+    regExpReplace: $1
+  - name: mpc
+    singleValue: false
+    xpath: //div[contains(@class,'product-detail')]/@data-pid    
