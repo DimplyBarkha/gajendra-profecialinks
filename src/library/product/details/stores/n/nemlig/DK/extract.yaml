@@ -91,3 +91,6 @@ fields:
   - name: customerServiceAvailability
     singleValue: false
     defaultValue: Yes
+  - name: quantity
+    singleValue: false
+    xpath: //div[@class='product-detail__attribute']//span[@class='product-detail__attribute-key' and contains(text(),'Størrelse:')]/following-sibling::span

@@ -32,9 +32,9 @@ const transform = (data) => {
           if (objMetaData.PageTitle) {
             row.name = [{ text: tempName }];
           }
-          if (objMetaData.TrackingId) {
-            row.sku = row.variantId = [{ text: objMetaData.TrackingId }];
-          }
+          // if (objMetaData.TrackingId) {
+          //   row.sku = row.variantId = [{ text: objMetaData.TrackingId }];
+          // }
           if (row.brandText) {
             row.nameExtended = [{ text: row.brandText[0].text + ' - ' + tempName }];
           }
