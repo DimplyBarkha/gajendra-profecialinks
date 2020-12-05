@@ -50,21 +50,18 @@ const transform = (data) => {
         if (row.gtin) {
             row.gtin.forEach(item => {
               item.text = item.text.replace(/\s*/g, '').trim();
-              item.text = item.text.replace('UPCCode', '').trim();
+              item.text = item.text.replace('UNSPSCCode', '').trim();
             });
         }
         if (row.upc) {
             row.upc.forEach(item => {
               item.text = item.text.replace(/\s*/g, '').trim();
-              item.text = item.text.replace('UPCCode', '').trim();
+              item.text = item.text.replace('UNSPSCCode', '').trim();
             });
         }
         if (row.description) {
             let description_ar = [];
             row.description.forEach(item => {
-              item.text = item.text.replace("#", '||').trim();
-              item.text = item.text.replace(", ", '||').trim();
-              item.text = item.text.replace(". ", '||').trim();
               description_ar.push(item.text);
             });
             if (description_ar.length) {

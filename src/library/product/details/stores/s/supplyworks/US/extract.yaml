@@ -32,10 +32,10 @@ fields:
     xpath: //div[contains(@class,'margin-bottom-half-em ProPickPDPIconDiv')]//span[@class="num-crumb" and contains(text(),'Item')] 
   - name: gtin
     singleValue: false
-    xpath: //div[contains(@class,'margin-bottom-half-em ProPickPDPIconDiv')]//span[@class="num-crumb" and contains(text(),'UPC Code')]
+    xpath: //div[contains(@class,'margin-bottom-half-em ProPickPDPIconDiv')]//span[@class="num-crumb" ]/a[contains(text(),'Code')]
   - name: upc
     singleValue: false
-    xpath: //div[contains(@class,'margin-bottom-half-em ProPickPDPIconDiv')]//span[@class="num-crumb" and contains(text(),'UPC Code')]
+    xpath: //div[contains(@class,'margin-bottom-half-em ProPickPDPIconDiv')]//span[@class="num-crumb" ]/a[contains(text(),'Code')]
   - name: mpc
     singleValue: false
     xpath: //div[contains(@class,'margin-bottom-half-em ProPickPDPIconDiv')]//span[@class="num-crumb" and contains(text(),'Item')]
@@ -53,10 +53,16 @@ fields:
     defaultValue: 'In Stock'
   - name: brandText
     singleValue: false  
-    xpath: //div[contains(@class,'pure-u-1 no-top-margin table-specs-display')]//div[contains(@class,'table-specs-display-left')]/span[text()="Paper Product Brand Name"]/parent::*/parent::*/div[contains(@class,'table-specs-display-right')]
+    xpath: //*[@id="main_wrapper"]/div[3]/div[3]/div[1]/div[1]/span[3]/a
   - name: manufacturer
     singleValue: false  
-    xpath: //div[contains(@class,'pure-u-1 no-top-margin table-specs-display')]//div[contains(@class,'table-specs-display-left')]/span[text()="Paper Product Brand Name"]/parent::*/parent::*/div[contains(@class,'table-specs-display-right')]
+    xpath: //*[@id="main_wrapper"]/div[3]/div[3]/div[1]/div[1]/span[3]/a
+  - name: packSize
+    singleValue: false  
+    xpath: //div[contains(@class,'pure-u-1 no-top-margin table-specs-display')]//div[contains(@class,'table-specs-display-left')]/span[text()="Pack Size"]/parent::*/parent::*/div[contains(@class,'table-specs-display-right')]
+  - name: quantity
+    singleValue: false  
+    xpath: //div[contains(@class,'pure-u-1 no-top-margin table-specs-display')]//div[contains(@class,'table-specs-display-left')]/span[text()="Size"]/parent::*/parent::*/div[contains(@class,'table-specs-display-right')]
   - name: variantCount
     singleValue: false
     defaultValue: '0'
