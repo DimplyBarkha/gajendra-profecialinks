@@ -33,6 +33,12 @@ module.exports = {
       console.log('Enhanced content did not load');
     }
 
+    try {
+      await context.waitForSelector('div[class*="flix-videodiv"] iframe', { timeout: 60000 });
+    } catch (err) {
+      console.log('Enhanced content video did not load');
+    }
+
     await context.extract(productDetails, { transform });
   },
 };
