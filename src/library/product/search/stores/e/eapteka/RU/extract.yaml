@@ -4,7 +4,7 @@ recordSelector: null
 recordXPath: //section[@class="cc-item"]
 fields:
   - name: id
-    xpath: //div[@class="cc-item--group cc-group"]/section[@class="cc-item"]/@data-id
+    xpath: //section[@class="cc-item"]/@data-id
     # regExp: 
     # regExpReplace: $1
   - name: name
@@ -15,9 +15,7 @@ fields:
     # regExp: (.+)
     # regExpReplace: https://www.elcorteingles.es$1
   - name: thumbnail
-    xpath: //div[@class="cc-item--group cc-group"]/section[@class="cc-item"]/div//img/@src
-    regExp: (.+)
-    regExpReplace: https://www.eapteka.ru$1
+    xpath: //meta[@itemprop="image"]/@content
   - name: aggregateRating
     # xpath: 
     regExp: .+(?=\sde)
