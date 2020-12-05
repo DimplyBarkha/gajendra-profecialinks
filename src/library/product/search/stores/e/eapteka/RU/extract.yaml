@@ -1,5 +1,54 @@
 singleRecord: false
 regionsSelector: null
-recordSelector: null
-recordXPath: null
-fields: null
+recordSelector: section.cc-item
+recordXPath: //section[@class="cc-item"]
+fields:
+  - name: id
+    singleValue: false
+    xpath: //section[@class="cc-item"]/@data-id
+  - name: searchUrl
+    singleValue: true
+  - name: name
+    singleValue: false
+    xpath: //meta[@itemprop="name"]/@content
+  - name: productUrl
+    singleValue: false
+    xpath: //meta[@itemprop="url"]/@content
+  - name: gtin
+    singleValue: false
+  - name: thumbnail
+    singleValue: false
+    xpath: //meta[@itemprop="image"]/@content
+  - name: aggregateRating
+    singleValue: false
+  - name: aggregateRating2
+    singleValue: false
+  - name: reviewCount
+    singleValue: false
+  - name: ratingCount
+    singleValue: false
+  - name: price
+    singleValue: false
+    xpath: //meta[@itemprop="price"]/@content
+  - name: manufacturer
+    singleValue: true
+  - name: soldBy
+    singleValue: true
+  - name: endorsementText
+    singleValue: false
+  - name: rank
+    singleValue: false
+    description: search/listing rank
+    type: NUMBER
+  - name: rankOrganic
+    singleValue: true
+    description: The position (rank) within the list excluding sponsored/paid results
+    type: NUMBER
+  - name: sponsored
+    singleValue: false
+    description: Is sponsored/paid
+    type: BOOLEAN
+  # - name: totalRecordCount
+  #   singleValue: true 
+  #   xpath: ancestor::html//p[contains(@name, 'searchresultcount')]/strong/text()
+  #   type: NUMBER

@@ -1,6 +1,14 @@
 robot: product/search
+proxy:
+  zone: USA
+  type: DATA_CENTER
 parameters:
   country: RU
   domain: eapteka.ru
   store: eapteka
   zipcode: "''"
+meta:
+  branches:
+    eapteka:
+      extractor: bf05d361-f768-451b-aa72-2d4d73b8946c
+      legacyAccountId: 63fd92cf-ba0e-42f9-9361-28797373bac8

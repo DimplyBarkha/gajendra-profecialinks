@@ -5,9 +5,9 @@ module.exports = {
     country: 'RU',
     store: 'eapteka',
     domain: 'eapteka.ru',
-    url: null,
-    loadedSelector: null,
-    noResultsXPath: null,
+    url: 'https://www.eapteka.ru/search/?q={searchTerms}',
+    loadedSelector: 'section.sec-inner.sec-categories.sec-search',
+    noResultsXPath: '//div[contains(., "По запросу") and contains(., "ничего не найдено")]',
     zipcode: "''",
   },
 };
