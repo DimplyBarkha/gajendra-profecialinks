@@ -48,7 +48,6 @@ async function implementation(
             }
           });
         }
-
         const doesLoadMoreExists = document.querySelector('button[id="showMoreProducts"]');
 
         if (doesLoadMoreExists) {
