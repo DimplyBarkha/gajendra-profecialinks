@@ -140,10 +140,10 @@ fields:
   - name: manufacturerImages
     singleValue: false
     description: Images within the third party description
-    xpath: //div[@id='added_manufacturerImage']
-    # #xpath: //div[@class='flix-background-image inpage_wowimg']/img/@srcset
-    # regExp: (.+)
-    # regExpReplace: https:$1
+    #xpath: //div[@id='added_manufacturerImage']
+    xpath: //div[@class='flix-background-image inpage_wowimg']/img/@srcset
+    regExp: (.+)
+    regExpReplace: https:$1
     # xpath: //div[@id='added_manufacturerImages']
   - name: videos
     singleValue: false

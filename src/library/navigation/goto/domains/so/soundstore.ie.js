@@ -14,6 +14,7 @@ module.exports = {
     await context.setAntiFingerprint(false);
     await context.setLoadAllResources(true);
     await context.setBlockAds(false);
+    await context.setFirstRequestTimeout(1000000);
     await context.goto(url, { timeout: timeout, waitUntil: 'load', checkBlocked: true });
     console.log(zipcode);
     if (zipcode) {
