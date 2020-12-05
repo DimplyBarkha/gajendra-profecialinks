@@ -22,7 +22,7 @@ fields:
   - name: price
     description: The offered price for the selected product variant - if a user
       clicks add to basket this is the price they would be charged
-    xpath: //span[contains(@class,"w-product__price__current")]
+    xpath: //span[contains(@class,"w-product__price__current")] | //span[contains(@class,"product-offers__price-title")][not(//span[contains(@class,"w-product__price__current")])]
   - name: availabilityText
     description: Availability as described on page for the selected variant. If
       there is no availability but the product can be added to cart, this field
