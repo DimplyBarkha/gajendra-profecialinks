@@ -17,9 +17,12 @@ module.exports = {
     dependencies,
   ) {
     await context.goto('https://www.sphere-sante.com/');
-    await context.setInputValue('input.search-input.searchTrack', inputs.keywords);
-    await new Promise(resolve => setTimeout(resolve, 2000));
-    await context.clickAndWaitForNavigation('.searchfbutton.searchButtonTrack.searchBarHeader-image', {}, { timeout: 100000 });
+    console.log(inputs.keywords);
+    await context.evaluate(async function (inputs) {
+      document.querySelector('input.search-input.searchTrack').value = inputs.keywords;
+    }, inputs);
+    await new Promise((resolve, reject) => setTimeout(resolve, 2000));
+    await context.click('.searchfbutton.searchButtonTrack.searchBarHeader-image');
     if (parameters.loadedSelector) {
       await context.waitForFunction(function (sel, xp) {
         return Boolean(document.querySelector(sel) || document.evaluate(xp, document, null, XPathResult.UNORDERED_NODE_ITERATOR_TYPE, null).iterateNext());
