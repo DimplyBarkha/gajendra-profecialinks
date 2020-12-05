@@ -14,46 +14,39 @@ module.exports = {
   ) => {
     const { transform } = parameters;
     const { productDetails } = dependencies;
-    await new Promise(resolve => setTimeout(resolve, 2000));
+    await new Promise(resolve => setTimeout(resolve, 10000));
     await context.evaluate(async () => {
-
       const moreBtn = document.querySelectorAll('div.flix-text-center>div.flix-btn-tech-ctrl');
-      if (moreBtn) {
-        try {
-          moreBtn[0].click();
-        } catch (err) {
-
+      if (moreBtn && moreBtn.length > 0) {
+        for(let cnt = 0; cnt < moreBtn.length; cnt++) {
+          try {
+            moreBtn[cnt].click();
+            await new Promise(resolve => setTimeout(resolve, 2000));
+          } catch (err) {  }
+          }
         }
-        await new Promise(resolve => setTimeout(resolve, 2000));
-        try {
-          moreBtn[0].click();
-        } catch (err) {
-
-        }
-      }
     });
     await new Promise(resolve => setTimeout(resolve, 2000));
     await context.evaluate(async () => {
       const moreBtn = document.querySelectorAll('div input[name="view-more"]');
       if (moreBtn && moreBtn.length > 0) {
-        for(let cnt = 0; cnt < moreBtn.length; cnt++) {
+        for(let cnt = 0; cnt < 2; cnt++) {
           try {
             moreBtn[cnt].click();
-          } catch (err) {
-  
-          }
-          await new Promise(resolve => setTimeout(resolve, 5000));
+            await new Promise(resolve => setTimeout(resolve, 2000));
+          } catch (err) { }
         }
       }
     });
     
-    await new Promise(resolve => setTimeout(resolve, 1000));
+    await new Promise(resolve => setTimeout(resolve, 3000));
     await context.evaluate(async () => {
       const descNode = document.querySelector('div.product-info-description');
       let manuFacturerDesc = '';
       const images = [];
-      if (descNode && descNode.outerText) {
+      if (descNode) {
         manuFacturerDesc = descNode.outerText;
+        console.log("manuFacturerDesc ==", manuFacturerDesc);
         manuFacturerDesc = manuFacturerDesc.replace(/\n{1,}"/g, ' ').replace(/\s{1,}"/g, ' ');
       }
       try {

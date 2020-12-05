@@ -47,7 +47,7 @@ const transform = (data) => {
             }
           }
         });
-        // row.variantId = variantIds;
+        row.manufacturerImages = variantIds;
       }
       if (row.allergyAdvice) {
         let text = '';

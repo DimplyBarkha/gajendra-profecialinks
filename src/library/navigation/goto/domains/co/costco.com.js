@@ -9,8 +9,8 @@ module.exports = {
     zipcode: '',
   },
   implementation: async ({ url, zipcode }, parameters, context, dependencies) => {
-    const timeout = parameters.timeout ? parameters.timeout : 40000;
-    await context.goto(url, { first_request_timeout: 60000, timeout, waitUntil: 'load', checkBlocked: true });
+    const timeout = parameters.timeout ? parameters.timeout : 80000;
+    await context.goto(url, { first_request_timeout: 90000, timeout, waitUntil: 'load', checkBlocked: true });
   },
   // implementation: async ({ url, zipcode }, parameters, context, dependencies) => {
   //   if (zipcode) {
