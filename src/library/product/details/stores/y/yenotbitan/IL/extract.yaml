@@ -21,9 +21,6 @@ fields:
   - name: nameExtended
     singleValue: false
     xpath: //h1[@id="product_dialog_title"]
-  - name: listPrice
-    singleValue: true
-    description: //div[@class="weight-and-price"]//span[@itemprop="price"]
   - name: price
     singleValue: false
     xpath: //div[@class="weight-and-price"]//span[@itemprop="price"]
@@ -65,9 +62,9 @@ fields:
   - name: name
     singleValue: false
     xpath: //h1[@id="product_dialog_title"]
-  - name: inStorePrice
+  - name: productUrl
     singleValue: false
-    xpath: //div[@class="weight-and-price"]//span[@itemprop="price"]
+    xpath: //meta[@property="og:url"]/@content
   - name: termsAndConditions
     singleValue: false
     defaultValue: "Yes"
