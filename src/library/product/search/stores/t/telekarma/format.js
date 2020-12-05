@@ -27,6 +27,12 @@ const transform = (data, context) => {
         clean(row.rankOrganic = [{ text: orgRankCounter }]);
       }
       clean(row.rank = [{ text: rankCounter }]);
+      if (row.price) {
+        const priceArr = row.price.map((item) => {
+          return typeof (item.text) === 'string' ? item.text.replace('.', ',') : '';
+        });
+        clean(row.price = [{ text: priceArr.join(''), xpath: row.price[0].xpath }]);
+      }
     }
   }
   context.setState({ rankCounter });
