@@ -19,7 +19,7 @@ fields:
     xpath: //ul[contains(@class,'products-grid')]//li[contains(@class,'item')]//h2
   - name: price
     singleValue: false
-    xpath: //ul[contains(@class,'products-grid')]//li[contains(@class,'item')]//div[contains(@class,'product-price')]//p[contains(@class,'special-price')]
+    xpath: //ul[contains(@class,'products-grid')]//li[contains(@class,'item')]//div[contains(@class,'product-price')]//span[contains(@class,'regular-price')] | //ul[contains(@class,'products-grid')]//li[contains(@class,'item')]//div[contains(@class,'product-price')]//p[contains(@class,'special-price')]
   - name: brandText
     singleValue: false
     xpath: //ul[contains(@class,'products-grid')]//li[contains(@class,'item')]//div[contains(@class,'product-attributes')]//li[1]
