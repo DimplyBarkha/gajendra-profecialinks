@@ -20,14 +20,14 @@ fields:
     xpath: //div[@class='shelfProductTile-information']//h1
   - name: price
     singleValue: false
-    xpath: //shared-price
+    xpath: //wow-product-details-panel//shared-price//div[contains(@class,'price price--large')]//text()
   - name: availabilityText
     singleValue: false
     xpath: //wow-product-details-panel//div[contains(@class,'cartControls')]//button[contains(@class,'cartControls-addButton')]
     defaultValue: "In Stock"
   - name: description
     singleValue: false
-    xpath: //div[@class='ng-star-inserted']//script[@type='application/ld+json']
+    xpath: (//wow-view-more//div[@class='viewMore-expanded']//div)[1]//text()
   - name: variantCount
     singleValue: false
     defaultValue: 0    
@@ -45,10 +45,19 @@ fields:
     xpath: //ul[contains(@class,'thumbnails')]//li[position()>1]//a//img//@src
   - name: directions
     singleValue: false
-    xpath: //h3[text()='Directions']/parent::section[contains(@class,'directions')]
+    xpath: //h3[text()='Directions']/parent::section[contains(@class,'directions')]//wow-view-more//div[contains(@class,'viewMore-html')]//text()
   - name: warnings
     singleValue: false
-    xpath: //h3[text()='Product Warnings']/parent::section[contains(@class,'product-warnings')]  
+    xpath: //h3[text()='Product Warnings']/parent::section[contains(@class,'product-warnings')]//div[contains(@class,'viewMore-')]//text()
   - name: gtin
     singleValue: false
     xpath: //div[@class='ng-star-inserted']//script[@type='application/ld+json']
+  - name: brandText
+    singleValue: false
+    xpath: //div[@class='ng-star-inserted']//script[@type='application/ld+json']
+  - name: ingredientsList
+    singleValue: false
+    xpath: //h3[text()='Ingredients']/parent::section[contains(@class,'ingredients')]//wow-view-more//div[contains(@class,'viewMore-')]//text()
+  - name: quantity
+    singleValue: false
+    defaultValue: 1
