@@ -39,3 +39,6 @@ fields:
   - name: description
     singleValue: false
     xpath: //div[@property="description"]
+  - name: quantity
+    singleValue: false
+    xpath: //div[@property="description"]/p/span/strong[contains(text(),"Specifications:")]/parent::*/parent::*/following-sibling::p/span[contains(text(),"Size:")]/text() | //div[@property="description"]/p/span/strong/span[contains(text(),"Specifications:")]/parent::*/parent::*/parent::*/following-sibling::p/span[contains(text(),"Size:")]/text()

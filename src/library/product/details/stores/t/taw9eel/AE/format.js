@@ -31,6 +31,11 @@ const transform = (data) => {
                 item.text=item.text.replace('SKU:','');
             })
         }
+        if(row.quantity){
+          row.quantity.forEach(item=>{
+              item.text=item.text.replace('♦ Size: ','');
+          })
+        }
         if(row.variantId){
           row.variantId.forEach(item=>{
               item.text=item.text.replace('SKU:','');
