@@ -25,7 +25,42 @@ const transform = (data) => {
     
     for (const { group } of data) {
       for (let row of group) {
-        
+        if (row.availabilityText) {                    
+          row.availabilityText.forEach(item => {
+            item.text = "In Stock";
+          });          
+        }
+        if (row.secondaryImageTotal) {                    
+          row.secondaryImageTotal.forEach(item => {
+            item.text = Number(item.text);
+          });          
+        }
+        if (row.specifications) {
+          let info = [];
+          row.specifications.forEach(item => {
+            info.push(item.text.trim());
+          });
+          row.specifications = [{'text':info.join(' | '),'xpath':row.specifications[0].xpath}];
+        }
+        if (row.size) {
+          let sizeinfo = [];
+          row.size.forEach(item => {
+            sizeinfo.push(item.text.trim());
+          });
+          row.size = [{'text':sizeinfo.join(' | '),'xpath':row.size[0].xpath}];
+        }
+        if (row.variants) {
+          let variantsinfo = [];
+          row.variants.forEach(item => {
+            variantsinfo.push(item.text.trim());
+          });
+          row.variants = [{'text':variantsinfo.join(' | '),'xpath':row.variants[0].xpath}];
+        }
+        if (row.secondary_image_total) {                    
+          row.secondary_image_total.forEach(item => {
+            item.text = Number(item.text-1);
+          });          
+        }
       }
     }
     return cleanUp(data);

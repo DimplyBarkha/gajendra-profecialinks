@@ -5,8 +5,8 @@ module.exports = {
     country: 'AU',
     store: 'armani',
     domain: 'armani.com',
-    loadedSelector: null,
-    noResultsXPath: null,
+    loadedSelector: 'div[class="item-main-content"]',
+    noResultsXPath: '//div[@id="info"]',
     zipcode: '',
   },
 };

@@ -8,25 +8,38 @@ fields:
     xpath: //ul[@class="alternativeImages"]/li[1]/img/@src
   - name: alternateImages
     singleValue: false
-    xpath: 
+    xpath: //ul[@class="alternativeImages"]/li/img/@src
+  - name: secondaryImageTotal
+    singleValue: false
+    xpath: count(//ul[@class="alternativeImages"]/li)
   - name: metaKeywords
     singleValue: false
     xpath: //meta[@name="keywords"]/@content
+  - name: category
+    singleValue: false
+    xpath: //ul[@class="breadcrumbs"]/li[@class="crumb level_3    "]/a/span[@class="text"]
+  - name: subcategory
+    singleValue: false
+    xpath: //ul[@class="breadcrumbs"]/li[contains(@class,"crumb level_7")]/a/span[@class="text"]
   - name: nameExtended
     singleValue: false
-    xpath: //span[@class="modelName inner"]
+    xpath: //div[@class="item-shop"]//header
   - name: name
     singleValue: false
     xpath: //span[@class="modelName inner"]
   - name: price
     singleValue: false
-    xpath: //span[@class="price"]
+    xpath: //div[@class="item-price"]//span[@class="price"]
   - name: availabilityText
-    singleValue: false    
+    singleValue: false
     xpath: //span[@class="last-item-warning"]
+    defaultValue: "Out of stock"
   - name: description
     singleValue: false
     xpath: //div[@class="item-editorial-description"]//span[@class="value"]
+  - name: size
+    singleValue: false
+    xpath: //div[@class="item-size-selection"]//ul[@role="listbox"]/li/span/label
   - name: specifications
     singleValue: false
     xpath: //div[@class="descriptionContent"]
@@ -35,19 +48,28 @@ fields:
     xpath: //p/@data-brand
   - name: sku
     singleValue: false
-    xpath: //span[@data-ytos-mfc]/@content
+    xpath: //span[@data-ytos-mfc]
   - name: variantId
     singleValue: false
-    xpath: //div/@data-code10
+    xpath: //span[@data-ytos-mfc]
+  - name: variantInformation
+    singleValue: false
+    xpath: //div[@class="selectColor colorSelection dropdown"]//button[@class="selectionLabel"]//span[@class="text"]
+  - name: firstVariant
+    singleValue: false
+    xpath: //div[@class="selectColor colorSelection dropdown"]//button[@class="selectionLabel"]//span[@class="text"]
+  - name: variants
+    singleValue: false
+    xpath: //div[@class="selectColor colorSelection dropdown"]//ul[@role="listbox"]//li/@data-code10
+  - name: variantCount
+    singleValue: false
+    defaultValue: '0'
   - name: imageAlt
     singleValue: false
     xpath: //ul[@class="alternativeImages"]/li/img/@alt
   - name: promotion
     singleValue: false
     xpath: //div[@class="promotion-message"]
-  - name: listPrice
-    singleValue: false
-    xpath: //span[@class="price"]
   - name: color
     singleValue: false
     xpath: //button[@data-ytos-color-label="Color"]//span[@class="text"]
