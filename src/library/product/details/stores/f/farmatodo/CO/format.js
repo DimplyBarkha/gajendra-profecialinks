@@ -23,18 +23,36 @@ const transform = (data) => {
       return data;
     };
     for (const { group } of data) {
+      let brandTextStr='',skuStr='';
       for (let row of group) {
+        if(row.brandText){
+          row.brandText.forEach(item=>{
+            let brandObj=JSON.parse(item.text);
+            brandTextStr=brandObj.brand.name;
+            skuStr=brandObj.sku;
+          })
+          if(brandTextStr==''){
+            delete row.brandText;
+          }else{
+            row.brandText=[{"text":brandTextStr}];
+          }
+          if(skuStr==''){
+            delete row.sku;
+          }else{
+            row.sku=[{"text":skuStr}];
+            row.variantId=[{"text":skuStr}];
+            row.mpc=[{"text":skuStr}];
+          }
+        }
+        if(row.category){
+          row.category.forEach(item=>{
+            item.text=item.text.replace('/','').trim();
+          })
+        }
         if(row.image){
           row.image.forEach(item => {
             item.text=item.text.replace('=s360','');
           });
-        }
-        if(row.sku){
-          row.sku.forEach(item=>{
-            let dataAr=item.text.replace('https://www.farmatodo.com.co/producto/','').split('-');
-            item.text=dataAr[0];
-            row.variantId=[{"text":dataAr[0]}];
-          })
         }
         if(row.price){
           row.price.forEach(item => {
@@ -46,11 +64,19 @@ const transform = (data) => {
             item.text=item.text.replace('.',',');
           });
         }
-        if(row.category){
-          row.category.forEach(item=>{
-            if(item.text.substr(0,1)=='/'){
-              item.text=item.text.substr(2, item.text.lenght);
-            }
+        if(row.descriptionBullets){
+          let noSl=0;
+          let inf=[];
+          row.descriptionBullets.forEach(item=>{
+            noSl++;
+            inf.push(item.text);
+          })
+          row.descriptionBullets=[{"text":noSl}];
+          row.additionalDescBulletInfo=[{"text":inf.join(' || ')}];
+        }
+        if(row.countryOfOrigin){
+          row.countryOfOrigin.forEach(item=>{
+            item.text=item.text.replace('País de producción:','').replace('.','').trim();
           })
         }
       }
