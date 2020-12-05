@@ -45,6 +45,14 @@ const transform = (data) => {
           },
         ];
       }
+      if (row.image) {
+        let img = [];
+        row.image.forEach(item => {
+          if (item.text.indexOf('https:') === -1) {
+            item.text = `https:${item.text}`;
+          }
+        });
+      }
       if (row.variantUrl) {
         const variantUrls = [];
         let dupUrl = '';
@@ -111,7 +119,7 @@ const transform = (data) => {
         });
         row.description = [
           {
-            text: text.slice(0, -4),
+            text: text.slice(0, -3),
           },
         ];
       }
@@ -122,7 +130,7 @@ const transform = (data) => {
         });
         row.specifications = [
           {
-            text: text.slice(0, -4),
+            text: text.slice(0, -3),
           },
         ];
       }
@@ -133,7 +141,7 @@ const transform = (data) => {
         });
         row.allergyAdvice = [
           {
-            text: text.slice(0, -4),
+            text: text.slice(0, -2),
           },
         ];
       }
@@ -144,7 +152,7 @@ const transform = (data) => {
         });
         row.additionalDescBulletInfo = [
           {
-            text: text.slice(0, -4),
+            text: text.slice(0, -2),
           },
         ];
       }
