@@ -48,16 +48,9 @@ async function implementation(
             }
           });
         }
-        try{
-          await context.waitForSelector('button[id="showMoreProducts"]',{ timeout : 60000});
-          console.log('load button exist');
-        }catch(e){
-          console.log("load more button doesn't exist");
-        }
-        
-        // Check if load more exists
+
         const doesLoadMoreExists = document.querySelector('button[id="showMoreProducts"]');
- 
+
         if (doesLoadMoreExists) {
           console.log('Clicking on load more btn');
           // @ts-ignore
@@ -71,6 +64,7 @@ async function implementation(
         const products = document.evaluate('//li[@class="ish-productList-item"]', document.body, null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
         const productsCount = products.snapshotLength;
         scrollTop += 3000;
+        await stall(2000);
         window.scroll(0, scrollTop);
         if (scrollTop >= 80000 || productsCount > 160) {
           await stall(10000);
@@ -88,6 +82,13 @@ async function implementation(
   };
 
   await applyScroll(context);
+  try {
+    await context.waitForSelector('button[id="showMoreProducts"]', { timeout: 60000 });
+    console.log('load button exist');
+  } catch (e) {
+    console.log("load more button doesn't exist");
+  }
+
   await context.evaluate(() => {
     const searchUrl = window.location.href;
     const appendElements = document.querySelectorAll('li[class*="ish-productList-item"]');
