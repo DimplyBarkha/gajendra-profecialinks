@@ -45,14 +45,14 @@ async function implementation (
     });
   };
   await applyScroll(context);
-
+  await new Promise((resolve, reject) => setTimeout(resolve, 5000));
   if (parameters.loadedSelector) {
     await context.waitForFunction(function (sel, xp) {
       return Boolean(document.querySelector(sel) || document.evaluate(xp, document, null, XPathResult.UNORDERED_NODE_ITERATOR_TYPE, null).iterateNext());
     }, { timeout: 10000 }, parameters.loadedSelector, parameters.noResultsXPath);
   }
   console.log('Checking no results', parameters.noResultsXPath);
-  await new Promise((resolve, reject) => setTimeout(resolve, 5000));
+  await new Promise((resolve, reject) => setTimeout(resolve, 9000));
   return await context.evaluate(function (xp) {
     const r = document.evaluate(xp, document, null, XPathResult.UNORDERED_NODE_ITERATOR_TYPE, null);
     console.log(xp, r);
