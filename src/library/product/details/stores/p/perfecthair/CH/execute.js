@@ -6,7 +6,7 @@ module.exports = {
     store: 'perfecthair',
     domain: 'perfecthair.ch',
     loadedSelector: null,
-    noResultsXPath: null,
+    noResultsXPath: '//div[contains(@class,"detail-error content listing--content")]//*[contains(text(),"nicht mehr verfügbar")]',
     zipcode: '',
   },
 };

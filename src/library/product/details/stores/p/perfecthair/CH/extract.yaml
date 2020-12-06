@@ -16,9 +16,10 @@ fields:
     xpath: //div[contains(@class, "image-slider--thumbnails-slide")]//a/@href
   - name: availabilityText
     singleValue: false
-    xpath: //link[@itemprop = "availability"]//@href
-    regExp: http:\/\/schema\.org\/(.*)
-    regExpReplace: $1
+    xpath: //button[contains(.,"In den Warenkorb")]
+    regExp: (\s)Warenkorb
+    regExpReplace: In Stock$1
+    defaultValue: Out of Stock
   - name: brandText
     singleValue: false
     xpath: //span[contains(@class, "supplier--name")]//h2
