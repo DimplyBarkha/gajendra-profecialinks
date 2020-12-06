@@ -19,7 +19,7 @@ async function implementation (
     }
       var descriptionData = "";
       var descriptionUl = "";
-      var childNodes = document.querySelector(".product-desc-box__description .static-page__area").childNodes;
+      var childNodes = (document.querySelector(".product-desc-box__description .static-page__area") ? document.querySelector(".product-desc-box__description .static-page__area").childNodes : []);
       childNodes.forEach(x => {
         
         if(descriptionData == undefined){
@@ -46,7 +46,7 @@ async function implementation (
         descriptionData = descriptionData.replace("undefined","");
       })
       if(descriptionData == ""){
-        descriptionData = document.querySelector(".product-desc-box__description .static-page__area").innerHTML;
+        descriptionData = document.querySelector(".product-desc-box__description .static-page__area") ? document.querySelector(".product-desc-box__description .static-page__area").innerHTML : "";
       }
       addHiddenDiv("page_description" , descriptionData);
     }); 

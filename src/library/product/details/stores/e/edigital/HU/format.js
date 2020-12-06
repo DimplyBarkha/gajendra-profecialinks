@@ -54,6 +54,13 @@ const transform = (data) => {
                 item.text = "https:" + item.text;
             });
           }
+
+          if (row.manufacturerImages) {
+            row.manufacturerImages.forEach(item => {
+                item.text = (item.text.indexOf("http") == -1 ? "https:" + item.text : item.text);
+            });
+          }
+
           if (row.brandText) {            
             row.brandText.forEach(item => {
                 let data = JSON.parse(item.text);
