@@ -87,7 +87,7 @@ const transform = (data) => {
       }
       if (row.brandLink) {
         row.brandLink.forEach(item => {
-          item.text = 'https://www.manor.ch' + item.text
+          item.text = 'https://www.worldofsweets.de/' + item.text
         });
       }
       if (row.category) {
@@ -105,7 +105,7 @@ const transform = (data) => {
       if (row.alternateImages) {
         let info = [];
         row.alternateImages.forEach(item => {
-          info.push('https://www.manor.ch' + item.text)
+          info.push('https://www.worldofsweets.de/' + item.text)
         });
         if (info.length) {
           row.alternateImages = [];
@@ -116,12 +116,12 @@ const transform = (data) => {
       }
       if (row.manufacturerImages) {
         row.manufacturerImages.forEach(item => {
-          item.text = 'https://www.manor.ch' + item.text
+          item.text = 'https://www.worldofsweets.de/' + item.text
         });
       }
       if (row.image) {
         row.image.forEach(item => {
-          item.text = 'https://www.manor.ch' + item.text
+          item.text = 'https://www.worldofsweets.de/' + item.text
         });
       }
       if (row.warranty) {
@@ -166,6 +166,11 @@ const transform = (data) => {
         row.ratingCount.forEach(item => {
           item.text = parseInt(item.text);
         });
+      }
+      if(row.manufacturer){
+        row.manufacturer.forEach(item =>{
+        item.text = item.text.replace(/\n/g,' ');
+        })
       }
       if (row.aggregateRating) {
         row.aggregateRating.forEach(item => {
