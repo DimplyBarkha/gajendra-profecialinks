@@ -18,7 +18,8 @@ fields:
     xpath: //a[@class="product__image"]/@data-gtm-product-id
     description: The store-specific product identifier
   - name: price
-    xpath: //a[@class="btn btn--wide product__price"]/text()
+    xpath: //a[contains(@class,"btn--wide")]/text()
+    # xpath: //a[@class="btn btn--wide product__price"]/text()
     description: The offered price for the product
   - name: rank
   - name: rankOrganic

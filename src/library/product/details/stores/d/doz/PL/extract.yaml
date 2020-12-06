@@ -29,19 +29,16 @@ fields:
     xpath: normalize-space(//div[@class="price"]/text())
   - name: availabilityText
     singleValue: false
-    description: Availability as described on page for the selected variant. If
-      there is no availability but the product can be added to cart, this field
-      should be "In Stock"
+    xpath: //p[contains(text(),"Produkt chwilowo niedostępny")]
     regExp: (.+)
-    regExpReplace: In Stock
-    defaultValue: Out of Stock
+    regExpReplace: Out of Stock
+    defaultValue: In Stock
   - name: description
     singleValue: false
-    xpath: //section[@class="product-card__about "]//div[@class="col"]//text()
+    xpath: //section[@class="product-card__about "]//div[@class="col"]//text() | //section[@class="product-card__category"]//text() #| //span[contains(text(), "Sposób aplikacji")]//../following-sibling::ul/li/a/text() | //span[contains(text(), "Pora stosowania")]//../following-sibling::ul/li/a/text()  | //span[contains(text(), "Pora stosowania")]//../following-sibling::ul/li/a/text() |//span[contains(text(), "Układy narządowe")]//../following-sibling::ul/li/a/text() | //span[contains(text(), "Specyfika")]//../following-sibling::ul/li/a/text() | //span[contains(text(), "Główny składnik")]//../following-sibling::ul/li/a/text() | //span[contains(text(), "Działanie/właściwości")]//../following-sibling::ul/li/a/text() | //span[contains(text(), "Działanie/właściwości")]//../following-sibling::ul/li/a/text() | //span[contains(text(), "Postać")]//../following-sibling::ul/li/a/text() | //span[contains(text(), "Typ produktu")]//../following-sibling::ul/li/a/text() | //span[contains(text(), "Płeć")]//../following-sibling::ul/li/a/text() | //span[contains(text(), "Wiek")]//../following-sibling::ul/li/a/text()
   - name: descriptionBullets
     singleValue: false
-    description: Number of ul > li tags in the description
-    type: NUMBER
+    xpath: count(//h2[contains(text(), "Charakterystyka produktu")]//..//following-sibling::ul/li)
   - name: brandText
     singleValue: false
     xpath: //section[@class="product-card__purchase"]//h1/text()
@@ -49,7 +46,7 @@ fields:
     # regExpReplace: $1
   - name: manufacturer
     singleValue: false
-    description: Product manufacturer
+    xpath: //h2[contains(text(), "Producent")]//..//following-sibling::address/text()
   - name: quantity
     singleValue: false
     description: Quantity as described on the page
@@ -57,7 +54,7 @@ fields:
     regExpReplace: $1$2$3$4
   - name: weightNet
     singleValue: false
-    description: Net weight as described on the page
+    xpath: //h2[contains(text(), "Masa netto")]//../following-sibling::p[text()]
   - name: weightGross
     singleValue: false
     description: Gross weight as described on the page
@@ -243,8 +240,7 @@ fields:
     type: NUMBER
   - name: caloriesPerServing
     singleValue: false
-    description: Nutritional Information for Calories Per Serving content - Usually
-      based on per 100g serving
+    xpath: //td[contains(.,"Wartość energetyczna")]/following::td[1]
   - name: caloriesFromFatPerServing
     singleValue: false
     description: Nutritional Information for Calories From Fat content - Usually
@@ -252,20 +248,24 @@ fields:
     type: NUMBER
   - name: totalFatPerServing
     singleValue: false
-    description: Nutritional Information for Total Fat content - Usually based on
-      per 100g serving
-    type: NUMBER
+    xpath: //td[contains(.,"Tłuszcz")]/following::td[1]
+    regExp: (.+)g
+    regExpReplace: $1
   - name: totalFatPerServingUom
     singleValue: false
-    description: Unit of Measure Data for Total Fat content
+    xpath: //td[contains(.,"Tłuszcz")]/following::td[1]
+    regExp: (.+)
+    regExpReplace: g
   - name: saturatedFatPerServing
     singleValue: false
-    description: Nutritional Information for Saturated Fat content - Usually based
-      on per 100g serving
-    type: NUMBER
+    xpath: //td[contains(.,"Węglowodany")]/following::td[1]
+    regExp: (.+)g
+    regExpReplace: $1
   - name: saturatedFatPerServingUom
     singleValue: false
-    description: Unit of Measure Data for Saturated Fat content
+    xpath: //td[contains(.,"Węglowodany")]/following::td[1]
+    regExp: (.+)
+    regExpReplace: g
   - name: transFatPerServing
     singleValue: false
     description: Nutritional Information for Trans Fat content - Usually based on
@@ -292,60 +292,84 @@ fields:
     description: Unit of Measure Data for Sodium content
   - name: totalCarbPerServing
     singleValue: false
-    description: Nutritional Information for Total Carbohydrate content - Usually
-      based on per 100g serving
-    type: NUMBER
+    xpath: //td[contains(.,"Węglowodany")]/following::td[1]
+    regExp: (.+)g
+    regExpReplace: $1
   - name: totalCarbPerServingUom
     singleValue: false
-    description: Unit of Measure Data for Total Carbohydrate content
+    xpath: //td[contains(.,"Węglowodany")]/following::td[1]
+    regExp: (.+)
+    regExpReplace: g
   - name: dietaryFibrePerServing
     singleValue: false
-    description: Nutritional Information for Dietary Fibre content - Usually based
-      on per 100g serving
-    type: NUMBER
+    xpath: //td[contains(.,"Błonnik")]/following::td[1]
+    regExp: (.+)g
+    regExpReplace: $1
   - name: dietaryFibrePerServingUom
     singleValue: false
-    description: Unit of Measure Data for Dietary Fibre content
+    xpath: //td[contains(.,"Błonnik")]/following::td[1]
+    regExp: (.+)
+    regExpReplace: g
   - name: totalSugarsPerServing
     singleValue: false
-    description: Nutritional Information for Total Sugar content - Usually based on
-      per 100g serving
-    type: NUMBER
+    xpath: //td[contains(.,"ukry")]/following::td[1]
+    regExp: (.+)g
+    regExpReplace: $1
   - name: totalSugarsPerServingUom
     singleValue: false
-    description: Unit of Measure Data for Total Sugar content
+    xpath: //td[contains(.,"ukry")]/following::td[1]
+    regExp: (.+)
+    regExpReplace: g
   - name: proteinPerServing
     singleValue: false
-    description: Nutritional Information for Protein content - Usually based on per
-      100g serving
-    type: NUMBER
+    xpath: //td[contains(.,"Białko")]/following::td[1]
+    regExp: (.+)g
+    regExpReplace: $1
   - name: proteinPerServingUom
     singleValue: false
-    description: Unit of Measure Data for Protein
+    xpath: //td[contains(.,"Białko")]/following::td[1]
+    regExp: (.+)
+    regExpReplace: g
   - name: vitaminAPerServing
     singleValue: false
-    description: Nutritional Information for Vitamin A content - Usually based on
-      per 100g serving
-    type: NUMBER
+    xpath: //td[contains(.,"Witamina A")]/following::td[1]
+    regExp: (.+)µg
+    regExpReplace: $1
   - name: vitaminAPerServingUom
     singleValue: false
-    description: Unit of Measure Data for Vitamin A
+    xpath: //td[contains(.,"Witamina A")]/following::td[1]
+    regExp: (.+)
+    regExpReplace: µg
   - name: vitaminCPerServing
     singleValue: false
-    description: Nutritional Information for Vitamin C content - Usually based on
-      per 100g serving
-    type: NUMBER
+    xpath: //td[contains(.,"Witamina C")]/following::td[1]
+    regExp: (.+)mg
+    regExpReplace: $1
   - name: vitaminCPerServingUom
     singleValue: false
-    description: Unit of Measure Data for Vitamin C
+    xpath: //td[contains(.,"Witamina C")]/following::td[1]
+    regExp: (.+)
+    regExpReplace: mg
   - name: calciumPerServing
     singleValue: false
-    description: Nutritional Information for Calcium content - Usually based on per
-      100g serving
-    type: NUMBER
+    xpath: //td[contains(.,"Wapń")]/following::td[1]
+    regExp: (.+)mg
+    regExpReplace: $1
   - name: calciumPerServingUom
     singleValue: false
-    description: Unit of Measure Data for Calcium
+    xpath: //td[contains(.,"Wapń")]/following::td[1]
+    regExp: (.+)
+    regExpReplace: mg
+  - name: magnesiumPerServing
+    singleValue: false
+    xpath: //td[contains(.,"Magnez")]/following::td[1]
+    regExp: (.+)mg
+    regExpReplace: $1
+  - name: magnesiumPerServingUom
+    singleValue: false
+    xpath: //td[contains(.,"Magnez")]/following::td[1]
+    regExp: (.+)
+    regExpReplace: mg
   - name: ironPerServing
     singleValue: false
     description: Nutritional Information for Iron content - Usually based on per
@@ -357,22 +381,16 @@ fields:
   - name: dietarySymbols
     singleValue: false
     description: Information related to the dietary symbols of a specific product
-  - name: magnesiumPerServing
-    singleValue: false
-    description: Nutritional Information for Magnesium content - Usually based on
-      per 100g serving
-    type: NUMBER
-  - name: magnesiumPerServingUom
-    singleValue: false
-    description: Unit of Measure Data for Magnesium
   - name: saltPerServing
     singleValue: false
-    description: Nutritional Information for Salt content - Usually based on per
-      100g serving
-    type: NUMBER
+    xpath: //td[contains(.,"Sól")]/following::td[1]
+    regExp: (.+)g
+    regExpReplace: $1
   - name: saltPerServingUom
     singleValue: false
-    description: Unit of Measure Data for Salt
+    xpath: //td[contains(.,"Sól")]/following::td[1]
+    regExp: (.+)
+    regExpReplace: g
   - name: dietaryInformation
     singleValue: false
     description: null
@@ -446,7 +464,7 @@ fields:
     description: null
   - name: additionalDescBulletInfo
     singleValue: false
-    description: null
+    xpath: //h2[contains(text(), "Charakterystyka produktu")]//..//following-sibling::ul/li
   - name: prop65Warning
     singleValue: false
     description: null
