@@ -8,7 +8,7 @@ fields:
     regExp: \d{3,}
   - name: name
     singleValue: true
-    xpath: //article/div/a//h2
+    xpath: //article//header
   - name: productUrl
     xpath: //article/div/a/@href
     # regExp: (.+)
@@ -19,7 +19,6 @@ fields:
     xpath: //div[@class="pricing__new"]
   - name: rank
   - name: rankOrganic
-  - name: sponsored
-    xpath: //div[text()="Promotie"]
+  - name: sponsored    
     defaultValue: false
 
