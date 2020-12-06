@@ -23,7 +23,13 @@ const transform = (data) => {
     return data;
   };
   for (const { group } of data) {
+    let brandTextStr='';
     for (const row of group) {
+      if(row.brandText){
+        row.brandText.forEach(item=>{
+          brandTextStr=item.text;
+        })
+      }
       if(row.alternateImages){
         row.alternateImages.forEach(item => {
           if(item.text.search('_50x50.jpg')>-1){
@@ -34,17 +40,18 @@ const transform = (data) => {
         });
       }
       if(row.sku){
+        let skuStr='';
         row.sku.forEach(item => {
-          var skuArr=item.text.split("/item/");
-          var skuArr1=skuArr[1].split(".");
-          item.text=`ru${skuArr1[0]}`;
+          let skuArr=item.text.split('&sku_id=');
+          skuStr=skuArr[0];
         });
+        row.sku=[{"text":skuStr}];
       }
       if(row.variantId){
         row.variantId.forEach(item => {
           var arr=item.text.split("/item/");
           var arr1=arr[1].split(".");
-          item.text=`ru${arr1[0]}`;
+          item.text=arr1[0];
         });
       }      
       if(row.ratingCount){
@@ -54,12 +61,9 @@ const transform = (data) => {
         });
       }
       if (row.nameExtended) {
-        var nameVar=row.nameExtended[0]['text'];
-        if(nameVar.indexOf('Dyson -')==-1){
-          //var brandText = row.brandText[0]['text'];
-          row.nameExtended=[{"text":'Dyson - '+nameVar}];
-        }
-        row.brandText=[{"text":'Dyson'}];
+        row.nameExtended.forEach(item=>{
+          item.text=brandTextStr+" - "+item.text;
+        })
       }
       if(row.coupon){
         row.coupon.forEach(item=>{

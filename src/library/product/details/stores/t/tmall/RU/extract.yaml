@@ -17,13 +17,13 @@ fields:
     xpath: //div[@class="product-price-current"]/span[@class="product-price-value"]
   - name: sku
     singleValue: false
-    xpath: //div[@class="product-info"]/meta[@itemprop="url"]/@content
+    xpath: //ul[@class="notranslate"]/li[position()=1]/a/@data-redirect-url
   - name: variantId
     singleValue: false
     xpath: //div[@class="product-info"]/meta[@itemprop="url"]/@content
   - name: brandText
     singleValue: false
-    xpath: //div[@class="product-info"]/meta[@itemprop="brand"]/@content
+    xpath: //div[@class="product-specs"]/ul[contains(@class,"product-specs-list")]/li/span[@class="property-title" and text()="Название бренда"]/parent::*/span[contains(@class,"property-desc")]
   - name: nameExtended
     singleValue: false
     xpath: //h1[@class="product-title-text"]
@@ -68,3 +68,9 @@ fields:
   - name: manufacturerDescription
     singleValue: false
     xpath: //div[@class="detail-desc-decorate-richtext"]/div/div/img/@src
+  - name: countryOfOrigin
+    singleValue: false
+    xpath: //div[@class="product-specs"]/ul[contains(@class,"product-specs-list")]/li/span[@class="property-title" and text()="Происхождение"]/parent::*/span[contains(@class,"property-desc")]
+  - name: variantInformation
+    singleValue: false
+    xpath: //div[@class="sku-property" and position()=2]/div[@class="sku-title"]/span[@class="sku-title-value"]
