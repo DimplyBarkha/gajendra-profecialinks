@@ -4,7 +4,7 @@ module.exports = {
     country: 'UK',
     store: 'sainsburys',
     domain: 'sainsburys.co.uk',
-    loadedSelector: 'section.ln-o-section',
+    loadedSelector: 'div.product-details-page.margin-top-default',
     noResultsXPath: null,
     zipcode: '',
   },
