@@ -557,7 +557,8 @@ fields:
   - name: availabilityText
     # Add no default value, being take care in transform.js
     #xpath: //div[contains(concat(' ',normalize-space(@class),' '),' product-hero ')]//form//*[contains(text(),'art') or contains(text(), 'anier')]//text()
-    xpath: //div[contains(concat(' ',normalize-space(@class),' '),' product-hero ')]//form//*[contains(text(),'art') or contains(text(), 'anier')]//text() | //div[@class="product-hero__out-of-stock"]
+    # xpath: //div[contains(concat(' ',normalize-space(@class),' '),' product-hero ')]//form//*[contains(text(),'art') or contains(text(), 'anier')]//text() | //div[@class="product-hero__out-of-stock"]
+    xpath: //div[contains(@class,"sticky-nav__text-container")]//button[contains(.,"Add to Cart")]
   - name: warranty
     xpath: (//div[contains(concat(' ',normalize-space(@class),' '),' reasons-to-buy__overlay-content-container ')][.//*[contains(text(),'arranty ') or contains(text(),'arantie ')] or .//*[contains(text(),'uarantee ')] or .//*[contains(text(),'money back ')]])[1]
   - name: shippingInfo
