@@ -33,3 +33,5 @@ const transform = (data) => {
         }
     }
 }
+
+module.exports = { transform };
