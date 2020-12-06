@@ -27,7 +27,7 @@ fields:
     xpath: //div[@id='product-header']//div[@class="price-old"]
   - name: price
     singleValue: false
-    xpath: //div[@id='product-header']//div[@class="price-actual"]
+    xpath: //div[@id='product-header']//div[@class="price-actual"] | //div[@id='product-header']//*[contains(@class,"price-text")]
   - name: availabilityText
     singleValue: false
     xpath: //div[@id="product-header"]//div[@class="add-to-cart-button"]
