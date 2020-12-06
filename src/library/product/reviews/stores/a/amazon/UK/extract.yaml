@@ -1,0 +1,66 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: '*[data-hook="review"]'
+recordXPath: //*[data-hook="review"]
+fields:
+- name: brand
+  type: STRING
+  description: Brand name
+  xpath: ancestor::html//a[@id="bylineInfo"]
+# - name: productRange
+#   type: STRING
+#   description: Product Range
+#   xpath: 
+# - name: productFamily
+#   type: STRING
+#   description: Product Family
+#   xpath: 
+# - name: colour
+#   type: STRING
+#   description: Product Colour
+#   xpath: 
+# - name: flavour
+#   type: STRING
+#   description: Product Flavour
+#   xpath: 
+# - name: sku
+#   type: STRING
+#   description: sku
+#   xpath: 
+# - name: reviewText
+#   type: STRING
+#   description: Product Review
+#   xpath: //div[@data-hook="review-collapsed"]/span
+- name: reviewTitle
+  type: STRING
+  description: Review Title
+  xpath: //a[@data-hook="review-title"]
+# - name: mediaURL
+#   type: STRING
+#   description: Product Media URL
+#   xpath: ancestor::html//div[@class="imgTagWrapper"]/img[@data-a-image-name="landingImage"]["src"]
+# - name: location
+#   type: STRING
+#   description: Location
+#   xpath: 
+# - name: helpful
+#   type: STRING
+#   description: Product Helpful Notes
+#   xpath: //span[@data-hook="helpful-vote-statement"]
+# - name: verifiedPurchase
+#   type: STRING
+#   description: Product Purchase Notes
+#   xpath: 
+# - name: rating
+#   type: STRING
+#   description: Product Rating
+#   xpath: //i[@data-hook="review-star-rating"]
+# - name: pageTitle
+#   type: STRING
+#   description: Page Title
+#   xpath: ancestor::html//span[@id="productTitle"]
+- name: sourceUrl
+  type: STRING
+  description: Source URL
+  xpath: ancestor::html//a[@id="bylineInfo"]/@href
+ 
