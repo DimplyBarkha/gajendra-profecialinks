@@ -20,19 +20,21 @@ async function implementation (
     url = await dependencies.createUrl({ id });
   }
   await dependencies.goto({ url, zipcode, storeId });
+  await new Promise((resolve, reject) => setTimeout(resolve, 1000));
   try{
-    await context.waitForSelector('div#onetrust-button-group>div>button');
-    await new Promise((resolve, reject) => setTimeout(resolve, 500));
-    await context.click('div#onetrust-button-group>div>button');
+    await context.waitForSelector('div#onetrust-button-group>div>button',{timeout:1000});
+    await new Promise((resolve, reject) => setTimeout(resolve, 1000));
+    await context.click('div#onetrust-button-group>div>button',{timeout:500});
   }catch(e){
 
   }
+  await new Promise((resolve, reject) => setTimeout(resolve, 3000));
   if (parameters.loadedSelector) {
     await context.waitForFunction(function (sel, xp) {
       return Boolean(document.querySelector(sel) || document.evaluate(xp, document, null, XPathResult.UNORDERED_NODE_ITERATOR_TYPE, null).iterateNext());
     }, { timeout: 10000 }, parameters.loadedSelector, parameters.noResultsXPath);
   }
-  await new Promise((resolve, reject) => setTimeout(resolve, 10000));
+  await new Promise((resolve, reject) => setTimeout(resolve, 13000));
   // TODO: Check for not found?
 }
 
