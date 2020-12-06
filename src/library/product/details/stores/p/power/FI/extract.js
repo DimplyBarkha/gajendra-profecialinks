@@ -177,20 +177,20 @@ module.exports = {
 
       const retrieveVideoDuration = async () => {
         // @ts-ignore
-        console.log('retrieving VideoDuration..')
+        console.log('retrieving VideoDuration..');
         const iframeDoc = document.querySelector('iframe.videoly-box') && document.querySelector('iframe.videoly-box').contentWindow;
         if (iframeDoc && iframeDoc.document && iframeDoc.document.body && iframeDoc.document.body.innerHTML) {
           const parser = new DOMParser();
-        console.log('VideoDuration found..')
+          console.log('VideoDuration found..');
           const htmlDoc = parser.parseFromString(iframeDoc.document.body.innerHTML, 'text/html');
           const videoDurations = htmlDoc.querySelectorAll('.video-duration ');
           videoDurations && videoDurations.forEach(item => {
-            console.log(`Duration: ${item.textContent}`)
+            console.log(`Duration: ${item.textContent}`);
             addElementToDocument('videoDurations', item.textContent);
           });
-        console.log('VideoDuration retrieved..')
+          console.log('VideoDuration retrieved..');
         } else {
-        console.log('VideoDuration not retrieved..')
+          console.log('VideoDuration not retrieved..');
         }
       };
 
@@ -198,7 +198,7 @@ module.exports = {
         // video urls from manufacturer description
         const videoElements = document.querySelectorAll('iframe[title*="Flix-media-video"]');
         if (videoElements && videoElements.length > 0) {
-          videoElements.length? console.log('videoElements from manufacturer description found..') : console.log('videoElements from manufacturer description not found');
+          videoElements.length ? console.log('videoElements from manufacturer description found..') : console.log('videoElements from manufacturer description not found');
           videoElements && videoElements.forEach(item => {
             const videoEle = item.getAttribute('src');
             addElementToDocument('videoUrls', videoEle);
