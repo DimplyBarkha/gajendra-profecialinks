@@ -4,7 +4,7 @@ recordSelector: null
 recordXPath: null
 fields:
   - name: alsoViewedProducts
-    xpath: (//p[contains(text(),'Customers who viewed')])[1]/..//span[contains(@class,'largeProductName')] 
+    xpath: (//p[contains(text(),'Customers who viewed')])[1]/..//span[contains(@class,'largeProductName')]/.. 
   - name: reviewCount
     xpath: normalize-space(//dd[@class="bv-rating-ratio-count"]//a)
     regExp: (.*?)\s(.*)
