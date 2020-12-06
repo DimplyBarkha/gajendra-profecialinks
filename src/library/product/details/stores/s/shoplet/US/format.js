@@ -23,8 +23,40 @@ const transform = (data) => {
       return data;
     };
     for (const { group } of data) {
-      
-      for (let row of group) { 
+      let brandStr='',mpcStr='';
+      for (let row of group) {
+          if(row.brandText){
+              row.brandText.forEach(item=>{
+                let obj=JSON.parse(item.text);
+                for(let tmpK in obj){
+                    if(obj.hasOwnProperty(tmpK)){
+                        if(tmpK=='@graph'){
+                            let  graphDetails=obj[tmpK];
+                             for(let graphDetailsK in graphDetails){
+                                if(graphDetailsK==2){
+                                    let graphDetailsKItem=graphDetails[graphDetailsK];
+                                      //console.log('graphDetailsKItem* :',graphDetailsKItem);
+                                    if(graphDetailsKItem.hasOwnProperty('brand')){
+                                          //console.log('brand :',graphDetailsKItem['brand'].name);
+                                          brandStr=graphDetailsKItem['brand'].name;
+                                    }
+                                    if(graphDetailsKItem.hasOwnProperty('sku')){
+                                          //console.log('sku :',graphDetailsKItem['sku']);
+                                    }
+                                    if(graphDetailsKItem.hasOwnProperty('mpn')){
+                                        //console.log('mpn :',graphDetailsKItem['mpn']);
+                                        mpcStr=graphDetailsKItem['mpn'];
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+                
+              })
+              row.brandText=[{"text":brandStr}];
+              row.mpc=[{"text":mpcStr}];
+          } 
           if(row.alternateImages){
               let tmp=0;
               row.alternateImages.forEach(item=>{

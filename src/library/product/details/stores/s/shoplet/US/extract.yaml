@@ -88,3 +88,15 @@ fields:
   - name: materials
     singleValue: false
     xpath: //div[@id="product-details"]//table//td/b[text()="Materials"]/parent::*/parent::*/td[2]
+  - name: brandText
+    singleValue: false
+    xpath: //script[@type="application/ld+json"]/text()
+  - name: shippingInfo
+    singleValue: false
+    defaultValue: 'Shoplet.com'  
+  - name: quantity
+    singleValue: false
+    xpath: //div[@id="product-details"]//table//td/b[text()="Capacity Volume"]/parent::*/parent::*/td[2]
+  - name: variantInformation
+    singleValue: false
+    xpath: //div[@id="product-details"]//table//td/b[text()="Colors"]/parent::*/parent::*/td[2]
