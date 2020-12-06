@@ -26,7 +26,7 @@ module.exports = {
     }
     await new Promise(resolve => setTimeout(resolve, 10000));
     await context.evaluate(async function () {
-      function addElementToDocument(key, value) {
+      function addElementToDocument (key, value) {
         const catElement = document.createElement('div');
         catElement.id = key;
         catElement.textContent = value;
@@ -66,14 +66,14 @@ module.exports = {
           });
         }
 
-        //get video URLs
-        let sku = document.querySelector("meta[itemprop=sku]") && document.querySelector("meta[itemprop=sku]").hasAttribute('content') ? document.querySelector("meta[itemprop=sku]").getAttribute('content') : "";
-        let productTitle = document.querySelector(".product-header h1") ? document.querySelector(".product-header h1").textContent : "";
+        // get video URLs
+        const sku = document.querySelector('meta[itemprop=sku]') && document.querySelector('meta[itemprop=sku]').hasAttribute('content') ? document.querySelector('meta[itemprop=sku]').getAttribute('content') : '';
+        let productTitle = document.querySelector('.product-header h1') ? document.querySelector('.product-header h1').textContent : '';
         productTitle = encodeURIComponent(productTitle);
-        let brandName = document.querySelector('div.brand-logo img') && document.querySelector('div.brand-logo img').hasAttribute('alt') ? document.querySelector('div.brand-logo img').getAttribute('alt') : "";
-        let apiUrl = `https://dapi.videoly.co/1/videos/0/395/?brandName=${brandName}&SKU=${sku}&productTitle=${productTitle}&_pl=sv&_cl=sv&hn=www.power.se`;
-        let data = "";
-        let prom = await fetch(apiUrl);
+        const brandName = document.querySelector('div.brand-logo img') && document.querySelector('div.brand-logo img').hasAttribute('alt') ? document.querySelector('div.brand-logo img').getAttribute('alt') : '';
+        const apiUrl = `https://dapi.videoly.co/1/videos/0/395/?brandName=${brandName}&SKU=${sku}&productTitle=${productTitle}&_pl=sv&_cl=sv&hn=www.power.se`;
+        let data = '';
+        const prom = await fetch(apiUrl);
         try {
           data = await prom.json();
         } catch (er) {
@@ -84,12 +84,11 @@ module.exports = {
             if (q.videoId) {
               addElementToDocument('videoUrls', `https://www.youtube.com/watch?v=${q.videoId}`);
             }
-          })
+          });
         }
-      }
+      };
 
       await videoUrls();
-
     });
     try {
       await context.waitForXPath('//div[@id="videoUrls"]');
