@@ -40,11 +40,11 @@ module.exports = {
           // }catch(e) {}
             // await new Promise((resolve, reject) => setTimeout(resolve, 500));
             let scrollTop = 0;
-            while (scrollTop !== 10000) {
+            while (scrollTop !== 5000) {
               await stall(500);
               scrollTop += 1000;
               window.scroll(0, scrollTop);
-              if (scrollTop === 20000) {
+              if (scrollTop === 10000) {
                 await stall(500);
                 break;
               }

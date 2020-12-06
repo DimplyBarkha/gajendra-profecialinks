@@ -16,9 +16,7 @@ fields:
   - name: thumbnail
     singleValue: false
     description: The URL for the product thumbnail image
-    xpath: //a[@class="product-image"]/img/@src
-    regExp: (https:\/\/www.bestwaywholesale.co.uk)?(.+)
-    regExpReplace: https://www.bestwaywholesale.co.uk$2
+    xpath: //a[@class="product-image"]/img/@src    
   - name: price
     singleValue: false
     description: The offered price for the product
