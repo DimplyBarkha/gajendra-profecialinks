@@ -156,17 +156,6 @@ module.exports = {
 
       await timeout(5000);
 
-      // const iframe = document.querySelector('iframe.videoly-box');
-      // if (iframe) {
-      //   const videos = iframe.contentDocument ? iframe.contentDocument.querySelectorAll('li.b-video-item div.b-video-item-tile') : [];
-      //   videos.forEach(el =>
-      //     addElementToDocument('urlsForVideos', `https://www.youtube.com/watch?v=${el.getAttribute('data-videoid')}`));
-      // };
-      // const videoWrapper = getElementByXpath('//div[@class="video-wrapper"]//iframe/@src')
-      //   ? getElementByXpath('//div[@class="video-wrapper"]//iframe/@src').textContent
-      //   : '';
-      // if (videoWrapper) addElementToDocument('urlsForVideos', videoWrapper);
-
       //get videos from gallery section
       let sku = document.querySelector("meta[itemprop=sku]") && document.querySelector("meta[itemprop=sku]").hasAttribute('content') ? document.querySelector("meta[itemprop=sku]").getAttribute('content') : "";
       let productTitle = document.querySelector(".product-header h1") ? document.querySelector(".product-header h1").textContent : "";
@@ -180,7 +169,6 @@ module.exports = {
       } catch (er) {
         console.log(er.message);
       }
-      //document.body.insertAdjacentHTML('afterbegin',`<div class="neededData">https://www.youtube.com/watch?v=${data.items[0].videoId}</div>`);
       if (data && data.items) {
         data.items.forEach(q => {
           if (q.videoId) {
