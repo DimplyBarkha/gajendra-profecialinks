@@ -42,8 +42,10 @@ const transform = (data) => {
       if(row.sku){
         let skuStr='';
         row.sku.forEach(item => {
+          //console.log('sku :',item.text);
           let skuArr=item.text.split('&sku_id=');
-          skuStr=skuArr[0];
+          //console.log('sku :',skuArr);
+          skuStr=skuArr[1];
         });
         row.sku=[{"text":skuStr}];
       }
@@ -62,7 +64,8 @@ const transform = (data) => {
       }
       if (row.nameExtended) {
         row.nameExtended.forEach(item=>{
-          item.text=brandTextStr+" - "+item.text;
+          if(brandTextStr!='')
+            item.text=brandTextStr+" - "+item.text;
         })
       }
       if(row.coupon){
