@@ -108,6 +108,8 @@ fields:
       into this column
     singleValue: false
   - name: country
+    xpath: ancestor::html/@lang
+    regExp: '\w+$'
     description: country - Country of the website scraped (US, DE, UK, ES, IT, FR,
       NL,). Could be handled in workbench too.
   - name: deliveryDate
