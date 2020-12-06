@@ -51,11 +51,11 @@ fields:
     singleValue: true
     description: Product brand shown - this may actually NOT be just a brand name,
       e.g. "Visit the Gillette Store"
-    xpath: //div[contains(@class,'gn-accordionElement__content gn-accordionElement__content--expanded')]/div/div[1]/div[1]
+    xpath: //*[@id="productInformation"]/div[2]/div[3]/div[2]/div/div[1]/div
   - name: manufacturer
     singleValue: true
     description: Product manufacturer
-    xpath: //div[contains(@class,'gn-accordionElement__content gn-accordionElement__content--expanded')]/div/div[4] 
+    xpath: //*[@id="productInformation"]/div[2]/div[3]/div[2]/div/div[2]/div
   - name: quantity
     singleValue: true
     description: Quantity as described on the page
@@ -397,11 +397,11 @@ fields:
   - name: storage
     singleValue: true
     description: Suggested storage location for product
-    xpath: //div[contains(@class,'gn-accordionElement__content gn-accordionElement__content--expanded')]/div[1]/div[3]
+    xpath: //*[@id="productInformation"]/div[2]/div[2]/div[2]/div/div[2]/div//br[4]
   - name: countryOfOrigin
     singleValue: true
     description: The country from which the product originates
-    xpath: //*[@id="productInformation"]/div[2]/div[1]/div[2]/div/div[3]/div
+    xpath: //*[@id="productInformation"]/div[2]/div[1]/div[2]/div/div[2]/div
   - name: allergyAdvice
     singleValue: true
     description: Allergy information associated with the product
@@ -414,8 +414,8 @@ fields:
     description: Any other product information
   - name: packaging
     singleValue: true
-    description: Packaging 
-    xpath: //*[@id="productInformation"]/div[2]/div[2]/div[2]/div/div[2]/div
+    description: Packaging
+    xpath: //*[@id="productInformation"]/div[2]/div[2]/div[2]/div/div[1]/div
   - name: additives
     singleValue: true
     description: List of additives in the product
@@ -434,7 +434,7 @@ fields:
   - name: newVersion
     singleValue: true
     description: In product page, information about a new version of the product
-    
+
   - name: newAsin
     singleValue: true
     description: In product page, information about a new version of the product -
