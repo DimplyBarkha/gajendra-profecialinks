@@ -6,7 +6,7 @@ module.exports = {
     store: 'brack',
     domain: 'brack.ch',
     loadedSelector: null,
-    noResultsXPath: null,
+    noResultsXPath: '//div[contains(@id,"searchInfo")]//*[contains(text(),"Leider konnten wir zu Ihrer Suchanfrage")]',
     zipcode: "''",
   },
 };

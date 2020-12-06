@@ -7,9 +7,9 @@ fields:
     singleValue: false
   - name: availabilityText
     singleValue: false
-    xpath: //em[@class='js-quantity']
-    regExp: (^[1-9]+[0-9]*$)
-    regExpReplace: In Stock
+    xpath: //button[contains(.," den Warenkorb")]
+    regExp: ([w+W]*$)
+    regExpReplace: In Stock$1
     defaultValue: Out Of Stock
   - name: price
     type: number
