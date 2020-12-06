@@ -153,7 +153,11 @@ fields:
   - name: videos
     singleValue: false
     description: URLs of videos on page
-    xpath: //div[@id="urlsForVideos"] | //div[@id="videoUrl"]
+    xpath: //div[@id="urlsForVideos"] | //div[@id="videoUrl"] | //div[@id="videoUrls"]
+  - name: videoLength
+    singleValue: false
+    description: Duration of the videos available
+    xpath: //div[@id="videoDurations"]
   - name: name
     singleValue: true
     description: The product name
@@ -255,5 +259,3 @@ fields:
     singleValue: false
     xpath: //div[contains(@class,"recommended-products")]//span[@class="product-name"]
     description: Titles of products in the sections 'you may also like' or 'sponsored products'. Combine results from Max 3 sections
-
-  

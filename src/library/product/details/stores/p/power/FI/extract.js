@@ -16,7 +16,8 @@ module.exports = {
     await context.click('#product-information-tabs > div:nth-child(1) > div > i');
     await new Promise((resolve, reject) => setTimeout(resolve, 8000));
     await context.evaluate(async function () {
-      function addElementToDocument(key, value) {
+      // utility functions
+      function addElementToDocument (key, value) {
         const catElement = document.createElement('div');
         catElement.id = key;
         catElement.textContent = value;
@@ -24,14 +25,32 @@ module.exports = {
         document.body.appendChild(catElement);
       }
 
-      function getElementByXpath(path) {
+      function getElementByXpath (path) {
         return document.evaluate(path, document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
       }
 
-      function timeout(ms) {
+      function timeout (ms) {
         return new Promise((resolve) => setTimeout(resolve, ms));
       }
 
+      async function scroll () {
+        let scrollSelector = document.querySelector('footer#footer-site');
+        // @ts-ignore
+        let scrollLimit = scrollSelector ? scrollSelector.offsetTop : '';
+        let yPos = 0;
+        while (scrollLimit && yPos < scrollLimit) {
+          yPos = yPos + 350;
+          window.scrollTo(0, yPos);
+          scrollSelector = document.querySelector('footer#footer-site');
+          // @ts-ignore
+          scrollLimit = scrollSelector ? scrollSelector.offsetTop : '';
+          await new Promise(resolve => setTimeout(resolve, 1000));
+        }
+      }
+
+      await scroll();
+
+      // Retriving data
       const images = document.querySelectorAll('div.product-main-card div.product-image-container img');
       if (images) {
         for (let index = 0; index < images.length; index++) {
@@ -122,14 +141,14 @@ module.exports = {
         ? getElementByXpath('//*[@id="product-intro"]//div[@class="pickup-from-store"]').textContent
         : '';
       if (shipingInfo) addElementToDocument('shipingInfo', shipingInfo);
-      // need to click the specifications tab to get the data 
-      let specTabButton = document.evaluate('//div[contains(@class,"product-information")]//h3[contains(.,"Tekniset tiedo")]', document).iterateNext();
+      // need to click the specifications tab to get the data
+      const specTabButton = document.evaluate('//div[contains(@class,"product-information")]//h3[contains(.,"Tekniset tiedo")]', document).iterateNext();
       if (specTabButton) {
         specTabButton.click();
       }
       await new Promise((resolve, reject) => setTimeout(resolve, 3000));
-      let specifications = document.querySelectorAll('pwr-product-specifications > div');
-      let specArr = [];
+      const specifications = document.querySelectorAll('pwr-product-specifications > div');
+      const specArr = [];
       if (specifications) {
         specifications.forEach(e => {
           specArr.push(e.innerText.replace(/\n/g, '').replace(/\s{2,}/g, ' '));
@@ -156,26 +175,60 @@ module.exports = {
 
       await timeout(5000);
 
-      //get videos from gallery section
-      let sku = document.querySelector("meta[itemprop=sku]") && document.querySelector("meta[itemprop=sku]").hasAttribute('content') ? document.querySelector("meta[itemprop=sku]").getAttribute('content') : "";
-      let productTitle = document.querySelector(".product-header h1") ? document.querySelector(".product-header h1").textContent : "";
-      productTitle = encodeURIComponent(productTitle);
-      let brandName = document.querySelector('div.brand-logo img') && document.querySelector('div.brand-logo img').hasAttribute('alt') ? document.querySelector('div.brand-logo img').getAttribute('alt') : "";
-      let apiUrl = `https://dapi.videoly.co/1/videos/0/294/?SKU=${sku}&productTitle=${productTitle}&brandName=${brandName}&_pl=fi&_cl=fi&hn=www.power.fi&sId=s%3AVhBnRFUBWdwG5FtjHmeCiQXBWhEsSfXP.m5bSP3OWjWwT2Bl0G2Q7mtqF27DOe%2BCA%2B2NQw0VBq8I`;
-      let data = "";
-      let prom = await fetch(apiUrl);
-      try {
-        data = await prom.json();
-      } catch (er) {
-        console.log(er.message);
-      }
-      if (data && data.items) {
-        data.items.forEach(q => {
-          if (q.videoId) {
-           addElementToDocument('videoUrl', `https://www.youtube.com/watch?v=${q.videoId}`);
-          }
-        })
-      }
+      const retrieveVideoDuration = async () => {
+        // @ts-ignore
+        console.log('retrieving VideoDuration..')
+        const iframeDoc = document.querySelector('iframe.videoly-box') && document.querySelector('iframe.videoly-box').contentWindow;
+        if (iframeDoc && iframeDoc.document && iframeDoc.document.body && iframeDoc.document.body.innerHTML) {
+          const parser = new DOMParser();
+        console.log('VideoDuration found..')
+          const htmlDoc = parser.parseFromString(iframeDoc.document.body.innerHTML, 'text/html');
+          const videoDurations = htmlDoc.querySelectorAll('.video-duration ');
+          videoDurations && videoDurations.forEach(item => {
+            console.log(`Duration: ${item.textContent}`)
+            addElementToDocument('videoDurations', item.textContent);
+          });
+        console.log('VideoDuration retrieved..')
+        } else {
+        console.log('VideoDuration not retrieved..')
+        }
+      };
+
+      const retrieveVideos = async () => {
+        // video urls from manufacturer description
+        const videoElements = document.querySelectorAll('iframe[title*="Flix-media-video"]');
+        if (videoElements && videoElements.length > 0) {
+          videoElements.length? console.log('videoElements from manufacturer description found..') : console.log('videoElements from manufacturer description not found');
+          videoElements && videoElements.forEach(item => {
+            const videoEle = item.getAttribute('src');
+            addElementToDocument('videoUrls', videoEle);
+          });
+        }
+
+        // get videos from gallery section
+        const sku = document.querySelector('meta[itemprop=sku]') && document.querySelector('meta[itemprop=sku]').hasAttribute('content') ? document.querySelector('meta[itemprop=sku]').getAttribute('content') : '';
+        let productTitle = document.querySelector('.product-header h1') ? document.querySelector('.product-header h1').textContent : '';
+        productTitle = encodeURIComponent(productTitle);
+        const brandName = document.querySelector('div.brand-logo img') && document.querySelector('div.brand-logo img').hasAttribute('alt') ? document.querySelector('div.brand-logo img').getAttribute('alt') : '';
+        const apiUrl = `https://dapi.videoly.co/1/videos/0/294/?SKU=${sku}&productTitle=${productTitle}&brandName=${brandName}&_pl=fi&_cl=fi&hn=www.power.fi&sId=s%3AVhBnRFUBWdwG5FtjHmeCiQXBWhEsSfXP.m5bSP3OWjWwT2Bl0G2Q7mtqF27DOe%2BCA%2B2NQw0VBq8I`;
+        let data = '';
+        const prom = await fetch(apiUrl);
+        try {
+          data = await prom.json();
+        } catch (er) {
+          console.log(er.message);
+        }
+        if (data && data.items) {
+          data.items.forEach(q => {
+            if (q.videoId) {
+              addElementToDocument('videoUrl', `https://www.youtube.com/watch?v=${q.videoId}`);
+            }
+          });
+        }
+      };
+
+      await retrieveVideoDuration();
+      await retrieveVideos();
 
       const cookies = document.querySelector('button#cookie-notification-accept');
       if (cookies) {
