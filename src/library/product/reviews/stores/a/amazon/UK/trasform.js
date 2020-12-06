@@ -12,11 +12,11 @@ const transform = (data, context) => {
         context.setState({ productdata: firstrow });
         productdata = firstrow;
     }
-    const { brand, sourceUrl } = productdata;
+    const { brand, sourceUrl, mediaURL, pageTitle ,productRange, productFamily, colour, flavour, sku} = productdata;
     for (const { group } of data) {
       for (const row of group) {
           try {
-              Object.assign(row, {brand, sourceUrl});
+              Object.assign(row, { brand, sourceUrl, mediaURL, pageTitle ,productRange, productFamily, colour, flavour, sku});
           } catch (error) {
             console.log(error);
           }
