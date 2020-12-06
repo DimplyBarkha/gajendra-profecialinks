@@ -35,7 +35,7 @@ fields:
     xpath: //div[@id="current-price-container"]//div[@class="dkt-price"]//div[@class="dkt-price__cartridge"] | //div[@class="product-price-and-button"]//div[@class="dkt-price__cartridge"]
   - name: description
     singleValue: false
-    xpath: //div[@class="tech-info"]
+    xpath: //div[@class="benefits__holder"]//div[@class="benefits__item"]//div[@class="benefits__desc-block"]
   - name: additionalDescription
     singleValue: false
     xpath: //div[@id="conversion-zone"]//p[not(contains(@class,"financing-text"))]
@@ -48,12 +48,18 @@ fields:
   - name: aggregateRating
     singleValue: false
     xpath: //div[@id="details-review-content"]//div[@itemprop="aggregateRating"]//span[@itemprop="ratingValue"]
+    regExp: (\d+).(\d+)
+    regExpReplace: $1,$2
   - name: aggregateRating2
     singleValue: false
     xpath: //div[@id="details-review-content"]//div[@itemprop="aggregateRating"]//span[@itemprop="ratingValue"]
+    regExp: (\d+).(\d+)
+    regExpReplace: $1,$2
   - name: aggregateRatingText
     singleValue: false
     xpath: //div[@id="details-review-content"]//div[@itemprop="aggregateRating"]//span[@itemprop="ratingValue"]
+    regExp: (\d+).(\d+)
+    regExpReplace: $1,$2
   - name: ratingCount
     singleValue: false
     xpath: //div[@class="notation-stars"]//span[@class="number-star"]
