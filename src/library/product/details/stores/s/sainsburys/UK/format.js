@@ -1,37 +1,40 @@
-/**
- *
- * @param {ImportIO.Group[]} data
- * @returns {ImportIO.Group[]}
- */
 const transform = (data) => {
-    const cleanUp = (data, context) => {
+    // Default transform function
+    const clean = text => text.toString()
+        .replace(/\r\n|\r|\n/g, ' ')
+        .replace(/&amp;nbsp;/g, ' ')
+        .replace(/&amp;#160/g, ' ')
+        .replace(/\u00A0/g, ' ')
+        .replace(/\s{2,}/g, ' ')
+        .replace(/"\s{1,}/g, '"')
+        .replace(/\s{1,}"/g, '"')
+        .replace(/^ +| +$|( )+/g, ' ')
+        // eslint-disable-next-line no-control-regex
+        .replace(/[\x00-\x1F]/g, '')
+        .replace(/[\uD800-\uDBFF][\uDC00-\uDFFF]/g, ' ');
+    data.forEach(obj => obj.group.forEach(row => Object.keys(row).forEach(header => row[header].forEach(el => {
+        el.text = clean(el.text);
+    }))));
 
-        for (const { group } of data) {
-            for (let row of group) {
-                if(row.ratingCount) {
-                    row.ratingCount = row.ratingCount.replace(/[^0-9]/g,'')
-                }
-                if(row.weightNet) {
-                    let weight = row.weightNet.split(' ');
-                    row.weightNet = weight[weight.length-1]
-                }
-                if(row.weightGross) {
-                    let weight = row.weightNet.split(' ');
-                    row.weightNet = weight[weight.length-1]
-                }
-                if( row.sku ) {
-                    row.sku = 'sainsburys_' + row.sku
-                }
-                if( row.servingSize ) {
-                    row.servingSize = row.servingSize.replace('Per', '');
-                }
-                if( row.servingSizeUom ) {
-                    row.servingSizeUom = row.servingSizeUom.replace('Per','').replace(/[0-9]/g, '');
-                }
+    for (const { group }
+        of data) {
+        for (const row of group) {
+            
+            if (row.price) {
+                row.price.forEach(item => {
+                  item.text = item.text.replace('£', ' ').trim();
+                });
+              }
+              if (row.listPrice) {
+                row.listPrice.forEach(item => {
+                  item.text = item.text.replace('£', ' ').trim();
+                });
+              }
 
-            }
+              
         }
     }
-}
+    return data;
+};
 
 module.exports = { transform };
