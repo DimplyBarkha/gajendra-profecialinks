@@ -1,0 +1,104 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: div[data-testid="review-post"]
+recordXPath: //div[@data-testid="review-post"]
+fields:
+  - name: brandText
+    singleValue: true
+    description: Product brand shown - this may actually NOT be just a brand name e.g. "Visit the Gillette Store"
+    defaultValue: Blu
+  - name: productRange
+    singleValue: true
+    description: Product range 
+  - name: productFamily
+    singleValue: true
+    description: Product family 
+  - name: colour
+    singleValue: true
+    description: Product colour 
+  - name: flavour
+    singleValue: true
+    description: Product flavour      
+  - name: sku
+    singleValue: true
+    description: The store-specific product identifier
+  - name: reviewText
+    singleValue: true
+    description: The text of the review
+    xpath: //div[@data-testid='review-post']/div[2]/div[2]
+  - name: reviewTitle
+    singleValue: true
+    description: The title of the review
+    xpath: //div[@data-testid='review-post']/div[2]/p
+  - name: mediaURL
+    singleValue: true
+    description: product media url
+    xpath: //div[@data-testid='productDetailsBlock']//div[@data-test-size='M-up'][1]//img[@itemprop='image'][1]/@src
+  - name: location
+    singleValue: true
+    description: reviewer location
+    xpath: //div[@data-testid='review-post']/div[1]/p
+  - name: helpfulCount
+    singleValue: true
+    type: NUMBER
+    description: Number of people who said the review was helpful
+    xpath: //div[@data-testid='review-post']/div[2]/div[3]//div
+  - name: verifiedPurchase
+    singleValue: true
+    type: BOOLEAN
+    description: Whether this of an item the reviewer purchased. "Yes" if true else ""
+  - name: aggregateRating
+    singleValue: true
+    description: The product rating
+    xpath: //div[@itemprop='aggregateRating']/div[2]//div[2]//span[@itemprop='ratingValue']
+  - name: pageTitle
+    singleValue: true
+    description: The url of the page title
+    xpath: //title/text()
+  - name: sourceUrl
+    singleValue: true
+    description: The url of the product url 
+  - name: name
+    singleValue: true
+    description: The product name 
+    xpath: //div[@data-testid='productDetailsBlock']//h1[@data-testid='details-product-title']
+  - name: commentCount
+    singleValue: true
+    type: NUMBER
+    description: Number of comments on the review
+  - name: reviewDate
+    singleValue: true
+    type: DATETIME
+    description: Date the review was made
+    xpath: //div[@data-testid='review-post']/div[2]//div//span//span[2]/following-sibling
+  - name: reviewRating
+    type: NUMBER
+    singleValue: true
+    description: Rating normalized to be out of 5
+    xpath: //div[@data-testid='review-post']//div[@data-testid='ratingStars']//div[1]//*[name()='svg'][1]//span[1]
+  - name: reviewerTags
+    singleValue: true
+    description: The tags a reviewer has
+  - name: gtin
+    singleValue: true
+    description: GTIN code (includes UPC/EAN)
+  - name: manufacturerResponse
+    singleValue: true
+    description: The response of the manufacturer (if any)
+    xpath: //div[@data-testid='review-post']/div[2]//div[4]//div
+  - name: syndicatedFrom
+    singleValue: true
+    description: Stated place the review was syndicated from
+  - name: reviewUrl
+    singleValue: true
+    description: A direct link to the review
+  - name: reviewedSku
+    singleValue: true
+    description: The SKU of the item that was reviewed (may be different from the
+      sku the review was shown on). 1 if sku == reviewedSku else 0. Get sku
+      value, transform will handle the value.
+  - name: user
+    singleValue: true
+    description: The user name of the reviewer
+    xpath: //div[@data-testid='review-post']/div[1]//div/span/
+
