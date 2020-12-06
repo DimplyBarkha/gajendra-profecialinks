@@ -6,7 +6,7 @@ fields:
   - name: image
     singleValue: true
     description: URL of the main product image
-    xpath: //div[@id='primary-image']/img/@src
+    xpath: //div[@id="alternate-images-section"]/a [position()=1] /img/@src |  //div[@id='primary-image']
   - name: imageAlt
     singleValue: true
     description: Alt text of the main product image
@@ -14,7 +14,7 @@ fields:
   - name: alternateImages
     singleValue: false
     description: Other product images (not in manufacturer description)
-    xpath: //div[@id='alternate-images-section']//img/@src
+    xpath: //div[@id="alternate-images-section"]/a [position()>1] /img/@src
   - name: metaKeywords
     singleValue: true
     description: The <meta> keywords content
@@ -26,12 +26,11 @@ fields:
     singleValue: true
     description: The product name, prefixing "${brand} - " if not included in "name"
       and appending " - ${variantType}" if necessary (fixed per feed)
-    manualSelector: head>title:first-child
+    xpath: //div[@class='info--description ']
   - name: listPrice
     singleValue: true
     description: The stated undiscounted price for the product
     xpath: //div[@class='qty__items pricing-margin-override']//div[contains(@class,'whole__sale--label text--')]
-    # xpath: //span[contains(text()," Wholesale:")]/following-sibling::text()
   - name: price
     singleValue: true
     description: The offered price for the selected product variant - if a user
@@ -50,17 +49,15 @@ fields:
     singleValue: false
     description: Product description supplied by website - may be concatenanted from
       multiple places; specifically not the manufacturer description
-    # xpath: //table[@class='table product__attribute--info']/tbody/tr
     xpath: //div[@id='note']/p
   - name: descriptionBullets
     singleValue: true
     description: Number of ul > li tags in the description
-    xpath: count(//div[@id='note']/ul//li)
     type: NUMBER
-  # - name: brandText
-  #   singleValue: true
-  #   description: Product brand shown - this may actually NOT be just a brand name,
-  #     e.g. "Visit the Gillette Store"
+  - name: brandText
+    singleValue: true
+    description: Product brand shown - this may actually NOT be just a brand name,
+      e.g. "Visit the Gillette Store"
   - name: manufacturer
     singleValue: true
     description: Product manufacturer
@@ -73,14 +70,12 @@ fields:
   - name: weightNet
     singleValue: true
     description: Net weight as described on the page
-    xpath: //td[span[contains(text(),"Product Weight")]]/following-sibling::td
   - name: weightGross
     singleValue: true
     description: Gross weight as described on the page
   - name: gtin
     singleValue: true
     description: GTIN code (includes UPC/EAN)
-    xpath: //td[div[span[contains(text(),"UNSPSC")]]]//following-sibling::td
   - name: sku
     singleValue: true
     description: The store-specific product identifier
@@ -89,7 +84,7 @@ fields:
     singleValue: true
     description: Identifier for a variant from a store where variants share the same sku
     xpath: //td[div[contains(text()," Fastenal Part No. (SKU)")]]/following-sibling::td
-  - name: mpc
+  - name: mpn
     singleValue: true
     description: The manufacturer model code (unique) of the product
     xpath: //td[div[contains(text(),"Manufacturer Part No.")]]/following-sibling::td
@@ -97,11 +92,9 @@ fields:
     singleValue: true
     description: The number of packs in the product offer (if stated separately on
       the site to quantity)
-    xpath: (//td[span[contains(text(),"Size")]]/following-sibling::td)[2]
-  # - name: legalDisclaimer
-  #   singleValue: true
-  #   description: Content under "legal disclaimer" header
-  #   xpath: //div[@class='copyright']
+  - name: legalDisclaimer
+    singleValue: true
+    description: Content under "legal disclaimer" header
   - name: directions
     singleValue: true
     description: Content under "directions" header
@@ -135,7 +128,6 @@ fields:
   - name: color
     singleValue: true
     description: A textual description of the colour
-    xpath: //td[span[contains(text(),"Color")]]/following-sibling::td
   - name: colorCode
     singleValue: true
     description: A code description of the color (e.g. RGB hex)
@@ -151,7 +143,6 @@ fields:
   - name: name
     singleValue: true
     description: The product name
-    xpath: //div[@class='info--description ']
   - name: inStorePrice
     singleValue: true
     description: Price in the selected store
@@ -510,13 +501,8 @@ fields:
   - name: Image360Present
     singleValue: true
     description: If 360 image is present in the carousel ['Yes','No']
-    xpath: //div[@id='primary-image']/img/@src
-    # example: https://www.amazon.com/Trinsic-Single-Handle-Magnetic-Champagne-9159-CZ-DST/dp/B0050EN8E6
+    example: https://www.amazon.com/Trinsic-Single-Handle-Magnetic-Champagne-9159-CZ-DST/dp/B0050EN8E6
     defaultValue: No
-  - name: imageZoomFeaturePresent
+  - name: highQualityImages
     singleValue: true
-    description: If Zoom feature is available for Main image or images in the
-      carousel,['Yes','No']
-    # example: https://www.zalando.de/adidas-neo-sneaker-low-blackwhite-a4315i002-q11.html
     xpath: //div[@id='primary-image']/img/@src
-    defaultValue: No

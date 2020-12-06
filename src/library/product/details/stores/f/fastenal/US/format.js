@@ -29,14 +29,14 @@ const transform = (data) => {
                     item.text = "https:" +item.text;
                 });
               }
-              if (row.Image360Present) {
-                row.Image360Present.forEach(item => {
+              if (row.highQualityImages) {
+                row.highQualityImages.forEach(item => {
                     item.text = "https:" +item.text;
                 });
               }
 
-              if (row.imageZoomFeaturePresent) {
-                row.imageZoomFeaturePresent.forEach(item => {
+              if (row.alternateImages) {
+                row.alternateImages.forEach(item => {
                     item.text = "https:" +item.text;
                 });
               }
