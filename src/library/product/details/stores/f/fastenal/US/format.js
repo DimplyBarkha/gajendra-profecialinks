@@ -29,39 +29,28 @@ const transform = (data) => {
                     item.text = "https:" +item.text;
                 });
               }
-              if (row.Image360Present) {
-                row.Image360Present.forEach(item => {
+              if (row.alternateImages) {
+                row.alternateImages.forEach(item => {
                     item.text = "https:" +item.text;
                 });
               }
-
-              if (row.imageZoomFeaturePresent) {
-                row.imageZoomFeaturePresent.forEach(item => {
-                    item.text = "https:" +item.text;
-                });
-              }
-
               if (row.sku) {
                 row.sku.forEach(item => {
                     item.text = "fastenal_" +item.text;
                 });
               }
-              if (row.Price) {
-                row.Price.forEach(item => {
-                  item.text = item.text.replace('/ each', ' ').trim();
-                  item.text = item.text.replace('$', ' ').trim();
-                });
-              }
 
               if (row.listPrice) {
                 row.listPrice.forEach(item => {
-                  item.text = item.text.replace('/ each', ' ').trim();
                   item.text = item.text.replace('$', ' ').trim();
+                  item.text = item.text.replace('/ each',' ').trim();
+                  console.log("item.text",  item.text);
                 });
+              }
               }
 
 
-        }
+
     }
     return data;
 };
