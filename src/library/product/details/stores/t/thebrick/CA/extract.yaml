@@ -72,7 +72,7 @@ fields:
     xpath: //span[@itemprop="name"]
   - name: price
     singleValue: false
-    xpath: //span[@id="productPrice"]//span[contains(@class, "langEN")]
+    xpath: //span[@id="productPrice"]//span[contains(@class, "langEN")] | //span[@id="productPrice"][not(//span[@id="productPrice"]//span[contains(@class, "langEN")])]
   - name: ratingCount
     singleValue: false
     xpath: //div[@class="averageRating"]//p
