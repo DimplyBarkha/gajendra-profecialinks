@@ -1,5 +1,5 @@
-const { transform } = require('../../../../shared');
-async function implementation (
+const { transform } = require('../format');
+async function implementation(
   inputs,
   parameters,
   context,
@@ -7,7 +7,7 @@ async function implementation (
 ) {
   const { transform } = parameters;
   const { productDetails } = dependencies;
-  async function paginate () {
+  async function paginate() {
     try {
       const hasNextLink = await context.evaluate((selector) => !!document.querySelector('div[style*="block"]>a.search-results-grid__load-more-results__link'));
       if (hasNextLink) {

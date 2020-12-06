@@ -11,7 +11,7 @@ fields:
     manualSelector: div.product-tile-srp__middle-content h3.product-tile-srp__title.grid--grid-view__item
   - name: productUrl
     singleValue: false
-    xpath: concat('https://www.canadiantire.ca', //a[@class="product-tile-srp__main-link"]/@href)
+    xpath: //div[@data-component="ProductTileSrp"]//a[@class="product-tile-srp__main-link"]/@href
   - name: gtin
     singleValue: false
     manualSelector: div.product-tile-srp__middle-content p.product-tile-srp__product-id.grid--grid-view__item
