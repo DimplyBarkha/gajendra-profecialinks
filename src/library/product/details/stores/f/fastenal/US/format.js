@@ -29,8 +29,8 @@ const transform = (data) => {
                     item.text = "https:" +item.text;
                 });
               }
-              if (row.alternateImages) {
-                row.alternateImages.forEach(item => {
+              if (row.shownImages) {
+                row.shownImages.forEach(item => {
                     item.text = "https:" +item.text;
                 });
               }
@@ -40,13 +40,21 @@ const transform = (data) => {
                 });
               }
 
-              if (row.listPrice) {
-                row.listPrice.forEach(item => {
+              if (row.price) {
+                row.price.forEach(item => {
                   item.text = item.text.replace('$', ' ').trim();
                   item.text = item.text.replace('/ each',' ').trim();
-                  console.log("item.text",  item.text);
                 });
               }
+
+              if (row.priceCurrency) {
+                row.priceCurrency.forEach(item => {
+                  item.text = item.text.replace('/ each',' ').trim();
+                  console.log("item.text",item.text);
+                  item.text = item.text.slice(0,1);
+                });
+              }
+
               }
 
 

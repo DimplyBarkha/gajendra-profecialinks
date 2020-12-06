@@ -7,11 +7,7 @@ fields:
     singleValue: false
     description: URL of the main product image
     xpath: //div[@id='primary-image']/img/@src
-  # - name: imageAlt
-  #   singleValue: true
-  #   description: Alt text of the main product image
-  #   xpath: //div[@id='primary-image']/img/@alt
-  - name: alternateImages
+  - name: shownImages
     singleValue: false
     description: Other product images (not in manufacturer description)
     xpath: //div[@id='alternate-images-section']//img/@src
@@ -30,13 +26,11 @@ fields:
   - name: listPrice
     singleValue: false
     description: The stated undiscounted price for the product
-    # xpath: //div[contains(@class,'whole__sale--label text--')]
-    xpath: //span[contains(text()," Wholesale:")]/following-sibling::text()
   - name: price
     singleValue: true
     description: The offered price for the selected product variant - if a user
       clicks add to basket this is the price they would be charged
-    # xpath: //span[contains(text(),"Online Price:")]/following-sibling::text()
+    xpath: //div[@class='qty__items pricing-margin-override']//div[contains(@class,'whole__sale--label')]//span[contains(text()," Wholesale:")]/following-sibling::text()
   - name: availabilityText
     singleValue: true
     description: Availability as described on page for the selected variant. If
@@ -55,10 +49,10 @@ fields:
     singleValue: true
     description: Number of ul > li tags in the description
     type: NUMBER
-  # - name: brandText
-  #   singleValue: true
-  #   description: Product brand shown - this may actually NOT be just a brand name,
-  #     e.g. "Visit the Gillette Store"
+  - name: brandText
+    singleValue: true
+    description: Product brand shown - this may actually NOT be just a brand name,
+      e.g. "Visit the Gillette Store"
   - name: manufacturer
     singleValue: true
     description: Product manufacturer
@@ -109,7 +103,6 @@ fields:
   - name: ratingCount
     singleValue: true
     description: The number of ratings
-    # defaultValue: 0
     type: NUMBER
   - name: aggregateRatingText
     singleValue: true
@@ -117,11 +110,10 @@ fields:
   - name: aggregateRating
     singleValue: true
     description: The stated aggregate rating normalized to be out of 5
-    # defaultValue: 0.0
     type: NUMBER
-  - name: shippingInfo
-    singleValue: true
-    description: Shipping information for the product
+  - name: priceCurrency
+    singleValue: false
+    xpath: //div[@class='qty__items pricing-margin-override']//div[contains(@class,'whole__sale--label')]//span[contains(text()," Wholesale:")]/following-sibling::text()
   - name: shippingDimensions
     singleValue: true
     description: Stated shipping dimensions
@@ -142,9 +134,6 @@ fields:
   - name: manufacturerDescription
     singleValue: false
     description: The extended description of the product supplied by the lister
-  - name: manufacturerImages
-    singleValue: false
-    description: Images within the third party description
   - name: videos
     singleValue: false
     description: URLs of videos on page
@@ -230,7 +219,8 @@ fields:
   - name: featureBullets
     singleValue: false
     description: null
-    xpath: //div[@id='note']/ul
+    # xpath: //div[@id='note']/ul/li
+    xpath: //div[@class='panel__content']//div[@id='note']/ul/li
   - name: otherSellersName
     singleValue: false
     description: null
@@ -518,3 +508,4 @@ fields:
       carousel,['Yes','No']
     # example: https://www.zalando.de/adidas-neo-sneaker-low-blackwhite-a4315i002-q11.html
     defaultValue: No
+
