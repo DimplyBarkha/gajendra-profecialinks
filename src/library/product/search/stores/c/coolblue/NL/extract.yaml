@@ -1,0 +1,66 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: //div[@class="js-products-component"]/div/div/div[contains(@class,"grid-unit")][not(contains(@class,"hidden"))]
+fields:
+  - name: id
+    singleValue: false
+    xpath: //div[@class="position--relative"]/a/@href
+    regExp: product\/(\d+)
+    regExpReplace: $1
+  - name: searchUrl
+    singleValue: true
+    xpath: //*[@searchUrl]/@searchUrl
+  - name: name
+    singleValue: false
+    xpath: //div[@class="product-card__title"]/a/h3
+  - name: productUrl
+    singleValue: false
+    xpath: //div[@class="position--relative"]/a/@data-component
+    regExp: \((.\d+)\) -
+    regExpReplace: https://www.coolblue.nl/product/$1
+  - name: gtin
+    singleValue: false
+  - name: thumbnail
+    singleValue: false
+    xpath: //figure/picture/source/@srcset  | //figure/picture/source/@data-srcset
+    regExp: ^(.+),
+    regExpReplace: $1
+  - name: aggregateRating
+    singleValue: false
+  - name: aggregateRating2
+    singleValue: false
+    xpath: //meter[@class="review-rating__score-meter"]/@value
+  - name: reviewCount
+    singleValue: false
+    xpath: //span[@class="review-rating__reviews overflow--ellipsis"]
+    regExp: ^(\d+)
+    regExpReplace: $1
+  - name: ratingCount
+    singleValue: false
+  - name: price
+    singleValue: false
+    xpath: //strong[@class="sales-price__current"]
+    regExp: (.+)
+    regExpReplace: $1€
+  - name: manufacturer
+    singleValue: true
+  - name: soldBy
+    singleValue: true
+  - name: endorsementText
+    singleValue: false
+  - name: rank
+    singleValue: false
+    description: search/listing rank
+    type: NUMBER
+  - name: rankOrganic
+    singleValue: true
+    description: The position (rank) within the list excluding sponsored/paid results
+    type: NUMBER
+  - name: sponsored
+    singleValue: false
+    description: Is sponsored/paid
+    type: BOOLEAN
+  # - name: totalRecordCount
+  #   singleValue: true 
+  #   type: NUMBER
