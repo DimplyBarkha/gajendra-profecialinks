@@ -1,4 +1,4 @@
-const { transform } = require('../format.js');
+const { transform } = require('../../../../shared');
 async function implementation (
   inputs,
   parameters,
