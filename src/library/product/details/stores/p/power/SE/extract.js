@@ -38,11 +38,6 @@ module.exports = {
       if (iframeDoc && iframeDoc.document && iframeDoc.document.body && iframeDoc.document.body.innerHTML) {
         const parser = new DOMParser();
         const htmlDoc = parser.parseFromString(iframeDoc.document.body.innerHTML, 'text/html');
-        const videoElements = htmlDoc.querySelectorAll('div.b-video-cover');
-        videoElements && videoElements.forEach(item => {
-          let vidURL = item.getAttribute('style').replace(/(.*) url(\()(.*)(\))/g, '$3')
-          addElementToDocument('videoUrls', vidURL);
-        });
         const videoDurations = htmlDoc.querySelectorAll('.video-duration ');
         videoDurations && videoDurations.forEach(item => {
           addElementToDocument('videoDurations', item.textContent);
