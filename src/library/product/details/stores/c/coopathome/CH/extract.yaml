@@ -78,12 +78,12 @@ fields:
   - name: gtin
     singleValue: false
     xpath: //script[contains(.,"gtin")]/text()
-    regExp: gtin8\W+([^"]+)
+    regExp: gtin8\W\W\W(\d{9,})
     regExpReplace: $1
   - name: eangtin
     singleValue: false
     xpath: //script[contains(.,"gtin")]/text()
-    regExp: gtin8\W+([^"]+)
+    regExp: gtin8\W\W\W(\d{9,})
     regExpReplace: $1
   - name: sku
     singleValue: false
