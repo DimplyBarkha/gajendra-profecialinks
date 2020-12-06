@@ -21,9 +21,14 @@ async function implementation (
   await dependencies.goto({ url, zipcode, storeId });
 
   if (parameters.loadedSelector) {
-    await context.waitForFunction(function (sel, xp) {
-      return Boolean(document.querySelector(sel) || document.evaluate(xp, document, null, XPathResult.UNORDERED_NODE_ITERATOR_TYPE, null).iterateNext());
-    }, { timeout: 10000 }, parameters.loadedSelector, parameters.noResultsXPath);
+    try {
+      await context.waitForFunction(function (sel, xp) {
+        return Boolean(document.querySelector(sel) || document.evaluate(xp, document, null, XPathResult.UNORDERED_NODE_ITERATOR_TYPE, null).iterateNext());
+      }, { timeout: 10000 }, parameters.loadedSelector, parameters.noResultsXPath);
+    } catch (error) {
+      console.log('error while waiting for loadedSelector', error);
+    }
+    
   }
 
   // TODO: Check for not found?

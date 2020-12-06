@@ -4,7 +4,7 @@ module.exports = {
   parameterValues: {
     domain: 'darty.com',
     prefix: null,
-    url: null,
+    url: 'https://www.darty.com/{id}',
     country: 'FR',
     store: 'darty',
     zipcode: '',
