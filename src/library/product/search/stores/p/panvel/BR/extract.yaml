@@ -9,7 +9,8 @@ fields:
   - name: id
     singleValue: false
     xpath: //div[contains(@class,"box-produto ")]//a/@href
-    regExp: \d{4,}
+    regExp: \Wp\W(.+)
+    regExpReplace: $1
   - name: price
     singleValue: false
     xpath: //div[contains(@class,"box-produto ")]//span[@class="item-preco__valor text-bold"]/text() | //span[@class="item-preco__valor"]/text() | (//div[@class="desc"]/text())[1] | //div[@class="description"]/span/text() | //span[@class="item-box-price__value text-bold"]
