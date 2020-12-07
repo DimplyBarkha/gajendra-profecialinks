@@ -1,0 +1,7 @@
+extends: ../../../../sharedAmazon/shared
+fields:
+  - name: aggregateRating
+    singleValue: true
+    xpath: //*[@id="acrPopover"]/@title
+    regExp: (5)(つ星のうち)(.+)
+    regExpReplace: $3

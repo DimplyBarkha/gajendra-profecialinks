@@ -64,7 +64,7 @@ fields:
   - name: description
     singleValue: false
     html: true
-    xpath: //div[@id="productDescription"]/*[not(@class="disclaim")]
+    xpath: //div[@id="productDescription"]//p
   - name: extraDescription
     xpath: //div[@id="productDescription"]/*[not(@class="disclaim")]
     html: true
@@ -178,7 +178,7 @@ fields:
     xpath: (//div[@id="aplus"] | //div[@class="aplus"])//img/@data-src
   - name: videos
     singleValue: false
-    xpath: //script[contains(text(), "ImageBlockBTF")]/text()
+    # xpath: //script[contains(text(), "ImageBlockBTF")]/text()
   - name: manufacturerVideos
     singleValue: false
     xpath: (//div[@id="aplus"]/div | //div[@class="aplus"])//video/@src
