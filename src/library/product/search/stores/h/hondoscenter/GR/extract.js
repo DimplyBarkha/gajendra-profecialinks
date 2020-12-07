@@ -8,42 +8,23 @@ module.exports = {
         domain: 'hondoscenter.com',
         zipcode: '',
     },
-    // implementation: async (
-    //     inputs,
-    //     parameters,
-    //     context,
-    //     dependencies,
-    // ) => {
-    //     const { transform } = parameters;
-    //     const { productDetails } = dependencies;
-    //     await context.waitForFunction(async function () {
-    //         while (!!document.querySelector('div[class="button-container"]>span')) {
-    //             // @ts-ignore
-    //             document.querySelector('div[class="button-container"]>span').click()
-    //             await new Promise(r => setTimeout(r, 6000));
-    //         }
-    //         var elem, scrollTotalHeight;
-    //         await scroll();
-    //         async function scroll() {
-    //             let scrollTop = 0;
-    //             while (scrollTop !== 20000) {
-    //                 await stall(500);
-    //                 scrollTop += 1000;
-    //                 window.scroll(0, scrollTop);
-    //                 if (scrollTop === 20000) {
-    //                     await stall(5000);
-    //                     break;
-    //                 }
-    //             }
-    //             function stall(ms) {
-    //                 return new Promise((resolve, reject) => {
-    //                     setTimeout(() => {
-    //                         resolve();
-    //                     }, ms);
-    //                 });
-    //             }
-    //         }
-    //     }, { timeout: 90000 });
-    //     return await context.extract(productDetails, { transform });
-    // }
+    implementation: async ({ inputString }, { country, domain }, context, { productDetails }) => {
+        await context.evaluate(async function () {
+            function addElementToDocument(key, value) {
+                const catElement = document.createElement('div');
+                catElement.id = key;
+                catElement.textContent = value;
+                catElement.style.display = 'none';
+                document.body.appendChild(catElement);
+                }
+            var cookies;
+            cookies = document.querySelector('div[class="button-container"] a[class="accept-btn js-accept"]')
+            if (cookies != undefined) {
+                // @ts-ignore
+                document.querySelector('div[class="button-container"] a[class="accept-btn js-accept"]').click()
+                await new Promise(r => setTimeout(r, 6000));
+            }
+        });
+        await context.extract(productDetails);
+    },
 };
