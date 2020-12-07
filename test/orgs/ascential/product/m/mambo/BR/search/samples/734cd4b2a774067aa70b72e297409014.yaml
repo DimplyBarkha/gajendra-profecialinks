@@ -2,7 +2,7 @@ input:
   keywords: Aveia
   _url: http://mambo.com.br
 extractions:
-  - html: https://workbench.import.io/html/run=9dde6c0c-cdf7-42ff-8a07-d924d4db0d8b/task=6ef2a939-86d8-4102-b4af-4d5e7149572e/eb9e5a02-a682-41f6-be6e-5097e37f33ab.html
+  - html: https://workbench.import.io/html/run=a1368478-d1b3-4f81-bb21-213772b1c54b/task=961f061e-7a8f-4e49-859c-48785eb2b579/b246785c-281f-4a88-a8dc-9b1834ba3031.html
     extractionConfigId: product/search/stores/m/mambo/BR/extract
     data:
       - group:
@@ -17,7 +17,7 @@ extractions:
                 xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/a[1]/@href
             thumbnail:
               - text: https://www.mambo.com.br/ccstore/v1/images/?source=/file/v3180791427955033696/products/191738_1_Aveia%20em%20Flocos%20Nestle%20170g.jpg&height=200&width=200&quality=1.0
-                xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/@data-product-image-url
+                xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/@image-url
             price:
               - text: R$ 3,35
                 xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[3]/a[1]/div[3]/div[1]/span[1]
@@ -46,7 +46,7 @@ extractions:
                 xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[2]/div[1]/a[1]/@href
             thumbnail:
               - text: https://www.mambo.com.br/ccstore/v1/images/?source=/file/v4599688080930563689/products/175418_Aveia-Flocos-Finos-Integral-Jasmine-Pacote-500g.jpg&height=200&width=200&quality=1.0
-                xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[2]/@data-product-image-url
+                xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[2]/@image-url
             price:
               - text: R$ 9,99
                 xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[2]/div[3]/a[1]/div[3]/div[1]/span[1]
@@ -75,7 +75,7 @@ extractions:
                 xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/div[1]/a[1]/@href
             thumbnail:
               - text: https://www.mambo.com.br/ccstore/v1/images/?source=/file/v6913973582501106067/products/191736_HI_Aveia%20em%20Flocos%20Finos%20Nestle%20170g.jpg&height=200&width=200&quality=1.0
-                xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/@data-product-image-url
+                xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/@image-url
             price:
               - text: R$ 3,35
                 xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/div[3]/a[1]/div[3]/div[1]/span[1]
@@ -104,7 +104,7 @@ extractions:
                 xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[4]/div[1]/a[1]/@href
             thumbnail:
               - text: https://www.mambo.com.br/ccstore/v1/images/?source=/file/v8492854071069369439/products/259911_HI_AVEIA%20QUAKER%20ORGANICA%20170G%20FLOCOS%20FINOS.png&height=200&width=200&quality=1.0
-                xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[4]/@data-product-image-url
+                xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[4]/@image-url
             price:
               - text: R$ 6,65
                 xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[4]/div[3]/a[1]/div[3]/div[1]/span[1]
@@ -123,19 +123,19 @@ extractions:
                 locale: pt_BR
                 value: 4
           - id:
-              - text: "258154"
+              - text: "196619"
                 xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[5]/div[1]/a[1]/@href
             name:
-              - text: Aveia em Flocos Regular Quaker 165g
+              - text: Aveia em Flocos Quaker 450g
                 xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[5]/div[3]/a[1]/div[2]
             productUrl:
-              - text: https://www.mambo.com.br/aveia-em-flocos-regular-quaker-165g/p/258154
+              - text: https://www.mambo.com.br/aveia-em-flocos-quaker-450g/p/196619
                 xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[5]/div[1]/a[1]/@href
             thumbnail:
-              - text: https://www.mambo.com.br/ccstore/v1/images/?source=/file/v7933736019340367467/products/258154_HI_AVEIA%20EM%20FLOCOS%20REGULAR%20QUAKER%20165G.png&height=200&width=200&quality=1.0
-                xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[5]/@data-product-image-url
+              - text: https://www.mambo.com.br/ccstore/v1/images/?source=/file/v2995156484357287268/products/196619_HI_Aveia%20em%20Flocos%20Quaker%20450g.jpg&height=200&width=200&quality=1.0
+                xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[5]/@image-url
             price:
-              - text: R$ 4,45
+              - text: R$ 11,19
                 xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[5]/div[3]/a[1]/div[3]/div[1]/span[1]
             rank:
               - text: "5"
@@ -152,19 +152,19 @@ extractions:
                 locale: pt_BR
                 value: 5
           - id:
-              - text: "196619"
+              - text: "260118"
                 xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[6]/div[1]/a[1]/@href
             name:
-              - text: Aveia em Flocos Quaker 450g
+              - text: Aveia em Flocos Mãe Terra 170g
                 xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[6]/div[3]/a[1]/div[2]
             productUrl:
-              - text: https://www.mambo.com.br/aveia-em-flocos-quaker-450g/p/196619
+              - text: https://www.mambo.com.br/aveia-em-flocos-m%C3%A3e-terra-170g/p/260118
                 xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[6]/div[1]/a[1]/@href
             thumbnail:
-              - text: https://www.mambo.com.br/ccstore/v1/images/?source=/file/v2995156484357287268/products/196619_HI_Aveia%20em%20Flocos%20Quaker%20450g.jpg&height=200&width=200&quality=1.0
-                xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[6]/@data-product-image-url
+              - text: https://www.mambo.com.br/ccstore/v1/images/?source=/file/v1638991844329570796/products/260118_1_Aveia%20em%20Flocos%20Mae%20Terra%20170g.jpg&height=200&width=200&quality=1.0
+                xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[6]/@image-url
             price:
-              - text: R$ 11,19
+              - text: R$ 3,95
                 xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[6]/div[3]/a[1]/div[3]/div[1]/span[1]
             rank:
               - text: "6"
@@ -181,19 +181,19 @@ extractions:
                 locale: pt_BR
                 value: 6
           - id:
-              - text: "260118"
+              - text: "259946"
                 xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[7]/div[1]/a[1]/@href
             name:
-              - text: Aveia em Flocos Mãe Terra 170g
+              - text: Aveia em Flocos Normais Orgânica Quaker 170g
                 xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[7]/div[3]/a[1]/div[2]
             productUrl:
-              - text: https://www.mambo.com.br/aveia-em-flocos-m%C3%A3e-terra-170g/p/260118
+              - text: https://www.mambo.com.br/aveia-em-flocos-normais-org%C3%A2nica-quaker-170g/p/259946
                 xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[7]/div[1]/a[1]/@href
             thumbnail:
-              - text: https://www.mambo.com.br/ccstore/v1/images/?source=/file/v1638991844329570796/products/260118_1_Aveia%20em%20Flocos%20Mae%20Terra%20170g.jpg&height=200&width=200&quality=1.0
-                xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[7]/@data-product-image-url
+              - text: https://www.mambo.com.br/ccstore/v1/images/?source=/file/v7269872516314263425/products/259946_HI_AVEIA%20QUAKER%20ORGANICA%20170G%20FLOCOS%20NORMAIS.png&height=200&width=200&quality=1.0
+                xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[7]/@image-url
             price:
-              - text: R$ 3,95
+              - text: R$ 6,65
                 xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[7]/div[3]/a[1]/div[3]/div[1]/span[1]
             rank:
               - text: "7"
@@ -210,19 +210,19 @@ extractions:
                 locale: pt_BR
                 value: 7
           - id:
-              - text: "259946"
+              - text: "242000"
                 xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[8]/div[1]/a[1]/@href
             name:
-              - text: Aveia em Flocos Normais Orgânica Quaker 170g
+              - text: Aveia em Lâminas Monama 200g
                 xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[8]/div[3]/a[1]/div[2]
             productUrl:
-              - text: https://www.mambo.com.br/aveia-em-flocos-normais-org%C3%A2nica-quaker-170g/p/259946
+              - text: https://www.mambo.com.br/aveia-em-laminas-monama-200g/p/242000
                 xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[8]/div[1]/a[1]/@href
             thumbnail:
-              - text: https://www.mambo.com.br/ccstore/v1/images/?source=/file/v7269872516314263425/products/259946_HI_AVEIA%20QUAKER%20ORGANICA%20170G%20FLOCOS%20NORMAIS.png&height=200&width=200&quality=1.0
-                xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[8]/@data-product-image-url
+              - text: https://www.mambo.com.br/ccstore/v1/images/?source=/file/v72938987381509321/products/242000_AVEIA-EM-LAMINAS-MONAMA-200G.jpg&height=200&width=200&quality=1.0
+                xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[8]/@image-url
             price:
-              - text: R$ 6,65
+              - text: R$ 10,95
                 xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[8]/div[3]/a[1]/div[3]/div[1]/span[1]
             rank:
               - text: "8"
@@ -239,19 +239,19 @@ extractions:
                 locale: pt_BR
                 value: 8
           - id:
-              - text: "242000"
+              - text: "239743"
                 xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[9]/div[1]/a[1]/@href
             name:
-              - text: Aveia em Lâminas Monama 200g
+              - text: Aveia em Flocos Finos Da Magrinha 500g
                 xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[9]/div[3]/a[1]/div[2]
             productUrl:
-              - text: https://www.mambo.com.br/aveia-em-laminas-monama-200g/p/242000
+              - text: https://www.mambo.com.br/aveia-flocos-fino-da-magrinha-500g/p/239743
                 xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[9]/div[1]/a[1]/@href
             thumbnail:
-              - text: https://www.mambo.com.br/ccstore/v1/images/?source=/file/v72938987381509321/products/242000_AVEIA-EM-LAMINAS-MONAMA-200G.jpg&height=200&width=200&quality=1.0
-                xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[9]/@data-product-image-url
+              - text: https://www.mambo.com.br/ccstore/v1/images/?source=/file/v5284020334100985287/products/239743_1_AVEIA%20FLOCOS%20FINO%20DA%20MAGRINHA%20500G.jpg&height=200&width=200&quality=1.0
+                xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[9]/@image-url
             price:
-              - text: R$ 10,95
+              - text: R$ 9,25
                 xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[9]/div[3]/a[1]/div[3]/div[1]/span[1]
             rank:
               - text: "9"
@@ -268,19 +268,19 @@ extractions:
                 locale: pt_BR
                 value: 9
           - id:
-              - text: "239743"
+              - text: "174275"
                 xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[10]/div[1]/a[1]/@href
             name:
-              - text: Aveia em Flocos Finos Da Magrinha 500g
+              - text: Aveia Orgânica em Flocos Finos Native 250g
                 xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[10]/div[3]/a[1]/div[2]
             productUrl:
-              - text: https://www.mambo.com.br/aveia-flocos-fino-da-magrinha-500g/p/239743
+              - text: https://www.mambo.com.br/aveia-organica-flocos-finos-native-250g/p/174275
                 xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[10]/div[1]/a[1]/@href
             thumbnail:
-              - text: https://www.mambo.com.br/ccstore/v1/images/?source=/file/v5284020334100985287/products/239743_1_AVEIA%20FLOCOS%20FINO%20DA%20MAGRINHA%20500G.jpg&height=200&width=200&quality=1.0
-                xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[10]/@data-product-image-url
+              - text: https://www.mambo.com.br/ccstore/v1/images/?source=/file/v548080840985644956/products/174275_Aveia-Organica-Flocos-Finos-Native-250g.jpg&height=200&width=200&quality=1.0
+                xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[10]/@image-url
             price:
-              - text: R$ 9,25
+              - text: R$ 7,35
                 xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[10]/div[3]/a[1]/div[3]/div[1]/span[1]
             rank:
               - text: "10"
@@ -297,19 +297,19 @@ extractions:
                 locale: pt_BR
                 value: 10
           - id:
-              - text: "229021"
+              - text: "242641"
                 xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[11]/div[1]/a[1]/@href
             name:
-              - text: Aveia em Flocos com Quinoa e Frutas Vermelhas Vitalin 200g
+              - text: Aveia Orgânica em Flocos Grossos Nestlé 170g
                 xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[11]/div[3]/a[1]/div[2]
             productUrl:
-              - text: https://www.mambo.com.br/aveia-em-flocos-com-quinoa-e-frutas-vermelhas-vitalin-200g/p/229021
+              - text: https://www.mambo.com.br/aveia-organica-em-flocos-grossos-nestle-170g/p/242641
                 xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[11]/div[1]/a[1]/@href
             thumbnail:
-              - text: https://www.mambo.com.br/ccstore/v1/images/?source=/file/v6813181975081322238/products/229021_AVEIA-FLOCOS-VITALIN-SGLUT-200G-QUINOA-CFRUT-VER.jpg&height=200&width=200&quality=1.0
-                xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[11]/@data-product-image-url
+              - text: https://www.mambo.com.br/ccstore/v1/images/?source=/file/v6068414223945517346/products/242641_HI_Aveia%20Organica%20em%20Flocos%20Grossos%20Nestle%20170g.jpg&height=200&width=200&quality=1.0
+                xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[11]/@image-url
             price:
-              - text: R$ 16,59
+              - text: R$ 8,99
                 xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[11]/div[3]/a[1]/div[3]/div[1]/span[1]
             rank:
               - text: "11"
@@ -326,19 +326,19 @@ extractions:
                 locale: pt_BR
                 value: 11
           - id:
-              - text: "174275"
+              - text: "230279"
                 xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[12]/div[1]/a[1]/@href
             name:
-              - text: Aveia Orgânica em Flocos Finos Native 250g
+              - text: Aveia em Flocos Finos Sem Glúten Vitalin 200g
                 xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[12]/div[3]/a[1]/div[2]
             productUrl:
-              - text: https://www.mambo.com.br/aveia-organica-flocos-finos-native-250g/p/174275
+              - text: https://www.mambo.com.br/aveia-em-flocos-finos-sem-gluten-vitalin-200g/p/230279
                 xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[12]/div[1]/a[1]/@href
             thumbnail:
-              - text: https://www.mambo.com.br/ccstore/v1/images/?source=/file/v548080840985644956/products/174275_Aveia-Organica-Flocos-Finos-Native-250g.jpg&height=200&width=200&quality=1.0
-                xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[12]/@data-product-image-url
+              - text: https://www.mambo.com.br/ccstore/v1/images/?source=/file/v4241075563257245617/products/230279_Aveia-em-Flocos-Finos-Sem-Gluten-Vitalin-200g.jpg&height=200&width=200&quality=1.0
+                xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[12]/@image-url
             price:
-              - text: R$ 7,35
+              - text: R$ 10,75
                 xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[12]/div[3]/a[1]/div[3]/div[1]/span[1]
             rank:
               - text: "12"
@@ -355,19 +355,19 @@ extractions:
                 locale: pt_BR
                 value: 12
           - id:
-              - text: "242641"
+              - text: "229020"
                 xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[13]/div[1]/a[1]/@href
             name:
-              - text: Aveia Orgânica em Flocos Grossos Nestlé 170g
+              - text: Aveia em Flocos Sem Glúten, Chia, Banana e Mel Vitalin 200g
                 xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[13]/div[3]/a[1]/div[2]
             productUrl:
-              - text: https://www.mambo.com.br/aveia-organica-em-flocos-grossos-nestle-170g/p/242641
+              - text: https://www.mambo.com.br/aveia-em-flocos-sem-gluten-chia-banana-e-mel-vitalin-200g/p/229020
                 xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[13]/div[1]/a[1]/@href
             thumbnail:
-              - text: https://www.mambo.com.br/ccstore/v1/images/?source=/file/v6068414223945517346/products/242641_HI_Aveia%20Organica%20em%20Flocos%20Grossos%20Nestle%20170g.jpg&height=200&width=200&quality=1.0
-                xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[13]/@data-product-image-url
+              - text: https://www.mambo.com.br/ccstore/v1/images/?source=/file/v918884800430460568/products/229020.jpg&height=200&width=200&quality=1.0
+                xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[13]/@image-url
             price:
-              - text: R$ 8,99
+              - text: R$ 16,59
                 xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[13]/div[3]/a[1]/div[3]/div[1]/span[1]
             rank:
               - text: "13"
@@ -384,17 +384,17 @@ extractions:
                 locale: pt_BR
                 value: 13
           - id:
-              - text: "230279"
+              - text: "230308"
                 xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[14]/div[1]/a[1]/@href
             name:
-              - text: Aveia em Flocos Finos Sem Glúten Vitalin 200g
+              - text: Aveia em Flocos Sem Glúten Cereais Vitalin 200g
                 xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[14]/div[3]/a[1]/div[2]
             productUrl:
-              - text: https://www.mambo.com.br/aveia-em-flocos-finos-sem-gluten-vitalin-200g/p/230279
+              - text: https://www.mambo.com.br/aveia-em-flocos-sem-gluten-cereais-vitalin-200g/p/230308
                 xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[14]/div[1]/a[1]/@href
             thumbnail:
-              - text: https://www.mambo.com.br/ccstore/v1/images/?source=/file/v4241075563257245617/products/230279_Aveia-em-Flocos-Finos-Sem-Gluten-Vitalin-200g.jpg&height=200&width=200&quality=1.0
-                xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[14]/@data-product-image-url
+              - text: https://www.mambo.com.br/ccstore/v1/images/?source=/file/v2738187139502073065/products/230308_Aveia-em-Flocos-Sem-Gluten-Cereais-Vitalin-200g-.jpg&height=200&width=200&quality=1.0
+                xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[14]/@image-url
             price:
               - text: R$ 10,75
                 xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[14]/div[3]/a[1]/div[3]/div[1]/span[1]
@@ -413,19 +413,19 @@ extractions:
                 locale: pt_BR
                 value: 14
           - id:
-              - text: "229020"
+              - text: "259478"
                 xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[15]/div[1]/a[1]/@href
             name:
-              - text: Aveia em Flocos Sem Glúten, Chia, Banana e Mel Vitalin 200g
+              - text: Biscoito de Aveia e Mel Nesfit 160g
                 xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[15]/div[3]/a[1]/div[2]
             productUrl:
-              - text: https://www.mambo.com.br/aveia-em-flocos-sem-gluten-chia-banana-e-mel-vitalin-200g/p/229020
+              - text: https://www.mambo.com.br/biscoito-de-aveia-e-mel-nesfit-160g/p/259478
                 xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[15]/div[1]/a[1]/@href
             thumbnail:
-              - text: https://www.mambo.com.br/ccstore/v1/images/?source=/file/v918884800430460568/products/229020.jpg&height=200&width=200&quality=1.0
-                xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[15]/@data-product-image-url
+              - text: https://www.mambo.com.br/ccstore/v1/images/?source=/file/v8178014261197766138/products/259478_1_BISCOITO%20NESFIT%20PACOTE%20160G%20AVEIA%20E%20MEL.jpg&height=200&width=200&quality=1.0
+                xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[15]/@image-url
             price:
-              - text: R$ 16,59
+              - text: R$ 3,55
                 xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[15]/div[3]/a[1]/div[3]/div[1]/span[1]
             rank:
               - text: "15"
@@ -442,19 +442,19 @@ extractions:
                 locale: pt_BR
                 value: 15
           - id:
-              - text: "230308"
+              - text: "259944"
                 xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[16]/div[1]/a[1]/@href
             name:
-              - text: Aveia em Flocos Sem Glúten Cereais Vitalin 200g
+              - text: Farelo de Aveia Orgânica Quaker 150g
                 xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[16]/div[3]/a[1]/div[2]
             productUrl:
-              - text: https://www.mambo.com.br/aveia-em-flocos-sem-gluten-cereais-vitalin-200g/p/230308
+              - text: https://www.mambo.com.br/farelo-de-aveia-org%C3%A2nica-quaker-150g/p/259944
                 xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[16]/div[1]/a[1]/@href
             thumbnail:
-              - text: https://www.mambo.com.br/ccstore/v1/images/?source=/file/v2738187139502073065/products/230308_Aveia-em-Flocos-Sem-Gluten-Cereais-Vitalin-200g-.jpg&height=200&width=200&quality=1.0
-                xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[16]/@data-product-image-url
+              - text: https://www.mambo.com.br/ccstore/v1/images/?source=/file/v3655072195619438890/products/259944_HI_AVEIA%20QUAKER%20ORGANICA%20150G%20OAT%20BRAN.png&height=200&width=200&quality=1.0
+                xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[16]/@image-url
             price:
-              - text: R$ 10,75
+              - text: R$ 6,55
                 xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[16]/div[3]/a[1]/div[3]/div[1]/span[1]
             rank:
               - text: "16"
@@ -471,20 +471,17 @@ extractions:
                 locale: pt_BR
                 value: 16
           - id:
-              - text: "259478"
+              - text: "258155"
                 xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[17]/div[1]/a[1]/@href
             name:
-              - text: Biscoito de Aveia e Mel Nesfit 160g
+              - text: Farelo de Aveia Oat Bran Quaker 165g
                 xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[17]/div[3]/a[1]/div[2]
             productUrl:
-              - text: https://www.mambo.com.br/biscoito-de-aveia-e-mel-nesfit-160g/p/259478
+              - text: https://www.mambo.com.br/farelo-de-aveia-oat-bran-quaker-165g/p/258155
                 xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[17]/div[1]/a[1]/@href
             thumbnail:
-              - text: https://www.mambo.com.br/ccstore/v1/images/?source=/file/v8178014261197766138/products/259478_1_BISCOITO%20NESFIT%20PACOTE%20160G%20AVEIA%20E%20MEL.jpg&height=200&width=200&quality=1.0
-                xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[17]/@data-product-image-url
-            price:
-              - text: R$ 3,55
-                xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[17]/div[3]/a[1]/div[3]/div[1]/span[1]
+              - text: https://www.mambo.com.br/ccstore/v1/images/?source=/file/v8089753816084134824/products/258155_HI_FARELO%20DE%20AVEIA%20OAT%20BRAN%20QUAKER%20165G.png&height=200&width=200&quality=1.0
+                xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[17]/@image-url
             rank:
               - text: "17"
                 xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[17]/@rank-organic
@@ -500,19 +497,19 @@ extractions:
                 locale: pt_BR
                 value: 17
           - id:
-              - text: "259944"
+              - text: "243353"
                 xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[18]/div[1]/a[1]/@href
             name:
-              - text: Farelo de Aveia Orgânica Quaker 150g
+              - text: Farelo de Aveia Monama 200g
                 xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[18]/div[3]/a[1]/div[2]
             productUrl:
-              - text: https://www.mambo.com.br/farelo-de-aveia-org%C3%A2nica-quaker-150g/p/259944
+              - text: https://www.mambo.com.br/farelo-de-aveia-monama-200g/p/243353
                 xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[18]/div[1]/a[1]/@href
             thumbnail:
-              - text: https://www.mambo.com.br/ccstore/v1/images/?source=/file/v3655072195619438890/products/259944_HI_AVEIA%20QUAKER%20ORGANICA%20150G%20OAT%20BRAN.png&height=200&width=200&quality=1.0
-                xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[18]/@data-product-image-url
+              - text: https://www.mambo.com.br/ccstore/v1/images/?source=/file/v6712472862294795779/products/243353_1_Farelo%20de%20Aveia%20Monama%20200g.jpg&height=200&width=200&quality=1.0
+                xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[18]/@image-url
             price:
-              - text: R$ 6,55
+              - text: R$ 15,85
                 xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[18]/div[3]/a[1]/div[3]/div[1]/span[1]
             rank:
               - text: "18"
@@ -529,19 +526,19 @@ extractions:
                 locale: pt_BR
                 value: 18
           - id:
-              - text: "258155"
+              - text: "175419"
                 xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[19]/div[1]/a[1]/@href
             name:
-              - text: Farelo de Aveia Oat Bran Quaker 165g
+              - text: Farelo de Aveia Integral Jasmine 200g
                 xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[19]/div[3]/a[1]/div[2]
             productUrl:
-              - text: https://www.mambo.com.br/farelo-de-aveia-oat-bran-quaker-165g/p/258155
+              - text: https://www.mambo.com.br/farelo-de-aveia-integral-jasmine-pacote-200g/p/175419
                 xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[19]/div[1]/a[1]/@href
             thumbnail:
-              - text: https://www.mambo.com.br/ccstore/v1/images/?source=/file/v8089753816084134824/products/258155_HI_FARELO%20DE%20AVEIA%20OAT%20BRAN%20QUAKER%20165G.png&height=200&width=200&quality=1.0
-                xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[19]/@data-product-image-url
+              - text: https://www.mambo.com.br/ccstore/v1/images/?source=/file/v6549359274722323128/products/175419_Farelo-de-Aveia-Integral-Jasmine-Pacote-200g.jpg&height=200&width=200&quality=1.0
+                xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[19]/@image-url
             price:
-              - text: R$ 6,35
+              - text: R$ 7,45
                 xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[19]/div[3]/a[1]/div[3]/div[1]/span[1]
             rank:
               - text: "19"
@@ -558,19 +555,19 @@ extractions:
                 locale: pt_BR
                 value: 19
           - id:
-              - text: "243353"
+              - text: "242640"
                 xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[20]/div[1]/a[1]/@href
             name:
-              - text: Farelo de Aveia Monama 200g
+              - text: Farelo de Aveia Orgânica Nestlé 170g
                 xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[20]/div[3]/a[1]/div[2]
             productUrl:
-              - text: https://www.mambo.com.br/farelo-de-aveia-monama-200g/p/243353
+              - text: https://www.mambo.com.br/farelo-de-aveia-organica-nestle-170g/p/242640
                 xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[20]/div[1]/a[1]/@href
             thumbnail:
-              - text: https://www.mambo.com.br/ccstore/v1/images/?source=/file/v6712472862294795779/products/243353_1_Farelo%20de%20Aveia%20Monama%20200g.jpg&height=200&width=200&quality=1.0
-                xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[20]/@data-product-image-url
+              - text: https://www.mambo.com.br/ccstore/v1/images/?source=/file/v9077515837711768816/products/242640_HI_Farelo%20de%20Aveia%20Organica%20Nestle%20170g.jpg&height=200&width=200&quality=1.0
+                xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[20]/@image-url
             price:
-              - text: R$ 15,85
+              - text: R$ 8,99
                 xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[20]/div[3]/a[1]/div[3]/div[1]/span[1]
             rank:
               - text: "20"
@@ -587,19 +584,19 @@ extractions:
                 locale: pt_BR
                 value: 20
           - id:
-              - text: "175419"
+              - text: "252764"
                 xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[21]/div[1]/a[1]/@href
             name:
-              - text: Farelo de Aveia Integral Jasmine 200g
+              - text: Cereal de Aveia e Ameixa Mucilon Nestlé Sache 180g
                 xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[21]/div[3]/a[1]/div[2]
             productUrl:
-              - text: https://www.mambo.com.br/farelo-de-aveia-integral-jasmine-pacote-200g/p/175419
+              - text: https://www.mambo.com.br/cereal-de-aveia-e-ameixa-mucilon-nestl%C3%A9-sache-180g/p/252764
                 xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[21]/div[1]/a[1]/@href
             thumbnail:
-              - text: https://www.mambo.com.br/ccstore/v1/images/?source=/file/v6549359274722323128/products/175419_Farelo-de-Aveia-Integral-Jasmine-Pacote-200g.jpg&height=200&width=200&quality=1.0
-                xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[21]/@data-product-image-url
+              - text: https://www.mambo.com.br/ccstore/v1/images/?source=/file/v8833090833395887032/products/252764_1_Cereal%20de%20Aveia%20e%20Ameixa%20Mucilon%20Nestle%20Sache%20180g.jpg&height=200&width=200&quality=1.0
+                xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[21]/@image-url
             price:
-              - text: R$ 7,45
+              - text: R$ 6,99
                 xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[21]/div[3]/a[1]/div[3]/div[1]/span[1]
             rank:
               - text: "21"
@@ -616,19 +613,19 @@ extractions:
                 locale: pt_BR
                 value: 21
           - id:
-              - text: "242640"
+              - text: "258149"
                 xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[22]/div[1]/a[1]/@href
             name:
-              - text: Farelo de Aveia Orgânica Nestlé 170g
+              - text: Farinha de Aveia Integral Quaker 165g
                 xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[22]/div[3]/a[1]/div[2]
             productUrl:
-              - text: https://www.mambo.com.br/farelo-de-aveia-organica-nestle-170g/p/242640
+              - text: https://www.mambo.com.br/farinha-de-aveia-integral-quaker-165g/p/258149
                 xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[22]/div[1]/a[1]/@href
             thumbnail:
-              - text: https://www.mambo.com.br/ccstore/v1/images/?source=/file/v9077515837711768816/products/242640_HI_Farelo%20de%20Aveia%20Organica%20Nestle%20170g.jpg&height=200&width=200&quality=1.0
-                xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[22]/@data-product-image-url
+              - text: https://www.mambo.com.br/ccstore/v1/images/?source=/file/v2876423961537317302/products/258149_HI_FARINHA%20DE%20AVEIA%20INTEGRAL%20QUAKER%20165G.png&height=200&width=200&quality=1.0
+                xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[22]/@image-url
             price:
-              - text: R$ 8,99
+              - text: R$ 3,49
                 xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[22]/div[3]/a[1]/div[3]/div[1]/span[1]
             rank:
               - text: "22"
@@ -645,19 +642,19 @@ extractions:
                 locale: pt_BR
                 value: 22
           - id:
-              - text: "252764"
+              - text: "151380"
                 xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[23]/div[1]/a[1]/@href
             name:
-              - text: Cereal de Aveia e Ameixa Mucilon Nestlé Sache 180g
+              - text: Iogurte Aveia Activia 400g
                 xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[23]/div[3]/a[1]/div[2]
             productUrl:
-              - text: https://www.mambo.com.br/cereal-de-aveia-e-ameixa-mucilon-nestl%C3%A9-sache-180g/p/252764
+              - text: https://www.mambo.com.br/leite-fermentado-de-aveia-activia-400g/p/151380
                 xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[23]/div[1]/a[1]/@href
             thumbnail:
-              - text: https://www.mambo.com.br/ccstore/v1/images/?source=/file/v8833090833395887032/products/252764_1_Cereal%20de%20Aveia%20e%20Ameixa%20Mucilon%20Nestle%20Sache%20180g.jpg&height=200&width=200&quality=1.0
-                xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[23]/@data-product-image-url
+              - text: https://www.mambo.com.br/ccstore/v1/images/?source=/file/v1722381578116779672/products/151380_Leite-Fermentado-Aveia-Activia-400g.jpg&height=200&width=200&quality=1.0
+                xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[23]/@image-url
             price:
-              - text: R$ 6,99
+              - text: R$ 7,99
                 xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[23]/div[3]/a[1]/div[3]/div[1]/span[1]
             rank:
               - text: "23"
@@ -674,19 +671,19 @@ extractions:
                 locale: pt_BR
                 value: 23
           - id:
-              - text: "151380"
+              - text: "200758"
                 xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[24]/div[1]/a[1]/@href
             name:
-              - text: Iogurte Aveia Activia 400g
+              - text: Paçoquita com Aveia Sem Adição de Açúcar Santa Helena 88g
                 xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[24]/div[3]/a[1]/div[2]
             productUrl:
-              - text: https://www.mambo.com.br/leite-fermentado-de-aveia-activia-400g/p/151380
+              - text: https://www.mambo.com.br/pacoquita-com-aveia-sem-adicao-de-acucar-santa-helena-88g/p/200758
                 xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[24]/div[1]/a[1]/@href
             thumbnail:
-              - text: https://www.mambo.com.br/ccstore/v1/images/?source=/file/v1722381578116779672/products/151380_Leite-Fermentado-Aveia-Activia-400g.jpg&height=200&width=200&quality=1.0
-                xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[24]/@data-product-image-url
+              - text: https://www.mambo.com.br/ccstore/v1/images/?source=/file/v6778625562392851776/products/200758_1_Pacoquita%20com%20Aveia%20Sem%20Adicao%20de%20Acucar%20Santa%20Helena%2088g.jpg&height=200&width=200&quality=1.0
+                xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[24]/@image-url
             price:
-              - text: R$ 7,99
+              - text: R$ 10,15
                 xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[24]/div[3]/a[1]/div[3]/div[1]/span[1]
             rank:
               - text: "24"
@@ -703,19 +700,19 @@ extractions:
                 locale: pt_BR
                 value: 24
           - id:
-              - text: "200758"
+              - text: "175359"
                 xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[25]/div[1]/a[1]/@href
             name:
-              - text: Paçoquita com Aveia Sem Adição de Açúcar Santa Helena 88g
+              - text: Cereal Infantil de Aveia e Arroz Mucilon Nestlé 230g
                 xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[25]/div[3]/a[1]/div[2]
             productUrl:
-              - text: https://www.mambo.com.br/pacoquita-com-aveia-sem-adicao-de-acucar-santa-helena-88g/p/200758
+              - text: https://www.mambo.com.br/cereal-de-aveia-e-arroz-mucilon-nestle-sache-230g/p/175359
                 xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[25]/div[1]/a[1]/@href
             thumbnail:
-              - text: https://www.mambo.com.br/ccstore/v1/images/?source=/file/v6778625562392851776/products/200758_1_Pacoquita%20com%20Aveia%20Sem%20Adicao%20de%20Acucar%20Santa%20Helena%2088g.jpg&height=200&width=200&quality=1.0
-                xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[25]/@data-product-image-url
+              - text: https://www.mambo.com.br/ccstore/v1/images/?source=/file/v2750459990119194616/products/ab52194cc91f12d77a37fc960ae73acf_cereal-de-aveia-e-arroz-mucilon-nestle-sache-230g_lett_1.jpg&height=200&width=200&quality=1.0
+                xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[25]/@image-url
             price:
-              - text: R$ 10,15
+              - text: R$ 6,99
                 xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[25]/div[3]/a[1]/div[3]/div[1]/span[1]
             rank:
               - text: "25"
@@ -732,19 +729,19 @@ extractions:
                 locale: pt_BR
                 value: 25
           - id:
-              - text: "175359"
+              - text: "195143"
                 xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[26]/div[1]/a[1]/@href
             name:
-              - text: Cereal Infantil de Aveia e Arroz Mucilon Nestlé 230g
+              - text: Cereal Arroz, Aveia e Maçã Milnutri 180g
                 xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[26]/div[3]/a[1]/div[2]
             productUrl:
-              - text: https://www.mambo.com.br/cereal-de-aveia-e-arroz-mucilon-nestle-sache-230g/p/175359
+              - text: https://www.mambo.com.br/cereal-milnutri-pct-180g-arroz-aveia-maca/p/195143
                 xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[26]/div[1]/a[1]/@href
             thumbnail:
-              - text: https://www.mambo.com.br/ccstore/v1/images/?source=/file/v2750459990119194616/products/ab52194cc91f12d77a37fc960ae73acf_cereal-de-aveia-e-arroz-mucilon-nestle-sache-230g_lett_1.jpg&height=200&width=200&quality=1.0
-                xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[26]/@data-product-image-url
+              - text: https://www.mambo.com.br/ccstore/v1/images/?source=/file/v6546230872422067362/products/195143_HI_Cereal%20Arroz%20Aveia%20e%20Maca%20Milnutri%20180g.jpg&height=200&width=200&quality=1.0
+                xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[26]/@image-url
             price:
-              - text: R$ 6,99
+              - text: R$ 6,29
                 xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[26]/div[3]/a[1]/div[3]/div[1]/span[1]
             rank:
               - text: "26"
@@ -761,17 +758,17 @@ extractions:
                 locale: pt_BR
                 value: 26
           - id:
-              - text: "195143"
+              - text: "195147"
                 xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[27]/div[1]/a[1]/@href
             name:
-              - text: Cereal Arroz, Aveia e Maçã Milnutri 180g
+              - text: Cereal de Arroz e Aveia Milnutri 230g
                 xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[27]/div[3]/a[1]/div[2]
             productUrl:
-              - text: https://www.mambo.com.br/cereal-milnutri-pct-180g-arroz-aveia-maca/p/195143
+              - text: https://www.mambo.com.br/cereal-de-arroz-e-aveia-milnutri-230g/p/195147
                 xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[27]/div[1]/a[1]/@href
             thumbnail:
-              - text: https://www.mambo.com.br/ccstore/v1/images/?source=/file/v6546230872422067362/products/195143_HI_Cereal%20Arroz%20Aveia%20e%20Maca%20Milnutri%20180g.jpg&height=200&width=200&quality=1.0
-                xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[27]/@data-product-image-url
+              - text: https://www.mambo.com.br/ccstore/v1/images/?source=/file/v2114240038666467741/products/7891025104742_Cereal-de-Arroz-e-Aveia-Milnutri-230g_1.jpg&height=200&width=200&quality=1.0
+                xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[27]/@image-url
             price:
               - text: R$ 6,29
                 xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[27]/div[3]/a[1]/div[3]/div[1]/span[1]
@@ -790,19 +787,19 @@ extractions:
                 locale: pt_BR
                 value: 27
           - id:
-              - text: "195147"
+              - text: "223611"
                 xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[28]/div[1]/a[1]/@href
             name:
-              - text: Cereal de Arroz e Aveia Milnutri 230g
+              - text: Biscoito ao Leite e Aveia Belvita 75g
                 xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[28]/div[3]/a[1]/div[2]
             productUrl:
-              - text: https://www.mambo.com.br/cereal-de-arroz-e-aveia-milnutri-230g/p/195147
+              - text: https://www.mambo.com.br/biscoito-ao-leite-e-aveia-belvita-25g-com-3-unidades/p/223611
                 xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[28]/div[1]/a[1]/@href
             thumbnail:
-              - text: https://www.mambo.com.br/ccstore/v1/images/?source=/file/v2114240038666467741/products/7891025104742_Cereal-de-Arroz-e-Aveia-Milnutri-230g_1.jpg&height=200&width=200&quality=1.0
-                xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[28]/@data-product-image-url
+              - text: https://www.mambo.com.br/ccstore/v1/images/?source=/file/v8597735999781230466/products/e3f71e0b99408d53d2d853afcde99c88_biscoito-belvita-ao-leite-com-aveia--3-unidades---75-gramas_lett_2.jpg&height=200&width=200&quality=1.0
+                xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[28]/@image-url
             price:
-              - text: R$ 6,29
+              - text: R$ 2,79
                 xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[28]/div[3]/a[1]/div[3]/div[1]/span[1]
             rank:
               - text: "28"
@@ -819,19 +816,19 @@ extractions:
                 locale: pt_BR
                 value: 28
           - id:
-              - text: "223611"
+              - text: "200722"
                 xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[29]/div[1]/a[1]/@href
             name:
-              - text: Biscoito ao Leite e Aveia Belvita 75g
+              - text: Paçoca Rolha com Aveia DaColônia 210g
                 xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[29]/div[3]/a[1]/div[2]
             productUrl:
-              - text: https://www.mambo.com.br/biscoito-ao-leite-e-aveia-belvita-25g-com-3-unidades/p/223611
+              - text: https://www.mambo.com.br/pacoca-rolha-com-aveia-dacolonia-210g/p/200722
                 xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[29]/div[1]/a[1]/@href
             thumbnail:
-              - text: https://www.mambo.com.br/ccstore/v1/images/?source=/file/v8597735999781230466/products/e3f71e0b99408d53d2d853afcde99c88_biscoito-belvita-ao-leite-com-aveia--3-unidades---75-gramas_lett_2.jpg&height=200&width=200&quality=1.0
-                xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[29]/@data-product-image-url
+              - text: https://www.mambo.com.br/ccstore/v1/images/?source=/file/v7785430415300774410/products/200722.jpg&height=200&width=200&quality=1.0
+                xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[29]/@image-url
             price:
-              - text: R$ 2,79
+              - text: R$ 7,75
                 xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[29]/div[3]/a[1]/div[3]/div[1]/span[1]
             rank:
               - text: "29"
@@ -848,19 +845,19 @@ extractions:
                 locale: pt_BR
                 value: 29
           - id:
-              - text: "200722"
+              - text: "236990"
                 xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[30]/div[1]/a[1]/@href
             name:
-              - text: Paçoca Rolha com Aveia DaColônia 210g
+              - text: Sabonete em Barra Aveia Protex 85g
                 xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[30]/div[3]/a[1]/div[2]
             productUrl:
-              - text: https://www.mambo.com.br/pacoca-rolha-com-aveia-dacolonia-210g/p/200722
+              - text: https://www.mambo.com.br/sabonete-em-barra-aveia-protex-85g/p/236990
                 xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[30]/div[1]/a[1]/@href
             thumbnail:
-              - text: https://www.mambo.com.br/ccstore/v1/images/?source=/file/v7785430415300774410/products/200722.jpg&height=200&width=200&quality=1.0
-                xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[30]/@data-product-image-url
+              - text: https://www.mambo.com.br/ccstore/v1/images/?source=/file/v3262733714153375579/products/236990_HI_Sabonete%20em%20Barra%20Aveia%20Protex%2085g.jpg&height=200&width=200&quality=1.0
+                xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[30]/@image-url
             price:
-              - text: R$ 7,75
+              - text: R$ 2,49
                 xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[30]/div[3]/a[1]/div[3]/div[1]/span[1]
             rank:
               - text: "30"
@@ -877,19 +874,19 @@ extractions:
                 locale: pt_BR
                 value: 30
           - id:
-              - text: "236990"
+              - text: "230445"
                 xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[31]/div[1]/a[1]/@href
             name:
-              - text: Sabonete em Barra Aveia Protex 85g
+              - text: Bolo de Banana com Aveia e Mel Integral Panco 250g
                 xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[31]/div[3]/a[1]/div[2]
             productUrl:
-              - text: https://www.mambo.com.br/sabonete-em-barra-aveia-protex-85g/p/236990
+              - text: https://www.mambo.com.br/bolo-de-banana-com-aveia-e-mel-integral-panco-250g/p/230445
                 xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[31]/div[1]/a[1]/@href
             thumbnail:
-              - text: https://www.mambo.com.br/ccstore/v1/images/?source=/file/v3262733714153375579/products/236990_HI_Sabonete%20em%20Barra%20Aveia%20Protex%2085g.jpg&height=200&width=200&quality=1.0
-                xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[31]/@data-product-image-url
+              - text: https://www.mambo.com.br/ccstore/v1/images/?source=/file/v6915867078040491413/products/230445.jpg&height=200&width=200&quality=1.0
+                xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[31]/@image-url
             price:
-              - text: R$ 2,49
+              - text: R$ 11,59
                 xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[31]/div[3]/a[1]/div[3]/div[1]/span[1]
             rank:
               - text: "31"
@@ -906,19 +903,19 @@ extractions:
                 locale: pt_BR
                 value: 31
           - id:
-              - text: "230445"
+              - text: "230552"
                 xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[32]/div[1]/a[1]/@href
             name:
-              - text: Bolo de Banana com Aveia e Mel Integral Panco 250g
+              - text: Leite Fermentado Líquido Sabor Aveia Activia 1 Litro
                 xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[32]/div[3]/a[1]/div[2]
             productUrl:
-              - text: https://www.mambo.com.br/bolo-de-banana-com-aveia-e-mel-integral-panco-250g/p/230445
+              - text: https://www.mambo.com.br/leite-fermentado-sabor-aveia-activia-1-litro/p/230552
                 xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[32]/div[1]/a[1]/@href
             thumbnail:
-              - text: https://www.mambo.com.br/ccstore/v1/images/?source=/file/v6915867078040491413/products/230445.jpg&height=200&width=200&quality=1.0
-                xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[32]/@data-product-image-url
+              - text: https://www.mambo.com.br/ccstore/v1/images/?source=/file/v8763822531740840913/products/230552_Leite-Fermentado-Liquido-Sabor-Aveia-Activia-1-Litro.jpg&height=200&width=200&quality=1.0
+                xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[32]/@image-url
             price:
-              - text: R$ 11,59
+              - text: R$ 10,95
                 xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[32]/div[3]/a[1]/div[3]/div[1]/span[1]
             rank:
               - text: "32"
@@ -935,19 +932,19 @@ extractions:
                 locale: pt_BR
                 value: 32
           - id:
-              - text: "230552"
+              - text: "194963"
                 xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[33]/div[1]/a[1]/@href
             name:
-              - text: Leite Fermentado Líquido Sabor Aveia Activia 1 Litro
+              - text: Biscoito Cereale Cacau, Aveia e Mel Bauducco 170g
                 xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[33]/div[3]/a[1]/div[2]
             productUrl:
-              - text: https://www.mambo.com.br/leite-fermentado-sabor-aveia-activia-1-litro/p/230552
+              - text: https://www.mambo.com.br/bisc-bauducco-cereale-cacau-170g-aveia-mel/p/194963
                 xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[33]/div[1]/a[1]/@href
             thumbnail:
-              - text: https://www.mambo.com.br/ccstore/v1/images/?source=/file/v8763822531740840913/products/230552_Leite-Fermentado-Liquido-Sabor-Aveia-Activia-1-Litro.jpg&height=200&width=200&quality=1.0
-                xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[33]/@data-product-image-url
+              - text: https://www.mambo.com.br/ccstore/v1/images/?source=/file/v571186161209736381/products/194963_1_Biscoito%20Cereale%20Cacau,%20Aveia%20e%20Mel%20Bauducco%20170g.jpg&height=200&width=200&quality=1.0
+                xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[33]/@image-url
             price:
-              - text: R$ 10,95
+              - text: R$ 3,65
                 xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[33]/div[3]/a[1]/div[3]/div[1]/span[1]
             rank:
               - text: "33"
@@ -964,19 +961,19 @@ extractions:
                 locale: pt_BR
                 value: 33
           - id:
-              - text: "194963"
+              - text: "229334"
                 xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[34]/div[1]/a[1]/@href
             name:
-              - text: Biscoito Cereale Cacau, Aveia e Mel Bauducco 170g
+              - text: Biscoito Integral Maçã Aveia e Canela Kellogg's 120g
                 xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[34]/div[3]/a[1]/div[2]
             productUrl:
-              - text: https://www.mambo.com.br/bisc-bauducco-cereale-cacau-170g-aveia-mel/p/194963
+              - text: https://www.mambo.com.br/biscoito-integral-maca-aveia-e-canela-kellogg-s-120g/p/229334
                 xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[34]/div[1]/a[1]/@href
             thumbnail:
-              - text: https://www.mambo.com.br/ccstore/v1/images/?source=/file/v571186161209736381/products/194963_1_Biscoito%20Cereale%20Cacau,%20Aveia%20e%20Mel%20Bauducco%20170g.jpg&height=200&width=200&quality=1.0
-                xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[34]/@data-product-image-url
+              - text: https://www.mambo.com.br/ccstore/v1/images/?source=/file/v606756639352117704/products/229334_Biscoito-Integral-Maca-Aveia-e-Canela-Kellogg-s-120g.jpg&height=200&width=200&quality=1.0
+                xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[34]/@image-url
             price:
-              - text: R$ 3,65
+              - text: R$ 3,25
                 xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[34]/div[3]/a[1]/div[3]/div[1]/span[1]
             rank:
               - text: "34"
@@ -993,19 +990,19 @@ extractions:
                 locale: pt_BR
                 value: 34
           - id:
-              - text: "229334"
+              - text: "233645"
                 xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[35]/div[1]/a[1]/@href
             name:
-              - text: Biscoito Integral Maçã Aveia e Canela Kellogg's 120g
+              - text: Iogurte Fermentado Sabor Aveia e Mamão com Cereais Activia 600g
                 xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[35]/div[3]/a[1]/div[2]
             productUrl:
-              - text: https://www.mambo.com.br/biscoito-integral-maca-aveia-e-canela-kellogg-s-120g/p/229334
+              - text: https://www.mambo.com.br/leite-fermentado-polpa-aveia-mamao-e-cereais-activia-600g/p/233645
                 xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[35]/div[1]/a[1]/@href
             thumbnail:
-              - text: https://www.mambo.com.br/ccstore/v1/images/?source=/file/v606756639352117704/products/229334_Biscoito-Integral-Maca-Aveia-e-Canela-Kellogg-s-120g.jpg&height=200&width=200&quality=1.0
-                xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[35]/@data-product-image-url
+              - text: https://www.mambo.com.br/ccstore/v1/images/?source=/file/v4852039441399471874/products/233645_1_Leite%20Fermentado%20Sabor%20Aveia%20e%20Mamao%20com%20Cereais%20Activia%20600g.jpg&height=200&width=200&quality=1.0
+                xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[35]/@image-url
             price:
-              - text: R$ 3,25
+              - text: R$ 11,29
                 xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[35]/div[3]/a[1]/div[3]/div[1]/span[1]
             rank:
               - text: "35"
@@ -1022,19 +1019,19 @@ extractions:
                 locale: pt_BR
                 value: 35
           - id:
-              - text: "233645"
+              - text: "235018"
                 xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[36]/div[1]/a[1]/@href
             name:
-              - text: Iogurte Fermentado Sabor Aveia e Mamão com Cereais Activia 600g
+              - text: Sabonete em Barra Hidratante Aveia Nivea 85g
                 xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[36]/div[3]/a[1]/div[2]
             productUrl:
-              - text: https://www.mambo.com.br/leite-fermentado-polpa-aveia-mamao-e-cereais-activia-600g/p/233645
+              - text: https://www.mambo.com.br/sabonete-em-barra-hidratante-aveia-nivea-85g/p/235018
                 xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[36]/div[1]/a[1]/@href
             thumbnail:
-              - text: https://www.mambo.com.br/ccstore/v1/images/?source=/file/v4852039441399471874/products/233645_1_Leite%20Fermentado%20Sabor%20Aveia%20e%20Mamao%20com%20Cereais%20Activia%20600g.jpg&height=200&width=200&quality=1.0
-                xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[36]/@data-product-image-url
+              - text: https://www.mambo.com.br/ccstore/v1/images/?source=/file/v4249135306413099421/products/235018_2_SABONETE-HIDRATANTE-NIVEA-85G-AVEIA.jpg&height=200&width=200&quality=1.0
+                xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[36]/@image-url
             price:
-              - text: R$ 11,29
+              - text: R$ 1,89
                 xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[36]/div[3]/a[1]/div[3]/div[1]/span[1]
             rank:
               - text: "36"
@@ -1051,19 +1048,19 @@ extractions:
                 locale: pt_BR
                 value: 36
           - id:
-              - text: "235018"
+              - text: "246563"
                 xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[37]/div[1]/a[1]/@href
             name:
-              - text: Sabonete em Barra Hidratante Aveia Nivea 85g
+              - text: Bolo de Gotas de Chocolate e Aveia sem Glúten Jasmine 300g
                 xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[37]/div[3]/a[1]/div[2]
             productUrl:
-              - text: https://www.mambo.com.br/sabonete-em-barra-hidratante-aveia-nivea-85g/p/235018
+              - text: https://www.mambo.com.br/bolo-gotas-de-chocolate-e-aveia-sem-gluten-jasmine-300g/p/246563
                 xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[37]/div[1]/a[1]/@href
             thumbnail:
-              - text: https://www.mambo.com.br/ccstore/v1/images/?source=/file/v4249135306413099421/products/235018_2_SABONETE-HIDRATANTE-NIVEA-85G-AVEIA.jpg&height=200&width=200&quality=1.0
-                xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[37]/@data-product-image-url
+              - text: https://www.mambo.com.br/ccstore/v1/images/?source=/file/v966037342617592289/products/246563_BOLO-S-GLUTEN-JASMINE-300G-GOTAS-CHOC-AVEIA.jpg&height=200&width=200&quality=1.0
+                xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[37]/@image-url
             price:
-              - text: R$ 1,75
+              - text: R$ 19,15
                 xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[37]/div[3]/a[1]/div[3]/div[1]/span[1]
             rank:
               - text: "37"
@@ -1080,19 +1077,19 @@ extractions:
                 locale: pt_BR
                 value: 37
           - id:
-              - text: "246563"
+              - text: "193712"
                 xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[38]/div[1]/a[1]/@href
             name:
-              - text: Bolo de Gotas de Chocolate e Aveia sem Glúten Jasmine 300g
+              - text: Trato Fit Chia, Linhaça e Aveia Mãe Terra 200g
                 xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[38]/div[3]/a[1]/div[2]
             productUrl:
-              - text: https://www.mambo.com.br/bolo-gotas-de-chocolate-e-aveia-sem-gluten-jasmine-300g/p/246563
+              - text: https://www.mambo.com.br/trato-fit-chia-linhaca-e-aveia-mae-terra-200g/p/193712
                 xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[38]/div[1]/a[1]/@href
             thumbnail:
-              - text: https://www.mambo.com.br/ccstore/v1/images/?source=/file/v966037342617592289/products/246563_BOLO-S-GLUTEN-JASMINE-300G-GOTAS-CHOC-AVEIA.jpg&height=200&width=200&quality=1.0
-                xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[38]/@data-product-image-url
+              - text: https://www.mambo.com.br/ccstore/v1/images/?source=/file/v6711344660661273011/products/193712_Trato-Fit-Chia-Linhaca-e-Aveia-Mae-Terra-200g.jpg&height=200&width=200&quality=1.0
+                xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[38]/@image-url
             price:
-              - text: R$ 19,15
+              - text: R$ 12,90
                 xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[38]/div[3]/a[1]/div[3]/div[1]/span[1]
             rank:
               - text: "38"
@@ -1109,19 +1106,19 @@ extractions:
                 locale: pt_BR
                 value: 38
           - id:
-              - text: "193712"
+              - text: "217559"
                 xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[39]/div[1]/a[1]/@href
             name:
-              - text: Trato Fit Chia, Linhaça e Aveia Mãe Terra 200g
+              - text: Leite Fermentado Líquido Sabor Aveia Activia 170g
                 xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[39]/div[3]/a[1]/div[2]
             productUrl:
-              - text: https://www.mambo.com.br/trato-fit-chia-linhaca-e-aveia-mae-terra-200g/p/193712
+              - text: https://www.mambo.com.br/leite-fermentado-liquido-sabor-aveia-activia-170g/p/217559
                 xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[39]/div[1]/a[1]/@href
             thumbnail:
-              - text: https://www.mambo.com.br/ccstore/v1/images/?source=/file/v6711344660661273011/products/193712_Trato-Fit-Chia-Linhaca-e-Aveia-Mae-Terra-200g.jpg&height=200&width=200&quality=1.0
-                xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[39]/@data-product-image-url
+              - text: https://www.mambo.com.br/ccstore/v1/images/?source=/file/v3136992604790078102/products/217559_Leite-Fermentado-Liquido-Sabor-Aveia-Activia-170g.jpg&height=200&width=200&quality=1.0
+                xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[39]/@image-url
             price:
-              - text: R$ 12,90
+              - text: R$ 2,99
                 xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[39]/div[3]/a[1]/div[3]/div[1]/span[1]
             rank:
               - text: "39"
@@ -1138,20 +1135,17 @@ extractions:
                 locale: pt_BR
                 value: 39
           - id:
-              - text: "217559"
+              - text: "259162"
                 xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[40]/div[1]/a[1]/@href
             name:
-              - text: Leite Fermentado Líquido Sabor Aveia Activia 170g
+              - text: Sabonete Liquido Antibacterial Amêndoas e Aveia Total Protect 500ml
                 xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[40]/div[3]/a[1]/div[2]
             productUrl:
-              - text: https://www.mambo.com.br/leite-fermentado-liquido-sabor-aveia-activia-170g/p/217559
+              - text: https://www.mambo.com.br/sabonete-liquido-antibacterial-am%C3%AAndoas-e-aveia-total-protect-500ml/p/259162
                 xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[40]/div[1]/a[1]/@href
             thumbnail:
-              - text: https://www.mambo.com.br/ccstore/v1/images/?source=/file/v3136992604790078102/products/217559_Leite-Fermentado-Liquido-Sabor-Aveia-Activia-170g.jpg&height=200&width=200&quality=1.0
-                xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[40]/@data-product-image-url
-            price:
-              - text: R$ 2,99
-                xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[40]/div[3]/a[1]/div[3]/div[1]/span[1]
+              - text: https://www.mambo.com.br/ccstore/v1/images/?source=/file/v3467900865626403833/products/259162_1_SABONETE%20LIQUIDO%20ANTIBAC%20TOTAL%20PROTEC%20500ML%20AMENDOAS%20E%20AVEIA%20(1).jpg&height=200&width=200&quality=1.0
+                xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[40]/@image-url
             rank:
               - text: "40"
                 xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[40]/@rank-organic
@@ -1167,19 +1161,19 @@ extractions:
                 locale: pt_BR
                 value: 40
           - id:
-              - text: "259162"
+              - text: "155297"
                 xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[41]/div[1]/a[1]/@href
             name:
-              - text: Sabonete Liquido Antibacterial Amêndoas e Aveia Total Protect 500ml
+              - text: Alimento Infantil Sabor Banana com Aveia NaturNes Nestlé 120g
                 xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[41]/div[3]/a[1]/div[2]
             productUrl:
-              - text: https://www.mambo.com.br/sabonete-liquido-antibacterial-am%C3%AAndoas-e-aveia-total-protect-500ml/p/259162
+              - text: https://www.mambo.com.br/alimento-infantil-banana-aveia-nestle-pote-115-120g/p/155297
                 xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[41]/div[1]/a[1]/@href
             thumbnail:
-              - text: https://www.mambo.com.br/ccstore/v1/images/?source=/file/v3467900865626403833/products/259162_1_SABONETE%20LIQUIDO%20ANTIBAC%20TOTAL%20PROTEC%20500ML%20AMENDOAS%20E%20AVEIA%20(1).jpg&height=200&width=200&quality=1.0
-                xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[41]/@data-product-image-url
+              - text: https://www.mambo.com.br/ccstore/v1/images/?source=/file/v8170565189574591592/products/155297_1_Alimento%20Infantil%20Banana%20com%20Aveia%20Nestle%20120g.jpg&height=200&width=200&quality=1.0
+                xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[41]/@image-url
             price:
-              - text: R$ 12,95
+              - text: R$ 3,99
                 xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[41]/div[3]/a[1]/div[3]/div[1]/span[1]
             rank:
               - text: "41"
@@ -1196,19 +1190,19 @@ extractions:
                 locale: pt_BR
                 value: 41
           - id:
-              - text: "258328"
+              - text: "207160"
                 xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[42]/div[1]/a[1]/@href
             name:
-              - text: Iogurte de Morango Sem Lactose Nesfit 170g
+              - text: Oat Bran Orgânico Native 200g
                 xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[42]/div[3]/a[1]/div[2]
             productUrl:
-              - text: https://www.mambo.com.br/iogurte-de-morango-sem-lactose-nesfit-170g/p/258328
+              - text: https://www.mambo.com.br/farelo-de-aveia-organico-native-200g/p/207160
                 xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[42]/div[1]/a[1]/@href
             thumbnail:
-              - text: https://www.mambo.com.br/ccstore/v1/images/?source=/file/v1518600886232951425/products/258328_1_Iogurte%20de%20Morango,%20Aveia%20e%20Baunilha%20Sem%20Lactose%20Nesfit%20170g.jpg&height=200&width=200&quality=1.0
-                xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[42]/@data-product-image-url
+              - text: https://www.mambo.com.br/ccstore/v1/images/?source=/file/v2700653617814390553/products/207160.jpg&height=200&width=200&quality=1.0
+                xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[42]/@image-url
             price:
-              - text: R$ 3,29
+              - text: R$ 7,85
                 xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[42]/div[3]/a[1]/div[3]/div[1]/span[1]
             rank:
               - text: "42"
@@ -1225,19 +1219,19 @@ extractions:
                 locale: pt_BR
                 value: 42
           - id:
-              - text: "258332"
+              - text: "258328"
                 xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[43]/div[1]/a[1]/@href
             name:
-              - text: Iogurte de Morango Sem Lactose Nesfit 850g
+              - text: Iogurte de Morango Sem Lactose Nesfit 170g
                 xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[43]/div[3]/a[1]/div[2]
             productUrl:
-              - text: https://www.mambo.com.br/iogurte-de-morango-sem-lactose-nesfit-850g/p/258332
+              - text: https://www.mambo.com.br/iogurte-de-morango-sem-lactose-nesfit-170g/p/258328
                 xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[43]/div[1]/a[1]/@href
             thumbnail:
-              - text: https://www.mambo.com.br/ccstore/v1/images/?source=/file/v1195876533651861767/products/258332_1_Iogurte%20sabor%20Morango,%20Aveia%20e%20Baunilha%20Nesfit%20850g.jpg&height=200&width=200&quality=1.0
-                xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[43]/@data-product-image-url
+              - text: https://www.mambo.com.br/ccstore/v1/images/?source=/file/v1518600886232951425/products/258328_1_Iogurte%20de%20Morango,%20Aveia%20e%20Baunilha%20Sem%20Lactose%20Nesfit%20170g.jpg&height=200&width=200&quality=1.0
+                xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[43]/@image-url
             price:
-              - text: R$ 12,25
+              - text: R$ 3,29
                 xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[43]/div[3]/a[1]/div[3]/div[1]/span[1]
             rank:
               - text: "43"
@@ -1254,19 +1248,19 @@ extractions:
                 locale: pt_BR
                 value: 43
           - id:
-              - text: "142130"
+              - text: "159307"
                 xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[44]/div[1]/a[1]/@href
             name:
-              - text: Cereal Original com Mel Cróqui 250g
+              - text: Cereal Tradicional Cróqui 500g
                 xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[44]/div[3]/a[1]/div[2]
             productUrl:
-              - text: https://www.mambo.com.br/cereal-croqui-s-acucar-cxa-250g-/p/142130
+              - text: https://www.mambo.com.br/cereal-croqui-tradicional-500g/p/159307
                 xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[44]/div[1]/a[1]/@href
             thumbnail:
-              - text: https://www.mambo.com.br/ccstore/v1/images/?source=/file/v1094505282926026617/products/142130_Cereal-Sem-Acucar-Croqui-250g.jpg&height=200&width=200&quality=1.0
-                xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[44]/@data-product-image-url
+              - text: https://www.mambo.com.br/ccstore/v1/images/?source=/file/v5831623436947029504/products/159307_Cereal-Tradicional-Croqui-500g.jpg&height=200&width=200&quality=1.0
+                xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[44]/@image-url
             price:
-              - text: R$ 12,25
+              - text: R$ 14,35
                 xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[44]/div[3]/a[1]/div[3]/div[1]/span[1]
             rank:
               - text: "44"
@@ -1283,19 +1277,19 @@ extractions:
                 locale: pt_BR
                 value: 44
           - id:
-              - text: "159307"
+              - text: "142129"
                 xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[45]/div[1]/a[1]/@href
             name:
-              - text: Cereal Tradicional Cróqui 500g
+              - text: Cereal Cróqui Original Feinkost 250g
                 xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[45]/div[3]/a[1]/div[2]
             productUrl:
-              - text: https://www.mambo.com.br/cereal-croqui-tradicional-500g/p/159307
+              - text: https://www.mambo.com.br/cereal-croqui-250g/p/142129
                 xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[45]/div[1]/a[1]/@href
             thumbnail:
-              - text: https://www.mambo.com.br/ccstore/v1/images/?source=/file/v5831623436947029504/products/159307_Cereal-Tradicional-Croqui-500g.jpg&height=200&width=200&quality=1.0
-                xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[45]/@data-product-image-url
+              - text: https://www.mambo.com.br/ccstore/v1/images/?source=/file/v3788355399640121206/products/142129_1_Cereal%20Croqui%20250g.jpg&height=200&width=200&quality=1.0
+                xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[45]/@image-url
             price:
-              - text: R$ 14,35
+              - text: R$ 11,19
                 xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[45]/div[3]/a[1]/div[3]/div[1]/span[1]
             rank:
               - text: "45"
@@ -1312,19 +1306,19 @@ extractions:
                 locale: pt_BR
                 value: 45
           - id:
-              - text: "142129"
+              - text: "258332"
                 xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[46]/div[1]/a[1]/@href
             name:
-              - text: Cereal Cróqui Original Feinkost 250g
+              - text: Iogurte de Morango Sem Lactose Nesfit 850g
                 xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[46]/div[3]/a[1]/div[2]
             productUrl:
-              - text: https://www.mambo.com.br/cereal-croqui-250g/p/142129
+              - text: https://www.mambo.com.br/iogurte-de-morango-sem-lactose-nesfit-850g/p/258332
                 xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[46]/div[1]/a[1]/@href
             thumbnail:
-              - text: https://www.mambo.com.br/ccstore/v1/images/?source=/file/v3788355399640121206/products/142129_1_Cereal%20Croqui%20250g.jpg&height=200&width=200&quality=1.0
-                xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[46]/@data-product-image-url
+              - text: https://www.mambo.com.br/ccstore/v1/images/?source=/file/v1195876533651861767/products/258332_1_Iogurte%20sabor%20Morango,%20Aveia%20e%20Baunilha%20Nesfit%20850g.jpg&height=200&width=200&quality=1.0
+                xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[46]/@image-url
             price:
-              - text: R$ 11,19
+              - text: R$ 12,25
                 xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[46]/div[3]/a[1]/div[3]/div[1]/span[1]
             rank:
               - text: "46"
@@ -1351,7 +1345,7 @@ extractions:
                 xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[47]/div[1]/a[1]/@href
             thumbnail:
               - text: https://www.mambo.com.br/ccstore/v1/images/?source=/file/v3495958189983514072/products/258330_1_Iogurte%20de%20Maracuja,%20Aveia%20e%20Gengibre%20Sem%20Lactose%20Nesfit%20850gjpg.jpg&height=200&width=200&quality=1.0
-                xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[47]/@data-product-image-url
+                xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[47]/@image-url
             price:
               - text: R$ 12,25
                 xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[47]/div[3]/a[1]/div[3]/div[1]/span[1]
@@ -1380,7 +1374,7 @@ extractions:
                 xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[48]/div[1]/a[1]/@href
             thumbnail:
               - text: https://www.mambo.com.br/ccstore/v1/images/?source=/file/v935928064785722752/products/258329_1_Iogurte%20de%20Maracuja%20Aveia%20e%20Gengibre%20Sem%20Lactose%20Nesfit%20170g.jpg&height=200&width=200&quality=1.0
-                xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[48]/@data-product-image-url
+                xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[48]/@image-url
             price:
               - text: R$ 3,29
                 xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[48]/div[3]/a[1]/div[3]/div[1]/span[1]
@@ -1409,7 +1403,7 @@ extractions:
                 xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[49]/div[1]/a[1]/@href
             thumbnail:
               - text: https://www.mambo.com.br/ccstore/v1/images/?source=/file/v9059019001258358818/products/211459.jpg&height=200&width=200&quality=1.0
-                xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[49]/@data-product-image-url
+                xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[49]/@image-url
             price:
               - text: R$ 26,90
                 xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[49]/div[3]/a[1]/div[3]/div[1]/span[1]
@@ -1428,4 +1422,4 @@ extractions:
                 locale: pt_BR
                 value: 49
         xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]
-    timestamp: 1606737173417
+    timestamp: 1607341189374

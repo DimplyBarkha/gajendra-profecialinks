@@ -2,7 +2,7 @@ input:
   keywords: Baden
   _url: http://mambo.com.br
 extractions:
-  - html: https://workbench.import.io/html/run=9dde6c0c-cdf7-42ff-8a07-d924d4db0d8b/task=bbf024e8-b46a-4ebf-9890-d05aaa38854a/cda98bcb-0732-4a1a-8130-c157a57c5249.html
+  - html: https://workbench.import.io/html/run=a1368478-d1b3-4f81-bb21-213772b1c54b/task=eb0e18f0-8575-4b3b-af1a-501f98068889/47524e42-ede7-4629-b05c-5334ae9b5889.html
     extractionConfigId: product/search/stores/m/mambo/BR/extract
     data:
       - group:
@@ -17,7 +17,7 @@ extractions:
                 xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/a[1]/@href
             thumbnail:
               - text: https://www.mambo.com.br/ccstore/v1/images/?source=/file/v8128878785442628016/products/204726_1_Cerveja-Baden-Baden-Golden-Garrafa-600ml.jpg&height=200&width=200&quality=1.0
-                xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/@data-product-image-url
+                xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/@image-url
             price:
               - text: R$ 12,99
                 xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[3]/a[1]/div[3]/div[1]/span[1]
@@ -46,7 +46,7 @@ extractions:
                 xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[2]/div[1]/a[1]/@href
             thumbnail:
               - text: https://www.mambo.com.br/ccstore/v1/images/?source=/file/v94413549471634598/products/148787_1_Cerveja-Baden-Baden-Cristal-Garrafa-600ml.jpg&height=200&width=200&quality=1.0
-                xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[2]/@data-product-image-url
+                xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[2]/@image-url
             price:
               - text: R$ 12,99
                 xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[2]/div[3]/a[1]/div[3]/div[1]/span[1]
@@ -75,7 +75,7 @@ extractions:
                 xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/div[1]/a[1]/@href
             thumbnail:
               - text: https://www.mambo.com.br/ccstore/v1/images/?source=/file/v553117459676135668/products/204730_1_Cerveja-Baden-Baden-Witbier-Garrafa-600ml.jpg&height=200&width=200&quality=1.0
-                xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/@data-product-image-url
+                xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/@image-url
             price:
               - text: R$ 12,99
                 xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/div[3]/a[1]/div[3]/div[1]/span[1]
@@ -94,20 +94,17 @@ extractions:
                 locale: pt_BR
                 value: 3
           - id:
-              - text: "261132"
+              - text: "261130"
                 xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[4]/div[1]/a[1]/@href
             name:
-              - text: Cerveja Baden Baden Witbier Lata 350ml
+              - text: Cerveja Baden Baden Cristal Lata 350ml
                 xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[4]/div[3]/a[1]/div[2]
             productUrl:
-              - text: https://www.mambo.com.br/cerveja-baden-baden-witbier-lata-350ml/p/261132
+              - text: https://www.mambo.com.br/cerveja-baden-baden-cristal-lata-350ml/p/261130
                 xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[4]/div[1]/a[1]/@href
             thumbnail:
-              - text: https://www.mambo.com.br/ccstore/v1/images/?source=/file/v2906244511836287683/products/261132_1_Cerveja%20de%20Trigo%20Witbier%20Coentro%20e%20Laranja%20Baden%20Baden%20Lata%20350ml.jpg&height=200&width=200&quality=1.0
-                xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[4]/@data-product-image-url
-            price:
-              - text: R$ 5,39
-                xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[4]/div[3]/a[1]/div[3]/div[1]/span[1]
+              - text: https://www.mambo.com.br/ccstore/v1/images/?source=/file/v8602087148288647266/products/261130_1_Cerveja%20Pilsen%20Cristal%20Baden%20Baden%20Lata%20350ml.jpg&height=200&width=200&quality=1.0
+                xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[4]/@image-url
             rank:
               - text: "4"
                 xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[4]/@rank-organic
@@ -123,19 +120,19 @@ extractions:
                 locale: pt_BR
                 value: 4
           - id:
-              - text: "261131"
+              - text: "204727"
                 xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[5]/div[1]/a[1]/@href
             name:
-              - text: Cerveja Baden Baden IPA 350ml
+              - text: Cerveja Baden Baden IPA Garrafa 600ml
                 xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[5]/div[3]/a[1]/div[2]
             productUrl:
-              - text: https://www.mambo.com.br/cerveja-baden-baden-ipa-350ml/p/261131
+              - text: https://www.mambo.com.br/cerveja-ipa-baden-baden-600ml/p/204727
                 xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[5]/div[1]/a[1]/@href
             thumbnail:
-              - text: https://www.mambo.com.br/ccstore/v1/images/?source=/file/v7486579867602406223/products/261131_1_Cerveja%20IPA%20Puro%20Malte%20Maracuja%20Baden%20Baden%20Lata%20350ml.jpg&height=200&width=200&quality=1.0
-                xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[5]/@data-product-image-url
+              - text: https://www.mambo.com.br/ccstore/v1/images/?source=/file/v2913555652760338709/products/204727_1_Cerveja-Baden-Baden-IPA-Garrafa-600ml.jpg&height=200&width=200&quality=1.0
+                xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[5]/@image-url
             price:
-              - text: R$ 5,39
+              - text: R$ 12,99
                 xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[5]/div[3]/a[1]/div[3]/div[1]/span[1]
             rank:
               - text: "5"
@@ -151,63 +148,5 @@ extractions:
                 raw: "5"
                 locale: pt_BR
                 value: 5
-          - id:
-              - text: "261130"
-                xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[6]/div[1]/a[1]/@href
-            name:
-              - text: Cerveja Baden Baden Cristal Lata 350ml
-                xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[6]/div[3]/a[1]/div[2]
-            productUrl:
-              - text: https://www.mambo.com.br/cerveja-baden-baden-cristal-lata-350ml/p/261130
-                xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[6]/div[1]/a[1]/@href
-            thumbnail:
-              - text: https://www.mambo.com.br/ccstore/v1/images/?source=/file/v8602087148288647266/products/261130_1_Cerveja%20Pilsen%20Cristal%20Baden%20Baden%20Lata%20350ml.jpg&height=200&width=200&quality=1.0
-                xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[6]/@data-product-image-url
-            price:
-              - text: R$ 5,39
-                xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[6]/div[3]/a[1]/div[3]/div[1]/span[1]
-            rank:
-              - text: "6"
-                xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[6]/@rank-organic
-                type: NUMBER
-                raw: "6"
-                locale: pt_BR
-                value: 6
-            rankOrganic:
-              - text: "6"
-                xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[6]/@rank-organic
-                type: NUMBER
-                raw: "6"
-                locale: pt_BR
-                value: 6
-          - id:
-              - text: "204727"
-                xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[7]/div[1]/a[1]/@href
-            name:
-              - text: Cerveja Baden Baden IPA Garrafa 600ml
-                xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[7]/div[3]/a[1]/div[2]
-            productUrl:
-              - text: https://www.mambo.com.br/cerveja-ipa-baden-baden-600ml/p/204727
-                xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[7]/div[1]/a[1]/@href
-            thumbnail:
-              - text: https://www.mambo.com.br/ccstore/v1/images/?source=/file/v2913555652760338709/products/204727_1_Cerveja-Baden-Baden-IPA-Garrafa-600ml.jpg&height=200&width=200&quality=1.0
-                xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[7]/@data-product-image-url
-            price:
-              - text: R$ 12,99
-                xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[7]/div[3]/a[1]/div[3]/div[1]/span[1]
-            rank:
-              - text: "7"
-                xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[7]/@rank-organic
-                type: NUMBER
-                raw: "7"
-                locale: pt_BR
-                value: 7
-            rankOrganic:
-              - text: "7"
-                xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[7]/@rank-organic
-                type: NUMBER
-                raw: "7"
-                locale: pt_BR
-                value: 7
         xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]
-    timestamp: 1606737235688
+    timestamp: 1607341182116
