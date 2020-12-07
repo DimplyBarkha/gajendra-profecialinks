@@ -1,0 +1,16 @@
+input:
+  _url: http://dyson.pt
+  URL: https://www.dyson.pt/iluminacao/iluminacao-de-trabalho/dyson-csys-task-light/candeeiro-preto
+extractions:
+  - html: https://workbench.import.io/html/run=4e828af6-783e-424f-ab5a-329ec3cebaf1/task=47b00296-ee16-4323-9e58-693f7f2d6b3b/2bc880b8-2d71-44e8-acdc-597571ccd843.html
+    extractionConfigId: product/details/stores/d/dyson/PT/variantsExtract
+    data:
+      - group:
+          - variantId:
+              - text: 249337-01
+                xpath: /html/body/ol[1]/li[1]/@variant_id
+            variantUrl:
+              - text: https://www.dyson.pt/iluminacao/iluminacao-de-trabalho/dyson-csys-task-light/candeeiro-preto
+                xpath: /html/body/ol[1]/li[1]/@variant_url
+        xpath: /html
+    timestamp: 1607342512554

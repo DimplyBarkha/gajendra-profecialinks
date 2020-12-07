@@ -1,0 +1,22 @@
+input:
+  _url: http://dyson.pt
+  URL: https://www.dyson.pt/tratamento-do-ar/purificadores/dyson-pure-hot-cool/preto-niquel-hp04
+extractions:
+  - html: https://workbench.import.io/html/run=4e828af6-783e-424f-ab5a-329ec3cebaf1/task=5e1492c9-ce66-49c1-b8ea-6e85e4a7f353/f33712f5-4434-47d5-b260-7ca2e3bd84df.html
+    extractionConfigId: product/details/stores/d/dyson/PT/variantsExtract
+    data:
+      - group:
+          - variantId:
+              - text: 244280-01-White-Silver-
+                xpath: /html/body/ol[1]/li[1]/@variant_id
+            variantUrl:
+              - text: https://www.dyson.pt/tratamento-do-ar/purificadores/dyson-pure-hot-cool/branco-prateado-hp04
+                xpath: /html/body/ol[1]/li[1]/@variant_url
+          - variantId:
+              - text: 244289-01-Black-Nickel-
+                xpath: /html/body/ol[1]/li[2]/@variant_id
+            variantUrl:
+              - text: https://www.dyson.pt/tratamento-do-ar/purificadores/dyson-pure-hot-cool/preto-niquel-hp04
+                xpath: /html/body/ol[1]/li[2]/@variant_url
+        xpath: /html
+    timestamp: 1607342502612

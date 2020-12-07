@@ -1,0 +1,22 @@
+input:
+  _url: http://dyson.pt
+  URL: https://www.dyson.pt/iluminacao/iluminacao-de-trabalho/dyson-lightcycle/dyson-lightcycle-floor-white-silver
+extractions:
+  - html: https://workbench.import.io/html/run=4e828af6-783e-424f-ab5a-329ec3cebaf1/task=c3c86761-4f77-4785-bddc-4c20f6602a38/f82aac93-61b7-40b9-9cb1-34093db7e8ed.html
+    extractionConfigId: product/details/stores/d/dyson/PT/variantsExtract
+    data:
+      - group:
+          - variantId:
+              - text: 249386-01-White-Silver-
+                xpath: /html/body/ol[1]/li[1]/@variant_id
+            variantUrl:
+              - text: https://www.dyson.pt/iluminacao/iluminacao-de-trabalho/dyson-lightcycle/dyson-lightcycle-floor-white-silver
+                xpath: /html/body/ol[1]/li[1]/@variant_url
+          - variantId:
+              - text: 249375-01-Black-Black-
+                xpath: /html/body/ol[1]/li[2]/@variant_id
+            variantUrl:
+              - text: https://www.dyson.pt/iluminacao/iluminacao-de-trabalho/dyson-lightcycle/dyson-lightcycle-floor-black-black
+                xpath: /html/body/ol[1]/li[2]/@variant_url
+        xpath: /html
+    timestamp: 1607342501849
