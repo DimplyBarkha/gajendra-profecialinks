@@ -56,10 +56,7 @@ fields:
     description: Product manufacturer
     xpath: //div[@class="productinfos"]/@manufacturrer
   - name: quantity
-    singleValue: true
-    description: Quantity as described on the page
-    regExp: (?:\s?([\d\.]+\s?)([bB]ar[s]?|[cC]ount|[cC]t|[fF][lL][\.]?\s?[oO][zZ][\.]?|FO|[mM][lL]|[oO][zZ][\.]?|pc|[pP]int|[pP]ops|qt|[wW]ipe[s]?).?)$|(?:\s?([\d\.]+\s?)([bB]ar[s]?|[cC]ount|[cC]|[fF][lL][\.]?\s?[oO][zZ][\.]?|FO|[mM][lL]|[oO][zZ][\.]?|pc|[pP]int|[pP]ops|qt|[wW]ipe[s]?).?\s?[\&\-\w\s]+)$
-    regExpReplace: $1$2$3$4
+    xpath: //h2[contains(text(),"Zawartość netto")]/following-sibling::div/p
   - name: weightNet
     description: Net weight as described on the page
     xpath: //div[contains(@id,"netWeight")]/div
