@@ -45,8 +45,8 @@ module.exports = {
       for (let i = 0; i < product.length; i++) {
         const url = product[i].href;
         const product_code = url.split("item_");
-        if (product_code[1].includes("?eligible_id")) {
-          var prod_co = product_code[1].split("?eligible_id");
+        if (product_code[1].includes("?")) {
+          var prod_co = product_code[1].split("?");
           addHiddenDiv("ii_procode", prod_co[0], i);
         } else {
           addHiddenDiv("ii_procode", product_code[1], i);
