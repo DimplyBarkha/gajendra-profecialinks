@@ -6,15 +6,11 @@ fields:
   - name: id
     singleValue: false
     xpath: //li[@bindonce="product"]/@data-product
-    # regExp: (\d+)
-  - name: rankOrganic
-    singleValue: true
-    # xpath: //li//meta[@itemprop="position"]//@content
   - name: name
     singleValue: false
     xpath: //div[@class="productImagesBox"]//img/@title
   - name: productUrl
-    singleValue: true
+    singleValue: false
     xpath: //div[@class="description"]/a/@href
     regExp: (butik.*)
     regExpReplace: https://www.mat.se/$1
@@ -22,9 +18,7 @@ fields:
     singleValue: false
     xpath: //div[@class="productImagesBox"]/a/img/@src
   - name: price
-    singleValue: true
+    singleValue: false
     xpath: //span[@class="ordinary-pris ng-binding"]/text()
     regExp: (\d+),?(\d+).+
     regExpReplace: $1.$2
-  - name: rank
-    singleValue: false
