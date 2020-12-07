@@ -1,0 +1,125 @@
+singleRecord: true
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: image
+    xpath: //img[@class="windeln-zoom-image"]/@src
+  - name: imageAlt
+  - name: alternateImages
+    xpath: //div[contains(@class,'slick-active')][position()>1]/img/@src
+  - name: metaKeywords
+  - name: category
+    xpath: //div[@class="row breadcrumbs-section"]/ol/li[position()>1 and position()<last()]/a/span[@itemprop="name"]
+  - name: nameExtended
+    xpath: //h1[@itemprop="name"]
+  - name: listPrice
+    xpath: //div[contains(@class,"product-variant")]/div[contains(@class,"active")]//div[@class="old-price"]
+  - name: price
+    xpath: //div[@class="product-gross-price"]
+  - name: availabilityText
+    xpath: //input[@itemprop="availability"]/@content
+    regExp: (InStock)
+    regExpReplace: In Stock
+    defaultValue: Out of Stock
+  - name: description
+    xpath: //div[@class="simple-description"]
+  - name: descriptionBullets
+  - name: brandText
+    xpath: //div[contains(@class,'product-selection-brand')]//a/font
+  - name: manufacturer
+  - name: quantity
+    xpath: //li[@class="tab-title active"]
+  - name: weightNet
+  - name: weightGross
+  - name: gtin
+    xpath: //h1[@itemprop="name"]/@sku
+    regExp: (:)(.+)
+    regExpReplace: $2
+  - name: sku
+  - name: eangtin
+    xpath: //h1[@itemprop="name"]/@sku
+    regExp: (:)(.+)
+    regExpReplace: $2
+  - name: variantId
+    xpath: //h1[@itemprop="name"]/@sku
+    regExp: (:)(.+)
+    regExpReplace: $2
+  - name: mpc
+  - name: packSize
+    xpath: //div[@class="variant-2-panel scroll-pane active"]//div[@itemprop="name"]
+  - name: legalDisclaimer
+  - name: directions
+  - name: warnings
+  - name: ratingCount
+    xpath: //div[@class="product-selection-ratings-stars"]//span[@itemprop="reviewCount"]
+  - name: aggregateRatingText
+  - name: aggregateRating
+    xpath: //div[@class="product-selection-ratings-stars"]//span[@itemprop="ratingValue"]
+  - name: shippingInfo
+  - name: shippingDimensions
+  - name: shippingWeight
+  - name: variantCount
+    xpath: count(//div[contains(@class,"product-variant-2")]//div[contains(@class,"product-info")][@pyta-type="pdp-variant-box"])
+  - name: color
+  - name: colorCode
+  - name: manufacturerDescription
+  - name: manufacturerImages
+  - name: videos
+    xpath: //div[contains(@class,'video-wrapper')]/@data-video-id
+    regExp: (.+)
+    regExpReplace: https://youtu.be/$1
+  - name: name
+    xpath: //h1[@itemprop="name"]
+  - name: inStorePrice
+  - name: asin
+  - name: coupon
+  - name: brandLink
+    xpath: //div[@class="product-selection-brand"]/a/@href
+  - name: secondaryImageTotal
+    xpath: count( //div[contains(@id,"productImage")][contains(@style,"block;")]//div[contains(@id,"productThumbs")]//div[contains(@class,"slick-list")]/div/div[position()>1]/img/@src)
+  - name: ingredientsList
+  - name: dietaryInformation
+  - name: specifications
+  - name: warranty
+  - name: storage
+  - name: countryOfOrigin
+  - name: allergyAdvice
+  - name: numberOfServingsInPackage
+    xpath: //div[contains(@class,"product-variant-2")]//div[contains(@class,"product-info")][contains(@class,"selected-row")][@pyta-type="pdp-variant-box"]//div[@itemprop="name"]
+  - name: productOtherInformation
+  - name: packaging
+  - name: additives
+  - name: pricePerUnit
+    xpath: //div[contains(@class,"product-variant")]/div[contains(@class,"active")]//div[@class="price-pro-unit"]
+    regExp: (.+)(€ por)(.+)
+    regExpReplace: $1
+  - name: pricePerUnitUom
+    xpath: //div[@class="price-pro-unit"]
+    regExp: (.+)(€ por)(.+)
+    regExpReplace: $3
+  - name: promotion
+  - name: alcoholContent
+  - name: variantInformation
+    xpath: //div[contains(@class,"product-variant-2")]//div[contains(@class,"product-info")][contains(@class,"selected-row")][@pyta-type="pdp-variant-box"]//div[@itemprop="name"]
+  - name: firstVariant
+    xpath: (//div[contains(@class,"product-variant-2")]//div[contains(@class,"product-info")][@pyta-type="pdp-variant-box"]/@data-product-ean)[1]
+  - name: variants
+    xpath: //h1[@itemprop="name"]/@variants
+  - name: additionalDescBulletInfo
+  - name: prop65Warning
+  - name: ageSuitability
+  - name: energyEfficiency
+  - name: technicalInformationPdfPresent
+    defaultValue: No
+  - name: termsAndConditions
+    defaultValue: No
+  - name: privacyPolicy
+    defaultValue: No
+  - name: customerServiceAvailability
+    defaultValue: No
+  - name: materials
+  - name: Image360Present
+    defaultValue: No
+  - name: imageZoomFeaturePresent
+    defaultValue: No
