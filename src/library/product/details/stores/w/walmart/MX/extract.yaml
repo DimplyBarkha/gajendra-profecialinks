@@ -6,13 +6,15 @@ fields:
   - name: image
     singleValue: true
     description: URL of the main product image
-    xpath: //div[@class="image-picker_imageContainer__Yr0i-"]/img
+    xpath: //*[@id="scrollContainer"]/section/div[1]/div[2]/div[2]/div[1]/div/div[2]/div/div/div/div[1]/div/div/div[1]/div/div/img
   - name: imageAlt
     singleValue: true
     description: Alt text of the main product image
+    xpath: //div[contains(@class,'main-content_container__2ojYR')]//img/@alt
   - name: alternateImages
     singleValue: false
     description: Other product images (not in manufacturer description)
+    xpath:  //div[@class="image-picker_imageContainer__Yr0i-"]/img/@src
   - name: metaKeywords
     singleValue: true
     description: The <meta> keywords content
@@ -399,7 +401,7 @@ fields:
   - name: countryOfOrigin
     singleValue: true
     description: The country from which the product originates
-    xpath: //div[@class="tabs_panel__rfV31"]//div[10]//p[2]
+    xpath: //div[@data-automation-id='characteristics-body']/div/p[text()='País de Origen']/../p[2]
   - name: allergyAdvice
     singleValue: true
     description: Allergy information associated with the product
