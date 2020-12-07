@@ -35,7 +35,7 @@ async function implementation(
     const manufacturer = jsonData && jsonData.manufacturer;
     const mpc = sku && sku.split('-') && sku.split('-')[0];
 
-    function getPrimaryImage() {
+    const getPrimaryImage = () => {
       const scriptElement = document.querySelector('script[type*="application/ld+json"]');
       const jsonData = scriptElement && scriptElement.innerText && JSON.parse(scriptElement.innerText);
       const imageArray = jsonData && jsonData.image;
@@ -44,7 +44,7 @@ async function implementation(
       return primaryImageWithIncreasedSize[0];
     }
 
-    function getSecondaryImages() {
+    const getSecondaryImages = () => {
       const scriptElement = document.querySelector('script[type*="application/ld+json"]');
       const jsonData = scriptElement && scriptElement.innerText && JSON.parse(scriptElement.innerText);
       const imageArray = jsonData && jsonData.image;
@@ -53,7 +53,7 @@ async function implementation(
       const secondaryImageJoinedByPipe = secondaryImagesWithIncreasedSize.map(element => element && element.trim()).join(' | ');
       return secondaryImageJoinedByPipe
     }
-    function getTotalSecondaryImage() {
+    const getTotalSecondaryImage = () => {
       const scriptElement = document.querySelector('script[type*="application/ld+json"]');
       const jsonData = scriptElement && scriptElement.innerText && JSON.parse(scriptElement.innerText);
       const imageArray = jsonData && jsonData.image;
@@ -61,14 +61,14 @@ async function implementation(
       return secondaryImages && secondaryImages.length;
     }
 
-    function getVariantIDArray() {
+    const getVariantIDArray = () => {
       const scriptElement = document.querySelector('script[type*="application/ld+json"]');
       const jsonData = scriptElement && scriptElement.innerText && JSON.parse(scriptElement.innerText);
       const variantIdArray = jsonData && jsonData.offers && jsonData.offers.map(element => element.sku);
       return variantIdArray;
     }
 
-    function getAvailabilityArray() {
+    const getAvailabilityArray = () => {
       const scriptElement = document.querySelector('script[type*="application/ld+json"]');
       const jsonData = scriptElement && scriptElement.innerText && JSON.parse(scriptElement.innerText);
       const availabilityArray = [];
@@ -81,7 +81,7 @@ async function implementation(
       })
       return availabilityArray;
     }
-    function getPriceArray() {
+    const getPriceArray = () => {
       const scriptElement = document.querySelector('script[type*="application/ld+json"]');
       const jsonData = scriptElement && scriptElement.innerText && JSON.parse(scriptElement.innerText);
       const priceArray = jsonData && jsonData.offers && jsonData.offers.map(element => element.price);
@@ -91,13 +91,13 @@ async function implementation(
     if (clickElement) {
       clickElement.click();
     }
-    function getsizeArray() {
+    const getsizeArray = () => {
       const sizeArray = [];
       const sizeElements = document.querySelectorAll('form[name="size-picker-form"]>div>div>div>label>span');
       sizeElements && sizeElements.forEach(element => sizeArray.push(element.innerText));
       return sizeArray;
     }
-    function getComapareVariantIdArray() {
+    const getComapareVariantIdArray = () => {
       const compareVariantIdArray = document.querySelectorAll('form[name="size-picker-form"]>div>div>input');
       let idArray = [];
       idArray = [...compareVariantIdArray].map((element) => element.getAttribute('value'));
