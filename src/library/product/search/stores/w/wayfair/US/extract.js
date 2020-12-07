@@ -18,22 +18,26 @@ module.exports = {
   ) {
     const { productDetails } = dependencies;
     const { transform } = parameters;
-    try {
-      await context.waitForSelector('main[id="bd"]>div:first-child ul>li:first-child p[class*="imageTitle"]', { timeout: 30000 });
-      await context.click('main[id="bd"]>div:first-child ul>li:first-child p[class*="imageTitle"]');
-      await context.waitForNavigation({ timeout: 30000 });
+    const selectorExists = await context.evaluate(function () {
+      return Boolean(document.querySelector('main[id="bd"]>div:first-child ul>li:first-child p[class*="imageTitle"]'));
+    });
+
+    if (selectorExists) {
+      await context.click('main[id="bd"]>div:first-child ul>li:first-child p[class*="imageTitle');
+      await context.waitForNavigation({ timeout: 10000 });
       console.log('clicked the button successfully');
-    } catch (e) {
-      console.log('not able to click the button');
     }
-    try {
-      await context.waitForSelector('div[class*="categoryList"] >div>div:first-child>div>a>div>div', { timeout: 30000 });
+
+    const categorySelectorExists = await context.evaluate(function () {
+      return Boolean(document.querySelector('div[class*="categoryList"] >div>div:first-child>div>a>div>div'));
+    });
+
+    if (categorySelectorExists) {
       await context.click('div[class*="categoryList"] >div>div:first-child>div>a>div>div');
-      await context.waitForNavigation({ timeout: 30000 });
+      await context.waitForNavigation({ timeout: 10000 });
       console.log('clicked the button successfully');
-    } catch (e) {
-      console.log('not able to click the button');
     }
+
     await context.evaluate(() => {
       var searchUrl = window.location.href;
       var appendElements = document.querySelectorAll('div[class*="BrowseCard"]');
