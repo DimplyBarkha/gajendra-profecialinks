@@ -20,7 +20,7 @@ fields:
   - name: category
     singleValue: false
     description: The categories (e.g. from breadcrumbs)
-    xpath: //nav[@class="Menu ClpsCn"]/ul[1]/li[position()>1 and position()<7]
+    xpath: //nav[@class="Menu ClpsCn"]/ul[1]/li[position()>1 and position()<7]/a
   - name: nameExtended
     singleValue: true
     description: The product name, prefixing "${brand} - " if not included in "name"
@@ -30,11 +30,13 @@ fields:
     singleValue: true
     description: The stated undiscounted price for the product
     xpath: //td//strong[@class="price-pvpr"]/small
+    type: CURRENCY
   - name: price
     singleValue: true
     description: The offered price for the selected product variant - if a user
       clicks add to basket this is the price they would be charged
     xpath: //td//div[@class="Price "]/@content
+    type: CURRENCY
   - name: availabilityText
     singleValue: true
     description: Availability as described on page for the selected variant. If
@@ -56,6 +58,7 @@ fields:
     singleValue: true
     description: Product brand shown - this may actually NOT be just a brand name,
       e.g. "Visit the Gillette Store"
+    xpath: //p[@class="ProRef productManufacturer"]//u
   - name: manufacturer
     singleValue: true
     description: Product manufacturer
@@ -127,7 +130,8 @@ fields:
   - name: variantCount
     singleValue: true
     description: Number of variants listed
-    xpath: count(//ul[@class="familasColores familasColoresImages"]/li/a/@title)
+    # xpath: count(//ul[@class="familasColores familasColoresImages"]/li/a/@title)
+    xpath: count(//ul[@class="ListSocial"]/following-sibling::ul/li/a/@title)
     type: NUMBER
   - name: color
     singleValue: true
@@ -147,6 +151,7 @@ fields:
   - name: name
     singleValue: true
     description: The product name
+    xpath: //h1[@class="Title"]
   - name: inStorePrice
     singleValue: true
     description: Price in the selected store
@@ -165,6 +170,7 @@ fields:
   - name: brandLink
     singleValue: true
     description: null
+    xpath: //p[@class="ProRef productManufacturer"]/a/@href
   - name: internationalShipping
     singleValue: true
     description: Text next to bullet point
@@ -458,7 +464,8 @@ fields:
   - name: variantInformation
     singleValue: true
     description: colour / scent / flavour / other
-    xpath: (//ul[@class="familasColores familasColoresImages"]/li/a/@title)[1]
+    # xpath: (//ul[@class="familasColores familasColoresImages"]/li/a/@title)[1]
+    xpath: //h1[@class="Title"]
   - name: firstVariant
     singleValue: true
     description: Unique identifier for a collection of variants. For a subset of
@@ -470,11 +477,13 @@ fields:
       all variants of a product, this rpc becomes the common link between other
       variants. method 3 = apply some logic to determine link between variants,
       this will need analysis
-    xpath: (//ul[@class="familasColores familasColoresImages"]/li/a/@title)[1]
+    # xpath: (//ul[@class="familasColores familasColoresImages"]/li/a/@title)[1]
+    xpath: //h1[@class="Title"]
   - name: variants
     singleValue: false
     description: null
-    xpath: //ul[@class="familasColores familasColoresImages"]/li/a/@title
+    # xpath: //ul[@class="familasColores familasColoresImages"]/li/a/@title
+    xpath: //ul[@class="ListSocial"]/following-sibling::ul/li/a/@title
   - name: additionalDescBulletInfo
     singleValue: false
     description: null
