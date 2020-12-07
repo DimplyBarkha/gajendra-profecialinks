@@ -35,6 +35,7 @@ module.exports = {
             const sel = document.querySelector(`img[src*="${existingVal}"]`);
             if (sel) {
               sel.setAttribute('producturl', newVal);
+              newId = newId.replace('Produit','');
               sel.setAttribute('productid', newId);
             }
           }, jsonObj.objContenu.lstElements[i].objElement.sUrlVignetteProduit, jsonObj.objContenu.lstElements[i].objElement.sUrlPageProduit, jsonObj.objContenu.lstElements[i].objElement.sIdUnique);
