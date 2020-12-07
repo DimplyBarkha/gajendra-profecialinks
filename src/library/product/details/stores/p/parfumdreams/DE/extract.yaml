@@ -22,9 +22,9 @@ fields:
     xpath: //div[@class='footer-content']/div[1]
   - name: price
     singleValue: true
-    xpath: /html/body/div[1]/div[1]/div[1]/div[2]/div[3]/div/div[1]/div/div[2]/form/div[1]/div[3]/div[1]/text()
-    regExp: (€.+)\*
-    regExpReplace: $1
+    xpath: //div[@class="variation clearfix active"]//div[@class="font-headline mbs05"]/text()[1]
+    #regExp: (€.+)\*
+    #regExpReplace: $1
   - name: listPrice
     singleValue: false
     xpath: /html/body/div[1]/div[1]/div[1]/div[2]/div[3]/div/div[1]/div/div[2]/form/div[1]/div[3]/div[1]/div/span
@@ -39,7 +39,7 @@ fields:
     xpath: //*[@id="right-column"]/div/meta/@content
   - name: mpc
     singleValue: true
-    xpath: //*[@id="right-column"]/div/meta/@content   
+    #xpath: //*[@id="right-column"]/div/meta/@content   
   - name: aggregateRating
     singleValue: true
     xpath: //*[@id="right-column"]/div/div[1]/div/div[2]/div/div[2]/div/a/text()
@@ -51,7 +51,7 @@ fields:
     xpath: //div[@class='font-headline description mbs1']
   - name: variantInformation
     singleValue: true
-    xpath: //div[@class='variation-alt-images clearfix']/div/a/img/@alt|//*[@id="schema-offer"]/div[2]/div/div[1]/div
+    xpath: //div[@class="variation clearfix active"]//div[@class="font-headline description mbs1"]/text()
   - name: variantId
     singleValue: false
     xpath: (//*[@id="schema-offer"]/div[1]/div/input/@value|(//meta[@itemprop='sku']/@content[1])[1])[2]
@@ -60,7 +60,7 @@ fields:
     xpath: //html//div[@id="name"]
   - name: quantity
     singleValue: true
-    xpath: //div[@class='variation-alt-images clearfix']/div/a/img/@alt|//*[@id="schema-offer"]/div[2]/div/div[1]/div
+    xpath: //div[@class="variation clearfix active"]//div[@class="font-headline description mbs1"]/text()
   - name: alternateImages
     singleValue: false
     xpath: //div[@class="carousel more-pictures"]/div[@class="swiper-wrapper"]/div[position()>1]/div/img/@src
