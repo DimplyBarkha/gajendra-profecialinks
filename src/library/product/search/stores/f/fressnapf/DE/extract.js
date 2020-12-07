@@ -1,26 +1,19 @@
 const { transform } = require('../../../../shared');
-module.exports = {
-  implements: 'product/search/extract',
-  parameterValues: {
-    country: 'DE',
-    store: 'fressnapf',
-    transform: transform,
-    domain: 'fressnapf.de',
-    zipcode: '',
-  },
-  implementation: async (inputs, parameters, context, dependencies) => {
-    const { transform } = parameters;
-    const { productDetails } = dependencies;
-    await context.evaluate(async () => {
+const implementation = async function (
+  inputs,
+  parameters,
+  context,
+  dependencies,
+) {
+  const { transform } = parameters;
+  const { productDetails } = dependencies;
+  const applyScroll = async function (context) {
+    await context.evaluate(async function () {
       let scrollTop = 0;
       while (scrollTop !== 20000) {
-        await stall(1000);
         scrollTop += 1000;
         window.scroll(0, scrollTop);
-        if (scrollTop === 20000) {
-          await stall(10000);
-          break;
-        }
+        await stall(1000);
       }
       function stall (ms) {
         return new Promise((resolve, reject) => {
@@ -30,6 +23,18 @@ module.exports = {
         });
       }
     });
-    return await context.extract(productDetails, { transform });
+  };
+  await applyScroll(context);
+  return await context.extract(productDetails, { transform });
+};
+module.exports = {
+  implements: 'product/search/extract',
+  parameterValues: {
+    country: 'DE',
+    store: 'fressnapf',
+    transform: transform,
+    domain: 'fressnapf.de',
+    zipcode: '',
   },
+  implementation,
 };
