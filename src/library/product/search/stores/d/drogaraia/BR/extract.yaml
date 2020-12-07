@@ -1,5 +1,55 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: null
-fields: null
+recordXPath: //div[contains(@class, "container sli")]
+fields:
+  - name: id
+    singleValue: false
+    xpath: //div[contains(@class, "trustvox")]/@data-trustvox-product-code
+  - name: searchUrl
+    singleValue: true
+  - name: name
+    xpath: //a[@data-tb-sid = "st_title-link"]
+    singleValue: false
+  - name: productUrl
+    singleValue: false
+    xpath: //a[@data-tb-sid = "st_title-link"]/@title
+  - name: gtin
+    singleValue: false
+  - name: thumbnail
+    singleValue: false
+    xpath: //img/@src
+  - name: aggregateRating
+    singleValue: false
+  - name: aggregateRating2
+    singleValue: false
+  - name: reviewCount
+    singleValue: false
+  - name: ratingCount
+    singleValue: false
+  - name: price
+    singleValue: false
+    xpath: //span[contains(@class, "price")]//span[2] | //div//span[@class="lmpm-price-text"]
+    regExp: \d+.\d+
+  - name: manufacturer
+    singleValue: false
+    xpath: //li[contains(@class, "marca show")]
+  - name: soldBy
+    singleValue: true
+  - name: endorsementText
+    singleValue: false
+  - name: rank
+    singleValue: false
+    description: search/listing rank
+    type: NUMBER
+  - name: rankOrganic
+    singleValue: true
+    description: The position (rank) within the list excluding sponsored/paid results
+    type: NUMBER
+  - name: sponsored
+    singleValue: false
+    description: Is sponsored/paid
+    type: BOOLEAN
+  # - name: totalRecordCount
+  #   singleValue: true 
+  #   type: NUMBER

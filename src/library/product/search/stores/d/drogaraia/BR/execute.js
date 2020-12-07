@@ -5,9 +5,9 @@ module.exports = {
     country: 'BR',
     store: 'drogaraia',
     domain: 'drogaraia.com.br',
-    url: null,
-    loadedSelector: null,
-    noResultsXPath: null,
+    url: 'https://busca.drogaraia.com.br/search?w={searchTerms}',
+    loadedSelector: 'div h2',
+    noResultsXPath: '//div[contains(@class, "noresults")]',
     zipcode: '',
   },
 };
