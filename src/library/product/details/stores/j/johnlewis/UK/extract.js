@@ -34,7 +34,50 @@ module.exports = {
     }catch(err){
       console.log('No result found')
     }
-    await context.evaluate(() => {
+
+
+  async function scrollToRec () {
+    await context.evaluate(async () => {
+      var element = (document.querySelector('div.product-breadcrumb-carousel__container')) ? document.querySelector('div.product-breadcrumb-carousel__container') : null;
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth', block: 'end', inline: 'nearest' });
+        await new Promise((resolve) => {
+          setTimeout(resolve, 5000);
+        });
+      }
+    });
+  }
+  await scrollToRec();
+  
+    await context.evaluate(async function () {
+      console.log(document.querySelector('jl-recommendations-panel'))
+      console.log(document.querySelector('jl-recommendations-panel').recommendationGroups)
+      const recommendations = document.querySelector('jl-recommendations-panel') ? document.querySelector('jl-recommendations-panel').recommendationGroups : null;
+      if (recommendations && recommendations.length) {
+        console.log(recommendations)
+        const products = recommendations[0].recommendedProducts;
+        products.forEach(element => {
+          addHiddenDiv('ii_recommended_products', element.title);
+        });
+      }
+      // try {
+      //   await new Promise((resolve) => setTimeout(resolve, 5000));
+      // } catch (error) {
+      //   console.log(error);
+      // }
+      // async function infiniteScroll () {
+      //   let prevScroll = document.documentElement.scrollTop;
+      //   while (true) {
+      //     window.scrollBy(0, document.documentElement.clientHeight);
+      //     await new Promise(resolve => setTimeout(resolve, 1000));
+      //     const currentScroll = document.documentElement.scrollTop;
+      //     if (currentScroll === prevScroll) {
+      //       break;
+      //     }
+      //     prevScroll = currentScroll;
+      //   }
+      // }
+      // await infiniteScroll();
       function addHiddenDiv (id, content) {
         const newDiv = document.createElement('div');
         newDiv.id = id;
