@@ -37,6 +37,18 @@ module.exports = {
 
       const description = document.querySelector('div.product-responsive-info') ? document.querySelector('div.product-responsive-info').innerText.replace(/\s{2,}|\n{2,}|\t/g, ' ') : '';
       addElementToDocument('descId', description);
+
+      const sku = document.querySelector('meta[property="og:url"]') ? document.querySelector('meta[property="og:url"]').getAttribute('content') : '';
+      addElementToDocument('sku', sku.replace(/.*product\/([^/]+).*/g, '$1'));
+
+      const stepsXpath = document.evaluate('//div[@class="product-section-content"]//*[contains(text(),"Anbefalt bruk:")]/../following-sibling::ul', document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
+      const steps = stepsXpath ? stepsXpath.textContent : '';
+      const clarinsXpath = document.evaluate('//div[@class="product-section-content"]//*[contains(text(),"Clarins kroppspleie:")]/../following-sibling::em', document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
+      const care = clarinsXpath && stepsXpath ? clarinsXpath.textContent : '';
+      const tipsXpath = document.evaluate('//div[@class="product-section-content"]//*[contains(text(),"Dette bør du gjøre")]/../following-sibling::ul', document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
+      const tips = tipsXpath ? tipsXpath.textContent : '';
+      const directions = `${steps} ${tips} ${care}`;
+      addElementToDocument('directions', directions.trim());
     });
     await context.extract(productDetails, { transform });
   },

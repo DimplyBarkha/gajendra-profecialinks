@@ -2,7 +2,7 @@ input:
   _url: http://blush.no
   URL: https://www.blush.no/product/1118658
 extractions:
-  - html: https://workbench.import.io/html/run=f3ecf63d-1539-4fd1-8b7b-655a48d549c9/task=fa971209-ad30-471b-8b54-a6b10172160d/70c60690-60f0-4fe4-94ca-87ee2a5e365e.html
+  - html: https://workbench.import.io/html/run=fffddccc-c0b2-41e8-8f6d-4cee37213a17/task=c6dfd453-faf2-4774-9b3d-3de0707375d0/95f7427c-5805-442c-bc2d-d7122e74c2cb.html
     extractionConfigId: product/details/stores/b/blush/NO/extract
     data:
       - group:
@@ -12,9 +12,6 @@ extractions:
             alternateImages:
               - text: https://www.blush.no/img/p/800/1118658_1.jpg
                 xpath: /html/body/div[2]/main[1]/div[1]/div[2]/div[3]/section[1]/div[1]/section[1]/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/button[3]/img[1]/@src
-            nameExtended:
-              - text: Maybelline Fit Me Luminous + Smooth Foundation
-                xpath: /html/body/div[2]/main[1]/div[1]/div[2]/div[3]/section[1]/div[1]/section[1]/div[1]/h1[1]/span[1]
             description:
               - text: "Maybelline Fit Me Luminous + Smooth Foundation Fuktighetsgivende og
                   utglattende foundation for en naturlig, strålende finish.
@@ -31,13 +28,18 @@ extractions:
                 xpath: /html/body/div[2]/main[1]/div[1]/div[2]/div[3]/section[1]/div[1]/section[1]/div[1]/div[2]/span[4]/span[1]
             sku:
               - text: "1118658"
-                xpath: /html/body/div[2]/main[1]/div[1]/div[2]/div[3]/section[1]/div[1]/section[1]/div[1]/div[2]/span[2]
+                xpath: /html/body/div[8]
             variantId:
               - text: "1118658"
-                xpath: /html/body/div[2]/main[1]/div[1]/div[2]/div[3]/section[1]/div[1]/section[1]/div[1]/div[2]/span[2]
+                xpath: /html/body/div[8]
             mpc:
               - text: B1877504
                 xpath: /html/body/div[2]/main[1]/div[1]/div[2]/div[3]/section[1]/div[1]/section[1]/div[1]/div[2]/span[3]/span[2]
+            directions:
+              - text: Påføres jevnt i hele ansiktet med fingertuppene.Prøv også Fit Me concealer
+                  og påfør Fit Me-pudder som siste finish til din naturlige
+                  look.
+                xpath: /html/body/div[9]
             color:
               - text: " 120 Classic Ivory"
                 xpath: /html/body/div[2]/main[1]/div[1]/div[2]/div[3]/div[1]/div[2]/div[1]/section[1]/div[1]/div[1]/div[1]/div[1]/div[1]/p[4]/text()[1]
@@ -67,6 +69,8 @@ extractions:
               - text: No
             imageZoomFeaturePresent:
               - text: No
+            nameExtended:
+              - text: "Maybelline Fit Me Luminous + Smooth Foundation "
             descriptionBullets:
               - text: "2"
                 type: NUMBER
@@ -79,5 +83,11 @@ extractions:
                 raw: "0"
                 locale: nb_NO
                 value: 0
+            secondaryImageTotal:
+              - text: "1"
+                type: NUMBER
+                raw: "1"
+                locale: nb_NO
+                value: 1
         xpath: /
-    timestamp: 1604414641534
+    timestamp: 1607349789608
