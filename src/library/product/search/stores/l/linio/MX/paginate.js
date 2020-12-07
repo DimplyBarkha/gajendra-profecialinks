@@ -9,7 +9,7 @@ module.exports = {
     mutationSelector: null,
     spinnerSelector: null,
     loadedSelector: 'div[itemtype*="http://schema.org/Product"]',
-    loadedXpath: null,
+    loadedXpath: '//div[contains(@id,"catalogue-product-container")]',
     noResultsXPath: '//div[contains(@class,"text-content secondary-text")]',
     stopConditionSelectorOrXpath: null,
     resultsDivSelector: null,
