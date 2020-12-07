@@ -42,7 +42,9 @@ async function implementation(
         }, ms);
       });
     }
-  
+    function dataBind(domElement, obj) {    
+      var bind = domElement.getAttribute("bind").split(":");
+    }
   // function bindValue(objectToBind) {
   // var elemToBind = document.getAttribute(objectToBind.rating)    
   // elemToBind.addEventListener("change", function() {
