@@ -8,7 +8,7 @@ module.exports = {
     mutationSelector: null,
     spinnerSelector: null,
     loadedSelector: '.CatalogItemsList__grid',
-    noResultsXPath: '//div[@class = "CatalogItemsList__empty"]',
+    noResultsXPath: '//p[contains(text(), "Увы, ничего")]',
     openSearchDefinition: {
       template: 'https://apteka.ru/search/?q={searchTerms}&page={page}',
     },
@@ -65,6 +65,7 @@ module.exports = {
       }, { timeout: 10000 }, loadedSelector, noResultsXPath);
     }
     console.log('Checking no results', noResultsXPath);
+    await new Promise(resolve => setTimeout(resolve, 10000));
     return await context.evaluate(function (xp) {
       const r = document.evaluate(xp, document, null, XPathResult.UNORDERED_NODE_ITERATOR_TYPE, null);
       console.log(xp, r);

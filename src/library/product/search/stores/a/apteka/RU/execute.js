@@ -7,7 +7,7 @@ module.exports = {
     domain: 'apteka.ru',
     url: 'https://apteka.ru/search/?q={searchTerms}&page=1',
     loadedSelector: '.CatalogItemsList__grid',
-    noResultsXPath: '//div[@class = "CatalogItemsList__empty"]',
+    noResultsXPath: '//p[contains(text(), "Увы, ничего")]',
     zipcode: '',
   },
 };
