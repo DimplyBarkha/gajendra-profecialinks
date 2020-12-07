@@ -1,3 +1,4 @@
+
 /**
  *
  * @param {ImportIO.Group[]} data
@@ -23,8 +24,7 @@ const transform = (data) => {
     return data;
   };
   for (const { group } of data) {
-    var rank = 1;
-    for (let row of group) {
+    for (const row of group) {
       if (row.name) {
         row.name.forEach(item => {
           item.text = item.text.replace(/(\s*\n\s*)+/g, ' ').trim();
@@ -39,11 +39,9 @@ const transform = (data) => {
           item.text = item.text.replace(/[a-z]/g,' ').trim();
         })
       }
-      row.rank = [{ "text": rank }];
-      row.rankOrganic = [{ "text": rank }];
-      rank++;
     }
   }
   return cleanUp(data);
 };
+
 module.exports = { transform };
