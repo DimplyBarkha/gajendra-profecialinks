@@ -76,8 +76,7 @@ fields:
     xpath: //*[contains(text(), 'Peso lordo')]/following-sibling::*[1]
   - name: gtin
     singleValue: true
-    description: GTIN code (includes UPC/EAN)
-    xpath: //script[contains(@src, flixfacts)]/@data-flix-ean
+    description: GTIN code (includes UPC/EAN) //script[contains(@src, flixfacts)]/@data-flix-ean
   - name: eangtin
     singleValue: true
     xpath: //script[contains(@src, flixfacts)]/@data-flix-ean
