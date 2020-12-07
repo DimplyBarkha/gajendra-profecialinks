@@ -19,19 +19,21 @@ async function implementation (
     }, { timeout: 10000 }, parameters.loadedSelector, parameters.noResultsXPath);
   }
 
-  await context.waitForSelector('.product > div > a');
-  const pageLink = await context.evaluate(() => { return document.querySelector('.product > div > a').getAttribute('href'); });
-  const sku = await context.evaluate(() => document.querySelector('.product > div > a').getAttribute('data-code'));
+  if (id) {
+    await context.waitForSelector('.product > div > a');
+    const pageLink = await context.evaluate(() => { return document.querySelector('.product > div > a').getAttribute('href'); });
+    const sku = await context.evaluate(() => document.querySelector('.product > div > a').getAttribute('data-code'));
 
-  if (id.toString() === sku.toString()) {
-    console.log('Id: ' + id + '\n SKU: ' + sku);
-    await context.goto(pageLink, {
-      blockAds: false,
-      loadAllResources: true,
-      imagesEnabled: true,
-      timeout: 100000,
-      waitUntil: 'networkidle0',
-    });
+    if (id.toString() === sku.toString()) {
+      console.log('Id: ' + id + '\n SKU: ' + sku);
+      await context.goto(pageLink, {
+        blockAds: false,
+        loadAllResources: true,
+        imagesEnabled: true,
+        timeout: 100000,
+        waitUntil: 'networkidle0',
+      });
+    }
 
     await context.waitForSelector('.onlyPrice', { timeout: 100000 });
   }
