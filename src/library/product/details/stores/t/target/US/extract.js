@@ -34,6 +34,8 @@ async function implementation (
     }
   });
 
+  if (!productUrl) throw new Error('The search page for the provided input did not return any result');
+
   await context.goto('https://www.target.com' + productUrl, { timeout: 80000, waitUntil: 'load', checkBlocked: true });
   await context.waitForXPath("//h1[@data-test='product-title']");
   try {
@@ -565,37 +567,51 @@ async function implementation (
           hasTechnicalInfoPDF = 'Yes';
         }
 
+        const getShadowRoots = (elem, resArr = []) => {
+          if (elem.shadowRoot) return [...resArr, elem.shadowRoot];
+          return [...elem.childNodes]
+            .reduce((acc, elC) => [...acc, ...resArr, ...getShadowRoots(elC, resArr)], resArr);
+        };
+
+        const getWCFragments = (frame = document) => {
+          document.querySelectorAll('.wc-fragment').forEach(e => {
+            if (e.getAttribute('data-section-caption') && e.getAttribute('data-section-caption') === 'Docs') {
+              return;
+            }
+
+            if (e.querySelector('.wc-pct-data')) {
+              e.querySelectorAll('tr').forEach(tr => {
+                if (tr && tr.innerText && !manufacturerDescArr.includes(tr.innerText)) {
+                  manufacturerDescArr.push(tr.innerText);
+                }
+              });
+            } else {
+              manufacturerDescArr.push(e.innerText);
+            }
+          });
+        };
+
         console.log('haswcpowerpage');
         const manufacturerDescArr = [];
-        document.querySelectorAll('.wc-fragment').forEach(e => {
-          if (e.getAttribute('data-section-caption') && e.getAttribute('data-section-caption') === 'Docs') {
-            return;
-          }
+        getWCFragments();
+        addImagesVideos(mfgNode);
+        const arrayOfSubDoms = [
+          ...[...mfgNode.querySelectorAll('frame')].map(e => e.contentWindow.document.body),
+          ...getShadowRoots(mfgNode),
+        ];
 
-          if (e.querySelector('.wc-pct-data')) {
-            e.querySelectorAll('tr').forEach(tr => {
-              if (tr && tr.innerText && !manufacturerDescArr.includes(tr.innerText)) {
-                manufacturerDescArr.push(tr.innerText);
-              }
-            });
-          } else {
-            manufacturerDescArr.push(e.innerText);
-          }
-        });
-        mfgNode.querySelectorAll('iframe').forEach(e => {
+        arrayOfSubDoms.forEach(frameContents => {
+          getWCFragments(frameContents);
           console.log('hasframehere');
-          const frameContents = e.contentWindow.document.body;
           frameContents.querySelectorAll('h1, h2, h3, p, li').forEach(e => {
             if (!e.getAttribute('class') || (e.getAttribute('class') && !e.getAttribute('class').includes('vjs'))) {
               manufacturerDescArr.push(e.innerText);
             }
           });
-          frameContents.querySelectorAll('img').forEach(e => {
-            manufacturerImgs.push(e.src);
+          frameContents.querySelectorAll('.syndigo-featureset-feature-description, .syndigo-featureset-feature-caption').forEach(e => {
+            manufacturerDescArr.push(e.innerText);
           });
-          frameContents.querySelectorAll('video').forEach(e => {
-            videos.push(e.src);
-          });
+          addImagesVideos(frameContents);
           frameContents.querySelectorAll('.wc-thumb').forEach(async (e, ind) => {
             setTimeout(() => {
               if (e.querySelector('button')) {
@@ -609,7 +625,6 @@ async function implementation (
         });
 
         manufacturerDesc = manufacturerDescArr.join(' ').replace(/See product page/g, '').replace(/\d options available/g, '');
-        addImagesVideos(mfgNode);
       }
 
       addHiddenDiv(newDiv, 'pdf', hasTechnicalInfoPDF);
