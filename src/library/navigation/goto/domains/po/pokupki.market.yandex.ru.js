@@ -53,7 +53,7 @@ module.exports = {
       await context.waitForNavigation({ timeout });
       // @ts-ignore
       // eslint-disable-next-line no-undef
-      await context.evaluateInFrame('div', () => grecaptcha.execute());
+      await context.evaluateInFrame('form', () => grecaptcha.execute());
       console.log('solved captcha, waiting for page change');
       await context.waitForNavigation({ timeout });
       try {
