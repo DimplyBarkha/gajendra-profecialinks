@@ -43,7 +43,7 @@ fields:
   xpath: //div[@id="product-availability"]
 - name:  description
   singleValue: false
-  xpath: //div[@id='product-info']
+  xpath: //div[@id='description']
 - name: descriptionBullets
   xpath: count(//div[@class="no-tablet"]//ul[@class="to-print"]/li)
   singleValue: false
@@ -52,6 +52,7 @@ fields:
   singleValue: false
   xpath: //h1[contains(@class,'page-title')]//span[1]  
 - name: manufacturer
+  xpath: //h1[contains(@class,'page-title')]//span[1]  
   singleValue: false
   description: Product manufacturer
 - name: quantity
@@ -62,7 +63,9 @@ fields:
   xpath: //div[contains(@class,'tab-tech-specs')]//tr//th[text()='Weight']//following-sibling::td
 - name: weightGross
   singleValue: false
-  xpath: //div[contains(@class,'tab-tech-specs')]//tr//th[text()='Boxed weight']//following-sibling::td
+  xpath: //tr//th[contains(text(), 'Weight')]//following-sibling::td
+  regExp: Boxed:(.+)$
+  regExpReplace: $1
 - name: gtin
   singleValue: true
   description: GTIN code (includes UPC/EAN)
@@ -109,6 +112,9 @@ fields:
   singleValue: true
   description: Shipping information for the product
 - name: shippingDimensions
+  xpath: //tr//th[contains(text(), 'Dimensions')]//following-sibling::td
+  regExp: Boxed:(.+)$
+  regExpReplace: $1
   singleValue: false
 - name: shippingWeight
   singleValue: true
@@ -234,7 +240,7 @@ fields:
   description: 
 - name: specifications
   singleValue: false
-  xpath: //div[contains(@class,'tab-tech-specs')]//tr
+  xpath: //div[contains(@class,'tab-tech-specs')]//table
 - name: warranty
   singleValue: false
   xpath: //div[contains(@class,'tab-tech-specs')]//tr//th[contains(text(),'guarantee') or contains(text(),'Guarantee')]//following-sibling::td    
@@ -288,7 +294,7 @@ fields:
   description: colour / scent / flavour / other
 - name: firstVariant
   xpath: //div[@class='no-tablet']//ul[@class='dc-product-swatches-list']//li[contains(@class,'dc-product-swatch-active')]//span
-  singleValue: true
+  singleValue: false
   description: Unique identifier for a collection of variants. For a subset of core
     feeds (43) we have a column "first_variant" that is populated with a common code
     to link all variants for a product. method 1 (Preferred) = use common tag (Could
