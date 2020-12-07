@@ -1,0 +1,101 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: name
+    singleValue: true
+    xpath: //div[@class="ng-star-inserted"]/script  
+  - name: image
+    singleValue: true
+  - name: imageAlt
+    singleValue: true
+    xpath: //img[contains(@class,'imageZoomerComponent-main--image')]/@alt
+  - name: aggregateRating
+    singleValue: true
+    xpath: //span[@class="rating-average"]
+  - name: ratingCount
+    singleValue: true
+    xpath: //button[contains(@class,'rating-total')]/span[position() = 2]
+    regExp: ([\d]+)
+  - name: brandText
+    singleValue: true
+  - name: gtin
+    singleValue: true
+  - name: sku
+    singleValue: true
+  - name: price
+    singleValue: true
+#    xpath: (//div[contains(@class,'price price--large')])[position() =1]
+  - name: shippingInfo
+    singleValue: true
+    xpath: //div[@class='fms-container cart-fulfilment-selector']
+  - name: alternateImages
+    singleValue: false
+    xpath: (//img[@class="thumbnail-image"])[position() > 1]/@src
+  - name: nameExtended
+    singleValue: true
+  - name: listPrice
+    singleValue: true
+    xpath: //shared-price[@class='ng-star-inserted']/div[contains(@class,'price-was')]
+  - name: variantId
+    singleValue: true
+  - name: legalDisclaimer
+    singleValue: true
+    xpath: //section[@class="disclaimer"]
+  - name: warnings
+    singleValue: true
+    xpath: //section[contains(@class,"product-warnings")]
+  - name: description
+    singleValue: false
+#    xpath: (//div[@class="viewMore-expanded"])[position() =1]
+    xpath: //div[contains(@class,'product-healthy-swaps')]/following-sibling::wow-view-more/div/div/div/div
+  - name: countryOfOrigin
+    singleValue: true
+    xpath: //img[@class="country-of-original-image ng-star-inserted"]/@alt
+  - name: availabilityText
+    singleValue: true
+    defaultValue: In Stock
+    xpath: //div[@class="cartControls ng-star-inserted"]/button[contains(@class,'button--secondaryLight')]/text()
+  - name: allergyAdvice
+    singleValue: true
+    xpath: //section[@class="allergen ng-star-inserted"]/descendant-or-self::*
+  - name: ingredientsList
+    singleValue: true
+    xpath: //section[@class="ingredients ng-star-inserted"]/descendant-or-self::*
+  - name: proteinPerServing
+    singleValue: true
+    xpath: //div[@class="nutrition-table"]
+  - name: proteinPerServingUom
+    singleValue: true
+  - name: totalFatPerServing
+    singleValue: true
+  - name: totalFatPerServingUom
+    singleValue: true
+  - name: saturatedFatPerServing
+    singleValue: true
+  - name: saturatedFatPerServingUom
+    singleValue: true
+  - name: totalCarbPerServing
+    singleValue: true
+  - name: totalCarbPerServingUom
+    singleValue: true
+  - name: totalSugarsPerServing
+    singleValue: true
+  - name: totalSugarsPerServingUom
+    singleValue: true
+  - name: sodiumPerServing
+    singleValue: true
+  - name: sodiumPerServingUom
+    singleValue: true
+  - name: pricePerUnit
+    singleValue: true
+    xpath: (//div[contains(@class,"shelfProductTile-cupPrice")])[position() =1]
+  - name: imageZoomFeaturePresent
+    singleValue: true
+    defaultValue: Yes  
+  - name: secondaryImageTotal
+    singleValue: true
+  - name: directions
+    singleValue: true
+    xpath: //section[contains(@class,'directions')]/wow-view-more/div/div/div/div

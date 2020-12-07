@@ -1,11 +1,10 @@
 
 module.exports = {
-  implements: 'navigation/goto',
+  implements: 'product/search',
   parameterValues: {
-    domain: 'woolworths.com.au',
-    timeout: 60000,
     country: 'AU',
     store: 'woolworths',
+    domain: 'woolworths.com.au',
     zipcode: '',
   },
 };
