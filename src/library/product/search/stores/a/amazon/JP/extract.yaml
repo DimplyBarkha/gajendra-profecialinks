@@ -1,0 +1,19 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+- name: id
+  singleValue: false
+  xpath: //div[contains(@class,"sg-col-4-of-12")]/@data-asin
+- name: price
+  singleValue: false
+  xpath: //div[contains(@class,"sg-col-4-of-12")]//span[@class="a-price-whole"] 
+- name: productUrl
+  singleValue: false
+  xpath: //div[contains(@class,"sg-col-4-of-12")]//a[@class="a-link-normal s-no-outline"]/@href
+  regExp : (.+)
+  regExpReplace: https://www.amazon.co.jp$1
+
+
+
