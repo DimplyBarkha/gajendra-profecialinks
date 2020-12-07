@@ -34,7 +34,7 @@ fields:
     regExp: \d+
   - name: price
     singleValue: false
-    xpath: //div[@class="card-item js-product-data"]//p[@class="product-new-price"]
+    xpath: //div[@class="card-item js-product-data"]//p[@class="product-new-price"]/@price
   - name: manufacturer
     singleValue: true
   - name: soldBy
