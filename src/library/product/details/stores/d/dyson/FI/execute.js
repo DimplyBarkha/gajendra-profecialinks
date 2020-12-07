@@ -5,8 +5,8 @@ module.exports = {
     country: 'FI',
     store: 'dyson',
     domain: 'fi.dyson.com',
-    loadedSelector: null,
-    noResultsXPath: null,
+    loadedSelector: 'div.product-hero',
+    noResultsXPath: '//h3[text()="Olemme pahoillamme, mutta etsimääsi sivua ei löydy."]',
     zipcode: '',
   },
 };

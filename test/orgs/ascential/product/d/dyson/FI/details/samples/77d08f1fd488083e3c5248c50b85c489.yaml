@@ -1,0 +1,155 @@
+input:
+  _url: http://fi.dyson.com
+  URL: https://www.fi.dyson.com/valaistus/task-lighting/dyson-lightcycle-morph/dyson-lightcycle-morph-desk-white-silver
+extractions:
+  - html: https://workbench.import.io/html/run=9a088673-81a7-4da9-ae32-95322fde86d9/task=d7f08e84-19ff-4e81-ae28-085d36161ae2/77d6e73b-112f-4970-8fdb-e94ce4226b52.html
+    extractionConfigId: product/details/stores/d/dyson/FI/extract
+    data:
+      - group:
+          - category:
+              - text: Valaistus
+                xpath: /html/body/nav[1]/div[1]/div[1]/div[1]/div[1]/nav[1]/div[2]/div[1]/div[1]/nav[1]/ol[1]/li[2]/span[1]/a[1]/span[1]
+              - text: Dyson-työvalaisimet
+                xpath: /html/body/nav[1]/div[1]/div[1]/div[1]/div[1]/nav[1]/div[2]/div[1]/div[1]/nav[1]/ol[1]/li[3]/span[1]/a[1]/span[1]
+              - text: Dyson Lightcycle Morph™
+                xpath: /html/body/nav[1]/div[1]/div[1]/div[1]/div[1]/nav[1]/div[2]/div[1]/div[1]/nav[1]/ol[1]/li[4]/span[1]/a[1]/span[1]
+            image:
+              - text: https://dyson-h.assetsadobe2.com/is/image/content/dam/dyson/products/lighting/lightcycle-morph/pdp/white-silver/desk/01%20hero.jpg?$responsive$&cropPathE=desktop&fit=stretch,1&wid=1920
+                xpath: /html/body/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/img[1]/@src
+            imageAlt:
+              - text: Dyson Lightcycle Morph -valaisin
+                xpath: /html/body/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/img[1]/@alt
+            description:
+              - text: >-
+                  Muuttuu. Mukautuu. Jäljittelee älykkäästi paikallista
+                  päivänvaloa.
+                   
+                  Laadukasta valoa 60 vuoden ajan¹
+                xpath: /html/body/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]
+            shippingInfo:
+              - text: |-
+                  Ilmainen joustava toimitus 
+                  ja ilmaiset palautukset
+                xpath: /html/body/main[1]/div[2]/div[2]/div[1]/div[1]/section[1]/div[1]/div[1]/ul[1]/li[2]
+            name:
+              - text: Muuttuu. Mukautuu. Jäljittelee älykkäästi paikallista päivänvaloa.
+                xpath: /html/body/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/h1[1]
+            specifications:
+              - text: |-
+                  Korkeus
+                   
+                   703 mm 
+                   
+                   
+                   
+                  Pituus
+                   
+                   190 mm 
+                   
+                   
+                   
+                  Leveys
+                   
+                   527 mm
+                xpath: /html/body/main[1]/div[2]/div[9]/section[1]/div[1]/div[1]/ul[1]
+            warranty:
+              - text: |-
+                  2 vuoden takuu 
+                  Aktivoituu automaattisesti
+                xpath: /html/body/main[1]/div[2]/div[2]/div[1]/div[1]/section[1]/div[1]/div[1]/ul[1]/li[1]
+            firstVariant:
+              - text: Valkoinen / Hopea
+                xpath: /html/body/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/span[1]/img[1]/@title
+            variants:
+              - text: Valkoinen / Hopea
+                xpath: /html/body/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/span[1]/img[1]/@title
+              - text: Musta
+                xpath: /html/body/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[2]/div[2]/a[1]/span[1]/img[1]/@title
+            weightNet:
+              - text: 4,1 kg
+                xpath: /html/body/main[1]/div[2]/div[9]/section[1]/div[1]/ul[1]/li[12]/p[2]
+            productUrl:
+              - text: https://www.fi.dyson.com/valaistus/task-lighting/dyson-lightcycle-morph/dyson-lightcycle-morph-desk-white-silver
+                xpath: /html/body/div[7]
+            brandText:
+              - text: Dyson
+                xpath: /html/body/div[8]
+            sku:
+              - text: 294677-01
+                xpath: /html/body/div[9]
+            variantId:
+              - text: 294677-01
+                xpath: /html/body/div[9]
+            mpc:
+              - text: 294677-01
+                xpath: /html/body/div[9]
+            color:
+              - text: White-Silver
+                xpath: /html/body/div[10]
+            price:
+              - text: 549 €
+                xpath: /html/body/div[12]
+            nameExtended:
+              - text: Dyson - Muuttuu. Mukautuu. Jäljittelee älykkäästi paikallista päivänvaloa.
+                  - Valkoinen / Hopea
+                xpath: /html/body/div[13]
+            variantInformation:
+              - text: Valkoinen / Hopea
+                xpath: /html/body/div[14]
+            productOtherInformation:
+              - text: Valonlähde LED CRI 90 MIN Nimellisteho 15,8 W LED-käyttöikä 181 000 hrs
+                  Suojausluokka Luokka III Valaisimen käyttöhyötysuhde 82,1 % R9
+                  48 MIN Taajuus 50/60 hz Välkyntä <1 % Keskimääräinen
+                  valaistusvoimakkuus 1 194 lx 3,2 m Paino 4,1 kg Värilämpötila
+                  2700-6500 K Valoteho 1120 lm Valoteho 71 l/W Virrankulutus
+                  valmiustilassa <0.5 W Palkin kulma 78 °
+                xpath: /html/body/div[15]
+            manufacturerDescription:
+              - text: Pääominaisuudet Työvalaistus Kohdennettu, tehokas valaistus. Suunniteltu
+                  vähentämään silmien rasitusta.² Taustavalaistus Valaisinosaa
+                  kääntämällä voit luoda pehmeän taustavalaistuksen tai tehdä
+                  tilasta suuremman tuntuisen. Tehostevalaistus Laadukas valo
+                  korostaa taideteoksia ja koriste-esineitä. Tunnelmavalaistus
+                  Varren valo luo rentouttavan tunnelman vähentämällä valon
+                  sinisyyttä. Hallinnoi laitetta Dyson Link -sovelluksella³ Voit
+                  muuttaa valaistusta iän, työtehtävien, tunnelman ja
+                  vuorokaudenajan mukaan. Magneettinen telakointi kosketuksella
+                  Valaisinosa kiinnittyy varteen ja luo miellyttävän oranssin
+                  hehkun.
+                xpath: /html/body/div[16]
+            manufacturerImages:
+              - text: https://dyson-h.assetsadobe2.com/is/image/content/dam/dyson/products/lighting/lightcycle-morph/pdp/white-silver/floor/02%20Transforms%20for%20your%20space.jpg?$responsive$&cropPathE=desktop&fit=stretch,1&fmt=pjpeg&wid=1920
+                xpath: /html/body/div[17]/ul[1]/li[1]
+              - text: https://dyson-h.assetsadobe2.com/is/image/content/dam/dyson/products/lighting/lightcycle-morph/pdp/white-silver/desk/03%20App.jpg?$responsive$&cropPathE=desktop&fit=stretch,1&fmt=pjpeg&wid=1920
+                xpath: /html/body/div[17]/ul[1]/li[2]
+              - text: https://dyson-h.assetsadobe2.com/is/image/content/dam/dyson/products/lighting/lightcycle-morph/pdp/white-silver/desk/04%20feature%2001.jpg?cropPathE=desktop&fit=stretch,1&fmt=pjpeg&wid=634
+                xpath: /html/body/div[17]/ul[1]/li[3]
+              - text: https://dyson-h.assetsadobe2.com/is/image/content/dam/dyson/products/lighting/lightcycle-morph/pdp/white-silver/desk/04%20feature%2002.jpg?cropPathE=desktop&fit=stretch,1&fmt=pjpeg&wid=634
+                xpath: /html/body/div[17]/ul[1]/li[4]
+              - text: https://dyson-h.assetsadobe2.com/is/image/content/dam/dyson/products/lighting/lightcycle-morph/pdp/white-silver/desk/04%20feature%2003.jpg?cropPathE=desktop&fit=stretch,1&fmt=pjpeg&wid=634
+                xpath: /html/body/div[17]/ul[1]/li[5]
+              - text: https://dyson-h.assetsadobe2.com/is/image/content/dam/dyson/products/lighting/lightcycle-morph/pdp/white-silver/desk/04%20feature%2004.jpg?cropPathE=desktop&fit=stretch,1&fmt=pjpeg&wid=634
+                xpath: /html/body/div[17]/ul[1]/li[6]
+              - text: https://dyson-h.assetsadobe2.com/is/image/content/dam/dyson/products/lighting/lightcycle-morph/pdp/white-silver/desk/04%20feature%2005.jpg?cropPathE=desktop&fit=stretch,1&fmt=pjpeg&wid=634
+                xpath: /html/body/div[17]/ul[1]/li[7]
+              - text: https://dyson-h.assetsadobe2.com/is/image/content/dam/dyson/products/lighting/lightcycle-morph/pdp/white-silver/desk/04%20feature%2006.jpg?cropPathE=desktop&fit=stretch,1&fmt=pjpeg&wid=634
+                xpath: /html/body/div[17]/ul[1]/li[8]
+            availabilityText:
+              - text: In Stock
+                xpath: /html/body/div[20]
+            manufacturer:
+              - text: Dyson
+            descriptionBullets:
+              - text: "0"
+            variantCount:
+              - text: "2"
+            technicalInformationPdfPresent:
+              - text: "false"
+            customerServiceAvailability:
+              - text: "true"
+            termsAndConditions:
+              - text: "true"
+            privacyPolicy:
+              - text: "true"
+        xpath: /html/body
+    timestamp: 1607351059422

@@ -1,0 +1,28 @@
+input:
+  _url: http://fi.dyson.com
+  URL: https://www.fi.dyson.com/hiustenhoito/dyson-supersonic-hiustenkuivaaja/fuchsia-iron
+extractions:
+  - html: https://workbench.import.io/html/run=6cc3d9c3-d221-41b4-8b28-c0d90fdf9d74/task=3f3bf9ac-bc9e-4d63-9a00-53dc0f278e4e/bdbba407-3537-400e-b68b-cda5a1e61fbd.html
+    extractionConfigId: product/details/stores/d/dyson/FI/variantsExtract
+    data:
+      - group:
+          - variantId:
+              - text: 346999-01-Fuchsia-Iron-
+                xpath: /html/body/ol[1]/li[1]/@variant_id
+            variantUrl:
+              - text: https://www.fi.dyson.com/hiustenhoito/dyson-supersonic-hiustenkuivaaja/fuchsia-iron
+                xpath: /html/body/ol[1]/li[1]/@variant_url
+          - variantId:
+              - text: 346641-01-Black-Purple-
+                xpath: /html/body/ol[1]/li[2]/@variant_id
+            variantUrl:
+              - text: https://www.dyson.dk/hiustenhoito/dyson-supersonic-hiustenkuivaaja/black-purple
+                xpath: /html/body/ol[1]/li[2]/@variant_url
+          - variantId:
+              - text: 346469-01-Black-Nickel-
+                xpath: /html/body/ol[1]/li[3]/@variant_id
+            variantUrl:
+              - text: https://www.dyson.dk/hiustenhoito/dyson-supersonic-hiustenkuivaaja/black-nickel
+                xpath: /html/body/ol[1]/li[3]/@variant_url
+        xpath: /html
+    timestamp: 1607350967442

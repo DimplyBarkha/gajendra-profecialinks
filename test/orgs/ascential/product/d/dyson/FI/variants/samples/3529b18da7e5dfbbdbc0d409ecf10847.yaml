@@ -1,0 +1,22 @@
+input:
+  _url: http://fi.dyson.com
+  URL: https://www.fi.dyson.com/tuuletin-tai-ilmankasittelylaite/ilmanpuhdistimet/dyson-pure-cool-me/valkoinen-hopea
+extractions:
+  - html: https://workbench.import.io/html/run=6cc3d9c3-d221-41b4-8b28-c0d90fdf9d74/task=30549597-3f73-4a36-80e4-1379b921bc6a/e1aea667-3e28-40ae-a307-41ee15a9b052.html
+    extractionConfigId: product/details/stores/d/dyson/FI/variantsExtract
+    data:
+      - group:
+          - variantId:
+              - text: 275910-01-White-Silver-
+                xpath: /html/body/ol[1]/li[1]/@variant_id
+            variantUrl:
+              - text: https://www.fi.dyson.com/tuuletin-tai-ilmankasittelylaite/ilmanpuhdistimet/dyson-pure-cool-me/valkoinen-hopea
+                xpath: /html/body/ol[1]/li[1]/@variant_url
+          - variantId:
+              - text: 275917-01-Black-Nickel-
+                xpath: /html/body/ol[1]/li[2]/@variant_id
+            variantUrl:
+              - text: https://www.dyson.dk/tuuletin-tai-ilmankasittelylaite/ilmanpuhdistimet/dyson-pure-cool-me/musta-nikkeli
+                xpath: /html/body/ol[1]/li[2]/@variant_url
+        xpath: /html
+    timestamp: 1607350964083

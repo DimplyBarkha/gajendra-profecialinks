@@ -1,0 +1,16 @@
+input:
+  _url: http://fi.dyson.com
+  URL: https://www.fi.dyson.com/polynimurit/varsi-imurit/dyson-v8/absolute
+extractions:
+  - html: https://workbench.import.io/html/run=6cc3d9c3-d221-41b4-8b28-c0d90fdf9d74/task=f4b81ddd-62a1-47ac-a00e-9e3ac0c98e22/98efacea-caff-4097-88af-b24e3f1d64df.html
+    extractionConfigId: product/details/stores/d/dyson/FI/variantsExtract
+    data:
+      - group:
+          - variantId:
+              - text: 227296-01
+                xpath: /html/body/ol[1]/li[1]/@variant_id
+            variantUrl:
+              - text: https://www.fi.dyson.com/polynimurit/varsi-imurit/dyson-v8/absolute
+                xpath: /html/body/ol[1]/li[1]/@variant_url
+        xpath: /html
+    timestamp: 1607350962721

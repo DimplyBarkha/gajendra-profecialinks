@@ -1,0 +1,16 @@
+input:
+  _url: http://fi.dyson.com
+  URL: https://www.fi.dyson.com/polynimurit/rikkaimurit/dyson-v7/trigger
+extractions:
+  - html: https://workbench.import.io/html/run=6cc3d9c3-d221-41b4-8b28-c0d90fdf9d74/task=439276da-00e0-4a18-a711-811d5d281ef5/2d8aaf3d-9982-4236-affe-13c915e6f2b2.html
+    extractionConfigId: product/details/stores/d/dyson/FI/variantsExtract
+    data:
+      - group:
+          - variantId:
+              - text: 232710-01
+                xpath: /html/body/ol[1]/li[1]/@variant_id
+            variantUrl:
+              - text: https://www.fi.dyson.com/polynimurit/rikkaimurit/dyson-v7/trigger
+                xpath: /html/body/ol[1]/li[1]/@variant_url
+        xpath: /html
+    timestamp: 1607350968685

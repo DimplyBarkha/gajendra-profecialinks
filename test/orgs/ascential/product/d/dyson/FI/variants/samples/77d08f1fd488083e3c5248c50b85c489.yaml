@@ -1,0 +1,22 @@
+input:
+  _url: http://fi.dyson.com
+  URL: https://www.fi.dyson.com/valaistus/task-lighting/dyson-lightcycle-morph/dyson-lightcycle-morph-desk-white-silver
+extractions:
+  - html: https://workbench.import.io/html/run=6cc3d9c3-d221-41b4-8b28-c0d90fdf9d74/task=d7a1488b-f288-43b2-86d9-810179618783/843a1204-2d6c-49b2-b557-59d780800ec5.html
+    extractionConfigId: product/details/stores/d/dyson/FI/variantsExtract
+    data:
+      - group:
+          - variantId:
+              - text: 294677-01-White-Silver-
+                xpath: /html/body/ol[1]/li[1]/@variant_id
+            variantUrl:
+              - text: https://www.fi.dyson.com/valaistus/task-lighting/dyson-lightcycle-morph/dyson-lightcycle-morph-desk-white-silver
+                xpath: /html/body/ol[1]/li[1]/@variant_url
+          - variantId:
+              - text: 294643-01-Black-Black-
+                xpath: /html/body/ol[1]/li[2]/@variant_id
+            variantUrl:
+              - text: https://www.dyson.dk/valaistus/task-lighting/dyson-lightcycle-morph/dyson-lightcycle-morph-desk-black
+                xpath: /html/body/ol[1]/li[2]/@variant_url
+        xpath: /html
+    timestamp: 1607350967914

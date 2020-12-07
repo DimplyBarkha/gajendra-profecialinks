@@ -1,0 +1,143 @@
+input:
+  _url: http://fi.dyson.com
+  URL: https://www.fi.dyson.com/polynimurit/rikkaimurit/dyson-v7/trigger
+extractions:
+  - html: https://workbench.import.io/html/run=9a088673-81a7-4da9-ae32-95322fde86d9/task=6e279c95-1d8b-44eb-9f9b-fba92970b245/4daee22e-3eda-442a-8d92-1340fa364d14.html
+    extractionConfigId: product/details/stores/d/dyson/FI/extract
+    data:
+      - group:
+          - image:
+              - text: https://dyson-h.assetsadobe2.com/is/image/content/dam/dyson/products/cord-free-vacuums/handhelds/dyson-v7-vacuums/variant/Trigger/Dyson-V7-Handheld-PDP-Hero.jpg?$responsive$&cropPathE=desktop&fit=stretch,1&wid=1920
+                xpath: /html/body/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/img[1]/@src
+            imageAlt:
+              - text: Yleiskuva image alt text
+                xpath: /html/body/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/img[1]/@alt
+            description:
+              - text: |-
+                  Dyson V7 Trigger -rikkaimuri.
+                   
+                  Sisältää työkalut vaativaan siivoukseen.
+                xpath: /html/body/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]
+            name:
+              - text: Dyson V7 Trigger -rikkaimuri.
+                xpath: /html/body/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/h1[1]
+            shippingInfo:
+              - text: |-
+                  Ilmainen joustava toimitus 
+                  ja ilmaiset palautukset
+                xpath: /html/body/main[1]/div[2]/div[2]/div[1]/div[1]/section[1]/div[1]/div[1]/ul[1]/li[2]
+            warranty:
+              - text: |-
+                  2 vuoden takuu 
+                  Aktivoituu automaattisesti
+                xpath: /html/body/main[1]/div[2]/div[2]/div[1]/div[1]/section[1]/div[1]/div[1]/ul[1]/li[1]
+            specifications:
+              - text: |-
+                  Korkeus
+                   
+                   206 mm 
+                   
+                   
+                   
+                  Pituus
+                   
+                   319 mm 
+                   
+                   
+                   
+                  Leveys
+                   
+                   131 mm
+                xpath: /html/body/main[1]/div[2]/div[15]/section[1]/div[1]/div[1]/ul[1]
+            weightNet:
+              - text: 1,71 kg
+                xpath: /html/body/main[1]/div[2]/div[15]/section[1]/div[1]/ul[1]/li[1]/p[2]
+            category:
+              - text: Pölynimurit
+                xpath: /html/body/nav[1]/div[1]/div[1]/div[1]/div[1]/nav[1]/div[2]/div[1]/div[1]/nav[1]/ol[1]/li[2]/span[1]/a[1]/span[1]
+              - text: Rikkaimurit
+                xpath: /html/body/nav[1]/div[1]/div[1]/div[1]/div[1]/nav[1]/div[2]/div[1]/div[1]/nav[1]/ol[1]/li[3]/span[1]/a[1]/span[1]
+              - text: Dyson V7™ -rikkaimurit
+                xpath: /html/body/nav[1]/div[1]/div[1]/div[1]/div[1]/nav[1]/div[2]/div[1]/div[1]/nav[1]/ol[1]/li[4]/span[1]/a[1]/span[1]
+            productUrl:
+              - text: https://www.fi.dyson.com/polynimurit/rikkaimurit/dyson-v7/trigger
+                xpath: /html/body/div[7]
+            brandText:
+              - text: Dyson
+                xpath: /html/body/div[8]
+            sku:
+              - text: 232710-01
+                xpath: /html/body/div[9]
+            variantId:
+              - text: 232710-01
+                xpath: /html/body/div[9]
+            mpc:
+              - text: 232710-01
+                xpath: /html/body/div[9]
+            color:
+              - text: Iron-Nickel-Iron
+                xpath: /html/body/div[10]
+            price:
+              - text: 249 €
+                xpath: /html/body/div[12]
+            nameExtended:
+              - text: Dyson V7 Trigger -rikkaimuri.
+                xpath: /html/body/div[13]
+            productOtherInformation:
+              - text: Paino 1,71 kg Latausaika 3,5 hrs Sykloniteknologia 2 Tier Radial™
+                  -syklonia Suodatus Elinikäinen - Pestävä kuukausittain Säiliön
+                  tilavuus 0,54 L Imuteho (tehokas tila) 21 AW Imuteho
+                  (maksimitila) 100 AW Maksimikäyttöaika 30 min
+                xpath: /html/body/div[14]
+            manufacturerDescription:
+              - text: Johdottomien rikkaimureiden tehokkain imukyky.¹ Dyson V7 Trigger
+                  -rikkaimurit tarjoavat jopa 30 minuutin heikentymättömän
+                  imutehon.² Varustettu Dyson V7 -digitaalimoottorilla, joka
+                  mahdollistaa vaivattoman siivouksen joka kerta. Sisältää 3
+                  lisäosaa ja -tarviketta kodin ja muiden tarvittavien
+                  siivoamiseen. Pääominaisuudet Varustettu Dyson V7
+                  -digitaalimoottorilla Nopea, pieni ja kevyt, pyörii jopa 110
+                  000 rpm luoden voimakkaan imun. 2 Tier Radial™ -syklonia 15
+                  pientä syklonia luo voimakkaita keskipakoisvoimia imeäkseen
+                  likaa ja roskia. Jopa 30 minuuttia heikentymätöntä imutehoa³
+                  Pitkäkestoista suorituskykyä monipuoliseen siivoukseen autossa
+                  ja kodissa. Kaksi tehotilaa MAX-tila jopa 6 minuuttia erittäin
+                  suurella teholla tai Powerful-tila pidempikestoista,
+                  jokapäiväistä siivousta varten. Hygieeninen pölysäiliön
+                  tyhjennys Poistaa lian ja pölyn yhdellä painalluksella – joten
+                  sinun ei tarvitse koskea niihin. Minikokoinen moottoroitu
+                  suulake Dyson V7 Trigger -rikkaimurissa on moottoroitu harjas,
+                  joka poistaa karvat ja pinttyneen lian ahtaista paikoista.
+                xpath: /html/body/div[15]
+            manufacturerImages:
+              - text: https://dyson-h.assetsadobe2.com/is/image/content/dam/dyson/global/page-templates-psj-placeholder-resources/overviewvariant-partialwidthimage-placeholder.jpg?cropPathE=desktop&fit=stretch,1&fmt=pjpeg&wid=634
+                xpath: /html/body/div[16]/ul[1]/li[1]
+              - text: https://dyson-h.assetsadobe2.com/is/image/content/dam/dyson/products/cord-free-vacuums/handhelds/dyson-v7-vacuums/variant/Trigger/Dyson-V7-Handheld-PDP-Feature_Stack-3-Cyclones.jpg?cropPathE=desktop&fit=stretch,1&fmt=pjpeg&wid=634
+                xpath: /html/body/div[16]/ul[1]/li[2]
+              - text: https://dyson-h.assetsadobe2.com/is/image/content/dam/dyson/products/cord-free-vacuums/handhelds/dyson-v7-vacuums/variant/Trigger/Dyson-V7-Handheld-PDP-Feature_Stack-4-%20Upto%2030%20mins.jpg?cropPathE=desktop&fit=stretch,1&fmt=pjpeg&wid=634
+                xpath: /html/body/div[16]/ul[1]/li[3]
+              - text: https://dyson-h.assetsadobe2.com/is/image/content/dam/dyson/products/cord-free-vacuums/handhelds/dyson-v7-vacuums/variant/Trigger/Dyson-V7-Handheld-PDP-Feature_Stack-5-Two_cleaning_modes.jpg?cropPathE=desktop&fit=stretch,1&fmt=pjpeg&wid=634
+                xpath: /html/body/div[16]/ul[1]/li[4]
+              - text: https://dyson-h.assetsadobe2.com/is/image/content/dam/dyson/products/cord-free-vacuums/handhelds/dyson-v7-vacuums/variant/Trigger/Dyson-V7-Handheld-PDP-Feature_Stack-6-Bin_emptying.jpg?cropPathE=desktop&fit=stretch,1&fmt=pjpeg&wid=634
+                xpath: /html/body/div[16]/ul[1]/li[5]
+              - text: https://dyson-h.assetsadobe2.com/is/image/content/dam/dyson/products/cord-free-vacuums/handhelds/dyson-v7-vacuums/variant/Trigger/Dyson-V7-Handheld-PDP-Feature_Stack-1-Moterised_cleaner_head.jpg?cropPathE=desktop&fit=stretch,1&fmt=pjpeg&wid=634
+                xpath: /html/body/div[16]/ul[1]/li[6]
+            availabilityText:
+              - text: Out of Stock
+                xpath: /html/body/div[19]
+            manufacturer:
+              - text: Dyson
+            descriptionBullets:
+              - text: "0"
+            variantCount:
+              - text: "0"
+            technicalInformationPdfPresent:
+              - text: "false"
+            customerServiceAvailability:
+              - text: "true"
+            termsAndConditions:
+              - text: "true"
+            privacyPolicy:
+              - text: "true"
+        xpath: /html
+    timestamp: 1607351058349
