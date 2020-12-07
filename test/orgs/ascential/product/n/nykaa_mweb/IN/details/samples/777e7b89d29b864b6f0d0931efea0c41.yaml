@@ -2,7 +2,7 @@ input:
   _url: http://nykaa.com
   URL: https://www.nykaa.com/P/p/152918
 extractions:
-  - html: https://workbench.import.io/html/run=f9a3950b-e753-4684-a3aa-8da4362fbc21/task=641bcd32-89db-4618-bfbc-f7f3da5ab29c/83ef3051-0f73-4a5c-a605-7a107b1c6b83.html
+  - html: https://workbench.import.io/html/run=f6c90a4c-7aab-44fe-902f-c8829f5c4bf6/task=67d53312-025a-43ea-8555-4d1c91f6f9d8/05198626-6d4a-4561-bffb-7a94cd312094.html
     extractionConfigId: product/details/stores/n/nykaa_mweb/IN/extract
     data:
       - group:
@@ -55,7 +55,7 @@ extractions:
               - text: ₹750
                 xpath: /html/body/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/span[1]/span[2]
             price:
-              - text: ₹375
+              - text: ₹488
                 xpath: /html/body/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/span[2]/span[1]
             availabilityText:
               - text: In Stock
@@ -80,15 +80,18 @@ extractions:
             sku:
               - text: "152918"
                 xpath: /html/body/div[11]
+            variantId:
+              - text: "152918"
+                xpath: /html/body/div[11]
             ratingCount:
-              - text: "842"
+              - text: "846"
                 xpath: /html/body/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/meta[1]/@content
                 type: NUMBER
-                raw: "842"
+                raw: "846"
                 locale: en
-                value: 842
+                value: 846
             aggregateRating:
-              - text: 4,2
+              - text: "4.2"
                 xpath: /html/body/div[12]
             manufacturerImages:
               - text: https://www.nykaa.com/media/wysiwyg/71249338568img1.jpg
@@ -147,4 +150,4 @@ extractions:
             variantCount:
               - text: "0"
         xpath: /
-    timestamp: 1607082337233
+    timestamp: 1607342350151

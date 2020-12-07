@@ -43,13 +43,12 @@ module.exports = {
       data.alternateImagesCount = data.alternateImages.length;
       const isAvailable = document.querySelector('div.product_description button.combo-add-to-btn')
         ? document.querySelector('div.product_description button.combo-add-to-btn').textContent.includes('ADD TO BAG') : false;
-      data.availability = isAvailable ? 'In Stock' : '';
+      data.availability = isAvailable ? 'In Stock' : 'Out of Stock';
       data.quantity = document.querySelector('h1.product-title > span')
         ? document.querySelector('h1.product-title > span').textContent.replace(/\(|\)/g, '') : '';
-      const sku = document.evaluate('//a[@class="all-review-btn"]/@href', document, null, XPathResult.STRING_TYPE, null).stringValue;
-      data.sku = sku.match(/skuId=(\d+)/) ? sku.match(/skuId=(\d+)/)[1] : '';
+      data.sku = window.location.href.match(/skuId=(\d+)/) ? window.location.href.match(/skuId=(\d+)/)[1] : window.location.href.match(/\/p\/(\d+)/)[1];
       data.rating = document.querySelector('section.product-rating-summary > div.rs-text > strong')
-        ? document.querySelector('section.product-rating-summary > div.rs-text > strong').textContent.replace('.', ',') : '';
+        ? document.querySelector('section.product-rating-summary > div.rs-text > strong').textContent : '';
       const brandLink = document.evaluate('(//div[contains(@class,"pdp-description-tab")]//a[contains(@href,"brands")]/@href)[1]', document, null, XPathResult.STRING_TYPE, null).stringValue;
       if (brandLink) data.brandLink = `https://www.nykaa.com${brandLink}`;
       data.howToUse = await extractHeaders('howToUse');

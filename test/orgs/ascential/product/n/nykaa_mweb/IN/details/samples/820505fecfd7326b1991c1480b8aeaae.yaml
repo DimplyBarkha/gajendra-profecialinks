@@ -2,7 +2,7 @@ input:
   _url: http://nykaa.com
   URL: https://www.nykaa.com/G/p/365703
 extractions:
-  - html: https://workbench.import.io/html/run=f9a3950b-e753-4684-a3aa-8da4362fbc21/task=eff9d393-17a7-4c8a-9bb8-8943bc3acd41/b4e16f45-e813-47f4-8760-21fd223a413e.html
+  - html: https://workbench.import.io/html/run=f6c90a4c-7aab-44fe-902f-c8829f5c4bf6/task=fb49e620-7faf-4cb5-a0bf-3b60ed76ad35/3b15b784-f08a-4126-afc2-283bb72c10d9.html
     extractionConfigId: product/details/stores/n/nykaa_mweb/IN/extract
     data:
       - group:
@@ -82,18 +82,21 @@ extractions:
             sku:
               - text: "365703"
                 xpath: /html/body/div[11]
+            variantId:
+              - text: "365703"
+                xpath: /html/body/div[11]
             directions:
               - text: Smooth generously over entire body daily.
                 xpath: /html/body/div[14]
             ratingCount:
-              - text: "892"
+              - text: "899"
                 xpath: /html/body/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/meta[1]/@content
                 type: NUMBER
-                raw: "892"
+                raw: "899"
                 locale: en
-                value: 892
+                value: 899
             aggregateRating:
-              - text: 4,2
+              - text: "4.2"
                 xpath: /html/body/div[12]
             manufacturerImages:
               - text: https://www.nykaa.com/media/wysiwyg/8901526547081banner.jpg
@@ -150,4 +153,4 @@ extractions:
             variantCount:
               - text: "0"
         xpath: /
-    timestamp: 1607082341321
+    timestamp: 1607342353003

@@ -2,7 +2,7 @@ input:
   _url: http://nykaa.com
   URL: https://www.nykaa.com/M/p/304239
 extractions:
-  - html: https://workbench.import.io/html/run=f9a3950b-e753-4684-a3aa-8da4362fbc21/task=e32ae312-fdc9-4acc-8536-60bcadec9f8b/6c98aae4-5f37-4c96-9b85-372f7e633a0e.html
+  - html: https://workbench.import.io/html/run=f6c90a4c-7aab-44fe-902f-c8829f5c4bf6/task=e7d47440-f0be-428b-adce-67d54fcb8a58/ccaf96d2-a058-46ed-9a80-20a85af5e10b.html
     extractionConfigId: product/details/stores/n/nykaa_mweb/IN/extract
     data:
       - group:
@@ -34,12 +34,12 @@ extractions:
             nameExtended:
               - text: L'Oreal Men Expert Pure & Matte Desert Clay Yellow Foam(100ml)
                 xpath: /html/body/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[1]/h1[1]
-            listPrice:
-              - text: ₹499
-                xpath: /html/body/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/span[1]/span[2]
             price:
-              - text: ₹374
+              - text: ₹499
                 xpath: /html/body/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/span[2]/span[1]
+            availabilityText:
+              - text: Out of Stock
+                xpath: /html/body/div[9]
             description:
               - text: L'Oreal Paris Men Expert Desert Clay Facewash powered by Super Clay
                   Absorbing Desert Clay, to clean up pollution particles even as
@@ -79,6 +79,9 @@ extractions:
               - text: 100ml
                 xpath: /html/body/div[10]
             sku:
+              - text: "304239"
+                xpath: /html/body/div[11]
+            variantId:
               - text: "304239"
                 xpath: /html/body/div[11]
             ratingCount:
@@ -123,4 +126,4 @@ extractions:
             variantCount:
               - text: "0"
         xpath: /
-    timestamp: 1607082340735
+    timestamp: 1607342352361
