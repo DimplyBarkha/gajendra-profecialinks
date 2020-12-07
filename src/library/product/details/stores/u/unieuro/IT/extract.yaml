@@ -77,7 +77,7 @@ fields:
   xpath: (//div[@class='techs']//span[(text()="Tipo di imballo")]/following-sibling::span)[1]
 - name: specifications
   singleValue: false
-  xpath: //div[@class='info-classification-content']/div[@class='techs']/div
+  xpath: //section[@class="product-detail product-detail-info"]//div[@id='specifications']
 - name: materials
   singleValue: false
   xpath: //div[@class='info-classification-content']//span[(text()="Materiale vasca")or(text()="Materiale cestello")or(text()="Materiali")]/following-sibling::span
