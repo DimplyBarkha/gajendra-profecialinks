@@ -33,11 +33,13 @@ async function implementation (
       let x = 0;
       allProducts.forEach(element => {
         const div = element.querySelector('div');
+        const searchUrl = window.location.href;
         div.setAttribute('productid', foundIDArray[x]);
         div.setAttribute('producturl', `https://www.e-fresh.gr/el/product/${foundIDArray[x]}`);
         if (foundRatingArray[x] !== '0') {
           div.setAttribute('aggregaterating', foundRatingArray[x]);
         }
+        div.setAttribute('searchurl', searchUrl);
         x += 1;
       });
     }
