@@ -1,0 +1,16 @@
+input:
+  _url: http://dyson.ch
+  URL: https://www.dyson.ch/de_ch/leuchten/arbeitsplatzleuchten/dyson-lightcycle-morph/tischleuchte-schwarz-messing
+extractions:
+  - html: https://workbench.import.io/html/run=046cb7c5-b25f-477a-944f-3eaf61385e9e/task=ca72018a-35c8-46e5-8a91-96cd54c721db/6f98311f-a3b5-4c78-aab7-3a4d6711c1b3.html
+    extractionConfigId: product/details/stores/d/dyson/CH/variantsExtract
+    data:
+      - group:
+          - variantId:
+              - text: 321335-01
+                xpath: /html/body/ol[1]/li[1]/@variant_id
+            variantUrl:
+              - text: https://www.dyson.ch/de_ch/leuchten/arbeitsplatzleuchten/dyson-lightcycle-morph/tischleuchte-schwarz-messing
+                xpath: /html/body/ol[1]/li[1]/@variant_url
+        xpath: /html
+    timestamp: 1607337414736

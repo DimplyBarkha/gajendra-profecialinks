@@ -1,0 +1,22 @@
+input:
+  _url: http://dyson.ch
+  URL: https://www.dyson.ch/de_ch/raumklima/luftbefeuchter/dyson-pure-humidify-cool/weiss-silber
+extractions:
+  - html: https://workbench.import.io/html/run=046cb7c5-b25f-477a-944f-3eaf61385e9e/task=bac445bf-592c-4b92-aa6f-a0a2e5b9f0c2/8e09c5db-c764-4d54-a1c6-aa4bfbcd6355.html
+    extractionConfigId: product/details/stores/d/dyson/CH/variantsExtract
+    data:
+      - group:
+          - variantId:
+              - text: 275413-01-White-Silver-
+                xpath: /html/body/ol[1]/li[1]/@variant_id
+            variantUrl:
+              - text: https://www.dyson.ch/de_ch/raumklima/luftbefeuchter/dyson-pure-humidify-cool/weiss-silber
+                xpath: /html/body/ol[1]/li[1]/@variant_url
+          - variantId:
+              - text: 275443-01-Black-Nickel-
+                xpath: /html/body/ol[1]/li[2]/@variant_id
+            variantUrl:
+              - text: https://www.dyson.ch/de_ch/raumklima/luftbefeuchter/dyson-pure-humidify-cool/schwarz-nickel
+                xpath: /html/body/ol[1]/li[2]/@variant_url
+        xpath: /html
+    timestamp: 1607337413328

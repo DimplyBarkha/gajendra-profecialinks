@@ -1,0 +1,16 @@
+input:
+  _url: http://dyson.ch
+  URL: https://www.dyson.ch/de_ch/staubsauger/kabellose-staubsauger/dyson-v11/torque-drive-extra-nickel-violett
+extractions:
+  - html: https://workbench.import.io/html/run=046cb7c5-b25f-477a-944f-3eaf61385e9e/task=d0f21310-ef1d-42b3-be84-458360c19bfb/539dd4f8-f6d1-4258-9a7b-c69ecc51c75c.html
+    extractionConfigId: product/details/stores/d/dyson/CH/variantsExtract
+    data:
+      - group:
+          - variantId:
+              - text: 298874-01
+                xpath: /html/body/ol[1]/li[1]/@variant_id
+            variantUrl:
+              - text: https://www.dyson.ch/de_ch/staubsauger/kabellose-staubsauger/dyson-v11/torque-drive-extra-nickel-violett
+                xpath: /html/body/ol[1]/li[1]/@variant_url
+        xpath: /html
+    timestamp: 1607337412553

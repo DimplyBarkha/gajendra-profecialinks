@@ -1,0 +1,22 @@
+input:
+  _url: http://dyson.ch
+  URL: https://www.dyson.ch/de_ch/staubsauger/kabellose-staubsauger/dyson-v11/absolute-extra-pro-gold
+extractions:
+  - html: https://workbench.import.io/html/run=046cb7c5-b25f-477a-944f-3eaf61385e9e/task=f4abc7b0-0941-4645-b86e-bec091326b34/a18457c0-f84a-4b04-ad16-20c6e4a542a5.html
+    extractionConfigId: product/details/stores/d/dyson/CH/variantsExtract
+    data:
+      - group:
+          - variantId:
+              - text: 346606-01-Gold-
+                xpath: /html/body/ol[1]/li[1]/@variant_id
+            variantUrl:
+              - text: https://www.dyson.ch/de_ch/staubsauger/kabellose-staubsauger/dyson-v11/absolute-extra-pro-gold
+                xpath: /html/body/ol[1]/li[1]/@variant_url
+          - variantId:
+              - text: 347796-01-Nickel-Blue-
+                xpath: /html/body/ol[1]/li[2]/@variant_id
+            variantUrl:
+              - text: https://www.dyson.ch/de_ch/staubsauger/kabellose-staubsauger/dyson-v11/absolute-extra-pro-nickel-blau
+                xpath: /html/body/ol[1]/li[2]/@variant_url
+        xpath: /html
+    timestamp: 1607337412417
