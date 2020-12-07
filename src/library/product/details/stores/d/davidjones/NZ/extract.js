@@ -9,10 +9,15 @@ module.exports = {
     domain: 'davidjones.com',
     zipcode: '',
   },
-  implementation: async ({ url }, { country, domain, transform }, context, { productDetails }) => {
+  implementation: async (
+    { url },
+    { country, domain, transform },
+    context,
+    { productDetails }
+  ) => {
     try {
       await context.evaluate(() => {
-        function addHiddenDiv (id, content) {
+        function addHiddenDiv(id, content) {
           const newDiv = document.createElement('div');
           newDiv.id = id;
           newDiv.textContent = content;
@@ -20,8 +25,13 @@ module.exports = {
           document.body.appendChild(newDiv);
         }
         if (document.querySelector('div[class*="long-description"]')) {
-          let desc = document.querySelector('div[class*="long-description"]').innerHTML;
-          desc = desc.replace(/<li.*?>/gm, ' || ').replace(/<.*?>/gm, '').replace(/&nbsp;/g, '').trim();
+          let desc = document.querySelector('div[class*="long-description"]')
+            .innerHTML;
+          desc = desc
+            .replace(/<li.*?>/gm, ' || ')
+            .replace(/<.*?>/gm, '')
+            .replace(/&nbsp;/g, '')
+            .trim();
           addHiddenDiv('customDescription', desc);
           // const bulletExceptLast = desc.replace(/.*?(\|\|.*\|\|).*/g, '$1')
           // let bulletLast = ''
@@ -41,7 +51,48 @@ module.exports = {
     } catch (e) {
       console.log(e);
     }
-    await new Promise(resolve => setTimeout(resolve, 10000));
+
+    // Product Specifications
+    try {
+      await context.evaluate(() => {
+        const specsEndString = document.evaluate(
+          `//div[contains(@class,"long-description")]//strong[contains(.,"Specifications") or contains(.,"specifications")]//following-sibling::strong[1]`,
+          document,
+          null,
+          XPathResult.FIRST_ORDERED_NODE_TYPE,
+          null
+        ).singleNodeValue.textContent;
+        const specificationsXpath = `//div[contains(@class,"long-description")]//strong[contains(.,"Specifications") or contains(.,"specifications")]//following-sibling::text()[not(preceding-sibling::strong[contains(.,"${specsEndString}")])]`;
+        const specificationsArray = document.evaluate(
+          specificationsXpath,
+          document,
+          null,
+          XPathResult.ANY_TYPE,
+          null
+        );
+
+        let spec = specificationsArray.iterateNext();
+        let finalSpecifications = [];
+
+        while (spec) {
+          if (spec.textContent) finalSpecifications.push(spec.textContent);
+          spec = specificationsArray.iterateNext();
+        }
+
+        const htmlString = `<span style="display:none" id="productSpecifications" ></span>`;
+        const root = document.body;
+        root.insertAdjacentHTML('beforeend', htmlString);
+        const innerHTML =
+          finalSpecifications.reduce((acc, val) => {
+            return `${acc}<li>${val}</li>`;
+          }, '<ul>') + '</ul>';
+        document.querySelector('#productSpecifications').innerHTML = innerHTML;
+      });
+    } catch (e) {
+      console.log(e);
+    }
+
+    await new Promise((resolve) => setTimeout(resolve, 10000));
     return await context.extract(productDetails, { transform });
   },
 };
