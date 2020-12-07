@@ -38,6 +38,9 @@ module.exports = {
       });
       await context.click('div.pdp-image-carousel');
       await context.waitForXPath('//button[@class="pdp-image-carousel__item-video-thumbnail"]');
+
+      await context.waitForSelector('div[class*="product-buy-box-content"] div[class*="price__price-wrapper"], div[class*="product-buy-box-content"] *[class*="price__now--value"]', {timeout: 30000});
+      await context.waitForXPath('//div[contains(@class,"product-image-and-buy-box") and contains(@class, "general-product")]//button[contains(@class,"add-to-cart__button")][contains(.,"Add To Cart")]', {timeout: 15000});
     } catch (error) {
       console.log(error);
     }

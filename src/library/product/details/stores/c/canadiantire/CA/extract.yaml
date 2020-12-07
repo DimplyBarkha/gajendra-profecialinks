@@ -26,7 +26,7 @@ fields:
     regExpReplace: $1liveclicker.mp4
   - name: price
     singleValue: false
-    xpath: //div[contains(@class,'pdp-product-image-and-buy-box__inner')]//span[contains(@class,'price__total--on-sale')]
+    xpath: normalize-space(//div[contains(@class,"product-buy-box-content")]//div[@class="price__price-wrapper"] | //div[contains(@class,"product-buy-box-content")]//*[contains(@class,"price__now--value")][not(//div[contains(@class,"product-buy-box-content")]//div[@class="price__price-wrapper"])])
   - name: listPrice
     singleValue: false
     xpath: //div[contains(@class,'pdp-product-image-and-buy-box__inner')]//span[contains(@class,'price__reg-value')]
@@ -42,7 +42,11 @@ fields:
     manualSelector: section:not([style*="none"])>ul.pdp-details-specifications__items>li
   - name: availabilityText
     singleValue: false
-    manualSelector: p.delivery-option__header_title, span.stock-status__info--instock
+    xpath: //div[contains(@class,"product-image-and-buy-box") and contains(@class, "general-product")]//button[contains(@class,"add-to-cart__button")][contains(.,"Add To Cart")]
+    regExp: (.+)
+    regExpReplace: 'In stock'
+    defaultValue: 'Out Of Stock'
+    # manualSelector: p.delivery-option__header_title, span.stock-status__info--instock
   - name: description
     singleValue: false
     manualSelector: div.pdp-details-description, div#product-details div.pdp-details-features__items
