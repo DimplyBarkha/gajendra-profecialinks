@@ -7,6 +7,25 @@ async function implementation (
 ) {
   const { transform } = parameters;
   const { productDetails } = dependencies;
+
+  try {
+    await context.waitForSelector('div.dy-recommendations__slider', { timeout: 45000 });
+  } catch (error) {
+    console.log('Not loading recommended products');
+  }
+
+  async function scrollToRec () {
+    await context.evaluate(async () => {
+      var element = (document.querySelector('div.dy-recommendations__slider')) ? document.querySelector('div.dy-recommendations__slider') : null;
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth', block: 'end', inline: 'nearest' });
+        await new Promise((resolve) => {
+          setTimeout(resolve, 5000);
+        });
+      }
+    });
+  }
+  await scrollToRec();
   await context.evaluate(async function (inputs) {
     function addHiddenDiv (id, content) {
       const newDiv = document.createElement('div');
