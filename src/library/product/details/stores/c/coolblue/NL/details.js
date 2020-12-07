@@ -1,11 +1,10 @@
 
 module.exports = {
-  implements: 'navigation/goto',
+  implements: 'product/details',
   parameterValues: {
-    domain: 'coolblue.nl',
-    timeout: 20000,
     country: 'NL',
     store: 'coolblue',
+    domain: 'coolblue.nl',
     zipcode: '',
   },
 };

@@ -1,9 +1,10 @@
 
 module.exports = {
-  implements: 'navigation/goto',
+  implements: 'product/details/createUrl',
   parameterValues: {
     domain: 'coolblue.nl',
-    timeout: 20000,
+    prefix: null,
+    url: 'https://www.coolblue.nl/product/{id}',
     country: 'NL',
     store: 'coolblue',
     zipcode: '',
