@@ -15,10 +15,10 @@ fields:
   - name: thumbnail
     singleValue: false
     xpath: //div[@class="cell"]//div[@class="productThumbnailImage "]//div//img//@src
-  - name: ratingCount
+  - name: reviewCount
     singleValue: false
     type: NUMBER
-    xpath: //div[@class="cell"]//div[@class="stars"]//span[@class="aggregateCount"]/text()
+    xpath: //div[@class="cell"]//div[@class="stars"]//span[@class="aggregateCount"]
   - name: aggregateRating
     singleValue: false
     type: NUMBER
