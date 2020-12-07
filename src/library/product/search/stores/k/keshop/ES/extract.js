@@ -1,4 +1,6 @@
 
+const { transform } = require('../../../../shared')
+
 const implementation = async (inputs, parameters, context, dependencies) => {
   const { transform } = parameters;
   const { productDetails } = dependencies;
@@ -25,23 +27,7 @@ const implementation = async (inputs, parameters, context, dependencies) => {
         }, ms);
       });
     }
-    // rank
-    function addElementToDocument (doc, key, value) {
-      const catElement = document.createElement('div');
-      catElement.id = key;
-      catElement.textContent = value;
-      catElement.style.display = 'none';
-      doc.appendChild(catElement);
-    }
-    const lastProductPosition = localStorage.getItem('prodCount')
-      ? Number(localStorage.getItem('prodCount'))
-      : 1;
-    const arr = document.querySelectorAll('.df-card.product-container');
-    console.log('arr', arr);
-    for (let i = 0; i < arr.length; i++) {
-      addElementToDocument(arr[i], 'pd_rank', lastProductPosition + i);
-    }
-    localStorage.setItem('prodCount', `${lastProductPosition + arr.length}`);
+   
   });
 
   await context.evaluate(async function () {
@@ -58,7 +44,7 @@ module.exports = {
   parameterValues: {
     country: 'ES',
     store: 'keshop',
-    transform: null,
+    transform,
     domain: 'keshop.com',
     zipcode: '',
   },

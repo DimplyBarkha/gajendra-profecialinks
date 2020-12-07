@@ -2,7 +2,7 @@ input:
   keywords: Tintes
   _url: http://keshop.com
 extractions:
-  - html: https://workbench.import.io/html/run=d0e73b50-4603-44a0-bb1d-2660bda94c5d/task=9615435e-bf9a-4f0f-95c8-d5c9597ca531/66bac1a4-b280-45c1-83da-e70bb5a22b90.html
+  - html: https://workbench.import.io/html/run=5429e51f-c729-480b-b555-09ec1980cf54/task=dbf84e95-3690-47df-a97e-3d4e64fd1cb0/78020b34-b371-4e33-a0c4-1675657691df.html
     extractionConfigId: product/search/stores/k/keshop/ES/extract
     data:
       - group:
@@ -24,24 +24,7 @@ extractions:
             price:
               - text: 33,05 €
                 xpath: /html/body/div[4]/div[2]/div[2]/div[1]/div[1]/a[1]/div[1]/div[3]/span[1]
-            rank:
-              - text: "5"
-                xpath: /html/body/div[4]/div[2]/div[2]/div[1]/div[1]/div[2]/text()[1]
-                type: NUMBER
-                raw: "5"
-                locale: es_ES
-                value: 5
-            rankOrganic:
-              - text: "5"
-                xpath: /html/body/div[4]/div[2]/div[2]/div[1]/div[1]/div[2]/text()[1]
-                type: NUMBER
-                raw: "5"
-                locale: es_ES
-                value: 5
-          - id:
-              - text: "321"
-                xpath: /html/body/div[4]/div[2]/div[2]/div[1]/div[2]/div[1]/a[1]/@data-id-product
-            searchUrl:
+          - searchUrl:
               - text: https://www.keshop.com/es/#/dffullscreen/type%5B0%5D=product&query=Tintes&query_name=match_and
                 xpath: /html/body/div[4]/div[2]/div[2]/div[1]/div[2]/@searchurl
             name:
@@ -56,19 +39,7 @@ extractions:
             price:
               - text: 18,00 €
                 xpath: /html/body/div[4]/div[2]/div[2]/div[1]/div[2]/a[1]/div[1]/div[3]/span[1]
-            rank:
-              - text: "6"
-                xpath: /html/body/div[4]/div[2]/div[2]/div[1]/div[2]/div[2]/text()[1]
-                type: NUMBER
-                raw: "6"
-                locale: es_ES
-                value: 6
-            rankOrganic:
-              - text: "6"
-                xpath: /html/body/div[4]/div[2]/div[2]/div[1]/div[2]/div[2]/text()[1]
-                type: NUMBER
-                raw: "6"
-                locale: es_ES
-                value: 6
+            id:
+              - text: not-provided
         xpath: /html
-    timestamp: 1604993096369
+    timestamp: 1607340792517
