@@ -5,36 +5,36 @@ recordXPath: null
 fields:
   - name: image
     singleValue: true
-    xpath: //div[@data-oo_zoombox_role="display-container"]/img/@src
+    xpath: //figure[@id="image-preview-container"]/img/@src
   - name: category
     singleValue: false
-    xpath: //li[@property="itemListElement"][3]
+    xpath: 
   - name: Price
     singleValue: true
-    xpath: //span[@property="gr:hasCurrencyValue"]
+    xpath: 
   - name: description
     singleValue: false
-    xpath: (//div[@class="ooB-mb12 ads_default_ullifix"]/p)[1]
+    xpath: 
   - name: descriptionBullets
     singleValue: true
-    xpath: //ul[@class="bullet"]
+    xpath: 
   - name: quantity
     singleValue: true
     description: Quantity as described on the page
     regExp: (?:\s?([\d\.]+\s?)([bB]ar[s]?|[cC]ount|[cC]t|[fF][lL][\.]?\s?[oO][zZ][\.]?|FO|[mM][lL]|[oO][zZ][\.]?|pc|[pP]int|[pP]ops|qt|[wW]ipe[s]?).?)$|(?:\s?([\d\.]+\s?)([bB]ar[s]?|[cC]ount|[cC]|[fF][lL][\.]?\s?[oO][zZ][\.]?|FO|[mM][lL]|[oO][zZ][\.]?|pc|[pP]int|[pP]ops|qt|[wW]ipe[s]?).?\s?[\&\-\w\s]+)$
     regExpReplace: $1$2$3$4
-    xpath: //label[@class="mengelist ooX-fs12"]
+    xpath: 
   - name: gtin
     singleValue: true
     description: GTIN code (includes UPC/EAN)
-    xpath: //div[@class="loadbeeLink"]/@data-loadbee-product
+    xpath: 
   - name: sku
     singleValue: true
     description: The store-specific product identifier
-    xpath: //tr[@class="ooX-bg-hellgrau"]//td[@class="ooB-w50 ooB-p3 ooX-bg-hellgrau "][2]
+    xpath: 
   - name: aggregateRatingText
     singleValue: true
-    xpath: //div[@id="rating-overall-detail-wrapper"]/h3
+    xpath: 
   - name: aggregateRating
     singleValue: true
     xpath: //div[@class="rating-stars-copy"]
