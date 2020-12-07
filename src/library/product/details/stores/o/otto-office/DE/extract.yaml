@@ -8,16 +8,16 @@ fields:
     xpath: //figure[@id="image-preview-container"]/img/@src
   - name: category
     singleValue: false
-    xpath: 
+    xpath: //ul[@typeof="BreadcrumbList"]/li[position()>1 and position()<last()]/a/span/text()
   - name: Price
     singleValue: true
     xpath: 
   - name: description
     singleValue: false
-    xpath: 
+    xpath: //div[@property="gr:description"]
   - name: descriptionBullets
     singleValue: true
-    xpath: 
+    xpath: count(//ul[@class="ooB-mb24 bullet ooX-fs14 "]/li/text())
   - name: quantity
     singleValue: true
     description: Quantity as described on the page
