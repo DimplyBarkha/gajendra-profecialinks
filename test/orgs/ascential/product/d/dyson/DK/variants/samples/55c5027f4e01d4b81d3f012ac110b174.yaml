@@ -1,0 +1,16 @@
+input:
+  _url: http://dyson.dk
+  URL: https://www.dyson.dk/stovsugere/ledningsstovsugere/dyson-cinetic-big-ball/absolute-2
+extractions:
+  - html: https://workbench.import.io/html/run=21f3f9e0-85a5-4a63-80c4-7a76c94b939a/task=454aa29d-5d2a-4dc4-9850-25ee002beb4b/a3a2ae87-92c5-451a-8c80-eec885704dab.html
+    extractionConfigId: product/details/stores/d/dyson/DK/variantsExtract
+    data:
+      - group:
+          - variantId:
+              - text: 228415-01
+                xpath: /html/body/ol[1]/li[1]/@variant_id
+            variantUrl:
+              - text: https://www.dyson.dk/stovsugere/ledningsstovsugere/dyson-cinetic-big-ball/absolute-2
+                xpath: /html/body/ol[1]/li[1]/@variant_url
+        xpath: /html
+    timestamp: 1607348079670

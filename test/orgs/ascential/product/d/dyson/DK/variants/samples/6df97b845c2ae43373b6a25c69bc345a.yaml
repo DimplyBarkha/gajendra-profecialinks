@@ -1,0 +1,16 @@
+input:
+  _url: http://dyson.dk
+  URL: https://www.dyson.dk/stovsugere/handstovsugere/dyson-v7/trigger
+extractions:
+  - html: https://workbench.import.io/html/run=21f3f9e0-85a5-4a63-80c4-7a76c94b939a/task=526fc7eb-8f77-447e-95b3-ac45cf3929af/94e93007-d9e3-4934-8c88-b7473df0c5b3.html
+    extractionConfigId: product/details/stores/d/dyson/DK/variantsExtract
+    data:
+      - group:
+          - variantId:
+              - text: 232710-01
+                xpath: /html/body/ol[1]/li[1]/@variant_id
+            variantUrl:
+              - text: https://www.dyson.dk/stovsugere/handstovsugere/dyson-v7/trigger
+                xpath: /html/body/ol[1]/li[1]/@variant_url
+        xpath: /html
+    timestamp: 1607348084598

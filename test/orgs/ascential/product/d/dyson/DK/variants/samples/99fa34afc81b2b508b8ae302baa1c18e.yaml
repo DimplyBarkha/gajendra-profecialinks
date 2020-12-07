@@ -1,0 +1,16 @@
+input:
+  _url: http://dyson.dk
+  URL: https://www.dyson.dk/luftbehandling/ventilatorer-og-varmeapparater/dyson-hot-cool/am09-hvid-nikkel
+extractions:
+  - html: https://workbench.import.io/html/run=21f3f9e0-85a5-4a63-80c4-7a76c94b939a/task=d93e984c-b132-4ea0-aeaa-774ea1695412/c2f87f21-ebd5-4cd2-83ff-c76e9f0ea7ff.html
+    extractionConfigId: product/details/stores/d/dyson/DK/variantsExtract
+    data:
+      - group:
+          - variantId:
+              - text: 304550-01
+                xpath: /html/body/ol[1]/li[1]/@variant_id
+            variantUrl:
+              - text: https://www.dyson.dk/luftbehandling/ventilatorer-og-varmeapparater/dyson-hot-cool/am09-hvid-nikkel
+                xpath: /html/body/ol[1]/li[1]/@variant_url
+        xpath: /html
+    timestamp: 1607348084174

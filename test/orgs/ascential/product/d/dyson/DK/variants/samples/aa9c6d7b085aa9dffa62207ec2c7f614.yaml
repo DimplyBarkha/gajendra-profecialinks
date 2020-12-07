@@ -1,0 +1,16 @@
+input:
+  _url: http://dyson.dk
+  URL: https://www.dyson.dk/belysning/arbejdslys/dyson-lightcycle-morph/bord-hvid-solv
+extractions:
+  - html: https://workbench.import.io/html/run=21f3f9e0-85a5-4a63-80c4-7a76c94b939a/task=3c568489-97fe-4eb1-be98-7d0a5ed376cf/5231c1aa-782d-49d4-87ee-3c130d451405.html
+    extractionConfigId: product/details/stores/d/dyson/DK/variantsExtract
+    data:
+      - group:
+          - variantId:
+              - text: 294677-01
+                xpath: /html/body/ol[1]/li[1]/@variant_id
+            variantUrl:
+              - text: https://www.dyson.dk/belysning/arbejdslys/dyson-lightcycle-morph/bord-hvid-solv
+                xpath: /html/body/ol[1]/li[1]/@variant_url
+        xpath: /html
+    timestamp: 1607348080700

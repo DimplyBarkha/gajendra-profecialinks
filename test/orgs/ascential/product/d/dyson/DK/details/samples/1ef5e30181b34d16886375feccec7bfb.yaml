@@ -1,0 +1,166 @@
+input:
+  _url: http://dyson.dk
+  URL: https://www.dyson.dk/harpleje/dyson-airwrap-styler/complete-jern-fuchsia
+extractions:
+  - html: https://workbench.import.io/html/run=80becb3e-5fee-479a-b24a-cbc15de8edca/task=cbda446e-a89c-44d5-981a-c0ed7c16bc0d/13737e3f-3c78-426d-90cb-5650f5822e7d.html
+    extractionConfigId: product/details/stores/d/dyson/DK/extract
+    data:
+      - group:
+          - image:
+              - text: https://dyson-h.assetsadobe2.com/is/image/content/dam/dyson/products/hair-care/dyson-airwrap/variants/complete/eu-complete/Variant-page-Complete-Hero.jpg?$responsive$&cropPathE=desktop&fit=stretch,1&wid=1920
+                xpath: /html/body/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/img[1]/@src
+            imageAlt:
+              - text: Dyson Airwrap™ styler Complete
+                xpath: /html/body/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/img[1]/@alt
+            description:
+              - text: |-
+                  Dyson Airwrap™ styler Complete Jern/Fuchsia
+                   
+                  Udviklet til flere hårtyper og stile.
+                xpath: /html/body/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]
+            ratingCount:
+              - text: "4"
+                xpath: /html/body/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/a[1]/p[1]
+            aggregateRatingText:
+              - text: "5.0"
+                xpath: /html/body/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/a[1]/@aria-label
+            aggregateRating:
+              - text: "5.0"
+                xpath: /html/body/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/a[1]/@aria-label
+            name:
+              - text: Dyson Airwrap™ styler Complete Jern/Fuchsia
+                xpath: /html/body/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/h1[1]
+            variants:
+              - text: Sort / Lilla
+                xpath: /html/body/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[2]/div[2]/a[1]/span[1]/img[1]/@title
+            shippingInfo:
+              - text: |-
+                  Gratis fleksibel levering 
+                  og gratis retur
+                xpath: /html/body/main[1]/div[2]/div[2]/div[1]/div[1]/section[1]/div[1]/div[1]/ul[1]/li[2]
+            warranty:
+              - text: |-
+                  Gratis 2 års garanti 
+                  Aktiveres automatisk
+                xpath: /html/body/main[1]/div[2]/div[2]/div[1]/div[1]/section[1]/div[1]/div[1]/ul[1]/li[1]
+            specifications:
+              - text: |-
+                  Højde
+                   
+                   272 mm 
+                   
+                   
+                   
+                  Længde
+                   
+                   41 mm 
+                   
+                   
+                   
+                  Bredde
+                   
+                   48 mm
+                xpath: /html/body/main[1]/div[2]/div[21]/section[1]/div[1]/div[1]/ul[1]
+            weightNet:
+              - text: |-
+                  Vægt
+                   
+                   0,63 kg
+                xpath: /html/body/main[1]/div[2]/div[21]/section[1]/div[1]/ul[1]/li[5]
+            category:
+              - text: Hårpleje
+                xpath: /html/body/nav[1]/div[1]/div[1]/div[1]/div[1]/nav[1]/div[2]/div[1]/div[1]/nav[1]/ol[1]/li[2]/span[1]/a[1]/span[1]
+              - text: Dyson Airwrap™ styler
+                xpath: /html/body/nav[1]/div[1]/div[1]/div[1]/div[1]/nav[1]/div[2]/div[1]/div[1]/nav[1]/ol[1]/li[3]/span[1]/a[1]/span[1]
+            productUrl:
+              - text: https://www.dyson.dk/harpleje/dyson-airwrap-styler/complete-jern-fuchsia
+                xpath: /html/body/div[6]
+            brandText:
+              - text: Dyson
+                xpath: /html/body/div[7]
+            sku:
+              - text: 310733-01
+                xpath: /html/body/div[8]
+            variantId:
+              - text: 310733-01
+                xpath: /html/body/div[8]
+            mpc:
+              - text: 310733-01
+                xpath: /html/body/div[8]
+            color:
+              - text: Fuchsia-Iron
+                xpath: /html/body/div[9]
+            price:
+              - text: 3990 kr
+                xpath: /html/body/div[11]
+            nameExtended:
+              - text: Dyson Airwrap™ styler Complete Jern/Fuchsia
+                xpath: /html/body/div[12]
+            productOtherInformation:
+              - text: Negative ioner Hjælp med at reducere statisk elektricitet Lydniveau 77 dBA
+                  Strøm 1 300 W Ledningslængde 2,7 m Vægt 0,63 kg
+                xpath: /html/body/div[14]
+            manufacturerDescription:
+              - text: Krøl. Bølge. Glat. Tør. Uden ekstrem varme. Dyson Airwrap™ styleren
+                  nulstiller fuldstændigt verdenen af hår styling. Ved at
+                  kombinere vores magtfulde digitale motor med aerodynamik har
+                  vi været i stand til at udnytte et fænomen kendt, der er kendt
+                  som Coanda-effekten til at krølle, bølge og glatte hår - uden
+                  brug af ekstrem varme. Tilbehør 30mm Airwrap™ børstehoveder
+                  Skab og style voluminøse krøller eller bølger. Med
+                  børsteruller der rulles mod uret for at skabe til symmetriske
+                  krøller. 40mm Airwrap™ børstehoveder Skab løse krøller eller
+                  bølger. Med børsteruller der rulles mod uret for at skabe til
+                  symmetriske krøller. Fast glattebørste Giver en lettere stil
+                  med mindre krus og færre strittende hårstrå. Med faste
+                  børster, der er udviklet til at kontrollere kruset hår.
+                xpath: /html/body/div[15]
+            manufacturerImages:
+              - text: https://dyson-h.assetsadobe2.com/is/image/content/dam/dyson/products/hair-care/dyson-airwrap/variants/complete/eu-complete/haircare-dyson-airwrap-Featurette-30mm%20Airwrap%20barrels.jpg?cropPathE=desktop&fit=stretch,1&fmt=pjpeg&wid=634
+                xpath: /html/body/div[16]/ul[1]/li[1]
+              - text: https://dyson-h.assetsadobe2.com/is/image/content/dam/dyson/products/hair-care/dyson-airwrap/variants/complete/eu-complete/haircare-dyson-airwrap-Featurette-40mm%20Airwrap%20barrels.jpg?cropPathE=desktop&fit=stretch,1&fmt=pjpeg&wid=634
+                xpath: /html/body/div[16]/ul[1]/li[2]
+              - text: https://dyson-h.assetsadobe2.com/is/image/content/dam/dyson/products/hair-care/dyson-airwrap/variants/complete/eu-complete/Featurette-newfirmbrush-pink.jpg?cropPathE=desktop&fit=stretch,1&fmt=pjpeg&wid=634
+                xpath: /html/body/div[16]/ul[1]/li[3]
+              - text: https://dyson-h.assetsadobe2.com/is/image/content/dam/dyson/products/hair-care/dyson-airwrap/variants/complete/eu-complete/dyson-haircare-airwrap-Featurette-Soft-smoothing-brush.jpg?cropPathE=desktop&fit=stretch,1&fmt=pjpeg&wid=634
+                xpath: /html/body/div[16]/ul[1]/li[4]
+              - text: https://dyson-h.assetsadobe2.com/is/image/content/dam/dyson/products/hair-care/dyson-airwrap/variants/complete/eu-complete/haircare-dyson-airwrap-Featurette-Round%20volumising%20brush.jpg?cropPathE=desktop&fit=stretch,1&fmt=pjpeg&wid=634
+                xpath: /html/body/div[16]/ul[1]/li[5]
+              - text: https://dyson-h.assetsadobe2.com/is/image/content/dam/dyson/products/hair-care/dyson-airwrap/variants/complete/eu-complete/haircare-dyson-airwrap-Featurette-Pre-styling%20dryer.jpg?cropPathE=desktop&fit=stretch,1&fmt=pjpeg&wid=634
+                xpath: /html/body/div[16]/ul[1]/li[6]
+              - text: https://dyson-h.assetsadobe2.com/is/image/content/dam/dyson/products/hair-care/dyson-airwrap/variants/complete/eu-complete/haircare-airwrap-us-variant-feature-1.jpg?cropPathE=desktop&fit=stretch,1&fmt=pjpeg&wid=634
+                xpath: /html/body/div[16]/ul[1]/li[7]
+              - text: https://dyson-h.assetsadobe2.com/is/image/content/dam/dyson/products/hair-care/dyson-airwrap/variants/complete/eu-complete/haircare-airwrap-us-variant-feature-2.jpg?cropPathE=desktop&fit=stretch,1&fmt=pjpeg&wid=634
+                xpath: /html/body/div[16]/ul[1]/li[8]
+              - text: https://dyson-h.assetsadobe2.com/is/image/content/dam/dyson/products/hair-care/dyson-airwrap/variants/complete/eu-complete/haircare-airwrap-us-variant-feature-3.jpg?cropPathE=desktop&fit=stretch,1&fmt=pjpeg&wid=634
+                xpath: /html/body/div[16]/ul[1]/li[9]
+              - text: https://dyson-h.assetsadobe2.com/is/image/content/dam/dyson/products/hair-care/dyson-airwrap/variants/volume-shape/haircare-dyson-airwrap-Featurette-Coanda-to%20smooth.jpg?cropPathE=desktop&fit=stretch,1&fmt=pjpeg&wid=634
+                xpath: /html/body/div[16]/ul[1]/li[10]
+              - text: https://dyson-h.assetsadobe2.com/is/image/content/dam/dyson/products/hair-care/dyson-airwrap/variants/complete/eu-complete/haircare-airwrap-us-variant-Tech-1.jpg?cropPathE=desktop&fit=stretch,1&fmt=pjpeg&wid=634
+                xpath: /html/body/div[16]/ul[1]/li[11]
+              - text: https://dyson-h.assetsadobe2.com/is/image/content/dam/dyson/products/hair-care/dyson-airwrap/variants/complete/eu-complete/haircare-airwrap-us-variant-Tech-2.jpg?cropPathE=desktop&fit=stretch,1&fmt=pjpeg&wid=634
+                xpath: /html/body/div[16]/ul[1]/li[12]
+              - text: https://dyson-h.assetsadobe2.com/is/image/content/dam/dyson/products/hair-care/dyson-airwrap/eu-complete/Nickel_Fuchsia_Complete.jpg?$responsive$&cropPathE=desktop&fit=stretch,1&fmt=pjpeg&wid=1920
+                xpath: /html/body/div[16]/ul[1]/li[13]
+            videos:
+              - text: www.dyson.dk/content/dam/dyson/video/products/primary/310733-01.mp4
+                xpath: /html/body/div[18]/ul[1]/li[1]
+            availabilityText:
+              - text: In Stock
+                xpath: /html/body/div[19]
+            manufacturer:
+              - text: Dyson
+            descriptionBullets:
+              - text: "0"
+            variantCount:
+              - text: "2"
+            technicalInformationPdfPresent:
+              - text: "false"
+            customerServiceAvailability:
+              - text: "true"
+            termsAndConditions:
+              - text: "true"
+            privacyPolicy:
+              - text: "true"
+        xpath: /html
+    timestamp: 1607348136431

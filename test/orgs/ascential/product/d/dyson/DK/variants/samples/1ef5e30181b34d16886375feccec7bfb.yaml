@@ -1,0 +1,22 @@
+input:
+  _url: http://dyson.dk
+  URL: https://www.dyson.dk/harpleje/dyson-airwrap-styler/complete-jern-fuchsia
+extractions:
+  - html: https://workbench.import.io/html/run=21f3f9e0-85a5-4a63-80c4-7a76c94b939a/task=63b573a0-5b39-4a1d-b4a1-f498bf455b2a/fe794318-de94-4f08-8ca1-17a5df3a2f9c.html
+    extractionConfigId: product/details/stores/d/dyson/DK/variantsExtract
+    data:
+      - group:
+          - variantId:
+              - text: 310733-01-Fuchsia-Iron-
+                xpath: /html/body/ol[1]/li[1]/@variant_id
+            variantUrl:
+              - text: https://www.dyson.dk/harpleje/dyson-airwrap-styler/complete-jern-fuchsia
+                xpath: /html/body/ol[1]/li[1]/@variant_url
+          - variantId:
+              - text: 333107-01-Black-Purple-
+                xpath: /html/body/ol[1]/li[2]/@variant_id
+            variantUrl:
+              - text: https://www.dyson.dk/harpleje/dyson-airwrap-styler/dyson-airwrap-styler-complete-black-purple
+                xpath: /html/body/ol[1]/li[2]/@variant_url
+        xpath: /html
+    timestamp: 1607348082538
