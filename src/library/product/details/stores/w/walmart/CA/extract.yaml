@@ -105,3 +105,8 @@ fields:
     singleValue: false
     xpath: //*[contains(@data-automation,'flex-accordion')]//a/@href[contains(.,'.pdf')]
     defaultValue: 'No'
+  - name: unInterruptedPDP
+    singleValue: false
+    xpath: //*[@data-automation="HookLogicCarousel"]//p[@data-automation="product-title"]
+    description: Titles of products in the sections 'you may also like' or 'sponsored products'. Combine results from Max 3 sections
+
