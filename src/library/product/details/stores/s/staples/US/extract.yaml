@@ -14,7 +14,8 @@ fields:
   - name: alternateImages
     singleValue: false
     description: Other product images (not in manufacturer description)
-    xpath: //div[@class='verticalCarousel__vert_container']//img/@src
+    xpath: //div[@class='verticalCarousel__vert_container']//img[not(contains(@aria-label,'selected'))]/@src
+    # xpath: //div[@id='added_alternateImages']
   - name: metaKeywords
     singleValue: true
     description: The <meta> keywords content
@@ -49,11 +50,12 @@ fields:
     description: Product description supplied by website - may be concatenanted from
       multiple places; specifically not the manufacturer description
     xpath: //div[@id='added_description']
+    # xpath: //div[@id='Details']//div[@id='detail_container']/div/text() | //div[@id='Details']//div[@id='detail_container']/p/text() | //div[@id='Details']//div[@id='detail_container']//li/span/text()
   - name: descriptionBullets
     singleValue: true
-    description: Number of ul > li tags in the description
+    description: Number of ul > li tags in the descriptionex
     type: NUMBER
-    xpath: count(//div[@id='detail_container']//ul[@class='product-details-ux2dot0__bullets']//li)
+    xpath: count(//div[@id='Details']//div[@id='detail_container']//li)
   - name: brandText
     singleValue: true
     description: Product brand shown - this may actually NOT be just a brand name,
@@ -62,11 +64,13 @@ fields:
   - name: manufacturer
     singleValue: true
     description: Product manufacturer
+    xpath: //div[@id='added_manufacturer']
   - name: quantity
     singleValue: true
     description: Quantity as described on the page
-    regExp: (?:\s?([\d\.]+\s?)([bB]ar[s]?|[cC]ount|[cC]t|[fF][lL][\.]?\s?[oO][zZ][\.]?|FO|[mM][lL]|[oO][zZ][\.]?|pc|[pP]int|[pP]ops|qt|[wW]ipe[s]?).?)$|(?:\s?([\d\.]+\s?)([bB]ar[s]?|[cC]ount|[cC]|[fF][lL][\.]?\s?[oO][zZ][\.]?|FO|[mM][lL]|[oO][zZ][\.]?|pc|[pP]int|[pP]ops|qt|[wW]ipe[s]?).?\s?[\&\-\w\s]+)$
-    regExpReplace: $1$2$3$4
+    # regExp: (?:\s?([\d\.]+\s?)([bB]ar[s]?|[cC]ount|[cC]t|[fF][lL][\.]?\s?[oO][zZ][\.]?|FO|[mM][lL]|[oO][zZ][\.]?|pc|[pP]int|[pP]ops|qt|[wW]ipe[s]?).?)$|(?:\s?([\d\.]+\s?)([bB]ar[s]?|[cC]ount|[cC]|[fF][lL][\.]?\s?[oO][zZ][\.]?|FO|[mM][lL]|[oO][zZ][\.]?|pc|[pP]int|[pP]ops|qt|[wW]ipe[s]?).?\s?[\&\-\w\s]+)$
+    # regExpReplace: $1$2$3$4
+    xpath: //div[@id='added_quantity']
   - name: weightNet
     singleValue: true
     description: Net weight as described on the page
@@ -77,6 +81,7 @@ fields:
   - name: gtin
     singleValue: true
     description: GTIN code (includes UPC/EAN)
+    xpath: //div[@id='added_gtin']
   - name: sku
     singleValue: true
     description: The store-specific product identifier
@@ -108,7 +113,7 @@ fields:
     description: The number of ratings
     type: NUMBER
     xpath: //div[contains(@class,'rating')]//span[contains(text(),'Review')]/text()
-    regExp: (\d)
+    regExp: (\d+) Reviews
   - name: aggregateRatingText
     singleValue: true
     description: The stated aggregate rating
@@ -116,7 +121,8 @@ fields:
     singleValue: true
     description: The stated aggregate rating normalized to be out of 5
     type: NUMBER
-    xpath: //div[@id='review_section']//div[contains(@class,'rating')]//span[contains(@aria-label,'stars')]/text()
+    xpath: //div[@id='product-reviews']//div[@class='ReviewStyles__average_rating_section']//span[@class='ReviewStyles__average_Rating_count']/text()
+    # xpath: //div[@id='added_aggregateRating']
   - name: shippingInfo
     singleValue: true
     description: Shipping information for the product
@@ -130,10 +136,12 @@ fields:
     singleValue: true
     description: Number of variants listed
     type: NUMBER
+    xpath: //div[@id='added_variantCount']
+    defaultValue: '0'
   - name: color
     singleValue: true
     description: A textual description of the colour
-    xpath: //div[@id='added_color']
+    xpath: //div[@id='Specifications']//div[@id='ProdSpecSection']/table/tbody/tr/th[contains(text(),'Color')]//following-sibling::td/text()
   - name: colorCode
     singleValue: true
     description: A code description of the color (e.g. RGB hex)
@@ -149,6 +157,7 @@ fields:
   - name: name
     singleValue: true
     description: The product name
+    xpath: //div[@id='product_info_container']//div[@id='product_name']//h1[@id='product_title']/text()
   - name: inStorePrice
     singleValue: true
     description: Price in the selected store
@@ -401,6 +410,7 @@ fields:
   - name: specifications
     singleValue: true
     description: The physical dimensions of the product including packaging.
+    xpath: //div[@id='added_specifications']
   - name: warranty
     singleValue: true
     description: Guarantee associated with the product
@@ -452,6 +462,8 @@ fields:
   - name: variantInformation
     singleValue: true
     description: colour / scent / flavour / other
+    # xpath: //div[@class='sku-set__product_skuset']//select[@id='childProductSelection']//option[@selected]/text()
+    xpath: //div[@id='added_variantInformation']
   - name: firstVariant
     singleValue: true
     description: Unique identifier for a collection of variants. For a subset of
@@ -463,9 +475,11 @@ fields:
       all variants of a product, this rpc becomes the common link between other
       variants. method 3 = apply some logic to determine link between variants,
       this will need analysis
+    xpath: //div[@id='added_variantInformation']
   - name: variants
     singleValue: false
     description: null
+    xpath: //div[@id='added_variantInformation']
   - name: additionalDescBulletInfo
     singleValue: false
     description: null
