@@ -37,7 +37,12 @@ fields:
     xpath: //*[@id="priceblock_ourprice"] | //span[contains(@id, 'priceblock_saleprice')]
   - name: availabilityText
     singleValue: false
-    xpath: //*[@id='availability']/span
+    xpath: //div[@id="ii_availability"]
+    # xpath: //*[@id='availability']/span
+    # xpath: //div[@id='availability']//span[contains(text(),'Disponibilità')]| //div[@id='availability']//span[contains(text(),'Disponibile')]|//div[@id='availability']//span[contains(text(),'spedito entro')],
+    # regExp: (.+),
+    # regExpReplace: "In Stock",
+    # defaultValue: "Out Of Stock",
   - name: description
     singleValue: false
     xpath: //div[@id='ii_desc']
@@ -61,10 +66,10 @@ fields:
     xpath: //td[contains(text(), 'Paketgewicht')]/following-sibling::*[1]
   - name: asin
     singleValue: false
-    xpath: (//*[@data-asin])[1]/@data-asin
+    xpath: (//input[@id="ASIN"]/@value|//input/@data-asin)[1]
   - name: variantId
     singleValue: false
-    xpath: (//*[@data-asin])[1]/@data-asin
+    xpath: (//input[@id="ASIN"]/@value|//input/@data-asin)[1]
   - name: mpc
     singleValue: false
     xpath: //th[contains(text(), 'odello')]/following-sibling::*[1]

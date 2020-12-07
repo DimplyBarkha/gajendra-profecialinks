@@ -1,4 +1,4 @@
-const { transform } = require('../../../../transform');
+const { transform } = require('../sharedTransform');
 const { implementation } = require('../shared');
 
 module.exports = {
@@ -8,7 +8,6 @@ module.exports = {
     store: 'amazon',
     transform,
     domain: 'amazon.co.uk',
-    zipcode: 'SW1P 3EU',
   },
   implementation,
 };

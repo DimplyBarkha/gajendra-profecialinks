@@ -1,29 +1,30 @@
 # extends: ../shared
-extends: ../../amazon/shared
-fields:
-  - name: productUrl
-    singleValue: true
-    xpath: //div[@cel_widget_id="TetrisSoftlinesCreativeDesktop"]/div/div/div/div//a/@href | //h2/a/@href
-    regExp: (.+)
-    regExpReplace: https://www.amazon.de$1
-  - name: name
-    singleValue: true
-    xpath: //h2//span
-    description: The product name
-  - name: price
-    singleValue: false
-    xpath: //div[@cel_widget_id="TetrisSoftlinesCreativeDesktop"]/div/div/div/div//div[contains(@aria-label,"€")] | //span[@class="a-price"]//span[@class="a-offscreen"]//text()
-  - name: aggregateRating2
-    singleValue: false
-    xpath: //span[contains(@aria-label,"Sternen")]/@aria-label
-    regExp: (.+) von 
-    regExpReplace: $1
-  - name: ratingCount
-    singleValue: false
-    xpath: //span[@class="a-size-base"]
-  - name: reviewCount
-    singleValue: false
-    xpath: //span[@class="a-size-base"]
-  - name: endorsementText
-    singleValue: false
-    xpath: //span[contains(@class, "a-badge-label") and @id]
+# extends: ../../amazon/shared
+# fields:
+#   - name: productUrl
+#     singleValue: true
+#     xpath: //div[@cel_widget_id="TetrisSoftlinesCreativeDesktop"]/div/div/div/div//a/@href | //h2/a/@href
+#     regExp: (.+)
+#     regExpReplace: https://www.amazon.de$1
+#   - name: name
+#     singleValue: true
+#     xpath: //h2//span
+#     description: The product name
+#   - name: price
+#     singleValue: false
+#     xpath: //div[@cel_widget_id="TetrisSoftlinesCreativeDesktop"]/div/div/div/div//div[contains(@aria-label,"€")] | //span[@class="a-price"]//span[@class="a-offscreen"]//text()
+#   - name: aggregateRating2
+#     singleValue: false
+#     xpath: //span[contains(@aria-label,"Sternen")]/@aria-label
+#     regExp: (.+) von 
+#     regExpReplace: $1
+#   - name: ratingCount
+#     singleValue: false
+#     xpath: //span[@class="a-size-base"]
+#   - name: reviewCount
+#     singleValue: false
+#     xpath: //span[@class="a-size-base"]
+#   - name: endorsementText
+#     singleValue: false
+#     xpath: //span[contains(@class, "a-badge-label") and @id]
+extends: ../../amazon/DE/extract

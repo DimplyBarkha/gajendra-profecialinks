@@ -1,4 +1,3 @@
-
 module.exports = {
   implements: 'product/search/paginate',
   parameterValues: {
@@ -6,8 +5,12 @@ module.exports = {
     store: 'amazonRuna',
     domain: 'amazon.com',
     nextLinkSelector: '#pagnNextString, #pagnNextLink, ul.a-pagination li.a-last:not(.a-disabled) a',
-    mutationSelector: 'span[cel_widget_id="UPPER-RESULT_INFO_BAR"] div>span[dir="auto"]:first-of-type',
-    spinnerSelector: 'div.s-result-list-placeholder:not([class*="hidden"])',
+    spinnerSelector: 'div.s-result-list-placeholder:not(.aok-hidden)',
+    // Use openSearchDefinition if nextLink has navigation issues.
     loadedSelector: 'div[data-asin][data-component-type=s-search-result]',
+    openSearchDefinition: {
+      template: 'https://www.amazon.com/s?k={searchTerms}&page={page}',
+    },
+    noResultsXPath: '/html[not(//script[contains(text(),\'pageType: "Search"\')])] | //a//img[contains(@src,"503.png")] | //a[contains(@href,"ref=cs_503_link")] | //script[contains(text(),"PageNotFound")] | //span[contains(@cel_widget_id,"MAIN-TOP_BANNER_MESSAGE") and contains(., "No results")] | //img[contains(@alt,"Dogs of Amazon")] |//*[contains(text(),"Looking for something?")]',
   },
 };
