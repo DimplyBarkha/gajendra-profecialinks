@@ -1,0 +1,22 @@
+input:
+  _url: http://dyson.se
+  URL: https://www.dyson.se/luftvard/luftrenare/dyson-pure-cool-me/dyson-pure-cool-me-white-silver
+extractions:
+  - html: https://workbench.import.io/html/run=9d6501b4-3307-462d-996a-622f69468cd9/task=e6b2841f-1fbc-4d92-8491-b883498c8c78/391aa035-b46b-4553-8916-cc800190f612.html
+    extractionConfigId: product/details/stores/d/dyson/SE/variantsExtract
+    data:
+      - group:
+          - variantId:
+              - text: 275910-01-White-Silver-
+                xpath: /html/body/ol[1]/li[1]/@variant_id
+            variantUrl:
+              - text: https://www.dyson.se/luftvard/luftrenare/dyson-pure-cool-me/dyson-pure-cool-me-white-silver
+                xpath: /html/body/ol[1]/li[1]/@variant_url
+          - variantId:
+              - text: 275917-01-Nickel-Black-
+                xpath: /html/body/ol[1]/li[2]/@variant_id
+            variantUrl:
+              - text: https://www.dyson.se/luftvard/luftrenare/dyson-pure-cool-me/svart
+                xpath: /html/body/ol[1]/li[2]/@variant_url
+        xpath: /html
+    timestamp: 1607092802404

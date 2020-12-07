@@ -1,0 +1,16 @@
+input:
+  _url: http://dyson.se
+  URL: https://www.dyson.se/dammsugare/sladdlosa-dammsugare/dyson-cyclone-v10/dyson-cyclone-v10-absolute-pro
+extractions:
+  - html: https://workbench.import.io/html/run=9d6501b4-3307-462d-996a-622f69468cd9/task=35f8a1be-49e1-4d04-ba7b-07a0c496f4fa/0276c8cc-2dca-4e49-9bb9-2a8ca8c73a92.html
+    extractionConfigId: product/details/stores/d/dyson/SE/variantsExtract
+    data:
+      - group:
+          - variantId:
+              - text: 295114-01
+                xpath: /html/body/ol[1]/li[1]/@variant_id
+            variantUrl:
+              - text: https://www.dyson.se/dammsugare/sladdlosa-dammsugare/dyson-cyclone-v10/dyson-cyclone-v10-absolute-pro
+                xpath: /html/body/ol[1]/li[1]/@variant_url
+        xpath: /html
+    timestamp: 1607092806806
