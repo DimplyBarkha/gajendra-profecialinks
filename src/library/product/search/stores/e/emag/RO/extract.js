@@ -16,6 +16,18 @@ async function implementation (inputs, parameters, context, dependencies) {
       const price = firstPrice + '.' + secondPrice + ' ' + currency;
       element.setAttribute('price', price);
     });
+
+    // replace . with , in rating
+    var rating = document.querySelectorAll('div.card-item.js-product-data div.star-rating.star-rating-read');
+    const regex = /\d\.?(\d+)?/gm;
+
+    rating.forEach((element) => {
+      var regArray = element.getAttribute('class').match(regex);
+
+      if (regArray[0]) {
+        element.setAttribute('rating', regArray[0].toString().replace('.', ','));
+      }
+    });
   });
 
   return await context.extract(productDetails, { transform });
