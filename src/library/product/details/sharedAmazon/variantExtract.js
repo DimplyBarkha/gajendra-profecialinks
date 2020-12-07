@@ -4,13 +4,14 @@ module.exports.implementation = async function implementation (
   context,
   dependencies,
 ) {
-  const { Helpers: { Helpers }, AmazonHelp: { AmazonHelp } } = dependencies;
+  const { Helpers: { Helpers }, AmazonHelp: { AmazonHelp }, variants } = dependencies;
 
   const helpers = new Helpers(context);
   const amazonHelp = new AmazonHelp(context, helpers);
 
   const thisUPC = await context.evaluate(() => {
     const url = window.location.href;
+    console.log('URL', url);
     let splits = url && url.split('dp/product/')[1] ? url.split('dp/product/')[1].split('/?') : [];
     if (splits.length < 1) {
       splits = url && url.split('dp/')[1] ? url.split('dp/')[1].split('/') : [];
@@ -37,5 +38,5 @@ module.exports.implementation = async function implementation (
     });
   }, allVariants);
 
-  return await context.extract(`./product/details/stores/a/amazon/${parameters.country}/variantsExtract`);
+  return await context.extract(variants);
 };

@@ -18,7 +18,7 @@ async function implementation (
     }
     url = await dependencies.createUrl({ id });
   }
-  await dependencies.goto({ url, zipcode, storeId });
+  await dependencies.goto({ url, zipcode, storeId, inputs });
 
   if (parameters.loadedSelector) {
     await context.waitForFunction(function (sel, xp) {
@@ -82,6 +82,12 @@ module.exports = {
     {
       name: 'storeId',
       description: 'storeId for product',
+      type: 'string',
+      optional: true,
+    },
+    {
+      name: 'zipcode',
+      description: 'zipcode to set  location',
       type: 'string',
       optional: true,
     },
