@@ -38,7 +38,7 @@ module.exports = {
     };
     if (await checkExistance(iframeSelector)) {
       const iframeUrl = await context.evaluate((iframeSelector) => {
-        return document.querySelector(iframeSelector).getAttribute('src');
+        return (document.querySelector(iframeSelector).getAttribute('src') || document.querySelector(iframeSelector).getAttribute('_src'));
       }, iframeSelector);
       await context.goto(iframeUrl, { timeout: 50000, waitUntil: 'networkidle0', checkBlocked: true });
       await context.waitForXPath('//img');
@@ -64,6 +64,19 @@ module.exports = {
         return value;
       });
       await context.goto(productUrl, { timeout: 50000, waitUntil: 'load', checkBlocked: true });
+
+      try {
+        if (!(await checkExistance('div#inpage_container div[class*="feature"] img'))) {
+          console.log('still need to wait for manufacturerImages');
+          await context.waitForSelector('div#inpage_container img');
+        } else {
+          console.log('the page seems to be loaded');
+        }
+      } catch (err) {
+        console.log('this page seems to have no a-plus images or still is not loaded', err);
+      }
+
+      
     }
     console.log(newImages + ' are new images and product url is ' + productUrl);
 
@@ -75,7 +88,7 @@ module.exports = {
       // const iframeEle=document.querySelector('div#inpage_container iframe');
       if (videoEle) {
         videoEle.click();
-        src = document.querySelector('div.ish-product-photo iframe').getAttribute('src');
+        src = document.querySelector('div.ish-product-photo iframe').getAttribute('src') || document.querySelector('div.ish-product-photo iframe').getAttribute('_src');
         if (src) {
           addHiddenDiv('video-url', src);
         }
