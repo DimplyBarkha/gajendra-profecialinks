@@ -41,7 +41,7 @@ fields:
     and appending " - ${variantType}" if necessary (fixed per feed)
 - name: listPrice
   singleValue: true
-  xpath: //span[@class="price strikeout"]
+  xpath: //span[@class="price" or @class="price strikeout"]
   description: The stated undiscounted price for the product
 - name: price
   singleValue: true
@@ -66,6 +66,8 @@ fields:
   description: Number of ul > li tags in the description
 - name: brandText
   singleValue: true
+  xpath: //script[@class="utagData"]/text()
+  regExp: (?<="brand_name":\[")(.+)(?="],"b)
   description: Product brand shown - this may actually NOT be just a brand name, e.g.
     "Visit the Gillette Store"
 - name: manufacturer
@@ -93,7 +95,8 @@ fields:
   description: Identifier for a variant from a store where variants share the same
     sku
 - name: mpc
-  singleValue: tru
+  singleValue: true
+  xpath: //div[@class="itemNo"]
   description: The manufacturer model code (unique) of the product
 - name: packSize
   singleValue: true
@@ -148,9 +151,7 @@ fields:
   description: Images within the third party description
 - name: videos
   singleValue: false
-  xpath: //div[@class="ssmp-container"]//video/@src
-  regExp: ([^blob:](\S+))
-  regExpReplace: $1
+  xpath: //div[@class="photoWrapper"]/a[@id="videoInfo"]/@href
   description: URLs of videos on page
 - name: name
   singleValue: true
@@ -205,7 +206,7 @@ fields:
   description: Parent asin
 - name: videoLength
   singleValue: false
-  xpath: //span[@class="vjs-duration-display"]
+  xpath: //div[@class="photoWrapper"]/a[@id="videoInfo"]/@title
   description: 
 - name: ingredientImagePresent
   singleValue: true
@@ -232,6 +233,7 @@ fields:
   description: 
 - name: featureBullets
   singleValue: false
+  xpath: //div[contains(@class, "accLongDesc")]//div[@class="accordionText"]//ul/li
   description: 
 - name: otherSellersName
   singleValue: false
@@ -258,7 +260,7 @@ fields:
   description: 
 - name: ingredientsList
   singleValue: false
-  xpath: //div[contains(@class, "accIngredients ")]//div[@class="accordionText"]
+  xpath: //div[contains(@class, "accIngredients ")]//div[@class="accordionText"]/span
   description: List of Ingredients from site - can be string of data if no discernible
     start/end point
 - name: servingSize
@@ -441,9 +443,11 @@ fields:
     desription info
 - name: variantInformation
   singleValue: true
+  xpath: //ul[@role="radiogroup"]/li[contains(@ats,"Y")]/@data-original-title
   description: colour / scent / flavour / other
 - name: firstVariant
   singleValue: true
+  xpath: //div[@class="itemNo"]
   description: Unique identifier for a collection of variants. For a subset of core
     feeds (43) we have a column "first_variant" that is populated with a common code
     to link all variants for a product. method 1 (Preferred) = use common tag (Could
@@ -454,7 +458,6 @@ fields:
     between variants, this will need analysis
 - name: variants
   singleValue: false
-  xpath: //ul[@role="radiogroup"]/li[contains(@ats,"Y")]/@data-original-title
   description: 
 - name: additionalDescBulletInfo
   singleValue: false
@@ -501,3 +504,6 @@ fields:
   description: If Zoom feature is available for Main image or images in the carousel,['Yes','No']
   example: https://www.zalando.de/adidas-neo-sneaker-low-blackwhite-a4315i002-q11.html
   defaultValue: false
+  xpath: //a[@class="enlarge"]/@title
+  regExp: (.+)
+  regExpReplace: 'Yes'
