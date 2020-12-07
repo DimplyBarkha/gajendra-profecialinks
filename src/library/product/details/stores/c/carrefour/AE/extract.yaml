@@ -96,25 +96,67 @@ fields:
     xpath: //section[contains(@class,'css-v4mfbu')]//a[contains(@class,'css-13nmi4h')]
   - name: aggregateRating
     singleValue: false
-    xpath: //section[contains(@class,'css-v4mfbu')]//div[contains(@class,'css-mzr5a2')]
+    xpath: //section[contains(@class,'css-v4mfbu')]//div[contains(@class,'css-mzr5a2')]    
   - name: totalCarbPerServing
     singleValue: false
     xpath: //div[@class='css-5l6g5o']//div[@class='css-5u3qp4' and text()='Carbohydrates']//following-sibling::div
+    regExp: (.+?)\s+
+    regExpReplace: $1
+  - name: totalCarbPerServingUom
+    singleValue: false
+    xpath: //div[@class='css-5l6g5o']//div[@class='css-5u3qp4' and text()='Carbohydrates']//following-sibling::div
+    regExp: \s+(.+)
+    regExpReplace: $1    
   - name: dietaryFibrePerServing
     singleValue: false
     xpath: //div[@class='css-5l6g5o']//div[@class='css-5u3qp4' and text()='Fibre']//following-sibling::div
+    regExp: (.+?)\s+
+    regExpReplace: $1
+  - name: dietaryFibrePerServingUom
+    singleValue: false
+    xpath: //div[@class='css-5l6g5o']//div[@class='css-5u3qp4' and text()='Fibre']//following-sibling::div
+    regExp: \s+(.+)
+    regExpReplace: $1    
   - name: sodiumPerServing
     singleValue: false
     xpath: //div[@class='css-5l6g5o']//div[@class='css-5u3qp4' and text()='Sodium']//following-sibling::div
+    regExp: (.+?)\s+
+    regExpReplace: $1
+  - name: sodiumPerServingUom
+    singleValue: false
+    xpath: //div[@class='css-5l6g5o']//div[@class='css-5u3qp4' and text()='Sodium']//following-sibling::div
+    regExp: \s+(.+)
+    regExpReplace: $1    
   - name: proteinPerServing
     singleValue: false
     xpath: //div[@class='css-5l6g5o']//div[@class='css-5u3qp4' and text()='Protein']//following-sibling::div
+    regExp: (.+?)\s+
+    regExpReplace: $1
+  - name: proteinPerServingUom
+    singleValue: false
+    xpath: //div[@class='css-5l6g5o']//div[@class='css-5u3qp4' and text()='Protein']//following-sibling::div
+    regExp: \s+(.+)
+    regExpReplace: $1    
   - name: totalFatPerServing
     singleValue: false
     xpath: //div[@class='css-5l6g5o']//div[@class='css-5u3qp4' and text()='Fat']//following-sibling::div
+    regExp: (.+?)\s+
+    regExpReplace: $1
+  - name: totalFatPerServingUom
+    singleValue: false
+    xpath: //div[@class='css-5l6g5o']//div[@class='css-5u3qp4' and text()='Fat']//following-sibling::div
+    regExp: \s+(.+)
+    regExpReplace: $1    
   - name: totalSugarsPerServing
     singleValue: false
     xpath: //div[@class='css-5l6g5o']//div[@class='css-5u3qp4' and text()='Sugar']//following-sibling::div
+    regExp: (.+?)\s+
+    regExpReplace: $1
+  - name: totalSugarsPerServingUom
+    singleValue: false
+    xpath: //div[@class='css-5l6g5o']//div[@class='css-5u3qp4' and text()='Sugar']//following-sibling::div
+    regExp: \s+(.+)
+    regExpReplace: $1
   - name: allergyAdvice
     singleValue: false
     xpath: //h3[text()='Allergy Information']//following-sibling::p    
