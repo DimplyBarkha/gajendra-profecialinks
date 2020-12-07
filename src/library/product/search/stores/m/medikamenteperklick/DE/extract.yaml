@@ -18,10 +18,11 @@ fields:
     singleValue: false
   - name: thumbnail
     singleValue: true
-    xpath: //div[@class="figure"]/a/img/@src
+    xpath: //img[@itemprop="image"]/@src
   - name: price
     singleValue: false
     xpath: //dd[@class="yourPrice"]/text()
+    type: CURRENCY
   - name: aggregateRating
     singleValue: false
     xpath: //span[@itemprop="ratingValue"]/text()
