@@ -21,7 +21,7 @@ async function implementation (inputs, parameters, context, dependencies) {
       var regArray = element.getAttribute('class').match(regex);
 
       if (regArray[0]) {
-        element.setAttribute('rating', regArray[0].toString().replace('.', ','));
+        element.setAttribute('rating', regArray[0]);
       }
     });
   });
