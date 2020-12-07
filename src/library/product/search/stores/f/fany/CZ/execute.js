@@ -5,7 +5,7 @@ module.exports = {
     country: 'CZ',
     store: 'fany',
     domain: 'fany.cz',
-    url: 'https://www.fanymarket.cz/vyhledavani/?search={searchTerms}',
+    url: 'https://www.fanymarket.cz/vyhledavani/?search={id}',
     loadedSelector: 'div.catalog-row',
     noResultsXPath: '//div[@class="alert alert-info"]',
     zipcode: '',
