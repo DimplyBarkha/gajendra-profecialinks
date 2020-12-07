@@ -5,7 +5,7 @@ module.exports = {
     country: 'CZ',
     store: 'Mall',
     domain: 'mall.cz',
-    url: 'https://www.mall.cz/hledej?s=pr%C3%ADkrmy%20kojencu',
+    url: 'https://www.mall.cz/hledej?s={searchTerms}',
     loadedSelector: 'body',
     noResultsXPath: null,
     zipcode: '',
