@@ -5,7 +5,7 @@ module.exports = {
     template: null,
     country: 'US',
     store: 'blu',
-    nextLinkSelector: null,
+    nextLinkSelector: 'button[data-testid="reviews-block-page-next"]',
     nextLinkXpath: null,
     mutationSelector: null,
     spinnerSelector: null,
