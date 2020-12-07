@@ -1,0 +1,16 @@
+input:
+  _url: http://dyson.no
+  URL: https://www.dyson.no/stovsugere/med-ledning/dyson-big-ball/parquet-2
+extractions:
+  - html: https://workbench.import.io/html/run=3bdde76d-43a5-48cf-88de-9bc83ccde768/task=ad8b0bb3-2c83-4be3-aa04-b4956c2a4749/9caeddb5-5cfd-4f44-9353-0e9090aa0c93.html
+    extractionConfigId: product/details/stores/d/dyson/NO/variantsExtract
+    data:
+      - group:
+          - variantId:
+              - text: 228566-01
+                xpath: /html/body/ol[1]/li[1]/@variant_id
+            variantUrl:
+              - text: https://www.dyson.no/stovsugere/med-ledning/dyson-big-ball/parquet-2
+                xpath: /html/body/ol[1]/li[1]/@variant_url
+        xpath: /html
+    timestamp: 1607355685868
