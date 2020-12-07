@@ -50,7 +50,7 @@ fields:
     defaultValue: Out of Stock
   - name: description
     singleValue: false
-    xpath: //div[@id="description"]
+    xpath: //import-description
     description: Product description supplied by website - may be concatenanted from
       multiple places; specifically not the manufacturer description
   - name: descriptionBullets
@@ -83,12 +83,13 @@ fields:
     description: GTIN code (includes UPC/EAN)
   - name: sku
     singleValue: true
-    xpath: //p[@id="product-body-item-number"]/span | //div[@class="product-numbers"]/span[1] | //span[@id="item-no"]
-    regExp: (\d+)
+    xpath: //link[@rel='canonical']/@href
+    regExp: (\d+).html
+    regExpReplace: $1
     description: The store-specific product identifier
   - name: variantId
     singleValue: true
-    xpath: //p[@id="product-body-item-number"]/span 
+    xpath: //p[@id="product-body-item-number"]/span
     description: Identifier for a variant from a store where variants share the same sku
   - name: mpc
     xpath: (//span/@data-model-number | //p[@id="product-body-model-number"])[1]
@@ -146,7 +147,7 @@ fields:
     description: The extended description of the product supplied by the lister
   - name: manufacturerImages
     singleValue: false
-    xpath: //div[@id="wc-power-page"]//div[@class="wc-reset"]//ul//li//img[@data-asset-type="image"]/@src
+    xpath: //div[contains(@class, 'syndi_powerpage')]
     description: Images within the third party description
   - name: videos
     singleValue: false
@@ -179,10 +180,6 @@ fields:
   - name: internationalShipping
     singleValue: true
     description: Text next to bullet point
-  - name: salesRank
-    singleValue: false
-    description: Amazon best selling rank from product details (linked back) - needs
-      to be collapsed
   - name: salesRankCategory
     singleValue: false
     description: Amazon best selling rank from product details (linked back) - needs
@@ -235,11 +232,12 @@ fields:
     description: null
   - name: featureBullets
     singleValue: false
-    xpath: //ul[@class="pdp-features"]/li | //div[@class="product-info-description"]//span[contains(text(),'Features:')]/following::ul[1]/li
+    xpath: //import-feature
     description: null
   - name: otherSellersName
     singleValue: false
     description: null
+    defaultValue: Costco Wholesale Corporation
   - name: otherSellersPrice
     singleValue: false
     description: null
@@ -530,11 +528,11 @@ fields:
     defaultValue: No
   - name: shownImages
     singleValue: false
-    xpath: //div[@id="theViews"]//div[@class="slick-track"]//a[not(contains(@class,"selectedSlide"))]//img/@src | //img[@id="productImage"]/@src
+    xpath: //div[@id='thumbnails']//div[@class='slick-track']/a/img/@src
     regExp: .+(?=\&recipe(Id|Name)=\d+)
   - name: highQualityImages
     singleValue: false
-    xpath: //div[@id="theViews"]//div[@class="slick-track"]//a[not(contains(@class,"selectedSlide"))]//img/@src | //img[@id="productImage"]/@src
+    xpath: //div[@id='thumbnails']//div[@class='slick-track']/a/img/@src
     regExp: .+(?=\&recipe(Id|Name)=\d+)
   - name: sponsoredProductUrls
     singleValue: false
