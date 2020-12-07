@@ -6,7 +6,7 @@ module.exports = {
     store: 'fany',
     domain: 'fany.cz',
     url: 'https://www.fanymarket.cz/vyhledavani/?search={searchTerms}',
-    loadedSelector: 'main.main-jscart',
+    loadedSelector: 'div.category-body',
     noResultsXPath: '//div[@class="alert alert-info"]',
     zipcode: '',
   },
