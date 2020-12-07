@@ -1,0 +1,119 @@
+input:
+  _url: http://backmarket.fr
+  URL: https://www.backmarket.fr/purificateur-dair-dyson-tp04-pas-cher/135544.html#?l=1
+extractions:
+  - html: https://workbench.import.io/html/run=697f91e7-c8dd-450b-baee-150a851e19d6/task=756d5448-d0af-4eef-a9e1-1e7872ed1ffb/d3dc7d99-f8ed-4694-bebd-dbd83d1ac31e.html
+    extractionConfigId: product/details/stores/b/backmarket/FR/extract
+    data:
+      - group:
+          - image:
+              - text: https://d1eh9yux7w8iql.cloudfront.net/product_images/135544_aab952a6-2c54-4b56-b0e4-18241f98c5c6.jpg
+                xpath: /html/head[1]/meta[9]/@content
+            alternateImages:
+              - text: https://d1eh9yux7w8iql.cloudfront.net/product_images/135544_d2c339d1-137e-4b95-abe4-1e9d6c69e8da.jpg
+                xpath: /html/body/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[2]/div[3]/div[1]/@style
+              - text: https://d1eh9yux7w8iql.cloudfront.net/product_images/135544_6e8742e0-1102-4500-9066-b822a4199e1f.jpg
+                xpath: /html/body/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[2]/div[4]/div[1]/@style
+              - text: https://d1eh9yux7w8iql.cloudfront.net/product_images/135544_effe7ef2-544b-4bb9-9984-ad8dd62e3cf8.jpg
+                xpath: /html/body/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[2]/div[5]/div[1]/@style
+              - text: https://d1eh9yux7w8iql.cloudfront.net/product_images/135544_0ce38875-c8c3-482d-9c61-f464fe70d30f.jpg
+                xpath: /html/body/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[2]/div[6]/div[1]/@style
+              - text: https://d1eh9yux7w8iql.cloudfront.net/product_images/135544_ea78bbc9-9575-4352-b30c-e293b6e9d343.jpg
+                xpath: /html/body/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[2]/div[7]/div[1]/@style
+            category:
+              - text: Accueil
+                xpath: /html/body/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/nav[1]/ol[1]/li[1]/a[1]/div[1]
+              - text: Ménage & Entretien
+                xpath: /html/body/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/nav[1]/ol[1]/li[2]/a[1]/div[1]
+              - text: Cuisine & Maison
+                xpath: /html/body/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/nav[1]/ol[1]/li[3]/a[1]/div[1]
+              - text: Purificateur Dyson
+                xpath: /html/body/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/nav[1]/ol[1]/li[4]/a[1]/div[1]
+            nameExtended:
+              - text: Purificateur ventilateur tour Dyson Pure Cool™
+                xpath: /html/body/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/h1[1]
+            price:
+              - text: 499,00 €
+                xpath: /html/body/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/ul[1]/li[1]/div[1]/div[1]
+            availabilityText:
+              - text: Ajouter au panier
+                xpath: /html/body/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[3]/div[1]/div[3]/button[1]
+            brandText:
+              - text: Dyson
+                xpath: /html/body/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[3]/div[3]/div[1]/ul[1]/li[3]/text()[1]
+            manufacturer:
+              - text: Dyson
+                xpath: /html/body/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[3]/div[3]/div[1]/ul[1]/li[3]/text()[1]
+            weightNet:
+              - text: 4980 g
+                xpath: /html/body/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[3]/div[3]/div[1]/ul[1]/li[4]/text()[1]
+            mpc:
+              - text: "135544"
+                xpath: /html/head[1]/link[8]/@href
+            ratingCount:
+              - text: "328"
+                xpath: /html/body/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/section[1]/div[2]/div[1]/div[1]/div[1]/p[1]/strong[1]
+                type: NUMBER
+                raw: 328 avis
+                locale: fr_FR
+                value: 328
+            aggregateRatingText:
+              - text: 4,$3
+                xpath: /html/body/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/section[1]/div[2]/div[1]/div[1]/div[1]/div[1]/strong[1]
+            color:
+              - text: Blanc
+                xpath: /html/body/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[3]/div[3]/div[1]/ul[1]/li[1]/text()[1]
+            name:
+              - text: Purificateur ventilateur tour Dyson Pure Cool™
+                xpath: /html/body/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/h1[1]
+            specifications:
+              - text: "Hauteur : 105,4 cm"
+                xpath: /html/body/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[3]/div[3]/div[1]/ul[1]/li[5]
+            warranty:
+              - text: 12 mois
+                xpath: /html/body/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[3]/div[1]/div[3]/div[1]/div[2]/div[2]/select[1]/option[1]
+            productOtherInformation:
+              - text: "- 4980 g de gâchis électronique"
+                xpath: /html/body/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/ul[1]/li[3]/div[1]
+            additionalDescBulletInfo:
+              - text: "Couleur : Blanc"
+                xpath: /html/body/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[3]/div[3]/div[1]/ul[1]/li[1]
+              - text: "Modèle : Pure Cool™"
+                xpath: /html/body/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[3]/div[3]/div[1]/ul[1]/li[2]
+              - text: "Marque : Dyson"
+                xpath: /html/body/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[3]/div[3]/div[1]/ul[1]/li[3]
+              - text: "Poids : 4980 g"
+                xpath: /html/body/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[3]/div[3]/div[1]/ul[1]/li[4]
+              - text: "Hauteur : 105,4 cm"
+                xpath: /html/body/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[3]/div[3]/div[1]/ul[1]/li[5]
+              - text: "Largeur : 20,6 cm"
+                xpath: /html/body/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[3]/div[3]/div[1]/ul[1]/li[6]
+              - text: "Profondeur : 11,7 cm"
+                xpath: /html/body/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[3]/div[3]/div[1]/ul[1]/li[7]
+            customerServiceAvailability:
+              - text: Yes
+                xpath: /html/body/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[3]/div[1]/span[1]
+            technicalInformationPdfPresent:
+              - text: No
+            termsAndConditions:
+              - text: No
+            privacyPolicy:
+              - text: No
+            Image360Present:
+              - text: No
+            imageZoomFeaturePresent:
+              - text: No
+            descriptionBullets:
+              - text: "0"
+                type: NUMBER
+                raw: "0"
+                locale: fr_FR
+                value: 0
+            variantCount:
+              - text: "0"
+                type: NUMBER
+                raw: "0"
+                locale: fr_FR
+                value: 0
+        xpath: /
+    timestamp: 1607339440749

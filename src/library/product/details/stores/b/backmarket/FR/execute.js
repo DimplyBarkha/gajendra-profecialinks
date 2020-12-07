@@ -5,8 +5,8 @@ module.exports = {
     country: 'FR',
     store: 'backmarket',
     domain: 'backmarket.fr',
-    loadedSelector: null,
-    noResultsXPath: null,
+    loadedSelector: '.m-container-productmain',
+    noResultsXPath: 'div[data-test="search-landing-no-result"]',
     zipcode: '',
   },
 };
