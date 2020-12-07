@@ -138,7 +138,7 @@ fields:
     singleValue: true
     description: Number of variants listed
     defaultValue: 0
-    xpath: count(//div[contains(concat(' ',normalize-space(@class),' '),' product-hero ')]//div[contains(concat(' ',normalize-space(@class),' '),' swatches ')]//img)
+    xpath: count(//div[contains(concat(' ',normalize-space(@class),' '),' product-hero ')]//div[contains(concat(' ',normalize-space(@class),' '),' swatches ')]//img//@title | //div[contains(concat(' ',normalize-space(@class),' '),' product-hero ')]//div[contains(concat(' ',normalize-space(@class),' '),' swatches ')]//*[name()="svg"]//@aria-label)
   - name: color
     singleValue: true
     description: A textual description of the colour
@@ -458,11 +458,13 @@ fields:
       to populate "first_variant" for all variants of a product, this rpc becomes the
       common link between other variants. method 3 = apply some logic to determine link
       between variants, this will need analysis
-    xpath: (//div[contains(concat(' ',normalize-space(@class),' '),' product-hero ')]//div[contains(concat(' ',normalize-space(@class),' '),' swatches ')]//img)[1]//@title
+    xpath: (//div[contains(concat(' ',normalize-space(@class),' '),' product-hero ')]//div[contains(concat(' ',normalize-space(@class),' '),' swatches ')]//img//@title | //div[contains(concat(' ',normalize-space(@class),' '),' product-hero ')]//div[contains(concat(' ',normalize-space(@class),' '),' swatches ')]//*[name()="svg"]//@aria-label)[1]
   - name: variants
     singleValue: false
     description:
-    xpath: //div[contains(concat(' ',normalize-space(@class),' '),' product-hero ')]//div[contains(concat(' ',normalize-space(@class),' '),' swatches ')]//img//@title
+    xpath: //div[contains(concat(' ',normalize-space(@class),' '),' product-hero ')]//div[contains(concat(' ',normalize-space(@class),' '),' swatches ')]//img//@title | //div[contains(concat(' ',normalize-space(@class),' '),' product-hero ')]//div[contains(concat(' ',normalize-space(@class),' '),' swatches ')]//*[name()="svg"]//@aria-label
+    regExp: (.+?)(- ?[Ss]elected [Cc]olou?r)?$
+    regExpReplace: $1
   - name: additionalDescBulletInfo
     singleValue: false
     description:
