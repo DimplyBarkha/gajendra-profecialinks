@@ -6,7 +6,7 @@ fields:
   - name: id
     singleValue: true
     description: URL of the main product image
-    xpath: //*[contains(@class,"product_productId")]/text()
+    xpath: //*[contains(@id,"comparebox_")]/@value
   - name: productUrl
     singleValue: false
     description: Other product images (not in manufacturer description)
@@ -28,8 +28,8 @@ fields:
     regExp: [/\d+/]
   - name: price
     singleValue: true
+    xpath: //div[@id='price_added']
     description: offered price for the selected product
-    xpath: //*[contains(@id,"ProductInfoPrice_")]/@value
   - name: listPrice
     singleValue: true
     description: Alt text of the main product image
