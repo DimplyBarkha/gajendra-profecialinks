@@ -1,0 +1,27 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: thumbnail
+    singleValue: false
+    xpath: //div[@class="rzgLFq _1rUvhT"]/div//div[@class="_165CLk _15M-aT"]/img/@src
+  - name: id
+    singleValue: false
+    xpath: //div[@class="_1oDXqC"]/div[@class="_1O6ExT _395aoU"][1]/@data-tracking
+    regExp: \d{5,20}
+  - name: price
+    singleValue: false
+    xpath: concat(//div[@class="rzgLFq _1rUvhT"]/div//div[@class="_2PzTei"]//div[@class="_28doBv"]/span[@class="oXSuYh"]/text()," ",//div[@class="rzgLFq _1rUvhT"]/div//div[@class="_2PzTei"]//div[@class="_28doBv"]/span[2])
+    # xpath: //div[@class="rzgLFq _1rUvhT"]/div//div[@class="_2PzTei"]//div[@class="_28doBv"]
+  - name: name
+    singleValue: false
+    xpath: //div[@class="rzgLFq _1rUvhT"]/div//div[@class="_3FlNQL"]//div[@class="_4kaNBc"]/text()
+  - name: productUrl
+    singleValue: false
+    xpath: //div[@class="rzgLFq _1rUvhT"]/div/div[@class="_35THZ2"]/a/@href
+    regExp: (fr/.*)
+    regExpReplace: https://www.microspot.ch/$1
+  - name: aggregateRating2
+    singleValue: false
+    xpath: //html//div[@id="rat"]
