@@ -703,3 +703,11 @@ fields:
   - name: _url
     singleValue: false
     xpath: //link[@rel='canonical']/@href
+  - name: hasComparisonTable
+    singleValue: true
+    xpath: //h2[contains(@id,'comparison_table')]
+    regExp: (.*)
+    regExpReplace: Yes 
+    defaultValue: No 
+  - name: unInterruptedPDP
+    xpath: ancestor::html//div[contains(@data-similarity-type,"purchase-similarities-esp")]//li
