@@ -37,7 +37,7 @@ fields:
     singleValue: true
     description: The offered price for the selected product variant - if a user
       clicks add to basket this is the price they would be charged
-    xpath: (//span[@class="styled__PriceWrapper-wpdhab-5 lgUoac"])
+    xpath: (//div[@id="pd-price"])
     type: CURRENCY
   - name: availabilityText
     singleValue: true
@@ -431,6 +431,7 @@ fields:
   - name: pricePerUnit
     singleValue: true
     description: Price of the product split into certain units
+    defaultValue: €
     # xpath: (//span[@class="styled__PriceWrapper-wpdhab-5 lgUoac"])
   - name: pricePerUnitUom
     singleValue: true
