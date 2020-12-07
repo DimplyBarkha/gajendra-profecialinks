@@ -24,15 +24,15 @@ module.exports = {
     }
 
     // try gettings some search results
-    const pageOne = await extract({results});
+    const pageOne = await extract({ results });
 
-    let collected = length(pageOne);
+    const collected = length(pageOne);
 
     console.log('Got initial number of results', collected);
 
     // check we have some data
     if (collected === 0) {
-      return;
+
     }
   },
 };
