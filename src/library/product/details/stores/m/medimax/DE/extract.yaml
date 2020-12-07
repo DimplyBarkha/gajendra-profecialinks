@@ -105,11 +105,10 @@ fields:
     regExpReplace: 'Yes'
     defaultValue: 'No'
   - name: hasComparisonTable
-    singleValue: true
-    xpath: //table[contains(@class,"table")]//tbody//tr//td
-    regExp: (.*)
-    regExpReplace: Yes
-    defaultValue: False
+    xpath: div[@class="table-wrapper"]//table
+    regExp: (.*) 
+    regExpReplace: 'Yes'
+    defaultValue: 'No'
   - name: inTheBoxUrl
     xpath: //div[@class="in-the-box"]//img/@src
   - name: inTheBoxText
