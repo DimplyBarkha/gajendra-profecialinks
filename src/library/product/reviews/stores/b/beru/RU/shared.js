@@ -20,10 +20,7 @@ const transform = (data, context) => {
   for (const { group } of data) {
     for (const row of group) {
       if (row.reviewText) {
-        let text = '';
-        row.reviewText.forEach(item => {
-          text = row.reviewText.map(elm => elm.text).join(' ');
-        });
+        const text = [...row.reviewText, ...row.pros, ...row.cons].map(elm => elm.text).join(' | ');
         row.reviewText = [{ text }];
       }
       Object.keys(row).forEach(header => row[header].forEach(el => {
