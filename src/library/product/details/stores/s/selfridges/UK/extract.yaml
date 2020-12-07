@@ -23,9 +23,7 @@ fields:
   singleValue: true
   description: Alt text of the main product image
 - name: alternateImages
-  xpath: //picture[@class="c-image-gallery__img"]//img[@class="c-image-gallery__img"]/following::img[@class="c-image-gallery__img"]/@src
-  regExp: (.+)
-  regExpReplace: https:$1
+  xpath: //div[@class='c-image-gallery__images']//picture[position()>1]/@src
   singleValue: false
   description: Other product images (not in manufacturer description)
 - name: metaKeywords
@@ -36,8 +34,10 @@ fields:
   singleValue: false
   description: The categories (e.g. from breadcrumbs)
 - name: nameExtended
-  xpath: //div[@data-js-action="productHeroDescription"]//h1
-  singleValue: true
+  xpath: //title
+  regExp: (.+) \|
+  regExpReplace: $1
+  singleValue: false
   description: The product name, prefixing "${brand} - " if not included in "name"
     and appending " - ${variantType}" if necessary (fixed per feed)
 - name: listPrice
@@ -46,17 +46,21 @@ fields:
   description: The stated undiscounted price for the product
 - name: price
   xpath: //span[@data-js-action="updatePrice"]
-  singleValue: true
+  singleValue: false
   description: The offered price for the selected product variant - if a user clicks
     add to basket this is the price they would be charged
 - name: availabilityText
-  xpath: //div[@id='isAvailable']
+  # xpath: //div[@id='isAvailable']
+  xpath: //section[contains(@class,'c-filter')]//button[@data-action="add-to-bag" and normalize-space()='Add to bag']
+  regExp: (.+)
+  regExpReplace: In Stock
+  defaultValue: Out of Stock
   singleValue: true
   description: Availability as described on page for the selected variant. If there
     is no availability but the product can be added to cart, this field should be
     "In Stock"
 - name: description
-  xpath: concat(//article[@id="content1"] , //q[@class="c-self-says__content"])
+  xpath: //div[@id="descriptionBull"]|//div[@id="description"]
   singleValue: false
   description: Product description supplied by website - may be concatenanted from
     multiple places; specifically not the manufacturer description
@@ -65,12 +69,11 @@ fields:
   singleValue: true
   description: Number of ul > li tags in the description
 - name: brandText
-  xpath: //span[@class="a-txt-brand-name"]/a
-  singleValue: true
+  xpath: //span[@class="a-txt-brand-name"]
+  singleValue: false
   description: Product brand shown - this may actually NOT be just a brand name, e.g.
     "Visit the Gillette Store"
 - name: manufacturer
-  xpath: //span[@class="a-txt-brand-name"]/a
   singleValue: true
   description: Product manufacturer
 - name: quantity
@@ -143,6 +146,7 @@ fields:
   singleValue: true
   description: A code description of the color (e.g. RGB hex)
 - name: manufacturerDescription
+  xpath: //*[@id="content1"]//div//p[@class="c-tabs__header"]/parent::div
   singleValue: false
   description: The extended description of the product supplied by the lister
 - name: manufacturerImages
@@ -152,9 +156,7 @@ fields:
   singleValue: false
   description: URLs of videos on page
 - name: name
-  xpath: //title
-  regExp: (.+) \|
-  regExpReplace: $1
+  xpath: //div[@data-js-action="productHeroDescription"]//span[@class="a-txt-product-description"]
   singleValue: true
   description: The product name
 - name: inStorePrice
@@ -248,6 +250,7 @@ fields:
   singleValue: false
   description: 
 - name: secondaryImageTotal
+  xpath: count(//div[@class='c-image-gallery__images']//picture[not(@imageindex='1')])
   singleValue: true
   description: 
 - name: news
@@ -410,6 +413,7 @@ fields:
   singleValue: true
   description: Recycling information associated with the product
 - name: productOtherInformation
+  xpath: //q[@class="c-self-says__content"]
   singleValue: false
   description: Any other product information
 - name: packaging
@@ -425,7 +429,6 @@ fields:
   singleValue: true
   description: The unit of measurement used in price_per_unit
 - name: promotion
-  xpath: //p[@class="cce-discount__discount"]
   singleValue: true
   description: promotion text on product page
 - name: alcoholContent
@@ -449,6 +452,7 @@ fields:
   singleValue: true
   description: colour / scent / flavour / other
 - name: firstVariant
+  xpath: //div[@class="c-select__dropdown-item-container"]/span[1]/span
   singleValue: true
   description: Unique identifier for a collection of variants. For a subset of core
     feeds (43) we have a column "first_variant" that is populated with a common code
@@ -459,9 +463,11 @@ fields:
     common link between other variants. method 3 = apply some logic to determine link
     between variants, this will need analysis
 - name: variants
+  xpath: //div[@data-js-action="selectContainer"][contains(text(), "Size")]/following-sibling::div/span
   singleValue: false
   description: 
 - name: additionalDescBulletInfo
+  xpath: //div[@id="descriptionBull"]
   singleValue: false
   description: 
 - name: prop65Warning
