@@ -19,7 +19,7 @@ async function implementation(
     const { transform } = parameters;
     const { productDetails } = dependencies;
     await context.evaluate(async function () {
-        const randomLink = document.evaluate("//span[contains(.,'Visa fler')]",document).iterateNext()
+        const randomLink = document.evaluate("//span[contains(.,'Visa fler')]",document).iterateNext();
         function addclass(xpathforpagination) {
             var elems = document.querySelectorAll(xpathforpagination);
             elems[0].classList.add('pagination');
