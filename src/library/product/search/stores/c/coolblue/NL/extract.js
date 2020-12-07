@@ -32,6 +32,13 @@ async function implementation (
   };
   await applyScroll(context);
   const dataRef = await context.extract(productDetails, { transform });
+  for (const { group } of dataRef) {
+    for (const row of group) {
+      if (row.aggregateRating2) {
+        row.aggregateRating2[0].text = row.aggregateRating2[0].text.replace('.', ',');
+      }
+    }
+  }
   return dataRef;
 }
 
