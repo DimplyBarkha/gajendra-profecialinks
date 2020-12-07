@@ -80,7 +80,7 @@ fields:
     type: BOOLEAN
   - name: id
     singleValue: false
-    xpath: //div[contains(@class,"picture")]//img[contains(@class,"photo")]/@src
+    xpath: //a[contains(@class,"picture") and @title]/@href
     regExp: \/([0-9]+)\/
     regExpReplace: $1
   - name: nameExtended
