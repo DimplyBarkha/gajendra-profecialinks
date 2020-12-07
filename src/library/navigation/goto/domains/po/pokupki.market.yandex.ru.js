@@ -35,7 +35,7 @@ module.exports = {
     console.log('Status :', responseStatus.status);
     console.log('URL :', responseStatus.url);
 
-    const captchaFrame = "input.input-wrapper__content";
+    const captchaFrame = "div.player";
     try {
       await context.waitForSelector(captchaFrame);
     } catch (e) {
