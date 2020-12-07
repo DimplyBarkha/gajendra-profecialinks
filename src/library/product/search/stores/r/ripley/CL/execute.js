@@ -59,11 +59,10 @@ module.exports = {
   parameterValues: {
     country: 'CL',
     store: 'ripley',
-    domain: 'simple.ripley.cl',
+    domain: 'ripley.cl',
     url: 'https://simple.ripley.cl/search/{searchTerms}',
     loadedSelector: 'div[class="catalog-page"]',
     noResultsXPath: '//div[@class="algolia-search-no-results"]',
     zipcode: '',
-  },
-  implementation,
+  },implementation,
 };

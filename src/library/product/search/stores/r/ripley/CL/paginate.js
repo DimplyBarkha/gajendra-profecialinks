@@ -4,13 +4,13 @@ module.exports = {
   parameterValues: {
     country: 'CL',
     store: 'ripley',
-    nextLinkSelector: 'ul.pagination li:last-child a',
+    nextLinkSelector: null,
     mutationSelector: null,
-    spinnerSelector: 'div.loading-screen',
-    loadedSelector: 'div[class="catalog-page"]',
-    noResultsXPath: '//div[@class="algolia-search-no-results"]',
+    spinnerSelector: null,
+    loadedSelector: null,
+    noResultsXPath: null,
     openSearchDefinition: null,
-    domain: 'simple.ripley.cl',
+    domain: 'ripley.cl',
     zipcode: '',
   },
 };

@@ -1,10 +1,9 @@
 
 module.exports = {
-  implements: 'navigation/goto',
+  implements: 'navigation/goto/setZipCode',
   parameterValues: {
-    domain: 'simple.ripley.cl',
-    timeout: 50000,
     country: 'CL',
+    domain: 'ripley.cl',
     store: 'ripley',
     zipcode: '',
   },
