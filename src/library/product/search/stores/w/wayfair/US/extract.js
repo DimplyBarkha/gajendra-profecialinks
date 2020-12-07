@@ -40,20 +40,20 @@ module.exports = {
       if (appendElements.length) {
         appendElements.forEach((element) => {
           element.setAttribute('searchurl', searchUrl);
-        })
+        });
       }
-      const linkElement = document.querySelectorAll('div[class="ProductCard-container"]>a ')
-      const link = []
-      linkElement.forEach((elem) => { link.push(elem.href) });
-      const idFromLink = []
+      const linkElement = document.querySelectorAll('div[class="ProductCard-container"]>a ');
+      const link = [];
+      linkElement.forEach((elem) => { link.push(elem.href); });
+      const idFromLink = [];
       link.forEach((elem1) => {
         idFromLink.push(elem1.match(/(piid=)(\d{5,9})/g));
-      })
+      });
       const skuElement = document.querySelectorAll('a[class*="ProductCard"]');
-      const skuBucket = []
+      const skuBucket = [];
       skuElement.forEach((elem1) => {
         skuBucket.push(elem1.getAttribute('data-sku'));
-      })
+      });
       const id = [];
       for (let i = 0; i < idFromLink.length; i++) {
         if (idFromLink[i] != null) {
@@ -75,5 +75,5 @@ module.exports = {
     });
 
     return await context.extract(productDetails, { transform });
-  }
+  },
 };
