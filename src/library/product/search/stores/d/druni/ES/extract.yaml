@@ -28,7 +28,7 @@ fields:
     singleValue: false
   - name: price
     singleValue: false
-    xpath: //div[contains(@class,'card__pricing')]/span[contains(@class,'card__price')]
+    xpath: //div[contains(@class,'card__pricing')]//span[contains(@class,'card__price') and not(contains(@class,'--old'))]
     regExp: ([^desde]+)
   - name: manufacturer
     singleValue: true
