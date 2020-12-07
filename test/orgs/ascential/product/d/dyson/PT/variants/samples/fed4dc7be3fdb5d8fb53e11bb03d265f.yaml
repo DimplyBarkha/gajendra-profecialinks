@@ -1,0 +1,16 @@
+input:
+  _url: http://dyson.pt
+  URL: https://www.dyson.pt/aspiradores/sem-fios/dyson-cyclone-v10/absolute
+extractions:
+  - html: https://workbench.import.io/html/run=4e828af6-783e-424f-ab5a-329ec3cebaf1/task=8ceec994-8b5c-49c0-8d6f-886adc41a9c1/785498b0-bd7b-4baa-a583-8e819dc580e7.html
+    extractionConfigId: product/details/stores/d/dyson/PT/variantsExtract
+    data:
+      - group:
+          - variantId:
+              - text: 226397-01
+                xpath: /html/body/ol[1]/li[1]/@variant_id
+            variantUrl:
+              - text: https://www.dyson.pt/aspiradores/sem-fios/dyson-cyclone-v10/absolute
+                xpath: /html/body/ol[1]/li[1]/@variant_url
+        xpath: /html
+    timestamp: 1607342508845

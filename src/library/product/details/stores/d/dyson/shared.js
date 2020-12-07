@@ -244,7 +244,7 @@ async function implementation (inputs, parameters, context, dependencies) {
     brandText = brandText || 'Dyson';
     const name = getXpath("//h1[contains(concat(' ',normalize-space(@class),' '),' product-hero__line1 ')]", 'innerText');
     const variant = getXpath(
-      "(//div[contains(concat(' ',normalize-space(@class),' '),' product-hero ')]//div[contains(concat(' ',normalize-space(@class),' '),' swatches ')]//img)[1]/@alt",
+      "(//div[contains(concat(' ',normalize-space(@class),' '),' product-hero ')]//div[contains(concat(' ',normalize-space(@class),' '),' swatches ')]//img)[1]/@title",
       'nodeValue',
     );
     const prefix = name && name.includes(brandText) ? '' : brandText;
