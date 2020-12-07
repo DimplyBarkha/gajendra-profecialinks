@@ -1,7 +1,7 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: //ul[contains(@class,'product-list')]//li
+recordXPath: (//ul[contains(@class,'product-list')])[1]//li
 fields:
   - name: productUrl
     description: The URL for the product details page
