@@ -52,10 +52,7 @@ const transform = (data) => {
         if (row.price) {
           let total_price = ''
            row.price.forEach(item => {
-            total_price +=  item.text ;
-           if (total_price) {
-             row.price = [{'text': total_price.trim(),'xpath':row.price[0].xpath}];
-           }
+            item.text =  item.text + '€' ;
           });
           
         }

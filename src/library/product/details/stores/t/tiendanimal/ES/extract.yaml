@@ -23,7 +23,7 @@ fields:
     xpath: //header[contains(@class,'product__header')]//h1
   - name: price
     singleValue: false
-    xpath: //div[@id='main_price']//span[contains(@class,'product__price')]//span  
+    xpath: //div[@id='main_price']//span[contains(@class,'product__price')]//span[1]  
   - name: listprice
     singleValue: false
     xpath: //div[@id='main_price']//span[contains(@class,'product__discount')]//span
