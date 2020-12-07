@@ -54,7 +54,7 @@ fields:
     singleValue: false
     description: Product description supplied by website - may be concatenanted from
       multiple places; specifically not the manufacturer description
-    xpath: //*[contains(@class, "short-description")] | //div[@id='bulletInfoText'] | //div[@id="product-detail-wrapper"]//ul[contains(@class,"specs")]
+    xpath: //*[contains(@class, "short-description")] | //div[@id='bulletInfoText']
   - name: descriptionBullets
     singleValue: false
     xpath: count(//div[contains(@class, "row misc-info")]/ul[@class="specs"]/li)
@@ -93,7 +93,7 @@ fields:
   - name: mpc
     singleValue: false
     description: The manufacturer model code (unique) of the product
-    xpath: //script/@data-eky-mpn
+    xpath: //script/@data-eky-mpn | //div[contains(@class,"spec-wrap")]//table[contains(@class,"spec-table")]//tr//td[contains(text(),"Modellnavn")]/following-sibling::td
   - name: packSize
     singleValue: false
     description: The number of packs in the product offer (if stated separately on
@@ -144,7 +144,7 @@ fields:
   - name: manufacturerDescription
     singleValue: false
     description: The extended description of the product supplied by the lister
-    manualSelector: div[class*="product-inspiration-wrapper"], div[class*="product-more-info"]
+    manualSelector: div[class*="product-inspiration-wrapper"], div[class*="product-more-info"] p
   - name: manufacturerImages
     singleValue: false
     description: Images within the third party description
@@ -154,7 +154,7 @@ fields:
   - name: videos
     singleValue: false
     description: URLs of videos on page
-    xpath:  //div[@data-vidurl="vidURL"] | //ul[contains(@class,"b-video-list")]/li//@data-videoid | //div[contains(@class,"product-inspiration-wrapper")]//video/source/@src
+    xpath:  //ul[contains(@class,"b-video-list")]/li//@data-videoid | //div[contains(@class,"product-inspiration-wrapper")]//video/@src
   - name: name
     singleValue: false
     description: The product name

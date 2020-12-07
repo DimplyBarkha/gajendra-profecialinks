@@ -30,10 +30,6 @@ const transform = (data) => {
             return {
               text: item.text.trim(),
             };
-          } else {
-            return {
-              text: `https://www.youtube.com/watch?v=${item.text.trim()}`,
-            };
           }
         });
         row.videos = newAlternateImages;
@@ -71,6 +67,13 @@ const transform = (data) => {
             text: clean(descriptionOne ? `${desc} ${descriptionOne}` : desc),
           },
         ];
+      }
+      if (row.manufacturerDescription) {
+        let manufacturerDesc = '';
+        row.manufacturerDescription.forEach(desc => {
+          manufacturerDesc += `${desc.text} `;
+        });
+        row.manufacturerDescription = [{ text: manufacturerDesc }];
       }
     }
   }

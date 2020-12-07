@@ -38,6 +38,7 @@ module.exports = {
       const videoIframe = document.querySelector('iframe[id*="quchbox-videolist"]');
       try {
         if (videoIframe) {
+          // @ts-ignore
           const y = videoIframe.contentDocument.documentElement;
           const videoDiv = y.querySelector('ul[class*="b-video-list"]');
           console.log('viddd', videoDiv);
