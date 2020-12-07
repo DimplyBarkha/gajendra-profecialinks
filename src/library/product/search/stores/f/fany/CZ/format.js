@@ -30,15 +30,7 @@ const transform = (data) => {
           item.text = item.text.replace(/(\s*\n\s*)+/g, ' ').trim();
         });
       }
-      if (row.variantId) {
-        let text = '';
-        row.variantId.forEach(item => {
-          item.text = item.text.replace(/[\/]/g, ' ').trim();
-          item.text = item.text.split('_');
-          item.text = item.text[1];
-          item.text = item.text.replace(/[a-z]/g,' ').trim();
-        })
-      }
+      
     }
   }
   return cleanUp(data);

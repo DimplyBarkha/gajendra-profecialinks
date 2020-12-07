@@ -2,7 +2,6 @@ singleRecord: false
 regionsSelector: null
 recordSelector: null
 recordXPath: //div[@class="catalog-row"]/div
-#recordXPath: '//main[@class="main container main-jscart"]'
 fields:
   - name: name
     singleValue: false
@@ -11,6 +10,7 @@ fields:
     singleValue: false
     xpath: //div[@class="catalog "]/a/p[@class='price']
   - name: variantId
-    singleValue: false
-    xpath: //a[@class='product-link']/@href  
+    singleValue: true
+    defaultValue: '0'
+      
     
