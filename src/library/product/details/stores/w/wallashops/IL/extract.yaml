@@ -392,3 +392,7 @@ fields:
     description: If Zoom feature is available for Main image or images in the
       carousel,['Yes','No']
     example: https://www.zalando.de/adidas-neo-sneaker-low-blackwhite-a4315i002-q11.html
+  - name: unInterruptedPDP
+    singleValue: false
+    xpath: //ul[@class="items_strip_bk clearfix"]//h3[@class="dealboxttl bold"]
+    description: Titles of products in the sections 'you may also like' or 'sponsored products'. Combine results from Max 3 sections
