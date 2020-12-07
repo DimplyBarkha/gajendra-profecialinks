@@ -1,10 +1,16 @@
 extends: ../shared 
 fields:
-  - name: availabilityText
-    xpath: //div[contains(concat(' ',normalize-space(@class),' '),' product-hero ')]//form//*[contains(text(),'cesto')]//text()
+  - name: manufacturerImages
+    xpath: //div[@id='added_manufacturerImages']//li
   - name: weightNet
     xpath: (//ul[contains(concat(' ',normalize-space(@class),' '),' product-specification__specification-container ')]//li[.//*[contains(text(), 'Peso')]])[1]
-  - name: shippingInfo
-    xpath: (//div[contains(concat(' ',normalize-space(@class),' '),' reasons-to-buy__overlay-content-container ')][.//*[contains(text(),'ntrega')]])[1]
-  - name: warranty
-    xpath: (//div[contains(concat(' ',normalize-space(@class),' '),' reasons-to-buy__overlay-content-container ')][.//*[contains(text(),'arantia ')][not(contains(text(),'eembolso'))]])[1]
+  - name: termsAndConditions
+    singleValue: true
+    description: Terms and conditions information text ['Yes','No']
+    defaultValue: false
+    xpath: boolean(//div[@class="footer__column"]//li/a[contains(text(), "Termos e Condições de Venda")])
+  - name: privacyPolicy
+    singleValue: true
+    description: Privacy Policy information text ['Yes','No']
+    defaultValue: false
+    xpath: boolean(//div[@class="footer__column"]//li/a[contains(text(), "Politica de cookies")])
