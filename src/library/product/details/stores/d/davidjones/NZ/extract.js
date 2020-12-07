@@ -72,21 +72,24 @@ module.exports = {
         );
 
         let spec = specificationsArray.iterateNext();
-        let finalSpecifications = [];
+        let finalSpecificationsArray = [];
+        let finalSpecifications;
 
         while (spec) {
-          if (spec.textContent) finalSpecifications.push(spec.textContent);
+          if (spec.textContent) finalSpecificationsArray.push(spec.textContent);
           spec = specificationsArray.iterateNext();
         }
+
+        if(finalSpecificationsArray.length > 0) finalSpecifications = finalSpecificationsArray.join(' | ');
 
         const htmlString = `<span style="display:none" id="productSpecifications" ></span>`;
         const root = document.body;
         root.insertAdjacentHTML('beforeend', htmlString);
-        const innerHTML =
-          finalSpecifications.reduce((acc, val) => {
-            return `${acc}<li>${val}</li>`;
-          }, '<ul>') + '</ul>';
-        document.querySelector('#productSpecifications').innerHTML = innerHTML;
+        // const innerHTML =
+        //   finalSpecifications.reduce((acc, val) => {
+        //     return `${acc}<li>${val}</li>`;
+        //   }, '<ul>') + '</ul>';
+        document.querySelector('#productSpecifications').innerHTML = finalSpecifications;
       });
     } catch (e) {
       console.log(e);
