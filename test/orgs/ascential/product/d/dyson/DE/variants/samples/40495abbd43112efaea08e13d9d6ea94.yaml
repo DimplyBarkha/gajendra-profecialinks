@@ -1,0 +1,16 @@
+input:
+  _url: http://dyson.de
+  URL: https://www.dyson.de/raumklima/luftreiniger/dyson-pure-hot-cool-cryptomic/weiss-gold
+extractions:
+  - html: https://workbench.import.io/html/run=2a6342c5-0a0e-4545-9e3f-c6453042f1ee/task=7ff8b2ae-2d62-4851-8532-e8b78716a441/99dd6ae2-ab57-4a5f-a657-bfc9ffdcc48b.html
+    extractionConfigId: product/details/stores/d/dyson/DE/variantsExtract
+    data:
+      - group:
+          - variantId:
+              - text: 275790-01
+                xpath: /html/body/ol[1]/li[1]/@variant_id
+            variantUrl:
+              - text: https://www.dyson.de/raumklima/luftreiniger/dyson-pure-hot-cool-cryptomic/weiss-gold
+                xpath: /html/body/ol[1]/li[1]/@variant_url
+        xpath: /html
+    timestamp: 1607346411083

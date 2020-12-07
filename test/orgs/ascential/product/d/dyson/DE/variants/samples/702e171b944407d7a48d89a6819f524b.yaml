@@ -1,0 +1,22 @@
+input:
+  _url: http://dyson.de
+  URL: https://www.dyson.de/leuchten/arbeitsplatzleuchten/dyson-lightcycle-morph/floor-weiss-silber
+extractions:
+  - html: https://workbench.import.io/html/run=2a6342c5-0a0e-4545-9e3f-c6453042f1ee/task=0eabdde8-4767-4f4a-a993-6d8deddd508d/b3a82e7d-8c17-4e00-935f-139c04f67b24.html
+    extractionConfigId: product/details/stores/d/dyson/DE/variantsExtract
+    data:
+      - group:
+          - variantId:
+              - text: 294681-01-White-Silver-
+                xpath: /html/body/ol[1]/li[1]/@variant_id
+            variantUrl:
+              - text: https://www.dyson.de/leuchten/arbeitsplatzleuchten/dyson-lightcycle-morph/floor-weiss-silber
+                xpath: /html/body/ol[1]/li[1]/@variant_url
+          - variantId:
+              - text: 294680-01-Black-Black-
+                xpath: /html/body/ol[1]/li[2]/@variant_id
+            variantUrl:
+              - text: https://www.dyson.de/leuchten/arbeitsplatzleuchten/dyson-lightcycle-morph/floor-schwarz
+                xpath: /html/body/ol[1]/li[2]/@variant_url
+        xpath: /html
+    timestamp: 1607346410894

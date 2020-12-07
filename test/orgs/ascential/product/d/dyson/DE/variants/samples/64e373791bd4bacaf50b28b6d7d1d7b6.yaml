@@ -1,0 +1,22 @@
+input:
+  _url: http://dyson.de
+  URL: https://www.dyson.de/raumklima/luftreiniger/dyson-pure-hot-cool/schwarz-nickel
+extractions:
+  - html: https://workbench.import.io/html/run=2a6342c5-0a0e-4545-9e3f-c6453042f1ee/task=771bc1c1-24d1-4c02-a98c-416d3833cd9d/3e25a379-4cde-4a70-b371-ce1ace19d89e.html
+    extractionConfigId: product/details/stores/d/dyson/DE/variantsExtract
+    data:
+      - group:
+          - variantId:
+              - text: 244289-01-Black-Nickel-
+                xpath: /html/body/ol[1]/li[1]/@variant_id
+            variantUrl:
+              - text: https://www.dyson.de/raumklima/luftreiniger/dyson-pure-hot-cool/schwarz-nickel
+                xpath: /html/body/ol[1]/li[1]/@variant_url
+          - variantId:
+              - text: 244280-01-White-Silver-
+                xpath: /html/body/ol[1]/li[2]/@variant_id
+            variantUrl:
+              - text: https://www.dyson.de/raumklima/luftreiniger/dyson-pure-hot-cool/weiss-silber
+                xpath: /html/body/ol[1]/li[2]/@variant_url
+        xpath: /html
+    timestamp: 1607346411510

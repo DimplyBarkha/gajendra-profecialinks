@@ -1,0 +1,22 @@
+input:
+  _url: http://dyson.de
+  URL: https://www.dyson.de/haarpflege/dyson-corrale-glaetteisen/schwarz-nickel-fuchsia
+extractions:
+  - html: https://workbench.import.io/html/run=2a6342c5-0a0e-4545-9e3f-c6453042f1ee/task=06247248-403e-4c76-a2bf-2433852e1356/c377e346-95ce-4904-9d36-d15db74bf60d.html
+    extractionConfigId: product/details/stores/d/dyson/DE/variantsExtract
+    data:
+      - group:
+          - variantId:
+              - text: 322952-01-Black-Nickel-Fuchsia-
+                xpath: /html/body/ol[1]/li[1]/@variant_id
+            variantUrl:
+              - text: https://www.dyson.de/haarpflege/dyson-corrale-glaetteisen/schwarz-nickel-fuchsia
+                xpath: /html/body/ol[1]/li[1]/@variant_url
+          - variantId:
+              - text: 322961-01-Purple-Black-
+                xpath: /html/body/ol[1]/li[2]/@variant_id
+            variantUrl:
+              - text: https://www.dyson.de/haarpflege/dyson-corrale-glaetteisen/violett-schwarz
+                xpath: /html/body/ol[1]/li[2]/@variant_url
+        xpath: /html
+    timestamp: 1607346412228

@@ -1,0 +1,186 @@
+input:
+  _url: http://dyson.de
+  URL: https://www.dyson.de/raumklima/luftreiniger/dyson-pure-hot-cool-cryptomic/weiss-gold
+extractions:
+  - html: https://workbench.import.io/html/run=9e10f124-24e6-486d-85f5-1fa6385e9806/task=4e6e03b6-0ef8-4d09-8592-9bcd47efb125/2b24145e-054a-4cdd-980d-7985581667fe.html
+    extractionConfigId: product/details/stores/d/dyson/DE/extract
+    data:
+      - group:
+          - category:
+              - text: Raumklima
+                xpath: /html/body/nav[1]/div[1]/div[1]/div[1]/div[1]/nav[1]/div[2]/div[1]/div[1]/nav[1]/ol[1]/li[2]/span[1]/a[1]/span[1]
+              - text: Luftreiniger
+                xpath: /html/body/nav[1]/div[1]/div[1]/div[1]/div[1]/nav[1]/div[2]/div[1]/div[1]/nav[1]/ol[1]/li[3]/span[1]/a[1]/span[1]
+              - text: Dyson Pure Hot+Cool Cryptomic
+                xpath: /html/body/nav[1]/div[1]/div[1]/div[1]/div[1]/nav[1]/div[2]/div[1]/div[1]/nav[1]/ol[1]/li[4]/span[1]/a[1]/span[1]
+            image:
+              - text: https://dyson-h.assetsadobe2.com/is/image/content/dam/dyson/images/products/primary/275790-01.png?$responsive$&cropPathE=desktop&fit=stretch,1&wid=960
+                xpath: /html/body/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/img[1]/@src
+            imageAlt:
+              - text: Dyson Pure Hot+Cool Cryptomic™ Luftreiniger
+                xpath: /html/body/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/img[1]/@alt
+            alternateImages:
+              - text: https://dyson-h.assetsadobe2.com/is/image/content/dam/dyson/images/products/gallery/eu-ch/air-treatment/purifiers/pure-hot-and-cool-cryptomic/275790-01/275790-01-gallery-img-1.jpg?cropPathE=desktop&fit=stretch,1&wid=576
+                xpath: /html/body/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[2]/div[1]/img[1]/@src
+              - text: https://dyson-h.assetsadobe2.com/is/image/content/dam/dyson/images/products/gallery/eu-ch/air-treatment/purifiers/pure-hot-and-cool-cryptomic/275790-01/275790-01-gallery-img-2.jpg?cropPathE=desktop&fit=stretch,1&wid=576
+                xpath: /html/body/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[3]/div[1]/img[1]/@src
+              - text: https://dyson-h.assetsadobe2.com/is/image/content/dam/dyson/images/products/gallery/eu-ch/air-treatment/purifiers/pure-hot-and-cool-cryptomic/275790-01/275790-01-gallery-img-3.jpg?cropPathE=desktop&fit=stretch,1&wid=576
+                xpath: /html/body/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[4]/div[1]/img[1]/@src
+              - text: https://dyson-h.assetsadobe2.com/is/image/content/dam/dyson/images/products/gallery/eu-ch/air-treatment/purifiers/pure-hot-and-cool-cryptomic/275790-01/275790-01-gallery-img-4.jpg?cropPathE=desktop&fit=stretch,1&wid=576
+                xpath: /html/body/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[5]/div[1]/img[1]/@src
+              - text: https://dyson-h.assetsadobe2.com/is/image/content/dam/dyson/images/products/gallery/eu-ch/air-treatment/purifiers/pure-hot-and-cool-cryptomic/275790-01/275790-01-gallery-img-5.jpg?cropPathE=desktop&fit=stretch,1&wid=576
+                xpath: /html/body/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[6]/div[1]/img[1]/@src
+              - text: https://dyson-h.assetsadobe2.com/is/image/content/dam/dyson/images/products/gallery/eu-ch/air-treatment/purifiers/pure-hot-and-cool-cryptomic/275790-01/275790-01-gallery-img-6.jpg?cropPathE=desktop&fit=stretch,1&wid=576
+                xpath: /html/body/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[7]/div[1]/img[1]/@src
+            description:
+              - text: >-
+                  Dyson Pure Hot+Cool Cryptomicᵀᴹ Luftreiniger HP06 (Weiß/Gold)
+                   
+                  3 in 1: Luftreiniger, Ventilator und Heizlüfter. 
+                   
+                  Die Dyson Cryptomic™ Technologie zersetzt Formaldehyd. Kontinuierlich.¹
+                xpath: /html/body/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]
+            weightNet:
+              - text: |-
+                  Gewicht (in Kg)
+                   
+                   5,65 kg
+                xpath: /html/body/main[1]/div[2]/div[10]/section[1]/div[1]/ul[1]/li[1]
+            ratingCount:
+              - text: "4"
+                xpath: /html/body/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/a[1]/@aria-label
+            aggregateRatingText:
+              - text: "3.5"
+                xpath: /html/body/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/a[1]/@aria-label
+            aggregateRating:
+              - text: "3.5"
+                xpath: /html/body/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/a[1]/@aria-label
+            shippingInfo:
+              - text: |-
+                  Kostenlose Lieferung 
+                  Innerhalb 1 Werktag
+                xpath: /html/body/main[1]/div[2]/div[2]/div[1]/div[1]/section[1]/div[1]/div[1]/ul[1]/li[1]
+            name:
+              - text: Dyson Pure Hot+Cool Cryptomicᵀᴹ Luftreiniger HP06 (Weiß/Gold)
+                xpath: /html/body/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/h1[1]
+            warranty:
+              - text: >-
+                  Dyson Garantie
+                   
+
+                   
+                  Für die Dyson Garantie gilt die im Zeitpunkt des Vertragsschlusses gültige Fassung der
+                   
+                   Dyson Garantiebedingungen
+                   
+                   Die Dyson Garantie ist nicht mit den gegenüber dem Verkäufer bestehenden gesetzlichen Gewährleistungsrechten bei Lieferung eines mangelhaften Gerätes identisch und schränkt diese weder ein, noch ersetzt sie diese. Die Garantie räumt dem Käufer viel-mehr zusätzliche Rechte ein.
+                   
+                   Garantiezeiten
+
+                   
+                  Bei neuer Ware (A-Ware)
+                   
+
+                   
+                  Akkusauger und kabellose Staubsauger 2 Jahre
+                   
+                  Raumklimageräte 2 Jahre
+                   
+                  Beauty Produkte (Produkte für die Körperpflege; insbesondere Haartrockner) 2 Jahre
+                   
+                  Zubehör & Ersatzteile 1 Jahr
+                xpath: /html/body/main[1]/div[2]/div[2]/div[1]/div[1]/section[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[4]
+            productUrl:
+              - text: https://www.dyson.de/raumklima/luftreiniger/dyson-pure-hot-cool-cryptomic/weiss-gold
+                xpath: /html/body/div[7]
+            availabilityText:
+              - text: Out of stock
+                xpath: /html/body/div[8]
+            sku:
+              - text: 275790-01
+                xpath: /html/body/div[10]
+            variantId:
+              - text: 275790-01
+                xpath: /html/body/div[10]
+            mpc:
+              - text: 275790-01
+                xpath: /html/body/div[10]
+            color:
+              - text: White-Gold
+                xpath: /html/body/div[11]
+            price:
+              - text: "681.37"
+                xpath: /html/body/div[13]
+            nameExtended:
+              - text: Dyson Pure Hot+Cool Cryptomicᵀᴹ Luftreiniger HP06 (Weiß/Gold)
+                xpath: /html/body/div[14]
+            manufacturerDescription:
+              - text: Zersetzt Formaldehyd, kontinuierlich. Der Dyson Cryptomic™ Luftreiniger
+                  kombiniert Aktivkohle- und HEPA-Glasfaser-Filter mit der neuen
+                  Dyson Cryptomic™ Technologie. Das Gerät entfernt Gase und
+                  ultrafeine Partikel aus der Luft und zersetzt Formaldehyd auf
+                  molekularer Ebene.¹ Produktmerkmale Erkennt Erkennt
+                  automatisch Partikel und Gase in der Luft, analysiert diese
+                  und berichtet diese in Echtzeit.² Entfernt Aktivkohlefilter
+                  entfernen Gase. Versiegelte HEPA-Filter entfernen 99,95 % der
+                  ultrafeinen Partikel wie z.B. Bakterien, Viren, Hausstaub und
+                  Pollen.² Zersetzt Die Dyson Cryptomic™ Technologie zersetzt
+                  Formaldehyd.¹Das Gerät arbeitet kontinuierlich, wobei kein
+                  Austausch erforderlich ist. Verteilt Die Air Multiplier™
+                  Technologie verteilt gereinigte Luft im ganzen Raum.³ Heizt im
+                  Winter Heizen mit gereinigter Luft und großer Reichweite –
+                  erwärmt den ganzen Raum schnell und gleichmäßig.⁴ Kühlender
+                  Luftstrom im Sommer Bei warmem Wetter sorgt ein kräftiger
+                  Luftstrom mit gereinigter Luft für Abkühlung
+                  Verteilungsfunktion Der Luftstrom strömt aus der Rückseite des
+                  Geräts aus und reinigt dabei die Luft, ohne kühlenden
+                  Luftstrom.⁴ Dreht sich um bis zu 350˚ Mit der einstellbaren
+                  Drehbewegung wird die gereinigte Luft im ganzen Raum
+                  verteilt.⁵ Nachtmodus Überwacht die Luftqualität und reinigt
+                  mit den leisesten Einstellungen des Geräts und abgedunkeltem
+                  Display. Sleep-Timer Stellen Sie ein, nach welchen
+                  voreingestellten Intervallen zwischen 30 Minuten und 8 Stunden
+                  Ihr Gerät sich automatisch ausschaltet. Reale Daten, in
+                  Echtzeit Kontrollieren Sie Ihre Luftqualität mit der Dyson
+                  Link App.⁶
+                xpath: /html/body/div[16]
+            manufacturerImages:
+              - text: https://dyson-h.assetsadobe2.com/is/image/content/dam/dyson/products/air-treatment/purifiers/pure-hot-cool-cryptomic/gun-metal-copper/air-quality-purifier-hot-cool-desk-variant-senses.jpg?cropPathE=desktop&fit=stretch,1&fmt=pjpeg&wid=634
+                xpath: /html/body/div[17]/ul[1]/li[1]
+              - text: https://dyson-h.assetsadobe2.com/is/image/content/dam/dyson/products/air-treatment/purifiers/pure-hot-cool-cryptomic/gun-metal-copper/air-quality-purifier-hot-cool-desk-variant-captures.jpg?cropPathE=desktop&fit=stretch,1&fmt=pjpeg&wid=634
+                xpath: /html/body/div[17]/ul[1]/li[2]
+              - text: https://dyson-h.assetsadobe2.com/is/image/content/dam/dyson/products/air-treatment/purifiers/pure-hot-cool-cryptomic/gun-metal-copper/air-quality-purifier-hot-cool-desk-variant-destroys.jpg?cropPathE=desktop&fit=stretch,1&fmt=pjpeg&wid=634
+                xpath: /html/body/div[17]/ul[1]/li[3]
+              - text: https://dyson-h.assetsadobe2.com/is/image/content/dam/dyson/products/air-treatment/purifiers/pure-hot-cool-cryptomic/gun-metal-copper/air-quality-purifier-hot-cool-desk-variant-projects.jpg?cropPathE=desktop&fit=stretch,1&fmt=pjpeg&wid=634
+                xpath: /html/body/div[17]/ul[1]/li[4]
+              - text: https://dyson-h.assetsadobe2.com/is/image/content/dam/dyson/products/air-treatment/purifiers/pure-hot-cool-cryptomic/gun-metal-copper/air-quality-purifier-hot-cool-desk-variant-heatwinter.jpg?cropPathE=desktop&fit=stretch,1&fmt=pjpeg&wid=634
+                xpath: /html/body/div[17]/ul[1]/li[5]
+              - text: https://dyson-h.assetsadobe2.com/is/image/content/dam/dyson/products/air-treatment/purifiers/pure-hot-cool-cryptomic/gun-metal-copper/air-quality-purifier-hot-cool-desk-variant-CoolsSummer.jpg?cropPathE=desktop&fit=stretch,1&fmt=pjpeg&wid=634
+                xpath: /html/body/div[17]/ul[1]/li[6]
+              - text: https://dyson-h.assetsadobe2.com/is/image/content/dam/dyson/products/air-treatment/purifiers/pure-hot-cool-cryptomic/gun-metal-copper/air-quality-purifier-hot-cool-desk-variant-diffused.jpg?cropPathE=desktop&fit=stretch,1&fmt=pjpeg&wid=634
+                xpath: /html/body/div[17]/ul[1]/li[7]
+              - text: https://dyson-h.assetsadobe2.com/is/image/content/dam/dyson/products/air-treatment/purifiers/pure-hot-cool-cryptomic/gun-metal-copper/air-quality-purifier-hot-cool-desk-variant-350.jpg?cropPathE=desktop&fit=stretch,1&fmt=pjpeg&wid=634
+                xpath: /html/body/div[17]/ul[1]/li[8]
+              - text: https://dyson-h.assetsadobe2.com/is/image/content/dam/dyson/products/air-treatment/purifiers/pure-hot-cool-cryptomic/gun-metal-copper/air-quality-purifier-hot-cool-desk-variant-Nightmode.jpg?cropPathE=desktop&fit=stretch,1&fmt=pjpeg&wid=634
+                xpath: /html/body/div[17]/ul[1]/li[9]
+              - text: https://dyson-h.assetsadobe2.com/is/image/content/dam/dyson/products/air-treatment/purifiers/pure-hot-cool-cryptomic/gun-metal-copper/air-quality-purifier-hot-cool-desk-variant-sleeptimer.jpg?cropPathE=desktop&fit=stretch,1&fmt=pjpeg&wid=634
+                xpath: /html/body/div[17]/ul[1]/li[10]
+              - text: https://dyson-h.assetsadobe2.com/is/image/content/dam/dyson/products/air-treatment/purifiers/pure-hot-cool-cryptomic/gun-metal-copper/air-quality-purifier-hot-cool-desk-variant-realdata-celcius.jpg?cropPathE=desktop&fit=stretch,1&fmt=pjpeg&wid=634
+                xpath: /html/body/div[17]/ul[1]/li[11]
+            videos:
+              - text: www.dyson.de/content/dam/dyson/video/products/primary/275790-01.mp4
+                xpath: /html/body/div[19]/ul[1]/li[1]
+            brandText:
+              - text: Dyson
+            manufacturer:
+              - text: Dyson
+            descriptionBullets:
+              - text: "0"
+            termsAndConditions:
+              - text: "true"
+            privacyPolicy:
+              - text: "true"
+            customerServiceAvailability:
+              - text: "true"
+        xpath: /html/body
+    timestamp: 1607346216097

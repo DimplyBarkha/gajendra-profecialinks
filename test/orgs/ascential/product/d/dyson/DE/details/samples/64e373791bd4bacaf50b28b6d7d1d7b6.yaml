@@ -1,0 +1,211 @@
+input:
+  _url: http://dyson.de
+  URL: https://www.dyson.de/raumklima/luftreiniger/dyson-pure-hot-cool/schwarz-nickel
+extractions:
+  - html: https://workbench.import.io/html/run=9e10f124-24e6-486d-85f5-1fa6385e9806/task=6a8a416e-1db4-4b1c-8e07-5d9315e2df48/419dd4fd-e0e1-4da3-a269-b419c99cde65.html
+    extractionConfigId: product/details/stores/d/dyson/DE/extract
+    data:
+      - group:
+          - image:
+              - text: https://dyson-h.assetsadobe2.com/is/image/content/dam/dyson/images/products/primary/244289-01.png?$responsive$&cropPathE=desktop&fit=stretch,1&wid=960
+                xpath: /html/body/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/img[1]/@src
+            imageAlt:
+              - text: Dyson Pure Hot+Cool™ Heizlüfter mit Luftreiniger
+                xpath: /html/body/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/img[1]/@alt
+            alternateImages:
+              - text: https://dyson-h.assetsadobe2.com/is/image/content/dam/dyson/images/products/gallery/eu-ch/air-treatment/purifiers/pure-hot-and-cool-(hp04)/244289-01/244289-01-gallery-img-1.jpg?cropPathE=desktop&fit=stretch,1&wid=576
+                xpath: /html/body/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[2]/div[1]/img[1]/@src
+              - text: https://dyson-h.assetsadobe2.com/is/image/content/dam/dyson/images/products/gallery/eu-ch/air-treatment/purifiers/pure-hot-and-cool-(hp04)/244289-01/244289-01-gallery-img-2.jpg?cropPathE=desktop&fit=stretch,1&wid=576
+                xpath: /html/body/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[3]/div[1]/img[1]/@src
+              - text: https://dyson-h.assetsadobe2.com/is/image/content/dam/dyson/images/products/gallery/eu-ch/air-treatment/purifiers/pure-hot-and-cool-(hp04)/244289-01/244289-01-gallery-img-3.jpg?cropPathE=desktop&fit=stretch,1&wid=576
+                xpath: /html/body/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[4]/div[1]/img[1]/@src
+              - text: https://dyson-h.assetsadobe2.com/is/image/content/dam/dyson/images/products/gallery/eu-ch/air-treatment/purifiers/pure-hot-and-cool-(hp04)/244289-01/244289-01-gallery-img-4.jpg?cropPathE=desktop&fit=stretch,1&wid=576
+                xpath: /html/body/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[5]/div[1]/img[1]/@src
+              - text: https://dyson-h.assetsadobe2.com/is/image/content/dam/dyson/images/products/gallery/eu-ch/air-treatment/purifiers/pure-hot-and-cool-(hp04)/244289-01/244289-01-gallery-img-5.jpg?cropPathE=desktop&fit=stretch,1&wid=576
+                xpath: /html/body/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[6]/div[1]/img[1]/@src
+              - text: https://dyson-h.assetsadobe2.com/is/image/content/dam/dyson/images/products/gallery/eu-ch/air-treatment/purifiers/pure-hot-and-cool-(hp04)/244289-01/244289-01-gallery-img-6.jpg?cropPathE=desktop&fit=stretch,1&wid=576
+                xpath: /html/body/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[7]/div[1]/img[1]/@src
+            description:
+              - text: >-
+                  Dyson Pure Hot+Cool™ Heizlüfter mit Luftreiniger
+                  (Schwarz/Nickel)
+                   
+                  Nur Dyson Heizlüfter mit Luftreiniger reinigen und heizen einen ganzen Raum effektiv.¹
+                xpath: /html/body/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]
+            ratingCount:
+              - text: "31"
+                xpath: /html/body/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/a[1]/@aria-label
+            aggregateRatingText:
+              - text: "4.5"
+                xpath: /html/body/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/a[1]/@aria-label
+            aggregateRating:
+              - text: "4.5"
+                xpath: /html/body/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/a[1]/@aria-label
+            name:
+              - text: Dyson Pure Hot+Cool™ Heizlüfter mit Luftreiniger (Schwarz/Nickel)
+                xpath: /html/body/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/h1[1]
+            firstVariant:
+              - text: Schwarz / Nickel
+                xpath: /html/body/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[2]/div[1]/span[1]/img[1]/@title
+            variants:
+              - text: Schwarz / Nickel
+                xpath: /html/body/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[2]/div[1]/span[1]/img[1]/@title
+              - text: Weiß / Silber
+                xpath: /html/body/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[2]/a[1]/span[1]/img[1]/@title
+            shippingInfo:
+              - text: |-
+                  Kostenlose Lieferung 
+                  Innerhalb 1 Werktag
+                xpath: /html/body/main[1]/div[2]/div[4]/div[1]/div[1]/section[1]/div[1]/div[1]/ul[1]/li[1]
+            warranty:
+              - text: >-
+                  Dyson Garantie
+                   
+
+                   
+                  Für die Dyson Garantie gilt die im Zeitpunkt des Vertragsschlusses gültige Fassung der
+                   
+                   Dyson Garantiebedingungen
+                   
+                   Die Dyson Garantie ist nicht mit den gegenüber dem Verkäufer bestehenden gesetzlichen Gewährleistungsrechten bei Lieferung eines mangelhaften Gerätes identisch und schränkt diese weder ein, noch ersetzt sie diese. Die Garantie räumt dem Käufer viel-mehr zusätzliche Rechte ein.
+                   
+                   Garantiezeiten
+
+                   
+                  Bei neuer Ware (A-Ware)
+                   
+
+                   
+                  Akkusauger und kabellose Staubsauger 2 Jahre
+                   
+                  Raumklimageräte 2 Jahre
+                   
+                  Beauty Produkte (Produkte für die Körperpflege; insbesondere Haartrockner) 2 Jahre
+                   
+                  Zubehör & Ersatzteile 1 Jahr
+                xpath: /html/body/main[1]/div[2]/div[4]/div[1]/div[1]/section[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[4]
+            weightNet:
+              - text: |-
+                  Gewicht (in Kg)
+                   
+                   4,98 kg
+                xpath: /html/body/main[1]/div[2]/div[18]/section[1]/div[1]/ul[1]/li[7]
+            category:
+              - text: Raumklima
+                xpath: /html/body/nav[1]/div[1]/div[1]/div[1]/div[1]/nav[1]/div[2]/div[1]/div[1]/nav[1]/ol[1]/li[2]/span[1]/a[1]/span[1]
+              - text: Luftreiniger
+                xpath: /html/body/nav[1]/div[1]/div[1]/div[1]/div[1]/nav[1]/div[2]/div[1]/div[1]/nav[1]/ol[1]/li[3]/span[1]/a[1]/span[1]
+              - text: Dyson Pure Hot+Cool™ Luftreiniger mit Heizfunktion
+                xpath: /html/body/nav[1]/div[1]/div[1]/div[1]/div[1]/nav[1]/div[2]/div[1]/div[1]/nav[1]/ol[1]/li[4]/span[1]/a[1]/span[1]
+            productUrl:
+              - text: https://www.dyson.de/raumklima/luftreiniger/dyson-pure-hot-cool/schwarz-nickel
+                xpath: /html/body/div[6]
+            availabilityText:
+              - text: In den Warenkorb
+                xpath: /html/body/div[7]
+            sku:
+              - text: 244289-01
+                xpath: /html/body/div[9]
+            variantId:
+              - text: 244289-01
+                xpath: /html/body/div[9]
+            mpc:
+              - text: 244289-01
+                xpath: /html/body/div[9]
+            color:
+              - text: Black-Nickel
+                xpath: /html/body/div[10]
+            price:
+              - text: "549.00"
+                xpath: /html/body/div[12]
+            listPrice:
+              - text: "632.63"
+                xpath: /html/body/div[13]
+            nameExtended:
+              - text: Dyson Pure Hot+Cool™ Heizlüfter mit Luftreiniger (Schwarz/Nickel) -
+                  Schwarz / Nickel - Selected colour
+                xpath: /html/body/div[14]
+            manufacturerDescription:
+              - text: Der Dyson Pure Hot+Cool™ Heizlüfter mit Luftreiniger registriert
+                  Schadstoffe und schädliche Gase und erfasst sie in seinem
+                  Aktivkohlefilter und versiegelten HEPA-Filter. Danach
+                  verteilte er die gereinigte Luft mit der Air Multiplier™
+                  Technologie im ganzen Raum, während er Diagnosen durchführt
+                  und die Ergebnisse in Echtzeit meldet. Für Schreibtische und
+                  kleinere Räume entwickelt. Zentrale Produktmerkmale
+                  Registriert Erkennt automatisch Partikel und Gase in der Luft,
+                  analysiert diese und meldet die Ergebnisse in Echtzeit.
+                  Entfernt Aktivkohlefilter entfernen Gase. Versiegelte
+                  HEPA-Filter entfernen 99,95 % der ultrafeinen Partikel wie
+                  z.B. Bakterien, Viren, Hausstaub und Pollen.² Verteilt Nur
+                  Dyson Luftreiniger und Heizlüfter verfügen über die Air
+                  Multiplier™ Technologie und die 350°-Drehbewegung, die dafür
+                  sorgen, dass die Luft im gesamten Raum verteilt wird.³ Heizt
+                  im Winter. Kühlender Luftstrom im Sommer. Heizt mit
+                  gereinigter Luft und großer Reichweite – erwärmt den ganzen
+                  Raum schnell und gleichmäßig.³ Im Sommer sorgt erzeugt das
+                  Gerät einen starken, kühlenden Lufstrom mit gereinigter Luft.
+                  Echte Daten, in Echtzeit Überwachen Sie die Luftqualität mit
+                  der Dyson Link App⁴ Verwenden Sie ein Gerät. Das drei Aufgaben
+                  erledigt. Der Dyson Pure Hot+Cool™ Heizlüfter mit Luftreiniger
+                  reinigt die Luft und sorgt das ganze Jahr über für angenehme
+                  Temperaturen. So müssen Sie nicht zwischen mehreren Geräten
+                  wechseln und sparen zusätzlich Platz. Nachtmodus Überwacht die
+                  Luftqualität und reinigt mit den leisesten Einstellungen und
+                  abgedunkeltem Display. Fernbedienung Gebogen und magnetisch –
+                  zur praktischen Aufbewahrung direkt auf dem Gerät. „Quiet
+                  Mark“-Auszeichnung Für die verbesserte Akustik vergeben.
+                  Sprachsteuerung Mit einem kompatiblen Sprachsteuerungssystem
+                  können Sie Ihr Gerät mit einfachen Sprachanweisungen steuern.
+                  Einfache Filterwartung Ihr Gerät überwacht die
+                  Filterlebensdauer. Die App benachrichtigt Sie, wenn sie
+                  ausgetauscht werden müssen. So können Sie sich immer sicher
+                  sein, dass Ihr Luftreiniger optimal funktioniert. Mit der
+                  „asthma &amp; allergy friendly“-Zertifizierung ausgezeichnet
+                  Der Dyson Pure Hot+Cool™ Heizlüfter mit Luftreiniger wurde von
+                  Allergy Standards Limited mit der „asthma & allergy
+                  friendly™“-Zertifizierung ausgezeichnet. Dyson Pure Hot+Cool™
+                  Heizlüfter mit Luftreiniger entdecken
+                xpath: /html/body/div[17]
+            manufacturerImages:
+              - text: https://dyson-h.assetsadobe2.com/is/image/content/dam/dyson/products/air-treatment/purehotandcool/eu-pure-hot-plus-cool/pdp/pure-hot-cool-hp04-white-silver/Dyson-Hot-Pure-Cool-Desk-purifier-Feature_1-Senses-WHT.jpg?cropPathE=desktop&fit=stretch,1&fmt=pjpeg&wid=634
+                xpath: /html/body/div[18]/ul[1]/li[1]
+              - text: https://dyson-h.assetsadobe2.com/is/image/content/dam/dyson/products/air-treatment/purehotandcool/eu-pure-hot-plus-cool/pdp/pure-hot-cool-hp04-white-silver/Dyson-Hot-Pure-Cool-Desk-purifier-Feature_2-Captures.jpg?cropPathE=desktop&fit=stretch,1&fmt=pjpeg&wid=634
+                xpath: /html/body/div[18]/ul[1]/li[2]
+              - text: https://dyson-h.assetsadobe2.com/is/image/content/dam/dyson/products/air-treatment/purehotandcool/eu-pure-hot-plus-cool/pdp/pure-hot-cool-hp04-white-silver/Dyson-Hot-Pure-Cool-Desk-purifier-Feature_3-Projects.jpg?cropPathE=desktop&fit=stretch,1&fmt=pjpeg&wid=634
+                xpath: /html/body/div[18]/ul[1]/li[3]
+              - text: https://dyson-h.assetsadobe2.com/is/image/content/dam/dyson/products/air-treatment/purehotandcool/eu-pure-hot-plus-cool/pdp/pure-hot-cool-hp04-white-silver/Dyson-Hot-Pure-Cool-Desk-purifier-Feature_4-Heats_in_winter.jpg?cropPathE=desktop&fit=stretch,1&fmt=pjpeg&wid=634
+                xpath: /html/body/div[18]/ul[1]/li[4]
+              - text: https://dyson-h.assetsadobe2.com/is/image/content/dam/dyson/products/air-treatment/purehotandcool/eu-pure-hot-plus-cool/pdp/pure-hot-cool-hp04-white-silver/Dyson-Hot-Pure-Cool-Desk-purifier-Feature_5-Real_data.jpg?cropPathE=desktop&fit=stretch,1&fmt=pjpeg&wid=634
+                xpath: /html/body/div[18]/ul[1]/li[5]
+              - text: https://dyson-h.assetsadobe2.com/is/image/content/dam/dyson/products/air-treatment/purehotandcool/eu-pure-hot-plus-cool/pdp/pure-hot-cool-hp04-white-silver/Dyson-Hot-Pure-Cool-Desk-purifier-Feature_6-Just_one_machine.jpg?cropPathE=desktop&fit=stretch,1&fmt=pjpeg&wid=634
+                xpath: /html/body/div[18]/ul[1]/li[6]
+              - text: https://dyson-h.assetsadobe2.com/is/image/content/dam/dyson/products/air-treatment/purehotandcool/eu-pure-hot-plus-cool/pdp/pure-hot-cool-hp04-white-silver/Dyson-Hot-Pure-Cool-Desk-purifier-Feature_7-Night-time_mode.jpg?cropPathE=desktop&fit=stretch,1&fmt=pjpeg&wid=634
+                xpath: /html/body/div[18]/ul[1]/li[7]
+              - text: https://dyson-h.assetsadobe2.com/is/image/content/dam/dyson/products/air-treatment/purehotandcool/eu-pure-hot-plus-cool/pdp/pure-hot-cool-hp04-white-silver/Dyson-Hot-Pure-Cool-Desk-purifier-Feature_8-Remote.jpg?cropPathE=desktop&fit=stretch,1&fmt=pjpeg&wid=634
+                xpath: /html/body/div[18]/ul[1]/li[8]
+              - text: https://dyson-h.assetsadobe2.com/is/image/content/dam/dyson/products/air-treatment/purehotandcool/eu-pure-hot-plus-cool/pdp/pure-hot-cool-hp04-white-silver/Dyson-Hot-Pure-Cool-Desk-purifier-Feature_9-Quiet_mark.jpg?cropPathE=desktop&fit=stretch,1&fmt=pjpeg&wid=634
+                xpath: /html/body/div[18]/ul[1]/li[9]
+              - text: https://dyson-h.assetsadobe2.com/is/image/content/dam/dyson/products/air-treatment/purehotandcool/eu-pure-hot-plus-cool/pdp/pure-hot-cool-hp04-white-silver/Dyson-Hot-Pure-Cool-Desk-purifier-Feature_10-Voice_control.jpg?cropPathE=desktop&fit=stretch,1&fmt=pjpeg&wid=634
+                xpath: /html/body/div[18]/ul[1]/li[10]
+              - text: https://dyson-h.assetsadobe2.com/is/image/content/dam/dyson/products/air-treatment/purehotandcool/eu-pure-hot-plus-cool/pdp/pure-hot-cool-hp04-white-silver/Dyson-Hot-Pure-Cool-Desk-purifier-Feature_11-Easy_filter.jpg?cropPathE=desktop&fit=stretch,1&fmt=pjpeg&wid=634
+                xpath: /html/body/div[18]/ul[1]/li[11]
+              - text: https://dyson-h.assetsadobe2.com/is/image/content/dam/dyson/products/air-treatment/pure-cool-2018/pdp/pure-cool-desk-white-silver-310156-01/Dyson-Pure-Cool-Desk-WHT-purifier-Feature_13-Certified_asthma.jpg?cropPathE=desktop&fit=stretch,1&fmt=pjpeg&wid=634
+                xpath: /html/body/div[18]/ul[1]/li[12]
+            videos:
+              - text: www.dyson.de/content/dam/dyson/video/products/primary/244289-01.mp4
+                xpath: /html/body/div[20]/ul[1]/li[1]
+            brandText:
+              - text: Dyson
+            manufacturer:
+              - text: Dyson
+            descriptionBullets:
+              - text: "0"
+            termsAndConditions:
+              - text: "true"
+            privacyPolicy:
+              - text: "true"
+            customerServiceAvailability:
+              - text: "true"
+        xpath: /html
+    timestamp: 1607346214779

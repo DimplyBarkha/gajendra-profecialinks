@@ -1,0 +1,195 @@
+input:
+  _url: http://dyson.de
+  URL: https://www.dyson.de/haarpflege/dyson-corrale-glaetteisen/schwarz-nickel-fuchsia
+extractions:
+  - html: https://workbench.import.io/html/run=9e10f124-24e6-486d-85f5-1fa6385e9806/task=28f37ae7-e735-4575-a880-ae4917c7d618/d82fc0d4-081f-4224-a9a9-050131f1024a.html
+    extractionConfigId: product/details/stores/d/dyson/DE/extract
+    data:
+      - group:
+          - category:
+              - text: Haarpflege
+                xpath: /html/body/nav[1]/div[1]/div[1]/div[1]/div[1]/nav[1]/div[2]/div[1]/div[1]/nav[1]/ol[1]/li[2]/span[1]/a[1]/span[1]
+              - text: Dyson Corrale™ Haarglätter
+                xpath: /html/body/nav[1]/div[1]/div[1]/div[1]/div[1]/nav[1]/div[2]/div[1]/div[1]/nav[1]/ol[1]/li[3]/span[1]/a[1]/span[1]
+            image:
+              - text: https://dyson-h.assetsadobe2.com/is/image/content/dam/dyson/images/products/primary/322952-01.png?$responsive$&cropPathE=desktop&fit=stretch,1&wid=960
+                xpath: /html/body/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/img[1]/@src
+            imageAlt:
+              - text: Dyson Corrale Haarglätter offen und geschlossen
+                xpath: /html/body/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/img[1]/@alt
+            alternateImages:
+              - text: https://dyson-h.assetsadobe2.com/is/image/content/dam/dyson/images/products/gallery/eu-ch/hair-care/corrale/eu/322952-01/322952-01-gallery-img-1.jpg?cropPathE=desktop&fit=stretch,1&wid=576
+                xpath: /html/body/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[2]/div[1]/img[1]/@src
+              - text: https://dyson-h.assetsadobe2.com/is/image/content/dam/dyson/images/products/gallery/eu-ch/hair-care/corrale/eu/322952-01/322952-01-gallery-img-2.jpg?cropPathE=desktop&fit=stretch,1&wid=576
+                xpath: /html/body/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[3]/div[1]/img[1]/@src
+              - text: https://dyson-h.assetsadobe2.com/is/image/content/dam/dyson/images/products/gallery/eu-ch/hair-care/corrale/eu/322952-01/322952-01-gallery-img-3.jpg?cropPathE=desktop&fit=stretch,1&wid=576
+                xpath: /html/body/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[4]/div[1]/img[1]/@src
+              - text: https://dyson-h.assetsadobe2.com/is/image/content/dam/dyson/images/products/gallery/eu-ch/hair-care/corrale/eu/322952-01/322952-01-gallery-img-4.jpg?cropPathE=desktop&fit=stretch,1&wid=576
+                xpath: /html/body/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[5]/div[1]/img[1]/@src
+              - text: https://dyson-h.assetsadobe2.com/is/image/content/dam/dyson/images/products/gallery/eu-ch/hair-care/corrale/eu/322952-01/322952-01-gallery-img-5.jpg?cropPathE=desktop&fit=stretch,1&wid=576
+                xpath: /html/body/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[6]/div[1]/img[1]/@src
+              - text: https://dyson-h.assetsadobe2.com/is/image/content/dam/dyson/images/products/gallery/eu-ch/hair-care/corrale/eu/322952-01/322952-01-gallery-img-6.jpg?cropPathE=desktop&fit=stretch,1&wid=576
+                xpath: /html/body/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[7]/div[1]/img[1]/@src
+            description:
+              - text: |-
+                  Dyson Corraleᵀᴹ Haarglätter Glätteisen (Nickel/Fuchsia)
+                   
+                  Verbessertes Stylen. 
+                   
+                  50% weniger Haarschäden.¹
+                   
+                  Mit und ohne Kabel verwendbar.
+                xpath: /html/body/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]
+            weightNet:
+              - text: |-
+                  Gewicht (in Kg)
+                   
+                   0,561 kg
+                xpath: /html/body/main[1]/div[2]/div[11]/section[1]/div[1]/ul[1]/li[2]
+            ratingCount:
+              - text: "92"
+                xpath: /html/body/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/a[1]/@aria-label
+            aggregateRatingText:
+              - text: "4.6"
+                xpath: /html/body/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/a[1]/@aria-label
+            aggregateRating:
+              - text: "4.6"
+                xpath: /html/body/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/a[1]/@aria-label
+            shippingInfo:
+              - text: |-
+                  Kostenlose Lieferung 
+                  Innerhalb 1 Werktag
+                xpath: /html/body/main[1]/div[2]/div[2]/div[1]/div[1]/section[1]/div[1]/div[1]/ul[1]/li[1]
+            name:
+              - text: Dyson Corraleᵀᴹ Haarglätter Glätteisen (Nickel/Fuchsia)
+                xpath: /html/body/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/h1[1]
+            warranty:
+              - text: >-
+                  Dyson Garantie
+                   
+
+                   
+                  Für die Dyson Garantie gilt die im Zeitpunkt des Vertragsschlusses gültige Fassung der
+                   
+                   Dyson Garantiebedingungen
+                   
+                   Die Dyson Garantie ist nicht mit den gegenüber dem Verkäufer bestehenden gesetzlichen Gewährleistungsrechten bei Lieferung eines mangelhaften Gerätes identisch und schränkt diese weder ein, noch ersetzt sie diese. Die Garantie räumt dem Käufer viel-mehr zusätzliche Rechte ein.
+                   
+                   Garantiezeiten
+
+                   
+                  Bei neuer Ware (A-Ware)
+                   
+
+                   
+                  Akkusauger und kabellose Staubsauger 2 Jahre
+                   
+                  Raumklimageräte 2 Jahre
+                   
+                  Beauty Produkte (Produkte für die Körperpflege; insbesondere Haartrockner) 2 Jahre
+                   
+                  Zubehör & Ersatzteile 1 Jahr
+                xpath: /html/body/main[1]/div[2]/div[2]/div[1]/div[1]/section[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[4]
+            firstVariant:
+              - text: Nickel/Fuchsia
+                xpath: /html/body/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[2]/div[1]/span[1]/img[1]/@title
+            variants:
+              - text: Nickel/Fuchsia
+                xpath: /html/body/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[2]/div[1]/span[1]/img[1]/@title
+              - text: Violett/Schwarz
+                xpath: /html/body/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[2]/a[1]/span[1]/img[1]/@title
+            productUrl:
+              - text: https://www.dyson.de/haarpflege/dyson-corrale-glaetteisen/schwarz-nickel-fuchsia
+                xpath: /html/body/div[6]
+            availabilityText:
+              - text: In den Warenkorb
+                xpath: /html/body/div[7]
+            sku:
+              - text: 322952-01
+                xpath: /html/body/div[9]
+            variantId:
+              - text: 322952-01
+                xpath: /html/body/div[9]
+            mpc:
+              - text: 322952-01
+                xpath: /html/body/div[9]
+            color:
+              - text: Black-Nickel-Fuchsia
+                xpath: /html/body/div[10]
+            price:
+              - text: "465.89"
+                xpath: /html/body/div[12]
+            nameExtended:
+              - text: Dyson Corraleᵀᴹ Haarglätter Glätteisen (Nickel/Fuchsia) - Nickel/Fuchsia -
+                  Selected colour
+                xpath: /html/body/div[13]
+            manufacturerDescription:
+              - text: Der einzige Haarglätter mit biegsamen Heizplatten, die Haare umschließen.
+                  Unsere Heizplatten aus einer Mangan-Kupfer-Legierung biegen
+                  sich um das Haar und umschließen es. Durch diese zusätzliche
+                  Kontrolle können Sie dasselbe Stylingergebnis mit weniger
+                  Hitze erzielen – und mit 50% weniger Haarschäden.¹ Zentrale
+                  Produktmerkmale OLED-Display Zeigt während der Verwendung den
+                  Batteriestand, die Temperatur und den Aufladestatus an. Für
+                  alle Haartypen geeignet Drei präzise Temperatureinstellungen
+                  (165 °C, 185 °C und 210 °C) – passend für Ihren Haartyp,
+                  Haarlänge und das gewünschte Styling. Bis zu 30 Minuten
+                  kabelloses Stylen² Wärmeleistung wie bei einem Haarglätter mit
+                  Kabel. Lädt sich in nur 70 Minuten vollständig wieder auf
+                  Haarstyling mit Kabel, für längere Laufzeit Um die Stylingzeit
+                  zu maximieren, laden Sie den Haarstyler vollständig auf und
+                  stylen Sie mit angeschlossenem Kabel. Automatisches Abschalten
+                  und Sicherheitsverschluss Schaltet sich nach 10 Minuten
+                  Inaktivität automatisch ab und enthält einen
+                  Sicherheitsverschluss für die Heizplatten zum Aufbewahren
+                  direkt nach der Nutzung. Bereit für die Reise
+                  Universalspannung und eine Flugsicherheitsfunktion ermöglichen
+                  Reisen ins Ausland mit Ihrem Haarglätter.³ Technologie
+                  Biegsame Heizplatten für 50% weniger Haarschäden¹ Die
+                  biegsamen Heizplatten umschließen die Haare und sorgen für
+                  glänzend-glatte Haare mit weniger Hitze. 50 % weniger
+                  Haarbruch¹, reduzierter Frizz und weniger fliegende Haare.⁴
+                  Intelligente Temperatur-Regulierung Das integrierte
+                  Sensorsystem reguliert die Temperatur der Heizplatten 100-mal
+                  pro Sekunde, sodass Ihre eingestellte Temperatur nie
+                  überschritten wird. 4-Zellen-Lithium-Ionen-Akku Die auch in
+                  den kabellosen Dyson Staubsaugern erfolgreich eingesetzte
+                  Technologie sorgt für eine Wärmeleistung, die der von
+                  Haarglättern mit Kabel entspricht.
+                xpath: /html/body/div[16]
+            manufacturerImages:
+              - text: https://dyson-h.assetsadobe2.com/is/image/content/dam/dyson/products/hair-care/556/variants/dark-nickel-fuchsia/celsius-images/556-Keyfeatures-OLEDscreen-DNKSFU-Celsius-1.jpg?cropPathE=desktop&fit=stretch,1&fmt=pjpeg&wid=634
+                xpath: /html/body/div[17]/ul[1]/li[1]
+              - text: https://dyson-h.assetsadobe2.com/is/image/content/dam/dyson/products/hair-care/556/variants/dark-nickel-fuchsia/celsius-images/556-Keyfeatures-Suitableforallhair-DNKSFU-Celsius-2.jpg?cropPathE=desktop&fit=stretch,1&fmt=pjpeg&wid=634
+                xpath: /html/body/div[17]/ul[1]/li[2]
+              - text: https://dyson-h.assetsadobe2.com/is/image/content/dam/dyson/products/hair-care/556/variants/dark-nickel-fuchsia/556-Keyfeatures-Upto40minscordless-DNKSFU-3.jpg?cropPathE=desktop&fit=stretch,1&fmt=pjpeg&wid=634
+                xpath: /html/body/div[17]/ul[1]/li[3]
+              - text: https://dyson-h.assetsadobe2.com/is/image/content/dam/dyson/products/hair-care/556/variants/dark-nickel-fuchsia/celsius-images/556-Keyfeatures-Stylecordedforlonger-DNKSFU-Celsius-4.jpg?cropPathE=desktop&fit=stretch,1&fmt=pjpeg&wid=634
+                xpath: /html/body/div[17]/ul[1]/li[4]
+              - text: https://dyson-h.assetsadobe2.com/is/image/content/dam/dyson/products/hair-care/556/variants/dark-nickel-fuchsia/556-Keyfeatures-Peaceofmind-DNKSFU-5.jpg?cropPathE=desktop&fit=stretch,1&fmt=pjpeg&wid=634
+                xpath: /html/body/div[17]/ul[1]/li[5]
+              - text: https://dyson-h.assetsadobe2.com/is/image/content/dam/dyson/products/hair-care/556/variants/dark-nickel-fuchsia/556-Keyfeatures-Readytotravel-DNKSFU-6.jpg?cropPathE=desktop&fit=stretch,1&fmt=pjpeg&wid=634
+                xpath: /html/body/div[17]/ul[1]/li[6]
+              - text: https://dyson-h.assetsadobe2.com/is/image/content/dam/dyson/products/hair-care/556/overview/556-Keyfeatures-Technology-Flexingplates-7.jpg?cropPathE=desktop&fit=stretch,1&fmt=pjpeg&wid=634
+                xpath: /html/body/div[17]/ul[1]/li[7]
+              - text: https://dyson-h.assetsadobe2.com/is/image/content/dam/dyson/products/hair-care/556/overview/Personalcare-556-OverviewPage-Animation-IHC.jpg?$responsive$&cropPathE=desktop&fit=stretch,1&wid=1920
+                xpath: /html/body/div[17]/ul[1]/li[8]
+              - text: https://dyson-h.assetsadobe2.com/is/image/content/dam/dyson/leap-petite-global/dynamic-media/personal-care/556/technology/Dyson-Corrale-Keyfeatures-Technology-4celllithiumbattery-9.jpg?cropPathE=desktop&fit=stretch,1&fmt=pjpeg&wid=634
+                xpath: /html/body/div[17]/ul[1]/li[9]
+            videos:
+              - text: www.dyson.de/content/dam/dyson/video/products/primary/322991-01.mp4
+                xpath: /html/body/div[19]/ul[1]/li[1]
+            brandText:
+              - text: Dyson
+            manufacturer:
+              - text: Dyson
+            descriptionBullets:
+              - text: "0"
+            termsAndConditions:
+              - text: "true"
+            privacyPolicy:
+              - text: "true"
+            customerServiceAvailability:
+              - text: "true"
+        xpath: /html/body
+    timestamp: 1607346225593

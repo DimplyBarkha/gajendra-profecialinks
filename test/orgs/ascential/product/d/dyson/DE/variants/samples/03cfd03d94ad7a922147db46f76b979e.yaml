@@ -1,0 +1,22 @@
+input:
+  _url: http://dyson.de
+  URL: https://www.dyson.de/staubsauger/kabellose-staubsauger/dyson-v11/absolute-extra-pro-nickel-blue#
+extractions:
+  - html: https://workbench.import.io/html/run=2a6342c5-0a0e-4545-9e3f-c6453042f1ee/task=e389faf9-97b8-43c9-99fa-61aeb45be9fd/7c253cdf-d231-40b9-9046-bae6d04eea78.html
+    extractionConfigId: product/details/stores/d/dyson/DE/variantsExtract
+    data:
+      - group:
+          - variantId:
+              - text: 347796-01-Nickel-Blue-
+                xpath: /html/body/ol[1]/li[1]/@variant_id
+            variantUrl:
+              - text: https://www.dyson.de/staubsauger/kabellose-staubsauger/dyson-v11/absolute-extra-pro-nickel-blue#
+                xpath: /html/body/ol[1]/li[1]/@variant_url
+          - variantId:
+              - text: 346606-01-Gold-
+                xpath: /html/body/ol[1]/li[2]/@variant_id
+            variantUrl:
+              - text: https://www.dyson.de/staubsauger/kabellose-staubsauger/dyson-v11/absolute-extra-pro-gold
+                xpath: /html/body/ol[1]/li[2]/@variant_url
+        xpath: /html
+    timestamp: 1607346410365
