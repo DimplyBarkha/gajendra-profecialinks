@@ -19,9 +19,6 @@ fields:
   - name: secondaryImageTotal
     singleValue: false
     xpath: count(//div[@class="slide"][position()>1]//img[contains(@class, "js-responsive-image")]/@src)
-  - name: metaKeywords
-    singleValue: false
-    xpath: //meta[@name="keywords"]/@content
   - name: category
     singleValue: false
     xpath: //div[@class="Breadcrumb"]//a[position()>2]
@@ -37,31 +34,19 @@ fields:
     defaultValue: In Stock
   - name: description
     singleValue: false
-    xpath: //div[contains(@class,"ShowMoreLess__content")]//h3[contains(text(), "Beschrijving")]/following::p[1]
+    xpath: //h3[contains(text(),"Description")]//parent::*/p[position()=1]
   - name: brandText
     singleValue: false
     xpath: //div[contains(@class,"product-details")]//div[contains(@class,"ProductPageHeader")]//p[@class="page-title-info"]
-  - name: manufacturer
-    singleValue: false
-    xpath: //div[contains(@class,"ShowMoreLess__content")]//h3[contains(text(), "Benaming")]/following::p[1]
   - name: quantity
     singleValue: false
     xpath: normalize-space(substring-before(//div[contains(@class,"ProductDetails")]//div[contains(@class,"test-qty-property")], "-"))
-  - name: weightNet
-    singleValue: false
-    xpath: //div[contains(@class,"ShowMoreLess__content")]//h3[contains(text(), "Net inhoud")]/following::p[1]
   - name: sku
     singleValue: false
-    xpath: substring-after(//div[@class="color_grey_5"]//p[contains(text(), "ID:")], "ID:")
+    xpath: //div[contains(@class,"product-details")]//div[contains(@class,"Product")]//@data-item-id
   - name: variantId
     singleValue: false
     xpath: //div[contains(@class,"product-details")]//div[contains(@class,"Product")]//@data-item-id
-  - name: directions
-    singleValue: false
-    xpath: //div[contains(@class,"ShowMoreLess__content")]//h3[contains(text(), "Gebru")]/following::p[1]
-  - name: ingredientsList
-    singleValue: false
-    xpath: //div[contains(@class,"ShowMoreLess__content")]//h3[contains(text(), "Ingrediënten")]/following::p[1]
   - name: storage
     singleValue: false
     xpath: //div[contains(@class,"ShowMoreLess__content")]//h3[contains(text(), "bewaarvoorschriften")]/following::p[1]

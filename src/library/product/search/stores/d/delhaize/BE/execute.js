@@ -6,8 +6,8 @@ module.exports = {
     store: 'delhaize',
     domain: 'delhaize.be',
     url: 'https://www.delhaize.be/nl-be/shop/search?q={searchTerms}',
-    loadedSelector: null,
-    noResultsXPath: '//div[@class="NoSearchResultsMessage"]',
+    loadedSelector: 'div.ProductSearchResultsPagey',
+    noResultsXPath: null,
     zipcode: '',
   },
 };
