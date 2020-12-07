@@ -9,6 +9,24 @@ module.exports = {
     zipcode: '',
   },
   implementation: async ({ inputString }, { country, domain }, context, { productDetails }) => {
+    const applyScroll = async function (context) {
+      await context.evaluate(async function () {       
+        let scrollTop = 0;
+        while (scrollTop !== 20000) {
+          scrollTop += 1000;
+          window.scroll(0, scrollTop);
+          await stall(1000);
+        }
+        function stall(ms) {
+          return new Promise((resolve, reject) => {
+            setTimeout(() => {
+              resolve();
+            }, ms);
+          });
+        }
+      });
+    };
+    await applyScroll(context);
     await context.evaluate(async function () {
       function addElementToDocument(key, value) {
         const catElement = document.createElement('div');
@@ -17,6 +35,14 @@ module.exports = {
         catElement.style.display = 'none';
         document.body.appendChild(catElement);
       }
+       var cookies; 
+       cookies = document.querySelector('button[id="onetrust-accept-btn-handler"]')
+       if(cookies != undefined){
+        // @ts-ignore
+        document.querySelector('button[id="onetrust-accept-btn-handler"]').click()
+        await new Promise(r => setTimeout(r, 6000));
+       }
+       
       // Method to Retrieve Xpath content of a Single Node
       var getXpath = (xpath, prop) => {
         var elem = document.evaluate(xpath, document, null, XPathResult.ANY_UNORDERED_NODE_TYPE, null);
@@ -44,11 +70,22 @@ module.exports = {
 
       };
       // var URL1 = getAllXpath("//div[@class='techs']//span[(text()='Peso dell'imballo')]/following-sibling::span", 'nodeValue');
-      var URL2 = getXpath("//div[@class='techs']//span[(text()='Altezza imballo')]/following-sibling::span/text()", 'nodeValue');
-      var URL3 = getXpath("//div[@class='techs']//span[(text()='Profondità imballo')]/following-sibling::span/text()", 'nodeValue');
-      var URL4 = getXpath("//div[@class='techs']//span[(text()='Larghezza imballo')]/following-sibling::span/text()", 'nodeValue');
+      var URL2 = getXpath("//div[@class='techs']//span[(text()='Altezza imballo')]/following-sibling::span/text() | //table[@class='flix-std-specs-table']//td[(text()='Altezza con Imballaggio')]/following-sibling::td//text()", 'nodeValue');
+      var URL3 = getXpath("//div[@class='techs']//span[(text()='Profondità imballo')]/following-sibling::span/text() | //table[@class='flix-std-specs-table']//td[(text()='Profondità con Imballaggio')]/following-sibling::td//text()", 'nodeValue');
+      var URL4 = getXpath("//div[@class='techs']//span[(text()='Larghezza imballo')]/following-sibling::span/text() | //table[@class='flix-std-specs-table']//td[(text()='Larghezza con Imballaggio')]/following-sibling::td//text()", 'nodeValue');
       console.log(URL2)
       sliceURL(URL2, URL3, URL4);
+
+      var name = getXpath('//*[@id="features"]/script//text()', 'nodeValue');
+      if (name != null) {
+        var img = name.split('brand')[1]
+        if (img != null) {
+          var img = img.split(",")[0]
+          var img = img.slice(6, -7)
+          addElementToDocument('brand', img);
+        }
+      }
+
     });
     await context.extract(productDetails);
   },

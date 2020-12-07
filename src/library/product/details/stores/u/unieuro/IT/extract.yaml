@@ -30,7 +30,7 @@ fields:
   defaultValue: Out of Stock
 - name: description
   singleValue: true
-  xpath: //div[@class='descriptions']/ul
+  xpath: //div[@class="info-description-content"]//div[@class='description']
 - name: gtin
   singleValue: true
   xpath: //div[@data-module='productdetail']/@data-productdetail-productean
@@ -42,7 +42,7 @@ fields:
   xpath: /html/body/span[2]/@data-goinstore-productcode
 - name: brandText
   singleValue: true  
-  xpath: (//div[@class="swogo-bundle"]//div[4]/text())[1]
+  xpath: //div[@id='brand']
 - name: imageAlt
   singleValue: true  
   xpath: (//div[@class="product-image-container"]/div/div/div/img/@alt)[1]
@@ -59,7 +59,10 @@ fields:
   xpath: //div[@class='left-section']/span[@class='total-vote']
 - name: manufacturerImages
   singleValue: false
-  xpath: //div[@class="accordionInfo accordion-menu"]//section/div/img/@src  
+  xpath: //div[@id="flix-inpage"]//img//@srcset  
+- name: manufacturerDescription
+  singleValue: false
+  xpath: //div[@id="flix-std-inpage"] 
 - name: shippingInfo
   singleValue: false
   xpath: (//div[@class="navigation-panel__service__content"][3]/a/span/b/text())[1]
@@ -74,22 +77,22 @@ fields:
   xpath: (//div[@class='techs']//span[(text()="Tipo di imballo")]/following-sibling::span)[1]
 - name: specifications
   singleValue: false
-  xpath: //div[@id="specifications"]
+  xpath: //div[@class='info-classification-content']/div[@class='techs']/div
 - name: materials
   singleValue: false
-  xpath: //div[@class='info-classification-content']//span[(text()="Materiale vasca")or(text()="Materiale cestello")]/following-sibling::span
+  xpath: //div[@class='info-classification-content']//span[(text()="Materiale vasca")or(text()="Materiale cestello")or(text()="Materiali")]/following-sibling::span
 - name: color
   singleValue: false
   xpath: //div[@class='techs']//span[(text()="Colore del prodotto")]/following-sibling::span
 - name: weightNet
   singleValue: false
-  xpath: //div[@class='techs']//span[(text()='Peso')]/following-sibling::span
+  xpath: //div[@class='techs']//span[(text()='Peso')]/following-sibling::span | //table[@class="flix-std-specs-table"]//td[(text()='Peso')]/following-sibling::td
 - name: weightGross
   singleValue: false
-  xpath: //div[@class='techs']//span[(text()="Peso dell'imballo")]/following-sibling::span
+  xpath: //div[@class='techs']//span[(text()="Peso dell'imballo")]/following-sibling::span | //table[@class="flix-std-specs-table"]//td[(text()='Peso con Imballaggio')]/following-sibling::td
 - name: videos
   singleValue: false
-  xpath: //iframe[@class="youtube-container"]/@src  
+  xpath: (//iframe[@class="youtube-container"]/@src | //div[@class="flix-std-row"]//iframe//@src) 
 - name: listPrice
   singleValue: true
   type: CURRENCY
@@ -97,9 +100,18 @@ fields:
 - name: promotion
   singleValue: true
   xpath: //div[@class='discount']/span[@class='text']
+- name: variantCount
+  singleValue: true
+  xpath: count(//div[@data-module="productdetail"]//j)
 - name: secondaryImageTotal
   singleValue: true
   xpath: (//div[position()=last()]/@data-slick-index)[1]
 - name: countryOfOrigin
   singleValue: true
   xpath: //div[@class='techs']//span[(text()="Paese di origine")]/following-sibling::span
+- name: energyEfficiency
+  singleValue: true
+  xpath: //div[@class='techs']//span[(text()="Scala di efficienza energetica")]/following-sibling::span
+- name: imageZoomFeaturePresent
+  singleValue: true
+  defaultValue: Yes
