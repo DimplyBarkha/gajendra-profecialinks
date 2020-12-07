@@ -42,7 +42,7 @@ async function implementation (
     } 
     if (data[0].group[i].aggregateRating2) {
       let rating = data[0].group[i].aggregateRating2[0].text;
-      data[0].group[i].aggregateRating2[0].text = rating[0] + ',' + rating[1];
+      data[0].group[i].aggregateRating2[0].text = rating[0] + '.' + rating[1];
     }
   }
   return data;
