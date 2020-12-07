@@ -16,7 +16,8 @@ fields:
     manualSelector: h1#DT_BrandProductName
   - name: price
     singleValue: false
-    manualSelector: span#DT_ProductPrice
+    xpath: //span[@id='DT_ProductPrice'] | //div[@id='price'][not(//span[@id='DT_ProductPrice'])]
+    # manualSelector: span#DT_ProductPrice, div#price
   - name: listPrice
     singleValue: false
     xpath: //small[contains(@id, 'DT_SuggestedRetail') and contains(@data-bind, '$data')]
