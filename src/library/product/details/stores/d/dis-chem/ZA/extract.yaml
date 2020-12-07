@@ -37,7 +37,7 @@ fields:
   - name: description
     description: Product description supplied by website - may be concatenanted from
       multiple places; specifically not the manufacturer description
-    xpath: //meta[@itemprop="description"]/@content
+    xpath: //div[contains(@class,"description")]/div
   - name: descriptionBullets
     description: Number of ul > li tags in the description
     type: NUMBER
