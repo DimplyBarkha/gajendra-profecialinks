@@ -26,6 +26,18 @@ async function implementation (inputs, parameters, context, dependencies) {
   await context.waitForNavigation();
   await new Promise((resolve) => setTimeout(resolve, 3000));
 
+  const isActive = await context.evaluate(async () => {
+    const acceptButton = document.querySelector('button[class="js-confirm-button"]');
+    if (acceptButton) {
+      return acceptButton;
+    }
+    else return null;
+  });
+
+  if (isActive) {
+    await context.click('button[class="js-confirm-button"]');
+  }
+
   await context.evaluate(async function () {
     function addElementToDom (element, id) {
       const div = document.createElement('div');
