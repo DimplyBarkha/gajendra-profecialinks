@@ -19,9 +19,18 @@ const transform = (data, context) => {
     .trim();
   for (const { group } of data) {
     for (const row of group) {
+      const reviewText = [];
+      if (row.pros) {
+        reviewText.push('Advantages: ' + row.pros.map(elm => elm.text).join(' '));
+      }
+      if (row.cons) {
+        reviewText.push('Disadvantages: ' + row.cons.map(elm => elm.text).join(' '));
+      }
       if (row.reviewText) {
-        const text = [...row.reviewText, ...row.pros, ...row.cons].map(elm => elm.text).join(' | ');
-        row.reviewText = [{ text }];
+        reviewText.push('Comment: ' + row.reviewText.map(elm => elm.text).join(' '));
+      }
+      if (reviewText.length) {
+        row.reviewText = [{ text: reviewText.join(' | ') }];
       }
       Object.keys(row).forEach(header => row[header].forEach(el => {
         el.text = clean(el.text);

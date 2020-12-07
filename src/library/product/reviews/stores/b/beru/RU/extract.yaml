@@ -23,13 +23,13 @@ fields:
     xpath: ./td[@class="averageGrade"]
   - name: reviewText
     description: The text of the review
-    xpath: concat('Comment:', ' ',./td[@class="comment"])
+    xpath: ./td[@class="comment"]
   - name: pros
     description: The text of the review
-    xpath: concat('Pros:', ' ',./td[@class="pro"])
+    xpath: ./td[@class="pro"]
   - name: cons
     description: The text of the review
-    xpath: concat('Cons:', ' ',./td[@class="contra"])
+    xpath: ./td[@class="contra"]
   - name: reviewTitle
     singleValue: false
     description: The title of the review
