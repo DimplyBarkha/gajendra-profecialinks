@@ -29,6 +29,44 @@ const transform = (data) => {
             item.text =  Number(item.text);
           });
         }
+        if (row.sku) {
+          row.sku.forEach(item => {
+            item.text = item.text.replace(/\s*/g, '').trim();
+            item.text = item.text.replace('Art.Nr.', '').trim();
+          });
+        }
+        if (row.price) {
+          row.price.forEach(item => {
+            item.text = item.text.replace(/\/.*/,'').trim();
+            
+          });
+        }
+        if (row.listPrice) {
+          row.listPrice.forEach(item => {
+            item.text = item.text.replace(/\/.*/,'').trim();
+            
+          });
+        }
+        if (row.specifications) {
+          var rowItem = ''
+          var rowCounter = 1
+          row.specifications.forEach(item => {
+            if((rowCounter % 2)){
+              rowItem = rowItem +  item.text 
+            } else{
+              rowItem = rowItem +  item.text + ' || '
+            }
+            rowCounter = rowCounter + 1
+          });
+          row.specifications = [{'text':rowItem, 'xpath': row.specifications[0].xpath}]
+          //console.log(row.specifications)
+        }
+        if (row.variantId) {
+          row.variantId.forEach(item => {
+            item.text = item.text.replace(/\s*/g, '').trim();
+            item.text = item.text.replace('Art.Nr.', '').trim();
+          });
+        }
         if (row.description) {
             let description_ar = [];
             row.description.forEach(item => {
@@ -37,15 +75,6 @@ const transform = (data) => {
             if (description_ar.length) {
               row.description = [{ "text": description_ar.join(" || "), 'xpath': row.description[0].xpath }];
             }
-        }
-        if (row.specifications) {
-          let specifications_ar = [];
-          row.description.forEach(item => {
-            specifications_ar.push(item.text);
-          });
-          if (specifications_ar.length) {
-            row.specifications = [{ "text": specifications_ar.join(" || "), 'xpath': row.specifications[0].xpath }];
-          }
         }
         if (row.descriptionBullets) {
           row.descriptionBullets = [{'text':row.descriptionBullets.length, 'xpath':row.descriptionBullets[0].xpath}];              
