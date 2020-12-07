@@ -1,0 +1,37 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+# recordXPath:  //ul[contains(@class,"tile-view-grid__list")]/li
+fields:
+  - name: name
+    singleValue: false
+    xpath: //div[@class='product__content']//div[@class='product__img']/span/img/@alt
+    # regExp: (\'content_name\'\:\s\')([^']+)(',')
+    # regExpReplace: $2
+    # xpath: //div[@class='product__img']/span/img/@alt    
+  - name: id
+    singleValue: false
+    # xpath: //div[@class='product__content']//footer//div[contains(@class,'product__footer-cart')]//button/@data-dd-facebook-pixel-data
+    xpath: //div[contains(@class,'product__footer-cart')]//button/@data-dd-facebook-pixel-data
+    regExp: (\'content_ids\'\:\s\')([^']+)
+    regExpReplace: $2
+    # regExp: (\d{2}\-\d+)    
+  - name: searchUrl
+    singleValue: true
+    xpath: //meta[@property='og:url']/@content
+  - name: productUrl
+    singleValue: false
+    xpath: //a[contains(@class,'product__content-title-sc-link')]//@data-ng-href
+    regExp: (.+)
+    regExpReplace: https://shop.billa.at$1
+  - name: price
+    singleValue: false
+    # xpath: //div[@class='product__content']//footer//div[contains(@class,'product__footer-cart')]//button/@data-dd-facebook-pixel-data
+    xpath: //div[contains(@class,'product__footer-cart')]//button/@data-dd-facebook-pixel-data
+    regExp: (\'value\'\:\s\')([^']+)
+    regExpReplace: $2 €
+  - name: thumbnail
+    singleValue: false
+    description: The URL for the product thumbnail image
+    xpath: //ul[contains(@class,"tile-view-grid__list")]/li//article//div[@class='product__content']//img/@src
