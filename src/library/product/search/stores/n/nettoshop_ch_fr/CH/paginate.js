@@ -15,7 +15,8 @@ module.exports = {
     stopConditionSelectorOrXpath: null,
     resultsDivSelector: null,
     openSearchDefinition: {
-      template: 'https://www.nettoshop.ch/search?text={searchTerms}&q=:relevance&page={page}'
+      pageStartNb: 0,
+      template: 'https://www.nettoshop.ch/search?text={searchTerms}&q=:relevance&page={page}',
     },
     domain: 'nettoshop.ch',
     zipcode: '',

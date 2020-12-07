@@ -1,4 +1,3 @@
-
 module.exports = {
   implements: 'navigation/paginate',
   parameterValues: {
@@ -15,7 +14,8 @@ module.exports = {
     stopConditionSelectorOrXpath: null,
     resultsDivSelector: null,
     openSearchDefinition: {
-      template: 'https://www.nettoshop.ch/fr/search?text={searchTerms}&q=:relevance&page={page}'
+      pageStartNb: 0,
+      template: 'https://www.nettoshop.ch/fr/search?text={searchTerms}&q=:relevance&page={page}',
     },
     domain: 'nettoshop.ch',
     zipcode: '',
