@@ -13,8 +13,20 @@ module.exports = {
     const { transform } = parameters;
     const { productDetails } = dependencies;
 
+    // extracting data for a single product
     const extractSingleProductData = async () => {
-      await context.evaluate(async () => {
+      var previousVariantSkus = await context.evaluate(async () => {
+        return document.querySelector('body').getAttribute('previousvariantsku');
+      });
+      const currentVariantSku = await context.evaluate(async () => {
+        return document.querySelector('span[itemprop="sku"]').getAttribute('content');
+      });
+      if (previousVariantSkus !== null && previousVariantSkus.includes(currentVariantSku)) {
+        return;
+      }
+      await context.evaluate(async (previousVariantSkus) => {
+        previousVariantSkus += document.querySelector('span[itemprop="sku"]').getAttribute('content');
+        document.querySelector('body').setAttribute('previousvariantsku', previousVariantSkus);
         const descriptionElement = document.querySelector(
           'div#overview div[itemprop="description"]',
         );
@@ -34,22 +46,20 @@ module.exports = {
         document
           .querySelector('body')
           .setAttribute('description', descriptionText);
-      });
+      }, previousVariantSkus);
 
       await context.click('div#pdpNavigations a[href="#reviews"]');
       await context.waitForNavigation();
-      const isLoadMoreButton = await context.evaluate(async () => {
-        return document.querySelector('div#wc-read-button') !== null;
+      await context.evaluate(async () => {
+        if (document.querySelector('div#wc-read-button') !== null) {
+          // @ts-ignore
+          document.querySelector('div#wc-read-button').click();
+        };
+        if (document.querySelector('div[class*="ShowMore"] button') !== null) {
+          // @ts-ignore
+          document.querySelector('div[class*="ShowMore"] button').click();
+        }
       });
-      if (isLoadMoreButton) {
-        await context.click('div#wc-read-button');
-      }
-      const isLoadMoreButton2 = await context.evaluate(async () => {
-        return document.querySelector('div[class*="ShowMore"] button') !== null;
-      });
-      if (isLoadMoreButton2) {
-        await context.click('div[class*="ShowMore"] button');
-      }
       await context.waitForNavigation();
       await context.evaluate(async () => {
         const manufacturerDescElements = document.querySelectorAll(
@@ -64,45 +74,94 @@ module.exports = {
           .querySelector('body')
           .setAttribute('manufacturerdescription', manufacturerDescText);
       });
-      // await context.click('img[class*="ProductMediaCarouselStyle"]');
-      await context.extract(productDetails, { transform }, 'MERGE_ROWS');
+      await context.click('img[class*="ProductMediaCarouselStyle"]');
+      await context.waitForNavigation();
+      await context.evaluate(async () => {
+        if (document.querySelector('img[class*="ProductMediaCarouselStyle"]') !== null) {
+          // @ts-ignore
+          document.querySelector('img[class*="ProductMediaCarouselStyle"]').click();
+          await new Promise(resolve => setTimeout(resolve, 2000));
+          const previousImgDataElements = document.querySelectorAll('div[altimagesdata]');
+          previousImgDataElements.forEach(element => element.remove());
+          const altImages = document.querySelectorAll('div#rclModal ul img');
+          altImages.forEach(image => {
+            const imgDataElement = document.createElement('div');
+            imgDataElement.setAttribute('style', 'display: none');
+            document.querySelector('body').append(imgDataElement);
+            imgDataElement.setAttribute('altimagesdata', image.getAttribute('src'));
+          });
+          if (document.querySelector('div#rclModal button[aria-label="close"]') !== null) {
+            // @ts-ignore
+            document.querySelector('div#rclModal button[aria-label="close"]').click();
+          }
+        }
+      });
+      await context.extract(productDetails, { transform });
     };
 
-    // checking if product has variants
+    // iterating through variants
+    const clickAllVariants = async (variantsArr, variantSelector) => {
+      for (let i = 0; i < variantsArr.length; i++) {
+        await context.evaluate((i, variantSelector) => {
+          document
+            // @ts-ignore
+            .querySelectorAll(variantSelector)[i].click();
+        }, i, variantSelector);
+        await context.waitForNavigation();
+        await context.evaluate(async (i) => {
+          if (i === 0) {
+            const firstVariant = document.querySelector('span[itemprop="sku"]').getAttribute('content');
+            const firstVariantAttribute = document.querySelector('body').getAttribute('firstvariant');
+            if (firstVariantAttribute === null) {
+              document.querySelector('body').setAttribute('firstvariant', firstVariant);
+            }
+          }
+        }, i);
+        await extractSingleProductData();
+      }
+    };
+
+    // checking if a product has variants and navigating to them
     const checkIfProductHasVariantsAndClickThem = async () => {
+      const variantCategoryAmount = await context.evaluate(async () => {
+        return document.querySelectorAll('div#multiSkuContainer ul').length;
+      });
       var variantElements = await context.evaluate(async () => {
         var variants = [];
         document
-          .querySelectorAll('div#multiSkuContainer ul li')
+          .querySelectorAll('div#multiSkuContainer > div:last-of-type ul li')
           .forEach((variant) => {
             variants.push(variant.innerHTML);
           });
         return variants;
       });
-      if (variantElements && variantElements.length > 1) {
-        for (let i = 0; i < variantElements.length; i++) {
-          // if (variantElements[i + 1] === undefined) {
-          //   return await context.extract(productDetails, { transform }, 'MERGE_ROWS');
-          // }
-          // await context.click(variantElements[i]);
-          await context.evaluate((i) => {
+      if (variantCategoryAmount > 1) {
+        const firstCategoryVariants = await context.evaluate(async () => {
+          var firstVariants = [];
+          document
+            .querySelectorAll('div#multiSkuContainer > div:first-of-type ul li')
+            .forEach((variant) => {
+              firstVariants.push(variant.innerHTML);
+            });
+          return firstVariants;
+        });
+        for (let j = 0; j < firstCategoryVariants.length; j++) {
+          await context.evaluate((j) => {
             document
               // @ts-ignore
-              .querySelectorAll('div#multiSkuContainer ul li button')[i].click();
-            // i++;
-          }, i);
-
-          // wait for extraction
-          await new Promise((resolve) => setTimeout(resolve, 3000));
+              .querySelectorAll('div#multiSkuContainer > div:first-of-type ul li button')[j].click();
+          }, j);
           await context.waitForNavigation();
-          await extractSingleProductData();
+          await clickAllVariants(variantElements, 'div#multiSkuContainer > div:last-of-type ul li button');
         }
+      } else if (variantCategoryAmount === 1) {
+        await clickAllVariants(variantElements, 'div#multiSkuContainer > div:last-of-type ul li button');
       } else {
         await extractSingleProductData();
       }
     };
 
-    // checking if extractor is on a collection site and if so redirecting it to each product to extract data
+    // checking if extractor is on a collection page and if so redirecting it to each product to extract data
     const isCollectionTabPresent = await context.evaluate(async () => {
       const collectionTabXPath = '//div[@id="pdpNavigations"]//a[contains(text(), "Collection Items")]';
       return (
@@ -145,14 +204,12 @@ module.exports = {
           });
         return links;
       });
-      collectionItemLinks.forEach(async (collectionProduct) => {
-        await context.goto(collectionProduct);
+      for (let i = 0; i < collectionItemLinks.length; i++) {
+        await context.goto(collectionItemLinks[i]);
         await checkIfProductHasVariantsAndClickThem();
-      });
+      }
     } else {
       await checkIfProductHasVariantsAndClickThem();
     }
-
-    // return await context.extract(productDetails, { transform }, 'MERGE_ROWS');
   },
 };
