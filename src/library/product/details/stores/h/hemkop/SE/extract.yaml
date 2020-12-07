@@ -42,3 +42,59 @@ fields:
     xpath: //ax-promotion-text
   - name: caloriesPerServing
     xpath: //div[contains(@class, 'nutrition-facts')]//td[contains(., 'energi')]/following-sibling::td[contains(., 'kilokalori')]
+  - name: totalFatPerServing
+    xpath: //div[contains(@class, 'nutrition-facts')]//td[contains(., 'fett')]/following-sibling::td
+    regExp: ((\d+)?.?(\d+)?)\s?([a-z]+)?
+    regExpReplace: $1
+  - name: totalFatPerServingUom
+    xpath: //div[contains(@class, 'nutrition-facts')]//td[contains(., 'fett') and not(contains(., 'varav mättat'))]/following-sibling::td
+    regExp: ((\d+)?.?(\d+)?)\s?([a-z]+)?
+    regExpReplace: $4
+  - name: saturatedFatPerServing
+    xpath: //div[contains(@class, 'nutrition-facts')]//td[contains(., 'varav mättat')]/following-sibling::td
+    regExp: ((\d+)?.?(\d+)?)\s?([a-z]+)?
+    regExpReplace: $1
+  - name: saturatedFatPerServingUom
+    xpath: //div[contains(@class, 'nutrition-facts')]//td[contains(., 'varav mättat')]/following-sibling::td
+    regExp: ((\d+)?.?(\d+)?)\s?([a-z]+)?
+    regExpReplace: $4
+  - name: totalCarbPerServing
+    xpath: //div[contains(@class, 'nutrition-facts')]//td[contains(., 'kolhydrat')]/following-sibling::td
+    regExp: ((\d+)?.?(\d+)?)\s?([a-z]+)?
+    regExpReplace: $1
+  - name: totalCarbPerServingUom
+    xpath: //div[contains(@class, 'nutrition-facts')]//td[contains(., 'kolhydrat')]/following-sibling::td
+    regExp: ((\d+)?.?(\d+)?)\s?([a-z]+)?
+    regExpReplace: $4
+  - name: totalSugarsPerServing
+    xpath: //div[contains(@class, 'nutrition-facts')]//td[contains(., 'varav sockerarter')]/following-sibling::td
+    regExp: ((\d+)?.?(\d+)?)\s?([a-z]+)?
+    regExpReplace: $1
+  - name: totalSugarsPerServingUom
+    xpath: //div[contains(@class, 'nutrition-facts')]//td[contains(., 'varav sockerarter')]/following-sibling::td
+    regExp: ((\d+)?.?(\d+)?)\s?([a-z]+)?
+    regExpReplace: $4
+  - name: dietaryFibrePerServing
+    xpath: //div[contains(@class, 'nutrition-facts')]//td[contains(., 'fiber')]/following-sibling::td
+    regExp: ((\d+)?.?(\d+)?)\s?([a-z]+)?
+    regExpReplace: $1
+  - name: dietaryFibrePerServingUom
+    xpath: //div[contains(@class, 'nutrition-facts')]//td[contains(., 'fiber')]/following-sibling::td
+    regExp: ((\d+)?.?(\d+)?)\s?([a-z]+)?
+    regExpReplace: $4
+  - name: proteinPerServing
+    xpath: //div[contains(@class, 'nutrition-facts')]//td[contains(., 'protein')]/following-sibling::td
+    regExp: ((\d+)?.?(\d+)?)\s?([a-z]+)?
+    regExpReplace: $1
+  - name: proteinPerServingUom
+    xpath: //div[contains(@class, 'nutrition-facts')]//td[contains(., 'protein')]/following-sibling::td
+    regExp: ((\d+)?.?(\d+)?)\s?([a-z]+)?
+    regExpReplace: $4
+  - name: proteinPerServing
+    xpath: //div[contains(@class, 'nutrition-facts')]//td[contains(., 'salt')]/following-sibling::td
+    regExp: ((\d+)?.?(\d+)?)\s?([a-z]+)?
+    regExpReplace: $1
+  - name: proteinPerServingUom
+    xpath: //div[contains(@class, 'nutrition-facts')]//td[contains(., 'salt')]/following-sibling::td
+    regExp: ((\d+)?.?(\d+)?)\s?([a-z]+)?
+    regExpReplace: $4
