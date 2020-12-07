@@ -1,35 +1,32 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: null
+recordXPath: //h1[@class="product-name"]//li
 fields:
   - name: image
-    xpath: //div[contains(@class,"carousel-item")]//img/@src
+    xpath: //@mainimage
   - name: imageAlt
-    xpath: //div[contains(@class,"carousel-item")]//img/@alt
+    xpath: //@imagealt
   - name: alternateImages
-    xpath: //div[contains(@class,"pdp-thumbnails")]//img[not(contains(@class,"main-img"))]/@data-largeurl
+    xpath: ancestor::html//div[contains(@class,"pdp-thumbnails")]//img[not(contains(@class,"main-img"))]/@data-largeurl
   - name: metaKeywords
-    xpath: //meta[@name="keywords"]/@content
+    xpath: ancestor::html//meta[@name="keywords"]/@content
   - name: category
-    xpath: //ol[@class="breadcrumb"]//li[position()>1]
+    xpath: ancestor::html//ol[@class="breadcrumb"]//li[position()>1]
   - name: nameExtended
-    xpath: //h1[contains(@class,"product-name")]
+    xpath: //@productname
   - name: listPrice
-    xpath: //div[contains(@class,"product-info-container")]//div[@class="prices"]//span[contains(@class,"strikethrough")]
+    xpath: //@listprice
   - name: price
-    xpath: //div[contains(@class,"product-info-container")]//div[@class="prices"]//span[contains(@class,"sale")]
+    xpath: //@price
   - name: availabilityText
-    xpath: //button[contains(@class,"add-to-cart")]
-    regExp: (.+)
-    regExpReplace: In Stock
-    defaultValue: Out of Stock
+    xpath: //@availability
   - name: description
-    xpath: //div[@id="productInfo"]
+    xpath: ancestor::html//div[@id="productInfo"]
   - name: descriptionBullets
     xpath: count(//div[@id="productInfo"]//ul//li)
   - name: brandText
-    xpath: //div[contains(@class," product-wrapper")]/@data-view-data
+    xpath: //@brand
   - name: secondaryImageTotal
     xpath: count(//div[contains(@class,"pdp-thumbnails")]//img[not(contains(@class,"main-img"))])
   - name: quantity
@@ -37,16 +34,14 @@ fields:
   - name: weightGross
   - name: gtin
   - name: sku
-    xpath: //div[contains(@class," product-wrapper")]/@data-pid
-    regExp: (\d+)
-    regExpReplace: $1
+    xpath: //@sku
   - name: variantId
-    xpath: //div[contains(@class," product-wrapper")]/@data-pid
+    xpath: ancestor::html//div[contains(@class," product-wrapper")]/@data-pid
   - name: mpc
   - name: packSize
   - name: legalDisclaimer
   - name: directions
-    xpath: //div[@id="howToUse"]
+    xpath: ancestor::html//div[@id="howToUse"]
   - name: warnings
     xpath: //div[@id="productInfo"]//h2[contains(.,"Cautions:")]/following-sibling::p[1]
   - name: ratingCount
@@ -59,22 +54,24 @@ fields:
   - name: shippingDimensions
   - name: shippingWeight
   - name: variantCount
+    xpath: //@variantcount
   - name: color
   - name: colorCode
-  - name: manufacturerDescription
+  - name: manufacturer
+    xpath: //manufacturer
   - name: manufacturerImages
   - name: videos
   - name: name
-    xpath: //h1[contains(@class,"product-name")]
+    xpath: ancestor::html//h1[contains(@class,"product-name")]
   - name: coupon
   - name: brandLink
   - name: ingredientsList
-    xpath: //div[@id="ingredients"]
+    xpath: ancestor::html//div[@id="ingredients"]
   - name: dietaryInformation
   - name: specifications
   - name: warranty
   - name: storage
-    xpath: //div[@id="howToUse"]//h2[contains(.,"Storage:")]/following-sibling::p[1]
+    xpath: ancestor::html//div[@id="howToUse"]//h2[contains(.,"Storage:")]/following-sibling::p[1]
   - name: countryOfOrigin
   - name: allergyAdvice
   - name: recyclingInformation
@@ -86,10 +83,13 @@ fields:
   - name: promotion
   - name: alcoholContent
   - name: variantInformation
+    xpath: //@variantinformation
   - name: firstVariant
+    xpath: //@firstvariant
   - name: variants
+    xpath: //@variants
   - name: additionalDescBulletInfo
-    xpath: //div[@id="productInfo"]//ul//li
+    xpath: ancestor::html//div[@id="productInfo"]//ul//li
   - name: energyEfficiency
   - name: technicalInformationPdfPresent
     defaultValue: No
