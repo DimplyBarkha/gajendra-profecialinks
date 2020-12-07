@@ -5,7 +5,7 @@ module.exports = {
     country: 'SE',
     store: 'hemkop',
     domain: 'hemkop.de',
-    loadedSelector: null,
+    loadedSelector: 'div.product-image',
     noResultsXPath: null,
     zipcode: '',
   },
