@@ -4,7 +4,7 @@ module.exports = {
   parameterValues: {
     domain: 'fany.cz',
     prefix: null,
-    url: 'https://www.fanymarket.cz/vyhledavani/?search={id}',
+    url: 'https://www.fanymarket.cz/vyhledavani/?search={searchTerms}',
     country: 'CZ',
     store: 'fany',
     zipcode: '',
