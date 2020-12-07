@@ -59,9 +59,15 @@ module.exports = {
 
       const descripNodeList = document.querySelectorAll('div#description p')
         ? document.querySelectorAll('div#description p') : [];
+      const descriptionFromMeta = document.querySelector('meta[property="og:description"]')
+        ? document.querySelector('meta[property="og:description"]') : '';
       // @ts-ignore
-      const descriptionText = [...descripNodeList].map(e => e.innerText).join(' || ');
-      addElementToDocument('descriptionText', descriptionText, '#');
+      if (descripNodeList !== undefined && descripNodeList !== null && descripNodeList.length !== 0) {
+        // @ts-ignore
+        const descriptionText = [...descripNodeList].map(e => e.innerText).join(' ');
+        addElementToDocument('descriptionText', descriptionText, '#');
+      // @ts-ignore
+      } else addElementToDocument('descriptionText', descriptionFromMeta.getAttribute('content'), '#');
 
       const shippingNodes = document.querySelectorAll('div[class*="ship"] div[class*="zone-txt"]')
         ? document.querySelectorAll('div[class*="ship"] div[class*="zone-txt"]') : [];
@@ -81,12 +87,53 @@ module.exports = {
         ? document.querySelector('div[class*="prdct__logo"] a, div[class*="prdct__banner"] a').href : '';
       addElementToDocument('brandLink', '', brandLink);
     });
-    await new Promise((resolve, reject) => setTimeout(resolve, 2000));
+
+    await context.evaluate(async function () {
+      const openDirections = document.querySelector('a[href="#conseils"]');
+      // @ts-ignore
+      if (openDirections) {
+        // @ts-ignore
+        openDirections.click();
+        await new Promise((resolve, reject) => setTimeout(resolve, 4000));
+        const directions = document.querySelector('div#conseils >p');
+        // @ts-ignore
+        if (directions !== undefined && directions !== null) openDirections.setAttribute('directions', directions.innerText);
+      }
+    });
+
     await context.evaluate(async function () {
       const openIngredients = document.querySelector('a[href="#ingredients"]');
       // @ts-ignore
-      if (openIngredients) openIngredients.click();
+      if (openIngredients !== undefined && openIngredients !== null) openIngredients.click();
     });
-    await context.extract(productDetails, { transform });
+    // await context.extract(productDetails, { transform });
+    var dataRef = await context.extract(productDetails, { transform });
+
+    dataRef[0].group.forEach((row) => {
+      if (row.brandText) {
+        row.brandText.forEach(item => {
+          item.text = item.text ? item.text.split('|').shift().toUpperCase() : '';
+        });
+      }
+      if (row.manufacturer) {
+        row.manufacturer.forEach(item => {
+          item.text = item.text ? item.text.split('|').shift().toUpperCase() : '';
+        });
+      }
+      if (row.ratingCount) {
+        row.ratingCount.forEach(item => {
+          if (item.text.includes('avis ')) {
+            item.text = item.text ? item.text.substring(item.text.lastIndexOf('sur') + 4, item.text.lastIndexOf('avis')) : '';
+          } else item.text = item.text ? item.text.match(/\d+/gm) : '';
+        });
+      }
+      if (row.aggregateRating) {
+        row.aggregateRating.forEach(item => {
+          item.text = item.text ? item.text.replace('.', ',') : '';
+        });
+      }
+    });
+
+    return dataRef;
   },
 };
