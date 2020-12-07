@@ -8,9 +8,9 @@ fields:
     singleValue: true
     description: URL of the main product image
     xpath: (//div[@class="pd__left skipto-content"]/img/@src)[1]
-  - name: imageAlt
-    singleValue: true
-    description: Alt text of the main product image
+  - name: alternateImages
+    singleValue: false
+    description: Other product images (not in manufacturer description) 
     xpath: //img[@class="pd__additional__image pd__additional__image__active"]/@srcset
   - name: category
     singleValue: false
@@ -76,4 +76,10 @@ fields:
     regExpReplace: In Stock
     # defaultValue: Out of Stock
     xpath: //html//div[@id='.Text']
- 
+  - name: brandText
+    singleValue: true
+    description: Product brand shown - this may actually NOT be just a brand name,
+      e.g. "Visit the Gillette Store"
+    xpath: //div[@class="col-md-6 col-xs-12 col-sm-6 pdp-info-main"]/strong/text()
+    
+
