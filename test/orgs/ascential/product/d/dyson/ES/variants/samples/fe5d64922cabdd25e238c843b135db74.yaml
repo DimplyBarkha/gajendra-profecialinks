@@ -1,0 +1,22 @@
+input:
+  _url: http://dyson.es
+  URL: https://www.dyson.es/cuidado-del-aire/humidificador-purificador/dyson-pure-humidify-cool/blanco-plata
+extractions:
+  - html: https://workbench.import.io/html/run=f35100eb-4381-44b5-b249-f97925dae084/task=ca185131-f8ef-4f09-a6e2-e7385196969f/21fcca26-e503-4aa4-84d7-642815ef3de3.html
+    extractionConfigId: product/details/stores/d/dyson/ES/variantsExtract
+    data:
+      - group:
+          - variantId:
+              - text: 275413-01-White-Silver-
+                xpath: /html/body/ol[1]/li[1]/@variant_id
+            variantUrl:
+              - text: https://www.dyson.es/cuidado-del-aire/humidificador-purificador/dyson-pure-humidify-cool/blanco-plata
+                xpath: /html/body/ol[1]/li[1]/@variant_url
+          - variantId:
+              - text: 275443-01-Black-Nickel-
+                xpath: /html/body/ol[1]/li[2]/@variant_id
+            variantUrl:
+              - text: https://www.dyson.dk/cuidado-del-aire/humidificador-purificador/dyson-pure-humidify-cool/negro-niquel
+                xpath: /html/body/ol[1]/li[2]/@variant_url
+        xpath: /html
+    timestamp: 1607349324094

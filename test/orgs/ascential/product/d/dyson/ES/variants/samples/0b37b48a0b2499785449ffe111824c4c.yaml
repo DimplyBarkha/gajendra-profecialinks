@@ -1,0 +1,22 @@
+input:
+  _url: http://dyson.es
+  URL: https://www.dyson.es/cuidado-del-cabello/plancha-de-pelo-dyson-corrale/negro-niquel-fucsia
+extractions:
+  - html: https://workbench.import.io/html/run=f35100eb-4381-44b5-b249-f97925dae084/task=c4922ed1-9bc3-4148-8045-f98d44839ff5/a08f75eb-ff35-40b5-8a8b-43152b94eabf.html
+    extractionConfigId: product/details/stores/d/dyson/ES/variantsExtract
+    data:
+      - group:
+          - variantId:
+              - text: 322952-01-Black-Nickel-Fuchsia-
+                xpath: /html/body/ol[1]/li[1]/@variant_id
+            variantUrl:
+              - text: https://www.dyson.es/cuidado-del-cabello/plancha-de-pelo-dyson-corrale/negro-niquel-fucsia
+                xpath: /html/body/ol[1]/li[1]/@variant_url
+          - variantId:
+              - text: 322961-01-Purple-Black-
+                xpath: /html/body/ol[1]/li[2]/@variant_id
+            variantUrl:
+              - text: https://www.dyson.dk/cuidado-del-cabello/plancha-de-pelo-dyson-corrale/morado-negro
+                xpath: /html/body/ol[1]/li[2]/@variant_url
+        xpath: /html
+    timestamp: 1607349326574

@@ -1,0 +1,168 @@
+input:
+  _url: http://dyson.es
+  URL: https://www.dyson.es/aspiradoras/robots-aspiradores/dyson-360-heurist/dyson-360-heurist
+extractions:
+  - html: https://workbench.import.io/html/run=0ec91eb8-8a84-43dc-adce-e634ad2de242/task=6d66cc19-1d1c-4326-81ce-00ea9dcc3aa9/f240bfe2-ba01-4345-9851-5f8133fa25b3.html
+    extractionConfigId: product/details/stores/d/dyson/ES/extract
+    data:
+      - group:
+          - image:
+              - text: https://dyson-h.assetsadobe2.com/is/image/content/dam/dyson/images/products/primary/288218-01.png?$responsive$&cropPathE=desktop&fit=stretch,1&wid=960
+                xpath: /html/body/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/img[1]/@src
+            imageAlt:
+              - text: Robot aspirador Dyson 360 Heurist
+                xpath: /html/body/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/img[1]/@alt
+            alternateImages:
+              - text: https://dyson-h.assetsadobe2.com/is/image/content/dam/dyson/images/products/gallery/eu-ch/floorcare/robot-vacuums/360-heurist/288218-01/288218-01-gallery-img-1.jpg?cropPathE=desktop&fit=stretch,1&wid=576
+                xpath: /html/body/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[2]/div[1]/img[1]/@src
+              - text: https://dyson-h.assetsadobe2.com/is/image/content/dam/dyson/images/products/gallery/eu-ch/floorcare/robot-vacuums/360-heurist/288218-01/288218-01-gallery-img-2.jpg?cropPathE=desktop&fit=stretch,1&wid=576
+                xpath: /html/body/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[3]/div[1]/img[1]/@src
+              - text: https://dyson-h.assetsadobe2.com/is/image/content/dam/dyson/images/products/gallery/eu-ch/floorcare/robot-vacuums/360-heurist/288218-01/288218-01-gallery-img-3.jpg?cropPathE=desktop&fit=stretch,1&wid=576
+                xpath: /html/body/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[4]/div[1]/img[1]/@src
+              - text: https://dyson-h.assetsadobe2.com/is/image/content/dam/dyson/images/products/gallery/eu-ch/floorcare/robot-vacuums/360-heurist/288218-01/288218-01-gallery-img-4.jpg?cropPathE=desktop&fit=stretch,1&wid=576
+                xpath: /html/body/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[5]/div[1]/img[1]/@src
+              - text: https://dyson-h.assetsadobe2.com/is/image/content/dam/dyson/images/products/gallery/eu-ch/floorcare/robot-vacuums/360-heurist/288218-01/288218-01-gallery-img-5.jpg?cropPathE=desktop&fit=stretch,1&wid=576
+                xpath: /html/body/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[6]/div[1]/img[1]/@src
+              - text: https://dyson-h.assetsadobe2.com/is/image/content/dam/dyson/images/products/gallery/eu-ch/floorcare/robot-vacuums/360-heurist/288218-01/288218-01-gallery-img-6.jpg?cropPathE=desktop&fit=stretch,1&wid=576
+                xpath: /html/body/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[7]/div[1]/img[1]/@src
+            description:
+              - text: >-
+                  Robot aspirador Dyson 360 Heurist™
+                   
+                  El robot aspirador Dyson Heurist™. Aprende y se adapta a tu hogar.
+                   
+                  3 veces más potencia de succión que cualquier otro robot aspirador.¹
+                xpath: /html/body/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]
+            ratingCount:
+              - text: "11"
+                xpath: /html/body/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/a[1]/p[1]
+            aggregateRatingText:
+              - text: "3.9"
+                xpath: /html/body/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/a[1]/@aria-label
+            aggregateRating:
+              - text: "3.9"
+                xpath: /html/body/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/a[1]/@aria-label
+            name:
+              - text: Robot aspirador Dyson 360 Heurist™
+                xpath: /html/body/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/h1[1]
+            shippingInfo:
+              - text: |-
+                  Envío gratuito en 24/72 h 
+                  Para pedidos realizados antes de las 17.00 h
+                xpath: /html/body/main[1]/div[2]/div[2]/div[1]/div[1]/section[1]/div[1]/div[1]/ul[1]/li[2]
+            warranty:
+              - text: |-
+                  Garantía de Dyson 
+                  2 años de garantía
+                xpath: /html/body/main[1]/div[2]/div[2]/div[1]/div[1]/section[1]/div[1]/div[1]/ul[1]/li[3]
+            specifications:
+              - text: |-
+                  Altura
+                   
+                   120 mm 
+                   
+                   
+                   
+                  Longitud
+                   
+                   240 mm 
+                   
+                   
+                   
+                  Ancho
+                   
+                   230 mm
+                xpath: /html/body/main[1]/div[2]/div[9]/section[1]/div[1]/div[1]/ul[1]
+            weightNet:
+              - text: 2,51 kg
+                xpath: /html/body/main[1]/div[2]/div[9]/section[1]/div[1]/ul[1]/li[1]/p[2]
+            category:
+              - text: Aspiradoras
+                xpath: /html/body/nav[1]/div[1]/div[1]/div[1]/div[1]/nav[1]/div[2]/div[1]/div[1]/nav[1]/ol[1]/li[2]/span[1]/a[1]/span[1]
+              - text: Robot aspirador
+                xpath: /html/body/nav[1]/div[1]/div[1]/div[1]/div[1]/nav[1]/div[2]/div[1]/div[1]/nav[1]/ol[1]/li[3]/span[1]/a[1]/span[1]
+              - text: Robot aspirador Dyson 360 Heurist™
+                xpath: /html/body/nav[1]/div[1]/div[1]/div[1]/div[1]/nav[1]/div[2]/div[1]/div[1]/nav[1]/ol[1]/li[4]/span[1]/a[1]/span[1]
+            productUrl:
+              - text: https://www.dyson.es/aspiradoras/robots-aspiradores/dyson-360-heurist/dyson-360-heurist
+                xpath: /html/body/div[7]
+            brandText:
+              - text: Dyson
+                xpath: /html/body/div[8]
+            sku:
+              - text: 288218-01
+                xpath: /html/body/div[9]
+            variantId:
+              - text: 288218-01
+                xpath: /html/body/div[9]
+            mpc:
+              - text: 288218-01
+                xpath: /html/body/div[9]
+            color:
+              - text: Blue-Nickel
+                xpath: /html/body/div[10]
+            price:
+              - text: 999.00 €
+                xpath: /html/body/div[12]
+            nameExtended:
+              - text: Robot aspirador Dyson 360 Heurist™
+                xpath: /html/body/div[13]
+            productOtherInformation:
+              - text: Peso 2,51 kg Tiempo de carga 165 minutos Autonomía (modo silencioso) 75
+                  minutos Tecnología ciclón Radial Root Cyclone™ Filtración
+                  Washable lifetime filter 2.4GHz and 5GHz Wi-Fi
+                xpath: /html/body/div[14]
+            manufacturerDescription:
+              - text: El robot aspirador Dyson 360 Heurist™ cuenta con una potente succión para
+                  limpiar tu hogar. Su sistema de visión inteligente le ayuda a
+                  moverse, por lo que el robot siempre sabe dónde se encuentra.
+                  Sus sensores de posicionamiento miden las distancias para
+                  ayudarle a trazar un mapa de tu hogar y comprobar
+                  constantemente su posición. Gracias al cepillo de cobertura
+                  completa, limpia allá por donde pasa. Como se conecta a la
+                  aplicación Dyson Link, te ofrece control desde donde quiera
+                  que estés. Elige la aspiradora más adecuada para ti
+                xpath: /html/body/div[15]
+            manufacturerImages:
+              - text: https://dyson-h.assetsadobe2.com/is/image/content/dam/dyson/products/robot-vacuums/heurist/variant/eu/PSJ_EU_PDP_Feature_01.jpg?cropPathE=desktop&fit=stretch,1&fmt=pjpeg&wid=634
+                xpath: /html/body/div[16]/ul[1]/li[1]
+              - text: https://dyson-h.assetsadobe2.com/is/image/content/dam/dyson/products/robot-vacuums/heurist/variant/eu/PSJ_EU_PDP_Feature_02.jpg?cropPathE=desktop&fit=stretch,1&fmt=pjpeg&wid=634
+                xpath: /html/body/div[16]/ul[1]/li[2]
+              - text: https://dyson-h.assetsadobe2.com/is/image/content/dam/dyson/products/robot-vacuums/heurist/variant/eu/PSJ_EU_PDP_Feature_03.jpg?cropPathE=desktop&fit=stretch,1&fmt=pjpeg&wid=634
+                xpath: /html/body/div[16]/ul[1]/li[3]
+              - text: https://dyson-h.assetsadobe2.com/is/image/content/dam/dyson/products/robot-vacuums/heurist/variant/eu/PSJ_EU_PDP_Feature_04.jpg?cropPathE=desktop&fit=stretch,1&fmt=pjpeg&wid=634
+                xpath: /html/body/div[16]/ul[1]/li[4]
+              - text: https://dyson-h.assetsadobe2.com/is/image/content/dam/dyson/products/robot-vacuums/heurist/variant/eu/PSJ_EU_PDP_Feature_05.jpg?cropPathE=desktop&fit=stretch,1&fmt=pjpeg&wid=634
+                xpath: /html/body/div[16]/ul[1]/li[5]
+              - text: https://dyson-h.assetsadobe2.com/is/image/content/dam/dyson/products/robot-vacuums/heurist/variant/eu/PSJ_EU_PDP_Feature_06.jpg?cropPathE=desktop&fit=stretch,1&fmt=pjpeg&wid=634
+                xpath: /html/body/div[16]/ul[1]/li[6]
+              - text: https://dyson-h.assetsadobe2.com/is/image/content/dam/dyson/products/robot-vacuums/heurist/variant/eu/PSJ_EU_PDP_Feature_07.jpg?cropPathE=desktop&fit=stretch,1&fmt=pjpeg&wid=634
+                xpath: /html/body/div[16]/ul[1]/li[7]
+              - text: https://dyson-h.assetsadobe2.com/is/image/content/dam/dyson/products/robot-vacuums/heurist/variant/eu/PSJ_EU_PDP_Feature_08.jpg?cropPathE=desktop&fit=stretch,1&fmt=pjpeg&wid=634
+                xpath: /html/body/div[16]/ul[1]/li[8]
+              - text: https://dyson-h.assetsadobe2.com/is/image/content/dam/dyson/products/robot-vacuums/heurist/variant/eu/PSJ_EU_PDP_Feature_09.jpg?cropPathE=desktop&fit=stretch,1&fmt=pjpeg&wid=634
+                xpath: /html/body/div[16]/ul[1]/li[9]
+              - text: https://dyson-h.assetsadobe2.com/is/image/content/dam/dyson/products/robot-vacuums/heurist/variant/eu/PSJ_EU_PDP_Feature_10.jpg?cropPathE=desktop&fit=stretch,1&fmt=pjpeg&wid=634
+                xpath: /html/body/div[16]/ul[1]/li[10]
+            videos:
+              - text: www.dyson.es/content/dam/dyson/video/products/primary/288218-01.mp4
+                xpath: /html/body/div[18]/ul[1]/li[1]
+            availabilityText:
+              - text: In Stock
+                xpath: /html/body/div[19]
+            manufacturer:
+              - text: Dyson
+            descriptionBullets:
+              - text: "0"
+            variantCount:
+              - text: "0"
+            technicalInformationPdfPresent:
+              - text: "false"
+            customerServiceAvailability:
+              - text: "true"
+            termsAndConditions:
+              - text: "true"
+            privacyPolicy:
+              - text: "true"
+        xpath: /html
+    timestamp: 1607349962883

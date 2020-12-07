@@ -1,0 +1,16 @@
+input:
+  _url: http://dyson.es
+  URL: https://www.dyson.es/aspiradoras/robots-aspiradores/dyson-360-heurist/dyson-360-heurist
+extractions:
+  - html: https://workbench.import.io/html/run=f35100eb-4381-44b5-b249-f97925dae084/task=4c43aeaa-ae9f-4232-9448-27227e6575df/24338ef8-c42f-4209-830e-6edf14007b4a.html
+    extractionConfigId: product/details/stores/d/dyson/ES/variantsExtract
+    data:
+      - group:
+          - variantId:
+              - text: 288218-01
+                xpath: /html/body/ol[1]/li[1]/@variant_id
+            variantUrl:
+              - text: https://www.dyson.es/aspiradoras/robots-aspiradores/dyson-360-heurist/dyson-360-heurist
+                xpath: /html/body/ol[1]/li[1]/@variant_url
+        xpath: /html
+    timestamp: 1607349324000

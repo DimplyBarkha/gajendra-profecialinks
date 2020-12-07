@@ -1,0 +1,16 @@
+input:
+  _url: http://dyson.es
+  URL: https://www.dyson.es/aspiradoras/con-cable/dyson-cinetic-big-ball/multi-floor-2
+extractions:
+  - html: https://workbench.import.io/html/run=f35100eb-4381-44b5-b249-f97925dae084/task=7db1612e-b62c-4bcb-b9f7-52e618018fcf/e59f4ea4-3563-4494-9e77-5fcdeb76e9cf.html
+    extractionConfigId: product/details/stores/d/dyson/ES/variantsExtract
+    data:
+      - group:
+          - variantId:
+              - text: 230278-01
+                xpath: /html/body/ol[1]/li[1]/@variant_id
+            variantUrl:
+              - text: https://www.dyson.es/aspiradoras/con-cable/dyson-cinetic-big-ball/multi-floor-2
+                xpath: /html/body/ol[1]/li[1]/@variant_url
+        xpath: /html
+    timestamp: 1607349322038
