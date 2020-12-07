@@ -41,9 +41,18 @@ module.exports = {
 
     popUps();
 
+    try {
+      await context.waitForSelector('div[class^="RichProductDescription"] button', { timeout: 45000 });
+    } catch (error) {
+      console.log('Not loading manufacturer button');
+    }
+
     const manufDescButton = await context.evaluate(async function () {
       return !!document.querySelector('div[class^="RichProductDescription"] button');
     });
+
+    console.log('manufDescButton')
+    console.log(manufDescButton)
 
     const expandDetailsButton = await context.evaluate(async function () {
       return !!document.querySelector('div[class^="ProductFeatures"] a[class*="ExpandLink"]');
@@ -66,15 +75,39 @@ module.exports = {
     if (manufDescButton) {
       let content = null;
       let image = null;
+      let inBoxText = null;
+      let inBoxUrls = null;
+      let comparisionText = null;
       await context.click('div[class^="RichProductDescription"] button');
+      // await context.evaluate(async function () {
+      //   document.querySelector('div[class^="RichProductDescription"] button').click();
+      // });
+
       try {
-        await context.waitForSelector('iframe#loadbeeTabContent', { timeout: 55000 });
+        await context.waitForSelector('iframe[id^="loadbee"]', { timeout: 55000 });
         const iframeURLLink = await context.evaluate(async function () {
-          return document.querySelector('iframe#loadbeeTabContent').getAttribute('src');
+          return document.querySelector('iframe[id^="loadbee"]').getAttribute('src');
         });
-        const obj = await sharedhelpers.goToiFrameLink(iframeURLLink, link, 'body img', 'data-src');
+        const obj = await sharedhelpers.goToiFrameLink(iframeURLLink, link, 'body img', 'data-src', '.in-the-box', '.compare-headline');
         image = obj.image;
         content = obj.content;
+        inBoxText = obj.inBoxText;
+        inBoxUrls = obj.inBoxUrls;
+        comparisionText = obj.comparisionText;
+
+        console.log('object');
+        console.log(obj);
+
+        if (inBoxUrls.length) {
+          inBoxUrls.forEach((element) => {
+            sharedhelpers.addHiddenInfo('ii_inBoxUrls', element);
+          });
+        }
+        sharedhelpers.addHiddenInfo('ii_comparisionText', comparisionText);
+        console.log('inBoxText');
+        console.log(inBoxText);
+        console.log(inBoxTeext);
+        sharedhelpers.addHiddenInfo('ii_inBoxText', inBoxText);
 
         await sharedhelpers.addHiddenInfo('manufContent', content);
         await sharedhelpers.addHiddenInfo('manufImg', image.join(' || '));
