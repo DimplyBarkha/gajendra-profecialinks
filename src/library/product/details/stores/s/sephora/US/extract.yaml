@@ -1,0 +1,71 @@
+singleRecord: true
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: name
+    xpath: //h1[contains(@data-comp,"DisplayName")]/span
+  - name: image
+    singleValue: true
+    description: URL of the main product image
+    xpath: (//div[contains(@data-comp, "Carousel")]//img/@src)[1]
+  - name: aggregateRating
+    singleValue: true
+    description: The stated aggregate rating normalized to be out of 5
+    xpath: (//div[@aria-label])[1]
+  - name: manufacturer
+    singleValue: true
+    description: Product manufacturer
+    xpath: //h1[contains(@data-comp, "DisplayName")]/a
+  - name: ratingCount
+    singleValue: true
+    description: The number of ratings
+    type: NUMBER
+    xpath: //span[contains(@data-at, "number_of_reviews")]
+  - name: nameExtended
+    singleValue: false
+    description: The product name
+    xpath: //h1[contains(@data-comp,"DisplayName")]/span
+  - name: category
+    xpath: //ol/li/a
+  - name: ingredientsList
+    singleValue: false
+    xpath: //div[@id='tabpanel2']
+  - name: price
+    singleValue: true
+    xpath: //div[contains(@data-comp,"Price Box")]/span[last()]
+  - name: description
+    singleValue: true
+    xpath: //div[@id="tabpanel0"]
+  - name: brandText
+    singleValue: false
+    xpath: //h1[contains(@data-comp, "DisplayName")]/a
+  - name: brandLink
+    xpath: //h1[contains(@data-comp, "DisplayName")]/a/@href
+  - name: directions
+    singleValue: true
+    xpath: //div[@id='tabpanel1']
+  - name: alternateImages
+    singleValue: false
+    xpath: ((//div[contains(@data-comp,"Carousel")])[1]//img[@width="300"])/@src|((//div[contains(@data-comp,"Carousel")])[1]//img)/@src[contains(.,"jpg") and not(contains(., 'Video'))]
+  - name: availabilityText
+    singleValue: true
+    xpath: //script[@type="application/ld+json"][contains(text(),'availability":"http://schema.org/InStock"')]
+    regExp: (.+)
+    regExpReplace: In Stock
+    defaultValue: Out of Stock
+  - name: imageAlt
+    singleValue: true
+    description: Alt text of the main product image
+    xpath: (//div[contains(@data-comp, "Carousel")]//img/@alt)[1]
+  - name: descriptionBullets
+    xpath: count(//div[@id="tabpanel0"]//text()[contains(., "- ")])
+  - name: sku
+    singleValue: true
+    xpath: //div[@data-at='sku_size']
+    regExp: ([0-9]+$)
+  - name: url
+    singleValue: true
+    xpath: //link/@href
+
+
