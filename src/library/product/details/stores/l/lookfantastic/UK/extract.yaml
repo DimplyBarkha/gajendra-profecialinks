@@ -106,3 +106,9 @@ fields:
     xpath: //div[@id='ii_descriptionBullets']
   - name: packSize
     singleValue: true
+  #- name: variantCount
+   # singleValue: false
+   # xpath: count(//div[@class="productFrequentlyBoughtTogether_productPreview"]//img)
+  - name: imageZoomFeaturePresent
+    singleValue: false
+    defaultValue: Yes
