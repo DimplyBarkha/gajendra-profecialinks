@@ -109,3 +109,15 @@ fields:
   - name: manufacturer
     singleValue: false
     xpath: //section//ul[contains(@class,'e-product-details-list')]//li//span[normalize-space()='Producent:']//following-sibling::span
+  - name: Image360Present
+    singleValue: true
+    xpath: //div[contains(@class,"slick-list")]//ol[contains(@class,'threesixty_images')]
+    regExp: (.+)
+    regExpReplace: Yes
+    defaultValue: No
+  - name: imageZoomFeaturePresent
+    singleValue: true
+    xpath: //div[contains(@class,'product-image-gallery__main-hover') and contains(@class,'show')]
+    regExp: (.+)
+    regExpReplace: Yes
+    defaultValue: No
