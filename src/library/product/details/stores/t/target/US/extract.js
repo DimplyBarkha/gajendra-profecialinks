@@ -61,7 +61,7 @@ async function implementation (
     console.log(`Manufacturer content is not loaded: ${error.message}`);
   }
 
-  const manuf = await context.evaluate(async function () {
+  await context.evaluate(async function () {
     let parentData = {};
     let origData = {};
 
