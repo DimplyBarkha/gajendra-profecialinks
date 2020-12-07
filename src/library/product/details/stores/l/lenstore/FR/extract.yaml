@@ -25,7 +25,7 @@ fields:
     singleValue: true
     description: The product name, prefixing "${brand} - " if not included in "name"
       and appending " - ${variantType}" if necessary (fixed per feed)
-    xpath: //div[@id="productLeft"]/h1
+    xpath: concat(//div[@id="productLeft"]/h1,' ', //p[@class="c-product__duration u-zero-top"])
   - name: listPrice
     singleValue: true
     description: The stated undiscounted price for the product
@@ -40,6 +40,7 @@ fields:
     description: Availability as described on page for the selected variant. If
       there is no availability but the product can be added to cart, this field
       should be "In Stock"
+    xpath: //span[@id="dispatch_delivery"]
     regExp: (.+)
     regExpReplace: In Stock
     defaultValue: Out of Stock
@@ -47,15 +48,18 @@ fields:
     singleValue: false
     description: Product description supplied by website - may be concatenanted from
       multiple places; specifically not the manufacturer description
-    xpath: //div[@id="relatedShift"]
+    # xpath: //div[@id="relatedShift"]
+    xpath: //html//div[@id="description"]
   - name: descriptionBullets
     singleValue: true
     description: Number of ul > li tags in the description
+    xpath: //div[@class="c-product__related-content"]/ul/li
     type: NUMBER
   - name: brandText
     singleValue: true
     description: Product brand shown - this may actually NOT be just a brand name,
       e.g. "Visit the Gillette Store"
+    xpath: (//tr/td/strong[contains(text(),"Marque")]//following::a[text()])[1]
   - name: manufacturer
     singleValue: true
     description: Product manufacturer
@@ -63,7 +67,7 @@ fields:
     singleValue: true
     description: Quantity as described on the page
     xpath: //p[@class="c-product__duration u-zero-top"]
-    regExp: ^\d+
+    # regExp: ^\d+
   - name: weightNet
     singleValue: true
     description: Net weight as described on the page
@@ -73,6 +77,9 @@ fields:
   - name: gtin
     singleValue: true
     description: GTIN code (includes UPC/EAN)
+    manualSelector: script[type="application/ld+json"]
+    regExp: ("gtin13":\s")(\d+)(",)
+    regExpReplace: $2
   - name: sku
     singleValue: true
     description: The store-specific product identifier
@@ -97,7 +104,8 @@ fields:
     xpath: (//tr/td/strong[contains(text(),"Instructions d'usage")]//following::td[text()])[1]
   - name: warnings
     singleValue: true
-    description: Content under "warnings" header
+    description: Content under "warnings" header.
+    xpath: //p/em
   - name: ratingCount
     singleValue: true
     description: The number of ratings
@@ -121,6 +129,7 @@ fields:
   - name: variantCount
     singleValue: true
     description: Number of variants listed
+    xpath: count(//div[@class="o-columns__item c-product u-half"]/p)
     type: NUMBER
     defaultValue: 0
   - name: color
@@ -160,6 +169,7 @@ fields:
   - name: brandLink
     singleValue: true
     description: null
+    xpath: (//tr/td/strong[contains(text(),"Marque")]//following::a[@href])[1]
   - name: internationalShipping
     singleValue: true
     description: Text next to bullet point
@@ -246,6 +256,7 @@ fields:
     singleValue: true
     description: List of Ingredients from site - can be string of data if no
       discernible start/end point
+    xpath: //h3[contains(text(),'Ingrédients :')]/following-sibling::ul
   - name: servingSize
     singleValue: true
     description: The size of serving Nutritional information is based on.
@@ -394,6 +405,7 @@ fields:
   - name: specifications
     singleValue: true
     description: The physical dimensions of the product including packaging.
+    xpath: //table[@class="c-product-details"]
   - name: warranty
     singleValue: true
     description: Guarantee associated with the product
@@ -445,6 +457,7 @@ fields:
   - name: variantInformation
     singleValue: true
     description: colour / scent / flavour / other
+    xpath: //p[@class="c-product__duration u-zero-top"]
   - name: firstVariant
     singleValue: true
     description: Unique identifier for a collection of variants. For a subset of
@@ -456,12 +469,15 @@ fields:
       all variants of a product, this rpc becomes the common link between other
       variants. method 3 = apply some logic to determine link between variants,
       this will need analysis
+    xpath: //p[@class="c-product__duration u-zero-top"]
   - name: variants
     singleValue: false
     description: null
+    xpath: //div[@class="o-columns__item c-product u-half"]/p
   - name: additionalDescBulletInfo
     singleValue: false
     description: null
+    xpath: count(//div[@class="c-product__related-content"]/ul/li)
   - name: prop65Warning
     singleValue: true
     description: null
