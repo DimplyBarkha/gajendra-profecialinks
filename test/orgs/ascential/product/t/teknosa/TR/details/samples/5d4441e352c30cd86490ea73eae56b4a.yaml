@@ -2,18 +2,18 @@ input:
   id: 120093399
   _url: http://teknosa.com
 extractions:
-  - html: https://workbench.import.io/html/run=abf3dbd4-6d8b-4b2a-9eee-85a094109992/task=45752f85-fea4-46e9-8b0c-f447ec7c7633/dbfb46d3-0319-4c58-a13b-bb35d4afac68.html
+  - html: https://workbench.import.io/html/run=724db7d7-2a0b-4a89-bee6-643538568703/task=82ff6d10-97b3-41f6-a877-a88bda4a7a84/8c73e36e-a0a2-42d7-b98b-008bdc2a584c.html
     extractionConfigId: product/details/stores/t/teknosa/TR/extract
     data:
       - group:
           - image:
-              - text: https://reimg-teknosa-cloud-prod.mncdn.com/mnresize/600/600/productimage/120093399/120093399_0_MC/8844099682354_1586939369881.jpg
+              - text: https://reimg-teknosa-cloud-prod.mncdn.com/mnresize/600/600/productimage/120093399/120093399_0_MC/41129836.jpg
                 xpath: /html/body/div[1]/section[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/a[1]/img[1]/@src
             imageAlt:
               - text: Altis Plastik Dambıl Set 10,5 Kg
                 xpath: /html/body/div[1]/section[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/a[1]/img[1]/@alt
             alternateImages:
-              - text: https://reimg-teknosa-cloud-prod.mncdn.com/mnresize/600/600/productimage/120093399/120093399_0_MC/8844099682354_1586939369881.jpg
+              - text: https://reimg-teknosa-cloud-prod.mncdn.com/mnresize/600/600/productimage/120093399/120093399_0_MC/41129836.jpg
                 xpath: /html/body/div[1]/section[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/a[1]/img[1]/@src
             category:
               - text: Ana Sayfa
@@ -35,7 +35,7 @@ extractions:
                 xpath: /html/body/div[1]/section[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[3]/text()[1]
             availabilityText:
               - text: In Stock
-                xpath: /html/body/div[1]/section[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[4]/text()[2]
+                xpath: /html/body/div[1]/section[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[2]/text()[2]
             description:
               - text: 1.25 kg x 4 adet; 2.50 kg x 2 adet
                 xpath: /html/body/div[1]/section[1]/div[1]/div[6]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/span[1]/div[2]/div[1]/div[1]/div[1]/p[1]/text()[1]
@@ -72,19 +72,22 @@ extractions:
             sku:
               - text: "120093399"
                 xpath: /html/head[1]/script[4]/text()[1]
+            variantId:
+              - text: "120093399"
+                xpath: /html/head[1]/script[4]/text()[1]
             ratingCount:
               - text: "0"
-                xpath: /html/body/div[1]/section[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[3]/a[1]/text()[1]
+                xpath: /html/body/div[1]/section[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[4]/a[1]/text()[1]
                 type: NUMBER
                 raw: Yorumlar (0)
                 locale: tr
                 value: 0
             aggregateRatingText:
               - text: "0"
-                xpath: /html/body/div[1]/section[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[2]/span[1]/text()[1]
+                xpath: /html/body/div[1]/section[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[3]/span[1]/text()[1]
             aggregateRating:
               - text: "0"
-                xpath: /html/body/div[1]/section[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[2]/span[1]/text()[1]
+                xpath: /html/body/div[1]/section[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[3]/span[1]/text()[1]
             color:
               - text: Siyah
                 xpath: /html/body/div[1]/section[1]/div[1]/div[6]/div[1]/div[4]/div[1]/div[1]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[2]/td[2]/span[1]
@@ -156,4 +159,4 @@ extractions:
                 locale: tr
                 value: 0
         xpath: /
-    timestamp: 1604924926490
+    timestamp: 1607332711066

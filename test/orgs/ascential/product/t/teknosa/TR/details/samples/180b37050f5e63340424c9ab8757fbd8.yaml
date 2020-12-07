@@ -2,7 +2,7 @@ input:
   id: 125077277
   _url: http://teknosa.com
 extractions:
-  - html: https://workbench.import.io/html/run=abf3dbd4-6d8b-4b2a-9eee-85a094109992/task=45a5b221-2a52-4812-8fb2-2c383b5c20e3/ece53f99-a368-4258-a233-c0aca33da396.html
+  - html: https://workbench.import.io/html/run=724db7d7-2a0b-4a89-bee6-643538568703/task=52de5b1a-cbae-4700-b05a-b9dfabf00245/26d9e447-8e87-4096-a570-362dd280d842.html
     extractionConfigId: product/details/stores/t/teknosa/TR/extract
     data:
       - group:
@@ -53,11 +53,11 @@ extractions:
               - text: 8.449 TL
                 xpath: /html/body/div[1]/section[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/text()[1]
             price:
-              - text: 8.149 TL
-                xpath: /html/body/div[1]/section[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[2]/text()[1]
+              - text: 8.449 TL
+                xpath: /html/body/div[1]/section[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/text()[1]
             availabilityText:
               - text: In Stock
-                xpath: /html/body/div[1]/section[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[4]/text()[2]
+                xpath: /html/body/div[1]/section[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[2]/text()[2]
             description:
               - text: Kötü bir fotoğraf çekmeniz resmen çok zor.
                 xpath: /html/body/div[1]/section[1]/div[1]/div[6]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/span[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/p[1]/text()[1]
@@ -197,29 +197,32 @@ extractions:
                 xpath: /html/head[1]/script[4]/text()[1]
             weightGross:
               - text: 194 g
-                xpath: /html/body/div[1]/section[1]/div[1]/div[6]/div[1]/div[4]/div[1]/div[1]/div[1]/div[1]/div[1]/table[2]/tbody[1]/tr[1]/td[2]
+                xpath: /html/body/div[1]/section[1]/div[1]/div[6]/div[1]/div[4]/div[1]/div[1]/div[1]/div[1]/div[1]/table[4]/tbody[1]/tr[1]/td[2]
             gtin:
               - text: "190199223790"
                 xpath: /html/head[1]/script[4]/text()[1]
             sku:
               - text: "125077277"
                 xpath: /html/head[1]/script[4]/text()[1]
+            variantId:
+              - text: "125077277"
+                xpath: /html/head[1]/script[4]/text()[1]
             ratingCount:
               - text: "42"
-                xpath: /html/body/div[1]/section[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[3]/a[1]/text()[1]
+                xpath: /html/body/div[1]/section[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[4]/a[1]/text()[1]
                 type: NUMBER
                 raw: Yorumlar (42)
                 locale: tr
                 value: 42
             aggregateRatingText:
               - text: 5,0
-                xpath: /html/body/div[1]/section[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[2]/span[1]/text()[1]
+                xpath: /html/body/div[1]/section[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[3]/span[1]/text()[1]
             aggregateRating:
               - text: 5,0
-                xpath: /html/body/div[1]/section[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[2]/span[1]/text()[1]
+                xpath: /html/body/div[1]/section[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[3]/span[1]/text()[1]
             color:
               - text: Beyaz
-                xpath: /html/body/div[1]/section[1]/div[1]/div[6]/div[1]/div[4]/div[1]/div[1]/div[1]/div[1]/div[1]/table[13]/tbody[1]/tr[7]/td[2]/span[1]
+                xpath: /html/body/div[1]/section[1]/div[1]/div[6]/div[1]/div[4]/div[1]/div[1]/div[1]/div[1]/div[1]/table[14]/tbody[1]/tr[7]/td[2]/span[1]
             manufacturerDescription:
               - text: Kötü bir fotoğraf çekmeniz resmen çok zor.
                 xpath: /html/body/div[1]/section[1]/div[1]/div[6]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/span[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/p[1]/text()[1]
@@ -396,21 +399,21 @@ extractions:
                 xpath: /html/body/div[1]/section[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[2]/h1[1]/text()[1]
             specifications:
               - text: Ağırlık
-                xpath: /html/body/div[1]/section[1]/div[1]/div[6]/div[1]/div[4]/div[1]/div[1]/div[1]/div[1]/div[1]/table[2]/tbody[1]/tr[1]/td[1]
+                xpath: /html/body/div[1]/section[1]/div[1]/div[6]/div[1]/div[4]/div[1]/div[1]/div[1]/div[1]/div[1]/table[4]/tbody[1]/tr[1]/td[1]
               - text: 194 g
-                xpath: /html/body/div[1]/section[1]/div[1]/div[6]/div[1]/div[4]/div[1]/div[1]/div[1]/div[1]/div[1]/table[2]/tbody[1]/tr[1]/td[2]
+                xpath: /html/body/div[1]/section[1]/div[1]/div[6]/div[1]/div[4]/div[1]/div[1]/div[1]/div[1]/div[1]/table[4]/tbody[1]/tr[1]/td[2]
               - text: Yükseklik
-                xpath: /html/body/div[1]/section[1]/div[1]/div[6]/div[1]/div[4]/div[1]/div[1]/div[1]/div[1]/div[1]/table[2]/tbody[1]/tr[2]/td[1]
+                xpath: /html/body/div[1]/section[1]/div[1]/div[6]/div[1]/div[4]/div[1]/div[1]/div[1]/div[1]/div[1]/table[4]/tbody[1]/tr[2]/td[1]
               - text: 150, 9 mm
-                xpath: /html/body/div[1]/section[1]/div[1]/div[6]/div[1]/div[4]/div[1]/div[1]/div[1]/div[1]/div[1]/table[2]/tbody[1]/tr[2]/td[2]
+                xpath: /html/body/div[1]/section[1]/div[1]/div[6]/div[1]/div[4]/div[1]/div[1]/div[1]/div[1]/div[1]/table[4]/tbody[1]/tr[2]/td[2]
               - text: Genişlik
-                xpath: /html/body/div[1]/section[1]/div[1]/div[6]/div[1]/div[4]/div[1]/div[1]/div[1]/div[1]/div[1]/table[2]/tbody[1]/tr[3]/td[1]
+                xpath: /html/body/div[1]/section[1]/div[1]/div[6]/div[1]/div[4]/div[1]/div[1]/div[1]/div[1]/div[1]/table[4]/tbody[1]/tr[3]/td[1]
               - text: 75, 7 mm
-                xpath: /html/body/div[1]/section[1]/div[1]/div[6]/div[1]/div[4]/div[1]/div[1]/div[1]/div[1]/div[1]/table[2]/tbody[1]/tr[3]/td[2]
+                xpath: /html/body/div[1]/section[1]/div[1]/div[6]/div[1]/div[4]/div[1]/div[1]/div[1]/div[1]/div[1]/table[4]/tbody[1]/tr[3]/td[2]
               - text: Derinlik
-                xpath: /html/body/div[1]/section[1]/div[1]/div[6]/div[1]/div[4]/div[1]/div[1]/div[1]/div[1]/div[1]/table[2]/tbody[1]/tr[4]/td[1]
+                xpath: /html/body/div[1]/section[1]/div[1]/div[6]/div[1]/div[4]/div[1]/div[1]/div[1]/div[1]/div[1]/table[4]/tbody[1]/tr[4]/td[1]
               - text: 8, 3 mm
-                xpath: /html/body/div[1]/section[1]/div[1]/div[6]/div[1]/div[4]/div[1]/div[1]/div[1]/div[1]/div[1]/table[2]/tbody[1]/tr[4]/td[2]
+                xpath: /html/body/div[1]/section[1]/div[1]/div[6]/div[1]/div[4]/div[1]/div[1]/div[1]/div[1]/div[1]/table[4]/tbody[1]/tr[4]/td[2]
             additionalDescBulletInfo:
               - text: Kötü bir fotoğraf çekmeniz resmen çok zor.
                 xpath: /html/body/div[1]/section[1]/div[1]/div[6]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/span[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]
@@ -459,4 +462,4 @@ extractions:
                 locale: tr
                 value: 11
         xpath: /
-    timestamp: 1604924939739
+    timestamp: 1607332713239

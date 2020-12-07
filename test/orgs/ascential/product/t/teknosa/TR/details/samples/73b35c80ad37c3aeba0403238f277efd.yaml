@@ -2,7 +2,7 @@ input:
   id: 125077495
   _url: http://teknosa.com
 extractions:
-  - html: https://workbench.import.io/html/run=abf3dbd4-6d8b-4b2a-9eee-85a094109992/task=68ee381a-c6d1-4f09-8103-5946ba87f5e7/c51b34e6-a8f8-4260-b4d5-6fa2ca71cd21.html
+  - html: https://workbench.import.io/html/run=724db7d7-2a0b-4a89-bee6-643538568703/task=69dbb875-73b9-40d1-850a-0559c4d7dcf2/f8244a30-4659-43cb-8be0-7bc2b322178f.html
     extractionConfigId: product/details/stores/t/teknosa/TR/extract
     data:
       - group:
@@ -45,13 +45,13 @@ extractions:
                 xpath: /html/body/div[1]/section[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[2]/h1[1]/text()[1]
             listPrice:
               - text: 3.699 TL
-                xpath: /html/body/div[1]/section[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[2]/text()[1]
+                xpath: /html/body/div[1]/section[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/text()[1]
             price:
-              - text: 3.499 TL
-                xpath: /html/body/div[1]/section[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[3]/text()[1]
+              - text: 3.699 TL
+                xpath: /html/body/div[1]/section[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/text()[1]
             availabilityText:
               - text: In Stock
-                xpath: /html/body/div[1]/section[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[4]/text()[2]
+                xpath: /html/body/div[1]/section[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[2]/text()[2]
             description:
               - text: Sonsuz-O Ekran
                 xpath: /html/body/div[1]/section[1]/div[1]/div[6]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/span[1]/div[2]/div[1]/div[1]/div[1]/p[1]/text()[1]
@@ -128,29 +128,32 @@ extractions:
                 xpath: /html/head[1]/script[4]/text()[1]
             weightGross:
               - text: 172 g
-                xpath: /html/body/div[1]/section[1]/div[1]/div[6]/div[1]/div[4]/div[1]/div[1]/div[1]/div[1]/div[1]/table[2]/tbody[1]/tr[1]/td[2]
+                xpath: /html/body/div[1]/section[1]/div[1]/div[6]/div[1]/div[4]/div[1]/div[1]/div[1]/div[1]/div[1]/table[4]/tbody[1]/tr[1]/td[2]
             gtin:
               - text: "8806090265075"
                 xpath: /html/head[1]/script[4]/text()[1]
             sku:
               - text: "125077495"
                 xpath: /html/head[1]/script[4]/text()[1]
+            variantId:
+              - text: "125077495"
+                xpath: /html/head[1]/script[4]/text()[1]
             ratingCount:
-              - text: "61"
-                xpath: /html/body/div[1]/section[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[3]/a[1]/text()[1]
+              - text: "62"
+                xpath: /html/body/div[1]/section[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[4]/a[1]/text()[1]
                 type: NUMBER
-                raw: Yorumlar (61)
+                raw: Yorumlar (62)
                 locale: tr
-                value: 61
+                value: 62
             aggregateRatingText:
               - text: 4,9
-                xpath: /html/body/div[1]/section[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[2]/span[1]/text()[1]
+                xpath: /html/body/div[1]/section[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[3]/span[1]/text()[1]
             aggregateRating:
               - text: 4,9
-                xpath: /html/body/div[1]/section[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[2]/span[1]/text()[1]
+                xpath: /html/body/div[1]/section[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[3]/span[1]/text()[1]
             color:
               - text: Beyaz
-                xpath: /html/body/div[1]/section[1]/div[1]/div[6]/div[1]/div[4]/div[1]/div[1]/div[1]/div[1]/div[1]/table[13]/tbody[1]/tr[5]/td[2]/span[1]
+                xpath: /html/body/div[1]/section[1]/div[1]/div[6]/div[1]/div[4]/div[1]/div[1]/div[1]/div[1]/div[1]/table[14]/tbody[1]/tr[5]/td[2]/span[1]
             manufacturerDescription:
               - text: Sonsuz-O Ekran
                 xpath: /html/body/div[1]/section[1]/div[1]/div[6]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/span[1]/div[2]/div[1]/div[1]/div[1]/p[1]/text()[1]
@@ -242,21 +245,21 @@ extractions:
                 xpath: /html/body/div[1]/section[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[2]/h1[1]/text()[1]
             specifications:
               - text: Ağırlık
-                xpath: /html/body/div[1]/section[1]/div[1]/div[6]/div[1]/div[4]/div[1]/div[1]/div[1]/div[1]/div[1]/table[2]/tbody[1]/tr[1]/td[1]
+                xpath: /html/body/div[1]/section[1]/div[1]/div[6]/div[1]/div[4]/div[1]/div[1]/div[1]/div[1]/div[1]/table[4]/tbody[1]/tr[1]/td[1]
               - text: 172 g
-                xpath: /html/body/div[1]/section[1]/div[1]/div[6]/div[1]/div[4]/div[1]/div[1]/div[1]/div[1]/div[1]/table[2]/tbody[1]/tr[1]/td[2]
+                xpath: /html/body/div[1]/section[1]/div[1]/div[6]/div[1]/div[4]/div[1]/div[1]/div[1]/div[1]/div[1]/table[4]/tbody[1]/tr[1]/td[2]
               - text: Yükseklik
-                xpath: /html/body/div[1]/section[1]/div[1]/div[6]/div[1]/div[4]/div[1]/div[1]/div[1]/div[1]/div[1]/table[2]/tbody[1]/tr[2]/td[1]
+                xpath: /html/body/div[1]/section[1]/div[1]/div[6]/div[1]/div[4]/div[1]/div[1]/div[1]/div[1]/div[1]/table[4]/tbody[1]/tr[2]/td[1]
               - text: 158, 5 mm
-                xpath: /html/body/div[1]/section[1]/div[1]/div[6]/div[1]/div[4]/div[1]/div[1]/div[1]/div[1]/div[1]/table[2]/tbody[1]/tr[2]/td[2]
+                xpath: /html/body/div[1]/section[1]/div[1]/div[6]/div[1]/div[4]/div[1]/div[1]/div[1]/div[1]/div[1]/table[4]/tbody[1]/tr[2]/td[2]
               - text: Genişlik
-                xpath: /html/body/div[1]/section[1]/div[1]/div[6]/div[1]/div[4]/div[1]/div[1]/div[1]/div[1]/div[1]/table[2]/tbody[1]/tr[3]/td[1]
+                xpath: /html/body/div[1]/section[1]/div[1]/div[6]/div[1]/div[4]/div[1]/div[1]/div[1]/div[1]/div[1]/table[4]/tbody[1]/tr[3]/td[1]
               - text: 73, 6 mm
-                xpath: /html/body/div[1]/section[1]/div[1]/div[6]/div[1]/div[4]/div[1]/div[1]/div[1]/div[1]/div[1]/table[2]/tbody[1]/tr[3]/td[2]
+                xpath: /html/body/div[1]/section[1]/div[1]/div[6]/div[1]/div[4]/div[1]/div[1]/div[1]/div[1]/div[1]/table[4]/tbody[1]/tr[3]/td[2]
               - text: Derinlik
-                xpath: /html/body/div[1]/section[1]/div[1]/div[6]/div[1]/div[4]/div[1]/div[1]/div[1]/div[1]/div[1]/table[2]/tbody[1]/tr[4]/td[1]
+                xpath: /html/body/div[1]/section[1]/div[1]/div[6]/div[1]/div[4]/div[1]/div[1]/div[1]/div[1]/div[1]/table[4]/tbody[1]/tr[4]/td[1]
               - text: 7, 9 mm
-                xpath: /html/body/div[1]/section[1]/div[1]/div[6]/div[1]/div[4]/div[1]/div[1]/div[1]/div[1]/div[1]/table[2]/tbody[1]/tr[4]/td[2]
+                xpath: /html/body/div[1]/section[1]/div[1]/div[6]/div[1]/div[4]/div[1]/div[1]/div[1]/div[1]/div[1]/table[4]/tbody[1]/tr[4]/td[2]
             technicalInformationPdfPresent:
               - text: No
             termsAndConditions:
@@ -282,4 +285,4 @@ extractions:
                 locale: tr
                 value: 8
         xpath: /
-    timestamp: 1604924932258
+    timestamp: 1607332713023

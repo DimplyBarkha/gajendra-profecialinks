@@ -2,7 +2,7 @@ input:
   id: 125037700
   _url: http://teknosa.com
 extractions:
-  - html: https://workbench.import.io/html/run=abf3dbd4-6d8b-4b2a-9eee-85a094109992/task=6c49660a-61aa-4644-8cd7-c2dd61119d42/909beae0-b0af-4a04-91f7-852d61db0692.html
+  - html: https://workbench.import.io/html/run=724db7d7-2a0b-4a89-bee6-643538568703/task=0c1d92e8-9ec5-4538-a2c6-6f240ae61df6/5255cde3-205b-4043-adcd-5ec21824b18d.html
     extractionConfigId: product/details/stores/t/teknosa/TR/extract
     data:
       - group:
@@ -10,8 +10,8 @@ extractions:
               - text: https://reimg-teknosa-cloud-prod.mncdn.com/mnresize/600/600/productimage/125037700/125037700_0_MC/46048214.jpg
                 xpath: /html/body/div[1]/section[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/a[1]/img[1]/@src
             imageAlt:
-              - text: Lenovo IdeaPad 3 81WD006JTX Intel Core i5-1035G1 8 GB 256 GB SSD
-                  Integrated Intel UHD Graphics 14" FHD W10 Platin Gri Notebook
+              - text: Lenovo IdeaPad 3 Intel Core i5-1035G1 8 GB 256 GB SSD Integrated Intel UHD
+                  Graphics 14" FHD W10 Platin Gri Notebook 81WD006JTX
                 xpath: /html/body/div[1]/section[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/a[1]/img[1]/@alt
             alternateImages:
               - text: https://reimg-teknosa-cloud-prod.mncdn.com/mnresize/600/600/productimage/125037700/125037700_0_MC/46048214.jpg
@@ -58,8 +58,8 @@ extractions:
               - text: Notebook
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[5]/a[1]/text()[1]
             nameExtended:
-              - text: Lenovo IdeaPad 3 81WD006JTX Intel Core i5-1035G1 8 GB 256 GB SSD
-                  Integrated Intel UHD Graphics 14" FHD W10 Platin Gri Notebook
+              - text: Lenovo IdeaPad 3 Intel Core i5-1035G1 8 GB 256 GB SSD Integrated Intel UHD
+                  Graphics 14" FHD W10 Platin Gri Notebook 81WD006JTX
                 xpath: /html/body/div[1]/section[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[2]/h1[1]/text()[1]
             description:
               - text: Intel® Turbo Boost teknolojisi
@@ -97,13 +97,16 @@ extractions:
             sku:
               - text: "125037700"
                 xpath: /html/head[1]/script[4]/text()[1]
+            variantId:
+              - text: "125037700"
+                xpath: /html/head[1]/script[4]/text()[1]
             ratingCount:
-              - text: "41"
+              - text: "42"
                 xpath: /html/body/div[1]/section[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[3]/a[1]/text()[1]
                 type: NUMBER
-                raw: Yorumlar (41)
+                raw: Yorumlar (42)
                 locale: tr
-                value: 41
+                value: 42
             aggregateRatingText:
               - text: 4,6
                 xpath: /html/body/div[1]/section[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[2]/span[1]/text()[1]
@@ -140,8 +143,8 @@ extractions:
               - text: https://images.icecat.biz/img/feature_logo/69-581.png
                 xpath: /html/body/div[1]/section[1]/div[1]/div[6]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/span[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/img[1]/@src
             name:
-              - text: Lenovo IdeaPad 3 81WD006JTX Intel Core i5-1035G1 8 GB 256 GB SSD
-                  Integrated Intel UHD Graphics 14" FHD W10 Platin Gri Notebook
+              - text: Lenovo IdeaPad 3 Intel Core i5-1035G1 8 GB 256 GB SSD Integrated Intel UHD
+                  Graphics 14" FHD W10 Platin Gri Notebook 81WD006JTX
                 xpath: /html/body/div[1]/section[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[2]/h1[1]/text()[1]
             specifications:
               - text: Ağırlık
@@ -192,4 +195,4 @@ extractions:
                 locale: tr
                 value: 15
         xpath: /
-    timestamp: 1604924936346
+    timestamp: 1607332711740

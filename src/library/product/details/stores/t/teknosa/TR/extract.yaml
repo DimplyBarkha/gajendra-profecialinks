@@ -93,6 +93,8 @@ fields:
   - name: variantId
     singleValue: true
     description: Identifier for a variant from a store where variants share the same sku
+    xpath: //script/text()
+    regExp: (?<=cd_product_id:')\d+
   - name: mpc
     singleValue: true
     description: The manufacturer model code (unique) of the product
