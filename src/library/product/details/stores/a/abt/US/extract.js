@@ -37,7 +37,7 @@ async function implementation (
     addElementToDocument('specification', specification.join('|'));
     const specDimensions = document.evaluate("//td[strong[contains(text(),'Height') or contains(text(),'Width') or contains(text(),'Depth')]]/following-sibling::td", document, null, XPathResult.ANY_TYPE, null);
     if (specDimensions) {
-      let nodes = [];
+      const nodes = [];
       for (let node = specDimensions.iterateNext(); node; node = specDimensions.iterateNext()) {
         nodes.push(`${node.innerText}"`);
       }
@@ -58,7 +58,8 @@ async function implementation (
       });
     }
     addElementToDocument('descBulletInfo', descBulletInfo.join('||'));
-    const availablility = document.querySelector('div#pricing_container span.pricing-availability-desc.instock') ? 'In Stock' : 'Out of Stock';
+    let availablility = document.querySelector('div#pricing_container span.pricing-availability-desc.instock') ? 'In Stock' : 'Out of Stock';
+    if (document.querySelector('button[class*="addToCart"]').innerText.includes('ADD')) { availablility = 'In Stock'; }
     addElementToDocument('availablility', availablility);
 
     const variants = document.querySelector('div.display-group-color');
@@ -97,12 +98,21 @@ async function implementation (
         if (videoSrc) addElementToDocument('video', 'https://www.youtube.com/watch?v='.concat(videoSrc));
       }
     }
-    var iframeVideo = document.querySelector('iframe[title="Product Videos"]')
-    if(iframeVideo){
-    let iframeVideoContents = iframeVideo.contentWindow.document.body
-    let videoUrl = iframeVideoContents.querySelector('video').src
-    if(videoUrl) addElementToDocument('video1',videoUrl);
-  }
+    var iframeVideo = document.querySelector('iframe[title="Product Videos"]');
+    if (iframeVideo) {
+      const iframeVideoContents = iframeVideo.contentWindow.document.body;
+      const videoUrl = iframeVideoContents.querySelector('video').src;
+      if (videoUrl) addElementToDocument('video1', videoUrl);
+    }
+    let priceText = '';
+    if (document.querySelector('div[id="product_pricing_container"] span[itemprop="price"]')) {
+      priceText += document.querySelector('div[id="product_pricing_container"] span[itemprop="price"]').innerText;
+      priceText = priceText.substr(12, priceText.length);
+    } else if (document.querySelector('div[class*="pricing-item-price pricing-class-package"]')) {
+      priceText += document.querySelector('div[class*="pricing-item-price pricing-class-package').innerText;
+      priceText = priceText.substr(12, priceText.length);
+    }
+    if (priceText !== '') addElementToDocument('priceText', priceText);
   });
   await context.extract(productDetails, { transform });
 }
