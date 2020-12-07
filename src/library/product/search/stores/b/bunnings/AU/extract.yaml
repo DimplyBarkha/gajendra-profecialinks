@@ -5,7 +5,7 @@ recordXPath: //article[contains(@class, "hproduct")]
 fields:
   - name: name
     singleValue: false
-    xpath: //p[@class="fn"]
+    xpath: //p[@class="fn"]/span/span[1]
   - name: id
     singleValue: false
     xpath: //article[contains(@class, "hproduct")]/@data-product-id
@@ -18,3 +18,6 @@ fields:
   - name: price
     singleValue: false
     xpath: //div[contains(@class, "codified-product-tile__price--value price-value")]
+  - name: seller
+    singleValue: false
+    xpath: //div[@class="codified-product-tile__order--marketplace-seller"]/p/strong
