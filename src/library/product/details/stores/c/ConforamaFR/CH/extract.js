@@ -9,10 +9,52 @@ module.exports = {
     domain: 'conforama.fr',
     zipcode: '',
   },
+
   implementation: async (inputs, parameters, context, dependencies) => {
     const { transform } = parameters;
     const { productDetails } = dependencies;
+    await context.waitForFunction(async function () {
+      var elem, scrollTotalHeight;
+      elem = document.querySelector('body');
+      let scrollTop = 0;
+      while (scrollTop !== elem.scrollHeight) {
+        await stall(500);
+        scrollTop += 500;
+        window.scroll(0, scrollTop);
+        if (scrollTop > elem.scrollHeight) {
+          scrollTotalHeight = elem.scrollTop + elem.offsetHeight
+          break;
+        }
+      }
+      function stall(ms) {
+        return new Promise((resolve, reject) => {
+          setTimeout(() => {
+            resolve();
+          }, ms);
+        });
+      }
+      if (scrollTotalHeight === elem.scrollHeight) {
+        return Boolean(true);
+      }
+    }, { timeout: 10000 });
+
     await context.evaluate(() => {
+      function waitForElement(elementId, callBack) {
+        window.setTimeout(function () {
+          var element = document.getElementById(elementId);
+          if (element) {
+            callBack(elementId, element);
+          } else {
+            waitForElement(elementId, callBack);
+          }
+        }, 90000);
+      };
+      const checkNode = window.document.evaluate('//div[@class="flix-inpage" and not(@style="display:none;")]', window.document, null, XPathResult.ANY_TYPE, null).iterateNext();
+      if (checkNode != null) {
+        waitForElement("inpage_container", function () {
+          console.log("done");
+        });
+      }
       function addHiddenDiv(id, content, index) {
         const newDiv = document.createElement('div');
         newDiv.id = id;
@@ -48,14 +90,18 @@ module.exports = {
       } catch (error) {
 
       }
-      if (brandName.length == 0 || brandName == 'Conforama') {
-        // @ts-ignore
-        brandName = document.querySelector('div[class="productTitle"]>div>h1>a').innerText;
-        brandName = brandName.split(' ')[0];
-        addHiddenDiv('brand', brandName, 0);
-      }
-      else {
-        addHiddenDiv('brand', brandName, 0);
+      try {
+        if (brandName.length == 0 || brandName == 'Conforama') {
+          // @ts-ignore
+          brandName = document.querySelector('div[class="productTitle"]>div>h1>a').innerText;
+          brandName = brandName.split(' ')[0];
+          addHiddenDiv('brand', brandName, 0);
+        }
+        else {
+          addHiddenDiv('brand', brandName, 0);
+        }
+      } catch (error) {
+
       }
       // Method to Retrieve Xpath content of a Multiple Nodes
       const getAllXpath = (xpath, prop) => {
@@ -72,9 +118,28 @@ module.exports = {
         var doubleSeparatorText = data.join(' || ');
         addHiddenDiv(id, doubleSeparatorText, 0);
       };
+      // Single Pipe Concatenation
+      const pipeSeparatorSingle = (id, data) => {
+        var SingleSeparatorText = data.join(' | ');
+        addHiddenDiv(id, SingleSeparatorText, 0);
+      };
+
       // XPATH Data Extraction For Additional Description Bullet
       const addDescBulletInfo = getAllXpath("//div[@id='tabs-1']/ul/li/text()", 'nodeValue');
       pipeSeparatorDouble('addDescBulletInfo', addDescBulletInfo);
+
+      const addDescInfo = getAllXpath("//div[@id='tabs-1']//text()", 'nodeValue');
+      var addDescInfoFinal = [];
+      for (let i = 0; i < addDescInfo.length; i++) {
+        if (addDescInfo[i].length > 2) {
+          addDescInfoFinal.push(addDescInfo[i]);
+        }
+      }
+      pipeSeparatorDouble('addDescInfo', addDescInfoFinal);
+      const manufacturerImages = getAllXpath("//div[@id='inpage_container']//img/@srcset", 'nodeValue');
+      pipeSeparatorSingle('manufacturerImages', manufacturerImages);
+      const variants = getAllXpath("//div[@class='tab-content subList']/div/@data-color", 'nodeValue');
+      pipeSeparatorSingle('variants', variants);
     });
     return await context.extract(productDetails, { transform });
   },

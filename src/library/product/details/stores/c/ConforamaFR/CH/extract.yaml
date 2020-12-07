@@ -17,7 +17,7 @@ fields:
     xpath: //div[@id="breadcrumb"]/a[not(contains(@class,'retour'))]/text()
   - name: nameExtended
     singleValue: true
-    xpath: //div[@class="name"]/h1/a/text()
+    xpath: concat(//div[@class="name"]/h1/a/text(),' ',//ul[@class="small ui-tabsWarp"]/li/text())
   - name: listPrice
     singleValue: true
     xpath: //html//div[@id='listpriceUpdated']
@@ -32,7 +32,7 @@ fields:
     xpath: //html//div[@id='availabilty']
   - name: description
     singleValue: false
-    xpath: //div[@id="tabs-1"]
+    xpath: //html//div[@id='addDescInfo']
   - name: descriptionBullets
     singleValue: true
     type: NUMBER
@@ -61,18 +61,16 @@ fields:
   - name: aggregateRating
     singleValue: true
     xpath: //div[@itemprop="ratingValue"]/text()
-    type: NUMBER
   - name: variantCount
     singleValue: true
     xpath: count(//div[@class="tab-content subList"]/div/@data-color)
     type: NUMBER
   - name: name
     singleValue: true
-    xpath: //div[@class="name"]/h1/a/text()
+    xpath: concat(//div[@class="name"]/h1/a/text(),' ',//ul[@class="small ui-tabsWarp"]/li/text())
   - name: color
     singleValue: true
-    description: colour / scent / flavour / other
-    xpath: //table[@class="productSpecifications"]/tbody/tr/td/strong[contains(text(),'Couleur')]/parent::td/following-sibling::td
+    xpath: //table[@class="productSpecifications"]/tbody/tr/td/strong[contains(text(),'Couleur')]/parent::td/following-sibling::td | //table[@class="productSpecifications"]/tbody/tr/td/strong[contains(text(),'Coloris')]/parent::td/following-sibling::td | //table[@class="productSpecifications"]/tbody/tr/td/strong[contains(text(),'Autres teintes disponibles')]/parent::td/following-sibling::td
   - name: additionalDescBulletInfo
     singleValue: false
     xpath: //html//div[@id='addDescBulletInfo']
@@ -96,4 +94,19 @@ fields:
     defaultValue: Yes
   - name: shippingInfo
     singleValue: false
-    xpath: //div[@class="mc-delivTop"]/a/strong/text()
+    xpath: //div[@class="mc-delivTop"]/strong/text()
+  - name: weightGross
+    singleValue: true
+    xpath: //table[@class="productSpecifications"]/tbody/tr/td/strong[contains(text(),'Poids')]/parent::td/following-sibling::td
+  - name: manufacturerImages
+    singleValue: true
+    xpath: //html//div[@id='manufacturerImages']
+  - name: warranty
+    singleValue: true
+    xpath: //table[@class="productSpecifications"]/tbody/tr/td/strong[contains(text(),'Garantie')]/parent::td/following-sibling::td
+  - name: promotion
+    singleValue: true
+    xpath: //span[@class="reduc"]
+  - name: variants
+    singleValue: true
+    xpath: //html//div[@id="variants"]
