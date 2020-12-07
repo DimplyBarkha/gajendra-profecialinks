@@ -74,9 +74,6 @@ async function implementation(
   for (let k = 0; k < aggregateRating.length; k++) {
   // @ts-ignore
   let singleRating = aggregateRating[k].getAttribute("reviews-number");
-  // singleRating = singleRating.slice(0, singleRating.length - 1)
-  // singleRating = (5 * singleRating) / 100;
-  // singleRating = singleRating.toFixed(1);
   console.log(singleRating,'=singleRating')
   addHiddenDiv('aggregateRating', singleRating, k);
   }
