@@ -1,0 +1,102 @@
+input:
+  _url: http://dysoncanada.ca
+  URL: https://www.dysoncanada.ca/en/vacuum-cleaners/cylinders/dyson-cinetic-big-ball-cylinder/dyson-cinetic-big-ball-animal
+extractions:
+  - html: https://workbench.import.io/html/run=ba091206-85ad-4692-8115-478df97e7acf/task=2049afba-8f94-41d0-94d6-1e56e96d2a07/5ad49ab0-76db-41b3-a239-21a83b7f9f26.html
+    extractionConfigId: product/details/stores/d/dyson/CA/extract
+    data:
+      - group:
+          - image:
+              - text: https://dyson-h.assetsadobe2.com/is/image/content/dam/dyson/countries/ca/products/corded/canisters/cinetic-big-ball/variants/cinetic-big-ball-animal/cinetic-big-ball-animal-ca.jpg?$responsive$&cropPathE=desktop&fit=stretch,1&wid=1920
+                xpath: /html/body/main[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/img[1]/@src
+            imageAlt:
+              - text: Dyson Cinetic Big Ball Animal vacuum
+                xpath: /html/body/main[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/img[1]/@alt
+            nameExtended:
+              - text: Dyson Cinetic Big Ball Animal canister vacuum cleaner.
+                xpath: /html/body/main[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/h1[1]
+            description:
+              - text: >-
+                  Dyson Cinetic Big Ball Animal canister vacuum cleaner.
+                   
+                  No filter maintenance required. No bags to buy. Engineered for homes with pets.
+                xpath: /html/body/main[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]
+            videos:
+              - text: https://www.dysoncanada.ca/content/dam/dyson/video/products/primary/215706-01.mp4
+                xpath: /html/body/main[1]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/@data-video-src
+            name:
+              - text: Dyson Cinetic Big Ball Animal canister vacuum cleaner.
+                xpath: /html/body/main[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/h1[1]
+            shippingInfo:
+              - text: Free shipping and returns
+                xpath: /html/body/main[1]/div[2]/div[5]/div[1]/div[1]/section[1]/div[1]/div[1]/ul[1]/li[2]
+            weightNet:
+              - text: |-
+                  Weight
+                   
+                   8 kg
+                xpath: /html/body/main[1]/div[2]/div[16]/section[1]/div[1]/ul[1]/li[8]
+            specifications:
+              - text: |-
+                  Height
+                   
+                   347 mm 
+                   
+                   
+                   
+                  Length
+                   
+                   399 mm 
+                   
+                   
+                   
+                  Width
+                   
+                   308 mm
+                xpath: /html/body/main[1]/div[2]/div[16]/section[1]/div[1]/div[1]/ul[1]
+            category:
+              - text: Shop
+                xpath: /html/body/nav[1]/div[1]/div[1]/div[1]/div[1]/nav[1]/div[2]/div[1]/div[1]/nav[1]/ol[1]/li[2]/span[1]/a[1]/span[1]
+              - text: Vacuum Cleaners
+                xpath: /html/body/nav[1]/div[1]/div[1]/div[1]/div[1]/nav[1]/div[2]/div[1]/div[1]/nav[1]/ol[1]/li[3]/span[1]/a[1]/span[1]
+              - text: Canister vacuums
+                xpath: /html/body/nav[1]/div[1]/div[1]/div[1]/div[1]/nav[1]/div[2]/div[1]/div[1]/nav[1]/ol[1]/li[4]/span[1]/a[1]/span[1]
+              - text: Dyson Cinetic Big Ball™ vacuums
+                xpath: /html/body/nav[1]/div[1]/div[1]/div[1]/div[1]/nav[1]/div[2]/div[1]/div[1]/nav[1]/ol[1]/li[5]/span[1]/a[1]/span[1]
+            productUrl:
+              - text: https://www.dysoncanada.ca/en/vacuum-cleaners/cylinders/dyson-cinetic-big-ball-cylinder/dyson-cinetic-big-ball-animal
+                xpath: /html/body/div[7]
+            sku:
+              - text: 211970-01
+                xpath: /html/body/div[9]
+            variantId:
+              - text: 211970-01
+                xpath: /html/body/div[9]
+            mpc:
+              - text: 211970-01
+                xpath: /html/body/div[9]
+            color:
+              - text: Iron
+                xpath: /html/body/div[10]
+            price:
+              - text: 799.99 $
+                xpath: /html/body/div[12]
+            availabilityText:
+              - text: In Stock
+                xpath: /html/body/div[19]
+            brandText:
+              - text: Dyson
+            manufacturer:
+              - text: Dyson
+            descriptionBullets:
+              - text: "0"
+            technicalInformationPdfPresent:
+              - text: "false"
+            termsAndConditions:
+              - text: "true"
+            privacyPolicy:
+              - text: "true"
+            customerServiceAvailability:
+              - text: "true"
+        xpath: /html
+    timestamp: 1607333900570

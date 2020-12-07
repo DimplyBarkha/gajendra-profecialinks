@@ -1,0 +1,120 @@
+input:
+  _url: http://dysoncanada.ca
+  URL: https://www.dysoncanada.ca/en/air-treatment/purifiers/dyson-pure-hot-cool/dyson-pure-hot-cool-white-silver
+extractions:
+  - html: https://workbench.import.io/html/run=ba091206-85ad-4692-8115-478df97e7acf/task=c7aa5d7e-594a-471f-ac42-b1e62ec273f5/9ea8ca08-d6d1-4321-b872-ea5b49f0b907.html
+    extractionConfigId: product/details/stores/d/dyson/CA/extract
+    data:
+      - group:
+          - image:
+              - text: https://dyson-h.assetsadobe2.com/is/image/content/dam/dyson/products/air-treatment/pure-hot-plus-cool-2018/Varient/air-quality-purifier-pure-hot-cool-whsil_variant_hero.jpg?$responsive$&cropPathE=desktop&fit=stretch,1&wid=1920
+                xpath: /html/body/main[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/img[1]/@src
+            imageAlt:
+              - text: Dyson Pure Hot + Cool air purifier fan heater white silver
+                xpath: /html/body/main[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/img[1]/@alt
+            nameExtended:
+              - text: Dyson Pure Hot+Cool™ air purifying fan heater in White/Silver
+                xpath: /html/body/main[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/h1[1]
+            description:
+              - text: >-
+                  Dyson Pure Hot+Cool™ air purifying fan heater in White/Silver
+                   
+                  The only air purifier, heater & fan to clean a whole room properly
+                xpath: /html/body/main[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]
+            videos:
+              - text: https://www.dysoncanada.ca/content/dam/dyson/video/products/primary/244320-01.mp4
+                xpath: /html/body/main[1]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/@data-video-src
+            name:
+              - text: Dyson Pure Hot+Cool™ air purifying fan heater in White/Silver
+                xpath: /html/body/main[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/h1[1]
+            firstVariant:
+              - text: White / Silver
+                xpath: /html/body/main[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/span[1]/img[1]/@title
+            variants:
+              - text: White / Silver
+                xpath: /html/body/main[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/span[1]/img[1]/@title
+              - text: Black / Nickel
+                xpath: /html/body/main[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[2]/div[2]/a[1]/span[1]/img[1]/@title
+              - text: Iron / Blue
+                xpath: /html/body/main[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[2]/div[2]/a[2]/span[1]/img[1]/@title
+            manufacturerDescription:
+              - text: To simultaneously purify and heat a whole room properly, the Dyson Pure
+                  Hot+Cool™ HEPA Air Purifier, Heater & Fan goes beyond standard
+                  tests by automatically sensing pollution, capturing ultrafine
+                  pollutants, and projecting purified and heated air using Air
+                  Multiplier™ technology. It is the only purifying heater
+                  designed and tested to do this.¹
+                xpath: /html/body/main[1]/div[2]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/p[1]
+            shippingInfo:
+              - text: Free shipping and returns
+                xpath: /html/body/main[1]/div[2]/div[4]/div[1]/div[1]/section[1]/div[1]/div[1]/ul[1]/li[2]
+            weightNet:
+              - text: |-
+                  Weight
+                   
+                   5.6 kg
+                xpath: /html/body/main[1]/div[2]/div[13]/section[1]/div[1]/ul[1]/li[9]
+            specifications:
+              - text: |-
+                  Height
+                   
+                   764 mm 
+                   
+                   
+                   
+                  Length
+                   
+                   248 mm 
+                   
+                   
+                   
+                  Width
+                   
+                   248 mm
+                xpath: /html/body/main[1]/div[2]/div[13]/section[1]/div[1]/div[1]/ul[1]
+            category:
+              - text: Shop
+                xpath: /html/body/nav[1]/div[1]/div[1]/div[1]/div[1]/nav[1]/div[2]/div[1]/div[1]/nav[1]/ol[1]/li[2]/span[1]/a[1]/span[1]
+              - text: Air treatment
+                xpath: /html/body/nav[1]/div[1]/div[1]/div[1]/div[1]/nav[1]/div[2]/div[1]/div[1]/nav[1]/ol[1]/li[3]/span[1]/a[1]/span[1]
+              - text: Air Purifier
+                xpath: /html/body/nav[1]/div[1]/div[1]/div[1]/div[1]/nav[1]/div[2]/div[1]/div[1]/nav[1]/ol[1]/li[4]/span[1]/a[1]/span[1]
+              - text: New Dyson Pure Hot+Cool™ purifier fan heaters
+                xpath: /html/body/nav[1]/div[1]/div[1]/div[1]/div[1]/nav[1]/div[2]/div[1]/div[1]/nav[1]/ol[1]/li[5]/span[1]/a[1]/span[1]
+            productUrl:
+              - text: https://www.dysoncanada.ca/en/air-treatment/purifiers/dyson-pure-hot-cool/dyson-pure-hot-cool-white-silver
+                xpath: /html/body/div[7]
+            sku:
+              - text: 244320-01
+                xpath: /html/body/div[9]
+            variantId:
+              - text: 244320-01
+                xpath: /html/body/div[9]
+            mpc:
+              - text: 244320-01
+                xpath: /html/body/div[9]
+            color:
+              - text: White-Silver
+                xpath: /html/body/div[10]
+            price:
+              - text: 799.99 $
+                xpath: /html/body/div[12]
+            availabilityText:
+              - text: In Stock
+                xpath: /html/body/div[20]
+            brandText:
+              - text: Dyson
+            manufacturer:
+              - text: Dyson
+            descriptionBullets:
+              - text: "0"
+            technicalInformationPdfPresent:
+              - text: "false"
+            termsAndConditions:
+              - text: "true"
+            privacyPolicy:
+              - text: "true"
+            customerServiceAvailability:
+              - text: "true"
+        xpath: /html
+    timestamp: 1607333902976

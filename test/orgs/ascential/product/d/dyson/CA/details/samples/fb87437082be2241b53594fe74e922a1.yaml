@@ -1,0 +1,234 @@
+input:
+  _url: http://dysoncanada.ca
+  URL: https://www.dysoncanada.ca/en/vacuum-cleaners/sticks/dyson-v11-stick/dyson-v11-outsize-nickel-red
+extractions:
+  - html: https://workbench.import.io/html/run=ba091206-85ad-4692-8115-478df97e7acf/task=61fcd58e-195b-4662-9686-ddcbeaa04521/f5b5c4ea-c3dc-475f-9fe4-41ec59a2f0d2.html
+    extractionConfigId: product/details/stores/d/dyson/CA/extract
+    data:
+      - group:
+          - image:
+              - text: https://dyson-h.assetsadobe2.com/is/image/content/dam/dyson/products/cord-free-vacuums/sticks/dyson-v11-vacuums/248j/variants/nickel-red/248J_Variant_Hero_HTXL_IRSNKIRRD2BL.jpg?$responsive$&cropPathE=desktop&fit=stretch,1&wid=1920
+                xpath: /html/body/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/img[1]/@src
+            imageAlt:
+              - text: Dyson V11 Outsize vacuum Nickel Red
+                xpath: /html/body/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/img[1]/@alt
+            description:
+              - text: |-
+                  Dyson V11 Outsize cordless vacuum
+                   
+                  Twice the suction of any other cordless vacuum¹
+                   
+                  Up to 120 minutes of fade-free run time²
+                   
+                  150% bigger bin. 25% wider cleanerhead³
+                xpath: /html/body/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]
+            videos:
+              - text: https://www.dysoncanada.ca/content/dam/dyson/video/products/primary/347776-01.mp4
+                xpath: /html/body/main[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/@data-video-src
+            name:
+              - text: Dyson V11 Outsize cordless vacuum
+                xpath: /html/body/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/h1[1]
+            shippingInfo:
+              - text: Free shipping and returns
+                xpath: /html/body/main[1]/div[2]/div[2]/div[1]/div[1]/section[1]/div[1]/div[1]/ul[1]/li[2]
+            manufacturerDescription:
+              - text: Monitors system performance 8,000 times a second, then reports in real
+                  time on the LCD screen.
+                xpath: /html/body/main[1]/div[2]/div[12]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/section[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/p[1]
+              - text: Dyson DLS™ technology automatically senses and adapts to changes in floor
+                  type to extend run time. The right balance of power and run
+                  time when you need it.
+                xpath: /html/body/main[1]/div[2]/div[12]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/section[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/p[1]
+              - text: An integrated digital motor spins the 25% wider brush bar² up to 60 times
+                  a second. It drives stiff nylon bristles deep into carpet to
+                  remove dirt, while carbon fibre filaments capture fine dust on
+                  hard floors.
+                xpath: /html/body/main[1]/div[2]/div[12]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/section[1]/div[1]/div[1]/div[3]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/p[1]
+              - text: Remove and replace at the press of a button for even longer cleans.³
+                  Click-in batteries can be charged on or off the machine.
+                xpath: /html/body/main[1]/div[2]/div[12]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/section[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/p[1]
+              - text: Dyson’s power-optimizing technology and battery-saving trigger help
+                  deliver up to 60 minutes’ run time in Eco mode.
+                xpath: /html/body/main[1]/div[2]/div[12]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/section[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/p[1]
+              - text: The 1.9 litre bin’s ‘point and shoot’ mechanism wipes the silicone collar
+                  down the chemically-etched shroud in a single action, driving
+                  out dust hygienically.
+                xpath: /html/body/main[1]/div[2]/div[12]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/section[1]/div[1]/div[1]/div[3]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/p[1]
+              - text: The Dyson V11™ vacuum drops into the wall-mounted dock, to charge it and
+                  tidily store tools. So it’s ready to grab and go.
+                xpath: /html/body/main[1]/div[2]/div[12]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/p[1]
+              - text: 5 Dyson engineered tools for versatile whole-home and car cleaning.
+                  Including the mini-motorized tool for removing pet hair from
+                  upholstery and tight spaces.
+                xpath: /html/body/main[1]/div[2]/div[12]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/p[1]
+              - text: Washable components, like the filter, can be easily removed and rinsed.
+                  High-efficiency dust separation means that there's no need to
+                  wash the cyclones or other parts of the machine.
+                xpath: /html/body/main[1]/div[2]/div[12]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[1]/div[1]/div[3]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/p[1]
+            manufacturerImages:
+              - text: https://dyson-h.assetsadobe2.com/is/image/content/dam/dyson/products/cord-free-vacuums/sticks/dyson-v11-vacuums/248j/variants/features/Feature%203.jpg?cropPathE=desktop&fit=stretch,1&fmt=pjpeg&wid=634
+                xpath: /html/body/main[1]/div[2]/div[12]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/section[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/img[1]/@src
+              - text: https://dyson-h.assetsadobe2.com/is/image/content/dam/dyson/products/cord-free-vacuums/sticks/dyson-v11-vacuums/248j/variants/features/Feature%201.jpg?cropPathE=desktop&fit=stretch,1&fmt=pjpeg&wid=634
+                xpath: /html/body/main[1]/div[2]/div[12]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/section[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/img[1]/@src
+              - text: https://dyson-h.assetsadobe2.com/is/image/content/dam/dyson/products/cord-free-vacuums/sticks/dyson-v11-vacuums/248j/variants/features/Feature%202.jpg?cropPathE=desktop&fit=stretch,1&fmt=pjpeg&wid=634
+                xpath: /html/body/main[1]/div[2]/div[12]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/section[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/img[1]/@src
+              - text: https://dyson-h.assetsadobe2.com/is/image/content/dam/dyson/products/cord-free-vacuums/sticks/dyson-v11-vacuums/248j/variants/features/Feature%207.jpg?cropPathE=desktop&fit=stretch,1&fmt=pjpeg&wid=634
+                xpath: /html/body/main[1]/div[2]/div[12]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/section[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/img[1]/@src
+              - text: https://dyson-h.assetsadobe2.com/is/image/content/dam/dyson/products/cord-free-vacuums/sticks/dyson-v11-vacuums/248l/pdp/feature-stack/Features%204.jpg?cropPathE=desktop&fit=stretch,1&fmt=pjpeg&wid=634
+                xpath: /html/body/main[1]/div[2]/div[12]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/section[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/img[1]/@src
+              - text: https://dyson-h.assetsadobe2.com/is/image/content/dam/dyson/products/cord-free-vacuums/sticks/dyson-v11-vacuums/248j/variants/features/Feature%205.jpg?cropPathE=desktop&fit=stretch,1&fmt=pjpeg&wid=634
+                xpath: /html/body/main[1]/div[2]/div[12]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/section[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/img[1]/@src
+              - text: https://dyson-h.assetsadobe2.com/is/image/content/dam/dyson/products/cord-free-vacuums/sticks/dyson-v11-vacuums/248j/variants/features/Feature%204.jpg?cropPathE=desktop&fit=stretch,1&fmt=pjpeg&wid=634
+                xpath: /html/body/main[1]/div[2]/div[12]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/img[1]/@src
+              - text: https://dyson-h.assetsadobe2.com/is/image/content/dam/dyson/products/cord-free-vacuums/sticks/dyson-v11-vacuums/248j/variants/features/SV16_IRSNK_Features.jpg?cropPathE=desktop&fit=stretch,1&fmt=pjpeg&wid=634
+                xpath: /html/body/main[1]/div[2]/div[12]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/img[1]/@src
+              - text: https://dyson-h.assetsadobe2.com/is/image/content/dam/dyson/leap-petite-global/products/floorcare/sticks/248l-j/variants/Washable.png?cropPathE=desktop&fit=stretch,1&fmt=pjpeg&wid=634
+                xpath: /html/body/main[1]/div[2]/div[12]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/section[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/img[1]/@src
+            brandText:
+              - text: Dyson
+            manufacturer:
+              - text: Dyson
+            descriptionBullets:
+              - text: "0"
+            technicalInformationPdfPresent:
+              - text: "false"
+            termsAndConditions:
+              - text: "true"
+            privacyPolicy:
+              - text: "true"
+            customerServiceAvailability:
+              - text: "true"
+          - manufacturerDescription:
+              - text: The seven-cell nickel-cobalt-aluminum battery has the fade-free power to
+                  clean here, there and everywhere around your home.
+                xpath: /html/body/main[1]/div[2]/div[15]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/section[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/p[1]
+              - text: Spins at up to 125,000rpm, creating the most powerful suction of any
+                  cordless vacuum.¹
+                xpath: /html/body/main[1]/div[2]/div[15]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/section[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/p[1]
+              - text: 18 cyclones generate forces of 79,000g to fling dust into the bin without
+                  clogging the filter, so there’s no loss of suction.
+                xpath: /html/body/main[1]/div[2]/div[15]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/section[1]/div[1]/div[1]/div[3]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/p[1]
+            manufacturerImages:
+              - text: https://dyson-h.assetsadobe2.com/is/image/content/dam/dyson/products/cord-free-vacuums/sticks/dyson-v11-vacuums/248j/variants/features/Tech%201.jpg?cropPathE=desktop&fit=stretch,1&fmt=pjpeg&wid=634
+                xpath: /html/body/main[1]/div[2]/div[15]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/section[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/img[1]/@src
+              - text: https://dyson-h.assetsadobe2.com/is/image/content/dam/dyson/products/cord-free-vacuums/sticks/dyson-v11-vacuums/248j/variants/features/Tech%202.jpg?cropPathE=desktop&fit=stretch,1&fmt=pjpeg&wid=634
+                xpath: /html/body/main[1]/div[2]/div[15]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/section[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/img[1]/@src
+              - text: https://dyson-h.assetsadobe2.com/is/image/content/dam/dyson/products/cord-free-vacuums/sticks/dyson-v11-vacuums/248j/variants/features/Tech%203.jpg?cropPathE=desktop&fit=stretch,1&fmt=pjpeg&wid=634
+                xpath: /html/body/main[1]/div[2]/div[15]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/section[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/img[1]/@src
+            brandText:
+              - text: Dyson
+            manufacturer:
+              - text: Dyson
+            descriptionBullets:
+              - text: "0"
+            technicalInformationPdfPresent:
+              - text: "false"
+            termsAndConditions:
+              - text: "true"
+            privacyPolicy:
+              - text: "true"
+            customerServiceAvailability:
+              - text: "true"
+          - manufacturerDescription:
+              - text: Dyson’s fully-sealed, six-layer filtration system traps 99.99% of
+                  particles as small as 0.3 microns.
+                xpath: /html/body/main[1]/div[2]/div[16]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/section[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/p[1]
+              - text: Designed to absorb vibrations and dampen noise, to keep sound levels down.
+                xpath: /html/body/main[1]/div[2]/div[16]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/section[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/p[1]
+              - text: The motor, bin and cyclone are aligned, so air is drawn into the cyclones
+                  in a straight line- helping to create powerful Dyson suction.
+                xpath: /html/body/main[1]/div[2]/div[16]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/section[1]/div[1]/div[1]/div[3]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/p[1]
+            manufacturerImages:
+              - text: https://dyson-h.assetsadobe2.com/is/image/content/dam/dyson/products/cord-free-vacuums/sticks/dyson-v11-vacuums/248l/pdp/feature-stack/Tech%204.jpg?cropPathE=desktop&fit=stretch,1&fmt=pjpeg&wid=634
+                xpath: /html/body/main[1]/div[2]/div[16]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/section[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/img[1]/@src
+              - text: https://dyson-h.assetsadobe2.com/is/image/content/dam/dyson/products/cord-free-vacuums/sticks/dyson-v11-vacuums/248l/pdp/feature-stack/Tech%205.jpg?cropPathE=desktop&fit=stretch,1&fmt=pjpeg&wid=634
+                xpath: /html/body/main[1]/div[2]/div[16]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/section[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/img[1]/@src
+              - text: https://dyson-h.assetsadobe2.com/is/image/content/dam/dyson/products/cord-free-vacuums/sticks/dyson-v11-vacuums/variant/PDP_tech_config.jpg?cropPathE=desktop&fit=stretch,1&fmt=pjpeg&wid=634
+                xpath: /html/body/main[1]/div[2]/div[16]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/section[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/img[1]/@src
+            weightNet:
+              - text: |-
+                  Weight
+                   
+                   3.2 kg
+                xpath: /html/body/main[1]/div[2]/div[17]/section[1]/div[1]/ul[1]/li[7]
+            specifications:
+              - text: |-
+                  Height
+                   
+                   29.8 cm 
+                   
+                   
+                   
+                  Length
+                   
+                   127.6 cm 
+                   
+                   
+                   
+                  Width
+                   
+                   32 cm
+                xpath: /html/body/main[1]/div[2]/div[17]/section[1]/div[1]/div[1]/ul[1]
+            brandText:
+              - text: Dyson
+            manufacturer:
+              - text: Dyson
+            descriptionBullets:
+              - text: "0"
+            technicalInformationPdfPresent:
+              - text: "false"
+            termsAndConditions:
+              - text: "true"
+            privacyPolicy:
+              - text: "true"
+            customerServiceAvailability:
+              - text: "true"
+        xpath: /html/body/main[1]/div[2]
+      - group:
+          - category:
+              - text: Shop
+                xpath: /html/body/nav[1]/div[1]/div[1]/div[1]/div[1]/nav[1]/div[2]/div[1]/div[1]/nav[1]/ol[1]/li[2]/span[1]/a[1]/span[1]
+              - text: Vacuum Cleaners
+                xpath: /html/body/nav[1]/div[1]/div[1]/div[1]/div[1]/nav[1]/div[2]/div[1]/div[1]/nav[1]/ol[1]/li[3]/span[1]/a[1]/span[1]
+              - text: Stick vacuums
+                xpath: /html/body/nav[1]/div[1]/div[1]/div[1]/div[1]/nav[1]/div[2]/div[1]/div[1]/nav[1]/ol[1]/li[4]/span[1]/a[1]/span[1]
+              - text: Dyson V11™ vacuums
+                xpath: /html/body/nav[1]/div[1]/div[1]/div[1]/div[1]/nav[1]/div[2]/div[1]/div[1]/nav[1]/ol[1]/li[5]/span[1]/a[1]/span[1]
+            productUrl:
+              - text: https://www.dysoncanada.ca/en/vacuum-cleaners/sticks/dyson-v11-stick/dyson-v11-outsize-nickel-red
+                xpath: /html/body/div[6]
+            sku:
+              - text: 298706-01
+                xpath: /html/body/div[8]
+            variantId:
+              - text: 298706-01
+                xpath: /html/body/div[8]
+            mpc:
+              - text: 298706-01
+                xpath: /html/body/div[8]
+            color:
+              - text: Nickel-Iron-Red
+                xpath: /html/body/div[9]
+            price:
+              - text: 1099.99 $
+                xpath: /html/body/div[11]
+            availabilityText:
+              - text: In Stock
+                xpath: /html/body/div[18]
+            brandText:
+              - text: Dyson
+            manufacturer:
+              - text: Dyson
+            descriptionBullets:
+              - text: "0"
+            technicalInformationPdfPresent:
+              - text: "false"
+            termsAndConditions:
+              - text: "true"
+            privacyPolicy:
+              - text: "true"
+            customerServiceAvailability:
+              - text: "true"
+        xpath: /html/body
+        htmlExtraction: https://crawl-assets.import.io/html/run=ba091206-85ad-4692-8115-478df97e7acf/task=61fcd58e-195b-4662-9686-ddcbeaa04521/f5b5c4ea-c3dc-475f-9fe4-41ec59a2f0d2.html
+    timestamp: 1607333901428
