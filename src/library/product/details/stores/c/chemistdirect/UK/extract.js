@@ -124,12 +124,12 @@ async function implementation(
       var descriptionUl = "";
       var childNodes = descriptions[i].childNodes;
       childNodes.forEach(x => {
-        console.log(x,reviews[i].innerText.replace(" ","").replace(" ","").replace(" ",""));
+        
         
         if(descriptionData == undefined){
           descriptionData = "";
         }
-        if(x.localName == "ul"){
+        if(x.localName == "ul" || x.localName == "ui"){
           descriptionUl = "";
           x.childNodes.forEach(y => {
             if( y.innerHTML != undefined){
@@ -144,7 +144,8 @@ async function implementation(
           descriptionData += " " + descriptionUl;
         }
         else{
-          descriptionData += x.innerText;
+          console.log(x,reviews[i].innerText.replace(" ","").replace(" ","").replace(" ",""));
+          descriptionData += x.innerText + " ";
         }
         
         descriptionData = descriptionData.replace("undefined","");
@@ -160,12 +161,7 @@ async function implementation(
   if (j !== variantLength - 1) { await context.extract(productDetails, { transform }, { type: 'APPEND' }); }
 }
 }
-if(r != null){
   return await context.extract(productDetails, { transform });
-}
-else{
-  return await context.extract("");
-}
 }
 
 

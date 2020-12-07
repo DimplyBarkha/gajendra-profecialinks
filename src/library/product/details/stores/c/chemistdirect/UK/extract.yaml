@@ -95,12 +95,6 @@ fields:
     singleValue: true
     description: Content under "warnings" header
     xpath: //div[@id='Warnings']
-  - name: promotion
-    singleValue: false
-    description: promotion text on product page
-    xpath: //span[contains(@class,'cd-p-saved')]
-    regExp: /[0-9].+/
-    regExpReplace: $1
   - name: quantity
     singleValue: false
     xpath: //span[contains(@class,'cd-product-qty')]
