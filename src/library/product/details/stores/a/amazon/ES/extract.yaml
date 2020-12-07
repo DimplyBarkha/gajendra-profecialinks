@@ -12,7 +12,7 @@ fields:
     regExpReplace: $2$3$4
   - name: manufacturer
     singleValue: false
-    xpath: //li[contains(.,'Fabricante')]//span//span[2] | //td[contains(text(), 'Hersteller')]/following-sibling::*[1] | //td/a[contains(text(), 'Hersteller')]/parent::*[1]/following-sibling::*[1] | //th[contains(text(), 'Hersteller')]/following-sibling::*[1]
+    xpath: (//li[contains(.,'Fabricante')]//span//span[2] | //td[contains(text(), 'Hersteller')]/following-sibling::*[1] | //td/a[contains(text(), 'Hersteller')]/parent::*[1]/following-sibling::*[1] | //th[contains(text(), 'Hersteller')]/following-sibling::*[1] | //*[normalize-space(text())='Manufacturer']/following-sibling::*[1] | //*[normalize-space(text())='Manufacturer :']/following-sibling::*[1])[position()=1]
   - name: quantity
     singleValue: false
     xpath: //li[contains(.,'Dimensiones')]//span//span[2]
@@ -66,7 +66,7 @@ fields:
     singleValue: false
     xpath: //div[contains(@id, 'important-information')]/div[contains(@class,'content')]/h4[contains(text(), 'direcciÃ³n')]/../p[text()]/text() | //*[contains(text(), "direcciÃ³n")]/following-sibling::*[text()]/text() | //*[contains(text(), "dirección")]/following-sibling::*[text()]/text()
   - name: ingredientsList
-    xpath: //div[@id="productDescription"]/p[preceding-sibling::*[not(name()=p)][1][contains(normalize-space(text()),"Ingredientes")]] | //div[not(ancestor::html//div[@id="productDescription"]/p[preceding-sibling::*[not(name()=p)][1][contains(normalize-space(text()),"Ingredientes")]])][@data-feature-name="productOverview"]//td[contains(.,"Ingredientes")]/following-sibling::*[1]/span[1]
+    xpath: //div[@id="productDescription"]/p[preceding-sibling::*[not(name()=p)][1][contains(normalize-space(text()),"Ingredientes")]] | //div[not(ancestor::html//div[@id="productDescription"]/p[preceding-sibling::*[not(name()=p)][1][contains(normalize-space(text()),"Ingredientes")]])][@data-feature-name="productOverview"]//td[contains(.,"Ingredientes")]/following-sibling::*[1]/span[1]//span[contains(@class,"offscreen")]
   - name: productForm
     xpath: //*[normalize-space(.)='Forma del producto']/following-sibling::*[1]
   - name: productDosage
