@@ -52,9 +52,7 @@ fields:
     description: Product manufacturer
   - name: quantity
     singleValue: true
-    description: Quantity as described on the page
-    regExp: (?:\s?([\d\.]+\s?)([bB]ar[s]?|[cC]ount|[cC]t|[fF][lL][\.]?\s?[oO][zZ][\.]?|FO|[mM][lL]|[oO][zZ][\.]?|pc|[pP]int|[pP]ops|qt|[wW]ipe[s]?).?)$|(?:\s?([\d\.]+\s?)([bB]ar[s]?|[cC]ount|[cC]|[fF][lL][\.]?\s?[oO][zZ][\.]?|FO|[mM][lL]|[oO][zZ][\.]?|pc|[pP]int|[pP]ops|qt|[wW]ipe[s]?).?\s?[\&\-\w\s]+)$
-    regExpReplace: $1$2$3$4
+    xpath: //dl[@class="product-specifications-list"]/dt[contains(text(),'Pack Size')]/following-sibling::dd[1]/text() | //dl[@class="product-specifications-list"]/dt[contains(text(),'Size (g)')]/following-sibling::dd[1]/text() | //dl[@class="product-specifications-list"]/dt[contains(text(),'Volume')]/following-sibling::dd[1]/text()
   - name: weightNet
     singleValue: true
     xpath: //dl[@class="product-specifications-list"]/dt[contains(text(),'Weight')]/following-sibling::dd[1]/text()
@@ -72,7 +70,7 @@ fields:
     xpath: //div[@id="store-stock-app"]/@data-product-code
   - name: mpc
     singleValue: true
-    xpath: //dl[@class="product-specifications-list"]/dt[contains(text(),'Manufacturer Part Number (MPN)')]/following-sibling::dd[1]/text()
+    xpath: //div[@id="store-stock-app"]/@data-sku-id
   - name: packSize
     singleValue: true
     description: The number of packs in the product offer (if stated separately on
@@ -171,7 +169,7 @@ fields:
     xpath: //p[@class="additional-service-options-item__description"]/text()
   - name: variantInformation
     singleValue: true
-    description: colour / scent / flavour / other
+    xpath: //dd[@class="item-attribute-details"]/text()
   - name: firstVariant
     singleValue: true
     description: null
