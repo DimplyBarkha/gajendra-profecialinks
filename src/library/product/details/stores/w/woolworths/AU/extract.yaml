@@ -52,7 +52,7 @@ fields:
     xpath: //div[contains(@class,'product-healthy-swaps')]/following-sibling::wow-view-more/div/div/div/div
   - name: countryOfOrigin
     singleValue: true
-    xpath: //img[@class="country-of-original-image ng-star-inserted"]/@alt
+    xpath: //img[@class="country-of-original-image ng-star-inserted"]/@alt | //div[contains(@class,'country-of-original')]/span
   - name: availabilityText
     singleValue: true
     defaultValue: In Stock
