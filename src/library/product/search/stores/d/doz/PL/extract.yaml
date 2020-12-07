@@ -23,5 +23,6 @@ fields:
     description: The offered price for the product
   - name: rank
   - name: rankOrganic
-  - name: sponsored
+  - name: manufacturer
     defaultValue: false
+    xpath: //div[@class="subtitle subtitle--small h3_style"]/following::p/text()
