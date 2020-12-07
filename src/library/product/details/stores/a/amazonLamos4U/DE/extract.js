@@ -1,12 +1,11 @@
-
 const { transform } = require('../../../../sharedAmazon/transformNew');
-const { implementation } = require('../../../a/amazon/US/extract');
+const { implementation } = require('../../amazon/DE/extract');
 
 module.exports = {
   implements: 'product/details/extract',
   parameterValues: {
     country: 'DE',
-    store: 'amazon',
+    store: 'amazonLamos4U',
     transform,
     domain: 'amazon.de',
   },

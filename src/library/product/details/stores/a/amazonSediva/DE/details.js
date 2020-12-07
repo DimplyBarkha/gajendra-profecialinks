@@ -3,7 +3,7 @@ module.exports = {
   implements: 'product/details',
   parameterValues: {
     country: 'DE',
-    store: 'amazon',
+    store: 'amazonSediva',
     domain: 'amazon.de',
     zipcode: '10117',
   },

@@ -3,8 +3,8 @@ module.exports = {
   implements: 'product/details',
   parameterValues: {
     country: 'DE',
-    store: 'amazon',
+    store: 'amazonLamos4U',
     domain: 'amazon.de',
-    zipcode: '10117',
+    // zipcode: '10117',
   },
 };

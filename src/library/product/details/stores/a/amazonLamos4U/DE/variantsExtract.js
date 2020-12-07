@@ -4,7 +4,7 @@ module.exports = {
   implements: 'product/details/variants/variantsExtract',
   parameterValues: {
     country: 'DE',
-    store: 'amazon',
+    store: 'amazonLamos4U',
     domain: 'amazon.de',
   },
   dependencies: {

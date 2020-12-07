@@ -4,7 +4,7 @@ module.exports = {
   implements: 'product/details/variants/variantsExtract',
   parameterValues: {
     country: 'DE',
-    store: 'amazon',
+    store: 'amazonApohealth',
     domain: 'amazon.de',
   },
   dependencies: {
