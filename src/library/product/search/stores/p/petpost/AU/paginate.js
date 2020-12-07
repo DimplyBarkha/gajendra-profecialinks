@@ -4,7 +4,7 @@ module.exports = {
   parameterValues: {
     country: 'AU',
     store: 'petpost',
-    nextLinkSelector: 'button.bg-tertiary-dark, text-secondary-dark',
+    nextLinkSelector: null,
     nextLinkXpath: null,
     mutationSelector: null,
     spinnerSelector: null,
@@ -18,3 +18,4 @@ module.exports = {
     zipcode: '',
   },
 };
+/**'button.bg-tertiary-dark, text-secondary-dark'*/
