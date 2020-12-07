@@ -41,11 +41,11 @@ fields:
     and appending " - ${variantType}" if necessary (fixed per feed)
 - name: listPrice
   singleValue: true
-  xpath: //span[@class="price" or @class="price strikeout"]
+  xpath: //span[@class="price strikeout"]
   description: The stated undiscounted price for the product
 - name: price
   singleValue: true
-  xpath: //span[@class="price" or @class="productDetailPrice price"] 
+  xpath: //span[@class="price" or @class="productDetailPrice price" or @class="price priceSm"] 
   description: The offered price for the selected product variant - if a user clicks
     add to basket this is the price they would be charged
 - name: availabilityText
@@ -442,7 +442,7 @@ fields:
   description: In product page, information about a new version of the product - new
     desription info
 - name: variantInformation
-  singleValue: true
+  singleValue: false
   xpath: //ul[@role="radiogroup"]/li[contains(@ats,"Y")]/@data-original-title
   description: colour / scent / flavour / other
 - name: firstVariant
