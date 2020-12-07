@@ -34,6 +34,13 @@ async function implementation(
     const brandName = jsonData && jsonData.brand;
     const manufacturer = jsonData && jsonData.manufacturer;
     const mpc = sku && sku.split('-') && sku.split('-')[0];
+    const getListPrice = () => {
+      const priceRow = document.querySelector('x-wrapper-re-1-3 > div > div');
+      const priceElements = document.evaluate('.//span[text() and not(contains(text(), "VAT"))]', priceRow, null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
+      const price = priceElements.snapshotItem(0) ? priceElements.snapshotItem(0).textContent : '';
+      const listPrice = priceElements.snapshotItem(1) ? priceElements.snapshotItem(1).textContent : '';
+      return listPrice;
+    }
 
     const getPrimaryImage = () => {
       const scriptElement = document.querySelector('script[type*="application/ld+json"]');
@@ -111,6 +118,7 @@ async function implementation(
     const priceArry = getPriceArray();
     const sizeArray = getsizeArray();
     const compareVariantArray = getComapareVariantIdArray();
+    const listPrice = getListPrice();
     const actulaSizeArray = [];
     variantIdArray.forEach((element1, index1) => {
       compareVariantArray.forEach((element2, index2) => {
@@ -138,6 +146,7 @@ async function implementation(
       productInfoElement.setAttribute('price', priceArry[index]);
       productInfoElement.setAttribute('productsize', actulaSizeArray[index]);
       productInfoElement.setAttribute('totalsecondaryimages', totalSecondaryImages);
+      productInfoElement.setAttribute('listprice', listPrice);
       document.body.append(productInfoElement);
     })
   });
