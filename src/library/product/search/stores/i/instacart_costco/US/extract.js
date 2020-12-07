@@ -34,13 +34,15 @@ module.exports = {
         newDiv.id = id;
         newDiv.textContent = content;
         newDiv.style.display = "none";
-        const originalDiv = document.querySelectorAll(".item-card-contents")[
-          index
-        ];
+        const originalDiv = document.querySelectorAll(
+          ".rmq-11ec9fcc.item-card-contents"
+        )[index];
         originalDiv.parentNode.insertBefore(newDiv, originalDiv);
       }
 
-      const product = document.querySelectorAll(".item-card div a");
+      const product = document.querySelectorAll(
+        ".rmq-926ae505.rmq-6898c4bf.item-card div a"
+      );
 
       for (let i = 0; i < product.length; i++) {
         const url = product[i].href;

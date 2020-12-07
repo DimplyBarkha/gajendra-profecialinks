@@ -27,11 +27,11 @@ fields:
   - name: thumbnail
     singleValue: true
     description: The URL for the product thumbnail image
-    xpath: //div[@class="item-card-image-wrapper"]/img/@src
+    xpath: //li[@class="rmq-926ae505 rmq-6898c4bf item-card"]/div/a/div/div/div/div/img/@src
   - name: name
     singleValue: true
     description: The product name
-    xpath: //div[@class="item-name item-row"]/span[@class="full-item-name"]
+    xpath: //li[@class="rmq-926ae505 rmq-6898c4bf item-card"]/div/a/div/div/div[@class="item-info"]/div/span[1]
   - name: sku
     singleValue: true
     description: The store-specific product identifier
@@ -55,7 +55,7 @@ fields:
     singleValue: true
     description: The offered price for the product
     type: CURRENCY
-    xpath: //div[@class="item-price"]
+    xpath: //li[@class="rmq-926ae505 rmq-6898c4bf item-card"]/div/a/div/div/div[@class="item-info"]/div/div/div/div/span/span
   - name: listPrice
     singleValue: true
     description: The stated undiscounted price for the product
@@ -93,7 +93,7 @@ fields:
     description:
       The product name, prefixing "${brand} - " if not included in "name"
       and appending " - ${variantType}" if necessary (fixed per extractor)
-    xpath: //div[@class="item-name item-row"]/span[@class="full-item-name"]
+    xpath: //li[@class="rmq-926ae505 rmq-6898c4bf item-card"]/div/a/div/div/div[@class="item-info"]/div/span[1]
   - name: aggregateRating
     singleValue: true
     description: The stated aggregate rating normalized to be out of 5
