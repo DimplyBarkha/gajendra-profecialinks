@@ -2,7 +2,7 @@ input:
   _url: http://bedbathbeyond.ca
   URL: https://www.bedbathandbeyond.ca/store/product/dyson-v6-cord-free-stick-vacuum/1060983817
 extractions:
-  - html: https://workbench.import.io/html/run=b1b386a3-276f-4af3-8e91-55614a0d8922/task=9d61cdb9-dd02-4cc9-bbc8-fc686076c622/a220ff5a-cd38-4cb5-aec7-c71e4110cdd0.html
+  - html: https://workbench.import.io/html/run=6f0eac41-1442-422f-9708-23a5cbb51c1a/task=0652a3ec-71da-4419-8d93-af271f0ac64f/e13829bb-bf17-4a82-a175-9a6e7d1e2fbc.html
     extractionConfigId: product/details/stores/b/bedbathbeyond/CA/extract
     data:
       - group:
@@ -16,6 +16,17 @@ extractions:
               - text: Dyson V6 Cord-Free Stick Vacuum. View a larger version of this product
                   image.
                 xpath: /html/body/div[2]/div[2]/div[1]/div[2]/main[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/a[1]/div[1]/img[1]/@alt
+            alternateImages:
+              - text: https://b3h2.scene7.com/is/image/BedBathandBeyond/116280360983817p?$140$&wid=140&hei=140
+                xpath: /html/body/div[15]/@altimagesdata
+              - text: https://b3h2.scene7.com/is/image/BedBathandBeyond/116280360983817p__1?$140$&wid=140&hei=140
+                xpath: /html/body/div[16]/@altimagesdata
+              - text: https://b3h2.scene7.com/is/image/BedBathandBeyond/116280360983817p__2?$140$&wid=140&hei=140
+                xpath: /html/body/div[17]/@altimagesdata
+              - text: https://b3h2.scene7.com/is/image/BedBathandBeyond/116280360983817p__3?$140$&wid=140&hei=140
+                xpath: /html/body/div[18]/@altimagesdata
+              - text: https://b3h2.scene7.com/is/image/BedBathandBeyond/116280360983817p__4?$140$&wid=140&hei=140
+                xpath: /html/body/div[19]/@altimagesdata
             category:
               - text: Storage & Cleaning
                 xpath: /html/body/div[2]/div[2]/div[1]/div[2]/main[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[1]/a[1]/@title
@@ -68,9 +79,6 @@ extractions:
             ratingCount:
               - text: "423"
                 xpath: /html/body/div[2]/div[2]/div[1]/div[2]/main[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/a[1]/span[2]/meta[1]/@content
-            aggregateRating:
-              - text: "4.3"
-                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/main[1]/div[1]/div[1]/div[1]/div[2]/section[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]
             color:
               - text: WHITE/SILVER
                 xpath: /html/body/div[2]/div[2]/div[1]/div[2]/main[1]/div[1]/div[1]/div[1]/div[2]/div[5]/div[1]/div[1]/div[1]/div[1]/div[7]/div[1]/div[2]
@@ -94,5 +102,7 @@ extractions:
               - text: Yes
             descriptionBullets:
               - text: "14"
+            variantCount:
+              - text: "0"
         xpath: /
-    timestamp: 1606982189795
+    timestamp: 1607351270962

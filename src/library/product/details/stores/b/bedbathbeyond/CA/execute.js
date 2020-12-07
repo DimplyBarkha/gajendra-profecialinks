@@ -6,7 +6,7 @@ module.exports = {
     store: 'bedbathbeyond',
     domain: 'bedbathbeyond.ca',
     loadedSelector: 'img[class*="ProductMediaCarouselStyle"]',
-    noResultsXPath: '//div[@id="app" and not(//img[contains(@class, "ProductMediaCarouselStyle")])]',
+    noResultsXPath: '//div[@id="app" and not(//img[contains(@class, "ProductMediaCarouselStyle")])] | //span[contains(@id, "ctl00_InvalidRequest")]',
     zipcode: '',
   },
 };

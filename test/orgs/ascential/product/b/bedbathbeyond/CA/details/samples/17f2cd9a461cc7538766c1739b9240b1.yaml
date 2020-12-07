@@ -2,7 +2,7 @@ input:
   _url: http://bedbathbeyond.ca
   URL: https://www.bedbathandbeyond.ca/store/product/dyson-reg-pure-cool-link-air-purifier-in-white-silver/1047491151
 extractions:
-  - html: https://workbench.import.io/html/run=b1b386a3-276f-4af3-8e91-55614a0d8922/task=bc7ece7f-911e-4458-b655-491e05925c30/26b20ac6-fa9c-40d5-b067-7ea74db91765.html
+  - html: https://workbench.import.io/html/run=6f0eac41-1442-422f-9708-23a5cbb51c1a/task=77bce413-5d46-4aca-97e3-fd946721e2de/7be1ee82-53dd-4c39-9d30-0708ecf45099.html
     extractionConfigId: product/details/stores/b/bedbathbeyond/CA/extract
     data:
       - group:
@@ -16,6 +16,17 @@ extractions:
               - text: Dyson® Pure Cool Link Air Purifier in White/Silver. View a larger version
                   of this product image.
                 xpath: /html/body/div[2]/div[2]/div[1]/div[2]/main[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/a[1]/div[1]/img[1]/@alt
+            alternateImages:
+              - text: https://b3h2.scene7.com/is/image/BedBathandBeyond/98591147491151p?$140$&wid=140&hei=140
+                xpath: /html/body/div[18]/@altimagesdata
+              - text: https://b3h2.scene7.com/is/image/BedBathandBeyond/98591147491151p__1?$140$&wid=140&hei=140
+                xpath: /html/body/div[19]/@altimagesdata
+              - text: https://b3h2.scene7.com/is/image/BedBathandBeyond/98591147491151p__2?$140$&wid=140&hei=140
+                xpath: /html/body/div[20]/@altimagesdata
+              - text: https://b3h2.scene7.com/is/image/BedBathandBeyond/98591147491151p__3?$140$&wid=140&hei=140
+                xpath: /html/body/div[21]/@altimagesdata
+              - text: //v.tvpage.com/1758166/109982828/92f70/thumb-2ddbd99d7b6b6873eb2d97fd48d2b8e7-00002.jpg
+                xpath: /html/body/div[22]/@altimagesdata
             category:
               - text: Storage & Cleaning
                 xpath: /html/body/div[2]/div[2]/div[1]/div[2]/main[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[1]/a[1]/@title
@@ -69,25 +80,28 @@ extractions:
             ratingCount:
               - text: "30"
                 xpath: /html/body/div[2]/div[2]/div[1]/div[2]/main[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/a[1]/span[2]/meta[1]/@content
-            aggregateRating:
-              - text: "4.8"
-                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/main[1]/div[1]/div[1]/div[1]/div[2]/section[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]
             manufacturerDescription:
-              - text: >-
-                  Dyson purifiers remove 99.97% of particles as small as 0.3
-                  microns. In auto mode, your purifier will automatically
-                  monitor indoor air quality and adjust airflow accordingly. So
-                  once the air in your room is clean, it stays clean. Even for
-                  the lightest sleepers. 
-
-                  At the push of a button, your purifier will continue to monitor and respond to air quality while you’re asleep – but only using the quietest settings Using an independent motor for smooth oscillation, Dyson purifiers project and 
-
-                  circulate purified air across the room. The Dyson purifier's footprint is so small that it can sit comfortably on a letter-sized piece of paper. So you can position it anywhere in the room. Some other air purifiers have a high face velocity. This means they force air through their filters, which can cause harmful pollutants to escape back into the room.
-
-                  Dyson purifiers keep them trapped.
-
-                  They have a lower face velocity, combined with a high-efficiency HEPA filter. So 99.97% of potentially harmful pollutants as small as 0.3 microns, stay trapped in the filter media.
-                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/main[1]/div[1]/div[1]/div[1]/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/ul[1]/li[1]/div[2]/div[1]
+              - text: Dyson purifiers remove 99.97% of particles as small as 0.3 microns. In
+                  auto mode, your purifier will automatically monitor indoor air
+                  quality and adjust airflow accordingly. So once the air in
+                  your room is clean, it stays clean. Even for the lightest
+                  sleepers. <p>At the push of a button, your purifier will
+                  continue to monitor and respond to air quality
+                  while&nbsp;you’re asleep – but only using the quietest
+                  settings</p> <p>Using an independent motor for smooth
+                  oscillation, Dyson purifiers project and <br>circulate
+                  purified air across the room.</p> The Dyson purifier's
+                  footprint is so small that it can sit comfortably on a
+                  letter-sized piece of paper. So you can position it anywhere
+                  in the room. <p>Some other air purifiers have a high face
+                  velocity. This means they force air through their filters,
+                  which can cause harmful pollutants to escape back into the
+                  room.<br><br><b>Dyson purifiers keep&nbsp;them
+                  trapped.</b><br><br>They have a lower face velocity, combined
+                  with a high-efficiency HEPA filter. So 99.97% of potentially
+                  harmful pollutants as small as 0.3 microns, stay trapped in
+                  the filter media.</p>
+                xpath: /html/body/@manufacturerdescription
             manufacturerImages:
               - text: https://smedia.webcollage.net/rwvfp/wc/cp/1529400698062_3d94551a-bc55-4e4a-be96-e7ffcd857fd7/module/dysoncaen/_cp/products/1465921807694/tab-39e4067f-eda4-44f8-8c5f-f6922ebfe02d/b011fe6d-428b-4ee0-a3e0-a511013b1ba4.jpg.w1920.jpg
                 xpath: /html/body/div[2]/div[2]/div[1]/div[2]/main[1]/div[1]/div[1]/div[1]/div[2]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[1]/div[1]/div[1]/img[1]/@src
@@ -125,5 +139,7 @@ extractions:
               - text: Yes
             descriptionBullets:
               - text: "15"
+            variantCount:
+              - text: "0"
         xpath: /
-    timestamp: 1606982191660
+    timestamp: 1607351272134
