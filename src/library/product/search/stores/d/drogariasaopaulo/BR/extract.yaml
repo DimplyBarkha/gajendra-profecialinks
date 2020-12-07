@@ -21,6 +21,8 @@ fields:
   - name: thumbnail
     singleValue: false
     xpath: //div[@class='vitrine resultItemsWrapper']//li//@src
+    regExp : (.+)
+    regExpReplace: https:$1
   - name: aggregateRating
     singleValue: false
   - name: aggregateRating2
