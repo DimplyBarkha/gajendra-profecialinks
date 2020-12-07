@@ -5,7 +5,7 @@ module.exports = {
     country: 'CH',
     store: 'nettoshop_ch_fr',
     domain: 'nettoshop.ch',
-    url: 'https://www.nettoshop.ch/search?text={searchTerms}',
+    url: 'https://www.nettoshop.ch/fr/search?text={searchTerms}',
     loadedSelector: 'div[class="c-product-grid__item"]',
     noResultsXPath: null,
     zipcode: '',
