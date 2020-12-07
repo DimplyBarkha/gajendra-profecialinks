@@ -6,7 +6,7 @@ fields:
   - name: image
     singleValue: true
     description: URL of the main product image
-    xpath: (//img[@class="lazyOwl"]/@src)[1]
+    xpath: //div[@class="zoomImg"]/img/@src
     regExp: (.+)
     regExpReplace: https://www.luluhypermarket.com$1
   - name: alternateImages
@@ -18,7 +18,7 @@ fields:
   - name: category
     singleValue: false
     description: The categories (e.g. from breadcrumbs)
-    xpath: (//div[@class="breadcrum-font"]/ol/li/a/text())[7]
+    xpath: //div[@class="breadcrum-font"]/ol/li[position()>1]/a/text()
   - name: price
     singleValue: true
     description: The offered price for the selected product variant - if a user
@@ -30,43 +30,20 @@ fields:
       there is no availability but the product can be added to cart, this field
       should be "In Stock"
     xpath: //span[@class="stock-available"]/text()
-    # regExp: (.+)
-    # regExpReplace: In Stock
-    # defaultValue: Out of Stock
-  - name: description
-    singleValue: false
-    description: Product description supplied by website - may be concatenanted from
-      multiple places; specifically not the manufacturer description
-    xpath: //div[@class="col-md-6 col-sm-6 pd-features-section"]/text()  
-  # - name: descriptionBullets
-  
-  #   singleValue: true
-  #   description: Number of ul > li tags in the description
-  #   xpath: //div[@class="description"]/ul/li/text()
-    # type: NUMBER
   - name: quantity
     singleValue: true
     description: Quantity as described on the page
     regExp: (?:\s?([\d\.]+\s?)([bB]ar[s]?|[cC]ount|[cC]t|[fF][lL][\.]?\s?[oO][zZ][\.]?|FO|[mM][lL]|[oO][zZ][\.]?|pc|[pP]int|[pP]ops|qt|[wW]ipe[s]?).?)$|(?:\s?([\d\.]+\s?)([bB]ar[s]?|[cC]ount|[cC]|[fF][lL][\.]?\s?[oO][zZ][\.]?|FO|[mM][lL]|[oO][zZ][\.]?|pc|[pP]int|[pP]ops|qt|[wW]ipe[s]?).?\s?[\&\-\w\s]+)$
     regExpReplace: $1$2$3$4
-    xpath: //input[@class="form-control input-number js-qty-selector-input"]/@value
+    xpath: //input[@class="form-control input-number js-qty-selector-input"]/@data-min
   - name: gtin
     singleValue: true
     description: GTIN code (includes UPC/EAN)
-    xpath: //input[@id="productEAN"]/@value
+    xpath: //div[@class="loadbeeTabContent"]/@data-loadbee-gtin
   - name: mpc
     singleValue: true
     description: The manufacturer model code (unique) of the product
-    xpath: //input[@id="productCode"]/@value
-  # - name: legalDisclaimer
-  #   singleValue: true
-  #   description: Content under "legal disclaimer" header
-  # - name: directions
-  #   singleValue: true
-  #   description: Content under "directions" header
-  # - name: warnings
-  #   singleValue: true
-  #   description: Content under "warnings" header
+    xpath: (//form/input[@name="productCodePost"]/@value)[1]
   - name: ratingCount
     singleValue: true
     description: The number of ratings
@@ -85,3 +62,10 @@ fields:
     singleValue: true
     description: The product name
     xpath: (//img[@class="lazyOwl"]/@title)[1]
+  - name: brandText
+    singleValue: true
+    description: Product brand shown - this may actually NOT be just a brand name,
+      e.g. "Visit the Gillette Store"
+    xpath: //div[@class="col-md-6 col-xs-12 col-sm-6 pdp-info-main"]/strong/text() 
+    regExp: (\w.+)
+     
