@@ -1,0 +1,61 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: image
+    singleValue: false
+    xpath: //div[@id='productimage']//img[@id='productMainImage']//@src
+  - name: sku
+    singleValue: false
+    xpath: //div[@id='flags_review_hold_col']//div[@class='sprite-list']//@data-bv-product-id
+  - name: variantId
+    singleValue: false
+    xpath: //div[@id='flags_review_hold_col']//div[@class='sprite-list']//@data-bv-product-id
+  - name: metaKeywords
+    singleValue: false
+    xpath: //meta[@name="keywords"]/@content
+  - name: category
+    singleValue: false
+    xpath: //div[contains(@class,'bread_crumb_container')]//span[@itemprop='itemListElement' and position()>1 and position() < last()]//a//span
+  - name: nameExtended
+    singleValue: false
+    xpath: //div[contains(@class,'bread_crumb_container')]//span[@itemprop='itemListElement' and position() = last()]//a//span
+  - name: name
+    singleValue: false
+    xpath: //div[@id='product_name_col']//h1[@class='productName']
+  - name: price
+    singleValue: false
+    xpath: //div[@id='product_price_col']//span[@itemprop='price']
+  - name: listPrice
+    singleValue: false
+    xpath: //div[@id='product_price_col']//div[@class='oldPrice']  
+  - name: availabilityText
+    singleValue: false
+    xpath: //a[@class='add-to-cart addAction']//input[@id='add_to_cart_button']
+    defaultValue: "In Stock"
+  - name: quantity
+    singleValue: false
+    xpath: 
+    defaultValue: 1  
+  - name: description
+    singleValue: false
+    xpath: //div[@itemprop='description']
+  - name: variantCount
+    singleValue: false
+    defaultValue: "0" 
+  - name: brandText
+    singleValue: false
+    xpath: //meta[@property='og:brand']//@content
+  - name: ratingCount
+    sinngleValue: false
+    xpath: //button[@id='ratings-summary']//div[@class='bv_numReviews_text']
+  - name: aggregateRating
+    singleValue: false
+    xpath: //button[@id='ratings-summary']//div[@itemprop='ratingValue']
+  - name: imageAlt
+    singleValue: false
+    xpath: //div[@id='productimage']//img[@id='productMainImage']//@alt
+  - name: alternateImages
+    singleValue: false
+    xpath: //div[@id='mobile_main_image']//img//@src
