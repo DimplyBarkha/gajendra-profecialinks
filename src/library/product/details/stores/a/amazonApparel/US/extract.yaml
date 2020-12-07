@@ -1,9 +1,1 @@
-extends: ../../amazonPharmapacks/US/extract
-fields:
-  - name: productUrl
-    xpath: (//span[@class="a-dropdown-container"])[1]//option[@data-a-css-class="dropdownSelect"]/@value
-    regExp: \,(.+)
-    regExpReplace: https://www.amazon.com/dp/$1?th=1&psc=1
-  - name: nameExtended
-    singleValue: true
-    xpath: //title
+extends: ../../../../sharedAmazon/shared

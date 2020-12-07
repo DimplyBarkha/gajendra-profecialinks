@@ -4,8 +4,7 @@ module.exports = {
     country: 'US',
     store: 'amazonLg',
     domain: 'amazon.com',
-    loadedSelector: 'div[id="dp-container"]',
-    noResultsXPath: '//div[contains(@class, "page-content") and not(//div[contains(@class, "reviews-content")])] | //div[contains(@class, "no-reviews-section")] | //a[contains(@href, "404")] | //a[contains(@href, "dogsofamazon")] | //b[contains(@class, "h1") and contains(text(), "particolare")] | //b[contains(@class, "h1") and contains(text(), "Buscas algo")] | //img[contains(@alt, "fetch that page")] | //*[contains(text(),"Looking for something?")]',
-    zipcode: '',
+    loadedSelector: '#productTitle, [data-automation-id=title], [id*=Title] h1, h1[class*=title],  h1[id*=title]',
+    noResultsXPath: '//a[contains(@href, "dogsofamazon") and not(contains(@href, "503"))]',
   },
 };

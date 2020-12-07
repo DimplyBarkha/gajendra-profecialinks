@@ -2,7 +2,7 @@ singleRecord: false
 regionsSelector: null
 recordSelector: null
 # recordXPath: //div[contains(@class, 'app__content-wrapper-below-fold__Th_zJ')]/div[1]//ul[contains(@class,"product_grid")]/li
-recordXPath: //div[contains(@class, 'app__content-wrapper-below-fold')]//div[contains(@class, 'index__root__ZX26z')]/following-sibling::div//ul/li
+recordXPath: //div[starts-with(@class,"index__keyword")]/ancestor::div[starts-with(@class,"index")]/following-sibling::div[starts-with(@class,"product_grid__root")]//ul[contains(@class,"product_grid__grid")]/li
 fields:
   - name: rank
   - name: rankOrganic
@@ -10,9 +10,8 @@ fields:
     defaultValue: false
   - name: productUrl
     description: The URL for the product details page
-    xpath: //a[contains(@class,"asin_card__productLink")]/@href
-    regExp: (.+)
-    regExpReplace: https://primenow.amazon.com$1
+    xpath: //a[contains(@class,"asin_card__productLink")]
+    type: LINK
   - name: thumbnail
     description: The URL for the product thumbnail image
     xpath: //div[contains(@class,"asin_card__thumb")]/img[contains(@class,"image__root")]/@src
@@ -20,7 +19,7 @@ fields:
     regExpReplace: $1.$3
   - name: name
     description: The product name
-    xpath: //div[contains(@class,"text_truncate__root")]/div
+    xpath: //div[contains(@class,"asin_card__thumb")]/img[contains(@class,"image__root")]/@alt
   - name: price
     description: The offered price for the product
     xpath: //div[contains(@class,"asin_price__root")]/div[last()-1]
@@ -28,3 +27,8 @@ fields:
     xpath: //a[contains(@class,"asin_card__productLink")]/@href
     regExp: (.+\/)(\w+)(.+)
     regExpReplace: $2
+  - name: listPrice
+    xpath: //div[contains(@class,"asin_price__root")]/div[contains(@class,"asin_price__priceStrike")]
+  - name: searchUrl
+    singleValue: false
+    xpath: ancestor::html//div[@id='searchUrl']

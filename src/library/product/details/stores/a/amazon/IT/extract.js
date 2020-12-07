@@ -151,6 +151,23 @@ async function implementation (
       const prodOtherInformation = prodOtherInfoArr.join(' || ');
       addHiddenDiv('prodOtherInformationFetched', prodOtherInformation);
     }
+
+    function getEleByXpath (xpath) {
+      const element = document.evaluate(xpath, document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
+      console.log('Element' + element);
+      const text = element ? element.textContent : null;
+      return text;
+    }
+
+    const availability = getEleByXpath("//div[@id='availability']//span[contains(text(),'Disponibilità')]| //div[@id='availability']//span[contains(text(),'Disponibile')]|//div[@id='availability']//span[contains(text(),'spedito entro')]");
+    const error = getEleByXpath("//*[contains(text(), 'An error occurred when we tried to process your request.')]");
+    if (availability) {
+      addHiddenDiv('ii_availability', 'In Stock');
+    } else if (error) {
+      addHiddenDiv('ii_availability', '');
+    } else {
+      addHiddenDiv('ii_availability', 'Out Of Stock');
+    }
   });
 
   const otherSellerInfo = async () => {

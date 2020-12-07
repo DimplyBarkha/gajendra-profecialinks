@@ -1,50 +1,16 @@
-singleRecord: false
-regionsSelector: null
-recordSelector: null
-recordXPath: //div[contains(@class,"s-main-slot")]/div[@data-component-type="s-search-result"]
+extends: ../../amazon/shared
 fields:
-  - name: id
-    singleValue: false
-    xpath: //@data-asin
-  - name: name
-    singleValue: false
-    xpath: //h2
-  - name: productUrl
-    singleValue: false
-    xpath: //h2/a/@href
-    regExp: (.+)
-    regExpReplace: https://www.amazon.com$1
-  - name: thumbnail
-    singleValue: false
-    xpath: //span[@data-component-type="s-product-image"]/a/div/img/@src
-  - name: aggregateRating2
-    singleValue: false
-    xpath: //span[contains(@aria-label,"stars")]/@aria-label
-    regExp: (.+) out of
-    regExpReplace: $1
+  - name: ratingCount
+    singleValue: true
+    xpath: //div[contains(@class,"_multi-card-creative-desktop_Rating_container")]/span | //span[contains(@aria-label,"stars")]/following-sibling::span[1]//a/span
   - name: reviewCount
-    singleValue: false
-    xpath: //span[contains(@aria-label,"stars")]/following-sibling::span[1]
-  - name: price
-    singleValue: false
-    xpath: //span[@class="a-price"]//span[@class="a-offscreen"]//text()
-  - name: endorsementText
-    singleValue: false
-    xpath: //span[@data-a-badge-color="ac-orange" and text()="Choice"] | //*[contains(@id,"amazons-choice-label")]
-  - name: rank
-    singleValue: false
-    description: search/listing rank
-    type: NUMBER    
-  - name: rankOrganic
-    singleValue: false
-    description: The position (rank) within the list excluding sponsored/paid results
-    type: NUMBER 
-  - name: sponsored
-    singleValue: false
-    description: Is sponsored/paid
-    type: BOOLEAN 
-    xpath: //div[@class="a-row a-spacing-micro"]/span[text() = "Sponsorisé"]
-  - name: searchUrl
-    singleValue: false
-    xpath: ancestor::html//div[@id='searchUrl']
- 
+    singleValue: true
+    xpath: //div[contains(@class,"_multi-card-creative-desktop_Rating_container")]/span | //span[contains(@aria-label,"stars")]/following-sibling::span[1]//a/span
+  - name: subscribe
+    xpath: //*[contains(@dir,"auto") and contains(text(), "ubscribe")]/text()
+  - name: aggregateRating2
+    xpath: //div[contains(@class,"_multi-card-creative-desktop_Rating_container")]/i | //span[contains(@aria-label,"stars")]/@aria-label
+    regExp: ^([^\s]+)
+    # used in transform.
+  - name: domain
+    defaultValue: 'amazon.com'

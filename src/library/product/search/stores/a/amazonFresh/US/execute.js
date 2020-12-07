@@ -17,7 +17,7 @@ async function implementation (
 
   console.log('Checking no results', parameters.noResultsXPath);
   return await context.evaluate(async (xp) => {
-    await new Promise((resolve) => setTimeout(resolve, 4000));
+    // await new Promise((resolve) => setTimeout(resolve, 4000));
 
     return document.evaluate(xp, document, null, XPathResult.BOOLEAN_TYPE, null).booleanValue;
   }, parameters.noResultsXPath);
@@ -29,7 +29,7 @@ module.exports = {
     country: 'US',
     store: 'amazonFresh',
     domain: 'amazon.com',
-    url: 'https://www.amazon.com/s?k={searchTerms}&i=amazonfresh&ref=nb_sb_noss_2',
+    url: 'https://www.amazon.com/s?k={searchTerms}&i=amazonfresh&ref=nb_sb_noss_2&dc',
     loadedSelector: 'div[data-asin]',
     noResultsXPath: 'count(//div[contains(@data-component-type,"s-search-result")])!=0',
   },
