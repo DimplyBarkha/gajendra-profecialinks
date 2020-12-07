@@ -11,7 +11,7 @@ const implementation = async (
   const helpers = new Helpers(context);
 
   const url = 'https://www.' + parameters.domain;
-  const urlSuffixes = ['/devices/alto/shop-all', '/devices/vibe/shop-all', '/devices/solo/shop-all', '/flavors', '/accessories', '/discovervelo'];
+  const urlSuffixes = ['/devices/alto/shop-all', '/devices/vibe/shop-all', '/devices/solo/shop-all', '/devices/ciro/shop-all', '/flavors', '/accessories', '/discovervelo'];
 
   const completeUrlSet = new Set();
   while (urlSuffixes.length) {
