@@ -12,12 +12,12 @@ async function implementation (
   console.log("parameters:: ", parameters);
   if(id){
   await new Promise((resolve, reject) => setTimeout(resolve, 10000));
-  await context.waitForXPath('//h2[@role="presentation"]//a');
+  await context.waitForXPath('//div[@id="resultadosBusquedaContainerGeneral"]//a');
 
-  await context.waitForSelector('h2[role=presentation] a');
+  await context.waitForSelector('div#resultadosBusquedaContainerGeneral a');
   console.log('everything fine !!!');
   await context.evaluate(() => {
-    const firstItem = document.querySelector('h2[role=presentation] a');
+    const firstItem = document.querySelector('div#resultadosBusquedaContainerGeneral a');
     firstItem.click();
   });
 
@@ -30,17 +30,7 @@ async function implementation (
       newDiv.textContent = content;
       newDiv.style.display = 'none';
       document.body.appendChild(newDiv);
-    }
-
-    const variantIdEl = document.querySelector('div > div.container-big-image > img');
-    if (variantIdEl && variantIdEl.src) {
-      let variantIdText = variantIdEl.src;
-      if (variantIdText.includes('https')) {
-        variantIdText = variantIdText.replace('https://supermercado.eroski.es/images/', '');
-        variantIdText = variantIdText.replace('.jpg', '');
-      }
-      addHiddenDiv('my-variantId', variantIdText);
-    }
+    }   
   });
   }
   return await context.extract(productDetails, { transform });
