@@ -125,6 +125,8 @@ fields:
     singleValue: true
     description: The stated aggregate rating normalized to be out of 5
     xpath: //div[contains(@class, 'summary-rating')]//span[contains(@class, 'Average')]
+    regExp: (\d+)\.?(\d+)?
+    regExpReplace: $1,$2
   - name: shippingInfo
     singleValue: true
     description: Shipping information for the product
