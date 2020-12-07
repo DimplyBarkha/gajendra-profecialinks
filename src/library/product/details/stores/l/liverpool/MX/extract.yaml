@@ -6,12 +6,15 @@ fields:
   - name: image
     singleValue: true
     description: URL of the main product image
+    xpath: (//li[@class="img-viewer"]/img/@src)[1]
   - name: imageAlt
     singleValue: true
     description: Alt text of the main product image
+    xpath: (//li[@class="img-viewer"]/img/@alt)[1]
   - name: alternateImages
     singleValue: false
     description: Other product images (not in manufacturer description)
+    xpath: //li[@class="img-viewer"]/img/@src
   - name: metaKeywords
     singleValue: true
     description: The <meta> keywords content
@@ -85,6 +88,11 @@ fields:
     singleValue: true
     description: The number of packs in the product offer (if stated separately on
       the site to quantity)
+  - name: name
+    singleValue: true
+    description: The product name, prefixing "${brand} - " if not included in "name"
+      and appending " - ${variantType}" if necessary (fixed per feed)
+    xpath: //h1[@class="a-product__information--title"]/text()
   - name: legalDisclaimer
     singleValue: true
     description: Content under "legal disclaimer" header
