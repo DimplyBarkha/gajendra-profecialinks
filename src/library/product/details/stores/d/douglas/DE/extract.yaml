@@ -116,3 +116,9 @@ fields:
     xpath: //img[@alt='Marketplace logo']/@src
     regExp: (.+)douglas-marketplace-par(.+)
     regExpReplace: DOUGLAS PARTNER
+  - name: hasComparisonTable
+    defaultValue: No
+  - name: inTheBoxUrl
+    xpath: //div[@class="dobook-global"]//div[@class="block"]//img/@src
+  - name: inTheBoxText
+    xpath: //div[@class="dobook-global"]//div[@class="block"]//header
