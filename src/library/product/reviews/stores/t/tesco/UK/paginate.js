@@ -56,7 +56,7 @@ async function implementation (
   }
 
   await context.waitForNavigation({ timeout: 40000 });
-  await new Promise((resolve, reject) => setTimeout(resolve, 15000));
+  await new Promise((resolve, reject) => setTimeout(resolve, 1000));
 
   const lastReviewDate = await context.evaluate(function () {
     return document.querySelector('div#review-data > article > section:first-child > p > span.submission-time').textContent;
@@ -70,10 +70,20 @@ async function implementation (
     return document.querySelector(`div#review-data > article > section:nth-child(${elePosition}) > p > span.submission-time`).textContent;
   }, page);
 
+
+  const productsCount = await context.evaluate(function () {
+    return document.querySelectorAll('div#review-data > article > section').length;
+  });
+
+  if (productsCount > 1000) {
+    return false;
+  }
+
   // check if the review in the current page should be extracted or not
   if (checkIfReviewIsFromLast30Days(lastReviewDate, reviewDate)) {
     return true;
   }
+
   return false;
 }
 
