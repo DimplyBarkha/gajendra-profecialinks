@@ -36,7 +36,20 @@ const transform = (data) => {
                 row.ratingCount.forEach(item => {                    
                     item.text = item.text.replace('.','');
                 });
-            }  
+            } 
+
+            if (row.price) {
+                let priceText = '';
+                row.price.forEach(item => {
+                    priceText = item.text; 
+                });
+                if(priceText){
+                    priceText = priceText.replace(',','.');
+                }
+
+                row.price = [{'text': priceText,'xpath':row.price[0].xpath}];
+            }
+            
             if(row.aggregateRating) {
                  let count = 0;
                 row.aggregateRating.forEach(item => {     
