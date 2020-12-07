@@ -1,0 +1,49 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: //div[@class='vitrine resultItemsWrapper']//li
+fields:
+  - name: id
+    singleValue: false
+    xpath: //div[@class='vitrine resultItemsWrapper']//li/input/@id
+    regExp: \d+
+  - name: searchUrl
+    singleValue: true
+    xpath: //div[@class='vitrine resultItemsWrapper']//li/@searchurl
+  - name: name
+    singleValue: false
+    xpath: //div[@class='vitrine resultItemsWrapper']//li/div[@class='descricao-prateleira']/a/@title
+  - name: productUrl
+    singleValue: false
+    xpath: //div[@class='vitrine resultItemsWrapper']//li/a/@href
+  - name: gtin
+    singleValue: false
+  - name: thumbnail
+    singleValue: false
+    xpath: //div[@class='vitrine resultItemsWrapper']//li//@src
+  - name: aggregateRating
+    singleValue: false
+  - name: aggregateRating2
+    singleValue: false
+  - name: reviewCount
+    singleValue: false
+  - name: ratingCount
+    singleValue: false
+  - name: price
+    singleValue: false
+    xpath: //div[@class='vitrine resultItemsWrapper']//li//p[contains(@class, 'price')]/a[@class='valor-por']//text()
+  - name: manufacturer
+    singleValue: true
+  - name: soldBy
+    singleValue: true
+  - name: endorsementText
+    singleValue: false
+  - name: rank
+    singleValue: false
+    type: NUMBER
+  - name: rankOrganic
+    singleValue: true
+    type: NUMBER
+  - name: sponsored
+    singleValue: false
+    type: BOOLEAN
