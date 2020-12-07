@@ -29,33 +29,34 @@ const transform = (data) => {
             var strJSONString   = ''
             strJSONString       = row.name[0].text 
             var obj             = JSON.parse(strJSONString);
-            if(obj.offers.price){
+            
+            if(obj.hasOwnProperty('offers')){
                 var strPrice = ''
                 strPrice     = '$' + obj.offers.price //+ obj.offers.priceCurrency
                 row.price    = [{"text": strPrice, "xpath": row.name[0].xpath}]
             }
-            if(obj.image){
+            if(obj.hasOwnProperty('image')){
                 var strImg  = ''
                 strImg      = obj.image
                 row.image   = [{"text": strImg, "xpath": row.name[0].xpath}]
             }
-            if(obj.brand.name){
+            if(obj.hasOwnProperty('brand')){
                 var strBrand    = ''
                 strBrand        = obj.brand.name
                 row.brandText   = [{"text": strBrand, "xpath": row.name[0].xpath}]
             }
-            if(obj.gtin13){
+            if(obj.hasOwnProperty('gtin13')){
                 var strGtin     = ''
                 strGtin         = obj.gtin13
                 row.gtin        = [{"text": strGtin, "xpath": row.name[0].xpath}]
             }
-            if(obj.sku){
+            if(obj.hasOwnProperty('sku')){
                 var strSku      = ''
                 strSku          = obj.sku
                 row.sku         = [{"text": strSku, "xpath": row.name[0].xpath}]
                 row.variantId   = [{"text": strSku, "xpath": row.name[0].xpath}]
             }
-            if(obj.name){
+            if(obj.hasOwnProperty('name')){
                 var strPrdName  = ''
                 var strExtName  = ''
                 strPrdName      = obj.name
