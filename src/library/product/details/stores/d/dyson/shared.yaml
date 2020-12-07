@@ -496,7 +496,7 @@ fields:
     singleValue: true
     description: Information related to customer service availability (text), ['Yes','No']
     defaultValue: false
-    xpath: boolean(//a//img[contains(@src, "talk-to-dyson")])
+    xpath: boolean(//a//img[contains(@src, "talk-to-dyson")] | //span[contains(@class, "talk-to-dyson")])
   - name: materials
     singleValue: true
     description: Materials used to make the product
