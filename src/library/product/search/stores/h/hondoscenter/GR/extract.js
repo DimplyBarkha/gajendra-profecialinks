@@ -1,4 +1,28 @@
 const { transform } = require('../../../../shared');
+async function implementation(
+    inputs,
+    parameters,
+    context,
+    dependencies,
+) {
+    const { transform } = parameters;
+    const { productDetails } = dependencies;
+    await context.evaluate(async () => {
+        // while(!!document.querySelector('#search-grid_0 > div.col-12.bloom-load-wrapper > button')){
+        // document.querySelector('#search-grid_0 > div.col-12.bloom-load-wrapper > button').click()
+        try{
+        document.querySelector('#cookies-modal-id > div > div.button-container > a.accept-btn.js-accept').click()
+        await new Promise(r => setTimeout(r, 6000));
+        // }
+        }
+        catch(error)
+        {
+
+        }
+        
+    })
+    return await context.extract(productDetails, { transform });
+}
 module.exports = {
     implements: 'product/search/extract',
     parameterValues: {
@@ -8,23 +32,5 @@ module.exports = {
         domain: 'hondoscenter.com',
         zipcode: '',
     },
-    implementation: async ({ inputString }, { country, domain }, context, { productDetails }) => {
-        await context.evaluate(async function () {
-            function addElementToDocument(key, value) {
-                const catElement = document.createElement('div');
-                catElement.id = key;
-                catElement.textContent = value;
-                catElement.style.display = 'none';
-                document.body.appendChild(catElement);
-                }
-            var cookies;
-            cookies = document.querySelector('div[class="button-container"] a[class="accept-btn js-accept"]')
-            if (cookies != undefined) {
-                // @ts-ignore
-                document.querySelector('div[class="button-container"] a[class="accept-btn js-accept"]').click()
-                await new Promise(r => setTimeout(r, 6000));
-            }
-        });
-        await context.extract(productDetails);
-    },
+    implementation,
 };
