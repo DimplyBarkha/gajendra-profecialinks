@@ -16,16 +16,8 @@ module.exports = {
       }
       url = await dependencies.createUrl({ id });
     }
-    // await context.setBlockAds(false);
-    // await context.setFirstRequestTimeout(50000);
-    // await context.setBypassCSP(true);
-    // await context.setAntiFingerprint(false);
-    // await context.setLoadAllResources(true);
-    // await context.setUseRelayProxy(false);
-    // await context.setLoadImages(true);
-    // await context.setJavaScriptEnabled(true);
 
-    url = `${url}#[!opt!]{"first_request_timeout":50000, "force200": true}[/!opt!]`;
+    url = `${url}#[!opt!]{"block_ads":false,"anti_fingerprint":false,"first_request_timeout":60,"load_timeout":30,"proxy":{"use_relay_proxy":false},"load_all_resources":true,"enable_cache":false,"discard_CSP_header":true}[/!opt!]`;
 
     await dependencies.goto({ url, zipcode, storeId });
 
