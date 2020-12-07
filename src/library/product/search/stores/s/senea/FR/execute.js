@@ -36,7 +36,7 @@ async function implementation(
       let scrollTop = 0;
       while (scrollTop !== 20000) {
         const searchUrl = window.location.href;
-        const appendElements = document.querySelectorAll('div[class="product-manufacturer"]');
+        const appendElements = document.querySelectorAll('div[class="thumbnail-container"]');
         if (appendElements.length) {
           appendElements.forEach((element) => {
             if (element.getAttribute('searchurl') == null) {
@@ -67,7 +67,7 @@ async function implementation(
   await applyScroll(context);
   await context.evaluate(() => {
     const searchUrl = window.location.href;
-    const appendElements = document.querySelectorAll('div[class="product-manufacturer"]');
+    const appendElements = document.querySelectorAll('div[class="thumbnail-container"]');
     if (appendElements.length) {
       appendElements.forEach((element) => {
         if (element.getAttribute('searchurl') == null) {

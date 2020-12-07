@@ -4,7 +4,7 @@ recordSelector: null
 recordXPath: //article[contains(@class,"product-miniature")]
 fields:
   - name: searchUrl
-    xpath: //div[@class="product-manufacturer"]/@searchurl 
+    xpath: //div[@class="thumbnail-container"]/@searchurl 
   - name: brand
     description: The brand name
     example: Panasonic
@@ -14,10 +14,10 @@ fields:
     xpath: //div[@class="thumbnail-container"]/a/@href
   - name: thumbnail
     description: The URL for the product thumbnail image
-    xpath: //div[@class="thumbnail-container"]//img[@itemprop="image"]/@src
+    xpath: //div[@class="thumbnail-container"]//img/@data-src
   - name: name
     description: The product name
-    xpath: //h2[@itemprop="name"]/a
+    xpath: //h2[@itemprop="name"]
   - name: sku
     singleValue: true
     description: The store-specific product identifier
@@ -70,9 +70,9 @@ fields:
 #  Should these be source specific formulas or in the extractor? 
   - name: id
     description: Unique id (within this extractor)
-    xpath: //div[@class="thumbnail-container"]/a/@href
-    regExp: (\d+)\.html
-    regExpReplace: $1
+    xpath: //article[contains(@class,"product-miniature")]/@data-id-product
+    # regExp: (\d+)\.html
+    # regExpReplace: $1
   - name: nameExtended
     singleValue: true
     description: The product name, prefixing "${brand} - " if not included in "name" and appending " - ${variantType}" if necessary (fixed per extractor)
