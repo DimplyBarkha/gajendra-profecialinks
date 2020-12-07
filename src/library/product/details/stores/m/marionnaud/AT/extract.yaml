@@ -54,3 +54,15 @@ fields:
   - name: variantInformation
     singleValue: false
     xpath: //div[contains(@class,"product-variants-container")]/div[@class="product-variant" and not(@data-ref="unit")]//span[@class="product-variant__value"]
+  - name: quantity
+    singleValue: false
+    xpath: //div[contains(@class,"product-variants-container")]/div[@class="product-variant" and not(@data-ref="unit")]//span[@class="product-variant__value"]
+  - name: aggregateRating
+    singleValue: false
+    xpath: //div[@class="product-section-rating"]/div[contains(@class,"display--tablet-and-desktop")]//div[@data-ref="stars"]/@data-rating
+  - name: ratingCount
+    singleValue: false
+    xpath: //div[@class="product-section-rating"]/div[contains(@class,"display--tablet-and-desktop")]//span[@class="product-section-rating__text"]
+  - name: pricePerUnit
+    singleValue: false
+    xpath: //div[contains(@class,"display--tablet-and-desktop")]//span[@id="legalPrice_"]

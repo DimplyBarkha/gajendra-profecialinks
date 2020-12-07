@@ -35,6 +35,9 @@ const transform = (data) => {
           inf.push(item.text);
         })
         row.variants=[{"text":inf.join(' | ')}];
+        row.variantCount=[{"text":inf.length}];
+      }else{
+        row.variantCount=[{"text":"0"}]
       }
       if(row.variantInformation){
         let inf=[]
@@ -42,6 +45,17 @@ const transform = (data) => {
           inf.push(item.text);
         })
         row.variantInformation=[{"text":inf[0]}];
+      }
+      if(row.ratingCount){
+        row.ratingCount.forEach(item=>{
+          item.text=item.text.replace('(','').replace(')','');
+        })
+      }
+      if(row.pricePerUnit){
+        row.pricePerUnit.forEach(item=>{
+          item.text=item.text.replace('€ ','').replace(' Preis pro ','/').replace('ml','');
+        })
+        row.pricePerUnitUom=[{"text":"ml"}];
       }
     }
   }
