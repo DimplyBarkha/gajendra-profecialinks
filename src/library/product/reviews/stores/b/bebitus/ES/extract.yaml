@@ -1,0 +1,41 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: //div[@class="ratings-list ratings-list-preselected"]/div[@class="ratings-list-item"]
+fields:
+  - name: brandText
+    xpath: ancestor::html//div[contains(@class,'product-selection-brand')]//a
+  - name: name
+    xpath: //h1[@itemprop="name"]
+  - name: reviewDate
+    xpath: //meta[@itemprop="datePublished"]/@content
+    singleValue: true
+    type: DATETIME
+    description: Date the review was made
+  - name: reviewRating
+    xpath: //span[@itemprop="ratingValue"]
+    type: NUMBER
+    singleValue: true
+    description: Rating normalized to be out of 5
+  - name: reviewText
+    xpath: //div[@itemprop="reviewBody"]
+  - name: reviewTitle
+    xpath: //h4[@class="ratings-list-item-title"]
+  - name: gtin
+    xpath: //h1[@itemprop="name"]/@sku
+    regExp: (:)(.+)
+    regExpReplace: $2
+  - name: productUrl
+    xpath: ancestor::html//link[@rel="canonical"]/@href
+  - name: verifiedPurchase
+    xpath: ancestor::html//ul//li[contains(@class,'bv-badge-content-verifiedpurchaser')]/img/@title
+    regExp: (.+)
+    regExpReplace: 'true'
+    defaultValue: false
+    description: Whether this of an item the reviewer purchased. "Yes" if true else ""
+  - name: syndicatedFrom
+    xpath: //span[@class="ratings-list-syndicated-text"]
+  - name: reviewedSku
+    xpath: ancestor::html//div[@class="bv-content-list-container"]//li[contains(@data-content-id,"Reviews")]/@data-content-id
+  - name: user
+    xpath: //h4[@class="ratings-list-item-title"]
