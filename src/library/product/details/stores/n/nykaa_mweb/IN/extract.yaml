@@ -48,7 +48,7 @@ fields:
   description: Availability as described on page for the selected variant. If there
     is no availability but the product can be added to cart, this field should be
     "In Stock"
-  xpath: //div[@id="product-availability"]
+  xpath: //div[@id="product-availability"]|//span[contains(@class, "stock-label")]
 - name: description
   singleValue: false
   description: Product description supplied by website - may be concatenanted from
@@ -352,6 +352,9 @@ fields:
 - name: warranty
   singleValue: true
   description: Guarantee associated with the product
+  xpath: //p[contains(.,'Additional Information')] | //p[contains(.,'Additional Information')]//following-sibling::p[1]
+  regExp: (\d+)(-Years)
+  regExpReplace: $1-Years
 - name: storage
   singleValue: true
   description: Suggested storage location for product
