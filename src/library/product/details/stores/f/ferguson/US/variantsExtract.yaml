@@ -1,0 +1,17 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: //ul[@class="color__list clearfix"]//li
+fields:
+  - name: variantId
+    singleValue: false
+    xpath: //a/@href
+      # //p[@class="product__prop"]//span[2]/text()
+    regExp: (R-)(.+)
+    regExpReplace: $2
+    description: Identifier for a variant from a store where variants share the same sku
+  - name: variantUrl
+    singleValue: false
+    xpath: //a/@href
+    regExp: (https:)(.+)
+    regExpReplace: $1$2

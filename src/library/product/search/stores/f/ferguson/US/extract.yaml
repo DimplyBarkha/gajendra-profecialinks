@@ -1,0 +1,56 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: //ul[@class="fg-search-results"]//li[@class="fg-search-results-li js-compare-search-item "]
+fields:
+  - name: id
+    singleValue: false
+    xpath: //div[@class="js-grid-colorItem sku-item "]//div[@class="rc-fg-search-header"]//a/@href | //div[@class="sku-item "]//div[@class="rc-fg-search-header"]//a/@href
+    regExp: (R-)(.+)
+    regExpReplace: $2
+  - name: searchUrl
+    singleValue: true
+    xpath: ancestor::html//div[@id='added-searchurl']
+  - name: name
+    singleValue: false
+    xpath: //div[@class="js-grid-colorItem sku-item "][1]//div[@class="sr-content-box"]//a//p/text() | //div[@class="sku-item "]//div[@class="sr-content-box"]//a//p/text()
+  - name: productUrl
+    singleValue: false
+    xpath: //div[@class="js-grid-colorItem sku-item "]//div[@class="rc-fg-search-header"]//a/@href | //div[@class="sku-item "]//div[@class="rc-fg-search-header"]//a/@href
+  - name: gtin
+    singleValue: false
+  - name: thumbnail
+    singleValue: false
+    xpath: //div[@class="js-grid-colorItem sku-item "]//div[@class="rc-fg-search-header"]//a//img/@src | //div[@class="sku-item "]//div[@class="rc-fg-search-header"]//a//img/@src
+  - name: aggregateRating
+    singleValue: false
+  - name: aggregateRating2
+    singleValue: false
+  - name: reviewCount
+    singleValue: false
+  - name: ratingCount
+    singleValue: false
+  - name: price
+    singleValue: false
+    xpath: //div[@class="js-grid-colorItem sku-item "]//div[@class="money"]//p/span/text()
+  - name: manufacturer
+    singleValue: true
+  - name: soldBy
+    singleValue: true
+  - name: endorsementText
+    singleValue: false
+  - name: rank
+    singleValue: false
+    description: search/listing rank
+    type: NUMBER
+  - name: rankOrganic
+    singleValue: true
+    description: The position (rank) within the list excluding sponsored/paid results
+    type: NUMBER
+  - name: sponsored
+    singleValue: false
+    description: Is sponsored/paid
+    type: BOOLEAN
+  - name: totalRecordCount
+    singleValue: true 
+    type: NUMBER
