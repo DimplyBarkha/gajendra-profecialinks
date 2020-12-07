@@ -41,8 +41,8 @@ fields:
     xpath: //div[@id='sp-desktopDescription']//li
   - name: brandText
     xpath: //ul[contains(@class, 'productSpect') and contains(@class, 'product-items')]/li[contains(., 'Marka')]//ul/li/a
-  # - name: quantity
-  #   xpath: //li[@id='CountInput']/input/@value
+  - name: quantity
+    xpath: //div[contains(text(),"Boy")]/following-sibling::div[1]/ul/li
   - name: weightGross
     xpath: //ul[contains(@class, 'product-items') and contains(@class, 'productSpect')]//li[contains(.,'Brüt Ağırlık')]/div/ul/li
   - name: sku
@@ -113,3 +113,5 @@ fields:
     xpath: //div[@id='sp-desktopDescription']//img/@data-original
   - name: manufacturerDescription
     description: The extended description of the product supplied by the lister
+  - name: packSize
+    xpath: //div[contains(text(),"Paket Seçenekleri")]/following-sibling::div[1]/ul/li
