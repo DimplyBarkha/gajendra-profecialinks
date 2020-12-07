@@ -18,6 +18,9 @@ fields:
   - name: sku
     singleValue: false
     xpath: //div[contains(@class,'product-top')]/p[normalize-space()]/text()
+  - name: variantId
+    singleValue: false
+    xpath: //div[contains(@class,'product-top')]/p[normalize-space()]/text()  
   - name: weightNet
     singleValue: false
     xpath: //span[@class='size']
