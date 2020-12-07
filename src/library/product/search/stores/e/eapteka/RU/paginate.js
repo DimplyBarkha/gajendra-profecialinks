@@ -10,7 +10,7 @@ module.exports = {
     // mutationSelector: null,
     // spinnerSelector: null,
     loadedSelector: 'div.sec-categories__list.sec-search__list.ajax-container',
-    //noResultsXPath: '//div[@class="container"]//h1[contains(.,"По запросу")]',
+    noResultsXPath: '//div[@class="container"]//h1[contains(.,"По запросу")]',
     // stopConditionSelectorOrXpath: null,
     // resultsDivSelector: null,
     // openSearchDefinition: null,

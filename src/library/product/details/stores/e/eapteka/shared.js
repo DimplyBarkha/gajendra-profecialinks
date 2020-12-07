@@ -71,44 +71,6 @@ const transform = (data) => {
         row.manufacturerImages = manufacturerImage;
       }
 
-      // if (row.variantUrl) {
-      //   const variantUrls = [];
-      //   let dupUrl = '';
-      //   let urls = [];
-      //   row.variantUrl.forEach(item => {
-      //     console.log('item:: ', item.text);
-      //     urls = row.variantUrl.filter(it => item.text === it.text);
-      //     if (urls && urls.length === 1) {
-      //       variantUrls.push(item);
-      //     } else {
-      //       if (dupUrl !== item.text) {
-      //         dupUrl = item.text;
-      //         variantUrls.push(item);
-      //       }
-      //     }
-      //   });
-      //   row.variantUrl = variantUrls;
-      // }
-
-      // if (row.variantId) {
-      //   const variantIds = [];
-      //   let dup = '';
-      //   let urls = [];
-      //   row.variantId.forEach(item => {
-      //     // console.log('item:: ', item.text);
-      //     urls = row.variantId.filter(it => item.text === it.text);
-      //     if (urls && urls.length === 1) {
-      //       variantIds.push(item);
-      //     } else {
-      //       if (dup !== item.text) {
-      //         dup = item.text;
-      //         variantIds.push(item);
-      //       }
-      //     }
-      //   });
-      //   row.variantId = variantIds;
-      // }
-
       if (row.specifications) {
         let text = '';
         row.specifications.forEach(item => {
@@ -120,7 +82,6 @@ const transform = (data) => {
           },
         ];
       }
-
       // if (row.weightNet) {
       //   if (row.weightNet.length > 1) {
       //     let text = '';
@@ -138,7 +99,6 @@ const transform = (data) => {
       //     row.weightNet = weightRec;
       //   }
       // }
-
       if (row.variants) {
         let text = '';
         row.variants.forEach(item => {
@@ -150,57 +110,28 @@ const transform = (data) => {
           },
         ];
       }
-
-      if (row.shippingDimensions) {
+      if (row.directions) {
         let text = '';
-        row.shippingDimensions.forEach(item => {
-          text += `${item.text.replace(/\n \n/g, ':')} | `;
+        row.directions.forEach(item => {
+          text += `${item.text.replace(/\n \n/g, ':')} `;
         });
-        row.shippingDimensions = [
+        row.directions = [
           {
-            text: text.slice(0, -2),
+            text: text.slice(0, -1),
           },
         ];
       }
-      // if (row.videos) {
-      //   const video = [];
-      //   row.videos.forEach(item => {
-      //     if (item.text.indexOf('https:') === -1) {
-      //       item.text = `https://www.elgiganten.se${item.text}`;
-      //     }
-      //   });
-
-      //     if (item.text.split('/').length > 1) {
-      //       video.push({
-      //         text: '' + item.text,
-      //         xpath: item.xpath
-      //       })
-      //     } else {
-      //       video.push({
-      //         text: 'https://www.youtube.com/watch?v=' + item.text + '&feature=emb_title',
-      //         xpath: item.xpath
-      //       })
-      //     }
-      // row.videos = video;
-      // }
-      // if (row.description) {
-      //   const nDesc = [];
-      //   let description = '';
-      //   let idx = 0;
-      //   row.description.forEach(item => {
-      //     nDesc[0] = item;
-      //     if (idx > 0) {
-      //       newDesc = newDesc + '||';
-      //     }
-      //     newDesc = newDesc + item.text;
-      //     idx++;
-      //   });
-      //   nDesc.forEach(item => {
-      //     item.text = newDesc;
-      //   });
-      //   row.description = nDesc;
-      // }
-
+      if (row.warnings) {
+        let text = '';
+        row.warnings.forEach(item => {
+          text += `${item.text.replace(/\n \n/g, ':')} `;
+        });
+        row.warnings = [
+          {
+            text: text.slice(0, -1),
+          },
+        ];
+      }    
       if (row.manufacturerImages) {
         let text = '';
         row.manufacturerImages.forEach(item => {

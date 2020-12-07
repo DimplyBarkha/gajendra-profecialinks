@@ -35,10 +35,10 @@ fields:
     defaultValue: In Stock
   - name: description
     singleValue: false
-    xpath: (//h3[contains(text(), "Описание")]//..//following-sibling::div)[1]
+    xpath: //div[@id="instruction_PHARM_EFFECT"]/div[@class="offer-instruction__item-text"]//text() | //div[@id="instruction_DIRECTIONS"]/div[@class="offer-instruction__item-text"]/ul/li| (//h3[contains(text(), "Описание")]//..//following-sibling::div)[1]
   - name: descriptionBullets
     singleValue: false
-    xpath: count(//h3[contains(text(), "Характеристики")]//..//following-sibling::div[@class="offer-instruction__item-text"]/ul/li)
+    xpath: count(//div[@id="instruction_DIRECTIONS"]/div[@class="offer-instruction__item-text"]/ul/li | //h3[contains(text(), "Характеристики")]//..//following-sibling::div[@class="offer-instruction__item-text"]/ul/li)
   - name: brandText
     singleValue: false
     xpath: (//p[contains(text(), "Бренд")]//..//following-sibling::a/text())[last()]
@@ -444,7 +444,7 @@ fields:
     description: null
   - name: additionalDescBulletInfo
     singleValue: false
-    xpath: //h3[contains(text(), "Характеристики")]//..//following-sibling::div[@class="offer-instruction__item-text"]/ul/li
+    xpath: //div[@id="instruction_DIRECTIONS"]/div[@class="offer-instruction__item-text"]/ul/li |//h3[contains(text(), "Характеристики")]//..//following-sibling::div[@class="offer-instruction__item-text"]/ul/li
   - name: prop65Warning
     singleValue: false
     description: null

@@ -16,14 +16,14 @@ fields:
     # regExp: (.+)
     # regExpReplace: https://www.elcorteingles.es$1
   - name: thumbnail
-    xpath: //div[@class="cc-item--group cc-group"]/section[@class="cc-item"]/div//img/@src
-    regExp: (.+)
-    regExpReplace: https://www.eapteka.ru$1
-  - name: aggregateRating
-    # xpath: 
-    regExp: .+(?=\sde)
+    xpath: //meta[@itemprop="image"]/@content | //a[@class="cc-item--img-link mb-2"]/img/@src | //div[@class="cc-item--group cc-group"]/section[@class="cc-item"]/div//img/@src
+    # regExp: (.+)
+    # regExpReplace: https://www.eapteka.ru$1
+  - name: aggregateRating2
+    xpath: //meta[@itemprop="ratingValue"]/@content
+  #   regExp: .+(?=\sde)
   - name: reviewCount
-    # xpath: 
+    xpath: //meta[@itemprop="reviewCount"]/@content
   - name: price
     xpath: //span[@class="price--num"]/text()
     # xpath: concat(//span[@class="rate--article"]/span/text()," ",//span[@class="rate--article"]/text()) 
