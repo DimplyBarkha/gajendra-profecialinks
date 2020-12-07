@@ -1,0 +1,27 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: '.HotDeal'
+recordXPath: null
+fields:
+  - name: id
+    singleValue: false
+    xpath: //div[@class = "ImageArea"]//img/@class
+    regExp: .(\d*)
+    regExpReplace: $1
+  - name: name
+    singleValue: false
+    xpath: //a[@class = "ProductName"]
+  - name: productUrl
+    singleValue: false
+    xpath: //a[@class = "ProductName"]/@href
+  - name: thumbnail
+    singleValue: false
+    xpath: //div[@class = "ImageArea"]//img/@src
+    regExp: (.+)
+    regExpReplace: https://www.minidomestic.com$1
+  - name: price
+    singleValue: false
+    xpath: //span[@class = "price-value"]
+  - name: manufacturer
+    singleValue: false
+    xpath: //div[@class = "TrademarkLogo"]
