@@ -5,12 +5,12 @@ recordXPath: /html[//div[@id="a-page"]]
 fields:
   - name: shownImages
     #singleValue: true
-    xpath: (//img[@id="landingImage"] | //div[@id="img-canvas"]/img[1])[1]/@src
+    xpath: (//img[@id="landingImage"] | //div[@id="img-canvas"]/img[1])[1]/@src | //li[contains(@class, "imageThumbnail")][position()>1]//img/@src | //img[contains(@class,"ig-thumb-inner") and not(contains(@class,"selected"))]/@src | (//span[@data-action="thumb-action"]//img/@src)[position()>1]
     regExp: (.+)\.[^\.]*(\.[^\.]+$)
     regExpReplace: $1$2
   - name: highQualityImages
     #singleValue: true
-    xpath: (//img[@id="landingImage"] | //div[@id="img-canvas"]/img[1])[1]/@src
+    xpath: (//img[@id="landingImage"] | //div[@id="img-canvas"]/img[1])[1]/@src | //li[contains(@class, "imageThumbnail")][position()>1]//img/@src | //img[contains(@class,"ig-thumb-inner") and not(contains(@class,"selected"))]/@src | (//span[@data-action="thumb-action"]//img/@src)[position()>1]
     regExp: (.+)\.[^\.]*(\.[^\.]+$)
     regExpReplace: $1$2
   - name: image
@@ -106,6 +106,9 @@ fields:
   - name: mpc
     singleValue: false
     xpath: //*[contains(text(),"Item Model Number")]/following-sibling::*[1]
+  - name: mpn
+    singleValue: false
+    xpath: //*[contains(text(),"Item Model Number")]/following-sibling::*[1] | //*[contains(text(),"Part Number")]/following-sibling::*[1] | //*[contains(text(),"Manufacturer Part Number")]/following-sibling::*[1]
     # xpath: //div[contains(@id, 'detail-bullets')]//div[contains(@class, 'content')]//ul/li/b[contains(text(),'odel')]/../text() | //table[contains(@id,"productDetails")]//tr/th[contains(text(),"odel")]/following-sibling::td[1]/text() | //div[contains(@id,"prodDetails")]//*[contains(text(),"odel")]/following-sibling::td[1]/text() | //table[@id="product-specification-table"]//th[contains(text(),  "Manufacturer") and contains(text(), "Number")]/following-sibling::td/text()
   - name: packSize
     singleValue: false
