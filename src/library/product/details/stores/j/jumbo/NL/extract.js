@@ -27,7 +27,9 @@ module.exports = {
     const description = dataRef[0].group[0].description;
     reduceInfoToOneField(description);
     reduceInfoToOneField(ingredientsList);
-    dataRef[0].group[0].variantId[0].text = dataRef[0].group[0].variantId[0].text.match(/:"(\w+)"/)[1];
+    if (dataRef[0].group[0].variantId) {
+      dataRef[0].group[0].variantId[0].text = dataRef[0].group[0].variantId[0].text.match(/:"(\w+)"/)[1];
+    }
     return dataRef;
   },
 };
