@@ -1,0 +1,179 @@
+input:
+  _url: http://dyson.no
+  URL: https://www.dyson.no/belysning/arbeidslampe/dyson-lightcycle/skrivebordslampe-hvit-solv
+extractions:
+  - html: https://workbench.import.io/html/run=32b939af-097a-449a-bbd0-77ef677631f4/task=b9b3089a-4daa-4a6f-a239-599574669a12/e595ae7b-4ae5-4b74-ba71-3726bdb5c619.html
+    extractionConfigId: product/details/stores/d/dyson/NO/extract
+    data:
+      - group:
+          - category:
+              - text: Belysning
+                xpath: /html/body/nav[1]/div[1]/div[1]/div[1]/div[1]/nav[1]/div[2]/div[1]/div[1]/nav[1]/ol[1]/li[2]/span[1]/a[1]/span[1]
+              - text: Dyson Arbeidslampe
+                xpath: /html/body/nav[1]/div[1]/div[1]/div[1]/div[1]/nav[1]/div[2]/div[1]/div[1]/nav[1]/ol[1]/li[3]/span[1]/a[1]/span[1]
+              - text: Dyson Lightcycle™
+                xpath: /html/body/nav[1]/div[1]/div[1]/div[1]/div[1]/nav[1]/div[2]/div[1]/div[1]/nav[1]/ol[1]/li[4]/span[1]/a[1]/span[1]
+            image:
+              - text: https://dyson-h.assetsadobe2.com/is/image/content/dam/dyson/products/lighting/552/cd05/white-variant/eu/PSJ_EU_PDP_01_Hero_desk_white.jpg?$responsive$&cropPathE=desktop&fit=stretch,1&wid=1920
+                xpath: /html/body/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/img[1]/@src
+            imageAlt:
+              - text: Dyson Lightcycle ™ skrivebordslampe
+                xpath: /html/body/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/img[1]/@alt
+            description:
+              - text: >-
+                  Lightcycle ™ skrivebordslampe (hvit/sølv)
+                   
+                  Spor lokalt dagslys. Med lyskvalitet som varer 60 år .¹ Designet for skrivebord og nattbord.
+                   
+                  Finnes i to fargealternativer.
+                xpath: /html/body/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]
+            ratingCount:
+              - text: "1"
+                xpath: /html/body/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/p[1]
+            aggregateRatingText:
+              - text: "5.0"
+                xpath: /html/body/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/@aria-label
+            aggregateRating:
+              - text: "5.0"
+                xpath: /html/body/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/@aria-label
+            shippingInfo:
+              - text: |-
+                  Gratis levering 
+                  og gratis retur
+                xpath: /html/body/main[1]/div[2]/div[2]/div[1]/div[1]/section[1]/div[1]/div[1]/ul[1]/li[2]
+            name:
+              - text: Lightcycle ™ skrivebordslampe (hvit/sølv)
+                xpath: /html/body/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/h1[1]
+            specifications:
+              - text: |-
+                  Høyde
+                   
+                   703 mm 
+                   
+                   
+                   
+                  Lengde
+                   
+                   190 mm 
+                   
+                   
+                   
+                  Bredde
+                   
+                   527 mm
+                xpath: /html/body/main[1]/div[2]/div[11]/section[1]/div[1]/div[1]/ul[1]
+            warranty:
+              - text: |-
+                  2 års garanti 
+                  Aktivert automatisk
+                xpath: /html/body/main[1]/div[2]/div[2]/div[1]/div[1]/section[1]/div[1]/div[1]/ul[1]/li[1]
+            firstVariant:
+              - text: Hvit/Sølv - Selected colour
+                xpath: /html/body/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/span[1]/svg[1]/@aria-label
+            variants:
+              - text: Svart
+                xpath: /html/body/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[2]/div[2]/a[1]/span[1]/svg[1]/@aria-label
+            weightNet:
+              - text: |-
+                  Vekt
+                   
+                   4,1 kg
+                xpath: /html/body/main[1]/div[2]/div[11]/section[1]/div[1]/ul[1]/li[11]
+            productUrl:
+              - text: https://www.dyson.no/belysning/arbeidslampe/dyson-lightcycle/skrivebordslampe-hvit-solv
+                xpath: /html/body/div[6]
+            brandText:
+              - text: Dyson
+                xpath: /html/body/div[7]
+            sku:
+              - text: 249373-01
+                xpath: /html/body/div[8]
+            variantId:
+              - text: 249373-01
+                xpath: /html/body/div[8]
+            mpc:
+              - text: 249373-01
+                xpath: /html/body/div[8]
+            color:
+              - text: White-Silver
+                xpath: /html/body/div[9]
+            price:
+              - text: 4990 kr
+                xpath: /html/body/div[11]
+            listPrice:
+              - text: 5490 kr
+                xpath: /html/body/div[12]
+            nameExtended:
+              - text: Dyson - Lightcycle ™ skrivebordslampe (hvit/sølv)
+                xpath: /html/body/div[13]
+            variantInformation:
+              - text: Hvit/Sølv
+                xpath: /html/body/div[14]
+            productOtherInformation:
+              - text: Lyskilde LED CRI 90 MIN Nominell effekt 15,8 W LED-levetid 181 000 t
+                  Virkningsgrad 82,1 % R9 48 MIN Frekvens 50/60 hz Flimmer <1 %
+                  Gjennomsnittlig luxnivå 1 194 lx 3,2 m Vekt 4,1 kg
+                  Fargetemperatur 2700-6500 K Lysoutput 1120 lm 71 l/W
+                  El-klassifisering Class III Strømforbruk i standby <0.5 W
+                  Strålevinkel 78 °
+                xpath: /html/body/div[15]
+            manufacturerDescription:
+              - text: Nøkkelegenskaper Lightcycle ™ skrivebordslampe sporer fargetemperaturen og
+                  lysstyrken i dagslyset der du bor. Det er konstruert for å
+                  redusere belastningen på øynene, tilpasse seg automatisk til
+                  endringer i omgivelsene og beskytte lyskvalitet i flere tiår.
+                  Designet for skrivebord og nattbord. Riktig lys for tiden på
+                  dagen Sporer fargetemperaturen og lysstyrken i dagslyset der
+                  du bor. Lyskvalitet som varer flere tiår Heat Pipe-teknologi
+                  holder seks kraftige LED-er kule nok til å beskytte
+                  lyskvaliteten i 60 år¹ Designet for å redusere belastningen på
+                  øynene² Kraftig lys (over 1000 lux), med gjenskinnsbeskyttelse
+                  og lite optisk flimmer³, overgår anbefalte nivåer for å
+                  studere². Tilpasser seg intelligent deg Justerer lyset for din
+                  alder, oppgave og søvn ganger. Kontrollert av Dyson
+                  Link-appen.⁴ Justerer seg automatisk til omgivende lys
+                  Omgivelseslys-sensor reagerer på endringer i
+                  bakgrunnsbelysning, og holder oppgavene dine i konstant
+                  lysstyrke. Sanser bevegelse, sparer energi Bevegelsessensor
+                  slår på lyset når du er i nærheten, og slår av når du er borte
+                  i to minutter.
+                xpath: /html/body/div[16]
+            manufacturerImages:
+              - text: https://dyson-h.assetsadobe2.com/is/image/content/dam/dyson/products/lighting/552/cd04/variant/02-N552-CD04-white-variant-feature-01.jpg?cropPathE=desktop&fit=stretch,1&fmt=pjpeg&wid=634
+                xpath: /html/body/div[17]/ul[1]/li[1]
+              - text: https://dyson-h.assetsadobe2.com/is/image/content/dam/dyson/products/lighting/552/cd04/variant/02-N552-CD04-white-variant-feature-02.jpg?cropPathE=desktop&fit=stretch,1&fmt=pjpeg&wid=634
+                xpath: /html/body/div[17]/ul[1]/li[2]
+              - text: https://dyson-h.assetsadobe2.com/is/image/content/dam/dyson/products/lighting/552/cd04/variant/02-N552-CD04-white-variant-feature-03.jpg?cropPathE=desktop&fit=stretch,1&fmt=pjpeg&wid=634
+                xpath: /html/body/div[17]/ul[1]/li[3]
+              - text: https://dyson-h.assetsadobe2.com/is/image/content/dam/dyson/products/lighting/552/cd04/variant/02-N552-CD04-white-variant-feature-04.jpg?cropPathE=desktop&fit=stretch,1&fmt=pjpeg&wid=634
+                xpath: /html/body/div[17]/ul[1]/li[4]
+              - text: https://dyson-h.assetsadobe2.com/is/image/content/dam/dyson/products/lighting/552/cd04/variant/02-N552-CD04-white-variant-feature-05.jpg?cropPathE=desktop&fit=stretch,1&fmt=pjpeg&wid=634
+                xpath: /html/body/div[17]/ul[1]/li[5]
+              - text: https://dyson-h.assetsadobe2.com/is/image/content/dam/dyson/products/lighting/552/cd04/variant/02-N552-CD04-white-variant-feature-06.jpg?cropPathE=desktop&fit=stretch,1&fmt=pjpeg&wid=634
+                xpath: /html/body/div[17]/ul[1]/li[6]
+              - text: https://dyson-h.assetsadobe2.com/is/image/content/dam/dyson/products/lighting/552/cd03/white-variant/02-N552-CD03-white-variant-feature-04.jpg?cropPathE=desktop&fit=stretch,1&fmt=pjpeg&wid=634
+                xpath: /html/body/div[17]/ul[1]/li[7]
+              - text: https://dyson-h.assetsadobe2.com/is/image/content/dam/dyson/products/lighting/552/cd04/variant/02-N552-CD04-white-variant-feature-08.jpg?cropPathE=desktop&fit=stretch,1&fmt=pjpeg&wid=634
+                xpath: /html/body/div[17]/ul[1]/li[8]
+            videos:
+              - text: www.dyson.no/content/dam/dyson/video/products/primary/249373-01.mp4
+                xpath: /html/body/div[19]/ul[1]/li[1]
+            availabilityText:
+              - text: In Stock
+                xpath: /html/body/div[20]
+            manufacturer:
+              - text: Dyson
+            descriptionBullets:
+              - text: "0"
+            variantCount:
+              - text: "2"
+            technicalInformationPdfPresent:
+              - text: "false"
+            customerServiceAvailability:
+              - text: "true"
+            termsAndConditions:
+              - text: "true"
+            privacyPolicy:
+              - text: "true"
+        xpath: /html/body
+    timestamp: 1607353696651
