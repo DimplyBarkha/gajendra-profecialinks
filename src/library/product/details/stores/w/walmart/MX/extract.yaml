@@ -1,0 +1,159 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: metaKeywords
+    singleValue: false
+    xpath: //meta[@name='keywords']/@content
+  - name: image
+    singleValue: false
+    xpath: //div[contains(@class,'image-picker_thumb') and contains(@class,'active')]//img/@src
+  - name: imageAlt
+    singleValue: false
+    xpath: //div[contains(@class,'image-picker_thumb') and contains(@class,'active')]//img/@alt
+  - name: alternateImages
+    singleValue: false
+    xpath: //div[contains(@class,'image-picker_thumb') and not(contains(@class,'active'))]//img/@src
+  - name: category
+    singleValue: false
+    xpath: //ol[contains(@class,'breadcrumb_container')]//li//a//p[not(text()='Inicio')]
+  - name: name
+    singleValue: false
+    xpath: //h1[contains(@class,'product-details_productName')]
+  - name: nameExtended
+    singleValue: false
+    xpath: //h1[contains(@class,'product-details_productName')]
+  - name: availabilityText
+    singleValue: false
+    xpath: //div[contains(@class,'product-details_addToCartContainer')]//button[text()='Agregar al carrito']
+    regExp: (.+)
+    regExpReplace: In Stock
+    defaultValue: Out of Stock
+  - name: price
+    singleValue: false
+    xpath: //h4[@data-automation-id="product-price"]
+  - name: listPrice
+    singleValue: false
+    xpath: //div[@data-automation-id="product-detail-offer-details"]//p[contains(@class,'offer-details_maxPrice')]
+  - name:  description
+    singleValue: false
+    xpath: //div[contains(@class,'description_seoDescription')]
+  - name: additionalDescBulletInfo
+    singleValue: false
+    xpath: //div[contains(@class,'product-features_seoDescription')]//p
+  - name: brandText
+    singleValue: false
+    xpath: //h2[@data-automation-id="product-brand-name"]//a
+  - name: brandLink
+    singleValue: false
+    xpath: //h2[@data-automation-id="product-brand-name"]//a/@href
+  - name: variantId
+    singleValue: false
+    xpath: //meta[@itemprop="productID"]/@content
+  - name: variantCount
+    singleValue: false
+    defaultValue: '0'
+    type: NUMBER
+  - name: promotion
+    singleValue: false
+    xpath: //div[contains(@class,'offer-details_priceLabels')]//p[contains(@class,'text_orange__17v81')]
+  - name: warnings
+    singleValue: false
+    xpath: //div[@data-automation-id="characteristics-body"]//div//p[contains(text(),'Advertencias')]//following-sibling::p
+  - name: ingredientsList
+    singleValue: false
+    xpath: //div[@data-automation-id="characteristics-body"]//div//p[contains(text(),'Ingredientes')]//following-sibling::p
+  - name: shippingInfo
+    singleValue: false
+    xpath: //p[@data-automation-id="vender-name"]//span
+  - name: specifications
+    singleValue: false
+    xpath: //div[@data-automation-id="characteristics-body"]//div
+  - name: warranty
+    singleValue: false
+    xpath: //div[@data-automation-id="characteristics-body"]//div//p[text()='Garantía']//following-sibling::p
+  - name: countryOfOrigin
+    singleValue: false
+    xpath: //div[@data-automation-id="characteristics-body"]//div//p[text()='País de Origen']//following-sibling::p
+  - name: packSize
+    singleValue: false
+    xpath: //div[@data-automation-id="characteristics-body"]//div//p[contains(translate(.,'ABCDEFGHIJKLMNOPQRSTUVWXYZ','abcdefghijklmnopqrstuvwxyz'),'contenido del empaque')]//following-sibling::p
+  - name: color
+    singleValue: false
+    xpath: //div[@data-automation-id="characteristics-body"]//div//p[contains(text(),'Color')]//following-sibling::p
+  - name: weightNet
+    singleValue: false
+    xpath: //div[@data-automation-id="characteristics-body"]//div//p[contains(text(),'Peso')]//following-sibling::p
+  - name: shippingDimensions
+    singleValue: false
+    xpath: //div[@data-automation-id="characteristics-body"]//div//p[text()='Dimensiones']//following-sibling::p
+  - name: materials
+    singleValue: false
+    xpath: //div[@data-automation-id="characteristics-body"]//div//p[text()='Material']//following-sibling::p
+  - name: alcoholContent
+    singleValue: false
+    xpath: //div[@data-automation-id="characteristics-body"]//div//p[text()='Porcentaje de Alcohol']//following-sibling::p    
+  - name: caloriesPerServing
+    singleValue: false
+    xpath: //div[@data-automation-id="characteristics-body"]//div//p[text()='Energía por porción']//following-sibling::p
+    regExp: (.+?)\s+
+    regExpReplace: $1
+  - name: caloriesPerServingUom
+    singleValue: false
+    xpath: //div[@data-automation-id="characteristics-body"]//div//p[text()='Energía por porción']//following-sibling::p
+    regExp: \s+(.+)
+    regExpReplace: $1 
+  
+  - name: sodiumPerServing
+    singleValue: false
+    xpath: //div[@data-automation-id="characteristics-body"]//div//p[contains(text(),'Sodio')]//following-sibling::p
+    regExp: (.+?)\s+
+    regExpReplace: $1
+  - name: sodiumPerServingUom
+    singleValue: false
+    xpath: //div[@data-automation-id="characteristics-body"]//div//p[contains(text(),'Sodio')]//following-sibling::p
+    regExp: \s+(.+)
+    regExpReplace: $1 
+    
+  - name: saturatedFatPerServing
+    singleValue: false
+    xpath: //div[@data-automation-id="characteristics-body"]//div//p[contains(text(),'Grasa saturada')]//following-sibling::p
+    regExp: (.+?)\s+
+    regExpReplace: $1
+  - name: saturatedFatPerServingUom
+    singleValue: false
+    xpath: //div[@data-automation-id="characteristics-body"]//div//p[contains(text(),'Grasa saturada')]//following-sibling::p
+    regExp: \s+(.+)
+    regExpReplace: $1 
+    
+  - name: totalSugarsPerServing
+    singleValue: false
+    xpath: //div[@data-automation-id="characteristics-body"]//div//p[contains(text(),'Azucares')]//following-sibling::p
+    regExp: (.+?)\s+
+    regExpReplace: $1
+  - name: totalSugarsPerServingUom
+    singleValue: false
+    xpath: //div[@data-automation-id="characteristics-body"]//div//p[contains(text(),'Azucares')]//following-sibling::p
+    regExp: \s+(.+)
+    regExpReplace: $1    
+    
+  - name: imageZoomFeaturePresent
+    singleValue: false
+    xpath: //div[@data-automation-id="hero-image"]
+    regExp: (.+)
+    regExpReplace: Yes
+    defaultValue: No
+  - name: termsAndConditions
+    singleValue: false
+    xpath: //a[text()='Términos y Condiciones']
+    regExp: (.+)
+    regExpReplace: Yes
+    defaultValue: No
+  - name: privacyPolicy
+    singleValue: false
+    xpath: //a[text()='Aviso de Privacidad eCommerce']
+    regExp: (.+)
+    regExpReplace: Yes
+    defaultValue: No
+    
