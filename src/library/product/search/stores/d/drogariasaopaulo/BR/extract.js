@@ -1,4 +1,4 @@
-
+const { transform } = require('../../../../shared');
 const implementation = async (inputs, parameters, context, dependencies) => {
   const { transform } = parameters;
   const { productDetails } = dependencies;
@@ -41,7 +41,7 @@ module.exports = {
   parameterValues: {
     country: 'BR',
     store: 'drogariasaopaulo',
-    transform: null,
+    transform: transform,
     domain: 'drogariasaopaulo.com',
     zipcode: '',
   },
