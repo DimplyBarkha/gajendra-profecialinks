@@ -1,0 +1,63 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: //div[contains(@class, 'product-container')]
+fields: null
+- name: id
+    singleValue: false
+    xpath: //div[@class='product-information']/a/@data-objectid
+  - name: searchUrl
+    singleValue: true
+    xpath: //div[@class='product-container']/searchurl
+  - name: name
+    singleValue: false
+    xpath: //span[@class='name']
+  - name: productUrl
+    singleValue: false
+    xpath: //div[@class='product-information']/a/@href
+    #regExp: (.+)
+    #regExpReplace: https://www.walgreens.com$1
+  - name: gtin
+    singleValue: false
+  - name: thumbnail
+    singleValue: false
+    xpath: //div[@class='img-container']/img/@src
+    regExp: (.+)
+    regExpReplace: https:$1
+  - name: aggregateRating
+    singleValue: false
+    xpath: //div[@class='rating']/@style
+    regExp: \s(\d\.?\d?)
+  - name: aggregateRating2
+    singleValue: false
+    xpath: //div[@class='rating']/@style
+    regExp: \s(\d\.?\d?)
+  - name: reviewCount
+    singleValue: false
+  - name: ratingCount
+    singleValue: false
+    xpath: //div[@class='ratings'][last()]
+        regExp: (\d+)
+  - name: price
+    singleValue: false
+    xpath: //div[@class='price-box']/span[1]
+  - name: manufacturer
+    singleValue: true
+    xpath: //span[@class='brand']
+  - name: soldBy
+    singleValue: true
+  - name: endorsementText
+    singleValue: false
+  - name: rank
+    singleValue: false
+    xpath: //div[@class='product-information']/a/@data-position
+    description: search/listing rank
+    type: NUMBER
+  - name: rankOrganic
+    singleValue: true
+    description: The position (rank) within the list excluding sponsored/paid results
+    type: NUMBER
+  - name: sponsored
+    singleValue: false
+    description: Is sponsored/paid
+    type: BOOLEAN
