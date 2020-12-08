@@ -70,6 +70,23 @@ const transform = (data) => {
               }
             });
           }
+          if (row.mpc) {            
+            row.mpc.forEach(item => {
+              try {
+                let json_data = JSON.parse(item.text);                
+                if (json_data.length>0 && json_data[0]['mpn']){
+                  item.text = json_data[0]['mpn'];
+                }
+                else{
+                  delete row.mpc;
+                  return false;
+                }
+              } catch (error) {
+                delete row.mpc;
+                return false;
+              }
+            });
+          }
           if (row.aggregateRating) {
             row.aggregateRating.forEach(item => {
               item.text = (parseInt(item.text) * 5) / 100;            

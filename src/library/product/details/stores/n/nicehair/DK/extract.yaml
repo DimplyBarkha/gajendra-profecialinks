@@ -14,6 +14,9 @@ fields:
   - name: alternateImages
     singleValue: false
     xpath: //div[@class='image-slider slick-initialized slick-slider slick-dotted']//ul[@class='slick-dots']//li[@aria-selected='false']//a//div[@class='image-item-thumb ']/@style
+  - name: secondaryImageTotal
+    singleValue: false
+    xpath: count(//div[@class='image-slider slick-initialized slick-slider slick-dotted']//ul[@class='slick-dots']//li[@aria-selected='false']//a//div[@class='image-item-thumb ']/@style)
     regExp: background-image\s*:\s*url\((.+)/thumbnails(\/.+)\)\;
     regExpReplace: https:$1$2  
   - name: category
@@ -44,6 +47,9 @@ fields:
     singleValue: false
     xpath: //script[contains(text(),'dataLayer') and contains(text(),"'brand':")]/text()  
   - name: sku
+    singleValue: false
+    xpath: //script[@type='application/ld+json']/text()
+  - name: mpc
     singleValue: false
     xpath: //script[@type='application/ld+json']/text()
   - name: variantId
@@ -85,3 +91,6 @@ fields:
     singleValue: false
     xpath: //ul[@class="dropdown-menu"]//li
     defaultValue: "0"
+  - name: additionalDescBulletInfo
+    singleValue: false
+    xpath: count(//div[@class='accordion-item']//div[@class='accordion-header' and contains(.,'Beskrivelse')]/following-sibling::div[@class='accordion-body']//ul//li)
