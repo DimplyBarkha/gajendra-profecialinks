@@ -50,18 +50,25 @@ async function implementation (inputs, parameters, context, dependencies) {
     });
 
     let numberOfSeenProducts;
+    let numberOfPreviousSeenProducts = 0;
+    let secondCounter = 0;
 
     do {
+      numberOfPreviousSeenProducts = numberOfSeenProducts || 0;
       numberOfSeenProducts = await context.evaluate(async function () {
-        await new Promise((resolve, reject) => setTimeout(resolve, 100));
+        await new Promise((resolve, reject) => setTimeout(resolve, 5000));
         return document.querySelector('.CC-shelf.shelf-block .shelf-product') ? document.querySelectorAll('.CC-shelf.shelf-block .shelf-product').length : 0;
       });
-      btn = await context.evaluate(async function () {
-        const btn = document.querySelector('.CC-seeMore button');
-        if (btn) return true;
-        else return false;
-      });
-      if (btn) await context.click('.CC-seeMore button');
+      if (numberOfPreviousSeenProducts === numberOfSeenProducts || secondCounter === 0) {
+        btn = await context.evaluate(async function () {
+          const btn = document.querySelector('.CC-seeMore button');
+          if (btn) return true;
+          else return false;
+        });
+        if (btn) await context.click('.CC-seeMore button');
+      }
+
+      secondCounter++;
     } while (numberOfProducts > numberOfSeenProducts && btn);
   }
 

@@ -1,5 +1,5 @@
 async function implementation ({ url, zipcode, storeId }, parameters, context, dependencies) {
-  await context.goto(url, { timeout: 60000, waitUntil: 'load', checkBlocked: true });
+  await context.goto(url, { timeout: 60000, waitUntil: 'load', checkBlocked: true, captureRequests: true });
 
   await context.waitForSelector('.pageLoading');
   let body = await context.evaluate(async function () {
