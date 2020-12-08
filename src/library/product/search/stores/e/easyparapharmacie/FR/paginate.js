@@ -15,7 +15,7 @@ module.exports = {
     stopConditionSelectorOrXpath: null,
     resultsDivSelector: null,
     openSearchDefinition: null,
-    domain: 'www.easyparapharmacie.com',
+    domain: 'easyparapharmacie.com',
     zipcode: '',
   },
 };

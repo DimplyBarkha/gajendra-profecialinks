@@ -4,7 +4,7 @@ module.exports = {
   parameterValues: {
     country: 'FR',
     store: 'easyparapharmacie',
-    domain: 'www.easyparapharmacie.com',
+    domain: 'easyparapharmacie.com',
     zipcode: '',
   },
 };

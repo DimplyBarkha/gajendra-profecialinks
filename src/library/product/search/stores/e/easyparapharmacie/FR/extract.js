@@ -5,11 +5,23 @@ const implementation = async (inputs, parameters, context, dependencies) => {
   const { productDetails } = dependencies;
 
   await context.evaluate( async () => {
-    const buttonShowMore = document.querySelector('.ais-infinite-hits--showmore').children[0];
-    if (buttonShowMore !== null ) {
-      buttonShowMore.click();
+    let buttonShowMore = document.querySelector('.ais-infinite-hits--showmore').children[0];
+    if (buttonShowMore) {
+      do {
+        buttonShowMore = document.querySelector('.ais-infinite-hits--showmore').children[0]
+        buttonShowMore.click();
+        await stall(5000);
+      } 
+      while (buttonShowMore.disabled == false);
     }
-    else return
+
+    function stall (ms) {
+      return new Promise((resolve) => {
+        setTimeout(() => {
+          resolve();
+        }, ms);
+      });
+    }
   })
 
   const addSearchUrl = async function (context) {
@@ -30,8 +42,8 @@ module.exports = {
   parameterValues: {
     country: 'FR',
     store: 'easyparapharmacie',
-    transform,
-    domain: 'www.easyparapharmacie.com',
+    transform: null,
+    domain: 'easyparapharmacie.com',
     zipcode: '',
   },
   implementation
