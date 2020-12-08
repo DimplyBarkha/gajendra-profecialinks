@@ -1,9 +1,10 @@
 
 module.exports = {
-  implements: 'navigation/goto',
+  implements: 'product/details/createUrl',
   parameterValues: {
     domain: 'eapteka.ru',
-    timeout: 120000,
+    // prefix: null,
+    url: null,
     country: 'RU',
     store: 'eapteka',
     zipcode: '',

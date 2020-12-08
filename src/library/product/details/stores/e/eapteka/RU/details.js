@@ -1,11 +1,10 @@
 
 module.exports = {
-  implements: 'navigation/goto',
+  implements: 'product/details',
   parameterValues: {
-    domain: 'eapteka.ru',
-    timeout: 120000,
     country: 'RU',
     store: 'eapteka',
+    domain: 'eapteka.ru',
     zipcode: '',
   },
 };
