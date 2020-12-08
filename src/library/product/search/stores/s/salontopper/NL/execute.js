@@ -7,7 +7,7 @@ module.exports = {
     domain: 'salontopper.nl',
     url: 'https://www.salontopper.nl/zoeken?q={searchTerms}',
     loadedSelector: 'div[class*="product-gallery"]',
-    noResultsXPath: '//p[contains(text(), "zijn er geen")]',
+    noResultsXPath: '//p[contains(text(), "zijn er geen")] | //div[@itemscope][contains(@itemtype, "Product")]',
     zipcode: '',
   },
 };
