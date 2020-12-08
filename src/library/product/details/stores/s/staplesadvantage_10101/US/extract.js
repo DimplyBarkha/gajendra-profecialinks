@@ -33,6 +33,13 @@ async function implementation(inputs, parameters, context, dependencies) {
       const manufacturerImages = document.querySelectorAll('img');
       let image;
       const manufacturerDescription = document.querySelector('body').innerText;
+      const manufacturerDescriptionBullets = document.querySelectorAll('body ul>li');
+      let k = 0;
+      manufacturerDescriptionBullets.forEach(bullet => {
+        k++;
+      });
+
+      document.querySelector('body').setAttribute('bulletsnumber', `${k}`);
 
       for (let i = 0; i < manufacturerImages.length; i++) {
         const manufacturerDiv = document.createElement('div');
@@ -70,8 +77,6 @@ module.exports = {
     country: 'US',
     store: 'staplesadvantage_10101',
     transform: cleanUp,
-    noResultsXPath: '//div[@class="errorpage__error_page"]',
-    loadedSelector: 'div.js-content>div',
     domain: 'staplesadvantage.com',
     zipcode: '10101',
   },

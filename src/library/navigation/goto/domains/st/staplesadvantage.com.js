@@ -5,7 +5,7 @@ module.exports = {
     domain: 'staplesadvantage.com',
     timeout: 100000,
     country: 'US',
-    store: 'staplesadvantage',
-    zipcode: '',
+    store: 'staplesadvantage_10101',
+    zipcode: '10101',
   },
 };

@@ -1,3 +1,4 @@
+
 async function implementation(inputs, parameters, context, dependencies) {
   const url = 'https://www.staplesadvantage.com/product_{id}'.replace(
     '{id}',
@@ -13,7 +14,6 @@ async function implementation(inputs, parameters, context, dependencies) {
   await context.goto(loginUrl);
 
   await context.waitForNavigation();
-
   // the popup is visible after a moment -> delaying the removal
   await new Promise((resolve) => setTimeout(resolve, 3000));
   const isPopupPresent = await context.evaluate(async () => {
@@ -72,6 +72,27 @@ async function implementation(inputs, parameters, context, dependencies) {
       document.querySelector('div.truste_overlay').remove();
     });
   };
+
+  await context.evaluate(() => {
+    let descriptionFixed = '';
+    const description = document.querySelectorAll('div[id="ProductDetailsSummaryWrapper"]>ul>li');
+    console.log(description);
+    if (description.length !== 0) {
+      description.forEach(element => {
+        descriptionFixed = descriptionFixed + element.textContent + ' || ';
+      });
+      document.querySelector('div[id="ProductDetailsSummaryWrapper"]>ul').setAttribute('description', descriptionFixed);
+    }
+  });
+
+  // await context.evaluate(() => {
+  //   let aggregateRating = document.querySelector('span.rating__rating_label');
+
+  //   if (aggregateRating !== null) {
+  //     aggregateRating = aggregateRating.textContent.replace('.', ',');
+  //     document.querySelector('span.rating__rating_label').setAttribute('rating', aggregateRating);
+  //   }
+  // });
 
   await context.evaluate(() => {
     let descriptionFixed = '';
