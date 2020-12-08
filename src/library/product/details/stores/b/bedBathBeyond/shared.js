@@ -36,12 +36,20 @@ const transform = (data, context) => {
 
       if (row.specifications && row.specifications.length) {
         if (!row.specifications[0].text.match(/^Measures/)) {
-          const jsonArray = JSON.parse(row.specifications[0].text);
-          const text = jsonArray.map(spec => {
+          try{
+            const jsonArray = JSON.parse(row.specifications[0].text);
+            const text = jsonArray.map(spec => {
             const key = Object.keys(spec)[0];
             return `${key} : ${spec[key]}`;
           }).join(' | ');
           row.specifications = [{ text }];
+          }catch(e){
+            let text = '';
+            row.specifications.forEach(item => {
+              text = text + (text ? ' | ' : '') + item.text;
+            });
+            row.specifications = [{ text }];
+          }
         }
       }
 
