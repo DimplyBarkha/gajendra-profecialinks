@@ -20,12 +20,12 @@ fields:
   - name: category
     singleValue: false
     description: The categories (e.g. from breadcrumbs)
-    xpath: //form/p/a
+    xpath: //form/p/a[position()>1]|//form/p/text()[3]
   - name: nameExtended
     singleValue: true
     description: The product name, prefixing "${brand} - " if not included in "name"
       and appending " - ${variantType}" if necessary (fixed per feed)
-    xpath: concat(//div[@id="productLeft"]/h1,' ', //p[@class="c-product__duration u-zero-top"])
+    xpath: concat((//tr/td/strong[contains(text(),"Marque")]//following::a[text()])[1],' - ',//div[@id="productLeft"]/h1,' ', //p[@class="c-product__duration u-zero-top"])
   - name: listPrice
     singleValue: true
     description: The stated undiscounted price for the product
@@ -150,7 +150,7 @@ fields:
   - name: name
     singleValue: true
     description: The product name
-    xpath: //div[@id="productLeft"]/h1
+    xpath: //meta[@property="og:title"]/@content
   - name: inStorePrice
     singleValue: true
     description: Price in the selected store
