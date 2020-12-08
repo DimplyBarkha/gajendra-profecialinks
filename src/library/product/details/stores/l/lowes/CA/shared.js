@@ -125,7 +125,7 @@ const transform = (data) => {
           row.videos = videos;
         } else {
           if (row.videos && videos.length >= 1) {
-            row.videos = [...row.videos, ...row.videos1];
+            row.videos = [...row.videos, ...videos];
           }
         }
       }
