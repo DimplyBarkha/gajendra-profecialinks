@@ -11,41 +11,34 @@ fields:
     xpath: //ul[@typeof="BreadcrumbList"]/li[position()>1 and position()<last()]/a/span/text()
   - name: Price
     singleValue: true
-    xpath: //div[@class="preis_gelb_links"]/p/span[@id="colorChange_0000014111__unit_price"]/span[@id="colorChange_0000014111__unit_price_sup"]/span/text()
+    xpath: //div[@class="preis_gelb_links"]/p/span[1] | //div[@class="oo-pricelabel_price"]/p/span[1]/span[position()>1 and position()<4]
+    regExp: (\d),(\d.+)
+    regExReplace: $1.$2
+    type: CURRENCY
   - name: description
     singleValue: false
     xpath: //div[@property="gr:description"]
   - name: descriptionBullets
     singleValue: true
     xpath: count(//ul[@class="ooB-mb24 bullet ooX-fs14 "]/li/text())
-  - name: quantity
+  - name: additionalDescBulletInfo
     singleValue: true
-    description: Quantity as described on the page
-    regExp: (?:\s?([\d\.]+\s?)([bB]ar[s]?|[cC]ount|[cC]t|[fF][lL][\.]?\s?[oO][zZ][\.]?|FO|[mM][lL]|[oO][zZ][\.]?|pc|[pP]int|[pP]ops|qt|[wW]ipe[s]?).?)$|(?:\s?([\d\.]+\s?)([bB]ar[s]?|[cC]ount|[cC]|[fF][lL][\.]?\s?[oO][zZ][\.]?|FO|[mM][lL]|[oO][zZ][\.]?|pc|[pP]int|[pP]ops|qt|[wW]ipe[s]?).?\s?[\&\-\w\s]+)$
-    regExpReplace: $1$2$3$4
-    xpath: 
+    xpath: //html//div[@id="str"]
   - name: gtin
     singleValue: true
     description: GTIN code (includes UPC/EAN)
-    xpath: 
+    xpath: //div[@id="cliplister_video"]/@data-cliplister_requestkey
   - name: sku
     singleValue: true
     description: The store-specific product identifier
-    xpath: 
-  - name: aggregateRatingText
-    singleValue: true
-    xpath: 
+    xpath: //section[@class="ooB ooB-mb48 ooG"]/@data-init_itemcode
   - name: aggregateRating
     singleValue: true
-    xpath: //div[@class="rating-stars-copy"]
+    xpath: //div[@class="rating-stars-copy"]/text()
   - name: shippingInfo
     singleValue: true
     description: Shipping information for the product
     xpath: //div[@class="bullet-before-container ooB-mt12"]
-  - name: variantId
-    singleValue: true
-    description: Number of variants listed
-
 
 
 
