@@ -15,7 +15,7 @@ module.exports = {
         while (scrollTop !== 20000) {
           scrollTop += 1000;
           window.scroll(0, scrollTop);
-          await stall(1500);
+          await stall(2500);
         }
         function stall(ms) {
           return new Promise((resolve, reject) => {

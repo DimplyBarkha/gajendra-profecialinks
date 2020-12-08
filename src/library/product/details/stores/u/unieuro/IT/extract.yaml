@@ -71,7 +71,7 @@ fields:
   xpath: //html//div[@id='altImages']
 - name: shippingWeight
   singleValue: false
-  xpath: //div[@class='techs']//span[(text()="Peso dell'imballo")]/following-sibling::span
+  xpath: (//div[@class='techs']//span[(text()="Peso dell'imballo")]/following-sibling::span)[1]
 - name: packaging
   singleValue: false
   xpath: (//div[@class='techs']//span[(text()="Tipo di imballo")]/following-sibling::span)[1]
@@ -89,7 +89,7 @@ fields:
   xpath: //div[@class='techs']//span[(text()='Peso')]/following-sibling::span | //table[@class="flix-std-specs-table"]//td[(text()='Peso')]/following-sibling::td
 - name: weightGross
   singleValue: false
-  xpath: //div[@class='techs']//span[(text()="Peso dell'imballo")]/following-sibling::span | //table[@class="flix-std-specs-table"]//td[(text()='Peso con Imballaggio')]/following-sibling::td
+  xpath: (//div[@class='techs']//span[(text()="Peso dell'imballo")]/following-sibling::span | //table[@class="flix-std-specs-table"]//td[(text()='Peso con Imballaggio')]/following-sibling::td)[1]
 - name: videos
   singleValue: false
   xpath: (//iframe[@class="youtube-container"]/@src | //div[@class="flix-std-row"]//iframe//@src) 
