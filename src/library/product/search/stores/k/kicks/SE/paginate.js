@@ -10,7 +10,7 @@ module.exports = {
   loadedSelector: null,
   noResultsXPath: null,
   openSearchDefinition: {
-    template: 'https://www.kicks.se/sok?q={searchTerms}&sortBy=popularity&count={page}',
+    template: 'https://www.kicks.se/sok?q={searchTerms}&sortBy=popularity&count={offset}',
     },
   domain: 'kicks.se',
   zipcode: '',
