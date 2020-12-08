@@ -169,5 +169,32 @@ module.exports = {
             }
             dataRef[0].data[0].group[0].image[0].text = jsonData.artikel[jsonData.artikelKey].ansichten[0].zoomUrl;
         }
+        var checkData = await context.evaluate(async function() {
+            let getInTheBox = document.querySelector('div.in-the-box img')
+            let inTheBoxImages = [];
+            let inTheBoxTexts = [];
+            if (getInTheBox) {
+                let getAllProducts = document.querySelectorAll('div.in-the-box div');
+                for (i = 0; i < getAllProducts.length; i++) {
+                    inTheBoxImages.push(getAllProducts[i].querySelector('img').getAttribute('src'));
+                    inTheBoxTexts.push(getAllProducts[i].querySelector('p').innerText);
+                }
+                let imagesUrl = inTheBoxImages.join(' || ')
+                let imagesText = inTheBoxTexts.join(' || ')
+                document.head.setAttribute('intheboxurl', imagesUrl);
+                document.head.setAttribute('intheboxtext', imagesText);
+            }
+            return document.querySelector('div.in-the-box img');
+        });
+        checkData;
+        await new Promise((resolve, reject) => setTimeout(resolve, 6000));
+
+        // const inboxdata = await context.evaluate(async function() {
+        //     let imagesUrl = inTheBoxImages.join(' || ')
+        //     let imagesText = inTheBoxTexts.join(' || ')
+        //     document.head.setAttribute('intheboxurl', imagesUrl);
+        //     document.head.setAttribute('intheboxtext', imagesText);
+        // });
+        //inboxdata;
     },
 };
