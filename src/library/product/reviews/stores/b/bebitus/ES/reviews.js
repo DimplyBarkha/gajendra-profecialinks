@@ -5,7 +5,5 @@ module.exports = {
     country: 'ES',
     store: 'bebitus',
     domain: 'bebitus.com',
-    zipcode: '',
-    mergeType: null,
   },
 };

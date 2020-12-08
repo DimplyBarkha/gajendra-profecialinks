@@ -27,6 +27,7 @@ async function implementation(
         // @ts-ignore
         reviewButton.click();
         console.log('clicked');
+        reviewButton.remove();
         await timeout(10000);
       }
       // await context.waitForSelector('li.bv-content-pagination-buttons-item-next');

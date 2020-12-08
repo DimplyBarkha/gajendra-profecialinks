@@ -27,15 +27,15 @@ fields:
     regExpReplace: $2
   - name: productUrl
     xpath: ancestor::html//link[@rel="canonical"]/@href
-  - name: verifiedPurchase
-    xpath: ancestor::html//ul//li[contains(@class,'bv-badge-content-verifiedpurchaser')]/img/@title
-    regExp: (.+)
-    regExpReplace: 'true'
+  # - name: verifiedPurchase
+  #   xpath: ancestor::html//ul//li[contains(@class,'bv-badge-content-verifiedpurchaser')]/img/@title
+  #   regExp: (.+)
+  #   regExpReplace: 'true'
     defaultValue: false
     description: Whether this of an item the reviewer purchased. "Yes" if true else ""
   - name: syndicatedFrom
     xpath: //span[@class="ratings-list-syndicated-text"]
-  - name: reviewedSku
-    xpath: ancestor::html//div[@class="bv-content-list-container"]//li[contains(@data-content-id,"Reviews")]/@data-content-id
+  # - name: reviewedSku
+  #   xpath: ancestor::html//div[@class="bv-content-list-container"]//li[contains(@data-content-id,"Reviews")]/@data-content-id
   - name: user
     xpath: //h4[@class="ratings-list-item-title"]
