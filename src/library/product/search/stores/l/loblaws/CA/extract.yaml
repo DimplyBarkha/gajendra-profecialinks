@@ -1,0 +1,30 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: id
+    singleValue: false
+    xpath: //li[@class="product-tile-group__list__item"]/div/@data-track-product-id
+  - name: price
+    singleValue: false
+    xpath: //span[@class="price__value selling-price-list__item__price selling-price-list__item__price--now-price__value"]
+  - name: productUrl
+    singleValue: false
+    xpath: //a[@class="product-tile__details__info__name__link"]/@href
+    regExp: (.+)
+    regExpReplace: https://www.loblaws.ca$1
+    description: The URL for the product details page
+  - name: thumbnail
+    singleValue: false
+    xpath: //div[@class="product-tile__thumbnail__image"]/img/@src
+    description: The URL for the product thumbnail image
+  - name: name
+    singleValue: false
+    xpath: //span[@class="product-name__item product-name__item--name"]
+  - name: rank
+    singleValue: false
+    type: NUMBER
+  - name: rankOrganic
+    singleValue: false
+    type: NUMBER
