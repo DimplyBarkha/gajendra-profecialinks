@@ -29,11 +29,12 @@ const transform = (data) => {
             var strJSONString   = ''
             strJSONString       = row.name[0].text 
             var obj             = JSON.parse(strJSONString);
-            
             if(obj.hasOwnProperty('offers')){
-                var strPrice = ''
-                strPrice     = '$' + obj.offers.price //+ obj.offers.priceCurrency
-                row.price    = [{"text": strPrice, "xpath": row.name[0].xpath}]
+                if(obj.offers.hasOwnProperty('price')){
+                    var strPrice = ''
+                    strPrice     = '$' + obj.offers.price //+ obj.offers.priceCurrency
+                    row.price    = [{"text": strPrice, "xpath": row.name[0].xpath}]
+                }
             }
             if(obj.hasOwnProperty('image')){
                 var strImg  = ''
@@ -41,9 +42,11 @@ const transform = (data) => {
                 row.image   = [{"text": strImg, "xpath": row.name[0].xpath}]
             }
             if(obj.hasOwnProperty('brand')){
-                var strBrand    = ''
-                strBrand        = obj.brand.name
-                row.brandText   = [{"text": strBrand, "xpath": row.name[0].xpath}]
+                if(obj.brand.hasOwnProperty('name')){
+                    var strBrand    = ''
+                    strBrand        = obj.brand.name
+                    row.brandText   = [{"text": strBrand, "xpath": row.name[0].xpath}]
+                }
             }
             if(obj.hasOwnProperty('gtin13')){
                 var strGtin     = ''
