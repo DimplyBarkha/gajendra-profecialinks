@@ -25,31 +25,34 @@ module.exports = {
         return result && result.trim ? result.trim() : result;
       };
       // @ts-ignore
-      const rawdata = getXpath("(//p/following::script[2])[7]/text()",'nodeValue');
+      const rawdata = getXpath("(//p/following::script[2])[7]/text()", 'nodeValue');
       const jsondata = JSON.parse(rawdata);
-      const gtin = jsondata.gtin13;
-      if (gtin != null){
-        addElementToDocument('gtin', gtin);
-      }
-      
+      //var gtin = JSON.parse(jsondata).gtin13
+      const gtin = jsondata.gtin13
+      const gtin1= JSON.stringify(gtin)
+      //jsondata.gtin13;
+      //if (gtin != null){
+      addElementToDocument('gtin', gtin1);
+      //}
+
       const sku = jsondata.sku;
-      if (sku != null){
+      //if (sku != null){
       addElementToDocument('sku', sku);
-      }
+      //}
 
       const url = jsondata.url;
-      if (url != null){
+      //if (url != null){
       addElementToDocument('url', url);
-      }
+      //}
 
       const productID = jsondata.productID;
-      if (productID != null){
+      // if (productID != null){
       addElementToDocument('id', productID);
-      }
+      // }
 
       const brand = jsondata.brand;
-      if (brand != null){
-      addElementToDocument('brand', brand);
+      if (brand != '') {
+        addElementToDocument('brand', brand);
       }
     });
     await context.extract(productDetails, { transform: transformParam });
