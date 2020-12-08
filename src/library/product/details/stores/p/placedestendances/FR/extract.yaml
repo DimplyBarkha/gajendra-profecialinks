@@ -97,3 +97,17 @@ fields:
     singleValue: true
     xpath: //link[@rel="canonical"]/@href
     description: URL of the main product page
+  - name: inTheBoxUrl
+    singleValue: false
+    xpath: //div[@class="inpage_selector_InTheBox"]//img/@src
+    description: Must include image url to show the accessories/tools which come with the product
+  - name: inTheBoxText
+    singleValue: false
+    xpath: //div[@class="inpage_selector_InTheBox"]//span
+    description: Must include text to show the accessories/tools which come with the product
+  - name: unInterruptedPDP
+    singleValue: false
+    xpath: //div[@id="row-cross-selling"]//div[@class="col product-label"]
+    description: Titles of products in the sections 'you may also like' or 'sponsored products'. Combine results from Max 3 sections
+
+
