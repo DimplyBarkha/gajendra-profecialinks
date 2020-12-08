@@ -36,18 +36,19 @@ module.exports = {
     }
 
 
-  async function scrollToRec () {
-    await context.evaluate(async () => {
-      var element = (document.querySelector('div.product-breadcrumb-carousel__container')) ? document.querySelector('div.product-breadcrumb-carousel__container') : null;
+  async function scrollToRec (node) {
+    await context.evaluate(async function (node) {
+      var element = (document.querySelector(node)) ? document.querySelector(node) : null;
       if (element) {
         element.scrollIntoView({ behavior: 'smooth', block: 'end', inline: 'nearest' });
         await new Promise((resolve) => {
-          setTimeout(resolve, 5000);
+          setTimeout(resolve, 7000);
         });
       }
-    });
+    }, node);
   }
-  await scrollToRec();
+  await scrollToRec('div.product-breadcrumb-carousel__container');
+  await scrollToRec('jl-recommendations-panel');
   
     await context.evaluate(async function () {
       console.log(document.querySelector('jl-recommendations-panel'))
