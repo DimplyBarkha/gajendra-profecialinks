@@ -1,11 +1,5 @@
 extends: ../../../../sharedAmazon/shared
 fields:
-  - name: productCategory
-    singleValue: false
-    xpath: (//div[contains(@id, 'breadcrumbs')]//ul/li[not(@class)])[position()=1]
-  - name: productSubCategory
-    singleValue: false
-    xpath: (//div[contains(@id, 'breadcrumbs')]//ul/li[not(@class)])[position()=2]
   - name: backupBrand
     singleValue: false
     xpath: //a[@id="bylineInfo"]/text() | //div[contains(@id,"bylineInfo") and not(//a[@id="bylineInfo"]/text())] | //a[@id="brandteaser"]/img/@alt | //a[@id="brand"]
