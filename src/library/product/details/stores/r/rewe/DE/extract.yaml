@@ -13,6 +13,11 @@ fields:
   - name: alternateImages
     singleValue: false
     description: Other product images (not in manufacturer description)
+    xpath: //picture[contains(@class, 'pdr-PictureHoverZoom--Thumb')]/source[1]/@srcset
+  - name: highQualityImages
+    singleValue: false
+    description: Other product images (not in manufacturer description)
+    xpath: //picture[contains(@class, 'pdr-PictureHoverZoom--Thumb')]/source[1]/@srcset
   - name: metaKeywords
     singleValue: true
     description: The <meta> keywords content
@@ -20,7 +25,7 @@ fields:
   - name: category
     singleValue: false
     description: The categories (e.g. from breadcrumbs)
-    xpath: //a[contains(@class, 'lr-breadcrumbs__link')]/font
+    xpath: //a[contains(@class, 'lr-breadcrumbs__link')]/div
   - name: nameExtended
     singleValue: true
     description: The product name, prefixing "${brand} - " if not included in "name"
@@ -38,9 +43,6 @@ fields:
     description: Availability as described on page for the selected variant. If
       there is no availability but the product can be added to cart, this field
       should be "In Stock"
-    regExp: (.+)
-    regExpReplace: In Stock
-    defaultValue: Out of Stock
   - name: description
     singleValue: false
     description: Product description supplied by website - may be concatenanted from
@@ -54,7 +56,7 @@ fields:
     singleValue: true
     description: Product brand shown - this may actually NOT be just a brand name,
       e.g. "Visit the Gillette Store"
-    xpath: //div[@class='pdr-AttributeGroup  ']/div[1]/font/font
+    xpath: //div[@class="pdr-QuickInfo__brandLabel"]/a[@class="pdr-QuickInfo__brandLink"]
   - name: manufacturer
     singleValue: true
     description: Product manufacturer
@@ -504,3 +506,6 @@ fields:
       carousel,['Yes','No']
     example: https://www.zalando.de/adidas-neo-sneaker-low-blackwhite-a4315i002-q11.html
     defaultValue: No
+  - name: rank
+    singleValue: true
+    defaultValue: 1
