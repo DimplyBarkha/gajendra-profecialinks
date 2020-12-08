@@ -45,9 +45,9 @@ module.exports = {
     domain: 'mediamarkt.es',
     loadedSelector: null,
     noResultsXPath: null,
-    reviewUrl: null,
+    reviewUrl: 'https://www.mediamarkt.es/es/product/-{id}.html',
     sortButtonSelectors: null,
     zipcode: "",
   },
-  implementation,
+  // implementation,
 };

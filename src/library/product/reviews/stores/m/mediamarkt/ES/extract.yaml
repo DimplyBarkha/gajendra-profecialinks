@@ -55,7 +55,7 @@ fields:
     description: Stated place the review was syndicated from
   - name: reviewUrl
     description: A direct link to the review
-    xpath: //link[@rel="canonical"]/@href
+    xpath: ancestor::html//link[@rel="canonical"]/@href
   - name: reviewedSku
     singleValue: true
     description:
