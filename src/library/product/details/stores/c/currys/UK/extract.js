@@ -19,20 +19,22 @@ module.exports = {
       }, '#isitetv');
       if (!iframeUrl) return;
       await context.goto(iframeUrl, { timeout: 50000, waitUntil: 'networkidle0', checkBlocked: true });
-      await context.waitForXPath('//a[contains(@class,"isitetv_nav_item_link")]');
+      await context.waitForXPath('//a[contains(@class,"isitetv_nav_item_link")]|//div[contains(@id,"isitetv_movie_container")]');
       try {
         videos = await context.evaluate(async function () {
           const result = [];
-          const videoElements = document.querySelectorAll('a[class*="isitetv_nav_item_link"]').length;
-          console.log(videoElements + ' videos found');
-          for (let i = 0; i < videoElements; i++) {
+          let videoElements = document.querySelectorAll('a[class*="isitetv_nav_item_link"]');
+          if (!videoElements.length) videoElements = document.querySelectorAll('div[id*="isitetv_movie_container"] img[id*=poster_image]');
+          console.log(videoElements.length + ' videos found');
+          for (let i = 0; i < videoElements.length; i++) {
             // @ts-ignore
-            await document.querySelectorAll('a[class*="isitetv_nav_item_link"]')[i].click();
+            await videoElements[i].click();
             await new Promise(resolve => setTimeout(resolve, 3000));
             if (document.querySelector('video > source').getAttribute('src')) {
               result.push('https:' + document.querySelector('video > source').getAttribute('src'));
             }
           }
+          console.log(result);
           return result;
         });
       } catch (e) {
