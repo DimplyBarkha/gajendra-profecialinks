@@ -61,7 +61,7 @@ fields:
 - name: descriptionBullets
   singleValue: true
   description: Number of ul > li tags in the description
-  xpath: count(//h3[@class='prdct__details-title']/following-sibling::p/br)
+  xpath: //div[@id='bulletcount']
 - name: brandText
   singleValue: true
   description: Product brand shown - this may actually NOT be just a brand name, e.g.
@@ -124,7 +124,6 @@ fields:
 - name: shippingInfo
   singleValue: true
   description: Shipping information for the product
-  xpath: //div[@id='shippingInfo']
 - name: shippingDimensions
   singleValue: true
   description: Stated shipping dimensions
@@ -151,7 +150,8 @@ fields:
 - name: videos
   singleValue: false
   description: URLs of videos on page
-  xpath: //link[(@rel='canonical') and contains(@href, 'youtube')]/@href
+  xpath: //body/@video-src
+  # xpath: //link[(@rel='canonical') and contains(@href, 'youtube')]/@href
 - name: name
   singleValue: true
   description: The product name
