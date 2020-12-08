@@ -40,7 +40,7 @@ module.exports = {
   implements: 'product/details/extract',
   parameterValues: {
     country: 'MX',
-    store: 'superama_mx',
+    store: 'superama',
     transform: transform,
     domain: 'superama.com.mx',
     zipcode: '',

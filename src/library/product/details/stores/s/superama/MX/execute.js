@@ -1,10 +1,12 @@
 
 module.exports = {
-  implements: 'product/details',
+  implements: 'product/details/execute',
   parameterValues: {
     country: 'MX',
-    store: 'superama_mx',
+    store: 'superama',
     domain: 'superama.com.mx',
+    loadedSelector: null,
+    noResultsXPath: null,
     zipcode: '',
   },
 };
