@@ -140,7 +140,4 @@ fields:
     defaultValue: '0'
   - name: inTheBoxText
     singleValue: false
-    xpath: //*[@id="tab1"]/div[1]/div[4]//tr[4]/td[2]/ul/li/text()
-  - name: unInterruptedPDP
-    singleValue: false
-    xpath: //div[@id="rv__recent_products"]//h5/a
+    xpath: //tr/td/p[contains(text(),'This Product Includes')]/ancestor::td/following-sibling::td/ul/li
