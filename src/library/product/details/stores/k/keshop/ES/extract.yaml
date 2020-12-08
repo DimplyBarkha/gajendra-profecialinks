@@ -30,9 +30,9 @@ fields:
   singleValue: false
   xpath: //span[@class='manufacturer_name']/a | //span[@class='category_name']/a
   description: The categories (e.g. from breadcrumbs)
-- name: nameExtended
+- name: nameExtended #fixed
   singleValue: true
-  xpath: //span[@class='pproduct_name']
+  xpath: concat(//span[@class='manufacturer_name'],' ',//span[@class='pproduct_name'])
   description: The product name, prefixing "${brand} - " if not included in "name"
     and appending " - ${variantType}" if necessary (fixed per feed)
 - name: listPrice
@@ -53,9 +53,9 @@ fields:
   regExp: "En stock"
   regExpReplace: In Stock
   defaultValue: Out of Stock
-- name: description
+- name: description #fixed
   singleValue: false
-  xpath: //div[@id='short_description_content']/p
+  xpath: //div[@id='short_description_content']
   description: Product description supplied by website - may be concatenanted from
     multiple places; specifically not the manufacturer description
 - name: descriptionBullets
