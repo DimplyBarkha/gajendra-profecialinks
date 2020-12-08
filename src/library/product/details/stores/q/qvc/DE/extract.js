@@ -102,11 +102,10 @@ async function implementation (
       });
 
       hasComparisionTable = await context.evaluate(async () => {
-        return !!document.querySelector('.compare-headline');
+        return (!!document.querySelector('.compare-headline') && document.querySelector('.compare-headline').offsetHeight > 0 && document.querySelector('.compare-headline').offsetWidth) > 0;
       });
     }
 
-  
     await context.goto(productUrl, { timeout: 50000, waitUntil: 'load', checkBlocked: true });
 
     await context.evaluate(async (index, variantLength, manufacturerDesc, manufacturerImages, inBoxUrls, inBoxText, hasComparisionTable) => {
