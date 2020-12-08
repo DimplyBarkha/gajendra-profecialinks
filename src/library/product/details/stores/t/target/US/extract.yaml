@@ -288,3 +288,7 @@ fields:
   - name: technicalInformationPdfPresent
     singleValue: false
     xpath: //div[@class="pdf"]
+  - name: unInterruptedPDP
+    xpath: ancestor::html//div[@data-test="pdpBottomOfTheFoldContent"]//ul//li[contains(@class,"FilmstripItem")]
+  - name: hasComparisonTable
+    defaultValue: No
