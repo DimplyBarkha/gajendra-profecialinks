@@ -7,8 +7,6 @@ async function implementation (inputs, parameters, context, dependencies) {
   await context.waitForXPath('//div[@class="bv_main_container"]', 50000);
 
   await context.evaluate(async () => {
-    // await new Promise((resolve, reject) => setTimeout(resolve, 5000));
-
     function addElementToDom (element, id) {
       const div = document.createElement('div');
       div.id = id;

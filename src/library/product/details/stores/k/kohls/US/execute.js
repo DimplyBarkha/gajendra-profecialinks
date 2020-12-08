@@ -17,9 +17,11 @@ module.exports = {
       url = await dependencies.createUrl({ id });
     }
 
-    url = `${url}#[!opt!]{"block_ads":false,"anti_fingerprint":false,"first_request_timeout":60,"load_timeout":30,"proxy":{"use_relay_proxy":false},"load_all_resources":true,"enable_cache":false,"discard_CSP_header":true}[/!opt!]`;
+    url = `${url}#[!opt!]{"cookies":[]}[/!opt!]`;
 
     await dependencies.goto({ url, zipcode, storeId });
+
+    await new Promise((resolve, reject) => setTimeout(resolve, 5000));
 
     if (parameters.loadedSelector) {
       await context.waitForFunction(
