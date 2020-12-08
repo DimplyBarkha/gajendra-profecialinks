@@ -43,7 +43,6 @@ async function implementation (
     }
     return false;
   });
-
   if (productsCount === false) {
     return await context.evaluate(function (xp) {
       const r = document.evaluate(xp, document, null, XPathResult.UNORDERED_NODE_ITERATOR_TYPE, null);
@@ -116,5 +115,5 @@ module.exports = {
     noResultsXPath: '//div[@class="noSearchResults-message-WsY"]',
     zipcode: '',
   },
-  // implementation,
+  implementation,
 };
