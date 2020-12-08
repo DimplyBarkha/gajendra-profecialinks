@@ -1,0 +1,32 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: //div[@id="articleListContent"]//article
+fields:
+  - name: productUrl
+    singleValue: false
+    xpath: //div[@id="articleListContent"]//article//div[@class="c-product-card__wrapper"]/a/@href
+  - name: id
+    singleValue: false
+    xpath: //div[@id="articleListContent"]//article/@data-id
+  - name: aggregateRating
+    singleValue: false
+    xpath: //div[@id="articleListContent"]//article//div[@class="c-product-card__wrapper"]//span[contains(@class,"c-star-rating__text cy-product-text")]
+  - name: reviewCount
+    singleValue: false
+    xpath: //div[@id="articleListContent"]//article//div[@class="c-product-card__wrapper"]//span[contains(@class,"c-star-rating__text cy-product-rating-result")]
+  - name: name
+    singleValue: false
+    xpath: //div[@id="articleListContent"]//article/@data-name
+  - name: thumbnail
+    singleValue: false
+    xpath: //div[@id="articleListContent"]//article//img/@src
+  - name: manufacturer
+    singleValue: false
+    xpath: //div[@id="articleListContent"]//article/@data-brand
+  - name: price
+    singleValue: false
+    xpath: //div[@id="articleListContent"]//article//div[@class="c-product-card__wrapper"]//div[contains(@class,"c-product-card__prices-actual")]
+  - name: soldBy
+    singleValue: false
+    xpath: //div[@id="articleListContent"]//article//div[@class="c-product-card__wrapper"]//div[contains(@class,"c-product-card__availability")]
