@@ -7,7 +7,8 @@ module.exports = {
     transform: cleanUp,
     domain: 'currys.co.uk',
     zipcode: "''",
-  }, implementation: async ({ inputString }, { transform }, context, { productDetails }) => {
+  },
+  implementation: async ({ inputString }, { transform }, context, { productDetails }) => {
     async function extractVideos() {
       let videos;
       const productUrl = await context.evaluate(() => {
@@ -18,23 +19,19 @@ module.exports = {
       }, '#isitetv');
       if (!iframeUrl) return;
       await context.goto(iframeUrl, { timeout: 50000, waitUntil: 'networkidle0', checkBlocked: true });
-      // await context.waitForXPath('//a[contains(@class,"isitetv_nav_item_link")]');
+      await context.waitForXPath('//a[contains(@class,"isitetv_nav_item_link")]');
       try {
         videos = await context.evaluate(async function () {
           const result = [];
           const videoElements = document.querySelectorAll('a[class*="isitetv_nav_item_link"]').length;
           console.log(videoElements + ' videos found');
-          if (videoElements) {
-            for (let i = 0; i < videoElements; i++) {
-              // @ts-ignore
-              await document.querySelectorAll('a[class*="isitetv_nav_item_link"]')[i].click();
-              await new Promise(resolve => setTimeout(resolve, 3000));
-              if (document.querySelector('video > source').getAttribute('src')) {
-                result.push('https:' + document.querySelector('video > source').getAttribute('src'));
-              }
+          for (let i = 0; i < videoElements; i++) {
+            // @ts-ignore
+            await document.querySelectorAll('a[class*="isitetv_nav_item_link"]')[i].click();
+            await new Promise(resolve => setTimeout(resolve, 3000));
+            if (document.querySelector('video > source').getAttribute('src')) {
+              result.push('https:' + document.querySelector('video > source').getAttribute('src'));
             }
-          } else if (document.querySelector('iframe#isitetv')) {
-            result.push(document.querySelector('iframe#isitetv').getAttribute('src'));
           }
           return result;
         });
@@ -85,12 +82,6 @@ module.exports = {
         }
       }
       const data = {};
-      const productDigitalData = JSON.parse(document.querySelector('script[id="app.digitalData"]').textContent).product[0];
-      data.availability = productDigitalData.stockStatus || '';
-      data.manufacturer = productDigitalData.manufacturer || '';
-      data.id = productDigitalData.productID || '';
-      data.sku = productDigitalData.productSKU || '';
-      if (productDigitalData.reviewRating) data.aggregateRating = (productDigitalData.reviewRating * 5) / 10;
       data.url = window.location.href;
       if (videos && videos.length) data.videos = videos;
       appendData(data);
