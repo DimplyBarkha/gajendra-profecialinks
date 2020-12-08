@@ -1,0 +1,66 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: //li[@itemprop="review"]
+fields:
+  - name: helpfulCount
+    xpath: //button[contains(@class,"bv-content-btn bv-content-btn-feedback-yes")]//span[@class="bv-content-btn-count"]
+    type: NUMBER
+    description: Number of people who said the review was helpful
+  - name: commentCount
+    type: NUMBER
+    description: Number of comments on the review
+  - name: brandText
+    description: Product brand shown - this may actually NOT be just a brand name,
+      e.g. "Visit the Gillette Store"
+    xpath: ancestor::html//*[@itemprop="brand"]/@content
+  - name: name
+    description: The product name
+    xpath: ancestor::html//div[contains(@class,"sc-pc-large-desktop-layout")]//h1
+  - name: sku
+    description: The store-specific product identifier
+    xpath: ancestor::html//div[contains(@class,"sc-pc-large-desktop-layout")]/meta[@itemprop="sku"]/@content
+  - name: reviewDate
+    type: DATETIME
+    description: Date the review was made
+    xpath: //meta[@itemprop="datePublished"]/@content
+  - name: reviewRating
+    type: NUMBER
+    description: Rating normalized to be out of 5
+    xpath: //span[@itemprop="reviewRating"]/meta[@itemprop="ratingValue"]/@content
+  - name: reviewText
+    description: The text of the review
+    xpath: //div[@class="bv-content-summary"]/div[@itemprop="reviewBody"]//p
+  - name: reviewTitle
+    description: The title of the review
+    xpath: //div[contains(@class,"bv-content-title-container")]/h3[@itemprop="headline"]
+  - name: reviewerTags
+    description: The tags a reviewer has
+  - name: gtin
+    description: GTIN code (includes UPC/EAN)
+  - name: productUrl
+    description: The url of the product details page
+    xpath: ancestor::html//div[@itemprop="offers"]/meta[@itemprop="url"]/@content
+    regExp: (.+)
+    regExpReplace: https://www.samsclub.com$1
+  - name: verifiedPurchase
+    type: BOOLEAN
+    description: Whether this of an item the reviewer purchased. "Yes" if true else ""
+  - name: manufacturerResponse
+    description: The response of the manufacturer (if any)
+    xpath: //li[contains(@class,"bv-content-item bv-secondary-content-clientresponse bv-secondary")]//div[contains(@class,"bv-content-summary-body-text")]
+  - name: syndicatedFrom
+    description: Stated place the review was syndicated from
+  - name: reviewUrl
+    description: A direct link to the review
+  - name: reviewedSku
+    description: The SKU of the item that was reviewed (may be different from the
+      sku the review was shown on). 1 if sku == reviewedSku else 0. Get sku
+      value, transform will handle the value.
+  - name: user
+    description: The user name of the reviewer
+    type: TEXT
+    xpath: //span[contains(@class,"bv-author")]
+  - name: aggregateRating2
+    description: The product rating
+    xpath: //div[@data-bv-show="reviews"]//dd[contains(@class,bv-rating-ratio-number)]/span[1]
