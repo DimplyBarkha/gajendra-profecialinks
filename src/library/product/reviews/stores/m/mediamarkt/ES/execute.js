@@ -27,6 +27,11 @@ async function implementation(
       return Boolean(document.querySelector(sel) || document.evaluate(xp, document, null, XPathResult.UNORDERED_NODE_ITERATOR_TYPE, null).iterateNext());
     }, { timeout: 10000 }, loadedSelector, noResultsXPath);
   }
+  await context.evaluate(() => {
+    const recentReviewElement = document.querySelector("ol[class*='review']>li[data-bv-v*='contentItem'][class*='review']:first-child meta[itemprop='datePublished']");
+    const recentData = recentReviewElement && recentReviewElement.getAttribute('content');
+    document.body.setAttribute('firstDate', recentData);
+  });
 
   console.log('Checking no results', noResultsXPath);
   return await context.evaluate((xp) => {
@@ -49,5 +54,5 @@ module.exports = {
     sortButtonSelectors: null,
     zipcode: "",
   },
-  // implementation,
+  implementation,
 };

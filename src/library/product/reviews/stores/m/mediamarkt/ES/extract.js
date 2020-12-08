@@ -14,13 +14,13 @@ async function implementation(
       months += d2.getMonth();
       return months <= 0 ? 0 : months;
     }
-    const firstDate = new Date(document.body.getAttribute('firstrevdate'));
+    const firstDate = new Date(document.body.getAttribute('firstDate'));
     const divs = document.querySelectorAll('li meta[itemprop="datePublished"]');
     divs.forEach((meta) => {
       const date = new Date(meta.getAttribute('content'));
       if (monthDiff(date, firstDate) !== 0) {
-        if (document.querySelector('li[class="bv-content-pagination-buttons-item bv-content-pagination-buttons-item-next"]')) {
-          document.querySelector('li[class="bv-content-pagination-buttons-item bv-content-pagination-buttons-item-next"]').remove();
+        if (document.querySelector('li[class*="item-next"]>a')) {
+          document.querySelector('li[class*="item-next"]>a').remove();
         }
       }
     });
@@ -37,5 +37,5 @@ module.exports = {
     domain: 'mediamarkt.es',
     zipcode: "",
   },
-  // implementation,
+  implementation,
 };
