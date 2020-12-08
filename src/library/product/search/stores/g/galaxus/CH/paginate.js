@@ -7,7 +7,7 @@ module.exports = {
     nextLinkSelector: null,
     mutationSelector: null,
     spinnerSelector: null,
-    loadedSelector: 'div.productList.ZZd8',
+    loadedSelector:  null,
     noResultsXPath: null,
     openSearchDefinition: null,
     domain: 'galaxus.ch',

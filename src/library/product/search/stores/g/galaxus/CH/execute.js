@@ -62,7 +62,7 @@ module.exports = {
     store: 'galaxus',
     domain: 'galaxus.ch',
     url: 'https://www.galaxus.ch/fr/search?q={searchTerms}',
-    loadedSelector: 'div.productList.ZZd8',
+    loadedSelector:  null,
     noResultsXPath: null,
     zipcode: "''",
   },

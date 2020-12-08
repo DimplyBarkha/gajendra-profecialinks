@@ -1,15 +1,26 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: //div[contains(@class,"productList ZZd8")]//article[contains(@class,"panelProduct ZZao ZZac")]
+recordXPath: //div[contains(@class,"productList")]//article[contains(@class,"panelProduct")]
 fields:
   - name: productUrl
     SingleValue: false
-    xpath: //div[contains(@class,"productList ZZd8")]//a[contains(@class,"styled__StyledLink-sc-5q25ol-0 cMeqUS")]/@href
+    xpath: //div[contains(@class,"productList")]//a[contains(@class,"styled__StyledLink-sc-5q25ol-0 cMeqUS")]/@href
   - name: id
     SingleValue: false
-    xpath: //div[contains(@class,"productList ZZd8")]//a[contains(@class,"styled__StyledLink-sc-5q25ol-0 cMeqUS")]/@href
+    xpath: //div[contains(@class,"productList")]//a[contains(@class,"styled__StyledLink-sc-5q25ol-0 cMeqUS")]/@href
   - name: thumbnail
-    SingleValue: true
-    xpath: //div[contains(@class,"productList ZZd8")]//article[contains(@class,"panelProduct ZZao ZZac")]//img/@src
-    
+    SingleValue: false
+    xpath: //article[contains(@class,"panelProduct")]//div[contains(@class,"imageCarousel")]/picture/source[1]/@srcset
+  - name: name
+    SingleValue: false
+    xpath: //a[contains(@class,"styled__StyledLink-sc-5q25ol-0 cMeqUS")]/@aria-label
+  - name: price
+    SingleValue: false
+    xpath: //div[contains(@class,"ZZb")]//strong[contains(@class,"ZZ")]
+  - name: reviewCount
+    singleValue: false
+    xpath: //article[contains(@class,"panelProduct")]//div[contains(@class,"ZZcd")]//span[not(@class)] 
+  - name: ratingCount
+    singleValue: false
+    xpath: //article[contains(@class,"panelProduct")]//div[contains(@class,"ZZcd")]//span[not(@class)] 

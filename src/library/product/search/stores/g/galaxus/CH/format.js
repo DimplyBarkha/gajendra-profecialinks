@@ -35,6 +35,21 @@ const transform = (data) => {
             item.text = item.text.match(/\d{7}/g);
           });
         }
+        if (row.reviewCount) {
+          row.reviewCount.forEach(item => {
+            item.text = Number(item.text);
+          });
+        }
+        if (row.ratingCount) {
+          row.ratingCount.forEach(item => {
+            item.text = Number(item.text);
+          });
+        }
+        if (row.price) {
+          row.price.forEach(item => {
+            item.text = item.text.replace('.', ',').trim();
+          });
+        }
         if (row.name) {
           row.name.forEach(item => {
             item.text = item.text.replace(/\s\n/g, '').trim();
