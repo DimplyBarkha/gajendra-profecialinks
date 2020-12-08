@@ -11,7 +11,7 @@ fields:
     xpath: //ul[@typeof="BreadcrumbList"]/li[position()>1 and position()<last()]/a/span/text()
   - name: Price
     singleValue: true
-    xpath: 
+    xpath: //div[@class="preis_gelb_links"]/p/span[@id="colorChange_0000014111__unit_price"]/span[@id="colorChange_0000014111__unit_price_sup"]/span/text()
   - name: description
     singleValue: false
     xpath: //div[@property="gr:description"]
