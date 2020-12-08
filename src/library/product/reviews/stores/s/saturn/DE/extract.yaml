@@ -46,7 +46,6 @@ fields:
     description: The url of the product details page
     xpath: ancestor::html//body/@url
   - name: verifiedPurchase
-    type: BOOLEAN
     description: Whether this of an item the reviewer purchased. "Yes" if true else ""
     xpath: //div[contains(@class,"VerifiedPurchaserIcon")]/@content
   - name: manufacturerResponse
