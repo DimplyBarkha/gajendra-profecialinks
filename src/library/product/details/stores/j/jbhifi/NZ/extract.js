@@ -8,6 +8,12 @@ async function implementation (
 ) {
   const { transform } = parameters;
   const { productDetails } = dependencies;
+  try {
+    console.log('we need to wait for price div');
+    await context.waitForXpath("(//p[@class='price']//span[contains(@class,'amount ')])[last()]", {timeout: 35000});
+  } catch (err) {
+    console.log('got some error while waiting for price div');
+  }
   await context.evaluate(async function () {
     function addHiddenDiv (id, content) {
       const newDiv = document.createElement('div');

@@ -26,7 +26,7 @@ fields:
     xpath: //p[@class='price']/span[contains(@class,'oldPriceWrapper ') and not (contains(@style,'none'))]/span[contains(@class,'amount ')]
   - name: price
     singleValue: false
-    xpath: //p[@class='price']/span[contains(@class,'amount ')]
+    xpath: (//p[@class='price']//span[contains(@class,'amount ')])[last()] | //meta[@property="price"][not((//p[@class='price']//span[contains(@class,'amount ')])[last()])]/@content
   - name: availabilityText
     singleValue: false
     xpath: //a[contains(@class,'btn cart add-from-product ')]//span | //a[contains(@class,'btn instore cart modal')]//span
