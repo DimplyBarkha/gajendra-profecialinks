@@ -16,7 +16,7 @@ module.exports = {
         dependencies,
     ) {
         await context.evaluate(async() => {
-
+            document.body.setAttribute('url', window.location.href);
             let divs = document.querySelectorAll('div[data-test="mms-customer-rating"]');
             divs.forEach((div) => {
                 let rating = 0;
