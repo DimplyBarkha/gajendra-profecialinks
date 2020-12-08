@@ -20,7 +20,7 @@ async function implementation (
     }, { timeout: 10000 }, parameters.loadedSelector, parameters.noResultsXPath);
   }
 
-  await new Promise((resolve, reject) => setTimeout(resolve, 8000));
+  await new Promise((resolve, reject) => setTimeout(resolve, 15000));
 
   console.log('Checking no results', parameters.noResultsXPath);
   return await context.evaluate(function (xp) {
