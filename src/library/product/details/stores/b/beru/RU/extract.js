@@ -8,11 +8,12 @@ module.exports = {
     domain: 'pokupki.market.yandex.ru',
     zipcode: '',
   },
-  implementation,
+  // implementation,
 };
 async function implementation(inputs, parameters, context, dependencies) {
   const { transform } = parameters;
   const { productDetails } = dependencies;
+  
   const mainUrl = await context.evaluate(() => {
     return window.location.href;
   });
@@ -280,6 +281,8 @@ async function implementation(inputs, parameters, context, dependencies) {
   );
 
   await context.evaluate(async () => {
+
+    
     let scrollTop = 0;
     while (scrollTop !== 20000) {
       await stall(500);
