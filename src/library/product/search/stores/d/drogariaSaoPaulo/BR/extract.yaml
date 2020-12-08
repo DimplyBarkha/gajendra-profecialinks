@@ -1,0 +1,48 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: //div[contains(@class,'container-prateleira')]//div[contains(@class,'resultItemsWrapper')]//div//ul//li
+fields:
+  - name: id
+    singleValue: false
+    xpath: //div[@class="product-sku"]
+  - name: productUrl
+    singleValue: false
+    xpath: //div[@class="descricao-prateleira"]/a[@class="collection-link"]/@href
+    regExp: >-
+       ^(.*)$
+    regExpReplace:
+      https:$1
+  - name: thumbnail
+    singleValue: false
+    xpath: //div[@class="img-prateleira"]/a/img/@src
+    regExp: >-
+       ^(.*)$
+    regExpReplace:
+      https:$1    
+  - name: price
+    singleValue: false
+    xpath: //div[@class="descricao-prateleira"]/p[contains(@class, "price")]/a/span
+  - name: name
+    singleValue: false
+    xpath: //div[@class="descricao-prateleira"]/a/text()
+  - name: aggregateRatingText
+    singleValue: false
+  - name: ratingCount
+    singleValue: false
+    defaultValue: ''
+  - name: reviewCount
+    singleValue: false
+    defaultValue: ''
+  - name: aggregateRating
+    singleValue: false
+  - name: aggregateRating2
+    singleValue: false
+  - name: rank
+    singleValue: false
+  - name: rankOrganic
+    singleValue: false
+  - name: sponsored
+    singleValue: false
+    type: BOOLEAN
+    xpath: //div[@data-qa='featured-product-tag']

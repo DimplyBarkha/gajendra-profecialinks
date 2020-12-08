@@ -4,77 +4,63 @@ recordSelector: null
 recordXPath: null
 fields:
   - name: image
-    singleValue: true
-    description: URL of the main product image
+    singleValue: false
+    xpath: //div[@id="image"]/a[@class="image-zoom"]/@href
   - name: imageAlt
-    singleValue: true
-    description: Alt text of the main product image
+    singleValue: false
+    xpath: //div[@id="show"]/ul[@class="thumbs"]//li[position() = 1]//src/@alt
   - name: alternateImages
     singleValue: false
-    description: Other product images (not in manufacturer description)
+    xpath: //div[@id="show"]/ul[@class="thumbs"]//li[position() > 1]/a/@rel
   - name: metaKeywords
-    singleValue: true
-    description: The <meta> keywords content
+    singleValue: false
+    xpath: //meta[@name="keywords"]
   - name: category
     singleValue: false
-    description: The categories (e.g. from breadcrumbs)
+    xpath: //div[@class="bread-crumb"]/ul//li[position() > 1]/a/span[@itemprop="name"]
   - name: nameExtended
-    singleValue: true
-    description: The product name, prefixing "${brand} - " if not included in "name"
-      and appending " - ${variantType}" if necessary (fixed per feed)
+    singleValue: false
+    xpath: //h1//div[contains(@class,"productName")]
   - name: listPrice
     singleValue: true
     description: The stated undiscounted price for the product
   - name: price
-    singleValue: true
-    description: The offered price for the selected product variant - if a user
-      clicks add to basket this is the price they would be charged
+    singleValue: false
+    xpath: //script[contains(text(),"fullSellingPrice")]
+    regExp: ("fullSellingPrice":")(.*?)(?:")
+    regExpReplace: $2
+      #//div[@class ="productPrice"]//p[@class="descricao-preco"]/em[contains(@class, "price-best-price")]/text()
   - name: availabilityText
-    singleValue: true
-    description: Availability as described on page for the selected variant. If
-      there is no availability but the product can be added to cart, this field
-      should be "In Stock"
-    regExp: (.+)
-    regExpReplace: In Stock
-    defaultValue: Out of Stock
+    singleValue: false
+    xpath: //script[contains(text(),"available")]
+    regExp: ("available":)(.*?)(,)
+    regExpReplace: $2
+    # regExp: (.+)
+    #regExpReplace: In Stock
+    # defaultValue: Out of Stock 
+    # Out of Stock
   - name: description
     singleValue: false
-    description: Product description supplied by website - may be concatenanted from
-      multiple places; specifically not the manufacturer description
+    xpath: //div[@class="productDescription"]
   - name: descriptionBullets
     singleValue: true
-    description: Number of ul > li tags in the description
-    type: NUMBER
+    xpath: count(//div[@class="productDescription"]//li)
   - name: brandText
-    singleValue: true
-    description: Product brand shown - this may actually NOT be just a brand name,
-      e.g. "Visit the Gillette Store"
+    singleValue: false
+    xpath: //script[contains(text(),"productBrandName")]
+    regExp: ("productBrandName":")(.*?)(?:")
+    regExpReplace: $2
   - name: manufacturer
-    singleValue: true
+    singleValue: false
     description: Product manufacturer
   - name: quantity
     singleValue: true
-    description: Quantity as described on the page
-    regExp: (?:\s?([\d\.]+\s?)([bB]ar[s]?|[cC]ount|[cC]t|[fF][lL][\.]?\s?[oO][zZ][\.]?|FO|[mM][lL]|[oO][zZ][\.]?|pc|[pP]int|[pP]ops|qt|[wW]ipe[s]?).?)$|(?:\s?([\d\.]+\s?)([bB]ar[s]?|[cC]ount|[cC]|[fF][lL][\.]?\s?[oO][zZ][\.]?|FO|[mM][lL]|[oO][zZ][\.]?|pc|[pP]int|[pP]ops|qt|[wW]ipe[s]?).?\s?[\&\-\w\s]+)$
-    regExpReplace: $1$2$3$4
-  - name: weightNet
-    singleValue: true
-    description: Net weight as described on the page
-  - name: weightGross
-    singleValue: true
-    description: Gross weight as described on the page
-  - name: gtin
-    singleValue: true
-    description: GTIN code (includes UPC/EAN)
   - name: sku
-    singleValue: true
-    description: The store-specific product identifier
+    singleValue: false
+    xpath: //div[@class="skuReference"]
   - name: variantId
-    singleValue: true
-    description: Identifier for a variant from a store where variants share the same sku
-  - name: mpc
-    singleValue: true
-    description: The manufacturer model code (unique) of the product
+    singleValue: false
+    xpath: //div[@class="skuReference"]
   - name: packSize
     singleValue: true
     description: The number of packs in the product offer (if stated separately on
