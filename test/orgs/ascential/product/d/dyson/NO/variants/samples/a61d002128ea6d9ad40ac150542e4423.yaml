@@ -1,0 +1,16 @@
+input:
+  _url: http://dyson.no
+  URL: https://www.dyson.no/belysning/arbeidslampe/dyson-lightcycle/gulv-svart-svart
+extractions:
+  - html: https://workbench.import.io/html/run=3bdde76d-43a5-48cf-88de-9bc83ccde768/task=695d29f9-429f-49b3-bd90-5ce9b7600646/251e965a-3bfb-4070-993b-8268cd55f754.html
+    extractionConfigId: product/details/stores/d/dyson/NO/variantsExtract
+    data:
+      - group:
+          - variantId:
+              - text: 249375-01
+                xpath: /html/body/ol[1]/li[1]/@variant_id
+            variantUrl:
+              - text: https://www.dyson.no/belysning/arbeidslampe/dyson-lightcycle/gulv-svart-svart
+                xpath: /html/body/ol[1]/li[1]/@variant_url
+        xpath: /html
+    timestamp: 1607355687930

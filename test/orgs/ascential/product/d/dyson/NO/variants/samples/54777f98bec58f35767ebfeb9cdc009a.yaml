@@ -1,0 +1,16 @@
+input:
+  _url: http://dyson.no
+  URL: https://www.dyson.no/luftbehandling/vifter-og-vifteovner/dyson-hot-cool/am09-white
+extractions:
+  - html: https://workbench.import.io/html/run=3bdde76d-43a5-48cf-88de-9bc83ccde768/task=1c1368d7-48ec-492c-809d-5abc12daa5a6/ad316946-d1e6-4c40-91b3-ab0baf20b289.html
+    extractionConfigId: product/details/stores/d/dyson/NO/variantsExtract
+    data:
+      - group:
+          - variantId:
+              - text: 304550-01
+                xpath: /html/body/ol[1]/li[1]/@variant_id
+            variantUrl:
+              - text: https://www.dyson.no/luftbehandling/vifter-og-vifteovner/dyson-hot-cool/am09-white
+                xpath: /html/body/ol[1]/li[1]/@variant_url
+        xpath: /html
+    timestamp: 1607355686576

@@ -1,0 +1,22 @@
+input:
+  _url: http://dyson.no
+  URL: https://www.dyson.no/belysning/arbeidslampe/dyson-lightcycle/skrivebordslampe-hvit-solv
+extractions:
+  - html: https://workbench.import.io/html/run=3bdde76d-43a5-48cf-88de-9bc83ccde768/task=8128a1f7-e56d-4719-9427-6f6677861173/6d8a0a8c-5dfe-4f14-b1f4-c9a258d5730b.html
+    extractionConfigId: product/details/stores/d/dyson/NO/variantsExtract
+    data:
+      - group:
+          - variantId:
+              - text: belysning/arbeidslampe/dyson-lightcycle/skrivebordslampe-hvit-solv
+                xpath: /html/body/ol[1]/li[1]/@variant_id
+            variantUrl:
+              - text: https://www.dyson.no/belysning/arbeidslampe/dyson-lightcycle/skrivebordslampe-hvit-solv
+                xpath: /html/body/ol[1]/li[1]/@variant_url
+          - variantId:
+              - text: belysning/arbeidslampe/dyson-lightcycle/skrivebordslampe-svart-svart
+                xpath: /html/body/ol[1]/li[2]/@variant_id
+            variantUrl:
+              - text: https://www.dyson.no/belysning/arbeidslampe/dyson-lightcycle/skrivebordslampe-svart-svart
+                xpath: /html/body/ol[1]/li[2]/@variant_url
+        xpath: /html
+    timestamp: 1607355685649
