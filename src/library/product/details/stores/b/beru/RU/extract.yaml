@@ -9,6 +9,8 @@ fields:
     xpath: //div[@class="b_2ke8Y2fll7"]/img/@src
     regExp: (\/.*)
     regExpReplace: https:$1
+  - name: url
+    xpath: //link[@rel="canonical"]/@href
   - name: imageAlt
     singleValue: false
     xpath: //div[@class="b_2ke8Y2fll7"]/img/@alt
@@ -20,7 +22,6 @@ fields:
   - name: metaKeywords
     singleValue: false
     description: The <meta> keywords content
-    xpath: //div[@id='totalSugarsPerServing_added']
   - name: category
     singleValue: false
     xpath: //div[@class="b_rII4O5yzLw"]/div
@@ -46,7 +47,7 @@ fields:
       clicks add to basket this is the price they would be charged
   - name: availabilityText
     singleValue: false
-    xpath: //div[@data-zone-name="cartButton"]
+    xpath: //div[@data-zone-name="cartButton"] | (//div[@data-zone-name="skuAvailability"]//span|//div[contains(@class, "tabulator-row")]//div[@tabulator-field="availabilityText"]//div[1]|//meta[@itemprop="availability"]/@content)[1]
     description: Availability as described on page for the selected variant. If
       there is no availability but the product can be added to cart, this field
       should be "In Stock"
@@ -66,10 +67,11 @@ fields:
     singleValue: false
     description: Product brand shown - this may actually NOT be just a brand name,
       e.g. "Visit the Gillette Store"
+    xpath: (//div[contains(@itemtype,"BreadcrumbList")]//div[last()]//a/@title)[last()]
   - name: manufacturer
     singleValue: false
     description: Product manufacturer
-    xpath: //div[@data-zone-name="productVendor"]//div[@class="b_33aCALD9vd"]/text()
+    xpath: //div[@data-zone-name="productVendor"]//div[2]|//div[@data-apiary-widget-name="@marketplace/SkuVendorInfo"]//a[2]
   - name: quantity
     singleValue: false
     description: Quantity as described on the page
@@ -88,16 +90,14 @@ fields:
     xpath: //div[@id='xpaths']
   - name: sku
     singleValue: false
-    regExp: (\/)(\d+)
-    regExpReplace: $2
-    xpath: //link[@rel="canonical"]/@href
-    description: The store-specific product identifier
+    xpath: (//div/@data-zone-data[contains(.,"skuId")])[1]
+    regExp: skuId":"([^"]+)
+    regExpReplace: $1
   - name: variantId
     singleValue: false
-    description: Identifier for a variant from a store where variants share the same sku
-    regExp: (\/)(\d+)
-    regExpReplace: $2
-    xpath: //link[@rel="canonical"]/@href
+    xpath: (//div/@data-zone-data[contains(.,"skuId")])[1]
+    regExp: skuId":"([^"]+)
+    regExpReplace: $1
   - name: mpc
     singleValue: false
     description: The manufacturer model code (unique) of the product
@@ -116,19 +116,16 @@ fields:
     singleValue: false
     description: Content under "warnings" header
   - name: ratingCount
-    singleValue: false
-    regExp: ^([\s]*[\S]..)(.+)
-    regExpReplace: $1
-    xpath:  //a[@data-auto="all-reviews-link"]//div[@class="b_f2PBZg5jPe"]/span
-    description: The number of ratings
+    xpath: //div[@data-zone-name="summary"]//span[contains(.,'отзывов')] | //meta[@itemprop="reviewCount"]/@content
+    regExp: (\d+)
   - name: aggregateRating
     singleValue: false
-    xpath: (//div[@class="b_sEc13pK37d"]/@style)[1]
+    xpath: (//div[@class="b_sEc13pK37d"]/@style)[1] | //meta[@itemprop="ratingValue"]/@content
     regExp: (\d+)
     regExpReplace: $1
   - name: reviewCount
     singleValue: false
-    xpath: (//div[@class='b_f2PBZg5jPe']/span)[1]
+    xpath: (//div[@class='b_f2PBZg5jPe']/span)[1] | //meta[@itemprop="reviewCount"]/@content
     regExp: (\d+)
     regExpReplace: $1
   - name: shippingInfo
@@ -143,8 +140,7 @@ fields:
     singleValue: false
     description: Stated shipping weight
   - name: variantCount
-    singleValue: false
-    description: Number of variants listed
+    xpath: count(//div[@data-zone-name="filter"]//input/@value)
   - name: color
     singleValue: false
     description: A textual description of the colour
@@ -429,18 +425,20 @@ fields:
   - name: productOtherInformation
     singleValue: false
     description: Any other product information
+  - name: allergyAdvice
+    singleValue: false
+    xpath: //div[@class="nutrition-allergens"]//span[@class="nutrition-allergens__contain"]
   - name: packaging
     singleValue: false
-    description: Packaging information
-  - name: additives
-    singleValue: false
-    description: List of additives in the product
+    xpath: //span[contains(.,'Упаковка')]/../..//span[@data-tid]
   - name: pricePerUnit
     singleValue: false
-    description: Price of the product split into certain units
+    xpath: //div[@class="buybox__price-per-unit"]/span
+    regExp: '^[^/]+'
   - name: pricePerUnitUom
     singleValue: false
-    description: The unit of measurement used in price_per_unit
+    xpath: //div[@class="buybox__price-per-unit"]/span[last()]
+    regExp: '[^/]+$'
   - name: promotion
     singleValue: false
     xpath: //div[@data-zone-name="discountBadge"]/div
@@ -449,7 +447,7 @@ fields:
     description: promotion text on product page
   - name: alcoholContent
     singleValue: false
-    description: Alcohol content information
+    xpath: //span[contains(text(),"Porcentaje de alcohol:")]/following-sibling::span
   - name: newVersion
     singleValue: false
     description: In product page, information about a new version of the product
@@ -464,6 +462,7 @@ fields:
       new desription info
   - name: variantInformation
     singleValue: false
+    xpath: //*[@class="b_18ouxBEWKA"]
     description: colour / scent / flavour / other
     xpath: //span[@class="b_orEV9DcwNt"]
   - name: firstVariant
@@ -477,14 +476,9 @@ fields:
       all variants of a product, this rpc becomes the common link between other
       variants. method 3 = apply some logic to determine link between variants,
       this will need analysis
-  - name: variants
-    singleValue: false
-    xpath: //span[@class='b_18ouxBEWKA']/@data-auto
-    regExp: radio-group-value-(.*)radio-group
-    regExpReplace: $1
   - name: additionalDescBulletInfo
     singleValue: false
-    description: null
+    xpath: //div[@id='bulletListTemp']
   - name: prop65Warning
     singleValue: false
     description: null
@@ -526,7 +520,4 @@ fields:
     defaultValue: No
   - name: imageZoomFeaturePresent
     singleValue: false
-    description: If Zoom feature is available for Main image or images in the
-      carousel,['Yes','No']
-    example: https://www.zalando.de/adidas-neo-sneaker-low-blackwhite-a4315i002-q11.html
-    defaultValue: No
+    defaultValue: Yes
