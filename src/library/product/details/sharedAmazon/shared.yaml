@@ -175,7 +175,7 @@ fields:
     html: true
   - name: manufacturerImages
     singleValue: false
-    xpath: (//div[@id="aplus"] | //div[@class="aplus"])//img/@data-src
+    xpath: //div[@id="aplus"]//img/@data-src | //div[@class="aplus"]//img/@data-src | //div[contains(@class,"aplus-module-wrapper")]//img/@src
   - name: videos
     singleValue: false
     # xpath: //script[contains(text(), "ImageBlockBTF")]/text()

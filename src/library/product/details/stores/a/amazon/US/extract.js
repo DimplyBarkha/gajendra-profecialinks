@@ -25,8 +25,9 @@ async function implementation(
                     behavior: 'smooth',
                 });
             });
-            await context.waitForNavigation({ waitUntil: 'networkidle0' });
-            await context.waitForSelector('[data-feature-name="productDetails"],[data-feature-name="detailBullets"]');
+            await new Promise(resolve => setTimeout(resolve, 10000));
+            // await context.waitForNavigation({ waitUntil: 'networkidle0' });
+            // await context.waitForSelector('#aplus_feature_div');
             return true;
         } catch (err) {
             return false;
