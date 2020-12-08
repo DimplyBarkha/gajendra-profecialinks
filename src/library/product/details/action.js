@@ -1,15 +1,15 @@
 /**
  *
- * @param { { URL: string, id: any, RPC: string, SKU: string, zipcode: string } } inputs
+ * @param { { URL: string, id: any, RPC: string, SKU: string, zipcode: string, UPC: string } } inputs
  * @param { { store: any, country: any, zipcode: any } } parameters
  * @param { ImportIO.IContext } context
  * @param { { execute: ImportIO.Action, extract: ImportIO.Action } } dependencies
  */
 async function implementation (inputs, parameters, context, dependencies) {
-  const { URL, RPC, SKU } = inputs;
+  const { URL, RPC, SKU, UPC } = inputs;
   const { execute, extract } = dependencies;
   const url = URL;
-  const id = RPC || SKU || inputs.id;
+  const id = RPC || SKU || UPC || inputs.id;
   const zipcode = inputs.zipcode || parameters.zipcode;
   const resultsReturned = await execute({ url, id, zipcode });
   if (!resultsReturned) {
@@ -56,6 +56,12 @@ module.exports = {
     {
       name: 'RPC',
       description: 'rpc for product',
+      type: 'string',
+      optional: true,
+    },
+    {
+      name: 'UPC',
+      description: 'UPC for product',
       type: 'string',
       optional: true,
     },
