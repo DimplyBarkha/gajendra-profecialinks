@@ -10,6 +10,7 @@ fields:
     regExp: (\/.*)
     regExpReplace: https:$1
   - name: url
+    singleValue: false
     xpath: //link[@rel="canonical"]/@href
   - name: imageAlt
     singleValue: false
