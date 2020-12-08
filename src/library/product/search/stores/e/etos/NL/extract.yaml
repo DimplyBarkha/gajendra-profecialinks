@@ -6,6 +6,9 @@ fields:
   - name: name
     singleValue: false
     xpath : //a[contains(@class, "product-tile__title")]/@name
+  - name: brand
+    singleValue: false
+    xpath : //script[@type="application/ld+json"][3]/text()
   - name: id
     singleValue: false
     xpath : //div[contains(@class, "c-quantity-selector")]/@data-pid

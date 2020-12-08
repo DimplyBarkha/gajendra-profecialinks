@@ -32,9 +32,11 @@ const transform = (data) => {
         }
 
         if(row.brand){
+          console.log('brand calling here');
           row.brand.forEach(item => {
-              var jsonRs = JSON.parse(item.text);
-              item.text = jsonRs['brand'];
+              var obj = JSON.parse(item.text);
+              console.log('obj', obj);
+              item.text = obj.brand;
           })
         }
 
