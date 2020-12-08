@@ -1,11 +1,10 @@
 
 module.exports = {
-  implements: 'navigation/goto',
+  implements: 'product/details',
   parameterValues: {
-    domain: 'lenstore.it',
-    timeout: 60000,
     country: 'IT',
     store: 'lenstore',
+    domain: 'lenstore.it',
     zipcode: '',
   },
 };

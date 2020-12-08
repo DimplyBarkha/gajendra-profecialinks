@@ -1,9 +1,10 @@
 
 module.exports = {
-  implements: 'navigation/goto',
+  implements: 'product/details/createUrl',
   parameterValues: {
     domain: 'lenstore.it',
-    timeout: 60000,
+    prefix: null,
+    url: null,
     country: 'IT',
     store: 'lenstore',
     zipcode: '',
