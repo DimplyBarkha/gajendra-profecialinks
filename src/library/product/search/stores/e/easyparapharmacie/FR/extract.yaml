@@ -2,8 +2,8 @@ singleRecord: false
 regionsSelector: null
 recordSelector: null
 recordXPath: //div[contains(@class, 'product-container')]
-fields: null
-- name: id
+fields:
+-   name: id
     singleValue: false
     xpath: //div[@class='product-information']/a/@data-objectid
   - name: searchUrl
@@ -15,8 +15,6 @@ fields: null
   - name: productUrl
     singleValue: false
     xpath: //div[@class='product-information']/a/@href
-    #regExp: (.+)
-    #regExpReplace: https://www.walgreens.com$1
   - name: gtin
     singleValue: false
   - name: thumbnail
