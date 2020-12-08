@@ -38,7 +38,7 @@ fields:
     description: Availability as described on page for the selected variant. If
       there is no availability but the product can be added to cart, this field
       should be "In Stock"
-    xpath: //html//div[@id="zz"]
+    # xpath: //html//div[@id="zz"]
   - name: description
     singleValue: true
     description: Product description supplied by website - may be concatenanted from
@@ -70,7 +70,7 @@ fields:
   - name: gtin
     singleValue: true
     description: GTIN code (includes UPC/EAN)
-    xpath: //html//div[@id="gt"]
+    xpath: //html//div[@id="gtin"]
   - name: sku
     singleValue: true
     description: The store-specific product identifier

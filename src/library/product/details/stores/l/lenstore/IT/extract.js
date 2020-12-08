@@ -37,41 +37,59 @@ module.exports = {
       };
 
       //availability
-      var script = getXpath('(//div[@class="o-outer c-main-wrapper"]/script[@type="application/ld+json"])[2]/text()', 'nodeValue');
+      var script = getXpath('//form[@class="js-add-to-basket-form"]/following::script[2]/text()', 'nodeValue');
+      
       if(script != null){
-        var zz =  script.split('availability": "')[1];
-        zz = zz.split(",")[0];
-        var arr = zz.split("/");
-        zz = arr[arr.length-1];
-        if(zz.includes("In")){
-          zz = "In Stock"
-        }else{
-          zz = "Out of Stock"
-        }
-        if(zz != null){
-          addElementToDocument('zz', zz);
+        var data = JSON.parse(script);
+        var gtin = data.gtin13;
+        if(gtin != null){
+          addElementToDocument('gtin', gtin);
         }
       }
 
-      //gtin
       if(script != null){
-        var gt = script.split('gtin13": "')[1];
-        gt = gt.split(",")[0];
-        gt = gt.slice(0,-1);
-        if(gt != null){
-          addElementToDocument('gt', gt);
-        }
-      }
-
-      //rpc
-      if(script != null){
-        var rpc = script.split('productID": "')[1];
-        rpc = rpc.split(",")[0];
-        rpc = rpc.slice(0,-1);
+        var data1 = JSON.parse(script);
+        var rpc = data.productID;
         if(rpc != null){
           addElementToDocument('rpc', rpc);
         }
       }
+      
+      
+      // if(script != null){
+      //   var zz =  script.split('availability": "')[1];
+      //   zz = zz.split(",")[0];
+      //   var arr = zz.split("/");
+      //   zz = arr[arr.length-1];
+      //   if(zz.includes("In")){
+      //     zz = "In Stock"
+      //   }else{
+      //     zz = "Out of Stock"
+      //   }
+      //   if(zz != null){
+      //     addElementToDocument('zz', zz);
+      //   }
+      // }
+
+      //gtin
+      // if(script != null){
+      //   var gt = script.split('gtin13": "')[1];
+      //   gt = gt.split(",")[0];
+      //   gt = gt.slice(0,-1);
+      //   if(gt != null){
+      //     addElementToDocument('gt', gt);
+      //   }
+      // }
+
+      // //rpc
+      // if(script != null){
+      //   var rpc = script.split('productID": "')[1];
+      //   rpc = rpc.split(",")[0];
+      //   rpc = rpc.slice(0,-1);
+      //   if(rpc != null){
+      //     addElementToDocument('rpc', rpc);
+      //   }
+      // }
 
       //description
       // var ab = document.querySelectorAll('#relatedShift');
