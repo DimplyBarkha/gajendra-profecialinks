@@ -1,0 +1,91 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: name
+    singleValue: false
+    xpath: //h1[contains(@class,'ProductTitle__ba-product-title')]
+  - name: nameExtended
+    singleValue: false
+    xpath: //h1[contains(@class,'ProductTitle__ba-product-title')]
+  - name: image
+    singleValue: false
+    xpath: //div[contains(@id,'content')]//div[contains(@aria-hidden,'false')]//img/@src
+  - name: imageAlt
+    singleValue: false
+    xpath: //div[contains(@id,'content')]//div[contains(@aria-hidden,'false')]//img/@alt
+  - name: alternateImages
+    singleValue: false
+    xpath: //div[contains(@class,'ImagePlayer__ip-thumbnails')]//li//button[not(contains(@class,'active'))]//img/@src
+  - name: price
+    singleValue: false
+    xpath: //div[contains(@class,'PricingInfo__ba-pricing')]//span[contains(@class,'font-weight-bold')]
+  - name: listPrice
+    singleValue: false
+    xpath: //div[contains(@class,'PricingInfo__ba-pricing')]//span[contains(@class,'UI_Currency_scratch')]
+  - name: promotion
+    singleValue: false
+    xpath: //ul[contains(@class,'CampaignVisuals__la')]//span[contains(@class,'color-invert')]
+  - name: sku
+    singleValue: false
+    xpath: //div[@class='main']/script
+    regExp: \"sku\"\s*:\s*\"(.+?)\"
+    regExpReplace: $1
+  - name: description
+    singleValue: false
+    xpath: //div[@class='ProductDescription__pipd-container___16y7e']
+  - name: additionalDescBulletInfo
+    singleValue: false
+    xpath: //div[@class='ProductDescription__pipd-container___16y7e']//li
+  - name: color
+    singleValue: false
+    xpath: //div[contains(@class,'Specifications')]//tr[th[contains(text(),'Kleur')]]/td[not(contains(@class,'Row__icon'))]
+  - name: materials
+    singleValue: false
+    xpath: //div[contains(@class,'Specifications')]//tr[th[contains(text(),'materiaal')]]/td[not(contains(@class,'Row__icon'))]
+  - name: brandText
+    singleValue: false
+    xpath: //div[contains(@class,'Specifications')]//tr[th[contains(text(),'Merk')][not(contains(text(),'Merklijn'))]]/td[not(contains(@class,'Row__icon'))]
+  - name: brandLink
+    singleValue: false
+    xpath: //div[contains(@class,'Specifications')]//tr[th[(contains(text(),'Merklijn'))]]/td[not(contains(@class,'Row__icon'))]/a/@href
+  - name: specifications
+    singleValue: false
+    xpath: //div[@class='Specifications__pis-container___2JV8e']//tr
+  - name: ratingCount
+    singleValue: false
+    xpath: //div[@class='main']/script
+  - name: aggregateRating
+    singleValue: false
+  - name: category
+    singleValue: false
+    xpath: //div[contains(@class,'Breadcrumb__bc-container')]//li[@class='inline']/a[not(contains(text(),'Home'))]
+  - name: gtin
+    singleValue: false
+    xpath: //div[@class='main']/script
+    regExp: \"gtin13\"\s*:\s*\"(.+?)\"
+    regExpReplace: $1
+  - name: availabilityText
+    singleValue: false
+    xpath: //div[contains(@id,'buyingArea_addtocart')]//span
+    regExp: (.+)
+    regExpReplace: In Stock
+    defaultValue: Out of Stock
+  - name: variantId
+    singleValue: false
+    xpath: //div[@class='main']/script
+    regExp: \"sku\"\s*:\s*\"(.+?)\"
+    regExpReplace: $1
+  - name: imageZoomFeaturePresent
+    singleValue: false
+    defaultValue: Yes
+  - name: customerServiceAvailability
+    singleValue: false
+    defaultValue: No
+  - name: termsAndConditions
+    singleValue: false
+    defaultValue: No
+  - name: privacyPolicy
+    singleValue: false
+    defaultValue: No
