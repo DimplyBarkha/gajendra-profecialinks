@@ -1,5 +1,4 @@
 
-
 module.exports = {
   implements: 'product/details/createUrl',
   parameterValues: {

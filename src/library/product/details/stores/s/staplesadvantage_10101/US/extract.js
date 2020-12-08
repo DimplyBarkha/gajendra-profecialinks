@@ -1,6 +1,6 @@
 const { cleanUp } = require('../../../../shared');
 
-async function implementation(inputs, parameters, context, dependencies) {
+async function implementation (inputs, parameters, context, dependencies) {
   // extracting data in default url
   const { productDetails } = dependencies;
   const { transform } = parameters;

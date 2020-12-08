@@ -1,5 +1,5 @@
 
-async function implementation(inputs, parameters, context, dependencies) {
+async function implementation (inputs, parameters, context, dependencies) {
   const url = 'https://www.staplesadvantage.com/product_{id}'.replace(
     '{id}',
     encodeURIComponent(inputs.id),
