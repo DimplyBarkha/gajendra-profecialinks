@@ -421,6 +421,7 @@ async function goto (gotoInput, parameterValues, context, dependencies) {
       console.log('Going back to desired page');
       lastResponseData = await context.goto(gotoInput.url, {
         checkBlocked: true,
+        waitUntill: 'networkidle0',
       });
       lastResponseCode = lastResponseData.status;
       console.log('lastResponseData: ', lastResponseCode);
@@ -467,6 +468,7 @@ async function goto (gotoInput, parameterValues, context, dependencies) {
 
     lastResponseData = await context.goto(gotoInput.url, {
       checkBlocked: false,
+      waitUntill: 'networkidle0',
     });
     console.log('lastResponseData: ', lastResponseData);
 
