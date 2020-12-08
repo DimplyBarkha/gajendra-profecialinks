@@ -45,11 +45,15 @@ const transform = (data, context) => {
         row.imageZoomFeaturePresent = [{ text: newText }];
       }
       if (row.description) {
-        let newText = '';
+        let text = '';
         row.description.forEach(item => {
-          newText = item.text.replace(/\n/, '');
+            text += item.text.replace(/\n/g, '||');
         });
-        row.description = [{ text: newText }];
+        row.description = [
+          {
+            text: text,
+          },
+        ];
       }
       if (row.shippingInfo) {
         let text = '';

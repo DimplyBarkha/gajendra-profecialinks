@@ -36,6 +36,11 @@ const transform = (data, context) => {
           item.text = item.text.substr(0, item.text.indexOf(')'));
         });
       }
+      if (row.price) {
+        row.price.forEach(item => {
+          item.text = item.text.substr(item.text.indexOf('-') + 2);
+        });
+      }
       if (row.thumbnail) {
         row.thumbnail.forEach(item => {
           item.text = item.text.replace(/(\?.*$)/, '').trim();
