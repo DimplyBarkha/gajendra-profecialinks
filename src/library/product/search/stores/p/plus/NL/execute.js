@@ -1,4 +1,4 @@
-async function implementation(
+async function implementation (
   inputs,
   parameters,
   context,
@@ -69,7 +69,7 @@ async function implementation(
           break;
         }
       }
-      function stall(ms) {
+      function stall (ms) {
         return new Promise((resolve, reject) => {
           setTimeout(() => {
             resolve();
@@ -97,7 +97,7 @@ async function implementation(
         }
       });
     }
-  })
+  });
 
   console.log('Checking no results', parameters.noResultsXPath);
   return await context.evaluate(function (xp) {
