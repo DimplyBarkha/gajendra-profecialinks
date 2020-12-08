@@ -1,0 +1,58 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: //div[@class="card-item js-product-data"]
+fields:
+  - name: id
+    singleValue: false
+    xpath: //div[@class="card-item js-product-data"]/@data-offer-id
+  - name: searchUrl
+    singleValue: true
+  - name: name
+    singleValue: false
+    xpath: //div[@class="card-item js-product-data"]/@data-name
+  - name: productUrl
+    singleValue: false
+    xpath: //div[@class="card-item js-product-data"]//div[@class="card-heading"]/a/@href
+  - name: gtin
+    singleValue: false
+  - name: thumbnail
+    singleValue: false
+    xpath: //div[@class="thumbnail"]/img/@data-src
+  - name: aggregateRating
+    singleValue: false
+  - name: aggregateRating2
+    singleValue: false
+    xpath: //div[@class="card-item js-product-data"]//div[contains(@class, "star-rating star-rating-read")]/@rating
+  - name: reviewCount
+    singleValue: false
+    xpath: //div[@class="card-item js-product-data"]//span[@class="visible-xs-inline-block "]
+    regExp: \d+
+  - name: ratingCount
+    singleValue: false
+    xpath: //div[@class="card-item js-product-data"]//span[@class="visible-xs-inline-block "]
+    regExp: \d+
+  - name: price
+    singleValue: false
+    xpath: //div[@class="card-item js-product-data"]//p[@class="product-new-price"]/@price
+  - name: manufacturer
+    singleValue: true
+  - name: soldBy
+    singleValue: true
+  - name: endorsementText
+    singleValue: false
+  - name: rank
+    singleValue: false
+    description: search/listing rank
+    type: NUMBER
+  - name: rankOrganic
+    singleValue: true
+    description: The position (rank) within the list excluding sponsored/paid results
+    type: NUMBER
+  - name: sponsored
+    singleValue: false
+    description: Is sponsored/paid
+    type: BOOLEAN
+  # - name: totalRecordCount
+  #   singleValue: true 
+  #   type: NUMBER
