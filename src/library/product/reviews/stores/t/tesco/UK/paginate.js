@@ -55,7 +55,6 @@ async function implementation (
     if (!hasNextLink) return false;
   }
 
-  await context.waitForNavigation({ timeout: 40000 });
   await new Promise((resolve, reject) => setTimeout(resolve, 1000));
 
   const lastReviewDate = await context.evaluate(function () {
