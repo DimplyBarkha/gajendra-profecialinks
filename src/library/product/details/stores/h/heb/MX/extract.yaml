@@ -1,0 +1,23 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: nameExtended
+    singleValue: true
+    xpath: //h1[@class='page-title']
+  - name: image
+    singleValue: true
+    xpath: //div[@class="fotorama__stage__frame fotorama__active fotorama_vertical_ratio fotorama__loaded fotorama__loaded--img"]/img/@src
+  - name: sku
+    singleValue: true
+    xpath: //div[@class='product-sku'][1]
+    regExp: (\d+)
+  - name: price
+    singleValue: true
+    xpath: //span[@class='price']
+  - name: manufacturer
+    singleValue: true
+    xpath: //div[@class='product-sku'][2]
+    regExp: ( .+)
+    
