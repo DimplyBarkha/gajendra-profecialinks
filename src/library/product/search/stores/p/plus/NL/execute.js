@@ -53,7 +53,7 @@ async function implementation (
           console.log('Clicking on load more btn');
           // @ts-ignore
           document.querySelector('button[id="showMoreProducts"]').click();
-          await stall(10000);
+          await stall(5000);
         } else {
           console.log('load more btn is not present - ' + doesLoadMoreExists);
           break;
@@ -65,7 +65,7 @@ async function implementation (
         await stall(2000);
         window.scroll(0, scrollTop);
         if (scrollTop >= 80000 || productsCount > 160) {
-          await stall(10000);
+          await stall(2000);
           break;
         }
       }
