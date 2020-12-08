@@ -520,3 +520,8 @@ fields:
       carousel,['Yes','No']
     example: https://www.zalando.de/adidas-neo-sneaker-low-blackwhite-a4315i002-q11.html
     defaultValue: No
+
+  - name: inTheBoxText
+    xpath: //*[contains(.,"מה בערכה")]/following-sibling::ul/li
+  - name: hasComparisonTable
+    xpath: //div[@class="finePrint"]//*[contains(.,"השוואות ")]//a

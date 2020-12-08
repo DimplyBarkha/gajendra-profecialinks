@@ -1,10 +1,10 @@
-const { cleanUp } = require('../../../../shared');
+const { transform } = require('./transform');
 module.exports = {
   implements: 'product/details/extract',
   parameterValues: {
     country: 'IL',
     store: 'azrieli',
-    transform: cleanUp,
+    transform,
     domain: 'azrieli.com',
     zipcode: '',
   },
