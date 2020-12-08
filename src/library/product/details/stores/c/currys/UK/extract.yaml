@@ -133,7 +133,7 @@ fields:
 - name: manufacturerImages
   singleValue: false
 - name: videos
-  xpath: //div[@id="product-videos"]
+  xpath: //video/source/@src|//div[@id="product-videos"]
   singleValue: false
   description: URLs of videos on page
 - name: name
