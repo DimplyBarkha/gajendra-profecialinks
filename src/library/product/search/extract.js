@@ -16,7 +16,8 @@ async function implementation (
   const { productDetails } = dependencies;
 
   const mergeOptions = mergeType ? { transform, type: mergeType } : { transform };
-  return await context.extract(productDetails, mergeOptions);
+  const data = await context.extract(productDetails, mergeOptions);
+  return { mergeType, data };
 }
 
 module.exports = {

@@ -17,11 +17,6 @@ module.exports = {
       description: 'to set location',
       optional: true,
     },
-    {
-      name: 'mergeType',
-      description: 'For merge rows results calculation.',
-      optional: true,
-    },
   ],
   inputs: [
     {
@@ -51,10 +46,9 @@ module.exports = {
     extract: 'action:product/search/extract',
   },
   path: './search/stores/${store[0:1]}/${store}/${country}/search',
-  implementation: async ({ keywords, Keywords, Brands, results = 150 }, { country, store, domain, zipcode, mergeType }, context, { execute, extract, paginate }) => {
+  implementation: async ({ keywords, Keywords, Brands, results = 150 }, { country, store, domain, zipcode }, context, { execute, extract, paginate }) => {
     // TODO: consider moving this to a reusable function
     const length = (results) => results.reduce((acc, { group }) => acc + (Array.isArray(group) ? group.length : 0), 0);
-
     keywords = (Keywords) || (Brands) || (keywords);
     console.log('zip:' + zipcode);
     // do the search
@@ -68,7 +62,7 @@ module.exports = {
     // try gettings some search results
     const pageOne = await extract({});
 
-    let collected = length(pageOne);
+    let collected = length(pageOne.data);
 
     console.log('Got initial number of results', collected);
 
@@ -79,8 +73,10 @@ module.exports = {
 
     let page = 2;
     while (collected < results && await paginate({ keywords, page, offset: collected })) {
-      const data = await extract({});
+      const { mergeType, data } = await extract({});
+      console.table(data);
       const count = length(data);
+      console.table({ page, count, mergeType });
       if (count === 0) {
         // no results
         break;

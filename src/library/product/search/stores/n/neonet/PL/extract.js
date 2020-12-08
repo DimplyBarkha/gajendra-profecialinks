@@ -15,8 +15,8 @@ async function implementation (
   });
 
   await new Promise((resolve, reject) => setTimeout(resolve, 3000));
-
-  return await context.extract(productDetails, mergeOptions);
+  const data = await context.extract(productDetails, mergeOptions);
+  return { mergeType, data };
 }
 
 module.exports = {
