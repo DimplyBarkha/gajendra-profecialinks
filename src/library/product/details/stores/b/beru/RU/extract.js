@@ -397,7 +397,7 @@ async function implementation(inputs, parameters, context, dependencies) {
     addHiddenDiv('storageText', storageText);
     var xpath =
       "//span[contains(text() , 'Вес')]/../following-sibling::div/span";
-    var weight = document.evaluate(
+     var weight = document.evaluate(
       xpath,
       document,
       null,
