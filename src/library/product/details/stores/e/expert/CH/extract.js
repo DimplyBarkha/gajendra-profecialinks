@@ -1,5 +1,5 @@
 const { cleanUp } = require('../../../../shared');
-async function implementation (
+async function implementation(
   inputs,
   parameters,
   context,
@@ -10,7 +10,7 @@ async function implementation (
   // Loading issue of warranty and youtube videos
   await context.waitForSelector('#portalVariables');
   await context.evaluate(async () => {
-    async function infiniteScroll () {
+    async function infiniteScroll() {
       let prevScroll = document.documentElement.scrollTop;
       while (true) {
         window.scrollBy(0, document.documentElement.clientHeight);
@@ -37,7 +37,7 @@ async function implementation (
   }
   // End
   await context.evaluate(async () => {
-    function addHiddenDiv (id, content) {
+    function addHiddenDiv(id, content) {
       const newDiv = document.createElement('div');
       newDiv.id = id;
       newDiv.textContent = content;
@@ -45,12 +45,19 @@ async function implementation (
       document.body.appendChild(newDiv);
     }
 
-    function findXpath (xpath) {
+    // function findXpath(xpath) {
+    //   const element = document.evaluate(xpath, document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
+    //   const productDetails = element.textContent;
+    //   return productDetails;
+    // }
+
+    function findXpath(xpath) {
       const element = document.evaluate(xpath, document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
-      const productDetails = element.textContent;
+      const productDetails = element && element.textContent;
       return productDetails;
     }
-    function findXpathArr (xpath) {
+
+    function findXpathArr(xpath) {
       const element = document.evaluate(xpath, document, null, XPathResult.ANY_TYPE, null);
       let node = element.iterateNext();
       const value = [];
@@ -60,12 +67,12 @@ async function implementation (
       }
       return value;
     }
-    function clickXpath (xpath) {
+    function clickXpath(xpath) {
       const element = document.evaluate(xpath, document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
       // @ts-ignore
       element && element.click();
     }
-    function findAndFormatArr (xpath, id) {
+    function findAndFormatArr(xpath, id) {
       const values = findXpathArr(xpath);
       if (values) {
         let text = '';
@@ -86,11 +93,13 @@ async function implementation (
     clickXpath("//div[contains(@id,'returnsAndWarranty')]//button[contains(.,'Mehr anzeigen')] | //div[contains(@class,'lineSeparator') and (.//*[contains(@id,'returnsAndWarranty')])]//button[contains(.,'Mehr anzeigen')]");
     await new Promise(resolve => setTimeout(resolve, 100));
     let description = findXpath("//div[contains(@id,'description')] | //div[contains(@class,'lineSeparator') and (.//*[contains(@id,'description')])]//div[contains(@class,'expandablePanel')]");
-    description = description.replace('Beschreibung', '');
+    // description = description.replace('Beschreibung', '');
+    description = description && description.replace('Beschreibung', '');
     addHiddenDiv('ii_desc', description);
     // eslint-disable-next-line quotes
     let id = findXpath(`//script[contains(@type,'application/ld+json') and contains(.,'"@type":"Product"')]`);
-    id = id.replace(/.*(?:"sku":(.*?),.*)/, '$1');
+    // id = id.replace(/.*(?:"sku":(.*?),.*)/, '$1');
+    id = id && id.replace(/.*(?:"sku":(.*?),.*)/, '$1');
     addHiddenDiv('ii_sku', id);
     // eslint-disable-next-line quotes
     let categoryNode = findXpath(`//script[contains(@type,'application/ld+json') and contains(.,'"@type":"BreadcrumbList"')]`);
