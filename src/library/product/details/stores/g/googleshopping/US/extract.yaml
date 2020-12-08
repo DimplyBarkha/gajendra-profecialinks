@@ -71,7 +71,8 @@ fields:
     #regExpReplace: $1
   - name: variantId
     singleValue: false
-    xpath: //a[@data-sid="online"]/@href|(//div[@class="sh-dvc__scroll"]/div/@data-docid)[1]|//link[@rel="canonical"]/@href
+    xpath: //a[@data-sid="online"]/@href|(//div[@data-docid]/@data-docid)[1]|//link[@rel="canonical"]/@href
+    # xpath: //a[@data-sid="online"]/@href|(//div[@class="sh-dvc__scroll"]/div/@data-docid)[1]|//link[@rel="canonical"]/@href
     # regExp: product\W([\d]+)
     # regExpReplace: $1
   - name: mpc

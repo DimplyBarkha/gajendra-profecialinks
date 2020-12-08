@@ -5,8 +5,8 @@ module.exports = {
     country: 'US',
     store: 'googleshopping',
     domain: 'shopping.google.com',
-    loadedSelector: null,
-    noResultsXPath: null,
+    loadedSelector: 'div[class^="sg-product"]',
+    noResultsXPath: 'div.product-not-found',
     zipcode: '',
   },
 };
