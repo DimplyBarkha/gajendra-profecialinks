@@ -23,7 +23,7 @@ fields:
 - name: alternateImages
   singleValue: false
   description: Other product images (not in manufacturer description)
-  xpath: //img[@class="h-fluid-img js_product_thumb"]/@src
+  xpath: (//img[@class="h-fluid-img js_product_thumb"]/@src)[position()>1]
 - name: metaKeywords
   singleValue: true
   description: The <meta> keywords content
@@ -56,16 +56,16 @@ fields:
   singleValue: false
   description: Product description supplied by website - may be concatenanted from
     multiple places; specifically not the manufacturer description
-  xpath: //div[@class="product-description"]
+  xpath: join("||", //div[@class="product-description"])
 - name: descriptionBullets
   singleValue: true
   description: Number of ul > li tags in the description
-  xpath: count(//div[@class="product-description"]//li)
+  xpath: count(//div[@class="product-description"]//li) + //div[@id="strangeBullets"]
 - name: brandText
   singleValue: true
   description: Product brand shown - this may actually NOT be just a brand name, e.g.
     "Visit the Gillette Store"
-  xpath: //div[@class="specs"]//img/@alt
+  xpath: //a[@data-analytics-tag="brand"]
 - name: manufacturer
   singleValue: true
   description: Product manufacturer
@@ -73,18 +73,19 @@ fields:
 - name: quantity
   singleValue: true
   description: Quantity as described on the page
+  xpath: //dt[normalize-space(text())='Inhoud']/following-sibling::dd[1]
 - name: weightNet
   singleValue: true
   description: Net weight as described on the page
-  xpath: //dt[normalize-space(text())='Gewicht']/following-sibling::dd
+  xpath: //dt[normalize-space(text())='Gewicht']/following-sibling::dd[1]
 - name: weightGross
   singleValue: true
   description: Gross weight as described on the page
-  xpath: //dt[normalize-space(text())='Verpakkingsgewicht']/following-sibling::dd
+  xpath: //dt[normalize-space(text())='Verpakkingsgewicht']/following-sibling::dd[1]
 - name: gtin
   singleValue: true
   description: GTIN code (includes UPC/EAN)
-  xpath: //dt[normalize-space(text())='EAN']/following-sibling::dd
+  xpath: //dt[normalize-space(text())='EAN']/following-sibling::dd[1]
 - name: sku
   singleValue: true
   description: The store-specific product identifier
@@ -125,7 +126,7 @@ fields:
 - name: shippingInfo
   singleValue: true
   description: Shipping information for the product
-  xpath: //div[@class="buy-block__delivery-text"]//div/span[1]
+  xpath: normalize-space(//div[contains(@class,"product-seller")])
 - name: shippingDimensions
   singleValue: true
   description: Stated shipping dimensions
@@ -146,14 +147,14 @@ fields:
 - name: manufacturerDescription
   singleValue: false
   description: The extended description of the product supplied by the lister
-  xpath: //div[contains(@class,"js_specifications_content")]
 - name: manufacturerImages
   singleValue: false
   description: Images within the third party description
-  xpath: //div[contains(@class, "js_show-more-gallery")]//img[@class="skeleton-image__img"]/@src
+  xpath: //div[@data-test="gallery"]//img[@class="skeleton-image__img"]/@src
 - name: videos
   singleValue: false
   description: URLs of videos on page
+  xpath: //div[@id="videoUrl"]
 - name: name
   singleValue: true
   description: The product name
@@ -249,6 +250,7 @@ fields:
 - name: secondaryImageTotal
   singleValue: true
   description: 
+  xpath: count(//div[@data-test="gallery"]//img[@class="skeleton-image__img"]/@src)
 - name: news
   singleValue: true
   description: 
@@ -262,6 +264,7 @@ fields:
   singleValue: true
   description: List of Ingredients from site - can be string of data if no discernible
     start/end point
+  xpath: //dt[normalize-space(text())='Ingrediënten']/following-sibling::dd[1]
 - name: servingSize
   singleValue: true
   description: The size of serving Nutritional information is based on.
@@ -275,6 +278,7 @@ fields:
   singleValue: true
   description: Nutritional Information for Calories Per Serving content - Usually
     based on per 100g serving
+  xpath: //div[@id="energy"]
 - name: caloriesFromFatPerServing
   singleValue: true
   description: Nutritional Information for Calories From Fat content - Usually based
@@ -325,6 +329,7 @@ fields:
   singleValue: true
   description: Nutritional Information for Dietary Fibre content - Usually based on
     per 100g serving
+  xpath: //div[@id="fiber"]
 - name: dietaryFibrePerServingUom
   singleValue: true
   description: Unit of Measure Data for Dietary Fibre content
@@ -332,6 +337,7 @@ fields:
   singleValue: true
   description: Nutritional Information for Total Sugar content - Usually based on
     per 100g serving
+  xpath: //div[@id="sugars"]
 - name: totalSugarsPerServingUom
   singleValue: true
   description: Unit of Measure Data for Total Sugar content
@@ -339,6 +345,7 @@ fields:
   singleValue: true
   description: Nutritional Information for Protein content - Usually based on per
     100g serving
+  xpath: //div[@id="protein"]
 - name: proteinPerServingUom
   singleValue: true
   description: Unit of Measure Data for Protein
@@ -406,6 +413,7 @@ fields:
 - name: allergyAdvice
   singleValue: true
   description: Allergy information associated with the product
+  xpath: //dt[normalize-space(text())='Allergeneninformatie']/following-sibling::dd[1]
 - name: recyclingInformation
   singleValue: true
   description: Recycling information associated with the product
@@ -427,7 +435,7 @@ fields:
 - name: promotion
   singleValue: true
   description: promotion text on product page
-  xpath: //span[@class="promo-text"]
+  xpath: //div[@data-test="discount"]
 - name: alcoholContent
   singleValue: true
   description: Alcohol content information

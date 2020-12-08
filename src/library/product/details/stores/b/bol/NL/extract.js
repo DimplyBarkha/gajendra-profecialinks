@@ -14,7 +14,6 @@ async function implementation (inputs, parameters, context, dependencies) {
         .querySelector('a.product-title.px_list_page_product_click')
         .getAttribute('href');
     }
-
     return productLink;
   });
 
@@ -103,6 +102,48 @@ async function implementation (inputs, parameters, context, dependencies) {
         'div[class="buy-block__title"]').textContent : null;
 
     addElementToDom(availabilityText, 'availability');
+
+    // add nutrients informations
+    const isNutrientsAvail = document.evaluate('//dt[normalize-space(text())="Voedingswaarde"]/following-sibling::dd[1]', document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null);
+    if (isNutrientsAvail.singleNodeValue) {
+      const nutrientsText = isNutrientsAvail.singleNodeValue.textContent;
+      const nutrientsList = nutrientsText.split(',');
+
+      nutrientsList.forEach(element => {
+        if (element.includes('Energie')) {
+          addElementToDom(element, 'energy');
+        } else if (element.includes('Vezels')) {
+          addElementToDom(element, 'fiber');
+        } else if (element.includes('suikers')) {
+          addElementToDom(element, 'sugars');
+        } else if (element.includes('Eiwitten')) {
+          addElementToDom(element, 'protein');
+        }
+      });
+    }
+
+    // count strange bullets in description
+    const description = document.querySelector('div[class="product-description"]');
+
+    if (description) {
+      const count = (description.textContent.match(/\•/g) || []).length;
+      addElementToDom(count, 'strangeBullets');
+    }
+
+    // video
+    // if (document.querySelector('a[data-test="product-video"]')) {
+    //   const videoButton = document.querySelector('a[data-test="product-video"]');
+    //   videoButton.click();
+
+    //   await new Promise((resolve, reject) => {
+    //     setTimeout(() => {
+    //       resolve();
+    //     }, 2000);
+    //   });
+
+    //   const videoUrl = document.querySelector('video').getAttribute('src');
+    //   addElementToDom(videoUrl, 'videoUrl');
+    // }
   });
 
   return await context.extract(productDetails, { transform });
