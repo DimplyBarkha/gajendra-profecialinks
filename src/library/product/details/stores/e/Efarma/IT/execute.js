@@ -5,8 +5,8 @@ module.exports = {
     country: 'IT',
     store: 'Efarma',
     domain: 'efarma.com',
-    loadedSelector: null,
-    noResultsXPath: null,
+    // loadedSelector: null,
+    // noResultsXPath: null,
     zipcode: '',
   },
 };

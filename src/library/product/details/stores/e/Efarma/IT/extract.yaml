@@ -17,10 +17,10 @@ fields:
     description: The <meta> keywords content
   - name: category
     singleValue: false
-    description: The categories (e.g. from breadcrumbs)
+    description: (//ul[@class="breadcrumb"]/li)[position()>1][position()<last()]
   - name: nameExtended
     singleValue:  false
-    xpath: //h1[@itemprop="name"] | //meta[@name="description"]/@content
+    xpath: //h1[@itemprop="name"]/text() 
   - name: listPrice
     singleValue:  false
     xpath: //span[text()="Prezzo listino:"]/following-sibling::span[1]
@@ -35,7 +35,7 @@ fields:
     defaultValue: Out of Stock
   - name: description
     singleValue: false
-    xpath: //div[@id="description"]
+    xpath: //h2[contains(.,"Caratteristiche")]/following::p[1]/text() | //div[@id="description"]//ul//li | //span[@itemprop="description"]/text() | //h2[contains(.,"Scheda Prodotto")]/following::p[1]/text() | //h2[contains(.,"Indicazioni")]/following::p[1]/text()
   - name: descriptionBullets
     singleValue:  false
     xpath: count(//div[@id="description"]//ul//li)
@@ -48,9 +48,9 @@ fields:
     xpath: normalize-space(//font[contains(text(),"Pharmaceutical Company:")]/..//span/a/font/text())
   - name: quantity
     singleValue:  false
-    description: Quantity as described on the page
-    regExp: (?:\s?([\d\.]+\s?)([bB]ar[s]?|[cC]ount|[cC]t|[fF][lL][\.]?\s?[oO][zZ][\.]?|FO|[mM][lL]|[oO][zZ][\.]?|pc|[pP]int|[pP]ops|qt|[wW]ipe[s]?).?)$|(?:\s?([\d\.]+\s?)([bB]ar[s]?|[cC]ount|[cC]|[fF][lL][\.]?\s?[oO][zZ][\.]?|FO|[mM][lL]|[oO][zZ][\.]?|pc|[pP]int|[pP]ops|qt|[wW]ipe[s]?).?\s?[\&\-\w\s]+)$
-    regExpReplace: $1$2$3$4
+    xpath: //h1[@itemprop="name"]/text()
+    regExp: (\d{1,}\s)(g|G|L|Kg|Mg|Ml|ml|Oz|ml|Oz|s|l|EA|GR|kg|g c/u)
+    # regExpReplace: 
   - name: weightNet
     singleValue:  false
     description: Net weight as described on the page
@@ -78,21 +78,22 @@ fields:
     description: Content under "legal disclaimer" header
   - name: directions
     singleValue:  false
-    xpath: //h2[contains(text(),"Modalità d’uso")]//following-sibling::p[1]
+    xpath: //h2[contains(.,"Modalità")]/following::p[1]//text()
+    # xpath: //h2[contains(text(),"Modalità d’uso")]//following-sibling::p[1]
   - name: warnings
     singleValue:  false
-    xpath: //h2[contains(text(),"Avvertenze speciali")]/following-sibling::h3[1] | //h2[contains(text(),"Avvertenze speciali")]/./following-sibling::p[1]
+    xpath: //h2[contains(.,"Avvertenze")]/following::p[1]//text()
+    # xpath: //h2[contains(text(),"Avvertenze speciali")]/following-sibling::h3[1] | //h2[contains(text(),"Avvertenze speciali")]/./following-sibling::p[1]
   - name: ratingCount
     singleValue:  false
-    description: The number of ratings
-    type: NUMBER
+    xpath: //em[@class="ng-binding"]/text()
   - name: aggregateRatingText
     singleValue:  false
     description: The stated aggregate rating
   - name: aggregateRating
     singleValue:  false
-    description: The stated aggregate rating normalized to be out of 5
-    type: NUMBER
+    xpath: //div[@class="mp-review-rating"]/@ng-style
+    regExp: :\W+(\d+)
   - name: shippingInfo
     singleValue:  false
     xpath: //div[@class="shipment--desktop"]
@@ -123,7 +124,7 @@ fields:
     description: URLs of videos on page
   - name: name
     singleValue:  false
-    xpath: //h1[@itemprop="name"] | //meta[@name="description"]/@content
+    xpath: //h1[@itemprop="name"]/text()
   - name: inStorePrice
     singleValue:  false
     description: Price in the selected store
@@ -176,7 +177,7 @@ fields:
     description: null
   - name: ingredientImagePresent
     singleValue:  false
-    xpath: //font[contains(text(),"Active principle")]/../../following-sibling::p[1]//font
+    xpath: //h2[contains(.,"Ingredienti")]/following::p[1]//text()
   - name: factImagePresent
     singleValue:  false
     description: null
