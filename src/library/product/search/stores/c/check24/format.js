@@ -38,7 +38,7 @@ const transform = (data, context) => {
       }
       if (row.price) {
         row.price.forEach(item => {
-          item.text = item.text.substr(item.text.indexOf('-') + 2);
+          item.text = item.text.substr(item.text.indexOf('-') + 1);
         });
       }
       if (row.thumbnail) {
