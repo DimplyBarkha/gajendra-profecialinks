@@ -78,7 +78,7 @@ const transform = (data) => {
       if (row.manufacturerDescription) {
         let text = '';
         row.manufacturerDescription.forEach(item => {
-          text += item.text.replace(/\n \n/g, ' ').replace('Content from the Manufacturer', '').replace(/(.*)This content uses cookies to improve your experience. By continuing, you agree to this use(.*)/, '$1').replace(/(.*){(.*)}(.*)/, '$1 $3');
+          text += item.text.replace(/\n \n/g, ' ').replace('Content from the Manufacturer', '').replace(/(.*)This content uses cookies to improve your experience. By continuing, you agree to this use(.*)/, '$1');
         });
         row.manufacturerDescription = [
           {
