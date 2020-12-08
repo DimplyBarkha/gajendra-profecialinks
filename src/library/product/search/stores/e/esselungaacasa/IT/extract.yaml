@@ -1,21 +1,25 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: //div[@class="content-item"]
+recordXPath: //div[@class="content-item"][div[@class="pict"]]
 fields:
   - name: id
     singleValue: false
-    xpath: /@id
+    xpath: //div[@id='productId']
   - name: searchUrl
     singleValue: true
   - name: name
     singleValue: false
     xpath: //span[@class="product-brand"]
   - name: productUrl
+    xpath: //div[@class="pict"]//a/@href
+    regExp: (#!.*)
+    regExpReplace: https://www.esselungaacasa.it/ecommerce/nav/auth/supermercato/home.html?streetId=30104457$1
     singleValue: false
   - name: gtin
     singleValue: false
   - name: thumbnail
+    xpath: //div[@class="pict"]//img/@src
     singleValue: false
   - name: aggregateRating
     singleValue: false
@@ -27,6 +31,7 @@ fields:
     singleValue: false
   - name: price
     singleValue: false
+    xpath: //esselunga-product-price//span[@ng-show="priceCtrl.hasDiscount"]/following-sibling::span[1]
   - name: manufacturer
     singleValue: true
   - name: soldBy
