@@ -1,0 +1,363 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: image
+    singleValue: false
+    xpath: (//aside[@id="product-sidebar"]//div[contains(@class, "preview")]//img/@src)[1]
+    regExp: (.+)
+    regExpReplace: https:$1
+    description: URL of the main product image
+  - name: imageAlt
+    singleValue: false
+    xpath: //aside[@id="product-sidebar"]//div[contains(@class, "preview")]//img/@alt
+    description: Alt text of the main product image
+  - name: alternateImages
+    singleValue: false
+    xpath: //aside[contains(@id, "product-sidebar")]//following-sibling::ul//li[position()>1]//a/@data-magnifier
+    description: Other product images (not in manufacturer description)
+  - name: metaKeywords
+    singleValue: false
+    xpath: //meta[@name="keywords"]/@content
+    description: The <meta> keywords content
+  - name: category
+    singleValue: false
+    xpath: //nav[@class="breadcrumbs-nav"]//ul[@class="breadcrumbs"]//li[position()>1 and position() < last()]
+    description: The categories (e.g. from breadcrumbs)
+  - name: nameExtended
+    singleValue: false
+    xpath: //h1[@itemprop="name"]
+    description: The product name, prefixing "${brand} - " if not included in "name"
+      and appending " - ${variantType}" if necessary (fixed per feed)
+  - name: listPrice
+    singleValue: false
+    xpath: (//div[contains(@class, "price-sidebar")]//div[contains(@class, "price-old")])[1]
+    description: The stated undiscounted price for the product
+  - name: price
+    singleValue: false
+    xpath: //meta[@property="product:price:amount"]/@content
+    description: The offered price for the selected product variant - if a user
+      clicks add to basket this is the price they would be charged
+  - name: availabilityText
+    singleValue: false
+    xpath: (//meta[@itemprop="availability"])[1]/@content
+    description: Availability as described on page for the selected variant. If
+      there is no availability but the product can be added to cart, this field
+      should be "In Stock"
+  - name: description
+    singleValue: false
+    xpath: //div[@itemprop="description"]
+    description: Product description supplied by website - may be concatenanted from
+      multiple places; specifically not the manufacturer description
+  - name: descriptionBullets
+    singleValue: false
+    description: Number of ul > li tags in the description
+  - name: brandText
+    singleValue: false
+    xpath: //div[@class="logo"]//a//img/@alt
+    description: Product brand shown - this may actually NOT be just a brand name,
+      e.g. "Visit the Gillette Store"
+  - name: manufacturer
+    singleValue: false
+    description: Product manufacturer
+  - name: quantity
+    singleValue: false
+    description: Quantity as described on the page
+    regExp: (?:\s?([\d\.]+\s?)([bB]ar[s]?|[cC]ount|[cC]t|[fF][lL][\.]?\s?[oO][zZ][\.]?|FO|[mM][lL]|[oO][zZ][\.]?|pc|[pP]int|[pP]ops|qt|[wW]ipe[s]?).?)$|(?:\s?([\d\.]+\s?)([bB]ar[s]?|[cC]ount|[cC]|[fF][lL][\.]?\s?[oO][zZ][\.]?|FO|[mM][lL]|[oO][zZ][\.]?|pc|[pP]int|[pP]ops|qt|[wW]ipe[s]?).?\s?[\&\-\w\s]+)$
+    regExpReplace: $1$2$3$4
+  - name: weightNet
+    singleValue: false
+    xpath: (//dl[@class="specification"]//dt[contains(text(),"Vikt")]//following-sibling::dd)[1]
+    description: Net weight as described on the page
+  - name: weightGross
+    singleValue: false
+    description: Gross weight as described on the page
+  - name: gtin
+    singleValue: false
+    xpath: //div[@id="added_gtim"]|//script[contains(@type, 'text/javascript')]/@data-flix-ean
+    description: GTIN code (includes UPC/EAN)
+  - name: sku
+    singleValue: false
+    xpath: //span[@itemprop="sku"]
+    description: The store-specific product identifier
+  - name: variantId
+    singleValue: false
+    xpath: //div[@id="product-wrapper"]/@data-modelnumber
+    description: Identifier for a variant from a store where variants share the same sku
+  - name: mpc
+    singleValue: false
+    description: The manufacturer model code (unique) of the product
+  - name: packSize
+    singleValue: false
+    description: The number of packs in the product offer (if stated separately on
+      the site to quantity)
+  - name: legalDisclaimer
+    singleValue: false
+    xpath: //footer//div[contains(@class, "ms-site-footer__row--legal")]
+    description: Content under "legal disclaimer" header
+  - name: directions
+    singleValue: false
+    description: Content under "directions" header
+  - name: warnings
+    singleValue: false
+    description: Content under "warnings" header
+  - name: ratingCount
+    singleValue: false
+    xpath: //span[@itemprop="reviewCount"]
+    description: The number of ratings
+  - name: aggregateRating
+    singleValue: false
+    xpath: //span[@itemprop="ratingValue"]
+    description: The stated aggregate rating normalized to be out of 5
+  - name: shippingInfo
+    singleValue: false
+    description: Shipping information for the product
+  - name: shippingDimensions
+    singleValue: false
+    xpath: (//dl[@class="specification"]//dt[contains(text(),"Tamaño embalaje (An/Al/F)")]//following-sibling::dd)[1]
+    description: Stated shipping dimensions
+  - name: shippingWeight
+    singleValue: false
+    xpath: (//dl[@class="specification"]//dt[contains(text(),"Peso embalado")]//following-sibling::dd)[1]
+    description: Stated shipping weight
+  - name: variantCount
+    singleValue: false
+    xpath: count (//div[contains(@class,"product-attributes__color-item")])
+    description: Number of variants listed
+  - name: color
+    singleValue: false
+    xpath: //*[contains(text(), "Färg")]/following-sibling::*[1]
+    description: A textual description of the colour
+  - name: colorCode
+    singleValue: false
+    description: A code description of the color (e.g. RGB hex)
+  - name: manufacturerDescription
+    singleValue: false
+    xpath: //article[@class="description"]
+    description: The extended description of the product supplied by the lister
+  - name: manufacturerImages
+    singleValue: false
+    xpath: //article[@class="description"]//img/@src
+    description: Images within the third party description
+  - name: videos
+    singleValue: false
+    xpath: //li[contains(@class, "thumbnail-carousel__thumbnail")]//div[contains(@class, "demoupUI-playbutton")]//meta[@itemprop="contentURL"]/@content|//div[contains(@class, "demoupUI-video-additional-container")]//meta[@itemprop="contentURL"]/@content|//div[contains(@class, "contentspot")]//article[contains(@class, "description")]//iframe/@src
+    description: URLs of videos on page
+  - name: name
+    singleValue: false
+    xpath: //h1[@itemprop="name"]
+    description: The product name
+  - name: inStorePrice
+    singleValue: false
+    description: Price in the selected store
+  - name: asin
+    singleValue: false
+    description: null
+  - name: coupon
+    singleValue: false
+    description: Text of any coupon offer
+  - name: amazonChoice
+    singleValue: false
+    description: YES or Blank
+  - name: amazonChoiceCategory
+    singleValue: false
+    description: Text of link next to Amazon choice graphic
+  - name: brandLink
+    singleValue: false
+    description: null
+  - name: internationalShipping
+    singleValue: false
+    description: Text next to bullet point
+  - name: salesRank
+    singleValue: false
+    description: Amazon best selling rank from product details (linked back) - needs
+      to be collapsed
+  - name: salesRankCategory
+    singleValue: false
+    description: Amazon best selling rank from product details (linked back) - needs
+      to be collapsed
+  - name: subscriptionPrice
+    singleValue: false
+    description: Subscribe and save price
+  - name: subscribeAndSave
+    singleValue: false
+    description: YES/NO
+  - name: heroQuickPromoHeadline
+    singleValue: false
+    description: See image - top section hero area
+  - name: heroQuickPromoImageUrl
+    singleValue: false
+    description: null
+  - name: heroQuickPromoUrl
+    singleValue: false
+    description: null
+  - name: pasin
+    singleValue: false
+    description: Parent asin
+  - name: videoLength
+    singleValue: false
+    description: null
+  - name: ingredientImagePresent
+    singleValue: false
+    description: null
+  - name: factImagePresent
+    singleValue: false
+    description: null
+  - name: largeImageCount
+    singleValue: false
+    description: null
+  - name: variantAsins
+    singleValue: false
+    description: null
+  - name: primeFlag
+    singleValue: false
+    description: null
+  - name: lbb
+    singleValue: false
+    description: Check Lost by Box Requirements (just for Amazon and a couple of
+      other stores) - LBB occurs when a product is bought from someone other
+      than Amazon (on Amazon Website) - even though Amazon has the product "in
+      Stock"
+  - name: lbbPrice
+    singleValue: false
+    description: null
+  - name: featureBullets
+    singleValue: false
+    description: null
+  - name: otherSellersName
+    singleValue: false
+    description: null
+  - name: otherSellersPrice
+    singleValue: false
+    description: null
+  - name: otherSellersShipping
+    singleValue: false
+    description: null
+  - name: secondaryImageTotal
+    xpath: count(//aside[contains(@id, "product-sidebar")]//following-sibling::ul//li[position()>1]//a/@data-magnifier)
+    singleValue: false
+    description: null
+  - name: news
+    singleValue: false
+    description: null
+  - name: addonItem
+    singleValue: false
+    description: null
+  - name: specifications
+    singleValue: false
+    description: The physical dimensions of the product including packaging.
+    xpath: //div[@id="features"]
+  - name: warranty
+    singleValue: false
+    description: Guarantee associated with the product
+    xpath: //*[contains(text(), "Tillverkargaranti")]/following-sibling::*
+  - name: storage
+    singleValue: false
+    description: Suggested storage location for product
+  - name: countryOfOrigin
+    singleValue: false
+    description: The country from which the product originates
+  - name: allergyAdvice
+    singleValue: false
+    description: Allergy information associated with the product
+  - name: recyclingInformation
+    singleValue: false
+    description: Recycling information associated with the product
+  - name: packaging
+    singleValue: false
+    description: Packaging information
+  - name: additives
+    singleValue: false
+    description: List of additives in the product
+  - name: pricePerUnit
+    singleValue: false
+    description: Price of the product split into certain units
+  - name: pricePerUnitUom
+    singleValue: false
+    description: The unit of measurement used in price_per_unit
+  - name: promotion
+    singleValue: false
+    description: promotion text on product page
+  - name: alcoholContent
+    singleValue: false
+    description: Alcohol content information
+  - name: newVersion
+    singleValue: false
+    description: In product page, information about a new version of the product
+      (https://www.amazon.es/DODOT-Sensitive-Pa%C3%B1ales-Talla-240/dp/B01ELA8U0Q/ref=sr_1_4?__mk_es_ES=%C3%85M%C3%85%C5%BD%C3%95%C3%91&dchild=1&keywords=dodot%2B-%2Bpa%C3%B1ales%2Bpara%2Bni&qid=1589984387&sr=8-4&th=1)
+  - name: newAsin
+    singleValue: false
+    description: In product page, information about a new version of the product -
+      new asin info
+  - name: newDescription
+    singleValue: false
+    description: In product page, information about a new version of the product -
+      new desription info
+  - name: variantInformation
+    singleValue: false
+    xpath: (//div[contains(@class, "product-attributes__select-wrapper")]//option[@selected="true"]/@data-action-id)[1]
+    description: colour / scent / flavour / other
+  - name: firstVariant
+    singleValue: false
+    xpath: (//div[contains(@class, "product-attributes__select-wrapper")]//option/@data-action-id)[1]
+    description: Unique identifier for a collection of variants. For a subset of
+      core feeds (43) we have a column "first_variant" that is populated with a
+      common code to link all variants for a product. method 1 (Preferred) = use
+      common tag (Could be parent sku) that is same value for all variants of a
+      product. method 2 = first_variant method technique, Identify the first
+      varient in the sequence and use this rpc to populate "first_variant" for
+      all variants of a product, this rpc becomes the common link between other
+      variants. method 3 = apply some logic to determine link between variants,
+      this will need analysis
+  - name: variants
+    singleValue: false
+    xpath: //div[contains(@class, "product-attributes__select-wrapper")]//option/@data-action-id
+    description: null
+  - name: additionalDescBulletInfo
+    singleValue: false
+  - name: energyEfficiency
+    singleValue: false
+    xpath: (//dl[contains(@class, "energy-efficiency")]//dt[contains(text(),"Energiklass")]//following-sibling::dd)[1]
+    description: Energy rating of a product.
+      https://www.amazon.de/Siemens-WM16W541-Waschmaschine-Schnellwaschprogramm-Nachlegefunktion/dp/B015FJFK14
+    example: A+, A+++, B
+  - name: technicalInformationPdfPresent
+    singleValue: false
+    description: If there is for example a manual in pdf format on the website. ['Yes','No']
+    example: https://www.amazon.de/Hasbro-Spiele-44220100-Mastermind-Kinderspiel/dp/B0007OHUG6
+    defaultValue: No
+  - name: termsAndConditions
+    singleValue: false
+    description: Terms and conditions information text ['Yes','No']
+    defaultValue: No
+  - name: Image360Present
+    singleValue: false
+    description: If 360 image is present in the carousel ['Yes','No']
+    example: https://www.amazon.com/Trinsic-Single-Handle-Magnetic-Champagne-9159-CZ-DST/dp/B0050EN8E6
+    regExp: (.*)
+    regExpReplace: Yes
+    defaultValue: No
+  - name: contentSyndication
+    singleValue: false
+    description: If Zoom feature is available for Main image or images in the
+      carousel,['Yes','No']
+    example: https://www.zalando.de/adidas-neo-sneaker-low-blackwhite-a4315i002-q11.html
+    regExp: Powered by (.+)
+    regExpReplace: $1
+  - name: inTheBoxUrl
+    singleValue: false
+    xpath: //div[contains(@class, "InTheBox")]//img/@data-flixsrcset
+    description: Must include image url to show the accessories/tools which come with the product
+  - name: inTheBoxText
+    singleValue: false
+    xpath: //div[contains(@class, "InTheBox")]//div[contains(@class, "flix-std-content")]
+    description: Must include text to show the accessories/tools which come with the product
+  - name: hasComparisonTable
+    singleValue: true
+    xpath: boolean(//*[contains(text(), "Jämför modellerna")])
+    description: Compare the range table or matrix must be present for all vacuum cleaners & air treatment. This is not required for personal care or lighting. As a minimum the comparison table will compare against 1 additional Dyson product.
+  - name: unInterruptedPDP
+    singleValue: false
+    xpath: //div[contains(@class, "base-info")]//h3//a
+    description: Titles of products in the sections 'you may also like' or 'sponsored products'. Combine results from Max 3 sections
