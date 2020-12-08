@@ -2,16 +2,11 @@ input:
   _url: http://dyson.de
   URL: https://www.dyson.de/haarpflege/dyson-corrale-glaetteisen/schwarz-nickel-fuchsia
 extractions:
-  - html: https://workbench.import.io/html/run=9e10f124-24e6-486d-85f5-1fa6385e9806/task=28f37ae7-e735-4575-a880-ae4917c7d618/d82fc0d4-081f-4224-a9a9-050131f1024a.html
+  - html: https://workbench.import.io/html/run=326e122a-98ce-48a0-96a4-b8e36830cf6c/task=617278b2-e54e-47fe-bb3f-343765947c56/3cadb0e2-ef7a-43b3-b1a0-de0f061d477b.html
     extractionConfigId: product/details/stores/d/dyson/DE/extract
     data:
       - group:
-          - category:
-              - text: Haarpflege
-                xpath: /html/body/nav[1]/div[1]/div[1]/div[1]/div[1]/nav[1]/div[2]/div[1]/div[1]/nav[1]/ol[1]/li[2]/span[1]/a[1]/span[1]
-              - text: Dyson Corrale™ Haarglätter
-                xpath: /html/body/nav[1]/div[1]/div[1]/div[1]/div[1]/nav[1]/div[2]/div[1]/div[1]/nav[1]/ol[1]/li[3]/span[1]/a[1]/span[1]
-            image:
+          - image:
               - text: https://dyson-h.assetsadobe2.com/is/image/content/dam/dyson/images/products/primary/322952-01.png?$responsive$&cropPathE=desktop&fit=stretch,1&wid=960
                 xpath: /html/body/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/img[1]/@src
             imageAlt:
@@ -40,12 +35,6 @@ extractions:
                    
                   Mit und ohne Kabel verwendbar.
                 xpath: /html/body/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]
-            weightNet:
-              - text: |-
-                  Gewicht (in Kg)
-                   
-                   0,561 kg
-                xpath: /html/body/main[1]/div[2]/div[11]/section[1]/div[1]/ul[1]/li[2]
             ratingCount:
               - text: "92"
                 xpath: /html/body/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/a[1]/@aria-label
@@ -55,14 +44,22 @@ extractions:
             aggregateRating:
               - text: "4.6"
                 xpath: /html/body/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/a[1]/@aria-label
+            name:
+              - text: Dyson Corraleᵀᴹ Haarglätter Glätteisen (Nickel/Fuchsia)
+                xpath: /html/body/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/h1[1]
+            firstVariant:
+              - text: Nickel/Fuchsia
+                xpath: /html/body/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[2]/div[1]/span[1]/img[1]/@title
+            variants:
+              - text: Nickel/Fuchsia
+                xpath: /html/body/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[2]/div[1]/span[1]/img[1]/@title
+              - text: Violett/Schwarz
+                xpath: /html/body/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[2]/a[1]/span[1]/img[1]/@title
             shippingInfo:
               - text: |-
                   Kostenlose Lieferung 
                   Innerhalb 1 Werktag
                 xpath: /html/body/main[1]/div[2]/div[2]/div[1]/div[1]/section[1]/div[1]/div[1]/ul[1]/li[1]
-            name:
-              - text: Dyson Corraleᵀᴹ Haarglätter Glätteisen (Nickel/Fuchsia)
-                xpath: /html/body/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/h1[1]
             warranty:
               - text: >-
                   Dyson Garantie
@@ -90,14 +87,17 @@ extractions:
                    
                   Zubehör & Ersatzteile 1 Jahr
                 xpath: /html/body/main[1]/div[2]/div[2]/div[1]/div[1]/section[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[4]
-            firstVariant:
-              - text: Nickel/Fuchsia
-                xpath: /html/body/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[2]/div[1]/span[1]/img[1]/@title
-            variants:
-              - text: Nickel/Fuchsia
-                xpath: /html/body/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[2]/div[1]/span[1]/img[1]/@title
-              - text: Violett/Schwarz
-                xpath: /html/body/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[2]/a[1]/span[1]/img[1]/@title
+            weightNet:
+              - text: |-
+                  Gewicht (in Kg)
+                   
+                   0,561 kg
+                xpath: /html/body/main[1]/div[2]/div[12]/section[1]/div[1]/ul[1]/li[2]
+            category:
+              - text: Haarpflege
+                xpath: /html/body/nav[1]/div[1]/div[1]/div[1]/div[1]/nav[1]/div[2]/div[1]/div[1]/nav[1]/ol[1]/li[2]/span[1]/a[1]/span[1]
+              - text: Dyson Corrale™ Haarglätter
+                xpath: /html/body/nav[1]/div[1]/div[1]/div[1]/div[1]/nav[1]/div[2]/div[1]/div[1]/nav[1]/ol[1]/li[3]/span[1]/a[1]/span[1]
             productUrl:
               - text: https://www.dyson.de/haarpflege/dyson-corrale-glaetteisen/schwarz-nickel-fuchsia
                 xpath: /html/body/div[6]
@@ -117,7 +117,7 @@ extractions:
               - text: Black-Nickel-Fuchsia
                 xpath: /html/body/div[10]
             price:
-              - text: "465.89"
+              - text: 465,89
                 xpath: /html/body/div[12]
             nameExtended:
               - text: Dyson Corraleᵀᴹ Haarglätter Glätteisen (Nickel/Fuchsia) - Nickel/Fuchsia -
@@ -191,5 +191,5 @@ extractions:
               - text: "true"
             customerServiceAvailability:
               - text: "true"
-        xpath: /html/body
-    timestamp: 1607346225593
+        xpath: /html
+    timestamp: 1607426781627

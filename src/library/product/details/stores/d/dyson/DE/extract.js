@@ -162,7 +162,7 @@ module.exports = {
       const localeCleaner = (price) => {
         // first remove all possible thousand spearators
         const charToRemove = [' ', "'", String.fromCharCode(160)];
-        const newDecimalSeparator = '.';
+        const newDecimalSeparator = ',';
         const potentialDecSeparators = [',', '.'];
         let temp = charToRemove.reduce((acc, char) => acc.split(char).join(''), price || '');
         // remove the currency and other text
