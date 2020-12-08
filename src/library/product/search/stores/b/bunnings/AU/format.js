@@ -32,9 +32,7 @@ const transform = (data) => {
           }
           if(row.thumbnail){
               row.thumbnail.forEach(item => {
-                  var spltThumb = item.text.split('(\"');
-                  var spltThumb2 = spltThumb[1].split('\");');
-                  item.text = spltThumb2[0]; 
+                  item.text = item.text.replace('background-image: url("','').replace('");','');
               })
           }           
         row.rank = [{ "text": rank }];

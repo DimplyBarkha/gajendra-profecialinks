@@ -14,13 +14,14 @@ async function implementation (
   console.log('params', parameters);
   const url = parameters.url.replace('{searchTerms}', encodeURIComponent(inputs.keywords));
   await dependencies.goto({ url, zipcode: inputs.zipcode });
+  await new Promise((resolve, reject) => setTimeout(resolve, 10000));
   if (parameters.loadedSelector) {
     await context.waitForFunction(function (sel, xp) {
       return Boolean(document.querySelector(sel) || document.evaluate(xp, document, null, XPathResult.UNORDERED_NODE_ITERATOR_TYPE, null).iterateNext());
     }, { timeout: 10000 }, parameters.loadedSelector, parameters.noResultsXPath);
   }
 
-  await new Promise((resolve, reject) => setTimeout(resolve, 30000));
+  await new Promise((resolve, reject) => setTimeout(resolve, 50000));
 
   console.log('Checking no results', parameters.noResultsXPath);
   return await context.evaluate(function (xp) {
