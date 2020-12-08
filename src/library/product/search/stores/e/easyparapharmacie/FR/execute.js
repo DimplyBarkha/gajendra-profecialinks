@@ -5,7 +5,7 @@ module.exports = {
     country: 'FR',
     store: 'easyparapharmacie',
     domain: 'www.easyparapharmacie.com',
-    url: 'https://www.easyparapharmacie.com/catalogsearch/result/index/?q=%7BsearchTerms%7D',
+    url: 'https://www.easyparapharmacie.com/catalogsearch/result/index/?q={searchTerms}',
     loadedSelector: null,
     noResultsXPath: null,
     zipcode: '',

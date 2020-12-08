@@ -3,7 +3,7 @@ regionsSelector: null
 recordSelector: null
 recordXPath: //div[contains(@class, 'product-container')]
 fields:
--   name: id
+  - name: id
     singleValue: false
     xpath: //div[@class='product-information']/a/@data-objectid
   - name: searchUrl
@@ -35,7 +35,7 @@ fields:
   - name: ratingCount
     singleValue: false
     xpath: //div[@class='ratings'][last()]
-        regExp: (\d+)
+    regExp: (\d+)
   - name: price
     singleValue: false
     xpath: //div[@class='price-box']/span[1]
