@@ -1,0 +1,28 @@
+input:
+  _url: http://dyson.nl
+  URL: https://www.dyson.nl/haarstyling/dyson-supersonic/fuchsia-grijs
+extractions:
+  - html: https://workbench.import.io/html/run=2a213888-efa8-4e78-acc5-9489cc071ba9/task=2a85d071-8a36-487b-8690-055e43f5bea1/37b722e5-5aef-485d-b5bb-702e8e4cd590.html
+    extractionConfigId: product/details/stores/d/dyson/NL/variantsExtract
+    data:
+      - group:
+          - variantId:
+              - text: 346999-01-Fuchsia-Iron-
+                xpath: /html/body/ol[1]/li[1]/@variant_id
+            variantUrl:
+              - text: https://www.dyson.nl/haarstyling/dyson-supersonic/fuchsia-grijs
+                xpath: /html/body/ol[1]/li[1]/@variant_url
+          - variantId:
+              - text: 346641-01-Black-Purple-
+                xpath: /html/body/ol[1]/li[2]/@variant_id
+            variantUrl:
+              - text: https://www.dyson.nl/haarstyling/dyson-supersonic/zwart-paars
+                xpath: /html/body/ol[1]/li[2]/@variant_url
+          - variantId:
+              - text: 346469-01-Black-Nickel-
+                xpath: /html/body/ol[1]/li[3]/@variant_id
+            variantUrl:
+              - text: https://www.dyson.nl/haarstyling/dyson-supersonic/zwart-nikkel
+                xpath: /html/body/ol[1]/li[3]/@variant_url
+        xpath: /html
+    timestamp: 1607425359814

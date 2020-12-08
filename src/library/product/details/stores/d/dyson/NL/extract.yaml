@@ -1,10 +1,10 @@
-extends: ../shared 
+extends: ../shared
 fields:
-  - name: availabilityText
-    xpath: //div[contains(concat(' ',normalize-space(@class),' '),' product-hero ')]//form//*[contains(text(),'toevoegen')]//text()
+  - name: manufacturerImages
+    xpath: //div[@id='added_manufacturerImages']//li
   - name: weightNet
-    xpath: (//ul[contains(concat(' ',normalize-space(@class),' '),' product-specification__specification-container ')]//li[.//*[contains(text(), 'Gewicht')]])[1]
-  - name: shippingInfo
-    xpath: (//div[contains(concat(' ',normalize-space(@class),' '),' reasons-to-buy__overlay-content-container ')][.//*[contains(text(),'bezorging ')] or .//*[contains(text(),'leveren')]])[1]
-  - name: warranty
-    xpath: (//div[contains(concat(' ',normalize-space(@class),' '),' reasons-to-buy__overlay-content-container ')][.//*[contains(text(),' garantie') or contains(text(), 'bedenktijd')]])[1]
+    xpath: //div[@class="product-specification parbase"]//li[p[@class="product-specification__label-top" and text()="Gewicht"]]/p[@class="product-specification__label-bottom"]
+  - name: termsAndConditions
+    xpath: boolean(//a[@aria-label="Algemene voorwaarden"])
+  - name: privacyPolicy
+    xpath: boolean(//a[@aria-label="Privacy"])

@@ -1,0 +1,16 @@
+input:
+  _url: http://dyson.nl
+  URL: https://www.dyson.nl/stofzuigers/sledestofzuigers/dyson-cinetic-big-ball/absolute-2
+extractions:
+  - html: https://workbench.import.io/html/run=2a213888-efa8-4e78-acc5-9489cc071ba9/task=e6e6c973-3a79-4c11-9914-ec82be54ee0e/2d1617ff-719e-4c00-9e41-9b748cf724c2.html
+    extractionConfigId: product/details/stores/d/dyson/NL/variantsExtract
+    data:
+      - group:
+          - variantId:
+              - text: 228415-01
+                xpath: /html/body/ol[1]/li[1]/@variant_id
+            variantUrl:
+              - text: https://www.dyson.nl/stofzuigers/sledestofzuigers/dyson-cinetic-big-ball/absolute-2
+                xpath: /html/body/ol[1]/li[1]/@variant_url
+        xpath: /html
+    timestamp: 1607425357372
