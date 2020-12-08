@@ -1,6 +1,6 @@
 singleRecord: false
 regionsSelector: null
-recordSelector: ul.products-container>li
+recordSelector: null
 recordXPath: //ul[contains(@class, 'products-container')]/li
 fields:
   - name: thumbnail
@@ -18,6 +18,5 @@ fields:
     regExp: \d+
   - name: price
     xpath: //p[contains(@class, 'price-txt')]
-  - name: seller
-    xpth: //span[contains(@class, 'seller-nickname')]
- 
+  - name: soldBy
+    xpath: //h3[contains(@class, 'product-title')]//@sellerinformation
