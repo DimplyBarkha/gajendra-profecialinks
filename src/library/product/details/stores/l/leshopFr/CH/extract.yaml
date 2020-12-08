@@ -1,0 +1,341 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: image
+    singleValue: true
+    xpath: //html//div[@id='image']
+  - name: imageAlt
+    singleValue: true
+  - name: alternateImages
+    singleValue: false
+  - name: metaKeywords
+    singleValue: true
+    xpath: //meta[@name="keywords"]
+  - name: category
+    singleValue: false
+    xpath: //ol[@class="breadcrumb ng-star-inserted"]/li/a/span/text()
+  - name: nameExtended
+    singleValue: true
+    xpath: //meta[@name="description"]/@content
+  - name: listPrice
+    singleValue: true
+  - name: price
+    singleValue: true
+    xpath: //html//div[@id='price']
+  - name: availabilityText
+    singleValue: true
+    regExp: (.+)
+    regExpReplace: In Stock
+    defaultValue: Out of Stock
+    xpath: //button[@class="mat-focus-indicator mui-button mui-button-leshop mui-button-lg mat-button mat-button-base ng-star-inserted"]
+  - name: description
+    singleValue: false
+    xpath: //html//div[@id='rawdescription']
+  - name: descriptionBullets
+    singleValue: true
+  - name: brandText
+    singleValue: true
+    xpath: //h1[contains(@id,'name')]/text()
+  - name: manufacturer
+    singleValue: true
+  - name: quantity
+    singleValue: true
+    xpath: //html//div[@id='quantity']
+  - name: weightNet
+    singleValue: true
+  - name: weightGross
+    singleValue: true
+  - name: gtin
+    singleValue: true
+  - name: sku
+    singleValue: true
+  - name: variantId
+    singleValue: true
+    xpath: //html//div[@id='variantId']
+  - name: mpc
+    singleValue: true
+  - name: packSize
+    singleValue: true
+    xpath: //html//div[@id='packSize']
+  - name: legalDisclaimer
+    singleValue: true
+  - name: directions
+    singleValue: true
+    xpath: //html//div[@id='directions']
+  - name: warnings
+    singleValue: true
+  - name: ratingCount
+    singleValue: true
+  - name: aggregateRatingText
+    singleValue: true
+  - name: aggregateRating
+    singleValue: true
+  - name: shippingInfo
+    singleValue: true
+  - name: shippingDimensions
+    singleValue: true
+  - name: shippingWeight
+    singleValue: true
+  - name: variantCount
+    singleValue: true
+    defaultValue: '0'
+  - name: color
+    singleValue: true
+  - name: colorCode
+    singleValue: true
+  - name: manufacturerDescription
+    singleValue: false
+  - name: manufacturerImages
+    singleValue: false
+  - name: videos
+    singleValue: false
+  - name: name
+    singleValue: true
+    xpath: //html//div[@id='rawname']
+  - name: inStorePrice
+    singleValue: true
+  - name: asin
+    singleValue: true
+  - name: coupon
+    singleValue: true
+  - name: amazonChoice
+    singleValue: true
+  - name: amazonChoiceCategory
+    singleValue: true
+  - name: brandLink
+    singleValue: true
+  - name: internationalShipping
+    singleValue: true
+  - name: salesRank
+    singleValue: false
+      to be collapsed
+  - name: salesRankCategory
+    singleValue: false
+  - name: subscriptionPrice
+    singleValue: true
+  - name: subscribeAndSave
+    singleValue: true
+  - name: heroQuickPromoHeadline
+    singleValue: true
+  - name: heroQuickPromoImageUrl
+    singleValue: true
+  - name: heroQuickPromoUrl
+    singleValue: true
+  - name: pasin
+    singleValue: true
+  - name: videoLength
+    singleValue: false
+  - name: ingredientImagePresent
+    singleValue: true
+  - name: factImagePresent
+    singleValue: true
+  - name: largeImageCount
+    singleValue: true
+  - name: variantAsins
+    singleValue: true
+  - name: primeFlag
+    singleValue: true
+  - name: lbb
+    singleValue: true
+  - name: lbbPrice
+    singleValue: true
+  - name: featureBullets
+    singleValue: false
+  - name: otherSellersName
+    singleValue: false
+  - name: otherSellersPrice
+    singleValue: false
+  - name: otherSellersShipping
+    singleValue: false
+  - name: secondaryImageTotal
+    singleValue: true
+  - name: news
+    singleValue: true
+  - name: addonItem
+    singleValue: true
+  - name: fastTrack
+    singleValue: true
+  - name: ingredientsList
+    singleValue: true
+    xpath: //html//div[@id='ingredientsList']
+  - name: servingSize
+    singleValue: true
+    xpath: //html//div[@id='servingSize']
+  - name: servingSizeUom
+    singleValue: true
+    xpath: //html//div[@id='rawservingSizeUom']
+  - name: numberOfServingsInPackage
+    singleValue: true
+  - name: caloriesPerServing
+    singleValue: true
+    xpath: //html//div[@id='rawcaloriesPerServing']
+  - name: caloriesFromFatPerServing
+    singleValue: true
+  - name: totalFatPerServing
+    singleValue: true
+    xpath: //html//div[@id='rawtotalFatPerServing']
+  - name: totalFatPerServingUom
+    singleValue: true
+    xpath: //html//div[@id='rawtotalFatPerServingMeasure']
+  - name: saturatedFatPerServing
+    singleValue: true
+    xpath: //html//div[@id='rawsaturatedFatPerServing']
+  - name: saturatedFatPerServingUom
+    singleValue: true
+    xpath: //html//div[@id='rawsaturatedFatPerServingMeasure']
+  - name: transFatPerServing
+    singleValue: true
+  - name: transFatPerServingUom
+    singleValue: true
+  - name: cholesterolPerServing
+    singleValue: true
+  - name: cholesterolPerServingUom
+    singleValue: true
+  - name: sodiumPerServing
+    singleValue: true
+    xpath: //html//div[@id='rawsodiumPerServing']
+  - name: sodiumPerServingUom
+    singleValue: true
+    xpath: //html//div[@id='rawsodiumPerServingMeasure']
+  - name: totalCarbPerServing
+    singleValue: true
+    xpath: //html//div[@id='rawtotalCarbPerServing']
+  - name: totalCarbPerServingUom
+    singleValue: true
+    xpath: //html//div[@id='rawtotalCarbPerServingMeasure']
+  - name: dietaryFibrePerServing
+    singleValue: true
+    xpath: //html//div[@id='rawdietaryFibrePerServing']
+  - name: dietaryFibrePerServingUom
+    singleValue: true
+    xpath: //html//div[@id='rawdietaryFibrePerServingMeasure']
+  - name: totalSugarsPerServing
+    singleValue: true
+    xpath: //html//div[@id='rawtotalSugarsPerServing']
+  - name: totalSugarsPerServingUom
+    singleValue: true
+    xpath: //html//div[@id='rawtotalSugarsPerServingMeasure']
+  - name: proteinPerServing
+    singleValue: true
+    xpath: //html//div[@id='rawproteinPerServing']
+  - name: proteinPerServingUom
+    singleValue: true
+    xpath: //html//div[@id='rawproteinPerServingMeasure']
+  - name: vitaminAPerServing
+    singleValue: true
+    xpath: //html//div[@id='rawvitaminAPerServing']
+  - name: vitaminAPerServingUom
+    singleValue: true
+    xpath: //html//div[@id='rawvitaminAPerServingMeasure']
+  - name: vitaminCPerServing
+    singleValue: true
+    xpath: //html//div[@id='rawvitaminCPerServing']
+  - name: vitaminCPerServingUom
+    singleValue: true
+    xpath: //html//div[@id='rawvitaminCPerServingMeasure']
+  - name: calciumPerServing
+    singleValue: true
+    xpath: //html//div[@id='rawcalciumPerServing']
+  - name: calciumPerServingUom
+    singleValue: true
+    xpath: //html//div[@id='rawcalciumPerServingMeasure']
+  - name: ironPerServing
+    singleValue: true
+    xpath: //html//div[@id='rawironPerServing']
+  - name: ironPerServingUom
+    singleValue: true
+    xpath: //html//div[@id='rawironPerServingMeasure']
+  - name: dietarySymbols
+    singleValue: true
+  - name: saltPerServing
+    singleValue: true
+    xpath: //html//div[@id='rawsaltPerServing']
+  - name: saltPerServingUom
+    singleValue: true
+    xpath: //html//div[@id='rawsaltPerServingMeasure']
+  - name: dietaryInformation
+    singleValue: true
+  - name: specifications
+    singleValue: true
+  - name: warranty
+    singleValue: true
+  - name: storage
+    singleValue: true
+    descrition: Suggested storage location for product
+    xpath: //html//div[@id='rawstorage']
+  - name: countryOfOrigin
+    singleValue: true
+    xpath: //dd[contains(@id,'-origin')]/text()
+  - name: allergyAdvice
+    singleValue: true
+  - name: recyclingInformation
+    singleValue: true
+  - name: productOtherInformation
+    singleValue: false
+  - name: packaging
+    singleValue: true
+  - name: additives
+    singleValue: true
+  - name: pricePerUnit
+    singleValue: true
+    xpath: //html//div[@id='rawpricePerUnit']
+  - name: pricePerUnitUom
+    singleValue: true
+    xpath: //html//div[@id='rawpricePerUnitMeasure']
+  - name: promotion
+    singleValue: true
+  - name: alcoholContent
+    singleValue: true
+  - name: newVersion
+    singleValue: true
+  - name: newAsin
+    singleValue: true
+  - name: newDescription
+    singleValue: true
+  - name: variantInformation
+    singleValue: true
+  - name: firstVariant
+    singleValue: true
+  - name: variants
+    singleValue: false
+  - name: additionalDescBulletInfo
+    singleValue: false
+  - name: prop65Warning
+    singleValue: true
+  - name: ageSuitability
+    singleValue: true
+    example: 4 - 99 years
+  - name: energyEfficiency
+    singleValue: true
+    example: A+, A+++, B
+  - name: technicalInformationPdfPresent
+    singleValue: true
+    defaultValue: No
+  - name: termsAndConditions
+    singleValue: true
+    defaultValue: No
+  - name: privacyPolicy
+    singleValue: true
+    defaultValue: No
+  - name: customerServiceAvailability
+    singleValue: true
+    defaultValue: No
+  - name: materials
+    singleValue: true
+    example: https://www.jdsports.co.uk/product/blue-adidas-linear-20-reversible-wind-breaker-jacket/15988125/
+  - name: Image360Present
+    singleValue: true
+    example: https://www.amazon.com/Trinsic-Single-Handle-Magnetic-Champagne-9159-CZ-DST/dp/B0050EN8E6
+    defaultValue: No
+  - name: imageZoomFeaturePresent
+    singleValue: true
+    example: https://www.zalando.de/adidas-neo-sneaker-low-blackwhite-a4315i002-q11.html
+    defaultValue: No
+  - name: proteinPerServing
+    singleValue: true
+    xpath: //html//div[@id='rawproteinPerServing']
+  - name: proteinPerServingUom
+    singleValue: true
+    xpath: //html//div[@id='rawproteinPerServingMeasure']
