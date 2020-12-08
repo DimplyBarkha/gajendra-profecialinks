@@ -14,7 +14,7 @@ fields:
   - name: alternateImages
     singleValue: false
     description: Other product images (not in manufacturer description)
-    xpath: (//div[@class="styled__Div-sc-1rh5pwd-2 kzchAg"]/img/@src)[1]
+    xpath: (//div[@class="styled__Div-sc-1rh5pwd-2 kzchAg"]/img/@src)[2]
   - name: metaKeywords
     singleValue: true
     description: The <meta> keywords content
@@ -102,6 +102,7 @@ fields:
   - name: directions
     singleValue: true
     description: Content under "directions" header
+    xpath: //*[@id="pd-description-text"]/p[3]
   - name: warnings
     singleValue: true
     description: Content under "warnings" header
@@ -130,6 +131,7 @@ fields:
   - name: variantCount
     singleValue: true
     description: Number of variants listed
+    defaultValue: '0'
     type: NUMBER
   - name: color
     singleValue: true
@@ -432,14 +434,13 @@ fields:
     singleValue: true
     description: Price of the product split into certain units
     defaultValue: €
-    # xpath: (//span[@class="styled__PriceWrapper-wpdhab-5 lgUoac"])
   - name: pricePerUnitUom
     singleValue: true
     description: The unit of measurement used in price_per_unit
-    # xpath: (//span[@class="styled__PriceWrapper-wpdhab-5 lgUoac"])
   - name: promotion
     singleValue: true
     description: promotion text on product page
+    xpath: //span[@class="styled__Discount-wpdhab-4 dcWauE"]
   - name: alcoholContent
     singleValue: true
     description: Alcohol content information
@@ -458,7 +459,6 @@ fields:
   - name: variantInformation
     singleValue: true
     description: colour / scent / flavour / other
-    # xpath: //div[@class="styled__Name-h83s98-4 izOgAK"]
   - name: firstVariant
     singleValue: true
     description: Unique identifier for a collection of variants. For a subset of
@@ -477,6 +477,7 @@ fields:
   - name: additionalDescBulletInfo
     singleValue: false
     description: null
+    xpath: //*[@id="pd-description-text"]/ul/li
   - name: prop65Warning
     singleValue: true
     description: null
