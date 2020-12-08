@@ -1,5 +1,4 @@
-
-async function implementation (
+async function implementation(
   inputs,
   parameters,
   context,
@@ -48,9 +47,6 @@ async function implementation (
             }
           });
         }
-        await new Promise(resolve => setTimeout(resolve, 20000));
-
-        // Check if load more exists
         const doesLoadMoreExists = document.querySelector('button[id="showMoreProducts"]');
 
         if (doesLoadMoreExists) {
@@ -66,13 +62,14 @@ async function implementation (
         const products = document.evaluate('//li[@class="ish-productList-item"]', document.body, null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
         const productsCount = products.snapshotLength;
         scrollTop += 3000;
+        await stall(2000);
         window.scroll(0, scrollTop);
         if (scrollTop >= 80000 || productsCount > 160) {
           await stall(10000);
           break;
         }
       }
-      function stall (ms) {
+      function stall(ms) {
         return new Promise((resolve, reject) => {
           setTimeout(() => {
             resolve();
@@ -83,6 +80,13 @@ async function implementation (
   };
 
   await applyScroll(context);
+  try {
+    await context.waitForSelector('button[id="showMoreProducts"]', { timeout: 60000 });
+    console.log('load button exist');
+  } catch (e) {
+    console.log("load more button doesn't exist");
+  }
+
   await context.evaluate(() => {
     const searchUrl = window.location.href;
     const appendElements = document.querySelectorAll('li[class*="ish-productList-item"]');
@@ -93,7 +97,7 @@ async function implementation (
         }
       });
     }
-  });
+  })
 
   console.log('Checking no results', parameters.noResultsXPath);
   return await context.evaluate(function (xp) {
