@@ -7,7 +7,7 @@ module.exports = {
     nextLinkSelector: null,
     mutationSelector: null,
     spinnerSelector: null,
-    loadedSelector: 'div.productList.ZZ7t',
+    loadedSelector: null,
     noResultsXPath: '//h2[contains(text(),"Tipps für deine Suche")]',
     openSearchDefinition: null,
     domain: 'galaxus.ch',

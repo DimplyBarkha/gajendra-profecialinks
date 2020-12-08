@@ -30,18 +30,6 @@ const transform = (data) => {
             item.text = 'https://www.galaxus.ch' + item.text;
           });
         }
-        if (row.reviewCount) {
-          row.reviewCount.forEach(item => {
-            var tmp = item.text.replace('(', '');
-            item.text = tmp.replace(')', '');
-            item.text=parseInt(item.text);
-          });
-        }
-        if (row.ratingCount) {
-          row.ratingCount.forEach(item => {
-            item.text=parseInt(item.text);
-          });
-        }
         if (row.name) {
           row.name.forEach(item => {
             item.text = item.text.replace(/\s\n/g, '').trim();
