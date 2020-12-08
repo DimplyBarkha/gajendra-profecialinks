@@ -8,7 +8,7 @@ module.exports = {
     mutationSelector: null,
     spinnerSelector: null,
     loadedSelector: 'ul.grid--view-items  li:first-child img',
-    noResultsXPath: '//div[contains(@id,"category")]//h1',
+    noResultsXPath: '//div[@id="category"]//p',
     openSearchDefinition: null,
     domain: 'reservebar.com',
     zipcode: '',

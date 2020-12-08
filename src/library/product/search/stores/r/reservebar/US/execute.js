@@ -31,7 +31,7 @@ module.exports = {
     domain: 'reservebar.com',
     url: 'https://www.reservebar.com/search?q={searchTerms}',
     loadedSelector: 'ul.grid--view-items  li:first-child img',
-    noResultsXPath: '//div[@id="category"]//h1',
+    noResultsXPath: '//div[@id="category"]//p',
     zipcode: '',
   },
   implementation,
