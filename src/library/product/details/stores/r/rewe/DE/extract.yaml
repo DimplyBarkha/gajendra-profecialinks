@@ -10,7 +10,7 @@ fields:
   - name: imageAlt
     singleValue: true
     description: Alt text of the main product image
-  - name: alternateImages
+  - name: shownImages
     singleValue: false
     description: Other product images (not in manufacturer description)
     xpath: //picture[contains(@class, 'pdr-PictureHoverZoom--Thumb')]/source[1]/@srcset
@@ -25,7 +25,7 @@ fields:
   - name: category
     singleValue: false
     description: The categories (e.g. from breadcrumbs)
-    xpath: //a[contains(@class, 'lr-breadcrumbs__link')]/div
+    xpath: //a[contains(@class, 'lr-breadcrumbs__link')]
   - name: nameExtended
     singleValue: true
     description: The product name, prefixing "${brand} - " if not included in "name"
@@ -104,10 +104,12 @@ fields:
   - name: aggregateRatingText
     singleValue: true
     description: The stated aggregate rating
+    defaultValue: 0
   - name: aggregateRating
     singleValue: true
     description: The stated aggregate rating normalized to be out of 5
     type: NUMBER
+    defaultValue: 0.0
   - name: shippingInfo
     singleValue: true
     description: Shipping information for the product
@@ -166,6 +168,7 @@ fields:
     singleValue: false
     description: Amazon best selling rank from product details (linked back) - needs
       to be collapsed
+    defaultValue: 1
   - name: salesRankCategory
     singleValue: false
     description: Amazon best selling rank from product details (linked back) - needs
@@ -223,6 +226,7 @@ fields:
     singleValue: false
     description: null
   - name: otherSellersPrice
+    defaultValue: rewe
     singleValue: false
     description: null
   - name: otherSellersShipping
@@ -506,6 +510,6 @@ fields:
       carousel,['Yes','No']
     example: https://www.zalando.de/adidas-neo-sneaker-low-blackwhite-a4315i002-q11.html
     defaultValue: No
-  - name: rank
+  - name: questionsCount
     singleValue: true
-    defaultValue: 1
+    defaultValue: 0
