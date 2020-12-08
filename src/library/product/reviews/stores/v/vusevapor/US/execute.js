@@ -25,9 +25,16 @@ async function implementation (
     }, { timeout: 10000 }, parameters.loadedSelector, parameters.noResultsXPath);
   }
 
-  await context.click('li#tab-label-reviews')
+  await context.waitForSelector('li#tab-label-reviews', { timeout: 10000 })
     .then(async () => {
-      await context.waitForSelector('li[class="item review-item"]', { timeout: 10000 });
+      // await context.click('li#tab-label-reviews')
+      await context.evaluate(() => {
+        const reviewTab = document.querySelector('li#tab-label-reviews');
+        reviewTab.click();
+      })
+        .then(async () => {
+          await context.waitForSelector('li[class="item review-item"]', { timeout: 10000 });
+        });
     })
     .catch(() => console.log('No reviews for item!'));
 
