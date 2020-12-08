@@ -10,6 +10,7 @@ async function implementation (inputs, parameters, context, dependencies) {
     isSizes: '.product-attributes__item-select',
     targetDiv: 'body > #product-wrapper',
     targetScroll: '.dyProductContainer',
+    targetManufScroll: '#wrp_flixmedia, .features-wrapper',
   };
   try {
     await context.evaluate((selectors) => {
@@ -149,16 +150,33 @@ async function implementation (inputs, parameters, context, dependencies) {
     } catch (e) {
       console.log(e.message);
     }
+    await context.evaluate(async () => {
+      await new Promise((resolve) => setTimeout(resolve, 5000));
+
+      async function infiniteScroll () {
+        let prevScroll = document.documentElement.scrollTop;
+        while (true) {
+          window.scrollBy(0, document.documentElement.clientHeight);
+          await new Promise(resolve => setTimeout(resolve, 1000));
+          const currentScroll = document.documentElement.scrollTop;
+          if (currentScroll === prevScroll) {
+            break;
+          }
+          prevScroll = currentScroll;
+        }
+      }
+      await infiniteScroll();
+    });
     try {
       const targetScroll = await context.evaluate((selectors) => {
-        return Boolean(document.querySelector(selectors.targetScroll));
+        return Boolean(document.querySelector(selectors.targetManufScroll));
       }, selectors);
       if (targetScroll) {
         await context.evaluate((selectors) => {
-          document.querySelector(selectors.targetScroll).scrollIntoView({ behavior: 'smooth' });
+          document.querySelector(selectors.targetManufScroll).scrollIntoView({ behavior: 'smooth', block: 'end', inline: 'nearest' });
         }, selectors);
         await context.waitForSelector('#inpage_container', { timeout: 60000 });
-        await context.click('#more_flixmedia');
+        await context.click('#more_flixmedia', { timeout: 60000 });
         await context.waitForSelector('#wrp_flixmedia img', { timeout: 60000 });
       }
     } catch (e) {
