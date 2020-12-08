@@ -1,0 +1,28 @@
+input:
+  _url: http://dyson.fr
+  URL: https://www.dyson.fr/eclairage/eclairage-directionnel/dyson-lightcycle/lampe-de-bureau-blanc-argent
+extractions:
+  - html: https://workbench.import.io/html/run=ff3b850d-6c49-41c2-82fe-3b222ad3e67f/task=f2565925-b9ef-4a2a-83fd-86b8ea14f0d0/7c67a696-aecb-40c1-95b4-c17b52323872.html
+    extractionConfigId: product/details/stores/d/dyson/FR/variantsExtract
+    data:
+      - group:
+          - variantId:
+              - text: 249373-01-White-Silver-
+                xpath: /html/body/ol[1]/li[1]/@variant_id
+            variantUrl:
+              - text: https://www.dyson.fr/eclairage/eclairage-directionnel/dyson-lightcycle/lampe-de-bureau-blanc-argent
+                xpath: /html/body/ol[1]/li[1]/@variant_url
+          - variantId:
+              - text: 339417-01-Black-Brass-
+                xpath: /html/body/ol[1]/li[2]/@variant_id
+            variantUrl:
+              - text: https://www.dyson.fr/eclairage/eclairage-directionnel/dyson-lightcycle/lampe-de-bureau-noir-cuivre
+                xpath: /html/body/ol[1]/li[2]/@variant_url
+          - variantId:
+              - text: 249364-01-Black-Black-
+                xpath: /html/body/ol[1]/li[3]/@variant_id
+            variantUrl:
+              - text: https://www.dyson.fr/eclairage/eclairage-directionnel/dyson-lightcycle/lampe-de-bureau-noir
+                xpath: /html/body/ol[1]/li[3]/@variant_url
+        xpath: /html
+    timestamp: 1607420006182

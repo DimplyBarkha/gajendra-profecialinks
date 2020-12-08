@@ -1,0 +1,183 @@
+input:
+  _url: http://dyson.fr
+  URL: https://www.dyson.fr/soin-des-cheveux/dyson-supersonic/edition-speciale-cuivree
+extractions:
+  - html: https://workbench.import.io/html/run=1712a646-1fc9-4016-98df-5ea8ae58c83a/task=f6d50a00-75ee-4c38-b9cf-01919f0f1af5/8c3a4775-be76-4d5d-98f8-d3c39a457463.html
+    extractionConfigId: product/details/stores/d/dyson/FR/extract
+    data:
+      - group:
+          - image:
+              - text: https://dyson-h.assetsadobe2.com/is/image/content/dam/dyson/leap-petite-global/products/personal-care/q4-gifting/supersonic-copper/PC-Q4Gift-Leap-VariantPDP-SS-ROW.jpg?$responsive$&cropPathE=desktop&fit=stretch,1&wid=1920
+                xpath: /html/body/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/img[1]/@src
+            imageAlt:
+              - text: Sèche-cheveux Dyson Supersonic™ cuivré avec coffret de présentation et
+                  pochette de rangement.
+                xpath: /html/body/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/img[1]/@alt
+            description:
+              - text: >-
+                  Coffret cadeau édition exclusive cuivrée
+                   
+                  Sèche-cheveux Dyson Supersonic™ édition exclusive cuivrée et argent. Avec un coffret de présentation Dyson et une pochette de rangement à liseré cuivré.
+                   
+                  Livraison Gratuite.
+                xpath: /html/body/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]
+            ratingCount:
+              - text: "137"
+                xpath: /html/body/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/a[1]/p[1]
+            aggregateRatingText:
+              - text: "4.7"
+                xpath: /html/body/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/a[1]/@aria-label
+            aggregateRating:
+              - text: "4.7"
+                xpath: /html/body/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/a[1]/@aria-label
+            name:
+              - text: Coffret cadeau édition exclusive cuivrée
+                xpath: /html/body/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/h1[1]
+            shippingInfo:
+              - text: Livraison gratuite*
+                xpath: /html/body/main[1]/div[2]/div[2]/div[1]/div[1]/section[1]/div[1]/div[1]/ul[1]/li[1]
+            warranty:
+              - text: La garantie Dyson
+                xpath: /html/body/main[1]/div[2]/div[2]/div[1]/div[1]/section[1]/div[1]/div[1]/ul[1]/li[3]
+            specifications:
+              - text: |-
+                  Hauteur
+                   
+                   245 mm 
+                   
+                   
+                   
+                  Longueur
+                   
+                   97 mm 
+                   
+                   
+                   
+                  Largeur
+                   
+                   78 mm
+                xpath: /html/body/main[1]/div[2]/div[18]/section[1]/div[1]/div[1]/ul[1]
+            weightNet:
+              - text: 0,63 kg
+                xpath: /html/body/main[1]/div[2]/div[18]/section[1]/div[1]/ul[1]/li[5]/p[2]
+            category:
+              - text: Soin des cheveux
+                xpath: /html/body/nav[1]/div[1]/div[1]/div[1]/div[1]/nav[1]/div[2]/div[1]/div[1]/nav[1]/ol[1]/li[2]/span[1]/a[1]/span[1]
+              - text: Sèche-cheveux Dyson Supersonic™
+                xpath: /html/body/nav[1]/div[1]/div[1]/div[1]/div[1]/nav[1]/div[2]/div[1]/div[1]/nav[1]/ol[1]/li[3]/span[1]/a[1]/span[1]
+            productUrl:
+              - text: https://www.dyson.fr/soin-des-cheveux/dyson-supersonic/edition-speciale-cuivree
+                xpath: /html/body/div[6]
+            brandText:
+              - text: Dyson
+                xpath: /html/body/div[7]
+            sku:
+              - text: 338938-01
+                xpath: /html/body/div[8]
+            variantId:
+              - text: 338938-01
+                xpath: /html/body/div[8]
+            mpc:
+              - text: 338938-01
+                xpath: /html/body/div[8]
+            color:
+              - text: Silver-Silver-Copper
+                xpath: /html/body/div[9]
+            nameExtended:
+              - text: Dyson - Coffret cadeau édition exclusive cuivrée
+                xpath: /html/body/div[12]
+            productOtherInformation:
+              - text: Ions négatifs Réduit l'électricité statique Puissance 1 600 W Longueur du
+                  câble 3,3 m Flux d'air 41 l/s Poids 0,63 kg
+                xpath: /html/body/div[13]
+            manufacturerDescription:
+              - text: Repensé pour différents types de cheveux Avec un puissant moteur numérique
+                  offrant un séchage rapide, et un contrôle intelligent de la
+                  chaleur pour aider à protéger la brillance naturelle des
+                  cheveux. Le sèche-cheveux Dyson Supersonic™ dispose maintenant
+                  de nouveaux accessoires pour coiffer différents types de
+                  cheveux. Embout lissant Sèche les cheveux avec un flux d’air
+                  doux et contrôlé, pour créer un fini lisse et naturel.
+                  Concentrateur pour brushing repensé La conception plus large
+                  et plus fine du concentrateur génère un flux d’air à grande
+                  vitesse, idéal pour le brushing. Une telle concentration de
+                  l’air permet de coiffer les cheveux mèche par mèche sans
+                  décoiffer le reste de la chevelure. Diffuseur repensé Une
+                  meilleure diffusion permet de réduire les frisottis et de
+                  définir les boucles et les ondulations avec plus de précision.
+                  Les dents plus longues vous permettent de coiffer davantage de
+                  cheveux avec un meilleur contrôle et de pénétrer plus
+                  profondément dans la chevelure. Nouvel embout de séchage doux
+                  Conçu pour être plus respectueux des cheveux fins et des cuirs
+                  chevelus sensibles, il diffuse un flux d’air plus doux et plus
+                  léger tout en garantissant un séchage rapide. Nouvel embout
+                  peigne à dents larges Conçu pour les cheveux bouclés et
+                  crépus. Doté de dents robustes pour allonger les cheveux,
+                  apporter du volume ou modeler les cheveux tout en les séchant.
+                  3 réglages de vitesse précis Élevé – séchage rapide et
+                  brushing Moyen – séchage normal Bas – séchage doux et diffus 4
+                  réglages de chaleur précis 100 °C – Séchage rapide et brushing
+                  80 °C – Séchage normal 60 °C – Séchage doux et diffus 28 °C –
+                  Froid constant Bouton d'air froid Bouton d'air froid à 28 °C
+                  pour fixer les cheveux après le brushing. Accessoires
+                  magnétiques Pour un montage et une rotation faciles pendant le
+                  brushing, tous les sèche-cheveux Dyson Supersonic™ sont livrés
+                  avec des accessoires de brushing magnétiques.
+                xpath: /html/body/div[14]
+            manufacturerImages:
+              - text: https://dyson-h.assetsadobe2.com/is/image/content/dam/dyson/products/hair-care/q4-gifting/pdp/supersonic/PC-Q4Gift-Leap-VariantPDP-KeyFeatures-SS-ROW-Attachments-SmoothingNozzle.jpg?cropPathE=desktop&fit=stretch,1&fmt=pjpeg&wid=960
+                xpath: /html/body/div[15]/ul[1]/li[1]
+              - text: https://dyson-h.assetsadobe2.com/is/image/content/dam/dyson/products/hair-care/q4-gifting/pdp/supersonic/PC-Q4Gift-Leap-VariantPDP-KeyFeatures-SS-ROW-Attachments-StylingConcentrator.jpg?cropPathE=desktop&fit=stretch,1&fmt=pjpeg&wid=960
+                xpath: /html/body/div[15]/ul[1]/li[2]
+              - text: https://dyson-h.assetsadobe2.com/is/image/content/dam/dyson/products/hair-care/q4-gifting/pdp/supersonic/PC-Q4Gift-Leap-VariantPDP-KeyFeatures-SS-ROW-Attachments-Diffuser.jpg?cropPathE=desktop&fit=stretch,1&fmt=pjpeg&wid=960
+                xpath: /html/body/div[15]/ul[1]/li[3]
+              - text: https://dyson-h.assetsadobe2.com/is/image/content/dam/dyson/products/hair-care/q4-gifting/pdp/supersonic/PC-Q4Gift-Leap-VariantPDP-KeyFeatures-SS-ROW-Attachments-GentleAir.jpg?cropPathE=desktop&fit=stretch,1&fmt=pjpeg&wid=960
+                xpath: /html/body/div[15]/ul[1]/li[4]
+              - text: https://dyson-h.assetsadobe2.com/is/image/content/dam/dyson/leap-petite-global/products/personal-care/q4-gifting/supersonic-copper/PC-Q4Gift-LeapMagento-VariantPDP-KeyFeatures-SS-ROW-Attachments-WideTooth.jpg?cropPathE=desktop&fit=stretch,1&fmt=pjpeg&wid=960
+                xpath: /html/body/div[15]/ul[1]/li[5]
+              - text: https://dyson-h.assetsadobe2.com/is/image/content/dam/dyson/products/hair-care/q4-gifting/pdp/supersonic/PC-Q4Gift-Leap-VariantPDP-KeyFeatures-SS-ROW-KeyControls-3speed.jpg?cropPathE=desktop&fit=stretch,1&fmt=pjpeg&wid=634
+                xpath: /html/body/div[15]/ul[1]/li[6]
+              - text: https://dyson-h.assetsadobe2.com/is/image/content/dam/dyson/products/hair-care/q4-gifting/pdp/supersonic/PC-Q4Gift-Leap-VariantPDP-KeyFeatures-SS-ROW-KeyControls-4speed.jpg?cropPathE=desktop&fit=stretch,1&fmt=pjpeg&wid=634
+                xpath: /html/body/div[15]/ul[1]/li[7]
+              - text: https://dyson-h.assetsadobe2.com/is/image/content/dam/dyson/products/hair-care/q4-gifting/pdp/supersonic/PC-Q4Gift-Leap-VariantPDP-KeyFeatures-SS-ROW-KeyControls-Coldshot.jpg?cropPathE=desktop&fit=stretch,1&fmt=pjpeg&wid=634
+                xpath: /html/body/div[15]/ul[1]/li[8]
+              - text: https://dyson-h.assetsadobe2.com/is/image/content/dam/dyson/products/hair-care/q4-gifting/pdp/supersonic/PC-Q4Gift-Leap-VariantPDP-KeyFeatures-SS-ROW-KeyControls-Magnetic.jpg?cropPathE=desktop&fit=stretch,1&fmt=pjpeg&wid=634
+                xpath: /html/body/div[15]/ul[1]/li[9]
+              - text: https://dyson-h.assetsadobe2.com/is/image/content/dam/dyson/products/hair-care/dyson-supersonic/supersonic-refresh/variant/iron-fuchsia/Variant-page-800x450-assets-Tech-Motor.jpg?cropPathE=desktop&fit=stretch,1&fmt=pjpeg&wid=634
+                xpath: /html/body/div[15]/ul[1]/li[10]
+              - text: https://dyson-h.assetsadobe2.com/is/image/content/dam/dyson/products/hair-care/dyson-supersonic/supersonic-refresh/variant/iron-fuchsia/Variant-page-800x450-assets-Tech-Airflow.jpg?cropPathE=desktop&fit=stretch,1&fmt=pjpeg&wid=634
+                xpath: /html/body/div[15]/ul[1]/li[11]
+              - text: https://dyson-h.assetsadobe2.com/is/image/content/dam/dyson/products/hair-care/dyson-supersonic/supersonic-refresh/variant/iron-fuchsia/Variant-page-800x450-assets-Tech-IHC.jpg?cropPathE=desktop&fit=stretch,1&fmt=pjpeg&wid=634
+                xpath: /html/body/div[15]/ul[1]/li[12]
+            videos:
+              - text: www.dyson.fr/content/dam/dyson/video/products/primary/338938-01.mp4
+                xpath: /html/body/div[17]/ul[1]/li[1]
+              - text: www.dyson.fr/content/dam/dyson/video/adm-video/fr/pc-gifting/embouts-supersonic/B195651_Dyson_Personal_Care_N605_How_To_SmoothingNozzle_VX177125_fr_FR_42_HD1080_25p_PP001.mp4
+                xpath: /html/body/div[17]/ul[1]/li[2]
+              - text: www.dyson.fr/content/dam/dyson/video/adm-video/fr/pc-gifting/embouts-supersonic/B195653_Dyson_Personal_Care_N605_How_To_StylingConcentrator_VX177130_fr_FR_59_HD1080_25p_PP002.mp4
+                xpath: /html/body/div[17]/ul[1]/li[3]
+              - text: www.dyson.fr/content/dam/dyson/video/adm-video/fr/pc-gifting/embouts-supersonic/B195655_Dyson_Personal_Care_N605_How_To_Diffuser_60_VX177121_fr_FR_51_HD1080_25p_PP001.mp4
+                xpath: /html/body/div[17]/ul[1]/li[4]
+              - text: www.dyson.fr/content/dam/dyson/video/adm-video/fr/pc-gifting/embouts-supersonic/B195656_Dyson_Personal_Care_N605_How_To_GentleDryer_VX177123_fr_FR_52_HD1080_25p_PP001.mp4
+                xpath: /html/body/div[17]/ul[1]/li[5]
+              - text: www.dyson.fr/content/dam/dyson/video/adm-video/fr/pc-gifting/embouts-supersonic/B195657_Dyson_Personal_Care_N605_How_To_WideToothComb_VX177132_fr_FR_53_HD1080_25p_PP001.mp4
+                xpath: /html/body/div[17]/ul[1]/li[6]
+            availabilityText:
+              - text: Out of Stock
+                xpath: /html/body/div[18]
+            manufacturer:
+              - text: Dyson
+            descriptionBullets:
+              - text: "0"
+            variantCount:
+              - text: "0"
+            technicalInformationPdfPresent:
+              - text: "false"
+            customerServiceAvailability:
+              - text: "false"
+            termsAndConditions:
+              - text: "true"
+            privacyPolicy:
+              - text: "true"
+        xpath: /html
+    timestamp: 1607419247824

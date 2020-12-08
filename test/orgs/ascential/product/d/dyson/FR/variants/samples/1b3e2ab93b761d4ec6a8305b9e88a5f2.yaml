@@ -1,0 +1,13 @@
+input:
+  _url: http://dyson.fr
+  URL: https://www.dyson.fr/soin-des-cheveux/dyson-supersonic/edition-speciale-cuivree
+extractions:
+  - html: https://workbench.import.io/html/run=ff3b850d-6c49-41c2-82fe-3b222ad3e67f/task=4698b0fe-9cbf-42bc-bcd3-d307413b499c/d10c4f73-3e2c-4aaf-89b6-27595168d243.html
+    extractionConfigId: product/details/stores/d/dyson/FR/variantsExtract
+    data:
+      - group:
+          - variantUrl:
+              - text: https://www.dyson.fr/soin-des-cheveux/dyson-supersonic/edition-speciale-cuivree
+                xpath: /html/body/ol[1]/li[1]/@variant_url
+        xpath: /html
+    timestamp: 1607420004499

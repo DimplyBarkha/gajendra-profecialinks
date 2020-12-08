@@ -21,7 +21,7 @@ module.exports = {
         let variantId;
         if (availableVariants.length) {
           const variantElem = availableVariants[i];
-          url = variantElem.getAttribute('href') ? `https://www.dyson.dk${variantElem.getAttribute('href')}` : window.location.href;
+          url = variantElem.getAttribute('href') ? `https://${window.location.hostname}${variantElem.getAttribute('href')}` : window.location.href;
           variantId = variantElem.querySelector('img').getAttribute('id');
         } else {
           const idElem = document.querySelector('div.product-hero__price div[data-product-id]');

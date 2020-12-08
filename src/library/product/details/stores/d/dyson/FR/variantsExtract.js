@@ -1,10 +1,10 @@
 module.exports = {
   implements: 'product/details/variants/variantsExtract',
   parameterValues: {
-    country: 'ES',
+    country: 'FR',
     store: 'dyson',
     transform: null,
-    domain: 'dyson.es',
+    domain: 'dyson.fr',
     zipcode: '',
   },
   implementation: async (inputs, parameters, context, { variants }) => {
