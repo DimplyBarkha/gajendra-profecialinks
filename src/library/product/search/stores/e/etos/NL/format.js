@@ -31,15 +31,6 @@ const transform = (data) => {
           })
         }
 
-        if(row.brand){
-          console.log('brand calling here');
-          row.brand.forEach(item => {
-              var obj = JSON.parse(item.text);
-              console.log('obj', obj);
-              item.text = obj.brand;
-          })
-        }
-
         row.rank = [{ "text": rank }];
         row.rankOrganic = [{ "text": rank }];
         rank++;
