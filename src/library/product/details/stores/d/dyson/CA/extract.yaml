@@ -112,12 +112,19 @@ fields:
 - name: ratingCount
   singleValue: true
   description: The number of ratings
+  xpath: (//*[contains(concat(' ',normalize-space(@class),' '),' ratings__stars')][@href or contains(concat(' ',normalize-space(@class),' '),'stars-no-link')]//p[contains(concat(' ',normalize-space(@class),' '),'count')][not(contains(concat(' ',normalize-space(@class),' '),'author'))])[1]
+  regExp: ^\d+
 - name: aggregateRatingText
   singleValue: true
   description: The stated aggregate rating
+  regExp: (^.{3,3})
+  regExpReplace: $1
+  xpath: (//*[contains(concat(' ',normalize-space(@class),' '),' ratings__stars')][not(contains(concat(' ',normalize-space(@class),' '),'author'))][@href or contains(concat(' ',normalize-space(@class),' '),'stars-no-link')])[1]/@aria-label
 - name: aggregateRating
   singleValue: true
   description: The stated aggregate rating normalized to be out of 5
+  regExp: (^.{3,3})
+  xpath: (//*[contains(concat(' ',normalize-space(@class),' '),' ratings__stars')][not(contains(concat(' ',normalize-space(@class),' '),'-author-'))][@href or contains(concat(' ',normalize-space(@class),' '),'stars-no-link')])[1]/@aria-label
 - name: shippingInfo
   singleValue: true
   description: Shipping information for the product

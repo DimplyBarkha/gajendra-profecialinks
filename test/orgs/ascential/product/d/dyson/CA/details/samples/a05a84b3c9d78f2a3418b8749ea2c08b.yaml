@@ -2,7 +2,7 @@ input:
   _url: http://dysoncanada.ca
   URL: https://www.dysoncanada.ca/en/vacuum-cleaners/cylinders/dyson-cinetic-big-ball-cylinder/dyson-cinetic-big-ball-animal
 extractions:
-  - html: https://workbench.import.io/html/run=ba091206-85ad-4692-8115-478df97e7acf/task=2049afba-8f94-41d0-94d6-1e56e96d2a07/5ad49ab0-76db-41b3-a239-21a83b7f9f26.html
+  - html: https://workbench.import.io/html/run=d370966f-fa1a-4e7e-88f6-6e5ad2c70eca/task=61a3335e-c2dc-4c53-be20-c698041d39e5/ab0cd083-12b5-453f-b0b0-21424b6a45b1.html
     extractionConfigId: product/details/stores/d/dyson/CA/extract
     data:
       - group:
@@ -21,9 +21,15 @@ extractions:
                    
                   No filter maintenance required. No bags to buy. Engineered for homes with pets.
                 xpath: /html/body/main[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]
-            videos:
-              - text: https://www.dysoncanada.ca/content/dam/dyson/video/products/primary/215706-01.mp4
-                xpath: /html/body/main[1]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/@data-video-src
+            ratingCount:
+              - text: "122"
+                xpath: /html/body/main[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/a[1]/p[1]
+            aggregateRatingText:
+              - text: "4.1"
+                xpath: /html/body/main[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/a[1]/@aria-label
+            aggregateRating:
+              - text: "4.1"
+                xpath: /html/body/main[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/a[1]/@aria-label
             name:
               - text: Dyson Cinetic Big Ball Animal canister vacuum cleaner.
                 xpath: /html/body/main[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/h1[1]
@@ -99,4 +105,4 @@ extractions:
             customerServiceAvailability:
               - text: "true"
         xpath: /html
-    timestamp: 1607333900570
+    timestamp: 1607411320483
