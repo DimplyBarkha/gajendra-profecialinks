@@ -33,3 +33,7 @@ fields:
     regExp: (\:)(.*)
     regExpReplace: $2
     defaultValue: 0%
+  - name: aggregateRating
+    singleValue: false
+    xpath: //div[@class="rating"]/@style
+    default: 0%
