@@ -474,7 +474,7 @@ async function implementation (
       addHiddenDiv(newDiv, 'customerServiceAvailability', 'Yes');
 
       const zoom = document.querySelector('.ZoomedImage__Zoomed-sc-1j8d1oa-0.dwtKdC') || document.querySelector('.TapToZoomText-r290sk-0');
-      addHiddenDiv(newDiv, 'rotate', zoom ? 'Yes' : 'No');
+      addHiddenDiv(newDiv, 'zoom', zoom ? 'Yes' : 'No');
 
       let rotate = document.querySelector('button[data-test="button-model-viewer"]');
       if (!rotate) {
@@ -651,8 +651,6 @@ async function implementation (
 
       if (manufacturerDesc && manufacturerDesc !== 'Loading, please wait...') {
         addHiddenDiv(newDiv, 'manufacturerDesc', manufacturerDesc);
-      } else {
-        return manufacturerDesc;
       }
       console.log('manufacturDesc', manufacturerDesc);
       addHiddenDiv(newDiv, 'manufacturerImgs', manufacturerImgs.filter(img => !img.includes('/assets/') && !img.includes('/resources/')).filter(onlyUnique).join('|'));
