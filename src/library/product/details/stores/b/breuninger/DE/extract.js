@@ -188,7 +188,7 @@ module.exports = {
         });
         checkData;
         await new Promise((resolve, reject) => setTimeout(resolve, 6000));
-
+        return await context.extract(productDetails, { transform });
         // const inboxdata = await context.evaluate(async function() {
         //     let imagesUrl = inTheBoxImages.join(' || ')
         //     let imagesText = inTheBoxTexts.join(' || ')
