@@ -1,0 +1,139 @@
+singleRecord: true
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: image
+    singleValue: false
+    description: URL of the main product image
+    xpath: (//div[contains(@class, 'img')]/a/img//@data-src)[1]
+  - name: imageAlt
+    singleValue: false
+    description: Alt text of the main product image
+    xpath: //div[contains(@class, 'img')]//img/@alt
+  - name: alternateImages
+    singleValue: false
+    description: Other product images (not in manufacturer description)
+    xpath: //div[contains(@class, 'img')]/a/img//@data-src
+  - name: category
+    singleValue: false
+    description: The categories (e.g. from breadcrumbs)
+    xpath: //ol[contains(@class, "breadcrumb-list")]/li[@class="breadcrumb-list__item initial-breadcrumb"]
+  - name: nameExtended
+    singleValue: false
+    description: The product name, prefixing "${brand} - " if not included in "name"
+      and appending " - ${variantType}" if necessary (fixed per feed)
+    xpath: //h1[contains(@class, "page-title price-item-title")]
+  - name: listPrice
+    singleValue: false
+    xpath: //span[contains(@class, 'product-card-price__previous')]
+  - name: price
+    singleValue: false
+    description: The offered price for the selected product variant - if a user
+      clicks add to basket this is the price they would be charged
+    xpath: //span[contains(@class, 'product-card-price__current')]
+  - name: availabilityText
+    singleValue: false
+    description: Availability as described on page for the selected variant. If
+      there is no availability but the product can be added to cart, this field
+      should be "In Stock"
+    xpath: //span[contains(@class, 'avail-text')]/span[contains(@class, 'available')]
+    regExp: (.+)
+    regExpReplace: In Stock
+    defaultValue: Out of Stock
+  - name: description
+    singleValue: false
+    description: Product description supplied by website - may be concatenanted from
+      multiple places; specifically not the manufacturer description
+    xpath: //div[contains(@class, 'price-item-description')]/h2 | //div[contains(@class, 'price-item-description')]/p
+  - name: brandText
+    singleValue: false
+    description: Product brand shown - this may actually NOT be just a brand name,
+      e.g. "Visit the Gillette Store"
+    xpath: //div[contains(@class, 'brand-logo')]//img/@alt
+  - name: weightNet
+    singleValue: false
+    description: Net weight as described on the page
+    xpath: //*[contains(text(), 'Вес')]/parent::*/parent::*/following-sibling::*
+  - name: weightGross
+    singleValue: false
+    description: Gross weight as described on the page
+    xpath: //*[contains(text(), 'Вес вместе с упаковкой')]/parent::*/parent::*/following-sibling::*
+  - name: gtin
+    singleValue: false
+    description: GTIN code (includes UPC/EAN)
+    xpath: //div[contains(@id, 'flix-inpage')]/@data-flix-ean
+  - name: sku
+    singleValue: false
+    description: The store-specific product identifier
+    xpath: //span[contains(@data-product-param, 'code')]
+  - name: variantId
+    singleValue: false
+    description: The store-specific product identifier
+    xpath: //span[contains(@data-product-param, 'code')]
+  - name: mpc
+    singleValue: false
+    description: The manufacturer model code (unique) of the product
+    xpath: //td//span[contains(text(), 'Модель')]/parent::*/parent::*/following-sibling::*
+  - name: ratingCount
+    singleValue: false
+    description: The number of ratings
+    xpath: //span[contains(@itemprop, 'ratingCount')]
+  - name: aggregateRatingText
+    singleValue: false
+    description: The stated aggregate rating
+  - name: aggregateRating
+    singleValue: false
+    description: The stated aggregate rating normalized to be out of 5
+    xpath: //span[contains(@itemprop, 'ratingValue')]
+  - name: shippingDimensions
+    singleValue: false
+    description: Stated shipping dimensions
+    xpath: //*[contains(text(), 'Ширина упаковки')]/parent::*/parent::*/parent::* | //*[contains(text(), 'Высота упаковки')]/parent::*/parent::*/parent::* | //*[contains(text(), 'Глубина упаковки')]/parent::*/parent::*/parent::* | //*[contains(text(), 'Габариты и вес в упаковке')]/parent::*/following-sibling::*[1] | //*[contains(text(), 'Габариты и вес в упаковке')]/parent::*/following-sibling::*[2] | //*[contains(text(), 'Габариты и вес в упаковке')]/parent::*/following-sibling::*[3]
+  - name: shippingWeight
+    singleValue: false
+    xpath: //*[contains(text(), 'Вес вместе с упаковкой')]/parent::*/parent::*/following-sibling::*
+  - name: manufacturerDescription
+    singleValue: false
+    description: The extended description of the product supplied by the lister
+    manualSelector: div#flix-inpage
+  - name: manufacturerImages
+    singleValue: false
+    description: Images within the third party description
+    xpath: //div[contains(@id, 'flix-inpage')]//@srcset
+    regExp: (.+)
+    regExpReplace: https:$1
+  - name: videos
+    singleValue: false
+    description: URLs of videos on page
+    xpath: //div[contains(@class,"media-viewer-video__iframe-wrap")]/iframe/@src | //a[contains(@class, 'video')]//img//@data-src | //div[@id='moreVideos']/text()
+    # xpath: //a[contains(@class, 'video')]//img//@data-src
+    # regExp: (.+)(vi\/)(.+)(\/)(.+)
+    # regExpReplace: https://www.youtube.com/watch?v=$3
+  - name: name
+    singleValue: false
+    description: The product name
+    xpath: //h1[contains(@class, "page-title price-item-title")] | //*/@data-product-price
+  - name: brandLink
+    singleValue: false
+    xpath: //div[contains(@class, 'brand-logo')]/a/@href
+    regExp: (.+)
+    regExpReplace: https://www.dns-shop.ru$1
+  - name: largeImageCount
+    singleValue: false
+    xpath: count(//div[contains(@class, 'img')]/a/@data-original)
+  - name: specifications
+    singleValue: false
+    description: The physical dimensions of the product including packaging.
+    xpath: //div[@id='specsArr']
+  - name: warranty
+    singleValue: false
+    description: Guarantee associated with the product
+    xpath: //span[contains(text(), 'Гарантия')]/following-sibling::*
+  - name: countryOfOrigin
+    singleValue: false
+    description: The country from which the product originates
+    xpath: //span[contains(text(), 'Страна-производитель:')]/following-sibling::*
+  - name: galleryVideos
+    singleValue: false
+    xpath: //div[contains(@class,"media-viewer-video__iframe-wrap")]/iframe/@src|  //div[@id='moreVideos']/text()
