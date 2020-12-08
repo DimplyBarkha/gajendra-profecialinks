@@ -5,8 +5,8 @@ module.exports = {
     country: 'US',
     store: 'bloomingdales',
     domain: 'bloomingdales.com',
-    loadedSelector: null,
-    noResultsXPath: null,
+    loadedSelector: 'div[id="mainContent"]',
+    noResultsXPath: '//div[@class="zeroResultsSearchMessage"]',
     zipcode: '',
   },
 };

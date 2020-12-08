@@ -31,16 +31,10 @@ module.exports = {
         else result = elem ? elem.singleNodeValue : '';
         return result && result.trim ? result.trim() : result;
       };
-      // let prodcutImage = getXpath('//div[@class="slick-slide slick-current slick-active"]//div//li[@class="main-image first-image"]//picture//img//@src', 'nodeValue');
-      // if (prodcutImage != null) {
-      //   prodcutImage = prodcutImage.split('?')[0];
-      //   addElementToDocument('added_prodcutImage', prodcutImage);
-      // }
       const availabilityText = getXpath('//button[@class="button add-to-bag"]', 'innerText');
       if (availabilityText != null && (availabilityText.includes('add to bag') || availabilityText.includes('ADD TO BAG'))) {
         addElementToDocument('added_availabilityText', 'In Stock');
       } else {
-        // await context.reportWrongGeocoding();
         addElementToDocument('added_availabilityText', 'Out of Stock');
       }
       const description = getXpath('//p[@class="c-margin-bottom-3v"]', 'innerText');
@@ -49,6 +43,10 @@ module.exports = {
         const directions = description.split('HOW TO USE IT')[1];
         addElementToDocument('added_directions', 'HOW TO USE IT' + directions);
       }
+      if (description != null && description.includes('KEY INGREDIENTS')) {
+        const directions = description.split('KEY INGREDIENTS')[1];
+        addElementToDocument('added_ingredients', 'KEY INGREDIENTS' + directions);
+      }
       if (description != null && description.includes('•')) {
         const descriptionBullets = description.split('•');
         addElementToDocument('added_descriptionBullets', descriptionBullets.length);
@@ -56,11 +54,6 @@ module.exports = {
       if (description != null) {
         const additionalDescription = description + '||' + skuNumber;
         addElementToDocument('added_additionalDescription', additionalDescription);
-      }
-      const ratingCount = getXpath('//div[@class="product-header-reviews-count"]', 'innerText');
-      if (ratingCount != null) {
-        const ratingCountVal = ratingCount.split(' ')[1].replace(/[{()}]/g, '');
-        addElementToDocument('added_ratingCount', ratingCountVal);
       }
       let scrollTop = 500;
       while (true) {
@@ -72,7 +65,6 @@ module.exports = {
         }
       }
     });
-    // await context.reportWrongGeocoding();
     await context.extract(productDetails, { transform: transformParam });
   },
 };
