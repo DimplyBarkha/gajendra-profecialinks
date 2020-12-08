@@ -1,5 +1,5 @@
 
-async function implementation(
+async function implementation (
   inputs,
   parameters,
   context,
@@ -49,10 +49,10 @@ async function implementation(
           });
         }
         await new Promise(resolve => setTimeout(resolve, 20000));
-        
+
         // Check if load more exists
         const doesLoadMoreExists = document.querySelector('button[id="showMoreProducts"]');
- 
+
         if (doesLoadMoreExists) {
           console.log('Clicking on load more btn');
           // @ts-ignore
@@ -72,7 +72,7 @@ async function implementation(
           break;
         }
       }
-      function stall(ms) {
+      function stall (ms) {
         return new Promise((resolve, reject) => {
           setTimeout(() => {
             resolve();
@@ -93,7 +93,7 @@ async function implementation(
         }
       });
     }
-  })
+  });
 
   console.log('Checking no results', parameters.noResultsXPath);
   return await context.evaluate(function (xp) {
