@@ -11,22 +11,3 @@ exampleInput5:
   URL: https://www.fanymarket.cz/wasa-bezlepk-gluten-free-240g-emco_z3927/
 exampleInput6:
   URL: https://www.fanymarket.cz/tatarska-omacka-1000ml-spak_z6047/      
-
-Search Input:
-  exampleInput1: 
-  Keywords: maso
-exampleInput2: 
-  Keywords: Mražené potraviny
-exampleInput3: 
-  Keywords: Nápoje
-exampleInput4: 
-  Keywords: Mlékárna
-exampleInput5: 
-  Keywords: Zelenina mražená
-
- 
-
-
-.id as $id | [.store,((._input | fromjson | .Keywords) | if type=="array" then .[0] else . end),.id,try (._pageTimestamp[0:18] | strptime("%Y-%m-%dT%H:%M:%S") | strftime("%m/%d/%Y %I:%M:%S %p")) catch "",.rankOrganic,.name,.productUrl,"",(.searchUrl//._url),.gtin,.thumbnail.url,.aggregateRating2//.aggregateRating,.reviewCount // 0,.price,.manufacturer,.soldBy,.rank,.endorsementText,""] | select($id != null and $id != "")  
-
- 
