@@ -85,3 +85,7 @@ fields:
   - name: metaKeywords
     singleValue: false
     xpath: //meta[@name="keywords"]/@content
+  - name: unInterruptedPDP
+    singleValue: false
+    xpath: //div[@id="cbar_widget1"]//div[@class="name"]//a
+    description: Titles of products in the sections 'you may also like' or 'sponsored products'. Combine results from Max 3 sections
