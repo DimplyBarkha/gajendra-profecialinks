@@ -115,6 +115,9 @@ module.exports = {
       var variantCount = getAllXpath("//div[@class='sku-set__dropdown_duration']//select[@id='childProductSelection']/option", 'nodeValue').length;
       console.log('variantCount' + variantCount);
       addElementToDocument('added_variantCount', variantCount);
+
+      const additionalDescBulletInfo = getAllXpath("//div[@id='Details']//div[@id='detail_container']//li/span/text()", 'nodeValue').join('||');
+      addElementToDocument('added_additionalDescBulletInfo', additionalDescBulletInfo);
     });
     await context.extract(productDetails, { transform: transformParam });
   },
