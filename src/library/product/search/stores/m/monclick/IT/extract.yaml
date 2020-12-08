@@ -1,3 +1,21 @@
+robot: product/search
+parameters:
+  country: IT
+  domain: monclick.it
+  store: monclick
+  # zipcode: "45209"
+proxy:
+  zone: ITALY
+  numberRetries: 3
+  priority: MEDIUM
+  retryDelay: 120 
+  backoffPolicy: EXPONENTIAL
+  retryWithResidentialProxyAfter: 3
+meta:
+  branches:
+    test:
+      extractor: dc141c2d-1e46-4a82-ae73-866a5eb47386
+      legacyAccountId: f94246b4-2d86-4803-9d39-25905b37f013
 singleRecord: false
 regionsSelector: null
 recordSelector: null
