@@ -11,9 +11,10 @@ fields:
     singleValue: true
     xpath: (//div[@class='zoom-image']/img/@alt)[1]
     description: Alt text of the main product image
-  # - name: alternateImages
-  #   singleValue: false
-  #   description: Other product images (not in manufacturer description)
+  - name: alternateImages
+    singleValue: false
+    xpath: //html//div[@id='abc']
+    description: Other product images (not in manufacturer description)
   - name: metaKeywords
     singleValue: true
     description: The <meta> keywords content
@@ -60,10 +61,10 @@ fields:
   # - name: manufacturer
   #   singleValue: true
   #   description: Product manufacturer
-  - name: quantity
-    singleValue: true
-    xpath: (//div[@class='product-variant-selector'])[2]/div/label/span/div/div[@class='pvsil-title']
-    description: Quantity as described on the page
+  # - name: quantity
+  #   singleValue: true
+  #   xpath: (//div[@class='product-variant-selector'])[2]/div/label/span/div/div[@class='pvsil-title']
+  #   description: Quantity as described on the page
   - name: weightNet
     singleValue: true
     description: Net weight as described on the page
@@ -86,12 +87,6 @@ fields:
     singleValue: true
     xpath: (//table[@class='pd-documents-table']/tbody/tr)[2]
     description: The manufacturer model code (unique) of the product
-    # regExp: Herstellernummer\\n \\n(.+)
-    # regExpReplace: $1
-  # - name: packSize
-  #   singleValue: true
-  #   description: The number of packs in the product offer (if stated separately on
-  #     the site to quantity)
   - name: legalDisclaimer
     singleValue: true
     description: Content under "legal disclaimer" header
@@ -106,9 +101,6 @@ fields:
     xpath: (//div[@class='bv_numReviews_text'])[2]
     description: The number of ratings
     type: NUMBER
-  # - name: aggregateRatingText
-  #   singleValue: true
-  #   description: The stated aggregate rating
   - name: aggregateRating
     singleValue: true
     xpath: (//div[@class='bv_avgRating_component_container notranslate'])[2]
@@ -235,9 +227,10 @@ fields:
   - name: otherSellersShipping
     singleValue: false
     description: null
-  # - name: secondaryImageTotal
-  #   singleValue: true
-  #   description: null
+  - name: secondaryImageTotal
+    singleValue: true
+    xpath: count(//html//div[@id='abc'])
+    description: null
     type: NUMBER
   - name: news
     singleValue: true
@@ -448,9 +441,10 @@ fields:
     singleValue: true
     description: In product page, information about a new version of the product -
       new desription info
-  # - name: variantInformation
-  #   singleValue: true
-  #   description: colour / scent / flavour / other
+  - name: variantInformation
+    singleValue: false
+    xpath: //div[@class='section-content']/div[@class='product-overview']/div/div/div/div/div/div/div/label/span/div/div[1]
+    description: colour / scent / flavour / other
   # - name: firstVariant
   #   singleValue: true
   #   description: Unique identifier for a collection of variants. For a subset of
