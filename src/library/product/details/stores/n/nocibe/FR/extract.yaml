@@ -15,7 +15,7 @@ fields:
 - name: image
   singleValue: true
   description: URL of the main product image
-  xpath: (//div[contains(@class,'-img')]//img[contains(@class,'prdct')])[1]/@src
+  xpath: (//div[contains(@class,'-img')]//img[contains(@class,'prdct')])[1]/@src | //div[contains(@class,'-img-odd')]//div[contains(@class,'prdct')][1]/text()
 - name: imageAlt
   singleValue: true
   description: Alt text of the main product image
@@ -61,6 +61,7 @@ fields:
 - name: descriptionBullets
   singleValue: true
   description: Number of ul > li tags in the description
+  xpath: count(//h3[@class='prdct__details-title']/following-sibling::p/br)
 - name: brandText
   singleValue: true
   description: Product brand shown - this may actually NOT be just a brand name, e.g.
@@ -112,7 +113,7 @@ fields:
 - name: ratingCount
   singleValue: true
   description: The number of ratings
-  xpath: //meta[@itemprop='reviewCount']/@content | //div[@class='bv-control-bar bv-control-bar-filter-offset']//span[@role][@aria-live] | //div[@class='bv_numReviews_text']
+  xpath: //meta[@itemprop='reviewCount']/@content | //div[@class='bv-control-bar bv-control-bar-filter-offset']//span[@role][@aria-live] | //div[@class='bv_numReviews_text'] | //div[contains(@class,'histogram-ratings-score')]/span[not(contains(text(), '0'))]
 - name: aggregateRatingText
   singleValue: true
   description: The stated aggregate rating
@@ -461,7 +462,7 @@ fields:
 - name: additionalDescBulletInfo
   singleValue: false
   description: 
-  xpath: count(//h3[@class='prdct__details-title']/following-sibling::p/br)
+  # xpath: count(//h3[@class='prdct__details-title']/following-sibling::p/br)
 - name: prop65Warning
   singleValue: true
   description: 

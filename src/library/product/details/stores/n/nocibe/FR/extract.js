@@ -132,6 +132,21 @@ module.exports = {
           item.text = item.text ? item.text.replace('.', ',') : '';
         });
       }
+      if (row.image) {
+        row.image.forEach(item => {
+          if (item.text.includes('src')) {
+            item.text = item.text ? item.text.substring(item.text.lastIndexOf('https'), item.text.lastIndexOf('onload') - 2) : '';
+          }
+          if (!item.text.includes('https')) {
+            item.text = item.text ? 'https://www.nocibe.fr'.concat(item.text) : '';
+          }
+        });
+      }
+      if (row.variantCount) {
+        row.variantCount.forEach(item => {
+          if (item.text === '0') item.text = '1';
+        });
+      }
     });
 
     return dataRef;
