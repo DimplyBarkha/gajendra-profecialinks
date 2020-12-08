@@ -18,8 +18,8 @@ async function implementation(
 ) {
   const { transform } = parameters;
   const { productDetails } = dependencies;
-  // await context.waitForXPath('//div[@class="tile__product-slide-rating-wrapper"]');
-  await context.waitForSelector('div[class="tile__product-slide-rating-wrapper"]');
+  await context.waitForXPath('//div[@class="tile__product-slide-rating-wrapper"]');
+  // await context.waitForSelector('div[class="tile__product-slide-rating-wrapper"]');
   // await context.waitForXPath('//div[@class="tile__product-slide-rating-wrapper"]');
   await context.evaluate(async function () {
     let scrollTop = 0;
@@ -50,7 +50,7 @@ async function implementation(
     newDiv.id = id;
     newDiv.textContent = content;
     newDiv.style.display = 'none';
-    const originalDiv = document.querySelectorAll("div[class='rating']")[index];
+    const originalDiv = document.querySelectorAll("div[class='tile__product-slide-image-container']")[index];
     originalDiv.parentNode.insertBefore(newDiv, originalDiv);
   }
   const aggregateRating = document.querySelectorAll("e2-rating")
