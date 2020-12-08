@@ -1,0 +1,22 @@
+input:
+  _url: http://dyson.it
+  URL: https://www.dyson.it/cura-dei-capelli/styler-dyson-airwrap/complete-grigio-antracite-fucsia
+extractions:
+  - html: https://workbench.import.io/html/run=88d611c5-3e29-482a-845a-ee6f520f94bf/task=58626cc4-523c-4b88-aea0-37188c318e23/e4a234b6-78a4-44bb-9150-90ae1f84b39c.html
+    extractionConfigId: product/details/stores/d/dyson/IT/variantsExtract
+    data:
+      - group:
+          - variantId:
+              - text: 310733-01-Nickel-Fuchsia-
+                xpath: /html/body/ol[1]/li[1]/@variant_id
+            variantUrl:
+              - text: https://www.dyson.it/cura-dei-capelli/styler-dyson-airwrap/complete-grigio-antracite-fucsia
+                xpath: /html/body/ol[1]/li[1]/@variant_url
+          - variantId:
+              - text: 333107-01-Black-Purple-
+                xpath: /html/body/ol[1]/li[2]/@variant_id
+            variantUrl:
+              - text: https://www.dyson.it/cura-dei-capelli/styler-dyson-airwrap/complete-nero-viola
+                xpath: /html/body/ol[1]/li[2]/@variant_url
+        xpath: /html
+    timestamp: 1607430908169

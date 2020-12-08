@@ -1,0 +1,172 @@
+input:
+  _url: http://dyson.it
+  URL: https://www.dyson.it/ventilatori-e-termoventilatori/purificatori/dyson-pure-cool-me/nero-nichel
+extractions:
+  - html: https://workbench.import.io/html/run=d35f3726-db3f-4340-b249-e28b4a373592/task=930c626d-e31d-46e3-a492-3d114122815a/38f45f48-356a-4812-946e-07fc78cd8b40.html
+    extractionConfigId: product/details/stores/d/dyson/IT/extract
+    data:
+      - group:
+          - category:
+              - text: Trattamento dell'aria
+                xpath: /html/body/nav[1]/div[1]/div[1]/div[1]/div[1]/nav[1]/div[2]/div[1]/div[1]/nav[1]/ol[1]/li[2]/span[1]/a[1]/span[1]
+              - text: Purificatori
+                xpath: /html/body/nav[1]/div[1]/div[1]/div[1]/div[1]/nav[1]/div[2]/div[1]/div[1]/nav[1]/ol[1]/li[3]/span[1]/a[1]/span[1]
+              - text: Purificatori ventilatori Dyson Pure Cool Me™
+                xpath: /html/body/nav[1]/div[1]/div[1]/div[1]/div[1]/nav[1]/div[2]/div[1]/div[1]/nav[1]/ol[1]/li[4]/span[1]/a[1]/span[1]
+            image:
+              - text: https://dyson-h.assetsadobe2.com/is/image/content/dam/dyson/images/products/primary/275917-01.png?$responsive$&cropPathE=desktop&fit=stretch,1&wid=960
+                xpath: /html/body/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/img[1]/@src
+            imageAlt:
+              - text: Dyson Pure Cool Me™ nero e nichel
+                xpath: /html/body/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/img[1]/@alt
+            alternateImages:
+              - text: https://dyson-h.assetsadobe2.com/is/image/content/dam/dyson/images/products/gallery/eu-ch/air-treatment/purifiers/pure-cool-me/275910-01/275910-01-gallery-img-1.jpg?cropPathE=desktop&fit=stretch,1&wid=576
+                xpath: /html/body/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[2]/div[1]/img[1]/@src
+              - text: https://dyson-h.assetsadobe2.com/is/image/content/dam/dyson/images/products/gallery/eu-ch/air-treatment/purifiers/pure-cool-me/275910-01/275910-01-gallery-img-2.jpg?cropPathE=desktop&fit=stretch,1&wid=576
+                xpath: /html/body/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[3]/div[1]/img[1]/@src
+              - text: https://dyson-h.assetsadobe2.com/is/image/content/dam/dyson/images/products/gallery/eu-ch/air-treatment/purifiers/pure-cool-me/275910-01/275910-01-gallery-img-3.jpg?cropPathE=desktop&fit=stretch,1&wid=576
+                xpath: /html/body/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[4]/div[1]/img[1]/@src
+              - text: https://dyson-h.assetsadobe2.com/is/image/content/dam/dyson/images/products/gallery/eu-ch/air-treatment/purifiers/pure-cool-me/275910-01/275910-01-gallery-img-4.jpg?cropPathE=desktop&fit=stretch,1&wid=576
+                xpath: /html/body/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[5]/div[1]/img[1]/@src
+              - text: https://dyson-h.assetsadobe2.com/is/image/content/dam/dyson/images/products/gallery/eu-ch/air-treatment/purifiers/pure-cool-me/275910-01/275910-01-gallery-img-5.jpg?cropPathE=desktop&fit=stretch,1&wid=576
+                xpath: /html/body/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[6]/div[1]/img[1]/@src
+              - text: https://dyson-h.assetsadobe2.com/is/image/content/dam/dyson/images/products/gallery/eu-ch/air-treatment/purifiers/pure-cool-me/275910-01/275910-01-gallery-img-6.jpg?cropPathE=desktop&fit=stretch,1&wid=576
+                xpath: /html/body/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[7]/div[1]/img[1]/@src
+            description:
+              - text: |-
+                  Purificatore ventilatore Dyson Pure Cool Me™ (nero/nichel)
+                   
+                  Purificatore ventilatore per uso personale Dyson Pure Cool Me™
+                   
+                  Ti rinfresca con aria purificata
+                xpath: /html/body/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]
+            ratingCount:
+              - text: "48"
+                xpath: /html/body/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/a[1]/p[1]
+            aggregateRatingText:
+              - text: "4.5"
+                xpath: /html/body/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/a[1]/@aria-label
+            aggregateRating:
+              - text: "4.5"
+                xpath: /html/body/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/a[1]/@aria-label
+            shippingInfo:
+              - text: |-
+                  Consegna gratuita 
+                  Spedizione gratuita con consegna entro 24-48 ore
+                xpath: /html/body/main[1]/div[2]/div[2]/div[1]/div[1]/section[1]/div[1]/div[1]/ul[1]/li[1]
+            name:
+              - text: Purificatore ventilatore Dyson Pure Cool Me™ (nero/nichel)
+                xpath: /html/body/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/h1[1]
+            specifications:
+              - text: |-
+                  Altezza
+                   
+                   401 mm 
+                   
+                   
+                   
+                  Lunghezza
+                   
+                   247 mm 
+                   
+                   
+                   
+                  Larghezza
+                   
+                   254 mm
+                xpath: /html/body/main[1]/div[2]/div[11]/section[1]/div[1]/div[1]/ul[1]
+            warranty:
+              - text: |-
+                  2 anni di garanzia 
+                  Attivata automaticamente online
+                xpath: /html/body/main[1]/div[2]/div[2]/div[1]/div[1]/section[1]/div[1]/div[1]/ul[1]/li[3]
+            firstVariant:
+              - text: Bianco / Argento
+                xpath: /html/body/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[2]/a[1]/span[1]/img[1]/@title
+            variants:
+              - text: Nero / Nichel
+                xpath: /html/body/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[2]/div[1]/span[1]/img[1]/@title
+            weightNet:
+              - text: 2,71 kg
+                xpath: /html/body/main[1]/div[2]/div[11]/section[1]/div[1]/ul[1]/li[1]/p[2]
+            productUrl:
+              - text: https://www.dyson.it/ventilatori-e-termoventilatori/purificatori/dyson-pure-cool-me/nero-nichel
+                xpath: /html/body/div[7]
+            brandText:
+              - text: Dyson
+                xpath: /html/body/div[8]
+            sku:
+              - text: 275917-01
+                xpath: /html/body/div[9]
+            variantId:
+              - text: 275917-01
+                xpath: /html/body/div[9]
+            mpc:
+              - text: 275917-01
+                xpath: /html/body/div[9]
+            color:
+              - text: Black-Nickel
+                xpath: /html/body/div[10]
+            price:
+              - text: 349,00 €
+                xpath: /html/body/div[12]
+            nameExtended:
+              - text: Purificatore ventilatore Dyson Pure Cool Me™ (nero/nichel) - Bianco /
+                  Argento
+                xpath: /html/body/div[13]
+            variantInformation:
+              - text: Nero / Nichel
+                xpath: /html/body/div[14]
+            productOtherInformation:
+              - text: Peso 2,71 kg Angolo di oscillazione 70 ° Numero di impostazioni di
+                  velocità 10
+                xpath: /html/body/div[15]
+            manufacturerDescription:
+              - text: Un flusso di aria fresca purificata a portata di mano Il nostro
+                  purificatore ventilatore per uso personale è stato progettato
+                  per contribuire a migliorare la qualità dell'aria. Il filtro
+                  sigillato combina un filtro a carboni attivi e un filtro HEPA
+                  in fibra di vetro. Insieme, catturano i gas e le particelle
+                  ultrafini presenti nell'aria. Utilizza quindi la tecnologia
+                  Dyson Core Flow™ per diffondere aria fresca purificata
+                  esattamente dove serve.
+                xpath: /html/body/div[16]
+            manufacturerImages:
+              - text: https://dyson-h.assetsadobe2.com/is/image/content/dam/dyson/products/air-treatment/pure-cool-me/Variant/Features/air-quality-purifier-pure-cool-me-variant-office-whsil.jpg?cropPathE=desktop&fit=stretch,1&fmt=pjpeg&wid=634
+                xpath: /html/body/div[17]/ul[1]/li[1]
+              - text: https://dyson-h.assetsadobe2.com/is/image/content/dam/dyson/products/air-treatment/pure-cool-me/Variant/Features/air-quality-purifier-pure-cool-me-variant-filter.jpg?cropPathE=desktop&fit=stretch,1&fmt=pjpeg&wid=634
+                xpath: /html/body/div[17]/ul[1]/li[2]
+              - text: https://dyson-h.assetsadobe2.com/is/image/content/dam/dyson/products/air-treatment/pure-cool-me/Variant/Features/Tech-pressue-feature-image.jpg?cropPathE=desktop&fit=stretch,1&fmt=pjpeg&wid=634
+                xpath: /html/body/div[17]/ul[1]/li[3]
+              - text: https://dyson-h.assetsadobe2.com/is/image/content/dam/dyson/products/air-treatment/pure-cool-me/Variant/Features/air-quality-purifier-pure-cool-me-variant-airflow-control-whsil.jpg?cropPathE=desktop&fit=stretch,1&fmt=pjpeg&wid=634
+                xpath: /html/body/div[17]/ul[1]/li[4]
+              - text: https://dyson-h.assetsadobe2.com/is/image/content/dam/dyson/products/air-treatment/pure-cool-me/Overview/air-quality-purifier-pure-cool-me-overview-oscillation.jpg?cropPathE=desktop&fit=stretch,1&fmt=pjpeg&wid=634
+                xpath: /html/body/div[17]/ul[1]/li[5]
+              - text: https://dyson-h.assetsadobe2.com/is/image/content/dam/dyson/products/air-treatment/pure-cool-me/Variant/Features/air-quality-purifier-pure-cool-me-variant-sleep-whsil.jpg?cropPathE=desktop&fit=stretch,1&fmt=pjpeg&wid=634
+                xpath: /html/body/div[17]/ul[1]/li[6]
+              - text: https://dyson-h.assetsadobe2.com/is/image/content/dam/dyson/products/air-treatment/pure-cool-me/Variant/Features/air-quality-purifier-pure-cool-me-variant-filter-change-whsil.jpg?cropPathE=desktop&fit=stretch,1&fmt=pjpeg&wid=634
+                xpath: /html/body/div[17]/ul[1]/li[7]
+              - text: https://dyson-h.assetsadobe2.com/is/image/content/dam/dyson/products/air-treatment/pure-cool-me/Variant/air-quality-pure-cool-me-variant-next-up_1.jpg?cropPathE=desktop&fit=stretch,1&fmt=pjpeg&wid=1920
+                xpath: /html/body/div[17]/ul[1]/li[8]
+            videos:
+              - text: www.dyson.it/content/dam/dyson/video/products/primary/275917-01.mp4
+                xpath: /html/body/div[19]/ul[1]/li[1]
+            availabilityText:
+              - text: In Stock
+                xpath: /html/body/div[20]
+            manufacturer:
+              - text: Dyson
+            descriptionBullets:
+              - text: "0"
+            variantCount:
+              - text: "2"
+            technicalInformationPdfPresent:
+              - text: "false"
+            customerServiceAvailability:
+              - text: "true"
+            termsAndConditions:
+              - text: "true"
+            privacyPolicy:
+              - text: "true"
+        xpath: /html/body
+    timestamp: 1607431080905

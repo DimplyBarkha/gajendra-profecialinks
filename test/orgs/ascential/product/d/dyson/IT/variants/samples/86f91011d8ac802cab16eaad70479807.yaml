@@ -1,0 +1,16 @@
+input:
+  _url: http://dyson.it
+  URL: https://www.dyson.it/aspirapolvere/senza-filo/dyson-v8/absolute-plus
+extractions:
+  - html: https://workbench.import.io/html/run=88d611c5-3e29-482a-845a-ee6f520f94bf/task=78de84ac-2383-4952-b2eb-31dcaf4ce626/9036788f-83bf-42cf-9b08-188a7d2089a0.html
+    extractionConfigId: product/details/stores/d/dyson/IT/variantsExtract
+    data:
+      - group:
+          - variantId:
+              - text: 353323-01
+                xpath: /html/body/ol[1]/li[1]/@variant_id
+            variantUrl:
+              - text: https://www.dyson.it/aspirapolvere/senza-filo/dyson-v8/absolute-plus
+                xpath: /html/body/ol[1]/li[1]/@variant_url
+        xpath: /html
+    timestamp: 1607430905151

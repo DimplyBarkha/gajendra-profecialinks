@@ -1,0 +1,22 @@
+input:
+  _url: http://dyson.it
+  URL: https://www.dyson.it/ventilatori-e-termoventilatori/purificatori/dyson-pure-cool-me/nero-nichel
+extractions:
+  - html: https://workbench.import.io/html/run=88d611c5-3e29-482a-845a-ee6f520f94bf/task=abb4ab0c-e698-4a9a-b215-3dba9bcde839/afec4c26-e212-412e-849b-d0234588af91.html
+    extractionConfigId: product/details/stores/d/dyson/IT/variantsExtract
+    data:
+      - group:
+          - variantId:
+              - text: 275910-01-White-Silver-
+                xpath: /html/body/ol[1]/li[1]/@variant_id
+            variantUrl:
+              - text: https://www.dyson.it/ventilatori-e-termoventilatori/purificatori/dyson-pure-cool-me/bianco-argento
+                xpath: /html/body/ol[1]/li[1]/@variant_url
+          - variantId:
+              - text: 275917-01-Black-Nickel-
+                xpath: /html/body/ol[1]/li[2]/@variant_id
+            variantUrl:
+              - text: https://www.dyson.it/ventilatori-e-termoventilatori/purificatori/dyson-pure-cool-me/nero-nichel
+                xpath: /html/body/ol[1]/li[2]/@variant_url
+        xpath: /html
+    timestamp: 1607430911279

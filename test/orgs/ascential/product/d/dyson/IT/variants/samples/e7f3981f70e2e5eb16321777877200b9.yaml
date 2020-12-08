@@ -1,0 +1,16 @@
+input:
+  _url: http://dyson.it
+  URL: https://www.dyson.it/aspirapolvere/robot/dyson-360-heurist/nichel-blu
+extractions:
+  - html: https://workbench.import.io/html/run=88d611c5-3e29-482a-845a-ee6f520f94bf/task=1efaf53c-97ce-48bd-a507-dadfc4305bbc/be5a0a50-2d2a-4892-8604-d193a729abbd.html
+    extractionConfigId: product/details/stores/d/dyson/IT/variantsExtract
+    data:
+      - group:
+          - variantId:
+              - text: 288218-01
+                xpath: /html/body/ol[1]/li[1]/@variant_id
+            variantUrl:
+              - text: https://www.dyson.it/aspirapolvere/robot/dyson-360-heurist/nichel-blu
+                xpath: /html/body/ol[1]/li[1]/@variant_url
+        xpath: /html
+    timestamp: 1607430905394

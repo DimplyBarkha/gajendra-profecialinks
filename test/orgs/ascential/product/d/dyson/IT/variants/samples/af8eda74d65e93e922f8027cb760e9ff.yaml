@@ -1,0 +1,22 @@
+input:
+  _url: http://dyson.it
+  URL: https://www.dyson.it/lampade/lampade-da-lavoro/dyson-lightcycle/lampada-da-pavimento-nero
+extractions:
+  - html: https://workbench.import.io/html/run=88d611c5-3e29-482a-845a-ee6f520f94bf/task=eca34397-7d6b-4edc-8719-fe9060b0d3e6/b29264eb-1f0c-4618-b85f-ba195d1efb4f.html
+    extractionConfigId: product/details/stores/d/dyson/IT/variantsExtract
+    data:
+      - group:
+          - variantId:
+              - text: 249386-01-White-Silver-
+                xpath: /html/body/ol[1]/li[1]/@variant_id
+            variantUrl:
+              - text: https://www.dyson.it/lampade/lampade-da-lavoro/dyson-lightcycle/lampada-da-pavimento-bianco-argento
+                xpath: /html/body/ol[1]/li[1]/@variant_url
+          - variantId:
+              - text: 249375-01-Black-Black-
+                xpath: /html/body/ol[1]/li[2]/@variant_id
+            variantUrl:
+              - text: https://www.dyson.it/lampade/lampade-da-lavoro/dyson-lightcycle/lampada-da-pavimento-nero
+                xpath: /html/body/ol[1]/li[2]/@variant_url
+        xpath: /html
+    timestamp: 1607430908364
