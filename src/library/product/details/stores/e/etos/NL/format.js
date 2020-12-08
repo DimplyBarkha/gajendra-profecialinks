@@ -23,18 +23,16 @@ const transform = (data) => {
       return data;
     };
     for (const { group } of data) {
-      var rank = 1;
+      var rank = 1, gtinStr = '';
       for (let row of group) { 
         if(row.brand){
-            console.log('brand calling here');
             row.brand.forEach(item => {
-                console.log('brand for loop');
                 var obj = JSON.parse(item.text);
                 console.log('obj', obj);
                 item.text = obj.brand;
+                gtinStr = obj.gtin13;
             })
-        }else{
-            console.log('comming else part');
+            row.gtin = [{"text":gtinStr}];
         }
 
         row.rank = [{ "text": rank }];
