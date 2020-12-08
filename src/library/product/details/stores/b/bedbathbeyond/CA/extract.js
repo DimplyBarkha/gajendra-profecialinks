@@ -16,17 +16,30 @@ module.exports = {
     // extracting data for a single product
     const extractSingleProductData = async () => {
       var previousVariantSkus = await context.evaluate(async () => {
-        return document.querySelector('body').getAttribute('previousvariantsku');
+        return document
+          .querySelector('body')
+          .getAttribute('previousvariantsku');
       });
       const currentVariantSku = await context.evaluate(async () => {
-        return document.querySelector('span[itemprop="sku"]').getAttribute('content');
+        return document.querySelector('span[itemprop="sku"]')
+          ? document
+            .querySelector('span[itemprop="sku"]')
+            .getAttribute('content')
+          : null;
       });
-      if (previousVariantSkus !== null && previousVariantSkus.includes(currentVariantSku)) {
+      if (
+        previousVariantSkus !== null &&
+        previousVariantSkus.includes(currentVariantSku)
+      ) {
         return;
       }
       await context.evaluate(async (previousVariantSkus) => {
-        previousVariantSkus += document.querySelector('span[itemprop="sku"]').getAttribute('content');
-        document.querySelector('body').setAttribute('previousvariantsku', previousVariantSkus);
+        previousVariantSkus += document
+          .querySelector('span[itemprop="sku"]')
+          .getAttribute('content');
+        document
+          .querySelector('body')
+          .setAttribute('previousvariantsku', previousVariantSkus);
         const descriptionElement = document.querySelector(
           'div#overview div[itemprop="description"]',
         );
@@ -54,7 +67,7 @@ module.exports = {
         if (document.querySelector('div#wc-read-button') !== null) {
           // @ts-ignore
           document.querySelector('div#wc-read-button').click();
-        };
+        }
         if (document.querySelector('div[class*="ShowMore"] button') !== null) {
           // @ts-ignore
           document.querySelector('div[class*="ShowMore"] button').click();
@@ -77,22 +90,38 @@ module.exports = {
       await context.click('img[class*="ProductMediaCarouselStyle"]');
       await context.waitForNavigation();
       await context.evaluate(async () => {
-        if (document.querySelector('img[class*="ProductMediaCarouselStyle"]') !== null) {
+        if (
+          document.querySelector('img[class*="ProductMediaCarouselStyle"]') !==
+          null
+        ) {
+          document
+            .querySelector('img[class*="ProductMediaCarouselStyle"]')
           // @ts-ignore
-          document.querySelector('img[class*="ProductMediaCarouselStyle"]').click();
-          await new Promise(resolve => setTimeout(resolve, 2000));
-          const previousImgDataElements = document.querySelectorAll('div[altimagesdata]');
-          previousImgDataElements.forEach(element => element.remove());
+            .click();
+          await new Promise((resolve) => setTimeout(resolve, 2000));
+          const previousImgDataElements = document.querySelectorAll(
+            'div[altimagesdata]',
+          );
+          previousImgDataElements.forEach((element) => element.remove());
           const altImages = document.querySelectorAll('div#rclModal ul img');
-          altImages.forEach(image => {
+          altImages.forEach((image) => {
             const imgDataElement = document.createElement('div');
             imgDataElement.setAttribute('style', 'display: none');
             document.querySelector('body').append(imgDataElement);
-            imgDataElement.setAttribute('altimagesdata', image.getAttribute('src'));
+            imgDataElement.setAttribute(
+              'altimagesdata',
+              image.getAttribute('src'),
+            );
           });
-          if (document.querySelector('div#rclModal button[aria-label="close"]') !== null) {
+          if (
+            document.querySelector(
+              'div#rclModal button[aria-label="close"]',
+            ) !== null
+          ) {
+            document
+              .querySelector('div#rclModal button[aria-label="close"]')
             // @ts-ignore
-            document.querySelector('div#rclModal button[aria-label="close"]').click();
+              .click();
           }
         }
       });
@@ -102,18 +131,28 @@ module.exports = {
     // iterating through variants
     const clickAllVariants = async (variantsArr, variantSelector) => {
       for (let i = 0; i < variantsArr.length; i++) {
-        await context.evaluate((i, variantSelector) => {
-          document
-            // @ts-ignore
-            .querySelectorAll(variantSelector)[i].click();
-        }, i, variantSelector);
+        await context.evaluate(
+          (i, variantSelector) => {
+            document
+              // @ts-ignore
+              .querySelectorAll(variantSelector)[i].click();
+          },
+          i,
+          variantSelector,
+        );
         await context.waitForNavigation();
         await context.evaluate(async (i) => {
           if (i === 0) {
-            const firstVariant = document.querySelector('span[itemprop="sku"]').getAttribute('content');
-            const firstVariantAttribute = document.querySelector('body').getAttribute('firstvariant');
+            const firstVariant = document
+              .querySelector('span[itemprop="sku"]')
+              .getAttribute('content');
+            const firstVariantAttribute = document
+              .querySelector('body')
+              .getAttribute('firstvariant');
             if (firstVariantAttribute === null) {
-              document.querySelector('body').setAttribute('firstvariant', firstVariant);
+              document
+                .querySelector('body')
+                .setAttribute('firstvariant', firstVariant);
             }
           }
         }, i);
@@ -148,14 +187,22 @@ module.exports = {
         for (let j = 0; j < firstCategoryVariants.length; j++) {
           await context.evaluate((j) => {
             document
-              // @ts-ignore
-              .querySelectorAll('div#multiSkuContainer > div:first-of-type ul li button')[j].click();
+              .querySelectorAll(
+                'div#multiSkuContainer > div:first-of-type ul li button',
+                // @ts-ignore
+              )[j].click();
           }, j);
           await context.waitForNavigation();
-          await clickAllVariants(variantElements, 'div#multiSkuContainer > div:last-of-type ul li button');
+          await clickAllVariants(
+            variantElements,
+            'div#multiSkuContainer > div:last-of-type ul li button',
+          );
         }
       } else if (variantCategoryAmount === 1) {
-        await clickAllVariants(variantElements, 'div#multiSkuContainer > div:last-of-type ul li button');
+        await clickAllVariants(
+          variantElements,
+          'div#multiSkuContainer > div:last-of-type ul li button',
+        );
       } else {
         await extractSingleProductData();
       }
@@ -163,7 +210,8 @@ module.exports = {
 
     // checking if extractor is on a collection page and if so redirecting it to each product to extract data
     const isCollectionTabPresent = await context.evaluate(async () => {
-      const collectionTabXPath = '//div[@id="pdpNavigations"]//a[contains(text(), "Collection Items")]';
+      const collectionTabXPath =
+        '//div[@id="pdpNavigations"]//a[contains(text(), "Collection Items")]';
       return (
         document
           .evaluate(
