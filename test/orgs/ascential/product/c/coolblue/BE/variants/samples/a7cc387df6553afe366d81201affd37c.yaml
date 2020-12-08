@@ -1,0 +1,28 @@
+input:
+  id: 838207
+  _url: http://coolblue.be
+extractions:
+  - html: https://workbench.import.io/html/run=0ab437c5-33f2-497a-ad5a-553ed50c7408/task=dc0495cd-5b56-458b-8412-5c84f39081bf/7013d6a1-15f4-4a5a-b172-5ccab9d1da03.html
+    extractionConfigId: product/details/stores/c/coolblue/BE/variantsExtract
+    data:
+      - group:
+          - variantId:
+              - text: "838207"
+                xpath: /html/body/div[9]
+            variantUrl:
+              - text: https://www.coolblue.be/nl/product/838207
+                xpath: /html/body/div[9]
+          - variantId:
+              - text: "838208"
+                xpath: /html/body/div[10]
+            variantUrl:
+              - text: https://www.coolblue.be/nl/product/838208
+                xpath: /html/body/div[10]
+          - variantId:
+              - text: "838206"
+                xpath: /html/body/div[11]
+            variantUrl:
+              - text: https://www.coolblue.be/nl/product/838206
+                xpath: /html/body/div[11]
+        xpath: /html/body
+    timestamp: 1607417274665

@@ -1,0 +1,16 @@
+input:
+  id: 635045
+  _url: http://coolblue.be
+extractions:
+  - html: https://workbench.import.io/html/run=0ab437c5-33f2-497a-ad5a-553ed50c7408/task=ca9832dd-b305-42f5-9617-005aae089555/02bb1195-59cb-4bda-a431-34ad73a05ecf.html
+    extractionConfigId: product/details/stores/c/coolblue/BE/variantsExtract
+    data:
+      - group:
+          - variantId:
+              - text: "635045"
+                xpath: /html/body/div[12]
+            variantUrl:
+              - text: https://www.coolblue.be/nl/product/635045
+                xpath: /html/body/div[12]
+        xpath: /html/body
+    timestamp: 1607417277134
