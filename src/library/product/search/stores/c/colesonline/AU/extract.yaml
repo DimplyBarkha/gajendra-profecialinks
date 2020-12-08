@@ -1,7 +1,7 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: //section[contains(@id,'product-list')]//div[@tile='tile']
+recordXPath: //section[contains(@id,'product-list')]//div[@tile='tile' and @data-ng-switch-when="product"]
 fields: 
   - name: productUrl
     xpath: //a[contains(@class,'product-image-link')]/@href
