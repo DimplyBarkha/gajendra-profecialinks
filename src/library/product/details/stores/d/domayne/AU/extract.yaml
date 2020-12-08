@@ -518,3 +518,11 @@ fields:
     description: If Zoom feature is available for Main image or images in the
       carousel,['Yes','No']
     example: https://www.zalando.de/adidas-neo-sneaker-low-blackwhite-a4315i002-q11.html
+  - name: inTheBoxUrl
+    xpath: //div[contains(.,'In the box')]/following-sibling::div[1]//div[@class="flix-background-image"]//img[@class="flix-img-responsive"]//@data-flixsrcset
+    regExp: (.+800w,\s)(.+.jpg)(.+)
+    regExpReplace: $2
+  - name: inTheBoxText
+    xpath: //div[contains(.,'In the box')]/following-sibling::div[1]//div[@class="flix-std-content"]//div[contains(@class,"flix-std-desc")]//text() | //h3[contains(.,'In The Box')]//following-sibling::div[1]/ul//li
+  - name: hasComparisonTable
+    defaultValue: No
