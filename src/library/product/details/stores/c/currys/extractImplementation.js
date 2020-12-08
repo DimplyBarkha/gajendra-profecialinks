@@ -4,7 +4,7 @@ const implementation = async (
   context,
   dependencies,
 ) => {
-  const optionalWaitForSelector = async (selector, timeout = 15000) => {
+  const optionalWaitForSelector = async (selector, timeout = 35000) => {
     try {
       await context.waitForSelector(selector, { timeout });
       console.log(`${selector} loaded.`);
@@ -21,6 +21,14 @@ const implementation = async (
 
   if (readMore) {
     await context.click('div[data-open-label="Read more"] ~ .long-text-ctl a');
+    const readMore = await context.evaluate(() => {
+      return document.querySelector('div[data-open-label="Read more"] ~ .long-text-ctl a') && document.querySelector('div[data-open-label="Read more"] ~ .long-text-ctl a').innerText === 'Read more';
+    });
+    if (readMore) {
+      await context.evaluate(() => {
+        document.querySelector('div[data-open-label="Read more"] ~ .long-text-ctl a').click();
+      });
+    }
   }
 
   const checkExistance = async (selector) => {

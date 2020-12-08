@@ -4,7 +4,7 @@ const implementation = async (
   context,
   dependencies,
 ) => {
-  const timeout = 30000;
+  const timeout = 45000;
   await context.setBlockAds(false);
   await context.setLoadAllResources(true);
   await context.setLoadImages(true);
