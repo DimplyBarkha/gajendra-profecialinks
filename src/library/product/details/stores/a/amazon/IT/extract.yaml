@@ -1,60 +1,10 @@
-singleRecord: true
-regionsSelector: null
-recordSelector: null
-recordXPath: null
+extends: ../../../../sharedAmazon/shared
 fields:
-  - name: image
-    singleValue: false
-    xpath: (//img[@id="landingImage"])[1]/@src
-  - name: imageAlt
-    singleValue: false
-    xpath: (//img[@id="landingImage"])[1]/@alt
-  - name: alternateImages
-    singleValue: false
-    xpath: //li[contains(@class, "imageThumbnail")][position()>1]//img/@src
-    regExp: (https.+\.com[^\.]+)
-    regExpReplace: $1.jpg
-  - name: secondaryImageTotal
-    singleValue: false
-    xpath: count(//div[@id="altImages"]//ul/li[contains(@class,  "image")][position()>1])
-  - name: metaKeywords
-    singleValue: false
-    xpath: //meta[contains(@name, "keywords")]/@content
-  - name: category
-    singleValue: false
-    xpath: //div[@id='wayfinding-breadcrumbs_feature_div']/ul/li/span/a
-  - name: nameExtended
-    singleValue: false
-    xpath: //h1[@id='title']
-  - name: name
-    singleValue: false
-    xpath: //h1[@id='title']
-  - name: listPrice
-    singleValue: false
-    xpath: //div[@id="price"]//span[contains(@class,"a-text-strike")]
-  - name: price
-    singleValue: false
-    xpath: //*[@id="priceblock_ourprice"] | //span[contains(@id, 'priceblock_saleprice')]
-  - name: availabilityText
-    singleValue: false
-    xpath: //div[@id="ii_availability"]
-    # xpath: //*[@id='availability']/span
-    # xpath: //div[@id='availability']//span[contains(text(),'Disponibilità')]| //div[@id='availability']//span[contains(text(),'Disponibile')]|//div[@id='availability']//span[contains(text(),'spedito entro')],
-    # regExp: (.+),
-    # regExpReplace: "In Stock",
-    # defaultValue: "Out Of Stock",
-  - name: description
-    singleValue: false
-    xpath: //div[@id='ii_desc']
-  - name: productOtherInformation
-    singleValue: false
-    xpath: //div[@id="prodOtherInformationFetched"]
-  - name: descriptionBullets
-    singleValue: false
-    xpath: count(//*[@id='feature-bullets']/ul/li[not(@id)])
   - name: brandText
     singleValue: false
-    xpath: //*[@id='bylineInfo'] | //a[@id='brand']
+    xpath: //a[@id="bylineInfo"]/text() | //div[contains(@id,"bylineInfo") and not(//a[@id="bylineInfo"]/text())] | //a[@id="brandteaser"]/img/@alt
+    regExp: '(Marca:\s+(.+)$|Visita lo Store di (.+)|^(.+)$)'
+    regExpReplace: $2$3$4
   - name: quantity
     singleValue: false
     xpath: //td[contains(text(), 'Peso')]/following-sibling::*[1] | //div[@class='content']/ul/li/b[contains(text(), 'Peso')]/parent::*[1]/text() | //div[@class='content']/ul/li/b[contains(text(), 'Dimensioni')]/parent::*[1]/text() | //th[contains(text(), 'Peso')]/following-sibling::*[1]
@@ -64,12 +14,6 @@ fields:
   - name: weightGross
     singleValue: false
     xpath: //td[contains(text(), 'Paketgewicht')]/following-sibling::*[1]
-  - name: asin
-    singleValue: false
-    xpath: (//input[@id="ASIN"]/@value|//input/@data-asin)[1]
-  - name: variantId
-    singleValue: false
-    xpath: (//input[@id="ASIN"]/@value|//input/@data-asin)[1]
   - name: mpc
     singleValue: false
     xpath: //th[contains(text(), 'odello')]/following-sibling::*[1]
@@ -84,190 +28,39 @@ fields:
   - name: warnings
     singleValue: false
     xpath: //b[contains(text(), 'Avvertenze:')]/parent::*
-  - name: ratingCount
-    singleValue: false
-    xpath: //*[@id="acrCustomerReviewText"]/text()
-    regExp: ([0-9.]{1,}) voti
-    regExpReplace: $1
-  - name: aggregateRatingText
-    singleValue: false
-    xpath: //*[@id="acrPopover"]/@title
-  - name: aggregateRating
-    singleValue: false
-    xpath: //*[@id="acrPopover"]/@title
-    regExp: ([0-9\,]{1,}) su
-    regExpReplace: $1
-  - name: specifications
-    singleValue: false
-    xpath: //div[@id="specsArr"]
-  - name: shippingInfo
-    singleValue: false
-    xpath: //*[@id="shipsFromSoldByInsideBuyBox_feature_div"]|//div[@id="merchant-info"]
-  - name: shippingWeight
-    singleValue: false
   - name: shippingDimensions
     singleValue: false
     xpath: //*[contains(text(), 'Dimensioni del collo')]/following-sibling::*
-  - name: variantCount
-    singleValue: false
-    xpath: count(//div[contains(@id,"variation")]//ul[contains(@class, "swatch")]/li)
-    defaultValue: '0'
-  - name: color
-    singleValue: false
-    xpath: //div[contains(@id,"variation_color_name")]//span[contains(@class, "selection")] | //*[contains(text(), 'Colore')]/following-sibling::* | //*[contains(text(), 'Colore')]/parent::*/following-sibling::*
-  - name: manufacturerImages
-    singleValue: false
-    xpath: //div[@cel_widget_id="aplus"]//img/@src
-  - name: manufacturerDescription
-    singleValue: false
-    xpath: //div[@id='ii_manufacturerDesc']
-  - name: videos
-    singleValue: false
-    xpath: (//script[contains(text(), 'durationTimestamp')])[1]
-    regExp: url":"(.{30,300})"\,"videoHeight
-    regExpReplace: $1
-  - name: amazonChoice
-    singleValue: false
-    xpath: (//*[@id="acBadge_feature_div"]//*[contains(@class,"ac-badge")])[1]
-    regExp: (.+)
-    regExpReplace: 'Yes'
-    defaultValue:  'No'
-  - name: amazonChoiceCategory
-    singleValue: false
-    xpath: (//*[@id="acBadge_feature_div"]//*[contains(@class,"ac-badge")])[1]//span[contains(@class, "ac-for-text")]//text()
-  - name: brandLink
-    singleValue: false
-    xpath: //a[@id="bylineInfo"]/@href | //a[@id='brand']/@href
-    regExp: (.+)
-    regExpReplace: https://www.amazon.it$1
+
+  - name: salesRankRaw
+    singleValue: false 
+    xpath: //div[contains(@id, "detailBulletsWrapper_feature_div")]//a[contains(@href, "bestseller") and contains(text(), "See")]/preceding-sibling::text()[1] | //div[contains(@id, "productDetails_feature_div")]//a[contains(@href, "bestseller")]/ancestor::span[1] | //div[contains(@id, "detailBulletsWrapper_feature_div")]//a[contains(@href, "bestseller") and not(contains(text(), "See"))]/ancestor::li[1]
+    regExp: n.\s*([0-9,]{1,})[ \t]*in[ \t]*([^\(]+)
+    regExpReplace: >-
+      #$1 in $2
   - name: salesRank
     singleValue: false
-    xpath: //*[@id="productDetails_detailBullets_sections1"]//span/span[contains(., "n.")]
-    regExp: n. (.*?) 
+    xpath: //div[contains(@id, "detailBulletsWrapper_feature_div")]//a[contains(@href, "bestseller") and contains(text(), "See")]/preceding-sibling::text()[1] | //div[contains(@id, "productDetails_feature_div")]//a[contains(@href, "bestseller")]/ancestor::span[1] | //div[contains(@id, "detailBulletsWrapper_feature_div")]//a[contains(@href, "bestseller") and not(contains(text(), "See"))]/ancestor::li[1]
+    regExp: n.\s*([0-9,]{1,})[ \t]*in[ \t]*([^\(]+)
     regExpReplace: $1
   - name: salesRankCategory
     singleValue: false
-    xpath: //*[@id="SalesRank"]/*[contains(text(), "en")]/text() | //*[@id="SalesRank"]//span[contains(., "en")]/a
-    regExp: in (.*)
-    regExpReplace: $1
-  - name: subscriptionPrice
-    singleValue: false
-    xpath: //*[@id="sns-base-price"]
-    regExp: ([^ ]+)
-    regExpReplace: $1
-  - name: subscribeAndSave
-    singleValue: false
-    xpath: //*[@id="sns-base-price"]
-    regExp: ([^ ]+)
-    regExpReplace: 'YES'
-    defaultValue: 'NO'
-  - name: gtin
-    singleValue: false
-  - name: pasin
-    singleValue: false
-    xpath: //script[contains(text(), 'parentAsin')]
-    regExp: parentAsin"\s:\s"(.*?)"
-    regExpReplace: $1
-  - name: videoLength
-    singleValue: false
-    xpath: //script[contains(text(), 'durationTimestamp')][1]
-    regExp: (\d+:\d+)
-    regExpReplace: $1
-  - name: ingredientImagePresent
-    singleValue: false
-    xpath: //script[contains(text(),"INGR")]
-    regExp: (.+)
-    regExpReplace: 'Yes'
-    defaultValue: NO
-  - name: factImagePresent
-    singleValue: false
-    xpath: //script[contains(text(),"FACT")]
-    regExp: (.+)
-    regExpReplace: 'Yes'
-    defaultValue: NO
-  - name: largeImageCount
-    singleValue: false
-    xpath: count(//li[contains(@class, 'image')]//img/@src)
-  - name: variantAsins
-    singleValue: false
-    xpath: //div[@id='ii_variant']
-  - name: variants
-    singleValue: false
-    xpath: //div[@id='ii_variant']
-  - name: primeFlag
-    singleValue: false
-    xpath: (//div[contains(@id,"price")]//tr[contains(@id, "priceblock") and not(contains(@id, "upsell")) and //i[contains(@class, "a-icon-prime")]])[1]
-    regExp: (.+)
-    regExpReplace: 'Yes'
-    defaultValue: NO
-  - name: lbb
-    singleValue: false
-    xpath: //div[@id='ii_lbb']
-  - name: lbbPrice
-    singleValue: false
-    xpath: //div[@id='ii_lbbPrice')]
-  - name: featureBullets
-    singleValue: false
-    xpath: //*[@id='feature-bullets']/ul/li[not(@id)]
-  - name: otherSellersName
-    singleValue: false
-    xpath: //div[@id='pd_otherSellerName'] 
-  - name: otherSellersPrice
-    singleValue: false
-    xpath: //div[@id='pd_otherSellersPrice']
-  - name: otherSellersPrime
-    singleValue: false
-    xpath: //div[@id='pd_otherSellersPrime']
-  - name: otherSellersShipping2
-    singleValue: false
-    xpath: //div[@id='pd_otherSellersShipping2']
-  - name: secondaryImageTotal
-    singleValue: false
-    xpath: count(//div[@id='altImages']//li[contains(@class, 'imageThumbnail')])
-  - name: news
-    singleValue: false
-    description: null
-  - name: andon_cord
-    singleValue: false
-    defaultValue: No
-  - name: fastTrack
-    singleValue: false
-    xpath: //*[@id="ddmDeliveryMessage"]
+    xpath: //div[contains(@id, "detailBulletsWrapper_feature_div")]//a[contains(@href, "bestseller") and contains(text(), "See")]/preceding-sibling::text()[1] | //div[contains(@id, "productDetails_feature_div")]//a[contains(@href, "bestseller")]/ancestor::span[1] | //div[contains(@id, "detailBulletsWrapper_feature_div")]//a[contains(@href, "bestseller") and not(contains(text(), "See"))]/ancestor::li[1]
+    regExp: n.\s*([0-9,]{1,})[ \t]*in[ \t]*([^\(]+)
+    regExpReplace: $2
+
   - name: ingredientsList
     singleValue: false
-    xpath: //h3[contains(text(), 'Ingredientes')]/following-sibling::*[1]
-  - name: variantInformation
-    singleValue: false
-    xpath: //*[@id="twister"]//span[@class="selection"]
-  - name: firstVariant
-    singleValue: false
-    xpath: //script[contains(text(), 'parentAsin')]
-    regExp: parentAsin"\s:\s"(.*?)"
-    regExpReplace: $1
+    xpath: //h3[contains(text(), 'Ingredientes')]/following-sibling::*[1] | //td[contains(.,"Ingredientes")]/following-sibling::td//span[@class="a-truncate-full a-offscreen"]
   - name: allergyAdvice
     singleValue: false
     xpath: //*[contains(text(), 'Allergen')]/following-sibling::*[1]
   - name: alcoholContent
     singleValue: false
     xpath: //*[contains(text(), 'Gradazione alcolica')]/following-sibling::*[1]
-  - name: coupon
-    singleValue: false
-    xpath: //*[contains(@class, 'couponFeature')]//span
-  - name: pricePerUnit
-    singleValue: false
-    xpath: //*[@id="priceblock_ourprice"]//following-sibling::span|//*[@id="priceblock_saleprice"]//following-sibling::span
-    regExp: \(?(.*)\/.*\)
-    regExpReplace: $1
-  - name: pricePerUnitUom
-    xpath: //*[@id="priceblock_ourprice"]//following-sibling::span|//*[@id="priceblock_saleprice"]//following-sibling::span
-    regExp: \(?.*\/.?(.*)\)
-    regExpReplace: $1
   - name: legalDisclaimer
     singleValue: false
     xpath: //h1[contains(text(), 'legale')]/following-sibling::*
-  - name: additionalDescBulletInfo
-    singleValue: false
-    xpath: //div[@id="ii_additionalDescBullets"]
   - name: countryOfOrigin
     singleValue: false
     xpath: //*[contains(text(), 'Paese')]/following-sibling::*

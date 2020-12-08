@@ -12,7 +12,7 @@ async function implementation (
   dependencies,
 ) {
   const { date, results } = inputs;
-  const { transform, mergeType} = parameters;
+  const { transform, mergeType } = parameters;
   let filterReviews = parameters.filterReviews;
   const { productReviews } = dependencies;
   // Adding current page url

@@ -5,9 +5,12 @@ module.exports = {
   parameterValues: {
     country: 'IT',
     store: 'amazon',
-    transform: null,
     domain: 'amazon.it',
-    zipcode: '20019',
+  },
+  dependencies: {
+    Helpers: 'module:helpers/helpers',
+    AmazonHelp: 'module:helpers/amazonHelp',
+    variants: 'extraction:product/details/stores/${store[0:1]}/${store}/${country}/variantsExtract',
   },
   implementation,
 };
