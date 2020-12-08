@@ -125,4 +125,9 @@ fields:
   - name: description
     singleValue: false
     xpath: //div[@class='new-wysiwyg']
+
+  - name: hasComparisonTable
+    singleValue: true
+    xpath: boolean(//div[@class="inner"])
+    
     
