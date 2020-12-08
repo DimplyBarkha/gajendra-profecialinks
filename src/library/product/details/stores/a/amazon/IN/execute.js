@@ -5,8 +5,8 @@ module.exports = {
     country: 'IN',
     store: 'amazon',
     domain: 'amazon.in',
-    loadedSelector: null,
-    noResultsXPath: '//b[contains(text(),"Looking for something?")]/ancestor::table',
+    loadedSelector: '#productTitle, [data-automation-id=title], [id*=Title] h1, h1[class*=title],  h1[id*=title]',
+    noResultsXPath: '//a[contains(@href, "dogsofamazon") and not(contains(@href, "503"))]',
     zipcode: '',
   },
 };
