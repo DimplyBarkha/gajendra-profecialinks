@@ -6,6 +6,9 @@ fields:
   - name: image
     singleValue: false
     xpath: //li[@id="tns1-item0"]//img[contains(@class, "image__default")]/@src
+  - name: brand
+    singleValue: false
+    xpath: //div[@class="c-quantity-selector c-quantity-selector-pdp quantity-selector--large quantity-selector--collapsible"]/@data-product['brand']
   - name: imageAlt
     singleValue: false
     xpath: //li[@id="tns1-item0"]//img[contains(@class, "image__default")]/@alt
