@@ -2,17 +2,7 @@ singleRecord: false
 regionsSelector: null
 recordSelector: null
 recordXPath: //div[@data-testid="products-grid"]/div/div[starts-with(@data-automation-id,'production-index')]
-fields:
-  - name: paid
-    singleValue: false
-    description: Whether this is a sponsored/paid result
-    type: BOOLEAN
-  - name: brand
-    singleValue: false
-    description: The brand name
-    # xpath: //div[@class="product_brand__1CsRr"]
-    xpath: //div[@data-automation-id="brand"]
-    defaultValue: 'BRAND'  
+fields:  
   - name: productUrl
     singleValue: false
     description: The URL for the product details page
@@ -24,66 +14,28 @@ fields:
   - name: name
     singleValue: false
     description: The product name
-    xpath: //p[@data-automation-id="product-name"]
-  - name: sku
-    singleValue: false
-    description: The store-specific product identifier
-  - name: mpc
-    singleValue: false
-    description: The model code of the product
-  - name: gtin
-    singleValue: false
-    description: GTIN code (includes UPC/EAN)
-  - name: aggregateRatingText
-    singleValue: false
-    description: The stated aggregate rating
-  - name: ratingCount
-    singleValue: false
-    description: The number of ratings
-  - name: reviewCount
-    singleValue: false
-    description: The number of reviews
+    xpath: //p[@data-automation-id="product-name"]  
   - name: price
     singleValue: false
     description: The offered price for the product
     xpath: //p[@data-automation-id="sale-price"]
   - name: listPrice
     singleValue: false
-    description: The stated undiscounted price for the product
-  - name: manufacturer
-    singleValue: false
-    description: Product manufacturer
-  - name: soldBy
-    singleValue: false
-    description: The name of the seller of the item (if available)
-  - name: endorsementText
-    singleValue: false
-    description: The text that signifies that a product is endorsed
-  - name: shippingInfo
-    singleValue: false
-    description: Shipping information for the product
+    description: The stated undiscounted price for the product 
   - name: rank
     singleValue: false
     description: search/listing rank
-    type: NUMBER
   - name: rankOrganic
     singleValue: false
     description: The position (rank) within the list excluding sponsored/paid results
-    type: NUMBER
   - name: sponsored
     singleValue: false
     description: Is sponsored/paid
-    type: BOOLEAN
   - name: id
     singleValue: false
     description: Unique id (within this extractor)
-    xpath: //a[contains(@class , "product_name__1YFfY")]/@href
-  - name: nameExtended
-    singleValue: false
-    description: The product name, prefixing "${brand} - " if not included in "name"
-      and appending " - ${variantType}" if necessary (fixed per extractor)
-    xpath: concat(//div[@class="product_brand__1CsRr"]," ",//p[@data-automation-id="product-name"])
+    xpath: //a[contains(@class , "product_name__1YFfY")]/@href  
   - name: aggregateRating
     singleValue: false
     description: The stated aggregate rating normalized to be out of 5
-    type: NUMBER
+  
