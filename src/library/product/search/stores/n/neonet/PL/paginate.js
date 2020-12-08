@@ -4,10 +4,10 @@ module.exports = {
   parameterValues: {
     country: 'PL',
     store: 'neonet',
-    nextLinkSelector: 'div.listingDesktop-pagination_top-173 div * button:last-child',
-    mutationSelector: null,
+    nextLinkSelector: 'button[class="listingDesktop-showMoreBtn-fyg"]',
+    mutationSelector: '[class="listingDesktop-gallery-3uP"]',
     spinnerSelector: null,
-    loadedSelector: 'section.listingDesktop-gallery-3uP',
+    // loadedSelector: 'section.listingDesktop-gallery-3uP',
     openSearchDefinition: null,
     domain: 'neonet.pl',
     zipcode: '',

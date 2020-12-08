@@ -17,6 +17,11 @@ module.exports = {
       description: 'to set location',
       optional: true,
     },
+    {
+      name: 'mergeType',
+      description: 'For merge rows results calculation.',
+      optional: true,
+    },
   ],
   inputs: [
     {
@@ -46,7 +51,7 @@ module.exports = {
     extract: 'action:product/search/extract',
   },
   path: './search/stores/${store[0:1]}/${store}/${country}/search',
-  implementation: async ({ keywords, Keywords, Brands, results = 150 }, { country, store, domain, zipcode }, context, { execute, extract, paginate }) => {
+  implementation: async ({ keywords, Keywords, Brands, results = 150 }, { country, store, domain, zipcode, mergeType }, context, { execute, extract, paginate }) => {
     // TODO: consider moving this to a reusable function
     const length = (results) => results.reduce((acc, { group }) => acc + (Array.isArray(group) ? group.length : 0), 0);
 
@@ -80,7 +85,7 @@ module.exports = {
         // no results
         break;
       }
-      collected += count;
+      collected = (mergeType && (mergeType === 'MERGE_ROWS') && count) || (collected + count);
       console.log('Got more results', collected);
       page++;
     }
