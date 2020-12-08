@@ -89,5 +89,11 @@ fields:
     xpath: //ul[@class="list-inline breadcrumb-ul"]//li[not(a)]
   - name: variantId
     xpath: (//@data-idprod)[1]
+  - name: inTheBoxText
+    xpath: //li[contains(.,'inclus')]//div| //label[contains(.,"Contenu de l'emballage")]/following-sibling::div[1]
+  - name: hasComparisonTable
+    defaultValue: No
+  - name: unInterruptedPDP
+    xpath: //h2[contains(.,'Vous aimerez aussi')]/..//following-sibling::div/div[contains(@class,"owl-wrapper")]//div[@class="owl-item"]
 
  
