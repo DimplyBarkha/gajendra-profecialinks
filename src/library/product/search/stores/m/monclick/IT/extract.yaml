@@ -5,12 +5,14 @@ parameters:
   store: monclick
   # zipcode: "45209"
 proxy:
-  zone: ITALY
+  zone: ITA
+  type: RESIDENTIAL
   numberRetries: 3
   priority: MEDIUM
   retryDelay: 120 
   backoffPolicy: EXPONENTIAL
   retryWithResidentialProxyAfter: 3
+  
 meta:
   branches:
     test:
@@ -58,6 +60,5 @@ fields:
     description: Unique id (within this extractor)
     xpath: //section/div/div/div[contains(@class,'productListingImage')]/a/@data-product-code
   - name: aggregateRating
-    # type: NUMBER
     xpath: //div[@id="aggregateRating"]
   - name: hasVariants
