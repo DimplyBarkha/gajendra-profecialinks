@@ -18,20 +18,24 @@ module.exports = {
   ) {
     const { productDetails } = dependencies;
     const { transform } = parameters;
-    const selectorExists = await context.evaluate(function () {
-      return Boolean(document.querySelector('main[id="bd"]>div:first-child ul>li:first-child p[class*="imageTitle"]'));
-    });
-
+    try {
+      await context.waitForSelector('div[class*="BrowseProductCardImage"]', { timeout: 30000 });
+      console.log('selector of image exist');
+    } catch (e) {
+      console.log("selector of image doesn't exist");
+    }
+    const checkSelectorExistence = async (selector) => {
+      return await context.evaluate(async (currentSelector) => {
+        return await Boolean(document.querySelector(currentSelector));
+      }, selector);
+    };
+    const selectorExists = await checkSelectorExistence('main[id="bd"]>div:first-child ul>li:first-child p[class*="imageTitle"]');
     if (selectorExists) {
       await context.click('main[id="bd"]>div:first-child ul>li:first-child p[class*="imageTitle');
       await context.waitForNavigation({ timeout: 10000 });
       console.log('clicked the button successfully');
     }
-
-    const categorySelectorExists = await context.evaluate(function () {
-      return Boolean(document.querySelector('div[class*="categoryList"] >div>div:first-child>div>a>div>div'));
-    });
-
+    const categorySelectorExists = await checkSelectorExistence('div[class*="categoryList"] >div>div:first-child>div>a>div>div');
     if (categorySelectorExists) {
       await context.click('div[class*="categoryList"] >div>div:first-child>div>a>div>div');
       await context.waitForNavigation({ timeout: 10000 });
