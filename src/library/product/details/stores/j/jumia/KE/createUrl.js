@@ -4,7 +4,7 @@ module.exports = {
   parameterValues: {
     domain: 'jumia.co.ke',
     prefix: null,
-    url: null,
+    url: 'https://www.jumia.co.ke/catalog/?q={id}',
     country: 'KE',
     store: 'jumia',
     zipcode: '',
