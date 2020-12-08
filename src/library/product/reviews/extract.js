@@ -12,7 +12,7 @@ async function implementation (
   dependencies,
 ) {
   const { date, results } = inputs;
-  const { transform } = parameters;
+  const { transform, mergeType} = parameters;
   let filterReviews = parameters.filterReviews;
   const { productReviews } = dependencies;
   // Adding current page url
@@ -30,8 +30,8 @@ async function implementation (
     const currentPageDiv = document.querySelector('#currentPageUrl');
     currentPageDiv ? currentPageDiv.textContent = currentPageUrl : addElementToDocument('currentPageUrl', currentPageUrl);
   });
-
-  const data = await context.extract(productReviews, { transform });
+  const mergeOptions = mergeType ? { transform, type: mergeType } : { transform };
+  const data = await context.extract(productReviews, mergeOptions);
   let stop = false;
   // Fiter out reviews in case reviews outside limit is present in the page.
   if (data && data[0]) {
@@ -72,6 +72,11 @@ module.exports = {
     {
       name: 'filterReviews',
       description: 'Boolean (true or false), filters out reviews outside given date.',
+      optional: true,
+    },
+    {
+      name: 'mergeType',
+      description: 'In case of MERGE_ROWS, pass here',
       optional: true,
     },
   ],
