@@ -4,7 +4,7 @@
  * @returns {ImportIO.Group[]}
  */
 const transform = (data, context) => {
-  for (const {group} of data) {
+  for (const { group } of data) {
     for (const row of group) {
       if (row.hasComparisonTable) {
         row.hasComparisonTable = [{ text: 'Yes' }];
