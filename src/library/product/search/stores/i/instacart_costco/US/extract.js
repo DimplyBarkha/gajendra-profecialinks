@@ -41,7 +41,7 @@ module.exports = {
       }
 
       const product = document.querySelectorAll(
-        ".rmq-926ae505.rmq-6898c4bf.item-card div a"
+        "#search_result_set_04cd09d36b3bd762f7a7892126c584c4-module > ul > li a"
       );
 
       for (let i = 0; i < product.length; i++) {
@@ -55,7 +55,6 @@ module.exports = {
         }
 
         addHiddenDiv("ii_produrl", url, i);
-        addHiddenDiv("ii_procode", product_code[1], i);
         addHiddenDiv("ii_rankOrganic", i + 1, i);
       }
     });
