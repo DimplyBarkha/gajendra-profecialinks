@@ -78,7 +78,7 @@ const transform = (data) => {
       if (row.manufacturerDescription) {
         let text = '';
         row.manufacturerDescription.forEach(item => {
-          text += item.text.replace(/\n \n/g, ' ').replace('Content from the Manufacturer', '').replace('This content uses cookies to improve your experience. By continuing, you agree to this use. Learn More at https://flixmedia.eu/privacy-policy/', '');
+          text += item.text.replace(/\n \n/g, ' ').replace('Content from the Manufacturer', '').replace(/(.*)This content uses cookies to improve your experience. By continuing, you agree to this use(.*)/, '$1').replace(/(.*){(.*)}(.*)/, '$1 $3');
         });
         row.manufacturerDescription = [
           {
@@ -112,6 +112,22 @@ const transform = (data) => {
           !item.text.startsWith('https') ? videos.push({ text: item.text.replace(/(.*)(\/)(.*).mp4(.*)/, 'https://content.jwplatform.com/videos/$3.mp4') }) : videos.push({ text: item.text });
         });
         row.videos = videos;
+      }
+      if (row.videos1) {
+        const videos = [];
+        for (let i = 1; i <= row.videos1[0].value; i++) {
+          if (row.sku) {
+            const sku = row.sku[0].text;
+            videos.push({ text: `https://da.lowes.ca/webassets/videos/${sku}_${sku}_video_0${i}.mp4` });
+          }
+        }
+        if (!row.videos && videos.length >= 1) {
+          row.videos = videos;
+        } else {
+          if (row.videos && videos.length >= 1) {
+            row.videos = [...row.videos, ...row.videos1];
+          }
+        }
       }
       if (row.manufacturerImages) {
         const manufacturerImages = [];

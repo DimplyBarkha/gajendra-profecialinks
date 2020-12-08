@@ -39,6 +39,7 @@ module.exports = {
       }
       const iFrame = document.querySelector('iframe[title="Product Videos"]');
       if (iFrame) {
+        // @ts-ignore
         var finalSrc = iFrame.contentWindow.document.getElementsByTagName('video');
         for (let index = 0; index < finalSrc.length; index++) {
           if (finalSrc[index].src) {

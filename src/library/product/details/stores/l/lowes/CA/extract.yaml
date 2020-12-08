@@ -129,6 +129,10 @@ fields:
   - name: videos
     singleValue: false
     xpath: //div[@id="pd_videos"] | //input[@class="flix-jw"]/@value
+  - name: videos1
+    singleValue: false
+    type: NUMBER
+    xpath: count(//div[contains(@class,"product-carousel-item video-image")])
   - name: name
     xpath: //h1[@class='product-name']
   - name: inStorePrice
