@@ -88,14 +88,14 @@ module.exports = {
         const iframeURLLink = await context.evaluate(async function () {
           return document.querySelector('iframe[id^="loadbee"]').getAttribute('src');
         });
-        const obj = await sharedhelpers.goToiFrameLink(iframeURLLink, link, 'body img', 'data-src', '.in-the-box', '.compare-headline');
+        const obj = await sharedhelpers.goToiFrameLink(iframeURLLink, link, 'body img', 'data-src', null, null, '.in-the-box', '.compare-headline');
         image = obj.image;
         content = obj.content;
         inBoxText = obj.inBoxText;
         inBoxUrls = obj.inBoxUrls;
         comparisionText = obj.comparisionText;
 
-        console.log('object');
+        console.log('object!@12');
         console.log(obj);
 
         if (inBoxUrls.length) {
@@ -106,7 +106,7 @@ module.exports = {
         sharedhelpers.addHiddenInfo('ii_comparisionText', comparisionText);
         console.log('inBoxText');
         console.log(inBoxText);
-        console.log(inBoxTeext);
+        console.log(inBoxText);
         sharedhelpers.addHiddenInfo('ii_inBoxText', inBoxText);
 
         await sharedhelpers.addHiddenInfo('manufContent', content);
