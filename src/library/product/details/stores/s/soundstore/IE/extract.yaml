@@ -528,6 +528,14 @@ fields:
       carousel,['Yes','No']
     example: https://www.zalando.de/adidas-neo-sneaker-low-blackwhite-a4315i002-q11.html
     defaultValue: Yes
+  - name: inTheBoxUrl
+    singleValue: false
+    xpath: //div[contains(@class, "inpage_selector_InTheBox")]//img/@src
+    description: Must include image url to show the accessories/tools which come with the product
+  - name: inTheBoxText
+    singleValue: false
+    xpath: //div[contains(@class, "inpage_selector_InTheBox")]//span
+    description: Must include text to show the accessories/tools which come with the product
   - name: hasComparisonTable
     singleValue: true
     xpath: boolean(//div[@data-role="add-to-links"])
