@@ -45,23 +45,6 @@ async function implementation(
     function dataBind(domElement, obj) {    
       var bind = domElement.getAttribute("bind").split(":");
     }
-  // function bindValue(objectToBind) {
-  // var elemToBind = document.getAttribute(objectToBind.rating)    
-  // elemToBind.addEventListener("change", function() {
-  //     objectToBind.value = this.value;
-  // })
-  // }
-  // function bindValues(id1, id2) {
-  //   const e1 = document.getElementById(id1);
-  //   const e2 = document.getElementById(id2);
-  //   e1.addEventListener('input', function(event) {
-  //     e2.value = event.target.value;
-  //   });
-  //   e2.addEventListener('input', function(event) {
-  //     e1.value = event.target.value;
-  //   });
-  // }
-
   function addHiddenDiv(id, content, index) {
     const newDiv = document.createElement('div');
     newDiv.id = id;
@@ -73,13 +56,12 @@ async function implementation(
   const aggregateRating = document.querySelectorAll("e2-rating")
   for (let k = 0; k < aggregateRating.length; k++) {
   // @ts-ignore
-  let singleRating = aggregateRating[k].getAttribute("reviews-number");
-  // singleRating = singleRating.slice(0, singleRating.length - 1)
-  // singleRating = (5 * singleRating) / 100;
-  // singleRating = singleRating.toFixed(1);
+  let singleRating = aggregateRating[k].getAttribute("rating");
   console.log(singleRating,'=singleRating')
   addHiddenDiv('aggregateRating', singleRating, k);
   }
+
+
   function addHiddenDiv1(id, content, index) {
     const newDiv = document.createElement('div');
     newDiv.id = id;
