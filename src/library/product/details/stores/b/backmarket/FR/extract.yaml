@@ -64,8 +64,6 @@ fields:
   - name: quantity
     singleValue: true
     description: Quantity as described on the page
-    regExp: (?:\s?([\d\.]+\s?)([bB]ar[s]?|[cC]ount|[cC]t|[fF][lL][\.]?\s?[oO][zZ][\.]?|FO|[mM][lL]|[oO][zZ][\.]?|pc|[pP]int|[pP]ops|qt|[wW]ipe[s]?).?)$|(?:\s?([\d\.]+\s?)([bB]ar[s]?|[cC]ount|[cC]|[fF][lL][\.]?\s?[oO][zZ][\.]?|FO|[mM][lL]|[oO][zZ][\.]?|pc|[pP]int|[pP]ops|qt|[wW]ipe[s]?).?\s?[\&\-\w\s]+)$
-    regExpReplace: $1$2$3$4
   - name: weightNet
     singleValue: true
     description: Net weight as described on the page
@@ -106,19 +104,18 @@ fields:
     description: The number of ratings
     xpath: (//p[@data-test='review-display-rate-section-text']/strong[contains(text(),'avis')])[1]
     type: NUMBER
-  - name: aggregateRatingText
+  - name: aggregateRatingText 
     singleValue: true
     description: The stated aggregate rating
     xpath: (//strong[@class='LC2nl-FnDLn38vhZnBeEQ'])[1]
     regExp: (\d).(\d+)
-    regExpReplace: $1,$3
-  - name: aggregateRating
+    regExpReplace: $1,$2
+  - name: aggregateRating 
     singleValue: true
     description: The stated aggregate rating normalized to be out of 5
-    type: NUMBER
     xpath: (//strong[@class='LC2nl-FnDLn38vhZnBeEQ'])[1]
     regExp: (\d).(\d+)
-    regExpReplace: $1,$3
+    regExpReplace: $1,$2
   - name: shippingInfo
     singleValue: true
     description: Shipping information for the product
@@ -142,10 +139,10 @@ fields:
     description: A code description of the color (e.g. RGB hex)
     xpath: //div[@class='_1Gji-8_DfEFVMyNyTNUi96']/a/@style
     regExp: (?<=rgb\().+(?=\))
-  - name: manufacturerDescription
+  - name: manufacturerDescription 
     singleValue: false
     description: The extended description of the product supplied by the lister
-    xpath: (//div[@slot='content'])[1]/text()
+    xpath: //div[@class='_1EgKu-tc4DuTBvGjgTnMIC']/div/div
   - name: manufacturerImages
     singleValue: false
     description: Images within the third party description
@@ -405,8 +402,8 @@ fields:
   - name: dietaryInformation
     singleValue: true
     description: null
-  - name: specifications
-    singleValue: true
+  - name: specifications 
+    singleValue: false
     description: The physical dimensions of the product including packaging.
     xpath: //ul[@class='icEAdXPcKgFqrw7gnMYbo']//li/strong[contains(text(),'Hauteur')]/.. | //ul[@class='icEAdXPcKgFqrw7gnMYbo']//li/strong[contains(text(),'Largeur')]/.. | //ul[@class='icEAdXPcKgFqrw7gnMYbo']//li/strong[contains(text(),'Profondeur ')]/..
   - name: warranty
@@ -461,7 +458,7 @@ fields:
     singleValue: true
     description: In product page, information about a new version of the product -
       new desription info
-  - name: variantInformation
+  - name: variantInformation 
     singleValue: true
     description: colour / scent / flavour / other
     xpath: //li[@data-test='variant-picker']/div/div[1]/text() | //li[@data-test='variant-picker']/div/label/text()

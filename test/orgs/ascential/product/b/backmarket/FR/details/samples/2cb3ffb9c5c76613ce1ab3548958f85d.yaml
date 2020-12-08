@@ -2,7 +2,7 @@ input:
   _url: http://backmarket.fr
   URL: https://www.backmarket.fr/purificateur-dair-dyson-tp04-pas-cher/135544.html#?l=1
 extractions:
-  - html: https://workbench.import.io/html/run=697f91e7-c8dd-450b-baee-150a851e19d6/task=756d5448-d0af-4eef-a9e1-1e7872ed1ffb/d3dc7d99-f8ed-4694-bebd-dbd83d1ac31e.html
+  - html: https://workbench.import.io/html/run=46882e57-ff5e-44fd-a975-de88a732b369/task=7db70f97-d67d-419e-9aa3-8aa5f95e1333/5376c021-7ad1-4f2d-a6f9-09b220023f38.html
     extractionConfigId: product/details/stores/b/backmarket/FR/extract
     data:
       - group:
@@ -58,17 +58,91 @@ extractions:
                 locale: fr_FR
                 value: 328
             aggregateRatingText:
-              - text: 4,$3
+              - text: 4,1
                 xpath: /html/body/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/section[1]/div[2]/div[1]/div[1]/div[1]/div[1]/strong[1]
             color:
               - text: Blanc
                 xpath: /html/body/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[3]/div[3]/div[1]/ul[1]/li[1]/text()[1]
+            manufacturerDescription:
+              - text: >-
+                  Purificateur ventilateur tour Dyson Pure Cool™
+
+                  Le seul appareil capable de purifier correctement toute une pièce de vie*.
+
+                  Détecte les polluants en temps réel
+
+                  Détecte automatiquement les PM2,5, PM10, COV, NO2 et produit des rapports sur la qualité de l’air en temps réel pour ces paramètres.
+
+                  Capture les polluants grâce à ses filtres au charbon actif et HEPA à 360° hermétiquement clos 
+
+                  Le système de filtration hermétique associe un filtre à charbon actif pour absorber les gaz et un filtre HEPA en fibre de verre qui capture 99,95 % de tous les allergènes et polluants microscopiques aussi petits que 0,1 micron.**
+
+                  Projette un flux d’air puissant 
+
+                  La technologie Air Multiplier™ génère un flux de 290 litres d’air par seconde, régulier tout en étant puissant, qui fait circuler l’air purifié dans toute la pièce. 
+
+                  Rapports intelligents 
+
+                  Détecte, capture et projette automatiquement, puis crée des rapports sur l’appli Dyson Link. Nécessite iOS 10 ou Android 5 ou des versions ultérieures. 
+                   Oscille jusqu’à 350° 
+                  Angle d’oscillation ajustable de 45° à 350° afin d’aider à projeter de l’air pure dans l’ensemble de la pièce. 
+                   
+                  Mode ambiant sans courant d’air
+
+                  Purifie sans courant d’air. 
+
+                  Ventile
+
+                  Purification et circulation de l’air tout au long de l’année. Rafraîchit en été. 
+
+                  Remplacement de filtre rapide et facile 
+
+                  Faible maintenance et filtre faciles à remplacer. Avec notification intégrée pour vous avertir que le filtre doit être remplacé.
+                xpath: /html/body/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[3]/div[3]/div[2]/div[1]/div[1]
+              - text: >-
+                  Mode nuit 
+
+                  Surveille et purifie l’air en utilisant ses réglages les plus silencieux et en réduisant la luminosité de l’affichage.
+                xpath: /html/body/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[3]/div[3]/div[2]/div[1]/div[2]
+              - text: >-
+                  Institut Pasteur 
+
+                  Testé scientifiquement par l’Institut Pasteur de Lille, élimine jusqu’à 99.9% des particules aussi petites que les virus.***
+                xpath: /html/body/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[3]/div[3]/div[2]/div[1]/div[3]
+              - text: >-
+                  *La norme AHAM AC1-2015 détermine comment les fabricants de
+                  purificateurs d’air peuvent définir leur performance dans une
+                  chambre d’essai spécifiée. Cela signifie que leur performance
+                  est uniquement basée sur des taux d’efficacité de nettoyage.
+                  Nous concevons nos ventilateurs purificateurs de façon à aller
+                  au-delà des conditions de chambre d’essai en nous concentrant
+                  sur les conditions réelles d’un logement – c'est-à-dire qu'il
+                  faut plus qu'un simple filtre efficace. En concevant un
+                  ventilateur purificateur, les ingénieurs de Dyson ont constaté
+                  que pour purifier adéquatement une salle de séjour entière, il
+                  faut aussi détecter automatiquement les évènements de
+                  pollution, capturer les polluants ultra fins et projeter l’air
+                  purifié à travers la pièce en utilisant la technologie Air
+                  Multiplier™ de Dyson. Le ventilateur purificateur de Dyson est
+                  le seul à avoir été conçu et testé pour le faire. NB :testé
+                  sur l’efficacité de filtration (EN1822) et une couverture
+                  excellente de la pièce (TM-003711 et DTM801) dans une chambre
+                  de 27m2 
+
+                  **Testé selon la norme EN1822. Particules en suspension dans l’air aussi petites que 0,1 micron.
+
+                  *** Testé sur le virus Influenza H1N1, septembre 2018.
+                xpath: /html/body/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[3]/div[3]/div[2]/div[1]/div[4]
             name:
               - text: Purificateur ventilateur tour Dyson Pure Cool™
                 xpath: /html/body/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/h1[1]
             specifications:
               - text: "Hauteur : 105,4 cm"
                 xpath: /html/body/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[3]/div[3]/div[1]/ul[1]/li[5]
+              - text: "Largeur : 20,6 cm"
+                xpath: /html/body/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[3]/div[3]/div[1]/ul[1]/li[6]
+              - text: "Profondeur : 11,7 cm"
+                xpath: /html/body/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[3]/div[3]/div[1]/ul[1]/li[7]
             warranty:
               - text: 12 mois
                 xpath: /html/body/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[3]/div[1]/div[3]/div[1]/div[2]/div[2]/select[1]/option[1]
@@ -116,4 +190,4 @@ extractions:
                 locale: fr_FR
                 value: 0
         xpath: /
-    timestamp: 1607339440749
+    timestamp: 1607346395220

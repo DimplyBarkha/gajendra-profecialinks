@@ -2,7 +2,7 @@ input:
   _url: http://backmarket.fr
   URL: https://www.backmarket.fr/ventilateur-chauffage-dyson-am09-noir-pas-cher/209688.html#?l=1
 extractions:
-  - html: https://workbench.import.io/html/run=697f91e7-c8dd-450b-baee-150a851e19d6/task=f1634d33-27bb-4b84-859a-fe02a76d2fa8/515f7b18-f6f1-4aad-9d72-d8193935fedb.html
+  - html: https://workbench.import.io/html/run=46882e57-ff5e-44fd-a975-de88a732b369/task=fc530629-faf8-4eec-a0a3-da0cb85dd5a2/e5c5d522-e581-4497-827c-7644adfcbce7.html
     extractionConfigId: product/details/stores/b/backmarket/FR/extract
     data:
       - group:
@@ -40,12 +40,34 @@ extractions:
             color:
               - text: Noir
                 xpath: /html/body/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[3]/div[2]/div[1]/ul[1]/li[2]/text()[1]
+            manufacturerDescription:
+              - text: "Type : Ventilateur-chauffage | Surface chauffée : Plus de 30 m² |
+                  Puissance : De 1000 à 2000 W | Nombre de vitesse : 2 vitesses
+                  | Oscillation : Oui | Programmable : Oui | Télécommande : Oui
+                  | Comparateur Dyson : Choisissez le Dyson qu'il vous faut |
+                  Découvrez : : Le site dédié à la marque | point fort 2
+                  (fonctions ) : Fonction oscillation | point fort 1 ( nombre
+                  vitesses) : Deux vitesses | point fort 3 ( ventilation froide)
+                  : Ventilation froide | point fort 4 (TLC) : Télécommande
+                  incluse | Type : Ventilateur-chauffage | Puissance maximale
+                  (watts) : 2000 | Surface chauffée (m²) : 50 | Consommation
+                  maximale (watts) : 2000 | Réglage et pilotage : Télécommande |
+                  Corps : Acier | Coloris : Gris | Programmateur : Oui | Niveau
+                  sonore (dB) : 63 | Mode : 2 vitesses / 2 positions | Nombre
+                  d'allures de chauffe : 2 | Position froid : Oui | Position
+                  chaud : Oui | Position ventilation : Oui | Oscillation : Oui
+                  Télécommande : Oui"
+                xpath: /html/body/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[3]/div[2]/div[2]/div[1]/div[1]
             name:
               - text: Ventilateur-chauffage DYSON AM09 Noir
                 xpath: /html/body/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/h1[1]
             specifications:
               - text: "Hauteur : 595 cm"
                 xpath: /html/body/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[3]/div[2]/div[1]/ul[1]/li[6]
+              - text: "Largeur : 153 cm"
+                xpath: /html/body/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[3]/div[2]/div[1]/ul[1]/li[7]
+              - text: "Profondeur : 112 cm"
+                xpath: /html/body/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[3]/div[2]/div[1]/ul[1]/li[8]
             productOtherInformation:
               - text: "- 2570 g de gâchis électronique"
                 xpath: /html/body/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/ul[1]/li[1]/div[1]
@@ -92,4 +114,4 @@ extractions:
                 locale: fr_FR
                 value: 0
         xpath: /
-    timestamp: 1607339438622
+    timestamp: 1607346392215

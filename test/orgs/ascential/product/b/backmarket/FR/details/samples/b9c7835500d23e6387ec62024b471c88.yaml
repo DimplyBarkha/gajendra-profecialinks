@@ -2,7 +2,7 @@ input:
   _url: http://backmarket.fr
   URL: https://www.backmarket.fr/aspirateur-balai-sans-fil-dyson-v8-animal-pas-cher/135543.html#?l=0
 extractions:
-  - html: https://workbench.import.io/html/run=697f91e7-c8dd-450b-baee-150a851e19d6/task=1ad9dc97-90d2-41e3-bcc5-c6742c5799c1/e9d3a681-1d99-4aaa-b597-699dd1329086.html
+  - html: https://workbench.import.io/html/run=46882e57-ff5e-44fd-a975-de88a732b369/task=d661b431-2eb2-4564-9d1e-3d6a514277a4/2f312c9d-6535-42d2-9b72-347ef6f339da.html
     extractionConfigId: product/details/stores/b/backmarket/FR/extract
     data:
       - group:
@@ -44,12 +44,73 @@ extractions:
             color:
               - text: Gris/Rose
                 xpath: /html/body/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[3]/div[2]/div[1]/ul[1]/li[3]/text()[1]
+            manufacturerDescription:
+              - text: >-
+                  Autonomie mini (en min): 25 
+                   Coût unitaire en éléctricité: 0.1503 
+                   Suceur long: Oui 
+                   Batterie: Lithium 
+                   Dimensions l x h x p: 21 x 124.3 x 25 cm 
+                   Aspirateur main détachable: Oui 
+                   Brosse passe partout: Oui 
+                   Autonomie: Autonomie élevée (40mn) 
+                   Filtre moteur: Oui 
+                   Mini turbobrosse: Oui 
+                   Accessoire 2 en 1: Large conduit: pour les miettes et grosses particules et brosse: pour la poussière. 
+                   Aspirateur main: Aspi main intégré 
+                   Produit: Aspirateur balai sans sac 
+                   Gamme: V8 
+                   Largeur produit (cm): 21 
+                   Utilisation: Sans fil 
+                   Signature sonore maxi: Ecoutez moi 
+                   Autonomie: Autonomie élevée (de 30 à 45mn) 
+                   Echelle niveau sonore: Standard (+ de 70 dB) 
+                   Niveau sonore (dB): 78 
+                   Description: Il passe rapidement et facilement du mode balai au mode aspirateur à main 
+                   Puissance (en V): Très puissant (21,6V) 
+                   Puissance maximum (en V): 21.6 
+                   Nombre de vitesse: 2 vitesses 
+                   Détails des accessoires: Brosse motorisée, Brosse passe partout, Suceur long, Mini turbobrosse 
+                   Puissance maximum (en W): 115 
+                   Alimentation: Rechargeable 
+                   Coloris: Violet 
+                   Longueur développée: 46 
+                   Accessoire 2 en 1: Oui 
+                   Brosse motorisée: Oui 
+                   Usage: Pour sol et plafond 
+                   Autre fonction: Aspirateur main détachable 
+                   Technologie d'aspiration: Cyclonique 
+                   Autonomie mini: 25 minutes 
+                   Filtre avant moteur: Oui 
+                   Capacité du sac/bac (en l): 0.54 
+                   Poids Net (kg): 2.560 
+                   Technologie d'aspiration: Efficace (cyclonique) 
+                   Profondeur produit (cm): 25 
+                   Temps de charge (en h): 5
+                xpath: /html/body/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[3]/div[2]/div[2]/div[1]/div[1]
+              - text: |-
+                  Niveau sonore maxi: 78 
+                   Temps de charge: 5 heures 
+                   Type de batterie: Batterie longue durée (Lithium) 
+                   Voltage (V): Très puissant (plus de 21V) 
+                   Autonomie maxi (en min): 40 
+                   Modèle de batterie: Batterie longue durée (Lithium) 
+                   Hauteur produit (cm): 124.30 
+                   Brosse principale: Brosse motorisée 
+                   Fonction supplémentaire: Aspirateur main détachable
+                xpath: /html/body/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[3]/div[2]/div[2]/div[1]/div[2]
+              - text: "Conseil d'entretien: Filtre avant et après moteur à laver tous les mois"
+                xpath: /html/body/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[3]/div[2]/div[2]/div[1]/div[3]
             name:
               - text: Aspirateur balai sans fil DYSON V8 Animal+
                 xpath: /html/body/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/h1[1]
             specifications:
               - text: "Hauteur : 124.30 cm"
                 xpath: /html/body/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[3]/div[2]/div[1]/ul[1]/li[11]
+              - text: "Largeur : 21 cm"
+                xpath: /html/body/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[3]/div[2]/div[1]/ul[1]/li[12]
+              - text: "Profondeur : 25 cm"
+                xpath: /html/body/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[3]/div[2]/div[1]/ul[1]/li[13]
             productOtherInformation:
               - text: "- 2630 g de gâchis électronique"
                 xpath: /html/body/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/ul[1]/li[1]/div[1]
@@ -106,4 +167,4 @@ extractions:
                 locale: fr_FR
                 value: 0
         xpath: /
-    timestamp: 1607339444307
+    timestamp: 1607346396211
