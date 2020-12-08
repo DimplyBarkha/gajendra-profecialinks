@@ -48,7 +48,7 @@ fields:
   - name: verifiedPurchase
     type: BOOLEAN
     description: Whether this of an item the reviewer purchased. "Yes" if true else ""
-    xpath: //div[contains(@class,"VerifiedPurchaserIcon")]/..
+    xpath: //div[contains(@class,"VerifiedPurchaserIcon")]/@content
   - name: manufacturerResponse
     description: The response of the manufacturer (if any)
   - name: syndicatedFrom

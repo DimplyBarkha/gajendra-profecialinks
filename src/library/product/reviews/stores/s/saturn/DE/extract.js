@@ -24,6 +24,11 @@ module.exports = {
                 div.setAttribute('ratings', rating.toString())
             })
 
+            divs = document.querySelectorAll('div[class*="VerifiedPurchaserIcon"]');
+            divs.forEach((div) => {
+                div.setAttribute('content', 'Yes');
+            })
+
             async function removeBtn(dateSelector, btnSelector) {
                 if (!document.body.getAttribute('firstrevdate')) {
                     let div = document.querySelector(dateSelector);
