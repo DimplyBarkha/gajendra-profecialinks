@@ -28,9 +28,8 @@ module.exports = {
       try {
         const text = location.search;
         const start = text.indexOf('&SearchTerm=');
-        const end = text.indexOf('&SearchParameter');
         addElementToDocument('url', location.href);
-        addElementToDocument('input', text.slice(start, end).replace('&SearchTerm=', ''));
+        addElementToDocument('input', text.slice(start, 100).replace('&SearchTerm=', ''));
       } catch (e) {
         console.log(e);
       };
