@@ -24,16 +24,6 @@ const transform = (data) => {
     };
     for (const { group } of data) {
       for (let row of group) {
-        if (row.sku) {
-          row.sku.forEach(item => {
-            item.text = item.text.slice(1,-1);
-          });
-        } 
-        if (row.variantId) {
-            row.variantId.forEach(item => {
-                item.text = item.text.slice(1,-1);
-            });
-        }
         if (row.ratingCount) {
           row.ratingCount.forEach(item => {
             item.text =  Number(item.text);
