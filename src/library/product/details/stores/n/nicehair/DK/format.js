@@ -56,8 +56,7 @@ const transform = (data) => {
           if (row.sku) {            
             row.sku.forEach(item => {
               try {
-                let json_data = JSON.parse(item.text);
-                console.log(json_data)
+                let json_data = JSON.parse(item.text);                
                 if (json_data.length>0 && json_data[0]['sku']){
                   item.text = json_data[0]['sku'];
                 }
@@ -71,6 +70,11 @@ const transform = (data) => {
               }
             });
           }
+          if (row.aggregateRating) {
+            row.aggregateRating.forEach(item => {
+              item.text = (parseInt(item.text) * 5) / 100;            
+            });
+          }          
           if (row.brandText) {            
             row.brandText.forEach(item => {
               item.text = item.text.replace(/(\s*\'\s*)+/g, '"');

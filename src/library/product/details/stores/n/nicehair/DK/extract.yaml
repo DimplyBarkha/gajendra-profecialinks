@@ -51,10 +51,14 @@ fields:
     xpath: //div[@class='single-product']/@data-id  
   - name: ratingCount
     singleValue: false
-    xpath: //div[@class='nosto_product']//span[@class='review_count']      
+    xpath: //div[@class='reviews h1-rating']//span[@class='ratings-recieved']
+    regExp: (.+)bedøm
+    regExpReplace: $1
   - name: aggregateRating
     singleValue: false
-    xpath: //div[@class='nosto_product']//span[@class='rating_value']    
+    xpath: //div[@class='reviews h1-rating']//div[@class='rating-box']//div[@class='rating']/@style
+    regExp: 'width:(\d+)%'
+    regExpReplace: $1
   - name: videos
     singleValue: false
     xpath: //div[@class='image-slider slick-initialized slick-slider slick-dotted']//ul[@class='slick-dots']//li//a//div[@class='image-item-thumb video']/@style
@@ -63,10 +67,7 @@ fields:
     regExpReplace: https://www.youtube.com/watch?v=$1
   - name: name
     singleValue: false
-    xpath: //h1[@itemprop='name']
-  - name: manufacturerDescription
-    singleValue: false
-    xpath: //div[contains(@class,'accordion-item accordion-magazine')]//div[@class='accordion-header' and contains(.,'Relaterede magazine indlæg')]/following-sibling::div[@class='accordion-body']
+    xpath: //h1[@itemprop='name']  
   - name: variantInformation
     singleValue: false
     xpath: //ul[@class="dropdown-menu"]//li//span[@class="product-name"]//a
