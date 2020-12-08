@@ -35,7 +35,7 @@ async function implementation (inputs, parameters, context, dependencies) {
       rating = rating.match('"rating":"(.*?)"');
       rating = rating[1].replace('.', ',');
       addProp('.details>a', i, 'rating', rating);
-      addProp('.details>a', i, 'producturl', 'https:' + productUrl[i]);
+      addProp('.details>a', i, 'producturl', productUrl[i]);
       addProp('.details>a', i, 'rank', `${i + 1}`);
     }
   });
