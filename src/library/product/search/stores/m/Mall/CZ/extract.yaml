@@ -25,7 +25,8 @@ fields:
   - name: aggregateRating
     singleValue: false
     xpath: //span[@class="con-reader"]/text()
-    type: NUMBER
+    regExp: Hodnocení. (.+)
+    regExpReplace: $1
   # - name: reviewCount
   #   singleValue: false
   #   xpath: //div[@class="reviews_1KIjQ"]/span/span/text()
