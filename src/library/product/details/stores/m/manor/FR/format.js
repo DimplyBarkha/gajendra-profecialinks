@@ -78,17 +78,15 @@ const transform = (data) => {
         });
       }
       if (row.category) {
-        // var arrCat = [];
         row.category.forEach(item => {
-          // arrCat.push(item.text.trim());
           item.text = item.text.trim();
         });
-        // if (arrCat.length) {
-        //   row.category = [];
-        //   arrCat.forEach(item => {
-        //     row.category.push({ text: item });
-        //   });
-        // }
+      }
+      if (row.listPrice) {
+        row.listPrice.forEach(item => {
+          item.text = item.text.replace('au lieu de', '');
+          item.text = item.text.trim();
+        });
       }
       if (row.alternateImages) {
         var arrImg = [];
@@ -121,39 +119,24 @@ const transform = (data) => {
       if (row.variants) {
         var arrVari = [];
         row.variants.forEach(item => {
-          arrVari.push(item.text.replace(/(.+\/)/g, '').trim());
+          // /fr/p/p0-17361702
+          arrVari.push(item.text.replace('/fr/p/', '').trim());
         });
         row.variants = [{ text: arrVari.join(' | ') }];
-      }
-      if (row.variantCount) {
-        var tot = 0;
-        row.variantCount.forEach(item => {
-          tot++;
-        });
-        if (tot === 1) {
-          tot = 0;
-          row.variants = [{ text: '' }];
-          row.firstVariant = [{ text: '' }];
-          row.variantInformation = [{ text: '' }];
+        if (row.variants.length) {
+          row.variantCount = [{ text: row.arrVari.length }];
         }
-        row.variantCount = [{ text: tot }];
       }
       if (row.variantInformation) {
-        var arrInfo = [];
         row.variantInformation.forEach(item => {
-          arrInfo.push(item.text)
+          item.text = item.text.replace('Couleur:', '');
+          item.text = item.text.trim();
         });
-        row.variantInformation = [{ text: arrInfo.join(' | ') }];
       }
       if (row.specifications) {
         row.specifications.forEach(item => {
           item.text = item.text.replace(/\n\s*\n\s*\n\s*/g, ' || ').trim();
           item.text = item.text.replace(/\n\s*/g, ':').trim();
-        });
-      }
-      if (row.ratingCount) {
-        row.ratingCount.forEach(item => {
-          item.text = parseInt(item.text);
         });
       }
       if (row.aggregateRating) {

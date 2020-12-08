@@ -1,0 +1,14 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: //div[contains(@class,'js-one-color')]
+fields:
+  - name: variantId
+    singleValue: false
+    xpath: //div[@class="m-productcolorselect-v-2__colors js-only-colors"]//a/@href
+  - name: variantUrl
+    singleValue: false
+    xpath: //div[@class="m-productcolorselect-v-2__colors js-only-colors"]//a/@href
+  - name: variant
+    singleValue: false
+    xpath: //div[contains(@class,'js-one-color')]//a/@title
