@@ -6,9 +6,6 @@ fields:
   - name: image
     singleValue: false
     xpath: //li[@id="tns1-item0"]//img[contains(@class, "image__default")]/@src
-  - name: brand
-    singleValue: false
-    xpath: //script[@type="application/ld+json"][3]/text()
   - name: imageAlt
     singleValue: false
     xpath: //li[@id="tns1-item0"]//img[contains(@class, "image__default")]/@alt
@@ -48,3 +45,6 @@ fields:
   - name: productOtherInformation
     singleValue: false
     xpath: //div[@id="id-2110316321"]/div
+  - name: brand
+    singleValue: false
+    xpath: //script[@type="application/ld+json"][3]/text()
