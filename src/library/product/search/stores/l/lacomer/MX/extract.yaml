@@ -17,7 +17,7 @@ fields:
     singleValue: false
     xpath: //div[@class="col-xs-6 col-sm-4 col-md-3 col-lg-n5 li_prod li_mosaic ng-scope"]//div[@class="li_prod_picture"]/div[@class="li_prod_precio cgrid-price"]/div/div/@itemtype
     regExp: (doHome.*)
-    regExpReplace: https://www.lacomer.com.mx/$1
+    regExpReplace: https://www.lacomer.com.mx//lacomer/$1
   - name: gtin
     singleValue: false
     # xpath: //h5[@class="product-name"]//a//@onclick
@@ -28,7 +28,7 @@ fields:
   - name: price
     singleValue: false
     xpath: //div[@class='li_prod_picture']/div[@class='li_prod_precio cgrid-price']/div[@class='middle-cont']/div[@class='li_precios middle-in']/span[@class='precio_normal ng-binding']
-    regExp: (\$\d+)\.(.+)
+    regExp: (\$.+)\.(\d+)
     regExpReplace: $1,$2
   - name: manufacturer
     singleValue: true
