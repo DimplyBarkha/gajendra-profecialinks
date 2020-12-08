@@ -47,7 +47,7 @@ async function implementation (
       .replace(/{offset}/g, (offset + (openSearchDefinition.indexOffset || 0)).toString());
   }
 
-  url = await context.evaluate(function () {
+  url = url || await context.evaluate(function () {
     /** @type { HTMLLinkElement } */
     const next = document.querySelector('head link[rel="next"]');
     if (!next) {

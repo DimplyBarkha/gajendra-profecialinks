@@ -122,42 +122,23 @@ async function implementation (
     // helpers.addItemToDocument('my-variants', variants.join(' | '));
     helpers.addItemToDocument('my-variants', variants);
   }
-  /*
-  await context.evaluate(() => {
-    function addHiddenDiv (id, content) {
-      const newDiv = document.createElement('div');
-      newDiv.id = id;
-      newDiv.textContent = content;
-      newDiv.style.display = 'none';
-      document.body.appendChild(newDiv);
+  async function getCustomerViewed () {
+    if (!document.querySelector('#desktop-dp-sims_session-similarities-sims-feature > div[data-p13n-asin-metadata]')) return;
+    const asins = Object.keys(JSON.parse(document.querySelector('#desktop-dp-sims_session-similarities-sims-feature > div[data-p13n-asin-metadata]').getAttribute('data-p13n-asin-metadata')));
+    const API = `/gp/p13n-shared/faceout-partial?widgetTemplateClass=PI::Similarities::ViewTemplates::Carousel::Desktop&productDetailsTemplateClass=PI::P13N::ViewTemplates::ProductDetails::Desktop::DeliverySpeed&reftagPrefix=pd_sbs_325&faceoutTemplateClass=PI::P13N::ViewTemplates::Product::Desktop::CarouselFaceout&count=7&offset=42&asins=${asins.join(',')}`;
+    const res = await fetch(API);
+    const json = await res.json();
+    const htmlData = json.map(elm => unescape(elm));
+    const container = document.createElement('div');
+    container.setAttribute('class', 'customer-also-viewed grid-container');
+    for (const html of htmlData) {
+      const div = document.createElement('div');
+      div.setAttribute('class', 'grid-item');
+      div.innerHTML = html;
+      container.append(div);
     }
-    const enhContent = document.querySelector('div#aplus');
-    if (enhContent) {
-      addHiddenDiv('enh-html', enhContent.outerHTML);
-    }
-  }); */
-  /*
-  const additionalRatings = await context.evaluate(async () => {
-    const reviewSect = document.querySelector('table#histogramTable');
-    if (reviewSect) {
-      reviewSect.scrollIntoView();
-      return true;
-    } else {
-      return false;
-    }
-  }); */
-  /*
-  if (additionalRatings) {
-    await context.waitForXPath('//div[@data-hook="cr-summarization-attributes-list"]//span[contains(@class,"a-size-base")]', { timeout: 5000 })
-      .catch(() => console.log('no additional ratings'));
-  } */
-  /*
-  const customerQAndA = await context.evaluate(() => {
-    const qAndA = document.querySelector('span.askTopQandA');
-    return qAndA ? qAndA.innerText : '';
-  });
-  helpers.addItemToDocument('my-q-and-a', customerQAndA);
-  */
+    document.body.append(container);
+  }
   const zoomXpath = '//span[@id="canvasCaption" and contains(text(),  "Roll over")]';
   await helpers.getAndAddElem(zoomXpath, 'added-imageZoomFeaturePresent', { callback: val => val ? 'Yes' : 'No' });
 
@@ -181,6 +162,7 @@ async function implementation (
       .join(' ');
     shippingInfo.length && document.body.setAttribute('shipping-info', shippingInfo);
   });
+  await context.evaluate(getCustomerViewed);
   await context.extract(productDetails, { transform });
 }
 
