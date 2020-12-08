@@ -297,7 +297,7 @@ async function implementation (inputs, parameters, context, dependencies) {
     addElementToDocument('added_descBullets', descBullets);
 
     // get the videos
-    const videos = "(//div[contains(concat(' ',normalize-space(@class),' '),' s7videoviewer ')])[1]/@data-video-src";
+    const videos = '(//div[contains(concat(" ",normalize-space(@class)," ")," s7videoviewer ")])[1]/@data-video-src | //div[contains(@class, "s7videoviewer")][2]/@data-video-src';
     addElementToDocument(
       'added_videos',
       getAllXpath(videos, 'nodeValue').map((v) => `${window.location.hostname}${v}`),
