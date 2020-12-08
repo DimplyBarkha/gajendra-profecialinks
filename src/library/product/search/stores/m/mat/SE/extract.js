@@ -22,9 +22,40 @@ const implementation = async function (
           }, ms);
         });
       }
+      function addHiddenDiv1(id, content, index) {
+        // @ts-ignore
+        const newDiv = document.createElement('div');
+        newDiv.id = id;
+        newDiv.textContent = content;
+        newDiv.style.display = 'none';
+        const originalDiv = document.querySelectorAll('li[bindonce="product"]')[index];
+        originalDiv.parentNode.insertBefore(newDiv, originalDiv);
+      };
+      let description, brand;
+      var abc = document.querySelectorAll('div[class="productImagesBox"]');
+      // const arr = []
+      for (let i = 0; i < abc.length; i++) {
+        // @ts-ignore
+        description = document.querySelectorAll('div[class="description"]')[i].innerText;
+        // @ts-ignore
+        brand = document.querySelectorAll('div[class="brandDetail"]')[i].innerText;
+        addHiddenDiv1('name', description + ' ' + brand, i);
+      }
+
     });
   };
   await applyScroll(context);
+
+  // const getAllXpath = (xpath, prop) => {
+  //   const nodeSet = document.evaluate(xpath, document, null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
+  //   const result = [];
+  //   for (let index = 0; index < nodeSet.snapshotLength; index++) {
+  //   const element = nodeSet.snapshotItem(index);
+  //   if (element) result.push(prop ? element[prop] : element.nodeValue);
+  //   }
+  //   return result;
+  //   };
+
   return await context.extract(productDetails, { transform });
 };
 module.exports = {
