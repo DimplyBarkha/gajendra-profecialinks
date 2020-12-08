@@ -10,13 +10,15 @@ fields:
   - name: imageAlt
     singleValue: true
     description: Alt text of the main product image
-    xpath: //div[@class="more-views"]/ul/li[position()>1]/a/@href
+    xpath: //p[@class="product-image product-image-zoom"]/span/img/@alt
   - name: alternateImages
     singleValue: false
     description: Other product images (not in manufacturer description)
+    xpath: //div[@class="more-views"]/ul/li[position()>1]/a/@href
   - name: metaKeywords
     singleValue: true
     description: The <meta> keywords content
+    xpath: //meta[@name="keywords"]/@content
   - name: category
     singleValue: false
     description: The categories (e.g. from breadcrumbs)
@@ -29,6 +31,7 @@ fields:
   - name: listPrice
     singleValue: true
     description: The stated undiscounted price for the product
+    xpath: (//p[@class="old-price"]/span[@class="price"])[1]/text()
   - name: price
     singleValue: true
     description: The offered price for the selected product variant - if a user
@@ -39,6 +42,7 @@ fields:
     description: Availability as described on page for the selected variant. If
       there is no availability but the product can be added to cart, this field
       should be "In Stock"
+    xpath: //html//div[@id="aval"]
     # regExp: (.+)
     # regExpReplace: In Stock
     # defaultValue: Out of Stock
@@ -51,11 +55,12 @@ fields:
     singleValue: true
     description: Number of ul > li tags in the description
     type: NUMBER
+    xpath: count(//div[@class="product_description row"]//ul/li)
   - name: brandText
     singleValue: true
     description: Product brand shown - this may actually NOT be just a brand name,
       e.g. "Visit the Gillette Store"
-    xpath: (//span[@class="prod-brand"]/img[@itemprop="logo"])[1]/@alt
+    xpath: //div[@class="product-img-box"]/span[@class="seal-brand-name"]/@data-brand-name
   - name: manufacturer
     singleValue: true
     description: Product manufacturer
@@ -66,6 +71,7 @@ fields:
   - name: weightNet
     singleValue: true
     description: Net weight as described on the page
+    xpath: //th[contains(text(),'Menge')]/following::td[1]/text()
   - name: weightGross
     singleValue: true
     description: Gross weight as described on the page
@@ -123,6 +129,8 @@ fields:
     singleValue: true
     description: Number of variants listed
     type: NUMBER
+    xpath: count(//div[@class="simple-product-list"]/table/tbody/tr)
+    defaultValue: 0
   - name: color
     singleValue: true
     description: A textual description of the colour

@@ -34,14 +34,14 @@ module.exports = {
         else result = elem ? elem.singleNodeValue : '';
         return result && result.trim ? result.trim() : result;
       };
-//variants
+      //variants
       var vari = getAllXpath('//div[@class="simple-product-list"]//td/a[@class="product-name"]/strong/text()', 'nodeValue');
       if (vari != null) {
         var variants = vari.join(" | ");
         addElementToDocument('variants', variants);
       }
 
-//aggregate rating
+      //aggregate rating
       var agg = getXpath('//div[@class="col-sm-7"]//div[@class="rating-box"]/div/@style', 'nodeValue');
       if (agg != null) {
         var aggregate = agg.split(":")[1].slice(0, -1);
@@ -49,44 +49,57 @@ module.exports = {
         addElementToDocument('aggregate', aggregate);
       }
 
-//specifications
+      //specifications
       var spec = getAllXpath('//div[@id="product_attributes"]/table/tbody/tr/th/text()', 'nodeValue');
       var spec2 = getAllXpath('//div[@id="product_attributes"]/table/tbody/tr/td/text()', 'nodeValue');
-      if(spec != null){
+      if (spec != null) {
         var specifications = "";
-        for(var i=0; i<spec.length; i++){
-            specifications = specifications + spec[i]+spec2[i];
-            var j = i+1;
-            if(j < spec.length){
-              specifications = specifications + " || ";
-            }
+        for (var i = 0; i < spec.length; i++) {
+          specifications = specifications + spec[i] + spec2[i];
+          var j = i + 1;
+          if (j < spec.length) {
+            specifications = specifications + " || ";
+          }
         }
         // var specifications = spec.join(" || ");
         addElementToDocument('specifications', specifications);
       }
 
-//price 
+      //price 
       var price = getXpath('//div[@class="price-details"]/div[@class="price-box"]/p[@class="special-price"]/span[@class="price"]/text() | //div[@class="simple-product-list"]/table/tbody/tr[1]//p[@class="special-price"]/span[@class="price"]/text() | //div[@class="price-details"]/div[@class="price-box"]/span[@class="regular-price"]//span[@class="price"]/text()', 'nodeValue');
-      if(price != null){
-        price = price.replace(",",".");
+      if (price != null) {
+        // price = price.replace(",", ".");
         addElementToDocument('price', price);
       }
 
-//size [ quantity ]
+      //size [ quantity ]
       var size = getXpath("//th[contains(text(),'Menge')]/following::td[1]/text() | //div[@class='product_description row']//p/strong[contains(text(),'ml')]/text()", 'nodeValue');
-      if( size != null ){
+      if (size != null) {
         addElementToDocument('size', size);
       } else {
         size = getXpath('//div[@class="page-title product-name"]/h1/text()', 'nodeValue');
-        if(size != null){
+        if (size != null) {
           var ar = size.split(" ");
-          if(ar[ar.length-1]="ml"){
-            size = ar[ar.length-2]+" ml";
+          if (ar[ar.length - 1] = "ml") {
+            size = ar[ar.length - 2] + " ml";
             addElementToDocument('size', size);
           }
         }
       }
-      
+
+      //availability
+      var aval = getXpath('//link[@itemprop="availability"]/@href', 'nodeValue');
+      if(aval != null){
+        var arr = aval.split("/");
+        aval = arr[arr.length-1];
+        if(aval.includes("In")){
+          aval = "In Stock"
+        }else{
+          aval = "Out of Stock"
+        }
+        addElementToDocument('aval', aval);
+      }
+
 
 
 
