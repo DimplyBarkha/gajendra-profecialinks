@@ -538,4 +538,8 @@ fields:
     carousel,['Yes','No']
   example: https://www.zalando.de/adidas-neo-sneaker-low-blackwhite-a4315i002-q11.html
   defaultValue: No  
+- name: inTheBoxText
+  singleValue: true
+  description: Must include text to show the accessories/tools which come with the product
+  xpath: //p/b[contains(text(),'in the box')]/ancestor::p/following-sibling::ul/li
 
