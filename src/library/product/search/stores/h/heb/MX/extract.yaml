@@ -1,0 +1,23 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: name
+    singleValue: false
+    xpath: //a[@class='product-item-link']
+  - name: manufacturer
+    singleValue: false
+    xpath: //div[@class='category-brand']
+  - name: price
+    singleValue: single
+    xpath: //span[@class='price']
+  - name: thumbnail
+    singleValue: false
+    xpath: //img[@class='product-image-photo']/@src
+  - name: id
+    singleValue: false
+    xpath: //a[@class='product-item-link']/@data-product_id
+  - name: productUrl
+    singleValue: false
+    xpath: //div [@class='product-item-info']/a/@href
