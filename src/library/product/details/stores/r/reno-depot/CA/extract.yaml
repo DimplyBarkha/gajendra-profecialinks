@@ -139,10 +139,18 @@ fields:
   - name: imageZoomFeaturePresent
     singleValue: true
     xpath: //div[@id="zoomInfo"]
-  - name:  360ImagePresent
+  - name: 360ImagePresent
     singleValue: true
     xpath: //div[@id="rotateInfo"]
-  - name:  unInterruptedPDP
+  - name: inTheBoxUrl
+    singleValue: false
+    xpath: //div[@data-section-caption="In the Box"]//img/@src
+    description: Must include image url to show the accessories/tools which come with the product
+  - name: inTheBoxText
+    singleValue: false
+    xpath: //div[@data-section-caption="In the Box"]//div[2]/ul/li/h3
+    description: Must include text to show the accessories/tools which come with the product
+  - name: unInterruptedPDP
     singleValue: false
     xpath: //div[@data-track-module-name="Frequently bought together"]//div[@class="product_name"]
     description: Titles of products in the sections 'you may also like' or 'sponsored products'. Combine results from Max 3 sections
