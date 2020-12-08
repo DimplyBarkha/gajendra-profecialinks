@@ -1,0 +1,16 @@
+input:
+  _url: http://dyson.ie
+  URL: https://www.dyson.ie/vacuum-cleaners/robot-vacuums/dyson-360-heurist/dyson-360-heurist-nickel-blue
+extractions:
+  - html: https://workbench.import.io/html/run=af385e2a-586d-40e4-b45e-3893e5ae98cf/task=f3a6dd07-d87d-4ba5-9d3e-541a4a631f10/89bd3b1f-f837-4662-acfa-c0c24490aeab.html
+    extractionConfigId: product/details/stores/d/dyson/IE/variantsExtract
+    data:
+      - group:
+          - variantId:
+              - text: 288219-01
+                xpath: /html/body/ol[1]/li[1]/@variant_id
+            variantUrl:
+              - text: https://www.dyson.ie/vacuum-cleaners/robot-vacuums/dyson-360-heurist/dyson-360-heurist-nickel-blue
+                xpath: /html/body/ol[1]/li[1]/@variant_url
+        xpath: /html
+    timestamp: 1607429905675

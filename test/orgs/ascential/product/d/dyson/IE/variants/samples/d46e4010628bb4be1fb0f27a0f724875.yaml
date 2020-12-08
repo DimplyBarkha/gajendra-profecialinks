@@ -1,0 +1,16 @@
+input:
+  _url: http://dyson.ie
+  URL: https://www.dyson.ie/lighting/task-lighting/dyson-lightcycle-morph/dyson-lightcycle-morph-floor-white-silver
+extractions:
+  - html: https://workbench.import.io/html/run=af385e2a-586d-40e4-b45e-3893e5ae98cf/task=1cfb7b09-96bc-4837-89f6-5bea45078b39/0915604c-0fb9-4267-a57e-ea8f1d94da32.html
+    extractionConfigId: product/details/stores/d/dyson/IE/variantsExtract
+    data:
+      - group:
+          - variantId:
+              - text: 294731-01
+                xpath: /html/body/ol[1]/li[1]/@variant_id
+            variantUrl:
+              - text: https://www.dyson.ie/lighting/task-lighting/dyson-lightcycle-morph/dyson-lightcycle-morph-floor-white-silver
+                xpath: /html/body/ol[1]/li[1]/@variant_url
+        xpath: /html
+    timestamp: 1607429905014
