@@ -1,0 +1,33 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: id
+    singleValue: false
+    xpath: //div[@class="Product"]/@data-sku
+  - name: name
+    singleValue: false
+    xpath: //div[@class="Product-summary "]
+  - name: productUrl
+    singleValue: false
+    xpath: //div[@class="Product"]/a/@href
+    regExp: (.+)
+    regExpReplace: https://www.feelunique.com$1
+  - name: thumbnail
+    singleValue: false
+    xpath: //div[@class="Product-image-wrapper"]/img/@data-src
+    regExp: (//.*)
+    regExpReplace: https:$1
+  - name: aggregateRating2
+    singleValue: false
+    xpath: //span[@class="Rating-average"]/@data-aggregate-rating
+  - name: reviewCount
+    singleValue: false
+    xpath: //span[@class="Rating-count"]/@data-review-count
+  - name: ratingCount
+    singleValue: false
+  - name: price
+    singleValue: false
+    xpath:  //div[@class="Product-price "]
+    type: CURRENCY
