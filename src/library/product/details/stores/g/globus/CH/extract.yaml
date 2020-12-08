@@ -1,4 +1,4 @@
-singleRecord: false
+singleRecord: true
 regionsSelector: null
 recordSelector: null
 recordXPath: null
@@ -32,16 +32,13 @@ fields:
     xpath: //div[@class='mzg-catalogue-detail__mosaic-gallery']//div[@class='mzg-catalogue-detail__mosaic-gallery mzg-catalogue-detail__mosaic-gallery__desktop']//div[@class='col col-sm-6'][1]//div[@class='mzg-components-module-product-image']//img/@alt
   - name: alternateImages
     singleValue: false
-    xpath: //div[@class='mzg-catalogue-detail__mosaic-gallery']//div[@class='mzg-catalogue-detail__mosaic-gallery mzg-catalogue-detail__mosaic-gallery__desktop']//div[@class='mzg-components-module-product-image']//img/@src
-  - name: metaKeywords
-    singleValue: false
-    xpath: //title[@class='next-head']
+    xpath: //div[@class='mzg-catalogue-detail__mosaic-gallery']//div[@class='mzg-catalogue-detail__mosaic-gallery mzg-catalogue-detail__mosaic-gallery__desktop']//div[@class='col col-sm-6' and position()>1]//div[@class='mzg-components-module-product-image']//img/@src
   - name: category
     singleValue: false
     xpath: //ol[@class='mzg-components-module-breadcrumb-list']//li[@class='mzg-components-module-breadcrumb-list__item' and position()>1]//a//span
   - name: nameExtended
     singleValue: false
-    xpath: //div[@class='mzg-catalogue-detail mzg-catalogue-detail__page']//script[@type='application/ld+json']
+    xpath: //div[@class='mzg-catalogue-detail__product-summary__head']//h1
   - name: descriptionBullets
     singleValue: false
     xpath: //div[@class='mzg-catalogue-detail-info__cluster']//ul//li[@class='mzg-catalogue-detail-info__cluster-list__item']   
@@ -57,4 +54,12 @@ fields:
   - name: variants
     singleValue: false
     xpath: //script[contains(text(),'__NEXT_DATA__')]/text()
-  
+  - name: quantity
+    singleValue: false
+    xpath: //div[@class='mzg-catalogue-detail__product-summary__size']//ul//li/div
+  - name: secondaryImageTotal
+    singleValue: false
+    xpath: count(//div[@class='mzg-catalogue-detail__mosaic-gallery']//div[@class='mzg-catalogue-detail__mosaic-gallery mzg-catalogue-detail__mosaic-gallery__desktop']//div[@class='col col-sm-6' and position()>1]//div[@class='mzg-components-module-product-image']//img)
+  - name: additionalDescBulletInfo
+    singleValue: false
+    xpath: //div[@class='mzg-catalogue-detail-info__cluster']//h5[text()='Beschreibung']/parent::div//following-sibling::ul//li

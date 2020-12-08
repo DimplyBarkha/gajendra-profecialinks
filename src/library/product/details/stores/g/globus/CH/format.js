@@ -74,7 +74,7 @@ const transform = (data) => {
             let j_data = JSON.parse(item.text);
             if (j_data['description']){
               item.text = j_data['description'];
-              item.text = item.text.replace(/(\s*\n\s*)+/g, ' | ').trim();
+              item.text = item.text.replace(/(\s*\,\s*)+/g, ' || ').trim();
             }
             else{
               delete row.description;
@@ -115,20 +115,27 @@ const transform = (data) => {
             }
           });
         }
+        if (row.quantity) {
+          let info = [];          
+          row.quantity.forEach(item => {
+              info.push(item.text.trim());
+          });          
+          row.quantity = [{'text':info.join(' | '),'xpath':row.quantity[0].xpath}];          
+        }
         if (row.variantId) {
           row.variantId.forEach(item => {
             item.text = item.text.replace(/(\s*Artikelnummer\s*:\s*)+/g, '').trim();
             item.text = item.text.replace(/(\s*\n\s*)+/g, '').trim();
           });
         }
-        if (row.nameExtended) {
+        /*if (row.nameExtended) {
           row.nameExtended.forEach(item => {
             let j_data = JSON.parse(item.text);
             if (j_data['name'] && j_data['brand']['name']){
               item.text = j_data['name'] + " - " + j_data['brand']['name'];
             }            
           });
-        }
+        }*/
         if (row.descriptionBullets) {
           row.descriptionBullets = [{'text':row.descriptionBullets.length,'xpath':row.descriptionBullets[0].xpath}];
         }
@@ -171,6 +178,13 @@ const transform = (data) => {
             delete row.gtin;
           }
         }
+        if (row.additionalDescBulletInfo) {
+          let info = [];          
+          row.additionalDescBulletInfo.forEach(item => {
+              info.push(item.text.trim());            
+          });          
+          row.additionalDescBulletInfo = [{'text':info.join(' | '),'xpath':row.additionalDescBulletInfo[0].xpath}];          
+        }
         if (row.variants) {
           let info = [];
           let colors = [];
@@ -205,10 +219,10 @@ const transform = (data) => {
           if (colors.length>0 || size_variant.length>0){
             colors.push(...size_variant);
             row.variantInformation = [{"text": colors.join(' | '), "xpath": row.variants[0]["xpath"]}];
+            row.variantCount = [{"text": colors.length, "xpath": row.variants[0]["xpath"]}];
           }
           if (info.length>0){
-            row.variants = [{"text": info.join(' | '), "xpath": row.variants[0]["xpath"]}];
-            row.variantCount = [{"text": info.length, "xpath": row.variants[0]["xpath"]}];
+            row.variants = [{"text": info.join(' | '), "xpath": row.variants[0]["xpath"]}];            
             row.firstVariant = [{'text':info[0]}];
           }
           else{
