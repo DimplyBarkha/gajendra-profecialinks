@@ -1,1 +1,10 @@
-extends: ../shared 
+extends: ../shared
+fields:
+  - name: manufacturerImages
+    xpath: //div[@id='added_manufacturerImages']//li
+  - name: weightNet
+    xpath: //div[@class="product-specification parbase"]//li[p[@class="product-specification__label-top" and text()="Weight"]]/p[@class="product-specification__label-bottom"]
+  - name: termsAndConditions
+    xpath: boolean(//a[@aria-label="Terms and Conditions"])
+  - name: privacyPolicy
+    xpath: boolean(//a[@aria-label="Privacy Policy"])
