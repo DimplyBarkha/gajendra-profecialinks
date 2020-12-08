@@ -14,33 +14,11 @@ module.exports = {
     dependencies,
   ) => {
     await context.evaluate(async function () {
-
-      if (window.__INITIAL_STATE__) {
-        let id = JSON.parse(window.__INITIAL_STATE__._PDP_BOOTSTRAP_DATA).utagData.product_id ? JSON.parse(window.__INITIAL_STATE__._PDP_BOOTSTRAP_DATA).utagData.product_id[0] : "";
-        let upc = JSON.parse(window.__INITIAL_STATE__._PDP_BOOTSTRAP_DATA).utagData.product_upc ? JSON.parse(window.__INITIAL_STATE__._PDP_BOOTSTRAP_DATA).utagData.product_upc[0] : "";
-        let sku;
-
-        if (id && upc) {
-          sku = id + '_' + upc;
-        } else if (!upc) {
-          sku = id;
-        }
-
-        document.body.setAttribute('productsku', sku);
-        document.body.setAttribute('productupc', upc);
-        let product_rating = JSON.parse(window.__INITIAL_STATE__._PDP_BOOTSTRAP_DATA).utagData.product_rating ? JSON.parse(window.__INITIAL_STATE__._PDP_BOOTSTRAP_DATA).utagData.product_rating[0] : "";
-        let product_review = JSON.parse(window.__INITIAL_STATE__._PDP_BOOTSTRAP_DATA).utagData.product_reviews ? JSON.parse(window.__INITIAL_STATE__._PDP_BOOTSTRAP_DATA).utagData.product_reviews[0] : "";
-
-        if (product_rating && product_review) {
-          document.body.setAttribute('productrating', product_rating);
-          document.body.setAttribute('productreview', product_review);
-        }
-      }
-
+      await new Promise((resolve, reject) => setTimeout(resolve, 10000));
       let images = document.querySelectorAll('div.main-img-container ul li picture img');
       if (images.length) {
         let image = [];
-        for (let i = 0; i < images.length; i++) {
+        for (let i = 1; i < images.length; i++) {
           image[i] = images[i].src;
         }
 
@@ -74,7 +52,7 @@ module.exports = {
           break;
         }
       }
-      function stall (ms) {
+      function stall(ms) {
         return new Promise((resolve, reject) => {
           setTimeout(() => {
             resolve();

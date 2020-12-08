@@ -3,9 +3,11 @@ regionsSelector: null
 recordSelector: null
 recordXPath: null
 fields:
-  - name: metaKeywords
+  - name: ratingCount
     singleValue: true
-    xpath: //meta[@name="keywords"]/@content
+    xpath: /html/head/script[@id="productMktData"]/following::script[1]
+    regExp: (product_reviews\\":\[\\")(\d+)
+    regExpReplace: $2
   - name: productUrl
     singleValue: true
     xpath: //link[@rel="canonical"]/@href
@@ -17,34 +19,22 @@ fields:
     xpath: //div[contains(@data-el,product-details)]/p[@itemprop="description"]
   - name: nameExtended
     singleValue: true
-    xpath: concat((//div[@data-auto="product-title"]//h4)[1], (//div[@data-auto="product-title"]//h1)[1])
-  - name: name
-    singleValue: true
     xpath: (//div[@data-auto="product-title"]//h1)[1]
-  - name: descriptionBullets
-    singleValue: false
-    xpath: count(//ul[@data-auto="product-description-bullets"]//li)
   - name: featureHighlights
     singleValue: false
-    xpath: //ul[@data-auto="product-description-bullets"]//li/text()
+    xpath: //ul[@data-auto="product-description-bullets"]//li[position() < last()]/text()
   - name: featureBullets
     singleValue: false
-    xpath: //ul[@data-auto="product-description-bullets"]//li/text()
+    xpath: //ul[@data-auto="product-description-bullets"]//li[position() < last()]/text()
   - name: image
     singleValue: true
     xpath: //meta[@property="og:image"]//@content
   - name: shownImages
     singleValue: true
-    xpath: //meta[@property="og:image"]//@content
-  - name: alternateImages
-    singleValue: false
     xpath: //table//tr[@class="append_image"]//@images
   - name: highQualityImages
     singleValue: false
     xpath: //table//tr[@class="append_image"]//@images
-  - name: imageAlt
-    singleValue: true
-    xpath: (//picture[@class="alt-img__image"]//img/@alt)[1]
   - name: videos
     singleValue: true
     xpath: 
@@ -66,19 +56,22 @@ fields:
     xpath: //div[@data-el="breadcrumb"]/a[@class="breadcrumbs-item"]
   - name: sku
     singleValue: true
-    xpath: //body/@productsku
+    xpath: //link[@rel="canonical"]/@href
+    regExp: (.+)(ID=)(.+)
+    regExpReplace: $3
   - name: upc
     singleValue: true
-    xpath: //body/@productupc
+    xpath: /html/head/script[@id="productMktData"]/following::script[1]
+    regExp: (product_upc\\":\[\\")(\d+)
+    regExpReplace: $2
   - name: questionsCount
     singleValue: true
     xpath: (//div[@class="BVQAQuestionAndAnswerCount"]//span[@class="BVQANumber"])[1]
   - name: aggregateRating
     singleValue: true
-    xpath: //body/@productrating
-  - name: ratingCount
-    singleValue: true
-    xpath: //body/@productreview
+    xpath: /html/head/script[@id="productMktData"]/following::script[1]
+    regExp: (product_rating\\":\[\\")(\d\.\d)
+    regExpReplace: $2
   - name: manufacturerImages
     singleValue: true
     xpath: //body//@enhancedcontent

@@ -6,7 +6,7 @@ module.exports = {
     store: 'macys',
     domain: 'macys.com',
     loadedSelector: null,
-    noResultsXPath: null,
+    noResultsXPath: '//h1[contains(text(),"Access Denied")]',
     zipcode: '',
   },
 };

@@ -15,6 +15,18 @@ module.exports = {
       images_enabled: true,
       timeout: 500000,
       waitUntil: 'load',
+      css_enabled: true,
+      discard_CSP_header: true,
+      embed_iframes: true,
+      force200: true,
+      js_enabled: true,
+      proxy: {
+        use_relay_proxy: false
+      },
+      anti_fingerprint: false,
+      first_request_timeout: 10000,
+      goto_timeout: 10000,
+      random_move_mouse: false,
     });
   },
 };
