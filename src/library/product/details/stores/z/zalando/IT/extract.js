@@ -100,7 +100,7 @@ async function implementation(
     }
     const getsizeArray = () => {
       const sizeArray = [];
-      const sizeElements = document.querySelectorAll('form[name="size-picker-form"]>div>div>div>label>span');
+      const sizeElements = document.querySelectorAll('form[name="size-picker-form"]>div>div>div>label>span>div>span:first-child');
       sizeElements && sizeElements.forEach(element => sizeArray.push(element.innerText));
       return sizeArray;
     }
