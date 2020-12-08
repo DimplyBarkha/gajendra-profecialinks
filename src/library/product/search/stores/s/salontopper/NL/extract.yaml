@@ -7,7 +7,8 @@ fields:
     singleValue: false
     xpath: //a[contains(@class, 'add-cart')]/@data-product-id
   - name: searchUrl
-    singleValue: true
+    singleValue: false
+    xpath: (//div[@id='searchurl'])[last()]
   - name: name
     singleValue: false
     xpath: //div[@class='title']
@@ -32,7 +33,6 @@ fields:
     xpath: //div[@class='price']
   - name: manufacturer
     singleValue: true
-    xpath: //@brand
   - name: soldBy
     singleValue: true
   - name: endorsementText
@@ -41,6 +41,7 @@ fields:
     singleValue: false
     description: search/listing rank
     type: NUMBER
+    xpath: //@rankorganic
   - name: rankOrganic
     singleValue: true
     description: The position (rank) within the list excluding sponsored/paid results

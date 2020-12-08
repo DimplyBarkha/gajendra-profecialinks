@@ -13,34 +13,22 @@ async function implementation (inputs, parameters, context, dependencies) {
   await new Promise((resolve, reject) => setTimeout(resolve, 2000));
 
   await context.evaluate(() => {
+    function addElementToDocument (id, value) {
+      const catElement = document.createElement('div');
+      catElement.id = id;
+      catElement.innerText = value;
+      catElement.style.display = 'none';
+      document.body.appendChild(catElement);
+    };
+    const searchUrl = window.location.href;
+    addElementToDocument('searchurl', searchUrl);
+
     const prefix = 'https://www.salontopper.nl';
     const productUrl = document.querySelectorAll('div[class*="product-gallery"] a[href*="/product"]');
     productUrl.forEach(e => e.setAttribute('producturl', prefix.concat(e.getAttribute('href'))));
 
     const imageUrl = document.querySelectorAll('div.image img');
     imageUrl.forEach(e => e.setAttribute('image', prefix.concat(e.getAttribute('src'))));
-
-    const titles = document.querySelectorAll('div.title')
-      ? document.querySelectorAll('div.title') : [];
-    // @ts-ignore
-    const firstWordFromTitles = [...titles].map(e => e.innerText.split(' ')[0]);
-
-    // @ts-ignore
-    const fullTitleNames = [...document.querySelectorAll('a[href*="merken"]')].map(e => e.innerHTML);
-    // @ts-ignore
-    const fullTitleNamesNoDuplicates = [...new Set(fullTitleNames)];
-
-    function matchBrandName (a, b) {
-      const matches = [];
-
-      for (let i = 0; i < a.length; i++) {
-        for (let e = 0; e < b.length; e++) {
-          if (b[e].includes(a[i])) matches.push(b[e]);
-        }
-      }
-      return matches;
-    }
-    titles.forEach((e, i) => e.setAttribute('brand', matchBrandName(firstWordFromTitles, fullTitleNamesNoDuplicates)[i]));
 
     function addProp (selector, iterator, propName, value) {
       document.querySelectorAll(selector)[iterator].setAttribute(propName, value);
