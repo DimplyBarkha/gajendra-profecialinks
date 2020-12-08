@@ -57,14 +57,15 @@ const transform = (data) => {
             row.sku.forEach(item => {
               try {
                 let json_data = JSON.parse(item.text);
-                if (json_data['sku']){
-                  item.text = json_data['sku'];
+                console.log(json_data)
+                if (json_data.length>0 && json_data[0]['sku']){
+                  item.text = json_data[0]['sku'];
                 }
                 else{
                   delete row.sku;
                   return false;
                 }
-              } catch (error) {                  
+              } catch (error) {
                 delete row.sku;
                 return false;
               }
