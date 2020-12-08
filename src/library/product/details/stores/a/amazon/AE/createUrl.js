@@ -4,7 +4,7 @@ module.exports = {
   parameterValues: {
     domain: 'amazon.ae',
     prefix: null,
-    url: 'https://www.amazon.ae/Dyson-Pure-Humidify-Cool-Purifier/dp/{id}',
+    url: 'https://www.amazon.ae/dp/{id}?th=1&psc=1',
     country: 'AE',
     store: 'amazon',
     zipcode: '',

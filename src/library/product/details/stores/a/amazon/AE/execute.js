@@ -5,8 +5,8 @@ module.exports = {
     country: 'AE',
     store: 'amazon',
     domain: 'amazon.ae',
-    loadedSelector: 'div#dp-container',
-    noResultsXPath: '//b[contains(@class, "h1") and contains(text(), "Looking for something?")]',
+    loadedSelector: '#productTitle, [data-automation-id=title], [id*=Title] h1, h1[class*=title],  h1[id*=title]',
+    noResultsXPath: '//a[contains(@href, "dogsofamazon") and not(contains(@href, "503"))]',
     zipcode: '',
   },
 };

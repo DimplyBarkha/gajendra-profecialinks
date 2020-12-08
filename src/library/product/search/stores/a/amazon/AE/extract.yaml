@@ -1,24 +1,16 @@
 extends: ../shared
 fields:
   - name: ratingCount
-    singleValue: false
-    xpath: //span[@class='a-size-base' and @dir='auto']
+    singleValue: true
+    xpath: //div[contains(@class,"_multi-card-creative-desktop_Rating_container")]/span | //span[contains(@aria-label,"stars")]/following-sibling::span[1]//a/span
   - name: reviewCount
-    singleValue: false
-    xpath: //span[@class='a-size-base' and @dir='auto']
+    singleValue: true
+    xpath: //div[contains(@class,"_multi-card-creative-desktop_Rating_container")]/span | //span[contains(@aria-label,"stars")]/following-sibling::span[1]//a/span
+  - name: subscribe
+    xpath: //*[contains(@dir,"auto") and contains(text(), "ubscribe")]/text()
   - name: aggregateRating2
-    singleValue: false
-    xpath: //span[contains(@data-action,'a-popover')]//i/span
-  - name: productUrl
-    singleValue: false
-    xpath: //h2/a/@href
-    regExp: (.+)
-    regExpReplace: https://www.amazon.ae$1
-  - name: sponsored
-    singleValue: false
-    description: Is sponsored/paid
-    type: BOOLEAN
-    xpath: //span[@class='s-label-popover-default']/span[contains(text(),'Sponsored')]
-  - name: price
-    singleValue: false
-    xpath: //span[contains(@class, "price") and not(@data-a-strike="true")]//span[contains(@class, "offscreen")]//text()
+    xpath: //div[contains(@class,"_multi-card-creative-desktop_Rating_container")]/i | //span[contains(@aria-label,"stars")]/@aria-label
+    regExp: ^([^\s]+)
+    # used in transform.
+  - name: domain
+    defaultValue: 'amazon.ae'
