@@ -28,7 +28,9 @@ async function implementation(
         reviewButton.click();
         console.log('clicked');
         reviewButton.remove();
-        await timeout(10000);
+        await timeout(2000);
+        var removeElement = document.querySelector('div.ratings-list.ratings-list-preselected')
+        removeElement.remove();
       }
       // await context.waitForSelector('li.bv-content-pagination-buttons-item-next');
     } else {
@@ -39,5 +41,5 @@ async function implementation(
 
 const { transform } = parameters;
 const { productReviews } = dependencies;
-return await context.extract(productReviews, { transform });
+return await context.extract(productReviews, { transform});
 }

@@ -1,41 +1,37 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: //div[@class="ratings-list ratings-list-preselected"]/div[@class="ratings-list-item"]
+recordXPath: //ol[@class="bv-content-list bv-content-list-reviews"]//li[@class="bv-content-item bv-content-top-review bv-content-review"] | //div[@class="ratings-list ratings-list-preselected"]//div[@class="ratings-list-item"]
 fields:
   - name: brandText
     xpath: ancestor::html//div[contains(@class,'product-selection-brand')]//a
   - name: name
-    xpath: //h1[@itemprop="name"]
-  - name: reviewDate
-    xpath: //meta[@itemprop="datePublished"]/@content
-    singleValue: true
-    type: DATETIME
-    description: Date the review was made
-  - name: reviewRating
-    xpath: //span[@itemprop="ratingValue"]
-    type: NUMBER
-    singleValue: true
-    description: Rating normalized to be out of 5
-  - name: reviewText
-    xpath: //div[@itemprop="reviewBody"]
-  - name: reviewTitle
-    xpath: //h4[@class="ratings-list-item-title"]
-  - name: gtin
-    xpath: //h1[@itemprop="name"]/@sku
-    regExp: (:)(.+)
-    regExpReplace: $2
+    xpath: ancestor::body//h1[@itemprop="name"]
   - name: productUrl
     xpath: ancestor::html//link[@rel="canonical"]/@href
-  # - name: verifiedPurchase
-  #   xpath: ancestor::html//ul//li[contains(@class,'bv-badge-content-verifiedpurchaser')]/img/@title
-  #   regExp: (.+)
-  #   regExpReplace: 'true'
+  - name: gtin
+    xpath: ancestor::html//h2[@class="product-description-ean"]
+    regExp: (:)(.+)
+    regExpReplace: $2
+    # rating
+  - name: reviewDate
+    xpath: //meta[@itemprop="datePublished"]/@content
+    type: DATETIME
+  - name: user
+    xpath: //*[@itemprop="author"]
+  - name: reviewTitle
+    xpath: //h3[@class="bv-content-title"] | //h4[@class="ratings-list-item-title"]
+  - name: reviewRating
+    xpath: //meta[@itemprop="ratingValue"]/@content | //span[@class="ratings-stars-average"]
+    type: NUMBER
+  - name: reviewText
+    xpath: //div[@itemprop="reviewBody"]
+  - name: verifiedPurchase
+    xpath: //ul//li[contains(@class,'bv-badge-content-verifiedpurchaser')]/img/@title
+    regExp: (.+)
+    regExpReplace: 'true'
     defaultValue: false
-    description: Whether this of an item the reviewer purchased. "Yes" if true else ""
+  - name: reviewedSku
+    xpath: //ol[@class="bv-content-list bv-content-list-reviews"]//li[@class="bv-content-item bv-content-top-review bv-content-review"]/@data-content-id
   - name: syndicatedFrom
     xpath: //span[@class="ratings-list-syndicated-text"]
-  # - name: reviewedSku
-  #   xpath: ancestor::html//div[@class="bv-content-list-container"]//li[contains(@data-content-id,"Reviews")]/@data-content-id
-  - name: user
-    xpath: //h4[@class="ratings-list-item-title"]
