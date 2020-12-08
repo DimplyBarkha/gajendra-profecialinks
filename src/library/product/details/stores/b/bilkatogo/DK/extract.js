@@ -24,6 +24,33 @@ module.exports = {
       if (acceptCookies) acceptCookies.click();
       addElementToDocument('productUrl', window.location.href);
 
+      const productIdNode = document.evaluate('//div[@id=\'details\']//text()[contains(., \'Varenummer:\')]', document, null, XPathResult.BOOLEAN_TYPE, null).booleanValue
+        ? document.evaluate('//div[@id=\'details\']//text()[contains(., \'Varenummer:\')]', document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue.textContent : '';
+      if (productIdNode) {
+        const productIdRegex = /\d+/g;
+        const productId = productIdRegex.exec(productIdNode)[0];
+        const response = await fetch(`https://api.bilkatogo.dk/api/shop/v3/Product?u=w&productId=${productId}`, {
+          headers: {
+            accept: 'application/json, text/plain, */*',
+            'accept-language': 'en-US,en;q=0.9,pl;q=0.8',
+            'sec-fetch-dest': 'empty',
+            'sec-fetch-mode': 'cors',
+            'sec-fetch-site': 'same-site',
+          },
+          referrer: 'https://www.bilkatogo.dk/',
+          referrerPolicy: 'strict-origin-when-cross-origin',
+          body: null,
+          method: 'POST',
+          mode: 'cors',
+          credentials: 'include',
+        }).then(resp => resp.json());
+
+        const brand = response.brand ? response.brand : '';
+        if (brand) {
+          addElementToDocument('product_brand', brand);
+        }
+      }
+
       const outOfStockBtn = document.querySelector('div[class*="out-of-stock"]')
         ? document.querySelector('div[class*="out-of-stock"]') : '';
       const inStockBtn = document.querySelector('input[class*=\'product-quantity\']')
