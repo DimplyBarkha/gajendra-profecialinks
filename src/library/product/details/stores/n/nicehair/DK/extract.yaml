@@ -46,9 +46,9 @@ fields:
   - name: brandText
     singleValue: false
     xpath: //script[contains(text(),'dataLayer') and contains(text(),"'brand'")]/text()
-  - name: quantity
-    singleValue: false
-    xpath: //input[@id='qty']/@value  
+  #- name: quantity
+  #  singleValue: false
+  #  xpath: //input[@id='qty']/@value  
   - name: sku
     singleValue: false
     xpath: //div[@class='single-product']/@data-id
