@@ -42,6 +42,11 @@ const transform = (data) => {
           item.text = item.text.replace(/[a-zA-Z-:\u00C0-\u017F]/g, '').trim();
         });
       }
+      if (row.variantId) {
+        row.variantId.forEach(item => {
+          item.text = item.text.replace(/[a-zA-Z-:\u00C0-\u017F]/g, '').trim();
+        });
+      }
       if (row.image) {
         row.image.forEach(item => {
           item.text = 'https://www.fanymarket.cz' + item.text

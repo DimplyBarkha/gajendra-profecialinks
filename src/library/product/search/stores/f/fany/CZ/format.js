@@ -24,13 +24,35 @@ const transform = (data) => {
     return data;
   };
   for (const { group } of data) {
+    var rank = 1;
     for (const row of group) {
+      console.log('Row here',row);
       if (row.name) {
         row.name.forEach(item => {
           item.text = item.text.replace(/(\s*\n\s*)+/g, ' ').trim();
         });
       }
-      
+      if (row.id) {
+        row.id.forEach(item => {
+          item.text = item.text.replace(/[\/]/g, ' ').trim();
+          item.text = item.text.split('_');
+          item.text = item.text[1];
+          item.text = item.text.replace(/[a-z]/g, ' ').trim();
+        })
+      }
+      if (row.productUrl || row.thumbnail) {
+        var mainUrl = 'https://www.fanymarket.cz';
+        row.productUrl.forEach(item => {
+          item.text = mainUrl + item.text;
+        })
+        row.thumbnail.forEach(item => {
+          item.text = mainUrl + item.text;
+        })
+      }
+      row.rank = [{ "text": rank }];
+      row.rankOrganic = [{ "text": rank }];
+      rank++;
+
     }
   }
   return cleanUp(data);
