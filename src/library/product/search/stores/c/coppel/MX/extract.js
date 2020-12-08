@@ -1,4 +1,3 @@
-// @ts-nocheck
 const { transform } = require('../../../../shared');
 async function implementation (
   inputs,
@@ -8,10 +7,10 @@ async function implementation (
 ) {
   const { transform } = parameters;
   const { productDetails } = dependencies;
- 
   await context.evaluate(async function () {
+
     const url = window.location.href;
- 
+
     function addElementToDocumentOld (key, value) {
       const catElement = document.createElement('div');
       catElement.id = key;
@@ -28,7 +27,7 @@ async function implementation (
       }
       return catElement;
     }
- 
+
     const getAllXpath = (xpath, prop) => {
       const nodeSet = document.evaluate(xpath, document, null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
       const result = [];
@@ -38,59 +37,47 @@ async function implementation (
       }
       return result;
     };
+    
+    const priceText = getAllXpath("//input[contains(@id,'ProductInfoPrice_')]/@value", 'nodeValue').join('|');
+    var priceTextValue = priceText.split('|');
 
-    const priceXpath = getAllXpath("//*[contains(@id,'ProductInfoPrice_')]/@value",'nodeValue').join('|');
-    console.log("price: ", priceXpath);
-    const priceArr = priceXpath.split('|');
-    console.log('Price Array =>',priceArr);
-    console.log('Price Array Length =>',priceArr.length);
-    if(priceArr.length > 0){
-      for (var i = 0; i < priceArr.length; i++) {
-        var str = priceArr[i].replace(',','.');
-        console.log('Str =>',str);
-        addElementToDocumentOld('price_added', str);
+    const manufacturerText = getAllXpath("//*[contains(@id,'ProductInfoBrand_')]/@value", 'nodeValue').join('|');
+    var manufacturerTextValue = manufacturerText.split('|');
+
+    const nameText = getAllXpath("//*[contains(@id,'ProductInfoName_')]/@value", 'nodeValue').join('|');
+    var nameTextValue = nameText.split('|');
+
+    const productURLText = getAllXpath("//*[contains(@id,'catalogEntry_img')]/@href", 'nodeValue').join('|');
+    var productURLTextValue = productURLText.split('|');
+
+    const thumbNailText = getAllXpath("//*[contains(@id,'catalogEntry_img')]/img/@src", 'nodeValue').join('|');
+    var thumbNailTextValue = thumbNailText.split('|');
+
+    const idPath = getAllXpath("//input[contains(@id,'comparebox_')]/@value", 'nodeValue').join('|');
+    var myIdArr = idPath.split('|');
+    for (var i = 0; i < myIdArr.length; i++) {
+      try {
+        addElementToDocumentOld('id', myIdArr[i]);
+        addElementToDocumentOld('price', priceTextValue[i].replace(/,/g, '.'));
+        addElementToDocumentOld('name', nameTextValue[i]);
+        addElementToDocumentOld('manufacturer', manufacturerTextValue[i]);
+        addElementToDocumentOld('productUrl', productURLTextValue[i]);
+        addElementToDocumentOld('thumbnail', thumbNailTextValue[i]);
+        addElementToDocumentOld('added-searchurl', url);
+      } catch (err) {
+        console.log('Error =>', err);
       }
     }
-    
-    //for loop 
-   /* for (var i = 0; i < imageLength; i++) {
-
-      const idObj = JSON.stringify(thumbNailTextValue[i]);
-      var str = "http:";
-      const imagePath = str.concat(idObj);
-      addElementToDocumentOld('image_added', (imagePath.replace('"','')).replace('"',''));
-
-      const path1 = (idXpathValue[i].split('-'))[1];
-      addElementToDocumentOld('id_added', path1);
-
-      const urlObj = JSON.stringify(urlValue[i]);
-      var str = "https://www.bjs.com";
-      const urlPath = str.concat(urlObj);
-      const aPath = (urlPath.replace('"','')).replace('"','');
-      addElementToDocumentOld('url_added', aPath);
-
-      const nameObj = JSON.stringify(nameValue[i]);
-      addElementToDocumentOld('name_added', (nameObj.replace('"','')).replace('"',''));
-
-      const priceObj = JSON.stringify(priceValue[i]);
-      addElementToDocumentOld('price_added', priceObj);
-
-      const reviewObj = JSON.stringify(reviewValue[i]);
-      addElementToDocumentOld('review_added', reviewObj);
-
-      const aggrigateObj = JSON.stringify(aggValue[i]);
-      addElementToDocumentOld('agg_rating_added', (aggrigateObj.replace('"','')).replace('"',''));
-    }*/
   });
   return await context.extract(productDetails, { transform });
 }
- 
+
 module.exports = {
   implements: 'product/search/extract',
   parameterValues: {
     country: 'MX',
     store: 'coppel',
-    transform: transform,
+    transform,
     domain: 'coppel.com',
     zipcode: '',
   },

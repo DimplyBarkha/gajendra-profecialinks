@@ -1,44 +1,29 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: //div[@class="product_listing_container"]//ul//li
+recordXPath: null
 fields:
   - name: id
     singleValue: true
     description: URL of the main product image
-    xpath: //*[contains(@id,"comparebox_")]/@value
+    xpath: //div[@id='id']
   - name: productUrl
     singleValue: false
     description: Other product images (not in manufacturer description)
-    xpath: //*[contains(@id,"catalogEntry_img")]/@href
-    regExpReplace: 'https://www.coppel.com'
+    xpath: //div[@id='productUrl']
   - name: name
     singleValue: true
     description: Alt text of the main product image
-    xpath: //*[contains(@id,"ProductInfoName_")]/@value
-  - name: reviewCount
-    singleValue: false
-    description: Other product images (not in manufacturer description)
-    xpath: 
-    regExp: [/\d+/]
-  - name: ratingCount
-    singleValue: true
-    description: The number of ratings
-    xpath:
-    regExp: [/\d+/]
+    xpath: //div[@id='name']
   - name: price
     singleValue: true
-    xpath: //div[@id='price_added']
     description: offered price for the selected product
-  - name: listPrice
-    singleValue: true
-    description: Alt text of the main product image
-    xpath: //*[contains(@class,"listPrice_")]
+    xpath: //div[@id='price']
   - name: manufacturer
     singleValue: true
     description: product Manufacturer
-    xpath: //*[contains(@id,"ProductInfoBrand_")]/@value
+    xpath: //div[@id='manufacturer']
   - name: thumbnail
     singleValue: true
     description: URL of the main product image
-    xpath: //*[contains(@id,"catalogEntry_img")]/img/@src
+    xpath: //div[@id="thumbnail"]
