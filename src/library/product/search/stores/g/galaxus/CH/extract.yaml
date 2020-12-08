@@ -1,8 +1,15 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: //div[contains(@class,"productList ZZ7t")]//article[contains(@class,"panelProduct ZZki ZZdn")]
+recordXPath: //div[contains(@class,"productList ZZd8")]//article[contains(@class,"panelProduct ZZao ZZac")]
 fields:
   - name: productUrl
     SingleValue: false
-    xpath: //div[contains(@class,"productList ZZ7t")]//a[contains(@class,"styled__StyledLink-sc-5q25ol-0 dfqERM")]/@href
+    xpath: //div[contains(@class,"productList ZZd8")]//a[contains(@class,"styled__StyledLink-sc-5q25ol-0 cMeqUS")]/@href
+  - name: id
+    SingleValue: false
+    xpath: //div[contains(@class,"productList ZZd8")]//a[contains(@class,"styled__StyledLink-sc-5q25ol-0 cMeqUS")]/@href
+  - name: thumbnail
+    SingleValue: true
+    xpath: //div[contains(@class,"productList ZZd8")]//article[contains(@class,"panelProduct ZZao ZZac")]//img/@src
+    

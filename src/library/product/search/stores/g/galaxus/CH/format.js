@@ -30,6 +30,11 @@ const transform = (data) => {
             item.text = 'https://www.galaxus.ch' + item.text;
           });
         }
+        if (row.id) {
+          row.id.forEach(item => {
+            item.text = item.text.match(/\d{7}/g);
+          });
+        }
         if (row.name) {
           row.name.forEach(item => {
             item.text = item.text.replace(/\s\n/g, '').trim();

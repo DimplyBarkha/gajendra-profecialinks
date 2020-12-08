@@ -62,8 +62,8 @@ module.exports = {
     store: 'galaxus',
     domain: 'galaxus.ch',
     url: 'https://www.galaxus.ch/fr/search?q={searchTerms}',
-    loadedSelector: null,
-    noResultsXPath: '//h2[contains(text(),"Tipps für deine Suche")]',
+    loadedSelector: 'div.productList.ZZd8',
+    noResultsXPath: null,
     zipcode: "''",
   },
 };
