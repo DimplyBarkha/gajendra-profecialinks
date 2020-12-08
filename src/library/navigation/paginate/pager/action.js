@@ -42,19 +42,19 @@ async function implementation (
     await Promise.all([
       context.click(nextLinkSelector),
       // possible race condition if the data returned too fast, but unlikely
-      context.waitForMutuation(mutationSelector, { timeout: 60000 }),
+      context.waitForMutuation(mutationSelector, { timeout: 90000 }),
     ]);
     return true;
   }
 
   if (nextLinkSelector) {
     console.log('Clicking', nextLinkSelector);
-    await context.clickAndWaitForNavigation(nextLinkSelector, {}, { timeout: 60000 });
+    await context.clickAndWaitForNavigation(nextLinkSelector, {}, { timeout: 90000 });
     if (loadedSelector) {
-      await context.waitForSelector(loadedSelector, { timeout: 60000 });
+      await context.waitForSelector(loadedSelector, { timeout: 90000 });
     }
     if (loadedXpath) {
-      await context.waitForXPath(loadedXpath, { timeout: 20000 });
+      await context.waitForXPath(loadedXpath, { timeout: 90000 });
     }
     return true;
   }

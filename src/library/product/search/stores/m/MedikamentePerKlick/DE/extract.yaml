@@ -5,41 +5,37 @@ recordXPath: null
 fields:
   - name: productUrl
     type: URL
-    xpath: //div[@class="boxProduct rowEven" or @class="boxProduct rowOdd"]//div[@class='figure']/a/@href
+    xpath: //div[@class='productsList']//a[@itemprop="url"]/@href
   - name: thumbnail
     description: The URL for the product thumbnail image
     type: FILE
-    xpath: //div[@class="boxProduct rowEven" or @class="boxProduct rowOdd"]//div[@class='figure']//img/@src
+    xpath: //div[@class='productsList']//img[@class="photo"]/@src
     regExp: (.*)
     regExpReplace: https://www.medikamente-per-klick.de/$1
   - name: name
-    singleValue: true
     type: TEXT
-    xpath: //div[@class="boxProduct rowEven" or @class="boxProduct rowOdd"]//span[@itemprop='name']//text()
+    xpath: //div[@class='productsList']//span[@itemprop="name"]//text()
   - name: id
-    singleValue: true
     description: The store-specific product identifier
     type: TEXT
-    xpath: //div[@class="boxProduct rowEven" or @class="boxProduct rowOdd"]//dd[@itemprop='productID']//text()
+    xpath: //div[@class='productsList']//dd[@itemprop='productID']//text()
   - name: gtin
     manualSelector: script[type='text/plain']
     regExp: '(gtin: ")(\d+)'
     regExpReplace: $2
   - name: price
-    singleValue: true
     type: CURRENCY
-    xpath: //div[@class="boxProduct rowEven" or @class="boxProduct rowOdd"]//dd[@class='yourPrice']//text()
-    description: The offered price for the product
+    xpath: //div[@class='productsList']//dd[@class='yourPrice']//text()
   - name: aggregateRating
-    xpath: //div[@class="boxProduct rowEven" or @class="boxProduct rowOdd"]//span[@itemprop='ratingValue']//text()
+    xpath: //div[@class='productsList']//span[@itemprop='ratingValue']//text()
   - name: reviewCount
     type: NUMBER
-    xpath: //div[@class="boxProduct rowEven" or @class="boxProduct rowOdd"]//span[@itemprop='reviewCount']//text()
+    xpath: //div[@class='productsList']//span[@itemprop='reviewCount']//text()
   - name: Availability
-    xpath: //div[@class="boxProduct rowEven" or @class="boxProduct rowOdd"]//meta[@itemprop="availability"]/@content
+    xpath: //div[@class='productsList']//meta[@itemprop="availability"]/@content
     defaultValue: In stock
     regExp: OutOfStock
     regExpReplace: Out of Stock
   - name: manufacturer
     type: TEXT
-    xpath: //div[@class="boxProduct rowEven" or @class="boxProduct rowOdd"]//dd[@itemprop="brand"]//text()
+    xpath: //div[@class='productsList']//dd[@itemprop="brand"]//text()
