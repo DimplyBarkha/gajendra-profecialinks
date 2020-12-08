@@ -1,13 +1,16 @@
 extends: ../shared
 fields:
-  - name: productUrl
-    singleValue: false
-    xpath: //h2/a/@href
-    regExp: (.+)
-    regExpReplace: https://www.amazon.in$1
-  - name: price
-    singleValue: false
-    xpath: //span[@class="a-price"]//span[@class="a-offscreen"]//text()
+  - name: ratingCount
+    singleValue: true
+    xpath: //div[contains(@class,"_multi-card-creative-desktop_Rating_container")]/span | //span[contains(@aria-label,"stars")]/following-sibling::span[1]//a/span
   - name: reviewCount
     singleValue: true
-    xpath: //span[contains(@aria-label,"stars")]/following-sibling::span[1]//a/span
+    xpath: //div[contains(@class,"_multi-card-creative-desktop_Rating_container")]/span | //span[contains(@aria-label,"stars")]/following-sibling::span[1]//a/span
+  - name: subscribe
+    xpath: //*[contains(@dir,"auto") and contains(text(), "ubscribe")]/text()
+  - name: aggregateRating2
+    xpath: //div[contains(@class,"_multi-card-creative-desktop_Rating_container")]/i | //span[contains(@aria-label,"stars")]/@aria-label
+    regExp: ^([^\s]+)
+    # used in transform.
+  - name: domain
+    defaultValue: 'amazon.in'
