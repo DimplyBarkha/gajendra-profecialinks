@@ -27,10 +27,14 @@ async function implementation (inputs, parameters, context, dependencies) {
 
   await context.evaluate(() => {
     const productUrl = document.querySelectorAll('div.col-xs-5.col-sm-5.col-md-12.img-wrap>a');
+    const priceSelector = document.querySelectorAll('p.item-prize');
 
     for (let i = 0; i < productUrl.length; i++) {
+      let price = priceSelector[i].textContent;
+      price = price.replace('.', ',');
       productUrl[i].setAttribute('url', productUrl[i].href);
       productUrl[i].setAttribute('rank', `${i + 1}`);
+      priceSelector[i].setAttribute('price', price);
     }
   });
 
