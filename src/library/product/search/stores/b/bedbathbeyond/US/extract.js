@@ -11,14 +11,10 @@ module.exports = {
   },
   implementation: async (inputs, parameters, context, dependencies) => {
     await context.evaluate(async () => {
-      if (!document.querySelector('header[class*="SearchHeader"')) {
-        throw new Error('Not a Search Page');
-      }
-
-      window.scrollTo(0, document.body.scrollHeight);
-
       const currentUrl = window.location.href;
       document.querySelector('body').setAttribute('searchurl', currentUrl);
+
+      window.scrollTo(0, document.body.scrollHeight);
 
       const products = document.querySelectorAll(
         '[data-locator="product_tile_rating"] > span',

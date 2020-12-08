@@ -8,7 +8,7 @@ fields:
     xpath: ./@id
   - name: searchUrl
     singleValue: true
-    xpath: //@searchurl
+    xpath: //ancestor::body/@searchurl
   - name: name
     singleValue: false
     xpath: //div[@data-locator="product_tile_title"]/@title
@@ -16,7 +16,7 @@ fields:
     singleValue: false
     xpath: //div[@data-locator="product_tile_title"]/a/@href
     regExp: ^([^?]+)
-    regExpReplace: https://www.bedbathandbeyond.ca$1
+    regExpReplace: https://www.bedbathandbeyond.com$1
   - name: gtin
     singleValue: false
   - name: thumbnail
