@@ -88,7 +88,6 @@ fields:
   - name: gtin
     singleValue: false
     description: GTIN code (includes UPC/EAN)
-    xpath: //div[@id='xpaths']
   - name: sku
     singleValue: false
     xpath: (//div/@data-zone-data[contains(.,"skuId")])[1]
@@ -117,8 +116,10 @@ fields:
     singleValue: false
     description: Content under "warnings" header
   - name: ratingCount
+    singleValue: false
     xpath: //div[@data-zone-name="summary"]//span[contains(.,'отзывов')] | //meta[@itemprop="reviewCount"]/@content
     regExp: (\d+)
+    regExpReplace: $1
   - name: aggregateRating
     singleValue: false
     xpath: (//div[@class="b_sEc13pK37d"]/@style)[1] | //meta[@itemprop="ratingValue"]/@content
@@ -141,11 +142,11 @@ fields:
     singleValue: false
     description: Stated shipping weight
   - name: variantCount
+    singleValue: false
     xpath: count(//div[@data-zone-name="filter"]//input/@value)
   - name: color
     singleValue: false
     description: A textual description of the colour
-    xpath: //span[@class="b_orEV9DcwNt"]
   - name: colorCode
     singleValue: false
     description: A code description of the color (e.g. RGB hex)
@@ -249,6 +250,7 @@ fields:
     singleValue: false
     description: null
   - name: secondaryImageTotal
+    singleValue: false
     xpath: //div[@id="alternateImagesCount"]
   - name: news
     singleValue: false
@@ -436,10 +438,12 @@ fields:
     singleValue: false
     xpath: //div[@class="buybox__price-per-unit"]/span
     regExp: '^[^/]+'
+    regExpReplace: $1
   - name: pricePerUnitUom
     singleValue: false
     xpath: //div[@class="buybox__price-per-unit"]/span[last()]
     regExp: '[^/]+$'
+    regExpReplace: $1
   - name: promotion
     singleValue: false
     xpath: //div[@data-zone-name="discountBadge"]/div
@@ -465,7 +469,6 @@ fields:
     singleValue: false
     xpath: //*[@class="b_18ouxBEWKA"]
     description: colour / scent / flavour / other
-    xpath: //span[@class="b_orEV9DcwNt"]
   - name: firstVariant
     singleValue: false
     description: Unique identifier for a collection of variants. For a subset of
