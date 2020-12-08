@@ -26,6 +26,18 @@ const transform = (data, context) => {
         row.rating = [{ text: percentArray.indexOf(percent) + 1 }];
       }
 
+      if (row.flavour && Array.isArray(row.flavour)) {
+        row.flavour = [{ text: row.flavour.map(el => el.text).join(', ') }];
+      }
+
+      if (row.colour && Array.isArray(row.colour)) {
+        row.colour = [{ text: row.colour.map(el => el.text).join(', ') }];
+      }
+
+      if (row.productFamily && Array.isArray(row.productFamily)) {
+        row.productFamily = [{ text: row.productFamily.map(el => el.text).join(' > ') }];
+      }
+
       Object.keys(row).forEach(header => row[header].forEach(el => {
         el.text = clean(el.text);
       }));

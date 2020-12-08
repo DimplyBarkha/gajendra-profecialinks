@@ -27,7 +27,7 @@ async function implementation (
 
   await context.click('li#tab-label-reviews')
     .then(async () => {
-      await context.waitForSelector('li[class="item review-item"]', { timeout: 7000 });
+      await context.waitForSelector('li[class="item review-item"]', { timeout: 10000 });
     })
     .catch(() => console.log('No reviews for item!'));
 
