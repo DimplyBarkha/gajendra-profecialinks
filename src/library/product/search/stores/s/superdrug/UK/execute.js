@@ -6,7 +6,7 @@ module.exports = {
     store: 'superdrug',
     domain: 'superdrug.com',
     url: 'https://www.superdrug.com/search?text={searchTerms}',
-    loadedSelector: '[class="bv-off-screen"]',
+    loadedSelector: 'div#plp',
     noResultsXPath: '//div[@id="no_results"]',
   },
 };
