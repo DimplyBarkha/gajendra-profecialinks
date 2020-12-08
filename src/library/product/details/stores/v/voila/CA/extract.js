@@ -31,6 +31,7 @@ module.exports = {
           const newlink = document.createElement('a');
           newlink.setAttribute('class', 'image');
           newlink.setAttribute('href', element.src);
+          newlink.setAttribute('alt', element.description);
           document.body.appendChild(newlink);
         });
       }
