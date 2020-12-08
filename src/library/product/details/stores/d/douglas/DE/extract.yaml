@@ -79,3 +79,9 @@ fields:
     xpath: //div[contains(@class,"rd__product-heade")]/a/@href
     regExp: (.*)
     regExpReplace: https://www.douglas.de$1
+  - name: hasComparisonTable
+    defaultValue: No
+  - name: inTheBoxUrl
+    xpath: //div[@class="dobook-global"]//div[@class="block"]//img/@src
+  - name: inTheBoxText
+    xpath: //div[@class="dobook-global"]//div[@class="block"]//header
