@@ -4,7 +4,7 @@ module.exports = {
   parameterValues: {
     domain: 'linenchest.com',
     prefix: null,
-    url: null,
+    url: 'https://www.linenchest.com/en_ca/catalogsearch/result/?q={id}',
     country: 'CA',
     store: 'linenchest',
     zipcode: '',

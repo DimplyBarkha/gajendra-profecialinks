@@ -20,7 +20,7 @@ fields:
     xpath: //div[@class="page-title-wrapper product"]//h1[@class="page-title"]//span
   - name: price
     singleValue: false
-    xpath: //div[@class="product-info-price"]//span[@class="price-container price-final_price tax"]//span[@class="price-wrapper"]
+    xpath: //span[@data-price-type="finalPrice"]
   - name: aggregateRating2
     singleValue: false
     xpath: //div[@class="tt-c-reviews-summary__rating tt-u-mb--sm"]//span[@class="tt-c-reviews-summary__rating-number"]
@@ -39,7 +39,7 @@ fields:
     xpath: count((//div[@class="product attribute more-infos"])[1]//div[@itemprop="more_infos"]//ul//li | //div[@class="product attribute user-care"]//div[@itemprop="user_care"]//ul//li)
   - name: description
     singleValue: false
-    xpath: concat(//div[@class="product attribute overview"]//div[@itemprop="description"], //div[@class="product attribute more-infos"]//div[@itemprop="more_infos"]//ul, //div[@class="product attribute user-care"]//div[@itemprop="user_care"]//ul)
+    xpath: concat(//div[@class="product attribute overview"]//div[@itemprop="description"], (//div[@class="product attribute more-infos"])[1]//div[@itemprop="more_infos"]//ul, (//div[@class="product attribute more-infos"])[2]//div[@itemprop="more_infos"], //div[@class="product attribute user-care"]//div[@itemprop="user_care"]//ul)
   - name: sku
     singleValue: false
     xpath: //div[contains(@class,'product-sku')]
@@ -74,3 +74,6 @@ fields:
     xpath: (//div[@itemprop="more_infos"]/ul/li[contains(.,"Dimensions")])[1]
     regExp: :\W+(.+)
     regExpReplace: $1
+  - name: imageZoomFeaturePresent
+    singleValue: false
+    xpath: boolean(//figure[@class="mz-figure mz-hover-zoom mz-ready"])
