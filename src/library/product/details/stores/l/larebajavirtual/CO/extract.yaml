@@ -33,9 +33,9 @@ fields:
     xpath: //div[@class='descripciones']/div/h1
   - name: price
     singleValue: true
-    xpath: (//td[@valign='bottom']/div/span[@class='ahora'])[1]|//span[@style='font-weight:bolder;']
-    regExp: (\$\d+)\.?(\d+)?
-    regExpReplace: $1,$2
+    xpath: (//input[@id='detailPixelPrice'])/@value
+    regExp: (\d+)(\d\d\d)
+    regExpReplace: $1,$2$
     description: The stated undiscounted price for the product
   - name: url
     singleValue: false
