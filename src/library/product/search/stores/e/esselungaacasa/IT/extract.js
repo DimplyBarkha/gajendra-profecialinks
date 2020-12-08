@@ -40,7 +40,7 @@ module.exports = {
         doc.appendChild(catElement);
       };
 
-      const allProducts = document.querySelectorAll('div.content-item[tabindex="0"]')
+      const allProducts = document.querySelectorAll('div.content-item[tabindex="0"]');
       for (let x = 0; x < allProducts.length; x++) {
         const productId = allProducts[x].getAttribute('id');
         addElementToDocument(allProducts[x], 'productId', productId);
