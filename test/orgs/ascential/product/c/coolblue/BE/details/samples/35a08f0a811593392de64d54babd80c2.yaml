@@ -1,0 +1,560 @@
+input:
+  id: 635045
+  _url: http://coolblue.be
+extractions:
+  - html: https://workbench.import.io/html/run=f0030cdb-8ffb-4c7b-8389-ac80681b0ca3/task=15791e72-5000-4b2b-88b7-2210988c1cb3/e4ef8b8f-83ee-4171-8e22-dcf6011df6fa.html
+    extractionConfigId: product/details/stores/c/coolblue/BE/extract
+    data:
+      - group:
+          - productUrl:
+              - text: https://www.coolblue.be/nl/product/635045/bosch-kgv36vb32s.html
+                xpath: /html/head[1]/link[1]/@href
+            image:
+              - text: https://image.coolblue.be/max/500x500/products/1365362
+                xpath: /html/body/div[2]/div[1]/div[1]/div[3]/div[1]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[1]/img[1]/@src
+            imageAlt:
+              - text: Bosch KGV36VB32S Main Image
+                xpath: /html/body/div[2]/div[1]/div[1]/div[3]/div[1]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[1]/img[1]/@alt
+            alternateImages:
+              - text: https://image.coolblue.be/75x75/products/543848
+                xpath: /html/body/div[2]/div[1]/div[1]/div[3]/div[1]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/ul[1]/li[2]/img[1]/@src
+              - text: https://image.coolblue.be/75x75/products/427659
+                xpath: /html/body/div[2]/div[1]/div[1]/div[3]/div[1]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/ul[1]/li[3]/img[1]/@src
+              - text: https://image.coolblue.be/75x75/content/199727
+                xpath: /html/body/div[2]/div[1]/div[1]/div[3]/div[1]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/ul[1]/li[4]/img[1]/@src
+              - text: https://image.coolblue.be/75x75/content/517064
+                xpath: /html/body/div[2]/div[1]/div[1]/div[3]/div[1]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/ul[1]/li[5]/img[1]/@src
+              - text: https://image.coolblue.be/75x75/products/1502056
+                xpath: /html/body/div[2]/div[1]/div[1]/div[3]/div[1]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/ul[1]/li[6]/img[1]/@src
+              - text: https://image.coolblue.be/75x75/products/427658
+                xpath: /html/body/div[2]/div[1]/div[1]/div[3]/div[1]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/ul[1]/li[7]/img[1]/@src
+              - text: https://image.coolblue.be/75x75/products/442031
+                xpath: /html/body/div[2]/div[1]/div[1]/div[3]/div[1]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/ul[1]/li[8]/img[1]/@src
+            category:
+              - text: Grote keukenapparatuur
+                xpath: /html/body/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/nav[1]/ol[1]/li[1]/a[1]/text()[1]
+              - text: Koelkasten
+                xpath: /html/body/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/nav[1]/ol[1]/li[2]/a[1]/text()[1]
+              - text: Koel- vriescombinaties
+                xpath: /html/body/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/nav[1]/ol[1]/li[3]/a[1]/text()[1]
+              - text: Bosch koel-vriescombinaties
+                xpath: /html/body/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/nav[1]/ol[1]/li[4]/div[1]/a[1]/text()[1]
+            nameExtended:
+              - text: Bosch KGV36VB32S
+                xpath: /html/body/div[2]/div[1]/div[1]/div[3]/div[1]/main[1]/h1[1]/span[1]/text()[1]
+            price:
+              - text: 539,-
+                xpath: /html/body/div[2]/div[1]/div[1]/div[3]/div[1]/main[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/span[1]/strong[1]
+            availabilityText:
+              - text: Beperkte voorraad, bestel snel
+                xpath: /html/body/div[12]
+            description:
+              - text: De koelkast beschikt over uitschuifbare lades zodat je overal moeiteloos
+                  bij kunt.
+                xpath: /html/body/div[2]/div[1]/div[1]/div[3]/div[1]/main[1]/div[5]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[2]/ul[1]/li[1]/div[1]/div[2]
+              - text: Fruit en groente blijven langer vers door de vochtigheidsgraad aan te
+                  passen in de CrisperBox.
+                xpath: /html/body/div[2]/div[1]/div[1]/div[3]/div[1]/main[1]/div[5]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[2]/ul[1]/li[2]/div[1]/div[2]
+              - text: In de vriezer zit een extra grote BigBox zodat ook grote producten
+                  eenvoudig opgeborgen worden.
+                xpath: /html/body/div[2]/div[1]/div[1]/div[3]/div[1]/main[1]/div[5]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[2]/ul[1]/li[3]/div[1]/div[2]
+              - text: De koel-vriescombinatie heeft geen No Frost-systeem. De koelkast heeft wel
+                  een Low Frost-systeem, waardoor het ontdooien tot een minimum
+                  beperkt wordt.
+                xpath: /html/body/div[2]/div[1]/div[1]/div[3]/div[1]/main[1]/div[5]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[2]/ul[1]/li[4]/div[1]/div[2]
+              - text: Mooi zwart is niet lelijk. Ook niet bij witgoed... Achter de glanzend
+                  zwarte voorzijde van de Bosch KGV36VB32S gaan een 213 liter
+                  koelruimte en een 94 liter vriesruimte schuil. De heldere
+                  LED-lampen verlichten de koelkast gelijkmatig om het overzicht
+                  te vergroten. Naast 3 uitschuifbare plateaus heeft hij een
+                  VitaFresh lade waarin je groente en fruit langer vers houdt.
+                  In de vriesruimte kun je gemakkelijk grotere levensmiddelen
+                  kwijt in de ruime BigBox. De Bosch KGV36VB32S beschikt
+                  bovendien over LowFrost. Doordat de vorming van ijs
+                  aanzienlijk wordt verminderd hoef je minder vaak te ontdooien.
+                  En dat scheelt weer werk en bespaart energie.
+                xpath: /html/body/div[2]/div[1]/div[1]/div[3]/div[1]/main[1]/div[5]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/div[1]/div[1]/p[1]
+            brandText:
+              - text: Bosch
+                xpath: /html/body/div[2]/div[1]/div[1]/div[3]/div[1]/main[1]/div[10]/div[1]/div[1]/div[1]/div[1]/dl[3]/dd[1]/text()[1]
+            weightNet:
+              - text: 73 kg
+                xpath: /html/body/div[2]/div[1]/div[1]/div[3]/div[1]/main[1]/div[10]/div[1]/div[1]/div[3]/div[1]/dl[4]/dd[1]/text()[1]
+            sku:
+              - text: "635045"
+                xpath: /html/body/div[2]/div[1]/div[1]/div[3]/div[1]/main[1]/@data-product-id
+            variantId:
+              - text: "635045"
+                xpath: /html/body/div[2]/div[1]/div[1]/div[3]/div[1]/main[1]/@data-product-id
+            mpc:
+              - text: KGV36VB32S
+                xpath: /html/body/div[2]/div[1]/div[1]/div[3]/div[1]/main[1]/div[10]/div[1]/div[1]/div[1]/div[1]/dl[2]/dd[1]/text()[1]
+            ratingCount:
+              - text: "55"
+                xpath: /html/body/div[13]
+                type: NUMBER
+                raw: "55"
+                locale: nl_BE
+                value: 55
+            aggregateRating:
+              - text: 4,6
+                xpath: /html/body/div[14]
+            shippingInfo:
+              - text: Kies zelf je bezorgdag wanneer je gaat bestellen
+                xpath: /html/body/div[2]/div[1]/div[1]/div[3]/div[1]/main[1]/div[2]/div[1]/div[2]/div[1]/div[3]/ul[1]/li[1]/a[1]/div[1]/div[2]/span[1]
+            variantCount:
+              - text: "0"
+                xpath: /html/body/div[17]
+                type: NUMBER
+                raw: "0"
+                locale: nl_BE
+                value: 0
+            color:
+              - text: Zilver, Zwart
+                xpath: /html/body/div[2]/div[1]/div[1]/div[3]/div[1]/main[1]/div[10]/div[1]/div[1]/div[2]/div[1]/dl[12]/dd[1]/text()[1]
+            videos:
+              - text: https://www.youtube.com/embed/FOU99QabPGk?rel=0&iv_load_policy=3&enablejsapi=1
+                xpath: /html/body/div[2]/div[1]/div[1]/div[3]/div[1]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[4]/@data-video
+              - text: https://www.youtube.com/embed/9SZjEPGQ_qo?rel=0&iv_load_policy=3&enablejsapi=1
+                xpath: /html/body/div[2]/div[1]/div[1]/div[3]/div[1]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[5]/@data-video
+            name:
+              - text: Bosch KGV36VB32S
+                xpath: /html/body/div[2]/div[1]/div[1]/div[3]/div[1]/main[1]/h1[1]/span[1]/text()[1]
+            warranty:
+              - text: 2 jaar, On-site service
+                xpath: /html/body/div[15]
+            productOtherInformation:
+              - text: |-
+                  Energieklasse 
+                   
+                   A++
+                xpath: /html/body/div[2]/div[1]/div[1]/div[3]/div[1]/main[1]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/dl[1]
+              - text: |-
+                  Bouwkwaliteit 
+                   
+                   Basisklasse
+                xpath: /html/body/div[2]/div[1]/div[1]/div[3]/div[1]/main[1]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/dl[2]
+              - text: |-
+                  Hoogte 
+                   
+                   186 cm
+                xpath: /html/body/div[2]/div[1]/div[1]/div[3]/div[1]/main[1]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/dl[3]
+              - text: |-
+                  Netto inhoud 
+                   
+                   307 l
+                xpath: /html/body/div[2]/div[1]/div[1]/div[3]/div[1]/main[1]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/dl[4]
+              - text: |-
+                  Vriesgedeelte 
+                   
+                   Ja
+                xpath: /html/body/div[2]/div[1]/div[1]/div[3]/div[1]/main[1]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/dl[5]
+              - text: |-
+                  Energieklasse 
+                   
+                   A++
+                xpath: /html/body/div[2]/div[1]/div[1]/div[3]/div[1]/main[1]/div[5]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/dl[1]
+              - text: |-
+                  Bouwkwaliteit 
+                   
+                   Basisklasse
+                xpath: /html/body/div[2]/div[1]/div[1]/div[3]/div[1]/main[1]/div[5]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/dl[2]
+              - text: |-
+                  Hoogte 
+                   
+                   186 cm
+                xpath: /html/body/div[2]/div[1]/div[1]/div[3]/div[1]/main[1]/div[5]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/dl[3]
+              - text: |-
+                  Netto inhoud 
+                   
+                   307 l
+                xpath: /html/body/div[2]/div[1]/div[1]/div[3]/div[1]/main[1]/div[5]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/dl[4]
+              - text: |-
+                  Vriesgedeelte 
+                   
+                   Ja
+                xpath: /html/body/div[2]/div[1]/div[1]/div[3]/div[1]/main[1]/div[5]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/dl[5]
+              - text: |-
+                  Artikelnummer 
+                   
+                   635045
+                xpath: /html/body/div[2]/div[1]/div[1]/div[3]/div[1]/main[1]/div[10]/div[1]/div[1]/div[1]/div[1]/dl[1]
+              - text: |-
+                  Fabrikantcode 
+                   
+                   KGV36VB32S
+                xpath: /html/body/div[2]/div[1]/div[1]/div[3]/div[1]/main[1]/div[10]/div[1]/div[1]/div[1]/div[1]/dl[2]
+              - text: |-
+                  Merk 
+                   
+                   Bosch
+                xpath: /html/body/div[2]/div[1]/div[1]/div[3]/div[1]/main[1]/div[10]/div[1]/div[1]/div[1]/div[1]/dl[3]
+              - text: |-
+                  Garantie 
+                   
+                   2 jaar
+                xpath: /html/body/div[2]/div[1]/div[1]/div[3]/div[1]/main[1]/div[10]/div[1]/div[1]/div[1]/div[1]/dl[4]
+              - text: |-
+                  Garantietype 
+                   
+                   On-site service
+                xpath: /html/body/div[2]/div[1]/div[1]/div[3]/div[1]/main[1]/div[10]/div[1]/div[1]/div[1]/div[1]/dl[5]
+              - text: |-
+                  Plaatsing apparaat 
+                   
+                   Vrijstaand
+                xpath: /html/body/div[2]/div[1]/div[1]/div[3]/div[1]/main[1]/div[10]/div[1]/div[1]/div[2]/div[1]/dl[1]
+              - text: |-
+                  Frontpaneel benodigd 
+                   
+                   Nee
+                xpath: /html/body/div[2]/div[1]/div[1]/div[3]/div[1]/main[1]/div[10]/div[1]/div[1]/div[2]/div[1]/dl[2]
+              - text: |-
+                  Model koelkast/vriezer 
+                   
+                   Koel-vriescombinatie
+                xpath: /html/body/div[2]/div[1]/div[1]/div[3]/div[1]/main[1]/div[10]/div[1]/div[1]/div[2]/div[1]/dl[3]
+              - text: |-
+                  Inverter compressor 
+                   
+                   Nee
+                xpath: /html/body/div[2]/div[1]/div[1]/div[3]/div[1]/main[1]/div[10]/div[1]/div[1]/div[2]/div[1]/dl[4]
+              - text: |-
+                  Afgedekte condensor 
+                   
+                   Nee
+                xpath: /html/body/div[2]/div[1]/div[1]/div[3]/div[1]/main[1]/div[10]/div[1]/div[1]/div[2]/div[1]/dl[5]
+              - text: |-
+                  Maximaal geluidsniveau 
+                   
+                   39 dB
+                xpath: /html/body/div[2]/div[1]/div[1]/div[3]/div[1]/main[1]/div[10]/div[1]/div[1]/div[2]/div[1]/dl[6]
+              - text: |-
+                  Hevelgreep (anti-vacuum) 
+                   
+                   Nee
+                xpath: /html/body/div[2]/div[1]/div[1]/div[3]/div[1]/main[1]/div[10]/div[1]/div[1]/div[2]/div[1]/dl[7]
+              - text: |-
+                  LED-lamp 
+                   
+                   Ja
+                xpath: /html/body/div[2]/div[1]/div[1]/div[3]/div[1]/main[1]/div[10]/div[1]/div[1]/div[2]/div[1]/dl[8]
+              - text: |-
+                  Display 
+                   
+                   Nee
+                xpath: /html/body/div[2]/div[1]/div[1]/div[3]/div[1]/main[1]/div[10]/div[1]/div[1]/div[2]/div[1]/dl[9]
+              - text: |-
+                  Materiaal deur 
+                   
+                   Metaal met coating
+                xpath: /html/body/div[2]/div[1]/div[1]/div[3]/div[1]/main[1]/div[10]/div[1]/div[1]/div[2]/div[1]/dl[10]
+              - text: |-
+                  Materiaal behuizing 
+                   
+                   Metaal met coating
+                xpath: /html/body/div[2]/div[1]/div[1]/div[3]/div[1]/main[1]/div[10]/div[1]/div[1]/div[2]/div[1]/dl[11]
+              - text: |-
+                  Kleur 
+                   
+                   Zilver, Zwart
+                xpath: /html/body/div[2]/div[1]/div[1]/div[3]/div[1]/main[1]/div[10]/div[1]/div[1]/div[2]/div[1]/dl[12]
+              - text: |-
+                  Hoogte 
+                   
+                   186 cm
+                xpath: /html/body/div[2]/div[1]/div[1]/div[3]/div[1]/main[1]/div[10]/div[1]/div[1]/div[3]/div[1]/dl[1]
+              - text: |-
+                  Breedte 
+                   
+                   60 cm
+                xpath: /html/body/div[2]/div[1]/div[1]/div[3]/div[1]/main[1]/div[10]/div[1]/div[1]/div[3]/div[1]/dl[2]
+              - text: |-
+                  Diepte 
+                   
+                   65 cm
+                xpath: /html/body/div[2]/div[1]/div[1]/div[3]/div[1]/main[1]/div[10]/div[1]/div[1]/div[3]/div[1]/dl[3]
+              - text: |-
+                  Gewicht 
+                   
+                   73 kg
+                xpath: /html/body/div[2]/div[1]/div[1]/div[3]/div[1]/main[1]/div[10]/div[1]/div[1]/div[3]/div[1]/dl[4]
+              - text: |-
+                  Bouwkwaliteit 
+                   
+                   Basisklasse
+                xpath: /html/body/div[2]/div[1]/div[1]/div[3]/div[1]/main[1]/div[10]/div[1]/div[1]/div[4]/div[1]/dl[1]
+              - text: |-
+                  Netto inhoud 
+                   
+                   307 l
+                xpath: /html/body/div[2]/div[1]/div[1]/div[3]/div[1]/main[1]/div[10]/div[1]/div[1]/div[4]/div[1]/dl[2]
+              - text: |-
+                  Aantal koelkastdeuren 
+                   
+                   2
+                xpath: /html/body/div[2]/div[1]/div[1]/div[3]/div[1]/main[1]/div[10]/div[1]/div[1]/div[4]/div[1]/dl[3]
+              - text: |-
+                  Omdraaibare deur 
+                   
+                   Ja
+                xpath: /html/body/div[2]/div[1]/div[1]/div[3]/div[1]/main[1]/div[10]/div[1]/div[1]/div[4]/div[1]/dl[4]
+              - text: |-
+                  Standaard draairichting deur 
+                   
+                   Rechts
+                xpath: /html/body/div[2]/div[1]/div[1]/div[3]/div[1]/main[1]/div[10]/div[1]/div[1]/div[4]/div[1]/dl[5]
+              - text: |-
+                  Indrukbaar deurrubber 
+                   
+                   Ja
+                xpath: /html/body/div[2]/div[1]/div[1]/div[3]/div[1]/main[1]/div[10]/div[1]/div[1]/div[4]/div[1]/dl[6]
+              - text: |-
+                  Geschikt voor schuur of garage 
+                   
+                   Ja, mits boven 10 graden
+                xpath: /html/body/div[2]/div[1]/div[1]/div[3]/div[1]/main[1]/div[10]/div[1]/div[1]/div[4]/div[1]/dl[7]
+              - text: |-
+                  Maximale omgevingstemperatuur 
+                   
+                   43 °C
+                xpath: /html/body/div[2]/div[1]/div[1]/div[3]/div[1]/main[1]/div[10]/div[1]/div[1]/div[4]/div[1]/dl[8]
+              - text: |-
+                  Minimale omgevingstemperatuur 
+                   
+                   10 °C
+                xpath: /html/body/div[2]/div[1]/div[1]/div[3]/div[1]/main[1]/div[10]/div[1]/div[1]/div[4]/div[1]/dl[9]
+              - text: |-
+                  Open deur alarm 
+                   
+                   Nee
+                xpath: /html/body/div[2]/div[1]/div[1]/div[3]/div[1]/main[1]/div[10]/div[1]/div[1]/div[4]/div[1]/dl[10]
+              - text: |-
+                  Koolstoffilter 
+                   
+                   Nee
+                xpath: /html/body/div[2]/div[1]/div[1]/div[3]/div[1]/main[1]/div[10]/div[1]/div[1]/div[4]/div[1]/dl[11]
+              - text: |-
+                  Dispenser 
+                   
+                   Nee
+                xpath: /html/body/div[2]/div[1]/div[1]/div[3]/div[1]/main[1]/div[10]/div[1]/div[1]/div[4]/div[1]/dl[12]
+              - text: |-
+                  Kabellengte 
+                   
+                   2,4 m
+                xpath: /html/body/div[2]/div[1]/div[1]/div[3]/div[1]/main[1]/div[10]/div[1]/div[1]/div[4]/div[1]/dl[13]
+              - text: |-
+                  Geschikt voor aantal personen 
+                   
+                   3 - 4 personen (151 - 250 liter)
+                xpath: /html/body/div[2]/div[1]/div[1]/div[3]/div[1]/main[1]/div[10]/div[1]/div[1]/div[5]/div[1]/dl[1]
+              - text: |-
+                  Netto inhoud koelgedeelte 
+                   
+                   213 l
+                xpath: /html/body/div[2]/div[1]/div[1]/div[3]/div[1]/main[1]/div[10]/div[1]/div[1]/div[5]/div[1]/dl[2]
+              - text: |-
+                  Koelkwaliteit 
+                   
+                   Basisklasse
+                xpath: /html/body/div[2]/div[1]/div[1]/div[3]/div[1]/main[1]/div[10]/div[1]/div[1]/div[5]/div[1]/dl[3]
+              - text: |-
+                  Super koelen 
+                   
+                   Nee
+                xpath: /html/body/div[2]/div[1]/div[1]/div[3]/div[1]/main[1]/div[10]/div[1]/div[1]/div[5]/div[1]/dl[4]
+              - text: |-
+                  Luchtcirculatie 
+                   
+                   Nee
+                xpath: /html/body/div[2]/div[1]/div[1]/div[3]/div[1]/main[1]/div[10]/div[1]/div[1]/div[5]/div[1]/dl[5]
+              - text: |-
+                  Temperatuurregeling 
+                   
+                   Digitaal: temperatuurkeuze
+                xpath: /html/body/div[2]/div[1]/div[1]/div[3]/div[1]/main[1]/div[10]/div[1]/div[1]/div[5]/div[1]/dl[6]
+              - text: |-
+                  Weergave binnentemperatuur 
+                   
+                   Ja
+                xpath: /html/body/div[2]/div[1]/div[1]/div[3]/div[1]/main[1]/div[10]/div[1]/div[1]/div[5]/div[1]/dl[7]
+              - text: |-
+                  Antibacteria 
+                   
+                   Nee
+                xpath: /html/body/div[2]/div[1]/div[1]/div[3]/div[1]/main[1]/div[10]/div[1]/div[1]/div[5]/div[1]/dl[8]
+              - text: |-
+                  Vershoudzone (0-graden of lage/hoge luchtvochtigheid) 
+                   
+                   Ja
+                xpath: /html/body/div[2]/div[1]/div[1]/div[3]/div[1]/main[1]/div[10]/div[1]/div[1]/div[5]/div[1]/dl[9]
+              - text: |-
+                  Bruikbaarheid vershoudzone 
+                   
+                   Alleen groente en fruit
+                xpath: /html/body/div[2]/div[1]/div[1]/div[3]/div[1]/main[1]/div[10]/div[1]/div[1]/div[5]/div[1]/dl[10]
+              - text: |-
+                  Netto inhoud vriesgedeelte 
+                   
+                   94 l
+                xpath: /html/body/div[2]/div[1]/div[1]/div[3]/div[1]/main[1]/div[10]/div[1]/div[1]/div[6]/div[1]/dl[1]
+              - text: |-
+                  Vriesgedeelte 
+                   
+                   Ja
+                xpath: /html/body/div[2]/div[1]/div[1]/div[3]/div[1]/main[1]/div[10]/div[1]/div[1]/div[6]/div[1]/dl[2]
+              - text: |-
+                  Plaats vriesgedeelte 
+                   
+                   Onder
+                xpath: /html/body/div[2]/div[1]/div[1]/div[3]/div[1]/main[1]/div[10]/div[1]/div[1]/div[6]/div[1]/dl[3]
+              - text: |-
+                  Aantal vriesvakken 
+                   
+                   3
+                xpath: /html/body/div[2]/div[1]/div[1]/div[3]/div[1]/main[1]/div[10]/div[1]/div[1]/div[6]/div[1]/dl[4]
+              - text: |-
+                  Anti-ijsvorming 
+                   
+                   Low Frost (2x per jaar ontdooien)
+                xpath: /html/body/div[2]/div[1]/div[1]/div[3]/div[1]/main[1]/div[10]/div[1]/div[1]/div[6]/div[1]/dl[5]
+              - text: |-
+                  Supervriezen 
+                   
+                   Ja
+                xpath: /html/body/div[2]/div[1]/div[1]/div[3]/div[1]/main[1]/div[10]/div[1]/div[1]/div[6]/div[1]/dl[6]
+              - text: |-
+                  Steraanduiding 
+                   
+                   4 sterren
+                xpath: /html/body/div[2]/div[1]/div[1]/div[3]/div[1]/main[1]/div[10]/div[1]/div[1]/div[6]/div[1]/dl[7]
+              - text: |-
+                  Invriesvermogen 
+                   
+                   7 kg/d
+                xpath: /html/body/div[2]/div[1]/div[1]/div[3]/div[1]/main[1]/div[10]/div[1]/div[1]/div[6]/div[1]/dl[8]
+              - text: |-
+                  Temperatuur apart instelbaar 
+                   
+                   Nee
+                xpath: /html/body/div[2]/div[1]/div[1]/div[3]/div[1]/main[1]/div[10]/div[1]/div[1]/div[6]/div[1]/dl[9]
+              - text: |-
+                  Bewaartijd bij stroomuitval 
+                   
+                   23 uren
+                xpath: /html/body/div[2]/div[1]/div[1]/div[3]/div[1]/main[1]/div[10]/div[1]/div[1]/div[6]/div[1]/dl[10]
+              - text: |-
+                  Dooiwaterafvoer 
+                   
+                   Ja
+                xpath: /html/body/div[2]/div[1]/div[1]/div[3]/div[1]/main[1]/div[10]/div[1]/div[1]/div[6]/div[1]/dl[11]
+              - text: |-
+                  Uitneembare plateaus 
+                   
+                   Ja
+                xpath: /html/body/div[2]/div[1]/div[1]/div[3]/div[1]/main[1]/div[10]/div[1]/div[1]/div[7]/div[1]/dl[1]
+              - text: |-
+                  Uittrekbare plateaus 
+                   
+                   Ja
+                xpath: /html/body/div[2]/div[1]/div[1]/div[3]/div[1]/main[1]/div[10]/div[1]/div[1]/div[7]/div[1]/dl[2]
+              - text: |-
+                  Plastic plateaus 
+                   
+                   Nee
+                xpath: /html/body/div[2]/div[1]/div[1]/div[3]/div[1]/main[1]/div[10]/div[1]/div[1]/div[7]/div[1]/dl[3]
+              - text: |-
+                  Aantal plateaus 
+                   
+                   3
+                xpath: /html/body/div[2]/div[1]/div[1]/div[3]/div[1]/main[1]/div[10]/div[1]/div[1]/div[7]/div[1]/dl[4]
+              - text: |-
+                  Specifieke deureigenschappen (koelkasten) 
+                   
+                   Nee
+                xpath: /html/body/div[2]/div[1]/div[1]/div[3]/div[1]/main[1]/div[10]/div[1]/div[1]/div[7]/div[1]/dl[5]
+              - text: |-
+                  Flessenrek 
+                   
+                   Ja
+                xpath: /html/body/div[2]/div[1]/div[1]/div[3]/div[1]/main[1]/div[10]/div[1]/div[1]/div[7]/div[1]/dl[6]
+              - text: |-
+                  Veiligheidsglas plateaus 
+                   
+                   Ja
+                xpath: /html/body/div[2]/div[1]/div[1]/div[3]/div[1]/main[1]/div[10]/div[1]/div[1]/div[7]/div[1]/dl[7]
+              - text: |-
+                  Veiligheidsglas deurvakken 
+                   
+                   Nee
+                xpath: /html/body/div[2]/div[1]/div[1]/div[3]/div[1]/main[1]/div[10]/div[1]/div[1]/div[7]/div[1]/dl[8]
+              - text: |-
+                  Aantal groentelades 
+                   
+                   1
+                xpath: /html/body/div[2]/div[1]/div[1]/div[3]/div[1]/main[1]/div[10]/div[1]/div[1]/div[7]/div[1]/dl[9]
+              - text: |-
+                  Kunststof deurvakken 
+                   
+                   Ja
+                xpath: /html/body/div[2]/div[1]/div[1]/div[3]/div[1]/main[1]/div[10]/div[1]/div[1]/div[7]/div[1]/dl[10]
+              - text: |-
+                  Grootte koelgedeelte geschikt voor soort product 
+                   
+                   Liggende colafles (1.5L)
+                xpath: /html/body/div[2]/div[1]/div[1]/div[3]/div[1]/main[1]/div[10]/div[1]/div[1]/div[7]/div[1]/dl[11]
+              - text: >-
+                  Grootte vriesvak geschikt voor soort product 
+                   
+                   Heel brood, Medium pizzadoos (27 cm), Small pizzadoos (21.5 cm)
+                xpath: /html/body/div[2]/div[1]/div[1]/div[3]/div[1]/main[1]/div[10]/div[1]/div[1]/div[7]/div[1]/dl[12]
+              - text: |-
+                  Compatibel met smartphone / apps 
+                   
+                   Nee
+                xpath: /html/body/div[2]/div[1]/div[1]/div[3]/div[1]/main[1]/div[10]/div[1]/div[1]/div[8]/div[1]/dl[1]
+              - text: |-
+                  Energieklasse 
+                   
+                   A++
+                xpath: /html/body/div[2]/div[1]/div[1]/div[3]/div[1]/main[1]/div[10]/div[1]/div[1]/div[9]/div[1]/dl[1]
+              - text: |-
+                  Energiebesparingsfuncties 
+                   
+                   Nee
+                xpath: /html/body/div[2]/div[1]/div[1]/div[3]/div[1]/main[1]/div[10]/div[1]/div[1]/div[9]/div[1]/dl[2]
+              - text: |-
+                  Energieverbruik per jaar 
+                   
+                   226 kWh
+                xpath: /html/body/div[2]/div[1]/div[1]/div[3]/div[1]/main[1]/div[10]/div[1]/div[1]/div[9]/div[1]/dl[3]
+              - text: |-
+                  Energiekosten per jaar 
+                   
+                   51,98 euro
+                xpath: /html/body/div[2]/div[1]/div[1]/div[3]/div[1]/main[1]/div[10]/div[1]/div[1]/div[9]/div[1]/dl[4]
+            energyEfficiency:
+              - text: A++
+                xpath: /html/body/div[2]/div[1]/div[1]/div[3]/div[1]/main[1]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/dl[1]/dd[1]/text()[1]
+            technicalInformationPdfPresent:
+              - text: "true"
+                xpath: /html/body/div[2]/div[1]/div[1]/div[3]/div[1]/main[1]/div[5]/div[2]/div[1]/div[1]/div[1]/div[7]/div[2]/div[1]/div[1]/ul[1]/li[1]/a[1]/@href
+            materials:
+              - text: Metaal met coating
+                xpath: /html/body/div[2]/div[1]/div[1]/div[3]/div[1]/main[1]/div[10]/div[1]/div[1]/div[2]/div[1]/dl[10]/dd[1]/text()[1]
+              - text: Metaal met coating
+                xpath: /html/body/div[2]/div[1]/div[1]/div[3]/div[1]/main[1]/div[10]/div[1]/div[1]/div[2]/div[1]/dl[11]/dd[1]/text()[1]
+            imageZoomFeaturePresent:
+              - text: Yes
+                xpath: /html/body/div[2]/div[1]/div[1]/div[3]/div[1]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[1]/@class
+            descriptionBullets:
+              - text: "4"
+            secondaryImageTotal:
+              - text: "7"
+                type: NUMBER
+                raw: "7"
+                locale: nl_BE
+                value: 7
+        xpath: /
+    timestamp: 1607413344744

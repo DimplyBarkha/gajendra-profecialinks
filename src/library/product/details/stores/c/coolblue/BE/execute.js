@@ -5,8 +5,8 @@ module.exports = {
     country: 'BE',
     store: 'coolblue',
     domain: 'coolblue.be',
-    loadedSelector: null,
-    noResultsXPath: null,
+    loadedSelector: '#main-content',
+    noResultsXPath: '//*[contains(text(), "Je bent naar een pagina geleid die niet bestaat")]',
     zipcode: '',
   },
 };

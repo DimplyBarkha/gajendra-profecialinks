@@ -1,0 +1,452 @@
+input:
+  id: 838207
+  _url: http://coolblue.be
+extractions:
+  - html: https://workbench.import.io/html/run=f0030cdb-8ffb-4c7b-8389-ac80681b0ca3/task=9dc78ea7-d102-445d-8908-605a7cbd7178/2071ba5f-b517-45ea-ad5c-984442ef34b4.html
+    extractionConfigId: product/details/stores/c/coolblue/BE/extract
+    data:
+      - group:
+          - productUrl:
+              - text: https://www.coolblue.be/nl/product/838207/bosch-unlimited-proanimal-serie-8-bbs81pet.html
+                xpath: /html/head[1]/link[1]/@href
+            image:
+              - text: https://image.coolblue.be/max/500x500/products/1285510
+                xpath: /html/body/div[2]/div[1]/div[1]/div[3]/div[1]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[1]/img[1]/@src
+            imageAlt:
+              - text: Bosch Unlimited ProAnimal Serie 8 BBS81PET Main Image
+                xpath: /html/body/div[2]/div[1]/div[1]/div[3]/div[1]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[1]/img[1]/@alt
+            alternateImages:
+              - text: https://image.coolblue.be/75x75/products/1389490
+                xpath: /html/body/div[2]/div[1]/div[1]/div[3]/div[1]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/ul[1]/li[2]/img[1]/@src
+              - text: https://image.coolblue.be/75x75/products/1285051
+                xpath: /html/body/div[2]/div[1]/div[1]/div[3]/div[1]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/ul[1]/li[3]/img[1]/@src
+              - text: https://image.coolblue.be/75x75/content/512666
+                xpath: /html/body/div[2]/div[1]/div[1]/div[3]/div[1]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/ul[1]/li[4]/img[1]/@src
+              - text: https://image.coolblue.be/75x75/products/1285049
+                xpath: /html/body/div[2]/div[1]/div[1]/div[3]/div[1]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/ul[1]/li[5]/img[1]/@src
+              - text: https://image.coolblue.be/75x75/products/1285050
+                xpath: /html/body/div[2]/div[1]/div[1]/div[3]/div[1]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/ul[1]/li[6]/img[1]/@src
+              - text: https://image.coolblue.be/75x75/products/1285048
+                xpath: /html/body/div[2]/div[1]/div[1]/div[3]/div[1]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/ul[1]/li[7]/img[1]/@src
+              - text: https://image.coolblue.be/75x75/products/1285509
+                xpath: /html/body/div[2]/div[1]/div[1]/div[3]/div[1]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/ul[1]/li[8]/img[1]/@src
+            category:
+              - text: Stofzuigen
+                xpath: /html/body/div[2]/div[1]/div[1]/div[3]/div[1]/div[2]/div[1]/nav[1]/ol[1]/li[1]/a[1]/text()[1]
+              - text: Stofzuigers
+                xpath: /html/body/div[2]/div[1]/div[1]/div[3]/div[1]/div[2]/div[1]/nav[1]/ol[1]/li[2]/a[1]/text()[1]
+              - text: Bosch stofzuigers
+                xpath: /html/body/div[2]/div[1]/div[1]/div[3]/div[1]/div[2]/div[1]/nav[1]/ol[1]/li[3]/a[1]/text()[1]
+              - text: Bosch steelstofzuigers
+                xpath: /html/body/div[2]/div[1]/div[1]/div[3]/div[1]/div[2]/div[1]/nav[1]/ol[1]/li[4]/a[1]/text()[1]
+              - text: Bosch Unlimited steelstofzuigers
+                xpath: /html/body/div[2]/div[1]/div[1]/div[3]/div[1]/div[2]/div[1]/nav[1]/ol[1]/li[5]/div[1]/a[1]/text()[1]
+            nameExtended:
+              - text: Bosch Unlimited ProAnimal Serie 8 BBS81PET
+                xpath: /html/body/div[2]/div[1]/div[1]/div[3]/div[1]/main[1]/h1[1]/span[1]/text()[1]
+            price:
+              - text: 372,-
+                xpath: /html/body/div[2]/div[1]/div[1]/div[3]/div[1]/main[1]/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/span[1]/strong[1]
+            availabilityText:
+              - text: Morgen in huis
+                xpath: /html/body/div[12]
+            description:
+              - text: Je verwijdert eenvoudig dierenharen van meubels dankzij de meegeleverde
+                  mini-turboborstel.
+                xpath: /html/body/div[2]/div[1]/div[1]/div[3]/div[1]/main[1]/div[4]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[2]/ul[1]/li[1]/div[1]/div[2]
+              - text: Met een accuspanning van 18 volt is deze stofzuiger krachtiger dan andere
+                  in deze prijsklasse.
+                xpath: /html/body/div[2]/div[1]/div[1]/div[3]/div[1]/main[1]/div[4]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[2]/ul[1]/li[2]/div[1]/div[2]
+              - text: Zeer veelzijdig in gebruik dankzij de kruimelzuiger die je los koppelt van
+                  de steel.
+                xpath: /html/body/div[2]/div[1]/div[1]/div[3]/div[1]/main[1]/div[4]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[2]/ul[1]/li[3]/div[1]/div[2]
+              - text: Deze steelstofzuiger maakt met een geluid van 76 decibel zeer veel lawaai.
+                xpath: /html/body/div[2]/div[1]/div[1]/div[3]/div[1]/main[1]/div[4]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[2]/ul[1]/li[4]/div[1]/div[2]
+              - text: Er wordt geen extra accu meegeleverd. De grotere schoonmaakklussen zal je
+                  dus tijdelijk moeten onderbreken om de accu op te laden.
+                xpath: /html/body/div[2]/div[1]/div[1]/div[3]/div[1]/main[1]/div[4]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[2]/ul[1]/li[5]/div[1]/div[2]
+              - text: Wanneer je huisdieren hebt, komt de Bosch Unlimited ProAnimal Serie 8
+                  BBS81PET goed van pas. Deze steelstofzuiger heeft alles in
+                  huis om hardnekkige dierenharen van de vloer en de meubels te
+                  verwijderen. De turboborstel heeft ronddraaiende borstels
+                  zodat je dierenharen verwijdert van harde vloeren én uit
+                  tapijt. Zet de mini-turboborstel op de steelstofzuiger wanneer
+                  je de bank of stoel wil schoonmaken. Handig, als de kat daar
+                  standaard zijn middagdutje doet. Met een totale accuduur van
+                  40 minuten op de laagste stand stofzuig je de hele
+                  benedenverdieping schoon. Wanneer alles weer haarvrij is, berg
+                  je de steelstofzuiger netjes op in de wandhouder.
+                xpath: /html/body/div[2]/div[1]/div[1]/div[3]/div[1]/main[1]/div[4]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/div[1]/div[1]/p[1]
+            brandText:
+              - text: Bosch
+                xpath: /html/body/div[2]/div[1]/div[1]/div[3]/div[1]/main[1]/div[9]/div[1]/div[1]/div[1]/div[1]/dl[3]/dd[1]/text()[1]
+            weightNet:
+              - text: 2,9 kg
+                xpath: /html/body/div[2]/div[1]/div[1]/div[3]/div[1]/main[1]/div[9]/div[1]/div[1]/div[7]/div[1]/dl[1]/dd[1]/text()[1]
+            sku:
+              - text: "838207"
+                xpath: /html/body/div[2]/div[1]/div[1]/div[3]/div[1]/main[1]/@data-product-id
+            variantId:
+              - text: "838207"
+                xpath: /html/body/div[2]/div[1]/div[1]/div[3]/div[1]/main[1]/@data-product-id
+            mpc:
+              - text: BBS81PET
+                xpath: /html/body/div[2]/div[1]/div[1]/div[3]/div[1]/main[1]/div[9]/div[1]/div[1]/div[1]/div[1]/dl[2]/dd[1]/text()[1]
+            ratingCount:
+              - text: "87"
+                xpath: /html/body/div[13]
+                type: NUMBER
+                raw: "87"
+                locale: nl_BE
+                value: 87
+            aggregateRating:
+              - text: 4,3
+                xpath: /html/body/div[14]
+            shippingInfo:
+              - text: Voor 23.59 uur besteld, morgen gratis in huis
+                xpath: /html/body/div[2]/div[1]/div[1]/div[3]/div[1]/main[1]/div[2]/div[1]/div[2]/div[1]/div[3]/ul[1]/li[1]/a[1]/div[1]/div[2]/span[1]
+            variantCount:
+              - text: "3"
+                xpath: /html/body/div[17]
+                type: NUMBER
+                raw: "3"
+                locale: nl_BE
+                value: 3
+            color:
+              - text: Rood, Zwart
+                xpath: /html/body/div[2]/div[1]/div[1]/div[3]/div[1]/main[1]/div[9]/div[1]/div[1]/div[7]/div[1]/dl[7]/dd[1]/text()[1]
+            videos:
+              - text: https://www.youtube.com/embed/REbwlcJr90s?rel=0&iv_load_policy=3&enablejsapi=1
+                xpath: /html/body/div[2]/div[1]/div[1]/div[3]/div[1]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[4]/@data-video
+            name:
+              - text: Bosch Unlimited ProAnimal Serie 8 BBS81PET
+                xpath: /html/body/div[2]/div[1]/div[1]/div[3]/div[1]/main[1]/h1[1]/span[1]/text()[1]
+            warranty:
+              - text: 2 jaar, Carry-in-garantie
+                xpath: /html/body/div[15]
+            productOtherInformation:
+              - text: |-
+                  Type stofopvang 
+                   
+                   Zonder zak
+                xpath: /html/body/div[2]/div[1]/div[1]/div[3]/div[1]/main[1]/div[4]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/dl[1]
+              - text: |-
+                  Gemiddelde accuduur 
+                   
+                   40 min
+                xpath: /html/body/div[2]/div[1]/div[1]/div[3]/div[1]/main[1]/div[4]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/dl[2]
+              - text: |-
+                  Geschikt voor vloertype 
+                   
+                   Harde vloeren, Houten vloeren, Laagpolig tapijt
+                xpath: /html/body/div[2]/div[1]/div[1]/div[3]/div[1]/main[1]/div[4]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/dl[3]
+              - text: |-
+                  Stofzuiger geschikt voor 
+                   
+                   Dierenharen
+                xpath: /html/body/div[2]/div[1]/div[1]/div[3]/div[1]/main[1]/div[4]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/dl[4]
+              - text: |-
+                  Maximaal geluidsniveau 
+                   
+                   76 dB
+                xpath: /html/body/div[2]/div[1]/div[1]/div[3]/div[1]/main[1]/div[4]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/dl[5]
+              - text: |-
+                  Type stofopvang 
+                   
+                   Zonder zak
+                xpath: /html/body/div[2]/div[1]/div[1]/div[3]/div[1]/main[1]/div[4]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/dl[1]
+              - text: |-
+                  Gemiddelde accuduur 
+                   
+                   40 min
+                xpath: /html/body/div[2]/div[1]/div[1]/div[3]/div[1]/main[1]/div[4]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/dl[2]
+              - text: |-
+                  Geschikt voor vloertype 
+                   
+                   Harde vloeren, Houten vloeren, Laagpolig tapijt
+                xpath: /html/body/div[2]/div[1]/div[1]/div[3]/div[1]/main[1]/div[4]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/dl[3]
+              - text: |-
+                  Stofzuiger geschikt voor 
+                   
+                   Dierenharen
+                xpath: /html/body/div[2]/div[1]/div[1]/div[3]/div[1]/main[1]/div[4]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/dl[4]
+              - text: |-
+                  Maximaal geluidsniveau 
+                   
+                   76 dB
+                xpath: /html/body/div[2]/div[1]/div[1]/div[3]/div[1]/main[1]/div[4]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/dl[5]
+              - text: |-
+                  Artikelnummer 
+                   
+                   838207
+                xpath: /html/body/div[2]/div[1]/div[1]/div[3]/div[1]/main[1]/div[9]/div[1]/div[1]/div[1]/div[1]/dl[1]
+              - text: |-
+                  Fabrikantcode 
+                   
+                   BBS81PET
+                xpath: /html/body/div[2]/div[1]/div[1]/div[3]/div[1]/main[1]/div[9]/div[1]/div[1]/div[1]/div[1]/dl[2]
+              - text: |-
+                  Merk 
+                   
+                   Bosch
+                xpath: /html/body/div[2]/div[1]/div[1]/div[3]/div[1]/main[1]/div[9]/div[1]/div[1]/div[1]/div[1]/dl[3]
+              - text: |-
+                  Garantie 
+                   
+                   2 jaar
+                xpath: /html/body/div[2]/div[1]/div[1]/div[3]/div[1]/main[1]/div[9]/div[1]/div[1]/div[1]/div[1]/dl[4]
+              - text: |-
+                  Garantietype 
+                   
+                   Carry-in-garantie
+                xpath: /html/body/div[2]/div[1]/div[1]/div[3]/div[1]/main[1]/div[9]/div[1]/div[1]/div[1]/div[1]/dl[5]
+              - text: |-
+                  Bouwkwaliteit 
+                   
+                   Topklasse
+                xpath: /html/body/div[2]/div[1]/div[1]/div[3]/div[1]/main[1]/div[9]/div[1]/div[1]/div[2]/div[1]/dl[1]
+              - text: |-
+                  Zuigkwaliteit op harde vloeren 
+                   
+                   Middenklasse
+                xpath: /html/body/div[2]/div[1]/div[1]/div[3]/div[1]/main[1]/div[9]/div[1]/div[1]/div[2]/div[1]/dl[2]
+              - text: |-
+                  Wendbaarheid volgens klanten 
+                   
+                   Zeer goed
+                xpath: /html/body/div[2]/div[1]/div[1]/div[3]/div[1]/main[1]/div[9]/div[1]/div[1]/div[2]/div[1]/dl[3]
+              - text: |-
+                  Schoonmaakresultaat volgens klanten 
+                   
+                   Standaard
+                xpath: /html/body/div[2]/div[1]/div[1]/div[3]/div[1]/main[1]/div[9]/div[1]/div[1]/div[2]/div[1]/dl[4]
+              - text: |-
+                  Geschikt voor vloertype 
+                   
+                   Harde vloeren, Houten vloeren, Laagpolig tapijt
+                xpath: /html/body/div[2]/div[1]/div[1]/div[3]/div[1]/main[1]/div[9]/div[1]/div[1]/div[3]/div[1]/dl[1]
+              - text: |-
+                  Stofzuiger geschikt voor 
+                   
+                   Dierenharen
+                xpath: /html/body/div[2]/div[1]/div[1]/div[3]/div[1]/main[1]/div[9]/div[1]/div[1]/div[3]/div[1]/dl[2]
+              - text: |-
+                  Bediening via handgreep 
+                   
+                   Ja
+                xpath: /html/body/div[2]/div[1]/div[1]/div[3]/div[1]/main[1]/div[9]/div[1]/div[1]/div[3]/div[1]/dl[3]
+              - text: |-
+                  Mondstuk met LED-verlichting 
+                   
+                   Nee
+                xpath: /html/body/div[2]/div[1]/div[1]/div[3]/div[1]/main[1]/div[9]/div[1]/div[1]/div[3]/div[1]/dl[4]
+              - text: |-
+                  Geintegreerde kruimeldief 
+                   
+                   Ja
+                xpath: /html/body/div[2]/div[1]/div[1]/div[3]/div[1]/main[1]/div[9]/div[1]/div[1]/div[3]/div[1]/dl[5]
+              - text: |-
+                  Dweilfunctie 
+                   
+                   Nee
+                xpath: /html/body/div[2]/div[1]/div[1]/div[3]/div[1]/main[1]/div[9]/div[1]/div[1]/div[3]/div[1]/dl[6]
+              - text: |-
+                  Turbo Power Functie 
+                   
+                   Ja
+                xpath: /html/body/div[2]/div[1]/div[1]/div[3]/div[1]/main[1]/div[9]/div[1]/div[1]/div[3]/div[1]/dl[7]
+              - text: |-
+                  Type stofopvang 
+                   
+                   Zonder zak
+                xpath: /html/body/div[2]/div[1]/div[1]/div[3]/div[1]/main[1]/div[9]/div[1]/div[1]/div[4]/div[1]/dl[1]
+              - text: |-
+                  Volume opvang 
+                   
+                   0,4 l
+                xpath: /html/body/div[2]/div[1]/div[1]/div[3]/div[1]/main[1]/div[9]/div[1]/div[1]/div[4]/div[1]/dl[2]
+              - text: |-
+                  Maximaal geluidsniveau 
+                   
+                   76 dB
+                xpath: /html/body/div[2]/div[1]/div[1]/div[3]/div[1]/main[1]/div[9]/div[1]/div[1]/div[4]/div[1]/dl[3]
+              - text: |-
+                  Regelbare zuigkracht 
+                   
+                   Nee
+                xpath: /html/body/div[2]/div[1]/div[1]/div[3]/div[1]/main[1]/div[9]/div[1]/div[1]/div[4]/div[1]/dl[4]
+              - text: |-
+                  Telescopische steel 
+                   
+                   Nee
+                xpath: /html/body/div[2]/div[1]/div[1]/div[3]/div[1]/main[1]/div[9]/div[1]/div[1]/div[4]/div[1]/dl[5]
+              - text: |-
+                  Parkeerstand 
+                   
+                   Nee
+                xpath: /html/body/div[2]/div[1]/div[1]/div[3]/div[1]/main[1]/div[9]/div[1]/div[1]/div[4]/div[1]/dl[6]
+              - text: |-
+                  Motorfilter 
+                   
+                   Nee
+                xpath: /html/body/div[2]/div[1]/div[1]/div[3]/div[1]/main[1]/div[9]/div[1]/div[1]/div[4]/div[1]/dl[7]
+              - text: |-
+                  Uitblaasfilter 
+                   
+                   Ja
+                xpath: /html/body/div[2]/div[1]/div[1]/div[3]/div[1]/main[1]/div[9]/div[1]/div[1]/div[4]/div[1]/dl[8]
+              - text: |-
+                  Type uitblaasfilter 
+                   
+                   Patroonfilter
+                xpath: /html/body/div[2]/div[1]/div[1]/div[3]/div[1]/main[1]/div[9]/div[1]/div[1]/div[4]/div[1]/dl[9]
+              - text: |-
+                  Stofbak hygiënisch te legen 
+                   
+                   Ja
+                xpath: /html/body/div[2]/div[1]/div[1]/div[3]/div[1]/main[1]/div[9]/div[1]/div[1]/div[4]/div[1]/dl[10]
+              - text: |-
+                  Combiborstel 
+                   
+                   Nee
+                xpath: /html/body/div[2]/div[1]/div[1]/div[3]/div[1]/main[1]/div[9]/div[1]/div[1]/div[5]/div[1]/dl[1]
+              - text: |-
+                  Parketborstel 
+                   
+                   Nee
+                xpath: /html/body/div[2]/div[1]/div[1]/div[3]/div[1]/main[1]/div[9]/div[1]/div[1]/div[5]/div[1]/dl[2]
+              - text: |-
+                  Turboborstel 
+                   
+                   Ja
+                xpath: /html/body/div[2]/div[1]/div[1]/div[3]/div[1]/main[1]/div[9]/div[1]/div[1]/div[5]/div[1]/dl[3]
+              - text: |-
+                  Mini turboborstel 
+                   
+                   Ja
+                xpath: /html/body/div[2]/div[1]/div[1]/div[3]/div[1]/main[1]/div[9]/div[1]/div[1]/div[5]/div[1]/dl[4]
+              - text: |-
+                  Kierenzuigmond 
+                   
+                   Ja
+                xpath: /html/body/div[2]/div[1]/div[1]/div[3]/div[1]/main[1]/div[9]/div[1]/div[1]/div[5]/div[1]/dl[5]
+              - text: |-
+                  Flexibele kierenzuigmond 
+                   
+                   Ja
+                xpath: /html/body/div[2]/div[1]/div[1]/div[3]/div[1]/main[1]/div[9]/div[1]/div[1]/div[5]/div[1]/dl[6]
+              - text: |-
+                  Meubelzuigmond 
+                   
+                   Ja
+                xpath: /html/body/div[2]/div[1]/div[1]/div[3]/div[1]/main[1]/div[9]/div[1]/div[1]/div[5]/div[1]/dl[7]
+              - text: |-
+                  Zachte afstofborstel 
+                   
+                   Ja
+                xpath: /html/body/div[2]/div[1]/div[1]/div[3]/div[1]/main[1]/div[9]/div[1]/div[1]/div[5]/div[1]/dl[8]
+              - text: |-
+                  Up-top borstel 
+                   
+                   Nee
+                xpath: /html/body/div[2]/div[1]/div[1]/div[3]/div[1]/main[1]/div[9]/div[1]/div[1]/div[5]/div[1]/dl[9]
+              - text: |-
+                  Opbergvak 
+                   
+                   Nee
+                xpath: /html/body/div[2]/div[1]/div[1]/div[3]/div[1]/main[1]/div[9]/div[1]/div[1]/div[5]/div[1]/dl[10]
+              - text: |-
+                  Maximale accu/batterijduur 
+                   
+                   40 min
+                xpath: /html/body/div[2]/div[1]/div[1]/div[3]/div[1]/main[1]/div[9]/div[1]/div[1]/div[6]/div[1]/dl[1]
+              - text: |-
+                  Gemiddelde accuduur 
+                   
+                   40 min
+                xpath: /html/body/div[2]/div[1]/div[1]/div[3]/div[1]/main[1]/div[9]/div[1]/div[1]/div[6]/div[1]/dl[2]
+              - text: |-
+                  Maximale accu/batterijduur op hoogste stand (uur) 
+                   
+                   10 min
+                xpath: /html/body/div[2]/div[1]/div[1]/div[3]/div[1]/main[1]/div[9]/div[1]/div[1]/div[6]/div[1]/dl[3]
+              - text: |-
+                  Wandoplader 
+                   
+                   Ja
+                xpath: /html/body/div[2]/div[1]/div[1]/div[3]/div[1]/main[1]/div[9]/div[1]/div[1]/div[6]/div[1]/dl[4]
+              - text: |-
+                  Indicator van batterij-niveau 
+                   
+                   Ja
+                xpath: /html/body/div[2]/div[1]/div[1]/div[3]/div[1]/main[1]/div[9]/div[1]/div[1]/div[6]/div[1]/dl[5]
+              - text: |-
+                  Aantal meegeleverde batterijen/accu's 
+                   
+                   1
+                xpath: /html/body/div[2]/div[1]/div[1]/div[3]/div[1]/main[1]/div[9]/div[1]/div[1]/div[6]/div[1]/dl[6]
+              - text: |-
+                  Gewicht 
+                   
+                   2,9 kg
+                xpath: /html/body/div[2]/div[1]/div[1]/div[3]/div[1]/main[1]/div[9]/div[1]/div[1]/div[7]/div[1]/dl[1]
+              - text: |-
+                  Materiaal 
+                   
+                   Kunststof
+                xpath: /html/body/div[2]/div[1]/div[1]/div[3]/div[1]/main[1]/div[9]/div[1]/div[1]/div[7]/div[1]/dl[2]
+              - text: |-
+                  Materiaal wielen 
+                   
+                   Rubber
+                xpath: /html/body/div[2]/div[1]/div[1]/div[3]/div[1]/main[1]/div[9]/div[1]/div[1]/div[7]/div[1]/dl[3]
+              - text: |-
+                  Breedte 
+                   
+                   21,1 cm
+                xpath: /html/body/div[2]/div[1]/div[1]/div[3]/div[1]/main[1]/div[9]/div[1]/div[1]/div[7]/div[1]/dl[4]
+              - text: |-
+                  Diepte 
+                   
+                   25,2 cm
+                xpath: /html/body/div[2]/div[1]/div[1]/div[3]/div[1]/main[1]/div[9]/div[1]/div[1]/div[7]/div[1]/dl[5]
+              - text: |-
+                  Hoogte 
+                   
+                   127,7 cm
+                xpath: /html/body/div[2]/div[1]/div[1]/div[3]/div[1]/main[1]/div[9]/div[1]/div[1]/div[7]/div[1]/dl[6]
+              - text: |-
+                  Kleur 
+                   
+                   Rood, Zwart
+                xpath: /html/body/div[2]/div[1]/div[1]/div[3]/div[1]/main[1]/div[9]/div[1]/div[1]/div[7]/div[1]/dl[7]
+            promotion:
+              - text: Je betaalt voor dit product eerst de normale prijs. Na aankoop ontvang je
+                  een bedrag terug via Coolblue of de fabrikant van het product.
+                  Hoe dat werkt, lees je verder op deze productpagina.
+                xpath: /html/body/div[2]/div[1]/div[1]/div[3]/div[1]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/button[1]/@title
+            variants:
+              - text: Zonder extra accu | 40 min. stofzuigen,Met extra accu | 80 min.
+                  stofzuigen, Speciaal voor dierenharen
+                xpath: /html/body/div[16]
+            technicalInformationPdfPresent:
+              - text: "true"
+                xpath: /html/body/div[2]/div[1]/div[1]/div[3]/div[1]/main[1]/div[4]/div[2]/div[1]/div[1]/div[1]/div[7]/div[2]/div[1]/div[1]/ul[1]/li[1]/a[1]/@href
+            materials:
+              - text: Kunststof
+                xpath: /html/body/div[2]/div[1]/div[1]/div[3]/div[1]/main[1]/div[9]/div[1]/div[1]/div[7]/div[1]/dl[2]/dd[1]/text()[1]
+              - text: Rubber
+                xpath: /html/body/div[2]/div[1]/div[1]/div[3]/div[1]/main[1]/div[9]/div[1]/div[1]/div[7]/div[1]/dl[3]/dd[1]/text()[1]
+            imageZoomFeaturePresent:
+              - text: Yes
+                xpath: /html/body/div[2]/div[1]/div[1]/div[3]/div[1]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[1]/@class
+            descriptionBullets:
+              - text: "5"
+            secondaryImageTotal:
+              - text: "7"
+                type: NUMBER
+                raw: "7"
+                locale: nl_BE
+                value: 7
+        xpath: /
+    timestamp: 1607413339168
