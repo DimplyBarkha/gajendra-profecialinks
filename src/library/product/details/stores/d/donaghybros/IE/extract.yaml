@@ -102,3 +102,14 @@ fields:
     xpath: //div[@id="inpage_container"]//img/@data-flixsrcset[contains(.,'jpg')]
     regExp: (.+800w,\s)(.+.jpg)(.+)
     regExpReplace: $2
+  - name: inTheBoxUrl
+    xpath: //div[contains(.,'In the box')]/following-sibling::div[1]//div[@class="flix-background-image"]//img[@class="flix-img-responsive"]//@data-flixsrcset
+    regExp: (.+800w,\s)(.+.jpg)(.+)
+    regExpReplace: $2
+  - name: inTheBoxText
+    xpath: //p[contains(.,'In the box:')]//text()[position()>1] | //div[contains(.,'In the box')]/following-sibling::div[1]//div[@class="flix-std-content"]//div[contains(@class,"flix-std-desc")]//text()
+  - name: hasComparisonTable
+    xpath: //div[contains(@class,'mainTitle')]//div[contains(.,'Compare with similar products')]
+    regExp: (.+)
+    regExpReplace: Yes
+    defaultValue: No
