@@ -40,6 +40,21 @@ const transform = (data, context) => {
       } else {
         row.availabilityText = [{ text: 'Out of Stock' }];
       }
+      if (row.inTheBoxText) {
+        if (row.inTheBoxText.length === 1) {
+          const inBoxText = row.inTheBoxText[0].text;
+          let text = '';
+          if (inBoxText.search('box') !== -1) {
+            text = inBoxText.split('box')[1];
+          } else if (inBoxText.search('include') !== -1) {
+            text = inBoxText.split('include')[1];
+          }
+          if (text.search(':') !== -1) {
+            text = text.split(':')[1];
+          }
+          row.inTheBoxText = [{ text }];
+        }
+      }
       Object.keys(row).forEach(header => row[header].forEach(el => {
         el.text = clean(el.text);
       }));
