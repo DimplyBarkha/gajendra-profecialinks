@@ -15,10 +15,7 @@ fields:
     singleValue: false
     xpath: //div[@class='image-slider slick-initialized slick-slider slick-dotted']//ul[@class='slick-dots']//li[@aria-selected='false']//a//div[@class='image-item-thumb ']/@style
     regExp: background-image\s*:\s*url\((.+)/thumbnails(\/.+)\)\;
-    regExpReplace: https:$1$2
-  - name: metaKeywords
-    singleValue: false
-    xpath: //title
+    regExpReplace: https:$1$2  
   - name: category
     singleValue: false
     xpath: //ul[@class='breadcrumb']//li[not(@class)]//a[contains(@href,'/m/')]
@@ -39,19 +36,16 @@ fields:
     defaultValue: Out of Stock
   - name: description
     singleValue: false
-    xpath: //div[@class='accordion-item']//div[@class='accordion-header' and contains(.,'Beskrivelse')]/following-sibling::div[@class='accordion-body']
+    xpath: //div[@class='accordion-item']//div[@class='accordion-header' and contains(.,'Beskrivelse')]/following-sibling::div[@class='accordion-body']/p[1]
   - name: descriptionBullets
     singleValue: false
     xpath: //div[@class='accordion-item']//div[@class='accordion-header' and contains(.,'Beskrivelse')]/following-sibling::div[@class='accordion-body']//ul//li    
   - name: brandText
     singleValue: false
-    xpath: //script[contains(text(),'dataLayer') and contains(text(),"'brand'")]/text()
-  #- name: quantity
-  #  singleValue: false
-  #  xpath: //input[@id='qty']/@value  
+    xpath: //script[contains(text(),'dataLayer') and contains(text(),"'brand':")]/text()  
   - name: sku
     singleValue: false
-    xpath: //div[@class='single-product']/@data-id
+    xpath: //script[@type='application/ld+json']/text()
   - name: variantId
     singleValue: false
     xpath: //div[@class='single-product']/@data-id  

@@ -53,7 +53,23 @@ const transform = (data) => {
           if(row.descriptionBullets){            
             row.descriptionBullets = [{'text':row.descriptionBullets.length, 'xpath':row.descriptionBullets[0].xpath}];
           }
-
+          if (row.sku) {            
+            row.sku.forEach(item => {
+              try {
+                let json_data = JSON.parse(item.text);
+                if (json_data['sku']){
+                  item.text = json_data['sku'];
+                }
+                else{
+                  delete row.sku;
+                  return false;
+                }
+              } catch (error) {                  
+                delete row.sku;
+                return false;
+              }
+            });
+          }
           if (row.brandText) {            
             row.brandText.forEach(item => {
               item.text = item.text.replace(/(\s*\'\s*)+/g, '"');
