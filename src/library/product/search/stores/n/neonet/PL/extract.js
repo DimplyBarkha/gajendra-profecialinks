@@ -5,16 +5,13 @@ async function implementation (
   parameters,
   context,
   dependencies,
-  mergeType,
 ) {
-  const { transform } = parameters;
+  const { transform, mergeType } = parameters;
   const { productDetails } = dependencies;
 
   const mergeOptions = mergeType ? { transform, type: mergeType } : { transform };
   await context.evaluate(function () {
-    document.querySelector('footer [class="footerAwards__title"]').scrollIntoView({
-      behavior: 'smooth',
-    });
+    window.scrollTo(0, document.body.scrollHeight);
   });
 
   await new Promise((resolve, reject) => setTimeout(resolve, 3000));
@@ -27,10 +24,10 @@ module.exports = {
   parameterValues: {
     country: 'PL',
     store: 'neonet',
-    transform: transform,
-    implementation: implementation,
+    transform,
     domain: 'neonet.pl',
     zipcode: '',
     mergeType: 'MERGE_ROWS',
   },
+  implementation,
 };
