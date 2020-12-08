@@ -1,0 +1,15 @@
+singleRecord: true
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: variantId
+    singleValue: false
+    description: variant id, to uniquely identify variant
+    xpath: //div[@id='pd_sku']
+  - name: variantUrl
+    singleValue: false
+    description: variant Url
+    xpath: //div[@id='pd_sku']
+    regExp: (.+)
+    regExpReplace: https://www.labaie.com/product/$1.html

@@ -1,0 +1,211 @@
+singleRecord: true
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: image
+    singleValue: false
+    description: URL of the main product image
+    xpath: //a[@href='#primary-image-0']/img/@src
+  - name: imageAlt
+    singleValue: false
+    description: Alt text of the main product image
+    xpath: //a[@href='#primary-image-0']/img/@alt
+  - name: alternateImages
+    singleValue: false
+    description: Other product images (not in manufacturer description)
+    xpath: //li[@class='primary-thumbnail']/a/img/@src
+  - name: metaKeywords
+    singleValue: false
+    description: The <meta> keywords content
+    xpath: //meta[contains(@name, "keywords")]/@content
+  - name: category
+    singleValue: false
+    description: The categories (e.g. from breadcrumbs)
+    manualSelector: div.product-breadcrumb.col ol li
+  - name: nameExtended
+    singleValue: false
+    description: The product name, prefixing "${brand} - " if not included in "name"
+      and appending " - ${variantType}" if necessary (fixed per feed)
+    manualSelector: h1.product-name.h2
+  - name: listPrice
+    singleValue: false
+    description: The stated undiscounted price for the product
+    xpath: //div[contains(@class,"product-secondary-section")]//span[contains(@class,"list strike-through")]//span[contains(@class,"bfx-list-price")]
+  - name: price
+    singleValue: false
+    description: The offered price for the selected product variant - if a user
+      clicks add to basket this is the price they would be charged
+    xpath: //div[contains(@class,"product-secondary-section")]//span[contains(@class,"prod-price")]//span[contains(@class,"formatted_sale_price")]
+  - name: availabilityText
+    singleValue: false
+    description: Availability as described on page for the selected variant. If
+      there is no availability but the product can be added to cart, this field
+      should be "In Stock"
+    xpath: //div[contains(@class,"product-secondary-section")]//button[contains(@data-readytoorder, "true")]
+    regExp: (.+)
+    regExpReplace: In Stock
+    defaultValue: Out of Stock
+  - name: description
+    singleValue: false
+    description: Product description supplied by website - may be concatenanted from
+      multiple places; specifically not the manufacturer description
+    xpath: //div[@id="collapsible-details-1"]
+  - name: descriptionBullets
+    singleValue: false
+    description: Number of ul > li tags in the description
+    xpath: count(//button[@aria-controls='collapsible-details-1']/following-sibling::*[1]//li)
+    type: NUMBER
+  - name: brandText
+    singleValue: false
+    description: Product brand shown - this may actually NOT be just a brand name,
+      e.g. "Visit the Gillette Store"
+    manualSelector: h1.product-brand-name
+  - name: quantity
+    singleValue: false
+    description: Quantity as described on the page
+    xpath: //span[contains(@class, 'size non-input-label')]//span[@class='text2']
+  - name: weightNet
+    singleValue: false
+    description: Net weight as described on the page
+    manualSelector: script[type='application/ld+json']
+    regExp: Poids\s*:\s*(.*?)<
+    regExpReplace: $1
+  - name: gtin
+    singleValue: false
+    description: GTIN code (includes UPC/EAN)
+    xpath: //div[@id='gtin']
+  - name: sku
+    singleValue: false
+    description: The store-specific product identifier
+    xpath: //div[@id='sku']
+  - name: variantId
+    singleValue: false
+    description: Identifier for a variant from a store where variants share the same sku
+    xpath: //div[@id='sku']
+  - name: mpc
+    singleValue: false
+    description: The manufacturer model code (unique) of the product
+    xpath: //div[@id='mpc']
+  - name: directions
+    singleValue: false
+    description: Content under "directions" header
+    xpath: //b[contains(text(), 'COMMENT L'UTILISER')]/following-sibling::*[1]
+  - name: ratingCount
+    singleValue: false
+    description: The number of ratings
+    xpath: //div[@id='pd_review']
+    type: NUMBER
+  - name: aggregateRatingText
+    singleValue: false
+    description: The stated aggregate rating
+  - name: aggregateRating
+    singleValue: false
+    description: The stated aggregate rating normalized to be out of 5
+    xpath: //div[@id='pd_rating']
+  - name: variantCount
+    singleValue: false
+    description: Number of variants listed
+    xpath: count(//div[@id='pd_sku'])
+    type: NUMBER
+  - name: color
+    singleValue: false
+    description: A textual description of the colour
+    xpath: //span[@class='attr-name adobelaunch__colorlink']
+  - name: videos
+    singleValue: false
+    description: URLs of videos on page
+    xpath: //div[@id='videos']
+  - name: name
+    singleValue: false
+    description: The product name
+    manualSelector: h1.product-name.h2
+  - name: asin
+    singleValue: false
+    description: null
+    xpath: //div[@id='sku']
+  - name: brandLink
+    singleValue: false
+    description: null
+    xpath: //h1[@class='product-brand-name']/a/@href
+    regExp: (.+)
+    regExpReplace: https://www.labaie.com$1
+  - name: variantAsins
+    singleValue: false
+    description: null
+    xpath: //div[@id='pd_sku']
+  - name: secondaryImageTotal
+    singleValue: false
+    description: null
+    xpath: count((//li[@class='primary-thumbnail']/a/img/@src)[position()>1])
+    type: NUMBER
+  - name: specifications
+    singleValue: false
+    description: The physical dimensions of the product including packaging.
+    xpath: //b[contains(text(), 'CARACTÉRISTIQUES')]/following-sibling::*[1]
+  - name: warranty
+    singleValue: false
+    description: Guarantee associated with the product
+    xpath: //b[contains(text(), 'garantie')]/following::text()[1]
+  - name: promotion
+    singleValue: false
+    description: promotion text on product page
+    xpath: //div[@class='col-12 rewards-message-section']/text() | //div[@class='col-12 rewards-message-section']/span[1]
+  - name: variantInformation
+    singleValue: false
+    description: colour / scent / flavour / other
+    xpath: //span[@class='attr-name adobelaunch__colorlink']//span[@class="text2"] | //span[contains(@class,"size non-input-label")]//span[@class="text2"]
+  - name: firstVariant
+    singleValue: false
+    description: Unique identifier for a collection of variants. For a subset of
+      core feeds (43) we have a column "first_variant" that is populated with a
+      common code to link all variants for a product. method 1 (Preferred) = use
+      common tag (Could be parent sku) that is same value for all variants of a
+      product. method 2 = first_variant method technique, Identify the first
+      varient in the sequence and use this rpc to populate "first_variant" for
+      all variants of a product, this rpc becomes the common link between other
+      variants. method 3 = apply some logic to determine link between variants,
+      this will need analysis
+    xpath: (//div[@id='pd_sku'])[1]
+  - name: variants
+    singleValue: false
+    description: null
+    xpath: //div[@id='pd_sku']
+  - name: additionalDescBulletInfo
+    singleValue: false
+    description: null
+    xpath: //button[@aria-controls='collapsible-details-1']/following-sibling::*[1]//li
+  - name: technicalInformationPdfPresent
+    singleValue: false
+    description: If there is for example a manual in pdf format on the website. ['Yes','No']
+    example: https://www.amazon.de/Hasbro-Spiele-44220100-Mastermind-Kinderspiel/dp/B0007OHUG6
+    defaultValue: No
+  - name: termsAndConditions
+    singleValue: false
+    description: Terms and conditions information text ['Yes','No']
+    xpath: //span/a/@title
+    regExp: Conditions
+    regExpReplace: Yes
+    defaultValue: No
+  - name: privacyPolicy
+    singleValue: false
+    description: Privacy Policy information text ['Yes','No']
+    xpath: //span/a/@title
+    regExp: Politique de Confidentialité
+    regExpReplace: Yes
+    defaultValue: No
+  - name: customerServiceAvailability
+    singleValue: false
+    description: Information related to customer service availability (text), ['Yes','No']
+    defaultValue: No
+  - name: Image360Present
+    singleValue: false
+    description: If 360 image is present in the carousel ['Yes','No']
+    example: https://www.amazon.com/Trinsic-Single-Handle-Magnetic-Champagne-9159-CZ-DST/dp/B0050EN8E6
+    defaultValue: No
+  - name: imageZoomFeaturePresent
+    singleValue: false
+    description: If Zoom feature is available for Main image or images in the
+      carousel,['Yes','No']
+    example: https://www.zalando.de/adidas-neo-sneaker-low-blackwhite-a4315i002-q11.html
+    defaultValue: Yes
