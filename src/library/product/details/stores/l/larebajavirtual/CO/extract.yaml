@@ -32,7 +32,7 @@ fields:
     singleValue: true
     xpath: //div[@class='descripciones']/div/h1
   - name: price
-    singleValue: true
+    singleValue: false
     xpath: (//input[@id='detailPixelPrice'])/@value
     regExp: (\d+)(\d\d\d)
     regExpReplace: $1,$2$
