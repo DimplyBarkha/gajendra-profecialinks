@@ -85,3 +85,7 @@ fields:
     # remove Material: from text Material: Glass fibre polycarbonate 
     regExp: \(Material\:\.+)
     regExpReplace: $1
+  - name: hasComparisonTable
+    defaultValue: No
+  - name: unInterruptedPDP
+    xpath: //div[@class="c-carousel__items"]//div[@data-item="true"]
