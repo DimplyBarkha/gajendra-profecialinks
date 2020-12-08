@@ -5,7 +5,7 @@ module.exports = {
     country: 'IT',
     store: 'efarma',
     domain: 'efarma.com',
-    loadedSelector: null,
+    loadedSelector: 'div[class="container content-main"]',
     noResultsXPath: null,
     zipcode: '',
   },
