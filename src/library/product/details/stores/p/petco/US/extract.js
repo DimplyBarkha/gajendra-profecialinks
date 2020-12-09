@@ -26,7 +26,7 @@ async function implementation (
         const images = [];
         array[i].setAttribute('name', jsonString[Object.keys(jsonString)[i]].name);
         array[i].setAttribute('variantId', jsonString[Object.keys(jsonString)[i]].id);
-        array[i].setAttribute('sku', jsonString[Object.keys(jsonString)[i]].id);
+        array[i].setAttribute('sku', jsonString[Object.keys(jsonString)[i]].sku);
         array[i].setAttribute('price', jsonString[Object.keys(jsonString)[i]].price.price_USD);
         array[i].setAttribute('listPrice', jsonString[Object.keys(jsonString)[i]].price.listprice_USD);
         array[i].setAttribute('mainImage', jsonString[Object.keys(jsonString)[i]].thumbnail);
