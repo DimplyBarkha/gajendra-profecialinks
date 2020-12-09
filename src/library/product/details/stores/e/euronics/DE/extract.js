@@ -61,6 +61,7 @@ async function implementation(
     let manufacturerImages = '';
     let boxContent = null;
     let videos = '';
+    let comparisionText = '';
     if (loadbeeUrl || gtin) {
         let gtinUrl = gtin ? 'https://service.loadbee.com/ean/' + gtin + '/de_DE?css=default&template=default&data=%7B%22shop%22%3A%22www.euronics.de%22%2C%22source%22%3A%22inpage%22%2C%22api%22%3A%22fGy5uftNFDeUaTCCGbzAfZhpZZH5xnbC%22%7D' : null;
         console.log('going to loadbeeUrl');
@@ -121,12 +122,16 @@ async function implementation(
             return { text: inBoxText, images: imagesUrl };
         });
 
+        comparisionText = await this.context.evaluate(async function () {
+            return (!!document.querySelector('.compare-headline') && document.querySelector('.compare-headline').offsetHeight > 0 && document.querySelector('.compare-headline').offsetWidth) > 0;
+        });
+
         await context.goto(currentUrl);
         await stall(5000);
 
     }
 
-    await context.evaluate(async function(enhancedContent, manufacturerImages, videos, boxContent) {
+    await context.evaluate(async function(enhancedContent, manufacturerImages, videos, boxContent, comparisionText) {
 
         function stall(ms) {
             return new Promise(resolve => {
@@ -156,6 +161,8 @@ async function implementation(
 
         addHiddenDiv('intheboxurl', boxContent ? boxContent.images : '');
         addHiddenDiv('intheboxtext', boxContent ? boxContent.text : '');
+
+        addHiddenDiv('comparisionText', comparisionText);
 
         const alternateImages = [];
         document.querySelectorAll('.image--box').forEach((el, ind) => {
@@ -275,7 +282,7 @@ async function implementation(
         addHiddenDiv('zoomInfo', 'Yes');
         addHiddenDiv('pdf', 'No');
         await new Promise((resolve, reject) => setTimeout(resolve, 6000));
-    }, enhancedContent, manufacturerImages, videos, boxContent);
+    }, enhancedContent, manufacturerImages, videos, boxContent, comparisionText);
 
 
     return await context.extract(productDetails, { transform });
