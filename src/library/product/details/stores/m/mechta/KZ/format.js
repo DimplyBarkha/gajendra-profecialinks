@@ -62,9 +62,21 @@ const transform = (data) => {
         });
         row.manufacturerDescription = [{ text: descMfr.join(' ') }];
       }
+      if (row.nameExtended) {
+        if (row.brandText) {
+          row.nameExtended = [{ text: row.brandText[0].text + ' - ' + row.nameExtended[0].text }];
+        }
+      }
       if (row.weightNet) {
         row.weightNet.forEach(item => {
           item.text = item.text.replace(',', '.');
+        });
+      }
+      if (row.quantity) {
+        row.quantity.forEach(item => {
+          item.text = item.text.trim();
+          item.text = item.text.replace(/\s+.+/, '');
+          item.text = item.text.trim();
         });
       }
       if (row.specificationsKey && row.specificationsValue) {
