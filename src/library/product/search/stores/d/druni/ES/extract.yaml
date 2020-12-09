@@ -18,6 +18,8 @@ fields:
   - name: thumbnail
     singleValue: false
     xpath: //div[contains(@class, 'card')]//figure[contains(@class,'card__image')]//img//@src
+    regExp: (.+)
+    regExpReplace: https:$1
   - name: aggregateRating
     singleValue: false
   - name: aggregateRating2
