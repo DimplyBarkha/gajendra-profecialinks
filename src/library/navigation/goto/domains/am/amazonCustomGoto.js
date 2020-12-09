@@ -6,7 +6,7 @@ async function goto (gotoInput, parameterValues, context, dependencies) {
     variantAPIAppendData: gotoInput.variantAPIAppendData ? gotoInput.variantAPIAppendData : false,
     nonVariantReload: gotoInput.nonVariantReload ? gotoInput.nonVariantReload : false,
     variantReload: gotoInput.variantReload ? gotoInput.variantReload : false,
-    acceptCookies: gotoInput.acceptCookies ? gotoInput.acceptCookies : false,
+    acceptCookies: gotoInput.acceptCookies ? gotoInput.acceptCookies : true,
     // missingDataRetry has dependants
     missingDataRetry: gotoInput.missingDataRetry ? gotoInput.missingDataRetry : false,
     // dependant on missingDataRetry
@@ -74,8 +74,9 @@ async function goto (gotoInput, parameterValues, context, dependencies) {
     if (Object.entries(page).filter(item => item[0] != 'windowLocation').filter(item => item[1] === true).length === 0) {
       context.counter.set('dropped_data', 1);
       await context.reload();
-      await new Promise(resolve => setTimeout(resolve, 2000));
+      await new Promise(r => setTimeout(r, 2000));
       console.log('Waiting for page to reload');
+      await context.waitForNavigation({ timeout: 30 });
       return await solveCaptchaIfNecessary(await pageContext());
     }
     return page;
@@ -143,6 +144,9 @@ async function goto (gotoInput, parameterValues, context, dependencies) {
       } else if (!onCorrectZip) {
         console.log('not on correct zipcode, reload');
         await context.reload();
+        await new Promise(r => setTimeout(r, 2000));
+        console.log('Waiting for page to reload');
+        await context.waitForNavigation({ timeout: 30 });
         page = await pageContextCheck(await pageContext());
         await handlePage(page, null);
       }
@@ -261,8 +265,9 @@ async function goto (gotoInput, parameterValues, context, dependencies) {
     await context.waitForNavigation(30);
     if (await context.evaluate(() => !document.querySelector('#a-popover-root'))) {
       await context.reload();
-      await context.waitForNavigation(30);
       await new Promise(r => setTimeout(r, 2000));
+      console.log('Waiting for page to reload');
+      await context.waitForNavigation({ timeout: 30 });
     }
     console.log('Captcha vanished');
 
@@ -522,7 +527,7 @@ async function goto (gotoInput, parameterValues, context, dependencies) {
         await context.reload();
         await new Promise(r => setTimeout(r, 2000));
         console.log('Waiting for page to reload');
-        await context.waitForNavigation(30);
+        await context.waitForNavigation({ timeout: 30 });
         console.log('Page reloaded');
         page = await handlePage(await pageContext(), lastResponseData);
         console.log('page handled: ', page);
