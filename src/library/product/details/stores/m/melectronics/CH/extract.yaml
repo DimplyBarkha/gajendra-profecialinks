@@ -100,3 +100,6 @@ fields:
     xpath: //iframe[@class="detail-showcase--main-img"]//@src
     regExp: (https:\/\/www.youtube.com\/embed\/)(.+)(\?)(.+)
     regExpReplace: https://www.youtube.com/watch?v=$2
+  - name: unInterruptedPDP
+    singleValue: false
+    xpath: //div[@class="_1ylr7ZqaNStFKeyroKYurg"]//font/font
