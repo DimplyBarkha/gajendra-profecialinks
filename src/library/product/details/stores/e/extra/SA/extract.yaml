@@ -98,7 +98,7 @@ fields:
     xpath: //*[@id="product_specification"]/div[1]/div/div[1]/span[2]/text()
   - name: galleryVideos
     singleValue: false
-    xpath: //li[contains(@class,'amp-slide')]//video/@src
+    xpath: //li[contains(@class,'amp-slide')]//video/@src | //li[contains(@class,'amp-slide')]//iframe/@src
   - name: videos
     singleValue: false
     xpath: //*[@id="content"]//*[self::video or self::iframe]/@src
