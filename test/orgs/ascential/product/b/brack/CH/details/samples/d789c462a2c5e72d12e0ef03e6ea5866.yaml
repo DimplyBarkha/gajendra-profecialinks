@@ -2,7 +2,7 @@ input:
   id: 4015600368890-KIT
   _url: http://brack.ch
 extractions:
-  - html: https://workbench.import.io/html/run=229e9782-505a-4659-ba29-440808e7ec10/task=1a9b1910-2c02-44d2-9ab6-017cf21701a0/2c5db298-5149-43a6-8a5c-d6a604e88ca2.html
+  - html: https://workbench.import.io/html/run=3cddeedd-6cab-4912-b8f5-49f5d894df1f/task=e6979a35-cd09-4b5f-8f46-5377c8b9368f/a18db4c0-7e6a-4e90-a4c7-4daae6999b85.html
     extractionConfigId: product/details/stores/b/brack/CH/extract
     data:
       - group:
@@ -33,7 +33,7 @@ extractions:
               - text: CHF 9.95
                 xpath: /html/body/article[1]/div[2]/div[1]/div[1]/div[2]/form[1]/div[1]/div[4]/div[1]/div[5]/p[1]
             availabilityText:
-              - text: "160"
+              - text: "151"
                 xpath: /html/body/article[1]/div[2]/div[1]/div[1]/div[2]/form[1]/div[1]/div[4]/div[1]/div[1]/table[1]/tbody[1]/tr[3]/td[1]/em[1]/span[1]
             description:
               - text: |-
@@ -48,7 +48,7 @@ extractions:
                 xpath: /html/body/article[1]/div[2]/div[1]/div[1]/div[2]/form[1]/div[1]/a[1]/span[1]
             manufacturer:
               - text: Meister Proper
-                xpath: /html/body/article[1]/div[2]/div[1]/div[1]/div[2]/form[1]/div[1]/a[1]/span[1]
+                xpath: /html/body/article[1]/div[4]/div[1]/div[1]/div[2]/div[1]/div[2]/table[1]/tbody[4]/tr[2]/td[1]
             quantity:
               - text: 180 Stück
                 xpath: /html/body/article[1]/div[4]/div[1]/div[1]/div[2]/div[1]/div[2]/table[1]/tbody[1]/tr[2]/td[1]
@@ -57,7 +57,7 @@ extractions:
                 xpath: /html/body/article[1]/div[2]/div[1]/div[1]/div[2]/form[1]/div[1]/div[4]/div[1]/div[1]/table[1]/tbody[1]/tr[2]/td[1]
             sku:
               - text: "1026523"
-                xpath: /html/body/article[1]/div[2]/div[1]/div[1]/div[2]/form[1]/div[1]/div[4]/div[1]/div[1]/table[1]/tbody[1]/tr[1]/td[1]
+                xpath: /html/body/article[1]/div[2]/div[1]/div[1]/div[2]/form[1]/div[1]/div[4]/div[1]/div[6]/input[1]/@value
             variantId:
               - text: 4015600368890-KIT
                 xpath: /html/body/article[1]/div[2]/div[1]/div[1]/div[2]/form[1]/div[1]/div[4]/div[1]/div[1]/table[1]/tbody[1]/tr[2]/td[1]
@@ -65,7 +65,7 @@ extractions:
               - text: 4015600368890-KIT
                 xpath: /html/body/article[1]/div[2]/div[1]/div[1]/div[2]/form[1]/div[1]/div[4]/div[1]/div[1]/table[1]/tbody[1]/tr[2]/td[1]
             shippingInfo:
-              - text: Bis 17 Uhr bestellt, am Montag portofrei geliefert.
+              - text: Bis 10 Uhr bestellt, heute in Mägenwil oder Willisau abholen.
                 xpath: /html/body/article[1]/div[2]/div[1]/div[1]/div[2]/form[1]/div[1]/div[4]/div[1]/div[1]/div[1]/p[1]
             manufacturerDescription:
               - text: Diese feuchten Reinigunstücher von Meister Proper riechen nach Citrus und
@@ -107,5 +107,7 @@ extractions:
               - text: "5"
             variantCount:
               - text: "2"
+            secondaryImageTotal:
+              - text: "1"
         xpath: /
-    timestamp: 1606472006998
+    timestamp: 1607501700069

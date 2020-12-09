@@ -2,7 +2,7 @@ input:
   id: 727648
   _url: http://brack.ch
 extractions:
-  - html: https://workbench.import.io/html/run=229e9782-505a-4659-ba29-440808e7ec10/task=9af76feb-280d-4820-8a83-e1190edf3309/b137f314-c7e8-4b3f-9494-9600d123e850.html
+  - html: https://workbench.import.io/html/run=3cddeedd-6cab-4912-b8f5-49f5d894df1f/task=a7b200dd-3243-4ddf-ab13-2b27f428686d/68f7c6e1-feba-44aa-aa5d-0bef74d0c46f.html
     extractionConfigId: product/details/stores/b/brack/CH/extract
     data:
       - group:
@@ -28,7 +28,7 @@ extractions:
               - text: CHF 3.95
                 xpath: /html/body/article[1]/div[2]/div[1]/div[1]/div[2]/form[1]/div[1]/div[3]/div[1]/div[5]/p[1]
             availabilityText:
-              - text: "48"
+              - text: "72"
                 xpath: /html/body/article[1]/div[2]/div[1]/div[1]/div[2]/form[1]/div[1]/div[3]/div[1]/div[1]/table[1]/tbody[1]/tr[3]/td[1]/em[1]/span[1]
             description:
               - text: |-
@@ -41,7 +41,7 @@ extractions:
                 xpath: /html/body/article[1]/div[2]/div[1]/div[1]/div[2]/form[1]/div[1]/a[1]/span[1]
             manufacturer:
               - text: Nestlé Cerealien
-                xpath: /html/body/article[1]/div[2]/div[1]/div[1]/div[2]/form[1]/div[1]/a[1]/span[1]
+                xpath: /html/body/article[1]/div[4]/div[1]/div[1]/div[2]/div[1]/div[2]/table[1]/tbody[6]/tr[2]/td[1]
             quantity:
               - text: 375 g
                 xpath: /html/body/article[1]/div[4]/div[1]/div[1]/div[2]/div[1]/div[2]/table[1]/tbody[2]/tr[2]/td[1]
@@ -50,7 +50,7 @@ extractions:
                 xpath: /html/body/article[1]/div[2]/div[1]/div[1]/div[2]/form[1]/div[1]/div[3]/div[1]/div[1]/table[1]/tbody[1]/tr[2]/td[1]
             sku:
               - text: "727648"
-                xpath: /html/body/article[1]/div[2]/div[1]/div[1]/div[2]/form[1]/div[1]/div[3]/div[1]/div[1]/table[1]/tbody[1]/tr[1]/td[1]
+                xpath: /html/body/article[1]/div[2]/div[1]/div[1]/div[2]/form[1]/div[1]/div[3]/div[1]/div[6]/input[1]/@value
             variantId:
               - text: "12373520"
                 xpath: /html/body/article[1]/div[2]/div[1]/div[1]/div[2]/form[1]/div[1]/div[3]/div[1]/div[1]/table[1]/tbody[1]/tr[2]/td[1]
@@ -64,7 +64,7 @@ extractions:
               - text: "5.0"
                 xpath: /html/body/article[1]/div[4]/div[1]/div[1]/div[6]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[2]/span[1]
             shippingInfo:
-              - text: Bis 17 Uhr bestellt, am Montag portofrei geliefert.
+              - text: Bis 10 Uhr bestellt, heute in Mägenwil oder Willisau abholen.
                 xpath: /html/body/article[1]/div[2]/div[1]/div[1]/div[2]/form[1]/div[1]/div[3]/div[1]/div[1]/div[1]/p[1]
             manufacturerDescription:
               - text: Mit Nestlé Cookie Crisp können Ihre Kinder mit einer Schale Keks-Glück in
@@ -167,5 +167,7 @@ extractions:
               - text: "3"
             variantCount:
               - text: "0"
+            secondaryImageTotal:
+              - text: "0"
         xpath: /
-    timestamp: 1606472011810
+    timestamp: 1607501703540

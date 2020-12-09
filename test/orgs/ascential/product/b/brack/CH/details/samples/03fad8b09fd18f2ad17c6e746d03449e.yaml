@@ -2,7 +2,7 @@ input:
   id: 781560
   _url: http://brack.ch
 extractions:
-  - html: https://workbench.import.io/html/run=229e9782-505a-4659-ba29-440808e7ec10/task=f2f89287-6916-4a8f-af4c-1a21d0a602d4/d216389f-15e5-4a78-8b26-4a1c35d6d96a.html
+  - html: https://workbench.import.io/html/run=3cddeedd-6cab-4912-b8f5-49f5d894df1f/task=fe6cd328-9575-4b5b-82db-48556eedec4a/671078ff-0452-4f14-922c-d2f118cc9b4e.html
     extractionConfigId: product/details/stores/b/brack/CH/extract
     data:
       - group:
@@ -59,7 +59,7 @@ extractions:
               - text: CHF 429.00
                 xpath: /html/body/article[1]/div[2]/div[1]/div[1]/div[2]/form[1]/div[1]/div[3]/div[1]/div[5]/p[1]
             availabilityText:
-              - text: "-11"
+              - text: "51"
                 xpath: /html/body/article[1]/div[2]/div[1]/div[1]/div[2]/form[1]/div[1]/div[3]/div[1]/div[1]/table[1]/tbody[1]/tr[3]/td[1]/em[1]/span[1]
             description:
               - text: >-
@@ -80,16 +80,16 @@ extractions:
                 xpath: /html/body/article[1]/div[2]/div[1]/div[1]/div[2]/form[1]/div[1]/a[1]/span[1]
             manufacturer:
               - text: Dyson
-                xpath: /html/body/article[1]/div[2]/div[1]/div[1]/div[2]/form[1]/div[1]/a[1]/span[1]
+                xpath: /html/body/article[1]/div[4]/div[1]/div[1]/div[2]/div[1]/div[2]/table[1]/tbody[8]/tr[2]/td[1]
             weightNet:
               - text: 2.63 kg
-                xpath: /html/body/article[1]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/table[1]/tbody[1]/tr[3]/td[1]
+                xpath: /html/body/article[1]/div[4]/div[1]/div[1]/div[2]/div[1]/div[2]/table[1]/tbody[1]/tr[3]/td[1]
             gtin:
               - text: "227296"
                 xpath: /html/body/article[1]/div[2]/div[1]/div[1]/div[2]/form[1]/div[1]/div[3]/div[1]/div[1]/table[1]/tbody[1]/tr[2]/td[1]
             sku:
               - text: "781560"
-                xpath: /html/body/article[1]/div[2]/div[1]/div[1]/div[2]/form[1]/div[1]/div[3]/div[1]/div[1]/table[1]/tbody[1]/tr[1]/td[1]
+                xpath: /html/body/article[1]/div[2]/div[1]/div[1]/div[2]/form[1]/div[1]/div[3]/div[1]/div[6]/input[1]/@value
             variantId:
               - text: 227296-01
                 xpath: /html/body/article[1]/div[2]/div[1]/div[1]/div[2]/form[1]/div[1]/div[3]/div[1]/div[1]/table[1]/tbody[1]/tr[2]/td[1]
@@ -98,13 +98,16 @@ extractions:
                 xpath: /html/body/article[1]/div[2]/div[1]/div[1]/div[2]/form[1]/div[1]/div[3]/div[1]/div[1]/table[1]/tbody[1]/tr[2]/td[1]
             ratingCount:
               - text: "2"
-                xpath: /html/body/article[1]/div[3]/div[1]/div[1]/div[5]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[2]/span[2]
+                xpath: /html/body/article[1]/div[4]/div[1]/div[1]/div[5]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[2]/span[2]
             aggregateRating:
               - text: "5.0"
-                xpath: /html/body/article[1]/div[3]/div[1]/div[1]/div[5]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[2]/span[1]
+                xpath: /html/body/article[1]/div[4]/div[1]/div[1]/div[5]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[2]/span[1]
+            shippingInfo:
+              - text: Bis 10 Uhr bestellt, heute in Mägenwil oder Willisau abholen.
+                xpath: /html/body/article[1]/div[2]/div[1]/div[1]/div[2]/form[1]/div[1]/div[3]/div[1]/div[1]/div[1]/p[1]
             color:
               - text: Gelb
-                xpath: /html/body/article[1]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/table[1]/tbody[3]/tr[2]/td[1]
+                xpath: /html/body/article[1]/div[4]/div[1]/div[1]/div[2]/div[1]/div[2]/table[1]/tbody[3]/tr[2]/td[1]
             manufacturerDescription:
               - text: Der Dyson V8 Absolute ist ein kabelloser Staubsauger mit höchster
                   Saugkraft. Die beiden Zyklonenreihen erzeugen einen starken
@@ -136,27 +139,27 @@ extractions:
                   Ihren Mülleimer entleert. Kann mit nur einem Klick in einen
                   Handstaubsauger verwandelt werden – und ebenso schnell auch
                   wieder zurück.
-                xpath: /html/body/article[1]/div[3]/div[1]/div[1]/div[1]/div[1]/@productdesc
+                xpath: /html/body/article[1]/div[4]/div[1]/div[1]/div[1]/div[1]/@productdesc
             manufacturerImages:
               - text: //cdn.competec.ch/banners2/0/8/0/185530080/185530080.jpg
-                xpath: /html/body/article[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/img[1]/@src
+                xpath: /html/body/article[1]/div[4]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/img[1]/@src
               - text: //cdn.competec.ch/banners2/6/0/2/185530206/185530206.jpg
-                xpath: /html/body/article[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/img[1]/@src
+                xpath: /html/body/article[1]/div[4]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/img[1]/@src
               - text: //cdn.competec.ch/banners2/4/2/2/185530224/185530224.jpg
-                xpath: /html/body/article[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[4]/img[1]/@src
+                xpath: /html/body/article[1]/div[4]/div[1]/div[1]/div[1]/div[1]/div[1]/div[4]/img[1]/@src
               - text: //cdn.competec.ch/banners2/5/2/3/185530325/185530325.jpg
-                xpath: /html/body/article[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[5]/img[1]/@src
+                xpath: /html/body/article[1]/div[4]/div[1]/div[1]/div[1]/div[1]/div[1]/div[5]/img[1]/@src
             videos:
               - text: https://www.youtube.com/embed/iCrxM4TJevs?rel=0&modestbranding=1&enablejsapi=1
-                xpath: /html/body/article[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[6]/iframe[1]/@src
+                xpath: /html/body/article[1]/div[4]/div[1]/div[1]/div[1]/div[1]/div[1]/div[6]/iframe[1]/@src
               - text: https://www.youtube.com/embed/4XBZbGRK0iU?rel=0&modestbranding=1&enablejsapi=1
-                xpath: /html/body/article[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[7]/iframe[1]/@src
+                xpath: /html/body/article[1]/div[4]/div[1]/div[1]/div[1]/div[1]/div[1]/div[7]/iframe[1]/@src
             name:
               - text: Akkustaubsauger V8 Absolute
                 xpath: /html/body/article[1]/div[2]/div[1]/div[1]/div[2]/form[1]/div[1]/h1[1]
             warranty:
               - text: 24 Monate
-                xpath: /html/body/article[1]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/table[1]/tbody[8]/tr[4]/td[1]
+                xpath: /html/body/article[1]/div[4]/div[1]/div[1]/div[2]/div[1]/div[2]/table[1]/tbody[8]/tr[4]/td[1]
             technicalInformationPdfPresent:
               - text: No
             termsAndConditions:
@@ -175,5 +178,7 @@ extractions:
               - text: "6"
             variantCount:
               - text: "0"
+            secondaryImageTotal:
+              - text: "15"
         xpath: /
-    timestamp: 1606472008657
+    timestamp: 1607501721779

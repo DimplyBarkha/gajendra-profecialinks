@@ -73,7 +73,7 @@ fields:
 - name: manufacturer
   singleValue: true
   description: Product manufacturer
-  xpath: //span[@class="productStage__itemManufacturer"]
+  xpath: //th[text()="Herstellername"]/following-sibling::td[1]
 - name: quantity
   singleValue: true
   description: Quantity as described on the page
@@ -93,7 +93,7 @@ fields:
 - name: sku
   singleValue: true
   description: The store-specific product identifier
-  xpath: //th[text()="Artikel-Nr."]/following-sibling::td[1]
+  xpath: //form[@id="AddToCartForm"]//input[@name="sku"]/@value
 - name: variantId
   singleValue: true
   description: Identifier for a variant from a store where variants share the same
@@ -257,6 +257,7 @@ fields:
 - name: secondaryImageTotal
   singleValue: true
   description: 
+  xpath: count((//img[contains(@class, "swiper-slide__small-image")]/@data-src)[position()>1])
 - name: news
   singleValue: true
   description: 

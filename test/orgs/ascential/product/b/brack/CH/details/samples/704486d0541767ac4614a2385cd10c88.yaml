@@ -2,7 +2,7 @@ input:
   id: 606282
   _url: http://brack.ch
 extractions:
-  - html: https://workbench.import.io/html/run=229e9782-505a-4659-ba29-440808e7ec10/task=a2606612-0166-48fb-b69f-349e3aa5f9cb/7318aaab-e953-4a3a-a6b7-e2bcb0f8ec18.html
+  - html: https://workbench.import.io/html/run=3cddeedd-6cab-4912-b8f5-49f5d894df1f/task=df7cee4f-d020-4040-a695-ea9f855374a6/b8c3e907-74a8-4edc-b0d0-30988941a7bf.html
     extractionConfigId: product/details/stores/b/brack/CH/extract
     data:
       - group:
@@ -30,7 +30,7 @@ extractions:
               - text: CHF 12.45
                 xpath: /html/body/article[1]/div[2]/div[1]/div[1]/div[2]/form[1]/div[1]/div[3]/div[1]/div[5]/p[1]
             availabilityText:
-              - text: "119"
+              - text: "61"
                 xpath: /html/body/article[1]/div[2]/div[1]/div[1]/div[2]/form[1]/div[1]/div[3]/div[1]/div[1]/table[1]/tbody[1]/tr[3]/td[1]/em[1]/span[1]
             description:
               - text: |-
@@ -45,13 +45,13 @@ extractions:
                 xpath: /html/body/article[1]/div[2]/div[1]/div[1]/div[2]/form[1]/div[1]/a[1]/span[1]
             manufacturer:
               - text: BISSELL
-                xpath: /html/body/article[1]/div[2]/div[1]/div[1]/div[2]/form[1]/div[1]/a[1]/span[1]
+                xpath: /html/body/article[1]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/table[1]/tbody[3]/tr[2]/td[1]
             gtin:
               - text: "1078"
                 xpath: /html/body/article[1]/div[2]/div[1]/div[1]/div[2]/form[1]/div[1]/div[3]/div[1]/div[1]/table[1]/tbody[1]/tr[2]/td[1]
             sku:
               - text: "606282"
-                xpath: /html/body/article[1]/div[2]/div[1]/div[1]/div[2]/form[1]/div[1]/div[3]/div[1]/div[1]/table[1]/tbody[1]/tr[1]/td[1]
+                xpath: /html/body/article[1]/div[2]/div[1]/div[1]/div[2]/form[1]/div[1]/div[3]/div[1]/div[6]/input[1]/@value
             variantId:
               - text: 1078N
                 xpath: /html/body/article[1]/div[2]/div[1]/div[1]/div[2]/form[1]/div[1]/div[3]/div[1]/div[1]/table[1]/tbody[1]/tr[2]/td[1]
@@ -59,7 +59,7 @@ extractions:
               - text: 1078N
                 xpath: /html/body/article[1]/div[2]/div[1]/div[1]/div[2]/form[1]/div[1]/div[3]/div[1]/div[1]/table[1]/tbody[1]/tr[2]/td[1]
             shippingInfo:
-              - text: Bis 17 Uhr bestellt, am Montag portofrei geliefert.
+              - text: Bis 10 Uhr bestellt, heute in Mägenwil oder Willisau abholen.
                 xpath: /html/body/article[1]/div[2]/div[1]/div[1]/div[2]/form[1]/div[1]/div[3]/div[1]/div[1]/div[1]/p[1]
             videos:
               - text: https://www.youtube.com/embed/xTi3Up-oJJQ?rel=0&modestbranding=1&enablejsapi=1
@@ -88,5 +88,7 @@ extractions:
               - text: "5"
             variantCount:
               - text: "0"
+            secondaryImageTotal:
+              - text: "0"
         xpath: /
-    timestamp: 1606472011875
+    timestamp: 1607501706394

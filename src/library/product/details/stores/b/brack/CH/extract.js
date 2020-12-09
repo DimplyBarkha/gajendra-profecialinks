@@ -1,10 +1,11 @@
+const { cleanUp } = require('../../../../shared');
 
 module.exports = {
   implements: 'product/details/extract',
   parameterValues: {
     country: 'CH',
     store: 'brack',
-    transform: null,
+    transform: cleanUp,
     domain: 'brack.ch',
     zipcode: '',
   },
@@ -40,7 +41,7 @@ module.exports = {
       }
     });
 
-    const dataRef = await context.extract(productDetails);
+    const dataRef = await context.extract(productDetails, { transform });
 
     const alternateImages = dataRef[0].group[0].alternateImages;
     if (alternateImages) {
