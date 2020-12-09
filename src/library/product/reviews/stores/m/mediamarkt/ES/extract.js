@@ -1,4 +1,4 @@
-async function implementation(
+async function implementation (
   inputs,
   parameters,
   context,
@@ -7,7 +7,7 @@ async function implementation(
   const { transform } = parameters;
   const { productReviews } = dependencies;
   await context.evaluate(() => {
-    function monthDiff(d1, d2) {
+    function monthDiff (d1, d2) {
       let months;
       months = (d2.getFullYear() - d1.getFullYear()) * 12;
       months -= d1.getMonth();
@@ -35,7 +35,7 @@ module.exports = {
     store: 'mediamarkt',
     transform,
     domain: 'mediamarkt.es',
-    zipcode: "",
+    zipcode: '',
   },
   implementation,
 };

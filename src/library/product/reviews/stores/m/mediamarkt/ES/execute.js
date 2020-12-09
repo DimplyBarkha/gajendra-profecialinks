@@ -1,4 +1,4 @@
-async function implementation(
+async function implementation (
   { url, id, zipcode, date, days },
   { reviewUrl, sortButtonSelectors, loadedSelector, noResultsXPath },
   context,
@@ -52,7 +52,7 @@ module.exports = {
     noResultsXPath: null,
     reviewUrl: 'https://www.mediamarkt.es/es/product/-{id}.html',
     sortButtonSelectors: null,
-    zipcode: "",
+    zipcode: '',
   },
   implementation,
 };

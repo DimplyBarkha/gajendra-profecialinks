@@ -25,8 +25,8 @@ const cleanUp = (data, context) => {
         row.aggregateRating[0].text = row.aggregateRating[0].text.replace('.', ',');
       }
       if (row.nameExtended && row.quantity && row.color) {
-        let name = `${row.nameExtended[0].text} ${row.quantity[0].text} ${row.color[0].text}`;
-        row.nameExtended = [{ text: name.trim() }]
+        const name = `${row.nameExtended[0].text} ${row.quantity[0].text} ${row.color[0].text}`;
+        row.nameExtended = [{ text: name.trim() }];
       }
       if (row.listPrice) {
         if (row.listPrice[0].text.includes('IVA inclusa')) {
@@ -34,15 +34,15 @@ const cleanUp = (data, context) => {
         }
       }
       if (row.variants) {
-        let text = row.variants.map(element => element.text.trim()).join(' | ');
-        row.variants = [{ text: text.trim() }]
+        const text = row.variants.map(element => element.text.trim()).join(' | ');
+        row.variants = [{ text: text.trim() }];
       }
       if (row.variantInformation) {
-        let text = ``
+        let text = '';
         if (row.color && row.quantity) {
-          text = `${row.color[0].text} ${row.quantity[0].text}`
+          text = `${row.color[0].text} ${row.quantity[0].text}`;
         }
-        row.variantInformation = [{ text: text.trim() }]
+        row.variantInformation = [{ text: text.trim() }];
       }
     }
   }
