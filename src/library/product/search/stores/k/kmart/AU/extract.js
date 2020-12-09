@@ -1,11 +1,11 @@
-const { cleanUp } = require('../../../../shared');
+const { transform } = require('../../../../shared');
 
 module.exports = {
   implements: 'product/search/extract',
   parameterValues: {
     country: 'AU',
     store: 'kmart',
-    transform: cleanUp,
+    transform: transform,
     domain: 'kmart.com.au',
     zipcode: '',
   },
