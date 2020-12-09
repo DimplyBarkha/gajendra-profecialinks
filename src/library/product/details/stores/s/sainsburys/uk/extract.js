@@ -29,20 +29,16 @@ async function implementation (
       newDiv.style.display = 'none';
       document.body.appendChild(newDiv);
     }
-    const jsonString = document.querySelector("script[type='application/ld+json']").innerText;
-    let jsonParsed = {};
-    if (jsonString && jsonString.trim()) {
-      jsonParsed = JSON.parse(jsonString);
-    // let availabilityText= jsonParsed["offers"].availability
-    //   addHiddenDiv('availabilityText', availabilityText);
-      }
       const rawdata = document.querySelectorAll('script[type="application/ld+json"]')[0].innerText;
       const jsondata = JSON.parse(rawdata);
       const gtin = jsondata.gtin13;
       const availabilityText = jsondata.offers.availability;
-      // const aggregateRating = jsondata.aggregateRating.ratingValue;
+      const price= jsondata.offers.price;
+      const aggregateRating = jsondata.review.reviewRating.ratingValue;
       addHiddenDiv('gtin', gtin,);
+      addHiddenDiv('price', price,);
       addHiddenDiv('availabilityText',availabilityText);
+      addHiddenDiv('aggregateRating', aggregateRating,);
     });
     return await context.extract(productDetails, { transform });
   } 

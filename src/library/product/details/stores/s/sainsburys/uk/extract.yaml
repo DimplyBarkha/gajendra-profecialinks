@@ -15,11 +15,11 @@ fields:
   - name: category
     singleValue: false
     description: The categories (e.g. from breadcrumbs)
-    xpath: (//a[@class="ln-c-breadcrumbs__link"]/text())[2]
+    xpath: //ol[@class="ln-c-breadcrumbs ln-o-inline-list"]
   - name: listPrice
     singleValue: true
     description: The stated undiscounted price for the product
-    xpath: //div[@class="pd__cost__total undefined"]/text()
+    xpath: //html//div[@id='price']
   - name: description
     singleValue: false
     description: Product description supplied by website - may be concatenanted from
@@ -28,7 +28,7 @@ fields:
   - name: manufacturer
     singleValue: true
     description: Product manufacturer
-    xpath: //div[@class="nameTextItems"]
+    xpath: (//div[@class="memo"]/p)[3]
   - name: quantity
     singleValue: true
     description: Quantity as described on the page
@@ -42,10 +42,6 @@ fields:
     singleValue: true
     description: Content under "legal disclaimer" header
     xpath: //div[@class="ln-c-card pd__disclaimer ln-c-card--soft"]
-  - name: directions
-    singleValue: true
-    description: Content under "directions" header
-    xpath: (//div[@class="memo"]/p)[3]
   - name: warnings
     singleValue: true
     description: Content under "warnings" header
@@ -61,21 +57,16 @@ fields:
   - name: aggregateRating
     singleValue: true
     description: The stated aggregate rating normalized to be out of 5
+    xpath: //html//div[@id='aggregateRating']
     type: NUMBER
-    xpath: //div[@class="pd-reviews__summary__text"]
   - name: name
     singleValue: true
     description: The product name
     xpath: //h1[@data-test-id="pd-product-title"]/text() 
   - name: availabilityText
     singleValue: true
-    description: Availability as described on page for the selected variant. If
-      there is no availability but the product can be added to cart, this field
-      should be "In Stock"
-    regExp: (.+)
-    regExpReplace: In Stock
-    # defaultValue: Out of Stock
-    xpath: //html//div[@id='.Text']
+    xpath: //html//div[@id='availabilityText']
+    regExp: \w+$
   - name: brandText
     singleValue: true
     description: Product brand shown - this may actually NOT be just a brand name,
