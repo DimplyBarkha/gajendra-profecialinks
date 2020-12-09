@@ -13,7 +13,7 @@ fields:
     xpath: //a[@id="product-image-link"]/img/@alt
   - name: alternateImages
     singleValue: false
-    xpath: //div[@id="fancybox-thumbs"]/ul/li/a/img/@src | //div[@id="more-images"]/a/img/@src
+    xpath: //div[@id="fancybox-thumbs"]/ul/li/a/img/@src | //div[@id="more-images"]/a/img[not(contains(@id, 'media-1'))]/@src
   - name: metaKeywords
     singleValue: true
     xpath: /html/head/meta[@name="keywords"]/@content
