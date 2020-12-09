@@ -4,7 +4,7 @@ module.exports = {
   parameterValues: {
     country: 'CA',
     store: 'bestbuy',
-    nextLinkSelector: null,
+    nextLinkSelector: 'div[class="loadMoreRow_1TEZj loadMoreButtonContainer_35w02"]>button',
     mutationSelector: null,
     spinnerSelector: null,
     loadedSelector: 'body',
