@@ -4,10 +4,10 @@ module.exports = {
   parameterValues: {
     country: 'AU',
     store: 'kmart',
-    nextLinkSelector: 'a[class="right_arrow"]',
+    nextLinkSelector: 'li a[title="Next Page"]',
     mutationSelector: null,
     spinnerSelector: null,
-    loadedSelector: null,
+    loadedSelector: 'body',
     noResultsXPath: null,
     openSearchDefinition: null,
     domain: 'kmart.com.au',
