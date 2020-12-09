@@ -204,6 +204,7 @@ async function implementation (
     if(video) {
       video.click();
     }
+    document.body.setAttribute("producturl", window.location.href);
   });
   await context.evaluate(addRating);
   async function addSpecification() {

@@ -4,3 +4,7 @@ fields:
     xpath: ancestor::html//a[@itemprop="brand"]/@href
     regExp: (.+)
     regExpReplace: https://www.bedbathandbeyond.com$1
+  - name: sku
+    xpath: ancestor::html//body//@producturl
+    regExp: (product\/-\/)(\d+)
+    regExpReplace: $2
