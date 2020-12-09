@@ -1,22 +1,17 @@
-/**
- *
- * @param {ImportIO.Group[]} data
- * @returns {ImportIO.Group[]}
- */
-const transform = (data) => {
+const transform = (data) => {  
   const cleanUp = (data, context) => {
     const clean = text => text.toString()
-      .replace(/\r\n|\r|\n/g, ' ')
-      .replace(/&amp;nbsp;/g, ' ')
-      .replace(/&amp;#160/g, ' ')
-      .replace(/\u00A0/g, ' ')
-      .replace(/\s{2,}/g, ' ')
-      .replace(/"\s{1,}/g, '"')
-      .replace(/\s{1,}"/g, '"')
-      .replace(/^ +| +$|( )+/g, ' ')
-      // eslint-disable-next-line no-control-regex
-      .replace(/[\x00-\x1F]/g, '')
-      .replace(/[\uD800-\uDBFF][\uDC00-\uDFFF]/g, ' ');
+    .replace(/\r\n|\r|\n/g, ' ')
+    .replace(/&amp;nbsp;/g, ' ')
+    .replace(/&amp;#160/g, ' ')
+    .replace(/\u00A0/g, ' ')
+    .replace(/\s{2,}/g, ' ')
+    .replace(/"\s{1,}/g, '"')
+    .replace(/\s{1,}"/g, '"')
+    .replace(/^ +| +$|( )+/g, ' ')
+    // eslint-disable-next-line no-control-regex
+    .replace(/[\x00-\x1F]/g, '')
+    .replace(/[\uD800-\uDBFF][\uDC00-\uDFFF]/g, ' ');
     data.forEach(obj => obj.group.forEach(row => Object.keys(row).forEach(header => row[header].forEach(el => {
       el.text = clean(el.text);
     }))));
@@ -39,23 +34,13 @@ const transform = (data) => {
           }
         });
       }
-      if(row.sku){
-        let skuStr='';
-        row.sku.forEach(item => {
-          //console.log('sku :',item.text);
-          let skuArr=item.text.split('&sku_id=');
-          //console.log('sku :',skuArr);
-          skuStr=skuArr[1];
-        });
-        row.sku=[{"text":skuStr}];
-      }
       if(row.variantId){
         row.variantId.forEach(item => {
           var arr=item.text.split("/item/");
           var arr1=arr[1].split(".");
           item.text=arr1[0];
         });
-      }      
+      }
       if(row.ratingCount){
         row.ratingCount.forEach(item => {
           var ratingCountArr=item.text.split(" ");
@@ -84,10 +69,17 @@ const transform = (data) => {
         row.aggregateRating=[{"text":row.aggregateRating[0]['text'].replace('.',',')}]
       }
       row.variantCount = [{ "text": 0 }];
+      if(row.sku){
+        let skuStr='';
+        row.sku.forEach(item => {
+          let skuArr=item.text.split('&sku_id=');
+          if(skuArr.length>1)
+            skuStr=skuArr[1];
+        });
+        row.sku=[{"text":skuStr}];
+      }
     }
   }
-  cleanUp(data);
-  return data;
+  return cleanUp(data);
 };
-
 module.exports = { transform };
