@@ -1,0 +1,41 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: div[data-component="ProductTileSrp"]
+recordXPath: //div[@data-component="ProductTileSrp"]
+fields:
+  - name: id
+    singleValue: false
+    xpath: //a[@class="product-tile-srp__main-link"]/@data-anchor
+  - name: name
+    singleValue: false
+    manualSelector: div.product-tile-srp__middle-content h3.product-tile-srp__title.grid--grid-view__item
+  - name: productUrl
+    singleValue: false
+    xpath: //div[@data-component="ProductTileSrp"]//a[@class="product-tile-srp__main-link"]/@href
+  - name: gtin
+    singleValue: false
+    manualSelector: div.product-tile-srp__middle-content p.product-tile-srp__product-id.grid--grid-view__item
+    regExp: ^#(.*)
+    regExpReplace: $1
+  - name: thumbnail
+    singleValue: false
+    xpath: //img[@class="product-tile-srp__image"]/@src
+    regExp: (.+)
+    regExpReplace: https:$1
+  - name: price
+    singleValue: false
+    manualSelector: section.product-tile__price, span.price__total-value, span.price__now--value-srp
+  - name: aggregateRating2
+    singleValue: false
+    manualSelector: div.bv-off-screen
+    regExp: (\d.*?)(\so)
+    regExpReplace: $1
+  - name: reviewCount
+    singleValue: false
+    xpath: //meta[@itemprop='reviewCount']/@content
+  - name: manufacturer
+    singleValue: false
+  - name: soldBy
+    singleValue: false
+  - name: endorsementText
+    singleValue: false

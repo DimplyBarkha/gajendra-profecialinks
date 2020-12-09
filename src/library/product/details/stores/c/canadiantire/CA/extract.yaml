@@ -1,0 +1,97 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: image
+    singleValue: false
+    xpath: //div[contains(@class,"s7staticimage")]//img[position()=1]/@src
+  - name: imageAlt
+    singleValue: false
+    xpath: //div[contains(@class,"s7staticimage")]//img[position()=1]/@alt
+  - name: alternateImages
+    singleValue: false
+    xpath: //div[contains(@class,"pdp-image-carousel")]//img/@src
+  - name: secondaryImageTotal
+    singleValue: false
+    xpath: count(//div[contains(@class,"pdp-image-carousel")]//img/@src) 
+  - name: category
+    singleValue: false
+    xpath: //div[@class="global-breadcrumb__items-wrapper"]//li/a
+  - name: price
+    singleValue: false
+    xpath: //section[contains(@class,"pdp-buy-box__primary-section")]//span[contains(@class,"price__reg-value")]
+  - name: listPrice
+    singleValue: false
+    xpath: //section[contains(@class,"pdp-buy-box__primary-section")]//h2[contains(@class,"price__reg-price")]/span[contains(@class,'price__reg-value')]
+  - name: description
+    singleValue: false
+    xpath: //div[contains(@class,"pdp-details-features")]//li
+  - name: descriptionBullets
+    singleValue: false
+    xpath: //div[contains(@class,"pdp-details-features")]//li
+  - name: sku
+    singleValue: false
+    xpath: //div[contains(@data-component,"PDPBuyBox")]/@data-config
+  - name: ratingCount
+    singleValue: false
+    xpath: //div[@class="pdp-header__reviews "]//div[contains(@class,"bv_text")]
+  - name: aggregateRating
+    singleValue: false
+    xpath: //div[@class="pdp-header__reviews "]//div[contains(@class,"bv-off-screen")]
+  - name: name
+    singleValue: false
+    xpath: //div[@class="pdp-header__main"]/h1 
+  - name: specifications
+    singleValue: false
+    xpath: //div[contains(@class,"pdp-details-wrapper pdp-details-wrapper--open")]//ul[@class="pdp-details-specifications__items clearfix"]/li
+  - name: brandText
+    singleValue: false
+    xpath: //div[@class="pdp-product-brand-link-content-wrapper"]//div[@class="brand-logo-link"]/a/img/@alt | //div[contains(@data-component,"PDPBuyBox")]/@data-config
+  - name: manufacturer
+    singleValue: false
+    xpath: //div[@class="pdp-product-brand-link-content-wrapper"]//div[@class="brand-logo-link"]/a/img/@alt | //div[contains(@data-component,"PDPBuyBox")]/@data-config
+  - name: color
+    singleValue: false
+    xpath: //div[contains(@class,"pdp-details-wrapper pdp-details-wrapper--open")]//ul[@class="pdp-details-specifications__items clearfix"]/li[contains(.,'Colour:') or contains(.,'Color:')]/text()[3]/following-sibling::*/text()
+  - name: warranty
+    singleValue: false
+    xpath: //div[@class="pdp-info-component__warranty pdp-info-component__col"]//div[@class="pdp-info-component__subheading"]
+  - name: imageZoomFeaturePresent
+    singleValue: false
+    defaultValue: Yes
+  - name: technicalInformationPdfPresent 
+    singleValue: false 
+    xpath: //div[contains(@class,"pdp-info-component__additional-info pdp-info-component__col")]//a/@href
+  - name: availabilityText 
+    singleValue: false 
+    xpath: //dd[contains(@class,"stock-status__info")]/@data-prodinstock
+    defaultValue: 'Out of Stock'
+  - name: promotion
+    singleValue: false
+    xpath: //div[contains(@class,"product-header-badges section")]//span[contains(@class,"price__tag price__tag_save-story")]
+  - name: videos
+    singleValue: false
+    xpath: //div[contains(@class,"pdp-image-carousel")]//button[contains(@class,"pdp-image-carousel__item-video-thumbnail")]/@style
+  - name: _url
+    singleValue: false
+    xpath: //meta[@property="og:url"]/@content
+  - name: variantId
+    singleValue: false
+    xpath: //div[contains(@data-component,"PDPBuyBox")]/@data-config
+  - name: firstVariant
+    singleValue: false
+    xpath: //div[contains(@class,"sku-selectors__select")]//select/option[position()=2]/@value
+  - name: variants
+    singleValue: false
+    xpath: //div[contains(@class,"sku-selectors__select")]//select/option[position()>1]/@value
+  - name: variantInformation
+    singleValue: false
+    xpath: //div[contains(@class,"sku-selectors__select")]//select/option[position()>1]
+  - name: variantCount
+    singleValue: false
+    xpath: //div[contains(@class,"sku-selectors__select")]//select/option[position()>1]/@value
+    defaultValue: '0'
+  - name: shippingWeight  
+    singleValue: false
+    xpath: //div[contains(@class,"pdp-details-wrapper pdp-details-wrapper--open")]//ul[@class="pdp-details-specifications__items clearfix"]/li[contains(.,'Package Weight (kg)')]/text()[3]/following-sibling::*/text()
