@@ -38,6 +38,7 @@ module.exports = {
       // if (videoEle) {
       //   videoEle.click();
       // }
+      
 
       function addHiddenDiv(id, content) {
         const newDiv = document.createElement('div');
@@ -48,6 +49,9 @@ module.exports = {
         document.body.appendChild(newDiv);
         return newDiv;
       }
+
+      const productUrl = window.location.href;
+      addHiddenDiv('productUrl', productUrl);
 
       const variantContainerLeftPan = document.querySelector('div.rd__product-details__picker__list');
       if (variantContainerLeftPan) {
