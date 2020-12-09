@@ -2,7 +2,7 @@
 module.exports = {
   implements: 'navigation/paginate',
   parameterValues: {
-    // template: null,
+    template: null,
     country: 'RU',
     store: 'eapteka',
     nextLinkSelector: 'a.custom-pagination__arrow.custom-pagination__arrow--next',
@@ -15,6 +15,6 @@ module.exports = {
     // resultsDivSelector: null,
     // openSearchDefinition: null,
     domain: 'eapteka.ru',
-    zipcode: '',
+    zipcode: "''",
   },
 };

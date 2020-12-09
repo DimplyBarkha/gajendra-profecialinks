@@ -38,5 +38,5 @@ module.exports = {
     domain: 'eapteka.ru',
     zipcode: '',
   },
-  // implementation,
+  implementation,
 };
