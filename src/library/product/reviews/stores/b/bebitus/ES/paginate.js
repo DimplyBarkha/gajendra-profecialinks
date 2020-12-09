@@ -4,78 +4,86 @@ module.exports = {
   parameterValues: {
     country: 'ES',
     store: 'bebitus',
-    // nextLinkSelector: 'li.bv-content-pagination-buttons-item-next a',
-    nextLinkXpath:'//li[contains(@class,"bv-content-pagination-buttons-item-next")]/a',
+    nextLinkXpath: '//li[contains(@class,"bv-content-pagination-buttons-item-next")]/a',
     loadedSelector: 'div.visible',
     domain: 'bebitus.com',
-    // noResultsXPath: '//button[contains(@class,"bv-content-btn-pages-inactive")]'
   },
-  implementation
+  implementation,
 };
-async function implementation(
+async function implementation (
   inputs,
   parameters,
   context,
   dependencies,
 ) {
-  const { keywords, page, offset } = inputs;
-  const { nextLinkXpath, loadedSelector, noResultsXPath, mutationSelector, spinnerSelector, openSearchDefinition } = parameters;
-  await context.evaluate(async function () {
-    var totalReview = document.querySelectorAll('ol.bv-content-list.bv-content-list-reviews li.bv-content-item.bv-content-top-review.bv-content-review').length;
-    console.log('totalReview');
-    console.log(totalReview);
- });
- 
+  const { page } = inputs;
+  const { noResultsXPath, nextLinkXpath } = parameters;
 
-  if (nextLinkXpath) {
-    // await context.waitForSelector('div.visible');
-    const hasNextLink =  await context.evaluate(async function () {
-      function timeout(ms) {
-        return new Promise((resolve) => setTimeout(resolve, ms));
-      }
-    
-    var next = document.querySelector('li.bv-content-pagination-buttons-item-next a');
-    if (!next) return false;
-    // @ts-ignore
-    next.click();
-    await  timeout(5000)
-    return true;
-    }, { selector: nextLinkXpath });
-    if (!hasNextLink) return false;
-    }
+  console.log('Checking no results', noResultsXPath);
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-  // if(nextLinkSelector) {
-  //   await context.click(nextLinkSelector);
-  // }
-
-  // @ts-ignore
-  // await context.evaluate(async function () {
-  //   var next = document.querySelector('li.bv-content-pagination-buttons-item-next a');
-  //   if(next) {
-  //    // @ts-ignore
-  //    next.click();
-  //    console.log('clicked');
-  //   }
-  //  });
- 
-  return await context.evaluate(function (xp) {
+  const checkIfResults = await context.evaluate((xp) => {
     const r = document.evaluate(xp, document, null, XPathResult.UNORDERED_NODE_ITERATOR_TYPE, null);
+    console.log(xp, r);
     const e = r.iterateNext();
+    console.log(e);
     return !e;
   }, noResultsXPath);
-  
-  
+
+  if (!checkIfResults) {
+    return false;
+  }
+
+  function checkIfReviewIsFromLast30Days (lastDate, reviewDate) {
+    lastDate = lastDate.replace(/(\d+)(st|nd|rd|th)/, '$1');
+    reviewDate = reviewDate.replace(/(\d+)(st|nd|rd|th)/, '$1');
+    console.log('lastDate' + lastDate);
+    console.log('reviewDate' + reviewDate);
+    const timestamp = new Date(lastDate).getTime() - (30 * 24 * 60 * 60 * 1000);
+    console.log('timestamp' + timestamp);
+    console.log(new Date(reviewDate).getTime());
+    if (new Date(reviewDate).getTime() >= timestamp) {
+      console.log('True');
+      return true;
+    }
+    console.log('false');
+    return false;
+  }
+
+  if (nextLinkXpath) {
+    const hasNextLink = await context.evaluate(async function () {
+      function timeout (ms) {
+        return new Promise((resolve) => setTimeout(resolve, ms));
+      }
+
+      const next = document.querySelector('li.bv-content-pagination-buttons-item-next a');
+      if (!next) return false;
+      // @ts-ignore
+      next.click();
+      await timeout(5000);
+      return true;
+    }, { selector: nextLinkXpath });
+    if (!hasNextLink) return false;
+  }
+
+  await new Promise((resolve, reject) => setTimeout(resolve, 1000));
+
+  console.log('page' + page);
+
+  const lastReviewDate = await context.evaluate(function () {
+    return document.querySelector('a.last-review-date').textContent;
+  });
+
+  const reviewDate = await context.evaluate(function (page) {
+    return document.querySelector('ol.bv-content-list.bv-content-list-reviews li.bv-content-item.bv-content-top-review.bv-content-review:last-child div.bv-content-datetime meta:first-child') &&
+    document.querySelector('ol.bv-content-list.bv-content-list-reviews li.bv-content-item.bv-content-top-review.bv-content-review:last-child div.bv-content-datetime meta:first-child').getAttribute('content');
+  }, page);
+
+  // check if the review in the current page should be extracted or not
+  if (lastReviewDate && reviewDate) {
+    checkIfReviewIsFromLast30Days(lastReviewDate, reviewDate);
+    console.log('continue');
+    return true;
+  }
+  console.log('Force stop');
+  return false;
 }
