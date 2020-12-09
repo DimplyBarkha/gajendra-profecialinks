@@ -179,9 +179,6 @@ async function implementation(
         addHiddenDiv('enhancedContent', enhancedContent);
         addHiddenDiv('manufacturerImages', manufacturerImages);
         addHiddenDiv('videos', videos);
-        console.log('in box content3232')
-        console.log(boxContent.text )
-        console.log(boxContent.images)
 
         addHiddenDiv('intheboxurl', boxContent ? boxContent.images : '');
         addHiddenDiv('intheboxtext', boxContent ? boxContent.text : '');
