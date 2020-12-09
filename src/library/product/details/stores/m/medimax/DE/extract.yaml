@@ -65,6 +65,10 @@ fields:
     manualSelector: div.product-details-code
     regExp: .*?:\s*(.*)
     regExpReplace: $1
+  - name: hasComparisonTable
+    xpath: //h1[contains(@class,'compare-headline')]
+    regExp: (.+)
+    regExpReplace: Yes
   - name: shippingDimensions
     singleValue: false
     xpath: //div[div[contains(text(),'Logistikmaße mit Verpackung')]]//tr
@@ -104,11 +108,7 @@ fields:
     regExp: (.+)
     regExpReplace: 'Yes'
     defaultValue: 'No'
-  - name: hasComparisonTable
-    xpath: div[@class="table-wrapper"]//table
-    regExp: (.*) 
-    regExpReplace: 'Yes'
-    defaultValue: 'No'
+    #xpath: //head//@table
   - name: inTheBoxUrl
     xpath: //div[@class="in-the-box"]//img/@src
   - name: inTheBoxText
