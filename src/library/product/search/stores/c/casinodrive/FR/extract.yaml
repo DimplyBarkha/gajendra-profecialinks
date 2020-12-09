@@ -7,9 +7,10 @@ fields:
     singleValue: true
     description: Whether this is a sponsored/paid result
   - name: brand
-    singleValue: true
+    singleValue: false
     description: The brand name
     example: Panasonic
+    xpath: //strong[contains(@class, "product-item__brand")]
   - name: category
     singleValue: false
     description: The categories (e.g. from breadcrumbs)
@@ -17,22 +18,25 @@ fields:
   - name: productUrl
     singleValue: false
     description: The URL for the product details page
-    xpath: //div[@class="inner"]/div[@class="description"]/a/@href
+    xpath: //a[contains(@class, "product-item__description")]/@href
     regExp: (.+)
     regExpReplace: https://www.casino.fr$1
   - name: thumbnail
     singleValue: false
     description: The URL for the product thumbnail image
-    xpath: //div[@class="cnt"]//img[@itemprop="image"]/@src
+    xpath: //a[contains(@class, "product-item__img-link")]/img[@itemprop="image"]/@src
     regExp: (.+)
     regExpReplace: https:$1
   - name: name
     singleValue: false
     description: The product name
-    xpath: //div[@class="inner"]/div[@class="description"]/a/@title
+    xpath: //a[contains(@class, "product-item__description")]/@title
   - name: sku
-    singleValue: true
+    singleValue: false
     description: The store-specific product identifier
+    xpath: //a[contains(@class, "product-item__description")]/@href
+    regExp: P-([0-9]+)
+    regExpReplace: $1
   - name: mpc
     singleValue: true
     description: The model code of the product
@@ -51,7 +55,7 @@ fields:
   - name: price
     singleValue: false
     description: The offered price for the product
-    xpath: //div[@class="inner"]//div[@itemprop="price"]
+    xpath: //div[contains(@class, "product-item__offers-container")]//div[@itemprop="price"]
   - name: listPrice
     singleValue: true
     description: The stated undiscounted price for the product
@@ -82,12 +86,13 @@ fields:
   - name: id
     singleValue: false
     description: Unique id (within this extractor)
-    xpath: //div[@class="inner"]/div[@class="description"]/a/@href
+    xpath: //a[contains(@class, "product-item__description")]/@href
     regExp: P-([0-9]+)
     regExpReplace: $1
   - name: nameExtended
-    singleValue: true
+    singleValue: false
     description: The product name, prefixing "${brand} - " if not included in "name" and appending " - ${variantType}" if necessary (fixed per extractor)
+    xpath: //a[contains(@class, "product-item__description")]/@title
   - name: aggregateRating
     singleValue: true
     description: The stated aggregate rating normalized to be out of 5
