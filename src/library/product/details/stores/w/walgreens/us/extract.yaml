@@ -1,7 +1,7 @@
 singleRecord: false
-regionsSelector: 
-recordSelector: 
-recordXPath: 
+regionsSelector:
+recordSelector:
+recordXPath:
 fields:
 - name: _input
   singleValue: false
@@ -129,7 +129,8 @@ fields:
 - name: warnings
   singleValue: true
   # xpath: //div[@class='description wag-accordion-tab-content-cl']/div/div/p[(child::strong[contains(text(),'WARNING')])]
-  xpath: "//*[@id='added_warnings']//text()"
+  #xpath: "//*[@id='added_warnings']//text()"
+  xpath: //div[contains(@class,'view-more-content__height wag-accordion-tab-content maxHeight')]//div[1]
   description: Content under "warnings" header
 - name: ratingCount
   singleValue: true
@@ -186,7 +187,7 @@ fields:
 - name: brandLink
   singleValue: true
   xpath: "//*[@id='added_brandLink']//text()"
-  description: 
+  description:
 - name: internationalShipping
   singleValue: true
   xpath: "//*[@id='added_internationalShipping']//text()"
@@ -194,11 +195,11 @@ fields:
 - name: videoLength
   singleValue: false
   xpath: "//*[@id='added_videoLength']//text()"
-  description: 
+  description:
 - name: secondaryImageTotal
   singleValue: true
   xpath: "count((//*[@id='added_alternateImages']//text())[position()>1])"
-  description: 
+  description:
 - name: ingredientsList
   singleValue: true
   xpath: "//*[@id='added_ingredientsList']//text()"
@@ -395,15 +396,15 @@ fields:
 - name: variants
   singleValue: false
   xpath: "//*[@id='added_variants']//text()"
-  description: 
+  description:
 - name: additionalDescBulletInfo
   singleValue: false
   xpath: "//*[@id='added_additionalDescBulletInfo']//text()"
-  description: 
+  description:
 - name: prop65Warning
   singleValue: true
   xpath: //li[@id="Warnings"]//*[contains(text(), "65")]/ancestor::li
-  description: 
+  description:
 - name: termsAndConditions
   singleValue: true
   xpath: //div[contains(@class, 'footer')]//*[contains(text(), 'Terms and Conditions')]
