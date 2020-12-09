@@ -124,8 +124,7 @@ fields:
     xpath: //p[contains(.,'Size')]/text()
   - name: ingredientsList
     singleValue: false
-    # xpath: //div[@class='ProductDetail__ingredients']//div[@class='Collapsible']//text()
-    xpath: //div[@class='ProductDetail__ingredients']//div[@class='Collapsible']
+    xpath: //div[@class='ProductDetail__ingredients']//div[@class='Collapsible']//text()
   - name: shownImages
     singleValue: false
     xpath: //div[@class= 's7staticimage']//img/@src
