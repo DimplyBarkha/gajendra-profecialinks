@@ -140,16 +140,14 @@ async function implementation (
 
     const specifications = [];
     document.querySelectorAll('.spec').forEach(spec => {
-      if (!spec.querySelector('strong')) {
-        return;
+      if(spec.textContent) {
+        specifications.push(spec.textContent);
       }
-      const headerText = spec.querySelector('strong').innerText;
-      const specText = spec.querySelector('.spec__text').innerText;
-      if (headerText === 'Height' || headerText === 'Length' || headerText === 'Width') {
-        specifications.push(headerText + ' ' + specText);
-      }
-      if (headerText === 'Weight') {
-        addHiddenDiv('weight', specText);
+      if (spec.textContent.includes('Weight')) {
+        let weightData = spec.querySelector('.spec__data');
+        if(weightData.textContent) {  
+          addHiddenDiv('weight', weightData.textContent);
+        }
       }
     });
     addHiddenDiv('specifications', specifications.join(' | '));
