@@ -17,10 +17,7 @@ async function implementation(
   // document.querySelector('div.login-details input.input-login').click();
   await context.click('div.product_name a');
   await new Promise((resolve, reject) => setTimeout(resolve, 50000));
-  return await context.evaluate(function (xp) {
-    const r = document.evaluate(xp, document, null, XPathResult.UNORDERED_NODE_ITERATOR_TYPE, null);
-    return !r;
-  }, parameters.noResultsXPath);
+  return await context.evaluate((xpath) => !document.evaluate(xpath, document, null, XPathResult.BOOLEAN_TYPE, null).booleanValue, parameters.noResultsXPath);
 }
 module.exports = {
   implements: 'product/details/execute',
@@ -29,7 +26,7 @@ module.exports = {
     store: 'boots',
     domain: 'boots.com',
     loadedSelector: 'canvas',
-    noResultsXPath: '/html[not(//meta[@name="pageName"][@content="ProductPage"])] | //span[contains(text(),"This product has either been removed or is no longer available for sale.")]',
+    noResultsXPath: '//div[@class="no-result"]//div[@class="results_none_description"]',
     zipcode: '',
   },
   implementation,
