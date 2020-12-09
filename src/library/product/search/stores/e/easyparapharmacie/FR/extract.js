@@ -10,7 +10,7 @@ const implementation = async (inputs, parameters, context, dependencies) => {
       do {
         buttonShowMore = document.querySelector('.ais-infinite-hits--showmore').children[0]
         buttonShowMore.click();
-        await stall(5000);
+        await stall(500);
       } 
       while (buttonShowMore.disabled == false);
     }
@@ -22,6 +22,14 @@ const implementation = async (inputs, parameters, context, dependencies) => {
         }, ms);
       });
     }
+
+    let numberOfResults = document.querySelectorAll('div.products.small-product');
+    for (let x = 0; numberOfResults.length > x; x++) {
+      numberOfResults[x].classList.replace('div.products.small-product', 'div.products.small-product1');
+      numberOfResults[x].style.height = '20px';
+    }
+    window.scroll(1, 1);
+
   })
 
   const addSearchUrl = async function (context) {
@@ -42,7 +50,7 @@ module.exports = {
   parameterValues: {
     country: 'FR',
     store: 'easyparapharmacie',
-    transform: null,
+    transform,
     domain: 'easyparapharmacie.com',
     zipcode: '',
   },
