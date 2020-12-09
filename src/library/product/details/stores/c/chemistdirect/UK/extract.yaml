@@ -21,7 +21,7 @@ fields:
   - name: metaKeywords
     singleValue: false
     description: The <meta> keywords content
-    xpath: //meta[@name='keywords']//@content
+    xpath: //meta[@name='description']//@content
   - name: category
     singleValue: false
     xpath: (//ul[contains(@class,'cd-breadcrums-list')]//li//a)[position()>1]

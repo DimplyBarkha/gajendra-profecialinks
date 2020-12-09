@@ -132,19 +132,19 @@ async function implementation(
         if(x.localName == "ul" || x.localName == "ui"){
           descriptionUl = "";
           x.childNodes.forEach(y => {
-            if( y.innerHTML != undefined){
+            if(y.innerHTML != undefined){
               if((y.innerHTML).trim() != ""){
-            if(descriptionUl == "")
-            descriptionUl = y.innerHTML;
-            else
-            descriptionUl += " || " + y.innerHTML;
-            }
+            // if(descriptionUl == "")
+            // descriptionUl = y.innerHTML;
+            // else
+              descriptionUl += " || " + y.innerHTML;
+             }
             }
           })
           descriptionData += " " + descriptionUl;
         }
         else{
-          console.log(x,reviews[i].innerText.replace(" ","").replace(" ","").replace(" ",""));
+          //console.log(x,reviews[i].innerText.replace(" ","").replace(" ","").replace(" ",""));
           descriptionData += x.innerText + " ";
         }
         
