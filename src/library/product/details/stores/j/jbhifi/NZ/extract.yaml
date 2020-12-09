@@ -87,3 +87,8 @@ fields:
     xpath: //div[@id='ii_video']
   - name: gtin
     xpath: //div[@id='ii_gtin']
+
+  - name: inTheBoxText
+    xpath: //p[contains(.,"Include")]/following-sibling::p[not(font)] | //strong[contains(.,"in the box")]/following-sibling::text()
+  - name: hasComparisonTable
+    defaultValue: No
