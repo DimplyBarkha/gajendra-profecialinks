@@ -24,32 +24,30 @@ module.exports = {
         newDiv.style.display = 'none';
         document.body.appendChild(newDiv);
       }
+      function stall (ms) {
+        return new Promise((resolve, reject) => {
+          setTimeout(() => {
+            resolve();
+          }, ms);
+        });
+      }
       const sideTabs = document.querySelectorAll('a.product-card-tabs__title');
       if (sideTabs) {
-        for (let i = sideTabs.length-1; i>=0; i--) {
-          console.log(sideTabs[i].innerText+' is the sidetab');
-          if(sideTabs[i].innerText.includes('Обзоры')){
+        for (let i = sideTabs.length - 1; i >= 0; i--) {
+          console.log(sideTabs[i].innerText + ' is the sidetab');
+          if (sideTabs[i].innerText.includes('Обзоры')) {
             console.log('reviews button clicked');
             sideTabs[i].click();
-            function stall (ms)
-            {
-            return new Promise((resolve, reject) => {
-            setTimeout(() => {
-            resolve();
-            }, ms);
-            });
-            }
             await stall(2000);
-            let iframes=document.querySelectorAll('iframe');
-            let videoLink=null;
-            for(let i=0;i<iframes.length;i++)
-            {
-                if(iframes[i].getAttribute('src')!==null&&iframes[i].getAttribute('src').includes('youtube')) {
-                    videoLink=iframes[i].getAttribute('src');
-                    break;
-                }
+            const iframes = document.querySelectorAll('iframe');
+            let videoLink = null;
+            for (let i = 0; i < iframes.length; i++) {
+              if (iframes[i].getAttribute('src') !== null && iframes[i].getAttribute('src').includes('youtube')) {
+                videoLink = iframes[i].getAttribute('src');
+                break;
+              }
             }
-            if(videoLink!==null) addHiddenDiv('moreVideos',videoLink);
+            if (videoLink !== null) addHiddenDiv('moreVideos', videoLink);
           }
           if (sideTabs[i].innerText === 'Характеристики') {
             sideTabs[i].click();
@@ -81,17 +79,17 @@ module.exports = {
     } catch (error) {
       console.log(error);
     }
-    await context.evaluate(async () =>{
+    await context.evaluate(async () => {
       const Button1 = document.querySelector('.owl-item:first-child .img img');
-      if(Button1){
+      if (Button1) {
         Button1.click();
         console.log('Button1 clicked');
       }
     });
     await context.waitForSelector('.media-viewer__titles .media-viewer__title');
-    await context.evaluate(async () =>{
+    await context.evaluate(async () => {
       const Button2 = document.querySelector('.media-viewer__titles .media-viewer__title:nth-child(2)');
-      if(Button2){
+      if (Button2) {
         Button2.click();
         console.log('Button2 clicked');
       }
