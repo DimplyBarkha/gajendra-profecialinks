@@ -11,7 +11,7 @@ fields:
     xpath: //div[@data-automation="product"]/a/@href
   - name: price
     SingleValue: false
-    xpath: //div[@data-automation="product"]//span[@data-automation="current-price"]
+    xpath: //div[@data-automation="product"]//span[contains(@data-automation,"current-price")]
   - name: thumbnail
     SingleValue: false
     xpath: //div[@data-automation="product"]//img/@src
