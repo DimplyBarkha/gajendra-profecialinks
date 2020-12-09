@@ -1,11 +1,10 @@
 
 module.exports = {
-  implements: 'navigation/goto',
+  implements: 'product/details',
   parameterValues: {
-    domain: 'kicks.no',
-    timeout: 90000,
     country: 'NO',
     store: 'kicks',
+    domain: 'kicks.no',
     zipcode: '',
   },
 };
