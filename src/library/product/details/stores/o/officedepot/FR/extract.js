@@ -8,6 +8,17 @@ async function implementation (
 ) {
   const { transform } = parameters;
   const { productDetails } = dependencies;
+  // await context.evaluate(async function () {
+  //   function stall (ms) {
+  //     return new Promise((resolve, reject) => {
+  //       setTimeout(() => {
+  //         console.log('hhhhhhhhhhhhhhhhhh')
+  //         resolve();
+  //       }, ms);
+  //     });
+  //   }
+  //   await stall(1000);
+  // });
   await context.evaluate(async function () {
     function addHiddenDiv (id, content) {
       const newDiv = document.createElement('div');
@@ -30,9 +41,11 @@ async function implementation (
     // Aggregate rating
     const ratingSelector = document.querySelectorAll('div.tpw-stars-part div.tpw-stars-small div');
     if (ratingSelector) {
+      let isSelected;
       const ratingArr = [];
       for (let i = 0; i < ratingSelector.length; i++) {
-        if (ratingSelector[i].getAttribute('class') === 'tpw-star tpw-star-full') ratingArr.push(1); else ratingArr.push(0);
+        isSelected = ratingSelector[i].getAttribute('class');
+        if (isSelected === 'tpw-star tpw-star-full') ratingArr.push(1); else ratingArr.push(0);
       }
       const aggregateRating = ratingArr.reduce(function (a, b) {
         return a + b;
