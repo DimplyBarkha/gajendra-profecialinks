@@ -146,3 +146,7 @@ fields:
     singleValue: false
     description: URLs of videos on page
     xpath: //nav//div[contains(@class,'video-wrapper')]//iframe//@src | //iframe[@id="flix-iframe0"]/@src | //div[contains(@id,"video-")]
+  - name: unInterruptedPDP 
+    xpath: //div[contains(@class,'recommendations')]//div[contains(@class,'swiper-slide')]
+  - name: hasComparisonTable
+    defaultValue: No
