@@ -531,4 +531,15 @@ fields:
   - name: url
     singleValue: true
     xpath: //meta[@property='og:url']/@content
+  - name: inTheBoxUrl
+    xpath: //div[contains(@class,'InTheBox')]//img/@src
+  - name: inTheBoxText
+    xpath: //div[contains(@class,'InTheBox')]//span | //p[contains(.,'In the Box')]//following-sibling::ul[1]//li
+  - name: hasComparisonTable
+    xpath: (//li[contains(@class,"flix-comp-item")])[1]
+    regExp: (.*)
+    regExpReplace: Yes 
+    defaultValue: No 
+  - name: unInterruptedPDP
+    xpath: //ul[contains(@class,"products")]//li
     
