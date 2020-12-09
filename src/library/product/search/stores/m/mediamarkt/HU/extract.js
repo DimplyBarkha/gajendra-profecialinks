@@ -1,6 +1,6 @@
 const { transform } = require('./transform');
 
-async function implementation(
+async function implementation (
   inputs,
   parameters,
   context,
@@ -21,7 +21,7 @@ async function implementation(
           break;
         }
       }
-      function stall(ms) {
+      function stall (ms) {
         return new Promise((resolve, reject) => {
           setTimeout(() => {
             resolve();
@@ -33,7 +33,7 @@ async function implementation(
 
   const getPageURL = async function (context) {
     await context.evaluate(async function () {
-      let URL = window.location.href;
+      const URL = window.location.href;
       function addHiddenDiv (id, content, index) {
         const newDiv = document.createElement('div');
         newDiv.id = id;
@@ -41,7 +41,7 @@ async function implementation(
         newDiv.style.display = 'none';
         const originalDiv = document.querySelectorAll('div.product-wrapper')[index];
         originalDiv.appendChild(newDiv);
-        console.log("child appended " + index);
+        console.log('child appended ' + index);
       }
       const product = document.querySelectorAll('div.product-wrapper');
       // select query selector and loop and add div
@@ -51,11 +51,10 @@ async function implementation(
     });
   };
 
-  
   await applyScroll(context);
   await new Promise((resolve, reject) => setTimeout(resolve, 6000));
   await getPageURL(context);
-  return await context.extract(productDetails, {transform});
+  return await context.extract(productDetails, { transform });
 }
 
 module.exports = {
@@ -67,5 +66,5 @@ module.exports = {
     domain: 'mediamarkt.hu',
     zipcode: "''",
   },
-  implementation
+  implementation,
 };
