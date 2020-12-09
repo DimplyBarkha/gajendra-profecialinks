@@ -67,10 +67,11 @@ fields:
     regExpReplace: $1
   - name: hasComparisonTable
     singleValue: true
-    xpath: (//h1[contains(@class,'compare-headline')])[1]
-    regExp: (.*)
-    regExpReplace: Yes
-    defaultValue: No
+    xpath: //div[@id="ii_comparisionText"]
+    # xpath: (//h1[contains(@class,'compare-headline')])[1]
+    # regExp: (.*)
+    regExpReplace: true
+    defaultValue: false
   - name: shippingDimensions
     singleValue: false
     xpath: //div[div[contains(text(),'Logistikmaße mit Verpackung')]]//tr
@@ -92,7 +93,7 @@ fields:
     regExpReplace: $1
   - name: manufacturerDescription
     singleValue: false
-    xpath: //body[div[@class="logo-wrapper"]] | //div[@id="flix-std-inpage"]
+    xpath: //body[div[@class="logo-wrapper"]] | //div[@id="flix-std-inpage"] | //div[@id="ii_manufContent"]
   - name: shippingWeight
     singleValue: false
     xpath: //div[div[contains(text(),'Logistikmaße mit Verpackung')]]//td[contains(text(),'Gewicht')]/following-sibling::td
@@ -103,7 +104,7 @@ fields:
     regExpReplace: $1
   - name: manufacturerImages
     singleValue: false
-    xpath: //body[div[@class="logo-wrapper"]]//img/@src | //div[@id="flix-std-inpage"]//img/@srcset|//div[contains(@class,"product-picture")]/@style
+    xpath: //body[div[@class="logo-wrapper"]]//img/@src | //div[@id="flix-std-inpage"]//img/@srcset|//div[contains(@class,"product-picture")]/@style | //div[@id="ii_manufContentImg"]
   - name: termsAndConditions
     singleValue: false
     manualSelector: button.download-button
@@ -112,7 +113,8 @@ fields:
     defaultValue: 'No'
     #xpath: //head//@table
   - name: inTheBoxUrl
-    xpath: //div[@class="in-the-box"]//img/@src
+    xpath: //div[@id="ii_inBoxUrls"]
+    # xpath: //div[@class="in-the-box"]//img/@src
   - name: inTheBoxText
-    xpath: //div[@class="in-the-box"]//p
+    xpath: //div[@id="ii_inBoxText"]
   - name: unInterruptedPDP

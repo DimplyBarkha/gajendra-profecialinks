@@ -33,7 +33,7 @@ const transform = (data, context) => {
                 row.manufacturerImages.forEach(img => {
                     if (img.text.includes('background-image')) {
                         img.text = img.text.replace(/.*url\('(.*)'\).*/, '$1');
-                    } else if (img.text.startsWith('http')) {
+                    } else if (!(img.text.startsWith('http'))) {
                         img.text = `https:${img.text}`;
                     }
                 });
