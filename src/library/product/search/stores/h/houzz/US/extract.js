@@ -24,7 +24,7 @@ module.exports = {
           ".btn.btn-none.hz-universal-search-header-tip__dismiss"
         ) != null
       ) {
-        await document
+        document
           .querySelector(
             ".btn.btn-none.hz-universal-search-header-tip__dismiss"
           )
