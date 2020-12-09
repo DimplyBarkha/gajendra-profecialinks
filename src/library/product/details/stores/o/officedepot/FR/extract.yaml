@@ -1,0 +1,110 @@
+singleRecord: true
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: image
+    singleValue: false
+    description: URL of the main product image
+    xpath: //div[contains(@id, 'skuImage')]/img/@src
+  - name: imageAlt
+    singleValue: true
+    description: Alt text of the main product image
+  - name: alternateImages
+    singleValue: false
+    description: Other product images (not in manufacturer description)
+    xpath: //div[contains(@class, 's7thumbcell')]/div[contains(@class, 's7thumb') and contains(@state, 'default')]/@style
+    regExp: url\("(.+)?"
+    regExpReplace: $1
+  - name: metaKeywords
+    singleValue: false
+    description: The <meta> keywords content
+    xpath: //meta[contains(@name, "keywords")]//@content
+  - name: category
+    singleValue: false
+    description: The categories (e.g. from breadcrumbs)
+    xpath: //div[contains(@id, "breadcrumbSection")]/div/a
+  - name: nameExtended
+    singleValue: false
+    description: The product name, prefixing "${brand} - " if not included in "name"
+      and appending " - ${variantType}" if necessary (fixed per feed)
+    xpath: //h1[contains(@class, "sku_Title")]
+  - name: price
+    singleValue: false
+    description: The offered price for the selected product variant - if a user
+      clicks add to basket this is the price they would be charged
+    xpath: //div[contains(@class, "skuRightSidebar")]//div[contains(@class, "skuNewPricing")]
+  - name: availabilityText
+    singleValue: false
+    description: Availability as described on page for the selected variant. If
+      there is no availability but the product can be added to cart, this field
+      should be "In Stock"
+    xpath: //input[contains(@id, 'skuAddToCart')]/@title
+    defaultValue: Out of Stock
+  - name: description
+    singleValue: false
+    description: Product description supplied by website - may be concatenanted from
+      multiple places; specifically not the manufacturer description
+    xpath: //div[contains(@id, 'bulletsWrapper')]
+  - name: descriptionBullets
+    singleValue: false
+    description: Number of ul > li tags in the description
+    xpath: count(//div[contains(@id, 'bulletsWrapper')]/p)
+  - name: brandText
+    singleValue: false
+    description: Product brand shown - this may actually NOT be just a brand name,
+      e.g. "Visit the Gillette Store"
+    xpath: //script[contains(text(), 'MfgName')]
+    regExp: MfgName=(.+)?&S
+    regExpReplace: $1
+  - name: weightNet
+    singleValue: false
+    description: Net weight as described on the page
+    xpath: //*[contains(text(), 'Poids')]/following-sibling::*
+  - name: gtin
+    singleValue: false
+    description: GTIN code (includes UPC/EAN)
+    xpath: //script[contains(text(), 'UpcEan')]
+    regExp: UpcEan=(.+)?&
+    regExpReplace: $1
+  - name: sku
+    singleValue: false
+    description: The store-specific product identifier
+    xpath: //h2[contains(@class, 'sku_VikingNumber')]
+    regExp: (\d+)
+    regExpReplace: $1
+  - name: mpc
+    singleValue: false
+    description: The manufacturer model code (unique) of the product
+    xpath: //script[contains(text(), 'MfgId')]
+    regExp: MfgId=(.+)'
+    regExpReplace: $1
+  - name: ratingCount
+    singleValue: false
+    description: The number of ratings
+    xpath: //div[contains(@class, 'tpw-feebacks-part')]
+    regExp: (\d+)
+    regExpReplace: $1
+  - name: aggregateRating
+    singleValue: false
+    description: The stated aggregate rating normalized to be out of 5
+    xpath: //div[contains(@id, 'aggregateRating')]
+  - name: variantCount
+    singleValue: false
+    description: Number of variants listed
+    defaultValue: '0'
+  - name: color
+    singleValue: false
+    description: A textual description of the colour
+    xpath: //*[contains(text(), 'Couleur')]/following-sibling::*
+  - name: name
+    singleValue: false
+    description: The product name
+    xpath: //h1[contains(@class, "sku_Title")]
+  - name: secondaryImageTotal
+    singleValue: false
+    xpath: count(//div[contains(@class, 's7thumbcell')]/div[contains(@class, 's7thumb') and contains(@state, 'default')]/@style)
+  - name: specifications
+    singleValue: false
+    description: The physical dimensions of the product including packaging.
+    xpath: //div[contains(@id, 'specsArr')]
