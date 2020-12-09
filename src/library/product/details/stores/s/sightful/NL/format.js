@@ -34,14 +34,20 @@ const transform = (data) => {
       }
       if (row.price) {
         row.price.forEach(item => {
-          item.text = item.text.replace('.', ',');
+          // item.text = item.text.replace('.', ',');
           item.text = '€ ' + item.text;
         });
       }
-      if (row.listPrice) {
-        row.listPrice.forEach(item => {
-          item.text = item.text.replace('.', ',');
-        });
+      // if (row.listPrice) {
+      //   row.listPrice.forEach(item => {
+      //     item.text = item.text.replace('.', ',');
+      //   });
+      // }
+      if (row.brandText2) {
+        if (!row.brandText) {
+          row.brandText = [{ text: row.brandText2[0].text }];
+        }
+        delete row.brandText2;
       }
       if (row.ratingCount) {
         var dataJson = JSON.parse(row.ratingCount[0].text);
