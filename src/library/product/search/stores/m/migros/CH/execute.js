@@ -7,7 +7,6 @@ module.exports = {
     domain: 'migros.ch',
     url: 'https://shop.migros.ch/en/search?query={searchTerms}',
     loadedSelector: 'div.product-grid-component.search',
-    noResultsXPath: null,
-    zipcode:'',
+    noResultsXPath: "//p[@class='info-message ng-star-inserted']/text()",
   },
 };
