@@ -39,6 +39,7 @@ const transform = (data, context) => {
   let rankCounter = state.rankCounter || 0;
   const productCodes = state.productCodes || [];
   for (const { group } of data) {
+    let productPageRank = 0;
     for (const row of group) {
       rankCounter += 1;
       if (!row.sponsored) {
@@ -46,6 +47,7 @@ const transform = (data, context) => {
         row.rankOrganic = [{ text: orgRankCounter }];
       }
       row.rank = [{ text: rankCounter }];
+      row.productPageRank = [{ text: ++productPageRank }];
       Object.keys(row).forEach(header => row[header].forEach(el => {
         el.text = clean(el.text);
       }));

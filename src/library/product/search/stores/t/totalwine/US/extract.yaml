@@ -4,7 +4,7 @@ recordSelector: null
 recordXPath: //article[@class="productCard__2nWxIKmi"]
 fields:
   - name: category
-    xpath: ancestor::html//li[contains(@class,'Breadcrumbs')][position()=last()]
+    xpath: ancestor::html//li[contains(@class,'Breadcrumbs')][not(.="Home")]
   - name: productUrl
     xpath: //h2[contains(@class,"title")]/a/@href
     regExp: (.+)
