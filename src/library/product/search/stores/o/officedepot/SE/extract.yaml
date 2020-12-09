@@ -1,0 +1,29 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: "//div[@class='section search-result-products']//div[contains(@class,'js-product-area product-list-item-fix')]"
+
+fields:
+  - name: id
+    singleValue: false
+    xpath: //div/@data-variantid
+  - name: productUrl
+    singleValue: false
+    xpath: //div[@class='thumbnail padding-xs-5 clearfix']/a[@class='js-click-product']/@href
+    regExp: (.+)
+    regExpReplace: https://www.officedepot.se$1
+  - name: thumbnail
+    singleValue: false
+    xpath: //div[@class='thumbnail padding-xs-5 clearfix']//div[@class='thumbnail-inner']//img[@class='group list-group-image']/@src
+    regExp: (.+)
+    regExpReplace: https://www.officedepot.se$1
+  - name: name
+    singleValue: false
+    xpath: //div[@class='box-item-heading']//span[@class='group inner list-group-item-heading thumbnail-heading']
+  - name: price
+    singleValue: false
+    xpath: concat(//div[@class='box-item-price']//div[@class='price js-price-block']//span[@class='js-price'],' ',//div[@class='box-item-price']//div[@class='price js-price-block']//span[@class='currency'])  
+  - name: rank
+    singleValue: false
+  - name: rankOrganic
+    singleValue: true
