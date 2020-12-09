@@ -113,8 +113,12 @@ fields:
     defaultValue: 'No'
     #xpath: //head//@table
   - name: inTheBoxUrl
+    singleValue: false
     xpath: //div[@id="ii_inBoxUrls"]
     # xpath: //div[@class="in-the-box"]//img/@src
   - name: inTheBoxText
+    singleValue: false
     xpath: //div[@id="ii_inBoxText"]
   - name: unInterruptedPDP
+    singleValue: false
+    xpath: //div[contains(@class,"bottom")]//div[contains(@class,"productcarousel")]//h4//a
