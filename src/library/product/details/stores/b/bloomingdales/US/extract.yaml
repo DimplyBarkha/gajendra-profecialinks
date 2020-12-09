@@ -14,7 +14,7 @@ fields:
   singleValue: false
 - name: image
   singleValue: true
-  xpath: //div[@class="slick-slide slick-current slick-active"]//div//li[@class="main-image first-image"]//picture//img//@src | //ul[@class="slider no-bullet"]//li[@class="main-image first-image"]//picture//img//@src
+  xpath: //div[@class="slick-slide slick-current slick-active"]//div//li[@class="main-image first-image"]//picture//img//@src | //ul[@class="slider no-bullet"]//li[@class="main-image first-image"]//picture//img//@src | //div[@class="top"]//img[@class="unavailable-image small"]/@src
   regExp: (.+)(\?)
   regExpReplace: $1
   description: URL of the main product image
@@ -36,7 +36,7 @@ fields:
   description: The categories (e.g. from breadcrumbs)
 - name: nameExtended
   singleValue: true
-  xpath: //div[@class="slick-slide slick-current slick-active"]//div//li[@class="main-image first-image"]//picture//img//@title
+  xpath: //div[@class="product-title"] | //div[@class="slick-slide slick-current slick-active"]//div//li[@class="main-image first-image"]//picture//img//@title
   description: The product name, prefixing "${brand} - " if not included in "name"
     and appending " - ${variantType}" if necessary (fixed per feed)
 - name: listPrice
@@ -490,8 +490,6 @@ fields:
 - name: imageZoomFeaturePresent
   singleValue: true
   xpath: //button[@aria-label="full screen"]/@class
-  regExp: (.+)
-  regExpReplace: 'Yes'
   description: If Zoom feature is available for Main image or images in the carousel,['Yes','No']
   example: https://www.zalando.de/adidas-neo-sneaker-low-blackwhite-a4315i002-q11.html
-  defaultValue: false
+  defaultValue: 'No'

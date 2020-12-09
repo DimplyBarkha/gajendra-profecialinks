@@ -1,4 +1,5 @@
 const { cleanUp } = require('../../../../shared');
+
 module.exports = {
   implements: 'product/details/extract',
   parameterValues: {
@@ -8,7 +9,7 @@ module.exports = {
     domain: 'bloomingdales.com',
     zipcode: '',
   },
-  implementation: async ({ inputString }, { country, domain, transform: transformParam }, context, { productDetails }) => {
+  implementation: async ({ inputString }, { country, domain, transform }, context, { productDetails }) => {
     await context.evaluate(async function () {
       function addElementToDocument (key, value) {
         const catElement = document.createElement('div');
@@ -69,6 +70,20 @@ module.exports = {
         }
       }
     });
-    await context.extract(productDetails, { transform: transformParam });
+    const url = await context.evaluate(async function () {
+      return window.location.href
+    });
+    var data = await context.extract(productDetails, { transform });
+    for (let k = 0; k < data.length; k++) {
+      for (let i = 0; i < data[k].group.length; i++) {
+        if ('productUrl' in data[k].group[i]) {
+          data[k].group[i].productUrl[0].text = url;
+        }
+        if ('imageZoomFeaturePresent' in data[k].group[i] && data[k].group[i].imageZoomFeaturePresent[0].text !== 'No') {
+          data[k].group[i].imageZoomFeaturePresent[0].text = 'Yes';
+        }
+      }
+    }
+    return data;
   },
 };
