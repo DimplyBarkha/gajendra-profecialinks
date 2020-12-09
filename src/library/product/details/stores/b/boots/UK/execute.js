@@ -15,7 +15,7 @@ async function implementation(
   await new Promise((resolve, reject) => setTimeout(resolve, 10000));
   await context.waitForNavigation({ waitUntil: 'load' });
   // document.querySelector('div.login-details input.input-login').click();
-  await context.click('div.product_name a');
+  await context.click('.product_name_link');
   await new Promise((resolve, reject) => setTimeout(resolve, 50000));
   return await context.evaluate((xpath) => !document.evaluate(xpath, document, null, XPathResult.BOOLEAN_TYPE, null).booleanValue, parameters.noResultsXPath);
 }
