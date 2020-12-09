@@ -49,7 +49,6 @@ module.exports = {
   implementation: async ({ keywords, Keywords, Brands, results = 150 }, { country, store, domain, zipcode }, context, { execute, extract, paginate }) => {
     // TODO: consider moving this to a reusable function
     const length = (results) => results.reduce((acc, { group }) => acc + (Array.isArray(group) ? group.length : 0), 0);
-
     keywords = (Keywords) || (Brands) || (keywords);
     console.log('zip:' + zipcode);
     // do the search
@@ -63,7 +62,7 @@ module.exports = {
     // try gettings some search results
     const pageOne = await extract({});
 
-    let collected = length(pageOne);
+    let collected = length((pageOne.mergeType && pageOne.data) || pageOne);
 
     console.log('Got initial number of results', collected);
 
@@ -74,13 +73,13 @@ module.exports = {
 
     let page = 2;
     while (collected < results && await paginate({ keywords, page, offset: collected })) {
-      const data = await extract({});
+      const { mergeType, data } = await extract({});
       const count = length(data);
       if (count === 0) {
         // no results
         break;
       }
-      collected += count;
+      collected = (mergeType && (mergeType === 'MERGE_ROWS') && count) || (collected + count);
       console.log('Got more results', collected);
       page++;
     }
