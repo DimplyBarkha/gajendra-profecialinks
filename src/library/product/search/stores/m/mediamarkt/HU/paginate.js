@@ -4,7 +4,7 @@ module.exports = {
   parameterValues: {
     country: 'HU',
     store: 'mediamarkt',
-    nextLinkSelector: 'ul[data-gtm-prop-list-name="Search result list"]~div li.pagination-next a',
+    nextLinkSelector: '#category div:last-child ul li.pagination-next a',
     mutationSelector: null,
     spinnerSelector: null,
     loadedSelector: 'ul[data-gtm-prop-list-name="Search result list"]',
