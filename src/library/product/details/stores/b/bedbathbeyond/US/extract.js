@@ -13,6 +13,14 @@ module.exports = {
     const { transform } = parameters;
     const { productDetails } = dependencies;
 
+    // checking if on a product page
+    const isOnProductPage = await context.evaluate(async () => {
+      return document.querySelector('img[class*="ProductMediaCarouselStyle"]') !== null;
+    });
+    if (!isOnProductPage) {
+      return;
+    }
+
     // extracting data for a single product
     const extractSingleProductData = async () => {
       var previousVariantSkus = await context.evaluate(async () => {
