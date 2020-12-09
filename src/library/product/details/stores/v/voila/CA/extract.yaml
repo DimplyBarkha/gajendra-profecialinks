@@ -14,8 +14,8 @@ fields:
   - name: availabilityText
     xpath: //div[contains(@class,'box__Box')]//button[contains(text(),"Add")]
     regExp: (.+)
-    regExpReplace: In stock
-    defaultValue: Out of stock
+    regExpReplace: In Stock
+    defaultValue: Out Of Stock
   - name: description
     xpath: //h2[contains(text(),"Product Information")]/following-sibling::div[1]
   - name: brandText
