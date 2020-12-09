@@ -105,7 +105,11 @@ fields:
     singleValue: false
   - name: availabilityText
     # xpath: //meta[@itemprop="availability"]/@content
-    xpath: (//div[@data-zone-name="skuAvailability"]//span|//div[contains(@class, "tabulator-row")]//div[@tabulator-field="availabilityText"]//div[1]|//meta[@itemprop="availability"]/@content)[1]
+    # xpath: (//div[@data-zone-name="skuAvailability"]//span|//div[contains(@class, "tabulator-row")]//div[@tabulator-field="availabilityText"]//div[1]|//meta[@itemprop="availability"]/@content)[1]
+    xpath: //button/span[contains(.,"Добавить в корзину")]
+    regExp: (.+)
+    regExpReplace: In Stock
+    defaultValue: Out of Stock
     singleValue: false
   - name: listPrice
     xpath: //div[@data-zone-name="offer-cart"]//div[@data-auto="old-price"]
