@@ -19,13 +19,34 @@ async function implementation (
 
   await stall(5000);
 
-  await context.evaluate(function() {
+  await context.evaluate(async function() {
 
     function addHiddenDiv(id, text) {
       let div = document.createElement('div');
       div.id = id;
       div.innerHTML = text;
       document.body.appendChild(div);
+    }
+
+    async function stall1(ms) {
+      return new Promise(resolve => {
+        setTimeout(() => {
+          resolve();
+        }, ms)
+      })
+    }
+
+    console.log('count of popups - ' + document.querySelectorAll('div[class*="summary-buttons"] button[mode*="primary"]').length);
+    if(document.querySelectorAll('div[class*="summary-buttons"] button[mode*="primary"]').length === 1) {
+      console.log('we have one to click !');
+      document.querySelectorAll('div[class*="summary-buttons"] button[mode*="primary"]')[0].click();
+      console.log('waiting for a while for the page to load');
+      await stall1(15000);
+
+    } else if(document.querySelectorAll('div[class*="summary-buttons"] button[mode*="primary"]').length === 0) {
+      console.log('we do not have any popup');
+    } else {
+      console.log('we are not sure which one to click');
     }
 
     if (document.querySelector('.owl-stage-outer')) {
