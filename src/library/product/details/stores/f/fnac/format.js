@@ -37,12 +37,12 @@ const transform = (data) => {
         row.imageZoomFeaturePresent[0].text = 'No';
       }
 
-      if (row.brandText && row.name) {
+      /* if (row.brandText && row.name) {
         if (row.name[0].text.split(' ')[0] !== row.brandText[0].text) {
           // row.nameExtended[0].text = row.brandText[0].text + ' - ' + row.name[0].text;
           row.nameExtended = [{ text: row.brandText[0].text + ' - ' + row.name[0].text }];
         }
-      }
+      } */
 
       if (!row.brandText) {
         row.brandText = [{ text: row.name[0].text.split(' ')[0] }];
@@ -54,6 +54,16 @@ const transform = (data) => {
 
       if (row.attributes) {
         row.attributes.forEach(elm => { elm.text = elm.text.replace(/[\n\s]+/, ' : '); });
+      }
+      if (row.videos) {
+        const videos = Array.from(new Set(row.videos.map(elm => elm.text.trim())));
+        row.videos = videos.map(text => ({ text }));
+      }
+      if (row.discount) {
+        const discount = row.discount[0].text;
+        const price = row.price[0].text;
+        const listPrice = row.listPrice[0].text;
+        row.promotion = [{ text: `Antes ${listPrice.trim()} ahora ${price.trim()}, Oportunidad ${discount.trim()}` }];
       }
       Object.keys(row).forEach(header => row[header].forEach(el => {
         el.text = el.text ? cleanUp(el.text) : el.text;
