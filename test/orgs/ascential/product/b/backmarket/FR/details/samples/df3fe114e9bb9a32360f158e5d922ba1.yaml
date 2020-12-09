@@ -1,0 +1,162 @@
+input:
+  _url: http://backmarket.fr
+  URL: https://www.backmarket.fr/ventilateur-dyson-cool-am07-pas-cher/35036.html#?l=4
+extractions:
+  - html: https://workbench.import.io/html/run=1d12c3f8-c25f-444d-adef-ba22df4bdea2/task=fc2075ac-41e9-4d13-9741-73565d4d1526/53f85bdb-ee46-4f97-8853-4c2b50b662c4.html
+    extractionConfigId: product/details/stores/b/backmarket/FR/extract
+    data:
+      - group:
+          - image:
+              - text: https://d1eh9yux7w8iql.cloudfront.net/product_images/35036_5ff2296a-0c9f-4c38-9da0-13ac8271425c.jpg
+                xpath: /html/head[1]/meta[9]/@content
+            alternateImages:
+              - text: https://d1eh9yux7w8iql.cloudfront.net/product_images/35036_db9659a8-5f4c-4aab-862b-2edc9c1d9577.jpg
+                xpath: /html/body/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[2]/div[3]/div[1]/@style
+              - text: https://d1eh9yux7w8iql.cloudfront.net/product_images/35036_c93dbb23-af42-4f50-9423-382eae124e1f.jpg
+                xpath: /html/body/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[2]/div[4]/div[1]/@style
+            category:
+              - text: Accueil
+                xpath: /html/body/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/nav[1]/ol[1]/li[1]/a[1]/div[1]
+              - text: Petit Électroménager
+                xpath: /html/body/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/nav[1]/ol[1]/li[2]/a[1]/div[1]
+            nameExtended:
+              - text: Ventilateur DYSON COOL AM07
+                xpath: /html/body/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/h1[1]
+            listPrice:
+              - text: 459,00 €
+                xpath: /html/body/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/ul[1]/li[1]/div[1]/div[2]/div[1]/div[2]/del[1]
+            price:
+              - text: 378,00 €
+                xpath: /html/body/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/ul[1]/li[1]/div[1]/div[1]
+            availabilityText:
+              - text: Ajouter au panier
+                xpath: /html/body/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[3]/div[1]/div[3]/button[1]
+            brandText:
+              - text: Dyson
+                xpath: /html/body/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[3]/div[3]/div[1]/ul[1]/li[3]/text()[1]
+            manufacturer:
+              - text: Dyson
+                xpath: /html/body/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[3]/div[3]/div[1]/ul[1]/li[3]/text()[1]
+            weightNet:
+              - text: 2860 g
+                xpath: /html/body/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[3]/div[3]/div[1]/ul[1]/li[4]/text()[1]
+            sku:
+              - text: "35036"
+                xpath: /html/head[1]/link[9]/@href
+            variantId:
+              - text: "35036"
+                xpath: /html/head[1]/link[9]/@href
+            mpc:
+              - text: "35036"
+                xpath: /html/head[1]/link[9]/@href
+            ratingCount:
+              - text: "58"
+                xpath: /html/body/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/section[1]/div[2]/div[1]/div[1]/div[1]/p[1]/strong[1]
+                type: NUMBER
+                raw: 58 avis
+                locale: fr_FR
+                value: 58
+            aggregateRatingText:
+              - text: 4,5
+                xpath: /html/body/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/section[1]/div[2]/div[1]/div[1]/div[1]/div[1]/strong[1]
+            color:
+              - text: Blanc/Gris
+                xpath: /html/body/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[3]/div[3]/div[1]/ul[1]/li[2]/text()[1]
+            manufacturerDescription:
+              - text: >-
+                  Fonction Sommeil : Non 
+                   Type De Ventilateur : Ventilateur 
+                   Format Du Produit : Tour 
+                   Bouton Marche-Arrêt : Oui 
+                   Fonction Auto Éco : Non 
+                   Fonction Brumisateur : Non 
+                   Minuteur : 9H 
+                   Foncton Brise : Non 
+                   Largeur Produit (Cm) : 19 
+                   Puissance (W) : 56 
+                   Fonction Ionisation : Non 
+                   Puissance : De 40 À 60 Watts 
+                   Poids Brut (Kg) : 5.020
+                   Affichage Écran : Non 
+                   Niveau Sonore (Db) : 64 
+                   Contrôle De L'Oscillation 
+                   Arrêt Automatique : Oui 
+                   Débit D'Air (M3/H) : 1800 
+                   Fabriqué En : Malaisie 
+                   Minuteur : Oui 
+                   Grille Démontable : Non 
+                   Avec Télécommande : Oui 
+                   Poignée De Transport : Non 
+                   Fonction Chauffage : Non 
+                   Fonction Rafraichisseur D'Air : Non 
+                   Niveau Sonore (Db) : Plus De 60 Db 
+                   Couleur : Gris 
+                   Télécommande : Oui 
+                   Coloris : Gris 
+                   Hauteur Réglable : Non 
+                   Hauteur Produit (Cm) : 100.70 
+                   Ventilateur Sans Pales 
+                   Dimensions L X H X P : 19 X 100.7 X 11 Cm 
+                   Fonction Oscillation : Il Permet De Répartir Le Souffle D'Air De Manière Uniforme Dans Toute La Pièce Sans Déplacer Le Matériel. 
+                   Diffuseur D'Huiles Essentielles : Non 
+                   Pied Démontable : Non 
+                   Longueur Développée : 147 
+                   Blocage Directionnel : Non 
+                   Poids Net (Kg) : 2.850 
+                   Fonction Rassemblement : Non
+                xpath: /html/body/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[3]/div[3]/div[2]/div[1]/div[1]
+              - text: |-
+                  Niveau Sonore: 64 Db 
+                   Format : Tour 
+                   Oscillation : Oui 
+                   Profondeur Produit (Cm) : 11 
+                   Fonctions Supplémentaires : Oscillation
+                xpath: /html/body/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[3]/div[3]/div[2]/div[1]/div[2]
+            name:
+              - text: Ventilateur DYSON COOL AM07
+                xpath: /html/body/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/h1[1]
+            warranty:
+              - text: 12 mois
+                xpath: /html/body/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[3]/div[1]/div[3]/div[1]/div[2]/div[2]/select[1]/option[1]
+            productOtherInformation:
+              - text: "- 2860 g de gâchis électronique"
+                xpath: /html/body/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/ul[1]/li[4]/div[1]
+            promotion:
+              - text: 17% discount
+                xpath: /html/body/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/ul[1]/li[2]/strong[1]
+            additionalDescBulletInfo:
+              - text: "Modèle : Cool AM07"
+                xpath: /html/body/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[3]/div[3]/div[1]/ul[1]/li[1]
+              - text: "Couleur : Blanc/Gris"
+                xpath: /html/body/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[3]/div[3]/div[1]/ul[1]/li[2]
+              - text: "Marque : Dyson"
+                xpath: /html/body/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[3]/div[3]/div[1]/ul[1]/li[3]
+              - text: "Poids : 2860 g"
+                xpath: /html/body/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[3]/div[3]/div[1]/ul[1]/li[4]
+            customerServiceAvailability:
+              - text: Yes
+                xpath: /html/body/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[3]/div[1]/span[1]
+            technicalInformationPdfPresent:
+              - text: No
+            termsAndConditions:
+              - text: No
+            privacyPolicy:
+              - text: No
+            Image360Present:
+              - text: No
+            imageZoomFeaturePresent:
+              - text: No
+            descriptionBullets:
+              - text: "0"
+                type: NUMBER
+                raw: "0"
+                locale: fr_FR
+                value: 0
+            variantCount:
+              - text: "0"
+                type: NUMBER
+                raw: "0"
+                locale: fr_FR
+                value: 0
+        xpath: /
+    timestamp: 1607514669896

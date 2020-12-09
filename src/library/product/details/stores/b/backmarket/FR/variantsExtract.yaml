@@ -1,0 +1,14 @@
+  
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: //div[@class='_1Gji-8_DfEFVMyNyTNUi96']/a
+fields:
+  - name: variantId
+    xpath: //@href
+    regExp: (?<=\/)(\d+)(?=.html)
+    regExpReplace: $1
+  - name: variantUrl
+    xpath: //@href
+    regExp: (.+)
+    regExpReplace: https://backmarket.fr$1

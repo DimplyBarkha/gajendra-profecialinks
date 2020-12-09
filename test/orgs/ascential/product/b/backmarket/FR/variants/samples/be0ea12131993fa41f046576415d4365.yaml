@@ -1,0 +1,46 @@
+input:
+  _url: http://backmarket.fr
+  URL: https://www.backmarket.fr/iphone-11-64-go-jaune-debloque-tout-operateur-pas-cher/312025.html#?l=4
+extractions:
+  - html: https://workbench.import.io/html/run=ef011132-da0a-4d8b-8311-0ce2eff8673d/task=34a13f63-1e54-4de6-affb-f2a2f5272ab1/ee9aaf0d-1f50-469a-a6a6-862c2e115f1e.html
+    extractionConfigId: product/details/stores/b/backmarket/FR/variantsExtract
+    data:
+      - group:
+          - variantId:
+              - text: "290057"
+                xpath: /html/body/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/ul[1]/li[2]/div[1]/div[2]/a[1]/@href
+            variantUrl:
+              - text: https://backmarket.fr/iphone-11-64-go-noir-debloque-tout-operateur-pas-cher/290057.html#scroll=false
+                xpath: /html/body/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/ul[1]/li[2]/div[1]/div[2]/a[1]/@href
+          - variantId:
+              - text: "290060"
+                xpath: /html/body/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/ul[1]/li[2]/div[1]/div[2]/a[2]/@href
+            variantUrl:
+              - text: https://backmarket.fr/iphone-11-64-go-rouge-debloque-tout-operateur-pas-cher/290060.html#scroll=false
+                xpath: /html/body/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/ul[1]/li[2]/div[1]/div[2]/a[2]/@href
+          - variantId:
+              - text: "312025"
+                xpath: /html/body/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/ul[1]/li[2]/div[1]/div[2]/a[3]/@href
+            variantUrl:
+              - text: https://backmarket.fr/iphone-11-64-go-jaune-debloque-tout-operateur-pas-cher/312025.html#scroll=false
+                xpath: /html/body/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/ul[1]/li[2]/div[1]/div[2]/a[3]/@href
+          - variantId:
+              - text: "290059"
+                xpath: /html/body/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/ul[1]/li[2]/div[1]/div[2]/a[4]/@href
+            variantUrl:
+              - text: https://backmarket.fr/iphone-11-64-go-vert-debloque-tout-operateur-pas-cher/290059.html#scroll=false
+                xpath: /html/body/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/ul[1]/li[2]/div[1]/div[2]/a[4]/@href
+          - variantId:
+              - text: "290062"
+                xpath: /html/body/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/ul[1]/li[2]/div[1]/div[2]/a[5]/@href
+            variantUrl:
+              - text: https://backmarket.fr/iphone-11-64-go-mauve-debloque-tout-operateur-pas-cher/290062.html#scroll=false
+                xpath: /html/body/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/ul[1]/li[2]/div[1]/div[2]/a[5]/@href
+          - variantId:
+              - text: "290058"
+                xpath: /html/body/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/ul[1]/li[2]/div[1]/div[2]/a[6]/@href
+            variantUrl:
+              - text: https://backmarket.fr/iphone-11-64-go-blanc-debloque-tout-operateur-pas-cher/290058.html#scroll=false
+                xpath: /html/body/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/ul[1]/li[2]/div[1]/div[2]/a[6]/@href
+        xpath: /html
+    timestamp: 1607433178171

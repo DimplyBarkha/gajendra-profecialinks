@@ -1,0 +1,280 @@
+input:
+  _url: http://backmarket.fr
+  URL: https://www.backmarket.fr/iphone-11-64-go-noir-debloque-tout-operateur-pas-cher/290057.html#?l=3
+extractions:
+  - html: https://workbench.import.io/html/run=1d12c3f8-c25f-444d-adef-ba22df4bdea2/task=3ded6f43-e565-42ef-8d14-3a716c6ced14/88fe1a61-fd96-4772-949c-33c58d5b14b3.html
+    extractionConfigId: product/details/stores/b/backmarket/FR/extract
+    data:
+      - group:
+          - image:
+              - text: https://d1eh9yux7w8iql.cloudfront.net/product_images/290057_b4c7419d-aa1b-47dc-a956-4afbd61d7d1f.jpg
+                xpath: /html/head[1]/meta[9]/@content
+            alternateImages:
+              - text: https://d1eh9yux7w8iql.cloudfront.net/product_images/1571918337.6.jpg
+                xpath: /html/body/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[2]/div[3]/div[1]/@style
+              - text: https://d1eh9yux7w8iql.cloudfront.net/product_images/290057_e2ab7af4-7240-41db-9e00-4b49fab11167.jpg
+                xpath: /html/body/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[2]/div[4]/div[1]/@style
+            category:
+              - text: Accueil
+                xpath: /html/body/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/nav[1]/ol[1]/li[1]/a[1]/div[1]
+              - text: Smartphones
+                xpath: /html/body/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/nav[1]/ol[1]/li[2]/a[1]/div[1]
+              - text: Smartphone Apple
+                xpath: /html/body/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/nav[1]/ol[1]/li[3]/a[1]/div[1]
+              - text: iPhone 11
+                xpath: /html/body/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/nav[1]/ol[1]/li[4]/a[1]/div[1]
+            nameExtended:
+              - text: iPhone 11 64 Go - Noir - Débloqué
+                xpath: /html/body/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/h1[1]
+            listPrice:
+              - text: 689,00 €
+                xpath: /html/body/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/ul[1]/li[1]/div[1]/div[2]/div[1]/div[2]/del[1]
+            price:
+              - text: 624,90 €
+                xpath: /html/body/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/ul[1]/li[1]/div[1]/div[1]
+            availabilityText:
+              - text: Ajouter au panier
+                xpath: /html/body/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[3]/div[1]/div[3]/button[1]
+            brandText:
+              - text: Apple
+                xpath: /html/body/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[3]/div[6]/div[1]/ul[1]/li[25]/text()[1]
+            manufacturer:
+              - text: Apple
+                xpath: /html/body/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[3]/div[6]/div[1]/ul[1]/li[25]/text()[1]
+            weightNet:
+              - text: 194 g
+                xpath: /html/body/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[3]/div[6]/div[1]/ul[1]/li[26]/text()[1]
+            sku:
+              - text: "290057"
+                xpath: /html/head[1]/link[10]/@href
+            variantId:
+              - text: "290057"
+                xpath: /html/head[1]/link[10]/@href
+            mpc:
+              - text: "290057"
+                xpath: /html/head[1]/link[10]/@href
+            directions:
+              - text: Attention, l’étanchéité des téléphones reconditionnés ne peut pas être
+                  garantie. En savoir plus
+                xpath: /html/body/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[3]/div[3]
+            ratingCount:
+              - text: "1039"
+                xpath: /html/body/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/section[1]/div[2]/div[1]/div[1]/div[1]/p[1]/strong[1]
+                type: NUMBER
+                raw: 1039 avis
+                locale: fr_FR
+                value: 1039
+            aggregateRatingText:
+              - text: 4,3
+                xpath: /html/body/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/section[1]/div[2]/div[1]/div[1]/div[1]/div[1]/strong[1]
+            color:
+              - text: Noir
+                xpath: /html/body/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[3]/div[6]/div[1]/ul[1]/li[1]/text()[1]
+            manufacturerDescription:
+              - text: iPhone 11 64 Go - Noir - Débloqué
+                xpath: /html/body/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[3]/div[6]/div[2]/div[1]/div[1]
+              - text: "Lors de sa keynote du 10 septembre 2019, Apple a présenté sa 11ème
+                  génération d’iPhone. Cette année-là, la marque à la pomme a
+                  donc lancé 3 nouveaux modèles à savoir : l’iPhone 11, l’iPhone
+                  11 Pro et l’iPhone 11 Pro Max. Concernant le successeur de
+                  l’iPhone XR, celui-ci est un superbe smartphone de haute
+                  technologie doté d’une coque monobloc en aluminium Noir
+                  faisant 150.9 mm de long sur 75.7 mm de large avec une
+                  épaisseur de 8.3 mm pour un poids de 194g."
+                xpath: /html/body/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[3]/div[6]/div[2]/div[1]/div[2]
+              - text: >-
+                  - Écran Liquid Retina HD LCD Multi-Touch tout écran de 6,1
+                  pouces
+
+                  - Taille : 6.1 pouces
+
+                  - Technologie : Haptic Touch
+
+                  - Affichage : True Tone à large gamme de couleur (P3)
+
+                  - Résolution : 1 792 x 828 pixels à 326 ppp
+
+                  - Contraste : 1 400:1
+                xpath: /html/body/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[3]/div[6]/div[2]/div[1]/div[3]
+              - text: "Pour la partie photo/vidéo, qui fait partie des critères les plus
+                  importants lors du choix d’un smartphone, Apple n’a pas fait
+                  dans la demi-mesure avec son APN principal de 12 mégapixels
+                  avec ouverture ƒ/2,4 , objectif de 26mm, et Flash True Tone
+                  LED. Cet appareil photo propose de nombreuses fonctionnalités
+                  : zoom numérique jusqu’à 5x, zoom optique arrière 2x, mode
+                  panoramique jusqu’à 63 mégapixels, smart HDR nouvelle
+                  génération, mise au point par automatique continue avec Focus
+                  Pixels, prise en charge du ralenti vidéo en 1080p à 120 i/s ou
+                  240 i/s, enregistrement vidéo en Ultra HD 4K 1080p à à 30 ou
+                  60 i/s. Quant à l’APN frontal, il s’agit d’une caméra de 12
+                  mégapixels avec ouverture ƒ/1,8 et Retina Flash."
+                xpath: /html/body/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[3]/div[6]/div[2]/div[1]/div[4]
+              - text: |-
+                  - Jusqu’à 1 heure d’autonomie de plus que l’iPhone XR
+                  - Batterie lithium?ion rechargeable intégrée
+                xpath: /html/body/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[3]/div[6]/div[2]/div[1]/div[5]
+              - text: L’iPhone 11 apporte avec lui son lot de technologies. Doté de deux
+                  haut-parleurs stéréo intégrés, d’un bouton latéral, d’un
+                  bouton volume +/- , d’un connecteur Lightning et de micro
+                  intégrés, ce smartphone de dernière génération propose un beau
+                  design sobre et élégant avec des courbures légères sur chaque
+                  côté et une finition parfaite.
+                xpath: /html/body/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[3]/div[6]/div[2]/div[1]/div[6]
+              - text: "Résistant à l’eau, la poussière et aux éclaboussures. Indice IP68. DAS :
+                  0.95 W/kg(10g). Un revêtement oléophobe permet à l’écran de
+                  résister aux traces de doigt."
+                xpath: /html/body/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[3]/div[6]/div[2]/div[1]/div[7]
+              - text: "L’iPhone 11 reconditionné pas cher utilise plusieurs connectivités sans
+                  fil, comme le NFC avec mode lecteur seulement,le Bluetooth 5.0
+                  Low Energy avec A2DP et le Wi?Fi 6 802.11ax avec MIMO 2x2.
+                  Plusieurs senseurs sont aussi présents dans le smartphone : un
+                  capteur d’empreinte digitale Touch ID incrusté dans le bouton
+                  Home, Face ID, un accéléromètre, un capteur de luminosité
+                  ambiante, un détecteur de proximité, un baromètre et un
+                  gyroscope à trois axes."
+                xpath: /html/body/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[3]/div[6]/div[2]/div[1]/div[8]
+              - text: Sinon, l’iPhone 11 dispose d’autres caractéristiques techniques des plus
+                  alléchantes. Sous sa superbe armature Noire, cet appareil
+                  cache un ultrapuissant chipset, l’Apple A13 Bionic. Doté d’une
+                  architecture 64 bits, et d’un système neuronal troisième
+                  génération, ce SoC embarque un processeur à 6 cœurs (4 cœurs
+                  haute efficacité énergétique + 2 cœurs haute performance.
+                  Mémoire de stockage de 64 Go est présente sur cet iPhone 11.
+                xpath: /html/body/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[3]/div[6]/div[2]/div[1]/div[9]
+              - text: Avec cet appareil iPhone 11 Noir haut de gamme de dernière génération,
+                  vous ferez de nombreux jaloux autour de vous. Ce smartphone
+                  vous permettra de vous divertir, de planifier votre emploi du
+                  temps, d’échanger avec vos proches, d’immortaliser les moments
+                  forts de votre vie à travers des vidéos et des photos de
+                  qualité exceptionnelle, etc..,
+                xpath: /html/body/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[3]/div[6]/div[2]/div[1]/div[10]
+            name:
+              - text: iPhone 11 64 Go - Noir - Débloqué
+                xpath: /html/body/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/h1[1]
+            specifications:
+              - text: "Hauteur : 15,09 cm"
+                xpath: /html/body/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[3]/div[6]/div[1]/ul[1]/li[27]
+              - text: "Largeur : 7,57 cm"
+                xpath: /html/body/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[3]/div[6]/div[1]/ul[1]/li[28]
+              - text: "Profondeur : 0,83 cm"
+                xpath: /html/body/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[3]/div[6]/div[1]/ul[1]/li[29]
+            warranty:
+              - text: 12 mois
+                xpath: /html/body/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[3]/div[1]/div[3]/div[1]/div[2]/div[2]/select[1]/option[1]
+            productOtherInformation:
+              - text: "- 194 g de gâchis électronique"
+                xpath: /html/body/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/ul[1]/li[6]/div[1]
+            promotion:
+              - text: 9% discount
+                xpath: /html/body/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/ul[1]/li[4]/strong[1]
+            variantInformation:
+              - text: "Couleur :"
+                xpath: /html/body/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/ul[1]/li[2]/div[1]/div[1]/text()[1]
+            firstVariant:
+              - text: Noir
+                xpath: /html/body/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/ul[1]/li[2]/div[1]/div[2]/a[1]/@title
+            variants:
+              - text: Noir
+                xpath: /html/body/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/ul[1]/li[2]/div[1]/div[2]/a[1]/@title
+              - text: Rouge
+                xpath: /html/body/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/ul[1]/li[2]/div[1]/div[2]/a[2]/@title
+              - text: Jaune
+                xpath: /html/body/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/ul[1]/li[2]/div[1]/div[2]/a[3]/@title
+              - text: Vert
+                xpath: /html/body/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/ul[1]/li[2]/div[1]/div[2]/a[4]/@title
+              - text: Mauve
+                xpath: /html/body/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/ul[1]/li[2]/div[1]/div[2]/a[5]/@title
+              - text: Blanc
+                xpath: /html/body/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/ul[1]/li[2]/div[1]/div[2]/a[6]/@title
+              - text: 64 Go
+                xpath: /html/body/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/ul[1]/li[2]/div[2]/div[1]/select[1]/option[1]/text()[1]
+              - text: 128 Go
+                xpath: /html/body/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/ul[1]/li[2]/div[2]/div[1]/select[1]/option[2]/text()[1]
+              - text: 256 Go
+                xpath: /html/body/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/ul[1]/li[2]/div[2]/div[1]/select[1]/option[3]/text()[1]
+            additionalDescBulletInfo:
+              - text: "Couleur : Noir"
+                xpath: /html/body/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[3]/div[6]/div[1]/ul[1]/li[1]
+              - text: "Verrouillage opérateur : Débloqué tout opérateur"
+                xpath: /html/body/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[3]/div[6]/div[1]/ul[1]/li[2]
+              - text: "Taille écran (pouces) : 6,1"
+                xpath: /html/body/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[3]/div[6]/div[1]/ul[1]/li[3]
+              - text: "Capacité de stockage : 64 Go"
+                xpath: /html/body/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[3]/div[6]/div[1]/ul[1]/li[4]
+              - text: "Modèle : iPhone 11"
+                xpath: /html/body/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[3]/div[6]/div[1]/ul[1]/li[5]
+              - text: "Double sim : Non"
+                xpath: /html/body/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[3]/div[6]/div[1]/ul[1]/li[6]
+              - text: "Mémoire : 4 Go"
+                xpath: /html/body/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[3]/div[6]/div[1]/ul[1]/li[7]
+              - text: "Vitesse du processeur : 2,66 GHz"
+                xpath: /html/body/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[3]/div[6]/div[1]/ul[1]/li[8]
+              - text: "Marque du processeur : Apple"
+                xpath: /html/body/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[3]/div[6]/div[1]/ul[1]/li[9]
+              - text: "Type du processeur : A13 Bionic"
+                xpath: /html/body/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[3]/div[6]/div[1]/ul[1]/li[10]
+              - text: "Nombre de coeurs : 6"
+                xpath: /html/body/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[3]/div[6]/div[1]/ul[1]/li[11]
+              - text: "Megapixels : 12"
+                xpath: /html/body/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[3]/div[6]/div[1]/ul[1]/li[12]
+              - text: "Système d'exploitation : iOS"
+                xpath: /html/body/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[3]/div[6]/div[1]/ul[1]/li[13]
+              - text: "Résolution : 1792 x 828"
+                xpath: /html/body/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[3]/div[6]/div[1]/ul[1]/li[14]
+              - text: "Connecteur : Lightning"
+                xpath: /html/body/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[3]/div[6]/div[1]/ul[1]/li[15]
+              - text: "Réseau : 4G"
+                xpath: /html/body/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[3]/div[6]/div[1]/ul[1]/li[16]
+              - text: "Date de sortie : Septembre 2019"
+                xpath: /html/body/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[3]/div[6]/div[1]/ul[1]/li[17]
+              - text: "Référence constructeur : A2221"
+                xpath: /html/body/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[3]/div[6]/div[1]/ul[1]/li[18]
+              - text: "Port carte SD : Non"
+                xpath: /html/body/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[3]/div[6]/div[1]/ul[1]/li[19]
+              - text: "Année de sortie : 2019"
+                xpath: /html/body/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[3]/div[6]/div[1]/ul[1]/li[20]
+              - text: "eSIM : Oui"
+                xpath: /html/body/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[3]/div[6]/div[1]/ul[1]/li[21]
+              - text: "Pliable : Non"
+                xpath: /html/body/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[3]/div[6]/div[1]/ul[1]/li[22]
+              - text: "5G : Non"
+                xpath: /html/body/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[3]/div[6]/div[1]/ul[1]/li[23]
+              - text: "Type d'appareil photo : Double (2x)"
+                xpath: /html/body/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[3]/div[6]/div[1]/ul[1]/li[24]
+              - text: "Marque : Apple"
+                xpath: /html/body/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[3]/div[6]/div[1]/ul[1]/li[25]
+              - text: "Poids : 194 g"
+                xpath: /html/body/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[3]/div[6]/div[1]/ul[1]/li[26]
+              - text: "Hauteur : 15,09 cm"
+                xpath: /html/body/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[3]/div[6]/div[1]/ul[1]/li[27]
+              - text: "Largeur : 7,57 cm"
+                xpath: /html/body/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[3]/div[6]/div[1]/ul[1]/li[28]
+              - text: "Profondeur : 0,83 cm"
+                xpath: /html/body/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[3]/div[6]/div[1]/ul[1]/li[29]
+            customerServiceAvailability:
+              - text: Yes
+                xpath: /html/body/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[3]/div[1]/span[1]
+            technicalInformationPdfPresent:
+              - text: No
+            termsAndConditions:
+              - text: No
+            privacyPolicy:
+              - text: No
+            Image360Present:
+              - text: No
+            imageZoomFeaturePresent:
+              - text: No
+            descriptionBullets:
+              - text: "20"
+                type: NUMBER
+                raw: "20"
+                locale: fr_FR
+                value: 20
+            variantCount:
+              - text: "9"
+                type: NUMBER
+                raw: "9"
+                locale: fr_FR
+                value: 9
+        xpath: /
+    timestamp: 1607514673317

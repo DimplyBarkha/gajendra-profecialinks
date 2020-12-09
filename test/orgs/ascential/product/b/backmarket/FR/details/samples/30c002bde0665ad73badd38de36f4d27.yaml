@@ -1,0 +1,100 @@
+input:
+  _url: http://backmarket.fr
+  URL: https://www.backmarket.fr/aspirateur-a-main-dyson-v8-pas-cher/395100.html#?l=0
+extractions:
+  - html: https://workbench.import.io/html/run=697f91e7-c8dd-450b-baee-150a851e19d6/task=5bf4a6f3-04ec-4356-9909-b06348f11824/ae277575-5fdb-4814-9a0e-236df2e32e3c.html
+    extractionConfigId: product/details/stores/b/backmarket/FR/extract
+    data:
+      - group:
+          - image:
+              - text: https://d1eh9yux7w8iql.cloudfront.net/product_images/395100_6c44b32c-cc5e-42a1-a92b-e8632f1ae358.jpg
+                xpath: /html/head[1]/meta[9]/@content
+            alternateImages:
+              - text: https://d1eh9yux7w8iql.cloudfront.net/product_images/395100_6231ec76-3385-4601-b531-526df8c2357f.jpg
+                xpath: /html/body/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[2]/div[3]/div[1]/@style
+              - text: https://d1eh9yux7w8iql.cloudfront.net/product_images/395100_5961adad-a413-4b54-80b1-6094ea39b244.jpg
+                xpath: /html/body/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[2]/div[4]/div[1]/@style
+            category:
+              - text: Accueil
+                xpath: /html/body/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/nav[1]/ol[1]/li[1]/a[1]/div[1]
+              - text: Ménage & Entretien
+                xpath: /html/body/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/nav[1]/ol[1]/li[2]/a[1]/div[1]
+              - text: Aspirateur
+                xpath: /html/body/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/nav[1]/ol[1]/li[3]/a[1]/div[1]
+              - text: Aspirateur Dyson
+                xpath: /html/body/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/nav[1]/ol[1]/li[4]/a[1]/div[1]
+            nameExtended:
+              - text: Aspirateur à main DYSON V8
+                xpath: /html/body/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/h1[1]
+            availabilityText:
+              - text: Créer une alerte
+                xpath: /html/body/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[3]/div[1]/div[4]/button[1]
+            brandText:
+              - text: Dyson
+                xpath: /html/body/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[3]/div[2]/div[1]/ul[1]/li[9]/text()[1]
+            manufacturer:
+              - text: Dyson
+                xpath: /html/body/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[3]/div[2]/div[1]/ul[1]/li[9]/text()[1]
+            weightNet:
+              - text: 4300 g
+                xpath: /html/body/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[3]/div[2]/div[1]/ul[1]/li[10]/text()[1]
+            mpc:
+              - text: "395100"
+                xpath: /html/head[1]/link[10]/@href
+            color:
+              - text: Gris
+                xpath: /html/body/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[3]/div[2]/div[1]/ul[1]/li[4]/text()[1]
+            name:
+              - text: Aspirateur à main DYSON V8
+                xpath: /html/body/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/h1[1]
+            productOtherInformation:
+              - text: "- 4300 g de gâchis électronique"
+                xpath: /html/body/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/ul[1]/li[1]/div[1]
+            additionalDescBulletInfo:
+              - text: "Type d'aspirateur : Aspirateur à main"
+                xpath: /html/body/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[3]/div[2]/div[1]/ul[1]/li[1]
+              - text: "Modèle : V8"
+                xpath: /html/body/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[3]/div[2]/div[1]/ul[1]/li[2]
+              - text: "Puissance (W) : 115"
+                xpath: /html/body/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[3]/div[2]/div[1]/ul[1]/li[3]
+              - text: "Couleur : Gris"
+                xpath: /html/body/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[3]/div[2]/div[1]/ul[1]/li[4]
+              - text: "Rechargeable : Oui"
+                xpath: /html/body/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[3]/div[2]/div[1]/ul[1]/li[5]
+              - text: "Sans fil : Oui"
+                xpath: /html/body/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[3]/div[2]/div[1]/ul[1]/li[6]
+              - text: "Capacité (L) : 0.54"
+                xpath: /html/body/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[3]/div[2]/div[1]/ul[1]/li[7]
+              - text: "Autonomie (min) : 250"
+                xpath: /html/body/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[3]/div[2]/div[1]/ul[1]/li[8]
+              - text: "Marque : Dyson"
+                xpath: /html/body/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[3]/div[2]/div[1]/ul[1]/li[9]
+              - text: "Poids : 4300 g"
+                xpath: /html/body/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[3]/div[2]/div[1]/ul[1]/li[10]
+            customerServiceAvailability:
+              - text: Yes
+                xpath: /html/body/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[3]/div[1]/span[1]
+            technicalInformationPdfPresent:
+              - text: No
+            termsAndConditions:
+              - text: No
+            privacyPolicy:
+              - text: No
+            Image360Present:
+              - text: No
+            imageZoomFeaturePresent:
+              - text: No
+            descriptionBullets:
+              - text: "10"
+                type: NUMBER
+                raw: "10"
+                locale: fr_FR
+                value: 10
+            variantCount:
+              - text: "0"
+                type: NUMBER
+                raw: "0"
+                locale: fr_FR
+                value: 0
+        xpath: /
+    timestamp: 1607339442287
