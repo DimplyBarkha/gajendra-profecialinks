@@ -10,7 +10,7 @@ fields:
   - name: url
     xpath: //link[@rel="canonical"]/@href
   - name: category
-    xpath: //div[contains(@data-auto,"breadcrumb-item")]
+    xpath: (//div[contains(@data-auto,"breadcrumb-item")])[position()>1]
     singleValue: false
   - name: nameExtended
     xpath: //div[@data-zone-name="summary"]//h1
@@ -20,6 +20,8 @@ fields:
     singleValue: false
   - name: description
     xpath: //div[@data-zone-name="specs"]//div[@data-auto="sku-specs"]//div
+  - name: profiteroDescription
+    xpath: //*[@data-tid="7735417f"]
     singleValue: false
   - name: ingredientsList
     xpath: //span[contains(.,'Состав')]/../..//span[@data-tid]

@@ -86,7 +86,7 @@ fields:
     regExp: \"productId":(\d+)
     regExpReplace: $1 
   - name: category
-    xpath: ancestor::html//head/@category
+    xpath: ancestor::html(//div[contains(@data-auto,"breadcrumb-item")])[position()>1]
   - name: pageTimestamp 
     singleValue: false
     xpath:   
