@@ -4,7 +4,7 @@ module.exports = {
   parameterValues: {
     country: 'MX',
     store: 'linio',
-    nextLinkSelector: 'li[class*=page-item]:nth-last-child(2) a',
+    nextLinkSelector: 'ul li[class*=page-item]:nth-last-child(2) a',
     nextLinkXpath: null,
     mutationSelector: null,
     spinnerSelector: null,
