@@ -20,7 +20,7 @@ fields:
     description: The brand name
     example: Panasonic
   - name: category
-    xpath: ancestor::html//nav[@aria-labelledby="breadcrumb-heading"]//li[position()=last()]//span
+    xpath: ancestor::html//nav[@aria-labelledby="breadcrumb-heading"]//li[not(.="Home")]
   - name: id
     singleValue: false
     description: Unique id (within this extractor)
