@@ -1,0 +1,49 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: //div[@class="stamped-review"]
+fields:
+  - name: brandText
+    description: Product brand shown - this may actually NOT be just a brand name e.g. "Visit the Gillette Store"
+    xpath: /ancestor::main[contains(@id, 'MainContent')]//div[@class='product-single__info-wrapper']//p[@class='product-single__vendor']//a
+  - name: reviewText
+    description: The text of the review
+    xpath: //div[@class='stamped-review-body']//p
+  - name: reviewTitle
+    description: The title of the review
+    xpath: //div[@class="stamped-review-body"]//h3
+  - name: mediaURL
+    description: product media url
+    xpath: /ancestor::main[contains(@id, 'MainContent')]//div[@class='photos']//div[@id='ProductPhoto'][1]//img/@src
+  - name: location
+    description: reviewer location
+    xpath: //div[@class='review-location']//span[@data-location]
+  - name: helpfulCount
+    type: NUMBER
+    description: Number of people who said the review was helpful
+    xpath: //div[@class='stamped-review-vote']//a[@data-votes][1]
+  - name: verifiedPurchase
+    description: Whether this of an item the reviewer purchased. "Yes" if true else ""
+    xpath: //div[@class='stamped-review-header']//span[@data-verified-label]
+  - name: aggregateRating
+    description: The product rating
+    xpath: /ancestor::div[@id='stamped-main-widget']//meta[@itemprop='ratingValue']
+  - name: pageTitle
+    description: The url of the page title
+  - name: sourceUrl
+    description: The url of the product url 
+  - name: name
+    description: The product name 
+    xpath: /ancestor::main[contains(@id, 'MainContent')]//div[@class='product-single__info-wrapper']//h1[@class='product-single__title']
+  - name: commentCount
+    type: NUMBER
+    description: Number of comments on the review
+  - name: reviewDate
+    type: DATETIME
+    description: Date the review was made
+    xpath: //div[@class='stamped-review-content-wrapper']//div[@class='created']
+  - name: user
+    singleValue: true
+    description: The user name of the reviewer
+    xpath: //div[@class='stamped-review-header']//strong[@class='author']
+
