@@ -17,17 +17,30 @@ module.exports = {
         else result = elem ? elem.singleNodeValue : '';
         return result && result.trim ? result.trim() : result;
       };
-      const url = getXpath("//div[contains(@class,'category-products')]//ul//li//div[contains(@class,'amlabel-div')]//a/@href", 'nodeValue');
+      const url = getXpath("//div[@id='salesperson_result']//div[contains(@class,'category-products')]//ul//li//div[contains(@class,'amlabel-div')]//a/@href", 'nodeValue');
+      // const url = getXpath("//div[contains(@class,'category-products')]//ul//li//div[contains(@class,'amlabel-div')]//a/@href", 'nodeValue');
       return url;
     });
     console.log(productUrl);
-    await context.goto(productUrl);
+    try {
+      await context.goto(productUrl);
+    } catch (error) {
+      console.log('No record');
+    }
     async function loadResources () {
       await context.setAntiFingerprint(false);
       await context.setLoadAllResources(true);
       await context.setBlockAds(false);
     }
     await loadResources();
+
+    // const productMore = await context.evaluate(function () {
+    //  return Boolean(document.evaluate("//div[@class='product-view']", document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue);
+    // });
+
+    // if (productMore) {
+    // await context.click('hts-product-tab span[class="show-link"]', {}, { timeout: 50000 });
+    // await context.click('hts-product-tab a', {}, { timeout: 50000 });
     try {
       await context.waitForSelector('div[id="std-description"] img', {}, { timeout: 50000 });
     } catch (error) {
@@ -70,14 +83,19 @@ module.exports = {
 
       const listPrice = "//div[@class='product-main-info']//span[@class='price-old']";
       var listPricePath = getXpath(listPrice, 'innerText');
-      addElementToDocument('added_listPrice', listPricePath.replace(/\./g, ','));
+      if (listPricePath !== null) {
+        addElementToDocument('added_listPrice', listPricePath.replace(/\./g, ','));
+      }
       const price = "//div[@class='product-main-info']//p[@class='special-price']//span[contains(@id,'product-price')]";
       var pricePath = getXpath(price, 'innerText');
-      addElementToDocument('added_price', pricePath.replace(/\./g, ','));
+      if (pricePath !== null) {
+        addElementToDocument('added_price', pricePath.replace(/\./g, ','));
+      }
       // const secondaryImageTotalXpath = "//div[@class='product-img-box']//div[@class='more-views']//ul//li//a/@href";
       // var secondaryImages = getAllXpath(secondaryImageTotalXpath, 'nodeValue');
       // addElementToDocument('added_secondaryImageTotal', secondaryImages.length);
     });
+    // }
     await context.extract(productDetails, { transform: transformParam });
   },
 };

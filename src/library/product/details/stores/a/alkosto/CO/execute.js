@@ -5,7 +5,7 @@ module.exports = {
     country: 'CO',
     store: 'alkosto',
     domain: 'alkosto.com',
-    loadedSelector: null,
+    loadedSelector: 'ul[class="products-grid first last odd"] , div[class="product-view"]',
     noResultsXPath: null,
     zipcode: '',
   },
