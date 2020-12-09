@@ -17,10 +17,11 @@ fields:
     xpath: //meta[@name="keywords"]/@content
   - name: category
     singleValue: false
-    xpath: //ul[@class="breadcrumb"]//li/a/span/font/font//text()
+    xpath: //ul[@class="breadcrumb"]//li[position()<last()]
+    # xpath: //ul[@class="breadcrumb"]//li/a/span/font/font//text()
   - name: nameExtended
     singleValue: false
-    xpath: //h1/font//text()     
+    xpath: //h1/font//text() | //h1/text()     
   - name: listPrice
     singleValue: false
     xpath: //div[@class="pricing"]/s
@@ -36,11 +37,11 @@ fields:
     defaultValue: In Stock
   - name: description
     singleValue: false
-    xpath: //div[@class="content"]
+    xpath: (//div[@class="content mb-3"])[1]//text()
+    # xpath: //div[@class="content"]
   - name: descriptionBullets
     singleValue: false
-    description: Number of ul > li tags in the description
-    type: NUMBER
+    xpath: (//div[@class="content mb-3"])[1]//ul/li
   - name: brandText
     singleValue: false
     xpath: //script[contains(.,"brand")]/text()
@@ -51,11 +52,19 @@ fields:
     xpath: //script[contains(.,"brand")]/text()
     regExp: manufacturer\W+([^"]+)
     regExpReplace: $1
+  - name: quantity2
+    singleValue: false
+    xpath: //h1/font//text() | //h1/text()  
+    regExp: (\d{1,}\W)(g|G|L|Kg|Mg|Ml|ml|Oz|s|l|EA|GR|pièces|préservatifs|pansements|set|sachet)
+    # regExpReplace:
+  - name: quantity1
+    singleValue: false
+    xpath: //h1/font//text() | //h1/text() 
+    regExp: ([0-9]+x\d+)\W+(g|G|L|Kg|Mg|Ml|ml|Oz|s|l|EA|GR|pièces|préservatifs|pansements|set|sachet)
   - name: quantity
     singleValue: false
-    xpath: //h1/font//text()
-    regExp: (\d{1,}\s)(g|G|L|Kg|Mg|Ml|ml|Oz|s|l|EA|GR|pièces)
-    # regExpReplace:
+    xpath: //h1/font//text() | //h1/text() 
+    regExp: ([0-9]+x\d+)\W+\d+\W+(g|G|L|Kg|Mg|Ml|ml|Oz|s|l|EA|GR|pièces|préservatifs|pansements|set|sachet)
   - name: weightNet
     singleValue: false
     description: Net weight as described on the page
@@ -85,7 +94,7 @@ fields:
     description: Content under "legal disclaimer" header
   - name: directions
     singleValue: false
-    xpath: //h2[contains(.,"Indication")]/following::div[@class="content mb-3"]//ul/li
+    xpath: //h2[contains(.,"Indication")]/following::div[@class="content mb-3"]//ul/li | //h2[contains(.,"Emploi")]/following::div[@class="content mb-3"][1]/text()
   - name: warnings
     singleValue: false
     xpath: //h2[contains(.,"Emploi")]/following::div[@class="content mb-3"][1]/text()
@@ -131,7 +140,7 @@ fields:
     description: URLs of videos on page
   - name: name
     singleValue: false
-    xpath: //h1/font//text()
+    xpath: //h1/font//text() | //h1/text() 
   - name: inStorePrice
     singleValue: false
     description: Price in the selected store
@@ -233,42 +242,50 @@ fields:
     description: null
   - name: ingredientsList
     singleValue: false
-    # xpath: 
+    xpath: //h2[contains(.,"Ingrédients")]/following::div[1]/div/text()
   - name: servingSize
     singleValue: false
-    description: The size of serving Nutritional information is based on.
+    xpath: //strong[contains(.,"nutritionnelle")]/text()
+    regExp: \d+
   - name: servingSizeUom
     singleValue: false
-    description: Unit of measure of serving
+    xpath: //strong[contains(.,"nutritionnelle")]/text()
+    regExp: \b(\w+)\W*$
   - name: numberOfServingsInPackage
     singleValue: false
     description: Suggested number of servings of the product.
     type: NUMBER
   - name: caloriesPerServing
     singleValue: false
-    description: Nutritional Information for Calories Per Serving content - Usually
-      based on per 100g serving
+    xpath: //td[contains(.,"Kcal")]/following::td[1]/text()
+    regExp: \d+
+  - name: caloriesPerServing1
+    singleValue: false
+    xpath: 
   - name: caloriesFromFatPerServing
     singleValue: false
-    description: Nutritional Information for Calories From Fat content - Usually
-      based on per 100g serving
-    type: NUMBER
+    xpath: //td[contains(.,"Energie")]/following::td[2]/text()
+    regExp: \b(\w+)$
   - name: totalFatPerServing
     singleValue: false
-    description: Nutritional Information for Total Fat content - Usually based on
-      per 100g serving
-    type: NUMBER
+    xpath: //td[contains(.,"Graisses")]/following::td[1]/text()
+    regExp: \d+
+  - name: totalFatPerServing1
+    singleValue: false
+    xpath: //td[contains(.,"Matières grasses")]/following::td[2]/text()
   - name: totalFatPerServingUom
     singleValue: false
-    description: Unit of Measure Data for Total Fat content
+    xpath: //td[contains(.,"Graisses")]/following::td[1]/text()
+    regExp: \b(\w+)\W*$
+  - name: totalFatPerServingUom1
+    singleValue: false
+    xpath: //td[contains(.,"Matières grasses")]/following::td[1]/text()
   - name: saturatedFatPerServing
     singleValue: false
-    description: Nutritional Information for Saturated Fat content - Usually based
-      on per 100g serving
-    type: NUMBER
+    xpath: //td[contains(.,"saturés")]/following::td[2]/text()
   - name: saturatedFatPerServingUom
     singleValue: false
-    description: Unit of Measure Data for Saturated Fat content
+    xpath: //td[contains(.,"saturés")]/following::td[1]/text()
   - name: transFatPerServing
     singleValue: false
     description: Nutritional Information for Trans Fat content - Usually based on
@@ -295,68 +312,68 @@ fields:
     description: Unit of Measure Data for Sodium content
   - name: totalCarbPerServing
     singleValue: false
-    description: Nutritional Information for Total Carbohydrate content - Usually
-      based on per 100g serving
-    type: NUMBER
+    xpath: //td[contains(.,"Glucides")]/following::td[2]/text()
   - name: totalCarbPerServingUom
     singleValue: false
-    description: Unit of Measure Data for Total Carbohydrate content
+    xpath: //td[contains(.,"Glucides")]/following::td[1]/text()
   - name: dietaryFibrePerServing
     singleValue: false
-    description: Nutritional Information for Dietary Fibre content - Usually based
-      on per 100g serving
-    type: NUMBER
+    xpath: //td[contains(.,"Fibres")]/following::td[1]/text()
+    regExp: \d+
+  - name: dietaryFibrePerServing1
+    singleValue: false
+    xpath: //td[contains(.,"Fibres")]/following::td[2]/text()
   - name: dietaryFibrePerServingUom
     singleValue: false
-    description: Unit of Measure Data for Dietary Fibre content
+    xpath: //td[contains(.,"Fibres")]/following::td[1]/text()
+    regExp: \b(\w+)\W*$
+  - name: dietaryFibrePerServingUom1
+    singleValue: false
+    xpath: //td[contains(.,"Fibres")]/following::td[1]/text()
   - name: totalSugarsPerServing
     singleValue: false
-    description: Nutritional Information for Total Sugar content - Usually based on
-      per 100g serving
-    type: NUMBER
+    xpath: //td[contains(.,"sucres")]/following::td[2]/text()
   - name: totalSugarsPerServingUom
     singleValue: false
-    description: Unit of Measure Data for Total Sugar content
+    xpath: //td[contains(.,"sucres")]/following::td[1]/text()
   - name: proteinPerServing
     singleValue: false
-    description: Nutritional Information for Protein content - Usually based on per
-      100g serving
-    type: NUMBER
+    xpath: //td[contains(.,"Protéines")]/following::td[1]/text()
+    regExp: \d+
+  - name: proteinPerServing1
+    singleValue: false
+    xpath: //td[contains(.,"Protéïnes")]/following::td[2]/text()
   - name: proteinPerServingUom
     singleValue: false
-    description: Unit of Measure Data for Protein
+    xpath: //td[contains(.,"Protéines")]/following::td[1]/text()
+    regExp: \b(\w+)\W*$
+  - name: proteinPerServingUom1
+    singleValue: false
+    xpath: //td[contains(.,"Protéïnes")]/following::td[1]/text()
   - name: vitaminAPerServing
     singleValue: false
-    description: Nutritional Information for Vitamin A content - Usually based on
-      per 100g serving
-    type: NUMBER
+    xpath: //td[contains(.,"Vitamine A")]/following::td[2]/text()
   - name: vitaminAPerServingUom
     singleValue: false
-    description: Unit of Measure Data for Vitamin A
+    xpath: //td[contains(.,"Vitamine A")]/following::td[1]/text()
   - name: vitaminCPerServing
     singleValue: false
-    description: Nutritional Information for Vitamin C content - Usually based on
-      per 100g serving
-    type: NUMBER
+    xpath: //td[contains(.,"Vitamine C")]/following::td[2]/text()
   - name: vitaminCPerServingUom
     singleValue: false
-    description: Unit of Measure Data for Vitamin C
+    xpath: //td[contains(.,"Vitamine C")]/following::td[1]/text()
   - name: calciumPerServing
     singleValue: false
-    description: Nutritional Information for Calcium content - Usually based on per
-      100g serving
-    type: NUMBER
+    xpath: //td[contains(.,"Calcium")]/following::td[2]/text()
   - name: calciumPerServingUom
     singleValue: false
-    description: Unit of Measure Data for Calcium
+    xpath: //td[contains(.,"Calcium")]/following::td[1]/text()
   - name: ironPerServing
     singleValue: false
-    description: Nutritional Information for Iron content - Usually based on per
-      100g serving
-    type: NUMBER
+    xpath: //td[contains(.,"Fer")]/following::td[2]/text()
   - name: ironPerServingUom
     singleValue: false
-    description: Unit of Measure Data for Iron
+    xpath: //td[contains(.,"Fer")]/following::td[1]/text()
   - name: dietarySymbols
     singleValue: false
     description: Information related to the dietary symbols of a specific product
@@ -370,12 +387,18 @@ fields:
     description: Unit of Measure Data for Magnesium
   - name: saltPerServing
     singleValue: false
-    description: Nutritional Information for Salt content - Usually based on per
-      100g serving
-    type: NUMBER
+    xpath: //td[contains(.,"Sel")]/following::td[1]/text()
+    regExp: \d+
+  - name: saltPerServing1
+    singleValue: false
+    xpath: //td[contains(.,"Sel")]/following::td[2]/text()
   - name: saltPerServingUom
     singleValue: false
-    description: Unit of Measure Data for Salt
+    xpath: //td[contains(.,"Sel")]/following::td[1]/text()
+    regExp: \b(\w+)\W*$
+  - name: saltPerServingUom1
+    singleValue: false
+    xpath: //td[contains(.,"Sel")]/following::td[1]/text()
   - name: dietaryInformation
     singleValue: false
     description: null
@@ -440,7 +463,7 @@ fields:
     description: null
   - name: additionalDescBulletInfo
     singleValue: false
-    description: null
+    xpath: count((//div[@class="content mb-3"])[1]//ul/li)
   - name: prop65Warning
     singleValue: false
     description: null
