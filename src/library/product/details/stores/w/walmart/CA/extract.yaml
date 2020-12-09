@@ -101,7 +101,7 @@ fields:
     regExpReplace: $1  
   - name: imageZoomFeaturePresent
     singleValue: false
-    xpath: //img[@alt="zoomed image"]
+    xpath: (//img[@alt="zoomed image"]/@src)[1]
     regExp: (.+)
     regExpReplace: Yes
     defaultValue: No    
