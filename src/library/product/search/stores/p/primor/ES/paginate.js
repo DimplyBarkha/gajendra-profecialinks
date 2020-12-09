@@ -7,9 +7,11 @@ module.exports = {
     nextLinkSelector: '[id="pagination_next_bottom"] a',
     mutationSelector: null,
     spinnerSelector: null,
-    loadedSelector: null,
+    loadedSelector: 'div[id="center_column"]',
     noResultsXPath: null,
-    openSearchDefinition: null,
+    // openSearchDefinition: {
+    //   template: 'https://www.primor.eu/buscar?controller=search&orderby=position&orderway=desc&search_query={searchTerms}&submit_search=#/page-{page}',
+    //   },
     domain: 'primor.eu',
     zipcode: '',
   },
