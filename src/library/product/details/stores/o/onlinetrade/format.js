@@ -93,6 +93,9 @@ const transform = (data) => {
       }
     }
   }
+  data.forEach(obj => obj.group.forEach(row => Object.keys(row).forEach(header => row[header].forEach(el => {
+    el.text = clean(el.text);
+  }))));
   return data;
 };
 
