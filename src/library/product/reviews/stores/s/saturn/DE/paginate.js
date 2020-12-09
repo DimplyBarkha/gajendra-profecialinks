@@ -1,0 +1,20 @@
+module.exports = {
+  implements: 'navigation/paginate',
+  parameterValues: {
+    template: null,
+    country: 'DE',
+    store: 'saturn',
+    nextLinkSelector: null,
+    nextLinkXpath: '//span[contains(@class,"ReviewsPaginationWrapper")]//button[not (contains(.,"V"))]',
+    mutationSelector: null,
+    spinnerSelector: 'ul[class*="LoadingIndicator__StyledLoadingWrapperSE"]',
+    loadedSelector: null,
+    loadedXpath: null,
+    noResultsXPath: null,
+    stopConditionSelectorOrXpath: null,
+    resultsDivSelector: null,
+    openSearchDefinition: null,
+    domain: 'saturn.de',
+    zipcode: '',
+  },
+};
