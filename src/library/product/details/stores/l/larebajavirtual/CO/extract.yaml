@@ -32,9 +32,10 @@ fields:
     singleValue: true
     xpath: //div[@class='descripciones']/div/h1
   - name: price
-    singleValue: false
-    xpath: (//span[@class='ahora'])[1] | //div[@class='pricened'] | //section[@class='product_detail']/div[@class='container']//div[@class='descripciones']/div[2]/div[8]/div/span/span
-    description: The stated undiscounted price for the product
+    singleValue: true
+    xpath: //html//div[@id='price']
+    # regExp: (\$\d+)\.(\d+)
+    # regExpReplace: $1,$2
   - name: url
     singleValue: false
     xpath: (//ol[@class='breadcrumb']/li/a/@href)[1]
