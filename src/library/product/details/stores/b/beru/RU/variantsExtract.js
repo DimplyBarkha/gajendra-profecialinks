@@ -6,6 +6,7 @@ module.exports = {
     country: 'RU',
     store: 'beru',
     transform,
+    timeout: 90000,
     domain: 'pokupki.market.yandex.ru',
     zipcode: '',
   },
@@ -18,6 +19,8 @@ async function implementation (
   dependencies,
 ) {
   const { createUrl, variants } = dependencies;
+  const timeout = parameters.timeout ? parameters.timeout : 10000;
+
   await context.evaluate(function () {
     function addHiddenDiv(id, content) {
       const newDiv = document.createElement('div');
