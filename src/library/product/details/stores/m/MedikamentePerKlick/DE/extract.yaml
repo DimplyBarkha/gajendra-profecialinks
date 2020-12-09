@@ -58,7 +58,7 @@ fields:
   singleValue: true
   description: Number of ul > li tags in the description
   type: NUMBER
-  xpath: (count//dd[@class="productLongDescription"]//ul//li)
+  xpath: count(//dd[@class="productLongDescription"]//ul//li)
 - name: brandText
   singleValue: true
   description: Product brand shown - this may actually NOT be just a brand name,
@@ -107,12 +107,12 @@ fields:
 - name: warnings
   singleValue: true
   description: Content under "warnings" header
-- name: aggregateRating
+- name: aggregateRating2
   description: The number of ratings
   xpath: //div[@class="fr wide-6"]//span[@class="rank"]
+  regExp: '\d+\.\d+'
 - name: ratingCount
   singleValue: true
-  type: NUMBER
   description: The stated aggregate rating
   xpath: //div[@id="productReview"]//span[@itemprop="reviewCount"]//text()
 - name: manufacturerImages
@@ -527,4 +527,4 @@ fields:
   description: If Zoom feature is available for Main image or images in the
       carousel,['Yes','No']
   example: https://www.zalando.de/adidas-neo-sneaker-low-blackwhite-a4315i002-q11.html
-  defaultValue: yes
+  defaultValue: No
