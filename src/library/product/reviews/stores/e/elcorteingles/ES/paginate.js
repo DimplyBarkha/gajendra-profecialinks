@@ -55,6 +55,10 @@ async function implementation (
       reviewDate = getFormattedDate(lastDate, reviewDate.match(/(\d+) día/)[1]);
     } else if (reviewDate.match(/(\d+) mes/)) {
       reviewDate = getFormattedDate(lastDate, null, reviewDate.match(/(\d+) mes/)[1]);
+    } else if (reviewDate.match(/un día/)) {
+      reviewDate = getFormattedDate(lastDate, 1, null);
+    } else if (reviewDate.match(/un mes/)) {
+      reviewDate = getFormattedDate(lastDate, null, 1);
     } else {
       console.log('no match found, returning false');
       return false;
@@ -81,11 +85,11 @@ async function implementation (
       elem.click();
       return true;
     }, { selector: nextLinkSelector });
-    if (!hasNextLink) return false;
-  }
 
-  await context.waitForNavigation({ timeout: 40000 });
-  await new Promise((resolve, reject) => setTimeout(resolve, 15000));
+    if (!hasNextLink) return false;
+    await context.waitForNavigation({ timeout: 40000 });
+    await context.waitForSelector(loadedSelector, { timeout: 20000 });
+  }
 
   const lastReviewDate = await context.evaluate(function () {
     return document.evaluate('//script[@id=\'bv-jsonld-reviews-data\']', document, null, XPathResult.ANY_UNORDERED_NODE_TYPE, null).singleNodeValue.textContent.replace(/(.+)"review":\[{"@type":"Review","dateCreated":"((\d+)-(\d+)-(\d+))(.+)",(.+)/, '$2');
@@ -110,7 +114,7 @@ module.exports = {
     store: 'elcorteingles',
     nextLinkSelector: 'li.bv-content-pagination-buttons-item-next > a',
     loadedSelector: 'ol.bv-content-list-reviews > li',
-    noResultsXPath: '//button[contains(.,"Escribe la primera opinión de este producto")] | //meta[@name="twitter:url"][@content="https://www.elcorteingles.es/electrodomesticos/"]',
+    noResultsXPath: '//button[contains(.,"Escribe la primera opinión de este producto")] | //div[contains(@class, "guided_search-navigation")]',
     domain: 'elcorteingles.es',
   },
   implementation,

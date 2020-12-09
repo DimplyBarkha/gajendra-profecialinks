@@ -27,7 +27,7 @@ const transform = (data, context) => {
       if (!lastReviewDate) {
         lastReviewDate = row.reviewDate[0].text;
       }
-      if (checkIfReviewIsFromLast30Days(lastReviewDate, row.reviewDate[0].text)) {
+      if (row.reviewDate && checkIfReviewIsFromLast30Days(lastReviewDate, row.reviewDate[0].text)) {
         return true;
       }
       return false;

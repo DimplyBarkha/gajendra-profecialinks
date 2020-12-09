@@ -55,7 +55,7 @@ module.exports = {
     store: 'elcorteingles',
     domain: 'elcorteingles.es',
     loadedSelector: 'ol.bv-content-list-reviews > li',
-    noResultsXPath: '//button[contains(.,"Escribe la primera opinión de este producto")] | //meta[@name="twitter:url"][@content="https://www.elcorteingles.es/electrodomesticos/"]',
+    noResultsXPath: '//button[contains(.,"Escribe la primera opinión de este producto")] | //div[contains(@class, "guided_search-navigation")]',
   },
   implementation,
 };
