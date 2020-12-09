@@ -1,24 +1,19 @@
-
 /**
  *
- * @param { { URL: string, id: any, RPC: string, SKU: string, parentInput: string } } inputs
+ * @param { { URL: string, parentInput: string, id: any, RPC: string, SKU: string, zipcode: string, UPC: string } } inputs
  * @param { { store: any, country: any, zipcode: any } } parameters
  * @param { ImportIO.IContext } context
  * @param { { execute: ImportIO.Action, extract: ImportIO.Action } } dependencies
  */
-async function implementation (
-  inputs,
-  parameters,
-  context,
-  dependencies,
-) {
-  const { URL, RPC, SKU, parentInput } = inputs;
+async function implementation (inputs, parameters, context, dependencies) {
+  const { URL, RPC, SKU, UPC, parentInput } = inputs;
   const { execute, extract } = dependencies;
   const url = URL;
-  const id = RPC || SKU || inputs.id;
-  const resultsReturned = await execute({ url, id, zipcode: parameters.zipcode });
+  const id = RPC || SKU || UPC || inputs.id;
+  const zipcode = inputs.zipcode || parameters.zipcode;
+  const resultsReturned = await execute({ url, id, zipcode });
   if (!resultsReturned) {
-    console.log('No results returned');
+    console.log('No results were returned');
     return;
   }
 
@@ -65,8 +60,20 @@ module.exports = {
       optional: true,
     },
     {
+      name: 'UPC',
+      description: 'UPC for product',
+      type: 'string',
+      optional: true,
+    },
+    {
       name: 'SKU',
       description: 'sku for product',
+      type: 'string',
+      optional: true,
+    },
+    {
+      name: 'zipcode',
+      description: 'zipcode',
       type: 'string',
       optional: true,
     },
