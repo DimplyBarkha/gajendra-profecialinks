@@ -7,6 +7,5 @@ module.exports = {
     domain: 'kifli.hu',
     loadedSelector: null,
     noResultsXPath: null,
-    zipcode: '',
-  },
+    },
 };

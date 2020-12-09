@@ -4,9 +4,7 @@ module.exports = {
   parameterValues: {
     domain: 'kifli.hu',
     prefix: null,
-    url: null,
     country: 'HU',
     store: 'kifli',
-    zipcode: '',
   },
 };
