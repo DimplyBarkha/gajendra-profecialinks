@@ -4,8 +4,13 @@
  * @returns {ImportIO.Group[]}
  */
 const transform = (data) => {
+  const state = context.getState();
+  let orgRankCounter = state.orgRankCounter || 0;
+  let rankCounter = state.rankCounter || 0;
   for (const { group } of data) {
     for (const row of group) {
+      rankCounter += 1;
+      let productPageRank = 0;
       if (row.variants) {
         const variantArray = row.variants.map((item) => {
           return item.text;
@@ -38,18 +43,13 @@ const transform = (data) => {
         });
         row.aggregateRating2 = [{ text: (parseFloat('' + rating1) / 20).toString(), xpath: row.aggregateRating2[0].xpath }];
       }
-      if (row.rank) {
-        const rankArray = row.rank.map((item) => {
-          return parseInt(item.text) + 1;
-        });
-        row.rank = [{ text: rankArray.join(), xpath: row.rank[0].xpath }];
+      rankCounter += 1;
+      if (!row.sponsored) {
+        orgRankCounter += 1;
+        row.rankOrganic = [{ text: orgRankCounter }];
       }
-      if (row.rankOrganic) {
-        const rankOrganicArray = row.rankOrganic.map((item) => {
-          return parseInt(item.text) + 1;
-        });
-        row.rankOrganic = [{ text: rankOrganicArray.join(), xpath: row.rankOrganic[0].xpath }];
-      }
+      row.rank = [{ text: rankCounter }];
+      row.productPageRank = [{ text: ++productPageRank }];
     }
   }
   const clean = text => text.toString()
