@@ -144,3 +144,9 @@ fields:
   - name: firstVariant
     singleValue: false
     xpath: //div[@id="pd_firstVariant"]  
+  - name: hasComparisonTable
+    singleValue: true
+    xpath: boolean(//div[@id="formControl-productInfoMain-addToComparison-link"])
+  - name: unInterruptedPDP
+    singleValue: false
+    xpath: //h3[@class="_3L3q2V _3ZjYJW _2zLas_"]
