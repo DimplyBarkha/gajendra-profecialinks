@@ -136,7 +136,7 @@ fields:
     singleValue: false
     description: Images within the third party description
   - name: videos
-    xpath: //video[@preload="auto"]/@src | //source[contains(@type,'video')]/@src
+    xpath: //body/@video-url
     description: URLs of videos on page
   - name: name
     description: The product name

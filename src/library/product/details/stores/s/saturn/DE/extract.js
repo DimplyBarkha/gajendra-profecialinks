@@ -1,3 +1,4 @@
+// @ts-nocheck
 const { transform } = require('./transform');
 
 async function implementation (inputs, parameters, context, dependencies) {
@@ -71,87 +72,43 @@ async function implementation (inputs, parameters, context, dependencies) {
     console.log(e.message);
   }
 
-  // await context.evaluate(() => {
-  //   const videosUrl = [];
-  //   function clickImages (image) {
-  //     const videos = [...document.querySelectorAll(image)];
-  //     try {
-  //       // Get the Videos to scope
-  //       videos.map(e => { e.click(); });
-  //     } catch (err) {
-  //       console.log('Video Loading issues');
-  //     }
-  //   }
-
-  //   function clickTheVideo (playButton) {
-  //     const clickButton = [...document.querySelectorAll(playButton)];
-  //     // Click the videos
-  //     clickButton.map(e => {
-  //       setInterval(function () {
-  //         e.click();
-  //       }, 7000);
-  //     });
-  //   }
-
-  //   // Call the function to get the images
-  //   clickImages('div > div > picture > img[alt]');
-
-  //   setTimeout(function () {
-  //     console.log('Clicking the Play Button');
-  //     clickTheVideo('#playButton div');
-
-  //   }, 7000);
-
-  // await context.waitForSelector('video[preload="auto"]');
-  try {
-    await context.waitForSelector('div > div > picture > img[alt]');
-    await context.evaluate(() => {
-      const videos = Array.from(document.querySelectorAll('div > div > picture > img[alt]'));
+  await context.evaluate(async () => {
+    const delay = t => new Promise(resolve => setTimeout(resolve, t));
+    const videosUrl = [];
+    async function clickImages (image) {
+      const videos = [...document.querySelectorAll(image)];
       try {
         // Get the Videos to scope
-        videos.map((e) => {
-          e.click();
-        });
-        console.log('clicked the video thumbnail');
+        for (const video of videos){
+          await delay(2000);
+          video.click();  
+          console.log('clicking on play button:');
+          await clickTheVideo('#playButton div');
+        }
       } catch (err) {
         console.log('Video Loading issues');
       }
-    });
-    await context.waitForSelector('#playButton div');
-    await context.evaluate(() => {
-      const clickButton = Array.from(document.querySelectorAll('#playButton div'));
+    }
+    async function clickTheVideo (playButton) {
+      const clickButton = [...document.querySelectorAll(playButton)];
       // Click the videos
-      clickButton.map((e) => {
-        setInterval(function () {
-          e.click();
-        }, 7000);
-      });
-      setTimeout(function () {
-        console.log('Grabbing the data');
-        const videosUrl = [];
-        Array.from(document.querySelectorAll('video[preload="auto"]')).map((e) => {
-          videosUrl.push(e.getAttribute('src'));
-          document
-            .querySelector('body')
-            .setAttribute(
-              'videos',
-              videosUrl ? videosUrl.join('|') : 'Nothing',
-            );
-          console.log(`_____${videosUrl.join('|')}_________`);
-        });
-      }, 7000);
-    });
-  } catch (e) {
-    console.log('doesnot have video tumbnail');
-  }
-
+      for (const button of clickButton){
+        await delay(2000);
+        button.click();  
+      }
+    }
+    // Call the function to get the images
+    await clickImages('div > div > picture > img[alt]');
+      
+  });
   const requests = await context.searchAllRequests('https://mycliplister.com/jplist/.*', 'GET');
-
-  for (const request of requests) {
+    for (const request of requests) {
     if (request && request.responseBody && request.responseBody.body) {
       const inf = JSON.parse(request.responseBody.body);
       const vidUrl = inf.cliplist.clip.clipurl;
-      console.log(vidUrl); // This needs to be appended to DOM and extracted
+      console.log('VIDEO URL :  ',vidUrl); // This needs to be appended to DOM and extracted
+      const videosAll = vidUrl.join(' | ')
+      body.setAttribute('video-url', videosAll);
     }
   }
 
