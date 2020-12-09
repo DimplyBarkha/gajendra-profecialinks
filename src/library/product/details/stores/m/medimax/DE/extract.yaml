@@ -66,9 +66,11 @@ fields:
     regExp: .*?:\s*(.*)
     regExpReplace: $1
   - name: hasComparisonTable
-    xpath: //h1[contains(@class,'compare-headline')]
-    regExp: (.+)
+    singleValue: true
+    xpath: (//h1[contains(@class,'compare-headline')])[1]
+    regExp: (.*)
     regExpReplace: Yes
+    defaultValue: No
   - name: shippingDimensions
     singleValue: false
     xpath: //div[div[contains(text(),'Logistikmaße mit Verpackung')]]//tr
