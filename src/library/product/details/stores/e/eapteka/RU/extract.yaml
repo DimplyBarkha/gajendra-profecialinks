@@ -35,7 +35,7 @@ fields:
     defaultValue: In Stock
   - name: description
     singleValue: false
-    xpath: //div[@id="instruction_PHARM_EFFECT"]/div[@class="offer-instruction__item-text"]//text() | //div[@id="instruction_DIRECTIONS"]/div[@class="offer-instruction__item-text"]/ul/li| (//h3[contains(text(), "Описание")]//..//following-sibling::div)[1]
+    xpath: //div[@id="instruction_PHARM_EFFECT"]/div[@class="offer-instruction__item-text"]//text() | //div[@id="instruction_DIRECTIONS"]/div[@class="offer-instruction__item-text"]/ul/li| (//h3[contains(text(), "Описание")]//..//following-sibling::div)[1] | (//h3[contains(text(), "Характеристики")]//../following-sibling::div)[1]
   - name: descriptionBullets
     singleValue: false
     xpath: count(//div[@id="instruction_DIRECTIONS"]/div[@class="offer-instruction__item-text"]/ul/li | //h3[contains(text(), "Характеристики")]//..//following-sibling::div[@class="offer-instruction__item-text"]/ul/li)
@@ -52,7 +52,8 @@ fields:
     regExpReplace: $1$2$3$4
   - name: weightNet
     singleValue: false
-    xptah: normalize-space(//h3[contains(text(), "Штрих-код и вес")]//..//following-sibling::div[@class="offer-instruction__row" and (contains(.,"Вес"))]/text())
+    xpath: //h3[contains(text(), "Штрих-код и вес")]//..//following-sibling::div[@class="offer-instruction__row" and (contains(.,"Вес"))]/text()
+    # xptah: normalize-space(//h3[contains(text(), "Штрих-код и вес")]//..//following-sibling::div[@class="offer-instruction__row" and (contains(.,"Вес"))]/text())
     regExp: Вес\W+(.+)
     regExpReplace: $1
   - name: weightGross
@@ -80,11 +81,11 @@ fields:
     description: Content under "legal disclaimer" header
   - name: directions
     singleValue: false
-    xpath: //h3[contains(text(), "Как принимать")]//..//following-sibling::div[@class="offer-instruction__item-text"]//text()
+    xpath: //h3[contains(text(), "Как принимать")]//..//following-sibling::div[@class="offer-instruction__item-text"]//text() | (//h3[contains(text(), "Характеристики")]//../following-sibling::div)[1]
     # xpath: (//h2[contains(text(), "Инструкция по применению")]//..//following-sibling::ul)[1]
   - name: warnings
     singleValue: false
-    xpath: //h3[contains(text(), "Противопоказания")]//..//following-sibling::div[@class="offer-instruction__item-text"]//text() | //h3[contains(text(), "Специальные указания")]//..//following-sibling::div[@class="offer-instruction__item-text"]/text() | //h3[contains(text(), "Передозировка")]//..//following-sibling::div[@class="offer-instruction__item-text"]/text()
+    xpath: //h3[contains(text(), "Противопоказания")]//..//following-sibling::div[@class="offer-instruction__item-text"]//text() | //h3[contains(text(), "Специальные указания")]//..//following-sibling::div[@class="offer-instruction__item-text"]/text() | //h3[contains(text(), "Передозировка")]//..//following-sibling::div[@class="offer-instruction__item-text"]/text() | (//h3[contains(text(), "Передозировка")]//..//following-sibling::div)[1] | (//h3[contains(text(), "Специальные указания")]//..//following-sibling::div)[1]
   - name: ratingCount
     singleValue: false
     xpath: //div[@itemprop="aggregateRating"]/meta[@itemprop="reviewCount"]/@content | //div[@class="description__item mb-4"]//div/span[contains(.,"отзыва")]/text()
@@ -93,8 +94,7 @@ fields:
     xpath: //div[@itemprop="aggregateRating"]/meta[@itemprop="ratingValue"]/@content
   - name: aggregateRating
     singleValue: false
-    description: The stated aggregate rating normalized to be out of 5
-    type: NUMBER
+    xpath: //div[@itemprop="aggregateRating"]/meta[@itemprop="ratingValue"]/@content
   - name: shippingInfo
     singleValue: false
     description: Shipping information for the product

@@ -28,14 +28,14 @@ const transform = (data) => {
       if (row.manufacturerImages) {
         let text = '';
         row.manufacturerImages.forEach((item, index) => {
-          text = item.text.replace('?$prod_tnsm$', '');
+          text = item.text.replace('?$prod_tnsm$', ' ');
           row.manufacturerImages[index].text = text;
         });
       }
       if (row.alternateImages) {
         let text = '';
         row.alternateImages.forEach((item, index) => {
-          text = item.text.replace('?$prod_all4one$', '');
+          text = item.text.replace('?$prod_all4one$', ' ');
           row.alternateImages[index].text = text;
         });
       }
@@ -43,7 +43,7 @@ const transform = (data) => {
       if (row.description) {
         let text = '';
         row.description.forEach(item => {
-          text += `${item.text.replace(/\n \n/g, ':')} || `;
+          text += `${item.text.replace(/\n \n/g, ' ')} || `;
         });
         row.description = [
           {
@@ -74,7 +74,7 @@ const transform = (data) => {
       if (row.specifications) {
         let text = '';
         row.specifications.forEach(item => {
-          text += `${item.text.replace(/\n \n/g, ':')} || `;
+          text += `${item.text.replace(/\n \n/g, ' ')} || `;
         });
         row.specifications = [
           {
@@ -113,7 +113,7 @@ const transform = (data) => {
       if (row.directions) {
         let text = '';
         row.directions.forEach(item => {
-          text += `${item.text.replace(/\n \n/g, ':')} `;
+          text += `${item.text.replace(/\n \n/g, ' ')} `;
         });
         row.directions = [
           {
@@ -124,7 +124,7 @@ const transform = (data) => {
       if (row.warnings) {
         let text = '';
         row.warnings.forEach(item => {
-          text += `${item.text.replace(/\n \n/g, ':')} `;
+          text += `${item.text.replace(/\n \n/g, ' ')} `;
         });
         row.warnings = [
           {
@@ -135,7 +135,7 @@ const transform = (data) => {
       if (row.manufacturerImages) {
         let text = '';
         row.manufacturerImages.forEach(item => {
-          text += `${item.text.replace(/\n \n/g, ':')} | `;
+          text += `${item.text.replace(/\n \n/g, ' ')} | `;
         });
         row.manufacturerImages = [
           {
@@ -147,7 +147,7 @@ const transform = (data) => {
       if (row.additionalDescBulletInfo) {
         let text = '';
         row.additionalDescBulletInfo.forEach(item => {
-          text += `${item.text.replace(/\n \n/g, ':')} || `;
+          text += `${item.text.replace(/\n \n/g, ' ')} || `;
         });
         row.additionalDescBulletInfo = [
           {
