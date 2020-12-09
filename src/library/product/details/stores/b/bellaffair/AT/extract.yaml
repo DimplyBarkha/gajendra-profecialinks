@@ -130,3 +130,8 @@ fields:
   - name: quantity
     singleValue: true
     xpath: //div[@class="detail-price"]//p[contains(@class,"small")]
+
+  - name: unInterruptedPDP
+    xpath: //div[contains(@class,"cross") and contains(@class,"clear")]//div[@class="gridlist_item"]
+  - name: hasComparisonTable
+    defaultValue: No
