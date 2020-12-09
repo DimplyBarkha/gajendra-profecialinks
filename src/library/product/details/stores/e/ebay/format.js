@@ -1,11 +1,11 @@
-
 /**
  *
  * @param {ImportIO.Group[]} data
  * @returns {ImportIO.Group[]}
  */
 const transform = (data) => {
-    for (const { group } of data) {
+    for (const { group }
+        of data) {
         for (const row of group) {
             if (row.specifications) {
                 let text = '';
@@ -51,9 +51,9 @@ const transform = (data) => {
                 row.mpc = row.mpc.filter(mpc => !/Does not apply/i.test(mpc.text))
             }
             if (row.aggregateRating && row.decimalSeperator && row.decimalSeperator[0].text === 'EU') {
-                row.aggregateRating[0].text = row.aggregateRating[0].text.replace('.',',')
+                row.aggregateRating[0].text = row.aggregateRating[0].text.replace('.', ',')
             }
-
+            row.hasComparisonTable = row.hasComparisonTable ? [{ text: 'Yes' }] : [{ text: 'No' }]
         }
     }
     const clean = text => text.toString()

@@ -11,7 +11,7 @@ async function implementation(
     } catch (err) {
         console.log('manufacturer contents not loaded or unavailable');
     }
-    const src = await context.evaluate(async function () {
+    const src = await context.evaluate(async function() {
         const iframe = document.querySelector('iframe#desc_ifr');
         // @ts-ignore
         const src = iframe ? iframe.src : '';
@@ -31,7 +31,7 @@ async function implementation(
                 await context.waitForSelector('div#ds_div');
                 return await context.extract(productDetails, { type: 'MERGE_ROWS', transform });
             } catch (error) {
-                console.log('could not load page',error);
+                console.log('could not load page', error);
             }
         }
     }
