@@ -158,3 +158,8 @@ fields:
   - name: termsAndConditions    
     singleValue: true
     xpath: count(//a[(@href="https://www.betta.com.au/terms-and-conditions/")])
+
+  - name: unInterruptedPDP
+    xpath: //div[contains(@class,"pagebuilder")]/h2/following-sibling::div//ol//li
+  - name: hasComparisonTable
+    defaultValue: No
