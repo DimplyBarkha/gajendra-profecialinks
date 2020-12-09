@@ -2,7 +2,7 @@ input:
   _url: http://backmarket.fr
   URL: https://www.backmarket.fr/iphone-11-64-go-noir-debloque-tout-operateur-pas-cher/290057.html#?l=3
 extractions:
-  - html: https://workbench.import.io/html/run=1d12c3f8-c25f-444d-adef-ba22df4bdea2/task=3ded6f43-e565-42ef-8d14-3a716c6ced14/88fe1a61-fd96-4772-949c-33c58d5b14b3.html
+  - html: https://workbench.import.io/html/run=cbb93b46-f88e-41a9-9b15-ff6d715b3db0/task=b6140ee4-ec41-49c9-b959-5674472c0391/6373ea7c-52c8-4d86-85cd-ea6cdf979906.html
     extractionConfigId: product/details/stores/b/backmarket/FR/extract
     data:
       - group:
@@ -176,16 +176,18 @@ extractions:
             variants:
               - text: Noir
                 xpath: /html/body/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/ul[1]/li[2]/div[1]/div[2]/a[1]/@title
-              - text: Rouge
+              - text: PRODUCT(Red)
                 xpath: /html/body/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/ul[1]/li[2]/div[1]/div[2]/a[2]/@title
-              - text: Jaune
+              - text: (PRODUCT)Red
                 xpath: /html/body/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/ul[1]/li[2]/div[1]/div[2]/a[3]/@title
-              - text: Vert
+              - text: Jaune
                 xpath: /html/body/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/ul[1]/li[2]/div[1]/div[2]/a[4]/@title
-              - text: Mauve
+              - text: Vert
                 xpath: /html/body/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/ul[1]/li[2]/div[1]/div[2]/a[5]/@title
-              - text: Blanc
+              - text: Mauve
                 xpath: /html/body/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/ul[1]/li[2]/div[1]/div[2]/a[6]/@title
+              - text: Blanc
+                xpath: /html/body/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/ul[1]/li[2]/div[1]/div[2]/a[7]/@title
               - text: 64 Go
                 xpath: /html/body/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/ul[1]/li[2]/div[2]/div[1]/select[1]/option[1]/text()[1]
               - text: 128 Go
@@ -271,10 +273,10 @@ extractions:
                 locale: fr_FR
                 value: 20
             variantCount:
-              - text: "9"
+              - text: "10"
                 type: NUMBER
-                raw: "9"
+                raw: "10"
                 locale: fr_FR
-                value: 9
+                value: 10
         xpath: /
-    timestamp: 1607514673317
+    timestamp: 1607522262490
