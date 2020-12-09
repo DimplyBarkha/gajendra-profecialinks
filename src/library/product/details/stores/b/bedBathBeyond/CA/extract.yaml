@@ -4,3 +4,11 @@ fields:
     xpath: ancestor::html//a[@itemprop="brand"]/@href
     regExp: (.+)
     regExpReplace: https://www.bedbathandbeyond.ca$1
+  - name: inTheBoxText
+    xpath: ancestor::html//h2[contains(.,"In The Box")]/following-sibling::div//li
+  - name: inTheBoxUrl
+    xpath: ancestor::html//h2[contains(.,"In The Box")]/following-sibling::div//img/@src
+  - name: hasComparisonTable
+    defaultValue: No
+  - name: unInterruptedPDP
+    xpath: ancestor::html//h3[contains(.,"You May Also Like") or contains(.,"you may also like")]/following-sibling::div//div[contains(@class,"product-tile")] | ancestor::html//h3[@id="hl-sponsored-callout"]/following-sibling::div//div[contains(@class,"slick-slide")]/div
