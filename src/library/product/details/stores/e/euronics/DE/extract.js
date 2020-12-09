@@ -56,13 +56,9 @@ async function implementation(
     const loadbeeUrl = await context.evaluate(function() {
         return document.querySelector('iframe[id^="loadbee"]') ? document.querySelector('iframe[id^="loadbee"]').src : null;
     });
-    console.log('loadbeeUrl!@!!@');
-    console.log(loadbeeUrl);
 
     let enhancedContent = '';
     let manufacturerImages = '';
-    // let inBoxTexts = '';
-    // let inBoxImages = '';
     let boxContent = null;
     let videos = '';
     if (loadbeeUrl || gtin) {
@@ -122,9 +118,6 @@ async function implementation(
                 imagesUrl = inTheBoxImages.join(' || ');
                 inBoxText = inTheBoxTexts.join(' || ');
             }
-            console.log('in box content')
-            console.log(imagesUrl)
-            console.log(inBoxText)
             return { text: inBoxText, images: imagesUrl };
         });
 
@@ -142,25 +135,6 @@ async function implementation(
                 }, ms)
             })
         }
-
-        // function checkdata() {
-        //     let getInTheBox = document.querySelector('div.in-the-box img')
-        //     let inTheBoxImages = [];
-        //     let inTheBoxTexts = [];
-        //     if (getInTheBox) {
-        //         let getAllProducts = document.querySelectorAll('div.in-the-box div');
-        //         for (i = 0; i < getAllProducts.length; i++) {
-        //             inTheBoxImages.push(getAllProducts[i].querySelector('img').getAttribute('src'));
-        //             inTheBoxTexts.push(getAllProducts[i].querySelector('p').innerText);
-        //         }
-        //         let imagesUrl = inTheBoxImages.join(' || ')
-        //         let imagesText = inTheBoxTexts.join(' || ')
-        //         document.head.setAttribute('intheboxurl', imagesUrl);
-        //         document.head.setAttribute('intheboxtext', imagesText);
-        //     }
-        //     return document.querySelector('div.in-the-box img');
-        // };
-        // checkdata;
 
         function addHiddenDiv(id, text) {
             let div = document.createElement('div');
