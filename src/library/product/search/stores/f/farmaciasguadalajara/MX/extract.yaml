@@ -29,7 +29,7 @@ fields:
     singleValue: false
   - name: price
     singleValue: false
-    xpath: //div[@class="product_listing_container"]//ul//li//div[@class="product"]//div[@class="product_price"]/span[@class="price"]
+    xpath: //div[@class="product_listing_container"]//ul//li//div[@class="product"]/@data-product-price
   - name: manufacturer
     singleValue: true
   - name: soldBy

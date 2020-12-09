@@ -16,8 +16,10 @@ async function implementation (inputs, parameters, context, dependencies) {
         addAttribute('div.product_listing_container ul li .product', index, 'data-product-url', productUrl);
         const regex = /\d*$/g;
         const result = productUrl.match(regex);
+        const price = element.querySelector('.product_price > span.price') ? element.querySelector('.product_price > span.price').innerText.replace('.', ',') : '';
         addAttribute('div.product_listing_container ul li .product', index, 'data-product-id', result[0]);
         addAttribute('div.product_listing_container ul li .product', index, 'data-product-rank', index + 1);
+        addAttribute('div.product_listing_container ul li .product', index, 'data-product-price', price);
       });
     }
   });
