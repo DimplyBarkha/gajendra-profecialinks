@@ -12,7 +12,7 @@ async function implementation (
     function addHiddenDiv (id, content) {
       const newDiv = document.createElement('div');
       newDiv.id = id;
-      console.log("div with " + id + " has content - " + content);
+      console.log('div with ' + id + ' has content - ' + content);
       newDiv.textContent = content;
       newDiv.style.display = 'none';
       document.body.appendChild(newDiv);
