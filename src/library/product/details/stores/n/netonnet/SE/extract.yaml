@@ -135,3 +135,12 @@ fields:
   - name: weightNet
     singleValue: false
     xpath: //td[contains(text(), "Vikt")]/following::td[1]
+  - name: inTheBoxText
+    singleValue: false
+    xpath: //div//font[contains(text(),'In the package')]/ancestor::div/following-sibling::div[@class="row"]//ul/li
+  - name: hasComparisonTable
+    singleValue: true
+    xpath: boolean(//span[@class="nonIcon compareProduct"])
+  - name: unInterruptedPDP
+    singleValue: false
+    xpath: //div[@class="name "]
