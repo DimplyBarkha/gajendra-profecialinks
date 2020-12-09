@@ -17,7 +17,7 @@ const transform = (data, context) => {
           brandData = item.text;
         });
       }
-      row.name = [{ text: `${brandData} ${nameData}` }];
+      //row.name = [{ text: `${brandData} ${nameData}` }];
 
       if (row.thumbnail) {
         row.thumbnail.forEach(item => {
