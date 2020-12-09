@@ -20,7 +20,7 @@ fields:
     xpath: //ul[@class="breadcrumb"]//li/a/span/font/font//text()
   - name: nameExtended
     singleValue: false
-    xpath: //h1/text()      
+    xpath: //h1/font//text()     
   - name: listPrice
     singleValue: false
     xpath: //div[@class="pricing"]/s
@@ -43,14 +43,17 @@ fields:
     type: NUMBER
   - name: brandText
     singleValue: false
-    description: Product brand shown - this may actually NOT be just a brand name,
-      e.g. "Visit the Gillette Store"
+    xpath: //script[contains(.,"brand")]/text()
+    regExp: brand\W+([^"]+)
+    regExpReplace: $1
   - name: manufacturer
     singleValue: false
-    description: Product manufacturer
+    xpath: //script[contains(.,"brand")]/text()
+    regExp: manufacturer\W+([^"]+)
+    regExpReplace: $1
   - name: quantity
     singleValue: false
-    xpath: //h1
+    xpath: //h1/font//text()
     regExp: (\d{1,}\s)(g|G|L|Kg|Mg|Ml|ml|Oz|s|l|EA|GR|pièces)
     # regExpReplace:
   - name: weightNet
@@ -67,7 +70,7 @@ fields:
     description: The store-specific product identifier
   - name: variantId
     singleValue: false
-    xpath: //label[@class="sr-only"]/@for   quantity-
+    xpath: //label[@class="sr-only"]/@for
     regExp: quantity\W(.+)
     regExpReplace: $1
   - name: mpc
@@ -82,10 +85,10 @@ fields:
     description: Content under "legal disclaimer" header
   - name: directions
     singleValue: false
-    description: Content under "directions" header
+    xpath: //h2[contains(.,"Indication")]/following::div[@class="content mb-3"]//ul/li
   - name: warnings
     singleValue: false
-    description: Content under "warnings" header
+    xpath: //h2[contains(.,"Emploi")]/following::div[@class="content mb-3"][1]/text()
   - name: ratingCount
     singleValue: false
     xpath: //u[@class="d-md-block"]/text() 
@@ -128,7 +131,7 @@ fields:
     description: URLs of videos on page
   - name: name
     singleValue: false
-    xpath: //h1/text()
+    xpath: //h1/font//text()
   - name: inStorePrice
     singleValue: false
     description: Price in the selected store
@@ -218,8 +221,7 @@ fields:
     description: null
   - name: secondaryImageTotal
     singleValue: false
-    xpath: //img[@class="carousel-image"][position()>1]/@src
-    type: NUMBER
+    xpath: count(//img[@class="carousel-image"][position()>1]/@src)
   - name: news
     singleValue: false
     description: null
@@ -231,7 +233,7 @@ fields:
     description: null
   - name: ingredientsList
     singleValue: false
-    xpath: 
+    # xpath: 
   - name: servingSize
     singleValue: false
     description: The size of serving Nutritional information is based on.

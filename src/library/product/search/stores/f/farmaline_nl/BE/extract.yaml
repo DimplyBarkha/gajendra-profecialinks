@@ -6,6 +6,8 @@ fields:
   - name: id
     xpath: //input[@data-brand]/@id
     regExp: \d{3,}
+  - name: manufacturer
+    xpath: //input[@data-brand]/@data-brand
   - name: name
     singleValue: true
     xpath: //article//header
