@@ -83,7 +83,12 @@ async function implementation (
     });
 
     inBoxText = await context.evaluate(async () => {
-      return document.querySelector('.in-the-box') ? document.querySelector('.in-the-box').innerText : '';
+      const boxContent = document.querySelectorAll('.in-the-box p');
+      const boxText = [];
+      [...boxContent].forEach((element) => {
+        boxText.push(element.innerText);
+      });
+      return boxText;
     });
 
     inBoxUrls = await context.evaluate(async () => {
@@ -164,12 +169,19 @@ async function implementation (
     }
   
     if (inBoxUrls.length) {
-      addHiddenDiv('ii_inBoxUrls', inBoxUrls.join(' | '));
+      addHiddenDiv('ii_inBoxUrls', inBoxUrls.join(' || '));
       // inBoxUrls.forEach((element) => {
       //   addHiddenDiv('ii_inBoxUrls', element);
       // });
     }
-    addHiddenDiv('ii_inBoxText', inBoxText);
+  
+    if (inBoxText.length) {
+      addHiddenDiv('ii_inBoxText', inBoxText.join(' || '));
+      // inBoxText.forEach((element) => {
+      //   addHiddenDiv('ii_inBoxText', element);
+      // });
+    }
+    // addHiddenDiv('ii_inBoxText', inBoxText);
     addHiddenDiv('ii_comparisionText', hasComparisionTable);
 
     let inStore = false;
