@@ -88,9 +88,6 @@ const transform = (data) => {
           row.specifications = [{'text':rowItem, 'xpath': row.specifications[0].xpath}]
           //console.log(row.specifications)
         }
-        if (row.descriptionBullets) {
-          row.descriptionBullets = [{'text':row.descriptionBullets.length, 'xpath':row.descriptionBullets[0].xpath}];              
-        }
         if(row.variantInformation){
           var strVariantInfo = ''
           row.variantInformation.forEach(item => {

@@ -66,3 +66,6 @@ fields:
   - name: variantCount
     singleValue: false
     xpath: count(//div[contains(@class,"product-detail-variant-section__variant-switch")]//ul//li//a/@data-product-variant-switch-trigger-id)
+  - name: availabilityText
+    singleValue: false
+    defaultValue: 'In Stock'
