@@ -527,3 +527,15 @@ fields:
   - name: _url
     singleValue: true
     xpath: //meta[@property='og:url']/@content
+  - name: inTheBoxUrl
+    xpath: //div[contains(@class,'InTheBox')]//img/@src
+  - name: inTheBoxText
+    xpath: //div[contains(@class,'InTheBox')]//span
+  - name: hasComparisonTable
+    singleValue: true
+    xpath: //li[contains(@class,"flix-comp-item")]
+    regExp: (.*)
+    regExpReplace: Yes
+    defaultValue: No
+  - name: unInterruptedPDP
+    xpath: //ul[contains(@class,'products')]//li[contains(@class,'tm-has-options')]//div[@class="astra-shop-summary-wrap"]
