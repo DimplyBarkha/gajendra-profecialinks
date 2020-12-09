@@ -21,6 +21,20 @@ const transform = (data) => {
         });
         row.ingredientsList = [{ text }];
       }
+      if (row.promotion) {
+        let text = '';
+        row.promotion.forEach(item => {
+          text = row.promotion.map(elm => elm.text).join(' ');
+        });
+        row.promotion = [{ text }];
+      }
+      if (row.manufacturerDescription) {
+        let text = '';
+        row.manufacturerDescription.forEach(item => {
+          text = row.manufacturerDescription.map(elm => elm.text).join(' ');
+        });
+        row.manufacturerDescription = [{ text }];
+      }
       // if (row.nameExtended) {
       //   let text = '';
       //   row.nameExtended.forEach(item => {

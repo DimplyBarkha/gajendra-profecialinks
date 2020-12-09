@@ -15,8 +15,14 @@ module.exports = {
     dependencies,
   ) => {
     await context.evaluate(async function () {
+      const popupButton = document.querySelector('#adultwrapper > div > div > button:nth-child(2)');
+      if (popupButton) {
+        document.querySelector('#adultwrapper > div > div > button:nth-child(2)').click();
+      }
       const upc = window.utagData ? window.utagData.product_barcode : '';
-      document.body.setAttribute('upc', upc);
+      if (upc) {
+        document.body.setAttribute('upc', upc);
+      }
       const data = document.querySelector('#productDescriptionContent') ? document.querySelector('#productDescriptionContent').textContent.trim() : '';
       var bullets = JSON.stringify(data.match(/•|\*/gi) ? data.match(/•|\*/gi).length : 0);
       document.body.setAttribute('bullet_count', bullets);

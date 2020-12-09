@@ -79,7 +79,7 @@ fields:
     xpath: //div[@id="productTechSpecContainer"]//tr[contains(.,'Renk')]//following-sibling::td
   - name: manufacturerDescription
     description: The extended description of the product supplied by the lister
-    xpath: //div[@id="productDescriptionContent"]//div[contains(@class,'contain-md')]
+    xpath: //div[@id="productDescriptionContent"]//text()[not(contains(.,'{'))]
   - name: manufacturerImages
     description: Images within the third party description
     xpath: //div[@id="productDescriptionContent"]//img//@src[contains(.,'jpg')]
@@ -104,7 +104,7 @@ fields:
   - name: otherSellersName
     xpath: //a[contains(@class,'merchant-name')]
   - name: otherSellersPrice
-    xpath: //tr//span[contains(@class,'product-price')]
+    xpath: //tr//span[contains(@class,'product-price')] | //td//div[@class="price-value"]
   - name: firstVariant
     xpath: //form[@id="addToCartForm"]//input[@name="productId"]//@value
   - name: directions
@@ -116,7 +116,7 @@ fields:
   - name: packSize
     xpath: //th[contains(.,'Adet')]/following-sibling::td
   - name: promotion
-    xpath: //span[@id="product-discount-rate"]
+    xpath: //span[@id="product-discount-rate"] | //div[@class="extra-discount"]
   - name: shippingInfo
     xpath: //span[@class="seller"]
   - name: quantity
