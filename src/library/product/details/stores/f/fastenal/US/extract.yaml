@@ -11,6 +11,10 @@ fields:
     singleValue: false
     description: Other product images (not in manufacturer description)
     xpath: //div[@id='alternate-images-section']//img/@src
+  - name: alternateImages
+    singleValue: false
+    description: Other product images (not in manufacturer description)
+    xpath: //div[@id='alternate-images-section']//img/@src
   - name: metaKeywords
     singleValue: true
     description: The <meta> keywords content
@@ -220,9 +224,6 @@ fields:
     singleValue: false
     description: null
     xpath: //div[@id='note']/ul/li
-  - name: otherSellersName
-    singleValue: false
-    description: null
   - name: otherSellersPrice
     singleValue: false
     description: null
