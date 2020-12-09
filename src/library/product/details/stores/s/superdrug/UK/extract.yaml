@@ -426,7 +426,7 @@ fields:
     common link between other variants. method 3 = apply some logic to determine link
     between variants, this will need analysis
 - name: variants
-  xpath: //*[@id="addToCartForm"]//div/a
+  xpath: //*[@id="addToCartForm"]//div/a/@href
   regExp: (\d+)$
   regExpReplace: $1
   singleValue: false

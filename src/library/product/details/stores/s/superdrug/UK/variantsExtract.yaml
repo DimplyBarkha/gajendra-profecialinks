@@ -1,0 +1,13 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+- name: variantId
+  xpath: //*[@id="addToCartForm"]//div/a/@href
+  regExp: (\d+)$
+  regExpReplace: $1
+- name: variantUrl
+  xpath: //form[@id="addToCartForm"]//a[contains(@class, "color__item")]/@href
+  regExp: (.+)
+  regExpReplace: https://www.superdrug.com$1
