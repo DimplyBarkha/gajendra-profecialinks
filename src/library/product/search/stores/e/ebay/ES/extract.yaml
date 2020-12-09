@@ -1,1 +1,25 @@
-extends: ../shared
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: //div[@class="tpgv"]/div[@class="wp"]
+fields:
+  - name: id
+    singleValue: false
+    xpath: //div[@class="title"]/a/@href
+    regExp: (.+)-\/(\d+)\?hash(.+)
+    regExpReplace: $2
+  - name: name
+    singleValue: false
+    xpath: //div[@class="title"]/a/text()
+  - name: productUrl
+    singleValue: false
+    xpath: //div[@class="title"]/a/@href
+  - name: thumbnail
+    singleValue: false
+    xpath: //td[@class="icnv"]/a/img/@src
+  - name: price
+    singleValue: false
+    xpath: //div[@class="bin"]/span[@class="fp"]
+  - name: searchUrl
+    singleValue: false
+    xpath: ancestor::html//div[@id='search-url']

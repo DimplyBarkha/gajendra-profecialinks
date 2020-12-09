@@ -4,7 +4,7 @@ module.exports = {
   parameterValues: {
     country: 'FR',
     store: 'ebay',
-    domain: 'ebay.fr',
+    domain: 'ebaystores.fr',
     zipcode: '',
   },
 };

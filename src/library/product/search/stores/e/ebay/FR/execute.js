@@ -4,10 +4,10 @@ module.exports = {
   parameterValues: {
     country: 'FR',
     store: 'ebay',
-    domain: 'ebay.fr',
-    url: 'https://www.ebay.fr/sch/i.html?_nkw={searchTerms}&_sacat=0&_ipg=200',
-    loadedSelector: 'ul.srp-results > li[data-view]',
-    noResultsXPath: '//h3[contains(@class,"srp-save-null-search__heading")]',
+    domain: 'ebaystores.fr',
+    url: 'http://www.ebaystores.fr/dysonfrance/?submit=&_nkw={searchTerms}&_ipg=200',
+    loadedSelector: 'div.p-box',
+    noResultsXPath: "//span[contains(@class,'countClass') and contains(concat(' ',text(),' '),' 0 ')]",
     zipcode: '',
   },
 };

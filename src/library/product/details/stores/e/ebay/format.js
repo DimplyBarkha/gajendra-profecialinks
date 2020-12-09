@@ -1,22 +1,59 @@
-
 /**
  *
  * @param {ImportIO.Group[]} data
  * @returns {ImportIO.Group[]}
  */
 const transform = (data) => {
-    for (const { group } of data) {
+    for (const { group }
+        of data) {
         for (const row of group) {
             if (row.specifications) {
                 let text = '';
                 row.specifications = [{
                     text: row.specifications.reduce((item, currItem) => item ? `${item} || ${currItem.text.replace(/:(\s*\n\s*)+/g, ': ').replace(/(\s*\n\s*)+/, ' || ')}` : currItem.text.replace(/:(\s*\n\s*)/g, ': ').replace(/(\s*\n\s*)+/, ' || '), ''),
-                  }];
+                }];
             }
             if (row.image && !row.image[0].text.includes('l500')) {
-                row.image[0].text = row.image[0].text.replace(/(.+\/s-)l.*?(\..*)/,'$1l500$2')
-              }
-        
+                row.image[0].text = row.image[0].text.replace(/(.+\/s-)l.*?(\..*)/, '$1l500$2')
+            }
+            if (row.gtin) {
+                const GTIN = row.gtin.find(gtin => /\d+/.test(gtin.text))
+                if (GTIN) {
+                    row.gtin = [{
+                        text: GTIN.text,
+                    }]
+                } else {
+                    delete row.gtin
+                }
+            }
+            if (row.upc && /\d+/.test(row.upc[0].text) && !row.gtin) {
+                row.gtin = [{
+                    text: row.upc[0].text
+                }]
+            }
+            if (row.brandText && row.brandText[0].text.includes('Brand:')) {
+                row.brandText = [{
+                    text: row.brandText[0].text.replace('Brand:', '').trim()
+                }]
+            }
+            if (row.nameExtended && row.brandText && !row.nameExtended[0].text.startsWith(row.brandText[0].text)) {
+                row.nameExtended[0].text = `${row.brandText[0].text} - ${row.nameExtended[0].text}`
+            }
+            if (row.name && !row.brandText) {
+                row.brandText = [{
+                    text: row.name[0].text.trim().replace(/([^\s]+).*/, '$1')
+                }]
+            }
+            if (row.name && row.brandText && !row.brandText[0].text) {
+                row.brandText[0].text = row.name[0].text.trim().replace(/([^\s]+).*/, '$1')
+            }
+            if (row.mpc) {
+                row.mpc = row.mpc.filter(mpc => !/Does not apply/i.test(mpc.text))
+            }
+            if (row.aggregateRating && row.decimalSeperator && row.decimalSeperator[0].text === 'EU') {
+                row.aggregateRating[0].text = row.aggregateRating[0].text.replace('.', ',')
+            }
+            //row.hasComparisonTable = row.hasComparisonTable ? [{ text: 'Yes' }] : [{ text: 'No' }]
         }
     }
     const clean = text => text.toString()

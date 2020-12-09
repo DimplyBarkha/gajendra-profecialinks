@@ -11,7 +11,7 @@ async function implementation(
     } catch (err) {
         console.log('manufacturer contents not loaded or unavailable');
     }
-    const src = await context.evaluate(async function () {
+    const src = await context.evaluate(async function() {
         const iframe = document.querySelector('iframe#desc_ifr');
         // @ts-ignore
         const src = iframe ? iframe.src : '';
@@ -21,18 +21,17 @@ async function implementation(
     if (src) {
         try {
             await context.setBypassCSP(true);
-            await context.goto('https://vi.vipr.ebaydesc.com/ws/eBayISAPI.dll?ViewItemDescV4&item=153905959735&t=1600215559000&category=20614&seller=bestbuyonlinestore', { timeout: 30000, waitUntil: 'load', checkBlocked: true });
+            await context.goto(src, { timeout: 30000, waitUntil: 'load', checkBlocked: true });
             await context.waitForSelector('div#ds_div');
             return await context.extract(productDetails, { type: 'MERGE_ROWS', transform });
         } catch (error) {
             try {
-                await context.evaluate(async function (src) {
-                    window.location.assign(src);
-                }, src);
+                await context.setBypassCSP(true);
+                await context.goto(src, { timeout: 30000, waitUntil: 'load', checkBlocked: true });
                 await context.waitForSelector('div#ds_div');
                 return await context.extract(productDetails, { type: 'MERGE_ROWS', transform });
-            } catch (err) {
-                console.log(err);
+            } catch (error) {
+                console.log('could not load page', error);
             }
         }
     }

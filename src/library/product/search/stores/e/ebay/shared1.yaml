@@ -1,0 +1,20 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: div.tpgv > div.wp
+recordXPath: //div[contains(@class,'tpgv')]/div[contains(@class,"wp")]
+fields:
+  - name: name
+    singleValue: false
+    xpath: //div[@class='title']/a/@title | //div[@class='title']/a
+  - name: productUrl
+    singleValue: false
+    xpath: //div[@class='title']/a/@href
+  - name: thumbnail
+    singleValue: false
+    xpath: //img[@alt='Item image']/@src
+  - name: price
+    singleValue: false
+    xpath: //div[@class="bin"]/span[@class="vl"] | //div[@class="bin"]/span[@class="fp"]
+  - name: searchUrl
+    singleValue: false
+    xpath: ancestor::html//div[@id='search-url']

@@ -1,4 +1,4 @@
-const { transform } = require('../../../../shared')
+const { transform } = require('../format')
 const { implementation } = require('../shared')
 
 module.exports = {
@@ -7,7 +7,7 @@ module.exports = {
     country: 'CA',
     store: 'ebay',
     transform,
-    domain: 'ebay.ca',
+    domain: 'ebaystores.ca',
     zipcode: '',
   },
   implementation,

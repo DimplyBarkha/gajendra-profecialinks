@@ -5,7 +5,7 @@ recordXPath: null
 fields:
   - name: nameExtended
     singleValue: false
-    xpath: //h1[@id="itemTitle"]/text() 
+    xpath: concat(//h1[@id="itemTitle"]/text()[1],//h1[@id="itemTitle"]/text()[2])
   - name: metaKeywords
     singleValue: false
     xpath: //meta[contains(@name,"keyword")]/@content
@@ -14,17 +14,18 @@ fields:
     xpath: //img[@id="icImg"]/@src
   - name: alternateImages
     singleValue: false
-    xpath: //div[@id="vi_main_img_fs"]//li[position()>1]//img/@src
-    regExp: (.+\/s-)l.*?(\..*)
-    regExpReplace: $1l500$2
+    xpath: //div[contains(@id,"vi_main_img_fs")]/ul/li[position()>1]//img/@src
+    # regExp: (.+\/s-)l.*?(\..*)
+    # regExpReplace: $1l500$2
   - name: videos
     singleValue: false
+    xpath: //*[@class="buttons"]//*[@class="video"]/@data-title
   - name: price
     singleValue: false
-    manualSelector: span#prcIsum
+    manualSelector: span#prcIsum, span#prcIsum_bidPrice, span#mm-saleDscPrc
   - name: listPrice
     singleValue: false
-    manualSelector: span.vi-originalPrice
+    manualSelector: span.vi-originalPrice, span#mm-saleOrgPrc
   - name: promotion
     singleValue: false
     manualSelector: span.vi-discount
@@ -33,7 +34,7 @@ fields:
     xpath: //div[contains(@class,"itemAttr")]//table//tr[td[contains(@class,"attrLabels")]]
   - name: availabilityText
     singleValue: false
-    manualSelector: a#binBtn_btn
+    xpath: //*[contains(@id,"binBtn_btn")]/@class | //div[@class='item-action']/a[1]
     regExp: (.+)
     regExpReplace: 'In Stock'
     defaultValue: 'Out of Stock'
@@ -48,24 +49,24 @@ fields:
     xpath: //span[@itemprop="reviewCount"]/@content | //a[@id="_rvwlnk"]
   - name: aggregateRating
     singleValue: false
-    xpath: //span[@itemprop="ratingValue"]/@content | //a[contains(@class,"reviews-star-rating")]/@aria-label
+    xpath: //span[@itemprop="ratingValue"]/@content | //a[contains(@class,"reviews-star-rating")]/@aria-label | //div[@class='reviews-hover card']//span[@class='review--start--rating']
   - name: category
     singleValue: false
-    manualSelector: li.bc-w > a[itemprop="item"]:not([title]) > span
+    manualSelector: li.bc-w > a[itemprop="item"]:not([title]) > span, nav[class='breadcrumb clearfix'] ol li:nth-child(2n+3)
   - name: brandText
     singleValue: false
-    xpath: normalize-space(//td[contains(translate(text(),'BRAND','brand'),'brand')]/following-sibling::td)
+    xpath: normalize-space(//td[not(contains(text(),'Compatible')) and contains(translate(text(),'BRAND','brand'),'brand') or contains(translate(text(),'MARCA','marca'),'marca') or contains(translate(text(),'MARKE','marke'),'marke')]/following-sibling::td)
   - name: descriptionBullets
     singleValue: false
   - name: weightNet
     singleValue: false
-    xpath: //div[span[contains(@class,"title") and contains(text(),'Weight')]]/@data-title | //td[contains(translate(text(),'WEIGHT','weight'),'weight')]/following-sibling::td
+    xpath: //div[span[contains(@class,"title") and contains(text(),'Weight')]]/@data-title | //td[contains(translate(text(),'WEIGHT','weight'),'weight')]/following-sibling::td 
   - name: weightGross
     singleValue: false
     xpath: normalize-space(//td[contains(text(), 'Box Weight:')]/following-sibling::td)
   - name: mpc
     singleValue: false
-    xpath: normalize-space(//td[contains(text(), 'MPN')]/following-sibling::td)
+    xpath: normalize-space(//td[contains(text(), 'MPN') or contains(text(), 'Modell')]/following-sibling::td)
   - name: variantId
     singleValue: false
     manualSelector: div#descItemNumber
@@ -73,17 +74,21 @@ fields:
     singleValue: false
   - name: name
     singleValue: false
-    xpath: //h1[@id="itemTitle"]/text()
+    xpath: concat(//h1[@id="itemTitle"]/text()[1],//h1[@id="itemTitle"]/text()[2])
   - name: additionalDescBulletInfo
     singleValue: false
   - name: variantCount
     singleValue: false
+    defaultValue: '0'
   - name: gtin
     singleValue: false
     xpath: //td[contains(text(), 'EAN')]/following-sibling::td | //td[contains(text(), 'GTIN')]/following-sibling::td
   - name: upc
     singleValue: false
     xpath: normalize-space(//td[contains(text(), 'UPC')]/following-sibling::td)
+  - name: packSize
+    singleValue: false
+    xpath: normalize-space(//td[contains(text(), 'Number in Pack')]/following-sibling::td)
   - name: sku
     singleValue: false
   - name: manufacturerDescription
@@ -94,12 +99,24 @@ fields:
     xpath: normalize-space(//td[contains(text(), 'Box Weight:')]/following-sibling::td)
   - name: color
     singleValue: false
-    xpath: normalize-space(//td[contains(translate(text(),'COLOR','color'),'color')]/following-sibling::td | //td[contains(translate(text(),'COLOUR','colour'),'colour')]/following-sibling::td)
+    xpath: normalize-space(//td[contains(translate(text(),'COLOR','color'),'color')]/following-sibling::td | //td[contains(translate(text(),'COLOUR','colour'),'colour')]/following-sibling::td | //td[contains(text(),'Farbe')]/following-sibling::td)
   - name: warranty
     singleValue: false
-    xpath: normalize-space(//td[contains(translate(text(),'WARRANTY','warranty'),'warranty')]/following-sibling::td)
+    xpath: normalize-space(//td[contains(translate(text(),'WARRANTY','warranty'),'warranty')]/following-sibling::td | //h2[contains(@id, 'subTitle') and contains(text(),'Warranty')])
   - name: manufacturerImages
     singleValue: false
     xpath: //div[@id="ds_div"]//img[contains(@src,"http")]/@src
   - name: termsAndConditions
     singleValue: false
+  - name: unInterruptedPDP
+    xpath: //div[contains(@id,'nume_html') and not(contains(.,'from this seller'))]//div[contains(@class,"mfe-reco")]//li
+  - name: inTheBoxText
+    xpath: //p[contains(.,'In the Box')]/..//ul//li | //h1[contains(.,'In the box')]/..//span[@class="title"] | //div[contains(@class,'inthebox')]//span
+  - name: inTheBoxUrl
+    xpath: //h1[contains(.,'In the box')]/..//span[@class="image"]//img/@src | //div[contains(@class,'inthebox')]//img/@src
+  - name: hasComparisonTable
+    singleValue: true
+    xpath: (//div[@id="compare"]//h1)[1]
+    regExp: (.+)
+    regExpReplace: Yes
+    #xpath: //head/@table
