@@ -41,7 +41,7 @@ const transform = (data) => {
       row.nameExtended = [{ text: `${brandData} ${brandData ? '-' : ''} ${nameData}` }]
       if (row.directions) {
         row.directions.forEach((item) => {
-          item.text = item.text.replace('Modo de usar:', '');
+          item.text = item.text.replace('Modo de usar:', '').trim();
         });
       }
       // if (row.description) {
@@ -75,6 +75,19 @@ const transform = (data) => {
           item.text = item.text.split('?')[0]
         });
       }
+
+      if (row.aggregateRating) {
+        row.aggregateRating.forEach(item => {
+          item.text = item.text.replace('.', ',')
+        });
+        row.aggregateRating2.forEach(item => {
+          item.text = item.text.replace('.', ',')
+        });
+        row.aggregateRatingText.forEach(item => {
+          item.text = item.text.replace('.', ',')
+        });
+      }
+
       if (row.alternateImages && row.alternateImages.length) {
         row.alternateImages.forEach(item => {
           item.text = item.text.split('?')[0]
