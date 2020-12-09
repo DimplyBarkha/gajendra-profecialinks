@@ -36,8 +36,12 @@ fields:
     xpath: //md-dialog-content//h1[@id='selenium--product-detail-title']/following-sibling::div/div[contains(@class, 'manufacturer')]
   - name: brandLink
     xpath: //a[contains(@id, 'selenium--product-detail-manufacturer-link')]/@href
+    regExp: (.+)
+    regExpReplace: https://www.hemkop.se/$1
   - name: quantity
     xpath: //md-dialog-content//h1[@id='selenium--product-detail-title']/following-sibling::div/div[contains(@class, 'volume')]
+    regExp: ,(.+)
+    regExpReplace: $1
   - name: promotion
     xpath: //ax-promotion-text
   - name: caloriesPerServing
