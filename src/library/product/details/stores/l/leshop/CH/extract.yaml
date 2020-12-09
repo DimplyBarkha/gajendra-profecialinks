@@ -18,7 +18,7 @@ fields:
     xpath: //ol[@class="breadcrumb ng-star-inserted"]/li/a/span/text()
   - name: nameExtended
     singleValue: true
-    xpath: //meta[@name="description"]/@content
+    xpath: concat(//div[@class="hgroup"]/h1 , //div[@class="hgroup"]/h2)
   - name: listPrice
     singleValue: true
   - name: price
