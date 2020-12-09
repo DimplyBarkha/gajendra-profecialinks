@@ -32,7 +32,6 @@ const transform = (data, context) => {
         el.text = clean(el.text);
       }));
     }
-    
   }
   context.setState({ rankCounter });
   context.setState({ orgRankCounter });

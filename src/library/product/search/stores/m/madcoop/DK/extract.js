@@ -8,5 +8,5 @@ module.exports = {
     domain: 'butik.mad.coop.dk',
     zipcode: '',
   },
- 
+
 };

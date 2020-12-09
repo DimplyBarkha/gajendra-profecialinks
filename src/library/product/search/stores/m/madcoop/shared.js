@@ -31,17 +31,12 @@ const transform = (data, context) => {
       Object.keys(row).forEach(header => row[header].forEach(el => {
         el.text = clean(el.text);
       }));
-      if (row.name) 
-      {
-        if(row.name2)
-        {
-          row.name[0].text =`${row.name[0].text} ${row.name2[0].text}`
+      if (row.name) {
+        if (row.name2) {
+          row.name[0].text = `${row.name[0].text} ${row.name2[0].text}`;
         }
       }
-
-
     }
-
   }
   context.setState({ rankCounter });
   context.setState({ orgRankCounter });
