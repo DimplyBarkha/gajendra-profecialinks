@@ -26,6 +26,11 @@ fields:
     xpath: //ul[@class='products-grid last']//li[contains(@class,'item last')]//div[@class='rate-summary-wrapper']//div[@class='ratings']//span[@class='amount']//a
     regExp: (.*\()(.*)(\).*)
     regExpReplace: $2
+  - name: reviewCount
+    singleValue: false
+    xpath: //ul[@class='products-grid last']//li[contains(@class,'item last')]//div[@class='rate-summary-wrapper']//div[@class='ratings']//span[@class='amount']//a
+    regExp: (.*\()(.*)(\).*)
+    regExpReplace: $2
   - name: aggregateRating2
     singleValue: false
     xpath: //div[@class='rate-summary-wrapper']//div[@class='ratings']//div[@class='rating']/@style
