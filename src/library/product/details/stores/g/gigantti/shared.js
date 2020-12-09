@@ -18,7 +18,11 @@ const transform = (data) => {
 			if (row.videos) {				
 				let newText = 'https://www.gigantti.fi/';
 				row.videos.forEach(item => {                    			
-					newText = newText + item.text.trim()
+					if(!item.text.includes('youtube')) {
+						newText = newText + item.text.trim();
+					} else {
+						newText = item.text.trim();
+					}
 				});
 				row.videos = [{ text: newText }];
 			}

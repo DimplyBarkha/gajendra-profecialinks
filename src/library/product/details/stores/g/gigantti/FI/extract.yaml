@@ -154,7 +154,7 @@ fields:
   - name: videos
     singleValue: false
     description: URLs of videos on page
-    xpath: //video/@src
+    xpath: //video/@src | //div[@id='productVideos']/text()
   - name: name
     singleValue: true
     description: The product name
