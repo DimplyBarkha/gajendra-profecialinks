@@ -16,14 +16,15 @@ async function implementation (inputs, parameters, context, dependencies) {
 
     if (document.querySelector('div.productStrate__raw')) {
       let desc = document.querySelector('div.productStrate__raw').innerHTML;
-      desc = desc.replace(/<li>/gm, ' || ').replace(/<.*?>/gm, '').replace(/&nbsp;/g, '').trim();
-      addHiddenDiv('desc', desc);
+      desc = desc.replace(/<li>/gm, ' || ').replace(/<(style|script|noscript)\b[^<]*(?:(?!<\/(style|script|noscript)>)<[^<]*)*<\/(style|script|noscript)>/g, '').replace(/(<([^>]+)>)/ig, '').replace(/&nbsp;/g, '').trim();
+      const descriptions = desc.split(/([|]{2,}|Especificaciones)/);
+      addHiddenDiv('desc', descriptions[0]);
     }
 
-    let desc = document.querySelector('script[type="application/ld+json"]').innerText;
-    desc = JSON.parse(desc);
-    if (desc.brand) {
-      addHiddenDiv('brandText', desc.brand.name);
+    const text = document.querySelector('script[type="application/ld+json"]').innerText;
+    const json = JSON.parse(text);
+    if (json.brand) {
+      addHiddenDiv('brandText', json.brand.name);
     }
   });
 
