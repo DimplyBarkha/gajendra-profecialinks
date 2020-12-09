@@ -59,7 +59,30 @@ const transform = (data) => {
                 });
                 row.descriptionBullets = [{'text':info.join(' | '),'xpath':row.descriptionBullets[0].xpath}];
             }
-
+            if (row.description) {
+                let info = [];
+                row.description.forEach(item => {
+                  info.push(item.text.replace(/(\s*\n\s*)+/g, ' | ').trim());
+                });
+                row.description = [{'text':info.join(' | '),'xpath':row.description[0].xpath}];
+            }
+            if (row.nameExtended) {
+                let info = [];
+                row.nameExtended.forEach(item => {
+                  info.push(item.text.replace(/(\s*\n\s*)+/g, ' | ').trim());
+                });
+                row.nameExtended = [{'text':info.join(' | '),'xpath':row.nameExtended[0].xpath}];
+            }
+            
+            if (row.availabilityText) {          
+              row.availabilityText.forEach(item => {
+                 if(item.text.trim().includes("Agregar al carrito")){
+                    item.text = "Instock";
+                 }else{
+                    item.text = "Outstock";
+                 }
+              });      
+            }
         }
     }
     return cleanUp(data);

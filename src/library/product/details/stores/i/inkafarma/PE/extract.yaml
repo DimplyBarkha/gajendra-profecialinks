@@ -1,4 +1,4 @@
-singleRecord: false
+singleRecord: true
 regionsSelector: null
 recordSelector: null
 recordXPath: null
@@ -7,7 +7,7 @@ fields:
     xpath: (//div[contains(@class,"ngxImageZoomFullContainer")]/img/@src)[1]
     singleValue: false
   - name: image
-    xpath: (//div[contains(@class,"ngxImageZoomFullContainer")]/img/@src)[1]    
+    xpath: (//div[contains(@class,"ngxImageZoomFullContainer")]/img/@src)[1]
     singleValue: false
   - name: name
     singleValue: false
@@ -19,10 +19,10 @@ fields:
     xpath: 
     singleValue: false
   - name: nameExtended
-    xpath: //fp-product-detail-information//div[@class='product-information']//div[contains(@class,'product-name')]
+    xpath: //fp-product-detail-information//div[@class='product-information']//div
     singleValue: false
   - name: description
-    xpath: //mat-tab-body//div[contains(@class,'content-additional-information')]
+    xpath: //mat-tab-body//div[contains(@class,'content-additional-information')] | //fp-product-detail-description//div[contains(@class,'description-content')]
     singleValue: false
   - name: availabilityText
     singleValue: false
@@ -30,11 +30,8 @@ fields:
     defaultValue: "In stock"
   - name: descriptionBullets
     singleValue: false
-    xpath: //fp-product-detail-description//div[contains(@class,'description-content')]
+    xpath: count(//fp-product-detail-description//div[contains(@class,'description-content')]//ul//li)
   - name: brandText
-    xpath: //fp-product-detail-information//div[contains(@class,'product-presentation')]
-    singleValue: false
-  - name: manufacturer
     xpath: //fp-product-detail-information//div[contains(@class,'product-presentation')]
     singleValue: false
   - name: quantity
@@ -45,4 +42,12 @@ fields:
     singleValue: false
   - name: variantCount
     singleValue: false
-    defaultValue: 0
+    defaultValue: '0'
+  - name: additionalDescBulletInfo
+    singleValue: false
+    xpath: //fp-product-detail-description//div[contains(@class,'description-content')]//ul
+  - name: imageZoomFeaturePresent
+    singleValue: false
+    defaultValue: "Yes"
+
+  
