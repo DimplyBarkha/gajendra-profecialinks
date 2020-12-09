@@ -30,7 +30,6 @@ fields:
     xpath: count(//div[@class='rd__product-details__description__collapsible']//ul/li[not(@type='non-bullet')])
   - name: ingredientsList
     xpath: //span[contains(.,"Inhaltsstoffe")]/parent::div//following-sibling::div[1]
-    singleValue: true
     regExp: "(INGREDIENTS: )?(.+)"
     regExpReplace: $2
   - name: brandText

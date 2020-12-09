@@ -132,6 +132,15 @@ const transform = (data) => {
         row.pricePerUnitUom = [{ text: pricePerUnit.split('\/')[1]}];
       }
 
+      if (row.ingredientsList) {
+        const ingredientsList =  row.ingredientsList;
+        let ingredients = '';
+        for (let i = 0; i < ingredientsList.length; i++) {
+          ingredients += `${ingredientsList[i].text }`;
+        }
+        row.ingredientsList[0].text = ingredients;
+      }
+
       row.imageZoomFeaturePresent = [{ text: 'Yes' }];
     }
   }
