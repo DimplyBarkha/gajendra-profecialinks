@@ -22,6 +22,7 @@ const transform = (data, context) => {
   let rankCounter = state.rankCounter || 0;
 
   for (const { group } of data) {
+    let productPageRank = 0;
     for (const row of group) {
       rankCounter += 1;
       if (!row.sponsored) {
@@ -32,6 +33,7 @@ const transform = (data, context) => {
         row.brand = [{ text: row.name[0].text.split(' ')[0] }];
       }
       row.rank = [{ text: rankCounter }];
+      row.productPageRank = [{ text: ++productPageRank }];
       Object.keys(row).forEach(header => row[header].forEach(el => {
         el.text = cleanUp(el.text);
       }));
