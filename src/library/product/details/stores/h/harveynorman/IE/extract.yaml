@@ -103,3 +103,14 @@ fields:
   - name: mpc
     singleValue: false
     xpath: //*[@data-flix-mpn]/@data-flix-mpn | //script[contains(text(),'"mpn"')]
+  - name: inTheBoxUrl
+    xpath: //div[contains(@class,'InTheBox')]//img/@src
+  - name: inTheBoxText
+    xpath: //div[contains(@class,'InTheBox')]//span
+  - name: hasComparisonTable
+    xpath: (//li[contains(@class,"flix-comp-item")])[1]
+    regExp: (.*)
+    regExpReplace: Yes
+    defaultValue: No
+  - name: unInterruptedPDP
+    xpath: //div[@class="product-col"]
