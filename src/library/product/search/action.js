@@ -62,7 +62,7 @@ module.exports = {
     // try gettings some search results
     const pageOne = await extract({});
 
-    let collected = length(pageOne.data);
+    let collected = length((pageOne.mergeType && pageOne.data) || pageOne);
 
     console.log('Got initial number of results', collected);
 
@@ -74,9 +74,7 @@ module.exports = {
     let page = 2;
     while (collected < results && await paginate({ keywords, page, offset: collected })) {
       const { mergeType, data } = await extract({});
-      console.table(data);
       const count = length(data);
-      console.table({ page, count, mergeType });
       if (count === 0) {
         // no results
         break;
