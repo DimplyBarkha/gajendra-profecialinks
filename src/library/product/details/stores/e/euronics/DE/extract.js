@@ -48,7 +48,7 @@ async function implementation(
     await scrollToRec();
 
     try {
-        await context.waitForSelector('iframe[id^="loadbee"]', {timeout: 35000});
+        await context.waitForSelector('iframe[id^="loadbee"]', {timeout: 20000});
     } catch (error) {
         console.log('No enhanced content');
     }
@@ -122,7 +122,7 @@ async function implementation(
             return { text: inBoxText, images: imagesUrl };
         });
 
-        comparisionText = await this.context.evaluate(async function () {
+        comparisionText = await context.evaluate(async function () {
             return (!!document.querySelector('.compare-headline') && document.querySelector('.compare-headline').offsetHeight > 0 && document.querySelector('.compare-headline').offsetWidth) > 0;
         });
 
