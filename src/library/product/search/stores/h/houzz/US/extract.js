@@ -10,15 +10,7 @@ module.exports = {
   implementation: async (inputs, parameters, context, dependencies) => {
     const { transform } = parameters;
     const { productDetails } = dependencies;
-    function stall(ms) {
-      return new Promise((resolve, reject) => {
-        setTimeout(() => {
-          resolve();
-        }, ms);
-      });
-    }
-    await context.evaluate(async () => {
-      await stall(5000);
+    await context.evaluate(() => {
       if (
         document.querySelector(
           ".btn.btn-none.hz-universal-search-header-tip__dismiss"
@@ -30,7 +22,6 @@ module.exports = {
           )
           .click();
       }
-      await stall(7000);
       function addHiddenDiv(id, content, index) {
         const newDiv = document.createElement("div");
         newDiv.id = id;
