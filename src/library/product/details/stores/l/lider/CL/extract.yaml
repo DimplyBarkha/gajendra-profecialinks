@@ -7,6 +7,7 @@ fields:
     singleValue: true
     description: URL of the main product image
     xpath: //html//div[@id="zz"]
+    # selector: img#uic_9[src]
     # //div[@class='pane stitchedView']//img[@class="image stitchedView"]/@src
     # //div[@class='pane stitchedView']/img[1]/@src
     # //div[@class='pane stitchedView']/img/@src
@@ -285,7 +286,7 @@ fields:
     singleValue: true
     description: Nutritional Information for Total Fat content - Usually based on
       per 100g serving
-    type: NUMBER
+    # type: NUMBER
     xpath: (//table[@class='nutrition-table']/tbody/tr[3]/td[2])[2]
   - name: totalFatPerServingUom
     singleValue: true
@@ -294,7 +295,7 @@ fields:
     singleValue: true
     description: Nutritional Information for Saturated Fat content - Usually based
       on per 100g serving
-    type: NUMBER
+    # type: NUMBER
     xpath: (//table[@class='nutrition-table']/tbody/tr[4]/td[2])[2]
   - name: saturatedFatPerServingUom
     singleValue: true
@@ -303,7 +304,7 @@ fields:
     singleValue: true
     description: Nutritional Information for Trans Fat content - Usually based on
       per 100g serving
-    type: NUMBER
+    # type: NUMBER
     xpath: (//table[@class='nutrition-table']/tbody/tr[7]/td[2])[2]
   - name: transFatPerServingUom
     singleValue: true
@@ -320,7 +321,7 @@ fields:
     singleValue: true
     description: Nutritional Information for Sodium content - Usually based on per
       100g serving
-    type: NUMBER
+    # type: NUMBER
     xpath: (//table[@class='nutrition-table']/tbody/tr[11]/td[2])[2]
   - name: sodiumPerServingUom
     singleValue: true
@@ -329,7 +330,7 @@ fields:
     singleValue: true
     description: Nutritional Information for Total Carbohydrate content - Usually
       based on per 100g serving
-    type: NUMBER
+    # type: NUMBER
     xpath: (//table[@class='nutrition-table']/tbody/tr[9]/td[2])[2]
   - name: totalCarbPerServingUom
     singleValue: true
@@ -346,7 +347,7 @@ fields:
     singleValue: true
     description: Nutritional Information for Total Sugar content - Usually based on
       per 100g serving
-    type: NUMBER
+    # type: NUMBER
     xpath: (//table[@class='nutrition-table']/tbody/tr[10]/td[2])[2]
   - name: totalSugarsPerServingUom
     singleValue: true
@@ -355,7 +356,7 @@ fields:
     singleValue: true
     description: Nutritional Information for Protein content - Usually based on per
       100g serving
-    type: NUMBER
+    # type: NUMBER
     xpath: (//table[@class='nutrition-table']/tbody/tr[2]/td[2])[2]
   - name: proteinPerServingUom
     singleValue: true

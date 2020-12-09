@@ -51,10 +51,7 @@ module.exports = {
         else result = elem ? elem.singleNodeValue : "";
         return result && result.trim ? result.trim() : result;
       };
-      var zz = getXpath(
-        "//div[@class='pane stitchedView']/img[1]/@src",
-        "nodeValue"
-      );
+      var zz = getXpath("//div[@class='pane stitchedView']/img[1]/@src", "nodeValue");
       if (zz != null) {
         addElementToDocument("zz", zz);
       }
