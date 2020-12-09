@@ -1,4 +1,3 @@
-// @ts-nocheck
 
 module.exports = {
   implements: 'product/search/execute',

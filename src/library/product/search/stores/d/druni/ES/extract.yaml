@@ -29,7 +29,7 @@ fields:
   - name: price
     singleValue: false
     xpath: //div[contains(@class,'card__pricing')]//span[contains(@class,'card__price') and not(contains(@class,'--old'))]
-    regExp: ([^desde]+)
+    regExp: ([^Desde]+)
   - name: manufacturer
     singleValue: true
     xpath: //div[contains(@class,'card__content')]//div[contains(@class,'card__brand')]
