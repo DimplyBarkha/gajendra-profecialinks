@@ -128,6 +128,11 @@ module.exports = {
               addHiddenDiv('custom-product-caloriesPerServing', filteredValue[0].value);
             }
 
+            var filteredValue = nutriData.filter((item) => { return item.key === "Valeurs Energétiques en Kcal" });
+            if (filteredValue && filteredValue.length) {
+              addHiddenDiv('custom-product-caloriesPerServingKcal', filteredValue[0].value);
+            }
+
             var filteredValue = nutriData.filter((item) => { return item.key === "Matières grasses (en g)" });
             if (filteredValue && filteredValue.length) {
               addHiddenDiv('custom-product-totalFatPerServing', filteredValue[0].value);

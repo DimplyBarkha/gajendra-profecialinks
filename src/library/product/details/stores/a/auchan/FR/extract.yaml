@@ -161,7 +161,9 @@ fields:
   - name: caloriesPerServing
     singleValue: false
     description:
-    xpath: //div[@id='custom-product-caloriesPerServing']/text()
+    xpath: //div[@id='custom-product-caloriesPerServingKcal']/text()
+    regExp: (.+)
+    regExpReplace: $1 kcal
   - name: totalFatPerServing
     singleValue: false
     description:
@@ -248,7 +250,7 @@ fields:
     singleValue: true
     xpath: //div[contains(@class,"product-description__feature-group-wrapper")]//span[contains(text(),'Réf / EAN :')]/following::div[1]
     regExp: (\d+)(\s)(\/)(\s\d+)
-    regExpReplace: auchan_fr_$1
+    regExpReplace: $1
   - name: nutritionInfo
     singleValue: true
     xpath: //body//@nutritionInfo | //head//@nutritioninfo
