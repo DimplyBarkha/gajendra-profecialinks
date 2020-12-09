@@ -40,10 +40,10 @@ fields:
   - name: listPrice
     singleValue: false
     description: The stated undiscounted price for the product
-    xpath: (//div[@data-auto="old-price"])[1]
+    xpath: //div[@data-zone-name="offer-cart"]//div[@data-auto="old-price"]
   - name: price
     singleValue: false
-    xpath: (//div[@data-auto="price"])[1]
+    xpath: //div[@data-zone-name="offer-cart"]//div[@data-auto="price"]
     description: The offered price for the selected product variant - if a user
       clicks add to basket this is the price they would be charged
   - name: availabilityText
@@ -112,14 +112,9 @@ fields:
   - name: warnings
     singleValue: false
     description: Content under "warnings" header
-  - name: ratingCount
-    singleValue: false
-    xpath: //div[@data-zone-name="summary"]//span[contains(.,'отзывов')] | //meta[@itemprop="reviewCount"]/@content
-    regExp: (\d+)
-    regExpReplace: $1
   - name: aggregateRating
     singleValue: false
-    xpath: (//div[@class="b_sEc13pK37d"]/@style)[1] | //meta[@itemprop="ratingValue"]/@content
+    xpath: //meta[@itemprop="ratingValue"]/@content
     regExp: (\d+)
     regExpReplace: $1
   - name: reviewCount
@@ -483,9 +478,13 @@ fields:
       all variants of a product, this rpc becomes the common link between other
       variants. method 3 = apply some logic to determine link between variants,
       this will need analysis
-  - name: additionalDescBulletInfo
-    singleValue: false
-    xpath: //div[@id='bulletListTemp']
+  # - name: additionalDescBulletInfo
+  #   singleValue: false
+  #   xpath: //div[@id='bulletListTemp']
+  - name: descriptionBullets
+    xpath: count(//div[@data-zone-name="specs"]//ul//li)
+  - name: boughtTogether
+    xpath: //div[@data-zone-name="ScrollBox" and (contains(.,'С этим товаром покупают'))]//div[@data-tid="518f5fc0"]/span
   - name: prop65Warning
     singleValue: false
     description: null

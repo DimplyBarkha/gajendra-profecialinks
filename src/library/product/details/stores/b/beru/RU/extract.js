@@ -90,7 +90,9 @@ async function implementation(inputs, parameters, context, dependencies) {
       // secondaryImageCount.setAttribute('sum', alternateImagesCount);
       // document.body.appendChild(secondaryImageCount);
     }
-    addHiddenDiv('alternateImagesCount', alternateImagesCount - 1);
+    if(alternateImagesCount >= 1) {
+      addHiddenDiv('alternateImagesCount', alternateImagesCount - 1);
+    }
     let shippingInfo = document.querySelector('div.b_3S10tsnVL- a');
     let shippingInfoText = '';
     if (shippingInfo) {
@@ -300,6 +302,7 @@ async function implementation(inputs, parameters, context, dependencies) {
     }
   
   });
+  
  
   return await context.extract(productDetails, { transform });
 }
