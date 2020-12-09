@@ -3,15 +3,14 @@ regionsSelector: null
 recordSelector: null
 recordXPath: null
 fields:
-  - name: category
-    singleValue: false
-    description: The categories (e.g. from breadcrumbs)
-    xpath: //li[contains(@class,"ln-c-breadcrumbs__item")]
   - name: nameExtended
     singleValue: true
     description: The product name, prefixing "${brand} - " if not included in "name"
       and appending " - ${variantType}" if necessary (fixed per feed)
     xpath: //h1[@class="pd__header"]
+  - name: otherSellersName
+    singleValue: false
+    defaultValue: Sainsburys
   - name: listPrice
     singleValue: true
     description: The stated undiscounted price for the product
@@ -21,3 +20,52 @@ fields:
     description: The offered price for the selected product variant - if a user
       clicks add to basket this is the price they would be charged
     xpath: //div[@class='pd__cost']/div[contains(@class,'pd__cost__total')]
+  - name: otherSellersBuyboxWinner
+    defaultValue: false
+  - name: otherSellersFulfilledByAmazon
+    defaultValue: false
+  - name: otherSellersPrime
+    defaultValue: false
+  - name: otherSellersPrimePantry
+    defaultValue: false
+  - name: availabilityText
+    singleValue: true
+    description: Availability as described on page for the selected variant. If
+      there is no availability but the product can be added to cart, this field
+      should be "In Stock"
+    xpath: //div[@class='pt-button']/button[contains(@class,'pt__add-button')]
+  - name: priceCurrency
+    xpath: //div[@class='pd__cost']/div[contains(@class,'pd__cost__total')]
+  - name: description
+    singleValue: false
+    description: Product description supplied by website - may be concatenanted from
+      multiple places; specifically not the manufacturer description
+    xpath: string(//div[@class="itemTypeGroup"]/div[@class="memo"])
+  - name: product_enhanced_content_available
+    defaultValue: false
+  - name: product_features
+    xpath: //div[@class='pd__description']
+  - name: category
+    singleValue: false
+    description: The categories (e.g. from breadcrumbs)
+    xpath: //li[contains(@class,"ln-c-breadcrumbs__item")]
+  - name: shownImages
+    singleValue: false
+    description: Other product images (not in manufacturer description)
+    xpath: //div[@class="pd__additional__container"]/img[@class="pd__additional__image"]/@srcset
+  - name: highQualityImages
+    singleValue: false
+    description: Other product images (not in manufacturer description)
+    xpath: //div[@class="pd__additional__container"]/img[@class="pd__additional__image"]/@srcset
+  - name: aggregateRatingText
+    singleValue: true
+    description: The stated aggregate rating
+  - name: aggregateRating
+    singleValue: true
+    description: The stated aggregate rating normalized to be out of 5
+    type: NUMBER
+    xpath: //div[@class="pd__reviews"]/a[@class="star-rating-link"]/span[@class="pd__reviews__write"]/@aria-label
+  - name: sku
+    singleValue: true
+    description: The store-specific product identifier
+    xpath: //p[@class="pd__item-code"]/span[@id='productSKU']
