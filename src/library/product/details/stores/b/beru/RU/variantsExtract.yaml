@@ -1,0 +1,14 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: //body
+fields:
+  - name: variantId
+    singleValue: false
+    xpath: //div[@class='variantUrl']/@href    
+    regExp: (\/)(\d+)
+    regExpReplace: $2
+  - name: variantUrl
+    singleValue: false
+    description: variant Url
+    xpath: //div[@class='variantUrl']/@href
