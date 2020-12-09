@@ -14,7 +14,7 @@ module.exports = {
     context,
     dependencies,
   ) => {
-    const timeout = parameters.timeout ? parameters.timeout : 100000;
+    const timeout = parameters.timeout ? parameters.timeout : 10000;
 
     await context.setBlockAds(false);
     await context.setLoadAllResources(true);
@@ -23,7 +23,7 @@ module.exports = {
     await context.setAntiFingerprint(false);
     await context.setUseRelayProxy(false);
     const responseStatus = await context.goto(url, {
-      firstRequestTimeout: 60000,
+      firstRequestTimeout: 10000,
       timeout: timeout,
       waitUntil: 'load',
       checkBlocked: false,
@@ -36,7 +36,7 @@ module.exports = {
     try {
       // @ts-ignore
     document.querySelector('button[id=onetrust-accept-btn-handler]').click()
-    await new Promise(r => setTimeout(r, 6000));
+    await new Promise(r => setTimeout(r, 10000));
     } catch (error) {
       
     }

@@ -10,7 +10,14 @@ module.exports = {
   },
   implementation: async ({ inputString }, { country, domain }, context, { productDetails }) => {
     const applyScroll = async function (context) {
-      await context.evaluate(async function () {        
+      await context.evaluate(async function () {   
+        try {
+          // @ts-ignore
+        document.querySelector('button[id=onetrust-accept-btn-handler]').click()
+        await new Promise(r => setTimeout(r, 6000));
+        } catch (error) {
+          
+        }     
         let scrollTop = 0;
         while (scrollTop !== 20000) {
           scrollTop += 1000;
@@ -28,13 +35,7 @@ module.exports = {
     };
     await applyScroll(context);    
     await context.evaluate(async function () {
-      try {
-      // @ts-ignore
-    document.querySelector('button[id=onetrust-accept-btn-handler]').click()
-    await new Promise(r => setTimeout(r, 6000));
-    } catch (error) {
       
-    }
       function addElementToDocument(key, value) {
         const catElement = document.createElement('div');
         catElement.id = key;
