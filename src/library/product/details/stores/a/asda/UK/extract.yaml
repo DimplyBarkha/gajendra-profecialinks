@@ -98,6 +98,8 @@ fields:
   - name: servingSize
     singleValue: false
     xpath: (//div[contains(@class,'pdp-description')]/div[contains(text(),'Typical values') and contains(@class,'title')]/following-sibling::div[contains(text(),'per 100 g') and contains(@class,'title') or contains(text(),'Per Pack') and contains(@class,'title') or contains(text(),'Per 100g') and contains(@class,'title') or contains(text(),'100') or contains(text(),'Analytical')][1])[1]
+    regExp: (Per)?([^:]*)
+    regExpReplace: $2
   - name: servingSizeUom
     singleValue: true
   - name: numberOfServingsInPackage
