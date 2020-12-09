@@ -54,7 +54,12 @@ module.exports = {
       sharedhelpers.addHiddenInfo('ii_comparisionText', comparisionText);
       console.log('inBoxText');
       console.log(inBoxText);
-      sharedhelpers.addHiddenInfo('ii_inBoxText', inBoxText);
+
+      if (inBoxText.length) {
+        inBoxText.forEach((element) => {
+          sharedhelpers.addHiddenInfo('ii_inBoxText', element);
+        });
+      }
       sharedhelpers.addHiddenInfo('ii_manufContent', content);
       if (image.length) {
         sharedhelpers.addHiddenInfo('ii_manufContentImg', image.join(' || '));
