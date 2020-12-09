@@ -127,4 +127,14 @@ fields:
   - name: variantId
     singleValue: false
     xpath: //script/@data-flix-ean
+  - name: inTheBoxUrl
+    xpath: //div[contains(@class, "InTheBox")]//img/@data-flixsrcset
+    regExp: (.+800w,\s)(.+(.png|.jpg))(.+)
+    regExpReplace: $2
+  - name: inTheBoxText
+    xpath: //div[contains(@class, "InTheBox")]//div[contains(@class, "flix-std-content")]
+  - name: hasComparisonTable
+    defaultValue: No
+  - name: unInterruptedPDP
+    xpath: //div[@class="product-units"]//ul//li
     
