@@ -54,10 +54,10 @@ const { cleanUp } = require('../../../../shared');
 module.exports = {
   implements: 'product/details/extract',
   parameterValues: {
-    country: 'PL',
-    store: 'frisco',
+    country: 'HU',
+    store: 'kifli',
     transform: cleanUp,
-    domain: 'frisco.pl',
+    domain: 'kifli.hu',
   },
   inputs: [
   ],

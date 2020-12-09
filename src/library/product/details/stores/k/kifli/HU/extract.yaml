@@ -44,11 +44,12 @@ fields:
     singleValue: true
   - name: gtin
     singleValue: true
-  - name: sku
-    singleValue: true
-    xpath: //div[@class='sc-1tiied5-1 oXAzP AmountCounter']/button[@class="sc-1tiied5-2 lbHhAc"]/@data-product-id
+  # - name: sku
+  #   singleValue: true
+  #   xpath: //div[@class='sc-1tiied5-1 oXAzP AmountCounter']/button[@class="sc-1tiied5-2 lbHhAc"]/@data-product-id
   - name: variantId
     singleValue: true
+    xpath: //div[@class='sc-1tiied5-1 oXAzP AmountCounter']/button[@class="sc-1tiied5-2 lbHhAc"]/@data-product-id
   - name: directions
     singleValue: true
     xpath: //div[@class="ckContent"]/p[contains(.,"Használat")]/following-sibling::p[1]
@@ -78,7 +79,7 @@ fields:
     xpath: //a[@class="redirect_link disabled"]
   - name: inStorePrice
     singleValue: true
-    xpath: //span[@class='actionPrice']
+    xpath: //span[@class='currentPrice']
   - name: asin
     singleValue: true
     description: null
