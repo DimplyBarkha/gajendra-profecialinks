@@ -11,9 +11,6 @@ module.exports = {
   },
   implementation: async (inputs, parameters, context, dependencies) => {
     await context.evaluate(async () => {
-      if (!document.querySelector('header[class*="SearchHeader"')) {
-        throw new Error('Not a Search Page');
-      }
       const currentUrl = window.location.href;
 
       window.scrollTo(0, document.body.scrollHeight);
