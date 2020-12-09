@@ -48,7 +48,7 @@ fields:
     xpath: concat(//meta[@property="product:price:currency"]/@content,'',//meta[@property="product:price:amount"]/@content) 
   - name: category
     singleValue: false
-    xpath: //span[@class="Z1eb"]//div[@class="Z1ea"]//div[@class="Z1ec"]//a
+    xpath: //*[@id="pageContent"]/div/div[1]/span/div/div/a
   - name: ratingCount
     singleValue: false
     xpath: //meta[@property="og:rating_count"]/@content
