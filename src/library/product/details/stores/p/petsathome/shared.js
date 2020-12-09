@@ -32,18 +32,14 @@ const transform = (data) => {
         if (row.variants) {
           let text = '';
           row.variants.forEach(item => {
-            if (item.text.includes(',')) {
-              text = item.text.replace(/,/g, ' | ');
-            } else {
-              text = item.text;
-            }
+            text = row.variants.map(elm => elm.text).join(' | ');
           });
           row.variants = [
             {
-              text,
+              text: text,
             },
           ];
-        }
+        } 
       }
     }
   

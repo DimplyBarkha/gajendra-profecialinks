@@ -15,7 +15,12 @@ module.exports = {
     dependencies,
   ) => {
     await context.evaluate(async function () {
-      const finalArray = [];
+      var finalArray = [];
+      var firstVariant = document.querySelector('ul.selector__list li input');
+      if (firstVariant) {
+        // @ts-ignore
+        firstVariant.click();
+      }
       function removeHeader(text) {
         if (text) {
           return text.split(':')[1].trim();
@@ -37,10 +42,54 @@ module.exports = {
       var ingredient = removeHeader(dataArr && dataArr.find(e => e.includes('Ingredients')));
       var direction = removeHeader(dataArr.find(e => e.includes('Feeding Guide')));
       var dimensions = removeHeader(dataArr.find(e => e.includes('Approximate Dimensions')));
-      document.querySelector('h1').setAttribute('ingredient', ingredient);
-      document.querySelector('h1').setAttribute('direction', direction);
-      document.querySelector('h1').setAttribute('dimensions', dimensions);
+      var obj = {ingredient,direction,dimensions };
+      finalArray.push(obj);
+      if (finalArray) {
+        for (const key in finalArray[0]) {
+            document.body.setAttribute(key, finalArray[0][key]);
+        }
+    }
+      // if (ingredient) {
+      //   document.querySelector('h1').setAttribute('ingredient', ingredient);
+      // }
 
+      // if (direction) {
+      //   document.querySelector('h1').setAttribute('direction', direction);
+      // }
+
+
+      // if (dimensions) {
+      //   document.querySelector('h1').setAttribute('dimensions', dimensions);
+      // }
+
+      function timeout(ms) {
+        return new Promise((resolve) => setTimeout(resolve, ms));
+      }
+      const selectedVariant = document.querySelector('input:not(.disabled) + span.selector__value');
+      const getVariant = async function () {
+        let finalVariantArr = [];
+        // @ts-ignore
+        const variantRows = [...document.querySelectorAll('ul.selector__list li input.disabled')];
+        if (variantRows.length > 0) {
+          for (let index = 0; index < variantRows.length; index++) {
+            variantRows[index].click();
+            await timeout(3000);
+            const variant = document.querySelector('span.pdp-accordion__content-partNumber').textContent;
+            finalVariantArr.push(variant);
+            await timeout(1000);
+          }
+          // @ts-ignore
+          selectedVariant.click();
+        }
+        return finalVariantArr;
+      }
+      const variantIds = await getVariant();
+      variantIds.map(elm => {
+        let newlink = document.createElement('a');
+        newlink.setAttribute('class', 'variants-id');
+        newlink.textContent = elm;
+        document.body.appendChild(newlink);
+    })
     });
     const { transform } = parameters;
     const { productDetails } = dependencies;

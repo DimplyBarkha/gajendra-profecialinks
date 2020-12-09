@@ -5,8 +5,12 @@ recordXPath: null
 fields:
   - name: image
     xpath: //img[@class="pdp-image-viewer__img"]/@data-zoom
+    regExp: (.+)
+    regExpReplace: https:$1
   - name: alternateImages
-    xpath: //ul[@class="pdp-image-viewer__tn-list"]//li/@data-zoom
+    xpath: //ul[@class="pdp-image-viewer__tn-list"]//li[position()>1]/@data-zoom
+    regExp: (.+)
+    regExpReplace: https:$1
   - name: category
     xpath: //ul[@class="breadcrumb"]//li[position()>1]/a
   - name: name
@@ -18,33 +22,30 @@ fields:
   - name: listPrice
     xpath: //span[@class="pdp-price__was"]
   - name: availabilityText
-    xpath: //a[@id="add_to_cart"]
+    xpath: //div[@id="add-to-basket__inner_cc"]//div[contains(@class,"add-to-basket__btn-row_otp")]//a[@id="add_to_cart"]
     regExp: (.+)
     regExpReplace: In Stock
     defaultValue: Out of Stock
   - name: description
     xpath: //div[@id="pdp-accordion__description"]
   - name: variantId
-    xpath: //script[contains(.,'selectedItem')]
-    regExp: selectedItem,\s"(\d+)
-    regExpReplace: $1
+    xpath: //span[@class="pdp-accordion__content-partNumber"]
   - name: sku
     xpath: (//a[@id="add_to_cart"]/@data-cm-pnbr)[1]
-    regExp: (\/)([0-9-\d?]+)
-    regExpReplace: $2
   - name: variantInformation
     xpath: //ul[@class="selector__list"]//li[position()<2]//span
   - name: variantCount
     xpath: count(//ul[@class="selector__list"]//li//span)
   - name: variants
-    xpath: //ul[@class="selector__list"]//li//span
+    xpath: //a[@class='variants-id']
   - name: secondaryImageTotal
-    xpath: count(//ul[@class="pdp-image-viewer__tn-list"]//li/@data-zoom)
+    xpath: count(//ul[@class="pdp-image-viewer__tn-list"]//li[position()>1]/@data-zoom)
   - name: ratingCount
     xpath: //div[@class="pr-category-snippet__total pr-category-snippet__item"]
   - name: aggregateRating
     xpath: //p[@class="pdp-heading-ratings__rating"]/following-sibling::div[1]//span[@class="pr-accessible-text"]
     regExp: Rated(.+)\sout of
+    regExpReplace: $1
   - name: ingredientsList
     xpath: //h1/@ingredient
   - name: promotion
@@ -64,22 +65,28 @@ fields:
     # serving
   - name: proteinPerServing 
     xpath: //div[@id="pdp-accordion__nutrition"]/text()
-    regExp: (.+Protein\s)([0-9.%]+)(,.+)
+    regExp: (.+Protein\s)([0-9.]+)(\W)(,.+)
+    regExpReplace: $2
   - name: proteinPerServingUom 
     xpath: //div[@id="pdp-accordion__nutrition"]/text() 
-    regExp: (.+Protein\s)([0-9.%]+)(,.+)
+    regExp: (.+Protein\s)([0-9.]+)(\W)(,.+)
+    regExpReplace: $3
   - name: totalFatPerServing 
     xpath: //div[@id="pdp-accordion__nutrition"]/text()
-    regExp: (.+Fats\s)([0-9.%]+)(,.+)
-  - name: totalFatPerServingUom 
-    xpath: //div[@id="pdp-accordion__nutrition"]/text() 
-    regExp: (.+Fats\s)([0-9.%]+)(,.+)
+    regExp: (.+Fats\s)([0-9.]+)(\W)(,.+)
+    regExpReplace: $2
+  - name: totalFatPerServingUom
+    xpath: //div[@id="pdp-accordion__nutrition"]/text()
+    regExp: (.+Fats\s)([0-9.]+)(\W)(,.+)
+    regExpReplace: $3
   - name: dietaryFibrePerServing 
     xpath: //div[@id="pdp-accordion__nutrition"]/text()
-    regExp: (.+Fibres\s)([0-9.%]+)(,.+)
+    regExp: (.+Fibres\s)([0-9.]+)(\W)(,.+)
+    regExpReplace: $2
   - name: dietaryFibrePerServingUom 
     xpath: //div[@id="pdp-accordion__nutrition"]/text() 
-    regExp: (.+Fibres\s)([0-9.%]+)(,.+)
+    regExp: (.+Fibres\s)([0-9.]+)(\W)(,.+)
+    regExpReplace: $3
   - name: vitaminAPerServing 
     xpath: //div[@id="pdp-accordion__nutrition"]/text()
     regExp: (.+Vitamin\sD3:\s)(\d+\s\w+)(.+)
