@@ -34,10 +34,10 @@ fields:
     xpath: (//p[@class="price price--large"]/text())[1]
   - name: availabilityText
     singleValue: true
-    xpath: //p[@class="u-centred"]/text()
-    regExp: (in stock.+)
-    regExpReplace: In Stock
-    defaultValue: Out of Stock
+    xpath: //html//div[@id="stock"]
+    # regExp: (in stock)
+    # regExpReplace: In Stock
+    # defaultValue: Out of Stock
   - name: description
     singleValue: false
     xpath: //html//div[@id="desc"]
@@ -169,8 +169,7 @@ fields:
   - name: warranty
     singleValue: true
     xpath: //p[@class="additional-service-options-item__description"]/text()
-    regExp: ( guarantee included)
-    regExpReplace: https://www.johnlewis.com$1
+    regExp: (\w+\s+){2}
   - name: variantInformation
     singleValue: true
     xpath: //dd[@class="item-attribute-details"]/text()

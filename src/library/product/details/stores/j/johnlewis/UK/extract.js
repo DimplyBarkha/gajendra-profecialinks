@@ -41,6 +41,9 @@ module.exports = {
 
       var image = getAllXpath("//ul[@class='thumbnail-wrapper']/li/img/@src", 'nodeValue');
       if (image != null) {
+        for (var i=0; i < image.length; i++){
+          image[i] = "https:" + image[i]
+        }
         var qqq = image.join(" | ")
         addElementToDocument('img', qqq);
       }
@@ -73,6 +76,17 @@ module.exports = {
         width = (width * 5) / 100;
         addElementToDocument('star', width);
       }
+
+      var rrr = getXpath("//p[@class='u-centred']/text() | //h2[@class='email-me-stock__header']/text()", 'nodeValue');
+      if (rrr!=null){
+        if (rrr.includes("in stock")){
+        rrr="In Stock"
+    }else{
+        rrr="Out of Stock"
+
+      }
+      addElementToDocument('stock', rrr);
+    }
     });
     await context.extract(productDetails, { transform: transformParam });
   },
