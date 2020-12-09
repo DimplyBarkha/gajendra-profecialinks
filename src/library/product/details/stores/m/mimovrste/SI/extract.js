@@ -61,16 +61,20 @@ module.exports = {
       var servingSize = getXpath("//td[contains(text(),'skodelice')]//following::td/b/text()", 'nodeValue');
       if (servingSize) {
         const servingSizeElements = servingSize.replace(/\s/g, ':').split(':');
-        addElementToDocument('added_serving_size', servingSizeElements[0]);
-        addElementToDocument('added_serving_size_unit', servingSizeElements[1]);
+        if (servingSizeElements[1] && servingSizeElements[0]) {
+          addElementToDocument('added_serving_size', servingSizeElements[0]);
+          addElementToDocument('added_serving_size_unit', servingSizeElements[1]);
+        }
       } else {
         servingSize = getXpath("//li[contains(text(),'skodelice')]/text()", 'nodeValue');
         if (servingSize) {
           const servingSizeElements = servingSize.split(':');
-          const servingSizeValue = servingSizeElements[1].match(/\d+/g);
-          const servingSizeUnit = servingSizeElements[1].match(/[a-zA-Z]+/g);
-          addElementToDocument('added_serving_size', servingSizeValue);
-          addElementToDocument('added_serving_size_unit', servingSizeUnit);
+          if (servingSizeElements[1]) {
+            const servingSizeValue = servingSizeElements[1].match(/\d+/g);
+            const servingSizeUnit = servingSizeElements[1].match(/[a-zA-Z]+/g);
+            addElementToDocument('added_serving_size', servingSizeValue);
+            addElementToDocument('added_serving_size_unit', servingSizeUnit);
+          }
         }
       }
 
@@ -85,41 +89,51 @@ module.exports = {
 
       if (fat) {
         const fatElements = fat.split(/,(.+)/);
-        const fatValueElements = fatElements[1].trim().replace(/\s/g, ':').split(':');
-        addElementToDocument('added_fat', fatValueElements[0]);
-        addElementToDocument('added_fat_unit', fatValueElements[1]);
+        if (fatElements[1]) {
+          const fatValueElements = fatElements[1].trim().replace(/\s/g, ':').split(':');
+          addElementToDocument('added_fat', fatValueElements[0]);
+          addElementToDocument('added_fat_unit', fatValueElements[1]);
+        }
       } else {
         fat = getXpath("//li[contains(text(), 'Masti')]", 'innerText');
         if (fat) {
           if (fat.includes('(')) {
             var fatElements = fat.substring(0, fat.indexOf('(') - 1);
             fatElements = fatElements.split(':');
-            const fatValue = fatElements[1].match(/\d+/g);
-            const fatUnit = fatElements[1].match(/[a-zA-Z]+/g);
-            addElementToDocument('added_fat', fatValue);
-            addElementToDocument('added_fat_unit', fatUnit);
+            if (fatElements[1]) {
+              const fatValue = fatElements[1].match(/\d+/g);
+              const fatUnit = fatElements[1].match(/[a-zA-Z]+/g);
+              addElementToDocument('added_fat', fatValue);
+              addElementToDocument('added_fat_unit', fatUnit);
+            }
 
             var saturatedFatElements = fat.substring(fat.indexOf('('), fat.indexOf(')'));
             const saturatedFatElementValue = saturatedFatElements.match(/\d+/g);
-            const saturatedFatElementUnit = fatElements[1].match(/[a-zA-Z]+/g);
-            addElementToDocument('added_saturated_fat', saturatedFatElementValue);
-            addElementToDocument('added_saturated_fat_unit', saturatedFatElementUnit);
+
+            if (fatElements[1]) {
+              const saturatedFatElementUnit = fatElements[1].match(/[a-zA-Z]+/g);
+              addElementToDocument('added_saturated_fat', saturatedFatElementValue);
+              addElementToDocument('added_saturated_fat_unit', saturatedFatElementUnit);
+            }
           } else {
             var fatElements = fat.split(',').slice(0, 2);
             fatElements = fatElements.join(',');
             fatElements = fatElements.split(':');
-            const fatValue = fatElements[1].match(/\d+/g);
-            const fatUnit = fatElements[1].match(/[a-zA-Z]+/g);
-            addElementToDocument('added_fat', fatValue);
-            addElementToDocument('added_fat_unit', fatUnit);
-
+            if (fatElements[1]) {
+              const fatValue = fatElements[1].match(/\d+/g);
+              const fatUnit = fatElements[1].match(/[a-zA-Z]+/g);
+              addElementToDocument('added_fat', fatValue);
+              addElementToDocument('added_fat_unit', fatUnit);
+            }
             var saturatedFatElements = fat.split(',').slice(2);
             saturatedFatElements = saturatedFatElements.join(',');
             saturatedFatElements = saturatedFatElements.split(':');
-            const saturatedFatValue = saturatedFatElements[1].match(/\d+/g);
-            const saturatedFatUnit = saturatedFatElements[1].match(/[a-zA-Z]+/g);
-            addElementToDocument('added_saturated_fat', saturatedFatValue);
-            addElementToDocument('added_saturated_fat_unit', saturatedFatUnit);
+            if (saturatedFatElements[1]) {
+              const saturatedFatValue = saturatedFatElements[1].match(/\d+/g);
+              const saturatedFatUnit = saturatedFatElements[1].match(/[a-zA-Z]+/g);
+              addElementToDocument('added_saturated_fat', saturatedFatValue);
+              addElementToDocument('added_saturated_fat_unit', saturatedFatUnit);
+            }
           }
         }
       }
@@ -127,49 +141,60 @@ module.exports = {
       const saturatedFat = getXpath("//section[@class='panel-inner']//h3[contains(text(), 'Hranilne')]//following::ul//li[contains(text(), 'nasičene maščobe,')]", 'innerText');
       if (saturatedFat) {
         const saturatedFatElements = saturatedFat.split(/,(.+)/);
-        const saturatedFatValueElements = saturatedFatElements[1].trim().replace(/\s/g, ':').split(':');
-        addElementToDocument('added_saturated_fat', saturatedFatValueElements[0]);
-        addElementToDocument('added_saturated_fat_unit', saturatedFatValueElements[1]);
+        if (saturatedFatElements[1]) {
+          const saturatedFatValueElements = saturatedFatElements[1].trim().replace(/\s/g, ':').split(':');
+          addElementToDocument('added_saturated_fat', saturatedFatValueElements[0]);
+          addElementToDocument('added_saturated_fat_unit', saturatedFatValueElements[1]);
+        }
       }
 
       var carb = getXpath("//section[@class='panel-inner']//h3[contains(text(), 'Hranilne')]//following::ul//li[contains(text(), 'ogljikovi')]", 'innerText');
       if (carb) {
         const carbElements = carb.split(/,(.+)/);
-        const carbValueElements = carbElements[1].trim().replace(/\s/g, ':').split(':');
-        addElementToDocument('added_carb', carbValueElements[0]);
-        addElementToDocument('added_carb_unit', carbValueElements[1]);
+        if (carbElements[1]) {
+          const carbValueElements = carbElements[1].trim().replace(/\s/g, ':').split(':');
+          addElementToDocument('added_carb', carbValueElements[0]);
+          addElementToDocument('added_carb_unit', carbValueElements[1]);
+        }
       } else {
         carb = getXpath("//li[contains(text(), 'Ogljikovi')]", 'innerText');
         if (carb) {
           if (carb.includes('(')) {
             var carbElements = carb.substring(0, carb.indexOf('(') - 1);
             carbElements = carbElements.split(':');
-            const carbValue = carbElements[1].match(/\d+/g);
-            const carbUnit = carbElements[1].match(/[a-zA-Z]+/g);
-            addElementToDocument('added_carb', carbValue);
-            addElementToDocument('added_carb_unit', carbUnit);
-
+            if (carbElements[1]) {
+              const carbValue = carbElements[1].match(/\d+/g);
+              const carbUnit = carbElements[1].match(/[a-zA-Z]+/g);
+              addElementToDocument('added_carb', carbValue);
+              addElementToDocument('added_carb_unit', carbUnit);
+            }
             var sugarElements = carb.substring(carb.indexOf('('), carb.indexOf(')'));
             const sugarValue = sugarElements.match(/\d+/g);
-            const sugarUnit = carbElements[1].match(/[a-zA-Z]+/g);
-            addElementToDocument('added_sugar', sugarValue);
-            addElementToDocument('added_sugar_unit', sugarUnit);
+            if (carbElements[1]) {
+              const sugarUnit = carbElements[1].match(/[a-zA-Z]+/g);
+              addElementToDocument('added_sugar', sugarValue);
+              addElementToDocument('added_sugar_unit', sugarUnit);
+            }
           } else {
             var carbElements = carb.split(',').slice(0, 2);
             carbElements = carbElements.join(',');
             carbElements = carbElements.split(':');
-            const carbValue = carbElements[1].match(/\d+/g);
-            const carbUnit = carbElements[1].match(/[a-zA-Z]+/g);
-            addElementToDocument('added_carb', carbValue);
-            addElementToDocument('added_carb_unit', carbUnit);
+            if (carbElements[1]) {
+              const carbValue = carbElements[1].match(/\d+/g);
+              const carbUnit = carbElements[1].match(/[a-zA-Z]+/g);
+              addElementToDocument('added_carb', carbValue);
+              addElementToDocument('added_carb_unit', carbUnit);
+            }
 
             var sugarElements = carb.split(',').slice(2);
             sugarElements = sugarElements.join(',');
             sugarElements = sugarElements.split(':');
-            const sugarValue = sugarElements[1].match(/\d+/g);
-            const sugarUnit = sugarElements[1].match(/[a-zA-Z]+/g);
-            addElementToDocument('added_sugar', sugarValue);
-            addElementToDocument('added_sugar_unit', sugarUnit);
+            if (sugarElements[1]) {
+              const sugarValue = sugarElements[1].match(/\d+/g);
+              const sugarUnit = sugarElements[1].match(/[a-zA-Z]+/g);
+              addElementToDocument('added_sugar', sugarValue);
+              addElementToDocument('added_sugar_unit', sugarUnit);
+            }
           }
         }
       }
@@ -178,35 +203,43 @@ module.exports = {
       if (fiber) {
         fiber = fiber.replace(':', ',');
         const fiberElements = fiber.split(/,(.+)/);
-        const fiberValueElements = fiberElements[1].trim().replace(/\s/g, ':').split(':');
-        addElementToDocument('added_fiber', fiberValueElements[0]);
-        addElementToDocument('added_fiber_unit', fiberValueElements[1]);
+        if (fiberElements[1]) {
+          const fiberValueElements = fiberElements[1].trim().replace(/\s/g, ':').split(':');
+          addElementToDocument('added_fiber', fiberValueElements[0]);
+          addElementToDocument('added_fiber_unit', fiberValueElements[1]);
+        }
       }
 
       const sugar = getXpath("//section[@class='panel-inner']//h3[contains(text(), 'Hranilne')]//following::ul//li[contains(text(), 'sladkorji')]", 'innerText');
       if (sugar) {
         const sugarElements = sugar.split(/,(.+)/);
-        const sugarValueElements = sugarElements[1].trim().replace(/\s/g, ':').split(':');
-        addElementToDocument('added_sugar', sugarValueElements[0]);
-        addElementToDocument('added_sugar_unit', sugarValueElements[1]);
+        if (sugarElements[1]) {
+          const sugarValueElements = sugarElements[1].trim().replace(/\s/g, ':').split(':');
+          addElementToDocument('added_sugar', sugarValueElements[0]);
+          addElementToDocument('added_sugar_unit', sugarValueElements[1]);
+        }
       }
 
       var protein = getXpath("//li[contains(text(), 'beljakovine')] | //li[contains(text(), 'Beljakovine')]", 'innerText');
       if (protein) {
         protein = protein.replace(':', ',');
         const proteinElements = protein.split(/,(.+)/);
-        const proteinValueElements = proteinElements[1].trim().replace(/\s/g, ':').split(':');
-        addElementToDocument('added_protein', proteinValueElements[0]);
-        addElementToDocument('added_protein_unit', proteinValueElements[1]);
+        if (proteinElements[1]) {
+          const proteinValueElements = proteinElements[1].trim().replace(/\s/g, ':').split(':');
+          addElementToDocument('added_protein', proteinValueElements[0]);
+          addElementToDocument('added_protein_unit', proteinValueElements[1]);
+        }
       }
 
       var salt = getXpath("//li[contains(text(), 'sol')] | //li[contains(text(), 'Sol')]", 'innerText');
       if (salt) {
         salt = salt.replace(':', ',');
         const saltElements = salt.split(/,(.+)/);
-        const saltValueElements = saltElements[1].trim().replace(/\s/g, ':').split(':');
-        addElementToDocument('added_salt', saltValueElements[0]);
-        addElementToDocument('added_salt_unit', saltValueElements[1]);
+        if (saltElements[1]) {
+          const saltValueElements = saltElements[1].trim().replace(/\s/g, ':').split(':');
+          addElementToDocument('added_salt', saltValueElements[0]);
+          addElementToDocument('added_salt_unit', saltValueElements[1]);
+        }
       }
       const specifications = getAllXpath("//h2[contains(text(), 'Tehnične')]//following::section[@class='panel-inner']//table//tr", 'innerText').join(' || ');
       addElementToDocument('added_specifications', specifications);
@@ -232,6 +265,14 @@ module.exports = {
         addElementToDocument('added_availability', 'In Stock');
       } else {
         addElementToDocument('added_availability', 'Out of Stock');
+      }
+
+      var price = getXpath("//b[contains(@class, 'pro-price')]", 'innerText');
+      if (price) {
+        price = price.trim();
+        price = price.replace(',', '.');
+        const priceComponents = price.split(' ');
+        addElementToDocument('added_price', priceComponents[1] + ' ' + priceComponents[0]);
       }
     });
     await context.extract(productDetails, { transform: transformParam });

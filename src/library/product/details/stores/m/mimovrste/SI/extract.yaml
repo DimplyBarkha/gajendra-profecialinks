@@ -30,9 +30,7 @@ fields:
     singleValue: true
     description: The offered price for the selected product variant - if a user
       clicks add to basket this is the price they would be charged
-    xpath: //b[contains(@class, 'pro-price')]
-    regExp: (^([^€]*))(\,)([^\€]*)(€)
-    regExpReplace: '$5 $2.$4'
+    xpath: //div[@id='added_price']
   - name: listPrice
     singleValue: true
     description: The stated undiscounted price for the product
@@ -460,6 +458,7 @@ fields:
   - name: promotion
     singleValue: true
     description: promotion text on product page
+    xpath: //div[contains(@class,'label--round-sale ')]//text()
   - name: alcoholContent
     singleValue: true
     description: Alcohol content information
