@@ -6,6 +6,8 @@ fields:
   - name: image
     singleValue: true
     xpath: (//div[@class="cloud-zoom-wrap"]//a//@href)[1]
+    regExp: (static.hondoscenter.com/.*)
+    regExpReplace: https://$1
   - name: category
     singleValue: false
     xpath: //nav[@class="x-control x-breadcrumb"]/ul/li[position()>1 and position()<last()]/a/span/text()
