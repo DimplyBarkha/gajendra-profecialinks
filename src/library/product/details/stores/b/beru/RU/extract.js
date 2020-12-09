@@ -64,12 +64,12 @@ async function implementation(inputs, parameters, context, dependencies) {
 
   console.log('url---->', url);
   if (url) {
-    await context.setBlockAds(false);
-    await context.setLoadAllResources(true);
-    await context.setLoadImages(true);
-    await context.setJavaScriptEnabled(true);
-    await context.setAntiFingerprint(false);
-    await context.setUseRelayProxy(false);
+    // await context.setBlockAds(false);
+    // await context.setLoadAllResources(true);
+    // await context.setLoadImages(true);
+    // await context.setJavaScriptEnabled(true);
+    // await context.setAntiFingerprint(false);
+    // await context.setUseRelayProxy(false);
     await context.goto(url, {
       timeout: 50000,
       waitUntil: 'load',
@@ -207,12 +207,12 @@ async function implementation(inputs, parameters, context, dependencies) {
       proteinUOM = protine.split(' ')[1];
     }
 
-    await context.setBlockAds(false);
-    await context.setLoadAllResources(true);
-    await context.setLoadImages(true);
-    await context.setJavaScriptEnabled(true);
-    await context.setAntiFingerprint(false);
-    await context.setUseRelayProxy(false);
+    // await context.setBlockAds(false);
+    // await context.setLoadAllResources(true);
+    // await context.setLoadImages(true);
+    // await context.setJavaScriptEnabled(true);
+    // await context.setAntiFingerprint(false);
+    // await context.setUseRelayProxy(false);
     await context.goto(mainUrl, {
       timeout: 50000,
       waitUntil: 'load',
