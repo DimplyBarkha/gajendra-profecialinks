@@ -5,8 +5,8 @@ module.exports = {
     country: 'RU',
     store: 'eapteka',
     domain: 'eapteka.ru',
-    loadedSelector: null,
-    noResultsXPath: null,
+    loadedSelector: 'div.offer-card',
+    noResultsXPath: '//div[@class="sec-error"]',
     zipcode: '',
   },
 };
