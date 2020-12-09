@@ -94,3 +94,17 @@ fields:
   - name: manufacturer
     singleValue: false
     xpath: //span[@class='manufacturer']
+  - name: inTheBoxUrl
+    singleValue: false
+    xpath: //div[contains(@class, "InTheBox")]//img/@data-flixsrcset
+    regExp: (.+800w,\s)(.+(.png|.jpg))(.+)
+    regExpReplace: $2
+  - name: inTheBoxText
+    singleValue: false
+    xpath: //div[contains(@class,"InTheBox")]//div[contains(@class,"flix-std-content")]
+  - name: hasComparisonTable
+    singleValue: true
+    xpath: (//div[contains(@class,'flix-comp-h2')])[1]
+    regExp: (.+)
+    regExpReplace: Yes
+    defaultValue: No
