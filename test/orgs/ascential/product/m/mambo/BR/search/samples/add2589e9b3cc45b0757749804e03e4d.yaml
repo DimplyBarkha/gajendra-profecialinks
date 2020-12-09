@@ -2,67 +2,39 @@ input:
   keywords: Amstel
   _url: http://mambo.com.br
 extractions:
-  - html: https://workbench.import.io/html/run=a1368478-d1b3-4f81-bb21-213772b1c54b/task=36e32d0c-a63a-4232-9125-84d9d305cb61/223e19ed-387e-4dac-a772-d0df86260543.html
+  - html: https://workbench.import.io/html/run=ce6286dc-aa3d-412f-bed0-66c29365aab4/task=eae07c03-73e8-425e-9606-33d3ebbaf99e/4342e086-5603-48af-9dc3-43f317aafb2b.html
     extractionConfigId: product/search/stores/m/mambo/BR/extract
     data:
       - group:
           - id:
               - text: "220086"
-                xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/a[1]/@href
+                xpath: /html/body/div[1]
             name:
               - text: Cerveja Amstel Lata 269ml
-                xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[3]/a[1]/div[2]
+                xpath: /html/body/div[2]
             productUrl:
               - text: https://www.mambo.com.br/cerveja-amstel-lata-269ml/p/220086
-                xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/a[1]/@href
+                xpath: /html/body/div[3]
             thumbnail:
-              - text: https://www.mambo.com.br/ccstore/v1/images/?source=/file/v1343739868577049036/products/220086_HI_Cerveja%20Amstel%20Lata%20269ml.jpg&height=200&width=200&quality=1.0
-                xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/@image-url
+              - text: https://www.mambo.com.br/ccstore/v1/images/?source=/file/v1343739868577049036/products/220086_HI_Cerveja%20Amstel%20Lata%20269ml.jpg&height=100&width=100
+                xpath: /html/body/div[4]
             price:
-              - text: R$ 2,79
-                xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[3]/a[1]/div[3]/div[1]/span[1]
-            rank:
-              - text: "1"
-                xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/@rank-organic
-                type: NUMBER
-                raw: "1"
-                locale: pt_BR
-                value: 1
-            rankOrganic:
-              - text: "1"
-                xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/@rank-organic
-                type: NUMBER
-                raw: "1"
-                locale: pt_BR
-                value: 1
+              - text: R$ 2.79
+                xpath: /html/body/div[5]
           - id:
               - text: "202489"
-                xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[2]/div[1]/a[1]/@href
+                xpath: /html/body/div[6]
             name:
               - text: Cerveja Amstel Lata 350ml
-                xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[2]/div[3]/a[1]/div[2]
+                xpath: /html/body/div[7]
             productUrl:
               - text: https://www.mambo.com.br/cerveja-amstel-lata-350ml/p/202489
-                xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[2]/div[1]/a[1]/@href
+                xpath: /html/body/div[8]
             thumbnail:
-              - text: https://www.mambo.com.br/ccstore/v1/images/?source=/file/v2259986958184410941/products/202489_HI_Cerveja%20Amstel%20Lata%20350ml.jpg&height=200&width=200&quality=1.0
-                xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[2]/@image-url
+              - text: https://www.mambo.com.br/ccstore/v1/images/?source=/file/v2259986958184410941/products/202489_HI_Cerveja%20Amstel%20Lata%20350ml.jpg&height=100&width=100
+                xpath: /html/body/div[9]
             price:
-              - text: R$ 3,19
-                xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[2]/div[3]/a[1]/div[3]/div[1]/span[1]
-            rank:
-              - text: "2"
-                xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[2]/@rank-organic
-                type: NUMBER
-                raw: "2"
-                locale: pt_BR
-                value: 2
-            rankOrganic:
-              - text: "2"
-                xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[2]/@rank-organic
-                type: NUMBER
-                raw: "2"
-                locale: pt_BR
-                value: 2
-        xpath: /html/body/div[3]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]
-    timestamp: 1607341179996
+              - text: R$ 3.19
+                xpath: /html/body/div[10]
+        xpath: /html/body
+    timestamp: 1607524574893

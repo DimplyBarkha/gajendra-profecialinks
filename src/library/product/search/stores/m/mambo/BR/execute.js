@@ -4,9 +4,10 @@ module.exports = {
     country: 'BR',
     store: 'mambo',
     domain: 'mambo.com.br',
-    url: 'https://www.mambo.com.br/searchresults?Ntt={searchTerms}&Nty=1&No=0&Nrpp=12&Rdm=294&searchType=simple&type=search',
-    loadedSelector: '.CC-shelf',
-    noResultsXPath: '//div[@class="emptySearch"]',
+    url:
+      'https://api.linximpulse.com/engage/search/v3/search?origin=https://www.mambo.com.br&apiKey=mambo-v7&showOnlyAvailable=true&resultsPerPage=150&productFormat=complete&terms={searchTerms}',
+    loadedSelector: null,
+    noResultsXPath: '//div[@id="emptySearch"]',
     zipcode: '',
   },
 };
