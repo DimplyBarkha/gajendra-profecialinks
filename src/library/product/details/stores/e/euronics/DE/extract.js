@@ -34,11 +34,41 @@ async function implementation(
         return window.location.href;
     });
 
+    async function scrollToRec () {
+      await context.evaluate(async () => {
+        var element = (document.querySelector('div.product--description')) ? document.querySelector('div.product--description') : null;
+        if (element) {
+          element.scrollIntoView({ behavior: 'smooth', block: 'end', inline: 'nearest' });
+          await new Promise((resolve) => {
+            setTimeout(resolve, 5000);
+          });
+        }
+      });
+    }
+    await scrollToRec();
+
+    try {
+        await context.waitForSelector('iframe[id^="loadbee"]', {timeout: 35000});
+    } catch (error) {
+        console.log('No enhanced content');
+    }
+
+    const loadbeeUrl = await context.evaluate(function() {
+        return document.querySelector('iframe[id^="loadbee"]') ? document.querySelector('iframe[id^="loadbee"]').src : null;
+    });
+    console.log('loadbeeUrl!@!!@');
+    console.log(loadbeeUrl);
+
     let enhancedContent = '';
     let manufacturerImages = '';
+    // let inBoxTexts = '';
+    // let inBoxImages = '';
+    let boxContent = null;
     let videos = '';
-    if (gtin) {
-        await context.goto('https://service.loadbee.com/ean/' + gtin + '/de_DE?css=default&template=default&data=%7B%22shop%22%3A%22www.euronics.de%22%2C%22source%22%3A%22inpage%22%2C%22api%22%3A%22fGy5uftNFDeUaTCCGbzAfZhpZZH5xnbC%22%7D');
+    if (loadbeeUrl || gtin) {
+        let gtinUrl = gtin ? 'https://service.loadbee.com/ean/' + gtin + '/de_DE?css=default&template=default&data=%7B%22shop%22%3A%22www.euronics.de%22%2C%22source%22%3A%22inpage%22%2C%22api%22%3A%22fGy5uftNFDeUaTCCGbzAfZhpZZH5xnbC%22%7D' : null;
+        console.log('going to loadbeeUrl');
+        await context.goto(loadbeeUrl || gtinUrl);
         enhancedContent = await context.evaluate(function() {
             if (document.querySelector('.logo-wrapper')) {
                 return document.body.innerText;
@@ -77,12 +107,33 @@ async function implementation(
             }
         });
 
+        boxContent = await context.evaluate(function() {
+            const getInTheBox = document.querySelector('div.in-the-box img');
+            const inTheBoxImages = [];
+            const inTheBoxTexts = [];
+            let imagesUrl = '';
+            let inBoxText = '';
+            if (getInTheBox) {
+                const getAllProducts = document.querySelectorAll('div.in-the-box div');
+                for (let i = 0; i < getAllProducts.length; i++) {
+                    inTheBoxImages.push(getAllProducts[i].querySelector('img').getAttribute('src'));
+                    inTheBoxTexts.push(getAllProducts[i].querySelector('p').innerText);
+                }
+                imagesUrl = inTheBoxImages.join(' || ');
+                inBoxText = inTheBoxTexts.join(' || ');
+            }
+            console.log('in box content')
+            console.log(imagesUrl)
+            console.log(inBoxText)
+            return { text: inBoxText, images: imagesUrl };
+        });
+
         await context.goto(currentUrl);
         await stall(5000);
 
     }
 
-    await context.evaluate(async function(enhancedContent, manufacturerImages, videos) {
+    await context.evaluate(async function(enhancedContent, manufacturerImages, videos, boxContent) {
 
         function stall(ms) {
             return new Promise(resolve => {
@@ -92,24 +143,24 @@ async function implementation(
             })
         }
 
-        function checkdata() {
-            let getInTheBox = document.querySelector('div.in-the-box img')
-            let inTheBoxImages = [];
-            let inTheBoxTexts = [];
-            if (getInTheBox) {
-                let getAllProducts = document.querySelectorAll('div.in-the-box div');
-                for (i = 0; i < getAllProducts.length; i++) {
-                    inTheBoxImages.push(getAllProducts[i].querySelector('img').getAttribute('src'));
-                    inTheBoxTexts.push(getAllProducts[i].querySelector('p').innerText);
-                }
-                let imagesUrl = inTheBoxImages.join(' || ')
-                let imagesText = inTheBoxTexts.join(' || ')
-                document.head.setAttribute('intheboxurl', imagesUrl);
-                document.head.setAttribute('intheboxtext', imagesText);
-            }
-            return document.querySelector('div.in-the-box img');
-        };
-        checkdata;
+        // function checkdata() {
+        //     let getInTheBox = document.querySelector('div.in-the-box img')
+        //     let inTheBoxImages = [];
+        //     let inTheBoxTexts = [];
+        //     if (getInTheBox) {
+        //         let getAllProducts = document.querySelectorAll('div.in-the-box div');
+        //         for (i = 0; i < getAllProducts.length; i++) {
+        //             inTheBoxImages.push(getAllProducts[i].querySelector('img').getAttribute('src'));
+        //             inTheBoxTexts.push(getAllProducts[i].querySelector('p').innerText);
+        //         }
+        //         let imagesUrl = inTheBoxImages.join(' || ')
+        //         let imagesText = inTheBoxTexts.join(' || ')
+        //         document.head.setAttribute('intheboxurl', imagesUrl);
+        //         document.head.setAttribute('intheboxtext', imagesText);
+        //     }
+        //     return document.querySelector('div.in-the-box img');
+        // };
+        // checkdata;
 
         function addHiddenDiv(id, text) {
             let div = document.createElement('div');
@@ -128,6 +179,12 @@ async function implementation(
         addHiddenDiv('enhancedContent', enhancedContent);
         addHiddenDiv('manufacturerImages', manufacturerImages);
         addHiddenDiv('videos', videos);
+        console.log('in box content3232')
+        console.log(boxContent.text )
+        console.log(boxContent.images)
+
+        addHiddenDiv('intheboxurl', boxContent ? boxContent.images : '');
+        addHiddenDiv('intheboxtext', boxContent ? boxContent.text : '');
 
         const alternateImages = [];
         document.querySelectorAll('.image--box').forEach((el, ind) => {
@@ -247,7 +304,7 @@ async function implementation(
         addHiddenDiv('zoomInfo', 'Yes');
         addHiddenDiv('pdf', 'No');
         await new Promise((resolve, reject) => setTimeout(resolve, 6000));
-    }, enhancedContent, manufacturerImages, videos);
+    }, enhancedContent, manufacturerImages, videos, boxContent);
 
 
     return await context.extract(productDetails, { transform });
