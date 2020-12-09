@@ -75,6 +75,8 @@ fields:
   - name: variantCount
     singleValue: false
     xpath: count(//meta[contains(@itemprop, "identifier")]/@content)
-
+  - name: unInterruptedPDP
+    singleValue: false
+    xpath: //div[@class="rr-item__title"]
   - name: hasComparisonTable
     defaultValue: No
