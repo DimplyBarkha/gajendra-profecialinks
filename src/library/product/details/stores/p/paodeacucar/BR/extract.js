@@ -11,8 +11,8 @@ const implementation = async (inputs, parameters, context, dependencies) => {
       const listPrice = document.evaluate('//div[@class="buy-box-contentstyles__Container-sc-18rwav0-2 grwTtk"]//div[@class="current-pricesectionstyles__CurrentPrice-sc-17j9p6i-0 drikI"]//text()', document, null, XPathResult.STRING_TYPE, null).stringValue;
       document.body.setAttribute('listPrice', listPrice);
     } else {
-      const result = document.evaluate('//div[@class="buy-box-contentstyles__Container-sc-18rwav0-2 grwTtk"]//div[@class="current-pricesectionstyles__CurrentPrice-sc-17j9p6i-0 drikI"]//text()', document, null, XPathResult.STRING_TYPE, null).stringValue;
-      document.body.setAttribute('price', result);
+      const price = document.evaluate('//div[@class="buy-box-contentstyles__Container-sc-18rwav0-2 grwTtk"]//div[@class="current-pricesectionstyles__CurrentPrice-sc-17j9p6i-0 drikI"]//text()', document, null, XPathResult.STRING_TYPE, null).stringValue;
+      document.body.setAttribute('price', price);
     }
   });
   return await context.extract(productDetails, { transform });
