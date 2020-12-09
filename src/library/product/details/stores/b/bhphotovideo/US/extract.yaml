@@ -98,6 +98,8 @@ fields:
 - name: mpc
   singleValue: true
   description: The manufacturer model code (unique) of the product
+  xpath: //main[@id="bh-app"]//script[contains(text(), "mpn")]
+  regExp: (\"mpn\":)\"(.*?)\"
 - name: packSize
   singleValue: true
   description: The number of packs in the product offer (if stated separately on the
@@ -141,7 +143,7 @@ fields:
 - name: variantCount
   singleValue: true
   description: Number of variants listed
-  defaultValue: 0
+  defaultValue: 1
   xpath: count(//span[@data-selenium="optionsGroupingName"])
 - name: color
   singleValue: true
@@ -220,7 +222,7 @@ fields:
 - name: variantInformation
   singleValue: true
   description: colour / scent / flavour / other
-  xpath: count(//div[contains(@class, "grouping")]//a)
+  xpath: //div[contains(@class, "grouping")]//a[contains(@class, "itemLinkSelected")]
 - name: firstVariant
   singleValue: true
   description: Unique identifier for a collection of variants. For a subset of core

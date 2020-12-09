@@ -2,7 +2,7 @@ input:
   id: APAPCRBC130
   _url: http://bhphotovideo.com
 extractions:
-  - html: https://workbench.import.io/html/run=89466931-62a1-4b7c-9f23-e39febf820de/task=9843a080-c79e-4e88-a2db-c46d25af320c/777a146c-9cdf-4933-98ea-b38d47ee42de.html
+  - html: https://workbench.import.io/html/run=525569cb-0107-4ca5-b1e5-9dc7dca74f0f/task=1649c46d-6805-4ffa-abe7-59be1fe3efcd/c56ced7a-87ee-4aed-90d5-24f2287b21ba.html
     extractionConfigId: product/details/stores/b/bhphotovideo/US/extract
     data:
       - group:
@@ -71,6 +71,9 @@ extractions:
             variantId:
               - text: APAPCRBC130
                 xpath: /html/body/div[1]/main[1]/section[1]/div[1]/script[1]
+            mpc:
+              - text: APCRBC130
+                xpath: /html/body/div[1]/main[1]/section[1]/div[1]/script[1]
             ratingCount:
               - text: "1"
                 xpath: /html/body/div[1]/main[1]/section[1]/div[1]/div[2]/div[3]/div[1]/div[2]/div[2]/span[1]/div[1]/a[1]/span[2]
@@ -116,6 +119,8 @@ extractions:
             customerServiceAvailability:
               - text: Yes
                 xpath: /html/body/div[1]/main[1]/section[1]/div[1]/div[2]/div[4]/div[1]/div[2]/div[1]/div[1]/div[5]/div[4]/section[1]/div[1]
+            variantCount:
+              - text: 1
             technicalInformationPdfPresent:
               - text: No
             termsAndConditions:
@@ -126,9 +131,5 @@ extractions:
               - text: No
             availabilityText:
               - text: "In Stock "
-            variantCount:
-              - text: "0"
-            variantInformation:
-              - text: "0"
         xpath: /
-    timestamp: 1606471386178
+    timestamp: 1607514237454

@@ -1,9 +1,11 @@
+const { cleanUp } = require('../../../../shared');
+
 module.exports = {
   implements: 'product/details/extract',
   parameterValues: {
     country: 'US',
     store: 'bhphotovideo',
-    transform: null,
+    transform: cleanUp,
     domain: 'bhphotovideo.com',
     zipcode: '',
   },
@@ -60,7 +62,7 @@ module.exports = {
       document.querySelector('body').setAttribute('rating', rating);
     });
 
-    var dataRef = await context.extract(productDetails);
+    var dataRef = await context.extract(productDetails, { transform });
     const descriptions = dataRef[0].group[0].manufacturerDescription;
     if (descriptions) {
       descriptions.forEach((desc) => {
@@ -76,6 +78,11 @@ module.exports = {
     const rpcNumber = dataRef[0].group[0].variantId;
     if (rpcNumber) {
       rpcNumber[0].text = rpcNumber[0].text.match(/("sku":)"(.*?)"/)[2];
+    }
+
+    const mpcNumber = dataRef[0].group[0].mpc;
+    if (mpcNumber) {
+      mpcNumber[0].text = mpcNumber[0].text.match(/("mpn":)"(.*?)"/)[2];
     }
   },
 };
