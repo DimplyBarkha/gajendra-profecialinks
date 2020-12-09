@@ -1,7 +1,13 @@
 robot: product/details
 proxy:
-  zone: GBR
+  zone: ZUS  
   type: DATA_CENTER
+policy:
+  numberRetries: 3
+  priority: MEDIUM
+  retryDelay: 120
+  backoffPolicy: EXPONENTIAL
+  retryWithResidentialProxyAfter: 3
 parameters:
   country: CH
   domain: importparfumerie.ch

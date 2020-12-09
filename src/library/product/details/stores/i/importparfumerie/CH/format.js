@@ -48,13 +48,14 @@ const transform = (data) => {
               row.description = [{ "text": description_ar.join(" || "), 'xpath': row.description[0].xpath }];
             }
         }
-        if (row.price) {
-          row.price.forEach(item => {
+        if (row.listPrice) {
+          row.listPrice.forEach(item => {
+            item.text =  'CHF'+item.text;
             item.text =  item.text.replace('.', ',').trim();
           });
         }
-        if (row.listPrice) {
-          row.listPrice.forEach(item => {
+        if (row.price) {
+          row.price.forEach(item => {
             item.text =  'CHF'+item.text;
             item.text =  item.text.replace('.', ',').trim();
           });
@@ -63,16 +64,6 @@ const transform = (data) => {
           row.alternateImages.forEach(item => {
             item.text =  'https://www.impo.ch'+item.text;
           });
-        }
-        if(row.variants){
-        
-          let value = []
-          //console.log('Hey there')
-          for (let index = 0; index < row.variants.length; ++index) {
-            value.push(row.variants[index].text);
-            //console.log(index, value);
-          }
-          row.variants = [{"text": value.join(' | '), "xpath": row.variants[0].xpath}]
         }
         if (row.specifications) {
           var rowItem = ''
@@ -88,13 +79,6 @@ const transform = (data) => {
           row.specifications = [{'text':rowItem, 'xpath': row.specifications[0].xpath}]
           //console.log(row.specifications)
         }
-        if(row.variantInformation){
-          var strVariantInfo = ''
-          row.variantInformation.forEach(item => {
-            strVariantInfo = strVariantInfo + item.text + ' | '
-          })
-           row.variantInformation = [{"text": strVariantInfo, "xpath": row.variantInformation[0].xpath}]
-        }      
         if (row.category) {
           let info = [];
           row.category.forEach(item => {

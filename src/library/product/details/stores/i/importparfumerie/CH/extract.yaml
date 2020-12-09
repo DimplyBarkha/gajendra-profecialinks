@@ -29,7 +29,7 @@ fields:
     xpath: //ul[contains(@class,"list--horizontal list--chevron")]//li[contains(@class,"crumb-trail__item")]//a
   - name: price
     singleValue: false
-    xpath: concat(//span[@itemprop="priceSpecification"]//span[@itemprop="priceCurrency"],'',//span[@itemprop="priceSpecification"]//span[@itemprop="price"])
+    xpath: //span[@itemprop="priceSpecification"]//span[@itemprop="price"]
   - name: listPrice
     singleValue: false
     xpath: //div[@class="product-detail-price__cost--old"]
@@ -44,7 +44,7 @@ fields:
     xpath: //div[contains(@class,"product-detail-information")]//dl[@class="product-detail-information__list"]//dd[contains(@class,"product-detail-information__list-item product-detail-information__list-item--fullwidth")]//div 
   - name: specifications
     singleValue: false
-    xpath: concat(//*[@id="site-wrapper"]/main/div[3]/div/div[3]/div/ul[1]/li/div[2]/div/dl/dt,':',//*[@id="site-wrapper"]/main/div[3]/div/div[3]/div/ul[1]/li/div[2]/div/dl/dd[not(contains(position(),1))])
+    xpath: //*[@id="site-wrapper"]/main/div[3]/div/div[3]/div/ul[1]/li/div[2]/div/dl/dt  | //*[@id="site-wrapper"]/main/div[3]/div/div[3]/div/ul[1]/li/div[2]/div/dl/dd[not(contains(position(),1))]
   - name: reviewCount
     singleValue: false
     xpath: //div[@itemprop="aggregateRating"]//span[@itemprop="ratingCount"]
@@ -54,18 +54,9 @@ fields:
   - name: aggregateRating
     singleValue: false
     xpath: //div[@itemprop="aggregateRating"]//span[@itemprop="ratingValue"]
-  - name: variantInformation
-    singleValue: false
-    xpath: //div[contains(@class,"product-detail-variant-section__variant-switch")]//ul//li//a//span[contains(@class,"product-variant-switch__switch-item__option")]
-  - name: firstVariant
-    singleValue: false
-    xpath: //div[contains(@class,"product-detail-price__item product-detail-price__item__buttons")]//div/@data-productid
-  - name: variants
-    singleValue: false
-    xpath: //div[contains(@class,"product-detail-variant-section__variant-switch")]//ul//li//a/@data-product-variant-switch-trigger-id
   - name: variantCount
     singleValue: false
-    xpath: count(//div[contains(@class,"product-detail-variant-section__variant-switch")]//ul//li//a/@data-product-variant-switch-trigger-id)
+    defaultValue: '0'
   - name: availabilityText
     singleValue: false
     defaultValue: 'In Stock'
