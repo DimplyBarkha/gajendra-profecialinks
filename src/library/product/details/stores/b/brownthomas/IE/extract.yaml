@@ -87,7 +87,8 @@ fields:
     xpath: //h1[@itemprop="name"]//span[@class="product-name-title"]
   - name: storage
   - name: warranty
-    xpath: //p[contains(.,"guarantee")]|//span[contains(.,"guarantee")]
+    # xpath: //p[contains(.,"guarantee")]|//span[contains(.,"guarantee")]
+    xpath: (//div[contains(@class,'tab')]//*[contains(text(),'guarantee') or contains(text(), 'Warranty')])[1]
   - name: countryOfOrigin
   - name: allergyAdvice
   - name: recyclingInformation
