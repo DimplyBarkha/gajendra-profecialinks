@@ -1,0 +1,20 @@
+module.exports = {
+    implements: 'navigation/paginate',
+    parameterValues: {
+        template: null,
+        country: 'US',
+        store: 'petsmart',
+        nextLinkSelector: null,
+        nextLinkXpath: '//a[contains(@class,"bv-content-btn-pages-last") and contains(@class,"active")]',
+        mutationSelector: null,
+        spinnerSelector: 'div[class="bv-mbox-spinner"]',
+        loadedSelector: null,
+        loadedXpath: null,
+        noResultsXPath: null,
+        stopConditionSelectorOrXpath: null,
+        resultsDivSelector: null,
+        openSearchDefinition: null,
+        domain: 'petsmart.com',
+        zipcode: '',
+    },
+};
