@@ -32,7 +32,10 @@ async function implementation (
     }
     let variantDiv = document.querySelectorAll('div.b_5w6zb4tA_L')[0];
     let variantDiv2 = document.querySelectorAll('div.b_3cmFHJbptv picture.b_3ogURkuHm0');
-    let variantFil = variantDiv.querySelectorAll('span.b_1vzk4iYy5n');
+    let variantFil;
+    if(variantDiv) {
+       variantFil = variantDiv.querySelectorAll('span.b_1vzk4iYy5n');
+    }
     console.log(variantFil , 'variantFil');
     let variantUrl
     if(variantFil) {
