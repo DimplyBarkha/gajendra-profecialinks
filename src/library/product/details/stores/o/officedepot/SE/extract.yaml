@@ -1,0 +1,84 @@
+singleRecord: true
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: image
+    singleValue: false
+    xpath: //div[contains(@class,"productImage")]//div[@class="image-box--details"]//img[@id='img']/@src    
+    regExp: (.+)\&h\=\d+\&w\=\d+(.+)
+    regExpReplace: https://www.officedepot.se$1$2
+  - name: imageAlt
+    singleValue: false
+    xpath: //div[contains(@class,"productImage")]//div[@class="image-box--details"]//img[@id='img']/@alt
+  - name: alternateImages
+    singleValue: false
+    xpath: //div[contains(@class,"productImage")]//div[contains(@class,"small-img")]//ul//li[@class='li-img' and position()>1]//img/@src  
+    regExp: (.+)\&h\=\d+\&w\=\d+(.+)
+    regExpReplace: https://www.officedepot.se$1$2
+  - name: category
+    singleValue: false
+    xpath: //div[@class='breadcrums cf']//a[contains(@href,'produkter') and @class='breadcrumstext']
+  - name: nameExtended
+    singleValue: false
+    xpath: //div[@class='product-title clearfix']//div[@class='title']//h1
+  - name: listPrice
+    singleValue: false
+    xpath: concat(//div[@class='product-heading']//div[@class='ordPrice']//span[contains(@data-bind,'recommendedPrice')],' ',//div[@class='product-heading']//div[@class='ordPrice']//span[@class='currency'])
+  - name: price
+    singleValue: false
+    xpath: concat(//div[@class='product-heading']//div[@class='price']//span[contains(@data-bind,' price()')],' ',//div[@class='product-heading']//div[@class='price']//span[@class='currency'])
+  - name: availabilityText
+    singleValue: false
+    xpath: //div[@class='product-buy-box']//span[@class='input-group-btn product-input']//button[contains(@class,'add-to-cart') and contains(text(),'Köp')]
+    regExp: (.+)
+    regExpReplace: In Stock
+    defaultValue: Out of Stock
+  - name: description
+    singleValue: false
+    xpath: //div[@class='expandable-parent']//div[contains(@class,'expandable-block')]
+  - name: descriptionBullets
+    singleValue: false
+    xpath: //div[@class='expandable-parent']//div[contains(@class,'expandable-block')]//ul//li
+  - name: brandText
+    singleValue: false
+    xpath: //div[@id='product-info']//script[@type='application/ld+json']/text()
+  - name: manufacturer
+    singleValue: false
+    xpath: //div[@id='product-info']//script[@type='application/ld+json']/text()
+  - name: quantity
+    singleValue: false
+    xpath: //div[contains(@class,"productImage")]//div[contains(@class,"small-img")]//ul
+    regExp: (?:\s?([\d\.]+\s?)([bB]ar[s]?|[cC]ount|[cC]t|[fF][lL][\.]?\s?[oO][zZ][\.]?|FO|[mM][lL]|[oO][zZ][\.]?|pc|[pP]int|[pP]ops|qt|[wW]ipe[s]?).?)$|(?:\s?([\d\.]+\s?)([bB]ar[s]?|[cC]ount|[cC]|[fF][lL][\.]?\s?[oO][zZ][\.]?|FO|[mM][lL]|[oO][zZ][\.]?|pc|[pP]int|[pP]ops|qt|[wW]ipe[s]?).?\s?[\&\-\w\s]+)$
+    regExpReplace: $1$2$3$4  
+  - name: sku
+    singleValue: false
+    xpath: //div[@id='product-info']//script[@type='application/ld+json']/text()
+  - name: variantId
+    singleValue: false
+    xpath: //div[@id='product-info']//script[@type='application/ld+json']/text()    
+  - name: color
+    singleValue: false
+    xpath: //div[@id='specification']//ul//li[contains(text(),'Färg')]/following-sibling::li    
+  - name: name
+    singleValue: false
+    xpath: //div[@class='product-title clearfix']//div[@class='title']//h1  
+  - name: specifications
+    singleValue: false
+    xpath: //div[@id='specification']//ul  
+  - name: additionalDescBulletInfo
+    singleValue: false
+    xpath: //div[@class='expandable-parent']//div[contains(@class,'expandable-block')]//ul//li  
+  - name: variantCount
+    singleValue: false
+    xpath: //table[@id='cart']//tbody//tr
+    defaultValue: "0"
+  - name: variantInformation
+    singleValue: false
+    xpath: //table[@id='cart']//tbody//tr//span[contains(@class,'title')]
+  - name: firstVariant
+    singleValue: false
+    xpath: //table[@id='cart']//tbody//tr[1]//button[contains(@class,'add-to-cart')]/@data-productid
+  - name: variants
+    singleValue: false
+    xpath: //table[@id='cart']//tbody//tr//button[contains(@class,'add-to-cart')]/@data-productid
