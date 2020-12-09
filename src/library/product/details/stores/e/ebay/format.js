@@ -53,7 +53,7 @@ const transform = (data) => {
             if (row.aggregateRating && row.decimalSeperator && row.decimalSeperator[0].text === 'EU') {
                 row.aggregateRating[0].text = row.aggregateRating[0].text.replace('.', ',')
             }
-            row.hasComparisonTable = row.hasComparisonTable ? [{ text: 'Yes' }] : [{ text: 'No' }]
+            //row.hasComparisonTable = row.hasComparisonTable ? [{ text: 'Yes' }] : [{ text: 'No' }]
         }
     }
     const clean = text => text.toString()
