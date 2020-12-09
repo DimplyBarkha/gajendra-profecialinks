@@ -5,7 +5,7 @@ module.exports = {
     country: 'DE',
     store: 'saturn',
     domain: 'saturn.de',
-    loadedSelector: 'div[class*="Gallerystyled__StyledCarouselWrapper-sc-1wra1rw-0 rGwsm"]',
+    loadedSelector: 'div > picture > img',
     noResultsXPath: null,
     zipcode: '',
   },

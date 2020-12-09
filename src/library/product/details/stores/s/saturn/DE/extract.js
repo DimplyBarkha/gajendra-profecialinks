@@ -1,7 +1,7 @@
 // @ts-nocheck
 const { transform } = require('./transform');
 
-async function implementation (inputs, parameters, context, dependencies) {
+async function implementation(inputs, parameters, context, dependencies) {
   const { transform } = parameters;
   const { productDetails } = dependencies;
   const privacySelector = '#privacy-layer-accept-all-button';
@@ -72,45 +72,47 @@ async function implementation (inputs, parameters, context, dependencies) {
     console.log(e.message);
   }
 
+  const gDelay = t => new Promise(resolve => setTimeout(resolve, t));
+
   await context.evaluate(async () => {
     const delay = t => new Promise(resolve => setTimeout(resolve, t));
-    const videosUrl = [];
     async function clickImages (image) {
-      const videos = [...document.querySelectorAll(image)];
+      const videos = Array.from(document.querySelectorAll(image));
       try {
         // Get the Videos to scope
-        for (const video of videos){
-          await delay(2000);
-          video.click();  
+        for (const video of videos) {
           console.log('clicking on play button:');
-          await clickTheVideo('#playButton div');
+          video.click();
+          await delay(2000);
         }
       } catch (err) {
         console.log('Video Loading issues');
       }
     }
-    async function clickTheVideo (playButton) {
-      const clickButton = [...document.querySelectorAll(playButton)];
-      // Click the videos
-      for (const button of clickButton){
-        await delay(2000);
-        button.click();  
-      }
-    }
     // Call the function to get the images
     await clickImages('div > div > picture > img[alt]');
-      
   });
-  const requests = await context.searchAllRequests('https://mycliplister.com/jplist/.*', 'GET');
-    for (const request of requests) {
+
+  await gDelay(2000);
+  await context.waitForNavigation({ timeout: 15000, waitUntil: 'networkidle0' });
+  // await context.searchForRequest('https://mycliplister.com/jplist.*', 'GET');
+  const requests = await context.searchAllRequests('https://mycliplister.com/jplist.*', 'GET');
+  // console.log(request);
+  // const requests = [request];
+  const videoUrls = [];
+  for (const request of requests) {
     if (request && request.responseBody && request.responseBody.body) {
       const inf = JSON.parse(request.responseBody.body);
       const vidUrl = inf.cliplist.clip.clipurl;
-      console.log('VIDEO URL :  ',vidUrl); // This needs to be appended to DOM and extracted
-      const videosAll = vidUrl.join(' | ')
-      body.setAttribute('video-url', videosAll);
+      videoUrls.push(vidUrl);
+      console.log('VIDEO URL :  ', vidUrl);
     }
   }
+
+  await context.evaluate(function (urls) {
+    const videosAll = urls.join(' | ');
+    document.body.setAttribute('video-url', videosAll);
+  }, videoUrls);
 
   return await context.extract(productDetails, { transform });
 }
