@@ -14,7 +14,7 @@ fields:
   - name: alternateImages
     singleValue: false
     description: Other product images (not in manufacturer description)
-    xpath: //div[@class="owl-item"]//img[@itemprop="image"]/@src
+    xpath: (//div[@class="owl-item"]//img[@itemprop="image"])[position()>1]/@src
   - name: metaKeywords
     singleValue: true
     description: The <meta> keywords content
@@ -59,7 +59,7 @@ fields:
     singleValue: true
     description: Product brand shown - this may actually NOT be just a brand name,
       e.g. "Visit the Gillette Store"
-    xpath: //meta[@itemprop="brand"]/@content
+    xpath: (//div[@class="wc-fragment"]/@data-module-brand)[1]
   - name: manufacturer
     singleValue: true
     description: Product manufacturer
@@ -82,6 +82,7 @@ fields:
   - name: sku
     singleValue: true
     description: The store-specific product identifier
+    xpath: //input[@class="js-product-code"]/@value
   - name: variantId
     singleValue: true
     description: Identifier for a variant from a store where variants share the same sku
@@ -102,7 +103,7 @@ fields:
   - name: warnings
     singleValue: false
     description: Content under "warnings" header
-    xpath: //div[@class="pdp-section collapsable-section bottom-border"]//div//span[.//text()[contains(.,'Warnings')]]/following::p[1]
+    xpath: //span[@class="h4"][contains(text(),"Warnings and Disclaimer")]//following::p[1]//text()
   - name: ratingCount
     singleValue: true
     description: The number of ratings
@@ -127,6 +128,7 @@ fields:
     singleValue: true
     description: Number of variants listed
     type: NUMBER
+    defaultValue: 0
   - name: color
     singleValue: true
     description: A textual description of the colour
@@ -511,4 +513,4 @@ fields:
     description: If Zoom feature is available for Main image or images in the
       carousel,['Yes','No']
     example: https://www.zalando.de/adidas-neo-sneaker-low-blackwhite-a4315i002-q11.html
-    defaultValue: No
+    defaultValue: Yes
