@@ -68,6 +68,29 @@ const transform = (data, context) => {
               },
             ];
           }
+
+          if(row.aggregateRating){
+            let aggregatecount = [];
+
+            row.aggregateRating.forEach(item => {
+              item.text = item.text.replace(/[^0-9,.]+/g, " ")
+              aggregatecount = item.text.split(" ");
+            });
+            row.aggregateRating = [{'text': aggregatecount[0],'xpath':row.aggregateRating[0].xpath}];
+          }
+
+          if(row.ratingCount){
+            let ratingcount = [];
+
+            row.ratingCount.forEach(item => {
+              item.text = item.text.replace(/[^0-9,.]+/g, " ")
+              ratingcount = item.text.split(" ");
+            });
+            let size = ratingcount.length -2 ;
+
+            row.ratingCount = [{'text': ratingcount[size],'xpath':row.ratingCount[0].xpath}];
+          }
+
         //   if (row.manufacturerDescription) {
         //     let text = '';
         //     row.manufacturerDescription.forEach(item => {

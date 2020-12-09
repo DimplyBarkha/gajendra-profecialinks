@@ -61,6 +61,9 @@ fields:
   - name: variantId
     singleValue: true
     xpath: //li[contains(@class,"main top-product")]/@data-colour
+  - name: variantInformation
+    singleValue: true
+    xpath: //div[@class='selected']//span[@class='colour-label'] 
   - name: mpc
     singleValue: true
     xpath: //span//strong[text()='Product Code:']//following::span[1]
@@ -74,11 +77,7 @@ fields:
     xpath: //li[(@class="video top-product default slick-slide")]/a/@href
   - name: name
     singleValue: true
-    xpath: //meta[@itemprop='name']//@content
-  - name: secondaryImageTotal
-    singleValue: true
-    type: NUMBER
-    xpath: count(//div[@class='slick-track']/li/a/img/@src)
+    xpath:  concat(//*[@class="brand"]//span,'-',//h1[@itemprop='name'])
   - name: specifications
     singleValue: false
     xpath: //div[@class='content long-description']//p//strong[contains(text(),'specifications')]//following-sibling::text()|//div[(@class='content long-description')]//following-sibling::strong[contains(text(),'Specifications')]//following-sibling::text()
@@ -94,7 +93,7 @@ fields:
   - name: variantCount
     singleValue: true
     type: NUMBER
-    efaultValue: "0"
+    defaultValue: "0"
   - name: productOtherInformation
     singleValue: true    
   - name: color
@@ -148,4 +147,12 @@ fields:
   - name: termsAndConditions
     singleValue: true
     xpath: boolean(//h3[contains(text(),'Terms and Conditions')])
+  - name: aggregateRating
+    singleValue: false
+    xpath: //button[@id='ratings-summary']//@aria-label
+  - name: ratingCount
+    singleValue: false
+    xpath: //button[@id='ratings-summary']//@aria-label  
+ 
+
     
