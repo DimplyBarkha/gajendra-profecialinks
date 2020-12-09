@@ -50,7 +50,16 @@ module.exports = {
           }
         }
 
-        return { gotoUrl, name, price, availabilityText, productUrl };
+        const addPromoButton = document.querySelector('a[class*="product-item__promo-add"]');
+        let promotion = '';
+        if (addPromoButton && addPromoButton) {
+          const promotionImage = addPromoButton.previousElementSibling;
+          if (promotionImage) {
+            promotion = promotionImage.getAttribute('src');
+          }
+        }
+
+        return { gotoUrl, name, price, availabilityText, productUrl, promotion };
       });
 
       if (basicDetails.gotoUrl) {
@@ -89,6 +98,9 @@ module.exports = {
         }
         if (basicDetails.productUrl) {
           addHiddenDiv('ii_productUrl', basicDetails.productUrl);
+        }
+        if (basicDetails.promotion) {
+          addHiddenDiv('ii_promotion', basicDetails.promotion);
         }
 
         const imageList = document.querySelectorAll('div[class="ProductPictures"] ul[class*="slider"] li');
@@ -181,7 +193,7 @@ module.exports = {
           if (loadedTabContentTitles) {
             loadedTabContentTitles.forEach(title => {
               let content = '';
-              let sibling = title.nextSibling;
+              let sibling = title.nextElementSibling;
               let totalBulletPoints = 0;
               while (sibling) {
                 if (title.textContent === 'Pourquoi utiliser ce produit ?') {
@@ -192,7 +204,7 @@ module.exports = {
                   }
                 }
                 content += ` ${sibling.textContent}`;
-                sibling = sibling.nextSibling;
+                sibling = sibling.nextElementSibling;
               }
               if (title.textContent === 'Pourquoi utiliser ce produit ?') {
                 const description = document.querySelector('div[id="ii_description"]');
@@ -266,40 +278,64 @@ module.exports = {
               const firstColValue = row.firstChild.textContent.trim();
               let valueWithUoM = '';
               if (firstColValue === 'energy value (kcal)') {
-                valueWithUoM = row.firstChild.nextSibling.textContent.substring(1);
+                valueWithUoM = row.firstChild.nextSibling.textContent;
+                if (valueWithUoM.indexOf('~') >= 0) {
+                  valueWithUoM = valueWithUoM.substring(1);
+                }
                 addHiddenDiv('ii_caloriesPerServing', valueWithUoM);
               } else if (firstColValue === 'fats') {
-                valueWithUoM = row.firstChild.nextSibling.textContent.substring(1);
+                valueWithUoM = row.firstChild.nextSibling.textContent;
+                if (valueWithUoM.indexOf('~') >= 0) {
+                  valueWithUoM = valueWithUoM.substring(1);
+                }
                 const values = valueWithUoM.split(' ');
                 addHiddenDiv('ii_totalFatPerServing', values[0]);
                 addHiddenDiv('ii_totalFatPerServingUom', values[1]);
               } else if (firstColValue.indexOf('dont saturated fats') >= 0) {
-                valueWithUoM = row.firstChild.nextSibling.textContent.substring(1);
+                valueWithUoM = row.firstChild.nextSibling.textContent;
+                if (valueWithUoM.indexOf('~') >= 0) {
+                  valueWithUoM = valueWithUoM.substring(1);
+                }
                 const values = valueWithUoM.split(' ');
                 addHiddenDiv('ii_saturatedFatPerServing', values[0]);
                 addHiddenDiv('ii_saturatedFatPerServingUom', values[1]);
               } else if (firstColValue === 'carbohydrates') {
-                valueWithUoM = row.firstChild.nextSibling.textContent.substring(1);
+                valueWithUoM = row.firstChild.nextSibling.textContent;
+                if (valueWithUoM.indexOf('~') >= 0) {
+                  valueWithUoM = valueWithUoM.substring(1);
+                }
                 const values = valueWithUoM.split(' ');
                 addHiddenDiv('ii_totalCarbPerServing', values[0]);
                 addHiddenDiv('ii_totalCarbPerServingUom', values[1]);
               } else if (firstColValue.indexOf('dont sugars') >= 0) {
-                valueWithUoM = row.firstChild.nextSibling.textContent.substring(1);
+                valueWithUoM = row.firstChild.nextSibling.textContent;
+                if (valueWithUoM.indexOf('~') >= 0) {
+                  valueWithUoM = valueWithUoM.substring(1);
+                }
                 const values = valueWithUoM.split(' ');
                 addHiddenDiv('ii_totalSugarsPerServing', values[0]);
                 addHiddenDiv('ii_totalSugarsPerServingUom', values[1]);
               } else if (firstColValue === 'dietary fibers') {
-                valueWithUoM = row.firstChild.nextSibling.textContent.substring(1);
+                valueWithUoM = row.firstChild.nextSibling.textContent;
+                if (valueWithUoM.indexOf('~') >= 0) {
+                  valueWithUoM = valueWithUoM.substring(1);
+                }
                 const values = valueWithUoM.split(' ');
                 addHiddenDiv('ii_dietaryFibrePerServing', values[0]);
                 addHiddenDiv('ii_dietaryFibrePerServingUom', values[1]);
               } else if (firstColValue === 'proteins') {
-                valueWithUoM = row.firstChild.nextSibling.textContent.substring(1);
+                valueWithUoM = row.firstChild.nextSibling.textContent;
+                if (valueWithUoM.indexOf('~') >= 0) {
+                  valueWithUoM = valueWithUoM.substring(1);
+                }
                 const values = valueWithUoM.split(' ');
                 addHiddenDiv('ii_proteinPerServing', values[0]);
                 addHiddenDiv('ii_proteinPerServingUom', values[1]);
               } else if (firstColValue === 'salt') {
-                valueWithUoM = row.firstChild.nextSibling.textContent.substring(1);
+                valueWithUoM = row.firstChild.nextSibling.textContent;
+                if (valueWithUoM.indexOf('~') >= 0) {
+                  valueWithUoM = valueWithUoM.substring(1);
+                }
                 const values = valueWithUoM.split(' ');
                 addHiddenDiv('ii_saltPerServing', values[0]);
                 addHiddenDiv('ii_saltPerServingUom', values[1]);
