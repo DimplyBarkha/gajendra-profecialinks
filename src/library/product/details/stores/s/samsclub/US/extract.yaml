@@ -35,6 +35,8 @@ fields:
     singleValue: true
     xpath: //div[@class="sc-oos-card-label"] | //div[@itemprop="offers"]//meta[@itemprop="availability"]/@content
     regExp: InStock
+    regExpReplace: In stock
+    defaultValue: Out of stock
   - name: description
     singleValue: true
     xpath: //div[@class="sc-full-description-long"]
@@ -43,7 +45,7 @@ fields:
     xpath: count(//div[@class="sc-short-description-content"]/ul/li)
   - name: brandText
     singleValue: true
-    xpath: //span[@class="sc-product-header-item-number"][1]
+    xpath: //meta[@itemprop="brand"]/@content
   - name: manufacturer
     singleValue: true
   - name: quantity
@@ -129,3 +131,12 @@ fields:
     xpath: //div[@class="sc-image-viewer-controls"]//img[@class="sc-image-viewer-thumb"]/@src
     regExp: (.+\_)(.+)
     regExpReplace: $1PDP_Image$
+  - name: mpn
+    singleValue: false
+    xpath: //meta[@itemprop="mpn"]/@content
+  - name: mpc
+    singleValue: false
+    xpath: //meta[@itemprop="mpn"]/@content
+  - name: ingredientsList
+    singleValue: false
+    xpath: //h3[text() = 'Ingredients']/following::p[1]

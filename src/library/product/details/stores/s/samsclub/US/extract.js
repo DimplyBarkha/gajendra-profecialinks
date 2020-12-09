@@ -27,8 +27,35 @@ module.exports = {
       }
 
       document.body.setAttribute('specification', specification);
-
     });
+
+    // await context.evaluate(() => {
+    //   let footer = document.getElementById("footer");
+    //   if (footer) {
+    //     footer.scrollIntoView({ behavior: "smooth", block: "end", inline: "nearest" });
+    //   }
+    // });
+    await new Promise(resolve => setTimeout(resolve, 20000));
+    await context.evaluate(async function () {
+      let scrollTop = 0;
+      while (scrollTop !== 20000) {
+        await stall(500);
+        scrollTop += 1000;
+        window.scroll(0, scrollTop);
+        if (scrollTop === 20000) {
+          await stall(5000);
+          break;
+        }
+      }
+      function stall (ms) {
+        return new Promise((resolve, reject) => {
+          setTimeout(() => {
+            resolve();
+          }, ms);
+        });
+      }
+    });
+
     const ratingSelecter = '#ratings-summary > div[itemprop=ratingValue]';
     await context.waitForSelector(ratingSelecter, { timeout: 40000 });
     await context.extract(dependencies.productDetails);
