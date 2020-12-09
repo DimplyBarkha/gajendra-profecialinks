@@ -1,6 +1,5 @@
-// @ts-nocheck
-const { Context } = require('mocha');
 const { transform } = require('./transform');
+
 async function implementation (inputs, parameters, context, dependencies) {
   const { transform } = parameters;
   const { productDetails } = dependencies;
@@ -71,8 +70,7 @@ async function implementation (inputs, parameters, context, dependencies) {
   } catch (e) {
     console.log(e.message);
   }
-  const request = await context.searchForRequest('.*jplist.*', 'GET');
-  console.log('search for request', request);
+
   // await context.evaluate(() => {
   //   const videosUrl = [];
   //   function clickImages (image) {
@@ -108,9 +106,7 @@ async function implementation (inputs, parameters, context, dependencies) {
   try {
     await context.waitForSelector('div > div > picture > img[alt]');
     await context.evaluate(() => {
-      const videos = [
-        ...document.querySelectorAll('div > div > picture > img[alt]'),
-      ];
+      const videos = Array.from(document.querySelectorAll('div > div > picture > img[alt]'));
       try {
         // Get the Videos to scope
         videos.map((e) => {
@@ -123,7 +119,7 @@ async function implementation (inputs, parameters, context, dependencies) {
     });
     await context.waitForSelector('#playButton div');
     await context.evaluate(() => {
-      const clickButton = [...document.querySelectorAll('#playButton div')];
+      const clickButton = Array.from(document.querySelectorAll('#playButton div'));
       // Click the videos
       clickButton.map((e) => {
         setInterval(function () {
@@ -133,7 +129,7 @@ async function implementation (inputs, parameters, context, dependencies) {
       setTimeout(function () {
         console.log('Grabbing the data');
         const videosUrl = [];
-        [...document.querySelectorAll('video[preload="auto"]')].map((e) => {
+        Array.from(document.querySelectorAll('video[preload="auto"]')).map((e) => {
           videosUrl.push(e.getAttribute('src'));
           document
             .querySelector('body')
@@ -147,6 +143,16 @@ async function implementation (inputs, parameters, context, dependencies) {
     });
   } catch (e) {
     console.log('doesnot have video tumbnail');
+  }
+
+  const requests = await context.searchAllRequests('https://mycliplister.com/jplist/.*', 'GET');
+
+  for (const request of requests) {
+    if (request && request.responseBody && request.responseBody.body) {
+      const inf = JSON.parse(request.responseBody.body);
+      const vidUrl = inf.cliplist.clip.clipurl;
+      console.log(vidUrl); // This needs to be appended to DOM and extracted
+    }
   }
 
   return await context.extract(productDetails, { transform });
