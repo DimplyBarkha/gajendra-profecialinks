@@ -31,21 +31,26 @@ module.exports = {
       const jsonString = document.querySelectorAll(
         "script[type='application/ld+json']"
       )[1];
-      // var Manufacture_list = document.getElementsByClassName(
-      //   "hz-product-manufacturer hz-product-card__manufacturer hz-color-link hz-color-link--static hz-color-link--enabled "
-      // );
+      var Manufacture_list = document.getElementsByClassName(
+        "hz-product-manufacturer hz-product-card__manufacturer hz-color-link hz-color-link--static hz-color-link--enabled "
+      );
       const jsonParsed = JSON.parse(jsonString.innerText);
       const json_list = jsonParsed.itemListElement;
       var urllink = document.querySelectorAll(".hz-product-card__link");
 
       for (let i = 0; i < product.length; i++) {
         console.log("Loop is working");
-        // var new_manuf = Manufacture_list[i].innerText.replace(/by/g, "");
-        // addHiddenDiv("ii_manufacture", new_manuf, i);
+        var new_manuf = Manufacture_list[i].innerText.replace(/by/g, "");
+        addHiddenDiv("ii_manufacture", new_manuf, i);
         var single_obj = json_list[i];
         var url_web = single_obj.url;
         var urllink_update = urllink[i].getAttribute("href");
-        var final_url = urllink_update.replace(/products/g, "photos");
+        try {
+          var final_url = urllink_update.replace(/products/g, "photos");
+        } catch (err) {
+          console.log(err);
+        }
+
         if ((final_url = url_web)) {
           if (rank == 1) {
             addHiddenDiv("ii_rankOrganic", single_obj.position, i);
