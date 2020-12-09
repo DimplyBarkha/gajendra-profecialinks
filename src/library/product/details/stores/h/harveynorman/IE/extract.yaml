@@ -105,6 +105,8 @@ fields:
     xpath: //*[@data-flix-mpn]/@data-flix-mpn | //script[contains(text(),'"mpn"')]
   - name: inTheBoxUrl
     xpath: //div[contains(@class,'InTheBox')]//img/@src
+    regExp: (.+)
+    regExpReplace: https:$1
   - name: inTheBoxText
     xpath: //div[contains(@class,'InTheBox')]//span
   - name: hasComparisonTable
