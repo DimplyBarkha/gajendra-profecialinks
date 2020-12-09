@@ -4,7 +4,7 @@ module.exports = {
   parameterValues: {
     country: 'US',
     store: 'lowes_1360',
-    nextLinkSelector: 'li:last-child a.arrow',
+    nextLinkSelector: 'ul[data-selector="splp-pag-lst"] li:last-child a:not(.disabled)',
     mutationSelector: 'div.plt div[data-selector="splp-prd-lst-ttl"]',
     spinnerSelector: null,
     loadedSelector: 'a > span > article > span',
