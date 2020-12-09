@@ -22,6 +22,9 @@ fields:
   - name: price
     singleValue: false
     xpath: //li[contains(@class,'price-2') or contains(@class,'price-1') or contains(@class,'price-0')][1]    
+  - name: reviewCount
+    singleValue: false
+    xpath: //span/@data-rating
   - name: ratingCount
     singleValue: false
     xpath: //span/@data-rating
