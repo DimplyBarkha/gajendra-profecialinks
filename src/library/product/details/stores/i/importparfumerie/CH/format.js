@@ -29,6 +29,16 @@ const transform = (data) => {
             item.text =  Number(item.text);
           });
         }
+        if (row.aggregateRating) {
+          row.aggregateRating.forEach(item => {
+            item.text =  Number(item.text);
+          });
+        }
+        if (row.reviewCount) {
+          row.reviewCount.forEach(item => {
+            item.text =  Number(item.text);
+          });
+        }
         if (row.description) {
             let description_ar = [];
             row.description.forEach(item => {
@@ -38,18 +48,56 @@ const transform = (data) => {
               row.description = [{ "text": description_ar.join(" || "), 'xpath': row.description[0].xpath }];
             }
         }
-        if (row.specifications) {
-          let specifications_ar = [];
-          row.description.forEach(item => {
-            specifications_ar.push(item.text);
+        if (row.price) {
+          row.price.forEach(item => {
+            item.text =  item.text.replace('.', ',').trim();
           });
-          if (specifications_ar.length) {
-            row.specifications = [{ "text": specifications_ar.join(" || "), 'xpath': row.specifications[0].xpath }];
+        }
+        if (row.listPrice) {
+          row.listPrice.forEach(item => {
+            item.text =  'CHF'+item.text;
+            item.text =  item.text.replace('.', ',').trim();
+          });
+        }
+        if (row.alternateImages) {
+          row.alternateImages.forEach(item => {
+            item.text =  'https://www.impo.ch'+item.text;
+          });
+        }
+        if(row.variants){
+        
+          let value = []
+          //console.log('Hey there')
+          for (let index = 0; index < row.variants.length; ++index) {
+            value.push(row.variants[index].text);
+            //console.log(index, value);
           }
+          row.variants = [{"text": value.join(' | '), "xpath": row.variants[0].xpath}]
+        }
+        if (row.specifications) {
+          var rowItem = ''
+          var rowCounter = 1
+          row.specifications.forEach(item => {
+            if((rowCounter % 2)){
+              rowItem = rowItem +  item.text 
+            } else{
+              rowItem = rowItem +  item.text + ' || '
+            }
+            rowCounter = rowCounter + 1
+          });
+          row.specifications = [{'text':rowItem, 'xpath': row.specifications[0].xpath}]
+          //console.log(row.specifications)
         }
         if (row.descriptionBullets) {
           row.descriptionBullets = [{'text':row.descriptionBullets.length, 'xpath':row.descriptionBullets[0].xpath}];              
-        } 
+        }
+        if(row.variantInformation){
+          var strVariantInfo = ''
+          row.variantInformation.forEach(item => {
+            strVariantInfo = strVariantInfo + item.text + ' | '
+          })
+           row.variantInformation = [{"text": strVariantInfo, "xpath": row.variantInformation[0].xpath}]
+        }      
         if (row.category) {
           let info = [];
           row.category.forEach(item => {
