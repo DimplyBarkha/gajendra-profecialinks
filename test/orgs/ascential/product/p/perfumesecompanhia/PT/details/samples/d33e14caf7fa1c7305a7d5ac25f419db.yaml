@@ -1,0 +1,115 @@
+input:
+  id: 3605533303252
+  _url: http://perfumesecompanhia.pt
+extractions:
+  - html: https://workbench.import.io/html/run=37f5f124-9d61-4044-aacd-8c8a29d05681/task=5e5c9d5c-efd7-43b6-826a-d55810abe277/f20abc8e-676e-4d28-821a-67cd4c6ef660.html
+    extractionConfigId: product/details/stores/p/perfumesecompanhia/PT/extract
+    data:
+      - group:
+          - productUrl:
+              - text: https://www.perfumesecompanhia.pt/pt/catalogo/maquilhagem/olhos/mascaras/mascara-lancme-23700/
+                xpath: /html/head[1]/link[2]/@href
+            image:
+              - text: https://www.perfumesecompanhia.pt/fotos/produtos/3605533303252_1.jpg
+                xpath: /html/body/div[12]/@thumbnail
+            imageAlt:
+              - text: Lancôme Grandiose 01-Deep intense black
+                xpath: /html/body/div[12]/@thumbnail-alt
+            alternateImages:
+              - text: https://www.perfumesecompanhia.pt/fotos/produtos/3605533303252-back.jpg,https://www.perfumesecompanhia.pt/fotos/produtos/3605533303252-back.jpg,https://www.perfumesecompanhia.pt/fotos/produtos/3605533303252-side.jpg,https://www.perfumesecompanhia.pt/fotos/produtos/3605533303252-side.jpg,https://www.perfumesecompanhia.pt/fotos/produtos/3605533303252-extra1.jpg,https://www.perfumesecompanhia.pt/fotos/produtos/3605533303252-extra1.jpg,https://www.perfumesecompanhia.pt/fotos/produtos/3605533303252-extra2.jpg,https://www.perfumesecompanhia.pt/fotos/produtos/3605533303252-extra2.jpg
+                xpath: /html/body/div[13]
+            metaKeywords:
+              - text: Lancôme Grandiose Maquilhagem Olhos Máscaras perfumes e companhia,
+                  perfumes, perfumaria, cosmética, cosméticos, maquilhagem
+                xpath: /html/head[1]/meta[4]/@content
+            category:
+              - text: Início
+                xpath: /html/body/div[9]/div[3]/div[1]/a[1]
+              - text: Maquilhagem
+                xpath: /html/body/div[9]/div[3]/div[1]/a[2]
+              - text: Olhos
+                xpath: /html/body/div[9]/div[3]/div[1]/a[3]
+              - text: Máscaras
+                xpath: /html/body/div[9]/div[3]/div[1]/a[4]
+            nameExtended:
+              - text: Lancôme Grandiôse Wide-Angle Fan Effect Mascara - 01 - Black
+                xpath: /html/body/div[12]/@name-extended
+            listPrice:
+              - text: € 36,30
+                xpath: /html/body/div[12]/@list-price
+            price:
+              - text: € 27,95
+                xpath: /html/body/div[12]/@price
+            availabilityText:
+              - text: Disponíbilidade imediata
+                xpath: /html/body/div[12]/@availability
+            description:
+              - text: Grandiôse é um encontro entre a inovação e o sonho da precisão técnica e
+                  requinte. A Lancôme reinventa o design do rímel com o
+                  patenteado aplicador pescoço de cisne. A escova curva da
+                  Grandiôse pode ser deslizada até quase junto da coroa superior
+                  da pestana e segue a anatomia natural do olho. Assim, chega a
+                  todas as pestanas, desde as interiores até ao ângulo exterior
+                  e desde o ponto onde as pestanas acabam até à sua ponta. Os
+                  pigmentos preto escuro oferecem um olhar intenso e brilhante e
+                  o extrato de células de rosa cuida das suas pestanas.
+                xpath: /html/body/div[9]/div[3]/div[2]/div[1]/div[2]/div[4]/div[2]/p[1]
+            sku:
+              - text: "23701"
+                xpath: /html/body/div[12]/@variant-id
+            variantId:
+              - text: "23701"
+                xpath: /html/body/div[12]/@variant-id
+            ratingCount:
+              - text: "7"
+                xpath: /html/body/div[15]
+                type: NUMBER
+                raw: "7"
+                locale: pt
+                value: 7
+            aggregateRating:
+              - text: 4,28
+                xpath: /html/body/div[16]
+            variantCount:
+              - text: "1"
+                xpath: /html/body/div[19]
+                type: NUMBER
+                raw: "1"
+                locale: pt
+                value: 1
+            color:
+              - text: 01 - Black
+                xpath: /html/body/div[12]/@color
+            secondaryImageTotal:
+              - text: "8"
+                xpath: /html/body/div[14]
+                type: NUMBER
+                raw: "8"
+                locale: pt
+                value: 8
+            ingredientsList:
+              - text: AQUA / WATER ? PARAFFIN ? POTASSIUM CETYL PHOSPHATE ? ACRYLATES COPOLYMER
+                  ? CERA ALBA / BEESWAX ? COPERNICIA CERIFERA CERA / CARNAUBA
+                  WAX ? ETHYLENE/ACRYLIC ACID COPOLYMER ? STEARETH-2 ? CETYL
+                  ALCOHOL ? ACACIA SENEGAL / ACACIA SENEGAL GUM ? ROSE EXTRACT ?
+                  SODIUM HYALURONATE ? 2-OLEAMIDO-1,3-OCTADECANEDIOL ? DISODIUM
+                  EDTA ? PROPANEDIOL ? HYDROGENATED JOJOBA OIL ? HYDROGENATED
+                  PALM OIL ? HYDROXYETHYLCELLULOSE ? CAPRYLYL GLYCOL ? PANTHENOL
+                  ? ETHYLENEDIAMINE/STEARYL DIMER DILINOLEATE COPOLYMER ? SODIUM
+                  DEHYDROACETATE ? PHENOXYETHANOL ? PARFUM / FRAGRANCE ? [+/-
+                  MAY CONTAIN CI 77499 / IRON OXIDES
+                xpath: /html/body/div[9]/div[3]/div[2]/div[1]/div[2]/div[4]/div[3]
+            productOtherInformation:
+              - text: A escova curva da Grandiôse deverá ser deslizada ao longo da pestana e
+                  seguindo a anatomia natural do olho, assim acaba por conseguir
+                  chegar a todas as pestanas, desde a raíz das pestanas até à
+                  ponta onde acabam.
+                xpath: /html/body/div[9]/div[3]/div[2]/div[1]/div[2]/div[4]/div[4]
+            variants:
+              - text: 01 - BLACK
+                xpath: /html/body/div[18]
+            imageZoomFeaturePresent:
+              - text: Yes
+                xpath: /html/body/div[17]
+        xpath: /html
+    timestamp: 1607505190662
