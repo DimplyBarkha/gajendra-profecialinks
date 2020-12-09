@@ -41,6 +41,8 @@ module.exports = {
       const productUrl = document.querySelectorAll('div[class*=\'item__description-offre\']>a');
       if (productUrl.length) {
         for (let i = 0; i < productUrl.length; i++) {
+          productUrl[i].focus();
+          await new Promise((resolve, reject) => setTimeout(resolve, 100));
           addProp('div[class*=\'item__description-offre\']>a', i, 'product_url', productUrl[i].href);
         }
       }
