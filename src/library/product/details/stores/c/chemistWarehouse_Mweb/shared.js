@@ -33,6 +33,11 @@ const transform = (data) => {
                 item.text = item.text.substring(10).trim();
             }); 
           }
+          if (row.quantity) {
+            row.quantity.forEach(item => {
+                item.text = item.text.trim();
+            });
+          }
       }
     }
   

@@ -6,21 +6,25 @@ fields:
   - name: image
     singleValue: false
     description: URL of the main product image
-    xpath: //div[@class="pi_slide"][1]/a[@class="image_enlarger"]/img[contains(@class, "hero_image") and @itemprop="image"]/@src
+    xpath: //div[@class="slides_container"]//div[@class="pi_slide" and @debug-id="slide-0"]/a/@href
+    # xpath: //div[@class="pi_slide"][1]/a[@class="image_enlarger"]/img[contains(@class, "hero_image") and @itemprop="image"]/@src
   - name: imageAlt
     singleValue: false
     description: Alt text of the main product image
-    xpath: //div[@class="pi_slide"][1]/a[@class="image_enlarger"]/img[contains(@class, "hero_image") and @itemprop="image"]/@alt
+    xpath: //div[@class="slides_container"]//div[@class="pi_slide" and @debug-id="slide-0"]/a/img/@alt
+    # xpath: //div[@class="pi_slide"][1]/a[@class="image_enlarger"]/img[contains(@class, "hero_image") and @itemprop="image"]/@alt
   - name: alternateImages
     singleValue: false
     description: Other product images (not in manufacturer description)
-    xpath: //div[@class="pi_slide"][position() > 1]/a[@class="image_enlarger"]/img[contains(@class, "hero_image") and @itemprop="image"]
+    xpath: //div[@class="slides_container"]//div[@class="pi_slide"][position() > 1]/a/@href
+    # xpath: //div[@class="pi_slide"][position() > 1]/a[@class="image_enlarger"]/img[contains(@class, "hero_image") and @itemprop="image"]
   - name: metaKeywords
     singleValue: false
     description: The <meta> keywords content
   - name: category
     singleValue: false
     description: The categories (e.g. from breadcrumbs)
+    xpath: //div[@class="breadcrumbs"]/a[position()>1]
   - name: nameExtended
     singleValue: false
     description: The product name, prefixing "${brand} - " if not included in "name"
@@ -62,8 +66,9 @@ fields:
   - name: quantity
     singleValue: false
     description: Quantity as described on the page
-    regExp: (?:\s?([\d\.]+\s?)([bB]ar[s]?|[cC]ount|[cC]t|[fF][lL][\.]?\s?[oO][zZ][\.]?|FO|[mM][lL]|[oO][zZ][\.]?|pc|[pP]int|[pP]ops|qt|[wW]ipe[s]?).?)$|(?:\s?([\d\.]+\s?)([bB]ar[s]?|[cC]ount|[cC]|[fF][lL][\.]?\s?[oO][zZ][\.]?|FO|[mM][lL]|[oO][zZ][\.]?|pc|[pP]int|[pP]ops|qt|[wW]ipe[s]?).?\s?[\&\-\w\s]+)$
-    regExpReplace: $1$2$3$4
+    xpath: //section[@class='product-info-section general-info ']//p[contains(text(), 'Size:')] | //section[@class='product-info-section general-info']//p[contains(text(), 'Size:')]
+    regExp: Size\:\s(.*)
+    regExpReplace: $1
   - name: weightNet
     singleValue: false
     description: Net weight as described on the page
@@ -76,6 +81,7 @@ fields:
   - name: sku
     singleValue: false
     description: The store-specific product identifier
+    xpath: //input[@id="skuId"]/@value
   - name: variantId
     singleValue: false
     description: Identifier for a variant from a store where variants share the same sku
@@ -97,6 +103,7 @@ fields:
   - name: warnings
     singleValue: false
     description: Content under "warnings" header
+    xpath: //section[@class="product-info-section warnings"]/div[@itemprop="description"] | //section[@class="product-info-section warnings "]/div[@itemprop="description"]
   - name: ratingCount
     singleValue: false
     description: The number of ratings
@@ -121,8 +128,7 @@ fields:
     description: Stated shipping weight
   - name: variantCount
     singleValue: false
-    description: Number of variants listed
-    type: NUMBER
+    defaultValue: '0'  
   - name: color
     singleValue: false
     description: A textual description of the colour
@@ -234,6 +240,7 @@ fields:
   - name: secondaryImageTotal
     singleValue: false
     description: null
+    xpath: count(//div[@class="slides_container"]//div[@class="pi_slide"][position() > 1]/a/@href)
     type: NUMBER
   - name: news
     singleValue: false
@@ -487,15 +494,15 @@ fields:
   - name: termsAndConditions
     singleValue: false
     description: Terms and conditions information text ['Yes','No']
-    defaultValue: No
+    defaultValue: Yes
   - name: privacyPolicy
     singleValue: false
     description: Privacy Policy information text ['Yes','No']
-    defaultValue: No
+    defaultValue: Yes
   - name: customerServiceAvailability
     singleValue: false
     description: Information related to customer service availability (text), ['Yes','No']
-    defaultValue: No
+    defaultValue: Yes
   - name: materials
     singleValue: false
     description: Materials used to make the product
@@ -510,4 +517,4 @@ fields:
     description: If Zoom feature is available for Main image or images in the
       carousel,['Yes','No']
     example: https://www.zalando.de/adidas-neo-sneaker-low-blackwhite-a4315i002-q11.html
-    defaultValue: No
+    defaultValue: Yes
