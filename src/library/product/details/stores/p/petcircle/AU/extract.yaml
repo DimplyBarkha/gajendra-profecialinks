@@ -77,10 +77,13 @@ fields:
     xpath: //span[@class='name' and @itemprop='name']
   - name: variantInformation
     singleValue: false
-    xpath: //span[@class="sku-data-size"]
+    xpath: (//span[@class="sku-data-size"])[1]
   - name: firstVariant
     singleValue: true
     xpath: //li[contains(@class,'active-sku')]/input[@name='rad']/@data-sku
   - name: ingredientsList
     singleValue: true
     xpath: //div[@class="ingredients-section"]
+  - name: quantity
+    singleValue: true
+    xpath: (//span[@class="sku-data-size"])[1]

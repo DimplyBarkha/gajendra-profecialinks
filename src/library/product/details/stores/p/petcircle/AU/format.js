@@ -63,7 +63,9 @@ const transform = (data) => {
                 strJSONString   = item.text.replace('(function(){ window.__DOMAIN__ = ', '').trim();
                 strJSONString   = strJSONString.slice(0, -5); 
                 var obj     = JSON.parse(strJSONString);
-                strPrice    = obj.productPrice
+                if(obj.hasOwnProperty('productPrice')){
+                    strPrice    = obj.productPrice
+                }
             })
             row.price = [{"text": strPrice, "xpath": row.price[0].xpath}]
         }
@@ -91,13 +93,13 @@ const transform = (data) => {
             row.descriptionBullets = [{"text": strDescBulletCount, "xpath": row.additionalDescBulletInfo[0].xpath}]  
 
         }
-        if(row.variantInformation){
-            var arrTemp = []  
-            row.variantInformation.forEach(variantInfo => {
-                arrTemp.push(variantInfo.text)
-            })
-            row.variantInformation = [{"text": arrTemp.join(' | '), "xpath": row.variantInformation[0].xpath}]
-        }
+        // if(row.variantInformation){
+        //     var arrTemp = []  
+        //     row.variantInformation.forEach(variantInfo => {
+        //         arrTemp.push(variantInfo.text)
+        //     })
+        //     row.variantInformation = [{"text": arrTemp.join(' | '), "xpath": row.variantInformation[0].xpath}]
+        // }
         if(row.aplus_images){
             var arrTemp = []  
             row.aplus_images.forEach(Images => {
