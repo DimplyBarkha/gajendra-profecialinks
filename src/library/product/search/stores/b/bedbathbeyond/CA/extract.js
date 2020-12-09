@@ -14,11 +14,9 @@ module.exports = {
       if (!document.querySelector('header[class*="SearchHeader"')) {
         throw new Error('Not a Search Page');
       }
+      const currentUrl = window.location.href;
 
       window.scrollTo(0, document.body.scrollHeight);
-
-      const currentUrl = window.location.href;
-      document.querySelector('body').setAttribute('searchurl', currentUrl);
 
       const products = document.querySelectorAll(
         '[data-locator="product_tile_rating"] > span',
@@ -40,6 +38,7 @@ module.exports = {
         const ratingAttr = rating.toFixed(1);
         product.closest('article').setAttribute('rating', ratingAttr);
         product.closest('article').setAttribute('rankorganic', `${index + 1}`);
+        product.closest('article').setAttribute('searchurl', currentUrl);
       });
     });
     const { transform } = parameters;
