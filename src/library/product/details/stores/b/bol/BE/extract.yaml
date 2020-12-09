@@ -109,3 +109,9 @@ fields:
     defaultValue: NO
     regExp: (.+)
     reExpReplace: Yes
+  - name: inTheBoxText
+    xpath: (//dt[contains(.,'Verpakkingsinhoud')]/following-sibling::dd[1])[1] | (//dt[contains(.,'In de doos')]/following-sibling::dd[1])[1]
+  - name: hasComparisonTable
+    defaultValue: No
+  - name: unInterruptedPDP
+    xpath: //ul[contains(@class,'sponsored-products-row')]//li
