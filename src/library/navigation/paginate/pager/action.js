@@ -50,14 +50,13 @@ async function implementation (
   if (nextLinkSelector) {
     console.log('Clicking', nextLinkSelector);
     // await context.clickAndWaitForNavigation(nextLinkSelector, {}, { timeout: 20000 })
-    await context.click(nextLinkSelector, { timeout: 20000 })
-    // await context.evaluate(async(nextLinkSelector)=>{
-      // document.querySelector(nextLinkSelector).click()
-    //   document.querySelector(nextLinkSelector).scrollIntoView();
-    // },nextLinkSelector).then(async()=>{
-      // await new Promise(res=>setTimeout(res,5000))
-      // await context.click(nextLinkSelector, { timeout: 20000 })
-    // })
+    // await context.click(nextLinkSelector, { timeout: 20000 })
+    await context.evaluate(async(nextLinkSelector)=>{
+      document.querySelector(nextLinkSelector).scrollIntoView({ behavior: "smooth", block: "center", inline: "center" });
+    },nextLinkSelector).then(async()=>{
+      await new Promise(res=>setTimeout(res,3000))
+      await context.click(nextLinkSelector, { timeout: 20000 })
+    })
     if (loadedSelector) {
       await context.waitForSelector(loadedSelector, { timeout: 20000 });
     }
