@@ -96,6 +96,14 @@ const transform = (data) => {
         });
         row.variants = variants;
       }
+      if (row.inTheBoxText) {
+        if (row.inTheBoxText.length === 1) {
+          if (row.inTheBoxText[0].text.search(':') !== -1) {
+            const text = row.inTheBoxText[0].text.split(':')[1];
+            row.inTheBoxText = [{ text }];
+          }
+        }
+      }
     }
   }
 

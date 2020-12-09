@@ -213,3 +213,8 @@ fields:
     xpath: (//select[@class="product-variant-select"]/option/@value)[1]
     regExp: (.*)p\/(\d+)(.*)
     regExpReplace: $2
+
+  - name: inTheBoxText
+    xpath: //div[@class="block-header"][contains(.,"inclus")]/following-sibling::div//span[@class="name"]/following-sibling::span[contains(.,"Dans la boîte")] | //strong[contains(.,"Dans la boîte")]/following-sibling::text()
+  - name: hasComparisonTable
+    defaultValue: No
