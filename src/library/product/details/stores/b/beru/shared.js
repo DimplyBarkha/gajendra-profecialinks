@@ -36,28 +36,59 @@ const transform = (data) => {
             ];
           }
        
-        // if (row.specifications) {
-        //   let text = '';
-        //   row.specifications.forEach(item => {
-        //     text += item.text.replace(/\s{2,}/g, ' ').replace(/\n/g, ' ').trim();
-        //   });
-        //   row.specifications = [
-        //     {
-        //       text: text,
-        //     },
-        //   ];
-        // }
-        // if (row.description) {
-        //   let text = '';
-        //   row.description.forEach(item => {
-        //     text += item.text.replace(/\s{2,}/g, ' ').replace(/\n/g, ' ').trim();
-        //   });
-        //   row.description = [
-        //     {
-        //       text: text,
-        //     },
-        //   ];
-        // }
+        if (row.availabilityText) {
+          let text = '';
+          row.availabilityText.forEach(item => {
+            if(item.text.includes('В наличии на складе')) {
+              text = 'In stock';
+            } else {
+              text  = 'Out of stock'
+            }
+            
+          });
+          row.availabilityText = [
+            {
+              text: text,
+            },
+          ];
+         }
+        if (row.variantUrl) {
+          var dups= [];
+          row.variantUrl = row.variantUrl.filter(function (el) {
+            // If it is not a duplicate, return true
+            if (dups.indexOf(el.text) === -1) {
+              dups.push(el.text);
+              console.log(dups);
+              return true;
+            }
+  
+            return false;
+          });
+         }
+        if (row.variantId) {
+          var dups= [];
+          row.variantId = row.variantId.filter(function (el) {
+            // If it is not a duplicate, return true
+            if (dups.indexOf(el.text) === -1) {
+              dups.push(el.text);
+              console.log(dups);
+              return true;
+            }
+  
+            return false;
+          });
+         }
+        if (row.description) {
+          let text = '';
+          row.description.forEach(item => {
+            text += item.text.replace(/\s{2,}/g, ' ').replace(/\n/g, ' ').trim();
+          });
+          row.description = [
+            {
+              text: text,
+            },
+          ];
+        }
         // if (row.manufacturerDescription) {
         //   let text = '';
         //   row.manufacturerDescription.forEach(item => {

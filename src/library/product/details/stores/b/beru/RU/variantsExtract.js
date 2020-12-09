@@ -1,5 +1,16 @@
 
-
+const { transform } = require('../shared');
+module.exports = {
+  implements: 'product/details/variants/variantsExtract',
+  parameterValues: {
+    country: 'RU',
+    store: 'beru',
+    transform,
+    domain: 'pokupki.market.yandex.ru',
+    zipcode: '',
+  },
+  implementation
+};
 async function implementation (
   inputs,
   parameters,
@@ -20,30 +31,34 @@ async function implementation (
       variantDivExtra.click();
     }
     let variantDiv = document.querySelectorAll('div.b_5w6zb4tA_L')[0];
+    let variantDiv2 = document.querySelectorAll('div.b_3cmFHJbptv picture.b_3ogURkuHm0');
     let variantFil = variantDiv.querySelectorAll('span.b_1vzk4iYy5n');
     console.log(variantFil , 'variantFil');
     let variantUrl
-    variantFil.forEach(element => {
-      element.click();
-      console.log(window.location.href , 'window.location.href');
-      variantUrl = window.location.href
-      const secondaryImageLink = document.createElement('div');
-      secondaryImageLink.setAttribute('class', 'variantUrl');
-      secondaryImageLink.setAttribute('href', element.baseURI);
-      document.body.appendChild(secondaryImageLink);
-    });
-
+    if(variantFil) {
+      variantFil.forEach(element => {
+        element.click();
+        console.log(window.location.href , 'window.location.href');
+        variantUrl = window.location.href
+        const variantLink = document.createElement('div');
+        variantLink.setAttribute('class', 'variantUrl');
+        variantLink.setAttribute('href', variantUrl);
+        document.body.appendChild(variantLink);
+      });
+    }
+   
+    if(variantDiv2) {
+      variantDiv2.forEach(element => {
+        element.click();
+        console.log(window.location.href , 'window.location.href');
+        variantUrl = window.location.href
+        const variantLink = document.createElement('div');
+        variantLink.setAttribute('class', 'variantUrl');
+        variantLink.setAttribute('href', variantUrl);
+        document.body.appendChild(variantLink);
+      });  
+    }
+    
   }, createUrl);
-  return await context.extract(variants);
+  return await context.extract(variants , { transform });
 }
-module.exports = {
-  implements: 'product/details/variants/variantsExtract',
-  parameterValues: {
-    country: 'RU',
-    store: 'beru',
-    transform: null,
-    domain: 'pokupki.market.yandex.ru',
-    zipcode: '',
-  },
-  implementation
-};
