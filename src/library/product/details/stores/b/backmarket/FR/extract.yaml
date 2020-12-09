@@ -77,9 +77,13 @@ fields:
   - name: sku
     singleValue: true
     description: The store-specific product identifier
+    xpath: //link[@hreflang='fr-fr']/@href
+    regExp: (?!.*[\/])(\d+)
   - name: variantId
     singleValue: true
     description: Identifier for a variant from a store where variants share the same sku
+    xpath: //link[@hreflang='fr-fr']/@href
+    regExp: (?!.*[\/])(\d+)
   - name: mpc
     singleValue: true
     description: The manufacturer model code (unique) of the product

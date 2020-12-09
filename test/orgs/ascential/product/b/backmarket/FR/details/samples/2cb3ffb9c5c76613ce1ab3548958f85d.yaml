@@ -2,7 +2,7 @@ input:
   _url: http://backmarket.fr
   URL: https://www.backmarket.fr/purificateur-dair-dyson-tp04-pas-cher/135544.html#?l=1
 extractions:
-  - html: https://workbench.import.io/html/run=efe9eb81-11b6-4c8d-a508-688d83c0d4d8/task=3e7bfe2f-d238-44e1-9c2f-d7154385bbdc/2d4cc0e4-fb13-45bc-9545-7a826b551f2e.html
+  - html: https://workbench.import.io/html/run=1d12c3f8-c25f-444d-adef-ba22df4bdea2/task=2d7d05dc-846e-408a-9079-105e2088f506/32b460f2-e64b-4228-bb04-c862b7c46288.html
     extractionConfigId: product/details/stores/b/backmarket/FR/extract
     data:
       - group:
@@ -47,16 +47,22 @@ extractions:
             weightNet:
               - text: 4980 g
                 xpath: /html/body/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[3]/div[3]/div[1]/ul[1]/li[4]/text()[1]
+            sku:
+              - text: "135544"
+                xpath: /html/head[1]/link[8]/@href
+            variantId:
+              - text: "135544"
+                xpath: /html/head[1]/link[8]/@href
             mpc:
               - text: "135544"
                 xpath: /html/head[1]/link[8]/@href
             ratingCount:
-              - text: "335"
+              - text: "340"
                 xpath: /html/body/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/section[1]/div[2]/div[1]/div[1]/div[1]/p[1]/strong[1]
                 type: NUMBER
-                raw: 335 avis
+                raw: 340 avis
                 locale: fr_FR
-                value: 335
+                value: 340
             aggregateRatingText:
               - text: 4,1
                 xpath: /html/body/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/section[1]/div[2]/div[1]/div[1]/div[1]/div[1]/strong[1]
@@ -190,4 +196,4 @@ extractions:
                 locale: fr_FR
                 value: 0
         xpath: /
-    timestamp: 1607504627881
+    timestamp: 1607514671179

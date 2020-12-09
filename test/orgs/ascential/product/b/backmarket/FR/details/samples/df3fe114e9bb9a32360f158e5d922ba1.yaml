@@ -2,7 +2,7 @@ input:
   _url: http://backmarket.fr
   URL: https://www.backmarket.fr/ventilateur-dyson-cool-am07-pas-cher/35036.html#?l=4
 extractions:
-  - html: https://workbench.import.io/html/run=efe9eb81-11b6-4c8d-a508-688d83c0d4d8/task=a9fb7e08-d078-4941-a07f-dc9269935d68/40f86905-ebbb-4c35-a922-175bd2de6c58.html
+  - html: https://workbench.import.io/html/run=1d12c3f8-c25f-444d-adef-ba22df4bdea2/task=fc2075ac-41e9-4d13-9741-73565d4d1526/53f85bdb-ee46-4f97-8853-4c2b50b662c4.html
     extractionConfigId: product/details/stores/b/backmarket/FR/extract
     data:
       - group:
@@ -40,6 +40,12 @@ extractions:
             weightNet:
               - text: 2860 g
                 xpath: /html/body/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[3]/div[3]/div[1]/ul[1]/li[4]/text()[1]
+            sku:
+              - text: "35036"
+                xpath: /html/head[1]/link[9]/@href
+            variantId:
+              - text: "35036"
+                xpath: /html/head[1]/link[9]/@href
             mpc:
               - text: "35036"
                 xpath: /html/head[1]/link[9]/@href
@@ -153,4 +159,4 @@ extractions:
                 locale: fr_FR
                 value: 0
         xpath: /
-    timestamp: 1607504625137
+    timestamp: 1607514669896

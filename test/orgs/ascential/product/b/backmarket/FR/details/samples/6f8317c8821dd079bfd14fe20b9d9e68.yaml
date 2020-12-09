@@ -2,7 +2,7 @@ input:
   _url: http://backmarket.fr
   URL: https://www.backmarket.fr/ventilateur-chauffage-dyson-am09-noir-pas-cher/209688.html#?l=1
 extractions:
-  - html: https://workbench.import.io/html/run=efe9eb81-11b6-4c8d-a508-688d83c0d4d8/task=1cade1ef-08ef-463e-b1e5-c5d5649c0165/6b5ddabc-aa5b-41a3-b199-2187114d34e4.html
+  - html: https://workbench.import.io/html/run=1d12c3f8-c25f-444d-adef-ba22df4bdea2/task=121a33b1-f635-4ba8-85e2-15048a993c19/2bfec1aa-7a64-4433-b2ea-d23b9ceeaaec.html
     extractionConfigId: product/details/stores/b/backmarket/FR/extract
     data:
       - group:
@@ -34,6 +34,12 @@ extractions:
             weightNet:
               - text: 2570 g
                 xpath: /html/body/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[3]/div[2]/div[1]/ul[1]/li[5]/text()[1]
+            sku:
+              - text: "209688"
+                xpath: /html/head[1]/link[8]/@href
+            variantId:
+              - text: "209688"
+                xpath: /html/head[1]/link[8]/@href
             mpc:
               - text: "209688"
                 xpath: /html/head[1]/link[8]/@href
@@ -114,4 +120,4 @@ extractions:
                 locale: fr_FR
                 value: 0
         xpath: /
-    timestamp: 1607504621753
+    timestamp: 1607514669799
