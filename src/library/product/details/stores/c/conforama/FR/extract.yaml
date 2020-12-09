@@ -153,4 +153,11 @@ fields:
     regExp: (.+)
     regExpReplace: 'YES'
     defaultValue: 'NO'
+  - name: inTheBoxText
+    singleValue: false
+    xpath: //td[contains(.,'Accessoires fournis')]/following-sibling::td
+  - name: hasComparisonTable
+    singleValue: true
+    defaultValue: No
+
 
