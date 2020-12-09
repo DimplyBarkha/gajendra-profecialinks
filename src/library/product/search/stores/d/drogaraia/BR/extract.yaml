@@ -18,7 +18,7 @@ fields:
     singleValue: false
   - name: thumbnail
     singleValue: false
-    xpath: //div[(@class="sli_image")]//img/@src
+    xpath: //div[(@class="sli_image")]//img/@data-src
     regExp: (.+)
     regExpReplace: http:$1
   - name: aggregateRating
