@@ -503,3 +503,11 @@ fields:
       carousel,['Yes','No']
     example: https://www.zalando.de/adidas-neo-sneaker-low-blackwhite-a4315i002-q11.html
     defaultValue: No
+  - name: inTheBoxText
+    singleValue: false
+    xpath: //div[@class="tabbed-container-content std"]//p[contains(.,'•')]
+    regExp: (\w.+)
+  - name: hasComparisonTable
+    defaultValue: No
+  - name: unInterruptedPDP
+    xpath: //div[contains(.,'You Might Also Like')][contains(@class,'tabbed-container-title')]/following-sibling::div[contains(@class,'tabbed-container-content')]//div[@class="slick-track"]/div[contains(@class,"slick-slide") and (not(contains(@class,'slick-cloned')))]
