@@ -1,11 +1,11 @@
 
-const { transform } = require('../shared');
+// const { transform } = require('../shared');
 module.exports = {
   implements: 'product/details/variants/variantsExtract',
   parameterValues: {
     country: 'RU',
     store: 'beru',
-    transform,
+    transform: null,
     domain: 'pokupki.market.yandex.ru',
     zipcode: '',
   },
@@ -60,5 +60,5 @@ async function implementation (
     }
     
   }, createUrl);
-  return await context.extract(variants , { transform });
+  return await context.extract(variants);
 }
