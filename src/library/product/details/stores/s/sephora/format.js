@@ -35,6 +35,13 @@ const transform = (data) => {
                 });
                 row.aggregateRating = [{'text': rating.toFixed(1),'xpath':row.aggregateRating[0].xpath}];
             }  
+
+            if (row.ratingCount) {
+                row.ratingCount.forEach(item => {  
+                   item.text = item.text.match(/\d+/)[0];                             
+                });
+            } 
+
             if (row.description) {
                 let info = [];
                 row.description.forEach(item => {
