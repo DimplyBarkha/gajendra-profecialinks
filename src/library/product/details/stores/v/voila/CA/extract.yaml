@@ -95,13 +95,13 @@ fields:
     regExp:  ^[^\s]+
   - name: cholesterolPerServingUom 
     xpath: //b[contains(text(),"Cholesterol")]/parent::td/text()
-    regExp: '[^\s]$'
+    regExp: ([a-zA-Z]+)
   - name: sodiumPerServing
     xpath: //b[contains(text(),"Sodium")]/parent::td/text()
     regExp: ^[^\s]+
   - name: sodiumPerServingUom 
     xpath: //b[contains(text(),"Sodium")]/parent::td/text()
-    regExp: '[^\s]$'
+    regExp: ([a-zA-Z]+)
   - name: totalCarbPerServing
     xpath: //b[contains(text(),"Carbohydrate")]/parent::td/text()
     regExp: ^[^\s]+
