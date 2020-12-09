@@ -1,11 +1,10 @@
 
 module.exports = {
-  implements: 'navigation/goto',
+  implements: 'product/details',
   parameterValues: {
-    domain: 'e-bebek.com',
-    timeout: 500000,
     country: 'TR',
     store: 'e-bebek',
+    domain: 'e-bebek.com',
     zipcode: '',
   },
 };
