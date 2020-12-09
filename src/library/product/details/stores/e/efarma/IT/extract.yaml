@@ -56,7 +56,7 @@ fields:
     "In Stock"
 - name: description
   singleValue: false
-  xpath: //div[@class="std"]/p[normalize-space()!=''] | //div[@class="std"]/h2[normalize-space()!='']
+  xpath: //div[contains(@class, "std")]/h2/following-sibling::p | //div[contains(@class, "std")]/h2
   description: Product description supplied by website - may be concatenanted from
     multiple places; specifically not the manufacturer description
 - name: descriptionBullets
