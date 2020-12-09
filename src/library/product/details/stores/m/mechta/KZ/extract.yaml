@@ -41,6 +41,9 @@ fields:
   - name:  description
     singleValue: false
     xpath: //div[contains(@class,'aa_detailtov_opis')]/text()
+  - name: quantity
+    singleValue: false
+    xpath: //div[contains(@class,'aa_dt_p')]//span[normalize-space()='Диагональ, дюйм:']//parent::div//following-sibling::div
   - name: brandText
     singleValue: false
     xpath: //div[contains(@class,'aa_dt_p')]//span[normalize-space()='Бренд:']//parent::div//following-sibling::div
