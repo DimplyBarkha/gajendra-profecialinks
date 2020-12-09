@@ -1,4 +1,4 @@
-const { transform } = require('../../../../shared');
+const { cleanUp } = require('../../../../shared');
 
 async function implementation (inputs, parameters, context, dependencies) {
   const { transform } = parameters;
@@ -29,8 +29,7 @@ async function implementation (inputs, parameters, context, dependencies) {
     const acceptButton = document.querySelector('button[class="js-confirm-button"]');
     if (acceptButton) {
       return acceptButton;
-    }
-    else return null;
+    } else return null;
   });
 
   if (isActive) {
@@ -48,6 +47,7 @@ async function implementation (inputs, parameters, context, dependencies) {
     // autoclick
     var moreButtons = document.querySelectorAll('a.show-more__button');
     moreButtons.forEach(async (element) => {
+      // @ts-ignore
       element.click();
     });
     await new Promise((resolve, reject) => {
@@ -122,28 +122,36 @@ async function implementation (inputs, parameters, context, dependencies) {
       });
     }
 
-    // count strange bullets in description
-    const description = document.querySelector('div[class="product-description"]');
+    // descrption modification and bullets
+    const descriptionElement = document.querySelector('div[class="product-description"]');
+    const descriptionLiElements = document.querySelectorAll(
+      'div[class="product-description"] ul li');
+    let descriptionText = descriptionElement ? descriptionElement.textContent : '';
+    const descriptionLiTexts = [];
+    descriptionLiElements.forEach((li) => {
+      descriptionLiTexts.push(li.textContent ? li.textContent : '');
+    });
+    descriptionText += ' || ' + descriptionLiTexts.join(' || ');
 
-    if (description) {
-      const count = (description.textContent.match(/\•/g) || []).length;
-      addElementToDom(count, 'strangeBullets');
-    }
+    const count = (descriptionText.match(/•/g) || []).length;
+    const modifiedDesc = descriptionText.replace(/•/gi, ' || ');
+    addElementToDom(count, 'strangeBullets');
+    addElementToDom(modifiedDesc, 'description');
+  });
 
+  await context.evaluate(async function () {
     // video
-    // if (document.querySelector('a[data-test="product-video"]')) {
-    //   const videoButton = document.querySelector('a[data-test="product-video"]');
-    //   videoButton.click();
+    if (document.querySelector('a[data-test="product-video"]')) {
+      const videoButton = document.querySelector('a[data-test="product-video"]');
+      // @ts-ignore
+      videoButton.click();
 
-    //   await new Promise((resolve, reject) => {
-    //     setTimeout(() => {
-    //       resolve();
-    //     }, 2000);
-    //   });
-
-    //   const videoUrl = document.querySelector('video').getAttribute('src');
-    //   addElementToDom(videoUrl, 'videoUrl');
-    // }
+      await new Promise((resolve, reject) => {
+        setTimeout(() => {
+          resolve();
+        }, 2000);
+      });
+    }
   });
 
   return await context.extract(productDetails, { transform });
@@ -154,7 +162,7 @@ module.exports = {
   parameterValues: {
     country: 'NL',
     store: 'bol',
-    transform: transform,
+    transform: cleanUp,
     domain: 'bol.com',
     zipcode: '',
   },
