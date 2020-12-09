@@ -90,6 +90,8 @@ fields:
   - name: packSize
     description: The number of packs in the product offer (if stated separately on
       the site to quantity)
+    xpath: //td[contains(@class,'TableCell')]//span[contains(.,"Verkaufsmenge")]/../following-sibling::td
+    regExp: (\d+)  
   - name: legalDisclaimer
     xpath: //div[contains(@class,"FooterLegal__StyledFooterLegal")]//p[@font-size="xxs"]/..
     description: Content under "legal disclaimer" header
@@ -134,7 +136,7 @@ fields:
     singleValue: false
     description: Images within the third party description
   - name: videos
-    xpath: //body/@videos
+    xpath: //video[@preload="auto"]/@src | //source[contains(@type,'video')]/@src
     description: URLs of videos on page
   - name: name
     description: The product name
@@ -368,7 +370,7 @@ fields:
     description: In product page, information about a new version of the product -
       new desription info
   - name: variantInformation
-    xpath: //label[contains(@class,"ProductVariantsstyled")]
+    xpath: //div[contains(@class,"Dropdownstyled")]//span | //label[contains(@class,"ProductVariantsstyled")][contains(.,"Farbe")]
     description: colour / scent / flavour / other
   - name: firstVariant
     xpath: //body/@first-variant

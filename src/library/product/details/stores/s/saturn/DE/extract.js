@@ -1,3 +1,4 @@
+// @ts-nocheck
 const { Context } = require('mocha');
 const { transform } = require('./transform');
 async function implementation (inputs, parameters, context, dependencies) {
@@ -50,7 +51,7 @@ async function implementation (inputs, parameters, context, dependencies) {
       const x = window.__PRELOADED_STATE__.apolloState;
       const sku = window.location.href.replace(/(.+-)(\d+)(.htm.+)/g, '$2');
       const y = x[`GraphqlProduct:${sku}`].variants;
-      const variantsId = '';
+      // const variantsId = '';
       let variantsCount = 0;
       const body = document.querySelector('body');
       if (y.length === 1) {
@@ -70,56 +71,84 @@ async function implementation (inputs, parameters, context, dependencies) {
   } catch (e) {
     console.log(e.message);
   }
-  // try {
-  //   //await delay(15000);
-  //   await context.waitForSelector('div[data-test="mms-video-thumbnail"] img');
-  //   await context.evaluate(async () => {
-  //     // @ts-ignore
-  //     let videos = [...document.querySelectorAll('div > div > picture > img[alt]')];
-  //     let videosUrl = '';
-  //     console.log('videos length', videos.length);
-  //     videos.forEach((video) => {
-  //       console.log('waiting for 15 second');
-  //       video.click();
-  //       setTimeout(function () {
-  //         // @ts-ignore
-  //         document.querySelector('#playButton div').click();
-  //       }, 15000);
-  //      });
-  //      const delay = t => new Promise(resolve => setTimeout(resolve, t));
-  //      console.log('Waiting for 10 sec');
-  //      delay(10000);
-  //     videos.forEach(()=>{
-  //       setTimeout(function () {
-  //         let url = document
-  //           .querySelector('video[preload="auto"]')
-  //           .getAttribute('src');
-  //         console.log('url is', url);
-  //         videosUrl = videosUrl + (videosUrl ? ' | ' : '') + url;
-  //       }, 15000);
-  //     })
-  //     let body = document.querySelector('body');
-  //     body.setAttribute('videos', videosUrl);
-  //   });
-  // } catch (e) {
-  //   console.log(e.message);
-  // }
+  const request = await context.searchForRequest('.*jplist.*', 'GET');
+  console.log('search for request', request);
+  // await context.evaluate(() => {
+  //   const videosUrl = [];
+  //   function clickImages (image) {
+  //     const videos = [...document.querySelectorAll(image)];
+  //     try {
+  //       // Get the Videos to scope
+  //       videos.map(e => { e.click(); });
+  //     } catch (err) {
+  //       console.log('Video Loading issues');
+  //     }
+  //   }
+
+  //   function clickTheVideo (playButton) {
+  //     const clickButton = [...document.querySelectorAll(playButton)];
+  //     // Click the videos
+  //     clickButton.map(e => {
+  //       setInterval(function () {
+  //         e.click();
+  //       }, 7000);
+  //     });
+  //   }
+
+  //   // Call the function to get the images
+  //   clickImages('div > div > picture > img[alt]');
+
+  //   setTimeout(function () {
+  //     console.log('Clicking the Play Button');
+  //     clickTheVideo('#playButton div');
+
+  //   }, 7000);
+
+  // await context.waitForSelector('video[preload="auto"]');
   try {
-    await context.waitForSelector('div > div > picture > img[alt]', { timeout: 60000 });
-    await context.click('div > div > picture > img[alt]');
-    const delay = t => new Promise(resolve => setTimeout(resolve, t));
-    console.log('Waiting for 10 sec');
-    delay(10000);
-    await context.waitForSelector('#playButton div', { timeout: 60000 });
-    await context.click('#playButton div');
-    await context.waitForXPath('//video[@preload="auto"]/@src', { timeout: 60000 });
+    await context.waitForSelector('div > div > picture > img[alt]');
     await context.evaluate(() => {
-      const url = document.querySelector('video[preload="auto"]').getAttribute('src');
-      console.log('url is', url);
+      const videos = [
+        ...document.querySelectorAll('div > div > picture > img[alt]'),
+      ];
+      try {
+        // Get the Videos to scope
+        videos.map((e) => {
+          e.click();
+        });
+        console.log('clicked the video thumbnail');
+      } catch (err) {
+        console.log('Video Loading issues');
+      }
+    });
+    await context.waitForSelector('#playButton div');
+    await context.evaluate(() => {
+      const clickButton = [...document.querySelectorAll('#playButton div')];
+      // Click the videos
+      clickButton.map((e) => {
+        setInterval(function () {
+          e.click();
+        }, 7000);
+      });
+      setTimeout(function () {
+        console.log('Grabbing the data');
+        const videosUrl = [];
+        [...document.querySelectorAll('video[preload="auto"]')].map((e) => {
+          videosUrl.push(e.getAttribute('src'));
+          document
+            .querySelector('body')
+            .setAttribute(
+              'videos',
+              videosUrl ? videosUrl.join('|') : 'Nothing',
+            );
+          console.log(`_____${videosUrl.join('|')}_________`);
+        });
+      }, 7000);
     });
   } catch (e) {
-    console.log(e.message);
+    console.log('doesnot have video tumbnail');
   }
+
   return await context.extract(productDetails, { transform });
 }
 

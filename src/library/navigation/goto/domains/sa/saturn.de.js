@@ -53,6 +53,7 @@ module.exports = {
     await context.setAntiFingerprint(false);
     await context.setUseRelayProxy(false);
     url = url + '#[!opt!]{"block_ads":false,"first_request_timeout":60,"load_timeout":60,"load_all_resources":true}[/!opt!]';
+    await context.captureRequests();
     await context.goto(url, {
       timeout,
       waitUntil: 'load',

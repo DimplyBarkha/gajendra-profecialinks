@@ -25,7 +25,7 @@ module.exports = {
         let variantsId = '';
         if (y.length === 1) {
           const variants = y[0].variantProducts;
-          const allVariants = '';
+          // const allVariants = '';
           variants.forEach((variant) => {
             const body = document.querySelector('body');
             const div = document.createElement('div');

@@ -36,6 +36,16 @@ const transform = (data, context) => {
         videos = Array.from(new Set(videos)).map(elm => ({ text: elm }));
         row.videos = videos;
       }
+      if (row.variantInformation) {
+        const variant = row.variantInformation[0].text.split(':');
+        let text = '';
+        if (variant.length === 2) {
+          text = variant[1];
+        } else {
+          text = variant[0];
+        }
+        row.variantInformation = [{ text }];
+      }
       Object.keys(row).forEach(header => row[header].forEach(el => {
         el.text = clean(el.text);
       }));
