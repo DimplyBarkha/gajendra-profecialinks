@@ -6,6 +6,6 @@ module.exports = {
     store: 'rewe',
     transform: transform,
     domain: 'rewe.de',
-    zipcode: "''",
+    zipcode: '',
   },
 };

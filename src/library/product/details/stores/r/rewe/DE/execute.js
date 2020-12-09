@@ -7,6 +7,6 @@ module.exports = {
     domain: 'rewe.de',
     loadedSelector: 'div.page-content',
     noResultsXPath: null,
-    zipcode: "''",
+    zipcode: '',
   },
 };
