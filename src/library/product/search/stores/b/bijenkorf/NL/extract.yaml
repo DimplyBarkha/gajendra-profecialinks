@@ -1,7 +1,7 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: (//ul[contains(@class,"productlist__list")])[last()]//li
+recordXPath: (//ul[contains(@class,"productlist__list")])[last()]//li[@itemprop="itemListElement"]
 fields:
   - name: paid
     singleValue: true
@@ -81,7 +81,7 @@ fields:
   - name: id
     xpath: //a/@href
     regExp: -(\d+)-(\d+)$
-    regExpReplace: $1
+    regExpReplace: $2
   - name: nameExtended
     singleValue: true
     description: The product name, prefixing "${brand} - " if not included in "name" and appending " - ${variantType}" if necessary (fixed per extractor)
