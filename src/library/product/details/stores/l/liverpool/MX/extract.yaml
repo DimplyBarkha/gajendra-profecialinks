@@ -31,11 +31,15 @@ fields:
     singleValue: true
     description: The stated undiscounted price for the product
     xpath: //p[@class="a-product__paragraphRegularPrice m-0 d-inline"]
+    # type: CURRENCY
   - name: price
     singleValue: true
     description: The offered price for the selected product variant - if a user
       clicks add to basket this is the price they would be charged
     xpath: //p[@class="a-product__paragraphDiscountPrice m-0 d-inline "]
+    regExp: (.+)
+    # regExpReplace: €$1
+    type: CURRENCY
   - name: availabilityText
     singleValue: true
     description: Availability as described on page for the selected variant. If
@@ -75,10 +79,10 @@ fields:
     singleValue: true
     description: The store-specific product identifier
     xpath: //button[@class="a-btn a-btn--actionpdp active"]/@data-skuid
-  # - name: variantId
-  #   singleValue: true
-  #   description: Identifier for a variant from a store where variants share the same sku
-  #   xpath: //p[@class="m-product__information--code"]//span
+  - name: variantId
+    singleValue: true
+    description: Identifier for a variant from a store where variants share the same sku
+    xpath: //p[@class="m-product__information--code"]//span
   - name: mpc
     singleValue: true
     description: The manufacturer model code (unique) of the product
