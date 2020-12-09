@@ -1,0 +1,25 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: //div[contains(@class, "product responsive")]
+fields:
+  - name: id
+    xpath: //div[@id="added-id"]
+  - name: name
+    singleValue: false
+    xpath: //div/a[@class="link"]/h3[@class="product-name"]
+  - name: productUrl
+    xpath: //div[@id="added-product-url"]
+  - name: thumbnail
+    xpath: //div/a[@class="link"]/img/@data-src
+    # regExp: (.+)
+    # regExpReplace: https:$1
+  - name: aggregateRating2
+    xpath: //a[@itemprop="aggregateRating"]/@aria-label
+    regExp: .+(?=\sde)
+  - name: price
+    xpath: //div[@class="price"]
+  - name: rank
+  - name: rankOrganic
+  - name: sponsored
+    defaultValue: false
