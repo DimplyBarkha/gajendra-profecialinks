@@ -29,7 +29,7 @@ fields:
     xpath: //h1[@data-automation="product-title"]
   - name: availabilityText
     singleValue: false
-    xpath: //div[contains(@class,'css-1z01by0')]//button[text()='Add to cart']
+    xpath: //div[contains(@class,'css-1z01by0')]//button[text()='Add to cart']/@class
     regExp: (.+)
     regExpReplace: In Stock
     defaultValue: Out of Stock
