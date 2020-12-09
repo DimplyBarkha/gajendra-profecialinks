@@ -5,6 +5,8 @@ recordXPath: //div[@class="l-default"]
 fields:
   - name: image
     singleValue: false
+    regExp: ^(.+)$
+    regExpReplace: https:$1
     xpath: //div[@class="swiper-slide ember-view swiper-slide-active"]/div[@class="c-product-gallery__item"]/div/picture/img/@data-src
   - name: imageAlt
     singleValue: false
