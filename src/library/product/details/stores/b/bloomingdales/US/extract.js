@@ -31,6 +31,10 @@ module.exports = {
         else result = elem ? elem.singleNodeValue : '';
         return result && result.trim ? result.trim() : result;
       };
+      const productUrl = window.location.href;
+      if (productUrl !== null) {
+        addElementToDocument('product-url', productUrl);
+      }
       const availabilityText = getXpath('//button[@class="button add-to-bag"]', 'innerText');
       if (availabilityText != null && (availabilityText.includes('add to bag') || availabilityText.includes('ADD TO BAG'))) {
         addElementToDocument('added_availabilityText', 'In Stock');
