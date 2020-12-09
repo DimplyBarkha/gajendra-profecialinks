@@ -3,8 +3,13 @@ regionsSelector: null
 recordSelector: null
 recordXPath: null
 fields:
+  - name: parentInput
+    singleValue: true
+    xpath: //div[@id='ii_parentInput']
+  - name: productUrl
+    xpath: //div[@id='ii_url']
   - name: name
-    xpath: //h1[contains(@data-comp,"DisplayName")]/span
+    xpath: (//div[contains(@class, "product-heading")]/span)[1]|//h1[contains(@data-comp,"DisplayName")]/span
   - name: image
     singleValue: true
     description: URL of the main product image
@@ -12,60 +17,107 @@ fields:
   - name: aggregateRating
     singleValue: true
     description: The stated aggregate rating normalized to be out of 5
-    xpath: (//div[@aria-label])[1]
+    # type: NUMBER
+    xpath: (//div[contains(@data-comp,"ReviewsStats")]//div//div[contains(.,"/")])[1]|//div[contains(@data-comp,"ReviewsStats")]//img//preceding-sibling::span[@data-comp="StyledComponent BaseComponent "]
+    # xpath: //a[contains(@data-comp,"RatingsSummary")]//@aria-label
   - name: manufacturer
     singleValue: true
     description: Product manufacturer
-    xpath: //h1[contains(@data-comp, "DisplayName")]/a
+    xpath: //h1[contains(@data-comp,"DisplayName")]/a|//h1[contains(@data-comp, "DisplayName")]/a
   - name: ratingCount
     singleValue: true
     description: The number of ratings
     type: NUMBER
-    xpath: //span[contains(@data-at, "number_of_reviews")]
+    xpath: (//div[contains(@data-comp,"ReviewsStats")]//img//parent::div//following-sibling::span|//div[contains(@data-comp,"ReviewsStats")]//div[contains(.,"review")]|//span[contains(@data-at, "number_of_reviews")])[1]
+  - name: ratingCount2
+    singleValue: false
+    type: NUMBER
+    xpath: (//div[contains(@data-comp,"ReviewsStats")]//img//parent::div//following-sibling::span|//div[contains(@data-comp, "ReviewsStats")]//span[contains(@data-comp, "Text Box StyledComponent BaseComponent")])[1]
+  - name: videos
+    singleValue: false
+    description: URLs of videos on page
+    xpath: //div[@id="ii_video"]
   - name: nameExtended
     singleValue: false
     description: The product name
-    xpath: //h1[contains(@data-comp,"DisplayName")]/span
+    xpath: //div[@id="ii_nameExtended"]
+    # xpath: //h1[contains(@data-comp,"DisplayName")]//text()
+  - name: quantity
+    singleValue: true
+    xpath: (//div[@id="ii_quantity"]|//div[contains(@data-comp,"SwatchDescription")]//span//span|//div[contains(@data-comp,"SwatchDescription")]//text())
   - name: category
     xpath: //ol/li/a
+  - name: warnings
+    singleValue: false
+    xpath: //div[@id='ii_Warnigns']
   - name: ingredientsList
     singleValue: false
-    xpath: //div[@id='tabpanel2']
+    xpath: //div[@id="ii_Ingredients"]|//div[contains(@id, "ingredients")]
+    # xpath: //div[@id="tabpanel2"]/div[1]
   - name: price
     singleValue: true
-    xpath: //div[contains(@data-comp,"Price Box")]/span[last()]
+    # regExp: >-
+    #  [+-]?\d+(,d{3})*(\.\d+)?(e[+-]?\d+)?
+    xpath: //div[contains(@data-comp,"Price Box")]/span[last()]|(//p[contains(@data-comp,"Price")]//span[contains(@data-comp,"Rflex")]//span)[1]
   - name: description
     singleValue: true
-    xpath: //div[@id="tabpanel0"]
+    xpath: //div[@id="ii_Details"]|//div[contains(@data-comp,"RegularProduct")]//h2[contains(text(), "About the Product")]//following-sibling::div[1]//div//div[@data-comp="StyledComponent BaseComponent "]|//div[contains(@data-comp,"Box StyledComponent BaseComponent")]//div[@id="tabpanel0"]
   - name: brandText
     singleValue: false
-    xpath: //h1[contains(@data-comp, "DisplayName")]/a
+    xpath: //h1/a[contains(@data-comp, "Link Box")]/span|//h1[contains(@data-comp, "DisplayName")]/a
   - name: brandLink
-    xpath: //h1[contains(@data-comp, "DisplayName")]/a/@href
+    xpath: //h1/a[contains(@data-comp, "Link Box")]/@href|//h1[contains(@data-comp, "DisplayName")]/a/@href
   - name: directions
     singleValue: true
-    xpath: //div[@id='tabpanel1']
+    xpath: //div[@id="ii_How to Use"]|//div[contains(@data-at, "how_to_use")]
   - name: alternateImages
     singleValue: false
     xpath: ((//div[contains(@data-comp,"Carousel")])[1]//img[@width="300"])/@src|((//div[contains(@data-comp,"Carousel")])[1]//img)/@src[contains(.,"jpg") and not(contains(., 'Video'))]
   - name: availabilityText
     singleValue: true
-    xpath: //script[@type="application/ld+json"][contains(text(),'availability":"http://schema.org/InStock"')]
-    regExp: (.+)
-    regExpReplace: In Stock
-    defaultValue: Out of Stock
+    xpath: >-
+      //div[contains(@data-comp,"CallToActions")]//button/span
+    defaultValue: "In Stock"
+  - name: promotion
+    regExp: (.*)
+    regExpReplace: Sale
+    xpath: //span[@data-at="sale_price"]
+  - name: listPrice
+    singleValue: true
+    # regExp: >-
+    #  [+-]?\d+(,d{3})*(\.\d+)?(e[+-]?\d+)?
+    xpath: //span[@data-at="sale_price"]//preceding-sibling::span|//p[contains(@data-comp,"Price Styled")]//span[not(@data-comp)]//span
   - name: imageAlt
     singleValue: true
     description: Alt text of the main product image
-    xpath: (//div[contains(@data-comp, "Carousel")]//img/@alt)[1]
+    xpath: (//div[@id="ii_imgAlt"]|//div[contains(@data-comp, "Carousel")]//img/@alt)[1]|(//div[contains(@data-comp, "Rcarousel")]//img/@alt)[1]
+  - name: additionalDescBulletInfo
+    xpath: //div[@id="tabpanel0"]//text()[contains(., "- ")]|//div[contains(@data-comp,"RegularProduct")]//h2[contains(text(), "About the Product")]//following-sibling::div[1]//div//div[@data-comp="StyledComponent BaseComponent "]//text()[contains(., "- ")]
   - name: descriptionBullets
-    xpath: count(//div[@id="tabpanel0"]//text()[contains(., "- ")])
+    xpath: count(//div[@id="tabpanel0"]//text()[contains(., "- ")]|//div[contains(@data-comp,"RegularProduct")]//h2[contains(text(), "About the Product")]//following-sibling::div[1]//div//div[@data-comp="StyledComponent BaseComponent "]//text()[contains(., "- ")])
+    # xpath: count(//div[@id="tabpanel0"]//text()[contains(., "- ")]|//div[@id="ii_Details"]|//div[contains(@data-comp,"RegularProduct")]//h2[contains(text(), "About the Product")]//following-sibling::div[1]//div//div[@data-comp="StyledComponent BaseComponent "]//text()[contains(., "- ")])
+  - name: variants
+    xpath: //div[@id="ii_variants"]
+  - name: variantInformation
+    xpath: //div[@id="ii_variantInfo"]|(//span[contains(@data-at,"item_variation_type")])[1]|(//div[contains(@data-comp,"SwatchDescription")]//span)[1]
   - name: sku
-    singleValue: true
-    xpath: //div[@data-at='sku_size']
+    xpath: //div[@id='ii_sku']|//div[@id='ii_url']
     regExp: ([0-9]+$)
-  - name: url
-    singleValue: true
-    xpath: //link/@href
-
+  - name: variantId
+    xpath: //div[@id='ii_sku']|//div[@id='ii_url']
+    regExp: ([0-9]+$)
+  - name: variantCount
+    xpath: //div[@id="ii_variantCount"]
+  - name: color
+    xpath: //div[@id='ii_color']
+    # xpath: (//span[contains(@data-at, "item_variation_type") and contains(., "COLOR")])[1]
+    # regExp: >-
+    #  COLOR:\s([a-zA-Z\s\/]+)
+    # regExpReplace: >-
+    #  $1
+  - name: imageZoomFeaturePresent
+    xpath: boolean(//div[contains(@data-comp,"HeroMediaList")]//div[contains(., "zoom")])
+  - name: shownImages
+    singleValue: false
+    xpath: ((//div[contains(@data-comp,"Carousel")])[1]//img[@width="300"])/@src|((//div[contains(@data-comp,"Carousel")])[1]//img)/@src[contains(.,"jpg") and not(contains(., 'Video'))]
 
