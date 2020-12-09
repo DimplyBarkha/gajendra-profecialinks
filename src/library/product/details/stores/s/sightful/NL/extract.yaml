@@ -45,6 +45,9 @@ fields:
   - name: brandText
     singleValue: false
     xpath: //div[@id='rich-content-product-specifications']//div[@class='specification-label' and text()='Brand']//following-sibling::div
+  - name: brandText2
+    singleValue: false
+    xpath: //div[@id='rich-content-product-specifications']//div[@class='specification-label' and text()='Merk']//following-sibling::div
   - name: manufacturer
     singleValue: false
     xpath: //div[@id='rich-content-product-specifications']//div[@class='specification-label' and text()='Producer']//following-sibling::div
