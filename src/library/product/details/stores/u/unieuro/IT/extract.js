@@ -10,7 +10,7 @@ module.exports = {
   },
   implementation: async ({ inputString }, { country, domain }, context, { productDetails }) => {
     const applyScroll = async function (context) {
-      await context.evaluate(async function () {
+      await context.evaluate(async function () {        
         let scrollTop = 0;
         while (scrollTop !== 20000) {
           scrollTop += 1000;
@@ -26,8 +26,15 @@ module.exports = {
         }
       });
     };
-    await applyScroll(context);
+    await applyScroll(context);    
     await context.evaluate(async function () {
+      try {
+      // @ts-ignore
+    document.querySelector('button[id=onetrust-accept-btn-handler]').click()
+    await new Promise(r => setTimeout(r, 6000));
+    } catch (error) {
+      
+    }
       function addElementToDocument(key, value) {
         const catElement = document.createElement('div');
         catElement.id = key;
@@ -35,21 +42,6 @@ module.exports = {
         catElement.style.display = 'none';
         document.body.appendChild(catElement);
       }
-      // var cookies;
-      // cookies = document.querySelector('button[id=accept-recommended-btn-handler]')
-      // if (cookies != undefined) {
-        try {
-          
-          // @ts-ignore
-          document.querySelector('button[id=accept-recommended-btn-handler]').click()
-        await new Promise(r => setTimeout(r, 6000));
-        } catch (error) {
-          
-        }
-      //   // @ts-ignore
-        
-      // }
-      // Method to Retrieve Xpath content of a Single Node
       var getXpath = (xpath, prop) => {
         var elem = document.evaluate(xpath, document, null, XPathResult.ANY_UNORDERED_NODE_TYPE, null);
         let result;
