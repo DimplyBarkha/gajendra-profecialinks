@@ -92,23 +92,35 @@ module.exports = {
           }
           const getShadowRoots = (elem, resArr = []) => {
             if (elem.shadowRoot) return [...resArr, elem.shadowRoot];
-            return [...elem.childNodes].reduce((acc, elC) => [...acc, ...resArr, ...getShadowRoots(elC, resArr)],resArr);
-        }
+            return [...elem.childNodes]
+              .reduce((acc, elC) => [...acc, ...resArr, ...getShadowRoots(elC, resArr)], resArr);
+          };
 
           const marketingIframe = document.querySelector(selector);
           if (marketingIframe) {
-            const root =
-            const imagesSrc = [...marketingIframe.contentDocument.querySelectorAll('img')]
+            const roots = [...getShadowRoots(marketingIframe.contentDocument), marketingIframe.contentDocument];
+            const imagesSrc = [...roots.reduce((acc, doc) => [...acc, ...doc.querySelectorAll('img')], [])]
               .map(img => {
                 const src = img.getAttribute('src');
                 return !src.startsWith('http') ? `https:${src}` : src;
               });
             addHiddenDiv('my_manufact_images', imagesSrc.join(' | '));
 
-            // @ts-ignore
-            const setText = [...new Set(
-              [...marketingIframe.contentDocument.querySelectorAll('div')].map(el => el.innerText),
-            )];
+            let setText;
+            const syndigoRoots = roots.filter(root => root.querySelector('.syndi_powerpage'));
+            if (syndigoRoots.length > 0) {
+              const selSyndigo = 'h1, h2, .syndigo-featureset-feature-caption, .syndigo-featureset-feature-description';
+              // @ts-ignore
+              setText = [...syndigoRoots.reduce((acc, doc) => [...acc, ...doc.querySelectorAll(selSyndigo)], [])]
+                .map(el => el.innerText ? el.innerText : '\n');
+            } else {
+              // @ts-ignore
+              setText = [...new Set(
+                [...roots.reduce((acc, doc) => [...acc, ...doc.querySelectorAll('div')], [])]
+                  .map(el => el.innerText),
+              )];
+            }
+
             addHiddenDiv('my_enh_content', setText.join(' '));
           }
         }, enhancedContentSelector);
