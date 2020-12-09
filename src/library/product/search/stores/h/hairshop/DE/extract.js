@@ -38,7 +38,7 @@ module.exports = {
         newDiv.id = id;
         newDiv.textContent = content;
         newDiv.style.display = 'none';
-        const originalDiv = document.querySelectorAll("#products-grid-ee2741 > li")[index];
+        const originalDiv = document.querySelectorAll("div[class='rating']")[index];
         originalDiv.parentNode.insertBefore(newDiv, originalDiv);
       }
       const getAllXpath = (xpath, prop) => {
@@ -50,18 +50,13 @@ module.exports = {
         }
         return result;
       };
-      // aggrreview 
-      const aggregateRating = document.querySelectorAll('div.rating');
-      //let length = aggregateRating.length
-      //for (let k = 0; k <= length; k++) {
-      // @ts-ignore
-      //let singleRating = aggregateRating;
-      //singleRating = singleRating.slice(0, singleRating.length - 1)
-      // @ts-ignore
-      //singleRating = (5 * singleRating) / 100;
-      //singleRating = singleRating.toFixed(1);
-      addHiddenDiv('aggregateRating', aggregateRating);
-    //}
+      var script = getAllXpath('//div[@class="rating"]/@style', 'nodeValue');
+      for(var i=0; i<script.length; i++){
+        var aggr=script[i].split(':')[1]
+        var val=aggr.slice(0,-1)
+        val=val*5/100
+        addHiddenDiv("val",val,i)
+      }
     });
   return await context.extract(productDetails, { transform });
 },
