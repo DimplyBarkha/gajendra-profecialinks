@@ -41,7 +41,10 @@ fields:
     xpath: //div[@class="pdp-header__reviews "]//div[contains(@class,"bv-off-screen")]
   - name: name
     singleValue: false
-    xpath: //div[@class="pdp-header__main"]/h1 
+    xpath: //div[@class="pdp-header__main"]/h1
+  - name: nameExtended 
+    singleValue: false
+    xpath: //meta[@name="description"]/@content   
   - name: specifications
     singleValue: false
     xpath: //div[contains(@class,"pdp-details-wrapper pdp-details-wrapper--open")]//ul[@class="pdp-details-specifications__items clearfix"]/li
