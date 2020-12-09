@@ -9,7 +9,7 @@ async function implementation (inputs, parameters, context, dependencies) {
     isColors: '.product-attributes__color-item',
     isSizes: '.product-attributes__item-select',
     targetDiv: 'body > #product-wrapper',
-    targetScroll: '.dyProductContainer',
+    targetScroll: '.bv-secondary-summary',
   };
   try {
     await context.evaluate((selectors) => {
@@ -58,15 +58,15 @@ async function implementation (inputs, parameters, context, dependencies) {
   } catch (e) {
     console.log('No variants present for this product');
   }
-  try {
-    await context.waitForXPath('//div[contains(@class,"inpage_selector_feature") or contains(@class,"inpage_selector_gallery")]//img | //div[@id="rcm-container"]//img | //div[@class="flix-tech-spacs"]//img', { timeout: 60000 });
-  } catch (e) {
-    console.log('Enhanced content is not present or it didn\'t load');
-  }
   const currentUrl = await context.evaluate(() => {
     return window.location.href;
   });
   if (currentUrl.search('mediamarkt.com.tr') !== -1) {
+    try {
+      await context.waitForXPath('//div[contains(@class,"inpage_selector_feature") or contains(@class,"inpage_selector_gallery")]//img | //div[@id="rcm-container"]//img | //div[@class="flix-tech-spacs"]//img', { timeout: 60000 });
+    } catch (e) {
+      console.log('Enhanced content is not present or it didn\'t load');
+    }
     try {
       await context.evaluate((selectors) => {
         const dt = [...document.querySelectorAll('.product-details dt')];
@@ -150,6 +150,9 @@ async function implementation (inputs, parameters, context, dependencies) {
       console.log(e.message);
     }
     try {
+      await context.waitForNavigation({ waitUntil: 'networkidle0' });
+      const delay = t => new Promise(resolve => setTimeout(resolve, t));
+      await delay(120000);
       const targetScroll = await context.evaluate((selectors) => {
         return Boolean(document.querySelector(selectors.targetScroll));
       }, selectors);
@@ -157,6 +160,8 @@ async function implementation (inputs, parameters, context, dependencies) {
         await context.evaluate((selectors) => {
           document.querySelector(selectors.targetScroll).scrollIntoView({ behavior: 'smooth' });
         }, selectors);
+        const delay = t => new Promise(resolve => setTimeout(resolve, t));
+        await delay(120000);
         await context.waitForSelector('#inpage_container', { timeout: 60000 });
         await context.click('#more_flixmedia');
         await context.waitForSelector('#wrp_flixmedia img', { timeout: 60000 });

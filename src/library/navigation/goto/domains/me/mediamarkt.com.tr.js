@@ -19,6 +19,7 @@ module.exports = {
     await context.setLoadImages(true);
     await context.setJavaScriptEnabled(true);
     await context.setAntiFingerprint(false);
+    url = url + '#[!opt!]{"block_ads":false,"first_request_timeout":60,"load_timeout":60,"load_all_resources":true}[/!opt!]';
     await context.goto(url, {
       timeout: timeout,
       waitUntil: 'load',
