@@ -39,6 +39,12 @@ module.exports = {
         addElementToDocument('desc', ppp);
       }
 
+      var image = getAllXpath("//ul[@class='thumbnail-wrapper']/li/img/@src", 'nodeValue');
+      if (image != null) {
+        var qqq = image.join(" | ")
+        addElementToDocument('img', qqq);
+      }
+
       var specification = getAllXpath("//dl[@class='product-specifications-list']/dt/text()", 'nodeValue');
       var aaa = []
       if (specification != null) {

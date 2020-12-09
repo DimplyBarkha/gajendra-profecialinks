@@ -13,21 +13,22 @@ fields:
     xpath: (//li[@data-carousel="productCarousel"]/img/@alt)[2]
   - name: alternateImages
     singleValue: false
-    # xpath: (//li[@data-carousel="productCarousel"]/img/@src)[2] | (//li[@data-carousel="productCarousel"]/img/@src)[3] | (//li[@data-carousel="productCarousel"]/img/@src)[4] | (//li[@data-carousel="productCarousel"]/img/@src)[5]
+    xpath: //html//div[@id="img"]
     # regExp: (//johnlewis.*)
     # regExpReplace: https:$1
-  - name: metaKeywords
+  - name: ingredientsList
     singleValue: true
-    description: The <meta> keywords content
+    xpath: //div[@class="product-detail__description-inner"]/ul[2]/li/text() | //div[@class="product-detail__description-inner"]/ul/li/text()
   - name: category
     singleValue: false
     xpath: //ul[@class='breadcrumbs__list']//li[position()>1]/a/text()
   - name: nameExtended
     singleValue: true
     xpath: //div[@id="store-stock-app"]/@data-product-name
-  - name: listPrice
+  - name: pricePerUnit
     singleValue: true
-    description: The stated undiscounted price for the product
+    xpath: //p[@class="unit-price"]/text()
+    regExp: (\£.+\d )
   - name: price
     singleValue: true
     xpath: (//p[@class="price price--large"]/text())[1]
@@ -52,7 +53,7 @@ fields:
     description: Product manufacturer
   - name: quantity
     singleValue: true
-    xpath: //dl[@class="product-specifications-list"]/dt[contains(text(),'Pack Size')]/following-sibling::dd[1]/text() | //dl[@class="product-specifications-list"]/dt[contains(text(),'Size (g)')]/following-sibling::dd[1]/text() | //dl[@class="product-specifications-list"]/dt[contains(text(),'Volume')]/following-sibling::dd[1]/text()
+    xpath: //dl[@class="product-specifications-list"]/dt[contains(text(),'Pack Size')]/following-sibling::dd[1]/text() | //dl[@class="product-specifications-list"]/dt[contains(text(),'Size (g)')]/following-sibling::dd[1]/text() | //dl[@class="product-specifications-list"]/dt[contains(text(),'Volume')]/following-sibling::dd[1]/text() | //dl[@class="product-specifications-list"]/dt[contains(text(),'Size ')]/following-sibling::dd[1]/text()
   - name: weightNet
     singleValue: true
     xpath: //dl[@class="product-specifications-list"]/dt[contains(text(),'Weight')]/following-sibling::dd[1]/text()
@@ -75,12 +76,12 @@ fields:
     singleValue: true
     description: The number of packs in the product offer (if stated separately on
       the site to quantity)
-  - name: legalDisclaimer
+  - name: countryOfOrigin
     singleValue: true
-    description: Content under "legal disclaimer" header
-  - name: directions
+    xpath: //dl[@class="product-specifications-list"]/dt[contains(text(),'Country of Origin')]/following-sibling::dd[1]/text()
+  - name: energyEfficiency
     singleValue: true
-    description: Content under "directions" header
+    xpath: //dl[@class="product-specifications-list"]/dt[contains(text(),'Energy Rating')]/following-sibling::dd[1]/text()
   - name: warnings
     singleValue: true
     description: Content under "warnings" header
@@ -105,6 +106,7 @@ fields:
   - name: variantCount
     singleValue: true
     description: Number of variants listed
+    defaultValue: "0"
     type: NUMBER
   - name: color
     singleValue: true
@@ -120,7 +122,7 @@ fields:
     description: Images within the third party description
   - name: videos
     singleValue: false
-    description: URLs of videos on page
+    xpath: (//video[@class="product-video"]/source)[1]/@src
   - name: name
     singleValue: true
     xpath: //div[@id="store-stock-app"]/@data-product-name
@@ -159,7 +161,7 @@ fields:
     description: null
   - name: secondaryImageTotal
     singleValue: true
-    xpath: count(//li[@data-carousel="productCarousel"]/img/@data-large-image)
+    xpath: count(//ul[@class='thumbnail-wrapper']/li/img/@src)
     type: NUMBER
   - name: specifications
     singleValue: true
@@ -167,6 +169,8 @@ fields:
   - name: warranty
     singleValue: true
     xpath: //p[@class="additional-service-options-item__description"]/text()
+    regExp: ( guarantee included)
+    regExpReplace: https://www.johnlewis.com$1
   - name: variantInformation
     singleValue: true
     xpath: //dd[@class="item-attribute-details"]/text()
