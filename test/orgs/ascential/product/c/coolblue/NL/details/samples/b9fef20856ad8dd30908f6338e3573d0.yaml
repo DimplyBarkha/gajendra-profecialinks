@@ -1,0 +1,99 @@
+input:
+  id: 151904
+  _url: http://coolblue.nl
+extractions:
+  - html: https://workbench.import.io/html/run=a56948f6-3df7-4da2-a8cc-ba7823ea6fcb/task=d9c79a23-3207-4fd5-8c78-266b5d7ec378/ea84b799-e263-42bc-8bc8-20040d8beedf.html
+    extractionConfigId: product/details/stores/c/coolblue/NL/extract
+    data:
+      - group:
+          - productUrl:
+              - text: https://www.coolblue.nl/product/151904/bosch-mfq4070.html
+                xpath: /html/body/div[8]
+            image:
+              - text: https://image.coolblue.nl/max/500x500/products/1360364
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[1]/img[1]/@src
+            imageAlt:
+              - text: Bosch MFQ4070 Main Image
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[1]/img[1]/@alt
+            alternateImages:
+              - text: https://image.coolblue.nl/max/500x500/content/344996
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[2]/@data-video-img
+            category:
+              - text: Kleine keukenapparatuur
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/div[2]/div[1]/nav[1]/ol[1]/li[1]/a[1]/text()[1]
+              - text: Handmixers
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/div[2]/div[1]/nav[1]/ol[1]/li[2]/a[1]/text()[1]
+              - text: Bosch handmixers
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/div[2]/div[1]/nav[1]/ol[1]/li[3]/div[1]/a[1]/text()[1]
+            description:
+              - text: Deze handmixer is net iets ambitieuzer. Hij heeft namelijk niet alleen
+                  twee kloppers en twee deeghaken, maar ook een RVS
+                  staafmixervoet. Bovendien heeft de Bosch MFQ4070 een
+                  krachtige, stille en lichte motor met een vermogen van 500
+                  watt, vijf snelheidsstanden en een turbofunctie. Zo klop,
+                  roer, kneed en mix je een heel scala aan gerechten. Het is een
+                  keukenhulp waarmee je verschillende apparaten combineert, maar
+                  die toch niet veel ruimte in beslag neemt.
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/main[1]/div[5]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/div[1]/div[1]
+            brandText:
+              - text: Bosch
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/main[1]/div[8]/div[1]/div[1]/div[1]/div[1]/dl[3]/dd[1]
+            weightNet:
+              - text: 1,4 kg
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/main[1]/div[8]/div[1]/div[1]/div[2]/div[1]/dl[4]/dd[1]
+            sku:
+              - text: "151904"
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/main[1]/div[8]/div[1]/div[1]/div[1]/div[1]/dl[1]/dd[1]
+            variantId:
+              - text: "151904"
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/main[1]/div[8]/div[1]/div[1]/div[1]/div[1]/dl[1]/dd[1]
+            mpc:
+              - text: MFQ4070
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/main[1]/div[8]/div[1]/div[1]/div[1]/div[1]/dl[2]/dd[1]
+            ratingCount:
+              - text: "80"
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/main[1]/div[2]/script[1]
+            color:
+              - text: Grijs, Wit
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/main[1]/div[8]/div[1]/div[1]/div[2]/div[1]/dl[7]/dd[1]
+            videos:
+              - text: https://www.youtube.com/embed/Rxc9_wICG_8?rel=0&iv_load_policy=3&enablejsapi=1
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[2]/@data-video
+            warranty:
+              - text: 2 jaar
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/main[1]/div[8]/div[1]/div[1]/div[1]/div[1]/dl[4]/dd[1]
+            productOtherInformation:
+              - text: Oude apparaat gratis retour - Ja || Hoogte - 14,2 cm || Breedte - 20 cm ||
+                  Diepte - 7,5 cm || Gewicht - 1,4 kg || Materiaal - Kunststof
+                  || Afwerking - Mat & glanzend || Kleur - Grijs, Wit ||
+                  Vaatwasmachinebestendig - Ja || Aantal standen - 5 ||
+                  Pulsestand - Nee || Turbo Power Functie - Ja || Snijfunctie -
+                  Ja || Hakfunctie - Nee || Raspfunctie - Nee || Mixfunctie - Ja
+                  || Mixmogelijkheden - Kloppen, Kneden || Staafmixervoet - Ja
+                  || Materiaal staafmixervoet - RVS || Afneembare staafmixervoet
+                  - Ja || Inhoud - 0,75 l || Maataanduiding - Ja || Deksel - Ja
+                  || Kleur deksel - Wit || Aantal deksels - 1 || Materiaal
+                  deksel - Kunststof || Aantal mengkommen meegeleverd - 1 ||
+                  Klopgardes meegeleverd - Ja || Ballongarde(s) meegeleverd -
+                  Nee || Foodprocessor meegeleverd - Ja || Hakmolen meegeleverd
+                  - Nee || Inclusief mengkom - Ja || Opbergruimte voor
+                  toebehoren - Nee || Recepten meegeleverd - Nee
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/main[1]/div[8]/div[1]/@product-other-information
+            additionalDescBulletInfo:
+              - text: Krachtige, lichte en stille motor.
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/main[1]/div[5]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[2]/ul[1]/li[1]/div[1]/div[2]
+              - text: "Met RVS staafmixervoet: sterk en vaatwasmachinebestendig."
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/main[1]/div[5]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[2]/ul[1]/li[2]/div[1]/div[2]
+              - text: "Vijf snelheidsstanden en een turbofunctie: de juiste stand voor iedere
+                  situatie."
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/main[1]/div[5]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[2]/ul[1]/li[3]/div[1]/div[2]
+              - text: Er wordt geen hakmolen meegeleverd.
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/main[1]/div[5]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[2]/ul[1]/li[4]/div[1]/div[2]
+              - text: De accessoires hebben geen opbergbox om ze in op te bergen.
+                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[1]/main[1]/div[5]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[2]/ul[1]/li[5]/div[1]/div[2]
+            technicalInformationPdfPresent:
+              - text: No
+            imageZoomFeaturePresent:
+              - text: Yes
+        xpath: /html
+    timestamp: 1607472258380
