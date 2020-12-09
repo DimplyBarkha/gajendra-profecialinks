@@ -12,14 +12,13 @@ module.exports = {
   implementation: async (inputs, parameters, context, dependencies) => {
     await context.evaluate(async () => {
       const currentUrl = window.location.href;
-      document.querySelector('body').setAttribute('searchurl', currentUrl);
 
       window.scrollTo(0, document.body.scrollHeight);
 
-      const products = document.querySelectorAll(
+      const productRatings = document.querySelectorAll(
         '[data-locator="product_tile_rating"] > span',
       );
-      products.forEach((product, index) => {
+      productRatings.forEach((product) => {
         const denominator =
           Number(
             product.querySelector('svg')
@@ -35,7 +34,12 @@ module.exports = {
         const rating = (numerator / denominator) / 10;
         const ratingAttr = rating.toFixed(1);
         product.closest('article').setAttribute('rating', ratingAttr);
-        product.closest('article').setAttribute('rankorganic', `${index + 1}`);
+      });
+
+      const products = document.querySelectorAll('div[class*="ProductGrid-inline"] article');
+      products.forEach((product, index) => {
+        product.setAttribute('rankorganic', `${index + 1}`);
+        product.setAttribute('searchurl', currentUrl);
       });
     });
     const { transform } = parameters;

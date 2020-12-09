@@ -2,7 +2,7 @@ input:
   keywords: Contigo
   _url: http://bedbathbeyond.com
 extractions:
-  - html: https://workbench.import.io/html/run=f707c33a-aeb0-4903-8f1e-fdbbbc8ef2bd/task=67ad3e3d-59c8-4ff3-919d-e5cc1946ca49/6a205993-d4cf-4112-a71f-b743ff7e253a.html
+  - html: https://workbench.import.io/html/run=937b419a-2b28-45fe-a6ac-9d4ccd990ad9/task=978a452c-c6a2-4266-8da9-4b9f338e3c61/d27c2473-ef8b-4168-a0e0-04240baec77c.html
     extractionConfigId: product/search/stores/b/bedbathbeyond/US/extract
     data:
       - group:
@@ -10,7 +10,7 @@ extractions:
               - text: Contigo® Luxe 16 oz. Autoseal Insulated Travel Mug in Black
                 xpath: /html/body/div[2]/div[2]/div[1]/div[2]/main[1]/section[1]/div[6]/div[1]/div[1]/div[1]/article[1]/div[2]/@title
             productUrl:
-              - text: https://www.bedbathandbeyond.ca/store/product/contigo-reg-luxe-16-oz-autoseal-insulated-travel-mug-in-black/5466002
+              - text: https://www.bedbathandbeyond.com/store/product/contigo-reg-luxe-16-oz-autoseal-insulated-travel-mug-in-black/5466002
                 xpath: /html/body/div[2]/div[2]/div[1]/div[2]/main[1]/section[1]/div[6]/div[1]/div[1]/div[1]/article[1]/div[2]/a[1]/@href
             thumbnail:
               - text: https://b3h2.scene7.com/is/image/BedBathandBeyond/386054869264962p?&wid=2000&hei=2000
@@ -24,215 +24,192 @@ extractions:
             price:
               - text: $24.99
                 xpath: /html/body/div[2]/div[2]/div[1]/div[2]/main[1]/section[1]/div[6]/div[1]/div[1]/div[1]/article[1]/div[3]/div[3]/span[1]
-            rank:
-              - text: "1"
-                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/main[1]/section[1]/div[6]/div[1]/div[1]/div[1]/article[1]/@rankorganic
-                type: NUMBER
-                raw: "1"
-                locale: en
-                value: 1
-            rankOrganic:
-              - text: "1"
-                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/main[1]/section[1]/div[6]/div[1]/div[1]/div[1]/article[1]/@rankorganic
-                type: NUMBER
-                raw: "1"
-                locale: en
-                value: 1
             id:
               - text: "5466002"
                 xpath: /html/body/div[2]/div[2]/div[1]/div[2]/main[1]/section[1]/div[6]/div[1]/div[1]/div[1]/article[1]/@id
+            searchUrl:
+              - text: https://www.bedbathandbeyond.com/store/s/Contigo?ta=typeahead&view=GRID
+                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/main[1]/section[1]/div[6]/div[1]/div[1]/div[1]/article[1]/@searchurl
             aggregateRating2:
               - text: "4.0"
                 xpath: /html/body/div[2]/div[2]/div[1]/div[2]/main[1]/section[1]/div[6]/div[1]/div[1]/div[1]/article[1]/@rating
+            rank:
+              - text: "1"
+                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/main[1]/section[1]/div[6]/div[1]/div[1]/div[1]/article[1]/@rankorganic
+                type: NUMBER
+                raw: "1"
+                locale: en
+                value: 1
+            rankOrganic:
+              - text: "1"
+                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/main[1]/section[1]/div[6]/div[1]/div[1]/div[1]/article[1]/@rankorganic
+                type: NUMBER
+                raw: "1"
+                locale: en
+                value: 1
           - name:
-              - text: Contigo® Jackson Water Bottle
+              - text: Contigo® Luxe 18 oz. Stainless Steel Tumbler in Licorice
                 xpath: /html/body/div[2]/div[2]/div[1]/div[2]/main[1]/section[1]/div[6]/div[1]/div[1]/div[2]/article[1]/div[2]/@title
             productUrl:
-              - text: https://www.bedbathandbeyond.ca/store/product/contigo-reg-jackson-water-bottle/3293769
+              - text: https://www.bedbathandbeyond.com/store/product/contigo-reg-luxe-18-oz-stainless-steel-tumbler-in-licorice/5430569
                 xpath: /html/body/div[2]/div[2]/div[1]/div[2]/main[1]/section[1]/div[6]/div[1]/div[1]/div[2]/article[1]/div[2]/a[1]/@href
             thumbnail:
-              - text: https://b3h2.scene7.com/is/image/BedBathandBeyond/8659193293769m?&wid=2000&hei=2000
+              - text: https://b3h2.scene7.com/is/image/BedBathandBeyond/379496469294822p?&wid=2000&hei=2000
                 xpath: /html/body/div[2]/div[2]/div[1]/div[2]/main[1]/section[1]/div[6]/div[1]/div[1]/div[2]/article[1]/div[1]/a[1]/div[1]/img[1]/@src
             reviewCount:
-              - text: "204"
+              - text: "59"
                 xpath: /html/body/div[2]/div[2]/div[1]/div[2]/main[1]/section[1]/div[6]/div[1]/div[1]/div[2]/article[1]/div[3]/a[1]/div[1]/div[1]/span[1]
             ratingCount:
-              - text: "204"
+              - text: "59"
                 xpath: /html/body/div[2]/div[2]/div[1]/div[2]/main[1]/section[1]/div[6]/div[1]/div[1]/div[2]/article[1]/div[3]/a[1]/div[1]/div[1]/span[1]
             price:
-              - text: $10.99
+              - text: $24.99
                 xpath: /html/body/div[2]/div[2]/div[1]/div[2]/main[1]/section[1]/div[6]/div[1]/div[1]/div[2]/article[1]/div[3]/div[3]/span[1]
-            rank:
-              - text: "2"
-                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/main[1]/section[1]/div[6]/div[1]/div[1]/div[2]/article[1]/@rankorganic
-                type: NUMBER
-                raw: "2"
-                locale: en
-                value: 2
-            rankOrganic:
-              - text: "2"
-                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/main[1]/section[1]/div[6]/div[1]/div[1]/div[2]/article[1]/@rankorganic
-                type: NUMBER
-                raw: "2"
-                locale: en
-                value: 2
             id:
-              - text: "3293769"
+              - text: "5430569"
                 xpath: /html/body/div[2]/div[2]/div[1]/div[2]/main[1]/section[1]/div[6]/div[1]/div[1]/div[2]/article[1]/@id
+            searchUrl:
+              - text: https://www.bedbathandbeyond.com/store/s/Contigo?ta=typeahead&view=GRID
+                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/main[1]/section[1]/div[6]/div[1]/div[1]/div[2]/article[1]/@searchurl
             aggregateRating2:
               - text: "4.0"
                 xpath: /html/body/div[2]/div[2]/div[1]/div[2]/main[1]/section[1]/div[6]/div[1]/div[1]/div[2]/article[1]/@rating
+            rank:
+              - text: "2"
+                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/main[1]/section[1]/div[6]/div[1]/div[1]/div[2]/article[1]/@rankorganic
+                type: NUMBER
+                raw: "2"
+                locale: en
+                value: 2
+            rankOrganic:
+              - text: "2"
+                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/main[1]/section[1]/div[6]/div[1]/div[1]/div[2]/article[1]/@rankorganic
+                type: NUMBER
+                raw: "2"
+                locale: en
+                value: 2
           - name:
-              - text: Contigo® Luxe 18 oz. Stainless Steel Tumbler in Licorice
+              - text: Contigo® SnapSeal™ Byron Travel Mug
                 xpath: /html/body/div[2]/div[2]/div[1]/div[2]/main[1]/section[1]/div[6]/div[1]/div[1]/div[3]/article[1]/div[2]/@title
             productUrl:
-              - text: https://www.bedbathandbeyond.ca/store/product/contigo-reg-luxe-18-oz-stainless-steel-tumbler-in-licorice/5430569
+              - text: https://www.bedbathandbeyond.com/store/product/contigo-reg-snapseal-trade-byron-travel-mug/3293695
                 xpath: /html/body/div[2]/div[2]/div[1]/div[2]/main[1]/section[1]/div[6]/div[1]/div[1]/div[3]/article[1]/div[2]/a[1]/@href
             thumbnail:
-              - text: https://b3h2.scene7.com/is/image/BedBathandBeyond/379496469294822p?&wid=2000&hei=2000
+              - text: https://b3h2.scene7.com/is/image/BedBathandBeyond/86542246106315p?&wid=2000&hei=2000
                 xpath: /html/body/div[2]/div[2]/div[1]/div[2]/main[1]/section[1]/div[6]/div[1]/div[1]/div[3]/article[1]/div[1]/a[1]/div[1]/img[1]/@src
             reviewCount:
-              - text: "59"
+              - text: "486"
                 xpath: /html/body/div[2]/div[2]/div[1]/div[2]/main[1]/section[1]/div[6]/div[1]/div[1]/div[3]/article[1]/div[3]/a[1]/div[1]/div[1]/span[1]
             ratingCount:
-              - text: "59"
+              - text: "486"
                 xpath: /html/body/div[2]/div[2]/div[1]/div[2]/main[1]/section[1]/div[6]/div[1]/div[1]/div[3]/article[1]/div[3]/a[1]/div[1]/div[1]/span[1]
             price:
-              - text: $24.99
+              - text: "$13.99 "
                 xpath: /html/body/div[2]/div[2]/div[1]/div[2]/main[1]/section[1]/div[6]/div[1]/div[1]/div[3]/article[1]/div[3]/div[3]/span[1]
-            rank:
-              - text: "3"
-                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/main[1]/section[1]/div[6]/div[1]/div[1]/div[3]/article[1]/@rankorganic
-                type: NUMBER
-                raw: "3"
-                locale: en
-                value: 3
-            rankOrganic:
-              - text: "3"
-                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/main[1]/section[1]/div[6]/div[1]/div[1]/div[3]/article[1]/@rankorganic
-                type: NUMBER
-                raw: "3"
-                locale: en
-                value: 3
             id:
-              - text: "5430569"
+              - text: "3293695"
                 xpath: /html/body/div[2]/div[2]/div[1]/div[2]/main[1]/section[1]/div[6]/div[1]/div[1]/div[3]/article[1]/@id
+            searchUrl:
+              - text: https://www.bedbathandbeyond.com/store/s/Contigo?ta=typeahead&view=GRID
+                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/main[1]/section[1]/div[6]/div[1]/div[1]/div[3]/article[1]/@searchurl
             aggregateRating2:
               - text: "4.0"
                 xpath: /html/body/div[2]/div[2]/div[1]/div[2]/main[1]/section[1]/div[6]/div[1]/div[1]/div[3]/article[1]/@rating
-          - name:
-              - text: Contigo® SnapSeal™ Byron Travel Mug
-                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/main[1]/section[1]/div[6]/div[1]/div[1]/div[4]/article[1]/div[2]/@title
-            productUrl:
-              - text: https://www.bedbathandbeyond.ca/store/product/contigo-reg-snapseal-trade-byron-travel-mug/3293695
-                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/main[1]/section[1]/div[6]/div[1]/div[1]/div[4]/article[1]/div[2]/a[1]/@href
-            thumbnail:
-              - text: https://b3h2.scene7.com/is/image/BedBathandBeyond/86542246106315p?&wid=2000&hei=2000
-                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/main[1]/section[1]/div[6]/div[1]/div[1]/div[4]/article[1]/div[1]/a[1]/div[1]/img[1]/@src
-            reviewCount:
-              - text: "486"
-                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/main[1]/section[1]/div[6]/div[1]/div[1]/div[4]/article[1]/div[3]/a[1]/div[1]/div[1]/span[1]
-            ratingCount:
-              - text: "486"
-                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/main[1]/section[1]/div[6]/div[1]/div[1]/div[4]/article[1]/div[3]/a[1]/div[1]/div[1]/span[1]
-            price:
-              - text: "$13.99 "
-                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/main[1]/section[1]/div[6]/div[1]/div[1]/div[4]/article[1]/div[3]/div[3]/span[1]
             rank:
-              - text: "4"
-                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/main[1]/section[1]/div[6]/div[1]/div[1]/div[4]/article[1]/@rankorganic
+              - text: "3"
+                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/main[1]/section[1]/div[6]/div[1]/div[1]/div[3]/article[1]/@rankorganic
                 type: NUMBER
-                raw: "4"
+                raw: "3"
                 locale: en
-                value: 4
+                value: 3
             rankOrganic:
-              - text: "4"
-                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/main[1]/section[1]/div[6]/div[1]/div[1]/div[4]/article[1]/@rankorganic
+              - text: "3"
+                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/main[1]/section[1]/div[6]/div[1]/div[1]/div[3]/article[1]/@rankorganic
                 type: NUMBER
-                raw: "4"
+                raw: "3"
                 locale: en
-                value: 4
-            id:
-              - text: "3293695"
-                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/main[1]/section[1]/div[6]/div[1]/div[1]/div[4]/article[1]/@id
-            aggregateRating2:
-              - text: "4.0"
-                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/main[1]/section[1]/div[6]/div[1]/div[1]/div[4]/article[1]/@rating
+                value: 3
           - name:
               - text: Contigo® AutoSeal® Cortland Water Bottle
-                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/main[1]/section[1]/div[6]/div[1]/div[1]/div[5]/article[1]/div[2]/@title
+                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/main[1]/section[1]/div[6]/div[1]/div[1]/div[4]/article[1]/div[2]/@title
             productUrl:
-              - text: https://www.bedbathandbeyond.ca/store/product/contigo-reg-autoseal-reg-cortland-water-bottle/3293765
-                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/main[1]/section[1]/div[6]/div[1]/div[1]/div[5]/article[1]/div[2]/a[1]/@href
+              - text: https://www.bedbathandbeyond.com/store/product/contigo-reg-autoseal-reg-cortland-water-bottle/3293765
+                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/main[1]/section[1]/div[6]/div[1]/div[1]/div[4]/article[1]/div[2]/a[1]/@href
             thumbnail:
               - text: https://b3h2.scene7.com/is/image/BedBathandBeyond/8659023293765m?&wid=2000&hei=2000
-                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/main[1]/section[1]/div[6]/div[1]/div[1]/div[5]/article[1]/div[1]/a[1]/div[1]/img[1]/@src
+                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/main[1]/section[1]/div[6]/div[1]/div[1]/div[4]/article[1]/div[1]/a[1]/div[1]/img[1]/@src
             reviewCount:
               - text: "453"
-                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/main[1]/section[1]/div[6]/div[1]/div[1]/div[5]/article[1]/div[3]/a[1]/div[1]/div[1]/span[1]
+                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/main[1]/section[1]/div[6]/div[1]/div[1]/div[4]/article[1]/div[3]/a[1]/div[1]/div[1]/span[1]
             ratingCount:
               - text: "453"
-                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/main[1]/section[1]/div[6]/div[1]/div[1]/div[5]/article[1]/div[3]/a[1]/div[1]/div[1]/span[1]
+                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/main[1]/section[1]/div[6]/div[1]/div[1]/div[4]/article[1]/div[3]/a[1]/div[1]/div[1]/span[1]
             price:
               - text: "$11.99 "
-                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/main[1]/section[1]/div[6]/div[1]/div[1]/div[5]/article[1]/div[3]/div[3]/span[1]
-            rank:
-              - text: "5"
-                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/main[1]/section[1]/div[6]/div[1]/div[1]/div[5]/article[1]/@rankorganic
-                type: NUMBER
-                raw: "5"
-                locale: en
-                value: 5
-            rankOrganic:
-              - text: "5"
-                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/main[1]/section[1]/div[6]/div[1]/div[1]/div[5]/article[1]/@rankorganic
-                type: NUMBER
-                raw: "5"
-                locale: en
-                value: 5
+                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/main[1]/section[1]/div[6]/div[1]/div[1]/div[4]/article[1]/div[3]/div[3]/span[1]
             id:
               - text: "3293765"
-                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/main[1]/section[1]/div[6]/div[1]/div[1]/div[5]/article[1]/@id
+                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/main[1]/section[1]/div[6]/div[1]/div[1]/div[4]/article[1]/@id
+            searchUrl:
+              - text: https://www.bedbathandbeyond.com/store/s/Contigo?ta=typeahead&view=GRID
+                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/main[1]/section[1]/div[6]/div[1]/div[1]/div[4]/article[1]/@searchurl
             aggregateRating2:
               - text: "3.0"
-                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/main[1]/section[1]/div[6]/div[1]/div[1]/div[5]/article[1]/@rating
+                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/main[1]/section[1]/div[6]/div[1]/div[1]/div[4]/article[1]/@rating
+            rank:
+              - text: "4"
+                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/main[1]/section[1]/div[6]/div[1]/div[1]/div[4]/article[1]/@rankorganic
+                type: NUMBER
+                raw: "4"
+                locale: en
+                value: 4
+            rankOrganic:
+              - text: "4"
+                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/main[1]/section[1]/div[6]/div[1]/div[1]/div[4]/article[1]/@rankorganic
+                type: NUMBER
+                raw: "4"
+                locale: en
+                value: 4
           - name:
               - text: Contigo® Shake and Go® Tumbler
-                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/main[1]/section[1]/div[6]/div[1]/div[1]/div[6]/article[1]/div[2]/@title
+                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/main[1]/section[1]/div[6]/div[1]/div[1]/div[5]/article[1]/div[2]/@title
             productUrl:
-              - text: https://www.bedbathandbeyond.ca/store/product/contigo-reg-shake-and-go-reg-tumbler/3293773
-                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/main[1]/section[1]/div[6]/div[1]/div[1]/div[6]/article[1]/div[2]/a[1]/@href
+              - text: https://www.bedbathandbeyond.com/store/product/contigo-reg-shake-and-go-reg-tumbler/3293773
+                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/main[1]/section[1]/div[6]/div[1]/div[1]/div[5]/article[1]/div[2]/a[1]/@href
             thumbnail:
               - text: https://b3h2.scene7.com/is/image/BedBathandBeyond/8659353293773m?&wid=2000&hei=2000
-                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/main[1]/section[1]/div[6]/div[1]/div[1]/div[6]/article[1]/div[1]/a[1]/div[1]/img[1]/@src
+                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/main[1]/section[1]/div[6]/div[1]/div[1]/div[5]/article[1]/div[1]/a[1]/div[1]/img[1]/@src
             reviewCount:
               - text: "132"
-                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/main[1]/section[1]/div[6]/div[1]/div[1]/div[6]/article[1]/div[3]/a[1]/div[1]/div[1]/span[1]
+                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/main[1]/section[1]/div[6]/div[1]/div[1]/div[5]/article[1]/div[3]/a[1]/div[1]/div[1]/span[1]
             ratingCount:
               - text: "132"
-                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/main[1]/section[1]/div[6]/div[1]/div[1]/div[6]/article[1]/div[3]/a[1]/div[1]/div[1]/span[1]
+                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/main[1]/section[1]/div[6]/div[1]/div[1]/div[5]/article[1]/div[3]/a[1]/div[1]/div[1]/span[1]
             price:
               - text: $16.99
-                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/main[1]/section[1]/div[6]/div[1]/div[1]/div[6]/article[1]/div[3]/div[3]/span[1]
-            rank:
-              - text: "6"
-                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/main[1]/section[1]/div[6]/div[1]/div[1]/div[6]/article[1]/@rankorganic
-                type: NUMBER
-                raw: "6"
-                locale: en
-                value: 6
-            rankOrganic:
-              - text: "6"
-                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/main[1]/section[1]/div[6]/div[1]/div[1]/div[6]/article[1]/@rankorganic
-                type: NUMBER
-                raw: "6"
-                locale: en
-                value: 6
+                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/main[1]/section[1]/div[6]/div[1]/div[1]/div[5]/article[1]/div[3]/div[3]/span[1]
             id:
               - text: "3293773"
-                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/main[1]/section[1]/div[6]/div[1]/div[1]/div[6]/article[1]/@id
+                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/main[1]/section[1]/div[6]/div[1]/div[1]/div[5]/article[1]/@id
+            searchUrl:
+              - text: https://www.bedbathandbeyond.com/store/s/Contigo?ta=typeahead&view=GRID
+                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/main[1]/section[1]/div[6]/div[1]/div[1]/div[5]/article[1]/@searchurl
             aggregateRating2:
               - text: "4.0"
-                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/main[1]/section[1]/div[6]/div[1]/div[1]/div[6]/article[1]/@rating
+                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/main[1]/section[1]/div[6]/div[1]/div[1]/div[5]/article[1]/@rating
+            rank:
+              - text: "5"
+                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/main[1]/section[1]/div[6]/div[1]/div[1]/div[5]/article[1]/@rankorganic
+                type: NUMBER
+                raw: "5"
+                locale: en
+                value: 5
+            rankOrganic:
+              - text: "5"
+                xpath: /html/body/div[2]/div[2]/div[1]/div[2]/main[1]/section[1]/div[6]/div[1]/div[1]/div[5]/article[1]/@rankorganic
+                type: NUMBER
+                raw: "5"
+                locale: en
+                value: 5
         xpath: /html
-    timestamp: 1607421714462
+    timestamp: 1607519735214
