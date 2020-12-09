@@ -24,13 +24,20 @@ module.exports = {
         };
         const destinationUrl = url || patternReplace();
 
-        await dependencies.goto({ url: destinationUrl, zipcode });
+        await context.goto(destinationUrl, {
+            block_ads: false,
+            load_all_resources: true,
+            images_enabled: true,
+            timeout: 100000,
+            waitUntil: 'load',
+        });
 
         if (loadedSelector) {
             await context.waitForFunction((sel, xp) => {
                 return Boolean(document.querySelector(sel) || document.evaluate(xp, document, null, XPathResult.UNORDERED_NODE_ITERATOR_TYPE, null).iterateNext());
             }, { timeout: 100000 }, loadedSelector, noResultsXPath);
         }
+
 
         if (sortButtonSelectors) {
             const selectors = sortButtonSelectors.split('|');

@@ -45,7 +45,7 @@ module.exports = {
                 });
             }
 
-            removeBtn('ol[class*="content-list-reviews"] meta[itemprop="datePublished"]', '//a[contains(@class,"bv-content-btn-pages-last") and contains(@class,"active")]');
+            removeBtn('ol[class*="content-list-reviews"] meta[itemprop="datePublished"]', 'a[class*="bv-content-btn-pages-last"]');
         });
         const { transform } = parameters;
         const { productReviews } = dependencies;
