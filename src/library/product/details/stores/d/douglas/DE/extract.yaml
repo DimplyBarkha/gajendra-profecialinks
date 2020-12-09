@@ -118,3 +118,9 @@ fields:
     regExpReplace: DOUGLAS PARTNER
   - name: productUrl
     xpath: //div[@id='productUrl']
+  - name: hasComparisonTable
+    defaultValue: No
+  - name: inTheBoxUrl
+    xpath: //div[@class="dobook-global"]//div[@class="block"]//img/@src
+  - name: inTheBoxText
+    xpath: //div[@class="dobook-global"]//div[@class="block"]//header
