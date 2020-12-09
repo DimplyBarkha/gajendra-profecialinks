@@ -1,18 +1,11 @@
 
 module.exports = {
+  implements: 'navigation/goto',
   parameterValues: {
     domain: 'superdrug.com',
+    timeout: 100000,
     country: 'UK',
     store: 'superdrug',
-  },
-  implementation: async ({ url }, { country, domain }, context, dependencies) => {
-    await context.goto(url, { timeout: 50000, waitUntil: 'load', checkBlocked: false });
-    const productPage = await context.evaluate(function () {
-      return Boolean(document.querySelector('body[data-page-id="productDetails"]'));
-    });
-
-    if (productPage) {
-      await context.waitForSelector('span[itemprop="reviewCount"]');
-    }
+    zipcode: '',
   },
 };
