@@ -60,12 +60,12 @@ const transform = (data) => {
       }
       if (row.sku) {
         row.sku.forEach((skuItem) => {
-          skuItem.text = skuItem.text.replace('SKU', '');
+          skuItem.text = skuItem.text.replace('SKU', '').trim();
         });
       }
       if (row.variantId) {
         row.variantId.forEach((variantIdItem) => {
-          variantIdItem.text = variantIdItem.text.replace('SKU', '');
+          variantIdItem.text = variantIdItem.text.replace('SKU', '').trim();
         });
       }
       const descriptionArray = [];
