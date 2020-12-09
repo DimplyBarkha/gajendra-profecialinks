@@ -1,5 +1,4 @@
 const { transform } = require('../../../../shared');
-
 async function implementation (
   inputs,
   parameters,
@@ -8,45 +7,45 @@ async function implementation (
 ) {
   const { transform } = parameters;
   const { productDetails } = dependencies;
-
-  await new Promise((resolve, reject) => setTimeout(resolve, 5000));
-
-  await context.evaluate(() => {
-    function addProp(selector, iterator, propName, value) {
-      document.querySelectorAll(selector)[iterator].setAttribute(propName, value);
-    };
-    const allProducts = document.querySelector('div#content-middle').querySelectorAll('div.product-grid-item.ColUI-gjy0oc-0.ifczFg.ViewUI-sc-1ijittn-6.iXIDWU');
-    const allSponsored = document.querySelectorAll('a.card-product-url');
-    let multiplier = 0;
-    if (allSponsored[0]) {
-      multiplier = allSponsored.length;
-    };
-
-    for (let i = 0; i < allProducts.length; i++) {
-      addProp('div.RippleContainer-sc-1rpenp9-0.dMCfqq', i, 'rankorganic', `${i + 1}`);
-      addProp('div.RippleContainer-sc-1rpenp9-0.dMCfqq', i, 'rank', `${i + 1 + multiplier}`);
-
-      // if I try add id byy extract.yaml and XPATH sellector there always missing random number of ids.
-      let id = document.querySelectorAll('div[class="row product-grid no-gutters main-grid"] > div > div > a')[i].href;
-      id = id.match(/\/(\d+)\?/)[1];
-      addProp('div.RippleContainer-sc-1rpenp9-0.dMCfqq', i, 'currentid', `${id}`);
-      addProp('div.RippleContainer-sc-1rpenp9-0.dMCfqq', i, 'urldata', `https://www.submarino.com.br/produto/${id}`);
-    };
-
-    if (allSponsored[0]) {
-      console.log('sponsored exists')
-      for (let i = 0; i < allSponsored.length; i++) {
-        const sponsoredId = allSponsored[i].href.match(/\/(\d+)\?/)[1];
-        addProp('a.card-product-url', i, 'currentid', `${sponsoredId}`);
-        addProp('a.card-product-url', i, 'urldata', `https://www.submarino.com.br/produto/${sponsoredId}`);
-        addProp('a.card-product-url', i, 'rank', `${i + 1}`);
+  async function getMissingData ([{ text: id }]) {
+    const obj = {};
+    const product = await context.evaluate(async function (givenId) {
+      const response = await fetch(`https://restql-server-api-v2-submarino.b2w.io/run-query/catalogo/product-without-promotion/20?c_opn=&id=${givenId}&offerLimit=1`);
+      const data = await response.json();
+      data.product.result.searchUrl = window.location.href;
+      return data.product.result;
+    }, id);
+    obj.searchUrl = product.searchUrl;
+    if (product.images && product.images.length !== 0) {
+      obj.thumbnail = product.images[0].big;
+    }
+    if ('rating' in product) {
+      obj.aggregateRating2 = String(product.rating.average).replace('.', ',');
+      obj.reviewCount = product.rating.reviews;
+    }
+    return obj;
+  };
+  // extractor fails to properly load thumbnails and rating data thats why we fetch this data post extraction
+  const dataRef = await context.extract(productDetails, { transform });
+  for (const { group } of dataRef) {
+    for (const row of group) {
+      if (row.id) {
+        const dataObj = await getMissingData(row.id);
+        if (dataObj.thumbnail) {
+          row.thumbnail = [{ text: dataObj.thumbnail }];
+        }
+        if (dataObj.aggregateRating2) {
+          row.aggregateRating2 = [{ text: dataObj.aggregateRating2 }];
+        }
+        if (dataObj.reviewCount) {
+          row.reviewCount = [{ text: dataObj.reviewCount }];
+          row.ratingCount = [{ text: dataObj.reviewCount }];
+        }
+        row.searchUrl = [{ text: dataObj.searchUrl }];
       }
     }
-  });
-
-  await new Promise((resolve, reject) => setTimeout(resolve, 3000));
-
-  return await context.extract(productDetails, { transform });
+  }
+  return dataRef;
 }
 
 module.exports = {
