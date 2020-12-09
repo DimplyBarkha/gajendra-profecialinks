@@ -65,7 +65,28 @@ async function implementation(
     if (loadbeeUrl || gtin) {
         let gtinUrl = gtin ? 'https://service.loadbee.com/ean/' + gtin + '/de_DE?css=default&template=default&data=%7B%22shop%22%3A%22www.euronics.de%22%2C%22source%22%3A%22inpage%22%2C%22api%22%3A%22fGy5uftNFDeUaTCCGbzAfZhpZZH5xnbC%22%7D' : null;
         console.log('going to loadbeeUrl');
-        await context.goto(loadbeeUrl || gtinUrl);
+        await context.goto(loadbeeUrl || gtinUrl, {
+            timeout: 100000,
+            waitUntil: 'load',
+          });
+        await this.context.evaluate(async () => {
+            await new Promise((resolve) => setTimeout(resolve, 5000));
+        
+            async function infiniteScroll () {
+                let prevScroll = document.documentElement.scrollTop;
+                while (true) {
+                window.scrollBy(0, document.documentElement.clientHeight);
+                await new Promise(resolve => setTimeout(resolve, 1000));
+                const currentScroll = document.documentElement.scrollTop;
+                if (currentScroll === prevScroll) {
+                    break;
+                }
+                prevScroll = currentScroll;
+                }
+            }
+            await infiniteScroll();
+            await new Promise((resolve) => setTimeout(resolve, 8000));
+        });
         enhancedContent = await context.evaluate(function() {
             if (document.querySelector('.logo-wrapper')) {
                 return document.body.innerText;
