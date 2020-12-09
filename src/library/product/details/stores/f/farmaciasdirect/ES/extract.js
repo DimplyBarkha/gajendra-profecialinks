@@ -4,6 +4,9 @@ const implementation = async (inputs, parameters, context, dependencies) => {
   const { transform } = parameters;
   const { productDetails } = dependencies;
 
+  await context.waitForXPath("//div[contains(@class,'product-img') and not(contains(@class,'cloned'))]//img/@src", { timeout: 10000 })
+    .catch(() => console.log('No images to load'));
+
   await context.evaluate(() => {
     function addHiddenDiv (id, content) {
       const newDiv = document.createElement('div');
