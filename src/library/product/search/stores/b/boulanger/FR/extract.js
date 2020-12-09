@@ -39,6 +39,7 @@ async function implementation (
       });
     }
   });
+  await new Promise((resolve) => setTimeout(resolve, 3000));
   return await context.extract(productDetails, { transform });
 }
 module.exports = {
