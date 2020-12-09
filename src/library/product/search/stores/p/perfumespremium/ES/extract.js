@@ -8,7 +8,7 @@ async function implementation(inputs, parameters, context, dependencies) {
   await context.evaluate(async () => {
     let scrollTop = 0;
     while (scrollTop !== 5000) {
-      await stall(1000);
+      await stall(2500);
       scrollTop += 500;
       window.scroll(0, scrollTop);
       if (scrollTop === 5000) {
