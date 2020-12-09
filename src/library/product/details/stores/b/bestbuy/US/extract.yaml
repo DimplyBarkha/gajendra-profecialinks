@@ -5,8 +5,7 @@ recordXPath: null
 fields:
   - name: shownImages
     singleValue: false
-    xpath: //button[@class="image-button"]//img//@src
-    regExp: (.+\.jpg)
+    xpath: //import-image/@src
   - name: nameExtended
     singleValue: true
     xpath: //h1
@@ -23,7 +22,7 @@ fields:
     xpath: //a[@class="btn btn-link v-medium btn-brand-link"]/text()
   - name: description
     singleValue: false
-    xpath: //div[@class="shop-product-description"]//div[contains(@class,"html-fragment")]
+    xpath: //import-description
   - name: featureBullets
     singleValue: false
     xpath: //div[@class="feature-body-container"]//p
@@ -49,8 +48,7 @@ fields:
     xpath: //nav[@aria-label="breadcrumb"]//li//a
   - name: highQualityImages
     singleValue: false
-    xpath: //button[@class="image-button"]//img//@src
-    regExp: (.+\.jpg)
+    xpath: //import-image/@src
   - name: sku
     singleValue: true
     xpath: (//div[@class="sku product-data"]//span)[2]
@@ -72,3 +70,11 @@ fields:
   - name: videos
     singleValue: false
     xpath: //body//@video
+  - name: otherSellersName
+    xpath: //body/@import-seller
+  - name: otherSellersPrice
+    xpath: (//div[@class="priceView-hero-price priceView-customer-price"]//span)[1]
+  - name: otherSellersAvailability
+    xpath: //button[contains(@class, "btn btn-primary") and contains(@class, "add-to-cart-button")]
+    regExp: Add to Cart
+    regExpReplace: In Stock

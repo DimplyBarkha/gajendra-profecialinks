@@ -32,6 +32,63 @@ module.exports = {
       if(upc) {
         document.body.setAttribute('upc', upc.textContent.match(/(UPC\s)(\d+)/)[2]);
       }
+
+      let descEl = document.querySelector('.shop-product-description .html-fragment');
+      let descriptionString = '';
+
+      if (!descEl) {
+        let scriptString = document.querySelector("div[id*='user-generated-content-ratings-and-reviews'] > script:last-child") ? 
+          document.querySelector("div[id*='user-generated-content-ratings-and-reviews'] > script:last-child").innerText : null;
+        
+        if (scriptString) {
+          scriptString = scriptString.split('description\\":\\"').length > 1 ? 
+            scriptString.split('description\\":\\"')[1] : null;
+          scriptString = scriptString ? scriptString.split('\\"') : null;
+          scriptString = scriptString ?
+          scriptString[0] : null;
+          descriptionString = scriptString;
+        }
+      } else {
+        descriptionString = descEl.innerText;
+      }
+
+      let newDescEl = document.createElement('import-description');
+      newDescEl.innerText = descriptionString;
+      document.body.appendChild(newDescEl);
+
+      let loadMoreImagesEl = document.querySelector('.image-more-thumbnail button') ? document.querySelector('.image-more-thumbnail button') : document.querySelector('button.see-more-images-button');
+      const productImages = [];
+
+      if (loadMoreImagesEl) {
+        loadMoreImagesEl.click();
+        const images = document.querySelectorAll('.tab-content-wrapper.product-images .image-thumbnail-wrapper .carousel-indicate .thumbnail-content img');
+
+        for (const image of images) {
+          const src = image.src.split(';')[0];
+          productImages.push(src);
+        }
+      } else {
+        const images = document.querySelectorAll('.shop-media-gallery .thumbnail-list img');
+
+        for (const image of images) {
+          const src = image.src.split(';')[0];
+          productImages.push(src);
+        }
+      }
+
+      for (const item of productImages) {
+        let imageEl = document.createElement('import-image');
+        imageEl.setAttribute('src', item);
+        document.body.appendChild(imageEl);
+      }
+
+      let jsonData = document.evaluate('//script[@type="application/ld+json"][contains(., "seller")]', document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
+      jsonData = jsonData ? jsonData.innerText : null;
+
+      if (jsonData) {
+        jsonData = JSON.parse(jsonData);
+        document.body.setAttribute('import-seller', jsonData.offers.seller.name);
+      }
     });
     await context.extract(productDetails);
   },
