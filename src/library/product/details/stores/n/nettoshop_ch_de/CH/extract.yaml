@@ -1,0 +1,103 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: //div[@class="l-default"]
+fields:
+  - name: image
+    singleValue: false
+    xpath: //div[@class="swiper-slide ember-view swiper-slide-active"]/div[@class="c-product-gallery__item"]/div/picture/img/@data-src
+  - name: imageAlt
+    singleValue: false
+    xpath: //div[@class="swiper-slide ember-view swiper-slide-active"]/div/div/picture/img/@alt
+  - name: category
+    singleValue: false
+    xpath: //ul[@class="c-breadcrumb__list"]/li/a[not(contains(text(),'Startseite'))]/text()
+  - name: nameExtended
+    singleValue: false
+    xpath: //h1[@class="c-product-detail__product-name"]
+  - name: price
+    singleValue: false
+    xpath: //div[@class="c-product-detail-infos__price-total"]
+  - name: availabilityText
+    singleValue: false
+    xpath: //span[@class="c-add-to-cart__button-text"]
+    regExp: (.+)
+    regExpReplace: In Stock
+    defaultValue: Out of Stock
+  - name: alternateImages
+    singleValue: false
+    xpath: //div[@class="c-product-detail__gallery"]/div[@id="addAlternateImages"]
+  - name: description
+    singleValue: false
+    xpath: //html//div[@id='description']
+  - name: brandText
+    singleValue: true
+    xpath: //html//div[@id='brand']
+  - name: quantity
+    singleValue: true
+    xpath: //html//div[@id='quantity']
+  - name: weightNet
+    singleValue: true
+    xpath: //html//div[@id='weight']
+  - name: gtin
+    singleValue: true
+    xpath: //html//div[@id='GTIN']
+  - name: sku
+    singleValue: true
+    xpath: //html//div[@id='SKU']
+  - name: mpc
+    singleValue: true
+    xpath: //html//div[@id='mpc']
+  - name: ratingCount
+    singleValue: true
+    xpath: //html//div[@id='ratingCount']
+    type: NUMBER
+  - name: aggregateRating
+    singleValue: true
+    xpath: //html//div[@id='aggregateRating']
+  - name: variantCount
+    singleValue: true
+    xpath: //html//div[@id='variantCount']
+  - name: color
+    singleValue: true
+    xpath: //html//div[@id='color']
+  - name: videos
+    singleValue: false
+    xpath: //html//div[@id='video']
+  - name: name
+    singleValue: true
+    xpath: //h1[@class="c-product-detail__product-name"]
+  - name: specifications
+    singleValue: true
+    xpath: //html//div[@id='specifications']
+  - name: warranty
+    singleValue: true
+    xpath: //html//div[@id='guarantee']
+  - name: technicalInformationPdfPresent
+    singleValue: true
+    description: If there is for example a manual in pdf format on the website. ['Yes','No']
+    example: https://www.amazon.de/Hasbro-Spiele-44220100-Mastermind-Kinderspiel/dp/B0007OHUG6
+    defaultValue: No
+  - name: termsAndConditions
+    singleValue: true
+    description: Terms and conditions information text ['Yes','No']
+    defaultValue: No
+  - name: privacyPolicy
+    singleValue: true
+    description: Privacy Policy information text ['Yes','No']
+    defaultValue: No
+  - name: customerServiceAvailability
+    singleValue: true
+    description: Information related to customer service availability (text), ['Yes','No']
+    defaultValue: No
+  - name: Image360Present
+    singleValue: true
+    description: If 360 image is present in the carousel ['Yes','No']
+    example: https://www.amazon.com/Trinsic-Single-Handle-Magnetic-Champagne-9159-CZ-DST/dp/B0050EN8E6
+    defaultValue: No
+  - name: imageZoomFeaturePresent
+    singleValue: true
+    description: If Zoom feature is available for Main image or images in the
+      carousel,['Yes','No']
+    example: https://www.zalando.de/adidas-neo-sneaker-low-blackwhite-a4315i002-q11.html
+    defaultValue: No
