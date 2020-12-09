@@ -61,7 +61,6 @@ async function implementation(
   addHiddenDiv('aggregateRating', singleRating, k);
   }
 
-
   function addHiddenDiv1(id, content, index) {
     const newDiv = document.createElement('div');
     newDiv.id = id;
