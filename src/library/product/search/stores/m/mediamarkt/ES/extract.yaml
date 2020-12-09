@@ -27,7 +27,7 @@ fields:
 - name: searchUrl
   xpath: //div[@class="product-wrapper"]/@searchurl
 - name: gtin
-  xpath: //li//script[contains(text(),'ean')]
+  xpath: //ul[@class="products-list"]//li//script[contains(text(),'ean')]
   regExp: ("ean":)(")(\d+)(")
   regExpReplace: $3
 - name: manufacturer
