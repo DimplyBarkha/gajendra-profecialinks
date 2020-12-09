@@ -10,7 +10,27 @@ module.exports = {
   implementation: async (inputs, parameters, context, dependencies) => {
     const { transform } = parameters;
     const { productDetails } = dependencies;
-    await context.evaluate(() => {
+    function stall(ms) {
+      return new Promise((resolve, reject) => {
+        setTimeout(() => {
+          resolve();
+        }, ms);
+      });
+    }
+    await context.evaluate(async () => {
+      await stall(5000);
+      if (
+        document.querySelector(
+          ".btn.btn-none.hz-universal-search-header-tip__dismiss"
+        ) != null
+      ) {
+        await document
+          .querySelector(
+            ".btn.btn-none.hz-universal-search-header-tip__dismiss"
+          )
+          .click();
+      }
+      await stall(7000);
       function addHiddenDiv(id, content, index) {
         const newDiv = document.createElement("div");
         newDiv.id = id;
