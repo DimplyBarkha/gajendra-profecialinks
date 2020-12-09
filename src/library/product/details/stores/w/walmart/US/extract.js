@@ -66,40 +66,54 @@ module.exports = {
     }
 
     // Iframe logic for aplus_images & enhanced_content if not picked up in API:
-    await context.evaluate(async () => {
-      // scroll to bottom of page, iframe should load if present!
-      // await window.scrollTo(0, document.body.scrollHeight);
-    });
     const enhancedContentSelector = 'iframe#iframe-AboutThisItem-marketingContent';
     await context.waitForSelector(enhancedContentSelector, { timeout: 5000 })
+      .then(async () => {
+        // scroll to bottom of page, iframe should load if present!
+        await context.evaluate(async () => {
+          await window.scrollTo(0, document.body.scrollHeight);
+        });
+        // scroll to iframe
+        await context.evaluate((selector) => {
+          const marketingIframe = document.querySelector(selector);
+          if (marketingIframe) marketingIframe.scrollIntoView();
+        }, enhancedContentSelector);
+        // wait for iframe to load
+        await new Promise(resolve => setTimeout(resolve, 5000));
+      })
+      .then(async () => {
+        await context.evaluate(async (selector) => {
+          function addHiddenDiv (id, content) {
+            const newDiv = document.createElement('div');
+            newDiv.id = id;
+            newDiv.textContent = content;
+            newDiv.style.display = 'none';
+            document.body.appendChild(newDiv);
+          }
+          const getShadowRoots = (elem, resArr = []) => {
+            if (elem.shadowRoot) return [...resArr, elem.shadowRoot];
+            return [...elem.childNodes].reduce((acc, elC) => [...acc, ...resArr, ...getShadowRoots(elC, resArr)],resArr);
+        }
+
+          const marketingIframe = document.querySelector(selector);
+          if (marketingIframe) {
+            const root =
+            const imagesSrc = [...marketingIframe.contentDocument.querySelectorAll('img')]
+              .map(img => {
+                const src = img.getAttribute('src');
+                return !src.startsWith('http') ? `https:${src}` : src;
+              });
+            addHiddenDiv('my_manufact_images', imagesSrc.join(' | '));
+
+            // @ts-ignore
+            const setText = [...new Set(
+              [...marketingIframe.contentDocument.querySelectorAll('div')].map(el => el.innerText),
+            )];
+            addHiddenDiv('my_enh_content', setText.join(' '));
+          }
+        }, enhancedContentSelector);
+      })
       .catch(() => console.log('no aplus iframe'));
-    await context.evaluate(async (selector) => {
-      function addHiddenDiv (id, content) {
-        const newDiv = document.createElement('div');
-        newDiv.id = id;
-        newDiv.textContent = content;
-        newDiv.style.display = 'none';
-        document.body.appendChild(newDiv);
-      }
-
-      const marketingIframe = document.querySelector(selector);
-      if (marketingIframe) {
-        marketingIframe.scrollIntoView();
-        await new Promise((resolve, reject) => setTimeout(resolve, 5000));
-        const imagesSrc = [...marketingIframe.contentDocument.querySelectorAll('img')]
-          .map(img => {
-            const src = img.getAttribute('src');
-            return !src.startsWith('http') ? `https:${src}` : src;
-          });
-        addHiddenDiv('my_manufact_images', imagesSrc.join(' | '));
-
-        // @ts-ignore
-        const setText = [...new Set(
-          [...marketingIframe.contentDocument.querySelectorAll('div')].map(el => el.innerText),
-        )];
-        addHiddenDiv('my_enh_content', setText.join(' '));
-      }
-    }, enhancedContentSelector);
 
     // add additionall content
     await context.evaluate(async () => {
