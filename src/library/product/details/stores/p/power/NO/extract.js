@@ -60,7 +60,7 @@ module.exports = {
       if (nameExtendedSelector2) {
         nameExtended.push(nameExtendedSelector2.innerText);
       }
-      addElementToDocument('fetchedNameExtended', nameExtended.join(' '));
+      addElementToDocument('fetchedNameExtended', nameExtended.join(' ').replace('"', ' '));
 
       let images = document.querySelectorAll('div.inpage_block img');
       if (images) {

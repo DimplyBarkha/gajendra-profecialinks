@@ -88,7 +88,7 @@ fields:
   - name: sku
     singleValue: false
     description: The store-specific product identifier
-    xpath: //meta[@itemprop="productId"]/@content
+    xpath: //meta[@itemprop="sku"]/@content
   - name: variantId
     singleValue: false
     description: Identifier for a variant from a store where variants share the same sku
@@ -96,7 +96,9 @@ fields:
   - name: mpc
     singleValue: false
     description: The manufacturer model code (unique) of the product
-    xpath: //div[@id="mpc"] | //div[contains(text(), ' Leverandørens')]/following-sibling::*
+    xpath: //p[contains(@class, 'product-ids ng-star-inserted')]
+    regExp: (.+) /
+    regExpReplace: $1
   - name: packSize
     singleValue: false
     description: The number of packs in the product offer (if stated separately on
