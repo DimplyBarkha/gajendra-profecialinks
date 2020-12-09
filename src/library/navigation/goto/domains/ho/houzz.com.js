@@ -1,11 +1,10 @@
-
 module.exports = {
-  implements: 'navigation/goto',
+  implements: "navigation/goto",
   parameterValues: {
-    domain: 'houzz.com',
-    timeout: null,
-    country: 'US',
-    store: 'houzz',
-    zipcode: '',
+    domain: "houzz.com",
+    timeout: 50000,
+    country: "US",
+    store: "houzz",
+    zipcode: "",
   },
 };

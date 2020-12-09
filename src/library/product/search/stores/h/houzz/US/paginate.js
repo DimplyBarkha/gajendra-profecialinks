@@ -6,8 +6,7 @@ module.exports = {
     nextLinkSelector: null,
     mutationSelector: null,
     spinnerSelector: null,
-    loadedSelector:
-      "#hz-br__result-set-root > div.hz-card.clearfix.hz-br__result-set > div:nth-child(3) > div > div",
+    loadedSelector: ".hz-image-container img",
     noResultsXPath: null,
     openSearchDefinition: {
       template:

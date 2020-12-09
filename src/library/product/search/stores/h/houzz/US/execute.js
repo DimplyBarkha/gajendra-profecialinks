@@ -16,8 +16,7 @@ module.exports = {
     store: "houzz",
     domain: "houzz.com",
     url: "https://www.houzz.com/products/query/{searchTerms}",
-    loadedSelector:
-      "#hz-br__result-set-root > div.hz-card.clearfix.hz-br__result-set > div:nth-child(3) > div > div",
+    loadedSelector: ".hz-image-container img",
     noResultsXPath: null,
     zipcode: "",
   },
