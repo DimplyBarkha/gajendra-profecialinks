@@ -105,6 +105,8 @@ fields:
     xpath: //div[@itemprop="description"]//li
   - name: inTheBoxUrl
     xpath: //div[contains(@class,'InTheBox')]//div[@class="flix-background-image"]//img/@src
+    regExp: (.+)
+    regExpReplace: https:$1
   - name: inTheBoxText
     xpath: //div[contains(@class,'InTheBox')]//span | //p[contains(.,'In the Box')]/following-sibling::ul[1]//li
   - name: hasComparisonTable
