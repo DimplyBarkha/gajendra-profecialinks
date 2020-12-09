@@ -9,6 +9,8 @@ fields:
     xpath: //head//@intheboxtext
   - name: unInterruptedPDP
     xpath: //div[contains(@id,'reco-panel')]//div[@class="shop-produkt__inner"]
+    regExp: dyson(.*)
+    regExpReplace: dyson $1
   - name: image
     singleValue: false
     description: URL of the main product image
