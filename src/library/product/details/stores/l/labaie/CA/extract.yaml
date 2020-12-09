@@ -14,7 +14,7 @@ fields:
   - name: alternateImages
     singleValue: false
     description: Other product images (not in manufacturer description)
-    xpath: //li[@class='primary-thumbnail']/a/img/@src
+    xpath: //li[@class='primary-thumbnail']/a/img/@srcset
   - name: metaKeywords
     singleValue: false
     description: The <meta> keywords content
@@ -31,12 +31,12 @@ fields:
   - name: listPrice
     singleValue: false
     description: The stated undiscounted price for the product
-    xpath: //div[contains(@class,"product-secondary-section")]//span[contains(@class,"list strike-through")]//span[contains(@class,"bfx-list-price")]
+    xpath: //div[contains(@class,"product-secondary-section")]//span[contains(@class,"list strike-through")]//span[contains(@class,"bfx-list-price")]/@data-unformatted-price
   - name: price
     singleValue: false
     description: The offered price for the selected product variant - if a user
       clicks add to basket this is the price they would be charged
-    xpath: //div[contains(@class,"product-secondary-section")]//span[contains(@class,"prod-price")]//span[contains(@class,"formatted_sale_price")]
+    xpath: //div[contains(@class,"product-secondary-section")]//span[contains(@class,"prod-price")]//span[contains(@class,"formatted_sale_price")]/@data-unformatted-price
   - name: availabilityText
     singleValue: false
     description: Availability as described on page for the selected variant. If
@@ -116,6 +116,11 @@ fields:
     singleValue: false
     description: URLs of videos on page
     xpath: //div[@id='videos']
+  - name: videos1
+    singleValue: false
+    xpath: //div[contains(@class,"s7videoplayer")]/video/@poster
+    regExp: (.*)\/TheBay\/(.*)\?(.*)
+    regExpReplace: https://s7d9.scene7.com/s7viewers/html5/VideoViewer.html?videoserverurl=https://s7d9.scene7.com/is/content/&emailurl=https://s7d9.scene7.com/s7/emailFriend&serverUrl=https://s7d9.scene7.com/is/image/&config=Scene7SharedAssets/Universal_HTML5_Video_social&contenturl=https://s7d9.scene7.com/skins/&config2=companypreset&asset=TheBay/$2
   - name: name
     singleValue: false
     description: The product name
@@ -137,7 +142,7 @@ fields:
   - name: secondaryImageTotal
     singleValue: false
     description: null
-    xpath: count((//li[@class='primary-thumbnail']/a/img/@src)[position()>1])
+    xpath: count((//li[@class='primary-thumbnail']/a/img/@srcset)[position()>1])
     type: NUMBER
   - name: specifications
     singleValue: false

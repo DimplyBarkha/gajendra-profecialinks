@@ -21,6 +21,16 @@ const transform = (data) => {
 
   for (const { group } of data) {
     for (const row of group) {
+      if (row.price) {
+        row.price.forEach(price => {
+          price.text = `${price.text} $`;
+        });
+      }
+      if (row.listPrice) {
+        row.listPrice.forEach(price => {
+          price.text = `${price.text} $`;
+        });
+      }
       if (row.nameExtended) {
         row.nameExtended.forEach(nameExtended => {
           if (row.brandText && row.color) {
@@ -32,10 +42,12 @@ const transform = (data) => {
           }
         });
       }
-      if (row.aggregateRating) {
-        row.aggregateRating.forEach(rating => {
-          rating.text = rating.text.replace('.', ',');
-        });
+      if (row.videos && row.videos1) {
+        row.videos = [...row.videos, ...row.videos1];
+      } else {
+        if (!row.videos && row.videos1) {
+          row.videos = row.videos1;
+        }
       }
       if (row.description) {
         let text = '';
