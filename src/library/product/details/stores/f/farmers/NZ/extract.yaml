@@ -89,3 +89,17 @@ fields:
   - name: manufacturer
     singleValue: false
     xpath: //div[contains(@id,'manufacture-name')]
+  - name: inTheBoxUrl
+    singleValue: false
+    xpath: //div[contains(@class, "InTheBox")]//img/@data-flixsrcset
+    regExp: (.+800w,\s)(.+(.png|.jpg))(.+)
+    regExpReplace: $2
+  - name: inTheBoxText
+    singleValue: false
+    xpath: //div[contains(@class,"InTheBox")]//div[contains(@class,"flix-std-content")]
+  - name: hasComparisonTable
+    singleValue: true
+    defaultValue: No
+  - name: unInterruptedPDP
+    singleValue: false
+    xpath: //h3[contains(.,'You May Also Like')]/following-sibling::div//div[contains(@class,"slick-track")]/div[contains(@class,'slick-slide')]
