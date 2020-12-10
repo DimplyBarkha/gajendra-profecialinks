@@ -1,8 +1,8 @@
 module.exports = {
   extends: 'navigation/goto/domains/am/amazon',
   parameterValues: {
-    country: 'SA',
-    domain: 'amazon.sa',
+    country: 'US',
+    domain: 'amazon.com',
     store: 'amazon',
   },
 };
