@@ -28,6 +28,8 @@ fields:
     defaultValue: Out of Stock
   - name: alternateImages
     singleValue: false
+    regExp: ^(.+)$
+    regExpReplace: https:$1
     xpath: //div[@class="c-product-detail__gallery"]/div[@id="addAlternateImages"]
   - name: description
     singleValue: false
@@ -44,6 +46,12 @@ fields:
   - name: gtin
     singleValue: true
     xpath: //html//div[@id='GTIN']
+  - name: variantId
+    singleValue: true
+    xpath: //html//div[@id='SKU']
+  - name: manufacturerImages
+    singleValue: false
+    xpath: //html//div[@id='manufcaturer_Images']
   - name: sku
     singleValue: true
     xpath: //html//div[@id='SKU']
@@ -72,6 +80,12 @@ fields:
   - name: specifications
     singleValue: true
     xpath: //html//div[@id='specifications']
+  - name: manufacturerDescription
+    singleValue: true
+    xpath: //html//div[@id='manufcaturer_Desc']
+  - name: videos
+    singleValue: true
+    xpath: //html//div[@id='video']
   - name: warranty
     singleValue: true
     xpath: //html//div[@id='guarantee']
@@ -103,3 +117,6 @@ fields:
       carousel,['Yes','No']
     example: https://www.zalando.de/adidas-neo-sneaker-low-blackwhite-a4315i002-q11.html
     defaultValue: No
+  - name: manufacturer
+    singleValue: true
+    xpath: //span[@class="c-product-detail-infos__manufacturer-link"]/a/text()

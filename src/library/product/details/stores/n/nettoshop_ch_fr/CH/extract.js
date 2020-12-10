@@ -12,6 +12,10 @@ module.exports = {
   implementation: async (inputs, parameters, context, dependencies) => {
     const { transform } = parameters;
     const { productDetails } = dependencies;
+
+    // Wait for manufcaturer Images
+    await context.waitForSelector('div[id="inpage_container"]', { timeout: 6000 })
+      .catch(() => console.log('No manufcaturer Images were found.'));
     await context.evaluate(async () => {
       function allElement(id, content, index) {
         const newDiv = document.createElement('div');
@@ -83,6 +87,21 @@ module.exports = {
       const Depth = getAllXpath("//tr[@class='c-product-specifications__tr']/th[contains(text(),'Tiefe')]/parent::tr/td/span/text()", 'nodeValue');
       const DepthCombined = 'Tiefe: ' + Depth.join(' ');
       if (Depth.length > 0) { finalSpecifications.push(DepthCombined) };
+      try {
+        var xPathRes = document.evaluate('//span[@data-component="c-product-specifications"]/parent::a', document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null)
+        // @ts-ignore
+        xPathRes.singleNodeValue.click()
+        const specificationsTable = document.querySelectorAll('div[class="c-product-specifications ember-view"] table tr');
+        for (let k = 0; k < specificationsTable.length; k++) {
+          // @ts-ignore
+          if (specificationsTable[k].innerText.length > 0) {
+            // @ts-ignore
+            finalSpecifications.push(specificationsTable[k].innerText);
+          }
+        }
+      } catch (error) {
+
+      }
       allElement('specifications', finalSpecifications.join(', '), 0);
       const guarantee = getAllXpath("//tr[@class='c-product-specifications__tr']/th[contains(text(),'Garantie')]/parent::tr/td/span/text()", 'nodeValue');
       allElement('guarantee', guarantee.join(' '), 0);
@@ -115,7 +134,37 @@ module.exports = {
       } catch (error) {
 
       }
+      try {
+        const manufcaturer_Images = document.querySelectorAll('div[id="inpage_container"] img');
+        var temp, temp_Length;
+        for (let i = 0; i < manufcaturer_Images.length; i++) {
+          temp = manufcaturer_Images[i].getAttribute('data-flixsrcset');
+          if (temp != null) {
+            temp = temp.split(',');
+            temp_Length = temp.length;
+            temp = temp[temp_Length - 1];
+            allElement('manufcaturer_Images', temp.split(' ')[1], 0);
+          }
+        }
+        // @ts-ignore
+        const manufcaturer_Desc = document.querySelector('div[id="inpage_container"]').innerText;
+        allElement('manufcaturer_Desc', manufcaturer_Desc, 0);
+      } catch (error) {
 
+      }
+      try {
+        const tabs = document.querySelectorAll('a[class="ivy-tabs-tab ember-view"]');
+      for (let j = 0; j < tabs.length; j++) {
+        // @ts-ignore
+        tabs[j].click();
+      }
+      var video = document.querySelectorAll('div[id="inpage_container"] iframe');
+      alert(video[0]);
+      var videoFinal = video[0].getAttribute('src');
+      allElement('video', videoFinal, 0);
+      } catch (error) {
+        
+      }
     });
     return await context.extract(productDetails, { transform });
   },
