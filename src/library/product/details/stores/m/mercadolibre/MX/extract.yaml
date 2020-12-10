@@ -1,0 +1,52 @@
+singleRecord: true
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: image
+    xpath: //span[@class='ui-pdp-gallery__wrapper'][1]/label/div/div/img[@class='ui-pdp-image']/@src
+  - name: imageAlt
+    xpath: //span[@class='ui-pdp-gallery__wrapper'][1]/label/div/div/img[@class='ui-pdp-image']/@alt
+  - name: alternateImages
+    singleValue: false
+    xpath: //span[@class='ui-pdp-gallery__wrapper']/label/div/div/img[@class='ui-pdp-image']/@src
+  - name: _pageTimestamp
+  - name: url
+    xpath: //div[@id='url']
+  - name: category
+    singleValue: false
+    xpath: //ul[@class='andes-breadcrumb']/li[@class='andes-breadcrumb__item']/a[@class='andes-breadcrumb__link']
+  - name: nameExtended
+    xpath: //div[@class='ui-pdp-header']/h1[@class='ui-pdp-title']
+  - name: listPrice
+    xpath: //del[@class='price-tag ui-pdp-price__part ui-pdp-price__original-value price-tag__disabled']
+    type: CURRENCY
+  - name: price
+    xpath: //div[@class='ui-pdp-price__second-line']/span[@class='price-tag ui-pdp-price__part']
+    type: CURRENCY
+  - name: availabilityText
+    xpath: //div[@id='isStock']
+  - name: description
+    xpath: //div[@class='ui-pdp-description']/p[@class='ui-pdp-description__content']
+  - name: brandText
+    xpath: //script[@type='application/ld+json']
+  - name: quantity
+    xpath: //span[@class='ui-pdp-buybox__quantity__selected']
+  - name: weightNet
+    xpath: //script[@type='application/ld+json']
+  - name: sku
+    xpath: //script[@type='application/ld+json']
+  - name: variantId
+    xpath: //script[@type='application/ld+json']
+  - name: packSize
+    xpath: //span[@class='ui-pdp-buybox__quantity__selected']
+  - name: gtin
+    xpath: //div[@class='ui-pdp-description']/p[@class='ui-pdp-description__content']
+  - name: ratingCount
+    xpath: //script[@type='application/ld+json']
+  - name: aggregateRating
+    xpath: //script[@type='application/ld+json']
+
+
+
+

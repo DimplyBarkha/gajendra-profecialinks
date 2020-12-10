@@ -1,0 +1,25 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: name
+    singleValue: true
+    xpath: //h2[@class='ui-search-item__title']
+  - name: _pageTimestamp
+    singleValue: true
+  - name: productUrl
+    singleValue: true
+    xpath: //ol/li/div/div/div/a/@href
+  - name: thumbnail
+    singleValue: true
+    xpath: //img[@class='ui-search-result-image__element']/@src
+  - name: price
+    singleValue: true
+    xpath: //div[@class='ui-search-price__second-line']
+  - name: input
+    singleValue: true
+    xpath: //h1[@class='ui-search-breadcrumb__title']
+  - name: url
+    singleValue: true
+    xpath: //div[@id='url']
