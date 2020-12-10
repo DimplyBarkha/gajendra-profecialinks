@@ -19,7 +19,8 @@ fields:
     xpath: //td[@class="icnv"]/a/img/@src
   - name: price
     singleValue: false
-    xpath: //div[@class="bin"]/span[@class="fp"]
+    # xpath: //div[@class="bin"]/span[@class="fp"]
+    xpath: //div[@class="bin"]/span[contains(@class,"fp") or contains(@class,"vl")]
   - name: searchUrl
     singleValue: false
     xpath: ancestor::html//div[@id='search-url']
