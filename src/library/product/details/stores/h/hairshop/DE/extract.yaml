@@ -14,6 +14,7 @@ fields:
   - name: alternateImages
     singleValue: false
     description: Other product images (not in manufacturer description)
+    xpath: (//a[@onclick='magicToolboxOnChangeSelector(this);']/img/@src)[position()>1]
   - name: metaKeywords
     singleValue: true
     description: The <meta> keywords content
@@ -79,12 +80,13 @@ fields:
   - name: sku
     singleValue: true
     description: The store-specific product identifier
-    xpath: //*[@id="top"]/head/script[21]/text()
+    xpath: (//script[contains(text(),'product_sku')])[1]
     regExp: ('product_sku':) '(.*)','product_price
     regExpReplace: $2
   - name: variantId
     singleValue: true
     description: Identifier for a variant from a store where variants share the same sku
+    xpath: //input[@name='product_id']/@value
   - name: mpc
     singleValue: true
     description: The manufacturer model code (unique) of the product
@@ -107,12 +109,15 @@ fields:
     singleValue: true
     description: The number of ratings
     type: NUMBER
+    xpath: count(//ol[@id='reviews-list']/li)
   - name: aggregateRatingText
     singleValue: true
     description: The stated aggregate rating
+    #xpath: //meta[@itemprop='ratingValue']/@content
   - name: aggregateRating
     singleValue: true
     description: The stated aggregate rating normalized to be out of 5
+    xpath: //meta[@itemprop='ratingValue']/@content
     type: NUMBER
   - name: shippingInfo
     singleValue: true
@@ -126,10 +131,12 @@ fields:
   - name: variantCount
     singleValue: true
     description: Number of variants listed
+    xpath: count(//div[@class='input-box']/ul/li/@title)
     type: NUMBER
   - name: color
     singleValue: true
     description: A textual description of the colour
+    xpath: (//div[@class='input-box']/ul/li/@title)[1]
   - name: colorCode
     singleValue: true
     description: A code description of the color (e.g. RGB hex)
@@ -145,6 +152,7 @@ fields:
   - name: name
     singleValue: true
     description: The product name
+    xpath: //h1[@itemprop='name']
   - name: inStorePrice
     singleValue: true
     description: Price in the selected store
@@ -236,6 +244,7 @@ fields:
     singleValue: true
     description: null
     type: NUMBER
+    xpath: count((//a[@onclick='magicToolboxOnChangeSelector(this);']/img/@src)[position()>1])
   - name: news
     singleValue: true
     description: null
@@ -249,6 +258,7 @@ fields:
     singleValue: true
     description: List of Ingredients from site - can be string of data if no
       discernible start/end point
+    xpath: //th[contains(text(),'Active Ingredients')]/parent::tr/td
   - name: servingSize
     singleValue: true
     description: The size of serving Nutritional information is based on.
@@ -448,6 +458,7 @@ fields:
   - name: variantInformation
     singleValue: true
     description: colour / scent / flavour / other
+    xpath: (//div[@class='input-box']/ul/li/@title)[1]
   - name: firstVariant
     singleValue: true
     description: Unique identifier for a collection of variants. For a subset of
@@ -459,9 +470,11 @@ fields:
       all variants of a product, this rpc becomes the common link between other
       variants. method 3 = apply some logic to determine link between variants,
       this will need analysis
+    xpath: (//div[@class='input-box']/ul/li/@title)[1]  
   - name: variants
     singleValue: false
     description: null
+    xpath: //html//div[@id='variant']
   - name: additionalDescBulletInfo
     singleValue: false
     description: null
@@ -499,6 +512,7 @@ fields:
     singleValue: true
     description: Materials used to make the product
     example: https://www.jdsports.co.uk/product/blue-adidas-linear-20-reversible-wind-breaker-jacket/15988125/
+    xpath: //th[contains(text(),'Active Ingredients')]/parent::tr/td
   - name: Image360Present
     singleValue: true
     description: If 360 image is present in the carousel ['Yes','No']
@@ -509,4 +523,4 @@ fields:
     description: If Zoom feature is available for Main image or images in the
       carousel,['Yes','No']
     example: https://www.zalando.de/adidas-neo-sneaker-low-blackwhite-a4315i002-q11.html
-    defaultValue: No
+    defaultValue: Yes
