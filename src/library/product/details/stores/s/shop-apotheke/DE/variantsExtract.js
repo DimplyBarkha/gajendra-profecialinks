@@ -7,7 +7,8 @@ module.exports = {
     transform,
     domain: 'shop-apotheke.com',
     zipcode: '',
-  },implementation
+  },
+  implementation,
 };
 async function implementation (
   inputs,
@@ -17,7 +18,7 @@ async function implementation (
 ) {
   const { createUrl, variants } = dependencies;
   await context.evaluate(async function () {
-    function getElementsByXPath(xpath, parent) {
+    function getElementsByXPath (xpath, parent) {
       const results = [];
       const query = document.evaluate(xpath, parent || document,
         null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
@@ -28,13 +29,13 @@ async function implementation (
       return results.filter(e => e);
     }
     const dataArr = getElementsByXPath('//span[@data-qa-id="product-attribute-pzn"]|//div[@id="h_ProductVariants"]//ul//li//*/@data-product-variant-id');
-      dataArr.forEach(element=>{
-        const newlink = document.createElement('a');
-        newlink.setAttribute('class', 'variants');
-        newlink.href = `https://www.shop-apotheke.com/arzneimittel/${element}`;
-        newlink.innerHTML = element;
-        document.body.appendChild(newlink);
-      });
+    dataArr.forEach(element => {
+      const newlink = document.createElement('a');
+      newlink.setAttribute('class', 'variants');
+      newlink.href = `https://www.shop-apotheke.com/arzneimittel/${element}`;
+      newlink.innerHTML = element;
+      document.body.appendChild(newlink);
+    });
   }, createUrl);
   return await context.extract(variants);
 }

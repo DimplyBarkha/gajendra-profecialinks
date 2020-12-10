@@ -55,8 +55,7 @@ const transform = (data) => {
             text: text,
           },
         ];
-      } 
-
+      }
       if (row.ingredientsList) {
         let text = '';
         row.ingredientsList.forEach(item => {
@@ -67,8 +66,7 @@ const transform = (data) => {
             text: text,
           },
         ];
-      } 
-
+      }
       if (row.warnings) {
         let text = '';
         row.warnings.forEach(item => {
@@ -79,7 +77,7 @@ const transform = (data) => {
             text: text,
           },
         ];
-      } 
+      }
     }
   }
   const clean = text => text.toString()
@@ -94,7 +92,6 @@ const transform = (data) => {
     // eslint-disable-next-line no-control-regex
     .replace(/[\x00-\x1F]/g, '')
     .replace(/[\uD800-\uDBFF][\uDC00-\uDFFF]/g, ' ');
-
   data.forEach(obj => obj.group.forEach(row => Object.keys(row).forEach(header => row[header].forEach(el => {
     el.text = clean(el.text);
   }))));

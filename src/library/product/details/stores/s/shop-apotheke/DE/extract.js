@@ -11,7 +11,7 @@ module.exports = {
   implementation: async (inputs, { country, domain, transform }, context, { productDetails }) => {
     await context.evaluate(async function () {
       const productUrl = window.location.href;
-      document.body.setAttribute('url',productUrl);
+      document.body.setAttribute('url', productUrl);
       // @ts-ignore
       const dataObj = window.dataLayer[0].product;
 
@@ -29,15 +29,15 @@ module.exports = {
       // @ts-ignore
       const mainDataObj = window.__PRELOADED_STATE__[0].componentInitialState.ProductVariantsInitialState;
       if (mainDataObj) {
-        var allMediaObj = mainDataObj.variants.find(e=>e.media).media;
+        var allMediaObj = mainDataObj.variants.find(e => e.media).media;
         addElementToDocument('pd_mpn', mainDataObj.variants[0].manufacturerCode);
-        if(allMediaObj) {
+        if (allMediaObj) {
           allMediaObj.map(elm => {
-            let newlink = document.createElement('a');
+            const newlink = document.createElement('a');
             newlink.setAttribute('class', 'append_image');
             newlink.setAttribute('href', elm);
             document.body.appendChild(newlink);
-        })
+          });
         }
       }
     });
