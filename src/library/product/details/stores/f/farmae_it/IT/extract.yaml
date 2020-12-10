@@ -5,13 +5,14 @@ recordXPath: null
 fields:
   - name: image
     singleValue: false
-    xpath: (//div[@id="amasty_gallery"]/a/@data-image)[position()=1] | (//a[@data-zoom-image]//img)[position()=1]/@src | (//div[@id="amasty_gallery"]/a/@data-zoom-image)[position()=1]   
+    xpath: (//div[@id="amasty_gallery"]/a/@data-image)[position()=1] | (//div[@id="amasty_gallery"]/a/@data-zoom-image)[position()=1]   
   - name: imageAlt
     singleValue: false
     description: Alt text of the main product image
   - name: alternateImages
     singleValue: false
-    xpath: (//a[@data-zoom-image]//img)[position()>1]/@src | (//div[@id="amasty_gallery"]/a/@data-image)[position()>1]
+    # xpath: (//a[@data-zoom-image]//img)[position()>1]/@src | (//div[@id="amasty_gallery"]/a/@data-image)[position()>1]
+    xpath: (//div[@id="amasty_gallery"]/a/@data-image)[position()>1]
   - name: metaKeywords
     singleValue: false
     xpath: //meta[@name="keywords"]/@content
@@ -49,7 +50,7 @@ fields:
   - name: quantity
     singleValue: false
     xpath: //div[@class="product-shop"]//h1/text()
-    regExp: (\d{1,}\s)(g|G|L|Kg|Mg|Ml|ml|Oz|s|l|EA|GR|pièces)
+    regExp: (\d{1,}\s)(g|G|L|Kg|Mg|Ml|ml|mg|Oz|s|l|EA|GR|pièces)
   - name: weightNet
     singleValue: false
     description: Net weight as described on the page
@@ -80,21 +81,24 @@ fields:
     description: Content under "directions" header
   - name: warnings
     singleValue: false
-    description: Content under "warnings" header
+    xpath: //p[contains(text(),"AVVERTENZE:")]/text()[position()>1]
   - name: ratingCount
     singleValue: false
-    xpath: //span[@class="rating"]/text() | //div[@id="numberOfReviews"] | //div[@id,"ratingCount"]
+    xpath: //span[@class="rating"]/text()  | //div[@id="numberOfReviews"]/text()
     # xpath: //script[@type='application/ld+json']
-    # regExp: reviewCount\W+(\d{1,})
+    # regExp: reviewCount":"([^"]+)
     # regExpReplace: $1
+  - name: myratingCount
+    singleValue: false
+    xpath: //span[@class="rating"]/text() 
+    # xpath: //script[@type="application/ld+json"][contains(text(),"ratingValue")]
   - name: aggregateRatingText
     singleValue: false
-    xpath: //script[@type='application/ld+json']
-    regExp: ratingValue\W+(\d{1,}.\d{1,})
-    regExpReplace: $1
   - name: aggregateRating
     singleValue: false
-    xpath: //div[@id,'agg']
+    xpath: //script[@type="application/ld+json"][contains(text(),"ratingValue")]/text()
+    # regExp: ratingValue":"([\d.\d]+)
+    # regExpReplace: $1
   - name: shippingInfo
     singleValue: false
     description: Shipping information for the product
@@ -383,7 +387,7 @@ fields:
     description: Guarantee associated with the product
   - name: storage
     singleValue: false
-    description: Suggested storage location for product
+    xpath: //p[contains(text(),"CONSERVAZIONE:")]/text()[2]
   - name: countryOfOrigin
     singleValue: false
     description: The country from which the product originates
@@ -475,7 +479,7 @@ fields:
   - name: customerServiceAvailability
     singleValue: false
     description: Information related to customer service availability (text), ['Yes','No']
-    defaultValue: No
+    defaultValue: Yes
   - name: materials
     singleValue: false
     description: Materials used to make the product
