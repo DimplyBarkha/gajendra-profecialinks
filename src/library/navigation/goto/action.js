@@ -35,6 +35,9 @@ module.exports = {
   path: './goto/domains/${domain[0:2]}/${domain}',
   implementation: async ({ url, zipcode, storeId }, parameters, context, dependencies) => {
     const timeout = parameters.timeout ? parameters.timeout : 10000;
+    // await context.goto(`${url}#[!opt!]{"type":"json"}[/!opt!]`, { timeout: timeout, waitUntil: 'load', checkBlocked: true });
+    // await context.setBlockAds(false);
+    // await context.goto(url, { timeout: 100000, waitUntil: 'load', checkBlocked: true });
     await context.goto(url, { timeout: timeout, waitUntil: 'load', checkBlocked: true });
     console.log(zipcode);
     if (zipcode) {

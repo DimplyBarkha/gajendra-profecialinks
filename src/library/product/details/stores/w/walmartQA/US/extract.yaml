@@ -1,0 +1,80 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: //div[@id="added-table"]/table/tbody/tr
+fields:
+  ## API FIELDS
+  - name: answerAuthor
+    xpath: ./td[@class="answers"]//td[@class="userNickname"]
+    description: Answer Author
+  - name: questionAuthor
+    xpath: ./td[@class="userNickname"]
+    description: Question Author
+  - name: answerAuthorType
+    description: Manufacturere or Seller
+  - name: answerDate
+    type: DATETIME
+    xpath: ./td[@class="answers"]//td[@class="submissionTime"]
+    description: Answer Date
+  - name: answerId
+    xpath: ./td[@class="answers"]//td[@class="answerId"]
+    description: Answer ID
+  - name: answersCount
+    description: Answer Count
+    xpath: ./td[@class="totalAnswersCount"]
+  - name: answersCountDb
+    description: Answer CountDb
+    xpath: ./td[@class="totalAnswersCount"]
+  - name: answerText
+    description: Answer Text
+    xpath: ./td[@class="answers"]//td[@class="answerText"]
+  - name: helpfulCount
+    description: Answer Yes
+    xpath: ./td[@class="answers"]//td[@class="positiveVoteCount"]
+  - name: notHelpfulCount
+    description: Answer No
+    xpath: ./td[@class="answers"]//td[@class="negativeVoteCount"]
+  - name: questionId
+    xpath: ./td[@class="questionId"]
+    description: Question Id
+  - name: questionText
+    xpath: ./td[@class="questionSummary"]
+    singleValue: false
+    description: Question Text
+  - name: questionDate
+    type: DATETIME
+    xpath: ./td[@class="submissionDate"]
+    description: Question Date
+  
+  # HTML FIelds
+  # - name: answerAuthor
+  #   xpath: ./td[@class="answerAuthor"]
+  #   description: Answer Author
+  # - name: answerDate
+  #   xpath: ./td[@class="answerDate"]
+  #   description: Answer Date
+  # - name: answersCount
+  #   description: Answer Count
+  #   xpath: ./td[@class="answersCount"]
+  # - name: answersCountDb
+  #   description: Answer CountDb
+  #   xpath: ./td[@class="answersCountDb"]
+  # - name: answerText
+  #   description: Answer Text
+  #   xpath: ./td[@class="answerText"]
+  # - name: helpfulCount
+  #   description: Answer Yes
+  #   xpath: ./td[@class="helpfulCount"]
+  # - name: notHelpfulCount
+  #   description: Answer No
+  #   xpath: ./td[@class="notHelpfulCount"]
+  # - name: questionText
+  #   xpath: ./td[@class="questionText"]
+  #   description: Question Text
+
+  
+  - name: productUrl
+    xpath: ancestor::html//link[@rel="canonical"]/@href
+    regExp: (https://www.walmart.com)?(.+)
+    regExpReplace: https://www.walmart.com$2
+    description: Product URL

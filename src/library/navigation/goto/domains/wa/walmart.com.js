@@ -11,9 +11,7 @@ module.exports = {
     if (storeId) {
       const datetime = new Date().getTime();
       url = `${url}#[!opt!]{"storage":{},"cookie_jar":[{"name":"t-loc-psid","value":"${datetime}|${storeId}"}]}[/!opt!]`;
-    }/* else {
-      url = `${url}#[!opt!]{"cookie_jar":[]}[/!opt!]`;
-    } */
+    }
     console.log(url);
     console.log('###############################################');
     const timeout = parameters.timeout ? parameters.timeout : 10000;
