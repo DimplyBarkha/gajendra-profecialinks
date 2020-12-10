@@ -3,7 +3,7 @@ regionsSelector: null
 recordSelector: null
 recordXPath: //div[@class="stamped-review"]
 fields:
-  - name: brandText
+  - name: brand
     description: Product brand shown - this may actually NOT be just a brand name e.g. "Visit the Gillette Store"
     xpath: ancestor::html//p[@class='product-single__vendor']//a
   - name: reviewText
@@ -18,7 +18,7 @@ fields:
   - name: location
     description: reviewer location
     xpath: //div[@class='review-location']//span[@data-location]
-  - name: helpfulCount
+  - name: helpful
     type: NUMBER
     description: Number of people who said the review was helpful
     xpath: //div[@class='stamped-review-vote']//a[@data-votes][1]
@@ -30,8 +30,10 @@ fields:
     xpath: ancestor::html//span[@class='stamped-summary-text-1']
   - name: pageTitle
     description: The url of the page title
+    xpath: ancestor::html//head/title
   - name: sourceUrl
     description: The url of the product url
+    xpath: ancestor::html//meta[@property="og:url"]/@content
   - name: name
     description: The product name
     xpath: ancestor::html//div[@class='product-single__info-wrapper']//h1[@class='product-single__title']
@@ -45,4 +47,5 @@ fields:
   - name: user
     description: The user name of the reviewer
     xpath: //div[@class='stamped-review-header']//strong[@class='author']
-
+  - name: sku
+    xpath: ancestor::html//div[@id="stamped-main-widget"]/@data-product-sku
