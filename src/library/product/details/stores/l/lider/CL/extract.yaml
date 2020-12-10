@@ -6,11 +6,10 @@ fields:
   - name: image
     singleValue: true
     description: URL of the main product image
-    xpath: //html//div[@id="zz"]
+    xpath: //div[@class='pane stitchedView']/img[1]/@src
+    # xpath: //html//div[@id="zz"]
     # selector: img#uic_9[src]
     # //div[@class='pane stitchedView']//img[@class="image stitchedView"]/@src
-    # //div[@class='pane stitchedView']/img[1]/@src
-    # //div[@class='pane stitchedView']/img/@src
   - name: imageAlt
     singleValue: true
     description: Alt text of the main product image
@@ -304,6 +303,7 @@ fields:
     description: Unit of Measure Data for Saturated Fat content
     xpath: (//table[@class='nutrition-table']/tbody/tr[4]/td[1])[2]
     regExp: \(.+\)
+    # regExpReplace: (/[^a-zA-Z0-9 ]/g$1$3)
   - name: transFatPerServing
     singleValue: true
     description: Nutritional Information for Trans Fat content - Usually based on
@@ -375,6 +375,7 @@ fields:
     description: Unit of Measure Data for Protein
     xpath: (//table[@class='nutrition-table']/tbody/tr[2]/td[1])[2]
     regExp: \(.+\)
+    # regExpReplace: /[^a-zA-Z0-9 ]/g$1$3
   - name: vitaminAPerServing
     singleValue: true
     description: Nutritional Information for Vitamin A content - Usually based on
