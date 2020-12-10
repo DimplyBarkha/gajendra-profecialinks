@@ -2,7 +2,7 @@ input:
   id: PRI-2906-NC
   _url: http://e-bebek.com
 extractions:
-  - html: https://workbench.import.io/html/run=1997c8f3-6868-452f-b5ad-020e1fe53fbf/task=a0bdc051-9059-4741-8e3b-189b8f896296/52ccabc0-8b2c-4751-bfe0-9feb71e48ded.html
+  - html: https://workbench.import.io/html/run=7552a675-ea0c-431f-9c6e-73b01ddb8979/task=3878c5ef-e979-491a-9f5e-0a63ef7ff027/6278d518-69df-4419-a39c-07d6bdee1106.html
     extractionConfigId: product/details/stores/e/e-bebek/TR/extract
     data:
       - group:
@@ -165,6 +165,12 @@ extractions:
             countryOfOrigin:
               - text: Polonya
                 xpath: /html/body/div[2]/main[1]/div[1]/div[3]/div[2]/div[1]/div[1]/div[2]/div[1]/table[1]/tbody[1]/tr[3]/td[2]
+            pricePerUnit:
+              - text: 1.67 TL
+                xpath: /html/body/div[11]
+            pricePerUnitUom:
+              - text: Birim Fiyatı
+                xpath: /html/body/div[10]
             variantInformation:
               - text: Beden
                 xpath: /html/body/div[2]/main[1]/div[1]/div[3]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[1]
@@ -183,4 +189,4 @@ extractions:
                 locale: tr_TR
                 value: 1
         xpath: /
-    timestamp: 1607583510478
+    timestamp: 1607586798406

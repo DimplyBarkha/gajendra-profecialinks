@@ -31,6 +31,12 @@ module.exports = {
       data.quantity = document.querySelector('h1.product-title').textContent.match(/(\d+) Adet/)
         ? document.querySelector('h1.product-title').textContent.match(/(\d+) Adet/)[1] : '';
       data.zoom = document.querySelector('img.zoomImg') ? 'Yes' : 'No';
+      const unitPriceArr = document.querySelector('div.product-detail-main span.price-unit')
+        ? document.querySelector('div.product-detail-main span.price-unit').textContent.split(':') : [];
+      if (unitPriceArr.length && unitPriceArr.length === 2) {
+        data.unitPriceUom = unitPriceArr[0].trim();
+        data.unitPrice = unitPriceArr[1].trim();
+      }
       appendData(data);
     });
     await context.extract(productDetails, { transform });

@@ -388,9 +388,11 @@ fields:
 - name: pricePerUnit
   singleValue: true
   description: Price of the product split into certain units
+  xpath: //div[@id="added-unit-price"]
 - name: pricePerUnitUom
   singleValue: true
   description: The unit of measurement used in price_per_unit
+  xpath: //div[@id="added-unit-price-uom"]
 - name: promotion
   singleValue: true
   description: promotion text on product page

@@ -2,7 +2,7 @@ input:
   id: cbe-1959
   _url: http://e-bebek.com
 extractions:
-  - html: https://workbench.import.io/html/run=1997c8f3-6868-452f-b5ad-020e1fe53fbf/task=b9be0ac8-32eb-46c9-a1a0-213ccf89e197/b5f56210-9069-45a5-ada7-2047f6dbddd7.html
+  - html: https://workbench.import.io/html/run=7552a675-ea0c-431f-9c6e-73b01ddb8979/task=904fb782-8fe0-4a65-abca-0c3e311758b6/ee27a167-8f4b-4c47-b6da-fc32e2406402.html
     extractionConfigId: product/details/stores/e/e-bebek/TR/extract
     data:
       - group:
@@ -120,6 +120,12 @@ extractions:
             countryOfOrigin:
               - text: Türkiye
                 xpath: /html/body/div[2]/main[1]/div[1]/div[3]/div[2]/div[1]/div[1]/div[2]/div[1]/table[1]/tbody[1]/tr[3]/td[2]
+            pricePerUnit:
+              - text: 1.04 TL
+                xpath: /html/body/div[11]
+            pricePerUnitUom:
+              - text: Birim Fiyatı
+                xpath: /html/body/div[10]
             variantInformation:
               - text: Beden
                 xpath: /html/body/div[2]/main[1]/div[1]/div[3]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[1]
@@ -138,4 +144,4 @@ extractions:
                 locale: tr_TR
                 value: 1
         xpath: /
-    timestamp: 1607583511735
+    timestamp: 1607586814131

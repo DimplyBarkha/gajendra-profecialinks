@@ -1,0 +1,16 @@
+input:
+  id: PRI-2906-NC
+  _url: http://e-bebek.com
+extractions:
+  - html: https://workbench.import.io/html/run=330c4046-6d8f-4d30-88ea-bc4beb39d0c9/task=21b4f9af-26fa-43e2-8fcb-d3155d97346b/7f2aad87-eefd-434d-a9f3-3f24ecebe33b.html
+    extractionConfigId: product/details/stores/e/e-bebek/TR/variantsExtract
+    data:
+      - group:
+          - variantId:
+              - text: PRI-2906001
+                xpath: /html/body/div[7]
+            variantUrl:
+              - text: https://www.e-bebek.com//prima-kulot-bebek-bezi-5-beden-junior-ekonomik-paket-12-17-kg-42-adet-p-pri-2906
+                xpath: /html/body/div[8]
+        xpath: /html/body
+    timestamp: 1607585635000

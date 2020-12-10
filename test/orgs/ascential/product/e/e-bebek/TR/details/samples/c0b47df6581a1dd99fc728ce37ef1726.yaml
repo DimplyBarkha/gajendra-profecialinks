@@ -2,7 +2,7 @@ input:
   id: MOL-5034431-NC
   _url: http://e-bebek.com
 extractions:
-  - html: https://workbench.import.io/html/run=1997c8f3-6868-452f-b5ad-020e1fe53fbf/task=fd559cfa-a515-4425-b11d-b61e8f24cb51/ff75bae8-82a0-4b76-91d8-9d2e1ded4240.html
+  - html: https://workbench.import.io/html/run=7552a675-ea0c-431f-9c6e-73b01ddb8979/task=b64e0282-d9a6-4b58-8221-0cb224d8cf35/ad8c9b91-cc66-44df-bc38-12a737a3bd82.html
     extractionConfigId: product/details/stores/e/e-bebek/TR/extract
     data:
       - group:
@@ -119,6 +119,12 @@ extractions:
             countryOfOrigin:
               - text: Türkiye
                 xpath: /html/body/div[2]/main[1]/div[1]/div[3]/div[2]/div[1]/div[1]/div[2]/div[1]/table[1]/tbody[1]/tr[3]/td[2]
+            pricePerUnit:
+              - text: 0.83 TL
+                xpath: /html/body/div[11]
+            pricePerUnitUom:
+              - text: Birim Fiyatı
+                xpath: /html/body/div[10]
             variantInformation:
               - text: Beden
                 xpath: /html/body/div[2]/main[1]/div[1]/div[3]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[1]
@@ -137,4 +143,4 @@ extractions:
                 locale: tr_TR
                 value: 1
         xpath: /
-    timestamp: 1607583506611
+    timestamp: 1607586805228
