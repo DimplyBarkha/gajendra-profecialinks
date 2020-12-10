@@ -106,10 +106,9 @@ fields:
   - name: videos
     singleValue: false
     description: URLs of videos on page
-    xpath: //div[contains(@class,"media-viewer-video__iframe-wrap")]/iframe/@src | //a[contains(@class, 'video')]//img//@data-src | //div[@id='moreVideos']/text()
-    # xpath: //a[contains(@class, 'video')]//img//@data-src
-    # regExp: (.+)(vi\/)(.+)(\/)(.+)
-    # regExpReplace: https://www.youtube.com/watch?v=$3
+    xpath:  //div[@id='moreVideos']/text()
+    regExp: ^(\/\/)?(.*)
+    regExpReplace: $2
   - name: name
     singleValue: false
     description: The product name
@@ -136,4 +135,6 @@ fields:
     xpath: //span[contains(text(), 'Страна-производитель:')]/following-sibling::*
   - name: galleryVideos
     singleValue: false
-    xpath: //div[contains(@class,"media-viewer-video__iframe-wrap")]/iframe/@src|  //div[@id='moreVideos']/text()
+    xpath: //div[@id='moreVideos']/text()
+    regExp: ^(\/\/)?(.*)
+    regExpReplace: $2
