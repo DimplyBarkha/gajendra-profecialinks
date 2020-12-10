@@ -40,6 +40,7 @@ const transform = (data) => {
       if(row.sku){
         let variantIdStr;
         row.sku.forEach(item=>{
+          console.log('sku data: ',item.text);
           let tmp=item.text.split('event:"viewItem",tms:"gtm",item:"');
           item.text=tmp[1].replace('"});','');
           variantIdStr=item.text;
