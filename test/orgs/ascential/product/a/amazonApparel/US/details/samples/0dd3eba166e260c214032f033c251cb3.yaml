@@ -1,0 +1,291 @@
+input:
+  _url: https://amazon.com
+  SKU: B000EFMUFY
+extractions:
+  - html: https://workbench.import.io/html/run=8d41f7a0-1836-4212-8b3b-a62284734086/task=5539facf-ee06-4cf7-b8ee-81e02a062792/2ca1f411-98f0-4b31-b360-d92497cb4229.html
+    extractionConfigId: product/details/stores/a/amazonApparel/US/extract
+    data:
+      - group:
+          - alternateImages:
+              - text: https://images-na.ssl-images-amazon.com/images/I/41RzvvBvWEL.jpg
+                xpath: /html/body/div[2]/div[2]/div[4]/div[3]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[4]/span[1]/span[1]/span[1]/span[1]/img[1]/@src
+              - text: https://images-na.ssl-images-amazon.com/images/I/41nCPqMqlbL.jpg
+                xpath: /html/body/div[2]/div[2]/div[4]/div[3]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[5]/span[1]/span[1]/span[1]/span[1]/img[1]/@src
+              - text: https://images-na.ssl-images-amazon.com/images/I/315amiTtAVL.jpg
+                xpath: /html/body/div[2]/div[2]/div[4]/div[3]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[6]/span[1]/span[1]/span[1]/span[1]/img[1]/@src
+              - text: https://images-na.ssl-images-amazon.com/images/I/41BwyMlwRIL.jpg
+                xpath: /html/body/div[2]/div[2]/div[4]/div[3]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[7]/span[1]/span[1]/span[1]/span[1]/img[1]/@src
+              - text: https://images-na.ssl-images-amazon.com/images/I/41TPX9h5WWL.jpg
+                xpath: /html/body/div[2]/div[2]/div[4]/div[3]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[8]/span[1]/span[1]/span[1]/span[1]/img[1]/@src
+              - text: https://images-na.ssl-images-amazon.com/images/I/414wk3RhMmL.jpg
+                xpath: /html/body/div[2]/div[2]/div[4]/div[3]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[9]/span[1]/span[1]/span[1]/span[1]/img[1]/@src
+            metaKeywords:
+              - text: Reebok Infant/Toddler Classic Leather Sneaker,White/Light Grey,10 M US
+                  Toddler,Reebok,92756
+                xpath: /html/head[1]/meta[6]/@content
+            category:
+              - text: Clothing, Shoes & Jewelry
+                xpath: /html/body/div[2]/div[2]/div[3]/div[1]/ul[1]/li[1]
+              - text: Baby
+                xpath: /html/body/div[2]/div[2]/div[3]/div[1]/ul[1]/li[3]
+              - text: Baby Boys
+                xpath: /html/body/div[2]/div[2]/div[3]/div[1]/ul[1]/li[5]
+              - text: Shoes
+                xpath: /html/body/div[2]/div[2]/div[3]/div[1]/ul[1]/li[7]
+              - text: Sneakers
+                xpath: /html/body/div[2]/div[2]/div[3]/div[1]/ul[1]/li[9]
+            nameExtended:
+              - text: Amazon.com | Reebok Infant/Toddler Classic Leather Sneaker, White/Light
+                  Grey, 10 M US Toddler | Sneakers
+                xpath: /html/head[1]/title[1]
+            price:
+              - text: $31.95
+                xpath: /html/body/div[2]/div[2]/div[4]/div[3]/div[2]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/table[1]/tbody[1]/tr[1]/td[2]/span[1]
+              - text: $31.95
+                xpath: /html/body/div[2]/div[2]/div[4]/div[3]/div[2]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/table[1]/tbody[1]/tr[1]/td[2]/span[1]
+            availabilityText:
+              - text: In Stock.
+                xpath: /html/body/div[2]/div[2]/div[4]/div[3]/div[2]/div[2]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/form[1]/div[1]/div[1]/div[9]/div[1]/div[1]
+            description:
+              - text: 100% Leather
+                xpath: /html/body/div[2]/div[2]/div[4]/div[3]/div[2]/div[2]/div[1]/div[1]/div[1]/div[27]/div[1]/ul[1]/li[1]
+              - text: Imported
+                xpath: /html/body/div[2]/div[2]/div[4]/div[3]/div[2]/div[2]/div[1]/div[1]/div[1]/div[27]/div[1]/ul[1]/li[2]
+              - text: Rubber sole
+                xpath: /html/body/div[2]/div[2]/div[4]/div[3]/div[2]/div[2]/div[1]/div[1]/div[1]/div[27]/div[1]/ul[1]/li[3]
+              - text: "DURABLE AND LIGHTWEIGHT MATERIAL: These classic sneakers feature soft
+                  leather upper that is supportive and comfortable"
+                xpath: /html/body/div[2]/div[2]/div[4]/div[3]/div[2]/div[2]/div[1]/div[1]/div[1]/div[27]/div[1]/ul[1]/li[4]
+              - text: "EFFICIENT FOOT SUPPORT: These stylish trainers with die-cut EVA midsole
+                  and lightweight cushioning provides support which lasts many
+                  strolls and jogs"
+                xpath: /html/body/div[2]/div[2]/div[4]/div[3]/div[2]/div[2]/div[1]/div[1]/div[1]/div[27]/div[1]/ul[1]/li[5]
+              - text: "COMFORTABLE AND STURDY DESIGN: This footwear with shaft measures
+                  approximately low-cut from arch for an increased ankles
+                  mobility"
+                xpath: /html/body/div[2]/div[2]/div[4]/div[3]/div[2]/div[2]/div[1]/div[1]/div[1]/div[27]/div[1]/ul[1]/li[6]
+              - text: "HIGH-PERFORMANCE CASUAL SHOES: High abrasion rubber outsole for
+                  durability and traction; Ideal for walking, running, and daily
+                  wear"
+                xpath: /html/body/div[2]/div[2]/div[4]/div[3]/div[2]/div[2]/div[1]/div[1]/div[1]/div[27]/div[1]/ul[1]/li[7]
+              - text: Reebok Kid's Classic Leather sneakers with the Classic Leather's
+                  pioneering leather upper can help steady your newest walker's
+                  baby steps. With a lace-up fit, EVA cushioning, and a rubber
+                  outsole grip, your little one can get up to run-around speed
+                  in timeless style.
+                xpath: /html/body/div[2]/div[2]/div[4]/div[19]/div[1]/hza:getweblabtreatment[1]/div[1]/div[2]/p[1]/text()[1]
+              - text: Never go out of style. Soft garment leather upper gives you superior
+                  comfort. Die-cut EVA midsole provides lightweight cushioning.
+                  Molded PU sock liner adds comfort and durability.
+                xpath: /html/body/div[2]/div[2]/div[4]/div[19]/div[1]/hza:getweblabtreatment[1]/div[1]/div[2]/p[2]/text()[1]
+            brandText:
+              - text: Reebok
+                xpath: /html/body/div[2]/div[2]/div[4]/div[3]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/a[1]
+            asin:
+              - text: B000EFMUFY
+                xpath: /html/body/div[2]/div[2]/div[4]/div[3]/div[2]/div[2]/div[1]/div[1]/div[1]/div[12]/div[1]/form[1]/div[2]/span[1]/span[1]/select[1]/option[16]/@value
+            variantId:
+              - text: 81-92757
+                xpath: /html/body/div[2]/div[2]/div[4]/div[19]/div[2]/div[1]/div[1]/ul[1]/li[5]/span[1]/span[2]
+            mpc:
+              - text: 81-92757
+                xpath: /html/body/div[2]/div[2]/div[4]/div[19]/div[2]/div[1]/div[1]/ul[1]/li[5]/span[1]/span[2]
+            ratingCount:
+              - text: "268"
+                xpath: /html/body/div[2]/div[2]/div[4]/div[3]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/span[3]/a[1]/span[1]/text()[1]
+              - text: "268"
+                xpath: /html/body/div[2]/div[2]/div[4]/div[19]/div[2]/div[1]/ul[1]/li[1]/span[1]/div[1]/span[3]/a[1]/span[1]/text()[1]
+            aggregateRating:
+              - text: "4.6"
+                xpath: /html/body/div[2]/div[2]/div[4]/div[3]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/span[1]/span[1]/@title
+              - text: "4.6"
+                xpath: /html/body/div[2]/div[2]/div[4]/div[19]/div[2]/div[1]/ul[1]/li[1]/span[1]/div[1]/span[1]/span[1]/@title
+            shippingInfo:
+              - text: Ships from and sold by Amazon.com.
+                xpath: /html/body/div[2]/div[2]/div[4]/div[3]/div[2]/div[2]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/form[1]/div[1]/div[1]/div[16]
+            color:
+              - text: White/Light Grey
+                xpath: /html/body/div[2]/div[2]/div[4]/div[3]/div[2]/div[2]/div[1]/div[1]/div[1]/div[12]/div[1]/form[1]/div[3]/div[1]/span[1]
+            manufacturerDescription:
+              - text: Reebok Kid's Classic Leather sneakers with the Classic Leather's
+                  pioneering leather upper can help steady your newest walker's
+                  baby steps. With a lace-up fit, EVA cushioning, and a rubber
+                  outsole grip, your little one can get up to run-around speed
+                  in timeless style.
+                xpath: /html/body/div[2]/div[2]/div[4]/div[19]/div[1]/hza:getweblabtreatment[1]/div[1]/div[2]/p[1]/text()[1]
+              - text: Never go out of style. Soft garment leather upper gives you superior
+                  comfort. Die-cut EVA midsole provides lightweight cushioning.
+                  Molded PU sock liner adds comfort and durability.
+                xpath: /html/body/div[2]/div[2]/div[4]/div[19]/div[1]/hza:getweblabtreatment[1]/div[1]/div[2]/p[2]/text()[1]
+            manufacturerImages:
+              - text: https://images-na.ssl-images-amazon.com/images/G/01/x-locale/common/grey-pixel.gif
+                xpath: /html/body/div[2]/div[2]/div[4]/div[16]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/img[1]/@src
+            name:
+              - text: Reebok Infant/Toddler Classic Leather Sneaker, White, 0 Toddler
+                xpath: /html/body/div[2]/div[2]/div[4]/div[3]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/h1[1]/span[1]
+            brandLink:
+              - text: https://www.amazon.com/stores/Reebok/page/AE90A1B3-208C-4285-B3A8-BFC27937657B?ref_=ast_bln
+                xpath: /html/body/div[2]/div[2]/div[4]/div[3]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/a[1]/@href
+            salesRank:
+              - text: 33,264
+                xpath: /html/body/div[2]/div[2]/div[4]/div[19]/div[2]/div[1]/div[2]/div[1]/li[1]/text()[2]
+              - text: "66"
+                xpath: /html/body/div[2]/div[2]/div[4]/div[19]/div[2]/div[1]/div[2]/div[1]/li[1]/ul[1]/li[1]/span[1]
+              - text: "656"
+                xpath: /html/body/div[2]/div[2]/div[4]/div[19]/div[2]/div[1]/div[2]/div[1]/li[1]/ul[1]/li[2]/span[1]
+            salesRankCategory:
+              - text: Clothing
+                xpath: /html/body/div[2]/div[2]/div[4]/div[19]/div[2]/div[1]/div[2]/div[1]/li[1]/text()[2]
+              - text: "Shoes & Jewelry "
+                xpath: /html/body/div[2]/div[2]/div[4]/div[19]/div[2]/div[1]/div[2]/div[1]/li[1]/text()[2]
+              - text: Baby Boys
+                xpath: /html/body/div[2]/div[2]/div[4]/div[19]/div[2]/div[1]/div[2]/div[1]/li[1]/ul[1]/li[1]/span[2]/a[1]
+              - text: Sneakers
+                xpath: /html/body/div[2]/div[2]/div[4]/div[19]/div[2]/div[1]/div[2]/div[1]/li[1]/ul[1]/li[1]/span[2]/a[1]
+              - text: Uniforms
+                xpath: /html/body/div[2]/div[2]/div[4]/div[19]/div[2]/div[1]/div[2]/div[1]/li[1]/ul[1]/li[2]/span[2]/a[1]
+              - text: Work & Safety Clothing
+                xpath: /html/body/div[2]/div[2]/div[4]/div[19]/div[2]/div[1]/div[2]/div[1]/li[1]/ul[1]/li[2]/span[2]/a[1]
+            heroQuickPromoHeadline:
+              - text: Save up to 50%
+                xpath: /html/body/div[2]/div[2]/div[4]/div[3]/div[2]/div[2]/div[1]/div[1]/div[1]/div[34]/div[1]/div[1]/div[1]/span[1]
+            variantAsins:
+              - text: 0,B000EFKP4M
+                xpath: /html/body/div[2]/div[2]/div[4]/div[3]/div[2]/div[2]/div[1]/div[1]/div[1]/div[12]/div[1]/form[1]/div[2]/span[1]/span[1]/select[1]/option[2]/@value
+              - text: 1,B000EFIM5Q
+                xpath: /html/body/div[2]/div[2]/div[4]/div[3]/div[2]/div[2]/div[1]/div[1]/div[1]/div[12]/div[1]/form[1]/div[2]/span[1]/span[1]/select[1]/option[3]/@value
+              - text: 2,B000EFP02O
+                xpath: /html/body/div[2]/div[2]/div[4]/div[3]/div[2]/div[2]/div[1]/div[1]/div[1]/div[12]/div[1]/form[1]/div[2]/span[1]/span[1]/select[1]/option[4]/@value
+              - text: 3,B001NCEZBY
+                xpath: /html/body/div[2]/div[2]/div[4]/div[3]/div[2]/div[2]/div[1]/div[1]/div[1]/div[12]/div[1]/form[1]/div[2]/span[1]/span[1]/select[1]/option[5]/@value
+              - text: 4,B000EFP02Y
+                xpath: /html/body/div[2]/div[2]/div[4]/div[3]/div[2]/div[2]/div[1]/div[1]/div[1]/div[12]/div[1]/form[1]/div[2]/span[1]/span[1]/select[1]/option[6]/@value
+              - text: 5,B001NCEZC8
+                xpath: /html/body/div[2]/div[2]/div[4]/div[3]/div[2]/div[2]/div[1]/div[1]/div[1]/div[12]/div[1]/form[1]/div[2]/span[1]/span[1]/select[1]/option[7]/@value
+              - text: 6,B000EFIM60
+                xpath: /html/body/div[2]/div[2]/div[4]/div[3]/div[2]/div[2]/div[1]/div[1]/div[1]/div[12]/div[1]/form[1]/div[2]/span[1]/span[1]/select[1]/option[8]/@value
+              - text: 7,B001NCEZCI
+                xpath: /html/body/div[2]/div[2]/div[4]/div[3]/div[2]/div[2]/div[1]/div[1]/div[1]/div[12]/div[1]/form[1]/div[2]/span[1]/span[1]/select[1]/option[9]/@value
+              - text: 8,B000EFMUFE
+                xpath: /html/body/div[2]/div[2]/div[4]/div[3]/div[2]/div[2]/div[1]/div[1]/div[1]/div[12]/div[1]/form[1]/div[2]/span[1]/span[1]/select[1]/option[10]/@value
+              - text: 9,B001NCEZB4
+                xpath: /html/body/div[2]/div[2]/div[4]/div[3]/div[2]/div[2]/div[1]/div[1]/div[1]/div[12]/div[1]/form[1]/div[2]/span[1]/span[1]/select[1]/option[11]/@value
+              - text: 10,B000EFIM6A
+                xpath: /html/body/div[2]/div[2]/div[4]/div[3]/div[2]/div[2]/div[1]/div[1]/div[1]/div[12]/div[1]/form[1]/div[2]/span[1]/span[1]/select[1]/option[12]/@value
+              - text: 11,B001NCEZBE
+                xpath: /html/body/div[2]/div[2]/div[4]/div[3]/div[2]/div[2]/div[1]/div[1]/div[1]/div[12]/div[1]/form[1]/div[2]/span[1]/span[1]/select[1]/option[13]/@value
+              - text: 12,B000EFMUFO
+                xpath: /html/body/div[2]/div[2]/div[4]/div[3]/div[2]/div[2]/div[1]/div[1]/div[1]/div[12]/div[1]/form[1]/div[2]/span[1]/span[1]/select[1]/option[14]/@value
+              - text: 13,B001NCEZBO
+                xpath: /html/body/div[2]/div[2]/div[4]/div[3]/div[2]/div[2]/div[1]/div[1]/div[1]/div[12]/div[1]/form[1]/div[2]/span[1]/span[1]/select[1]/option[15]/@value
+              - text: 14,B000EFMUFY
+                xpath: /html/body/div[2]/div[2]/div[4]/div[3]/div[2]/div[2]/div[1]/div[1]/div[1]/div[12]/div[1]/form[1]/div[2]/span[1]/span[1]/select[1]/option[16]/@value
+              - text: B000GIR3EW
+                xpath: /html/body/div[2]/div[2]/div[4]/div[3]/div[2]/div[2]/div[1]/div[1]/div[1]/div[12]/div[1]/form[1]/div[3]/ul[1]/li[1]/@data-defaultasin
+              - text: B000EFMUFY
+                xpath: /html/body/div[2]/div[2]/div[4]/div[3]/div[2]/div[2]/div[1]/div[1]/div[1]/div[12]/div[1]/form[1]/div[3]/ul[1]/li[2]/@data-defaultasin
+            featureBullets:
+              - text: 100% Leather
+                xpath: /html/body/div[2]/div[2]/div[4]/div[3]/div[2]/div[2]/div[1]/div[1]/div[1]/div[27]/div[1]/ul[1]/li[1]
+              - text: Imported
+                xpath: /html/body/div[2]/div[2]/div[4]/div[3]/div[2]/div[2]/div[1]/div[1]/div[1]/div[27]/div[1]/ul[1]/li[2]
+              - text: Rubber sole
+                xpath: /html/body/div[2]/div[2]/div[4]/div[3]/div[2]/div[2]/div[1]/div[1]/div[1]/div[27]/div[1]/ul[1]/li[3]
+              - text: "DURABLE AND LIGHTWEIGHT MATERIAL: These classic sneakers feature soft
+                  leather upper that is supportive and comfortable"
+                xpath: /html/body/div[2]/div[2]/div[4]/div[3]/div[2]/div[2]/div[1]/div[1]/div[1]/div[27]/div[1]/ul[1]/li[4]
+              - text: "EFFICIENT FOOT SUPPORT: These stylish trainers with die-cut EVA midsole
+                  and lightweight cushioning provides support which lasts many
+                  strolls and jogs"
+                xpath: /html/body/div[2]/div[2]/div[4]/div[3]/div[2]/div[2]/div[1]/div[1]/div[1]/div[27]/div[1]/ul[1]/li[5]
+              - text: "COMFORTABLE AND STURDY DESIGN: This footwear with shaft measures
+                  approximately low-cut from arch for an increased ankles
+                  mobility"
+                xpath: /html/body/div[2]/div[2]/div[4]/div[3]/div[2]/div[2]/div[1]/div[1]/div[1]/div[27]/div[1]/ul[1]/li[6]
+              - text: "HIGH-PERFORMANCE CASUAL SHOES: High abrasion rubber outsole for
+                  durability and traction; Ideal for walking, running, and daily
+                  wear"
+                xpath: /html/body/div[2]/div[2]/div[4]/div[3]/div[2]/div[2]/div[1]/div[1]/div[1]/div[27]/div[1]/ul[1]/li[7]
+            otherSellersName:
+              - text: AWESOMEKICKS
+                xpath: /html/body/div[2]/div[2]/div[4]/div[3]/div[2]/div[2]/div[1]/div[1]/div[2]/div[8]/div[2]/div[1]/div[1]/div[2]/div[1]/span[2]/div[1]/div[2]/span[2]
+              - text: WWW USA
+                xpath: /html/body/div[2]/div[2]/div[4]/div[3]/div[2]/div[2]/div[1]/div[1]/div[2]/div[8]/div[2]/div[1]/div[1]/div[3]/div[1]/span[2]/div[1]/div[2]/span[2]
+            otherSellersPrice:
+              - text: $40.00
+                xpath: /html/body/div[2]/div[2]/div[4]/div[3]/div[2]/div[2]/div[1]/div[1]/div[2]/div[8]/div[2]/div[1]/div[1]/div[2]/div[1]/span[2]/div[1]/div[1]/span[1]
+              - text: $31.78
+                xpath: /html/body/div[2]/div[2]/div[4]/div[3]/div[2]/div[2]/div[1]/div[1]/div[2]/div[8]/div[2]/div[1]/div[1]/div[3]/div[1]/span[2]/div[1]/div[1]/span[1]
+            otherSellersShipping2:
+              - text: + Free Shipping
+                xpath: /html/body/div[2]/div[2]/div[4]/div[3]/div[2]/div[2]/div[1]/div[1]/div[2]/div[8]/div[2]/div[1]/div[1]/div[2]/div[1]/span[2]/div[1]/div[1]/span[2]
+              - text: + $10.84 shipping
+                xpath: /html/body/div[2]/div[2]/div[4]/div[3]/div[2]/div[2]/div[1]/div[1]/div[2]/div[8]/div[2]/div[1]/div[1]/div[3]/div[1]/span[2]/div[1]/div[1]/span[2]
+            otherSellersPrime:
+              - text: + Free Shipping
+                xpath: /html/body/div[2]/div[2]/div[4]/div[3]/div[2]/div[2]/div[1]/div[1]/div[2]/div[8]/div[2]/div[1]/div[1]/div[2]/div[1]/span[2]/div[1]/div[1]/span[2]
+              - text: + $10.84 shipping
+                xpath: /html/body/div[2]/div[2]/div[4]/div[3]/div[2]/div[2]/div[1]/div[1]/div[2]/div[8]/div[2]/div[1]/div[1]/div[3]/div[1]/span[2]/div[1]/div[1]/span[2]
+            fastTrack:
+              - text: |-
+                  Fastest delivery: Tomorrow 
+                   Order within 15 secs
+                xpath: /html/body/div[2]/div[2]/div[4]/div[3]/div[2]/div[2]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/form[1]/div[1]/div[1]/div[6]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/span[1]
+            Image360Present:
+              - text: YES
+                xpath: /html/body/div[2]/div[2]/div[4]/div[3]/div[2]/div[1]/div[1]/script[1]
+            imageZoomFeaturePresent:
+              - text: YES
+                xpath: /html/body/div[2]/div[2]/div[4]/div[3]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/c:if[1]/div[1]/div[1]/span[1]
+            largeImageCount:
+              - text: "0"
+            image:
+              - text: https://images-na.ssl-images-amazon.com/images/I/612LcbIX8zL._AC_UX695_.jpg
+                xpath: /html/body/div[2]/div[2]/div[4]/div[3]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/ul[1]/li[1]/span[1]/span[1]/div[1]/img[1]/@src
+            imageAlt:
+              - text: Reebok Infant/Toddler Classic Leather Sneaker, White, 0 Toddler
+                xpath: /html/body/div[2]/div[2]/div[4]/div[3]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/ul[1]/li[1]/span[1]/span[1]/div[1]/img[1]/@alt
+            descriptionBullets:
+              - text: "7"
+            quantity:
+              - text: 10 Toddler
+                xpath: /html/body/div[2]/div[2]/div[4]/div[3]/div[2]/div[2]/div[1]/div[1]/div[1]/div[12]/div[1]/form[1]/div[2]/span[1]/span[1]/span[1]/span[1]/span[1]/span[1]
+            variantCount:
+              - text: "17"
+            amazonChoice:
+              - text: Yes
+                xpath: /html/body/div[2]/div[2]/div[4]/div[3]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[4]/div[1]
+              - text: Yes
+                xpath: /html/body/div[2]/div[2]/div[4]/div[3]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[4]/div[1]
+            amazonChoiceCategory:
+              - text: for "
+                xpath: /html/body/div[2]/div[2]/div[4]/div[3]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[4]/div[1]/span[2]/span[1]/text()[1]
+              - text: toddler boy white sneakers
+                xpath: /html/body/div[2]/div[2]/div[4]/div[3]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[4]/div[1]/span[2]/span[1]/span[1]/a[1]/text()[1]
+              - text: '"'
+                xpath: /html/body/div[2]/div[2]/div[4]/div[3]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[4]/div[1]/span[2]/span[1]/text()[2]
+            pasin:
+              - text: B001NCEZDM
+                xpath: /html/body/div[2]/div[2]/div[4]/div[3]/div[2]/div[2]/div[1]/div[1]/div[1]/div[12]/div[1]/form[1]/div[3]/ul[1]/li[1]/@data-dp-url
+            secondaryImageTotal:
+              - text: "6"
+            additionalDescBulletInfo:
+              - text: "7"
+            firstVariant:
+              - text: B001NCEZDM
+                xpath: /html/body/div[2]/div[2]/div[4]/div[3]/div[2]/div[2]/div[1]/div[1]/div[1]/div[12]/div[1]/form[1]/div[3]/ul[1]/li[1]/@data-dp-url
+            variantInformation:
+              - text: Toddler (1-4 Years)
+                xpath: /html/body/div[2]/div[2]/div[4]/div[3]/div[2]/div[2]/div[1]/div[1]/div[1]/div[12]/div[1]/form[1]/div[1]/div[1]/span[1]
+            subscribeAndSave:
+              - text: NO
+            ingredientImagePresent:
+              - text: NO
+            factImagePresent:
+              - text: NO
+            primeFlag:
+              - text: NO
+            lbb:
+              - text: NO
+        xpath: /html
+    timestamp: 1593099891944

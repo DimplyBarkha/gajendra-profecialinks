@@ -95,7 +95,7 @@ module.exports = {
           }
         }
       }
-      
+
       addHiddenDiv('ii_url', window.location.href);
       collectNutritionInfo();
       collectBrand();
@@ -103,8 +103,8 @@ module.exports = {
     });
     
 
-    async function variantClick() {
-      let btns = await collectButtons();
+    async function variantClick () {
+      const btns = await collectButtons();
       const waitSelector = 'div.css-901oao.r-1jn44m2.r-1enofrn:nth-of-type(3)';
       const waitFor = 'div.css-1dbjc4n.r-16lk18l.r-11c0sde.r-1xi2sqm'
       let i = 0;
@@ -136,19 +136,18 @@ module.exports = {
                 await new Promise(resolve => setTimeout(resolve, 2000));
                 await collectVariantInfo();
               }
-              j++
+              j++;
             }
             j = 0;
           } else {
             await getVariantIdNum();
             await new Promise(resolve => setTimeout(resolve, 2000));
             await collectVariantInfo();
-            
-            }
-          i++
+          }
+          i++;
         }
       } else {
-        const varStore = await context.evaluate(function() {
+        const varStore = await context.evaluate(function () {
           function addHiddenDiv (id, content) {
             const newDiv = document.createElement('div');
             newDiv.id = id;
@@ -186,12 +185,11 @@ module.exports = {
         let sel = document.querySelector(input)
         if(sel) {
           // if(!sel.ariaLabel.includes("Out-of-stock")) {
-            return true;
-          } else {
-              return false
-          }
+          return true;
+        } else {
+          return false;
+        }
         // }
-        
       }, input);
     }
 
@@ -211,8 +209,8 @@ module.exports = {
         let varPath = document.querySelector('div.css-901oao.r-1jn44m2.r-1enofrn:nth-of-type(3)');
         const regex1 = /[0-9]+$/g;
 
-        if(varPath){
-          let varText = regex1.exec(varPath.innerText);
+        if (varPath) {
+          const varText = regex1.exec(varPath.innerText);
           console.log(varText);
           if(varText){
             addHiddenDiv('ii_variantId', varText);
@@ -243,7 +241,7 @@ module.exports = {
 
       return await context.evaluate(function() {
         let flag = false;
-        const selectors = [[],[]];
+        const selectors = [[], []];
         let i = 1;
         while(!flag && i < 40) {
           const firstVar = `div.css-1dbjc4n:nth-of-type(1) > div.css-1dbjc4n > div.swatch-scroll div.css-1dbjc4n:nth-of-type(${i}) > div`;
@@ -251,24 +249,23 @@ module.exports = {
           if(document.querySelector(firstVar)){
             selectors[0].push(firstVar);
           }
-          if(document.querySelector(secondVar)){
+          if (document.querySelector(secondVar)) {
             selectors[1].push(secondVar);
           }
-          if(!document.querySelector(firstVar) && !document.querySelector(secondVar)){
+          if (!document.querySelector(firstVar) && !document.querySelector(secondVar)) {
             flag = true;
             break;
           }
-          i++
+          i++;
         }
 
-         if(selectors.length) {
-             return selectors;
-         } else {
-             return false;
-         }
-     });
-  }
-
+        if (selectors.length) {
+          return selectors;
+        } else {
+          return false;
+        }
+      });
+    }
 
   async function collectVariantInfo (value) {
     const varStore = await context.evaluate(function() {
@@ -334,7 +331,6 @@ module.exports = {
           if (packSize.includes(variantInfo[i].innerText)) {
             packSizeResult.push(variantInfo[i + 1].innerText);
           }
-          variantArray.push(variantInfo[i + 1].innerText);
         }
       }
       new Promise(resolve => setTimeout(resolve, 1000));
@@ -548,6 +544,5 @@ module.exports = {
   await variantClick()
 
     return await context.extract(productDetails, { transform: transformParam });
-
   },
 };

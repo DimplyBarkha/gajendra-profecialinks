@@ -43,15 +43,12 @@ module.exports = {
   path: './search/stores/${store[0:1]}/${store}/${country}/search',
   implementation: async ({ keywords, Keywords, results = 150 }, { country, store, domain, zipcode }, context, { execute, extract, paginate }) => {
     // TODO: consider moving this to a reusable function
-
-    results = (results) ? results : defaultResults;
-    console.log('No of results were returned' + results);
     const length = (results) => results.reduce((acc, { group }) => acc + (Array.isArray(group) ? group.length : 0), 0);
-
+    const maxCount = (results) => results.reduce((acc, { group }) => (Array.isArray(group) && group.length > 0 && group[0].totalRecordCount ? group[0].totalRecordCount[0].text : 0), 0);
     keywords = (Keywords) || (keywords);
-    console.log('zip:' + zipcode);
-    // do the search
     const resultsReturned = await execute({ keywords, zipcode });
+
+    // do the search
 
     if (!resultsReturned) {
       console.log('No results were returned');
@@ -60,7 +57,9 @@ module.exports = {
 
     // try gettings some search results
     const pageOne = await extract({});
-
+    const maxResults = maxCount(pageOne);
+    console.log('Got maximum number of results', maxResults);
+    if (maxResults > 0 && maxResults < results) { results = maxResults; };
     let collected = length(pageOne);
 
     console.log('Got initial number of results', collected);

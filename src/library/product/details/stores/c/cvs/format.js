@@ -23,9 +23,8 @@ const transform = (data, context) => {
     // eslint-disable-next-line no-control-regex
     .replace(/[\x00-\x1F]/g, '');
 
-
   for (const { group } of data) {
-    for (let row of group) {
+    for (const row of group) {
       try {
         if (row.weightGross) {
           let text = row.weightGross[0].text;

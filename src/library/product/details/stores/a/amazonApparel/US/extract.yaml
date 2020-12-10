@@ -1,0 +1,20 @@
+extends: ../../amazonPharmapacks/US/extract
+fields:
+  - name: name
+    singleValue: true
+    xpath: //h1//span[@id="productTitle"]
+  - name: nameExtended
+    singleValue: true
+    xpath: //title
+  - name: asin
+    xpath: (//span[@class="a-dropdown-container"])[1]//option[@data-a-css-class="dropdownSelect"]/@value
+    regExp: \,(.+)
+    regExpReplace: $1
+  - name: price
+    xpath: //*[@id="priceblock_ourprice"]|//*[@id="priceblock_saleprice"]|//span[contains(@id,"priceblock_dealprice")]
+  - name: quantity
+    xpath: (//span[@class="a-dropdown-prompt"])[1]
+  - name: productUrl
+    xpath: (//span[@class="a-dropdown-container"])[1]//option[@data-a-css-class="dropdownSelect"]/@value
+    regExp: \,(.+)
+    regExpReplace: https://www.amazon.com/dp/$1?th=1&psc=1

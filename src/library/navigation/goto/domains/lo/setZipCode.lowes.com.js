@@ -73,7 +73,6 @@ module.exports = {
     country: 'US',
     domain: 'lowes.com',
     store: 'lowes',
-    zipcode: '',
   },
   implementation,
 };
