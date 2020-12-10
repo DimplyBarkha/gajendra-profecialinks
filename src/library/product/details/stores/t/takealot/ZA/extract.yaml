@@ -41,10 +41,7 @@ fields:
     xpath: //ul[@class="title-content-list"]//span[@class="brand-link"]/a
   - name: sku
     singleValue: false
-    xpath: //script[contains(text(),'event:"viewItem",tms:"gtm",item:')]/text()
-  - name: variantId
-    singleValue: false
-    xpath: //script[contains(text(),'event:"viewItem",tms:"gtm",item:')]/text()
+    xpath: //div[contains(@class,"rating-and-reviews")]//div[contains(@class,"reviews")]/a/@href
   - name: mpc
     singleValue: false
     xpath: //div[contains(@class,"product-info")]//td[text()="Model"]/parent::*/td[2]

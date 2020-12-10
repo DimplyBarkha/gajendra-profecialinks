@@ -20,14 +20,14 @@ async function implementation (
   }
   await dependencies.goto({ url, zipcode, storeId });
   await context.setJavaScriptEnabled(true);
-  await new Promise((resolve, reject) => setTimeout(resolve, 20000));
+  await new Promise((resolve, reject) => setTimeout(resolve, 8000));
   try{
     await context.waitForSelector('div#product-tabs div.swiper-slide-next',{timeout:1000});
     await context.click('div#product-tabs div.swiper-slide-next',{timeout:5000});
   }catch(e){
 
   }
-  await new Promise((resolve, reject) => setTimeout(resolve, 10000));
+  await new Promise((resolve, reject) => setTimeout(resolve, 5000));
   if (parameters.loadedSelector) {
     await context.waitForFunction(function (sel, xp) {
       return Boolean(document.querySelector(sel) || document.evaluate(xp, document, null, XPathResult.UNORDERED_NODE_ITERATOR_TYPE, null).iterateNext());
