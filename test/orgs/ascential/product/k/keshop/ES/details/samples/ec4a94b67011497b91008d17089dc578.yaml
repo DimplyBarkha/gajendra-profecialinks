@@ -2,7 +2,7 @@ input:
   _url: http://keshop.com
   URL: https://www.keshop.com/es/en/schwarzkopf-mad-about-waves/light-splash-conditioner-250-ml.html
 extractions:
-  - html: https://workbench.import.io/html/run=529ca356-4f84-48f3-951d-bc15a7fce04b/task=3d591932-52e5-48a2-9cdf-cd712af6101a/90e660ce-a8a7-4758-9b05-ccad1aea1abb.html
+  - html: https://workbench.import.io/html/run=9625a24b-93fc-4c8a-a071-60b49367b912/task=17d7e6b2-d834-4f59-b0a2-c325d2c4cc05/24cce467-d580-47c3-a657-40b675a38cf9.html
     extractionConfigId: product/details/stores/k/keshop/ES/extract
     data:
       - group:
@@ -20,9 +20,6 @@ extractions:
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/h1[1]/span[1]/a[1]
               - text: Mad About Waves
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/h1[1]/span[2]/a[1]
-            nameExtended:
-              - text: Light Splash Conditioner - 250 ml
-                xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/h1[1]/span[3]
             listPrice:
               - text: 15,73 €
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/p[2]/span[1]/span[2]
@@ -30,8 +27,29 @@ extractions:
               - text: 7,85 €
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/p[1]/span[1]
             description:
-              - text: Lightweight conditioner in spray format for all types of wavy hair.
-                xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/p[1]
+              - text: Do you like the beach look? Light Splash Conditioner is the perfect
+                  no-rinse lightweight conditioner to create a soft beach waving
+                  look in your hair. It defines your waves, making them soft,
+                  and it moisturizes your hair. In addition, this spray makes
+                  your hair easy to untangle and manage so you can style it in
+                  total comfort. Can you ask for anything else?
+                xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/p[1]
+              - text: "Benefits of Light Splash Conditioner:"
+                xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/h2[1]
+              - text: >-
+                  It conditions and helps untangle hair.
+                   
+                  It provides lightweight hydration to hair.
+                   
+                  It promotes a gentle beach style.
+                   
+                  It doesn't add weight to hair.
+                   
+                  It reinforces hair while offering thermal protection (up to 80ºC).
+                xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]
+            brandText:
+              - text: Schwarzkopf
+                xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/h1[1]/span[1]/a[1]
             manufacturer:
               - text: Schwarzkopf
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/h1[1]/span[1]/a[1]
@@ -50,16 +68,23 @@ extractions:
             aggregateRatingText:
               - text: "10"
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[3]/div[1]/a[1]/img[1]/@src
+            aggregateRating:
+              - text: "5"
+                xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[3]/div[1]/a[1]/img[1]/@ratingnormalized
+                type: STRING
             manufacturerDescription:
-              - text: Do you like the beach look? Light Splash Conditioner is the perfect
-                  no-rinse lightweight conditioner to create a soft beach waving
-                  look in your hair. It defines your waves, making them soft,
-                  and it moisturizes your hair. In addition, this spray makes
-                  your hair easy to untangle and manage so you can style it in
-                  total comfort. Can you ask for anything else?
-                xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/p[1]
+              - text: Lamia Azzouzzi, stylist at Javier Equip S.L.
+                xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/p[1]
+              - text: "\"It doesn't matter if your hair is fine: its light formula will help you
+                  define your waves without weighing them down.\""
+                xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[1]/p[1]
+              - text: Lamia Azzouzzi, stylist at Javier Equip S.L.
+                xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/p[1]
+              - text: "\"It doesn't matter if your hair is fine: its light formula will help you
+                  define your waves without weighing them down.\""
+                xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[2]/div[1]/p[1]
             manufacturerImages:
-              - text: /modules/anlazyloading/views/img/loading.gif
+              - text: //www.keshop.com/es/modules/jscomposer/uploads/Expertos/Lamia-Azzouzi80.jpg
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/img[1]/@src
             name:
               - text: Light Splash Conditioner - 250 ml
@@ -83,9 +108,13 @@ extractions:
               - text: No
             imageZoomFeaturePresent:
               - text: No
+            nameExtended:
+              - text: Schwarzkopf Light Splash Conditioner - 250 ml
             descriptionBullets:
               - text: "5"
             ratingCount:
               - text: "1"
+            promotion:
+              - text: 50% de descuento
         xpath: /
-    timestamp: 1605257665874
+    timestamp: 1607604341204

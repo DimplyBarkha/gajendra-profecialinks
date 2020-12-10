@@ -2,7 +2,7 @@ input:
   _url: http://keshop.com
   URL: https://www.keshop.com/es/moroccanoil-color-complete/color-depositing-mask-aquamarine-30-ml.html
 extractions:
-  - html: https://workbench.import.io/html/run=529ca356-4f84-48f3-951d-bc15a7fce04b/task=11448efb-8adc-479c-a479-c7f2afbc26ec/57bcdac8-25c4-42c1-89c5-48fa5f820016.html
+  - html: https://workbench.import.io/html/run=9625a24b-93fc-4c8a-a071-60b49367b912/task=8be87f21-e0a2-45fd-beaa-06c3fcb6954b/ba1cc04e-dc61-4899-a0ad-7a260fff52bc.html
     extractionConfigId: product/details/stores/k/keshop/ES/extract
     data:
       - group:
@@ -20,9 +20,6 @@ extractions:
                 xpath: /html/body/div[3]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/h1[1]/span[1]/a[1]
               - text: Color Complete
                 xpath: /html/body/div[3]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/h1[1]/span[2]/a[1]
-            nameExtended:
-              - text: Color Depositing Mask Aquamarine - 30 ml
-                xpath: /html/body/div[3]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/h1[1]/span[3]
             listPrice:
               - text: 7,80 €
                 xpath: /html/body/div[3]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/p[2]/span[1]/span[2]
@@ -33,8 +30,33 @@ extractions:
               - text: In Stock
                 xpath: /html/body/div[3]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[3]/form[1]/div[1]/div[2]/p[3]/span[1]
             description:
-              - text: Mascarilla con pigmento azul para cabello de rubio a rubio muy claro.
-                xpath: /html/body/div[3]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/p[1]
+              - text: ¡Cuida y añade color a tu cabello! Moroccanoil crea sus nuevas mascarillas
+                  para cuidar, tratar y añadir color al cabello. Se trata de
+                  tratamientos intensivos que actúan en profundidad para
+                  hidratar y acondicionar de forma óptima y que, a su vez,
+                  permiten mantener, añadir y/ o experimentar con el color,
+                  proporciona un brillo intenso a tu melena.
+                xpath: /html/body/div[3]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/p[1]
+              - text: "Beneficios de Color Depositing Mask:"
+                xpath: /html/body/div[3]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/h2[1]
+              - text: |-
+                  Refresca la coloración. 
+                   
+                  Añade tonos a colores claros.
+                   
+                  Realza el color y el brillo.
+                   
+                  Aporta coloración temporal.
+                   
+                  Hidrata el cabello.
+                   
+                  Proporciona salud al cabello.
+                   
+                  Cabello suave y sedoso.
+                xpath: /html/body/div[3]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]
+            brandText:
+              - text: Moroccanoil
+                xpath: /html/body/div[3]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/h1[1]/span[1]/a[1]
             manufacturer:
               - text: Moroccanoil
                 xpath: /html/body/div[3]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/h1[1]/span[1]/a[1]
@@ -50,21 +72,42 @@ extractions:
             mpc:
               - text: "2507"
                 xpath: /html/body/div[3]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[3]/form[1]/p[1]/input[2]/@value
+            directions:
+              - text: Después de lavar el cabello, retirar el exceso de humedad con una toalla.
+                  Aplicar una generosa cantidad de esta mascarilla sobre el
+                  cabello y distribuir uniformemente. Dejar actuar 5-7 minutos y
+                  aclarar abundantemente.
+                xpath: /html/body/div[3]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/p[4]
             manufacturerDescription:
-              - text: ¡Cuida y añade color a tu cabello! Moroccanoil crea sus nuevas mascarillas
-                  para cuidar, tratar y añadir color al cabello. Se trata de
-                  tratamientos intensivos que actúan en profundidad para
-                  hidratar y acondicionar de forma óptima y que, a su vez,
-                  permiten mantener, añadir y/ o experimentar con el color,
-                  proporciona un brillo intenso a tu melena.
-                xpath: /html/body/div[3]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/p[1]
+              - text: Javier Marin, Director y estilista en Javier Equip S.L.
+                xpath: /html/body/div[3]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/p[1]
+              - text: “Antes de aplicar esta mascarilla en todo el cabello, aconsejamos trabajar
+                  un pequeño mechón para calcular mejor el tiempo de exposición
+                  y conseguir la tonalidad deseada.”
+                xpath: /html/body/div[3]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[1]/p[1]
+              - text: Javier Marin ,Director y estilista en Javier Equip S.L.
+                xpath: /html/body/div[3]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/p[1]
+              - text: “Antes de aplicar esta mascarilla en todo el cabello, aconsejamos trabajar
+                  un pequeño mechón para calcular mejor el tiempo de exposición
+                  y conseguir la tonalidad deseada.”
+                xpath: /html/body/div[3]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[2]/div[1]/p[1]
             manufacturerImages:
-              - text: /modules/anlazyloading/views/img/loading.gif
+              - text: //www.keshop.com/es/modules/jscomposer/uploads/Expertos/Javier-Mar-n80.jpg
                 xpath: /html/body/div[3]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/img[1]/@src
             name:
               - text: Color Depositing Mask Aquamarine - 30 ml
                 xpath: /html/body/div[3]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/h1[1]/span[3]
             ingredientsList:
+              - text: "Ingredientes principales:"
+                xpath: /html/body/div[3]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/p[5]
+              - text: "Aceite de Argán: proporciona hidratación y regeneración al cabello."
+                xpath: /html/body/div[3]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/p[6]
+              - text: "Aceite de Semilla de Albaricoque: aporta suavidad al cabello."
+                xpath: /html/body/div[3]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/p[7]
+              - text: "Ingredientes nutritivos: favorecen y mantienen un cabello más sano."
+                xpath: /html/body/div[3]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/p[8]
+              - text: "Lista Completa de Ingredientes:"
+                xpath: /html/body/div[3]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/p[9]
               - text: Aqua/Water/Eau - Cetearyl Alcohol - Cetyl Alcohol - Behentrimonium
                   Chloride - Propoxytetramethyl Piperdinyl Dimethicone - Peg-12
                   Dimethicone - Prunus Armeniaca (Apricot) Kernel Oil -
@@ -106,9 +149,13 @@ extractions:
               - text: No
             imageZoomFeaturePresent:
               - text: No
+            nameExtended:
+              - text: Moroccanoil Color Depositing Mask Aquamarine - 30 ml
             descriptionBullets:
               - text: "7"
             ratingCount:
               - text: "0"
+            promotion:
+              - text: 20% de descuento
         xpath: /
-    timestamp: 1605257667370
+    timestamp: 1607604341930

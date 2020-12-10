@@ -2,7 +2,7 @@ input:
   _url: http://keshop.com
   URL: https://www.keshop.com/es/schwarzkopf-bc-sun-protect/bc-sun-protect-crema-acondicionadora-100ml.html
 extractions:
-  - html: https://workbench.import.io/html/run=529ca356-4f84-48f3-951d-bc15a7fce04b/task=cc485303-411b-4792-8f60-d5614e50477b/64ad6d2b-582d-43c2-b45d-1c2d3a5a2ad5.html
+  - html: https://workbench.import.io/html/run=9625a24b-93fc-4c8a-a071-60b49367b912/task=6a2f626c-fc7b-4e25-9641-fa3d752d5683/07a70def-e440-444c-a161-44ac1c1c9eea.html
     extractionConfigId: product/details/stores/k/keshop/ES/extract
     data:
       - group:
@@ -20,9 +20,6 @@ extractions:
                 xpath: /html/body/div[3]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/h1[1]/span[1]/a[1]
               - text: BC Sun Protect
                 xpath: /html/body/div[3]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/h1[1]/span[2]/a[1]
-            nameExtended:
-              - text: Crema Acondicionadora Sun Protect - 100 ml
-                xpath: /html/body/div[3]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/h1[1]/span[3]
             listPrice:
               - text: 15,73 €
                 xpath: /html/body/div[3]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/p[2]/span[1]/span[2]
@@ -33,8 +30,32 @@ extractions:
               - text: In Stock
                 xpath: /html/body/div[3]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[4]/form[1]/div[1]/div[2]/p[3]/span[1]
             description:
-              - text: Crema aftersun para cabellos sensibilizados por efecto del sol.
-                xpath: /html/body/div[3]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/p[1]
+              - text: Tu cabello también necesita un cuidado aftersun. La Crema Acondicionadora
+                  de BC Sun Protect actúa como aftersun sobre los cabellos
+                  expuestos al sol. Aplicarla al final de tu rutina hará que tu
+                  cabello recupere hidratación, se desenrede con facilidad y
+                  quede suave y brillante, sin aportarle peso. Por si fuera
+                  poco, este producto también ayuda a que el cabello sea más
+                  manejable y menos encrespado.
+                xpath: /html/body/div[3]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/p[1]
+              - text: "Beneficios de Crema Acondicionadora:"
+                xpath: /html/body/div[3]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/h2[1]
+              - text: |-
+                  Devuelve la hidratación al cabello.
+                   
+                  Facilita el desenredado.
+                   
+                  Reduce el encrespamiento.
+                   
+                  Su textura ligera no añade peso al cabello.
+                   
+                  Aporta un brillo radiante.
+                   
+                  Cabello más suave y manejable.
+                xpath: /html/body/div[3]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]
+            brandText:
+              - text: Schwarzkopf
+                xpath: /html/body/div[3]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/h1[1]/span[1]/a[1]
             manufacturer:
               - text: Schwarzkopf
                 xpath: /html/body/div[3]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/h1[1]/span[1]/a[1]
@@ -50,28 +71,64 @@ extractions:
             mpc:
               - text: "2305"
                 xpath: /html/body/div[3]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[4]/form[1]/p[1]/input[2]/@value
+            directions:
+              - text: Aplicar una pequeña cantidad de crema sobre el cabello húmedo, secado con
+                  toalla. No aclarar.
+                xpath: /html/body/div[3]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/p[2]
             aggregateRatingText:
               - text: "10"
                 xpath: /html/body/div[3]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[3]/div[1]/a[1]/img[1]/@src
+            aggregateRating:
+              - text: "5"
+                xpath: /html/body/div[3]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[3]/div[1]/a[1]/img[1]/@ratingnormalized
+                type: STRING
             manufacturerDescription:
-              - text: Tu cabello también necesita un cuidado aftersun. La Crema Acondicionadora
-                  de BC Sun Protect actúa como aftersun sobre los cabellos
-                  expuestos al sol. Aplicarla al final de tu rutina hará que tu
-                  cabello recupere hidratación, se desenrede con facilidad y
-                  quede suave y brillante, sin aportarle peso. Por si fuera
-                  poco, este producto también ayuda a que el cabello sea más
-                  manejable y menos encrespado.
-                xpath: /html/body/div[3]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/p[1]
+              - text: Cristina García, estilista en Javier Equip S.L.
+                xpath: /html/body/div[3]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/p[1]
+              - text: “De igual modo que aplicamos cremas aftersun en el cuerpo, también es
+                  esencial hacerlo en el cabello. ¡Tu pelo te lo agradecerá!”
+                xpath: /html/body/div[3]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[1]/p[1]
+              - text: Cristina García, estilista en Javier Equip S.L.
+                xpath: /html/body/div[3]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/p[1]
+              - text: “De igual modo que aplicamos cremas aftersun en el cuerpo, también es
+                  esencial hacerlo en el cabello. ¡Tu pelo te lo agradecerá!”
+                xpath: /html/body/div[3]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[2]/div[1]/p[1]
+              - text: BC Sun Protect Schwarzkopf
+                xpath: /html/body/div[3]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[4]/div[1]/div[1]/div[2]/div[1]/p[1]
+              - text: BC Sun Protect de Schwarzkopf ha sido diseñada para cubrir las necesidades
+                  de los cabellos expuestos al sol. Gracias a su cuidada
+                  fórmula, esta gama de productos cuida el cabello antes y
+                  después de la exposición solar, dejándolo bien limpio,
+                  rehidratado y embellecido.
+                xpath: /html/body/div[3]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[4]/div[1]/div[1]/div[3]/div[1]/p[1]
+              - text: Spray ligero resistente al agua que prepara y protege el cabello antes y
+                  durante la exposición solar.
+                xpath: /html/body/div[3]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[4]/div[2]/div[1]/div[2]/div[1]/p[1]
+              - text: Champú nutritivo para cabello y cuerpo expuestos al sol.
+                xpath: /html/body/div[3]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[4]/div[3]/div[1]/div[2]/div[1]/p[1]
+              - text: "Mascarilla nutritiva de doble uso: tratamiento diario o intensivo
+                  semanal."
+                xpath: /html/body/div[3]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[4]/div[4]/div[1]/div[2]/div[1]/p[1]
+              - text: Crema aftersun para cabellos sensibilizados por efecto del sol.
+                xpath: /html/body/div[3]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[4]/div[5]/div[1]/div[2]/div[1]/p[1]
+              - text: BC Sun Protect Schwarzkopf
+                xpath: /html/body/div[3]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[5]/div[1]/div[1]/div[2]/div[1]/p[1]
+              - text: BC Sun Protect de Schwarzkopf ha sido diseñada para cubrir las necesidades
+                  de los cabellos expuestos al sol. Gracias a su cuidada
+                  fórmula, esta gama de productos cuida el cabello antes y
+                  después de la exposición solar, dejándolo bien limpio,
+                  rehidratado y embellecido.
+                xpath: /html/body/div[3]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[5]/div[1]/div[1]/div[3]/div[1]/p[1]
             manufacturerImages:
-              - text: /modules/anlazyloading/views/img/loading.gif
+              - text: //www.keshop.com/es/modules/jscomposer/uploads/Expertos/Cristina-Garc-a80.jpg
                 xpath: /html/body/div[3]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/img[1]/@src
-              - text: /modules/anlazyloading/views/img/loading.gif
+              - text: //www.keshop.com/es/modules/jscomposer/uploads/rutinas-cast/prep-sun-ru01-cast.jpg
                 xpath: /html/body/div[3]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[4]/div[2]/div[1]/div[1]/div[1]/img[1]/@src
-              - text: /modules/anlazyloading/views/img/loading.gif
+              - text: //www.keshop.com/es/modules/jscomposer/uploads/rutinas-cast/hair-sun-ru02-cast.jpg
                 xpath: /html/body/div[3]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[4]/div[3]/div[1]/div[1]/div[1]/a[1]/img[1]/@src
-              - text: /modules/anlazyloading/views/img/loading.gif
+              - text: //www.keshop.com/es/modules/jscomposer/uploads/rutinas-cast/2in1-sun-ru03-cast.jpg
                 xpath: /html/body/div[3]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[4]/div[4]/div[1]/div[1]/div[1]/a[1]/img[1]/@src
-              - text: /modules/anlazyloading/views/img/loading.gif
+              - text: //www.keshop.com/es/modules/jscomposer/uploads/rutinas-cast/condi-sun-ru04-cast.jpg
                 xpath: /html/body/div[3]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[4]/div[5]/div[1]/div[1]/div[1]/img[1]/@src
               - text: //www.keshop.com/es/modules/jscomposer/uploads/rutinas-movil/prep-hair-2in1-condi-sun-ru.jpg
                 xpath: /html/body/div[3]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[5]/div[2]/div[1]/div[1]/div[1]/a[1]/img[1]/@src
@@ -79,6 +136,21 @@ extractions:
               - text: Crema Acondicionadora Sun Protect - 100 ml
                 xpath: /html/body/div[3]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/h1[1]/span[3]
             ingredientsList:
+              - text: "Ingredientes principales:"
+                xpath: /html/body/div[3]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/p[3]
+              - text: "Aceite de Biruti: su alto contenido en betacaroteno ofrece propiedades
+                  antioxidantes, hidratantes y acondicionadoras y asiste en la
+                  eliminación de impurezas."
+                xpath: /html/body/div[3]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/p[4]
+              - text: "Extracto de Algas Marinas: limpia con suavidad, hidrata intensamente,
+                  regenera el cabello y el cuero cabelludo y aporta vitaminas y
+                  minerales."
+                xpath: /html/body/div[3]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/p[5]
+              - text: "Filtros UVA/UVB: ayudan a proteger el cabello de los posibles daños
+                  causados por los rayos UV."
+                xpath: /html/body/div[3]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/p[6]
+              - text: "Lista Completa de Ingredientes:"
+                xpath: /html/body/div[3]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/p[7]
               - text: Aqua/Water – Propylene Glycol – Dimethicone – Behenoyl PG-Trimonium
                   Chloride – Hydroxyethylcellulose – Laureth-4 – Dimethiconol –
                   Mauritia Flexuosa Fruit Oil – Benzophenone-4 – Tocopheryl
@@ -108,9 +180,13 @@ extractions:
               - text: No
             imageZoomFeaturePresent:
               - text: No
+            nameExtended:
+              - text: Schwarzkopf Crema Acondicionadora Sun Protect - 100 ml
             descriptionBullets:
               - text: "6"
             ratingCount:
               - text: "3"
+            promotion:
+              - text: 50% de descuento
         xpath: /
-    timestamp: 1605257663889
+    timestamp: 1607604338541

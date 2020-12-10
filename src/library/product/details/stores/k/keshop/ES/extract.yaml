@@ -55,7 +55,7 @@ fields:
   defaultValue: Out of Stock
 - name: description 
   singleValue: false
-  xpath: //div[@id='short_description_content']
+  xpath: (//div[@class='wpb_wrapper'])[1]//p[1] | (//div[@class='wpb_wrapper'])[1]//h2[1] | (//div[@class='wpb_wrapper'])[1]//ul
   description: Product description supplied by website - may be concatenanted from
     multiple places; specifically not the manufacturer description
 - name: descriptionBullets
@@ -147,7 +147,7 @@ fields:
 - name: manufacturerDescription 
   singleValue: false
   description: The extended description of the product supplied by the lister
-  xpath: //div[@id='info-prod']//div[@class='vc_row wpb_row vc_row-fluid'][1]//div[@class='wpb_wrapper']/div/div[@class='wpb_wrapper']/p[1]
+  xpath: (//div[contains(@class, 'vc_row wpb_row vc_row-fluid')])[position()>1]//div[@class='wpb_wrapper']/p|strong/text()
 - name: manufacturerImages 
   singleValue: false
   description: Images within the third party description
