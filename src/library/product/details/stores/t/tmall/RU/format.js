@@ -58,9 +58,6 @@ const transform = (data) => {
           item.text = item.text.replace('\n','');
         });
       }
-      if(row.availabilityText){
-        row.availabilityText=[{"text":"Out of Stock"}];
-      }
       if(row.specifications){
         var specificationsAr=[];
         row.specifications.forEach(item=>{
