@@ -11,7 +11,7 @@ fields:
     # xpath: //li//meta[@itemprop="position"]//@content
   - name: name
     singleValue: false
-    xpath: //h5[@class="product-name"]//a//@title
+    xpath: //h5[@class="product-name"]/a/text()
   - name: productUrl
     singleValue: false
     xpath: //h5[@class="product-name"]//a//@href
