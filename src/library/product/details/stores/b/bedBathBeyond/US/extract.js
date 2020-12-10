@@ -1,5 +1,7 @@
+/* eslint-disable no-mixed-operators */
 const { transform } = require('../shared');
 async function implementation (
+  // @ts-ignore
   inputs,
   parameters,
   context,
@@ -24,7 +26,7 @@ async function implementation (
     const data = await response.json();
     const ratingCount = data.ReviewStatistics && (data.ReviewStatistics.RatingsOnlyReviewCount + data.ReviewStatistics.TotalReviewCount);
     let ratingValue = data.ReviewStatistics && data.ReviewStatistics.AverageOverallRating;
-    ratingValue = typeof(ratingValue) === 'string' ? ratingValue.replace(/NaN/g, ""): ratingValue;
+    ratingValue = typeof (ratingValue) === 'string' ? ratingValue.replace(/NaN/g, '') : ratingValue;
     document.body.setAttribute('rating-count', ratingCount);
     document.body.setAttribute('rating-value', (Math.round(ratingValue * 10) / 10).toString());
   }
@@ -123,7 +125,7 @@ async function implementation (
     let popUpSelector = 'button[data-click="close"]';
     let popUp = await context.evaluate((selector) => !!document.querySelectorAll(selector), popUpSelector);
     if (popUp) {
-      try{
+      try {
         await context.click(popUpSelector);
         await context.waitForNavigation({ waitUntil: 'load' });
       } catch (e) {
@@ -136,7 +138,7 @@ async function implementation (
     popUpSelector = 'a[data-click="close"][class="bx-close bx-close-link bx-close-inside"]';
     popUp = await context.evaluate((selector) => !!document.querySelectorAll(selector), popUpSelector);
     if (popUp) {
-      try{
+      try {
         await context.click(popUpSelector);
         await context.waitForNavigation({ waitUntil: 'load' });
       } catch (e) {
@@ -188,6 +190,7 @@ async function implementation (
     let videos = [];
     const iframes = Array.from(document.querySelectorAll('[title="Product Videos"]'));
     for (const iframe of iframes) {
+      // @ts-ignore
       const videoLinks = [...iframe.contentWindow.document.querySelectorAll('video')].map(elm => elm.src);
       videos = videos.concat(videoLinks);
     }
@@ -200,26 +203,29 @@ async function implementation (
   }
   await addSpecification();
   await context.evaluate(() => {
-    let video = document.querySelector('button[data-locator="pdp-productalternateimage"] > a');
-    if(video) {
+    const video = document.querySelector('button[data-locator="pdp-productalternateimage"] > a');
+    if (video) {
+      // @ts-ignore
       video.click();
     }
   });
   await context.evaluate(addRating);
-  async function addSpecification() {
+  async function addSpecification () {
     await context.evaluate(async function () {
       window.scrollTo(0, document.body.scrollHeight);
-      async function timeout(ms) {
+      async function timeout (ms) {
         console.log('waiting for ' + ms + ' millisecs');
         return new Promise((resolve) => setTimeout(resolve, ms));
       }
       await timeout(3000);
-      let specificationElms = document.querySelectorAll('div[id*="wc-specs"] *[class*="row"]');
-      if(specificationElms && specificationElms.length > 0) {
+      const specificationElms = document.querySelectorAll('div[id*="wc-specs"] *[class*="row"]');
+      if (specificationElms && specificationElms.length > 0) {
         console.log('we have the specification tab');
-        for(let i = 0; i < specificationElms.length; i++) {
+        for (let i = 0; i < specificationElms.length; i++) {
           let text = '';
-          if(specificationElms[i] && specificationElms[i].innerText) {
+          // @ts-ignore
+          if (specificationElms[i] && specificationElms[i].innerText) {
+            // @ts-ignore
             text = specificationElms[i].innerText.replace(/\n{2,}/g, '').replace(/\s{2,}/g, ' ');
             console.log(text);
           } else {
@@ -235,7 +241,53 @@ async function implementation (
       }
     });
   }
-  
+
+  // For the Additional Fields
+  await context.evaluate(() => {
+    const syndiPowerpage = document.querySelector('.syndi_powerpage');
+    let inTheBoxText = '';
+    let inTheBoxUrl = '';
+    let hasComparisonTable = 'No';
+    if (syndiPowerpage) {
+      const headings = Array.from(syndiPowerpage.shadowRoot.querySelectorAll('h2'));
+      headings.forEach(h2 => {
+        if (h2.innerText.includes('In the box') || h2.innerText.includes('In The Box') || h2.innerText.includes('in the box')) {
+          const parent = h2.parentElement;
+          const inTheBoxEls = parent.querySelectorAll('.syndigo-featureset-feature');
+          inTheBoxEls.forEach(el => {
+            const imgs = el.querySelector('img').getAttribute('srcset').split(',');
+            let images = '';
+            if (imgs.length === 1) {
+              images = imgs[0];
+            } else {
+              images = imgs[imgs.length - 1];
+            }
+            images = images.replace(/(.+)(\s.+)/, '$1');
+            inTheBoxUrl = inTheBoxUrl + (inTheBoxUrl ? ' || ' : '') + images;
+            // @ts-ignore
+            inTheBoxText = inTheBoxText + (inTheBoxText ? ' || ' : '') + el.innerText;
+          });
+        }
+      });
+      const table = syndiPowerpage.shadowRoot.querySelector('div[class*="comparison-table"] table');
+      if (table) {
+        hasComparisonTable = 'Yes';
+      }
+    } else {
+      const inTheBoxEls = Array.from(document.querySelectorAll('div[data-section-caption="In The Box"] ul>li'));
+      inTheBoxEls.forEach(el => {
+        const image = el.querySelector('img').getAttribute('src');
+        // @ts-ignore
+        const text = el.innerText;
+        inTheBoxUrl = inTheBoxUrl + (inTheBoxUrl ? ' || ' : '') + image;
+        inTheBoxText = inTheBoxText + (inTheBoxText ? ' || ' : '') + text;
+      });
+    }
+    document.body.setAttribute('has-comparison-table', hasComparisonTable);
+    document.body.setAttribute('in-the-box-text', inTheBoxText);
+    document.body.setAttribute('in-the-box-url', inTheBoxUrl);
+  });
+
   const { transform } = parameters;
   const { productDetails } = dependencies;
   return await context.extract(productDetails, { transform });

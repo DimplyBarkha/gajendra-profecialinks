@@ -200,3 +200,12 @@ fields:
     xpath: ancestor::html//div[@id="productDetails"]//ul/li
     singleValue: false
     description: null
+
+  - name: inTheBoxText
+    xpath: ancestor::html//body/@in-the-box-text
+  - name: inTheBoxUrl
+    xpath: ancestor::html//body/@in-the-box-url
+  - name: hasComparisonTable
+    xpath: ancestor::html//body/@has-comparison-table
+  - name: unInterruptedPDP
+    xpath: ancestor::html//h3[contains(.,"You May Also Like") or contains(.,"you may also like")]/following-sibling::div//div[contains(@class,"product-tile")] | ancestor::html//h3[@id="hl-sponsored-callout"]/following-sibling::div//div[contains(@class,"slick-slide")]/div | ancestor::html//h3[contains(.,"Like") and contains(.,"Love")]/following-sibling::div//div[contains(@class,"product-tile")]
