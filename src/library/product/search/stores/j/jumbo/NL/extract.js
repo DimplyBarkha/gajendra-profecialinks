@@ -30,11 +30,12 @@ async function implementation (inputs, parameters, context, dependencies) {
       document.querySelectorAll('div[analytics-tag="product card"]')[i].setAttribute('rankOrganic', `${i + 1}`);
     };
     const url = window.location.href;
+
     document.querySelector('.rw').setAttribute('searchurl', url);
   });
 
   return await context.extract(productDetails, { transform });
-};
+}
 
 module.exports = {
   implements: 'product/search/extract',
