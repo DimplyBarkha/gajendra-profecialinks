@@ -159,6 +159,12 @@ fields:
     singleValue: true
     xpath: count(//a[(@href="https://www.betta.com.au/terms-and-conditions/")])
 
+  - name: inTheBoxText
+    xpath: //div[contains(@class,"InTheBox")]//div[@class="flix-std-content"]
+  - name: inTheBoxUrl
+    xpath: //div[contains(@class,"InTheBox")]//div[@class="flix-background-image"]/img/@data-flixsrcset
+    regExp: (.+)(\s?200w)(.+)
+    regExpReplace: https:$1
   - name: unInterruptedPDP
     xpath: //div[contains(@class,"pagebuilder")]/h2/following-sibling::div//ol//li
   - name: hasComparisonTable
