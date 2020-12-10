@@ -1,4 +1,4 @@
-singleRecord: false
+singleRecord: true
 regionsSelector: null
 recordSelector: null
 recordXPath: null
@@ -11,10 +11,10 @@ fields:
     xpath: //div[contains(@class,'product-top')]/h1
   - name: price
     singleValue: false
-    xpath: //span[@class='price']/strong
+    xpath: //div[@class="product-price-block"]/span
   - name: listPrice
     singleValue: false
-    xpath: //span[@class='price']/strong  
+    xpath: //div[@class="product-price-block"]/span 
   - name: sku
     singleValue: false
     xpath: //div[contains(@class,'product-top')]/p[normalize-space()]/text()

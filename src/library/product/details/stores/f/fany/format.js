@@ -30,13 +30,6 @@ const transform = (data) => {
           item.text = item.text.replace(/(\s*\n\s*)+/g, ' ').trim();
         });
       }
-      if (row.price) {
-        row.price.forEach(item => {
-          item.text = item.text.split(" ");
-          item.text = item.text[1];
-          
-        });
-      }
       if (row.sku) {
         row.sku.forEach(item => {
           item.text = item.text.replace(/[a-zA-Z-:\u00C0-\u017F]/g, '').trim();
