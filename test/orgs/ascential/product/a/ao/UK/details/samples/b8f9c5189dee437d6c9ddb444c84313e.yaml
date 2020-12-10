@@ -1,0 +1,106 @@
+input:
+  RPC: 21421
+  _url: http://ao.com
+extractions:
+  - html: https://workbench.import.io/html/run=24cafaa5-09b1-48c6-be1a-ebf54a6ef408/task=5a464706-cbce-483e-8309-d4fd7b362293/aa5de606-84f2-4dbd-98d7-ba4082e094b2.html
+    extractionConfigId: product/details/stores/a/ao/UK/extract
+    data:
+      - group:
+          - productUrl:
+              - text: https://ao.com/product/lf959bl90b-siemens-iq700-island-cooker-hood-stainless-steel-21421-8.aspx?cmredirectionvalue=21421
+                xpath: /html/body/div[11]
+            image:
+              - text: https://assets.products-live.ao.com/Images/e1432b3e-b08d-40b2-872c-12c3998b64f8/1280x1280/lf959bl90_ss_chimneyhood_01.jpg
+                xpath: /html/body/div[16]
+            imageAlt:
+              - text: lf959bl90_ss_chimneyhood_01
+                xpath: /html/body/div[17]
+            alternateImages:
+              - text: https://assets.products-live.ao.com/Images/5c4007e4-36b0-4215-8e0b-de69336d37cf/1280x1280/lf959bl90b_ss_siemens_cookerhoods_03_dim.jpg
+                xpath: /html/body/div[18]
+            metaKeywords:
+              - text: Island Cooker Hood, Siemens, IQ-700, LF959BL90B, Built In, Stainless Steel
+                xpath: /html/head[1]/meta[14]/@content
+            category:
+              - text: Cooker Hoods
+                xpath: /html/body/div[1]/div[1]/div[3]/div[1]/ul[1]/li[2]/a[1]
+              - text: Island Cooker Hoods
+                xpath: /html/body/div[1]/div[1]/div[3]/div[1]/ul[1]/li[3]/a[1]
+            nameExtended:
+              - text: Siemens IQ-700 LF959BL90B 90 cm Island Cooker Hood - Stainless Steel - C
+                  Rated
+                xpath: /html/body/div[1]/div[1]/main[1]/div[1]/div[2]/section[1]/h1[1]
+            availabilityText:
+              - text: In Stock
+                xpath: /html/body/div[12]
+            description:
+              - text: "||Quickly clears the air in a medium-sized kitchen ||Suitable for use
+                  above a large hob or range cooker||Efficient halogen lights
+                  help you monitor food ||Easy-to-use knob controls||Dimensions
+                  (cm) - H80 x W90 x D60"
+                xpath: /html/body/div[15]
+            brandText:
+              - text: Siemens
+                xpath: /html/body/div[22]
+            manufacturer:
+              - text: Siemens
+                xpath: /html/body/div[13]
+            weightNet:
+              - text: 36 Kg
+                xpath: /html/body/div[1]/div[1]/main[1]/div[1]/div[1]/section[2]/div[1]/div[6]/div[1]/div[1]/table[1]/tbody[1]/tr[10]/td[2]
+            weightGross:
+              - text: 45 Kg
+                xpath: /html/body/div[1]/div[1]/main[1]/div[1]/div[1]/section[2]/div[1]/div[6]/div[1]/div[1]/table[1]/tbody[1]/tr[11]/td[2]
+            gtin:
+              - text: Siemens LF959BL90B
+                xpath: /html/body/div[1]/div[1]/div[3]/div[1]/ul[1]/li[4]
+            sku:
+              - text: LF959BL90B_SS
+                xpath: /html/body/div[1]/div[1]/main[1]/div[1]/div[1]/section[2]/div[1]/div[6]/div[1]/div[1]/table[1]/tbody[1]/tr[9]/td[2]
+            variantId:
+              - text: LF959BL90B_SS
+                xpath: /html/body/div[1]/div[1]/main[1]/div[1]/div[1]/section[2]/div[1]/div[6]/div[1]/div[1]/table[1]/tbody[1]/tr[9]/td[2]
+            mpc:
+              - text: LF959BL90B_SS
+                xpath: /html/body/div[1]/div[1]/main[1]/div[1]/div[1]/section[2]/div[1]/div[6]/div[1]/div[1]/table[1]/tbody[1]/tr[9]/td[2]
+            shippingWeight:
+              - text: 45 Kg
+                xpath: /html/body/div[1]/div[1]/main[1]/div[1]/div[1]/section[2]/div[1]/div[6]/div[1]/div[1]/table[1]/tbody[1]/tr[11]/td[2]
+            name:
+              - text: Siemens IQ-700 LF959BL90B 90 cm Island Cooker Hood - Stainless Steel - C
+                  Rated
+                xpath: /html/body/div[1]/div[1]/main[1]/div[1]/div[2]/section[1]/h1[1]
+            additionalDescBulletInfo:
+              - text: "||Quickly clears the air in a medium-sized kitchen ||Suitable for use
+                  above a large hob or range cooker||Efficient halogen lights
+                  help you monitor food ||Easy-to-use knob controls||Dimensions
+                  (cm) - H80 x W90 x D60"
+                xpath: /html/body/div[15]
+            energyEfficiency:
+              - text: C
+                xpath: /html/body/div[1]/div[1]/main[1]/div[1]/div[2]/section[1]/div[2]/div[3]/span[1]/div[1]
+            Image360Present:
+              - text: No
+                xpath: /html/body/div[14]
+            technicalInformationPdfPresent:
+              - text: No
+            termsAndConditions:
+              - text: No
+            privacyPolicy:
+              - text: No
+            customerServiceAvailability:
+              - text: No
+            price:
+              - text: 1929.0 GBP
+            descriptionBullets:
+              - text: "5"
+            variantCount:
+              - text: "0"
+            warranty:
+              - text: |
+                  
+                  2 Year
+            imageZoomFeaturePresent:
+              - text: "true"
+        xpath: /
+    timestamp: 1607611347180

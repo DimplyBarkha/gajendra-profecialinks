@@ -38,6 +38,8 @@ module.exports = {
         newDiv.style.display = 'none';
         document.body.appendChild(newDiv);
       }
+      const productUrl = window.location.href;
+      addElementToDocument('product_url', productUrl);
       const availText = document.evaluate("//span[contains(@class,'inStockText')]", document, null, XPathResult.STRING_TYPE, null);
       if (availText && availText.stringValue) {
         addElementToDocument('inStockText', 'In Stock');
@@ -159,7 +161,7 @@ module.exports = {
               method: 'GET',
             },
           ).then(x => x.json());
-          var video = videoApi.sources[1].src;
+          var video = videoApi ? videoApi.sources[1].src : '';
           addHiddenDiv('vidURL', video);
         }
       }

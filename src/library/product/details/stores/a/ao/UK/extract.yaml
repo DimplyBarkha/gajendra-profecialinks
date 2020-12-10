@@ -9,6 +9,7 @@ fields:
     singleValue: false
   - name: productUrl
     singleValue: false
+    xpath: //div[@id="product_url"]
   - name: _pageTimeStamp
     singleValue: false
   - name: image
@@ -30,7 +31,7 @@ fields:
   - name: category
     singleValue: false
     description: The categories (e.g. from breadcrumbs)
-    xpath: //div[contains(@class,'category')]
+    xpath: //ul[@id="breadcrumb"]/li[position()>1]/a
   - name: nameExtended
     singleValue: true
     description: The product name, prefixing "${brand} - " if not included in "name"
@@ -39,7 +40,7 @@ fields:
   - name: listPrice
     singleValue: true
     description: The stated undiscounted price for the product
-    xpath: //div[contains(@class,'recommended-price')]/span[contains(@class,'line-through')]
+    xpath: //div[@itemprop="offers"]//div[contains(@class,"text-caption font-regular")]
   - name: price
     singleValue: true
     description: The offered price for the selected product variant - if a user
@@ -55,7 +56,7 @@ fields:
     singleValue: false
     description: Product description supplied by website - may be concatenanted from
       multiple places; specifically not the manufacturer description
-    xpath: concat(//div[contains(@class,'topRight')]/div[@data-tag-section='product overview']//div[@itemprop='description']//p,' ',//div[@id='bulletInfoText'])
+    xpath: //div[contains(@class,'topRight')]/div[@data-tag-section='product overview']//div[@itemprop='description']//p|//div[@id='bulletInfoText']
   - name: descriptionBullets
     singleValue: true
     description: Number of ul > li tags in the description
@@ -96,7 +97,7 @@ fields:
   - name: mpc
     singleValue: true
     description: The manufacturer model code (unique) of the product
-    xpath: //*[@id="productSpecification"]//div[contains(@class,'accordionContent')]//span[contains(text(),'Handelszeichen')]/parent::th/following-sibling::td
+    xpath: //*[@id="productSpecification"]//div[contains(@class,'accordionContent')]//span[contains(text(),'SKU')]/parent::th/following-sibling::td
   - name: packSize
     singleValue: true
     description: The number of packs in the product offer (if stated separately on
@@ -413,7 +414,7 @@ fields:
   - name: specifications
     singleValue: true
     description: The physical dimensions of the product including packaging.
-    xpath: //div[contains(@class,'specificationtext')]
+    xpath: //div[contains(@class,"specificationAccordion")]//span[contains(text(), "Dimensions")]//parent::span//following-sibling::span[contains(@class, "value")]
     #//section[contains(@class,'productSpecification')]/div/div[contains(@class,'accordionItem')]
   - name: warranty
     singleValue: true
@@ -450,7 +451,7 @@ fields:
   - name: promotion
     singleValue: true
     description: promotion text on product page
-    xpath: //div[contains(@class,'ml-1 mt-1 text-left')]/div[contains(@class,'text-deals')]
+    xpath: //div[@itemprop="offers"]//div[contains(@class,'text-deals')]
   - name: alcoholContent
     singleValue: true
     description: Alcohol content information
@@ -535,4 +536,5 @@ fields:
     description: If Zoom feature is available for Main image or images in the
       carousel,['Yes','No']
     example: https://www.zalando.de/adidas-neo-sneaker-low-blackwhite-a4315i002-q11.html
-    defaultValue: "No"
+    defaultValue: false
+    xpath: boolean(//div[@data-zoom-overlay="true"])

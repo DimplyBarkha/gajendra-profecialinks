@@ -4,7 +4,7 @@ module.exports = {
   parameterValues: {
     domain: 'ao.com',
     prefix: null,
-    url: null,
+    url: 'https://ao.com/l/search/101/99/?search={id}',
     country: 'UK',
     store: 'ao',
     zipcode: '',

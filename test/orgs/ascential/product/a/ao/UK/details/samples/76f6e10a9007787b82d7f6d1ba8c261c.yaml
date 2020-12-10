@@ -1,0 +1,111 @@
+input:
+  RPC: 45653
+  _url: http://ao.com
+extractions:
+  - html: https://workbench.import.io/html/run=24cafaa5-09b1-48c6-be1a-ebf54a6ef408/task=f2fc0000-3d97-4f7c-88ab-d2d1fa2c293f/d82caef9-78db-4327-9220-f7f3de5ce20f.html
+    extractionConfigId: product/details/stores/a/ao/UK/extract
+    data:
+      - group:
+          - productUrl:
+              - text: https://ao.com/product/t8dea866c-aeg-absolutecare-technology-heat-pump-tumble-dryer-white-45653-126.aspx?cmredirectionvalue=45653
+                xpath: /html/body/div[10]
+            image:
+              - text: https://assets.products-live.ao.com/Images/52b84d16-6c6f-428f-9d63-31f5654e6b77/1280x1280/t8dea866c_wh_aeg_l_01.jpg
+                xpath: /html/body/div[14]
+            imageAlt:
+              - text: AEG AbsoluteCare Technology T8DEA866C Wifi Connected 8Kg Heat Pump Tumble
+                  Dryer - White
+                xpath: /html/body/div[15]
+            metaKeywords:
+              - text: Heat Pump Tumble Dryer, AEG, AbsoluteCare Technology, T8DEA866C, Free
+                  Standing, White
+                xpath: /html/head[1]/meta[14]/@content
+            category:
+              - text: Tumble Dryers
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/ul[1]/li[2]/a[1]
+              - text: Heat Pump Tumble Dryers
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/ul[1]/li[3]/a[1]
+            nameExtended:
+              - text: AEG AbsoluteCare Technology T8DEA866C Wifi Connected 8Kg Heat Pump Tumble
+                  Dryer - White - A+++ Rated
+                xpath: /html/body/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[1]/h1[1]
+            availabilityText:
+              - text: Out of Stock
+                xpath: /html/body/div[11]
+            description:
+              - text: "||8kg drum capacity - great for medium-sized households ||Tailored drum
+                  movements to suit different fabrics||Gentle programme for
+                  delicate woollen items||Gentle programme protects delicate
+                  silk items||Dimensions (cm) - H85 x W60 x D66.5"
+                xpath: /html/body/div[13]
+            brandText:
+              - text: AEG
+                xpath: /html/body/div[20]
+            weightNet:
+              - text: 59.46 Kg
+                xpath: /html/body/div[1]/div[1]/main[1]/div[1]/div[1]/div[1]/section[2]/div[1]/div[6]/div[1]/div[1]/table[1]/tbody[1]/tr[10]/td[2]
+            weightGross:
+              - text: 62 Kg
+                xpath: /html/body/div[1]/div[1]/main[1]/div[1]/div[1]/div[1]/section[2]/div[1]/div[6]/div[1]/div[1]/table[1]/tbody[1]/tr[11]/td[2]
+            gtin:
+              - text: AEG T8DEA866C
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/ul[1]/li[4]
+            sku:
+              - text: T8DEA866C_WH
+                xpath: /html/body/div[1]/div[1]/main[1]/div[1]/div[1]/div[1]/section[2]/div[1]/div[6]/div[1]/div[1]/table[1]/tbody[1]/tr[9]/td[2]
+            variantId:
+              - text: T8DEA866C_WH
+                xpath: /html/body/div[1]/div[1]/main[1]/div[1]/div[1]/div[1]/section[2]/div[1]/div[6]/div[1]/div[1]/table[1]/tbody[1]/tr[9]/td[2]
+            mpc:
+              - text: T8DEA866C_WH
+                xpath: /html/body/div[1]/div[1]/main[1]/div[1]/div[1]/div[1]/section[2]/div[1]/div[6]/div[1]/div[1]/table[1]/tbody[1]/tr[9]/td[2]
+            ratingCount:
+              - text: "5"
+                xpath: /html/body/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[1]/div[2]/a[3]/span[1]
+            aggregateRatingText:
+              - text: Read 5 customer reviews
+                xpath: /html/body/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[1]/div[2]/a[3]
+            aggregateRating:
+              - text: "4.8"
+                xpath: /html/body/div[21]
+            shippingWeight:
+              - text: 62 Kg
+                xpath: /html/body/div[1]/div[1]/main[1]/div[1]/div[1]/div[1]/section[2]/div[1]/div[6]/div[1]/div[1]/table[1]/tbody[1]/tr[11]/td[2]
+            name:
+              - text: AEG AbsoluteCare Technology T8DEA866C Wifi Connected 8Kg Heat Pump Tumble
+                  Dryer - White - A+++ Rated
+                xpath: /html/body/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[1]/h1[1]
+            additionalDescBulletInfo:
+              - text: "||8kg drum capacity - great for medium-sized households ||Tailored drum
+                  movements to suit different fabrics||Gentle programme for
+                  delicate woollen items||Gentle programme protects delicate
+                  silk items||Dimensions (cm) - H85 x W60 x D66.5"
+                xpath: /html/body/div[13]
+            energyEfficiency:
+              - text: A+++
+                xpath: /html/body/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[1]/div[3]/div[3]/span[1]/div[1]
+            Image360Present:
+              - text: No
+                xpath: /html/body/div[12]
+            technicalInformationPdfPresent:
+              - text: No
+            termsAndConditions:
+              - text: No
+            privacyPolicy:
+              - text: No
+            customerServiceAvailability:
+              - text: No
+            price:
+              - text: 1199.0 GBP
+            descriptionBullets:
+              - text: "5"
+            variantCount:
+              - text: "0"
+            warranty:
+              - text: |
+                  
+                  5 Year
+            imageZoomFeaturePresent:
+              - text: "true"
+        xpath: /
+    timestamp: 1607611341706
