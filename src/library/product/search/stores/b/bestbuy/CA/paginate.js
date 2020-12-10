@@ -1,4 +1,4 @@
-
+const { transform } = require('../../../../shared');
 module.exports = {
   implements: 'product/search/paginate',
   parameterValues: {
@@ -7,7 +7,7 @@ module.exports = {
     nextLinkSelector: 'div[class="loadMoreRow_1TEZj loadMoreButtonContainer_35w02"]>button',
     mutationSelector: null,
     spinnerSelector: null,
-    loadedSelector: 'div[class="x-page-content container_3Sp8P"] main',
+    loadedSelector: 'div[class="productList_31W-E"]',
     noResultsXPath: null,
     // openSearchDefinition: {
     //   offset:30,
