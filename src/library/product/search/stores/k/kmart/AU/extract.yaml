@@ -6,12 +6,18 @@ fields:
   - name: id
     singleValue: false
     xpath: //html//div[@id="id"]
+  - name: rankOrganic
+    singleValue: false
   - name: name
     singleValue: false
     xpath: //div[@class="product product_box small-6 medium-4 large-4 columns clearfix col "]/@data-attribute-title
   - name: productUrl
     singleValue: false
     xpath: //div[@class="yotpo bottomLine yotpo-small"]/@data-url
+  - name: gtin
+    singleValue: true
+    #xpath: //h5[@class="product-name"]//a//@onclick
+    #regExp: (\d{8,17})
   - name: thumbnail
     singleValue: false
     xpath: //div[@class="product-image"]/img/@src
@@ -22,6 +28,13 @@ fields:
     xpath: //span[@class="price"]
   - name: manufacturer
     singleValue: true
+    # xpath: //div[@class="product product_box small-6 medium-4 large-4 columns clearfix col "]/@data-attribute-brand
+  - name: soldBy
+    singleValue: true
+  - name: rank
+    singleValue: false
+  - name: aggregateRating
+    singleValue: false
     xpath: //span[@class="sr-only"]/text()
     regExp: (\d{1}.\d{1})
   - name: reviewCount
