@@ -63,7 +63,8 @@ module.exports = {
 
       const image = getXpath("(//div[@class='slick-list draggable']//div[contains(@class,'slick-active')]//div[@class='jet-woo-product-gallery__image ']//a[@class='jet-woo-product-gallery__image-link']/@href)[1]", 'nodeValue');
 
-      const alternateImageXpath = "//div[@class='slick-track']//div[contains(@class,'slick-slide')]//div[@class='jet-woo-product-gallery__image ']//a[@class='jet-woo-product-gallery__image-link']/@href";
+      // const alternateImageXpath = "//div[@class='slick-track']//div[contains(@class,'slick-slide')]//div[@class='jet-woo-product-gallery__image ']//a[@class='jet-woo-product-gallery__image-link']/@href";
+      const alternateImageXpath = "(//div[@class='slick-track']//div[contains(@class,'slick-slide')]//div[contains(@class,'jet-woo-product-gallery__image ')])[position()>1]//a[@class='jet-woo-product-gallery__image-link']/@href";
       const alternateImageStr = getAllXpath(alternateImageXpath, 'nodeValue').join(',');
       if (alternateImageStr && typeof alternateImageStr === 'string') {
         const alternateImageList = alternateImageStr.split(',');
