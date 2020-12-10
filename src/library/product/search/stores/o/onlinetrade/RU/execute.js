@@ -7,7 +7,7 @@ module.exports = {
     domain: 'onlinetrade.ru',
     url: 'https://www.onlinetrade.ru/sitesearch.html?query={searchTerms}',
     loadedSelector: 'div.indexGoods__item',
-    noResultsXPath: null,
+    noResultsXPath: '//div[contains(@class,"content")]//h1[contains(text(),"Найденные категории")] | //div[contains(@class,"content")]//p[contains(text(),"Ничего не найдено")]',
     zipcode: '',
   },
 };

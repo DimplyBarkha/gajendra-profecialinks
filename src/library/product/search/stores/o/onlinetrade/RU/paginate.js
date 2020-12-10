@@ -8,7 +8,7 @@ module.exports = {
     mutationSelector: null,
     spinnerSelector: null,
     loadedSelector: null,
-    noResultsXPath: null,
+    noResultsXPath: '//div[contains(@class,"content")]//h1[contains(text(),"Найденные категории")] | //div[contains(@class,"content")]//p[contains(text(),"Ничего не найдено")]',
     openSearchDefinition: null,
     domain: 'onlinetrade.ru',
     zipcode: '',
