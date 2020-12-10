@@ -29,6 +29,19 @@ module.exports = {
         promoClose.click();
       }
     });
+    await new Promise((resolve, reject) => setTimeout(resolve, 3000));
+    await context.evaluate(async function () {
+      const body = document.body;
+      const html = document.documentElement;
+      const pageHeight = Math.max(body.scrollHeight, body.offsetHeight, html.clientHeight, html.scrollHeight, html.offsetHeight);
+
+      let scrollTop = 0;
+      while (scrollTop <= pageHeight) {
+        await new Promise((resolve) => setTimeout(resolve, 500));
+        scrollTop += 200;
+        window.scroll(0, scrollTop);
+      }
+    });
     await context.evaluate(async function () {
       const rating = document.querySelectorAll('ul.o-flex-container li meta[itemprop="ratingValue"]');
       if (rating) {
