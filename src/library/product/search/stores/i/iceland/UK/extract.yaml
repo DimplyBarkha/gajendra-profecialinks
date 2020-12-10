@@ -19,9 +19,10 @@ fields:
   - name: reviewCount
     singleValue: false
     xpath: //div[@class="rating"]//div[@class="feefo-ctr"]
+    type: NUMBER 
   - name: aggregateRating
     singleValue: true
-    xpath: //div[@class="rating"]//div[@class="feefo-ctr"]
+    xpath: //html//div[@id='aggregate']
   #   # regExp: (\d+)
   - name: price
     singleValue: false
