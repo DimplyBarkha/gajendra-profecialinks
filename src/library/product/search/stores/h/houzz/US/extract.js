@@ -8,6 +8,9 @@ module.exports = {
     zipcode: "",
   },
   implementation: async (inputs, parameters, context, dependencies) => {
+    await context.waitForSelector(".hz-image.hz-responsive-img", {
+      timeout: 10000,
+    });
     const { transform } = parameters;
     const { productDetails } = dependencies;
     await context.evaluate(() => {
