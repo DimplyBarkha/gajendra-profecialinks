@@ -77,7 +77,12 @@ class SharedHelpers {
     });
     if (inBoxSelector) {
       inBoxText = await this.context.evaluate(async function (inBoxSelector) {
-        return document.querySelector(inBoxSelector) ? document.querySelector(inBoxSelector).innerText : '';
+        const boxTexts = document.querySelectorAll(inBoxSelector + ' p');
+        const text = [];
+        boxTexts.forEach((element) => {
+          text.push(element.innerText);
+        });
+        return text.join(' || ');
       }, inBoxSelector);
       inBoxUrls = await this.context.evaluate(async function (inBoxSelector, getAttrImgSrc) {
         const images = document.querySelectorAll(inBoxSelector+' img');
@@ -90,7 +95,7 @@ class SharedHelpers {
     }
     if (comparisionTableSelector) {
       comparisionText = await this.context.evaluate(async function (comparisionTableSelector) {
-        return !!document.querySelector(comparisionTableSelector);
+        return (!!document.querySelector(comparisionTableSelector) && document.querySelector(comparisionTableSelector).offsetHeight > 0 && document.querySelector(comparisionTableSelector).offsetWidth) > 0;
       }, comparisionTableSelector);
     }
     console.log(inBoxText);
