@@ -33,9 +33,13 @@ fields:
     regExp: (.+)
     regExpReplace: Out of Stock
     defaultValue: In Stock
+  - name: description1
+    singleValue: false
+    xpath: //section[@class="product-card__category"]//h2/text() | //ul[@class="category__list"]
+    # xpath: //section[@class="product-card__category"]//text()
   - name: description
     singleValue: false
-    xpath: //section[@class="product-card__category"]//text() |//section[@class="product-card__about "]//div[@class="col"]//text() #| //section[@class="product-card__category"]//text() #| //span[contains(text(), "Sposób aplikacji")]//../following-sibling::ul/li/a/text() | //span[contains(text(), "Pora stosowania")]//../following-sibling::ul/li/a/text()  | //span[contains(text(), "Pora stosowania")]//../following-sibling::ul/li/a/text() |//span[contains(text(), "Układy narządowe")]//../following-sibling::ul/li/a/text() | //span[contains(text(), "Specyfika")]//../following-sibling::ul/li/a/text() | //span[contains(text(), "Główny składnik")]//../following-sibling::ul/li/a/text() | //span[contains(text(), "Działanie/właściwości")]//../following-sibling::ul/li/a/text() | //span[contains(text(), "Działanie/właściwości")]//../following-sibling::ul/li/a/text() | //span[contains(text(), "Postać")]//../following-sibling::ul/li/a/text() | //span[contains(text(), "Typ produktu")]//../following-sibling::ul/li/a/text() | //span[contains(text(), "Płeć")]//../following-sibling::ul/li/a/text() | //span[contains(text(), "Wiek")]//../following-sibling::ul/li/a/text()
+    xpath: //section[@class="product-card__about "]//div[@class="col"]//text()  #| //section[@class="product-card__category"]//text() #| //span[contains(text(), "Sposób aplikacji")]//../following-sibling::ul/li/a/text() | //span[contains(text(), "Pora stosowania")]//../following-sibling::ul/li/a/text()  | //span[contains(text(), "Pora stosowania")]//../following-sibling::ul/li/a/text() |//span[contains(text(), "Układy narządowe")]//../following-sibling::ul/li/a/text() | //span[contains(text(), "Specyfika")]//../following-sibling::ul/li/a/text() | //span[contains(text(), "Główny składnik")]//../following-sibling::ul/li/a/text() | //span[contains(text(), "Działanie/właściwości")]//../following-sibling::ul/li/a/text() | //span[contains(text(), "Działanie/właściwości")]//../following-sibling::ul/li/a/text() | //span[contains(text(), "Postać")]//../following-sibling::ul/li/a/text() | //span[contains(text(), "Typ produktu")]//../following-sibling::ul/li/a/text() | //span[contains(text(), "Płeć")]//../following-sibling::ul/li/a/text() | //span[contains(text(), "Wiek")]//../following-sibling::ul/li/a/text()
   - name: descriptionBullets
     singleValue: false
     xpath: count(//h2[contains(text(), "Charakterystyka produktu")]//..//following-sibling::ul/li)

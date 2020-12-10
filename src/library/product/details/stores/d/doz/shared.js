@@ -34,28 +34,20 @@ const transform = (data) => {
         //   },
         // ];
       }
+      let descTxt = '';
       if (row.description) {
-        let text = '';
+        // let text = '';
         row.description.forEach(item => {
-          text += item.text.replace(/\s{2,}/g, ' ').replace(/\n/g, ' ').trim();
+          descTxt += item.text.replace(/\s{2,}/g, ' ').replace(/\n/g, ' ').trim();
         });
         row.description = [
           {
-            text: text,
+            text: descTxt,
           },
         ];
       }
-      // if (row.description) {
-      //   let text = '';
-      //   row.description.forEach(item => {
-      //     let t = item.text.replace(/\n/g, '||')
-      //     item.text = item.text.replace(/More Information/, '');
-      //     item.text = item.text.replace(/Description/, '');
-      //     item.text = item.text.replace(/•/g, '||');
-      //   });
-      // }
       if (row.image) {
-        let img = [];
+        const img = [];
         row.image.forEach(item => {
           if (item.text.indexOf('https:') === -1) {
             item.text = `https:${item.text}`;
@@ -73,17 +65,56 @@ const transform = (data) => {
           },
         ];
       }
-      // if (row.description) {
-      //   let text = '';
-      //   row.description.forEach(item => {
-      //     text += `${item.text.replace(/\n \n/g, ':')} || `;
-      //   });
-      //   row.description = [
-      //     {
-      //       text: text.slice(0, -3),
-      //     },
-      //   ];
-      // }
+      if (row.weightNet) {
+        let text = '';
+        row.weightNet.forEach(item => {
+          text += `${item.text.replace('saszetek', ' ')}`;
+        });
+        row.weightNet = [
+          {
+            text: text.slice(0, -1),
+          },
+        ];
+      }
+      if (row.weightNet) {
+        let text = '';
+        row.weightNet.forEach(item => {
+          text += `${item.text.replace('(1 saszetka)', ' ')}`;
+        });
+        row.weightNet = [
+          {
+            text: text.slice(0, -1),
+          },
+        ];
+      }
+      if (row.description1) {
+        let text = '';
+        row.description1.forEach(item => {
+          text += `|| ${item.text.replace(/\n \n/g, ':')}  `;
+        });
+        row.description1 = [
+          {
+            text: text.slice(0, -1),
+          },
+        ];
+        descTxt = `${descTxt} ${text.slice(0, -3)}`;
+        row.description = [
+          {
+            text: descTxt,
+          },
+        ];
+      }
+      if (row.description) {
+        let text = '';
+        row.description.forEach(item => {
+          text += `${item.text.replace('pokaż więcej ...', '')}  `;
+        });
+        row.description = [
+          {
+            text: text.slice(0, -1),
+          },
+        ];
+      }
       if (row.specifications) {
         let text = '';
         row.specifications.forEach(item => {
