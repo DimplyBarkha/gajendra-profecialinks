@@ -84,7 +84,7 @@ module.exports = {
         const table = generateDynamicTable(jsonData);
         const container = document.createElement('div');
         container.setAttribute('id', 'added-table');
-        container.setAttribute('style', 'overflow:auto');
+        container.setAttribute('style', 'height: 1000px;width: 100%;overflow:auto;float: left;position: relative;margin-left: -5px;');
         container.innerHTML = '';
         container.appendChild(table);
         document.querySelector(appendSelector).append(container);
@@ -126,6 +126,9 @@ module.exports = {
         await new Promise((r) => setTimeout(r, 2000));
       }
       addDynamicTable(data, '.js-footer-content');
+      Array.from(document.querySelectorAll('[class="positiveVoteCount"],[class="negativeVoteCount"]'))
+        .filter((elm) => !elm.innerText.length)
+        .forEach((elm) => (elm.innerText = 0));
     }
     await context.evaluate(addQA);
     return await context.extract(dependencies.productDetails, { transform });

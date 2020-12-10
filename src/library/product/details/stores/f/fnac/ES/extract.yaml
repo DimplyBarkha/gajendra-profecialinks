@@ -80,6 +80,7 @@ fields:
     singleValue: false
     #xpath: //div[@class="characteristicsStrate__item"]//dl[contains(text(),'Peso')]//parent::div/dd/p
     xpath: //dl[contains(.,'Peso')]//dd//p
+    regExp: '[^/]+$'
   - name: gtin
     singleValue: false
     # xpath: //div[contains(@class, "js-articleView")]/@data-ean13

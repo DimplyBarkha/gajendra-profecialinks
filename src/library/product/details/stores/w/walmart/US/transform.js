@@ -142,10 +142,10 @@ const transform = (data, context) => {
         //   row.additionalDescBulletInfo[0].text = row.additionalDescBulletInfo[0].text.startsWith(' || ') ? row.additionalDescBulletInfo[0].text : ' || ' + row.additionalDescBulletInfo[0].text;
         // }
 
-        if ((row.price && row.price[0].text === '0') || (!row.price) || (row.unavailableMsg) || (row.outOfStockMsg)) {
+        if ((row.price && row.price[0].text === '0') || (!row.price) || (row.outOfStockMsg)) {
           row.availabilityText = [{ text: 'Out of Stock' }];
-        } else if (row.availabilityMessage && row.availabilityMessage[0].text.includes('in-store')) {
-          row.availabilityText = [{ text: 'In stores only' }];
+        } else if (row.unavailableMsg) {
+          row.availabilityText = [{ text: 'Unavailable' }];
         } else {
           row.availabilityText = [{ text: 'In Stock' }];
         }

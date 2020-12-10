@@ -93,6 +93,8 @@ fields:
     singleValue: true
     description: The text that signifies that a product is endorsed
     xpath: //span[@data-qa='featured-product-tag']
+    regExp: (.+)
+    regExpReplace: 'sponsored'
   - name: shippingInfo
     singleValue: true
     description: Shipping information for the product
