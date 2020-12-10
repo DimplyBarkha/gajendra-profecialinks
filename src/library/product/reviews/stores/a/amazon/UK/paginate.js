@@ -10,7 +10,7 @@ module.exports = {
     mutationSelector: null,
     spinnerSelector: null,
     loadedSelector: null,
-    loadedXpath: null,
+    loadedXpath: '//*[@data-hook="review"]',
     noResultsXPath: null,
     stopConditionSelectorOrXpath: null,
     resultsDivSelector: null,

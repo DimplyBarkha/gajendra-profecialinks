@@ -1,4 +1,4 @@
-const { transform } = require('./trasform');
+const { transform } = require('./transform');
 async function implementation (
   inputs,
   parameters,
@@ -7,15 +7,23 @@ async function implementation (
 ) {
   const { productReviews } = dependencies;
   const { transform } = parameters;
-  
-  const extractvar = await context.extract(productReviews, { transform });
-  try {
-    await context.click('a[data-hook="see-all-reviews-link-foot"]');
-    await new Promise(r=>setTimeout(r,5000));
-  } catch (error) {
-    console.log(error);
+
+  const onReviewsPage = await context.evaluate(() => {
+    return window.location.href.includes('/product-reviews');
+  });
+
+  if (onReviewsPage) {
+    await context.waitForSelector('li[class="a-last"]', { timeout: 7000 })
+      .catch(() => console.log('On last page'));
   }
- return extractvar;
+
+  const data = await context.extract(productReviews, { transform });
+
+  if (!onReviewsPage) {
+    await context.clickAndWaitForNavigation('a[data-hook="see-all-reviews-link-foot"]', { timeout: 15000 }, { waitUntil: 'load' });
+  }
+
+  return data;
 }
 
 module.exports = {

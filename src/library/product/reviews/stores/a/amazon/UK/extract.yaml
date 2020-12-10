@@ -1,75 +1,61 @@
 singleRecord: false
 regionsSelector: null
-recordSelector: '*[data-hook="review"]'
-recordXPath: //*[data-hook="review"]
+recordSelector: null
+recordXPath: //*[@data-hook="review"]
 fields:
 - name: brand
-  type: STRING
   description: Brand name
   xpath: ancestor::html//a[@id="bylineInfo"]
   regExp: Brand:(.*) 
   regExpReplace: $1
 - name: productRange
-  type: STRING
   description: Product Range
   xpath: 
 - name: productFamily
-  type: STRING
   description: Product Family
-  xpath: 
+  xpath: ancestor::html//span[@id="productTitle"]
 - name: colour
-  type: STRING
   description: Product Colour
   xpath: 
 - name: flavour
-  type: STRING
   description: Product Flavour
   xpath: 
 - name: sku
-  type: STRING
   description: sku
   xpath: 
 - name: reviewText
-  type: STRING
   description: Product Review
-  xpath: //span[@data-hook="review-body"]/span/text()
+  xpath: //span[@data-hook="review-body"]
 - name: reviewTitle
-  type: STRING
   description: Review Title
   xpath: //a[@data-hook="review-title"]
 - name: mediaURL
-  type: STRING
   description: Product Media URL
   xpath: ancestor::html//div[@class="imgTagWrapper"]/img[@data-a-image-name="landingImage"]/@src
 - name: location
-  type: STRING
   description: Location
   xpath: //span[@data-hook="review-date"]
   regExp: Reviewed in the (.*) on
   regExpReplace: $1
 - name: helpful
-  type: STRING
   description: Product Helpful Notes
   xpath: //span[@data-hook="helpful-vote-statement"]
 - name: verifiedPurchase
-  type: STRING
   description: Product Purchase Notes
   xpath: //a[@data-reftag="cm_cr_getr_d_rvw_rvwer"]/@href
   regExp: (.+)
   regExpReplace: 'Yes'
   defaultValue:  'No'
 - name: rating
-  type: STRING
   description: Product Rating
   xpath: //i[@data-hook="review-star-rating"]
   regExp: ([0-9\.]{1,}) out of
   regExpReplace: $1
 - name: pageTitle
-  type: STRING
   description: Page Title
   xpath: ancestor::html//span[@id="productTitle"]
 - name: sourceUrl
-  type: STRING
   description: Source URL
-  xpath: ancestor::html//a[@id="bylineInfo"]/@href
+  xpath: ancestor::html//link[@rel="canonical"]/@href
+  # xpath: ancestor::html//a[@id="bylineInfo"]/@href
  
