@@ -30,4 +30,14 @@ fields:
   - name: brand
     singleValue: false
     description: The brand name
-    xpath: //span[@class="catalog-products-body__product-brand ng-binding"]    
+    xpath: //span[@class="catalog-products-body__product-brand ng-binding"]
+  - name: store
+    singleValue: false
+    description: The store name
+    xpath: //meta[@name="organization"]/@content   
+  - name: rank
+    singleValue: false
+    type: number
+  - name: rankOrganic
+    singleValue: false
+    type: NUMBER         
