@@ -6,7 +6,7 @@ fields:
   - name: image
     description: URL of the main product image
     xpath: ancestor::html//img[@itemprop="image"]/@src
-    regExp: '(^[^?]+)'
+    regExp: "(^[^?]+)"
     # Added custom height nd width values.
     regExpReplace: $1?wid=1920&hei=1080&op_sharpen=1
   - name: imageAlt
@@ -22,7 +22,8 @@ fields:
     description: The categories (e.g. from breadcrumbs)
   - name: nameExtended
     xpath: ancestor::html//h1[@itemprop="name"]
-    description: The product name, prefixing "${brand} - " if not included in "name"
+    description:
+      The product name, prefixing "${brand} - " if not included in "name"
       and appending " - ${variantType}" if necessary (fixed per feed)
   - name: listPrice
     xpath: (ancestor::html//div[contains(concat(' ',@class,' ')," was_price ")] | //div[@id="estore_product_price_widget"]//div[@class="was_prices_holder"])[1]
@@ -32,7 +33,7 @@ fields:
     description: The offered price for the selected product variant - if a user
       clicks add to basket this is the price they would be charged
   - name: availabilityText
-    xpath: ancestor::html[not(//div[@id="sizeComboButton_dropdown"]/ul/li[@onclick])]//link[@itemprop="availability"]/following-sibling::text() | //div[@class="tooltip" and not(//span[@class="reDesign-OutofStock"])]
+    xpath: //link[@itemprop="availability"]/following-sibling::text()
     description: Availability as described on page for the selected variant. If
       there is no availability but the product can be added to cart, this field
       should be "In Stock"
@@ -41,7 +42,8 @@ fields:
     defaultValue: Out of Stock
   - name: description
     xpath: ancestor::html//*[@id="estore_product_longdesc"]
-    description: Product description supplied by website - may be concatenanted from
+    description:
+      Product description supplied by website - may be concatenanted from
       multiple places; specifically not the manufacturer description
   - name: descriptionBullets
     description: Number of ul > li tags in the description
@@ -49,7 +51,8 @@ fields:
     type: NUMBER
   - name: brandText
     xpath: ancestor::html//*[@itemprop="Brand"]
-    description: Product brand shown - this may actually NOT be just a brand name,
+    description:
+      Product brand shown - this may actually NOT be just a brand name,
       e.g. "Visit the Gillette Store"
   - name: manufacturer
     description: Product manufacturer
@@ -57,7 +60,7 @@ fields:
   - name: quantity
     description: Quantity as described on the page
     xpath: ancestor::html//div[@class="details details_redesign"] | //div[contains(@id, 'estore_product_price_widget')]//*[contains(@class, 'details')]
-    regExp: '(^[^|]+)|'
+    regExp: "(^[^|]+)|"
     regExpReplace: $1
   - name: weightNet
     xpath: ancestor::html//p[@id="product_long_description"]/text()[contains(.,"Weight")]
@@ -78,7 +81,8 @@ fields:
   - name: mpc
     description: The manufacturer model code (unique) of the product
   - name: packSize
-    description: The number of packs in the product offer (if stated separately on
+    description:
+      The number of packs in the product offer (if stated separately on
       the site to quantity)
   - name: legalDisclaimer
     description: Content under "legal disclaimer" header
@@ -91,15 +95,15 @@ fields:
   - name: ratingCount
     description: The number of ratings
     xpath: ancestor::html//*[@itemprop="reviewCount"]
-    defaultValue: '0'
+    defaultValue: "0"
     type: NUMBER
   - name: aggregateRatingText
     description: The stated aggregate rating
     xpath: ancestor::html//*[@itemprop="ratingValue"]
-    defaultValue: '0'
+    defaultValue: "0"
   - name: aggregateRating
     xpath: ancestor::html//*[@itemprop="ratingValue"]
-    defaultValue: '0'
+    defaultValue: "0"
     description: The stated aggregate rating normalized to be out of 5
     type: NUMBER
   - name: shippingInfo
@@ -124,7 +128,7 @@ fields:
     description: Images within the third party description
   - name: videos
     xpath: /html/body/@video-links
-    regExp: '[^|]+'
+    regExp: "[^|]+"
     description: URLs of videos on page
   - name: name
     description: The product name
@@ -144,10 +148,12 @@ fields:
   - name: internationalShipping
     description: Text next to bullet point
   - name: salesRank
-    description: Amazon best selling rank from product details (linked back) - needs
+    description:
+      Amazon best selling rank from product details (linked back) - needs
       to be collapsed
   - name: salesRankCategory
-    description: Amazon best selling rank from product details (linked back) - needs
+    description:
+      Amazon best selling rank from product details (linked back) - needs
       to be collapsed
   - name: subscriptionPrice
     description: Subscribe and save price
@@ -219,8 +225,9 @@ fields:
     type: NUMBER
   - name: caloriesPerServing
     xpath: ancestor::html//span[contains(text(),"Nutrition Information")]/following-sibling::text()[contains(.,"Energy")]
-    regExp: '[^,]+$'
-    description: Nutritional Information for Calories Per Serving content - Usually
+    regExp: "[^,]+$"
+    description:
+      Nutritional Information for Calories Per Serving content - Usually
       based on per 100g serving
   - name: caloriesFromFatPerServing
     description: Nutritional Information for Calories From Fat content - Usually
@@ -228,115 +235,128 @@ fields:
     type: NUMBER
   - name: totalFatPerServing
     xpath: ancestor::html//span[contains(text(),"Nutrition Information")]/following-sibling::text()[contains(.,"Fat")]
-    description: Nutritional Information for Total Fat content - Usually based on
+    description:
+      Nutritional Information for Total Fat content - Usually based on
       per 100g serving
     type: NUMBER
   - name: totalFatPerServingUom
-    regExp: ' g '
+    regExp: " g "
     xpath: ancestor::html//span[contains(text(),"Nutrition Information")]/following-sibling::text()[contains(.,"Fat")]
     description: Unit of Measure Data for Total Fat content
   - name: saturatedFatPerServing
     xpath: ancestor::html//span[contains(text(),"Nutrition Information")]/following-sibling::text()[contains(.,"saturates")]
     regExp: of which saturates .+
-    description: Nutritional Information for Saturated Fat content - Usually based
+    description:
+      Nutritional Information for Saturated Fat content - Usually based
       on per 100g serving
     type: NUMBER
   - name: saturatedFatPerServingUom
-    regExp: ' g '
+    regExp: " g "
     xpath: ancestor::html//span[contains(text(),"Nutrition Information")]/following-sibling::text()[contains(.,"saturates")]
     description: Unit of Measure Data for Saturated Fat content
   - name: transFatPerServing
-    description: Nutritional Information for Trans Fat content - Usually based on
+    description:
+      Nutritional Information for Trans Fat content - Usually based on
       per 100g serving
     type: NUMBER
   - name: transFatPerServingUom
-    regExp: ' g '
+    regExp: " g "
     description: Unit of Measure Data for Trans Fat content
   - name: cholesterolPerServing
-    description: Nutritional Information for Cholesterol content - Usually based on
+    description:
+      Nutritional Information for Cholesterol content - Usually based on
       per 100g serving
     type: NUMBER
   - name: cholesterolPerServingUom
-    regExp: ' g '
+    regExp: " g "
     description: Unit of Measure Data for Cholesterol content
   - name: sodiumPerServing
-    description: Nutritional Information for Sodium content - Usually based on per
+    description:
+      Nutritional Information for Sodium content - Usually based on per
       100g serving
     type: NUMBER
   - name: sodiumPerServingUom
-    regExp: ' g '
+    regExp: " g "
     description: Unit of Measure Data for Sodium content
   - name: totalCarbPerServing
     xpath: ancestor::html//span[contains(text(),"Nutrition Information")]/following-sibling::text()[contains(.,"Carbohydrates")]
-    description: Nutritional Information for Total Carbohydrate content - Usually
+    description:
+      Nutritional Information for Total Carbohydrate content - Usually
       based on per 100g serving
     type: NUMBER
   - name: totalCarbPerServingUom
-    regExp: ' g '
+    regExp: " g "
     xpath: ancestor::html//span[contains(text(),"Nutrition Information")]/following-sibling::text()[contains(.,"Carbohydrates")]
     description: Unit of Measure Data for Total Carbohydrate content
   - name: dietaryFibrePerServing
-    description: Nutritional Information for Dietary Fibre content - Usually based
+    description:
+      Nutritional Information for Dietary Fibre content - Usually based
       on per 100g serving
     type: NUMBER
   - name: dietaryFibrePerServingUom
-    regExp: ' g '
+    regExp: " g "
     description: Unit of Measure Data for Dietary Fibre content
   - name: totalSugarsPerServing
     xpath: ancestor::html//span[contains(text(),"Nutrition Information")]/following-sibling::text()[contains(.,"sugars")]
     regExp: of which sugars .+
-    description: Nutritional Information for Total Sugar content - Usually based on
+    description:
+      Nutritional Information for Total Sugar content - Usually based on
       per 100g serving
     type: NUMBER
   - name: totalSugarsPerServingUom
     xpath: ancestor::html//span[contains(text(),"Nutrition Information")]/following-sibling::text()[contains(.,"sugars")]
-    regExp: ' g '
+    regExp: " g "
     description: Unit of Measure Data for Total Sugar content
   - name: proteinPerServing
     xpath: ancestor::html//span[contains(text(),"Nutrition Information")]/following-sibling::text()[contains(.,"Protein")]
-    description: Nutritional Information for Protein content - Usually based on per
+    description:
+      Nutritional Information for Protein content - Usually based on per
       100g serving
     type: NUMBER
   - name: proteinPerServingUom
-    regExp: ' g '
+    regExp: " g "
     xpath: ancestor::html//span[contains(text(),"Nutrition Information")]/following-sibling::text()[contains(.,"Protein")]
     description: Unit of Measure Data for Protein
   - name: vitaminAPerServing
-    description: Nutritional Information for Vitamin A content - Usually based on
+    description:
+      Nutritional Information for Vitamin A content - Usually based on
       per 100g serving
     type: NUMBER
   - name: vitaminAPerServingUom
-    regExp: ' g '
+    regExp: " g "
     description: Unit of Measure Data for Vitamin A
   - name: vitaminCPerServing
-    description: Nutritional Information for Vitamin C content - Usually based on
+    description:
+      Nutritional Information for Vitamin C content - Usually based on
       per 100g serving
     type: NUMBER
   - name: vitaminCPerServingUom
-    regExp: ' g '
+    regExp: " g "
     description: Unit of Measure Data for Vitamin C
   - name: calciumPerServing
-    description: Nutritional Information for Calcium content - Usually based on per
+    description:
+      Nutritional Information for Calcium content - Usually based on per
       100g serving
     type: NUMBER
   - name: calciumPerServingUom
-    regExp: ' g '
+    regExp: " g "
     description: Unit of Measure Data for Calcium
   - name: ironPerServing
     description: Nutritional Information for Iron content - Usually based on per
       100g serving
     type: NUMBER
   - name: ironPerServingUom
-    regExp: ' g '
+    regExp: " g "
     description: Unit of Measure Data for Iron
   - name: dietarySymbols
     description: Information related to the dietary symbols of a specific product
   - name: magnesiumPerServing
-    description: Nutritional Information for Magnesium content - Usually based on
+    description:
+      Nutritional Information for Magnesium content - Usually based on
       per 100g serving
     type: NUMBER
   - name: magnesiumPerServingUom
-    regExp: ' g '
+    regExp: " g "
     description: Unit of Measure Data for Magnesium
   - name: saltPerServing
     xpath: ancestor::html//span[contains(text(),"Nutrition Information")]/following-sibling::text()[contains(.,"Protein")]
@@ -344,7 +364,7 @@ fields:
       100g serving
     type: NUMBER
   - name: saltPerServingUom
-    regExp: ' g '
+    regExp: " g "
     xpath: ancestor::html//span[contains(text(),"Nutrition Information")]/following-sibling::text()[contains(.,"Protein")]
     description: Unit of Measure Data for Salt
   - name: dietaryInformation
@@ -357,13 +377,13 @@ fields:
     description: Guarantee associated with the product
   - name: storage
     description: Suggested storage location for product
-    xpath: ancestor::html//span[contains(text(),"Storage")]/following-sibling::text()[1] 
+    xpath: ancestor::html//span[contains(text(),"Storage")]/following-sibling::text()[1]
   - name: countryOfOrigin
     xpath: ancestor::html//span[contains(text(),"Country of Origin:")]/following-sibling::text()[1] | //h3[@id="product_important_info"]/following-sibling::p//span[contains(.,"Made in")]
     description: The country from which the product originates
-  - name: allergyAdvice
-    xpath: ancestor::html//text()[contains(.,"Allergy advice")] | //text()[contains(.,"Allergy advice")]/following-sibling::span[not(following-sibling::br[position()=1][not(following-sibling::span)])]
-    description: Allergy information associated with the product
+  # - name: allergyAdvice
+  #   xpath: ancestor::html//text()[contains(.,"Allergy advice")] | //text()[contains(.,"Allergy advice")]/following-sibling::span[not(following-sibling::br[position()=1][not(following-sibling::span)])]
+  #   description: Allergy information associated with the product
   - name: recyclingInformation
     description: Recycling information associated with the product
   - name: productOtherInformation
@@ -392,10 +412,12 @@ fields:
     description: In product page, information about a new version of the product
       (https://www.amazon.es/DODOT-Sensitive-Pa%C3%B1ales-Talla-240/dp/B01ELA8U0Q/ref=sr_1_4?__mk_es_ES=%C3%85M%C3%85%C5%BD%C3%95%C3%91&dchild=1&keywords=dodot%2B-%2Bpa%C3%B1ales%2Bpara%2Bni&qid=1589984387&sr=8-4&th=1)
   - name: newAsin
-    description: In product page, information about a new version of the product -
+    description:
+      In product page, information about a new version of the product -
       new asin info
   - name: newDescription
-    description: In product page, information about a new version of the product -
+    description:
+      In product page, information about a new version of the product -
       new desription info
   - name: variantInformation
     description: colour / scent / flavour / other

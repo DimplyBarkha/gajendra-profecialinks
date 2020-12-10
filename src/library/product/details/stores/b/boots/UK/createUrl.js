@@ -3,7 +3,7 @@ module.exports = {
   implements: 'product/details/createUrl',
   parameterValues: {
     domain: 'boots.ie',
-    url: 'https://www.boots.com/sitesearch?searchTerm={id}',
+    url: null,
     country: 'UK',
     store: 'boots',
     zipcode: '',
