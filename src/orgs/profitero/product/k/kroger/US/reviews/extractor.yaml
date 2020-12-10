@@ -1,0 +1,17 @@
+robot: product/reviews
+parameters:
+  store: kroger
+  country: US
+  domain: kroger.com
+proxy:
+  zone: USA
+  type: RESIDENTIAL
+policy:
+  numberRetries: 4
+  priority: MEDIUM
+  retryDelay: 60
+meta:
+  branches:
+    staging:
+      extractor: 9ffafb72-4da4-4a6c-ba39-a52ed3b7ad9a
+      legacyAccountId: b572b6fd-e824-454e-80e3-d5460bf31ad2
