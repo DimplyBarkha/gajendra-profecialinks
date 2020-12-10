@@ -1,4 +1,5 @@
 const { transform } = require('./shared');
+const { Helpers } = require('../../../../../../helpers/helpers');
 
 module.exports = {
   implements: 'product/details/extract',
@@ -15,6 +16,7 @@ module.exports = {
   ) => {
     const cssProduct = "div.search-page-content__products-tab-content ul.co-product-list__main-cntr li.co-item a[data-auto-id='linkProductTitle']";
     const cssProductDetails = 'div.pdp-main-details';
+    const helper = new Helpers(context);
     const isSelectorAvailable = async (cssSelector) => {
       console.log(`Is selector available: ${cssSelector}`);
       return await context.evaluate(function (selector) {
@@ -36,7 +38,7 @@ module.exports = {
       console.log(`productAvailable: ${productAvailable}`);
       if (productAvailable) {
         console.log('clicking product link');
-        await context.click(cssProduct);
+        await helper.ifThereClickOnIt(cssProduct);
         await context.waitForNavigation({ timeout: 10000, waitUntil: 'load' });
         await context.waitForSelector(cssProductDetails);
         const productDetailsAvailable = await isSelectorAvailable(cssProductDetails);
