@@ -10,7 +10,21 @@ module.exports = {
   },
   implementation: async ({ inputString }, { country, domain }, context, { productDetails }) => {
     await context.evaluate(() => {
+      function addHiddenDiv (id, text) {
+        const div = document.createElement('div');
+        div.id = id;
+        div.innerHTML = text;
+        document.body.appendChild(div);
+      }
+
       document.querySelector('.productDetail__image').click();
+      document.querySelectorAll('script').forEach(el => {
+        const match = el.innerHTML.match(/\[\'upcean\'\, \'[0-9]+\'\]/);
+        if (match && match.length) {
+          addHiddenDiv('gtin', match[0].replace(/\D/g, ''));
+        }
+        console.log('match', match);
+      });
     });
     return await context.extract(productDetails);
   },
