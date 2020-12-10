@@ -49,21 +49,41 @@ const transform = (data) => {
           }
           if(row.descriptionBullets){
             row.descriptionBullets = [{'text':row.descriptionBullets.length,'xpath':row.descriptionBullets[0].xpath}];
-          }
-          if(row.additionalDescBulletInfo){
-            let arr_info = [];
-            row.additionalDescBulletInfo.forEach(item=>{
-              arr_info.push(item.text);
-            });            
-            row.additionalDescBulletInfo = [{'text':'| '+arr_info.join(' | '),'xpath':row.additionalDescBulletInfo[0].xpath}];
-          }
+          }          
           if (row.specifications) {
             let info = [];          
             row.specifications.forEach(item => {
               info.push(item.text.replace(/(\s*\n\s*)+/g, ' : ').trim());            
             });          
             row.specifications = [{'text':info.join(' || '),'xpath':row.specifications[0].xpath}];          
-          }       
+          }
+          if (row.variantInformation) {
+            let info = [];          
+            row.variantInformation.forEach(item => {
+                info.push(item.text.replace(/(\s*\n\s*)+/g, ' | ').trim());            
+            });
+            row.variantInformation = [{'text':info.join(' | '),'xpath':row.variantInformation[0].xpath}];          
+          }
+          if (row.manufacturer) {            
+            row.manufacturer.forEach(item => {              
+              var matches = /window\.__myx\s*=\s*(.+)/isg.exec(item.text);
+              if (matches){
+                try {
+                  let json_data = JSON.parse(matches[1]);
+                  if (json_data["pdpData"]["manufacturer"]){                    
+                    item.text = json_data["pdpData"]["manufacturer"];                  
+                  }                
+                } catch (error) {                  
+                  delete row.manufacturer;
+                  return false;
+                }
+              }
+              else{
+                delete row.manufacturer;
+                return false;
+              }
+            });
+          }
         }
       }
       return cleanUp(data);

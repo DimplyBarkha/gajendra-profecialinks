@@ -21,7 +21,7 @@ fields:
     xpath: //div[@class='breadcrumbs-container']//a[@class='breadcrumbs-link' and position()>1]
   - name: nameExtended
     singleValue: false
-    xpath: concat(//div[@class='pdp-price-info']//h1[@class='pdp-name'],' - ',//div[@class='pdp-price-info']//h1[@class='pdp-title'])
+    xpath: concat(//div[@class='pdp-price-info']//h1[@class='pdp-title'],' - ',//div[@class='pdp-price-info']//h1[@class='pdp-name'])
   - name: listPrice
     singleValue: false
     xpath: //p[@class='pdp-discount-container']//span[@class='pdp-mrp']//s
@@ -45,7 +45,9 @@ fields:
     xpath: //div[@class='pdp-price-info']//h1[@class='pdp-title']  
   - name: quantity
     singleValue: false
-    xpath: //div[@id="sizeButtonsContainer"]//div[@class='size-buttons-size-buttons']//button//p[@class='size-buttons-unified-size']  
+    xpath: //div[@class='pdp-price-info']//h1[@class='pdp-name']
+    regExp: (?:\s?([\d\.]+\s?)([bB]ar[s]?|[cC]ount|[cC]t|[fF][lL][\.]?\s?[oO][zZ][\.]?|FO|[mM][lL]|[oO][zZ][\.]?|pc|[pP]int|[pP]ops|qt|[wW]ipe[s]?).?)$|(?:\s?([\d\.]+\s?)([bB]ar[s]?|[cC]ount|[cC]|[fF][lL][\.]?\s?[oO][zZ][\.]?|FO|[mM][lL]|[oO][zZ][\.]?|pc|[pP]int|[pP]ops|qt|[wW]ipe[s]?).?\s?[\&\-\w\s]+)$
+    regExpReplace: $1$2$3$4
   - name: sku
     singleValue: false
     xpath: //span[@class='supplier-styleId']
@@ -68,7 +70,7 @@ fields:
     defaultValue: '0'  
   - name: name
     singleValue: false
-    xpath: //div[@class='pdp-price-info']//h1[@class='pdp-name']  
+    xpath: //div[@class='pdp-price-info']//h1[@class='pdp-name']
   - name: coupon
     singleValue: false
     xpath: //ul[@class='pdp-offers-offerDesc']//li//span[@class='pdp-offers-boldText']  
@@ -78,10 +80,18 @@ fields:
   - name: countryOfOrigin
     singleValue: false
     xpath: //strong[contains(text(),'Country of origin')]/parent::div/following-sibling::div[@class='supplier-met-values']  
-  - name: additionalDescBulletInfo
-    singleValue: false
-    xpath: //div[@class='meta-container']//div[@class='meta-desc']
   - name: materials
     singleValue: false
     xpath: //div[@class='pdp-sizeFitDesc']//h4[text()='Material & Care']/following-sibling::p[@class='pdp-sizeFitDescContent pdp-product-description-content']
-    
+  - name: ingredientsList
+    singleValue: false
+    xpath: //p[@class='pdp-product-description-content']//b[text()='INGREDIENTS'][1]/following-sibling::text()[1]
+  - name: manufacturer
+    singleValue: false
+    xpath: //script[contains(text(),'pdpData') and contains(text(),'manufacturer')]/text()
+  - name: variantInformation
+    singleValue: false
+    xpath: //div[@id='sizeButtonsContainer']//div[@class='size-buttons-buttonContainer']//button//p[@class='size-buttons-unified-size']
+  - name: imageZoomFeaturePresent
+    singleValue: false
+    defaultValue: Yes
