@@ -51,9 +51,17 @@ const transform = (data) => {
       if (row.warnings) {
         let text = '';
         row.warnings.forEach(item => {
-          text = text + (text ? ' ' : '') + item.text;
+          text = text + (text ? ' ' : ' ') + item.text;
         });
         row.warnings = [{ text }];
+      }
+
+      if (row.directions) {
+        let text = '';
+        row.directions.forEach(item => {
+          text = text + (text ? ' ' : ' ') + item.text;
+        });
+        row.directions = [{ text }];
       }
 
       if (row.variants) {

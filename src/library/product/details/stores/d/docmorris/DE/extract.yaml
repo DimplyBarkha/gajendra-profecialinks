@@ -43,9 +43,9 @@ fields:
     xpath: (//table[@class="product-detail-table"]//td[contains(.,"Packungsgröße")]/following-sibling::td[1])[1]
   - name: legalDisclaimer
   - name: directions
-    xpath: ancestor::html//div[contains(.,"Anwendungsgebiete")]/parent::div/following-sibling::div[contains(@class,"accordion-content")][1]
+    xpath: ancestor::html//h2[contains(.,"Anwendungsgebiete")] | ancestor::html//div[contains(.,"Anwendungsgebiete")]/parent::div/following-sibling::div[contains(@class,"accordion-content")][1]
   - name: warnings
-    xpath: ancestor::html//div[contains(.,"Warnhinweise")]/parent::div/following-sibling::div[contains(@class,"accordion-content")][1] | //div[@class="risikenhinweis"]
+    xpath: ancestor::html//h2[contains(.,"Warnhinweise")] | ancestor::html//div[contains(.,"Warnhinweise")]/parent::div/following-sibling::div[contains(@class,"accordion-content")][1] | //div[@class="risikenhinweis"]
   - name: ratingCount
     xpath: //div[@class="product-description"]//div[@class="rating__wrap"]//span[@class="rating__totalCount"]
   - name: reviewCount
