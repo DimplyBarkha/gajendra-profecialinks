@@ -14,17 +14,6 @@ module.exports = {
     const { transform } = parameters;
     const { productDetails } = dependencies;
     await context.evaluate(() => {
-      // if (
-      //   document.querySelector(
-      //     ".btn.btn-none.hz-universal-search-header-tip__dismiss"
-      //   ) != null
-      // ) {
-      //   document
-      //     .querySelector(
-      //       ".btn.btn-none.hz-universal-search-header-tip__dismiss"
-      //     )
-      //     .click();
-      // }
       function addHiddenDiv(id, content, index) {
         const newDiv = document.createElement("div");
         newDiv.id = id;
