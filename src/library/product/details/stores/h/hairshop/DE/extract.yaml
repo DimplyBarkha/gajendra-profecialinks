@@ -30,11 +30,12 @@ fields:
   - name: listPrice
     singleValue: true
     description: The stated undiscounted price for the product
+    xpath: //div[@class='product-offer']/div/div/div[@class='price-box']/p[@class='old-price']/span[@class='price']
   - name: price
     singleValue: true
     description: The offered price for the selected product variant - if a user
       clicks add to basket this is the price they would be charged
-    xpath: //div[@class='product-offer']/div/div/div[@class='price-box']/span[@class='regular-price']/span[@class='price']  
+    xpath: //div[@class='product-offer']/div/div/div[@class='price-box']/span[@class='regular-price']/span[@class='price']|//div[@class='product-offer']/div/div/div[@class='price-box']/p[@class='special-price']/span[@class='price']
   - name: availabilityText
     singleValue: true
     description: Availability as described on page for the selected variant. If
