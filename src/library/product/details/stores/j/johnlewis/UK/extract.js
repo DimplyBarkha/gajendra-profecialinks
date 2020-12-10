@@ -9,7 +9,66 @@ module.exports = {
     zipcode: '',
   },
   implementation: async ({ inputString }, { country, domain, transform: transformParam }, context, { productDetails }) => {
+    try {
+      await context.waitForSelector('button[data-test="allow-all"]');
+      await context.click('button[data-test="allow-all"]');
+    } catch(e) {
+      console.log('No cookies box')
+    }
+
+    try {
+      await context.waitForSelector('section[data-test="product-card"] img');
+      await context.click('h2[class*=title_title]');
+      let a = await context.evaluate(()=>{
+        return (document.querySelector('section[data-test="product-card"] a').getAttribute('href'));
+      });
+      console.log(a);
+      await context.waitForNavigation();
+      await context.waitForSelector('.product-page img');
+    } catch (err) {
+      console.log('No result found');
+    }
+
+    async function scrollToRec (node) {
+      await context.evaluate(async function (node) {
+        var element = (document.querySelector(node)) ? document.querySelector(node) : null;
+        if (element) {
+          element.scrollIntoView({ behavior: 'smooth', block: 'end', inline: 'nearest' });
+          await new Promise((resolve) => {
+            setTimeout(resolve, 7000);
+          });
+        }
+      }, node);
+    }
+    await scrollToRec('div.product-breadcrumb-carousel__container');
+    await scrollToRec('jl-recommendations-panel');
+    // const recProducts = await context.evaluate(async function () {
+    //   console.log(document.querySelector('jl-recommendations-panel'))
+    //   console.log(document.querySelector('jl-recommendations-panel').recommendationGroups)
+    //   const recommendations = document.querySelector('jl-recommendations-panel') ? document.querySelector('jl-recommendations-panel').recommendationGroups : null;
+    //   const products = [];
+    //   if (recommendations && recommendations.length) {
+    //     const products = recommendations[0].recommendedProducts;
+    //     products.forEach(element => {
+    //       products.push(element.title);
+    //     });
+    //   }
+    //   return products;
+    // });
     await context.evaluate(async function () {
+      // async function infiniteScroll () {
+      //   let prevScroll = document.documentElement.scrollTop;
+      //   while (true) {
+      //     window.scrollBy(0, document.documentElement.clientHeight);
+      //     await new Promise(resolve => setTimeout(resolve, 1000));
+      //     const currentScroll = document.documentElement.scrollTop;
+      //     if (currentScroll === prevScroll) {
+      //       break;
+      //     }
+      //     prevScroll = currentScroll;
+      //   }
+      // }
+      // await infiniteScroll();
       function addElementToDocument(key, value) {
         const catElement = document.createElement('div');
         catElement.id = key;
@@ -33,6 +92,13 @@ module.exports = {
         }
         return result;
       };
+      const recommenProducts = [...document.querySelector('jl-recommendations-panel').shadowRoot.querySelectorAll('section[data-test="product-card"] h2[class^="title"]')];
+      console.log(recommenProducts);
+
+      recommenProducts.forEach(element => {
+        addElementToDocument('ii_recommended_products', element);
+      });
+
       var Description = getAllXpath("//div[@class='product-detail__description-inner']/p[position()>1]/text()", 'nodeValue');
       if (Description != null) {
         var ppp = Description.join(" || ")
@@ -78,15 +144,14 @@ module.exports = {
       }
 
       var rrr = getXpath("//p[@class='u-centred']/text() | //h2[@class='email-me-stock__header']/text()", 'nodeValue');
-      if (rrr!=null){
-        if (rrr.includes("in stock")){
-        rrr="In Stock"
-    }else{
-        rrr="Out of Stock"
-
+      if (rrr != null) {
+        if (rrr.includes("in stock")) {
+          rrr="In Stock";
+        } else {
+          rrr="Out of Stock";
+        }
+        addElementToDocument('stock', rrr);
       }
-      addElementToDocument('stock', rrr);
-    }
     });
     await context.extract(productDetails, { transform: transformParam });
   },
