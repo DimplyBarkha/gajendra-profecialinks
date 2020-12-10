@@ -1,0 +1,105 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: //ul[@id="variantsadd" and count(li)  >= 1]/li |  //ul[@id="variantsadd" and count(li) < 1]
+fields:
+  - name: ratingCount
+    singleValue: true    
+    xpath: //*/@sk_ratingcount  
+  - name: aggregateRating
+    singleValue: true 
+    xpath: //*/@sk_aggregaterating 
+  - name: image
+    singleValue: true 
+    xpath: //*/@sk_image   
+  - name: imageAlt
+    singleValue: true   
+    xpath: //*/@sk_image_alt 
+  - name: alternateImages
+    singleValue: false
+    xpath: //*/@sk_alternateimages
+  - name: secondaryImageTotal
+    singleValue: false
+    xpath: count(ancestor::html //section[@class='UI KIT-bop__gallery']//ul/li[position()>1]/img/@src)
+    type: NUMBER
+  - name: metaKeywords
+    singleValue: true   
+    xpath: ancestor::html //meta[@name="keywords"]/@content
+  - name: category
+    singleValue: false  
+    xpath: ancestor::html //nav[contains(@class,'KIT-breadcrumb')]/div[@class='UI KIT-container']/div[position()>1]
+  - name: nameExtended
+    singleValue: true    
+    xpath: //*/@sk_nameextended
+  - name: name
+    singleValue: true   
+    xpath: //*/@sk_nameextended 
+  - name: listPrice
+    singleValue: true  
+    xpath: //*/@sk_listprice    
+  - name: price
+    singleValue: true   
+    xpath: //*/@sk_price    
+  - name: availabilityText
+    singleValue: true    
+    xpath: //*/@sk_availabilitytext    
+    defaultValue: Out of Stock
+  - name: description
+    singleValue: false   
+    xpath: //*/@sk_description 
+  - name: brandText
+    singleValue: true   
+    xpath: //*/@sk_brand  
+  - name: quantity
+    singleValue: true   
+    xpath: //*/@sk_size
+  - name: packSize
+    singleValue: true   
+    xpath: //*/@sk_pack_size
+  - name: sku
+    singleValue: true
+    xpath: //*/@sk_sku
+  - name: variantId
+    singleValue: true   
+    xpath: //*/@sk_variantid  
+  - name: directions
+    singleValue: true
+    xpath: //*/@sk_instructions   
+  - name: variantCount
+    singleValue: true 
+    xpath: //*/@sk_variantcount
+    type: NUMBER
+    defaultValue: 0  
+  - name: videos
+    singleValue: false
+    xpath: ancestor::html //iframe[contains(@src,"youtube")]/@src  
+  - name: productUrl
+    singleValue: true   
+    xpath: ancestor::html //meta[@property="og:url"]/@content
+  - name: ingredientsList
+    singleValue: true    
+    xpath: //*/@sk_ingredients  
+  - name: storage
+    singleValue: true
+    xpath: //h3[normalize-space(text())="Storage Information"]/following-sibling::div[1]/text() 
+  - name: pricePerUnit
+    singleValue: true 
+    xpath: //*/@sk_unit_price    
+  - name: pricePerUnitUom
+    singleValue: true
+    xpath:  //*/@sk_unit_code
+  - name: promotion
+    singleValue: true
+    xpath: //*/@sk_saving  
+  - name: variantInformation
+    singleValue: true  
+    xpath: //*/@sk_variantinformation
+  - name: firstVariant
+    singleValue: true    
+    xpath: //*/@sk_firstvariant
+  - name: variants
+    singleValue: false
+    xpath: //*/@sk_variantdetails  
+  - name: imageZoomFeaturePresent
+    singleValue: true
+    defaultValue: Yes

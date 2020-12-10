@@ -1,0 +1,27 @@
+regionsSelector: null
+recordSelector: null
+fields:
+  - name: id
+    xpath: //div[@data-test="product-list-scroller"]//div[@data-test="fop-container"]/@data-sku
+  - name: name
+    xpath: //div[@data-test="product-list-scroller"]//div[@data-test="fop-container"]//a[@data-test="link-to-bop"]/@title
+  - name: productUrl
+    xpath: //div[@data-test="product-list-scroller"]//div[@data-test="fop-container"]//a[@data-test="link-to-bop"]/@href
+    regExp: (.+)
+    regExpReplace: https://fetch.co.uk$1
+  - name: reviewCount
+  - name: thumbnail
+    xpath: //div[@data-test="product-list-scroller"]//img[@data-image="fop-image"]/@src
+    regExp: (.+)
+    regExpReplace: https:$1
+  - name: ratingCount    
+  - name: aggregateRating
+    xpath: //div[@data-test="product-list-scroller"]//div[@data-test="fop-container"]//dl[@class="bv-stars-container"]//span[@class="bv-off-screen"]/text()
+    regExp: (.+)?( out of.*|No rating.*)
+    regExpReplace: '$1'
+  - name: price
+    xpath: //div[@data-test="product-list-scroller"]//span[@data-test="product-final-price"]/text() 
+  - name: rankOrganic
+  - name: rank
+  - name: sponsored
+    defaultValue: false
