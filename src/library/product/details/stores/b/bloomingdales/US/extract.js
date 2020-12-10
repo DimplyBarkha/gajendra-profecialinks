@@ -48,6 +48,10 @@ module.exports = {
         const directions = description.split('HOW TO USE IT')[1];
         addElementToDocument('added_directions', 'HOW TO USE IT' + directions);
       }
+      if (description != null && description.includes('HOW TO APPLY')) {
+        const directions = description.split('HOW TO APPLY')[1];
+        addElementToDocument('added_directions2', 'HOW TO APPLY' + directions);
+      }
       if (description != null && description.includes('KEY INGREDIENTS')) {
         const directions = description.split('KEY INGREDIENTS')[1];
         addElementToDocument('added_ingredients', 'KEY INGREDIENTS' + directions);

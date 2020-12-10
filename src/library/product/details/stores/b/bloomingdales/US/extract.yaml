@@ -14,13 +14,11 @@ fields:
   singleValue: false
 - name: image
   singleValue: true
-  xpath: //div[@class="slick-slide slick-current slick-active"]//div//li[@class="main-image first-image"]//picture//img//@src | //ul[@class="slider no-bullet"]//li[@class="main-image first-image"]//picture//img//@src | //div[@class="top"]//img[@class="unavailable-image small"]/@src
-  regExp: (.+)(\?)
-  regExpReplace: $1
+  xpath: //li[@class="main-image first-image"]/picture//img/@src | //div[@class="top"]//img[@class="unavailable-image small"]/@src
   description: URL of the main product image
 - name: imageAlt
   singleValue: true
-  xpath: //div[@class="slick-slide slick-current slick-active"]//div//li[@class="main-image first-image"]//picture//img//@alt
+  xpath: //li[@class="main-image first-image"]/picture//img/@alt | //div[@class="top"]//img[@class="unavailable-image small"]/@alt
   description: Alt text of the main product image
 - name: alternateImages
   singleValue: false
@@ -97,7 +95,7 @@ fields:
   description: Content under "legal disclaimer" header
 - name: directions
   singleValue: true
-  xpath: //div[@id="added_directions"]/text()
+  xpath: //div[@id="added_directions"]/text() | //div[@id="added_directions2"]/text()
   description: Content under "directions" header
 - name: warnings
   singleValue: true
