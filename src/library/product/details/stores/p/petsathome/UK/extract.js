@@ -15,52 +15,13 @@ module.exports = {
     dependencies,
   ) => {
     await context.evaluate(async function () {
-      var finalArray = [];
+      
       var firstVariant = document.querySelector('ul.selector__list li input');
       if (firstVariant) {
         // @ts-ignore
         firstVariant.click();
       }
-      function removeHeader(text) {
-        if (text) {
-          return text.split(':')[1].trim();
-        } else {
-          return '';
-        }
-      }
-      function getElementsByXPath(xpath, parent) {
-        const results = [];
-        const query = document.evaluate(xpath, parent || document,
-          null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
-        for (let i = 0, length = query.snapshotLength; i < length; ++i) {
-          const node = query.snapshotItem(i) && query.snapshotItem(i).textContent && query.snapshotItem(i).textContent.trim();
-          results.push(node);
-        }
-        return results.filter(e => e);
-      }
-      const dataArr = getElementsByXPath('//div[@id="pdp-accordion__description"]/text() | //div[@id="pdp-accordion__nutrition"]/text()');
-      var ingredient = removeHeader(dataArr && dataArr.find(e => e.includes('Ingredients')));
-      var direction = removeHeader(dataArr.find(e => e.includes('Feeding Guide')));
-      var dimensions = removeHeader(dataArr.find(e => e.includes('Approximate Dimensions')));
-      var obj = {ingredient,direction,dimensions };
-      finalArray.push(obj);
-      if (finalArray) {
-        for (const key in finalArray[0]) {
-            document.body.setAttribute(key, finalArray[0][key]);
-        }
-    }
-      // if (ingredient) {
-      //   document.querySelector('h1').setAttribute('ingredient', ingredient);
-      // }
 
-      // if (direction) {
-      //   document.querySelector('h1').setAttribute('direction', direction);
-      // }
-
-
-      // if (dimensions) {
-      //   document.querySelector('h1').setAttribute('dimensions', dimensions);
-      // }
 
       function timeout(ms) {
         return new Promise((resolve) => setTimeout(resolve, ms));
@@ -90,6 +51,35 @@ module.exports = {
         newlink.textContent = elm;
         document.body.appendChild(newlink);
     })
+      // var finalArray = [];
+    //   function removeHeader(text) {
+    //     if (text) {
+    //       return text.split(':')[1].trim();
+    //     } else {
+    //       return '';
+    //     }
+    //   }
+    //   function getElementsByXPath(xpath, parent) {
+    //     const results = [];
+    //     const query = document.evaluate(xpath, parent || document,
+    //       null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
+    //     for (let i = 0, length = query.snapshotLength; i < length; ++i) {
+    //       const node = query.snapshotItem(i) && query.snapshotItem(i).textContent && query.snapshotItem(i).textContent.trim();
+    //       results.push(node);
+    //     }
+    //     return results.filter(e => e);
+    //   }
+    //   const dataArr = getElementsByXPath('//div[@id="pdp-accordion__description"]/text() | //div[@id="pdp-accordion__nutrition"]/text()');
+    //   var ingredient = removeHeader(dataArr && dataArr.find(e => e.includes('Ingredients')));
+    //   var direction = removeHeader(dataArr.find(e => e.includes('Feeding Guide')));
+    //   var dimensions = removeHeader(dataArr.find(e => e.includes('Approximate Dimensions')));
+    //   var obj = {ingredient,direction,dimensions };
+    //   finalArray.push(obj);
+    //   if (finalArray) {
+    //     for (const key in finalArray[0]) {
+    //         document.body.setAttribute(key, finalArray[0][key]);
+    //     }
+    // }    
     });
     const { transform } = parameters;
     const { productDetails } = dependencies;

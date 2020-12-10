@@ -7,34 +7,27 @@
 const transform = (data) => {
     for (const { group } of data) {
       for (const row of group) {
-        if (row.nameExtended) {
-          let text = '';
-          row.nameExtended.forEach(item => {
-            text = item.text.replace(/,/g,'');
-          });
-          row.nameExtended = [
-            {
-              text: text,
-            },
-          ];
-        }
-        if (row.promotion) {
-          let text = '';
-          row.promotion.forEach(item => {
-            text = row.promotion.map(elm => elm.text).join('');
-          });
-          row.promotion = [
-            {
-              text: text,
-            },
-          ];
-        }
         if (row.variants) {
           let text = '';
           row.variants.forEach(item => {
             text = row.variants.map(elm => elm.text).join(' | ');
           });
           row.variants = [
+            {
+              text: text,
+            },
+          ];
+        } 
+        if (row.vitaminAPerServingUom) {
+          let text = '';
+          row.vitaminAPerServingUom.forEach(item => {
+            if(item.text.includes('-?/')) {
+              text = item.text.match(/(\w+)/g)[0];
+            }else{
+              text = row.vitaminAPerServingUom[0].text;
+            }
+          });
+          row.vitaminAPerServingUom = [
             {
               text: text,
             },

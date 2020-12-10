@@ -4,9 +4,7 @@ recordSelector: null
 recordXPath: null
 fields:
   - name: image
-    xpath: //img[@class="pdp-image-viewer__img"]/@data-zoom
-    regExp: (.+)
-    regExpReplace: https:$1
+    xpath: //img[@class="pdp-image-viewer__img"]/@src
   - name: alternateImages
     xpath: //ul[@class="pdp-image-viewer__tn-list"]//li[position()>1]/@data-zoom
     regExp: (.+)
@@ -22,10 +20,10 @@ fields:
   - name: listPrice
     xpath: //span[@class="pdp-price__was"]
   - name: availabilityText
-    xpath: //div[@id="add-to-basket__inner_cc"]//div[contains(@class,"add-to-basket__btn-row_otp")]//a[@id="add_to_cart"]
+    xpath: //span[contains(text(),'Delivery is not available')]
     regExp: (.+)
-    regExpReplace: In Stock
-    defaultValue: Out of Stock
+    regExpReplace: Out of Stock
+    defaultValue: In Stock
   - name: description
     xpath: //div[@id="pdp-accordion__description"]
   - name: variantId
@@ -47,7 +45,7 @@ fields:
     regExp: Rated(.+)\sout of
     regExpReplace: $1
   - name: ingredientsList
-    xpath: //h1/@ingredient
+    xpath: //*[@id="pdp-accordion__nutrition"]//br/preceding::text()[contains(.,"Composition") or contains(.,"composition")]
   - name: promotion
     xpath: //em[@class="pdp-price__you-save-amount"]
   - name: firstVariant
@@ -61,7 +59,19 @@ fields:
   - name: weightNet
     xpath: //ul[@class="selector__list"]//li[position()<2]//span | //span[contains(text(),'Weight')]/following-sibling::span[not(contains(text(),'Please select'))]
   - name: shippingDimensions
-    xpath: //h1/@dimensions
+    xpath: //*[@id="pdp-accordion__description"]//br/following-sibling::text()[contains(.,"Dimensions")]
+    regExp: (:)\s(.+)
+    regExpReplace: $2
+  - name: directions
+    xpath: //*[@id="pdp-accordion__nutrition"]//br/following-sibling::text()[contains(.,"Feeding")]
+  - name: pricePerUnit
+    xpath: //span[@class="pdp-price__weight"]
+    regExp: (\()(.+)(/)(.+)(\))
+    regExpReplace: $2
+  - name: pricePerUnitUom
+    xpath: //span[@class="pdp-price__weight"]
+    regExp: (\()(.+)(/)(.+)(\))
+    regExpReplace: $4
     # serving
   - name: proteinPerServing 
     xpath: //div[@id="pdp-accordion__nutrition"]/text()
@@ -89,10 +99,20 @@ fields:
     regExpReplace: $3
   - name: vitaminAPerServing 
     xpath: //div[@id="pdp-accordion__nutrition"]/text()
-    regExp: (.+Vitamin\sD3:\s)(\d+\s\w+)(.+)
+    regExp: (Vitamin )([A])(:)?(\s)?(\d+)(\s)?(iu|IU|-\?\/kg)
+    regExpReplace: $5
   - name: vitaminAPerServingUom 
     xpath: //div[@id="pdp-accordion__nutrition"]/text() 
-    regExp: (.+Vitamin\sD3:\s)(\d+\s\w+)(.+)
+    regExp: (Vitamin )([A])(:)?(\s)?(\d+)(\s)?(iu|IU|-\?\/kg)
+    regExpReplace: $7
+  - name: ironPerServing 
+    xpath: //div[@id="pdp-accordion__nutrition"]/text() 
+    regExp: (.+Iron((\W\W\s)|(\s\(\w+\):\s)))([0-9.]+)(\s?\w+)(.+)
+    regExpReplace: $5
+  - name: ironPerServingUom
+    xpath: //div[@id="pdp-accordion__nutrition"]/text() 
+    regExp: (.+Iron((\W\W\s)|(\s\(\w+\):\s)))([0-9.]+)(\s?\w+)(.+)
+    regExpReplace: $6
     # //static
   - name: technicalInformationPdfPresent
     defaultValue: No
