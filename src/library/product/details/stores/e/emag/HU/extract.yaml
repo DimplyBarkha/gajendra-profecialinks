@@ -1,6 +1,6 @@
 singleRecord: false
 regionsSelector: null
-recordSelector: null
+recordSelector: html
 recordXPath: null
 fields:
 - name: _input
@@ -9,59 +9,72 @@ fields:
   singleValue: false
 - name: productUrl
   singleValue: false
+  xpath: //div[@class="disclaimer-section"]/p/a/@url
 - name: _pageTimeStamp
   singleValue: false
 - name: image
   singleValue: true
   description: URL of the main product image
+  xpath: (//div[@data-ph-id="image-0"]/a/@href)[1]
 - name: imageAlt
   singleValue: true
   description: Alt text of the main product image
 - name: alternateImages
   singleValue: false
   description: Other product images (not in manufacturer description)
+  xpath: //div[@class="ph-body"]/div[@class="thumbnail-wrapper ph-card"]/a/img[@referrerpolicy="unsafe-url"]/@src
 - name: metaKeywords
   singleValue: true
   description: The <meta> keywords content
 - name: category
   singleValue: false
   description: The categories (e.g. from breadcrumbs)
+  xpath: //ol[@class="breadcrumb"]/li
 - name: nameExtended
-  singleValue: true
+  singleValue: false
   description: The product name, prefixing "${brand} - " if not included in "name"
     and appending " - ${variantType}" if necessary (fixed per feed)
+  xpath: //h1[@class="page-title"]
 - name: listPrice
-  singleValue: true
+  singleValue: false
   description: The stated undiscounted price for the product
+  xpath: //div[@class="product-highlight product-page-pricing"]/descendant::p[@class="product-old-price"]
+  regExp: '.*F'
 - name: price
-  singleValue: true
+  singleValue: false
   description: The offered price for the selected product variant - if a user clicks
     add to basket this is the price they would be charged
+  xpath: //div[@class="product-highlight product-page-pricing"]/descendant::p[@class="product-new-price"]
 - name: availabilityText
   singleValue: true
   description: Availability as described on page for the selected variant. If there
     is no availability but the product can be added to cart, this field should be
     "In Stock"
+  defaultValue: "In Stock"
 - name: description
   singleValue: false
   description: Product description supplied by website - may be concatenanted from
     multiple places; specifically not the manufacturer description
 - name: descriptionBullets
-  singleValue: true
+  singleValue: false
   description: Number of ul > li tags in the description
 - name: brandText
-  singleValue: true
+  singleValue: false
   description: Product brand shown - this may actually NOT be just a brand name, e.g.
     "Visit the Gillette Store"
+  xpath: //div[@class="disclaimer-section"]/p/a
 - name: manufacturer
-  singleValue: true
+  singleValue: false
   description: Product manufacturer
+  xpath: //div[@class="disclaimer-section"]/p/a
 - name: quantity
-  singleValue: true
+  singleValue: false
   description: Quantity as described on the page
+  xpath: //table[@class="table table-striped product-page-specifications"]/descendant::td[contains(., 'Darabok száma')]/following-sibling::td
 - name: weightNet
-  singleValue: true
+  singleValue: false
   description: Net weight as described on the page
+  xpath: //table[@class="table table-striped product-page-specifications"]/descendant::td[contains(., 'Súly')]/following-sibling::td
 - name: weightGross
   singleValue: true
   description: Gross weight as described on the page
@@ -69,19 +82,27 @@ fields:
   singleValue: true
   description: GTIN code (includes UPC/EAN)
 - name: sku
-  singleValue: true
+  singleValue: false
   description: The store-specific product identifier
+  xpath: //span[@class="product-code-display pull-left"]
+  regExp: ': (.*)'
+  regExpReplace: $1
 - name: variantId
-  singleValue: true
+  singleValue: false
   description: Identifier for a variant from a store where variants share the same
     sku
+  xpath: //span[@class="product-code-display pull-left"]
+  regExp: ': (.*)'
+  regExpReplace: $1
 - name: mpc
   singleValue: tru
   description: The manufacturer model code (unique) of the product
+  xpath: //button[@type="submit"][@data-product-type="main"]/@data-offer-id
 - name: packSize
-  singleValue: true
+  singleValue: false
   description: The number of packs in the product offer (if stated separately on the
     site to quantity)
+  xpath: //table[@class="table table-striped product-page-specifications"]/descendant::td[contains(., 'Darabszám/szet')]/following-sibling::td
 - name: legalDisclaimer
   singleValue: true
   description: Content under "legal disclaimer" header
@@ -94,15 +115,19 @@ fields:
 - name: ratingCount
   singleValue: true
   description: The number of ratings
+  xpath: //small[@class="hidden-xs"]
+  regExp: '[0-9]\w+'
 - name: aggregateRatingText
   singleValue: true
   description: The stated aggregate rating
 - name: aggregateRating
   singleValue: true
   description: The stated aggregate rating normalized to be out of 5
+  xpath: //span[@class="star-rating-text gtm_rp101318"]
 - name: shippingInfo
   singleValue: true
   description: Shipping information for the product
+  xpath: //div[@class="product-highlight product-page-pricing"]/span
 - name: shippingDimensions
   singleValue: true
   description: Stated shipping dimensions
@@ -110,29 +135,36 @@ fields:
   singleValue: true
   description: Stated shipping weight
 - name: variantCount
-  singleValue: true
+  singleValue: false
   description: Number of variants listed
+  xpath: count(//ul[@class="page-product-options-group list-inline"]/li)
 - name: color
   singleValue: true
   description: A textual description of the colour
+  xpath: //table[@class="table table-striped product-page-specifications"]/descendant::td[contains(., 'Szín')]/following-sibling::td
 - name: colorCode
   singleValue: true
   description: A code description of the color (e.g. RGB hex)
 - name: manufacturerDescription
   singleValue: false
   description: The extended description of the product supplied by the lister
+  xpath: //div[@id="description-body"]
 - name: manufacturerImages
   singleValue: false
   description: Images within the third party description
+  xpath: //div[@id="description-body"]/descendant::img/@src
 - name: videos
   singleValue: false
   description: URLs of videos on page
+  xpath: //div[@id="description-body"]/descendant::iframe/@src | //video/@src
 - name: name
-  singleValue: true
+  singleValue: false
   description: The product name
+  xpath: //h1[@class="page-title"]
 - name: inStorePrice
-  singleValue: true
+  singleValue: false
   description: Price in the selected store
+  xpath: //div[@class="product-highlight product-page-pricing"]/descendant::p[@class="product-new-price"]
 - name: asin
   singleValue: true
   description: 
@@ -146,8 +178,9 @@ fields:
   singleValue: true
   description: Text of link next to Amazon choice graphic
 - name: brandLink
-  singleValue: true
+  singleValue: false
   description: 
+  xpath: //div[@class="disclaimer-section"]/p/a/@brandlink
 - name: internationalShipping
   singleValue: true
   description: Text next to bullet point
@@ -219,7 +252,8 @@ fields:
   description: 
 - name: secondaryImageTotal
   singleValue: true
-  description: 
+  description:
+  xpath: count(//div[@class="ph-body"]/div[@class="thumbnail-wrapper ph-card"]/a/img[@referrerpolicy="unsafe-url"]/@src)
 - name: news
   singleValue: true
   description: 
@@ -362,11 +396,13 @@ fields:
   singleValue: true
   description: 
 - name: specifications
-  singleValue: true
+  singleValue: false
   description: The physical dimensions of the product including packaging.
+  xpath:  //table[@class="table table-striped product-page-specifications"]/descendant::td[contains(., 'Méretek')]/following-sibling::td | //p[contains(., "Méretek")]/following::div[@class="table-responsive"]
 - name: warranty
   singleValue: true
   description: Guarantee associated with the product
+  xpath:  //div[@class="product-highlight panel-benefits"]/ul/li[contains(., 'Termékgarancia')]
 - name: storage
   singleValue: true
   description: Suggested storage location for product
@@ -397,6 +433,7 @@ fields:
 - name: promotion
   singleValue: true
   description: promotion text on product page
+  xpath: (//div[@data-product-type="discount"])[1]
 - name: alcoholContent
   singleValue: true
   description: Alcohol content information
@@ -412,8 +449,9 @@ fields:
   description: In product page, information about a new version of the product - new
     desription info
 - name: variantInformation
-  singleValue: true
+  singleValue: false
   description: colour / scent / flavour / other
+  xpath: //div[@class="family-options-panel"]/div/p
 - name: firstVariant
   singleValue: true
   description: Unique identifier for a collection of variants. For a subset of core
@@ -424,12 +462,15 @@ fields:
     to populate "first_variant" for all variants of a product, this rpc becomes the
     common link between other variants. method 3 = apply some logic to determine link
     between variants, this will need analysis
+  xpath: (//ul[@class="page-product-options-group list-inline"]/li)[1]
 - name: variants
   singleValue: false
   description: 
+  xpath: //div[@class="family-options-panel"]/div/ul/li
 - name: additionalDescBulletInfo
   singleValue: false
   description: 
+  xpath: count(//div[@id="description-body"]/descendant::ul/li)
 - name: prop65Warning
   singleValue: true
   description: 
@@ -441,6 +482,7 @@ fields:
   singleValue: true
   description: Energy rating of a product. https://www.amazon.de/Siemens-WM16W541-Waschmaschine-Schnellwaschprogramm-Nachlegefunktion/dp/B015FJFK14
   example: A+, A+++, B
+  xpath: //table[@class="table table-striped product-page-specifications"]/descendant::td[contains(., 'Energiahatékonysági osztály')]/following-sibling::td
 - name: technicalInformationPdfPresent
   singleValue: true
   description: If there is for example a manual in pdf format on the website. ['Yes','No']
@@ -461,6 +503,7 @@ fields:
 - name: materials
   singleValue: true
   description: Materials used to make the product
+  xpath: //div[@class="pad-top-sm"][contains(., 'Részletek az anyagról')]/div/table
   example: https://www.jdsports.co.uk/product/blue-adidas-linear-20-reversible-wind-breaker-jacket/15988125/
 - name: Image360Present
   singleValue: true

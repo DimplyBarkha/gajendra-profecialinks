@@ -5,8 +5,8 @@ module.exports = {
     country: 'HU',
     store: 'emag',
     domain: 'emag.hu',
-    loadedSelector: null,
-    noResultsXPath: null,
+    loadedSelector: '.page-skin-inner',
+    noResultsXPath: '//div[@class="big-box err404"]',
     zipcode: '',
   },
 };
