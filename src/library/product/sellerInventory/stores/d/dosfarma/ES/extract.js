@@ -17,7 +17,7 @@ async function getStockFunc ({ context }) {
     });
     console.log('response', response);
     const json = await response.json();
-    const stock = json.cart.products.find(prod => prod.id_product === productId).stock_quantity;
+    const stock = json.cart ? json.cart.products.find(prod => prod.id_product === productId).stock_quantity : 0;
     document.body.setAttribute('stock', stock);
     return stock;
   }
