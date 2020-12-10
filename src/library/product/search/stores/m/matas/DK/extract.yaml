@@ -1,7 +1,7 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: null
+recordXPath: //div[@class="productlist__item col-xs-6 col-md-4 col-lg-3 col-xl-3"]
 # //div[@class="productlist__item col-xs-6 col-md-4 col-lg-3 col-xl-3"]
 fields: 
   - name: id
@@ -51,4 +51,4 @@ fields:
     singleValue: false
   - name: searchUrl
     singleValue: false
-    xpath: ancestor::html//div[@id="pd_url"]
+    # xpath: ancestor::html//div[@id="pd_url"]

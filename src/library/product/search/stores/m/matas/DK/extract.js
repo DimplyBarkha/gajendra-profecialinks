@@ -59,12 +59,12 @@ module.exports = {
         var priceUpdated = price.replace(",", ".");
         addHiddenDiv("price", priceUpdated, i);
       }
-      const URL = window.location.href;
-    try {
-      document.getElementById('pd_url').remove();
-    } catch (error) {
-    }
-    addElementToDocument('pd_url', URL);
+    //   const URL = window.location.href;
+    // try {
+    //   document.getElementById('pd_url').remove();
+    // } catch (error) {
+    // }
+    // addElementToDocument('pd_url', URL);
     });
     return await context.extract(productDetails, { transform });
   },
