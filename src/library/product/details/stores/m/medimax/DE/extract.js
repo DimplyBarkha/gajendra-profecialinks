@@ -116,7 +116,12 @@ async function implementation(
             if (image && image.length) {
                 addHiddenInfo('ii_manufContentImg', image.join(' || '));
             }
-            return await context.extract(productDetails, { type: 'MERGE_ROWS', transform });
+            await context.waitForFunction(function (sel) {
+                return Boolean(document.querySelector(sel));
+            }, { timeout: 20000 }, 'body');
+          
+            // return await context.extract(productDetails, { transform });
+            // return await context.extract(productDetails, { type: 'MERGE_ROWS', transform });
         } catch (error) {
             try {
                 await context.evaluate(async function(src) {
@@ -128,6 +133,7 @@ async function implementation(
                 console.log(err);
             }
         }
+        return await context.extract(productDetails, { transform });
     }
 }
 
