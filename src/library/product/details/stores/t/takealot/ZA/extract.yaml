@@ -1,0 +1,100 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: /html/body
+fields:
+  - name: image
+    singleValue: false
+    xpath: //div[contains(@class,"swiper-slide-active")]/div[contains(@class,"pdp-gallery-module_main-gallery-photo_3gh0y")]/img/@src
+  - name: imageAlt
+    singleValue: false
+    xpath: //div[contains(@class,"swiper-slide-active")]/div[contains(@class,"pdp-gallery-module_main-gallery-photo_3gh0y")]/img/@alt
+  - name: alternateImages
+    singleValue: false
+    xpath: //div[@class="pdp-gallery-module_thumb-wrapper_30oA3" and position()>1]/div/img/@src
+  - name: category
+    singleValue: false
+    xpath: //div[@class="bread-crumbs-module_bread-crumbs_3U_RQ"]//a
+  - name: nameExtended
+    singleValue: false
+    xpath: //div[@class="product-title"]//h1
+  - name: listPrice
+    singleValue: false
+    xpath: //div[@class="buybox-module_list-price_3rqTk"]/span
+  - name: price
+    singleValue: false
+    xpath: //div[@class="buybox-module_price_2YUFa"]/span
+  - name: availabilityText
+    singleValue: false
+    xpath: //div[@class="pdp-core-module_pdp-stock-seller-section_1z8OM"]//div[contains(@class,"stock-availability-status")]/span
+    regExp: (.+)
+    regExpReplace: In Stock
+    defaultValue: Out of Stock
+  - name: description
+    singleValue: false
+    xpath: //div[contains(@class,"product-description-module_product-description_3bMdX")]/p
+  - name: descriptionBullets
+    singleValue: false
+    xpath: //div[contains(@class,"bullet-point-attributes-list")]//li
+  - name: brandText
+    singleValue: false
+    xpath: //ul[@class="title-content-list"]//span[@class="brand-link"]/a
+  - name: sku
+    singleValue: false
+    xpath: //script[contains(text(),'event:"viewItem",tms:"gtm",item:')]/text()
+  - name: variantId
+    singleValue: false
+    xpath: //script[contains(text(),'event:"viewItem",tms:"gtm",item:')]/text()
+  - name: mpc
+    singleValue: false
+    xpath: //div[contains(@class,"product-info")]//td[text()="Model"]/parent::*/td[2]
+  - name: warnings
+    singleValue: true
+    description: Content under "warnings" header
+  - name: ratingCount
+    singleValue: false
+    xpath: //div[contains(@class,"rating-and-reviews")]//div[contains(@class,"reviews")]/a
+    regExp: ([0-9]{1,}) Reviews
+    regExpReplace: $1
+  - name: aggregateRating
+    singleValue: false
+    xpath: count(//div[contains(@class,"rating-and-reviews")]//div[@class="rating rating-module_rating_1rLjy"]/i[contains(@class,"full")])
+  - name: shippingInfo
+    singleValue: false
+    xpath: //div[@class="pdp-core-module_main-seller_20BMu"]//a
+  - name: shippingDimensions
+    singleValue: false
+    xpath: //div[contains(@class,"product-info")]//td[text()="Assembled Dimensions"]/parent::*/td[2]
+  - name: variantCount
+    singleValue: false
+    defaultValue: '0'
+  - name: color
+    singleValue: false
+    xpath: //div[contains(@class,"product-info")]//td[text()="Basic Colours"]/parent::*/td[2]
+  - name: name
+    singleValue: false
+    xpath: //div[@class="product-title"]//h1
+  - name: specifications
+    singleValue: false
+    xpath: //div[contains(@class,"product-info")]//td
+  - name: warranty
+    singleValue: true
+    xpath: //div[contains(@class,"product-info")]//td[text()="Warranty"]/parent::*/td[2]
+  - name: storage
+    singleValue: true
+    description: Suggested storage location for product
+  - name: countryOfOrigin
+    singleValue: false
+    xpath: //div[contains(@class,"product-info")]//td[text()="Country"]/parent::*/td[2]
+  - name: variantInformation
+    singleValue: true
+    description: colour / scent / flavour / other
+  - name: firstVariant
+    singleValue: true
+    xpath: //div[contains(@class,"product-info")]//td[text()="Basic Colours"]/parent::*/td[2]
+  - name: additionalDescBulletInfo
+    singleValue: false
+    xpath: //div[contains(@class,"bullet-point-attributes-list")]//li
+  - name: imageZoomFeaturePresent
+    singleValue: false
+    defaultValue: Yes
