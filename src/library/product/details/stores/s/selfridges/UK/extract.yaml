@@ -3,6 +3,19 @@ regionsSelector: null
 recordSelector: null
 recordXPath: null
 fields:
+- name: inTheBoxUrl
+  singleValue: false
+  xpath:
+- name: inTheBoxText
+  singleValue: false
+  xpath:
+- name: hasComparisonTable
+  singleValue: false
+  xpath:
+  defaultValue: false
+- name: unInterruptedPDP
+  singleValue: false
+  xpath: //span[@class="c-prod-card__cta-box-description"]
 - name: _input
   singleValue: false
 - name: _url
