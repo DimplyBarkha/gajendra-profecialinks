@@ -5,8 +5,8 @@ module.exports = {
     country: 'ES',
     store: 'keshop',
     domain: 'keshop.com',
-    loadedSelector: null,
-    noResultsXPath: null,
+    loadedSelector: '.prod-container',
+    noResultsXPath: '//div[@class="pagenotfound"]',
     zipcode: '',
   },
 };

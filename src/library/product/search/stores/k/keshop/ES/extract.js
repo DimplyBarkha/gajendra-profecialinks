@@ -1,5 +1,5 @@
 
-const { transform } = require('../../../../shared')
+const { transform } = require('../../../../shared');
 
 const implementation = async (inputs, parameters, context, dependencies) => {
   const { transform } = parameters;
@@ -27,7 +27,6 @@ const implementation = async (inputs, parameters, context, dependencies) => {
         }, ms);
       });
     }
-   
   });
 
   await context.evaluate(async function () {
