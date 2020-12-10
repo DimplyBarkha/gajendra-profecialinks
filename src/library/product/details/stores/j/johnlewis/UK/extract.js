@@ -67,10 +67,13 @@ module.exports = {
         }
         return result;
       };
-      const recommenProducts = document.querySelector('jl-recommendations-panel') ? [...document.querySelector('jl-recommendations-panel').shadowRoot.querySelectorAll('section[data-test="product-card"] h2[class^="title"]')] : [];
+      const recommendProductsMain = document.querySelectorAll('jl-recommendations-panel');
 
-      recommenProducts.forEach(element => {
-        addElementToDocument('ii_recommended_products', element.innerText);
+      recommendProductsMain.forEach(element => {
+        const recommenProducts = element ? [...element.shadowRoot.querySelectorAll('section[data-test="product-card"] h2[class^="title"]')] : [];
+        recommenProducts.forEach(element => {
+          addElementToDocument('ii_recommended_products', element.innerText);
+        });
       });
 
       var Description = getAllXpath("//div[@class='product-detail__description-inner']/p[position()>1]/text()", 'nodeValue');
