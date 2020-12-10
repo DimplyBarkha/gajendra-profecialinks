@@ -8,7 +8,6 @@ fields:
     xpath: //div[@class="product-image-slider__slide slick-slide slick-current slick-active"]//img/@src
   - name: imageAlt
     singleValue: true
-    xpath: //div[contains(@class, 'breadcrumbs')]/span[@itemprop='name']
   - name: alternateImages
     singleValue: false
     xpath: //div[@id='image-container']//div[contains(@class,'product-image-slider__slide') and contains(@class,'slick-slide') and not(contains(@class,'slick-active')) and not(contains(@class,'product-video'))]/img/@data-lazy
