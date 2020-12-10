@@ -20,7 +20,7 @@ async function implementation(
 
     async function scrollToRec () {
       await context.evaluate(async () => {
-        var element = (document.querySelector('#rpdCntId')) ? document.querySelector('#rpdCntId') : null;
+        var element = (document.querySelector('#rpdCntId, .prodDetailDesc')) ? document.querySelector('#rpdCntId, .prodDetailDesc') : null;
         if (element) {
           element.scrollIntoView({ behavior: 'smooth', block: 'end', inline: 'nearest' });
           await new Promise((resolve) => {
