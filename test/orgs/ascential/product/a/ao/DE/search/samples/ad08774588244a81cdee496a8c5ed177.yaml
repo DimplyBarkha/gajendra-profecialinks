@@ -1,0 +1,88 @@
+input:
+  keywords: idos
+  _url: http://ao.de
+extractions:
+  - html: https://workbench.import.io/html/run=8c0624be-2c43-41b8-9f35-d11cd4d31eca/task=59282bb1-3001-4e70-938c-ebdc25d5d92b/bd5c5f6e-4504-4132-8ce2-3e1d69425128.html
+    extractionConfigId: product/search/stores/a/ao/DE/extract
+    data:
+      - group:
+          - id:
+              - text: "80597"
+                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/a[1]/img[1]/@data-sku
+            name:
+              - text: Siemens iQ500 WM14UPA0 Waschmaschine, 9 kg, 1400 U/Min, A+++
+                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/a[1]/h2[1]
+            productUrl:
+              - text: https://www.ao.de/produkt/wm14upa0-siemens-iq500-waschmaschinen-weiß-80597-1.aspx
+                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://media.ao.com/produktbild/mittel/mcsa03420156_wm14upa0_stp_def_m_p.png
+                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/a[1]/img[1]/@src
+            price:
+              - text: €684
+                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]
+            sponsored:
+              - text: "true"
+                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[1]
+                type: BOOLEAN
+                raw: >-
+                  Wir empfehlen
+
+                  4A61DECC-C3DB-4DA4-A757-1B0F1B802D40@1.00x
+
+                  A+++
+
+                  Produktdatenblatt
+
+                  Vergleichen
+
+                  Siemens iQ500 WM14UPA0 Waschmaschine, 9 kg, 1400 U/Min, A+++
+
+                  Home Connect Remote Control - die Maschine von überall kontrollieren
+
+                  iDos - einfach und präzise dosieren
+
+                  IQDrive-Motor - leistungsstark, langlebig und leise
+
+                  varioSpeed - Beschleunigen Sie den Waschprozess um bis zu 65%
+
+                  waterPerfect Plus - intelligentes Wassermanagement
+
+                  €684
+
+                  inkl. MwSt. zzgl. Versand
+
+                  UVP €1.039
+
+                  Ersparnis €355
+
+                  Lieferung möglich ab 17. Dezember **
+
+                  Bis zum Aufstellungsort
+
+                  Wähle deinen Wunschtermin
+
+                  Express- und GRATIS Standardlieferung verfügbar
+
+                  In den Warenkorb
+
+                  Mehr Info
+                locale: de_DE
+                value: true
+          - id:
+              - text: "80596"
+                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/a[1]/img[1]/@data-sku
+            name:
+              - text: Siemens iQ500 WM14UP40 Waschmaschine, 9 kg, 1400 U/Min, A+++
+                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/a[1]/h2[1]
+            productUrl:
+              - text: https://www.ao.de/produkt/wm14up40-siemens-iq500-waschmaschinen-weiß-80596-1.aspx
+                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://media.ao.com/produktbild/mittel/mcsa03420154_wm14up40_stp_def_m_p.png
+                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/a[1]/img[1]/@src
+            price:
+              - text: €699
+                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]
+        xpath: /html
+    timestamp: 1607600617822

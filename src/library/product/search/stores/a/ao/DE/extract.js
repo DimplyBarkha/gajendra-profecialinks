@@ -33,28 +33,9 @@ module.exports = {
       const rating = document.querySelectorAll('ul.o-flex-container li meta[itemprop="ratingValue"]');
       if (rating) {
         for (let n = 0; n < rating.length; n++) {
-          // @ts-ignore
-          rating[n].setAttribute('normrating', rating[n].content.replace('.', ','));
+          rating[n].setAttribute('normrating', rating[n].getAttribute('content').replace('.', ','));
         }
       }
-      const promotedProducts = document.querySelectorAll("li[data-testid='product-card--featured']");
-      if (promotedProducts) {
-        localStorage.setItem('promotedProductsNumber', `${promotedProducts.length}`);
-      }
-      const promotedProductsNumber = localStorage.getItem('promotedProductsNumber') ? Number(localStorage.getItem('promotedProductsNumber')) : 0;
-      const lastProductPosition = localStorage.getItem('prodCount') ? Number(localStorage.getItem('prodCount')) : 1;
-      const arr = document.querySelectorAll('li.product-card__wrapper meta[itemprop="position"]');
-      for (let i = 0; i < arr.length; i++) {
-        // @ts-ignore
-        arr[i].setAttribute('rank', lastProductPosition + i);
-      }
-      const arr2 = document.querySelectorAll('li.product-card__wrapper[data-testid="product-card--standard"] meta[itemprop="position"]');
-      for (let j = 0; j < arr2.length; j++) {
-        // @ts-ignore
-        arr2[j].setAttribute('rankorganic', lastProductPosition - 1 + promotedProductsNumber + j);
-      }
-      localStorage.setItem('prodCount', `${lastProductPosition + arr.length}`);
-      localStorage.setItem('promotedProductsNumber', `${promotedProductsNumber + arr2.length}`);
     });
     return await context.extract(productDetails, { transform });
   },

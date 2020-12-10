@@ -2,7 +2,7 @@ input:
   keywords: dyson marken
   _url: http://ao.de
 extractions:
-  - html: https://workbench.import.io/html/run=9c56ab76-a055-47d7-98cd-c6d91d1018d0/task=721d560e-5b1e-4fde-9a1d-2b8f186cea0f/a8716b9b-f21d-4626-a259-d4dd6396836c.html
+  - html: https://workbench.import.io/html/run=8c0624be-2c43-41b8-9f35-d11cd4d31eca/task=c9123c07-7739-45d6-ace2-0fc6d6a189d0/6c242f5b-a0a4-4e51-a1d9-c00b435c668c.html
     extractionConfigId: product/search/stores/a/ao/DE/extract
     data:
       - group:
@@ -22,11 +22,8 @@ extractions:
               - text: https://media.ao.com/produktbild/mittel/purehumidifypluscool_whsi_dyson_luf_01_m_p.jpg
                 xpath: /html/body/div[1]/div[1]/main[1]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/a[1]/img[1]/@src
             price:
-              - text: €718
+              - text: €719
                 xpath: /html/body/div[1]/div[1]/main[1]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]
-            rank:
-              - text: "1"
-                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[1]/meta[1]/@rank
             sponsored:
               - text: "true"
                 xpath: /html/body/div[1]/div[1]/main[1]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[1]
@@ -48,11 +45,11 @@ extractions:
 
                   Fernbedienung - stellen Sie bequem bis zu 10 Luftstrom-Einstellungen ein
 
-                  €718
+                  €719
 
                   inkl. MwSt. zzgl. Versand
 
-                  Lieferung möglich ab 16. Oktober **
+                  Lieferung möglich ab 11. Dezember **
 
                   Paketversand
 
@@ -66,504 +63,360 @@ extractions:
                 locale: de_DE
                 value: true
           - id:
-              - text: "58967"
-                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/a[1]/img[1]/@data-sku
-            rankOrganic:
-              - text: "1"
-                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[2]/meta[1]/@rankorganic
-                type: NUMBER
-                raw: "1"
-                locale: de_DE
-                value: 1
-            name:
-              - text: Dyson V7 Trigger Handstaubsauger mit 2 Tier Radial™ Cyclone und
-                  Mini-Elektrobürste - Iron / Nickel
-                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/a[1]/h2[1]
-            productUrl:
-              - text: https://www.ao.de/produkt/v7trigger-dyson-handstaubsauger-grau-58967-58.aspx
-                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/a[1]/@href
-            thumbnail:
-              - text: https://media.ao.com/produktbild/mittel/v7trigger_irn_dyson_akku_fr_m_p.jpg
-                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/a[1]/img[1]/@src
-            price:
-              - text: €256
-                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]
-            rank:
-              - text: "2"
-                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[2]/meta[1]/@rank
-          - id:
-              - text: "58963"
-                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/a[1]/img[1]/@data-sku
-            rankOrganic:
-              - text: "2"
-                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[3]/meta[1]/@rankorganic
-                type: NUMBER
-                raw: "2"
-                locale: de_DE
-                value: 2
-            name:
-              - text: Dyson V8 Absolute Akku-Stielsauger mit Nachmotorfilter und 2 Tier Radial
-                  Zyklone, beutellos - 2-in-1-Gerät - Gelb
-                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/a[1]/h2[1]
-            productUrl:
-              - text: https://www.ao.de/produkt/v8absolute-dyson-stielstaubsauger-gelb-58963-60.aspx
-                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/a[1]/@href
-            thumbnail:
-              - text: https://media.ao.com/produktbild/mittel/v8absolute_ye_dyson_handstaubsauger_1_ux_m_p.jpg
-                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/a[1]/img[1]/@src
-            aggregateRating2:
-              - text: 4,4
-                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/meta[1]/@normrating
-            reviewCount:
-              - text: "9"
-                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/a[1]/span[2]/span[2]/span[1]
-                type: NUMBER
-                raw: "9"
-                locale: de_DE
-                value: 9
-            ratingCount:
-              - text: "9"
-                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/a[1]/span[2]/span[2]/span[1]
-            price:
-              - text: €410
-                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]
-            rank:
-              - text: "3"
-                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[3]/meta[1]/@rank
-          - id:
               - text: "54673"
-                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[4]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/a[1]/img[1]/@data-sku
-            rankOrganic:
-              - text: "3"
-                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[4]/meta[1]/@rankorganic
-                type: NUMBER
-                raw: "3"
-                locale: de_DE
-                value: 3
+                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/a[1]/img[1]/@data-sku
             name:
               - text: Dyson AM07 Turmventilator mit Air Multiplier™ Technologie und Sleep-Timer
                   Funktion - Weiß / Silber
-                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[4]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/a[1]/h2[1]
+                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/a[1]/h2[1]
             productUrl:
               - text: https://www.ao.de/produkt/am07-dyson-ventilatoren-weiß-54673-149.aspx
-                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[4]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/a[1]/@href
+                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/a[1]/@href
             thumbnail:
               - text: https://media.ao.com/produktbild/mittel/am07_wh_dyson_ventilatoren_ux_01_m_p.jpg
-                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[4]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/a[1]/img[1]/@src
+                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/a[1]/img[1]/@src
             aggregateRating2:
               - text: "5"
-                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[4]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/meta[1]/@normrating
+                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/meta[1]/@normrating
             reviewCount:
               - text: "1"
-                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[4]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/a[1]/span[2]/span[2]/span[1]
+                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/a[1]/span[2]/span[2]/span[1]
                 type: NUMBER
                 raw: "1"
                 locale: de_DE
                 value: 1
             ratingCount:
               - text: "1"
-                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[4]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/a[1]/span[2]/span[2]/span[1]
-            price:
-              - text: €348
-                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[4]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]
-            rank:
-              - text: "4"
-                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[4]/meta[1]/@rank
-          - id:
-              - text: "66592"
-                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[5]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/a[1]/img[1]/@data-sku
-            rankOrganic:
-              - text: "4"
-                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[5]/meta[1]/@rankorganic
-                type: NUMBER
-                raw: "4"
-                locale: de_DE
-                value: 4
-            name:
-              - text: Dyson BP01 Pure Cool Me 2-in-1 Luftreiniger und Ventilator mit Dyson Core
-                  Flow™ Technologie und HEPA-Filter - Weiß
-                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[5]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/a[1]/h2[1]
-            productUrl:
-              - text: https://www.ao.de/produkt/purecoolme-dyson-luftreiniger-weiß-66592-145.aspx
-                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[5]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/a[1]/@href
-            thumbnail:
-              - text: https://media.ao.com/produktbild/mittel/purecoolme_wh_dyson_luftreiniger_fr_m_p.jpg
-                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[5]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/a[1]/img[1]/@src
+                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/a[1]/span[2]/span[2]/span[1]
             price:
               - text: €349
-                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[5]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]
-            rank:
-              - text: "5"
-                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[5]/meta[1]/@rank
+                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]
           - id:
               - text: "51065"
-                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[6]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/a[1]/img[1]/@data-sku
-            rankOrganic:
-              - text: "5"
-                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[6]/meta[1]/@rankorganic
-                type: NUMBER
-                raw: "5"
-                locale: de_DE
-                value: 5
+                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/a[1]/img[1]/@data-sku
             name:
               - text: Dyson AM09 Hot + Cool 2-in-1 Ventilator und Heizlüfter mit Air Multiplier™
                   Technologie und Jet Focus Technologie - 2.000 Watt - Weiß /
                   Silber
-                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[6]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/a[1]/h2[1]
+                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/a[1]/h2[1]
             productUrl:
               - text: https://www.ao.de/produkt/am09hotpluscool-dyson-radiatoren-weiß-51065-153.aspx
-                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[6]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/a[1]/@href
+                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/a[1]/@href
             thumbnail:
               - text: https://media.ao.com/produktbild/mittel/am09hotpluscool_wh_dyson_wkg_fr_m_p.jpg
-                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[6]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/a[1]/img[1]/@src
+                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/a[1]/img[1]/@src
             aggregateRating2:
               - text: "5"
-                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[6]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/meta[1]/@normrating
+                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/meta[1]/@normrating
             reviewCount:
               - text: "1"
-                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[6]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/a[1]/span[2]/span[2]/span[1]
+                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/a[1]/span[2]/span[2]/span[1]
                 type: NUMBER
                 raw: "1"
                 locale: de_DE
                 value: 1
             ratingCount:
               - text: "1"
-                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[6]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/a[1]/span[2]/span[2]/span[1]
+                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/a[1]/span[2]/span[2]/span[1]
             price:
               - text: €359
-                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[6]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]
-            rank:
-              - text: "6"
-                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[6]/meta[1]/@rank
-          - id:
-              - text: "58959"
-                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[7]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/a[1]/img[1]/@data-sku
-            rankOrganic:
-              - text: "6"
-                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[7]/meta[1]/@rankorganic
-                type: NUMBER
-                raw: "6"
-                locale: de_DE
-                value: 6
-            name:
-              - text: Dyson Hot + Cool Link HP02 3-in-1 Luftreiniger, Heizlüfter und Ventilator
-                  mit Jet Focus Technologie und 360° HEPA-Filter - Weiß / Silber
-                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[7]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/a[1]/h2[1]
-            productUrl:
-              - text: https://www.ao.de/produkt/hp02-dyson-luftreiniger-weiß-58959-145.aspx
-                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[7]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/a[1]/@href
-            thumbnail:
-              - text: https://media.ao.com/produktbild/mittel/hp02_whsi_dyson_weiterekuechengeraete_fr_m_p.jpg
-                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[7]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/a[1]/img[1]/@src
-            price:
-              - text: €461
-                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[7]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]
-            rank:
-              - text: "7"
-                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[7]/meta[1]/@rank
+                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]
           - id:
               - text: "54674"
-                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[8]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/a[1]/img[1]/@data-sku
-            rankOrganic:
-              - text: "7"
-                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[8]/meta[1]/@rankorganic
-                type: NUMBER
-                raw: "7"
-                locale: de_DE
-                value: 7
+                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[4]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/a[1]/img[1]/@data-sku
             name:
               - text: Dyson TP02 Pure Cool Link Tower Luftreiniger mit 360° HEPA-Filter und
                   Dyson Link App - Weiß / Silber
-                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[8]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/a[1]/h2[1]
+                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[4]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/a[1]/h2[1]
             productUrl:
               - text: https://www.ao.de/produkt/purecoollinktower-dyson-luftreiniger-weiß-54674-145.aspx
-                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[8]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/a[1]/@href
+                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[4]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/a[1]/@href
             thumbnail:
               - text: https://media.ao.com/produktbild/mittel/purecoollinktower_wh_dyson_wekü_fr_m_p.jpg
-                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[8]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/a[1]/img[1]/@src
+                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[4]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/a[1]/img[1]/@src
+            price:
+              - text: €449
+                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[4]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]
+          - id:
+              - text: "58959"
+                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[5]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/a[1]/img[1]/@data-sku
+            name:
+              - text: Dyson Hot + Cool Link HP02 3-in-1 Luftreiniger, Heizlüfter und Ventilator
+                  mit Jet Focus Technologie und 360° HEPA-Filter - Weiß / Silber
+                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[5]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/a[1]/h2[1]
+            productUrl:
+              - text: https://www.ao.de/produkt/hp02-dyson-luftreiniger-weiß-58959-145.aspx
+                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[5]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://media.ao.com/produktbild/mittel/hp02_whsi_dyson_weiterekuechengeraete_fr_m_p.jpg
+                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[5]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/a[1]/img[1]/@src
             price:
               - text: €461
-                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[8]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]
-            rank:
-              - text: "8"
-                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[8]/meta[1]/@rank
+                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[5]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]
           - id:
               - text: "58958"
-                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[9]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/a[1]/img[1]/@data-sku
-            rankOrganic:
-              - text: "8"
-                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[9]/meta[1]/@rankorganic
-                type: NUMBER
-                raw: "8"
-                locale: de_DE
-                value: 8
+                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[6]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/a[1]/img[1]/@data-sku
             name:
               - text: Dyson Pure Cool™ DP04 2-in-1 Luftreiniger und Ventilator mit
                   Aktiv-Kohlefilter und Dyson Link App - Weiß / Silber
-                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[9]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/a[1]/h2[1]
+                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[6]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/a[1]/h2[1]
             productUrl:
               - text: https://www.ao.de/produkt/dp04-dyson-pure-cool-luftreiniger-weiß-58958-145.aspx
-                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[9]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/a[1]/@href
+                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[6]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/a[1]/@href
             thumbnail:
               - text: https://media.ao.com/produktbild/mittel/dp04_whsi_dyson_weiterekuechengeraete_fr_m_p.jpg
-                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[9]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/a[1]/img[1]/@src
+                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[6]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/a[1]/img[1]/@src
             price:
-              - text: €564
-                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[9]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]
-            rank:
-              - text: "9"
-                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[9]/meta[1]/@rank
-          - id:
-              - text: "66593"
-                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[10]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/a[1]/img[1]/@data-sku
-            rankOrganic:
-              - text: "9"
-                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[10]/meta[1]/@rankorganic
-                type: NUMBER
-                raw: "9"
-                locale: de_DE
-                value: 9
-            name:
-              - text: Dyson V11 Absolute Akku-Stielsauger mit Torque-Drive-Bodendüse und 60
-                  Minuten Akkulaufzeit, beutellos - Blau / Nickel
-                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[10]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/a[1]/h2[1]
-            productUrl:
-              - text: https://www.ao.de/produkt/v11absolute-dyson-stielstaubsauger-blau-66593-60.aspx
-                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[10]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/a[1]/@href
-            thumbnail:
-              - text: https://media.ao.com/produktbild/mittel/v11absolute_blnk_dyson_sta_frn1_m_p.jpg
-                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[10]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/a[1]/img[1]/@src
-            aggregateRating2:
-              - text: 4,6
-                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[10]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/meta[1]/@normrating
-            reviewCount:
-              - text: "7"
-                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[10]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/a[1]/span[2]/span[2]/span[1]
-                type: NUMBER
-                raw: "7"
-                locale: de_DE
-                value: 7
-            ratingCount:
-              - text: "7"
-                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[10]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/a[1]/span[2]/span[2]/span[1]
-            price:
-              - text: €699
-                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[10]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]
-            rank:
-              - text: "10"
-                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[10]/meta[1]/@rank
-          - id:
-              - text: "58968"
-                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[11]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/a[1]/img[1]/@data-sku
-            rankOrganic:
-              - text: "10"
-                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[11]/meta[1]/@rankorganic
-                type: NUMBER
-                raw: "10"
-                locale: de_DE
-                value: 10
-            name:
-              - text: Dyson Pure Cool™ Tower TP04 2-in-1 Luftreiniger und Ventilator mit
-                  HEPA-Filter und Heizmodus - Weiß / Silber
-                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[11]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/a[1]/h2[1]
-            productUrl:
-              - text: https://www.ao.de/produkt/tp04-dyson-pure-cool-tower-luftreiniger-weiß-58968-145.aspx
-                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[11]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/a[1]/@href
-            thumbnail:
-              - text: https://media.ao.com/produktbild/mittel/tp04_whsi_dyson_weiterekuechengeraete_fr_m_p.jpg
-                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[11]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/a[1]/img[1]/@src
-            aggregateRating2:
-              - text: "5"
-                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[11]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/meta[1]/@normrating
-            reviewCount:
-              - text: "1"
-                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[11]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/a[1]/span[2]/span[2]/span[1]
-                type: NUMBER
-                raw: "1"
-                locale: de_DE
-                value: 1
-            ratingCount:
-              - text: "1"
-                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[11]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/a[1]/span[2]/span[2]/span[1]
-            price:
-              - text: €615
-                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[11]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]
-            rank:
-              - text: "11"
-                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[11]/meta[1]/@rank
+              - text: €549
+                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[6]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]
           - id:
               - text: "64263"
-                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[12]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/a[1]/img[1]/@data-sku
-            rankOrganic:
-              - text: "11"
-                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[12]/meta[1]/@rankorganic
-                type: NUMBER
-                raw: "11"
-                locale: de_DE
-                value: 11
+                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[7]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/a[1]/img[1]/@data-sku
             name:
               - text: Dyson Pure Hot+Cool™ HP04 Luftreiniger mit Air Multiplier™ Technologie und
                   3-in-1-Funktion - Weiß / Silber
-                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[12]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/a[1]/h2[1]
+                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[7]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/a[1]/h2[1]
             productUrl:
               - text: https://www.ao.de/produkt/hp04-dyson-luftreiniger-weiß-64263-145.aspx
-                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[12]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/a[1]/@href
+                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[7]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/a[1]/@href
             thumbnail:
               - text: https://media.ao.com/produktbild/mittel/purehotpluscool_whsi_dyson_luftreiniger_fr_m_p.jpg
-                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[12]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/a[1]/img[1]/@src
+                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[7]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/a[1]/img[1]/@src
             price:
               - text: €666
-                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[12]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]
-            rank:
-              - text: "12"
-                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[12]/meta[1]/@rank
-        xpath: /html
-    timestamp: 1602701755173
-  - html: https://workbench.import.io/html/run=9c56ab76-a055-47d7-98cd-c6d91d1018d0/task=721d560e-5b1e-4fde-9a1d-2b8f186cea0f/de4af140-c06a-4ef8-a9ac-c43a241dff79.html
-    extractionConfigId: product/search/stores/a/ao/DE/extract
-    data:
-      - group:
+                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[7]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]
+          - id:
+              - text: "58967"
+                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[8]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/a[1]/img[1]/@data-sku
+            name:
+              - text: Dyson V7 Trigger Handstaubsauger mit 2 Tier Radial™ Cyclone und
+                  Mini-Elektrobürste - Iron / Nickel
+                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[8]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/a[1]/h2[1]
+            productUrl:
+              - text: https://www.ao.de/produkt/v7trigger-dyson-handstaubsauger-grau-58967-58.aspx
+                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[8]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://media.ao.com/produktbild/mittel/v7trigger_irn_dyson_akku_fr_m_p.jpg
+                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[8]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/a[1]/img[1]/@src
+            price:
+              - text: €256
+                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[8]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]
+          - id:
+              - text: "66592"
+                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[9]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/a[1]/img[1]/@data-sku
+            name:
+              - text: Dyson BP01 Pure Cool Me 2-in-1 Luftreiniger und Ventilator mit Dyson Core
+                  Flow™ Technologie und HEPA-Filter - Weiß
+                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[9]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/a[1]/h2[1]
+            productUrl:
+              - text: https://www.ao.de/produkt/purecoolme-dyson-luftreiniger-weiß-66592-145.aspx
+                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[9]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://media.ao.com/produktbild/mittel/purecoolme_wh_dyson_luftreiniger_fr_m_p.jpg
+                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[9]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/a[1]/img[1]/@src
+            price:
+              - text: €349
+                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[9]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]
           - id:
               - text: "66597"
-                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/a[1]/img[1]/@data-sku
-            rankOrganic:
-              - text: "12"
-                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[1]/meta[1]/@rankorganic
-                type: NUMBER
-                raw: "12"
-                locale: de_DE
-                value: 12
+                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[10]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/a[1]/img[1]/@data-sku
             name:
               - text: Dyson V8 Animal + Akku-Stielsauger, beutellos - Titan / Nickel
-                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/a[1]/h2[1]
+                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[10]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/a[1]/h2[1]
             productUrl:
               - text: https://www.ao.de/produkt/v8animalplus-dyson-stielstaubsauger-grau-66597-60.aspx
-                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/a[1]/@href
+                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[10]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/a[1]/@href
             thumbnail:
               - text: https://media.ao.com/produktbild/mittel/v8animalplus_tink_dyson_sta_fr_m_p.jpg
-                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/a[1]/img[1]/@src
+                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[10]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/a[1]/img[1]/@src
             price:
               - text: €359
-                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]
-            rank:
-              - text: "13"
-                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[1]/meta[1]/@rank
+                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[10]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]
           - id:
               - text: "58964"
-                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/a[1]/img[1]/@data-sku
-            rankOrganic:
-              - text: "13"
-                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[2]/meta[1]/@rankorganic
-                type: NUMBER
-                raw: "13"
-                locale: de_DE
-                value: 13
+                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[11]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/a[1]/img[1]/@data-sku
             name:
               - text: Dyson Cyclone V10 Motorhead Akku-Stielsauger mit Nachmotorfilter (extra
                   groß) und MAX-Modus, beutellos - 2-in-1-Gerät - Rot
-                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/a[1]/h2[1]
+                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[11]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/a[1]/h2[1]
             productUrl:
               - text: https://www.ao.de/produkt/cyclonev10motorhead-dyson-stielstaubsauger-rot-58964-60.aspx
-                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/a[1]/@href
+                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[11]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/a[1]/@href
             thumbnail:
               - text: https://media.ao.com/produktbild/mittel/cyclonev10motorhead_rd_dyson_hast_1_ux_m_p.jpg
-                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/a[1]/img[1]/@src
+                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[11]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/a[1]/img[1]/@src
             aggregateRating2:
               - text: 4,8
-                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/meta[1]/@normrating
+                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[11]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/meta[1]/@normrating
             reviewCount:
               - text: "23"
-                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/a[1]/span[2]/span[2]/span[1]
+                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[11]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/a[1]/span[2]/span[2]/span[1]
                 type: NUMBER
                 raw: "23"
                 locale: de_DE
                 value: 23
             ratingCount:
               - text: "23"
-                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/a[1]/span[2]/span[2]/span[1]
+                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[11]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/a[1]/span[2]/span[2]/span[1]
             price:
               - text: €388
-                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]
-            rank:
-              - text: "14"
-                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[2]/meta[1]/@rank
+                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[11]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]
+          - id:
+              - text: "58963"
+                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[12]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/a[1]/img[1]/@data-sku
+            name:
+              - text: Dyson V8 Absolute Akku-Stielsauger mit Nachmotorfilter und 2 Tier Radial
+                  Zyklone, beutellos - 2-in-1-Gerät - Gelb
+                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[12]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/a[1]/h2[1]
+            productUrl:
+              - text: https://www.ao.de/produkt/v8absolute-dyson-stielstaubsauger-gelb-58963-60.aspx
+                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[12]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://media.ao.com/produktbild/mittel/v8absolute_ye_dyson_handstaubsauger_1_ux_m_p.jpg
+                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[12]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/a[1]/img[1]/@src
+            aggregateRating2:
+              - text: 4,4
+                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[12]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/meta[1]/@normrating
+            reviewCount:
+              - text: "9"
+                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[12]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/a[1]/span[2]/span[2]/span[1]
+                type: NUMBER
+                raw: "9"
+                locale: de_DE
+                value: 9
+            ratingCount:
+              - text: "9"
+                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[12]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/a[1]/span[2]/span[2]/span[1]
+            price:
+              - text: €410
+                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[12]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]
+        xpath: /html
+    timestamp: 1607600626618
+  - html: https://workbench.import.io/html/run=8c0624be-2c43-41b8-9f35-d11cd4d31eca/task=c9123c07-7739-45d6-ace2-0fc6d6a189d0/63160978-1d8d-4299-bc91-aed6c5931afa.html
+    extractionConfigId: product/search/stores/a/ao/DE/extract
+    data:
+      - group:
           - id:
               - text: "67259"
-                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/a[1]/img[1]/@data-sku
-            rankOrganic:
-              - text: "14"
-                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[3]/meta[1]/@rankorganic
-                type: NUMBER
-                raw: "14"
-                locale: de_DE
-                value: 14
+                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/a[1]/img[1]/@data-sku
             name:
               - text: Dyson Cyclone V10 Animal Akku-Stielsauger mit 14 Zyklonen und bis zu 60
                   Minuten Akkulaufzeit, beutellos - 2-in-1-Gerät - Violett /
                   Nickel
-                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/a[1]/h2[1]
+                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/a[1]/h2[1]
             productUrl:
               - text: https://www.ao.de/produkt/cyclonev10animal-dyson-stielstaubsauger-violett-67259-60.aspx
-                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/a[1]/@href
+                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/a[1]/@href
             thumbnail:
               - text: https://media.ao.com/produktbild/mittel/cyclonev10animal_punk_dyson_sta_fr_m_p.jpg
-                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/a[1]/img[1]/@src
+                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/a[1]/img[1]/@src
+            aggregateRating2:
+              - text: "5"
+                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/meta[1]/@normrating
+            reviewCount:
+              - text: "1"
+                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/a[1]/span[2]/span[2]/span[1]
+                type: NUMBER
+                raw: "1"
+                locale: de_DE
+                value: 1
+            ratingCount:
+              - text: "1"
+                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/a[1]/span[2]/span[2]/span[1]
             price:
-              - text: €438
-                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]
-            rank:
-              - text: "15"
-                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[3]/meta[1]/@rank
+              - text: €429
+                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]
           - id:
               - text: "58965"
-                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[4]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/a[1]/img[1]/@data-sku
-            rankOrganic:
-              - text: "15"
-                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[4]/meta[1]/@rankorganic
-                type: NUMBER
-                raw: "15"
-                locale: de_DE
-                value: 15
+                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/a[1]/img[1]/@data-sku
             name:
               - text: Dyson Cyclone V10 Absolute Akku-Stielsauger mit Nachmotorfilter
                   (extragroß) und Mini-Elektrobürste, beutellos - 2-in-1-Gerät -
                   Kupfer
-                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[4]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/a[1]/h2[1]
+                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/a[1]/h2[1]
             productUrl:
               - text: https://www.ao.de/produkt/cyclonev10absolute-dyson-stielstaubsauger-messing-58965-60.aspx
-                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[4]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/a[1]/@href
+                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/a[1]/@href
             thumbnail:
               - text: https://media.ao.com/produktbild/mittel/cyclonev10absolute_cop_dyson_hast_1_ux_m_p.jpg
-                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[4]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/a[1]/img[1]/@src
+                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/a[1]/img[1]/@src
             aggregateRating2:
               - text: 4,4
-                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[4]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/meta[1]/@normrating
+                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/meta[1]/@normrating
             reviewCount:
               - text: "21"
-                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[4]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/a[1]/span[2]/span[2]/span[1]
+                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/a[1]/span[2]/span[2]/span[1]
                 type: NUMBER
                 raw: "21"
                 locale: de_DE
                 value: 21
             ratingCount:
               - text: "21"
+                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/a[1]/span[2]/span[2]/span[1]
+            price:
+              - text: €499
+                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]
+          - id:
+              - text: "66596"
+                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/a[1]/img[1]/@data-sku
+            name:
+              - text: Dyson V11 Animal + Akku-Stielsauger mit 3 Betriebsmodi und 60 Minuten
+                  Akkulaufzeit, beutellos - Violett / Nickel
+                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/a[1]/h2[1]
+            productUrl:
+              - text: https://www.ao.de/produkt/v11animalplus-dyson-stielstaubsauger-violett-66596-60.aspx
+                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://media.ao.com/produktbild/mittel/v11animalplus_punk_dyson_sta_frn1_m_p.jpg
+                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/a[1]/img[1]/@src
+            aggregateRating2:
+              - text: "5"
+                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/meta[1]/@normrating
+            reviewCount:
+              - text: "6"
+                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/a[1]/span[2]/span[2]/span[1]
+                type: NUMBER
+                raw: "6"
+                locale: de_DE
+                value: 6
+            ratingCount:
+              - text: "6"
+                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/a[1]/span[2]/span[2]/span[1]
+            price:
+              - text: €615
+                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]
+          - id:
+              - text: "58968"
+                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[4]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/a[1]/img[1]/@data-sku
+            name:
+              - text: Dyson Pure Cool™ Tower TP04 2-in-1 Luftreiniger und Ventilator mit
+                  HEPA-Filter und Heizmodus - Weiß / Silber
+                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[4]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/a[1]/h2[1]
+            productUrl:
+              - text: https://www.ao.de/produkt/tp04-dyson-pure-cool-tower-luftreiniger-weiß-58968-145.aspx
+                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[4]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://media.ao.com/produktbild/mittel/tp04_whsi_dyson_weiterekuechengeraete_fr_m_p.jpg
+                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[4]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/a[1]/img[1]/@src
+            aggregateRating2:
+              - text: "5"
+                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[4]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/meta[1]/@normrating
+            reviewCount:
+              - text: "1"
+                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[4]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/a[1]/span[2]/span[2]/span[1]
+                type: NUMBER
+                raw: "1"
+                locale: de_DE
+                value: 1
+            ratingCount:
+              - text: "1"
                 xpath: /html/body/div[1]/div[1]/main[1]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[4]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/a[1]/span[2]/span[2]/span[1]
             price:
-              - text: €486
+              - text: €615
                 xpath: /html/body/div[1]/div[1]/main[1]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[4]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]
-            rank:
-              - text: "16"
-                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[4]/meta[1]/@rank
           - id:
               - text: "79131"
                 xpath: /html/body/div[1]/div[1]/main[1]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[5]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/a[1]/img[1]/@data-sku
-            rankOrganic:
-              - text: "16"
-                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[5]/meta[1]/@rankorganic
-                type: NUMBER
-                raw: "16"
-                locale: de_DE
-                value: 16
             name:
               - text: Dyson V11 Absolute Extra Akku-Stielsauger mit Torque-Drive-Bodendüse und
                   60 Minuten Akkulaufzeit, beutellos - Blau / Nickel
@@ -577,72 +430,20 @@ extractions:
             price:
               - text: €649
                 xpath: /html/body/div[1]/div[1]/main[1]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[5]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]
-            rank:
-              - text: "17"
-                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[5]/meta[1]/@rank
-          - id:
-              - text: "66596"
-                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[6]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/a[1]/img[1]/@data-sku
-            rankOrganic:
-              - text: "17"
-                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[6]/meta[1]/@rankorganic
-                type: NUMBER
-                raw: "17"
-                locale: de_DE
-                value: 17
-            name:
-              - text: Dyson V11 Animal + Akku-Stielsauger mit 3 Betriebsmodi und 60 Minuten
-                  Akkulaufzeit, beutellos - Violett / Nickel
-                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[6]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/a[1]/h2[1]
-            productUrl:
-              - text: https://www.ao.de/produkt/v11animalplus-dyson-stielstaubsauger-violett-66596-60.aspx
-                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[6]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/a[1]/@href
-            thumbnail:
-              - text: https://media.ao.com/produktbild/mittel/v11animalplus_punk_dyson_sta_frn1_m_p.jpg
-                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[6]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/a[1]/img[1]/@src
-            aggregateRating2:
-              - text: "5"
-                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[6]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/meta[1]/@normrating
-            reviewCount:
-              - text: "6"
-                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[6]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/a[1]/span[2]/span[2]/span[1]
-                type: NUMBER
-                raw: "6"
-                locale: de_DE
-                value: 6
-            ratingCount:
-              - text: "6"
-                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[6]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/a[1]/span[2]/span[2]/span[1]
-            price:
-              - text: €649
-                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[6]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]
-            rank:
-              - text: "18"
-                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[6]/meta[1]/@rank
           - id:
               - text: "79133"
-                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[7]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/a[1]/img[1]/@data-sku
-            rankOrganic:
-              - text: "18"
-                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[7]/meta[1]/@rankorganic
-                type: NUMBER
-                raw: "18"
-                locale: de_DE
-                value: 18
+                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[6]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/a[1]/img[1]/@data-sku
             name:
               - text: Dyson V11 Absolute Extra Pro Akku-Stielsauger, beutellos - Blau / Nickel
-                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[7]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/a[1]/h2[1]
+                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[6]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/a[1]/h2[1]
             productUrl:
               - text: https://www.ao.de/produkt/v11absoluteextrapro-dyson-stielstaubsauger-blau-79133-60.aspx
-                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[7]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/a[1]/@href
+                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[6]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/a[1]/@href
             thumbnail:
               - text: https://media.ao.com/produktbild/mittel/v11absoluteextrapro_nkbl_dyson_sta_01_m_p.png
-                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[7]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/a[1]/img[1]/@src
+                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[6]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/a[1]/img[1]/@src
             price:
-              - text: €799
-                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[7]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]
-            rank:
-              - text: "19"
-                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[7]/meta[1]/@rank
+              - text: €789
+                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[6]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]
         xpath: /html
-    timestamp: 1602701755173
+    timestamp: 1607600626618

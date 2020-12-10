@@ -1,0 +1,100 @@
+input:
+  keywords: Airwrap styler
+  _url: http://ao.de
+extractions:
+  - html: https://workbench.import.io/html/run=8c0624be-2c43-41b8-9f35-d11cd4d31eca/task=b59f0042-816b-4c3c-99e7-cf4e4250dc95/5f255dd9-19d2-4513-bceb-cfbc73e4cdc7.html
+    extractionConfigId: product/search/stores/a/ao/DE/extract
+    data:
+      - group:
+          - id:
+              - text: "67333"
+                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/a[1]/img[1]/@data-sku
+            name:
+              - text: LG Styler S3BF Dampfschrank mit TrueSteam™, Touch Display und
+                  Hygieneprogrammen - Schwarz / Weiß
+                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/a[1]/h2[1]
+            productUrl:
+              - text: https://www.ao.de/produkt/stylers3bf-lg-bügelstationen-schwarz-67333-77.aspx
+                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://media.ao.com/produktbild/mittel/stylers3bf_bkwh_lg_buegelstationen_01_m_p.png
+                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/a[1]/img[1]/@src
+            aggregateRating2:
+              - text: 4,6
+                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/meta[1]/@normrating
+            reviewCount:
+              - text: "7"
+                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/a[1]/span[2]/span[2]/span[1]
+                type: NUMBER
+                raw: "7"
+                locale: de_DE
+                value: 7
+            ratingCount:
+              - text: "7"
+                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/a[1]/span[2]/span[2]/span[1]
+            price:
+              - text: €1.399
+                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]
+            sponsored:
+              - text: "true"
+                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[1]
+                type: BOOLEAN
+                raw: >-
+                  Wir empfehlen
+
+                  4A61DECC-C3DB-4DA4-A757-1B0F1B802D40@1.00x
+
+                  Vergleichen
+
+                  LG Styler S3BF Dampfschrank mit TrueSteam™, Touch Display und Hygieneprogrammen - Schwarz / Weiß
+
+                  4,6 / 5(7 Kundenbewertungen)
+
+                  Auffrischen-Programm - mit einem Knopfdruck für frische Kleidung
+
+                  Bügelpresse - für eine perfekte Bügelfalte
+
+                  Dampftechnologie - für faltenfreie Kleidung in wenigen Minuten
+
+                  Geruchsentfernung - für gut riechende Kleidung
+
+                  Hygiene-Einstellung - entfernt 99.9% Prozent aller Bakterien und Allergene
+
+                  €1.399
+
+                  inkl. MwSt. zzgl. Versand
+
+                  UVP €2.899
+
+                  Ersparnis €1.500
+
+                  Lieferung möglich ab 11. Dezember **
+
+                  Paketversand
+
+                  Wählen Sie Ihren Wunschtermin
+
+                  Flexible Lieferung von Mo-Sa
+
+                  In den Warenkorb
+
+                  Mehr Info
+                locale: de_DE
+                value: true
+          - id:
+              - text: "74306"
+                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/a[1]/img[1]/@data-sku
+            name:
+              - text: LG Styler S3WF Dampfschrank mit TrueSteam™ und Smart ThinQ™ - Weiß
+                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/a[1]/h2[1]
+            productUrl:
+              - text: https://www.ao.de/produkt/stylers3wf-lg-bügelstationen-weiß-74306-77.aspx
+                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://media.ao.com/produktbild/mittel/stylers3wf_wh_lg_buegelstationen_01_m_p.png
+                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/a[1]/img[1]/@src
+            price:
+              - text: €1.431
+                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/div[1]/div[2]/section[1]/ul[1]/li[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]
+        xpath: /html
+    timestamp: 1607600614533
