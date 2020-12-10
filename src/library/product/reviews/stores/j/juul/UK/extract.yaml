@@ -6,7 +6,7 @@ fields:
 - name: brand
   type: STRING
   description: Brand name
-  xpath: ancestor::html//meta[name="application-name"]
+  xpath: ancestor::html//meta[@name="application-name"]/@content
 - name: productRange
   type: STRING
   description: Product Range
@@ -14,7 +14,9 @@ fields:
 - name: productFamily
   type: STRING
   description: Product Family
-  xpath: 
+  xpath: ancestor::html//meta[@property="og:url"]/@content
+  regExp: https://www.juul.co.uk/shop/(.*)/
+  regExpReplace: $1
 - name: colour
   type: STRING
   description: Product Colour
@@ -22,15 +24,16 @@ fields:
 - name: flavour
   type: STRING
   description: Product Flavour
-  xpath: 
+  xpath: //span[@aria-label="Flavour Filter"]/span
 - name: sku
   type: STRING
   description: sku
   xpath: 
 - name: reviewText
   type: STRING
+  singleValue: false
   description: Product Review
-  xpath: div[class="content-review"]
+  xpath: //div[@class="content-review"]
 - name: reviewTitle
   type: STRING
   description: Review Title
@@ -38,15 +41,15 @@ fields:
 - name: mediaURL
   type: STRING
   description: Product Media URL
-  xpath: ancestor::html//img[class="hero__single-image"]/@src
+  xpath: ancestor::html//meta[@property="og:image"]/@content
 - name: location
   type: STRING
   description: Location
-  xpath: 
+  defaultValue: UK
 - name: helpful
   type: STRING
   description: Product Helpful Notes
-  xpath: //span[data-type="up"]
+  xpath: //span[@data-type="up"]
 - name: verifiedPurchase
   type: STRING
   description: Product Purchase Notes
@@ -57,15 +60,15 @@ fields:
 - name: rating
   type: STRING
   description: Product Rating
-  xpath: //span[@class="yotpo-filter-stars"]//span[@class="sr-only"]
+  xpath: //span[@class="sr-only"]
   regExp: ([0-9\.]{1,}) star rating
   regExpReplace: $1
 - name: pageTitle
   type: STRING
   description: Page Title
-  xpath: ancestor::html//h1[class="product-information__header__title__name heading--large"]
+  xpath: ancestor::html//meta[@property="og:title"]/@content
 - name: sourceUrl
   type: STRING
   description: Source URL
-  xpath: 
+  xpath: ancestor::html//meta[@property="og:url"]/@content
  
