@@ -9,43 +9,54 @@ fields:
   singleValue: false
 - name: productUrl
   singleValue: false
+  xpath: //div[@id="url"]
 - name: _pageTimeStamp
   singleValue: false
 - name: image
   singleValue: true
   description: URL of the main product image
+  xpath: //div[@data-ph-id="image-0"]//img/@src
 - name: imageAlt
   singleValue: true
   description: Alt text of the main product image
+  xpath: //div[@data-ph-id="image-0"]//img/@alt
 - name: alternateImages
   singleValue: false
   description: Other product images (not in manufacturer description)
+  xpath: //div[@class="product-gallery-outer"]//div[@class="thumbnail-wrapper ph-card"][not(@data-ph-id="image-0")]/a/@href
 - name: metaKeywords
   singleValue: true
   description: The <meta> keywords content
+  xpath: //meta[@name="keywords"]/@content
 - name: category
   singleValue: false
   description: The categories (e.g. from breadcrumbs)
+  xpath: //ol[@class="breadcrumb"]/li
 - name: nameExtended
   singleValue: true
   description: The product name, prefixing "${brand} - " if not included in "name"
     and appending " - ${variantType}" if necessary (fixed per feed)
+  xpath: //h1[@class="page-title"]
 - name: listPrice
   singleValue: true
   description: The stated undiscounted price for the product
+  xpath: normalize-space(concat(//div[@class="product-highlight product-page-pricing"]//p[@class="product-old-price"]/s/text()[1],".",//div[@class="product-highlight product-page-pricing"]//p[@class="product-old-price"]/s/sup," ",//div[@class="product-highlight product-page-pricing"]//p[@class="product-old-price"]/s/span))
 - name: price
   singleValue: true
   description: The offered price for the selected product variant - if a user clicks
     add to basket this is the price they would be charged
+  xpath: normalize-space(concat(//div[@class="product-highlight product-page-pricing"]//p[@class="product-new-price"]/text()[1],".",//div[@class="product-highlight product-page-pricing"]//p[@class="product-new-price"]/sup," ",//div[@class="product-highlight product-page-pricing"]//p[@class="product-new-price"]/span))
 - name: availabilityText
   singleValue: true
   description: Availability as described on page for the selected variant. If there
     is no availability but the product can be added to cart, this field should be
     "In Stock"
+  xpath: //div[@class="product-highlight product-page-pricing"]//span[@class="label label-in_stock"] | //div[@class="product-highlight product-page-pricing"]//span[@class="label label-unavailable"]
 - name: description
   singleValue: false
   description: Product description supplied by website - may be concatenanted from
     multiple places; specifically not the manufacturer description
+  xpath: //div[@class="product-page-description-text"]
 - name: descriptionBullets
   singleValue: true
   description: Number of ul > li tags in the description
@@ -53,12 +64,15 @@ fields:
   singleValue: true
   description: Product brand shown - this may actually NOT be just a brand name, e.g.
     "Visit the Gillette Store"
+  xpath: //div[@class="disclaimer-section"]//a
 - name: manufacturer
   singleValue: true
   description: Product manufacturer
+  xpath: //div[@class="inline-block--top" and contains(.,"Vândut și livrat de:")]/following-sibling::div
 - name: quantity
   singleValue: true
   description: Quantity as described on the page
+  xpath: //td[contains(.,"Cantitate")]/following-sibling::td
 - name: weightNet
   singleValue: true
   description: Net weight as described on the page
@@ -71,12 +85,15 @@ fields:
 - name: sku
   singleValue: true
   description: The store-specific product identifier
+  xpath: //span[@class="product-code-display pull-left"]
+  regExp: ': (\w+)'
+  regExpReplace: $1
 - name: variantId
   singleValue: true
   description: Identifier for a variant from a store where variants share the same
     sku
 - name: mpc
-  singleValue: tru
+  singleValue: true
   description: The manufacturer model code (unique) of the product
 - name: packSize
   singleValue: true
@@ -85,21 +102,27 @@ fields:
 - name: legalDisclaimer
   singleValue: true
   description: Content under "legal disclaimer" header
+  xpath: //div[@class="disclaimer-section"]/p[last()]
 - name: directions
-  singleValue: true
+  singleValue: false
   description: Content under "directions" header
+  xpath: //p[contains(.,"Informatii Dozaj:")]/following-sibling::p[starts-with(.,"-")]
 - name: warnings
   singleValue: true
   description: Content under "warnings" header
 - name: ratingCount
   singleValue: true
   description: The number of ratings
+  xpath: //div[@class="product-highlight"]//a[@href="#reviews-section" and contains(.,"review")]
+  regExp: \d+
 - name: aggregateRatingText
   singleValue: true
   description: The stated aggregate rating
+  xpath: //div[@class="product-highlight"]//span[contains(@class,"star-rating-text")]
 - name: aggregateRating
   singleValue: true
   description: The stated aggregate rating normalized to be out of 5
+  xpath: //div[@class="product-highlight"]//span[contains(@class,"star-rating-text")]
 - name: shippingInfo
   singleValue: true
   description: Shipping information for the product
@@ -130,6 +153,7 @@ fields:
 - name: name
   singleValue: true
   description: The product name
+  xpath: //h1[@class="page-title"]
 - name: inStorePrice
   singleValue: true
   description: Price in the selected store
@@ -382,6 +406,7 @@ fields:
 - name: productOtherInformation
   singleValue: false
   description: Any other product information
+  xpath: //div[@id="other-info"]
 - name: packaging
   singleValue: true
   description: Packaging information
@@ -397,6 +422,7 @@ fields:
 - name: promotion
   singleValue: true
   description: promotion text on product page
+  xpath: //div[@class="product-highlight product-page-pricing"]//span[@class="product-this-deal"]
 - name: alcoholContent
   singleValue: true
   description: Alcohol content information
@@ -445,19 +471,19 @@ fields:
   singleValue: true
   description: If there is for example a manual in pdf format on the website. ['Yes','No']
   example: https://www.amazon.de/Hasbro-Spiele-44220100-Mastermind-Kinderspiel/dp/B0007OHUG6
-  defaultValue: false
+  defaultValue: No
 - name: termsAndConditions
   singleValue: true
   description: Terms and conditions information text ['Yes','No']
-  defaultValue: false
+  defaultValue: No
 - name: privacyPolicy
   singleValue: true
   description: Privacy Policy information text ['Yes','No']
-  defaultValue: false
+  defaultValue: No
 - name: customerServiceAvailability
   singleValue: true
   description: Information related to customer service availability (text), ['Yes','No']
-  defaultValue: false
+  defaultValue: No
 - name: materials
   singleValue: true
   description: Materials used to make the product
@@ -466,9 +492,9 @@ fields:
   singleValue: true
   description: If 360 image is present in the carousel ['Yes','No']
   example: https://www.amazon.com/Trinsic-Single-Handle-Magnetic-Champagne-9159-CZ-DST/dp/B0050EN8E6
-  defaultValue: false
+  defaultValue: No
 - name: imageZoomFeaturePresent
   singleValue: true
   description: If Zoom feature is available for Main image or images in the carousel,['Yes','No']
   example: https://www.zalando.de/adidas-neo-sneaker-low-blackwhite-a4315i002-q11.html
-  defaultValue: false
+  defaultValue: Yes
