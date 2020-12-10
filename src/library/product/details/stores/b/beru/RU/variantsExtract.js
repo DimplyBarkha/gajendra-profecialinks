@@ -39,6 +39,13 @@ async function implementation (
         variantLink.setAttribute('href', variantUrl);
         document.body.appendChild(variantLink);
       });
+    } else {
+      console.log(window.location.href , 'window.location.href');
+      variantUrl = window.location.href
+      const variantLink = document.createElement('div');
+      variantLink.setAttribute('class', 'variantUrl');
+      variantLink.setAttribute('href', variantUrl);
+      document.body.appendChild(variantLink);
     }
    
     if(variantDiv2) {
@@ -51,6 +58,13 @@ async function implementation (
         variantLink.setAttribute('href', variantUrl);
         document.body.appendChild(variantLink);
       });  
+    } else {
+      console.log(window.location.href , 'window.location.href');
+      variantUrl = window.location.href
+      const variantLink = document.createElement('div');
+      variantLink.setAttribute('class', 'variantUrl');
+      variantLink.setAttribute('href', variantUrl);
+      document.body.appendChild(variantLink);
     }
     
   });
