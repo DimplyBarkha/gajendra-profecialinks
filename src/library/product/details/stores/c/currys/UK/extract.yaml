@@ -26,10 +26,11 @@ fields:
     xpath: //h1[contains(@class,'page-title')]
   - name: availabilityText
     singleValue: false
-    xpath: //div[@id='product-actions']//span[@data-name='AddToBasket']/@data-name
-    regExp: (.+)
-    regExpReplace: In Stock
-    defaultValue: Out of Stock
+    manualSelector: div#availability
+    # xpath: //div[@id='product-actions']//span[@data-name='AddToBasket']/@data-name
+    # regExp: (.+)
+    # regExpReplace: In Stock
+    # defaultValue: Out of Stock
   - name: price
     singleValue: false
     xpath: //div[@id='product-actions']//span[contains(@class,'ProductPriceBlock__Price-kTVxGg')]
@@ -73,10 +74,12 @@ fields:
     regExpReplace: $1
   - name: manufacturerDescription
     singleValue: false
-    xpath: //div[contains(@id,'inpage_container')]
+    # xpath: //div[contains(@id,'inpage_container')]
+    xpath: //div[@id="product-info"]/following-sibling::div/div[@id="richmedia-container"]//div[@id="inpage_container"] | //body/@desc
   - name: manufacturerImages
     singleValue: false
-    xpath: //div[@id='inpage_container']//img/@srcset
+    # xpath: //div[@id='inpage_container']//img/@srcset
+    xpath: //div[@id="product-info"]/following-sibling::div/div[@id="richmedia-container"]//div[@id="inpage_container"]//div[contains(@class,"flix-media-flex") or contains(@class,"flix-background-image")]//img/@srcset | //img[@data-flixsrcset]/@data-flixsrcset | /html/body/@img-src
   - name: promotion
     singleValue: false
     xpath: //div[@data-component='avms-tab']//ul[contains(@class,'simple product-offers')]//li  
@@ -87,7 +90,7 @@ fields:
     singleValue: false    
   - name: specifications
     singleValue: false
-    xpath: //div[contains(@class,'tab-tech-specs')]//tr
+    xpath: //div[contains(@class,'tab-tech-specs')]//tr    
   - name: warranty
     singleValue: false
     xpath: //div[contains(@class,'tab-tech-specs')]//tr//th[contains(text(),'guarantee') or contains(text(),'Guarantee')]//following-sibling::td    
