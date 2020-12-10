@@ -36,7 +36,6 @@ async function implementation (inputs, parameters, context, dependencies) {
         }
         const reviewCount = product.querySelector('a[id*=listing_reviews') ? product.querySelector('a[id*=listing_reviews').textContent.match(/\d+/)[0] : '0';
         product.setAttribute('product-reviews', reviewCount);
-        if (productJson.brand) product.setAttribute('product-manufacturer', productJson.brand);
       } catch (e) {
         console.log('Error extracting product json');
       }
