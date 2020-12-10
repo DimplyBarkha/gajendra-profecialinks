@@ -428,6 +428,6 @@ fields:
     example: https://www.zalando.de/adidas-neo-sneaker-low-blackwhite-a4315i002-q11.html
     defaultValue: Yes
   - name: unInterruptedPDP
-    xpath: //div[@id="accessories"]//li
+    xpath: //div[@id="accessories"]//li//*[@data-test="product-title"]
   - name: hasComparisonTable
-    defaultValue: No
+    defaultValue: False
