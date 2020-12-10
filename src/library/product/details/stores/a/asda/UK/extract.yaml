@@ -1,9 +1,12 @@
 fields:
   - name: image
     singleValue: false
-    xpath: (//div[@id="productImage"] | (//div[@data-auto-id="image"]//img)[1]/@src)[1]
+    xpath: ((//div[@data-auto-id="image"]//img)[1]/@src)[1]
     regExp: (.+)(\?.+)
     regExpReplace : $1
+  - name: imageFromAPi
+    singleValue: false
+    xpath: //div[@id="productImage"]
   - name: metaKeywords
     singleValue: true
   - name: _pageTimestamp

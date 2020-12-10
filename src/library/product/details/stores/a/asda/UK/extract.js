@@ -15,18 +15,16 @@ module.exports = {
   ) => {
     const cssProduct = "div.search-page-content__products-tab-content ul.co-product-list__main-cntr li.co-item a[data-auto-id='linkProductTitle']";
     const cssProductDetails = 'div.pdp-main-details';
-
     const isSelectorAvailable = async (cssSelector) => {
       console.log(`Is selector available: ${cssSelector}`);
       return await context.evaluate(function (selector) {
         return !!document.querySelector(selector);
       }, cssSelector);
     };
-    try{
+    try {
       await context.waitForSelector(cssProductDetails, { timeout: 10000 });
-    }
-    catch(error){
-      console.log("Not a product page");
+    } catch (error) {
+      console.log('Not a product page');
     }
     const productDetailsAvailable = await isSelectorAvailable(cssProductDetails);
 
@@ -51,7 +49,7 @@ module.exports = {
     }
 
     await context.evaluate(async function (inputs) {
-      async function postData(url = '', data = {}) {
+      async function postData (url = '', data = {}) {
         const response = await fetch(url, {
           method: 'POST',
           headers: {
@@ -62,7 +60,7 @@ module.exports = {
         return response.json();
       };
 
-      async function getData(url = '') {
+      async function getData (url = '') {
         const response = await fetch(url, {
           method: 'GET',
           headers: {
@@ -71,7 +69,6 @@ module.exports = {
         });
         return response.json();
       };
-
       const sku = document.querySelector('link[rel="canonical"]').href.match(/\d+$/)[0];
       console.log('SKU => ', sku);
 
