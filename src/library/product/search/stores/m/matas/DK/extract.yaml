@@ -9,7 +9,7 @@ fields:
     xpath: //label[@class="product-item__favourite "]/@data-js-modal-url
     regExp: (\d+)
   - name: rankOrganic
-    singleValue: false
+    singleValue: true
     # xpath: //li/@data-position
   - name: name
     singleValue: true
@@ -46,7 +46,7 @@ fields:
   - name: soldBy
     singleValue: false
   - name: rank
-    singleValue: false
+    singleValue: true
   - name: endorsementText
     singleValue: false
   - name: searchUrl
