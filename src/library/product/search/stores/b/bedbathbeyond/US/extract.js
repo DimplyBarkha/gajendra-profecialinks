@@ -13,7 +13,23 @@ module.exports = {
     await context.evaluate(async () => {
       const currentUrl = window.location.href;
 
-      window.scrollTo(0, document.body.scrollHeight);
+      let scrollTop = 0;
+      while (scrollTop !== 15000) {
+        await stall(1000);
+        scrollTop += 1000;
+        window.scroll(0, scrollTop);
+        if (scrollTop === 15000) {
+          await stall(1000);
+          break;
+        }
+      }
+      function stall (ms) {
+        return new Promise((resolve, reject) => {
+          setTimeout(() => {
+            resolve();
+          }, ms);
+        });
+      }
 
       const productRatings = document.querySelectorAll(
         '[data-locator="product_tile_rating"] > span',
