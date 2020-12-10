@@ -34,21 +34,29 @@ const cleanUp = (data, context) => {
                     },
                 ];
             }
-            if (row.description) {
-                row.description.forEach((element) => {
-                    if (element.xpath.endsWith('ul[1]')) {
-                        element.text = element.text.replace(/\.\s{1,}/g, '. || ');
-                    }
-                })
-                let text = ''
-                row.description.forEach((element) => {
-                    if (element.xpath.endsWith('ul[1]')) {
-                        text += ` || ${element.text}`
-                    } else {
-                        text += ` ${element.text}`
-                    }
-                })
-                row.description = [{ text: text.trim() }]
+            // if (row.description) {
+            //     row.description.forEach((element) => {
+            //         if (element.xpath.endsWith('ul[1]')) {
+            //             element.text = element.text.replace(/(\.|)\s{1,}/g, '. || ');
+            //         }
+            //     })
+            //     let text = ''
+            //     row.description.forEach((element) => {
+            //         if (element.xpath.endsWith('ul[1]')) {
+            //             text += ` || ${element.text}`
+            //         } else {
+            //             text += ` ${element.text}`
+            //         }
+            //     })
+            //     row.description = [{ text: text.trim() }]
+            // }
+            if(row.secondparagraph) {
+                let text = row.secondparagraph.map((element)=> element.text.trim()).join(" ")
+                row.secondparagraph = [{text}]
+            }
+            if(row.description) {
+                let text = row.description.map((element)=> element.text.trim()).join(" ")
+                row.description = [{text}]
             }
             if (row.manufacturerDescription) {
                 let text1 = ''
@@ -63,6 +71,10 @@ const cleanUp = (data, context) => {
                     bulletString += `|| ${element.text}`;
                 })
                 row.additionalDescBulletInfo = [{ text: bulletString }];
+            }
+            if(row.description && row.secondparagraph && row.additionalDescBulletInfo){
+                let text = `${row.description[0].text} ${row.additionalDescBulletInfo[0].text} ${row.secondparagraph[0].text}`
+                row.description = [{text: text.trim()}];
             }
 
         }
