@@ -10,7 +10,7 @@ module.exports = {
     noResultsXPath: null,
     openSearchDefinition: {
       template:
-        "https://www.houzz.com/products/query/{rugs}/nqrwns/p/{1}?oq={rugs}",
+        "https://www.houzz.com/products/query/{searchTerms}/nqrwns/p/{page}?oq={searchTerms}",
     },
     domain: "houzz.com",
     zipcode: "",
