@@ -46,8 +46,8 @@ fields:
   - name: brandText
     singleValue: false
     xpath: //script[contains(@type,"application/ld+json") and contains(text(), "sku")]
-    regExp: brand"\W+{"@type":"[^"]+","name":"([^"]+)
-    regExpReplace: $1
+    regExp: brand\W+([^\n]+)\W@type\W+([^\n]+)\W+name\W+([^"]+)
+    regExpReplace: $3
   - name: manufacturer
     singleValue: false
     description: Product manufacturer
