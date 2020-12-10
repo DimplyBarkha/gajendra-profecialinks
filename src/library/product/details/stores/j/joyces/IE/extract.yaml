@@ -532,7 +532,7 @@ fields:
     singleValue: true
     xpath: //meta[@property='og:url']/@content
   - name: inTheBoxUrl
-    xpath: //div[contains(@class,'InTheBox')]//img/@src
+    xpath: //div[contains(@class,'InTheBox')]//img/@srcset
     regExp: (.+)
     regExpReplace: https:$1
   - name: inTheBoxText
