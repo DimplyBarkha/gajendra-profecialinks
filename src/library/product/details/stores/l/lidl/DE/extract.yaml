@@ -93,7 +93,7 @@ fields:
     xpath: count(//div[contains(@class, "easyzoom")])
   - name: additionalDescBulletInfo
     singleValue: false
-    xpath: //div[@class = "features" and position() = last()]//text()
+    xpath: //div[@class = "features" and position() = last()]//li
   - name: descriptionBullets
     singleValue: false
-    xpath: count(//div[@class = "features" and position() = last()]//text())
+    xpath: count(//div[@class = "features" and position() = last()]//li)
