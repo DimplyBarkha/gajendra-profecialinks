@@ -119,6 +119,17 @@ const transform = (data) => {
           },
         ];
       }
+      if (row.description) {
+        let text = '';
+        row.description.forEach(item => {
+          text += `${item.text.replace('•', '||')} `;
+        });
+        row.description = [
+          {
+            text: text.slice(0, -1),
+          },
+        ];
+      }
       if ((!row.saltPerServing || !row.saltPerServing.length) && row.saltPerServing1) {
         console.log('saltPerServing1', row.saltPerServing1);
         row.saltPerServing = row.saltPerServing1;
