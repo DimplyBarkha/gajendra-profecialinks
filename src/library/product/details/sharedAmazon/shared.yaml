@@ -716,11 +716,12 @@ fields:
     # regExp: '\(([\d,.%\s]+)\)'
     # regExpReplace: $1
   - name: hasComparisonTable
-    singleValue: true
-    xpath: //h2[contains(@id,'comparison_table')]
+    singleValue: false
+    xpath: //div[@class="apm-tablemodule"] | //*[contains(@id,"comparison_table")]
+    # xpath: //h2[contains(@id,'comparison_table')]
     regExp: (.*)
-    regExpReplace: Yes 
-    defaultValue: No 
+    regExpReplace: True 
+    defaultValue: False
   - name: unInterruptedPDP
     xpath: //div[contains(@class,"customer-also-viewed")]/div
     
