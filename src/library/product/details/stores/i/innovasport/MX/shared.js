@@ -6,19 +6,25 @@
 const transform = (data) => {
   for (const { group } of data) {
     for (const row of group) {
-      if (row.name) {
+      if (row.nameExtended) {
         if (row.productSize) {
-          row.name = [{ text: `${row.name[0].text} ${row.productSize[0].text}` }];
+          row.nameExtended = [{ text: `${row.nameExtended[0].text} ${row.productSize[0].text}` }];
         };
 
         if (row.color) {
-          row.name[0].text = row.name[0].text + row.color[0].text;
+          row.nameExtended[0].text = row.nameExtended[0].text + row.color[0].text;
         }
 
         if (row.brandText) {
-          row.name[0].text = row.brandText[0].text + ' ' + row.name[0].text;
+          row.nameExtended[0].text = row.brandText[0].text + ' ' + row.nameExtended[0].text;
         }
-        row.nameExtended = [{ text: row.name[0].text }];
+        // row.nameExtended = [{ text: row.name[0].text }];
+      }
+      if (row.name) {
+        if (row.brandText) {
+          let text = `${row.brandText[0].text} ${row.name[0].text}`
+          row.name = [{ text: text.trim() }]
+        }
       }
 
       if (row.description) {

@@ -13,6 +13,8 @@ fields:
     xpath: ancestor::html//ol[contains(@class, 'breadcrumb')]/li[position()>1 and not(contains(@class, 'active'))]
   - name: name
     xpath: ancestor::*//*[@id='productName']
+  - name: nameExtended
+    xpath: ancestor::*//*[@id='productName']
   - name: productSize
     xpath: //a[contains(@class, 'product-size__option')]
   - name: quantity
