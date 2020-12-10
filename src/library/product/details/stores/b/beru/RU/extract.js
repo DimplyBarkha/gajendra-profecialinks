@@ -99,8 +99,8 @@ await context.evaluate(async () => {
         bulletList += element.innerText;
         bulletListTemp += element.innerText;
       } else {
-        bulletList += element.innerText + '|';
-        bulletListTemp += element.innerText + '|';
+        bulletList += element.innerText+'|';
+        bulletListTemp += element.innerText+'|';
       }
     });
     console.log(document.querySelectorAll('div.b_1xQdt6zCoE'));
@@ -312,10 +312,7 @@ if(spec.length === 0) {
   specificationList = document.querySelectorAll('div.b_3_bNW20rUd');
   specificationList.forEach((element) => {
     specification +=
-      element.children[0].innerText +
-      ':' +
-      element.children[2].innerText +
-      '|';
+      element.children[0].innerText +':'+element.children[2].innerText+'|';
   });
   addHiddenDiv('specification', specification);
 }
