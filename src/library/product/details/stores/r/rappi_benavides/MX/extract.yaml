@@ -45,8 +45,9 @@ fields:
     type: NUMBER
   - name: brandText
     singleValue: false
-    description: Product brand shown - this may actually NOT be just a brand name,
-      e.g. "Visit the Gillette Store"
+    xpath: //script[contains(@type,"application/ld+json") and contains(text(), "sku")]
+    regExp: brand"\W+{"@type":"[^"]+","name":"([^"]+)
+    regExpReplace: $1
   - name: manufacturer
     singleValue: false
     description: Product manufacturer
