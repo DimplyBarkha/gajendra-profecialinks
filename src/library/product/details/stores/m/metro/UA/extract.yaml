@@ -20,7 +20,7 @@ fields:
     xpath: (//table[@class='price']/tbody/tr)[1]/td/strong
   - name: promotion
     singleValue: true
-    xpath: //span[@class="promoFlag promoFlag_discount"]
+    xpath: //div[contains(@class,'productDetail_right_flags')]/span[@class="promoFlag promoFlag_discount"]
   - name: alternateImages
     singleValue: false
     xpath: (//div[@class="prodGallery_nav_item"]/img)[position() > 1]/@src
