@@ -4,17 +4,24 @@ recordSelector: null
 recordXPath: null
 fields:
   - name: inTheBoxUrl
-    xpath: //head/@intheboxurl
+    singleValue: false
+    xpath: //head/@intheboxurl | //div[@id="ii_inBoxUrls"]
   - name: inTheBoxText
-    xpath: //head//@intheboxtext
+    singleValue: false
+    xpath: //head//@intheboxtext | //div[@id="ii_inBoxText"]
   - name: unInterruptedPDP
+    singleValue: false
     xpath: //div[contains(@id,'reco-panel')]//div[@class="shop-produkt__inner"]
     regExp: dyson(.*)
     regExpReplace: dyson $1
+  - name: hasComparisonTable
+    singleValue: false
+    xpath: //div[@id="ii_comparisionText"]
+    default: false
   - name: image
     singleValue: false
     description: URL of the main product image
-    xpath: //div[contains(@class, 'active')]//img[@class='bewerten-bild'][contains(@alt, '1')]/@src
+    xpath: //div[contains(@class, 'active')]//img[@class='bewerten-bild'][contains(@alt, '1')]/@src | //div[@id="ii_mainImage"]
   - name: imageAlt
     singleValue: false
     description: Alt text of the main product image
@@ -53,6 +60,7 @@ fields:
     singleValue: false
     description: Product description supplied by website - may be concatenanted from
       multiple places; specifically not the manufacturer description
+    xpath: //div[@id="ii_description"]
     defaultValue: ' '
   - name: descriptionBullets
     singleValue: false
@@ -75,6 +83,7 @@ fields:
     regExp: \d+\s([^\d]+)$
   - name: weightNet
     singleValue: false
+    xpath: //div[@id="ii_weightNet"]
     description: Net weight as described on the page
   - name: weightGross
     description: Gross weight as described on the page
@@ -86,6 +95,7 @@ fields:
     xpath: //div[@data-loadbee-gtin]/@data-loadbee-gtin
   - name: sku
     description: The store-specific product identifier
+    xpath: //div[@id="ii_sku"]
     defaultValue: ' '
   - name: variantId
     description: Identifier for a variant from a store where variants share the same sku
@@ -110,6 +120,7 @@ fields:
     description: The stated aggregate rating normalized to be out of 5
   - name: shippingInfo
     description: Shipping information for the product
+    xpath: //div[@id="ii_shippingInfo"]
     defaultValue: ' '
   - name: shippingDimensions
     description: Stated shipping dimensions
@@ -126,14 +137,18 @@ fields:
   - name: manufacturerDescription
     singleValue: false
     description: The extended description of the product supplied by the lister
+    xpath: //div[@id="ii_manufContent"]
     defaultValue: ' '
   - name: manufacturerImages
     singleValue: false
+    xpath: //div[@id="ii_manufContentImg"]
     description: Images within the third party description
   - name: videos
     singleValue: false
     description: URLs of videos on page
-    xpath: //@*[contains(., '.mp4')]
+    xpath: //div[@id="ii_videos"]
+      # //@*[contains(., '.mp4')] 
+    # | //div[@id="ii_videos"]
   - name: name
     description: The product name
     xpath: //p/span[@itemprop="name"]
@@ -148,6 +163,7 @@ fields:
   - name: lbbPrice
   - name: specifications
     description: The physical dimensions of the product including packaging.
+    xpath: //div[@id="ii_specifications"]
     defaultValue: ' '
   - name: warranty
     singleValue: false
@@ -187,6 +203,7 @@ fields:
   - name: additionalDescBulletInfo
     singleValue: false
     description: null
+    xpath: //div[@id="ii_additionalDescBulletInfo"]
   - name: energyEfficiency
     description: Energy rating of a product. https://www.amazon.de/Siemens-WM16W541-Waschmaschine-Schnellwaschprogramm-Nachlegefunktion/dp/B015FJFK14
     example: A+, A+++, B
