@@ -4,7 +4,7 @@ module.exports = {
   parameterValues: {
     country: 'UK',
     store: 'currys',
-    nextLinkSelector: 'ul.pagination li > a[title="next"]',
+    nextLinkSelector: 'ul.dc-pagination li > a[title="next"]',
     mutationSelector: null,
     spinnerSelector: null,
     loadedSelector: 'div.resultList article.product',
