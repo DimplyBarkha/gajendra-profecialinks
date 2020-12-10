@@ -90,3 +90,5 @@ fields:
     xpath: //dt[contains(., 'lasa energetyczna')]/following-sibling::dd
   - name: manufacturerDescription
     xpath: //div[contains(@class,'description-product')]
+  - name: galleryVideos
+    xpath: //ul[contains(@id,"js-ytGallery")]/li/@data-video
