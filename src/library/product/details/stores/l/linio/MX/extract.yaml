@@ -5,86 +5,98 @@ recordXPath: null
 fields:
   - name: image
     singleValue: false
-    xpath: (//div[contains(@id,'image-product')]//img/@src)[1]
+    xpath: //div[contains(@id,'thumbnail')]//li[(contains(@class,'active'))]//img/@src
     regExp: (.+)
     regExpReplace: https:$1
   - name: imageAlt
     singleValue: false
-    xpath: (//div[contains(@id,'image-product')]//img/@alt)[1]
+    xpath: //div[contains(@id,'thumbnail')]//li[(contains(@class,'active'))]//img/@alt
   - name: alternateImages
     singleValue: false
-    xpath: //div[contains(@id,'image-product')]//img/@src
+    xpath: //div[contains(@id,'thumbnail')]//li[not(contains(@class,'active'))]//img/@src
     regExp: (.+)
     regExpReplace: https:$1
-  # - name: metaKeywords
-  #   singleValue: true
-  #   description: The <meta> keywords content
+  - name: secondaryImageTotal
+    singleValue: false
+    xpath: count(//div[contains(@id,'thumbnail')]//li[not(contains(@class,'active'))]//img/@src)
   - name: category
     singleValue: false
     xpath: //ol[contains(@class,"breadcrumb")]/li[position()>1 and position()<last()]
   - name: nameExtended
     singleValue: false
-    xpath: //div[contains(@class,'product-title')]
+    xpath: //meta[contains(@itemprop,'name')]/@content
   - name: name
     singleValue: false
-    xpath: //div[contains(@class,'product-title')]
-  # - name: listPrice
-  #   singleValue: true
-  #   description: The stated undiscounted price for the product
-  # - name: price
-  #   singleValue: true
-  #   description: The offered price for the selected product variant - if a user
-  #     clicks add to basket this is the price they would be charged
-  # - name: availabilityText
-  #   singleValue: true
-  #   description: Availability as described on page for the selected variant. If
-  #     there is no availability but the product can be added to cart, this field
-  #     should be "In Stock"
-  #   regExp: (.+)
-  #   regExpReplace: In Stock
-  #   defaultValue: Out of Stock
-  # - name: description
-  #   singleValue: false
-  #   description: Product description supplied by website - may be concatenanted from
-  #     multiple places; specifically not the manufacturer description
-  # - name: descriptionBullets
-  #   singleValue: true
-  #   description: Number of ul > li tags in the description
-  #   type: NUMBER
-  # - name: brandText
-  #   singleValue: true
-  #   description: Product brand shown - this may actually NOT be just a brand name,
-  #     e.g. "Visit the Gillette Store"
-  # - name: manufacturer
-  #   singleValue: true
-  #   description: Product manufacturer
-  # - name: quantity
-  #   singleValue: true
-  #   description: Quantity as described on the page
-  #   regExp: (?:\s?([\d\.]+\s?)([bB]ar[s]?|[cC]ount|[cC]t|[fF][lL][\.]?\s?[oO][zZ][\.]?|FO|[mM][lL]|[oO][zZ][\.]?|pc|[pP]int|[pP]ops|qt|[wW]ipe[s]?).?)$|(?:\s?([\d\.]+\s?)([bB]ar[s]?|[cC]ount|[cC]|[fF][lL][\.]?\s?[oO][zZ][\.]?|FO|[mM][lL]|[oO][zZ][\.]?|pc|[pP]int|[pP]ops|qt|[wW]ipe[s]?).?\s?[\&\-\w\s]+)$
-  #   regExpReplace: $1$2$3$4
-  # - name: weightNet
-  #   singleValue: true
-  #   description: Net weight as described on the page
-  # - name: weightGross
-  #   singleValue: true
-  #   description: Gross weight as described on the page
-  # - name: gtin
-  #   singleValue: true
-  #   description: GTIN code (includes UPC/EAN)
-  # - name: sku
-  #   singleValue: true
-  #   description: The store-specific product identifier
-  # - name: variantId
-  #   singleValue: true
-  #   description: Identifier for a variant from a store where variants share the same sku
-  # - name: mpc
-  #   singleValue: true
-  #   description: The manufacturer model code (unique) of the product
-  # - name: packSize
-  #   singleValue: true
-  #   description: The number of packs in the product offer (if stated separately on
-  #     the site to quantity)
+    xpath: //meta[contains(@itemprop,'name')]/@content
+  - name: listPrice
+    singleValue: false
+    xpath: (//div[contains(@class,'product-price')]//span[contains(@class,'original-price')])[1]
+  - name: price
+    singleValue: false
+    xpath: (//div[contains(@class,'product-price-lg')]//span[contains(@class,'price-main-md')])[1]
+  - name: availabilityText
+    singleValue: false
+    defaultValue: 'In Stock'
+  - name: description
+    singleValue: false
+    xpath: //div[contains(@class,'features-box-section')] | //div[contains(@itemprop,'description')]
+  - name: additionalDescBulletInfo
+    singleValue: false
+    xpath: //div[contains(@class,'product-feature')]//li
+  - name: descriptionBullets
+    singleValue: false
+    xpath: count(//div[contains(@class,'product-feature')]//li)
+  - name: brandText
+    singleValue: false
+    xpath: //meta[contains(@itemprop,'brand')]/@content
+  - name: sku
+    singleValue: false
+    xpath: //meta[contains(@itemprop,'sku')]/@content
+  - name: gtin
+    singleValue: false
+    xpath: //meta[contains(@itemprop,'gtin13')]/@content
+  - name: variantId
+    singleValue: false
+    xpath: //meta[contains(@itemprop,'model')]/@content
+  - name: mpc
+    singleValue: false
+    xpath: //meta[contains(@itemprop,'model')]/@content
+  - name: quantity
+    singleValue: false
+    xpath: //div[contains(text(),'Contenido')]/following::div[1]
+  - name: weightNet
+    singleValue: false
+    xpath: //div[contains(text(),'Peso (kg)')]/following::div[1]
+  - name: packSize
+    singleValue: false
+    xpath: //div[contains(text(),'Qué hay en la caja')]/following::div[1]
+  - name: ratingCount
+    singleValue: false
+    xpath: //meta[contains(@itemprop,'reviewCount')]/@content
+  - name: aggregateRating
+    singleValue: false
+    xpath: (//meta[contains(@itemprop,'ratingValue')]/@content)[1]
+  - name: shippingInfo
+    singleValue: false
+    xpath: //div[contains(@class,'seller-information')]/h2 | //div[contains(@class,'seller-name')] | //div[contains(@class,'shipping-information')]
+  - name: color
+    singleValue: false
+    xpath: //div[contains(text(),'Color')]/following::div[1]
+  - name: internationalShipping
+    singleValue: false
+    xpath: //div[contains(@class,'shipping-information')]/h2
+  - name: warranty
+    singleValue: false
+    xpath: //div[contains(text(),'Garantía del producto')]/following::div[1]
+  - name: materials
+    singleValue: false
+    xpath: //div[contains(text(),'Material')]/following::div[1]
+  - name: imageZoomFeaturePresent
+    singleValue: false
+    defaultValue: 'Yes'
+  - name: productOtherInformation
+    singleValue: false
+    xpath: //div[contains(@class,'usp-product-container')]//div
   # - name: legalDisclaimer
   #   singleValue: true
   #   description: Content under "legal disclaimer" header
@@ -94,20 +106,6 @@ fields:
   # - name: warnings
   #   singleValue: true
   #   description: Content under "warnings" header
-  # - name: ratingCount
-  #   singleValue: true
-  #   description: The number of ratings
-  #   type: NUMBER
-  # - name: aggregateRatingText
-  #   singleValue: true
-  #   description: The stated aggregate rating
-  # - name: aggregateRating
-  #   singleValue: true
-  #   description: The stated aggregate rating normalized to be out of 5
-  #   type: NUMBER
-  # - name: shippingInfo
-  #   singleValue: true
-  #   description: Shipping information for the product
   # - name: shippingDimensions
   #   singleValue: true
   #   description: Stated shipping dimensions
@@ -117,10 +115,16 @@ fields:
   # - name: variantCount
   #   singleValue: true
   #   description: Number of variants listed
-  #   type: NUMBER
-  # - name: color
+  # - name: weightGross
   #   singleValue: true
-  #   description: A textual description of the colour
+  #   description: Gross weight as described on the page
+  # - name: aggregateRatingText
+  #   singleValue: true
+  #   description: The stated aggregate rating
+  #   type: NUMBER
+  # - name: manufacturer
+  #   singleValue: true
+  #   description: Product manufacturer
   # - name: colorCode
   #   singleValue: true
   #   description: A code description of the color (e.g. RGB hex)
@@ -151,9 +155,6 @@ fields:
   # - name: brandLink
   #   singleValue: true
   #   description: null
-  # - name: internationalShipping
-  #   singleValue: true
-  #   description: Text next to bullet point
   # - name: salesRank
   #   singleValue: false
   #   description: Amazon best selling rank from product details (linked back) - needs
@@ -219,9 +220,6 @@ fields:
   #   description: null
   # - name: otherSellersShipping
   #   singleValue: false
-  #   description: null
-  # - name: secondaryImageTotal
-  #   singleValue: true
   #   description: null
   #   type: NUMBER
   # - name: news
@@ -385,9 +383,6 @@ fields:
   # - name: specifications
   #   singleValue: true
   #   description: The physical dimensions of the product including packaging.
-  # - name: warranty
-  #   singleValue: true
-  #   description: Guarantee associated with the product
   # - name: storage
   #   singleValue: true
   #   description: Suggested storage location for product
@@ -400,9 +395,6 @@ fields:
   # - name: recyclingInformation
   #   singleValue: true
   #   description: Recycling information associated with the product
-  # - name: productOtherInformation
-  #   singleValue: false
-  #   description: Any other product information
   # - name: packaging
   #   singleValue: true
   #   description: Packaging information
@@ -450,9 +442,6 @@ fields:
   # - name: variants
   #   singleValue: false
   #   description: null
-  # - name: additionalDescBulletInfo
-  #   singleValue: false
-  #   description: null
   # - name: prop65Warning
   #   singleValue: true
   #   description: null
@@ -483,18 +472,11 @@ fields:
   #   singleValue: true
   #   description: Information related to customer service availability (text), ['Yes','No']
   #   defaultValue: No
-  # - name: materials
-  #   singleValue: true
-  #   description: Materials used to make the product
-  #   example: https://www.jdsports.co.uk/product/blue-adidas-linear-20-reversible-wind-breaker-jacket/15988125/
   # - name: Image360Present
   #   singleValue: true
   #   description: If 360 image is present in the carousel ['Yes','No']
   #   example: https://www.amazon.com/Trinsic-Single-Handle-Magnetic-Champagne-9159-CZ-DST/dp/B0050EN8E6
   #   defaultValue: No
-  # - name: imageZoomFeaturePresent
+  # - name: metaKeywords
   #   singleValue: true
-  #   description: If Zoom feature is available for Main image or images in the
-  #     carousel,['Yes','No']
-  #   example: https://www.zalando.de/adidas-neo-sneaker-low-blackwhite-a4315i002-q11.html
-  #   defaultValue: No
+  #   description: The <meta> keywords content

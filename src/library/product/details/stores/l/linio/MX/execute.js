@@ -5,8 +5,8 @@ module.exports = {
     country: 'MX',
     store: 'linio',
     domain: 'linio.com.mx',
-    loadedSelector: null,
-    noResultsXPath: null,
+    loadedSelector: 'main[class*="container-fluid"]',
+    noResultsXPath: '//div[contains(@class,"empty-search")]',
     zipcode: '',
   },
 };
