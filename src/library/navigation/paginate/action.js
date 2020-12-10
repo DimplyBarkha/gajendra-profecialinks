@@ -75,22 +75,15 @@ async function implementation (
   }
   const { pager } = dependencies;
 
-  const success = openSearchDefinition ? false : await pager({ ...inputs, nextLinkSelector: nextLink, loadedSelector, loadedXpath, mutationSelector, spinnerSelector });
+  const success = await pager({ ...inputs, nextLinkSelector: nextLink, loadedSelector, loadedXpath, mutationSelector, spinnerSelector, pageCheckSelector: parameters.pageCheckSelector });
 
   if (success) {
     return true;
   }
 
-  let url = openSearchDefinition ? false : await context.evaluate(function () {
-    /** @type { HTMLLinkElement } */
-    const next = document.querySelector('head link[rel="next"]');
-    if (!next) {
-      return false;
-    }
-    return next.href;
-  });
+  let url;
 
-  if (!url && openSearchDefinition) {
+  if (openSearchDefinition) {
     const { pageStartNb = 1, indexOffset, pageOffset, pageIndexMultiplier, template } = openSearchDefinition;
     const pageNb = page + pageStartNb - 1;
     url = template
@@ -101,6 +94,15 @@ async function implementation (
       .replace(/{index}/g, (pageNb * (pageIndexMultiplier || 0)).toString())
       .replace(/{offset}/g, (offset + (indexOffset || 0)).toString());
   }
+
+  url = openSearchDefinition ? false : await context.evaluate(function () {
+    /** @type { HTMLLinkElement } */
+    const next = document.querySelector('head link[rel="next"]');
+    if (!next) {
+      return false;
+    }
+    return next.href;
+  });
 
   if (!url) {
     return false;

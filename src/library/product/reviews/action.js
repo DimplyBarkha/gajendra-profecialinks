@@ -1,4 +1,3 @@
-
 /**
  *
  * @param { { URL: string, id: any, RPC: string, SKU: string, date: any, days: number, results} } inputs
@@ -8,15 +7,15 @@
  */
 async function implementation (
   inputs,
-  { mergeType, zipcode },
+  { zipcode },
   context,
   { execute, extract, paginate },
 ) {
-  const { URL: url, RPC, SKU, date: dateOrigin = null, days = 30, results = 10000 } = inputs;
+  const { URL: url, RPC, SKU, date: dateOrigin = null, days = 30, results = Infinity } = inputs;
   const id = RPC || SKU || inputs.id;
   const length = (results) => results.reduce((acc, { group }) => acc + (Array.isArray(group) ? group.length : 0), 0);
 
-  const date = new Date(days ? new Date().setDate(new Date().getDate() - days) : dateOrigin);
+  const date = new Date(dateOrigin || new Date().setDate(new Date().getDate() - days));
   console.log(`Date Limit: "${date}"`);
 
   const resultsReturned = await execute({ url, id, zipcode, date, days });
@@ -26,8 +25,8 @@ async function implementation (
     return;
   }
 
-  const pageOne = await extract({});
-  let collected = length(pageOne);
+  const pageOne = await extract({ date, results });
+  let collected = length(pageOne.data);
 
   console.log(`Got initial number of results: ${collected}`);
 
@@ -36,9 +35,12 @@ async function implementation (
 
   let page = 2;
   while (results > collected && await paginate({ id, page, offset: collected, date })) {
-    const data = await extract({});
+    const { data, stop, mergeType } = await extract({ date, results });
     const count = length(data);
-    if (count === 0) break; // no results
+    if (count === 0 || stop) {
+      // no results
+      break;
+    }
     collected = (mergeType && (mergeType === 'MERGE_ROWS') && count) || (collected + count);
     console.log('Got more results', collected);
     page++;
