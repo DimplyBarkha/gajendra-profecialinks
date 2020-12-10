@@ -15,28 +15,12 @@ module.exports = {
     context,
     dependencies,
   ) => {
+    await context.waitForSelector('span[itemprop="reviewCount"]');
     await context.evaluate(async function () {
       const productNotFoundEl = document.querySelector('h1');
 
       if (productNotFoundEl.innerText.includes('Product Not Found!')) {
         throw new Error('Product not found');
-      }
-
-      const descEl = document.querySelector('#product_tabs .product-info-description');
-
-      if (descEl) {
-        const featureBullets = descEl.querySelectorAll('li');
-
-        for (const el of featureBullets) {
-          const newEl = document.createElement('import-feature');
-          newEl.innerText = el.innerText;
-          document.body.appendChild(newEl);
-          el.remove();
-        }
-
-        const newDescEl = document.createElement('import-description');
-        newDescEl.innerText = descEl.innerText;
-        document.body.appendChild(newDescEl);
       }
     });
     const { transform } = parameters;

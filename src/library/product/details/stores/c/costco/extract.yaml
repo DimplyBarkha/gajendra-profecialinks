@@ -42,16 +42,13 @@ fields:
       clicks add to basket this is the price they would be charged
   - name: availabilityText
     singleValue: true
-    xpath: //div[@id="availability"]
+    xpath: //meta[@property="og:availability"]/@content
     description: Availability as described on page for the selected variant. If
       there is no availability but the product can be added to cart, this field
       should be "In Stock"
-    regExp: IN_STOCK
-    regExpReplace: In Stock
-    defaultValue: Out of Stock
   - name: description
     singleValue: false
-    xpath: //import-description
+    xpath: //div[@class='product-info-description']
     description: Product description supplied by website - may be concatenanted from
       multiple places; specifically not the manufacturer description
   - name: descriptionBullets
@@ -84,9 +81,7 @@ fields:
     description: GTIN code (includes UPC/EAN)
   - name: sku
     singleValue: true
-    xpath: //link[@rel='canonical']/@href
-    regExp: (\d+).html
-    regExpReplace: $1
+    xpath: //p[@id='product-body-item-number']/span
     description: The store-specific product identifier
   - name: variantId
     singleValue: true
@@ -148,7 +143,7 @@ fields:
     description: The extended description of the product supplied by the lister
   - name: manufacturerImages
     singleValue: false
-    xpath: //div[contains(@class, 'syndi_powerpage')]
+    xpath: //div[contains(@class, 'syndi_powerpage')] | //div[@id='wc-power-page']
     description: Images within the third party description
   - name: videos
     singleValue: false
@@ -233,7 +228,7 @@ fields:
     description: null
   - name: featureBullets
     singleValue: false
-    xpath: //import-feature
+    xpath: //ul[@class='pdp-features']/li
     description: null
   - name: otherSellersName
     singleValue: false
@@ -529,11 +524,11 @@ fields:
     defaultValue: No
   - name: shownImages
     singleValue: false
-    xpath: //div[@id='thumbnails']//div[@class='slick-track']/a/img/@src
+    xpath: //div[@id='thumbnails']/div[@id='theViews'][count(*)>0]//div[@class='slick-track']/a/img/@src | //div[@id='thumbnails']/div[@id='theViews'][count(*)=0]/../../div[@id='productImageContainer']/div[@id='realHeroContainer']/div/img[1]/@src
     regExp: .+(?=\&recipe(Id|Name)=\d+)
   - name: highQualityImages
     singleValue: false
-    xpath: //div[@id='thumbnails']//div[@class='slick-track']/a/img/@src
+    xpath: //div[@id='thumbnails']/div[@id='theViews'][count(*)>0]//div[@class='slick-track']/a/img/@src | //div[@id='thumbnails']/div[@id='theViews'][count(*)=0]/../../div[@id='productImageContainer']/div[@id='realHeroContainer']/div/img[1]/@src
     regExp: .+(?=\&recipe(Id|Name)=\d+)
   - name: sponsoredProductUrls
     singleValue: false
