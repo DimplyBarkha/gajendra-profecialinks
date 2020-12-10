@@ -7,7 +7,7 @@ module.exports = {
     nextLinkSelector: 'div[class="loadMoreRow_1TEZj loadMoreButtonContainer_35w02"]>button',
     mutationSelector: null,
     spinnerSelector: null,
-    loadedSelector: 'body',
+    loadedSelector: 'div[class="x-page-content container_3Sp8P"] main',
     noResultsXPath: null,
     // openSearchDefinition: {
     //   offset:30,
