@@ -72,16 +72,10 @@ fields:
     xpath: //div[contains(@class,'tab-tech-specs')]//tr//th[contains(text(),'guarantee') or contains(text(),'Guarantee')]//following-sibling::td    
   - name: ratingCount
     singleValue: false
-    xpath: //script[contains(text(),'numberOfReviews') and @id='app.digitalData']
-    #"numberOfReviews":9
-    regExp: \"numberOfReviews\":\s*(.+?)\,
-    regExpReplace: $1
+    xpath: //span[@itemprop="reviewCount"]    
   - name: aggregateRating
     singleValue: false
-    xpath: //script[contains(text(),'reviewRating') and @id='app.digitalData']
-    #"reviewRating":9
-    regExp: \"reviewRating\":\s*(.+?)\,
-    regExpReplace: $1
+    xpath: //span[@itemprop="ratingValue"]    
   - name: color
     singleValue: false
     xpath: //div[contains(@class,'tab-tech-specs')]//tr//th[text()='Colour']//following-sibling::td
