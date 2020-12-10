@@ -22,27 +22,36 @@ module.exports = {
         return !!document.querySelector(selector);
       }, cssSelector);
     };
+    try{
+      await context.waitForSelector(cssProductDetails, { timeout: 10000 });
+    }
+    catch(error){
+      console.log("Not a product page");
+    }
+    const productDetailsAvailable = await isSelectorAvailable(cssProductDetails);
 
-    console.log('.....waiting......');
-    await context.waitForSelector(cssProduct, { timeout: 10000 });
+    if (!productDetailsAvailable) {
+      console.log('.....waiting......');
+      await context.waitForSelector(cssProduct, { timeout: 10000 });
 
-    const productAvailable = await isSelectorAvailable(cssProduct);
-    console.log(`productAvailable: ${productAvailable}`);
-    if (productAvailable) {
-      console.log('clicking product link');
-      await context.click(cssProduct);
-      await context.waitForNavigation({ timeout: 10000, waitUntil: 'load' });
-      await context.waitForSelector(cssProductDetails);
-      const productDetailsAvailable = await isSelectorAvailable(cssProductDetails);
-      console.log(`productDetailsAvailable: ${productDetailsAvailable}`);
-      if (!productDetailsAvailable) {
-        throw new Error('ERROR: Failed to load product details page');
+      const productAvailable = await isSelectorAvailable(cssProduct);
+      console.log(`productAvailable: ${productAvailable}`);
+      if (productAvailable) {
+        console.log('clicking product link');
+        await context.click(cssProduct);
+        await context.waitForNavigation({ timeout: 10000, waitUntil: 'load' });
+        await context.waitForSelector(cssProductDetails);
+        const productDetailsAvailable = await isSelectorAvailable(cssProductDetails);
+        console.log(`productDetailsAvailable: ${productDetailsAvailable}`);
+        if (!productDetailsAvailable) {
+          throw new Error('ERROR: Failed to load product details page');
+        }
+        console.log('navigation complete!!');
       }
-      console.log('navigation complete!!');
     }
 
     await context.evaluate(async function (inputs) {
-      async function postData (url = '', data = {}) {
+      async function postData(url = '', data = {}) {
         const response = await fetch(url, {
           method: 'POST',
           headers: {
@@ -53,7 +62,7 @@ module.exports = {
         return response.json();
       };
 
-      async function getData (url = '') {
+      async function getData(url = '') {
         const response = await fetch(url, {
           method: 'GET',
           headers: {
