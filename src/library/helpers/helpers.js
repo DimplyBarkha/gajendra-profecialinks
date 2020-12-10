@@ -99,4 +99,31 @@ module.exports.Helpers = class {
       return elem[property];
     }, { selector, property, type });
   }
+
+  // Function which makes a click
+  async ifThereClickOnIt (selector) {
+    try {
+      await this.context.waitForSelector(selector, { timeout: 5000 });
+    } catch (error) {
+      console.log(`The following selector was not found: ${selector}`);
+      return false;
+    }
+    const hasItem = await this.context.evaluate((selector) => {
+      return document.querySelector(selector) !== null;
+    }, selector);
+    if (hasItem) {
+      // try both click
+      try {
+        await this.context.click(selector, { timeout: 2000 });
+      } catch (error) {
+        // context click did not work and that is ok
+      }
+      await this.context.evaluate((selector) => {
+        const elem = document.querySelector(selector);
+        if (elem) elem.click();
+      }, selector);
+      return true;
+    }
+    return false;
+  }
 };
