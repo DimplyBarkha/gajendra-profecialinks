@@ -107,9 +107,11 @@ fields:
     regExp: (.+800w,\s)(.+.jpg)(.+)
     regExpReplace: $2
   - name: inTheBoxText
-    xpath: //p[contains(.,'In the box:')]//text()[position()>1] | //div[contains(.,'In the box')]/following-sibling::div[1]//div[@class="flix-std-content"]//div[contains(@class,"flix-std-desc")]//text()
+    xpath: //p[contains(.,'In the box:')]//text()[position()>1] | //div[contains(.,'In the box')]/following-sibling::div[1]//div[@class="flix-std-content"]//div[contains(@class,"flix-std-desc")]
   - name: hasComparisonTable
-    xpath: //div[contains(@class,'mainTitle')]//div[contains(.,'Compare with similar products')]
+    xpath: //div[contains(@class,'mainTitle')]//div[contains(.,'Compar')]
     regExp: (.+)
     regExpReplace: Yes
     defaultValue: No
+  - name: unInterruptedPDP
+    xpath: //div[@class="owl-wrapper"]/div[@class="owl-item"]
