@@ -42,33 +42,8 @@ module.exports = {
     }
     await scrollToRec('div.product-breadcrumb-carousel__container');
     await scrollToRec('jl-recommendations-panel');
-    // const recProducts = await context.evaluate(async function () {
-    //   console.log(document.querySelector('jl-recommendations-panel'))
-    //   console.log(document.querySelector('jl-recommendations-panel').recommendationGroups)
-    //   const recommendations = document.querySelector('jl-recommendations-panel') ? document.querySelector('jl-recommendations-panel').recommendationGroups : null;
-    //   const products = [];
-    //   if (recommendations && recommendations.length) {
-    //     const products = recommendations[0].recommendedProducts;
-    //     products.forEach(element => {
-    //       products.push(element.title);
-    //     });
-    //   }
-    //   return products;
-    // });
+
     await context.evaluate(async function () {
-      // async function infiniteScroll () {
-      //   let prevScroll = document.documentElement.scrollTop;
-      //   while (true) {
-      //     window.scrollBy(0, document.documentElement.clientHeight);
-      //     await new Promise(resolve => setTimeout(resolve, 1000));
-      //     const currentScroll = document.documentElement.scrollTop;
-      //     if (currentScroll === prevScroll) {
-      //       break;
-      //     }
-      //     prevScroll = currentScroll;
-      //   }
-      // }
-      // await infiniteScroll();
       function addElementToDocument(key, value) {
         const catElement = document.createElement('div');
         catElement.id = key;
@@ -92,11 +67,10 @@ module.exports = {
         }
         return result;
       };
-      const recommenProducts = [...document.querySelector('jl-recommendations-panel').shadowRoot.querySelectorAll('section[data-test="product-card"] h2[class^="title"]')];
-      console.log(recommenProducts);
+      const recommenProducts = document.querySelector('jl-recommendations-panel') ? [...document.querySelector('jl-recommendations-panel').shadowRoot.querySelectorAll('section[data-test="product-card"] h2[class^="title"]')] : [];
 
       recommenProducts.forEach(element => {
-        addElementToDocument('ii_recommended_products', element);
+        addElementToDocument('ii_recommended_products', element.innerText);
       });
 
       var Description = getAllXpath("//div[@class='product-detail__description-inner']/p[position()>1]/text()", 'nodeValue');
