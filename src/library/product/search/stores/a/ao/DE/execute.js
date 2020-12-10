@@ -7,7 +7,7 @@ module.exports = {
     domain: 'ao.de',
     url: "https://www.ao.de/l/suche/101/99/?suche='{searchTerms}'",
     loadedSelector: 'main.lister',
-    noResultsXPath: 'div.no-results ',
+    noResultsXPath: 'div.no-results',
     zipcode: '',
   },
 };

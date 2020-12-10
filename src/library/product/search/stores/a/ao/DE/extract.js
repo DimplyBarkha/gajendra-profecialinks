@@ -28,17 +28,8 @@ module.exports = {
         // @ts-ignore
         promoClose.click();
       }
-      // const resCount = document.querySelector('.count');
-      // @ts-ignore
     });
     await context.evaluate(async function () {
-      // function addElementToDocument (doc, key, value) {
-      //  const catElement = document.createElement('div');
-      //  catElement.id = key;
-      //  catElement.textContent = value;
-      //  catElement.style.display = 'none';
-      //  doc.appendChild(catElement);
-      // }
       const rating = document.querySelectorAll('ul.o-flex-container li meta[itemprop="ratingValue"]');
       if (rating) {
         for (let n = 0; n < rating.length; n++) {
