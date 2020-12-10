@@ -260,6 +260,15 @@ async function implementation (
         }
       }
     }
+
+    const productCarousel = [...document.querySelectorAll('div.carousel-item')];
+    const uipdpArr = [];
+    productCarousel.forEach((element) => {
+      const brand = element.querySelector('.carousel-brand') ? element.querySelector('.carousel-brand').innerText : '';
+      const productName = element.querySelector('.carousel-name') ? element.querySelector('.carousel-name').innerText : '';
+      uipdpArr.push(brand + ' ' + productName);
+    });
+    addHiddenDiv('ii_uipdp', uipdpArr.join(' || '));
   }, manufacturerImages, enhancedContent, videos, inBoxUrls, inBoxText, hasComparisionTable);
 
   return await context.extract(productDetails, { transform });
