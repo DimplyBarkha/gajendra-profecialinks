@@ -183,7 +183,7 @@ async function implementation(
         addHiddenDiv('intheboxurl', boxContent ? boxContent.images : '');
         addHiddenDiv('intheboxtext', boxContent ? boxContent.text : '');
 
-        addHiddenDiv('comparisionText', comparisionText);
+        addHiddenDiv('comparisionText', comparisionText ? 'Yes' : 'No');
 
         const alternateImages = [];
         document.querySelectorAll('.image--box').forEach((el, ind) => {
