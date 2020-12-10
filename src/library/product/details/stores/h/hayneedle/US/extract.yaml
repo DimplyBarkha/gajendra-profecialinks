@@ -44,9 +44,9 @@ fields:
     regExp: (\d+)
   - name: aggregateRating
     singleValue: true
-    xpath: (//script[@type="application/ld+json"])[1]
-    regExp: ("ratingValue":")(\d+\.\d+)
-    regExpReplace: $2
+    xpath: //section[@class="pr-review-snapshot-snippets"]//span[@class="pr-review-snapshot-snippets-headline pr-h1"]
+    # regExp: ("ratingValue":")(\d+\.\d+)
+    # regExpReplace: $2
     # xpath: //span[contains(@class,"pr-review-snapshot-snippets")]
   - name: category
     singleValue: false
