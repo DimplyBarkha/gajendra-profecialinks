@@ -20,6 +20,7 @@ async function implementation (
     let thmcount = document.querySelectorAll('ul.productGroup li.item img[src]').length;
     let itemcount = document.querySelectorAll('ul.productGroup li.item').length;
 
+
     while(itemcount!=thmcount){
       let newscrolltop = document.getElementById("main").scrollTop;
       document.getElementById("main").scrollBy({ top: newscrolltop-scrolltop, left: 0, behavior: 'smooth'});

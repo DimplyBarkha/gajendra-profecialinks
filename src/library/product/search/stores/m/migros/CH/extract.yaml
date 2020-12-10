@@ -14,7 +14,7 @@ fields:
   xpath: //span[@class='name ng-star-inserted']
 - name: price
   singleValue: false
-  xpath: //span[@class='actual']
+  xpath: //span[@class='offers']//span[contains(@id,'current-price')]
 - name: listPrice
   singleValue: false
   xpath: //span[contains(@id,'original-price')]
