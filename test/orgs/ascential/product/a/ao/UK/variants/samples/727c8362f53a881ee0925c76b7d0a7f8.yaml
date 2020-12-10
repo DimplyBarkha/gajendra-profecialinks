@@ -1,0 +1,16 @@
+input:
+  RPC: 75283
+  _url: http://ao.com
+extractions:
+  - html: https://workbench.import.io/html/run=e08f1564-3c2c-4dfe-b37a-6f3fefc45686/task=763c6093-de9b-4b43-bc25-5d097c8f2c7b/59434496-8376-48fb-b65f-70c2d548101f.html
+    extractionConfigId: product/details/stores/a/ao/UK/variantsExtract
+    data:
+      - group:
+          - variantId:
+              - text: "75283"
+                xpath: /html/body/ol[1]/li[1]/@variant_id
+            variantUrl:
+              - text: https://ao.com/product/82un85006la-lg-un8500-tv-black-75283-108.aspx?cmredirectionvalue=75283
+                xpath: /html/body/ol[1]/li[1]/@variant_url
+        xpath: /html
+    timestamp: 1607612979643

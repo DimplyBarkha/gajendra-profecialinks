@@ -1,0 +1,16 @@
+input:
+  RPC: 45653
+  _url: http://ao.com
+extractions:
+  - html: https://workbench.import.io/html/run=e08f1564-3c2c-4dfe-b37a-6f3fefc45686/task=c59e2e83-dbfd-4144-8800-043ee0c6b10a/6693a5c4-ffd1-47e3-a696-448f5286c77a.html
+    extractionConfigId: product/details/stores/a/ao/UK/variantsExtract
+    data:
+      - group:
+          - variantId:
+              - text: "45653"
+                xpath: /html/body/ol[1]/li[1]/@variant_id
+            variantUrl:
+              - text: https://ao.com/product/t8dea866c-aeg-absolutecare-technology-heat-pump-tumble-dryer-white-45653-126.aspx?cmredirectionvalue=45653
+                xpath: /html/body/ol[1]/li[1]/@variant_url
+        xpath: /html
+    timestamp: 1607612975062

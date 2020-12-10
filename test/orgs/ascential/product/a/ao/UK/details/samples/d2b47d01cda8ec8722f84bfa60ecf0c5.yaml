@@ -2,7 +2,7 @@ input:
   RPC: 74938
   _url: http://ao.com
 extractions:
-  - html: https://workbench.import.io/html/run=24cafaa5-09b1-48c6-be1a-ebf54a6ef408/task=5b9de729-c432-44f4-8e8e-0a025043c7c5/1ff96082-05b4-4e66-9b2f-8649d7dbd1ec.html
+  - html: https://workbench.import.io/html/run=1af09c23-6d8d-429c-bc78-67184947929b/task=7199838d-fcfd-4794-8f6d-cb9edbb8ceec/d0b3a67e-bf5a-49a6-83b9-1166a50dc126.html
     extractionConfigId: product/details/stores/a/ao/UK/extract
     data:
       - group:
@@ -28,11 +28,11 @@ extractions:
                 xpath: /html/head[1]/meta[14]/@content
             category:
               - text: Ovens
-                xpath: /html/body/div[1]/div[1]/div[3]/div[1]/ul[1]/li[2]/a[1]
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/ul[1]/li[2]/a[1]
               - text: Single Ovens
-                xpath: /html/body/div[1]/div[1]/div[3]/div[1]/ul[1]/li[3]/a[1]
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/ul[1]/li[3]/a[1]
               - text: Electric Single Ovens
-                xpath: /html/body/div[1]/div[1]/div[3]/div[1]/ul[1]/li[4]/a[1]
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/ul[1]/li[4]/a[1]
             nameExtended:
               - text: Siemens IQ-500 HB578A0S6B Wifi Connected Built In Electric Single Oven -
                   Stainless Steel - A Rated
@@ -70,7 +70,7 @@ extractions:
                 xpath: /html/body/div[1]/div[1]/main[1]/div[1]/div[1]/div[1]/section[2]/div[1]/div[7]/div[1]/div[1]/table[1]/tbody[1]/tr[9]/td[2]
             gtin:
               - text: Siemens HB578A0S6B
-                xpath: /html/body/div[1]/div[1]/div[3]/div[1]/ul[1]/li[5]
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/ul[1]/li[5]
             sku:
               - text: HB578A0S6B_SS
                 xpath: /html/body/div[1]/div[1]/main[1]/div[1]/div[1]/div[1]/section[2]/div[1]/div[7]/div[1]/div[1]/table[1]/tbody[1]/tr[6]/td[2]
@@ -138,4 +138,4 @@ extractions:
             imageZoomFeaturePresent:
               - text: "true"
         xpath: /
-    timestamp: 1607611356366
+    timestamp: 1607612372935

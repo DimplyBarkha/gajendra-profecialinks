@@ -1,0 +1,16 @@
+input:
+  RPC: 21421
+  _url: http://ao.com
+extractions:
+  - html: https://workbench.import.io/html/run=e08f1564-3c2c-4dfe-b37a-6f3fefc45686/task=6acbfb77-2ca3-46d7-a40a-bfe5bbdadb5f/2ee28960-8def-4bbf-b94d-e53c60ad1495.html
+    extractionConfigId: product/details/stores/a/ao/UK/variantsExtract
+    data:
+      - group:
+          - variantId:
+              - text: "21421"
+                xpath: /html/body/ol[1]/li[1]/@variant_id
+            variantUrl:
+              - text: https://ao.com/product/lf959bl90b-siemens-iq700-island-cooker-hood-stainless-steel-21421-8.aspx?cmredirectionvalue=21421
+                xpath: /html/body/ol[1]/li[1]/@variant_url
+        xpath: /html
+    timestamp: 1607612974423

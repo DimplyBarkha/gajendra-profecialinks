@@ -1,0 +1,16 @@
+input:
+  RPC: 74938
+  _url: http://ao.com
+extractions:
+  - html: https://workbench.import.io/html/run=e08f1564-3c2c-4dfe-b37a-6f3fefc45686/task=6d86dd0c-435a-4447-a9ed-17fcb441a80d/ef33984c-a66a-4297-8edb-453646a11512.html
+    extractionConfigId: product/details/stores/a/ao/UK/variantsExtract
+    data:
+      - group:
+          - variantId:
+              - text: "74938"
+                xpath: /html/body/ol[1]/li[1]/@variant_id
+            variantUrl:
+              - text: https://ao.com/product/hb578a0s6b-siemens-iq500-electric-single-oven-stainless-steel-74938-45.aspx?cmredirectionvalue=74938
+                xpath: /html/body/ol[1]/li[1]/@variant_url
+        xpath: /html
+    timestamp: 1607612978638

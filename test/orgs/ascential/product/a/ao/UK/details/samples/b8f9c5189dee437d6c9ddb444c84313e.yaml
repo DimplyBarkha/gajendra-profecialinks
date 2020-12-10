@@ -2,7 +2,7 @@ input:
   RPC: 21421
   _url: http://ao.com
 extractions:
-  - html: https://workbench.import.io/html/run=24cafaa5-09b1-48c6-be1a-ebf54a6ef408/task=5a464706-cbce-483e-8309-d4fd7b362293/aa5de606-84f2-4dbd-98d7-ba4082e094b2.html
+  - html: https://workbench.import.io/html/run=1af09c23-6d8d-429c-bc78-67184947929b/task=2f1de0ed-4d33-49ff-8347-da822a086019/dd67a81b-ec78-4ff1-9b36-a2c6953a4189.html
     extractionConfigId: product/details/stores/a/ao/UK/extract
     data:
       - group:
@@ -23,9 +23,9 @@ extractions:
                 xpath: /html/head[1]/meta[14]/@content
             category:
               - text: Cooker Hoods
-                xpath: /html/body/div[1]/div[1]/div[3]/div[1]/ul[1]/li[2]/a[1]
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/ul[1]/li[2]/a[1]
               - text: Island Cooker Hoods
-                xpath: /html/body/div[1]/div[1]/div[3]/div[1]/ul[1]/li[3]/a[1]
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/ul[1]/li[3]/a[1]
             nameExtended:
               - text: Siemens IQ-700 LF959BL90B 90 cm Island Cooker Hood - Stainless Steel - C
                   Rated
@@ -53,7 +53,7 @@ extractions:
                 xpath: /html/body/div[1]/div[1]/main[1]/div[1]/div[1]/section[2]/div[1]/div[6]/div[1]/div[1]/table[1]/tbody[1]/tr[11]/td[2]
             gtin:
               - text: Siemens LF959BL90B
-                xpath: /html/body/div[1]/div[1]/div[3]/div[1]/ul[1]/li[4]
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/ul[1]/li[4]
             sku:
               - text: LF959BL90B_SS
                 xpath: /html/body/div[1]/div[1]/main[1]/div[1]/div[1]/section[2]/div[1]/div[6]/div[1]/div[1]/table[1]/tbody[1]/tr[9]/td[2]
@@ -103,4 +103,4 @@ extractions:
             imageZoomFeaturePresent:
               - text: "true"
         xpath: /
-    timestamp: 1607611347180
+    timestamp: 1607612361677

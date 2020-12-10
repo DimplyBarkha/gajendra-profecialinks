@@ -1,0 +1,22 @@
+input:
+  RPC: 74637
+  _url: http://ao.com
+extractions:
+  - html: https://workbench.import.io/html/run=e08f1564-3c2c-4dfe-b37a-6f3fefc45686/task=3be34c1f-610b-4a1f-9f12-7ae69362ce92/ab607f6f-28bb-42e0-ae0c-5db73bce255d.html
+    extractionConfigId: product/details/stores/a/ao/UK/variantsExtract
+    data:
+      - group:
+          - variantId:
+              - text: "74637"
+                xpath: /html/body/ol[1]/li[1]/@variant_id
+            variantUrl:
+              - text: ao.com/product/jblcharge4blk-jbl-wireless-speaker-black-74637-166.aspx
+                xpath: /html/body/ol[1]/li[1]/@variant_url
+          - variantId:
+              - text: "74638"
+                xpath: /html/body/ol[1]/li[2]/@variant_id
+            variantUrl:
+              - text: ao.com/product/jblcharge4blu-jbl-wireless-speaker-blue-74638-166.aspx
+                xpath: /html/body/ol[1]/li[2]/@variant_url
+        xpath: /html
+    timestamp: 1607612977579
