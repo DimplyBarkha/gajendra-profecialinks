@@ -68,7 +68,7 @@ module.exports = {
         var url_web = single_obj.url;
         var urllink_update = urllink[i].getAttribute("href");
 
-        if (urllink_update == url_web) {
+        if ((urllink_update = url_web)) {
           if (rank == 1) {
             addHiddenDiv("ii_rankOrganic", single_obj.position, i);
           } else {
