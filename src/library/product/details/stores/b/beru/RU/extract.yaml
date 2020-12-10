@@ -480,6 +480,7 @@ fields:
       all variants of a product, this rpc becomes the common link between other
       variants. method 3 = apply some logic to determine link between variants,
       this will need analysis
+    xpath: (//span[@class="b_18ouxBEWKA"][contains(@data-auto, "selected-true")]//input/@value)[1]
   # - name: additionalDescBulletInfo
   #   singleValue: false
   #   xpath: //div[@id='bulletListTemp']
