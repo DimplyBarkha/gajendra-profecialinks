@@ -4,7 +4,7 @@ module.exports = {
   parameterValues: {
     domain: 'next.co.uk',
     prefix: null,
-    url: null,
+    url: 'https://www.next.co.uk/search?w={id}',
     country: 'UK',
     store: 'next',
     zipcode: '',
