@@ -43,6 +43,5 @@ module.exports = {
     } else {
       dataRef[0].data[0].group[0].productOtherInformation[0].push({ text: allInfo.careTips });
     }
-
   },
 };
