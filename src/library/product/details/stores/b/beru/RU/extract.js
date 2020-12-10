@@ -14,6 +14,53 @@ async function implementation(inputs, parameters, context, dependencies) {
   const { transform } = parameters;
   const { productDetails } = dependencies;
 
+ 
+  
+
+  await context.waitForSelector('div.b_2TiXwODAcc a')
+  .catch(() => { });
+  await context.clickAndWaitForNavigation("div.b_2TiXwODAcc a")
+  .catch(() => { });
+  await context.evaluate(async () => {
+  const specXpath = document.evaluate('//div[@class="_2aFJJAOXlE"]//text() | //div[@class="_3_bNW20rUd"]//text()', document, null, XPathResult.ANY_TYPE);
+if( specXpath) {
+  var specificationList;
+  let specification = '';
+
+  specificationList = document.querySelectorAll('div.b_3_bNW20rUd');
+  specificationList.forEach((element) => {
+    specification +=
+      element.children[0].innerText +
+      ':' +
+      element.children[2].innerText +
+      '|';
+  });
+  const specifications = [];
+   specifications.push(specification)
+  sessionStorage.setItem("Specifications", JSON.stringify(specifications));
+}  
+});  
+await context.waitForSelector('div.b_D2rV3eJmpM a')
+.catch(() => { });
+await context.clickAndWaitForNavigation("div.b_D2rV3eJmpM a")
+.catch(() => { });
+       
+await context.evaluate(async () => {
+
+  function addHiddenDiv(id, content) {
+    const newDiv = document.createElement('div');
+    newDiv.id = id;
+    newDiv.textContent = content;
+    newDiv.style.display = 'none';
+    document.body.appendChild(newDiv);
+  }
+
+  const specifications = JSON.parse(sessionStorage.getItem("Specifications"));
+  console.log(specifications ,'specifications');
+  specifications.forEach(specs => {
+    addHiddenDiv('import_specs', specs);
+  })  
+});
   await context.evaluate(async () => {
     let scrollTop = 0;
     while (scrollTop !== 20000) {
@@ -32,7 +79,7 @@ async function implementation(inputs, parameters, context, dependencies) {
         }, ms);
       });
     }
-
+ 
     function addHiddenDiv(id, content) {
       const newDiv = document.createElement('div');
       newDiv.id = id;
@@ -257,48 +304,25 @@ async function implementation(inputs, parameters, context, dependencies) {
     // XPathResult.FIRST_ORDERED_NODE_TYPE,
     // null
     // ).singleNodeValue;
+    let spec = document.querySelectorAll('div#import_specs');
+if(spec.length === 0) {
+  var specificationList;
+  let specification = '';
 
-    var specificationList;
-    let specification = '';
-
-    specificationList = document.querySelectorAll('div.b_3_bNW20rUd');
-    specificationList.forEach((element) => {
-      specification +=
-        element.children[0].innerText +
-        ':' +
-        element.children[2].innerText +
-        '|';
-    });
-    addHiddenDiv('specification', specification);
-
-    let variantsInfo = document.querySelectorAll('span.b_1vzk4iYy5n');
-    if (variantsInfo) {
-      variantsInfo.forEach((element) => {
-        const secondaryImageLink = document.createElement('div');
-        secondaryImageLink.setAttribute('class', 'variantsInfoData');
-        element.click();
-        secondaryImageLink.setAttribute('href', element.textContent);
-        document.body.appendChild(secondaryImageLink);
-      });
-      let variantsImgInfo = document.querySelectorAll(
-        'div.b_vsxt0dVvL4 img.b_ZM3OPI2WFF'
-      );
-      if (variantsImgInfo) {
-        variantsImgInfo.forEach((element) => {
-          const secondaryImageLink = document.createElement('div');
-          secondaryImageLink.setAttribute('class', 'variantsInfoData');
-          element.click();
-          secondaryImageLink.setAttribute('href', element.textContent);
-          document.body.appendChild(secondaryImageLink);
-        });
-        // const secondaryImageCount = document.createElement('div');
-        // secondaryImageCount.setAttribute('class', 'alternateImagesCountTotal');
-        // // @ts-ignore
-        // secondaryImageCount.setAttribute('sum', alternateImagesCount);
-        // document.body.appendChild(secondaryImageCount);
-      }
-    }
+  specificationList = document.querySelectorAll('div.b_3_bNW20rUd');
+  specificationList.forEach((element) => {
+    specification +=
+      element.children[0].innerText +
+      ':' +
+      element.children[2].innerText +
+      '|';
   });
+  addHiddenDiv('specification', specification);
+}
+   
 
+   
+  });
+  
   return await context.extract(productDetails, { transform });
 }

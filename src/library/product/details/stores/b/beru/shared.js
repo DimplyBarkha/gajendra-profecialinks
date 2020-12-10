@@ -81,7 +81,7 @@ const transform = (data) => {
         if (row.description) {
           let text = '';
           row.description.forEach(item => {
-            text += item.text.replace(/\s{2,}/g, ' ').replace(/\n/g, ' ').trim();
+            text += item.text.replace(/\s{2,}/g, '').replace(/\n/g, '').trim();
           });
           row.description = [
             {
@@ -89,6 +89,18 @@ const transform = (data) => {
             },
           ];
         }
+        if (row.specifications) {
+          let text = '';
+          row.specifications.forEach(item => {
+            text += item.text.replace(/\s{2,}/g, '').replace(/\n/g, '').trim();
+          });
+          row.specifications = [
+            {
+              text: text.slice(0 , -1),
+            },
+          ];
+        }
+        
         // if (row.manufacturerDescription) {
         //   let text = '';
         //   row.manufacturerDescription.forEach(item => {
@@ -101,6 +113,7 @@ const transform = (data) => {
         //   ];
         // }
       }
+      
     }
     return data;
   };
