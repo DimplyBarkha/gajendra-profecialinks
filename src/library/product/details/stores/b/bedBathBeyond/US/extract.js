@@ -208,6 +208,7 @@ async function implementation (
       // @ts-ignore
       video.click();
     }
+    document.body.setAttribute("producturl", window.location.href);
   });
   await context.evaluate(addRating);
   async function addSpecification () {

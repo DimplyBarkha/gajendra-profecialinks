@@ -197,7 +197,7 @@ fields:
     regExp: ([^,]+)
     regExpReplace: https://b3h2.scene7.com/is/image/BedBathandBeyond/$1?$&wid=2000&hei=2000
   - name: featureBullets
-    xpath: ancestor::html//div[@id="productDetails"]//ul/li
+    xpath: ancestor::html//div[@id="productDetails"]//div[contains(@class, "mt2 Overview_18CMhs")]//ul//li
     singleValue: false
     description: null
 
