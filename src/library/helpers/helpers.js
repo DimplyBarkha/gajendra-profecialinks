@@ -1,3 +1,17 @@
+// this is a module containing some ready made functions
+// to use it do the following in extract.js
+/*
+//at the top of the file
+const { Helpers } = require('../../../../../../helpers/helpers') // make sure this is the correct path
+
+//inside the implementation function
+  const helper = new Helpers(context)
+
+  // you can now use any of the function like that
+  helper.function()
+
+*/
+
 
 module.exports.Helpers = class {
   constructor (context) {
