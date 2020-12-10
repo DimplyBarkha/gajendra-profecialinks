@@ -33,54 +33,60 @@ async function implementation(inputs, parameters, context, dependencies) {
       catElement.style.display = 'none';
       document.body.appendChild(catElement);
     };
+    //getting nameExtended
+    const name = document.querySelector('span.a-txt-product-description') ? document.querySelector('span.a-txt-product-description').innerText : null;
+    const brand = document.querySelector('span.a-txt-brand-name>a') ? document.querySelector('span.a-txt-brand-name>a').innerText : null;
+    if (name !== null && brand !== null) {
+      //@ts-ignore
+      addElementToDocument('nameextended', `${brand} - ${name}`);
+    }
 
-    //getting variantId
+
     const script = document.querySelector('script[data-component="pdp-semantic-data"]') ? document.querySelector('script[data-component="pdp-semantic-data"]').innerText : null;
     if (document.querySelector('section[data-js-component="productHero"]') !== null) {
       const scriptToString = JSON.parse(script);
-
       // @ts-ignore
 
       if (script !== null) {
+        //getting variantId
         const sku = scriptToString.model[0].sku;
         // @ts-ignore
-        addElementToDocument('variantid', sku)
-      }
+        addElementToDocument('variantid', sku);
 
-
-      //getting availability
-      if (script !== null) {
+        //getting availability
         const isAvailable = scriptToString.model[0].offers[0].availability;
         // @ts-ignore
         addElementToDocument('availability', isAvailable)
       }
-
-
-
-      const isImgZoom = document.querySelector('span.hero-zoom')
-        ? document.querySelector('span.hero-zoom') : null;
-      // @ts-ignore
-      if (isImgZoom !== null) {
-        addElementToDocument('isImgZoom', 'Yes', 'Yes');
-      } else {
-        addElementToDocument('isImgZoom', 'No', 'No');
-      }
-
-      const description1 = document.querySelector('#content1 div.c-tabs__copy span')
-        ? document.querySelector('#content1 div.c-tabs__copy span').innerText : '';
-      const description2 = document.querySelectorAll('#content1 div.c-tabs__copy ul li')
-        ? document.querySelectorAll('#content1 div.c-tabs__copy ul li') : '';
-      if (description2) {
-        const bulletsArr = [description2];
-        const bulletsArrSliced = bulletsArr.slice(1);
-        // @ts-ignore
-        description2.forEach(e => bulletsArrSliced.push(e.textContent));
-        const concatDesc = bulletsArrSliced.join(' || ');
-        addElementToDocument('descriptionBull', concatDesc);
-      } else if (description1) {
-        addElementToDocument('description', description1);
-      }
     }
+
+    const isImgZoom = document.querySelector('span.hero-zoom')
+      ? document.querySelector('span.hero-zoom') : null;
+    // @ts-ignore
+    if (isImgZoom !== null) {
+      addElementToDocument('isImgZoom', 'Yes', 'Yes');
+    } else {
+      addElementToDocument('isImgZoom', 'No', 'No');
+    }
+
+    const description1 = document.querySelector('#content1 div.c-tabs__copy')
+      ? document.querySelector('#content1 div.c-tabs__copy').innerText : '';
+    const description2 = document.querySelectorAll('#content1 div.c-tabs__copy ul li')
+      ? document.querySelectorAll('#content1 div.c-tabs__copy li') : '';
+    if (description2) {
+      console.log(description2);
+      const bulletsArr = [description2];
+      const bulletsArrSliced = bulletsArr.slice(1);
+      // @ts-ignore
+      description2.forEach(e => bulletsArrSliced.push(e.textContent));
+      const concatDesc = bulletsArrSliced.join(' || ');
+      addElementToDocument('descriptionBull', concatDesc);
+      console.log(concatDesc);
+    } else if (description1) {
+      addElementToDocument('description', description1);
+      console.log(description1);
+    }
+
   });
 
   return await context.extract(productDetails, { transform });

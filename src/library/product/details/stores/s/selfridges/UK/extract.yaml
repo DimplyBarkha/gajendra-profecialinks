@@ -34,14 +34,12 @@ fields:
   singleValue: false
   description: The categories (e.g. from breadcrumbs)
 - name: nameExtended
-  xpath: //title
-  regExp: (.+) \|
-  regExpReplace: $1
+  xpath: //div[@id="nameextended"]
   singleValue: false
   description: The product name, prefixing "${brand} - " if not included in "name"
     and appending " - ${variantType}" if necessary (fixed per feed)
 - name: listPrice
-  xpath: //span[@data-js-action="updateWasPrice"]|//p[@class="o-price"]/span[@data-js-action="updatePrice"]
+  xpath: //span[@data-js-action="updateWasPrice"]
   singleValue: true
   description: The stated undiscounted price for the product
 - name: price
@@ -132,7 +130,7 @@ fields:
   singleValue: true
   description: Stated shipping weight
 - name: variantCount
-  xpath: count(//div[@class="c-select__dropdown-item-container"]/span)
+  xpath: count(//div[@data-select-name="Size"]//span[contains(@class,"c-select__dropdown-item")]|//div[@data-select-name="BeautyColour"]//span[contains(@class,"c-select__dropdown-item")])
   singleValue: true
   description: Number of variants listed
 - name: color
@@ -460,7 +458,7 @@ fields:
     common link between other variants. method 3 = apply some logic to determine link
     between variants, this will need analysis
 - name: variants
-  xpath: //div[@data-js-action="selectContainer"][contains(text(), "Size")]/following-sibling::div/span
+  xpath: //div[@data-js-action="selectContainer"][contains(text(), "Size")]/following-sibling::div/span/@data-js-action|//div[@data-js-action="selectContainer"][contains(text(), "Colour")]/following-sibling::div/span/@data-js-action
   singleValue: false
   description: 
 - name: additionalDescBulletInfo
