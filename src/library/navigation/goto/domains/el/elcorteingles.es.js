@@ -14,6 +14,7 @@ module.exports = {
       images_enabled: true,
       timeout: 100000,
       waitUntil: 'load',
+      captureRequests: true,
     });
   },
 };
