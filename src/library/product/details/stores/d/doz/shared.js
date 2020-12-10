@@ -45,6 +45,15 @@ const transform = (data) => {
           },
         ];
       }
+      // if (row.description) {
+      //   let text = '';
+      //   row.description.forEach(item => {
+      //     let t = item.text.replace(/\n/g, '||')
+      //     item.text = item.text.replace(/More Information/, '');
+      //     item.text = item.text.replace(/Description/, '');
+      //     item.text = item.text.replace(/•/g, '||');
+      //   });
+      // }
       if (row.image) {
         let img = [];
         row.image.forEach(item => {
@@ -53,43 +62,6 @@ const transform = (data) => {
           }
         });
       }
-      if (row.variantUrl) {
-        const variantUrls = [];
-        let dupUrl = '';
-        let urls = [];
-        row.variantUrl.forEach(item => {
-          console.log('item:: ', item.text);
-          urls = row.variantUrl.filter(it => item.text === it.text);
-          if (urls && urls.length === 1) {
-            variantUrls.push(item);
-          } else {
-            if (dupUrl !== item.text) {
-              dupUrl =  item.text;
-              variantUrls.push(item);
-            }
-          }
-        });
-        row.variantUrl = variantUrls;
-      }
-
-      // if (row.variantId) {
-      //   const variantIds = [];
-      //   let dup = "";
-      //   let urls = [];
-      //   row.variantId.forEach(item => {
-      //     // console.log('item:: ', item.text);
-      //    urls =  row.variantId.filter(it => item.text === it.text);
-      //   if(urls && urls.length === 1 ){
-      //     variantIds.push(item);
-      //   }else{
-      //     if(dup !== item.text){
-      //       dup =  item.text;
-      //       variantIds.push(item);
-      //     }
-      //   }
-      //   });
-      //   row.variantId = variantIds;
-      // }
       if (row.manufacturerDescription) {
         let text = '';
         row.manufacturerDescription.forEach(item => {
@@ -101,28 +73,17 @@ const transform = (data) => {
           },
         ];
       }
-      // if (row.caloriesPerServing) {
+      // if (row.description) {
       //   let text = '';
-      //   row.caloriesPerServing.forEach(item => {
-      //     text += item.text.replace(/(.*kJ)(.*)/g, '$1/$2');
+      //   row.description.forEach(item => {
+      //     text += `${item.text.replace(/\n \n/g, ':')} || `;
       //   });
-      //   row.caloriesPerServing = [
+      //   row.description = [
       //     {
-      //       text: text,
+      //       text: text.slice(0, -3),
       //     },
       //   ];
       // }
-      if (row.description) {
-        let text = '';
-        row.description.forEach(item => {
-          text += `${item.text.replace(/\n \n/g, ':')} || `;
-        });
-        row.description = [
-          {
-            text: text.slice(0, -3),
-          },
-        ];
-      }
       if (row.specifications) {
         let text = '';
         row.specifications.forEach(item => {
@@ -211,7 +172,9 @@ const transform = (data) => {
           },
         ];
       }
-
+      if (row.price && row.price[0]) {
+        row.price[0].text = row.price[0].text.replace(/\./g, ',');
+      }
       if (row.allergens) {
         let text = '';
         row.allergens.forEach(item => {
