@@ -458,9 +458,10 @@ fields:
   #     all variants of a product, this rpc becomes the common link between other
   #     variants. method 3 = apply some logic to determine link between variants,
   #     this will need analysis
-  # - name: variants
-  #   singleValue: false
-  #   description: null
+  - name: variants
+    singleValue: false
+    xpath: //html//div[@id='variant']
+    description: null
   - name: additionalDescBulletInfo
     singleValue: false
     description: null

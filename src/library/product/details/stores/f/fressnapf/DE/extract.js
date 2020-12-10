@@ -35,6 +35,11 @@ module.exports = {
           addElementToDocument('abc', alternateimg[i]);
         }
       }
+      var variant = getAllXpath("(//div[@class='product-variant-selector'])[2]/div/label/span/div/div[@class='pvsil-title']/text()", 'nodeValue');
+      if (variant != null) {
+        var ab = variant.join(' | ');
+        addElementToDocument('variant', ab);
+      }
     });
     await context.extract(productDetails);
   },
