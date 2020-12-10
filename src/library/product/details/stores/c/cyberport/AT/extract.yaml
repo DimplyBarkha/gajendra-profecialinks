@@ -523,6 +523,11 @@ fields:
     example: https://www.zalando.de/adidas-neo-sneaker-low-blackwhite-a4315i002-q11.html
     defaultValue: No
   - name: hasComparisonTable
+    singleValue: true
     defaultValue: No
   - name: inTheBoxText
-    xpath: //div[@class="keyfacts"]//li[contains(.,'Inkl')]
+    singleValue: false
+    xpath: //div[@class="keyfacts"]//li[contains(.,'nkl')]
+  - name: unInterruptedPDP
+    singleValue: false
+    xpath: //div[contains(@class,'boxContentWrapper')]//div[@class="slick-track"]/div[contains(@class,'slick-slide')]//div[@class="productItemWrapper"]
