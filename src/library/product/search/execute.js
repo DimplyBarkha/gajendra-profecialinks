@@ -1,18 +1,19 @@
 /**
  *
- * @param { { keywords: string, zipcode: string } } inputs
+ * @param { { keywords: string, zipcode: string, storeID: string } } inputs
  * @param { { url: string, loadedSelector?: string, noResultsXPath: string } } parameters
  * @param { ImportIO.IContext } context
  * @param { { goto: ImportIO.Action} } dependencies
  */
 async function implementation (
-  { zipcode, keywords },
+  inputs,
   { url, loadedSelector, noResultsXPath },
   context,
   dependencies,
 ) {
+  const { keywords } = inputs;
   const destinationUrl = url.replace('{searchTerms}', encodeURIComponent(keywords));
-  await dependencies.goto({ url: destinationUrl, zipcode });
+  await dependencies.goto({ ...inputs, url: destinationUrl });
 
   if (loadedSelector) {
     await context.waitForFunction(function (sel, xp) {
@@ -67,6 +68,12 @@ module.exports = {
       name: 'zipcode',
       description: 'keywords to search for',
       type: 'string',
+    },
+    {
+      name: 'storeID',
+      description: 'Id of the store',
+      type: 'string',
+      optional: true,
     },
   ],
   dependencies: {
