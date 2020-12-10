@@ -193,4 +193,10 @@ fields:
   - name: hasComparisonTable
     defaultValue: No
   - name: inTheBoxText
-    xpath: //p[contains(.,"In the Box") or contains(.,"in the box")]/following-sibling::li[preceding-sibling::p and following-sibling::p]
+    xpath: //p[contains(.,"In the Box") or contains(.,"in the box")]/following-sibling::li[preceding-sibling::p and following-sibling::p] | //div[contains(@class,"InTheBox")]//div[@class="flix-std-content"]
+  - name: inTheBoxUrl
+    xpath: //div[contains(@class,"InTheBox")]//div[@class="flix-background-image"]/img/@data-flixsrcset
+    regExp: (.+)(\s?200w)(.+)
+    regExpReplace: https:$1
+  - name: unInterruptedPDP
+    xpath: //div[@id="recommendations"]//ul/li/div | //div[@id="lastVisited"]//ul/li/div
