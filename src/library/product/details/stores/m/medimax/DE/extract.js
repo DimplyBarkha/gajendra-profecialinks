@@ -116,9 +116,23 @@ async function implementation(
             if (image && image.length) {
                 addHiddenInfo('ii_manufContentImg', image.join(' || '));
             }
+        
             await context.waitForFunction(function (sel) {
                 return Boolean(document.querySelector(sel));
             }, { timeout: 20000 }, 'body');
+            
+            const uipdpProducts = await context.evaluate(async function () {
+                const productCarousel = [...document.querySelectorAll('div.carousel-item')];
+                const uipdpArr = [];
+                productCarousel.forEach((element) => {
+                    const brand = element.querySelector('.carousel-brand') ? element.querySelector('.carousel-brand').innerText : '';
+                    const productName = element.querySelector('.carousel-name') ? element.querySelector('.carousel-name').innerText : '';
+                    uipdpArr.push(brand + ' ' + productName);
+                });
+                return uipdpArr.join(' || ');
+            });
+            addHiddenInfo('ii_uipdp', uipdpProducts);
+            
           
             // return await context.extract(productDetails, { transform });
             return await context.extract(productDetails, { type: 'MERGE_ROWS', transform });

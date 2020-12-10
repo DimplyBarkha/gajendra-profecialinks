@@ -70,8 +70,8 @@ fields:
     xpath: //div[@id="ii_comparisionText"]
     # xpath: (//h1[contains(@class,'compare-headline')])[1]
     # regExp: (.*)
-    regExpReplace: true
-    defaultValue: false
+    # regExpReplace: Yes
+    defaultValue: No
   - name: shippingDimensions
     singleValue: false
     xpath: //div[div[contains(text(),'Logistikmaße mit Verpackung')]]//tr
@@ -121,4 +121,4 @@ fields:
     xpath: //div[@id="ii_inBoxText"]
   - name: unInterruptedPDP
     singleValue: false
-    xpath: //div[contains(@class,"bottom")]//div[contains(@class,"productcarousel")]//h4//a
+    xpath: //*[@id="ii_uipdp"]
