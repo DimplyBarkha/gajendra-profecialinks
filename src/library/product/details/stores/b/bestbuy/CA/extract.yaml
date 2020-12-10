@@ -1,38 +1,99 @@
-singleRecord: false
+singleRecord: true
 regionsSelector: null
 recordSelector: null
 recordXPath: null
 fields:
-  - name: id
-    singleValue: false
-    xpath: //a[@itemprop='url']/@href
-    regExp: \b[\w=.]+$
   - name: name
     singleValue: false
-    description: The product name
-    xpath: //div[@class="productItemName_3IZ3c"]/text()
-  - name: productUrl
-    singleValue: false
-    xpath: //a[@itemprop="url"]/@href
-    regExp: (/.+)
-    regExpReplace: https://www.bestbuy.ca$1
-  - name: thumbnail
-    singleValue: false
-    xpath: //img[@class="productItemImage_1en8J"]@src
+    manualSelector: h1[itemprop="name"]
   - name: price
     singleValue: false
-    description: The offered price for the product
-    xpath: //span[@class="screenReaderOnly_3anTj large_3aP7Z"]/text()
+    xpath: //span[@itemprop="offers"]/meta[@itemprop="price"]/@content
+  - name: availabilityText
+    singleValue: false
+    xpath: //link[@itemprop="availability"]/@href
+    regExp: InStock
+    regExpReplace: In Stock
+    defaultValue: Out of Stock
+  - name: shippingInfo
+    singleValue: false
+    xpath: //div[@class="soldByBestBuy_1hMn-"] | //div[@class="soldBy_3u6LA"]
+  - name: weightNet
+    singleValue: false
+    manualSelector: div[id="bb_weightNet"]
+  - name: weightGross
+    singleValue: false
+    manualSelector: div[id="bb_weightNet"]
+  - name: shippingWeight
+    singleValue: false
+    manualSelector: div[id="bb_weightNet"]
+  - name: image
+    singleValue: false
+    # xpath: //img[@class="productImage_AMBPT"]/@src
+    xpath: (//div[@class="x-product-detail-page"]//div[@class="row_1Rbqw"]//div[@data-automation="media-gallery-product-image-slider"]//div[@class="slideShowContainer_2jQI5"]//div[@class="slick-track"]/div[@data-index="0"]//img[@class="productImage_AMBPT"]/@src | //img[@alt="product image"]/@src)[1]
+  - name: description
+    singleValue: false
+    manualSelector: div[id="bb_descriptionBullets"]
+  - name: videos
+    singleValue: false
+    manualSelector: div[id="bb_videos"]
+  - name: descriptionBullets
+    singleValue: false
+    manualSelector: div[id="bb_descriptionBulletsCount"]
+  - name: alternateImages
+    singleValue: false
+    # xpath: //div[@data-index="0"]//div[@class="productImageContainer_1V2HD touchActionManipulation_31CMi productImage_AMBPT applyResponsiveSquareTrick_35RAF"]/div/div[@class="displayingImage_3xp0y"]/img[@class="productImage_AMBPT" and @alt="product image"]/@src | //div[@class="thumbnailItemContainer_3jIDQ"]//div[@class="displayingImage_3xp0y"]/img[@class="productImage_AMBPT"]/@src 
+    xpath: //div[@class="x-product-detail-page"]//div[@class="row_1Rbqw"]//div[@data-automation="media-gallery-product-image-slider"]//div[@class="slideShowContainer_2jQI5"]//div[@class="slick-track"]/div[position() > 1]//img[@class="productImage_AMBPT"]/@src
+  - name: promotion
+    singleValue: false 
+    # xpath: //div[@class="productPricingContainer_3gTS3"]/span[@class="productSaving_3YmNX top_3XDS1"]
+  - name: sku
+    singleValue: false 
+    manualSelector: span[itemprop="sku"]
+  - name: specifications
+    singleValue: false 
+    manualSelector: div[id="bb_specifications"]
+  - name: variantId
+    singleValue: false
+    manualSelector: span[itemprop="sku"]
+  - name: mpc
+    singleValue: false
+    manualSelector: span[itemprop="model"]
+  - name: category
+    singleValue: false
+    xpath: //ol[@class="breadcrumbList_16xQ3 x-breadcrumbs"]/li[position()>1][position()<last()]  
+  - name: nameExtended
+    singleValue: false
+    xpath: //h1[@itemprop="name"]
+  - name: listPrice
+    singleValue: false
+    xpath: //span[@itemprop="offers"]/meta[@itemprop="price"]/@content
+  - name: productOtherInformation
+    singleValue: false
+    manualSelector: div[id="bb_productOtherInformation"]
+  - name: additionalDescBulletInfo
+    singleValue: false
+    manualSelector: div[id="bb_addDescriptionBulletsInfo"]
+  - name: ratingCount
+    singleValue: false
+    xpath: //div[@class="modelDetailSection_2o3XX"]//span[@itemprop="ratingCount"]
+    regExp: ([0-9]{1,}) Review
+    regExpReplace: $1
+  - name: warranty
+    singleValue: false
+    xpath: //div[@id="bb_warranty"] | //h3[text()="Warranty"]/parent::div/following-sibling::div
   - name: aggregateRating
     singleValue: false
-    xpath: //div[@class="reviews_1KIjQ"]/span/meta/@content
-  - name: reviewCount
+    xpath: //label[@class="ratings_I_BnL"]/strong | //div[@class="modelDetailSection_2o3XX"]//div[@class="reviews_1KIjQ"]/label[@class="ratings_I_BnL"]/strong
+  - name: color
     singleValue: false
-    xpath: //div[@class="reviews_1KIjQ"]/span/span/text()
-  - name: rankOrganic
+    manualSelector: div[id="bb_colour"]
+  - name: shippingDimensions
     singleValue: false
-  - name: rank
+    manualSelector: div[id="bb_dimension"]
+  - name: countryOfOrigin
     singleValue: false
-  - name: soldBy
+    manualSelector: div[id="bb_countryOfOrigin"]
+  - name: brandText
     singleValue: false
-    xpath: //span[@class="marketplaceName_1acI5"]/text()
+    manualSelector: h1[itemprop="name"]
