@@ -16,10 +16,10 @@ fields:
     xpath: //a[@class="product-item-link"]/@href
     singleValue: false
   - name: gtin
-    xpath: //div/@data-product-id
+    # xpath: //div/@data-product-id
     singleValue: false
   - name: thumbnail
-    xpath: //img[@class="product-image-photo"]/@src
+    xpath: //span[@class="product-image-wrapper"]/img/@data-src
     singleValue: false
   - name: aggregateRating
     singleValue: false

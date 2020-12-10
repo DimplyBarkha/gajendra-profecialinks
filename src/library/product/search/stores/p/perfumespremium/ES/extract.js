@@ -6,22 +6,9 @@ async function implementation(inputs, parameters, context, dependencies) {
 
 
   await context.evaluate(async () => {
-    let scrollTop = 0;
-    while (scrollTop !== 5000) {
-      await stall(2500);
-      scrollTop += 500;
-      window.scroll(0, scrollTop);
-      if (scrollTop === 5000) {
-        await stall(1000);
-        break;
-      }
-    }
-    function stall(ms) {
-      return new Promise((resolve, reject) => {
-        setTimeout(() => {
-          resolve();
-        }, ms);
-      });
+    for (let i = 0; i <= document.body.scrollHeight; i = i + 500) {
+      window.scrollBy({ top: i, left: 0, behavior: 'smooth' });
+      await new Promise((resolve) => setTimeout(resolve, 3000));
     }
 
 
