@@ -1,80 +1,121 @@
-singleRecord: false
+singleRecord: true
 regionsSelector: null
 recordSelector: null
 recordXPath: null
 fields:
+  - name: price
+    singleValue: false    
+    xpath: //div[@class="productpricecomponent js-price-section"]/div/span
   - name: image
-    singleValue: true
-    description: URL of the main product image
-    xpath: //a[@data-slick-index="0"]//div[@data-t-name="Img"]//img/@src
+    singleValue: false
     regExp: (productimages/.*)
     regExpReplace: https://www.manor.ch/$1
+    xpath: (//div[@class="slick-track"]//img[1]/@src)[1]
+  - name: imageAlt
+    singleValue: false
+    xpath: (//div[@class="slick-track"]//img[1]/@alt)[1]
+  - name: alternateImages
+    singleValue: false
+    regExp: (productimages/.*)
+    regExpReplace: https://www.manor.ch/$1
+    xpath: //div[@class="slick-list draggable"]/div/a[@class="m-productgallery__bigimage js-gallery-bigimage slick-slide"]/@data-zoom-image
+  - name: metaKeywords
+    singleValue: false
+    xpath: //meta[@name='keywords'] 
   - name: category
     singleValue: false
-    description: The categories (e.g. from breadcrumbs)
-    xpath: //div[@class="m-breadcrumb js-breadcrumb"]/a[position()>1 and position()<5]
-  - name: name
-    singlevalue: true
-    description: the name of the product
-    xpath: (//div[@class="m-productdetailareaa__areaA__title-line g-col g-col-1"][normalize-space()]/h1)[1]
-  - name: nameExtended
-    singleValue: true
-    description: The product name, prefixing "${brand} - " if not included in "name"
-      and appending " - ${variantType}" if necessary (fixed per feed)
-    xpath: concat((//div[@class="m-productdetailareaa__areaA__title-line g-col g-col-1"]/h2)[1]/text(),' ',//div[@class="m-productdetailareaa__areaA__title-line g-col g-col-1"][normalize-space()]/h1/text())
-  - name: price
-    singleValue: true
-    description: The stated undiscounted price for the product
-    xpath: //div[@class="productpricecomponent js-price-section"]/div/span
-  - name: availabilityText
-    singleValue: true
-    description: Availability as described on page for the selected variant. If
-      there is no availability but the product can be added to cart, this field
-      should be "In Stock"
-    xpath: //div[@class="m-addtocartaction"]//span[@class="m-addtocart__available"]
+    xpath: //div[@data-t-name='Breadcrumb']/a
   - name: description
     singleValue: false
-    description: Product description supplied by website - may be concatenanted from
-      multiple places; specifically not the manufacturer description
-    xpath: //div[@class="m-productdescription__description js-desc"]/p/text()
-  - name: brandText
-    singleValue: true
-    description: Product brand shown - this may actually NOT be just a brand name,
-      e.g. "Visit the Gillette Store"
-    xpath: (//div[@class="m-productdetailareaa__areaA__title-line g-col g-col-1"]/h2)[1]/text()
-  - name: quantity
-    singleValue: true
-    description: Quantity as described on the page
-    xpath: //span[contains(text(),'Grösse')]/parent::span/text()
-    # regExp: (?:\s?([\d\.]+\s?)([bB]ar[s]?|[cC]ount|[cC]t|[fF][lL][\.]?\s?[oO][zZ][\.]?|FO|[mM][lL]|[oO][zZ][\.]?|pc|[pP]int|[pP]ops|qt|[wW]ipe[s]?).?)$|(?:\s?([\d\.]+\s?)([bB]ar[s]?|[cC]ount|[cC]|[fF][lL][\.]?\s?[oO][zZ][\.]?|FO|[mM][lL]|[oO][zZ][\.]?|pc|[pP]int|[pP]ops|qt|[wW]ipe[s]?).?\s?[\&\-\w\s]+)$
-    # regExpReplace: $1$2$3$4
-  - name: gtin
-    singleValue: true
-    xpath: //div[@class='loadbeeTabContent']/@data-loadbee-gtin
-  - name: sku
-    singleValue: true
-    description: The store-specific product identifier
-    xpath: //div[@class='bv-shared bv-core-container-327']/@data-product-id
-    type: number
-    regExp: (\d+)
-  - name: variantId
-    singleValue: true
-    description: Identifier for a variant from a store where variants share the same sku
-    xpath: //span[@class="m-productdescription__articlenumber"]/text()
-    type: number
-    regExp: (\d+)
-  - name: ratingCount
-    singleValue: true
-    description: The number of ratings
-    xpath: //span[@itemprop="reviewCount"]
-  - name: aggregateRating
-    singleValue: true
-    description: The stated aggregate rating normalized to be out of 5
-    xpath: //a[@class="bv-rating bv-text-link bv-popup-target bv-focusable"]/span/text()
+    xpath: //div[@class='m-productdescription__description js-desc']
   - name: color
-    singleValue: true
-    description: A textual description of the colour
-    xpath: //span[@class="m-productcolorselect-v-2__selector-title"]//preceding-sibling::span//following-sibling::text()[normalize-space()]
-  - name: size
-    singleValue: true
+    singleValue: false
+    xpath: //span[@class='m-productcolorselect-v-2__selector-title']
+  - name: availabilityText
+    singleValue: false
+    defaultValue: 'In Stock'
+    xpath: //span[contains(@class,'m-addtocart__available__info')]
+  - name: ratingCount
+    singleValue: false
+    xpath: //span[@itemprop='reviewCount']
+  - name: aggregateRating
+    singleValue: false
+    xpath: //span[@itemprop='ratingValue']
+  - name: manufacturerImages
+    singleValue: false
+    xpath: //img[@class="m-productdescription__logo lazy"]/@src
+  - name: brandLink
+    singleValue: false
+    xpath: //a[@class="m-productdescription__url"]/@href
+  - name: sku
+    singleValue: false
+    xpath: //div[@data-t-name="ProductdetailV2"]/@data-productid
+  - name: warranty
+    singleValue: false
+    xpath: //div[@class='m-productfacts_single_values']//span[contains(text(),'Garantie')]
+  - name: variants
+    singleValue: false
+    xpath: //html//div[@id='variants']
+  - name: variantInformation
+    singleValue: false
+    xpath: //span[@class="m-productcolorselect-v-2__selector-title"]
+  - name: brandText
+    singleValue: false
+    xpath: //div[contains(@class,"m-productdetailareaa__areaA__title-line")]//h2
+  - name: specifications
+    singleValue: false
+    xpath: //div[@class='m-productfactslist'] 
+  - name: variantId
+    singleValue: false 
+    xpath: //div[@data-t-name="ProductdetailV2"]/@data-productid
+  - name: variantCount
+    singleValue: false
+    xpath: count(//div[@class="m-productcolorselect-v-2__colors js-only-colors"]//a/@href)
+  - name: firstVariant
+    singleValue: false 
+    xpath: //span[@class="m-productcolorselect-v-2__selector-title"]
+  - name: quantity
+    singleValue: false 
     xpath: //a[@class='m-productsizeselect-v-2__variant m-productsizeselect-v-2__variant__title js-size-selector-title']
+  - name: name
+    singleValue: false 
+    xpath: //html//div[@id='nameEmpty']
+  - name: nameExtended
+    singleValue: false 
+    xpath: //html//div[@id='name']
+  - name: countryOfOrigin
+    singleValue: false 
+  - name: gtin
+    singleValue: false
+    xpath: //html//div[@id='gtin']
+  - name: eangtin
+    singleValue: false
+    xpath: //html//div[@id='gtin']
+  - name: technicalInformationPdfPresent
+    singleValue: true
+    description: If there is for example a manual in pdf format on the website. ['Yes','No']
+    example: https://www.amazon.de/Hasbro-Spiele-44220100-Mastermind-Kinderspiel/dp/B0007OHUG6
+    defaultValue: No
+  - name: termsAndConditions
+    singleValue: true
+    description: Terms and conditions information text ['Yes','No']
+    defaultValue: No
+  - name: privacyPolicy
+    singleValue: true
+    description: Privacy Policy information text ['Yes','No']
+    defaultValue: No
+  - name: customerServiceAvailability
+    singleValue: true
+    description: Information related to customer service availability (text), ['Yes','No']
+    defaultValue: No
+  - name: Image360Present
+    singleValue: true
+    description: If 360 image is present in the carousel ['Yes','No']
+    example: https://www.amazon.com/Trinsic-Single-Handle-Magnetic-Champagne-9159-CZ-DST/dp/B0050EN8E6
+    defaultValue: No
+  - name: imageZoomFeaturePresent
+    singleValue: true
+    description: If Zoom feature is available for Main image or images in the
+      carousel,['Yes','No']
+    example: https://www.zalando.de/adidas-neo-sneaker-low-blackwhite-a4315i002-q11.html
+    defaultValue: Yes
