@@ -718,10 +718,10 @@ fields:
   - name: hasComparisonTable
     singleValue: false
     xpath: //div[@class="apm-tablemodule"] | //*[contains(@id,"comparison_table")]
-    # xpath: //h2[contains(@id,'comparison_table')]
     regExp: (.*)
     regExpReplace: True 
     defaultValue: False
   - name: unInterruptedPDP
-    xpath: //div[contains(@class,"customer-also-viewed")]/div
+    singleValue: false
+    xpath: //div[contains(@class,"customer-also-viewed")]/div | //div[contains(@id,"thematic-highly_rated")]//a/@title | //div[contains(@class,"sponsored-products-truncator")]
     
