@@ -25,18 +25,24 @@ module.exports = {
         return result && result.trim ? result.trim() : result;
       };
       const size = getXpath("//div[@class='lsection mobile-product-name h6']//text()", 'nodeValue');
-      if (size != null) {
-        //var nameArr = size.split(',');
-        let str = size
-        //nameArr[nameArr.length - 1]
-        let regexp = /((\d+ oz)|(\d+.\d+ lbs)|(\d+ lbs)|(\d+ Pack)|(\d+.\d+ oz)|(\d+oz)|(\d+.\d+oz)|(\d+ct)|(\d+ ct))/;
-        let result = str.match(regexp)
-        addElementToDocument('size', result[1] + '')
+      try {
+        if (size != null) {
+          //var nameArr = size.split(',');
+          let str = size
+          //nameArr[nameArr.length - 1]
+          let regexp = /((\d+ oz)|(\d+.\d+ lbs)|(\d+ lbs)|(\d+ Pack)|(\d+.\d+ oz)|(\d+oz)|(\d+.\d+oz)|(\d+ct)|(\d+ ct))/;
+          let result = str.match(regexp)
+          addElementToDocument('size', result[1] + '')
+        }
+        else {
+          addElementToDocument('size', '1')
+        }
       }
-      else {
-        addElementToDocument('size', '1')
+      catch {
+
       }
-      const brandText = getXpath("//meta[@itemprop='brand']/@content", 'nodeValue');
+      try {
+        const brandText = getXpath("//meta[@itemprop='brand']/@content", 'nodeValue');
       let str2 = brandText
       let regexp2 = /((La Preferida)|(Fresh Step)|(Swiss Miss)|(^\w+-\w+)|(^\w+))/;
       let result2 = str2.match(regexp2)
@@ -47,6 +53,10 @@ module.exports = {
       }
       else {
         addElementToDocument('price', '$' + price);
+      }
+      }
+      catch{
+        
       }
     });
     await context.extract(productDetails, { transform: transformParam });
