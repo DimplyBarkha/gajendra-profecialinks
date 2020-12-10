@@ -34,6 +34,12 @@ const transform = (data) => {
               item.text = 'https://www.bigw.com.au' + item.text;
             });
           }
+          if (row.price) {
+            row.price.forEach(item => {
+              item.text = '$' + item.text;
+      
+            });
+          }
           if (row.description) {
             let description_ar = [];
             row.description.forEach(item => {
@@ -46,11 +52,11 @@ const transform = (data) => {
           if (row.specifications) {
             var specificationArr = [];
             row.specifications.forEach(item => {
-              item.text = item.text.replace(/\n\s\n/, ' : ');
+              item.text = item.text.replace(/\n\s\n/, '');
               specificationArr.push(item.text);
             });
             if (specificationArr.length) {
-              row.specifications = [{ "text": specificationArr.join(" || ") }];
+              row.specifications = [{ "text": specificationArr.join(" || ") , 'xpath': row.specifications[0].xpath }];
             } else {
               delete row.specifications;
             }
@@ -65,11 +71,8 @@ const transform = (data) => {
               item.text = item.text.replace('/', '').trim();
             });
           }
-          if (row.descriptionBullets) {
-            row.descriptionBullets = [{'text':row.descriptionBullets.length, 'xpath':row.descriptionBullets[0].xpath}];              
-          } 
         }
     }
     return cleanUp(data);
   };
-  module.exports = { transform };
+module.exports = { transform };
