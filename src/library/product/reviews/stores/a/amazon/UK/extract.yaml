@@ -10,19 +10,23 @@ fields:
   regExpReplace: $1
 - name: productRange
   description: Product Range
-  xpath: 
+  xpath: ancestor::html//meta[@name="description"]/@content
+  regExp: >-
+    (?<=Amazon.co.uk: )(.+)
 - name: productFamily
   description: Product Family
   xpath: ancestor::html//span[@id="productTitle"]
 - name: colour
   description: Product Colour
-  xpath: 
+  xpath: ancestor::html//div[@id="variation_color_name"]//span[@class="selection"]
 - name: flavour
   description: Product Flavour
-  xpath: 
+  xpath: ancestor::html//div[@id="variation_flavor_name"]//span[@class="selection"]
 - name: sku
   description: sku
-  xpath: 
+  xpath: ancestor::html//link[@rel="canonical"]/@href
+  regExp: dp\/([^\/]+)
+  regExpReplace: $1
 - name: reviewText
   description: Product Review
   xpath: //span[@data-hook="review-body"]
