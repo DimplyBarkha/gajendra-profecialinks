@@ -40,9 +40,13 @@ fields:
     xpath: //div[@class="product-price"]/span[@class="product-price-standard"]/text() | //div[@class="product-price"]//span[@class="product-price-sales"]/text()
   - name: availabilityText
     singleValue: true
+    xpath: //button[@class="default pdp-add-to-cart bopis"]
+    regExp: Buy & Pickup
+    regExpReplace: In stock
+    defaultValue: Out of stock
   - name: description
     singleValue: false
-    xpath: //div[@id="react-tabs-1"]//div[contains(@class, "react-tabs__tab-content")]/p[1]/text() | //div[@id="react-tabs-1"]//div[contains(@class, "react-tabs__tab-content")]/li/text()
+    xpath: //div[@id="react-tabs-1"]//div[contains(@class, "react-tabs__tab-content")]/p[1]/text() | //div[@id="react-tabs-1"]//div[contains(@class, "react-tabs__tab-content")]/li/text() | //body//@description
   - name: descriptionBullets
     singleValue: true
     xpath: count(//div[contains(@class, "react-tabs__tab-content")]/li)
@@ -153,6 +157,7 @@ fields:
     singleValue: true   
   - name: nutritionInfo
     singleValue: true 
+    xpath: //li[@id="react-tabs-2"]/@nutritional
   - name: coupon
     singleValue: true
     description: Text of any coupon offer
@@ -222,9 +227,6 @@ fields:
   - name: lbbPrice
     singleValue: true
     description: null
-  - name: featureBullets
-    singleValue: false
-    description: null
   - name: otherSellersName
     singleValue: false
     description: null
@@ -252,7 +254,7 @@ fields:
     singleValue: true
     description: List of Ingredients from site - can be string of data if no
       discernible start/end point
-    xpath: //li[@id="react-tabs-2"]/@ingredients
+    xpath: //li[@id="react-tabs-2"]/@ingredients | //body//@ingredients
   - name: servingSize
     singleValue: true
     description: The size of serving Nutritional information is based on.
@@ -553,9 +555,20 @@ fields:
   - name: eangtin
     singleValue: true
     xpath: //body/@gtin
-  # - name: shownImages
-  #   xpath: //div[@class="thumbnail-wrapper"]/img/@src
-  # - name: highQualityImages
-  #   xpath: //div[@class="thumbnail-wrapper"]/img/@src    
-  # - name: product_grocery_nutritionals
-  #   xpath: //body/@nutritionInfo
+  - name: highQualityImages1
+    xpath: //div[@class="slick-list"]//div[contains(@class, "slick-slide") and not(contains(@class, "cloned"))]//img/@src
+    regExp: (.+)(\?)(.+)
+    regExpReplace: $1
+  - name: highQualityImages
+    xpath: //div[@class="slick-list"]//div[contains(@class, "slick-slide") and not(contains(@class, "cloned"))]//img/@src
+    regExp: (.+)(\?)(.+)
+    regExpReplace: $1
+  - name: product_grocery_nutritionals
+    xpath: //body/@nutritionInfo
+  - name: featureBullets
+    singleValue: false
+    xpath: //div[contains(@class, "react-tabs__tab-content")]/li/text()
+  - name: shownImages
+    xpath: //div[@class="slick-list"]//div[contains(@class, "slick-slide") and not(contains(@class, "cloned"))]//img/@src
+    regExp: (.+)(\?)(.+)
+    regExpReplace: $1
