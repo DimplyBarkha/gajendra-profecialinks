@@ -32,6 +32,8 @@ const transform = (data, context) => {
           return typeof (item.text) === 'string' ? item.text.replace('.', ',') : '';
         });
         clean(row.aggregateRating = [{ text: aggregateRatingArr.join(''), xpath: row.aggregateRating[0].xpath }]);
+        clean(row.aggregateRating2 = [{ text: aggregateRatingArr.join(''), xpath: row.aggregateRating[0].xpath }]);
+        clean(row.aggregateRatingText = [{ text: aggregateRatingArr.join(''), xpath: row.aggregateRating[0].xpath }]);
       }
       if (row.price) {
         const priceArr = row.price.map((item) => {
