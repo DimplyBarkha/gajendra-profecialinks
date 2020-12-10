@@ -67,6 +67,16 @@ const transform = (data) => {
           item.text="https:"+item.text;
         })
       }
+      if(row.brandText){
+        row.brandText.forEach(item=>{
+          let brndData=item.text.replace("window.ShopifyAnalytics = window.ShopifyAnalytics || {};\nwindow.ShopifyAnalytics.meta = window.ShopifyAnalytics.meta || {};\nwindow.ShopifyAnalytics.meta.currency = 'AUD';\nvar meta =",'');
+          brndData=brndData.replace(';\nfor (var attr in meta) {\n window.ShopifyAnalytics.meta[attr] = meta[attr];\n}','');
+          //console.log('brndData json:',JSON.parse(brndData));
+          let brndDataObj=JSON.parse(brndData);
+          console.log('variants:',brndDataObj.product.variants);
+          item.text=brndDataObj.product.vendor;
+        })
+      }
     }
   }
   return cleanUp(data);

@@ -69,3 +69,6 @@ fields:
   - name: variants
     singleValue: false
     xpath: //section[contains(@class,"product-template")]//form//button[@type="submit"]/@id
+  - name: brandText
+    singleValue: false
+    xpath: //script[contains(text(),'window.ShopifyAnalytics = window.ShopifyAnalytics || {};')]/text()
