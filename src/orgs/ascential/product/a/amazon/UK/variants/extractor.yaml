@@ -1,7 +1,13 @@
 robot: product/details/variants
 proxy:
-  zone: GBR
+  zone: ZUK
   type: DATA_CENTER
+policy:
+  numberRetries: 3
+  priority: NORMAL
+  retryDelay: 60
+  backoffPolicy: LINEAR
+  retryWithResidentialProxyAfter: 99
 parameters:
   country: UK
   domain: amazon.co.uk
