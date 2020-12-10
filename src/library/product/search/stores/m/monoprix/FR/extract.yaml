@@ -10,17 +10,14 @@ fields:
     regExpReplace: $1
   - name: searchUrl
     singleValue: true
-    xpath: ancestor::html//a[contains(@class, 'search-name selected')]/@href
-    regExp: (.*)
+    xpath: ancestor::html//div[@id='search_url']
     regExpReplace: https://www.monoprix.fr/$1
   - name: name
     singleValue: false
     xpath: //div[contains(@class, 'item-brand')] | //div[contains(@class, 'item-range')]
   - name: productUrl
     singleValue: false
-    xpath: //div[contains(@class, 'item__description-offre')]/a/@href
-    regExp: (.*)
-    regExpReplace: https://www.monoprix.fr/$1
+    xpath: //div[contains(@class, 'item__description-offre')]/a/@product_url
   - name: gtin
     singleValue: false
   - name: thumbnail

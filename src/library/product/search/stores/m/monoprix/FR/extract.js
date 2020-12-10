@@ -10,21 +10,43 @@ module.exports = {
     zipcode: '',
   },
   implementation: async ({ inputString }, { country, domain, transform }, context, { productDetails }) => {
-    await new Promise(resolve => setTimeout(resolve, 2000));
-    async function infiniteScroll () {
-      let prevScroll = document.documentElement.scrollTop;
-      while (true) {
-        window.scrollBy(0, document.documentElement.clientHeight);
-        await new Promise(resolve => setTimeout(resolve, 3000));
-        const currentScroll = document.documentElement.scrollTop;
-        if (currentScroll === prevScroll) {
-          break;
-        }
-        prevScroll = currentScroll;
+    await new Promise((resolve, reject) => setTimeout(resolve, 3000));
+    await context.evaluate(async function () {
+      function addProp (selector, iterator, propName, value) {
+        document.querySelectorAll(selector)[iterator].setAttribute(propName, value);
       }
-    }
 
-    await infiniteScroll();
+      function addElementToDocument (key, value) {
+        const catElement = document.createElement('div');
+        catElement.id = key;
+        catElement.textContent = value;
+        catElement.style.display = 'none';
+        document.body.appendChild(catElement);
+      }
+
+      addElementToDocument('search_url', window.location.href);
+
+      let pageLoader = document.querySelector('div[class*="catalog-page__loader"]')
+        ? document.querySelector('div[class*="catalog-page__loader"]') : '';
+      while (pageLoader) {
+        pageLoader = document.querySelector('div[class*="catalog-page__loader"]')
+          ? document.querySelector('div[class*="catalog-page__loader"]') : '';
+        window.scrollTo({
+          top: document.body.scrollHeight,
+          behavior: 'smooth',
+        });
+        await new Promise((resolve, reject) => setTimeout(resolve, 2000));
+      }
+
+      const productUrl = document.querySelectorAll('div[class*=\'item__description-offre\']>a');
+      if (productUrl.length) {
+        for (let i = 0; i < productUrl.length; i++) {
+          productUrl[i].focus();
+          await new Promise((resolve, reject) => setTimeout(resolve, 100));
+          addProp('div[class*=\'item__description-offre\']>a', i, 'product_url', productUrl[i].href);
+        }
+      }
+    });
     return await context.extract(productDetails, { transform });
   },
 };
