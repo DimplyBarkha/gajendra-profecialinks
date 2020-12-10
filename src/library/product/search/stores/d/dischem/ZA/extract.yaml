@@ -1,0 +1,33 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: //div[contains(@class,"products-grid")]/ol/li
+fields:
+    - name: id
+      singleValue: false
+      xpath: //div[@class="product-item-info"]//a/@data-sku
+    - name: price
+      regExp: (\s)(\d.+)
+      regExpReplace: $2
+      xpath: //div[@data-price-type="finalPrice"]
+      singleValue: false
+    - name: productUrl
+      singleValue: false
+      xpath: //a[@class="product-item-link"]/@href
+      description: The URL for the product details page
+    - name: name
+      singleValue: false
+      xpath: //a[@class="product-item-link"]
+    - name: thumbnail
+      singleValue: false
+      description: The URL for the product thumbnail image
+      xpath: //span[@class="product-image-wrapper"]/img/@src
+    - name: searchUrl
+      singleValue: true
+      xpath: ancestor::html//div[@id='added-searchurl']
+    - name: rank
+      singleValue: false
+      type: NUMBER
+    - name: rankOrganic
+      singleValue: false
+      type: NUMBER
