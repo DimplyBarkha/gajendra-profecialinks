@@ -5,6 +5,8 @@ recordXPath: null
 fields:
   - name: id
     singleValue: false
+    xpath: //a[contains(@class,'card__main')]/@data-dfid
+    regExp: (?<=@product@).*
   - name: searchUrl
     singleValue: true
   - name: name

@@ -2,11 +2,14 @@ input:
   keywords: acne
   _url: http://druni.es
 extractions:
-  - html: https://workbench.import.io/html/run=b127af76-2049-4fed-a604-9a9264546fc9/task=59c6781f-b05c-45c8-af16-107e8c8ffbc2/34df28ea-cc88-4495-91dd-e94cbd776616.html
+  - html: https://workbench.import.io/html/run=fd27e96a-6884-4e6a-a3bb-ed8d9a78bf46/task=6edb526a-9e93-4781-9ade-b609dc556093/4e4d9cf6-3a94-48c7-9bff-ccbfb5743f99.html
     extractionConfigId: product/search/stores/d/druni/ES/extract
     data:
       - group:
-          - name:
+          - id:
+              - text: 5a29503a4909fcade36b1823e7cebcf5
+                xpath: /html/body/div[8]/div[1]/div[2]/div[3]/div[1]/a[1]/@data-dfid
+            name:
               - text: Gel Sos Anti-Acne
                 xpath: /html/body/div[8]/div[1]/div[2]/div[3]/div[1]/a[1]/div[1]/div[2]
             productUrl:
@@ -21,7 +24,10 @@ extractions:
             manufacturer:
               - text: LAVERA
                 xpath: /html/body/div[8]/div[1]/div[2]/div[3]/div[1]/a[1]/div[1]/div[1]
-          - name:
+          - id:
+              - text: 4d7e0d72898ae7ea3593eb5ebf20c744
+                xpath: /html/body/div[8]/div[1]/div[2]/div[3]/div[2]/a[1]/@data-dfid
+            name:
               - text: Acne Solutions Liquid Makeup
                 xpath: /html/body/div[8]/div[1]/div[2]/div[3]/div[2]/a[1]/div[1]/div[2]
             productUrl:
@@ -31,12 +37,15 @@ extractions:
               - text: https://www.druni.es/media/catalog/product/c/e/ce4af3c02bb1131b252f65561a1dbb18aae0bb7511aae338e2f6cb995759cb9a781f0388a48d847a19eb2b91465194dfd4654eea27ec14610606da90c74dec6f.jpg
                 xpath: /html/body/div[8]/div[1]/div[2]/div[3]/div[2]/a[1]/figure[1]/img[1]/@src
             price:
-              - text: 21,00 €
+              - text: 23,72 €
                 xpath: /html/body/div[8]/div[1]/div[2]/div[3]/div[2]/a[1]/div[1]/div[4]/span[2]
             manufacturer:
               - text: CLINIQUE
                 xpath: /html/body/div[8]/div[1]/div[2]/div[3]/div[2]/a[1]/div[1]/div[1]
-          - name:
+          - id:
+              - text: 6f3ee5b43d930a54d31a59930b071adc
+                xpath: /html/body/div[8]/div[1]/div[2]/div[3]/div[3]/a[1]/@data-dfid
+            name:
               - text: Charcoal Acne Patches
                 xpath: /html/body/div[8]/div[1]/div[2]/div[3]/div[3]/a[1]/div[1]/div[2]
             productUrl:
@@ -51,14 +60,17 @@ extractions:
             manufacturer:
               - text: BIOVENE
                 xpath: /html/body/div[8]/div[1]/div[2]/div[3]/div[3]/a[1]/div[1]/div[1]
-          - name:
+          - id:
+              - text: 4195cac6ce8d484d041594a3faa2e13d
+                xpath: /html/body/div[8]/div[1]/div[2]/div[3]/div[4]/a[1]/@data-dfid
+            name:
               - text: Acne Solutions Cleasing Foam
                 xpath: /html/body/div[8]/div[1]/div[2]/div[3]/div[4]/a[1]/div[1]/div[2]
             productUrl:
               - text: https://www.druni.es/acne-solutions-cleasing-foam-clinique-limpiador-espuma-pieles-granos
                 xpath: /html/body/div[8]/div[1]/div[2]/div[3]/div[4]/a[1]/@href
             thumbnail:
-              - text: https://www.druni.es/media/catalog/product/1/0/10cff1f15645395ea8d23171cf078ca4f122e50d6a7c1d6c568684932ba798f1edc7e68595669c484049cb02a646773e298d5af49a10d6de0d5f3c087114c15a_8.jpg
+              - text: https://www.druni.es/media/catalog/product/1/0/10cff1f15645395ea8d23171cf078ca4f122e50d6a7c1d6c568684932ba798f1edc7e68595669c484049cb02a646773e298d5af49a10d6de0d5f3c087114c15a.jpg
                 xpath: /html/body/div[8]/div[1]/div[2]/div[3]/div[4]/a[1]/figure[1]/img[1]/@src
             price:
               - text: 17,55 €
@@ -66,7 +78,10 @@ extractions:
             manufacturer:
               - text: CLINIQUE
                 xpath: /html/body/div[8]/div[1]/div[2]/div[3]/div[4]/a[1]/div[1]/div[1]
-          - name:
+          - id:
+              - text: 045553da60ec142f6f13e38847af1382
+                xpath: /html/body/div[8]/div[1]/div[2]/div[3]/div[5]/a[1]/@data-dfid
+            name:
               - text: Acne Intense Blemish-Pore Treatment
                 xpath: /html/body/div[8]/div[1]/div[2]/div[3]/div[5]/a[1]/div[1]/div[2]
             productUrl:
@@ -81,7 +96,10 @@ extractions:
             manufacturer:
               - text: MADARA
                 xpath: /html/body/div[8]/div[1]/div[2]/div[3]/div[5]/a[1]/div[1]/div[1]
-          - name:
+          - id:
+              - text: 5a855c7d752b6ed6b24fba587595b6ff
+                xpath: /html/body/div[8]/div[1]/div[2]/div[3]/div[6]/a[1]/@data-dfid
+            name:
               - text: Acne Acute Spot Roll On
                 xpath: /html/body/div[8]/div[1]/div[2]/div[3]/div[6]/a[1]/div[1]/div[2]
             productUrl:
@@ -96,7 +114,10 @@ extractions:
             manufacturer:
               - text: MADARA
                 xpath: /html/body/div[8]/div[1]/div[2]/div[3]/div[6]/a[1]/div[1]/div[1]
-          - name:
+          - id:
+              - text: 80088112c1b2f1ef9063e0f8ed2f9fe0
+                xpath: /html/body/div[8]/div[1]/div[2]/div[3]/div[7]/a[1]/@data-dfid
+            name:
               - text: Tratamiento Localizado De Fototerapia Anti Acné
                 xpath: /html/body/div[8]/div[1]/div[2]/div[3]/div[7]/a[1]/div[1]/div[2]
             productUrl:
@@ -111,7 +132,10 @@ extractions:
             manufacturer:
               - text: NEUTROGENA
                 xpath: /html/body/div[8]/div[1]/div[2]/div[3]/div[7]/a[1]/div[1]/div[1]
-          - name:
+          - id:
+              - text: 3ea1a7505194e632a33246e1c7a1a0ee
+                xpath: /html/body/div[8]/div[1]/div[2]/div[3]/div[8]/a[1]/@data-dfid
+            name:
               - text: Barra Par Acné De Árbol De Té Orgánico
                 xpath: /html/body/div[8]/div[1]/div[2]/div[3]/div[8]/a[1]/div[1]/div[2]
             productUrl:
@@ -126,7 +150,10 @@ extractions:
             manufacturer:
               - text: DR. ORGANIC
                 xpath: /html/body/div[8]/div[1]/div[2]/div[3]/div[8]/a[1]/div[1]/div[1]
-          - name:
+          - id:
+              - text: 25493e6b43f07f9c96ac0f1d13d5adfd
+                xpath: /html/body/div[8]/div[1]/div[2]/div[3]/div[9]/a[1]/@data-dfid
+            name:
               - text: Acnexpert Solution
                 xpath: /html/body/div[8]/div[1]/div[2]/div[3]/div[9]/a[1]/div[1]/div[2]
             productUrl:
@@ -141,7 +168,10 @@ extractions:
             manufacturer:
               - text: LULLAGE
                 xpath: /html/body/div[8]/div[1]/div[2]/div[3]/div[9]/a[1]/div[1]/div[1]
-          - name:
+          - id:
+              - text: 1b33d16fc562464579b7199ca3114982
+                xpath: /html/body/div[8]/div[1]/div[2]/div[3]/div[10]/a[1]/@data-dfid
+            name:
               - text: Eucerin Dermopure Tratamiento
                 xpath: /html/body/div[8]/div[1]/div[2]/div[3]/div[10]/a[1]/div[1]/div[2]
             productUrl:
@@ -156,7 +186,10 @@ extractions:
             manufacturer:
               - text: EUCERIN
                 xpath: /html/body/div[8]/div[1]/div[2]/div[3]/div[10]/a[1]/div[1]/div[1]
-          - name:
+          - id:
+              - text: 527bf9aab6ed58084dc0f026ab7a82cf
+                xpath: /html/body/div[8]/div[1]/div[2]/div[3]/div[11]/a[1]/@data-dfid
+            name:
               - text: Cleansing Face Mask
                 xpath: /html/body/div[8]/div[1]/div[2]/div[3]/div[11]/a[1]/div[1]/div[2]
             productUrl:
@@ -171,7 +204,10 @@ extractions:
             manufacturer:
               - text: ZIAJA
                 xpath: /html/body/div[8]/div[1]/div[2]/div[3]/div[11]/a[1]/div[1]/div[1]
-          - name:
+          - id:
+              - text: a01dfc715df9621113e91549c0ee7651
+                xpath: /html/body/div[8]/div[1]/div[2]/div[3]/div[12]/a[1]/@data-dfid
+            name:
               - text: Visibly Clear Spot Proofing Pack
                 xpath: /html/body/div[8]/div[1]/div[2]/div[3]/div[12]/a[1]/div[1]/div[2]
             productUrl:
@@ -186,7 +222,10 @@ extractions:
             manufacturer:
               - text: NEUTROGENA
                 xpath: /html/body/div[8]/div[1]/div[2]/div[3]/div[12]/a[1]/div[1]/div[1]
-          - name:
+          - id:
+              - text: e1054bf2d703bca1e8fe101d3ac5efcd
+                xpath: /html/body/div[8]/div[1]/div[2]/div[3]/div[13]/a[1]/@data-dfid
+            name:
               - text: Exfoliante Granos Neutrogena Exfoliante
                 xpath: /html/body/div[8]/div[1]/div[2]/div[3]/div[13]/a[1]/div[1]/div[2]
             productUrl:
@@ -201,7 +240,10 @@ extractions:
             manufacturer:
               - text: NEUTROGENA
                 xpath: /html/body/div[8]/div[1]/div[2]/div[3]/div[13]/a[1]/div[1]/div[1]
-          - name:
+          - id:
+              - text: 2e855f9489df0712b4bd8ea9e2848c5a
+                xpath: /html/body/div[8]/div[1]/div[2]/div[3]/div[14]/a[1]/@data-dfid
+            name:
               - text: Visibly Clear Spot Proofing Gel
                 xpath: /html/body/div[8]/div[1]/div[2]/div[3]/div[14]/a[1]/div[1]/div[2]
             productUrl:
@@ -216,7 +258,10 @@ extractions:
             manufacturer:
               - text: NEUTROGENA
                 xpath: /html/body/div[8]/div[1]/div[2]/div[3]/div[14]/a[1]/div[1]/div[1]
-          - name:
+          - id:
+              - text: 4a64d913220fca4c33c140c6952688a8
+                xpath: /html/body/div[8]/div[1]/div[2]/div[3]/div[15]/a[1]/@data-dfid
+            name:
               - text: Visibly Clear Spot Proofing Aceite
                 xpath: /html/body/div[8]/div[1]/div[2]/div[3]/div[15]/a[1]/div[1]/div[2]
             productUrl:
@@ -231,7 +276,10 @@ extractions:
             manufacturer:
               - text: NEUTROGENA
                 xpath: /html/body/div[8]/div[1]/div[2]/div[3]/div[15]/a[1]/div[1]/div[1]
-          - name:
+          - id:
+              - text: 7b6982e584636e6a1cda934f1410299c
+                xpath: /html/body/div[8]/div[1]/div[2]/div[3]/div[16]/a[1]/@data-dfid
+            name:
               - text: Aceite Arbol Del Té
                 xpath: /html/body/div[8]/div[1]/div[2]/div[3]/div[16]/a[1]/div[1]/div[2]
             productUrl:
@@ -246,7 +294,10 @@ extractions:
             manufacturer:
               - text: ECO BEAUTY
                 xpath: /html/body/div[8]/div[1]/div[2]/div[3]/div[16]/a[1]/div[1]/div[1]
-          - name:
+          - id:
+              - text: 1f5f5b265100daad35b3a491e1c55351
+                xpath: /html/body/div[8]/div[1]/div[2]/div[3]/div[17]/a[1]/@data-dfid
+            name:
               - text: Bálsamo Del Samaritano
                 xpath: /html/body/div[8]/div[1]/div[2]/div[3]/div[17]/a[1]/div[1]/div[2]
             productUrl:
@@ -261,7 +312,10 @@ extractions:
             manufacturer:
               - text: YERBAS VIVAS
                 xpath: /html/body/div[8]/div[1]/div[2]/div[3]/div[17]/a[1]/div[1]/div[1]
-          - name:
+          - id:
+              - text: ac2460b56866901d732f996b82b69d31
+                xpath: /html/body/div[8]/div[1]/div[2]/div[3]/div[18]/a[1]/@data-dfid
+            name:
               - text: Jabon Natural Propolis
                 xpath: /html/body/div[8]/div[1]/div[2]/div[3]/div[18]/a[1]/div[1]/div[2]
             productUrl:
@@ -276,7 +330,10 @@ extractions:
             manufacturer:
               - text: YERBAS VIVAS
                 xpath: /html/body/div[8]/div[1]/div[2]/div[3]/div[18]/a[1]/div[1]/div[1]
-          - name:
+          - id:
+              - text: d6c91089f05e10c07209db57bd5a8d9b
+                xpath: /html/body/div[8]/div[1]/div[2]/div[3]/div[19]/a[1]/@data-dfid
+            name:
               - text: Mascarilla Negra De Madera Fósil Detox
                 xpath: /html/body/div[8]/div[1]/div[2]/div[3]/div[19]/a[1]/div[1]/div[2]
             productUrl:
@@ -291,7 +348,10 @@ extractions:
             manufacturer:
               - text: NAOBAY
                 xpath: /html/body/div[8]/div[1]/div[2]/div[3]/div[19]/a[1]/div[1]/div[1]
-          - name:
+          - id:
+              - text: 3557a86db669836730d946052d988e46
+                xpath: /html/body/div[8]/div[1]/div[2]/div[3]/div[20]/a[1]/@data-dfid
+            name:
               - text: Aceite Arbol Te Roll-On
                 xpath: /html/body/div[8]/div[1]/div[2]/div[3]/div[20]/a[1]/div[1]/div[2]
             productUrl:
@@ -306,7 +366,10 @@ extractions:
             manufacturer:
               - text: ECO BEAUTY
                 xpath: /html/body/div[8]/div[1]/div[2]/div[3]/div[20]/a[1]/div[1]/div[1]
-          - name:
+          - id:
+              - text: 94e70705efae423efda1088614128d0b
+                xpath: /html/body/div[8]/div[1]/div[2]/div[3]/div[21]/a[1]/@data-dfid
+            name:
               - text: Sonic System
                 xpath: /html/body/div[8]/div[1]/div[2]/div[3]/div[21]/a[1]/div[1]/div[2]
             productUrl:
@@ -321,14 +384,17 @@ extractions:
             manufacturer:
               - text: CLINIQUE
                 xpath: /html/body/div[8]/div[1]/div[2]/div[3]/div[21]/a[1]/div[1]/div[1]
-          - name:
+          - id:
+              - text: 3e4ad5698e12b6ac4241a6c144dc822e
+                xpath: /html/body/div[8]/div[1]/div[2]/div[3]/div[22]/a[1]/@data-dfid
+            name:
               - text: Anti-Blemish Acne Solutions Steps
                 xpath: /html/body/div[8]/div[1]/div[2]/div[3]/div[22]/a[1]/div[1]/div[2]
             productUrl:
               - text: https://www.druni.es/anti-blemish-acne-solutions-steps-clinique-tratamiento-tres-pasos
                 xpath: /html/body/div[8]/div[1]/div[2]/div[3]/div[22]/a[1]/@href
             thumbnail:
-              - text: https://www.druni.es/media/catalog/product/e/8/e81784974fa6265519cc176aebced10bed3f9a93f41dd08c958230872c8a4b5fea38123f9f6c24837532aad95a4936ab473f6ee6de5e4b9d5d0cf805a10c1680_8.jpg
+              - text: https://www.druni.es/media/catalog/product/e/8/e81784974fa6265519cc176aebced10bed3f9a93f41dd08c958230872c8a4b5fea38123f9f6c24837532aad95a4936ab473f6ee6de5e4b9d5d0cf805a10c1680_9.jpg
                 xpath: /html/body/div[8]/div[1]/div[2]/div[3]/div[22]/a[1]/figure[1]/img[1]/@src
             price:
               - text: 25,35 €
@@ -336,7 +402,10 @@ extractions:
             manufacturer:
               - text: CLINIQUE
                 xpath: /html/body/div[8]/div[1]/div[2]/div[3]/div[22]/a[1]/div[1]/div[1]
-          - name:
+          - id:
+              - text: 98908fce27744e259d6b7d7bb87de294
+                xpath: /html/body/div[8]/div[1]/div[2]/div[3]/div[23]/a[1]/@data-dfid
+            name:
               - text: 4-Ever Matte Anti-Acne Powder
                 xpath: /html/body/div[8]/div[1]/div[2]/div[3]/div[23]/a[1]/div[1]/div[2]
             productUrl:
@@ -351,7 +420,10 @@ extractions:
             manufacturer:
               - text: MIYO
                 xpath: /html/body/div[8]/div[1]/div[2]/div[3]/div[23]/a[1]/div[1]/div[1]
-          - name:
+          - id:
+              - text: 57c2380d5c0be43f6c952835e58f7a55
+                xpath: /html/body/div[8]/div[1]/div[2]/div[3]/div[24]/a[1]/@data-dfid
+            name:
               - text: Tónico Facial Antiacné
                 xpath: /html/body/div[8]/div[1]/div[2]/div[3]/div[24]/a[1]/div[1]/div[2]
             productUrl:
@@ -366,7 +438,10 @@ extractions:
             manufacturer:
               - text: ROSE & ROSE
                 xpath: /html/body/div[8]/div[1]/div[2]/div[3]/div[24]/a[1]/div[1]/div[1]
-          - name:
+          - id:
+              - text: 352decc1e8f3d97fcdb53af60cbe1f53
+                xpath: /html/body/div[8]/div[1]/div[2]/div[3]/div[25]/a[1]/@data-dfid
+            name:
               - text: Mascarilla Facial Antiacné
                 xpath: /html/body/div[8]/div[1]/div[2]/div[3]/div[25]/a[1]/div[1]/div[2]
             productUrl:
@@ -381,7 +456,10 @@ extractions:
             manufacturer:
               - text: ROSE & ROSE
                 xpath: /html/body/div[8]/div[1]/div[2]/div[3]/div[25]/a[1]/div[1]/div[1]
-          - name:
+          - id:
+              - text: 1fe37085233f04789c85afa0a8b3f7b3
+                xpath: /html/body/div[8]/div[1]/div[2]/div[3]/div[26]/a[1]/@data-dfid
+            name:
               - text: Peeling Facial Antiacné
                 xpath: /html/body/div[8]/div[1]/div[2]/div[3]/div[26]/a[1]/div[1]/div[2]
             productUrl:
@@ -397,4 +475,4 @@ extractions:
               - text: ROSE & ROSE
                 xpath: /html/body/div[8]/div[1]/div[2]/div[3]/div[26]/a[1]/div[1]/div[1]
         xpath: /html/body/div[8]/div[1]/div[2]/div[3]
-    timestamp: 1607521456641
+    timestamp: 1607597213498
