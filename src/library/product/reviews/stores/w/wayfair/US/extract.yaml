@@ -1,0 +1,62 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: //div[contains(@class,"pl-Box--mt")]//article[@class="ProductReview"]
+fields:
+  - name: helpfulCount
+    xpath: //div[@class="ProductReview-helpfulButton"]//input[@class="pl-Switch"]/@value
+  - name: commentCount
+    singleValue: true
+    type: NUMBER
+    description: Number of comments on the review
+  - name: brandText
+    xpath: ancestor::html/head/script
+    regExp: (brand":")(.+)(","sku)
+    regExpReplace: $2
+  - name: name
+    xpath: ancestor::html//div[contains(@class,"titleWrap--onImageBlock")]//header[contains(@class,"ProductDetailInfoBlock")]//h1
+  - name: sku
+    xpath: ancestor::html/head/script
+    regExp: ("sku":")(\w+)(",)
+    regExpReplace: $2
+  - name: reviewDate
+    type: DATETIME
+    xpath: //div[@class="ProductReview-reviewDetails"]//p[contains(@class,"pl-Text")]
+  - name: reviewRating
+    xpath: //div[@class="ProductReview-reviewDetails"]//div[@class="pl-ReviewStars"]//p
+    regExp: (Rated[\s]?)(\d+)
+    regExpReplace: $2
+  - name: reviewText
+    xpath: //div[@class="ProductReview-reviewDetails"]/div[@class="ProductReview-comments"]//span
+  - name: reviewTitle
+    singleValue: true
+    description: The title of the review
+  - name: reviewerTags
+    singleValue: false
+    description: The tags a reviewer has
+  - name: gtin
+    xpath: ancestor::html//meta[@property="og:upc"]/@content
+  - name: productUrl
+    xpath: ancestor::html//meta[@property="og:url"]/@content
+  - name: verifiedPurchase
+    xpath: //div[@class="ProductReview-customerInfo"]//h5
+    regExp: (.+)
+    regExpReplace: Yes
+  - name: manufacturerResponse
+    singleValue: true
+    description: The response of the manufacturer (if any)
+  - name: syndicatedFrom
+    singleValue: true
+    description: Stated place the review was syndicated from
+  - name: reviewUrl
+    singleValue: true
+    description: A direct link to the review
+  - name: reviewedSku
+    singleValue: true
+    description: The SKU of the item that was reviewed (may be different from the
+      sku the review was shown on). 1 if sku == reviewedSku else 0. Get sku
+      value, transform will handle the value.
+  - name: user
+    xpath: //div[@class="ProductReview-customerInfo"]//div[@class="ProductReviewCustomerInfo-nameAndLocation"]
+  - name: aggregateRating2
+    xpath: ancestor::html//div[@class="RatingBlock"]/span[contains(@class,"RatingBlock-averageRating")]
