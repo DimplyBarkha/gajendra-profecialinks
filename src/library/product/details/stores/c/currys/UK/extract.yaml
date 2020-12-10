@@ -61,7 +61,7 @@ fields:
     defaultValue: '0'    
   - name: variantInformation
     singleValue: false
-    xpath: //div[@class='no-tablet']//ul[@class='dc-product-swatches-list']//li[contains(@class,'dc-product-swatch-active')]//span
+    xpath: (//div[@class='no-tablet']//ul[@class='dc-product-swatches-list']//li[contains(@class,'dc-product-swatch-active')]//span)[1]
   - name: variants
     singleValue: false
     xpath: //script[@id='app.settings']

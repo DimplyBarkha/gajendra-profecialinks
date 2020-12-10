@@ -78,28 +78,32 @@ const transform = (data) => {
           row.manufacturerDescription = [{ text: arrDesc.join(' ') }];
         }
       }
-      if (row.variantCount) {
-        row.variantCount = [{ text: row.variantCount.length }];
-      }
       if (row.variants) {
         var scriptJSON = JSON.parse(row.variants[0].text);
-        if (scriptJSON.productVariants) {
-          var objectsInVariants = Object.keys(scriptJSON.productVariants).length;
+        Object.keys(scriptJSON.productVariants).forEach(function (key) {
+          var value = scriptJSON.productVariants[key];
           var varientIds = [];
-          for (var i = 0; i < objectsInVariants; i++) {
-            var keyName = Object.keys(scriptJSON.productVariants)[i];
-            var variants = scriptJSON.productVariants[keyName].variants;
-            variants.forEach(function (item, index) {
-              varientIds.push(item.fupid);
-            });
+          for (var i = 0; i < value.variants.length; i++) {
+            varientIds.push(value.variants[i].fupid);
           }
-        }
-        if (varientIds.length) {
-          row.variants = [{ text: varientIds.join(' | ') }];
-        }
-        else {
-          delete row.variants;
-        }
+          if (varientIds.length) {
+            row.variants = [{ text: varientIds.join(' | ') }];
+          }
+          else {
+            delete row.variants;
+          }
+        });
+        // if (scriptJSON.productVariants) {
+        //   var objectsInVariants = Object.keys(scriptJSON.productVariants).length;
+        //   var varientIds = [];
+        //   for (var i = 0; i < objectsInVariants; i++) {
+        //     var keyName = Object.keys(scriptJSON.productVariants)[i];
+        //     var arrVariants = scriptJSON.productVariants[keyName].variants;
+        //     arrVariants.forEach(function (item, index) {
+        //       varientIds.push(item.fupid);
+        //     });
+        //   }
+        // }
       }
       if (row.additionalDescBulletInfo) {
         var arrBullets = [];
