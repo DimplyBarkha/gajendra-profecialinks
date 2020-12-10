@@ -20,12 +20,12 @@ fields:
   - name: name
     singleValue: false
     xpath: //ul[@id="productsList"]/li//span[@class="name"]
-  - name: rankOrganic
-    singleValue: false
-    xpath: //div[@id='rankOrganic']
   - name: rank
     singleValue: false
-    xpath: //div[@id='rankOrganic']
+    type: NUMBER
+  - name: rankOrganic
+    singleValue: false
+    type: NUMBER
   - name: id
     xpath: //ul[@id="productsList"]/li//@data-product-code
     description: The store-specific product identifier

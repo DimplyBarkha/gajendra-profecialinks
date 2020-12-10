@@ -1,10 +1,10 @@
-const { cleanUp } = require('../../../../shared');
+const { transform } = require('../../../../shared');
 module.exports = {
   implements: 'product/search/extract',
   parameterValues: {
     country: 'DE',
     store: 'notino',
-    transform: cleanUp,
+    transform,
     domain: 'notino.de',
     zipcode: '',
   },
