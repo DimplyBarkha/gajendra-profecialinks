@@ -72,23 +72,62 @@ module.exports = {
         catElement.style.display = 'none';
         document.body.appendChild(catElement);
       }
+      // adding description and bullets
 
-      const descripNodeList = document.querySelectorAll('div#description p')
-        ? document.querySelectorAll('div#description p') : [];
-      const descriptionFromMeta = document.querySelector('meta[property="og:description"]')
-        ? document.querySelector('meta[property="og:description"]') : '';
-      // @ts-ignore
-      if (descripNodeList !== undefined && descripNodeList !== null && descripNodeList.length !== 0) {
+      const descriptionText = document.querySelector('div#description')
         // @ts-ignore
-        const descriptionText = [...descripNodeList].map(e => e.innerText).join(' ');
-        addElementToDocument('descriptionText', descriptionText, '#');
-      // @ts-ignore
-      } else addElementToDocument('descriptionText', descriptionFromMeta.getAttribute('content'), '#');
+        ? document.querySelector('div#description').innerText : '';
+      const description = [];
+      let count = 0;
+      if (descriptionText !== undefined && descriptionText !== null && descriptionText !== '') {
+        descriptionText.split('\n').filter(e => e.length > 0).forEach(e => {
+          if (e.charAt('-', 0) === '-') {
+            count++;
+            description.push(e.replace('-', ' || '));
+          } else if (e.charAt('*', 0) === '*') {
+            count++;
+            description.push(e.replace('*', ' || '));
+          } else if (e.charAt('•', 0) === '•') {
+            count++;
+            description.push(e.replace('•', ' || '));
+          } else description.push(e);
+        });
+        addElementToDocument('desc', description.join(' '));
+        addElementToDocument('bullet', count);
+      }
 
-      const altImgSrc = document.querySelectorAll('div[class="prdct__top"] div[class="prdct__gallery-img "] div[class="prdct__gallery-slide"]:not(:first-child) img, div[class="prdct__top"] div[class="prdct__gallery-img  prdct__gallery-img-odd"] div[class="prdct__gallery-slide"]:not(:first-child), div[class="prdct__top"] div[class="prdct__gallery-img  soldout disabled"] div[class="prdct__gallery-slide"]:not(:first-child) img')
-        ? document.querySelectorAll('div[class="prdct__top"] div[class="prdct__gallery-img "] div[class="prdct__gallery-slide"]:not(:first-child) img, div[class="prdct__top"] div[class="prdct__gallery-img  prdct__gallery-img-odd"] div[class="prdct__gallery-slide"]:not(:first-child), div[class="prdct__top"] div[class="prdct__gallery-img  soldout disabled"] div[class="prdct__gallery-slide"]:not(:first-child) img') : [];
+      // adding description and bullets when product is unavailable
+      const hiddenDesc = document.querySelector('div#savoirplus')
         // @ts-ignore
-      [...altImgSrc].map(e => addElementToDocument('altImgSrc', '', e.src));
+        ? document.querySelector('div#savoirplus').innerText : '';
+      const descHidden = [];
+      let countHidden = 0;
+      if (document.querySelector('div#description') === null && hiddenDesc !== undefined && hiddenDesc !== null) {
+        const text = hiddenDesc.split('\n').filter(e => e.length > 0);
+        if (text.length > 1) {
+          text.forEach(e => {
+            if (e.charAt('-', 0) === '-') {
+              countHidden++;
+              descHidden.push(e.replace('-', ' || '));
+            } else if (e.charAt('*', 0) === '*') {
+              countHidden++;
+              descHidden.push(e.replace('*', ' || '));
+            } else if (e.charAt('•', 0) === '•') {
+              countHidden++;
+              descHidden.push(e.replace('•', ' || '));
+            } else descHidden.push(e);
+          });
+        } else {
+          if (text[0].includes('•') && text[0] !== null && text[0] !== undefined) {
+            descHidden.push(text[0].replace(/•/g, ' ||'));
+            const bullets = text[0].replace(/•/g, ' ||').match(/\|\|/gi);
+            countHidden += bullets.length;
+          } else descHidden.push(text[0]);
+        }
+        addElementToDocument('descHidden', descHidden.join(' '));
+        addElementToDocument('bulletHidden', countHidden);
+      }
+
       const manufacturerImgSrc = document.querySelectorAll('div[class*="pyramid-img"] img')
         ? document.querySelectorAll('div[class*="pyramid-img"] img') : [];
       // @ts-ignore
@@ -97,17 +136,6 @@ module.exports = {
         // @ts-ignore
         ? document.querySelector('div[class*="prdct__logo"] a, div[class*="prdct__banner"] a').href : '';
       addElementToDocument('brandLink', '', brandLink);
-
-      const descriptionBullets = document.querySelector('h3[class="prdct__details-title"] + p ')
-        // @ts-ignore
-        ? document.querySelector('h3[class="prdct__details-title"] + p ').innerText : '';
-      let count = 0;
-      if (descriptionBullets !== undefined && descriptionBullets !== null) {
-        descriptionBullets.split('\n').forEach(e => {
-          if (e.charAt('-') === '-') count++;
-        });
-      }
-      addElementToDocument('bulletcount', count);
     });
 
     await context.evaluate(async function () {
@@ -142,6 +170,17 @@ module.exports = {
           item.text = item.text ? item.text.split('|').shift().toUpperCase() : '';
         });
       }
+      if (row.description) {
+        row.description.forEach(item => {
+          if (item.text.includes('En savoir')) {
+            item.text = item.text ? item.text.split('En savoir + ').pop() : '';
+          }
+          if (item.text.includes('Réf')) {
+            item.text = item.text ? item.text.split(' Réf').shift() : '';
+          }
+        });
+      }
+
       if (row.ratingCount) {
         row.ratingCount.forEach(item => {
           if (item.text.includes('avis ')) {
@@ -154,6 +193,11 @@ module.exports = {
           item.text = item.text ? item.text.replace('.', ',') : '';
         });
       }
+      if (row.ingredientsList) {
+        row.ingredientsList.forEach(item => {
+          item.text = item.text ? item.text.replace('"', " '") : '';
+        });
+      }
       if (row.image) {
         row.image.forEach(item => {
           if (item.text.includes('src')) {
@@ -164,9 +208,14 @@ module.exports = {
           }
         });
       }
-      if (row.variantCount) {
-        row.variantCount.forEach(item => {
-          if (item.text === '0') item.text = '1';
+      if (row.alternateImages) {
+        row.alternateImages.forEach(item => {
+          if (item.text.includes('src')) {
+            item.text = item.text ? item.text.substring(item.text.lastIndexOf('https'), item.text.lastIndexOf('onload') - 2) : '';
+          }
+          if (!item.text.includes('https')) {
+            item.text = item.text ? 'https://www.nocibe.fr'.concat(item.text) : '';
+          }
         });
       }
     });

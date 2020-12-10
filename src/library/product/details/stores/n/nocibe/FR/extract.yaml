@@ -23,7 +23,7 @@ fields:
 - name: alternateImages
   singleValue: false
   description: Other product images (not in manufacturer description)
-  xpath: //div[@id='altImgSrc']/@src 
+  xpath: //div[contains(@class, 'prdct__top')]//div[contains(@class, '-img-odd')]//div[contains(@class, 'prdct__gallery-slide')][not(img)][position()>1] | //div[contains(@class, 'prdct__top')]//div[contains(@class, '-img')]//div[@class='prdct__gallery-slide'][position()>1]/img/@src
 - name: metaKeywords
   singleValue: true
   description: The <meta> keywords content
@@ -54,14 +54,14 @@ fields:
   regExp: .+
   regExpReplace: "Out of Stock" 
 - name: description
-  singleValue: false
+  singleValue: true
   description: Product description supplied by website - may be concatenanted from
     multiple places; specifically not the manufacturer description
-  xpath: //div[@id='descriptionText'] 
+  xpath: //div[@id='desc'] | //div[@id='descHidden'] 
 - name: descriptionBullets
   singleValue: true
   description: Number of ul > li tags in the description
-  xpath: //div[@id='bulletcount']
+  xpath: //div[@id='bullet'] | //div[@id='bulletHidden']
 - name: brandText
   singleValue: true
   description: Product brand shown - this may actually NOT be just a brand name, e.g.
@@ -155,7 +155,7 @@ fields:
 - name: name
   singleValue: true
   description: The product name
-  xpath: concat(//div[contains(@class,'prdct__designation')]//h1, ' ', //div[contains(@class, 'prdct__sku-selected')]//span[@class='prdct__sku-name'] | //div[contains(@class, 'prdct__sku-selected')]//span[@class='prdct__sku-name'] | //span[contains(@class, 'prdct__bullets-link active')]/text())  
+  xpath: //div[contains(@class,'prdct__designation')]//h1
 - name: inStorePrice
   singleValue: true
   description: Price in the selected store 
@@ -250,6 +250,7 @@ fields:
 - name: secondaryImageTotal
   singleValue: true
   description: 
+  xpath: count(//div[contains(@class, "prdct__top")]//div[contains(@class, "-img-odd")]//div[contains(@class, "prdct__gallery-slide")][not(img)][position()>1] | //div[contains(@class, "prdct__top")]//div[contains(@class, "-img")]//div[@class="prdct__gallery-slide"][position()>1]/img/@src)
 - name: news
   singleValue: true
   description: 
