@@ -1,16 +1,7 @@
 
-// const { transform } = require('../shared');
-module.exports = {
-  implements: 'product/details/variants/variantsExtract',
-  parameterValues: {
-    country: 'RU',
-    store: 'beru',
-    transform: null,
-    domain: 'pokupki.market.yandex.ru',
-    zipcode: '',
-  },
-  implementation
-};
+ const { transform } = require('../shared');
+
+
 async function implementation (
   inputs,
   parameters,
@@ -63,5 +54,18 @@ async function implementation (
     }
     
   }, createUrl);
-  return await context.extract(variants);
+  return await context.extract(variants, { transform });
+
 }
+
+module.exports = {
+  implements: 'product/details/variants/variantsExtract',
+  parameterValues: {
+    country: 'RU',
+    store: 'beru',
+    transform,
+    domain: 'pokupki.market.yandex.ru',
+    zipcode: '',
+  },
+  implementation
+};
