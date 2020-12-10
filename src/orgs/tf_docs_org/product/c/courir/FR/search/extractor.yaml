@@ -1,0 +1,23 @@
+robot: product/search
+parameters:
+  country: FR
+  domain: courir.com
+  store: courir
+  zipcode: ""
+proxy:
+  zone: ZUS
+  type: DATA_CENTER
+policy:
+  numberRetries: 4
+  priority: MEDIUM
+  retryDelay: 120
+  backoffPolicy: EXPONENTIAL
+  retryWithResidentialProxyAfter: 3
+meta:
+  branches:
+    courir_fr-product_search:
+      extractor: b6260d47-b031-44fc-9c79-799ad83fe55d
+      legacyAccountId: f94246b4-2d86-4803-9d39-25905b37f013
+    demo:
+      extractor: dc0202e6-4615-4517-8655-2d5d428a5681
+      legacyAccountId: d6a54a5b-6ab8-42f1-8bff-243ba7d7379c

@@ -81,7 +81,7 @@ async function implementation (
               },
             );
 
-            await new Promise(resolve => setTimeout(resolve, 500));
+            await new Promise(resolve => setTimeout(resolve, 5000));
 
             const captchaSelectorExist = await optionalWait('.captcha-handler', 30000);
             if (captchaSelectorExist) {

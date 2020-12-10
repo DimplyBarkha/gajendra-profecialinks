@@ -21,7 +21,6 @@ module.exports = {
       try {
         const responseStatus = await context.goto(url, {
           antiCaptchaOptions: {
-            provider: '2-captcha',
             type: 'GEETEST',
           },
           firstRequestTimeout: 60000,
@@ -29,12 +28,12 @@ module.exports = {
           waitUntil: 'load',
           checkBlocked: true,
         });
-        console.log('Status :', responseStatus.status);
-        console.log('URL :', responseStatus.url);
-        await context.waitForNavigation({ timeout: 30000 });
-        await new Promise(resolve => setTimeout(resolve, 1000));
+        console.log('1 - Status :', responseStatus.status);
+        console.log('2- URL :', responseStatus.url);
+        await context.waitForNavigation({ timeout: 60000 });
+        await new Promise(resolve => setTimeout(resolve, 6000));
       } catch (err) {
-        console.log('Error navigating to page.');
+        console.log('3 -Error navigating to page.');
         throw err;
       }
     };
