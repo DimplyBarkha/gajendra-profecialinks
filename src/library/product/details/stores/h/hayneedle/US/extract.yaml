@@ -10,9 +10,7 @@ fields:
     regExpReplace: $2
   - name: shownImages
     singleValue: false
-    xpath: //button[contains(@class, "product-images__imageContainer")]//img//@src
-    regExp: (.+)(76,76)(.+)
-    regExpReplace: https:$11000,1000$3
+    xpath: //table//tr/@image
   - name: nameExtended
     singleValue: true
     xpath: //h1
@@ -55,9 +53,7 @@ fields:
     xpath: //div[@data-automation-id="breadcrumbs-container"]//div[contains(@class,'breadcrumbs__breadcrumb')]
   - name: highQualityImages
     singleValue: false
-    xpath: //button[contains(@class, "product-images__imageContainer")]//img//@src
-    regExp: (.+)(76,76)(.+)
-    regExpReplace: https:$11000,1000$3
+    xpath: //table//tr/@image
   - name: sku
     singleValue: true
     xpath: //span[@data-automation-id="product-breadcrumb-sku"]
@@ -69,3 +65,8 @@ fields:
   - name: specifications
     singleValue: true
     xpath: //body//@specifications
+  - name: videos
+    singleValue: true
+    xpath: //iframe[@id="player0"]/@src
+    regExp: (//)(.+)
+    regExpReplace: $2

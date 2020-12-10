@@ -38,6 +38,26 @@ module.exports = {
         newlink.setAttribute('bullet', results[index].textContent);
         tBody.appendChild(newlink);
       }
+
+      let images = [];
+      let image = document.evaluate(`//button[contains(@class, "product-images__imageContainer")]//img//@src`, document, null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null)
+      if (image) {
+        for (let i = 0, length = image.snapshotLength; i < length; ++i) {
+          images.push(image.snapshotItem(i));
+        }
+      }
+
+      const imageTable = document.createElement('table');
+      document.body.appendChild(imageTable);
+      const imagetBody = document.createElement('tbody');
+      imageTable.appendChild(imagetBody);
+
+      for (let index = 0; index < images.length; index++) {
+        const newlink = document.createElement('tr');
+        newlink.setAttribute('class', 'image');
+        newlink.setAttribute('image', images[index].textContent.replace('76,76', '1000,1000').replace('//', 'https://'));
+        imagetBody.appendChild(newlink);
+      }
     });
     await context.extract(productDetails);
   },
