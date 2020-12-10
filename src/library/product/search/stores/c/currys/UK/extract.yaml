@@ -11,7 +11,7 @@ fields:
     xpath: //header[@class="productTitle"]/a/@href
   - name: price
     SingleValue: false
-    xpath: //strong[@data-product="price"]
+    xpath: //span[contains(@class,"roductPriceBlock__Price-")]
   - name: thumbnail
     SingleValue: false
     xpath: //div[@class="product-images"]//source/@srcset
