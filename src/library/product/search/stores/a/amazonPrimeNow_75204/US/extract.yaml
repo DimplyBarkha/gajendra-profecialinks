@@ -1,0 +1,29 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: //ul[contains(@class,"product_grid")]/li
+fields:
+  - name: rank
+  - name: rankOrganic
+  - name: sponsored
+    defaultValue: false
+  - name: productUrl
+    description: The URL for the product details page
+    xpath: //a[contains(@class,"asin_card__productLink")]/@href
+    regExp: (.+)
+    regExpReplace: https://primenow.amazon.com$1
+  - name: thumbnail
+    description: The URL for the product thumbnail image
+    xpath: //div[contains(@class,"asin_card__thumb")]/img[contains(@class,"image__root")]/@src
+    regExp: (.+)\._(.+\.)(\w+)
+    regExpReplace: $1.$3
+  - name: name
+    description: The product name
+    xpath: //div[contains(@class,"asin_card__thumb")]/img[contains(@class,"image__root")]//@alt
+  - name: price
+    description: The offered price for the product
+    xpath: //div[contains(@class,"asin_price__root")]/div[last()-1]
+  - name: id
+    xpath: //a[contains(@class,"asin_card__productLink")]/@href
+    regExp: (.+\/)(\w+)(.+)
+    regExpReplace: $2

@@ -5,7 +5,7 @@ module.exports = {
     country: 'US',
     store: 'cvs',
     domain: 'cvs.com',
-    loadedSelector: ['div.css-1dbjc4n.r-18u37iz.r-1oy2gb8 > div.css-901oao.r-vw2c0b', 'div.css-1dbjc4n.r-18u37iz.r-tzz3ar a', 'div.css-1dbjc4n.r-6koalj.r-156q2ks.r-y46g1k'],
+    // loadedSelector: ['div.css-1dbjc4n.r-18u37iz.r-1oy2gb8 > div.css-901oao.r-vw2c0b', 'div.css-1dbjc4n.r-18u37iz.r-tzz3ar a', 'div.css-1dbjc4n.r-6koalj.r-156q2ks.r-y46g1k'],
     noResultsXPath: ['//div[@class="css-1dbjc4n r-13awgt0"]//div[contains(.,"Check your spelling")]', './/*[contains(.,"Sorry, we")]', '//div[contains(@class,"css-1dbjc4n r-ymttw5")]/h4[contains(.,"Sorry")]'],
   },
   parameters: [
@@ -52,6 +52,14 @@ module.exports = {
   path: './stores/${store[0:1]}/${store}/${country}/execute',
   implementation: async (inputs, parameters, context, dependencies) => {
     let { url, id } = inputs;
+
+    if (url) {
+      let sku = url.match(/\d+/g);
+      sku = sku.length ? sku[0] : null;
+      id = sku;
+      url = null;
+    }
+
     if (!url) {
       if (!id) {
         throw new Error('no id provided');

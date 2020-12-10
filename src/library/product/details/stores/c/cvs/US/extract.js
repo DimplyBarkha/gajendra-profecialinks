@@ -9,539 +9,524 @@ module.exports = {
     domain: 'cvs.com',
   },
   implementation: async ({ inputString }, { country, domain, transform: transformParam }, context, { productDetails }) => {
-    await new Promise(resolve => setTimeout(resolve, 20000));
-    
-    const linkURL = await context.evaluate(function () {
-      const element = document.querySelector('div.css-1dbjc4n.r-18u37iz.r-tzz3ar a');
-      const elementSelector = 'div.css-1dbjc4n.r-18u37iz.r-tzz3ar a'
-      if (element) {
-        // return element.href;
-        return [elementSelector, element.href];
-      } else {
-        return null;
-      }
+    await context.waitForSelector('pre', { timeout: 20000 });
+
+    // Initially starts on API JSON page
+    // Grabs JSON object from the DOM
+    var jsonText = await context.evaluate(function () {
+      return document.body.innerText;
     });
+    const json = JSON.parse(jsonText);
 
-    // https://www.cvs.com/shop/american-crew-styling-gel-prodid-1013504
-    // https://www.cvs.com/shop/american-crew-styling-gel-prodid-1013504
-
-    if(linkURL === null) {
-      throw new Error("notFound");
-    }
-    await context.click(linkURL[0])
-
-    const urlTest = await context.evaluate(function(linkURL) {
-      let currentUrl = window.location.href;
-      let urlFromLink = linkURL[1]
-      if(currentUrl === urlFromLink){
-        return true;
-      } else{
-        return false
-      }
-    }, linkURL)
-    if(!urlTest){
-      await context.goto(linkURL[1], { timeout: 30000, waitUntil: 'load', checkBlocked: true });
-    }
-
-    await new Promise(resolve => setTimeout(resolve, 20000));
-
-    await context.evaluate(function () {
-
-      function addHiddenDiv (id, content) {
-        const newDiv = document.createElement('div');
-        newDiv.id = id;
-        newDiv.textContent = content;
-        newDiv.style.display = 'none';
-        document.body.appendChild(newDiv);
-      }
-
-      function collectNutritionInfo () {
-        let i = 1;
-        const termsWithValues = {};
-        while (i < 200) {
-          const nutrTerm = document.querySelector(`div.css-1dbjc4n.r-eqz5dr.r-1wtj0ep:nth-of-type(1) > div.css-901oao:nth-of-type(${i})`);
-          const nutrValue = document.querySelector(`div.css-1dbjc4n.r-eqz5dr.r-1wtj0ep:nth-of-type(2) > div.css-901oao:nth-of-type(${i})`);
-          if (nutrTerm && nutrValue) {
-            termsWithValues[nutrTerm.innerHTML] = nutrValue.innerHTML;
-          } else {
-            break;
-          }
-          i++;
-        }
-
-        Object.keys(termsWithValues).forEach((term) => {
-          console.log(term);
-          addHiddenDiv(`ii_${term}`, termsWithValues[term]);
-        });
-      }
-
-      function collectBrand () {
-        const brandBlock = document.querySelector('script#schema-json-ld');
-
-        if (brandBlock) {
-          const brandObject = JSON.parse(brandBlock.innerText);
-          addHiddenDiv('ii_Brand', `${brandObject[0].brand}`);
-        }
-      }
-
-      function collectVariantId () {
-        const variantId = window.location.href
-
-        if (variantId) {
-          const regex1 = /[0-9]+$/g;
-          let varText = regex1.exec(variantId);
-          if(varText){
-          addHiddenDiv('ii_productCode', varText[0]);
-          }
-        }
-      }
-
-      addHiddenDiv('ii_url', window.location.href);
-      collectNutritionInfo();
-      collectBrand();
-      collectVariantId()
-    });
-    
-
-    async function variantClick () {
-      const btns = await collectButtons();
-      const waitSelector = 'div.css-901oao.r-1jn44m2.r-1enofrn:nth-of-type(3)';
-      const waitFor = 'div.css-1dbjc4n.r-16lk18l.r-11c0sde.r-1xi2sqm'
-      let i = 0;
-      let j = 0;
-
-      if(btns[0].length){
-        while(i < btns[0].length && i < 100) {
-          await context.click(btns[0][i]);
-          await context.click(btns[0][i]);
-          let mCheck = await manufCheck()
-          if(mCheck) {
-            await new Promise(resolve => setTimeout(resolve, 20000));
-          } else {
-            await new Promise(resolve => setTimeout(resolve, 10000));
-          }
-
-          if(btns[1].length && j < 100){
-            while(j < btns[1].length && j < 100) {
-              let check = await buttonCheck(btns[1][j]);
-              if(check) {
-                await context.click(btns[1][j]);
-                await context.click(btns[1][j]);
-                if(mCheck) {
-                  await new Promise(resolve => setTimeout(resolve, 20000));
-                } else {
-                  await new Promise(resolve => setTimeout(resolve, 10000));
-                }
-                await getVariantIdNum();
-                await new Promise(resolve => setTimeout(resolve, 2000));
-                await collectVariantInfo();
+    // Checks to see if required information is present before continuing
+    if (json && json.records && json.totalRecordCount > 0) {
+      console.log('Converted body text to json successfully');
+      // Saving the URL of the client side product page to use to check for variant names
+      const productPageUrl = await context.evaluate(function (records) {
+        const product = records[0].allMeta;
+        return product.gbi_ParentProductPageUrl;
+      }, json.records);
+      // Collecting all variant SKUs from API object to be used for constructing the URL for fetching manufacturer information
+      const prodSkus = await context.evaluate(function (records, cnt) {
+        if (records[0].allMeta) {
+          const product = records[0].allMeta;
+          if (product) {
+            if (product.variants.length) {
+              const skuArray = [];
+              product.variants.forEach(variant => {
+                skuArray.push(variant.subVariant[0].p_Sku_ID);
+              });
+              if (skuArray.length) {
+                return skuArray;
+              } else {
+                return ['hello'];
               }
-              j++;
             }
-            j = 0;
-          } else {
-            await getVariantIdNum();
-            await new Promise(resolve => setTimeout(resolve, 2000));
-            await collectVariantInfo();
           }
-          i++;
         }
-      } else {
-        const varStore = await context.evaluate(function () {
-          function addHiddenDiv (id, content) {
-            const newDiv = document.createElement('div');
-            newDiv.id = id;
-            newDiv.style.display = 'none';
-            document.body.appendChild(newDiv);
-          }
-          addHiddenDiv('ii_variantId');
+      }, json.records, json.totalRecordCount);
+
+      // Fetching the inventory information for each variant
+      var stockArr = await context.evaluate(async function getDataFromAPI (products) {
+        const stockArr = {};
+        const url = 'https://www.cvs.com/RETAGPV3/OnlineShopService/V2/getSKUInventoryAndPrice';
+        let body = '{"request":{"header":{"lineOfBusiness":"RETAIL","appName":"CVS_WEB","apiKey":"a2ff75c6-2da7-4299-929d-d670d827ab4a","channelName":"WEB","deviceToken":"d9708df38d23192e","deviceType":"DESKTOP","responseFormat":"JSON","securityType":"apiKey","source":"CVS_WEB","type":"retleg"}},"skuId":[],"pageName":"PLP"}';
+        const bodyjson = JSON.parse(body);
+        bodyjson.skuId = products;
+        body = JSON.stringify(bodyjson);
+        const response = await fetch(url, {
+          headers: {
+            accept: 'application/json',
+            'accept-language': 'en-US,en;q=0.9',
+            'cache-control': 'no-cache',
+            'content-type': 'application/json;charset=UTF-8',
+            pragma: 'no-cache',
+            'sec-fetch-dest': 'empty',
+            'sec-fetch-mode': 'cors',
+            'sec-fetch-site': 'same-origin',
+          },
+          referrer: 'https://www.cvs.com/shop/pop-arazzi-special-effects-nail-polish-prodid-1015111',
+          referrerPolicy: 'no-referrer-when-downgrade',
+          body: body,
+          method: 'POST',
+          mode: 'cors',
+          credentials: 'include',
         });
-        await collectVariantInfo();
-      }
-    }
-
-    async function manufCheck(selector) {
-      return await context.evaluate(function(input) {
-        let sel3 = '//div[@class="css-1dbjc4n r-13awgt0 r-1mlwlqe r-dnmrzs"]//div[contains(@id, "wc-power-page")]//text()'
-        let sel2 = '//div[@class="css-1dbjc4n r-13awgt0 r-1mlwlqe r-dnmrzs"]//div[contains(@id, "wc-power-page")]//img'
-        let sel1 = '//div[@class="css-1dbjc4n r-13awgt0 r-1mlwlqe r-dnmrzs"]//div[contains(@id, "wc-power-page")]//iframe'
-        
-        var element1 = document.evaluate( sel1, document, null,XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
-        var element2 = document.evaluate( sel2, document, null,XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
-        var element3 = document.evaluate( sel3, document, null,XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
-
-        if( element1.snapshotLength > 0 || element2.snapshotLength > 0 || element3.snapshotLength > 0) {
-          return true
-        } else {
-          return false
+        if (response && response.status === 404) {
+          console.log('Product Not Found!!!!');
+          return [];
         }
-          
-      });
-    }
-
-    async function buttonCheck(selector) {
-      let input = selector
-      return await context.evaluate(function(input) {
-        let sel = document.querySelector(input)
-        if(sel) {
-          // if(!sel.ariaLabel.includes("Out-of-stock")) {
-          return true;
-        } else {
-          return false;
-        }
-        // }
-      }, input);
-    }
-
-    
-
-    async function getVariantIdNum(value) {
-      let varArray = [];
-      const varStore = await context.evaluate(function() {
-          function addHiddenDiv (id, content) {
-            const newDiv = document.createElement('div');
-            newDiv.id = id;
-            newDiv.textContent = content;
-            newDiv.style.display = 'none';
-            document.body.appendChild(newDiv);
-          }
-        
-        let varPath = document.querySelector('div.css-901oao.r-1jn44m2.r-1enofrn:nth-of-type(3)');
-        const regex1 = /[0-9]+$/g;
-
-        if (varPath) {
-          const varText = regex1.exec(varPath.innerText);
-          console.log(varText);
-          if(varText){
-            addHiddenDiv('ii_variantId', varText);
-          }
-        }
-      });
-    }
-
-
-
-    async function collectButtons() {
-      const moreCheck = await context.evaluate(function() {
-        let selectorCheck = document.querySelector('div[aria-label="Toggle More/Less Swatches"] div.css-901oao.r-ty2z48');
-        
-        if(selectorCheck) {
-          return true;
-        } else {
-          return false;
-        }
-
-      });
-      const moreSelector = 'div[aria-label="Toggle More/Less Swatches"] div.css-901oao.r-ty2z48';
-      if(moreCheck){
-        await context.click(moreSelector);
-        await new Promise(resolve => setTimeout(resolve, 10000));
-      }
-
-
-      return await context.evaluate(function() {
-        let flag = false;
-        const selectors = [[], []];
-        let i = 1;
-        while(!flag && i < 40) {
-          const firstVar = `div.css-1dbjc4n:nth-of-type(1) > div.css-1dbjc4n > div.swatch-scroll div.css-1dbjc4n:nth-of-type(${i}) > div`;
-          const secondVar = `div.css-1dbjc4n:nth-of-type(2) > div.css-1dbjc4n > div.swatch-scroll div.css-1dbjc4n:nth-of-type(${i}) > div`;
-          if(document.querySelector(firstVar)){
-            selectors[0].push(firstVar);
-          }
-          if (document.querySelector(secondVar)) {
-            selectors[1].push(secondVar);
-          }
-          if (!document.querySelector(firstVar) && !document.querySelector(secondVar)) {
-            flag = true;
-            break;
-          }
-          i++;
-        }
-
-        if (selectors.length) {
-          return selectors;
-        } else {
-          return false;
-        }
-      });
-    }
-
-  async function collectVariantInfo (value) {
-    const varStore = await context.evaluate(function() {
-
-        function addHiddenDiv (id, content) {
-          const variantId = document.querySelectorAll('div#ii_variantId');
-          const variantDiv = variantId[variantId.length - 1];
-          const newDiv = document.createElement('div');
-          newDiv.id = id;
-          newDiv.textContent = content;
-          newDiv.style.display = 'none';
-          if(variantDiv){
-            variantDiv.appendChild(newDiv);
-          }
-        }
-        function collectIframe() {
-          const iframeList = document.querySelectorAll('iframe');
-          if(iframeList) {
-            iframeList.forEach((frame) => {
-              const video = frame.contentDocument;
-              if(!!video){
-                let videoSrc = video.querySelector('video');
-                if(videoSrc) {
-                addHiddenDiv('ii_videoSrc', `${videoSrc.src}`);
-                }
-              }
+        if (response && response.status === 200) {
+          console.log('Product Found!!!!');
+          const json = await response.json();
+          // Inventory information is stored in an object with key = SKU and value = inventory status
+          if (json && json.response && json.response.getSKUInventoryAndPrice && json.response.getSKUInventoryAndPrice.skuInfo) {
+            json.response.getSKUInventoryAndPrice.skuInfo.forEach(skuInfo => {
+              stockArr[skuInfo.skuId] = skuInfo.stockStatus;
             });
           }
         }
-      const variantInfo = document.querySelectorAll('div.css-1dbjc4n.r-18u37iz.r-f1odvy div.css-901oao');
-      // const variantImage = document.querySelectorAll('div.css-1dbjc4n.r-18u37iz div.css-1dbjc4n.r-1pi2tsx img');
-      const variantPrice = document.querySelector('div.css-901oao.r-cme181.r-1jn44m2.r-111xbm8.r-b88u0q');
-      const variantRating = document.querySelector('div.css-1dbjc4n div.css-901oao.r-1enofrn.r-b88u0q.r-m2pi6t');
-      const variantReview = document.querySelector('div.css-1dbjc4n.r-obd0qt.r-18u37iz a');
-      const variantRatingText = document.querySelector('div.css-1dbjc4n.r-obd0qt.r-18u37iz section');
-      const variantListPrice = document.querySelector('div.css-1dbjc4n.r-1awozwy.r-18u37iz.r-1wtj0ep.r-13qz1uu div.css-901oao.r-1khnkhu.r-1jn44m2.r-1b43r93.r-5fcqz0.r-m611by');
-      const prodName = document.querySelector('h1.css-4rbku5.css-901oao.r-1jn44m2.r-1ui5ee8.r-vw2c0b.r-16krg75');
-      const keyWordAdd = document.querySelectorAll('div.css-1dbjc4n.r-18u37iz.r-f1odvy div.css-901oao');
-      const prodInfoLine = document.querySelector('div.css-901oao.r-1jn44m2.r-1enofrn:nth-of-type(3)');
-      // const manufDesc = document.querySelector('div#wc-power-page > div');
-      const manufDesc = '//div[contains(@id, "wc-power-page")]//div[not (contains(., "Is the information in this section helpful")) and not (contains(., "The information above is")) and not (contains(., ".wc"))]//text()'
-      const variantDescription = '(//div[@class="css-1dbjc4n r-13awgt0 r-1mlwlqe r-dnmrzs"]//div[@class="htmlView"])[1]//text()'
-      const variantDescription2 = '(//div[@class="css-1dbjc4n r-13awgt0 r-1mlwlqe r-dnmrzs"]//div[@class="htmlView"])[1]//text()'
-      const variantWarnings = '//div[@class="css-1dbjc4n r-13qz1uu"]//div[contains(.,"Warnings")]//div[@class="htmlView"]//text()'
-      // const variantDirections = '//div[@class="css-1dbjc4n r-13qz1uu"]//div[contains(.,"Directions")]//div[@class="htmlView"]'
-      // const variantDirections = '//div[@class="css-1dbjc4n r-13qz1uu"]//div[contains(.,"Directions")]//div[@class="htmlView"]//text()[not( contains(., "Questions?"))]'
-      const variantDirections = '//div[@class="css-1dbjc4n r-13qz1uu"]//div[not(descendant-or-self::*[contains(@id,"wc")]) and contains(.,"Directions")]//div[@class="htmlView"]//text()[not( contains(., "Questions?"))]'
-      const variantIngredients = '//div[@class="css-1dbjc4n r-13qz1uu"]//div[contains(.,"Ingredients") and not(contains(., "Details"))]//div[@class="htmlView"]'
-      const variantADBI1 = '(//div[@class="css-1dbjc4n r-13qz1uu"]//div[contains(.,"Details")]//div[@class="htmlView"])[1]//li'
-      const variantADBI2 = '//div[@class="css-1dbjc4n r-13awgt0 r-1mlwlqe r-dnmrzs"]//div[@class="htmlView"]/ul/li'
-      // const variantAlternateImages = '(//div[contains(@id, "zoom-carousel")]//img[contains(@src,"https")])[position()>1]/@src'
-      const variantAlternateImages = '(//div[contains(@id, "zoom-carousel")]//img[contains(@src,"https")])/@src'
-      const variantManufImages = '//div[@id="wc-aplus"]//img/@src[not (contains(., "syndigo.svg"))]'
-      // const variantDescriptionBullets = '//div[@class="htmlView"]/ul/li'
-      const variantVideo = '//img[contains(@class,"wc-iframe")]/@data-asset-url'
-      const variantVideo2 = '//img[contains(@class, "wc-video")]/@wcobj'
-      const variantVideo3 = '//div[contains(@class, "wc-iframe")]//@data-src'
-      const variantArray = [];
-      const packSize = ['Pack: ', 'Group Size: '];
-      const packSizeResult = [];
-      for(let i = 0; i < 10; i = i + 2) {
-        if (variantInfo[i + 1]) {
-          if (packSize.includes(variantInfo[i].innerText)) {
-            packSizeResult.push(variantInfo[i + 1].innerText);
+        return stockArr;
+      }, prodSkus);
+
+      // Using variant SKU array from 'prodSkus' to preform fetch for manufacturer information for each variant
+      async function collectManuf (variants) {
+        // Must first goto the scontent.webcollage to get credentials for next fetch
+        await context.goto('https://scontent.webcollage.net#[!opt!]{"type":"js","init_js":""}[/!opt!]', { timeout: 20000, waitUntil: 'load', checkBlocked: true });
+        const manufArray = [];
+        // Looping through each variant SKU
+        for (let i = 0; i < variants.length; i++) {
+          const html = await context.evaluate(async function getEnhancedContent (variants, i) {
+            // Recursive retry for fetches failures
+            async function fetchRetry (url, n) {
+              function handleErrors (response) {
+                if (response.status === 200) {
+                  return response;
+                } else {
+                  console.log('FETCH FAILED');
+                  if (n === 1) return 'Nothing Found';
+                  return fetchRetry(url, n - 1);
+                }
+              }
+              const fetched = fetch(url).then(handleErrors).then(response => response.text()).catch(function (error) {
+                console.log('FETCH FAILED');
+                if (n === 1) return 'Nothing Found';
+                return fetchRetry(url, n - 1);
+              });
+              return fetched;
+            }
+            return await fetchRetry(`https://scontent.webcollage.net/cvs/power-page?ird=true&channel-product-id=${variants[i]}`, 10);
+          }, variants, i);
+
+          const regex = /html: "(.+)"\n\s\s\}\n\}\;/s;
+          let text = 'Not Found';
+          // Checking the output of fetchRetry, if the output contains an "html" object it is collected and stored in the manufArray
+          if (html.match(regex)) {
+            text = html.match(regex)[1];
           }
+          // Trimming the object so that it can be appended to the DOM
+          text = text.replace(/html: /g, '');
+          manufArray.push(text);
         }
+        return manufArray;
       }
-      new Promise(resolve => setTimeout(resolve, 1000));
+      const htmlList = await collectManuf(prodSkus);
 
-      if(variantIngredients) {
-        var element = document.evaluate( variantIngredients, document, null,XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
-        if( element.snapshotLength > 0 ) {
-          for(let i = 0; i < element.snapshotLength; i++) {
-            addHiddenDiv(`ii_variantIngredients`, `${element.snapshotItem(i).textContent}`);
-          }
-        }
-      }
-      if(manufDesc) {
-        var element = document.evaluate( manufDesc, document, null,XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
-        if( element.snapshotLength > 0 ) {
-          for(let i = 0; i < element.snapshotLength; i++) {
-            addHiddenDiv(`ii_manufDesc`, `${element.snapshotItem(i).textContent}`);
-          }
-        }
-      }
-      new Promise(resolve => setTimeout(resolve, 1000));
+      // Must do a context.goto for the product page to collect only the variant information section names present on the page because the API alone
+      // is too unreliable for this
+      await context.goto(`https://www.cvs.com${productPageUrl}`, { timeout: 20000, waitUntil: 'load', checkBlocked: true });
 
-      if(variantDirections) {
-        var element = document.evaluate( variantDirections, document, null,XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
-        if( element.snapshotLength > 0 ) {
-          for(let i = 0; i < element.snapshotLength; i++) {
-            addHiddenDiv(`ii_variantDirections`, `${element.snapshotItem(i).textContent}`);
-          }
-        }
-      }
-      new Promise(resolve => setTimeout(resolve, 1000));
-
-      if(variantWarnings) {
-        var element = document.evaluate( variantWarnings, document, null,XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
-        if( element.snapshotLength > 0 ) {
-          for(let i = 0; i < element.snapshotLength; i++) {
-            addHiddenDiv(`ii_variantWarnings`, `${element.snapshotItem(i).textContent}`);
-          }
-        }
-      }
-      new Promise(resolve => setTimeout(resolve, 1000));
-
-      if(variantVideo) {
-        var element = document.evaluate( variantVideo, document, null,XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
-        var element2 = document.evaluate( variantVideo2, document, null,XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
-        var element3 = document.evaluate( variantVideo3, document, null,XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
-
-
-        if( element.snapshotLength > 0 ) {
-          for(let i = 0; i < element.snapshotLength; i++) {
-            addHiddenDiv(`ii_videoSrc`, `${element.snapshotItem(i).textContent}`);
-          }
-        } 
-        if(element2.snapshotLength > 0){
-          for(let i = 0; i < element2.snapshotLength; i++) {
-            addHiddenDiv(`ii_videoSrc`, `${element2.snapshotItem(i).textContent}`);
-          }
-        }
-        if(element3.snapshotLength > 0){
-          for(let i = 0; i < element3.snapshotLength; i++) {
-            addHiddenDiv(`ii_videoSrc`, `${element3.snapshotItem(i).textContent}`);
-          }
-        }
-      }
-      new Promise(resolve => setTimeout(resolve, 1000));
-
-      if(variantDescription) {
-        var element = document.evaluate( variantDescription, document, null,XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
-        var element2 = document.evaluate( variantDescription2, document, null,XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
-
-        if( element.snapshotLength > 0 ) {
-          for(let i = 0; i < element.snapshotLength; i++) {
-            addHiddenDiv(`ii_variantDescription`, `${element.snapshotItem(i).textContent}`);
-          }
-        } else if (variantDescription2){
-          for(let i = 0; i < element2.snapshotLength; i++) {
-            addHiddenDiv(`ii_variantDescription`, `${element2.snapshotItem(i).textContent}`);
-          }
-        }
-      }
-      new Promise(resolve => setTimeout(resolve, 1000));
-
-      if(variantManufImages) {
-        var element = document.evaluate( variantManufImages, document, null,XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
-        if( element.snapshotLength > 0 ) {
-          for(let i = 0; i < element.snapshotLength; i++) {
-            addHiddenDiv(`ii_variantManufImages`, `${element.snapshotItem(i).textContent}`);
-          }
-        }
-      }
-      new Promise(resolve => setTimeout(resolve, 1000));
-
-      if(variantAlternateImages) {
-        var element = document.evaluate( variantAlternateImages, document, null,XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
-        if( element.snapshotLength > 1 ) {
-          for(let i = 1; i < element.snapshotLength; i++) {
-            addHiddenDiv(`ii_variantAlternateImages`, `${element.snapshotItem(i).textContent}`);
-          }
-        }
-        if( element.snapshotLength > 0 ) {
-          addHiddenDiv('ii_variantImage', `${element.snapshotItem(0).textContent}`);
-        } 
-        if(element.snapshotLength > 1) {
-          // debugger
-          addHiddenDiv('ii_variantImageAlt', `${element.snapshotItem(1).textContent}`);
-        }
-      }
-      new Promise(resolve => setTimeout(resolve, 1000));
-
-      if(variantADBI1) {
-        var element1 = document.evaluate( variantADBI1, document, null,XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
-        var element2 = document.evaluate( variantADBI2, document, null,XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
-        if( element1.snapshotLength > 0 ) {
-          let count = element1.snapshotLength;
-          for(let i = 0; i < element1.snapshotLength; i++) {
-            addHiddenDiv(`ii_variantADBI`, `${element1.snapshotItem(i).textContent}`);
-          }
-          addHiddenDiv(`ii_variantDescriptionBullets`, `${count}`);
-        } else if(element2.snapshotLength > 0){
-          let count = element2.snapshotLength;
-          for(let i = 0; i < element2.snapshotLength; i++) {
-            addHiddenDiv(`ii_variantADBI`, `${element2.snapshotItem(i).textContent}`);
-          }
-          addHiddenDiv(`ii_variantDescriptionBullets`, `${count}`);
-        }
-      }
-      new Promise(resolve => setTimeout(resolve, 1000));
-
-      if (variantArray.length) {
-        const variantString = variantArray.join(' || ');
-        addHiddenDiv('ii_variantInfo', `${variantString}`);
-      }
-      new Promise(resolve => setTimeout(resolve, 1000));
-
-      if (packSizeResult.length) {
-        const packString = packSizeResult.join(' ');
-        addHiddenDiv('ii_packSize', `${packString}`);
-      }
-      new Promise(resolve => setTimeout(resolve, 1000));
-
-       if(variantPrice) {
-        addHiddenDiv('ii_variantPrice', `${variantPrice.innerText}`);
-      }
-      new Promise(resolve => setTimeout(resolve, 1000));
-
-      // if(variantAlternateImages) {
-      //   var element = document.evaluate( variantAlternateImages, document, null,XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
-      //   if( element.snapshotLength > 0 ) {
-      //     addHiddenDiv('ii_variantImage', `${element.snapshotItem(0).textContent}`);
-      //   } 
-      //   if(element.snapshotLength > 0) {
-      //     // debugger
-      //     addHiddenDiv('ii_variantImageAlt', `${element.snapshotItem(0).textContent}`);
+      // await context.waitForFunction(function() {
+      //   let check = document.querySelector('div.css-1dbjc4n.r-16lk18l.r-1xi2sqm')
+      //   if(check){
+      //     return true
+      //   } else {
+      //     return false
       //   }
-      // }
+      // }, { timeout: 30000 });
 
-      // if(variantImage){
-      //   addHiddenDiv('ii_variantImage', `${variantImage[0].src}`);
-      // }
-      // if(variantImage){
-      //   if(variantImage[1]){
-      //     addHiddenDiv('ii_variantImageAlt', `${variantImage[1].src}`);
-      //   }
-      // }
-      new Promise(resolve => setTimeout(resolve, 1000));
-
-      if(variantRating){
-        addHiddenDiv('ii_variantRating', `${variantRating.innerText}`);
-      }
-      new Promise(resolve => setTimeout(resolve, 1000));
-
-      if(variantReview){
-        addHiddenDiv('ii_variantReview', `${variantReview.innerText}`);
-      }
-      new Promise(resolve => setTimeout(resolve, 1000));
-
-      if(variantListPrice){
-        addHiddenDiv('ii_variantListPrice', `${variantListPrice.innerText}`);
-      }
-      new Promise(resolve => setTimeout(resolve, 1000));
-
-      if (keyWordAdd[1] && prodName) {
-        let varName = keyWordAdd[1].innerText;
-        addHiddenDiv('ii_metaKeywords', `${prodName.innerText + " " + varName}`);
-      } else if(prodName) {
-        addHiddenDiv('ii_metaKeywords', `${prodName.innerText}`);
-      }
-      new Promise(resolve => setTimeout(resolve, 1000));
-
-      if(prodInfoLine){
-        addHiddenDiv('ii_grossWeight', `${prodInfoLine.innerText}`);
-        addHiddenDiv('ii_quantity', `${prodInfoLine.innerText}`);
-        const regex1 = /[0-9]+$/g;
-        let skuText = regex1.exec(prodInfoLine.innerText);
-        if(skuText) {
-          addHiddenDiv('ii_sku', `${skuText[0]}`);
+      // Collecting the variant information section names in an array
+      const variantOptions = await context.evaluate(function () {
+        const optionList = [];
+        const optionPath = '//div[@class="css-901oao r-vw2c0b"]';
+        if (optionPath) {
+          var element = document.evaluate(optionPath, document, null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
+          if (element.snapshotLength > 0) {
+            for (let i = 0; i < element.snapshotLength; i++) {
+              const option = element.snapshotItem(i).textContent.replace(/: /g, '');
+              if (option) {
+                optionList.push(option);
+              }
+            }
+          }
         }
-      }
-      new Promise(resolve => setTimeout(resolve, 1000));
+        return optionList;
+      });
 
-      if (manufDesc) {
-        addHiddenDiv('ii_manufDesc', `${manufDesc.innerText}`);
-      }
-    
+      // Append all relevant information from the API object to the DOM for extraction
+      await context.evaluate(function (records, cnt, htmlList, stockArr, variantOptions) {
+        function addHiddenDiv (id, content, parentDiv = null, html = false) {
+          const newDiv = document.createElement('div');
+          newDiv.id = id;
+          if (!content) content = '';
+          if (html) {
+            newDiv.innerHTML = unescape(content.replace(/\\\\\\/g, '').replace(/\\/g, '')).replace(/\"/g, '').replace(/"""/g, '');
+          } else {
+            newDiv.textContent = content;
+          }
+          if (parentDiv) {
+            parentDiv.appendChild(newDiv);
+          } else {
+            document.body.appendChild(newDiv);
+          }
+          return newDiv;
+        }
 
-      collectIframe()
-    
-    });
-  }
-  
-  await variantClick()
+        document.body.innerText = '';
+        addHiddenDiv('ii_url', window.location.href);
+
+        if (records[0].allMeta) {
+          const product = records[0].allMeta;
+          if (product) {
+            addHiddenDiv('ii_mpc', product.p_Product_ID);
+            if (product.variants.length) {
+              const skuArray = [];
+              // Looping for each variant
+              for (let i = 0; i < product.variants.length; i++) {
+                const variant = product.variants[i].subVariant[0];
+                const newDiv = addHiddenDiv('ii_product', `${i}`);
+
+                addHiddenDiv('ii_totalRecordCount', product.variants.length, newDiv);
+                addHiddenDiv('ii_manufHTML', htmlList[i], newDiv, true);
+                addHiddenDiv('ii_imageAlt', product.title, newDiv, true);
+                addHiddenDiv('ii_brand', product.ProductBrand_Brand, newDiv);
+
+                if (variant.product_title_desktop) {
+                  addHiddenDiv('ii_title', variant.product_title_desktop, newDiv);
+                } else {
+                  addHiddenDiv('ii_title', product.p_Product_FullName, newDiv);
+                }
+                addHiddenDiv('ii_productUrl', product.gbi_ParentProductPageUrl, newDiv);
+                if (product.p_Product_UPCNumber) {
+                  addHiddenDiv('ii_gtin', product.p_Product_UPCNumber, newDiv);
+                } else {
+                  addHiddenDiv('ii_gtin', `${variant.upc_image[0]}`, newDiv);
+                }
+                if (product.categories) {
+                  const categoryArray = [];
+                  Object.values(product.categories[0]).forEach(cat => {
+                    if (!categoryArray.includes(cat)) {
+                      categoryArray.push(cat);
+                      addHiddenDiv('ii_category', cat, newDiv);
+                    }
+                  });
+                }
+
+                if (variant.upc_image) {
+                  addHiddenDiv('ii_image', `https://www.cvs.com/bizcontent/merchandising/productimages/large/${variant.upc_image[0]}`, newDiv);
+                  if (variant.upc_image.length > 1) {
+                    addHiddenDiv('ii_secondaryImageTotal', `${variant.upc_image.length - 1}`, newDiv);
+                    for (let j = 1; j < variant.upc_image.length; j++) {
+                      addHiddenDiv('ii_alternateImages', `https://www.cvs.com/bizcontent/merchandising/productimages/large/${variant.upc_image[j]}`, newDiv);
+                    }
+                  }
+                }
+
+                if (variant.p_Sku_ColorSwatch_URL) {
+                  addHiddenDiv('ii_colorRef', variant.p_Sku_ColorSwatch_URL, newDiv);
+                }
+
+                if (variant.gbi_Price_Each) {
+                  const unit = variant.gbi_Price_Each;
+                  const unitSplit = unit.split('/');
+                  if (unitSplit[0] && unitSplit[1]) {
+                    addHiddenDiv('ii_unitPrice', unitSplit[0], newDiv);
+                    addHiddenDiv('ii_unitPriceUom', unitSplit[1], newDiv);
+                  }
+                }
+
+                if (variant.p_Product_Details) {
+                  let deets = variant.p_Product_Details;
+                  const regex = /<li>(.*?)<\/li>/g;
+                  let bullets = deets.match(regex);
+                  if (!bullets && deets.match(/<li>/g)) {
+                    if (deets.match(/<li>(.*?)<\/ul>/g)) {
+                      bullets = deets.replace(/<li>/g, '</li><li>').match(regex);
+                      const noLi = deets.replace(/<li>/g, '</li><li>').replace(regex, '');
+                      if (noLi && bullets) {
+                        if (noLi.match(/<li>(.*?)<\/ul>/g)) {
+                          bullets.push(noLi.match(/<li>(.*?)<\/ul>/g)[0]);
+                        }
+                      }
+                    } else {
+                      bullets = deets.replace(/<li>/g, '</li><li>').match(regex);
+                      if (bullets.length) {
+                        bullets = bullets[0].match(regex);
+                      }
+                    }
+                  }
+                  deets = deets.replace(/<li>/g, ' @ ');
+                  deets = deets.replace(/<\/li>/g, ' ');
+                  deets = deets.replace(/<.+?>/g, ' ');
+                  deets = deets.replace(/@\s+@/g, ' || ');
+                  deets = deets.replace(/@/g, ' || ');
+                  addHiddenDiv('ii_description', `${deets}`, newDiv);
+                  if (bullets) {
+                    addHiddenDiv('ii_descriptionBullets', `${bullets.length}`, newDiv);
+                    for (let i = 0; i < bullets.length; i++) {
+                      const newBullet = bullets[i].replace(/<\/?li>/g, ' ').replace(/<.+?>/g, ' ');
+                      addHiddenDiv('ii_additionalDescBulletInfo', `${newBullet}`, newDiv);
+                    }
+                  }
+                }
+
+                if (variant.p_Product_Warnings) {
+                  let deets = variant.p_Product_Warnings;
+                  deets = deets.replace(/<li>/g, ' @ ');
+                  deets = deets.replace(/<\/li>/g, ' ');
+                  deets = deets.replace(/<.+?>/g, ' ');
+                  deets = deets.replace(/@\s+@/g, ' || ');
+                  deets = deets.replace(/@/g, ' || ');
+                  // deets = deets.replace(/\"/g, " ");
+                  addHiddenDiv('ii_warnings', `${deets}`, newDiv);
+                }
+
+                if (variant.p_Product_Ingredients) {
+                  let deets = variant.p_Product_Ingredients;
+                  deets = deets.replace(/<li>/g, ' @ ');
+                  deets = deets.replace(/<\/li>/g, ' ');
+                  deets = deets.replace(/<.+?>/g, ' ');
+                  deets = deets.replace(/@\s+@/g, ' || ');
+                  deets = deets.replace(/@/g, ' || ');
+                  addHiddenDiv('ii_ingredients', `${deets}`, newDiv);
+
+                  if (variant.p_Product_Ingredients.includes('Servings Per Container:')) {
+                    const ingHtml = variant.p_Product_Ingredients;
+                    addHiddenDiv('ii_ingredientHTML', ingHtml, newDiv, true);
+                    const nutrTerm = document.querySelectorAll('div.TablerData tr');
+                    const termsWithValues = {};
+                    let i = 1;
+                    while (i < nutrTerm.length) {
+                      if (nutrTerm[i]) {
+                        const terms = nutrTerm[i].querySelectorAll('td');
+                        if (terms[0] && terms[1]) {
+                          const name = terms[0].innerText.split('(');
+                          termsWithValues[name[0]] = terms[1].innerText;
+                        }
+                      }
+                      i++;
+                    }
+
+                    Object.keys(termsWithValues).forEach((term) => {
+                      console.log(term);
+                      addHiddenDiv(`ii_${term}`, termsWithValues[term], newDiv);
+                    });
+                  }
+                }
+
+                if (variant.p_Product_Directions) {
+                  let deets = variant.p_Product_Directions;
+                  deets = deets.replace(/<li>/g, ' @ ');
+                  deets = deets.replace(/<\/li>/g, ' ');
+                  deets = deets.replace(/<.+?>/g, ' ');
+                  deets = deets.replace(/@\s+@/g, ' || ');
+                  deets = deets.replace(/@/g, ' || ');
+                  if (deets) {
+                    addHiddenDiv('ii_directions', `${deets}`, newDiv);
+                  }
+                }
+
+                addHiddenDiv('ii_metaKeywords', variant.p_Sku_FullName, newDiv);
+                addHiddenDiv('ii_price', variant.gbi_Actual_Price, newDiv);
+                addHiddenDiv('ii_numberOfServingsInPackage', variant.p_Vendor_Serving_Per_Container, newDiv);
+                addHiddenDiv('ii_servingSizeUom', variant.p_Vendor_Serving_Size_UOM, newDiv);
+                addHiddenDiv('ii_reviews', variant.p_Product_Review, newDiv);
+                addHiddenDiv('ii_id', variant.p_Sku_ID, newDiv);
+                skuArray.push(variant.p_Sku_ID);
+                addHiddenDiv('ii_quantity', variant.p_Sku_Size, newDiv);
+                addHiddenDiv('ii_listPrice', variant.p_Product_Price, newDiv);
+                addHiddenDiv('ii_weight', variant.p_Product_Weight, newDiv);
+                addHiddenDiv('ii_reviewCount', variant.p_Product_Review, newDiv);
+
+                if (variant.p_Promotion_Description) {
+                  addHiddenDiv('ii_promotion', variant.p_Promotion_Description, newDiv);
+                } else if (variant.coupons.ceb[0]) {
+                  if (variant.coupons.ceb[0].webDsc) {
+                    addHiddenDiv('ii_promotion', variant.coupons.ceb[0].webDsc, newDiv);
+                  }
+                }
+
+                if (variant.p_Product_Rating) {
+                  const rating = parseFloat(variant.p_Product_Rating);
+                  const adjusted = rating.toPrecision(2);
+                  addHiddenDiv('ii_rating', adjusted, newDiv);
+                }
+
+                if (variant.p_Vendor_Serving_Size) {
+                  addHiddenDiv('ii_servingSize', variant.p_Vendor_Serving_Size, newDiv);
+                } else if (variant.p_Product_Ingredients) {
+                  if (variant.p_Product_Ingredients.includes('Serving Size:')) {
+                    let info = variant.p_Product_Ingredients;
+                    info = info.match(/<p>(.*?)<\/p>/g);
+                    if (info[0]) {
+                      info = info[0].replace(/<.+?>/g, '');
+                      const split = info.split(': ');
+                      if (split[1]) {
+                        const newSplit = split[1].split(' ');
+                        addHiddenDiv('ii_servingSizeUom', newSplit[1], newDiv);
+                        addHiddenDiv('ii_servingSize', newSplit[0], newDiv);
+                      }
+                    }
+                  }
+                }
+
+                if (variant.HIGH_RES_IMG_AVLBL !== '0') {
+                  addHiddenDiv('ii_imageZoom', 'Yes', newDiv);
+                }
+
+                if (stockArr) {
+                  if (variant.retail_only === '0' && stockArr[variant.p_Sku_ID] === 0) {
+                    addHiddenDiv('ii_availability', 'Out of stock', newDiv);
+                  } else if (variant.retail_only === '1') {
+                    addHiddenDiv('ii_availability', 'Only in stores', newDiv);
+                  } else if (variant.retail_only === '0' && stockArr[variant.p_Sku_ID] === 1) {
+                    addHiddenDiv('ii_availability', 'In Stock', newDiv);
+                  }
+                }
+
+                const iframeImgPath = '//div[contains(@class, "wc-tour-container")]/@data-resources-base';
+                const imgJson = document.querySelector('div.wc-json-data');
+                var iframeImg = document.evaluate(iframeImgPath, document, null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
+                if (iframeImg.snapshotLength > 0 && imgJson) {
+                  if (imgJson.innerText) {
+                    const text = imgJson.innerText;
+                    if (text.includes('runtimeSrc')) {
+                      const textSplit = text.split('runtimeSrc:{src:');
+                      if (textSplit[1]) {
+                        if (textSplit[1].includes('web.jpg')) {
+                          const imgText = textSplit[1].split('web.jpg');
+                          const imgSrc = imgText[0] + 'web.jpg';
+                          addHiddenDiv('ii_iframeImg', `${iframeImg.snapshotItem(0).textContent}${imgSrc}`, newDiv);
+                        }
+                      }
+                    }
+                  }
+                }
+
+                const packSizes = [];
+                const variantInfoArray = [];
+                // addHiddenDiv('ii_color', colorVariantsArr[i], newDiv);
+                // Collecting variant information
+                if (variantOptions.length > 0) {
+                  variantOptions.forEach(option => {
+                    const optionFirst = option.split(' ');
+
+                    if (variant.p_Sku_Color) {
+                      addHiddenDiv('ii_color', variant.p_Sku_Color, newDiv);
+                      console.log('color div appended');
+                      if ('p_Sku_Color'.includes(optionFirst[0]) && !variantInfoArray.includes(variant.p_Sku_Color)) {
+                        variantInfoArray.push(variant.p_Sku_Color);
+                      }
+                    }
+                    else {
+                      console.log('no color present');
+                    }
+
+                    if (variant.p_Sku_Size) {
+                      if ('p_Sku_Size'.includes(optionFirst[0]) && !variantInfoArray.includes(variant.p_Sku_Size)) {
+                        variantInfoArray.push(variant.p_Sku_Size);
+                      }
+                    }
+
+                    if (variant.p_Sku_Group_Size) {
+                      if ('p_Sku_Group_Size'.includes(optionFirst[0]) && !variantInfoArray.includes(variant.p_Sku_Group_Size)) {
+                        variantInfoArray.push(variant.p_Sku_Group_Size);
+                      }
+                      packSizes.push(variant.p_Sku_Group_Size);
+                    }
+                    if (variant.p_Sku_Flavor) {
+                      if ('p_Sku_Flavor'.includes(optionFirst[0]) && !variantInfoArray.includes(variant.p_Sku_Flavor)) {
+                        variantInfoArray.push(variant.p_Sku_Flavor);
+                      }
+                    }
+                    if (variant.p_Sku_Concern) {
+                      if ('p_Sku_Concern'.includes(optionFirst[0]) && !variantInfoArray.includes(variant.p_Sku_Concern)) {
+                        variantInfoArray.push(variant.p_Sku_Concern);
+                      }
+                    }
+                    if (variant.p_Sku_Form) {
+                      if ('p_Sku_Form'.includes(optionFirst[0]) && !variantInfoArray.includes(variant.p_Sku_Form)) {
+                        variantInfoArray.push(variant.p_Sku_Form);
+                      }
+                    }
+                    if (variant.p_Sku_Absorbency) {
+                      if ('p_Sku_Absorbency'.includes(optionFirst[0]) && !variantInfoArray.includes(variant.p_Sku_Absorbency)) {
+                        variantInfoArray.push(variant.p_Sku_Absorbency);
+                      }
+                    }
+                    if (variant.p_Sku_Final_Look) {
+                      if ('p_Sku_Final_Look'.includes(optionFirst[0]) && !variantInfoArray.includes(variant.p_Sku_Final_Look)) {
+                        variantInfoArray.push(variant.p_Sku_Final_Look);
+                      }
+                    }
+                    if (variant.p_Sku_Finish) {
+                      if ('p_Sku_Finish'.includes(optionFirst[0]) && !variantInfoArray.includes(variant.p_Sku_Finish)) {
+                        variantInfoArray.push(variant.p_Sku_Finish);
+                      }
+                    }
+                    if (variant.p_Sku_Fragrance) {
+                      if ('p_Sku_Fragrance'.includes(optionFirst[0]) && !variantInfoArray.includes(variant.p_Sku_Fragrance)) {
+                        variantInfoArray.push(variant.p_Sku_Fragrance);
+                      }
+                    }
+                    if (variant.p_Sku_Pack) {
+                      if ('p_Sku_Pack'.includes(optionFirst[0]) && !variantInfoArray.includes(variant.p_Sku_Pack)) {
+                        variantInfoArray.push(variant.p_Sku_Pack);
+                      }
+                      packSizes.push(variant.p_Sku_Pack);
+                    }
+                    if (variant.p_Sku_SPF) {
+                      if ('p_Sku_SPF'.includes(optionFirst[0]) && !variantInfoArray.includes(variant.p_Sku_SPF)) {
+                        variantInfoArray.push(variant.p_Sku_SPF);
+                      }
+                    }
+                    if (variant.p_Sku_Scent) {
+                      if ('p_Sku_Scent'.includes(optionFirst[0]) && !variantInfoArray.includes(variant.p_Sku_Scent)) {
+                        variantInfoArray.push(variant.p_Sku_Scent);
+                      }
+                    }
+                    if (variant.p_Sku_Strength) {
+                      if ('p_Sku_Strength'.includes(optionFirst[0]) && !variantInfoArray.includes(variant.p_Sku_Strength)) {
+                        variantInfoArray.push(variant.p_Sku_Strength);
+                      }
+                    }
+                  });
+                  if (variantInfoArray.length !== variantOptions.length) {
+                    if (variant.p_Sku_Size) {
+                      variantInfoArray.push(variant.p_Sku_Size);
+                    }
+                  }
+                }
+
+                if (variant.gbi_CarePassEligible === 'Y') {
+                  addHiddenDiv('ii_shipping', 'Ships Free With CarePass', newDiv);
+                }
+                const packResult = packSizes.join(' ');
+                addHiddenDiv('ii_packSize', packResult, newDiv);
+
+                if (variantInfoArray.length) {
+                  const variantJoin = variantInfoArray.join(' | ');
+                  addHiddenDiv('ii_variantInfo', variantJoin, newDiv);
+                }
+              }
+            }
+          }
+        }
+      }, json.records, json.totalRecordCount, htmlList, stockArr, variantOptions);
+    } else {
+      console.log('cannot convert body text to json obj.');
+      throw new Error('notFound');
+    }
 
     return await context.extract(productDetails, { transform: transformParam });
   },

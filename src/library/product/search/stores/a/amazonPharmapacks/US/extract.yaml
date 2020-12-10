@@ -16,7 +16,7 @@ fields:
     regExpReplace: https://www.amazon.com$1
   - name: thumbnail
     xpath: //div[contains(@class, 'image')]/img/@src
-  - name: aggregateRating
+  - name: aggregateRating2
     xpath: //span[contains(@aria-label,"stars")]/@aria-label
     regExp: (.+) out of
     regExpReplace: $1
@@ -42,8 +42,8 @@ fields:
     xpath: //span[@class="a-size-base a-color-secondary"][contains(text(),"Sponsored")]
     defaultValue: false
   - name: rankOrganic
-  - name: amazonChoice
+  - name: endorsementText
     xpath: //*[contains(@id,"amazons-choice-label")]
     regExp: (.+)
-    regExpReplace: YES
-    description: YES or Blank
+    regExpReplace: Amazon Choice
+    description: Text - Amazon Choice

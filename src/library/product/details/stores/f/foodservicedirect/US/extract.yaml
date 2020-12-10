@@ -17,7 +17,7 @@ fields:
     xpath: //meta[@name="keywords"]
   - name: category
     singleValue: false
-    xpath: //div[contains(@class,"c-product-viewer__content")]//li[position()>=2]
+    xpath: //div[contains(@class, 'c-product-viewer__header')]//div[contains(@class, 'c-product-viewer__breadcrumb')]//li[position()>=2]
   - name: nameExtended
     singleValue: true
     xpath: (//div[contains(@class,"c-product-shop-box__title")])[1]
@@ -55,8 +55,12 @@ fields:
     singleValue: true
   - name: gtin
     singleValue: true
+    xpath: //div[contains(text(),'UPC')]/following-sibling::span
+    regExp: (\d+)
+  - name: eangtin
+    singleValue: true
     xpath: //div[contains(text(),'GTIN')]/following-sibling::span
-    regExp: (\d+){12}
+    regExp: (\d+)
   - name: sku 
     singleValue: true
     xpath: //div[contains(text(),'SKU')]/following-sibling::span
@@ -126,6 +130,7 @@ fields:
   - name: servingSize
     singleValue: true
     xpath: //div[@id="servingSize"]
+    regExp: (\d*\.?\d+)
   - name: servingSizeUom
     singleValue: true
     xpath: //div[@id="servingSizeUom"]
@@ -246,6 +251,7 @@ fields:
   - name: allergyAdvice
     singleValue: true
     xpath: //div[@id='allergens']
+    # xpath: //div[contains(h6/text(), 'Allergens')]/ancestor::div//li[contains(text(),"CONTAINS")]/parent::ul/parent::div/preceding-sibling::div
   - name: alcoholContent
     singleValue: true
   - name: promotion
@@ -306,7 +312,9 @@ fields:
     defaultValue: "No"
   - name: imageZoomFeaturePresent
     singleValue: true
-    xpath: //div[@id='imageZoomFeaturePresent']
+    xpath: //div[contains(@class, 'c-product-viewer__image-wrapper')]//div//@data-zoom
+    regExp: (.+)
+    regExpReplace: "Yes"
     defaultValue: "No"
   
 

@@ -8,7 +8,7 @@ async function implementation (
   const { transform } = parameters;
   const { productDetails } = dependencies;
 
-  await new Promise((resolve, reject) => setTimeout(resolve, 3e3));
+  await new Promise((resolve, reject) => setTimeout(resolve, 3000));
 
   await context.evaluate(async function () {
     const overlay = document.getElementsByClassName('ReactModal__Overlay ReactModal__Overlay--after-open ModalitySelectorDynamicTooltip--Overlay page-popovers')[0];
@@ -27,6 +27,8 @@ async function implementation (
 
   await context.waitForSelector('div.ProductDetails-header');
 
+  await new Promise((resolve, reject) => setTimeout(resolve, 3000));
+
   await context.evaluate(async function () {
     function addHiddenDiv (id, content) {
       const newDiv = document.createElement('div');
@@ -42,27 +44,62 @@ async function implementation (
       productDetailsButton.click();
     }
 
-    const descriptionItem = document.getElementsByClassName('RomanceDescription overflow-x-hidden');
-    if (descriptionItem && descriptionItem.length > 0) {
-      const descriptionText = descriptionItem[0].textContent;
+    const descriptionItem = document.querySelector('.RomanceDescription.overflow-x-hidden');
+    if (descriptionItem) {
+      let descriptionText = '';
+
+      const mainDesc = descriptionItem.querySelectorAll('p');
+      if (mainDesc) {
+        mainDesc.forEach((txtEl, index) => {
+          if (txtEl.textContent) {
+            index === 0 ? descriptionText += txtEl.textContent : descriptionText += ' ' + txtEl.textContent;
+          }
+        });
+      }
+
+      const bullets = descriptionItem.querySelectorAll('ul li');
+      if (bullets) {
+        bullets.forEach((bullet, index) => {
+          if (bullet.textContent) {
+            index === 0 ? descriptionText += bullet.textContent : descriptionText += ' || ' + bullet.textContent;
+          }
+        });
+      }
+
       addHiddenDiv('description', descriptionText);
     }
 
-    await new Promise((resolve, reject) => setTimeout(resolve, 8e3));
+    await new Promise((resolve, reject) => setTimeout(resolve, 8000));
     const button = document.getElementsByClassName('kds-Tabs-tab')[1];
 
-    if (button !== undefined && button.textContent === 'Nutrition Info') {
+    if (button && button.textContent === 'Nutrition Info') {
       button.click();
-      const readMore = document.querySelectorAll('.NutritionIngredients-Disclaimer')[0].children[1].children;
+    }
 
-      const aElement = readMore[0];
-      if (aElement !== undefined) {
-        aElement.click();
-      } else {
-        console.log('cannot read more');
-      }
+    const readMore = document.querySelector('p.NutritionIngredients-Disclaimer span a');
+
+    if (readMore) {
+      readMore.click();
     } else {
-      console.log('not clicking');
+      console.log('cannot read more');
+    }
+
+    const ingredientsEl = document.querySelector('p.NutritionIngredients-Ingredients');
+    if (ingredientsEl && ingredientsEl.textContent) {
+      let ingredientsText = ingredientsEl.textContent;
+      if (ingredientsText.includes('Ingredients')) {
+        ingredientsText = ingredientsText.replace('Ingredients', '');
+      }
+      addHiddenDiv('my-ingredients', ingredientsText);
+    }
+
+    const allergenEl = document.querySelector('p.NutritionIngredients-Allergens');
+    if (allergenEl && allergenEl.textContent) {
+      let allergenText = allergenEl.textContent;
+      if (allergenText.includes('Allergen Info')) {
+        allergenText = allergenText.replace('Allergen Info', '');
+      }
+      addHiddenDiv('my-allergies', allergenText);
     }
   });
 
