@@ -69,15 +69,8 @@ module.exports = {
       }
 
 
-
-
-
-
-
-
-
-
     });
     await context.extract(productDetails);
   },
 };
+
