@@ -51,7 +51,7 @@ module.exports = {
           sharedhelpers.addHiddenInfo('ii_inBoxUrls', element);
         });
       }
-      sharedhelpers.addHiddenInfo('ii_comparisionText', comparisionText);
+      sharedhelpers.addHiddenInfo('ii_comparisionText', comparisionText ? 'Yes' : 'No');
       console.log('inBoxText');
       console.log(inBoxText);
 
