@@ -61,7 +61,8 @@ fields:
     xpath: //span[contains(@class,"brand-name")]
   - name: directions
     singleValue: false
-    xpath: //div[@class="accordion"]//div[contains(., 'How to')]/div
+    #xpath: //div[@class="accordion"]//div[contains(., 'How to')]/div
+    xpath: //b[contains(text(),'Tips')]/..
   - name: alternateImages
     singleValue: false
     xpath: //a[@name="product_detail_image"]/img/@data-src
