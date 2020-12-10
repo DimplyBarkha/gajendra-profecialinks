@@ -8,9 +8,9 @@ fields:
     singleValue: true
     xpath: //label[@class="product-item__favourite "]/@data-js-modal-url
     regExp: (\d+)
-  # - name: rankOrganic
-  #   singleValue: false
-  #   # xpath: //li/@data-position
+  - name: rankOrganic
+    singleValue: false
+    # xpath: //li/@data-position
   - name: name
     singleValue: true
     xpath: //div[@class='productlist__products']//span[@class='product-item__title']
@@ -35,8 +35,6 @@ fields:
     xpath: //html//div[@id='agg']
     # type: NUMBER
     # xpath: //div[@class='productlist__products']//div[@class='review-stars__container review-stars__container--border']/@data-js-border-offset
-  # - name: reviewCount
-  #   singleValue: false
   - name: price
     singleValue: true
     # type: CURRENCY
