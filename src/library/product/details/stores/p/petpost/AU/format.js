@@ -77,6 +77,13 @@ const transform = (data) => {
           item.text=brndDataObj.product.vendor;
         })
       }
+      if(row.description){
+        let inf=[];
+        row.description.forEach(item=>{
+          inf.push(item.text);
+        })
+        row.description=[{"text":inf.join(' ')}];
+      }
     }
   }
   return cleanUp(data);
