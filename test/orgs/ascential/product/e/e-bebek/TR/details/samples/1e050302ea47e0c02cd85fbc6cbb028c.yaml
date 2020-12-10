@@ -1,0 +1,186 @@
+input:
+  id: PRI-2906-NC
+  _url: http://e-bebek.com
+extractions:
+  - html: https://workbench.import.io/html/run=1997c8f3-6868-452f-b5ad-020e1fe53fbf/task=a0bdc051-9059-4741-8e3b-189b8f896296/52ccabc0-8b2c-4751-bfe0-9feb71e48ded.html
+    extractionConfigId: product/details/stores/e/e-bebek/TR/extract
+    data:
+      - group:
+          - productUrl:
+              - text: https://www.e-bebek.com/prima-kulot-bebek-bezi-5-beden-junior-ekonomik-paket-12-17-kg-42-adet-p-pri-2906/
+                xpath: /html/head[1]/link[5]/@href
+            image:
+              - text: https://cdn.e-bebek.com/mnresize/1000/-/www.ebebek/i/p/hd/06/lPRI-2906_1.jpg
+                xpath: /html/body/div[2]/main[1]/div[1]/div[3]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[4]/a[1]/img[1]/@src
+            alternateImages:
+              - text: https://cdn.e-bebek.com/mnresize/1000/-/www.ebebek/i/p/hd/06/lPRI-2906_2.jpg
+                xpath: /html/body/div[2]/main[1]/div[1]/div[3]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[5]/a[1]/img[1]/@src
+              - text: https://cdn.e-bebek.com/mnresize/1000/-/www.ebebek/i/p/hd/06/lPRI-2906_3.jpg
+                xpath: /html/body/div[2]/main[1]/div[1]/div[3]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[6]/a[1]/img[1]/@src
+              - text: https://cdn.e-bebek.com/mnresize/1000/-/www.ebebek/i/p/hd/06/lPRI-2906_4.jpg
+                xpath: /html/body/div[2]/main[1]/div[1]/div[3]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[7]/a[1]/img[1]/@src
+              - text: https://cdn.e-bebek.com/mnresize/1000/-/www.ebebek/i/p/hd/06/lPRI-2906_5.jpg
+                xpath: /html/body/div[2]/main[1]/div[1]/div[3]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[8]/a[1]/img[1]/@src
+              - text: https://cdn.e-bebek.com/mnresize/1000/-/www.ebebek/i/p/hd/06/lPRI-2906_6.jpg
+                xpath: /html/body/div[2]/main[1]/div[1]/div[3]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[9]/a[1]/img[1]/@src
+              - text: https://cdn.e-bebek.com/mnresize/1000/-/www.ebebek/i/p/hd/06/lPRI-2906_7.jpg
+                xpath: /html/body/div[2]/main[1]/div[1]/div[3]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[10]/a[1]/img[1]/@src
+            category:
+              - text: ebebek
+                xpath: /html/body/div[2]/main[1]/div[1]/div[2]/ul[1]/li[1]/a[1]
+              - text: Bez & Mendil
+                xpath: /html/body/div[2]/main[1]/div[1]/div[2]/ul[1]/li[2]/a[1]
+              - text: Bebek Bezleri
+                xpath: /html/body/div[2]/main[1]/div[1]/div[2]/ul[1]/li[3]/a[1]
+              - text: Külot Bebek Bezi
+                xpath: /html/body/div[2]/main[1]/div[1]/div[2]/ul[1]/li[4]/a[1]
+            nameExtended:
+              - text: Prima Külot Bebek Bezi 5 Beden Junior Ekonomik Paket 12-17 kg 42 Adet
+                xpath: /html/body/div[2]/main[1]/div[1]/div[3]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/h1[1]
+            price:
+              - text: 69,99 TL
+                xpath: /html/body/div[2]/main[1]/div[1]/div[3]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/text()[1]
+            description:
+              - text: Pampers, Prima markasının uluslararası pazardaki adıdır. Belirli
+                  dönemlerde ürünlere olan taleplerin artması nedeniyle Prima
+                  ürünleri farklı dillerdeki ambalajları ile piyasaya
+                  sunulabilmektedir. Pampers isimli ürünler bildiğiniz,
+                  güvendiğiniz Prima kalitesindedir. Değerli bebeveynlerimizin
+                  bilgisine sunarız.
+                xpath: /html/body/div[2]/main[1]/div[1]/div[3]/div[1]/div[2]/div[2]/div[3]/p[1]
+            brandText:
+              - text: Prima
+                xpath: /html/body/div[2]/main[1]/div[1]/div[3]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/h1[1]/span[1]
+            manufacturer:
+              - text: Prima
+                xpath: /html/body/div[2]/main[1]/div[1]/div[3]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/h1[1]/span[1]
+            quantity:
+              - text: "42"
+                xpath: /html/body/div[8]
+            sku:
+              - text: PRI-2906
+                xpath: /html/body/div[2]/main[1]/div[1]/div[3]/div[2]/div[1]/div[1]/div[2]/div[1]/table[1]/tbody[1]/tr[2]/td[2]
+            variantId:
+              - text: PRI-2906001
+                xpath: /html/body/div[2]/main[1]/div[1]/div[3]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[2]/@data-code
+            ratingCount:
+              - text: "535"
+                xpath: /html/body/div[2]/main[1]/div[1]/div[3]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[3]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/form[1]/input[20]/@value
+                type: NUMBER
+                raw: "535"
+                locale: tr_TR
+                value: 535
+            aggregateRating:
+              - text: 4,9
+                xpath: /html/body/div[7]
+            manufacturerDescription:
+              - text: >-
+                  Emekleme çağına gelmeleriyle yerinde duramayan bebeklerin
+                  bezini değiştirmek zorlaşabilir. Bu durumda Pampers Prima
+                  Pants Külot Bez'i denemenizin tam zamanı. Pampers Prima Pants
+                  Külot Bez tek seferde külot gibi kolayca giydirilir ve 12
+                  saate kadar kuruluk sağlar. 360 derece esnek bel teknolojisi
+                  ile bebeğinizin belini tamamen kavrar ve hareketlerine uyum
+                  sağlar. Devrim niteliğindeki 3 emici kanal ıslaklığın eşit
+                  biçimde yayılmasını sağlayarak bebeği kuru tutar. Bebeğiniz
+                  nerede emeklerse emeklesin, Pampers Prima Pants Külot ile
+                  altını hızlı ve kolay biçimde değiştirebilirsiniz.
+                   
+                  *önceki külot çocuk bezlerimize kıyasla.
+                   
+
+                   
+                  Yerinde duramayan bebeklere kolayca giydirilen Pampers Prima Pants Külot Bez Yanlardan yırtmanız yeterlidir.
+                   
+                  Hava kanalları hava akımının bezin içinde rahatça dolaşmasını sağlayarak 12 saate kadar nefes alan bir kuruluk sunar.
+                   
+                  Emici Mikro İnci Tanecikler: Islaklığı emen ve hapseden mikro inci taneciklerinin olduğu iç tabaka
+                   
+                  Bebeğinizin külot rahatlığındaki Pampers Prima Külot Beziyle tüm gün rahat olması için Pamuk Gibi Yumuşak
+                   
+                  360 derece esnek bel teknolojisi: Her yönde esneyen bel bantı bebeğin hareketlerine uyarak vücuduna mükemmel biçimde oturur.
+                   
+                  Kolay çıkarılır: Yanlardan yırtmanız yeterlidir.
+                xpath: /html/body/div[2]/main[1]/div[1]/div[3]/div[2]/div[1]/div[1]/div[1]/div[1]
+            manufacturerImages:
+              - text: https://asset.ebebek.com/y.ebebek/i/st/p_content/PANTS-min.jpg
+                xpath: /html/body/div[2]/main[1]/div[1]/div[3]/div[2]/div[1]/div[1]/div[1]/div[1]/p[1]/img[1]/@src
+            name:
+              - text: Prima Külot Bebek Bezi 5 Beden Junior Ekonomik Paket 12-17 kg 42 Adet
+                xpath: /html/body/div[2]/main[1]/div[1]/div[3]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/h1[1]
+            brandLink:
+              - text: https://www.e-bebek.com/prima-b430/
+                xpath: /html/body/div[2]/main[1]/div[1]/div[3]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/h1[1]/span[1]/a[1]/@href
+            warranty:
+              - text: >-
+                  Hızlı iade sistem ile 5 adımda ürün iadesi yapabilirsiniz.
+                  Üstelik kargo firmasını aramanıza gerek kalmadan iade
+                  paketiniz adresinizden alınacaktır. 
+                   
+                   1- Üyelik girişinden sonra “Siparişlerim” sayfasını açın
+                   
+                   2- İade talebinde bulunmak istediğiniz siparişte yer alan “İşlemlerim” seçeneğini tıklayın
+                   
+                   3- İade etmek istediğiniz ürünleri işaretleyin ve iade formunu doldurun
+                   
+                   4- İade edilecek ürünü adresinize gelen kargoya teslim edin
+                   
+                   5- İade işlemlerinizi ilgili siparişiniz içinde yer alan “İadem nerede” seçeneği ile kolayca takip edin.
+
+                   
+                  Ürün iadesinde dikkat edilmesi gerekenler nelerdir? 
+                   
+                   • Hızlı iade seçeneği 14 günlük cayma süresi için geçerlidir.
+                   
+                   • İade etmek istediğiniz siparişi ve ürünleri seçerek, iade formundaki bilgileri tamamlamanız gerekmektedir.
+                   
+                   • Kargo görevlisi gelmeden önce iade edilecek ürünlerin, hasar görmeyecek şekilde ayrıca bir kutu içine koyarak hazırlanmış olması gerekiyor. Paketlenmemiş, ağzı açık olan ürünler, kargo şirketlerinin ürün taşıma koşullarına aykırı olduğu için teslim alınmayacaktır.
+                   
+                   • Satın aldığınız ürünün iadesi sistemsel olarak kampanya veya promosyon hesaplaması ile tamamlanır.
+                   
+                   • Hediye çeki olarak kazanılan ürün ya da ürünlerin iadesinde, hediye çeki iptal olur. Eğer çek iade işleminden önce kullanılmış ise oluşan fark iade bedelinden düşer.
+                   
+                   • İade ürünleriniz depomuza teslim edildikten sonra kontrol edilerek 2 iş günü içinde sonuç bilgisi paylaşılacaktır.
+                   
+                   • Anne ve bebek sağlığı için orjinal ambalajı açılmış ürünlerin iade ve değişimi bulunmamaktadır.
+                   
+                   • Kullanılmış ürünlerde yaşanabilecek teknik sorunlar Gümrük ve Ticaret Bakanlığı’nın belirlediği kapsamlara göre değerlendirilir. Bu ürünlerin Türkiye’de bulunan yetkili teknik servisler tarafından, garanti kapsamı dahilinde incelenmesi gerekmektedir.
+                   
+                   • Kurumsal fatura seçeneğiyle verilen siparişlerde, iade talebi girilmemelidir. Eğer ürünün faturası şirket adına kesilmiş ise iade işlemi için kurumun düzenlemiş olduğu 'iade faturası' ve 'iade irsaliyesi' (ya da irsaliyeli fatura) gönderilmesi zorunludur. Aksi durumda, faturası kurumlar adına düzenlenen siparişlerin iadeleri yapılamamaktadır.
+                   
+                   Bunun dışında yapılacak olan iadeler için dikkat edilmesi gerekenler: 
+                   
+                   • Ürünü orijinal faturası ile birlikte göndermeli ve faturanızı mutlaka göndereceğiniz paketin içerisine koymalısınız.
+                   
+                   • Faturasız gönderilen iadeler kabul edilememektedir. Faturanın arka yüzündeki iade formu eksiksiz doldurulmalı ve iade alanı imzalanmalıdır. İade formunda yer alan açıklama alanları ve iade nedeni eksiksiz ve dikkatli doldurulmalıdır.
+                   
+                   • Ayıplı ürünler için iade ya da değişim tercihi mutlaka seçilmelidir.
+                   
+                   • İade edeceğiniz ürünün kullanılmamış, kullanım hatası sonucu zarar görmemiş ya da paketinin hasar görmemiş olması gerekmektedir.
+                   
+                   • İade etmek istediğiniz ürünleri tüm aksesuarları ve orijinal kutusu ile göndermeniz gerekmektedir. Ürünler adresimize gönderilirken orijinal kutusu zarar görmeyecek şekilde muhafaza edilmelidir. Yani; ürünler kargoya direkt orijinal kutusu ile değil, orijinal kutusunun koruyucu bir koliye yerleştirilmesinden sonra gönderilmelidir.
+                   
+                   • Eğer ürünün faturası şirket adına kesilmiş ise iade işlemi için kurumun düzenlemiş olduğu 'iade faturası' ve 'iade irsaliyesi' (ya da irsaliyeli fatura) gönderilmesi zorunludur. Aksi durumda, faturası kurumlar adına düzenlenen siparişlerin iadeleri yapılamamaktadır.
+                xpath: /html/body/div[2]/main[1]/div[1]/div[3]/div[7]/div[1]/div[1]
+            countryOfOrigin:
+              - text: Polonya
+                xpath: /html/body/div[2]/main[1]/div[1]/div[3]/div[2]/div[1]/div[1]/div[2]/div[1]/table[1]/tbody[1]/tr[3]/td[2]
+            variantInformation:
+              - text: Beden
+                xpath: /html/body/div[2]/main[1]/div[1]/div[3]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[1]
+            variants:
+              - text: 5 Beden
+                xpath: /html/body/div[2]/main[1]/div[1]/div[3]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[2]
+            imageZoomFeaturePresent:
+              - text: Yes
+                xpath: /html/body/div[9]
+            availabilityText:
+              - text: In Stock
+            variantCount:
+              - text: "1"
+                type: NUMBER
+                raw: "1"
+                locale: tr_TR
+                value: 1
+        xpath: /
+    timestamp: 1607583510478

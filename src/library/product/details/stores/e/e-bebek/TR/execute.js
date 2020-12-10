@@ -6,7 +6,7 @@ module.exports = {
     store: 'e-bebek',
     domain: 'e-bebek.com',
     loadedSelector: 'div.glide-container img[role="presentation"]',
-    noResultsXPath: null,
+    noResultsXPath: '//*[contains(text(), "Sayfa Bulunamadı")]|//*[contains(text(), "ile ilgili sonuç bulunamamıştır")]',
     zipcode: '',
   },
 };
