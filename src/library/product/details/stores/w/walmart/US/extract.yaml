@@ -338,5 +338,11 @@ fields:
 
 - name: productUrl
   singleValue: true
-
+- name: hasComparisonTable
+  xpath: //span[contains(.,'Comparison Chart')]
+  regExp: (.*)
+  regExpReplace: Yes
+  defaultValue: No 
+- name: unInterruptedPDP
+  xpath: //div[contains(@class,"TempoZoneLayout")]//div[@class="tile"]
 
