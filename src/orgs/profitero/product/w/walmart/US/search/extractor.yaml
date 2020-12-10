@@ -1,0 +1,20 @@
+robot: product/search
+parameters:
+  country: US
+  domain: walmart.com
+  store: walmart
+  zipcode: 72712
+policy:
+  numberRetries: 20
+  priority: MEDIUM
+  retryDelay: 60
+  backoffPolicy: LINEAR
+  retryWithResidentialProxyAfter: 99
+proxy:
+  zone: USA
+  type: RESIDENTIAL
+meta:
+  branches:
+    staging:
+      extractor: 48124711-aac6-4888-8bb7-024fd0fb2db4
+      legacyAccountId: b572b6fd-e824-454e-80e3-d5460bf31ad2

@@ -1,0 +1,88 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: //div[@class="Grid-col customer-review-body"]
+fields:
+  - name: helpfulCount
+    singleValue: false
+    type: NUMBER
+    description: Number of people who said the review was helpful
+  - name: commentCount
+    singleValue: false
+    type: NUMBER
+    description: Number of comments on the review
+  - name: brandText
+    singleValue: false
+    description: Product brand shown - this may actually NOT be just a brand name,
+      e.g. "Visit the Gillette Store"
+  - name: name
+    singleValue: false
+    description: The product name
+    xpath: //h2[@class="prod-ProductTitle no-margin truncated wyr-product-title font-normal hide-content-max-s heading-b"]/div/div
+  - name: sku
+    singleValue: false
+    description: The store-specific product identifier
+  - name: reviewDate
+    singleValue: false
+    type: DATETIME
+    description: Date the review was made
+    xpath: //div [@class="review-date"]/span
+  - name: reviewRating
+    type: NUMBER
+    singleValue: false
+    description: Rating normalized to be out of 5
+    xpath: //span[@class="visuallyhidden seo-avg-rating"]
+  - name: reviewText
+    singleValue: false
+    description: The text of the review
+    xpath: //div[@class="review-text"]/p
+  - name: reviewTitle
+    description: The title of the review
+    xpath: //div[@class="review-heading"]/h3
+  - name: reviewerTags
+    singleValue: false
+    description: The tags a reviewer has
+  - name: gtin
+    singleValue: false
+    description: GTIN code (includes UPC/EAN)
+  - name: productUrl
+    xpath: ancestor::html//a[@data-automation-id="item-url"]
+    type: LINK
+    singleValue: false
+    description: The url of the product details page
+  - name: verifiedPurchase
+    singleValue: false
+    type: BOOLEAN
+    description: Whether this of an item the reviewer purchased. "Yes" if true else ""
+  - name: manufacturerResponse
+    singleValue: false
+    description: The response of the manufacturer (if any)
+    xpath: //div[@class="review-response-body"]/div[@class="review-description"]
+  - name: syndicatedFrom
+    singleValue: false
+    description: Stated place the review was syndicated from
+  - name: reviewUrl
+    singleValue: false
+    description: A direct link to the review
+    xpath: ancestor::html//div[@id="currentPageUrl"]
+  - name: reviewedSku
+    singleValue: false
+    description: The SKU of the item that was reviewed (may be different from the
+      sku the review was shown on). 1 if sku == reviewedSku else 0. Get sku
+      value, transform will handle the value.
+  - name: user
+    description: The user name of the reviewer
+    type: TEXT
+  - name: aggregateRating
+    description: The product rating
+  - name: reviewRatingScale
+    xpath: //span[@class="visuallyhidden seo-best-rating"]
+  - name: reviewAuthor
+    xpath: //div[@class="review-user"]/span[@class="review-footer-userNickname"]
+  - name: responseAuthor
+    xpath: //span[contains(text(),"Comment from")]
+    regExp: Comment from\s*([^-]+)
+    regExpReplace: $1
+  - name: responseDate
+    type: DATETIME
+    xpath: //*[@class="review-response-time"]
