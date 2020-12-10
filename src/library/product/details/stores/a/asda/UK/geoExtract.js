@@ -5,7 +5,7 @@ module.exports = {
   parameterValues: {
     country: 'UK',
     store: 'asda',
-    transform: null,
+    transform,
     domain: 'groceries.asda.com',
     zipcode: '',
   },
@@ -14,33 +14,35 @@ module.exports = {
     context,
     dependencies,
   ) => {
-    const cssProduct = "div.search-page-content__products-tab-content ul.co-product-list__main-cntr li.co-item a[data-auto-id='linkProductTitle']";
-    const cssProductDetails = 'div.pdp-main-details';
+    // if (inputs.id) {
+    //   const cssProduct = "div.search-page-content__products-tab-content ul.co-product-list__main-cntr li.co-item a[data-auto-id='linkProductTitle']";
+    //   const cssProductDetails = 'div.pdp-main-details';
 
-    const isSelectorAvailable = async (cssSelector) => {
-      console.log(`Is selector available: ${cssSelector}`);
-      return await context.evaluate(function (selector) {
-        return !!document.querySelector(selector);
-      }, cssSelector);
-    };
+    //   const isSelectorAvailable = async (cssSelector) => {
+    //     console.log(`Is selector available: ${cssSelector}`);
+    //     return await context.evaluate(function (selector) {
+    //       return !!document.querySelector(selector);
+    //     }, cssSelector);
+    //   };
 
-    console.log('.....waiting......');
-    await context.waitForSelector(cssProduct, { timeout: 10000 });
+    //   console.log('.....waiting......');
+    //   await context.waitForSelector(cssProduct, { timeout: 10000 });
 
-    const productAvailable = await isSelectorAvailable(cssProduct);
-    console.log(`productAvailable: ${productAvailable}`);
-    if (productAvailable) {
-      console.log('clicking product link');
-      await context.click(cssProduct);
-      await context.waitForNavigation({ timeout: 10000, waitUntil: 'load' });
-      await context.waitForSelector(cssProductDetails);
-      const productDetailsAvailable = await isSelectorAvailable(cssProductDetails);
-      console.log(`productDetailsAvailable: ${productDetailsAvailable}`);
-      if (!productDetailsAvailable) {
-        throw new Error('ERROR: Failed to load product details page');
-      }
-      console.log('navigation complete!!');
-    }
+    //   const productAvailable = await isSelectorAvailable(cssProduct);
+    //   console.log(`productAvailable: ${productAvailable}`);
+    //   if (productAvailable) {
+    //     console.log('clicking product link');
+    //     await context.click(cssProduct);
+    //     await context.waitForNavigation({ timeout: 10000, waitUntil: 'load' });
+    //     await context.waitForSelector(cssProductDetails);
+    //     const productDetailsAvailable = await isSelectorAvailable(cssProductDetails);
+    //     console.log(`productDetailsAvailable: ${productDetailsAvailable}`);
+    //     if (!productDetailsAvailable) {
+    //       throw new Error('ERROR: Failed to load product details page');
+    //     }
+    //     console.log('navigation complete!!');
+    //   }
+    // }
 
     await context.evaluate(async function () {
       async function postData (url = '', data = {}) {
@@ -95,7 +97,7 @@ module.exports = {
     });
 
     const { transform } = parameters;
-    const { productDetails } = dependencies;
-    await context.extract(productDetails, { transform });
+    const { geoProductDetails } = dependencies;
+    await context.extract(geoProductDetails, { transform });
   },
 };

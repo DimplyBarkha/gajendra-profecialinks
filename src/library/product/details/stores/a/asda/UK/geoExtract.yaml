@@ -1,0 +1,8 @@
+extends: ./extract
+fields:
+  - name: drive
+    xpath: //div[contains(.,"Manufacturer Address")]/following-sibling::div/text()[4]
+  - name: retailerId
+    xpath: //div[contains(.,"Manufacturer Address")]/following-sibling::div/text()[4]
+  - name: online_store
+  - name: driveId

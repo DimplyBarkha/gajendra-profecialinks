@@ -13,8 +13,8 @@ async function implementation (
   dependencies,
 ) {
   const { transform } = parameters;
-  const { productDetails } = dependencies;
-  return await context.extract(productDetails, { transform });
+  const { geoProductDetails } = dependencies;
+  return await context.extract(geoProductDetails, { transform });
 }
 
 module.exports = {
@@ -50,7 +50,7 @@ module.exports = {
     },
   ],
   dependencies: {
-    productDetails: 'extraction:product/details/stores/${store[0:1]}/${store}/${country}/extract',
+    geoProductDetails: 'extraction:product/details/stores/${store[0:1]}/${store}/${country}/geoExtract',
   },
   path: '../stores/${store[0:1]}/${store}/${country}/geoExtract',
   implementation,
