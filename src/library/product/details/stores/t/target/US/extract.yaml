@@ -289,6 +289,6 @@ fields:
     singleValue: false
     xpath: //div[@class="pdf"]
   - name: unInterruptedPDP
-    xpath: ancestor::html//div[@data-test="pdpBottomOfTheFoldContent"]//ul//li[contains(@class,"FilmstripItem")]
+    xpath: ancestor::html//div[@data-test="pdpBottomOfTheFoldContent"]//ul//li[contains(@class,"FilmstripItem")] | ancestor::html//div[@data-test="pdpBottomOfTheFoldContent"]//ul//li[contains(@class,"FilmstripItem")] | //h3[contains(.,'Featured products')]/..//ul//li
   - name: hasComparisonTable
     defaultValue: No
