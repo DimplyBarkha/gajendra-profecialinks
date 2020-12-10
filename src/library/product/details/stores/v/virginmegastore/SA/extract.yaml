@@ -103,6 +103,12 @@ fields:
   - name: technicalInformationPdfPresent
     singleValue: false
     defaultValue: No
-  - name: hasComparisonTable
+  - name: inTheBoxText
     singleValue: false
+    xpath: //strong[contains(text(),'محتويات العبوة')]/following-sibling::text()[contains(.,'•') or position() < 3] | //big[contains(text(),'محتويات العبوة')]/../following-sibling::text()[position()<3] | //big[contains(text(),'محتويات العبوة')]/../following-sibling::text()[contains(.,'•')]
+  - name: unInterruptedPDP
+    singleValue: false
+    xpath: //div[contains(@class,'product-listing')]/ul/li
+  - name: hasComparisonTable
+    singleValue: true
     defaultValue: No
