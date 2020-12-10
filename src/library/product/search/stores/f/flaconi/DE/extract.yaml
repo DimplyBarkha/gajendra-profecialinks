@@ -2,7 +2,10 @@ singleRecord: false
 regionsSelector: null
 recordSelector: null
 recordXPath: //div[contains(@class,'category-products')]/ul/li[not(@class='no-hover')]
-fields: 
+fields:
+  - name: productUrl
+    singleValue: false
+    xpath: //div[@class='product-item-box']/a/@href
   - name: id
     singleValue: false
     xpath: //div[@class='wishlist-heart']/@data-wishlist
