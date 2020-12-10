@@ -96,7 +96,7 @@ const transform = (data) => {
           });
           row.specifications = [
             {
-              text: text.slice(0 , -1),
+              text: text,
             },
           ];
         }
