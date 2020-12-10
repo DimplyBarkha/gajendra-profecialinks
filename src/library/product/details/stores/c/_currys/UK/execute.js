@@ -1,4 +1,4 @@
-const { implementation } = require('../executeImplementation');
+const { implementation } = require('./executeImplementation');
 
 module.exports = {
   implements: 'product/details/execute',
