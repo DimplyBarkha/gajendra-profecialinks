@@ -72,7 +72,7 @@ fields:
     description: GTIN code (includes UPC/EAN)
   - name: sku
     description: The store-specific product identifier
-    xpath: ancestor::html//div[@id="productId"]
+    xpath: //input[contains(@id, 'cvosSkuID')]/@value
   - name: variantId
     xpath: //div[@id="productId"] | //div[@class="productVarient"]/label/img/@src
     regExp: ([^/]+)\?[^?]+$|(^\d+$)
@@ -106,9 +106,9 @@ fields:
     defaultValue: "0"
     description: The stated aggregate rating normalized to be out of 5
     type: NUMBER
-  - name: shippingInfo
-    description: Shipping information for the product
-    xpath: ancestor::html//*[contains(text(),"Delivery options")]/..
+  # - name: shippingInfo
+  #   description: Shipping information for the product
+  #   xpath: ancestor::html//*[contains(text(),"Delivery options")]/..
   - name: shippingDimensions
     description: Stated shipping dimensions
   - name: shippingWeight
@@ -423,7 +423,7 @@ fields:
     description: colour / scent / flavour / other
     xpath: //li[@id="size_combo_button_pdp_1"]//div[@class="productVarient"]//label//div//span
   - name: firstVariant
-    xpath: ancestor::html//div[@id="productId"]
+    xpath: //input[contains(@id, 'cvosSkuID')]/@value
     description: Unique identifier for a collection of variants. For a subset of
       core feeds (43) we have a column "first_variant" that is populated with a
       common code to link all variants for a product. method 1 (Preferred) = use
