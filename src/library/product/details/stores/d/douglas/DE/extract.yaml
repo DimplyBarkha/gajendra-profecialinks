@@ -1,4 +1,4 @@
-singleRecord: false
+singleRecord: true
 regionsSelector: null
 recordSelector: null
 recordXPath: null
@@ -80,7 +80,7 @@ fields:
     regExp: (.*)
     regExpReplace: https://www.douglas.de$1
   - name: hasComparisonTable
-    defaultValue: No
+    defaultValue: False
   - name: inTheBoxUrl
     xpath: //div[@class="dobook-global"]//div[@class="block"]//img/@src
   - name: inTheBoxText
