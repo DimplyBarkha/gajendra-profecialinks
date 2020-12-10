@@ -17,6 +17,20 @@ async function implementation(
         const src = iframe ? iframe.src : '';
         return src;
     });
+
+    async function scrollToRec () {
+      await context.evaluate(async () => {
+        var element = (document.querySelector('#rpdCntId, .prodDetailDesc')) ? document.querySelector('#rpdCntId, .prodDetailDesc') : null;
+        if (element) {
+          element.scrollIntoView({ behavior: 'smooth', block: 'end', inline: 'nearest' });
+          await new Promise((resolve) => {
+            setTimeout(resolve, 5000);
+          });
+        }
+      });
+    }
+    await scrollToRec();
+
     await context.extract(productDetails, { transform });
     if (src) {
         try {
