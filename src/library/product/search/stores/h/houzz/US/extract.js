@@ -8,57 +8,81 @@ module.exports = {
     zipcode: "",
   },
   implementation: async (inputs, parameters, context, dependencies) => {
-    await context.waitForSelector(".hz-image.hz-responsive-img", {
-      timeout: 10000,
-    });
     const { transform } = parameters;
     const { productDetails } = dependencies;
-    await context.evaluate(() => {
-      function addHiddenDiv(id, content, index) {
-        const newDiv = document.createElement("div");
-        newDiv.id = id;
-        newDiv.textContent = content;
-        newDiv.style.display = "none";
-        const originalDiv = document.querySelectorAll(
+    await context.evaluate(
+      () => {
+        if (
+          document.querySelector(
+            ".btn.btn-none.hz-universal-search-header-tip__dismiss"
+          ) != null
+        ) {
+          document
+            .querySelector(
+              ".btn.btn-none.hz-universal-search-header-tip__dismiss"
+            )
+            .click();
+        }
+        if (
+          document.querySelector(
+            "body > div.hz-modal.hz-modal--dark > div.hz-trap-focus.hz-modal__container > div > div.hz-modal__body > div > div.hz-international-redirect-modal__btns > div.hz-international-redirect-modal__continue-btn > button"
+          ) != null
+        ) {
+          document
+            .querySelector(
+              "body > div.hz-modal.hz-modal--dark > div.hz-trap-focus.hz-modal__container > div > div.hz-modal__body > div > div.hz-international-redirect-modal__btns > div.hz-international-redirect-modal__continue-btn > button"
+            )
+            .click();
+        }
+        function addHiddenDiv(id, content, index) {
+          const newDiv = document.createElement("div");
+          newDiv.id = id;
+          newDiv.textContent = content;
+          newDiv.style.display = "none";
+          const originalDiv = document.querySelectorAll(
+            ".hz-product-card__product-image-info.hz-track-me"
+          )[index];
+          originalDiv.parentNode.insertBefore(newDiv, originalDiv);
+        }
+        const product = document.querySelectorAll(
           ".hz-product-card__product-image-info.hz-track-me"
-        )[index];
-        originalDiv.parentNode.insertBefore(newDiv, originalDiv);
-      }
-      const product = document.querySelectorAll(
-        ".hz-product-card__product-image-info.hz-track-me"
-      );
-      let rank = document.querySelector(".hz-pagination-link--selected")
-        .innerText;
-      console.log(rank);
+        );
+        let rank = document.querySelector(".hz-pagination-link--selected")
+          .innerText;
+        console.log(rank);
 
-      const jsonString = document.querySelectorAll(
-        "script[type='application/ld+json']"
-      )[1];
-      var Manufacture_list = document.getElementsByClassName(
-        "hz-product-manufacturer hz-product-card__manufacturer hz-color-link hz-color-link--static hz-color-link--enabled "
-      );
-      const jsonParsed = JSON.parse(jsonString.innerText);
-      const json_list = jsonParsed.itemListElement;
-      var urllink = document.querySelectorAll(".hz-product-card__link");
+        const jsonString = document.querySelectorAll(
+          "script[type='application/ld+json']"
+        )[1];
+        var Manufacture_list = document.getElementsByClassName(
+          "hz-product-manufacturer hz-product-card__manufacturer hz-color-link hz-color-link--static hz-color-link--enabled "
+        );
+        const jsonParsed = JSON.parse(jsonString.innerText);
+        const json_list = jsonParsed.itemListElement;
+        var urllink = document.querySelectorAll(".hz-product-card__link");
 
-      for (let i = 0; i < product.length; i++) {
-        console.log("Loop is working");
-        var new_manuf = Manufacture_list[i].innerText.replace(/by/g, "");
-        addHiddenDiv("ii_manufacture", new_manuf, i);
-        var single_obj = json_list[i];
-        var url_web = single_obj.url;
-        var urllink_update = urllink[i].getAttribute("href");
+        for (let i = 0; i < product.length; i++) {
+          console.log("Loop is working");
+          var new_manuf = Manufacture_list[i].innerText.replace(/by/g, "");
+          addHiddenDiv("ii_manufacture", new_manuf, i);
+          var single_obj = json_list[i];
+          var url_web = single_obj.url;
+          var urllink_update = urllink[i].getAttribute("href");
 
-        if (urllink_update == url_web) {
-          if (rank == 1) {
-            addHiddenDiv("ii_rankOrganic", single_obj.position, i);
-          } else {
-            var rrank = 36 * (rank - 1);
-            addHiddenDiv("ii_rankOrganic", rrank + single_obj.position, i);
+          if (urllink_update == url_web) {
+            if (rank == 1) {
+              addHiddenDiv("ii_rankOrganic", single_obj.position, i);
+            } else {
+              var rrank = 36 * (rank - 1);
+              addHiddenDiv("ii_rankOrganic", rrank + single_obj.position, i);
+            }
           }
         }
-      }
-    });
+      },
+      await context.waitForSelector(".hz-image.hz-responsive-img", {
+        timeout: 10000,
+      })
+    );
     return await context.extract(productDetails, { transform });
   },
 };
