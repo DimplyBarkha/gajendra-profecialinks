@@ -35,6 +35,9 @@ fields:
       there is no availability but the product can be added to cart, this field
       should be "In Stock"
     xpath: //body/@import-purchasability
+    regExp: true
+    regExpReplace: In stock
+    defaultValue: Out of Stock
   - name: description
     description:
       Product description supplied by website - may be concatenanted from
@@ -123,7 +126,6 @@ fields:
   - name: manufacturerImages
     singleValue: false
     description: Images within the third party description
-    xpath: //body/@import-enhanced-content
   - name: videos
     singleValue: false
     description: URLs of videos on page
@@ -212,7 +214,6 @@ fields:
     description: null
   - name: otherSellersPrice
     description: null
-    xpath: //div[@class='product-main-info']//div[@class='prices']//span[contains(@class, 'sales')]/span[contains(@class, 'value')]
   - name: otherSellersBuyboxWinner
     defaultValue: false
   - name: otherSellersFulfilledByAmazon
@@ -256,7 +257,7 @@ fields:
     description:
       Nutritional Information for Calories Per Serving content - Usually
       based on per 100g serving
-    xpath: //div[contains(@class, 'table-nutritionInfo')]/div[contains(., 'Energia')]/span[last()]
+    xpath: //div[contains(@class, 'table-nutritionInfo')]/div[contains(., 'Energia')]/span[last()] | //div[contains(@class, 'table-nutritionInfo')]/div[contains(., 'Power')]/span[last()]
   - name: caloriesFromFatPerServing
     singleValue: true
     description: Nutritional Information for Calories From Fat content - Usually
@@ -533,10 +534,6 @@ fields:
   - name: questionsCount
     defaultValue: 0
   - name: otherSellersAvailability
-    defaultValue: Out of Stock
-    xpath: //script[contains(@type,"application/ld+json")]
-    regExp: (InStock)
-    regExpReplace: $1
   - name: sponsoredProductUrls
   - name: productUrl
     xpath: //link[@rel='canonical']/@href
