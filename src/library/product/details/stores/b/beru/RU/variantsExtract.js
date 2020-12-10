@@ -1,14 +1,14 @@
 
  const { transform } = require('../shared');
 
-
 async function implementation (
   inputs,
   parameters,
   context,
   dependencies,
 ) {
-  const { createUrl, variants } = dependencies;
+  const { transform } = parameters;
+  const { variants } = dependencies;
   await context.evaluate(function () {
     function addHiddenDiv(id, content) {
       const newDiv = document.createElement('div');
@@ -53,9 +53,8 @@ async function implementation (
       });  
     }
     
-  }, createUrl);
+  });
   return await context.extract(variants, { transform });
-
 }
 
 module.exports = {
