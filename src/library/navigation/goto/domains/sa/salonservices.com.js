@@ -11,19 +11,17 @@ module.exports = {
   implementation: async (inputs, parameters, context, dependencies) => {
     console.log(inputs);
     if (inputs.url.includes('https://salonservices.com/')) {
-      const id = inputs.url.replace('https://salonservices.com/', '')
-      console.log(id)
+      const id = inputs.url.replace('https://salonservices.com/', '');
+      console.log(id);
       inputs.url = '';
-      if (id.length == 4) {
-        inputs.url = `https://www.salon-services.com/00${id}.html`
+      if (id.length === 4) {
+        inputs.url = `https://www.salon-services.com/00${id}.html`;
         console.log(inputs.url);
-      }
-      else if (id.length == 5) {
-        inputs.url = `https://www.salon-services.com/0${id}.html`
+      } else if (id.length === 5) {
+        inputs.url = `https://www.salon-services.com/0${id}.html`;
         console.log(inputs.url);
-      }
-      else if (id) {
-        inputs.url = `https://www.salon-services.com/${id}.html`
+      } else if (id) {
+        inputs.url = `https://www.salon-services.com/${id}.html`;
         console.log(inputs.url);
       }
     }

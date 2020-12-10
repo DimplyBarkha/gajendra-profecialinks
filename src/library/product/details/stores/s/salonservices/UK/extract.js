@@ -14,14 +14,14 @@ module.exports = {
     dependencies,
   ) => {
     await context.evaluate(async function () {
-      function addTempDiv(id, data) {
+      function addTempDiv (id, data) {
         const tempDiv = document.createElement('div');
         tempDiv.id = id;
         tempDiv.textContent = data;
         tempDiv.style.display = 'none';
         document.body.appendChild(tempDiv);
       }
-      //description, bullet info and bullet counts
+      // description, bullet info and bullet counts
       const description = [];
       if (document.querySelectorAll('div[class="js-full-description hidden"] li')) {
         const node = document.querySelectorAll('div[class="js-full-description hidden"] li');
@@ -42,31 +42,29 @@ module.exports = {
       if (description) {
         addTempDiv('mod_desciption', description.join(' | '));
       }
-      //rating
-      if(document.querySelector('div[class="feefo-rating_container feefo-product_rating"]')){
+      // rating
+      if (document.querySelector('div[class="feefo-rating_container feefo-product_rating"]')) {
         const node = document.querySelector('div[class="feefo-rating_container feefo-product_rating"]');
         const rating = node.getAttribute('data-rating');
-        const ratingf = (Number(rating)/20).toFixed(2);
+        const ratingf = (Number(rating) / 20).toFixed(2);
         const ratingcount = node.getAttribute('data-reviewscount');
-        if(ratingf){
+        if (ratingf) {
           addTempDiv('mod_rating', ratingf);
         }
         addTempDiv('mod_ratingc', ratingcount);
       }
-      //promotion
-      if(document.querySelectorAll('style[type="text/css"]')){
-        const style = document.querySelectorAll('style[type="text/css"]')
-        for (var i = 0 ; i < style.length ; i++) {
+      // promotion
+      if (document.querySelectorAll('style[type="text/css"]')) {
+        const style = document.querySelectorAll('style[type="text/css"]');
+        for (var i = 0; i < style.length; i++) {
           // @ts-ignore
           style[i].remove();
         }
       }
-
-    })
+    });
     const { transform } = parameters;
     const { productDetails } = dependencies;
     return await context.extract(productDetails, { transform });
   },
-
 
 };
