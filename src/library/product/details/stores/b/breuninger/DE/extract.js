@@ -181,7 +181,7 @@ module.exports = {
                 addHiddenInfo('ii_inBoxUrls', element);
             });
         }
-        addHiddenInfo('ii_comparisionText', comparisionText);
+        addHiddenInfo('ii_comparisionText', comparisionText ? 'Yes' : 'No');
         console.log('inBoxText');
         console.log(inBoxText);
 
