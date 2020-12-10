@@ -5,7 +5,7 @@ async function implementation (inputs, parameters, context, dependencies) {
   const { transform } = parameters;
   const { productDetails } = dependencies;
 
-  async function checkPopups() {
+  async function checkPopups () {
     await context.evaluate(() => {
       const popUp = document.querySelector('div[id="wps_popup"]');
       if (popUp !== null) {
@@ -34,6 +34,8 @@ async function implementation (inputs, parameters, context, dependencies) {
         if (productJson.rating.match(/\d(.\d)?/)) {
           product.setAttribute('product-rating', productJson.rating.match(/\d(.\d)?/)[0].replace('.', ','));
         }
+        const reviewCount = product.querySelector('a[id*=listing_reviews') ? product.querySelector('a[id*=listing_reviews').textContent.match(/\d+/)[0] : '0';
+        product.setAttribute('product-reviews', reviewCount);
         if (productJson.brand) product.setAttribute('product-manufacturer', productJson.brand);
       } catch (e) {
         console.log('Error extracting product json');

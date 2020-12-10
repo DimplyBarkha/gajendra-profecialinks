@@ -8,6 +8,7 @@ fields:
     xpath: //@data-productid
   - name: searchUrl
     singleValue: false
+    xpath: //meta[@property='og:url']/@content
   - name: name
     singleValue: false
     xpath: //a[contains(@class, "details__title")] 
@@ -25,9 +26,7 @@ fields:
     singleValue: false
     xpath: //@product-rating
   - name: reviewCount
-    xpath: //a[contains(@id, "listing_reviews")]
-    regExp: (\d+)
-    regExpReplace: $1
+    xpath: //@product-reviews
     type: NUMBER
     singleValue: true
   - name: ratingCount
