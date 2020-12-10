@@ -19,27 +19,30 @@ async function implementation (
     url = await dependencies.createUrl({ id });
   }
   await dependencies.goto({ url, zipcode, storeId });
-  await new Promise((resolve, reject) => setTimeout(resolve, 5000));
-
+  await new Promise((resolve, reject) => setTimeout(resolve, 10000));
+  
   try{
-    await context.waitForXPath('//*[@id="3607353940"]/div/div/img',{timeout:1000});
-    await context.click('//*[@id="3607353940"]/div/div/img',{timeout:1500});
+    const deleteiFrame=await context.evaluate(async function(){
+      const iFrameXPath = 'iframe[src^="https://campaign.aliexpress.com/wow/gcp/"]';
+      document.querySelector(iFrameXPath).remove();
+    })
   }catch(e){
 
   }
-  if (parameters.loadedSelector) {
-    await context.waitForFunction(function (sel, xp) {
-      return Boolean(document.querySelector(sel) || document.evaluate(xp, document, null, XPathResult.UNORDERED_NODE_ITERATOR_TYPE, null).iterateNext());
-    }, { timeout: 10000 }, parameters.loadedSelector, parameters.noResultsXPath);
-  }
-  await new Promise((resolve, reject) => setTimeout(resolve, 5000));
-  
+
   try {
     await context.waitForSelector('div#product-detail li[ae_button_type="tab_specs"]',{timeout:1000});
     await context.click('div#product-detail li[ae_button_type="tab_specs"]',{timeout:1500});
   }catch (e) {
     console.log(e);
   }
+
+  if (parameters.loadedSelector) {
+    await context.waitForFunction(function (sel, xp) {
+      return Boolean(document.querySelector(sel) || document.evaluate(xp, document, null, XPathResult.UNORDERED_NODE_ITERATOR_TYPE, null).iterateNext());
+    }, { timeout: 10000 }, parameters.loadedSelector, parameters.noResultsXPath);
+  }
+  await new Promise((resolve, reject) => setTimeout(resolve, 5000));
   // TODO: Check for not found?
 }
 

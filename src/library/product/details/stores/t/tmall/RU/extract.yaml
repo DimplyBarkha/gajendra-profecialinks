@@ -1,7 +1,7 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: null
+recordXPath: /html/body
 fields:
   - name: image
     singleValue: false
@@ -23,7 +23,7 @@ fields:
     xpath: //div[@class="product-info"]/meta[@itemprop="url"]/@content
   - name: brandText
     singleValue: false
-    xpath: //div[@class="product-specs"]/ul[contains(@class,"product-specs-list")]/li/span[@class="property-title" and text()="Название бренда"]/parent::*/span[contains(@class,"property-desc")]
+    xpath: //div[@class="product-specs"]/ul[contains(@class,"product-specs-list")]/li/span[@class="property-title" and contains(text(),"Название бренда")]/parent::*/span[contains(@class,"property-desc")]
   - name: nameExtended
     singleValue: false
     xpath: //h1[@class="product-title-text"]
