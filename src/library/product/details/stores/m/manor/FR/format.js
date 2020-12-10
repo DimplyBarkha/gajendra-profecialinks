@@ -27,15 +27,8 @@ const transform = (data) => {
     for (const row of group) {
       if (row.color) {
         row.color.forEach(item => {
-          var myRegexp = /Farbe\s*:\s*(.+)/g;
-          var match = myRegexp.exec(item.text);
-          if (match) {
-            if (match.length) {
-              item.text = match[1].trim();
-            } else {
-              item.text = '';
-            }
-          }
+          item.text = item.text.replace(/Farbe\s*:\s*/g, '');
+          item.text = item.text.trim();
         });
       }
       if (row.name) {
@@ -55,15 +48,8 @@ const transform = (data) => {
       }
       if (row.gtin) {
         row.gtin.forEach(item => {
-          var myRegexp = /ean"\s*:\s*"(.+?)"/g;
-          var match = myRegexp.exec(item.text);
-          if (match) {
-            if (match.length) {
-              item.text = match[1].trim();
-            } else {
-              item.text = '';
-            }
-          }
+          item.text = item.text.replace(/ean"\s*:\s*/g, '');
+          item.text = item.text.trim();
         });
       }
       if (row.description) {
@@ -89,17 +75,10 @@ const transform = (data) => {
         });
       }
       if (row.alternateImages) {
-        var arrImg = [];
         row.alternateImages.splice(0, 1);
         row.alternateImages.forEach(item => {
-          arrImg.push('https://www.manor.ch' + item.text);
+          item.text = 'https://www.manor.ch' + item.text;
         });
-        if (arrImg.length) {
-          row.alternateImages = [];
-          arrImg.forEach(item => {
-            row.alternateImages.push({ text: item });
-          });
-        }
       }
       if (row.manufacturerImages) {
         row.manufacturerImages.forEach(item => {
@@ -122,9 +101,9 @@ const transform = (data) => {
           // /fr/p/p0-17361702
           arrVari.push(item.text.replace('/fr/p/', '').trim());
         });
-        row.variants = [{ text: arrVari.join(' | ') }];
-        if (row.variants.length) {
-          row.variantCount = [{ text: row.arrVari.length }];
+        if (arrVari.length) {
+          row.variants = [{ text: arrVari.join(' | ') }];
+          row.variantCount = [{ text: arrVari.length }];
         }
       }
       if (row.variantInformation) {

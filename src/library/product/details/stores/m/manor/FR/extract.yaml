@@ -47,16 +47,10 @@ fields:
     xpath: //h1[contains(@class,'page-title')]//span[1]  
   - name: sku
     singleValue: false
-    xpath: //script[contains(text(),'productSKU') and @id='app.digitalData']
-    #"productSKU":"726799"
-    regExp: \"productSKU\"\s*:\s*\"(.+?)\"
-    regExpReplace: $1
+    xpath: //div[contains(@data-t-name,'ProductdetailV2')]/@data-productid    
   - name: variantId
     singleValue: false
-    xpath: //script[contains(text(),'productID') and @id='app.digitalData']
-    #"productID":"726799"
-    regExp: \"productID\"\s*:\s*\"(.+?)\"
-    regExpReplace: $1
+    xpath: //div[contains(@data-t-name,'ProductdetailV2')]/@data-productid    
   - name: variantCount
     singleValue: false    
     defaultValue: '0'
