@@ -35,10 +35,10 @@ fields:
     xpath: (//div[contains(@class,'paragraph_sm')])[1]
   - name: sku
     singleValue: true
-    xpath: //button[contains(@class,'separate-cart-add')]/@data-pid
+    xpath: //div[@class="productDetail_right_code"]/span[2]
   - name: variantId
     singleValue: true
-    xpath: //div[@class="productDetail_right_code"]/span[2]
+    xpath: //button[contains(@class,'separate-cart-add')]/@data-pid
   - name: packSize
     singleValue: true
     xpath: //span[@class="package_value"]
