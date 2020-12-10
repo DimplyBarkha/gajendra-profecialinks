@@ -3,35 +3,61 @@ regionsSelector: null
 recordSelector: null
 recordXPath: null
 fields:
+  - name: name
+    xpath: //meta[@property="og:title"]/@content
   - name: image
     singleValue: true
-    xpath: (//img[@class="primary-image"])[1]/@src
-  - name: imageAlt
+    xpath: //meta[@name='og:image']/@content
+  - name: alternateImages
+    singleValue: false
+    xpath: //div[@class="thumb slick-slide slick-active"]/a/img/@src
+  - name: price
     singleValue: true
-    xpath: (//img[@id="landingImage"])[1]/@alt
-  - name: id
-    singleValue: true
-    xpath: //span[@itemprop="productID"]
+    xpath: //meta[@property="og:price:amount"]/@content
   - name: listPrice
     singleValue: true
-    xpath: //h3[@class='price-sales markdown-price-false ld-sg-heading']
-  - name: brandText
-    singleValue: true
-    xpath: //p[@class="ld-sg-brand"]
-  - name: coupon
-    singleValue: true
-    description: Text of any coupon offer
-    xpath: //div[@class="ld-sg-promo"]/div
-  - name: reviewCount
-    singleValue: true
-    xpath: //span[@itemprop='reviewCount']
-    regExp: (\d+)
+    xpath: //p[@class='price-standard original-price']
   - name: ratingValue
     singleValue: true
     xpath: //span[@itemprop='ratingValue']
+  - name: reviewCount
+    singleValue: true
+    xpath: //span[@itemprop='reviewCount']
+  - name: quantity
+    singleValue: true
+    xpath: //input[@id="Quantity"]/@value
+  - name: description
+    xpath: //div[@id="pdp-overview"]
+  - name: sku
+    xpath: //span[@itemprop="productID"]
+  - name: url
+    xpath: //meta[@property="og:url"]/@content
   - name: availabilityText
     singleValue: true
-    xpath: //p[contains(@class,"availability primary-msg alert-msg")]
-    regExp: (.+)
-    regExpReplace: In Stock
-    defaultValue: Out of Stock   
+    xpath: //p[@class="in-stock availability primary-msg ld-sg-text"]
+  - name: nameExtended
+    xpath: //meta[@property="og:title"]/@content
+  - name: brandText
+    singleValue: true
+    xpath: //p[@class="ld-sg-brand"]
+  - name: ingredientsList 
+    singleValue: true
+    description: List of Ingredients from site - can be string of data if no
+      discernible start/end point
+    xpath: //div[@id="pdp-specification"]/div/div/div/div[1]/div[@class="ccs-ds-extendedSpec-body"]/table/tbody/tr[5]/td[2]
+  - name: category
+    singleValue: false
+    description: The categories (e.g. from breadcrumbs)
+    xpath: //div[@class="breadcrumb-section"]/ol/li[position()>2 and position()<last()]/a
+  - name: shippingDimensions
+    singleValue: true
+    description: Stated shipping dimensions
+    xpath: //div[@id="pdp-specification"]/div/div/div/div[3]/div[@class="ccs-ds-extendedSpec-body"]/table/tbody/tr
+  - name: shippingWeight
+    singleValue: true
+    description: Stated shipping weight
+    xpath: //div[@id="pdp-specification"]/div/div/div/div[3]/div[@class="ccs-ds-extendedSpec-body"]/table/tbody/tr[4]
+  - name: servingSize
+    singleValue: true
+    description: The size of serving Nutritional information is based on.
+    xpath: //div[@id="pdp-specification"]/div/div/div/div[1]/div[@class="ccs-ds-extendedSpec-body"]/table/tbody/tr[6]/td[2]
