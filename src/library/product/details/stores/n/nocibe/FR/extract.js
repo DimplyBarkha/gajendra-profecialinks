@@ -104,7 +104,7 @@ module.exports = {
       let countHidden = 0;
       if (document.querySelector('div#description') === null && hiddenDesc !== undefined && hiddenDesc !== null) {
         const text = hiddenDesc.split('\n').filter(e => e.length > 0);
-        if (text.length > 1) {
+        if (text.length > 1 && text[0] !== null && text[0] !== undefined) {
           text.forEach(e => {
             if (e.charAt('-', 0) === '-') {
               countHidden++;
@@ -117,8 +117,8 @@ module.exports = {
               descHidden.push(e.replace('•', ' || '));
             } else descHidden.push(e);
           });
-        } else {
-          if (text[0].includes('•') && text[0] !== null && text[0] !== undefined) {
+        } if (text.length === 1 && text[0] !== null && text[0] !== undefined) {
+          if (text[0].includes('•')) {
             descHidden.push(text[0].replace(/•/g, ' ||'));
             const bullets = text[0].replace(/•/g, ' ||').match(/\|\|/gi);
             countHidden += bullets.length;
@@ -195,7 +195,7 @@ module.exports = {
       }
       if (row.ingredientsList) {
         row.ingredientsList.forEach(item => {
-          item.text = item.text ? item.text.replace('"', " '") : '';
+          item.text = item.text ? item.text.replace(/"/g, "'").split('reporter.').join('reporter. ') : '';
         });
       }
       if (row.image) {
