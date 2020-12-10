@@ -8,15 +8,13 @@ module.exports = {
     domain: 'pokupki.market.yandex.ru',
     zipcode: '',
   },
-   implementation,
+  implementation,
 };
 async function implementation(inputs, parameters, context, dependencies) {
   const { transform } = parameters;
   const { productDetails } = dependencies;
 
   await context.evaluate(async () => {
-
-    
     let scrollTop = 0;
     while (scrollTop !== 20000) {
       await stall(500);
@@ -34,7 +32,7 @@ async function implementation(inputs, parameters, context, dependencies) {
         }, ms);
       });
     }
- 
+
     function addHiddenDiv(id, content) {
       const newDiv = document.createElement('div');
       newDiv.id = id;
@@ -90,7 +88,7 @@ async function implementation(inputs, parameters, context, dependencies) {
       // secondaryImageCount.setAttribute('sum', alternateImagesCount);
       // document.body.appendChild(secondaryImageCount);
     }
-    if(alternateImagesCount >= 1) {
+    if (alternateImagesCount >= 1) {
       addHiddenDiv('alternateImagesCount', alternateImagesCount - 1);
     }
     let shippingInfo = document.querySelector('div.b_3S10tsnVL- a');
@@ -105,7 +103,7 @@ async function implementation(inputs, parameters, context, dependencies) {
     if (close) {
       close.click();
     }
-   
+
     var xpath =
       "//span[contains(text() , 'Страна производства')]/../following-sibling::div/span";
     var countryOfOrigin = document.evaluate(
@@ -251,15 +249,14 @@ async function implementation(inputs, parameters, context, dependencies) {
       ingredients = ingredientsData.textContent;
     }
     addHiddenDiv('ingredients', ingredients);
-   
+
     // var popUP = document.evaluate(
-    //   xpath,
-    //   document,
-    //   null,
-    //   XPathResult.FIRST_ORDERED_NODE_TYPE,
-    //   null
+    // xpath,
+    // document,
+    // null,
+    // XPathResult.FIRST_ORDERED_NODE_TYPE,
+    // null
     // ).singleNodeValue;
- 
 
     var specificationList;
     let specification = '';
@@ -273,8 +270,8 @@ async function implementation(inputs, parameters, context, dependencies) {
         '|';
     });
     addHiddenDiv('specification', specification);
-    
-    let variantsInfo = document.querySelectorAll('span.b_1vzk4iYy5n')
+
+    let variantsInfo = document.querySelectorAll('span.b_1vzk4iYy5n');
     if (variantsInfo) {
       variantsInfo.forEach((element) => {
         const secondaryImageLink = document.createElement('div');
@@ -283,25 +280,25 @@ async function implementation(inputs, parameters, context, dependencies) {
         secondaryImageLink.setAttribute('href', element.textContent);
         document.body.appendChild(secondaryImageLink);
       });
-    let variantsImgInfo = document.querySelectorAll('div.b_vsxt0dVvL4 img.b_ZM3OPI2WFF')
-    if (variantsImgInfo) {
-      variantsImgInfo.forEach((element) => {
-        const secondaryImageLink = document.createElement('div');
-        secondaryImageLink.setAttribute('class', 'variantsInfoData');
-        element.click();
-        secondaryImageLink.setAttribute('href', element.textContent);
-        document.body.appendChild(secondaryImageLink);
-      });
-      // const secondaryImageCount = document.createElement('div');
-      // secondaryImageCount.setAttribute('class', 'alternateImagesCountTotal');
-      // // @ts-ignore
-      // secondaryImageCount.setAttribute('sum', alternateImagesCount);
-      // document.body.appendChild(secondaryImageCount);
+      let variantsImgInfo = document.querySelectorAll(
+        'div.b_vsxt0dVvL4 img.b_ZM3OPI2WFF'
+      );
+      if (variantsImgInfo) {
+        variantsImgInfo.forEach((element) => {
+          const secondaryImageLink = document.createElement('div');
+          secondaryImageLink.setAttribute('class', 'variantsInfoData');
+          element.click();
+          secondaryImageLink.setAttribute('href', element.textContent);
+          document.body.appendChild(secondaryImageLink);
+        });
+        // const secondaryImageCount = document.createElement('div');
+        // secondaryImageCount.setAttribute('class', 'alternateImagesCountTotal');
+        // // @ts-ignore
+        // secondaryImageCount.setAttribute('sum', alternateImagesCount);
+        // document.body.appendChild(secondaryImageCount);
+      }
     }
- 
-    }
-  
   });
- 
+
   return await context.extract(productDetails, { transform });
 }

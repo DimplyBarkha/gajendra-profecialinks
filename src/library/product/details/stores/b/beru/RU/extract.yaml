@@ -141,10 +141,12 @@ fields:
   - name: manufacturerDescription
     singleValue: false
     description: The extended description of the product supplied by the lister
+    xpath: //div[@data-auto = "item"]//div[@class = "_3bNl7A8hOl"]//span[@data-tid ="52906e8d"]
   - name: manufacturerImages
     singleValue: false
-    xpath: //picture[@class="b_3ogURkuHm0"]/img/@src
-    description: Images within the third party description
+    xpath: //div[@data-auto = "item"]//img/@src
+    regExp: (.+)
+    regExpReplace: https:$1
   - name: videos
     singleValue: false
     description: URLs of videos on page
