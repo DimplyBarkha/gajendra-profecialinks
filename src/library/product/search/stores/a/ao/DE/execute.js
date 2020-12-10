@@ -6,8 +6,8 @@ module.exports = {
     store: 'ao',
     domain: 'ao.de',
     url: "https://www.ao.de/l/suche/101/99/?suche='{searchTerms}'",
-    loadedSelector: 'div#body,main.lister',
-    noResultsXPath: '//div[@class="no-results "]',
+    loadedSelector: 'div#body,main.lister,div#contentholder',
+    noResultsXPath: '//div[@class="no-results "] | //div[@id="categoryPage"]',
     zipcode: '',
   },
 };
