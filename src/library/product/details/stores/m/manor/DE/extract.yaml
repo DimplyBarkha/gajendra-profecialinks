@@ -1,0 +1,96 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: metaKeywords
+    singleValue: false
+    xpath: //meta[contains(@name,'keywords')]/@content
+  - name: image
+    singleValue: false
+    xpath: (//div[contains(@class,'m-productgallery__images')]//div[@class='slick-track']/a//img/@src)[1]
+  - name: imageAlt
+    singleValue: false
+    xpath: (//div[contains(@class,'m-productgallery__images')]//div[@class='slick-track']/a//img/@alt)[1]
+  - name: alternateImages
+    singleValue: false
+    xpath: //div[contains(@class,'m-productgallery__images')]//div[@class='slick-track']/a/@data-zoom-image
+  - name: category
+    singleValue: false
+    xpath: //div[@class='m-breadcrumb js-breadcrumb']//a
+    #//div[@class='breadcrumb']//a//span[not(text()='Home')]
+  - name: name
+    singleValue: false
+    xpath: //div[@class='g-layout-productdetails g-row']//div[@class='o-productdetail-v-2-titleb']//div[@class='m-productdetailareaa__areaA__title-line g-col g-col-1']
+  - name: nameExtended
+    singleValue: false
+    xpath: //div[@class='g-layout-productdetails g-row']//div[@class='o-productdetail-v-2-titleb']//div[@class='m-productdetailareaa__areaA__title-line g-col g-col-1']
+  - name: availabilityText
+    singleValue: false
+    xpath: //div[@id='product-actions']//span[@data-name='AddToBasket']
+    regExp: (.+)
+    regExpReplace: In Stock
+    defaultValue: Out of Stock
+  - name: price
+    singleValue: false
+    xpath: //div[@class='productpricecomponent js-price-section']//span[contains(@class,'m-productpricev-2__price')]
+  - name: listPrice
+    singleValue: false
+    xpath: //div[@class='productpricecomponent js-price-section']//span[@class='m-productpricev-2__oldprice']
+    regExp: Was \s*(.+)
+    regExpReplace: $1
+  - name:  description
+    singleValue: false
+    xpath: //div[@id='product-info']  
+  - name: brandText
+    singleValue: false
+    xpath: //h1[contains(@class,'page-title')]//span[1]  
+  - name: sku
+    singleValue: false
+    xpath: //div[contains(@data-t-name,'ProductdetailV2')]/@data-productid    
+  - name: variantId
+    singleValue: false
+    xpath: //div[contains(@data-t-name,'ProductdetailV2')]/@data-productid    
+  - name: variantCount
+    singleValue: false    
+    defaultValue: '0'
+    type: NUMBER
+  - name: variantInformation
+    singleValue: false
+    xpath: //div[@class='m-productcolorselect-v-2']//span[@class='m-productcolorselect-v-2__selector-title']
+  - name: variants
+    singleValue: false
+    xpath: //div[@class='m-productcolorselect-v-2']//a[contains(@class,'js-productcolorselect-variant')]/@href
+  - name: promotion
+    singleValue: false
+    xpath: //div[@data-component='avms-tab']//ul[contains(@class,'simple product-offers')]//li  
+  - name: specifications
+    singleValue: false
+    xpath: //div[contains(@class,'tab-tech-specs')]//tr
+  - name: warranty
+    singleValue: false
+    xpath: //div[contains(@class,'tab-tech-specs')]//tr//th[contains(text(),'guarantee') or contains(text(),'Guarantee')]//following-sibling::td    
+  - name: ratingCount
+    singleValue: false
+    xpath: //span[@itemprop="reviewCount"]    
+  - name: aggregateRating
+    singleValue: false
+    xpath: //span[@itemprop="ratingValue"]    
+  - name: color
+    singleValue: false
+    xpath: //div[contains(@class,'tab-tech-specs')]//tr//th[text()='Colour']//following-sibling::td
+  - name: weightNet
+    singleValue: false
+    xpath: //div[contains(@class,'tab-tech-specs')]//tr//th[text()='Weight']//following-sibling::td
+  - name: weightGross
+    singleValue: false
+    xpath: //div[contains(@class,'tab-tech-specs')]//tr//th[text()='Boxed weight']//following-sibling::td
+  - name: shippingDimensions
+    singleValue: false
+    xpath: //div[contains(@class,'tab-tech-specs')]//tr//th[text()='Dimensions']//following-sibling::td
+  - name: materials
+    singleValue: false
+    xpath: //div[contains(@class,'tab-tech-specs')]//tr//th[text()='Material']//following-sibling::td
+  - name: energyEfficiency
+    singleValue: false
+    xpath: //div[contains(@class,'tab-tech-specs')]//tr//th[contains(text(),'Energy efficiency')]//following-sibling::td
