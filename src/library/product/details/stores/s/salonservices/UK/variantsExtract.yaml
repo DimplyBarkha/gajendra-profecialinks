@@ -1,0 +1,9 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: variantId
+    xpath: //meta[@itemprop="productID"]/@content
+  - name: variantUrl
+    xpath: //div[@class="variation-value"]//a/@href
