@@ -21,7 +21,7 @@ module.exports = {
         document.body.appendChild(catElement);
       };
 
-      function appendData(data) {
+      function appendData (data) {
         const keys = Object.keys(data);
         for (let i = 0; i < keys.length; i++) {
           const key = keys[i];
@@ -30,17 +30,17 @@ module.exports = {
         }
       }
 
-      function getTextByXpath(xp) {
+      function getTextByXpath (xp) {
         return document.evaluate(xp, document, null, XPathResult.STRING_TYPE, null).stringValue.trim();
       }
 
-      function searchDescription(description, header, nextHeader) {
+      function searchDescription (description, header, nextHeader) {
         const re = new RegExp(`${header}(.+)${nextHeader}`);
         if (description.match(re)) return description.match(re)[1];
         return '';
       }
 
-      function extractParagraph(header) {
+      function extractParagraph (header) {
         const description = getTextByXpath('(//div[contains(@class,"text-description-content")]/div)[1]');
         let nextHeader = getTextByXpath(`//*[contains(.,"${header}")]/following-sibling::strong[1]`);
         if (!nextHeader.match(/\w+/)) nextHeader = '';
