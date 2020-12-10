@@ -31,7 +31,8 @@ fields:
       clicks add to basket this is the price they would be charged
   - name: availabilityText
     singleValue: false
-    xpath: //strong[@class="badge badge-danger mb-1 status"][contains(text(),"Non disponible")]
+    xpath: //div[@class="mt-3 mb-4 add-to-cart"]//button[contains(.,"Stuur mij bericht bij voorraad")]
+    # xpath: //strong[@class="badge badge-danger mb-1 status"][contains(text(),"Non disponible")]
     regExp: (.+)
     regExpReplace: Out of Stock 
     defaultValue: In Stock
