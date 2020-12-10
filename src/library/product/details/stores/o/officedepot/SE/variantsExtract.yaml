@@ -1,0 +1,16 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: //table[@id='cart']//tbody//tr
+fields:
+  - name: variantId
+    singleValue: false
+    xpath: //div[@class='input-group js-addtocart-area']//button[contains(@class,'add-to-cart')]/@data-productid
+  - name: variantUrl
+    singleValue: false
+    xpath: //td[@id='product-table-data']/@onclick
+    regExp: VariantRedirect\(\'(.+)\'\)\;
+    regExpReplace: https://www.officedepot.se/produkter/cat1/cat2/$1    
+  - name: variant
+    singleValue: false
+    xpath: //span[contains(@class,'title')]
