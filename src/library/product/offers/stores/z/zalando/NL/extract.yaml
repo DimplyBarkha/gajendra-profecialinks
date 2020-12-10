@@ -1,0 +1,6 @@
+extends: ../shared
+fields:
+  - name: aggregateRating
+    xpath: translate(ancestor::html//*[@id="added-table"]/table/tbody/tr/td[@class="roundedAverageStarRating"], '.', ',')
+    description: "product_reviews - Product reviews, usually out of 5, if not append
+      the amount its out of. ex: 4.5/10"
