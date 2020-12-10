@@ -453,3 +453,15 @@ fields:
       carousel,['Yes','No']
     example: https://www.zalando.de/adidas-neo-sneaker-low-blackwhite-a4315i002-q11.html
     defaultValue: No
+  - name: inTheBoxUrl
+    singleValue: false
+  - name: inTheBoxText
+    singleValue: false
+    description: Must include text to show the accessories/tools which come with the product
+    xpath: ancestor::html//span[contains(.,'In the box')]/../..//li
+  - name: hasComparisonTable
+    defautValue: No
+  - name: unInterruptedPDP
+    singleValue: false
+    xpath: ancestor::html//div[@id="richRelevanceContainer"]//a[contains(@class, "ItemTitle")]
+    description: Titles of products in the sections 'you may also like' or 'sponsored products'. Combine results from Max 3 sections
