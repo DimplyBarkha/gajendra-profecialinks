@@ -412,8 +412,8 @@ fields:
       this will need analysis
   - name: variants
     xpath: ancestor::html//div[@id="sizeComboButton_dropdown"]/ul/li[@onclick]//img/@src
-    regExp: ([^/]+)(\?[^?]+)?$
-    regExpReplace: $1
+    regExp: (\/(\d+)?.wid)
+    regExpReplace: $2
     description: null
   - name: additionalDescBulletInfo
     xpath: ancestor::html//*[@id="estore_product_longdesc"]//ul/li
