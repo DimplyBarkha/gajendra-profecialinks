@@ -5,6 +5,7 @@ module.exports = {
     country: 'CA',
     store: 'loblaws',
     domain: 'loblaws.ca',
-    url: 'https://www.loblaws.ca/search?search-bar=Aero',
+    url: 'https://www.loblaws.ca/search?search-bar={searchTerms}',
+    // url: 'https://www.loblaws.ca/search?search-bar=Aero',
   },
 };
