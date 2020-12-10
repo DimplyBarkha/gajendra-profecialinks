@@ -1,7 +1,7 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: null
+recordXPath: /html
 fields:
   - name: image
     singleValue: false
@@ -11,7 +11,7 @@ fields:
     xpath: //div[contains(@class,"image-slider--container")]//img/@alt
   - name: alternateImages
     singleValue: false
-    description: //div[contains(@class="image-slider--thumbnails-slide")]/a[position()>0]/@href
+    xpath: //div[contains(@class="image-slider--thumbnails-slide")]/a[position()>0]/@href
   - name: metaKeywords
     singleValue: false
     xpath: //meta[@name="keywords"]/@content
@@ -35,7 +35,7 @@ fields:
     xpath: //div[@class="product--description"]/p
   - name: brandText
     singleValue: false
-    xapth: //div[@class="product--description"]/p
+    xpath: //meta[@itemprop="brand"]/@content
   - name: manufacturer
     singleValue: false
     xpath: //div[@class="product--description"]/p
@@ -69,3 +69,6 @@ fields:
   - name: imageZoomFeaturePresent
     singleValue: false
     defaultValue: Yes
+  - name: weightNet
+    singleValue: false
+    xpath: //meta[@itemprop="weight"]/@content

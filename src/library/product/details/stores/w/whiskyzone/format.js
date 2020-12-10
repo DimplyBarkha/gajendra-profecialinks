@@ -56,7 +56,7 @@ const transform = (data) => {
           console.log('match :',match);
           if(match.length){
               row.manufacturer=[{"text":match[1].trim()}];
-              row.brandText=[{"text":match[1].trim()}];
+              //row.brandText=[{"text":match[1].trim()}];
           }
           console.log("manufacturer : ",info.length);
         }
