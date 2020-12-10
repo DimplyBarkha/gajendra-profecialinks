@@ -5,7 +5,7 @@ recordXPath: /html[//div[@id="a-page"]]
 fields:
   - name: image
     #singleValue: true
-    xpath: (//*[@id="altImages"]/ul/li[contains(@class,"item")]//img | //img[@id="landingImage"] | //div[@id="img-canvas"]/img)[1]/@src
+    xpath: (//*[@id="detailImg"] | //img[@id="landingImage"] | //div[@id="img-canvas"]/img)[1]/@src | //*[@id="altImages"][ancestor::html[not((//*[@id="detailImg"] | //img[@id="landingImage"] | //div[@id="img-canvas"]/img)[1]/@src)]]/ul/li[contains(@class,"item")]//img/@src
     regExp: (.+)\.[^\.]*(\.[^\.]+$)
     regExpReplace: $1$2
   - name: imageAlt
