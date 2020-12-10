@@ -17,14 +17,15 @@ fields:
     xpath: //div[@data-el="breadcrumb"]//span[@class="macys-link"]/following-sibling::a//text()
   - name: nameExtended
     singleValue: true
-    xpath: //meta[@name="keywords"]//@content
+    xpath: //div[@class='completeName'] 
   - name: listPrice
     singleValue: true
     type: CURRENCY
-    xpath: //div[@class="accordion"]//div[@data-el="price-details"]//span[@data-auto="main-price"]
+    xpath: (//div[@class="pr-tiers"]//span[contains(text(),'Reg')])
   - name: price
     singleValue: true
-    xpath: //div[@class="accordion"]//div[@data-el="price-details"]//span[@data-auto="sale-price"]
+    type: CURRENCY
+    xpath: (//div[@class="pr-tiers"]//span[@data-auto='sale-price'] | //div[@class="pr-tiers"]//span[@data-auto='main-price'])[1]
   - name: availabilityText
     singleValue: true
     xpath: //div[@data-el="call-to-action"]//button[contains(text(),'Add to bag')]
@@ -46,7 +47,7 @@ fields:
     xpath: //ul[@class="medium-float-children c-reset"]//li[@aria-disabled="false"] 
   - name: gtin
     singleValue: true
-    xpath: //div[@class='upc'] 
+    xpath: //div[@class='upc']   
   - name: sku
     singleValue: true
     description: The store-specific product identifier
@@ -112,7 +113,7 @@ fields:
     description: URLs of videos on page
   - name: name
     singleValue: true
-    description: The product name
+    xpath: //div[@class='completeName']
   - name: inStorePrice
     singleValue: true
     description: Price in the selected store
@@ -416,7 +417,7 @@ fields:
       new desription info
   - name: variantInformation
     singleValue: true
-    description: colour / scent / flavour / other
+    xpath: concat(//strong[@data-auto="selected-color"]/text(),//ul[@class="medium-float-children c-reset"]//li[@aria-disabled="false"]) 
   - name: firstVariant
     singleValue: true
     description: Unique identifier for a collection of variants. For a subset of
