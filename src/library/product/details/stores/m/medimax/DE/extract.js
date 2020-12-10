@@ -102,7 +102,7 @@ async function implementation(
                     addHiddenInfo('ii_inBoxUrls', element);
                 });
             }
-            addHiddenInfo('ii_comparisionText', comparisionText);
+            addHiddenInfo('ii_comparisionText', comparisionText ? 'Yes' : 'No');
             console.log('inBoxText');
             console.log(inBoxText);
     
@@ -121,7 +121,7 @@ async function implementation(
             }, { timeout: 20000 }, 'body');
           
             // return await context.extract(productDetails, { transform });
-            // return await context.extract(productDetails, { type: 'MERGE_ROWS', transform });
+            return await context.extract(productDetails, { type: 'MERGE_ROWS', transform });
         } catch (error) {
             try {
                 await context.evaluate(async function(src) {
@@ -133,7 +133,7 @@ async function implementation(
                 console.log(err);
             }
         }
-        return await context.extract(productDetails, { transform });
+        // return await context.extract(productDetails, { transform });
     }
 }
 
