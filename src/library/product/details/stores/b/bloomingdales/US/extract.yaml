@@ -34,7 +34,7 @@ fields:
   description: The categories (e.g. from breadcrumbs)
 - name: nameExtended
   singleValue: true
-  xpath: //div[@class="product-title"] | //div[@class="slick-slide slick-current slick-active"]//div//li[@class="main-image first-image"]//picture//img//@title
+  xpath: //div[@class="product-title"] | //div[@class="slick-slide slick-current slick-active"]//div//li[@class="main-image first-image"]//picture//img//@title | //meta[@name="keywords"]/@content
   description: The product name, prefixing "${brand} - " if not included in "name"
     and appending " - ${variantType}" if necessary (fixed per feed)
 - name: listPrice
