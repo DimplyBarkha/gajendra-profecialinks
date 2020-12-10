@@ -1,4 +1,4 @@
-const { transform } = require('../../../../shared');  
+const { transform } = require('../../../../shared');
 module.exports = {
   implements: 'product/search/extract',
   parameterValues: {
@@ -18,22 +18,38 @@ async function implementation(
 ) {
   const { transform } = parameters;
   const { productDetails } = dependencies;
-  // await context.waitForFunction(function () {
-  //   return Boolean(document.querySelector('div[id="rd-item-grid"]') || document.evaluate('//div[@id="rd-item-grid"]', document, null, XPathResult.UNORDERED_NODE_ITERATOR_TYPE, null).iterateNext());
-  // }, { timeout: 90000 });
-
   await context.evaluate(async function () {
-    // function addclass(xpathforpagination) {
-    //   var elems = document.querySelectorAll(xpathforpagination);
-    //   elems[0].classList.add('pagination');
-    // }
-    function addElementToDocument(key, value) {
-      const catElement = document.createElement('div');
-      catElement.id = key;
-      catElement.textContent = value;
-      catElement.style.display = 'none';
-      document.body.appendChild(catElement);
-    }try {
+    function addHiddenDiv(id, content, index) {
+      const newDiv = document.createElement('div');
+      newDiv.id = id;
+      newDiv.textContent = content;
+      newDiv.style.display = 'none';
+      const originalDiv = document.querySelectorAll('div.product-item-box ')[index];
+      originalDiv.parentNode.insertBefore(newDiv, originalDiv);
+      }
+      function addElementToDocument (key, value) {
+        const catElement = document.createElement('div');
+        catElement.id = key;
+        catElement.textContent = value;
+        catElement.style.display = 'none';
+        document.body.appendChild(catElement);
+      }
+    const getAllXpath = (xpath, prop) => {
+      const nodeSet = document.evaluate(xpath, document, null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
+      const result = [];
+      for (let index = 0; index < nodeSet.snapshotLength; index++) {
+        const element = nodeSet.snapshotItem(index);
+        if (element) result.push(prop ? element[prop] : element.nodeValue);
+      }
+      return result;
+    };
+    var aggregateRating = getAllXpath("//span[@class='sr-only']//text()", 'nodeValue')
+    var length = aggregateRating.length
+    for (let i = 0; i < length; i++) {
+      var b = aggregateRating[i].split(" ");
+      addHiddenDiv('rating1', b[0],i);
+    }
+    try {
       document.getElementById('pd_url').remove();
     } catch (error) {
     }
