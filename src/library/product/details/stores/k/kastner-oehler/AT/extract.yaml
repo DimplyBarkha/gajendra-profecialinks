@@ -146,18 +146,18 @@ fields:
   - name: colorCode
     singleValue: true
     description: A code description of the color (e.g. RGB hex)
-  - name: manufacturerDescription
-    singleValue: false
-    description: The extended description of the product supplied by the lister
-    xpath: //div[@class="en_mdl_text__inner en_wrapper"] | //div[@class="en_mdl_image__caption en_spacer_top_small en_wysiwyg"]
-  - name: manufacturerImages
-    singleValue: false
-    description: Images within the third party description
-    xpath: //div[@class="en_mdl_image__inner en_griditeminner"]/img/@src
   - name: videos
     singleValue: false
     description: URLs of videos on page
-    xpath: //div[contains(@class, 'en_mdl_article_detail__slider_inner')]/ul/li/iframe/@src | //div[@class="en_wrapper"]/a/@href
+    xpath: //*[contains(@class,"en_lazy_load")]/@data-en-lazy-load-src | //div[@class="en_wrapper"]/a/@href | //div[@id='video']
+  - name: manufacturerDescription
+    singleValue: false
+    description: The extended description of the product supplied by the lister
+    xpath: //div[@class="en_mdl_text__inner en_wrapper"] | //div[@class="en_mdl_image__caption en_spacer_top_small en_wysiwyg"] | //div[@id="enhancedContent"]
+  - name: manufacturerImages
+    singleValue: false
+    description: Images within the third party description
+    xpath: //div[@class="en_mdl_image__inner en_griditeminner"]/img/@src | //div[@id='aplusImage']
   - name: name
     singleValue: true
     description: The product name
