@@ -50,6 +50,13 @@ const transform = (data) => {
           item.text = item.text.replace(',', '');
         });
       }
+      if (row.videos) {
+        row.videos.forEach(item => {
+          if (item.text.indexOf('http') < 0) {
+            item.text = 'https:' + item.text;
+          }
+        });
+      }
       if (row.listPrice) {
         row.listPrice.forEach(item => {
           item.text = item.text.replace(',', '');

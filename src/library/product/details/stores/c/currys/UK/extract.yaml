@@ -121,3 +121,9 @@ fields:
   - name: energyEfficiency
     singleValue: false
     xpath: //div[contains(@class,'tab-tech-specs')]//tr//th[contains(text(),'Energy efficiency')]//following-sibling::td
+  - name: manufacturer
+    singleValue: false
+    xpath: (//section/div[contains(@class,'to-print')]/h1/span)[1]
+  - name: videos
+    singleValue: false
+    xpath: //video[contains(@class,'ab-credit-popup-video')]/source/@src
