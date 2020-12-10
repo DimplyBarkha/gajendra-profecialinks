@@ -101,7 +101,7 @@ async function implementation (
     });
 
     hasComparisionTable = await context.evaluate(async () => {
-      return !!document.querySelector('.compare-headline');
+      return (!!document.querySelector('.compare-headline') && document.querySelector('.compare-headline').offsetHeight > 0 && document.querySelector('.compare-headline').offsetWidth) > 0;
     });
 
     await context.goto(currentUrl, { timeout: 50000 });
@@ -182,7 +182,7 @@ async function implementation (
       // });
     }
     // addHiddenDiv('ii_inBoxText', inBoxText);
-    addHiddenDiv('ii_comparisionText', hasComparisionTable);
+    addHiddenDiv('ii_comparisionText', hasComparisionTable ? 'Yes' : 'No');
 
     let inStore = false;
     let delivery = false;
