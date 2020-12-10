@@ -12,16 +12,6 @@ fields:
     description: The brand name
     example: Panasonic
     xpath: //div[@id="ii_manufacture"]
-  - name: category
-    singleValue: false
-    description: The categories (e.g. from breadcrumbs)
-    example:
-      - Dental Care
-      - Toothbrushes & Accessories
-      - Electric Toothbrushes & Accessories
-      - Electric Toothbrushes
-      - Rotating
-    xpath: (//span[@class="hz-breadcrumb__title"])[2]
   - name: productUrl
     singleValue: true
     description: The URL for the product details page
