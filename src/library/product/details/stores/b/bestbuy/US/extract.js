@@ -49,7 +49,7 @@ module.exports = {
           descriptionString = scriptString;
         }
       } else {
-        descriptionString = descEl.innerText;
+        descriptionString = descEl.textContent;
       }
 
       let newDescEl = document.createElement('import-description');
