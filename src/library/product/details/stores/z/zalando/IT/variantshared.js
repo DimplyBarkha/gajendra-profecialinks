@@ -16,15 +16,15 @@ const cleanUp = (data, context) => {
     // eslint-disable-next-line no-control-regex
     .replace(/[\x00-\x1F]/g, '')
     .replace(/[\uD800-\uDBFF][\uDC00-\uDFFF]/g, ' ');
-  for (const { group } of data) {
-    for (const row of group) {
-      if (row.variantUrl) {
-        if (!row.variantUrl[0].text.includes('https://www.zalando.it')) {
-          row.variantUrl[0].text = `https://www.zalando.it${row.variantUrl[0].text}`
-        }
-      }
-    }
-  }
+  // for (const { group } of data) {
+  //   for (const row of group) {
+  //     if (row.variantUrl) {
+  //       if (!row.variantUrl[0].text.includes('https://www.zalando.it')) {
+  //         row.variantUrl[0].text = `https://www.zalando.it${row.variantUrl[0].text}`
+  //       }
+  //     }
+  //   }
+  // }
   data.forEach(obj => obj.group.forEach(row => Object.keys(row).forEach(header => row[header].forEach(el => {
     el.text = clean(el.text);
   }))));

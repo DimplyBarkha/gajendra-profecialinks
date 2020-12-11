@@ -14,7 +14,7 @@ async function implementation(
         variantUrlArray.push(element && element.getAttribute('href'));
       })
       if (variantUrlArray.length == 0) {
-        variantUrlArray.push(document.querySelector('meta[property="og:url"]') && document.querySelector('meta[property="og:url"]').getAttribute('content'))
+        variantUrlArray.push(window.location.href);
       }
       return variantUrlArray;
     }
@@ -25,6 +25,7 @@ async function implementation(
       variantElement.style.display = 'none';
       variantElement.setAttribute('varianturl', variantUrlArray[index]);
       document.body.append(variantElement);
+
     })
   })
   return await context.extract(variants, { transform });

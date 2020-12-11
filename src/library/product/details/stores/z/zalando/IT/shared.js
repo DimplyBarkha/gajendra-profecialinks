@@ -18,6 +18,9 @@ const cleanUp = (data, context) => {
     .replace(/[\uD800-\uDBFF][\uDC00-\uDFFF]/g, ' ');
   for (const { group } of data) {
     for (const row of group) {
+      if (row.quantity) {
+        row.quantity[0].text = row.quantity[0].text.includes('undefined') ? '' : row.quantity[0].text
+      }
       if (row.price) {
         row.price[0].text = row.price[0].text.replace('.', ',');
       }
@@ -43,6 +46,10 @@ const cleanUp = (data, context) => {
           text = `${row.color[0].text} ${row.quantity[0].text}`
         }
         row.variantInformation = [{ text: text.trim() }]
+      }
+      if (row.brandText && row.nameExtended) {
+        let text = `${row.brandText[0].text} ${row.nameExtended[0].text}`
+        row.nameExtended = [{ text: text.trim() }]
       }
     }
   }
