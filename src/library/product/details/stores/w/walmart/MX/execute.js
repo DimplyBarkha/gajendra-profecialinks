@@ -5,8 +5,8 @@ module.exports = {
     country: 'MX',
     store: 'walmart',
     domain: 'walmart.com.mx',
-    loadedSelector: 'div.product-details_productDetails__Uunoq',
-    noResultsXPath: "//div[@class='search-bar-desktop_searchBarContainer__eBcmI']",
+    loadedSelector: null,
+    noResultsXPath: null,
     zipcode: '',
   },
 };

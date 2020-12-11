@@ -146,7 +146,7 @@ fields:
     defaultValue: No
   - name: termsAndConditions
     singleValue: false
-    xpath: //a[text()='Términos y Condiciones']
+    xpath: (//a[text()='Términos y Condiciones'])[1]
     regExp: (.+)
     regExpReplace: Yes
     defaultValue: No

@@ -24,6 +24,13 @@ const transform = (data) => {
   };
   for (const { group } of data) {
     for (const row of group) {
+      if (row.brandLink) {
+        row.brandLink.forEach(item => {
+          if (item.text.indexOf('http') < 0) {
+            item.text = 'https://www.walmart.com.mx' + item.text;
+          }
+        });
+      }
       // if (row.alternateImages) {
       //   row.alternateImages.splice(0, 1);
       //   if (row.alternateImages.length === 0) {
@@ -37,24 +44,24 @@ const transform = (data) => {
       //   });
       //   row.descriptionBullets = [{ text: '|| ' + bulletArr.join(' || ') }];
       // }
-      // if (row.specifications) {
-      //   var arrSpecs = [];
-      //   row.specifications.forEach(item => {
-      //     item.text = item.text.replace(/\n\s+\n/, ':');
-      //     arrSpecs.push(item.text);
-      //   });
-      //   row.specifications = [{ text: arrSpecs.join(' || ') }];
-      // }
-      // if (row.price) {
-      //   row.price.forEach(item => {
-      //     item.text = item.text.replace(',', '');
-      //   });
-      // }
-      // if (row.listPrice) {
-      //   row.listPrice.forEach(item => {
-      //     item.text = item.text.replace(',', '');
-      //   });
-      // }
+      if (row.specifications) {
+        var arrSpecs = [];
+        row.specifications.forEach(item => {
+          item.text = item.text.replace(/\n\s+\n/, ' : ');
+          arrSpecs.push(item.text);
+        });
+        row.specifications = [{ text: arrSpecs.join(' || ') }];
+      }
+      if (row.price) {
+        row.price.forEach(item => {
+          item.text = item.text.replace(',', '');
+        });
+      }
+      if (row.listPrice) {
+        row.listPrice.forEach(item => {
+          item.text = item.text.replace(',', '');
+        });
+      }
       // if (row.variantCount) {
       //   row.variantCount = [{ text: row.variantCount.length }];
       // }
@@ -73,13 +80,13 @@ const transform = (data) => {
       //   }
       //   row.variants = [{ text: varientIds.join(' | ') }];
       // }
-      // if (row.additionalDescBulletInfo) {
-      //   var arrBullets = [];
-      //   row.price.forEach(item => {
-      //     arrBullets.push(item.text);
-      //   });
-      //   row.additionalDescBulletInfo = [{ text: '||' + arrBullets.join('||') }];
-      // }
+      if (row.additionalDescBulletInfo) {
+        var arrBullets = [];
+        row.additionalDescBulletInfo.forEach(item => {
+          arrBullets.push(item.text);
+        });
+        row.additionalDescBulletInfo = [{ text: '|| ' + arrBullets.join(' || ') }];
+      }
       // if (row.aggregateRating) {
       //   row.aggregateRating.forEach(item => {
       //     item.text = (item.text * 5) / 10;
