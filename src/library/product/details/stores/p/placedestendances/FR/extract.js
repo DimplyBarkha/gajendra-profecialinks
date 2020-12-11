@@ -138,7 +138,7 @@ module.exports = {
           }
         }
       }
-      
+
       let scrollSelector = document.querySelector('#footer_v2 .footer-content');
       // @ts-ignore
       let scrollLimit = scrollSelector ? scrollSelector.offsetTop : '';
@@ -165,13 +165,11 @@ module.exports = {
       }
       // @ts-ignore
       [...document.querySelectorAll("div[class*='specification']  td")].forEach(q => {
-        getSpecData.push(q.innerText.replace(/\n/g,""));
+        getSpecData.push(q.innerText.replace(/\n/g, ''));
       });
-      //document.body.setAttribute('specifications', specifications);
+      // document.body.setAttribute('specifications', specifications);
       const specdata = getSpecData.join(' || ');
       document.body.setAttribute('specdata', specdata);
-
-
     });
 
     const { transform } = parameters;

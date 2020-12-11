@@ -7,7 +7,8 @@ module.exports = {
     country: 'FR',
     store: 'placedestendances',
     zipcode: '',
-  },implementation: async (
+  },
+  implementation: async (
     { url, zipcode, storeId },
     parameters, context, dependencies,
   ) => {
