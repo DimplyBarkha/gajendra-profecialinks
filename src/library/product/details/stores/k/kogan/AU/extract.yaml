@@ -184,3 +184,9 @@ fields:
     xpath: count(//section[@itemprop="variantCount"]//ul//li)
     defaultValue: 0  
     type: NUMBER
+  - name: inTheBoxText
+    singleValue: false    
+    xpath: //section[@id="in_box-accordion"]//ul/li
+  - name: unInterruptedPDP
+    singleValue: false    
+    xpath: //div[@class="_2MqMl"]//h2[@itemprop="name"]
