@@ -12,7 +12,11 @@ module.exports = {
 
   implementation: async ({ inputString }, { country, domain, transform }, context, { productDetails }) => {
     await context.waitForSelector('#product-information-tabs > div:nth-child(1) > div > i');
-    await context.waitForSelector('#product-intro pwr-product-stock-label');
+    try{
+      await context.waitForSelector('#product-intro pwr-product-stock-label');
+    }
+    catch(err){
+    }
     await context.click('#product-information-tabs > div:nth-child(1) > div > i');
     await new Promise((resolve, reject) => setTimeout(resolve, 8000));
     await context.evaluate(async function () {
