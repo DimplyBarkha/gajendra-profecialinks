@@ -198,3 +198,8 @@ fields:
   - name: firstVariant
     singleValue: false
     xpath: //div[@id="pd_firstVariant"]
+
+  - name: hasComparisonTable
+    defaultValue: No
+  - name: unInterruptedPDP
+    xpath: //h2[contains(.,"Passendes Zubehör") or contains(.,"Ähnliche Produkte") or contains(.,"Kunden kauften")]/../following-sibling::div//div[@class="swiper-wrapper"]/div
