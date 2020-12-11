@@ -70,10 +70,10 @@ fields:
     description: The store-specific product identifier
   - name: variantId
     singleValue: true
-    description: Identifier for a variant from a store where variants share the same sku
+    xpath: //div[@id="detail-control"]//input[@name="pasilloId"]/@value
   - name: mpc
     singleValue: true
-    description: The manufacturer model code (unique) of the product
+    xpath: The manufacturer model code (unique) of the product
   - name: packSize
     singleValue: true
     description: The number of packs in the product offer (if stated separately on

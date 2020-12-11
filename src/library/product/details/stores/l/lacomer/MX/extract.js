@@ -4,7 +4,7 @@ module.exports = {
   parameterValues: {
     country: 'MX',
     store: 'lacomer',
-    transform: cleanUp,
+    transform: null,
     domain: 'lacomer.com.mx',
     zipcode: '',
   },

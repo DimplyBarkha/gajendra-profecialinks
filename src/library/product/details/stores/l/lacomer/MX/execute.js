@@ -5,7 +5,7 @@ module.exports = {
     country: 'MX',
     store: 'lacomer',
     domain: 'lacomer.com.mx',
-    loadedSelector: 'body',
+    loadedSelector: null,
     noResultsXPath: null,
     zipcode: '',
   },
