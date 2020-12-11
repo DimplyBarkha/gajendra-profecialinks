@@ -44,7 +44,7 @@ fields:
       should be "In Stock"
   - name: description
     singleValue: false
-    xpath: //div[@class="MuiGrid-root gridstyles-sc-6scn59-0 cUjvbT"]/p[1]/text()[1]
+    xpath: //div[@class="MuiGrid-root gridstyles-sc-6scn59-0 cUjvbT"]//text()
     description: Product description supplied by website - may be concatenanted from
       multiple places; specifically not the manufacturer description
   - name: descriptionBullets
