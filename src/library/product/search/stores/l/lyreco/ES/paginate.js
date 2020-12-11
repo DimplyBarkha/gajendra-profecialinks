@@ -4,10 +4,10 @@ module.exports = {
   parameterValues: {
     country: 'ES',
     store: 'lyreco',
-    nextLinkSelector: null,
+    nextLinkSelector: '#ulpagination > li.next > a',
     mutationSelector: null,
     spinnerSelector: null,
-    loadedSelector: null,
+    loadedSelector: 'body',
     noResultsXPath: null,
     resultsDivSelector: null,
     openSearchDefinition: null,

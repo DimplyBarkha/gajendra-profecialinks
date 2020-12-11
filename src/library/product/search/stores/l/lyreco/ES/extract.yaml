@@ -3,24 +3,18 @@ regionsSelector: null
 recordSelector: null
 recordXPath: null
 fields:
-  - name: rank
-    singleValue: false
-    xpath: //div[@id="rankOrganic"]/text()
-  - name: rankOrganic
-    singleValue: false
-    xpath: //div[@id="rankOrganic"]/text()
   - name: id
     singleValue: false
-    xpath: //div[@class="product2comp grid__item block-product "]/@data-lineid
+    xpath: //div[@class="col d-flex product2comp pt-1 px-0 grid__item border "]/@data-lineid
     regExp: (\d+)
   - name: name
     singleValue: false
-    xpath: //p[@class="prod_desc"]//a[@id="productDetails"]
+    xpath: //p[@class="prod_desc title title_xxs min-height-md-5"]//a[@id="productDetails"]
   - name: productUrl
     singleValue: false
-    xpath: //div[@class="block_left float"]//a/@href
+    xpath: //p[@class="prod_desc title title_xxs min-height-md-5"]//a/@href
   - name: thumbnail
     singleValue: false
-    xpath: //div[@id="productCmsGrid"]/div/div/div/div/div[@class="picture_grid"]/a/img/@src
+    xpath: //div[@id="productCmsGrid"]/div/div/div/div/a/img/@src
 
     
