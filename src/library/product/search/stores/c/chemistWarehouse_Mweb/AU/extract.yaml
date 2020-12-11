@@ -1,7 +1,8 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: //div[@class="search__result__product__list"]//div[contains(@class, "row")]//div[contains(@class, "col-xs-4 search__result__product")]
+recordXPath: //div[@class="search__result__product__list"]/div[contains(@class, "search__result__product__grid")]/div[contains(@class, "search__result__product--featured search__result__product")] | //div[@class="search__result__product__list"]/div[contains(@class, "search__result__product__grid")]/div[@class="search__result__product"]
+# recordXPath: //div[@class="search__result__product__list"]//div[contains(@class, "row")]//div[contains(@class, "col-xs-4 search__result__product")]
 # recordXPath: //div[@class="search__result__product__list"]//div[contains(@class, "search__result__product")]
 fields:
   - name: paid
@@ -82,7 +83,7 @@ fields:
     singleValue: false
     description: Is sponsored/paid
     type: BOOLEAN
-    xpath: //div[@class="search__result__product__list"]//div[contains(@class, "search__result__product--featured ")]
+    xpath: //div[contains(@class, "search__result__product--featured ")]
   - name: id
     singleValue: false
     description: Unique id (within this extractor)

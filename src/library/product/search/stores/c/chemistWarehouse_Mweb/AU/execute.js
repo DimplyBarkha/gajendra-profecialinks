@@ -7,7 +7,7 @@ module.exports = {
     domain: 'chemistwarehouse.com.au',
     url: 'https://www.chemistwarehouse.com.au/search?searchtext={searchTerms}&fh=1',
     loadedSelector: 'div.search__result__product__list',
-    noResultsXPath: 'div.search-results-category-list--empty',
+    noResultsXPath: '//div[contains(@class,"search-results-category-list--empty")]',
     zipcode: '',
   },
 };
