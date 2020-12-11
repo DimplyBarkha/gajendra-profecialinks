@@ -53,6 +53,17 @@ const transform = (data) => {
                     row.variantId = [{'text': variant_number[1].trim(),'xpath':row.variantId[0].xpath}];
                 }
             }
+              
+
+            if (row.brandText) {
+                let brand = [];
+                row.brandText.forEach(item => {
+                    brand = item.text.split(" ");
+                });
+                if(brand[0]){
+                    row.brandText = [{'text': brand[0].trim(),'xpath':row.brandText[0].xpath}];
+                }
+            }
         }
     }
     return cleanUp(data);

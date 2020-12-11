@@ -34,6 +34,7 @@ fields:
   - name: quantity
     singleValue: false
     defaultValue: 1  
+    xpath: //input[@id='productDetailPageQuantity']//@placeholder
   - name: variantCount
     singleValue: false
     defaultValue: 0   
@@ -43,4 +44,10 @@ fields:
   - name: alternateImages
     singleValue: false
     xpath: //div[@class='productMainDetailsImage']//img[@class='sparImageResponsive']//@data-desktop-zoom-src 
+  - name: brandText
+    singleValue: false
+    xpath: //div[@class='descriptionLabels']//label[@class='productDetailsName']//@title  
+  - name: shippingInfo
+    singleValue: false
+    xpath: //section[@class='detail__content']  
   
