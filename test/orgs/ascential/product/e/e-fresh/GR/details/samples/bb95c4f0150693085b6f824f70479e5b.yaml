@@ -1,0 +1,135 @@
+input:
+  id: 4100000201
+  _url: http://e-fresh.gr
+extractions:
+  - html: https://workbench.import.io/html/run=09ae8340-1ca5-4cc9-b867-8b9659186bc9/task=c0155749-268a-4ad6-8d1c-a2322e81d4a4/8d8b4c85-f378-449e-8381-dbcad55213b9.html
+    extractionConfigId: product/details/stores/e/e-fresh/GR/extract
+    data:
+      - group:
+          - image:
+              - text: https://dj0m4io8o9yuz.cloudfront.net/storage/media/catalog/products/410/1/4100000201/ion_galaktos.jpg?id=1561382832
+                xpath: /html/head[1]/meta[23]/@content
+            metaKeywords:
+              - text: Σοκολάτα Γάλακτος ΙΟΝ (100g)
+                xpath: /html/head[1]/meta[17]/@content
+            category:
+              - text: Τρόφιμα
+                xpath: /html/body/div[3]/div[5]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/nav[1]/ol[1]/li[2]
+              - text: Σνακς
+                xpath: /html/body/div[3]/div[5]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/nav[1]/ol[1]/li[3]
+              - text: Σοκολάτες
+                xpath: /html/body/div[3]/div[5]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/nav[1]/ol[1]/li[4]
+              - text: Γάλακτος
+                xpath: /html/body/div[3]/div[5]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/nav[1]/ol[1]/li[5]
+            nameExtended:
+              - text: Σοκολάτα Γάλακτος ΙΟΝ (100g)
+                xpath: /html/body/div[3]/div[5]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[3]/h2[1]
+            listPrice:
+              - text: 1,42 €
+                xpath: /html/body/div[10]
+            price:
+              - text: 1,21 €
+                xpath: /html/body/div[11]
+            description:
+              - text: Η σοκολάτα γάλακτος ΙΟΝ (100g), κομμάτι της οικογένειας των γλυκών σνακς,
+                  έχει μεγαλώσει και συνεχίζει να μεγαλώνει γενιές και γενιές
+                  Ελλήνων. Έχει αγαπηθεί ιδιαίτερα από τους νεαρούς σε ηλικία
+                  καταναλωτές και τα παιδιά. Η καλύτερη ανταμοιβή για όσους
+                  αγαπάτε, μετά από μια δύσκολη μέρα!
+                xpath: /html/body/div[3]/div[5]/div[1]/div[1]/div[1]/div[1]/div[2]/div[3]/div[1]/div[1]/div[1]/div[1]/p[1]
+            brandText:
+              - text: Ίον
+                xpath: /html/body/div[5]
+            manufacturer:
+              - text: Ίον
+                xpath: /html/body/div[3]/div[5]/div[1]/div[1]/div[1]/div[1]/div[2]/div[3]/div[1]/div[1]/div[1]/div[4]/strong[1]
+            gtin:
+              - text: "5012501010094"
+                xpath: /html/body/div[6]
+            sku:
+              - text: "4100000201"
+                xpath: /html/body/div[3]/div[5]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[3]/span[1]
+            variantId:
+              - text: "4100000201"
+                xpath: /html/body/div[3]/div[5]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[3]/span[1]
+            ingredientsList:
+              - text: "Ζαχαρη, Γαλα Σε Σκονη, Βουτυρο Κακαο, Μαζα Κακαο, Ορος Γαλακτος Σε Σκονη,
+                  Λακτοζη, Γαλακτωματοποιητης: Λεκιθινη Σογιας, Αρωματικη Υλη:
+                  Βανιλλινη. Στερεα Κακαο: 31.0 % Min. Μπορει να περιεχει ιχνη
+                  ξηρων καρπων και πρωτεϊνων σιτου. Οι αλλεργιογόνοι παράγοντες
+                  επισημαίνονται με έντονους χαρακτήρες."
+                xpath: /html/body/div[3]/div[5]/div[1]/div[1]/div[1]/div[1]/div[2]/div[3]/div[1]/div[1]/div[1]/div[2]/p[1]
+            servingSize:
+              - text: "100"
+                xpath: /html/body/div[3]/div[5]/div[1]/div[1]/div[1]/div[1]/div[2]/div[3]/div[2]/div[1]/div[1]/table[1]/thead[1]/tr[1]/th[2]
+            servingSizeUom:
+              - text: g
+                xpath: /html/body/div[3]/div[5]/div[1]/div[1]/div[1]/div[1]/div[2]/div[3]/div[2]/div[1]/div[1]/table[1]/thead[1]/tr[1]/th[2]
+            caloriesPerServing:
+              - text: 550 Kcal / 2303 kj
+                xpath: /html/body/div[3]/div[5]/div[1]/div[1]/div[1]/div[1]/div[2]/div[3]/div[2]/div[1]/div[1]/table[1]/tbody[1]/tr[1]/td[2]/span[1]
+            totalFatPerServing:
+              - text: 31,5
+                xpath: /html/body/div[3]/div[5]/div[1]/div[1]/div[1]/div[1]/div[2]/div[3]/div[2]/div[1]/div[1]/table[1]/tbody[1]/tr[2]/td[2]/span[1]
+            totalFatPerServingUom:
+              - text: g
+                xpath: /html/body/div[3]/div[5]/div[1]/div[1]/div[1]/div[1]/div[2]/div[3]/div[2]/div[1]/div[1]/table[1]/tbody[1]/tr[2]/td[2]/span[1]
+            totalCarbPerServing:
+              - text: 56,5
+                xpath: /html/body/div[3]/div[5]/div[1]/div[1]/div[1]/div[1]/div[2]/div[3]/div[2]/div[1]/div[1]/table[1]/tbody[1]/tr[4]/td[2]/span[1]
+            totalCarbPerServingUom:
+              - text: g
+                xpath: /html/body/div[3]/div[5]/div[1]/div[1]/div[1]/div[1]/div[2]/div[3]/div[2]/div[1]/div[1]/table[1]/tbody[1]/tr[4]/td[2]/span[1]
+            totalSugarsPerServing:
+              - text: "51"
+                xpath: /html/body/div[3]/div[5]/div[1]/div[1]/div[1]/div[1]/div[2]/div[3]/div[2]/div[1]/div[1]/table[1]/tbody[1]/tr[5]/td[2]/span[1]
+            totalSugarsPerServingUom:
+              - text: g
+                xpath: /html/body/div[3]/div[5]/div[1]/div[1]/div[1]/div[1]/div[2]/div[3]/div[2]/div[1]/div[1]/table[1]/tbody[1]/tr[5]/td[2]/span[1]
+            proteinPerServing:
+              - text: 9,2
+                xpath: /html/body/div[3]/div[5]/div[1]/div[1]/div[1]/div[1]/div[2]/div[3]/div[2]/div[1]/div[1]/table[1]/tbody[1]/tr[6]/td[2]/span[1]
+            proteinPerServingUom:
+              - text: g
+                xpath: /html/body/div[3]/div[5]/div[1]/div[1]/div[1]/div[1]/div[2]/div[3]/div[2]/div[1]/div[1]/table[1]/tbody[1]/tr[6]/td[2]/span[1]
+            saltPerServing:
+              - text: 0,40
+                xpath: /html/body/div[3]/div[5]/div[1]/div[1]/div[1]/div[1]/div[2]/div[3]/div[2]/div[1]/div[1]/table[1]/tbody[1]/tr[7]/td[2]/span[1]
+            saltPerServingUom:
+              - text: g
+                xpath: /html/body/div[3]/div[5]/div[1]/div[1]/div[1]/div[1]/div[2]/div[3]/div[2]/div[1]/div[1]/table[1]/tbody[1]/tr[7]/td[2]/span[1]
+            allergyAdvice:
+              - text: Γαλα, Σογιας, ξηρων, καρπων, πρωτεϊνων, σιτου
+                xpath: /html/body/div[9]
+            promotion:
+              - text: -15%
+                xpath: /html/body/div[3]/div[5]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/span[1]
+            imageZoomFeaturePresent:
+              - text: Yes
+                xpath: /html/body/div[12]
+            availabilityText:
+              - text: Out of Stock
+            technicalInformationPdfPresent:
+              - text: No
+            termsAndConditions:
+              - text: No
+            privacyPolicy:
+              - text: No
+            customerServiceAvailability:
+              - text: No
+            Image360Present:
+              - text: No
+            descriptionBullets:
+              - text: "0"
+                type: NUMBER
+                raw: "0"
+                locale: el
+                value: 0
+            secondaryImageTotal:
+              - text: "0"
+                type: NUMBER
+                raw: "0"
+                locale: el
+                value: 0
+        xpath: /
+    timestamp: 1607615248771
