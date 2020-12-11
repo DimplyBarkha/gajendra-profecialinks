@@ -79,21 +79,6 @@ const transform = (data) => {
             item.text = item.text.replace(/\n/g, "").trim();
           });
         }
-        if (row.price) {
-          row.price.forEach(item => {
-            item.text = item.text.replace('.',',');
-          });
-        }
-        if (row.listPrice) {
-          row.listPrice.forEach(item => {
-            item.text = item.text.replace('.','').replace(',','.');
-          });
-        }
-        if (row.aggregateRating) {
-          row.aggregateRating.forEach(item => {
-            item.text = item.text.replace('.',',');
-          });
-        }
       }
     }
     data.forEach(obj => obj.group.forEach(row => Object.keys(row).forEach(header => row[header].forEach(el => {

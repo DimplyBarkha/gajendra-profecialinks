@@ -13,7 +13,7 @@ fields:
     xpath: //div[@class="shipping-info clearfix"]/div[1]
   - name: price
     singleValue: false
-    xpath: (//div[@class='price-box']/meta[@itemprop='price']/@content)[1]
+    xpath: translate((//div[@class='price-box']/meta[@itemprop='price']/@content)[1], '.', ',')
   - name: promotion
     singleValue: false
     # xpath: //div[@class='badge-container']
@@ -41,14 +41,12 @@ fields:
     xpath: //div[text()="Anwendung"]/following-sibling::div[@class="tab-content"]//div[@class="instruction-content"]
   - name: aggregateRating
     singleValue: false
-    xpath: //div[@class="standalone-bottomline"]//span[@class='sr-only']
-    regExp: (.*) star
+    xpath: translate(//div[@class="standalone-bottomline"]//span[@class='sr-only'], '.', ',')
+    regExp: (.+) star
     regExpReplace: $1
   - name: ratingCount
     singleValue: false
-    xpath: //span[contains(@class, "reviews-qa-label")]
-    regExp: (.*) Bewertung
-    regExpReplace: $1
+    xpath: translate(//meta[@itemprop="ratingCount"]/@content,',','.')
   - name: description
     singleValue: false
     xpath: //div[@id="bb_descriptionBullets"]
