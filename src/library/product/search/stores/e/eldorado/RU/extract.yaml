@@ -1,15 +1,16 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: //ul[@data-dy="productsList"]/li[@data-dy]
+# recordXPath: //ul[@data-dy="productsList"]/li[@data-dy]
 fields:
   - name: productUrl
-    xpath: //div[@class="sc-1w9a1pg-12 sc-19ibhqc-13 hhdhoM"]/a/@href
-    regExp: ^(.+)$
-    regExpReplace: https://static.eldorado.ru$1
+    xpath: //div[@class="_2fFxlhy"]/a/@href
+    # regExp: ^(.+)$
+    regExpReplace: https://www.eldorado.ru$1
     description: The URL for the product details page
   - name: thumbnail
-    xpath:  
+    xpath: //a[@class="_1RaAPF1"]/@href
+    regExpReplace: https://www.eldorado.ru$1
     description: The URL for the product thumbnail image
   - name: name
     xpath: (//a[@data-dy="title"])
