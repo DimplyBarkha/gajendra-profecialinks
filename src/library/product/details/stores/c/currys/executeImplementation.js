@@ -34,7 +34,7 @@ const implementation = async (
   } else if (id) {
     const url = `https://www.currys.co.uk/gbuk/search-keywords/xx_xx_xx_xx_xx/{id}/xx-criteria.html`.replace('{id}', encodeURIComponent(id));
     await context.goto(url, { timeout, waitUntil: 'networkidle0' });
-    const noResultsXPath = `/html[not(//*[contains(.,'"pageType":"product"')])] | //p[contains(text(), "No results were found for your search.")]`
+    const noResultsXPath = `/html[starts-with(@lang,"en-")][not(//*[contains(.,'"pageType":"product"')])] | //p[contains(text(), "No results were found for your search.")]`
     console.log('Checking no results', noResultsXPath);
     const noresults = await context.evaluate(function (xp) {
       const r = document.evaluate(xp, document, null, XPathResult.UNORDERED_NODE_ITERATOR_TYPE, null);
