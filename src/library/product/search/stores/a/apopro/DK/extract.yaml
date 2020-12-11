@@ -4,15 +4,15 @@ recordSelector: null
 recordXPath: //section[contains(@class,"product-item")]
 fields:
   - name: productUrl
-    xpath: //a//header/parent::a/@href
+    xpath: //div[@class="search-thumbnail"]//div[@class="thumbnail-info-column"][1]/a/@href
     regExp: (.+)
     regExpReplace: https://apopro.dk$1
   - name: thumbnail
-    xpath: //a//img/@data-src
+    xpath: //div[@class="search-thumbnail"]//a//img/@data-src
     regExp: (.+)
     regExpReplace: https://apopro.dk$1
   - name: name
-    xpath: //a//header//h3
+    xpath: //div[@class="search-thumbnail"]//h3
   - name: gtin
   - name: aggregateRatingText
   - name: ratingCount

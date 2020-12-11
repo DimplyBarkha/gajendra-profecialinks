@@ -9,17 +9,15 @@ async function implementation (
   const { transform } = parameters;
   const { productDetails } = dependencies;
 
-  try {
-    await context.waitForSelector('button[class="coi-banner__accept"]', { timeout: 10000 });
-    await context.evaluate(function () {
-      document.querySelector('button[class="coi-banner__accept"]').click();
-    });
-  } catch (err) {
-    console.log('Accepting cookies failed');
-  }
-
+  await context.evaluate(async function (context) {
+    const isSelector = document.querySelector('button[class="coi-banner__accept"]');
+    if (isSelector) {
+      document.querySelector('button[class="coi-banner__accept').click();
+    }
+  });
   return await context.extract(productDetails, { transform });
 }
+
 module.exports = {
   implements: 'product/search/extract',
   parameterValues: {
