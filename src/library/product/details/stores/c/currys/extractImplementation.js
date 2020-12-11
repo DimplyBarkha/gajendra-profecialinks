@@ -135,8 +135,8 @@ const implementation = async (
         })
     }
     // eslint-disable-next-line
-    const basicDetails = JSON.parse(clean(decode(document.evaluate(`//script[contains(.,'"@type": "Product"')]`, document).iterateNext().textContent)));
-    const productDigitalData = JSON.parse(clean(decode(document.querySelector('script[id="app.digitalData"]').textContent))).product[0];
+    const basicDetails = JSON.parse(clean(decode(document.evaluate(`//*[contains(text(),'"@type": "Product"')]`, document).iterateNext().textContent)));
+    const productDigitalData = JSON.parse(clean(decode(document.querySelector('[id="app.digitalData"]').textContent))).product[0];
 
     const addElement = (id, content) => {
       const packagingElem = document.createElement('div');

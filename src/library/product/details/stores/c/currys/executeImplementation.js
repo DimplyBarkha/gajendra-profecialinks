@@ -34,6 +34,16 @@ const implementation = async (
   } else if (id) {
     const url = `https://www.currys.co.uk/gbuk/search-keywords/xx_xx_xx_xx_xx/{id}/xx-criteria.html`.replace('{id}', encodeURIComponent(id));
     await context.goto(url, { timeout, waitUntil: 'networkidle0' });
+    const noResultsXPath = `/html[@lang="en-GB"][not(//*[contains(.,'"pageType":"product"')])] | //p[contains(text(), "No results were found for your search.")]`
+    console.log('Checking no results', noResultsXPath);
+    const noresults = await context.evaluate(function (xp) {
+      const r = document.evaluate(xp, document, null, XPathResult.UNORDERED_NODE_ITERATOR_TYPE, null);
+      console.log(xp, r);
+      const e = r.iterateNext();
+      console.log(e);
+      return !!e;
+    }, noResultsXPath);
+    if(noresults) return 'no result';
     await acceptCookies();
     // await context.waitForSelector('input[name="search-field"]', { timeout });
     // await context.evaluate(async function (inpId) {
