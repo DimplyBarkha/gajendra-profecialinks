@@ -1,0 +1,380 @@
+singleRecord: true
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: image
+    xpath: //div[@class="slick-slider slick-initialized"]//div[@class='slick-slide slick-active slick-current']//img/@src|//div[@class="slick-slider product-image-list-slider product-image-list-slider--product-details-page slick-initialized"]//div[@class='slick-slide slick-active slick-current']//img/@src|//div[@class="product-image-list product-image-list--product-details-page"]//img/@src
+  - name: imageAlt
+    description: Alt text of the main product image
+  - name: alternateImages
+    singleValue: false
+    xpath: //div[@class='slick-slider product-image-list-slider product-image-list-slider--product-details-page slick-initialized']//div[@class='slick-slide']//img/@src
+  - name: metaKeywords
+    description: The <meta> keywords content
+  - name: category
+    xpath: //ul[@class="breadcrumbs__list"]/li[position()>2]
+  - name: nameExtended
+    xpath: concat(//div[contains(@class, 'product-details-page')]/span[contains(@class, 'item--brand')], ' ', //div[contains(@class, 'product-details-page')]/h1)
+  - name: listPrice
+    xpath: //div[contains(@class, 'product-details-page')]/ul[contains(@class, 'selling-price-list')]/li[contains(@class, 'selling-price-list')]/span/span[contains(@class, 'was-price__value')] 
+  - name: price
+    xpath: //div[contains(@class, 'product-details-page')]/ul[contains(@class, 'selling-price-list')]/li[contains(@class, 'selling-price-list')]/span/span[contains(@class, 'price--now-price__value')]
+    regExp: ((\d+)\.?(\d+)?)
+    regExpReplace: $1
+  - name: availabilityText
+    xpath: //div[contains(@class, 'product-button-group product-button-group--product-details-page product-button-group--add-to-list-button product-button-group--inactive')]/button/span[contains(text(), 'Add')]
+    regExp: (.+)
+    regExpReplace: In Stock
+    defaultValue: Out of Stock
+  - name: description
+    xpath: //p[@class="product-description-text__text"]
+  - name: descriptionBullets
+    xpath: count(//p[@class='product-description-text__text']/ul/li)
+  - name: brandText
+    xpath: //div[contains(@class, 'product-details-page')]/span[contains(@class, 'item--brand')]
+  - name: manufacturer
+    description: Product manufacturer
+  - name: quantity
+    xpath: //div[@class='product-name product-name--product-details-page']/span[@class='product-name__item product-name__item--package-size']
+  - name: weightNet
+    description: Net weight as described on the page
+  - name: weightGross
+    description: Gross weight as described on the page
+  - name: gtin
+    xpath: //div[@class='page-layout page-layout--product-details-page product-details-page null']/script[@type="application/ld+json"]
+    regExp: gtin12":"(\d+)
+    regExpReplace: $1
+  - name: sku
+    xpath: //p[@class="product-number"]/span[2]
+  - name: variantId
+    xpath: //p[@class="product-number"]/span[2]
+  - name: mpc
+    description: The manufacturer model code (unique) of the product
+  - name: packSize
+    description: The number of packs in the product offer (if stated separately on
+      the site to quantity)
+  - name: legalDisclaimer
+    description: Content under "legal disclaimer" header
+  - name: directions
+    description: Content under "directions" header
+  - name: warnings
+    description: Content under "warnings" header
+  - name: ratingCount
+    description: The number of ratings
+  - name: aggregateRatingText
+    description: The stated aggregate rating
+  - name: aggregateRating
+    description: The stated aggregate rating normalized to be out of 5
+  - name: shippingInfo
+    description: Shipping information for the product
+  - name: shippingDimensions
+    description: Stated shipping dimensions
+  - name: shippingWeight
+    description: Stated shipping weight
+  - name: variantCount
+    description: Number of variants listed
+  - name: color
+    description: A textual description of the colour
+  - name: colorCode
+    description: A code description of the color (e.g. RGB hex)
+  - name: manufacturerDescription
+    description: The extended description of the product supplied by the lister
+  - name: manufacturerImages
+    description: Images within the third party description
+  - name: videos
+    description: URLs of videos on page
+  - name: name
+    xpath: //div[contains(@class, 'product-details-page')]/h1
+  - name: inStorePrice
+    description: Price in the selected store
+  - name: asin
+    description: null
+  - name: coupon
+    description: Text of any coupon offer
+  - name: amazonChoice
+    description: YES or Blank
+  - name: amazonChoiceCategory
+    description: Text of link next to Amazon choice graphic
+  - name: brandLink
+    description: null
+  - name: internationalShipping
+    description: Text next to bullet point
+  - name: salesRank
+    description: Amazon best selling rank from product details (linked back) - needs
+      to be collapsed
+  - name: salesRankCategory
+    description: Amazon best selling rank from product details (linked back) - needs
+      to be collapsed
+  - name: subscriptionPrice
+    description: Subscribe and save price
+  - name: subscribeAndSave
+    description: YES/NO
+  - name: heroQuickPromoHeadline
+    description: See image - top section hero area
+  - name: heroQuickPromoImageUrl
+    description: null
+  - name: heroQuickPromoUrl
+    description: null
+  - name: pasin
+    description: Parent asin
+  - name: videoLength
+    description: null
+  - name: ingredientImagePresent
+    description: null
+  - name: factImagePresent
+    description: null
+  - name: largeImageCount
+    description: null
+  - name: variantAsins
+    description: null
+  - name: primeFlag
+    description: null
+  - name: lbb
+    description: Check Lost by Box Requirements (just for Amazon and a couple of
+      other stores) - LBB occurs when a product is bought from someone other
+      than Amazon (on Amazon Website) - even though Amazon has the product "in
+      Stock"
+  - name: lbbPrice
+    description: null
+  - name: featureBullets
+    description: null
+  - name: otherSellersName
+    description: null
+  - name: otherSellersPrice
+    description: null
+  - name: otherSellersShipping
+    description: null
+  - name: secondaryImageTotal
+    xpath: count(//div[@class="slick-slider slick-initialized"]//div[@class='slick-slide']//img/@src|//div[@class='slick-slider product-image-list-slider product-image-list-slider--product-details-page slick-initialized']//div[@class='slick-slide']//img/@src)
+  - name: news
+    description: null
+  - name: addonItem
+    description: null
+  - name: fastTrack
+    description: null
+  - name: ingredientsList
+    xpath: //h4[@class="product-details-page-info-layout-title product-details-page-info-layout-title--ingredients"]/following-sibling::div
+  - name: servingSize
+    xpath: //span[@class='nutritional-value nutritional-value--perservesizeamt']//ancestor-or-self::strong
+    regExp: ((\d+)\.?(\d+)?)\s(\w+)
+    regExpReplace: $1
+  - name: servingSizeUom
+    xpath: //span[@class='nutritional-value nutritional-value--perservesizeamt']//ancestor-or-self::strong
+    regExp: ((\d+)\.?(\d+)?)\s(\w+)
+    regExpReplace: $4
+  - name: numberOfServingsInPackage
+    description: Suggested number of servings of the product.
+  - name: caloriesPerServing
+    xpath: //div[@class='nutrient-per-serving__label nutrient-per-serving__label--calories']/span/span[2]
+  - name: caloriesFromFatPerServing
+    description: Nutritional Information for Calories From Fat content - Usually
+      based on per 100g serving
+  - name: totalFatPerServing
+    xpath: //div[@class='nutrient-per-serving__label nutrient-per-serving__label--totalfat']/span/span[2]
+    regExp: ((\d+)\.?(\d+)?)\s(\w+)
+    regExpReplace: $1
+  - name: totalFatPerServingUom
+    xpath: //div[@class='nutrient-per-serving__label nutrient-per-serving__label--totalfat']/span/span[2]
+    regExp: ((\d+)\.?(\d+)?)\s(\w+)
+    regExpReplace: $4
+  - name: saturatedFatPerServing
+    xpath: //div[@class='nutrient-per-serving__label nutrient-per-serving__label--saturatedfat']/span/span[2]
+    regExp: ((\d+)\.?(\d+)?)\s(\w+)
+    regExpReplace: $1
+  - name: saturatedFatPerServingUom
+    xpath: //div[@class='nutrient-per-serving__label nutrient-per-serving__label--saturatedfat']/span/span[2]
+    regExp: ((\d+)\.?(\d+)?)\s(\w+)
+    regExpReplace: $4
+  - name: transFatPerServing
+    xpath: //div[@class='nutrient-per-serving__label nutrient-per-serving__label--transfat']/span/span[2]
+    regExp: ((\d+)\.?(\d+)?)\s(\w+)
+    regExpReplace: $1
+  - name: transFatPerServingUom
+    xpath: //div[@class='nutrient-per-serving__label nutrient-per-serving__label--transfat']/span/span[2]
+    regExp: ((\d+)\.?(\d+)?)\s(\w+)
+    regExpReplace: $4
+  - name: cholesterolPerServing
+    xpath: //div[@class='nutrient-per-serving__label nutrient-per-serving__label--cholesterol']/span/span[2]
+    regExp: ((\d+)\.?(\d+)?)\s(\w+)
+    regExpReplace: $1
+  - name: cholesterolPerServingUom
+    xpath: //div[@class='nutrient-per-serving__label nutrient-per-serving__label--cholesterol']/span/span[2]
+    regExp: ((\d+)\.?(\d+)?)\s(\w+)
+    regExpReplace: $4
+  - name: sodiumPerServing
+    xpath: //div[@class='nutrient-per-serving__label nutrient-per-serving__label--sodium']/span/span[2]
+    regExp: ((\d+)\.?(\d+)?)\s(\w+)
+    regExpReplace: $1
+  - name: sodiumPerServingUom
+    xpath: //div[@class='nutrient-per-serving__label nutrient-per-serving__label--sodium']/span/span[2]
+    regExp: ((\d+)\.?(\d+)?)\s(\w+)
+    regExpReplace: $4
+  - name: totalCarbPerServing
+    xpath: //div[@class='nutrient-per-serving__label nutrient-per-serving__label--totalcarbohydrate']/span/span[2]
+    regExp: ((\d+)\.?(\d+)?)\s(\w+)
+    regExpReplace: $1
+  - name: totalCarbPerServingUom
+    xpath: //div[@class='nutrient-per-serving__label nutrient-per-serving__label--totalcarbohydrate']/span/span[2]
+    regExp: ((\d+)\.?(\d+)?)\s(\w+)
+    regExpReplace: $4
+  - name: dietaryFibrePerServing
+    xpath: //div[@class='nutrient-per-serving__label nutrient-per-serving__label--dietaryfiber']/span/span[2]
+    regExp: ((\d+)\.?(\d+)?)\s(\w+)
+    regExpReplace: $1
+  - name: dietaryFibrePerServingUom
+    xpath: //div[@class='nutrient-per-serving__label nutrient-per-serving__label--dietaryfiber']/span/span[2]
+    regExp: ((\d+)\.?(\d+)?)\s(\w+)
+    regExpReplace: $4
+  - name: totalSugarsPerServing
+    xpath: //div[@class='nutrient-per-serving__label nutrient-per-serving__label--sugar']/span/span[2]
+    regExp: ((\d+)\.?(\d+)?)\s(\w+)
+    regExpReplace: $1
+  - name: totalSugarsPerServingUom
+    xpath: //div[@class='nutrient-per-serving__label nutrient-per-serving__label--sugar']/span/span[2]
+    regExp: ((\d+)\.?(\d+)?)\s(\w+)
+    regExpReplace: $4
+  - name: proteinPerServing
+    xpath: //div[@class='nutrient-per-serving__label nutrient-per-serving__label--protein']/span/span[2]
+    regExp: ((\d+)\.?(\d+)?)\s(\w+)
+    regExpReplace: $1
+  - name: proteinPerServingUom
+    xpath: //div[@class='nutrient-per-serving__label nutrient-per-serving__label--protein']/span/span[2]
+    regExp: ((\d+)\.?(\d+)?)\s(\w+)
+    regExpReplace: $4
+  - name: vitaminAPerServing
+    xpath: //div[@class='nutrient-per-serving__label nutrient-per-serving__label--vitamina']/span[2]
+    regExp: ((\d+)\.?(\d+)?)\s(\%)
+    regExpReplace: $1
+  - name: vitaminAPerServingUom
+    xpath: //div[@class='nutrient-per-serving__label nutrient-per-serving__label--vitamina']/span[2]
+    regExp: ((\d+)\.?(\d+)?)\s(\%)
+    regExpReplace: $4
+  - name: vitaminCPerServing
+    xpath: //div[@class='nutrient-per-serving__label nutrient-per-serving__label--vitaminc']/span[2]
+    regExp: ((\d+)\.?(\d+)?)\s(\%)
+    regExpReplace: $1
+  - name: vitaminCPerServingUom
+    xpath: //div[@class='nutrient-per-serving__label nutrient-per-serving__label--vitaminc']/span[2]
+    regExp: ((\d+)\.?(\d+)?)\s(\%)
+    regExpReplace: $4
+  - name: calciumPerServing
+    xpath: //div[@class='nutrient-per-serving__label nutrient-per-serving__label--calcium']/span[2]
+    regExp: ((\d+)\.?(\d+)?)\s(\%)
+    regExpReplace: $1
+  - name: calciumPerServingUom
+    xpath: //div[@class='nutrient-per-serving__label nutrient-per-serving__label--calcium']/span[2]
+    regExp: ((\d+)\.?(\d+)?)\s(\%)
+    regExpReplace: $4
+  - name: ironPerServing
+    xpath: //div[@class='nutrient-per-serving__label nutrient-per-serving__label--iron']/span[2]
+    regExp: ((\d+)\.?(\d+)?)\s(\%)
+    regExpReplace: $1
+  - name: ironPerServingUom
+    xpath: //div[@class='nutrient-per-serving__label nutrient-per-serving__label--iron']/span[2]
+    regExp: ((\d+)\.?(\d+)?)\s(\%)
+    regExpReplace: $4
+  - name: dietarySymbols
+    description: Information related to the dietary symbols of a specific product
+  - name: magnesiumPerServing
+    description: Nutritional Information for Magnesium content - Usually based on
+      per 100g serving
+  - name: magnesiumPerServingUom
+    description: Unit of Measure Data for Magnesium
+  - name: saltPerServing
+    description: Nutritional Information for Salt content - Usually based on per
+      100g serving
+  - name: saltPerServingUom
+    description: Unit of Measure Data for Salt
+  - name: dietaryInformation
+    description: null
+  - name: specifications
+    description: The physical dimensions of the product including packaging.
+  - name: warranty
+    description: Guarantee associated with the product
+  - name: storage
+    description: Suggested storage location for product
+  - name: countryOfOrigin
+    description: The country from which the product originates
+  - name: allergyAdvice
+    description: Allergy information associated with the product
+  - name: recyclingInformation
+    description: Recycling information associated with the product
+  - name: productOtherInformation
+    description: Any other product information
+  - name: packaging
+    description: Packaging information
+  - name: additives
+    description: List of additives in the product
+  - name: pricePerUnit
+    xpath: //div[@class='product-prices product-prices--product-details-page']/ul/li/span[@class='price comparison-price-list__item__price']
+    regExp: ((.+)\d+)(\w(\w)?)
+    regExpReplace: $1
+  - name: pricePerUnitUom
+    xpath: //div[@class='product-prices product-prices--product-details-page']/ul/li/span[@class='price comparison-price-list__item__price']
+    regExp: ((.+)\d+)(\w(\w)?)
+    regExpReplace: $3
+  - name: promotion
+    xpath: //div[@class='product-grocery-promo__text product-promo__badge__text']
+  - name: alcoholContent
+    description: Alcohol content information
+  - name: newVersion
+    description: In product page, information about a new version of the product
+      (https://www.amazon.es/DODOT-Sensitive-Pa%C3%B1ales-Talla-240/dp/B01ELA8U0Q/ref=sr_1_4?__mk_es_ES=%C3%85M%C3%85%C5%BD%C3%95%C3%91&dchild=1&keywords=dodot%2B-%2Bpa%C3%B1ales%2Bpara%2Bni&qid=1589984387&sr=8-4&th=1)
+  - name: newAsin
+    description: In product page, information about a new version of the product -
+      new asin info
+  - name: newDescription
+    description: In product page, information about a new version of the product -
+      new desription info
+  - name: variantInformation
+    description: colour / scent / flavour / other
+  - name: firstVariant
+    description: Unique identifier for a collection of variants. For a subset of
+      core feeds (43) we have a column "first_variant" that is populated with a
+      common code to link all variants for a product. method 1 (Preferred) = use
+      common tag (Could be parent sku) that is same value for all variants of a
+      product. method 2 = first_variant method technique, Identify the first
+      varient in the sequence and use this rpc to populate "first_variant" for
+      all variants of a product, this rpc becomes the common link between other
+      variants. method 3 = apply some logic to determine link between variants,
+      this will need analysis
+  - name: variants
+    description: null
+  - name: additionalDescBulletInfo
+    xpath: //p[@class='product-description-text__text']/ul/li
+  - name: prop65Warning
+    description: null
+  - name: ageSuitability
+    description: Recommended age displayed on the product page.
+      https://www.amazon.com/LEGO-Classic-Medium-Creative-Brick/dp/B00NHQFA1I
+    example: 4 - 99 years
+  - name: energyEfficiency
+    description: Energy rating of a product.
+      https://www.amazon.de/Siemens-WM16W541-Waschmaschine-Schnellwaschprogramm-Nachlegefunktion/dp/B015FJFK14
+    example: A+, A+++, B
+  - name: technicalInformationPdfPresent
+    description: If there is for example a manual in pdf format on the website. ['Yes','No']
+    example: https://www.amazon.de/Hasbro-Spiele-44220100-Mastermind-Kinderspiel/dp/B0007OHUG6
+    defaultValue: No
+  - name: termsAndConditions
+    description: Terms and conditions information text ['Yes','No']
+    defaultValue: No
+  - name: privacyPolicy
+    description: Privacy Policy information text ['Yes','No']
+    defaultValue: No
+  - name: customerServiceAvailability
+    description: Information related to customer service availability (text), ['Yes','No']
+    defaultValue: No
+  - name: materials
+    description: Materials used to make the product
+    example: https://www.jdsports.co.uk/product/blue-adidas-linear-20-reversible-wind-breaker-jacket/15988125/
+  - name: Image360Present
+    description: If 360 image is present in the carousel ['Yes','No']
+    example: https://www.amazon.com/Trinsic-Single-Handle-Magnetic-Champagne-9159-CZ-DST/dp/B0050EN8E6
+    defaultValue: No
+  - name: imageZoomFeaturePresent
+    xpath: //div[@class="product-image-zoom-button--oval"]
+    regExp: (\w+)
+    regExpReplace: Yes
+    defaultValue: No
