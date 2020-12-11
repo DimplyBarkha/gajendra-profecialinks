@@ -9,6 +9,9 @@ fields:
   - name: alternateImages
     singleValue: false
     xpath: //html//div[@id='altImages']
+  - name: secondaryImageTotal
+    singleValue: false
+    xpath: count(//html//div[@id='altImages'])
   - name: category
     singleValue: false
     xpath: //nav[@class="rd-product-breadcrumb-navigation"]/a[not(contains(@cs-id,'breadcrumb-level-1-link'))]/text()
@@ -18,6 +21,9 @@ fields:
   - name: price
     singleValue: true
     xpath: //meta[@property="product:price:amount"]/@content
+  - name: listPrice
+    singleValue: true
+    xpath: //div[@class="rd-product-buybox__baseprice"]/span
   - name: availabilityText
     singleValue: true
     regExp: (.+)
@@ -27,12 +33,18 @@ fields:
   - name: description
     singleValue: false
     xpath: //html//div[@id='description']
+  - name: descriptionBullets
+    singleValue: false
+    xpath: count(//div[@class="rd-product-description__text"]//ul/li)
   - name: brandText
     singleValue: true
     xpath: //meta[@property="product:brand"]/@content
   - name: weightGross
     singleValue: true
     xpath: //html//div[@id='weightGross']
+  - name: sku
+    singleValue: true
+    xpath: //html//div[@id='sku']
   - name: variantId
     singleValue: true
     xpath: //html//div[@id='sku']
