@@ -5,7 +5,7 @@ module.exports = {
     country: 'US',
     store: 'blu',
     domain: 'blu.com',
-    zipcode: "''",
+    zipcode: '',
     mergeType: null,
   },
 };

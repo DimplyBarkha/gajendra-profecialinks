@@ -13,14 +13,11 @@ module.exports = {
     context,
     dependencies) => {
     const { productReviews } = dependencies;
-
     await context.evaluate(async () => {
-      console.log('++++++++++++++++++++++++++++++++++++++')
       const popUps = document.querySelector('[data-testid="age-wall-button-accept"]');
       if (popUps){
         document.getElementById('check').click();
         popUps.click();
-        console.log('==================================')
         new Promise(resolve => {
           setTimeout(() => {
             resolve();
@@ -31,7 +28,7 @@ module.exports = {
     new Promise(resolve => {
       setTimeout(() => {
         resolve();
-      }, 2000);
+      }, 5000);
     });
     return await context.extract(productReviews);
   },

@@ -5,7 +5,7 @@ module.exports = {
     country: 'US',
     store: 'blu',
     domain: 'blu.com',
-    loadedSelector: 'div[data-testid="pageShellBody"]',
+    loadedSelector: 'div#reviews',
     noResultsXPath: null,
     reviewUrl: null,
     sortButtonSelectors: null,

@@ -8,7 +8,7 @@ module.exports = {
     nextLinkSelector: 'button[data-testid="reviews-block-page-next"]:enabled',
     // nextLinkSelector: null,
     nextLinkXpath: null,
-    mutationSelector: null,
+    mutationSelector: 'div.sc-1xuymxc-0.ExfKH',
     spinnerSelector: null,
     loadedSelector: 'div[data-testid="pageShellBody"]',
     loadedXpath: null,
