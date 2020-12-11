@@ -44,10 +44,12 @@ const transform = (data) => {
       if (row.shippingInfo) {
         let text = '';
         row.shippingInfo.forEach(ele => {
-          text += ele.text + ' || ';
+          text += ele.text + ' ';
         });
-        text = text.replace(/Enviado y Vendido por: \|\| /g, 'Enviado y Vendido por: ');
-        row.shippingInfo = [{ text: text.slice(0, -3).trim() }];
+        row.shippingInfo = [{ text: text.trim() }];
+      }
+      if (row.nameExtended && row.brandText) {
+        row.nameExtended[0].text = row.brandText[0].text + ' - ' + row.nameExtended[0].text;
       }
     }
   }

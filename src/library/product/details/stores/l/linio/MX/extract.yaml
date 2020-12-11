@@ -23,10 +23,10 @@ fields:
     singleValue: false
     xpath: //ol[contains(@class,"breadcrumb")]/li[position()>1 and position()<last()]
   - name: nameExtended
-    singleValue: false
+    singleValue: true
     xpath: //meta[contains(@itemprop,'name')]/@content
   - name: name
-    singleValue: false
+    singleValue: true
     xpath: //meta[contains(@itemprop,'name')]/@content
   - name: listPrice
     singleValue: false
@@ -57,19 +57,13 @@ fields:
     xpath: //meta[contains(@itemprop,'gtin13')]/@content
   - name: variantId
     singleValue: false
-    xpath: //meta[contains(@itemprop,'model')]/@content
+    xpath: //meta[contains(@itemprop,'sku')]/@content
   - name: mpc
     singleValue: false
     xpath: //meta[contains(@itemprop,'model')]/@content
-  - name: quantity
-    singleValue: false
-    xpath: //div[contains(text(),'Contenido')]/following::div[1]
   - name: weightNet
     singleValue: false
     xpath: //div[contains(text(),'Peso (kg)')]/following::div[1]
-  - name: packSize
-    singleValue: false
-    xpath: //div[contains(text(),'Qué hay en la caja')]/following::div[1]
   - name: ratingCount
     singleValue: false
     xpath: //meta[contains(@itemprop,'reviewCount')]/@content
@@ -78,7 +72,7 @@ fields:
     xpath: (//meta[contains(@itemprop,'ratingValue')]/@content)[1]
   - name: shippingInfo
     singleValue: false
-    xpath: //div[contains(@class,'seller-information')]/h2 | //div[contains(@class,'seller-name')] | //div[contains(@class,'shipping-information')]
+    xpath: //div[contains(@class,'seller-information')]/h2 | //div[contains(@class,'seller-name')]
   - name: color
     singleValue: false
     xpath: //div[contains(text(),'Color')]/following::div[1]
@@ -97,6 +91,12 @@ fields:
   - name: productOtherInformation
     singleValue: false
     xpath: //div[contains(@class,'usp-product-container')]//div
+  # - name: packSize
+  #   singleValue: false
+  #   xpath: //div[contains(text(),'Qué hay en la caja')]/following::div[1]
+  # - name: quantity
+  #   singleValue: false
+  #   xpath: //div[contains(text(),'Contenido')]/following::div[1]
   # - name: legalDisclaimer
   #   singleValue: true
   #   description: Content under "legal disclaimer" header
