@@ -23,7 +23,7 @@ fields:
     xpath: //ol[@class='breadcrumbs-list']//li[contains(@class,'breadcrumbs-list-active')]
   - name: name
     singleValue: false
-    xpath: //div[@class='product-info']//h2[@class='product-brand']//a
+    xpath: concat(//div[@class='product-info']//h2[@class='product-brand']//a , '-' , //h1[@class='product-title'])
   - name: price
     singleValue: false
     xpath: //table[@class='pdp-table']//div[contains(@class,'current-price')]
@@ -52,3 +52,6 @@ fields:
   - name: alternateImages
     singleValue: false
     xpath: //div[@id='prodimgcarousel']//div[contains(@class,'product-img-main')]//div[position()>1]//img//@src
+  - name: quantuty
+    singleValue: false
+    xpath: (//div[@class='product-variation']//select//option[@selected='selected'])[last()]  
