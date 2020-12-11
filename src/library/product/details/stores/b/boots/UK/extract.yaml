@@ -9,6 +9,18 @@ fields:
     regExp: "(^[^?]+)"
     # Added custom height nd width values.
     regExpReplace: $1?wid=1920&hei=1080&op_sharpen=1
+  - name: inTheBoxUrl
+    singleValue: false
+  - name: inTheBoxText
+    singleValue: false
+    description: Must include text to show the accessories/tools which come with the product
+    xpath: ancestor::html//span[contains(.,'In the box')]/../..//li
+  - name: hasComparisonTable
+    defautValue: No
+  - name: unInterruptedPDP
+    singleValue: false
+    xpath: ancestor::html//div[@id="richRelevanceContainer"]//a[contains(@class, "ItemTitle")]
+    description: Titles of products in the sections 'you may also like' or 'sponsored products'. Combine results from Max 3 sections
   - name: imageAlt
     description: Alt text of the main product image
   - name: alternateImages
@@ -204,6 +216,12 @@ fields:
     html: true
     description: List of Ingredients from site - can be string of data if no
       discernible start/end point
+  - name: backupIngredients
+    xpath: ancestor::html//*[contains(text(),"Ingredients")]/following-sibling::p
+    # xpath: ancestor::html//span[contains(text(),"Ingredients")]/following-sibling::*
+    # xpath: ancestor::html//*[@id="estore_product_longdesc"]
+    # regExp: >-
+      # (?<=Ingredients)(.+)
   - name: servingSize
     xpath: ancestor::html//span[contains(text(),"Nutrition Information")]/following-sibling::text()[contains(.,"per")]
     regExp: per\s+([^\s]+)
@@ -348,13 +366,14 @@ fields:
     description: null
   - name: specifications
     xpath: ancestor::html//p[@id="product_long_description"]/span[contains(text(),"Product Specifications")]/following-sibling::text()
+    # xpath: //span[contains(text(),"Product Specifications")]/following-sibling::text()
     description: The physical dimensions of the product including packaging.
   - name: warranty
     xpath: ancestor::html//p[@id="product_long_description"]/text()[contains(.,"guarantee")] | //p[@id="product_long_description"]/text()[contains(.,"waranty")] | //p[@id="product_long_description"]//span[contains(text(),"guarantee")] | //p[@id="product_long_description"]//span[contains(text(),"waranty")]
     description: Guarantee associated with the product
   - name: storage
     description: Suggested storage location for product
-    xpath: ancestor::html//span[contains(text(),"Storage")]/following-sibling::text()[1]
+    xpath: ancestor::html//span[contains(text(),"Storage")]/following-sibling::text()[1] | ancestor::html//span[contains(text(),"Storage")]/following-sibling::span
   - name: countryOfOrigin
     xpath: ancestor::html//span[contains(text(),"Country of Origin:")]/following-sibling::text()[1] | //h3[@id="product_important_info"]/following-sibling::p//span[contains(.,"Made in")]
     description: The country from which the product originates
@@ -370,13 +389,13 @@ fields:
   - name: additives
     description: List of additives in the product
   - name: pricePerUnit
-    xapth: //div[@class="details details_redesign"]/text() | //div[@id="estore_product_price_widget"]//*[contains(@class,'details')]
+    xapth: //div[@class="details details_redesign"]/text() | //div[@id="estore_product_price_widget"]//*[contains(@class,"details")]
     singleValue: false
     regExp: (£\d+.*)per
     regExpReplace: $1
     description: Price of the product split into certain units
   - name: pricePerUnitUom
-    xapth: //div[@class="details details_redesign"]/text() | //div[contains(@id, 'estore_product_price_widget')]//*[contains(@class, 'details')]
+    xapth: //div[@class="details details_redesign"]/text() | //div[contains(@id, 'estore_product_price_widget')]//*[contains(@class, "details")]
     regExp: (per\s)(\d+ML)
     regExpReplace: $2
     description: The unit of measurement used in price_per_unit
