@@ -159,6 +159,9 @@ const transform = (data) => {
       if ((!row.brandText || !row.brandText.length) && row.brandText1) {
         row.brandText = row.brandText1;
       }
+      if (row.brandText && row.brandText[0]) {
+        row.brandText[0].text = row.brandText[0].text.replace('Fater spa', 'Lines');
+      }
 
       if (row.additionalDescBulletInfo) {
         let text = '';
