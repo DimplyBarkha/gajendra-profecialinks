@@ -4,7 +4,7 @@ module.exports = {
   parameterValues: {
     domain: 'walmart.com.mx',
     prefix: null,
-    url: null,
+    url: 'https://super.walmart.com.mx/a/a/{id}',
     country: 'MX',
     store: 'walmart',
     zipcode: '',
