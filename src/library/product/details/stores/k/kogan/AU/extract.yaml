@@ -89,7 +89,8 @@ fields:
     singleValue: true
     description: The number of packs in the product offer (if stated separately on
       the site to quantity)
-    xpath: //div[contains(@class,'react-sanfona-item-body-wrapper')]/span/ul
+    #xpath: //div[contains(@class,'react-sanfona-item-body-wrapper')]/span/ul
+    xpath: //section[contains(@id,"in_box-accordion")]//div//span//ul
   - name: mpc
     singleValue: true
     description: The manufacturer model code (unique) of the product
@@ -129,7 +130,8 @@ fields:
   - name: specifications
     singleValue: false
     description: The physical dimensions of the product including packaging.
-    xpath: //div[contains(@class,'react-sanfona-item-body-wrapper')]/div[contains(h3,'dimensions')]//div
+    xpath: //section[contains(@id,"specs-accordion")]//div[contains(h3,"dimensions")]//dl//div[contains(dt,"Dimensions")]
+    # xpath: //div[contains(@class,'react-sanfona-item-body-wrapper')]/div[contains(h3,'dimensions')]//div
     # xpath: //div[contains(@class,'react-sanfona-item-body-wrapper')]/div[contains(h3,'dimensions')]/dl
   - name: ratingCount
     singleValue: true
