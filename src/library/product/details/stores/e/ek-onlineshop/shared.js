@@ -146,6 +146,23 @@ const transform = (data) => {
 				newText1 = newText;
 				row.specifications = [{ text: newText.trim() }];
 			  }
+			  if (row.inTheBoxUrl && row.inTheBoxUrl[0]) {
+				row.inTheBoxUrl.forEach(item => {
+				  if (item.text.includes(' 200w')) {
+					const imgUrl = item.text.split(' 200w, ')[0];
+					if (!(item.text.includes('http'))) {
+					  item.text = 'https:' + imgUrl;
+					}
+				  }
+				});
+			  }
+			  if (row.manufacturerImages && row.manufacturerImages[0]) {
+				row.manufacturerImages.forEach(item => {
+					if (!(item.text.startsWith('http'))) {
+						item.text = 'https:' + item.text;
+					}
+				});
+			  }
 		}
 	}
 	
