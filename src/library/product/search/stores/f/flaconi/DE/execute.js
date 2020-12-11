@@ -5,7 +5,7 @@ module.exports = {
     country: 'DE',
     store: 'flaconi',
     domain: 'flaconi.de',
-    url: 'https://www.flaconi.de/search/?q={searchTerms}',
+    url: 'https://www.flaconi.de/search?q={searchTerms}&page=1',
     loadedSelector: 'div.canvas-menu-wrapper',
     noResultsXPath: null,
     zipcode: '',

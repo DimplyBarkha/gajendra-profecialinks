@@ -11,25 +11,6 @@ module.exports = {
   // @ts-ignore
   implementation: async ({ inputString }, { country, domain }, context, { productDetails }) => {
 
-    try {
-      const cssBanner = "button#uc-btn-accept-banner";
-      const isSelectorAvailable = async (cssSelector) => {
-        console.log(`Is selector available: ${cssSelector}`);
-        return await context.evaluate(function (selector) {
-          return !!document.querySelector(selector);
-        }, cssSelector);
-      };
-
-      console.log('.....waiting......');
-      await context.waitForSelector(cssBanner, { timeout: 10000 });
-
-      const bannerAvailable = await isSelectorAvailable(cssBanner);
-      if (bannerAvailable) {
-        await context.click(cssBanner);
-
-      }
-    }
-    catch (error) { console.log("No overlay") }
     await context.evaluate(async function () {
       function addElementToDocument(key, value) {
         const catElement = document.createElement('div');
@@ -97,7 +78,7 @@ module.exports = {
         // @ts-ignore
         descfinal.push(countLi[i].innerText);
       }
-      
+
       //var ratingValue = aggregateRating ? aggregateRating.replace(/^\D+/g, '') : '';
       pipeSeparatorDouble('desc', descfinal);
     });

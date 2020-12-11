@@ -65,12 +65,6 @@ module.exports = {
     // TODO: consider moving this to a reusable function
     const length = (results) => results.reduce((acc, { group }) => acc + (Array.isArray(group) ? group.length : 0), 0);
 
-<<<<<<< HEAD
-    keywords = (Keywords) || (Brands) || (keywords);
-    console.log('zip:' + zipcode);
-
-    const resultsReturned = await execute({ keywords, zipcode });
-=======
     const resultsReturned = await execute({
       ...inputs,
       keywords: inputKeywords,
@@ -78,7 +72,6 @@ module.exports = {
     });
 
     // do the search
->>>>>>> 027dd471e16a40e288a1fec36e3f94802b39fc2d
 
     // do the search
 
