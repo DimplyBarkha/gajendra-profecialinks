@@ -1,95 +1,109 @@
 input:
   _url: http://mifarma.es
-  URL: https://www.mifarma.es/pasta-dentifrica-natural-lacer-natur-100ml
+  URL: https://www.mifarma.es/optrex-spray-actimist-2-en-1-ojos-secos
 extractions:
-  - html: https://workbench.import.io/html/run=3c3447bd-fb37-4106-913b-0ab580336476/task=6d835b8b-e152-45a2-a0a6-6fdb0500c6c2/ef5316ec-a677-449c-a200-d7c8c3f5b026.html
+  - html: https://workbench.import.io/html/run=3c3447bd-fb37-4106-913b-0ab580336476/task=252138b7-f365-48fd-8649-70d068a3be6d/63217af3-83ea-4b06-a9b1-fabd6e1794e6.html
     extractionConfigId: product/details/stores/m/mifarma/ES/extract
     data:
       - group:
           - productUrl:
-              - text: https://www.mifarma.es/pasta-dentifrica-natural-lacer-natur-100ml
+              - text: https://www.mifarma.es/optrex-spray-actimist-2-en-1-ojos-secos
                 xpath: /html/head[1]/link[32]/@href
             image:
-              - text: https://www.mifarma.es/media/catalog/product/cache/1/image/9d6758f7fb7476b09aa51a3fa7ce618a/1/8/189473_.jpg
+              - text: https://www.mifarma.es/media/catalog/product/cache/1/image/9d6758f7fb7476b09aa51a3fa7ce618a/1/7/173421_.jpg
                 xpath: /html/body/div[4]/div[1]/div[3]/div[1]/div[1]/div[7]/div[1]/form[1]/div[2]/div[5]/div[1]/img[1]/@src
             imageAlt:
-              - text: Pasta Dentifrica Natural Lacer Natur 100ml
+              - text: Optrex Spray Actimist 2 en 1 Ojos Secos 10ml
                 xpath: /html/body/div[4]/div[1]/div[3]/div[1]/div[1]/div[7]/div[1]/form[1]/div[2]/div[5]/div[1]/img[1]/@alt
+            alternateImages:
+              - text: https://www.mifarma.es/media/catalog/product/cache/1/image/1800x/7991b0a10959e5a6fe23085fbcedc5d2/1/7/173421_5.jpg
+                xpath: /html/body/div[4]/div[1]/div[3]/div[1]/div[1]/div[7]/div[1]/form[1]/div[2]/div[5]/div[1]/img[3]/@src
+              - text: https://www.mifarma.es/media/catalog/product/cache/1/image/1800x/7991b0a10959e5a6fe23085fbcedc5d2/1/7/173421_6.jpg
+                xpath: /html/body/div[4]/div[1]/div[3]/div[1]/div[1]/div[7]/div[1]/form[1]/div[2]/div[5]/div[1]/img[4]/@src
             category:
-              - text: Higiene y Salud
+              - text: Óptica
                 xpath: /html/body/div[4]/div[1]/div[3]/div[1]/div[1]/div[7]/div[1]/form[1]/div[2]/div[2]/ul[1]/li[2]/a[1]/text()[1]
-              - text: Dental
+              - text: Colirios
                 xpath: /html/body/div[4]/div[1]/div[3]/div[1]/div[1]/div[7]/div[1]/form[1]/div[2]/div[2]/ul[1]/li[3]/a[1]/text()[1]
-              - text: Dentífricos
-                xpath: /html/body/div[4]/div[1]/div[3]/div[1]/div[1]/div[7]/div[1]/form[1]/div[2]/div[2]/ul[1]/li[4]/a[1]/text()[1]
             nameExtended:
-              - text: Pasta Dentífrica Natural Lacer Natur 100ml
+              - text: Optrex Spray Actimist 2 en 1 Ojos Secos 10ml
                 xpath: /html/body/div[4]/div[1]/div[3]/div[1]/div[1]/div[7]/div[1]/form[1]/div[2]/div[3]/h1[1]/text()[1]
             listPrice:
-              - text: 6,90 €
+              - text: 14,52 €
                 xpath: /html/body/div[4]/div[1]/div[3]/div[1]/div[1]/div[7]/div[1]/form[1]/div[3]/div[2]/div[1]/div[1]/p[1]/span[2]/text()[1]
             price:
-              - text: 5,75 €
+              - text: 13,26 €
                 xpath: /html/body/div[4]/div[1]/div[3]/div[1]/div[1]/div[7]/div[1]/form[1]/div[3]/div[2]/div[1]/div[1]/p[2]/span[2]/text()[1]
             availabilityText:
               - text: In Stock
                 xpath: /html/body/div[4]/div[1]/div[3]/div[1]/div[1]/div[7]/div[1]/form[1]/div[3]/div[2]/div[2]/div[1]/div[2]/div[1]/button[1]/@title
             description:
-              - text: Pasta de dientes a base de ingredientes de origen natural. Previene la
-                  caries y la aparición de placa. Apto para niños mayores de 7
-                  años y adultos. Formato 100ml.
+              - text: Actimist 2 en 1 es un spray ocular que repara la capa lipídica, evitando
+                  así la pérdida de humedad del ojo. Calma la irritabilidad de
+                  la superficie ocular.
                 xpath: /html/body/div[4]/div[1]/div[3]/div[1]/div[1]/div[7]/div[1]/form[1]/div[3]/div[1]/div[2]/div[1]/p[1]
-              - text: Pasta Dentífrica Natural Lacer Natur 100ml
+              - text: Optrex Spray Actimist 2 en 1 Ojos Secos 10ml
                 xpath: /html/body/div[4]/div[1]/div[3]/div[1]/div[1]/div[7]/div[2]/div[1]/div[2]/div[1]/p[2]
-              - text: Su fórmula, con extractos naturales vegetales, previene la placa dental y
-                  ayuda a mantener una boca y unos dientes sanos.
+              - text: Actimist 2 en 1 es un spray ocular que repara la capa lipídica, evitando
+                  así la pérdida de humedad del ojo.
                 xpath: /html/body/div[4]/div[1]/div[3]/div[1]/div[1]/div[7]/div[2]/div[1]/div[2]/div[1]/p[3]
-              - text: Protege contra las caries.
+              - text: Calma la irritabilidad de la superficie ocular.
                 xpath: /html/body/div[4]/div[1]/div[3]/div[1]/div[1]/div[7]/div[2]/div[1]/div[2]/div[1]/p[4]
-              - text: Indicado para niños mayores de 7 años y adultos.
+              - text: Alivia al instante los ojos secos, y hasta un máximo de 4 horas.
                 xpath: /html/body/div[4]/div[1]/div[3]/div[1]/div[1]/div[7]/div[2]/div[1]/div[2]/div[1]/p[5]
-              - text: Formato 100ml.
+              - text: Con lecitina de soja, vitamina A y vitamina E, que ofrece una potente
+                  acción antioxidante.
                 xpath: /html/body/div[4]/div[1]/div[3]/div[1]/div[1]/div[7]/div[2]/div[1]/div[2]/div[1]/p[6]
+              - text: Se puede usar con lentillas.
+                xpath: /html/body/div[4]/div[1]/div[3]/div[1]/div[1]/div[7]/div[2]/div[1]/div[2]/div[1]/p[7]
             brandText:
-              - text: Lacer
+              - text: Optrex
                 xpath: /html/body/div[1]/span[12]
             quantity:
-              - text: 100ml
+              - text: 2 en
                 xpath: /html/body/div[4]/div[1]/div[3]/div[1]/div[1]/div[7]/div[1]/form[1]/div[2]/div[3]/h1[1]/text()[1]
             sku:
-              - text: "189473"
+              - text: "173421"
                 xpath: /html/body/script[69]/text()[1]
             variantId:
-              - text: "92391"
+              - text: "27603"
                 xpath: /html/body/div[1]/span[2]
             directions:
-              - text: Cepillarse los dientes al menos tres veces al día y después de cada
-                  comida.
+              - text: Al usarlo por primera vez, pulsar el dosificador 3 o 4 veces.
                 xpath: /html/body/div[4]/div[1]/div[3]/div[1]/div[1]/div[7]/div[2]/div[1]/div[2]/div[4]/p[2]/text()[1]
+              - text: 1. Mantener a 10 cm del párpado cerrado.
+                xpath: /html/body/div[4]/div[1]/div[3]/div[1]/div[1]/div[7]/div[2]/div[1]/div[2]/div[4]/p[3]/text()[1]
+              - text: 2. Pulverizar 1-2 veces sobre los párpados cerrados, 3 o 4 veces al día.
+                xpath: /html/body/div[4]/div[1]/div[3]/div[1]/div[1]/div[7]/div[2]/div[1]/div[2]/div[4]/p[4]/text()[1]
             ratingCount:
-              - text: "11"
+              - text: "19"
                 xpath: /html/body/div[4]/div[1]/div[3]/div[1]/div[1]/div[7]/div[2]/div[1]/div[1]/a[2]/span[2]
             aggregateRating:
-              - text: 4,7
+              - text: 3,6
                 xpath: /html/body/script[69]/text()[1]
                 type: SRING
             manufacturerDescription:
-              - text: Su fórmula, con extractos naturales vegetales, previene la placa dental y
-                  ayuda a mantener una boca y unos dientes sanos.
+              - text: Actimist 2 en 1 es un spray ocular que repara la capa lipídica, evitando
+                  así la pérdida de humedad del ojo.
                 xpath: /html/body/div[4]/div[1]/div[3]/div[1]/div[1]/div[7]/div[2]/div[1]/div[2]/div[1]/p[3]/text()[1]
-              - text: Protege contra las caries.
+              - text: Calma la irritabilidad de la superficie ocular.
                 xpath: /html/body/div[4]/div[1]/div[3]/div[1]/div[1]/div[7]/div[2]/div[1]/div[2]/div[1]/p[4]/text()[1]
-              - text: Indicado para
+              - text: Alivia al instante los
                 xpath: /html/body/div[4]/div[1]/div[3]/div[1]/div[1]/div[7]/div[2]/div[1]/div[2]/div[1]/p[5]/text()[1]
-              - text: .
+              - text: ", y hasta un máximo de 4 horas."
                 xpath: /html/body/div[4]/div[1]/div[3]/div[1]/div[1]/div[7]/div[2]/div[1]/div[2]/div[1]/p[5]/text()[2]
-              - text: Formato 100ml.
+              - text: Con lecitina de soja, vitamina A y vitamina E, que ofrece una potente
+                  acción antioxidante.
                 xpath: /html/body/div[4]/div[1]/div[3]/div[1]/div[1]/div[7]/div[2]/div[1]/div[2]/div[1]/p[6]/text()[1]
+            videos:
+              - text: https://www.youtube.com/embed/fOCDABKtY8A
+                xpath: /html/body/div[4]/div[1]/div[3]/div[1]/div[1]/div[7]/div[2]/div[1]/div[2]/div[5]/div[1]/iframe[1]/@src
             name:
-              - text: Pasta Dentífrica Natural Lacer Natur 100ml
+              - text: Optrex Spray Actimist 2 en 1 Ojos Secos 10ml
                 xpath: /html/body/div[4]/div[1]/div[3]/div[1]/div[1]/div[7]/div[1]/form[1]/div[2]/div[3]/h1[1]/text()[1]
             ingredientsList:
-              - text: No contiene mentol. Sin gluten.
+              - text: 10mg Soy Lecithin, 8mg Sodium Chloride, 8mg Ethanol, 5mg Phenoxyethanol,
+                  0.25 mg Vitamin A Palmitate, 0.02mg Vitamin E, Purified Water.
                 xpath: /html/body/div[4]/div[1]/div[3]/div[1]/div[1]/div[7]/div[2]/div[1]/div[2]/div[2]/p[2]
             promotion:
               - text: Ofertas
@@ -101,4 +115,4 @@ extractions:
             imageZoomFeaturePresents:
               - text: No
         xpath: /
-    timestamp: 1607697243564
+    timestamp: 1607697243483

@@ -501,8 +501,6 @@ fields:
   singleValue: false
   description: If Zoom feature is available for Main image or images in the carousel,['Yes','No']
   example: https://www.zalando.de/adidas-neo-sneaker-low-blackwhite-a4315i002-q11.html
-  xpath: //div[@class='zoomContainer']/div[@class='zoomLens']/@class
-  regExp: (.*?)
-  regExpReplace: 'Yes'
+  xpath: //div[@class='zoomContainer']/div[@class='zoomLens']/@zoom
   defaultValue: 'No'
 

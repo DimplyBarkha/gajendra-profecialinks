@@ -25,6 +25,13 @@ module.exports = {
         priceOutOfStock.setAttribute('correctprice', text);
       }
     });
+    await context.evaluate(() => {
+      const zoom = document.querySelector('.zoomLens');
+
+      if (zoom) {
+        zoom.setAttribute('zoom', 'Yes');
+      }
+    });
     var data = await context.extract(productDetails, { transform });
     for (let k = 0; k < data.length; k++) {
       for (let i = 0; i < data[k].group.length; i++) {

@@ -1,0 +1,130 @@
+input:
+  _url: http://mifarma.es
+  URL: https://www.mifarma.es/nidina-1-premium-800-gramos-0m
+extractions:
+  - html: https://workbench.import.io/html/run=3c3447bd-fb37-4106-913b-0ab580336476/task=e87a8ff9-257e-493a-8392-50544d37359c/36e42ca6-bde5-4bab-bd07-cc8eba42e8b5.html
+    extractionConfigId: product/details/stores/m/mifarma/ES/extract
+    data:
+      - group:
+          - productUrl:
+              - text: https://www.mifarma.es/nidina-1-premium-800-gramos-0m
+                xpath: /html/head[1]/link[32]/@href
+            image:
+              - text: https://www.mifarma.es/media/catalog/product/cache/1/image/9d6758f7fb7476b09aa51a3fa7ce618a/3/8/388462_.jpg
+                xpath: /html/body/div[4]/div[1]/div[3]/div[1]/div[1]/div[7]/div[1]/form[1]/div[2]/div[5]/div[1]/img[1]/@src
+            imageAlt:
+              - text: Nidina 1 Premium 800 Gramos 0m
+                xpath: /html/body/div[4]/div[1]/div[3]/div[1]/div[1]/div[7]/div[1]/form[1]/div[2]/div[5]/div[1]/img[1]/@alt
+            alternateImages:
+              - text: https://www.mifarma.es/media/catalog/product/cache/1/image/1800x/7991b0a10959e5a6fe23085fbcedc5d2/3/8/388462_7.jpg
+                xpath: /html/body/div[4]/div[1]/div[3]/div[1]/div[1]/div[7]/div[1]/form[1]/div[2]/div[5]/div[1]/img[3]/@src
+              - text: https://www.mifarma.es/media/catalog/product/cache/1/image/1800x/7991b0a10959e5a6fe23085fbcedc5d2/3/8/388462_8.jpg
+                xpath: /html/body/div[4]/div[1]/div[3]/div[1]/div[1]/div[7]/div[1]/form[1]/div[2]/div[5]/div[1]/img[4]/@src
+              - text: https://www.mifarma.es/media/catalog/product/cache/1/image/1800x/7991b0a10959e5a6fe23085fbcedc5d2/3/8/388462_9.jpg
+                xpath: /html/body/div[4]/div[1]/div[3]/div[1]/div[1]/div[7]/div[1]/form[1]/div[2]/div[5]/div[1]/img[5]/@src
+            category:
+              - text: Infantil
+                xpath: /html/body/div[4]/div[1]/div[3]/div[1]/div[1]/div[7]/div[1]/form[1]/div[2]/div[2]/ul[1]/li[2]/a[1]/text()[1]
+              - text: Alimentación
+                xpath: /html/body/div[4]/div[1]/div[3]/div[1]/div[1]/div[7]/div[1]/form[1]/div[2]/div[2]/ul[1]/li[3]/a[1]/text()[1]
+              - text: Leches infantiles
+                xpath: /html/body/div[4]/div[1]/div[3]/div[1]/div[1]/div[7]/div[1]/form[1]/div[2]/div[2]/ul[1]/li[4]/a[1]/text()[1]
+              - text: Leches de Inicio
+                xpath: /html/body/div[4]/div[1]/div[3]/div[1]/div[1]/div[7]/div[1]/form[1]/div[2]/div[2]/ul[1]/li[5]/a[1]/text()[1]
+            nameExtended:
+              - text: Nidina 1 Premium 800 Gramos 0m+
+                xpath: /html/body/div[4]/div[1]/div[3]/div[1]/div[1]/div[7]/div[1]/form[1]/div[2]/div[3]/h1[1]/text()[1]
+            price:
+              - text: 13,50 €
+                xpath: /html/body/div[4]/div[1]/div[3]/div[1]/div[1]/div[7]/div[1]/form[1]/div[3]/div[2]/div[1]/div[1]/span[1]/span[1]/text()[1]
+            availabilityText:
+              - text: In Stock
+                xpath: /html/body/div[4]/div[1]/div[3]/div[1]/div[1]/div[7]/div[1]/form[1]/div[3]/div[2]/div[2]/div[1]/div[2]/div[1]/button[1]/@title
+            description:
+              - text: Leche para lactantes desde el primer día de vida. Esta leche de inicio
+                  está especialmente pensada para favorecer el correcto
+                  desarrollo del bebé. Contribuye a reforzar el sistema
+                  inmunitario.
+                xpath: /html/body/div[4]/div[1]/div[3]/div[1]/div[1]/div[7]/div[1]/form[1]/div[3]/div[1]/div[2]/div[1]/p[1]
+              - text: Nidina 1 Premium 800 Gramos 0m+
+                xpath: /html/body/div[4]/div[1]/div[3]/div[1]/div[1]/div[7]/div[2]/div[1]/div[2]/div[1]/p[2]
+              - text: Esta leche de inicio está especialmente pensada para favorecer el correcto
+                  desarrollo del bebé desde sus primeros días de vida.
+                xpath: /html/body/div[4]/div[1]/div[3]/div[1]/div[1]/div[7]/div[2]/div[1]/div[2]/div[1]/p[3]
+              - text: Contribuye a reforzar el sistema inmunitario.
+                xpath: /html/body/div[4]/div[1]/div[3]/div[1]/div[1]/div[7]/div[2]/div[1]/div[2]/div[1]/p[4]
+              - text: Aporta todos los nutrientes y vitaminas necesarios para garantizar el
+                  correcto desarrollo cerebral y físico del bebé.
+                xpath: /html/body/div[4]/div[1]/div[3]/div[1]/div[1]/div[7]/div[2]/div[1]/div[2]/div[1]/p[5]
+              - text: Sabor agradable.
+                xpath: /html/body/div[4]/div[1]/div[3]/div[1]/div[1]/div[7]/div[2]/div[1]/div[2]/div[1]/p[6]
+              - text: Preparación sencilla.
+                xpath: /html/body/div[4]/div[1]/div[3]/div[1]/div[1]/div[7]/div[2]/div[1]/div[2]/div[1]/p[7]
+            brandText:
+              - text: Nidina
+                xpath: /html/body/div[1]/span[12]
+            quantity:
+              - text: 1 Premium
+                xpath: /html/body/div[4]/div[1]/div[3]/div[1]/div[1]/div[7]/div[1]/form[1]/div[2]/div[3]/h1[1]/text()[1]
+            sku:
+              - text: "388462"
+                xpath: /html/body/script[69]/text()[1]
+            variantId:
+              - text: "3638"
+                xpath: /html/body/div[1]/span[2]
+            directions:
+              - text: Hervir agua hasta un máximo de 40ºC. Añadir el número de cucharadas de
+                  leche correspondientes al peso y edad del bebé y remover hasta
+                  conseguir el producto adecuado.
+                xpath: /html/body/div[4]/div[1]/div[3]/div[1]/div[1]/div[7]/div[2]/div[1]/div[2]/div[4]/p[2]/text()[1]
+            ratingCount:
+              - text: "18"
+                xpath: /html/body/div[4]/div[1]/div[3]/div[1]/div[1]/div[7]/div[2]/div[1]/div[1]/a[2]/span[2]
+            aggregateRating:
+              - text: 4,8
+                xpath: /html/body/script[69]/text()[1]
+                type: SRING
+            manufacturerDescription:
+              - text: Esta
+                xpath: /html/body/div[4]/div[1]/div[3]/div[1]/div[1]/div[7]/div[2]/div[1]/div[2]/div[1]/p[3]/text()[1]
+              - text: está especialmente pensada para favorecer el correcto desarrollo del bebé
+                  desde sus primeros días de vida.
+                xpath: /html/body/div[4]/div[1]/div[3]/div[1]/div[1]/div[7]/div[2]/div[1]/div[2]/div[1]/p[3]/text()[2]
+              - text: Contribuye a reforzar el sistema inmunitario.
+                xpath: /html/body/div[4]/div[1]/div[3]/div[1]/div[1]/div[7]/div[2]/div[1]/div[2]/div[1]/p[4]/text()[1]
+              - text: Aporta todos los nutrientes y vitaminas necesarios para garantizar el
+                  correcto desarrollo cerebral y físico del bebé.
+                xpath: /html/body/div[4]/div[1]/div[3]/div[1]/div[1]/div[7]/div[2]/div[1]/div[2]/div[1]/p[5]/text()[1]
+              - text: Sabor agradable.
+                xpath: /html/body/div[4]/div[1]/div[3]/div[1]/div[1]/div[7]/div[2]/div[1]/div[2]/div[1]/p[6]/text()[1]
+              - text: Preparación sencilla.
+                xpath: /html/body/div[4]/div[1]/div[3]/div[1]/div[1]/div[7]/div[2]/div[1]/div[2]/div[1]/p[7]/text()[1]
+            name:
+              - text: Nidina 1 Premium 800 Gramos 0m+
+                xpath: /html/body/div[4]/div[1]/div[3]/div[1]/div[1]/div[7]/div[1]/form[1]/div[2]/div[3]/h1[1]/text()[1]
+            ingredientsList:
+              - text: "Por 100 ml (monodosis/resto presentaciones):Dilución recomendada 12,9 g
+                  por 90 ml de agua (cacito de 4,3g)Proteínas: 1,2 g- Caseína:
+                  30 %- Proteínas séricas: 70 % Hidratos de carbono: 7,5 g -
+                  Lactosa: 7,5 g Lípidos: 3,6 g - Ácido linoleico: 554/520 mg-
+                  Ácido alfa-linolénico: 49/64 mg, Vitamina A: 60/64 mcgER
+                  Vitamina D: 1,7/0,9 mcg Vitamina E: 1,2/1,1 mgalfa-ET Vitamina
+                  C: 9,2/10 mg Vitamina K: 4,2/5,8 mcg Tiamina: 0,06/0,07 mg
+                  Riboflavina: 0,12/0,13 mg Niacina: 0,4/0,5 mg Vitamina B6:
+                  0,04 mg Ácido fólico: 22/9,5 mcg Vitamina B12: 0,2 mcg
+                  Biotina: 1,5 mcg Ácido pantoténico: 0,4/0,5 mg Sodio: 25/17 mg
+                  Potasio: 70/68 mg Cloruro: 50/47 mg Calcio: 43 mg Fósforo: 24
+                  mg Magnesio: 5,7 mg Hierro: 0,7/0,3 mgCinc: 0,5/0,7 mg Cobre:
+                  0,05 mg Manganeso: 0,02/0,01 mg Fluroruro: 0,01 mg Selenio:
+                  3,5/1,8 mcg Yodo: 15/14 mcg Colina: 22/11 mg Inositol: 8,6/10
+                  mg L-carnitina: 1,1/1,0 mg Taurina: 4/5,1 mg Nucleótidos:
+                  1,9/2 mg"
+                xpath: /html/body/div[4]/div[1]/div[3]/div[1]/div[1]/div[7]/div[2]/div[1]/div[2]/div[2]/p[2]
+            variantCount:
+              - text: "0"
+            Image360Present:
+              - text: No
+            imageZoomFeaturePresents:
+              - text: No
+        xpath: /
+    timestamp: 1607697244918
