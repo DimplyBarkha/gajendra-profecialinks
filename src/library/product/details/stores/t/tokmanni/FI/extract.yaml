@@ -8,10 +8,10 @@ fields:
     xpath: //div[@class="fotorama__stage__frame fotorama__active fotorama_vertical_ratio fotorama__loaded fotorama__loaded--img"]//@href
   - name: imagealttext
     singleValue: true
-    xpath: //div[@class="page-title-wrapper product"]//h1//span
+    xpath: (//img[@class="fotorama__img"]/@alt)[1]
   - name: alternateImages
     singleValue: false
-    xpath: (//div[@class="fotorama__thumb fotorama_vertical_ratio fotorama__loaded fotorama__loaded--img"]//img/@src)[2]
+    xpath: //div[position()>1]/img[@class="fotorama__img"]/@src
   - name: metaKeywords
     singleValue: true
     xpath: //meta[@name="keywords"]/@content
@@ -138,7 +138,7 @@ fields:
   - name: description
     singleValue: false
     description: The additional description of the product supplied by the lister
-    xpath: //div[@class="data item content"]
+    xpath: (//div[@class="data item content"])[1]
   - name: manufacturerImages
     singleValue: false
     description: Images within the third party description
@@ -239,6 +239,7 @@ fields:
   - name: secondaryImageTotal
     singleValue: true
     description: null
+    xpath: count(//div[position()>1]/img[@class="fotorama__img"]/@src)
     type: NUMBER
   - name: news
     singleValue: true
@@ -435,9 +436,6 @@ fields:
   - name: promotion
     singleValue: true
     description: promotion text on product page
-  - name: alcoholContent
-    singleValue: true
-    description: Alcohol content information
   - name: newVersion
     singleValue: true
     description: In product page, information about a new version of the product
@@ -500,19 +498,5 @@ fields:
     singleValue: true
     description: Information related to customer service availability (text), ['Yes','No']
     defaultValue: Yes
-  - name: materials
-    singleValue: true
-    description: Materials used to make the product
-  - name: Image360Present
-    singleValue: true
-    description: If 360 image is present in the carousel ['Yes','No']
-    example: https://www.amazon.com/Trinsic-Single-Handle-Magnetic-Champagne-9159-CZ-DST/dp/B0050EN8E6
-    defaultValue: No
-  - name: imageZoomFeaturePresent
-    singleValue: true
-    description: If Zoom feature is available for Main image or images in the
-      carousel,['Yes','No']
-    example: https://www.zalando.de/adidas-neo-sneaker-low-blackwhite-a4315i002-q11.html
-    defaultValue: No
   - name: onlinepricecurrency
     xpath: //meta[@property="product:price:currency"][@content]

@@ -5,7 +5,7 @@ module.exports = {
     country: 'FI',
     store: 'tokmanni',
     domain: 'tokmanni.fi',
-    loadedSelector: 'body',
+    loadedSelector: null,
     noResultsXPath: null,
     zipcode: '',
   },
