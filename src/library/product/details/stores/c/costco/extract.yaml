@@ -48,7 +48,7 @@ fields:
       should be "In Stock"
   - name: description
     singleValue: false
-    xpath: //div[@class='product-info-description'][1]
+    xpath: (//div[@class='product-info-description'])[1]
     description: Product description supplied by website - may be concatenanted from
       multiple places; specifically not the manufacturer description
   - name: descriptionBullets
