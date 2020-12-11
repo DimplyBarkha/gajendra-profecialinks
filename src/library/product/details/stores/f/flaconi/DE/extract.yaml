@@ -22,6 +22,12 @@ fields:
   - name: list_price
     singleValue: true
     xpath: //span[@class='old-price']
+  - name: pricePerUnit
+    singleValue: true
+    xpath: (//span[@class="base-price"])[1]//text()
+  - name: pricePerUnitUom
+    singleValue: true
+    xpath: (//span[@class="unit"])[1]
   - name: price
     singleValue: true
     xpath: (//div[@class='price-box']/meta[@itemprop='price']/@content)[1]
@@ -110,12 +116,13 @@ fields:
   - name: additionalDescBulletInfo
     singleValue: false  
     xpath: //ul[@class="product-properties-list"]//li
+    #xpath: //html//div[@id="additional"]
   - name: variantInformation
     singleValue: true
     xpath: concat(((//div[@class="size-box"])[1]//span)[1],((//div[@class="size-box"])[1]//span)[2])
   - name: listPrice
     singleValue: true
-    xpath: (//span[@class="old-price"])[1]s
+    xpath: (//span[@class="old-price"])[1]
   - name: ingredientsList
     singleValue: true
     xpath: //div[@class="ingredients-content"]//text()
