@@ -6,15 +6,15 @@ fields:
   - name: image
     singleValue: true
     description: URL of the main product image
-    xpath: //div[@class="zoomImg"]/img/@src
+    xpath: //ul[@class='hide-bullets']//li[1]/span[@class="thumbnail"]/img/@src
     regExp: (.+)
     regExpReplace: https://www.luluhypermarket.com$1
   - name: alternateImages
-    singleValue: false
+    singleValue: true
     description: Other product images (not in manufacturer description)
-    regExp: (.+)
+    # xpath: //html//div[@id="alternateImages"]
+    # regExp: (.+)
     regExpReplace: https://www.luluhypermarket.com$1
-    xpath: //span[@class="thumbnail"]/img/@src
   - name: category
     singleValue: false
     description: The categories (e.g. from breadcrumbs)
