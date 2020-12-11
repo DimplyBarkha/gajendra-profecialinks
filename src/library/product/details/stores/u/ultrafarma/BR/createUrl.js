@@ -4,7 +4,7 @@ module.exports = {
   parameterValues: {
     domain: 'ultrafarma.com.br',
     prefix: null,
-    url: null,
+    url: 'https://www.ultrafarma.com.br/busca?q={id}',
     country: 'BR',
     store: 'ultrafarma',
     zipcode: "''",
