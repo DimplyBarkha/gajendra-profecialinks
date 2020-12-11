@@ -5,17 +5,6 @@ async function implementation (inputs, parameters, context, dependencies) {
   const { productDetails } = dependencies;
 
   await context.evaluate(async () => {
-    function addProp (selector, iterator, propName, value) {
-      document
-        .querySelectorAll(selector)[iterator].setAttribute(propName, value);
-    }
-    const allProducts = document.querySelectorAll('div.item');
-    for (let i = 0; i < allProducts.length; i++) {
-      addProp('div.item', i, 'rankorganic', `${i + 1}`);
-    }
-  });
-
-  await context.evaluate(async () => {
     function stall (ms) {
       return new Promise((resolve, reject) => {
         setTimeout(() => {
