@@ -14,13 +14,13 @@ fields:
     xpath: //div[@class='row']//h1[@class='product-name h2']
   - name: price
     singleValue: false
-    xpath: //div[@class='price']//span[@class='price']//span[contains(@class,'formatted_sale_price')]
+    xpath: //div[@class='price']//span[@class='price']//span[contains(@class,'formatted_sale_price')]//text()
   - name: imageAlt
     singleValue: false
     xpath: //div[@class='primary-image active']//img/@alt
   - name: alternateImages
     singleValue: false
-    xpath: //div[@class='primary-image ' and position() >1]//img
+    xpath: //div[contains(@class,'primary-image') and position() >1]//img//@src
   - name: description
     singleValue: false
     xpath: //div[@class='value content']
@@ -52,3 +52,39 @@ fields:
   - name: quantity
     singleValue: false
     defaultValue: 1
+  - name: nameExtended
+    singleValue: false
+    xpath: //div[contains(@class,'product-secondary-section')]//div[@class='row']//h1[contains(@class,'product')]
+  - name: gtin
+    singleValue: false
+    xpath: //div[@class='primary-image active']//img/@src
+  - name: variantInformation
+    singleValue: false
+    xpath: //div[@class='attributes']//fieldset//ul//li//@data-attr-value
+  - name: firstVariant
+    singleValue: false
+    xpath: //div[@class='value content']//div[@class='product-detail-id']
+  - name: variants
+    singleValue: false
+    xpath: //div[@class='value content']//div[@class='product-detail-id']
+  - name: additionaldescbulletinfo
+    singleValue: false
+    xpath: //div[contains(@id,'collapsible-details')]//ul//li
+  - name: eangtin
+    singleValue: false
+    xpath: //div[@class='primary-image active']//img/@src
+  - name: descriptionBullets
+    singleValue: false
+    xpath: count(//div[contains(@id,'collapsible-details')]//ul//li)
+  - name: variantCount
+    singleValue: false
+    xpath: count(//div[@class='attributes']//fieldset//ul//li)
+  - name: video
+    singleValue: false
+    xpath: //div[contains(@id,'_videoPlayer')]//video//@src
+  - name: videoLength
+    singleValue: false
+    xpath: //div[contains(@class,'s7container')]//div[contains(@id,'_videoTime')]//div
+  - name: secondaryImageTotal
+    singleValue: false
+    xpath: count(//div[contains(@class,'primary-image') and position() >1]//img//@src)

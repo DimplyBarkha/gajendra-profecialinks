@@ -32,10 +32,22 @@ const transform = (data) => {
                 row.variantId.forEach(item => {
                     variantId = item.text.split(":");
                 });
-
                 row.variantId = [{'text': variantId[1].trim(),'xpath':row.variantId[0].xpath}];
-            }  
-
+            }
+            if (row.variants) {
+                let  variants = [];
+                row.variants.forEach(item => {
+                    variants = item.text.split(":");
+                });
+                row.variants = [{'text': variants[1].trim(),'xpath':row.variants[0].xpath}];
+            }
+            if (row.firstVariant) {
+                let  firstVariant = [];
+                row.firstVariant.forEach(item => {
+                    firstVariant = item.text.split(":");
+                });
+                row.firstVariant = [{'text': firstVariant[1].trim(),'xpath':row.firstVariant[0].xpath}];
+            }
             if (row.description) {
                 let info = [];
                 row.description.forEach(item => {
@@ -66,6 +78,81 @@ const transform = (data) => {
                     }
                 });
                 row.aggregateRating = [{'text': counter.toFixed(1),'xpath': row.aggregateRating[0].xpath}]        
+            }
+            if (row.nameExtended) {
+                let info = [];
+                row.nameExtended.forEach(item => {
+                  info.push(item.text.replace(/(\s*\n\s*)+/g, ' | ').trim());
+                });
+                if(tmp_desc != ''){
+                info.push(tmp_desc);
+                }
+                row.nameExtended = [{'text':info.join(' | '),'xpath':row.nameExtended[0].xpath}];
+            }
+            if (row.variantInformation) {
+                let info = [];
+                row.variantInformation.forEach(item => {
+                    item.text = item.text.replace(/[_]+/g, " ");
+                    info.push(item.text.replace(/(\s*\n\s*)+/g, ' | ').trim());
+                });
+                if(tmp_desc != ''){
+                info.push(tmp_desc);
+                }
+                row.variantInformation = [{'text':info.join(' | '),'xpath':row.variantInformation[0].xpath}];
+            }
+            if (row.additionaldescbulletinfo) {
+                let info = [];
+                row.additionaldescbulletinfo.forEach(item => {
+                  info.push(item.text.replace(/(\s*\n\s*)+/g, ' || ').trim());
+                });
+                if(tmp_desc != ''){
+                info.push(tmp_desc);
+                }
+                row.additionaldescbulletinfo = [{'text':info.join(' || '),'xpath':row.additionaldescbulletinfo[0].xpath}];
+            }
+            if (row.gtin) {
+                let productId = [];
+                let formattedString = ''
+                row.gtin.forEach(item => {                    
+                    formattedString =  /[^/]*$/.exec(item.text)[0];
+                    productId = formattedString.split("?");
+                    productId[0] = productId[0].replace("_main", '');
+                });
+                row.gtin = [{'text': productId[0],'xpath':row.gtin[0].xpath}]; 
+            }
+            if (row.eangtin) {
+                let productId = [];
+                let formattedString = ''
+                row.eangtin.forEach(item => {                    
+                    formattedString =  /[^/]*$/.exec(item.text)[0];
+                    productId = formattedString.split("?");
+                    productId[0] = productId[0].replace("_main", '');
+                });
+                row.eangtin = [{'text': productId[0],'xpath':row.eangtin[0].xpath}]; 
+            }
+            if (row.videoLength) {
+                let productId = [];
+                let formattedString = ''
+                row.videoLength.forEach(item => {                    
+                    formattedString =  /[^/]*$/.exec(item.text)[0];
+                    productId = formattedString.split("/");
+                    productId[0] = (productId[0]).trim();
+                });
+                row.videoLength = [{'text': productId[0],'xpath':row.videoLength[0].xpath}]; 
+            }
+            if (row.video) {
+                row.video.forEach(item => {
+                    item.text = item.text.replace("blob:", '');
+                });
+            }
+            if (row.availabilityText) {          
+              row.availabilityText.forEach(item => {
+                 if(item.text.trim().includes("Add to Bag")){
+                    item.text = "In Stock";
+                 }else{
+                    item.text = "Out of Stock";
+                 }
+              });      
             }
         }
     }
