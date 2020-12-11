@@ -1,11 +1,11 @@
-async function implementation(
+async function implementation (
   inputs,
   parameters,
   context,
   dependencies,
 ) {
-  const { transform, mergeType } = parameters;
-  const { productReviews } = dependencies;
+  const { transform } = parameters;
+  const { productDetails } = dependencies;
   try {
     await context.waitForSelector('a[class="button confirmm-age"]', { timeout: 7000 });
   }
@@ -28,17 +28,17 @@ async function implementation(
     console.log('review selector not found');
   }
 
-  return await context.extract(productReviews);
+  return await context.extract(productDetails, { transform });
 }
 
 module.exports = {
-  implements: 'product/reviews/extract',
+  implements: 'product/search/extract',
   parameterValues: {
     country: 'US',
     store: 'njoy',
     transform: null,
     domain: 'shop.njoy.com',
-    zipcode: "''",
+    zipcode: '',
   },
   implementation,
 };
