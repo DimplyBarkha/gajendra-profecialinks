@@ -1,4 +1,3 @@
-
 module.exports = {
   implements: 'product/search/execute',
   parameterValues: {

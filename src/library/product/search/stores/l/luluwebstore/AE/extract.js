@@ -1,13 +1,11 @@
-const transform = require('../../../../shared');
-// const { cleanUp } = require('../../../../shared');
+
 module.exports = {
   implements: 'product/search/extract',
   parameterValues: {
     country: 'AE',
     store: 'luluwebstore',
-    transform: transform,
+    transform: null,
     domain: 'luluhypermarket.com',
     zipcode: '',
   },
-
 };

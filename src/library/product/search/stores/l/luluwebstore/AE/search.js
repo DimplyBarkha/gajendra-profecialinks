@@ -6,5 +6,6 @@ module.exports = {
     store: 'luluwebstore',
     domain: 'luluhypermarket.com',
     zipcode: '',
+    storeID: null,
   },
 };
