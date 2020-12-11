@@ -17,7 +17,7 @@ const transform = (data) => {
          if (row.price) {
         row.price.forEach(item => {
 
-          item.text = item.text.replace('$', '').trim();
+          item.text = item.text.replace('$','').trim();
         });
 
         row.aggregateRating = [
@@ -90,5 +90,5 @@ const transform = (data) => {
 
   return data;
 };
-
+}
 module.exports = { transform };
