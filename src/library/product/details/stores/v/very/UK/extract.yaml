@@ -47,7 +47,8 @@ fields:
   description: The offered price for the selected product variant - if a user clicks
     add to basket this is the price they would be charged
 - name: availabilityText
-  xpath: //div[@id="isAvailable"]
+  xpath: //div[@id="ii_availability"]
+  # xpath: //div[@id="isAvailable"]
   singleValue: true
   description: Availability as described on page for the selected variant. If there
     is no availability but the product can be added to cart, this field should be
@@ -83,7 +84,8 @@ fields:
   singleValue: true
   description: GTIN code (includes UPC/EAN) 
 - name: sku
-  xpath: //div[@id="microdata"]/div[1]/meta[@itemprop="sku"]/@content
+  xpath: //div[@id="ii_sku"]
+  # xpath: //div[@id="microdata"]/div[1]/meta[@itemprop="sku"]/@content
   singleValue: true
   description: The store-specific product identifier
 - name: variantId
