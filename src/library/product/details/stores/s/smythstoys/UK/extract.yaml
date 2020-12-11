@@ -13,7 +13,7 @@ fields:
     xpath: (//img[@class='responsive-image'])[2]/@alt
   - name: alternateImages
     singleValue: false
-    xpath: (//div[@id='gallery-image-thumb']//div[@class='owl-stage'])[1]//img/@src
+    xpath: (//div[@id='gallery-image-thumb'])[1]/div[@class='owl-stage-outer']/div[@class='owl-stage']/div[contains(@class,'owl-item')]//img/@data-src
   - name: metaKeywords
     singleValue: true
     description: The <meta> keywords content
@@ -29,11 +29,12 @@ fields:
   - name: listPrice
     singleValue: true
     description: The stated undiscounted price for the product
+    xpath: //span[@class='rrp-price']
   - name: price
     singleValue: true
     description: The offered price for the selected product variant - if a user
       clicks add to basket this is the price they would be charged
-    xpath: //div[@itemprop='price']
+    xpath: //div[@class='price_tag']/span[@class='notranslate']
   - name: availabilityText
     singleValue: true
     description: Availability as described on page for the selected variant. If
@@ -136,6 +137,7 @@ fields:
   - name: videos
     singleValue: false
     description: URLs of videos on page
+    xpath: (//div[@class='item-video'])[1]/iframe[@class='video-element']/@src
   - name: name
     singleValue: true
     description: The product name
