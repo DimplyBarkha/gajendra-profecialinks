@@ -1,17 +1,13 @@
 async function implementation (inputs, parameters, context, dependencies) {
   const { productMenu } = dependencies;
-  var jsonText = await context.evaluate(function () {
+  const jsonText = await context.evaluate(() => {
     return document.body.innerText;
   });
 
   const json = JSON.parse(jsonText);
 
-  if (json && json.categories.length === 0) {
-    throw new Error('No categories found');
-  }
-
-  if (json && json.categories) {
-    await context.evaluate(function (records) {
+  if (json && json.categories && json.categories.length >= 0) {
+    await context.evaluate((records) => {
       function addHiddenDiv (id, content, parentDiv = null) {
         const newDiv = document.createElement('div');
         newDiv.id = id;
@@ -30,19 +26,22 @@ async function implementation (inputs, parameters, context, dependencies) {
         if (node.subcategories && node.subcategories.length > 0) {
         // https://groceries.asda.com/shelf/summer/bbq/burgers-sausages/burgers/2942053576
           for (let i = 0; i < node.subcategories.length; i++) {
-            let category = categoryList.find(x => x.id == parentId);
+            let category = categoryList.find(x => x.id === parentId);
             if (!category) {
               category = {};
               category.values = oldValues.slice();
               categoryList.push(category);
-            } if (i == 0) { oldValues = category.values.slice(); console.log(category.values); }
+            } if (i === 0) {
+              oldValues = category.values.slice();
+              console.log(category.values);
+            }
             const newNode = node.subcategories[i];
             category.id = newNode.dimvalid;
             category.values.push(newNode.displayName);
             getLeafCategoryValue(newNode, newNode.dimvalid, categoryList);
           }
         } else {
-          const category = categoryList.find(x => x.id == parentId);
+          const category = categoryList.find(x => x.id === parentId);
           if (category) category.values.push(node.dimvalid);
         }
       }
@@ -54,13 +53,14 @@ async function implementation (inputs, parameters, context, dependencies) {
           console.log(categoryList.length);
           categoryList.forEach(category => {
             const newDiv = addHiddenDiv('categories', '');
-            category.values.forEach(val =>
-              addHiddenDiv('category', val, newDiv));
+            category.values.forEach(val => addHiddenDiv('category', val, newDiv));
             addHiddenDiv('categoryUrl', `https://groceries.asda.com/shelf/${category.values.join('/')}`, newDiv);
           });
         }
       }
     }, json.categories);
+  } else {
+    throw new Error('No categories found');
   }
   return await context.extract(productMenu);
 }
