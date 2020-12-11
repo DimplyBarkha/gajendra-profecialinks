@@ -18,22 +18,15 @@ const transform = (data) => {
         });
       }
       if (row.nameExtended) {
-        const nDesc = [];
-        let newDesc = '';
-        let idx = 0;
+        let qunatityTxt = '';
+        if (row.quantity && row.quantity.length > 0) {
+          qunatityTxt = row.quantity[0].text;
+        }
         row.nameExtended.forEach(item => {
-          nDesc[0] = item;
-          if (idx > 0) {
-            newDesc = newDesc + ' ';
-          }
-          newDesc = newDesc + item.text;
-          idx++;
+          item.text = `${item.text} ${qunatityTxt}`;
         });
-        nDesc.forEach(item => {
-          item.text = newDesc;
-        });
-        row.nameExtended = nDesc;
       }
+      
       if (row.name) {
         const nDesc = [];
         let newDesc = '';

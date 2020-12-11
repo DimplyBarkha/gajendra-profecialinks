@@ -8,7 +8,8 @@ fields:
     xpath: //div[@class="rd__breadcrumbs__item"][position()>1][position()<last()]
   - name: nameExtended
     singleValue: false
-    xpath: //h1[@itemprop="name"]//div[@class="rd__col sd__no-float"]/text() | //h1[@id="product_title"] | //h2[@class="rd__headline rd__headline--130"]/text() | //h2[@id="product_title"]/span[@itemprop="name"]/text()
+    xpath: //h1[@itemprop="name"]//div[@class="rd__col sd__no-float"]/text()
+    # xpath: //h1[@itemprop="name"]//div[@class="rd__col sd__no-float"]/text() | //h1[@id="product_title"] | //h2[@class="rd__headline rd__headline--130"]/text() | //h2[@id="product_title"]/span[@itemprop="name"]/text()
   - name: image
     singleValue: false
     description: URL of the main product image
@@ -131,7 +132,7 @@ fields:
     # xpath:  //ul[@class="rd__list--130"]/li
   - name: shippingInfo                
     singleValue: false
-    xpath: //a[@data-promo="promo | envio_gratis | slot"]/text()
+    # xpath: //a[@data-promo="promo | envio_gratis | slot"]/text()
   - name: variants
     singleValue: false
     xpath: //h2[@class="rd__headlline rd__headline--80 rd__list-services__headline"]/text()

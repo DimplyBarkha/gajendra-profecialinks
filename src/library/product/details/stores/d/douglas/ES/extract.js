@@ -70,6 +70,10 @@ async function implementation (
       const quantity = getSingleText(qtyXpath, document, index - 1);
       addHiddenDiv('my-qty', quantity);
 
+      // const nameExtXpath = 'concat(//h1[@itemprop="name"]//div[@class="rd__col sd__no-float"]/text(), ' ',//h2[contains(@class,"rd__headline--80")])';
+      // const nameExt = getSingleText(nameExtXpath, document, index - 1);
+      // addHiddenDiv('my-nameExt', nameExt);
+
       const variantIdXpath = '//div[@data-vendor]/@data-product-id |//h2[contains(@class,"rd__headline--80")]/@title';
       const variantId = getSingleText(variantIdXpath, document, index - 1);
       addHiddenDiv('my-variantId', variantId);
@@ -102,7 +106,7 @@ async function implementation (
       const color = getSingleText(colorXpath, document, index - 1);
       addHiddenDiv('my-color', color);
 
-      return [`#qty:${quantity}`, `#variantInf:${variantInf}`,`#availab1:${availab1}`, `#availab:${availab}`, `#variantId:${variantId}`,`#price:${price}`, `#color:${color}`, `#listPrice:${listPrice}`]; //
+      return [`#qty:${quantity}`, `#variantInf:${variantInf}`,`#availab1:${availab1}`, `#availab:${availab}`, `#variantId:${variantId}`,`#price:${price}`, `#color:${color}`, `#listPrice:${listPrice}`]; //`#nameExt:${nameExt}`,
     }, index, variantLength);
   }
   await new Promise((resolve, reject) => setTimeout(resolve, 3000));
