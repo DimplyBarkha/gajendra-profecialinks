@@ -20,7 +20,7 @@ const transform = (data) => {
           item.text = item.text.replace(/(\s?\n)+/g, ' || ').trim();
         });
       }
-      
+
       if (row.nameExtended) {
         let qunatityTxt = '';
         if (row.quantity && row.quantity.length > 0) {
@@ -30,7 +30,7 @@ const transform = (data) => {
           item.text = `${item.text} ${qunatityTxt}`;
         });
       }
-      
+
       if (row.name) {
         const nDesc = [];
         let newDesc = '';
@@ -69,13 +69,12 @@ const transform = (data) => {
           },
         ];
       }
-      if ( row.variantCount) {
-        // 
+      if (row.variantCount) {
+        //
         row.variantCount.forEach(item => {
-          item.text = item.text === "1" ? "" : item.text;
+          item.text = item.text === '1' ? '' : item.text;
         });
       };
-      
     }
   }
   return data;

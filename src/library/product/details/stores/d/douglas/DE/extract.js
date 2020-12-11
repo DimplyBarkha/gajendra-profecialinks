@@ -7,7 +7,7 @@ module.exports = {
     transform: cleanUp,
     domain: 'douglas.de',
   },
-  implementation: async function implementation(
+  implementation: async function implementation (
     inputs,
     parameters,
     context,
@@ -20,6 +20,7 @@ module.exports = {
       addEleToDoc('gtin13', productData.gtin13);
       addEleToDoc('ratingCount', productData.aggregateRating.ratingCount);
       addEleToDoc('ratingValue', productData.aggregateRating.ratingValue);
+      addEleToDoc('my-url', window.location.href);
 
       // Output value is expected either InStock or Out of Stock but on webpage, its in german
       const availability = getEleByXpath('//div[contains(@class,"rd__product-details__options__availability")]/span[contains(@class,\'rd__copytext\')][1]');
@@ -33,19 +34,19 @@ module.exports = {
       const productInfo = preFetchProductDetails('window.customExactagConfig =');
       addEleToDoc('productId', productInfo.product_id);
 
-      function preFetchProductDetails(referenceText) {
+      function preFetchProductDetails (referenceText) {
         let productInfo = findProductDetails('//script[contains(.,"customExactagConfig")]');
         productInfo = JSON.parse(productInfo.substring((productInfo.indexOf(referenceText) + referenceText.length), productInfo.indexOf('}') + 1));
         return productInfo;
       }
 
-      function findProductDetails(xpath) {
+      function findProductDetails (xpath) {
         const element = document.evaluate(xpath, document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
         const productDetails = element.textContent;
         return productDetails;
       }
 
-      function addEleToDoc(key, value) {
+      function addEleToDoc (key, value) {
         const prodEle = document.createElement('div');
         prodEle.id = key;
         prodEle.textContent = value;
@@ -53,7 +54,7 @@ module.exports = {
         document.body.appendChild(prodEle);
       }
 
-      function getEleByXpath(xpath) {
+      function getEleByXpath (xpath) {
         const element = document.evaluate(xpath, document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
         console.log('Element' + element);
         const text = element ? element.textContent : null;
