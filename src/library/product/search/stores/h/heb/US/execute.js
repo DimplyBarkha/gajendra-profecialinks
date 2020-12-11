@@ -5,7 +5,7 @@ module.exports = {
     country: 'US',
     store: 'heb',
     domain: 'heb.com',
-    url: 'https://www.heb.com/search/?q={searchTerms}',
+    url: 'https://www.heb.com/search/?q=brown+rice',
     loadedSelector: null,
     noResultsXPath: null,
     zipcode: '',

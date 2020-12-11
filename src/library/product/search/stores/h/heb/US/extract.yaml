@@ -5,8 +5,8 @@ recordXPath: null
 fields:
   - name: id
     singleValue: false
-    xpath: //li[@class="responsivegriditem product-grid-large-fifth product-grid-small-6"]/a/@id
-    regExp: (\d+)
+    xpath: //div[@class="cart-actions clearfix"]/form/@data-product-id
+    # regExp: (\d.+)
   - name: rankOrganic
     singleValue: true
     # xpath: //li//meta[@itemprop="position"]//@content
