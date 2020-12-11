@@ -17,7 +17,8 @@ fields:
     xpath: //div[@class="slick-list"]//div[@data-slick-index and not(contains(@class,'slick-current'))]//img/@src
   - name: videos
     singleValue: false 
-    xpath: //div[@data-video]/@data-video
+    xpath: //div[contains(@id,'iframe-video-')]
+    # xpath: //div[@data-video]/@data-video
   - name: price
     singleValue: false
     manualSelector: div.product-details-price > div.priceOfProduct
