@@ -26,7 +26,7 @@ async function implementation (inputs, parameters, context, dependencies) {
       addElementToDom(name, 'name');
       addElementToDom(productUrl, 'productUrl');
       addElementToDom(thumbnail, 'thumbnail');
-      addElementToDom(price, 'price');
+      addElementToDom(price.replace('.', ','), 'price');
     });
   });
   return await context.extract(productDetails, { transform });
