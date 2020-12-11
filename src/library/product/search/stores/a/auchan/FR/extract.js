@@ -1,5 +1,5 @@
 const { transform } = require('../format');
-async function implementation(
+async function implementation (
   inputs,
   parameters,
   context,
@@ -7,7 +7,7 @@ async function implementation(
 ) {
   const { transform } = parameters;
   const { productDetails } = dependencies;
-  //await new Promise((resolve, reject) => setTimeout(resolve, 6000));
+  // await new Promise((resolve, reject) => setTimeout(resolve, 6000));
   const applyScroll = async function (context) {
     await context.evaluate(async function () {
       let scrollTop = 0;
@@ -20,7 +20,7 @@ async function implementation(
           break;
         }
       }
-      function stall(ms) {
+      function stall (ms) {
         return new Promise((resolve, reject) => {
           setTimeout(() => {
             resolve();
@@ -33,8 +33,6 @@ async function implementation(
   return await context.extract(productDetails, { transform });
 }
 
-
-
 module.exports = {
   implements: 'product/search/extract',
   parameterValues: {
@@ -44,5 +42,5 @@ module.exports = {
     domain: 'auchan.fr',
     zipcode: '',
   },
-  implementation
+  implementation,
 };
