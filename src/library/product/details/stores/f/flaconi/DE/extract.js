@@ -1,15 +1,36 @@
 
+const { cleanUp } = require('../../../../shared');
 module.exports = {
   implements: 'product/details/extract',
   parameterValues: {
     country: 'DE',
     store: 'flaconi',
-    transform: null,
+    transform: cleanUp,
     domain: 'flaconi.de',
   },
   implementation: async ({ inputString }, { country, domain }, context, { productDetails }) => {
+
+    try {
+      const cssBanner = "button#uc-btn-accept-banner";
+      const isSelectorAvailable = async (cssSelector) => {
+        console.log(`Is selector available: ${cssSelector}`);
+        return await context.evaluate(function (selector) {
+          return !!document.querySelector(selector);
+        }, cssSelector);
+      };
+
+      console.log('.....waiting......');
+      await context.waitForSelector(cssBanner, { timeout: 10000 });
+
+      const bannerAvailable = await isSelectorAvailable(cssBanner);
+      if (bannerAvailable) {
+        await context.click(cssBanner);
+
+      }
+    }
+    catch (error) { console.log("No overlay") }
     await context.evaluate(async function () {
-      function addElementToDocument (key, value) {
+      function addElementToDocument(key, value) {
         const catElement = document.createElement('div');
         catElement.id = key;
         catElement.textContent = value;
@@ -23,7 +44,7 @@ module.exports = {
         else result = elem ? elem.singleNodeValue : '';
         return result && result.trim ? result.trim() : result;
       };
-      function addVideoElementToDocument (key, arr) {
+      function addVideoElementToDocument(key, arr) {
         const catElement = document.createElement('div');
         catElement.id = key;
         for (let i = 0; i < arr.length; i++) {
@@ -42,8 +63,8 @@ module.exports = {
       } else if (directionelement2) {
         addElementToDocument('fl_directioninfo', directionelement2.innerText);
       }
-        const variantCount=0;
-        addElementToDocument('variantCount', variantCount);
+      const variantCount = 0;
+      addElementToDocument('variantCount', variantCount);
       const colorlement = document.evaluate("//ul[@id='makeup-color-list']/li[1]//span/@style", document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
       if (colorlement && colorlement.value.indexOf('background-color') > -1) {
         const colorCode = colorlement.value.slice(colorlement.value.indexOf('#') + 1);
@@ -53,15 +74,22 @@ module.exports = {
       if (videoarr && videoarr.length) {
         addVideoElementToDocument('pd_video', videoarr);
       }
-      const description1 = getXpath("//div[@class='description-content']//text()", 'nodeValue');
+      let description = getXpath("//div[@class='description-content']//text()", 'nodeValue');
       //var ratingValue = aggregateRating ? aggregateRating.replace(/^\D+/g, '') : '';
       //addElementToDocument('addedAggregateRating', (ratingValue ? (parseInt(ratingValue) / 20) : ''));
-      const description2 = getXpath("(//ul[@class='product-properties-list']//li)[1]//text()", 'nodeValue');
-      const description3 = getXpath("(//ul[@class='product-properties-list']//li)[2]//text()", 'nodeValue');
-      const description4 = getXpath("(//ul[@class='product-properties-list']//li)[3]//text()", 'nodeValue');
-      const description5 = getXpath("(//ul[@class='product-properties-list']//li)[4]//text()", 'nodeValue');
-     //var ratingValue = aggregateRating ? aggregateRating.replace(/^\D+/g, '') : '';
-      addElementToDocument('desc', description1+description2+description3+description4+description5);
+      let nodes = document.querySelectorAll("ul.product-properties-list li");
+      if (nodes.length > 0) {
+        description = description + ' || ';
+      }
+      nodes.forEach(node => {
+        description += `${node.innerText} || `;
+      });
+      if (nodes.length > 0) {
+        description = description.slice(0, -4);
+      }
+
+      //var ratingValue = aggregateRating ? aggregateRating.replace(/^\D+/g, '') : '';
+      addElementToDocument('desc', description);
     });
     await context.extract(productDetails);
   },

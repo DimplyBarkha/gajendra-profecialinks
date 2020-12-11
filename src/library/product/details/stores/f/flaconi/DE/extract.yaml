@@ -19,12 +19,20 @@ fields:
   - name: nameExtended
     singleValue: true
     xpath: //div[contains(@class, 'breadcrumbs')]/span[@itemprop='name']
-  - name: list_price
+  - name: listPrice
     singleValue: true
     xpath: //span[@class='old-price']
   - name: price
     singleValue: true
     xpath: (//div[@class='price-box']/meta[@itemprop='price']/@content)[1]
+  - name: pricePerUnit
+    singleValue: true
+    xpath: //span[@class='base-price']
+    regExp: (.*) ([^\s]*)$
+    regExpReplace: $1
+  - name: pricePerUnitUom
+    singleValue: true
+    xpath: //span[@class='unit']   
   - name: availabilityText
     singleValue: true
     xpath: //div[contains(@class,'add-to-cart')][1]//div[@class='stock ']
@@ -58,13 +66,15 @@ fields:
   - name: warnings
     singleValue: true
   - name: ratingCount
-    singleValue: true
-    xpath: //div[@class="yotpo-bottomline pull-left  star-clickable"]//a/span
+    singleValue: false
+    xpath: //div[@class='yotpo-bottomline pull-left  star-clickable']//a/@aria-label
+    regExp: (.*) reviews
+    regExpReplace: $1
   - name: aggregateRatingText
     singleValue: true
   - name: aggregateRating
-    singleValue: true
-    xpath: //div[@class='bottom-line-items']/span[1]
+    singleValue: false
+    xpath: //div[@class='average-rating']
   - name: shippingInfo
     singleValue: true
   - name: shippingDimensions
@@ -113,9 +123,7 @@ fields:
   - name: variantInformation
     singleValue: true
     xpath: concat(((//div[@class="size-box"])[1]//span)[1],((//div[@class="size-box"])[1]//span)[2])
-  - name: listPrice
-    singleValue: true
-    xpath: (//span[@class="old-price"])[1]s
+ 
   - name: ingredientsList
     singleValue: true
     xpath: //div[@class="ingredients-content"]//text()
