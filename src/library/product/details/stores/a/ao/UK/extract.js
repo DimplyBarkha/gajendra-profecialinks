@@ -1,10 +1,10 @@
-const { cleanUp } = require('./format');
+const { transform } = require('./format');
 module.exports = {
   implements: 'product/details/extract',
   parameterValues: {
     country: 'UK',
     store: 'ao',
-    transform: cleanUp,
+    transform,
     domain: 'ao.com',
     zipcode: '',
   },

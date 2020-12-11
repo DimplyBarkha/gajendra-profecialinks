@@ -34,16 +34,10 @@ const transform = (data, context) => {
           });
         }
 
-        if (row.manufacturerDescription) {
-          let text = '';
-          row.manufacturerDescription.forEach(item => {
-            text = text + (text ? ' ' : '') + item.text;
+        if (row.imageZoomFeaturePresent) {
+          row.imageZoomFeaturePresent.forEach(item => {
+            item.text = item.text === 'true' ? 'Yes' : 'No';
           });
-          row.manufacturerDescription = [{ text }];
-        }
-
-        if (row.imageZoomFeaturePresent && row.imageZoomFeaturePresent[0]) {
-          row.imageZoomFeaturePresent[0].text = row.imageZoomFeaturePresent[0].text === 'true' ? 'Yes' : 'No';
         }
 
         row = clean(row);
