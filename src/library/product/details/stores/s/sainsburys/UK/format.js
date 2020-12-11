@@ -31,7 +31,8 @@ const transform = (data) => {
           }
           if (row.availabilityText) {
             row.availabilityText.forEach(item => {
-              item.text = ('Add' === item.text.trim() )? 'In stock' : 'Out of stock';
+              console.log('Availa', item.text);
+              item.text = ('Add' === item.text ) ? 'In stock' : 'Out of stock';
             });
           }
           if (row.priceCurrency) {
@@ -46,7 +47,8 @@ const transform = (data) => {
             });
           }
           if (row.highQualityImages) {
-            row.shownImages.forEach(item => {
+            // console.log('HighQualityImages=>', row.highQualityImages);
+            row.highQualityImages.forEach(item => {
               let element1 = item.text.split(',');
               item.text = element1[element1.length-1].split(' ')[0];
             });
@@ -56,8 +58,9 @@ const transform = (data) => {
               item.text = parseFloat( item.replace(/[^\d.-]/g, '') );
             });
           }
-          if (row.aggregateRatingText) {
-            row.aggregateRatingText.forEach(item => {
+          if (row.ratingCount ) {
+            // console.log('ratingCount=>', row.ratingCount);
+            row.ratingCount.forEach(item => {
               item.text = parseInt( item.replace(/[^\d-]/g, '') );
             });
           }

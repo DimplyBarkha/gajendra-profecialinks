@@ -50,14 +50,15 @@ fields:
     singleValue: false
     description: Other product images (not in manufacturer description)
     xpath: //div[@class="pd__additional__container"]/img[@class="pd__additional__image"]/@srcset
-  - name: aggregateRatingText
+  - name: ratingCount
     singleValue: true
     description: The stated aggregate rating
+    xpath: //div[@class="pd__reviews"]/a[@class="star-rating-link"]/span[@class="pd__reviews__write"]/@aria-label
   - name: aggregateRating
     singleValue: true
     description: The stated aggregate rating normalized to be out of 5
     type: NUMBER
-    xpath: //div[@class="pd__reviews"]/a[@class="star-rating-link"]/span[@class="pd__reviews__write"]/@aria-label
+    xpath: //div[@class="pd__reviews"]/a[@class="star-rating-link"]/span[@class="pd__reviews__read"]
   - name: sku
     singleValue: true
     description: The store-specific product identifier
