@@ -15,6 +15,11 @@ module.exports = {
   ) => {
     await new Promise((resolve, reject) => setTimeout(resolve, 3000));
     await context.evaluate(async function () {
+      if (document.querySelector('button[class*="banner__accept"]')) {
+        document.querySelector('button[class*="banner__accept"]').click();
+        await new Promise(resolve => setTimeout(resolve, 2000));
+      }
+
       function addHiddenDiv (id, content) {
         const newDiv = document.createElement('div');
         newDiv.id = id;
@@ -36,6 +41,19 @@ module.exports = {
       const overlay = document.getElementById('tab-more-info-trigger');
       if (overlay !== undefined) {
         overlay.click();
+      }
+
+      const iframeVideoNodes = [...document.querySelectorAll('iframe[id*="videolist"]')];
+      if (iframeVideoNodes.length > 0) {
+        iframeVideoNodes.forEach(iframe => {
+          const iframeVideoContents = iframe.contentWindow.document.body;
+          const iframeVideo = iframeVideoContents.querySelector('div[class*="video-item"]');
+          if (iframeVideo && iframeVideo.hasAttribute('data-videoid')) {
+            const videoURL = 'https://www.youtube.com/watch?v=' + iframeVideo.getAttribute('data-videoid');
+            console.log('videoURL : ' + videoURL);
+            addHiddenDiv('productVideos', videoURL);
+          }
+        });
       }
     });
 
