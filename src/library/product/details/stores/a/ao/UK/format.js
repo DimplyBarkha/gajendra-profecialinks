@@ -3,7 +3,7 @@
  * @param {ImportIO.Group[]} data
  * @returns {ImportIO.Group[]}
  */
-const format = (data, context) => {
+const transform = (data, context) => {
   const clean = text => text.toString()
     .replace(/\r\n|\r|\n/g, ' ')
     .replace(/&amp;nbsp;/g, ' ')
@@ -25,12 +25,11 @@ const format = (data, context) => {
     for (let row of group) {
       try {
         if (row.manufacturerImages) {
-          let text = '';
           row.manufacturerImages.forEach(item => {
-            const val = item.text.match('http');
-            if (!val) {
-              text = item.text.replace(/(.+)/g, 'https:$1');
-              item.text = text;
+            if (!(item.text.startsWith('http'))) {
+              const img = item.text;
+              const imgText = 'https:' + img;
+              item.text = imgText;
             }
           });
         }
@@ -56,4 +55,4 @@ const format = (data, context) => {
   return data;
 };
 
-module.exports = { format };
+module.exports = { transform };
