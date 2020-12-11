@@ -223,8 +223,8 @@ fields:
     singleValue: false
     description: Other product images (not in manufacturer description)
     xpath: //div[contains(@class,'bop-gallery__item  bop-gallery__itemImage')]/img/@src
-    regExp: (.+)
-    regExpReplace: http://www.ocado.com$1
+    regExp: (.+)_640x640.jpg
+    regExpReplace: http://www.ocado.com$1_1280x1280.jpg
   - name: ratingCount
     description: The number of ratings
     type: NUMBER
@@ -380,3 +380,8 @@ fields:
     xpath: (//td[contains(.,'Magnesium') or contains(.,'magnesium') or contains(.,'Mg')]/following-sibling::td[1])[1]
   - name: imageZoomFeaturePresent
     defaultValue: Yes
+  - name: shownImages
+    description: URL of the main product image
+    xpath: //div[contains(@class,'bop-gallery__item')]/img/@src
+    regExp: (.+)
+    regExpReplace: http://www.ocado.com$1
