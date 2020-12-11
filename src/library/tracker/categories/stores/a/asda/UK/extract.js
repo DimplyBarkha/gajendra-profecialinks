@@ -73,7 +73,7 @@ module.exports = {
     zipcode: '',
   },
   dependencies: {
-    productMenu: 'extraction:categories/tracker/stores/${store[0:1]}/${store}/${country}/extract',
+    productMenu: 'extraction:tracker/categories/stores/${store[0:1]}/${store}/${country}/extract',
   },
   implementation,
 };
