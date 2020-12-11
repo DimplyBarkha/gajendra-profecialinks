@@ -77,8 +77,13 @@ module.exports = {
 
       for (let i = 0; i < product.length; i++) {
         console.log("Loop is working");
-        var new_manuf = Manufacture_list[i].innerText.replace(/by/g, "");
-        addHiddenDiv("ii_manufacture", new_manuf, i);
+        try {
+          var new_manuf = Manufacture_list[i].innerText.replace(/by/g, "");
+          addHiddenDiv("ii_manufacture", new_manuf, i);
+        } catch (err) {
+          console.log(err);
+        }
+
         var single_obj = json_list[i];
         var url_web = single_obj.url;
 
