@@ -5,10 +5,12 @@ recordXPath: null
 fields:
   - name: _input
   - name: image
-    xpath: //div[@class="imageProduct"]//img[@class="img-fluid loaded"]/@src 
+    # xpath: //div[@class="imageProduct"]//img[@class="img-fluid loaded"]/@src 
+    xpath: (//div[@class="imageProduct"]//img[@id="imgProd"]/@src)[1]
   - name: imageAlt
     singleValue: true
-    xpath: //div[@class="imageProduct"]//img[@class="img-fluid loaded"]/@alt
+    # xpath: //div[@class="imageProduct"]//img[@class="img-fluid loaded"]/@alt
+    xpath: (//div[@class="imageProduct"]//img[@id="imgProd"]/@alt)[1]
   - name: alternateImages
     xpath: //div[@id="sliderIn"]//span[position() > 1]/img/@src
     regExp: (.*)w=(.*)
