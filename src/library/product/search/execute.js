@@ -6,12 +6,12 @@
  * @param { { goto: ImportIO.Action} } dependencies
  */
 async function implementation (
-  { zipcode, keywords },
+  { gotoUrl, zipcode, keywords },
   { url, loadedSelector, noResultsXPath },
   context,
   dependencies,
 ) {
-  const destinationUrl = url.replace('{searchTerms}', encodeURIComponent(keywords));
+  const destinationUrl = gotoUrl || url.replace('{searchTerms}', encodeURIComponent(keywords));
   await dependencies.goto({ url: destinationUrl, zipcode });
 
   if (loadedSelector) {

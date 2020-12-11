@@ -62,6 +62,7 @@ module.exports = {
     const resultsReturned = await execute({
       keywords: inputKeywords,
       zipcode: inputs.zipcode || zipcode,
+      gotoUrl: inputs.url || inputs.URL,
     });
 
     // do the search
