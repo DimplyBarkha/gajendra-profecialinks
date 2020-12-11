@@ -88,6 +88,25 @@ async function implementation (inputs, parameters, context, dependencies) {
   }
   await addContentToDOM(manContentObj, manufacturerContentLink);
 
+  await context.evaluate(async function () {
+      function addHiddenDiv (id, content) {
+        const newDiv = document.createElement('div');
+        newDiv.id = id;
+        newDiv.textContent = content;
+        newDiv.style.display = 'none';
+        document.body.appendChild(newDiv);
+      }
+      const productCarousel = [...document.querySelectorAll('div.carousel-item')];
+      const uipdpArr = [];
+      productCarousel.forEach((element) => {
+        const brand = element.querySelector('.carousel-brand') ? element.querySelector('.carousel-brand').innerText : '';
+        const productName = element.querySelector('.carousel-name') ? element.querySelector('.carousel-name').innerText : '';
+        uipdpArr.push(brand + ' ' + productName);
+      });
+      addHiddenDiv('ii_uipdp', uipdpArr.length ? uipdpArr.join(' || ') : '');
+  
+  });
+
   await new Promise((resolve) => setTimeout(resolve, 10000));
   return await context.extract(productDetails, { transform });
 }
