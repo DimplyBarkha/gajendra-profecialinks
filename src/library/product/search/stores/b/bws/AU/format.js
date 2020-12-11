@@ -37,6 +37,13 @@ const transform = (data) => {
             item.text=parseInt(item.text);
           });
         }
+        if (row.price) {
+          row.price.forEach(item => {
+            item.text = item.text.replace(/\s*/, '');
+            item.text = '$' + item.text;
+            item.text = item.text.replace(/\.$/, '');
+          });
+        }
         if (row.id) {
           row.id.forEach(item => {
             item.text = item.text.match(/\d+/g);
