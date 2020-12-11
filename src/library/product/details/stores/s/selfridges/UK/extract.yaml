@@ -26,7 +26,7 @@ fields:
 - name: _pageTimeStamp
   singleValue: false
 - name: image
-  xpath: //picture[@class="c-image-gallery__img"][1]//img[@class="c-image-gallery__img"]/@src
+  xpath: //picture[@class="c-image-gallery__img"][1]//img[@class="c-image-gallery__img"]/@src | //meta[@name="twitter:image"]/@content
   regExp: (.+)
   regExpReplace: https:$1
   singleValue: true
@@ -100,8 +100,7 @@ fields:
   singleValue: true
   description: The store-specific product identifier
 - name: variantId
-  xpath: //div[@id="variantid"]
-  singleValue: true
+  xpath: //head/@variantid
   description: Identifier for a variant from a store where variants share the same
     sku
 - name: mpc
@@ -145,9 +144,10 @@ fields:
 - name: variantCount
   xpath: count(//div[@data-select-name="Size"]//span[contains(@class,"c-select__dropdown-item")]|//div[@data-select-name="BeautyColour"]//span[contains(@class,"c-select__dropdown-item")])
   singleValue: true
+  defaultValue: 0
   description: Number of variants listed
 - name: color
-  xpath: //div[contains(text(), "Colour")]/following-sibling::div[@data-js-action="dropdownItemContainer"]/span
+  #xpath: //div[contains(text(), "Colour")]/following-sibling::div[@data-js-action="dropdownItemContainer"]/span
   singleValue: true
   description: A textual description of the colour
 - name: colorCode
@@ -460,7 +460,7 @@ fields:
   singleValue: true
   description: colour / scent / flavour / other
 - name: firstVariant
-  xpath: //div[@class="c-select__dropdown-item-container"]/span[1]/span
+  xpath: //div[@id="variantid"]
   singleValue: true
   description: Unique identifier for a collection of variants. For a subset of core
     feeds (43) we have a column "first_variant" that is populated with a common code
@@ -471,7 +471,7 @@ fields:
     common link between other variants. method 3 = apply some logic to determine link
     between variants, this will need analysis
 - name: variants
-  xpath: //div[@data-js-action="selectContainer"][contains(text(), "Size")]/following-sibling::div/span/@data-js-action|//div[@data-js-action="selectContainer"][contains(text(), "Colour")]/following-sibling::div/span/@data-js-action
+  xpath: //div[@data-js-action="selectContainer"][contains(text(), "Size")]/following-sibling::div/span/@data-js-action
   singleValue: false
   description: 
 - name: additionalDescBulletInfo
@@ -495,9 +495,12 @@ fields:
   example: https://www.amazon.de/Hasbro-Spiele-44220100-Mastermind-Kinderspiel/dp/B0007OHUG6
   defaultValue: false
 - name: termsAndConditions
+  xpath: //span[contains(.,'Terms & Conditions')]
+  regExp: (.*)
+  regExpReplace: Yes
   singleValue: true
   description: Terms and conditions information text ['Yes','No']
-  defaultValue: false
+  defaultValue: No
 - name: privacyPolicy
   singleValue: true
   description: Privacy Policy information text ['Yes','No']

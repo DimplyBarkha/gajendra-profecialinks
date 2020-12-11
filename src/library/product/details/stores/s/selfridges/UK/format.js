@@ -22,7 +22,8 @@ const transform = (data) => {
         }))));
         return data;
     };
-    for (const { group } of data) {
+    for (const { group }
+        of data) {
         for (const row of group) {
             if (row.alternateImages) {
                 row.alternateImages.forEach(item => {
@@ -30,6 +31,10 @@ const transform = (data) => {
                         item.text = 'https:' + item.text;
                     }
                 });
+            }
+            if (row.variantCount) {
+                if (row.variantCount[0].text == 1)
+                    row.variantCount[0].text = 0;
             }
         }
     }
