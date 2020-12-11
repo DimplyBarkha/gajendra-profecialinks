@@ -5,10 +5,13 @@ recordXPath: null
 fields:
   - name: image
     singleValue: false
-    xpath: //div[@class="product-image__nav-scroll"]//button[contains(@class, "product-image__nav-item--active")]//img/@src
+    xpath: //div[@class="product-image__nav-container"]//button[contains(@class,"product-image__nav-item--active")]//img/@src
   - name: imageAlt
     singleValue: false
-    xpath: //div[@class="product-image__nav-scroll"]//button[contains(@class, "product-image__nav-item--active")]//img/@alt
+    xpath: //div[@class="product-image__nav-container"]//button[contains(@class,"product-image__nav-item--active")]//img/@alt
+  - name: alternateImages
+    singleValue: false
+    xpath: //div[@class="product-image__nav-container"]//button[not(contains(@class,"product-image__nav-item--active"))]//img/@src
   - name: metaKeywords
     singleValue: false
     xpath: //meta[@name="keywords"]/@content
@@ -32,7 +35,7 @@ fields:
     xpath: //div[@class="product-detail__container"]//dt[@class="bui-accordion__header"]//div[contains(text(),"Description")]/parent::*/parent::*/following-sibling::*//div[@class="bui-body"]/ul/li
   - name: weightNet
     singleValue: false
-    xpath: //table[@class="bui-table bui-table--vertical"]//tr[2]/td
+    xpath: //div[@class="product-detail__table js-pdp-accordion-specification"]/table//th[text()="Weight"]/parent::*/td
   - name: sku
     singleValue: false
     xpath: //div[@class="bv-shared bv-core-container-196"]/@data-product-id
@@ -41,43 +44,43 @@ fields:
     xpath: //div[@class="bv-shared bv-core-container-196"]/@data-product-id
   - name: mpc
     singleValue: false
-    xpath: //div[@class="product-detail__ratings"]/span
+    xpath: //div[@class="product-detail__table js-pdp-accordion-specification"]/table//th[text()="Model Number"]/parent::*/td
   - name: ratingCount
     singleValue: false
     xpath: //dd[@class="bv-rating-ratio-count"]
   - name: aggregateRating
     singleValue: false
     xpath: //span[@class="bv-rating"]/span
-  - name: shippingWeight
-    singleValue: false
-    xpath: //div[contains(@class,"product-detail__table")]/@data-options
   - name: variantCount
     singleValue: false
-    xpath: //table[@class="bui-table bui-table--vertical"]//tr
+    defaultValue: '0'
   - name: color
     singleValue: false
-    xpath: //table[@class="bui-table bui-table--vertical"]//tr[1]/td
+    xpath: //div[@class="product-detail__table js-pdp-accordion-specification"]/table//th[text()="Colour"]/parent::*/td
   - name: name
     singleValue: false
     xpath: //div[contains(@class, "product-detail__main-info")]//h1[@class="h2"]
-  - name: inStorePrice
-    singleValue: false
-    xpath: //p[contains(@class, "price-point")]
   - name: specifications
     singleValue: false
-    xpath: //section[contains(@class, "bui-table-scroll")]
+    xpath: //div[@class="product-detail__table js-pdp-accordion-specification"]/table//th | //div[@class="product-detail__table js-pdp-accordion-specification"]/table//td
   - name: packaging
     singleValue: false
     xpath: //section[contains(@class, "package-dimension-table")]
   - name: variantInformation
     singleValue: false
-    xpath: //div[contains(@class, "js-pdp-accordion-specification")]//tr/th
+    xpath: //div[@class="customlistbox_wrapper"]/button/span[@class="customlistbox__option-name"]
   - name: videos
     singleValue: false
     xpath: //div[contains(@class, "product-image__video-player-main")]//video/@src
   - name: brandText
     singleValue: false
-    xpath: //main[@id="main"]/script[1]
+    xpath: //script[@type="application/ld+json"]/text()
   - name: brandLink
     singleValue: false
     xpath: //div[@class="product-image__nav-logo"]/a/@href
+  - name: additionalDescBulletInfo
+    singleValue: false
+    xpath: //div[@class="product-detail__container"]//dt[@class="bui-accordion__header"]//div[contains(text(),"Description")]/parent::*/parent::*/following-sibling::*//div[@class="bui-body"]/ul/li
+  - name: materials
+    singleValue: false
+    xpath: //div[@class="product-detail__table js-pdp-accordion-specification"]/table//th[text()="Material"]/parent::*/td

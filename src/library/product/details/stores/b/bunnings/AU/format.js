@@ -24,41 +24,74 @@ const transform = (data) => {
     };
     for (const { group } of data) {
         for (let row of group) {
-            if(row.description){
-                var descArr = [];
-                row.description.forEach(item=>{
-                    descArr.push(item.text);
-                })
-                row.description = [{"text":descArr.join(' || ')}];
-            }
-            
-            if(row.descriptionBullets){
-              var db = 0;
-              row.descriptionBullets.forEach(item => {
-                  db += 1;                
-              })  
-              row.descriptionBullets = [{"text":db}];            
-            }
-            if(row.variantCount){
-              var vc = 0;
-              row.variantCount.forEach(item => {
-                  vc += 1;                
-              })  
-              row.variantCount = [{"text":vc}];            
-            }
-
-            if(row.brandText){
-                row.brandText.forEach(item => {
-                    var brandData = item.text.replace('var productCartDetailsData = {"isAddToDefaultCartButtonVisible":true,"isAddToRemoteCartButtonVisible":false,"isAddtoWishlistButtonVisibile":false,"isReserveAndCollectButtonVisible":false,"actionButtonContainerCssClass":"product-details-delivery-actions","showBasket":true,"hideQuantity":false,"isClickAndCollectButtonVisible":false};', '');
-                    //console.log('brandData= ', brandData);
-                    brandData=brandData.replace('var productDetailsData =','').slice(0,-1).slice(0,-1);
-                    //console.log('brandDataslice= ', brandData);
-                    let brndJSon=JSON.parse(brandData);
-                    //console.log('brndJSon= ', brndJSon);
-                    let brndName=brndJSon.brandName;
-                    item.text = brndName;
-                })
-            }            
+          if(row.image){
+            row.image.forEach(item=>{
+              item.text=item.text.replace('/w=190,h=190/','/w=800,h=800/');
+            })
+          }
+          if(row.alternateImages){
+            row.alternateImages.forEach(item=>{
+              item.text=item.text.replace('/w=190,h=190/','/w=800,h=800/');
+            })
+          }
+          if(row.price){
+            row.price.forEach(item=>{
+              item.text=item.text.replace('*','');
+            })
+          }
+          if(row.ratingCount){
+            row.ratingCount.forEach(item=>{
+              item.text=item.text.replace('(','').replace(')','');
+            })
+          }
+          if(row.specifications){
+            let no2=0,inf=[],tmp;
+            row.specifications.forEach(item=>{
+              if(no2==0){
+                tmp=item.text;
+                no2=1
+              }else if(no2==1){
+                tmp=tmp+" : "+item.text;
+                inf.push(tmp);tmp='';no2=0;
+              }
+            })
+            row.specifications=[{"text":inf.join(' | ')}];
+          }
+          if(row.description){
+            var descArr = [];
+            row.description.forEach(item=>{
+                descArr.push(item.text);
+            })
+            row.description = [{"text":descArr.join(' || ')}];
+          }  
+          if(row.descriptionBullets){
+            var db = 0;
+            row.descriptionBullets.forEach(item => {
+                db += 1;                
+            })  
+            row.descriptionBullets = [{"text":db}];            
+          }
+          if(row.brandLink){
+            row.brandLink.forEach(item=>{
+              item.text="https://www.bunnings.com.au"+item.text;
+            })
+          }
+          if(row.additionalDescBulletInfo){
+            let inf=[];
+            row.additionalDescBulletInfo.forEach(item=>{
+              inf.push(item.text);
+            })
+            row.additionalDescBulletInfo=[{"text":"|| "+inf.join(' || ')}];
+          }
+          if(row.brandText){
+            row.brandText.forEach(item => {
+              let brandTextObj=JSON.parse(item.text);
+              //console.log('brandTextObj : ',brandTextObj);
+              let brandTextName=brandTextObj.brand.name;
+              //console.log('brandTextName : ',brandTextName);
+              item.text=brandTextName;
+            })
+          }            
         }
     }
     return cleanUp(data);
