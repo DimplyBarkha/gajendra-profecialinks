@@ -28,10 +28,10 @@ const transform = (data) => {
       ),
     ),
   );
-  const concatFunction = (item, index) => {
+  const concatFunction = (item, index, sign = '||') => {
     let text = '';
     if ((index + 1) % 2 === 0) {
-      text += `${item.text} || `;
+      text += `${item.text} ${sign} `;
     } else {
       text += `${item.text} `;
     }
@@ -53,7 +53,7 @@ const transform = (data) => {
       if (row.description) {
         let text = '';
         row.description.forEach((item, i) => {
-          text += concatFunction(item, i);
+          text += concatFunction(item, i, ' ');
         });
         row.description = [
           {
@@ -86,7 +86,7 @@ const transform = (data) => {
       if (row.directions) {
         let text = '';
         row.directions.forEach((item, i) => {
-          text += concatFunction(item, i);
+          text += concatFunction(item, i, ' ');
         });
         row.directions = [
           {
