@@ -32,9 +32,9 @@ module.exports = {
 
         if (enhancedContentEl1 || enhancedContentEl2) {
           enhancedContent = true;
+          document.body.setAttribute('import-enhanced-content', enhancedContent.toString());
         }
 
-        document.body.setAttribute('import-enhanced-content', enhancedContent.toString());
         enhancedContentEl1 ? enhancedContentEl1.remove() : null;
         enhancedContentEl2 ? enhancedContentEl2.remove() : null;
       }

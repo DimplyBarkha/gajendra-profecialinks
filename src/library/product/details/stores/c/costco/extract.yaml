@@ -48,7 +48,7 @@ fields:
       should be "In Stock"
   - name: description
     singleValue: false
-    xpath: //div[@class='product-info-description']
+    xpath: //div[@class='product-info-description'][1]
     description: Product description supplied by website - may be concatenanted from
       multiple places; specifically not the manufacturer description
   - name: descriptionBullets
@@ -79,10 +79,6 @@ fields:
   - name: gtin
     singleValue: true
     description: GTIN code (includes UPC/EAN)
-  - name: sku
-    singleValue: true
-    xpath: //p[@id='product-body-item-number']/span
-    description: The store-specific product identifier
   - name: variantId
     singleValue: true
     xpath: //p[@id="product-body-item-number"]/span
@@ -142,7 +138,7 @@ fields:
     xpath: //div[@id="wc-power-page"] | //div[@class="product-info-description"]
     description: The extended description of the product supplied by the lister
   - name: manufacturerImages
-    singleValue: false
+    singleValue: true
     xpath: //body/@import-enhanced-content
     description: Images within the third party description
   - name: videos
@@ -534,3 +530,7 @@ fields:
   - name: specifications
     xpath: //h3[contains(., 'Specifications')]/..//div[contains(@class, 'product-info-specs')]
     description: The physical dimensions of the product including packaging.
+  - name: sku
+    xpath: //p[@id='product-body-item-number']
+    regExp: (\d+)
+    regExpReplace: $1
