@@ -17,6 +17,7 @@ const transform = (data) => {
           item.text = item.text.replace(/(\s?\n)+/g, ' || ').trim();
         });
       }
+      
       if (row.nameExtended) {
         let qunatityTxt = '';
         if (row.quantity && row.quantity.length > 0) {
@@ -50,6 +51,9 @@ const transform = (data) => {
           text = item.text.replace('.', ',');
         });
         row.aggregateRating = [{ text }];
+      }
+      if ((!row.nameExtended || !row.nameExtended.length) && row.name) {
+        row.nameExtended = row.name;
       }
       if (row.additionalDescBulletInfo) {
         let text = '';

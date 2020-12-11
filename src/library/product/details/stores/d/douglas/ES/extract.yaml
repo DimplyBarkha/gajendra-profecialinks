@@ -8,7 +8,7 @@ fields:
     xpath: //div[@class="rd__breadcrumbs__item"][position()>1][position()<last()]
   - name: nameExtended
     singleValue: false
-    xpath: //h1[@itemprop="name"]//div[@class="rd__col sd__no-float"]/text()
+    xpath: //h1[@itemprop="name"]//div[@class="rd__col sd__no-float"]/text() 
     # xpath: //h1[@itemprop="name"]//div[@class="rd__col sd__no-float"]/text() | //h1[@id="product_title"] | //h2[@class="rd__headline rd__headline--130"]/text() | //h2[@id="product_title"]/span[@itemprop="name"]/text()
   - name: image
     singleValue: false
@@ -64,7 +64,7 @@ fields:
   - name: name
     singleValue: false
     description: The product name
-    xpath: //div[@class="rd__col sd__no-float"]  | //h1[@id="product_title"] | //h2[@class="rd__headline rd__headline--130"]/text() | //h2[@id="product_title"]/span[@itemprop="name"]/text()
+    xpath: //div[@class="rd__col sd__no-float"]  | //h1[@id="product_title"] | //h2[@class="rd__headline rd__headline--130"]/text() | //h2[@id="product_title"]/span[@itemprop="name"]/text() | (//a[@class="rr-item-link"])[last()] | //div[@class="rd__headlline rd__headline--80"]
     #regExp: (?<=\s).*
   # - name: packSize
   #   singleValue: false
