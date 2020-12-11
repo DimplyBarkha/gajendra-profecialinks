@@ -1,6 +1,9 @@
 proxy:
   zone: USA
   type: DATA_CENTER
+extractionGlobals:
+  screenCapture: true
+  screenCaptureType: 'png'
 policy:
   numberRetries: 3
   priority: MEDIUM
@@ -8,11 +11,12 @@ policy:
   backoffPolicy: EXPONENTIAL
   retryWithResidentialProxyAfter: 99
 honorRobots: false
-schema: product/details/geo
+schema: tracker/media
 parameters:
   - domain
   - country
   - store
   - zipcode
-entryPoint: product/details/geo
-pathTemplate: product/${store[0:1]}/${store}/${country}/geo
+entryPoint: tracker/media
+pathTemplate: tracker/${store[0:1]}/${store}/${country}/media
+authentication: navigation/auth/action
