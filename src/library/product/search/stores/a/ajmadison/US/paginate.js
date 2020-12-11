@@ -3,9 +3,12 @@ module.exports = {
   parameterValues: {
   country: 'US',
   store: 'ajmadison',
-  nextLinkSelector: 'body > div:nth-child(8) > div.clearfix > div.overflow-hidden.mb2 > div:nth-child(3) > div.divided.py05.clearfix.mxn1 > div.col.col-4.px1.right-align.font-size.sm > a.link-alt.line-height-1.px05.search-page__pagination-next',
-  loadedSelector: 'body',
+  nextLinkSelector: null,//'link-alt line-height-1 px05 search-page__pagination-next',
+  loadedSelector: null,//'body',
   domain: 'ajmadison.com',
+  openSearchDefinition: {
+    template: 'https://www.ajmadison.com/b.php/Nao~10000%3BNtt~{searchTerms}',
+  },
   zipcode: '',
   },
   };
