@@ -1,16 +1,11 @@
 const { transform } = require('../../../../shared');
 async function implementation (inputs, parameters, context, dependencies) {
   const { productDetails } = dependencies;
+  const { transform } = parameters;
 
   await context.evaluate(async () => {
-    function addProp (name, prop) {
-      let j = 0;
-      prop.forEach(element => {
-        if (prop[j] !== null && prop[j] !== undefined) {
-          document.querySelectorAll('.productinfo')[j].setAttribute(name, element);
-          j++;
-        }
-      });
+    function addProp (selector, iterator, name, value) {
+      document.querySelectorAll(selector)[iterator].setAttribute(name, value);
     }
 
     function stall (ms) {
@@ -21,76 +16,33 @@ async function implementation (inputs, parameters, context, dependencies) {
       });
     }
 
-    const productUrl = [];
-    const price = [];
-    const name = [];
-    const productId = [];
-    const productImage = [];
-    let k = 0;
     // scroll
 
     let scrollTop = 0;
     const scrollLimit = 10000;
     await stall(3000);
     while (scrollTop <= scrollLimit) {
-      const productSelectorURL = document.querySelectorAll('h2.mq-product-title>a');
-      productSelectorURL.forEach(element => {
-        if (!(productUrl.includes(element.href))) {
-          productUrl.push(element.href);
-        }
-      });
-      const productSelectorName = document.querySelectorAll('h2.mq-product-title>a');
-      productSelectorName.forEach(element => {
-        if (!(name.includes(element.textContent))) {
-          name.push(element.textContent);
-        }
-      });
-      const productSelectorID = document.querySelectorAll('div.mq-grid-item>article');
-      productSelectorID.forEach(element => {
-        if (!(productId.includes(element.id))) {
-          productId.push(element.id);
-        }
-      });
-      const productSelectorImage = document.querySelectorAll('article img.v-lazy-image-loaded');
-      productSelectorImage.forEach(element => {
-        if (!(productImage.includes(element.src))) {
-          productImage.push(element.src);
-        }
-      });
-      const productSelectorPrice = document.querySelectorAll('.mq-product-prices>h3');
-      productSelectorPrice.forEach(element => {
-        if (!(price.includes(element.textContent))) {
-          price.push(element.textContent);
-        }
-      });
       scrollTop += 1006;
       window.scroll(0, scrollTop);
       await stall(1000);
     }
 
-    for (let i = 0; i < productId.length; i++) {
-      const productInfo = document.createElement('div');
-      productInfo.className = 'productinfo';
-      document.body.appendChild(productInfo);
-    };
+    const productUrl = document.querySelectorAll('div.mq-product-img>div>a');
+    let url;
+    const priceSelector = document.querySelectorAll('div.mq-product-prices>h3');
+    let price;
 
-    addProp('producturl', productUrl);
-    addProp('id', productId);
-    addProp('name', name);
-    addProp('image', productImage);
-    addProp('price', price);
-
-    let l = 0;
-
-    const rank = document.querySelectorAll('.productinfo');
-
-    rank.forEach(element => {
-      document.querySelectorAll('.productinfo')[l].setAttribute('rank', `${l + 1}`);
-      l++;
-    });
+    for (let i = 0; i < productUrl.length; i++) {
+      url = productUrl[i].href;
+      price = priceSelector[i].textContent;
+      price = price.replace('.', '');
+      addProp('div.mq-product-img>div>a', i, 'rank', `${i + 1}`);
+      addProp('div.mq-product-img>div>a', i, 'url', url);
+      addProp('div.mq-product-prices>h3', i, 'price', price);
+    }
   });
 
-  return await context.extract(productDetails, 'MERGE_ROWS');
+  return await context.extract(productDetails, { transform }, 'MERGE_ROWS');
 }
 module.exports = {
   implements: 'product/search/extract',
