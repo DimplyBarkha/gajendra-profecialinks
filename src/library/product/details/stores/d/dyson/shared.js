@@ -143,8 +143,35 @@ async function implementation (
 
     // deal with the price
     const listPrice = getXpath("(//div[@class='product-hero__price-top']/div[1])[1]", 'innerText');
-    const price = getXpath("(//div[@class='product-hero__price-top']/div[@data-product-price])[1]", 'innerText');
-
+    let price = getXpath("(//div[@class='product-hero__price-top']/div[@data-product-price])[1]", 'innerText');
+    // if (!price){
+    //   let priceElm = document.evaluate('//script[contains(@type,"application/ld+json")][contains(.,"Product")]', document, null, 7, null);
+    //   if(priceElm.snapshotLength>0){
+    //     let scriptText = priceElm.snapshotItem(0).textContent.trim();
+    //     if(scriptText){
+    //       const regex = /"price":\s+\"+(\d+\.*\d+)/g;
+    //       let codeElm = {};
+    //       let code = ""
+    //       if(scriptText.includes("price"))
+    //       {
+    //       codeElm = [...scriptText.matchAll(regex)];
+    //       // for(let match of codeElm)
+    //       // {
+    //       // console.log(match[1]);
+    //       // code = match[1];
+    //       // }
+    //       if(scriptText.includes('USD')){
+    //         code = "$"+(codeElm[0][1]);
+    //       }
+          
+    //       console.log(code);
+    //       price= code;
+    //       } else {
+    //       console.log("price not found");
+    //       }
+    //     }
+    //   }
+    // }
     // transform the price to avoid locale issue
     const localeCleaner = (price) => {
       // first remove all possible thousand spearators

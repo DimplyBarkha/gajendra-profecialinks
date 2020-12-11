@@ -35,11 +35,13 @@ fields:
     #regExp: ([^a-zA-Z:\s]{3,})
     #regExpReplace: $1
   - name: price
-    singleValue: true
+    # singleValue: true
     description: The offered price for the selected product variant - if a user
       clicks add to basket this is the price they would be charged
     #xpath: (//div[@class='product-hero__price-top']/div[@data-product-price])[1]
-    xpath: //div[@id='added_price']
+    # xpath: //div[@id='added_price']
+    xpath: (//span[contains(@class,"sticky-nav__heading-text")])
+    regExp: \$(.+)
   - name: currencyOverride
     singleValue: true
     xpath: //div[@id='added_currency']

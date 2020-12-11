@@ -1,4 +1,5 @@
 extends: ../shared 
+recordxpath: null
 fields:
   - name: image
     description: URL of the main product image
@@ -32,6 +33,9 @@ fields:
       clicks add to basket this is the price they would be charged
     #xpath: (//div[@class='product-hero__price-top']/div[@data-product-price])[1]
     xpath: //div[@id='added_price']
+    # xpath: //script[contains(@type,"application/ld+json")][contains(.,"Product")]
+    # # regExp: "price":\s+\"+(\d+\.+\d+)
+    # # regExpReplace: $1
   - name: currencyOverride
     xpath: //div[@id='added_currency']
   - name: availabilityText #localedependent
