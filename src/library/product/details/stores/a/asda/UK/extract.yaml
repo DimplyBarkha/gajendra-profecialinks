@@ -1,7 +1,7 @@
 fields:
   - name: image
     singleValue: false
-    xpath: (//div[@data-auto-id="image"]//img)[1]/@src
+    xpath: (//div[@id="productImage"] | (//div[@data-auto-id="image"]//img)[1]/@src)[1]
     regExp: (.+)(\?.+)
     regExpReplace : $1
   - name: metaKeywords
@@ -249,7 +249,7 @@ fields:
     singleValue: true
   - name: gtin
     singleValue: false
-    xpath: //*[@id='s7viewer_container_inner']//div[contains(@class,'s7staticimage')]//img[1]/@src
+    xpath: (//div[@id="productGTIN"] | //*[@id='s7viewer_container_inner']//div[contains(@class,'s7staticimage')]//img[1]/@src)[1]
     regExp: (?:asdagroceries\/(\d+))
     regExpReplace: $1
   - name: storage
