@@ -26,7 +26,7 @@ fields:
     defaultValue: In Stock    
   - name: description
     singleValue: false
-    xpath: //div[@class="product-detail__container"]//dt[@class="bui-accordion__header"]//div[contains(text(),"Description")]/parent::*/parent::*/following-sibling::*//div[@class="bui-body"]
+    xpath: //div[@class="product-detail__container"]//dt[@class="bui-accordion__header"]//div[contains(text(),"Description")]/parent::*/parent::*/following-sibling::*//div[@class="bui-body"]/ul/li | //div[@class="product-detail__container"]//dt[@class="bui-accordion__header"]//div[contains(text(),"Description")]/parent::*/parent::*/following-sibling::*//div[@class="bui-body"]/p
   - name: descriptionBullets
     singleValue: false
     xpath: //div[@class="product-detail__container"]//dt[@class="bui-accordion__header"]//div[contains(text(),"Description")]/parent::*/parent::*/following-sibling::*//div[@class="bui-body"]/ul/li
@@ -50,7 +50,7 @@ fields:
     xpath: //span[@class="bv-rating"]/span
   - name: shippingWeight
     singleValue: false
-    xpath: //span[@class="product-detail-dimension_total-weight"]
+    xpath: //div[contains(@class,"product-detail__table")]/@data-options
   - name: variantCount
     singleValue: false
     xpath: //table[@class="bui-table bui-table--vertical"]//tr
@@ -75,3 +75,9 @@ fields:
   - name: videos
     singleValue: false
     xpath: //div[contains(@class, "product-image__video-player-main")]//video/@src
+  - name: brandText
+    singleValue: false
+    xpath: //main[@id="main"]/script[1]
+  - name: brandLink
+    singleValue: false
+    xpath: //div[@class="product-image__nav-logo"]/a/@href

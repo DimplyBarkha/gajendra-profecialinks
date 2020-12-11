@@ -23,7 +23,15 @@ const transform = (data) => {
       return data;
     };
     for (const { group } of data) {
-        for (let row of group) { 
+        for (let row of group) {
+            if(row.description){
+                var descArr = [];
+                row.description.forEach(item=>{
+                    descArr.push(item.text);
+                })
+                row.description = [{"text":descArr.join(' || ')}];
+            }
+            
             if(row.descriptionBullets){
               var db = 0;
               row.descriptionBullets.forEach(item => {
@@ -37,6 +45,19 @@ const transform = (data) => {
                   vc += 1;                
               })  
               row.variantCount = [{"text":vc}];            
+            }
+
+            if(row.brandText){
+                row.brandText.forEach(item => {
+                    var brandData = item.text.replace('var productCartDetailsData = {"isAddToDefaultCartButtonVisible":true,"isAddToRemoteCartButtonVisible":false,"isAddtoWishlistButtonVisibile":false,"isReserveAndCollectButtonVisible":false,"actionButtonContainerCssClass":"product-details-delivery-actions","showBasket":true,"hideQuantity":false,"isClickAndCollectButtonVisible":false};', '');
+                    //console.log('brandData= ', brandData);
+                    brandData=brandData.replace('var productDetailsData =','').slice(0,-1).slice(0,-1);
+                    //console.log('brandDataslice= ', brandData);
+                    let brndJSon=JSON.parse(brandData);
+                    //console.log('brndJSon= ', brndJSon);
+                    let brndName=brndJSon.brandName;
+                    item.text = brndName;
+                })
             }            
         }
     }
