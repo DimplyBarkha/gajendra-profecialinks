@@ -22,7 +22,7 @@ fields:
     xpath: //div[@class='footer-content']/div[1]
   - name: price
     singleValue: true
-    xpath: //div[@class="variation clearfix active"]//div[@class="font-headline mbs05"]/text()[1]|//div[@itemprop='offers']/div/div[contains(text(),'€')]
+    xpath: (//div[@class="variation clearfix active"]//div[@class="font-headline mbs05"]/text()[1]|//div[@itemprop='offers']/div/div[contains(text(),'€')]/text())[1]
     #regExp: (€.+)\*
     #regExpReplace: $1
   - name: listPrice
