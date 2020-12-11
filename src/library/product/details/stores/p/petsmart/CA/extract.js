@@ -40,7 +40,7 @@ module.exports = {
             // @ts-ignore
             .innerText.replace(/Ingredients:\n/g, '')
           : '';
-        ingredientsTab.setAttribute('ingredients', ingredients);
+        document.body.setAttribute('ingredients', ingredients);
 
         const nutritionalXpath = '//p[b[contains(text(), "Analysis")]]';
         const nutritionalInfo = document.evaluate(nutritionalXpath, document, null, XPathResult.UNORDERED_NODE_ITERATOR_TYPE, null).iterateNext()
@@ -74,6 +74,14 @@ module.exports = {
         ? 'Yes'
         : 'No';
       body.setAttribute('zoompresent', zoomPresent);
+
+      let description = document.querySelector("#react-tabs-1 > div > p");
+      if (!description) {
+        let addDescription = document.querySelector("#react-tabs-1 > div")
+        if (addDescription) {
+          document.body.setAttribute('description', addDescription.textContent);
+        }
+      }
     });
 
     var dataRef = await context.extract(productDetails, { transform });
