@@ -1,13 +1,20 @@
-
+const { cleanUp } = require('../../../../shared');
 module.exports = {
   implements: 'product/details/extract',
   parameterValues: {
     country: 'DE',
     store: 'douglas',
-    transform: null,
+    transform: cleanUp,
     domain: 'douglas.de',
   },
-  implementation: async ({ inputString }, { country, domain }, context, { productDetails }) => {
+  implementation: async function implementation(
+    inputs,
+    parameters,
+    context,
+    dependencies,
+  ) {
+    const { transform } = parameters;
+    const { productDetails } = dependencies;
     await context.evaluate(async function () {
       const productData = JSON.parse(findProductDetails('//span[contains(@id,"webtrekk")]/preceding-sibling::script[1]'));
       addEleToDoc('gtin13', productData.gtin13);
@@ -26,19 +33,19 @@ module.exports = {
       const productInfo = preFetchProductDetails('window.customExactagConfig =');
       addEleToDoc('productId', productInfo.product_id);
 
-      function preFetchProductDetails (referenceText) {
+      function preFetchProductDetails(referenceText) {
         let productInfo = findProductDetails('//script[contains(.,"customExactagConfig")]');
         productInfo = JSON.parse(productInfo.substring((productInfo.indexOf(referenceText) + referenceText.length), productInfo.indexOf('}') + 1));
         return productInfo;
       }
 
-      function findProductDetails (xpath) {
+      function findProductDetails(xpath) {
         const element = document.evaluate(xpath, document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
         const productDetails = element.textContent;
         return productDetails;
       }
 
-      function addEleToDoc (key, value) {
+      function addEleToDoc(key, value) {
         const prodEle = document.createElement('div');
         prodEle.id = key;
         prodEle.textContent = value;
@@ -46,13 +53,13 @@ module.exports = {
         document.body.appendChild(prodEle);
       }
 
-      function getEleByXpath (xpath) {
+      function getEleByXpath(xpath) {
         const element = document.evaluate(xpath, document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
         console.log('Element' + element);
         const text = element ? element.textContent : null;
         return text;
       }
     });
-    return await context.extract(productDetails);
+    return await context.extract(productDetails, { transform });
   },
 };
