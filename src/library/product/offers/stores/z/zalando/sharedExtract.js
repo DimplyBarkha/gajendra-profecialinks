@@ -87,10 +87,10 @@ async function getData () {
       ).innerText;
     }
 
-    const json = await getJsonObject();
-
-    return Object.entries(JSON.parse(json).graphqlCache).map(item=>item[1].data).filter(item=>item.hasOwnProperty('product')).filter(item=>item.product.hasOwnProperty('fulfillmentLabel'))[0].product.simples.filter(item=>item.sku===`${sku}`)[0].fulfillmentLabel?.label[1]?.text || ''
-  }
+      const json = await getJsonObject();
+      let seller = Object.entries(JSON.parse(json).graphqlCache).filter(item=>item[1].data.product).filter(item=>item[1].data.product.hasOwnProperty('fulfillmentLabel'))[0][1].data.product.simples.filter(item=>item.sku===`${sku}`)[0].fulfillmentLabel
+      return (seller && seller.label[1] && seller.label[1].text) ? seller.label[1].text : ''
+}
   const jsonData = JSON.parse(
     document
       .querySelector('[id="z-vegas-pdp-props"]')
@@ -118,7 +118,7 @@ async function getData () {
   for (const unit of units) {
     unit.merchantName = await getPartnerDetails(unit.id);
   }
-  return [
+  let res = [
     {
       productId: id,
       name,
@@ -128,6 +128,8 @@ async function getData () {
       brand,
       units,
     },
-  ];
+  ]
+  return res 
+}
 
 module.exports = { addDynamicTable, getData };

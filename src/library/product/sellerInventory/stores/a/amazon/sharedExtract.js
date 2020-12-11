@@ -1,5 +1,4 @@
 const getStockFunc = async function ({ context, sellerId, id }) {
-
   const pageContext = async () => {
     return await context.evaluate(() => {
       console.log('context.evaluate');
@@ -23,7 +22,7 @@ const getStockFunc = async function ({ context, sellerId, id }) {
         hasItemsInCart: '#nav-cart-count:not([class*="cart-0"])',
         hasdropDownQuantity: '[import=element] span[data-action*=dropdown]',
         hasBuyNewBtn: '#buyNew_cbb',
-        hasNoThanksAddOn: '#buybox-see-all-buying-choices-announce'
+        hasNoThanksAddOn: '#buybox-see-all-buying-choices-announce',
       };
 
       const elementChecks = {};
@@ -33,18 +32,18 @@ const getStockFunc = async function ({ context, sellerId, id }) {
           elementChecks[prop] = true;
         } else { elementChecks[prop] = false; }
       }
-      
-      elementChecks.hasShoppingCart = window.ue_pty ? window.ue_pty.includes("ShoppingCart") : false
-      elementChecks.isCartPage = window.ue_pty ? window.ue_pty.includes("ShoppingCart") && !elementChecks.hasToCartBtn : false
-      elementChecks.isCartTransitionPage = window.ue_pty ? window.ue_pty.includes("ShoppingCart") && elementChecks.hasToCartBtn : false
-      elementChecks.isBestSellerPage = window.ue_pty ? window.ue_pty.includes("zeitgeist") : false
-      elementChecks.isSearchPage = window.ue_pty ? window.ue_pty.includes("Search") : false
-      elementChecks.isReviewsPage = window.ue_pty ? window.ue_pty.includes("CustomerReviews") : false
-      elementChecks.isProductPage = window.ue_pty ? window.ue_pty.includes("Detail") : false
-      elementChecks.isOffersPage = window.ue_pty ? window.ue_pty.includes("OfferListing") : false
-      elementChecks.hasVariants = !!window.isTwisterPage
-      elementChecks.windowLocation =  window.location ? window.location : {}
-      if(!!document.body){
+
+      elementChecks.hasShoppingCart = window.ue_pty ? window.ue_pty.includes('ShoppingCart') : false;
+      elementChecks.isCartPage = window.ue_pty ? window.ue_pty.includes('ShoppingCart') && !elementChecks.hasToCartBtn : false;
+      elementChecks.isCartTransitionPage = window.ue_pty ? window.ue_pty.includes('ShoppingCart') && elementChecks.hasToCartBtn : false;
+      elementChecks.isBestSellerPage = window.ue_pty ? window.ue_pty.includes('zeitgeist') : false;
+      elementChecks.isSearchPage = window.ue_pty ? window.ue_pty.includes('Search') : false;
+      elementChecks.isReviewsPage = window.ue_pty ? window.ue_pty.includes('CustomerReviews') : false;
+      elementChecks.isProductPage = window.ue_pty ? window.ue_pty.includes('Detail') : false;
+      elementChecks.isOffersPage = window.ue_pty ? window.ue_pty.includes('OfferListing') : false;
+      elementChecks.hasVariants = !!window.isTwisterPage;
+      elementChecks.windowLocation = window.location ? window.location : {};
+      if (document.body) {
         document.body.setAttribute('current_page_url', window.location.href);
       }
       return elementChecks;
@@ -57,36 +56,36 @@ const getStockFunc = async function ({ context, sellerId, id }) {
       const productXpath = `//div[@data-asin="${b}" and //*[contains(@href, "${a}")]]/*[1]`;
       const el = document.evaluate(productXpath, document, null, XPathResult.ANY_TYPE, null).iterateNext();
       if (el) {
-        console.log('found product')
+        console.log('found product');
         el.parentElement.setAttribute('import', 'element');
-        return !!document.querySelector('div[data-asin][import]:not([data-removed])')
+        return !!document.querySelector('div[data-asin][import]:not([data-removed])');
       }
     }, sellerId, id);
   };
 
   const artifactCartItems = async () => {
     return await context.evaluate(async () => {
-      if(!!document.querySelector('div[data-asin]:not([import]):not([data-removed]) input[value*="Delete"]')){
-        console.log('found artifact prod in cart')
-        return true
+      if (document.querySelector('div[data-asin]:not([import]):not([data-removed]) input[value*="Delete"]')) {
+        console.log('found artifact prod in cart');
+        return true;
       }
-    })
-  }
+    });
+  };
 
   let page = await pageContext();
 
-  if (page.hasBuyNewBtn) { 
+  if (page.hasBuyNewBtn) {
     await context.click('#buyNew_cbb');
     await new Promise(resolve => setTimeout(resolve, 1000));
-  } 
+  }
   if (page.hasNoThanksAddOn) {
     await context.click('#beuybox-see-all-buying-choices-announce');
     await new Promise(resolve => setTimeout(resolve, 1000));
   }
-  if(!sellerId) {
+  if (!sellerId) {
     sellerId = await context.evaluate(() => document.querySelector('#addToCart  > input#merchantID').value);
   }
-  if(!id) {
+  if (!id) {
     id = await context.evaluate(() => document.querySelector('#addToCart  > input#ASIN').value);
   }
   await context.click('#add-to-cart-button:not([style*="not-allowed"])');
@@ -98,10 +97,10 @@ const getStockFunc = async function ({ context, sellerId, id }) {
   // decline add ons from pop out modal with cart button or addons
   if (page.hasAddOnModal) {
     await context.evaluate(async () => {
-      if(document.querySelector('#attachSiNoCoverage-announce')){
+      if (document.querySelector('#attachSiNoCoverage-announce')) {
         document.querySelector('#attachSiNoCoverage-announce').click();
         await new Promise(resolve => setTimeout(resolve, 2000));
-      }else if(document.querySelector('#attach-popover-lgtbox:not([style*="display: none"])')){
+      } else if (document.querySelector('#attach-popover-lgtbox:not([style*="display: none"])')) {
         document.querySelector('#attach-popover-lgtbox:not([style*="display: none"])').click();
         await new Promise(resolve => setTimeout(resolve, 2000));
       }
@@ -129,14 +128,14 @@ const getStockFunc = async function ({ context, sellerId, id }) {
     await context.waitForSelector('span.quantity span span,input.sc-quantity-textfield');
     if (await productSellerFound(sellerId, id)) {
       while (await artifactCartItems()) {
-        console.log('deleting prods')
+        console.log('deleting prods');
         await context.waitForSelector('div[data-asin][import]:not([data-removed])');
         await context.click('div[data-asin]:not([import]):not([data-removed]) input[value*="Delete"]');
         await new Promise(resolve => setTimeout(resolve, 2000));
         await productSellerFound(sellerId, id);
         console.log('artifact deleted');
       }
-      await productSellerFound(sellerId, id)
+      await productSellerFound(sellerId, id);
       page = await pageContext();
       if (page.hasdropDownQuantity) {
         await context.click('[import=element] span[data-action*=dropdown]');
@@ -146,11 +145,11 @@ const getStockFunc = async function ({ context, sellerId, id }) {
       await context.setInputValue('[import=element] input.sc-quantity-textfield', '999');
       await context.click('[import=element] span.sc-update-link a');
       await new Promise(resolve => setTimeout(resolve, 2000));
-      if(!!await productSellerFound(sellerId, id)){
-        console.log('no product found')
-        return
+      if (await productSellerFound(sellerId, id)) {
+        console.log('no product found');
+        return;
       };
-      await context.waitForSelector('div[data-asin][import]:not([data-removed])')
+      await context.waitForSelector('div[data-asin][import]:not([data-removed])');
     }
   }
 };

@@ -14,10 +14,10 @@ async function implementation (
 ) {
   const { sellerId } = inputs;
   const { execute, extract } = dependencies;
-  
+
   const id = inputs.id;
   const url = inputs.url || inputs.URL;
-  const zipcode = inputs.zipcode || parameters.zipcode; 
+  const zipcode = inputs.zipcode || parameters.zipcode;
   const productFound = await execute({ sellerId, id, zipcode, url });
 
   if (!productFound) {

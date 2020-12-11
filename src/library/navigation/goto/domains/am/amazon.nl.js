@@ -6,4 +6,3 @@ module.exports = {
     store: 'amazon',
   },
 };
-

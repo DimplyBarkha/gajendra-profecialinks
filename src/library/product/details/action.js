@@ -12,11 +12,11 @@ async function implementation (
   context,
   dependencies,
 ) {
-  const { URL, RPC, SKU, } = inputs;
+  const { URL, RPC, SKU } = inputs;
   const { execute, extract } = dependencies;
   const url = URL;
   const id = (RPC) || ((SKU) || inputs.id);
-  const zipcode = inputs.zipcode || parameters.zipcode  
+  const zipcode = inputs.zipcode || parameters.zipcode;
   const productFound = await execute({ url, id, zipcode: zipcode });
 
   if (!productFound) {

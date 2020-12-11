@@ -19,7 +19,7 @@ async function goto (gotoInput, parameterValues, context, dependencies) {
 
   const extractor = gotoInput.sourceId ? gotoInput.sourceId : '';
   const MAX_CAPTCHAS = gotoInput.MAX_CAPTCHAS ? gotoInput.MAX_CAPTCHAS : 3;
-  const MAX_SESSION_RETRIES =gotoInput.MAX_SESSION_RETRIES ? gotoInput.MAX_SESSION_RETRIES : 2;
+  const MAX_SESSION_RETRIES = gotoInput.MAX_SESSION_RETRIES ? gotoInput.MAX_SESSION_RETRIES : 2;
   // HOURLY_RETRY_LIMIT is a variable  depending on throughput and proxy pool volumee
   // We may need to expand the "key" to be project&extractor specific beecause projects have custom domain limits
   const HOURLY_RETRY_LIMIT = gotoInput.HOURLY_RETRY_LIMIT ? gotoInput.HOURLY_RETRY_LIMIT : 90000;
@@ -53,7 +53,7 @@ async function goto (gotoInput, parameterValues, context, dependencies) {
         hasItemsInCart: '#nav-cart-count:not([class*="cart-0"])',
         hasdropDownQuantity: '[import=element] span[data-action*=dropdown]',
         hasBuyNewBtn: '#buyNew_cbb',
-        hasNoThanksAddOn: '#buybox-see-all-buying-choices-announce'
+        hasNoThanksAddOn: '#buybox-see-all-buying-choices-announce',
       };
 
       const elementChecks = {};
@@ -63,18 +63,18 @@ async function goto (gotoInput, parameterValues, context, dependencies) {
           elementChecks[prop] = true;
         } else { elementChecks[prop] = false; }
       }
-      
-      elementChecks.hasShoppingCart = window.ue_pty ? window.ue_pty.includes("ShoppingCart") : false
-      elementChecks.isCartPage = window.ue_pty ? (window.ue_pty.includes("ShoppingCart") && window.ue_spty.includes("Cart")) : false
-      elementChecks.isCartTransitionPage = window.ue_pty ? (window.ue_pty.includes("ShoppingCart") && !window.ue_spty.includes("Cart")) : false
-      elementChecks.isBestSellerPage = window.ue_pty ? window.ue_pty.includes("zeitgeist") : false
-      elementChecks.isSearchPage = window.ue_pty ? window.ue_pty.includes("Search") : false
-      elementChecks.isReviewsPage = window.ue_pty ? window.ue_pty.includes("CustomerReviews") : false
-      elementChecks.isProductPage = window.ue_pty ? window.ue_pty.includes("Detail") : false
-      elementChecks.isOffersPage = window.ue_pty ? window.ue_pty.includes("OfferListing") : false
-      elementChecks.hasVariants = !!window.isTwisterPage
-      elementChecks.windowLocation =  window.location ? window.location : {}
-      if(!!document.body){
+
+      elementChecks.hasShoppingCart = window.ue_pty ? window.ue_pty.includes('ShoppingCart') : false;
+      elementChecks.isCartPage = window.ue_pty ? (window.ue_pty.includes('ShoppingCart') && window.ue_spty.includes('Cart')) : false;
+      elementChecks.isCartTransitionPage = window.ue_pty ? (window.ue_pty.includes('ShoppingCart') && !window.ue_spty.includes('Cart')) : false;
+      elementChecks.isBestSellerPage = window.ue_pty ? window.ue_pty.includes('zeitgeist') : false;
+      elementChecks.isSearchPage = window.ue_pty ? window.ue_pty.includes('Search') : false;
+      elementChecks.isReviewsPage = window.ue_pty ? window.ue_pty.includes('CustomerReviews') : false;
+      elementChecks.isProductPage = window.ue_pty ? window.ue_pty.includes('Detail') : false;
+      elementChecks.isOffersPage = window.ue_pty ? window.ue_pty.includes('OfferListing') : false;
+      elementChecks.hasVariants = !!window.isTwisterPage;
+      elementChecks.windowLocation = window.location ? window.location : {};
+      if (document.body) {
         document.body.setAttribute('current_page_url', window.location.href);
       }
       return elementChecks;
@@ -127,7 +127,7 @@ async function goto (gotoInput, parameterValues, context, dependencies) {
   }
 
   const setZip = async (zip) => {
-    if (!!zip) {
+    if (zip) {
       const csrf = await context.evaluate(getCSRFToken);
       const apiZipChange = await context.evaluate(async (zipcode, csrf) => {
         const body = `locationType=LOCATION_INPUT&zipCode=${zipcode}&storeContext=generic&deviceType=web&pageType=Gateway&actionSource=glow&almBrandId=undefined`;

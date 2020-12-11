@@ -94,7 +94,7 @@ async function implementation (
     }
     if (typeof __PRELOADED_STATE__ === 'undefined') {
       await getPreloadState();
-      console.log(__PRELOADED_STATE__)
+      console.log(__PRELOADED_STATE__);
     }
 
     const variants = Object.values(__PRELOADED_STATE__.product.activeVariants);

@@ -14,7 +14,7 @@ async function implementation (
   const { transform } = parameters;
   const { productOffers } = dependencies;
   const assignQuantity = inputs.assign_quantity;
-  const collected = inputs.collected
+  const collected = inputs.collected;
 
   // Adding data to page
   await context.evaluate(async function (collected, assignQuantity) {
@@ -27,15 +27,15 @@ async function implementation (
     }
 
     // Assigning "getInventory" attribute to AMAZON offers
-    if(collected<assignQuantity){
-      let offers = document.querySelectorAll('#olpOfferListColumn div.olpOffer')
-      let currentOffer = collected
-      offers.forEach(offer=>{ 
-        currentOffer++
-        if(currentOffer<=assignQuantity){
+    if (collected < assignQuantity) {
+      const offers = document.querySelectorAll('#olpOfferListColumn div.olpOffer');
+      let currentOffer = collected;
+      offers.forEach(offer => {
+        currentOffer++;
+        if (currentOffer <= assignQuantity) {
           offer.setAttribute('getinventory', 'true');
-        } 
-      })
+        }
+      });
     }
 
     // Adding current page url

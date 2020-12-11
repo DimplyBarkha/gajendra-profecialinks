@@ -1,18 +1,20 @@
 const { transform } = require('../../../../shared');
+const { addDynamicTable, getData } = require('../sharedExtract');
+
 
 async function implementation (inputs, parameters, context, dependencies) {
   // @FIX: Issue with using require(), so added function here.
-  async function addDynamicTable (jsonData, appendSelector) {
-    function generateDynamicTable (jsonData) {
+  function addDynamicTable(jsonData, appendSelector) {
+    function generateDynamicTable(jsonData) {
       const dataLength = jsonData.length;
-
+  
       if (dataLength > 0) {
-        const table = document.createElement('table');
-        table.style.width = '100%';
-        table.setAttribute('border', '1');
-        table.setAttribute('cellspacing', '0');
-        table.setAttribute('cellpadding', '5');
-
+        const table = document.createElement("table");
+        table.style.width = "100%";
+        table.setAttribute("border", "1");
+        table.setAttribute("cellspacing", "0");
+        table.setAttribute("cellpadding", "5");
+  
         const col = [];
         for (let i = 0; i < dataLength; i++) {
           for (const key in jsonData[i]) {
@@ -21,34 +23,34 @@ async function implementation (inputs, parameters, context, dependencies) {
             }
           }
         }
-        const tHead = document.createElement('thead');
-        tHead.setAttribute('bgcolor', '#CCC4F5');
-        tHead.style.color = 'black';
-        const hRow = document.createElement('tr');
-
+        const tHead = document.createElement("thead");
+        tHead.setAttribute("bgcolor", "#CCC4F5");
+        tHead.style.color = "black";
+        const hRow = document.createElement("tr");
+  
         for (let i = 0; i < col.length; i++) {
-          const th = document.createElement('th');
+          const th = document.createElement("th");
           th.innerHTML = col[i];
           hRow.appendChild(th);
         }
         tHead.appendChild(hRow);
         table.appendChild(tHead);
-
-        const tBody = document.createElement('tbody');
-
+  
+        const tBody = document.createElement("tbody");
+  
         for (let i = 0; i < dataLength; i++) {
-          const bRow = document.createElement('tr');
+          const bRow = document.createElement("tr");
           for (let j = 0; j < col.length; j++) {
-            const td = document.createElement('td');
-            table.style.padding = '5px';
-            table.style.margin = '5px auto';
-            td.setAttribute('class', col[j]);
+            const td = document.createElement("td");
+            table.style.padding = "5px";
+            table.style.margin = "5px auto";
+            td.setAttribute("class", col[j]);
             if (
               jsonData[i][col[j]] &&
-              (jsonData[i][col[j]] !== 'null' ||
-                jsonData[i][col[j]] !== 'undefined')
+              (jsonData[i][col[j]] !== "null" ||
+                jsonData[i][col[j]] !== "undefined")
             ) {
-              if (typeof jsonData[i][col[j]] === 'object') {
+              if (typeof jsonData[i][col[j]] === "object") {
                 if (Array.isArray(jsonData[i][col[j]])) {
                   const table = generateDynamicTable(jsonData[i][col[j]]);
                   table && td.append(table);
@@ -61,7 +63,7 @@ async function implementation (inputs, parameters, context, dependencies) {
               }
             }
             bRow.appendChild(td);
-            bRow.style.padding = '5px';
+            bRow.style.padding = "5px";
           }
           tBody.appendChild(bRow);
         }
@@ -69,18 +71,18 @@ async function implementation (inputs, parameters, context, dependencies) {
         return table;
       }
     }
-
+  
     const table = generateDynamicTable(jsonData);
-    const container = document.createElement('div');
-    container.setAttribute('id', 'added-table');
-    container.setAttribute('style', 'overflow:auto');
-    container.innerHTML = '';
+    const container = document.createElement("div");
+    container.setAttribute("id", "added-table");
+    container.setAttribute("style", "overflow:auto");
+    container.innerHTML = "";
     container.appendChild(table);
     document.querySelector(appendSelector).append(container);
   }
-
+  
   async function getData () {
-    async function getPartnerDetails (partnerId) {
+    async function getPartnerDetails (sku) {
       async function getJsonObject () {
         const API = window.location.href;
         const res = await fetch(API);
@@ -90,16 +92,10 @@ async function implementation (inputs, parameters, context, dependencies) {
           elm.innerText.includes('deliveryOptions'),
         ).innerText;
       }
-
+  
       const json = await getJsonObject();
-      const partnerUrl = 'https://en.zalando.de/checkout/partner/' + partnerId;
-      const partnerNameRegex = new RegExp(
-        `"text":"([^"]+)","isHighlighted":[^:]+,"uri":"${partnerUrl}`,
-      );
-      if (json.match(partnerNameRegex)) {
-        return json.match(partnerNameRegex)[1];
-      }
-      return '';
+      let seller = Object.entries(JSON.parse(json).graphqlCache).filter(item=>item[1].data.product).filter(item=>item[1].data.product.hasOwnProperty('fulfillmentLabel'))[0][1].data.product.simples.filter(item=>item.sku===`${sku}`)[0].fulfillmentLabel
+      return (seller && seller.label[1] && seller.label[1].text) ? seller.label[1].text : ''
     }
     const jsonData = JSON.parse(
       document
@@ -126,7 +122,7 @@ async function implementation (inputs, parameters, context, dependencies) {
     }
     const units = jsonData[0].model.articleInfo.units;
     for (const unit of units) {
-      unit.merchantName = await getPartnerDetails(unit.merchantId);
+      unit.merchantName = await getPartnerDetails(unit.id);
     }
     return [
       {
@@ -137,15 +133,17 @@ async function implementation (inputs, parameters, context, dependencies) {
         image,
         brand,
         units,
-      },
-    ];
+      }
+    ]
   }
+
   const { transform } = parameters;
   const { productOffers } = dependencies;
   const data = await context.evaluate(getData);
   await context.evaluate(addDynamicTable, data, 'footer');
   return await context.extract(productOffers, { transform });
 }
+
 module.exports = {
   implements: 'product/offers/extract',
   parameterValues: {

@@ -11,7 +11,7 @@ module.exports = {
     {
       name: 'domain',
       description: 'The top private domain of the website (e.g. amazon.com)',
-    }
+    },
   ],
   inputs: [
     {

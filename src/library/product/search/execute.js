@@ -11,7 +11,7 @@ async function implementation (
   context,
   dependencies,
 ) {
-  const zipcode = encodeURIComponent(inputs.zipcode)
+  const zipcode = encodeURIComponent(inputs.zipcode);
   const url = parameters.url.replace('{searchTerms}', encodeURIComponent(inputs.keywords));
   await dependencies.goto({ url, zipcode: zipcode, inputs });
   if (parameters.loadedSelector) {

@@ -30,9 +30,9 @@ async function implementation (
     console.log('No results were returned');
     return;
   }
-  let collected = 0
+  let collected = 0;
   // try gettings some search results
-  const pageOne = await extract({assign_quantity, collected});
+  const pageOne = await extract({ assign_quantity, collected });
 
   collected = length(pageOne);
 
@@ -45,7 +45,7 @@ async function implementation (
 
   let page = 2;
   while (collected < results && await paginate({ id, page, offset: collected })) {
-    const data = await extract({assign_quantity, collected});
+    const data = await extract({ assign_quantity, collected });
     const count = length(data);
     if (count === 0) {
       // no results
