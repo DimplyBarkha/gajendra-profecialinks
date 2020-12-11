@@ -41,9 +41,7 @@ fields:
     xpath: //div[text()="Anwendung"]/following-sibling::div[@class="tab-content"]//div[@class="instruction-content"]
   - name: aggregateRating
     singleValue: false
-    xpath: translate(//div[@class="standalone-bottomline"]//span[@class='sr-only'], '.', ',')
-    regExp: (.+) star
-    regExpReplace: $1
+    xpath: translate(//div[@class="average-rating"], '.', ',')
   - name: ratingCount
     singleValue: false
     xpath: translate(//meta[@itemprop="ratingCount"]/@content,',','.')
