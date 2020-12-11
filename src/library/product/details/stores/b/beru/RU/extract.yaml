@@ -483,9 +483,8 @@ fields:
   #   singleValue: false
   #   xpath: //div[@id='bulletListTemp']
   - name: descriptionBullets
+    singleValue: false
     xpath: count(//div[@data-zone-name="specs"]//ul//li)
-  - name: boughtTogether
-    xpath: //div[@data-zone-name="ScrollBox" and (contains(.,'С этим товаром покупают'))]//div[@data-tid="518f5fc0"]/span
   - name: prop65Warning
     singleValue: false
     description: null
