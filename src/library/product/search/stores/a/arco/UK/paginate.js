@@ -4,7 +4,7 @@ module.exports = {
   parameterValues: {
     country: 'UK',
     store: 'arco',
-    nextLinkSelector: null,
+    nextLinkSelector: 'ul> li > a > span[class="icon-arrow-right"]',
     mutationSelector: null,
     spinnerSelector: null,
     loadedSelector: 'div[class = "inner"] > img',

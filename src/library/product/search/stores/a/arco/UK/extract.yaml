@@ -1,21 +1,21 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: //div[@class="result"]
+recordXPath: //html[@id="product-page"]//div[@id="contentholder"] | //div[@class="result"] 
 fields:
   - name: productUrl
-    xpath: //a/@href
+    xpath: //a/@href | //link[@rel="canonical"]/@href
   - name: thumbnail
-    xpath: //div[@class="inner"]/img/@src
+    xpath: //div[@class="inner"]/img/@src | //div[@id="imageholder"]//img[1]/@src
     regExp: (.+)
     regExpReplace: https://www.arco.co.uk/$1
   - name: name
-    xpath: //div[@class="descr"]/span[@class="title"]
+    xpath: //div[@class="descr"]/span[@class="title"]  | //div[@id="infoholder"]//h1
   - name: reviewCount
     singleValue: true
     description: The number of reviews
   - name: price
-    xpath: //span[@class="price"]
+    xpath: //span[@class="price"] | //div[contains(@class,"theprice")]//span[2]
     regExp: (£)(.+)
     regExpReplace: $2
   - name: rank
@@ -31,5 +31,7 @@ fields:
     description: Is sponsored/paid
     type: BOOLEAN    
   - name: id
-    xpath: //span[@class="code"]
+    xpath: //span[@class="code"] | //div[@id="infoholder"]//h1
+    regExp: (\d+.+\d)
+
   
