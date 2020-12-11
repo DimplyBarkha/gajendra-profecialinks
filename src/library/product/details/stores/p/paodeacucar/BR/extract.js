@@ -2,6 +2,17 @@ const { transform } = require('../../../../shared');
 const implementation = async (inputs, parameters, context, dependencies) => {
   const { transform } = parameters;
   const { productDetails } = dependencies;
+  await context.waitForSelector('.product-cardstyles__Container-sc-1uwpde0-1.eaVrql');
+  async function firstItemLink() {
+    return await context.evaluate(function () {
+      const firstItem = document.querySelector('.product-cardstyles__Container-sc-1uwpde0-1.eaVrql > a').href;
+      return firstItem;
+    });
+  }
+  const url = await firstItemLink();
+  if (url !== null) {
+    await context.goto(url, { timeout: 10000, waitUntil: 'load', checkBlocked: true });
+  }
   // getting price and listPrice
   await context.evaluate(async function () {
     const saleElement = document.querySelector('div.buy-boxstyles__BuyBox-sc-16stmqn-0.gqXNEz div.seal-sale-box-divided__Value-pf7r6x-3.bgtGEw');
