@@ -1,13 +1,35 @@
 
+const { cleanUp } = require('../../../../shared');
 module.exports = {
   implements: 'product/details/extract',
   parameterValues: {
     country: 'DE',
     store: 'flaconi',
-    transform: null,
+    transform: cleanUp,
     domain: 'flaconi.de',
   },
+  // @ts-ignore
   implementation: async ({ inputString }, { country, domain }, context, { productDetails }) => {
+
+    try {
+      const cssBanner = "button#uc-btn-accept-banner";
+      const isSelectorAvailable = async (cssSelector) => {
+        console.log(`Is selector available: ${cssSelector}`);
+        return await context.evaluate(function (selector) {
+          return !!document.querySelector(selector);
+        }, cssSelector);
+      };
+
+      console.log('.....waiting......');
+      await context.waitForSelector(cssBanner, { timeout: 10000 });
+
+      const bannerAvailable = await isSelectorAvailable(cssBanner);
+      if (bannerAvailable) {
+        await context.click(cssBanner);
+
+      }
+    }
+    catch (error) { console.log("No overlay") }
     await context.evaluate(async function () {
       function addElementToDocument(key, value) {
         const catElement = document.createElement('div');
@@ -16,6 +38,7 @@ module.exports = {
         catElement.style.display = 'none';
         document.body.appendChild(catElement);
       }
+      // @ts-ignore
       const getXpath = (xpath, prop) => {
         const elem = document.evaluate(xpath, document, null, XPathResult.ANY_UNORDERED_NODE_TYPE, null);
         let result;
@@ -38,14 +61,18 @@ module.exports = {
       const directionelement1 = document.evaluate("//div[contains(@class, 'instruction-content')]", document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
       const directionelement2 = document.evaluate("//div[contains(@class, 'instruction')]", document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
       if (directionelement1) {
+        // @ts-ignore
         addElementToDocument('fl_directioninfo', directionelement1.innerText);
       } else if (directionelement2) {
+        // @ts-ignore
         addElementToDocument('fl_directioninfo', directionelement2.innerText);
       }
       const variantCount = 0;
       addElementToDocument('variantCount', variantCount);
       const colorlement = document.evaluate("//ul[@id='makeup-color-list']/li[1]//span/@style", document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
+      // @ts-ignore
       if (colorlement && colorlement.value.indexOf('background-color') > -1) {
+        // @ts-ignore
         const colorCode = colorlement.value.slice(colorlement.value.indexOf('#') + 1);
         addElementToDocument('fl_colorcode', colorCode);
       }
@@ -60,6 +87,7 @@ module.exports = {
       };
       var descfinal = [];
       //const description1 = getXpath("//div[@class='description-content']//text()", 'nodeValue');
+      // @ts-ignore
       var description1 = document.querySelectorAll("div[class='description-content']")[0].innerText;
       if (description1.length > 0) {
         descfinal.push(description1)
