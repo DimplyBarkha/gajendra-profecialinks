@@ -11,7 +11,8 @@ fields:
     xpath: (//div[@id="divImageGallery"]//figure)[1]//a/img/@alt
   - name: alternateImages
     singleValue: false
-    xpath: //div[@id="divImageGallery"]//figure[not(contains(@class, 'slick-active'))]//a/@href
+    # xpath: //div[@id="divImageGallery"]//figure[not(contains(@class, 'slick-active'))]//a/@href
+    xpath: //figure[contains(@class,"pdpHide slick-slide")]/a/@href
   - name: metaKeywords
     singleValue: false
     description: The <meta> keywords content
