@@ -36,9 +36,16 @@ const transform = (data) => {
           }
           if (row.price) {
             row.price.forEach(item => {
+              item.text = item.text.replace(/\s/, '.');
               item.text = '$' + item.text;
-      
+              item.text = item.text.replace(/\.$/, '');
             });
+          }
+          if (row.quantity) {
+            row.quantity.forEach(item => {
+              item.text = item.text.match(/\d\d+.*/)[0];
+            });
+  
           }
           if (row.description) {
             let description_ar = [];
@@ -61,6 +68,9 @@ const transform = (data) => {
               delete row.specifications;
             }
           }
+          if (row.descriptionBullets) {
+            row.descriptionBullets = [{'text':row.descriptionBullets.length, 'xpath':row.descriptionBullets[0].xpath}];              
+          } 
           if (row.category) {
             if (row.category.length) {
               row.category.splice(0, 1);
