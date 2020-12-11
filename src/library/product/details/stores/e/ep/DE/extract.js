@@ -164,8 +164,8 @@ async function implementation (
     if (document.querySelector('.rrp.product-price-panel-offer')) {
       addHiddenDiv('listPrice', document.querySelector('.rrp.product-price-panel-offer').innerText.replace('UVP', ''));
     }
-    if (document.querySelector('.priceOfProduct.product-price-panel-offer')) {
-      addHiddenDiv('price', document.querySelector('.priceOfProduct.product-price-panel-offer').innerText.replace('*', ''));
+    if (document.querySelector('.priceOfProduct.product-price-panel-offer , .offerPrice.product-price-panel-offer')) {
+      addHiddenDiv('price', document.querySelector('.priceOfProduct.product-price-panel-offer , .offerPrice.product-price-panel-offer').innerText.replace('*', ''));
     }
   
     if (inBoxUrls.length) {
