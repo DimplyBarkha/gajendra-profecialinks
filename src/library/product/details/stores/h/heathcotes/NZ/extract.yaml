@@ -384,3 +384,13 @@ fields:
     singleValue: false
     description: Terms and conditions information text ['Yes','No']
 
+  - name: inTheBoxText
+    xpath: //div[contains(@class,"InTheBox")]//div[@class="flix-std-content"]
+  - name: inTheBoxUrl
+    xpath: //div[contains(@class,"InTheBox")]//div[@class="flix-background-image"]//img/@data-flixsrcset
+    regExp: (.+)(\s?200w)(.+)
+    regExpReplace: https:$1
+  - name: hasComparisonTable
+    defaultValue: No
+  - name: unInterruptedPDP
+    xpath: //div[contains(@id,"recently_viewed")]//div[@class="panel"]
