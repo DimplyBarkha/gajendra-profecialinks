@@ -3,72 +3,67 @@ regionsSelector: null
 recordSelector: null
 recordXPath: //div[contains(@class, "yotpo-review ")]
 fields:
+- name: aggregateRating
+  xpath: ancestor::html//span[contains(@class,"avg-score")]
+- name: name
+  type: STRING
+  xpath: ancestor::html//h1[@class="product-information__header__title__name heading--large"]
+- name: commentCount
+  singleValue: true
+  type: STRING
+- name: reviewDate
+  type: STRING
+  xpath: //div[@class="footer-additional-actions"]/span[@class="y-label yotpo-review-date"]
+- name: user
+  type: STRING
+  xpath: //div[@class="yotpo-header-element "]/span[contains(@class,"yotpo-user-name")]
 - name: brand
   type: STRING
-  description: Brand name
   xpath: ancestor::html//meta[@name="application-name"]/@content
 - name: productRange
   type: STRING
-  description: Product Range
-  xpath: 
 - name: productFamily
   type: STRING
-  description: Product Family
   xpath: ancestor::html//meta[@property="og:url"]/@content
   regExp: https://www.juul.co.uk/shop/(.*)/
   regExpReplace: $1
 - name: colour
   type: STRING
-  description: Product Colour
-  xpath: 
 - name: flavour
   type: STRING
-  description: Product Flavour
-  xpath: //span[@aria-label="Flavour Filter"]/span
 - name: sku
   type: STRING
-  description: sku
-  xpath: 
 - name: reviewText
   type: STRING
   singleValue: false
-  description: Product Review
   xpath: //div[@class="content-review"]
 - name: reviewTitle
   type: STRING
-  description: Review Title
   xpath: //div[@class="content-title yotpo-font-bold"]
 - name: mediaURL
   type: STRING
-  description: Product Media URL
   xpath: ancestor::html//meta[@property="og:image"]/@content
 - name: location
   type: STRING
-  description: Location
   defaultValue: UK
 - name: helpful
   type: STRING
-  description: Product Helpful Notes
   xpath: //span[@data-type="up"]
 - name: verifiedPurchase
   type: STRING
-  description: Product Purchase Notes
   xpath: //span/@aria-describedby
   regExp: (.+)
   regExpReplace: 'Yes'
   defaultValue:  'No'
 - name: rating
   type: STRING
-  description: Product Rating
   xpath: //span[@class="sr-only"]
   regExp: ([0-9\.]{1,}) star rating
   regExpReplace: $1
 - name: pageTitle
   type: STRING
-  description: Page Title
   xpath: ancestor::html//meta[@property="og:title"]/@content
 - name: sourceUrl
   type: STRING
-  description: Source URL
   xpath: ancestor::html//meta[@property="og:url"]/@content
  
