@@ -1,12 +1,12 @@
 
-const { cleanUp } = require('../../../../shared');
+const { transform } = require('./transform');
 
 module.exports = {
   implements: 'product/details/extract',
   parameterValues: {
     country: 'AT',
     store: 'electronic4you',
-    transform: cleanUp,
+    transform,
     domain: 'electronic4you.at',
     zipcode: '',
   },
@@ -125,6 +125,6 @@ module.exports = {
         ? document.querySelector('span.ts-reviewSummary-ratingValue').innerText : '';
       addElementToDocument('aggRating', aggRating.replace(/(\d+)\.?(\d+)?/g, '$1,$2'));
     });
-    await context.extract(productDetails, {transform});
+    await context.extract(productDetails, { transform });
   },
 };
