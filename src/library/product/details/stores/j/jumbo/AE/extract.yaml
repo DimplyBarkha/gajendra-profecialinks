@@ -76,3 +76,6 @@ fields:
   - name: manufacturer
     singleValue: false
     xpath: (//span[@itemprop='manufacturer'])[1]
+  - name: unInterruptedPDP
+    singleValue: false
+    xpath: //div[@id="related-items"]//span[@class="variant-title"]/a
