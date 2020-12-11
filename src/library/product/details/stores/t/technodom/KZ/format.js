@@ -24,7 +24,12 @@ const transform = (data) => {
     };
     for (const { group } of data) {      
       var variantCount = 0;
-      for (let row of group) {              
+      for (let row of group) { 
+        if(row.price){
+          row.price.forEach(item=>{
+            item.text=item.text+".00";
+          })
+        }             
             if (row.description) {
               let inf =  [];
               row.description.forEach(item => {
