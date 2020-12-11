@@ -11,6 +11,13 @@ module.exports = {
     const { transform } = parameters;
     const { productDetails } = dependencies;
     await context.evaluate(() => {
+      function stall(ms) {
+        return new Promise((resolve, reject) => {
+          setTimeout(() => {
+            resolve();
+          }, ms);
+        });
+      }
       if (
         document.querySelector(
           ".btn.btn-none.hz-universal-search-header-tip__dismiss"
@@ -33,6 +40,7 @@ module.exports = {
           )
           .click();
       }
+      stall(5000);
       function addHiddenDiv(id, content, index) {
         const newDiv = document.createElement("div");
         newDiv.id = id;
@@ -67,14 +75,12 @@ module.exports = {
         var single_obj = json_list[i];
         var url_web = single_obj.url;
         var urllink_update = urllink[i].getAttribute("href");
-
-        if (urllink_update == url_web) {
-          if (rank == 1) {
-            addHiddenDiv("ii_rankOrganic", single_obj.position, i);
-          } else {
-            var rrank = 36 * (rank - 1);
-            addHiddenDiv("ii_rankOrganic", rrank + single_obj.position, i);
-          }
+        addHiddenDiv("ii_produrl", url_web, i);
+        if (rank == 1) {
+          addHiddenDiv("ii_rankOrganic", single_obj.position, i);
+        } else {
+          var rrank = 36 * (rank - 1);
+          addHiddenDiv("ii_rankOrganic", rrank + single_obj.position, i);
         }
       }
     });
