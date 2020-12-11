@@ -4,6 +4,99 @@ const implementation = async (
   context,
   dependencies,
 ) => {
+  function addDynamicTable (jsonData, appendSelector) {
+    function generateDynamicTable (jsonData) {
+      const dataLength = jsonData.length;
+      function checkArray(x) {
+        return x.every(i => (typeof i !== "object"));
+      }
+      if(checkArray(jsonData)) {
+        jsonData = jsonData.map((e) => ({'value': e}))
+      }
+      if (dataLength > 0) {
+        const table = document.createElement('table');
+        table.style.width = '100%';
+        table.setAttribute('border', '1');
+        table.setAttribute('cellspacing', '0');
+        table.setAttribute('cellpadding', '5');
+
+        const col = [];
+        for (let i = 0; i < dataLength; i++) {
+          for (const key in jsonData[i]) {
+            if (col.indexOf(key) === -1) {
+              col.push(key);
+            }
+          }
+        }
+        const tHead = document.createElement('thead');
+        tHead.setAttribute('bgcolor', '#CCC4F5');
+        tHead.style.color = 'black';
+        const hRow = document.createElement('tr');
+
+        for (let i = 0; i < col.length; i++) {
+          const th = document.createElement('th');
+          th.innerHTML = col[i];
+          hRow.appendChild(th);
+        }
+        tHead.appendChild(hRow);
+        table.appendChild(tHead);
+
+        const tBody = document.createElement('tbody');
+
+        for (let i = 0; i < dataLength; i++) {
+          const bRow = document.createElement('tr');
+          for (let j = 0; j < col.length; j++) {
+            const td = document.createElement('td');
+            table.style.padding = '5px';
+            table.style.margin = '5px auto';
+            td.setAttribute('class', col[j]);
+            if (
+              jsonData[i][col[j]] &&
+              (jsonData[i][col[j]] !== 'null' ||
+                jsonData[i][col[j]] !== 'undefined')
+            ) {
+              if (typeof jsonData[i][col[j]] === 'object') {
+                if (Array.isArray(jsonData[i][col[j]])) {
+                  const table = generateDynamicTable(jsonData[i][col[j]]);
+                  table && td.append(table);
+                } else {
+                  const table = generateDynamicTable([jsonData[i][col[j]]]);
+                  table && td.append(table);
+                }
+              } else {
+                td.innerHTML = jsonData[i][col[j]];
+              }
+            }
+            bRow.appendChild(td);
+            bRow.style.padding = '5px';
+          }
+          tBody.appendChild(bRow);
+        }
+        table.appendChild(tBody);
+        return table;
+      }
+    }
+
+    const table = generateDynamicTable(jsonData);
+    const container = document.createElement('div');
+    container.setAttribute('id', 'added-table');
+    container.setAttribute('style', 'height: 1000px;width: 100%;overflow:auto;float: left;position: relative;margin-left: -5px;');
+    container.innerHTML = '';
+    container.appendChild(table);
+    document.querySelector(appendSelector).append(container);
+  }
+
+  
+  async function getApiData() {
+    const productId = window.location.pathname.match(/([^-]+)-pdt.html/)[1];
+    const domain = window.location.hostname.replace(/www./,'');
+    const API = `https://api.${domain}/store/api/products/${productId}`;
+    const res = await fetch(API);
+    const json = await res.json();
+    return json;
+  }
+  const apiData = await context.evaluate(getApiData);
+  await context.evaluate(addDynamicTable, apiData.payload, '#footer'); 
   const optionalWaitForSelector = async (selector, timeout = 35000) => {
     try {
       await context.waitForSelector(selector, { timeout });
@@ -94,6 +187,9 @@ const implementation = async (
       return value;
     });
     await context.goto(currentUrl, { timeout: 50000, waitUntil: 'load', checkBlocked: true });
+
+    const apiData = await context.evaluate(getApiData);
+    await context.evaluate(addDynamicTable, apiData.payload, '#footer'); 
     await context.evaluate((video) => {
       video = video.join(' | ');
       document.querySelector('body').setAttribute('video-src', video);
@@ -117,7 +213,7 @@ const implementation = async (
   await delay(10000);
 
   await context.evaluate(async function (zip, country) {
-    const clean = text => text.toString()
+    /* const clean = text => text.toString()
     .replace(/\r\n|\r|\n/g, ' ')
     .replace(/&amp;nbsp;/g, ' ')
     .replace(/&amp;#160/g, ' ')
@@ -148,7 +244,7 @@ const implementation = async (
     }
     // eslint-disable-next-line
     const basicDetails = JSON.parse(clean(decode(await getBasicDetails())));
-    const productDigitalData = JSON.parse(clean(decode(await getproductDigitalData()))).product[0];
+    const productDigitalData = JSON.parse(clean(decode(await getproductDigitalData()))).product[0];*/
 
     const addElement = (id, content) => {
       const packagingElem = document.createElement('div');
@@ -177,19 +273,12 @@ const implementation = async (
         console.log('Error while making API call.', err);
       }
     };
-
     const buildDescription = () => {
-      const article = document.querySelector('#product-info article');
-      const description = document.querySelector('.highlights-tablet .main-desc .section-title ~ ul');
-      const subNodes = description.querySelectorAll('li');
-
-      let text = '';
-      subNodes.forEach(subNode => {
-        text += `||${subNode.textContent}`;
-      });
-
-      text += article ? ` ${article.textContent.trim()}` : '';
-      return text.trim();
+      const article = document.querySelector('td[class="fullDescription"]');
+      let bullets = Array.from(document.querySelectorAll('td[class="mainFeatures"] td[class="value"]')).map(elm => elm.innerText.trim()).join(' || ');
+      if(bullets) { bullets = '|| ' + bullets; }else {bullets = ""};
+      bullets += article ? ` ${article.textContent.trim()}` : '';
+      return bullets.trim();
     };
 
     const getSpecification = () => {
@@ -207,8 +296,8 @@ const implementation = async (
 
       return content;
     };
+  
     addElement('specification', getSpecification());
-
     const isSelectorPresent = (sel) => {
       return Boolean(document.querySelector(sel));
     };
@@ -228,8 +317,8 @@ const implementation = async (
         long = '-6.26495';
         lat = '53.33537';
       }
-
-      const uri = `${countryRoute}/mcd_postcode_check/sProductId/${basicDetails.sku}/sPostCode/${zip}/latitude/${lat}/longitude/${long}/ajax.html`;
+      const sku = document.querySelector('td[class="sku"]').innerText;
+      const uri = `${countryRoute}/mcd_postcode_check/sProductId/${sku}/sPostCode/${zip}/latitude/${lat}/longitude/${long}/ajax.html`;
       const res = await makeApiCall(uri);
       console.log(res);
       if (res.status === 'success' && res.data && res.data.postCodeCheck && res.data.postCodeCheck.state !== 'DELIVERABLE') {
@@ -242,23 +331,15 @@ const implementation = async (
     }
     addElement('availability', availability);
 
-    const actualRating = basicDetails && basicDetails.aggregateRating && basicDetails.aggregateRating.ratingValue && Number(basicDetails.aggregateRating.ratingValue);
+    const actualRating = Number(document.querySelector('td[class="averageScore"]'));
     const updatedRating = actualRating ? (actualRating * 5) / 10 : '';
     addElement('rating', updatedRating);
 
-    const productId = productDigitalData.productID || '';
+    const productId = document.querySelector('div#added-table > table > tbody > tr > td[class="id"]')  && document.querySelector('div#added-table > table > tbody > tr > td[class="id"]').innerText || '';
     addElement('productId', productId);
-
-    const manufacturer = productDigitalData.manufacturer || '';
-    addElement('manufacturer', manufacturer);
-
-    const brand = (basicDetails.brand && basicDetails.brand.name) || '';
-    addElement('brand', brand);
-
     const description = buildDescription();
     addElement('description', description);
-  }, parameters.zipcode, parameters.country);
-
+  }, parameters.zipcode, parameters.country );
   const { transform } = parameters;
   const { productDetails } = dependencies;
   return await context.extract(productDetails, { transform });
