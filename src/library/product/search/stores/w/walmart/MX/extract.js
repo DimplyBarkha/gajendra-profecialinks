@@ -24,14 +24,14 @@ async function implementation (
       await new Promise((resolve) => setTimeout(resolve, 6000));
       await context.waitForXPath('//button[@data-testid="close-tip"]');
       await context.evaluateInFrame('iframe', () => {
-        let closeButton = document.querySelector('button[data-testid="close-tip');
+        const closeButton = document.querySelector('button[data-testid="close-tip');
         if (closeButton) {
           // @ts-ignore
           closeButton.click();
         }
       });
-    }catch(error){
-      console.log(error)
+    } catch (error) {
+      console.log(error);
     }
     async function infiniteScroll () {
       let prevScroll = document.documentElement.scrollTop;
@@ -46,7 +46,7 @@ async function implementation (
       }
     }
     await infiniteScroll();
-  })
+  });
 
   try {
     await new Promise((resolve) => setTimeout(resolve, 6000));
