@@ -17,6 +17,9 @@ fields:
   - name: nameExtended
     singleValue: false
     xpath: //h1[@class="c-product-detail__product-name"]
+  - name: name
+    singleValue: false
+    xpath: //h1[@class="c-product-detail__product-name"]
   - name: price
     singleValue: false
     xpath: //div[@class="c-product-detail-infos__price-total"]
@@ -74,9 +77,6 @@ fields:
   - name: videos
     singleValue: false
     xpath: //html//div[@id='video']
-  - name: name
-    singleValue: true
-    xpath: //h1[@class="c-product-detail__product-name"]
   - name: specifications
     singleValue: true
     xpath: //html//div[@id='specifications']

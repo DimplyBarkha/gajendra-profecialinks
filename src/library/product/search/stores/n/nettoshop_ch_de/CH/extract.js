@@ -37,6 +37,11 @@ module.exports = {
         splitURLLength = splitURL.length;
         allElement('productID', splitURL[splitURLLength - 1], i);
       }
+      const name = document.querySelectorAll('div[class="c-product-grid-item__title"] a');
+      for (let i = 0; i < name.length; i++) {
+        // @ts-ignore
+        allElement('name', name[i].innerText, i);
+      }
     });
     return await context.extract(productDetails, { transform });
   },
