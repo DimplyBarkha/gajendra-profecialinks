@@ -17,6 +17,31 @@ module.exports = {
           }, ms);
         });
       }
+      async function addDummyDiv () {
+        await new Promise(resolve => setTimeout(resolve, 3000));
+        const items = document.querySelectorAll('.ais-Hits ol.ais-Hits-list li');
+        const liItems = document.querySelectorAll('.product_listing_container ul.grid_mode.grid li.estore_product_container');
+        items.forEach((item, index) => {
+          try {
+            const obj = JSON.parse(item.textContent);
+            if (obj) {
+              const alreadyExists = liItems[index].querySelector('div#upc');
+              if (!alreadyExists) {
+                const upcDiv = document.createElement('div');
+                upcDiv.id = 'upc';
+                upcDiv.textContent = obj.upc;
+                liItems[index].appendChild(upcDiv);
+                const idDiv = document.createElement('div');
+                idDiv.id = 'manufacturerModel';
+                idDiv.textContent = obj.manufacturerModel;
+                liItems[index].appendChild(idDiv);
+              }
+            }
+          } catch (error) {
+            console.log('Error =>', error);
+          }
+        });
+      }
       const moreButton = document.evaluate('//button[@class="results-btn-viewmore"]', document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null);
       if (moreButton && moreButton.singleNodeValue != null) {
         while (document.evaluate('//button[@class="results-btn-viewmore"]', document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue) {
@@ -39,31 +64,6 @@ module.exports = {
         await addDummyDiv();
       }
     });
-    async function addDummyDiv () {
-      await new Promise(resolve => setTimeout(resolve, 3000));
-      const items = document.querySelectorAll('.ais-Hits ol.ais-Hits-list li');
-      const liItems = document.querySelectorAll('.product_listing_container ul.grid_mode.grid li.estore_product_container');
-      items.forEach((item, index) => {
-        try {
-          const obj = JSON.parse(item.textContent);
-          if (obj) {
-            const alreadyExists = liItems[index].querySelector('div#upc');
-            if (!alreadyExists) {
-              const upcDiv = document.createElement('div');
-              upcDiv.id = 'upc';
-              upcDiv.textContent = obj.upc;
-              liItems[index].appendChild(upcDiv);
-              const idDiv = document.createElement('div');
-              idDiv.id = 'manufacturerModel';
-              idDiv.textContent = obj.manufacturerModel;
-              liItems[index].appendChild(idDiv);
-            }
-          }
-        } catch (error) {
-          console.log('Error =>', error);
-        }
-      });
-    }
 
     return await context.extract(productDetails, { transform });
   },
