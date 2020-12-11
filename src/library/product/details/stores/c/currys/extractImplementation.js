@@ -134,9 +134,21 @@ const implementation = async (
           return String.fromCharCode(dec);
         })
     }
+    async function getBasicDetails() {
+      const res = await fetch(window.location.href);
+      const html = await res.text();
+      const doc = new DOMParser().parseFromString(html, 'text/html');
+      return doc.evaluate(`//*[contains(text(),'"@type": "Product"')]`, doc).iterateNext().textContent
+    }
+    async function getproductDigitalData() {
+      const res = await fetch(window.location.href);
+      const html = await res.text();
+      const doc = new DOMParser().parseFromString(html, 'text/html');
+      return doc.querySelector('[id="app.digitalData"]').textContent;
+    }
     // eslint-disable-next-line
-    const basicDetails = JSON.parse(clean(decode(document.evaluate(`//*[contains(text(),'"@type": "Product"')]`, document).iterateNext().textContent)));
-    const productDigitalData = JSON.parse(clean(decode(document.querySelector('[id="app.digitalData"]').textContent))).product[0];
+    const basicDetails = JSON.parse(clean(decode(await getBasicDetails())));
+    const productDigitalData = JSON.parse(clean(decode(await getproductDigitalData()))).product[0];
 
     const addElement = (id, content) => {
       const packagingElem = document.createElement('div');
