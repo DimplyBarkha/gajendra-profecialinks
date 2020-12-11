@@ -4,7 +4,7 @@ module.exports = {
   parameterValues: {
     country: 'US',
     store: 'walmart',
-    transform: transform,
+    transform,
     domain: 'walmart.com',
   },
   dependencies: {

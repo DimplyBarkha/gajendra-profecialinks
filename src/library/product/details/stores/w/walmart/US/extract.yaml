@@ -171,7 +171,7 @@ fields:
     xpath: (//div[contains(@class,'about-desc')] | //div[contains(@class,'DetailedHeroImage-ShortDescription')] | //div[contains(@class,'AboutThisBundle-description')] | //div[contains(@class,'about-item')]/div)//li | //div[contains(@class,'about-desc') and contains(text(),'•')] | //div[contains(@class,'about-desc')]/div[contains(text(),'•')]
   - name: promotion
     singleValue: false
-    xpath: //div[@class='container-flags']//span[@class='flag-angle__content']
+    # xpath: //div[@class='container-flags']//span[@class='flag-angle__content']
   - name: ageSuitability
     singleValue: false
     xpath: //td[contains(text(),'Age Range')]/following-sibling::td[@class='s-padding-ends s-padding-sides']

@@ -23,6 +23,10 @@ const transform = (data, context) => {
         orgRankCounter += 1;
         row.rankOrganic = [{ text: orgRankCounter }];
       }
+      if (row.id) {
+        const productId = row.id[0].text;
+        row.thumbnail = [{ text: `https://www.kroger.com/product/images/xlarge/front/${productId}` }];
+      }
       row.rank = [{ text: rankCounter }];
       row.productPageRank = [{ text: ++productPageRank }];
       Object.keys(row).forEach(header => row[header].forEach(el => {

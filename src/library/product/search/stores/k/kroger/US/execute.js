@@ -7,7 +7,7 @@ async function implementation (
   console.log('params', parameters);
   console.log('inputs', inputs);
 
-  const url = inputs.url || parameters.url.replace('{searchTerms}', encodeURIComponent(inputs.keywords));
+  const url = inputs.gotoUrl || parameters.url.replace('{searchTerms}', encodeURIComponent(inputs.keywords));
 
   console.log(`url used is - ${url}`);
   await dependencies.goto({ url, zipcode: inputs.zipcode });

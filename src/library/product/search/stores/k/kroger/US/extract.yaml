@@ -32,21 +32,11 @@ fields:
     singleValue: false
     description: The URL for the product details page
     # xpath: //a[@class='kds-Link kds-Link--inherit kds-Link--implied']/@href
-    xpath: .//a[contains(@class,'ProductDescription')]/@href
-    regExp: >-
-       ^(.*)$
-    regExpReplace:
-      https://www.kroger.com$1
+    xpath: .//a[contains(@class,'ProductDescription')]
+    type: LINK
   - name: thumbnail
     singleValue: false
     description: The URL for the product thumbnail image
-    # xpath: //img[@class='kds-Image-img']/@src
-    # xpath: //a[@class='kds-Link kds-Link--inherit kds-Link--implied']/@href
-    xpath: .//a[contains(@class,'ProductDescription')]/@href
-    regExp: >-
-      [0-9]{13}
-    regExpReplace: 
-      https://www.kroger.com/product/images/xlarge/front/$&
   - name: name
     singleValue: true
     description: The product name

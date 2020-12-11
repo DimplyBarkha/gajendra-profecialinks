@@ -82,7 +82,6 @@ async function implementation (
   }
 
   let url;
-
   if (openSearchDefinition) {
     const { pageStartNb = 1, indexOffset, pageOffset, pageIndexMultiplier, template } = openSearchDefinition;
     const pageNb = page + pageStartNb - 1;
@@ -95,14 +94,16 @@ async function implementation (
       .replace(/{offset}/g, (offset + (indexOffset || 0)).toString());
   }
 
-  url = openSearchDefinition ? false : await context.evaluate(function () {
-    /** @type { HTMLLinkElement } */
-    const next = document.querySelector('head link[rel="next"]');
-    if (!next) {
-      return false;
-    }
-    return next.href;
-  });
+  if (!url) {
+    url = await context.evaluate(function () {
+      /** @type { HTMLLinkElement } */
+      const next = document.querySelector('head link[rel="next"]');
+      if (!next) {
+        return false;
+      }
+      return next.href;
+    });
+  }
 
   if (!url) {
     return false;

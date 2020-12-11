@@ -97,6 +97,7 @@ const implementation = async function (
           document.body.appendChild(newDiv);
         }
       }, productDetails);
+      return true;
     }
   } catch (err) {
     console.log('ERROR while calling the API' + err);
@@ -106,6 +107,7 @@ const implementation = async function (
     await context.waitForSelector('#avg-rating-button', { timeout: 10000 }).catch(err => { console.log('No rating found', err); });
     await context.hover('#avg-rating-button');
     await context.hover('h1[class^="productTitle"]');
+    return true;
   } catch (err) {
     console.log('cannot hover on rating');
   }
