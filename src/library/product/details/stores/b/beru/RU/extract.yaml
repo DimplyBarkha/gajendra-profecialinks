@@ -78,7 +78,7 @@ fields:
   - name: weightNet
     singleValue: false
     description: Net weight as described on the page
-    xpath: //*[contains(text() , 'Вес')]/../following-sibling::* | //div[@id='weightText'] | //div[@id='totalWeight_added']
+    xpath: //*[contains(text() , 'Вес')]/../following-sibling::* | //div[@id='weightText']
   - name: weightGross
     singleValue: false
     description: Gross weight as described on the page
@@ -116,6 +116,11 @@ fields:
     singleValue: false
     xpath: //meta[@itemprop="ratingValue"]/@content
   - name: reviewCount
+    singleValue: false
+    xpath: (//div[@class='b_f2PBZg5jPe']/span)[1] | //meta[@itemprop="reviewCount"]/@content
+    regExp: (\d+)
+    regExpReplace: $1
+  - name: ratingCount
     singleValue: false
     xpath: (//div[@class='b_f2PBZg5jPe']/span)[1] | //meta[@itemprop="reviewCount"]/@content
     regExp: (\d+)
