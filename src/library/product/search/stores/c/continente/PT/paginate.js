@@ -4,7 +4,7 @@ module.exports = {
   parameterValues: {
     country: 'PT',
     store: 'continente',
-    nextLinkSelector: 'div.topPaging div.next',
+    nextLinkSelector: null,
     mutationSelector: null,
     spinnerSelector: null,
     loadedSelector: 'td#MSOZoneCell_WebPartctl00_SPWebPartManager1_g_ce8bbc4a_23de_48a0_afe2_1519cb58b783',
