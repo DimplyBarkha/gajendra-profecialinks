@@ -1,4 +1,4 @@
-async function implementation(inputs, parameters, context, dependencies) {
+async function implementation (inputs, parameters, context, dependencies) {
   const { keywords, page, offset } = inputs;
   const {
     nextLinkSelector,
@@ -12,7 +12,7 @@ async function implementation(inputs, parameters, context, dependencies) {
   if (nextLinkSelector) {
     const hasNextLink = await context.evaluate(
       (selector) => !!document.querySelector(selector),
-      nextLinkSelector
+      nextLinkSelector,
     );
     if (!hasNextLink) {
       return false;
@@ -33,30 +33,30 @@ async function implementation(inputs, parameters, context, dependencies) {
 
   let url = await context.evaluate(function () {
     const next = document.querySelector(
-      "div.pagination__container > button:last-child"
+      'div.pagination__container > button:last-child',
     );
     if (!next) {
       return false;
     }
-    return next.href ? next.href : "";
+    return next.href ? next.href : '';
   });
   const hasNextLink = await context.evaluate(
     (selector) => !!document.querySelector(selector),
-    "div.pagination__container > button:last-child"
+    'div.pagination__container > button:last-child',
   );
   if (!hasNextLink) {
     return false;
   }
   if (!url && openSearchDefinition) {
     url = openSearchDefinition.template
-      .replace("{searchTerms}", encodeURIComponent(keywords))
+      .replace('{searchTerms}', encodeURIComponent(keywords))
       .replace(
-        "{page}",
-        (page + (openSearchDefinition.pageOffset || 0)).toString()
+        '{page}',
+        (page + (openSearchDefinition.pageOffset || 0)).toString(),
       )
       .replace(
-        "{offset}",
-        (offset + (openSearchDefinition.indexOffset || 0)).toString()
+        '{offset}',
+        (offset + (openSearchDefinition.indexOffset || 0)).toString(),
       );
   }
 
@@ -64,7 +64,7 @@ async function implementation(inputs, parameters, context, dependencies) {
     return false;
   }
 
-  console.log("Going to url", url);
+  console.log('Going to url', url);
   await dependencies.goto({ url });
   if (loadedSelector) {
     await context.waitForFunction(
@@ -77,24 +77,24 @@ async function implementation(inputs, parameters, context, dependencies) {
                 document,
                 null,
                 XPathResult.UNORDERED_NODE_ITERATOR_TYPE,
-                null
+                null,
               )
-              .iterateNext()
+              .iterateNext(),
         );
       },
       { timeout: 100000 },
       loadedSelector,
-      noResultsXPath
+      noResultsXPath,
     );
   }
-  console.log("Checking no results", noResultsXPath);
+  console.log('Checking no results', noResultsXPath);
   return await context.evaluate(function (xp) {
     const r = document.evaluate(
       xp,
       document,
       null,
       XPathResult.UNORDERED_NODE_ITERATOR_TYPE,
-      null
+      null,
     );
     console.log(xp, r);
     const e = r.iterateNext();
@@ -103,20 +103,20 @@ async function implementation(inputs, parameters, context, dependencies) {
   }, noResultsXPath);
 }
 module.exports = {
-  implements: "product/search/paginate",
+  implements: 'product/search/paginate',
   parameterValues: {
-    country: "AR",
-    store: "walmart",
-    //nextLinkSelector: "div.pagination__container > button:last-child",
+    country: 'AR',
+    store: 'walmart',
+    // nextLinkSelector: "div.pagination__container > button:last-child",
     mutationSelector: null,
     spinnerSelector: null,
-    loadedSelector: "body",
+    loadedSelector: 'body',
     noResultsXPath: '//div[@class="u-center"]',
     openSearchDefinition: {
       template:
-        "https://www.walmart.com.ar/buscar?text={searchTerms}&page={page}",
+        'https://www.walmart.com.ar/buscar?text={searchTerms}&page={page}',
     },
-    domain: "walmart.com.ar",
+    domain: 'walmart.com.ar',
   },
   implementation,
 };
