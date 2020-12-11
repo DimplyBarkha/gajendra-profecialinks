@@ -54,6 +54,7 @@ fields:
     singleValue: true
     description: Product brand shown - this may actually NOT be just a brand name,
       e.g. "Visit the Gillette Store"
+    xpath: //meta[contains(@itemprop,'brand')]
   - name: manufacturer
     singleValue: true
     description: Product manufacturer
@@ -74,13 +75,14 @@ fields:
   - name: sku
     singleValue: true
     description: The store-specific product identifier
-    xpath: //div[contains(@class,'product info detailed accordion kk')]//div//div[2]//ul[1]//li[1]
+    xpath: //meta[contains(@itemprop,'sku')]
   - name: variantId
     singleValue: true
     description: Identifier for a variant from a store where variants share the same sku
   - name: mpc
     singleValue: true
     description: The manufacturer model code (unique) of the product
+    xpath: //meta[contains(@itemprop,'mpn')]
   - name: packSize
     singleValue: true
     description: The number of packs in the product offer (if stated separately on
@@ -137,7 +139,7 @@ fields:
   - name: name
     singleValue: true
     description: The product name
-    xpath: //div[contains(@class,'product-info-main')]//div//h1//span
+    xpath: //span[contains(@class,'hidden-title')]
   - name: inStorePrice
     singleValue: true
     description: Price in the selected store
@@ -400,7 +402,7 @@ fields:
   - name: countryOfOrigin
     singleValue: true
     description: The country from which the product originates
-    xpath: //div[contains(@class,'product info detailed accordion kk')]//div//div[2]//ul[1]//li[5]
+    xpath: //div[contains(@class,'product info detailed accordion kk')]//div//div[2]//ul[1]//li[4]
   - name: allergyAdvice
     singleValue: true
     description: Allergy information associated with the product
@@ -495,7 +497,7 @@ fields:
     singleValue: true
     description: Materials used to make the product
     example: https://www.jdsports.co.uk/product/blue-adidas-linear-20-reversible-wind-breaker-jacket/15988125/
-    xpath: //div[contains(@class,'product info detailed accordion kk')]//div//div[2]//ul[1]//li[4]
+    xpath: //div[contains(@class,'product info detailed accordion kk')]//div//div[2]//ul[1]//li[3]
   - name: Image360Present
     singleValue: true
     description: If 360 image is present in the carousel ['Yes','No']
