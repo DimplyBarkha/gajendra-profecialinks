@@ -5,7 +5,8 @@ recordXPath: //li[@class="product"]
 fields:
   - name: id
     singleValue: false
-    xpath: //li[@class="product"]/@data-sdg-id
+    xpath: //a[contains(@class, "productMainImage")]//img/@src
+    regExp: (?<=very\/)(.*)(?=_SQ1_)
   - name: searchUrl
     singleValue: true
     xpath: ancestor::html//div[@id="searchUrl"][last()]
