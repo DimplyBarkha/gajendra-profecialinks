@@ -2,7 +2,7 @@ input:
   keywords: Dyson ısıtıcı
   _url: http://teknosa.com
 extractions:
-  - html: https://workbench.import.io/html/run=ac16db09-f910-4f11-bd17-cbb71ccea2f4/task=a3673a40-8fd9-4934-9162-8cdb4965fbdd/81c98090-4368-4520-9478-c3cd7d5b6283.html
+  - html: https://workbench.import.io/html/run=3e32a947-37f1-44d1-a0c4-6eb8ed47fd60/task=44bef869-a76a-4ca8-9603-c674f59f25ed/34cc8269-da45-4f4d-b810-c54951e5bfa3.html
     extractionConfigId: product/search/stores/t/teknosa/TR/extract
     data:
       - group:
@@ -18,25 +18,14 @@ extractions:
             productUrl:
               - text: https://www.teknosa.com/goldmaster-gm7920-mars-isitici-beyaz-fan-p-115192100
                 xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[4]/div[1]/div[1]/div[2]/div[1]/a[1]/@href
+            gtin:
+              - text: "8698758894853"
+                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/@ean
             thumbnail:
               - text: https://reimg-teknosa-cloud-prod.mncdn.com/mnresize/200/200/productimage/115192100/115192100_0_MC/30672129.png
                 xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/a[1]/img[1]/@src
             price:
               - text: 199 TL
                 xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[4]/div[1]/div[1]/div[2]/div[2]/span[1]/text()[1]
-            rank:
-              - text: "1"
-                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[2]
-                type: NUMBER
-                raw: "1"
-                locale: tr
-                value: 1
-            rankOrganic:
-              - text: "1"
-                xpath: /html/body/div[1]/section[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[2]
-                type: NUMBER
-                raw: "1"
-                locale: tr
-                value: 1
         xpath: /html
-    timestamp: 1606812309902
+    timestamp: 1607689486939

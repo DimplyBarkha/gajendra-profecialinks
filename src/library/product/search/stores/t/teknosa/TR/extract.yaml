@@ -18,6 +18,7 @@ fields:
     regExpReplace: https://www.teknosa.com$1
   - name: gtin
     singleValue: false
+    xpath: //div[@class='product-item']/@ean
   - name: thumbnail
     singleValue: false
     xpath: //div[@class='product-image']//a/img/@src
