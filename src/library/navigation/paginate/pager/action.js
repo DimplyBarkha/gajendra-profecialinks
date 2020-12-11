@@ -56,6 +56,9 @@ async function implementation (
     if (loadedXpath) {
       await context.waitForXPath(loadedXpath, { timeout: 70000 });
     }
+    if (loadedXpath) {
+      await context.waitForXPath(loadedXpath, { timeout: 20000 });
+    }
     return true;
   }
   return false;

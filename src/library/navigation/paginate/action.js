@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 /**
  *
  * @param {{
@@ -8,7 +7,7 @@
  * }} inputs
  * @param {{
  *  nextLinkSelector: string,
- * nextLinkXpath: string,
+ *  nextLinkXpath: string,
  *  mutationSelector: string,
  *  loadedSelector: string,
  *  loadedXpath: string,
@@ -21,13 +20,16 @@
  * @param { ImportIO.IContext } context
  * @param { Record<string, any> } dependencies
  */
+
+const { preCompileFunctions } = require('../navigationHelperLibrary');
+
 async function implementation (
   inputs,
   parameters,
   context,
   dependencies,
 ) {
-  const { keywords, page, offset } = inputs;
+  const { id, date, keywords, page, offset } = inputs;
   const { stopConditionSelectorOrXpath, nextLinkSelector, loadedSelector, noResultsXPath, mutationSelector, loadedXpath, resultsDivSelector, spinnerSelector, openSearchDefinition, nextLinkXpath } = parameters;
 
   let nextLink;
@@ -37,12 +39,14 @@ async function implementation (
       try {
         const isThere = document.querySelector(sel);
         return !!isThere;
-      } catch (error) {}
-      try {
-        const isThere = document.evaluate(sel, document, null, XPathResult.UNORDERED_NODE_ITERATOR_TYPE, null).iterateNext();
-        return !!isThere;
-      } catch (error) {}
-      return false;
+      } catch (error) {
+        try {
+          const isThere = document.evaluate(sel, document, null, XPathResult.UNORDERED_NODE_ITERATOR_TYPE, null).iterateNext();
+          return !!isThere;
+        } catch (error) {
+          return false;
+        }
+      }
     }, { timeout: 10000 }, stopConditionSelectorOrXpath);
     // @ts-ignore
     if (conditionIsTrue) return false;
@@ -70,12 +74,14 @@ async function implementation (
     nextLink = `#${uuid}`;
   }
   const { pager } = dependencies;
-  const success = await pager({ keywords, nextLinkSelector: nextLink, loadedSelector, loadedXpath, mutationSelector, spinnerSelector });
+
+  const success = openSearchDefinition ? false : await pager({ ...inputs, nextLinkSelector: nextLink, loadedSelector, loadedXpath, mutationSelector, spinnerSelector });
+
   if (success) {
     return true;
   }
 
-  let url = await context.evaluate(function () {
+  let url = openSearchDefinition ? false : await context.evaluate(function () {
     /** @type { HTMLLinkElement } */
     const next = document.querySelector('head link[rel="next"]');
     if (!next) {
@@ -84,20 +90,16 @@ async function implementation (
     return next.href;
   });
 
-  // if (!url && openSearchDefinition) {
-  //   const { pageStartNb, indexOffset, pageOffset, pageIndexMultiplier, template } = openSearchDefinition;
-  //   const pageNb = page + pageStartNb - 1;
-  //   url = template
-  //     .replace('{searchTerms}', encodeURIComponent(keywords))
-  //     .replace('{page}', (pageNb + (pageOffset || 0)).toString())
-  //     .replace('{index}', (pageNb * (pageIndexMultiplier || 0)).toString())
-  //     .replace('{offset}', (offset + (indexOffset || 0)).toString());
-  // }
   if (!url && openSearchDefinition) {
-    url = openSearchDefinition.template
-      .replace('{searchTerms}', encodeURIComponent(keywords))
-      .replace('{page}', (page + (openSearchDefinition.pageOffset || 0)).toString())
-      .replace('{offset}', (offset + (openSearchDefinition.indexOffset || 0)).toString());
+    const { pageStartNb = 1, indexOffset, pageOffset, pageIndexMultiplier, template } = openSearchDefinition;
+    const pageNb = page + pageStartNb - 1;
+    url = template
+      .replace(/{searchTerms}/g, encodeURIComponent(keywords))
+      .replace(/{id}/g, encodeURIComponent(id))
+      .replace(/{date}/g, encodeURIComponent(date))
+      .replace(/{page}/g, (pageNb + (pageOffset || 0)).toString())
+      .replace(/{index}/g, (pageNb * (pageIndexMultiplier || 0)).toString())
+      .replace(/{offset}/g, (offset + (indexOffset || 0)).toString());
   }
 
   if (!url) {
@@ -134,6 +136,10 @@ async function implementation (
 
 module.exports = {
   parameters: [
+    {
+      name: 'template',
+      description: 'type of template calling the code',
+    },
     {
       name: 'country',
       description: '2 letter ISO code for the country',
@@ -193,19 +199,18 @@ module.exports = {
     name: 'offset',
     description: 'offset (0 indexed)',
   }],
-  path: './stores/${store[0:1]}/${store}/${country}/paginate',
+  get path () {
+    const actionjsPath = preCompileFunctions.getRobotTemplateName();
+    return this.tempPath || `${actionjsPath}/stores/\${store[0:1]}/\${store}/\${country}/paginate`;
+  },
+  tempPath: '',
+  set path (val) {
+    this.tempPath = val;
+  },
   dependencies: {
-    pager: 'action:product/search/paginate/pager',
+    helperLib: 'action:navigation/navigationHelperLibrary',
+    pager: 'action:navigation/paginate/pager',
     goto: 'action:navigation/goto',
   },
   implementation,
 };
-=======
-// this file is kept for backward compatibility puproses
-// when possible and redeploying a search extractor, migrate to the new pagination by:
-// in the file paginate.js
-// replace the line: implements: 'product/search/paginate',
-// by the line:  implements: 'navigation/paginate',
-
-module.exports = require('../../../navigation/paginate/action');
->>>>>>> 027dd471e16a40e288a1fec36e3f94802b39fc2d
