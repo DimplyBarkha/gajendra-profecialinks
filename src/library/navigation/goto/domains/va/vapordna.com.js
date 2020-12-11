@@ -5,7 +5,7 @@ module.exports = {
     domain: 'vapordna.com',
     timeout: 50000,
     country: 'US',
-    store: 'VaporDNA',
+    store: 'vapordna',
     zipcode: "''",
   },
 };

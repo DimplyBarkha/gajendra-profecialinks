@@ -4,7 +4,7 @@ module.exports = {
   parameterValues: {
     country: 'US',
     domain: 'vapordna.com',
-    store: 'VaporDNA',
+    store: 'vapordna',
     zipcode: "''",
   },
 };

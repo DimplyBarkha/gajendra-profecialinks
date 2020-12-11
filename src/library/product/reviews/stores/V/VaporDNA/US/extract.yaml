@@ -9,7 +9,7 @@ fields:
     description: Product colour
   - name: flavour
     description: Product flavour
-  - name: helpfulCount
+  - name: helpful
     type: NUMBER
     description: Number of people who said the review was helpful
     xpath: //div[@class='stamped-review-vote']//a[@data-votes][1]
@@ -21,21 +21,23 @@ fields:
     xpath: ancestor::html//div[@id="shopify-section-product-template"]//div[@class="product-section"][1]//div[contains(@class,"product-image-main")][1]//div[@class="photo-zoom-link photo-zoom-link--enable"]/@data-zoom-size
   - name: pageTitle
     description: The url of the page title
+    xpath: ancestor::html//head/title
   - name: productFamily
-    description: The url of the page productFamily  
+    description: The url of the page productFamily
   - name: productRange
     description: The url of the page productRange
   - name: rating
     description: The rating of review
-    xpath: //span[contains(@class, 'stamped-review-header-starratings')]/@data-rating   
+    xpath: //span[contains(@class, 'stamped-review-header-starratings')]/@data-rating
   - name: reviewText
     description: The text of the review
-    xpath: //div[@class='stamped-review-body']//p[@class='stamped-review-content-body']
+    xpath: //div[@class='stamped-review-body']/p[@class='stamped-review-content-body']
   - name: reviewTitle
     description: The title of the review
-    xpath: //div[@class='stamped-review-body']//div[@class='stamped-review-header-title']
+    xpath: //div[@class='stamped-review-body']/div[@class='stamped-review-header-title']
   - name: sku
-    description: The sku   
+    description: The sku
+    xpath: ancestor::html//p[@class="product-single__sku"]
   - name: verifiedPurchase
     description: Whether this of an item the reviewer purchased. "Yes" if true else ""
     xpath: //span[@class='stamped-verified-badge']/@data-verified-label
@@ -44,7 +46,7 @@ fields:
     xpath: ancestor::html//div[@id="shopify-section-product-template"]//div[@class="product-section"][1]//span[@class='stamped-summary-text-1']
   - name: sourceUrl
     description: The url of the product url
-    xpath: ancestor::html//div[contains(@class, 'fb-comments')]/@data-href
+    xpath: ancestor::html//meta[@property="og:url"]/@content
   - name: name
     description: The product name
     xpath: ancestor::html//div[@id="shopify-section-product-template"]//div[@class="product-section"][1]//h1[@class='h2 product-single__title']
@@ -58,4 +60,28 @@ fields:
   - name: user
     description: The user name of the reviewer
     xpath: //div[@class='stamped-review-header']//strong[@class='author']
-
+  - name: reviewerTags
+    singleValue: falsee
+    description: The tags a reviewer has
+  - name: gtin
+    singleValue: false
+    description: GTIN code (includes UPC/EAN)
+  - name: productUrl
+    singleValue: false
+    description: The url of the product details page
+    xpath: //link[@rel="canonical"]
+  - name: manufacturerResponse
+    singleValue: false
+    description: The response of the manufacturer (if any)
+    xpath: //div[@class="stamped-review-reply"]//div[@class="stamped-review-content"]
+  - name: syndicatedFrom
+    singleValue: false
+    description: Stated place the review was syndicated from
+  - name: reviewUrl
+    singleValue: false
+    description: A direct link to the review
+  - name: reviewedSku
+    singleValue: false
+    description: The SKU of the item that was reviewed (may be different from the
+      sku the review was shown on). 1 if sku == reviewedSku else 0. Get sku
+      value, transform will handle the value.

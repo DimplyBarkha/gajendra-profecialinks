@@ -4,7 +4,7 @@ module.exports = {
   parameterValues: {
     template: null,
     country: 'US',
-    store: 'VaporDNA',
+    store: 'vapordna',
     nextLinkSelector: null,
     nextLinkXpath: null,
     mutationSelector: null,
