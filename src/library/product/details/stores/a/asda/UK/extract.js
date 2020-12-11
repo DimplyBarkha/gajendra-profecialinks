@@ -1,5 +1,4 @@
 const { transform } = require('./shared');
-const { Helpers } = require('../../../../../../helpers/helpers');
 
 module.exports = {
   implements: 'product/details/extract',
@@ -9,6 +8,10 @@ module.exports = {
     transform,
     domain: 'groceries.asda.com',
   },
+  dependencies: {
+    Helpers: 'module:helpers/helpers',
+    productDetails: 'extraction:product/details/stores/${store[0:1]}/${store}/${country}/extract',
+  },
   implementation: async (inputs,
     parameters,
     context,
@@ -16,6 +19,8 @@ module.exports = {
   ) => {
     const cssProduct = "div.search-page-content__products-tab-content ul.co-product-list__main-cntr li.co-item a[data-auto-id='linkProductTitle']";
     const cssProductDetails = 'div.pdp-main-details';
+    const { transform } = parameters;
+    const { productDetails, Helpers: { Helpers } } = dependencies;
     const helper = new Helpers(context);
     const isSelectorAvailable = async (cssSelector) => {
       console.log(`Is selector available: ${cssSelector}`);
@@ -133,8 +138,6 @@ module.exports = {
       }
     }, inputs);
 
-    const { transform } = parameters;
-    const { productDetails } = dependencies;
     await context.extract(productDetails, { transform });
   },
 };
