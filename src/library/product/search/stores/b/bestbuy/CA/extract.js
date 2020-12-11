@@ -19,11 +19,11 @@ module.exports = {
         }
   
         let scrollTop = 0;
-        while (scrollTop !== 10000) {
+        while (scrollTop !== 20000) {
           await stall(3000);
           scrollTop += 500;
           window.scroll(0, scrollTop);
-          if (scrollTop === 10000) {
+          if (scrollTop === 20000) {
             await stall(500);
             break;
           }
