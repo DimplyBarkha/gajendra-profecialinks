@@ -95,10 +95,10 @@ fields:
     xpath: count(//div[contains(@class, 'c-offerBox_variantsContent')]/div[not(contains(@class, 'is-active'))]//div[contains(@class, 'c-offerBox_photo')])
   - name: firstVariant
     xpath: //div[contains(@class, 'c-offerBox_variantsContent')]/div[not(contains(@class, 'is-active'))][1]//div[contains(@class, 'c-offerBox_photo')]/@data-offer-id
-  - name: videoFromEnhancedContent
-    xpath: //link[@rel="canonical"]/@href
-  - name: haVideo
-    xpath: //div[@id='videoFromEnhancedContent']/@text()
+  # - name: videoFromEnhancedContent
+  #   xpath: //link[@rel="canonical"]/@href
+  # - name: haVideo
+  #   xpath: //div[@id='videoFromEnhancedContent']/@text()
   - name: skuAtLast
     xpath: //div[contains(@class, 'c-offerBox_compare is-desktopCustom')]/@data-offer-id
   - name: skuSecondary
@@ -109,3 +109,5 @@ fields:
     xpath: //script[contains(., 'ecomm_model')]
     regExp: (.+)ecomm_model:\s'(.+)\',\sid2(.+)
     regExpReplace: $2
+  - name: videoFromEnhancedContent
+    xpath: //div[@id='videoFromEnhancedContent']

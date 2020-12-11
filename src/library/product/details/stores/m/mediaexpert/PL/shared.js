@@ -137,6 +137,14 @@ const transform = (data) => {
       if (!row.manufacturerImages && row.aplusImages_fallBack) {
         row.manufacturerImages = row.aplusImages_fallBack;
       }
+
+      if (row.videoFromEnhancedContent) {
+        if (row.videos) {
+          row.videos = row.videos.concat(row.videoFromEnhancedContent);
+        } else {
+          row.videos = row.videoFromEnhancedContent;
+        }
+      }
     }
   }
 

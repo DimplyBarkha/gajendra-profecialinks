@@ -74,22 +74,42 @@ module.exports = {
       }
     });
 
-    // currently the selector is specific to the first video of enhanced content for RPC : 844160
+    const videoIframes = await context.evaluate(async function () {
+      console.log(document.querySelectorAll('div#description div[style] iframe[data-component="lazyLoad"]'));
+      return document.querySelectorAll('div#description div[style] iframe[data-component="lazyLoad"]');
+    });
+    for (let i = 0; i < Object.keys(videoIframes).length; i++) {
+      const selector = `div#description div[style]:nth-child(${i + 2}n)  iframe`;
+      const extractedVideoLink = await extractVideosFromEnhancedContent(selector);
+      if (extractedVideoLink.includes('youtube')) {
+        await appendVideosToDom(extractedVideoLink);
+      }
+    }
 
-    const videos = await context.evaluateInFrame('#samsung_m_01 > div > div.sam_card-365.sam_card-category-23 > div:nth-child(5) > div:nth-child(2) > iframe',
-      function () {
-        console.log('start of evaluate');
-        const a = document.querySelector('link[rel="canonical"]');
-        if (a === undefined || a === null) {
-          return 'not found';
-        } else {
-          // return JSON.stringify(a);
-          return 'came to else';
-        }
-      },
-    );
-    // console.log(JSON.stringify(videos));
-    console.log('count of videos', videos);
+    async function extractVideosFromEnhancedContent (selector) {
+      const videos = await context.evaluateInFrame(selector,
+        function () {
+          console.log('start of evaluate');
+          const a = document.querySelector('link[rel="canonical"]');
+          if (a) {
+            return a.getAttribute('href');
+          }
+          console.log(JSON.stringify(a));
+        },
+      );
+      return videos;
+    };
+
+    async function appendVideosToDom (videoLink) {
+      await context.evaluate(async function (videoLink) {
+        const newDiv = document.createElement('div');
+        newDiv.id = 'videoFromEnhancedContent';
+        newDiv.textContent = videoLink;
+        newDiv.style.display = 'none';
+        document.body.appendChild(newDiv);
+      }, videoLink);
+    }
+
     return await context.extract(productDetails, { transform: transformParam });
   },
 };
