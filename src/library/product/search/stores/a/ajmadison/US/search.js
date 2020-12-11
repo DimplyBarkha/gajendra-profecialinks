@@ -6,5 +6,6 @@ module.exports = {
     store: 'ajmadison',
     domain: 'ajmadison.com',
     zipcode: '',
+    storeID: null,
   },
 };

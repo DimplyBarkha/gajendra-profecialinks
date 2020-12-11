@@ -1,11 +1,12 @@
+  
 //const { cleanUp } = require('@library/product/details/shared');
-const { cleanUp } = require('../../../../shared');
+const { transform } = require('../../../../shared');
 module.exports = {
 implements: 'product/search/extract',
 parameterValues: {
 country: 'US',
 store: 'ajmadison',
-transform: cleanUp,
+transform: transform,
 domain: 'ajmadison.com',
 zipcode: '',
 },
