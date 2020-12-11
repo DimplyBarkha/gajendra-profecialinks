@@ -94,3 +94,9 @@ fields:
     regExp: .*?:\s*(.*)
     regExpReplace: $1
     
+  - name: inTheBoxTest
+    xpath: //div[contains(@class,"product-details")]//li[contains(.,"Includes")]
+    regExp: (.+:)(.+)
+    regExpReplace: $2
+  - name: hasComparisonTable
+    defaultValue: No
