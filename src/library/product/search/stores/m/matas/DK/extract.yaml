@@ -5,38 +5,38 @@ recordXPath: null
 # //div[@class="productlist__item col-xs-6 col-md-4 col-lg-3 col-xl-3"]
 fields: 
   - name: id
-    singleValue: true
+    singleValue: false
     xpath: //label[@class="product-item__favourite "]/@data-js-modal-url
     regExp: (\d+)
   - name: rankOrganic
-    singleValue: true
+    singleValue: false
     # xpath: //li/@data-position
   - name: name
-    singleValue: true
+    singleValue: false
     xpath: //div[@class='productlist__products']//span[@class='product-item__title']
       # //span[@class='product-item__title']
   - name: productUrl
-    singleValue: true
+    singleValue: false
     xpath: //div[@class='productlist__products']//div[@class='product-item__top-padding']/a/@href
     regExp: (/.+)
     regExpReplace: https://www.matas.dk$1
       # //div[@class="product-item__top-padding"]//a/@href
   - name: gtin
-    singleValue: true
+    singleValue: false
   - name: thumbnail
-    singleValue: true
+    singleValue: false
     xpath: //div[@class='productlist__products']//div[@class='product-item__img-container']/img/@src
   - name: reviewCount
-    singleValue: true
+    singleValue: false
     xpath: //div[@class='productlist__products']//span[@class='product-item__rating-count']
     regExp: (\d+)
   - name: aggregateRating
-    singleValue: true
+    singleValue: false
     xpath: //html//div[@id='agg']
     # type: NUMBER
     # xpath: //div[@class='productlist__products']//div[@class='review-stars__container review-stars__container--border']/@data-js-border-offset
   - name: price
-    singleValue: true
+    singleValue: false
     # type: CURRENCY
     xpath: //html//div[@id='price']
     # //div[@class='productlist__products']//span[@class='nowrap']
@@ -46,7 +46,7 @@ fields:
   - name: soldBy
     singleValue: false
   - name: rank
-    singleValue: true
+    singleValue: false
   - name: endorsementText
     singleValue: false
   - name: searchUrl
