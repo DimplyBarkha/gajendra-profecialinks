@@ -32,15 +32,16 @@ const implementation = async (
     await acceptCookies();
     await waitForSelectorLoad();
   } else if (id) {
-    await context.goto(domain, { timeout, waitUntil: 'networkidle0' });
+    const url = `https://www.currys.co.uk/gbuk/search-keywords/xx_xx_xx_xx_xx/{id}/xx-criteria.html`.replace('{id}', encodeURIComponent(id));
+    await context.goto(url, { timeout, waitUntil: 'networkidle0' });
     await acceptCookies();
-    await context.waitForSelector('input[name="search-field"]', { timeout });
-    await context.evaluate(async function (inpId) {
-      const inp = document.querySelector('input[name="search-field"]');
-      inp.value = inpId;
-    }, id);
-    await context.click('form[action*="search_keywords"] button');
-    await context.waitForNavigation({ timeout, waitUntil: 'load' });
+    // await context.waitForSelector('input[name="search-field"]', { timeout });
+    // await context.evaluate(async function (inpId) {
+    //   const inp = document.querySelector('input[name="search-field"]');
+    //   inp.value = inpId;
+    // }, id);
+    // await context.click('form[action*="search_keywords"] button');
+    // await context.waitForNavigation({ timeout, waitUntil: 'load' });
     await waitForSelectorLoad();
   }
 };

@@ -117,9 +117,26 @@ const implementation = async (
   await delay(10000);
 
   await context.evaluate(async function (zip, country) {
+    const clean = text => text.toString()
+    .replace(/\r\n|\r|\n/g, ' ')
+    .replace(/&amp;nbsp;/g, ' ')
+    .replace(/&amp;#160/g, ' ')
+    .replace(/\u00A0/g, ' ')
+    .replace(/\s{2,}/g, ' ')
+//     .replace(/"\s{1,}/g, '"')
+//     .replace(/\s{1,}"/g, '"')
+    .replace(/^ +| +$|( )+/g, ' ')
+    // eslint-disable-next-line no-control-regex
+    .replace(/[\x00-\x1F]/g, '')
+    .replace(/[\uD800-\uDBFF][\uDC00-\uDFFF]/g, ' ');
+    function decode(str) {
+      return str.replace(/&#(\d+);/g, function(match, dec) {
+          return String.fromCharCode(dec);
+        })
+    }
     // eslint-disable-next-line
-    const basicDetails = JSON.parse(document.evaluate(`//script[contains(.,'"@type": "Product"')]`, document).iterateNext().textContent);
-    const productDigitalData = JSON.parse(document.querySelector('script[id="app.digitalData"]').textContent).product[0];
+    const basicDetails = JSON.parse(clean(decode(document.evaluate(`//script[contains(.,'"@type": "Product"')]`, document).iterateNext().textContent)));
+    const productDigitalData = JSON.parse(clean(decode(document.querySelector('script[id="app.digitalData"]').textContent))).product[0];
 
     const addElement = (id, content) => {
       const packagingElem = document.createElement('div');

@@ -71,6 +71,10 @@ const transform = (data) => {
         row.category = row.category.slice(1);
         row.category.pop();
       }
+      if (row.manufacturerImages) {
+        const images = Array.from(new Set(row.manufacturerImages.map(elm => elm.text.trim())));
+        row.manufacturerImages = images.map(text => ({ text }));
+      }
 
       if (row.alternateImages && row.alternateImages.length) {
         row.alternateImages = row.alternateImages.slice(1);

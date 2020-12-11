@@ -143,11 +143,12 @@ fields:
     description: A code description of the color (e.g. RGB hex)
   - name: manufacturerDescription
     singleValue: false
-    xpath: //div[@id="product-info"]/following-sibling::div/div[@id="richmedia-container"]//div[@id="inpage_container"] | //body/@desc
+    xpath: //div[@id="product-info"]/following-sibling::div/div[@id="richmedia-container"]//div[@id="inpage_container"]
     description: The extended description of the product supplied by the lister
   - name: manufacturerImages
     singleValue: false
-    xpath: //div[@id="product-info"]/following-sibling::div/div[@id="richmedia-container"]//div[@id="inpage_container"]//div[contains(@class,"flix-media-flex") or contains(@class,"flix-background-image")]//img/@srcset | //img[@data-flixsrcset]/@data-flixsrcset | /html/body/@img-src
+    xpath: //div[@id="product-info"]/following-sibling::div/div[@id="richmedia-container"]//div[@id="inpage_container"]//div[contains(@class,"flix-media-flex") or contains(@class,"flix-background-image")]//img/@srcset | //img[@data-flixsrcset]/@data-flixsrcset
+    regExp: ^[^\s]+
     # regExp: ^(.+)\s200w
     # regExpReplace: https:$1
     description: Images within the third party description
@@ -161,7 +162,7 @@ fields:
     description: The product name
   - name: inStorePrice
     singleValue: true
-    xpath: //div[@id="product-actions"]/div[@class="amounts"]//span[span][contains(@class,"ProductPriceBlock__Price")]
+    # xpath: //div[@id="product-actions"]/div[@class="amounts"]//span[span][contains(@class,"ProductPriceBlock__Price")]
     description: Price in the selected store
   - name: asin
     singleValue: true
