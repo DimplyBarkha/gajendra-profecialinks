@@ -18,7 +18,7 @@ fields:
   - name: category
     xpath: ancestor::html//ul[contains(@class, 'dbk-breadcrumb-group')]/li/a
   - name: singleProductVariantInformation
-    xpath: ancestor::html//div[contains(@class, 'productdetail__column-container')]//div[contains(@class, 'product-size-selector')]//select/option[contains(@data-at,"selectbox-size-available")][1] | //p[contains(@class, 'dbk-product-indicator')]/span[contains(@class, 'dbk-product-indicator--value')]
+    xpath: ancestor::html//div[contains(@class, 'productdetail__column-container')]//div[contains(@class, 'product-size-selector')]//select/option[contains(@data-at,"selectbox-size-available")][1] | //p[contains(@class, 'dbk-product-indicator')]/span[contains(@class, 'dbk-product-indicator--value')] | //div[contains(@class, 'productdetail__column-container')]//span[contains(@class, 'dbk-product-indicator--value')]
   - name: variantInformation
     xpath: //div[@id='variantInfo']
   - name: brandText

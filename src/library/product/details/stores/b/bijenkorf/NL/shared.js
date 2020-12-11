@@ -11,6 +11,8 @@ const transform = (data) => {
         let nameExtended = `${row.brandText[0].text} - ${row.name[0].text}`;
         if (row.variantInformation) {
           nameExtended = `${nameExtended} - ${row.variantInformation[0].text}`;
+        } else if (row.singleProductVariantInformation) {
+          nameExtended = `${nameExtended} - ${row.singleProductVariantInformation[0].text}`;
         }
         row.nameExtended = [{ text: nameExtended }];
       }
@@ -41,6 +43,10 @@ const transform = (data) => {
         row.sku = row.singleProductsku;
       }
 
+      if (row.sku) {
+        row.variantId = row.sku;
+      }
+
       if (!row.secondaryImageTotal && row.singleProductSecondaryImageTotal) {
         row.secondaryImageTotal = row.singleProductSecondaryImageTotal;
       }
@@ -49,7 +55,7 @@ const transform = (data) => {
         row.imageAlt = row.singleProductImageAlt;
       }
 
-      if (!row.availabilityText && row.singleProdAvailabilityText) {
+      if (row.availabilityText && row.availabilityText[0].text === 'Out of stock' && row.singleProdAvailabilityText) {
         row.availabilityText = row.singleProdAvailabilityText;
       }
 

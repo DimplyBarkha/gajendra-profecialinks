@@ -60,7 +60,7 @@ module.exports = {
             // @ts-ignore
             variantToClick.click();
             await new Promise((resolve, reject) => setTimeout(resolve, 3000));
-            const variantInfoSpan = document.querySelector('p.dbk-product-indicator span.dbk-product-indicator--value');
+            const variantInfoSpan = document.querySelector('p.dbk-product-indicator span.dbk-product-indicator--value, span.dbk-product-indicator--value');
 
             if (variantInfoSpan) {
               const variantInfoEle = document.createElement('div');
@@ -85,7 +85,7 @@ module.exports = {
             if (availabilityInfo) {
               const availabilityEle = document.createElement('div');
               availabilityEle.setAttribute('id', 'availabilityText');
-              availabilityEle.textContent = skuInfoSpan.textContent;
+              availabilityEle.textContent = availabilityInfo.getAttribute('href');
               availabilityEle.style.visibility = 'hidden';
 
               variantsList[i].appendChild(availabilityEle);
