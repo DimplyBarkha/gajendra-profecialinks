@@ -9,7 +9,6 @@ module.exports = {
     timeout: 50000,
   },
   implementation: async ({ url }, { country, domain, timeout }, context, dependencies) => {
-
     // await context.setBlockAds(false);
     // await context.setLoadAllResources(true);
     // await context.setLoadImages(true);

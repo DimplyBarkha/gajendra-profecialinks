@@ -1,5 +1,5 @@
 const { transform } = require('../format');
-async function implementation(
+async function implementation (
   inputs,
   parameters,
   context,
@@ -13,9 +13,9 @@ async function implementation(
     // } else {
     await loadGTIN();
     // }
-    async function loadGTIN() {
+    async function loadGTIN () {
       await new Promise(resolve => setTimeout(resolve, 1000));
-      //document.querySelector('button.results-btn-viewmore').click();
+      // document.querySelector('button.results-btn-viewmore').click();
       await new Promise(resolve => setTimeout(resolve, 3000));
       let scrollTop = 0;
       while (scrollTop !== 20000) {
@@ -29,7 +29,7 @@ async function implementation(
           break;
         }
       }
-      function stall(ms) {
+      function stall (ms) {
         return new Promise((resolve, reject) => {
           setTimeout(() => {
             resolve();
@@ -46,25 +46,25 @@ async function implementation(
         if (obj) {
           const alreadyExists = liItems[index].querySelector('div#upc');
           if (!alreadyExists) {
-            const upcDiv = document.createElement('div')
-            upcDiv.id = "upc"
-            upcDiv.textContent = obj.upc
-            liItems[index].appendChild(upcDiv)
-            const idDiv = document.createElement('div')
-            idDiv.id = "manufacturerModel"
-            idDiv.textContent = obj.manufacturerModel
-            liItems[index].appendChild(idDiv)
+            const upcDiv = document.createElement('div');
+            upcDiv.id = 'upc';
+            upcDiv.textContent = obj.upc;
+            liItems[index].appendChild(upcDiv);
+            const idDiv = document.createElement('div');
+            idDiv.id = 'manufacturerModel';
+            idDiv.textContent = obj.manufacturerModel;
+            liItems[index].appendChild(idDiv);
           }
         }
       } catch (error) {
         console.log('Error =>', error);
       }
-    })
-  })
+    });
+  });
   const { transform } = parameters;
   const { productDetails } = dependencies;
   return await context.extract(productDetails, { transform });
-  //return await context.extract(productDetails, { transform, type: 'MERGE_ROWS' });
+  // return await context.extract(productDetails, { transform, type: 'MERGE_ROWS' });
 }
 module.exports = {
   implements: 'product/search/extract',

@@ -434,12 +434,24 @@ fields:
     defaultValue: No
   - name: termsAndConditions
     description: Terms and conditions information text ['Yes','No']
+    xpath: //a[@title="terms & conditions"]
+    regExp: >-
+      (.+)
+    regExpReplace: Yes
     defaultValue: No
   - name: privacyPolicy
     description: Privacy Policy information text ['Yes','No']
+    xpath: //a[contains(@title,"privacy")]
+    regExp: >-
+      (.+)
+    regExpReplace: Yes
     defaultValue: No
   - name: customerServiceAvailability
     description: Information related to customer service availability (text), ['Yes','No']
+    xpath: //div[@id="openChat"] | //div[@id="chatWindow"]
+    regExp: >-
+      (.+)
+    regExpReplace: Yes
     defaultValue: No
   - name: materials
     description: Materials used to make the product
@@ -452,4 +464,8 @@ fields:
     description: If Zoom feature is available for Main image or images in the
       carousel,['Yes','No']
     example: https://www.zalando.de/adidas-neo-sneaker-low-blackwhite-a4315i002-q11.html
+    xpath: //*[contains(@id,"zoomView")]
+    regExp: >-
+      (.+)
+    regExpReplace: Yes
     defaultValue: No
