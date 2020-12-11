@@ -2,7 +2,7 @@ input:
   _url: http://nocibe.fr
   URL: https://www.nocibe.fr/hugo-boss-hugo-man-eau-de-toilette-vaporisateur-40-ml-s035250
 extractions:
-  - html: https://workbench.import.io/html/run=7aa04f39-df4c-4019-aecb-808694be71e6/task=27eaf652-49c6-4f66-84e8-029ddad2b705/d9e944f2-99b0-4203-9803-3b7808c47b5f.html
+  - html: https://workbench.import.io/html/run=5fdd2e53-07c5-4024-8304-ec8750e23849/task=04ce4df8-9a3d-450d-bcbd-8dcf15209a20/99b927e5-b441-4936-8bd7-0b49019b0162.html
     extractionConfigId: product/details/stores/n/nocibe/FR/extract
     data:
       - group:
@@ -10,67 +10,69 @@ extractions:
               - text: https://www.nocibe.fr/hugo-boss-hugo-man-eau-de-toilette-vaporisateur-40-ml-s035250
                 xpath: /html/head[1]/link[10]/@href
             image:
-              - text: https://www.nocibe.fr/medias/produits/035250/035250-hugo-boss-hugo-eau-de-toilette-vaporisateur-40-ml-1000x1000.jpg?frz-v=3085
+              - text: https://www.nocibe.fr/medias/produits/035250/035250-hugo-boss-hugo-eau-de-toilette-vaporisateur-40-ml-1000x1000.jpg?frz-v=3164
                 xpath: /html/body/div[1]/div[2]/section[1]/div[1]/div[1]/div[2]/div[1]/img[1]/@src
             imageAlt:
               - text: Hugo Boss Hugo Eau de Toilette Eau de Toilette vaporisateur 40ml
                 xpath: /html/body/div[1]/div[2]/section[1]/div[1]/div[1]/div[2]/div[1]/img[1]/@alt
             alternateImages:
-              - text: https://www.nocibe.fr/medias/produits/035250/035250-hugo-boss-hugo-eau-de-toilette-vaporisateur-40-ml-autre1-1000x1000.jpg?frz-v=3085
-                xpath: /html/body/div[7]/@src
-              - text: https://www.nocibe.fr/medias/produits/035250/035250-hugo-boss-hugo-eau-de-toilette-vaporisateur-40-ml-autre2-1000x1000.jpg?frz-v=3085
-                xpath: /html/body/div[8]/@src
-              - text: https://www.nocibe.fr/medias/produits/035250/035250-hugo-boss-hugo-eau-de-toilette-vaporisateur-40-ml-autre3-1000x1000.jpg?frz-v=3085
-                xpath: /html/body/div[9]/@src
-            nameExtended:
-              - text: |-
-                  Hugo Boss
-                   
-                  Hugo
-                   
-                  Eau de Toilette
-                xpath: /html/body/div[1]/div[2]/section[1]/div[1]/div[2]/div[1]/div[1]/div[1]/h1[1]
+              - text: https://www.nocibe.fr/medias/produits/035250/035250-hugo-boss-hugo-eau-de-toilette-vaporisateur-40-ml-autre1-1000x1000.jpg?frz-v=3164
+                xpath: /html/body/div[1]/div[2]/section[1]/div[1]/div[1]/div[2]/div[2]/img[1]/@src
+              - text: https://www.nocibe.fr/medias/produits/035250/035250-hugo-boss-hugo-eau-de-toilette-vaporisateur-40-ml-autre2-1000x1000.jpg?frz-v=3164
+                xpath: /html/body/div[1]/div[2]/section[1]/div[1]/div[1]/div[2]/div[3]/img[1]/@src
+              - text: https://www.nocibe.fr/medias/produits/035250/035250-hugo-boss-hugo-eau-de-toilette-vaporisateur-40-ml-autre3-1000x1000.jpg?frz-v=3164
+                xpath: /html/body/div[1]/div[2]/section[1]/div[1]/div[1]/div[2]/div[4]/img[1]/@src
             listPrice:
-              - text: 49,90 €
+              - text: 53,50 €
                 xpath: /html/body/div[1]/div[2]/section[1]/div[1]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]
             description:
-              - text: Eau de Toilette vaporisateur 40ml || HUGO Man est un classique
-                  contemporain, un parfum frais et audacieux pour les hommes
-                  modernes. || HUGO Man est un classique contemporain, un parfum
-                  frais et audacieux pour les hommes modernes qui expriment leur
+              - text: Eau de Toilette vaporisateur 40ml HUGO Man est un classique contemporain,
+                  un parfum frais et audacieux pour les hommes modernes. HUGO
+                  Man est un classique contemporain, un parfum frais et
+                  audacieux pour les hommes modernes qui expriment leur
                   individualité afin de vivre selon leurs règles du jeu. Ses
                   notes de têtes fruitées sont construites autour de la pomme
                   verte, complétée par des notes aromatiques telles que le
                   basilic. Ses notes de fond évoquent une escapade hors de la
                   jungle urbaine avec des accents d'aiguilles de pin, de bois de
-                  santal et de cèdre. || Masculin, iconic, elegant
+                  santal et de cèdre. Bénéfice produit Masculin, iconic, elegant
                 xpath: /html/body/div[5]
+            descriptionBullets:
+              - text: "0"
+                xpath: /html/body/div[6]
             brandText:
-              - text: Hugo Boss
-                xpath: /html/body/div[1]/div[2]/section[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/a[1]/@title
+              - text: "HUGO BOSS "
+                xpath: /html/head[1]/title[1]
             manufacturer:
-              - text: Hugo Boss
-                xpath: /html/body/div[1]/div[2]/section[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/a[1]/@title
+              - text: "HUGO BOSS "
+                xpath: /html/head[1]/title[1]
+            quantity:
+              - text: 40 ml
+                xpath: /html/body/div[1]/div[2]/section[1]/div[3]/ul[1]/li[2]/strong[1]
             sku:
               - text: "035250"
                 xpath: /html/body/div[1]/div[2]/section[1]/input[2]/@value
+            variantId:
+              - text: "035250"
+                xpath: /html/body/div[1]/div[2]/section[1]/input[2]/@value
+            directions:
+              - text: "Vaporisez sur les points de pulsation autour du corps: cou, torse, biceps
+                  pour augmenter la longévité du parfum."
+                xpath: /html/body/div[1]/div[2]/section[1]/div[4]/div[1]/div[1]/ul[1]/li[2]/a[1]/@directions
             ratingCount:
-              - text: "197"
+              - text:
+                  - "206"
                 xpath: /html/body/div[1]/div[2]/section[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/button[1]/div[3]/meta[1]/@content
             aggregateRating:
               - text: 4,7
                 xpath: /html/body/div[1]/div[2]/section[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/button[1]/div[2]
-            shippingInfo:
-              - text: Livraison Click&Collect en 1h || Livraison standard Livraison entre le
-                  06/11 et le 07/11
-                xpath: /html/body/div[6]
             manufacturerImages:
-              - text: https://www.nocibe.fr/bibliotheque/FicheProduit/PyramideOlfactive/Apple-green-Pomme-Verte@1x.png?frz-v=3085
-                xpath: /html/body/div[10]/@src
-              - text: https://www.nocibe.fr/bibliotheque/FicheProduit/PyramideOlfactive/Sage@1x.png?frz-v=3085
-                xpath: /html/body/div[11]/@src
-              - text: https://www.nocibe.fr/bibliotheque/FicheProduit/PyramideOlfactive/Pine_Pin@1x.png?frz-v=3085
-                xpath: /html/body/div[12]/@src
+              - text: https://www.nocibe.fr/bibliotheque/FicheProduit/PyramideOlfactive/Apple-green-Pomme-Verte@1x.png?frz-v=3164
+                xpath: /html/body/div[7]/@src
+              - text: https://www.nocibe.fr/bibliotheque/FicheProduit/PyramideOlfactive/Sage@1x.png?frz-v=3164
+                xpath: /html/body/div[8]/@src
+              - text: https://www.nocibe.fr/bibliotheque/FicheProduit/PyramideOlfactive/Pine_Pin@1x.png?frz-v=3164
+                xpath: /html/body/div[9]/@src
             name:
               - text: |-
                   Hugo Boss
@@ -81,7 +83,7 @@ extractions:
                 xpath: /html/body/div[1]/div[2]/section[1]/div[1]/div[2]/div[1]/div[1]/div[1]/h1[1]
             brandLink:
               - text: https://www.nocibe.fr/hugo-boss/C-47395
-                xpath: /html/body/div[13]/@src
+                xpath: /html/body/div[10]/@src
             ingredientsList:
               - text: Alcohol Denat, , Aqua/Water , Parfum/Fragrance , Ethylhexyl
                   Methoxycinnamate , Diethylamino Hydroxybenzoyl Hexyl Benzoate
@@ -93,13 +95,17 @@ extractions:
                   60730/Ext,Violet 2 , Ci 42090/Blue 1 ,
                 xpath: /html/body/div[1]/div[2]/section[1]/div[4]/div[1]/div[1]/div[1]/p[1]
             promotion:
-              - text: -41%
+              - text: -45%
                 xpath: /html/body/div[1]/div[2]/section[1]/div[1]/div[2]/div[1]/div[1]/div[2]/div[1]/div[2]
             availabilityText:
               - text: In Stock
+            nameExtended:
+              - text: Hugo Boss Hugo Eau de Toilette  40 ml
             price:
               - text: 29,00 €
             variantCount:
               - text: "4"
+            secondaryImageTotal:
+              - text: "3"
         xpath: /
-    timestamp: 1604402883268
+    timestamp: 1607684390089
