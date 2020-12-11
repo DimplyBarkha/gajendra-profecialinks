@@ -12,6 +12,9 @@ const transform = (data) => {
           item.text = item.text.replace(/(\s?\n)+/g, ' || ').trim();
         });
       }
+      if ((!row.name || !row.name.length) && row.name1) {
+        row.name = row.name1;
+      }
       if (row.shippingInfo) {
         row.shippingInfo.forEach(item => {
           item.text = item.text.replace(/(\s?\n)+/g, ' || ').trim();

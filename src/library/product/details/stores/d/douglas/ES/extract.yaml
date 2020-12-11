@@ -64,7 +64,11 @@ fields:
   - name: name
     singleValue: false
     description: The product name
-    xpath: //div[@class="rd__col sd__no-float"]  | //h1[@id="product_title"] | //h2[@class="rd__headline rd__headline--130"]/text() | //h2[@id="product_title"]/span[@itemprop="name"]/text() | (//a[@class="rr-item-link"])[last()] | //div[@class="rd__headlline rd__headline--80"]
+    xpath: //div[@class="rd__col sd__no-float"]  | //h1[@id="product_title"] | //h2[@class="rd__headline rd__headline--130"]/text() | //h2[@id="product_title"]/span[@itemprop="name"]/text() | (//a[@class="rr-item-link"])[last()] 
+  - name: name1
+    singleValue: false
+    description: The product name
+    xpath:  //h2[contains(@class,"rd__headlline rd__headline--80")]/text() | //h1[@itemprop="name"]/div[1]  
     #regExp: (?<=\s).*
   # - name: packSize
   #   singleValue: false
