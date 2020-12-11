@@ -24,17 +24,17 @@ const transform = (data) => {
   
     for (const { group } of data) {
       for (const row of group) {
-        if (row.aggregateRating) {
-            let text;
-            row.aggregateRating.forEach(item => {
-                text = `${item.text / 20}`;
-            });
-            row.aggregateRating = [
-              {
-                text: text,
-              },
-            ];
-          }
+        // if (row.aggregateRating) {
+        //     let text;
+        //     row.aggregateRating.forEach(item => {
+        //         text = `${item.text / 20}`;
+        //     });
+        //     row.aggregateRating = [
+        //       {
+        //         text: text,
+        //       },
+        //     ];
+        //   }
        
         if (row.availabilityText) {
           let text = '';

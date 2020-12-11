@@ -115,8 +115,6 @@ fields:
   - name: aggregateRating
     singleValue: false
     xpath: //meta[@itemprop="ratingValue"]/@content
-    regExp: (\d+)
-    regExpReplace: $1
   - name: reviewCount
     singleValue: false
     xpath: (//div[@class='b_f2PBZg5jPe']/span)[1] | //meta[@itemprop="reviewCount"]/@content
