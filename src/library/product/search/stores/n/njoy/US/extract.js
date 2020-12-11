@@ -8,12 +8,11 @@ async function implementation (
   const { productDetails } = dependencies;
   try {
     await context.waitForSelector('a[class="button confirmm-age"]', { timeout: 7000 });
-  }
-  catch (e) {
+  } catch (e) {
     console.log('age selector not found');
   }
 
-  let agebutton = await context.evaluate(async function () {
+  await context.evaluate(async function () {
     const ageConfIframe = document.querySelector('a.button.confirmm-age');
     if (ageConfIframe) {
       document.querySelector('a.button.confirmm-age').click();
@@ -23,8 +22,7 @@ async function implementation (
 
   try {
     await context.waitForSelector('div[data-review-id]:not(.yotpo-hidden)', { timeout: 7000 });
-  }
-  catch (e) {
+  } catch (e) {
     console.log('review selector not found');
   }
 
