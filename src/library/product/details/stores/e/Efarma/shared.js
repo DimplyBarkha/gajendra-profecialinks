@@ -41,15 +41,21 @@ const transform = (data) => {
       }
 
       if (row.description) {
-        let text = '';
+        const nDesc = [];
+        let newDesc = '';
+        let idx = 0;
         row.description.forEach(item => {
-          text += `${item.text.replace(/\n \n/g, ':')} || `;
+          nDesc[0] = item;
+          if (idx > 0) {
+            newDesc = newDesc + ' ';
+          }
+          newDesc = newDesc + item.text;
+          idx++;
         });
-        row.description = [
-          {
-            text: text.slice(0, -3),
-          },
-        ];
+        nDesc.forEach(item => {
+          item.text = newDesc;
+        });
+        row.description = nDesc;
       }
 
       if (row.manufacturerImages) {
@@ -110,13 +116,13 @@ const transform = (data) => {
           },
         ];
       }
-      if (row.aggregateRating) {
-        row.aggregateRating = [
-          {
-            text: Math.round(row.aggregateRating[0].text / 20) ,
-          },
-        ];
-      }
+      // if (row.aggregateRating) {
+      //   row.aggregateRating = [
+      //     {
+      //       text: Math.round(row.aggregateRating[0].text / 20) ,
+      //     },
+      //   ];
+      // }
       if (row.directions) {
         let text = '';
         row.directions.forEach(item => {
@@ -149,6 +155,9 @@ const transform = (data) => {
             text: text.slice(0, -2),
           },
         ];
+      }
+      if ((!row.brandText || !row.brandText.length) && row.brandText1) {
+        row.brandText = row.brandText1;
       }
 
       if (row.additionalDescBulletInfo) {

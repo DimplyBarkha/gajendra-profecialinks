@@ -23,10 +23,10 @@ fields:
     xpath: //h1[@itemprop="name"]/text() 
   - name: listPrice
     singleValue:  false
-    xpath: //span[text()="Prezzo listino:"]/following-sibling::span[1]
+    xpath: (//span[text()="Prezzo listino:"]/following-sibling::span[1])[1]
   - name: price
     singleValue:  false
-    xpath: //span[text()="Prezzo"]/following-sibling::span[1] | //span[@itemprop="price"]/text()
+    xpath: (//span[text()="Prezzo"]/following-sibling::span[1])[1] | (//span[@itemprop="price"]/text())[1]
   - name: availabilityText
     singleValue:  false
     xpath: //span[text()="Disponibile"]
@@ -35,12 +35,18 @@ fields:
     defaultValue: Out of Stock
   - name: description
     singleValue: false
-    xpath: //h2[contains(.,"Caratteristiche")]/following::p[1]/text() | //div[@id="description"]//ul//li | //span[@itemprop="description"]/text() | //h2[contains(.,"Scheda Prodotto")]/following::p[1]/text() | //h2[contains(.,"Indicazioni")]/following::p[1]/text()
+    xpath: //article//div[@class="std"]/p[@class="short-description-mobile"]//text() | //article//div[@class="std"]/h2[1]/text()  |  //article//div[@class="std"]/p[2] | //article//div[@class="std"]/h2[2]//text() | //article//div[@class="std"]/p[3] |   //article//div[@class="std"]/h2[3]/text() | //div[@id="description"]//ul//li  |  //article//div[@class="std"]/p[4] | //article//div[@class="std"]/h2[4]//text()  |  //article//div[@class="std"]/p[5] | //article//div[@class="std"]/h2[5]//text()  | //article//div[@class="std"]/p[6] 
+    # xpath: //h2[contains(.,"Caratteristiche")]/following::p[1]/text() | //div[@id="description"]//ul//li | //span[@itemprop="description"]/text() | //h2[contains(.,"Scheda Prodotto")]/following::p[1]/text() 
   - name: descriptionBullets
     singleValue:  false
     xpath: count(//div[@id="description"]//ul//li)
     type: NUMBER
   - name: brandText
+    singleValue:  false
+    xpath: (//script[contains(text(),"brand")])[2]
+    regExp: brand\W+([^']+)
+    regExpReplace: $1
+  - name: brandText1
     singleValue:  false
     xpath: //span[@itemprop="brand"]
   - name: manufacturer
@@ -49,7 +55,7 @@ fields:
   - name: quantity
     singleValue:  false
     xpath: //h1[@itemprop="name"]/text()
-    regExp: (\d{1,}\s)(g|G|L|Kg|Mg|Ml|ml|Oz|ml|Oz|s|l|EA|GR|kg|g c/u)
+    regExp: (\d{1,}\W)(g|G|L|Kg|Mg|Ml|ml|Oz|ml|Oz|s|l|EA|GR|kg|g|Pezzi)
     # regExpReplace: 
   - name: weightNet
     singleValue:  false
@@ -87,13 +93,14 @@ fields:
   - name: ratingCount
     singleValue:  false
     xpath: //em[@class="ng-binding"]/text()
+    regExp: \d{1,}
   - name: aggregateRatingText
     singleValue:  false
     description: The stated aggregate rating
   - name: aggregateRating
     singleValue:  false
-    xpath: //div[@class="mp-review-rating"]/@ng-style
-    regExp: :\W+(\d+)
+    xpath: //span[@itemprop="ratingValue"]
+    # regExp: :\W+(\d+)
   - name: shippingInfo
     singleValue:  false
     xpath: //div[@class="shipment--desktop"]

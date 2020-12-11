@@ -20,7 +20,7 @@ fields:
   - name: price
     singleValue: false
     description: The offered price for the product
-    xpath: //p[@class="special-price"]//span[@class="price"]
+    xpath: (//p[@class="special-price"]//span[@class="price"])[1]
     # regExp: 
     # regExpReplace: 
   - name: rank
