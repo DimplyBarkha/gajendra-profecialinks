@@ -74,7 +74,6 @@ module.exports = {
       );
       const jsonParsed = JSON.parse(jsonString.innerText);
       const json_list = jsonParsed.itemListElement;
-      var urllink = document.querySelectorAll(".hz-product-card__link");
 
       for (let i = 0; i < product.length; i++) {
         console.log("Loop is working");
@@ -82,7 +81,7 @@ module.exports = {
         addHiddenDiv("ii_manufacture", new_manuf, i);
         var single_obj = json_list[i];
         var url_web = single_obj.url;
-        var urllink_update = urllink[i].getAttribute("href");
+
         addHiddenDiv("ii_produrl", url_web, i);
         if (rank == 1) {
           addHiddenDiv("ii_rankOrganic", single_obj.position, i);
