@@ -108,7 +108,7 @@ fields:
 - name: directions
   singleValue: true
   description: Content under "directions" header
-  xpath: //h2[contains(text(),'¿Cómo se aplica')]/following-sibling::p[1]
+  xpath: //h2[contains(text(),'¿Cómo se aplica')]/following-sibling::p[1] | //h4[contains(text(),'Aplicación:')]/following-sibling::p[1] | //h4[contains(text(),'HOW TO USE')]/following-sibling::p[1] |  //h2[contains(text(),'APLICACIÓN')]/following-sibling::p[1] |  //h2[contains(text(),'appl')]/following-sibling::p[1] |  //h2[contains(text(),'apli')]/following-sibling::p[1]
 - name: warnings
   singleValue: true
   description: Content under "warnings" header
@@ -263,7 +263,7 @@ fields:
   singleValue: false
   description: List of Ingredients from site - can be string of data if no discernible
     start/end point
-  xpath: //h2[text()='Ingredientes:']/following-sibling::p
+  xpath: //h2[text()='Ingredientes:']/following-sibling::p | //h2[text()='Ingredients:']/following-sibling::p
 - name: servingSize
   singleValue: true
   description: The size of serving Nutritional information is based on.
