@@ -58,7 +58,7 @@ fields:
   singleValue: false
   description: Product description supplied by website - may be concatenanted from
     multiple places; specifically not the manufacturer description
-  xpath: concat(//span[@class="product-main__sub-name"], //ul[@class="product-main__meta"], //p[@class="product-main__data"], //div[@class="product-main__description"], //ul[@class='product-notes'])
+  xpath: concat(//ul[@class="product-main__meta"], //p[@class="product-main__data"], //div[@class="product-main__description"], //ul[@class='product-notes'], normalize-space(//ul[@class="product-facts"]))
 - name: descriptionBullets
   singleValue: true
   description: Number of ul > li tags in the description
