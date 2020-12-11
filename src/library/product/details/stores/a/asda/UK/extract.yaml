@@ -50,6 +50,9 @@ fields:
     singleValue: true
   - name: description
     singleValue: false
+    xpath: //div[contains(@class,'pdp-description-reviews__product-details-cntr')]
+  - name: descriptionOld
+    singleValue: false
     xpath: //div[contains(@class,'pdp-description')][div[contains(@class,'title')][contains(text(),'Features') or contains(text(),'Product Information') or contains(text(),'Further Description') or contains(text(), 'Brand Marketing')]]//div[contains(@class,'content')]
   - name: ingredientsList
     singleValue: false
