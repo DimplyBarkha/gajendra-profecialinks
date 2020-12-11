@@ -29,7 +29,8 @@ fields:
     xpath: //a[@id='img-id-1']//img/@alt
   - name: manufacturerImages
     singleValue: false
-    xpath: //div[@id="description-text"]//img/@src
+    # xpath: //div[@id="description-text"]//img/@src
+    xpath: //div[contains(@id,"description")]//img/@src
   - name: mpc
     singleValue: false
     xpath: //div[@id='price']/div[@itemprop='sku']
