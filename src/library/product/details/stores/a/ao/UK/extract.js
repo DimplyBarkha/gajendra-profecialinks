@@ -23,6 +23,27 @@ module.exports = {
         promoClose.click();
       }
     });
+
+
+    try {
+      await context.waitForSelector('div.dy-recommendations__slider, section.alternative-products', { timeout: 45000 });
+    } catch (error) {
+      console.log('Not loading recommended products');
+    }
+  
+    async function scrollToRec () {
+      await context.evaluate(async () => {
+        var element = (document.querySelector('div.dy-recommendations__slider, section.alternative-products')) ? document.querySelector('div.dy-recommendations__slider, section.alternative-products') : null;
+        if (element) {
+          element.scrollIntoView({ behavior: 'smooth', block: 'end', inline: 'nearest' });
+          await new Promise((resolve) => {
+            setTimeout(resolve, 5000);
+          });
+        }
+      });
+    }
+    await scrollToRec();
+
     await context.evaluate(async function () {
       function addElementToDocument (key, value) {
         const catElement = document.createElement('div');
@@ -46,12 +67,15 @@ module.exports = {
       } else {
         addElementToDocument('inStockText', 'Out of Stock');
       }
-      const manufacturer = document.evaluate("//script[contains(text(), 'manufacturer')]", document, null, XPathResult.STRING_TYPE, null);
-      if (manufacturer && manufacturer.stringValue) {
-        // @ts-ignore
-        var manufText = /manufacturer":[\s"]+([A-z]+)/.exec(manufacturer.stringValue);
-        addElementToDocument('manufacturer', manufText[1]);
-      }
+      // const manufacturer = document.evaluate("//script[contains(text(), 'manufacturer')]", document, null, XPathResult.STRING_TYPE, null);
+      // if (manufacturer && manufacturer.stringValue) {
+      //   // @ts-ignore
+      //   var manufText = /manufacturer":[\s"]+([A-z]+)/.exec(manufacturer.stringValue);
+      //   addElementToDocument('manufacturer', manufText[1]);
+      // }
+
+      const manufacturer = window && window._nRepData && window._nRepData["context"] ? window._nRepData["context"].manufacturer.replace('&#39;', '\'').replace(/\s/, ' ') : '';
+      addElementToDocument('manufacturer', manufacturer);
       const img360 = document.evaluate("//div[contains(@class,'product-gallery__button cta cta-secondary icon-three-sixty')]", document, null, XPathResult.STRING_TYPE, null);
       if (img360 && img360.stringValue) {
         addElementToDocument('img360', 'Yes');
