@@ -5,7 +5,7 @@ module.exports = {
     country: 'NL',
     store: 'jumbo',
     domain: 'jumbo.com',
-    url: 'https://www.jumbo.com/producten/?searchTerms={searchTerms}',
+    url: 'https://www.jumbo.com/producten/?offSet=0&searchTerms={searchTerms}',
     loadedSelector: '.rw',
     noResultsXPath: '//div[@class="error-state-wrapper text-center cl ctr"]/div[@class="server-error"]',
     zipcode: '',

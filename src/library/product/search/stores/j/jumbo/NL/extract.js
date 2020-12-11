@@ -4,8 +4,13 @@ async function implementation (inputs, parameters, context, dependencies) {
   const { productDetails } = dependencies;
   const { transform } = parameters;
 
-  await new Promise((resolve, reject) => setTimeout(resolve, 3000));
   await context.evaluate(() => {
+    const nextLinkSelector = document.querySelector('span.d-xs-inline.d-l-none');
+
+    if (nextLinkSelector !== null) {
+      document.querySelector('span.d-xs-inline.d-l-none').click();
+    }
+
     const productUrlAll = document.querySelectorAll('.list-methods a.opposite');
     let productUrl;
     const priceArray = [];
@@ -30,11 +35,12 @@ async function implementation (inputs, parameters, context, dependencies) {
       document.querySelectorAll('div[analytics-tag="product card"]')[i].setAttribute('rankOrganic', `${i + 1}`);
     };
     const url = window.location.href;
+
     document.querySelector('.rw').setAttribute('searchurl', url);
   });
 
   return await context.extract(productDetails, { transform });
-};
+}
 
 module.exports = {
   implements: 'product/search/extract',
