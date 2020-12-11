@@ -151,6 +151,16 @@ const transform = (data) => {
           imageItem.text = imageItem.text.includes('http') ? imageItem.text : 'https:' + imageItem.text;
         });
       }
+      if (row.pricePerUnitUom) {
+        row.pricePerUnitUom.forEach((pricePerUnitUomItem) => {
+          pricePerUnitUomItem.text = pricePerUnitUomItem.text.replace('/pc.', '/pc');
+        });
+      }
+      if (row.pricePerUnit) {
+        row.pricePerUnit.forEach((pricePerUnitItem) => {
+          pricePerUnitItem.text = pricePerUnitItem.text.replace('/pc.', '').replace(',', '.');
+        });
+      }
     }
   }
   return data;

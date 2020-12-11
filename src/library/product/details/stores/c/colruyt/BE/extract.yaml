@@ -19,6 +19,7 @@ fields:
     description: The <meta> keywords content
   - name: category
     singleValue: false
+    xpath: //div[contains(@id,"treebody")]//div[contains(@id,"activetopbranch")] | //li[@class="leaf active"]
     description: The categories (e.g. from breadcrumbs)
   - name: nameExtended
     singleValue: false
@@ -419,9 +420,11 @@ fields:
     description: List of additives in the product
   - name: pricePerUnit
     singleValue: false
+    xpath: //div[contains(@class,"product__price-piece")] 
     description: Price of the product split into certain units
   - name: pricePerUnitUom
     singleValue: false
+    xpath: //div[contains(@class,"product__price-piece")]//span[contains(@class,"product__unit")]
     description: The unit of measurement used in price_per_unit
   - name: promotion
     singleValue: false

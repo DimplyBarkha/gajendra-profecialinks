@@ -43,6 +43,7 @@ async function implementation (inputs, parameters, context, dependencies) {
   let calciumPerServing = '';
   let SodiumPerServing = '';
   let magnesiumPerServing = '';
+  let vitaminAPerServing = '';
 
   console.log('url---->', url);
   if (url) {
@@ -129,6 +130,10 @@ async function implementation (inputs, parameters, context, dependencies) {
       const magnesiumPerServingSelector = document.evaluate('(//span[contains(text(),"Magnésium")]/following-sibling::span[contains(@class,"val-nbr")])[1]', document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
       return magnesiumPerServingSelector ? magnesiumPerServingSelector.innerText : '';
     });
+    vitaminAPerServing = await context.evaluate(() => {
+      const vitaminAPerServingSelector = document.evaluate('(//span[contains(text(),"Magnésium")]/following-sibling::span[contains(@class,"val-nbr")])[1]', document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
+      return vitaminAPerServingSelector ? vitaminAPerServingSelector.innerText : '';
+    });
 
     await context.setBlockAds(false);
     await context.setLoadAllResources(true);
@@ -145,7 +150,7 @@ async function implementation (inputs, parameters, context, dependencies) {
     }
   }
 
-  await context.evaluate(({ totalSugarsPerServing, proteinPerServing, totalCarbPerServing, saturatedFatPerServing, totalFatPerServing, caloriesPerServing, servingSize, legalDisclaimer, ingredientsList, saltPerServing, storage, gtin, quantity, calciumPerServing, SodiumPerServing, magnesiumPerServing }) => {
+  await context.evaluate(({ totalSugarsPerServing, proteinPerServing, totalCarbPerServing, saturatedFatPerServing, totalFatPerServing, caloriesPerServing, servingSize, legalDisclaimer, ingredientsList, saltPerServing, storage, gtin, quantity, calciumPerServing, SodiumPerServing, magnesiumPerServing, vitaminAPerServing }) => {
     function addHiddenDiv (id, content) {
       const newDiv = document.createElement('div');
       newDiv.id = id;
@@ -170,7 +175,8 @@ async function implementation (inputs, parameters, context, dependencies) {
     addHiddenDiv('calciumPerServing_added', calciumPerServing);
     addHiddenDiv('SodiumPerServing_added', SodiumPerServing);
     addHiddenDiv('magnesiumPerServing_added', magnesiumPerServing);
-  }, { totalSugarsPerServing, proteinPerServing, totalCarbPerServing, saturatedFatPerServing, totalFatPerServing, caloriesPerServing, servingSize, legalDisclaimer, ingredientsList, saltPerServing, storage, gtin, quantity, calciumPerServing, SodiumPerServing, magnesiumPerServing });
+    addHiddenDiv('vitaminAPerServing_added', vitaminAPerServing);
+  }, { totalSugarsPerServing, proteinPerServing, totalCarbPerServing, saturatedFatPerServing, totalFatPerServing, caloriesPerServing, servingSize, legalDisclaimer, ingredientsList, saltPerServing, storage, gtin, quantity, calciumPerServing, SodiumPerServing, magnesiumPerServing, vitaminAPerServing });
 
   return await context.extract(productDetails, { transform });
 }

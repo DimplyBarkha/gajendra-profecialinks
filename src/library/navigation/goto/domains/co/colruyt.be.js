@@ -3,13 +3,13 @@ module.exports = {
   implements: 'navigation/goto',
   parameterValues: {
     domain: 'colruyt.be',
-    timeout: 90000,
+    timeout: 150000,
     country: 'BE',
     store: 'colruyt',
     zipcode: '',
   },
   implementation: async ({ url, zipcode, storeId }, parameters, context, dependencies) => {
-    const timeout = parameters.timeout ? parameters.timeout : 90000;
+    const timeout = parameters.timeout ? parameters.timeout : 150000;
     await context.setBlockAds(false);
     await context.setLoadAllResources(true);
     await context.setLoadImages(true);
@@ -28,6 +28,11 @@ module.exports = {
       await context.click('#features-modal  div.overlay__continue > button');
     } catch (error) {
       console.log('Next Cookie button click fail');
+    }
+    try {
+      await context.waitForXPath('//div[contains(@class,"product-detail__wrapper")]');
+    } catch (error) {
+      console.log('Wrapper xpath failed');
     }
 
     console.log(zipcode);
