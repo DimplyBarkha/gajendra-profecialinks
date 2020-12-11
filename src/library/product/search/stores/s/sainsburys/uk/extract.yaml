@@ -37,3 +37,9 @@ fields:
   - name: aggregateRating
     singleValue: false
     xpath: //html//div[@id="aggregateRating"]
+  - name: sku
+    singleValue: false
+    xpath: //div[@class="ln-c-card pt"]/@data-test-id
+    # type: NUMBER
+    regExp: \d+
+   
