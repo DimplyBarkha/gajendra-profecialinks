@@ -2,9 +2,9 @@
 module.exports = {
   implements: 'product/details',
   parameterValues: {
-    country: 'UK',
+    country: 'IE',
     store: 'currys',
-    domain: 'currys.co.uk',
-    zipcode: 'SE19QY',
+    domain: 'currys.ie',
+    zipcode: 'D02TX94',
   },
 };

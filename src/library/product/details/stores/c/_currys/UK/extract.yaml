@@ -236,9 +236,9 @@ fields:
   - name: lbbPrice
     singleValue: true
     description: null
-  # - name: featureBullets
-  #   singleValue: false
-  #   xpath: //div[@class="no-tablet"]//div[@class="main-desc"]//ul[not(contains(@class,"product-offers"))]/li
+  - name: featureBullets
+    singleValue: false
+    xpath: //div[@class="no-tablet"]//div[@class="main-desc"]//ul[not(contains(@class,"product-offers"))]/li
   - name: otherSellersName
     singleValue: false
     description: null
@@ -545,7 +545,7 @@ fields:
     xpath: boolean(//*[contains(text(), "Compare with similar")])
     default: false
     description: Compare the range table or matrix must be present for all vacuum cleaners & air treatment. This is not required for personal care or lighting. As a minimum the comparison table will compare against 1 additional Dyson product.
-  # - name: unInterruptedPDP
-  #   singleValue: false
-  #   xpath: //div[contains(@id, "rr_placement")]//article//span[@itemprop="name"]
-  #   description: Titles of products in the sections 'you may also like' or 'sponsored products'. Combine results from Max 3 sections
+  - name: unInterruptedPDP
+    singleValue: false
+    xpath: //div[contains(@id, "rr_placement")]//article//span[@itemprop="name"]
+    description: Titles of products in the sections 'you may also like' or 'sponsored products'. Combine results from Max 3 sections

@@ -1,6 +1,4 @@
-const { transform } = require('../transform');
-const { implementation } = require('../extractImplementation');
-
+const { transform } = require('./format');
 module.exports = {
   implements: 'product/details/extract',
   parameterValues: {
@@ -8,7 +6,6 @@ module.exports = {
     store: 'currys',
     transform,
     domain: 'currys.co.uk',
-    zipcode: 'SE19QY',
+    zipcode: '',
   },
-  implementation,
 };
