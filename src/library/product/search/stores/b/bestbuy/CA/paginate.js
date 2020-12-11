@@ -4,10 +4,10 @@ module.exports = {
   parameterValues: {
     country: 'CA',
     store: 'bestbuy',
-    nextLinkSelector: 'div[class="loadMoreRow_1TEZj loadMoreButtonContainer_35w02"]>button',
+    nextLinkSelector: null,
     mutationSelector: null,
     spinnerSelector: null,
-    loadedSelector: 'div[class="productList_31W-E"]',
+    loadedSelector:null,
     noResultsXPath: null,
     // openSearchDefinition: {
     //   offset:30,
