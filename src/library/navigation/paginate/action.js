@@ -201,7 +201,11 @@ module.exports = {
   }],
   get path () {
     const actionjsPath = preCompileFunctions.getRobotTemplateName();
-    return `${actionjsPath}/stores/\${store[0:1]}/\${store}/\${country}/paginate`;
+    return this.tempPath || `${actionjsPath}/stores/\${store[0:1]}/\${store}/\${country}/paginate`;
+  },
+  tempPath: '',
+  set path (val) {
+    this.tempPath = val;
   },
   dependencies: {
     helperLib: 'action:navigation/navigationHelperLibrary',
