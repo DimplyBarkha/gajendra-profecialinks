@@ -17,7 +17,7 @@ fields:
     xpath: //meta[@name="keywords"]/@content
   - name: category
     singleValue: false
-    xpath: //div[@class="breadcrumbs"]/ul/li/a/text()
+    xpath: //div[@class="breadcrumbs"]//li[position()>1 and position()<5]
   - name: listPrice
     singleValue: true
     xpath: //span[@id="old-price-154271"]/@data-price-amount
