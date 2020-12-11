@@ -6,8 +6,8 @@ fields:
   - name: id
     singleValue: false
     xpath: //h3[@class="c-product-list__title"]/a/@href
-    regExp: (.+/)(p\d+)(/.+)
-    regExpReplace: $2
+    regExp: (.+/p)(\d+)(/.+)
+    regExpReplace: LSPROD$2
   - name: name
     singleValue: false
     xpath: //h3[@class="c-product-list__title"]
