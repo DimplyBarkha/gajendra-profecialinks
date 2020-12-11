@@ -1,4 +1,10 @@
-const transform = (data) => {
+/**
+ *
+ * @param {ImportIO.Group[]} data
+ * @returns {ImportIO.Group[]}
+ */
+
+ const transform = (data) => {
     // Default transform function
     const clean = text => text.toString()
         .replace(/\r\n|\r|\n/g, ' ')
@@ -55,13 +61,13 @@ const transform = (data) => {
           }
           if (row.aggregateRating) {
             row.aggregateRating.forEach(item => {
-              item.text = parseFloat( item.replace(/[^\d.-]/g, '') );
+              item.text = parseFloat( item.text.replace(/[^\d.-]/g, '') );
             });
           }
           if (row.ratingCount ) {
             // console.log('ratingCount=>', row.ratingCount);
             row.ratingCount.forEach(item => {
-              item.text = parseInt( item.replace(/[^\d-]/g, '') );
+              item.text = parseInt( item.text.replace(/[^\d-]/g, '') );
             });
           }
           if (row.sku) {
