@@ -60,7 +60,6 @@ module.exports = {
         });
       });
       addElementToDocument('mm_specifications', specifications);
-      addElementToDocument('mm_size', size);
       addElementToDocument('mm_weight', weight);
       addElementToDocument('mm_color', color);
       addElementToDocument('mm_warranty', warranty);
