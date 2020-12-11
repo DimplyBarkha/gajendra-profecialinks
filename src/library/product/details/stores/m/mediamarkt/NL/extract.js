@@ -23,7 +23,6 @@ module.exports = {
 
       // Getting specifications, size
       let specifications = '';
-      let size = '';
       let weight = '';
       let color = '';
       let warranty = '';
@@ -34,10 +33,6 @@ module.exports = {
         specifications += `${specificationGroup.innerText}\n`;
         var specificationsItems = Array.from(specificationGroup.children);
         specificationsItems.forEach((item, index) => {
-          // Getting size
-          if (item.innerText === 'Afmetingen (B/H/D):' || item.innerText === 'Afmetingen (B x H x D):' || item.innerText === 'Inhoud:') {
-            size = specificationsItems[index + 1].innerText;
-          }
           // Getting weight
           if (item.innerText === 'Gewicht:') {
             weight = specificationsItems[index + 1].innerText;
