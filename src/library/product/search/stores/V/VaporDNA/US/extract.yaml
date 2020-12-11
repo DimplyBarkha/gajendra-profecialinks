@@ -1,0 +1,8 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: //div[@class='ais-infinite-hits--item']
+fields:
+  - name: productUrl
+    description: The title of the review
+    xpath: //div[@class='ais-infinite-hits--item']//p[@class='ais-hit--title']//a/@href

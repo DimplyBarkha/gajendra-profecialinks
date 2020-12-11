@@ -1,0 +1,61 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: //div[@id="shopify-section-product-template"]//div[@class="product-section"][1]//div[@class="stamped-content"]//div[@class="stamped-review"]
+fields:
+  - name: brand
+    description: Product brand shown - this may actually NOT be just a brand name e.g. "Visit the Gillette Store"
+  - name: colour
+    description: Product colour
+  - name: flavour
+    description: Product flavour
+  - name: helpfulCount
+    type: NUMBER
+    description: Number of people who said the review was helpful
+    xpath: //div[@class='stamped-review-vote']//a[@data-votes][1]
+  - name: location
+    description: reviewer location
+    xpath: //div[@class='review-location']//span[@data-location]
+  - name: mediaURL
+    description: product media url
+    xpath: ancestor::html//div[@id="shopify-section-product-template"]//div[@class="product-section"][1]//div[contains(@class,"product-image-main")][1]//div[@class="photo-zoom-link photo-zoom-link--enable"]/@data-zoom-size
+  - name: pageTitle
+    description: The url of the page title
+  - name: productFamily
+    description: The url of the page productFamily  
+  - name: productRange
+    description: The url of the page productRange
+  - name: rating
+    description: The rating of review
+    xpath: //span[contains(@class, 'stamped-review-header-starratings')]/@data-rating   
+  - name: reviewText
+    description: The text of the review
+    xpath: //div[@class='stamped-review-body']//p[@class='stamped-review-content-body']
+  - name: reviewTitle
+    description: The title of the review
+    xpath: //div[@class='stamped-review-body']//div[@class='stamped-review-header-title']
+  - name: sku
+    description: The sku   
+  - name: verifiedPurchase
+    description: Whether this of an item the reviewer purchased. "Yes" if true else ""
+    xpath: //span[@class='stamped-verified-badge']/@data-verified-label
+  - name: aggregateRating
+    description: The product rating
+    xpath: ancestor::html//div[@id="shopify-section-product-template"]//div[@class="product-section"][1]//span[@class='stamped-summary-text-1']
+  - name: sourceUrl
+    description: The url of the product url
+    xpath: ancestor::html//div[contains(@class, 'fb-comments')]/@data-href
+  - name: name
+    description: The product name
+    xpath: ancestor::html//div[@id="shopify-section-product-template"]//div[@class="product-section"][1]//h1[@class='h2 product-single__title']
+  - name: commentCount
+    type: NUMBER
+    description: Number of comments on the review
+  - name: reviewDate
+    type: DATETIME
+    description: Date the review was made
+    xpath: //div[@class='stamped-review-header']//div[@class='created']
+  - name: user
+    description: The user name of the reviewer
+    xpath: //div[@class='stamped-review-header']//strong[@class='author']
+
