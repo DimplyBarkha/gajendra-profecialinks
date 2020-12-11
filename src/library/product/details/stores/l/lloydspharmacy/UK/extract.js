@@ -57,6 +57,24 @@ module.exports = {
         addElementToDocument('warning', warning);
       }
 
+      // sku
+      var script = getXpath('(//head//script[@type="application/ld+json"])[1]/text()', 'nodeValue');
+      if(script != null){
+        var data = JSON.parse(script);
+        var sku = data.sku;
+        if(sku != null){
+          addElementToDocument('sku', sku);
+        }
+      }
+
+      //brand
+      if(script != null){
+        var brand = data.brand.name;
+        if(brand != null){
+          addElementToDocument('brand', brand);
+        }
+      }
+
 
     });
     await context.extract(productDetails);

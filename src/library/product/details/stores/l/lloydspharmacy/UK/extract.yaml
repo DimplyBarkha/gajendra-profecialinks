@@ -56,6 +56,7 @@ fields:
     singleValue: true
     description: Product brand shown - this may actually NOT be just a brand name,
       e.g. "Visit the Gillette Store"
+    xpath: //html//div[@id="brand"]
   - name: manufacturer
     singleValue: true
     description: Product manufacturer
@@ -76,6 +77,7 @@ fields:
   - name: sku
     singleValue: true
     description: The store-specific product identifier
+    xpath: //html//div[@id="sku"]
   - name: variantId
     singleValue: true
     description: Identifier for a variant from a store where variants share the same sku
