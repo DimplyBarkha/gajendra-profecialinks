@@ -79,7 +79,7 @@ module.exports = {
   ],
   dependencies: {
     goto: 'action:navigation/goto',
-    createUrl: 'action:product/details/createUrl',
+    createUrl: 'action:product/media/createUrl',
   },
   path: './stores/${store[0:1]}/${store}/${country}/execute',
   implementation,
