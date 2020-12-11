@@ -16,6 +16,15 @@ const transform = (data) => {
         row.alternateImages = [{ 'text': alternateImagesArray.join(' | '), 'xpath': row.alternateImages[0].xpath }];
       }
 
+      if (row.shownImages) {
+        let shownImagesArray = [];
+        row.shownImages.forEach(item => {
+          shownImagesArray.push(item.text);
+        });
+        row.shownImages = [{ 'text':  shownImagesArray.join(' | '), 'xpath': row.shownImages[0].xpath }];
+      }
+
+
       if (row.videos) {
         let videosArray = [];
         row.videos.forEach(item => {
@@ -23,6 +32,23 @@ const transform = (data) => {
         });
         row.videos = [{ 'text': videosArray.join(' | '), 'xpath': row.videos[0].xpath }];
       }
+
+      if (row.sku) {
+        row.sku.forEach(item => {
+          console.log('HEY DATA',item);
+          item.text = item.text.replace('Ref:', '').trim();
+        })
+      }
+
+      if (row.variantId) {
+        row.variantId.forEach(item => {
+          console.log('HEY DATA',item);
+          item.text = item.text.replace('Ref:', '').trim();
+        })
+      }
+
+
+
     }
   }
   // Clean up data

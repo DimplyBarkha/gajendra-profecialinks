@@ -57,6 +57,7 @@ fields:
     singleValue: true
     description: Product brand shown - this may actually NOT be just a brand name,
       e.g. "Visit the Gillette Store"
+    xpath: //input[contains(@id,'brand')]/@value
   - name: manufacturer
     singleValue: true
     description: Product manufacturer
@@ -77,9 +78,11 @@ fields:
   - name: sku
     singleValue: true
     description: The store-specific product identifier
+    xpath: //div[@class='hash_code']
   - name: variantId
     singleValue: true
     description: Identifier for a variant from a store where variants share the same sku
+    xpath: //div[@class='hash_code']
   - name: mpc
     singleValue: true
     description: The manufacturer model code (unique) of the product
@@ -183,9 +186,9 @@ fields:
   - name: heroQuickPromoImageUrl
     singleValue: true
     description: null
-  - name: heroQuickPromoUrl
-    singleValue: true
-    description: null
+  - name: productUrl
+    singleValue: false
+    xpath: //link[@rel='canonical']/@href
   - name: pasin
     singleValue: true
     description: Parent asin
@@ -502,9 +505,6 @@ fields:
     description: If 360 image is present in the carousel ['Yes','No']
     example: https://www.amazon.com/Trinsic-Single-Handle-Magnetic-Champagne-9159-CZ-DST/dp/B0050EN8E6
     defaultValue: No
-  - name: imageZoomFeaturePresent
-    singleValue: true
-    description: If Zoom feature is available for Main image or images in the
-      carousel,['Yes','No']
-    example: https://www.zalando.de/adidas-neo-sneaker-low-blackwhite-a4315i002-q11.html
-    defaultValue: No
+  - name: shownImages
+    singleValue: false
+    xpath: (//div[@id='gallery-image-thumb'])[1]/div[@class='owl-stage-outer']/div[@class='owl-stage']/div[contains(@class,'owl-item')]//img/@data-src
