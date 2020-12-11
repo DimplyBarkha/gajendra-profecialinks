@@ -53,13 +53,16 @@ fields:
     regExpReplace: $1
   - name: manufacturer
     singleValue: false
+    xpath: //span[contains(text(),"Laboratorio")]/following-sibling::span
+  - name: manufacturer1
+    singleValue: false
     xpath: (//script[contains(.," var str1")]/text())[1]
     regExp: str1\W+getCleanedString\W+([^"]+)
     regExpReplace: $1
   - name: quantity
     singleValue: false
     xpath: //h1[@class="h1"]/text()
-    regExp: (\d{1,}\s)(g|G|L|Kg|Mg|Ml|ml|Oz|ml|Oz|s|l|EA|GR|kg|g c/u)
+    regExp: (\d{1,}\s)(g|G|L|Kg|sobre|Mg|Ml|ml|Oz|ml|Oz|s|l|EA|GR|kg|g)
   - name: weightNet
     singleValue: false
     description: Net weight as described on the page
@@ -81,7 +84,11 @@ fields:
   - name: packSize
     singleValue: false
     xpath: //h1[@class="h1"]/text()
-    regExp: (\d{1,}\s)(pzas)
+    regExp: (\d{1,}\s)(pzas|tabletas|botellas)
+  # - name: packSize1
+  #   singleValue: false
+  #   xpath: //h1[@class="h1"]/text()
+  #   regExp: (pack)(\s\d{1,})
   - name: legalDisclaimer
     singleValue: false
     description: Content under "legal disclaimer" header

@@ -60,8 +60,8 @@ const transform = (data) => {
         ];
       }
 
-      if ((!row.listPrice || !row.listPrice.length) && row.price) {
-        row.listPrice = row.price;
+      if ((!row.manufacturer || !row.manufacturer.length) && row.manufacturer1) {
+        row.manufacturer = row.manufacturer1;
       }
 
       if (row.promotion) {

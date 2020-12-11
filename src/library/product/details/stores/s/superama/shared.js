@@ -53,9 +53,20 @@ const transform = (data) => {
           }
         });
       }
-     
+      if (row.price && row.price[0]) {
+        row.price[0].text = row.price[0].text.replace(/\./g, ',');
+      }
+      if (row.listPrice && row.listPrice[0]) {
+        row.listPrice[0].text = row.listPrice[0].text.replace(/\./g, ',');
+      }
       if (row.gtin && row.gtin[0]) {
-        row.gtin[0].text = row.gtin[0].text.replace('UPC ', ' ');
+        row.gtin[0].text = row.gtin[0].text.replace('UPC ', '');
+      }
+      if ((!row.manufacturer || !row.manufacturer.length) && row.manufacturer1) {
+        row.manufacturer = row.manufacturer1;
+      }
+      if (row.gtin && row.gtin[1]) {
+        row.gtin[1].text = row.gtin[1].text.replace('UPC ', ' ');
       }
       if (row.variantId && row.variantId[0]) {
         row.variantId[0].text = row.variantId[0].text.replace('UPC ', '');
