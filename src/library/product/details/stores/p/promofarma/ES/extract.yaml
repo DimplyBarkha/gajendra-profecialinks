@@ -41,7 +41,7 @@ fields:
   xpath: //div[@class='product-info']/p[@class='volume']
 - name: directions
   singleValue: true  
-  xpath: //div[@class='box-white']/div[@id='professional-advice']
+  xpath: concat(//div[@class='box-white']//h3[contains(text(),'Modo de empleo')]//following-sibling::ul,//div[@class='box-white']//h3[contains(text(),'Modo de empleo')]//following-sibling::p)
 - name: alternateImages
   singleValue: false  
   xpath: //a[@data-zoom-id="product-img"]/img/@src
@@ -66,7 +66,7 @@ fields:
   xpath: //div[@id="content-description"]//ul/li
 - name: aggregateRating
   singleValue: true 
-  xpath: (//div[@class="mt-4 rating-box"]//div/meta[@itemprop="ratingValue"]/@content)
+  xpath: //div[@class="mt-4 rating-box"]//div/meta[@itemprop="ratingValue"]/@content div 2
 # - name: productOtherInformation
 #   singleValue: true 
 #   xpath: //section[@id="productSheetCont"]/meta[@itemprop="description"]/@content
