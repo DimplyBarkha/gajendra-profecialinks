@@ -2,17 +2,19 @@
 /**
  *
  * @param { { id: any } } inputs
- * @param { { domain: string, prefix?: string, suffix?: string, url?: string } } parameters
+ * @param { { domain: string, prefix?: string, suffix?: string, url?: string, subdomain: string} } parameters
  * @param { ImportIO.IContext } context
  * @param { { } } dependencies
  */
 async function implementation (inputs, parameters, context, dependencies) {
   const { id } = inputs;
-  const { domain, prefix, suffix, url } = parameters;
+  const { domain, prefix, suffix, url, subdomain } = parameters;
 
   if (url) return url.replace(/{id}/g, encodeURIComponent(id));
 
-  let gotoUrl = `https://${domain}`;
+  let gotoUrl = 'https://';
+  if (subdomain) gotoUrl += `${subdomain}.`;
+  gotoUrl += domain;
   if (prefix) gotoUrl += `/${prefix}`;
   if (id) gotoUrl += `/${id}`;
   if (suffix) gotoUrl += `/${suffix}`;
@@ -29,7 +31,17 @@ module.exports = {
     {
       name: 'prefix',
       description: '',
-      optional: false,
+      optional: true,
+    },
+    {
+      name: 'suffix',
+      description: '',
+      optional: true,
+    },
+    {
+      name: 'subdomain',
+      description: '',
+      optional: true,
     },
     {
       name: 'url',
