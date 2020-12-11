@@ -23,8 +23,8 @@ fields:
     xpath: //div[@id="block-breadcrumbs"]//ol//li[not(contains(position(),1)) and not(contains(position(),last()))]//a
   - name: price
     singleValue: false
-    xpath: //div[@class="product-full-info-tags"]//div[@class="product-final-price-per-unit"]//span[@class="product-full-info-tag-primary price-per-unit-value"]
-  - name: listPrice
+    xpath: //div[@class="variations-wrapper"]//div[@class="field__item"]//span[contains(@class,"price final-price")]
+  - name: listPrice 
     singleValue: false
     xpath: //div[@class="product-full-info-tags"]//div[@class="product-initial-price-per-unit"]//span[@class="product-full-info-tag-primary price-per-unit-value"]
   - name: description
@@ -58,6 +58,6 @@ fields:
     regExpReplace: $1
   - name: manufacturer
     singleValue: false
-    xpath: //script[contains(@type, "application/ld+json") and contains(text(), "brand")][1]/text()
-    regExp: brand":([^,]+)
-    regExpReplace: $1
+  - name: quantity
+    singleValue: false
+    xpath: //div[@class="product-full-info"]//h1[@class="page-title"]

@@ -34,10 +34,21 @@ const transform = (data) => {
               item.text =  item.text.slice(2,-1);
             });
         }
-        if (row.manufacturer) {
-            row.manufacturer.forEach(item => {
-              item.text =  item.text.slice(2,-1);
-            });
+        if (row.price) {
+          row.price.forEach(item => {
+            item.text = item.text.replace(",", '.').trim();
+          });
+        }
+        if (row.listPrice) {
+         row.listPrice.forEach(item => {
+          item.text = item.text.replace(",", '.').trim();
+          });
+        }
+        if (row.quantity) {
+          row.quantity.forEach(item => {
+            item.text = item.text.match(/\d+.*/)[0];
+          });
+
         }
         if (row.description) {
             let description_ar = [];
