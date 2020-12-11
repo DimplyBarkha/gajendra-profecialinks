@@ -23,10 +23,12 @@ module.exports = {
     }, inputs);
     await new Promise((resolve, reject) => setTimeout(resolve, 2000));
     await context.click('.searchfbutton.searchButtonTrack.searchBarHeader-image');
+    console.log('After Search');
     // await context.click('div.produit-title-rating');
-    await context.evaluate(async function (inputs) {
-      document.querySelector('div.produit-title-rating').click();
-    });
+    // await context.evaluate(async function () {
+    await context.click('div.produit-title-rating');
+    // });
     await new Promise((resolve, reject) => setTimeout(resolve, 10000));
+    return await context.evaluate((xpath) => !document.evaluate(xpath, document, null, XPathResult.BOOLEAN_TYPE, null).booleanValue, parameters.noResultsXPath);
   },
 };
