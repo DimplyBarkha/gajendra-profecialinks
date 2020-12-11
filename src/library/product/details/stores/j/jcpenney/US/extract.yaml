@@ -23,7 +23,7 @@ fields:
   - name: availabilityText
     xpath: ancestor::html//h1[@aria-label="productTitle"]/@availability
   - name: description
-    xpath: ancestor::html//*[@id="productDescriptionParent"]/div[1]/section/div[1]/b/parent::div | ancestor::html//section[@aria-label="productDescription"]/div[1]/p[1] | ancestor::html//section[@aria-label="productDescription"]/div[1]/text() | ancestor::html//section[@aria-label="productDescription"]//ul//li | ancestor::html//*[@id="productDescriptionParent"]/div[1]/section/div[1]/p[2]/strong
+    xpath: ancestor::html//*[@id="productDescriptionParent"]/div[1]/section/div[1]/b/parent::div | ancestor::html//section[@aria-label="productDescription"]/div[1]/p[1] | ancestor::html//section[@aria-label="productDescription"]/div[1]/text() | ancestor::html//section[@aria-label="productDescription"]//ul//li | ancestor::html//*[@id="productDescriptionParent"]/div[1]/section/div[1]/p[2]/strong | ancestor::html//section[@aria-label="productDescription"]//span | ancestor::html//section[@aria-label="productDescription"]//ul/following-sibling::p
   - name: descriptionBullets
     xpath : count(//section[@aria-label="productDescription"]//ul//li)
   - name: brandText
@@ -123,7 +123,7 @@ fields:
   - name: newVersion
   - name: newAsin
   - name: variantInformation
-    xpath: ancestor::html//ul[@data-automation-id="product-dimensions-color"]//li//button/@data-for | ancestor::html//div[@class="_2tEML"]//section//ul//li/@data-option
+    xpath: //button/@data-for | //@data-option
   - name: firstVariant
     xpath: ancestor::html//h1[@aria-label="productTitle"]/@firstvariant
   - name: variants

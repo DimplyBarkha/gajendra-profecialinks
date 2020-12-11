@@ -31,14 +31,6 @@ const transform = (data) => {
         row.featureBullets = [{ text }];
       }
 
-      if (row.variantInformation) {
-        let text = '';
-        row.variantInformation.forEach(item => {
-          text = text + (text ? ' | ' : '') + item.text;
-        });
-        row.variantInformation = [{ text }];
-      }
-
       if (row.manufacturerDescription) {
         let text = '';
         row.manufacturerDescription.forEach(item => {
