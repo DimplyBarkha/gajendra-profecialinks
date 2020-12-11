@@ -25,7 +25,7 @@ fields:
     xpath: //ul[@class = "breadcrumb--list"]//span[@class = "breadcrumb--title"]
   - name: color
     singleValue: false
-    xpath: //td[contains(@class, "product--properties-label")]//h4[contains(text(), "Verpackungsfarbe:")]//parent::td//following-sibling::td//a  
+    xpath: //td[contains(@class, "product--properties-label")]//h4[contains(text(), "colour:")]//parent::td//following-sibling::td  
   - name: description
     singleValue: false
     xpath: concat(//div[@class='content--description']//div[@class='content--title']//h3,' ',//div[contains(@class, "product--description")]//p[1])

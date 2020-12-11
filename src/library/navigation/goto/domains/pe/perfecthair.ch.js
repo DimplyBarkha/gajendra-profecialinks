@@ -3,7 +3,7 @@ module.exports = {
   implements: 'navigation/goto',
   parameterValues: {
     domain: 'perfecthair.ch',
-    timeout: 50000,
+    timeout: null,
     country: 'CH',
     store: 'perfecthair',
     zipcode: '',

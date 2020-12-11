@@ -33,14 +33,16 @@ const transform = (data) => {
 
         if (row.listPrice) {
           row.listPrice.forEach(item => {
-            item.text = item.text.replace(/(\s*\.\s*)+/g, ',').trim();
+            //item.text = item.text.replace(/(\s*\.\s*)+/g, ',').trim();
             item.text = item.text.replace(/(\s*\*\s*)+/g, '').trim();
+            item.text = item.text.replace(/(\s*CHF\s*)+/g, 'CHF ').trim();
           });
         }
         if (row.price) {
           row.price.forEach(item => {
-            item.text = item.text.replace(/(\s*\.\s*)+/g, ',').trim();
+            //item.text = item.text.replace(/(\s*\.\s*)+/g, ',').trim();
             item.text = item.text.replace(/(\s*\*\s*)+/g, '').trim();
+            item.text = item.text.replace(/(\s*CHF\s*)+/g, 'CHF ').trim();
           });
         }
         if (row.productOtherInformation) {
