@@ -47,20 +47,38 @@ const transform = (data) => {
             });
             row.specifications = [{'text':info.join(' | '),'xpath':row.specifications[0].xpath}];
         }
-        if (row.productOtherInformation) {
+        if (row.category) {
             let info = [];
-            row.productOtherInformation.forEach(item => {
-                info.push(item.text.trim());
+            row.category.forEach(item => {
+              info.push(item.text.trim());
             });
-            row.productOtherInformation = [{'text':info.join(' | '),'xpath':row.productOtherInformation[0].xpath}];
+            if (info.length) {
+              row.category = [];
+              info.forEach(item => {
+                row.category.push({ "text": item});
+              });
+            }
         }
-        if (row.additionalDescBulletInfo) {
-            let info = [];
-            row.additionalDescBulletInfo.forEach(item => {                    
-                info.push(item.text.trim());
-            });
-            row.additionalDescBulletInfo = [{'text':info.join(' | '),'xpath':row.additionalDescBulletInfo[0].xpath}];
+        if(row.variants){
+        
+            let value = []
+            //console.log('Hey there')
+            for (let index = 0; index < row.variants.length; ++index) {
+              value.push(row.variants[index].text);
+              //console.log(index, value);
+            }
+            row.variants = [{"text": value.join(' | '), "xpath": row.variants[0].xpath}]
         }
+        if(row.variantInformation){
+            var strVariantInfo = ''
+            row.variantInformation.forEach(item => {
+              strVariantInfo = strVariantInfo + item.text + ' | '
+            })
+             row.variantInformation = [{"text": strVariantInfo, "xpath": row.variantInformation[0].xpath}]
+        }     
+        if (row.descriptionBullets) {
+            row.descriptionBullets = [{'text':row.descriptionBullets.length, 'xpath':row.descriptionBullets[0].xpath}];              
+        } 
         if (row.availabilityText) {                    
             row.availabilityText.forEach(item => {
               item.text = "In Stock";

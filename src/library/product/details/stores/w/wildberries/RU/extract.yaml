@@ -11,13 +11,13 @@ fields:
     xpath: //div[@id="photo"]//img[@class="preview-photo j-preview-photo"]/@alt
   - name: alternateImages
     singleValue: false
-    xpath: //div[@id="scrollImage"]/ul[@class="carousel"]//li//img/@src
+    xpath: //div[contains(@class,'i-sw-slider-photo-comment j-sw-slider-photo-comment')]//img/@src
   - name: category
     singleValue: false
-    xpath: //ul[@class="bread-crumbs"]/li[@class="breadcrumbs-item main"]//span[@itemprop="title"]
+    xpath: //ul[@class="bread-crumbs"]/li[not(contains(position(),'1')) and not(contains(position(),last()))]//a
   - name: nameExtended
     singleValue: false
-    xpath: //div[@class="brand-and-name j-product-title"]//span
+    xpath: //div[@class="brand-and-name j-product-title"]
   - name: listPrice
     singleValue: false
     xpath: //span[@class="old-price"]/del[@class="c-text-base"]
@@ -35,7 +35,6 @@ fields:
     xpath: //span[@class="brand"]
   - name: quantity
     singleValue: false
-    xpath: 
   - name: sku
     singleValue: false
     xpath: //input[@id="tbSrch"]/@data-nm-id
@@ -69,10 +68,7 @@ fields:
   - name: specifications
     singleValue: false
     xpath: //div[@class="j-add-info-section collapsable-content j-toogle-height-instance"]//div[@class="pp"]
-  - name: productOtherInformation
-    singleValue: false
-    xpath: //div[@class="j-add-info-section collapsable-content j-toogle-height-instance"]//div[@class="pp"]
-  - name: additionalDescBulletInfo
+  - name: descriptionBullets
     singleValue: false
     xpath: //div[@class="j-add-info-section collapsable-content j-toogle-height-instance"]//div[@class="pp"]
   - name: termsAndConditions
@@ -81,3 +77,18 @@ fields:
   - name: privacyPolicy
     singleValue: false
     defaultValue: "Yes"
+  - name: variantCount
+    singleValue: count(//div[contains(@class,'colors-preview j-colors-preview')]//ul//li/@data-cod1s)
+    defaultValue: 0  
+  - name: countryOfOrigin
+    singleValue: false
+    xpath: //div[@class="params"]//div[@class="pp"]//span/b[text()="Страна производитель"]/parent::*/parent::*/span[2]
+  - name: variantInformation
+    singleValue: false
+    xpath: //div[contains(@class,'colors-preview j-colors-preview')]//ul//li//img/@alt
+  - name: firstVariant
+    singleValue: false
+    xpath: //div[contains(@class,'colors-preview j-colors-preview')]//ul//li[1]/@data-cod1s
+  - name: variants
+    singleValue: false
+    xpath: //div[contains(@class,'colors-preview j-colors-preview')]//ul//li/@data-cod1s
