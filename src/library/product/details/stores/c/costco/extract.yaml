@@ -143,7 +143,7 @@ fields:
     description: The extended description of the product supplied by the lister
   - name: manufacturerImages
     singleValue: false
-    xpath: //div[contains(@class, 'syndi_powerpage')] | //div[@id='wc-power-page']
+    xpath: //body/@import-enhanced-content
     description: Images within the third party description
   - name: videos
     singleValue: false
@@ -402,10 +402,6 @@ fields:
   - name: dietaryInformation
     singleValue: true
     description: null
-  - name: specifications
-    singleValue: true
-    xpath: //div[@id="specifications"]
-    description: The physical dimensions of the product including packaging.
   - name: warranty
     xpath: //span[contains(text(), "Warranty")]/following-sibling::ul | //p[contains(text(), "Warranty")]
     description: Guarantee associated with the product
@@ -472,7 +468,7 @@ fields:
       this will need analysis
   - name: variants
     singleValue: false
-    xpath: //div[contains(@class,"swatches")]//span[contains(@class,"variant")]
+    xpath: //import-variant-sku/@data
   - name: additionalDescBulletInfo
     singleValue: false
     xpath: //ul[@class="pdp-features"]/li | //h3[contains(text(), "Product Details")]/following-sibling::div[@class="product-info-description" and not(div[@id="wc-power-page"])]//li
@@ -535,5 +531,6 @@ fields:
     xpath: //h2[contains(text(),'Sponsored Products')]/following::div[@id="hl-prodgroup-viewItem-Carousel"]//a[1]//@href
     regExp: (.+)
     regExpReplace: https:$1
-
-
+  - name: specifications
+    xpath: //h3[contains(., 'Specifications')]/..//div[contains(@class, 'product-info-specs')]
+    description: The physical dimensions of the product including packaging.
