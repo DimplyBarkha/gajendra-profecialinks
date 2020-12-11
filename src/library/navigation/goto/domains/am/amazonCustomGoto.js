@@ -71,10 +71,10 @@ async function goto (gotoInput, parameterValues, context, dependencies) {
   // checking for blank pages and reloads if blank (data dropped)
   const pageContextCheck = async (page) => {
     console.log('pageContextCheck', page);
-    if (Object.entries(page).filter(item => item[0] != 'windowLocation').filter(item => item[1] === true).length === 0) {
+    if (Object.entries(page).filter(item => item[0] !== 'windowLocation').filter(item => item[1] === true).length === 0) {
       context.counter.set('dropped_data', 1);
       await context.reload();
-      await new Promise(r => setTimeout(r, 2000));
+      await new Promise(resolve => setTimeout(resolve, 2000));
       console.log('Waiting for page to reload');
       await context.waitForNavigation({ timeout: 30 });
       return await solveCaptchaIfNecessary(await pageContext());
@@ -144,7 +144,7 @@ async function goto (gotoInput, parameterValues, context, dependencies) {
       } else if (!onCorrectZip) {
         console.log('not on correct zipcode, reload');
         await context.reload();
-        await new Promise(r => setTimeout(r, 2000));
+        await new Promise(resolve => setTimeout(resolve, 2000));
         console.log('Waiting for page to reload');
         await context.waitForNavigation({ timeout: 30 });
         page = await pageContextCheck(await pageContext());
@@ -185,7 +185,7 @@ async function goto (gotoInput, parameterValues, context, dependencies) {
       };
       const params = await getParams();
       try {
-        if (Object.entries(params).filter(item => item[1] != undefined).length === 7) {
+        if (Object.entries(params).filter(item => item[1] !== undefined).length === 7) {
           let url;
           if (page.windowLocation.hostname.includes('com')) {
             url = `https://${page.windowLocation.hostname}/gp/page/refresh?acAsin=${params.current_asin}&asinList=${params.current_asin}&auiAjax=1&dpEnvironment=softlines&dpxAjaxFlag=1&ee=2&enPre=1&id=${params.current_asin}&isFlushing=2&isP=1&isUDPFlag=1&json=1&mType=full&parentAsin=${params.parent_asin ? params.parent_asin : params.current_asin}&pgid=${params.pgid}&psc=1&ptd=${params.ptd}&rid=${params.rid}=1&sCac=1&sid=${params.sid}&storeID=${params.storeID}&triggerEvent=Twister&twisterView=glance`;
@@ -236,8 +236,8 @@ async function goto (gotoInput, parameterValues, context, dependencies) {
       const apiUrl = 'https://moorhe2t18.execute-api.us-east-1.amazonaws.com/prod/?url=' + encodeURIComponent(url || gotoInput.url);
 
       const res = await Promise.race([
-        extractorContext.fetch(apiUrl, { timeout: 1e3 }),
-        new Promise((r, j) => setTimeout(j, 1e3)),
+        context.fetch(apiUrl, { timeout: 1e3 }),
+        new Promise((resolve, reject) => setTimeout(reject, 1e3)),
       ]);
       const data = await res.json();
       if (data) {
@@ -265,7 +265,7 @@ async function goto (gotoInput, parameterValues, context, dependencies) {
     await context.waitForNavigation(30);
     if (await context.evaluate(() => !document.querySelector('#a-popover-root'))) {
       await context.reload();
-      await new Promise(r => setTimeout(r, 2000));
+      await new Promise(resolve => setTimeout(resolve, 2000));
       console.log('Waiting for page to reload');
       await context.waitForNavigation({ timeout: 30 });
     }
@@ -316,8 +316,8 @@ async function goto (gotoInput, parameterValues, context, dependencies) {
         const key = `${extractor}_${await currDateHour()}`;
         const apiUrl = `https://89lnzah832.execute-api.us-east-1.amazonaws.com/prod/${key}/plus`;
         const res = await Promise.race([
-          extractorContext.fetch(apiUrl, { timeout: 1e3 }),
-          new Promise((r, j) => setTimeout(j, 1e3)),
+          context.fetch(apiUrl, { timeout: 1e3 }),
+          new Promise((resolve, reject) => setTimeout(reject, 1e3)),
         ]);
         const data = await res.json();
         console.log('hourlyRetryIncrement', data);
@@ -333,8 +333,8 @@ async function goto (gotoInput, parameterValues, context, dependencies) {
         const key = encodeURIComponent(`${extractor}_${await currDateHour()}`);
         const apiUrl = `https://89lnzah832.execute-api.us-east-1.amazonaws.com/prod/${key}`;
         const res = await Promise.race([
-          extractorContext.fetch(apiUrl, { timeout: 1e3 }),
-          new Promise((r, j) => setTimeout(j, 1e3)),
+          context.fetch(apiUrl, { timeout: 1e3 }),
+          new Promise((resolve, reject) => setTimeout(reject, 1e3)),
         ]);
         const data = await res.json();
         if (data) {
@@ -421,7 +421,7 @@ async function goto (gotoInput, parameterValues, context, dependencies) {
         // return await pageContext();
       }
 
-      await new Promise(r => setTimeout(r, 2000));
+      await new Promise(resolve => setTimeout(resolve, 2000));
 
       console.log('Going back to desired page');
       lastResponseData = await context.goto(gotoInput.url, {
@@ -457,7 +457,7 @@ async function goto (gotoInput, parameterValues, context, dependencies) {
     return page;
   };
 
-  const run = async (user_agent) => {
+  const run = async (userAgent) => {
     // context.enableNetworkDebugger();
     // redshift health counters set to 0
     context.counter.set('task', 0);
@@ -467,7 +467,7 @@ async function goto (gotoInput, parameterValues, context, dependencies) {
     context.counter.set('append', 0);
 
     // options used for all goto's
-    await context.setUserAgent(user_agent);
+    await context.setUserAgent(userAgent);
     await context.setJavaScriptEnabled(true);
     await context.setCssEnabled(false);
 
@@ -514,7 +514,7 @@ async function goto (gotoInput, parameterValues, context, dependencies) {
         inSessionRetries += 1;
         context.counter.set('refresh', 1);
         await context.reload();
-        await new Promise(r => setTimeout(r, 2000));
+        await new Promise(resolve => setTimeout(resolve, 2000));
         console.log('Waiting for page to reload');
         await context.waitForNavigation({ timeout: 30 });
         console.log('Page reloaded');
@@ -525,7 +525,7 @@ async function goto (gotoInput, parameterValues, context, dependencies) {
         console.log('reload ------>', 'Missing prodDetails when API history says it is expected, and variants  do not exist.');
         context.counter.set('refresh', 1);
         await context.reload();
-        await new Promise(r => setTimeout(r, 2000));
+        await new Promise(resolve => setTimeout(resolve, 2000));
         console.log('Waiting for page to reload');
         await context.waitForNavigation({ timeout: 30 });
         console.log('Page reloaded');
