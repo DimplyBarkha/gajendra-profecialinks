@@ -538,3 +538,10 @@ fields:
       carousel,['Yes','No']
     example: https://www.zalando.de/adidas-neo-sneaker-low-blackwhite-a4315i002-q11.html
     defaultValue: No
+
+  - name: hasComparisonTable
+    defaultValue: No
+  - name: unInterruptedPDP
+    xpath: //div[contains(@class, "recommended-products")]//div[@class="slick-track"]//div[@class="mini-product"]
+  - name: inTheBoxText
+    xpath: //strong[contains(.,"Myyntipakkaus sisältää") or contains(.,"Myyntipakkaukseen sisältyy")]/following-sibling::text()[contains(.,"-")]
