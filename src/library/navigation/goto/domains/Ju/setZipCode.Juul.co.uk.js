@@ -3,7 +3,7 @@ module.exports = {
   implements: 'navigation/goto/setZipCode',
   parameterValues: {
     country: 'UK',
-    domain: 'Juul.co.uk',
+    domain: 'juul.co.uk',
     store: 'juul',
     zipcode: '',
   },
