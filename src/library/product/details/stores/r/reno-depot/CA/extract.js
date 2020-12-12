@@ -25,7 +25,7 @@ async function implementation (
   });
 
   await stall(5000);
-
+  
   await context.evaluate(function () {
     function addHiddenDiv (id, content) {
       const newDiv = document.createElement('div');
@@ -42,7 +42,7 @@ async function implementation (
         addHiddenDiv('category', category.innerText);
       });
     }
-
+  
     const alternateImages = [];
     if (document.getElementById('product__image-gallery')) {
       document.getElementById('product__image-gallery').querySelectorAll('img').forEach((img, ind) => {
