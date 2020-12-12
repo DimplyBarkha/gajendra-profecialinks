@@ -5,11 +5,12 @@ recordSelector: null
 fields:
   - name: productUrl
     xpath: //div[@class="_2fFxlhy"]/a/@href
-    # regExp: ^(.+)$
+    regExp: ^(.+)$
     regExpReplace: https://www.eldorado.ru$1
     description: The URL for the product details page
   - name: thumbnail
     xpath: //a[@class="_1RaAPF1"]/@href
+    regExp: ^(.+)$
     regExpReplace: https://www.eldorado.ru$1
     description: The URL for the product thumbnail image
   - name: name
