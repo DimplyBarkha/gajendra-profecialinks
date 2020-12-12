@@ -13,7 +13,7 @@ async function implementation (inputs, parameters, context, dependencies) {
     [...allNodeOffers].forEach((prod) => {
       const sku = prod.querySelector('meta[itemprop="sku"]') ? prod.querySelector('meta[itemprop="sku"]').getAttribute('content') : '';
       const price = prod.querySelector('meta[itemprop="price"]') ? prod.querySelector('meta[itemprop="price"]').getAttribute('content') : '';
-      const availability = prod.querySelector('meta[itemprop="availability"]') ? prod.querySelector('meta[itemprop="availability"]').getAttribute('href') : '';
+      const availability = prod.querySelector('link[itemprop="availability"]') ? prod.querySelector('link[itemprop="availability"]').getAttribute('href') : '';
 
       products.push({
         sku,
@@ -23,16 +23,26 @@ async function implementation (inputs, parameters, context, dependencies) {
     });
     return products;
   }, products);
-  console.log('allProducts');
-  console.log(allProducts);
-  for (const element of allProducts) {
-    console.log('element');
-    console.log(element);
-    await context.evaluate(async (element) => {
-      console.log(element);
-      await new Promise((resolve, reject) => setTimeout(resolve, 750));
 
-      function addElementToDocument (id, value, key) {
+  async function addElements (element) {
+    await context.evaluate(async function (prod) {
+      if (document.querySelector('#ii_sku')) {
+        document.querySelector('#ii_sku').remove();
+      }
+      if (document.querySelector('#ii_price')) {
+        document.querySelector('#ii_price').remove();
+      }
+      if (document.querySelector('#ii_availability')) {
+        document.querySelector('#ii_availability').remove();
+      }
+      if (document.querySelector('#isImgZoom')) {
+        document.querySelector('#isImgZoom').remove();
+      }
+      if (document.querySelector('#description')) {
+        document.querySelector('#description').remove();
+      }
+
+      async function addElementToDocument (id, value, key) {
         const catElement = document.createElement('div');
         catElement.id = id;
         catElement.innerText = value;
@@ -41,11 +51,11 @@ async function implementation (inputs, parameters, context, dependencies) {
         document.body.appendChild(catElement);
       };
 
-      const availability = element.availability.replace('https://schema.org/', '');
+      const availability = prod.availability.replace('https://schema.org/', '');
 
-      addElementToDocument('ii_sku', element.sku, element.sku);
-      addElementToDocument('ii_price', element.price, element.price);
-      addElementToDocument('ii_availability', availability === 'OutOfStock' ? 'Out of Stock' : 'In Stock', availability === 'OutOfStock' ? 'No' : 'Yes');
+      await addElementToDocument('ii_sku', prod.sku, prod.sku);
+      await addElementToDocument('ii_price', prod.price, prod.price);
+      await addElementToDocument('ii_availability', availability === 'OutOfStock' ? 'Out of Stock' : 'In Stock', availability === 'OutOfStock' ? 'No' : 'Yes');
 
       // const isAvailable = document.querySelector('div.stockMessaging span.indicator')
       //   ? document.querySelector('div.stockMessaging span.indicator') : null;
@@ -63,9 +73,9 @@ async function implementation (inputs, parameters, context, dependencies) {
         ? document.querySelector('li.amp-slide div.amp-zoom-overflow img') : null;
       // @ts-ignore
       if (isImgZoom !== null) {
-        addElementToDocument('isImgZoom', 'Yes', 'Yes');
+        await addElementToDocument('isImgZoom', 'Yes', 'Yes');
       } else {
-        addElementToDocument('isImgZoom', 'No', 'No');
+        await addElementToDocument('isImgZoom', 'No', 'No');
       }
 
       const ratingCount = document.querySelector('div.bvReviewsNumber a.productRating')
@@ -86,10 +96,14 @@ async function implementation (inputs, parameters, context, dependencies) {
       // @ts-ignore
       description2.forEach(e => bulletsArrSliced.push(e.textContent));
       const concatDesc = bulletsArrSliced.join(' || ');
-      addElementToDocument('description', concatDesc);
+      await addElementToDocument('description', concatDesc);
     }, element);
+  }
+
+  for (let i = 0; i < allProducts.length; i++) {
+    const element = allProducts[i];
+    await addElements(element);
     await context.extract(productDetails, { transform });
-    // return await context.extract(productDetails, { transform });
   }
 }
 module.exports = {
