@@ -41,11 +41,11 @@ const transform = (data) => {
           item.text = item.text.replace(/(\s*\n\s*)+/g, ' ').trim();
         });
       }
-      if (row.price) {
-        row.price.forEach(item => {
-          item.text = item.text.replace('.', ',').trim();
-        });
-      }
+      // if (row.price) {
+      //   row.price.forEach(item => {
+      //     item.text = item.text.replace('.', ',').trim();
+      //   });
+      // }
       if (row.gtin) {
         row.gtin.forEach(item => {
           item.text = item.text.replace(/ean"\s*:\s*/g, '');
