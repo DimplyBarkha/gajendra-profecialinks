@@ -162,6 +162,14 @@ const transform = (data) => {
                 info.shift();
                 row.alternateImages = [{ text: info.join(' | ') }];
             }
+            if (row.secondaryImageTotal) {
+                let info=[];
+                row.secondaryImageTotal.forEach(item => {
+                    info.push(item.text);
+                });
+                info.shift();
+                row.secondaryImageTotal = [{ 'text': info.length }];
+            }
             if (row.weightNet) {
                 let info=[];
                 row.weightNet.forEach(item => {

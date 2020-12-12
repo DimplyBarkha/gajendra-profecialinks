@@ -109,4 +109,7 @@ fields:
     xpath: //div[@class="pdp-details-features__items"]//ul//li[contains(.,'Size:')] | //section[@class="pdp-details-specifications "]//ul//li[contains(.,'Size:')]
   - name: ingredientsList
     singleValue: false
-    xpath: //div[@class="pdp-details-features__items"]//ul//li[contains(.,'Ingredients:')] | //section[@class="pdp-details-specifications "]//ul//li/b[contains(.,'Ingredients:')]/following-sibling::div[2]  
+    xpath: //div[@class="pdp-details-features__items"]//ul//li[contains(.,'Ingredients:')] | //section[@class="pdp-details-specifications "]//ul//li/b[contains(.,'Ingredients:')]/following-sibling::div[2]
+  - name: secondaryImageTotal
+    singleValue: false
+    xpath: //div[contains(@class,"pdp-image-carousel")]//img/@src   
