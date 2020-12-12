@@ -62,6 +62,7 @@ fields:
   - name: manufacturer
     singleValue: true
     description: Product manufacturer
+    xpath: (//div[@class='productDetails__brand'])[1]
   - name: quantity
     singleValue: true
     description: Quantity as described on the page
@@ -77,6 +78,7 @@ fields:
   - name: gtin
     singleValue: true
     description: GTIN code (includes UPC/EAN) //script[contains(@src, flixfacts)]/@data-flix-ean
+    xpath: //div[@id="gtin"]
   - name: eangtin
     singleValue: true
     xpath: //div[@id="gtin"]
