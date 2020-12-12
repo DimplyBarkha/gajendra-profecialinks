@@ -4,10 +4,9 @@ recordSelector: null
 recordXPath: //table/tbody/tr[@class="append_variant"]
 fields:
   - name: image
-    xpath: ancestor::html//picture//img[contains(@name,"gallery-image")]/@src
+    xpath: ancestor::html//ul[@class="slider-list"]//li//button[contains(@class,"BIgNz")][1]//img[contains(@name,"gallery-image")]/@src
     regExp: (.+)&w=(.+)&h=
     regExpReplace: $1&w=780&h=1196
-    singleValue: true
   - name: alternateImages
     xpath: ancestor::html//ul[@class="slider-list"]//li//button[@class="BIgNz"]//img[contains(@name,"gallery-image")]/@src
     regExp: (.*)&w=(.*)&h=
@@ -58,8 +57,8 @@ fields:
   - name: warranty
     xpath: ancestor::html//div[contains(text(),"Details & Care")]//following-sibling::ul//li/span[contains(text(),'warranty')]
   - name: specifications
-    xpath: ancestor::html//div[contains(text(),"Details & Care")]//following-sibling::ul//li/span[contains(text(),' x') or contains(text(),'cord')]
-    singleValue: true
+    # xpath: ancestor::html//div[contains(text(),"Details & Care")]//following-sibling::ul//li/span[contains(text(),' x') or contains(text(),'cord')]
+    xpath: ancestor::html//div[contains(@class,"_3LvFj")]/ul/li
   - name: weightNet
     xpath: ancestor::html//div[contains(text(),"Details & Care")]//following-sibling::ul//li/span[contains(text(),' lb.')]
   - name: mpc
@@ -78,21 +77,18 @@ fields:
     xpath: ancestor::html//section[@id="product-page-price-lockup"]//span[contains(text(),'% off')] | ancestor::html//div[@id="product-page-banner-giftwithpurchase"]//span
   - name: productDescriptionIm
   - name: imageAlt
-    xpath: ancestor::html//picture//img/@alt
-    singleValue: true
+    xpath: ancestor::html//ul[@class="slider-list"]//li//button[contains(@class,"BIgNz")][1]//img[contains(@name,"gallery-image")]/@alt
   - name: firstVariant
-    xpath: ancestor::html//ul//li//span[@class="UI69S"] | ancestor::html//ul[@id="product-page-swatches"]/li/button/img/@alt
-    regExp: selected\s(.+)\scolor
-    regExpReplace: $1
-    singleValue: true
+    xpath: ancestor::html//span[contains(@class,"UI69S _1XmmN")] | ancestor::html//span[contains(@class,"UI69S")]
+    # regExp: selected\s(.+)\scolor
+    # regExpReplace: $1
   - name: variantCount
     xpath: count(//table/tbody/tr[@class="append_variant"]/@variant_id)
   - name: quantity
     xpath: ancestor::html//ul[@id="size-filter-product-page-option-list"]//div[@class="_11U2i"]//span[2]/parent::div/span[1] | ancestor::html//button[@class="_1oaUx"]
     singleValue: false
   - name: color
-    xpath: ancestor::html//ul[@id="product-page-swatches"]//li/button/img/@alt
-    singleValue: false
+    xpath: ancestor::html//span[contains(@class,"UI69S _1XmmN")] | ancestor::html//span[contains(@class,"UI69S")]
   - name: variantInformation
     xpath: //table/tbody/tr[@class="append_variant"]//td[@class="variant"]
   - name: unInterruptedPDP
