@@ -4,7 +4,7 @@ module.exports = {
   parameterValues: {
     country: 'UK',
     store: 'boots',
-    nextLinkSelector: null,
+    nextLinkSelector: '.pageControl ul li:last-child a[href]',
     mutationSelector: null,
     domain: 'boots.com',
     zipcode: '',
