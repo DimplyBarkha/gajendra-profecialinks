@@ -25,7 +25,16 @@ async function implementation (
   });
 
   await stall(5000);
-  
+
+  const manufacturerDivCss = '#wc-power-page';
+  // manufacturer details loads slow, need to wait for load
+  try {
+    await context.waitForSelector(manufacturerDivCss, { timeout: 10000 });
+  } catch (error) {
+    console.log(`manufacturerDiv selector not loaded: ${manufacturerDivCss}`);
+  }
+
+  // manufacturer details when loaded, evaluate script
   await context.evaluate(function () {
     function addHiddenDiv (id, content) {
       const newDiv = document.createElement('div');
@@ -42,7 +51,7 @@ async function implementation (
         addHiddenDiv('category', category.innerText);
       });
     }
-  
+
     const alternateImages = [];
     if (document.getElementById('product__image-gallery')) {
       document.getElementById('product__image-gallery').querySelectorAll('img').forEach((img, ind) => {
@@ -143,15 +152,20 @@ async function implementation (
         videos.push(video.getAttribute('src'));
       });
     });
+
+    // manufacturerDescription and manufacturerImages
     const manufacturerImgs = [];
-    if (document.getElementById('wc-power-page')) {
-      if (document.getElementById('wc-power-page').querySelector('h1')) {
-        document.getElementById('wc-power-page').querySelector('h1').remove();
-        document.getElementById('wc-power-page').querySelector('p').remove();
+    const manufacturerDivId = 'wc-power-page';
+    const manufacturerDiv = document.getElementById(manufacturerDivId);
+    if (manufacturerDiv) {
+      const h1 = manufacturerDiv.querySelector('h1');
+      if (h1) {
+        h1.remove();
+        manufacturerDiv.querySelector('p').remove();
       }
-      console.log('hasManufacturerInfo', document.getElementById('wc-power-page').innerText);
-      addHiddenDiv('manufacturerDescription', document.getElementById('wc-power-page').innerText);
-      document.getElementById('wc-power-page').querySelectorAll('img').forEach(img => {
+      console.log('hasManufacturerInfo', manufacturerDiv.innerText);
+      addHiddenDiv('manufacturerDescription', manufacturerDiv.innerText);
+      manufacturerDiv.querySelectorAll('img').forEach(img => {
         if (img.getAttribute('data-asset-type') !== 'video') {
           manufacturerImgs.push(img.getAttribute('src'));
         } else {
@@ -159,9 +173,9 @@ async function implementation (
         }
       });
     }
+    addHiddenDiv('manufacturerImgs', manufacturerImgs.join(' | '));
 
     addHiddenDiv('videos', videos.join(' | '));
-    addHiddenDiv('manufacturerImgs', manufacturerImgs.join(' | '));
 
     addHiddenDiv('terms', 'No');
     addHiddenDiv('privacyPolicy', 'Yes');
