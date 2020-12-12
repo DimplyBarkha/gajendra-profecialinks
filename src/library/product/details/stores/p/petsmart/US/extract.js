@@ -19,6 +19,7 @@ async function implementation(
       const appendElement = document.createElement('div');
       appendElement.id = id;
       appendElement.innerText = text;
+      appendElement.style.display = 'none';
       document.body.append(appendElement);
     }
     const isZoomFeaturePresent = document.querySelector('li[data-key="zoomIn"]') ? 'Yes' : 'No';
