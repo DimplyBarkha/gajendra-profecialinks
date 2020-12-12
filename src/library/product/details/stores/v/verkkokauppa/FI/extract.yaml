@@ -177,7 +177,7 @@ fields:
   - name: videos
     singleValue: false
     description: URLs of videos on page
-    xpath: //*[contains(@id,"tempVideosId")]
+    xpath: //*[contains(@id,"tempVideosId")] | //div[contains(@id,'youtube-video-')]
   - name: name
     singleValue: true
     description: The product name

@@ -26,6 +26,18 @@ module.exports = {
       console.log(err);
     }
 
+    try {
+      if(document.querySelectorAll('button[id*="allow-cookies"]').length === 1) {
+        await context.click('button[id*="allow-cookies"]');
+        await new Promise((resolve) => setTimeout(resolve, 8000));
+      } else {
+        console.log('cannot find the cookie button - either not present or need to update the xpath');
+      }
+      
+    } catch(err) {
+      console.log(err);
+    }
+
     await context.evaluate(async function () {
       function preFetchProductDetails () {
         let productInfo = findProductDetails('//script[@type="application/ld+json"]');
@@ -175,6 +187,39 @@ module.exports = {
         console.log('No Enhanced Content');
       }
     }
+
+    
+
+    await context.evaluate(async () => {
+      async function addHiddenInfo (elementID, content) {
+        const newDiv = document.createElement('div');
+        newDiv.id = elementID;
+        newDiv.textContent = content;
+        newDiv.style.display = 'none';
+        document.body.appendChild(newDiv);   
+      }
+      const youtubeVideo = document.querySelectorAll('li[class*="product-description-links__item"] a[class*="product-description-links-item--youtube"]');
+      let youtubeVideosArr = [];
+      if(youtubeVideo.length > 0) {
+        for(let i = 0; i < youtubeVideo.length; i++) {
+          if(youtubeVideo[i].hasAttribute('href') && !(youtubeVideosArr.includes(youtubeVideo[i].getAttribute('href')))) {
+
+            youtubeVideosArr.push(youtubeVideo[i].getAttribute('href'));
+            console.log(youtubeVideosArr.push(youtubeVideo[i].getAttribute('href')));
+
+          } else {
+            console.log('we do not have src in this iframe');
+          }
+        }
+      } else {
+        console.log('we do not have any video - please check the xpath');
+      }
+      // await addHiddenInfo(`youtube-video`, youtubeVideosArr.join('|'));
+      for(let i = 0; i < youtubeVideosArr.length; i++) {
+        await addHiddenInfo(`youtube-video-${i + 1}`, youtubeVideosArr[i]);
+        console.log('added the video - ' + youtubeVideosArr[i]);
+      }
+    });
 
     return await context.extract(productDetails, { transform: transformParam });
   },
