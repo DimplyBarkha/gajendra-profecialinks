@@ -42,7 +42,7 @@ async function implementation (
         return !!isThere;
       } catch (error) {}
       return false;
-    }, { timeout: 10000 }, stopConditionSelectorOrXpath);
+    }, { timeout: 90000 }, stopConditionSelectorOrXpath);
     // @ts-ignore
     if (conditionIsTrue) return false;
   }
@@ -102,12 +102,12 @@ async function implementation (
   if (loadedSelector) {
     await context.waitForFunction(function (sel, xp) {
       return Boolean(document.querySelector(sel) || document.evaluate(xp, document, null, XPathResult.UNORDERED_NODE_ITERATOR_TYPE, null).iterateNext());
-    }, { timeout: 10000 }, loadedSelector, noResultsXPath);
+    }, { timeout: 90000 }, loadedSelector, noResultsXPath);
   }
   if (loadedXpath) {
     await context.waitForFunction(function (sel, xp) {
       return Boolean(document.evaluate(sel, document, null, XPathResult.UNORDERED_NODE_ITERATOR_TYPE, null).iterateNext() || document.evaluate(xp, document, null, XPathResult.UNORDERED_NODE_ITERATOR_TYPE, null).iterateNext());
-    }, { timeout: 10000 }, loadedXpath, noResultsXPath);
+    }, { timeout: 90000 }, loadedXpath, noResultsXPath);
   }
   console.log('Checking no results', noResultsXPath);
 

@@ -6,7 +6,7 @@ module.exports = {
     store: 'jdsports',
     domain: 'jdsports.co.uk',
     url: 'https://www.jdsports.co.uk/search/{searchTerms}/?max=72',
-    loadedSelector: 'body',
+    loadedSelector: null,
     noResultsXPath: null,
     zipcode: '',
   },
