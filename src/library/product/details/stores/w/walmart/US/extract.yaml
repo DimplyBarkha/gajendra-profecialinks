@@ -4,39 +4,39 @@ recordSelector: null
 recordXPath: null
 fields:
 - name: image
-  singleValue: true
+  singleValue: false
   xpath: //meta[@property='og:image']/@content
 - name: imageAlt
-  singleValue: true
+  singleValue: false
   xpath: //li[contains(@class,'slider-slide')]//div[@data-tl-id='ProductPage-alt-image0']/img/@alt
 - name: alternateImages
   singleValue: false
   xpath: //li[@class='slider-slide']//img/@src
 - name: metaKeywords
-  singleValue: true
+  singleValue: false
   xpath: //meta[@name="keywords"]/@content
 - name: category
   singleValue: false
   xpath: //li[contains(@class,"breadcrumb")]//span[not(contains(@class,'separator'))]
 - name: nameExtended
-  singleValue: true
+  singleValue: false
   xpath: //meta[@name='description']/@content
   regExp: (. Buy )(.*)(at Walmart.com)
   regExpReplace: $2
 - name: listPrice
-  singleValue: true
+  singleValue: false
   xpath: //section[contains(@class,'prod-PriceSection')]//span[contains(@class,'price--strikethrough')]//span[contains(@class,'price-group')]
 - name: price
-  singleValue: true
+  singleValue: false
   xpath: //span[@itemprop="highPrice"]/@content|//*[@id="price"]//span[contains(@class,'price--stylized')]/span[contains(@class,'price-group')]
 - name: availabilityText
-  singleValue: true
-  xpath: //link[@itemprop="availability"]/@href
+  singleValue: false
+  xpath: //button[contains(text(),'Ajouter au panier')]/text()
   defaultValue: In stock
   regExp: OutOfStock
   regExpReplace: Out of Stock
 - name: manufacturer
-  singleValue: true
+  singleValue: false
   manualSelector: script[id='item']
   regExp: (\"manufacturer\"\:\")([^"]+)(",")
   regExpReplace: $2
@@ -44,25 +44,25 @@ fields:
   singleValue: false
   xpath: //div[contains(@class,'about-desc')]
 - name: descriptionBullets
-  singleValue: true
+  singleValue: false
   xpath: count(//div[contains(@class,'about-desc')]//ul/li)
 - name: ingredientsList
-  singleValue: true
+  singleValue: false
   manualSelector: p.Ingredients
 - name: brandText
-  singleValue: true
+  singleValue: false
   xpath: //span[@itemprop='brand']
 - name: quantity
-  singleValue: true
+  singleValue: false
 - name: weightNet
-  singleValue: true
+  singleValue: false
 - name: weightGross
-  singleValue: true
+  singleValue: false
 - name: gtin
-  singleValue: true
+  singleValue: false
   xpath: //*[@itemprop="gtin13"]/@content
 - name: sku
-  singleValue: true
+  singleValue: false
   xpath: //script[@id='item']
   regExp: (",\"productId\":\")(\w+)
   regExpReplace: $2
@@ -70,57 +70,57 @@ fields:
   singleValue: false
   xpath: //div[contains(@class,'wm-item-number')]  
 - name: variantId
-  singleValue: true
+  singleValue: false
   xpath: //meta[@itemprop='sku']/@content
 - name: mpc
-  singleValue: true
+  singleValue: false
   manualSelector: script[id='item']
   regExp: (\"manufactureNumber\"\:\")([^"]+)(",")
   regExpReplace: $2
 - name: packSize
-  singleValue: true
+  singleValue: false
 - name: legalDisclaimer
-  singleValue: true
+  singleValue: false
 - name: directions
-  singleValue: true
+  singleValue: false
   xpath: //p[@class='Directions']
 - name: warnings
-  singleValue: true
+  singleValue: false
   xpath: //p[@class='Warnings']
 - name: warranty
-  singleValue: true
+  singleValue: false
   manualSelector: script[id='item']
   regExp: (warranty":{(.*),"information":")([^"]+)("})
   regExpReplace: $3
   xpath: //p[@class='Warnings']
 - name: ratingCount
-  singleValue: true
+  singleValue: false
   xpath: //span[@class='stars-reviews-count-node']
   regExp: (\d*)
   regExpReplace: $1
 - name: aggregateRatingText
-  singleValue: true
+  singleValue: false
 - name: aggregateRating
-  singleValue: true
+  singleValue: false
   xpath: //*[@itemprop='ratingValue']
 - name: shippingInfo
-  singleValue: true 
+  singleValue: false 
   xpath: //section[contains(@class, 'prod-SellerSection')]//*[@data-tl-id="ProductSellerInfo-SellerName"]
 - name: shippingDimensions
-  singleValue: true
+  singleValue: false
   xpath: //td[contains(text(),'Product Dimensions')]/following-sibling::td[@class='s-padding-ends s-padding-sides']
 - name: shippingWeight
-  singleValue: true
+  singleValue: false
   xpath: //td[contains(text(),'Product Weight')]/following-sibling::td[@class='s-padding-ends s-padding-sides']
 - name: variantCount
-  singleValue: true
+  singleValue: false
 - name: firstVariant
-  singleValue: true
+  singleValue: false
   manualSelector: script[id='item']
   regExp: (\"primaryProductId\"\:\")(\S+)(\",\"primaryUsItemId\")
   regExpReplace: $2
 - name: variantInformation
-  singleValue: true
+  singleValue: false
   manualSelector: script[id='item']
   regExp: \{\"name\"\:\"(\w*_\w*)\",\"value\"\:\"(\w*_\w*)-([^\"]*)\"\}
   regExpReplace: $3  
@@ -130,12 +130,12 @@ fields:
   regExp: ({"productId":")(\w+)
   regExpReplace: $2
 - name: color
-  singleValue: true 
+  singleValue: false 
   manualSelector: script[id='item']
   regExp: \{\"name\"\:\"actual_color\",\"value\"\:\"actual_color-([^\"]*)\"\}
   regExpReplace: $1
 - name: colorCode
-  singleValue: true
+  singleValue: false
 - name: manufacturerDescription
   singleValue: false
   xpath: //div[contains(@class,'wc-aplus-body')]
@@ -148,7 +148,7 @@ fields:
   regExp: ("versions":{"\w+":")(http[^"]+mp4)(\")
   regExpReplace: $2
 - name: name
-  singleValue: true
+  singleValue: false
   xpath: //h1[@class='prod-ProductTitle font-normal']
 - name: otherSellersName
   singleValue: false
@@ -162,7 +162,7 @@ fields:
   regExp: (\d+\.?\d*) delivery
   regExpReplace: $ 1
 - name: lbb
-  singleValue: true
+  singleValue: false
   defaultValue: Yes
   xpath: //div[@class='SellerInfo']//a[@class='seller-name']
   regExp: Walmart
@@ -203,7 +203,7 @@ fields:
   regExpReplace: Yes
   defaultValue: No
 - name: nutritionInfo
-  singleValue: true
+  singleValue: false
   manualSelector: script[id='item']
   regExp: ("nutritionFacts":{"calorieInfo(.*)}})(,"legalBadges")
   regExpReplace: $1
@@ -245,9 +245,9 @@ fields:
 - name: cholesterolPerServingUom
   singleValue: false
 - name: saltPerServing
-  singleValue: true   
+  singleValue: false   
 - name: saltPerServingUom
-  singleValue: true   
+  singleValue: false   
 - name: sodiumPerServing
   singleValue: false
 - name: sodiumPerServingUom
