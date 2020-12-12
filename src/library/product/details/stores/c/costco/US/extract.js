@@ -15,6 +15,7 @@ module.exports = {
     const { transform } = parameters;
     const { productDetails } = dependencies;
     await new Promise(resolve => setTimeout(resolve, 10000));
+
     await context.evaluate(async () => {
       const moreBtn = document.querySelectorAll('div.flix-text-center>div.flix-btn-tech-ctrl');
       if (moreBtn && moreBtn.length > 0) {
@@ -69,7 +70,7 @@ module.exports = {
           if (manImages && manImages.length > 0) {
             for (let i = 0; i < manImages.length; i++) {
               let img = manImages[i].src;
-              img = img.replace('/240.', '/480');
+              img = img.replace('/240.', '/480.');
               images.push(img);
             }
           }
