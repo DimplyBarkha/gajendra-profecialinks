@@ -5,7 +5,7 @@ recordXPath: //div[@class='spr-content']//div[@class='spr-review']
 fields:
   - name: brand
     description: Product brand shown - this may actually NOT be just a brand name e.g. "Visit the Gillette Store"
-    xpath: ancestor::html//div[contains(@class,'product-page')]//ul[@class='productvendorsmallinfo']//li
+    xpath: ancestor::html//div[contains(@class,'product-page')]//ul[@class='productvendorsmallinfo']//li/text()
   - name: colour
     description: Product colour
   - name: flavour
