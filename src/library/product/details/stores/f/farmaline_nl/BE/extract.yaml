@@ -37,11 +37,11 @@ fields:
     defaultValue: In Stock
   - name: description
     singleValue: false
-    xpath: (//div[@class="content mb-3"])[1]//text()
+    xpath: //div[contains(@class,"content mb-3")][1]//p//text() | //div[contains(@class,"content mb-3")][1]//ul//li | //div[contains(@class,"content mb-3")][1]//text()
     # xpath: //div[@class="content"]
   - name: descriptionBullets
     singleValue: false
-    xpath: (//div[@class="content mb-3"])[1]//ul/li
+    xpath: count(//div[@class="content mb-3"][1]//ul/li)
   - name: brandText
     singleValue: false
     xpath: //script[contains(.,"brand")]/text()
@@ -94,17 +94,22 @@ fields:
     description: Content under "legal disclaimer" header
   - name: directions
     singleValue: false
-    xpath: //h2[contains(.,"Indication")]/following::div[1]/div/text() |//h2[contains(.,"Emploi")]/following::div[@class="content mb-3"][1]/div/text() | //h2[contains(.,"Indication")]/following::div[1]/text()| //h2[contains(.,"Indication")]/following::div[@class="content mb-3"]//ul/li | //h2[contains(.,"Indicatie")]/following::div[@class="content mb-3"][1]/text()
+    xpath: //h2[contains(.,"Gebruik")]/following::div[@class="content mb-3"][1]//text()
+    # xpath: //h2[contains(.,"Indicatie") or contains(.,"Gebruik") or contains(.,"Indication")]/following::div[@class="content mb-3"][1]//text()
     # xpath: //h2[contains(.,"Indication")]/following::div[@class="content mb-3"]//ul/li | //h2[contains(.,"Emploi")]/following::div[@class="content mb-3"][1]/text() | //h2[contains(.,"Indicatie")]/following::div[@class="content mb-3"][1]/text()
   - name: warnings
     singleValue: false
-    xpath: //h2[contains(.,"Emploi")]/following::div[@class="content mb-3"][1]/text() | //h2[contains(.,"Waarschuwing")]/following::div[@class="content mb-3"][1]/text() | //h2[contains(.,"Emploi")]/following::div[@class="content mb-3"][1]/div/text()
+    xpath: //h2[contains(text(),"Waarschuwing")]/following-sibling::div[1]//text()
+    # xpath: //h2[contains(.,"Emploi")]/following::div[@class="content mb-3"][1]/text() | //h2[contains(.,"Waarschuwing")]/following::div[@class="content mb-3"][1]/text() | //h2[contains(.,"Emploi")]/following::div[@class="content mb-3"][1]/div/text()
   - name: ratingCount
     singleValue: false
     xpath: //meta[@itemprop="ratingCount"]/@content
     # xpath: //u[@class="d-md-block"]/text() 
     # regExp: \d+
-    # regExpReplace: $1   
+    # regExpReplace: $1  
+  - name: reviewCount
+    singleValue: false
+    xpath: //meta[@itemprop="ratingCount"]/@content 
   - name: aggregateRatingText
     singleValue: false
   - name: aggregateRating

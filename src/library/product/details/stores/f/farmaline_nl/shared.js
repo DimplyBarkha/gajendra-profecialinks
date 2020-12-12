@@ -24,28 +24,17 @@ const transform = (data) => {
 
   for (const { group } of data) {
     for (const row of group) {
-      if (row.specifications) {
-        let text = '';
-        row.specifications.forEach(item => {
-          text += item.text.replace(/\s{2,}/g, ' ').replace(/\n/g, ' ').trim();
+      if (row.description) {
+        let desc = '';
+        row.description.forEach(item => {
+          desc += `${item.text} `;
         });
-        row.specifications = [
+        row.description = [
           {
-            text: text,
+            text: desc.replace(/\s\n/g, ' || ').replace(/\n/g, ' ').replace(/([\|\s]{5,}\s*)/g, ' || ').slice(0, -4).trim(),
           },
         ];
       }
-      // if (row.description) {
-      //   let text = '';
-      //   row.description.forEach(item => {
-      //     text += item.text.replace(/\s{2,}/g, ' ').replace(/\n/g, ' ').trim();
-      //   });
-      //   row.description = [
-      //     {
-      //       text: text,
-      //     },
-      //   ];
-      // }
       if (row.image) {
         const img = [];
         row.image.forEach(item => {
@@ -53,6 +42,23 @@ const transform = (data) => {
             item.text = `https:${item.text}`;
           }
         });
+      }
+      if (row.directions) {
+        const nDesc = [];
+        let newDesc = '';
+        let idx = 0;
+        row.directions.forEach(item => {
+          nDesc[0] = item;
+          if (idx > 0) {
+            newDesc = newDesc + ' ';
+          }
+          newDesc = newDesc + item.text;
+          idx++;
+        });
+        nDesc.forEach(item => {
+          item.text = newDesc;
+        });
+        row.directions = nDesc;
       }
       if (row.manufacturerDescription) {
         let text = '';
@@ -65,27 +71,39 @@ const transform = (data) => {
           },
         ];
       }
-      // if (row.description) {
-      //   let text = '';
-      //   row.description.forEach(item => {
-      //     text += `${item.text.replace(/\n \n/g, ' ')} || `;
-      //   });
-      //   row.description = [
-      //     {
-      //       text: text.slice(0, -3),
-      //     },
-      //   ];
-      // }
-      if (row.specifications) {
-        let text = '';
-        row.specifications.forEach(item => {
-          text += `${item.text.replace(/\n \n/g, '')} || `;
+      if (row.warnings) {
+        const nDesc = [];
+        let newDesc = '';
+        let idx = 0;
+        row.warnings.forEach(item => {
+          nDesc[0] = item;
+          if (idx > 0) {
+            newDesc = newDesc + ' ';
+          }
+          newDesc = newDesc + item.text;
+          idx++;
         });
-        row.specifications = [
-          {
-            text: text.slice(0, -3),
-          },
-        ];
+        nDesc.forEach(item => {
+          item.text = newDesc;
+        });
+        row.warnings = nDesc;
+      }
+      if (row.specifications) {
+        const nDesc = [];
+        let newDesc = '';
+        let idx = 0;
+        row.specifications.forEach(item => {
+          nDesc[0] = item;
+          if (idx > 0) {
+            newDesc = newDesc + '||';
+          }
+          newDesc = newDesc + item.text;
+          idx++;
+        });
+        nDesc.forEach(item => {
+          item.text = newDesc;
+        });
+        row.specifications = nDesc;
       }
       if (row.brandText) {
         let text = '';
@@ -130,6 +148,9 @@ const transform = (data) => {
           },
         ];
       }
+      if (row.aggregateRating && row.aggregateRating[0]) {
+        row.aggregateRating[0].text = row.aggregateRating[0].text.replace(/\./g, ',');
+      }
       // if (row.description) {
       //   let text = '';
       //   row.description.forEach(item => {
@@ -141,6 +162,7 @@ const transform = (data) => {
       //     },
       //   ];
       // }
+      
       if ((!row.saltPerServing || !row.saltPerServing.length) && row.saltPerServing1) {
         console.log('saltPerServing1', row.saltPerServing1);
         row.saltPerServing = row.saltPerServing1;
