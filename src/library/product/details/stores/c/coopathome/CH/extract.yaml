@@ -13,6 +13,14 @@ fields:
     # regExpReplace: https:$1
     #  //meta[@property="og:image"]/@content
     # xpath: //a[contains(@class,"carousel__pagination-item")]/img/@src
+  # - name: gtinTest2
+  #   singleValue: false
+  #   xpath: //div[@id="myGtin"]    
+  - name: gtinTest
+    singleValue: false
+    xpath: //script[@type="application/ld+json"][contains(text(),"gtin8")]
+    regExp: gtin8":"([^"]+)
+    regExpReplace: $1
   - name: imageAlt
     singleValue: false
     xpath: //a[@class="carousel__link carousel__link--preload"]//img/@alt | //a[@class="carousel__pagination-item carousel__pagination-item--active"]/img/@alt
@@ -75,10 +83,15 @@ fields:
   #   xpath: //div[@class="productInformation"]//div[contains(text(),"Gewicht")]//following-sibling::div/text()[2]
   #   regExp: Nettofüllmenge\W\W(.+)
   #   regExpReplace: $1 - name: eangtin
+  # - name: gtin
+  #   singleValue: false
+  #   xpath: //div[@id="myGtin"]    
   - name: gtin
     singleValue: false
-    xpath: //script[contains(.,"gtin")]/text()
-    regExp: gtin8\W\W\W(\d{9,})
+    xpath: //script[@type="application/ld+json"][contains(text(),"gtin8")]
+    regExp: gtin8":"([^"]+)
+    # xpath: //script[contains(.,"gtin")]/text()
+    # regExp: gtin8\W\W\W(\d{9,})
     regExpReplace: $1
   - name: eangtin
     singleValue: false
