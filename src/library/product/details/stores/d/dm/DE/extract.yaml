@@ -206,7 +206,7 @@ fields:
     xpath: //div[@data-dmid="breadcrumb-container"]//span[@data-dmid="breadcrumb-element-container"][position()>1]//a/@title
   - name: secondaryImageTotal
     singleValue: false
-    xpath: count(//div[@data-dmid="thumbnail-container"]//button[@data-dmid="thumbnail-button"][position()>1]//img/@src)
+    xpath: count(//div[@data-dmid="detail-image-slider-container"]//div[@data-dmid="thumbnail-container"]//button[@data-dmid="thumbnail-button"][position()>1]//img[not(contains(@src, "youtube"))]/@src)
   - name: descriptionBullets
     singleValue: true
     xpath: count(//div[@data-dmid="detail-first-section"]//div//ul[@data-dmid="description-relevant-selling-points"]//li)
@@ -245,4 +245,9 @@ fields:
   - name: imageZoomFeaturePresent
     singleValue: true
     xpath: //div[@data-dmid="detail-image-container"]//div[@data-dmid="image-container"]/div/img/@data-dmid
+  - name: videos
+    singleValue: false
+    xpath: //div[contains(@id, 'youtubeVideoUrl_')]
+    #regExp: (vi\/(.*)\/)
+    #regExpReplace: https://www.youtube.com/watch?v=$2
     

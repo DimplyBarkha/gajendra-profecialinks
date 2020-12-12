@@ -5,12 +5,12 @@ recordXPath: null
 fields:
   - name: variantId
     singleValue: false
-    xpath: //div[@data-dmid="main-section-attributes-container"]//div[@data-dmid="product-variants-selection-container"]//div/a/@href
+    xpath: //div[@id="variant_url_text"][last()]
     regExp: (\d+).html
     regExpReplace: $1
   - name: variantUrl
     singleValue: false
-    xpath: //div[@data-dmid="main-section-attributes-container"]//div[@data-dmid="product-variants-selection-container"]//div/a/@href
-    regExp: (.+)
+    xpath: //div[@id="variant_url_text"][last()]
+    regExp: (.+.html)
     regExpReplace: https://www.dm.de$1
     

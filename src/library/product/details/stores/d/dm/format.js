@@ -109,6 +109,12 @@ const transform = (data) => {
         });
         row.vitaminAPerServingUom = [{ text: vitaminAPerServingUomArr.join('|'), xpath: row.vitaminAPerServingUom[0].xpath }];
       }
+      if (row.videos) {
+        const videosArr = row.videos.map((item) => {
+          return item.text;
+        });
+        row.videos = [{ text: videosArr.join('|'), xpath: row.videos[0].xpath }];
+      }
     }
   }
   return data;

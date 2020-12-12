@@ -5,7 +5,7 @@ module.exports = {
     country: 'DE',
     store: 'dm',
     domain: 'dm.de',
-    loadedSelector: '[data-dmid="image-container"]',
+    loadedSelector: 'div[data-dmid="detail-image-slider-container"]',
     noResultsXPath: '//h1[contains(text(),"ergab leider keine Treffer")]',
     zipcode: '',
   },
