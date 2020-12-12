@@ -17,7 +17,8 @@ fields:
     # xpath: //div[contains(@class, "image-wrapper")]//img[contains(@class, "slider-image")]//@data-zoom
   - name: metaKeywords
     singleValue: true
-    xpath: //meta[@name="keywords"]/@content    
+    # xpath: //meta[@name="keywords"]/@content
+    xpath: //meta[@name="description"]/@content    
   - name: category
     singleValue: false
     xpath: //div[contains(@class, 'breadcrumbs')]//ul[contains(@class, 'items')]//li[position()>1 and position()<last()]
