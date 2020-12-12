@@ -30,11 +30,11 @@ fields:
     singleValue: true
     xpath: //meta[@property="og:image"]//@content
   - name: shownImages
-    singleValue: true
-    xpath: //table//tr[@class="append_image"]//@images
+    singleValue: false
+    xpath: //table//tr[@class="append_image"]//@images | //body//@images
   - name: highQualityImages
     singleValue: false
-    xpath: //table//tr[@class="append_image"]//@images
+    xpath: //table//tr[@class="append_image"]//@images | //body//@images
   - name: videos
     singleValue: true
     xpath: 
@@ -48,9 +48,7 @@ fields:
     regExp: \d+\.\d+
   - name: availabilityText
     singleValue: true
-    xpath: //button[@data-auto="add-to-bag"]
-    regExp: Add to bag
-    regExpReplace: In stock
+    xpath: //body//@availability
   - name: category
     singleValue: false
     xpath: //div[@data-el="breadcrumb"]/a[@class="breadcrumbs-item"]
@@ -80,4 +78,8 @@ fields:
     xpath: //div[@class="sponsored-item-top-container"]//a/@href | //div[@class="componentCarousel horizontal"]//div[@class="carousel-content"]//li//div[@class="productThumbnailImage"]//a//@href
     regExp: (.+)
     regExpReplace: https://www.macys.com$1
+  - name: variantInformation
+    singleValue: true
+    xpath: //div[contains(@class,"color-header")]
+    regExp: (Color:)(.+)
     
