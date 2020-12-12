@@ -16,15 +16,15 @@ fields:
     xpath: (//a[@data-dy="title"])
     description: The product name
   - name: id
-    xpath: //span[@class="sc-19ibhqc-10 jCwEGn"]
+    xpath: //li[@class="_3uUsGGA"]/@data-id
     description: The store-specific product identifier
   - name: aggregateRating
     xpath:  //html//div[@id="aggregateRating"]
   - name: reviewCount
-    xpath: //a[@class="sc-1w9a1pg-11 sc-19ibhqc-9 bnWFSv ReviewLink"]
+    xpath: //a[@class="_1_F55f-"]
     regExp: \d+
   - name: price
-    xpath: //span[@class="wcf6ic-1 sc-1nnsxdl-1 bdrEsU"]
+    xpath: //span[@class="wcf6ic-1 sc-1nnsxdl-1 gILnXT"]
     description: The offered price for the product
   - name: rank
     singleValue: false
