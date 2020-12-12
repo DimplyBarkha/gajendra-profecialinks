@@ -1,0 +1,80 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: image
+    singleValue: false
+    xpath: //ul[@class="XLgdq7 _0xLoFW JgpeIw r9BRio be4rWJ N2nrLi _4oK5GO heWLCX _MmCDa"]/li[1]//img/@src
+  - name: imageAlt
+    singleValue: false
+    xpath: //ul[@class="XLgdq7 _0xLoFW JgpeIw r9BRio be4rWJ N2nrLi _4oK5GO heWLCX _MmCDa"]/li[1]//img/@alt
+  - name: alternateImages
+    singleValue: false
+    xpath: //ul[@class="XLgdq7 _0xLoFW _78xIQ- _06gkQU r9BRio N2nrLi _4oK5GO _MmCDa heWLCX KLaowZ"]/li[position()>1]//img/@src
+  - name: nameExtended
+    singleValue: false
+    xpath: //h1[@class="OEhtt9 ka2E9k uMhVZi z-oVg8 pVrzNP w5w9i_ _1PY7tW _9YcI4f"]
+  - name: price
+    singleValue: false
+    xpath: //span[@class="uqkIZw ka2E9k uMhVZi dgII7d z-oVg8 _88STHx cMfkVL"] | //span[@class="uqkIZw ka2E9k uMhVZi FxZV-M z-oVg8 pVrzNP"]
+  - name: availabilityText
+    singleValue: false
+    defaultValue: Out of Stock
+  - name: description
+    singleValue: false
+    xpath: //meta[@name="description"]/@content
+  - name: brandText
+    singleValue: false
+    xpath: //h3[@class="OEhtt9 ka2E9k uMhVZi uc9Eq5 pVrzNP _5Yd-hZ"]
+  - name: quantity
+    singleValue: false
+    xpath: 
+  - name: sku
+    singleValue: false
+    xpath: //span[contains(text(), 'Référence')]/following-sibling::span
+  - name: variantId
+    singleValue: false
+    xpath: //span[contains(text(), 'Référence')]/following-sibling::span
+  - name: ratingCount
+    singleValue: false
+    xpath: //div[@class="qMZa55 _8P5KBX M1UKyg KoaFhL"]//h5[contains(@class, "ZcZXP0 ka2E9k uMhVZi z-oVg8 pVrzNP")]
+  - name: aggregateRatingText
+    singleValue: false
+    xpath: //div[@id="z-pdp-reviews"]//div[@class="qMZa55 _8P5KBX _0xLoFW EJ4MLB FCIprz"]/div[1]
+  - name: aggregateRating
+    singleValue: false
+    xpath: //div[@id="z-pdp-reviews"]//span[@class="AKpsL5 ka2E9k uMhVZi uc9Eq5 pVrzNP"]
+  - name: shippingInfo
+    singleValue: false
+    xpath: //div[@class="oPsl0i REEAqs _78xIQ- JCuRr_ VRcXxm yqrcoC hj1pfK xhMVAn"]
+  - name: variantCount
+    singleValue: false
+    xpath: count(//div[@class="okmnKS H_-43B"]//div[@class="adFHlH _0xLoFW _7ckuOK mROyo1"]/div[@class="qMZa55 iC6EGG JUrPjL"])
+  - name: color
+    singleValue: false
+    xpath: //div[@class="qMZa55 VHXqc_ rceRmQ _4NtqZU mIlIve"]//div[@class="okmnKS H_-43B"]//span[@class="u-6V88 ka2E9k uMhVZi dgII7d z-oVg8 pVrzNP"]
+  - name: name
+    singleValue: false
+    xpath: //h1[@class="OEhtt9 ka2E9k uMhVZi z-oVg8 pVrzNP w5w9i_ _1PY7tW _9YcI4f"]
+  - name: brandLink
+    singleValue: false
+    xpath: //a[@class="_5Yd-hZ g88eG_ oHRBzn LyRfpJ BDUtDm GhPDv6 pVrzNP sW9qW7 g88eG_ oHRBzn LyRfpJ"]/@href
+  - name: secondaryImageTotal
+    singleValue: false
+    xpath: count(//ul[@class="XLgdq7 _0xLoFW _78xIQ- _06gkQU r9BRio N2nrLi _4oK5GO _MmCDa heWLCX KLaowZ"]/li[position()>1]//img/@src)
+  - name: productOtherInformation
+    singleValue: false
+    xpath: //div[@class="z-pdp__escape-grid"]//div[@class="OXMl2N xVaPPo f2qidi _56Chwa"]/div
+  - name: variantInformation
+    singleValue: false
+    xpath: //div[@class="qMZa55 VHXqc_ rceRmQ _4NtqZU mIlIve"]//div[@class="okmnKS H_-43B"]//span[@class="u-6V88 ka2E9k uMhVZi dgII7d z-oVg8 pVrzNP"]
+  - name: variants
+    singleValue: false
+    xpath: //div[@class="okmnKS H_-43B"]//div[@class="adFHlH _0xLoFW _7ckuOK mROyo1"]/div[@class="qMZa55 iC6EGG JUrPjL"]//a/@href
+  - name: termsAndConditions
+    singleValue: false
+    defaultValue: "Yes"
+  - name: privacyPolicy
+    singleValue: false
+    defaultValue: "Yes"
