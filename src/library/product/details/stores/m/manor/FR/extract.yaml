@@ -27,7 +27,7 @@ fields:
     xpath: //div[@class='g-layout-productdetails g-row']//div[@class='o-productdetail-v-2-titleb']//div[@class='m-productdetailareaa__areaA__title-line g-col g-col-1']
   - name: availabilityText
     singleValue: false
-    xpath: //div[@id='product-actions']//span[@data-name='AddToBasket']
+    xpath: //button[contains(text(),'Ajouter au panier')]/text()
     regExp: (.+)
     regExpReplace: In Stock
     defaultValue: Out of Stock
