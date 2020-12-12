@@ -48,11 +48,6 @@ module.exports = {
       });
     };
     await applyScroll(context);
-    try {
-      await context.waitForSelector('iframe.videoly-box', { timeout: 30000 });
-    } catch (error) {
-      console.log('No video ');
-    }  
 
     await context.evaluate(async function () {
       const videoData = document.querySelectorAll('iframe.videoly-box').length > 1 ? document.querySelectorAll('iframe.videoly-box')[0].contentWindow.document.getElementsByTagName('ul')[0] : null;
