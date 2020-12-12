@@ -114,31 +114,14 @@ const transform = (data) => {
                 row.sku = [{ text: codeInfo }];
             }
             if (row.variantId) {
-                let prodCode;
+                var prodCode3;
                 let codeInfo = [];
                 row.variantId.forEach(item => {
                     let codeObj = JSON.parse(item.text)
-                    prodCode = codeObj.pCode;
-                    codeInfo.push(prodCode);
+                    prodCode3 = codeObj.pCode;
+                    codeInfo.push(prodCode3);
                 });
                 row.variantId = [{ text: codeInfo }];
-            }
-            if (row.manufacturer) {
-                let prodBrand;
-                let brandInfo = [];
-                row.manufacturer.forEach(item => {
-                    if (item.text.length > 30) {
-                        let brandObj = JSON.parse(item.text)
-                        {
-                            prodBrand = brandObj.brand;
-                            brandInfo.push(prodBrand);
-                        }
-                    }
-                    else {
-                        brandInfo.push(item.text);
-                    }
-                });
-                row.manufacturer = [{ text: brandInfo[0] }];
             }
             if (row.description) {
                 let info = [];
@@ -170,6 +153,58 @@ const transform = (data) => {
                     item.text = item.text.substring(indx1, indx2).replace('thumbnails', 'videos');
                     item.text = item.text + 'liveclicker.mp4';
                 });
+            }
+            if (row.alternateImages) {
+                let info=[];
+                row.alternateImages.forEach(item => {
+                    info.push(item.text);
+                });
+                info.shift();
+                row.alternateImages = [{ text: info.join(' | ') }];
+            }
+            if (row.weightNet) {
+                let info=[];
+                row.weightNet.forEach(item => {
+                    info.push(item.text);
+                });
+                row.weightNet = [{ text: info.join(' | ') }];
+            }
+            if (row.weightGross) {
+                let info=[];
+                row.weightGross.forEach(item => {
+                    info.push(item.text);
+                });
+                row.weightGross = [{ text: info.join(' | ') }];
+            }
+            if (row.imageAlt) {
+                let indx1;
+                let indx2;
+                row.imageAlt.forEach(item => {
+                    indx1 = item.text.indexOf('alt="');
+                    indx2 = item.text.indexOf('src');
+                    item.text = item.text.substring(indx1+5, indx2).replace('\"','')
+                });
+            }
+            if (row.mpc) {
+                let indx1;
+                row.mpc.forEach(item => {
+                    indx1 = item.text.indexOf(':');
+                    item.text = item.text.substring(indx1+1).replace(' ','')
+                });
+            }
+            if (row.quantity) {
+                let indx1;
+                row.quantity.forEach(item => {
+                    indx1 = item.text.indexOf(':');
+                    item.text = item.text.substring(indx1+1).replace(' ','')
+                });
+            }
+            if (row.materials) {
+                let info=[];
+                row.materials.forEach(item => {
+                    info.push(item.text);
+                });
+                row.materials = [{ text: info.join(' | ') }];
             }
         }
     }

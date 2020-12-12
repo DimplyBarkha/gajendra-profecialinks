@@ -8,13 +8,10 @@ fields:
     xpath: //div[contains(@class,"s7staticimage")]//img[position()=1]/@src
   - name: imageAlt
     singleValue: false
-    xpath: //div[contains(@class,"s7staticimage")]//img[position()=1]/@alt
+    xpath: //noscript[contains(.,'fallback-image')]//text()
   - name: alternateImages
     singleValue: false
     xpath: //div[contains(@class,"pdp-image-carousel")]//img/@src
-  - name: secondaryImageTotal
-    singleValue: false
-    xpath: count(//div[contains(@class,"pdp-image-carousel")]//img/@src) 
   - name: category
     singleValue: false
     xpath: //div[@class="global-breadcrumb__items-wrapper"]//li/a
@@ -49,9 +46,6 @@ fields:
     singleValue: false
     xpath: //div[contains(@class,"pdp-details-wrapper pdp-details-wrapper--open")]//ul[@class="pdp-details-specifications__items clearfix"]/li
   - name: brandText
-    singleValue: false
-    xpath: //div[@class="pdp-product-brand-link-content-wrapper"]//div[@class="brand-logo-link"]/a/img/@alt | //div[contains(@data-component,"PDPBuyBox")]/@data-config
-  - name: manufacturer
     singleValue: false
     xpath: //div[@class="pdp-product-brand-link-content-wrapper"]//div[@class="brand-logo-link"]/a/img/@alt | //div[contains(@data-component,"PDPBuyBox")]/@data-config
   - name: color
@@ -95,6 +89,24 @@ fields:
     singleValue: false
     xpath: //div[contains(@class,"sku-selectors__select")]//select/option[position()>1]/@value
     defaultValue: '0'
-  - name: shippingWeight  
+  - name: shippingWeight 
     singleValue: false
     xpath: //div[contains(@class,"pdp-details-wrapper pdp-details-wrapper--open")]//ul[@class="pdp-details-specifications__items clearfix"]/li[contains(.,'Package Weight (kg)')]/text()[3]/following-sibling::*/text()
+  - name: materials
+    singleValue: false
+    xpath: //div[@class="pdp-details-features__items"]//ul//li[contains(.,'Material:')] | //section[@class="pdp-details-specifications "]//ul//li/b[contains(.,'Material:')]/following-sibling::div[2]
+  - name: mpc
+    singleValue: false
+    xpath: //div[@class="pdp-details-features__items"]//ul//li[contains(.,'Model')] | //section[@class="pdp-details-specifications "]//ul//li[contains(.,'Model')]
+  - name: weightNet
+    singleValue: false
+    xpath: //div[@class="pdp-details-features__items"]//ul//li[contains(.,'Net Weight')] | //section[@class="pdp-details-specifications "]//ul//li/b[contains(.,'Net Weight')]/following-sibling::div[2]
+  - name: weightGross
+    singleValue: false
+    xpath: //div[@class="pdp-details-features__items"]//ul//li[contains(.,'Package Weight')] | //section[@class="pdp-details-specifications "]//ul//li/b[contains(.,'Package Weight')]/following-sibling::div[2]
+  - name: quantity
+    singleValue: false
+    xpath: //div[@class="pdp-details-features__items"]//ul//li[contains(.,'Size:')] | //section[@class="pdp-details-specifications "]//ul//li[contains(.,'Size:')]
+  - name: ingredientsList
+    singleValue: false
+    xpath: //div[@class="pdp-details-features__items"]//ul//li[contains(.,'Ingredients:')] | //section[@class="pdp-details-specifications "]//ul//li/b[contains(.,'Ingredients:')]/following-sibling::div[2]  
