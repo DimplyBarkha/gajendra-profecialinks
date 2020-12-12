@@ -7,5 +7,5 @@ module.exports = {
     transform: null,
     domain: 'ziipstock.com',
     zipcode: "''",
-  }
+  },
 };
