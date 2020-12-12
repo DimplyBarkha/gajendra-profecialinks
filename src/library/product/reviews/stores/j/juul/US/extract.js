@@ -6,8 +6,7 @@ async function implementation (
 ) {
   const { productReviews } = dependencies;
   await context.evaluate(async () => {
-    if(document.querySelector('button#age-gate-confirmation')){
-
+    if (document.querySelector('button#age-gate-confirmation')) {
       document.querySelector('select#age-gate-states').click();
       await context.waitForSelector('option[title="Alabama"]');
 
