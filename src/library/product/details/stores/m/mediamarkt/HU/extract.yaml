@@ -1,0 +1,80 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: image
+    singleValue: false
+    xpath: //img[@itemprop="image"]/@src
+  - name: imageAlt
+    singleValue: false
+    xpath: //img[@itemprop="image"]/@alt
+  - name: alternateImages
+    singleValue: false
+    xpath: //aside[@id="product-sidebar"]/div[contains(@class,"thumbnail-carousel")]//li/a/@data-magnifier
+  - name: category
+    singleValue: false
+    xpath: //ul[@class="breadcrumbs"]/li[not(@class)]
+  - name: nameExtended
+    singleValue: false
+    xpath: //meta[@property="og:title"]/@content
+  - name: listPrice
+    singleValue: false
+    xpath: (//div[@itemprop="offers"]//div[contains(@class,"price-old")])[1]
+  - name: price
+    singleValue: false
+    xpath: //meta[@property="product:price:amount"]/@content
+  - name: availabilityText
+    singleValue: false
+    xpath: //div[@class="price-sidebar"]//div[@class="price-button"]
+    regExp: (.+)
+    regExpReplace: In Stock
+    defaultValue: Out of Stock
+  - name: description
+    singleValue: false
+    xpath: //div[@id="product-long-description"]
+  - name: brandText
+    singleValue: false
+    xpath: //meta[@property="product:brand"]/@content
+  - name: specificationsKeys
+    singleValue: false
+    xpath: //div[@id="features"]//dl/dt
+  - name: specificationsValues
+    singleValue: false
+    xpath: //div[@id="features"]//dl/dd
+  - name: gtin
+    singleValue: false
+    xpath: //div[@data-loadbee-manufacturer="ean"]/@data-loadbee-product
+  - name: sku
+    singleValue: false
+    xpath: //span[@itemprop="sku"]
+  - name: variantId
+    singleValue: false
+    xpath: //span[@itemprop="sku"]
+  - name: ratingCount
+    singleValue: false
+    xpath: //*[@itemprop="aggregateRating"]//meta[@itemprop="reviewCount"]/@content
+  - name: aggregateRating
+    singleValue: false
+    xpath: //*[@itemprop="aggregateRating"]//meta[@itemprop="ratingValue"]/@content
+  - name: variantCount
+    singleValue: false
+    xpath: count(//div[contains(@class,"product-attributes__group")]/div)
+  - name: name
+    singleValue: false
+    xpath: //meta[@property="og:title"]/@content
+  - name: secondaryImageTotal
+    singleValue: false
+    xpath: count(//aside[@id="product-sidebar"]/div[contains(@class,"thumbnail-carousel")]//li/a/@data-magnifier)
+  - name: firstVariant
+    singleValue: false
+    xpath: (//div[contains(@class,"product-attributes__group")]/div/@data-action-id)[1]    
+  - name: variants
+    singleValue: false
+    xpath: //div[contains(@class,"product-attributes__group")]/div/@data-action-id
+  - name: technicalInformationPdfPresent
+    singleValue: false
+    defaultValue: No
+  - name: imageZoomFeaturePresent
+    singleValue: false
+    defaultValue: Yes
