@@ -155,6 +155,10 @@ async function implementation(
       '41071': {
         name: 'I-471 Memorial Pkwy',
         locationId: '01400423'
+      },
+      '45044' : {
+        name: 'Middletown',
+        locationId: '01400335'
       }
     }
 

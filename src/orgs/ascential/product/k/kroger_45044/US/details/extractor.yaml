@@ -11,8 +11,6 @@ policy:
   numberRetries: 4
   priority: MEDIUM
   retryDelay: 60
-  # backoffPolicy: EXPONENTIAL
-  # retryWithResidentialProxyAfter: 99
 meta:
   branches:
     adam-test:
@@ -21,3 +19,6 @@ meta:
     staging:
       extractor: 6cdad48a-f0f4-4880-9b73-25fd3f9e70d1
       legacyAccountId: 39255e08-8495-481b-9eba-0eb99bc49e94
+    techops_test:
+      extractor: f3f6c0b2-d0fd-4071-a539-67db5e97825f
+      legacyAccountId: f94246b4-2d86-4803-9d39-25905b37f013
