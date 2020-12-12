@@ -6,23 +6,24 @@ fields:
   - name: image
     singleValue: true
     description: URL of the main product image
-    xpath: //img[@class='product-page__image-large hidden-md-down']/@src
+    xpath: (//img[@class='product-page__image-large']/@src | //img[@class='product-page__image-large hidden-md-down']/@src)
   - name: imageAlt
     singleValue: true
     description: Alt text of the main product image
-    xpath: //img[@class='product-page__image-large hidden-md-down']/@alt
+    xpath: (//img[@class='product-page__image-large']/@alt | //img[@class='product-page__image-large hidden-md-down']/@alt)
   - name: alternateImages
     singleValue: false
     description: Other product images (not in manufacturer description)
-    xpath: //div[@class='swiper-slide swiper-slide-next']//img[@class='product-page__image-slider-thumb']/@src
+    xpath: (//div[@class='swiper-slide swiper-slide-next']//img[@class='product-page__image-slider-thumb']/@src | (//div[@class='swiper-wrapper'])[1]//div/img/@src)
   - name: metaKeywords
     singleValue: true
     description: The <meta> keywords content
   - name: category
     singleValue: false
     description: The categories (e.g. from breadcrumbs)
-    xpath: (//span[@class='breadcrumb__text'])[position()>1]
-      # //span[@class='breadcrumb__text']
+    xpath: (//span[@class='breadcrumb__text'])[2]
+    # //span[@class='breadcrumb__text']
+    # //span[@class='breadcrumb__step'][position()>1]/a/span/text()
   - name: nameExtended
     singleValue: true
     description: The product name, prefixing "${brand} - " if not included in "name"
