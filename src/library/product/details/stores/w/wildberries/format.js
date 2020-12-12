@@ -76,13 +76,25 @@ const transform = (data) => {
             })
              row.variantInformation = [{"text": strVariantInfo, "xpath": row.variantInformation[0].xpath}]
         }     
-        if (row.descriptionBullets) {
-            row.descriptionBullets = [{'text':row.descriptionBullets.length, 'xpath':row.descriptionBullets[0].xpath}];              
-        } 
+        // if (row.descriptionBullets) {
+        //     row.descriptionBullets = [{'text':row.descriptionBullets.length, 'xpath':row.descriptionBullets[0].xpath}];              
+        // } 
         if (row.availabilityText) {                    
             row.availabilityText.forEach(item => {
               item.text = "In Stock";
             });          
+        }
+        if (row.nameExtended) {
+          let info = [];
+          row.nameExtended.forEach(item => {
+              info.push(item.text.replace(/(\s*\n\s*)+/g, ' | ').trim());
+          });
+          row.nameExtended = [{'text':info.join(' | '),'xpath':row.nameExtended[0].xpath}];
+        }
+        if (row.videos) {
+          row.videos.forEach(item => {
+              item.text = "https:".concat(item.text);
+          });
         }
       }
     }

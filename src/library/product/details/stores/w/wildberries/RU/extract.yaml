@@ -11,13 +11,13 @@ fields:
     xpath: //div[@id="photo"]//img[@class="preview-photo j-preview-photo"]/@alt
   - name: alternateImages
     singleValue: false
-    xpath: //div[contains(@class,'i-sw-slider-photo-comment j-sw-slider-photo-comment')]//img/@src
+    xpath: //div[@id="scrollImage"]//ul//li//a[not(contains(@class,'current')) and contains(@class,'j-carousel-image')]//@href
   - name: category
     singleValue: false
     xpath: //ul[@class="bread-crumbs"]/li[not(contains(position(),'1')) and not(contains(position(),last()))]//a
   - name: nameExtended
     singleValue: false
-    xpath: //div[@class="brand-and-name j-product-title"]
+    xpath: //div[@class="brand-and-name j-product-title"]//span/text()
   - name: listPrice
     singleValue: false
     xpath: //span[@class="old-price"]/del[@class="c-text-base"]
@@ -50,9 +50,6 @@ fields:
   - name: aggregateRating
     singleValue: false
     xpath: //div[@class="product-rating"]/p/span
-  - name: variantCount
-    singleValue: false
-    defaultValue: 0
   - name: color
     singleValue: false
     xpath: //span[@class="color"]
@@ -68,9 +65,6 @@ fields:
   - name: specifications
     singleValue: false
     xpath: //div[@class="j-add-info-section collapsable-content j-toogle-height-instance"]//div[@class="pp"]
-  - name: descriptionBullets
-    singleValue: false
-    xpath: //div[@class="j-add-info-section collapsable-content j-toogle-height-instance"]//div[@class="pp"]
   - name: termsAndConditions
     singleValue: false
     defaultValue: "Yes"
@@ -78,8 +72,9 @@ fields:
     singleValue: false
     defaultValue: "Yes"
   - name: variantCount
-    singleValue: count(//div[contains(@class,'colors-preview j-colors-preview')]//ul//li/@data-cod1s)
-    defaultValue: 0  
+    singleValue: false
+    xpath: count(//div[contains(@class,'colors-preview j-colors-preview')]//ul//li)
+    defaultValue: 0
   - name: countryOfOrigin
     singleValue: false
     xpath: //div[@class="params"]//div[@class="pp"]//span/b[text()="Страна производитель"]/parent::*/parent::*/span[2]
@@ -92,3 +87,12 @@ fields:
   - name: variants
     singleValue: false
     xpath: //div[contains(@class,'colors-preview j-colors-preview')]//ul//li/@data-cod1s
+  - name: videos
+    singleValue: false
+    xpath: //meta[@property='og:video']//@content
+  - name: secondaryImageTotal
+    singleValue: false
+    xpath: count(//div[@id="scrollImage"]//ul//li//a[not(contains(@class,'current')) and contains(@class,'j-carousel-image')]//@href)
+  
+  
+  
