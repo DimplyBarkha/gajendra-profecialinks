@@ -1,0 +1,57 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: //div[contains(@data-test,"mms-search-srp-productlist-item")]
+fields:
+  - name: productUrl
+    singleValue: false
+    xpath: //a/@href
+    regExp: (.+)
+    regExpReplace: https://www.mediamarkt.de$1
+    description: The URL for the product details page
+  - name: thumbnail
+    singleValue: false
+    xpath: //picture//img/@src
+    description: The URL for the product thumbnail image
+  - name: name
+    singleValue: false
+    xpath: //div[contains(@class,"ProductHeader")]//p
+    description: The product name
+  - name: ratingCount
+    singleValue: false
+    description: The number of ratings
+  - name: reviewCount
+    singleValue: false
+    xpath: //div[contains(@class,"Rating")]//span
+    regExp: (\d+)
+    description: The number of reviews
+  - name: price
+    singleValue: false
+    xpath: //div[contains(@class,"PriceContainer")]//div[contains(@class,"UnbrandedPriceDisplay")]/div[not(contains(@class, "Strike"))]
+    description: The offered price for the product
+  - name: rank
+    singleValue: true
+    description: search/listing rank
+  - name: rankOrganic
+    singleValue: true
+    description: The position (rank) within the list excluding sponsored/paid results
+  - name: id
+    singleValue: false
+    xpath: //a/@href
+    description: Unique id (within this extractor)
+  - name: aggregateRating
+    singleValue: false
+    xpath: //div[contains(@class, "ProductRating")]/@aria-label
+    regExp: (?<=:\s)(.*)(?=von)
+    description: The stated aggregate rating normalized to be out of 5
+  - name: aggregateRating2
+    singleValue: false
+    xpath: //div[contains(@class, "ProductRating")]/@aria-label
+    regExp: (?<=:\s)(.*)(?=von)
+    description: The stated aggregate rating normalized to be out of 5
+  - name: manufacturer
+    singleValue: false
+    xpath: //span[@data-test="product-manufacturer"]
+  - name: shippingInfo
+    singleValue: false
+    xpath: //div[contains(@class, "Badgestyled")]//div[contains(text(), "Versandkostenfrei")]//text()
