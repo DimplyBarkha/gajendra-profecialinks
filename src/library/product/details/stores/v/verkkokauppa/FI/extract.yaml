@@ -73,7 +73,7 @@ fields:
     singleValue: true
     description: Product brand shown - this may actually NOT be just a brand name,
       e.g. "Visit the Gillette Store"
-    xpath: //tr[contains(@class,'product-details-row')]//td[contains(@class,'product-details-row__value')]/a
+    xpath: (//tr[contains(@class,'product-details-row')]//td[contains(@class,'product-details-row__value')]/a | //div[contains(@id,'brand-text')])[1]
   - name: manufacturer
     singleValue: true
     description: Product manufacturer
@@ -86,7 +86,7 @@ fields:
   - name: weightNet
     singleValue: true
     description: Net weight as described on the page
-    xpath: //*[contains(@id,"weightNettempId")]    
+    xpath: //*[contains(@id,"weightNettempId")]   
   - name: weightGross
     singleValue: true
     description: Gross weight as described on the page
@@ -111,7 +111,7 @@ fields:
   - name: mpc
     singleValue: true
     description: The manufacturer model code (unique) of the product
-    xpath: //section[contains(@class,'product-details')]/div[1]/table/tbody/tr[2][contains(@class,'product-details-row')]/td[contains(@class,'product-details-row__value')]
+    xpath: (//section[contains(@class,'product-details')]/div[1]/table/tbody/tr[2][contains(@class,'product-details-row')]/td[contains(@class,'product-details-row__value')] | //div[contains(@id,'mpc-ext')])[1]
   - name: packSize
     singleValue: true
     description: The number of packs in the product offer (if stated separately on
@@ -145,12 +145,12 @@ fields:
   - name: shippingDimensions
     singleValue: true
     description: Stated shipping dimensions
-    xpath: //td[contains(text(), "Pakkauksen koko")]/following::td[1]
+    xpath: (//td[contains(text(), "Pakkauksen koko")]/following::td[1] | //div[contains(@id,'shipping-dim')])[1]
     # regExp: ([0-9]+) .* 
   - name: shippingWeight
     singleValue: true
     description: Stated shipping weight
-    xpath: //td[contains(text(), "Pakkauksen paino")]/following::td[1]
+    xpath: (//td[contains(text(), "Pakkauksen paino")]/following::td[1] | //div[contains(@id,'shipping-weight')])[1]
     # xpath: //section[contains(@class,'description-container__full-text')]/div/ul/li[contains(text(),'Paino')]
     # regExp: ([0-9]+) .*
   - name: variantCount
@@ -434,11 +434,12 @@ fields:
   - name: specifications
     singleValue: true
     description: The physical dimensions of the product including packaging.
-    xpath: //div[contains(@class,"product-details__category")]
+    # //div[contains(@class,"product-details__category")] | 
+    xpath: //div[contains(@id,'specs')]
   - name: warranty
     singleValue: true
     description: Guarantee associated with the product
-    xpath: //section[contains(@class,'product-details')]/div[3]/table/tbody/tr[1][contains(@class,'product-details-row')]/td[contains(@class,'product-details-row__value')]
+    xpath: (//section[contains(@class,'product-details')]/div[3]/table/tbody/tr[1][contains(@class,'product-details-row')]/td[contains(@class,'product-details-row__value')] | //div[contains(@id,'warranty')])[1]
   - name: storage
     singleValue: true
     description: Suggested storage location for product
