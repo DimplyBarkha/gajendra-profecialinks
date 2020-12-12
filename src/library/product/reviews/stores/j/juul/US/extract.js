@@ -1,20 +1,20 @@
-// const { transform } = require('./trasform');
 async function implementation (
   inputs,
   parameters,
   context,
   dependencies,
 ) {
-  
   const { productReviews } = dependencies;
   await context.evaluate(async () => {
     if(document.querySelector('button#age-gate-confirmation')){
+
       document.querySelector('select#age-gate-states').click();
-      await new Promise(r => setTimeout(r, 1000));
+      await context.waitForSelector('option[title="Alabama"]');
+
       document.querySelector('option[title="Alabama"]').click();
-      await new Promise(r => setTimeout(r, 1000));
+      await context.waitForSelector('button#age-gate-confirmation');
+
       document.querySelector('button#age-gate-confirmation').click();
-      await new Promise(r => setTimeout(r, 1000));
     }
   });
   const extractvar = await context.extract(productReviews);

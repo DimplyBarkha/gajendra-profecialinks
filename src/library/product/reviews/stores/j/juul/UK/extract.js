@@ -1,4 +1,3 @@
-// const { transform } = require('./trasform');
 async function implementation (
   inputs,
   parameters,
@@ -9,7 +8,6 @@ async function implementation (
   await context.evaluate(async () => {
     if(document.querySelector('button#age-gate-confirmation')){
       document.querySelector('button#age-gate-confirmation').click();
-      await new Promise(r => setTimeout(r, 1000));
     }
   });
   const extractvar = await context.extract(productReviews);
