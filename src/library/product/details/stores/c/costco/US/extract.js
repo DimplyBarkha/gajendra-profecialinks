@@ -27,13 +27,21 @@ module.exports = {
         }
     });
     await new Promise(resolve => setTimeout(resolve, 2000));
+
     await context.evaluate(async () => {
       const moreBtn = document.querySelectorAll('div input[name="view-more"]');
       if (moreBtn && moreBtn.length > 0) {
-        for(let cnt = 0; cnt < 2; cnt++) {
+        for (let cnt = 0; cnt < moreBtn.length; cnt++) {
           try {
+            // await context.setBlockAds(false);
+            // await context.setLoadAllResources(true);
+            // await context.setLoadImages(true);
+            // await context.setJavaScriptEnabled(true);
             moreBtn[cnt].click();
-            await new Promise(resolve => setTimeout(resolve, 2000));
+            // await context.setBlockAds(false);
+            // await context.setLoadAllResources(true);
+            // await context.setLoadImages(true);
+            await new Promise(resolve => setTimeout(resolve, 0000));
           } catch (err) { }
         }
       }
@@ -68,20 +76,20 @@ module.exports = {
         }
       } catch (err) { }
 
-      try {
-        const iframeElem = document.querySelector('iframe[id="wcframable1-0"]');
-        const iframeBody = iframeElem.contentWindow.document.body;
-        let iframeImages = iframeBody.querySelectorAll('img');
-        if (iframeImages && iframeImages.length > 0) {
-          for (let i = 0; i < iframeImages.length; i++) {
-            let img = iframeImages[i].src;
-            images.push(img);
-          }
-        }
-        let ifameTxt = iframeBody.innerText;
-        ifameTxt = ifameTxt.replace(/\n{1,}"/g, ' ').replace(/\s{1,}"/g, ' ');
-        manuFacturerDesc = manuFacturerDesc + ifameTxt;
-      } catch (err) {}
+      // try {
+      //   const iframeElem = document.querySelector('iframe[id="wcframable1-0"]');
+      //   const iframeBody = iframeElem.contentWindow.document.body;
+      //   let iframeImages = iframeBody.querySelectorAll('img');
+      //   if (iframeImages && iframeImages.length > 0) {
+      //     for (let i = 0; i < iframeImages.length; i++) {
+      //       let img = iframeImages[i].src;
+      //       images.push(img);
+      //     }
+      //   }
+      //   let ifameTxt = iframeBody.innerText;
+      //   ifameTxt = ifameTxt.replace(/\n{1,}"/g, ' ').replace(/\s{1,}"/g, ' ');
+      //   manuFacturerDesc = manuFacturerDesc + ifameTxt;
+      // } catch (err) {}
       if (images.length > 0) {
         for (let x = 0; x < images.length; x++) {
           addHiddenDiv(`manuf-images-${x}`, images[x]);
@@ -144,16 +152,18 @@ module.exports = {
     });
     console.log('Variant Length', variantLength);
     if (variantLength >= 1) {
-      for (let j = 0; j < variantLength; j++) {
-        await context.evaluate(async (j) => {
-          return document.querySelectorAll('div[id=theSwatches] a>img')[j].click();
-        }, j);
-
-        // await clickBtn(j);
-        console.log('Inside variants', j);
-        await new Promise(resolve => setTimeout(resolve, 1000));
-        if (j !== variantLength - 1) { await context.extract(productDetails, { transform }); }
-      }
+      try {
+        for (let j = 0; j < variantLength; j++) {
+          await context.evaluate(async (j) => {
+            return document.querySelectorAll('div[id=theSwatches] a>img')[j].click();
+          }, j);
+  
+          // await clickBtn(j);
+          console.log('Inside variants', j);
+          await new Promise(resolve => setTimeout(resolve, 1000));
+          if (j !== variantLength - 1) { await context.extract(productDetails, { transform }); }
+        }
+      } catch (err) {}
     }
 
     // async function clickBtn(index) {
