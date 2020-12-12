@@ -56,7 +56,8 @@ module.exports = {
         if (bullets) {
           bullets.forEach((bullet, index) => {
             if (bullet.textContent) {
-              index === 0 ? descriptionText += bullet.textContent : descriptionText += ' || ' + bullet.textContent;
+              // index === 0 ? descriptionText += bullet.textContent : descriptionText += ' || ' + bullet.textContent;
+              descriptionText += ' || ' + bullet.textContent;
             }
           });
         }
@@ -138,6 +139,27 @@ module.exports = {
     });
 
     await context.evaluate(() => {
+      function addHiddenDiv (id, content) {
+        const newDiv = document.createElement('div');
+        newDiv.id = id;
+        newDiv.textContent = content;
+        newDiv.style.display = 'none';
+        document.body.appendChild(newDiv);
+      }
+
+      const secImagesSel = document.querySelectorAll('div.ProductThumbnails div[aria-label*="Perspective"] img');
+      if (secImagesSel && secImagesSel.length > 0) {
+        for (let i = 1; i < secImagesSel.length; i++) {
+          const divId = `my-sec-img-${i}`;
+          const imgUrl = secImagesSel[i].getAttribute('src').replace('/thumbnail/', '/large/');
+          addHiddenDiv(divId, imgUrl);
+        }
+        const total = `${secImagesSel.length - 1}`
+        // addHiddenDiv('my-sec-count-total', total);
+      // } else {
+      //   addHiddenDiv('my-sec-count-total', '0');
+      }
+
       const available = document.createElement('li');
       available.classList.add('availability');
       available.style.display = 'none';
@@ -152,6 +174,7 @@ module.exports = {
   
       document.body.append(available);
     });
+
 
     return await context.extract(productDetails, { transform: transformParam });
   },
