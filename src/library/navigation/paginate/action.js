@@ -29,7 +29,7 @@ async function implementation (
   context,
   dependencies,
 ) {
-  const { id, date, keywords, page, offset } = inputs;
+  const { id, date, keywords, page, offset, inputUrl } = inputs;
   const { stopConditionSelectorOrXpath, nextLinkSelector, loadedSelector, noResultsXPath, mutationSelector, loadedXpath, resultsDivSelector, spinnerSelector, openSearchDefinition, nextLinkXpath } = parameters;
 
   let nextLink;
@@ -90,7 +90,7 @@ async function implementation (
     return next.href;
   });
 
-  if (!url && openSearchDefinition) {
+  if (!url && openSearchDefinition && !inputUrl) {
     const { pageStartNb = 1, indexOffset, pageOffset, pageIndexMultiplier, template } = openSearchDefinition;
     const pageNb = page + pageStartNb - 1;
     url = template
@@ -99,6 +99,17 @@ async function implementation (
       .replace(/{date}/g, encodeURIComponent(date))
       .replace(/{page}/g, (pageNb + (pageOffset || 0)).toString())
       .replace(/{index}/g, (pageNb * (pageIndexMultiplier || 0)).toString())
+      .replace(/{offset}/g, (offset + (indexOffset || 0)).toString());
+  } else if (inputUrl && openSearchDefinition && openSearchDefinition.type && openSearchDefinition.type === 'amazon') {
+    const { pageStartNb = 1, indexOffset, pageOffset, template } = openSearchDefinition;
+    const pageNb = page + pageStartNb - 1;
+    const idFilter = new RegExp('(?<=dp\/)(.+)(?=\/)');
+    const idFromUrl = inputUrl.match(idFilter)[0];
+    console.log(idFromUrl);
+    url = template
+      .replace(/{searchTerms}/g, encodeURIComponent(keywords))
+      .replace(/{id}/g, encodeURIComponent(idFromUrl))
+      .replace(/{page}/g, (pageNb + (pageOffset || 0)).toString())
       .replace(/{offset}/g, (offset + (indexOffset || 0)).toString());
   }
 
