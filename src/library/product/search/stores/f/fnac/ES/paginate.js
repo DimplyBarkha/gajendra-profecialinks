@@ -4,7 +4,7 @@ module.exports = {
   parameterValues: {
     country: 'ES',
     store: 'fnac',
-    nextLinkSelector: 'li.nextLevel1',
+    nextLinkSelector: 'li.nextLevel1:not(.hide)',
     mutationSelector: null,
     spinnerSelector: '[class="Overlay Overlay--visible Overlay--header-layers"]',
     // loadedSelector: 'div.Article-item[id]',
