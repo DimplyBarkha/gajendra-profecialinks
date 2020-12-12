@@ -8,7 +8,8 @@ fields:
     type: BOOLEAN
   - name: secondaryImageTotal
     singleValue: false
-    xpath: count(//div[contains(@aria-label,'Perspective')]/div/div//div/img/@data-src)
+    xpath: count((//div[contains(@class,"ProductThumbnails")]//div[contains(@aria-label,'Perspective')]//img)[position() > 1]/@src)
+    # xpath: //div[@id ="my-sec-count-total")]
   - name: allergyAdvice
     singleValue: false
     xpath: //div[@id='my-allergies']
@@ -45,7 +46,9 @@ fields:
     xpath: //head/meta[@name='og:image']/@content   
   - name: alternateImages
     singleValue: false
-    xpath: //div[contains(@aria-label,'Perspective')]/div/div//div/img/@data-src
+    # xpath: //div[contains(@aria-label,'Perspective')]/div/div//div/img/@data-src
+    # xpath: (//div[contains(@class,"ProductThumbnails")]//div[contains(@aria-label,'Perspective')]//img)[position() > 1]/@src
+    xpath: //div[contains(@id, "my-sec-img-")]
   - name: imageAlt
     singleValue: false
     xpath: //img[@class='ProductImages-image']/@alt 
