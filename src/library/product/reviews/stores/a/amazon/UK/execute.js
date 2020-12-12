@@ -6,7 +6,7 @@ module.exports = {
     store: 'amazon',
     domain: 'amazon.co.uk',
     loadedSelector: '[data-hook="review"]',
-    noResultsXPath: null,
+    noResultsXPath: '//span[contains(text(),"No customer reviews")]',
     reviewUrl: null,
     sortButtonSelectors: null,
     zipcode: '',
