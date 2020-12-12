@@ -27,9 +27,11 @@ async function implementation (
   await stall(5000);
 
   const manufacturerDivCss = '#wc-power-page';
+  const videoIframe = 'iframe[title *= "Videos"]';
   // manufacturer details loads slow, need to wait for load
   try {
     await context.waitForSelector(manufacturerDivCss, { timeout: 10000 });
+    await context.waitForSelector(videoIframe, { timeout: 10000 });
   } catch (error) {
     console.log(`manufacturerDiv selector not loaded: ${manufacturerDivCss}`);
   }
@@ -145,9 +147,8 @@ async function implementation (
       videos.push(video.getAttribute('src'));
     });
     document.querySelectorAll('iframe').forEach(frame => {
-      if (frame.getAttribute('src')) {
-        return;
-      }
+      if (frame.getAttribute('src')) return;
+
       frame.contentWindow.document.querySelectorAll('video').forEach(video => {
         videos.push(video.getAttribute('src'));
       });
