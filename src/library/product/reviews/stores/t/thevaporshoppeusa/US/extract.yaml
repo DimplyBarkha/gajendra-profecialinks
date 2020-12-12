@@ -1,0 +1,63 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: //div[@class='spr-content']//div[@class='spr-review']
+fields:
+  - name: brand
+    description: Product brand shown - this may actually NOT be just a brand name e.g. "Visit the Gillette Store"
+    xpath: ancestor::html//div[contains(@class,'product-page')]//ul[@class='productvendorsmallinfo']//li
+  - name: colour
+    description: Product colour
+  - name: flavour
+    description: Product flavour
+    xpath: ancestor::html//div[@class='swatches-container']//ul[@class='options options-large']//li//a
+  - name: helpfulCount
+    type: NUMBER
+    description: Number of people who said the review was helpful
+    xpath: //div[@class='stamped-review-vote']//a[@data-votes][1]
+  - name: location
+    description: reviewer location
+  - name: mediaURL
+    description: product media url
+    xpath: ancestor::html//div[@class='product-main-image-item']//img/@src
+  - name: pageTitle
+    description: The url of the page title
+  - name: productFamily
+    description: The url of the page productFamily  
+  - name: productRange
+    description: The url of the page productRange
+  - name: rating
+    description: The rating of review
+    xpath: //span[contains(@class, 'spr-starratings')]/@aria-label
+    regExp: ([0-9\.]{1,}) of 5 stars
+    regExpReplace: $1   
+  - name: reviewText
+    description: The text of the review
+    xpath: //p[@class='spr-review-content-body']
+  - name: reviewTitle
+    description: The title of the review
+    xpath: //h3[@class='spr-review-header-title']
+  - name: sku
+    description: The sku   
+  - name: verifiedPurchase
+    description: Whether this of an item the reviewer purchased. "Yes" if true else ""
+  - name: aggregateRating
+    description: The product rating
+    xpath: ancestor::html//div[@class='review']//div[@class='rating']//span[@class='spr-badge']/@data-rating
+  - name: sourceUrl
+    description: The url of the product url
+    xpath: ancestor::html//meta[@property='og:url']/@content
+  - name: name
+    description: The product name
+    xpath: ancestor::html//h1[@class='title']
+  - name: commentCount
+    type: NUMBER
+    description: Number of comments on the review
+  - name: reviewDate
+    type: DATETIME
+    description: Date the review was made
+    xpath: //span[@class='spr-review-header-byline']//strong[2]
+  - name: user
+    description: The user name of the reviewer
+    xpath: //span[@class='spr-review-header-byline']//strong[1]
+

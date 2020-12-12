@@ -1,0 +1,9 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: //div[contains(@class, 'product-listing')]//div[@class='product']
+fields: 
+  - name: productUrl
+    singleValue: false
+    xpath: //div[@class='product_inside']//h2[@class='title']//a/@href
+
