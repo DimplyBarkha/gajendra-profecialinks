@@ -46,7 +46,7 @@ fields:
     xpath: //div[contains(@class, 't-product-details__main-wrapper')]//div[contains(@class, 't-product-details__content')]//meta[@itemprop='reviewCount']/@content
   - name: aggregateRating
     singleValue: false
-    xpath: //div[contains(@class, 't-product-details__main-wrapper')]//div[contains(@class, 't-product-details__content')]//button[@itemprop='ratingValue']
+    xpath: (//div[contains(@class, 't-product-details__main-wrapper')]//div[contains(@class, 't-product-details__content')]//*[@itemprop='ratingValue'])[1]
   - name: description
     singleValue: false
     xpath: //div[@id='custom-attr-product-description']/text()
@@ -104,3 +104,8 @@ fields:
   - name: color
     singleValue: false
     xpath: //div[@id='custom-attr-product-variant-color']/text()
+  - name: pricePerUnit
+    singleValue: false
+    xpath: //span[contains(@class, 'u-text-size-small')]
+    regExp: .*£(\d*.\d+|\d+).*per.*
+    regExpReplace: £$1
