@@ -80,10 +80,6 @@ const transform = (data) => {
                     if (item.text > 0) {
                         item.text = "In Stock"
                     }
-                    else if (item.text == 0) {
-                        item.text = "Out of Stock"
-                    }
-
                 });
             }
             if (row.brandText) {
