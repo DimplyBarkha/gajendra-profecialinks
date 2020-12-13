@@ -45,7 +45,7 @@ async function implementation (
     counter++;
   } while (!loaded && counter <= MAX_TRIES);
   if (!loaded) {
-    throw new Error('Product detail not loaded.');
+    console.log('Product detail not loaded.');
   }
   async function getOtherSellerInfo (id) {
     const asin = id || document.querySelector('#added-asin').innerText.match(/\w+/)[0];
