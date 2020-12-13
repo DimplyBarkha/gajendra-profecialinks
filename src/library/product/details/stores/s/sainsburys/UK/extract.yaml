@@ -45,21 +45,21 @@ fields:
   - name: shownImages
     singleValue: false
     description: Other product images (not in manufacturer description)
-    xpath: //div[@class="pd__additional__container"]/img[@class="pd__additional__image"]/@srcset
+    xpath: //div[@class="pd__additional__container"]/img/@srcset
   - name: highQualityImages
     singleValue: false
     description: Other product images (not in manufacturer description)
-    xpath: //div[@class="pd__additional__container"]/img[@class="pd__additional__image"]/@srcset
+    xpath: //div[@class="pd__additional__container"]/img/@srcset
   - name: ratingCount
     singleValue: true
     description: The stated aggregate rating
-    xpath: //div[@class="pd__reviews"]/a[@class="star-rating-link"]/span[@class="pd__reviews__write"]/@aria-label
+    xpath: //div[@class="pd__reviews"]/a[@class="star-rating-link"]/span[@class="pd__reviews__read"]
   - name: aggregateRating
     singleValue: true
     description: The stated aggregate rating normalized to be out of 5
     type: NUMBER
-    xpath: //div[@class="pd__reviews"]/a[@class="star-rating-link"]/span[@class="pd__reviews__read"]
-  - name: sku
+    xpath: //div[@class="pd__reviews"]/a[@class="star-rating-link"]/span[@class="pd__reviews__write"]/@aria-label
+    - name: sku
     singleValue: true
     description: The store-specific product identifier
     xpath: //p[@class="pd__item-code"]/span[@id='productSKU']

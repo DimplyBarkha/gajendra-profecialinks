@@ -47,17 +47,31 @@
             });
           }
           if (row.shownImages) {
+            let text = '';
+            let element = '';
             row.shownImages.forEach(item => {
-              let element = item.text.split(',');
-              item.text = element[element.length-1].split(' ')[0];
+              element = item.text.split(',');
+              text = element[element.length-1].split(' ')[0];
             });
+            row.shownImages = [
+              {
+                text: text
+              },
+            ];
           }
           if (row.highQualityImages) {
             // console.log('HighQualityImages=>', row.highQualityImages);
+            let text1 = '';
+            let element1 = '';
             row.highQualityImages.forEach(item => {
-              let element1 = item.text.split(',');
-              item.text = element1[element1.length-1].split(' ')[0];
+              element1 = item.text.split(',');
+              text1 = element1[element1.length-1].split(' ')[0];
             });
+            row.shownImages = [
+              {
+                text1: text1
+              },
+            ];
           }
           if (row.aggregateRating) {
             row.aggregateRating.forEach(item => {
