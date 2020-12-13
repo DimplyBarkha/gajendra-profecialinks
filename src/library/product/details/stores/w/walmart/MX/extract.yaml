@@ -103,8 +103,7 @@ fields:
     singleValue: false
     xpath: //div[@data-automation-id="characteristics-body"]//div//p[text()='Energía por porción']//following-sibling::p
     regExp: \s+(.+)
-    regExpReplace: $1 
-  
+    regExpReplace: $1  
   - name: sodiumPerServing
     singleValue: false
     xpath: //div[@data-automation-id="characteristics-body"]//div//p[contains(text(),'Sodio')]//following-sibling::p
@@ -114,8 +113,7 @@ fields:
     singleValue: false
     xpath: //div[@data-automation-id="characteristics-body"]//div//p[contains(text(),'Sodio')]//following-sibling::p
     regExp: \s+(.+)
-    regExpReplace: $1 
-    
+    regExpReplace: $1    
   - name: saturatedFatPerServing
     singleValue: false
     xpath: //div[@data-automation-id="characteristics-body"]//div//p[contains(text(),'Grasa saturada')]//following-sibling::p
@@ -125,8 +123,7 @@ fields:
     singleValue: false
     xpath: //div[@data-automation-id="characteristics-body"]//div//p[contains(text(),'Grasa saturada')]//following-sibling::p
     regExp: \s+(.+)
-    regExpReplace: $1 
-    
+    regExpReplace: $1    
   - name: totalSugarsPerServing
     singleValue: false
     xpath: //div[@data-automation-id="characteristics-body"]//div//p[contains(text(),'Azucares')]//following-sibling::p
@@ -137,7 +134,6 @@ fields:
     xpath: //div[@data-automation-id="characteristics-body"]//div//p[contains(text(),'Azucares')]//following-sibling::p
     regExp: \s+(.+)
     regExpReplace: $1    
-    
   - name: imageZoomFeaturePresent
     singleValue: false
     xpath: //div[@data-automation-id="hero-image"]
