@@ -4,9 +4,9 @@ module.exports = {
     country: 'US',
     store: 'sephora',
     domain: 'sephora.com',
-    url: 'https://www.sephora.com/api/catalog/search?type=keyword&q={searchTerms}&content=true&includeRegionsMap=true&page=50&currentPage=1',
+    url: 'https://www.sephora.com/search?keyword={searchTerms}&pageSize=50',
     // loadedSelector: ['div[data-comp="ProductGrid "] a','div[data-at="product_tabs_section"]'],
-    // noResultsXPath: '//div[contains(@data-comp, "NoSearchResults")]',
+    noResultsXPath: '//div[contains(@data-comp, "NoSearchResults")]|//*[contains(.,"Sorry, there are no products that match your filter choices.")]',
     zipcode: '',
   },
 };

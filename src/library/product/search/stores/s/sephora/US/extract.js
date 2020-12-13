@@ -21,7 +21,7 @@ async function implementation (
 ) {
   const { domain, transform } = parameters;
   const { productDetails } = dependencies;
-  var jsonText = await context.evaluate(function () {
+  /* var jsonText = await context.evaluate(function () {
     return document.body.innerText;
   });
   let json = JSON.parse(jsonText);
@@ -57,8 +57,8 @@ async function implementation (
       }
       document.body.innerText = '';
       addHiddenDiv('totalProducts', cnt);
-        let newUrl = `https://www.sephora.com/search?keyword=${searchTerms}`
-        addHiddenDiv('ii_url', newUrl);
+      const newUrl = `https://www.sephora.com/search?keyword=${searchTerms}`;
+      addHiddenDiv('ii_url', newUrl);
       for (let i = 0; i < products.length; i++) {
         const newDiv = addHiddenDiv('ii_product', '');
         const product = products[i];
@@ -79,7 +79,27 @@ async function implementation (
           }
         }
       }
-    },domain , json.products, json.totalProducts, json.keyword || keyword);
+    }, domain, json.products, json.totalProducts, json.keyword || keyword);
+  } */
+  async function autoScroll (page) {
+    await context.evaluate(async () => {
+      await new Promise((resolve, reject) => {
+        var totalHeight = 0;
+        var distance = 100;
+        var timer = setInterval(() => {
+          var scrollHeight = document.body.scrollHeight;
+          window.scrollBy(0, distance);
+          totalHeight += distance;
+
+          if (totalHeight >= scrollHeight) {
+            clearInterval(timer);
+            resolve();
+          }
+        }, 100);
+      });
+    });
   }
+  await autoScroll();
+  await context.evaluate(() => document.body.setAttribute('current-page', window.location.href));
   return await context.extract(productDetails, { transform });
 }

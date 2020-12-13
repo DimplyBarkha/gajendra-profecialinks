@@ -1,58 +1,55 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: //div[@id='ii_product']
+recordXPath: //div[contains(@data-comp,"ProductGrid")]/div//*[contains(@data-comp,"ProductItem")]
 fields:
   - name: searchUrl
-    xpath: ancestor::html//div[@id="ii_url"]
+    xpath: ancestor::html/body/@current-page
   - name: manufacturer
-    singleValue: true
     description: The brand name
     example: Panasonic
-    xpath: //div[@id='ii_brand']
+    xpath: //*[@data-at="sku_item_brand"]
   - name: productUrl
-    singleValue: true
     description: The URL for the product details page
     # xpath: //div[contains(@data-comp, "ProductGrid")]//a/@href
-    xpath: //div[@id="ii_productUrl"]
+    xpath: ./@href
   - name: thumbnail
-    singleValue: true
     description: The URL for the product thumbnail image
-    xpath: //div[@id="ii_image"]
+    xpath: //picture//img/@srcset
+    regExp: ^[^?]+
   - name: name
-    singleValue: false
-    description: The product name
+    description: ./aria-label
     # xpath: //span[contains(@data-at, "sku_item_name")]|//div[@id="ii_name"]
     xpath: //div[@id="ii_title"]
   - name: reviewCount
-    singleValue: true
     description: The number of reviews
-    xpath: //div[@id="ii_reviews"]
+    xpath: //*[@data-comp="ReviewCount "]
     defaultValue: "0"
   - name: price
-    singleValue: true
     description: The offered price for the product
     # xpath: div[@id="ii_price"]
-    xpath: //div[@id="ii_price"]
+    xpath: //*[@data-at="sku_item_price_sale"] | //*[@data-at="sku_item_price_list"][not(@class="css-4jky3p")]
     # xpath: //span[contains(@data-at, "sku_item_price_sale")]|//span[contains(@data-at, "sku_item_price_list")]|//div[@id="ii_price"]
   - name: rank
     singleValue: false
     description: search/listing rank
     type: NUMBER
   - name: rankOrganic
-    singleValue: true
     description: The position (rank) within the list excluding sponsored/paid results
     type: NUMBER
   - name: sponsored
-    singleValue: true
     description: Is sponsored/paid
     type: BOOLEAN
   - name: id
     singleValue: false
     description: Unique id (within this extractor)
-    xpath: //div[@id="ii_id"]
+    xpath: ./@href
+    regExp: skuId=(\w+)
+    regExpReplace: $1
+    # xpath: //div[@id="ii_id"]
   - name: aggregateRating2
-    singleValue: true
     description: The stated aggregate rating normalized to be out of 5
-    xpath: //div[@id="ii_rating"]
+    # xpath: //div[@id="ii_rating"]
+    xpath: //*[@data-comp="StarRating "]/@aria-label
+    regExp: ^[\d\.]+
 
