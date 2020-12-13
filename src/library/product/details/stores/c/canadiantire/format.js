@@ -103,16 +103,6 @@ const transform = (data) => {
                 });
                 row.brandText = [{ text: brandInfo[0] }];
             }
-            if (row.sku) {
-                let prodCode;
-                let codeInfo = [];
-                row.sku.forEach(item => {
-                    let codeObj = JSON.parse(item.text)
-                    prodCode = codeObj.pCode;
-                    codeInfo.push(prodCode);
-                });
-                row.sku = [{ text: codeInfo }];
-            }
             if (row.variantId) {
                 var prodCode3;
                 let codeInfo = [];
@@ -206,6 +196,16 @@ const transform = (data) => {
                     indx1 = item.text.indexOf(':');
                     item.text = item.text.substring(indx1+1).replace(' ','')
                 });
+            }
+            if (row.ingredientsList) {
+                let info=[];
+                let indx1;
+                row.ingredientsList.forEach(item => {
+                    indx1 = item.text.indexOf(':');
+                    item.text = item.text.substring(indx1+1).replace(' ','')
+                    info.push(item.text);
+                });
+                row.ingredientsList = [{ text: info.join(' , ') }];
             }
             if (row.materials) {
                 let info=[];
