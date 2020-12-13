@@ -32,27 +32,32 @@ const transform = (data, context) => {
         el.text = clean(el.text);
       }));
       if (row.aggregateRating) {
-        let counter = 0;                 
+        let counter = 0;
         row.aggregateRating.forEach(item => {
-           if(item.text.trim().includes("is-filled")){
-              counter = counter + 1;
-           }else if(item.text.trim().includes("is-half")){
-              counter = counter + 0.5;
-           }
-        });    
-        row.aggregateRating = [{'text': counter.toFixed(1),'xpath': row.aggregateRating[0].xpath}]        
+          if (item.text.trim().includes('is-filled')) {
+            counter = counter + 1;
+          } else if (item.text.trim().includes('is-half')) {
+            counter = counter + 0.5;
+          }
+        });
+        row.aggregateRating = [{ text: counter.toFixed(1), xpath: row.aggregateRating[0].xpath }];
       }
-      if (row.reviewCount) {                
+      if (row.reviewCount) {
         row.reviewCount.forEach(item => {
           item.text = item.text.replace(/[{()}]/g, '');
-        });        
+        });
       }
       if (row.price) {
-        let info = [];
+        const info = [];
         row.price.forEach(item => {
           info.push(item.text);
         });
-        row.price = [{'text':info.join(''),'xpath':row.price[0].xpath}];
+        row.price = [{ text: info.join(''), xpath: row.price[0].xpath }];
+      }
+      if (row.thumbnail) {
+        row.thumbnail.forEach(item => {
+          item.text = item.text.replace('/medium/', '/large/');
+        });
       }
     }
   }
