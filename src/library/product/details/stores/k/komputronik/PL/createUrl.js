@@ -4,7 +4,7 @@ module.exports = {
   parameterValues: {
     domain: 'komputronik.pl',
     prefix: null,
-    url: null,
+    url: 'https://www.komputronik.pl/product/{id}',
     country: 'PL',
     store: 'komputronik',
     zipcode: "''",
