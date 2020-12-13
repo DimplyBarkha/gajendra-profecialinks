@@ -32,13 +32,12 @@ module.exports = {
     });
     if (itemUrl) {
       await context.goto(itemUrl, { timeout: 30000, waitUntil: 'load', checkBlocked: true });
-    }
-    else {
+    } else {
       let prodUrl = await context.evaluate(function () {
         return window.location.href;
-      });      
+      });
       if (prodUrl.includes('/ca/en')) {
-        prodUrl = prodUrl.replace('/ca/en','');
+        prodUrl = prodUrl.replace('/ca/en', '');
         await context.goto(prodUrl, { timeout: 30000, waitUntil: 'load', checkBlocked: true });
       }
     }
@@ -56,9 +55,7 @@ module.exports = {
     if (!pageCheck) {
       // throw new Error("productPageNotLoaded");
       return false;
-
     }
-
 
     await context.evaluate(async function () {
       if (document.querySelector('span[data-at^="number_of_reviews"]')) {
@@ -96,7 +93,7 @@ module.exports = {
     }
 
     await context.evaluate(async function () {
-      function addHiddenDiv(id, content) {
+      function addHiddenDiv (id, content) {
         const newDiv = document.createElement('div');
         newDiv.id = id;
         newDiv.textContent = content;
@@ -186,10 +183,10 @@ module.exports = {
       return videoIdForUrl;
     });
 
-    const html = await context.evaluate(async function getEnhancedContent(videoIdForUrl, acceptHeader) {
+    const html = await context.evaluate(async function getEnhancedContent (videoIdForUrl, acceptHeader) {
       const srcArray = [];
-      async function fetchRetry(url, n) {
-        function handleErrors(response) {
+      async function fetchRetry (url, n) {
+        function handleErrors (response) {
           if (response.status === 200) {
             return response;
           } else {
@@ -219,7 +216,7 @@ module.exports = {
     }, videoIdArray, reqAccept);
 
     await context.evaluate(function (parentInput, html) {
-      function addHiddenDiv(id, content) {
+      function addHiddenDiv (id, content) {
         const newDiv = document.createElement('div');
         newDiv.id = id;
         newDiv.textContent = content;
@@ -302,7 +299,7 @@ module.exports = {
         }
       }
 
-      const variantInfo = '//span[contains(@data-at,"item_variation_type")]';
+      const variantInfo = '//span[not(ancestor::*[contains(@data-comp,"AncillaryItem")])][contains(@data-at,"item_variation_type")]';
       var vInfo = document.evaluate(variantInfo, document, null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
       const variantArr = [];
       if (vInfo.snapshotLength > 0) {

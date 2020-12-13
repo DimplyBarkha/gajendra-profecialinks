@@ -76,8 +76,10 @@ fields:
   - name: availabilityText
     singleValue: true
     xpath: >-
-      //div[contains(@data-comp,"CallToActions")]//button/span
-    defaultValue: "In Stock"
+      //div[contains(@data-comp,"CallToActions")]//button[not(@disabled)][not(@data-at="unloved")]
+    regExp: (.+)
+    regExpReplace: In Stock
+    defaultValue: "Out of Stock"
   - name: promotion
     regExp: (.*)
     regExpReplace: Sale
@@ -116,5 +118,10 @@ fields:
     # regExpReplace: >-
     #  $1
   - name: imageZoomFeaturePresent
-    xpath: boolean(//div[contains(@data-comp,"HeroMediaList")]//div[contains(., "zoom")])
+    xpath: //div[contains(@data-comp,"HeroMediaList")]//div[contains(., "zoom")]/@class
+    regExp: (.+)
+    regExpReplace: Yes
+    defaultValue: No
 
+  - name: unInterruptedPDP
+    xpath: //div[@data-at="product_carousel"]//div[@role="tabpanel"]/div
