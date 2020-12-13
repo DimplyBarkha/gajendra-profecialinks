@@ -20,7 +20,7 @@ fields:
   - name: category
     singleValue: false
     description: The categories (e.g. from breadcrumbs)
-    xpath: //nav[@class="Menu ClpsCn"]/ul[1]/li[position()>1 and position()<7]/a
+    xpath: //div[@class="Breadcrumb"]/span[position()>2 and position()<6]//span
   - name: nameExtended
     singleValue: true
     description: The product name, prefixing "${brand} - " if not included in "name"
@@ -62,7 +62,7 @@ fields:
   - name: manufacturer
     singleValue: true
     description: Product manufacturer
-    xpath: //p[@class="ProRef productManufacturer"]//u
+    # xpath: //p[@class="ProRef productManufacturer"]//u
   - name: quantity
     singleValue: true
     description: Quantity as described on the page
