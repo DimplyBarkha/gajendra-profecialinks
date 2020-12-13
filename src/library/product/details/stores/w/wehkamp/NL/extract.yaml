@@ -1,14 +1,14 @@
-singleRecord: false
+singleRecord: true
 regionsSelector: null
 recordSelector: null
 recordXPath: null
 fields:
   - name: name
     singleValue: false
-    xpath: //h1[contains(@class,'ProductTitle__ba-product-title')]
+    xpath: //h1[contains(@class,'ProductTitle__ba-product-title')]//span[@class='title font-weight-light']
   - name: nameExtended
     singleValue: false
-    xpath: //h1[contains(@class,'ProductTitle__ba-product-title')]
+    xpath: //h1[contains(@class,'ProductTitle__ba-product-title')]//span[@class='title font-weight-light']
   - name: image
     singleValue: false
     xpath: //div[contains(@id,'content')]//div[contains(@aria-hidden,'false')]//img/@src

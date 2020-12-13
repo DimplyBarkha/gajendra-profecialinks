@@ -24,6 +24,11 @@ const transform = (data) => {
   };
   for (const { group } of data) {
     for (const row of group) {
+      if (row.nameExtended) {
+        if (row.brandText) {
+          row.nameExtended = [{ text: row.brandText[0].text + ' - ' + row.nameExtended[0].text }];
+        }
+      }
       if (row.alternateImages) {
         row.alternateImages.forEach(item => {
           item.text = item.text.replace('?w=200', '');
@@ -39,7 +44,7 @@ const transform = (data) => {
       if (row.specifications) {
         var arrSpecs = [];
         row.specifications.forEach(item => {
-          item.text = item.text.replace(/\n\s+\n/, ':');
+          item.text = item.text.replace(/\n/, ' : ');
           arrSpecs.push(item.text);
         });
         row.specifications = [{ text: arrSpecs.join(' || ') }];
@@ -68,13 +73,13 @@ const transform = (data) => {
       // if (row.variantCount) {
       //   row.variantCount = [{ text: row.variantCount.length }];
       // }
-      // if (row.additionalDescBulletInfo) {
-      //   var arrBullets = [];
-      //   row.price.forEach(item => {
-      //     arrBullets.push(item.text);
-      //   });
-      //   row.additionalDescBulletInfo = [{ text: '||' + arrBullets.join('||') }];
-      // }
+      if (row.additionalDescBulletInfo) {
+        var arrBullets = [];
+        row.price.forEach(item => {
+          arrBullets.push(item.text);
+        });
+        row.additionalDescBulletInfo = [{ text: '|| ' + arrBullets.join(' || ') }];
+      }
       // if (row.aggregateRating) {
       //   row.aggregateRating.forEach(item => {
       //     item.text = (item.text * 5) / 10;
