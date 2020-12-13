@@ -25,8 +25,8 @@ const transform = (data) => {
     for (const { group } of data) {
       var rank = 1, gtinStr = '';
       for (let row of group) { 
-        if(row.brand){
-            row.brand.forEach(item => {
+        if(row.brandText){
+            row.brandText.forEach(item => {
                 var obj = JSON.parse(item.text);
                 console.log('obj', obj);
                 item.text = obj.brand;
