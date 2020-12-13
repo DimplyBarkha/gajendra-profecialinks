@@ -534,6 +534,8 @@ fields:
       carousel,['Yes','No']
     example: https://www.zalando.de/adidas-neo-sneaker-low-blackwhite-a4315i002-q11.html
     defaultValue: No
-
+  - name: unInterruptedPDP
+    singleValue: false
+    xPath: //div[contains(@id,"related")]//h3//a[@class="product__anchor"]/@title
   - name: hasComparisonTable
     defaultValue: No
