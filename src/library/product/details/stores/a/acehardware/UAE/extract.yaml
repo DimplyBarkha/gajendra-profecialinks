@@ -54,9 +54,9 @@ fields:
     #xpath: //div[contains(@class,'product-detail')]//span[@class='price']/span[1]
   - name: availabilityText
     singleValue: false
-    xpath: //button[@id="add-to-cart"]/@title
-    regExp: (.*)
-    regExpReplace: In Stock
+    xpath: //div[contains(@id,"add-to-basket")]
+    regExp: (.*)+(\s)
+    regExpReplace: In Stock$2
     defaultValue: Out Of Stock
 
   - name: description
