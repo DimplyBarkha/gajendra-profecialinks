@@ -5,14 +5,14 @@ recordXPath: null
 fields:
   - name: productUrl
     description: The URL for the product details page
-    xpath: //a[@class='title']/@href
+    xpath: //div[@class='panel-body']//div[@class="article-title"]//a[not(contains(@class,'article-video'))]/@href
   - name: thumbnail
     description: The URL for the product thumbnail image
-    xpath: //a[@class='title']/img/@src
+    xpath: //div[@class='panel-body']//div[@class="article-left article-thumbnail"]/a//img/@src
   - name: name
     singleValue: true
     type: TEXT
-    xpath: //a[@class='title']/@title
+    xpath: //div[@class='panel-body']//div[@class="article-title"]//a[not(contains(@class,'article-video'))]//text()
   - name: id
     singleValue: true
     description: The store-specific product identifier
@@ -20,9 +20,9 @@ fields:
     regExp: '(\"id\"\:\ ")([^"]+)'
     regExpReplace: $2
   - name: manufacturer
-  - name: rating
+  - name: aggregateRating
     xpath: //div[@class='panel-body']//div[@class='rating ']/@data-rating
-  - name: number_of_reviews
+  - name: reviewCount
     type: NUMBER
     xpath: //div[@class='panel-body']//span[@class='rating-count']
   - name: price
