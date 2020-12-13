@@ -3,7 +3,7 @@
  * @param {ImportIO.Group[]} data
  * @returns {ImportIO.Group[]}
  */
-
+const url1 = require('url');
  const transform = (data) => {
     // Default transform function
     const clean = text => text.toString()
@@ -49,29 +49,25 @@
           if (row.shownImages) {
             let text = '';
             let element = '';
+            let images = [];
             row.shownImages.forEach(item => {
               element = item.text.split(',');
-              text = element[element.length-1].split(' ')[0];
+              text = element[element.length-1].trim().split(' ')[0];
+              images.push({text:text });
             });
-            row.shownImages = [
-              {
-                text: text
-              },
-            ];
+            row.shownImages = images;
           }
           if (row.highQualityImages) {
-            // console.log('HighQualityImages=>', row.highQualityImages);
+            console.log('HighQualityImages=>', row.highQualityImages);
             let text1 = '';
             let element1 = '';
+            let images1 = [];
             row.highQualityImages.forEach(item => {
               element1 = item.text.split(',');
-              text1 = element1[element1.length-1].split(' ')[0];
+              text1 = element1[element1.length-1].trim().split(' ')[0];
+              images1.push({text:text1 });
             });
-            row.shownImages = [
-              {
-                text1: text1
-              },
-            ];
+            row.highQualityImages = images1;
           }
           if (row.aggregateRating) {
             row.aggregateRating.forEach(item => {
@@ -84,10 +80,15 @@
               item.text = parseInt( item.text.replace(/[^\d-]/g, '') );
             });
           }
-          if (row.sku) {
-            row.sku.forEach(item => {
-              item.text = 'sainsburys_' + item.text;
+          if (row.url) {
+            let skuText = '';
+            row.url.forEach(item => {
+             const parseUrl = url1.parse(item, true);
+              skuText = 'sainsburys_' + parseUrl.query.productId;
             });
+            row.sku = [ {
+                text: skuText
+            }];
           }
         }
     }

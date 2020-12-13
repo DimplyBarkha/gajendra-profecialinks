@@ -59,7 +59,6 @@ fields:
     description: The stated aggregate rating normalized to be out of 5
     type: NUMBER
     xpath: //div[@class="pd__reviews"]/a[@class="star-rating-link"]/span[@class="pd__reviews__write"]/@aria-label
-    - name: sku
+  - name: sku
     singleValue: true
     description: The store-specific product identifier
-    xpath: //p[@class="pd__item-code"]/span[@id='productSKU']
