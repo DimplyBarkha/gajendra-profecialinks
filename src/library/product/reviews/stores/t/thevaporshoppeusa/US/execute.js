@@ -6,7 +6,7 @@ module.exports = {
     store: 'thevaporshoppeusa',
     domain: 'thevaporshoppeusa.com',
     loadedSelector: 'div.spr-content div.spr-reviews',
-    noResultsXPath: null,
+    noResultsXPath: '//h1[contains(text(),"Page Not Found")]',
     reviewUrl: null,
     sortButtonSelectors: null,
     zipcode: "''",

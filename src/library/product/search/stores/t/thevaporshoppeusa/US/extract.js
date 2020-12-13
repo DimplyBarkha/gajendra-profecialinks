@@ -16,20 +16,19 @@ const transform = (data) => {
       el.text = clean(el.text);
     }))));
     return data;
-  };  
+  };
   for (const { group } of data) {
     for (const row of group) {
-     
       if (row.productUrl) {
-        row.productUrl.forEach(item => {          
-          item.text = 'https://thevaporshoppeusa.com'+ item.text
+        row.productUrl.forEach(item => {
+          item.text = 'https://thevaporshoppeusa.com' + item.text
         });
-      }  
+      }
     }
   }
   return cleanUp(data);
 };
-async function implementation (
+async function implementation(
   inputs,
   parameters,
   context,
@@ -40,20 +39,16 @@ async function implementation (
 
   const pageLoader = 'div.product-listing.row';
   const ageBtn = 'button#bouncer_modal_submit';
-  
   const isSelectorAvailable = async (cssSelector) => {
-      return await context.evaluate(function (selector) {
-        return !!document.querySelector(selector);
-      }, cssSelector);
-    };
-
-    await context.waitForSelector(pageLoader, { timeout: 5000 });
-
-    const ageBtnAvailable = await isSelectorAvailable(ageBtn);
-    if (ageBtnAvailable) {
-      await context.click(ageBtn);
-    }
-
+    return await context.evaluate(function (selector) {
+      return !!document.querySelector(selector);
+    }, cssSelector);
+  };
+  await context.waitForSelector(pageLoader, { timeout: 5000 });
+  const ageBtnAvailable = await isSelectorAvailable(ageBtn);
+  if (ageBtnAvailable) {
+    await context.click(ageBtn);
+  }
   return await context.extract(productDetails, { transform });
 }
 
@@ -66,5 +61,5 @@ module.exports = {
     domain: 'thevaporshoppeusa.com',
     zipcode: "''",
   },
-  implementation, 
+  implementation,
 };

@@ -7,7 +7,7 @@ module.exports = {
     domain: 'thevaporshoppeusa.com',
     url: 'https://thevaporshoppeusa.com/search?type=all&q={searchTerms}',
     loadedSelector: 'div.product-listing',
-    noResultsXPath: null,
+    noResultsXPath: '//img[@alt="Empty Search"]',
     zipcode: "''",
   },
 };
