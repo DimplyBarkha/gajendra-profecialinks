@@ -3,8 +3,8 @@ regionsSelector: null
 recordSelector: null
 recordXPath: null
 fields:
-  - name: image
-    singleValue: true
+  - name: shownImages
+    singleValue: false
     description: URL of the main product image
     xpath: //div[@class='js-carousel touch-slider']/div/img/@src
   - name: imageAlt
@@ -25,24 +25,26 @@ fields:
     singleValue: true
     description: The product name, prefixing "${brand} - " if not included in "name"
       and appending " - ${variantType}" if necessary (fixed per feed)
+  - name: otherSellersName
+    singleValue: true
+    defaultValue: E.Leclerc DRIVE
   - name: listPrice
     singleValue: true
     description: The stated undiscounted price for the product
-    xpath: //div[@class='prix']/p[@class="prix-actuel "]/font/font
+    xpath: //div[@class='prix']/p[contains(@class,"prix-actuel")]
   - name: price
     singleValue: true
     description: The offered price for the selected product variant - if a user
       clicks add to basket this is the price they would be charged
-    xpath: //div[@class='prix']/p[@class="prix-actuel "]/font/font
+    xpath: //div[@class='prix']/p[contains(@class,"prix-actuel")]
   - name: availabilityText
     singleValue: true
     description: Availability as described on page for the selected variant. If
       there is no availability but the product can be added to cart, this field
       should be "In Stock"
-    regExp: (.+)
-    regExpReplace: In Stock
-    defaultValue: In Stock
-    xpath: 
+    xpath: //div[contains(@class,'large-screen-only')]//div[contains(@class,'divWCRS310_Panier_Produit_Fiche')]/a[@id='sLibellePictoAjouterProduit']
+  - name: priceCurrency
+    xpath: //div[@class='prix']/p[contains(@class,"prix-actuel")]
   - name: description
     singleValue: false
     description: Product description supplied by website - may be concatenanted from
@@ -134,10 +136,10 @@ fields:
   - name: videos
     singleValue: false
     description: URLs of videos on page
-  - name: name
+  - name: nameExtended
     singleValue: true
     description: The product name
-    xpath: //header/h1[@class='titre-fiche']/font/font
+    xpath: //header[contains(@class,'large-screen-only')]/h1[@class='titre-fiche']
   - name: inStorePrice
     singleValue: true
     description: Price in the selected store
