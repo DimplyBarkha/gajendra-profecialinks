@@ -9,7 +9,6 @@ module.exports = {
     spinnerSelector: null,
     loadedSelector: 'div.ctoKut',
     noResultsXPath: '//div[contains(@class, "sc-3brks3-2")]/p/span',
-    resultsDivSelector: null,
     openSearchDefinition: null,
     domain: 'delhaize.be',
     zipcode: '',

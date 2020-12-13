@@ -1,8 +1,26 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: //li[contains(@class, "product-item")]
+recordXPath: '//li[contains(@class, "product-item")]'
 fields:
   - name: name
     singleValue: false
     xpath: //div[contains(@class, "hGtFZq")]/a
+  - name: id
+    singleValue: false
+    xpath: //div[contains(@class, "iDZFps")]/@data-test-product-id
+  - name: productUrl
+    singleValue: false
+    xpath: //div[contains(@class, "dOniMx")]/a[contains(@class, "dwCgQj")]/@href
+    regExp: (\/.*)
+    regExpReplace: https://www.delhaize.be$1
+  - name: thumbnail
+    singleValue: false
+    xpath: //div[contains(@class, "dOniMx")]/a[contains(@class, "dwCgQj")]/img/@src
+  - name: price
+    singleValue: false
+    xpath: //div[contains(@class, "fysMRP")]
+  - name: manufacturer
+    singleValue: false
+    xpath: //div[@data-testid="product-block-brand-name"]//a[contains(@class, "dwCgQj")]
+  
