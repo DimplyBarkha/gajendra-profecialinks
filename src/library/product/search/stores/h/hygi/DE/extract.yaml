@@ -8,8 +8,8 @@ fields:
   #   xpath: //a[@title="Ir para a próxima página"]/@href
   - name: id
     singleValue: false
-    xpath: //a[@class="click product-item-link"]/@href
-    regExp: (.+-)(\d+)(.*)
+    xpath: //article//figure//div[@class="product-item-slideshow-slide slick-slide slick-current slick-active"]//img/@src
+    regExp: (.+import/)(\d+)(.+)
     regExpReplace: $2
   - name: name
     singleValue: false
