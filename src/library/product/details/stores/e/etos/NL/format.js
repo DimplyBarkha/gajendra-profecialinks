@@ -35,6 +35,18 @@ const transform = (data) => {
             row.gtin = [{"text":gtinStr}];
         }
 
+        if(row.image){
+          row.image.forEach(item=>{
+            item.text=item.text.replace('?sw=20','?sw=650');
+          })
+        }
+
+        // if(row.alternateImages){
+        //   row.alternateImages.forEach(item=>{
+        //     //item.text=item.text.replace('?sw=90','?sw=650');
+        //   })
+        // }
+
         row.rank = [{ "text": rank }];
         row.rankOrganic = [{ "text": rank }];
         rank++;

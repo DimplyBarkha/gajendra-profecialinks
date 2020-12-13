@@ -9,6 +9,9 @@ fields:
   - name: imageAlt
     singleValue: false
     xpath: //li[@id="tns1-item0"]//img[contains(@class, "image__default")]/@alt
+  - name: alternateImages
+    singleValue: false
+    xpath: //a[@class="product-image-carousel__thumbnail"]//figure[@class="c-image product-image-carousel__thumbnail-image image--is-loaded"]/img/@src
   - name: category
     singleValue: false
     xpath: //a[@class="breadcrumb__item"]
@@ -18,6 +21,9 @@ fields:
   - name: price
     singleValue: false
     xpath: //div[@class="product-hero__price"]//span[contains(@class, "u-sr-only")]
+  - name: listPrice
+    singleValue: false
+    xpath: //div[@class="c-price"]//span[@class="price__item price__item--list price__item--strike-through"]//span[@class="price__value"]/@content
   - name: availabilityText
     singleValue: false
     defaultValue: In Stock  
