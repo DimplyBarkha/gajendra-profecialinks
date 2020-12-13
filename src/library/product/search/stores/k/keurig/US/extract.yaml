@@ -101,7 +101,7 @@ fields:
     regExpReplace: $2
   - name: id1
     singleValue: false
-    xpath: (//div[@class="keurig_card"]/input[@data-isdefault="true"]/@data-variant-code | //meta[@itemprop="sku"]/@content | //div[@class="color-swatches"]/button[@data-isdefault="true"]/@data-swatch-code | //div[@class="keurig_card"]//ul//li[contains(@class,"active")]/@data-variantsku | //div[@class="keurig_card"]//ul//li[1]/@data-variantsku)[1]
+    xpath: //div[@class="keurig_card"]/input[@data-isdefault="true"]/@data-variant-code | //meta[@itemprop="sku"]/@content | //div[@class="color-swatches"]/button[@data-isdefault="true"]/@data-swatch-code | //div[@class="keurig_card"]//ul//li[contains(@class,"active")]/@data-variantsku | //div[@class="keurig_card"]//ul//li[1]/@data-variantsku
   - name: nameExtended
     singleValue: false
     description: The product name, prefixing "${brand} - " if not included in "name"
