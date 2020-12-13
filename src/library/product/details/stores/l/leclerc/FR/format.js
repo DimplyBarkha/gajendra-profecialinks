@@ -27,12 +27,12 @@ const url1 = require('url');
 
           if (row.price) {
             row.price.forEach(item => {
-              item.text = item.text.replace('€', '').trim();
+              item.text = item.text.replace('€', '');
             });
           }
           if (row.listPrice) {
             row.listPrice.forEach(item => {
-              item.text = item.text.replace('€', '').trim();
+              item.text = item.text.replace('€', '');
             });
           }
           if (row.availabilityText) {
