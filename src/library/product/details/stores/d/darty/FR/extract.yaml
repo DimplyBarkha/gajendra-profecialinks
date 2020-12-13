@@ -41,9 +41,6 @@ fields:
   - name: brandText
     singleValue: false
     xpath: //meta[@itemprop="brand"]/@content
-  - name: weightNet
-    singleValue: false
-    xpath: //tr[th[contains(text(),"Poids")]]//li
   - name: gtin
     singleValue: false
     xpath: //meta[@itemprop="gtin13"]/@content
@@ -78,7 +75,7 @@ fields:
     xpath: //div[contains(@class,"no_flag_picture")]//iframe/@src | //input[@class="flix-jw"]/@value
   - name: name
     singleValue: false
-    xpath: //span[contains(@class, "product_name")]/..
+    xpath: //span[contains(@class, "product_name")]
   - name: warranty
     singleValue: false
     xpath: //p[contains(text(), 'Garantie')] | //div[@class="product-sale-actions"]//li[contains(text(),"arantie") or a[contains(text(),"arantie")]]
@@ -100,7 +97,8 @@ fields:
     defaultValue: No
   - name: specifications
     singleValue: false
-    manualSelector: div#product_caracteristics tr
+    # manualSelector: div#product_caracteristics
+    xpath: //div[@id="product_caracteristics"]
   - name: manufacturerDescription
     singleValue: false
     xpath: //div[@id="product_brand"]//div[@class="inpage_content_block"]
@@ -121,4 +119,7 @@ fields:
   - name: imageZoomFeaturePresent
     singleValue: false
     defaultValue: 'Yes'
+  - name: quantity
+    singleValue: false
+    xpath: //tr[th[contains(text(),"pouces")]]//li
   

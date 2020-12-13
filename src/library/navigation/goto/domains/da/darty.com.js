@@ -22,7 +22,6 @@ module.exports = {
 
     const responseStatus = await context.goto(url, {
       antiCaptchaOptions: {
-        provider: '2-captcha',
         type: 'GEETEST',
       },
       firstRequestTimeout: 60000,
@@ -52,7 +51,12 @@ module.exports = {
       await context.evaluateInFrame('iframe',
         function () {
         // @ts-ignore
-          document.querySelector('.captcha-handler').click();
+          if (document.querySelector('.captcha-handler')) {
+            document.querySelector('.captcha-handler').click();
+          }
+          if (document.querySelector('.geetest_radar_tip')) {
+            document.querySelector('.geetest_radar_tip').click();
+          }
         },
       );
       await new Promise(resolve => setTimeout(resolve, 60000));

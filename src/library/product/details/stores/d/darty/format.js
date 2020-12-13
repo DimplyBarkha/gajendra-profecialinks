@@ -54,10 +54,10 @@ const transform = (data) => {
         });
       }
       if (row.specifications) {
-        row.specifications = [{
-          text: row.specifications.reduce((item, currentItem) => `${item} || ${currentItem.text.replace(/(\n\s*){4,}/g, ': ').replace(/\s*\n\s*/g, ' ')}`, '').slice(4).trim(),
-        },
-        ];
+        const specificationsArr = row.specifications.map((item) => {
+          return typeof (item.text) === 'string' ? item.text.replace(/http.*?html/g, '').replace(/\n \n \n \n \n \n \n/g, ' || ').replace(/\n \n \n \n \n \n/g, ' || ').replace(/\n \n \n \n/g, ': ').replace(/\n \n/g, ' ').replace(/\n/g, '') : '|';
+        });
+        row.specifications = [{ text: specificationsArr.join('|'), xpath: row.specifications[0].xpath }];
       }
       if (row.additionalDescBulletInfo) {
         row.descriptionBullets = [{
