@@ -12,7 +12,8 @@ fields:
   - name: alternateImages
     singleValue: false
     # xpath: //div[@id="divImageGallery"]//figure[not(contains(@class, 'slick-active'))]//a/@href
-    xpath: (//div[@id="divImageGallery"]//figure//img//@src)[position()>1]
+    # xpath: (//div[@id="divImageGallery"]//figure//img//@src)[position()>1]
+    xpath: //div[@class="imgThumb slick-slide"]//img/@src
   - name: metaKeywords
     singleValue: false
     description: The <meta> keywords content
