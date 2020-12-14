@@ -28,10 +28,13 @@ module.exports = {
         window.scroll(0, scrollTop);
       }
     });
-    await new Promise((resolve, reject) => setTimeout(resolve, 5000));
+    await new Promise((resolve, reject) => setTimeout(resolve, 3000));
     await context.evaluate(async function () {
       const products = document.querySelectorAll('div.product-list-item');
       for (let i = 0; i < products.length; i++) {
+        const productTitle = products[i].querySelector('div.product-list-item div.text-content h2') ? products[i].querySelector('div.product-list-item div.text-content h2').textContent : '';
+        const productSubtitle = products[i].querySelector('div.product-list-item div.text-content p') ? products[i].querySelector('div.product-list-item div.text-content p').textContent : '';
+        products[i].setAttribute('productName', `${productTitle} ${productSubtitle}`);
         const productUrl = products[i].querySelector('a.product-link.image-container') ? products[i].querySelector('a.product-link.image-container').getAttribute('href') : '';
         const productId = productUrl && productUrl.match(/\/(\d+)\//g) ? productUrl.match(/\/(\d+)\//g)[0].replace(/\//g, '') : '';
         products[i].setAttribute('productId', productId);
@@ -47,7 +50,6 @@ module.exports = {
         if (aggRating) products[i].setAttribute('aggrating', aggRating.replace(/(^\d+(\.?,?\d+)?).*/g, '$1').replace('.', ','));
       }
     });
-    await new Promise((resolve, reject) => setTimeout(resolve, 3000));
     return await context.extract(productDetails, { transform });
   },
 };
