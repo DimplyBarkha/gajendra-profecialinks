@@ -16,9 +16,8 @@ module.exports = {
     noResultsXPath: null,
     stopConditionSelectorOrXpath: null,
     resultsDivSelector: 'div[data-hook="review"]',
-    // openSearchDefinition: null,
     openSearchDefinition: {
-      type: 'amazon',
+      regexStr: '(?<=dp\/)(.+)(?=\/)',
       template: 'https://www.amazon.co.uk/product-reviews/{id}?sortBy=recent&pageNumber={page}',
     },
     domain: 'amazon.co.uk',
