@@ -525,7 +525,7 @@ fields:
     defaultValue: Yes
   - name: unInterruptedPDP
     singleValue: false
-    xpath: //div[@data-test="alternatives-product-card"] | //section[@data-test="product-alternatives"]//img/@alt | //div[contains(@class,"MatchingAccessories")]//p | //div/picture/img/@alt
+    xpath: //div[@data-test="alternatives-product-card"]//a[contains(@data-test, "alternatives-product-card-title")] | //section[@data-test="product-alternatives"]//img/@alt | //div[contains(@class,"MatchingAccessories")]//p
   - name: hasComparisonTable
     singleValue: false
     xpath: (//div[contains(@id,"comparisontable")])[position()=1]

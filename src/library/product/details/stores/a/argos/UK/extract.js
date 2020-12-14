@@ -179,6 +179,21 @@ module.exports = {
 
         await retryAction(3);
       }, parameters.zipcode);
+
+
+      async function scrollToRec (node) {
+        await context.evaluate(async function (node) {
+          var element = (document.querySelector(node)) ? document.querySelector(node) : null;
+          if (element) {
+            element.scrollIntoView({ behavior: 'smooth', block: 'end', inline: 'nearest' });
+            await new Promise((resolve) => {
+              setTimeout(resolve, 7000);
+            });
+          }
+        }, node);
+      }
+      await scrollToRec('div[data-test="additional-information"]');
+      await scrollToRec('section[class^="Alternatives"]');
     };
 
     try {
