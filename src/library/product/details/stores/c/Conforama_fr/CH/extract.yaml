@@ -1,0 +1,112 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: image
+    singleValue: true
+    xpath: //div[@class="productPics"]/a/@href
+  - name: alternateImages
+    singleValue: false
+    xpath: //li[contains(@class,"swiper-slide")]/a[not(parent::li[contains(@class,'swiper-slide current swiper-slide-active')])]/img/@src
+  - name: metaKeywords
+    singleValue: true
+    xpath: //meta[@name="keywords"]/@content
+  - name: category
+    singleValue: false
+    xpath: //div[@id="breadcrumb"]/a[not(contains(@class,'retour'))]/text()
+  - name: nameExtended
+    singleValue: true
+    xpath: concat(//div[@class="name"]/h1/a/text(),' ',//ul[@class="small ui-tabsWarp"]/li/text())
+  - name: listPrice
+    singleValue: true
+    xpath: //html//div[@id='listpriceUpdated']
+  - name: price
+    singleValue: true
+    xpath: //html//div[@id='priceUpdated']
+  - name: availabilityText
+    singleValue: true
+    regExp: (.+)
+    regExpReplace: In Stock
+    defaultValue: Out of Stock
+    xpath: //html//div[@id='availabilty']
+  - name: description
+    singleValue: false
+    xpath: //html//div[@id='addDescInfo']
+  - name: descriptionBullets
+    singleValue: true
+    type: NUMBER
+    xpath: count(//div[@id="tabs-1"]/ul/li/text())
+  - name: brandText
+    singleValue: true
+    xpath: //html//div[@id='brand']
+  - name: quantity
+    singleValue: true
+    regExp: (?:\s?([\d\.]+\s?)([bB]ar[s]?|[cC]ount|[cC]t|[fF][lL][\.]?\s?[oO][zZ][\.]?|FO|[mM][lL]|[oO][zZ][\.]?|pc|[pP]int|[pP]ops|qt|[wW]ipe[s]?).?)$|(?:\s?([\d\.]+\s?)([bB]ar[s]?|[cC]ount|[cC]|[fF][lL][\.]?\s?[oO][zZ][\.]?|FO|[mM][lL]|[oO][zZ][\.]?|pc|[pP]int|[pP]ops|qt|[wW]ipe[s]?).?\s?[\&\-\w\s]+)$
+    regExpReplace: $1$2$3$4
+    defaultValue: '1'
+  - name: gtin
+    singleValue: true
+    xpath: //div[@class="loadbeeTabContent"]/@data-loadbee-gtin
+  - name: sku
+    singleValue: true
+    xpath: //form[@id="productSheet"]/@data-product
+  - name: variantId
+    singleValue: true
+    xpath: //form[@id="productSheet"]/@data-product
+  - name: ratingCount
+    singleValue: true
+    type: NUMBER
+    xpath: //meta[@itemprop="reviewCount"]/@content
+  - name: aggregateRating
+    singleValue: true
+    xpath: //div[@itemprop="ratingValue"]/text()
+  - name: variantCount
+    singleValue: true
+    xpath: count(//div[@class="tab-content subList"]/div/@data-color)
+    type: NUMBER
+  - name: name
+    singleValue: true
+    xpath: concat(//div[@class="name"]/h1/a/text(),' ',//ul[@class="small ui-tabsWarp"]/li/text())
+  - name: color
+    singleValue: true
+    xpath: //table[@class="productSpecifications"]/tbody/tr/td/strong[contains(text(),'Couleur')]/parent::td/following-sibling::td | //table[@class="productSpecifications"]/tbody/tr/td/strong[contains(text(),'Coloris')]/parent::td/following-sibling::td | //table[@class="productSpecifications"]/tbody/tr/td/strong[contains(text(),'Autres teintes disponibles')]/parent::td/following-sibling::td
+  - name: additionalDescBulletInfo
+    singleValue: false
+    xpath: //html//div[@id='addDescBulletInfo']
+  - name: technicalInformationPdfPresent
+    singleValue: true
+    defaultValue: No
+  - name: termsAndConditions
+    singleValue: true
+    defaultValue: No
+  - name: privacyPolicy
+    singleValue: true
+    defaultValue: No
+  - name: customerServiceAvailability
+    singleValue: true
+    defaultValue: No
+  - name: Image360Present
+    singleValue: true
+    defaultValue: No
+  - name: imageZoomFeaturePresent
+    singleValue: true
+    defaultValue: Yes
+  - name: shippingInfo
+    singleValue: false
+    xpath: //div[@class="mc-delivTop"]/strong/text()
+  - name: weightGross
+    singleValue: true
+    xpath: //table[@class="productSpecifications"]/tbody/tr/td/strong[contains(text(),'Poids')]/parent::td/following-sibling::td
+  - name: manufacturerImages
+    singleValue: true
+    xpath: //html//div[@id='manufacturerImages']
+  - name: warranty
+    singleValue: true
+    xpath: //table[@class="productSpecifications"]/tbody/tr/td/strong[contains(text(),'Garantie')]/parent::td/following-sibling::td
+  - name: promotion
+    singleValue: true
+    xpath: //span[@class="reduc"]
+  - name: variants
+    singleValue: true
+    xpath: //html//div[@id="variants"]

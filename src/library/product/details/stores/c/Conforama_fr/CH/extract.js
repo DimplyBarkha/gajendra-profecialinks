@@ -3,12 +3,11 @@ module.exports = {
   implements: 'product/details/extract',
   parameterValues: {
     country: 'CH',
-    store: 'ConforamaFR',
+    store: 'Conforama_fr',
     transform: null,
-    domain: 'conforama.fr',
+    domain: 'conforama.ch',
     zipcode: '',
   },
-
   implementation: async (inputs, parameters, context, dependencies) => {
     const { transform } = parameters;
     const { productDetails } = dependencies;

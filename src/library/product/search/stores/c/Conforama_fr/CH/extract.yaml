@@ -1,0 +1,32 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: //article[@class="box-product    "]
+fields: 
+  - name: id
+    singleValue: false
+    xpath: //div[@class="image-product"]/a/@tcproductclick
+  - name: productUrl
+    singleValue: false
+    xpath: //div[@class="image-product"]/a/@href
+    regExp: ^(.+)$
+    regExpReplace: https://www.conforama.ch$1
+  - name: thumbnail
+    singleValue: false
+    xpath: //html//div[@id='image']
+  - name: name
+    singleValue: false
+    xpath: //div[@class="detail-product"]/h3/*[1]/text() | //div[@class="awk-detail-product"]/h3
+  - name: aggregateRating
+    singleValue: false
+    defaultValue: '0'
+    xpath: //div[@class="BVBrowserWebkit"]/span[@class="stars"]/@data
+  - name: price
+    singleValue: false
+    xpath: //div[@class="price-product"]
+  - name: reviewCount
+    singleValue: false
+    xpath: //span[@class="avisBaazar"]/a/text()
+  - name: searchUrl
+    singleValue: false
+    xpath: ancestor::html//div[@id="pd_url"]
