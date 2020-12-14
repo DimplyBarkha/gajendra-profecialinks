@@ -219,3 +219,12 @@ fields:
   - name: variantCount
     singleValue: true
     defaultValue: '0'
+  - name: inTheBoxText
+    singleValue: false
+    xpath: //*[@data-track-name="Product Description"]//div/ul/li
+    description: Must include text to show the accessories/tools which come with the product
+  - name: unInterruptedPDP
+    singleValue: false
+    xpath: //div[@class="recommendations"]//div[@class="product-name"]
+    description: Titles of products in the sections 'you may also like' or 'sponsored 
+      products'. Combine results from Max 3
