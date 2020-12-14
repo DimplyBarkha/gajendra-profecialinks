@@ -11,7 +11,7 @@ fields:
     xpath: //li[@id="tns1-item0"]//img[contains(@class, "image__default")]/@alt
   - name: alternateImages
     singleValue: false
-    xpath: //a[@class="product-image-carousel__thumbnail"]//figure[@class="c-image product-image-carousel__thumbnail-image image--is-loaded"]/img/@src
+    xpath: //div[@id="product-image-carousel-120531113"]/div[@aria-label="Carousel Pagination"]//a[position() > 1]/figure/img/@src      
   - name: category
     singleValue: false
     xpath: //a[@class="breadcrumb__item"]
@@ -20,7 +20,7 @@ fields:
     xpath: //h1[@id="product-title"]    
   - name: price
     singleValue: false
-    xpath: //div[@class="product-hero__price"]//span[contains(@class, "u-sr-only")]
+    xpath: //div[@class="c-price"]//span[@class="price__item price__item--sales"]/span[@class="price__value"]/@content
   - name: listPrice
     singleValue: false
     xpath: //div[@class="c-price"]//span[@class="price__item price__item--list price__item--strike-through"]//span[@class="price__value"]/@content
