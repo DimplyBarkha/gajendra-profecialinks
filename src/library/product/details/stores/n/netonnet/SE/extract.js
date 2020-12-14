@@ -17,7 +17,7 @@ module.exports = {
     await new Promise((resolve, reject) => setTimeout(resolve, 5000));
      await context.evaluate(async function () {
       const overlay = document.getElementById('headingOne');
-      if (overlay !== undefined) {
+      if (overlay && overlay !== undefined) {
         overlay.click();
       }
     });
