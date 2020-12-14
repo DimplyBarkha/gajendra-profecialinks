@@ -133,8 +133,10 @@ async function implementation (inputs, parameters, context, dependencies) {
     const descriptionElement = document.querySelector('div[class="product-description"]');
     const descriptionLiElements = document.querySelectorAll(
       'div[class="product-description"] ul li');
-    if (descriptionElement && descriptionLiElements) {
-      descriptionElement.removeChild(descriptionLiElements[1].parentNode);
+    const descriptionUlElement = document.querySelector(
+      'div[class="product-description"] ul');
+    if (descriptionElement && descriptionUlElement) {
+      descriptionElement.removeChild(descriptionUlElement);
     }
     let descriptionText = descriptionElement ? descriptionElement.textContent : '';
     const descriptionLiTexts = [];
