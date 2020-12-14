@@ -5,7 +5,7 @@ module.exports = {
     store: "houzz",
     domain: "houzz.com",
     url: "https://www.houzz.com/products/query/{searchTerms}",
-    loadedSelector: ".hz-image-container img",
+    loadedSelector: null,
     noResultsXPath: null,
     zipcode: "",
   },
