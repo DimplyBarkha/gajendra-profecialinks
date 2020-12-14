@@ -4,9 +4,9 @@ recordSelector: null
 recordXPath: null
 fields:
   - name: image
-    singleValue: true
+    singleValue: false
     description: URL of the main product image
-    xpath: //img[@itemprop='image']/@src
+    xpath: //img[@itemprop='image']/@src|//div[@class='product-essential']/div/img/@src|//div[@class='product-essential']/div/a/img/@src
   - name: imageAlt
     singleValue: true
     description: Alt text of the main product image
@@ -35,7 +35,10 @@ fields:
     singleValue: true
     description: The offered price for the selected product variant - if a user
       clicks add to basket this is the price they would be charged
-    xpath: //div[@class='product-offer']/div/div/div[@class='price-box']/span[@class='regular-price']/span[@class='price']|//div[@class='product-offer']/div/div/div[@class='price-box']/p[@class='special-price']/span[@class='price']
+    xpath: //script[contains(text(),'product_price')]
+    #xpath: //div[@class='product-offer']/div/div/div[@class='price-box']/span[@class='regular-price']/span[@class='price']|//div[@class='product-offer']/div/div/div[@class='price-box']/p[@class='special-price']/span[@class='price']
+    regExp: (product_price':) '(.*)','product_currency|€(.*)
+    regExpReplace: €$2
   - name: availabilityText
     singleValue: true
     description: Availability as described on page for the selected variant. If
