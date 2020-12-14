@@ -10,17 +10,17 @@ module.exports = {
   },
   implementation: async ({ url }, { country, domain, transform }, context, { productDetails }) => {
     await context.evaluate(async () => {
-      function stall(ms) {
+      function stall (ms) {
         return new Promise((resolve, reject) => {
           setTimeout(() => {
             resolve();
           }, ms);
         });
       }
-      async function scrollPage(scrollStartPos, limit) {
+      async function scrollPage (scrollStartPos, limit) {
         while (scrollStartPos !== limit) {
           await stall(500);
-          scrollStartPos += 1000;
+          scrollStartPos += 500;
           window.scroll(0, scrollStartPos);
           if (scrollStartPos === limit) {
             await stall(500);
@@ -28,14 +28,14 @@ module.exports = {
           }
         }
       }
-      //const moreButton = document.evaluate('//div[contains(@class,"Loader__Wrapper")]//button[contains(text(),"Ver mais produtos")]', document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null);
+      // const moreButton = document.evaluate('//div[contains(@class,"Loader__Wrapper")]//button[contains(text(),"Ver mais produtos")]', document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null);
       if (document.querySelector('button.inxtwK')) {
         let scrollTop = 0;
-        let limit = 3800;
-        await scrollPage(scrollTop);
+        let limit = 10000;
+        await scrollPage(scrollTop, limit);
         while (document.querySelector('button.inxtwK') != null) {
-          scrollTop += 3800;
-          limit += 3800;
+          scrollTop = limit;
+          limit += 5000;
           document.querySelector('button.inxtwK').click();
           await new Promise((resolve, reject) => setTimeout(resolve, 1000));
           await scrollPage(scrollTop, limit);
