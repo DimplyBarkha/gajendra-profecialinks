@@ -19,13 +19,15 @@ async function implementation (
 
     if (searchUrl.length) {
       if (searchUrl.includes('&page=')) {
-        const searchTerm = searchUrl.match('=&q=(.*)&page=')[1];
+        let searchTerm = searchUrl.match('=&q=(.*)&page=')[1];
+        searchTerm = searchTerm.replace(/%20/g, ' ');
         productList && productList.forEach((item1) => {
           const doc = item1;
           addElementToDocument(doc, 'searchTerm', searchTerm);
         });
       } else {
-        const searchTerm = searchUrl.match('=&q=(.*)')[1];
+        let searchTerm = searchUrl.match('=&q=(.*)')[1];
+        searchTerm = searchTerm.replace(/%20/g, ' ');
         productList && productList.forEach((item1) => {
           const doc = item1;
           addElementToDocument(doc, 'searchTerm', searchTerm);
