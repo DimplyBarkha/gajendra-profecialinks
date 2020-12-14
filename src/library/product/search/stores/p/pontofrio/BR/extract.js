@@ -10,32 +10,35 @@ module.exports = {
   },
   implementation: async ({ url }, { country, domain, transform }, context, { productDetails }) => {
     await context.evaluate(async () => {
-      function stall (ms) {
+      function stall(ms) {
         return new Promise((resolve, reject) => {
           setTimeout(() => {
             resolve();
           }, ms);
         });
       }
-      async function scrollPage () {
-        let scrollTop = 0;
-        while (scrollTop !== 20000) {
+      async function scrollPage(scrollStartPos, limit) {
+        while (scrollStartPos !== limit) {
           await stall(500);
-          scrollTop += 1000;
-          window.scroll(0, scrollTop);
-          if (scrollTop === 20000) {
+          scrollStartPos += 1000;
+          window.scroll(0, scrollStartPos);
+          if (scrollStartPos === limit) {
             await stall(500);
             break;
           }
         }
       }
-      const moreButton = document.evaluate('//div[contains(@class,"Loader__Wrapper")]//button[contains(text(),"Ver mais produtos")]', document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null);
-      if (moreButton && moreButton.singleNodeValue) {
-        scrollPage();
+      //const moreButton = document.evaluate('//div[contains(@class,"Loader__Wrapper")]//button[contains(text(),"Ver mais produtos")]', document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null);
+      if (document.querySelector('button.inxtwK')) {
+        let scrollTop = 0;
+        let limit = 3800;
+        await scrollPage(scrollTop);
         while (document.querySelector('button.inxtwK') != null) {
-          moreButton.singleNodeValue.click();
+          scrollTop += 3800;
+          limit += 3800;
+          document.querySelector('button.inxtwK').click();
           await new Promise((resolve, reject) => setTimeout(resolve, 1000));
-          scrollPage();
+          await scrollPage(scrollTop, limit);
         }
       }
     });
