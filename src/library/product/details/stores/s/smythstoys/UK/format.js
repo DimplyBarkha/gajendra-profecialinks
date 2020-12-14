@@ -8,47 +8,6 @@ const transform = (data) => {
   for (const { group } of data) {
     for (const row of group) {
 
-      if (row.alternateImages) {
-        let alternateImagesArray = [];
-        row.alternateImages.forEach(item => {
-          alternateImagesArray.push(item.text);
-        });
-        row.alternateImages = [{ 'text': alternateImagesArray.join(' | '), 'xpath': row.alternateImages[0].xpath }];
-      }
-
-      if (row.shownImages) {
-        let shownImagesArray = [];
-        row.shownImages.forEach(item => {
-          shownImagesArray.push(item.text);
-        });
-        row.shownImages = [{ 'text':  shownImagesArray.join(' | '), 'xpath': row.shownImages[0].xpath }];
-      }
-
-
-      if (row.videos) {
-        let videosArray = [];
-        row.videos.forEach(item => {
-          videosArray.push(item.text);
-        });
-        row.videos = [{ 'text': videosArray.join(' | '), 'xpath': row.videos[0].xpath }];
-      }
-
-      if (row.sku) {
-        row.sku.forEach(item => {
-          console.log('HEY DATA',item);
-          item.text = item.text.replace('Ref:', '').trim();
-        })
-      }
-
-      if (row.variantId) {
-        row.variantId.forEach(item => {
-          console.log('HEY DATA',item);
-          item.text = item.text.replace('Ref:', '').trim();
-        })
-      }
-
-
-
     }
   }
   // Clean up data

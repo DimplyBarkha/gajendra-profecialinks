@@ -3,20 +3,13 @@ regionsSelector: null
 recordSelector: null
 recordXPath: null
 fields:
-  - name: image
-    singleValue: true
-    description: URL of the main product image
-    xpath: (//img[@class='responsive-image'])[2]/@src
-  - name: imageAlt
-    singleValue: true
-    description: Alt text of the main product image
-    xpath: (//img[@class='responsive-image'])[2]/@alt
-  # - name: alternateImages
-  #   singleValue: false
-  #   xpath: (//div[@id='gallery-image-thumb'])[1]/div[@class='owl-stage-outer']/div[@class='owl-stage']/div[contains(@class,'owl-item')]//img/@data-src
-  - name: metaKeywords
-    singleValue: true
-    description: The <meta> keywords content
+  - name: highQualityImages
+    singleValue: false
+    description: Materials used to make the product
+    xpath: (//div[@id='gallery-image-thumb'])[1]/div[@class='owl-stage-outer']/div[@class='owl-stage']/div[contains(@class,'owl-item')]//img/@data-src
+  - name: shownImages
+    singleValue: false
+    xpath: (//div[@id='gallery-image-thumb'])[1]/div[@class='owl-stage-outer']/div[@class='owl-stage']/div[contains(@class,'owl-item')]//img/@data-src
   - name: category
     singleValue: false
     description: The categories (e.g. from breadcrumbs)
@@ -78,11 +71,11 @@ fields:
   - name: sku
     singleValue: true
     description: The store-specific product identifier
-    xpath: //div[@class='hash_code']
+    xpath: //input[contains(@id,'productCodePost')]/@value
   - name: variantId
     singleValue: true
     description: Identifier for a variant from a store where variants share the same sku
-    xpath: //div[@class='hash_code']
+    xpath: //input[contains(@id,'productCodePost')]/@value
   - name: mpc
     singleValue: true
     description: The manufacturer model code (unique) of the product
@@ -134,18 +127,10 @@ fields:
   - name: manufacturerDescription
     singleValue: false
     description: The extended description of the product supplied by the lister
-  - name: manufacturerImages
-    singleValue: false
-    description: Images within the third party description
-    xpath: (//div[@id='gallery-image-thumb'])[1]/div[@class='owl-stage-outer']/div[@class='owl-stage']/div[contains(@class,'owl-item')]//img/@data-src
   - name: videos
     singleValue: false
     description: URLs of videos on page
     xpath: (//div[@class='item-video'])[1]/iframe[@class='video-element']/@src
-  - name: name
-    singleValue: true
-    description: The product name
-    xpath: //div[@class='detail_right margn_tp_n']//h1[@itemprop='name']
   - name: inStorePrice
     singleValue: true
     description: Price in the selected store
@@ -199,10 +184,6 @@ fields:
   - name: ingredientImagePresent
     singleValue: true
     description: null
-  # - name: factImagePresent
-  #   singleValue: false
-  #   description: null
-  #   xpath: (//div[@id='gallery-image-thumb'])[1]/div[@class='owl-stage-outer']/div[@class='owl-stage']/div[contains(@class,'owl-item')]//img/@data-src
   - name: largeImageCount
     singleValue: true
     description: null
@@ -499,16 +480,3 @@ fields:
     singleValue: true
     description: Information related to customer service availability (text), ['Yes','No']
     defaultValue: No
-  # - name: highQualityImages
-  #   singleValue: false
-  #   description: Materials used to make the product
-  #   xpath: (//div[@id='gallery-image-thumb'])[1]/div[@class='owl-stage-outer']/div[@class='owl-stage']/div[contains(@class,'owl-item')]//img/@data-src
-  # - name: imageZoomFeaturePresent
-  #   singleValue: false
-  #   xpath: (//div[@id='gallery-image-thumb'])[1]/div[@class='owl-stage-outer']/div[@class='owl-stage']/div[contains(@class,'owl-item')]//img/@data-src
-  - name: shownImages
-    singleValue: false
-    xpath: (//div[@id='gallery-image-thumb'])[1]/div[@class='owl-stage-outer']/div[@class='owl-stage']/div[contains(@class,'owl-item')]//img/@data-src
-  # - name: image_zoom_feature_present
-  #   singleValue: false
-  #   xpath: (//div[@id='gallery-image-thumb'])[1]/div[@class='owl-stage-outer']/div[@class='owl-stage']/div[contains(@class,'owl-item')]//img/@data-src
