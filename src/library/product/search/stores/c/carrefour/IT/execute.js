@@ -4,7 +4,7 @@ module.exports = {
     country: 'IT',
     store: 'carrefour',
     domain: 'carrefour.it',
-    url: 'https://www.carrefour.it/search?q{searchTerms}&sz=150',
+    url: 'https://www.carrefour.it/search?q={searchTerms}',
     loadedSelector: 'div[class="image-container"]',
     noResultsXPath: null,
     zipcode: '',
