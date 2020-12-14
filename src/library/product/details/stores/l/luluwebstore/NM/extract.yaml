@@ -12,9 +12,9 @@ fields:
   - name: alternateImages
     singleValue: true
     description: Other product images (not in manufacturer description)
-    # xpath: //html//div[@id="alternateImages"]
+    xpath: //html//div[@id="alternateImages"]
     # regExp: (.+)
-    regExpReplace: https://www.luluhypermarket.com$1
+    # regExpReplace: https://www.luluhypermarket.com$1
   - name: category
     singleValue: false
     description: The categories (e.g. from breadcrumbs)
@@ -33,8 +33,8 @@ fields:
   - name: quantity
     singleValue: true
     description: Quantity as described on the page
-    regExp: (?:\s?([\d\.]+\s?)([bB]ar[s]?|[cC]ount|[cC]t|[fF][lL][\.]?\s?[oO][zZ][\.]?|FO|[mM][lL]|[oO][zZ][\.]?|pc|[pP]int|[pP]ops|qt|[wW]ipe[s]?).?)$|(?:\s?([\d\.]+\s?)([bB]ar[s]?|[cC]ount|[cC]|[fF][lL][\.]?\s?[oO][zZ][\.]?|FO|[mM][lL]|[oO][zZ][\.]?|pc|[pP]int|[pP]ops|qt|[wW]ipe[s]?).?\s?[\&\-\w\s]+)$
-    regExpReplace: $1$2$3$4
+    # regExp: (?:\s?([\d\.]+\s?)([bB]ar[s]?|[cC]ount|[cC]t|[fF][lL][\.]?\s?[oO][zZ][\.]?|FO|[mM][lL]|[oO][zZ][\.]?|pc|[pP]int|[pP]ops|qt|[wW]ipe[s]?).?)$|(?:\s?([\d\.]+\s?)([bB]ar[s]?|[cC]ount|[cC]|[fF][lL][\.]?\s?[oO][zZ][\.]?|FO|[mM][lL]|[oO][zZ][\.]?|pc|[pP]int|[pP]ops|qt|[wW]ipe[s]?).?\s?[\&\-\w\s]+)$
+    # regExpReplace: $1$2$3$4
     xpath: //input[@class="form-control input-number js-qty-selector-input"]/@data-min
   - name: gtin
     singleValue: true
