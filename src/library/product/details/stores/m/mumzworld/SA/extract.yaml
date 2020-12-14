@@ -102,3 +102,7 @@ fields:
   - name: unInterruptedPDP
     singleValue: false
     xpath: //div[@class="prodGrid"]//h2[@class="product-name"]
+  - name: inTheBoxText
+    singleValue: false
+    description: Must include text to show the accessories/tools which come with the product
+    xpath: //b[contains(text(),"In the box")]/following-sibling::text() | //b[contains(text(),"Box includes")]//b
