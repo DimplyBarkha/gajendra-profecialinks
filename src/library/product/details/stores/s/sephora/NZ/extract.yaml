@@ -177,3 +177,13 @@ fields:
     example: https://www.zalando.de/adidas-neo-sneaker-low-blackwhite-a4315i002-q11.html
     defaultValue: No
     xpath: boolean(//div[contains(@class, "zoom-icon")])
+  - name: inTheBoxUrl
+    xpath: 
+  - name: inTheBoxText
+    xpath: //p[contains(.,'What it includes:')]/following-sibling::ul[1]//li
+  - name: hasComparisonTable
+    defaultValue: No
+  - name: unInterruptedPDP
+    xpath: //div[contains(@class,'recommendations')]//li
+
+
