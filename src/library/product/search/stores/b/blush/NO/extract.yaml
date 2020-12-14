@@ -5,9 +5,7 @@ recordXPath: null
 fields:
   - name: id
     singleValue: false
-    xpath: //a[@class="product-link image-container"]/@href
-    regExp: .*\/product\/([^\/]+)\/.*
-    regExpReplace: $1
+    xpath: //@productId
   - name: searchUrl
     singleValue: true
   - name: name
@@ -46,13 +44,11 @@ fields:
   - name: rank
     singleValue: false
     description: search/listing rank
-    xpath: //@rank
     type: NUMBER
   - name: rankOrganic
     singleValue: true
     description: The position (rank) within the list excluding sponsored/paid results
     type: NUMBER
-    xpath: //@rank
   - name: sponsored
     singleValue: false
     description: Is sponsored/paid
