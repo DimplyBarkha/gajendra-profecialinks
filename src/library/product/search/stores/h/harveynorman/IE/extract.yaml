@@ -14,7 +14,7 @@ fields:
     xpath: //div[@class="bx"]/div/a/@href
   - name: thumbnail
     singleValue: false
-    xpath: //div[@class="product-image"]/a/img[@class="   pict"]/@src
+    xpath: //div[@class="product-image"]/a/img[contains(@id,"det_img")]/@src
   - name: price
     singleValue: false
-    xpath: //div[contains(@class,"price-group-wrap")]/div/span/span/span[@class="price  "]
+    xpath: //div[contains(@class,"price-group-wrap")]/div/span/span/span[contains(@id,"line_discounted_price")]
