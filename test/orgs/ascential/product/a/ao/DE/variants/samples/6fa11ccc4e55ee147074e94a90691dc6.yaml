@@ -1,0 +1,13 @@
+input:
+  id: 74504
+  _url: http://ao.de
+extractions:
+  - html: https://workbench.import.io/html/run=cd02ccde-1d9b-4d45-a46d-074b84debdb8/task=2ca001be-e5e8-4256-a781-59d5acc50f6b/6d103089-9b69-41b1-a4c3-4b0d4cd302c4.html
+    extractionConfigId: product/details/stores/a/ao/DE/variantsExtract
+    data:
+      - group:
+          - variantId:
+              - text: "74504"
+                xpath: /html/body/ol[1]/li[1]/@variant_id
+        xpath: /html
+    timestamp: 1607611334632

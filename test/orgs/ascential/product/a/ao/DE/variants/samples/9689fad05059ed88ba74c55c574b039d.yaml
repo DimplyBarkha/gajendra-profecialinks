@@ -1,0 +1,16 @@
+input:
+  id: 78216
+  _url: http://ao.de
+extractions:
+  - html: https://workbench.import.io/html/run=cd02ccde-1d9b-4d45-a46d-074b84debdb8/task=957ba8ab-48e6-4284-b239-30dd1b839e42/13f9b135-9cdc-46ec-92f0-55ffa9653593.html
+    extractionConfigId: product/details/stores/a/ao/DE/variantsExtract
+    data:
+      - group:
+          - variantId:
+              - text: "78216"
+                xpath: /html/body/ol[1]/li[1]/@variant_id
+          - variantId:
+              - text: "76056"
+                xpath: /html/body/ol[1]/li[2]/@variant_id
+        xpath: /html
+    timestamp: 1607611339032

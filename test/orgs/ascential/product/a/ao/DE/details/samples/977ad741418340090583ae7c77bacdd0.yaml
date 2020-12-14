@@ -1,0 +1,223 @@
+input:
+  id: 38238
+  _url: http://ao.de
+extractions:
+  - html: https://workbench.import.io/html/run=474061ef-838c-4a50-a0f2-08b9517fb1ff/task=19526828-0b46-42ac-9406-136498d7c3b7/de36a212-4461-42b7-be94-ab498b6c4c84.html
+    extractionConfigId: product/details/stores/a/ao/DE/extract
+    data:
+      - group:
+          - productUrl:
+              - text: https://www.ao.de/produkt/wa14671w-amica-waschmaschinen-wei%c3%9f-38238-1.aspx?cmredirectionvalue=38238
+                xpath: /html/body/div[9]
+            image:
+              - text: https://media.ao.com/produktbild/groß/wa14671w_wh_amica_waschmaschine_1_ux_l.jpg
+                xpath: /html/body/div[1]/div[1]/main[1]/div[1]/div[1]/div[1]/section[1]/section[1]/div[1]/div[1]/div[2]/ul[1]/li[3]/div[1]/img[1]/@src
+            imageAlt:
+              - text: Amica WA 14671 W Waschmaschine, 7 kg, 1400 U/Min, A+++ - WA 14671 W_WH - 1
+                xpath: /html/body/div[1]/div[1]/main[1]/div[1]/div[1]/div[1]/section[1]/section[1]/div[1]/div[1]/div[2]/ul[1]/li[3]/div[1]/img[1]/@alt
+            alternateImages:
+              - text: https://media.ao.com/produktbild/groß/wa14671w_wh_amica_waschmaschine_3_ux_l.jpg
+                xpath: /html/body/ol[1]/img[2]/@src
+              - text: https://media.ao.com/produktbild/groß/wa14671w_wh_amica_waschmaschine_4_ux_l.jpg
+                xpath: /html/body/ol[1]/img[3]/@src
+              - text: https://media.ao.com/produktbild/groß/wa14671w_wh_amica_waschmaschine_5_ux_l.jpg
+                xpath: /html/body/ol[1]/img[4]/@src
+              - text: https://media.ao.com/produktbild/groß/wa14671w_wh_amica_waschmaschine_2_ux_l.jpg
+                xpath: /html/body/ol[1]/img[5]/@src
+              - text: https://media.ao.com/produktbild/groß/wa14671w_wh_amica_waschmaschine_6_ux_l.jpg
+                xpath: /html/body/ol[1]/img[6]/@src
+              - text: https://media.ao.com/produktbild/groß/wa14671w_wh_amica_waschmaschine_7_ux_l.jpg
+                xpath: /html/body/ol[1]/img[7]/@src
+              - text: https://media.ao.com/produktbild/groß/wa14671w_wh_amica_waschmaschine_8_ux_l.jpg
+                xpath: /html/body/ol[1]/img[8]/@src
+            metaKeywords:
+              - text: Waschmaschinen, Amica, WA 14671 W, Freistehend, Weiß
+                xpath: /html/head[1]/meta[14]/@content
+            nameExtended:
+              - text: Amica WA 14671 W Waschmaschine, 7 kg, 1400 U/Min, A+++
+                xpath: /html/body/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[1]/h1[1]
+            listPrice:
+              - text: €659
+                xpath: /html/body/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[1]/div[4]/div[1]/div[1]/div[1]/div[2]/span[1]
+            price:
+              - text: 310,0
+                xpath: /html/body/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[1]/div[4]/div[1]/div[1]/span[1]/@content
+            availabilityText:
+              - text: Out of stock
+                xpath: /html/body/div[10]
+            description:
+              - text: "Immer das passende Programm zur Auswahl – mit der Amica WA 14671 W
+                  Waschmaschine mit 16 Programmen! Denn eines steht fest:
+                  Verschiedene Textilien benötigen eine individuelle Behandlung.
+                  So sorgt das 7 kg fassende Gerät sogar bei empfindlicher Wolle
+                  oder Feinwäsche für beste Reinheit. Und auch sensible
+                  Babybekleidung wird in dem Baby Comfort-Programm nicht nur
+                  sauber, sondern antibakteriell gereinigt! Das Kurzprogramm
+                  eignet sich für alle, die nur wenig Zeit haben: In nur 15
+                  Minuten genießen Sie wieder strahlende Frische! Das Beste: Die
+                  Maschine ist mit der bestmöglichen Energieeffizienzklasse A+++
+                  ausgezeichnet. Das bedeutet nicht nur einen umweltschonenden,
+                  sondern vor allem sparsamen Betrieb!"
+                xpath: /html/body/div[1]/div[1]/main[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]
+            brandText:
+              - text: Amica
+                xpath: /html/body/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[1]/div[1]
+            gtin:
+              - text: "4040729146715"
+                xpath: /html/body/div[1]/div[1]/main[1]/div[1]/div[1]/div[1]/section[2]/div[1]/div[6]/div[1]/div[1]/table[1]/tbody[1]/tr[1]/td[2]
+            sku:
+              - text: WA 14671 W_WH
+                xpath: /html/body/div[1]/div[1]/main[1]/@data-product-sku
+            variantId:
+              - text: "38238"
+                xpath: /html/body/div[1]/div[1]/main[1]/@data-colour-id
+            ratingCount:
+              - text: "159"
+                xpath: /html/body/div[12]
+            aggregateRatingText:
+              - text: 4,7/5
+                xpath: /html/body/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[1]/div[3]/a[2]
+            aggregateRating:
+              - text: 4,7
+                xpath: /html/body/div[13]
+            color:
+              - text: Weiß
+                xpath: /html/body/div[1]/div[1]/main[1]/div[1]/div[1]/div[1]/section[2]/div[1]/div[6]/div[1]/div[1]/table[1]/tbody[1]/tr[2]/td[2]
+            manufacturerDescription:
+              - text: >-
+                  Gut zu wissen
+                   
+
+                   
+
+                   
+                  Energiesparriese
+                   
+                  Mit dieser Waschmaschine in der Energieeffizienzklasse A+++ sparen Sie durchschnittlich 32% Energie in Form von Strom und Wasser gegenüber einem Gerät der Energieeffizienzklasse A. Die Energieeffizienz von Waschmaschinen ist von verschiedenen Faktoren abhängig. So fließt unter anderem auch das Fassungsvermögen mit in die Berechnung ein. 
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+                  Abgestimmter Verbrauch
+                   
+                  Die Mengenautomatik ermöglicht es Ihnen, bei dieser Waschmaschine ganz flexibel mit der Menge der Beladung zu sein - und das ohne sich Gedanken machen zu müssen über Strom- und Wasserverbrauch. Haben Sie zum Beispiel nur eine halbvolle Trommel Wäsche zu waschen, dann passt die Mengenautomatik nicht nur den Wasserverbrauch, sondern auch die Programmdauer und damit den Energieverbrauch an die eingelegte Menge an. Sie sparen so nicht nur Zeit, sondern auch Wasser und Energie.
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+                  Sauberkeit für jedes Material
+                   
+                  Probieren Sie das Mix-Programm aus! In diesem praktischen Programm wird die Beladung bei niedrigen Temperaturen und bei geringerer Schleudergeschwindigkeit gewaschen. So reinigt die Waschmaschine alle Materialien und Farben gemeinsam in einem Waschgang - so verschwenden Sie keine wertvolle Zeit damit, Ihre Wäschestücke zu sortieren und zu trennen.
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+                  Hohe Sauberkeit für Sportfans
+                   
+                  Lassen Sie Ihre Sportkleidung lange wie neu aussehen! In dem Sport-Programm entfernt die Waschmaschine Grasflecken und säubert schweißverschmutzte T-Shirts. Genauso reinigt die Maschine empfindliche Materialien besonders behutsam. Wenn Sie es lieben zu rennen, Fahrrad zu fahren oder Fußball zu spielen, dann wird Ihnen auch dieses Sportprogramm gefallen!
+                   
+
+                   
+
+                   
+
+                   
+
+                   
+                  Waschkapazität von 7 kg
+                   
+                  Die perfekte Waschmaschine für Ihre Familie! - Dieses Modell bietet Ihnen mit einer 7 kg-Trommel genug Platz für die Wäsche einer ganzen Woche - 1 kg Wäsche entspricht etwa 5 T-Shirts. Sie ist bestens für eine 3- bis 4-köpfige Familie geeignet.
+                xpath: /html/body/div[1]/div[1]/main[1]/div[1]/section[2]
+            manufacturerImages:
+              - text: //www.ao.de/~/media/DE/RichContent/Energie/Aplusplusplus.ashx
+                xpath: /html/body/div[1]/div[1]/main[1]/div[1]/section[2]/article[1]/div[1]/img[1]/@src
+              - text: //www.ao.de/~/media/DE/RichContent/Waschmaschinen/wash_fuzzylogic.ashx
+                xpath: /html/body/div[1]/div[1]/main[1]/div[1]/section[2]/article[2]/div[1]/img[1]/@src
+              - text: //ao.com/~/media/productPage/Washing-Machines/BekoDailyQuick.ashx
+                xpath: /html/body/div[1]/div[1]/main[1]/div[1]/section[2]/article[3]/div[1]/img[1]/@src
+              - text: //ao.com/~/media/productPage/Washing-Machines/GenericOutdoorWear.ashx
+                xpath: /html/body/div[1]/div[1]/main[1]/div[1]/section[2]/article[4]/div[1]/img[1]/@src
+              - text: //ao.com/~/media/productPage/Washing-Machines/GenericCapacity.ashx
+                xpath: /html/body/div[1]/div[1]/main[1]/div[1]/section[2]/article[5]/div[1]/img[1]/@src
+            videos:
+              - text: https://f1.media.brightcove.com/4/710857100001/710857100001_5644236295001_5634449427001.mp4?pubId=710857100001&videoId=5634449427001
+                xpath: /html/body/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[3]/div[1]/div[1]/video[1]/@src
+            name:
+              - text: Amica WA 14671 W Waschmaschine, 7 kg, 1400 U/Min, A+++
+                xpath: /html/body/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[1]/h1[1]
+            specifications:
+              - text: (H)85,0 x (B)59,5 x (T)49,5
+                xpath: /html/body/div[1]/div[1]/main[1]/div[1]/section[1]/div[1]/div[1]/div[1]/div[1]/div[1]/span[2]
+            warranty:
+              - text: 2 Jahr(e)
+                xpath: /html/body/div[1]/div[1]/main[1]/div[1]/div[1]/div[1]/section[2]/div[1]/div[4]/div[1]/div[1]/table[1]/tbody[1]/tr[1]/td[2]
+            productOtherInformation:
+              - text: |-
+                  Maße (H)85,0 x (B)59,5 x (T)49,5 
+                   
+                   Betriebsgeräusche (Schleudern) 78 dB 
+                   
+                   Energieeffizienzklasse (EU) A+++ 
+                   
+                   Gewährleistung 2 Jahr(e) 
+                   
+                   Dauer des Kurzprogramms 15 Minuten
+                xpath: /html/body/div[1]/div[1]/main[1]/div[1]/section[1]/div[1]/div[1]/div[1]/div[1]
+            promotion:
+              - text: Ersparnis €349
+                xpath: /html/body/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[1]/div[4]/div[1]/div[1]/div[1]/div[1]
+            additionalDescBulletInfo:
+              - text: >-
+                  AutoSensor Mengenautomatik - Passt automatisch den Energie-
+                  und Wasserbedarf an
+                   
+                  Sport-Programm - reinigt selbst verschwitzte Trikots
+                   
+                  Baby-Programm - hygienische Sauberkeit für die Kleidung Ihres Babys
+                   
+                  A+++ - sparsam, nachhaltig und fortschrittlich
+                   
+                   Maße in cm - H85 x B59,5 x T49,5
+                xpath: /html/body/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[3]/div[2]/div[1]
+            energyEfficiency:
+              - text: A+++
+                xpath: /html/body/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[1]/div[4]/div[2]/span[1]/div[1]
+            technicalInformationPdfPresent:
+              - text: Yes
+                xpath: /html/body/div[1]/div[1]/div[6]/div[5]/a[2]/@href
+            termsAndConditions:
+              - text: Yes
+                xpath: /html/body/footer[1]/section[2]/div[2]/ul[2]/li[1]/a[1]/@href
+            privacyPolicy:
+              - text: Yes
+                xpath: /html/body/footer[1]/section[2]/div[2]/ul[2]/li[5]/a[1]/@href
+            customerServiceAvailability:
+              - text: Yes
+                xpath: /html/body/div[14]
+            Image360Present:
+              - text: Yes
+                xpath: /html/body/div[16]
+            imageZoomFeaturePresent:
+              - text: Yes
+                xpath: /html/body/div[15]
+            descriptionBullets:
+              - text: "5"
+            variantCount:
+              - text: "0"
+        xpath: /
+    timestamp: 1607699714016

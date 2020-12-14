@@ -1,0 +1,13 @@
+input:
+  id: 38238
+  _url: http://ao.de
+extractions:
+  - html: https://workbench.import.io/html/run=cd02ccde-1d9b-4d45-a46d-074b84debdb8/task=c05ae4c4-4102-4a7d-8670-720d1c1892e1/2ceab9ea-f802-4efc-9b23-deff9716e71c.html
+    extractionConfigId: product/details/stores/a/ao/DE/variantsExtract
+    data:
+      - group:
+          - variantId:
+              - text: "38238"
+                xpath: /html/body/ol[1]/li[1]/@variant_id
+        xpath: /html
+    timestamp: 1607611343553

@@ -1,0 +1,13 @@
+input:
+  id: 66690
+  _url: http://ao.de
+extractions:
+  - html: https://workbench.import.io/html/run=cd02ccde-1d9b-4d45-a46d-074b84debdb8/task=c65b1c7e-1701-4897-b486-ad802b011213/d5db21c1-2576-41f3-a756-9da97eb8248b.html
+    extractionConfigId: product/details/stores/a/ao/DE/variantsExtract
+    data:
+      - group:
+          - variantId:
+              - text: "66690"
+                xpath: /html/body/ol[1]/li[1]/@variant_id
+        xpath: /html
+    timestamp: 1607611335723

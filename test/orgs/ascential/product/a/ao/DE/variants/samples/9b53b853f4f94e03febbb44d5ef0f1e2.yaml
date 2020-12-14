@@ -1,0 +1,13 @@
+input:
+  id: 57697
+  _url: http://ao.de
+extractions:
+  - html: https://workbench.import.io/html/run=cd02ccde-1d9b-4d45-a46d-074b84debdb8/task=f668e673-8364-44aa-aa32-a5286dabd265/9522804c-d3b2-43f9-a6d9-7c46c3082b32.html
+    extractionConfigId: product/details/stores/a/ao/DE/variantsExtract
+    data:
+      - group:
+          - variantId:
+              - text: "57697"
+                xpath: /html/body/ol[1]/li[1]/@variant_id
+        xpath: /html
+    timestamp: 1607611340471
