@@ -84,6 +84,31 @@ module.exports = {
           addElementToDocument('brand', img);
         }
       }
+      var arr = getAllXpath('//div[@id="specifications"]/div[@class="accordion-menu"]//div[@class="techs"]/div[@class="item"]/span/text()', 'nodeValue');
+      if(arr!= null) {
+        var abc = "";
+        for(var j=0; j<arr.length;j=j+2){
+          abc = abc + arr[j].trim() +" : "+arr[j+1].trim() + " || ";
+          }
+          abc = abc.slice(0,-3);
+          addElementToDocument('specs', abc);
+      }
+      var pq = getAllXpath('//div[@class="descriptions"]//ul/li/span/text()', 'nodeValue');
+      var pqr = getAllXpath('//div[@class="descriptions"]//ul/li/text()', 'nodeValue');
+      if(pqr != null){
+        var pr = [];
+        for(let i=0; i<pqr.length; i++){
+          if(pqr[i].length != 6){
+          pr.push(pqr[i]);
+          }
+          }
+          var final = "";
+          for(var k=0 ; k<pr.length; k++){
+            final = final + pr[k].trim() + pq[k].trim() + " || ";
+            }
+            final = final.slice(0,-3);
+            addElementToDocument('desc', final);
+      }
 
     });
     await context.extract(productDetails);

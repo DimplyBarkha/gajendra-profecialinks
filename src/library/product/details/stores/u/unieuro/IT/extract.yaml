@@ -30,7 +30,7 @@ fields:
   defaultValue: Out of Stock
 - name: description
   singleValue: true
-  xpath: //div[@class="info-description-content"]//div[@class='description']
+  xpath: concat(//div[@id='desc'],//div[@class="info-description-content"]//div[@class='description'])
 - name: gtin
   singleValue: true
   xpath: //div[@data-module='productdetail']/@data-productdetail-productean
@@ -59,10 +59,12 @@ fields:
   xpath: //div[@class='left-section']/span[@class='total-vote']
 - name: manufacturerImages
   singleValue: false
-  xpath: //div[@id="flix-inpage"]//img//@srcset  
+  xpath: //section[@class="product-detail product-detail-info"]//img//@srcset | //section[@class="product-detail product-detail-info"]//img//@data-img-src
+  regExp: (/.+)
+  regExpReplace: https:$1  
 - name: manufacturerDescription
   singleValue: false
-  xpath: //div[@id="flix-std-inpage"] 
+  xpath: //div[@id="inpage_container"] 
 # - name: shippingInfo
 #   singleValue: false
 #   xpath: (//div[@class="navigation-panel__service__content"][3]/a/span/b/text())[1]
@@ -77,10 +79,16 @@ fields:
   xpath: (//div[@class='techs']//span[(text()="Tipo di imballo")]/following-sibling::span)[1]
 - name: specifications
   singleValue: true
-  xpath: //section[@class="product-detail product-detail-info"]//div[@id='specifications']
+  xpath: //div[@id='specs']
+- name: descriptionBullets
+  singleValue: true
+  xpath: count(//div[@class="descriptions"]//ul/li)
+- name: additionalDescBulletInfo
+  singleValue: true
+  xpath: //div[@id='desc']
 - name: materials
   singleValue: false
-  xpath: //div[@class='info-classification-content']//span[(text()="Materiale vasca")or(text()="Materiale cestello")or(text()="Materiali")]/following-sibling::span
+  xpath: //div[@class='info-classification-content']//span[contains(.,  "Materiale")]/following-sibling::span
 - name: color
   singleValue: false
   xpath: //div[@class='techs']//span[(text()="Colore del prodotto")]/following-sibling::span
@@ -113,5 +121,8 @@ fields:
   singleValue: true
   xpath: //div[@class='techs']//span[(text()="Scala di efficienza energetica")]/following-sibling::span
 - name: imageZoomFeaturePresent
+  singleValue: true
+  defaultValue: Yes
+- name: customerServiceAvailability
   singleValue: true
   defaultValue: Yes
