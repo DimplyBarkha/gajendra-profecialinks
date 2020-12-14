@@ -49,6 +49,11 @@ const transform = (data) => {
             item.text = str;
           })
         }
+        if(row.aggregateRating) {
+          row.aggregateRating.forEach(item=>{
+            item.text = item.text.replace(".",",");
+          })
+        }
         row.rank = [{ "text": rank }];
         row.rankOrganic = [{ "text": rank }];
         rank++;
