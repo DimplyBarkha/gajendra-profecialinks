@@ -23,22 +23,7 @@ const transform = (data) => {
       return data;
     };
     for (const { group } of data) {
-      var rank = 1;
-      for (let row of group) {
-
-        if(row.productUrl){
-          row.productUrl.forEach(item=>{
-              item.text = "https:" + item.text;
-          })
-        }
-        if(row.thumbnail){
-          row.thumbnail.forEach(item=>{
-              item.text = "https:" + item.text;
-          })
-        }
-        row.rank = [{ "text": rank }];
-        row.rankOrganic = [{ "text": rank }];
-        rank++;
+      for (let row of group) {               
       }
     }
     return cleanUp(data);
