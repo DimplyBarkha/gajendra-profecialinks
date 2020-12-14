@@ -45,7 +45,7 @@ fields:
     # xpath: //script[@type="application/ld+json"][contains(text(),'"availability":"https://schema.org/InStock"')]
     xpath: //div[@class="c-product-detail-infos__delivery-block"]//div[contains(@class, "c-delivery-state__state") and contains(text(), "Artikel nicht mehr erhältlich")]/text()
     regExp: (.+)
-    regExpReplace: Out of Stock 
+    regExpReplace: Out of Stock
     defaultValue: In Stock
     #type: NUMBER
   - name: brandText
@@ -137,8 +137,8 @@ fields:
     defaultValue: 0
   - name: videos
     singleValue: false
-    xpath: //div[@class="productVideos"] 
-    # //div[@class="flix-videodiv "]//@src 
+    xpath: //div[@class="productVideos"]
+    # //div[@class="flix-videodiv "]//@src
   - name: inTheBoxUrl
     singleValue: false
     xpath: //div[@class="inpage_selector_InTheBox"]//img/@src
@@ -147,7 +147,3 @@ fields:
     singleValue: false
     xpath: //div[@class="inpage_selector_InTheBox"]//span
     description: Must include text to show the accessories/tools which come with the product
-  - name: hasComparisonTable
-    singleValue: true
-    xpath: boolean(//button[@class="c-product-detail-infos__compare-btn"])
-    description: Compare the range table or matrix must be present for all vacuum cleaners & air treatment. This is not required for    personal care or lighting. As a minimum the comparison table will compare against 1 additional Dyson product.
