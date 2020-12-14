@@ -138,3 +138,7 @@ fields:
     regExp: (.+)
     regExpReplace: Yes
     defaultValue: No
+  - name: inTheBoxText
+    singleValue: false
+    xpath: //h3[contains(text(),"In The Box")]//following-sibling::li | //p[@id="DT_Include"]/li
+    description: Must include text to show the accessories/tools which come with the product
