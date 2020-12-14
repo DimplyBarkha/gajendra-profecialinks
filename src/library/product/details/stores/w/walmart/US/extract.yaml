@@ -60,16 +60,13 @@ fields:
   - name: gtin
     xpath: //*[contains(@itemprop,'gtin')]/@content
   - name: sku
-    xpath: //script[@id='item'] | //script[id='product']
-    regExp: primaryProductId\"\s?:\s?\"([^\"]+)
-    # regExp: (","primaryProductId":\")(\w+)(",")?
+    xpath: //*[@itemprop="sku"]/@content
     regExpReplace: $1
   - name: asin
     singleValue: false
     xpath: //div[contains(@class,'wm-item-number')]
   - name: variantId
-    singleValue: false
-    xpath: //div[@id='added-sku']
+    xpath: //*[@itemprop="sku"]/@content
   - name: variantIdOverRide
     xpath: //link[@itemprop="url"]/@href
   - name: firstVariant
