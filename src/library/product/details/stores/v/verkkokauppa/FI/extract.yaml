@@ -46,7 +46,7 @@ fields:
     singleValue: true
     description: The offered price for the selected product variant - if a user
       clicks add to basket this is the price they would be charged
-    xpath: //div[@class="price-tag-content__price-tag-price price-tag-content__price-tag-price--current"]    
+    xpath: //div[@class="price-tag-content__price-tag-price price-tag-content__price-tag-price--current"]
     type: CURRENCY
   - name: availabilityText
     singleValue: true
@@ -66,7 +66,7 @@ fields:
     # xpath: //div[contains(@class, 'product-description__description-container')]
   - name: descriptionBullets
     singleValue: false
-    description: Number of ul > li tags in the description    
+    description: Number of ul > li tags in the description
     # xpath: count(//div[contains(@class, 'product-description__description-container')]//div/ul/li)
     xpath: //*[contains(@id,"tempDescriptionBullet1")]
   - name: brandText
@@ -86,13 +86,13 @@ fields:
   - name: weightNet
     singleValue: true
     description: Net weight as described on the page
-    xpath: //*[contains(@id,"weightNettempId")]   
+    xpath: //*[contains(@id,"weightNettempId")]
   - name: weightGross
     singleValue: true
     description: Gross weight as described on the page
     xpath: //td[contains(text(), "Pakkauksen paino")]/following::td[1]
     # xpath: //section[contains(@class,'description-container__full-text')]/div/ul/li[contains(text(),'Paino')]
-    # regExp: ([0-9]+) .* 
+    # regExp: ([0-9]+) .*
   - name: gtin
     singleValue: true
     description: GTIN code (includes UPC/EAN)
@@ -146,7 +146,7 @@ fields:
     singleValue: true
     description: Stated shipping dimensions
     xpath: (//td[contains(text(), "Pakkauksen koko")]/following::td[1] | //div[contains(@id,'shipping-dim')])[1]
-    # regExp: ([0-9]+) .* 
+    # regExp: ([0-9]+) .*
   - name: shippingWeight
     singleValue: true
     description: Stated shipping weight
@@ -434,7 +434,7 @@ fields:
   - name: specifications
     singleValue: true
     description: The physical dimensions of the product including packaging.
-    # //div[contains(@class,"product-details__category")] | 
+    # //div[contains(@class,"product-details__category")] |
     xpath: //div[contains(@id,'specs')]
   - name: warranty
     singleValue: true
@@ -560,3 +560,7 @@ fields:
     singleValue: false
     description: Titles of products in the sections 'you may also like' or 'sponsored products'. Combine results from Max 3 sections
     xpath: //div[@class="thumbnail"]//p[@class="details__name"]//text()
+  - name: inTheBoxText
+    singleValue: false
+    xpath: //section[@class="description-container__full-text"]//font[contains(text(),'The package contains')]//ancestor::p/following-sibling::ul/li
+    description: Must include text to show the accessories/tools which come with the product
