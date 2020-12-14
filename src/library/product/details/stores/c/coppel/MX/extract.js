@@ -9,6 +9,9 @@ module.exports = {
     zipcode: '',
   },
   implementation: async ({ inputString }, { country, domain, transform: transformParam }, context, { productDetails }) => {
+   // await context.waitForSelector('ul[id="ProductAngleImagesAreaList"] > li > a > img', {}, { timeout: 5000000 });
+   // await context.waitForSelector('span[class="sku"]', {}, { timeout: 5000000 });
+    //await context.waitForSelector('div[class="flix-feature-image"] > img', {}, { timeout: 5000000 });    
     await context.evaluate(async function () {
       function addElementToDocument (key, value) {
         const catElement = document.createElement('div');
@@ -16,6 +19,16 @@ module.exports = {
         catElement.textContent = value;
         catElement.style.display = 'none';
         document.body.appendChild(catElement);
+      }
+
+      let scrollTop = 500;
+      while (true) {
+        window.scroll(0, scrollTop);
+        await stall(1000);
+        scrollTop += 500;
+        if (scrollTop === 5000) {
+          break;
+        }
       }
 
       function stall (ms) {
@@ -60,22 +73,31 @@ module.exports = {
           console.log(gtinValue[1]);
           }
 
-        const altImgXpath = getAllXpath("//*[@id='ProductAngleImagesArea']/ul/li[position()>1]/a/img/@src",'nodeValue').join('|');
-        console.log("AltImgXpath:", altImgXpath);
-        addElementToDocument('altImgs_added',altImgXpath);
-
-        const aplusImagesXpath = getAllXpath("//div[contains(@id,'inpage_container')]//div[@class='flix_feat']/img/@src",'nodeValue');
+        const altImgXpath = getAllXpath("//div[@id='ProductAngleImagesArea']/ul/li[position()>1]/a/img/@src",'nodeValue');
+        if(altImgXpath.length > 0){
+          console.log("AltImgXpath:", altImgXpath.join('|'));
+          addElementToDocument('altImgs_added',altImgXpath.join('|'));
+        }
+      
+        const aplusImagesXpath = getAllXpath("//div[@class='flix_feat']/img/@data-flixsrcset",'nodeValue');
+        const aplusFlixImagesXpath = getAllXpath("//div[@class='flix-carousel flix-carousel-stage']/ul/li/img/@data-flixsrcset",'nodeValue');
+        if(aplusImagesXpath.length > 0) {
         console.log("Aplus Images:", aplusImagesXpath);
         addElementToDocument('aplusImages_added',aplusImagesXpath);
+        } else if(aplusFlixImagesXpath.length > 0){
+          console.log("Aplus Flix Images:", aplusFlixImagesXpath);
+          addElementToDocument('aplusImages_added',aplusFlixImagesXpath);  
+        }
 
         const allSpecs = getAllXpath("//span[@class='flix-svg-text flix-d-p']/text()",'nodeValue').join('|');
         console.log("Specifications:", allSpecs);
         addElementToDocument('specs_added',allSpecs);
 
-        const secondaryImg = altImgXpath.split('|');
-        console.log("secondaryImg total:", secondaryImg.length);
-        addElementToDocument('secondaryImgcount_added',secondaryImg.length);
-  
+        if(altImgXpath.length > 0) {
+          console.log("secondaryImg total:", altImgXpath.length);
+          addElementToDocument('secondaryImgcount_added',altImgXpath.length);
+        }
+        
    });
   await context.extract(productDetails, { transform: transformParam });
   },
