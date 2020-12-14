@@ -17,6 +17,22 @@ async function implementation (
     const searchUrl = window.location.href;
     const productList = document.querySelectorAll('div[itemtype="http://schema.org/Offer"]');
 
+    if (searchUrl.length) {
+      if (searchUrl.includes('&page=')) {
+        const searchTerm = searchUrl.match('=&q=(.*)&page=')[1];
+        productList && productList.forEach((item1) => {
+          const doc = item1;
+          addElementToDocument(doc, 'searchTerm', searchTerm);
+        });
+      } else {
+        const searchTerm = searchUrl.match('=&q=(.*)')[1];
+        productList && productList.forEach((item1) => {
+          const doc = item1;
+          addElementToDocument(doc, 'searchTerm', searchTerm);
+        });
+      }
+    }
+
     productList && productList.forEach((item1) => {
       const doc = item1;
       addElementToDocument(doc, 'searchUrl', searchUrl);

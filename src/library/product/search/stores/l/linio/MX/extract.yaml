@@ -47,9 +47,6 @@ fields:
     xpath: //span[contains(@class,'sponsored-text')]
     type: BOOLEAN
     defaultValue: false
-  - name: searchUrl
-    singleValue: false
-    xpath: //div[@id="added-searchurl"]
   - name: reviewCount
     singleValue: false
     xpath: //meta[contains(@itemprop,'reviewCount')]/@content
@@ -63,6 +60,12 @@ fields:
   - name: searchUrl
     singleValue: false
     xpath: //div[@id="searchUrl"]
+  - name: input
+    singleValue: false
+    xpath: //div[@id="searchTerm"]
+  # - name: searchUrl
+  #   singleValue: false
+  #   xpath: //div[@id="added-searchurl"]
   # - name: gtin
   #   singleValue: true
   #   description: GTIN code (includes UPC/EAN)
