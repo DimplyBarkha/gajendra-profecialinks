@@ -10,7 +10,7 @@ module.exports = {
   implementation: async ({ url }, { country, domain, transform }, context, { productDetails }) => {
     await new Promise((resolve, reject) => setTimeout(resolve, 6000));
     await context.evaluate(async () => {
-      const closePopupButton = document.querySelector('.sc-modal-content > div button');
+      const closePopupButton = document.querySelector('div[class*="sc-modal sc-modal-background"]>div button[class*="sc-modal-close"]');
       if (closePopupButton) {
         // didn't work with context.click() outside context.evaluate()
         // @ts-ignore
