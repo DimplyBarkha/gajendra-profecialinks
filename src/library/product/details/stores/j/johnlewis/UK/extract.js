@@ -35,7 +35,7 @@ module.exports = {
         if (element) {
           element.scrollIntoView({ behavior: 'smooth', block: 'end', inline: 'nearest' });
           await new Promise((resolve) => {
-            setTimeout(resolve, 4000);
+            setTimeout(resolve, 5000);
           });
         }
       }, node);
