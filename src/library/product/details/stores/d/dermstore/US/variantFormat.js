@@ -24,12 +24,17 @@ const transform = (data) => {
           variantIdItem.text = variantIdItem.text.replace(/[^\d]/gm, '');
         });
       }
+      if (row.variantId1) {
+        row.variantId1.forEach((variantId1Item) => {
+          variantId1Item.text = variantId1Item.text.replace(/[^\d]/gm, '');
+        });
+      }
       if (!row.variantId && row.variantId1) {
         row.variantId = row.variantId1;
       }
-      // if (!row.variantUrl && row.variantUrl1) {
-      //   row.variantUrl = row.variantUrl1;
-      // }
+      if (!row.variantUrl && row.variantUrl1) {
+        row.variantUrl = row.variantUrl1;
+      }
     }
   }
   data.forEach(obj => obj.group.forEach(row => Object.keys(row).forEach(header => row[header].forEach(el => {

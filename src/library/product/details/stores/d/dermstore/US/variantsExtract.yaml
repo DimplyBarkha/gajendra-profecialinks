@@ -1,21 +1,14 @@
-singleRecord: true
-regionsSelector: null
-recordSelector: null
-recordXPath: null
 fields:
   - name: variantId
-    singleValue: false
     description: variant id, to uniquely identify variant
-    xpath: //ul[contains(@id,"sizeOptions")]//li//a/@href | //div[contains(@id,"color-selector")]//div[contains(@class,"colorVariant")]//a//@href
+    xpath: //ul[contains(@id,"sizeOptions")]//li[contains(@class,"sizeOptions__option")]//a//@href | //div[contains(@id,"color-swatches")]//div[contains(@class,"colorVariant")]//a//@href 
   - name: variantId1
-    singleValue: false
-    xpath: (//input[contains(@name,"prod_id")]//@value)[1]
+    xpath: (//input[@name="prod_id"]//@value)[1]
   - name: variantUrl
-    singleValue: false
     description: variant Url
-    xpath: //ul[contains(@id,"sizeOptions")]//li//a/@href | //div[contains(@id,"color-selector")]//div[contains(@class,"colorVariant")]//a//@href
+    xpath: //ul[contains(@id,"sizeOptions")]//li[contains(@class,"sizeOptions__option")]//a//@href | //div[contains(@id,"color-swatches")]//div[contains(@class,"colorVariant")]//a//@href
     regExp: (.+)
     regExpReplace: https://www.dermstore.com$1
   - name: variantUrl1
-    singleValue: false
-    xpath: //meta[contains(@property,"og:url")]//@content
+    xpath: //meta[@itemprop="url"]//@content
+  
