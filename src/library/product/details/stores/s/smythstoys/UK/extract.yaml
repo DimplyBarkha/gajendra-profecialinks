@@ -11,9 +11,9 @@ fields:
     singleValue: true
     description: Alt text of the main product image
     xpath: (//img[@class='responsive-image'])[2]/@alt
-  - name: alternateImages
-    singleValue: false
-    xpath: (//div[@id='gallery-image-thumb'])[1]/div[@class='owl-stage-outer']/div[@class='owl-stage']/div[contains(@class,'owl-item')]//img/@data-src
+  # - name: alternateImages
+  #   singleValue: false
+  #   xpath: (//div[@id='gallery-image-thumb'])[1]/div[@class='owl-stage-outer']/div[@class='owl-stage']/div[contains(@class,'owl-item')]//img/@data-src
   - name: metaKeywords
     singleValue: true
     description: The <meta> keywords content
@@ -137,6 +137,7 @@ fields:
   - name: manufacturerImages
     singleValue: false
     description: Images within the third party description
+    xpath: (//div[@id='gallery-image-thumb'])[1]/div[@class='owl-stage-outer']/div[@class='owl-stage']/div[contains(@class,'owl-item')]//img/@data-src
   - name: videos
     singleValue: false
     description: URLs of videos on page
@@ -198,9 +199,10 @@ fields:
   - name: ingredientImagePresent
     singleValue: true
     description: null
-  - name: factImagePresent
-    singleValue: true
-    description: null
+  # - name: factImagePresent
+  #   singleValue: false
+  #   description: null
+  #   xpath: (//div[@id='gallery-image-thumb'])[1]/div[@class='owl-stage-outer']/div[@class='owl-stage']/div[contains(@class,'owl-item')]//img/@data-src
   - name: largeImageCount
     singleValue: true
     description: null
@@ -227,6 +229,7 @@ fields:
   - name: otherSellersName
     singleValue: false
     description: null
+    defaultValue: 'smythstoys'
   - name: otherSellersPrice
     singleValue: false
     description: null
@@ -496,13 +499,16 @@ fields:
     singleValue: true
     description: Information related to customer service availability (text), ['Yes','No']
     defaultValue: No
-  - name: materials
-    singleValue: true
-    description: Materials used to make the product
-    example: https://www.jdsports.co.uk/product/blue-adidas-linear-20-reversible-wind-breaker-jacket/15988125/
-  - name: imageZoomFeaturePresent
-    singleValue: false
-    xpath: (//div[@id='gallery-image-thumb'])[1]/div[@class='owl-stage-outer']/div[@class='owl-stage']/div[contains(@class,'owl-item')]//img/@data-src
+  # - name: highQualityImages
+  #   singleValue: false
+  #   description: Materials used to make the product
+  #   xpath: (//div[@id='gallery-image-thumb'])[1]/div[@class='owl-stage-outer']/div[@class='owl-stage']/div[contains(@class,'owl-item')]//img/@data-src
+  # - name: imageZoomFeaturePresent
+  #   singleValue: false
+  #   xpath: (//div[@id='gallery-image-thumb'])[1]/div[@class='owl-stage-outer']/div[@class='owl-stage']/div[contains(@class,'owl-item')]//img/@data-src
   - name: shownImages
     singleValue: false
     xpath: (//div[@id='gallery-image-thumb'])[1]/div[@class='owl-stage-outer']/div[@class='owl-stage']/div[contains(@class,'owl-item')]//img/@data-src
+  # - name: image_zoom_feature_present
+  #   singleValue: false
+  #   xpath: (//div[@id='gallery-image-thumb'])[1]/div[@class='owl-stage-outer']/div[@class='owl-stage']/div[contains(@class,'owl-item')]//img/@data-src
