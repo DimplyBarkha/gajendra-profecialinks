@@ -62,21 +62,21 @@ fields:
   - name: quantity3
     singleValue: false
     xpath: //h1/font//text() | //h1/text()  
-    regExp: (\d{1,}\W)(g|G|L|Kg|Mg|Ml|ml|Oz|stucks|l|EA|GR|stuks|tabletten|kauwtabletten|condoms|zuigtabletten|pathch|stucks|pen|par|capsules|zakjes|zetpillen|pièces|crÃ¨me|ml roller|ampoules| ml spray|stick(s)|dragees|zak|zakjes|mg|ampoules|paar|patch| ml tube| préservatifs|pansements|set|sachet|pleisters)
+    regExp: (\d{1,}\W)(g|L|Kg|Mg|Ml|ml|Oz|stucks|l|EA|GR|stuks|tabletten|kauwtabletten|condoms|zuigtabletten|pathch|stucks|pen|par|capsules|zakjes|zetpillen|pièces|crÃ¨me|ml roller|ampoules| ml spray|stick(s)|dragees|zak|zakjes|mg|ampoules|paar|patch| ml tube| préservatifs|pansements|set|sachet|pleisters)
     # regExpReplace:
   - name: quantity2
     singleValue: false
     xpath: //h1/font//text() | //h1/text() 
-    regExp: ([0-9]+x\d+)\W+(g|G|L|Kg|Mg|Ml|ml|Oz|stucks|l|EA|GR|stuks|tabletten|kauwtabletten|condoms|zuigtabletten|pathch|stucks|pen|par|capsules|zakjes|zetpillen|pièces|crÃ¨me|ml roller|ampoules| ml spray|stick(s)|dragees|zak|zakjes|mg|ampoules|paar|patch| ml tube| préservatifs|pansements|set|sachet|pleisters)
+    regExp: ([0-9]+x\d+)\W+(g|L|Kg|Mg|Ml|ml|Oz|stucks|l|EA|GR|stuks|tabletten|kauwtabletten|condoms|zuigtabletten|pathch|stucks|pen|par|capsules|zakjes|zetpillen|pièces|crÃ¨me|ml roller|ampoules| ml spray|stick(s)|dragees|zak|zakjes|mg|ampoules|paar|patch| ml tube| préservatifs|pansements|set|sachet|pleisters)
   - name: quantity
     singleValue: false
     xpath: //h1/font//text() | //h1/text() 
     # regExp: \d+(.+)
-    regExp: ([0-9]+x\d+)\W+\d+\W+(g|G|L|Kg|Mg|Ml|ml|Oz|stucks|l|EA|GR|stuks|tabletten|kauwtabletten|condoms|zuigtabletten|pathch|stucks|pen|par|capsules|zakjes|zetpillen|pièces|crÃ¨me|ml roller|ampoules| ml spray|stick(s)|dragees|zak|zakjes|mg|ampoules|paar|patch| ml tube| préservatifs|pansements|set|sachet|pleisters)
+    regExp: ([0-9]+x\d+)\W+\d+\W+(g|L|Kg|Mg|Ml|ml|Oz|stucks|l|EA|GR|stuks|tabletten|kauwtabletten|condoms|zuigtabletten|pathch|stucks|pen|par|capsules|zakjes|zetpillen|pièces|crÃ¨me|ml roller|ampoules| ml spray|stick(s)|dragees|zak|zakjes|mg|ampoules|paar|patch| ml tube| préservatifs|pansements|set|sachet|pleisters)
   - name: quantity1
     singleValue: false
     xpath: //h1/font//text() | //h1/text() 
-    regExp: ([0-9]+\W\d+)\W+(g|G|L|Kg|Mg|Ml|ml|Oz|stucks|l|EA|GR|stuks|tabletten|kauwtabletten|condoms|zuigtabletten|pathch|stucks|pen|par|capsules|zakjes|zetpillen|pièces|crÃ¨me|ml roller|ampoules| ml spray|stick(s)|dragees|zak|zakjes|mg|ampoules|paar|patch| ml tube| préservatifs|pansements|set|sachet|pleisters)
+    regExp: ([0-9]+\W\d+)\W+(g|L|Kg|Mg|Ml|ml|Oz|stucks|l|EA|GR|stuks|tabletten|kauwtabletten|condoms|zuigtabletten|pathch|stucks|pen|par|capsules|zakjes|zetpillen|pièces|crÃ¨me|ml roller|ampoules| ml spray|stick(s)|dragees|zak|zakjes|mg|ampoules|paar|patch| ml tube| préservatifs|pansements|set|sachet|pleisters)
   - name: weightNet
     singleValue: false
     description: Net weight as described on the page
@@ -156,7 +156,9 @@ fields:
     xpath: //strong//img/@src
   - name: videos
     singleValue: false
-    description: URLs of videos on page
+    xpath: //section[contains(@class,"product-detail-content-grid")]//iframe/@src
+    # regExp: VIDEO_ID\W+([^"]+).*
+    # regExpReplace: https://youtu.be/$1
   - name: name
     singleValue: false
     xpath: //h1/font//text() | //h1/text() 
