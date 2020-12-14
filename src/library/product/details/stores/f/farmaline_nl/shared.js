@@ -65,17 +65,35 @@ const transform = (data) => {
           },
         ];
       }
-      // if (row.description) {
-      //   let text = '';
-      //   row.description.forEach(item => {
-      //     text += `${item.text.replace(/\n \n/g, ' ')} || `;
-      //   });
-      //   row.description = [
-      //     {
-      //       text: text.slice(0, -3),
-      //     },
-      //   ];
-      // }
+      let descTxt = '';
+      if (row.description) {
+        // let text = '';
+        row.description.forEach(item => {
+          descTxt += item.text.replace(/\s{2,}/g, ' ').replace(/\n/g, ' ').trim();
+        });
+        row.description = [
+          {
+            text: descTxt,
+          },
+        ];
+      }
+      if (row.description1) {
+        let text = '';
+        row.description1.forEach(item => {
+          text += `|| ${item.text.replace(/\n \n/g, ':')}  `;
+        });
+        row.description1 = [
+          {
+            text: text.slice(0, -1),
+          },
+        ];
+        descTxt = `${descTxt} ${text.slice(0, -3)}`;
+        row.description = [
+          {
+            text: descTxt,
+          },
+        ];
+      }
       if (row.specifications) {
         let text = '';
         row.specifications.forEach(item => {
@@ -87,10 +105,44 @@ const transform = (data) => {
           },
         ];
       }
+      if (row.directions) {
+        const nDesc = [];
+        let newDesc = '';
+        let idx = 0;
+        row.directions.forEach(item => {
+          nDesc[0] = item;
+          if (idx > 0) {
+            newDesc = newDesc + ' ';
+          }
+          newDesc = newDesc + item.text;
+          idx++;
+        });
+        nDesc.forEach(item => {
+          item.text = newDesc;
+        });
+        row.directions = nDesc;
+      }
+      if (row.warnings) {
+        const nDesc = [];
+        let newDesc = '';
+        let idx = 0;
+        row.warnings.forEach(item => {
+          nDesc[0] = item;
+          if (idx > 0) {
+            newDesc = newDesc + ' ';
+          }
+          newDesc = newDesc + item.text;
+          idx++;
+        });
+        nDesc.forEach(item => {
+          item.text = newDesc;
+        });
+        row.warnings = nDesc;
+      }
       if (row.brandText) {
         let text = '';
         row.brandText.forEach(item => {
-          text += `${item.text.replace('bz', '')}`;
+          text += `${item.text.replace('bz', '')}  `;
         });
         row.brandText = [
           {
@@ -98,17 +150,17 @@ const transform = (data) => {
           },
         ];
       }
-      if (row.brandText) {
-        let text = '';
-        row.brandText.forEach(item => {
-          text += `${item.text.replace('text()W+([^\text(', '')}`;
-        });
-        row.brandText = [
-          {
-            text: text.slice(0, -1),
-          },
-        ];
-      }
+      // if (row.brandText) {
+      //   let text = '';
+      //   row.brandText.forEach(item => {
+      //     text += `${item.text.replace('text()W+([^\text(', '')}`;
+      //   });
+      //   row.brandText = [
+      //     {
+      //       text: text.slice(0, -1),
+      //     },
+      //   ];
+      // }
       if ((!row.quantity || !row.quantity.length) && row.quantity1) {
         console.log('quantity1',row.quantity1);
         row.quantity = row.quantity1;
@@ -117,6 +169,11 @@ const transform = (data) => {
       if ((!row.quantity || !row.quantity.length) && row.quantity2) {
         console.log('quantity2',row.quantity2);
         row.quantity = row.quantity2;
+        console.log("quantity", row.quantity);
+      }
+      if ((!row.quantity || !row.quantity.length) && row.quantity3) {
+        console.log('quantity3',row.quantity3);
+        row.quantity = row.quantity3;
         console.log("quantity", row.quantity);
       }
       if (row.saltPerServing) {
@@ -130,17 +187,9 @@ const transform = (data) => {
           },
         ];
       }
-      // if (row.description) {
-      //   let text = '';
-      //   row.description.forEach(item => {
-      //     text += `${item.text.replace('•', '||')} `;
-      //   });
-      //   row.description = [
-      //     {
-      //       text: text.slice(0, -1),
-      //     },
-      //   ];
-      // }
+      if (row.aggregateRating && row.aggregateRating[0]) {
+        row.aggregateRating[0].text = row.aggregateRating[0].text.replace(/\./g, ',');
+      }
       if ((!row.saltPerServing || !row.saltPerServing.length) && row.saltPerServing1) {
         console.log('saltPerServing1', row.saltPerServing1);
         row.saltPerServing = row.saltPerServing1;

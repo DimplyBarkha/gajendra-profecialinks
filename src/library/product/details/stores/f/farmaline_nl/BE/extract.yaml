@@ -37,34 +37,46 @@ fields:
     defaultValue: In Stock
   - name: description
     singleValue: false
-    xpath: (//div[@class="content mb-3"])[1]//text()
+    xpath: (//h2[contains(text(),"Omschrijving")]//../following-sibling::div)[1]/div/text() | //h2[contains(text(),"Omschrijving")]//../following-sibling::div[1]/text() |//h2[contains(text(),"Omschrijving")]//../following-sibling::div[1]/p/text() | (//div[@class="content mb-3"])[1]//strong/text()
+    # xpath: (//div[@class="content mb-3"])[1]//text()
     # xpath: //div[@class="content"]
+  - name: description1
+    singleValue: false
+    xpath: //div[@class="content mb-3"][1]//ul/li
+    # xpath: //div[@class="content mb-3"]/div//ul//li[(following::h2[contains(text(),"Indicatie")])] | //div[@class="content mb-3"]//ul//li[(following::h2[contains(text(),"Indicatie")])]
   - name: descriptionBullets
     singleValue: false
-    xpath: (//div[@class="content mb-3"])[1]//ul/li
+    xpath: count(//div[@class="content mb-3"][1]//ul/li)
+    # xpath: count(//div[@class="content mb-3"]/div//ul//li[(following::h2[contains(text(),"Indicatie")])] | //div[@class="content mb-3"]//ul/li[(following::h2[contains(text(),"Indicatie")])])
   - name: brandText
     singleValue: false
-    xpath: //script[contains(.,"brand")]/text()
-    regExp: brand\W+([^"]+)
+    xpath: //script[contains(text(),"brand")]/text()
+    # regExp: brand\W+(\w+)
+    regExp: brand":"([^"]+)
     regExpReplace: $1
   - name: manufacturer
     singleValue: false
     xpath: //script[contains(.,"brand")]/text()
     regExp: manufacturer\W+([^"]+)
     regExpReplace: $1
-  - name: quantity2
+  - name: quantity3
     singleValue: false
     xpath: //h1/font//text() | //h1/text()  
-    regExp: (\d{1,}\W)(g|G|L|Kg|Mg|Ml|ml|Oz|s|l|EA|GR|pièces|préservatifs|pansements|set|sachet)
+    regExp: (\d{1,}\W)(g|G|L|Kg|Mg|Ml|ml|Oz|stucks|l|EA|GR|stuks|tabletten|kauwtabletten|condoms|zuigtabletten|pathch|stucks|pen|par|capsules|zakjes|zetpillen|pièces|crÃ¨me|ml roller|ampoules| ml spray|stick(s)|dragees|zak|zakjes|mg|ampoules|paar|patch| ml tube| préservatifs|pansements|set|sachet|pleisters)
     # regExpReplace:
-  - name: quantity1
+  - name: quantity2
     singleValue: false
     xpath: //h1/font//text() | //h1/text() 
-    regExp: ([0-9]+x\d+)\W+(g|G|L|Kg|Mg|Ml|ml|Oz|s|l|EA|GR|pièces|préservatifs|pansements|set|sachet)
+    regExp: ([0-9]+x\d+)\W+(g|G|L|Kg|Mg|Ml|ml|Oz|stucks|l|EA|GR|stuks|tabletten|kauwtabletten|condoms|zuigtabletten|pathch|stucks|pen|par|capsules|zakjes|zetpillen|pièces|crÃ¨me|ml roller|ampoules| ml spray|stick(s)|dragees|zak|zakjes|mg|ampoules|paar|patch| ml tube| préservatifs|pansements|set|sachet|pleisters)
   - name: quantity
     singleValue: false
     xpath: //h1/font//text() | //h1/text() 
-    regExp: ([0-9]+x\d+)\W+\d+\W+(g|G|L|Kg|Mg|Ml|ml|Oz|s|l|EA|GR|pièces|préservatifs|pansements|set|sachet)
+    # regExp: \d+(.+)
+    regExp: ([0-9]+x\d+)\W+\d+\W+(g|G|L|Kg|Mg|Ml|ml|Oz|stucks|l|EA|GR|stuks|tabletten|kauwtabletten|condoms|zuigtabletten|pathch|stucks|pen|par|capsules|zakjes|zetpillen|pièces|crÃ¨me|ml roller|ampoules| ml spray|stick(s)|dragees|zak|zakjes|mg|ampoules|paar|patch| ml tube| préservatifs|pansements|set|sachet|pleisters)
+  - name: quantity1
+    singleValue: false
+    xpath: //h1/font//text() | //h1/text() 
+    regExp: ([0-9]+\W\d+)\W+(g|G|L|Kg|Mg|Ml|ml|Oz|stucks|l|EA|GR|stuks|tabletten|kauwtabletten|condoms|zuigtabletten|pathch|stucks|pen|par|capsules|zakjes|zetpillen|pièces|crÃ¨me|ml roller|ampoules| ml spray|stick(s)|dragees|zak|zakjes|mg|ampoules|paar|patch| ml tube| préservatifs|pansements|set|sachet|pleisters)
   - name: weightNet
     singleValue: false
     description: Net weight as described on the page
@@ -94,11 +106,11 @@ fields:
     description: Content under "legal disclaimer" header
   - name: directions
     singleValue: false
-    xpath: //h2[contains(.,"Indication")]/following::div[1]/div/text() |//h2[contains(.,"Emploi")]/following::div[@class="content mb-3"][1]/div/text() | //h2[contains(.,"Indication")]/following::div[1]/text()| //h2[contains(.,"Indication")]/following::div[@class="content mb-3"]//ul/li | //h2[contains(.,"Indicatie")]/following::div[@class="content mb-3"][1]/text()
+    xpath: //h2[contains(.,"Gebruik")]/following::div[1]/text()| //h2[contains(.,"Indication")]/following::div[1]/div/text() |//h2[contains(.,"Emploi")]/following::div[@class="content mb-3"][1]/div/text() | //h2[contains(.,"Indication")]/following::div[1]/text()| //h2[contains(.,"Indication")]/following::div[@class="content mb-3"]//ul/li | //h2[contains(.,"Indicatie")]/following::div[@class="content mb-3"][1]/text()
     # xpath: //h2[contains(.,"Indication")]/following::div[@class="content mb-3"]//ul/li | //h2[contains(.,"Emploi")]/following::div[@class="content mb-3"][1]/text() | //h2[contains(.,"Indicatie")]/following::div[@class="content mb-3"][1]/text()
   - name: warnings
     singleValue: false
-    xpath: //h2[contains(.,"Emploi")]/following::div[@class="content mb-3"][1]/text() | //h2[contains(.,"Waarschuwing")]/following::div[@class="content mb-3"][1]/text() | //h2[contains(.,"Emploi")]/following::div[@class="content mb-3"][1]/div/text()
+    xpath: //h2[contains(.,"Emploi")]/following::div[@class="content mb-3"][1]/text() | //h2[contains(.,"Waarschuwing")]/following::div[@class="content mb-3"][1]//text()
   - name: ratingCount
     singleValue: false
     xpath: //meta[@itemprop="ratingCount"]/@content
@@ -244,8 +256,8 @@ fields:
     singleValue: false
     description: null
   - name: ingredientsList
-    singleValue: false
-    xpath: //h2[contains(.,"Ingrédients")]/following::div[1]/div/text()
+    singleValue: false 
+    xpath: //h2[contains(.,"Ingrédients")]/following::div[1]/div/text() | //h2[contains(.,"Ingrediënten")]/following::div[1]/div/text()
   - name: servingSize
     singleValue: false
     xpath: //strong[contains(.,"nutritionnelle")]/text()
@@ -466,7 +478,8 @@ fields:
     description: null
   - name: additionalDescBulletInfo
     singleValue: false
-    xpath: count((//div[@class="content mb-3"])[1]//ul/li)
+    xpath: //div[@class="content mb-3"][1]//ul/li
+    # xpath: //div[@class="content mb-3"]/div/ul//li[(following::h2[contains(text(),"Indicatie")])] | //div[@class="content mb-3"]/ul//li[(following::h2[contains(text(),"Indicatie")])]
   - name: prop65Warning
     singleValue: false
     description: null
