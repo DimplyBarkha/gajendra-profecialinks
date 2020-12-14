@@ -17,7 +17,7 @@ fields:
   - name: name
     singleValue: true
     xpath: //h1[@class="product-details-tile__title"]
-  - name: url
+  - name: productUrl
     singleValue: true
     xpath: //link[@rel="canonical"]/@href
   - name: category
@@ -246,8 +246,15 @@ fields:
   - name: priceCurrency
     singleValue: falses
     xpath: //span[@class='currency']
-  - name: manufacturerImages
+  - name: shownImages
     singleValue: false
+    xpath: //body//@additional_image
+  - name: otherSellersName
+    singleValue: false
+    defaultValue: "Tesco"
+
+
+
 
 
 
