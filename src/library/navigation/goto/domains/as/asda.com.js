@@ -5,6 +5,7 @@ module.exports = {
     country: 'GB',
     domain: 'asda.com',
     store: 'asda',
+    jsonToTable: true,
     timeout: 50000,
   },
 };
