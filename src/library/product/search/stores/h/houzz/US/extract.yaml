@@ -15,7 +15,7 @@ fields:
   - name: productUrl
     singleValue: true
     description: The URL for the product details page
-    xpath: //a[@class="hz-product-card__link"]/@href
+    xpath: //div[@id="ii_produrl"]
   - name: input
     singleValue: true
     description: Search keywords
@@ -23,7 +23,7 @@ fields:
   - name: thumbnail
     singleValue: true
     description: The URL for the product thumbnail image
-    xpath: //img[@class=" hz-image hz-responsive-img"]/@src
+    xpath: //div/picture[@class=" hz-image-container"]/img/@src
   - name: name
     singleValue: true
     description: The product name
