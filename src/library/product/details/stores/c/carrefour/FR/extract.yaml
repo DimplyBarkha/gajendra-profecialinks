@@ -38,7 +38,7 @@ fields:
     description: Availability as described on page for the selected variant. If
       there is no availability but the product can be added to cart, this field
       should be "In Stock"
-    xpath: //body/@import-purchasability
+    xpath: //body/@import-availability
   - name: description
     singleValue: false
     description:
@@ -130,7 +130,7 @@ fields:
     singleValue: false
     description: Images within the third party description
     xpath: //body/@import-enhanced-content
-    defaultValue: false
+    regExp: true
   - name: videos
     singleValue: false
     description: URLs of videos on page
@@ -214,18 +214,9 @@ fields:
   - name: lbbPrice
     singleValue: true
     description: null
-  - name: featureBullets
-    singleValue: false
-    description: null
   - name: otherSellersName
     singleValue: false
     description: null
-  - name: otherSellersPrice
-    singleValue: false
-    description: null
-    xpath: //div[@class='main-details__pdp-pricing']//div[@class='product-card-price__price']/span[last()]
-  - name: otherSellersAvailability
-    xpath: //body/@import-availability
   - name: otherSellersShipping
     singleValue: false
     description: null
@@ -525,8 +516,6 @@ fields:
       carousel,['Yes','No']
     example: https://www.zalando.de/adidas-neo-sneaker-low-blackwhite-a4315i002-q11.html
     defaultValue: No
-  - name: priceCurrency
-    defaultValue: EUR
   - name: allergens
     xpath: //div[@class="secondary-details-allergens"]/div[@class='product-block-content']/div
   - name: nutritionInfo
@@ -546,4 +535,7 @@ fields:
   - name: sku
     xpath: //link[@rel='canonical']/@href
     regExp: (.*)\/p\/(.*)-(\d+)
-    regExpReplace: $3
+    regExpReplace: carrefour_$3
+  - name: featureBullets
+    singleValue: false
+    xpath: //div[contains(@class,"regulated-name")]
