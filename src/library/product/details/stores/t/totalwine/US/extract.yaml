@@ -454,3 +454,8 @@ fields:
     regExp: '[^|]+'
   - name: attributes
     xpath: //div[contains(@class,"detailsTableRow")]
+#geo
+  - name: online_store
+    xpath: //p[contains(@id, 'globalStoreName')]
+  - name: retailer_id
+    xpath: //meta[@itemprop="branchCode"]/@content

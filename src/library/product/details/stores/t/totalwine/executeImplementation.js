@@ -5,7 +5,6 @@ const implementation = async function (
   dependencies,
 ) {
   let { url, id } = inputs;
-
   const zipcode = inputs.zipcode || parameters.zipcode;
   if (!url) {
     if (!id) {
@@ -58,7 +57,13 @@ const implementation = async function (
   const variantsExist = await context.evaluate(function () {
     const variants = document.querySelectorAll('ul[role="listbox"][class*="reset"] > li');
     // return variants.length > 1;
-    return !!variants
+    return !!variants;
+  });
+
+  const currentStoreId = await context.evaluate(function () {
+    return document.querySelector('meta[itemprop="branchCode"]') 
+      ? document.querySelector('meta[itemprop="branchCode"]').getAttribute('content') 
+      : null;
   });
 
   if (!variantsExist) {
@@ -71,7 +76,8 @@ const implementation = async function (
     // API call to fetch variants
       const sku = url.match(/p\/(.+)\?s=/g)[0].replace('?s=', '').replace('p/', '');
       const storeUniqueId = zipcode === '95825' ? 1108 : url.match(/s=(\d+)/g)[0].replace('s=', '');
-      const productDetails = await getData(`https://www.totalwine.com/product/api/product/product-detail/v1/getProduct/${sku}?shoppingMethod=INSTORE_PICKUP&state=US-CA&storeId=${storeUniqueId}`);
+      await new Promise((resolve, reject) => setTimeout(resolve, 6000));
+      const productDetails = await getData(`https://www.totalwine.com/product/api/product/product-detail/v1/getProduct/${sku}?shoppingMethod=INSTORE_PICKUP&state=US-CA&storeId=${currentStoreId ? currentStoreId : storeUniqueId}`);
       console.log('API call done');
       try {
         const variations = productDetails.skus.map(elm => elm.options.map(e => (`${e.type} - ${e.value}`)).join(', ')).join('|');

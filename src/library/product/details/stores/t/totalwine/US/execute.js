@@ -11,6 +11,7 @@ module.exports = {
   },
   dependencies: {
     setZipCode: 'action:navigation/goto/setZipCode',
+    createUrl: 'action:product/details/createUrl',
   },
   implementation,
 };
