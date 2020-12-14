@@ -118,6 +118,8 @@ const transform = (data) => {
           if (data.brand) {
             if (data.brand.name) {
               item.text = data.brand.name;
+            } else {
+              item.text = '';
             }
           } else {
             item.text = '';
