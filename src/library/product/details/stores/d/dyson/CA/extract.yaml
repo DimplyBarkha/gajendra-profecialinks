@@ -165,7 +165,7 @@ fields:
   - name: videos #localedependent
     singleValue: false
     description: URLs of videos on page
-    xpath: //div[@id='added_videos']//li
+    # xpath: //div[@id='added_videos']//li
     #xpath: (//div[contains(concat(' ',normalize-space(@class),' '),' s7videoviewer ')])[1]/@data-video-src
     #regExp: (.+)
     #regExpReplace: https://www.dyson.co.uk$1
