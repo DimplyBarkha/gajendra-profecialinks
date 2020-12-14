@@ -1,0 +1,20 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: //div[contains(@class,"hlisting")]/div[contains(@class,"col-xs-6")]
+fields:
+  - name: name
+    singleValue: false
+    xpath: //div[@class="bx"]/div/a/text()
+  - name: id
+    singleValue: false
+    xpath: //div[contains(@class,"col-xs-6")]/div//form/input[contains(@name,"product_data")]/@value
+  - name: productUrl
+    singleValue: false
+    xpath: //div[@class="bx"]/div/a/@href
+  - name: thumbnail
+    singleValue: false
+    xpath: //div[@class="product-image"]/a/img[@class="   pict"]/@src
+  - name: price
+    singleValue: false
+    xpath: //div[contains(@class,"price-group-wrap")]/div/span/span/span[@class="price  "]
