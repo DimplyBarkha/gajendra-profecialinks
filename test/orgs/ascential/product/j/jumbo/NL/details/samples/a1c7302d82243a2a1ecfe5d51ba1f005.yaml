@@ -1,126 +1,122 @@
 input:
-  id: 101737DS
+  id: 360525DS
   _url: http://jumbo.com
 extractions:
-  - html: https://workbench.import.io/html/run=388ce365-dfdb-40d1-acde-af9e989dbd84/task=e30756a5-a0b6-4eda-94a7-5dc9b87898c0/8a8861b7-8766-4f0a-aee0-29f82664ab88.html
+  - html: https://workbench.import.io/html/run=9746b6bf-661e-4395-86ef-2935f7017e89/task=73b08bec-9146-4b2e-9672-62a062576435/b07219a6-8753-4544-b726-791a171b384c.html
     extractionConfigId: product/details/stores/j/jumbo/NL/extract
     data:
       - group:
           - productUrl:
-              - text: https://www.jumbo.com/kinder-surprise-natoons-3-x-20g/101737DS/
+              - text: https://www.jumbo.com/b-better-water-blueberry--acai-750ml/360525DS/
                 xpath: /html/head[1]/link[2]/@href
             image:
-              - text: https://static-images.jumbo.com/product_images/290120200154_101737DS-1_360x360_2.png
+              - text: https://static-images.jumbo.com/product_images/210520200451_360525DS-1_360x360_2.png
                 xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[1]/a[1]/img[1]/@src
             imageAlt:
-              - text: Kinder Surprise Natoons 3 x 20g
+              - text: B-Better Water Blueberry & Acai 750ml
                 xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/img[1]/@alt
-            alternateImages:
-              - text: https://static-images.jumbo.com/product_images/290120200154_101737DS-9_360x360_2.png
-                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[2]/a[1]/img[1]/@src
             category:
-              - text: Chocoladepinda's, chocoladesnoepjes
+              - text: Plat water met smaak
                 xpath: /html/head[1]/title[1]
             nameExtended:
-              - text: Kinder Surprise Natoons 3 x 20g
+              - text: B-Better Water Blueberry & Acai 750ml
                 xpath: /html/head[1]/meta[8]/@content
+            availabilityText:
+              - text: In Stock
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[3]/div[1]/button[1]/span[1]
             description:
-              - text: " -Op het totaal: melkproducten 32% (magere melkpoeder, melkpoeder: 28%,
-                  boterconcentraat 4%) - cacao 15%. -Lekkernij bedekt met
-                  superieure melkchocolade die een verrassing bevat in een
-                  plastic capsule."
+              - text: " -B-Better Blueberry & Acai Water voor een heerlijke verfrissing:
+                  Gearomatiseerd water, laag in suiker en calorieën: Onze unieke
+                  verpakking is voor 90% gemaakt van plantaardig materiaal: Met
+                  een frisse smaak van bosbessen en açai: Zonder kunstmatige
+                  zoetstoffen en kleurstoffen: B-Better Water is goed voor jou
+                  en beter voor de planeet -Drank op basis van water met de
+                  smaak van bosbessen en açai."
                 xpath: /html/body/div[3]/div[5]/article[1]/div[1]/div[1]/section[1]/div[1]/div[1]/p[1]
             brandText:
-              - text: http://www.kinder.com
-                xpath: /html/body/div[3]/div[5]/article[1]/div[1]/div[1]/section[3]/div[11]/p[2]/a[1]/@href
-            manufacturer:
-              - text: http://www.kinder.com
+              - text: B-Better
                 xpath: /html/body/div[3]/div[5]/article[1]/div[1]/div[1]/section[3]/div[11]/p[2]/a[1]/@href
             quantity:
-              - text: 3 x 20 g
+              - text: 75 cl
                 xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/span[1]
-            sku:
-              - text: 101737DS
-                xpath: /html/body/div[3]/div[5]/article[1]/div[1]/div[1]/section[3]/div[1]/@data-jum-product-details
             variantId:
-              - text: 101737DS
+              - text: 360525DS
                 xpath: /html/body/div[3]/div[5]/article[1]/div[1]/div[1]/section[3]/div[1]/@data-jum-product-details
-            warnings:
-              - text: Bevat speelgoed. Aanwezigheid van kleine onderdelen. Toezicht door
-                  volwassenen aanbevolen.
-                xpath: /html/body/div[3]/div[5]/article[1]/div[1]/div[1]/section[3]/div[8]/p[1]
             manufacturerDescription:
-              - text: www.kinder.com
+              - text: B-Better
                 xpath: /html/body/div[3]/div[5]/article[1]/div[1]/div[1]/section[3]/div[11]/p[1]
             name:
-              - text: Kinder Surprise Natoons 3 x 20g
+              - text: B-Better Water Blueberry & Acai 750ml
                 xpath: /html/head[1]/meta[8]/@content
             ingredientsList:
-              - text: " -Superieure melkchocolade 47% (suiker, melkpoeder, cacaoboter,
-                  cacaomassa, emulgatoren: lecithinen [soja]; vanilline) -magere
-                  melkpoeder -suiker -plantaardige vetten (palm, shea)
-                  -boterconcentraat -emulgatoren: lecithinen [soja] -vanilline
-                  -Op het totaal: melkproducten 32% (magere melkpoeder,
-                  melkpoeder: 28,3%, boterconcentraat 3,7%), cacao 15%."
+              - text: " -Water -geconcentreerd citroensap -natuurlijke aroma's -açai-extract
+                  -geconcentreerd bosbessensap"
                 xpath: /html/body/div[3]/div[5]/article[1]/div[1]/div[1]/section[3]/div[6]/ul[1]/li[1]
             servingSize:
-              - text: Per 100 g
+              - text: "per 250 ml** (%*):"
                 xpath: /html/body/div[3]/div[5]/article[1]/div[1]/div[1]/section[3]/div[3]/table[1]/thead[1]/tr[1]/th[3]
             servingSizeUom:
-              - text: g
+              - text: ml
                 xpath: /html/body/div[3]/div[5]/article[1]/div[1]/div[1]/section[3]/div[3]/table[1]/thead[1]/tr[1]/th[3]
             caloriesPerServing:
-              - text: 2302kJ / 552kcal
+              - text: 5 kJ / 2 kcal (<1%*)
                 xpath: /html/body/div[3]/div[5]/article[1]/div[1]/div[1]/section[3]/div[3]/table[1]/tbody[1]/tr[1]/td[2]
             totalFatPerServing:
-              - text: "34.2"
+              - text: "0"
                 xpath: /html/body/div[3]/div[5]/article[1]/div[1]/div[1]/section[3]/div[3]/table[1]/tbody[1]/tr[2]/td[2]
             totalFatPerServingUom:
               - text: g
                 xpath: /html/body/div[3]/div[5]/article[1]/div[1]/div[1]/section[3]/div[3]/table[1]/tbody[1]/tr[2]/td[2]
             saturatedFatPerServing:
-              - text: "22.6"
+              - text: "0"
                 xpath: /html/body/div[3]/div[5]/article[1]/div[1]/div[1]/section[3]/div[3]/table[1]/tbody[1]/tr[3]/td[2]
             saturatedFatPerServingUom:
               - text: g
                 xpath: /html/body/div[3]/div[5]/article[1]/div[1]/div[1]/section[3]/div[3]/table[1]/tbody[1]/tr[3]/td[2]
             totalCarbPerServing:
-              - text: "52.3"
+              - text: <0.5
                 xpath: /html/body/div[3]/div[5]/article[1]/div[1]/div[1]/section[3]/div[3]/table[1]/tbody[1]/tr[4]/td[2]
             totalCarbPerServingUom:
               - text: g
                 xpath: /html/body/div[3]/div[5]/article[1]/div[1]/div[1]/section[3]/div[3]/table[1]/tbody[1]/tr[4]/td[2]
             totalSugarsPerServing:
-              - text: "52.1"
+              - text: <0.5
                 xpath: /html/body/div[3]/div[5]/article[1]/div[1]/div[1]/section[3]/div[3]/table[1]/tbody[1]/tr[5]/td[2]
             totalSugarsPerServingUom:
               - text: g
                 xpath: /html/body/div[3]/div[5]/article[1]/div[1]/div[1]/section[3]/div[3]/table[1]/tbody[1]/tr[5]/td[2]
             proteinPerServing:
-              - text: "8.1"
+              - text: "0"
                 xpath: /html/body/div[3]/div[5]/article[1]/div[1]/div[1]/section[3]/div[3]/table[1]/tbody[1]/tr[6]/td[2]
             proteinPerServingUom:
               - text: g
                 xpath: /html/body/div[3]/div[5]/article[1]/div[1]/div[1]/section[3]/div[3]/table[1]/tbody[1]/tr[6]/td[2]
             saltPerServing:
-              - text: "0.323"
+              - text: "0"
                 xpath: /html/body/div[3]/div[5]/article[1]/div[1]/div[1]/section[3]/div[3]/table[1]/tbody[1]/tr[7]/td[2]
             saltPerServingUom:
               - text: g
                 xpath: /html/body/div[3]/div[5]/article[1]/div[1]/div[1]/section[3]/div[3]/table[1]/tbody[1]/tr[7]/td[2]
             storage:
-              - text: "Droog en uit de warmte bewaren. Ten minste houdbaar tot: zie verpakking."
-                xpath: /html/body/div[3]/div[5]/article[1]/div[1]/div[1]/section[3]/div[7]/p[1]
-            allergyAdvice:
-              - text: Bevat Melk
-                xpath: /html/body/div[3]/div[5]/article[1]/div[1]/div[1]/section[3]/div[9]/ul[1]/li[1]
-              - text: Bevat Soja
-                xpath: /html/body/div[3]/div[5]/article[1]/div[1]/div[1]/section[3]/div[9]/ul[1]/li[2]
+              - text: "Ten minste houdaar tot einde: zie dop. Na opening gekoeld bewaren en
+                  beperkt houdbaar."
+                xpath: /html/body/div[3]/div[5]/article[1]/div[1]/div[1]/section[3]/div[8]/p[1]
+            recyclingInformation:
+              - text: "Recycling: Verpakking: Recyclebaar"
+                xpath: /html/body/div[3]/div[5]/article[1]/div[1]/div[1]/section[3]/div[7]/ul[1]/li[1]
+            productOtherInformation:
+              - text: FSC - Certified Cardboard - This pack looks different because it is.
+                  Protecting the water from light, fully recyclable,
+                  FSC-certified cardboard, plant-based materials, ASI-certified
+                  aluminium and a reduced carbon footprint. It's a start for
+                  less plastic and a better planet. 1% of our revenue goes to
+                  local actions for the environment.
+                xpath: /html/body/div[3]/div[5]/article[1]/div[1]/div[1]/section[3]/div[9]/p[1]
             pricePerUnit:
-              - text: 47,00/kilo
+              - text: 1,85/liter
                 xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/span[2]/span[2]
             pricePerUnitUom:
-              - text: kilo
+              - text: liter
                 xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/span[2]/span[2]
             technicalInformationPdfPresent:
               - text: No
@@ -135,6 +131,6 @@ extractions:
             imageZoomFeaturePresent:
               - text: No
             price:
-              - text: 2,82€
+              - text: 1,39€
         xpath: /
-    timestamp: 1606473061980
+    timestamp: 1607952924236

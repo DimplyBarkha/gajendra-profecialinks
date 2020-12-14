@@ -30,6 +30,12 @@ module.exports = {
     if (dataRef[0].group[0].variantId) {
       dataRef[0].group[0].variantId[0].text = dataRef[0].group[0].variantId[0].text.match(/:"(\w+)"/)[1];
     }
+    if (dataRef[0].group[0].brandText) {
+      dataRef[0].group[0].brandText[0].text = dataRef[0].group[0].brandText[0].text.match(/\/\/w?w?w?\.?(.+)\./)[1];
+    }
+    if (dataRef[0].group[0].quantity) {
+      dataRef[0].group[0].quantity[0].text = dataRef[0].group[0].quantity[0].text.match(/(\d+\s?\w+)$/)[1];
+    }
     return dataRef;
   },
 };
