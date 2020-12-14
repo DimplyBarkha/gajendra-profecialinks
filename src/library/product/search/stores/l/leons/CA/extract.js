@@ -10,10 +10,21 @@ module.exports = {
     zipcode: '',
   },
   implementation: async ({ url }, { country, domain, transform }, context, { productDetails }) => {
+    try {
+      await context.waitForSelector('div[class*="findify-components-common--grid"] div[class*=grid__column]', {timeout: 20000});
+    } catch(er) {
+      console.log(er.message);
+    }
+    await context.evaluate(async function() {
+      const hasProducts = document.querySelector('span[class*=zero-results__sorry]');
+      if(hasProducts) {
+        throw new Error('No results found');
+      }
+    })
     async function paginate() {
       try {
         await context.evaluate(async () => {
-          const element = document.querySelector('div[id="footer]');
+          const element = document.querySelector('div[id="footer"]');
           if (element) {
             element.scrollIntoView({ behavior: 'smooth', block: 'end', inline: 'nearest' });
             console.log('**** Scrolling it *****')
