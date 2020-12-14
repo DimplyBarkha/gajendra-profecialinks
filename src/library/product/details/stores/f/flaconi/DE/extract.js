@@ -97,9 +97,18 @@ module.exports = {
         // @ts-ignore
         descfinal.push(countLi[i].innerText);
       }
-      
+
       //var ratingValue = aggregateRating ? aggregateRating.replace(/^\D+/g, '') : '';
       pipeSeparatorDouble('desc', descfinal);
+      const rpc1 = getXpath('//meta[@itemprop="sku"]/@content','nodeValue')
+      var rpc=rpc1.split("-")
+      addElementToDocument('rpc',rpc[0])
+      const rating = getXpath('(//span[@class="sr-only"])[1]//text()','nodeValue')
+      var rating1=rating.split(" ")
+      addElementToDocument('rating',rating1[0])
+      const name1 = getXpath('//div[@class="product-name"]//a//text()','nodeValue')
+      const name2 = getXpath('//div[@class="product-name"]//span[@itemprop="name"]//text()','nodeValue')
+      addElementToDocument('name',name1+" "+name2)
     });
     await context.extract(productDetails);
   },

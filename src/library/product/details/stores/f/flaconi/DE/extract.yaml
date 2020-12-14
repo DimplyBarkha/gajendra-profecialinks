@@ -18,10 +18,11 @@ fields:
     xpath: (//div[@class="row"])[2]//a//span[not(contains(text(),'Start'))]
   - name: nameExtended
     singleValue: true
-    xpath: //div[contains(@class, 'breadcrumbs')]/span[@itemprop='name']
+    xpath: //h1[@class="h3"]//text()
   - name: listPrice
     singleValue: true
-    xpath: //span[@class='old-price']
+    xpath: //span[@class='old-price']//text()
+    type: CURRENCY
   - name: pricePerUnit
     singleValue: true
     xpath: (//span[@class="base-price"])[1]//text()
@@ -68,12 +69,12 @@ fields:
     xpath: //meta[@itemprop='sku']/@content
   - name: variantId
     singleValue: true
-    xpath: //div[@class="yotpo bottomLine yotpo-small"]/@data-product-id
+    xpath: //html//div[@id="rpc"]
   - name: warnings
     singleValue: true
   - name: ratingCount
     singleValue: false
-    xpath: //div[@class='yotpo-bottomline pull-left  star-clickable']//a/@aria-label
+    xpath: //html//div[@id="rating1"]
     regExp: (.*) reviews
     regExpReplace: $1
   - name: aggregateRatingText
@@ -83,6 +84,7 @@ fields:
     xpath: //div[@class='average-rating']
   - name: shippingInfo
     singleValue: true
+    defaultValue: flaconi
   - name: shippingDimensions
     singleValue: true
   - name: shippingWeight
@@ -116,7 +118,7 @@ fields:
     xpath: //div[@class="lazyYoutube blank lazyYoutube--loaded"]//a/@href
   - name: name
     singleValue: true
-    xpath: //div[@class='product-name']//span[@itemprop='name']
+    xpath: //html//div[@id="name"]
   - name: url
     singleValue: true
     xpath: //meta[@property='og:url']/@content
