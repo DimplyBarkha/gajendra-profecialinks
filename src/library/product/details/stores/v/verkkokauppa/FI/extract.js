@@ -275,7 +275,7 @@ module.exports = {
             document.querySelector('nav[role="tablist"]').scrollIntoView({ behavior: 'smooth' });
           });
           await context.click('#tabs-page-select-tab0');
-          await context.waitForSelector('div[class*="AspectRatio"]', { timeout: 30000 });
+          await context.waitForSelector('div[class*="AspectRatio"]', { timeout: 5000 });
         } catch (err) {
           console.log('No Enhanced Content');
         }
