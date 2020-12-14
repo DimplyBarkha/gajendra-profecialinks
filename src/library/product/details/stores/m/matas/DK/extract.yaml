@@ -22,7 +22,9 @@ fields:
     singleValue: false
     description: The categories (e.g. from breadcrumbs)
     xpath: (//span[@class='breadcrumb__text'])[2]
-    # //span[@class='breadcrumb__text']
+      # (//span[@class='breadcrumb__text'])[position()>0]
+      # (//span[@class='breadcrumb__text'])[position()>2 and position()<last()]
+    # (//span[@class='breadcrumb__text'])[2]
     # //span[@class='breadcrumb__step'][position()>1]/a/span/text()
   - name: nameExtended
     singleValue: true
@@ -44,6 +46,7 @@ fields:
     description: Availability as described on page for the selected variant. If
       there is no availability but the product can be added to cart, this field
       should be "In Stock"
+    xpath: (//div[@class='product-stock'])[1]/span[2]/b
     regExp: (.+)
     regExpReplace: In Stock
     defaultValue: Out of Stock
@@ -51,6 +54,7 @@ fields:
     singleValue: false
     description: Product description supplied by website - may be concatenanted from
       multiple places; specifically not the manufacturer description
+    xpath: //div[@class='read-more js-readMore']/p/text()
   - name: descriptionBullets
     singleValue: true
     description: Number of ul > li tags in the description
@@ -72,6 +76,7 @@ fields:
   - name: weightNet
     singleValue: true
     description: Net weight as described on the page
+    xpath: //span[contains(text(),'Enhedspris')]/following::span[1]/text()
   - name: weightGross
     singleValue: true
     description: Gross weight as described on the page
@@ -105,6 +110,7 @@ fields:
     singleValue: true
     description: The number of ratings
     type: NUMBER
+    xpath: //a[@class='product-page__header-rating-count']/span[2]
   - name: aggregateRatingText
     singleValue: true
     description: The stated aggregate rating
@@ -112,6 +118,7 @@ fields:
     singleValue: true
     description: The stated aggregate rating normalized to be out of 5
     type: NUMBER
+    xpath: //html//div[@id='agg']
   - name: shippingInfo
     singleValue: true
     description: Shipping information for the product
@@ -140,6 +147,7 @@ fields:
   - name: videos
     singleValue: false
     description: URLs of videos on page
+    xpath: //button[@class='product-page__video btn btn--link js-productPageVideo']/@data-href
   - name: name
     singleValue: true
     description: The product name
@@ -245,9 +253,10 @@ fields:
     singleValue: true
     description: null
   - name: ingredientsList
-    singleValue: true
+    singleValue: false
     description: List of Ingredients from site - can be string of data if no
       discernible start/end point
+    xpath: //ul[@class='list list--no-padding list--no-margin list--list-style-none']/li
   - name: servingSize
     singleValue: true
     description: The size of serving Nutritional information is based on.
