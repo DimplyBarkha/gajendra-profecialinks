@@ -12,7 +12,7 @@ fields:
   - name: rankOrganic
     description: The position (rank) within the list excluding sponsored/paid results
     type: NUMBER
-    xpath: //li/@aria-posinset
+    xpath: //@rankorganic
   - name: name
     description: The product name
     xpath: //div[@class='h-3 product-name']/a/text()
@@ -53,7 +53,7 @@ fields:
     description: The name of the seller of the item (if available)
   - name: rank
     description: search/listing rank
-    xpath: //li/@aria-posinset
+    xpath: //@rank
   - name: endorsementText
     description: The text that signifies that a product is endorsed
   - name: sponsored

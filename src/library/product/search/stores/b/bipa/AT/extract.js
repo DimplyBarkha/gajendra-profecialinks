@@ -1,3 +1,5 @@
+const { transform } = require('../../../../shared');
+
 async function implementation (inputs, parameters, context, dependencies) {
   const { transform } = parameters;
   const { productDetails } = dependencies;
@@ -36,7 +38,7 @@ module.exports = {
   parameterValues: {
     country: 'AT',
     store: 'bipa',
-    transform: null,
+    transform,
     domain: 'bipa.at',
   },
   implementation,
