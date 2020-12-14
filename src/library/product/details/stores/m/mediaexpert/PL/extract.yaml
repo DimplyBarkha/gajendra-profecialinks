@@ -15,6 +15,8 @@ fields:
     xpath: //div[contains(@class, 'is-productName')]//h1
   - name: price
     xpath: //meta[@property='product:price:amount']/@content
+  - name: promocodePrice  
+    xpath: //div[contains(@class, 'is-shopsOnly')]//div[contains(@class, 'is-prices')]//div[contains(@class, 'is-promoCodeEmblem')]//div[contains(@class, 'is-promoPrice')]
   - name: availabilityText
     xpath: //span[@class='is-starred']
     regExp: (.+)
@@ -50,9 +52,9 @@ fields:
     xpath: //div[@class='is-description']//img[@data-component="lazyLoad" and not(contains(@alt,'Ikona'))]/@src
     regExp: (.+)
     regExpReplace: https://www.mediaexpert.pl$1
+  # - name: manufacturerDescription
+  #   xpath: //div[@class='prawa'] | //div[@class='is-description']//section[contains(@class, 'TFL_section TFL_info')] | //div[@id='description']//table//td//img[contains(@data-component,"lazyLoad")]/../.. | //div[@class='is-description']//div[contains(@class, 'pure-u-1')]//p[contains(@class, 'text-justify')] | //div[@id='description']//*[contains(@class, 'product-page')]/div[contains(@class, 'feature-wrap')] |//div[@id='description']//div[@class='display-desktop' or @class='DELL_content' or contains(@class, 'dell_content')] | //div[@id='description']//div[contains(@class, 'Rtable-cell')] | //div[contains(@class, 'esm-benfits-section')]
   - name: manufacturerDescription
-    xpath: //div[@class='prawa'] | //div[@class='is-description']//section[contains(@class, 'TFL_section TFL_info')] | //div[@id='description']//table//td//img[contains(@data-component,"lazyLoad")]/../.. | //div[@class='is-description']//div[contains(@class, 'pure-u-1')]//p[contains(@class, 'text-justify')] | //div[@id='description']//*[contains(@class, 'product-page')]/div[contains(@class, 'feature-wrap')] |//div[@id='description']//div[@class='display-desktop' or @class='DELL_content' or contains(@class, 'dell_content')] | //div[@id='description']//div[contains(@class, 'Rtable-cell')] | //div[contains(@class, 'esm-benfits-section')]
-  - name: enhancedContent
     xpath: //div[contains(@class, 'is-description')]//div[contains(@class, 'text_editor')]
   - name: specifications
     xpath: //table[contains(@class, 'is-specification')]//tr

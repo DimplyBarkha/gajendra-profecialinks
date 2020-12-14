@@ -12,8 +12,6 @@ const transform = (data) => {
     .replace(/&amp;#160/g, ' ')
     .replace(/\u00A0/g, ' ')
     .replace(/\s{2,}/g, ' ')
-    .replace(/"\s{1,}/g, '"')
-    .replace(/\s{1,}"/g, '"')
     .replace(/^ +| +$|( )+/g, ' ')
   // eslint-disable-next-line no-control-regex
     .replace(/[\x00-\x1F]/g, '')
@@ -62,6 +60,10 @@ const transform = (data) => {
         row.aggregateRating[0].text = row.aggregateRating[0].text.replace('.', ',');
       }
 
+      if (row.promocodePrice) {
+        row.price = row.promocodePrice;
+      }
+
       if (row.price) {
         row.price[0].text = row.price[0].text.replace('.', ',');
       }
@@ -105,13 +107,13 @@ const transform = (data) => {
         }
       }
 
-      if (row.manufacturerDescription) {
-        let enhancedContent = '';
-        for (let i = 0; i < row.manufacturerDescription.length; i++) {
-          enhancedContent += row.manufacturerDescription[i].text + ' ';
-        }
-        row.manufacturerDescription = [{ text: enhancedContent }];
-      }
+      // if (row.manufacturerDescription) {
+      //   let enhancedContent = '';
+      //   for (let i = 0; i < row.manufacturerDescription.length; i++) {
+      //     enhancedContent += row.manufacturerDescription[i].text + ' ';
+      //   }
+      //   row.manufacturerDescription = [{ text: enhancedContent }];
+      // }
 
       if (row.weightNet) {
         let weightNet = row.weightNet[0].text;
@@ -123,9 +125,9 @@ const transform = (data) => {
         row.weightNet = [{ text: weightNet }];
       }
 
-      if (row.enhancedContent && !row.manufacturerDescription) {
-        row.manufacturerDescription = row.enhancedContent;
-      }
+      // if (row.enhancedContent && !row.manufacturerDescription) {
+      //   row.manufacturerDescription = row.enhancedContent;
+      // }
 
       if (!row.sku) {
         row.sku = row.skuSecondary;

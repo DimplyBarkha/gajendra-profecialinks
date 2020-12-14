@@ -79,25 +79,30 @@ module.exports = {
       return document.querySelectorAll('div#description div[style] iframe[data-component="lazyLoad"]');
     });
     for (let i = 0; i < Object.keys(videoIframes).length; i++) {
-      const selector = `div#description div[style]:nth-child(${i + 2}n)  iframe`;
+      const selector = 'div#description div[style]  iframe';
       const extractedVideoLink = await extractVideosFromEnhancedContent(selector);
-      if (extractedVideoLink.includes('youtube')) {
+      if (extractedVideoLink && extractedVideoLink.includes('youtube')) {
         await appendVideosToDom(extractedVideoLink);
+        await removeAddedVideoFromDom(selector);
       }
     }
 
     async function extractVideosFromEnhancedContent (selector) {
-      const videos = await context.evaluateInFrame(selector,
-        function () {
-          console.log('start of evaluate');
-          const a = document.querySelector('link[rel="canonical"]');
-          if (a) {
-            return a.getAttribute('href');
-          }
-          console.log(JSON.stringify(a));
-        },
-      );
-      return videos;
+      try {
+        const videos = await context.evaluateInFrame(selector,
+          function () {
+            console.log('start of evaluate');
+            const a = document.querySelector('link[rel="canonical"]');
+            if (a) {
+              return a.getAttribute('href');
+            }
+          },
+        );
+        return videos;
+      } catch (err) {
+        console.log(err);
+        return null;
+      }
     };
 
     async function appendVideosToDom (videoLink) {
@@ -108,6 +113,18 @@ module.exports = {
         newDiv.style.display = 'none';
         document.body.appendChild(newDiv);
       }, videoLink);
+    }
+
+    async function removeAddedVideoFromDom (videoSelector) {
+      await context.evaluate(function (videoSelector) {
+        if (videoSelector) {
+          const videoEle = document.querySelector(videoSelector);
+          if (videoEle) {
+            const parentEle = videoEle.parentElement;
+            return parentEle ? parentEle.removeChild(videoEle) : null;
+          }
+        }
+      }, videoSelector);
     }
 
     return await context.extract(productDetails, { transform: transformParam });
