@@ -24,13 +24,12 @@ module.exports = {
       }
     });
 
-
     try {
       await context.waitForSelector('div.dy-recommendations__slider, section.alternative-products', { timeout: 45000 });
     } catch (error) {
       console.log('Not loading recommended products');
     }
-  
+
     async function scrollToRec () {
       await context.evaluate(async () => {
         var element = (document.querySelector('div.dy-recommendations__slider, section.alternative-products')) ? document.querySelector('div.dy-recommendations__slider, section.alternative-products') : null;
@@ -74,7 +73,7 @@ module.exports = {
       //   addElementToDocument('manufacturer', manufText[1]);
       // }
 
-      const manufacturer = window && window._nRepData && window._nRepData["context"] ? window._nRepData["context"].manufacturer.replace('&#39;', '\'').replace(/\s/, ' ') : '';
+      const manufacturer = window && window._nRepData && window._nRepData.context ? window._nRepData.context.manufacturer.replace('&#39;', '\'').replace(/\s/, ' ') : '';
       addElementToDocument('manufacturer', manufacturer);
       const img360 = document.evaluate("//div[contains(@class,'product-gallery__button cta cta-secondary icon-three-sixty')]", document, null, XPathResult.STRING_TYPE, null);
       if (img360 && img360.stringValue) {
