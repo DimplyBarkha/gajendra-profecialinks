@@ -23,35 +23,7 @@ const transform = (data) => {
     }))));
   
     for (const { group } of data) {
-      for (const row of group) {
-        // if (row.aggregateRating) {
-        //     let text;
-        //     row.aggregateRating.forEach(item => {
-        //         text = `${item.text / 20}`;
-        //     });
-        //     row.aggregateRating = [
-        //       {
-        //         text: text,
-        //       },
-        //     ];
-        //   }
-       
-        if (row.availabilityText) {
-          let text = '';
-          row.availabilityText.forEach(item => {
-            if(item.text.includes('В наличии на складе')) {
-              text = 'In stock';
-            } else {
-              text  = 'Out of stock'
-            }
-            
-          });
-          row.availabilityText = [
-            {
-              text: text,
-            },
-          ];
-         }
+      for (const row of group) {        
         if (row.variantUrl) {
           var dups= [];
           row.variantUrl = row.variantUrl.filter(function (el) {
@@ -100,18 +72,6 @@ const transform = (data) => {
             },
           ];
         }
-        
-        // if (row.manufacturerDescription) {
-        //   let text = '';
-        //   row.manufacturerDescription.forEach(item => {
-        //     text += item.text.replace(/\s{2,}/g, ' ').replace(/\n/g, ' ').trim();
-        //   });
-        //   row.manufacturerDescription = [
-        //     {
-        //       text: text,
-        //     },
-        //   ];
-        // }
       }
       
     }

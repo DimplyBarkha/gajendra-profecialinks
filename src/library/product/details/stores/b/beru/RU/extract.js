@@ -30,7 +30,7 @@ if( specXpath) {
   specificationList = document.querySelectorAll('div.b_3_bNW20rUd');
   specificationList.forEach((element) => {
     specification +=
-      element.children[0].innerText+':'+element.children[2].innerText+'|';
+      element.children[0].innerText+':'+element.children[2].innerText+'||';
   });
   const specifications = [];
    specifications.push(specification.slice(0 , -1))
@@ -96,7 +96,7 @@ await context.evaluate(async () => {
         bulletList += element.innerText;
         bulletListTemp += element.innerText;
       } else {
-        bulletList += element.innerText+'|';
+        bulletList += element.innerText+'||';
         bulletListTemp += element.innerText+'|';
       }
     });
@@ -309,7 +309,7 @@ if(spec.length === 0) {
   specificationList = document.querySelectorAll('div.b_3_bNW20rUd');
   specificationList.forEach((element, index, array) => {
     specification +=
-      element.children[0].innerText +':'+element.children[2].innerText+'|';
+      element.children[0].innerText +':'+element.children[2].innerText+'||';
   });
   addHiddenDiv('specification', specification);
 }
