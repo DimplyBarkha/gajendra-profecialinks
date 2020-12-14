@@ -77,9 +77,13 @@ const transform = (data) => {
             }
             if (row.availabilityText) {
                 row.availabilityText.forEach(item => {
-                    if (item.text > 0) {
+                    if (item.text >= 1) {
                         item.text = "In Stock"
                     }
+                    if (item.text == 0) {
+                        item.text = "Out of Stock"
+                    }
+
                 });
             }
             if (row.brandText) {
