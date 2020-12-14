@@ -37,7 +37,7 @@ fields:
     xpath: //script[@type="application/ld+json"][contains(text(),'availability":"http://schema.org/InStock"')]
     regExp: (.+)
     regExpReplace: In Stock
-    defaultValue: Out of Stock    
+    defaultValue: Out of Stock
   - name: description
     singleValue: false
     xpath: //div[@id="productData"]//h1|//div[@class="productFullDetailDesktopCss-details__content-3BZ"]//ul[@class="productAttributesCss-attributes__group-q5V productAttributesCss-attributes__group_product-HeK"]//li
@@ -54,7 +54,7 @@ fields:
     xpath: //div[@class="pageContainer-root-1fe"]//span[@itemprop="sku"]
   - name: brandText
     singleValue: false
-    xpath: //div[@class="pageContainer-root-1fe"]//span[@itemprop="brand"]  
+    xpath: //div[@class="pageContainer-root-1fe"]//span[@itemprop="brand"]
   - name: manufacturer
     singleValue: false
     xpath: //div[@class="pageContainer-root-1fe"]//span[@itemprop="brand"]
@@ -63,7 +63,7 @@ fields:
     type: NUMBER
     xpath: //div[@id="productData"]//div[@class="productRatingCss-ratings-8MD"]
     regExp: (.*opinie:)(.\d+)
-    regExpReplace: $2    
+    regExpReplace: $2
   - name: specifications
     singleValue: false
     xpath: //div[@class="productSpecificationCss-root-3rN"]//div[@class="productSpecificationCss-row-14w"]
@@ -76,7 +76,7 @@ fields:
   - name: technicalInformationPdfPresent
     singleValue: false
     xpath: //div[contains(@class, "productPdf")][1]//button/text()
-    defaultValue: No    
+    defaultValue: No
   - name: weightNet
     singleValue: false
     xpath: (//div[@id="productSpecification"]//span[contains(text(), "Waga")])[1]//following-sibling::span/text()
@@ -100,12 +100,12 @@ fields:
     type: NUMBER
     xpath: (//div[@class="productRatingCss-rating-2Og"])[1]/@style
     regExp: (.*width:)(.\d+)(%)
-    regExpReplace: $2    
-  - name: aggregateRatingText  
+    regExpReplace: $2
+  - name: aggregateRatingText
     singleValue: false
     xpath: (//div[@class="productRatingCss-rating-2Og"])[1]/@style
     regExp: (.*width:)(.\d+)(%)
-    regExpReplace: $2    
+    regExpReplace: $2
   - name: variantCount
     singleValue: false
     type: NUMBER
@@ -161,10 +161,11 @@ fields:
     xpath: //div[contains(@id, "added-manufacturer-images")]
   - name: manufacturerDescription1
     singleValue: false
-    xpath: //div[@id="added-manufacturer-description"]        
+    xpath: //div[@id="added-manufacturer-description"]
   - name: video1
     singleValue: false
-    # xpath: //div[@id="added-video"]            
-  - name: hasComparisonTable
-    singleValue: true
-    xpath: boolean(//button[@class="null compareButtonCss-compare-JO1"])
+    # xpath: //div[@id="added-video"]
+  - name: inTheBoxText
+    singleValue: false
+    description: Must include text to show the accessories/tools which come with the product
+    xpath: //span[contains(text(),"Załączone wyposażenie")]//following-sibling::span
