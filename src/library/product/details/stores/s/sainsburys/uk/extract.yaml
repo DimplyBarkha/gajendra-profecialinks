@@ -19,21 +19,16 @@ fields:
   - name: listPrice
     singleValue: true
     description: The stated undiscounted price for the product
-    xpath: //html//div[@id='price']
+    xpath: //div[@class='pd__cost__total undefined']/text()
   - name: description
     singleValue: false
     description: Product description supplied by website - may be concatenanted from
       multiple places; specifically not the manufacturer description
-    xpath: //div[@class="itemTypeGroupContainer productText"][1]  
+    xpath: //div[@class="itemTypeGroupContainer productText"]
   - name: manufacturer
     singleValue: true
     description: Product manufacturer
-    xpath: (//div[@class="memo"]/p)[3]
-  - name: quantity
-    singleValue: true
-    description: Quantity as described on the page
-    regExp: (?:\s?([\d\.]+\s?)([bB]ar[s]?|[cC]ount|[cC]t|[fF][lL][\.]?\s?[oO][zZ][\.]?|FO|[mM][lL]|[oO][zZ][\.]?|pc|[pP]int|[pP]ops|qt|[wW]ipe[s]?).?)$|(?:\s?([\d\.]+\s?)([bB]ar[s]?|[cC]ount|[cC]|[fF][lL][\.]?\s?[oO][zZ][\.]?|FO|[mM][lL]|[oO][zZ][\.]?|pc|[pP]int|[pP]ops|qt|[wW]ipe[s]?).?\s?[\&\-\w\s]+)$
-    regExpReplace: $1$2$3$4
+    xpath: (//div[@class="itemTypeGroup"]//div[@class="memo"]/p)[4]/text()|//div[@class="ln-c-card pd-details ln-c-card--soft"]//div[@class="productText"][12]
   - name: sku
     singleValue: true
     description: The store-specific product identifier
@@ -46,14 +41,6 @@ fields:
     singleValue: true
     description: Content under "warnings" header
     xpath: //p[@data-test-id="pd-alcohol-warning"]/text()
-  - name: ratingCount
-    singleValue: true
-    description: The number of ratings
-    xpath: (//div[@class="pd-reviews__summary__text"])[1]
-    type: NUMBER
-  - name: aggregateRatingText
-    singleValue: true
-    description: The stated aggregate rating
   - name: aggregateRating
     singleValue: true
     description: The stated aggregate rating normalized to be out of 5
@@ -71,6 +58,6 @@ fields:
     singleValue: true
     description: Product brand shown - this may actually NOT be just a brand name,
       e.g. "Visit the Gillette Store"
-    xpath: //div[@class="col-md-6 col-xs-12 col-sm-6 pdp-info-main"]/strong/text()
+    xpath: //html//div[@id='brandText']
     
 
