@@ -431,7 +431,7 @@ fields:
   - name: specifications
     singleValue: false
     description: The physical dimensions of the product including packaging.
-    xpath: //div[@class="flix-tech-spacs-contents"]//div[@class="flix-dl"]//div[@class="flix-dd"]
+    xpath: //div[text() = 'Ağırlık & Boyutlar']/following-sibling::table[1]//tr/td | //div[text() = 'Özellikler']/following-sibling::table[1]//tr/td
   - name: warranty
     singleValue: true
     description: Guarantee associated with the product
