@@ -99,13 +99,12 @@ fields:
     regExp: (.+)
     regExpReplace: Yes
     defaultValue: No
-
   - name: inTheBoxText
     xpath: //div[contains(@class, "InTheBox")]//div[@class="flix-std-content"] | //li[contains(.,"Accessories")]/ul/li
   - name: inTheBoxUrl
     xpath: //div[contains(@class, "InTheBox")]//div[@class="flix-background-image"]//img/@data-flixsrcset
     regExp: (.+)(\s?200w)(.+)
-    regExpReplace: $1
+    regExpReplace: https:$1
   - name: unInterruptedPDP
     xpath: //div[contains(@class,"mainbox-featured")]//div[contains(@class,"product-col")]
   - name: hasComparisonTable
