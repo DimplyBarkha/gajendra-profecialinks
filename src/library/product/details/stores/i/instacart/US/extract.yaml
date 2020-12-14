@@ -23,11 +23,11 @@ fields:
     regExpReplace: $2
   - name: availabilityText
     xpath: //section//button[contains(text(), 'Add to Cart')]
-    regExp: (.+)
+    regExp: Add to Cart
     regExpReplace: In stock
     defaultValue: Out of Stock
   - name: description
-    xpath: //main[@id="main-content"]/div[contains(@class, 'rmq')]/div/div[contains(@style, 'flex:2')]//h3[contains(text(), 'Details')]/following-sibling::div
+    xpath: //h3[contains(text(),'Details')]/following-sibling::div
   - name: descriptionBullets
     description: Number of ul > li tags in the description
     type: NUMBER
@@ -58,8 +58,6 @@ fields:
   - name: packSize
     description: The number of packs in the product offer (if stated separately on
       the site to quantity)
-  - name: legalDisclaimer
-    description: Content under "legal disclaimer" header
   - name: directions
     xpath: //main[@id="main-content"]/div[contains(@class, 'rmq')]/div/div[contains(@style, 'flex:2')]//h3[contains(text(), 'Directions')]/following-sibling::div
   - name: warnings
@@ -172,10 +170,10 @@ fields:
   - name: fastTrack
     description: null
   - name: ingredientsList
-    xpath: //main[@id="main-content"]/div[contains(@class, 'rmq')]/div/div[contains(@style, 'flex:2')]//h3[contains(text(), 'Ingredients')]/following-sibling::div
+    xpath: //h3[contains(text(),'Ingredients')]/following-sibling::div
   - name: servingSize
     xpath: //main[@id="main-content"]//div[contains(text(), 'Serving Size')]
-    regExp: (Serving Size (.+) (\w+))
+    regExp: (Serving Size (.+))
     regExpReplace: $2
   - name: servingSizeUom
     xpath: //main[@id="main-content"]//div[contains(text(), 'Serving Size')]
@@ -390,5 +388,11 @@ fields:
     regExpReplace: $3
   - name: highQualityImages
     xpath: //main[@id="main-content"]//div[contains(@class, 'rmq-c76db721')]/div/img/@src
+    regExp: ^((?!4bbe82b8555e4d1c12626fd482cb2409713e8e30835645ff3650ef66a725d03c).)*$
   - name: shownImages
     xpath: //main[@id="main-content"]//div[contains(@class, 'rmq-c76db721')]/div/img/@src
+    regExp: ^((?!4bbe82b8555e4d1c12626fd482cb2409713e8e30835645ff3650ef66a725d03c).)*$
+  - name: legalDisclaimer
+    xpath: //h3[contains(text(),'Warnings')]/following-sibling::div
+    description: Content under "legal disclaimer" header
+
