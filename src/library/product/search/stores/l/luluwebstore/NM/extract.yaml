@@ -6,9 +6,6 @@ fields:
   - name: id
     singleValue: false
     xpath: //input[@name="productCodePost"]/@value
-    # type: NUMBER
-    # regExp: \d+
-    # regExpReplace: ''
   - name: name
     singleValue: false
     xpath: //div[@class="plp-prod-name"]/text()
@@ -30,10 +27,7 @@ fields:
   - name: price
     singleValue: false
     xpath: //div[@class="price"]/span/text()
-  - name: rankOrganic
-    singleValue: false
-    xpath: //html//div[@id="rankOrganic"]/text()
   - name: rank
-    singleValue: false
-    xpath: //html//div[@id="rankOrganic"]/text()
-    # type: NUMBER
+    singleValue: true
+  - name: rankOrganic
+    singleValue: true    
