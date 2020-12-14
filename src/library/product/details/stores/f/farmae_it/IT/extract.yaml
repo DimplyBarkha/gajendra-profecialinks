@@ -65,7 +65,7 @@ fields:
     xpath: //meta[@itemprop="sku"]/@content
   - name: variantId
     singleValue: false
-    description: Identifier for a variant from a store where variants share the same sku
+    xpath: //meta[@itemprop="sku"]/@content
   - name: mpc
     singleValue: false
     description: The manufacturer model code (unique) of the product
