@@ -24,21 +24,23 @@ async function implementation (
   }
   const response1 = await context.evaluate(async function ({ keywords }) {
     if (keywords) {
-      return await fetch(`https://www.homedepot.ca/homedepotcacommercewebservices/v2/homedepotca/search?q=${keywords}:relevance&page=1&pageSize=100&lang=en`)
+      return await fetch(`https://www.homedepot.ca/api/search/v1/search?q=${keywords}&store=7077&page=1&pageSize=100&lang=en`)
         .then(response => response.json())
         .catch(error => console.error('Error:', error));
     }
   }, { keywords });
+  await new Promise(resolve => setTimeout(resolve, 20000));
   let response2 = {};
   if (response1 && response1.searchReport && response1.searchReport.totalProducts > 100) {
     response2 = await context.evaluate(async function ({ keywords }) {
       if (keywords) {
-        return await fetch(`https://www.homedepot.ca/homedepotcacommercewebservices/v2/homedepotca/search?q=${keywords}:relevance&page=2&pageSize=100&lang=en`)
+        return await fetch(`https://www.homedepot.ca/api/search/v1/search?q=${keywords}&store=7077&page=2&pageSize=100&lang=en`)
           .then(response => response.json())
           .catch(error => console.error('Error:', error));
       }
     }, { keywords });
   }
+  await new Promise(resolve => setTimeout(resolve, 20000));
   let response = [];
   if (response1 && response1.products && response2 && response2.products) {
     response = [...response1.products, ...response2.products];
@@ -81,26 +83,24 @@ async function implementation (
         }
         const rowId = `pd_div_${index}`;
         const element = products[index];
-        if (element.brand) {
-          if (!document.querySelector(rowId)) {
-            addElementToDocument(`pd_div_${index}`, index);
-          }
-          // @ts-ignore
-          if (keywords && page) {
-            // @ts-ignore
-            const searchUrl = `https://www.homedepot.ca/homedepotcacommercewebservices/v2/homedepotca/search?q=${keywords}:relevance&page=${page}&pageSize=40&lang=en`;
-            addDataToDocument('search-url', searchUrl, rowId);
-          }
-          element.code && addDataToDocument('id', element.code, rowId);
-          element.url && addDataToDocument('pd_url', element.url, rowId);
-          element.pricing && element.pricing.displayPrice && element.pricing.displayPrice.formattedValue && addDataToDocument('pd_price', element.pricing.displayPrice.formattedValue, rowId);
-          element.brand && element.name && addDataToDocument('pd_name', `${element.brand} ${element.name}`, rowId);
-          element.imageUrl && addDataToDocument('pd_thumbnail', element.imageUrl, rowId);
-          element.brand && addDataToDocument('pd_brand', element.brand, rowId);
-          element.productRating && element.productRating.averageRating && addDataToDocument('pd_aggregateRating', element.productRating.averageRating, rowId);
-          element.productRating && element.productRating.totalReviews && addDataToDocument('pd_rating', element.productRating.totalReviews, rowId);
-          element.modelNumber && addDataToDocument('pd_mpc', element.modelNumber, rowId);
+        if (!document.querySelector(rowId)) {
+          addElementToDocument(`pd_div_${index}`, index);
         }
+        // @ts-ignore
+        if (keywords && page) {
+          // @ts-ignore
+          const searchUrl = `https://www.homedepot.ca/api/search/v1/search?q=${keywords}&store=7077&page=${page}&pageSize=40&lang=en`;
+          addDataToDocument('search-url', searchUrl, rowId);
+        }
+        element.code && addDataToDocument('id', element.code, rowId);
+        element.url && addDataToDocument('pd_url', element.url, rowId);
+        element.pricing && element.pricing.displayPrice && element.pricing.displayPrice.formattedValue && addDataToDocument('pd_price', element.pricing.displayPrice.formattedValue, rowId);
+        element.brand && element.name ? addDataToDocument('pd_name', `${element.brand} ${element.name}`, rowId) : element.name && addDataToDocument('pd_name', `${element.name}`, rowId);
+        element.imageUrl && addDataToDocument('pd_thumbnail', element.imageUrl, rowId);
+        element.brand && addDataToDocument('pd_brand', element.brand, rowId);
+        element.productRating && element.productRating.averageRating && addDataToDocument('pd_aggregateRating', element.productRating.averageRating, rowId);
+        element.productRating && element.productRating.totalReviews && addDataToDocument('pd_rating', element.productRating.totalReviews, rowId);
+        element.modelNumber && addDataToDocument('pd_mpc', element.modelNumber, rowId);
       }
     }, { products, keywords, results });
   }
