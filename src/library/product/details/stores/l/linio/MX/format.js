@@ -51,6 +51,26 @@ const transform = (data) => {
       if (row.nameExtended && row.brandText) {
         row.nameExtended[0].text = row.brandText[0].text + ' - ' + row.nameExtended[0].text;
       }
+      if (row.specifications) {
+        if (row.specifications[0].text.length && row.specifications[0].text.includes('Especificaciones:')) {
+          var test = '';
+          var demo = row.specifications[0].text;
+          var regExString = new RegExp('(?:' + 'Especificaciones:' + ')(.[\\s\\S]*)(?:' + ' \n \n \n ' + ')');
+          test = regExString.exec(demo);
+          test = test && test[1].trim();
+          row.specifications[0].text = test;
+        }
+      }
+      if (!row.materials) {
+        if (row.description[0].text.length && row.description[0].text.includes('Material:')) {
+          var test1 = '';
+          var demo1 = row.description[0].text;
+          var regExString1 = new RegExp('(?:' + 'Material:' + ')(.[\\s\\S]*)(?:' + 'Color:' + ')');
+          test1 = regExString1.exec(demo1);
+          test1 = test1 && test1[1].trim();
+          row.materials = [{ text: test1 }];
+        }
+      }
     }
   }
   data.forEach(obj => obj.group.forEach(row => Object.keys(row).forEach(header => row[header].forEach(el => {

@@ -91,6 +91,9 @@ fields:
   - name: productOtherInformation
     singleValue: false
     xpath: //div[contains(@class,'usp-product-container')]//div
+  - name: specifications
+    singleValue: false
+    xpath: //div[contains(@itemprop,'description')]/p[text()[normalize-space() = 'Especificaciones:']]
   # - name: packSize
   #   singleValue: false
   #   xpath: //div[contains(text(),'Qué hay en la caja')]/following::div[1]
@@ -380,9 +383,6 @@ fields:
   # - name: dietaryInformation
   #   singleValue: true
   #   description: null
-  # - name: specifications
-  #   singleValue: true
-  #   description: The physical dimensions of the product including packaging.
   # - name: storage
   #   singleValue: true
   #   description: Suggested storage location for product
