@@ -56,16 +56,23 @@ async function implementation (inputs, parameters, context, dependencies) {
       }, 1000);
     });
 
-    // scroll to images in description
-    var descpImageElem = document.querySelector('a[name="product_gallery"]');
-    if (descpImageElem) {
-      descpImageElem.scrollIntoView();
-
-      await new Promise((resolve, reject) => {
+    function stall (ms) {
+      return new Promise((resolve, reject) => {
         setTimeout(() => {
           resolve();
-        }, 2000);
+        }, ms);
       });
+    }
+
+    let scrollTop = 0;
+    while (scrollTop !== 10000) {
+      await stall(500);
+      scrollTop += 1000;
+      window.scroll(0, scrollTop);
+      if (scrollTop === 10000) {
+        await stall(500);
+        break;
+      }
     }
 
     // get price
@@ -126,6 +133,9 @@ async function implementation (inputs, parameters, context, dependencies) {
     const descriptionElement = document.querySelector('div[class="product-description"]');
     const descriptionLiElements = document.querySelectorAll(
       'div[class="product-description"] ul li');
+    if (descriptionElement && descriptionLiElements) {
+      descriptionElement.removeChild(descriptionLiElements[1].parentNode);
+    }
     let descriptionText = descriptionElement ? descriptionElement.textContent : '';
     const descriptionLiTexts = [];
     descriptionLiElements.forEach((li) => {
