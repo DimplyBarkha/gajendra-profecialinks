@@ -14,7 +14,7 @@ fields:
   - name: category
     singleValue: false
     description: The categories (e.g. from breadcrumbs)
-    xpath: //nav[@class="nav-crumb"]/span[position()>1 and position() < last()]
+    xpath: //nav[@class="nav-crumb"]/span[position()>1 and position() < last()]/a/span/text()
   - name: nameExtended
     singleValue: true
     description: The product name, prefixing "${brand} - " if not included in "name"
@@ -30,17 +30,16 @@ fields:
     description: Availability as described on page for the selected variant. If
       there is no availability but the product can be added to cart, this field
       should be "In Stock"
-    xpath: //div[@class="delivery-box"]/div[@class="pdra__status pdra__status--available"]/text()
+    xpath: //html//div[@id="avl"]
   - name: description
     singleValue: false
     description: Product description supplied by website - may be concatenanted from
       multiple places; specifically not the manufacturer description
     xpath: //p[@itemprop="description"]
-  - name: additionalDescBulletInfo
-    singleValue: true
-    description: Number of ul > li tags in the description
-    xpath: //div[@id="product-detail-description"]//ul/li/span/text()
-    # type: NUMBER
+  # - name: additionalDescBulletInfo
+  #   singleValue: true
+  #   description: Number of ul > li tags in the description
+  #   xpath: //div[@id="product-detail-description"]//ul/li/span/text()
   - name: brandText
     singleValue: true
     description: Product brand shown - this may actually NOT be just a brand name,
@@ -70,3 +69,43 @@ fields:
   - name: promotion
     singleValue: true
     xpath: //div[@class="label--round-sale round-label-alignment"]/text()
+  - name: quantity
+    singleValue: true
+    xpath: //th[contains(text(),"Veľkosť")]/following::td[1]/text()
+  - name: manufacturer
+    singleValue: true
+    xpath: //p[contains(text(),'Výrobca')]/text()
+  - name: weightNet
+    singleValue: true
+    xpath: //li[contains(text(),'Hmotnosť')]/text()
+    regExp: (\d.+)
+  - name: imageAlt
+    singleValue: true
+    xpath: //div[@class='gallery__master-region']//div//div//div[1]//div//div[@class='gallery-magnifier gallery__slide gallery-magnifier--vertical-align']/img[1]/@alt
+  - name: imageZoomFeaturePresent
+    singleValue: true
+    description: If Zoom feature is available for Main image or images in the
+      carousel,['Yes','No']
+    example: https://www.zalando.de/adidas-neo-sneaker-low-blackwhite-a4315i002-q11.html
+    defaultValue: Yes
+  - name: materials
+    singleValue: true
+    xpath: //html//div[@id="mat"]
+  - name: color
+    singleValue: true
+    xpath: //th[contains(text(), 'Farba')]/following::td[1]/text()
+  - name: variantInformation
+    singleValue: true
+    xpath: //a[@class="pdrvc__var-item var-item--is-active "]/span/text()
+  - name: listPrice
+    singleValue: true
+    xpath: //div[@class="old-price lay-relative"]/del/text()
+  - name: featureBullets
+    singleValue: true
+    xpath: //html//div[@id="bullet"]
+  - name: manufacturerDescription
+    singleValue: true
+    xpath: //h3[@class="lay-off"]/following::p[@class="ql-align-center"][1]/text()
+  - name: manufacturerImages
+    singleValue: true
+    xpath: //div[@id="product-detail-description"]//p[@class="ql-align-center"]/img/@data-src
