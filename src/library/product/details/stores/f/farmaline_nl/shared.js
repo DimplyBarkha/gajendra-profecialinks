@@ -24,28 +24,17 @@ const transform = (data) => {
 
   for (const { group } of data) {
     for (const row of group) {
-      if (row.specifications) {
-        let text = '';
-        row.specifications.forEach(item => {
-          text += item.text.replace(/\s{2,}/g, ' ').replace(/\n/g, ' ').trim();
+      if (row.description) {
+        let desc = '';
+        row.description.forEach(item => {
+          desc += `${item.text} `;
         });
-        row.specifications = [
+        row.description = [
           {
-            text: text,
+            text: desc.replace(/\s\n/g, ' || ').replace(/\n/g, ' ').replace(/([\|\s]{5,}\s*)/g, ' || ').slice(0, -4).trim(),
           },
         ];
       }
-      // if (row.description) {
-      //   let text = '';
-      //   row.description.forEach(item => {
-      //     text += item.text.replace(/\s{2,}/g, ' ').replace(/\n/g, ' ').trim();
-      //   });
-      //   row.description = [
-      //     {
-      //       text: text,
-      //     },
-      //   ];
-      // }
       if (row.image) {
         const img = [];
         row.image.forEach(item => {
@@ -53,6 +42,23 @@ const transform = (data) => {
             item.text = `https:${item.text}`;
           }
         });
+      }
+      if (row.directions) {
+        const nDesc = [];
+        let newDesc = '';
+        let idx = 0;
+        row.directions.forEach(item => {
+          nDesc[0] = item;
+          if (idx > 0) {
+            newDesc = newDesc + ' ';
+          }
+          newDesc = newDesc + item.text;
+          idx++;
+        });
+        nDesc.forEach(item => {
+          item.text = newDesc;
+        });
+        row.directions = nDesc;
       }
       if (row.manufacturerDescription) {
         let text = '';
@@ -95,15 +101,21 @@ const transform = (data) => {
         ];
       }
       if (row.specifications) {
-        let text = '';
+        const nDesc = [];
+        let newDesc = '';
+        let idx = 0;
         row.specifications.forEach(item => {
-          text += `${item.text.replace(/\n \n/g, '')} || `;
+          nDesc[0] = item;
+          if (idx > 0) {
+            newDesc = newDesc + '||';
+          }
+          newDesc = newDesc + item.text;
+          idx++;
         });
-        row.specifications = [
-          {
-            text: text.slice(0, -3),
-          },
-        ];
+        nDesc.forEach(item => {
+          item.text = newDesc;
+        });
+        row.specifications = nDesc;
       }
       if (row.directions) {
         const nDesc = [];

@@ -106,7 +106,8 @@ fields:
     description: Content under "legal disclaimer" header
   - name: directions
     singleValue: false
-    xpath: //h2[contains(.,"Gebruik")]/following::div[1]/text()| //h2[contains(.,"Indication")]/following::div[1]/div/text() |//h2[contains(.,"Emploi")]/following::div[@class="content mb-3"][1]/div/text() | //h2[contains(.,"Indication")]/following::div[1]/text()| //h2[contains(.,"Indication")]/following::div[@class="content mb-3"]//ul/li | //h2[contains(.,"Indicatie")]/following::div[@class="content mb-3"][1]/text()
+    xpath: //h2[contains(.,"Gebruik")]/following::div[1]//text() 
+    # //h2[contains(.,"Indication")]/following::div[1]/div/text() |//h2[contains(.,"Emploi")]/following::div[@class="content mb-3"][1]/div/text() | //h2[contains(.,"Indication")]/following::div[1]/text()| //h2[contains(.,"Indication")]/following::div[@class="content mb-3"]//ul/li | //h2[contains(.,"Indicatie")]/following::div[@class="content mb-3"][1]/text()
     # xpath: //h2[contains(.,"Indication")]/following::div[@class="content mb-3"]//ul/li | //h2[contains(.,"Emploi")]/following::div[@class="content mb-3"][1]/text() | //h2[contains(.,"Indicatie")]/following::div[@class="content mb-3"][1]/text()
   - name: warnings
     singleValue: false
@@ -116,7 +117,10 @@ fields:
     xpath: //meta[@itemprop="ratingCount"]/@content
     # xpath: //u[@class="d-md-block"]/text() 
     # regExp: \d+
-    # regExpReplace: $1   
+    # regExpReplace: $1  
+  - name: reviewCount
+    singleValue: false
+    xpath: //meta[@itemprop="ratingCount"]/@content 
   - name: aggregateRatingText
     singleValue: false
   - name: aggregateRating
