@@ -51,6 +51,149 @@ const getStockFunc = async function ({ context, sellerId, id }) {
     });
   };
 
+  const pageContextCheck = async (page) => {
+    console.log('pageContextCheck', page);
+    if (Object.entries(page).filter(item => item[0] != 'windowLocation').filter(item => item[1] === true).length === 0) {
+      context.counter.set('dropped_data', 1);
+      await context.reload();
+      await new Promise(r => setTimeout(r, 2000));
+      console.log('Waiting for page to reload');
+      await context.waitForNavigation({ timeout: 30 });
+      return await solveCaptchaIfNecessary(await pageContext());
+    }
+    return page;
+  };
+
+  const acceptCookies = async () => {
+    console.log('page.hasCookieAcceptRequest: ', 'true');
+    await context.click('#sp-cc-accept');
+    console.log('Waiting for cookie modal to close');
+  };
+
+  const acceptCookiesIfNecessary = async (page) => {
+    if (page.hasCookieAcceptRequest && fillRateStrategies.acceptCookies) {
+      console.log('Checking for cookie accept request');
+      await acceptCookies();
+      console.log('Done checking for cookie accept request');
+      page = await pageContext();
+      console.log('page:', page);
+    }
+    return page;
+  };
+
+  const solveCaptcha = async () => {
+    console.log('isCaptcha');
+
+    await context.solveCaptcha({
+      type: 'IMAGECAPTCHA',
+      inputElement: 'form input[type=text][name]',
+      imageElement: 'form img',
+      autoSubmit: true,
+    });
+
+    console.log('solved captcha, waiting for page change');
+    await context.waitForNavigation(30);
+
+    console.log('Captcha vanished');
+
+    const page = await pageContext();
+    return page;
+  };
+
+  const solveCaptchaIfNecessary = async (page) => {
+    if (page.isCaptchaPage && captchas < MAX_CAPTCHAS) {
+      captchas++;
+      return await solveCaptcha();
+    }
+    return page;
+  };
+
+  const handlePage = async (page, lastResponseData) => {
+    let lastResponseCode = lastResponseData ? lastResponseData.status : 200;
+
+    console.log('HANDLING PAGE');
+    // checking for blank  page and  reloading
+    page = await pageContextCheck(page);
+
+    page = await solveCaptchaIfNecessary(page);
+    // solve 2 captchas if needed
+    if (page.isCaptchaPage) {
+      page = await solveCaptchaIfNecessary(page);
+    }
+    if (page.isCaptchaPage) {
+      console.log('checking captcha', page);
+      // we failed to solve the CAPTCHA or a second captcha was thrown
+      context.reportBlocked(lastResponseCode, 'Blocked: Could not solve CAPTCHA, attempts=' + captchas);
+    }
+
+    if (lastResponseCode === 503 || page.is500Page) {
+      console.log('getting  503 pageId');
+
+      console.log('Clicking 503 image');
+      await context.click('a img[src*="503.png"], a[href*="ref=cs_503_link"], a img[src*="error/500-title"]');
+
+      console.log('Waiting for page to reload on homepage using 503  pageId');
+      await context.waitForNavigation(30);
+
+      page = await pageContext();
+      if (page.is500Page) {
+        // we failed to solve the CAPTCHA or a second captcha was thrown
+        context.reportBlocked(lastResponseCode, 'Blocked: Could not work around 503');
+      }
+
+      page = await solveCaptchaIfNecessary(page);
+      if (page.isCaptchaPage) {
+        // we failed to solve the CAPTCHA or a second captcha was thrown
+        context.reportBlocked(lastResponseCode, 'Blocked: Could not solve CAPTCHA, attempts=' + captchas);
+      }
+
+      console.log('Go to some random page');
+      const clickedOK = await context.evaluate(function () {
+        const links = Array.from(document.querySelectorAll('a[href*="/dp/"]'));
+        if (links.length === 0) {
+          return false;
+        }
+        links[Math.floor(links.length * Math.random())].click();
+        return true;
+      });
+      page = await solveCaptchaIfNecessary(page);
+
+      if (!clickedOK) {
+        console.log('Could not click a product, aborting... :/');
+        // return await pageContext();
+      }
+
+      await new Promise(r => setTimeout(r, 2000));
+
+      console.log('Going back to desired page');
+      lastResponseData = await context.goto(gotoInput.url, {
+        checkBlocked: true,
+      });
+      lastResponseCode = lastResponseData.status;
+      console.log('lastResponseData: ', lastResponseCode);
+      page = await pageContext();
+      console.log('page: ', page);
+    }
+
+    if (lastResponseCode === 404 || lastResponseCode === 410 || page.is400Page || (page.hasDogsofAmazon && !page.is500Page)) {
+      return false;
+    }
+
+    if (lastResponseCode !== 200 && (page.is400Page || page.is500Page)) {
+      return context.reportBlocked(lastResponseCode, 'Blocked: ' + lastResponseCode);
+    }
+
+    await context.checkBlocked();
+
+    page = await acceptCookiesIfNecessary(page);
+
+    if (lastResponseData && (lastResponseData.url.includes('elasticbeanstalk') || lastResponseData.url.includes('www.primevideo.com'))) {
+      context.counter.set('primevideo', 1);
+    }
+
+    return page;
+  };
+
   // find product&seller in cart
   const productSellerFound = async (sellerId, id) => {
     return await context.evaluate(async (a, b) => {
@@ -88,6 +231,7 @@ const getStockFunc = async function ({ context, sellerId, id }) {
   await new Promise(resolve => setTimeout(resolve, 3000));
 
   page = await pageContext();
+  await handlePage(page, null);
 
   // decline add ons from pop out modal with cart button or addons
   if (page.hasAddOnModal) {
@@ -102,6 +246,7 @@ const getStockFunc = async function ({ context, sellerId, id }) {
     });
     await new Promise(resolve => setTimeout(resolve, 1000));
     page = await pageContext();
+    await handlePage(page, null);
   }
 
   let pageCheck = 0;
@@ -117,11 +262,13 @@ const getStockFunc = async function ({ context, sellerId, id }) {
     await context.waitForNavigation();
     await new Promise(resolve => setTimeout(resolve, 2000));
     page = await pageContext();
+    await handlePage(page, null);
   }
 
   if (page.isCartPage) {
     await context.waitForSelector('span.quantity span span,input.sc-quantity-textfield');
     if (await productSellerFound(sellerId, id)) {
+      console.log("testtttt")
       while (await artifactCartItems()) {
         console.log('deleting prods')
         await context.waitForSelector('div[data-asin][import]:not([data-removed])');
