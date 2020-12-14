@@ -21,10 +21,10 @@ const transform = (data, context) => {
 
   for (const { group } of data) {
     for (const row of group) {
-      if (row.description) {
-        const text = row.description.map(elm => elm.text.trim()).join(' || ');
-        row.description = [{ text: text }];
-      }
+      // if (row.description) {
+      //   const text = row.description.map(elm => elm.text.trim()).join(' || ');
+      //   row.description = [{ text: text }];
+      // }
       if (row.dietarySymbols) {
         const text = row.dietarySymbols.map(elm => elm.text.trim()).join(' | ');
         row.dietarySymbols = [{ text }];

@@ -36,7 +36,7 @@ fields:
       there is no availability but the product can be added to cart, this field
       should be "In Stock"
   - name: description
-    xpath: //div[contains(@class,"product-summary_root")]/p | //div[contains(@class,"product-summary_root")]/ul/li | //div[@class="product-info-description"]/ul/li | //div[@class="product-info-description"]/div[contains(@class,"product-summary")] | //div[starts-with(@class,"product-card-hero_contentSection")]/div[@class="product-summary"] | //ul[starts-with(@class,"product-card-features_root")] 
+    xpath: //body/@description
     singleValue: false
     description: Product description supplied by website - may be concatenanted from
       multiple places; specifically not the manufacturer description
