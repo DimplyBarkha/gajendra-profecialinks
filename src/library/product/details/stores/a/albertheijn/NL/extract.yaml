@@ -36,13 +36,12 @@ fields:
       there is no availability but the product can be added to cart, this field
       should be "In Stock"
   - name: description
-    xpath: //div[@class="product-info-description"]/ul | //div[@class="product-info-description"]/div[@class="product-summary"] | //div[starts-with(@class,"product-card-hero_contentSection")]/div[@class="product-summary"] | //ul[starts-with(@class,"product-card-features_root")]
+    xpath: //div[contains(@class,"product-summary_root")]/p | //div[contains(@class,"product-summary_root")]/ul/li | //div[@class="product-info-description"]/ul/li | //div[@class="product-info-description"]/div[contains(@class,"product-summary")] | //div[starts-with(@class,"product-card-hero_contentSection")]/div[@class="product-summary"] | //ul[starts-with(@class,"product-card-features_root")] 
     singleValue: false
-    html: true
     description: Product description supplied by website - may be concatenanted from
       multiple places; specifically not the manufacturer description
   - name: descriptionBullets
-    xpath: count((//div[@class="product-info-description"]/ul | //div[@class="product-info-description"]/div[@class="product-summary"] | //div[starts-with(@class,"product-card-hero_contentSection")]/div[@class="product-summary"])//li)
+    xpath: count((//div[@class="product-info-description"]/ul | //div[@class="product-info-description"]/div[@class="product-summary"] | //div[starts-with(@class,"product-card-hero_contentSection")]/div[@class="product-summary"])//li | //div[contains(@class,'product-summary_root')]//ul/li)
     description: Number of ul > li tags in the description
     type: NUMBER
   - name: brandText
@@ -202,7 +201,7 @@ fields:
   - name: fastTrack
     description: null
   - name: ingredientsList
-    xpath: //div[@class="product-info-content-block product-info-ingredients"]/h2[contains(.,"Ingrediënten")]/following-sibling::p[not(preceding-sibling::h4)]
+    xpath: //div[@class="product-info-content-block product-info-ingredients"]/h2[contains(.,"Ingrediënten")]/following-sibling::*[1] |//div[@class="product-info-content-block product-info-ingredients"]/h2[contains(.,"Ingrediënten")]/following-sibling::*[2]
     description: List of Ingredients from site - can be string of data if no
       discernible start/end point
   - name: servingSize

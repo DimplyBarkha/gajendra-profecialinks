@@ -22,8 +22,8 @@ const transform = (data, context) => {
   for (const { group } of data) {
     for (const row of group) {
       if (row.description) {
-        const text = row.description.map(elm => elm.text.replace(/<li([^>]*)>/g, '<li> || ').replace(/(<([^>]+)>)/ig, '').trim());
-        row.description = [{ text: text.join(' | ') }];
+        const text = row.description.map(elm => elm.text.trim()).join(' || ');
+        row.description = [{ text: text }];
       }
       if (row.dietarySymbols) {
         const text = row.dietarySymbols.map(elm => elm.text.trim()).join(' | ');
@@ -31,7 +31,7 @@ const transform = (data, context) => {
         row.dietaryInformation = [{ text }];
       }
       if (row.ingredientsList) {
-        const text = row.ingredientsList.map(elm => elm.text.trim()).join(' | ');
+        const text = row.ingredientsList.map(elm => elm.text.replace('Allergie-informatie','').trim()).join(' ');
         row.ingredientsList = [{ text }];
       }
       if (row.pricePerUnit) {
