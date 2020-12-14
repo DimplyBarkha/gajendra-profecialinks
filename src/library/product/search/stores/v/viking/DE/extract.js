@@ -1,9 +1,10 @@
+const { transform } = require('../../../../shared');
 module.exports = {
   implements: 'product/search/extract',
   parameterValues: {
     country: 'DE',
     store: 'viking',
-    transform: null,
+    transform,
     domain: 'viking.de',
     zipcode: '',
   },
@@ -36,6 +37,7 @@ module.exports = {
         const popup = document.querySelector('.QSIWebResponsive');
         if (popup) {
           const button = document.querySelector('.QSIWebResponsive > div:last-child > div > div:last-child > button:last-child');
+          // @ts-ignore
           button.click();
         }
       });
@@ -47,27 +49,9 @@ module.exports = {
         productList.forEach(product => product.setAttribute('searchurl', url));
       });
     };
-    const addRanking = async function (context) {
-      await context.evaluate(async function () {
-        function addElementToDocument (doc, key, value) {
-          const catElement = document.createElement('div');
-          catElement.id = key;
-          catElement.textContent = value;
-          catElement.style.display = 'none';
-          doc.appendChild(catElement);
-        }
-        const lastProductPosition = localStorage.getItem('prodCount') ? Number(localStorage.getItem('prodCount')) : 1;
-        const arr = document.querySelectorAll('li.search-results__result');
-        for (let i = 0; i < arr.length; i++) {
-          addElementToDocument(arr[i], 'pd_rank', lastProductPosition + i);
-        }
-        localStorage.setItem('prodCount', `${lastProductPosition + arr.length}`);
-      });
-    };
 
     await applyScroll(context);
     await addUrl(context);
-    await addRanking(context);
     await new Promise((resolve, reject) => setTimeout(resolve, 3000));
     return await context.extract(productDetails, { transform });
   },
