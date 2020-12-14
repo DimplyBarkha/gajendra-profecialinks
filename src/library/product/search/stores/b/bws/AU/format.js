@@ -39,9 +39,8 @@ const transform = (data) => {
         }
         if (row.price) {
           row.price.forEach(item => {
-            item.text = item.text.replace(/\s*/, '');
-            item.text = '$' + item.text;
-            item.text = item.text.replace(/\.$/, '');
+            item.text = item.text.replace(/\s*/g, "").trim();
+            item.text = item.text.replace(/\B(?=(\d{2})+(?!\d))/g, ".").trim();
           });
         }
         if (row.id) {
