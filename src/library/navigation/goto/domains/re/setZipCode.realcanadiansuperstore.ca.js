@@ -6,15 +6,4 @@ module.exports = {
         store: 'Realcanadiansuperstore',
         zipcode: '',
     },
-    implementation: async function(
-        inputs,
-        parameters,
-        context,
-        dependencies,
-    ) {
-        if (inputs.storeId) {
-            console.log(inputs.storeId);
-        }
-    }
-
 };

@@ -378,3 +378,19 @@ fields:
     regExp: (\w+)
     regExpReplace: Yes
     defaultValue: No
+
+    # extra GEO fields
+  - name: onlineStore
+    singleValue: true
+    description: store name
+  - name: drive
+    singleValue: true
+    description: Postcode/Drive of the store to identifyPostcode/Drive of the store - To identify which postcode for a certain retailer.
+    xpath: //body/@drive
+  - name: driveId
+    singleValue: true
+    description: 
+  - name: retailerID
+    singleValue: true
+    description: Store number - To identify which store for a certain retailer.
+    xpath: //body/@retailer
