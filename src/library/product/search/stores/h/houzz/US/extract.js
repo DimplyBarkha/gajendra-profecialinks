@@ -91,7 +91,7 @@ module.exports = {
         if (rank == 1) {
           addHiddenDiv("ii_rankOrganic", single_obj.position, i);
         } else {
-          var rrank = product.length * (rank - 1);
+          var rrank = 36 * (rank - 1);
           addHiddenDiv("ii_rankOrganic", rrank + single_obj.position, i);
         }
       }
