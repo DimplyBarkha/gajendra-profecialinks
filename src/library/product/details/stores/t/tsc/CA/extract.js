@@ -106,6 +106,19 @@ async function implementation (
     fetchVariantId();
     fetchVariants();
     fetchColor();
+
+    let secImage = document.evaluate('//div[@class="slick-track"]/div[not(contains(@class,"video")) and not(@data-index="1")]//img/@src', document, null, XPathResult.ANY_TYPE, null);
+    let thisImage = secImage.iterateNext();
+    let images = "";
+    while (thisImage) {
+      let imageUrl = thisImage.textContent.replace('=XXS','=XL');
+      images += imageUrl + "\n";
+      thisImage = secImage.iterateNext();
+    }
+    let imageArray = images.split('\n');
+    //@ts-ignore.
+    imageArray = [...new Set(imageArray)];
+    document.querySelector('body').setAttribute('sec-images', imageArray.join(' | '));
   });
 
   await new Promise(resolve => setTimeout(resolve, 20000));
