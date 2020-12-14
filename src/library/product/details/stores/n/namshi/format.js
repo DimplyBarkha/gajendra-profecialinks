@@ -83,11 +83,6 @@ const transform = (data) => {
           row.variantInformation = [{ text: vInfo.join(' | ') }];
         }
       }
-      if (row.nameExtended) {
-        row.nameExtended.forEach(item => {
-          item.text = item.text + ' - ' + row.name[0].text;
-        });
-      }
     }
   }
   return cleanUp(data);
