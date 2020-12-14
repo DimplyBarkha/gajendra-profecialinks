@@ -46,8 +46,14 @@
   //         closePopupButton1.click(setTimeout);
   //         console.log("button clicked");
   //       }
+        
   //     })
   //     await applyScroll(context);
+
+  
+  //     context.waitForFunction((sel, xp) => {
+  //       return Boolean(document.querySelector(sel) || document.evaluate(xp, document, null, XPathResult.UNORDERED_NODE_ITERATOR_TYPE, null).iterateNext());
+  //     }, {"timeout":100000}, ".reviews-questions", "//div[@class=\"main-wrapper\"]//div[@role=\"region\"]")
   //     return await context.extract(productReviews, { transform });
   //   },
   };

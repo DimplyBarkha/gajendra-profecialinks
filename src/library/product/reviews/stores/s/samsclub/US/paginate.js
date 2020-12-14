@@ -9,7 +9,7 @@ module.exports = {
     nextLinkXpath: null,
     mutationSelector: null,
     spinnerSelector: null,
-    loadedSelector: '.reviews-questions',
+    loadedSelector: 'ol.bv-content-list-reviews > li',
     loadedXpath: null,
     noResultsXPath: null,
     stopConditionSelectorOrXpath: null,

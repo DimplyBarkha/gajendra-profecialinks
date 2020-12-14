@@ -5,8 +5,8 @@ module.exports = {
     country: 'US',
     store: 'samsclub',
     domain: 'samsclub.com',
-    loadedSelector: '.reviews-questions',
-    noResultsXPath: '//div[@class="main-wrapper"]//div[@role="region"]',
+    loadedSelector: null,
+    noResultsXPath: null,
     reviewUrl: 'https://www.samsclub.com/p/{id}',
     sortButtonSelectors: null,
     zipcode: '',
@@ -15,53 +15,8 @@ module.exports = {
     context,
     dependencies,
 ) {
-    // const patternReplace = () => {
-    //     if (!reviewUrl) throw new Error('No pattern provided to generate a valid URL');
-    //     let tempUrl = reviewUrl;
-    //     if (id) tempUrl = tempUrl.replace(/{id}/g, encodeURIComponent(id));
-    //     if (date) tempUrl = tempUrl.replace(/{date}/g, encodeURIComponent(date));
-    //     if (days) tempUrl = tempUrl.replace(/{days}/g, encodeURIComponent(days));
-    //     return tempUrl;
-    // };
-    // const destinationUrl = url || patternReplace();
-
-    // await dependencies.goto({ url: destinationUrl, zipcode });
-
-    // if (loadedSelector) {
-    //     await context.waitForFunction((sel, xp) => {
-    //         return Boolean(document.querySelector(sel) || document.evaluate(xp, document, null, XPathResult.UNORDERED_NODE_ITERATOR_TYPE, null).iterateNext());
-    //     }, { timeout: 100000 }, loadedSelector, noResultsXPath);
-    // }
-
-    // if (sortButtonSelectors) {
-    //     const selectors = sortButtonSelectors.split('|');
-    //     for (const selector of selectors) {
-    //         await context.click(selector);
-    //     }
-    //     await context.evaluate(async() => {
-    //         document.body.setAttribute('url', window.location.href);
-
-    //         function stall(ms) {
-    //             return new Promise((resolve, reject) => {
-    //                 setTimeout(()  =>  {
-    //                     resolve();
-    //                 }, ms);
-    //             });
-    //         }
-    //         await stall(5000);
-
-    //     });
-    // }
-    // await context.evaluate(async () => {
-    //   const closePopupButton = document.querySelector('.sc-modal-content > div button ');
-    //   if (closePopupButton !== null) {
-    //     closePopupButton.click();
-    //     console.log("button clicked");
-        
-    //   }
-    // });
+  
     await new Promise((resolve, reject) => setTimeout(resolve, 6000));
-    
       const applyScroll = async function (context) {
         await context.evaluate(async function () {
           let scrollTop = 0;
@@ -77,27 +32,32 @@ module.exports = {
               }, ms);
             });
           }
-          await stall(5000)
+          
         });
         console.log("scroll");
       };
-      await context.evaluate(async (context) => {
+      await context.evaluate(async () => {
         const closePopupButton1 = document.querySelector('.sc-modal-content > div button');
         if (closePopupButton1 !== null) {
+          // @ts-ignore
           closePopupButton1.click();
         }
       })
-      await context.waitForSelector('.reviews-questions', { timeout: 30000 });
+      const delay = t => new Promise(resolve => setTimeout(resolve, t));
+      await delay(10000);
       await applyScroll(context);
+      await context.waitForSelector('.bv-header .bv-action-bar')
+      context.waitForFunction((sel, xp) => {
+        return Boolean(document.querySelector(sel) || document.evaluate(xp, document, null, XPathResult.UNORDERED_NODE_ITERATOR_TYPE, null).iterateNext());
+      }, {"timeout":100000}, ".reviews-questions", "//div[@class=\"main-wrapper\"]//div[@role=\"region\"]")
     console.log('Checking no results', noResultsXPath);
-    return await context.evaluate((xp) => {
-        const r = document.evaluate(xp, document, null, XPathResult.UNORDERED_NODE_ITERATOR_TYPE, null);
-        console.log(xp, r);
-        const e = r.iterateNext();
-        console.log(e);
-        return !e;
-    }, noResultsXPath);
+    await applyScroll(context);
+    // return await context.evaluate((xp) => {
+//         const r = document.evaluate(xp, document, null, XPathResult.UNORDERED_NODE_ITERATOR_TYPE, null);
+//         console.log(xp, r);
+//         const e = r.iterateNext();
+//         console.log(e);
+//         return !e;
+//     }, noResultsXPath);
 }
-
 };
- 
