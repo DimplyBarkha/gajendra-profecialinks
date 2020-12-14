@@ -13,7 +13,7 @@ fields:
     xpath: //div[@cel_widget_id="MultiCardCreativeDesktop"]/div/div/div/a[@data-click-type="desc"]//parent::div/div//div[@data-click-el="rating"] | //div[contains(@class,"_multi-card-creative-desktop_Rating_container")]/span | //div[@cel_widget_id="TetrisCreativeDesktop"]/div/div//div[@data-click-el="rating"]
   - name: price
     singleValue: false
-    xpath: //*[@data-click-el="price"]/@aria-label | //span[contains(@class,"a-price _multi-card-creative-desktop_Price")]/span[1] | //span[contains(@class, 'a-price') and @data-a-color="base"]/span[contains(@class, "a-offscreen")] | //span[@cel_widget_id="MAIN-SEARCH_RESULTS" and not(/div[contains(@class, "sg-col-inner")])]//div[contains(@class, "a-section") and //span[@class="a-price"]][1]//span[contains(@class, 'a-price') and @data-a-color="base"]/span[contains(@class, "a-offscreen")]
+    xpath: //span[@data-a-color="price"]/span[@class="a-offscreen"] | //*[@data-click-el="price"]/@aria-label | //span[contains(@class,"a-price _multi-card-creative-desktop_Price")]/span[1] | //span[contains(@class, 'a-price') and @data-a-color="base"]/span[contains(@class, "a-offscreen")] | //span[@cel_widget_id="MAIN-SEARCH_RESULTS" and not(/div[contains(@class, "sg-col-inner")])]//div[contains(@class, "a-section") and //span[@class="a-price"]][1]//span[contains(@class, 'a-price') and @data-a-color="base"]/span[contains(@class, "a-offscreen")]
   - name: moreBuyingOptionsPrice
     xpath: //span[@dir="auto"][following-sibling::span[@data-action="s-show-all-offers-display"]][not(contains(@class,"a-color-secondary"))]
   - name: name
@@ -69,4 +69,4 @@ fields:
   - name: badgeType
     xpath: //img[@data-click-el="prime"]/@alt | //span[@data-click-el="badge"] | //span[@data-component-type="s-status-badge-component"]/@data-component-props | //i[@aria-label="Amazon Pantry"]/@aria-label | //i[@aria-label="Amazon Prime"]/@aria-label
   - name: listPrice
-    xpath: //*[@data-click-el="savings"]/span[1] | //span[contains(@class, "a-price") and @data-a-strike="true"]/span[@class="a-offscreen"]
+    xpath: //span[contains(@class,"a-price")][@data-a-strike="true"]/span[@class="a-offscreen"] | //*[@data-click-el="savings"]/span[1] | //span[contains(@class, "a-price") and @data-a-strike="true"]/span[@class="a-offscreen"]
