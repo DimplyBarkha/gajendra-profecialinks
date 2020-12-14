@@ -61,3 +61,7 @@ fields:
     singleValue: true
     description: The size of serving Nutritional information is based on.
     xpath: //div[@id="pdp-specification"]/div/div/div/div[1]/div[@class="ccs-ds-extendedSpec-body"]/table/tbody/tr[6]/td[2]
+  - name: variantId
+    singleValue: true
+    xpath: //span[@itemprop="productID"]/text()
+    
