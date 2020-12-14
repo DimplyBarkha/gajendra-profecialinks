@@ -3,7 +3,6 @@
  * @param {ImportIO.Group[]} data
  * @returns {ImportIO.Group[]}
  */
-const url1 = require('url');
  const transform = (data) => {
     // Default transform function
     const clean = text => text.toString()
@@ -22,7 +21,10 @@ const url1 = require('url');
         el.text = clean(el.text);
     }))));
 
-    for (const { group }  of data) {
+    const urlquery = data.url.split('/')
+    const sku = urlquery[urlquery-1].replace(/[^\d-]/g, '');
+    data.group[0].sku = [ { text: 'leclercdrive_' + sku }];
+    for (const { group}  of data) {
         for (const row of group) {
 
           // if (row.price) {
