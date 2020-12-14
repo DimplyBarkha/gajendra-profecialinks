@@ -50,7 +50,7 @@ module.exports = {
           data[k].group[i].caloriesPerServing = data[k].group[i].caloriesPerServing.slice(0, 1);
         }
         if ('additives' in data[k].group[i] && data[k].group[i].additives.length > 1) {
-          for (let j = 1; j < data[k].group[i].additives.length; j++){
+          for (let j = 1; j < data[k].group[i].additives.length; j++) {
             data[k].group[i].additives[0].text += ' ' + data[k].group[i].additives[j].text;
           }
           data[k].group[i].additives = data[k].group[i].additives.slice(0, 1);
