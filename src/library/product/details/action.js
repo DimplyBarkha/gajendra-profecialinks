@@ -5,7 +5,7 @@
  * @param { ImportIO.IContext } context
  * @param { { execute: ImportIO.Action, extract: ImportIO.Action } } dependencies
  */
-async function implementation (inputs, parameters, context, dependencies) {
+async function implementation(inputs, parameters, context, dependencies) {
   const { URL, RPC, SKU, UPC, storeID } = inputs;
   const { execute, extract } = dependencies;
   const url = URL;

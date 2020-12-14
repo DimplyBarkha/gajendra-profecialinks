@@ -73,6 +73,8 @@ module.exports = {
 
     // do the search
 
+    // do the search
+
     if (!resultsReturned) {
       console.log('No results were returned');
       return;

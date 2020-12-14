@@ -1,6 +1,6 @@
 
 module.exports = {
-  implements: 'product/search',
+  implements: 'product/details',
   parameterValues: {
     country: 'UK',
     store: 'currys',
