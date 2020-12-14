@@ -29,7 +29,7 @@ fields:
     type: BOOLEAN
   - name: reviewUrl
     singleValue: false
-    xpath: ancestor::html//link[@rel="canonical"]/@href
+    xpath: ancestor::html//*[@id="currentPageUrl"]
   - name: reviewedSku
     singleValue: false
     xpath: .//span[contains(@class, "f-review-feedbackReport")]/a/@href
