@@ -2,7 +2,7 @@ input:
   id: 1114934
   _url: http://boulanger.com
 extractions:
-  - html: https://workbench.import.io/html/run=b27d28b5-8d35-404c-83d7-b9b80ae2e070/task=1f7b56b3-92da-42c0-8b3a-be2f9831781d/3c09a4a3-0481-426e-96cc-95de77f453e0.html
+  - html: https://workbench.import.io/html/run=2a5675a3-055c-4b84-873f-44f4c30209b7/task=cfb6b512-1bc2-4b22-b660-12fa78182d5c/3d191712-c423-444f-a47e-9496b8dfda44.html
     extractionConfigId: product/details/stores/b/boulanger/FR/extract
     data:
       - group:
@@ -21,6 +21,24 @@ extractions:
                 xpath: /html/body/div[4]/div[2]/div[2]/div[1]/div[2]/center[1]/div[1]/div[2]/div[4]/div[1]/div[1]/div[4]/div[1]/@style
               - text: https://boulanger.scene7.com/is/image/Boulanger/4054278311852_h_f_l_4
                 xpath: /html/body/div[4]/div[2]/div[2]/div[1]/div[2]/center[1]/div[1]/div[2]/div[4]/div[1]/div[1]/div[5]/div[1]/@style
+              - text: https://boulanger.scene7.com/is/image/Boulanger/4054278311852_h_f_l_5
+                xpath: /html/body/div[4]/div[2]/div[2]/div[1]/div[2]/center[1]/div[1]/div[2]/div[4]/div[1]/div[1]/div[6]/div[1]/@style
+              - text: https://boulanger.scene7.com/is/image/Boulanger/4054278311852_h_f_l_6
+                xpath: /html/body/div[4]/div[2]/div[2]/div[1]/div[2]/center[1]/div[1]/div[2]/div[4]/div[1]/div[1]/div[7]/div[1]/@style
+              - text: https://boulanger.scene7.com/is/image/Boulanger/4054278311852_h_f_l_7
+                xpath: /html/body/div[4]/div[2]/div[2]/div[1]/div[2]/center[1]/div[1]/div[2]/div[4]/div[1]/div[1]/div[8]/div[1]/@style
+              - text: https://boulanger.scene7.com/is/image/Boulanger/4054278311852_h_f_l_8
+                xpath: /html/body/div[4]/div[2]/div[2]/div[1]/div[2]/center[1]/div[1]/div[2]/div[4]/div[1]/div[1]/div[9]/div[1]/@style
+              - text: https://boulanger.scene7.com/is/image/Boulanger/4054278311852_h_e_l_0
+                xpath: /html/body/div[4]/div[2]/div[2]/div[1]/div[2]/center[1]/div[1]/div[2]/div[4]/div[1]/div[1]/div[10]/div[1]/@style
+              - text: https://boulanger.scene7.com/is/image/Boulanger/4054278311852_h_b_l_0
+                xpath: /html/body/div[4]/div[2]/div[2]/div[1]/div[2]/center[1]/div[1]/div[2]/div[4]/div[1]/div[1]/div[11]/div[1]/@style
+              - text: https://boulanger.scene7.com/is/image/Boulanger/4054278311852_h_b_l_1
+                xpath: /html/body/div[4]/div[2]/div[2]/div[1]/div[2]/center[1]/div[1]/div[2]/div[4]/div[1]/div[1]/div[12]/div[1]/@style
+              - text: https://boulanger.scene7.com/is/image/Boulanger/4054278311852_h_b_l_2
+                xpath: /html/body/div[4]/div[2]/div[2]/div[1]/div[2]/center[1]/div[1]/div[2]/div[4]/div[1]/div[1]/div[13]/div[1]/@style
+              - text: https://boulanger.scene7.com/is/image/Boulanger/4054278311852_h_b_l_3
+                xpath: /html/body/div[4]/div[2]/div[2]/div[1]/div[2]/center[1]/div[1]/div[2]/div[4]/div[1]/div[1]/div[14]/div[1]/@style
             category:
               - text: Maison - Entretien
                 xpath: /html/body/div[4]/div[2]/div[1]/ul[1]/li[2]
@@ -32,7 +50,7 @@ extractions:
               - text: Nettoyeur de sol Karcher FC3 sans fil
                 xpath: /html/body/div[4]/div[2]/div[2]/div[1]/div[1]/div[1]/h1[1]
             price:
-              - text: 219,99€
+              - text: 239,99€
                 xpath: /html/body/div[4]/div[2]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/p[1]
             availabilityText:
               - text: In Stock
@@ -40,9 +58,9 @@ extractions:
             brandText:
               - text: Karcher
                 xpath: /html/body/div[4]/div[2]/div[2]/div[1]/div[1]/div[1]/h1[1]/a[1]/span[1]
-            manufacturer:
-              - text: Karcher
-                xpath: /html/body/div[4]/div[2]/div[2]/div[1]/div[1]/div[1]/h1[1]/a[1]/span[1]
+            weightNet:
+              - text: 3,20 Kg
+                xpath: /html/body/div[4]/div[2]/div[3]/div[1]/div[5]/table[1]/tbody[6]/tr[2]/td[1]/text()[1]
             gtin:
               - text: "4054278311852"
                 xpath: /html/body/div[4]/div[2]/div[2]/div[1]/div[1]/div[1]/span[1]
@@ -52,9 +70,9 @@ extractions:
             variantId:
               - text: "000000000001114934"
                 xpath: /html/body/div[4]/div[2]/div[2]/div[1]/div[1]/div[1]/span[3]
-            mpc:
-              - text: "0001114934"
-                xpath: /html/body/div[4]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/span[1]/span[1]
+            ratingCount:
+              - text: "37"
+                xpath: /html/body/div[4]/div[2]/div[3]/div[1]/div[1]/ul[1]/li[3]/a[1]/span[1]
             aggregateRatingText:
               - text: 3,7 / 5
                 xpath: /html/body/div[4]/div[2]/div[3]/div[6]/div[3]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]
@@ -67,6 +85,23 @@ extractions:
             color:
               - text: Jaune et noir
                 xpath: /html/body/div[4]/div[2]/div[3]/div[1]/div[5]/table[1]/tbody[1]/tr[8]/td[1]/text()[1]
+            manufacturerDescription:
+              - text: >-
+                  Fini la serpillère, découvrez le nouveau nettoyeur de sols FC
+                  3 sans fil Karcher. En véritable allié du quotidien, le FC 3
+                  sans fil simplifie le nettoyage, avec lui plus besoin de
+                  frotter.
+
+                  Sans fil, sans contrainte
+
+                  Doté d'une batterie lithium ion, le FC 3 sans fil avec son autonomie de 20 min offre une grande liberté de mouvement. Plus besoin d'attendre de longues minutes sur le canapé que le sol sèche, le FC 3 sans fil récupère l'excèdent d'eau sale des rouleaux : le sol est sec en seulement 2 minutes !
+
+                  Idéal pour tous les sols
+
+                  Il sera idéal pour nettoyer tous types de sols durs tels que le carrelage, le linoléum, le stratifié et même le parquet. Il est doté d'un réservoir d'eau claire qui va humidifier continuellement les rouleaux pour nettoyage toujours avec de l'eau propre. Son système de rotation électrique des rouleaux (500 tours par minutes) permet de nettoyer sans effort. Cet effet de rotation des rouleaux entraîne l'appareil vers l'avant pour un poids ressenti de 800g en fonctionnement. Maniable grâce à sa tête flexible, il est facile d'atteindre tous les recoins de la maison, de nettoyer sous les meubles et même au plus près des plinthes. Utiliser avec le FC3 SANS FIL le détergent KARCHER approprié garantit la solution complète de nettoyage. Il existe un détergent Karcher adapté à chaque type de sol : carrelage, pierre, parquet huilé ou ciré, bois, stratifié et universel.
+
+                  Chaque détergent Karcher est doté de solutions aux composants spécifiques qui protège contre l'humidité et garantit l'entretien et la brillance de chaque type de sol.
+                xpath: /html/body/div[4]/div[2]/div[3]/div[7]/div[2]
             manufacturerImages:
               - text: https://boulanger.scene7.com/is/image/Boulanger/4054278311852_p1?wid=1000
                 xpath: /html/body/div[4]/div[2]/div[3]/div[7]/div[2]/center[1]/img[1]/@src
@@ -77,37 +112,18 @@ extractions:
               - text: Nettoyeur de sol Karcher FC3 sans fil
                 xpath: /html/body/div[4]/div[2]/div[2]/div[1]/div[1]/div[1]/h1[1]
             inStorePrice:
-              - text: 219,99€
+              - text: 239,99€
                 xpath: /html/body/div[4]/div[2]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/p[1]
             coupon:
-              - text: "- 18%"
-                xpath: /html/body/div[4]/div[2]/div[3]/div[3]/div[1]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[4]/div[1]/span[2]
+              - text: "- 9%"
+                xpath: /html/body/div[4]/div[2]/div[3]/div[3]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[4]/div[1]/span[2]
             brandLink:
               - text: https://www.boulanger.com/resultats?tr=karcher#searchinputmode=product
                 xpath: /html/body/@brandhref
             videoLength:
-              - text: "72.896"
+              - text: NaN
                 xpath: /html/body/div[4]/div[2]/div[3]/div[7]/div[2]/p[7]/video[1]/@duration
-            additionalDescBulletInfo:
-              - text: >-
-                  Les points clés
-                   
-                   
-                   Lave 
-                   
-                   Sans fil - Poids Net 3,20 Kg 
-                   
-                   Autonomie standard (20 mn) 
-                   
-                   Batterie longue durée (Li-Ion) - Hygiénique : double réservoir Permet de séparer votre eau propre de votre eau sale 
-
-                   
-
-                   
-
-                   
-                  Le + : La solution sans fil pour un sol propre et sec en 2 min
-                xpath: /html/body/div[4]/div[2]/div[3]/div[1]/div[4]
+            specifications:
               - text: >-
                   Caractéristiques générales
 
@@ -465,6 +481,19 @@ extractions:
                    
                   * Indépendamment de la garantie commerciale Boulanger, vous bénéficiez des garanties légales. (En savoir plus)
                 xpath: /html/body/div[4]/div[2]/div[3]/div[1]/div[5]
+            warranty:
+              - text: "24"
+                xpath: /html/body/div[4]/div[2]/div[3]/div[1]/div[5]/table[1]/tbody[7]/tr[1]/td[1]/text()[1]
+            additionalDescBulletInfo:
+              - text: >-
+                  ||Lave||
+                   
+                  ||Sans fil - Poids Net 3,20 Kg||
+                   
+                  ||Autonomie standard (20 mn)||
+                   
+                  ||Batterie longue durée (Li-Ion) - Hygiénique : double réservoir Permet de séparer votre eau propre de votre eau sale||
+                xpath: /html/body/div[4]/div[2]/div[3]/div[1]/div[4]/ul[1]
             technicalInformationPdfPresent:
               - text: Yes
                 xpath: /html/body/div[4]/div[2]/div[3]/div[1]/div[3]/li[1]/@pdfpresent
@@ -475,4 +504,4 @@ extractions:
             descriptionBullets:
               - text: "0"
         xpath: /
-    timestamp: 1603884603167
+    timestamp: 1607951927682

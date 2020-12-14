@@ -32,6 +32,31 @@ module.exports = {
       if (pdfSelector) {
         pdfSelector.setAttribute('pdfpresent', 'Yes');
       }
+      // "Click" next images button to load url of images
+      let nextImagesSelector = document.querySelector('div.s7button.s7scrollrightbutton');
+      if (nextImagesSelector) {
+        do {
+          nextImagesSelector.dispatchEvent(new Event('mouseup'));
+          await new Promise((resolve) => setTimeout(resolve, 1000));
+          nextImagesSelector = document.querySelector('div.s7button.s7scrollrightbutton');
+        } while (nextImagesSelector.getAttribute('state') !== 'disabled');
+      }
+      // Is "button for specification" then click
+      const specificationButton = document.querySelector('p.endtable-btn.activated > button');
+      if (specificationButton) {
+        // @ts-ignore
+        specificationButton.click();
+      }
+      // add double pipes to additionalDescBulletInfo
+      const additionalDescBulletInfoSelector = document.querySelector('ul.bestpoints-list');
+      if (additionalDescBulletInfoSelector) {
+        const bullets = additionalDescBulletInfoSelector.querySelectorAll('li');
+        bullets.forEach(element => {
+          const text = element.innerText;
+          const fixedText = `||${text}||`;
+          element.innerText = fixedText;
+        });
+      }
     });
     await context.extract(productDetails, { transform });
   },

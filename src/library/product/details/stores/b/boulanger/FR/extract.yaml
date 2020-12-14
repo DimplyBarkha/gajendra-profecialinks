@@ -60,11 +60,11 @@ fields:
   singleValue: false
   description: Product description supplied by website - may be concatenanted from
     multiple places; specifically not the manufacturer description
-  xpath: //div[@itemprop='description'][not(//span[@itemprop='review']//div[@itemprop='description'])]
+  xpath: //span[@id='spanProductDescriptionId']
 - name: descriptionBullets
   singleValue: true
   description: Number of ul > li tags in the description
-  xpath: count(//div[@itemprop='description'][not(//span[@itemprop='review']//div[@itemprop='description'])])
+  xpath: count(//span[@id='spanProductDescriptionId']//ul//li)
 - name: brandText
   singleValue: true
   description: Product brand shown - this may actually NOT be just a brand name, e.g.
@@ -73,7 +73,6 @@ fields:
 - name: manufacturer
   singleValue: true
   description: Product manufacturer
-  xpath: //span[@itemprop='brand']
 - name: quantity
   singleValue: true
   description: Quantity as described on the page'
@@ -81,7 +80,7 @@ fields:
 - name: weightNet
   singleValue: true
   description: Net weight as described on the page
-  xpath: //span[contains(text(), 'Poids net')]/ancestor::td/text()
+  xpath: //span[contains(translate(., 'Net', 'net'), 'Poids net')]/ancestor::td/text()
 - name: weightGross
   singleValue: true
   description: Gross weight as described on the page
@@ -101,7 +100,6 @@ fields:
 - name: mpc
   singleValue: true
   description: The manufacturer model code (unique) of the product
-  xpath: //span[@itemprop='productID']
 - name: packSize
   singleValue: true
   description: The number of packs in the product offer (if stated separately on the
@@ -142,15 +140,16 @@ fields:
   singleValue: true
   description: Number of variants listed
 - name: color
-  singleValue: true
+  singleValue: false
   description: A textual description of the colour
-  xpath: //span[contains(text(), 'Coloris')]/ancestor::td/text()
+  xpath: //span[contains(text(), 'Coloris')]/ancestor::td/text() | //span[contains(text(), 'Couleur')]/ancestor::td/text()
 - name: colorCode
   singleValue: true
   description: A code description of the color (e.g. RGB hex)
 - name: manufacturerDescription
   singleValue: false
   description: The extended description of the product supplied by the lister
+  xpath: //div[@id='presentation']//div[@itemprop='description']
 - name: manufacturerImages
   singleValue: false
   description: Images within the third party description
@@ -397,11 +396,13 @@ fields:
   singleValue: true
   description: 
 - name: specifications
-  singleValue: true
+  singleValue: false
   description: The physical dimensions of the product including packaging.
+  xpath: //div[@class='features-table']
 - name: warranty
-  singleValue: true
+  singleValue: false
   description: Guarantee associated with the product
+  xpath: //span[contains(text(), 'Durée de la garantie')]/ancestor::td/text()
 - name: storage
   singleValue: true
   description: Suggested storage location for product
@@ -464,7 +465,7 @@ fields:
   description: 
 - name: additionalDescBulletInfo
   singleValue: false
-  xpath: //div[@class='best-points bottom']|//div[@class='features-table enable-slidedown']
+  xpath: //ul[@class='bestpoints-list']
 - name: prop65Warning
   singleValue: true
   description: 

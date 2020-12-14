@@ -2,7 +2,7 @@ input:
   id: 1149623
   _url: http://boulanger.com
 extractions:
-  - html: https://workbench.import.io/html/run=b27d28b5-8d35-404c-83d7-b9b80ae2e070/task=a479077c-d307-43eb-9518-b86b45c7c518/b84f7b4a-df19-42ea-8c4f-1e88611b3c69.html
+  - html: https://workbench.import.io/html/run=2a5675a3-055c-4b84-873f-44f4c30209b7/task=e0959225-1654-4d10-98ae-5cd9ad7ea9ac/19a72a1d-8dbc-498b-895b-5211e7347fbb.html
     extractionConfigId: product/details/stores/b/boulanger/FR/extract
     data:
       - group:
@@ -10,7 +10,7 @@ extractions:
               - text: https://www.boulanger.com/ref/1149623
                 xpath: /html/head[1]/link[10]/@href
             image:
-              - text: https://boulanger.scene7.com/is/image/Boulanger/3280192006098_h_f_l_1?qlt=85,0&resMode=sharp2&op_usm=1.75,0.3,2,0&id=n4Ynt2&fmt=jpg&fit=constrain,1&wid=400&hei=325&qlt=85,0&resMode=sharp2&op_usm=1.75,0.3,2,0
+              - text: https://boulanger.scene7.com/is/image/Boulanger/bfr_overlay?$product_id=3280192006098_h_f_l_1&bfr_overlay?layer=comp&$t1=&$product_id=Boulanger/3280192006098_h_f_l_0&$i1=exclu-boulanger&qlt=85,0&resMode=sharp2&op_usm=1.75,0.3,2,0&id=uUbK31&fmt=jpg&fit=constrain,1&wid=350&hei=350&qlt=85,0&resMode=sharp2&op_usm=1.75,0.3,2,0
                 xpath: /html/body/div[4]/div[2]/div[2]/div[1]/div[2]/center[1]/div[1]/div[2]/div[3]/div[1]/img[1]/@src
             alternateImages:
               - text: https://boulanger.scene7.com/is/image/Boulanger/3280192006098_h_f_l_2
@@ -21,6 +21,8 @@ extractions:
                 xpath: /html/body/div[4]/div[2]/div[2]/div[1]/div[2]/center[1]/div[1]/div[2]/div[4]/div[1]/div[1]/div[4]/div[1]/@style
               - text: https://boulanger.scene7.com/is/image/Boulanger/3280192006098_h_f_l_0
                 xpath: /html/body/div[4]/div[2]/div[2]/div[1]/div[2]/center[1]/div[1]/div[2]/div[4]/div[1]/div[1]/div[5]/div[1]/@style
+              - text: https://boulanger.scene7.com/is/image/Boulanger/3280192006098_h_f_l_5
+                xpath: /html/body/div[4]/div[2]/div[2]/div[1]/div[2]/center[1]/div[1]/div[2]/div[4]/div[1]/div[1]/div[6]/div[1]/@style
             category:
               - text: Smartphone - Téléphonie
                 xpath: /html/body/div[4]/div[2]/div[1]/ul[1]/li[2]
@@ -41,9 +43,6 @@ extractions:
             brandText:
               - text: Huawei
                 xpath: /html/body/div[4]/div[2]/div[2]/div[1]/div[1]/div[1]/h1[1]/a[1]/span[1]
-            manufacturer:
-              - text: Huawei
-                xpath: /html/body/div[4]/div[2]/div[2]/div[1]/div[1]/div[1]/h1[1]/a[1]/span[1]
             weightNet:
               - text: 165,00 g
                 xpath: /html/body/div[4]/div[2]/div[3]/div[1]/div[5]/table[1]/tbody[12]/tr[4]/td[1]/text()[1]
@@ -56,15 +55,34 @@ extractions:
             variantId:
               - text: "000000000001149623"
                 xpath: /html/body/div[4]/div[2]/div[2]/div[1]/div[1]/div[1]/span[3]
-            mpc:
-              - text: "0001149623"
-                xpath: /html/body/div[4]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/span[1]/span[1]
+            ratingCount:
+              - text: "144"
+                xpath: /html/body/div[4]/div[2]/div[3]/div[1]/div[1]/ul[1]/li[3]/a[1]/span[1]
             aggregateRatingText:
               - text: 4,6 / 5
                 xpath: /html/body/div[4]/div[2]/div[3]/div[6]/div[3]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]
             aggregateRating:
               - text: 4,6
                 xpath: /html/body/div[4]/div[2]/div[3]/div[6]/div[3]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/span[1]
+            color:
+              - text: Noir
+                xpath: /html/body/div[4]/div[2]/div[3]/div[1]/div[5]/table[1]/tbody[4]/tr[2]/td[1]/text()[1]
+            manufacturerDescription:
+              - text: >-
+                  UN APPAREIL PHOTO INCOMPARABLE
+
+                  En matière de photographie, Huawei dévoile de nombreuses améliorations visant à atteindre des sommets. Sur le Huawei P30 on retrouve un appareil photo avec triple capteurs développé en partenariat avec Leica. 
+
+                  La caméra Super Spectrum de 40 MP se distingue de la matrice RVB classique. Cette technologie permet de prendre des photos et vidéos exceptionnelles, même en très basse lumière tout en conservant des couleurs naturelles. Un feu de camp sur la plage, un dîner romantique simplement éclairé par des bougies, vous pourrez capturer chaque instant avec justesse. À l'avant le capteur de 32 MP prend des selfies éclatants, avec des détails fidèles.
+
+                  UNE CONFIGURATION EXCEPTIONNELLE
+
+                  Le Huawei P30 arbore un écran OLED de 6,1 pouces d'une résolution FHD+ de quoi vous en mettre plein les yeux ! Côté processeur, Huawei met le paquet avec la puce Kirin 980, l'une des plus rapides actuellement sur Android, qui s'appuie sur 6 Go de RAM et 128 Go de stockage. Sur le P30 il sera possible d'ajouter une carte NM Card allant jusqu'à 256 Go.
+
+                  UN DESIGN QUI EN DIT LONG
+
+                  La face arrière du Huawei P30 ressemble à une aurore boréale, une manière pour Huawei de rappeler par le design de son dernier fleuron les capacités exceptionnelles de son appareil photo. Ce smartphone reflète les couleurs que l'on peut observer dans le ciel et dans l'espace.
+                xpath: /html/body/div[4]/div[2]/div[3]/div[7]/div[2]
             manufacturerImages:
               - text: https://boulanger.scene7.com/is/image/Boulanger/6901443288014_p1?wid=1000
                 xpath: /html/body/div[4]/div[2]/div[3]/div[7]/div[2]/p[3]/img[1]/@src
@@ -80,23 +98,7 @@ extractions:
             brandLink:
               - text: https://www.boulanger.com/resultats?tr=huawei#searchinputmode=product
                 xpath: /html/body/@brandhref
-            additionalDescBulletInfo:
-              - text: |-
-                  Les points clés
-                   
-                   
-                   Ecran large 6,1" soit 15,5 cm 
-                   
-                   Stockage très élevé 128 Go 
-                   
-                   Batterie très longue durée 3650mAh 
-                   
-                   Mémoire RAM 6 Go 
-                   
-                   
-                   
-                  Le + : Triple capteur photo + montre connectée
-                xpath: /html/body/div[4]/div[2]/div[3]/div[1]/div[4]
+            specifications:
               - text: >-
                   Appareil photo numérique
 
@@ -285,18 +287,6 @@ extractions:
 
                    
                   Charge rapide : Non
-                   
-
-                   
-
-                   
-                  Qu'est-ce que le DAS : Le débit d'absorption spécifique (DAS) local quantifie l'exposition de l'utilisateur aux ondes électromagnétiques de l'équipement concerné. Le DAS maximal autorisé est de 2 W/kg pour la tête et le tronc et de 4 W/kg pour les membres
-                   
-
-                   
-
-                   
-                  Exposition aux ondes électromagnétiques : L'utilisation d'un kit main libre est recommandée afin de vous protéger d'une exposition continue aux ondes électromagnétiques
                    
 
                    
@@ -510,6 +500,18 @@ extractions:
                    
 
                    
+                  Qu'est-ce que le DAS : Le débit d'absorption spécifique (DAS) local quantifie l'exposition de l'utilisateur aux ondes électromagnétiques de l'équipement concerné. Le DAS maximal autorisé est de 2 W/kg pour la tête et le tronc et de 4 W/kg pour les membres
+                   
+
+                   
+
+                   
+                  Exposition aux ondes électromagnétiques : L'utilisation d'un kit main libre est recommandée afin de vous protéger d'une exposition continue aux ondes électromagnétiques
+                   
+
+                   
+
+                   
 
                    
 
@@ -576,6 +578,19 @@ extractions:
                    
                   * Indépendamment de la garantie commerciale Boulanger, vous bénéficiez des garanties légales. (En savoir plus)
                 xpath: /html/body/div[4]/div[2]/div[3]/div[1]/div[5]
+            warranty:
+              - text: 2 ans
+                xpath: /html/body/div[4]/div[2]/div[3]/div[1]/div[5]/table[1]/tbody[11]/tr[1]/td[1]/text()[1]
+            additionalDescBulletInfo:
+              - text: |-
+                  ||Ecran large 6,1" soit 15,5 cm||
+                   
+                  ||Stockage très élevé 128 Go||
+                   
+                  ||Batterie très longue durée 3650mAh||
+                   
+                  ||Mémoire RAM 6 Go||
+                xpath: /html/body/div[4]/div[2]/div[3]/div[1]/div[4]/ul[1]
             technicalInformationPdfPresent:
               - text: Yes
                 xpath: /html/body/div[4]/div[2]/div[3]/div[1]/div[3]/li[1]/@pdfpresent
@@ -586,4 +601,4 @@ extractions:
             descriptionBullets:
               - text: "0"
         xpath: /
-    timestamp: 1603884673052
+    timestamp: 1607951923572

@@ -2,7 +2,7 @@ input:
   id: 1152297
   _url: http://boulanger.com
 extractions:
-  - html: https://workbench.import.io/html/run=b27d28b5-8d35-404c-83d7-b9b80ae2e070/task=e5a4dfdf-c17b-4b85-a939-c2bb68f09b4c/dc8e31d6-7b52-4596-ba4a-8c6713c4236d.html
+  - html: https://workbench.import.io/html/run=2a5675a3-055c-4b84-873f-44f4c30209b7/task=67e817f9-a9de-4776-be3e-d258704cd828/7e65706c-fbc8-41b3-a98c-dd5f48b83bc7.html
     extractionConfigId: product/details/stores/b/boulanger/FR/extract
     data:
       - group:
@@ -21,6 +21,8 @@ extractions:
                 xpath: /html/body/div[4]/div[2]/div[2]/div[1]/div[2]/center[1]/div[1]/div[2]/div[4]/div[1]/div[1]/div[4]/div[1]/@style
               - text: https://boulanger.scene7.com/is/image/Boulanger/4242005187300_h_f_l_4
                 xpath: /html/body/div[4]/div[2]/div[2]/div[1]/div[2]/center[1]/div[1]/div[2]/div[4]/div[1]/div[1]/div[5]/div[1]/@style
+              - text: https://boulanger.scene7.com/is/image/Boulanger/4242005187300_h_e_l_0
+                xpath: /html/body/div[4]/div[2]/div[2]/div[1]/div[2]/center[1]/div[1]/div[2]/div[4]/div[1]/div[1]/div[6]/div[1]/@style
             category:
               - text: Gros électroménager
                 xpath: /html/body/div[4]/div[2]/div[1]/ul[1]/li[2]
@@ -29,18 +31,18 @@ extractions:
               - text: Lave-vaisselle encastrable
                 xpath: /html/body/div[4]/div[2]/div[1]/ul[1]/li[4]
             nameExtended:
-              - text: Lave vaisselle tout intégrable Bosch SMI6ZDS49E
+              - text: Lave vaisselle tout intégrable Bosch SMI6ZDS49E SERIE 6
                 xpath: /html/body/div[4]/div[2]/div[2]/div[1]/div[1]/div[1]/h1[1]
-            price:
+            listPrice:
               - text: 1099,00€
+                xpath: /html/body/div[4]/div[2]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/span[1]/span[1]
+            price:
+              - text: 899,00€
                 xpath: /html/body/div[4]/div[2]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/p[1]
             availabilityText:
               - text: In Stock
                 xpath: /html/body/div[4]/div[2]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]
             brandText:
-              - text: Bosch
-                xpath: /html/body/div[4]/div[2]/div[2]/div[1]/div[1]/div[1]/h1[1]/a[1]/span[1]
-            manufacturer:
               - text: Bosch
                 xpath: /html/body/div[4]/div[2]/div[2]/div[1]/div[1]/div[1]/h1[1]/a[1]/span[1]
             weightNet:
@@ -55,47 +57,57 @@ extractions:
             variantId:
               - text: "000000000001152297"
                 xpath: /html/body/div[4]/div[2]/div[2]/div[1]/div[1]/div[1]/span[3]
-            mpc:
-              - text: "0001152297"
-                xpath: /html/body/div[4]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/span[1]/span[1]
+            color:
+              - text: Autres
+                xpath: /html/body/div[4]/div[2]/div[3]/div[1]/div[5]/table[1]/tbody[1]/tr[8]/td[1]/text()[1]
+              - text: Bandeau gris
+                xpath: /html/body/div[4]/div[2]/div[3]/div[1]/div[5]/table[1]/tbody[3]/tr[1]/td[1]/text()[1]
+            manufacturerDescription:
+              - text: >-
+                  En plus de laver votre vaisselle, ce lave-vaisselle intégrable
+                  est doté de nombreuses options et fonctionnalités destinées à
+                  vous simplifier la vie. Votre vaisselle est parfaitement
+                  lavée, et vous bénéficiez de davantage d'espace à l'intérieur
+                  pour y ranger toute votre vaisselle, même les petits objets.
+
+                  Un lave-vaisselle intelligent et performant
+
+                  Pour plus de facilité d'utilisation et un plus grand confort quotidien, votre Lave-Vaisselle Intégrable 60 BOSCH SMI6ZDS49E est intelligent et dispose de la technologie Home Connect. Il peut se connecter à vos autres appareils ménagers et se contrôler facilement par la voix ou grâce à votre smartphone.
+
+                  Le moteur EcoSilence Drive de votre Lave-Vaisselle Intégrable 60 BOSCH SMI6ZDS49E vous permet de réaliser d'importantes économies d'eau et d'électricité. Efficace et performant, cet appareil est également ultrasilencieux, pour vous permettre de le lancer à n'importe quel moment sans risque de déranger votre entourage.
+
+                  Des fonctionnalités pratiques
+
+                  Grâce à la technologie Extra Clean Zone, nettoyez en profondeur tous vos plats, même les plus incrustés, en les plaçant dans le panier supérieur de votre Lave-Vaisselle Intégrable 60 BOSCH SMI6ZDS49E. De cette façon, vous obtenez toujours une vaisselle parfaitement nettoyée, sans avoir besoin de la laver à nouveau à la main.
+
+                  Que diriez-vous d'un panier supplémentaire, dans lequel vous pourriez ranger des petits articles comme des tasses, des louches ou des petits plats ? C'est ce que vous propose le Lave-Vaisselle Intégrable 60 BOSCH SMI6ZDS49E. Grâce au Extra Space 3ème Panier, optez pour un autre panier et gagnez de la place dans votre appareil.
+                xpath: /html/body/div[4]/div[2]/div[3]/div[7]/div[2]
+            manufacturerImages:
+              - text: https://boulanger.scene7.com/is/image/Boulanger/Lave-vaisselle_TV?wid=1000&qlt=90
+                xpath: /html/body/div[4]/div[2]/div[3]/div[7]/div[2]/center[1]/a[1]/img[1]/@src
+              - text: https://boulanger.scene7.com/is/image/Boulanger/4242005187300_h_f_l_0?wid=400&hei=270
+                xpath: /html/body/div[4]/div[2]/div[3]/div[7]/div[2]/h3[1]/img[1]/@src
+              - text: https://boulanger.scene7.com/is/image/Boulanger/4242005187300_h_f_l_1?wid=400&hei=270
+                xpath: /html/body/div[4]/div[2]/div[3]/div[7]/div[2]/h3[2]/img[1]/@src
             videos:
               - text: https://boulanger.scene7.com/is/content/Boulanger/4242005187300_v_0
-                xpath: /html/body/div[4]/div[2]/div[3]/div[7]/div[2]/p[1]/video[1]/@src
+                xpath: /html/body/div[4]/div[2]/div[3]/div[7]/div[2]/p[8]/video[1]/@src
             name:
-              - text: Lave vaisselle tout intégrable Bosch SMI6ZDS49E
+              - text: Lave vaisselle tout intégrable Bosch SMI6ZDS49E SERIE 6
                 xpath: /html/body/div[4]/div[2]/div[2]/div[1]/div[1]/div[1]/h1[1]
             inStorePrice:
-              - text: 1099,00€
+              - text: 899,00€
                 xpath: /html/body/div[4]/div[2]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/p[1]
             coupon:
-              - text: "- 30%"
-                xpath: /html/body/div[4]/div[2]/div[3]/div[5]/div[1]/div[1]/div[1]/div[1]/div[1]/div[4]/div[1]/div[1]/div[4]/div[1]/span[2]
+              - text: "- 18%"
+                xpath: /html/body/div[4]/div[2]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/span[2]
             brandLink:
               - text: https://www.boulanger.com/resultats?tr=bosch#searchinputmode=product
                 xpath: /html/body/@brandhref
             videoLength:
               - text: "139.900227"
-                xpath: /html/body/div[4]/div[2]/div[3]/div[7]/div[2]/p[1]/video[1]/@duration
-            additionalDescBulletInfo:
-              - text: >-
-                  Les points clés
-                   
-                   
-                   L x H x P : 600 x 815 x 550 cm 
-                   
-                   13 couverts - 42 dB - Très éco A+++ 
-                   
-                   Conso moyenne d'eau par cycle 9,5L 
-                   
-                   Départ différé 24 heures - 8 programmes 
-
-                   
-
-                   
-
-                   
-                  Le + : le Séchage Zeolith permet d'économiser tout en renforçant la qualité du séchage
-                xpath: /html/body/div[4]/div[2]/div[3]/div[1]/div[4]
+                xpath: /html/body/div[4]/div[2]/div[3]/div[7]/div[2]/p[8]/video[1]/@duration
+            specifications:
               - text: "Caractéristiques principales
 
                   Caractéristiques principales
@@ -321,6 +333,17 @@ extractions:
                   \\ 
 
                   Classe énergétique (+ d'infos) : A+++
+
+                  \\ 
+
+                  \\ 
+
+                  \\ 
+
+                  Tout savoir sur le changement des classes
+                  énergetiques en 2021 (+ d'infos) : Nous vous informons qu'une
+                  nouvelle étiquette énergie entrera en vigueur le 1er mars 2021
+                  Cliquez ici pour plus d'informations
 
                   \\ 
 
@@ -634,6 +657,19 @@ extractions:
                   Boulanger, vous bénéficiez des garanties légales. (En savoir
                   plus)"
                 xpath: /html/body/div[4]/div[2]/div[3]/div[1]/div[5]
+            warranty:
+              - text: 2 ans
+                xpath: /html/body/div[4]/div[2]/div[3]/div[1]/div[5]/table[1]/tbody[10]/tr[2]/td[1]/text()[1]
+            additionalDescBulletInfo:
+              - text: |-
+                  ||L x H x P : 600 x 815 x 550 cm||
+                   
+                  ||13 couverts - 42 dB - Très éco A+++||
+                   
+                  ||Conso moyenne d'eau par cycle 9,5L||
+                   
+                  ||Départ différé 24 heures - 8 programmes||
+                xpath: /html/body/div[4]/div[2]/div[3]/div[1]/div[4]/ul[1]
             technicalInformationPdfPresent:
               - text: Yes
                 xpath: /html/body/div[4]/div[2]/div[3]/div[1]/div[3]/li[1]/@pdfpresent
@@ -642,6 +678,6 @@ extractions:
             imageZoomFeaturePresent:
               - text: Yes
             descriptionBullets:
-              - text: "1"
+              - text: "0"
         xpath: /
-    timestamp: 1603884666097
+    timestamp: 1607951922124
