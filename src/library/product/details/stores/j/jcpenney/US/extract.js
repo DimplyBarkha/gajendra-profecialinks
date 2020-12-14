@@ -29,10 +29,15 @@ async function implementation (
     const optionalWait = async (sel) => {
       try {
         await context.waitForSelector(sel, { timeout: 60000 });
+        await stall(1000);
       } catch (err) {
         console.log(`Couldn't load selector => ${sel}`);
       }
     };
+
+    function timeout (ms) {
+      return new Promise((resolve) => setTimeout(resolve, ms));
+    }
 
     const color = [...document.querySelectorAll('ul[data-automation-id="product-dimensions-color"] li')].map(e => { return e.querySelector('button').getAttribute('data-for'); });
 
@@ -46,12 +51,57 @@ async function implementation (
     const finalImages = [];
     const isVariants = document.querySelector('#option-wrapper-false #product-options-false');
     const variants = '#option-wrapper-false #product-options-false > div:nth-last-child(1) ul li';
+    var colorArray = [];
+    var sizeArray = [];
 
     if (isVariants) {
       optionalWait('h1[data-automation-id="product-title"]');
       document.querySelectorAll('#option-wrapper-false #product-options-false > div:nth-last-child(1) ul li button').forEach(ele => {
-        ele.click();
+        function timeout (ms) {
+          return new Promise((resolve) => setTimeout(resolve, ms));
+        }
+        var getVariant = async function () {
+          var priceArray = [];
+          var listArray = [];
+          var variantRows = [...document.querySelectorAll('#option-wrapper-false #product-options-false > div:nth-last-child(1) ul li button')];
+          for (let index = 0; index < variantRows.length; index++) {
+            variantRows[index].click();
+            await timeout(6000);
+            var z = document.querySelector('div[data-automation-id="product-content-block"] section span[data-automation-id="at-price-value"]') ? document.querySelector('div[data-automation-id="product-content-block"] section span[data-automation-id="at-price-value"]').textContent : 'noprice';
+            priceArray.push(z);
+            var w = document.querySelector('div[data-automation-id="product-content-block"] span[data-automation-id="price-original-price"]') ? document.querySelector('div[data-automation-id="product-content-block"] span[data-automation-id="price-original-price"]').textContent : 'noprice';
+            listArray.push(w);
+          }
+          const priceRows = document.querySelectorAll('#option-wrapper-false #product-options-false > div:nth-last-child(1) ul li');
+          for (let i = 0; i < priceRows.length; i++) {
+            priceRows[i].setAttribute('price', priceArray[i]);
+          }
+
+          const listRows = document.querySelectorAll('#option-wrapper-false #product-options-false > div:nth-last-child(1) ul li');
+          for (let i = 0; i < listRows.length; i++) {
+            listRows[i].setAttribute('listprice', listArray[i]);
+          }
+        };
+        getVariant();
+        // ele.click();
         console.log('Clicked');
+        optionalWait('h1[data-automation-id="product-title"]');
+        var x = document.querySelector('span._1ZOS5') ? 'Out of stock' : 'In Stock';
+        colorArray.push(x);
+        console.log(colorArray);
+        var y = document.querySelector('div._1YUMp') ? 'Out of stock' : 'In Stock';
+        sizeArray.push(y);
+        console.log(sizeArray);
+        optionalWait('#option-wrapper-false #product-options-false > div:nth-last-child(1) ul li:nth-last-child(1)');
+        const colorRows = document.querySelectorAll('ul[data-automation-id="product-dimensions-color"] li');
+        for (let i = 0; i < colorRows.length; i++) {
+          colorRows[i].setAttribute('availability', colorArray[i]);
+        }
+
+        const sizeRows = document.querySelectorAll('section[data-automation-id="productOptionPillsBlock"] ul li');
+        for (let i = 0; i < sizeRows.length; i++) {
+          sizeRows[i].setAttribute('availability', sizeArray[i]);
+        }
         const skus = [];
         const mpc = [];
         var array = [...document.querySelectorAll('#option-wrapper-false #product-options-false > div:nth-last-child(1) ul li')];
@@ -92,6 +142,7 @@ async function implementation (
             array[i].setAttribute('mpc', mpc[i]);
           }
         }
+
         document.querySelector('h1[data-automation-id="product-title"]').setAttribute('firstvariant', skus[0]);
 
         [...document.querySelectorAll('#option-wrapper-false #product-options-false > div:nth-last-child(1) ul li')].map((e) => {
@@ -138,23 +189,35 @@ async function implementation (
       });
 
       finalImages.push([...document.querySelectorAll('#contentContainer > section > section:nth-child(3) > div.sm12.md6.lg6.xl7._3AtEJ > div > div.carousel-wrapper > div > div._3h_IA.lg2.xl2.md2.sm2._1sbcC.noPad > div > div.slick-list a')].map(e => { return e.querySelector('img').getAttribute('src'); }));
+
+      const availability = document.querySelector('div._1YUMp');
+      if (availability) {
+        const status = availability.textContent;
+        if (status.includes('Out of Stock')) {
+          [...document.querySelectorAll('#option-wrapper-false #product-options-false > div:nth-last-child(1) ul li')].map((e) => {
+            e.setAttribute('availability', 'Out of Stock');
+          });
+        }
+      } else {
+        [...document.querySelectorAll('#option-wrapper-false #product-options-false > div:nth-last-child(1) ul li')].map((e) => {
+          e.setAttribute('availability', 'In Stock');
+        });
+      }
+
+      var price = document.querySelector('div[data-automation-id="product-content-block"] section span[data-automation-id="at-price-value"]') ? document.querySelector('div[data-automation-id="product-content-block"] section span[data-automation-id="at-price-value"]').textContent : 'noprice';
+      var listPrice = document.querySelector('div[data-automation-id="product-content-block"] span[data-automation-id="price-original-price"]') ? document.querySelector('div[data-automation-id="product-content-block"] span[data-automation-id="price-original-price"]').textContent : 'noprice';
+
+      [...document.querySelectorAll('#option-wrapper-false #product-options-false > div:nth-last-child(1) ul li')].map((e) => {
+        e.setAttribute('price', price);
+      });
+      [...document.querySelectorAll('#option-wrapper-false #product-options-false > div:nth-last-child(1) ul li')].map((e) => {
+        e.setAttribute('listprice', listPrice);
+      });
     }
 
     appendImages(variants, finalImages);
     const brand = document.evaluate('//script[@type="application/ld+json"][contains(.,"brand")]', document).iterateNext().textContent.split('"brand":{"@type":"Thing","name":"')[1].split('"},')[0];
     document.querySelector('h1[data-automation-id="product-title"]').setAttribute('brand', brand);
-    var availability = document.querySelector('div._1YUMp');
-    if (availability) {
-      var status = availability.textContent;
-      if (status.includes('Out of Stock')) {
-        availability = 'Out of Stock';
-        document.querySelector('h1[data-automation-id="product-title"]').setAttribute('availability', availability);
-      }
-    } else {
-      availability = 'In Stock';
-      document.querySelector('h1[data-automation-id="product-title"]').setAttribute('availability', availability);
-    }
-
     const prop = document.evaluate('//h3[@data-automation-id="general-info-title"][contains(.,"Proposition 65 WARNING")]', document).iterateNext();
 
     if (prop) {
