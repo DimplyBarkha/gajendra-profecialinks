@@ -61,17 +61,17 @@ const transform = (data) => {
             },
           ];
         }
-        if (row.variantInformation) {
-          let text = '';
-          row.variantInformation.forEach(item => {
-            text += item.text+'|';
-          });
-          row.variantInformation = [
-            {
-              text: text.slice(0 , -1),
-            },
-          ];
-        }
+        // if (row.variantInformation) {
+        //   let text = '';
+        //   row.variantInformation.forEach(item => {
+        //     text += item.text+'|';
+        //   });
+        //   row.variantInformation = [
+        //     {
+        //       text: text.slice(0 , -1),
+        //     },
+        //   ];
+        // }
         if (row.specifications) {
           let text = '';
           row.specifications.forEach(item => {

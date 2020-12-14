@@ -163,6 +163,22 @@ await context.evaluate(async () => {
     }
 
     addHiddenDiv('countryOfOriginText', countryOfOriginText);
+
+    // var xpath =
+    //   " //span[@class='b_orEV9DcwNt']";
+    // var variantInfoText = document.evaluate(
+    //   xpath,
+    //   document,
+    //   null,
+    //   XPathResult.FIRST_ORDERED_NODE_TYPE,
+    //   null
+    // ).singleNodeValue;
+    // let variantInfo = '';
+    // if (variantInfoText) {
+    //   variantInfo += variantInfoText.textContent+'|';
+    // }
+
+    // addHiddenDiv('variantInfo', variantInfo);
     var xpath =
       "//span[contains(text() , 'Срок годности')]/../following-sibling::div/span";
     var storages = document.evaluate(
@@ -313,6 +329,17 @@ if(spec.length === 0) {
   });
   addHiddenDiv('specification', specification);
 }
+
+    let variantInfo = document.querySelectorAll('span.b_orEV9DcwNt');
+if(variantInfo) {
+  let variantList = '';
+  variantInfo.forEach((element, index, array) => {
+    variantList +=  element.innerText +'|';
+  });
+  addHiddenDiv('variantList', variantList.slice(0 , -1));
+}
+
+
    
 
    
