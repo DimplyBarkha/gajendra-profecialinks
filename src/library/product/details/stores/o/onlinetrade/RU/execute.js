@@ -5,8 +5,8 @@ module.exports = {
     country: 'RU',
     store: 'onlinetrade',
     domain: 'onlinetrade.ru',
-    loadedSelector: null,
-    noResultsXPath: null,
+    loadedSelector: '.indexGoods__item',
+    noResultsXPath: '//div[contains(@class,"content__mainColumn")]/p[contains(text(),"Ничего не найдено")]',
     zipcode: '',
   },
 };

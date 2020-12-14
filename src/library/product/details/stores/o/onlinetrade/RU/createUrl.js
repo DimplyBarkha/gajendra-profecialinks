@@ -4,7 +4,7 @@ module.exports = {
   parameterValues: {
     domain: 'onlinetrade.ru',
     prefix: null,
-    url: null,
+    url: 'https://www.onlinetrade.ru/sitesearch.html?query={id}',
     country: 'RU',
     store: 'onlinetrade',
     zipcode: '',
