@@ -102,4 +102,8 @@ fields:
     regExpReplace: https://www.youtube.com/watch?v=$2
   - name: unInterruptedPDP
     singleValue: false
-    xpath: //div[@class="_1ylr7ZqaNStFKeyroKYurg"]//font/font
+    xpath: //div[@class='_1ylr7ZqaNStFKeyroKYurg']
+  - name: inTheBoxText
+    singleValue: false
+    description: Must include text to show the accessories/tools which come with the product
+    xpath: //div[contains(text(),"Enthaltenes Zubehör")]/following-sibling::div/span
