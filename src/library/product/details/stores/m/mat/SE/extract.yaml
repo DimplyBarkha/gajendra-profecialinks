@@ -17,7 +17,7 @@ fields:
     description: The <meta> keywords content
   - name: category
     singleValue: false
-    description: The categories (e.g. from breadcrumbs)
+    xpath: //div[@class='list']/a/text()
   - name: nameExtended
     singleValue: true
     xpath: concat(//div[@class="heading"]/span/text(),'-',//meta[@property="og:title"]/@content)
@@ -26,28 +26,20 @@ fields:
     description: The stated undiscounted price for the product
   - name: price
     singleValue: true
-    description: The offered price for the selected product variant - if a user
-      clicks add to basket this is the price they would be charged
+    xpath: //html//div[@id="price"]
   - name: availabilityText
     singleValue: true
-    description: Availability as described on page for the selected variant. If
-      there is no availability but the product can be added to cart, this field
-      should be "In Stock"
-    regExp: (.+)
-    regExpReplace: In Stock
-    defaultValue: Out of Stock
+    xpath: //html//div[@id="stock"]
   - name: description
     singleValue: false
-    description: Product description supplied by website - may be concatenanted from
-      multiple places; specifically not the manufacturer description
+    xpath: //div[@class="right-col"]/p/text()
   - name: descriptionBullets
     singleValue: true
     description: Number of ul > li tags in the description
     type: NUMBER
   - name: brandText
     singleValue: true
-    description: Product brand shown - this may actually NOT be just a brand name,
-      e.g. "Visit the Gillette Store"
+    xpath: //div[@class="heading"]/span[@class='small']/text()
   - name: manufacturer
     singleValue: true
     description: Product manufacturer
@@ -58,19 +50,19 @@ fields:
     regExpReplace: $1$2$3$4
   - name: weightNet
     singleValue: true
-    description: Net weight as described on the page
+    xpath: //span[contains(text(),'Vikt/Volym')]/following::strong[1]/text()
   - name: weightGross
     singleValue: true
     description: Gross weight as described on the page
   - name: gtin
     singleValue: true
-    description: GTIN code (includes UPC/EAN)
+    xpath: //html//div[@id="gtin"]
   - name: sku
     singleValue: true
-    description: The store-specific product identifier
+    xpath: //html//div[@id="id"]
   - name: variantId
     singleValue: true
-    description: Identifier for a variant from a store where variants share the same sku
+    xpath: //html//div[@id="id"]
   - name: mpc
     singleValue: true
     description: The manufacturer model code (unique) of the product
@@ -89,24 +81,13 @@ fields:
     description: Content under "warnings" header
   - name: ratingCount
     singleValue: true
-    description: The number of ratings
+    xpath: //span[@class="comment-count"]/span[@class="ng-binding"]/text()
+    regExp: (\d+)
     type: NUMBER
-  - name: aggregateRatingText
-    singleValue: true
-    description: The stated aggregate rating
   - name: aggregateRating
     singleValue: true
-    description: The stated aggregate rating normalized to be out of 5
+    xpath: //span[@class="average-rating"]/span[@class="ng-binding"]/text()
     type: NUMBER
-  - name: shippingInfo
-    singleValue: true
-    description: Shipping information for the product
-  - name: shippingDimensions
-    singleValue: true
-    description: Stated shipping dimensions
-  - name: shippingWeight
-    singleValue: true
-    description: Stated shipping weight
   - name: variantCount
     singleValue: true
     description: Number of variants listed
@@ -231,8 +212,7 @@ fields:
     description: null
   - name: ingredientsList
     singleValue: true
-    description: List of Ingredients from site - can be string of data if no
-      discernible start/end point
+    xpath: //div[@class='product-info clearfix']/div[@class='box clearfix mobileNone']/div[@class='info']/p[1]/text()
   - name: servingSize
     singleValue: true
     description: The size of serving Nutritional information is based on.
@@ -386,13 +366,13 @@ fields:
     description: Guarantee associated with the product
   - name: storage
     singleValue: true
-    description: Suggested storage location for product
+    xpath: //div[@class='box clearfix mobileNone']/div[@class='info']/p[4]/text()
   - name: countryOfOrigin
     singleValue: true
-    description: The country from which the product originates
+    xpath: //div[@id='description']/div[@class='brand clearfix']/strong[2]
   - name: allergyAdvice
     singleValue: true
-    description: Allergy information associated with the product
+    xpath: //div[@class='box clearfix mobileNone']/div[@class='info']/p[3]/text()
   - name: recyclingInformation
     singleValue: true
     description: Recycling information associated with the product
@@ -446,17 +426,6 @@ fields:
   - name: variants
     singleValue: false
     description: null
-  - name: additionalDescBulletInfo
-    singleValue: false
-    description: null
-  - name: prop65Warning
-    singleValue: true
-    description: null
-  - name: ageSuitability
-    singleValue: true
-    description: Recommended age displayed on the product page.
-      https://www.amazon.com/LEGO-Classic-Medium-Creative-Brick/dp/B00NHQFA1I
-    example: 4 - 99 years
   - name: energyEfficiency
     singleValue: true
     description: Energy rating of a product.
