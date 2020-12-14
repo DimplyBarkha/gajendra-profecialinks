@@ -32,7 +32,7 @@ fields:
     xpath: //div[contains(@class,'u-marginBmd u-textSmall')]/div
   - name: caloriesPerServing
     singleValue: false
-    xpath: //span[contains(@itemprop,'calories')]/@content
+    xpath: //span[contains(@itemprop,'calories')]/@content[contains(.,'Kilokalori')]
   - name: totalFatPerServing
     singleValue: false
     xpath: //span[contains(@itemprop,'fatContent')]/@content
@@ -54,6 +54,8 @@ fields:
   - name: ingredientsList
     singleValue: false
     xpath: //div[contains(@class,'u-marginBmd u-textSmall')]//h5[contains(text(),'Ingredienser')]/parent::*
+    regExp: (Ingredienser\singredienser:\s|Ingredienser\s)(.+)
+    regExpReplace: $2
   - name: category
     singleValue: false
     xpath: //div[contains(@data-page-type,"productPage")]//div[contains(@class,'Breadcrumb-container')]//div[contains(@class,'Breadcrumb-item')]//span
@@ -86,3 +88,6 @@ fields:
   - name: productUrl
     singleValue: false
     xpath: //div[contains(@data-page-type,"productPage")]//ancestor::html//link[@rel="canonical"]/@href
+  - name: nutritionInfo
+    singleValue: false
+    xpath: //div[@itemprop="nutrition"]

@@ -85,7 +85,7 @@ fields:
     xpath: //div[@class="productInformation"]//div[@data-testauto="productingredients"]
     # xpath: //div[@class="productInformation"]//div[contains(text(),"Ingrédients")]//following-sibling::div
   - name: servingSize
-    xpath: //a[@class="nutritionInformation-heading__option-link"]/text()
+    xpath: normalize-space(//a[@class="nutritionInformation-heading__option-link"])
     regExp: \s\W([^\W]+)
     regExpReplace: $1
   - name: servingSizeUom
