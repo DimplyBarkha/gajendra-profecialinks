@@ -25,7 +25,11 @@ module.exports = {
         document.body.appendChild(catElement);
       }
 
-      const listPrice = document.querySelector('div.product-price-before') ? document.querySelector('div.product-price-before').innerText.replace(/[^\d,.]+/g, '') : '';
+      const productTitle = document.querySelector('h1[itemprop="name"] span') ? document.querySelector('h1[itemprop="name"] span').textContent : '';
+      const productSubtitle = document.querySelector('h2[itemprop="description"] span') ? document.querySelector('h2[itemprop="description"] span').textContent : '';
+      addElementToDocument('productName', `${productTitle} ${productSubtitle}`);
+
+      const listPrice = document.querySelector('div.product-price-before') ? document.querySelector('div.product-price-before').textContent.replace(/[^\d,.]+/g, '') : '';
       const buyBtnObj = document.querySelector('div.buy-button') ? document.querySelector('div.buy-button').getAttribute('data-initobject') : '';
       const onlinePrice = buyBtnObj && JSON.parse(buyBtnObj) ? JSON.parse(buyBtnObj).priceFormatted : '';
       const currency = buyBtnObj && JSON.parse(buyBtnObj) ? JSON.parse(buyBtnObj).currency : '';
@@ -35,7 +39,7 @@ module.exports = {
       const aggRating = document.querySelector('div.product-main-info__body span.rating-stars') ? document.querySelector('div.product-main-info__body span.rating-stars').getAttribute('title').replace(/(\d+)\.?,?(\d+)?.+/g, '$1,$2') : '';
       addElementToDocument('aggRating', aggRating);
 
-      const description = document.querySelector('div.product-responsive-info') ? document.querySelector('div.product-responsive-info').innerText.replace(/\s{2,}|\n{2,}|\t/g, ' ') : '';
+      const description = document.querySelector('div.product-responsive-info') ? document.querySelector('div.product-responsive-info').textContent.replace(/\s{2,}|\n{2,}|\t/g, ' ') : '';
       addElementToDocument('descId', description);
 
       const sku = document.querySelector('meta[property="og:url"]') ? document.querySelector('meta[property="og:url"]').getAttribute('content') : '';

@@ -27,7 +27,7 @@ fields:
     singleValue: true
     description: The product name, prefixing "${brand} - " if not included in "name"
       and appending " - ${variantType}" if necessary (fixed per feed)
-    xpath: concat(//h1[@itemprop="name"]/span, ' ', //h2[@itemprop="description"]/span )
+    xpath: //div[@id='productName']
   - name: listPrice
     singleValue: true
     description: The stated undiscounted price for the product
@@ -86,7 +86,6 @@ fields:
   - name: variantId
     singleValue: true
     description: Identifier for a variant from a store where variants share the same sku
-    xpath: //div[@id='sku']
   - name: mpc
     singleValue: true
     description: The manufacturer model code (unique) of the product
