@@ -87,6 +87,7 @@ fields:
   - name: legalDisclaimer
     singleValue: true
     description: Content under "legal disclaimer" header
+    xpath: //h3[contains(., 'Conservation')]/../div
   - name: directions
     singleValue: true
     description: Content under "directions" header
@@ -217,6 +218,7 @@ fields:
   - name: otherSellersName
     singleValue: false
     description: null
+    defaultValue: Carrefour
   - name: otherSellersShipping
     singleValue: false
     description: null
@@ -241,6 +243,9 @@ fields:
   - name: servingSize
     singleValue: true
     description: The size of serving Nutritional information is based on.
+    xpath: //h3[contains(., 'Valeurs Nutritionnelles')]/span
+    regExp: pour\s(.*)
+    regExpReplace: $1
   - name: servingSizeUom
     singleValue: true
     description: Unit of measure of serving
@@ -535,7 +540,6 @@ fields:
   - name: sku
     xpath: //link[@rel='canonical']/@href
     regExp: (.*)\/p\/(.*)-(\d+)
-    regExpReplace: carrefour_$3
+    regExpReplace: $3
   - name: featureBullets
     singleValue: false
-    xpath: //div[contains(@class,"regulated-name")]
