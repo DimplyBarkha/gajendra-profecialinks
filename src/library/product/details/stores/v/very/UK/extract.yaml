@@ -1,76 +1,77 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: null
+recordXPath: //div[starts-with(@id, "added_variant")]
 fields:
 - name: _input
   singleValue: false
 - name: _url
   singleValue: false
 - name: productUrl
-  xpath: //link[@rel="canonical"]//@href
+  xpath: ancestor::html//link[@rel="canonical"]/@href
   singleValue: false
 - name: _pageTimeStamp
   singleValue: false
 - name: image
-  xpath: //li[contains(@class, "amp-selected")]//div[@class="amp-zoom-overflow"]/img/@src
-  singleValue: true
+  xpath: ancestor::html//li[1]//div[@class="amp-zoom-overflow"]/img/@data-pin-media
+  singleValue: false
   description: URL of the main product image
 - name: imageAlt
   singleValue: true
   description: Alt text of the main product image
 - name: alternateImages
-  xpath: //div[@class="amp-anim-container"]/li/img/@src
+  xpath: ancestor::html//div[@class="amp-anim-container"]/li/img/@src
   regExp: (.+)(\$\d+)
   regExpReplace: $1
   singleValue: false
   description: Other product images (not in manufacturer description)
 - name: metaKeywords
-  xpath: //meta[@name="keywords"]/@content
+  xpath: ancestor::html//meta[@name="keywords"]/@content
   singleValue: true
   description: The <meta> keywords content
 - name: category
   singleValue: false
   description: The categories (e.g. from breadcrumbs)
 - name: nameExtended
-  xpath: //h1[@class="productHeading"]
-  singleValue: true
+  xpath: ancestor::html//h1[@class="productHeading"]
+  singleValue: false
   description: The product name, prefixing "${brand} - " if not included in "name"
     and appending " - ${variantType}" if necessary (fixed per feed)
 - name: listPrice
-  xpath: //div[@class="priceWas"]/span
-  singleValue: true
+  xpath: ancestor::html//div[@class="priceWas"]/span
+  singleValue: false
   description: The stated undiscounted price for the product
 - name: price
-  xpath: //div[@class="priceNow"]/text()
-  singleValue: true
+  xpath: '@price'
+  singleValue: false
   description: The offered price for the selected product variant - if a user clicks
     add to basket this is the price they would be charged
 - name: availabilityText
-  xpath: //div[@id="ii_availability"]
+  xpath: "@availability"
   # xpath: //div[@id="isAvailable"]
   singleValue: true
   description: Availability as described on page for the selected variant. If there
     is no availability but the product can be added to cart, this field should be
     "In Stock"
 - name: description
-  xpath: //div[@id='description']
+  xpath: ancestor::html//div[@id="description"]|ancestor::html//div[@id="descriptionBull"]
   singleValue: true
   description: Product description supplied by website - may be concatenanted from
     multiple places; specifically not the manufacturer description
 - name: descriptionBullets
-  xpath: count(//tr[1]//span[@itemprop="description"]//ul/li)
+  xpath: count(ancestor::html//tr[1]//span[@itemprop="description"]//ul/li)
   singleValue: true
   description: Number of ul > li tags in the description
 - name: brandText
-  xpath: //h1[@class="productHeading"]/text()
-  singleValue: true
+  xpath: ancestor::html//h1[@class="productHeading"]/text()
+  singleValue: false
   description: Product brand shown - this may actually NOT be just a brand name, e.g.
     "Visit the Gillette Store"
 - name: manufacturer
   singleValue: true
   description: Product manufacturer
 - name: quantity
+  xpath: "@size"
   singleValue: true
   description: Quantity as described on the page
 - name: weightNet
@@ -80,16 +81,16 @@ fields:
   singleValue: true
   description: Gross weight as described on the page
 - name: gtin
-  xpath: //span[@id="productEAN"]/text()
+  xpath: ancestor::html//span[@id="productEAN"]
   singleValue: true
   description: GTIN code (includes UPC/EAN) 
 - name: sku
-  xpath: //div[@id="ii_sku"]
-  # xpath: //div[@id="microdata"]/div[1]/meta[@itemprop="sku"]/@content
+  # xpath: //div[@id="ii_sku"]
+  xpath: "@sku"
   singleValue: true
   description: The store-specific product identifier
 - name: variantId
-  xpath: //link[@rel="canonical"]//@href
+  xpath: ancestor::html//link[@rel="canonical"]//@href
   regExp: (\d+).prd
   regExpReplace: $1
   singleValue: true
@@ -103,8 +104,8 @@ fields:
   description: The number of packs in the product offer (if stated separately on the
     site to quantity)
 - name: legalDisclaimer
-  xpath: //li[contains(text(),"Age Restriction")]/text()
-  singleValue: true
+  xpath: ancestor::html//li[contains(text(),"Age Restriction")]/text()
+  singleValue: false
   description: Content under "legal disclaimer" header
 - name: directions
   singleValue: true
@@ -113,15 +114,15 @@ fields:
   singleValue: true
   description: Content under "warnings" header
 - name: ratingCount
-  xpath: //ancestor::body/@ratingcount
+  xpath: ancestor::html//div[@id='ratingcount']
   singleValue: true
   description: The number of ratings
 - name: aggregateRatingText
   singleValue: true
   description: The stated aggregate rating
 - name: aggregateRating
-  xpath: //span[@class="bv-rating"]//text()
-  singleValue: true
+  xpath: ancestor::html//span[@class="bv-rating"]//text()
+  singleValue: false
   description: The stated aggregate rating normalized to be out of 5
 - name: shippingInfo
   singleValue: true
@@ -133,17 +134,18 @@ fields:
   singleValue: true
   description: Stated shipping weight
 - name: variantCount
-  xpath: count(//ul[contains(@class, "ppOption ")]/li)
-  singleValue: true
+  xpath: count(//ancestor::html//ul[contains(@class, "ppOption ")]/li)
+  singleValue: false
   description: Number of variants listed
 - name: color
-  xpath: //ancestor::body/@color
+  xpath: ancestor::html//div[@id='color']
   singleValue: true
   description: A textual description of the colour
 - name: colorCode
   singleValue: true
   description: A code description of the color (e.g. RGB hex)
 - name: manufacturerDescription
+  xpath: ancestor::html//tr[1]//span[@itemprop="description"]
   singleValue: false
   description: The extended description of the product supplied by the lister
 - name: manufacturerImages
@@ -153,8 +155,8 @@ fields:
   singleValue: false
   description: URLs of videos on page
 - name: name
-  xpath: //h1[@class="productHeading"]
-  singleValue: true
+  xpath: ancestor::html//h1[@class="productHeading"]
+  singleValue: false
   description: The product name
 - name: inStorePrice
   singleValue: true
@@ -172,8 +174,8 @@ fields:
   singleValue: true
   description: Text of link next to Amazon choice graphic
 - name: brandLink
-  xpath: //li[@id="moreFrom-brandStoreLink"]/a/@href
-  singleValue: true
+  xpath: ancestor::html//li[@id="moreFrom-brandStoreLink"]/a/@href
+  singleValue: false
   description: 
 - name: internationalShipping
   singleValue: true
@@ -422,12 +424,12 @@ fields:
   singleValue: true
   description: The unit of measurement used in price_per_unit
 - name: promotion 
-  xpath: //div[@class="priceNow"]/span[contains(@class, "save")]/text()
-  singleValue: true
+  xpath: ancestor::html//div[@class="priceNow"]/span[contains(@class, "save")]/text()
+  singleValue: false
   description: promotion text on product page
 - name: alcoholContent
-  xpath: //li[contains(text(),"Vol")]/text()
-  singleValue: true
+  xpath: ancestor::html//li[contains(text(),"Vol")]/text()
+  singleValue: false
   description: Alcohol content information
 - name: newVersion
   singleValue: true
@@ -441,11 +443,11 @@ fields:
   description: In product page, information about a new version of the product - new
     desription info
 - name: variantInformation
-  xpath: //ul//li[@class="ppOption__item"]/label/@rel
+  xpath: ancestor::html//ul//li[@class="ppOption__item"]/label/@rel
   singleValue: false
   description: colour / scent / flavour / other
 - name: firstVariant
-  xpath: //div[@id="microdata"]/div[1]/meta[@itemprop="sku"]/@content
+  xpath: ancestor::html//div[@id="microdata"]/div[1]/meta[@itemprop="sku"]/@content
   singleValue: true
   description: Unique identifier for a collection of variants. For a subset of core
     feeds (43) we have a column "first_variant" that is populated with a common code
@@ -456,26 +458,26 @@ fields:
     common link between other variants. method 3 = apply some logic to determine link
     between variants, this will need analysis
 - name: variants
-  xpath: //div[@id="microdata"]//meta[@itemprop="sku"]/@content
+  xpath: ancestor::html//div[@id="microdata"]//meta[@itemprop="sku"]/@content
   singleValue: false
   description: 
 - name: additionalDescBulletInfo
-  xpath: //tr[1]//span[@itemprop="description"]//ul/li
+  xpath: ancestor::html//tr[1]//span[@itemprop="description"]//ul/li
   singleValue: false
   description: 
 - name: prop65Warning
   singleValue: true
   description: 
 - name: ageSuitability
-  xpath: //li[contains(text(),"Age")]/text()|//li[contains(text(),"age")]/text()
+  xpath: ancestor::html//li[contains(text(),"Age")]/text()|//li[contains(text(),"age")]/text()
   regExp: (\d+.+ years)
   regExpReplace: $1
-  singleValue: true
+  singleValue: false
   description: Recommended age displayed on the product page. https://www.amazon.com/LEGO-Classic-Medium-Creative-Brick/dp/B00NHQFA1I
   example: 4 - 99 years
 - name: energyEfficiency
-  xpath: //li[contains(text(), "Energy Rating")]/text()
-  singleValue: true
+  xpath: ancestor::html//li[contains(text(), "Energy Rating")]/text()
+  singleValue: false
   description: Energy rating of a product. https://www.amazon.de/Siemens-WM16W541-Waschmaschine-Schnellwaschprogramm-Nachlegefunktion/dp/B015FJFK14
   example: A+, A+++, B
 - name: technicalInformationPdfPresent
@@ -496,8 +498,8 @@ fields:
   description: Information related to customer service availability (text), ['Yes','No']
   defaultValue: false
 - name: materials
-  xpath: //li[contains(text(), "Material Content")]/text()
-  singleValue: true
+  xpath: ancestor::html//li[contains(text(), "Material Content")]/text()
+  singleValue: false
   description: Materials used to make the product
   example: https://www.jdsports.co.uk/product/blue-adidas-linear-20-reversible-wind-breaker-jacket/15988125/
 - name: Image360Present
@@ -506,11 +508,11 @@ fields:
   example: https://www.amazon.com/Trinsic-Single-Handle-Magnetic-Champagne-9159-CZ-DST/dp/B0050EN8E6
   defaultValue: false
 - name: imageZoomFeaturePresent
-  xpath: //div[@id="isImgZoom"]
+  xpath: ancestor::html//div[@id="isImgZoom"]
   singleValue: true
   description: If Zoom feature is available for Main image or images in the carousel,['Yes','No']
   example: https://www.zalando.de/adidas-neo-sneaker-low-blackwhite-a4315i002-q11.html
 - name: unInterruptedPDP
-  xpath: //div[contains(@id,"recs")]//div[contains(@class,'banner')]
+  xpath: ancestor::html//div[contains(@id,"recs")]//div[contains(@class,'banner')]
 - name: hasComparisonTable
   defaultValue: No

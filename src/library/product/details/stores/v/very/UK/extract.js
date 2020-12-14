@@ -1,110 +1,144 @@
 const { transform } = require('../../../../shared');
 
-async function implementation (inputs, parameters, context, dependencies) {
+async function implementation(inputs, parameters, context, dependencies) {
   const { transform } = parameters;
   const { productDetails } = dependencies;
 
   await context.evaluate(async () => {
     await new Promise((resolve, reject) => setTimeout(resolve, 750));
   });
-  const products = [];
-  const allProducts = await context.evaluate(async (products) => {
-    const allNodeOffers = document.querySelectorAll('div#microdata div[itemprop="offers"]');
-    [...allNodeOffers].forEach((prod) => {
-      const sku = prod.querySelector('meta[itemprop="sku"]') ? prod.querySelector('meta[itemprop="sku"]').getAttribute('content') : '';
-      const price = prod.querySelector('meta[itemprop="price"]') ? prod.querySelector('meta[itemprop="price"]').getAttribute('content') : '';
-      const availability = prod.querySelector('link[itemprop="availability"]') ? prod.querySelector('link[itemprop="availability"]').getAttribute('href') : '';
 
-      products.push({
-        sku,
-        price,
-        availability,
-      });
-    });
-    return products;
-  }, products);
+  // @ts-ignore
+  const variantsArr = await context.evaluate(async () => [...document.querySelectorAll('div[itemprop=offers]')].map(el => {
+    const variantObj = {}
+    variantObj.sku = el.querySelector('meta[itemprop=sku]').getAttribute('content')
+    variantObj.availability = el.querySelector('link[itemprop=availability]').getAttribute('href')
+    variantObj.price = el.querySelector('meta[itemprop=price]').getAttribute('content')
+    return variantObj;
+  }));
+  const numOfVariants = variantsArr.length;
 
-  async function addElements (element) {
-    await context.evaluate(async function (prod) {
-      if (document.querySelector('#ii_sku')) {
-        document.querySelector('#ii_sku').remove();
-      }
-      if (document.querySelector('#ii_price')) {
-        document.querySelector('#ii_price').remove();
-      }
-      if (document.querySelector('#ii_availability')) {
-        document.querySelector('#ii_availability').remove();
-      }
-      if (document.querySelector('#isImgZoom')) {
-        document.querySelector('#isImgZoom').remove();
-      }
-      if (document.querySelector('#description')) {
-        document.querySelector('#description').remove();
-      }
 
-      async function addElementToDocument (id, value, key) {
-        const catElement = document.createElement('div');
-        catElement.id = id;
-        catElement.innerText = value;
-        catElement.setAttribute('content', key);
-        catElement.style.display = 'none';
-        document.body.appendChild(catElement);
-      };
+  for (let i = 0; i < numOfVariants; i++) {
+    await context.evaluate(
+      async ({ i, variantsArr }) => {
+        const addedVariant = document.createElement('div');
+        addedVariant.id = `addedVariant${i}`;
+        addedVariant.id = `added_variant${i}`;
+        addedVariant.style.display = 'none';
+        const sku = variantsArr[i].sku;
+        const availability = variantsArr[i].availability ? variantsArr[i].availability.replace('https://schema.org/', "") : null;
+        const price = variantsArr[i].price;
+        if (document.querySelectorAll('li.ppOption__item label').length > 0) {
+          // @ts-ignore
+          const variantLi = [...document.querySelectorAll('li.ppOption__item label')].map(el => {
+            const variantLis = {}
+            variantLis.size = el.getAttribute('rel')
+            return variantLis;
+          });
+          const size = variantLi[i].size;
+          addedVariant.setAttribute('size', size);
+        }
+        addedVariant.setAttribute('sku', sku);
+        addedVariant.setAttribute('availability', availability);
+        addedVariant.setAttribute('price', price);
+        document.body.appendChild(addedVariant);
+      },
+      { i, variantsArr },
+    );
+  }
 
-      const availability = prod.availability.replace('https://schema.org/', '');
+  // const products = [];
+  // const allProducts = await context.evaluate(async (products) => {
+  //   const allNodeOffers = document.querySelectorAll('div#microdata div[itemprop="offers"]');
+  //   [...allNodeOffers].forEach((prod) => {
+  //     const sku = prod.querySelector('meta[itemprop="sku"]') ? prod.querySelector('meta[itemprop="sku"]').getAttribute('content') : '';
+  //     const price = prod.querySelector('meta[itemprop="price"]') ? prod.querySelector('meta[itemprop="price"]').getAttribute('content') : '';
 
-      await addElementToDocument('ii_sku', prod.sku, prod.sku);
-      await addElementToDocument('ii_price', prod.price, prod.price);
-      await addElementToDocument('ii_availability', availability === 'OutOfStock' ? 'Out of Stock' : 'In Stock', availability === 'OutOfStock' ? 'No' : 'Yes');
 
-      // const isAvailable = document.querySelector('div.stockMessaging span.indicator')
-      //   ? document.querySelector('div.stockMessaging span.indicator') : null;
-      // // @ts-ignore
-      // if (isAvailable !== null && isAvailable.innerText === 'Out of stock') {
-      //   addElementToDocument('isAvailable', 'Out of Stock', 'No');
-      //   // @ts-ignore
-      // } else if (document.querySelector('div#addToBasket input#addToBasketButton').value === 'Add to basket') {
-      //   addElementToDocument('isAvailable', 'In Stock', 'Yes');
-      // } else {
-      //   addElementToDocument('isAvailable', '', 'No');
-      // }
+  //     products.push({
+  //       sku,
+  //     });
+  //   });
+  //   return products;
+  // }, products);
 
-      const isImgZoom = document.querySelector('li.amp-slide div.amp-zoom-overflow img')
-        ? document.querySelector('li.amp-slide div.amp-zoom-overflow img') : null;
-      // @ts-ignore
-      if (isImgZoom !== null) {
-        await addElementToDocument('isImgZoom', 'Yes', 'Yes');
-      } else {
-        await addElementToDocument('isImgZoom', 'No', 'No');
-      }
+  // async function addElements(element) {
+  // await context.evaluate(async function (prod) {
+  //   if (document.querySelector('#ii_sku')) {
+  //     document.querySelector('#ii_sku').remove();
+  //   }
+  //   if (document.querySelector('#ii_price')) {
+  //     document.querySelector('#ii_price').remove();
+  //   }
+  //   if (document.querySelector('#ii_availability')) {
+  //     document.querySelector('#ii_availability').remove();
+  //   }
+  //   if (document.querySelector('#isImgZoom')) {
+  //     document.querySelector('#isImgZoom').remove();
+  //   }
+  //   if (document.querySelector('#description')) {
+  //     document.querySelector('#description').remove();
+  //   }
+  await context.evaluate(async function () {
+    async function addElementToDocument(id, value, key) {
+      const catElement = document.createElement('div');
+      catElement.id = id;
+      catElement.innerText = value;
+      catElement.setAttribute('content', key);
+      catElement.style.display = 'none';
+      document.body.appendChild(catElement);
+    };
 
-      const ratingCount = document.querySelector('div.bvReviewsNumber a.productRating')
-        ? document.querySelector('div.bvReviewsNumber a.productRating').textContent : '';
-      const regex = /(\d+)/;
-      // @ts-ignore
-      if (ratingCount.match(regex)) document.querySelector('body').setAttribute('ratingcount', ratingCount.match(regex)[1]);
+    // const availability = prod.availability.replace('https://schema.org/', '');
 
-      const color = document.querySelector('h1.productHeading span')
-        ? document.querySelector('h1.productHeading span').textContent : '';
-      const regexColor = /- (.+)$/;
-      // @ts-ignore
-      if (color.match(regexColor)) document.querySelector('body').setAttribute('color', color.match(regexColor)[1]);
+    // await addElementToDocument('ii_sku', prod.sku, prod.sku);
+    // await addElementToDocument('ii_price', prod.price, prod.price);
+    // await addElementToDocument('ii_availability', availability === 'OutOfStock' ? 'Out of Stock' : 'In Stock', availability === 'OutOfStock' ? 'No' : 'Yes');
 
-      const description2 = document.querySelectorAll('span[itemprop="description"] ul li');
+    const isImgZoom = !!document.querySelector('li.amp-slide div.amp-zoom-overflow img');
+    // @ts-ignore
+    if (isImgZoom !== null) {
+      await addElementToDocument('isImgZoom', 'Yes', 'Yes');
+    } else {
+      await addElementToDocument('isImgZoom', 'No', 'No');
+    }
+
+    const ratingCount = document.querySelector('div.bvReviewsNumber a.productRating')
+      ? document.querySelector('div.bvReviewsNumber a.productRating').textContent : '';
+    const regex = /(\d+)/;
+    // @ts-ignore
+    if (ratingCount.match(regex)) addElementToDocument('ratingcount', ratingCount.match(regex)[1]);
+
+    const color = document.querySelector('h1.productHeading span')
+      ? document.querySelector('h1.productHeading span').textContent : '';
+    const regexColor = /- (.+)$/;
+    // @ts-ignore
+    if (color.match(regexColor)) addElementToDocument('color', color.match(regexColor)[1]);
+
+    const description1 = document.querySelector('span[itemprop="description"]') ? document.querySelector('span[itemprop="description"]').textContent : '';
+    const description2 = document.querySelectorAll('span[itemprop="description"] ul li') ? document.querySelectorAll('span[itemprop="description"] ul li') : null;
+    if (description2) {
+      console.log(description2);
       const bulletsArr = [description2];
       const bulletsArrSliced = bulletsArr.slice(1);
       // @ts-ignore
       description2.forEach(e => bulletsArrSliced.push(e.textContent));
-      const concatDesc = bulletsArrSliced.join(' || ');
-      await addElementToDocument('description', concatDesc);
-    }, element);
-  }
+      let concatDesc = bulletsArrSliced.join(' || ');
+      if (concatDesc)
+        concatDesc = '|| ' + concatDesc;
+      addElementToDocument('descriptionBull', concatDesc);
+      console.log(concatDesc);
+    } else if (description1) {
+      addElementToDocument('description', description1);
+      console.log(description1);
+    }
+  });
+  // for (let i = 0; i < allProducts.length; i++) {
+  //   const element = allProducts[i];
+  //   await addElements(element);
+  return await context.extract(productDetails, { transform });
 
-  for (let i = 0; i < allProducts.length; i++) {
-    const element = allProducts[i];
-    await addElements(element);
-    await context.extract(productDetails, { transform });
-  }
 }
 module.exports = {
   implements: 'product/details/extract',
