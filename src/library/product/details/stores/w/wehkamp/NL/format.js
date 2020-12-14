@@ -60,16 +60,18 @@ const transform = (data) => {
           }
         }
       }
-      // if (row.price) {
-      //   row.price.forEach(item => {
-      //     item.text = item.text.replace(',', '');
-      //   });
-      // }
-      // if (row.listPrice) {
-      //   row.listPrice.forEach(item => {
-      //     item.text = item.text.replace(',', '');
-      //   });
-      // }
+      if (row.price) {
+        row.price.forEach(item => {
+          item.text = item.text.replace(',', '');
+          item.text = item.text.replace('.', ',');
+        });
+      }
+      if (row.listPrice) {
+        row.listPrice.forEach(item => {
+          item.text = item.text.replace(',', '');
+          item.text = item.text.replace('.', ',');
+        });
+      }
       // if (row.variantCount) {
       //   row.variantCount = [{ text: row.variantCount.length }];
       // }
