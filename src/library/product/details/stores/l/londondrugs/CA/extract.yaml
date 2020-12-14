@@ -64,4 +64,9 @@ fields:
   - name: variantId
     singleValue: true
     xpath: //span[@itemprop="productID"]/text()
-    
+  - name: category
+    singleValue: false
+    xpath: //ul[@class="breadcrumbs"]/li[position()>2 and position()<last()]/a
+
+
+
