@@ -7,9 +7,8 @@ fields:
   - name: variantId
     singleValue: false
     # xpath: //div[@id="content"]//ul[contains(@class,"thumbnails")]//li//img/@src
-    xpath: //div[@class='section']/div/header/following-sibling::ul/li//img/@src
-    regExp: .+\/(.+?)_.+
-    regExpReplace: $1
+    xpath: //div[contains(@class,'swiper-slide')][1]//img[@class="thumbImg"]/@src
+    regExp: (N+\d+\A)
   - name: variantUrl
     singleValue: false
     # xpath: //div[@id="content"]//ul[contains(@class,"thumbnails")]//li//img/@src
