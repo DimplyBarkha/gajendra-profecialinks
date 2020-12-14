@@ -83,6 +83,10 @@ fields:
     xpath: //div[contains(text(),"Package Quantity (Volume)")]/following-sibling::div
   - name: gtin
     singleValue: false
+    xpath: //div[@class="wc-fragment"]/@data-gtin
+  - name: eangtin
+    singleValue: false
+    xpath: //div[@class="wc-fragment"]/@data-gtin
   - name: sku
     singleValue: false
     # xpath: //span[contains(@class,"model-number")]//span | //p[contains(@id,"product-body-model-number")]//span | //p[contains(@id,"product-body-model-number")]

@@ -42,7 +42,7 @@ module.exports = {
             // await context.setBlockAds(false);
             // await context.setLoadAllResources(true);
             // await context.setLoadImages(true);
-            await new Promise(resolve => setTimeout(resolve, 0000));
+            await new Promise(resolve => setTimeout(resolve, 4000));
           } catch (err) { }
         }
       }
