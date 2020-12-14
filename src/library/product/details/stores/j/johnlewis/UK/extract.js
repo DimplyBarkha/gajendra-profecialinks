@@ -35,12 +35,15 @@ module.exports = {
         if (element) {
           element.scrollIntoView({ behavior: 'smooth', block: 'end', inline: 'nearest' });
           await new Promise((resolve) => {
-            setTimeout(resolve, 7000);
+            setTimeout(resolve, 4000);
           });
         }
       }, node);
     }
+    await scrollToRec('div.footer-links');
+    await scrollToRec('section.product-breadcrumb-carousel');
     await scrollToRec('div.product-breadcrumb-carousel__container');
+    await scrollToRec('div[class^="recommendationsPanel"]');
     await scrollToRec('jl-recommendations-panel');
 
     await context.evaluate(async function () {
