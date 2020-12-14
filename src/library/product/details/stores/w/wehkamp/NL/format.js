@@ -53,11 +53,16 @@ const transform = (data) => {
         var scriptJSON = JSON.parse(row.ratingCount[0].text);
         if (scriptJSON.aggregateRating) {
           if (scriptJSON.aggregateRating.ratingValue) {
-            row.aggregateRating = [{ text: scriptJSON.aggregateRating.ratingValue }];
+            var tempRating = scriptJSON.aggregateRating.ratingValue;
+            tempRating = tempRating.replace('.', ',');
+            row.aggregateRating = [{ text: tempRating }];
           }
           if (scriptJSON.aggregateRating.reviewCount) {
             row.ratingCount = [{ text: scriptJSON.aggregateRating.reviewCount }];
           }
+        }
+        else {
+          delete row.ratingCount;
         }
       }
       if (row.price) {
