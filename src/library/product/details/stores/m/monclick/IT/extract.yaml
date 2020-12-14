@@ -110,3 +110,7 @@ fields:
   - name: color2
     singleValue: false
     xpath: //div[@id="description" and @role="tabpanel"]//div[@id="product-sheet-mk-description"]
+  - name: unInterruptedPDP
+    singleValue: false
+    xpath: //div[@class="mk-generic-box-infos"]//a/@title
+    description: Titles of products in the sections 'you may also like' or 'sponsored products'. Combine results from Max 3 sections
