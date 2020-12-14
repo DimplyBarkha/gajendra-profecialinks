@@ -248,3 +248,14 @@ fields:
     example: https://www.amazon.com/Trinsic-Single-Handle-Magnetic-Champagne-9159-CZ-DST/dp/B0050EN8E6
     xpath: //div[@id='image360Exists']
     defaultValue: "No"
+  - name: unInterruptedPDP
+    xpath: //div[@class="backordered-alternative-products-container"]//div[@class="backordered-alternative-product"] | //ul[@id="recently_viewed_details"]//li | //li[@class="recommended_item"]
+  - name: hasComparisonTable
+    xpath: //div[@id="also_compared_items_container"]
+    regExp: (.*)
+    regExpReplace: Yes
+    defaultValue: No
+  - name: inTheBoxUrl
+    xpath: //h2[contains(.,'In the box')]/..//li//img/@src
+  - name: inTheBoxText
+    xpath: //h2[contains(.,'In the box')]/..//li//h3
