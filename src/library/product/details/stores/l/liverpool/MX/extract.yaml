@@ -14,7 +14,7 @@ fields:
   - name: alternateImages
     singleValue: false
     description: Other product images (not in manufacturer description)
-    xpath: //li[@class="img-viewer"]/img/@src
+    xpath: (//img[@class='pdpthumb lazyloaded']/@src)[position()>1]
   - name: metaKeywords
     singleValue: true
     description: The <meta> keywords content
@@ -56,12 +56,14 @@ fields:
     singleValue: true
     description: Product brand shown - this may actually NOT be just a brand name,
       e.g. "Visit the Gillette Store"
+    xpath: (//td[contains(., 'Marca')]/following-sibling::*)[1]
   - name: manufacturer
     singleValue: true
     description: Product manufacturer
   - name: quantity
     singleValue: true
     description: Quantity as described on the page
+    xpath: //ul[@class="p-0 m-0 m-product__size dBlock -noScroll"]
   - name: weightNet
     singleValue: true
     description: Net weight as described on the page
@@ -119,11 +121,10 @@ fields:
   - name: shippingInfo
     singleValue: true
     description: Shipping information for the product
-    xpath: //div[@class="m-product__freeShipping"]//img/@alt
+    # xpath: //div[@class="m-product__freeShipping"]//img/@alt
   - name: shippingDimensions
     singleValue: true
     description: Stated shipping dimensions
-    xpath: //ul[@class="p-0 m-0 m-product__size dBlock -noScroll"]
   - name: color
     singleValue: true
     description: A textual description of the colour
@@ -136,7 +137,7 @@ fields:
   - name: secondaryImageTotal
     singleValue: true
     description: null
-    xpath: count(//li[@class="img-viewer"])
+    xpath: count((//img[@class='pdpthumb lazyloaded']/@src)[position()>1])
     type: NUMBER
   - name: specifications
     singleValue: true
