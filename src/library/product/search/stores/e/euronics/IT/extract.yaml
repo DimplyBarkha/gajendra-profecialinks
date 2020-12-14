@@ -14,7 +14,7 @@ fields:
     xpath: //div[@class='productCard__content']//a[contains(@onclick, 'trackingProductClick')]/@href
   - name: gtin
     singleValue: true
-    description: script[contains(@src, flixfacts)]/@data-flix-ean update1
+    description: script[contains(@src, flixfacts)]/@data-flix-ean
   - name: thumbnail
     singleValue: false
     xpath: //img[@class='productCard__image  j-comparisonImg']/@src
@@ -23,8 +23,10 @@ fields:
     xpath: //div[@class='bv_averageRating_component_container']/div[@class='bv_text']
   - name: reviewCount
     singleValue: false
+    xpath: //div[@class='bv_numReviews_component_container']/div[@class='bv_text']
   - name: ratingCount
     singleValue: false
+    xpath: //div[@class='bv_numReviews_component_container']/div[@class='bv_text']
   - name: price
     singleValue: false
     xpath: //div[contains(@class, 'productCard__price')]
