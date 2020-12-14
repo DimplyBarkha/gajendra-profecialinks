@@ -1,0 +1,213 @@
+input:
+  id: 307335
+  _url: http://bipa.at
+extractions:
+  - html: https://workbench.import.io/html/run=d05ee2c0-1af6-4e2d-911b-5cbe34041b20/task=6e51ff83-ba56-4ad0-8fb7-a70996f05c27/e954a118-0289-4e80-bbd7-fc3679d085cb.html
+    extractionConfigId: product/details/stores/b/bipa/AT/extract
+    data:
+      - group:
+          - image:
+              - text: https://www.bipa.at/dw/image/v2/AAFT_PRD/on/demandware.static/-/Sites-catalog/de_AT/v1603432533316/original/307335.png?sw=450&sfrm=png
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/img[1]/@src
+            imageAlt:
+              - text: HiPP Zauberriegel Traube Banane
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/img[1]/@alt
+            category:
+              - text: Home
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/ol[1]/li[1]/a[1]/text()[1]
+              - text: Baby
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/ol[1]/li[2]/a[1]/text()[1]
+              - text: Babynahrung
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/ol[1]/li[3]/a[1]/text()[1]
+              - text: Snacks
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/ol[1]/li[4]/a[1]/text()[1]
+            nameExtended:
+              - text: "HiPP Zauberriegel Traube Banane günstig online kaufen. "
+                xpath: /html/head[1]/title[1]
+            availabilityText:
+              - text: In Stock
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/form[1]/div[2]/div[1]/div[1]/div[1]/span[1]/text()[1]
+            description:
+              - text: Der köstliche Zauberriegel Traube Banane von Hipp schmeckt nicht nur
+                  hervorragend, sondern wurde auch ohne Zusatz von Zucker und
+                  Aromen entwickelt. Dieser ausgezeichnete Bio-Früchte-Riegel
+                  schmeckt verführerisch nach Traube-Banane und enthält feine
+                  Knusperecken. Zusätzlich punktet er mit der bunt bedruckten
+                  Oblate in Zauberstern-Optik. Ideal für den kleinen Hunger und
+                  für unterwegs.
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[4]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/p[1]/text()[1]
+            brandText:
+              - text: HiPP
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/a[1]/text()[1]
+            manufacturer:
+              - text: HiPP
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/a[1]/text()[1]
+            quantity:
+              - text: 30 g
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[2]/text()[1]
+            weightNet:
+              - text: "Nettogehalt: 30 Gramm"
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[4]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[11]/text()[2]
+            weightGross:
+              - text: "Bruttogewicht: 31 Gramm"
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[4]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[11]/text()[1]
+            sku:
+              - text: "#307335"
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/form[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/text()[1]
+            ratingCount:
+              - text: "1"
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/dl[1]/dd[2]/span[1]/span[1]/span[1]/text()[1]
+                type: NUMBER
+                raw: "1"
+                locale: de_AT
+                value: 1
+            aggregateRatingText:
+              - text: "5.0"
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/dl[1]/dd[1]/div[1]/a[1]/span[1]/text()[1]
+            aggregateRating:
+              - text: "50"
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/dl[1]/dd[1]/div[1]/a[1]/span[1]/text()[1]
+                type: NUMBER
+                raw: "5.0"
+                locale: de_AT
+                value: 50
+            name:
+              - text: Zauberriegel Traube Banane
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/h1[1]/text()[1]
+            ingredientsList:
+              - text: "Zutaten: Bananenflocken* 30%, mildes Apfelsaftkonzentrat*,
+                  HAFERVOLLKORNMEHL*, WEIZENFLOCKEN*
+                  vermahlen,Traubensaftkonzentrat* 9%, Sonnenblumenöl*, Oblaten*
+                  (WEIZENMEHL*, Stärke*, Karottensaftkonzentrat*), WEIZENMEHL*,
+                  schwarzes Johannisbeersaftkonzentrat*, WEIZENVOLLKORNMEHL*,
+                  MAGERMILCHJOGHURTPULVER*. *aus biologischer Erzeugung. Kann
+                  Spuren von ERDNÜSSEN, SOJA und SCHALENFRÜCHTEN enthalten."
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[4]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[3]/text()[2]
+            servingSize:
+              - text: 100 Gramm
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[4]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[12]/div[2]/table[1]/thead[1]/tr[1]/th[2]/text()[1]
+            servingSizeUom:
+              - text: Gramm
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[4]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[12]/div[2]/table[1]/thead[1]/tr[1]/th[2]/text()[1]
+            caloriesPerServing:
+              - text: 1.462 Kilojoule
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[4]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[12]/div[2]/table[1]/tbody[1]/tr[2]/td[2]/text()[1]
+            totalFatPerServing:
+              - text: "7"
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[4]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[12]/div[2]/table[1]/tbody[1]/tr[3]/td[2]/text()[1]
+                type: NUMBER
+                raw: 7 Gramm
+                locale: de_AT
+                value: 7
+            totalFatPerServingUom:
+              - text: Gramm
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[4]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[12]/div[2]/table[1]/tbody[1]/tr[3]/td[2]/text()[1]
+            saturatedFatPerServing:
+              - text: "0.7"
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[4]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[12]/div[2]/table[1]/tbody[1]/tr[4]/td[2]/text()[1]
+                type: NUMBER
+                raw: 0,70 Gramm
+                locale: de_AT
+                value: 0.7
+            saturatedFatPerServingUom:
+              - text: Gramm
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[4]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[12]/div[2]/table[1]/tbody[1]/tr[4]/td[2]/text()[1]
+            totalCarbPerServing:
+              - text: "64.2"
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[4]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[12]/div[2]/table[1]/tbody[1]/tr[5]/td[2]/text()[1]
+                type: NUMBER
+                raw: 64,20 Gramm
+                locale: de_AT
+                value: 64.2
+            totalCarbPerServingUom:
+              - text: Gramm
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[4]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[12]/div[2]/table[1]/tbody[1]/tr[5]/td[2]/text()[1]
+            totalSugarsPerServing:
+              - text: "38.5"
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[4]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[12]/div[2]/table[1]/tbody[1]/tr[6]/td[2]/text()[1]
+                type: NUMBER
+                raw: 38,50 Gramm
+                locale: de_AT
+                value: 38.5
+            totalSugarsPerServingUom:
+              - text: Gramm
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[4]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[12]/div[2]/table[1]/tbody[1]/tr[6]/td[2]/text()[1]
+            proteinPerServing:
+              - text: "4.5"
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[4]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[12]/div[2]/table[1]/tbody[1]/tr[7]/td[2]/text()[1]
+                type: NUMBER
+                raw: 4,50 Gramm
+                locale: de_AT
+                value: 4.5
+            proteinPerServingUom:
+              - text: Gramm
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[4]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[12]/div[2]/table[1]/tbody[1]/tr[7]/td[2]/text()[1]
+            saltPerServing:
+              - text: "0.05"
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[4]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[12]/div[2]/table[1]/tbody[1]/tr[8]/td[2]/text()[1]
+                type: NUMBER
+                raw: 0,05 Gramm
+                locale: de_AT
+                value: 0.05
+            saltPerServingUom:
+              - text: Gramm
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[4]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[12]/div[2]/table[1]/tbody[1]/tr[8]/td[2]/text()[1]
+            storage:
+              - text: Trocken und bei Raumtemperatur lagern.
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[4]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[5]/text()[2]
+            countryOfOrigin:
+              - text: DEUTSCHLAND, BUNDESREPUBLIK
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[4]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[7]/text()[2]
+            allergyAdvice:
+              - text: Sojabohnen und -erzeugnisse,Milch und Milcherzeugnisse,Nüsse und
+                  Nusserzeugnisse. Kann Mandeln, Haselnüsse, Walnüsse,
+                  Cashewnüsse etc. einschliessen,Erdnüsse und
+                  -erzeugnisse,Glutenhaltiges Getreide sowie daraus hergestellte
+                  Erzeugnisse
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[4]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[8]/div[2]/text()[2]
+            pricePerUnit:
+              - text: 1 kg 33.00
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/form[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[2]/text()[1]
+            pricePerUnitUom:
+              - text: kg
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/form[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[2]/text()[1]
+            additionalDescBulletInfo:
+              - text: hochwertiger Bio-Früchte-Riegel
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[4]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[1]/text()[1]
+              - text: einzigartiger Traube-Bananengeschmack
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[4]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[2]/text()[1]
+              - text: mit köstlichen Knusperecken
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[4]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[3]/text()[1]
+              - text: ohne Zusatz von Zucker und Aromen
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[4]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[4]/text()[1]
+              - text: ideal für zwischendurch und unterwegs
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[4]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[5]/text()[1]
+            imageZoomFeaturePresent:
+              - text: yes
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/@zoom
+            technicalInformationPdfPresent:
+              - text: No
+            termsAndConditions:
+              - text: No
+            privacyPolicy:
+              - text: No
+            customerServiceAvailability:
+              - text: No
+            Image360Present:
+              - text: No
+            price:
+              - text: "0.99"
+            descriptionBullets:
+              - text: "5"
+                type: NUMBER
+                raw: "5"
+                locale: de_AT
+                value: 5
+            variantCount:
+              - text: "0"
+                type: NUMBER
+                raw: "0"
+                locale: de_AT
+                value: 0
+        xpath: /
+    timestamp: 1603437461738

@@ -1,0 +1,107 @@
+input:
+  id: 725017
+  _url: http://bipa.at
+extractions:
+  - html: https://workbench.import.io/html/run=9a35b845-29c4-4577-85c3-d3c00b33a35b/task=a2bdd1ec-e84a-405e-911d-42912662e01e/71187e28-097b-4a96-bdca-e3f277493847.html
+    extractionConfigId: product/details/stores/b/bipa/AT/extract
+    data:
+      - group:
+          - image:
+              - text: https://www.bipa.at/dw/image/v2/AAFT_PRD/on/demandware.static/-/Sites-catalog/de_AT/v1607669660668/original/725017.png?sw=450&sfrm=png
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/img[1]/@src
+            imageAlt:
+              - text: MANHATTAN Soft Compact Powder
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/img[1]/@alt
+            category:
+              - text: Home
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/ol[1]/li[1]/a[1]/text()[1]
+              - text: Make-up
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/ol[1]/li[2]/a[1]/text()[1]
+              - text: Gesicht
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/ol[1]/li[3]/a[1]/text()[1]
+              - text: Puder
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/ol[1]/li[4]/a[1]/text()[1]
+            nameExtended:
+              - text: "MANHATTAN Soft Compact Powder günstig online bestellen. "
+                xpath: /html/head[1]/title[1]
+            availabilityText:
+              - text: In Stock
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/form[1]/div[2]/div[1]/div[1]/div[1]/span[1]/text()[1]
+            description:
+              - text: Manhattan Soft Compact Powder sorgt mit seiner mikrofeinen Rezeptur für
+                  ein samtig-mattes Finish. Das darin enthaltene Vitamin E
+                  schützt und pflegt zudem die Haut. Hautverträglichkeit
+                  dermatologisch getestet. Mit Schubfach für Make-up
+                  Schwämmchen.
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[4]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/p[1]/text()[1]
+            brandText:
+              - text: MANHATTAN
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/a[1]/text()[1]
+            manufacturer:
+              - text: MANHATTAN
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/a[1]/text()[1]
+            quantity:
+              - text: 1 Stück
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[2]/text()[1]
+            weightNet:
+              - text: "Nettogehalt: 9 Gramm"
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[4]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[3]/text()[2]
+            weightGross:
+              - text: "Bruttogewicht: 45 Gramm"
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[4]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[3]/text()[1]
+            sku:
+              - text: "#725017"
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/form[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/text()[1]
+            ratingCount:
+              - text: "91"
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/dl[1]/dd[2]/span[1]/span[1]/span[1]/text()[1]
+            aggregateRating:
+              - text: 4,2
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/dl[1]/dd[1]/div[1]/a[1]/span[1]/text()[1]
+            name:
+              - text: Soft Compact Powder
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/h1[1]/text()[1]
+            countryOfOrigin:
+              - text: ITALIEN
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[4]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/text()[2]
+            variantInformation:
+              - text: Farbe wählen
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/form[1]/div[1]/div[1]/h5[1]/text()[1]
+            additionalDescBulletInfo:
+              - text: mit mikrofeiner Rezeptur
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[4]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[1]/text()[1]
+              - text: für ein samtig-mattes Finish
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[4]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[2]/text()[1]
+              - text: Vitamin E schützt & pflegt die Haut
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[4]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[3]/text()[1]
+              - text: Hautverträglichkeit dermatologisch getestet
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[4]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[4]/text()[1]
+            imageZoomFeaturePresent:
+              - text: yes
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/@zoom
+            technicalInformationPdfPresent:
+              - text: No
+            termsAndConditions:
+              - text: No
+            privacyPolicy:
+              - text: No
+            customerServiceAvailability:
+              - text: No
+            Image360Present:
+              - text: No
+            price:
+              - text: 5,29
+            descriptionBullets:
+              - text: "4"
+                type: NUMBER
+                raw: "4"
+                locale: de_AT
+                value: 4
+            variantCount:
+              - text: "5"
+                type: NUMBER
+                raw: "5"
+                locale: de_AT
+                value: 5
+        xpath: /
+    timestamp: 1607676551708
