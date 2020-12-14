@@ -70,3 +70,10 @@ fields:
     defaultValue: Yes
   - name: productUrl
     xpath: //link[@rel="canonical"]/@href
+  
+  - name: inTheBoxText
+    xpath: //table//td[contains(.,"includes")]/following-sibling::td/p
+  - name: unInterruptedPDP
+    xpath: //div[contains(@id, "recommendations")]//div[contains(@class,"js-product")]
+  - name: hasComparisonTable
+    defaultValue: No
