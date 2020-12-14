@@ -124,6 +124,7 @@ fields:
   xpath: //div[@id="aggregate_rating"]
 - name: shippingInfo
   singleValue: true
+  xpath: //div[@class='c-slide-panel__container']/div/div/div/div[@class='accordionContentInner accordionContentInner--delivery']
   description: Shipping information for the product
 - name: shippingDimensions
   singleValue: true
@@ -392,7 +393,8 @@ fields:
 - name: specifications
   singleValue: true
   description: The physical dimensions of the product including packaging.
-  xpath: //section[@data-tag-section="product specification (highlights)"]//div[contains(@class, "feature")][span[contains(. , "Maße")]]/span[contains(@class, "value")]
+  xpath: //section[@data-tag-section="product specification (highlights)"]//div[contains(@class, "feature")][span[contains(. , "Maße")]]/span[contains(@class, "value")] | //section[@class='productOverview']/div[@data-tag-section="key features"]/div[contains(@class, "prose")]/ul/li[contains(. , "Maße")]
+  regex: H.*
 - name: warranty
   singleValue: true
   description: Guarantee associated with the product
@@ -412,7 +414,7 @@ fields:
 - name: productOtherInformation
   singleValue: false
   description: Any other product information
-  xpath: //section[@data-tag-section="product specification (highlights)"]//div[@class="accordionContent importantItems"]/div[contains(@class, "accordionContentInner")]
+  xpath: //section[@data-tag-section="product specification (highlights)"]//div[@class="accordionContent importantItems"]/div[contains(@class, "accordionContentInner")]/div | //section[@data-tag-section="product specification (highlights)"]//div[@class="features-container"]//tr
 - name: packaging
   singleValue: true
   description: Packaging information
