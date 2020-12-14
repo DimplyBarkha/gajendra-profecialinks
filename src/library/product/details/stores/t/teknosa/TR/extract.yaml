@@ -68,7 +68,6 @@ fields:
   - name: manufacturer
     singleValue: true
     description: Product manufacturer
-    regExp: (?<=cd_product_brand\ :\ ')\w+
   - name: quantity
     description: Quantity as described on the page
     xpath: (//td[text()='Paket başına miktar'])[1]/following-sibling::td/span
@@ -98,6 +97,8 @@ fields:
   - name: mpc
     singleValue: true
     description: The manufacturer model code (unique) of the product
+    xpath: //script/text()
+    regExp: (?<=cd_product_id:')\d+
   - name: packSize
     singleValue: true
     description:
@@ -504,7 +505,7 @@ fields:
   - name: additionalDescBulletInfo
     singleValue: false
     description: null
-    xpath: //div[@class='clearfix']/div[@class='-title']
+    xpath: //div[@class='tab-container']/li
   - name: prop65Warning
     singleValue: true
     description: null

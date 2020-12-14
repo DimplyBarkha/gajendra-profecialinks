@@ -5,9 +5,19 @@ module.exports = {
   parameterValues: {
     country: 'TR',
     store: 'teknosa',
-    transform: transform,
+    transform,
     domain: 'teknosa.com',
     zipcode: '',
   },
-
+  implementation: async (
+    { url },
+    { country, domain },
+    context,
+    dependencies,
+  ) => {
+    await context.evaluate(() => {
+     
+    });
+    await context.extract(dependencies.productDetails);
+  },
 };
