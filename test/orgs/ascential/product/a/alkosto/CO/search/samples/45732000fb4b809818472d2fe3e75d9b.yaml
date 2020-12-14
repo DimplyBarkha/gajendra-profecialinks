@@ -2,7 +2,7 @@ input:
   keywords: aire acondicionado
   _url: http://alkosto.com
 extractions:
-  - html: https://workbench.import.io/html/run=b83e42f6-2e61-4359-a06d-2e78724a1725/task=04180fbd-f28a-499b-ac6b-4ea01ec702ef/39c7f3bf-5221-4825-b04d-41b98fbade5a.html
+  - html: https://workbench.import.io/html/run=6f4ea27d-97b3-47b0-9285-9297b9fb54f9/task=7fe69fe0-c848-4a8f-a87e-472f7c4c8efa/e62a154b-e19d-495b-b741-afe412530e24.html
     extractionConfigId: product/search/stores/a/alkosto/CO/extract
     data:
       - group:
@@ -35,73 +35,64 @@ extractions:
             price:
               - text: $ 849.900
                 xpath: /html/body/div[1]/div[1]/div[10]/div[1]/div[1]/div[2]/ul[1]/li[1]/div[4]/p[2]/span[2]/span[1]
-            manufacturer:
-              - text: KALLEY
-                xpath: /html/body/div[1]/div[1]/div[10]/div[1]/div[1]/div[2]/ul[1]/li[1]/h2[1]/@manufacturer
           - id:
-              - text: "8806098355532"
+              - text: "8806087537789"
                 xpath: /html/body/div[1]/div[1]/div[10]/div[1]/div[1]/div[2]/ul[1]/li[2]/h2[1]/@id
             name:
-              - text: Aire Acondicionado LG 12000 BTU Tipo Split Inverter 220V Blanco
+              - text: Aire Acondicionado LG 18000 BTU Tipo Split Inverter Dual Cool 220V Blanco
                 xpath: /html/body/div[1]/div[1]/div[10]/div[1]/div[1]/div[2]/ul[1]/li[2]/h2[1]/@name
             productUrl:
-              - text: http://www.alkosto.com/aire-acondicionado-lg-inv12btu-vs122c7-220v-blanco
+              - text: http://www.alkosto.com/aire-acondicionado-lg-inverter-18000btu-vm182c7-220v-dual-cool
                 xpath: /html/body/div[1]/div[1]/div[10]/div[1]/div[1]/div[2]/ul[1]/li[2]/h2[1]/a[1]/@href
             gtin:
-              - text: "8806098355532"
+              - text: "8806087537789"
                 xpath: /html/body/div[1]/div[1]/div[10]/div[1]/div[1]/div[2]/ul[1]/li[2]/h2[1]/@id
             thumbnail:
               - text: https://gzip-resources.aws.alkosto.com/skin/frontend/enterprise/default/images/mgt_lazy_image_loader/loader.gif
                 xpath: /html/body/div[1]/div[1]/div[10]/div[1]/div[1]/div[2]/ul[1]/li[2]/div[2]/a[1]/img[1]/@src
             aggregateRating2:
-              - text: 4,7
+              - text: 4,9
                 xpath: /html/body/div[1]/div[1]/div[10]/div[1]/div[1]/div[2]/ul[1]/li[2]/div[1]/div[1]/div[1]/div[1]/span[1]/span[6]
                 type: STRING
             reviewCount:
-              - text: "21"
-                xpath: /html/body/div[1]/div[1]/div[10]/div[1]/div[1]/div[2]/ul[1]/li[2]/div[1]/div[1]/div[1]/div[1]/a[1]
-                type: NUMBER
-                raw: 21 Opiniones
-                locale: es
-                value: 21
-            price:
-              - text: $ 2.216.600
-                xpath: /html/body/div[1]/div[1]/div[10]/div[1]/div[1]/div[2]/ul[1]/li[2]/div[4]/p[2]/span[2]/span[1]
-            manufacturer:
-              - text: LG
-                xpath: /html/body/div[1]/div[1]/div[10]/div[1]/div[1]/div[2]/ul[1]/li[2]/h2[1]/@manufacturer
-          - id:
-              - text: "8806087537789"
-                xpath: /html/body/div[1]/div[1]/div[10]/div[1]/div[1]/div[2]/ul[1]/li[3]/h2[1]/@id
-            name:
-              - text: Aire Acondicionado LG 18000 BTU Tipo Split Inverter Dual Cool 220V Blanco
-                xpath: /html/body/div[1]/div[1]/div[10]/div[1]/div[1]/div[2]/ul[1]/li[3]/h2[1]/@name
-            productUrl:
-              - text: http://www.alkosto.com/aire-acondicionado-lg-inverter-18000btu-vm182c7-220v-dual-cool
-                xpath: /html/body/div[1]/div[1]/div[10]/div[1]/div[1]/div[2]/ul[1]/li[3]/h2[1]/a[1]/@href
-            gtin:
-              - text: "8806087537789"
-                xpath: /html/body/div[1]/div[1]/div[10]/div[1]/div[1]/div[2]/ul[1]/li[3]/h2[1]/@id
-            thumbnail:
-              - text: https://gzip-resources.aws.alkosto.com/skin/frontend/enterprise/default/images/mgt_lazy_image_loader/loader.gif
-                xpath: /html/body/div[1]/div[1]/div[10]/div[1]/div[1]/div[2]/ul[1]/li[3]/div[2]/a[1]/img[1]/@src
-            aggregateRating2:
-              - text: 4,9
-                xpath: /html/body/div[1]/div[1]/div[10]/div[1]/div[1]/div[2]/ul[1]/li[3]/div[1]/div[1]/div[1]/div[1]/span[1]/span[6]
-                type: STRING
-            reviewCount:
               - text: "7"
-                xpath: /html/body/div[1]/div[1]/div[10]/div[1]/div[1]/div[2]/ul[1]/li[3]/div[1]/div[1]/div[1]/div[1]/a[1]
+                xpath: /html/body/div[1]/div[1]/div[10]/div[1]/div[1]/div[2]/ul[1]/li[2]/div[1]/div[1]/div[1]/div[1]/a[1]
                 type: NUMBER
                 raw: 7 Opiniones
                 locale: es
                 value: 7
             price:
-              - text: $ 3.178.700
+              - text: $ 2.472.300
+                xpath: /html/body/div[1]/div[1]/div[10]/div[1]/div[1]/div[2]/ul[1]/li[2]/div[4]/p[2]/span[2]/span[1]
+          - id:
+              - text: "8806087537758"
+                xpath: /html/body/div[1]/div[1]/div[10]/div[1]/div[1]/div[2]/ul[1]/li[3]/h2[1]/@id
+            name:
+              - text: Aire Acondicionado LG 12000 BTU Tipo Split Inverter Dual Cool 220V Blanco
+                xpath: /html/body/div[1]/div[1]/div[10]/div[1]/div[1]/div[2]/ul[1]/li[3]/h2[1]/@name
+            productUrl:
+              - text: http://www.alkosto.com/aire-acondicionado-lg-inverter-12000btu-vm122c7-220v
+                xpath: /html/body/div[1]/div[1]/div[10]/div[1]/div[1]/div[2]/ul[1]/li[3]/h2[1]/a[1]/@href
+            gtin:
+              - text: "8806087537758"
+                xpath: /html/body/div[1]/div[1]/div[10]/div[1]/div[1]/div[2]/ul[1]/li[3]/h2[1]/@id
+            thumbnail:
+              - text: https://gzip-resources.aws.alkosto.com/skin/frontend/enterprise/default/images/mgt_lazy_image_loader/loader.gif
+                xpath: /html/body/div[1]/div[1]/div[10]/div[1]/div[1]/div[2]/ul[1]/li[3]/div[2]/a[1]/img[1]/@src
+            aggregateRating2:
+              - text: 4,6
+                xpath: /html/body/div[1]/div[1]/div[10]/div[1]/div[1]/div[2]/ul[1]/li[3]/div[1]/div[1]/div[1]/div[1]/span[1]/span[6]
+                type: STRING
+            reviewCount:
+              - text: "53"
+                xpath: /html/body/div[1]/div[1]/div[10]/div[1]/div[1]/div[2]/ul[1]/li[3]/div[1]/div[1]/div[1]/div[1]/a[1]
+                type: NUMBER
+                raw: 53 Opiniones
+                locale: es
+                value: 53
+            price:
+              - text: $ 1.871.900
                 xpath: /html/body/div[1]/div[1]/div[10]/div[1]/div[1]/div[2]/ul[1]/li[3]/div[4]/p[2]/span[2]/span[1]
-            manufacturer:
-              - text: LG
-                xpath: /html/body/div[1]/div[1]/div[10]/div[1]/div[1]/div[2]/ul[1]/li[3]/h2[1]/@manufacturer
           - id:
               - text: "8806098363391"
                 xpath: /html/body/div[1]/div[1]/div[10]/div[1]/div[1]/div[2]/ul[1]/li[4]/h2[1]/@id
@@ -129,11 +120,8 @@ extractions:
                 locale: es
                 value: 4
             price:
-              - text: $ 2.187.800
+              - text: $ 1.701.600
                 xpath: /html/body/div[1]/div[1]/div[10]/div[1]/div[1]/div[2]/ul[1]/li[4]/div[4]/p[2]/span[2]/span[1]
-            manufacturer:
-              - text: LG
-                xpath: /html/body/div[1]/div[1]/div[10]/div[1]/div[1]/div[2]/ul[1]/li[4]/h2[1]/@manufacturer
           - id:
               - text: "7705946320856"
                 xpath: /html/body/div[1]/div[1]/div[10]/div[1]/div[1]/div[2]/ul[1]/li[5]/h2[1]/@id
@@ -163,9 +151,6 @@ extractions:
             price:
               - text: $ 1.139.900
                 xpath: /html/body/div[1]/div[1]/div[10]/div[1]/div[1]/div[2]/ul[1]/li[5]/div[4]/p[2]/span[2]/span[1]
-            manufacturer:
-              - text: KALLEY
-                xpath: /html/body/div[1]/div[1]/div[10]/div[1]/div[1]/div[2]/ul[1]/li[5]/h2[1]/@manufacturer
           - id:
               - text: "757638363853"
                 xpath: /html/body/div[1]/div[1]/div[10]/div[1]/div[1]/div[2]/ul[1]/li[6]/h2[1]/@id
@@ -186,18 +171,15 @@ extractions:
                 xpath: /html/body/div[1]/div[1]/div[10]/div[1]/div[1]/div[2]/ul[1]/li[6]/div[1]/div[1]/div[1]/div[1]/span[1]/span[6]
                 type: STRING
             reviewCount:
-              - text: "36"
+              - text: "37"
                 xpath: /html/body/div[1]/div[1]/div[10]/div[1]/div[1]/div[2]/ul[1]/li[6]/div[1]/div[1]/div[1]/div[1]/a[1]
                 type: NUMBER
-                raw: 36 Opiniones
+                raw: 37 Opiniones
                 locale: es
-                value: 36
+                value: 37
             price:
-              - text: $ 1.319.900
+              - text: $ 1.339.900
                 xpath: /html/body/div[1]/div[1]/div[10]/div[1]/div[1]/div[2]/ul[1]/li[6]/div[4]/p[2]/span[2]/span[1]
-            manufacturer:
-              - text: MABE
-                xpath: /html/body/div[1]/div[1]/div[10]/div[1]/div[1]/div[2]/ul[1]/li[6]/h2[1]/@manufacturer
           - id:
               - text: "757638363822"
                 xpath: /html/body/div[1]/div[1]/div[10]/div[1]/div[1]/div[2]/ul[1]/li[7]/h2[1]/@id
@@ -218,18 +200,15 @@ extractions:
                 xpath: /html/body/div[1]/div[1]/div[10]/div[1]/div[1]/div[2]/ul[1]/li[7]/div[1]/div[1]/div[1]/div[1]/span[1]/span[6]
                 type: STRING
             reviewCount:
-              - text: "24"
+              - text: "26"
                 xpath: /html/body/div[1]/div[1]/div[10]/div[1]/div[1]/div[2]/ul[1]/li[7]/div[1]/div[1]/div[1]/div[1]/a[1]
                 type: NUMBER
-                raw: 24 Opiniones
+                raw: 26 Opiniones
                 locale: es
-                value: 24
+                value: 26
             price:
-              - text: $ 1.319.900
+              - text: $ 1.339.900
                 xpath: /html/body/div[1]/div[1]/div[10]/div[1]/div[1]/div[2]/ul[1]/li[7]/div[4]/p[2]/span[2]/span[1]
-            manufacturer:
-              - text: MABE
-                xpath: /html/body/div[1]/div[1]/div[10]/div[1]/div[1]/div[2]/ul[1]/li[7]/h2[1]/@manufacturer
           - id:
               - text: "757638363617"
                 xpath: /html/body/div[1]/div[1]/div[10]/div[1]/div[1]/div[2]/ul[1]/li[8]/h2[1]/@id
@@ -257,11 +236,8 @@ extractions:
                 locale: es
                 value: 26
             price:
-              - text: $ 939.900
+              - text: $ 959.900
                 xpath: /html/body/div[1]/div[1]/div[10]/div[1]/div[1]/div[2]/ul[1]/li[8]/div[4]/p[2]/span[2]/span[1]
-            manufacturer:
-              - text: MABE
-                xpath: /html/body/div[1]/div[1]/div[10]/div[1]/div[1]/div[2]/ul[1]/li[8]/h2[1]/@manufacturer
           - id:
               - text: "757638363792"
                 xpath: /html/body/div[1]/div[1]/div[10]/div[1]/div[1]/div[2]/ul[1]/li[9]/h2[1]/@id
@@ -291,9 +267,6 @@ extractions:
             price:
               - text: $ 1.219.900
                 xpath: /html/body/div[1]/div[1]/div[10]/div[1]/div[1]/div[2]/ul[1]/li[9]/div[4]/p[2]/span[2]/span[1]
-            manufacturer:
-              - text: MABE
-                xpath: /html/body/div[1]/div[1]/div[10]/div[1]/div[1]/div[2]/ul[1]/li[9]/h2[1]/@manufacturer
           - id:
               - text: "8806090236839"
                 xpath: /html/body/div[1]/div[1]/div[10]/div[1]/div[1]/div[2]/ul[1]/li[10]/h2[1]/@id
@@ -321,22 +294,19 @@ extractions:
                 locale: es
                 value: 3
             price:
-              - text: $ 1.689.900
+              - text: $ 1.729.900
                 xpath: /html/body/div[1]/div[1]/div[10]/div[1]/div[1]/div[2]/ul[1]/li[10]/div[4]/p[2]/span[2]/span[1]
-            manufacturer:
-              - text: SAMSUNG
-                xpath: /html/body/div[1]/div[1]/div[10]/div[1]/div[1]/div[2]/ul[1]/li[10]/h2[1]/@manufacturer
           - id:
-              - text: "8806090236594"
+              - text: "5025232888498"
                 xpath: /html/body/div[1]/div[1]/div[10]/div[1]/div[1]/div[2]/ul[1]/li[11]/h2[1]/@id
             name:
-              - text: Aire Acondicionado SAMSUNG 9000 BTU Tipo Split Inverter 220V Blanco
+              - text: Aire Acondicionado PANASONIC 12000 BTU Tipo Split Inverter 220V Blanco
                 xpath: /html/body/div[1]/div[1]/div[10]/div[1]/div[1]/div[2]/ul[1]/li[11]/h2[1]/@name
             productUrl:
-              - text: http://www.alkosto.com/aire-acondicionado-samsung-9008-btu-inverter-220v-blanco
+              - text: http://www.alkosto.com/aire-acondicionado-panasonic-inverter-12000btu-220v-blanco
                 xpath: /html/body/div[1]/div[1]/div[10]/div[1]/div[1]/div[2]/ul[1]/li[11]/h2[1]/a[1]/@href
             gtin:
-              - text: "8806090236594"
+              - text: "5025232888498"
                 xpath: /html/body/div[1]/div[1]/div[10]/div[1]/div[1]/div[2]/ul[1]/li[11]/h2[1]/@id
             thumbnail:
               - text: https://gzip-resources.aws.alkosto.com/skin/frontend/enterprise/default/images/mgt_lazy_image_loader/loader.gif
@@ -346,18 +316,15 @@ extractions:
                 xpath: /html/body/div[1]/div[1]/div[10]/div[1]/div[1]/div[2]/ul[1]/li[11]/div[1]/div[1]/div[1]/div[1]/span[1]/span[6]
                 type: STRING
             reviewCount:
-              - text: "6"
+              - text: "3"
                 xpath: /html/body/div[1]/div[1]/div[10]/div[1]/div[1]/div[2]/ul[1]/li[11]/div[1]/div[1]/div[1]/div[1]/a[1]
                 type: NUMBER
-                raw: 6 Opiniones
+                raw: 3 Opiniones
                 locale: es
-                value: 6
+                value: 3
             price:
-              - text: $ 1.559.900
+              - text: $ 1.579.900
                 xpath: /html/body/div[1]/div[1]/div[10]/div[1]/div[1]/div[2]/ul[1]/li[11]/div[4]/p[2]/span[2]/span[1]
-            manufacturer:
-              - text: SAMSUNG
-                xpath: /html/body/div[1]/div[1]/div[10]/div[1]/div[1]/div[2]/ul[1]/li[11]/h2[1]/@manufacturer
           - id:
               - text: "757638363648"
                 xpath: /html/body/div[1]/div[1]/div[10]/div[1]/div[1]/div[2]/ul[1]/li[12]/h2[1]/@id
@@ -387,20 +354,17 @@ extractions:
             price:
               - text: $ 959.900
                 xpath: /html/body/div[1]/div[1]/div[10]/div[1]/div[1]/div[2]/ul[1]/li[12]/div[4]/p[2]/span[2]/span[1]
-            manufacturer:
-              - text: MABE
-                xpath: /html/body/div[1]/div[1]/div[10]/div[1]/div[1]/div[2]/ul[1]/li[12]/h2[1]/@manufacturer
           - id:
-              - text: "5025232888498"
+              - text: "8806090236594"
                 xpath: /html/body/div[1]/div[1]/div[10]/div[1]/div[1]/div[2]/ul[1]/li[13]/h2[1]/@id
             name:
-              - text: Aire Acondicionado PANASONIC 12000 BTU Tipo Split Inverter 220V Blanco
+              - text: Aire Acondicionado SAMSUNG 9000 BTU Tipo Split Inverter 220V Blanco
                 xpath: /html/body/div[1]/div[1]/div[10]/div[1]/div[1]/div[2]/ul[1]/li[13]/h2[1]/@name
             productUrl:
-              - text: http://www.alkosto.com/aire-acondicionado-panasonic-inverter-12000btu-220v-blanco
+              - text: http://www.alkosto.com/aire-acondicionado-samsung-9008-btu-inverter-220v-blanco
                 xpath: /html/body/div[1]/div[1]/div[10]/div[1]/div[1]/div[2]/ul[1]/li[13]/h2[1]/a[1]/@href
             gtin:
-              - text: "5025232888498"
+              - text: "8806090236594"
                 xpath: /html/body/div[1]/div[1]/div[10]/div[1]/div[1]/div[2]/ul[1]/li[13]/h2[1]/@id
             thumbnail:
               - text: https://gzip-resources.aws.alkosto.com/skin/frontend/enterprise/default/images/mgt_lazy_image_loader/loader.gif
@@ -410,114 +374,102 @@ extractions:
                 xpath: /html/body/div[1]/div[1]/div[10]/div[1]/div[1]/div[2]/ul[1]/li[13]/div[1]/div[1]/div[1]/div[1]/span[1]/span[6]
                 type: STRING
             reviewCount:
-              - text: "3"
+              - text: "6"
                 xpath: /html/body/div[1]/div[1]/div[10]/div[1]/div[1]/div[2]/ul[1]/li[13]/div[1]/div[1]/div[1]/div[1]/a[1]
                 type: NUMBER
-                raw: 3 Opiniones
+                raw: 6 Opiniones
                 locale: es
-                value: 3
+                value: 6
             price:
-              - text: $ 1.569.900
+              - text: $ 1.619.900
                 xpath: /html/body/div[1]/div[1]/div[10]/div[1]/div[1]/div[2]/ul[1]/li[13]/div[4]/p[2]/span[2]/span[1]
-            manufacturer:
-              - text: PANASONIC
-                xpath: /html/body/div[1]/div[1]/div[10]/div[1]/div[1]/div[2]/ul[1]/li[13]/h2[1]/@manufacturer
           - id:
-              - text: "7705946452540"
+              - text: "8806090237072"
                 xpath: /html/body/div[1]/div[1]/div[10]/div[1]/div[1]/div[2]/ul[1]/li[14]/h2[1]/@id
             name:
-              - text: Aire Acondicionado KALLEY 9000 BTU Tipo Split Inverter 220V Blanco
+              - text: Aire Acondicionado SAMSUNG 18000 BTU Tipo Split Inverter 220V Blanco
                 xpath: /html/body/div[1]/div[1]/div[10]/div[1]/div[1]/div[2]/ul[1]/li[14]/h2[1]/@name
             productUrl:
-              - text: http://www.alkosto.com/aire-acondicionado-kalley-ac9inv2a
+              - text: http://www.alkosto.com/aire-acondicionado-samsung-17743-btu-inverter-220v-blanco
                 xpath: /html/body/div[1]/div[1]/div[10]/div[1]/div[1]/div[2]/ul[1]/li[14]/h2[1]/a[1]/@href
             gtin:
-              - text: "7705946452540"
+              - text: "8806090237072"
                 xpath: /html/body/div[1]/div[1]/div[10]/div[1]/div[1]/div[2]/ul[1]/li[14]/h2[1]/@id
             thumbnail:
               - text: https://gzip-resources.aws.alkosto.com/skin/frontend/enterprise/default/images/mgt_lazy_image_loader/loader.gif
                 xpath: /html/body/div[1]/div[1]/div[10]/div[1]/div[1]/div[2]/ul[1]/li[14]/div[2]/a[1]/img[1]/@src
             aggregateRating2:
-              - text: 4,7
+              - text: 4,5
                 xpath: /html/body/div[1]/div[1]/div[10]/div[1]/div[1]/div[2]/ul[1]/li[14]/div[1]/div[1]/div[1]/div[1]/span[1]/span[6]
                 type: STRING
             reviewCount:
-              - text: "6"
+              - text: "2"
                 xpath: /html/body/div[1]/div[1]/div[10]/div[1]/div[1]/div[2]/ul[1]/li[14]/div[1]/div[1]/div[1]/div[1]/a[1]
+                type: NUMBER
+                raw: 2 Opiniones
+                locale: es
+                value: 2
+            price:
+              - text: $ 2.199.900
+                xpath: /html/body/div[1]/div[1]/div[10]/div[1]/div[1]/div[2]/ul[1]/li[14]/div[4]/p[2]/span[2]/span[1]
+          - id:
+              - text: "7705946452557"
+                xpath: /html/body/div[1]/div[1]/div[10]/div[1]/div[1]/div[2]/ul[1]/li[15]/h2[1]/@id
+            name:
+              - text: Aire Acondicionado KALLEY 12000 BTU Tipo Split Inverter 110V Blanco
+                xpath: /html/body/div[1]/div[1]/div[10]/div[1]/div[1]/div[2]/ul[1]/li[15]/h2[1]/@name
+            productUrl:
+              - text: http://www.alkosto.com/aire-acondicionado-k-ac12inv1a
+                xpath: /html/body/div[1]/div[1]/div[10]/div[1]/div[1]/div[2]/ul[1]/li[15]/h2[1]/a[1]/@href
+            gtin:
+              - text: "7705946452557"
+                xpath: /html/body/div[1]/div[1]/div[10]/div[1]/div[1]/div[2]/ul[1]/li[15]/h2[1]/@id
+            thumbnail:
+              - text: https://gzip-resources.aws.alkosto.com/skin/frontend/enterprise/default/images/mgt_lazy_image_loader/loader.gif
+                xpath: /html/body/div[1]/div[1]/div[10]/div[1]/div[1]/div[2]/ul[1]/li[15]/div[2]/a[1]/img[1]/@src
+            aggregateRating2:
+              - text: 4,9
+                xpath: /html/body/div[1]/div[1]/div[10]/div[1]/div[1]/div[2]/ul[1]/li[15]/div[1]/div[1]/div[1]/div[1]/span[1]/span[6]
+                type: STRING
+            reviewCount:
+              - text: "7"
+                xpath: /html/body/div[1]/div[1]/div[10]/div[1]/div[1]/div[2]/ul[1]/li[15]/div[1]/div[1]/div[1]/div[1]/a[1]
+                type: NUMBER
+                raw: 7 Opiniones
+                locale: es
+                value: 7
+            price:
+              - text: $ 1.299.900
+                xpath: /html/body/div[1]/div[1]/div[10]/div[1]/div[1]/div[2]/ul[1]/li[15]/div[4]/p[2]/span[2]/span[1]
+          - id:
+              - text: "7705946452540"
+                xpath: /html/body/div[1]/div[1]/div[10]/div[1]/div[1]/div[2]/ul[1]/li[16]/h2[1]/@id
+            name:
+              - text: Aire Acondicionado KALLEY 9000 BTU Tipo Split Inverter 220V Blanco
+                xpath: /html/body/div[1]/div[1]/div[10]/div[1]/div[1]/div[2]/ul[1]/li[16]/h2[1]/@name
+            productUrl:
+              - text: http://www.alkosto.com/aire-acondicionado-kalley-ac9inv2a
+                xpath: /html/body/div[1]/div[1]/div[10]/div[1]/div[1]/div[2]/ul[1]/li[16]/h2[1]/a[1]/@href
+            gtin:
+              - text: "7705946452540"
+                xpath: /html/body/div[1]/div[1]/div[10]/div[1]/div[1]/div[2]/ul[1]/li[16]/h2[1]/@id
+            thumbnail:
+              - text: https://gzip-resources.aws.alkosto.com/skin/frontend/enterprise/default/images/mgt_lazy_image_loader/loader.gif
+                xpath: /html/body/div[1]/div[1]/div[10]/div[1]/div[1]/div[2]/ul[1]/li[16]/div[2]/a[1]/img[1]/@src
+            aggregateRating2:
+              - text: 4,7
+                xpath: /html/body/div[1]/div[1]/div[10]/div[1]/div[1]/div[2]/ul[1]/li[16]/div[1]/div[1]/div[1]/div[1]/span[1]/span[6]
+                type: STRING
+            reviewCount:
+              - text: "6"
+                xpath: /html/body/div[1]/div[1]/div[10]/div[1]/div[1]/div[2]/ul[1]/li[16]/div[1]/div[1]/div[1]/div[1]/a[1]
                 type: NUMBER
                 raw: 6 Opiniones
                 locale: es
                 value: 6
             price:
               - text: $ 1.179.900
-                xpath: /html/body/div[1]/div[1]/div[10]/div[1]/div[1]/div[2]/ul[1]/li[14]/div[4]/p[2]/span[2]/span[1]
-            manufacturer:
-              - text: KALLEY
-                xpath: /html/body/div[1]/div[1]/div[10]/div[1]/div[1]/div[2]/ul[1]/li[14]/h2[1]/@manufacturer
-          - id:
-              - text: "8806090237317"
-                xpath: /html/body/div[1]/div[1]/div[10]/div[1]/div[1]/div[2]/ul[1]/li[15]/h2[1]/@id
-            name:
-              - text: Aire Acondicionado SAMSUNG 24000 BTU Tipo Split Inverter 220V Blanco
-                xpath: /html/body/div[1]/div[1]/div[10]/div[1]/div[1]/div[2]/ul[1]/li[15]/h2[1]/@name
-            productUrl:
-              - text: http://www.alkosto.com/aire-acondicionado-samsung-20985-btu-inverter-220v-blanco
-                xpath: /html/body/div[1]/div[1]/div[10]/div[1]/div[1]/div[2]/ul[1]/li[15]/h2[1]/a[1]/@href
-            gtin:
-              - text: "8806090237317"
-                xpath: /html/body/div[1]/div[1]/div[10]/div[1]/div[1]/div[2]/ul[1]/li[15]/h2[1]/@id
-            thumbnail:
-              - text: https://gzip-resources.aws.alkosto.com/skin/frontend/enterprise/default/images/mgt_lazy_image_loader/loader.gif
-                xpath: /html/body/div[1]/div[1]/div[10]/div[1]/div[1]/div[2]/ul[1]/li[15]/div[2]/a[1]/img[1]/@src
-            aggregateRating2:
-              - text: 5,0
-                xpath: /html/body/div[1]/div[1]/div[10]/div[1]/div[1]/div[2]/ul[1]/li[15]/div[1]/div[1]/div[1]/div[1]/span[1]/span[6]
-                type: STRING
-            reviewCount:
-              - text: "2"
-                xpath: /html/body/div[1]/div[1]/div[10]/div[1]/div[1]/div[2]/ul[1]/li[15]/div[1]/div[1]/div[1]/div[1]/a[1]
-                type: NUMBER
-                raw: 2 Opiniones
-                locale: es
-                value: 2
-            price:
-              - text: $ 2.519.900
-                xpath: /html/body/div[1]/div[1]/div[10]/div[1]/div[1]/div[2]/ul[1]/li[15]/div[4]/p[2]/span[2]/span[1]
-            manufacturer:
-              - text: SAMSUNG
-                xpath: /html/body/div[1]/div[1]/div[10]/div[1]/div[1]/div[2]/ul[1]/li[15]/h2[1]/@manufacturer
-          - id:
-              - text: "8806090237072"
-                xpath: /html/body/div[1]/div[1]/div[10]/div[1]/div[1]/div[2]/ul[1]/li[16]/h2[1]/@id
-            name:
-              - text: Aire Acondicionado SAMSUNG 18000 BTU Tipo Split Inverter 220V Blanco
-                xpath: /html/body/div[1]/div[1]/div[10]/div[1]/div[1]/div[2]/ul[1]/li[16]/h2[1]/@name
-            productUrl:
-              - text: http://www.alkosto.com/aire-acondicionado-samsung-17743-btu-inverter-220v-blanco
-                xpath: /html/body/div[1]/div[1]/div[10]/div[1]/div[1]/div[2]/ul[1]/li[16]/h2[1]/a[1]/@href
-            gtin:
-              - text: "8806090237072"
-                xpath: /html/body/div[1]/div[1]/div[10]/div[1]/div[1]/div[2]/ul[1]/li[16]/h2[1]/@id
-            thumbnail:
-              - text: https://gzip-resources.aws.alkosto.com/skin/frontend/enterprise/default/images/mgt_lazy_image_loader/loader.gif
-                xpath: /html/body/div[1]/div[1]/div[10]/div[1]/div[1]/div[2]/ul[1]/li[16]/div[2]/a[1]/img[1]/@src
-            aggregateRating2:
-              - text: 4,5
-                xpath: /html/body/div[1]/div[1]/div[10]/div[1]/div[1]/div[2]/ul[1]/li[16]/div[1]/div[1]/div[1]/div[1]/span[1]/span[6]
-                type: STRING
-            reviewCount:
-              - text: "2"
-                xpath: /html/body/div[1]/div[1]/div[10]/div[1]/div[1]/div[2]/ul[1]/li[16]/div[1]/div[1]/div[1]/div[1]/a[1]
-                type: NUMBER
-                raw: 2 Opiniones
-                locale: es
-                value: 2
-            price:
-              - text: $ 2.169.900
                 xpath: /html/body/div[1]/div[1]/div[10]/div[1]/div[1]/div[2]/ul[1]/li[16]/div[4]/p[2]/span[2]/span[1]
-            manufacturer:
-              - text: SAMSUNG
-                xpath: /html/body/div[1]/div[1]/div[10]/div[1]/div[1]/div[2]/ul[1]/li[16]/h2[1]/@manufacturer
           - id:
               - text: "7861106693908"
                 xpath: /html/body/div[1]/div[1]/div[10]/div[1]/div[1]/div[2]/ul[1]/li[17]/h2[1]/@id
@@ -545,11 +497,8 @@ extractions:
                 locale: es
                 value: 1
             price:
-              - text: $ 1.449.900
+              - text: $ 1.499.900
                 xpath: /html/body/div[1]/div[1]/div[10]/div[1]/div[1]/div[2]/ul[1]/li[17]/div[4]/p[2]/span[2]/span[1]
-            manufacturer:
-              - text: ELECTROLUX
-                xpath: /html/body/div[1]/div[1]/div[10]/div[1]/div[1]/div[2]/ul[1]/li[17]/h2[1]/@manufacturer
           - id:
               - text: "7861106330421"
                 xpath: /html/body/div[1]/div[1]/div[10]/div[1]/div[1]/div[2]/ul[1]/li[18]/h2[1]/@id
@@ -578,107 +527,95 @@ extractions:
                 locale: es
                 value: 17
             price:
-              - text: $ 1.309.900
+              - text: $ 1.299.900
                 xpath: /html/body/div[1]/div[1]/div[10]/div[1]/div[1]/div[2]/ul[1]/li[18]/div[4]/p[2]/span[2]/span[1]
-            manufacturer:
-              - text: ELECTROLUX
-                xpath: /html/body/div[1]/div[1]/div[10]/div[1]/div[1]/div[2]/ul[1]/li[18]/h2[1]/@manufacturer
           - id:
-              - text: "7705946452557"
+              - text: "757638363884"
                 xpath: /html/body/div[1]/div[1]/div[10]/div[1]/div[1]/div[2]/ul[1]/li[19]/h2[1]/@id
             name:
-              - text: Aire Acondicionado KALLEY 12000 BTU Tipo Split Inverter 110V Blanco
+              - text: Aire Acondicionado MABE 18000 BTU Tipo Split Inverter 220V Blanco
                 xpath: /html/body/div[1]/div[1]/div[10]/div[1]/div[1]/div[2]/ul[1]/li[19]/h2[1]/@name
             productUrl:
-              - text: http://www.alkosto.com/aire-acondicionado-k-ac12inv1a
+              - text: http://www.alkosto.com/aire-acondicionado-mabe-inverter-18000btu-220v-mmi18cdbwccchi8
                 xpath: /html/body/div[1]/div[1]/div[10]/div[1]/div[1]/div[2]/ul[1]/li[19]/h2[1]/a[1]/@href
             gtin:
-              - text: "7705946452557"
+              - text: "757638363884"
                 xpath: /html/body/div[1]/div[1]/div[10]/div[1]/div[1]/div[2]/ul[1]/li[19]/h2[1]/@id
             thumbnail:
               - text: https://gzip-resources.aws.alkosto.com/skin/frontend/enterprise/default/images/mgt_lazy_image_loader/loader.gif
                 xpath: /html/body/div[1]/div[1]/div[10]/div[1]/div[1]/div[2]/ul[1]/li[19]/div[2]/a[1]/img[1]/@src
             aggregateRating2:
-              - text: 4,9
+              - text: 5,0
                 xpath: /html/body/div[1]/div[1]/div[10]/div[1]/div[1]/div[2]/ul[1]/li[19]/div[1]/div[1]/div[1]/div[1]/span[1]/span[6]
                 type: STRING
             reviewCount:
-              - text: "7"
+              - text: "1"
                 xpath: /html/body/div[1]/div[1]/div[10]/div[1]/div[1]/div[2]/ul[1]/li[19]/div[1]/div[1]/div[1]/div[1]/a[1]
                 type: NUMBER
-                raw: 7 Opiniones
+                raw: 1 Opinión
                 locale: es
-                value: 7
+                value: 1
             price:
-              - text: $ 1.279.900
+              - text: $ 1.799.900
                 xpath: /html/body/div[1]/div[1]/div[10]/div[1]/div[1]/div[2]/ul[1]/li[19]/div[4]/p[2]/span[2]/span[1]
-            manufacturer:
-              - text: KALLEY
-                xpath: /html/body/div[1]/div[1]/div[10]/div[1]/div[1]/div[2]/ul[1]/li[19]/h2[1]/@manufacturer
           - id:
-              - text: "7704353395815"
+              - text: "8806090237317"
                 xpath: /html/body/div[1]/div[1]/div[10]/div[1]/div[1]/div[2]/ul[1]/li[20]/h2[1]/@id
             name:
-              - text: Aire Acondicionado HACEB 9000 BTU Tipo Split Inverter 220V Blanco
+              - text: Aire Acondicionado SAMSUNG 24000 BTU Tipo Split Inverter 220V Blanco
                 xpath: /html/body/div[1]/div[1]/div[10]/div[1]/div[1]/div[2]/ul[1]/li[20]/h2[1]/@name
             productUrl:
-              - text: http://www.alkosto.com/aire-acondicionado-haceb-tayrona-9000btu-inverter-220v
+              - text: http://www.alkosto.com/aire-acondicionado-samsung-20985-btu-inverter-220v-blanco
                 xpath: /html/body/div[1]/div[1]/div[10]/div[1]/div[1]/div[2]/ul[1]/li[20]/h2[1]/a[1]/@href
             gtin:
-              - text: "7704353395815"
+              - text: "8806090237317"
                 xpath: /html/body/div[1]/div[1]/div[10]/div[1]/div[1]/div[2]/ul[1]/li[20]/h2[1]/@id
             thumbnail:
               - text: https://gzip-resources.aws.alkosto.com/skin/frontend/enterprise/default/images/mgt_lazy_image_loader/loader.gif
                 xpath: /html/body/div[1]/div[1]/div[10]/div[1]/div[1]/div[2]/ul[1]/li[20]/div[2]/a[1]/img[1]/@src
+            aggregateRating2:
+              - text: 5,0
+                xpath: /html/body/div[1]/div[1]/div[10]/div[1]/div[1]/div[2]/ul[1]/li[20]/div[1]/div[1]/div[1]/div[1]/span[1]/span[6]
+                type: STRING
+            reviewCount:
+              - text: "2"
+                xpath: /html/body/div[1]/div[1]/div[10]/div[1]/div[1]/div[2]/ul[1]/li[20]/div[1]/div[1]/div[1]/div[1]/a[1]
+                type: NUMBER
+                raw: 2 Opiniones
+                locale: es
+                value: 2
             price:
-              - text: $ 1.220.000
+              - text: $ 2.559.900
                 xpath: /html/body/div[1]/div[1]/div[10]/div[1]/div[1]/div[2]/ul[1]/li[20]/div[4]/p[2]/span[2]/span[1]
-            manufacturer:
-              - text: HACEB
-                xpath: /html/body/div[1]/div[1]/div[10]/div[1]/div[1]/div[2]/ul[1]/li[20]/h2[1]/@manufacturer
           - id:
-              - text: "7705946266253"
+              - text: "7704353395815"
                 xpath: /html/body/div[1]/div[1]/div[10]/div[1]/div[1]/div[2]/ul[1]/li[21]/h2[1]/@id
             name:
-              - text: Aire Acondicionado KALLEY 12000 BTU Tipo Split Convencional 110V Blanco
+              - text: Aire Acondicionado HACEB 9000 BTU Tipo Split Inverter 220V Blanco
                 xpath: /html/body/div[1]/div[1]/div[10]/div[1]/div[1]/div[2]/ul[1]/li[21]/h2[1]/@name
             productUrl:
-              - text: http://www.alkosto.com/aire-acondicionado-kalley-convencional-12000btu-110v-blanco
+              - text: http://www.alkosto.com/aire-acondicionado-haceb-tayrona-9000btu-inverter-220v
                 xpath: /html/body/div[1]/div[1]/div[10]/div[1]/div[1]/div[2]/ul[1]/li[21]/h2[1]/a[1]/@href
             gtin:
-              - text: "7705946266253"
+              - text: "7704353395815"
                 xpath: /html/body/div[1]/div[1]/div[10]/div[1]/div[1]/div[2]/ul[1]/li[21]/h2[1]/@id
             thumbnail:
               - text: https://gzip-resources.aws.alkosto.com/skin/frontend/enterprise/default/images/mgt_lazy_image_loader/loader.gif
                 xpath: /html/body/div[1]/div[1]/div[10]/div[1]/div[1]/div[2]/ul[1]/li[21]/div[2]/a[1]/img[1]/@src
-            aggregateRating2:
-              - text: 4,8
-                xpath: /html/body/div[1]/div[1]/div[10]/div[1]/div[1]/div[2]/ul[1]/li[21]/div[1]/div[1]/div[1]/div[1]/span[1]/span[6]
-                type: STRING
-            reviewCount:
-              - text: "25"
-                xpath: /html/body/div[1]/div[1]/div[10]/div[1]/div[1]/div[2]/ul[1]/li[21]/div[1]/div[1]/div[1]/div[1]/a[1]
-                type: NUMBER
-                raw: 25 Opiniones
-                locale: es
-                value: 25
             price:
-              - text: $ 939.900
+              - text: $ 1.368.000
                 xpath: /html/body/div[1]/div[1]/div[10]/div[1]/div[1]/div[2]/ul[1]/li[21]/div[4]/p[2]/span[2]/span[1]
-            manufacturer:
-              - text: KALLEY
-                xpath: /html/body/div[1]/div[1]/div[10]/div[1]/div[1]/div[2]/ul[1]/li[21]/h2[1]/@manufacturer
           - id:
-              - text: "757638363884"
+              - text: "7705946399944"
                 xpath: /html/body/div[1]/div[1]/div[10]/div[1]/div[1]/div[2]/ul[1]/li[22]/h2[1]/@id
             name:
-              - text: Aire Acondicionado MABE 18000 BTU Tipo Split Inverter 220V Blanco
+              - text: Aire Acondicionado KALLEY 12000 BTU Tipo Split Inverter 110V Blanco
                 xpath: /html/body/div[1]/div[1]/div[10]/div[1]/div[1]/div[2]/ul[1]/li[22]/h2[1]/@name
             productUrl:
-              - text: http://www.alkosto.com/aire-acondicionado-mabe-inverter-18000btu-220v-mmi18cdbwccchi8
+              - text: http://www.alkosto.com/aire-acondicionado-kalley-inverter-12000-btu-110v-bwv
                 xpath: /html/body/div[1]/div[1]/div[10]/div[1]/div[1]/div[2]/ul[1]/li[22]/h2[1]/a[1]/@href
             gtin:
-              - text: "757638363884"
+              - text: "7705946399944"
                 xpath: /html/body/div[1]/div[1]/div[10]/div[1]/div[1]/div[2]/ul[1]/li[22]/h2[1]/@id
             thumbnail:
               - text: https://gzip-resources.aws.alkosto.com/skin/frontend/enterprise/default/images/mgt_lazy_image_loader/loader.gif
@@ -688,18 +625,15 @@ extractions:
                 xpath: /html/body/div[1]/div[1]/div[10]/div[1]/div[1]/div[2]/ul[1]/li[22]/div[1]/div[1]/div[1]/div[1]/span[1]/span[6]
                 type: STRING
             reviewCount:
-              - text: "1"
+              - text: "8"
                 xpath: /html/body/div[1]/div[1]/div[10]/div[1]/div[1]/div[2]/ul[1]/li[22]/div[1]/div[1]/div[1]/div[1]/a[1]
                 type: NUMBER
-                raw: 1 Opinión
+                raw: 8 Opiniones
                 locale: es
-                value: 1
+                value: 8
             price:
-              - text: $ 1.799.900
+              - text: $ 1.367.900
                 xpath: /html/body/div[1]/div[1]/div[10]/div[1]/div[1]/div[2]/ul[1]/li[22]/div[4]/p[2]/span[2]/span[1]
-            manufacturer:
-              - text: MABE
-                xpath: /html/body/div[1]/div[1]/div[10]/div[1]/div[1]/div[2]/ul[1]/li[22]/h2[1]/@manufacturer
           - id:
               - text: "8806087537802"
                 xpath: /html/body/div[1]/div[1]/div[10]/div[1]/div[1]/div[2]/ul[1]/li[23]/h2[1]/@id
@@ -727,394 +661,360 @@ extractions:
                 locale: es
                 value: 17
             price:
-              - text: $ 3.744.800
+              - text: $ 2.912.600
                 xpath: /html/body/div[1]/div[1]/div[10]/div[1]/div[1]/div[2]/ul[1]/li[23]/div[4]/p[2]/span[2]/span[1]
-            manufacturer:
-              - text: LG
-                xpath: /html/body/div[1]/div[1]/div[10]/div[1]/div[1]/div[2]/ul[1]/li[23]/h2[1]/@manufacturer
           - id:
-              - text: "8806090236976"
+              - text: "8806090236730"
                 xpath: /html/body/div[1]/div[1]/div[10]/div[1]/div[1]/div[2]/ul[1]/li[24]/h2[1]/@id
             name:
-              - text: Aire Acondicionado SAMSUNG 18000 BTU Tipo Split Inverter WindFree 220V
+              - text: Aire Acondicionado SAMSUNG 12000 BTU Tipo Split Inverter WindFree 220V
                   Blanco
                 xpath: /html/body/div[1]/div[1]/div[10]/div[1]/div[1]/div[2]/ul[1]/li[24]/h2[1]/@name
             productUrl:
-              - text: http://www.alkosto.com/aire-acondicionado-samsung-17743-btu-windfree-220v-blanco
+              - text: http://www.alkosto.com/aire-acondicionado-samsung-11499-btu-windfree-220v-blanco
                 xpath: /html/body/div[1]/div[1]/div[10]/div[1]/div[1]/div[2]/ul[1]/li[24]/h2[1]/a[1]/@href
             gtin:
-              - text: "8806090236976"
+              - text: "8806090236730"
                 xpath: /html/body/div[1]/div[1]/div[10]/div[1]/div[1]/div[2]/ul[1]/li[24]/h2[1]/@id
             thumbnail:
               - text: https://gzip-resources.aws.alkosto.com/skin/frontend/enterprise/default/images/mgt_lazy_image_loader/loader.gif
                 xpath: /html/body/div[1]/div[1]/div[10]/div[1]/div[1]/div[2]/ul[1]/li[24]/div[2]/a[1]/img[1]/@src
+            price:
+              - text: $ 2.359.900
+                xpath: /html/body/div[1]/div[1]/div[10]/div[1]/div[1]/div[2]/ul[1]/li[24]/div[4]/p[2]/span[2]/span[1]
+          - id:
+              - text: "7704353395761"
+                xpath: /html/body/div[1]/div[1]/div[10]/div[1]/div[1]/div[2]/ul[1]/li[25]/h2[1]/@id
+            name:
+              - text: Aire Acondicionado HACEB 12000 BTU Tipo Split Convencional 220V Blanco
+                xpath: /html/body/div[1]/div[1]/div[10]/div[1]/div[1]/div[2]/ul[1]/li[25]/h2[1]/@name
+            productUrl:
+              - text: http://www.alkosto.com/aire-acondicionado-haceb-baru-12000btu-on-of-220v
+                xpath: /html/body/div[1]/div[1]/div[10]/div[1]/div[1]/div[2]/ul[1]/li[25]/h2[1]/a[1]/@href
+            gtin:
+              - text: "7704353395761"
+                xpath: /html/body/div[1]/div[1]/div[10]/div[1]/div[1]/div[2]/ul[1]/li[25]/h2[1]/@id
+            thumbnail:
+              - text: https://gzip-resources.aws.alkosto.com/skin/frontend/enterprise/default/images/mgt_lazy_image_loader/loader.gif
+                xpath: /html/body/div[1]/div[1]/div[10]/div[1]/div[1]/div[2]/ul[1]/li[25]/div[2]/a[1]/img[1]/@src
             aggregateRating2:
               - text: 5,0
-                xpath: /html/body/div[1]/div[1]/div[10]/div[1]/div[1]/div[2]/ul[1]/li[24]/div[1]/div[1]/div[1]/div[1]/span[1]/span[6]
+                xpath: /html/body/div[1]/div[1]/div[10]/div[1]/div[1]/div[2]/ul[1]/li[25]/div[1]/div[1]/div[1]/div[1]/span[1]/span[6]
                 type: STRING
             reviewCount:
               - text: "1"
-                xpath: /html/body/div[1]/div[1]/div[10]/div[1]/div[1]/div[2]/ul[1]/li[24]/div[1]/div[1]/div[1]/div[1]/a[1]
+                xpath: /html/body/div[1]/div[1]/div[10]/div[1]/div[1]/div[2]/ul[1]/li[25]/div[1]/div[1]/div[1]/div[1]/a[1]
                 type: NUMBER
                 raw: 1 Opinión
                 locale: es
                 value: 1
             price:
-              - text: $ 2.599.900
-                xpath: /html/body/div[1]/div[1]/div[10]/div[1]/div[1]/div[2]/ul[1]/li[24]/div[4]/p[2]/span[2]/span[1]
-            manufacturer:
-              - text: SAMSUNG
-                xpath: /html/body/div[1]/div[1]/div[10]/div[1]/div[1]/div[2]/ul[1]/li[24]/h2[1]/@manufacturer
-          - id:
-              - text: "8806090236730"
-                xpath: /html/body/div[1]/div[1]/div[10]/div[1]/div[1]/div[2]/ul[1]/li[25]/h2[1]/@id
-            name:
-              - text: Aire Acondicionado SAMSUNG 12000 BTU Tipo Split Inverter WindFree 220V
-                  Blanco
-                xpath: /html/body/div[1]/div[1]/div[10]/div[1]/div[1]/div[2]/ul[1]/li[25]/h2[1]/@name
-            productUrl:
-              - text: http://www.alkosto.com/aire-acondicionado-samsung-11499-btu-windfree-220v-blanco
-                xpath: /html/body/div[1]/div[1]/div[10]/div[1]/div[1]/div[2]/ul[1]/li[25]/h2[1]/a[1]/@href
-            gtin:
-              - text: "8806090236730"
-                xpath: /html/body/div[1]/div[1]/div[10]/div[1]/div[1]/div[2]/ul[1]/li[25]/h2[1]/@id
-            thumbnail:
-              - text: https://gzip-resources.aws.alkosto.com/skin/frontend/enterprise/default/images/mgt_lazy_image_loader/loader.gif
-                xpath: /html/body/div[1]/div[1]/div[10]/div[1]/div[1]/div[2]/ul[1]/li[25]/div[2]/a[1]/img[1]/@src
-            price:
-              - text: $ 2.299.900
+              - text: $ 975.000
                 xpath: /html/body/div[1]/div[1]/div[10]/div[1]/div[1]/div[2]/ul[1]/li[25]/div[4]/p[2]/span[2]/span[1]
-            manufacturer:
-              - text: SAMSUNG
-                xpath: /html/body/div[1]/div[1]/div[10]/div[1]/div[1]/div[2]/ul[1]/li[25]/h2[1]/@manufacturer
           - id:
-              - text: "7861106693786"
+              - text: "7861106693861"
                 xpath: /html/body/div[1]/div[1]/div[10]/div[1]/div[1]/div[2]/ul[1]/li[26]/h2[1]/@id
             name:
-              - text: Aire Acondicionado ELECTROLUX 9000 BTU Tipo Split Convencional 110V Blanco
+              - text: Aire Acondicionado ELECTROLUX 18000 BTU Tipo Split Convencional 220V
+                  Blanco
                 xpath: /html/body/div[1]/div[1]/div[10]/div[1]/div[1]/div[2]/ul[1]/li[26]/h2[1]/@name
             productUrl:
-              - text: http://www.alkosto.com/aire-acondicionado-electrolux-onoff-9btu-110v-b
+              - text: http://www.alkosto.com/aire-acondicionado-electrolux-onoff-18btu-220v-b
                 xpath: /html/body/div[1]/div[1]/div[10]/div[1]/div[1]/div[2]/ul[1]/li[26]/h2[1]/a[1]/@href
             gtin:
-              - text: "7861106693786"
+              - text: "7861106693861"
                 xpath: /html/body/div[1]/div[1]/div[10]/div[1]/div[1]/div[2]/ul[1]/li[26]/h2[1]/@id
             thumbnail:
               - text: https://gzip-resources.aws.alkosto.com/skin/frontend/enterprise/default/images/mgt_lazy_image_loader/loader.gif
                 xpath: /html/body/div[1]/div[1]/div[10]/div[1]/div[1]/div[2]/ul[1]/li[26]/div[2]/a[1]/img[1]/@src
+            aggregateRating2:
+              - text: 5,0
+                xpath: /html/body/div[1]/div[1]/div[10]/div[1]/div[1]/div[2]/ul[1]/li[26]/div[1]/div[1]/div[1]/div[1]/span[1]/span[6]
+                type: STRING
+            reviewCount:
+              - text: "2"
+                xpath: /html/body/div[1]/div[1]/div[10]/div[1]/div[1]/div[2]/ul[1]/li[26]/div[1]/div[1]/div[1]/div[1]/a[1]
+                type: NUMBER
+                raw: 2 Opiniones
+                locale: es
+                value: 2
             price:
-              - text: $ 969.900
+              - text: $ 1.499.900
                 xpath: /html/body/div[1]/div[1]/div[10]/div[1]/div[1]/div[2]/ul[1]/li[26]/div[4]/p[2]/span[2]/span[1]
-            manufacturer:
-              - text: ELECTROLUX
-                xpath: /html/body/div[1]/div[1]/div[10]/div[1]/div[1]/div[2]/ul[1]/li[26]/h2[1]/@manufacturer
           - id:
-              - text: "7705946399944"
+              - text: "7704353395747"
                 xpath: /html/body/div[1]/div[1]/div[10]/div[1]/div[1]/div[2]/ul[1]/li[27]/h2[1]/@id
             name:
-              - text: Aire Acondicionado KALLEY 12000 BTU Tipo Split Inverter 110V Blanco
+              - text: Aire Acondicionado HACEB 12000 BTU Tipo Split Convencional 110V Blanco
                 xpath: /html/body/div[1]/div[1]/div[10]/div[1]/div[1]/div[2]/ul[1]/li[27]/h2[1]/@name
             productUrl:
-              - text: http://www.alkosto.com/aire-acondicionado-kalley-inverter-12000-btu-110v-bwv
+              - text: http://www.alkosto.com/aire-acondicionado-haceb-baru-12000btu-on-of-110v
                 xpath: /html/body/div[1]/div[1]/div[10]/div[1]/div[1]/div[2]/ul[1]/li[27]/h2[1]/a[1]/@href
             gtin:
-              - text: "7705946399944"
+              - text: "7704353395747"
                 xpath: /html/body/div[1]/div[1]/div[10]/div[1]/div[1]/div[2]/ul[1]/li[27]/h2[1]/@id
             thumbnail:
               - text: https://gzip-resources.aws.alkosto.com/skin/frontend/enterprise/default/images/mgt_lazy_image_loader/loader.gif
                 xpath: /html/body/div[1]/div[1]/div[10]/div[1]/div[1]/div[2]/ul[1]/li[27]/div[2]/a[1]/img[1]/@src
             aggregateRating2:
-              - text: 5,0
+              - text: 4,8
                 xpath: /html/body/div[1]/div[1]/div[10]/div[1]/div[1]/div[2]/ul[1]/li[27]/div[1]/div[1]/div[1]/div[1]/span[1]/span[6]
                 type: STRING
             reviewCount:
-              - text: "8"
+              - text: "5"
                 xpath: /html/body/div[1]/div[1]/div[10]/div[1]/div[1]/div[2]/ul[1]/li[27]/div[1]/div[1]/div[1]/div[1]/a[1]
                 type: NUMBER
-                raw: 8 Opiniones
+                raw: 5 Opiniones
                 locale: es
-                value: 8
+                value: 5
             price:
-              - text: $ 1.379.900
+              - text: $ 975.000
                 xpath: /html/body/div[1]/div[1]/div[10]/div[1]/div[1]/div[2]/ul[1]/li[27]/div[4]/p[2]/span[2]/span[1]
-            manufacturer:
-              - text: KALLEY
-                xpath: /html/body/div[1]/div[1]/div[10]/div[1]/div[1]/div[2]/ul[1]/li[27]/h2[1]/@manufacturer
           - id:
-              - text: "7861106693861"
+              - text: "5025232888559"
                 xpath: /html/body/div[1]/div[1]/div[10]/div[1]/div[1]/div[2]/ul[1]/li[28]/h2[1]/@id
             name:
-              - text: Aire Acondicionado ELECTROLUX 18000 BTU Tipo Split Convencional 220V
-                  Blanco
+              - text: Aire Acondicionado PANASONIC 9000 BTU Tipo Split Inverter 220V Blanco
                 xpath: /html/body/div[1]/div[1]/div[10]/div[1]/div[1]/div[2]/ul[1]/li[28]/h2[1]/@name
             productUrl:
-              - text: http://www.alkosto.com/aire-acondicionado-electrolux-onoff-18btu-220v-b
+              - text: http://www.alkosto.com/aire-acondicionado-panasonic-inverter-9000btu-220v-blanco
                 xpath: /html/body/div[1]/div[1]/div[10]/div[1]/div[1]/div[2]/ul[1]/li[28]/h2[1]/a[1]/@href
             gtin:
-              - text: "7861106693861"
+              - text: "5025232888559"
                 xpath: /html/body/div[1]/div[1]/div[10]/div[1]/div[1]/div[2]/ul[1]/li[28]/h2[1]/@id
             thumbnail:
               - text: https://gzip-resources.aws.alkosto.com/skin/frontend/enterprise/default/images/mgt_lazy_image_loader/loader.gif
                 xpath: /html/body/div[1]/div[1]/div[10]/div[1]/div[1]/div[2]/ul[1]/li[28]/div[2]/a[1]/img[1]/@src
             aggregateRating2:
-              - text: 5,0
+              - text: 4,8
                 xpath: /html/body/div[1]/div[1]/div[10]/div[1]/div[1]/div[2]/ul[1]/li[28]/div[1]/div[1]/div[1]/div[1]/span[1]/span[6]
                 type: STRING
             reviewCount:
-              - text: "2"
+              - text: "5"
                 xpath: /html/body/div[1]/div[1]/div[10]/div[1]/div[1]/div[2]/ul[1]/li[28]/div[1]/div[1]/div[1]/div[1]/a[1]
                 type: NUMBER
-                raw: 2 Opiniones
+                raw: 5 Opiniones
                 locale: es
-                value: 2
+                value: 5
             price:
-              - text: $ 1.449.900
+              - text: $ 1.319.900
                 xpath: /html/body/div[1]/div[1]/div[10]/div[1]/div[1]/div[2]/ul[1]/li[28]/div[4]/p[2]/span[2]/span[1]
-            manufacturer:
-              - text: ELECTROLUX
-                xpath: /html/body/div[1]/div[1]/div[10]/div[1]/div[1]/div[2]/ul[1]/li[28]/h2[1]/@manufacturer
           - id:
-              - text: "7704353395785"
+              - text: "7705191002712"
                 xpath: /html/body/div[1]/div[1]/div[10]/div[1]/div[1]/div[2]/ul[1]/li[29]/h2[1]/@id
             name:
-              - text: Aire Acondicionado HACEB 24000 BTU Tipo Split Convencional 220V Blanco
+              - text: Aire Acondicionado CHALLENGER 12000 BTU Tipo Portatil Convencional 115V
+                  Blanco
                 xpath: /html/body/div[1]/div[1]/div[10]/div[1]/div[1]/div[2]/ul[1]/li[29]/h2[1]/@name
             productUrl:
-              - text: http://www.alkosto.com/aire-acondicionado-haceb-baru-24000btu-on-of-220v
+              - text: http://www.alkosto.com/aire-acondicionado-challenger-port-12btu-115v-b
                 xpath: /html/body/div[1]/div[1]/div[10]/div[1]/div[1]/div[2]/ul[1]/li[29]/h2[1]/a[1]/@href
             gtin:
-              - text: "7704353395785"
+              - text: "7705191002712"
                 xpath: /html/body/div[1]/div[1]/div[10]/div[1]/div[1]/div[2]/ul[1]/li[29]/h2[1]/@id
             thumbnail:
               - text: https://gzip-resources.aws.alkosto.com/skin/frontend/enterprise/default/images/mgt_lazy_image_loader/loader.gif
                 xpath: /html/body/div[1]/div[1]/div[10]/div[1]/div[1]/div[2]/ul[1]/li[29]/div[2]/a[1]/img[1]/@src
+            aggregateRating2:
+              - text: 4,3
+                xpath: /html/body/div[1]/div[1]/div[10]/div[1]/div[1]/div[2]/ul[1]/li[29]/div[1]/div[1]/div[1]/div[1]/span[1]/span[6]
+                type: STRING
+            reviewCount:
+              - text: "13"
+                xpath: /html/body/div[1]/div[1]/div[10]/div[1]/div[1]/div[2]/ul[1]/li[29]/div[1]/div[1]/div[1]/div[1]/a[1]
+                type: NUMBER
+                raw: 13 Opiniones
+                locale: es
+                value: 13
             price:
-              - text: $ 1.865.600
-                xpath: /html/body/div[1]/div[1]/div[10]/div[1]/div[1]/div[2]/ul[1]/li[29]/div[4]/p[2]/span[2]/span[1]
-            manufacturer:
-              - text: HACEB
-                xpath: /html/body/div[1]/div[1]/div[10]/div[1]/div[1]/div[2]/ul[1]/li[29]/h2[1]/@manufacturer
+              - text: $ 1.169.900
+                xpath: /html/body/div[1]/div[1]/div[10]/div[1]/div[1]/div[2]/ul[1]/li[29]/div[4]/span[1]/span[1]/span[1]
           - id:
-              - text: "7705191030623"
+              - text: "7704353395785"
                 xpath: /html/body/div[1]/div[1]/div[10]/div[1]/div[1]/div[2]/ul[1]/li[30]/h2[1]/@id
             name:
-              - text: Aire Acondicionado CHALLENGER 9000 BTU Tipo Split Convencional 220V Blanco
+              - text: Aire Acondicionado HACEB 24000 BTU Tipo Split Convencional 220V Blanco
                 xpath: /html/body/div[1]/div[1]/div[10]/div[1]/div[1]/div[2]/ul[1]/li[30]/h2[1]/@name
             productUrl:
-              - text: http://www.alkosto.com/aire-acondicionado-challenger-convencional-9000btu-ca-9kbl2-220v
+              - text: http://www.alkosto.com/aire-acondicionado-haceb-baru-24000btu-on-of-220v
                 xpath: /html/body/div[1]/div[1]/div[10]/div[1]/div[1]/div[2]/ul[1]/li[30]/h2[1]/a[1]/@href
             gtin:
-              - text: "7705191030623"
+              - text: "7704353395785"
                 xpath: /html/body/div[1]/div[1]/div[10]/div[1]/div[1]/div[2]/ul[1]/li[30]/h2[1]/@id
             thumbnail:
               - text: https://gzip-resources.aws.alkosto.com/skin/frontend/enterprise/default/images/mgt_lazy_image_loader/loader.gif
                 xpath: /html/body/div[1]/div[1]/div[10]/div[1]/div[1]/div[2]/ul[1]/li[30]/div[2]/a[1]/img[1]/@src
             price:
-              - text: $ 854.900
-                xpath: /html/body/div[1]/div[1]/div[10]/div[1]/div[1]/div[2]/ul[1]/li[30]/div[4]/span[1]/span[1]/span[1]
-            manufacturer:
-              - text: CHALLENGER
-                xpath: /html/body/div[1]/div[1]/div[10]/div[1]/div[1]/div[2]/ul[1]/li[30]/h2[1]/@manufacturer
+              - text: $ 2.019.000
+                xpath: /html/body/div[1]/div[1]/div[10]/div[1]/div[1]/div[2]/ul[1]/li[30]/div[4]/p[2]/span[2]/span[1]
         xpath: /html
-    timestamp: 1606732912242
-  - html: https://workbench.import.io/html/run=b83e42f6-2e61-4359-a06d-2e78724a1725/task=04180fbd-f28a-499b-ac6b-4ea01ec702ef/65817112-bb5f-43e0-918a-c66cc62d59ee.html
+    timestamp: 1607930468685
+  - html: https://workbench.import.io/html/run=6f4ea27d-97b3-47b0-9285-9297b9fb54f9/task=7fe69fe0-c848-4a8f-a87e-472f7c4c8efa/be2ff0f9-4aef-41f6-ab02-eca55593c960.html
     extractionConfigId: product/search/stores/a/alkosto/CO/extract
     data:
       - group:
           - id:
-              - text: "8806090237218"
+              - text: "7861106693960"
                 xpath: /html/body/div[1]/div[1]/div[10]/div[1]/div[1]/div[2]/ul[1]/li[1]/h2[1]/@id
             name:
-              - text: Aire Acondicionado SAMSUNG 24000 BTU Tipo Split Inverter WindFree 220V
-                  Blanco
+              - text: Aire Acondicionado ELECTROLUX 12000 BTU Tipo Split Inverter 110V Blanco
                 xpath: /html/body/div[1]/div[1]/div[10]/div[1]/div[1]/div[2]/ul[1]/li[1]/h2[1]/@name
             productUrl:
-              - text: http://www.alkosto.com/aire-acondicionado-samsung-20985-btu-windfree-220v-blanco
+              - text: http://www.alkosto.com/aire-acondicionado-electrolux-inverter-12btu-110v-b-1
                 xpath: /html/body/div[1]/div[1]/div[10]/div[1]/div[1]/div[2]/ul[1]/li[1]/h2[1]/a[1]/@href
             gtin:
-              - text: "8806090237218"
+              - text: "7861106693960"
                 xpath: /html/body/div[1]/div[1]/div[10]/div[1]/div[1]/div[2]/ul[1]/li[1]/h2[1]/@id
             thumbnail:
               - text: https://gzip-resources.aws.alkosto.com/skin/frontend/enterprise/default/images/mgt_lazy_image_loader/loader.gif
                 xpath: /html/body/div[1]/div[1]/div[10]/div[1]/div[1]/div[2]/ul[1]/li[1]/div[2]/a[1]/img[1]/@src
             price:
-              - text: $ 2.899.900
+              - text: $ 1.499.900
                 xpath: /html/body/div[1]/div[1]/div[10]/div[1]/div[1]/div[2]/ul[1]/li[1]/div[4]/p[2]/span[2]/span[1]
-            manufacturer:
-              - text: SAMSUNG
-                xpath: /html/body/div[1]/div[1]/div[10]/div[1]/div[1]/div[2]/ul[1]/li[1]/h2[1]/@manufacturer
           - id:
-              - text: "7861106693960"
+              - text: "7705191029979"
                 xpath: /html/body/div[1]/div[1]/div[10]/div[1]/div[1]/div[2]/ul[1]/li[2]/h2[1]/@id
             name:
-              - text: Aire Acondicionado ELECTROLUX 12000 BTU Tipo Split Inverter 110V Blanco
+              - text: Aire Acondicionado CHALLENGER 12000 BTU Tipo Split Convencional 110V
+                  Blanco
                 xpath: /html/body/div[1]/div[1]/div[10]/div[1]/div[1]/div[2]/ul[1]/li[2]/h2[1]/@name
             productUrl:
-              - text: http://www.alkosto.com/aire-acondicionado-electrolux-inverter-12btu-110v-b-1
+              - text: http://www.alkosto.com/aire-acondicionado-challenger-convencional-12000btu-ca-12kbl1-110v
                 xpath: /html/body/div[1]/div[1]/div[10]/div[1]/div[1]/div[2]/ul[1]/li[2]/h2[1]/a[1]/@href
             gtin:
-              - text: "7861106693960"
+              - text: "7705191029979"
                 xpath: /html/body/div[1]/div[1]/div[10]/div[1]/div[1]/div[2]/ul[1]/li[2]/h2[1]/@id
             thumbnail:
               - text: https://gzip-resources.aws.alkosto.com/skin/frontend/enterprise/default/images/mgt_lazy_image_loader/loader.gif
                 xpath: /html/body/div[1]/div[1]/div[10]/div[1]/div[1]/div[2]/ul[1]/li[2]/div[2]/a[1]/img[1]/@src
             price:
-              - text: $ 1.449.900
-                xpath: /html/body/div[1]/div[1]/div[10]/div[1]/div[1]/div[2]/ul[1]/li[2]/div[4]/p[2]/span[2]/span[1]
-            manufacturer:
-              - text: ELECTROLUX
-                xpath: /html/body/div[1]/div[1]/div[10]/div[1]/div[1]/div[2]/ul[1]/li[2]/h2[1]/@manufacturer
+              - text: $ 964.900
+                xpath: /html/body/div[1]/div[1]/div[10]/div[1]/div[1]/div[2]/ul[1]/li[2]/div[4]/span[1]/span[1]/span[1]
           - id:
-              - text: "7704353395761"
+              - text: "7704353395785"
                 xpath: /html/body/div[1]/div[1]/div[10]/div[1]/div[1]/div[2]/ul[1]/li[3]/h2[1]/@id
             name:
-              - text: Aire Acondicionado HACEB 12000 BTU Tipo Split Convencional 220V Blanco
+              - text: Aire Acondicionado HACEB 24000 BTU Tipo Split Convencional 220V Blanco
                 xpath: /html/body/div[1]/div[1]/div[10]/div[1]/div[1]/div[2]/ul[1]/li[3]/h2[1]/@name
             productUrl:
-              - text: http://www.alkosto.com/aire-acondicionado-haceb-baru-12000btu-on-of-220v
+              - text: http://www.alkosto.com/aire-acondicionado-haceb-baru-24000btu-on-of-220v
                 xpath: /html/body/div[1]/div[1]/div[10]/div[1]/div[1]/div[2]/ul[1]/li[3]/h2[1]/a[1]/@href
             gtin:
-              - text: "7704353395761"
+              - text: "7704353395785"
                 xpath: /html/body/div[1]/div[1]/div[10]/div[1]/div[1]/div[2]/ul[1]/li[3]/h2[1]/@id
             thumbnail:
               - text: https://gzip-resources.aws.alkosto.com/skin/frontend/enterprise/default/images/mgt_lazy_image_loader/loader.gif
                 xpath: /html/body/div[1]/div[1]/div[10]/div[1]/div[1]/div[2]/ul[1]/li[3]/div[2]/a[1]/img[1]/@src
-            aggregateRating2:
-              - text: 5,0
-                xpath: /html/body/div[1]/div[1]/div[10]/div[1]/div[1]/div[2]/ul[1]/li[3]/div[1]/div[1]/div[1]/div[1]/span[1]/span[6]
-                type: STRING
-            reviewCount:
-              - text: "1"
-                xpath: /html/body/div[1]/div[1]/div[10]/div[1]/div[1]/div[2]/ul[1]/li[3]/div[1]/div[1]/div[1]/div[1]/a[1]
-                type: NUMBER
-                raw: 1 Opinión
-                locale: es
-                value: 1
             price:
-              - text: $ 900.900
+              - text: $ 2.019.000
                 xpath: /html/body/div[1]/div[1]/div[10]/div[1]/div[1]/div[2]/ul[1]/li[3]/div[4]/p[2]/span[2]/span[1]
-            manufacturer:
-              - text: HACEB
-                xpath: /html/body/div[1]/div[1]/div[10]/div[1]/div[1]/div[2]/ul[1]/li[3]/h2[1]/@manufacturer
           - id:
-              - text: "8806090236525"
+              - text: "7705946266253"
                 xpath: /html/body/div[1]/div[1]/div[10]/div[1]/div[1]/div[2]/ul[1]/li[4]/h2[1]/@id
             name:
-              - text: Aire Acondicionado SAMSUNG 9000 BTU Tipo Split Inverter WindFree 220V
-                  Blanco
+              - text: Aire Acondicionado KALLEY 12000 BTU Tipo Split Convencional 110V Blanco
                 xpath: /html/body/div[1]/div[1]/div[10]/div[1]/div[1]/div[2]/ul[1]/li[4]/h2[1]/@name
             productUrl:
-              - text: http://www.alkosto.com/aire-acondicionado-samsung-9008-btu-windfree-220v-blanco
+              - text: http://www.alkosto.com/aire-acondicionado-kalley-convencional-12000btu-110v-blanco
                 xpath: /html/body/div[1]/div[1]/div[10]/div[1]/div[1]/div[2]/ul[1]/li[4]/h2[1]/a[1]/@href
             gtin:
-              - text: "8806090236525"
+              - text: "7705946266253"
                 xpath: /html/body/div[1]/div[1]/div[10]/div[1]/div[1]/div[2]/ul[1]/li[4]/h2[1]/@id
             thumbnail:
               - text: https://gzip-resources.aws.alkosto.com/skin/frontend/enterprise/default/images/mgt_lazy_image_loader/loader.gif
                 xpath: /html/body/div[1]/div[1]/div[10]/div[1]/div[1]/div[2]/ul[1]/li[4]/div[2]/a[1]/img[1]/@src
             aggregateRating2:
-              - text: 5,0
+              - text: 4,8
                 xpath: /html/body/div[1]/div[1]/div[10]/div[1]/div[1]/div[2]/ul[1]/li[4]/div[1]/div[1]/div[1]/div[1]/span[1]/span[6]
                 type: STRING
             reviewCount:
-              - text: "2"
+              - text: "25"
                 xpath: /html/body/div[1]/div[1]/div[10]/div[1]/div[1]/div[2]/ul[1]/li[4]/div[1]/div[1]/div[1]/div[1]/a[1]
                 type: NUMBER
-                raw: 2 Opiniones
+                raw: 25 Opiniones
                 locale: es
-                value: 2
+                value: 25
             price:
-              - text: $ 2.099.900
+              - text: $ 899.900
                 xpath: /html/body/div[1]/div[1]/div[10]/div[1]/div[1]/div[2]/ul[1]/li[4]/div[4]/p[2]/span[2]/span[1]
-            manufacturer:
-              - text: SAMSUNG
-                xpath: /html/body/div[1]/div[1]/div[10]/div[1]/div[1]/div[2]/ul[1]/li[4]/h2[1]/@manufacturer
           - id:
-              - text: "7705191029979"
+              - text: "5025232911066"
                 xpath: /html/body/div[1]/div[1]/div[10]/div[1]/div[1]/div[2]/ul[1]/li[5]/h2[1]/@id
             name:
-              - text: Aire Acondicionado CHALLENGER 12000 BTU Tipo Split Convencional 110V
-                  Blanco
+              - text: Aire Acondicionado PANASONIC 12000BTU Tipo Split Inverter Delux 220V
+                  S12WKV Plateado
                 xpath: /html/body/div[1]/div[1]/div[10]/div[1]/div[1]/div[2]/ul[1]/li[5]/h2[1]/@name
             productUrl:
-              - text: http://www.alkosto.com/aire-acondicionado-challenger-convencional-12000btu-ca-12kbl1-110v
+              - text: http://www.alkosto.com/aire-acondicionado-panasonic-12000btu-tipo-split-inverter-delux-220v-s12wkv-plateado
                 xpath: /html/body/div[1]/div[1]/div[10]/div[1]/div[1]/div[2]/ul[1]/li[5]/h2[1]/a[1]/@href
             gtin:
-              - text: "7705191029979"
+              - text: "5025232911066"
                 xpath: /html/body/div[1]/div[1]/div[10]/div[1]/div[1]/div[2]/ul[1]/li[5]/h2[1]/@id
             thumbnail:
               - text: https://gzip-resources.aws.alkosto.com/skin/frontend/enterprise/default/images/mgt_lazy_image_loader/loader.gif
                 xpath: /html/body/div[1]/div[1]/div[10]/div[1]/div[1]/div[2]/ul[1]/li[5]/div[2]/a[1]/img[1]/@src
             price:
-              - text: $ 964.900
-                xpath: /html/body/div[1]/div[1]/div[10]/div[1]/div[1]/div[2]/ul[1]/li[5]/div[4]/span[1]/span[1]/span[1]
-            manufacturer:
-              - text: CHALLENGER
-                xpath: /html/body/div[1]/div[1]/div[10]/div[1]/div[1]/div[2]/ul[1]/li[5]/h2[1]/@manufacturer
+              - text: $ 2.449.900
+                xpath: /html/body/div[1]/div[1]/div[10]/div[1]/div[1]/div[2]/ul[1]/li[5]/div[4]/p[2]/span[2]/span[1]
           - id:
-              - text: "7861106693922"
+              - text: "8806090237218"
                 xpath: /html/body/div[1]/div[1]/div[10]/div[1]/div[1]/div[2]/ul[1]/li[6]/h2[1]/@id
             name:
-              - text: Aire Acondicionado ELECTROLUX 18000 BTU Tipo Split Inverter 220V Blanco
+              - text: Aire Acondicionado SAMSUNG 24000 BTU Tipo Split Inverter WindFree 220V
+                  Blanco
                 xpath: /html/body/div[1]/div[1]/div[10]/div[1]/div[1]/div[2]/ul[1]/li[6]/h2[1]/@name
             productUrl:
-              - text: http://www.alkosto.com/aire-acondicionado-electrolux-inverter-18btu-220v-b
+              - text: http://www.alkosto.com/aire-acondicionado-samsung-20985-btu-windfree-220v-blanco
                 xpath: /html/body/div[1]/div[1]/div[10]/div[1]/div[1]/div[2]/ul[1]/li[6]/h2[1]/a[1]/@href
             gtin:
-              - text: "7861106693922"
+              - text: "8806090237218"
                 xpath: /html/body/div[1]/div[1]/div[10]/div[1]/div[1]/div[2]/ul[1]/li[6]/h2[1]/@id
             thumbnail:
               - text: https://gzip-resources.aws.alkosto.com/skin/frontend/enterprise/default/images/mgt_lazy_image_loader/loader.gif
                 xpath: /html/body/div[1]/div[1]/div[10]/div[1]/div[1]/div[2]/ul[1]/li[6]/div[2]/a[1]/img[1]/@src
             price:
-              - text: $ 1.949.900
+              - text: $ 2.899.900
                 xpath: /html/body/div[1]/div[1]/div[10]/div[1]/div[1]/div[2]/ul[1]/li[6]/div[4]/p[2]/span[2]/span[1]
-            manufacturer:
-              - text: ELECTROLUX
-                xpath: /html/body/div[1]/div[1]/div[10]/div[1]/div[1]/div[2]/ul[1]/li[6]/h2[1]/@manufacturer
           - id:
-              - text: "7705191030616"
+              - text: "7704353395730"
                 xpath: /html/body/div[1]/div[1]/div[10]/div[1]/div[1]/div[2]/ul[1]/li[7]/h2[1]/@id
             name:
-              - text: Aire Acondicionado CHALLENGER 9000 BTU Tipo Split Convencional 110V Blanco
+              - text: Aire Acondicionado HACEB 9000 BTU Tipo Split Convencional 110V Blanco
                 xpath: /html/body/div[1]/div[1]/div[10]/div[1]/div[1]/div[2]/ul[1]/li[7]/h2[1]/@name
             productUrl:
-              - text: http://www.alkosto.com/aire-acondicionado-challenger-9000btu-110v
+              - text: http://www.alkosto.com/aire-acondicionado-haceb-baru-9000btu-on-of-110v
                 xpath: /html/body/div[1]/div[1]/div[10]/div[1]/div[1]/div[2]/ul[1]/li[7]/h2[1]/a[1]/@href
             gtin:
-              - text: "7705191030616"
+              - text: "7704353395730"
                 xpath: /html/body/div[1]/div[1]/div[10]/div[1]/div[1]/div[2]/ul[1]/li[7]/h2[1]/@id
             thumbnail:
               - text: https://gzip-resources.aws.alkosto.com/skin/frontend/enterprise/default/images/mgt_lazy_image_loader/loader.gif
                 xpath: /html/body/div[1]/div[1]/div[10]/div[1]/div[1]/div[2]/ul[1]/li[7]/div[2]/a[1]/img[1]/@src
             aggregateRating2:
-              - text: 4,5
+              - text: 5,0
                 xpath: /html/body/div[1]/div[1]/div[10]/div[1]/div[1]/div[2]/ul[1]/li[7]/div[1]/div[1]/div[1]/div[1]/span[1]/span[6]
                 type: STRING
             reviewCount:
-              - text: "2"
+              - text: "28"
                 xpath: /html/body/div[1]/div[1]/div[10]/div[1]/div[1]/div[2]/ul[1]/li[7]/div[1]/div[1]/div[1]/div[1]/a[1]
                 type: NUMBER
-                raw: 2 Opiniones
+                raw: 28 Opiniones
                 locale: es
-                value: 2
+                value: 28
             price:
-              - text: $ 854.900
-                xpath: /html/body/div[1]/div[1]/div[10]/div[1]/div[1]/div[2]/ul[1]/li[7]/div[4]/span[1]/span[1]/span[1]
-            manufacturer:
-              - text: CHALLENGER
-                xpath: /html/body/div[1]/div[1]/div[10]/div[1]/div[1]/div[2]/ul[1]/li[7]/h2[1]/@manufacturer
+              - text: $ 809.000
+                xpath: /html/body/div[1]/div[1]/div[10]/div[1]/div[1]/div[2]/ul[1]/li[7]/div[4]/p[2]/span[2]/span[1]
           - id:
-              - text: "7705946452564"
+              - text: "5025232888535"
                 xpath: /html/body/div[1]/div[1]/div[10]/div[1]/div[1]/div[2]/ul[1]/li[8]/h2[1]/@id
             name:
-              - text: Aire Acondicionado KALLEY 12000 BTU Tipo Split Inverter 220V Blanco
+              - text: Aire Acondicionado PANASONIC 24000 BTU Tipo Split Inverter 220V Blanco
                 xpath: /html/body/div[1]/div[1]/div[10]/div[1]/div[1]/div[2]/ul[1]/li[8]/h2[1]/@name
             productUrl:
-              - text: http://www.alkosto.com/aire-acondicionado-kalley-ac12inv2a
+              - text: http://www.alkosto.com/aire-acondicionado-panasonic-inverter-24000btu-220v-blanco
                 xpath: /html/body/div[1]/div[1]/div[10]/div[1]/div[1]/div[2]/ul[1]/li[8]/h2[1]/a[1]/@href
             gtin:
-              - text: "7705946452564"
+              - text: "5025232888535"
                 xpath: /html/body/div[1]/div[1]/div[10]/div[1]/div[1]/div[2]/ul[1]/li[8]/h2[1]/@id
             thumbnail:
               - text: https://gzip-resources.aws.alkosto.com/skin/frontend/enterprise/default/images/mgt_lazy_image_loader/loader.gif
@@ -1131,22 +1031,20 @@ extractions:
                 locale: es
                 value: 2
             price:
-              - text: $ 1.309.900
+              - text: $ 2.549.900
                 xpath: /html/body/div[1]/div[1]/div[10]/div[1]/div[1]/div[2]/ul[1]/li[8]/div[4]/p[2]/span[2]/span[1]
-            manufacturer:
-              - text: KALLEY
-                xpath: /html/body/div[1]/div[1]/div[10]/div[1]/div[1]/div[2]/ul[1]/li[8]/h2[1]/@manufacturer
           - id:
-              - text: "7705191030647"
+              - text: "8806090236525"
                 xpath: /html/body/div[1]/div[1]/div[10]/div[1]/div[1]/div[2]/ul[1]/li[9]/h2[1]/@id
             name:
-              - text: Aire Acondicionado CHALLENGER 9000 BTU Tipo Split Inverter 220V Blanco
+              - text: Aire Acondicionado SAMSUNG 9000 BTU Tipo Split Inverter WindFree 220V
+                  Blanco
                 xpath: /html/body/div[1]/div[1]/div[10]/div[1]/div[1]/div[2]/ul[1]/li[9]/h2[1]/@name
             productUrl:
-              - text: http://www.alkosto.com/aire-acondicionado-challenger-inverter-9000btu-ca-9kbl2-inv-220v-1
+              - text: http://www.alkosto.com/aire-acondicionado-samsung-9008-btu-windfree-220v-blanco
                 xpath: /html/body/div[1]/div[1]/div[10]/div[1]/div[1]/div[2]/ul[1]/li[9]/h2[1]/a[1]/@href
             gtin:
-              - text: "7705191030647"
+              - text: "8806090236525"
                 xpath: /html/body/div[1]/div[1]/div[10]/div[1]/div[1]/div[2]/ul[1]/li[9]/h2[1]/@id
             thumbnail:
               - text: https://gzip-resources.aws.alkosto.com/skin/frontend/enterprise/default/images/mgt_lazy_image_loader/loader.gif
@@ -1156,105 +1054,80 @@ extractions:
                 xpath: /html/body/div[1]/div[1]/div[10]/div[1]/div[1]/div[2]/ul[1]/li[9]/div[1]/div[1]/div[1]/div[1]/span[1]/span[6]
                 type: STRING
             reviewCount:
-              - text: "1"
-                xpath: /html/body/div[1]/div[1]/div[10]/div[1]/div[1]/div[2]/ul[1]/li[9]/div[1]/div[1]/div[1]/div[1]/a[1]
-                type: NUMBER
-                raw: 1 Opinión
-                locale: es
-                value: 1
-            price:
-              - text: $ 1.284.900
-                xpath: /html/body/div[1]/div[1]/div[10]/div[1]/div[1]/div[2]/ul[1]/li[9]/div[4]/span[1]/span[1]/span[1]
-            manufacturer:
-              - text: CHALLENGER
-                xpath: /html/body/div[1]/div[1]/div[10]/div[1]/div[1]/div[2]/ul[1]/li[9]/h2[1]/@manufacturer
-          - id:
-              - text: "7705191002712"
-                xpath: /html/body/div[1]/div[1]/div[10]/div[1]/div[1]/div[2]/ul[1]/li[10]/h2[1]/@id
-            name:
-              - text: Aire Acondicionado CHALLENGER 12000 BTU Tipo Portatil Convencional 115V
-                  Blanco
-                xpath: /html/body/div[1]/div[1]/div[10]/div[1]/div[1]/div[2]/ul[1]/li[10]/h2[1]/@name
-            productUrl:
-              - text: http://www.alkosto.com/aire-acondicionado-challenger-port-12btu-115v-b
-                xpath: /html/body/div[1]/div[1]/div[10]/div[1]/div[1]/div[2]/ul[1]/li[10]/h2[1]/a[1]/@href
-            gtin:
-              - text: "7705191002712"
-                xpath: /html/body/div[1]/div[1]/div[10]/div[1]/div[1]/div[2]/ul[1]/li[10]/h2[1]/@id
-            thumbnail:
-              - text: https://gzip-resources.aws.alkosto.com/skin/frontend/enterprise/default/images/mgt_lazy_image_loader/loader.gif
-                xpath: /html/body/div[1]/div[1]/div[10]/div[1]/div[1]/div[2]/ul[1]/li[10]/div[2]/a[1]/img[1]/@src
-            aggregateRating2:
-              - text: 4,3
-                xpath: /html/body/div[1]/div[1]/div[10]/div[1]/div[1]/div[2]/ul[1]/li[10]/div[1]/div[1]/div[1]/div[1]/span[1]/span[6]
-                type: STRING
-            reviewCount:
-              - text: "13"
-                xpath: /html/body/div[1]/div[1]/div[10]/div[1]/div[1]/div[2]/ul[1]/li[10]/div[1]/div[1]/div[1]/div[1]/a[1]
-                type: NUMBER
-                raw: 13 Opiniones
-                locale: es
-                value: 13
-            price:
-              - text: $ 1.169.900
-                xpath: /html/body/div[1]/div[1]/div[10]/div[1]/div[1]/div[2]/ul[1]/li[10]/div[4]/span[1]/span[1]/span[1]
-            manufacturer:
-              - text: CHALLENGER
-                xpath: /html/body/div[1]/div[1]/div[10]/div[1]/div[1]/div[2]/ul[1]/li[10]/h2[1]/@manufacturer
-          - id:
-              - text: "5025232911066"
-                xpath: /html/body/div[1]/div[1]/div[10]/div[1]/div[1]/div[2]/ul[1]/li[11]/h2[1]/@id
-            name:
-              - text: Aire Acondicionado PANASONIC 12000BTU Tipo Split Inverter Delux 220V
-                  S12WKV Plateado
-                xpath: /html/body/div[1]/div[1]/div[10]/div[1]/div[1]/div[2]/ul[1]/li[11]/h2[1]/@name
-            productUrl:
-              - text: http://www.alkosto.com/aire-acondicionado-panasonic-12000btu-tipo-split-inverter-delux-220v-s12wkv-plateado
-                xpath: /html/body/div[1]/div[1]/div[10]/div[1]/div[1]/div[2]/ul[1]/li[11]/h2[1]/a[1]/@href
-            gtin:
-              - text: "5025232911066"
-                xpath: /html/body/div[1]/div[1]/div[10]/div[1]/div[1]/div[2]/ul[1]/li[11]/h2[1]/@id
-            thumbnail:
-              - text: https://gzip-resources.aws.alkosto.com/skin/frontend/enterprise/default/images/mgt_lazy_image_loader/loader.gif
-                xpath: /html/body/div[1]/div[1]/div[10]/div[1]/div[1]/div[2]/ul[1]/li[11]/div[2]/a[1]/img[1]/@src
-            price:
-              - text: $ 2.349.900
-                xpath: /html/body/div[1]/div[1]/div[10]/div[1]/div[1]/div[2]/ul[1]/li[11]/div[4]/p[2]/span[2]/span[1]
-            manufacturer:
-              - text: PANASONIC
-                xpath: /html/body/div[1]/div[1]/div[10]/div[1]/div[1]/div[2]/ul[1]/li[11]/h2[1]/@manufacturer
-          - id:
-              - text: "5025232888535"
-                xpath: /html/body/div[1]/div[1]/div[10]/div[1]/div[1]/div[2]/ul[1]/li[12]/h2[1]/@id
-            name:
-              - text: Aire Acondicionado PANASONIC 24000 BTU Tipo Split Inverter 220V Blanco
-                xpath: /html/body/div[1]/div[1]/div[10]/div[1]/div[1]/div[2]/ul[1]/li[12]/h2[1]/@name
-            productUrl:
-              - text: http://www.alkosto.com/aire-acondicionado-panasonic-inverter-24000btu-220v-blanco
-                xpath: /html/body/div[1]/div[1]/div[10]/div[1]/div[1]/div[2]/ul[1]/li[12]/h2[1]/a[1]/@href
-            gtin:
-              - text: "5025232888535"
-                xpath: /html/body/div[1]/div[1]/div[10]/div[1]/div[1]/div[2]/ul[1]/li[12]/h2[1]/@id
-            thumbnail:
-              - text: https://gzip-resources.aws.alkosto.com/skin/frontend/enterprise/default/images/mgt_lazy_image_loader/loader.gif
-                xpath: /html/body/div[1]/div[1]/div[10]/div[1]/div[1]/div[2]/ul[1]/li[12]/div[2]/a[1]/img[1]/@src
-            aggregateRating2:
-              - text: 4,5
-                xpath: /html/body/div[1]/div[1]/div[10]/div[1]/div[1]/div[2]/ul[1]/li[12]/div[1]/div[1]/div[1]/div[1]/span[1]/span[6]
-                type: STRING
-            reviewCount:
               - text: "2"
-                xpath: /html/body/div[1]/div[1]/div[10]/div[1]/div[1]/div[2]/ul[1]/li[12]/div[1]/div[1]/div[1]/div[1]/a[1]
+                xpath: /html/body/div[1]/div[1]/div[10]/div[1]/div[1]/div[2]/ul[1]/li[9]/div[1]/div[1]/div[1]/div[1]/a[1]
                 type: NUMBER
                 raw: 2 Opiniones
                 locale: es
                 value: 2
             price:
-              - text: $ 2.549.900
+              - text: $ 2.159.900
+                xpath: /html/body/div[1]/div[1]/div[10]/div[1]/div[1]/div[2]/ul[1]/li[9]/div[4]/p[2]/span[2]/span[1]
+          - id:
+              - text: "7861106693786"
+                xpath: /html/body/div[1]/div[1]/div[10]/div[1]/div[1]/div[2]/ul[1]/li[10]/h2[1]/@id
+            name:
+              - text: Aire Acondicionado ELECTROLUX 9000 BTU Tipo Split Convencional 110V Blanco
+                xpath: /html/body/div[1]/div[1]/div[10]/div[1]/div[1]/div[2]/ul[1]/li[10]/h2[1]/@name
+            productUrl:
+              - text: http://www.alkosto.com/aire-acondicionado-electrolux-onoff-9btu-110v-b
+                xpath: /html/body/div[1]/div[1]/div[10]/div[1]/div[1]/div[2]/ul[1]/li[10]/h2[1]/a[1]/@href
+            gtin:
+              - text: "7861106693786"
+                xpath: /html/body/div[1]/div[1]/div[10]/div[1]/div[1]/div[2]/ul[1]/li[10]/h2[1]/@id
+            thumbnail:
+              - text: https://gzip-resources.aws.alkosto.com/skin/frontend/enterprise/default/images/mgt_lazy_image_loader/loader.gif
+                xpath: /html/body/div[1]/div[1]/div[10]/div[1]/div[1]/div[2]/ul[1]/li[10]/div[2]/a[1]/img[1]/@src
+            price:
+              - text: $ 1.029.900
+                xpath: /html/body/div[1]/div[1]/div[10]/div[1]/div[1]/div[2]/ul[1]/li[10]/div[4]/p[2]/span[2]/span[1]
+          - id:
+              - text: "7861106693922"
+                xpath: /html/body/div[1]/div[1]/div[10]/div[1]/div[1]/div[2]/ul[1]/li[11]/h2[1]/@id
+            name:
+              - text: Aire Acondicionado ELECTROLUX 18000 BTU Tipo Split Inverter 220V Blanco
+                xpath: /html/body/div[1]/div[1]/div[10]/div[1]/div[1]/div[2]/ul[1]/li[11]/h2[1]/@name
+            productUrl:
+              - text: http://www.alkosto.com/aire-acondicionado-electrolux-inverter-18btu-220v-b
+                xpath: /html/body/div[1]/div[1]/div[10]/div[1]/div[1]/div[2]/ul[1]/li[11]/h2[1]/a[1]/@href
+            gtin:
+              - text: "7861106693922"
+                xpath: /html/body/div[1]/div[1]/div[10]/div[1]/div[1]/div[2]/ul[1]/li[11]/h2[1]/@id
+            thumbnail:
+              - text: https://gzip-resources.aws.alkosto.com/skin/frontend/enterprise/default/images/mgt_lazy_image_loader/loader.gif
+                xpath: /html/body/div[1]/div[1]/div[10]/div[1]/div[1]/div[2]/ul[1]/li[11]/div[2]/a[1]/img[1]/@src
+            price:
+              - text: $ 1.999.900
+                xpath: /html/body/div[1]/div[1]/div[10]/div[1]/div[1]/div[2]/ul[1]/li[11]/div[4]/p[2]/span[2]/span[1]
+          - id:
+              - text: "7705946399951"
+                xpath: /html/body/div[1]/div[1]/div[10]/div[1]/div[1]/div[2]/ul[1]/li[12]/h2[1]/@id
+            name:
+              - text: Aire Acondicionado KALLEY 12000 BTU Tipo Split Inverter 220V Blanco
+                xpath: /html/body/div[1]/div[1]/div[10]/div[1]/div[1]/div[2]/ul[1]/li[12]/h2[1]/@name
+            productUrl:
+              - text: http://www.alkosto.com/aire-acondicionado-kalley-inverter-12000-btu-220v-bwv
+                xpath: /html/body/div[1]/div[1]/div[10]/div[1]/div[1]/div[2]/ul[1]/li[12]/h2[1]/a[1]/@href
+            gtin:
+              - text: "7705946399951"
+                xpath: /html/body/div[1]/div[1]/div[10]/div[1]/div[1]/div[2]/ul[1]/li[12]/h2[1]/@id
+            thumbnail:
+              - text: https://gzip-resources.aws.alkosto.com/skin/frontend/enterprise/default/images/mgt_lazy_image_loader/loader.gif
+                xpath: /html/body/div[1]/div[1]/div[10]/div[1]/div[1]/div[2]/ul[1]/li[12]/div[2]/a[1]/img[1]/@src
+            aggregateRating2:
+              - text: 5,0
+                xpath: /html/body/div[1]/div[1]/div[10]/div[1]/div[1]/div[2]/ul[1]/li[12]/div[1]/div[1]/div[1]/div[1]/span[1]/span[6]
+                type: STRING
+            reviewCount:
+              - text: "3"
+                xpath: /html/body/div[1]/div[1]/div[10]/div[1]/div[1]/div[2]/ul[1]/li[12]/div[1]/div[1]/div[1]/div[1]/a[1]
+                type: NUMBER
+                raw: 3 Opiniones
+                locale: es
+                value: 3
+            price:
+              - text: $ 1.367.900
                 xpath: /html/body/div[1]/div[1]/div[10]/div[1]/div[1]/div[2]/ul[1]/li[12]/div[4]/p[2]/span[2]/span[1]
-            manufacturer:
-              - text: PANASONIC
-                xpath: /html/body/div[1]/div[1]/div[10]/div[1]/div[1]/div[2]/ul[1]/li[12]/h2[1]/@manufacturer
           - id:
               - text: "7705946399968"
                 xpath: /html/body/div[1]/div[1]/div[10]/div[1]/div[1]/div[2]/ul[1]/li[13]/h2[1]/@id
@@ -1284,21 +1157,17 @@ extractions:
             price:
               - text: $ 1.699.900
                 xpath: /html/body/div[1]/div[1]/div[10]/div[1]/div[1]/div[2]/ul[1]/li[13]/div[4]/p[2]/span[2]/span[1]
-            manufacturer:
-              - text: KALLEY
-                xpath: /html/body/div[1]/div[1]/div[10]/div[1]/div[1]/div[2]/ul[1]/li[13]/h2[1]/@manufacturer
           - id:
-              - text: "7861106693809"
+              - text: "7704353395754"
                 xpath: /html/body/div[1]/div[1]/div[10]/div[1]/div[1]/div[2]/ul[1]/li[14]/h2[1]/@id
             name:
-              - text: Aire Acondicionado ELECTROLUX 12000 BTU Tipo Split Convencional 110V
-                  Blanco
+              - text: Aire Acondicionado HACEB 9000 BTU Tipo Split Convencional 220V Blanco
                 xpath: /html/body/div[1]/div[1]/div[10]/div[1]/div[1]/div[2]/ul[1]/li[14]/h2[1]/@name
             productUrl:
-              - text: http://www.alkosto.com/aire-acondicionado-electrolux-onoff-12btu-110v-b
+              - text: http://www.alkosto.com/aire-acondicionado-haceb-baru-9000btu-on-of-220v
                 xpath: /html/body/div[1]/div[1]/div[10]/div[1]/div[1]/div[2]/ul[1]/li[14]/h2[1]/a[1]/@href
             gtin:
-              - text: "7861106693809"
+              - text: "7704353395754"
                 xpath: /html/body/div[1]/div[1]/div[10]/div[1]/div[1]/div[2]/ul[1]/li[14]/h2[1]/@id
             thumbnail:
               - text: https://gzip-resources.aws.alkosto.com/skin/frontend/enterprise/default/images/mgt_lazy_image_loader/loader.gif
@@ -1315,22 +1184,20 @@ extractions:
                 locale: es
                 value: 2
             price:
-              - text: $ 999.900
+              - text: $ 832.000
                 xpath: /html/body/div[1]/div[1]/div[10]/div[1]/div[1]/div[2]/ul[1]/li[14]/div[4]/p[2]/span[2]/span[1]
-            manufacturer:
-              - text: ELECTROLUX
-                xpath: /html/body/div[1]/div[1]/div[10]/div[1]/div[1]/div[2]/ul[1]/li[14]/h2[1]/@manufacturer
           - id:
-              - text: "7705946399951"
+              - text: "7861106693809"
                 xpath: /html/body/div[1]/div[1]/div[10]/div[1]/div[1]/div[2]/ul[1]/li[15]/h2[1]/@id
             name:
-              - text: Aire Acondicionado KALLEY 12000 BTU Tipo Split Inverter 220V Blanco
+              - text: Aire Acondicionado ELECTROLUX 12000 BTU Tipo Split Convencional 110V
+                  Blanco
                 xpath: /html/body/div[1]/div[1]/div[10]/div[1]/div[1]/div[2]/ul[1]/li[15]/h2[1]/@name
             productUrl:
-              - text: http://www.alkosto.com/aire-acondicionado-kalley-inverter-12000-btu-220v-bwv
+              - text: http://www.alkosto.com/aire-acondicionado-electrolux-onoff-12btu-110v-b
                 xpath: /html/body/div[1]/div[1]/div[10]/div[1]/div[1]/div[2]/ul[1]/li[15]/h2[1]/a[1]/@href
             gtin:
-              - text: "7705946399951"
+              - text: "7861106693809"
                 xpath: /html/body/div[1]/div[1]/div[10]/div[1]/div[1]/div[2]/ul[1]/li[15]/h2[1]/@id
             thumbnail:
               - text: https://gzip-resources.aws.alkosto.com/skin/frontend/enterprise/default/images/mgt_lazy_image_loader/loader.gif
@@ -1340,35 +1207,32 @@ extractions:
                 xpath: /html/body/div[1]/div[1]/div[10]/div[1]/div[1]/div[2]/ul[1]/li[15]/div[1]/div[1]/div[1]/div[1]/span[1]/span[6]
                 type: STRING
             reviewCount:
-              - text: "3"
+              - text: "2"
                 xpath: /html/body/div[1]/div[1]/div[10]/div[1]/div[1]/div[2]/ul[1]/li[15]/div[1]/div[1]/div[1]/div[1]/a[1]
                 type: NUMBER
-                raw: 3 Opiniones
+                raw: 2 Opiniones
                 locale: es
-                value: 3
+                value: 2
             price:
-              - text: $ 1.389.900
+              - text: $ 1.189.900
                 xpath: /html/body/div[1]/div[1]/div[10]/div[1]/div[1]/div[2]/ul[1]/li[15]/div[4]/p[2]/span[2]/span[1]
-            manufacturer:
-              - text: KALLEY
-                xpath: /html/body/div[1]/div[1]/div[10]/div[1]/div[1]/div[2]/ul[1]/li[15]/h2[1]/@manufacturer
           - id:
-              - text: "5025232888511"
+              - text: "8806087537772"
                 xpath: /html/body/div[1]/div[1]/div[10]/div[1]/div[1]/div[2]/ul[1]/li[16]/h2[1]/@id
             name:
-              - text: Aire Acondicionado PANASONIC 18000 BTU Tipo Split Inverter 220V Blanco
+              - text: Aire Acondicionado LG 12000 BTU Tipo Split Inverter 120V Blanco
                 xpath: /html/body/div[1]/div[1]/div[10]/div[1]/div[1]/div[2]/ul[1]/li[16]/h2[1]/@name
             productUrl:
-              - text: http://www.alkosto.com/aire-acondicionado-panasonic-inverter-18000btu-220v-blanco
+              - text: http://www.alkosto.com/aire-acondicionado-lg-inverter-12-000-btu-vm121c7-blanco
                 xpath: /html/body/div[1]/div[1]/div[10]/div[1]/div[1]/div[2]/ul[1]/li[16]/h2[1]/a[1]/@href
             gtin:
-              - text: "5025232888511"
+              - text: "8806087537772"
                 xpath: /html/body/div[1]/div[1]/div[10]/div[1]/div[1]/div[2]/ul[1]/li[16]/h2[1]/@id
             thumbnail:
               - text: https://gzip-resources.aws.alkosto.com/skin/frontend/enterprise/default/images/mgt_lazy_image_loader/loader.gif
                 xpath: /html/body/div[1]/div[1]/div[10]/div[1]/div[1]/div[2]/ul[1]/li[16]/div[2]/a[1]/img[1]/@src
             aggregateRating2:
-              - text: 4,0
+              - text: 2,5
                 xpath: /html/body/div[1]/div[1]/div[10]/div[1]/div[1]/div[2]/ul[1]/li[16]/div[1]/div[1]/div[1]/div[1]/span[1]/span[6]
                 type: STRING
             reviewCount:
@@ -1379,43 +1243,26 @@ extractions:
                 locale: es
                 value: 2
             price:
-              - text: $ 1.999.000
+              - text: $ 1.959.900
                 xpath: /html/body/div[1]/div[1]/div[10]/div[1]/div[1]/div[2]/ul[1]/li[16]/div[4]/p[2]/span[2]/span[1]
-            manufacturer:
-              - text: PANASONIC
-                xpath: /html/body/div[1]/div[1]/div[10]/div[1]/div[1]/div[2]/ul[1]/li[16]/h2[1]/@manufacturer
           - id:
-              - text: "8806087537772"
+              - text: "7704353395808"
                 xpath: /html/body/div[1]/div[1]/div[10]/div[1]/div[1]/div[2]/ul[1]/li[17]/h2[1]/@id
             name:
-              - text: Aire Acondicionado LG 12000 BTU Tipo Split Inverter 120V Blanco
+              - text: Aire Acondicionado HACEB 12000 BTU Tipo Split Inverter 110V Blanco
                 xpath: /html/body/div[1]/div[1]/div[10]/div[1]/div[1]/div[2]/ul[1]/li[17]/h2[1]/@name
             productUrl:
-              - text: http://www.alkosto.com/aire-acondicionado-lg-inverter-12-000-btu-vm121c7-blanco
+              - text: http://www.alkosto.com/aire-acondicionado-haceb-tayrona-12000btu-inverter-110v
                 xpath: /html/body/div[1]/div[1]/div[10]/div[1]/div[1]/div[2]/ul[1]/li[17]/h2[1]/a[1]/@href
             gtin:
-              - text: "8806087537772"
+              - text: "7704353395808"
                 xpath: /html/body/div[1]/div[1]/div[10]/div[1]/div[1]/div[2]/ul[1]/li[17]/h2[1]/@id
             thumbnail:
               - text: https://gzip-resources.aws.alkosto.com/skin/frontend/enterprise/default/images/mgt_lazy_image_loader/loader.gif
                 xpath: /html/body/div[1]/div[1]/div[10]/div[1]/div[1]/div[2]/ul[1]/li[17]/div[2]/a[1]/img[1]/@src
-            aggregateRating2:
-              - text: 2,5
-                xpath: /html/body/div[1]/div[1]/div[10]/div[1]/div[1]/div[2]/ul[1]/li[17]/div[1]/div[1]/div[1]/div[1]/span[1]/span[6]
-                type: STRING
-            reviewCount:
-              - text: "2"
-                xpath: /html/body/div[1]/div[1]/div[10]/div[1]/div[1]/div[2]/ul[1]/li[17]/div[1]/div[1]/div[1]/div[1]/a[1]
-                type: NUMBER
-                raw: 2 Opiniones
-                locale: es
-                value: 2
             price:
-              - text: $ 2.519.900
+              - text: $ 1.477.000
                 xpath: /html/body/div[1]/div[1]/div[10]/div[1]/div[1]/div[2]/ul[1]/li[17]/div[4]/p[2]/span[2]/span[1]
-            manufacturer:
-              - text: LG
-                xpath: /html/body/div[1]/div[1]/div[10]/div[1]/div[1]/div[2]/ul[1]/li[17]/h2[1]/@manufacturer
           - id:
               - text: "7705191029986"
                 xpath: /html/body/div[1]/div[1]/div[10]/div[1]/div[1]/div[2]/ul[1]/li[18]/h2[1]/@id
@@ -1445,146 +1292,342 @@ extractions:
             price:
               - text: $ 964.900
                 xpath: /html/body/div[1]/div[1]/div[10]/div[1]/div[1]/div[2]/ul[1]/li[18]/div[4]/span[1]/span[1]/span[1]
-            manufacturer:
-              - text: CHALLENGER
-                xpath: /html/body/div[1]/div[1]/div[10]/div[1]/div[1]/div[2]/ul[1]/li[18]/h2[1]/@manufacturer
           - id:
-              - text: "7861106693885"
+              - text: "7705191030616"
                 xpath: /html/body/div[1]/div[1]/div[10]/div[1]/div[1]/div[2]/ul[1]/li[19]/h2[1]/@id
             name:
-              - text: Aire Acondicionado ELECTROLUX 24000 BTU Tipo Split Convencional 220V
-                  Blanco
+              - text: Aire Acondicionado CHALLENGER 9000 BTU Tipo Split Convencional 110V Blanco
                 xpath: /html/body/div[1]/div[1]/div[10]/div[1]/div[1]/div[2]/ul[1]/li[19]/h2[1]/@name
             productUrl:
-              - text: http://www.alkosto.com/aire-acondicionado-electrolux-onoff-24btu-220v-b
+              - text: http://www.alkosto.com/aire-acondicionado-challenger-9000btu-110v
                 xpath: /html/body/div[1]/div[1]/div[10]/div[1]/div[1]/div[2]/ul[1]/li[19]/h2[1]/a[1]/@href
             gtin:
-              - text: "7861106693885"
+              - text: "7705191030616"
                 xpath: /html/body/div[1]/div[1]/div[10]/div[1]/div[1]/div[2]/ul[1]/li[19]/h2[1]/@id
             thumbnail:
               - text: https://gzip-resources.aws.alkosto.com/skin/frontend/enterprise/default/images/mgt_lazy_image_loader/loader.gif
                 xpath: /html/body/div[1]/div[1]/div[10]/div[1]/div[1]/div[2]/ul[1]/li[19]/div[2]/a[1]/img[1]/@src
+            aggregateRating2:
+              - text: 4,5
+                xpath: /html/body/div[1]/div[1]/div[10]/div[1]/div[1]/div[2]/ul[1]/li[19]/div[1]/div[1]/div[1]/div[1]/span[1]/span[6]
+                type: STRING
+            reviewCount:
+              - text: "2"
+                xpath: /html/body/div[1]/div[1]/div[10]/div[1]/div[1]/div[2]/ul[1]/li[19]/div[1]/div[1]/div[1]/div[1]/a[1]
+                type: NUMBER
+                raw: 2 Opiniones
+                locale: es
+                value: 2
             price:
-              - text: $ 1.949.900
-                xpath: /html/body/div[1]/div[1]/div[10]/div[1]/div[1]/div[2]/ul[1]/li[19]/div[4]/p[2]/span[2]/span[1]
-            manufacturer:
-              - text: ELECTROLUX
-                xpath: /html/body/div[1]/div[1]/div[10]/div[1]/div[1]/div[2]/ul[1]/li[19]/h2[1]/@manufacturer
+              - text: $ 854.900
+                xpath: /html/body/div[1]/div[1]/div[10]/div[1]/div[1]/div[2]/ul[1]/li[19]/div[4]/span[1]/span[1]/span[1]
           - id:
-              - text: "7501545634628"
+              - text: "7705946266260"
                 xpath: /html/body/div[1]/div[1]/div[10]/div[1]/div[1]/div[2]/ul[1]/li[20]/h2[1]/@id
             name:
-              - text: Aire Acondicionado WHIRLPOOL 11.000 BTU Tipo Split Inverter 220V Blanco
+              - text: Aire Acondicionado KALLEY 12000 BTU Tipo Split Convencional 220V Blanco
                 xpath: /html/body/div[1]/div[1]/div[10]/div[1]/div[1]/div[2]/ul[1]/li[20]/h2[1]/@name
             productUrl:
-              - text: http://www.alkosto.com/aire-acondicionado-whirlpool-11-000-btu-tipo-split-inverter-220v-blanco
+              - text: http://www.alkosto.com/aire-acondicionado-kalley-convencional-12000btu-220v-blanco
                 xpath: /html/body/div[1]/div[1]/div[10]/div[1]/div[1]/div[2]/ul[1]/li[20]/h2[1]/a[1]/@href
             gtin:
-              - text: "7501545634628"
+              - text: "7705946266260"
                 xpath: /html/body/div[1]/div[1]/div[10]/div[1]/div[1]/div[2]/ul[1]/li[20]/h2[1]/@id
             thumbnail:
               - text: https://gzip-resources.aws.alkosto.com/skin/frontend/enterprise/default/images/mgt_lazy_image_loader/loader.gif
                 xpath: /html/body/div[1]/div[1]/div[10]/div[1]/div[1]/div[2]/ul[1]/li[20]/div[2]/a[1]/img[1]/@src
-            price:
-              - text: $ 1.399.900
-                xpath: /html/body/div[1]/div[1]/div[10]/div[1]/div[1]/div[2]/ul[1]/li[20]/div[4]/p[2]/span[2]/span[1]
-            manufacturer:
-              - text: WHIRLPOOL
-                xpath: /html/body/div[1]/div[1]/div[10]/div[1]/div[1]/div[2]/ul[1]/li[20]/h2[1]/@manufacturer
-          - id:
-              - text: "7891129530577"
-                xpath: /html/body/div[1]/div[1]/div[10]/div[1]/div[1]/div[2]/ul[1]/li[21]/h2[1]/@id
-            name:
-              - text: Aire Acondicionado WHIRLPOOL 18.000 BTU Tipo Split Inverter 220V Blanco
-                xpath: /html/body/div[1]/div[1]/div[10]/div[1]/div[1]/div[2]/ul[1]/li[21]/h2[1]/@name
-            productUrl:
-              - text: http://www.alkosto.com/aire-acondicionado-whirlpool-18-000-btu-tipo-split-inverter-220v-blanco
-                xpath: /html/body/div[1]/div[1]/div[10]/div[1]/div[1]/div[2]/ul[1]/li[21]/h2[1]/a[1]/@href
-            gtin:
-              - text: "7891129530577"
-                xpath: /html/body/div[1]/div[1]/div[10]/div[1]/div[1]/div[2]/ul[1]/li[21]/h2[1]/@id
-            thumbnail:
-              - text: https://gzip-resources.aws.alkosto.com/skin/frontend/enterprise/default/images/mgt_lazy_image_loader/loader.gif
-                xpath: /html/body/div[1]/div[1]/div[10]/div[1]/div[1]/div[2]/ul[1]/li[21]/div[2]/a[1]/img[1]/@src
-            price:
-              - text: $ 2.249.900
-                xpath: /html/body/div[1]/div[1]/div[10]/div[1]/div[1]/div[2]/ul[1]/li[21]/div[4]/p[2]/span[2]/span[1]
-            manufacturer:
-              - text: WHIRLPOOL
-                xpath: /html/body/div[1]/div[1]/div[10]/div[1]/div[1]/div[2]/ul[1]/li[21]/h2[1]/@manufacturer
-          - id:
-              - text: "7705946266260"
-                xpath: /html/body/div[1]/div[1]/div[10]/div[1]/div[1]/div[2]/ul[1]/li[22]/h2[1]/@id
-            name:
-              - text: Aire Acondicionado KALLEY 12000 BTU Tipo Split Convencional 220V Blanco
-                xpath: /html/body/div[1]/div[1]/div[10]/div[1]/div[1]/div[2]/ul[1]/li[22]/h2[1]/@name
-            productUrl:
-              - text: http://www.alkosto.com/aire-acondicionado-kalley-convencional-12000btu-220v-blanco
-                xpath: /html/body/div[1]/div[1]/div[10]/div[1]/div[1]/div[2]/ul[1]/li[22]/h2[1]/a[1]/@href
-            gtin:
-              - text: "7705946266260"
-                xpath: /html/body/div[1]/div[1]/div[10]/div[1]/div[1]/div[2]/ul[1]/li[22]/h2[1]/@id
-            thumbnail:
-              - text: https://gzip-resources.aws.alkosto.com/skin/frontend/enterprise/default/images/mgt_lazy_image_loader/loader.gif
-                xpath: /html/body/div[1]/div[1]/div[10]/div[1]/div[1]/div[2]/ul[1]/li[22]/div[2]/a[1]/img[1]/@src
             aggregateRating2:
               - text: 4,9
-                xpath: /html/body/div[1]/div[1]/div[10]/div[1]/div[1]/div[2]/ul[1]/li[22]/div[1]/div[1]/div[1]/div[1]/span[1]/span[6]
+                xpath: /html/body/div[1]/div[1]/div[10]/div[1]/div[1]/div[2]/ul[1]/li[20]/div[1]/div[1]/div[1]/div[1]/span[1]/span[6]
                 type: STRING
             reviewCount:
               - text: "27"
-                xpath: /html/body/div[1]/div[1]/div[10]/div[1]/div[1]/div[2]/ul[1]/li[22]/div[1]/div[1]/div[1]/div[1]/a[1]
+                xpath: /html/body/div[1]/div[1]/div[10]/div[1]/div[1]/div[2]/ul[1]/li[20]/div[1]/div[1]/div[1]/div[1]/a[1]
                 type: NUMBER
                 raw: 27 Opiniones
                 locale: es
                 value: 27
             price:
               - text: $ 939.900
-                xpath: /html/body/div[1]/div[1]/div[10]/div[1]/div[1]/div[2]/ul[1]/li[22]/div[4]/p[2]/span[2]/span[1]
-            manufacturer:
-              - text: KALLEY
-                xpath: /html/body/div[1]/div[1]/div[10]/div[1]/div[1]/div[2]/ul[1]/li[22]/h2[1]/@manufacturer
+                xpath: /html/body/div[1]/div[1]/div[10]/div[1]/div[1]/div[2]/ul[1]/li[20]/div[4]/p[2]/span[2]/span[1]
           - id:
-              - text: "7891129530584"
+              - text: "8806087537864"
+                xpath: /html/body/div[1]/div[1]/div[10]/div[1]/div[1]/div[2]/ul[1]/li[21]/h2[1]/@id
+            name:
+              - text: Aire Acondicionado LG 18000 BTU Tipo Split Inverter 220V Negro
+                xpath: /html/body/div[1]/div[1]/div[10]/div[1]/div[1]/div[2]/ul[1]/li[21]/h2[1]/@name
+            productUrl:
+              - text: http://www.alkosto.com/aire-acondicionado-lg-inverter-18000-btu-vr182-220v-negro
+                xpath: /html/body/div[1]/div[1]/div[10]/div[1]/div[1]/div[2]/ul[1]/li[21]/h2[1]/a[1]/@href
+            gtin:
+              - text: "8806087537864"
+                xpath: /html/body/div[1]/div[1]/div[10]/div[1]/div[1]/div[2]/ul[1]/li[21]/h2[1]/@id
+            thumbnail:
+              - text: https://gzip-resources.aws.alkosto.com/skin/frontend/enterprise/default/images/mgt_lazy_image_loader/loader.gif
+                xpath: /html/body/div[1]/div[1]/div[10]/div[1]/div[1]/div[2]/ul[1]/li[21]/div[2]/a[1]/img[1]/@src
+            aggregateRating2:
+              - text: 5,0
+                xpath: /html/body/div[1]/div[1]/div[10]/div[1]/div[1]/div[2]/ul[1]/li[21]/div[1]/div[1]/div[1]/div[1]/span[1]/span[6]
+                type: STRING
+            reviewCount:
+              - text: "3"
+                xpath: /html/body/div[1]/div[1]/div[10]/div[1]/div[1]/div[2]/ul[1]/li[21]/div[1]/div[1]/div[1]/div[1]/a[1]
+                type: NUMBER
+                raw: 3 Opiniones
+                locale: es
+                value: 3
+            price:
+              - text: $ 3.278.300
+                xpath: /html/body/div[1]/div[1]/div[10]/div[1]/div[1]/div[2]/ul[1]/li[21]/div[4]/p[2]/span[2]/span[1]
+          - id:
+              - text: "7704353395822"
+                xpath: /html/body/div[1]/div[1]/div[10]/div[1]/div[1]/div[2]/ul[1]/li[22]/h2[1]/@id
+            name:
+              - text: Aire Acondicionado HACEB 12000 BTU Tipo Split Inverter 220V Blanco
+                xpath: /html/body/div[1]/div[1]/div[10]/div[1]/div[1]/div[2]/ul[1]/li[22]/h2[1]/@name
+            productUrl:
+              - text: http://www.alkosto.com/aire-acondicionado-haceb-tayrona-12000btu-inverter-220v
+                xpath: /html/body/div[1]/div[1]/div[10]/div[1]/div[1]/div[2]/ul[1]/li[22]/h2[1]/a[1]/@href
+            gtin:
+              - text: "7704353395822"
+                xpath: /html/body/div[1]/div[1]/div[10]/div[1]/div[1]/div[2]/ul[1]/li[22]/h2[1]/@id
+            thumbnail:
+              - text: https://gzip-resources.aws.alkosto.com/skin/frontend/enterprise/default/images/mgt_lazy_image_loader/loader.gif
+                xpath: /html/body/div[1]/div[1]/div[10]/div[1]/div[1]/div[2]/ul[1]/li[22]/div[2]/a[1]/img[1]/@src
+            price:
+              - text: $ 1.477.000
+                xpath: /html/body/div[1]/div[1]/div[10]/div[1]/div[1]/div[2]/ul[1]/li[22]/div[4]/p[2]/span[2]/span[1]
+          - id:
+              - text: "7501545634628"
                 xpath: /html/body/div[1]/div[1]/div[10]/div[1]/div[1]/div[2]/ul[1]/li[23]/h2[1]/@id
             name:
-              - text: Aire Acondicionado WHIRLPOOL 24.000 BTU Tipo Split Inverter 220V Blanco
+              - text: Aire Acondicionado WHIRLPOOL 11.000 BTU Tipo Split Inverter 220V Blanco
                 xpath: /html/body/div[1]/div[1]/div[10]/div[1]/div[1]/div[2]/ul[1]/li[23]/h2[1]/@name
             productUrl:
-              - text: http://www.alkosto.com/aire-acondicionado-whirlpool-24-000-btu-tipo-split-inverter-220v-blanco
+              - text: http://www.alkosto.com/aire-acondicionado-whirlpool-11-000-btu-tipo-split-inverter-220v-blanco
                 xpath: /html/body/div[1]/div[1]/div[10]/div[1]/div[1]/div[2]/ul[1]/li[23]/h2[1]/a[1]/@href
             gtin:
-              - text: "7891129530584"
+              - text: "7501545634628"
                 xpath: /html/body/div[1]/div[1]/div[10]/div[1]/div[1]/div[2]/ul[1]/li[23]/h2[1]/@id
             thumbnail:
               - text: https://gzip-resources.aws.alkosto.com/skin/frontend/enterprise/default/images/mgt_lazy_image_loader/loader.gif
                 xpath: /html/body/div[1]/div[1]/div[10]/div[1]/div[1]/div[2]/ul[1]/li[23]/div[2]/a[1]/img[1]/@src
             price:
-              - text: $ 2.749.900
+              - text: $ 1.429.900
                 xpath: /html/body/div[1]/div[1]/div[10]/div[1]/div[1]/div[2]/ul[1]/li[23]/div[4]/p[2]/span[2]/span[1]
-            manufacturer:
-              - text: WHIRLPOOL
-                xpath: /html/body/div[1]/div[1]/div[10]/div[1]/div[1]/div[2]/ul[1]/li[23]/h2[1]/@manufacturer
           - id:
-              - text: "7705191029993"
+              - text: "7891129530584"
                 xpath: /html/body/div[1]/div[1]/div[10]/div[1]/div[1]/div[2]/ul[1]/li[24]/h2[1]/@id
             name:
-              - text: Aire Acondicionado CHALLENGER 12000 BTU Tipo Split Inverter 110V Blanco
+              - text: Aire Acondicionado WHIRLPOOL 24.000 BTU Tipo Split Inverter 220V Blanco
                 xpath: /html/body/div[1]/div[1]/div[10]/div[1]/div[1]/div[2]/ul[1]/li[24]/h2[1]/@name
             productUrl:
-              - text: http://www.alkosto.com/aire-acondicionado-challenger-inverter-12000btu-ca-12kbl1-inv-110v
+              - text: http://www.alkosto.com/aire-acondicionado-whirlpool-24-000-btu-tipo-split-inverter-220v-blanco
                 xpath: /html/body/div[1]/div[1]/div[10]/div[1]/div[1]/div[2]/ul[1]/li[24]/h2[1]/a[1]/@href
             gtin:
-              - text: "7705191029993"
+              - text: "7891129530584"
                 xpath: /html/body/div[1]/div[1]/div[10]/div[1]/div[1]/div[2]/ul[1]/li[24]/h2[1]/@id
             thumbnail:
               - text: https://gzip-resources.aws.alkosto.com/skin/frontend/enterprise/default/images/mgt_lazy_image_loader/loader.gif
                 xpath: /html/body/div[1]/div[1]/div[10]/div[1]/div[1]/div[2]/ul[1]/li[24]/div[2]/a[1]/img[1]/@src
             price:
+              - text: $ 2.799.900
+                xpath: /html/body/div[1]/div[1]/div[10]/div[1]/div[1]/div[2]/ul[1]/li[24]/div[4]/p[2]/span[2]/span[1]
+          - id:
+              - text: "7705946452564"
+                xpath: /html/body/div[1]/div[1]/div[10]/div[1]/div[1]/div[2]/ul[1]/li[25]/h2[1]/@id
+            name:
+              - text: Aire Acondicionado KALLEY 12000 BTU Tipo Split Inverter 220V Blanco
+                xpath: /html/body/div[1]/div[1]/div[10]/div[1]/div[1]/div[2]/ul[1]/li[25]/h2[1]/@name
+            productUrl:
+              - text: http://www.alkosto.com/aire-acondicionado-kalley-ac12inv2a
+                xpath: /html/body/div[1]/div[1]/div[10]/div[1]/div[1]/div[2]/ul[1]/li[25]/h2[1]/a[1]/@href
+            gtin:
+              - text: "7705946452564"
+                xpath: /html/body/div[1]/div[1]/div[10]/div[1]/div[1]/div[2]/ul[1]/li[25]/h2[1]/@id
+            thumbnail:
+              - text: https://gzip-resources.aws.alkosto.com/skin/frontend/enterprise/default/images/mgt_lazy_image_loader/loader.gif
+                xpath: /html/body/div[1]/div[1]/div[10]/div[1]/div[1]/div[2]/ul[1]/li[25]/div[2]/a[1]/img[1]/@src
+            aggregateRating2:
+              - text: 4,5
+                xpath: /html/body/div[1]/div[1]/div[10]/div[1]/div[1]/div[2]/ul[1]/li[25]/div[1]/div[1]/div[1]/div[1]/span[1]/span[6]
+                type: STRING
+            reviewCount:
+              - text: "2"
+                xpath: /html/body/div[1]/div[1]/div[10]/div[1]/div[1]/div[2]/ul[1]/li[25]/div[1]/div[1]/div[1]/div[1]/a[1]
+                type: NUMBER
+                raw: 2 Opiniones
+                locale: es
+                value: 2
+            price:
+              - text: $ 1.299.900
+                xpath: /html/body/div[1]/div[1]/div[10]/div[1]/div[1]/div[2]/ul[1]/li[25]/div[4]/p[2]/span[2]/span[1]
+          - id:
+              - text: "8806087537871"
+                xpath: /html/body/div[1]/div[1]/div[10]/div[1]/div[1]/div[2]/ul[1]/li[26]/h2[1]/@id
+            name:
+              - text: Aire Acondicionado LG 24000 BTU Tipo Split Inverter 220V Negro
+                xpath: /html/body/div[1]/div[1]/div[10]/div[1]/div[1]/div[2]/ul[1]/li[26]/h2[1]/@name
+            productUrl:
+              - text: http://www.alkosto.com/aire-acondicionado-lg-inverter-24000-btu-vr242-220v-negro
+                xpath: /html/body/div[1]/div[1]/div[10]/div[1]/div[1]/div[2]/ul[1]/li[26]/h2[1]/a[1]/@href
+            gtin:
+              - text: "8806087537871"
+                xpath: /html/body/div[1]/div[1]/div[10]/div[1]/div[1]/div[2]/ul[1]/li[26]/h2[1]/@id
+            thumbnail:
+              - text: https://gzip-resources.aws.alkosto.com/skin/frontend/enterprise/default/images/mgt_lazy_image_loader/loader.gif
+                xpath: /html/body/div[1]/div[1]/div[10]/div[1]/div[1]/div[2]/ul[1]/li[26]/div[2]/a[1]/img[1]/@src
+            price:
+              - text: $ 3.857.500
+                xpath: /html/body/div[1]/div[1]/div[10]/div[1]/div[1]/div[2]/ul[1]/li[26]/div[4]/p[2]/span[2]/span[1]
+          - id:
+              - text: "8806087537840"
+                xpath: /html/body/div[1]/div[1]/div[10]/div[1]/div[1]/div[2]/ul[1]/li[27]/h2[1]/@id
+            name:
+              - text: Aire Acondicionado LG 12000 BTU Tipo Split Inverter 220V Negro
+                xpath: /html/body/div[1]/div[1]/div[10]/div[1]/div[1]/div[2]/ul[1]/li[27]/h2[1]/@name
+            productUrl:
+              - text: http://www.alkosto.com/aire-acondicionado-lg-inverter-12000-btu-vr122-220v-negro
+                xpath: /html/body/div[1]/div[1]/div[10]/div[1]/div[1]/div[2]/ul[1]/li[27]/h2[1]/a[1]/@href
+            gtin:
+              - text: "8806087537840"
+                xpath: /html/body/div[1]/div[1]/div[10]/div[1]/div[1]/div[2]/ul[1]/li[27]/h2[1]/@id
+            thumbnail:
+              - text: https://gzip-resources.aws.alkosto.com/skin/frontend/enterprise/default/images/mgt_lazy_image_loader/loader.gif
+                xpath: /html/body/div[1]/div[1]/div[10]/div[1]/div[1]/div[2]/ul[1]/li[27]/div[2]/a[1]/img[1]/@src
+            aggregateRating2:
+              - text: 5,0
+                xpath: /html/body/div[1]/div[1]/div[10]/div[1]/div[1]/div[2]/ul[1]/li[27]/div[1]/div[1]/div[1]/div[1]/span[1]/span[6]
+                type: STRING
+            reviewCount:
+              - text: "3"
+                xpath: /html/body/div[1]/div[1]/div[10]/div[1]/div[1]/div[2]/ul[1]/li[27]/div[1]/div[1]/div[1]/div[1]/a[1]
+                type: NUMBER
+                raw: 3 Opiniones
+                locale: es
+                value: 3
+            price:
+              - text: $ 2.527.100
+                xpath: /html/body/div[1]/div[1]/div[10]/div[1]/div[1]/div[2]/ul[1]/li[27]/div[4]/p[2]/span[2]/span[1]
+          - id:
+              - text: "7704353395792"
+                xpath: /html/body/div[1]/div[1]/div[10]/div[1]/div[1]/div[2]/ul[1]/li[28]/h2[1]/@id
+            name:
+              - text: Aire Acondicionado HACEB 9000 BTU Tipo Split Inverter 110V Blanco
+                xpath: /html/body/div[1]/div[1]/div[10]/div[1]/div[1]/div[2]/ul[1]/li[28]/h2[1]/@name
+            productUrl:
+              - text: http://www.alkosto.com/aire-acondicionado-haceb-tayrona-9000btu-inverter-110v
+                xpath: /html/body/div[1]/div[1]/div[10]/div[1]/div[1]/div[2]/ul[1]/li[28]/h2[1]/a[1]/@href
+            gtin:
+              - text: "7704353395792"
+                xpath: /html/body/div[1]/div[1]/div[10]/div[1]/div[1]/div[2]/ul[1]/li[28]/h2[1]/@id
+            thumbnail:
+              - text: https://gzip-resources.aws.alkosto.com/skin/frontend/enterprise/default/images/mgt_lazy_image_loader/loader.gif
+                xpath: /html/body/div[1]/div[1]/div[10]/div[1]/div[1]/div[2]/ul[1]/li[28]/div[2]/a[1]/img[1]/@src
+            aggregateRating2:
+              - text: 5,0
+                xpath: /html/body/div[1]/div[1]/div[10]/div[1]/div[1]/div[2]/ul[1]/li[28]/div[1]/div[1]/div[1]/div[1]/span[1]/span[6]
+                type: STRING
+            reviewCount:
+              - text: "4"
+                xpath: /html/body/div[1]/div[1]/div[10]/div[1]/div[1]/div[2]/ul[1]/li[28]/div[1]/div[1]/div[1]/div[1]/a[1]
+                type: NUMBER
+                raw: 4 Opiniones
+                locale: es
+                value: 4
+            price:
+              - text: $ 1.368.000
+                xpath: /html/body/div[1]/div[1]/div[10]/div[1]/div[1]/div[2]/ul[1]/li[28]/div[4]/p[2]/span[2]/span[1]
+          - id:
+              - text: "7705191029993"
+                xpath: /html/body/div[1]/div[1]/div[10]/div[1]/div[1]/div[2]/ul[1]/li[29]/h2[1]/@id
+            name:
+              - text: Aire Acondicionado CHALLENGER 12000 BTU Tipo Split Inverter 110V Blanco
+                xpath: /html/body/div[1]/div[1]/div[10]/div[1]/div[1]/div[2]/ul[1]/li[29]/h2[1]/@name
+            productUrl:
+              - text: http://www.alkosto.com/aire-acondicionado-challenger-inverter-12000btu-ca-12kbl1-inv-110v
+                xpath: /html/body/div[1]/div[1]/div[10]/div[1]/div[1]/div[2]/ul[1]/li[29]/h2[1]/a[1]/@href
+            gtin:
+              - text: "7705191029993"
+                xpath: /html/body/div[1]/div[1]/div[10]/div[1]/div[1]/div[2]/ul[1]/li[29]/h2[1]/@id
+            thumbnail:
+              - text: https://gzip-resources.aws.alkosto.com/skin/frontend/enterprise/default/images/mgt_lazy_image_loader/loader.gif
+                xpath: /html/body/div[1]/div[1]/div[10]/div[1]/div[1]/div[2]/ul[1]/li[29]/div[2]/a[1]/img[1]/@src
+            price:
               - text: $ 1.389.900
-                xpath: /html/body/div[1]/div[1]/div[10]/div[1]/div[1]/div[2]/ul[1]/li[24]/div[4]/span[1]/span[1]/span[1]
-            manufacturer:
-              - text: CHALLENGER
-                xpath: /html/body/div[1]/div[1]/div[10]/div[1]/div[1]/div[2]/ul[1]/li[24]/h2[1]/@manufacturer
+                xpath: /html/body/div[1]/div[1]/div[10]/div[1]/div[1]/div[2]/ul[1]/li[29]/div[4]/span[1]/span[1]/span[1]
+          - id:
+              - text: "7705946337731"
+                xpath: /html/body/div[1]/div[1]/div[10]/div[1]/div[1]/div[2]/ul[1]/li[30]/h2[1]/@id
+            name:
+              - text: Aire Acondicionado KALLEY 9000 BTU Tipo Split Convencional 220V Blanco
+                xpath: /html/body/div[1]/div[1]/div[10]/div[1]/div[1]/div[2]/ul[1]/li[30]/h2[1]/@name
+            productUrl:
+              - text: http://www.alkosto.com/aire-acondicionado-kalley-convencional-9000btu-220v-blanco
+                xpath: /html/body/div[1]/div[1]/div[10]/div[1]/div[1]/div[2]/ul[1]/li[30]/h2[1]/a[1]/@href
+            gtin:
+              - text: "7705946337731"
+                xpath: /html/body/div[1]/div[1]/div[10]/div[1]/div[1]/div[2]/ul[1]/li[30]/h2[1]/@id
+            thumbnail:
+              - text: https://gzip-resources.aws.alkosto.com/skin/frontend/enterprise/default/images/mgt_lazy_image_loader/loader.gif
+                xpath: /html/body/div[1]/div[1]/div[10]/div[1]/div[1]/div[2]/ul[1]/li[30]/div[2]/a[1]/img[1]/@src
+            aggregateRating2:
+              - text: 4,1
+                xpath: /html/body/div[1]/div[1]/div[10]/div[1]/div[1]/div[2]/ul[1]/li[30]/div[1]/div[1]/div[1]/div[1]/span[1]/span[6]
+                type: STRING
+            reviewCount:
+              - text: "9"
+                xpath: /html/body/div[1]/div[1]/div[10]/div[1]/div[1]/div[2]/ul[1]/li[30]/div[1]/div[1]/div[1]/div[1]/a[1]
+                type: NUMBER
+                raw: 9 Opiniones
+                locale: es
+                value: 9
+            price:
+              - text: $ 849.900
+                xpath: /html/body/div[1]/div[1]/div[10]/div[1]/div[1]/div[2]/ul[1]/li[30]/div[4]/p[2]/span[2]/span[1]
         xpath: /html
-    timestamp: 1606732912242
+    timestamp: 1607930468685
+  - html: https://workbench.import.io/html/run=6f4ea27d-97b3-47b0-9285-9297b9fb54f9/task=7fe69fe0-c848-4a8f-a87e-472f7c4c8efa/2fc792e9-ff47-4e8b-9201-4c4688a96922.html
+    extractionConfigId: product/search/stores/a/alkosto/CO/extract
+    data:
+      - group:
+          - productUrl:
+              - text: http://www.alkosto.com/aire-acondicionado-whirlpool-12-000-btu-tipo-split-inverter-220v-blanco
+                xpath: /html/body/div[1]/div[1]/div[10]/div[1]/div[1]/div[2]/ul[1]/li[1]/h2[1]/a[1]/@href
+            thumbnail:
+              - text: https://gzip-resources.aws.alkosto.com/skin/frontend/enterprise/default/images/mgt_lazy_image_loader/loader.gif
+                xpath: /html/body/div[1]/div[1]/div[10]/div[1]/div[1]/div[2]/ul[1]/li[1]/div[2]/a[1]/img[1]/@src
+            aggregateRating2:
+              - text: 5,0
+                xpath: /html/body/div[1]/div[1]/div[10]/div[1]/div[1]/div[2]/ul[1]/li[1]/div[1]/div[1]/div[1]/div[1]/span[1]/span[6]
+                type: STRING
+            reviewCount:
+              - text: "1"
+                xpath: /html/body/div[1]/div[1]/div[10]/div[1]/div[1]/div[2]/ul[1]/li[1]/div[1]/div[1]/div[1]/div[1]/a[1]
+                type: NUMBER
+                raw: 1 Opinión
+                locale: es
+                value: 1
+            price:
+              - text: $ 1.679.900
+                xpath: /html/body/div[1]/div[1]/div[10]/div[1]/div[1]/div[2]/ul[1]/li[1]/div[4]/p[2]/span[2]/span[1]
+          - productUrl:
+              - text: http://www.alkosto.com/purificador-de-aire-rowenta
+                xpath: /html/body/div[1]/div[1]/div[10]/div[1]/div[1]/div[2]/ul[1]/li[2]/h2[1]/a[1]/@href
+            thumbnail:
+              - text: https://gzip-resources.aws.alkosto.com/skin/frontend/enterprise/default/images/mgt_lazy_image_loader/loader.gif
+                xpath: /html/body/div[1]/div[1]/div[10]/div[1]/div[1]/div[2]/ul[1]/li[2]/div[2]/a[1]/img[1]/@src
+            price:
+              - text: $ 764.900
+                xpath: /html/body/div[1]/div[1]/div[10]/div[1]/div[1]/div[2]/ul[1]/li[2]/div[4]/p[2]/span[2]/span[1]
+          - productUrl:
+              - text: http://www.alkosto.com/aire-acondicionado-whirlpool-18-000-btu-tipo-split-inverter-220v-blanco
+                xpath: /html/body/div[1]/div[1]/div[10]/div[1]/div[1]/div[2]/ul[1]/li[3]/h2[1]/a[1]/@href
+            thumbnail:
+              - text: https://gzip-resources.aws.alkosto.com/skin/frontend/enterprise/default/images/mgt_lazy_image_loader/loader.gif
+                xpath: /html/body/div[1]/div[1]/div[10]/div[1]/div[1]/div[2]/ul[1]/li[3]/div[2]/a[1]/img[1]/@src
+            price:
+              - text: $ 2.299.900
+                xpath: /html/body/div[1]/div[1]/div[10]/div[1]/div[1]/div[2]/ul[1]/li[3]/div[4]/p[2]/span[2]/span[1]
+        xpath: /html
+    timestamp: 1607930468685

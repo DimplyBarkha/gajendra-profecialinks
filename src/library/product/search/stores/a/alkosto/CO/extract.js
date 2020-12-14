@@ -22,7 +22,6 @@ async function implementation (
       const data = JSON.parse(rawJson);
       addProp('h2.product-name', i, 'name', data.name);
       addProp('h2.product-name', i, 'id', data.id);
-      addProp('h2.product-name', i, 'manufacturer', data.brand);
       addProp('h2.product-name', i, 'rankorganic', `${i + 1}`);
     }
   });
