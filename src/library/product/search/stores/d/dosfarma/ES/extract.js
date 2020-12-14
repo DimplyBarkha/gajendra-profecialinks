@@ -12,11 +12,11 @@ async function implementation (
     await context.evaluate(async function () {
       let scrollTop = 0;
       while (scrollTop !== 20000) {
-        await stall(500);
+        await stall(5000);
         scrollTop += 1000;
         document.querySelector('section .ebx-scroll').scroll(0, scrollTop);
         if (scrollTop === 20000) {
-          await stall(5000);
+          await stall(50000);
           break;
         }
       }
@@ -29,8 +29,8 @@ async function implementation (
       }
     });
   };
-  await context.waitForSelector('section[class="ebx-result-figure ebx-result__figure"] img', {}, { timeout: 50000 });
   await applyScroll(context);
+  // await context.waitForSelector('section[class="ebx-result-figure ebx-result__figure"] img', {}, { timeout: 50000 });
   return await context.extract(productDetails, { transform });
 }
 module.exports = {
