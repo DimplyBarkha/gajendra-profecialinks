@@ -124,14 +124,17 @@ fields:
     xpath: //div[@class="specs-block"]//ul/li/span[contains(.,"Couleur")]/following-sibling::span
   - name: manufacturerDescription
     singleValue: false
-    xpath: //div[contains(@class,"preview")]
+    # xpath: //div[contains(@class,"preview")]
+    xpath: //div[@id='enhancedContent']//text()
   - name: manufacturerImages
     singleValue: false
-    xpath: //div[@class="wrapper preview"]//img/@src
+    # xpath: //div[@class="wrapper preview"]//img/@src
+    xpath: //div[@id='aplusImages']//text()
   - name: videos
     singleValue: false
     description: URLs of videos on page
-    xpath: //div[@class="header-content desktop"]//div[@class="play-btn centered desktop"]/@data-video
+    # xpath: //div[@class="header-content desktop"]//div[@class="play-btn centered desktop"]/@data-video
+    xpath: //div[@id='videos']/text()
   - name: name
     singleValue: false
     description: The product name
