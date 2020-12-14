@@ -108,5 +108,8 @@ fields:
     xpath: (//div[@class="articulo"]/following-sibling::div[1]/div)[2]
   - name: unInterruptedPDP
     singleValue: false
-    xpath: //div[@class="recommended"]//span[@class="upper title"]//text()
+    xpath: //div[@class="recommended"]//span[@class="upper title"]//text()|//div[@id="essentials-section"]//p[@class="nombre h3"]
     description: Titles of products in the sections 'you may also like' or 'sponsored products'. Combine results from Max 3 sections
+  - name: inTheBoxText
+    singleValue: false
+    xpath: //li[contains(.,"Box contents")]//ul/li
