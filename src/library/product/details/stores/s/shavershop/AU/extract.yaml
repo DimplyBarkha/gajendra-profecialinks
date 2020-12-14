@@ -221,7 +221,7 @@ fields:
     defaultValue: '0'
   - name: inTheBoxText
     singleValue: false
-    xpath: //*[@data-track-name="Product Description"]//div/ul/li
+    xpath: //*[@data-track-name="Product Description"]//p[contains(.,"In the Box")]/following-sibling::ul/li
     description: Must include text to show the accessories/tools which come with the product
   - name: unInterruptedPDP
     singleValue: false
