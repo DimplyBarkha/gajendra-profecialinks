@@ -500,11 +500,9 @@ fields:
     singleValue: true
     description: Materials used to make the product
     example: https://www.jdsports.co.uk/product/blue-adidas-linear-20-reversible-wind-breaker-jacket/15988125/
-  - name: Image360Present
-    singleValue: true
-    description: If 360 image is present in the carousel ['Yes','No']
-    example: https://www.amazon.com/Trinsic-Single-Handle-Magnetic-Champagne-9159-CZ-DST/dp/B0050EN8E6
-    defaultValue: No
+  - name: imageZoomFeaturePresent
+    singleValue: false
+    xpath: (//div[@id='gallery-image-thumb'])[1]/div[@class='owl-stage-outer']/div[@class='owl-stage']/div[contains(@class,'owl-item')]//img/@data-src
   - name: shownImages
     singleValue: false
     xpath: (//div[@id='gallery-image-thumb'])[1]/div[@class='owl-stage-outer']/div[@class='owl-stage']/div[contains(@class,'owl-item')]//img/@data-src
