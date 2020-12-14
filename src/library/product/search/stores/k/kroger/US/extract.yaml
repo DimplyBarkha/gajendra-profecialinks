@@ -40,7 +40,7 @@ fields:
   - name: name
     singleValue: true
     description: The product name
-    xpath: //h3[@data-qa='cart-page-item-description']
+    xpath: concat(.//h3[@data-qa='cart-page-item-description'], ' ', .//span[@data-qa="cart-page-item-sizing"])
   - name: sku
     singleValue: false
     description: The store-specific product identifier

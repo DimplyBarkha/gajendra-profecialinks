@@ -60,5 +60,10 @@ fields:
   - name: reviewRatingScale
     singleValue: false
     defaultValue: 5
+  - name: reviewId
+    singleValue: false
+    xpath: //a[@title="Denunciar"]/@href
+    regExp: reviewID=(\d+)
+    regExpReplace: $1
 
   

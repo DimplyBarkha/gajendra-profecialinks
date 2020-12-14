@@ -27,5 +27,11 @@ module.exports = {
         throw new Error('Product Unavailable page.');
       }
     }
+    await new Promise((r) => setTimeout(r, 2000));
+
+    const blankPage = await context.evaluate(() => !document.querySelector('#content').innerHTML.length);
+    if (blankPage) {
+      throw new Error('Blank product page.');
+    }
   },
 };
