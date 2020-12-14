@@ -28,7 +28,7 @@ module.exports = {
       const productInfo = Array.from(document.querySelectorAll('#features > ul, #product-description > ul')).map(elm => elm.textContent).filter(elm => elm);
       document.body.setAttribute('additional_product_info', productInfo.join('|'));
 
-      // Get Ingredients
+     // Get Ingredients
       const ingredientList =
         (document.querySelector('#ingredients > p') &&
           document.querySelector('#ingredients > p').textContent.trim().replace(/INGREDIENTS:/i, '')

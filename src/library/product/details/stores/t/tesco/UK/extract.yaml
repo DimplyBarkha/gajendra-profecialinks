@@ -17,9 +17,6 @@ fields:
   - name: name
     singleValue: true
     xpath: //h1[@class="product-details-tile__title"]
-  - name: productUrl
-    singleValue: false
-    xpath: //link[@rel="canonical"]/@href
   - name: category
     singleValue: false
     xpath: //ol[contains(@class,"beans-breadcrumb__list")]/li
@@ -89,6 +86,9 @@ fields:
     singleValue: true
     xpath: //div[@id="additives"]/ul
   - name: allergyAdvice
+    singleValue: true
+    xpath: //div[@id="allergens"]/ul
+  - name: allergens
     singleValue: true
     xpath: //div[@id="allergens"]/ul
   - name: recyclingInformation
@@ -189,7 +189,6 @@ fields:
   - name: productUrl
     singleValue: false
     xpath: //link[@rel="canonical"]/@href
-    regExp: '[^\d]+$'
   - name: sodiumPerServing
     singleValue: true
     xpath: //td[contains(text(),"Sodium")]/following-sibling::td[1]
@@ -256,6 +255,10 @@ fields:
     singleValue: false
     description: Materials used to make the product
     xpath: //body//@additional_image
+  - name: nutritionInfo
+    singleValue: false
+    xpath: //table[@class='product__info-table']/tbody/tr
+
 
 
 

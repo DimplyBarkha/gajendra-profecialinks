@@ -49,9 +49,10 @@ const transform = (data) => {
 
               if (row.highQualityImages) {
                 row.highQualityImages.forEach(item => {
-                  item.text = item.text.replace('?h=225\u0026w=225', ' ').slice();
+                //   item.text = item.text.replace('?h=225\u0026w=225', ' ').slice();
                 });
               }
+
 
               if (row.sku) {
                 row.sku.forEach(item => {
