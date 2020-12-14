@@ -20,7 +20,7 @@ fields:
     xpath: //ul[@class="product__breadcrumb flex-container"]
   - name: nameExtended
     singleValue: false
-    xpath: concat(//h1[@class="product__name"],//table[@class="product_attributes"]//th[contains(.,'Color')]/following-sibling::th, ' ',//table[@class="product_attributes"]//th[contains(.,'Size')]/following-sibling::th | //ul[@id="product_size"]//label[contains(@class,'selected')])
+    xpath: //div[@id="name_extended"]
   - name: listPrice
     singleValue: false
     xpath: //p[@class="product__price"]/span[@class="pre-reduction"]
@@ -62,7 +62,7 @@ fields:
     xpath: //div[@class="info_content"]
   - name: variantInformation
     singleValue: false
-    xpath: concat(//table[@class="product_attributes"]//th[contains(.,'Color')]/following-sibling::th, ' ',//table[@class="product_attributes"]//th[contains(.,'Size')]/following-sibling::th | //ul[@id="product_size"]//label[contains(@class,'selected')])
+    xpath: //div[@id="variant_information"]
   - name: variantId
     singleValue: false
     xpath: //button[@class="wishlist-button"]/@data-sku
@@ -72,7 +72,7 @@ fields:
     defaultValue: 'In Stock'
   - name: quantity
     singleValue: false
-    xpath: //table[@class="product_attributes"]//th[contains(.,'Size')]/following-sibling::th | //ul[@id="product_size"]//label[contains(@class,'selected')]
+    xpath: //table[@class="product_attributes"]//th[contains(.,'Size')]/following-sibling::th | (//ul[@id="product_size"]//label[contains(@class,'available')])[1]
   - name: unInterruptedPDP
     singleValue: false
     xpath: //div[@class="recommendations"]//h4[@class="product-name"]
