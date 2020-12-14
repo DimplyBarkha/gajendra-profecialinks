@@ -70,7 +70,7 @@ fields:
     defaultValue: 1
   - name: manufacturerImages
     singleValue: false
-    xpath: //div[@id='productDescription']//div[contains(@class,'product-long-description')]//img
+    xpath: //div[@id='productDescription']//div[contains(@class,'product-long-description')]//img//@src
   - name: descriptionBullets
     singleValue: false
     xpath: count(//div[@id='productDescription']//div[contains(@class,'product-long-description')]//ul//li)
@@ -93,3 +93,12 @@ fields:
     singleValue: false
     xpath: //div[@id='terms-and-conditions']//ul
     defaultValue: "No"
+  - name: weightNet
+    singleValue: false
+    xpath: //div[@id='product-specs']//tr//th[text()='Weight (kg)']/following-sibling::td[@class="data"]
+  - name: specifications
+    singleValue: false
+    xpath: //div[@id='product-specs']//table/tbody/tr[text()]
+  - name: warranty
+    singleValue: false
+    xpath: //div[@id='product-specs']//tr//th[contains(text(),'Manufacturers Express Warranty')]/following-sibling::td[@class="data"]
