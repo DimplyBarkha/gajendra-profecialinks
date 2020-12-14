@@ -66,10 +66,10 @@ fields:
     description: Product brand shown - this may actually NOT be just a brand name,
       e.g. "Visit the Gillette Store"
     xpath: (//div[contains(@itemtype,"BreadcrumbList")]//div[last()]//a/@title)[last()]
-  - name: manufacturer
-    singleValue: false
-    description: Product manufacturer
-    xpath: //div[@data-zone-name="productVendor"]//div[2]|//div[@data-apiary-widget-name="@marketplace/SkuVendorInfo"]//a[2]
+  # - name: manufacturer
+  #   singleValue: false
+  #   description: Product manufacturer
+  #   xpath: //div[@data-zone-name="productVendor"]//div[2]|//div[@data-apiary-widget-name="@marketplace/SkuVendorInfo"]//a[2]
   - name: quantity
     singleValue: false
     description: Quantity as described on the page
@@ -470,7 +470,7 @@ fields:
       new desription info
   - name: variantInformation
     singleValue: false
-    xpath: //span[@class="b_18ouxBEWKA"][contains(@data-auto, "selected-true")]
+    xpath: //span[@class="b_orEV9DcwNt"]
     description: colour / scent / flavour / other
   - name: firstVariant
     singleValue: false
