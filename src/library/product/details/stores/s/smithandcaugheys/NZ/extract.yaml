@@ -103,3 +103,7 @@ fields:
     xpath: //div[contains(@class,"relatedProducts")]//strong
     description: Titles of products in the sections 'you may also like' or 'sponsored 
       products'. Combine results from Max 3 sections
+  - name: inTheBoxText
+    singleValue: false
+    xpath: //p[contains(.,"in the Box")]/following-sibling::p  | //p[contains(.,"in the Box")]
+    
