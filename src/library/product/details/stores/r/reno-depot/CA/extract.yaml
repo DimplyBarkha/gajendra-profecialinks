@@ -144,13 +144,19 @@ fields:
     xpath: //div[@id="rotateInfo"]
   - name: inTheBoxUrl
     singleValue: false
-    xpath: //div[@data-section-caption="In the Box"]//img/@src
+    xpath: //div[@data-section-tag="in-the-box"]//img/@src
     description: Must include image url to show the accessories/tools which come with the product
   - name: inTheBoxText
     singleValue: false
-    xpath: //div[@data-section-caption="In the Box"]//div[2]/ul/li/h3
-    description: Must include text to show the accessories/tools which come with the product
+    xpath: //div[@data-section-tag="in-the-box"]//h3
+    description: Must include text to show the accessories/tools which come with the product 
+  - name: hasComparisonTable
+    singleValue: true
+    xpath: //div[@data-section-tag="compare"]
+    regExp: (.+)
+    regExpReplace: true
+    defaultValue: false  
   - name: unInterruptedPDP
     singleValue: false
-    xpath: //div[@data-track-module-name="Frequently bought together"]//div[@class="product_name"]
+    xpath: //div[@data-track-module-type="recommendations"]//div[@class="product_name"]
     description: Titles of products in the sections 'you may also like' or 'sponsored products'. Combine results from Max 3 sections
