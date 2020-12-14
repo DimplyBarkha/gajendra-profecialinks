@@ -19,18 +19,24 @@ fields:
   regExpReplace: https://www.ajmadison.com$1
 - name: reviewCount
   singleValue: false
-  xpath: count(//div[@class="col col-3 lg-col-5 px-2"]//a[contains(text(),'Reviews')])
+  xpath: //div[@class="col col-3 lg-col-5 px-2"]//a[contains(text(),'Reviews')]
+  type: NUMBER
 - name: manufacturer
   singleValue: false
-  xpath: //div[@class="inline-block bold black-0 f12"]/text()
 - name: aggregateRating
   singleValue: false
-  xpath: //html//div[@class="ajmadison_Agg_Rating"]
+  xpath: //html//div[@id="rating1"]
 - name: Price
   singleValue: false
   xpath: //tr[1]//td[@class='py05 nowrap right-align']/a/text()
 - name: rankOrganic
-  singleValue: true
+  singleValue: false
+  xpath: //html//div[@id="rank"]
 - name: rank
-  singleValue: true
+  singleValue: false
+  xpath: //html//div[@id="rank"]
+- name: searchUrl
+  singleValue: false
+  xpath: ancestor::html//div[@id="pd_url"]
+
   

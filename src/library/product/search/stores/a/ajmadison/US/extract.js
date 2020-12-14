@@ -1,5 +1,4 @@
-  
-//const { cleanUp } = require('@library/product/details/shared');
+
 const { transform } = require('../../../../shared');
 module.exports = {
 implements: 'product/search/extract',
@@ -13,35 +12,50 @@ zipcode: '',
 implementation: async ({ inputString }, { country, domain }, context, { productDetails }) => {
 await context.evaluate(async function () {
 // Java Script Code for adding new Div
-function addHiddenDiv (id, content) {
-const newDiv = document.createElement('div');
-newDiv.className = id;
-newDiv.textContent = content;
-newDiv.style.display = 'none';
-document.body.appendChild(newDiv);
-}
+function addHiddenDiv(id, content, index) {
+    const newDiv = document.createElement('div');
+    newDiv.id = id;
+    newDiv.textContent = content;
+    newDiv.style.display = 'none';
+    const originalDiv = document.querySelectorAll('div[class="block mr2 bold f13 font-size-md"]')[index];
+    originalDiv.parentNode.insertBefore(newDiv, originalDiv);
+    }
 // Java Script Code to retrive Xpath for URL
-var xpath = function (xpathToExecute) {
-var nodesSnapshot = document.evaluate(xpathToExecute, document, null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
-for (var i = 0; i < nodesSnapshot.snapshotLength; i++) {
-addHiddenDiv('ajmadison_url', 'https://www.ajmadison.com' + nodesSnapshot.snapshotItem(i).textContent);
+const getXpath = (xpath, prop) => {
+    const elem = document.evaluate(xpath, document, null, XPathResult.ANY_UNORDERED_NODE_TYPE, null);
+    let result;
+    if (prop && elem && elem.singleNodeValue) result = elem.singleNodeValue[prop];
+    else result = elem ? elem.singleNodeValue : '';
+    return result && result.trim ? result.trim() : result;
+  };
+  var length1=document.querySelectorAll('div[class="block mr2 bold f13 font-size-md"]').length;
+  for(let i=0;i<length1;i++)
+  {
+      var rank=i+1
+      addHiddenDiv('rank',rank,i);
+      }
+    var length=document.querySelectorAll('div[class="col col-9 lg-col-7 px-2"] script').length
+for (let i=0;i<length;i++)
+{
+// @ts-ignore
+var abc=document.querySelectorAll('div[class="col col-9 lg-col-7 px-2"] script')[i].innerText;
+var obj = JSON.parse(abc);
+try{
+var cde=obj[1].aggregateRating;
+var rating=cde.ratingValue;
 }
-};
-// Java Script Code to retrive Xpath for Aggregate Rating
-var xpathAggregateRating = function (xpathToExecute) {
-var data = '';
-var nodesSnapshot = document.evaluate(xpathToExecute, document, null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
-for (var i = 0; i < nodesSnapshot.snapshotLength; i++) {
-data = nodesSnapshot.snapshotItem(i).textContent;
-data = data.substring(data.indexOf('ratingValue":') + 13);
-data = data.substring(0, data.indexOf('}'));
-if (/^\d+\.\d+$/.test(data)) {
-addHiddenDiv('ajmadison_Agg_Rating', data);
+catch(e)
+{
+
 }
+
+addHiddenDiv('rating1',rating,i);
 }
-};
-xpath('//a[@class="hover-text-decoration-none "]/@href');
-xpathAggregateRating('//div[@class="col col-9 lg-col-7 px-2"]//script/text()');
+
+try {
+  document.getElementById('pd_url').remove();
+} catch (error) {
+}
 });
 return await context.extract(productDetails);
 },
