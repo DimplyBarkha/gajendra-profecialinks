@@ -38,40 +38,58 @@ module.exports = {
 
       //availability
       var script = getXpath('//form[@class="js-add-to-basket-form"]/following::script[2]/text()', 'nodeValue');
-      
-      if(script != null){
-        var data = JSON.parse(script);
-        var gtin = data.gtin13;
-        if(gtin != null){
-          addElementToDocument('gtin', gtin);
-        }
-        var sku = data.sku;
-        if (sku != null){
-        addElementToDocument('sku', sku);
-        }
-        var url = data.url;
-        if (url != null){
-        addElementToDocument('url', url);
-        }
-        var productID = data.productID;
-        if (productID != null){
-        addElementToDocument('id', productID);
-        }
-        var brand = data.brand;
-        if (brand != null){
-        addElementToDocument('brand', brand);
+      try{
+        if (script != null) {
+          var data = JSON.parse(script);
+          
+          try{
+            var gtin = data.gtin13;
+            if (gtin != null) {
+              addElementToDocument('gtin', gtin);
+            }
+          }
+          catch{}
+          try{
+            var sku = data.sku;
+          if (sku != null) {
+            addElementToDocument('sku', sku);
+          }
+          }
+          catch{}
+          try{
+            var url = data.url;
+          if (url != null) {
+            addElementToDocument('url', url);
+          }
+          }
+          catch{}
+          try{
+            var productID = data.productID;
+          if (productID != null) {
+            addElementToDocument('id', productID);
+          }
+          }
+          catch{}
+          try{
+            var brand = data.brand;
+          if (brand != null) {
+            addElementToDocument('brand', brand);
+          }
+          }
+          catch{}
+          try{
+            if (script != null) {
+              var data1 = JSON.parse(script);
+              var rpc = data.productID;
+              if (rpc != null) {
+                addElementToDocument('rpc', rpc);
+              }
+            }
+          }
+          catch{}
         }
       }
-
-      if(script != null){
-        var data1 = JSON.parse(script);
-        var rpc = data.productID;
-        if(rpc != null){
-          addElementToDocument('rpc', rpc);
-        }
-      }
-      
-      
+      catch{}
       // if(script != null){
       //   var zz =  script.split('availability": "')[1];
       //   zz = zz.split(",")[0];
@@ -109,19 +127,6 @@ module.exports = {
 
       //description
       // var ab = document.querySelectorAll('#relatedShift');
-      var desc = getAllXpath('//div[@class="c-product__related-content"]/p/text()', 'nodeValue');
-      if(desc != null){
-        var str = "";
-        for(var i=0; i< desc.length; i++){
-          str = str + desc[i] + " ";
-        }
-        addElementToDocument('str', str);
-      }
-      
-
-
-
-
     });
     await context.extract(productDetails);
   },
