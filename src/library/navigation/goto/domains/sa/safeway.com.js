@@ -5,7 +5,7 @@ module.exports = {
         timeout: 60000,
         country: 'US',
         store: 'safeway',
-        zipcode: '95401',
+        zipcode: '',
     },
     implementation: async({ url, zipcode, storeId }, parameters, context, dependencies) => {
         const timeout = parameters.timeout ? parameters.timeout : 10000;
