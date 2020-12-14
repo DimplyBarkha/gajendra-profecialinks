@@ -1,0 +1,26 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: id
+    singleValue: false
+    xpath: //article/a/@href
+  - name: name
+    singleValue: false
+    xpath: //article//header/div[@class="hPWzFB"]/h3
+  - name: productUrl
+    singleValue: false
+    xpath: //article/a/@href
+  - name: thumbnail
+    singleValue: false
+    xpath: //article//figure[@class="heWLCX"]//div[@class="KVKCn3 u-C3dd jDGwVr mo6ZnF KLaowZ"]/img[1]/@src
+  - name: price
+    singleValue: false
+    xpath: //article//header/div[@class="_0xLoFW u9KIT8 _7ckuOK"]/span[1]
+  - name: rank
+    singleValue: false
+    defaultValue: 1
+  - name: rankOrganic
+    singleValue: false
+    defaultValue: 1
