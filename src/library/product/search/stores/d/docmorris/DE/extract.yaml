@@ -1,28 +1,28 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: //div[contains(@class,"productlist__row")]/div[contains(@class,"item")]
-fields: 
+recordXPath:  //div[contains(@class,"productlist__row")]/div[contains(@class,"item")] | //body[@id="productdetail"]
+fields:
   - name: productUrl
-    xpath: //a[contains(@class,"productlist__tile")]/@href
-    regExp: (.+)
-    regExpReplace: https://www.docmorris.de$1
+    xpath: //a[contains(@class,"productlist__tile")]/@href | //h1[@itemprop="name"]/@url
+    regExp: (https://www.docmorris.de)?(.+)
+    regExpReplace: https://www.docmorris.de$2
     description: The URL for the product details page
   - name: thumbnail
-    xpath: //div[contains(@class,"image-wrap")]/img/@data-src
-    regExp: (.+)
-    regExpReplace: https://www.docmorris.de$1
+    xpath: //div[contains(@class,"image-wrap")]/img/@data-src | //img[@data-initial-size="large"]/@src
+    regExp: (https://www.docmorris.de)?(.+)
+    regExpReplace: https://www.docmorris.de$2
     description: The URL for the product thumbnail image
   - name: name
-    xpath: //h2[contains(@class,"productlist__name mb1 dotdot")]
+    xpath: //h2[contains(@class,"productlist__name mb1 dotdot")] | //h1[@itemprop="name"]
     description: The product name
   - name: id
-    xpath: //a[contains(@class,"productlist__tile")]/@href
+    xpath: //a[contains(@class,"productlist__tile")]/@href | //h1[@itemprop="name"]/@url
     description: The store-specific product identifier
     regExp: (\d{8})
     regExpReplace: $1
   - name: price
-    xpath: //*[contains(@class,"_price")]
+    xpath: //*[contains(@class,"_price")] | //div[@id="col-static"]//table[@class="price-box"]//span[@class="price"]
     regExp: (\d+\,\d+)
     regExpReplace: $1
     description: The offered price for the product
@@ -30,8 +30,7 @@ fields:
   - name: rank
   - name: sponsored
   - name: reviewCount
-    xpath: //div[contains(@class,"values")]/span/span
+    xpath: //div[contains(@class,"values")]/span/span | //div[@class="product-description"]//span[@class="rating__totalCount"]
   - name: aggregateRating2
     xpath: //div[contains(@class, 'rating__stars')]/@data-rating-value
-  - name: soldBy
-    xpath: //p[contains(@class,"productlist__supplier")]
+  

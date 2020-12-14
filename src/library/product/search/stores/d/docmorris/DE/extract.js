@@ -1,4 +1,28 @@
 const { transform } = require('../shared');
+
+async function implementation (
+  inputs,
+  parameters,
+  context,
+  dependencies,
+) {
+  const { productDetails } = dependencies;
+  const { transform } = parameters;
+  await context.evaluate(async function (context) {
+    const isSelector = document.querySelector('div#wrapper section.tab1');
+    if (isSelector) {
+      const url = document.querySelector('link[rel="canonical"]').getAttribute('href');
+      document.querySelector('h1[itemprop="name"]').setAttribute('url', url);
+    }
+    // next page button click
+    // const seeAllSelector = document.querySelector('span[class="gicon-bracketright-green"]');
+    // if (seeAllSelector) {
+    //   seeAllSelector.click();
+    // }
+  });
+  return await context.extract(productDetails, { transform });
+}
+
 module.exports = {
   implements: 'product/search/extract',
   parameterValues: {
@@ -8,30 +32,5 @@ module.exports = {
     domain: 'docmorris.de',
     zipcode: '',
   },
-  implementation: async ({ url }, { country, domain, transform }, context, { productDetails }) => {
-    await new Promise((resolve, reject) => setTimeout(resolve, 6000));
-    const applyScroll = async function (context) {
-      await context.evaluate(async function () {
-        let scrollTop = 0;
-        while (scrollTop !== 20000) {
-          await stall(500);
-          scrollTop += 500;
-          window.scroll(0, scrollTop);
-          if (scrollTop === 20000) {
-            await stall(2000);
-            break;
-          }
-        }
-        function stall(ms) {
-          return new Promise((resolve, reject) => {
-            setTimeout(() => {
-              resolve();
-            }, ms);
-          });
-        }
-      });
-    };
-    await applyScroll(context);
-    return await context.extract(productDetails, { transform });
-  },
-}
+  implementation,
+};

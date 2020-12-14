@@ -4,7 +4,7 @@ module.exports = {
   parameterValues: {
     country: 'DE',
     store: 'docmorris',
-    nextLinkSelector: null,
+    nextLinkSelector: 'span[class="gicon-bracketright-green"]',
     mutationSelector: null,
     spinnerSelector: null,
     loadedSelector: 'div[class="rating__wrap"] > div',
