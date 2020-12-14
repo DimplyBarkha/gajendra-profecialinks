@@ -25,16 +25,16 @@ const url1 = require('url');
     for (const { group }  of data) {
         for (const row of group) {
 
-          if (row.price) {
-            row.price.forEach(item => {
-              item.text = item.text.replace('€', '');
-            });
-          }
-          if (row.listPrice) {
-            row.listPrice.forEach(item => {
-              item.text = item.text.replace('€', '');
-            });
-          }
+          // if (row.price) {
+          //   row.price.forEach(item => {
+          //     item.text = item.text.replace('€', '');
+          //   });
+          // }
+          // if (row.listPrice) {
+          //   row.listPrice.forEach(item => {
+          //     item.text = item.text.replace('€', '');
+          //   });
+          // }
           if (row.availabilityText) {
             row.availabilityText.forEach(item => {
               item.text = ('Ajouter Produit' === item.text ) ? 'In stock' : 'Out of stock';
