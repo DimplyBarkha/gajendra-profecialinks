@@ -97,7 +97,7 @@ await context.evaluate(async () => {
         bulletListTemp += element.innerText;
       } else {
         bulletList += element.innerText+'||';
-        bulletListTemp += element.innerText+'|';
+        bulletListTemp += element.innerText+'||';
       }
     });
     console.log(document.querySelectorAll('div.b_1xQdt6zCoE'));
