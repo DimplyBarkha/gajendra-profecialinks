@@ -34,23 +34,6 @@ const transform = (data) => {
           text: row.additionalDescBulletInfo.length,
         }];
       }
-      if (row.price) {
-        row.price.forEach(item => {
-          item.text = item.text.replace('$', ' ').trim();
-          console.log("test", item.text);
-        });
-      }
-      if (row.listPrice) {
-        row.listPrice.forEach(item => {
-          item.text = item.text.replace('$', ' ').trim();
-        });
-      }
-      if (row.priceCurrency) {
-        row.priceCurrency.forEach(item => {
-          item.text = item.text.slice(1);
-        });
-      }
-
       if (row.quantity) {
         row.quantity.forEach(item => {
           item.text = item.text.slice(5);

@@ -125,17 +125,27 @@ fields:
   - name: ingredientsList
     singleValue: false
     xpath: //div[@class='ProductDetail__ingredients']//div[@class='Collapsible']//text()
-  - name: shownImages
-    singleValue: false
-    xpath: //div[@class= 's7staticimage']//img/@src
-    regExp: (.*)\?.*
-    regExpReplace: $1
   - name: priceCurrency
     singleValue: false
-    xpath: (//div[contains(@class,"ProductPricingPanel")]//span[not(contains(@class,"Text--line-through"))])[1]/text()
+    xpath: //script[@type="application/ld+json"][contains(text(),'priceCurrency')]
+    regExp: priceCurrency":"([^"]+)
+    regExpReplace: $1
   - name: mpn
     singleValue: false
     xpath: //div[@data-mpn]/@data-mpn
+  - name: shownImages
+    singleValue: false
+    xpath: //div[@class='ProductImage__thumbNails']//div[@class='Image']//img/@src
+    regExp: (.*)\?.*
+    regExpReplace: $1
+  - name: highQualityImages
+    singleValue: false
+    xpath:  //div[@class='ProductImage__thumbNails']//div[@class='Image']//img/@src
+    regExp: (.*)\?.*
+    regExpReplace: $1
+  - name: productUrl
+    singleValue: false
+    xpath: //link[@rel="canonical"]/@href
 
 
 
