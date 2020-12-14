@@ -15,7 +15,8 @@ fields:
     xpath: //img[contains(@class,"primary-image")]/@alt
   - name: availabilityText
     singleValue: false
-    xpath: //button[contains(text(),'Add to Cart')]
+    #xpath: //button[contains(text(),'Add to Cart')]
+    xpath: //div[contains(@id,"fulfillment-add-to-cart-button")]//button[contains(text(),'Add to Cart')]
     regExp: (.+)
     regExpReplace: In Stock
     defaultValue: Out of Stock
@@ -91,7 +92,8 @@ fields:
     xpath: //div[@class='pricing-price__savings'] | //div[@class='special-offer']//li
   - name: description
     singleValue: false
-    xpath: concat(//div[@class='long-description-container body-copy '],//div[@class='feature-body-container'])
+    xpath: concat(//div[@class='long-description-container body-copy '],' ',//div[@class='feature-body-container'])
+    #xpath: //div[@class='list-row']
   - name: brandText
     singleValue: false
     manualSelector: a.btn-brand-link
@@ -103,10 +105,10 @@ fields:
     xpath: //div[@id="wc-power-page"] | //div[@class="c-accordion-content  c-accordion-content-active  c-accordion-content-complete"]
   - name: manufacturerImages
     singleValue: false
-    xpath: //div[@id="wc-power-page"]//img/@src
+    xpath: //div[@id="wc-power-page"]//img/@src | //div[contains(@id,"aplusImg_")]
   - name: videos
     singleValue: false
-    xpath: //div[starts-with(@id,"ii_video_")] | //img[contains(@class,"wc-video")]/@wcobj
+    xpath: //div[contains(@id,"ii_video_")] | //img[contains(@class,"wc-video")]/@wcobj
   - name: name
     singleValue: false
     manualSelector: div.sku-title

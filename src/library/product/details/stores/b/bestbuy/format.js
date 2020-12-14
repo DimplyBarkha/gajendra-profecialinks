@@ -19,12 +19,16 @@ const transform = (data, context) => {
       if (row.alternateImages2) {
         row.alternateImages = [...row.alternateImages2];
       }
+      if(row.secondaryImageTotal && row.alternateImages){
+        row.secondaryImageTotal[0].text = row.alternateImages.length;
+      }
       if (row.warranty) {
         row.warranty = [{
           text: row.warranty.reduce((item, currItem) => item ? `${item} || ${currItem.text.replace(/(\s*\n\s*)+/, ': ')}` : currItem.text.replace(/(\s*\n\s*)+/, ': '), ''),
         }];
       }
       if (row.variants) {
+       
         row.variantCount = [{
           text: row.variants.length + 1
         }]
@@ -40,6 +44,10 @@ const transform = (data, context) => {
         row.variants = [{
           text: row.variants.reduce((item, currItem) => item ? `${item} | ${currItem.text}` : currItem.text, '') + ' | ' + row.sku[0].text,
         }];
+       
+      }
+      // console.log("row.variantInformation:: ",row.variantInformation);
+      if(row.variantInformation){
         row.variantInformation = [{
           text: row.variantInformation.reduce((item, currItem) => item ? `${item} | ${currItem.text.replace(/\.$/, '')}` : currItem.text.replace(/\.$/, ''), ''),
         }];

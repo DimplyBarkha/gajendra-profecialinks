@@ -6,37 +6,37 @@ recordXPath: //li[@class='sku-item'] | //li[@class="embedded-sponsored-listing"]
 fields:
   - name: id
     singleValue: false
-    xpath: //li[@class='sku-item']/@data-sku-id
+    xpath: //li[@class='sku-item']/@data-sku-id | //li[@class="embedded-sponsored-listing"]//div[@class="sku-attribute-title"][position() >1]/span[@class="sku-value"]
   - name: productUrl
     singleValue: false
     xpath: //a[@class='image-link']/@href
   - name: thumbnail
     singleValue: false
-    xpath: //img[@class='product-image']/@src
+    xpath: //img[@class='product-image']/@src | //div[@class="picture-wrapper"]/img/@src
     # xpath: //img[contains(@id,'testId-pod-image')]/@src
   - name: name
     singleValue: false
-    xpath: //h4[@class='sku-header']
+    xpath: //h4[@class='sku-header'] | //h4[@class="heading-5 v-fw-regular"]/a
   - name: soldBy
     singleValue: false
     xpath: //b[contains(@class,'pod-sellerText')]
   - name: price
     singleValue: false
     # xpath: //li[@class="sku-item"]//div[@class="priceView-hero-price priceView-customer-price"]
-    xpath: //li[@class="sku-item"]//div[@class="priceView-hero-price priceView-customer-price"]//span[1]
+    xpath: //li[@class="sku-item"]//div[@class="priceView-hero-price priceView-customer-price"]//span[1] | //li[@class="embedded-sponsored-listing"]//div[@class="priceView-hero-price priceView-customer-price"]//span[1]
   - name: ratingCount
     singleValue: false
-    xpath: //li[@class="sku-item"]//p[@class="sr-only"]
+    xpath: //li[@class="sku-item"]//p[@class="sr-only"] | //li[@class="embedded-sponsored-listing"]//p[@class="sr-only"]
     regExp: (["\d"]+)\Wreviews
     regExpReplace: $1
   - name: reviewCount
     singleValue: false
-    xpath: //li[@class="sku-item"]//p[@class="sr-only"]
+    xpath: //li[@class="sku-item"]//p[@class="sr-only"] | //li[@class="embedded-sponsored-listing"]//p[@class="sr-only"]
     regExp: (["\d"]+)\Wreviews
     regExpReplace: $1    
   - name: aggregateRating2
     singleValue: false
-    xpath: //li[@class="sku-item"]//p[@class="sr-only"]
+    xpath: //li[@class="sku-item"]//p[@class="sr-only"] | //li[@class="embedded-sponsored-listing"]//p[@class="sr-only"]
     regExp: (["\d.\d"]+)\Wout
     regExpReplace: $1
   - name: brandText
