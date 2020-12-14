@@ -121,7 +121,7 @@ fields:
   - name: shippingInfo
     singleValue: true
     description: Shipping information for the product
-    # xpath: //div[@class="m-product__freeShipping"]//img/@alt
+    xpath: concat(//p[@class="a-productInfo_selledBy"]//text(),//p[@class="a-productInfo_selledBy"]//a/text())
   - name: shippingDimensions
     singleValue: true
     description: Stated shipping dimensions
