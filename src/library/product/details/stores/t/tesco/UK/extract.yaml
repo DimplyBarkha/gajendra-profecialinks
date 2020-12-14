@@ -18,7 +18,7 @@ fields:
     singleValue: true
     xpath: //h1[@class="product-details-tile__title"]
   - name: productUrl
-    singleValue: true
+    singleValue: false
     xpath: //link[@rel="canonical"]/@href
   - name: category
     singleValue: false
@@ -252,6 +252,11 @@ fields:
   - name: otherSellersName
     singleValue: false
     defaultValue: "Tesco"
+  - name: highQualityImages
+    singleValue: false
+    description: Materials used to make the product
+    xpath: //body//@additional_image
+
 
 
 

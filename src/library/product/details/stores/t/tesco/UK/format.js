@@ -46,14 +46,10 @@ const transform = (data) => {
                     text: text.replace(new RegExp('(.+\\/)\\/(.+)', 'g'), '$1$2'),
                 }, ];
             }
-            if (row.price) {
-                row.price.forEach(item => {
-                  item.text = item.text.replace('£', ' ').trim();
-                });
-              }
-              if (row.listPrice) {
-                row.listPrice.forEach(item => {
-                  item.text = item.text.replace('£', ' ').trim();
+
+              if (row.highQualityImages) {
+                row.highQualityImages.forEach(item => {
+                  item.text = item.text.replace('?h=225\u0026w=225', ' ').slice();
                 });
               }
 

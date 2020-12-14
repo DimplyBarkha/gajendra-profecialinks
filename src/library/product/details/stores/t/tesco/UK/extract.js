@@ -48,23 +48,6 @@ module.exports = {
         }
       }
 
-      // if(details) {
-      //   if(JSON.parse(details.text)[2]){
-      //     let imageArr = JSON.parse(details.text)[2].image;
-      //     let images = imageArr.slice(1).join(' | ');
-      //     console.log("images",images);
-      //     document.body.setAttribute('manufacture_image', images);
-      //   }
-      // }
-
-      // if(details) {
-      //   if(JSON.parse(details.text)[2]){
-      //     let imageArr = JSON.parse(details.text)[2].image;
-      //     let images = imageArr.slice(1).join(' | ');
-      //     console.log("images",images);
-      //     document.body.setAttribute('highQualityImages', images);
-      //   }
-      // }
 
     });
 
