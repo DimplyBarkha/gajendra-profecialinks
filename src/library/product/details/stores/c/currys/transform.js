@@ -37,14 +37,8 @@ const transform = (data) => {
       }
 
       if (row.inTheBoxUrl && row.inTheBoxUrl[0]) {
-        row.inTheBoxUrl.forEach(item => {
-          if (item.text.includes(' 200w')) {
-            const imgUrl = item.text.split(' 200w, ')[0];
-            if (!(item.text.includes('http'))) {
-              item.text = 'https:' + imgUrl;
-            }
-          }
-        });
+        const images = Array.from(new Set(row.inTheBoxUrl.map(elm => elm.text.trim())));
+        row.inTheBoxUrl = images.map(text => ({ text }));
       }
 
       if (row.coupon) {
