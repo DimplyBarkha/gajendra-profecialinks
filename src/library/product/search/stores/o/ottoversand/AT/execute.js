@@ -7,7 +7,7 @@ module.exports = {
     domain: 'ottoversand.at',
     url: 'https://www.ottoversand.at/s/{searchTerms}/',
     loadedSelector : 'div[data-uid="mbaline2"]',
-    noResultsXPath: null,
+    noResultsXPath: '//div[@id="fragment-search"]//div[contains(text(),"haben wir leider kein Suchergebnis gefunden")]',
     zipcode: '',
   },
 };

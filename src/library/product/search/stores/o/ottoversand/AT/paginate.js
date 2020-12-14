@@ -8,7 +8,7 @@ module.exports = {
     mutationSelector: null,
     spinnerSelector: null,
     loadedSelector : 'div[data-uid="mbaline2"]',
-    noResultsXPath: null,
+    noResultsXPath: '//div[@id="fragment-search"]//div[contains(text(),"haben wir leider kein Suchergebnis gefunden")]',
     openSearchDefinition: null,
     domain: 'ottoversand.at',
     zipcode: '',
