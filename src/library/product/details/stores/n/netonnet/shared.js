@@ -32,7 +32,7 @@ const transform = (data) => {
 			}
 			if (row.price || row.listPrice) {
 				if (row.price) {
-					var priceVar = 	row.price; 
+					var priceVar = 	row.price;
 				}
 				if (row.listPrice) {
 					var priceVar = 	row.listPrice;
@@ -50,7 +50,7 @@ const transform = (data) => {
 				});
 				priceVar = [{ text: newText }];
 				if (row.price) {
-					row.price = priceVar; 
+					row.price = priceVar;
 				}
 				if (row.listPrice) {
 					row.listPrice = priceVar;
@@ -68,10 +68,10 @@ const transform = (data) => {
 			if (row.aggregateRating) {
 				var newText=''
 				row.aggregateRating.forEach(item => {
-					
+
 					var received_per = item.text.replace("width: ", "")
 					received_per = received_per.replace("%", "");
-				
+
 					if(received_per >= 1){
 						var aggregate_rating = ( received_per * 5 )/100;
 						if(aggregate_rating > 0){
@@ -88,12 +88,12 @@ const transform = (data) => {
 						{
 				let newText = '';
 
-				row.shippingDimensions.forEach(item => {									
-					var shippingDimensions = item.text;	
-					if(shippingDimensions.length > 0){				
+				row.shippingDimensions.forEach(item => {
+					var shippingDimensions = item.text;
+					if(shippingDimensions.length > 0){
 						newText += shippingDimensions.toString()+"X";
 					}
-					
+
 				});
 				newText = newText.substring(0,newText.length-1);
 				row.shippingDimensions = [{ text: newText }];
@@ -103,23 +103,23 @@ const transform = (data) => {
 						{
 				let newText = '';
 
-				row.description.forEach(item => {									
-					var description = item.text;	
-					if(description.length > 0){				
+				row.description.forEach(item => {
+					var description = item.text;
+					if(description.length > 0){
 						newText += description.toString()+"||";
 					}
-					
+
 				});
 				newText = newText.substring(0,newText.length-2);
 				row.description = [{ text: newText }];
 			}
 
-			if (row.specifications) {  
+			if (row.specifications) {
 				let newText = '';
 				var index = 1;
-				row.specifications.forEach(item => {									
-					var specifications = item.text;	
-					if(specifications.length > 0){	
+				row.specifications.forEach(item => {
+					var specifications = item.text;
+					if(specifications.length > 0){
 
 						if(index %2 != 0)
 						{
@@ -135,9 +135,15 @@ const transform = (data) => {
 				newText = newText.substring(0,newText.length-1);
 				row.specifications = [{ text: newText }];
 			   }
-			if (row.alternateImages) {  
+			if (row.alternateImages) {
 				row.alternateImages.forEach(item => {
 					item.text = item.text.replace('Large','Extra');
+				});
+			}
+
+			if (row.inTheBoxUrl) {
+				row.inTheBoxUrl.forEach(item => {
+				  item.text = 'https://www.netonnet.no'+ item.text
 				});
 			}
 		}

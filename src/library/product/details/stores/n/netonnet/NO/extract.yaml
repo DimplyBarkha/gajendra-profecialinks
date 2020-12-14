@@ -22,7 +22,7 @@ fields:
     description: Availability as described on page for the selected variant. If
       there is no availability but the product can be added to cart, this field
       should be "In Stock"
-    xpath: boolean(//button[@class='btn btn-primary btn-block btn-lg']/@disabled) 
+    xpath: boolean(//button[@class='btn btn-primary btn-block btn-lg']/@disabled)
   - name: manufacturerImages
     singleValue: false
     xpath: //div[@id="collapseFive"]//img//@data-src
@@ -47,7 +47,7 @@ fields:
   - name: subCategory
     singleValue: false
     xpath: //*[contains(@class, 'breadcrumb')]//li[position()>1]
-    description: The sub Category (e.g. from breadcrumbs)  
+    description: The sub Category (e.g. from breadcrumbs)
   - name: variants
     singleValue: false
     xpath: //div[contains(@class,"swatchContainer")]//@data-itemid
@@ -67,7 +67,7 @@ fields:
   - name: variantInformation
     singleValue: false
     xpath: //div[contains(@class,"swatchContainer")]//@title
-    description: colour / scent / flavour / other    
+    description: colour / scent / flavour / other
   - name: ratingCount
     singleValue: true
     xpath: //a[contains(@data-action,"writeReview")]//span[1]
@@ -76,11 +76,11 @@ fields:
   - name: variantId
     singleValue: false
     xpath: //div[@class="subTitle big"]//span
-    description: Identifier for a variant from a store where variants share the same sku. Here We have tasken last id of URL 
+    description: Identifier for a variant from a store where variants share the same sku. Here We have tasken last id of URL
   - name: name
     singleValue: false
     xpath: //ol[contains(@class, 'breadcrumb')]/following::h2[1]
-    description: The product name  
+    description: The product name
   - name: description
     singleValue: false
     xpath: //div[@class='product-sellingPoints hidden-xs']//div[contains(@class,"product-usps")]//ul//li
@@ -96,7 +96,7 @@ fields:
   - name: aggregateRating
     singleValue: false
     xpath: //a[contains(@data-action,"writeReview")]//div[contains(@class,"ratingOverlay")]//@style
-    description: The stated aggregate rating normalized to be out of 5    
+    description: The stated aggregate rating normalized to be out of 5
   - name: eangtin
     singleValue: false
     xpath: //*[contains(text(), 'EAN')]/following::td[1]
@@ -115,7 +115,7 @@ fields:
   - name: specifications
     singleValue: false
     xpath: //table[@class='table table-striped']//td//text()
-    description: The physical dimensions of the product including packaging. here its taken as Height , width and Depth    
+    description: The physical dimensions of the product including packaging. here its taken as Height , width and Depth
   - name: weightNet
     singleValue: false
     xpath: //td[contains(text(), "Vekt") and not(contains(text(), "Vekt (forsendelse)"))]/following::td[1]
@@ -127,13 +127,13 @@ fields:
   - name: listPrice
     singleValue: false
     # xpath: concat(//div[@class="price-big"], //input[contains(@id,"CurrentCurrency")]/@value)
-    description: The stated undiscounted price for the product 
+    description: The stated undiscounted price for the product
   - name: additionalDescBulletInfo
     singleValue: false
     xpath: //div[@class='product-sellingPoints hidden-xs']//div[contains(@class,"product-usps")]//ul//li[1]
   - name: brandText
     singleValue: false
-    xpath: //div[contains(@class, 'tracking')]/input[contains(@name,"ProductBrand")]/@value 
+    xpath: //div[contains(@class, 'tracking')]/input[contains(@name,"ProductBrand")]/@value
     description: Product brand shown - this may actually NOT be just a brand name,
       e.g. "Visit the Gillette Store"
   - name: quantity
@@ -146,13 +146,13 @@ fields:
   - name: nameExtended
     singleValue: true
     xpath: //meta[@name='Description']/@content
-    description: The product name, prefixing "${brand} - " if not included in "name" and appending " - ${variantType}" if necessary (fixed per feed)       
+    description: The product name, prefixing "${brand} - " if not included in "name" and appending " - ${variantType}" if necessary (fixed per feed)
   - name: descriptionBullets
     singleValue: false
     xpath: count(//div[contains(@class,'product-sellingPoints hidden-xs')]//div[contains(@class,"product-usps")]//ul//li)
     description: Number of ul > li tags in the description
     type: NUMBER
-    # current status  
+    # current status
   - name: metaKeywords
     singleValue: false
     description: The <meta> keywords content
@@ -526,13 +526,20 @@ fields:
       carousel,['Yes','No']
     example: https://www.zalando.de/adidas-neo-sneaker-low-blackwhite-a4315i002-q11.html
     defaultValue: No
+  - name: inTheBoxUrl
+    singleValue: false
+    xpath: //div[contains(@class,"productSpec")]//div[contains(@class,"cPromotionItem")]//img/@src
+    description: Must include image url to show the accessories/tools which come with the product
+  - name: inTheBoxText
+    singleValue: false
+    xpath: //div[contains(@class,"productSpec")]//div[contains(@class,"cPromotionItem")]//div[@class="name"]/a
   - name: hasComparisonTable
-    singleValue: true
+    singleValue: false
     description: Compare the range table or matrix must be present for all vacuum cleaners & air treatment. This is not required for    personal care or lighting. As a minimum the comparison table will compare against 1 additional Dyson product.
-    xpath: boolean(//span[@class="nonIcon compareProduct"])
+    xpath: boolean(boolean(//div[@class="matrix-heading"]))
   - name: unInterruptedPDP
     singleValue: false
     description: Titles of products in the sections 'you may also like' or 'sponsored products'. Combine results from Max 3 sections
-    xpath: //div[contains(@class,"name")]
+    xpath: //div[contains(@class,"personalization")]//div[contains(@class,"name")]/a
 
 

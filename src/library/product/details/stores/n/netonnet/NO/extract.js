@@ -20,13 +20,19 @@ module.exports = {
       if (overlay !== undefined) {
         overlay.click();
       }
-      
-          const collapseFive = document.querySelector('div[data-target="#collapseFive"]')      
-          collapseFive.classList.remove("collapsed");
-          document.getElementById('collapseFive').classList.add('in');
-      
+
+      const inTheBox = document.getElementById('headingFour');
+      if (inTheBox !== undefined) {
+        inTheBox.click();
+        await new Promise((resolve, reject) => setTimeout(resolve, 1000));
+      }
+
+      const collapseFive = document.querySelector('div[data-target="#collapseFive"]')
+      collapseFive.classList.remove("collapsed");
+      document.getElementById('collapseFive').classList.add('in');
+
     });
-  
+
     const { transform } = parameters;
     const { productDetails } = dependencies;
     await context.extract(productDetails, { transform });
