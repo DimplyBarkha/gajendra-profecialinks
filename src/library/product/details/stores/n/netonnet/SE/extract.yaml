@@ -135,12 +135,16 @@ fields:
   - name: weightNet
     singleValue: false
     xpath: //td[contains(text(), "Vikt")]/following::td[1]
+  - name: inTheBoxUrl
+    singleValue: false
+    xpath: //div[contains(@class,"productSpec")]//div[contains(@class,"cPromotionItem")]//img/@src
+    description: Must include image url to show the accessories/tools which come with the product
   - name: inTheBoxText
     singleValue: false
-    xpath: //div//font[contains(text(),'In the package')]/ancestor::div/following-sibling::div[@class="row"]//ul/li
+    xpath: //div[contains(@class,"productSpec")]//div[contains(@class,"cPromotionItem")]//div[@class="name"]/a
   - name: hasComparisonTable
-    singleValue: true
-    xpath: boolean(//span[@class="nonIcon compareProduct"])
+    singleValue: false
+    xpath: boolean(//div[@class="matrix-heading"])
   - name: unInterruptedPDP
     singleValue: false
-    xpath: //div[@class="name "]
+    xpath: //div[contains(@class,"personalization")]//div[contains(@class,"name")]/a
