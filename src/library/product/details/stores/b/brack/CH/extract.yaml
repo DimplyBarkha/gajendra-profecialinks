@@ -89,7 +89,6 @@ fields:
   singleValue: true
   description: GTIN code (includes UPC/EAN)
   xpath: //th[text()="Herstellernummer"]/following-sibling::td[1]
-  regExp: \d+
 - name: sku
   singleValue: true
   description: The store-specific product identifier
@@ -107,6 +106,7 @@ fields:
   singleValue: true
   description: The number of packs in the product offer (if stated separately on the
     site to quantity)
+  xpath: //th[text()="Verpackungseinheit"]/following-sibling::td[1]
 - name: legalDisclaimer
   singleValue: true
   description: Content under "legal disclaimer" header
@@ -132,7 +132,6 @@ fields:
 - name: shippingInfo
   singleValue: true
   description: Shipping information for the product
-  xpath: //p[@class="productStage__delivery-label"]
 - name: shippingDimensions
   singleValue: true
   description: Stated shipping dimensions
