@@ -39,12 +39,14 @@ const transform = (data) => {
           row.price.forEach(item => {
             item.text = item.text.replace(/\s\n/g, '').trim();
             item.text = item.text.replace('CHF', '').trim();
+            item.text = item.text.replace('.', ',').trim();
           });
         }
         if (row.listPrice) {
           row.listPrice.forEach(item => {
             item.text = item.text.replace(/\s\n/g, '').trim();
             item.text = item.text.replace('statt', '').trim();
+            item.text = item.text.replace('.', ',').trim();
           });
         }
         if (row.name) {

@@ -17,14 +17,11 @@ fields:
     xpath: //div[contains(@class,"list-page spacing-top-10 spacing-bottom-10")]//div[@class="product-item__price--save"]
   - name: thumbnail
     SingleValue: false
-    xpath: //div[contains(@class,"list-page spacing-top-10 spacing-bottom-10")]//div[@class="responsive-image "]//img/@src
+    xpath: //div[contains(@class,"list-page spacing-top-10 spacing-bottom-10")]//div[@class="responsive-image "]//img/@srcset
   - name: name
     SingleValue: false
     xpath: //div[contains(@class,"list-page spacing-top-10 spacing-bottom-10")]//div[@class="product-item__name"]
   - name: manufacturer
-    SingleValue: false
-    xpath: //div[contains(@class,"list-page spacing-top-10 spacing-bottom-10")]//a[contains(@class,"product-item__link product-item__solitary-brand")]
-  - name: soldBy
     SingleValue: false
     xpath: //div[contains(@class,"list-page spacing-top-10 spacing-bottom-10")]//a[contains(@class,"product-item__link product-item__solitary-brand")]
   - name: aggregateRating
