@@ -56,7 +56,7 @@ async function implementation (inputs, parameters, context, dependencies) {
     let j = 0;
 
     priceSelector.forEach(element => {
-      price = element.content
+      price = element.content;
       newprice = price.replace('.', ',');
       addProp('meta[itemprop="price"]', j, 'newprice', newprice);
       j++;
