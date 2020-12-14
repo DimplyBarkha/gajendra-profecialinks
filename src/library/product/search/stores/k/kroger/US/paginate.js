@@ -6,6 +6,7 @@ module.exports = {
     loadedSelector: '.PaginateItems',
     nextLinkSelector: 'button[aria-label="Next page"]:not([disabled])',
     openSearchDefinition: null,
+    noResultsXpath: '//*[contains(.,"Sorry, there are currently no items to display.")]',
     domain: 'kroger.com',
   },
 };
