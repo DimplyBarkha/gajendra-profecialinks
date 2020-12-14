@@ -8,7 +8,6 @@ module.exports = {
     zipcode: "''",
   },
   implementation: async (inputs, parameterValues, context, dependencies) => {
-    
     const url = inputs.url;
 
     await context.goto(url, {
