@@ -43,7 +43,7 @@ module.exports = {
       const purchasability = document.querySelector('.pdp-view__buybox .buybox__price') ? true : false;
       document.body.setAttribute('import-puchasability', purchasability);
       const availability = document.querySelector('.pdp-view__buybox .buybox__price') ? 'In stock' : 'Out of stock';
-      document.body.setAttribute('import-avaiability', availability);
+      document.body.setAttribute('import-availability', availability);
     });
     const { transform } = parameters;
     const { productDetails } = dependencies;
