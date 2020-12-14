@@ -76,14 +76,17 @@ const transform = (data) => {
                 row.descriptionBullets = [{ 'text': row.descriptionBullets.length, 'xpath': row.descriptionBullets[0].xpath }];
             }
             if (row.availabilityText) {
+                console.log(row.availabilityText)
                 row.availabilityText.forEach(item => {
+                    console.log(item.text)
                     if (item.text >= 1) {
                         item.text = "In Stock"
+                        console.log("Sushant="+item.text)
                     }
                     if (item.text == 0) {
                         item.text = "Out of Stock"
+                        console.log("Sushant="+item.text)
                     }
-
                 });
             }
             if (row.brandText) {
