@@ -405,6 +405,7 @@ fields:
 - name: allergyAdvice
   singleValue: true
   description: Allergy information associated with the product
+  xpath: //strong[text()='ALÉRGENOS']/parent::p
 - name: recyclingInformation
   singleValue: true
   description: Recycling information associated with the product
@@ -425,7 +426,6 @@ fields:
   description: The unit of measurement used in price_per_unit
 - name: promotion
   singleValue: true
-  xpath: //img[@title="Ofertas"]/@alt
   description: promotion text on product page
 - name: alcoholContent
   singleValue: true
@@ -501,6 +501,6 @@ fields:
   singleValue: false
   description: If Zoom feature is available for Main image or images in the carousel,['Yes','No']
   example: https://www.zalando.de/adidas-neo-sneaker-low-blackwhite-a4315i002-q11.html
-  xpath: //div[@class='zoomContainer']/div[@class='zoomLens']/@zoom
+  xpath: //div[@class='product-image product-image-zoom']/@zoom
   defaultValue: 'No'
 

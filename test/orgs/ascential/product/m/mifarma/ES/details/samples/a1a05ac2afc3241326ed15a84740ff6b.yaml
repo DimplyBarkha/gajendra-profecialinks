@@ -2,7 +2,7 @@ input:
   _url: http://mifarma.es
   URL: https://www.mifarma.es/sesderma-babyses-agua-de-colonia-250ml
 extractions:
-  - html: https://workbench.import.io/html/run=3c3447bd-fb37-4106-913b-0ab580336476/task=812d7dba-2967-4b0b-93cd-88f907a460df/428e44c5-0cce-4968-85bc-fb1b2c275666.html
+  - html: https://workbench.import.io/html/run=b8ab8356-f9d1-4543-9182-307cd4507d0f/task=b95ef350-17eb-4c96-9b48-b8cffb5eb4bc/9354eafd-9399-4415-a23d-9e715ca8b6cc.html
     extractionConfigId: product/details/stores/m/mifarma/ES/extract
     data:
       - group:
@@ -27,7 +27,7 @@ extractions:
               - text: 9,95 €
                 xpath: /html/body/div[4]/div[1]/div[3]/div[1]/div[1]/div[7]/div[1]/form[1]/div[3]/div[2]/div[1]/div[1]/p[1]/span[2]/text()[1]
             price:
-              - text: 6,24 €
+              - text: 6,50 €
                 xpath: /html/body/div[4]/div[1]/div[3]/div[1]/div[1]/div[7]/div[1]/form[1]/div[3]/div[2]/div[1]/div[1]/p[2]/span[2]/text()[1]
             availabilityText:
               - text: In Stock
@@ -91,14 +91,12 @@ extractions:
                   ESTERS, POTASSIUM SORBATE, PROPYLENE, GLYCOL, TRIETHYL
                   CITRATE.
                 xpath: /html/body/div[4]/div[1]/div[3]/div[1]/div[1]/div[7]/div[2]/div[1]/div[2]/div[2]/p[2]
-            promotion:
-              - text: Ofertas
-                xpath: /html/body/div[4]/div[1]/div[3]/div[1]/div[1]/div[7]/div[1]/form[1]/div[2]/div[1]/div[1]/div[2]/a[1]/img[1]/@alt
+            imageZoomFeaturePresents:
+              - text: Yes
+                xpath: /html/body/div[4]/div[1]/div[3]/div[1]/div[1]/div[7]/div[1]/form[1]/div[2]/div[5]/@zoom
             variantCount:
               - text: "0"
             Image360Present:
               - text: No
-            imageZoomFeaturePresents:
-              - text: No
         xpath: /
-    timestamp: 1607697241651
+    timestamp: 1607945180653

@@ -2,7 +2,7 @@ input:
   _url: http://mifarma.es
   URL: https://www.mifarma.es/optrex-spray-actimist-2-en-1-ojos-secos
 extractions:
-  - html: https://workbench.import.io/html/run=3c3447bd-fb37-4106-913b-0ab580336476/task=252138b7-f365-48fd-8649-70d068a3be6d/63217af3-83ea-4b06-a9b1-fabd6e1794e6.html
+  - html: https://workbench.import.io/html/run=b8ab8356-f9d1-4543-9182-307cd4507d0f/task=4057d246-7f6d-40db-9bb9-80a0bc985f49/b854397d-9798-4a83-9234-975917f3ca94.html
     extractionConfigId: product/details/stores/m/mifarma/ES/extract
     data:
       - group:
@@ -105,14 +105,12 @@ extractions:
               - text: 10mg Soy Lecithin, 8mg Sodium Chloride, 8mg Ethanol, 5mg Phenoxyethanol,
                   0.25 mg Vitamin A Palmitate, 0.02mg Vitamin E, Purified Water.
                 xpath: /html/body/div[4]/div[1]/div[3]/div[1]/div[1]/div[7]/div[2]/div[1]/div[2]/div[2]/p[2]
-            promotion:
-              - text: Ofertas
-                xpath: /html/body/div[4]/div[1]/div[3]/div[1]/div[1]/div[7]/div[1]/form[1]/div[2]/div[1]/div[1]/div[2]/a[1]/img[1]/@alt
+            imageZoomFeaturePresents:
+              - text: Yes
+                xpath: /html/body/div[4]/div[1]/div[3]/div[1]/div[1]/div[7]/div[1]/form[1]/div[2]/div[5]/@zoom
             variantCount:
               - text: "0"
             Image360Present:
               - text: No
-            imageZoomFeaturePresents:
-              - text: No
         xpath: /
-    timestamp: 1607697243483
+    timestamp: 1607945183331

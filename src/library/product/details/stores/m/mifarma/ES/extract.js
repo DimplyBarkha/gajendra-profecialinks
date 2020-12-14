@@ -26,7 +26,7 @@ module.exports = {
       }
     });
     await context.evaluate(() => {
-      const zoom = document.querySelector('.zoomLens');
+      const zoom = document.querySelector('.product-image.product-image-zoom');
 
       if (zoom) {
         zoom.setAttribute('zoom', 'Yes');

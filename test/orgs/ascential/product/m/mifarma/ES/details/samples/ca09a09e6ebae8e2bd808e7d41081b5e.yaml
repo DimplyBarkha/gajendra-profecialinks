@@ -2,7 +2,7 @@ input:
   _url: http://mifarma.es
   URL: https://www.mifarma.es/nidina-1-premium-800-gramos-0m
 extractions:
-  - html: https://workbench.import.io/html/run=3c3447bd-fb37-4106-913b-0ab580336476/task=e87a8ff9-257e-493a-8392-50544d37359c/36e42ca6-bde5-4bab-bd07-cc8eba42e8b5.html
+  - html: https://workbench.import.io/html/run=b8ab8356-f9d1-4543-9182-307cd4507d0f/task=93495aa4-1f2e-4439-9c93-8adc69797401/0ca5830b-f195-4eb8-9977-630195433a41.html
     extractionConfigId: product/details/stores/m/mifarma/ES/extract
     data:
       - group:
@@ -120,11 +120,12 @@ extractions:
                   mg L-carnitina: 1,1/1,0 mg Taurina: 4/5,1 mg Nucleótidos:
                   1,9/2 mg"
                 xpath: /html/body/div[4]/div[1]/div[3]/div[1]/div[1]/div[7]/div[2]/div[1]/div[2]/div[2]/p[2]
+            imageZoomFeaturePresents:
+              - text: Yes
+                xpath: /html/body/div[4]/div[1]/div[3]/div[1]/div[1]/div[7]/div[1]/form[1]/div[2]/div[5]/@zoom
             variantCount:
               - text: "0"
             Image360Present:
               - text: No
-            imageZoomFeaturePresents:
-              - text: No
         xpath: /
-    timestamp: 1607697244918
+    timestamp: 1607945185237
