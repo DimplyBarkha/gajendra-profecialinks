@@ -26,6 +26,11 @@ async function implementation (
     if (directionsTab) {
       directionsTab.click();
     }
+    const mpc = document.evaluate('//script[@type="application/ld+json"][contains(.,"mpn")]', document).iterateNext();
+    if (mpc) {
+      let mpn = mpc.textContent.split('"mpn": "')[1].split('",')[0];
+      document.querySelector('h1[itemprop="name"]').setAttribute('mpc', mpn);
+    }
   });
   return await context.extract(productDetails, { transform });
 }

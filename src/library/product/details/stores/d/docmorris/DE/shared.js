@@ -48,6 +48,14 @@ const transform = (data) => {
         row.ingredientsList = [{ text }];
       }
 
+      if (row.materials) {
+        let text = '';
+        row.materials.forEach(item => {
+          text = text + (text ? ' ' : '') + item.text;
+        });
+        row.materials = [{ text }];
+      }
+
       if (row.warnings) {
         let text = '';
         row.warnings.forEach(item => {

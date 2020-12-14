@@ -39,6 +39,7 @@ fields:
     xpath: (//table[@class="product-detail-table"]//td[contains(.,"PZN")]/following-sibling::td[1])[1]
   - name: variantId
   - name: mpc
+    xpath: //h1[@itemprop="name"]/@mpc
   - name: packSize
     xpath: (//table[@class="product-detail-table"]//td[contains(.,"Packungsgröße")]/following-sibling::td[1])[1]
   - name: legalDisclaimer
@@ -108,6 +109,7 @@ fields:
   - name: customerServiceAvailability
     defaultValue: No
   - name: materials
+    xpath: //h2[contains(.,"Hilfsstoffe")] | //h2[contains(.,"Hilfsstoffe")]/following-sibling::p[1]
   - name: Image360Present
     defaultValue: No
   - name: imageZoomFeaturePresent
