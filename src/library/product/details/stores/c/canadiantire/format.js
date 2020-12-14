@@ -32,7 +32,7 @@ const transform = (data) => {
                 if (info.length) {
                     row.category = [];
                     info.forEach(item => {
-                        row.category.push({ "text": item });
+                        row.category.push({ 'text': item });
                     });
                 }
             }
@@ -49,7 +49,7 @@ const transform = (data) => {
                 });
             }
             if (row.variantCount) {
-                var tot = 0;
+                let tot = 0;
                 row.variantCount.forEach(item => {
                     tot++;
                 });
@@ -59,62 +59,57 @@ const transform = (data) => {
                 row.variantCount = [{ 'text': tot }];
             }
             if (row.variantInformation) {
-                var arr_info = [];
+                let arr_info = [];
                 row.variantInformation.forEach(item => {
                     arr_info.push(item.text)
                 });
-                row.variantInformation = [{ text: arr_info.join(' | ') }];
+                row.variantInformation = [{ 'text': arr_info.join(' | ') }];
             }
             if (row.variants) {
-                var arr_info = [];
+                let arr_info = [];
                 row.variants.forEach(item => {
                     arr_info.push(item.text)
                 });
-                row.variants = [{ text: arr_info.join(' | ') }];
+                row.variants = [{ 'text': arr_info.join(' | ') }];
             }
             if (row.descriptionBullets) {
                 row.descriptionBullets = [{ 'text': row.descriptionBullets.length, 'xpath': row.descriptionBullets[0].xpath }];
             }
             if (row.availabilityText) {
-                console.log(row.availabilityText)
                 row.availabilityText.forEach(item => {
-                    console.log(item.text)
                     if (item.text >= 1) {
                         item.text = "In Stock"
-                        console.log("Sushant="+item.text)
                     }
                     if (item.text == 0) {
                         item.text = "Out of Stock"
-                        console.log("Sushant="+item.text)
                     }
                 });
             }
             if (row.brandText) {
                 let prodBrand;
                 let brandInfo = [];
+                let brandObj;
                 row.brandText.forEach(item => {
                     if (item.text.length > 30) {
-                        let brandObj = JSON.parse(item.text)
-                        {
+                            brandObj = JSON.parse(item.text);
                             prodBrand = brandObj.brand;
                             brandInfo.push(prodBrand);
-                        }
                     }
                     else {
                         brandInfo.push(item.text);
                     }
                 });
-                row.brandText = [{ text: brandInfo[0] }];
+                row.brandText = [{ 'text': brandInfo[0] }];
             }
             if (row.variantId) {
-                var prodCode3;
+                let prodCode3;
                 let codeInfo = [];
                 row.variantId.forEach(item => {
                     let codeObj = JSON.parse(item.text)
                     prodCode3 = codeObj.pCode;
                     codeInfo.push(prodCode3);
                 });
-                row.variantId = [{ text: codeInfo }];
+                row.variantId = [{ 'text': codeInfo }];
             }
             if (row.description) {
                 let info = [];
@@ -148,12 +143,12 @@ const transform = (data) => {
                 });
             }
             if (row.alternateImages) {
-                let info=[];
-                row.alternateImages.forEach(item => {
+                    let info=[];
+                    row.alternateImages.forEach(item => {
                     info.push(item.text);
                 });
                 info.shift();
-                row.alternateImages = [{ text: info.join(' | ') }];
+                row.alternateImages = [{ 'text': info.join(' | ') }];
             }
             if (row.secondaryImageTotal) {
                 let info=[];
@@ -168,14 +163,14 @@ const transform = (data) => {
                 row.weightNet.forEach(item => {
                     info.push(item.text);
                 });
-                row.weightNet = [{ text: info.join(' | ') }];
+                row.weightNet = [{ 'text': info.join(' | ') }];
             }
             if (row.weightGross) {
                 let info=[];
                 row.weightGross.forEach(item => {
                     info.push(item.text);
                 });
-                row.weightGross = [{ text: info.join(' | ') }];
+                row.weightGross = [{ 'text': info.join(' | ') }];
             }
             if (row.imageAlt) {
                 let indx1;
@@ -208,14 +203,14 @@ const transform = (data) => {
                     item.text = item.text.substring(indx1+1).replace(' ','')
                     info.push(item.text);
                 });
-                row.ingredientsList = [{ text: info.join(' , ') }];
+                row.ingredientsList = [{ 'text': info.join(' , ') }];
             }
             if (row.materials) {
                 let info=[];
                 row.materials.forEach(item => {
                     info.push(item.text);
                 });
-                row.materials = [{ text: info.join(' | ') }];
+                row.materials = [{ 'text': info.join(' | ') }];
             }
         }
     }

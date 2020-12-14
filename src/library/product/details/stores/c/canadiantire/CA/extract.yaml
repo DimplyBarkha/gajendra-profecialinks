@@ -5,7 +5,7 @@ recordXPath: null
 fields:
   - name: image
     singleValue: false
-    xpath: //div[contains(@class,"s7staticimage")]//img[position()=1]/@src
+    xpath: //div[contains(@class,"s7staticimage")]/img[position()=1]/@src
   - name: imageAlt
     singleValue: false
     xpath: //noscript[contains(.,'fallback-image')]//text()
@@ -36,9 +36,9 @@ fields:
   - name: name
     singleValue: false
     xpath: //div[@class="pdp-header__main"]/h1
-  - name: nameExtended 
+  - name: nameExtended
     singleValue: false
-    xpath: //meta[@name="description"]/@content   
+    xpath: //meta[@name="description"]/@content
   - name: specifications
     singleValue: false
     xpath: //div[contains(@class,"pdp-details-wrapper pdp-details-wrapper--open")]//ul[@class="pdp-details-specifications__items clearfix"]/li
@@ -54,11 +54,11 @@ fields:
   - name: imageZoomFeaturePresent
     singleValue: false
     defaultValue: Yes
-  - name: technicalInformationPdfPresent 
-    singleValue: false 
+  - name: technicalInformationPdfPresent
+    singleValue: false
     xpath: //div[contains(@class,"pdp-info-component__additional-info pdp-info-component__col")]//a/@href
-  - name: availabilityText 
-    singleValue: false 
+  - name: availabilityText
+    singleValue: false
     xpath: //dd[contains(@class,"stock-status__info")]/@data-prodinstock
     defaultValue: 'Out of Stock'
   - name: promotion
@@ -86,7 +86,7 @@ fields:
     singleValue: false
     xpath: //div[contains(@class,"sku-selectors__select")]//select/option[position()>1]/@value
     defaultValue: '0'
-  - name: shippingWeight 
+  - name: shippingWeight
     singleValue: false
     xpath: //div[contains(@class,"pdp-details-wrapper pdp-details-wrapper--open")]//ul[@class="pdp-details-specifications__items clearfix"]/li[contains(.,'Package Weight (kg)')]/text()[3]/following-sibling::*/text()
   - name: materials
