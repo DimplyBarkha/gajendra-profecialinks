@@ -15,7 +15,7 @@ async function implementation (
   const { preExtraction, transform, mergeType } = parameters;
   let filterReviews = parameters.filterReviews;
   const { productReviews } = dependencies;
-  preExtraction && await preExtraction();
+  preExtraction && await preExtraction(context);
   // Adding current page url
   await context.evaluate(async function () {
     function addElementToDocument (key, value) {
