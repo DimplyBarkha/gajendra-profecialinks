@@ -177,4 +177,7 @@ fields:
   - name: materials
     singleValue:  false
     xpath: //p[contains(text(),"Материал корпуса")]/following-sibling::p[contains(@class,"product__spec__text")]
+  - name: unInterruptedPDP
+    singleValue:  false
+    xpath: //div[contains(@class,'recommendation')]//div[@class="card-carousel__title"] |//div[contains(@class,'recommendation')]//div[@class="card__title"] |//div[contains(@class,'recommendation')]//div[@class="card-link__title"]
   
