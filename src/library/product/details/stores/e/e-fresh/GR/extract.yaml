@@ -263,7 +263,7 @@ fields:
     singleValue: true
     description: Unit of measure of serving
     xpath: //thead//th[@class='title text-center'][1]
-    regExp: ([^\d\s\,\.]+$)
+    regExp: g|mg|dg|kg|l|ml
   - name: numberOfServingsInPackage
     singleValue: true
     description: Suggested number of servings of the product.
@@ -293,14 +293,13 @@ fields:
     singleValue: true
     description: Nutritional Information for Saturated Fat content - Usually based
       on per 100g serving
-    xpath: (//span[contains(text(),'Κορεσμένα')])[1]
+    xpath: //td[contains(text(),'ορεσμένα')]/following-sibling::td
     regExp: \d+\,?\.?(\d+)
-  # - name: saturatedFatPerServingUom
-  #   singleValue: true
-  #   description: Unit of Measure Data for Saturated Fat content
-  #   xpath: (//td[contains(text(),'κορεσμένα')]//following-sibling::td/span)[1]
-  #   regExp: Κορεσμένα\s?\d+\,?\.?(\d+)\s?(\w{1,4})
-  #   regExpReplace: $2
+  - name: saturatedFatPerServingUom
+    singleValue: true
+    description: Unit of Measure Data for Saturated Fat content
+    xpath: (//td[contains(text(),'κορεσμένα')]//following-sibling::td/span)[1]
+    regExp: g|mg|dg|kg|l|ml
   - name: transFatPerServing
     singleValue: true
     description: Nutritional Information for Trans Fat content - Usually based on

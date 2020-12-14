@@ -2,7 +2,7 @@ input:
   id: 4100000066
   _url: http://e-fresh.gr
 extractions:
-  - html: https://workbench.import.io/html/run=09ae8340-1ca5-4cc9-b867-8b9659186bc9/task=0ee1881f-bcc6-42d7-9412-da257c63ebbc/5a5142ac-5418-47df-9cd2-35cddc8fb57c.html
+  - html: https://workbench.import.io/html/run=4a5d8f2e-36b8-4880-9e0f-57a8f42087cd/task=0aebe67a-7057-4cd7-be3b-1abc9718f52e/e16fe78a-6a6f-4407-844f-6d6885a7747b.html
     extractionConfigId: product/details/stores/e/e-fresh/GR/extract
     data:
       - group:
@@ -25,7 +25,7 @@ extractions:
               - text: Pick Batonettes Παπαδοπούλου (100 g)
                 xpath: /html/body/div[3]/div[5]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/h2[1]
             price:
-              - text: 0,87 €
+              - text: 0.87 €
                 xpath: /html/body/div[11]
             availabilityText:
               - text: In Stock
@@ -69,6 +69,9 @@ extractions:
                 xpath: /html/body/div[3]/div[5]/div[1]/div[1]/div[1]/div[1]/div[2]/div[3]/div[2]/div[1]/div[1]/table[1]/tbody[1]/tr[2]/td[2]/span[1]
             saturatedFatPerServing:
               - text: 3,5
+                xpath: /html/body/div[3]/div[5]/div[1]/div[1]/div[1]/div[1]/div[2]/div[3]/div[2]/div[1]/div[1]/table[1]/tbody[1]/tr[3]/td[2]
+            saturatedFatPerServingUom:
+              - text: g
                 xpath: /html/body/div[3]/div[5]/div[1]/div[1]/div[1]/div[1]/div[2]/div[3]/div[2]/div[1]/div[1]/table[1]/tbody[1]/tr[3]/td[2]/span[1]
             totalCarbPerServing:
               - text: 67,5
@@ -120,4 +123,4 @@ extractions:
                 locale: el
                 value: 0
         xpath: /
-    timestamp: 1607615246696
+    timestamp: 1607944833236

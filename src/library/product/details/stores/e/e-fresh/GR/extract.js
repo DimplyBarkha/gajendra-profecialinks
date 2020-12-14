@@ -33,7 +33,7 @@ module.exports = {
       const gtin = JSONObject ? JSONObject.mpn : '';
       addElementToDocument('gtin', gtin);
       const aggregateRating = JSONObject && JSONObject.aggregateRating ? JSONObject.aggregateRating.ratingValue : '';
-      addElementToDocument('aggregateRating', aggregateRating.replace('.', ','));
+      addElementToDocument('aggregateRating', aggregateRating);
       const ratingCount = JSONObject && JSONObject.aggregateRating ? JSONObject.aggregateRating.ratingCount : '';
       addElementToDocument('ratingCount', ratingCount);
       const allergyArr = [];
@@ -42,9 +42,9 @@ module.exports = {
         allergyArr.push(element.textContent);
       });
       addElementToDocument('allergens', allergyArr.join(', '));
-      const oldPrice = document.querySelector('div.product-wrap div[class="old_price"]') ? document.querySelector('div.product-wrap div[class="old_price"]').textContent.replace(/\./g, ',').trim() : '';
+      const oldPrice = document.querySelector('div.product-wrap div[class="old_price"]') ? document.querySelector('div.product-wrap div[class="old_price"]').textContent.replace(',', '.').trim() : '';
       addElementToDocument('oldPrice', oldPrice);
-      const price = document.querySelector('div.product-wrap div[class="price"]') ? document.querySelector('div.product-wrap div[class="price"]').textContent.replace(/\./g, ',').trim() : '';
+      const price = document.querySelector('div.product-wrap div[class="price"]') ? document.querySelector('div.product-wrap div[class="price"]').textContent.replace(',', '.').trim() : '';
       addElementToDocument('addedPrice', price);
       const zoomIn = document.querySelector('div.img.zoom') ? 'Yes' : 'No';
       addElementToDocument('zoomIn', zoomIn);
