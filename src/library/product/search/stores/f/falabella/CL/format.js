@@ -33,6 +33,22 @@ const transform = (data) => {
                 }
             })
         }
+        if(row.price) {
+          row.price.forEach(item=>{
+            var str = item.text;
+            str = str.split(".");
+            if(str.length > 2) {
+              str = str.join(".");
+              str = str.replace(".","");
+              str = str.split(".");
+              str = str.join(",");
+            }
+            else {
+              str = str.join(",");
+            }
+            item.text = str;
+          })
+        }
         row.rank = [{ "text": rank }];
         row.rankOrganic = [{ "text": rank }];
         rank++;
