@@ -48,9 +48,9 @@ fields:
   - name: brandLink
     singleValue: false
     xpath: //h2[@class='brand-name']//a/@href
-  - name: manufacturer
-    singleValue: false
-    xpath: //h2[@class='brand-name']//a
+  # - name: manufacturer
+  #   singleValue: false
+  #   xpath: //h2[@class='brand-name']//a
   - name: mpc
     singleValue: false
     xpath: //tr//th//div[@data-property='manufacturerSKU']/ancestor::tr//td
@@ -65,7 +65,13 @@ fields:
     xpath: //div[@id='maincontent']//script[@type='application/ld+json' and contains(text(),'sku')]
     #"sku":"10574502055-1"
     regExp: \"sku\"\s*:\s*\"(.+?)\"
-    regExpReplace: $1
+    regExpReplace: $1  
+  - name: variantInformation
+    singleValue: false
+    xpath: //div[@class='main-detail-block']//select[@class='custom-select form-control select-size']//option[@selected]/@data-attr-value
+  # - name: firstVariant
+  #   singleValue: false
+  #   xpath: //div[@class='main-detail-block']//select[@class='custom-select form-control select-size']//option[@selected]/@data-attr-value
   - name: variantCount
     singleValue: false
     # COUNT it
