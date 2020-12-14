@@ -4,7 +4,7 @@ recordSelector: null
 recordXPath: //main[@id="main-content"]
 fields:
   - name: aggregateRatingText
-    xpath: //section[@review-total]/@review-total
+    xpath: //*[@review-total]/@review-total
   - name: image
     singleValue: true
     xpath: //figure[@data-fancybox-href]/@data-fancybox-href
@@ -27,11 +27,11 @@ fields:
   - name: price
     xpath: //section[@class="product-view-essential"]//span[@itemprop="price"]/@content
   - name: availabilityText
-    xpath: //form[@id="product_addtocart_form"]//button[contains(@class,'btn-cart')]
+    xpath: //form[@id="product_addtocart_form"]//div[@class="add-to-cart-buttons"]
   - name: description
     xpath: //div[@class="description-container"]/div[@class="std"]
   - name: descriptionBullets
-    xpath: count(//div[@class="description-container"]/div[@class="std"]//ul[1]/li)
+    xpath: count(//div[@class="description-container"]/div[@class="std"]//ul/li | //div[@class="std"]//div[starts-with(text(), '-')])
   - name: brandText
     xpath: //h2[@class="manufacturers"]/a[@title]
   - name: manufacturer
@@ -51,9 +51,9 @@ fields:
   - name: warnings
     xpath: //*[contains(text(), 'Attention')] | //*[contains(text(), 'Attention')]/following::ul[1]
   - name: ratingCount
-    xpath: //div[@itemprop="ratingValue"]
+    xpath: //*[@review-average]/@review-average
   - name: aggregateRating
-    xpath: //section[@review-average]/@review-average
+    xpath: //*[@review-total]/@review-total
   - name: shippingInfo
   - name: shippingDimensions
   - name: shippingWeight
@@ -98,7 +98,7 @@ fields:
   - name: addonItem
   - name: fastTrack
   - name: ingredientsList
-    xpath: //h2[contains(text(), 'Composition')]/following::text()[1] | //h2[contains(text(), 'Composition')]/p[1] 
+    xpath: //h2[contains(text(), 'Composition')]/following::text()[1] | //h2[contains(text(), 'Composition')]/p[1] | //h2[contains(text(), 'Composition')]/following::*[1] 
   - name: servingSize
   - name: servingSizeUom
   - name: numberOfServingsInPackage
@@ -223,3 +223,5 @@ fields:
     defaultValue: No
   - name: imageZoomFeaturePresent
     defaultValue: No
+  - name: subCategory
+    xpath: //nav[@id="breadcrumbs"]/@data-breadcrumbs

@@ -56,7 +56,7 @@ module.exports = {
       console.log(`Resultant --> ${json}`);
       if (response.status !== 404) {
         var json = await response.json();
-        console.log(`Resultant --> ${json}`);
+        console.log(`Resultant --> ${JSON.stringify(json)}`);
         document.querySelector('section.product-view-essential').setAttribute('review-total', json.reviewSummary.numReviews);
         document.querySelector('section.product-view-essential').setAttribute('review-average', json.reviewSummary.primaryRating.average);
       } else {
