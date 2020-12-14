@@ -21,9 +21,9 @@
         el.text = clean(el.text);
     }))));
 
-    const urlquery = data[0].url.split('/')
-    const sku = urlquery[urlquery-1].replace(/[^\d-]/g, '');
-    data[0].group[0].sku = [ { text: 'leclercdrive_' + sku }];
+    // const urlquery = data[0].url.split('/')
+    // const sku = urlquery[urlquery-1].replace(/[^\d-]/g, '');
+    // data[0].group[0].sku = [ { text: 'leclercdrive_' + sku }];
     for (const { group}  of data) {
         for (const row of group) {
 
