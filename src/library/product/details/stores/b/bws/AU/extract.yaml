@@ -8,7 +8,7 @@ fields:
     xpath: //div[@class="detail-item"]//div[@itemprop="name"]
   - name: nameExtended
     singleValue: false 
-    xpath: //div[@class="detail-item"]//div[@itemprop="name"]
+    xpath: //div[@class="detail-item"]//h1[contains(@class,"detail-item_brand header--color-secondary")]
   - name: image
     singleValue: false
     xpath: //div[contains(@class,"bws-product-image-lazy-transition-wrapper ng-scope")]//img[@class="product-image"]/@src
@@ -17,16 +17,14 @@ fields:
     xpath: //div[contains(@class,"bws-product-image-lazy-transition-wrapper ng-scope")]//img[@class="product-image"]/@alt
   - name: alternateImages
     singleValue: false
-    xpath: //div[contains(@class,"bws-product-image-lazy-transition-wrapper ng-scope")]//img[@class="product-image"]/@src
+    xpath: //div[not(contains(position(),1))]/img-product/div/img/@src
   - name: category
     singleValue: false
-    xpath:  //div[contains(@class,"col-md-12 text-left")]//li//strong[text()="Varietal"]/parent::*/span
   - name: brandText
     singleValue: false  
     xpath: //div[@class="detail-item"]//span[@itemprop="brand"]//span
   - name: manufacturer
     singleValue: false  
-    xpath: //div[@class="detail-item"]//span[@itemprop="brand"]//span
   - name: price
     singleValue: false
     xpath: //div[contains(@class,"clearfix product-detail_controls-wrapper")]//div[contains(@class,"product-detail_controls-col ng-scope")]//h1[contains(@class,"product-details_controls_title ng-binding")]
@@ -35,19 +33,27 @@ fields:
     xpath: //div[contains(@class,"col-md-8 col-md-offset-2")]//p[@itemprop="description"]
   - name: specifications
     singleValue: false
-    xpath: //div[contains(@class,"col-md-12 text-left")]//ul
+    xpath: //div[contains(@class,"col-md-12 text-left")]//ul//li
   - name: descriptionBullets
     singleValue: false    
-    xpath: //div[contains(@class,"col-md-12 text-left")]//ul
   - name: availabilityText
     singleValue: false
-    defaultValue: 'In Stock'
+    xpath: //div[@class="product-detail_btn-group"]//div[contains(@class,'full-width text-center ng-scope')]//span[@class="text_lable"]//span[@class="sr-only"]
   - name: sku
     singleValue: false
     xpath: //div[contains(@class,"col-md-12 text-left")]//li//strong[text()="Product Number"]/parent::*/span
   - name: variantId
     singleValue: false
-    xpath: //div[contains(@class,"col-md-12 text-left")]//li//strong[text()="Product Number"]/parent::*/span
+    xpath: //div[contains(@class,"col-md-12 text-left")]//li//strong[text()="Product Number"]/parent::*/span 
+  - name: quantity
+    singleValue: false
+    xpath: //div[contains(@class,"col-md-12 text-left")]//li//strong[text()="Liquor Size"]/parent::*/span 
+  - name: countryOfOrigin
+    singleValue: false
+    xpath: //div[contains(@class,"col-md-12 text-left")]//li//strong[text()="Country Of Origin"]/parent::*/span 
+  - name: alcoholContent
+    singleValue: false
+    xpath: //div[contains(@class,"col-md-12 text-left")]//li//strong[text()="Alcohol %"]/parent::*/span 
   - name: variantCount
     singleValue: false
     defaultValue: '0'
@@ -57,3 +63,9 @@ fields:
   - name: aggregateRating
     singleValue: false 
     xpath: //div[contains(@class,"review-overview-rating ng-pristine")]//span[@class="sr-only"]//span[@class="ng-binding"]
+  - name: termsAndConditions
+    singleValue: false
+    defaultValue: 'yes'
+  - name: privacyPolicy
+    singleValue: false
+    defaultValue: 'yes'

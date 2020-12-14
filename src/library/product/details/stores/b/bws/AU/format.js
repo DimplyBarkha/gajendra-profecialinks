@@ -37,9 +37,6 @@ const transform = (data) => {
         if (row.description) {
             let description_ar = [];
             row.description.forEach(item => {
-              item.text = item.text.replace("#", '||').trim();
-              item.text = item.text.replace(", ", '||').trim();
-              item.text = item.text.replace(". ", '||').trim();
               description_ar.push(item.text);
             });
             if (description_ar.length) {
@@ -47,36 +44,18 @@ const transform = (data) => {
             }
         }
         if (row.specifications) {
-            var specificationArr = [];
-            row.specifications.forEach(item => {
-              item.text = item.text.replace(/\n\s\n/, ' || ');
-              specificationArr.push(item.text);
-            });
-            if (specificationArr.length) {
-              row.specifications = [{ "text": specificationArr.join(" || ") }];
-            } else {
-              delete row.specifications;
-            }
-        }
-        if (row.descriptionBullets) {
-          row.descriptionBullets = [{'text':row.descriptionBullets.length, 'xpath':row.descriptionBullets[0].xpath}];              
+          let spec_ar = [];
+          row.specifications.forEach(item => {
+            spec_ar.push(item.text);
+          });
+          if (spec_ar.length) {
+            row.specifications = [{ "text": spec_ar.join(" || "), 'xpath': row.specifications[0].xpath }];
+          }
         }
         if (row.price) {
             row.price.forEach(item => {
               item.text = item.text.replace(/\B(?=(\d{2})+(?!\d))/g, ".").trim();
             });
-        }
-        if (row.category) {
-          let info = [];
-          row.category.forEach(item => {
-            info.push(item.text.trim());
-          });
-          if (info.length) {
-            row.category = [];
-            info.forEach(item => {
-              row.category.push({ "text": item});
-            });
-          }
         }
       }
     }
