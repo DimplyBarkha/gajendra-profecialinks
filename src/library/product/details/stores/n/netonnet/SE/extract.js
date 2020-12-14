@@ -20,6 +20,11 @@ module.exports = {
       if (overlay && overlay !== undefined) {
         overlay.click();
       }
+
+      const inTheBox = document.getElementById('headingFour');
+      if (inTheBox !== undefined) {
+        inTheBox.click();
+      }
     });
 
     try {
@@ -53,5 +58,5 @@ module.exports = {
     const { productDetails } = dependencies;
     await context.extract(productDetails, { transform });
   }
-  
+
 };

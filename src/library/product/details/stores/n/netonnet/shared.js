@@ -32,7 +32,7 @@ const transform = (data) => {
 			}
 
 			if (row.price) {
-				/* 
+				/*
 				let newText = "";
 				row.price.forEach(item => {
 					newText = item.text.trim().replace(":-", "");
@@ -69,12 +69,12 @@ const transform = (data) => {
 				}
 
 				/* row.aggregateRating.forEach(item => {
-					
+
 					var received_per = item.value*100;
 					if(received_per >= 1){
 						// var aggregate_rating = ( received_per * 5 )/100;
-						//newText = aggregate_rating; 
-						var aggregate_rating = ( received_per * 5 )/100;    
+						//newText = aggregate_rating;
+						var aggregate_rating = ( received_per * 5 )/100;
 						var newaggregate_rating = aggregate_rating.toString().replace(".", ",");
 						newText = newaggregate_rating;
 					}
@@ -183,6 +183,13 @@ const transform = (data) => {
 					}
 				}
 			}
+
+			if (row.inTheBoxUrl) {
+				row.inTheBoxUrl.forEach(item => {
+				  item.text = 'https://www.netonnet.se'+ item.text
+				});
+			}
+
 		}
 	}
 
