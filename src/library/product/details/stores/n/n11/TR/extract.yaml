@@ -9,10 +9,22 @@ fields:
   - name: image
     singleValue: true
     xpath: //div[@class='imgObj']/a[@class='zoom']/@href
+  - name: image
+    singleValue: true
+    xpath: //figure[@class='proImgHolder']/div/div/div/a/img/@src
+  - name: image
+    singleValue: true
+    xpath: //figure[@class='proImgHolder']/div/div/div/img/@src
 
   - name: imageAlt
     singleValue: true
     xpath: //div[@class='imgObj']/a/img[@class='unf-p-img']/@alt
+  - name: imageAlt
+    singleValue: true
+    xpath: //figure[@class='proImgHolder']/div/div/div/a/img/@alt
+  - name: imageAlt
+    singleValue: true
+    xpath: //figure[@class='proImgHolder']/div/div/div/img/@alt
 
   - name: alternativeImages
     singleValue: false

@@ -13,22 +13,22 @@ const transform = (data) => {
       try {
         gr['_url'] = gr.url;
         gr['_input'] = gr.input;
-        if (gr && gr.category.length) gr.category.shift();
-        if (gr && gr.brandText.length) {
+        if (gr && gr.category && gr.category.length) gr.category.shift();
+        if (gr && gr.brandText && gr.brandText.length) {
           const info = JSON.parse(gr.brandText.find(e => e.text.includes('brand')).text);
           if (info) gr.brandText = [{ text: info.brand }];
           if (info) gr.name = [{ text: info.description }];
         }
-        if (gr && gr.aggregateRating.length) gr.aggregateRating[0].text = onlyNumbersAndDot(gr.aggregateRating[0].text);
-        if (gr && gr.variantCount.length) gr.variantCount = [{ text: gr.variantCount.length }];
-        if (gr && gr.secondaryImageTotal.length) gr.secondaryImageTotal = [{ text: gr.secondaryImageTotal.length - 1 }];
+        if (gr && gr.aggregateRating && gr.aggregateRating.length) gr.aggregateRating[0].text = onlyNumbersAndDot(gr.aggregateRating[0].text);
+        if (gr && gr.variantCount && gr.variantCount.length) gr.variantCount = [{ text: gr.variantCount.length }];
+        if (gr && gr.secondaryImageTotal && gr.secondaryImageTotal.length) gr.secondaryImageTotal = [{ text: gr.secondaryImageTotal.length - 1 }];
         try {
-          if (gr && gr.specifications) {
+          if (gr && gr.specifications && gr.specifications.length) {
             gr.specifications.forEach(el => {
               el.text = el.text.replace(/\s+/g, ' ').trim();
             });
           };
-          if (gr && gr.aggregateRatingText) {
+          if (gr && gr.aggregateRatingText && gr.aggregateRatingText.length) {
             const numbers = gr.aggregateRatingText.map(e => +onlyNumbersAndDot(e.text));
             gr.aggregateRatingText = [{ text: numbers.reduce((a, b) => a + b, 0) }];
           }
