@@ -16,11 +16,11 @@ fields:
   - name: thumbnail
     description: The URL for the product thumbnail image
     xpath: //picture//img/@srcset
-    regExp: ^[^?]+
+    regExp: ^((http|https)://www.sephora.com)?([^?]+)
+    regExpReplace: https://www.sephora.com$3
   - name: name
-    description: ./aria-label
     # xpath: //span[contains(@data-at, "sku_item_name")]|//div[@id="ii_name"]
-    xpath: //div[@id="ii_title"]
+    xpath: ./@aria-label
   - name: reviewCount
     description: The number of reviews
     xpath: //*[@data-comp="ReviewCount "]

@@ -1,6 +1,4 @@
-// const { transform } = require('../../../../shared');
-const { transform } = require('./format');
-
+const { transform } = require('../../../../shared');
 module.exports = {
   implements: 'product/search/extract',
   parameterValues: {
