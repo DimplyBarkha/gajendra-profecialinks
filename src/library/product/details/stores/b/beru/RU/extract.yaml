@@ -48,7 +48,7 @@ fields:
       clicks add to basket this is the price they would be charged
   - name: availabilityText
     singleValue: false
-    xpath: (//div[@data-zone-name="skuAvailability"]//span|//div[contains(@class, "tabulator-row")]//div[@tabulator-field="availabilityText"]//div[1]|//meta[@itemprop="availability"]/@content)[1]
+    xpath: (//div[contains(@class, "tabulator-row")]//div[@tabulator-field="availabilityText"]//div[1]|//meta[@itemprop="availability"]/@content)[1]
     description: Availability as described on page for the selected variant. If
       there is no availability but the product can be added to cart, this field
       should be "In Stock"
@@ -117,7 +117,7 @@ fields:
     xpath: //meta[@itemprop="ratingValue"]/@content
   - name: reviewCount
     singleValue: false
-    xpath: (//div[@class='b_f2PBZg5jPe']/span)[1] | //meta[@itemprop="reviewCount"]/@content
+    xpath: //span[@class='b_2Wc288IN4J']
     regExp: (\d+)
     regExpReplace: $1
   - name: ratingCount
