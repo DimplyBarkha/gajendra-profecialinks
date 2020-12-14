@@ -25,10 +25,11 @@ fields:
   description: Other product images (not in manufacturer description)
 - name: metaKeywords
   singleValue: true
+  xpath: //meta[@name="keywords"]/@content
   description: The <meta> keywords content
 - name: category
   singleValue: false
-  xpath: //section[@class="wrapper___2WIo4"]//a
+  xpath: //section[@class="wrapper___2WIo4"]//li[@class="crumb___gkCdp"]/a
   description: The categories (e.g. from breadcrumbs)
 - name: nameExtended
   singleValue: true
@@ -37,7 +38,6 @@ fields:
     and appending " - ${variantType}" if necessary (fixed per feed)
 - name: listPrice
   singleValue: true
-  xpath: //span[@data-test="product-pod-price"]/span
   description: The stated undiscounted price for the product
 - name: price
   singleValue: true
@@ -133,6 +133,7 @@ fields:
   description: Stated shipping weight
 - name: variantCount
   singleValue: true
+  defaultValue: false
   description: Number of variants listed
 - name: color
   singleValue: true
@@ -272,8 +273,8 @@ fields:
   singleValue: true
   description: Suggested number of servings of the product.
 - name: caloriesPerServing
-  singleValue: true
-  xpath: concat(//*[@id="nutrition-region"]//table/tbody/tr[1]/td[1], '/', //*[@id="nutrition-region"]/div/section/div/table/tbody/tr[2]/td[1])
+  singleValue: false
+  xpath: //th[text()="Energy"]/following-sibling::td
   description: Nutritional Information for Calories Per Serving content - Usually
     based on per 100g serving
 - name: caloriesFromFatPerServing
@@ -318,10 +319,14 @@ fields:
   description: Unit of Measure Data for Cholesterol content
 - name: sodiumPerServing
   singleValue: true
+  xpath: //th[text()="Sodium"]/following-sibling::td[1]
+  regExp: (\W?\d+.?\d+)|(\d+)
   description: Nutritional Information for Sodium content - Usually based on per 100g
     serving
 - name: sodiumPerServingUom
   singleValue: true
+  xpath: //th[text()="Sodium"]/following-sibling::td[1]
+  regExp: ([a-zA-Z]+)
   description: Unit of Measure Data for Sodium content
 - name: totalCarbPerServing
   singleValue: true
@@ -369,10 +374,14 @@ fields:
   description: Unit of Measure Data for Protein
 - name: vitaminAPerServing
   singleValue: true
+  xpath: //th[text()="Vitamin A"]/following-sibling::td[1]
+  regExp: (\W?\d+.?\d+)|(\d+)
   description: Nutritional Information for Vitamin A content - Usually based on per
     100g serving
 - name: vitaminAPerServingUom
   singleValue: true
+  xpath: //th[text()="Vitamin A"]/following-sibling::td[1]
+  regExp: ([a-zA-Z]+)
   description: Unit of Measure Data for Vitamin A
 - name: vitaminCPerServing
   singleValue: true
@@ -398,20 +407,28 @@ fields:
   description: Unit of Measure Data for Calcium
 - name: ironPerServing
   singleValue: true
+  xpath: //th[text()="Iron"]/following-sibling::td[1]
+  regExp: (\W?\d+.?\d+)|(\d+)
   description: Nutritional Information for Iron content - Usually based on per 100g
     serving
 - name: ironPerServingUom
   singleValue: true
+  xpath: //th[text()="Iron"]/following-sibling::td[1]
+  regExp: ([a-zA-Z]+)
   description: Unit of Measure Data for Iron
 - name: dietarySymbols
   singleValue: true
   description: Information related to the dietary symbols of a specific product
 - name: magnesiumPerServing
   singleValue: true
+  xpath: //th[text()="Magnesium"]/following-sibling::td[1]
+  regExp: (\W?\d+.?\d+)|(\d+)
   description: Nutritional Information for Magnesium content - Usually based on per
     100g serving
 - name: magnesiumPerServingUom
   singleValue: true
+  xpath: //th[text()="Magnesium"]/following-sibling::td[1]
+  regExp: ([a-zA-Z]+)
   description: Unit of Measure Data for Magnesium
 - name: saltPerServing
   singleValue: true
@@ -467,7 +484,6 @@ fields:
 - name: pricePerUnitUom
   singleValue: true
   xpath: //span[@class="pricePerUnit___1L8TG"]
-  regExp: (\w+)[)]
   regExpReplace: $1
   description: The unit of measurement used in price_per_unit
 - name: promotion
@@ -475,6 +491,8 @@ fields:
   description: promotion text on product page
 - name: alcoholContent
   singleValue: true
+  xpath: //p[contains(text(), "Alcohol by volume")]/span
+  regExp: (.?\d+.?\w+)
   description: Alcohol content information
 - name: newVersion
   singleValue: true

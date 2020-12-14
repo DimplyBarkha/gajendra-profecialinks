@@ -45,8 +45,21 @@ module.exports = {
     var data = await context.extract(productDetails, { transform });
     for (let k = 0; k < data.length; k++) {
       for (let i = 0; i < data[k].group.length; i++) {
+        if ('caloriesPerServing' in data[k].group[i] && data[k].group[i].caloriesPerServing.length > 1) {
+          data[k].group[i].caloriesPerServing[0].text += '/' + data[k].group[i].caloriesPerServing[1].text;
+          data[k].group[i].caloriesPerServing = data[k].group[i].caloriesPerServing.slice(0, 1);
+        }
+        if ('additives' in data[k].group[i] && data[k].group[i].additives.length > 1) {
+          for (let j = 1; j < data[k].group[i].additives.length; j++){
+            data[k].group[i].additives[0].text += ' ' + data[k].group[i].additives[j].text;
+          }
+          data[k].group[i].additives = data[k].group[i].additives.slice(0, 1);
+        }
         if ('availabilityText' in data[k].group[i] && data[k].group[i].availabilityText[0].text !== 'Out of Stock') {
           data[k].group[i].availabilityText[0].text = 'In Stock';
+        }
+        if ('pricePerUnitUom' in data[k].group[i]) {
+          data[k].group[i].pricePerUnitUom[0].text = data[k].group[i].pricePerUnitUom[0].text.match(/(\w+)[)]/)[1];
         }
         if ('legalDisclaimer' in data[k].group[i]) {
           for (let j = 0; j < data[k].group[i].legalDisclaimer.length; j++) {
