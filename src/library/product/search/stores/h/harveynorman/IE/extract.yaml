@@ -5,7 +5,7 @@ recordXPath: //div[contains(@class,"hlisting")]/div[contains(@class,"col-xs-6")]
 fields:
   - name: name
     singleValue: false
-    xpath: //div[@class="bx"]/div/a/text()
+    xpath: //div[@class="bx"]/div/a
   - name: id
     singleValue: false
     xpath: //div[contains(@class,"col-xs-6")]/div//form/input[contains(@name,"product_data")]/@value
@@ -14,7 +14,7 @@ fields:
     xpath: //div[@class="bx"]/div/a/@href
   - name: thumbnail
     singleValue: false
-    xpath: //div[@class="product-image"]/a/img[contains(@id,"det_img")]/@src
+    xpath: //div[@class="product-image"]/a/img[contains(@class,"pict") and not(contains(@class,"hidden-img"))]/@src
   - name: price
     singleValue: false
-    xpath: //div[contains(@class,"price-group-wrap")]/div/span/span/span[contains(@id,"line_discounted_price")]
+    xpath: //div[contains(@class,"price-group-wrap")]/div/span/span[contains(@class,"price-update")]/span
