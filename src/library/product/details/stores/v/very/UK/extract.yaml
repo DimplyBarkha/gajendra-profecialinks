@@ -513,6 +513,6 @@ fields:
   description: If Zoom feature is available for Main image or images in the carousel,['Yes','No']
   example: https://www.zalando.de/adidas-neo-sneaker-low-blackwhite-a4315i002-q11.html
 - name: unInterruptedPDP
-  xpath: ancestor::html//div[contains(@id,"recs")]//div[contains(@class,'banner')]
+  xpath: ancestor::html//div[contains(@id,"recs")]//div[contains(@class,'banner')]//span[contains(@class,'title')]
 - name: hasComparisonTable
   defaultValue: No
