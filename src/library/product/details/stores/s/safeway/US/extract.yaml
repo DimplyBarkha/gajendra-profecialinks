@@ -49,6 +49,14 @@ fields:
 #     singleValue: true
 #     description: Product brand shown - this may actually NOT be just a brand name,
 #       e.g. "Visit the Gillette Store"
+  - name: drive
+    xpath: //script[@type="text/javascript"][@async="async"]/@src
+    regExp: zip=(\d+)
+    regExpReplace: $1
+  - name: retailerId
+    xpath: //script[@type="text/javascript"][@async="async"]/@src
+    regExp: zip=(\d+)
+    regExpReplace: $1
   - name: manufacturer
     description: Product manufacturer
     xpath: //span[contains(.,'About the Producer')]/following-sibling::span
