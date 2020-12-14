@@ -31,7 +31,7 @@ fields:
     xpath: //h1[@class='page-category__search-title mb-4 mt-1']
   - name: url
     singleValue: true
-    xpath: //input[@name='SearchTerm']/@data-search-url
+    xpath: //div[@id='url']
   - name: id
     singleValue: true
-    xpath: //figcaption[@class='txt-left bold x-large']/span[@class='typo-blueCap-12 product-card__ref']
+    xpath: //article/@data-sku
