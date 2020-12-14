@@ -1,16 +1,16 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: //html[@id="product-page"]//div[@id="contentholder"] | //div[@class="result"] 
+recordXPath:  //div[@class="result"] | //div[@id="infoholder"] 
 fields:
   - name: productUrl
     xpath: //a/@href | //link[@rel="canonical"]/@href
   - name: thumbnail
-    xpath: //div[@class="inner"]/img/@src | //div[@id="imageholder"]//img[1]/@src
+    xpath: //div[@id="imageholder"]//img[1]/@src | //div[@id="infoholder"]//h1/@url 
     regExp: (.+)
-    regExpReplace: https://www.arco.co.uk/$1
+    regExpReplace: https://www.arco.co.uk$1
   - name: name
-    xpath: //div[@class="descr"]/span[@class="title"]  | //div[@id="infoholder"]//h1
+    xpath: //div[@class="descr"]/span[@class="title"] | //div[@id="infoholder"]//h1
   - name: reviewCount
     singleValue: true
     description: The number of reviews
@@ -34,4 +34,3 @@ fields:
     xpath: //span[@class="code"] | //div[@id="infoholder"]//h1
     regExp: (\d+.+\d)
 
-  
