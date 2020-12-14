@@ -25,37 +25,34 @@ const transform = (data) => {
     of data) {
     var rank = 1;
     for (const row of group) {
-      if (row.image) {
-        row.image.forEach(item => {
-          item.text = "https:" + item.text;
-        });
-      }
       if (row.shownImages) {
         row.shownImages.forEach(item => {
           item.text = "https:" + item.text;
         });
       }
+
+      if (row.highQualityImages) {
+        row.highQualityImages.forEach(item => {
+          item.text = "https:" + item.text;
+        });
+      }
+
       if (row.sku) {
         row.sku.forEach(item => {
           item.text = "fastenal_" + item.text;
         });
       }
 
-      if (row.price) {
-        row.price.forEach(item => {
-          item.text = item.text.replace('$', ' ').trim();
-          item.text = item.text.replace('/ each', ' ').trim();
-        });
-      }
 
-      if (row.priceCurrency) {
-        row.priceCurrency.forEach(item => {
-          item.text = item.text.replace('/ each', ' ').trim();
-          console.log("item.text", item.text);
-          item.text = item.text.slice(0, 1);
+      if (row.otherSellersName) {
+        row.otherSellersName.forEach(item => {
+          console.log("item",item);
+          item.text = item.text.replace('Copyright © 2020', ' ').trim();
+          item.text = item.text.replace('. All Rights Reserved.', ' ').trim();
+          console.log("item.text",item.text);
         });
       }
-      row.rank = [{ "text": rank }];
+      row.salesRank = [{ "text": rank }];
       row.rankOrganic = [{ "text": rank }];
       rank++;
 

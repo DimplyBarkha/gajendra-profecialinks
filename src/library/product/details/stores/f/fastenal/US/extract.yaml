@@ -3,21 +3,10 @@ regionsSelector: null
 recordSelector: null
 recordXPath: null
 fields:
-  - name: image
-    singleValue: false
-    description: URL of the main product image
-    xpath: //div[@id='primary-image']/img/@src
   - name: shownImages
     singleValue: false
     description: Other product images (not in manufacturer description)
-    xpath: //div[@id='alternate-images-section']//img/@src
-  - name: alternateImages
-    singleValue: false
-    description: Other product images (not in manufacturer description)
-    xpath: //div[@id='alternate-images-section']//img/@src
-  - name: metaKeywords
-    singleValue: true
-    description: The <meta> keywords content
+    xpath: //div[@class='product--thumbnail-wrap']/a/img/@src
   - name: category
     singleValue: false
     description: The categories (e.g. from breadcrumbs)
@@ -94,10 +83,10 @@ fields:
     description: The number of packs in the product offer (if stated separately on
       the site to quantity)
     xpath: (//td[span[contains(text(),"Size")]]/following-sibling::td)[2]
-  # - name: legalDisclaimer
-  #   singleValue: true
-  #   description: Content under "legal disclaimer" header
-  #   xpath: //div[@class='copyright']
+  - name: highQualityImages
+    singleValue: false
+    description: Other product images (not in manufacturer description)
+    xpath: //div[@class='product--thumbnail-wrap']/a/img/@src
   - name: directions
     singleValue: true
     description: Content under "directions" header
@@ -117,7 +106,6 @@ fields:
     type: NUMBER
   - name: priceCurrency
     singleValue: false
-    xpath: //div[@class='qty__items pricing-margin-override']//div[contains(@class,'whole__sale--label')]//span[contains(text()," Wholesale:")]/following-sibling::text()
   - name: shippingDimensions
     singleValue: true
     description: Stated shipping dimensions
@@ -224,9 +212,9 @@ fields:
     singleValue: false
     description: null
     xpath: //div[@id='note']/ul/li
-  - name: otherSellersPrice
+  - name: otherSellersName
     singleValue: false
-    description: null
+    xpath: //div[@class='copyright']
   - name: otherSellersShipping
     singleValue: false
     description: null
