@@ -52,8 +52,7 @@ module.exports = {
         }
       };
       const response = await fetch(`https://api.bazaarvoice.com/data/display/0.2alpha/product/summary?PassKey=ca4sDXq7iXS9YMdnATzw4Opq9kFefC7YimHDEI3WkMLgE&productid=${inputs.id}&contentType=reviews,questions&reviewDistribution=primaryRating,recommended&rev=0&contentlocale=fr_FR`);
-      console.log(`https://api.bazaarvoice.com/data/display/0.2alpha/product/summary?PassKey=ca4sDXq7iXS9YMdnATzw4Opq9kFefC7YimHDEI3WkMLgE&productid=${inputs.id}&contentType=reviews,questions&reviewDistribution=primaryRating,recommended&rev=0&contentlocale=fr_FR`)
-      console.log(`Resultant --> ${json}`);
+      console.log(`https://api.bazaarvoice.com/data/display/0.2alpha/product/summary?PassKey=ca4sDXq7iXS9YMdnATzw4Opq9kFefC7YimHDEI3WkMLgE&productid=${inputs.id}&contentType=reviews,questions&reviewDistribution=primaryRating,recommended&rev=0&contentlocale=fr_FR`);
       if (response.status !== 404) {
         var json = await response.json();
         console.log(`Resultant --> ${JSON.stringify(json)}`);

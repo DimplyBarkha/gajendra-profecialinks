@@ -18,7 +18,7 @@ const transform = (data) => {
         row.subCategory[0].text = row.subCategory[0].text.split('/').join('>');
       }
 
-      if(row.listPrice.length) {
+      if (row.listPrice.length) {
         row.listPrice[0].text = row.listPrice[0].text.split(',').join('.');
       }
     }
