@@ -26,26 +26,25 @@ async function implementation (
       [...document.querySelectorAll(selector)].map((e, index) => { e.setAttribute('mainImage', `https:${images[index][0]}`); });
     }
 
-    const optionalWait = async (sel) => {
+    const optionalWait = async (ms, sel) => {
       try {
         await context.waitForSelector(sel, { timeout: 60000 });
-        await stall(1000);
       } catch (err) {
         console.log(`Couldn't load selector => ${sel}`);
       }
     };
 
-    function timeout (ms) {
-      return new Promise((resolve) => setTimeout(resolve, ms));
-    }
-
     const color = [...document.querySelectorAll('ul[data-automation-id="product-dimensions-color"] li')].map(e => { return e.querySelector('button').getAttribute('data-for'); });
 
-    for (i = 0; i < color.length; i++) {
+    for (let i = 0; i < color.length; i++) {
       document.querySelectorAll('ul[data-automation-id="product-dimensions-color"] li')[i].setAttribute('color', color[i]);
       const newDiv3 = document.createElement('div');
       newDiv3.id = 'text';
       document.querySelectorAll('ul[data-automation-id="product-dimensions-color"] li button')[i].appendChild(newDiv3).innerHTML = color[i];
+    }
+
+    function timeout (ms) {
+      return new Promise((resolve) => setTimeout(resolve, ms));
     }
 
     const finalImages = [];
@@ -53,45 +52,32 @@ async function implementation (
     const variants = '#option-wrapper-false #product-options-false > div:nth-last-child(1) ul li';
     var colorArray = [];
     var sizeArray = [];
-
+    var priceArray = [];
+    var listArray = [];
     if (isVariants) {
       optionalWait('h1[data-automation-id="product-title"]');
-      document.querySelectorAll('#option-wrapper-false #product-options-false > div:nth-last-child(1) ul li button').forEach(ele => {
-        function timeout (ms) {
-          return new Promise((resolve) => setTimeout(resolve, ms));
+      var getVariant = document.querySelectorAll('#option-wrapper-false #product-options-false > div:nth-last-child(1) ul li button');
+      for (let m = 0; m < getVariant.length; m++) {
+        getVariant[m].click();
+        await timeout(20000);
+        var z = document.querySelector('div[data-automation-id="product-content-block"] section span[data-automation-id="at-price-value"]') ? document.querySelector('div[data-automation-id="product-content-block"] section span[data-automation-id="at-price-value"]').textContent : 'noprice';
+        priceArray.push(z);
+        var w = document.querySelector('div[data-automation-id="product-content-block"] span[data-automation-id="price-original-price"]') ? document.querySelector('div[data-automation-id="product-content-block"] span[data-automation-id="price-original-price"]').textContent : 'noprice';
+        listArray.push(w);
+        const priceRows = document.querySelectorAll('#option-wrapper-false #product-options-false > div:nth-last-child(1) ul li');
+        for (let i = 0; i < priceRows.length; i++) {
+          priceRows[i].setAttribute('price', priceArray[i]);
         }
-        var getVariant = async function () {
-          var priceArray = [];
-          var listArray = [];
-          var variantRows = [...document.querySelectorAll('#option-wrapper-false #product-options-false > div:nth-last-child(1) ul li button')];
-          for (let index = 0; index < variantRows.length; index++) {
-            variantRows[index].click();
-            await timeout(6000);
-            var z = document.querySelector('div[data-automation-id="product-content-block"] section span[data-automation-id="at-price-value"]') ? document.querySelector('div[data-automation-id="product-content-block"] section span[data-automation-id="at-price-value"]').textContent : 'noprice';
-            priceArray.push(z);
-            var w = document.querySelector('div[data-automation-id="product-content-block"] span[data-automation-id="price-original-price"]') ? document.querySelector('div[data-automation-id="product-content-block"] span[data-automation-id="price-original-price"]').textContent : 'noprice';
-            listArray.push(w);
-          }
-          const priceRows = document.querySelectorAll('#option-wrapper-false #product-options-false > div:nth-last-child(1) ul li');
-          for (let i = 0; i < priceRows.length; i++) {
-            priceRows[i].setAttribute('price', priceArray[i]);
-          }
-
-          const listRows = document.querySelectorAll('#option-wrapper-false #product-options-false > div:nth-last-child(1) ul li');
-          for (let i = 0; i < listRows.length; i++) {
-            listRows[i].setAttribute('listprice', listArray[i]);
-          }
-        };
-        getVariant();
-        // ele.click();
+        const listRows = document.querySelectorAll('#option-wrapper-false #product-options-false > div:nth-last-child(1) ul li');
+        for (let i = 0; i < listRows.length; i++) {
+          listRows[i].setAttribute('listprice', listArray[i]);
+        }
         console.log('Clicked');
         optionalWait('h1[data-automation-id="product-title"]');
         var x = document.querySelector('span._1ZOS5') ? 'Out of stock' : 'In Stock';
         colorArray.push(x);
-        console.log(colorArray);
         var y = document.querySelector('div._1YUMp') ? 'Out of stock' : 'In Stock';
         sizeArray.push(y);
-        console.log(sizeArray);
         optionalWait('#option-wrapper-false #product-options-false > div:nth-last-child(1) ul li:nth-last-child(1)');
         const colorRows = document.querySelectorAll('ul[data-automation-id="product-dimensions-color"] li');
         for (let i = 0; i < colorRows.length; i++) {
@@ -106,22 +92,22 @@ async function implementation (
         const mpc = [];
         var array = [...document.querySelectorAll('#option-wrapper-false #product-options-false > div:nth-last-child(1) ul li')];
         if (__PRELOADED_STATE__.productDetails.lots.length > 1) {
-          for (i = 0; i < __PRELOADED_STATE__.productDetails.lots.length; i++) {
+          for (let i = 0; i < __PRELOADED_STATE__.productDetails.lots.length; i++) {
             skus.push(`${__PRELOADED_STATE__.productDetails.lots[i].items[0].id}`);
           }
-          for (i = 0; i < __PRELOADED_STATE__.productDetails.lots.length; i++) {
+          for (let i = 0; i < __PRELOADED_STATE__.productDetails.lots.length; i++) {
             mpc.push(`${__PRELOADED_STATE__.productDetails.lots[i].id}`);
           }
         } else {
-          for (i = 0; i < __PRELOADED_STATE__.productDetails.lots[0].items.length; i++) {
+          for (let i = 0; i < __PRELOADED_STATE__.productDetails.lots[0].items.length; i++) {
             skus.push(__PRELOADED_STATE__.productDetails.lots[0].items[i].id);
           }
-          for (i = 0; i < __PRELOADED_STATE__.productDetails.lots.length; i++) {
+          for (let i = 0; i < __PRELOADED_STATE__.productDetails.lots.length; i++) {
             mpc.push(__PRELOADED_STATE__.productDetails.lots[i].id);
           }
         }
 
-        for (i = 0; i < array.length; i++) {
+        for (let i = 0; i < array.length; i++) {
           if (skus[i] == undefined) {
             array[i].setAttribute('skuId', skus[0]);
           } else {
@@ -135,7 +121,7 @@ async function implementation (
 
         document.querySelector('h1[data-automation-id="product-title"]').setAttribute('variants', arr);
 
-        for (i = 0; i < array.length; i++) {
+        for (let i = 0; i < array.length; i++) {
           if (mpc[i] == undefined) {
             array[i].setAttribute('mpc', mpc[0]);
           } else {
@@ -154,7 +140,10 @@ async function implementation (
         });
 
         finalImages.push([...document.querySelectorAll('#contentContainer > section > section:nth-child(3) > div.sm12.md6.lg6.xl7._3AtEJ > div > div.carousel-wrapper > div > div._3h_IA.lg2.xl2.md2.sm2._1sbcC.noPad > div > div.slick-list a')].map(e => { return e.querySelector('img').getAttribute('src'); }));
-      });
+      }
+      console.log(colorArray);
+      console.log(sizeArray);
+      console.log(priceArray);
     } else {
       optionalWait('h1[data-automation-id="product-title"]');
       var newDiv = document.createElement('div');
