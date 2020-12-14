@@ -21,11 +21,7 @@ fields:
   - name: category
     singleValue: false
     description: The categories (e.g. from breadcrumbs)
-    xpath: (//span[@class='breadcrumb__text'])[2]
-      # (//span[@class='breadcrumb__text'])[position()>0]
-      # (//span[@class='breadcrumb__text'])[position()>2 and position()<last()]
-    # (//span[@class='breadcrumb__text'])[2]
-    # //span[@class='breadcrumb__step'][position()>1]/a/span/text()
+    xpath: (//span[@class='breadcrumb__text'])[position()>1 and position()<=last()]
   - name: nameExtended
     singleValue: true
     description: The product name, prefixing "${brand} - " if not included in "name"
@@ -242,6 +238,7 @@ fields:
   - name: secondaryImageTotal
     singleValue: true
     description: null
+    xpath: count(//div[@class='swiper-slide swiper-slide-next']//img[@class='product-page__image-slider-thumb']/@src | (//div[@class='swiper-wrapper'])[1]//div/img/@src)
     type: NUMBER
   - name: news
     singleValue: true
