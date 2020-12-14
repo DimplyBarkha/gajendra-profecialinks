@@ -21,7 +21,8 @@ fields:
 - name: alternateImages
   singleValue: false
   description: Other product images (not in manufacturer description)
-  xpath: ancestor::html//div[contains(@class, "sticky-gallery")]//div[contains(@class, "z-pdp__escape-grid")]//ul/li[position() > 1]//img/@src
+  # xpath: ancestor::html//div[contains(@class, "sticky-gallery")]//div[contains(@class, "z-pdp__escape-grid")]//ul/li[position() > 1]//img/@src
+  xpath: ancestor::html//ol[@id="added_alternate_images"]/li
 - name: metaKeywords
   singleValue: true
   description: The <meta> keywords content
@@ -59,6 +60,7 @@ fields:
   singleValue: true
   description: Product brand shown - this may actually NOT be just a brand name, e.g.
     "Visit the Gillette Store"
+  xpath: ancestor::html//x-wrapper-re-1-3/div[@data-trckng-component]//h3
 - name: manufacturer
   singleValue: true
   description: Product manufacturer
@@ -237,6 +239,7 @@ fields:
 - name: secondaryImageTotal
   singleValue: true
   description: 
+  xpath: count((ancestor::html//x-wrapper-re-1-2//ul)[last()]/li//img)
 - name: news
   singleValue: true
   description: 
@@ -432,6 +435,7 @@ fields:
 - name: variantInformation
   singleValue: true
   description: colour / scent / flavour / other
+  xpath: "@variant_information"
 - name: firstVariant
   singleValue: true
   description: Unique identifier for a collection of variants. For a subset of core
@@ -442,10 +446,11 @@ fields:
     to populate "first_variant" for all variants of a product, this rpc becomes the
     common link between other variants. method 3 = apply some logic to determine link
     between variants, this will need analysis
+  xpath: "@first_variant"
 - name: variants
   singleValue: false
   description: 
-  xpath: "@variants"
+  xpath: //ol[@id="variants"]/li
 - name: additionalDescBulletInfo
   singleValue: false
   description: 

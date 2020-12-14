@@ -2,7 +2,7 @@ input:
   _url: http://zalando.de
   URL: https://en.zalando.de/pai-skincare-rosehip-bioregenerate-face-oil-pah34g00i-s11.html
 extractions:
-  - html: https://workbench.import.io/html/run=75a5753e-c108-4a5d-8e86-2ca89ed9fa2e/task=bca149b4-1e32-4193-ae84-9cddf0b5ac9e/0aef3ac2-2519-44ac-a11d-5f165965a09d.html
+  - html: https://workbench.import.io/html/run=cb2bb269-6df9-4d4f-a1f5-831e8cead285/task=c4c4fa11-dd10-4755-ba12-21adb604c7b3/2caac45a-0f1d-4a31-ae38-4243c2c64562.html
     extractionConfigId: product/details/stores/z/zalando/DE/extract
     data:
       - group:
@@ -16,19 +16,21 @@ extractions:
               - text: Pai skincare - ROSEHIP BIOREGENERATE - Face oil - -
                 xpath: /html/body/div[2]/div[1]/div[1]/div[1]/div[1]/x-wrapper-re-1-2[1]/div[1]/div[2]/div[1]/div[3]/ul[1]/li[1]/div[1]/div[1]/div[1]/img[1]/@alt
             alternateImages:
-              - text: https://img01.ztat.net/article/spp-media-p1/4a547a1c44e83201a4b662dce5ec77c4/33d0e6ce0e89443bae93391e1eec779e.jpg?imwidth=762
-                xpath: /html/body/div[2]/div[1]/div[1]/div[1]/div[1]/x-wrapper-re-1-2[1]/div[1]/div[2]/div[1]/div[3]/ul[1]/li[2]/div[1]/div[1]/div[1]/img[1]/@src
-              - text: https://img01.ztat.net/article/spp-media-p1/a72f28cf65653d9985afd74552c92dc2/b026f356b7c447b2aa2ac983174d6fd6.jpg?imwidth=762
-                xpath: /html/body/div[2]/div[1]/div[1]/div[1]/div[1]/x-wrapper-re-1-2[1]/div[1]/div[2]/div[1]/div[3]/ul[1]/li[3]/div[1]/div[1]/div[1]/img[1]/@src
+              - text: https://img01.ztat.net/article/spp-media-p1/c3a3726355f3363fa2b6ae731b27ce60/ee9e6bd8922c4dc0af1240b5d63b996c.jpg
+                xpath: /html/body/ol[1]/li[1]
+              - text: https://img01.ztat.net/article/spp-media-p1/4a547a1c44e83201a4b662dce5ec77c4/33d0e6ce0e89443bae93391e1eec779e.jpg
+                xpath: /html/body/ol[1]/li[2]
+              - text: https://img01.ztat.net/article/spp-media-p1/a72f28cf65653d9985afd74552c92dc2/b026f356b7c447b2aa2ac983174d6fd6.jpg
+                xpath: /html/body/ol[1]/li[3]
             nameExtended:
               - text: Pai skincare - ROSEHIP BIOREGENERATE - Face oil
                 xpath: /html/body/div[7]/@name_extended
-            price:
-              - text: 28,15 €
-                xpath: /html/body/div[7]/@price
             availabilityText:
               - text: In stock
                 xpath: /html/body/div[7]/@availability_text
+            brandText:
+              - text: Pai skincare
+                xpath: /html/body/div[2]/div[1]/div[1]/div[1]/div[2]/x-wrapper-re-1-3[1]/div[1]/a[1]/span[1]/h3[1]
             manufacturer:
               - text: Pai skincare
                 xpath: /html/body/div[2]/div[1]/div[1]/div[1]/div[2]/x-wrapper-re-1-3[1]/div[1]/a[1]/span[1]/h3[1]
@@ -36,10 +38,10 @@ extractions:
               - text: PAH34G00I-S11
                 xpath: /html/body/div[2]/div[1]/div[1]/div[1]/div[2]/div[3]/div[1]/div[1]/div[1]/div[2]/div[1]/div[9]/span[2]
             ratingCount:
-              - text: "11"
+              - text: "19"
                 xpath: /html/body/div[7]/@rating_count
             aggregateRating:
-              - text: 4,1
+              - text: 4,4
                 xpath: /html/body/div[7]/@aggregate_rating
             variantCount:
               - text: "1"
@@ -50,6 +52,8 @@ extractions:
             brandLink:
               - text: https://en.zalando.de/pai-skincare/
                 xpath: /html/body/div[2]/div[1]/div[1]/div[1]/div[2]/x-wrapper-re-1-3[1]/div[1]/a[1]/@href
+            secondaryImageTotal:
+              - text: "3"
             ingredientsList:
               - text: ROSA CANINA SEED EXTRACT* (rosehip seed oil CO2), ROSA CANINA FRUIT
                   EXTRACT* (rosehip fruit extract CO2), TOCOPHEROL (vitamin e),
@@ -59,4 +63,4 @@ extractions:
             imageZoomFeaturePresent:
               - text: "true"
         xpath: /html
-    timestamp: 1606744529093
+    timestamp: 1607948071586

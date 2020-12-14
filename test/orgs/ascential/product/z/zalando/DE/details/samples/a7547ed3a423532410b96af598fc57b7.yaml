@@ -2,7 +2,7 @@ input:
   _url: http://zalando.de
   URL: https://en.zalando.de/rains-bum-bag-mini-bum-bag-ri054h00q-g11.html
 extractions:
-  - html: https://workbench.import.io/html/run=75a5753e-c108-4a5d-8e86-2ca89ed9fa2e/task=066e0c8e-9d0c-4b4b-80d1-a2204b803efd/f31b3802-4490-4c41-adf2-7b00db092f13.html
+  - html: https://workbench.import.io/html/run=cb2bb269-6df9-4d4f-a1f5-831e8cead285/task=432c62c3-a6dc-4f53-a8cb-a0d5b69e9d76/29fee614-7ee1-4648-81f0-6cc9d09d48b2.html
     extractionConfigId: product/details/stores/z/zalando/DE/extract
     data:
       - group:
@@ -16,28 +16,27 @@ extractions:
               - text: Rains - Bum bag - coral
                 xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/x-wrapper-re-1-2[1]/div[1]/div[2]/div[1]/div[3]/ul[1]/li[1]/div[1]/div[1]/div[1]/img[1]/@alt
             alternateImages:
-              - text: https://img01.ztat.net/article/spp-media-p1/f6b87ca9d5b13bfda29007641d55809d/c4f91d910af44aa681cb0179b3274752.jpg?imwidth=762&filter=packshot
-                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/x-wrapper-re-1-2[1]/div[1]/div[2]/div[1]/div[3]/ul[1]/li[2]/div[1]/div[1]/div[1]/img[1]/@src
-              - text: https://img01.ztat.net/article/spp-media-p1/2a9aced5331e3aa4b6f820d08d7ab63e/3319d3b3492d49c783d90a33ee8908f6.jpg?imwidth=762
-                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/x-wrapper-re-1-2[1]/div[1]/div[2]/div[1]/div[3]/ul[1]/li[3]/div[1]/div[1]/div[1]/img[1]/@src
-              - text: https://img01.ztat.net/article/spp-media-p1/8bc50000f22d35148f13ca91dfe35d1d/d5333426e08c4c059a31a6cd8c92c404.jpg?imwidth=762
-                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/x-wrapper-re-1-2[1]/div[1]/div[2]/div[1]/div[3]/ul[1]/li[4]/div[1]/div[1]/div[1]/img[1]/@src
-              - text: https://img01.ztat.net/article/spp-media-p1/1163873340dd3fdead366cefeb8d31a3/e81f19a117ff4bb18af8f45dba9373e7.jpg?imwidth=762
-                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/x-wrapper-re-1-2[1]/div[1]/div[2]/div[1]/div[3]/ul[1]/li[5]/div[1]/div[1]/div[1]/img[1]/@src
-              - text: https://img01.ztat.net/article/spp-media-p1/17101858a3c23f5a889c84730bab2918/2341d1e4ae214690865e265092ef687d.jpg?imwidth=762
-                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/x-wrapper-re-1-2[1]/div[1]/div[2]/div[1]/div[3]/ul[1]/li[6]/div[1]/div[1]/div[1]/img[1]/@src
+              - text: https://img01.ztat.net/article/spp-media-p1/75a6cb1763db30eda6f309ceaef4f032/c50c441f4fdb4e41b64f97e7f73bdc71.jpg
+                xpath: /html/body/ol[1]/li[1]
+              - text: https://img01.ztat.net/article/spp-media-p1/f6b87ca9d5b13bfda29007641d55809d/c4f91d910af44aa681cb0179b3274752.jpg
+                xpath: /html/body/ol[1]/li[2]
+              - text: https://img01.ztat.net/article/spp-media-p1/2a9aced5331e3aa4b6f820d08d7ab63e/3319d3b3492d49c783d90a33ee8908f6.jpg
+                xpath: /html/body/ol[1]/li[3]
+              - text: https://img01.ztat.net/article/spp-media-p1/8bc50000f22d35148f13ca91dfe35d1d/d5333426e08c4c059a31a6cd8c92c404.jpg
+                xpath: /html/body/ol[1]/li[4]
+              - text: https://img01.ztat.net/article/spp-media-p1/1163873340dd3fdead366cefeb8d31a3/e81f19a117ff4bb18af8f45dba9373e7.jpg
+                xpath: /html/body/ol[1]/li[5]
+              - text: https://img01.ztat.net/article/spp-media-p1/17101858a3c23f5a889c84730bab2918/2341d1e4ae214690865e265092ef687d.jpg
+                xpath: /html/body/ol[1]/li[6]
             nameExtended:
               - text: Rains - Bum bag - coral
                 xpath: /html/body/div[7]/@name_extended
-            listPrice:
-              - text: 45,65 €
-                xpath: /html/body/div[7]/@list_price
-            price:
-              - text: 36,65 €
-                xpath: /html/body/div[7]/@price
             availabilityText:
-              - text: In stock
+              - text: Out of stock
                 xpath: /html/body/div[7]/@availability_text
+            brandText:
+              - text: Rains
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/x-wrapper-re-1-3[1]/div[1]/a[1]/span[1]/h3[1]
             manufacturer:
               - text: Rains
                 xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/x-wrapper-re-1-3[1]/div[1]/a[1]/span[1]/h3[1]
@@ -62,6 +61,11 @@ extractions:
             brandLink:
               - text: https://en.zalando.de/rains/
                 xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[2]/x-wrapper-re-1-3[1]/div[1]/a[1]/@href
+            secondaryImageTotal:
+              - text: "6"
+            variantInformation:
+              - text: coral
+                xpath: /html/body/div[7]/@variant_information
             materials:
               - text: |-
                   Outer material: Polyurethane
@@ -71,4 +75,4 @@ extractions:
             imageZoomFeaturePresent:
               - text: "true"
         xpath: /html
-    timestamp: 1606744532239
+    timestamp: 1607948075203

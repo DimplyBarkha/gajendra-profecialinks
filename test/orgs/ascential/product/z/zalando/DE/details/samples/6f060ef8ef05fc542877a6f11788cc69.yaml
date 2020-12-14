@@ -2,11 +2,24 @@ input:
   _url: http://zalando.de
   URL: https://en.zalando.de/tommy-hilfiger-lightweight-cupsole-trainers-white-to112o067-a11.html
 extractions:
-  - html: https://workbench.import.io/html/run=75a5753e-c108-4a5d-8e86-2ca89ed9fa2e/task=43bf61ff-8425-4068-88e4-2681148e7a2b/c749adfd-8b65-4de4-86de-c3bb01963998.html
+  - html: https://workbench.import.io/html/run=cb2bb269-6df9-4d4f-a1f5-831e8cead285/task=400a223c-256d-4609-8577-4963edf6a4ce/899fd917-33e2-4708-a129-8b431cf164ef.html
     extractionConfigId: product/details/stores/z/zalando/DE/extract
     data:
       - group:
-          - productUrl:
+          - variants:
+              - text: "0410000"
+                xpath: /html/body/div[10]/ol[1]/li[1]
+              - text: "0420000"
+                xpath: /html/body/div[10]/ol[1]/li[2]
+              - text: "0430000"
+                xpath: /html/body/div[10]/ol[1]/li[3]
+              - text: "0440000"
+                xpath: /html/body/div[10]/ol[1]/li[4]
+              - text: "0450000"
+                xpath: /html/body/div[10]/ol[1]/li[5]
+              - text: "0460000"
+                xpath: /html/body/div[10]/ol[1]/li[6]
+            productUrl:
               - text: https://en.zalando.de/tommy-hilfiger-lightweight-cupsole-trainers-white-to112o067-a11.html
                 xpath: /html/body/div[17]
             image:
@@ -16,16 +29,18 @@ extractions:
               - text: Tommy Hilfiger - LIGHTWEIGHT CUPSOLE - Trainers - white
                 xpath: /html/body/div[2]/div[1]/div[1]/div[1]/div[1]/x-wrapper-re-1-2[1]/div[1]/div[2]/div[1]/div[3]/ul[1]/li[1]/div[1]/div[1]/div[1]/img[1]/@alt
             alternateImages:
-              - text: https://img01.ztat.net/article/spp-media-p1/aed1c6f0a50f3d2f8559def55b57484b/b4bf1b8436894d7bae25f2a370672755.jpg?imwidth=762
-                xpath: /html/body/div[2]/div[1]/div[1]/div[1]/div[1]/x-wrapper-re-1-2[1]/div[1]/div[2]/div[1]/div[3]/ul[1]/li[2]/div[1]/div[1]/div[1]/img[1]/@src
-              - text: https://img01.ztat.net/article/spp-media-p1/9d8ecdb0afd1303b92afca5143469319/33e00823fa9e404fba922b9b3990726c.jpg?imwidth=762
-                xpath: /html/body/div[2]/div[1]/div[1]/div[1]/div[1]/x-wrapper-re-1-2[1]/div[1]/div[2]/div[1]/div[3]/ul[1]/li[3]/div[1]/div[1]/div[1]/img[1]/@src
-              - text: https://img01.ztat.net/article/spp-media-p1/0b900d4729ab39dd843096c3d505926a/4723d5599fbb45a284859709aa3c85e7.jpg?imwidth=762
-                xpath: /html/body/div[2]/div[1]/div[1]/div[1]/div[1]/x-wrapper-re-1-2[1]/div[1]/div[2]/div[1]/div[3]/ul[1]/li[4]/div[1]/div[1]/div[1]/img[1]/@src
-              - text: https://img01.ztat.net/article/spp-media-p1/fa172742321638be9ae271b845bee147/d4ecf5c4a0ff44b5b82a554d881d3c56.jpg?imwidth=762
-                xpath: /html/body/div[2]/div[1]/div[1]/div[1]/div[1]/x-wrapper-re-1-2[1]/div[1]/div[2]/div[1]/div[3]/ul[1]/li[5]/div[1]/div[1]/div[1]/img[1]/@src
-              - text: https://img01.ztat.net/article/spp-media-p1/d7a25e14e05d3b1490fdcc51b038d2c6/eebd257034c94856b51914da517cd40b.jpg?imwidth=762
-                xpath: /html/body/div[2]/div[1]/div[1]/div[1]/div[1]/x-wrapper-re-1-2[1]/div[1]/div[2]/div[1]/div[3]/ul[1]/li[6]/div[1]/div[1]/div[1]/img[1]/@src
+              - text: https://img01.ztat.net/article/spp-media-p1/730657235ebb33d3b2a15df3da3fa15f/01ac586592074a0c92e4b3c649d1de21.jpg
+                xpath: /html/body/ol[1]/li[1]
+              - text: https://img01.ztat.net/article/spp-media-p1/aed1c6f0a50f3d2f8559def55b57484b/b4bf1b8436894d7bae25f2a370672755.jpg
+                xpath: /html/body/ol[1]/li[2]
+              - text: https://img01.ztat.net/article/spp-media-p1/9d8ecdb0afd1303b92afca5143469319/33e00823fa9e404fba922b9b3990726c.jpg
+                xpath: /html/body/ol[1]/li[3]
+              - text: https://img01.ztat.net/article/spp-media-p1/0b900d4729ab39dd843096c3d505926a/4723d5599fbb45a284859709aa3c85e7.jpg
+                xpath: /html/body/ol[1]/li[4]
+              - text: https://img01.ztat.net/article/spp-media-p1/fa172742321638be9ae271b845bee147/d4ecf5c4a0ff44b5b82a554d881d3c56.jpg
+                xpath: /html/body/ol[1]/li[5]
+              - text: https://img01.ztat.net/article/spp-media-p1/d7a25e14e05d3b1490fdcc51b038d2c6/eebd257034c94856b51914da517cd40b.jpg
+                xpath: /html/body/ol[1]/li[6]
             nameExtended:
               - text: Tommy Hilfiger - LIGHTWEIGHT CUPSOLE - Trainers - white - 40
                 xpath: /html/body/div[10]/@name_extended
@@ -33,11 +48,14 @@ extractions:
               - text: 99,90 €
                 xpath: /html/body/div[10]/@list_price
             price:
-              - text: 67,45 €
+              - text: 71,64 €
                 xpath: /html/body/div[10]/@price
             availabilityText:
-              - text: In stock
+              - text: Only 1 left
                 xpath: /html/body/div[10]/@availability_text
+            brandText:
+              - text: Tommy Hilfiger
+                xpath: /html/body/div[2]/div[1]/div[1]/div[1]/div[2]/x-wrapper-re-1-3[1]/div[1]/a[1]/span[1]/h3[1]
             manufacturer:
               - text: Tommy Hilfiger
                 xpath: /html/body/div[2]/div[1]/div[1]/div[1]/div[2]/x-wrapper-re-1-3[1]/div[1]/a[1]/span[1]/h3[1]
@@ -48,10 +66,10 @@ extractions:
               - text: "0400000"
                 xpath: /html/body/div[10]/@variant_id
             ratingCount:
-              - text: "15"
+              - text: "24"
                 xpath: /html/body/div[10]/@rating_count
             aggregateRating:
-              - text: 4,7
+              - text: 4,8
                 xpath: /html/body/div[10]/@aggregate_rating
             variantCount:
               - text: "7"
@@ -65,12 +83,17 @@ extractions:
             brandLink:
               - text: https://en.zalando.de/tommy-hilfiger/
                 xpath: /html/body/div[2]/div[1]/div[1]/div[1]/div[2]/x-wrapper-re-1-3[1]/div[1]/a[1]/@href
+            secondaryImageTotal:
+              - text: "6"
             promotion:
-              - text: 32% off
+              - text: 29% off
                 xpath: /html/body/div[2]/div[1]/div[1]/div[1]/div[2]/x-wrapper-re-1-3[1]/div[3]/span[1]
-            variants:
-              - text: 0410000|0420000|0430000|0440000|0450000|0460000
-                xpath: /html/body/div[10]/@variants
+            variantInformation:
+              - text: white
+                xpath: /html/body/div[10]/@variant_information
+            firstVariant:
+              - text: "0400000"
+                xpath: /html/body/div[10]/@first_variant
             materials:
               - text: |-
                   Upper material: Leather and imitation leather
@@ -83,7 +106,20 @@ extractions:
                 xpath: /html/body/div[2]/div[1]/div[1]/div[1]/div[2]/div[3]/div[1]/div[1]/div[1]/div[2]
             imageZoomFeaturePresent:
               - text: "true"
-          - productUrl:
+          - variants:
+              - text: "0400000"
+                xpath: /html/body/div[11]/ol[1]/li[1]
+              - text: "0420000"
+                xpath: /html/body/div[11]/ol[1]/li[2]
+              - text: "0430000"
+                xpath: /html/body/div[11]/ol[1]/li[3]
+              - text: "0440000"
+                xpath: /html/body/div[11]/ol[1]/li[4]
+              - text: "0450000"
+                xpath: /html/body/div[11]/ol[1]/li[5]
+              - text: "0460000"
+                xpath: /html/body/div[11]/ol[1]/li[6]
+            productUrl:
               - text: https://en.zalando.de/tommy-hilfiger-lightweight-cupsole-trainers-white-to112o067-a11.html
                 xpath: /html/body/div[17]
             image:
@@ -93,16 +129,18 @@ extractions:
               - text: Tommy Hilfiger - LIGHTWEIGHT CUPSOLE - Trainers - white
                 xpath: /html/body/div[2]/div[1]/div[1]/div[1]/div[1]/x-wrapper-re-1-2[1]/div[1]/div[2]/div[1]/div[3]/ul[1]/li[1]/div[1]/div[1]/div[1]/img[1]/@alt
             alternateImages:
-              - text: https://img01.ztat.net/article/spp-media-p1/aed1c6f0a50f3d2f8559def55b57484b/b4bf1b8436894d7bae25f2a370672755.jpg?imwidth=762
-                xpath: /html/body/div[2]/div[1]/div[1]/div[1]/div[1]/x-wrapper-re-1-2[1]/div[1]/div[2]/div[1]/div[3]/ul[1]/li[2]/div[1]/div[1]/div[1]/img[1]/@src
-              - text: https://img01.ztat.net/article/spp-media-p1/9d8ecdb0afd1303b92afca5143469319/33e00823fa9e404fba922b9b3990726c.jpg?imwidth=762
-                xpath: /html/body/div[2]/div[1]/div[1]/div[1]/div[1]/x-wrapper-re-1-2[1]/div[1]/div[2]/div[1]/div[3]/ul[1]/li[3]/div[1]/div[1]/div[1]/img[1]/@src
-              - text: https://img01.ztat.net/article/spp-media-p1/0b900d4729ab39dd843096c3d505926a/4723d5599fbb45a284859709aa3c85e7.jpg?imwidth=762
-                xpath: /html/body/div[2]/div[1]/div[1]/div[1]/div[1]/x-wrapper-re-1-2[1]/div[1]/div[2]/div[1]/div[3]/ul[1]/li[4]/div[1]/div[1]/div[1]/img[1]/@src
-              - text: https://img01.ztat.net/article/spp-media-p1/fa172742321638be9ae271b845bee147/d4ecf5c4a0ff44b5b82a554d881d3c56.jpg?imwidth=762
-                xpath: /html/body/div[2]/div[1]/div[1]/div[1]/div[1]/x-wrapper-re-1-2[1]/div[1]/div[2]/div[1]/div[3]/ul[1]/li[5]/div[1]/div[1]/div[1]/img[1]/@src
-              - text: https://img01.ztat.net/article/spp-media-p1/d7a25e14e05d3b1490fdcc51b038d2c6/eebd257034c94856b51914da517cd40b.jpg?imwidth=762
-                xpath: /html/body/div[2]/div[1]/div[1]/div[1]/div[1]/x-wrapper-re-1-2[1]/div[1]/div[2]/div[1]/div[3]/ul[1]/li[6]/div[1]/div[1]/div[1]/img[1]/@src
+              - text: https://img01.ztat.net/article/spp-media-p1/730657235ebb33d3b2a15df3da3fa15f/01ac586592074a0c92e4b3c649d1de21.jpg
+                xpath: /html/body/ol[1]/li[1]
+              - text: https://img01.ztat.net/article/spp-media-p1/aed1c6f0a50f3d2f8559def55b57484b/b4bf1b8436894d7bae25f2a370672755.jpg
+                xpath: /html/body/ol[1]/li[2]
+              - text: https://img01.ztat.net/article/spp-media-p1/9d8ecdb0afd1303b92afca5143469319/33e00823fa9e404fba922b9b3990726c.jpg
+                xpath: /html/body/ol[1]/li[3]
+              - text: https://img01.ztat.net/article/spp-media-p1/0b900d4729ab39dd843096c3d505926a/4723d5599fbb45a284859709aa3c85e7.jpg
+                xpath: /html/body/ol[1]/li[4]
+              - text: https://img01.ztat.net/article/spp-media-p1/fa172742321638be9ae271b845bee147/d4ecf5c4a0ff44b5b82a554d881d3c56.jpg
+                xpath: /html/body/ol[1]/li[5]
+              - text: https://img01.ztat.net/article/spp-media-p1/d7a25e14e05d3b1490fdcc51b038d2c6/eebd257034c94856b51914da517cd40b.jpg
+                xpath: /html/body/ol[1]/li[6]
             nameExtended:
               - text: Tommy Hilfiger - LIGHTWEIGHT CUPSOLE - Trainers - white - 41
                 xpath: /html/body/div[11]/@name_extended
@@ -110,11 +148,14 @@ extractions:
               - text: 99,90 €
                 xpath: /html/body/div[11]/@list_price
             price:
-              - text: 67,45 €
+              - text: 71,18 €
                 xpath: /html/body/div[11]/@price
             availabilityText:
-              - text: In stock
+              - text: Only 1 left
                 xpath: /html/body/div[11]/@availability_text
+            brandText:
+              - text: Tommy Hilfiger
+                xpath: /html/body/div[2]/div[1]/div[1]/div[1]/div[2]/x-wrapper-re-1-3[1]/div[1]/a[1]/span[1]/h3[1]
             manufacturer:
               - text: Tommy Hilfiger
                 xpath: /html/body/div[2]/div[1]/div[1]/div[1]/div[2]/x-wrapper-re-1-3[1]/div[1]/a[1]/span[1]/h3[1]
@@ -125,10 +166,10 @@ extractions:
               - text: "0410000"
                 xpath: /html/body/div[11]/@variant_id
             ratingCount:
-              - text: "15"
+              - text: "24"
                 xpath: /html/body/div[11]/@rating_count
             aggregateRating:
-              - text: 4,7
+              - text: 4,8
                 xpath: /html/body/div[11]/@aggregate_rating
             variantCount:
               - text: "7"
@@ -142,12 +183,17 @@ extractions:
             brandLink:
               - text: https://en.zalando.de/tommy-hilfiger/
                 xpath: /html/body/div[2]/div[1]/div[1]/div[1]/div[2]/x-wrapper-re-1-3[1]/div[1]/a[1]/@href
+            secondaryImageTotal:
+              - text: "6"
             promotion:
-              - text: 32% off
+              - text: 29% off
                 xpath: /html/body/div[2]/div[1]/div[1]/div[1]/div[2]/x-wrapper-re-1-3[1]/div[3]/span[1]
-            variants:
-              - text: 0400000|0420000|0430000|0440000|0450000|0460000
-                xpath: /html/body/div[11]/@variants
+            variantInformation:
+              - text: white
+                xpath: /html/body/div[11]/@variant_information
+            firstVariant:
+              - text: "0400000"
+                xpath: /html/body/div[11]/@first_variant
             materials:
               - text: |-
                   Upper material: Leather and imitation leather
@@ -160,7 +206,20 @@ extractions:
                 xpath: /html/body/div[2]/div[1]/div[1]/div[1]/div[2]/div[3]/div[1]/div[1]/div[1]/div[2]
             imageZoomFeaturePresent:
               - text: "true"
-          - productUrl:
+          - variants:
+              - text: "0400000"
+                xpath: /html/body/div[12]/ol[1]/li[1]
+              - text: "0410000"
+                xpath: /html/body/div[12]/ol[1]/li[2]
+              - text: "0430000"
+                xpath: /html/body/div[12]/ol[1]/li[3]
+              - text: "0440000"
+                xpath: /html/body/div[12]/ol[1]/li[4]
+              - text: "0450000"
+                xpath: /html/body/div[12]/ol[1]/li[5]
+              - text: "0460000"
+                xpath: /html/body/div[12]/ol[1]/li[6]
+            productUrl:
               - text: https://en.zalando.de/tommy-hilfiger-lightweight-cupsole-trainers-white-to112o067-a11.html
                 xpath: /html/body/div[17]
             image:
@@ -170,16 +229,18 @@ extractions:
               - text: Tommy Hilfiger - LIGHTWEIGHT CUPSOLE - Trainers - white
                 xpath: /html/body/div[2]/div[1]/div[1]/div[1]/div[1]/x-wrapper-re-1-2[1]/div[1]/div[2]/div[1]/div[3]/ul[1]/li[1]/div[1]/div[1]/div[1]/img[1]/@alt
             alternateImages:
-              - text: https://img01.ztat.net/article/spp-media-p1/aed1c6f0a50f3d2f8559def55b57484b/b4bf1b8436894d7bae25f2a370672755.jpg?imwidth=762
-                xpath: /html/body/div[2]/div[1]/div[1]/div[1]/div[1]/x-wrapper-re-1-2[1]/div[1]/div[2]/div[1]/div[3]/ul[1]/li[2]/div[1]/div[1]/div[1]/img[1]/@src
-              - text: https://img01.ztat.net/article/spp-media-p1/9d8ecdb0afd1303b92afca5143469319/33e00823fa9e404fba922b9b3990726c.jpg?imwidth=762
-                xpath: /html/body/div[2]/div[1]/div[1]/div[1]/div[1]/x-wrapper-re-1-2[1]/div[1]/div[2]/div[1]/div[3]/ul[1]/li[3]/div[1]/div[1]/div[1]/img[1]/@src
-              - text: https://img01.ztat.net/article/spp-media-p1/0b900d4729ab39dd843096c3d505926a/4723d5599fbb45a284859709aa3c85e7.jpg?imwidth=762
-                xpath: /html/body/div[2]/div[1]/div[1]/div[1]/div[1]/x-wrapper-re-1-2[1]/div[1]/div[2]/div[1]/div[3]/ul[1]/li[4]/div[1]/div[1]/div[1]/img[1]/@src
-              - text: https://img01.ztat.net/article/spp-media-p1/fa172742321638be9ae271b845bee147/d4ecf5c4a0ff44b5b82a554d881d3c56.jpg?imwidth=762
-                xpath: /html/body/div[2]/div[1]/div[1]/div[1]/div[1]/x-wrapper-re-1-2[1]/div[1]/div[2]/div[1]/div[3]/ul[1]/li[5]/div[1]/div[1]/div[1]/img[1]/@src
-              - text: https://img01.ztat.net/article/spp-media-p1/d7a25e14e05d3b1490fdcc51b038d2c6/eebd257034c94856b51914da517cd40b.jpg?imwidth=762
-                xpath: /html/body/div[2]/div[1]/div[1]/div[1]/div[1]/x-wrapper-re-1-2[1]/div[1]/div[2]/div[1]/div[3]/ul[1]/li[6]/div[1]/div[1]/div[1]/img[1]/@src
+              - text: https://img01.ztat.net/article/spp-media-p1/730657235ebb33d3b2a15df3da3fa15f/01ac586592074a0c92e4b3c649d1de21.jpg
+                xpath: /html/body/ol[1]/li[1]
+              - text: https://img01.ztat.net/article/spp-media-p1/aed1c6f0a50f3d2f8559def55b57484b/b4bf1b8436894d7bae25f2a370672755.jpg
+                xpath: /html/body/ol[1]/li[2]
+              - text: https://img01.ztat.net/article/spp-media-p1/9d8ecdb0afd1303b92afca5143469319/33e00823fa9e404fba922b9b3990726c.jpg
+                xpath: /html/body/ol[1]/li[3]
+              - text: https://img01.ztat.net/article/spp-media-p1/0b900d4729ab39dd843096c3d505926a/4723d5599fbb45a284859709aa3c85e7.jpg
+                xpath: /html/body/ol[1]/li[4]
+              - text: https://img01.ztat.net/article/spp-media-p1/fa172742321638be9ae271b845bee147/d4ecf5c4a0ff44b5b82a554d881d3c56.jpg
+                xpath: /html/body/ol[1]/li[5]
+              - text: https://img01.ztat.net/article/spp-media-p1/d7a25e14e05d3b1490fdcc51b038d2c6/eebd257034c94856b51914da517cd40b.jpg
+                xpath: /html/body/ol[1]/li[6]
             nameExtended:
               - text: Tommy Hilfiger - LIGHTWEIGHT CUPSOLE - Trainers - white - 42
                 xpath: /html/body/div[12]/@name_extended
@@ -187,11 +248,14 @@ extractions:
               - text: 99,90 €
                 xpath: /html/body/div[12]/@list_price
             price:
-              - text: 67,45 €
+              - text: 71,64 €
                 xpath: /html/body/div[12]/@price
             availabilityText:
               - text: Only 1 left
                 xpath: /html/body/div[12]/@availability_text
+            brandText:
+              - text: Tommy Hilfiger
+                xpath: /html/body/div[2]/div[1]/div[1]/div[1]/div[2]/x-wrapper-re-1-3[1]/div[1]/a[1]/span[1]/h3[1]
             manufacturer:
               - text: Tommy Hilfiger
                 xpath: /html/body/div[2]/div[1]/div[1]/div[1]/div[2]/x-wrapper-re-1-3[1]/div[1]/a[1]/span[1]/h3[1]
@@ -202,10 +266,10 @@ extractions:
               - text: "0420000"
                 xpath: /html/body/div[12]/@variant_id
             ratingCount:
-              - text: "15"
+              - text: "24"
                 xpath: /html/body/div[12]/@rating_count
             aggregateRating:
-              - text: 4,7
+              - text: 4,8
                 xpath: /html/body/div[12]/@aggregate_rating
             variantCount:
               - text: "7"
@@ -219,12 +283,17 @@ extractions:
             brandLink:
               - text: https://en.zalando.de/tommy-hilfiger/
                 xpath: /html/body/div[2]/div[1]/div[1]/div[1]/div[2]/x-wrapper-re-1-3[1]/div[1]/a[1]/@href
+            secondaryImageTotal:
+              - text: "6"
             promotion:
-              - text: 32% off
+              - text: 29% off
                 xpath: /html/body/div[2]/div[1]/div[1]/div[1]/div[2]/x-wrapper-re-1-3[1]/div[3]/span[1]
-            variants:
-              - text: 0400000|0410000|0430000|0440000|0450000|0460000
-                xpath: /html/body/div[12]/@variants
+            variantInformation:
+              - text: white
+                xpath: /html/body/div[12]/@variant_information
+            firstVariant:
+              - text: "0400000"
+                xpath: /html/body/div[12]/@first_variant
             materials:
               - text: |-
                   Upper material: Leather and imitation leather
@@ -237,7 +306,20 @@ extractions:
                 xpath: /html/body/div[2]/div[1]/div[1]/div[1]/div[2]/div[3]/div[1]/div[1]/div[1]/div[2]
             imageZoomFeaturePresent:
               - text: "true"
-          - productUrl:
+          - variants:
+              - text: "0400000"
+                xpath: /html/body/div[13]/ol[1]/li[1]
+              - text: "0410000"
+                xpath: /html/body/div[13]/ol[1]/li[2]
+              - text: "0420000"
+                xpath: /html/body/div[13]/ol[1]/li[3]
+              - text: "0440000"
+                xpath: /html/body/div[13]/ol[1]/li[4]
+              - text: "0450000"
+                xpath: /html/body/div[13]/ol[1]/li[5]
+              - text: "0460000"
+                xpath: /html/body/div[13]/ol[1]/li[6]
+            productUrl:
               - text: https://en.zalando.de/tommy-hilfiger-lightweight-cupsole-trainers-white-to112o067-a11.html
                 xpath: /html/body/div[17]
             image:
@@ -247,16 +329,18 @@ extractions:
               - text: Tommy Hilfiger - LIGHTWEIGHT CUPSOLE - Trainers - white
                 xpath: /html/body/div[2]/div[1]/div[1]/div[1]/div[1]/x-wrapper-re-1-2[1]/div[1]/div[2]/div[1]/div[3]/ul[1]/li[1]/div[1]/div[1]/div[1]/img[1]/@alt
             alternateImages:
-              - text: https://img01.ztat.net/article/spp-media-p1/aed1c6f0a50f3d2f8559def55b57484b/b4bf1b8436894d7bae25f2a370672755.jpg?imwidth=762
-                xpath: /html/body/div[2]/div[1]/div[1]/div[1]/div[1]/x-wrapper-re-1-2[1]/div[1]/div[2]/div[1]/div[3]/ul[1]/li[2]/div[1]/div[1]/div[1]/img[1]/@src
-              - text: https://img01.ztat.net/article/spp-media-p1/9d8ecdb0afd1303b92afca5143469319/33e00823fa9e404fba922b9b3990726c.jpg?imwidth=762
-                xpath: /html/body/div[2]/div[1]/div[1]/div[1]/div[1]/x-wrapper-re-1-2[1]/div[1]/div[2]/div[1]/div[3]/ul[1]/li[3]/div[1]/div[1]/div[1]/img[1]/@src
-              - text: https://img01.ztat.net/article/spp-media-p1/0b900d4729ab39dd843096c3d505926a/4723d5599fbb45a284859709aa3c85e7.jpg?imwidth=762
-                xpath: /html/body/div[2]/div[1]/div[1]/div[1]/div[1]/x-wrapper-re-1-2[1]/div[1]/div[2]/div[1]/div[3]/ul[1]/li[4]/div[1]/div[1]/div[1]/img[1]/@src
-              - text: https://img01.ztat.net/article/spp-media-p1/fa172742321638be9ae271b845bee147/d4ecf5c4a0ff44b5b82a554d881d3c56.jpg?imwidth=762
-                xpath: /html/body/div[2]/div[1]/div[1]/div[1]/div[1]/x-wrapper-re-1-2[1]/div[1]/div[2]/div[1]/div[3]/ul[1]/li[5]/div[1]/div[1]/div[1]/img[1]/@src
-              - text: https://img01.ztat.net/article/spp-media-p1/d7a25e14e05d3b1490fdcc51b038d2c6/eebd257034c94856b51914da517cd40b.jpg?imwidth=762
-                xpath: /html/body/div[2]/div[1]/div[1]/div[1]/div[1]/x-wrapper-re-1-2[1]/div[1]/div[2]/div[1]/div[3]/ul[1]/li[6]/div[1]/div[1]/div[1]/img[1]/@src
+              - text: https://img01.ztat.net/article/spp-media-p1/730657235ebb33d3b2a15df3da3fa15f/01ac586592074a0c92e4b3c649d1de21.jpg
+                xpath: /html/body/ol[1]/li[1]
+              - text: https://img01.ztat.net/article/spp-media-p1/aed1c6f0a50f3d2f8559def55b57484b/b4bf1b8436894d7bae25f2a370672755.jpg
+                xpath: /html/body/ol[1]/li[2]
+              - text: https://img01.ztat.net/article/spp-media-p1/9d8ecdb0afd1303b92afca5143469319/33e00823fa9e404fba922b9b3990726c.jpg
+                xpath: /html/body/ol[1]/li[3]
+              - text: https://img01.ztat.net/article/spp-media-p1/0b900d4729ab39dd843096c3d505926a/4723d5599fbb45a284859709aa3c85e7.jpg
+                xpath: /html/body/ol[1]/li[4]
+              - text: https://img01.ztat.net/article/spp-media-p1/fa172742321638be9ae271b845bee147/d4ecf5c4a0ff44b5b82a554d881d3c56.jpg
+                xpath: /html/body/ol[1]/li[5]
+              - text: https://img01.ztat.net/article/spp-media-p1/d7a25e14e05d3b1490fdcc51b038d2c6/eebd257034c94856b51914da517cd40b.jpg
+                xpath: /html/body/ol[1]/li[6]
             nameExtended:
               - text: Tommy Hilfiger - LIGHTWEIGHT CUPSOLE - Trainers - white - 43
                 xpath: /html/body/div[13]/@name_extended
@@ -264,11 +348,14 @@ extractions:
               - text: 99,90 €
                 xpath: /html/body/div[13]/@list_price
             price:
-              - text: 67,45 €
+              - text: 71,18 €
                 xpath: /html/body/div[13]/@price
             availabilityText:
               - text: In stock
                 xpath: /html/body/div[13]/@availability_text
+            brandText:
+              - text: Tommy Hilfiger
+                xpath: /html/body/div[2]/div[1]/div[1]/div[1]/div[2]/x-wrapper-re-1-3[1]/div[1]/a[1]/span[1]/h3[1]
             manufacturer:
               - text: Tommy Hilfiger
                 xpath: /html/body/div[2]/div[1]/div[1]/div[1]/div[2]/x-wrapper-re-1-3[1]/div[1]/a[1]/span[1]/h3[1]
@@ -279,10 +366,10 @@ extractions:
               - text: "0430000"
                 xpath: /html/body/div[13]/@variant_id
             ratingCount:
-              - text: "15"
+              - text: "24"
                 xpath: /html/body/div[13]/@rating_count
             aggregateRating:
-              - text: 4,7
+              - text: 4,8
                 xpath: /html/body/div[13]/@aggregate_rating
             variantCount:
               - text: "7"
@@ -296,12 +383,17 @@ extractions:
             brandLink:
               - text: https://en.zalando.de/tommy-hilfiger/
                 xpath: /html/body/div[2]/div[1]/div[1]/div[1]/div[2]/x-wrapper-re-1-3[1]/div[1]/a[1]/@href
+            secondaryImageTotal:
+              - text: "6"
             promotion:
-              - text: 32% off
+              - text: 29% off
                 xpath: /html/body/div[2]/div[1]/div[1]/div[1]/div[2]/x-wrapper-re-1-3[1]/div[3]/span[1]
-            variants:
-              - text: 0400000|0410000|0420000|0440000|0450000|0460000
-                xpath: /html/body/div[13]/@variants
+            variantInformation:
+              - text: white
+                xpath: /html/body/div[13]/@variant_information
+            firstVariant:
+              - text: "0400000"
+                xpath: /html/body/div[13]/@first_variant
             materials:
               - text: |-
                   Upper material: Leather and imitation leather
@@ -314,7 +406,20 @@ extractions:
                 xpath: /html/body/div[2]/div[1]/div[1]/div[1]/div[2]/div[3]/div[1]/div[1]/div[1]/div[2]
             imageZoomFeaturePresent:
               - text: "true"
-          - productUrl:
+          - variants:
+              - text: "0400000"
+                xpath: /html/body/div[14]/ol[1]/li[1]
+              - text: "0410000"
+                xpath: /html/body/div[14]/ol[1]/li[2]
+              - text: "0420000"
+                xpath: /html/body/div[14]/ol[1]/li[3]
+              - text: "0430000"
+                xpath: /html/body/div[14]/ol[1]/li[4]
+              - text: "0450000"
+                xpath: /html/body/div[14]/ol[1]/li[5]
+              - text: "0460000"
+                xpath: /html/body/div[14]/ol[1]/li[6]
+            productUrl:
               - text: https://en.zalando.de/tommy-hilfiger-lightweight-cupsole-trainers-white-to112o067-a11.html
                 xpath: /html/body/div[17]
             image:
@@ -324,16 +429,18 @@ extractions:
               - text: Tommy Hilfiger - LIGHTWEIGHT CUPSOLE - Trainers - white
                 xpath: /html/body/div[2]/div[1]/div[1]/div[1]/div[1]/x-wrapper-re-1-2[1]/div[1]/div[2]/div[1]/div[3]/ul[1]/li[1]/div[1]/div[1]/div[1]/img[1]/@alt
             alternateImages:
-              - text: https://img01.ztat.net/article/spp-media-p1/aed1c6f0a50f3d2f8559def55b57484b/b4bf1b8436894d7bae25f2a370672755.jpg?imwidth=762
-                xpath: /html/body/div[2]/div[1]/div[1]/div[1]/div[1]/x-wrapper-re-1-2[1]/div[1]/div[2]/div[1]/div[3]/ul[1]/li[2]/div[1]/div[1]/div[1]/img[1]/@src
-              - text: https://img01.ztat.net/article/spp-media-p1/9d8ecdb0afd1303b92afca5143469319/33e00823fa9e404fba922b9b3990726c.jpg?imwidth=762
-                xpath: /html/body/div[2]/div[1]/div[1]/div[1]/div[1]/x-wrapper-re-1-2[1]/div[1]/div[2]/div[1]/div[3]/ul[1]/li[3]/div[1]/div[1]/div[1]/img[1]/@src
-              - text: https://img01.ztat.net/article/spp-media-p1/0b900d4729ab39dd843096c3d505926a/4723d5599fbb45a284859709aa3c85e7.jpg?imwidth=762
-                xpath: /html/body/div[2]/div[1]/div[1]/div[1]/div[1]/x-wrapper-re-1-2[1]/div[1]/div[2]/div[1]/div[3]/ul[1]/li[4]/div[1]/div[1]/div[1]/img[1]/@src
-              - text: https://img01.ztat.net/article/spp-media-p1/fa172742321638be9ae271b845bee147/d4ecf5c4a0ff44b5b82a554d881d3c56.jpg?imwidth=762
-                xpath: /html/body/div[2]/div[1]/div[1]/div[1]/div[1]/x-wrapper-re-1-2[1]/div[1]/div[2]/div[1]/div[3]/ul[1]/li[5]/div[1]/div[1]/div[1]/img[1]/@src
-              - text: https://img01.ztat.net/article/spp-media-p1/d7a25e14e05d3b1490fdcc51b038d2c6/eebd257034c94856b51914da517cd40b.jpg?imwidth=762
-                xpath: /html/body/div[2]/div[1]/div[1]/div[1]/div[1]/x-wrapper-re-1-2[1]/div[1]/div[2]/div[1]/div[3]/ul[1]/li[6]/div[1]/div[1]/div[1]/img[1]/@src
+              - text: https://img01.ztat.net/article/spp-media-p1/730657235ebb33d3b2a15df3da3fa15f/01ac586592074a0c92e4b3c649d1de21.jpg
+                xpath: /html/body/ol[1]/li[1]
+              - text: https://img01.ztat.net/article/spp-media-p1/aed1c6f0a50f3d2f8559def55b57484b/b4bf1b8436894d7bae25f2a370672755.jpg
+                xpath: /html/body/ol[1]/li[2]
+              - text: https://img01.ztat.net/article/spp-media-p1/9d8ecdb0afd1303b92afca5143469319/33e00823fa9e404fba922b9b3990726c.jpg
+                xpath: /html/body/ol[1]/li[3]
+              - text: https://img01.ztat.net/article/spp-media-p1/0b900d4729ab39dd843096c3d505926a/4723d5599fbb45a284859709aa3c85e7.jpg
+                xpath: /html/body/ol[1]/li[4]
+              - text: https://img01.ztat.net/article/spp-media-p1/fa172742321638be9ae271b845bee147/d4ecf5c4a0ff44b5b82a554d881d3c56.jpg
+                xpath: /html/body/ol[1]/li[5]
+              - text: https://img01.ztat.net/article/spp-media-p1/d7a25e14e05d3b1490fdcc51b038d2c6/eebd257034c94856b51914da517cd40b.jpg
+                xpath: /html/body/ol[1]/li[6]
             nameExtended:
               - text: Tommy Hilfiger - LIGHTWEIGHT CUPSOLE - Trainers - white - 44
                 xpath: /html/body/div[14]/@name_extended
@@ -341,11 +448,14 @@ extractions:
               - text: 99,90 €
                 xpath: /html/body/div[14]/@list_price
             price:
-              - text: 67,45 €
+              - text: 71,18 €
                 xpath: /html/body/div[14]/@price
             availabilityText:
               - text: In stock
                 xpath: /html/body/div[14]/@availability_text
+            brandText:
+              - text: Tommy Hilfiger
+                xpath: /html/body/div[2]/div[1]/div[1]/div[1]/div[2]/x-wrapper-re-1-3[1]/div[1]/a[1]/span[1]/h3[1]
             manufacturer:
               - text: Tommy Hilfiger
                 xpath: /html/body/div[2]/div[1]/div[1]/div[1]/div[2]/x-wrapper-re-1-3[1]/div[1]/a[1]/span[1]/h3[1]
@@ -356,10 +466,10 @@ extractions:
               - text: "0440000"
                 xpath: /html/body/div[14]/@variant_id
             ratingCount:
-              - text: "15"
+              - text: "24"
                 xpath: /html/body/div[14]/@rating_count
             aggregateRating:
-              - text: 4,7
+              - text: 4,8
                 xpath: /html/body/div[14]/@aggregate_rating
             variantCount:
               - text: "7"
@@ -373,12 +483,17 @@ extractions:
             brandLink:
               - text: https://en.zalando.de/tommy-hilfiger/
                 xpath: /html/body/div[2]/div[1]/div[1]/div[1]/div[2]/x-wrapper-re-1-3[1]/div[1]/a[1]/@href
+            secondaryImageTotal:
+              - text: "6"
             promotion:
-              - text: 32% off
+              - text: 29% off
                 xpath: /html/body/div[2]/div[1]/div[1]/div[1]/div[2]/x-wrapper-re-1-3[1]/div[3]/span[1]
-            variants:
-              - text: 0400000|0410000|0420000|0430000|0450000|0460000
-                xpath: /html/body/div[14]/@variants
+            variantInformation:
+              - text: white
+                xpath: /html/body/div[14]/@variant_information
+            firstVariant:
+              - text: "0400000"
+                xpath: /html/body/div[14]/@first_variant
             materials:
               - text: |-
                   Upper material: Leather and imitation leather
@@ -391,7 +506,20 @@ extractions:
                 xpath: /html/body/div[2]/div[1]/div[1]/div[1]/div[2]/div[3]/div[1]/div[1]/div[1]/div[2]
             imageZoomFeaturePresent:
               - text: "true"
-          - productUrl:
+          - variants:
+              - text: "0400000"
+                xpath: /html/body/div[15]/ol[1]/li[1]
+              - text: "0410000"
+                xpath: /html/body/div[15]/ol[1]/li[2]
+              - text: "0420000"
+                xpath: /html/body/div[15]/ol[1]/li[3]
+              - text: "0430000"
+                xpath: /html/body/div[15]/ol[1]/li[4]
+              - text: "0440000"
+                xpath: /html/body/div[15]/ol[1]/li[5]
+              - text: "0460000"
+                xpath: /html/body/div[15]/ol[1]/li[6]
+            productUrl:
               - text: https://en.zalando.de/tommy-hilfiger-lightweight-cupsole-trainers-white-to112o067-a11.html
                 xpath: /html/body/div[17]
             image:
@@ -401,16 +529,18 @@ extractions:
               - text: Tommy Hilfiger - LIGHTWEIGHT CUPSOLE - Trainers - white
                 xpath: /html/body/div[2]/div[1]/div[1]/div[1]/div[1]/x-wrapper-re-1-2[1]/div[1]/div[2]/div[1]/div[3]/ul[1]/li[1]/div[1]/div[1]/div[1]/img[1]/@alt
             alternateImages:
-              - text: https://img01.ztat.net/article/spp-media-p1/aed1c6f0a50f3d2f8559def55b57484b/b4bf1b8436894d7bae25f2a370672755.jpg?imwidth=762
-                xpath: /html/body/div[2]/div[1]/div[1]/div[1]/div[1]/x-wrapper-re-1-2[1]/div[1]/div[2]/div[1]/div[3]/ul[1]/li[2]/div[1]/div[1]/div[1]/img[1]/@src
-              - text: https://img01.ztat.net/article/spp-media-p1/9d8ecdb0afd1303b92afca5143469319/33e00823fa9e404fba922b9b3990726c.jpg?imwidth=762
-                xpath: /html/body/div[2]/div[1]/div[1]/div[1]/div[1]/x-wrapper-re-1-2[1]/div[1]/div[2]/div[1]/div[3]/ul[1]/li[3]/div[1]/div[1]/div[1]/img[1]/@src
-              - text: https://img01.ztat.net/article/spp-media-p1/0b900d4729ab39dd843096c3d505926a/4723d5599fbb45a284859709aa3c85e7.jpg?imwidth=762
-                xpath: /html/body/div[2]/div[1]/div[1]/div[1]/div[1]/x-wrapper-re-1-2[1]/div[1]/div[2]/div[1]/div[3]/ul[1]/li[4]/div[1]/div[1]/div[1]/img[1]/@src
-              - text: https://img01.ztat.net/article/spp-media-p1/fa172742321638be9ae271b845bee147/d4ecf5c4a0ff44b5b82a554d881d3c56.jpg?imwidth=762
-                xpath: /html/body/div[2]/div[1]/div[1]/div[1]/div[1]/x-wrapper-re-1-2[1]/div[1]/div[2]/div[1]/div[3]/ul[1]/li[5]/div[1]/div[1]/div[1]/img[1]/@src
-              - text: https://img01.ztat.net/article/spp-media-p1/d7a25e14e05d3b1490fdcc51b038d2c6/eebd257034c94856b51914da517cd40b.jpg?imwidth=762
-                xpath: /html/body/div[2]/div[1]/div[1]/div[1]/div[1]/x-wrapper-re-1-2[1]/div[1]/div[2]/div[1]/div[3]/ul[1]/li[6]/div[1]/div[1]/div[1]/img[1]/@src
+              - text: https://img01.ztat.net/article/spp-media-p1/730657235ebb33d3b2a15df3da3fa15f/01ac586592074a0c92e4b3c649d1de21.jpg
+                xpath: /html/body/ol[1]/li[1]
+              - text: https://img01.ztat.net/article/spp-media-p1/aed1c6f0a50f3d2f8559def55b57484b/b4bf1b8436894d7bae25f2a370672755.jpg
+                xpath: /html/body/ol[1]/li[2]
+              - text: https://img01.ztat.net/article/spp-media-p1/9d8ecdb0afd1303b92afca5143469319/33e00823fa9e404fba922b9b3990726c.jpg
+                xpath: /html/body/ol[1]/li[3]
+              - text: https://img01.ztat.net/article/spp-media-p1/0b900d4729ab39dd843096c3d505926a/4723d5599fbb45a284859709aa3c85e7.jpg
+                xpath: /html/body/ol[1]/li[4]
+              - text: https://img01.ztat.net/article/spp-media-p1/fa172742321638be9ae271b845bee147/d4ecf5c4a0ff44b5b82a554d881d3c56.jpg
+                xpath: /html/body/ol[1]/li[5]
+              - text: https://img01.ztat.net/article/spp-media-p1/d7a25e14e05d3b1490fdcc51b038d2c6/eebd257034c94856b51914da517cd40b.jpg
+                xpath: /html/body/ol[1]/li[6]
             nameExtended:
               - text: Tommy Hilfiger - LIGHTWEIGHT CUPSOLE - Trainers - white - 45
                 xpath: /html/body/div[15]/@name_extended
@@ -418,11 +548,14 @@ extractions:
               - text: 99,90 €
                 xpath: /html/body/div[15]/@list_price
             price:
-              - text: 67,45 €
+              - text: 71,18 €
                 xpath: /html/body/div[15]/@price
             availabilityText:
               - text: Only 1 left
                 xpath: /html/body/div[15]/@availability_text
+            brandText:
+              - text: Tommy Hilfiger
+                xpath: /html/body/div[2]/div[1]/div[1]/div[1]/div[2]/x-wrapper-re-1-3[1]/div[1]/a[1]/span[1]/h3[1]
             manufacturer:
               - text: Tommy Hilfiger
                 xpath: /html/body/div[2]/div[1]/div[1]/div[1]/div[2]/x-wrapper-re-1-3[1]/div[1]/a[1]/span[1]/h3[1]
@@ -433,10 +566,10 @@ extractions:
               - text: "0450000"
                 xpath: /html/body/div[15]/@variant_id
             ratingCount:
-              - text: "15"
+              - text: "24"
                 xpath: /html/body/div[15]/@rating_count
             aggregateRating:
-              - text: 4,7
+              - text: 4,8
                 xpath: /html/body/div[15]/@aggregate_rating
             variantCount:
               - text: "7"
@@ -450,12 +583,17 @@ extractions:
             brandLink:
               - text: https://en.zalando.de/tommy-hilfiger/
                 xpath: /html/body/div[2]/div[1]/div[1]/div[1]/div[2]/x-wrapper-re-1-3[1]/div[1]/a[1]/@href
+            secondaryImageTotal:
+              - text: "6"
             promotion:
-              - text: 32% off
+              - text: 29% off
                 xpath: /html/body/div[2]/div[1]/div[1]/div[1]/div[2]/x-wrapper-re-1-3[1]/div[3]/span[1]
-            variants:
-              - text: 0400000|0410000|0420000|0430000|0440000|0460000
-                xpath: /html/body/div[15]/@variants
+            variantInformation:
+              - text: white
+                xpath: /html/body/div[15]/@variant_information
+            firstVariant:
+              - text: "0400000"
+                xpath: /html/body/div[15]/@first_variant
             materials:
               - text: |-
                   Upper material: Leather and imitation leather
@@ -468,7 +606,20 @@ extractions:
                 xpath: /html/body/div[2]/div[1]/div[1]/div[1]/div[2]/div[3]/div[1]/div[1]/div[1]/div[2]
             imageZoomFeaturePresent:
               - text: "true"
-          - productUrl:
+          - variants:
+              - text: "0400000"
+                xpath: /html/body/div[16]/ol[1]/li[1]
+              - text: "0410000"
+                xpath: /html/body/div[16]/ol[1]/li[2]
+              - text: "0420000"
+                xpath: /html/body/div[16]/ol[1]/li[3]
+              - text: "0430000"
+                xpath: /html/body/div[16]/ol[1]/li[4]
+              - text: "0440000"
+                xpath: /html/body/div[16]/ol[1]/li[5]
+              - text: "0450000"
+                xpath: /html/body/div[16]/ol[1]/li[6]
+            productUrl:
               - text: https://en.zalando.de/tommy-hilfiger-lightweight-cupsole-trainers-white-to112o067-a11.html
                 xpath: /html/body/div[17]
             image:
@@ -478,16 +629,18 @@ extractions:
               - text: Tommy Hilfiger - LIGHTWEIGHT CUPSOLE - Trainers - white
                 xpath: /html/body/div[2]/div[1]/div[1]/div[1]/div[1]/x-wrapper-re-1-2[1]/div[1]/div[2]/div[1]/div[3]/ul[1]/li[1]/div[1]/div[1]/div[1]/img[1]/@alt
             alternateImages:
-              - text: https://img01.ztat.net/article/spp-media-p1/aed1c6f0a50f3d2f8559def55b57484b/b4bf1b8436894d7bae25f2a370672755.jpg?imwidth=762
-                xpath: /html/body/div[2]/div[1]/div[1]/div[1]/div[1]/x-wrapper-re-1-2[1]/div[1]/div[2]/div[1]/div[3]/ul[1]/li[2]/div[1]/div[1]/div[1]/img[1]/@src
-              - text: https://img01.ztat.net/article/spp-media-p1/9d8ecdb0afd1303b92afca5143469319/33e00823fa9e404fba922b9b3990726c.jpg?imwidth=762
-                xpath: /html/body/div[2]/div[1]/div[1]/div[1]/div[1]/x-wrapper-re-1-2[1]/div[1]/div[2]/div[1]/div[3]/ul[1]/li[3]/div[1]/div[1]/div[1]/img[1]/@src
-              - text: https://img01.ztat.net/article/spp-media-p1/0b900d4729ab39dd843096c3d505926a/4723d5599fbb45a284859709aa3c85e7.jpg?imwidth=762
-                xpath: /html/body/div[2]/div[1]/div[1]/div[1]/div[1]/x-wrapper-re-1-2[1]/div[1]/div[2]/div[1]/div[3]/ul[1]/li[4]/div[1]/div[1]/div[1]/img[1]/@src
-              - text: https://img01.ztat.net/article/spp-media-p1/fa172742321638be9ae271b845bee147/d4ecf5c4a0ff44b5b82a554d881d3c56.jpg?imwidth=762
-                xpath: /html/body/div[2]/div[1]/div[1]/div[1]/div[1]/x-wrapper-re-1-2[1]/div[1]/div[2]/div[1]/div[3]/ul[1]/li[5]/div[1]/div[1]/div[1]/img[1]/@src
-              - text: https://img01.ztat.net/article/spp-media-p1/d7a25e14e05d3b1490fdcc51b038d2c6/eebd257034c94856b51914da517cd40b.jpg?imwidth=762
-                xpath: /html/body/div[2]/div[1]/div[1]/div[1]/div[1]/x-wrapper-re-1-2[1]/div[1]/div[2]/div[1]/div[3]/ul[1]/li[6]/div[1]/div[1]/div[1]/img[1]/@src
+              - text: https://img01.ztat.net/article/spp-media-p1/730657235ebb33d3b2a15df3da3fa15f/01ac586592074a0c92e4b3c649d1de21.jpg
+                xpath: /html/body/ol[1]/li[1]
+              - text: https://img01.ztat.net/article/spp-media-p1/aed1c6f0a50f3d2f8559def55b57484b/b4bf1b8436894d7bae25f2a370672755.jpg
+                xpath: /html/body/ol[1]/li[2]
+              - text: https://img01.ztat.net/article/spp-media-p1/9d8ecdb0afd1303b92afca5143469319/33e00823fa9e404fba922b9b3990726c.jpg
+                xpath: /html/body/ol[1]/li[3]
+              - text: https://img01.ztat.net/article/spp-media-p1/0b900d4729ab39dd843096c3d505926a/4723d5599fbb45a284859709aa3c85e7.jpg
+                xpath: /html/body/ol[1]/li[4]
+              - text: https://img01.ztat.net/article/spp-media-p1/fa172742321638be9ae271b845bee147/d4ecf5c4a0ff44b5b82a554d881d3c56.jpg
+                xpath: /html/body/ol[1]/li[5]
+              - text: https://img01.ztat.net/article/spp-media-p1/d7a25e14e05d3b1490fdcc51b038d2c6/eebd257034c94856b51914da517cd40b.jpg
+                xpath: /html/body/ol[1]/li[6]
             nameExtended:
               - text: Tommy Hilfiger - LIGHTWEIGHT CUPSOLE - Trainers - white - 46
                 xpath: /html/body/div[16]/@name_extended
@@ -495,11 +648,14 @@ extractions:
               - text: 99,90 €
                 xpath: /html/body/div[16]/@list_price
             price:
-              - text: 67,45 €
+              - text: 71,18 €
                 xpath: /html/body/div[16]/@price
             availabilityText:
               - text: Only 1 left
                 xpath: /html/body/div[16]/@availability_text
+            brandText:
+              - text: Tommy Hilfiger
+                xpath: /html/body/div[2]/div[1]/div[1]/div[1]/div[2]/x-wrapper-re-1-3[1]/div[1]/a[1]/span[1]/h3[1]
             manufacturer:
               - text: Tommy Hilfiger
                 xpath: /html/body/div[2]/div[1]/div[1]/div[1]/div[2]/x-wrapper-re-1-3[1]/div[1]/a[1]/span[1]/h3[1]
@@ -510,10 +666,10 @@ extractions:
               - text: "0460000"
                 xpath: /html/body/div[16]/@variant_id
             ratingCount:
-              - text: "15"
+              - text: "24"
                 xpath: /html/body/div[16]/@rating_count
             aggregateRating:
-              - text: 4,7
+              - text: 4,8
                 xpath: /html/body/div[16]/@aggregate_rating
             variantCount:
               - text: "7"
@@ -527,12 +683,17 @@ extractions:
             brandLink:
               - text: https://en.zalando.de/tommy-hilfiger/
                 xpath: /html/body/div[2]/div[1]/div[1]/div[1]/div[2]/x-wrapper-re-1-3[1]/div[1]/a[1]/@href
+            secondaryImageTotal:
+              - text: "6"
             promotion:
-              - text: 32% off
+              - text: 29% off
                 xpath: /html/body/div[2]/div[1]/div[1]/div[1]/div[2]/x-wrapper-re-1-3[1]/div[3]/span[1]
-            variants:
-              - text: 0400000|0410000|0420000|0430000|0440000|0450000
-                xpath: /html/body/div[16]/@variants
+            variantInformation:
+              - text: white
+                xpath: /html/body/div[16]/@variant_information
+            firstVariant:
+              - text: "0400000"
+                xpath: /html/body/div[16]/@first_variant
             materials:
               - text: |-
                   Upper material: Leather and imitation leather
@@ -546,4 +707,4 @@ extractions:
             imageZoomFeaturePresent:
               - text: "true"
         xpath: /html
-    timestamp: 1606744540280
+    timestamp: 1607948087016
