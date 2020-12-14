@@ -1,0 +1,630 @@
+input:
+  keywords: dishwasher
+  _url: http://currys.co.uk
+extractions:
+  - html: https://workbench.import.io/html/run=1f66e21f-5f58-4ce5-9ed0-709b6caf7eda/task=151097dd-7073-4f76-b481-ebf4c06b4a4b/0d291b95-07a1-472b-9726-e819d1895393.html
+    extractionConfigId: product/search/stores/c/currys/UK/extract
+    data:
+      - group:
+          - id:
+              - text: "10205683"
+                xpath: /html/body/div[2]/div[2]/div[3]/div[3]/section[1]/form[1]/div[4]/div[1]/article[1]/@id
+            searchUrl:
+              - text: https://www.currys.co.uk/gbuk/household-appliances/dishwashing/dishwashers/350_4035_31762_xx_xx/xx-criteria.html
+                xpath: /html/body/div[2]/div[2]/div[3]/div[3]/section[1]/form[1]/div[4]/div[1]/article[1]/@searchurl
+            name:
+              - text: KDW60W20 Full-size Dishwasher - White
+                xpath: /html/body/div[2]/div[2]/div[3]/div[3]/section[1]/form[1]/div[4]/div[1]/article[1]/div[1]/header[1]/a[1]/span[2]
+            productUrl:
+              - text: https://www.currys.co.uk/gbuk/household-appliances/dishwashing/dishwashers/kenwood-kdw60w20-full-size-dishwasher-white-10205683-pdt.html
+                xpath: /html/body/div[2]/div[2]/div[3]/div[3]/section[1]/form[1]/div[4]/div[1]/article[1]/div[1]/header[1]/a[1]/@href
+            thumbnail:
+              - text: https://brain-images-ssl.cdn.dixons.com/3/8/10205683/g_10205683.jpg
+                xpath: /html/body/div[2]/div[2]/div[3]/div[3]/section[1]/form[1]/div[4]/div[1]/article[1]/div[1]/div[1]/div[1]/a[1]/div[1]/img[1]/@src
+            aggregateRating2:
+              - text: "9"
+                xpath: /html/body/div[2]/div[2]/div[3]/div[3]/section[1]/form[1]/div[4]/div[1]/article[1]/div[1]/div[1]/div[2]/a[1]/div[1]/div[1]/span[1]/@class
+                type: STRING
+            reviewCount:
+              - text: "129"
+                xpath: /html/body/div[2]/div[2]/div[3]/div[3]/section[1]/form[1]/div[4]/div[1]/article[1]/div[1]/div[1]/div[2]/a[1]/div[1]/div[1]/small[1]
+            ratingCount:
+              - text: "129"
+                xpath: /html/body/div[2]/div[2]/div[3]/div[3]/section[1]/form[1]/div[4]/div[1]/article[1]/div[1]/div[1]/div[2]/a[1]/div[1]/div[1]/small[1]
+            price:
+              - text: £199.99
+                xpath: /html/body/div[2]/div[2]/div[3]/div[3]/section[1]/form[1]/div[4]/div[1]/article[1]/div[2]/div[1]/div[1]/div[1]/span[1]
+            manufacturer:
+              - text: KENWOOD
+                xpath: /html/body/div[2]/div[2]/div[3]/div[3]/section[1]/form[1]/div[4]/div[1]/article[1]/div[1]/header[1]/a[1]/span[1]
+          - id:
+              - text: "13212957"
+                xpath: /html/body/div[2]/div[2]/div[3]/div[3]/section[1]/form[1]/div[4]/div[1]/article[2]/@id
+            searchUrl:
+              - text: https://www.currys.co.uk/gbuk/household-appliances/dishwashing/dishwashers/350_4035_31762_xx_xx/xx-criteria.html
+                xpath: /html/body/div[2]/div[2]/div[3]/div[3]/section[1]/form[1]/div[4]/div[1]/article[2]/@searchurl
+            name:
+              - text: SMS40T32GB Full-size Dishwasher - White
+                xpath: /html/body/div[2]/div[2]/div[3]/div[3]/section[1]/form[1]/div[4]/div[1]/article[2]/div[1]/header[1]/a[1]/span[2]
+            productUrl:
+              - text: https://www.currys.co.uk/gbuk/household-appliances/dishwashing/dishwashers/bosch-sms40t32gb-full-size-dishwasher-white-13212957-pdt.html
+                xpath: /html/body/div[2]/div[2]/div[3]/div[3]/section[1]/form[1]/div[4]/div[1]/article[2]/div[1]/header[1]/a[1]/@href
+            thumbnail:
+              - text: https://brain-images-ssl.cdn.dixons.com/7/5/13212957/g_13212957.jpg
+                xpath: /html/body/div[2]/div[2]/div[3]/div[3]/section[1]/form[1]/div[4]/div[1]/article[2]/div[1]/div[1]/div[1]/a[1]/div[1]/img[1]/@src
+            aggregateRating2:
+              - text: "9"
+                xpath: /html/body/div[2]/div[2]/div[3]/div[3]/section[1]/form[1]/div[4]/div[1]/article[2]/div[1]/div[1]/div[2]/a[1]/div[1]/div[2]/span[1]/@class
+                type: STRING
+            reviewCount:
+              - text: "1696"
+                xpath: /html/body/div[2]/div[2]/div[3]/div[3]/section[1]/form[1]/div[4]/div[1]/article[2]/div[1]/div[1]/div[2]/a[1]/div[1]/div[2]/small[1]
+            ratingCount:
+              - text: "1696"
+                xpath: /html/body/div[2]/div[2]/div[3]/div[3]/section[1]/form[1]/div[4]/div[1]/article[2]/div[1]/div[1]/div[2]/a[1]/div[1]/div[2]/small[1]
+            price:
+              - text: £299.00
+                xpath: /html/body/div[2]/div[2]/div[3]/div[3]/section[1]/form[1]/div[4]/div[1]/article[2]/div[2]/div[1]/div[1]/div[1]/span[1]
+            manufacturer:
+              - text: BOSCH
+                xpath: /html/body/div[2]/div[2]/div[3]/div[3]/section[1]/form[1]/div[4]/div[1]/article[2]/div[1]/header[1]/a[1]/span[1]
+          - id:
+              - text: "10212934"
+                xpath: /html/body/div[2]/div[2]/div[3]/div[3]/section[1]/form[1]/div[4]/div[1]/article[3]/@id
+            searchUrl:
+              - text: https://www.currys.co.uk/gbuk/household-appliances/dishwashing/dishwashers/350_4035_31762_xx_xx/xx-criteria.html
+                xpath: /html/body/div[2]/div[2]/div[3]/div[3]/section[1]/form[1]/div[4]/div[1]/article[3]/@searchurl
+            name:
+              - text: DIN15X20 Full-size Fully Integrated Dishwasher
+                xpath: /html/body/div[2]/div[2]/div[3]/div[3]/section[1]/form[1]/div[4]/div[1]/article[3]/div[1]/header[1]/a[1]/span[2]
+            productUrl:
+              - text: https://www.currys.co.uk/gbuk/household-appliances/dishwashing/dishwashers/beko-din15x20-full-size-fully-integrated-dishwasher-10212934-pdt.html
+                xpath: /html/body/div[2]/div[2]/div[3]/div[3]/section[1]/form[1]/div[4]/div[1]/article[3]/div[1]/header[1]/a[1]/@href
+            thumbnail:
+              - text: https://brain-images-ssl.cdn.dixons.com/4/3/10212934/g_10212934.jpg
+                xpath: /html/body/div[2]/div[2]/div[3]/div[3]/section[1]/form[1]/div[4]/div[1]/article[3]/div[1]/div[1]/div[1]/a[1]/div[1]/picture[1]/@data-iesrc
+            aggregateRating2:
+              - text: "9"
+                xpath: /html/body/div[2]/div[2]/div[3]/div[3]/section[1]/form[1]/div[4]/div[1]/article[3]/div[1]/div[1]/div[2]/a[1]/div[1]/div[1]/span[1]/@class
+                type: STRING
+            reviewCount:
+              - text: "137"
+                xpath: /html/body/div[2]/div[2]/div[3]/div[3]/section[1]/form[1]/div[4]/div[1]/article[3]/div[1]/div[1]/div[2]/a[1]/div[1]/div[1]/small[1]
+            ratingCount:
+              - text: "137"
+                xpath: /html/body/div[2]/div[2]/div[3]/div[3]/section[1]/form[1]/div[4]/div[1]/article[3]/div[1]/div[1]/div[2]/a[1]/div[1]/div[1]/small[1]
+            price:
+              - text: £229.00
+                xpath: /html/body/div[2]/div[2]/div[3]/div[3]/section[1]/form[1]/div[4]/div[1]/article[3]/div[2]/div[1]/div[1]/div[1]/span[1]
+            manufacturer:
+              - text: BEKO
+                xpath: /html/body/div[2]/div[2]/div[3]/div[3]/section[1]/form[1]/div[4]/div[1]/article[3]/div[1]/header[1]/a[1]/span[1]
+          - id:
+              - text: "10205679"
+                xpath: /html/body/div[2]/div[2]/div[3]/div[3]/section[1]/form[1]/div[4]/div[1]/article[4]/@id
+            searchUrl:
+              - text: https://www.currys.co.uk/gbuk/household-appliances/dishwashing/dishwashers/350_4035_31762_xx_xx/xx-criteria.html
+                xpath: /html/body/div[2]/div[2]/div[3]/div[3]/section[1]/form[1]/div[4]/div[1]/article[4]/@searchurl
+            name:
+              - text: CUE CDW60W20 Full-size Dishwasher - White
+                xpath: /html/body/div[2]/div[2]/div[3]/div[3]/section[1]/form[1]/div[4]/div[1]/article[4]/div[1]/header[1]/a[1]/span[2]
+            productUrl:
+              - text: https://www.currys.co.uk/gbuk/household-appliances/dishwashing/dishwashers/essentials-cue-cdw60w20-full-size-dishwasher-white-10205679-pdt.html
+                xpath: /html/body/div[2]/div[2]/div[3]/div[3]/section[1]/form[1]/div[4]/div[1]/article[4]/div[1]/header[1]/a[1]/@href
+            thumbnail:
+              - text: https://brain-images-ssl.cdn.dixons.com/9/7/10205679/g_10205679.jpg
+                xpath: /html/body/div[2]/div[2]/div[3]/div[3]/section[1]/form[1]/div[4]/div[1]/article[4]/div[1]/div[1]/div[1]/a[1]/div[1]/picture[1]/@data-iesrc
+            aggregateRating2:
+              - text: "8"
+                xpath: /html/body/div[2]/div[2]/div[3]/div[3]/section[1]/form[1]/div[4]/div[1]/article[4]/div[1]/div[1]/div[2]/a[1]/div[1]/div[1]/span[1]/@class
+                type: STRING
+            reviewCount:
+              - text: "174"
+                xpath: /html/body/div[2]/div[2]/div[3]/div[3]/section[1]/form[1]/div[4]/div[1]/article[4]/div[1]/div[1]/div[2]/a[1]/div[1]/div[1]/small[1]
+            ratingCount:
+              - text: "174"
+                xpath: /html/body/div[2]/div[2]/div[3]/div[3]/section[1]/form[1]/div[4]/div[1]/article[4]/div[1]/div[1]/div[2]/a[1]/div[1]/div[1]/small[1]
+            price:
+              - text: £189.99
+                xpath: /html/body/div[2]/div[2]/div[3]/div[3]/section[1]/form[1]/div[4]/div[1]/article[4]/div[2]/div[1]/div[1]/div[1]/span[1]
+            manufacturer:
+              - text: ESSENTIALS
+                xpath: /html/body/div[2]/div[2]/div[3]/div[3]/section[1]/form[1]/div[4]/div[1]/article[4]/div[1]/header[1]/a[1]/span[1]
+          - id:
+              - text: "10205684"
+                xpath: /html/body/div[2]/div[2]/div[3]/div[3]/section[1]/form[1]/div[4]/div[1]/article[5]/@id
+            searchUrl:
+              - text: https://www.currys.co.uk/gbuk/household-appliances/dishwashing/dishwashers/350_4035_31762_xx_xx/xx-criteria.html
+                xpath: /html/body/div[2]/div[2]/div[3]/div[3]/section[1]/form[1]/div[4]/div[1]/article[5]/@searchurl
+            name:
+              - text: KDW60S20 Full-size Dishwasher - Silver
+                xpath: /html/body/div[2]/div[2]/div[3]/div[3]/section[1]/form[1]/div[4]/div[1]/article[5]/div[1]/header[1]/a[1]/span[2]
+            productUrl:
+              - text: https://www.currys.co.uk/gbuk/household-appliances/dishwashing/dishwashers/kenwood-kdw60s20-full-size-dishwasher-silver-10205684-pdt.html
+                xpath: /html/body/div[2]/div[2]/div[3]/div[3]/section[1]/form[1]/div[4]/div[1]/article[5]/div[1]/header[1]/a[1]/@href
+            thumbnail:
+              - text: https://brain-images-ssl.cdn.dixons.com/4/8/10205684/g_10205684.jpg
+                xpath: /html/body/div[2]/div[2]/div[3]/div[3]/section[1]/form[1]/div[4]/div[1]/article[5]/div[1]/div[1]/div[1]/a[1]/div[1]/picture[1]/@data-iesrc
+            aggregateRating2:
+              - text: "8"
+                xpath: /html/body/div[2]/div[2]/div[3]/div[3]/section[1]/form[1]/div[4]/div[1]/article[5]/div[1]/div[1]/div[2]/a[1]/div[1]/div[1]/span[1]/@class
+                type: STRING
+            reviewCount:
+              - text: "69"
+                xpath: /html/body/div[2]/div[2]/div[3]/div[3]/section[1]/form[1]/div[4]/div[1]/article[5]/div[1]/div[1]/div[2]/a[1]/div[1]/div[1]/small[1]
+            ratingCount:
+              - text: "69"
+                xpath: /html/body/div[2]/div[2]/div[3]/div[3]/section[1]/form[1]/div[4]/div[1]/article[5]/div[1]/div[1]/div[2]/a[1]/div[1]/div[1]/small[1]
+            price:
+              - text: £249.99
+                xpath: /html/body/div[2]/div[2]/div[3]/div[3]/section[1]/form[1]/div[4]/div[1]/article[5]/div[2]/div[1]/div[1]/div[1]/span[1]
+            manufacturer:
+              - text: KENWOOD
+                xpath: /html/body/div[2]/div[2]/div[3]/div[3]/section[1]/form[1]/div[4]/div[1]/article[5]/div[1]/header[1]/a[1]/span[1]
+          - id:
+              - text: "10212849"
+                xpath: /html/body/div[2]/div[2]/div[3]/div[3]/section[1]/form[1]/div[4]/div[1]/article[6]/@id
+            searchUrl:
+              - text: https://www.currys.co.uk/gbuk/household-appliances/dishwashing/dishwashers/350_4035_31762_xx_xx/xx-criteria.html
+                xpath: /html/body/div[2]/div[2]/div[3]/div[3]/section[1]/form[1]/div[4]/div[1]/article[6]/@searchurl
+            name:
+              - text: DVN04X20W Full-size Dishwasher - White
+                xpath: /html/body/div[2]/div[2]/div[3]/div[3]/section[1]/form[1]/div[4]/div[1]/article[6]/div[1]/header[1]/a[1]/span[2]
+            productUrl:
+              - text: https://www.currys.co.uk/gbuk/household-appliances/dishwashing/dishwashers/beko-dvn04x20w-full-size-dishwasher-white-10212849-pdt.html
+                xpath: /html/body/div[2]/div[2]/div[3]/div[3]/section[1]/form[1]/div[4]/div[1]/article[6]/div[1]/header[1]/a[1]/@href
+            thumbnail:
+              - text: https://brain-images-ssl.cdn.dixons.com/9/4/10212849/g_10212849.jpg
+                xpath: /html/body/div[2]/div[2]/div[3]/div[3]/section[1]/form[1]/div[4]/div[1]/article[6]/div[1]/div[1]/div[1]/a[1]/div[1]/picture[1]/@data-iesrc
+            aggregateRating2:
+              - text: "9"
+                xpath: /html/body/div[2]/div[2]/div[3]/div[3]/section[1]/form[1]/div[4]/div[1]/article[6]/div[1]/div[1]/div[2]/a[1]/div[1]/div[1]/span[1]/@class
+                type: STRING
+            reviewCount:
+              - text: "91"
+                xpath: /html/body/div[2]/div[2]/div[3]/div[3]/section[1]/form[1]/div[4]/div[1]/article[6]/div[1]/div[1]/div[2]/a[1]/div[1]/div[1]/small[1]
+            ratingCount:
+              - text: "91"
+                xpath: /html/body/div[2]/div[2]/div[3]/div[3]/section[1]/form[1]/div[4]/div[1]/article[6]/div[1]/div[1]/div[2]/a[1]/div[1]/div[1]/small[1]
+            price:
+              - text: £229.99
+                xpath: /html/body/div[2]/div[2]/div[3]/div[3]/section[1]/form[1]/div[4]/div[1]/article[6]/div[2]/div[1]/div[1]/div[1]/span[1]
+            manufacturer:
+              - text: BEKO
+                xpath: /html/body/div[2]/div[2]/div[3]/div[3]/section[1]/form[1]/div[4]/div[1]/article[6]/div[1]/header[1]/a[1]/span[1]
+          - id:
+              - text: "10212958"
+                xpath: /html/body/div[2]/div[2]/div[3]/div[3]/section[1]/form[1]/div[4]/div[1]/article[7]/@id
+            searchUrl:
+              - text: https://www.currys.co.uk/gbuk/household-appliances/dishwashing/dishwashers/350_4035_31762_xx_xx/xx-criteria.html
+                xpath: /html/body/div[2]/div[2]/div[3]/div[3]/section[1]/form[1]/div[4]/div[1]/article[7]/@searchurl
+            name:
+              - text: DVN04X20S Full-size Dishwasher - Silver
+                xpath: /html/body/div[2]/div[2]/div[3]/div[3]/section[1]/form[1]/div[4]/div[1]/article[7]/div[1]/header[1]/a[1]/span[2]
+            productUrl:
+              - text: https://www.currys.co.uk/gbuk/household-appliances/dishwashing/dishwashers/beko-dvn04x20s-full-size-dishwasher-silver-10212958-pdt.html
+                xpath: /html/body/div[2]/div[2]/div[3]/div[3]/section[1]/form[1]/div[4]/div[1]/article[7]/div[1]/header[1]/a[1]/@href
+            thumbnail:
+              - text: https://brain-images-ssl.cdn.dixons.com/8/5/10212958/g_10212958.jpg
+                xpath: /html/body/div[2]/div[2]/div[3]/div[3]/section[1]/form[1]/div[4]/div[1]/article[7]/div[1]/div[1]/div[1]/a[1]/div[1]/picture[1]/@data-iesrc
+            aggregateRating2:
+              - text: "9"
+                xpath: /html/body/div[2]/div[2]/div[3]/div[3]/section[1]/form[1]/div[4]/div[1]/article[7]/div[1]/div[1]/div[2]/a[1]/div[1]/div[1]/span[1]/@class
+                type: STRING
+            reviewCount:
+              - text: "91"
+                xpath: /html/body/div[2]/div[2]/div[3]/div[3]/section[1]/form[1]/div[4]/div[1]/article[7]/div[1]/div[1]/div[2]/a[1]/div[1]/div[1]/small[1]
+            ratingCount:
+              - text: "91"
+                xpath: /html/body/div[2]/div[2]/div[3]/div[3]/section[1]/form[1]/div[4]/div[1]/article[7]/div[1]/div[1]/div[2]/a[1]/div[1]/div[1]/small[1]
+            price:
+              - text: £229.99
+                xpath: /html/body/div[2]/div[2]/div[3]/div[3]/section[1]/form[1]/div[4]/div[1]/article[7]/div[2]/div[1]/div[1]/div[1]/span[1]
+            manufacturer:
+              - text: BEKO
+                xpath: /html/body/div[2]/div[2]/div[3]/div[3]/section[1]/form[1]/div[4]/div[1]/article[7]/div[1]/header[1]/a[1]/span[1]
+          - id:
+              - text: "10205687"
+                xpath: /html/body/div[2]/div[2]/div[3]/div[3]/section[1]/form[1]/div[4]/div[1]/article[8]/@id
+            searchUrl:
+              - text: https://www.currys.co.uk/gbuk/household-appliances/dishwashing/dishwashers/350_4035_31762_xx_xx/xx-criteria.html
+                xpath: /html/body/div[2]/div[2]/div[3]/div[3]/section[1]/form[1]/div[4]/div[1]/article[8]/@searchurl
+            name:
+              - text: KDW45X20 Slimline Dishwasher - Inox
+                xpath: /html/body/div[2]/div[2]/div[3]/div[3]/section[1]/form[1]/div[4]/div[1]/article[8]/div[1]/header[1]/a[1]/span[2]
+            productUrl:
+              - text: https://www.currys.co.uk/gbuk/household-appliances/dishwashing/dishwashers/kenwood-kdw45x20-slimline-dishwasher-inox-10205687-pdt.html
+                xpath: /html/body/div[2]/div[2]/div[3]/div[3]/section[1]/form[1]/div[4]/div[1]/article[8]/div[1]/header[1]/a[1]/@href
+            thumbnail:
+              - text: https://brain-images-ssl.cdn.dixons.com/7/8/10205687/g_10205687.jpg
+                xpath: /html/body/div[2]/div[2]/div[3]/div[3]/section[1]/form[1]/div[4]/div[1]/article[8]/div[1]/div[1]/div[1]/a[1]/div[1]/picture[1]/@data-iesrc
+            aggregateRating2:
+              - text: "9"
+                xpath: /html/body/div[2]/div[2]/div[3]/div[3]/section[1]/form[1]/div[4]/div[1]/article[8]/div[1]/div[1]/div[2]/a[1]/div[1]/div[1]/span[1]/@class
+                type: STRING
+            reviewCount:
+              - text: "64"
+                xpath: /html/body/div[2]/div[2]/div[3]/div[3]/section[1]/form[1]/div[4]/div[1]/article[8]/div[1]/div[1]/div[2]/a[1]/div[1]/div[1]/small[1]
+            ratingCount:
+              - text: "64"
+                xpath: /html/body/div[2]/div[2]/div[3]/div[3]/section[1]/form[1]/div[4]/div[1]/article[8]/div[1]/div[1]/div[2]/a[1]/div[1]/div[1]/small[1]
+            price:
+              - text: £249.99
+                xpath: /html/body/div[2]/div[2]/div[3]/div[3]/section[1]/form[1]/div[4]/div[1]/article[8]/div[2]/div[1]/div[1]/div[1]/span[1]
+            manufacturer:
+              - text: KENWOOD
+                xpath: /html/body/div[2]/div[2]/div[3]/div[3]/section[1]/form[1]/div[4]/div[1]/article[8]/div[1]/header[1]/a[1]/span[1]
+          - id:
+              - text: "10212927"
+                xpath: /html/body/div[2]/div[2]/div[3]/div[3]/section[1]/form[1]/div[4]/div[1]/article[9]/@id
+            searchUrl:
+              - text: https://www.currys.co.uk/gbuk/household-appliances/dishwashing/dishwashers/350_4035_31762_xx_xx/xx-criteria.html
+                xpath: /html/body/div[2]/div[2]/div[3]/div[3]/section[1]/form[1]/div[4]/div[1]/article[9]/@searchurl
+            name:
+              - text: DVS04X20W Slimline Dishwasher - White
+                xpath: /html/body/div[2]/div[2]/div[3]/div[3]/section[1]/form[1]/div[4]/div[1]/article[9]/div[1]/header[1]/a[1]/span[2]
+            productUrl:
+              - text: https://www.currys.co.uk/gbuk/household-appliances/dishwashing/dishwashers/beko-dvs04x20w-slimline-dishwasher-white-10212927-pdt.html
+                xpath: /html/body/div[2]/div[2]/div[3]/div[3]/section[1]/form[1]/div[4]/div[1]/article[9]/div[1]/header[1]/a[1]/@href
+            thumbnail:
+              - text: https://brain-images-ssl.cdn.dixons.com/7/2/10212927/g_10212927.jpg
+                xpath: /html/body/div[2]/div[2]/div[3]/div[3]/section[1]/form[1]/div[4]/div[1]/article[9]/div[1]/div[1]/div[1]/a[1]/div[1]/picture[1]/@data-iesrc
+            aggregateRating2:
+              - text: "8"
+                xpath: /html/body/div[2]/div[2]/div[3]/div[3]/section[1]/form[1]/div[4]/div[1]/article[9]/div[1]/div[1]/div[2]/a[1]/div[1]/div[1]/span[1]/@class
+                type: STRING
+            reviewCount:
+              - text: "23"
+                xpath: /html/body/div[2]/div[2]/div[3]/div[3]/section[1]/form[1]/div[4]/div[1]/article[9]/div[1]/div[1]/div[2]/a[1]/div[1]/div[1]/small[1]
+            ratingCount:
+              - text: "23"
+                xpath: /html/body/div[2]/div[2]/div[3]/div[3]/section[1]/form[1]/div[4]/div[1]/article[9]/div[1]/div[1]/div[2]/a[1]/div[1]/div[1]/small[1]
+            price:
+              - text: £209.99
+                xpath: /html/body/div[2]/div[2]/div[3]/div[3]/section[1]/form[1]/div[4]/div[1]/article[9]/div[2]/div[1]/div[1]/div[1]/span[1]
+            manufacturer:
+              - text: BEKO
+                xpath: /html/body/div[2]/div[2]/div[3]/div[3]/section[1]/form[1]/div[4]/div[1]/article[9]/div[1]/header[1]/a[1]/span[1]
+          - id:
+              - text: "10206608"
+                xpath: /html/body/div[2]/div[2]/div[3]/div[3]/section[1]/form[1]/div[4]/div[1]/article[10]/@id
+            searchUrl:
+              - text: https://www.currys.co.uk/gbuk/household-appliances/dishwashing/dishwashers/350_4035_31762_xx_xx/xx-criteria.html
+                xpath: /html/body/div[2]/div[2]/div[3]/div[3]/section[1]/form[1]/div[4]/div[1]/article[10]/@searchurl
+            name:
+              - text: KEN KID60S20 Full-size Fully Integrated Dishwasher
+                xpath: /html/body/div[2]/div[2]/div[3]/div[3]/section[1]/form[1]/div[4]/div[1]/article[10]/div[1]/header[1]/a[1]/span[2]
+            productUrl:
+              - text: https://www.currys.co.uk/gbuk/household-appliances/dishwashing/dishwashers/kenwood-ken-kid60s20-full-size-fully-integrated-dishwasher-10206608-pdt.html
+                xpath: /html/body/div[2]/div[2]/div[3]/div[3]/section[1]/form[1]/div[4]/div[1]/article[10]/div[1]/header[1]/a[1]/@href
+            thumbnail:
+              - text: https://brain-images-ssl.cdn.dixons.com/8/0/10206608/g_10206608.jpg
+                xpath: /html/body/div[2]/div[2]/div[3]/div[3]/section[1]/form[1]/div[4]/div[1]/article[10]/div[1]/div[1]/div[1]/a[1]/div[1]/picture[1]/@data-iesrc
+            aggregateRating2:
+              - text: "8"
+                xpath: /html/body/div[2]/div[2]/div[3]/div[3]/section[1]/form[1]/div[4]/div[1]/article[10]/div[1]/div[1]/div[2]/a[1]/div[1]/div[2]/span[1]/@class
+                type: STRING
+            reviewCount:
+              - text: "60"
+                xpath: /html/body/div[2]/div[2]/div[3]/div[3]/section[1]/form[1]/div[4]/div[1]/article[10]/div[1]/div[1]/div[2]/a[1]/div[1]/div[2]/small[1]
+            ratingCount:
+              - text: "60"
+                xpath: /html/body/div[2]/div[2]/div[3]/div[3]/section[1]/form[1]/div[4]/div[1]/article[10]/div[1]/div[1]/div[2]/a[1]/div[1]/div[2]/small[1]
+            price:
+              - text: £259.00
+                xpath: /html/body/div[2]/div[2]/div[3]/div[3]/section[1]/form[1]/div[4]/div[1]/article[10]/div[2]/div[1]/div[1]/div[1]/span[1]
+            manufacturer:
+              - text: KENWOOD
+                xpath: /html/body/div[2]/div[2]/div[3]/div[3]/section[1]/form[1]/div[4]/div[1]/article[10]/div[1]/header[1]/a[1]/span[1]
+          - id:
+              - text: "10195836"
+                xpath: /html/body/div[2]/div[2]/div[3]/div[3]/section[1]/form[1]/div[4]/div[1]/article[11]/@id
+            searchUrl:
+              - text: https://www.currys.co.uk/gbuk/household-appliances/dishwashing/dishwashers/350_4035_31762_xx_xx/xx-criteria.html
+                xpath: /html/body/div[2]/div[2]/div[3]/div[3]/section[1]/form[1]/div[4]/div[1]/article[11]/@searchurl
+            name:
+              - text: DFD13E1WH Full-size Dishwasher - White
+                xpath: /html/body/div[2]/div[2]/div[3]/div[3]/section[1]/form[1]/div[4]/div[1]/article[11]/div[1]/header[1]/a[1]/span[2]
+            productUrl:
+              - text: https://www.currys.co.uk/gbuk/household-appliances/dishwashing/dishwashers/smeg-dfd13e1wh-full-size-dishwasher-white-10195836-pdt.html
+                xpath: /html/body/div[2]/div[2]/div[3]/div[3]/section[1]/form[1]/div[4]/div[1]/article[11]/div[1]/header[1]/a[1]/@href
+            thumbnail:
+              - text: https://brain-images-ssl.cdn.dixons.com/6/3/10195836/g_10195836.jpg
+                xpath: /html/body/div[2]/div[2]/div[3]/div[3]/section[1]/form[1]/div[4]/div[1]/article[11]/div[1]/div[1]/div[1]/a[1]/div[1]/picture[1]/@data-iesrc
+            aggregateRating2:
+              - text: "8"
+                xpath: /html/body/div[2]/div[2]/div[3]/div[3]/section[1]/form[1]/div[4]/div[1]/article[11]/div[1]/div[1]/div[2]/a[1]/div[1]/div[2]/span[1]/@class
+                type: STRING
+            reviewCount:
+              - text: "41"
+                xpath: /html/body/div[2]/div[2]/div[3]/div[3]/section[1]/form[1]/div[4]/div[1]/article[11]/div[1]/div[1]/div[2]/a[1]/div[1]/div[2]/small[1]
+            ratingCount:
+              - text: "41"
+                xpath: /html/body/div[2]/div[2]/div[3]/div[3]/section[1]/form[1]/div[4]/div[1]/article[11]/div[1]/div[1]/div[2]/a[1]/div[1]/div[2]/small[1]
+            price:
+              - text: £299.99
+                xpath: /html/body/div[2]/div[2]/div[3]/div[3]/section[1]/form[1]/div[4]/div[1]/article[11]/div[2]/div[1]/div[1]/div[1]/span[1]
+            manufacturer:
+              - text: SMEG
+                xpath: /html/body/div[2]/div[2]/div[3]/div[3]/section[1]/form[1]/div[4]/div[1]/article[11]/div[1]/header[1]/a[1]/span[1]
+          - id:
+              - text: "10212915"
+                xpath: /html/body/div[2]/div[2]/div[3]/div[3]/section[1]/form[1]/div[4]/div[1]/article[12]/@id
+            searchUrl:
+              - text: https://www.currys.co.uk/gbuk/household-appliances/dishwashing/dishwashers/350_4035_31762_xx_xx/xx-criteria.html
+                xpath: /html/body/div[2]/div[2]/div[3]/div[3]/section[1]/form[1]/div[4]/div[1]/article[12]/@searchurl
+            name:
+              - text: DIS15020 Slimline Fully Integrated Dishwasher
+                xpath: /html/body/div[2]/div[2]/div[3]/div[3]/section[1]/form[1]/div[4]/div[1]/article[12]/div[1]/header[1]/a[1]/span[2]
+            productUrl:
+              - text: https://www.currys.co.uk/gbuk/household-appliances/dishwashing/dishwashers/beko-dis15020-slimline-fully-integrated-dishwasher-10212915-pdt.html
+                xpath: /html/body/div[2]/div[2]/div[3]/div[3]/section[1]/form[1]/div[4]/div[1]/article[12]/div[1]/header[1]/a[1]/@href
+            thumbnail:
+              - text: https://brain-images-ssl.cdn.dixons.com/5/1/10212915/g_10212915.jpg
+                xpath: /html/body/div[2]/div[2]/div[3]/div[3]/section[1]/form[1]/div[4]/div[1]/article[12]/div[1]/div[1]/div[1]/a[1]/div[1]/picture[1]/@data-iesrc
+            aggregateRating2:
+              - text: "9"
+                xpath: /html/body/div[2]/div[2]/div[3]/div[3]/section[1]/form[1]/div[4]/div[1]/article[12]/div[1]/div[1]/div[2]/a[1]/div[1]/div[1]/span[1]/@class
+                type: STRING
+            reviewCount:
+              - text: "22"
+                xpath: /html/body/div[2]/div[2]/div[3]/div[3]/section[1]/form[1]/div[4]/div[1]/article[12]/div[1]/div[1]/div[2]/a[1]/div[1]/div[1]/small[1]
+            ratingCount:
+              - text: "22"
+                xpath: /html/body/div[2]/div[2]/div[3]/div[3]/section[1]/form[1]/div[4]/div[1]/article[12]/div[1]/div[1]/div[2]/a[1]/div[1]/div[1]/small[1]
+            price:
+              - text: £239.00
+                xpath: /html/body/div[2]/div[2]/div[3]/div[3]/section[1]/form[1]/div[4]/div[1]/article[12]/div[2]/div[1]/div[1]/div[1]/span[1]
+            manufacturer:
+              - text: BEKO
+                xpath: /html/body/div[2]/div[2]/div[3]/div[3]/section[1]/form[1]/div[4]/div[1]/article[12]/div[1]/header[1]/a[1]/span[1]
+          - id:
+              - text: "10205682"
+                xpath: /html/body/div[2]/div[2]/div[3]/div[3]/section[1]/form[1]/div[4]/div[1]/article[13]/@id
+            searchUrl:
+              - text: https://www.currys.co.uk/gbuk/household-appliances/dishwashing/dishwashers/350_4035_31762_xx_xx/xx-criteria.html
+                xpath: /html/body/div[2]/div[2]/div[3]/div[3]/section[1]/form[1]/div[4]/div[1]/article[13]/@searchurl
+            name:
+              - text: CUE CDWTT20 Table Top Dishwasher - White
+                xpath: /html/body/div[2]/div[2]/div[3]/div[3]/section[1]/form[1]/div[4]/div[1]/article[13]/div[1]/header[1]/a[1]/span[2]
+            productUrl:
+              - text: https://www.currys.co.uk/gbuk/household-appliances/dishwashing/dishwashers/essentials-cue-cdwtt20-table-top-dishwasher-white-10205682-pdt.html
+                xpath: /html/body/div[2]/div[2]/div[3]/div[3]/section[1]/form[1]/div[4]/div[1]/article[13]/div[1]/header[1]/a[1]/@href
+            thumbnail:
+              - text: https://brain-images-ssl.cdn.dixons.com/2/8/10205682/g_10205682.jpg
+                xpath: /html/body/div[2]/div[2]/div[3]/div[3]/section[1]/form[1]/div[4]/div[1]/article[13]/div[1]/div[1]/div[1]/a[1]/div[1]/picture[1]/@data-iesrc
+            aggregateRating2:
+              - text: "9"
+                xpath: /html/body/div[2]/div[2]/div[3]/div[3]/section[1]/form[1]/div[4]/div[1]/article[13]/div[1]/div[1]/div[2]/a[1]/div[1]/div[1]/span[1]/@class
+                type: STRING
+            reviewCount:
+              - text: "67"
+                xpath: /html/body/div[2]/div[2]/div[3]/div[3]/section[1]/form[1]/div[4]/div[1]/article[13]/div[1]/div[1]/div[2]/a[1]/div[1]/div[1]/small[1]
+            ratingCount:
+              - text: "67"
+                xpath: /html/body/div[2]/div[2]/div[3]/div[3]/section[1]/form[1]/div[4]/div[1]/article[13]/div[1]/div[1]/div[2]/a[1]/div[1]/div[1]/small[1]
+            price:
+              - text: £189.99
+                xpath: /html/body/div[2]/div[2]/div[3]/div[3]/section[1]/form[1]/div[4]/div[1]/article[13]/div[2]/div[1]/div[1]/div[1]/span[1]
+            manufacturer:
+              - text: ESSENTIALS
+                xpath: /html/body/div[2]/div[2]/div[3]/div[3]/section[1]/form[1]/div[4]/div[1]/article[13]/div[1]/header[1]/a[1]/span[1]
+          - id:
+              - text: "10212834"
+                xpath: /html/body/div[2]/div[2]/div[3]/div[3]/section[1]/form[1]/div[4]/div[1]/article[14]/@id
+            searchUrl:
+              - text: https://www.currys.co.uk/gbuk/household-appliances/dishwashing/dishwashers/350_4035_31762_xx_xx/xx-criteria.html
+                xpath: /html/body/div[2]/div[2]/div[3]/div[3]/section[1]/form[1]/div[4]/div[1]/article[14]/@searchurl
+            name:
+              - text: H-Dish 500 HRIN 4D620PB Full-size Fully Integrated WiFi-enabled Dishwasher
+                xpath: /html/body/div[2]/div[2]/div[3]/div[3]/section[1]/form[1]/div[4]/div[1]/article[14]/div[2]/header[1]/a[1]/span[2]
+            productUrl:
+              - text: https://www.currys.co.uk/gbuk/household-appliances/dishwashing/dishwashers/hoover-h-dish-500-hrin-4d620pb-full-size-fully-integrated-wifi-enabled-dishwasher-10212834-pdt.html
+                xpath: /html/body/div[2]/div[2]/div[3]/div[3]/section[1]/form[1]/div[4]/div[1]/article[14]/div[2]/header[1]/a[1]/@href
+            thumbnail:
+              - text: https://brain-images-ssl.cdn.dixons.com/4/3/10212834/g_10212834.jpg
+                xpath: /html/body/div[2]/div[2]/div[3]/div[3]/section[1]/form[1]/div[4]/div[1]/article[14]/div[2]/div[1]/div[1]/a[1]/div[1]/picture[1]/@data-iesrc
+            aggregateRating2:
+              - text: "4"
+                xpath: /html/body/div[2]/div[2]/div[3]/div[3]/section[1]/form[1]/div[4]/div[1]/article[14]/div[2]/div[1]/div[2]/a[1]/div[1]/div[2]/span[1]/@class
+                type: STRING
+            reviewCount:
+              - text: "8"
+                xpath: /html/body/div[2]/div[2]/div[3]/div[3]/section[1]/form[1]/div[4]/div[1]/article[14]/div[2]/div[1]/div[2]/a[1]/div[1]/div[2]/small[1]
+            ratingCount:
+              - text: "8"
+                xpath: /html/body/div[2]/div[2]/div[3]/div[3]/section[1]/form[1]/div[4]/div[1]/article[14]/div[2]/div[1]/div[2]/a[1]/div[1]/div[2]/small[1]
+            price:
+              - text: £369.00
+                xpath: /html/body/div[2]/div[2]/div[3]/div[3]/section[1]/form[1]/div[4]/div[1]/article[14]/div[3]/div[1]/div[1]/div[1]/span[1]
+            manufacturer:
+              - text: HOOVER
+                xpath: /html/body/div[2]/div[2]/div[3]/div[3]/section[1]/form[1]/div[4]/div[1]/article[14]/div[2]/header[1]/a[1]/span[1]
+          - id:
+              - text: "10205686"
+                xpath: /html/body/div[2]/div[2]/div[3]/div[3]/section[1]/form[1]/div[4]/div[1]/article[15]/@id
+            searchUrl:
+              - text: https://www.currys.co.uk/gbuk/household-appliances/dishwashing/dishwashers/350_4035_31762_xx_xx/xx-criteria.html
+                xpath: /html/body/div[2]/div[2]/div[3]/div[3]/section[1]/form[1]/div[4]/div[1]/article[15]/@searchurl
+            name:
+              - text: KDW45W20 Slimline Dishwasher - White
+                xpath: /html/body/div[2]/div[2]/div[3]/div[3]/section[1]/form[1]/div[4]/div[1]/article[15]/div[1]/header[1]/a[1]/span[2]
+            productUrl:
+              - text: https://www.currys.co.uk/gbuk/household-appliances/dishwashing/dishwashers/kenwood-kdw45w20-slimline-dishwasher-white-10205686-pdt.html
+                xpath: /html/body/div[2]/div[2]/div[3]/div[3]/section[1]/form[1]/div[4]/div[1]/article[15]/div[1]/header[1]/a[1]/@href
+            thumbnail:
+              - text: https://brain-images-ssl.cdn.dixons.com/6/8/10205686/g_10205686.jpg
+                xpath: /html/body/div[2]/div[2]/div[3]/div[3]/section[1]/form[1]/div[4]/div[1]/article[15]/div[1]/div[1]/div[1]/a[1]/div[1]/picture[1]/@data-iesrc
+            aggregateRating2:
+              - text: "8"
+                xpath: /html/body/div[2]/div[2]/div[3]/div[3]/section[1]/form[1]/div[4]/div[1]/article[15]/div[1]/div[1]/div[2]/a[1]/div[1]/div[1]/span[1]/@class
+                type: STRING
+            reviewCount:
+              - text: "56"
+                xpath: /html/body/div[2]/div[2]/div[3]/div[3]/section[1]/form[1]/div[4]/div[1]/article[15]/div[1]/div[1]/div[2]/a[1]/div[1]/div[1]/small[1]
+            ratingCount:
+              - text: "56"
+                xpath: /html/body/div[2]/div[2]/div[3]/div[3]/section[1]/form[1]/div[4]/div[1]/article[15]/div[1]/div[1]/div[2]/a[1]/div[1]/div[1]/small[1]
+            price:
+              - text: £229.99
+                xpath: /html/body/div[2]/div[2]/div[3]/div[3]/section[1]/form[1]/div[4]/div[1]/article[15]/div[2]/div[1]/div[1]/div[1]/span[1]
+            manufacturer:
+              - text: KENWOOD
+                xpath: /html/body/div[2]/div[2]/div[3]/div[3]/section[1]/form[1]/div[4]/div[1]/article[15]/div[1]/header[1]/a[1]/span[1]
+          - id:
+              - text: "10212935"
+                xpath: /html/body/div[2]/div[2]/div[3]/div[3]/section[1]/form[1]/div[4]/div[1]/article[16]/@id
+            searchUrl:
+              - text: https://www.currys.co.uk/gbuk/household-appliances/dishwashing/dishwashers/350_4035_31762_xx_xx/xx-criteria.html
+                xpath: /html/body/div[2]/div[2]/div[3]/div[3]/section[1]/form[1]/div[4]/div[1]/article[16]/@searchurl
+            name:
+              - text: DVS04X20X Slimline Dishwasher - Stainless Steel
+                xpath: /html/body/div[2]/div[2]/div[3]/div[3]/section[1]/form[1]/div[4]/div[1]/article[16]/div[1]/header[1]/a[1]/span[2]
+            productUrl:
+              - text: https://www.currys.co.uk/gbuk/household-appliances/dishwashing/dishwashers/beko-dvs04x20x-slimline-dishwasher-stainless-steel-10212935-pdt.html
+                xpath: /html/body/div[2]/div[2]/div[3]/div[3]/section[1]/form[1]/div[4]/div[1]/article[16]/div[1]/header[1]/a[1]/@href
+            thumbnail:
+              - text: https://brain-images-ssl.cdn.dixons.com/5/3/10212935/g_10212935.jpg
+                xpath: /html/body/div[2]/div[2]/div[3]/div[3]/section[1]/form[1]/div[4]/div[1]/article[16]/div[1]/div[1]/div[1]/a[1]/div[1]/picture[1]/@data-iesrc
+            aggregateRating2:
+              - text: "8"
+                xpath: /html/body/div[2]/div[2]/div[3]/div[3]/section[1]/form[1]/div[4]/div[1]/article[16]/div[1]/div[1]/div[2]/a[1]/div[1]/div[1]/span[1]/@class
+                type: STRING
+            reviewCount:
+              - text: "23"
+                xpath: /html/body/div[2]/div[2]/div[3]/div[3]/section[1]/form[1]/div[4]/div[1]/article[16]/div[1]/div[1]/div[2]/a[1]/div[1]/div[1]/small[1]
+            ratingCount:
+              - text: "23"
+                xpath: /html/body/div[2]/div[2]/div[3]/div[3]/section[1]/form[1]/div[4]/div[1]/article[16]/div[1]/div[1]/div[2]/a[1]/div[1]/div[1]/small[1]
+            price:
+              - text: £229.99
+                xpath: /html/body/div[2]/div[2]/div[3]/div[3]/section[1]/form[1]/div[4]/div[1]/article[16]/div[2]/div[1]/div[1]/div[1]/span[1]
+            manufacturer:
+              - text: BEKO
+                xpath: /html/body/div[2]/div[2]/div[3]/div[3]/section[1]/form[1]/div[4]/div[1]/article[16]/div[1]/header[1]/a[1]/span[1]
+          - id:
+              - text: "10195562"
+                xpath: /html/body/div[2]/div[2]/div[3]/div[3]/section[1]/form[1]/div[4]/div[1]/article[17]/@id
+            searchUrl:
+              - text: https://www.currys.co.uk/gbuk/household-appliances/dishwashing/dishwashers/350_4035_31762_xx_xx/xx-criteria.html
+                xpath: /html/body/div[2]/div[2]/div[3]/div[3]/section[1]/form[1]/div[4]/div[1]/article[17]/@searchurl
+            name:
+              - text: Serie 4 SMS46IW10G Full-size Dishwasher - White
+                xpath: /html/body/div[2]/div[2]/div[3]/div[3]/section[1]/form[1]/div[4]/div[1]/article[17]/div[2]/header[1]/a[1]/span[2]
+            productUrl:
+              - text: https://www.currys.co.uk/gbuk/household-appliances/dishwashing/dishwashers/bosch-serie-4-sms46iw10g-full-size-dishwasher-white-10195562-pdt.html
+                xpath: /html/body/div[2]/div[2]/div[3]/div[3]/section[1]/form[1]/div[4]/div[1]/article[17]/div[2]/header[1]/a[1]/@href
+            thumbnail:
+              - text: https://brain-images-ssl.cdn.dixons.com/2/6/10195562/g_10195562.jpg
+                xpath: /html/body/div[2]/div[2]/div[3]/div[3]/section[1]/form[1]/div[4]/div[1]/article[17]/div[2]/div[1]/div[1]/a[1]/div[1]/picture[1]/@data-iesrc
+            aggregateRating2:
+              - text: "9"
+                xpath: /html/body/div[2]/div[2]/div[3]/div[3]/section[1]/form[1]/div[4]/div[1]/article[17]/div[2]/div[1]/div[2]/a[1]/div[1]/div[2]/span[1]/@class
+                type: STRING
+            reviewCount:
+              - text: "198"
+                xpath: /html/body/div[2]/div[2]/div[3]/div[3]/section[1]/form[1]/div[4]/div[1]/article[17]/div[2]/div[1]/div[2]/a[1]/div[1]/div[2]/small[1]
+            ratingCount:
+              - text: "198"
+                xpath: /html/body/div[2]/div[2]/div[3]/div[3]/section[1]/form[1]/div[4]/div[1]/article[17]/div[2]/div[1]/div[2]/a[1]/div[1]/div[2]/small[1]
+            price:
+              - text: £479.00
+                xpath: /html/body/div[2]/div[2]/div[3]/div[3]/section[1]/form[1]/div[4]/div[1]/article[17]/div[3]/div[1]/div[1]/div[1]/span[1]
+            manufacturer:
+              - text: BOSCH
+                xpath: /html/body/div[2]/div[2]/div[3]/div[3]/section[1]/form[1]/div[4]/div[1]/article[17]/div[2]/header[1]/a[1]/span[1]
+          - id:
+              - text: "10176945"
+                xpath: /html/body/div[2]/div[2]/div[3]/div[3]/section[1]/form[1]/div[4]/div[1]/article[18]/@id
+            searchUrl:
+              - text: https://www.currys.co.uk/gbuk/household-appliances/dishwashing/dishwashers/350_4035_31762_xx_xx/xx-criteria.html
+                xpath: /html/body/div[2]/div[2]/div[3]/div[3]/section[1]/form[1]/div[4]/div[1]/article[18]/@searchurl
+            name:
+              - text: GNF11510W Full-size Dishwasher - White
+                xpath: /html/body/div[2]/div[2]/div[3]/div[3]/section[1]/form[1]/div[4]/div[1]/article[18]/div[1]/header[1]/a[1]/span[2]
+            productUrl:
+              - text: https://www.currys.co.uk/gbuk/household-appliances/dishwashing/dishwashers/grundig-gnf11510w-full-size-dishwasher-white-10176945-pdt.html
+                xpath: /html/body/div[2]/div[2]/div[3]/div[3]/section[1]/form[1]/div[4]/div[1]/article[18]/div[1]/header[1]/a[1]/@href
+            thumbnail:
+              - text: https://brain-images-ssl.cdn.dixons.com/5/4/10176945/g_10176945.jpg
+                xpath: /html/body/div[2]/div[2]/div[3]/div[3]/section[1]/form[1]/div[4]/div[1]/article[18]/div[1]/div[1]/div[1]/a[1]/div[1]/picture[1]/@data-iesrc
+            aggregateRating2:
+              - text: "9"
+                xpath: /html/body/div[2]/div[2]/div[3]/div[3]/section[1]/form[1]/div[4]/div[1]/article[18]/div[1]/div[1]/div[2]/a[1]/div[1]/div[2]/span[1]/@class
+                type: STRING
+            reviewCount:
+              - text: "94"
+                xpath: /html/body/div[2]/div[2]/div[3]/div[3]/section[1]/form[1]/div[4]/div[1]/article[18]/div[1]/div[1]/div[2]/a[1]/div[1]/div[2]/small[1]
+            ratingCount:
+              - text: "94"
+                xpath: /html/body/div[2]/div[2]/div[3]/div[3]/section[1]/form[1]/div[4]/div[1]/article[18]/div[1]/div[1]/div[2]/a[1]/div[1]/div[2]/small[1]
+            price:
+              - text: £299.99
+                xpath: /html/body/div[2]/div[2]/div[3]/div[3]/section[1]/form[1]/div[4]/div[1]/article[18]/div[2]/div[1]/div[1]/div[1]/span[1]
+            manufacturer:
+              - text: GRUNDIG
+                xpath: /html/body/div[2]/div[2]/div[3]/div[3]/section[1]/form[1]/div[4]/div[1]/article[18]/div[1]/header[1]/a[1]/span[1]
+          - id:
+              - text: "10197802"
+                xpath: /html/body/div[2]/div[2]/div[3]/div[3]/section[1]/form[1]/div[4]/div[1]/article[19]/@id
+            searchUrl:
+              - text: https://www.currys.co.uk/gbuk/household-appliances/dishwashing/dishwashers/350_4035_31762_xx_xx/xx-criteria.html
+                xpath: /html/body/div[2]/div[2]/div[3]/div[3]/section[1]/form[1]/div[4]/div[1]/article[19]/@searchurl
+            name:
+              - text: DFD13E2X Full-size Dishwasher - Stainless Steel & Silver
+                xpath: /html/body/div[2]/div[2]/div[3]/div[3]/section[1]/form[1]/div[4]/div[1]/article[19]/div[1]/header[1]/a[1]/span[2]
+            productUrl:
+              - text: https://www.currys.co.uk/gbuk/household-appliances/dishwashing/dishwashers/smeg-dfd13e2x-full-size-dishwasher-stainless-steel-silver-10197802-pdt.html
+                xpath: /html/body/div[2]/div[2]/div[3]/div[3]/section[1]/form[1]/div[4]/div[1]/article[19]/div[1]/header[1]/a[1]/@href
+            thumbnail:
+              - text: https://brain-images-ssl.cdn.dixons.com/2/0/10197802/g_10197802.jpg
+                xpath: /html/body/div[2]/div[2]/div[3]/div[3]/section[1]/form[1]/div[4]/div[1]/article[19]/div[1]/div[1]/div[1]/a[1]/div[1]/picture[1]/@data-iesrc
+            aggregateRating2:
+              - text: "9"
+                xpath: /html/body/div[2]/div[2]/div[3]/div[3]/section[1]/form[1]/div[4]/div[1]/article[19]/div[1]/div[1]/div[2]/a[1]/div[1]/div[2]/span[1]/@class
+                type: STRING
+            reviewCount:
+              - text: "27"
+                xpath: /html/body/div[2]/div[2]/div[3]/div[3]/section[1]/form[1]/div[4]/div[1]/article[19]/div[1]/div[1]/div[2]/a[1]/div[1]/div[2]/small[1]
+            ratingCount:
+              - text: "27"
+                xpath: /html/body/div[2]/div[2]/div[3]/div[3]/section[1]/form[1]/div[4]/div[1]/article[19]/div[1]/div[1]/div[2]/a[1]/div[1]/div[2]/small[1]
+            price:
+              - text: £499.99
+                xpath: /html/body/div[2]/div[2]/div[3]/div[3]/section[1]/form[1]/div[4]/div[1]/article[19]/div[2]/div[1]/div[1]/div[1]/span[1]
+            manufacturer:
+              - text: SMEG
+                xpath: /html/body/div[2]/div[2]/div[3]/div[3]/section[1]/form[1]/div[4]/div[1]/article[19]/div[1]/header[1]/a[1]/span[1]
+          - id:
+              - text: "10182635"
+                xpath: /html/body/div[2]/div[2]/div[3]/div[3]/section[1]/form[1]/div[4]/div[1]/article[20]/@id
+            searchUrl:
+              - text: https://www.currys.co.uk/gbuk/household-appliances/dishwashing/dishwashers/350_4035_31762_xx_xx/xx-criteria.html
+                xpath: /html/body/div[2]/div[2]/div[3]/div[3]/section[1]/form[1]/div[4]/div[1]/article[20]/@searchurl
+            name:
+              - text: GNF41620W Full-size Dishwasher - White
+                xpath: /html/body/div[2]/div[2]/div[3]/div[3]/section[1]/form[1]/div[4]/div[1]/article[20]/div[1]/header[1]/a[1]/span[2]
+            productUrl:
+              - text: https://www.currys.co.uk/gbuk/household-appliances/dishwashing/dishwashers/grundig-gnf41620w-full-size-dishwasher-white-10182635-pdt.html
+                xpath: /html/body/div[2]/div[2]/div[3]/div[3]/section[1]/form[1]/div[4]/div[1]/article[20]/div[1]/header[1]/a[1]/@href
+            thumbnail:
+              - text: https://brain-images-ssl.cdn.dixons.com/5/3/10182635/g_10182635.jpg
+                xpath: /html/body/div[2]/div[2]/div[3]/div[3]/section[1]/form[1]/div[4]/div[1]/article[20]/div[1]/div[1]/div[1]/a[1]/div[1]/picture[1]/@data-iesrc
+            aggregateRating2:
+              - text: "9"
+                xpath: /html/body/div[2]/div[2]/div[3]/div[3]/section[1]/form[1]/div[4]/div[1]/article[20]/div[1]/div[1]/div[2]/a[1]/div[1]/div[2]/span[1]/@class
+                type: STRING
+            reviewCount:
+              - text: "191"
+                xpath: /html/body/div[2]/div[2]/div[3]/div[3]/section[1]/form[1]/div[4]/div[1]/article[20]/div[1]/div[1]/div[2]/a[1]/div[1]/div[2]/small[1]
+            ratingCount:
+              - text: "191"
+                xpath: /html/body/div[2]/div[2]/div[3]/div[3]/section[1]/form[1]/div[4]/div[1]/article[20]/div[1]/div[1]/div[2]/a[1]/div[1]/div[2]/small[1]
+            price:
+              - text: £359.99
+                xpath: /html/body/div[2]/div[2]/div[3]/div[3]/section[1]/form[1]/div[4]/div[1]/article[20]/div[2]/div[1]/div[1]/div[1]/span[1]
+            manufacturer:
+              - text: GRUNDIG
+                xpath: /html/body/div[2]/div[2]/div[3]/div[3]/section[1]/form[1]/div[4]/div[1]/article[20]/div[1]/header[1]/a[1]/span[1]
+        xpath: /html
+    timestamp: 1606998881663

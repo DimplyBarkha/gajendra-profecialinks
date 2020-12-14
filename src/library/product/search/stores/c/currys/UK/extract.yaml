@@ -1,33 +1,64 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: //div[contains(@class,"resultList")]//article[contains(@class,"product")]
+recordXPath: //article[contains(@class,"result-prd")]
 fields:
   - name: id
-    SingleValue: false
-    xpath: //article/@id
-  - name: productUrl
-    SingleValue: false
-    xpath: //header[@class="productTitle"]/a/@href
-  - name: price
-    SingleValue: false
-    xpath: //strong[@class="price"]
-  - name: thumbnail
-    SingleValue: false
-    xpath: //div[@class="product-images"]//source/@srcset
-  - name: thumbnail_1
-    SingleValue: false
-    xpath: //div[@class="product-images"]/img/@src    
+    singleValue: false
+    xpath: //div[@class='col12 resultList']/article/@id
+    regExp: \d+
+  - name: searchUrl
+    singleValue: false
+    xpath: //div[@class='col12 resultList']/article/@searchurl
   - name: name
-    SingleValue: false
-    xpath: //span[@data-product="name"]
-  - name: rankOrganic
-    SingleValue: true
-  - name: rank
-    SingleValue: true
+    singleValue: false
+    xpath: //span[@data-product='name']
+  - name: productUrl
+    singleValue: false
+    xpath: //header[@class='productTitle']/a/@href
+  - name: gtin
+    singleValue: false
+  - name: thumbnail
+    singleValue: false
+    xpath: //div[@class='product-images']/img/@src | //div[@class="product-images"]/picture/@data-iesrc
+  - name: aggregateRating
+    singleValue: false
   - name: aggregateRating2
-    SingleValue: false
-    xpath: //div[@class="reevoo-placeholder"]/span/@class
+    type: STRING
+    singleValue: false
+    defaultValue: '0'
+    xpath: //span[contains(@class,"score-")]/@class | //div[@data-component="Rating"]/@data-score
+    regExp: score-(\d+)
+    regExpReplace: $1
   - name: reviewCount
-    SingleValue: false
-    xpath: //div[@class="reevoo-placeholder"]/small
+    singleValue: false
+    regExp: \d+
+    xpath: //div[@class='reevoo-placeholder']/small
+  - name: ratingCount
+    singleValue: false
+    regExp: \d+
+    xpath: //div[@class='reevoo-placeholder']/small
+  - name: price
+    singleValue: false
+    xpath: //div[contains(@class,"main-amount")]//strong[@class="price"] | //span[span][contains(@class,"ProductPriceBlock__Price")]
+  - name: manufacturer
+    xpath: //span[@data-product='brand']
+  - name: soldBy
+    singleValue: true
+  - name: endorsementText
+    singleValue: false
+  - name: rank
+    singleValue: false
+    description: search/listing rank
+    type: NUMBER
+    xpath: //@rank
+  - name: rankOrganic
+    singleValue: false
+    description: The position (rank) within the list excluding sponsored/paid results
+    type: NUMBER
+    xpath: //@rankorganic
+  - name: sponsored
+    singleValue: false
+    description: Is sponsored/paid
+    type: BOOLEAN
+    xpath: //@sponsored
