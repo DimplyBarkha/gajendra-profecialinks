@@ -12,10 +12,12 @@ fields:
   - name: productUrl
     singleValue: false
     xpath: //li[@class="column col-tn-12 col-xs-6 col-sm-3 col-lg-3 productitem"]/a/@href
+  - name: aggregateRating
+    singleValue: false
+    defaultValue: '0'
   - name: thumbnail
     singleValue: false
     xpath: //span[@class="productitem__image"]/img/@src
   - name: price
     singleValue: false
-    type: CURRENCY
     xpath: //html//div[@id='price']
