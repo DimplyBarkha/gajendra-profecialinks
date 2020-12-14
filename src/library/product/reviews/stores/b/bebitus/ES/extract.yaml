@@ -11,9 +11,11 @@ fields:
     xpath: ancestor::html//link[@rel="canonical"]/@href
   - name: gtin
     xpath: ancestor::html//h2[@class="product-description-ean"]
-    regExp: (:)(.+)
+    regExp: (:)\s(.+)
     regExpReplace: $2
     # rating
+  - name: helpfulCount
+    xpath: //span[contains(text(),' Sí')]//span[@class="bv-content-btn-count"]
   - name: reviewDate
     xpath: //meta[@itemprop="datePublished"]/@content
     type: DATETIME
@@ -25,7 +27,7 @@ fields:
     xpath: //meta[@itemprop="ratingValue"]/@content | //span[@class="ratings-stars-average"]
     type: NUMBER
   - name: reviewText
-    xpath: //div[@itemprop="reviewBody"]
+    xpath: //div[@itemprop="reviewBody"]//div[@class="bv-content-summary-body-text"]/p
   - name: verifiedPurchase
     xpath: //ul//li[contains(@class,'bv-badge-content-verifiedpurchaser')]/img/@title
     regExp: (.+)
@@ -33,5 +35,7 @@ fields:
     defaultValue: false
   - name: reviewedSku
     xpath: //ol[@class="bv-content-list bv-content-list-reviews"]//li[@class="bv-content-item bv-content-top-review bv-content-review"]/@data-content-id
+    regExp: Reviews-(.+)
+    regExpReplace: $1
   - name: syndicatedFrom
-    xpath: //span[@class="ratings-list-syndicated-text"]
+    xpath: //span[@class="ratings-list-syndicated-text"] | //span[@class="bv-badge-syndicated"]
