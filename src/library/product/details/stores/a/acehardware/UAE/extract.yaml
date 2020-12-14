@@ -175,3 +175,9 @@ fields:
     xpath: //div[@class="b-desc-product"]/ul//span[contains(text(),"weight:")]
     regExp: (.+)weight:\s(\d+.?\d+?)(.+)
     regExpReplace: $2 kg
+
+  - name: inTheBoxText
+    xpath: //ul[@class="list-check-circle"]//li
+
+  - name: hasComparisonTable
+    defaultValue: No
