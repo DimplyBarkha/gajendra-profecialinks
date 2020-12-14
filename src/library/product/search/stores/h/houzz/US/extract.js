@@ -55,12 +55,12 @@ module.exports = {
         newDiv.textContent = content;
         newDiv.style.display = "none";
         const originalDiv = document.querySelectorAll(
-          ".hz-product-card__product-image-info.hz-track-me"
+          ".hz-product-card__image-container"
         )[index];
         originalDiv.parentNode.insertBefore(newDiv, originalDiv);
       }
       const product = document.querySelectorAll(
-        ".hz-product-card__product-image-info.hz-track-me"
+        ".hz-product-card__image-container"
       );
       let rank = document.querySelector(".hz-pagination-link--selected")
         .innerText;
@@ -91,7 +91,7 @@ module.exports = {
         if (rank == 1) {
           addHiddenDiv("ii_rankOrganic", single_obj.position, i);
         } else {
-          var rrank = 36 * (rank - 1);
+          var rrank = product.length * (rank - 1);
           addHiddenDiv("ii_rankOrganic", rrank + single_obj.position, i);
         }
       }
