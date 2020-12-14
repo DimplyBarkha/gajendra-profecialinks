@@ -40,7 +40,7 @@ fields:
   - name: nameExtended
     singleValue: false
     description: The product name
-    xpath: //div[@id="ii_nameExtended"]
+    xpath: (//div[contains(@class, "product-heading")]/span)[1]|//h1[contains(@data-comp,"DisplayName")]/span
     # xpath: //h1[contains(@data-comp,"DisplayName")]//text()
   - name: quantity
     singleValue: true
@@ -108,6 +108,9 @@ fields:
     regExp: ([0-9]+$)
   - name: variantCount
     xpath: //div[@id="ii_variantCount"]
+  - name: highQualityImages
+    singleValue: false
+    xpath: ((//div[contains(@data-comp,"Carousel")])[1]//img[@width="300"])/@src|((//div[contains(@data-comp,"Carousel")])[1]//img)/@src[contains(.,"jpg") and not(contains(., 'Video'))]
   - name: color
     xpath: //div[@id='ii_color']
     # xpath: (//span[contains(@data-at, "item_variation_type") and contains(., "COLOR")])[1]
@@ -120,4 +123,7 @@ fields:
   - name: shownImages
     singleValue: false
     xpath: ((//div[contains(@data-comp,"Carousel")])[1]//img[@width="300"])/@src|((//div[contains(@data-comp,"Carousel")])[1]//img)/@src[contains(.,"jpg") and not(contains(., 'Video'))]
+
+
+
 

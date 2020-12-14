@@ -78,20 +78,18 @@ const transform = (data, context) => {
           }
 
           if(row.shownImages){
-            let imageArray = [];
-            if(row.shownImages.length > 1){
-              for(let i = 0; i < row.shownImages.length; i++){
-                let text = row.shownImages[i].text
-                let splits = text.split("?");
-                imageArray.push(`https://sephora.com${splits[0]}`);
-              }
-              let oneLess = imageArray.slice(1);
-              let joins = oneLess.join(" | ");
-              row.shownImages = [{text: joins}]
-            } else {
-              row.shownImages = [{text: ""}]
-            }
-        }
+            row.shownImages.forEach(item => {
+              item.text = item.text.split("?");
+              item.text = `https://sephora.com${item.text[0]}`
+            })
+          }
+
+          if(row.highQualityImages){
+            row.highQualityImages.forEach(item => {
+              item.text = item.text.split("?");
+              item.text = `https://sephora.com${item.text[0]}`
+            })
+          }
 
           if(row.aggregateRating){
               let text = row.aggregateRating[0].text;
