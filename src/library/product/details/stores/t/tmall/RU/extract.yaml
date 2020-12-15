@@ -44,7 +44,7 @@ fields:
     defultValue: 0
   - name: quantity
     singleValue: false
-    xpath: //span[contains(@class,"next-input-group-auto-width")]/input/@value
+    xpath: //div[@class="product-specs"]/ul[contains(@class,"product-specs-list")]/li/span[@class="property-title" and contains(text(),"Количество штук")]/parent::*/span[contains(@class,"property-desc")]
     defultValue: 1
   - name: availabilityText
     singleValue: false
