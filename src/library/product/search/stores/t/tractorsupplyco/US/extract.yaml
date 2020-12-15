@@ -6,6 +6,8 @@ fields:
   - name: id
     singleValue: false
     xpath: //div[contains(@id,"singleentitledItem_")]/@id
+    regExp: _(\d{6,})
+    regExpReplace: $1
   - name: name
     singleValue: false
     xpath: //div[@class="grid-inner"]/div[@class="item-text"]/@aria-label

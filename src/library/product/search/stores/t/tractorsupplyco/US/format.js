@@ -27,7 +27,7 @@ const transform = (data) => {
     for (let row of group) {
       if(row.id){
         row.id.forEach(item=>{
-          item.text=item.text.replace('singleentitledItem_','');
+          //item.text=item.text.replace('singleentitledItem_','');
         })
       }
       if(row.reviewCount){
