@@ -1,0 +1,14 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: //div[@class="mobile-menu-block"][not (ul)]/a | //ul[@class="menu-level-3 reset"]/li/a
+fields:
+  - name: category
+    singleValue: false
+    description: name of the category
+    xpath: null
+  - name: categoryUrl
+    singleValue: false
+    description: url of the category
+    xpath: //div[@class="mobile-menu-block"][not (ul)]/a/@href | //ul[@class="menu-level-3 reset"]/li/a/@href
+    
