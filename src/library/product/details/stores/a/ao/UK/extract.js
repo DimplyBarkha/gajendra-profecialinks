@@ -25,23 +25,30 @@ module.exports = {
     });
 
     try {
-      await context.waitForSelector('div.dy-recommendations__slider, section.alternative-products', { timeout: 45000 });
+      await context.waitForSelector('div.dy-recommendations__slider', { timeout: 45000 });
     } catch (error) {
       console.log('Not loading recommended products');
     }
 
-    async function scrollToRec () {
-      await context.evaluate(async () => {
-        var element = (document.querySelector('div.dy-recommendations__slider, section.alternative-products')) ? document.querySelector('div.dy-recommendations__slider, section.alternative-products') : null;
+    try {
+      await context.waitForSelector('section.alternative-products', { timeout: 15000 });
+    } catch (error) {
+      console.log('Not loading alternative products');
+    }
+
+    async function scrollToRec (node) {
+      await context.evaluate(async (node) => {
+        const element = document.querySelector(node) || null;
         if (element) {
           element.scrollIntoView({ behavior: 'smooth', block: 'end', inline: 'nearest' });
           await new Promise((resolve) => {
             setTimeout(resolve, 5000);
           });
         }
-      });
+      }, node);
     }
-    await scrollToRec();
+    await scrollToRec('div.dy-recommendations__slider');
+    await scrollToRec('section.alternative-products');
 
     await context.evaluate(async function () {
       function addElementToDocument (key, value) {
@@ -72,6 +79,14 @@ module.exports = {
       //   var manufText = /manufacturer":[\s"]+([A-z]+)/.exec(manufacturer.stringValue);
       //   addElementToDocument('manufacturer', manufText[1]);
       // }
+
+      const isVisible = (element) => document.querySelector(element) ? !!(document.querySelector(element).offsetWidth || document.querySelector(element).offsetHeight) : false;
+      if (isVisible('section.alternative-products')) {
+        const alternativeProducts = document.querySelectorAll('section.alternative-products span[data-tag-name^="title"]');
+        [...alternativeProducts].forEach((element) => {
+          addDivClass('ii_AltProducts', element.innerText);
+        });
+      }
 
       const manufacturer = window && window._nRepData && window._nRepData.context ? window._nRepData.context.manufacturer.replace('&#39;', '\'').replace(/\s/, ' ') : '';
       addElementToDocument('manufacturer', manufacturer);
