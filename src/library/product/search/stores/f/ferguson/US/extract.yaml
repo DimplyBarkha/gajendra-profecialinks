@@ -5,7 +5,7 @@ recordXPath: //ul[@class="fg-search-results"]//li[@class="fg-search-results-li j
 fields:
   - name: id
     singleValue: false
-    xpath: //div[@class="js-grid-colorItem sku-item "]//div[@class="rc-fg-search-header"]//a/@href | //div[@class="sku-item "]//div[@class="rc-fg-search-header"]//a/@href
+    xpath: //div[@class="js-grid-colorItem sku-item "]//div[@class="rc-fg-search-header"]//a/@href | //div[@class="sku-item "]//div[@class="rc-fg-search-header"]//a/@href | //li[@data-product-id]//div[@class="rc-fg-search-header"]//a/@href
     regExp: (R-)(.+)
     regExpReplace: $2
   - name: searchUrl
@@ -13,15 +13,15 @@ fields:
     xpath: ancestor::html//div[@id='added-searchurl']
   - name: name
     singleValue: false
-    xpath: //div[@class="js-grid-colorItem sku-item "][1]//div[@class="sr-content-box"]//a//p/text() | //div[@class="sku-item "]//div[@class="sr-content-box"]//a//p/text()
+    xpath: //div[@class="js-grid-colorItem sku-item "][1]//div[@class="sr-content-box"]//a//p/text() | //div[@class="sku-item "]//div[@class="sr-content-box"]//a//p/text() | //li[@data-product-id]//div[@class="sr-content-box"]//a//p/text()
   - name: productUrl
     singleValue: false
-    xpath: //div[@class="js-grid-colorItem sku-item "]//div[@class="rc-fg-search-header"]//a/@href | //div[@class="sku-item "]//div[@class="rc-fg-search-header"]//a/@href
+    xpath: //div[@class="js-grid-colorItem sku-item "]//div[@class="rc-fg-search-header"]//a/@href | //div[@class="sku-item "]//div[@class="rc-fg-search-header"]//a/@href | //li[@data-product-id]//div[@class="rc-fg-search-header"]//a/@href
   - name: gtin
     singleValue: false
   - name: thumbnail
     singleValue: false
-    xpath: //div[@class="js-grid-colorItem sku-item "]//div[@class="rc-fg-search-header"]//a//img/@src | //div[@class="sku-item "]//div[@class="rc-fg-search-header"]//a//img/@src
+    xpath: //div[@class="js-grid-colorItem sku-item "]//div[@class="rc-fg-search-header"]//a//img/@src | //div[@class="sku-item "]//div[@class="rc-fg-search-header"]//a//img/@src | //li[@data-product-id]//div[@class="rc-fg-search-header"]//a//img/@src
   - name: aggregateRating
     singleValue: false
   - name: aggregateRating2
@@ -32,7 +32,7 @@ fields:
     singleValue: false
   - name: price
     singleValue: false
-    xpath: //div[@class="js-grid-colorItem sku-item "]//div[@class="money"]//p/span/text()
+    xpath: //div[@class="js-grid-colorItem sku-item "]//div[@class="money"]//p/span/text() | //div[@class="sku-item "]//div[@class="money"]//p/span/text() | //li[@data-product-id]//div[@class="money"]//p/span/text()
   - name: manufacturer
     singleValue: true
   - name: soldBy
