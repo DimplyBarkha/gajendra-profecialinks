@@ -92,6 +92,6 @@ fields:
   - name: variantInformation
     xpath: //table/tbody/tr[@class="append_variant"]//td[@class="variant"]
   - name: unInterruptedPDP
-    xpath: //div[@id="product-recommendations-shelf-pdp-1"]//section//ul//li
+    xpath: ancestor::html//div[contains(@id,"product-recommendations-shelf")]//section//ul//li
   - name: hasComparisonTable
     defaultValue: No
