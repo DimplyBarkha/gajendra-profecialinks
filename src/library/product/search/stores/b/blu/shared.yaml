@@ -1,0 +1,77 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: //div[@class="product-item"]
+fields:
+  - name: productUrl
+    singleValue: true
+    description: The URL for the product details page
+    xpath: //a/@href
+    regExp: >-
+      (.+)
+    regExpReplace: https://www.blu.com$1
+  - name: thumbnail
+    singleValue: true
+    description: The URL for the product thumbnail image
+  - name: name
+    singleValue: true
+    description: The product name
+  - name: sku
+    singleValue: true
+    description: The store-specific product identifier
+  - name: mpc
+    singleValue: true
+    description: The model code of the product
+  - name: gtin
+    singleValue: true
+    description: GTIN code (includes UPC/EAN)
+  - name: aggregateRatingText
+    singleValue: true
+    description: The stated aggregate rating
+  - name: ratingCount
+    singleValue: true
+    description: The number of ratings
+  - name: reviewCount
+    singleValue: true
+    description: The number of reviews
+  - name: price
+    singleValue: true
+    description: The offered price for the product
+  - name: listPrice
+    singleValue: true
+    description: The stated undiscounted price for the product
+  - name: manufacturer
+    singleValue: true
+    description: Product manufacturer
+  - name: soldBy
+    singleValue: true
+    description: The name of the seller of the item (if available)
+  - name: endorsementText
+    singleValue: true
+    description: The text that signifies that a product is endorsed
+  - name: shippingInfo
+    singleValue: true
+    description: Shipping information for the product
+  - name: rank
+    singleValue: true
+    description: search/listing rank
+    type: NUMBER
+  - name: rankOrganic
+    singleValue: true
+    description: The position (rank) within the list excluding sponsored/paid results
+    type: NUMBER
+  - name: sponsored
+    singleValue: true
+    description: Is sponsored/paid
+    type: BOOLEAN
+  - name: id
+    singleValue: true
+    description: Unique id (within this extractor)
+  - name: nameExtended
+    singleValue: true
+    description: The product name, prefixing "${brand} - " if not included in "name"
+      and appending " - ${variantType}" if necessary (fixed per extractor)
+  - name: aggregateRating
+    singleValue: true
+    description: The stated aggregate rating normalized to be out of 5
+    type: NUMBER
