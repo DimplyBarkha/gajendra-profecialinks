@@ -141,3 +141,10 @@ fields:
     regExp: ^[^\s]+
   - name: attributes
     xpath: //div[@class="characteristicsStrate__list"]/dl
+
+  - name: unInterruptedPDP
+    xpath: //div[contains(@class,"relatedArticles")]//div[@class="slick-track"]//article
+  - name: inTheBoxText
+    xpath: //div[@class="includedAccessoriesStrate__lists"]//li
+  - name: hasComparisonTable
+    defaultValue: No
