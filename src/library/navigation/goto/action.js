@@ -43,12 +43,18 @@ module.exports = {
     const { timeout = 10000, jsonToTable } = parameters;
     const { url, zipcode, storeId } = inputs;
     await context.goto(url, { timeout, waitUntil: 'load', checkBlocked: true });
-
+    console.log('==============')
+    
+    console.log(`jsonToTable: ${jsonToTable}`)
+    console.log(parameters)
+    console.log('==============')
     if (jsonToTable && url.split('[!opt!]')[1] && url.split('[!opt!]')[1].includes('"type":"json"')) {
       let isTableReady = true;
-      await context.waitForXpath('//table//tbody//td', timeout)
+      await context.waitForXPath('//table//tbody//td', timeout)
         .catch(() => { isTableReady = false; });
-
+        console.log('==============')
+        console.log(isTableReady)
+        console.log('==============')
       if (!isTableReady) {
       // load the json into a table manually
         isTableReady = await context.evaluate(() => {

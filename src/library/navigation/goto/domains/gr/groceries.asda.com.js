@@ -5,5 +5,6 @@ module.exports = {
     domain: 'groceries.asda.com',
     country: 'UK',
     store: 'asda',
+    jsonToTable: true,
   },
 };
