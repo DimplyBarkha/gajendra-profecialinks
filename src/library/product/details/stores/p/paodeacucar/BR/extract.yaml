@@ -5,73 +5,77 @@ recordXPath: null
 fields:
   - name: image
     singleValue: true
-    xpath: //img[contains(@class,'gallerystyles__SelectedElement-sc-1g5p14a-6 fMHgtt')]/@src
+    xpath: //img[contains(@class,'gallerystyles__')]/@src
     description: URL of the main product image
   - name: imageAlt
     singleValue: true
     description: Alt text of the main product image
   - name: alternateImages
     singleValue: false
-    xpath: //div[@class="gallerystyles__Slider-sc-1g5p14a-7 hnQbZB"]/div[position()>1]//@src
+    xpath: //div[contains(@class, "gallerystyles__Slider")]/div[position()>1]//@src
     description: Other product images (not in manufacturer description)
   - name: metaKeywords
     singleValue: true
     description: The <meta> keywords content
   - name: category
     singleValue: false
-    xpath: //div[@class="breadcrumbstyles__Text-nzvsip-2 jsewsA"]//text()
+    xpath: //div[contains(@class,"breadcrumbstyles__Text")]//text()
     description: The categories (e.g. from breadcrumbs)
   - name: nameExtended
     singleValue: true
-    xpath: //div[@class="MuiGrid-root gridstyles-sc-6scn59-0 hoivch MuiGrid-container MuiGrid-align-items-xs-center"]//text()
+    xpath: (//div[contains(@class,"MuiGrid-root gridstyles-sc-6scn59-0")]//div[contains(@class,"MuiGrid-container MuiGrid-align-items-xs-center")])[1]//text()
     description: The product name, prefixing "${brand} - " if not included in "name"
       and appending " - ${variantType}" if necessary (fixed per feed)
   - name: listPrice
     singleValue: true
     description: The stated undiscounted price for the product
-    xpath: //div[@class='MuiGrid-root gridstyles-sc-6scn59-0 bTtDHr']/@listPrice
+    xpath: //div[@class="buy-box-contentstyles__Container-sc-18rwav0-2 grwTtk"]//div[@class="pricesectionstyles__Container-sc-19qxurm-1 jrHoTd"]/p
+    regExp: de (.*) por
+    regExpReplace: $1
   - name: price
     singleValue: true
-    xpath: //div[@class='MuiGrid-root gridstyles-sc-6scn59-0 bTtDHr']/@price
+    xpath: //div[@class="buy-box-contentstyles__Container-sc-18rwav0-2 grwTtk"]//div[@class="current-pricesectionstyles__CurrentPrice-sc-17j9p6i-0 drikI"]
     description: The offered price for the selected product variant - if a user
       clicks add to basket this is the price they would be charged
   - name: availabilityText
     singleValue: true
-    xpath: //div[@class="buy-box-contentstyles__WithoutStockContainer-sc-18rwav0-1 jqpOob"]//text()
+    xpath: //div[contains(@class,"buy-box-contentstyles__WithoutStockContainer")]//text()
     defaultValue: In Stock
     description: Availability as described on page for the selected variant. If
       there is no availability but the product can be added to cart, this field
       should be "In Stock"
   - name: description
     singleValue: false
-    xpath: //div[@class="MuiGrid-root gridstyles-sc-6scn59-0 cUjvbT"]//text()
+    xpath: //*[contains(text(), "Descrição do produto")]/../..
+    regExp: (Descrição\s*do\s*produto\s*)([\s\S]*)
+    regExpReplace: $2
     description: Product description supplied by website - may be concatenanted from
       multiple places; specifically not the manufacturer description
   - name: descriptionBullets
     singleValue: true
-    xpath: count((//div[@class="MuiGrid-root gridstyles-sc-6scn59-0 cUjvbT"])//li)
+    xpath: count((//div[contains(@class,"MuiGrid-root gridstyles")])//li)
     description: Number of ul > li tags in the description
     type: NUMBER
   - name: brandText
     singleValue: true
-    xpath: //div[@class="MuiGrid-root gridstyles-sc-6scn59-0 hoivch MuiGrid-container MuiGrid-align-items-xs-center"]//text() | //p[@class='textstyles__TextComponent-w4b5ef-0 klbUBp']/li[contains(b, 'MARCA:')]//text()[2]
+    xpath: (//div[contains(@class,"MuiGrid-root gridstyles-sc-6scn59-0")]//div[contains(@class,"MuiGrid-container MuiGrid-align-items-xs-center")])[1]//text() |  //p[contains(@class,'textstyles__TextComponent')]/li[contains(b, 'MARCA:')]//text()[2]
     # regex for brand name: Capitalized words, allowing numbers and special signs between them; ending with capitalized letter in case of e.g.'TAEQ 66g' 
     regExp: \b[A-Z][A-Z0-9\s\/\-\.\*\\\_]+[A-Z]\b
     description: Product brand shown - this may actually NOT be just a brand name,
       e.g. "Visit the Gillette Store"
   - name: manufacturer
     singleValue: true
-    xpath: //div[@class="MuiGrid-root gridstyles-sc-6scn59-0 hoivch MuiGrid-container MuiGrid-align-items-xs-center"]//text() | //p[@class='textstyles__TextComponent-w4b5ef-0 klbUBp']/li[contains(b, 'MARCA:')]//text()[2]
+    xpath: (//div[contains(@class,"MuiGrid-root gridstyles-sc-6scn59-0")]//div[contains(@class,"MuiGrid-container MuiGrid-align-items-xs-center")])[1]//text() | //p[contains(@class,'textstyles__TextComponent')]/li[contains(b, 'MARCA:')]//text()[2]
     regExp: \b[A-Z][A-Z0-9\s\/\-\.\*\\\_]+[A-Z]\b
     description: Product manufacturer
   - name: quantity
     singleValue: true
-    xpath: //div[@class="MuiGrid-root gridstyles-sc-6scn59-0 hoivch MuiGrid-container MuiGrid-align-items-xs-center"]//text()
+    xpath: (//div[contains(@class,"MuiGrid-root gridstyles-sc-6scn59-0")]//div[contains(@class,"MuiGrid-container MuiGrid-align-items-xs-center")])[1]//text()
     regExp: (\d+)(?=\s*Unidades)
     description: Quantity as described on the page
   - name: weightNet
     singleValue: true
-    xpath: //p[@class='textstyles__TextComponent-w4b5ef-0 klbUBp']/li[contains(b, 'PESO')] | //div[@class="MuiGrid-root gridstyles-sc-6scn59-0 hoivch MuiGrid-container MuiGrid-align-items-xs-center"]//text()
+    xpath: //p[contains(@class,'textstyles__TextComponent-')]/li[contains(b, 'PESO')] | (//div[contains(@class,"MuiGrid-root gridstyles-sc-6scn59-0")]//div[contains(@class,"MuiGrid-container MuiGrid-align-items-xs-center")])[1]//text()
     regExp: '[0-9]+[\,]?\w*g'
     description: Net weight as described on the page
   - name: weightGross
@@ -128,7 +132,7 @@ fields:
     type: NUMBER
   - name: color
     singleValue: true
-    xpath: //p[@class='textstyles__TextComponent-w4b5ef-0 klbUBp']/li[contains(b, 'COR')]
+    xpath: //p[contains(@class,'textstyles__TextComponent-')]/li[contains(b, 'COR')]
     regExp: (?<=COR:)\s+(.*)
     description: A textual description of the colour
   - name: colorCode
@@ -145,7 +149,7 @@ fields:
     description: URLs of videos on page
   - name: name
     singleValue: true
-    xpath: //div[@class="MuiGrid-root gridstyles-sc-6scn59-0 hoivch MuiGrid-container MuiGrid-align-items-xs-center"]//text()
+    xpath: (//div[contains(@class,"MuiGrid-root gridstyles-sc-6scn59-0")]//div[contains(@class,"MuiGrid-container MuiGrid-align-items-xs-center")])[1]//text()
     description: The product name
   - name: inStorePrice
     singleValue: true
@@ -249,26 +253,27 @@ fields:
     description: null
   - name: ingredientsList
     singleValue: true
-    xpath: substring-after(//div[@class="MuiGrid-root gridstyles-sc-6scn59-0 cUjvbT"],'Ingredientes:')
+    xpath: substring-after(//*[contains(text(), "Descrição do produto")]/../..,'Ingredientes:')
     description: List of Ingredients from site - can be string of data if no
       discernible start/end point
   - name: servingSize
     singleValue: true
-    xpath: //div[@class="MuiGrid-root gridstyles-sc-6scn59-0 hoivch MuiGrid-container"]//div[@class="MuiGrid-root gridstyles-sc-6scn59-0 cUjvbT MuiGrid-container"]
+    xpath: //p[text()[contains(., "Tabela nutricional")]]/../..//*[text()[contains(.,"Porção de")]]/..
     regExp: (?<=Porção de )\w*g
     description: The size of serving Nutritional information is based on.
   - name: servingSizeUom
     singleValue: true
-    xpath: //div[@class="MuiGrid-root gridstyles-sc-6scn59-0 hoivch MuiGrid-container"]//div[@class="MuiGrid-root gridstyles-sc-6scn59-0 cUjvbT MuiGrid-container"]
+    xpath: //p[text()[contains(., "Tabela nutricional")]]/../..//*[text()[contains(.,"Porção de")]]/..
     regExp: (?<=Porção de )[0-9]+[\,]?[0-9]*([k,m]?[g])
     regExpReplace: $1
     description: Unit of measure of serving
   - name: numberOfServingsInPackage
     singleValue: true
     description: Suggested number of servings of the product.
+    type: NUMBER
   - name: caloriesPerServing
     singleValue: true
-    xpath: //tbody[@class="table-liststyle__ValuesContainer-zllzcb-4 fgCyPV"]
+    xpath: //tbody[contains(@class,"table-liststyle__ValuesContainer")]
     regExp: (Valor\s+calórico\s*|Valor\s+energético\s*)[\s]*(\d+,?\d*\s*[K,k]?cal)
     regExpReplace: $2
     description: Nutritional Information for Calories Per Serving content - Usually
@@ -280,158 +285,158 @@ fields:
     type: NUMBER
   - name: totalFatPerServing
     singleValue: true
-    xpath: //tbody[@class="table-liststyle__ValuesContainer-zllzcb-4 fgCyPV"]
+    xpath: //tbody[contains(@class,"table-liststyle__ValuesContainer")]
     regExp: (Gordura[s]?\s+[t,T]otais)\s*(\d+,?\d*)\s*([K,k,m]?g)
     description: Nutritional Information for Total Fat content - Usually based on
       per 100g serving
     type: NUMBER
   - name: totalFatPerServingUom
     singleValue: true
-    xpath: //tbody[@class="table-liststyle__ValuesContainer-zllzcb-4 fgCyPV"]
+    xpath: //tbody[contains(@class,"table-liststyle__ValuesContainer")]
     regExp: (?<=Gordura[s]?\s+[t,T]otais\s*\d+,?\d*\s*)[K,k,m]?g
     description: Unit of Measure Data for Total Fat content
   - name: saturatedFatPerServing
     singleValue: true
-    xpath: //tbody[@class="table-liststyle__ValuesContainer-zllzcb-4 fgCyPV"]
+    xpath: //tbody[contains(@class,"table-liststyle__ValuesContainer")]
     regExp: (Gordura[s]?\s+[s,S]aturadas)\s*(\d+,?\d*)\s*([K,k,m]?g)
     description: Nutritional Information for Saturated Fat content - Usually based
       on per 100g serving
     type: NUMBER
   - name: saturatedFatPerServingUom
     singleValue: true
-    xpath: //tbody[@class="table-liststyle__ValuesContainer-zllzcb-4 fgCyPV"]
+    xpath: //tbody[contains(@class,"table-liststyle__ValuesContainer")]
     regExp: (?<=Gordura[s]?\s+[s,S]aturadas\s*\d+,?\d*\s*)[K,k,m]?g
     description: Unit of Measure Data for Saturated Fat content
   - name: transFatPerServing
     singleValue: true
-    xpath: //tbody[@class="table-liststyle__ValuesContainer-zllzcb-4 fgCyPV"]
+    xpath: //tbody[contains(@class,"table-liststyle__ValuesContainer")]
     regExp: (Gordura[s]?\s+[T,t]rans)\s*(\d+,?\d*)\s*([K,k,m]?g)
     description: Nutritional Information for Trans Fat content - Usually based on
       per 100g serving
     type: NUMBER
   - name: transFatPerServingUom
     singleValue: true
-    xpath: //tbody[@class="table-liststyle__ValuesContainer-zllzcb-4 fgCyPV"]
+    xpath: //tbody[contains(@class,"table-liststyle__ValuesContainer")]
     regExp: (?<=Gordura[s]?\s+[T,t]rans\s*\d+,?\d*\s*)[K,k,m]?g
     description: Unit of Measure Data for Trans Fat content
   - name: cholesterolPerServing
     singleValue: true
-    xpath: //tbody[@class="table-liststyle__ValuesContainer-zllzcb-4 fgCyPV"]
+    xpath: //tbody[contains(@class,"table-liststyle__ValuesContainer")]
     regExp: Colesterol\s*(\d+,?\d*)\s*([K,k,m]?g)
     description: Nutritional Information for Cholesterol content - Usually based on
       per 100g serving
     type: NUMBER
   - name: cholesterolPerServingUom
     singleValue: true
-    xpath: //tbody[@class="table-liststyle__ValuesContainer-zllzcb-4 fgCyPV"]
+    xpath: //tbody[contains(@class,"table-liststyle__ValuesContainer")]
     regExp: (?<=Colesterol\s*\d+,?\d*\s*)[K,k,m]?g
     description: Unit of Measure Data for Cholesterol content
   - name: sodiumPerServing
     singleValue: true
-    xpath: //tbody[@class="table-liststyle__ValuesContainer-zllzcb-4 fgCyPV"]
+    xpath: //tbody[contains(@class,"table-liststyle__ValuesContainer")]
     regExp: Sódio\s*(\d+,?\d*)\s*([K,k,m]?g)
     description: Nutritional Information for Sodium content - Usually based on per
       100g serving
     type: NUMBER
   - name: sodiumPerServingUom
     singleValue: true
-    xpath: //tbody[@class="table-liststyle__ValuesContainer-zllzcb-4 fgCyPV"]
+    xpath: //tbody[contains(@class,"table-liststyle__ValuesContainer")]
     regExp: (?<=Sódio\s*\d+,?\d*\s*)[K,k,m]?g
     description: Unit of Measure Data for Sodium content
   - name: totalCarbPerServing
     singleValue: true
-    xpath: //tbody[@class="table-liststyle__ValuesContainer-zllzcb-4 fgCyPV"]
+    xpath: //tbody[contains(@class,"table-liststyle__ValuesContainer")]
     regExp: Carboidrato[s]?\s*(\d+,?\d*)\s*([K,k,m]?g)
     description: Nutritional Information for Total Carbohydrate content - Usually
       based on per 100g serving
     type: NUMBER
   - name: totalCarbPerServingUom
     singleValue: true
-    xpath: //tbody[@class="table-liststyle__ValuesContainer-zllzcb-4 fgCyPV"]
+    xpath: //tbody[contains(@class,"table-liststyle__ValuesContainer")]
     regExp: (?<=Carboidrato[s]?\s*\d+,?\d*\s*)[K,k,m]?g
     description: Unit of Measure Data for Total Carbohydrate content
   - name: dietaryFibrePerServing
     singleValue: true
-    xpath: //tbody[@class="table-liststyle__ValuesContainer-zllzcb-4 fgCyPV"]
+    xpath: //tbody[contains(@class,"table-liststyle__ValuesContainer")]
     regExp: (Fibra\s+[a,A]limentar)\s*(\d+,?\d*)\s*([K,k,m]?g)
     description: Nutritional Information for Dietary Fibre content - Usually based
       on per 100g serving
     type: NUMBER
   - name: dietaryFibrePerServingUom
     singleValue: true
-    xpath: //tbody[@class="table-liststyle__ValuesContainer-zllzcb-4 fgCyPV"]
+    xpath: //tbody[contains(@class,"table-liststyle__ValuesContainer")]
     regExp: (?<=Fibra\s+[a,A]limentar\s*\d+,?\d*\s*)[K,k,m]?g
     description: Unit of Measure Data for Dietary Fibre content
   - name: totalSugarsPerServing
     singleValue: true
-    xpath: //tbody[@class="table-liststyle__ValuesContainer-zllzcb-4 fgCyPV"]
+    xpath: //tbody[contains(@class,"table-liststyle__ValuesContainer")]
     regExp: Açúcar\s*(\d+,?\d*)\s*([K,k,m]?g)
     description: Nutritional Information for Total Sugar content - Usually based on
       per 100g serving
     type: NUMBER
   - name: totalSugarsPerServingUom
     singleValue: true
-    xpath: //tbody[@class="table-liststyle__ValuesContainer-zllzcb-4 fgCyPV"]
+    xpath: //tbody[contains(@class,"table-liststyle__ValuesContainer")]
     regExp: (?<=Açúcar\s*\d+,?\d*\s*)[K,k,m]?g
     description: Unit of Measure Data for Total Sugar content
   - name: proteinPerServing
     singleValue: true
-    xpath: //tbody[@class="table-liststyle__ValuesContainer-zllzcb-4 fgCyPV"]
+    xpath: //tbody[contains(@class,"table-liststyle__ValuesContainer")]
     regExp: Proteína[s]?\s*(\d+,?\d*)\s*([K,k,m]?g)
     description: Nutritional Information for Protein content - Usually based on per
       100g serving
     type: NUMBER
   - name: proteinPerServingUom
     singleValue: true
-    xpath: //tbody[@class="table-liststyle__ValuesContainer-zllzcb-4 fgCyPV"]
+    xpath: //tbody[contains(@class,"table-liststyle__ValuesContainer")]
     regExp: (?<=Proteína[s]?\s*\d+,?\d*\s*)[K,k,m]?g
     description: Unit of Measure Data for Protein
   - name: vitaminAPerServing
     singleValue: true
-    xpath: //tbody[@class="table-liststyle__ValuesContainer-zllzcb-4 fgCyPV"]
+    xpath: //tbody[contains(@class,"table-liststyle__ValuesContainer")]
     regExp: ([V,v]itamina\s*[A,a])\s*(\d+,?\d*)\s*([K,k,m]?g)
     description: Nutritional Information for Vitamin A content - Usually based on
       per 100g serving
     type: NUMBER
   - name: vitaminAPerServingUom
     singleValue: true
-    xpath: //tbody[@class="table-liststyle__ValuesContainer-zllzcb-4 fgCyPV"]
+    xpath: //tbody[contains(@class,"table-liststyle__ValuesContainer")]
     regExp: (?<=[V,v]itamina\s*[A,a]\s*\d+,?\d*\s*)[K,k,m]?g
     description: Unit of Measure Data for Vitamin A
   - name: vitaminCPerServing
     singleValue: true
-    xpath: //tbody[@class="table-liststyle__ValuesContainer-zllzcb-4 fgCyPV"]
+    xpath: //tbody[contains(@class,"table-liststyle__ValuesContainer")]
     regExp: ([V,v]itamina\s*[C,c])\s*(\d+,?\d*)\s*([K,k,m]?g)
     description: Nutritional Information for Vitamin C content - Usually based on
       per 100g serving
     type: NUMBER
   - name: vitaminCPerServingUom
-    xpath: //tbody[@class="table-liststyle__ValuesContainer-zllzcb-4 fgCyPV"]
+    xpath: //tbody[contains(@class,"table-liststyle__ValuesContainer")]
     regExp: (?<=[V,v]itamina\s*[C,c]\s*\d+,?\d*\s*)[K,k,m]?g
     singleValue: true
     description: Unit of Measure Data for Vitamin C
   - name: calciumPerServing
     singleValue: true
-    xpath: //tbody[@class="table-liststyle__ValuesContainer-zllzcb-4 fgCyPV"]
+    xpath: //tbody[contains(@class,"table-liststyle__ValuesContainer")]
     regExp: Cálcio\s*(\d+,?\d*)\s*([K,k,m]?g)
     description: Nutritional Information for Calcium content - Usually based on per
       100g serving
     type: NUMBER
   - name: calciumPerServingUom
     singleValue: true
-    xpath: //tbody[@class="table-liststyle__ValuesContainer-zllzcb-4 fgCyPV"]
+    xpath: //tbody[contains(@class,"table-liststyle__ValuesContainer")]
     regExp: (?<=Cálcio\s*\d+,?\d*\s*)[K,k,m]?g
     description: Unit of Measure Data for Calcium
   - name: ironPerServing
     singleValue: true
-    xpath: //tbody[@class="table-liststyle__ValuesContainer-zllzcb-4 fgCyPV"]
+    xpath: //tbody[contains(@class,"table-liststyle__ValuesContainer")]
     regExp: Ferro\s*(\d+,?\d*)\s*([K,k,m]?g)
     description: Nutritional Information for Iron content - Usually based on per
       100g serving
     type: NUMBER
   - name: ironPerServingUom
     singleValue: true
-    xpath: //tbody[@class="table-liststyle__ValuesContainer-zllzcb-4 fgCyPV"]
+    xpath: //tbody[contains(@class,"table-liststyle__ValuesContainer")]
     regExp: (?<=Ferro\s*\d+,?\d*\s*)[K,k,m]?g
     description: Unit of Measure Data for Iron
   - name: dietarySymbols
@@ -439,26 +444,26 @@ fields:
     description: Information related to the dietary symbols of a specific product
   - name: magnesiumPerServing
     singleValue: true
-    xpath: //tbody[@class="table-liststyle__ValuesContainer-zllzcb-4 fgCyPV"]
+    xpath: //tbody[contains(@class,"table-liststyle__ValuesContainer")]
     regExp: Magnésio\s*(\d+,?\d*)\s*([K,k,m]?g)
     description: Nutritional Information for Magnesium content - Usually based on
       per 100g serving
     type: NUMBER
   - name: magnesiumPerServingUom
-    xpath: //tbody[@class="table-liststyle__ValuesContainer-zllzcb-4 fgCyPV"]
+    xpath: //tbody[contains(@class,"table-liststyle__ValuesContainer")]
     regExp: (?<=Magnésio\s*\d+,?\d*\s*)[K,k,m]?g
     singleValue: true
     description: Unit of Measure Data for Magnesium
   - name: saltPerServing
     singleValue: true
-    xpath: //tbody[@class="table-liststyle__ValuesContainer-zllzcb-4 fgCyPV"]
+    xpath: //tbody[contains(@class,"table-liststyle__ValuesContainer")]
     regExp: Sal\s*(\d+,?\d*)\s*([K,k,m]?g)
     description: Nutritional Information for Salt content - Usually based on per
       100g serving
     type: NUMBER
   - name: saltPerServingUom
     singleValue: true
-    xpath: //tbody[@class="table-liststyle__ValuesContainer-zllzcb-4 fgCyPV"]
+    xpath: //tbody[contains(@class,"table-liststyle__ValuesContainer")]
     regExp: (?<=Sal\s*\d+,?\d*\s*)[K,k,m]?g
     description: Unit of Measure Data for Salt
   - name: dietaryInformation
@@ -466,29 +471,30 @@ fields:
     description: null
   - name: specifications
     singleValue: true
-    xpath: //p[@class='textstyles__TextComponent-w4b5ef-0 klbUBp']/li[contains(b, 'DIMENSÕES DA EMBALAGEM CM (AxLxP):')]
+    xpath: //p[contains(@class,'textstyles__TextComponent')]/li[contains(b, 'DIMENSÕES DO PRODUTO CM (AxLxP):')]//text()[2]
     regExp: (?<=DIMENSÕES DA EMBALAGEM CM \(AxLxP\):)\s+(.*)
     description: The physical dimensions of the product including packaging.
   - name: warranty
     singleValue: true
-    xpath: //p[@class='textstyles__TextComponent-w4b5ef-0 klbUBp']/li[contains(b, 'GARANTIA:')]
+    xpath: //p[contains(@class,'textstyles__TextComponent')]/li[contains(b, 'GARANTIA:')]//text()[2]
     regExp: (?<=GARANTIA:)\s+(.*)
     description: Guarantee associated with the product
   - name: storage
     singleValue: true
-    xpath: //table[@class="key-value-liststyles__Wrapper-em9qim-0 icBYTZ"]
+    xpath: //table[contains(@class,"key-value-liststyles__")]
     regExp: (?<=Temperatura)(\s*)(.*?)[\n]
     regExpReplace: $2
     description: Suggested storage location for product
   - name: countryOfOrigin
     singleValue: true
-    xpath: //table[@class="key-value-liststyles__Wrapper-em9qim-0 icBYTZ"]
+    xpath: //table[contains(@class,"key-value-liststyles__")]
     regExp: (?<=País\s*de\s*origem\n)(.*)(?=\n)
     description: The country from which the product originates
   - name: allergyAdvice
     singleValue: false
-    xpath: //div[@class="MuiGrid-root gridstyles-sc-6scn59-0 cUjvbT"]//text()
-    regExp: (CONTÉM|Contém).*[.]
+    xpath: //div[contains(@class,"MuiGrid-root gridstyles")]//*[contains(text(), "ALÉRGICOS")]/..
+    regExp: (ALÉRGICOS:)([\s\S]*)
+    regExpReplace: $2
     description: Allergy information associated with the product
   - name: recyclingInformation
     singleValue: true
@@ -513,7 +519,7 @@ fields:
     description: promotion text on product page
   - name: alcoholContent
     singleValue: true
-    xpath: //table[@class="key-value-liststyles__Wrapper-em9qim-0 icBYTZ"]
+    xpath: //table[contains(@class,"key-value-liststyles__")]
     regExp: (?<=Teor alcóolico)(\s*)(.*?)[\n]    
     regExpReplace: $2
     description: Alcohol content information
@@ -577,7 +583,7 @@ fields:
     defaultValue: No
   - name: materials
     singleValue: true
-    xpath: //p[@class='textstyles__TextComponent-w4b5ef-0 klbUBp']/li[contains(b, 'Material:')]//text()[2]
+    xpath: //p[contains(@class,'textstyles__TextComponent')]/li[contains(b, 'Material:')]//text()[2]
     description: Materials used to make the product
   - name: Image360Present
     singleValue: true
