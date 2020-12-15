@@ -46,6 +46,12 @@ module.exports = {
       }
       const availability = document.evaluate('//button[@data-auto="add-to-bag"]', document, null, XPathResult.UNORDERED_NODE_ITERATOR_TYPE, null).iterateNext() ? 'In stock' : 'Out of stock';
       document.body.setAttribute('availability', availability);
+
+      const productUrl = document.querySelector("link[rel='canonical']")
+      if(productUrl) {
+        let sku = productUrl.href.match(/(.+)(ID=)(.+)/)[3]
+        document.body.setAttribute('sku', sku );
+      }
     });
 
     await context.evaluate(async function () {

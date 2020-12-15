@@ -5,7 +5,7 @@ recordXPath: null
 fields:
   - name: ratingCount
     singleValue: true
-    xpath: /html/head/script[@id="productMktData"]/following::script[1]
+    xpath: /html/head/script[@type="text/javascript"][contains(text(),'product_rating')]
     regExp: (product_reviews\\":\[\\")(\d+)
     regExpReplace: $2
   - name: productUrl
@@ -54,12 +54,10 @@ fields:
     xpath: //div[@data-el="breadcrumb"]/a[@class="breadcrumbs-item"]
   - name: sku
     singleValue: true
-    xpath: //link[@rel="canonical"]/@href
-    regExp: (.+)(ID=)(.+)
-    regExpReplace: $3
+    xpath: //body//@sku
   - name: upc
     singleValue: true
-    xpath: /html/head/script[@id="productMktData"]/following::script[1]
+    xpath: /html/head/script[@type="text/javascript"][contains(text(),'product_rating')]
     regExp: (product_upc\\":\[\\")(\d+)
     regExpReplace: $2
   - name: questionsCount
@@ -67,7 +65,7 @@ fields:
     xpath: (//div[@class="BVQAQuestionAndAnswerCount"]//span[@class="BVQANumber"])[1]
   - name: aggregateRating
     singleValue: true
-    xpath: /html/head/script[@id="productMktData"]/following::script[1]
+    xpath: /html/head/script[@type="text/javascript"][contains(text(),'product_rating')]
     regExp: (product_rating\\":\[\\")(\d\.\d)
     regExpReplace: $2
   - name: manufacturerImages
