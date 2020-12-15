@@ -38,15 +38,15 @@ fields:
   - name: price
     singleValue: true
     xpath: //div[@class="product-price"]/span[@class="product-price-standard"]/text() | //div[@class="product-price"]//span[@class="product-price-sales"]/text()
-  - name: availabilityText
-    singleValue: true
-    xpath: //button[@class="default pdp-add-to-cart bopis"]
-    regExp: Buy & Pickup
-    regExpReplace: In stock
-    defaultValue: Out of stock
+  # - name: availabilityText
+  #   singleValue: true
+  #   xpath: //button[@class="default pdp-add-to-cart bopis"]
+  #   regExp: Buy & Pickup
+  #   regExpReplace: In stock
+  #   defaultValue: Out of stock
   - name: description
     singleValue: false
-    xpath: //div[@id="react-tabs-1"]//div[contains(@class, "react-tabs__tab-content")]
+    xpath: //div[@class="react-tabs" and contains(.,'Description')]//div[@id="react-tabs-1"]//div[contains(@class, "react-tabs__tab-content")]
   - name: descriptionBullets
     singleValue: true
     xpath: count(//div[contains(@class, "react-tabs__tab-content")]/li)

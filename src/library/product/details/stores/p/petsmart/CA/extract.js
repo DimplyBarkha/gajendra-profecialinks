@@ -13,7 +13,6 @@ module.exports = {
   implementation: async (inputs, parameters, context, dependencies) => {
     const { transform } = parameters;
     const { productDetails } = dependencies;
-
     await context.evaluate(async () => {
       // getting data from directions tab
       const directionsTab = document.querySelector('li#react-tabs-4');
@@ -27,6 +26,17 @@ module.exports = {
             .innerText.trim()
           : '';
         directionsTab.setAttribute('directions', directions);
+      }
+
+      let detailIngredients = document.evaluate(`//div[@class="react-tabs__tab-content"]/b[contains(text(),'Ingredients')]/following-sibling::text() | //div[@class="react-tabs__tab-content"]//p//b[contains(text(),'Ingredients')]/following::text()[1]`, document, null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
+      if (detailIngredients.snapshotLength) {
+        let ingredientsList = '';
+        for (var i = 0; i < detailIngredients.snapshotLength; i++) {
+          ingredientsList = ingredientsList + detailIngredients.snapshotItem(i).textContent;
+        }
+        if (ingredientsList) {
+          document.body.setAttribute('ingredients', ingredientsList);
+        }
       }
 
       // getting data from ingredients tab
@@ -49,6 +59,7 @@ module.exports = {
             .innerText.trim()
           : '';
         ingredientsTab.setAttribute('nutritional', nutritionalInfo);
+
       }
 
       // going back to main tab to extract data through the yaml file
@@ -84,9 +95,9 @@ module.exports = {
       }
 
       const imageMain = document.evaluate('//div[@class="slick-list"]//div[contains(@class, "slick-slide") and not(contains(@class, "cloned"))]//img/@src', document, null, XPathResult.UNORDERED_NODE_ITERATOR_TYPE, null).iterateNext();
-      if(!imageMain){
+      if (!imageMain) {
         let shownImage = document.evaluate('//div[@class="react-viewer-canvas"]/img/@src', document, null, XPathResult.UNORDERED_NODE_ITERATOR_TYPE, null).iterateNext();
-        if(shownImage) {
+        if (shownImage) {
           document.body.setAttribute('shownimage', shownImage.textContent);
         }
       }
