@@ -22,7 +22,7 @@ fields:
   - name: category
     singleValue: false
     description: The categories (e.g. from breadcrumbs)
-    xpath: //div[@class="breadcrumb-section"]//nav//li[position()>2 and position()< last()]
+    xpath: //div[@class="breadcrumb-section"]//nav//li[position()>1 and position()< last()]
   - name: nameExtended
     singleValue: true
     description: The product name, prefixing "${brand} - " if not included in "name"
