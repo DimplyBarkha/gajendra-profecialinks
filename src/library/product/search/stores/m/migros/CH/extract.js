@@ -6,17 +6,7 @@ async function implementation (
   dependencies,
 ) {
   const { productDetails } = dependencies;
-  // await context.evaluate(async function () {
-  //   await new Promise(resolve => setTimeout(resolve, 100));
-  //   for (let i = 0; i < 10; i++) {
-  //     document.getElementById("main").scrollBy({ top: 5000, left: 0, behaviour: 'smooth'});
-  //     // window.scrollBy({ top: 1000, left: 0, behavior: "smooth" });
-  //     await new Promise(resolve => setTimeout(resolve, 500));
-  //     console.log("scrolling");
-  //   }
-  // });
-  await context.evaluate(async () => {
-
+   await context.evaluate(async () => {
     let scrolltop = document.getElementById("main").scrollTop;
 
     while(!!document.querySelector('div.btn-view-more-products > button')){
@@ -43,16 +33,16 @@ async function implementation (
     }
 
   })
-  return await context.extract(productDetails);
+  return await context.extract(productDetails, { transform });
 }
 
 module.exports = {
   implements: 'product/search/extract',
   parameterValues: {
-    country: 'CH',
     store: 'migros',
     transform : transform,
     domain: 'migros.ch',
-  },
+    zipcode: '',
+},
   implementation,
 };
