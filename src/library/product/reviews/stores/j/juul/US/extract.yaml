@@ -33,6 +33,7 @@ fields:
   type: STRING
 - name: sku
   type: STRING
+  xpath: ancestor::html//img[@class="hero__single-image"]/@alt
 - name: reviewText
   type: STRING
   xpath: //div[@class="content-review"]

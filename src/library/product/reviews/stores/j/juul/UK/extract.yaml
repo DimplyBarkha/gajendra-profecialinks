@@ -33,6 +33,7 @@ fields:
   type: STRING
 - name: sku
   type: STRING
+  xpath: ancestor::html//div[@class="product-page-sections"]/@data-sku
 - name: reviewText
   type: STRING
   singleValue: false
