@@ -17,7 +17,7 @@ fields:
     xpath: //div[contains(@class,'js-big-image-wrapper')]//div[contains(@class,'js-big-image') and not(contains(@class,'swiper-slide-active'))]//img/@src
   - name: category
     singleValue: false
-    xpath: //ol[@class='breadcrumb']//li//a
+    xpath: //ol[@class='breadcrumb']//li//a[not(contains(text(),'Koti'))]
   - name: name
     singleValue: false
     xpath: //h1[@class='product-name']
@@ -47,13 +47,7 @@ fields:
     xpath: //h2[@class='brand-name']//a
   - name: brandLink
     singleValue: false
-    xpath: //h2[@class='brand-name']//a/@href
-  # - name: manufacturer
-  #   singleValue: false
-  #   xpath: //h2[@class='brand-name']//a
-  - name: mpc
-    singleValue: false
-    xpath: //tr//th//div[@data-property='manufacturerSKU']/ancestor::tr//td
+    xpath: //h2[@class='brand-name']//a/@href  
   - name: sku
     singleValue: false    
     xpath: //div[@id='maincontent']//script[@type='application/ld+json' and contains(text(),'sku')]
@@ -83,7 +77,7 @@ fields:
     xpath: //h2[text()='Lisätietoja']//following-sibling::div[contains(@class,'content')]//table//tr
   - name: quantity
     singleValue: false
-    xpath: //h2[text()='Lisätietoja']//following-sibling::div[contains(@class,'content')]//table//tr//th//div[text()='Pakkauskoko']//parent::th//following-sibling::td
+    xpath: (//div[@class='main-detail-block']//select[@class='custom-select form-control select-size']/option/@data-attr-value)[1]
   - name: color
     singleValue: false
     xpath: //span[contains(@class,'swatch-item') and contains(@class,'selected')]/@data-attr-value
@@ -96,10 +90,4 @@ fields:
     xpath: //h2[text()='Lisätietoja']//following-sibling::div[contains(@class,'content')]//table//tr//th//div[text()='Kokotiedot']//parent::th//following-sibling::td
   - name: materials
     singleValue: false
-    xpath: //h2[text()='Lisätietoja']//following-sibling::div[contains(@class,'content')]//table//tr//th//div[text()='Materiaali']//parent::th//following-sibling::td
-  - name: packSize
-    singleValue: false
-    xpath: //tr//th//div[@data-property='packingSize']/ancestor::tr//td
-  - name: quantity
-    singleValue: false
-    xpath: //tr//th//div[@data-property='sizeInformation']/ancestor::tr//td
+    xpath: //h2[text()='Lisätietoja']//following-sibling::div[contains(@class,'content')]//table//tr//th//div[text()='Materiaali']//parent::th//following-sibling::td    

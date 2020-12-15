@@ -29,6 +29,9 @@ const transform = (data) => {
           row.nameExtended = [{ text: row.brandText[0].text + ' - ' + row.nameExtended[0].text }];
         }
       }
+      if (row.color) {
+        row.variantInformation = [{ text: row.color[0].text }];
+      }
       if (row.specifications) {
         var arrSpecs = [];
         row.specifications.forEach(item => {
