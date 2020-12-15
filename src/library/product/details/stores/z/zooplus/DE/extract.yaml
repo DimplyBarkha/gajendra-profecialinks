@@ -1,0 +1,151 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath:  //ul[@id="variantsadd" and count(li)  >= 1]/li |  //ul[@id="variantsadd" and count(li) < 1] | //section[contains(@class,"searchResult")]
+fields:
+  - name: variants
+    xpath: //*/@variantdetails
+  - name: variantCount
+    xpath: //*/@variantcount
+  - name: variantInformation
+    singleValue: true
+    xpath: //*/@varianttitle
+  - name: gtin
+    singleValue: true
+    xpath : //*/@gtin    
+  - name: eangtin
+    singleValue: true
+    xpath: //*/@gtin     
+  - name: color
+    singleValue: true
+    xpath: //*/@color
+  - name: variantId
+    singleValue: true
+    xpath: //*/@retailer_product_code
+  - name: price
+    singleValue: true
+    xpath: //*/@variant_price
+    regExp: (\d+)(\.)?(\d{1,2})?
+    regExpReplace: € $1,$3 
+  - name: sku
+    singleValue: true
+    xpath: //*/@sku | //div[@id='addedsku']
+  - name: firstVariant
+    singleValue: true
+    xpath : //*/@firstvariant
+  - name: quantity
+    singleValue: false
+    xpath : //*/@size
+  - name: nameExtended
+    singleValue: true
+    xpath : //*/@variant_name
+  - name: availabilityText
+    singleValue: true
+    xpath : //*/@stock
+  - name: ratingCount
+    singleValue: true
+    xpath : //*/@reviewcount
+  - name: aggregateRating
+    singleValue: true
+    xpath : //*/@aggregarerating
+  - name: image
+    singleValue: false
+    xpath: ancestor::html //div[@id='addedimage']
+  - name: imageAlt
+    singleValue: false
+    xpath: ancestor::html //div[@id='addedimagealt']
+  - name: alternateImages
+    xpath : ancestor::html //div[contains(@class,'media__gallery')]//ul[@id='js-vertical__thumbnailList']//li//img/@src
+    regExp: (.+)
+    regExpReplace: https:$1  
+  #- name: secondaryImageTotal
+  #  xpath: count(ancestor::html //div[contains(@class,'media__gallery')]//ul[@id='js-vertical__thumbnailList']//li[position() > 1]//img)    
+  - name: category
+    singleValue: false
+    xpath : ancestor::html //ol[@id="js-breadcrumb"]//li[position() >1]//a[@itemprop="item"]//span[@itemprop="name"]/text()
+  - name: description
+    singleValue: false
+    xpath : ancestor::html //div[@id='added_description']
+  - name: descriptionBullets
+    singleValue: false
+    xpath : ancestor::html //div[@id='additionaldescbulletinfocount']
+  - name: brandText
+    singleValue: true
+    xpath : ancestor::html //meta[@itemprop="brand"]/@content
+  - name: ingredientsList
+    xpath: ancestor::html //div[@id='addedingrediants'] 
+  - name: directions
+    singleValue: false
+    xpath: ancestor::html //div[@id='addeddirection']    
+  - name: mpc
+    singleValue: true
+    xpath: ancestor::html //div[@id='mpc']   
+  - name: promotion
+    singleValue: true
+    xpath : ancestor::html //div[@id="promotion"]      
+  - name: manufacturer
+    singleValue: false
+    xpath :
+  - name: manufacturerImages
+    singleValue: false
+    xpath : ancestor::html //div[@id="description"]//img/@src
+    regExp: (.+)
+    regExpReplace: https:$1
+  - name: productUrl
+    singleValue: false
+    xpath: ancestor::html //div[@id="addedproducturl"]
+  - name: videos
+    singleValue: false
+    xpath : ancestor::html //div[@id="added_video"]
+  - name: name
+    singleValue: true
+    xpath : //*/@variant_name
+  - name: additionalDescBulletInfo
+    singleValue: true  
+    xpath: ancestor::html //div[@id='additionaldescbulletinfo']
+  - name: imageZoomFeaturePresent    
+    defaultValue: Yes
+  - name: calciumPerServing
+    xpath: //*/@calciumperserving
+  - name: calciumPerServingUom
+    xpath: //*/@calciumperservinguom
+  - name: magnesiumPerServing
+    xpath: //*/@magnesiumperserving
+  - name: magnesiumPerServingUom
+    xpath: //*/@magnesiumperservinguom
+  - name: sodiumPerServing
+    xpath: //*/@sodiumperserving
+  - name: sodiumPerServingUom
+    xpath: //*/@sodiumperservinguom
+  - name: totalFatPerServing
+    xpath: //*/@totalfatperserving
+  - name: totalFatPerServingUom
+    xpath: //*/@totalfatperservinguom
+  - name: caloriesPerServing
+    xpath: //*/@caloriesperserving
+  - name: dietaryFibrePerServing
+    xpath: //*/@dietaryfibreperserving
+  - name: dietaryFibrePerServingUom
+    xpath: //*/@dietaryfibreperservinguom
+  - name: proteinPerServing
+    xpath: //*/@proteinperserving
+  - name: proteinPerServingUom
+    xpath: //*/@proteinperservinguom
+  - name: vitaminAPerServing
+    xpath: //*/@vitaminaperserving
+  - name: vitaminAPerServingUom
+    xpath: //*/@vitaminaperservinguom
+  - name: vitaminCPerServing
+    xpath: //*/@vitamincperserving
+  - name: vitaminCPerServingUom
+    xpath: //*/@vitamincperservinguom
+  - name: ironPerServing
+    xpath: //*/@ironperserving
+  - name: ironPerServingUom
+    xpath: //*/@ironperservinguom
+  - name: pricePerUnit
+    xpath: //*/@priceperunit
+  - name: pricePerUnitUom
+    xpath: //*/@priceperunituom
+  - name: additives
+    xpath: ancestor::html //div[@id='added_additive']
