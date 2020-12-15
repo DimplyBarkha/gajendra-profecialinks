@@ -559,8 +559,10 @@ fields:
   - name: unInterruptedPDP
     singleValue: false
     description: Titles of products in the sections 'you may also like' or 'sponsored products'. Combine results from Max 3 sections
-    xpath: //div[@class="thumbnail"]//p[@class="details__name"]//text()
+    xpath: //div[@class="container"]/ol/li
   - name: inTheBoxText
     singleValue: false
-    xpath: //section[@class="description-container__full-text"]//font[contains(text(),'The package contains')]//ancestor::p/following-sibling::ul/li
+    xpath: //section[contains(@class,"description")]//p[contains(.,'Pakkaus sisältää')]//following-sibling::ul[1]//li | //p[contains(.,'Pakkauksen sisältö')]/following-sibling::ul[1]//li
     description: Must include text to show the accessories/tools which come with the product
+  - name: hasComparisonTable
+    defaultValue: No
