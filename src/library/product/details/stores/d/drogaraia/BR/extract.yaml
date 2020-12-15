@@ -1,0 +1,41 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: name
+    singleValue: true
+    xpath: //div[contains(@class,"product-name")]
+  - name: nameExtended
+    singleValue: true
+    xpath: //div[contains(@class,"product-name")]
+  - name: description
+    singleValue: true
+    xpath: //div[contains(@class,"product-description")]
+  - name: image
+    singleValue: false
+    xpath: //div[contains(@class,"product-image-gallery")]//img/@src
+  - name: alternateImages
+    singleValue: false
+    xpath: //div[contains(@class,"product-image-gallery")]//img/@src
+  - name: brandText
+    singleValue: true
+    xpath: //li[contains(@class,'marca hide-hover')]
+  - name: quantity
+    singleValue: true
+    xpath: //li[contains(@class,'quantidade hide-hover')]
+  - name: sku
+    singleValue: true
+    xpath: //*[contains(@class,"first odd")]//td
+  - name: metaKeywords
+    singleValue: true
+    xpath: //meta[contains(@name, "keywords")]/@content
+  - name: price
+    singleValue: false
+    xpath: //p[@class="special-price"]//span[@class="price"]//span[2] | //span[@class="regular-price"]//span[2]
+  - name: ratingCount
+    singleValue: false
+    xpath: //span[@itemprop="ratingValue"]
+  - name: listPrice
+    singleValue: false
+    xpath: //span[@class="price"]
