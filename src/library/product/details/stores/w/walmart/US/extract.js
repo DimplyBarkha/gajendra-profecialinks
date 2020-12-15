@@ -83,7 +83,7 @@ module.exports = {
           if (marketingIframe) marketingIframe.scrollIntoView();
         }, aplusSelector);
         // wait for iframe to load
-        await new Promise(resolve => setTimeout(resolve, 5000));
+        await new Promise(resolve => setTimeout(resolve, 15000));
       })
       .then(async () => context.evaluate(async (selector) => {
         function addHiddenDiv (id, content) {
