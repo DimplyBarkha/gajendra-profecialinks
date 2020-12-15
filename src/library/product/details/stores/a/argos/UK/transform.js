@@ -6,21 +6,21 @@
 const transform = (data) => {
   for (const { group } of data) {
     for (const row of group) {
-      if (row.availabilityText) {
-        let text = 'Out of Stock';
-        row.availabilityText.forEach(item => {
-          if (item.text === 'COLLECTION_FROM_TOMORROW_AT_TIME') {
-            text = 'In Stock';
-          } else if (item.text === 'DELIVERY_1_MAN_FROM_TODAY') {
-            text = 'In Stock';
-          } else if (item.text === 'COLLECTION_NOW') {
-            text = 'In Stock';
-          } else {
-            console.log(`Unhandled case => ${item.text}`);
-          }
-        });
-        row.availabilityText = [{ text }];
-      }
+      // if (row.availabilityText) {
+      //   let text = 'Out of Stock';
+      //   row.availabilityText.forEach(item => {
+      //     if (item.text === 'COLLECTION_FROM_TOMORROW_AT_TIME') {
+      //       text = 'In Stock';
+      //     } else if (item.text === 'DELIVERY_1_MAN_FROM_TODAY') {
+      //       text = 'In Stock';
+      //     } else if (item.text === 'COLLECTION_NOW') {
+      //       text = 'In Stock';
+      //     } else {
+      //       console.log(`Unhandled case => ${item.text}`);
+      //     }
+      //   });
+      //   row.availabilityText = [{ text }];
+      // }
 
       if (row.manufacturerDescription) {
         let text = '';

@@ -40,7 +40,10 @@ fields:
     xpath: //span[@itemprop="priceCurrency"]/following-sibling::h2
   - name: availabilityText
     singleValue: true
-    manualSelector: div#availability
+    xpath: //button[contains(@data-test,'add-to-trolley')]/span
+    regExp: (.+)
+    regExpReplace: In Stock
+    defaultValue: Out of Stock
   - name: description
     singleValue: false
     xpath: //div[@id="description"]
