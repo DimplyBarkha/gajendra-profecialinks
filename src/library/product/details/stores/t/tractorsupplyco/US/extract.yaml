@@ -3,152 +3,91 @@ regionsSelector: null
 recordSelector: null
 recordXPath: null
 fields:
-  - name: _input
+  - name: name
     singleValue: false
-    xpath: //input[contains(@class,'searchbox')]
-  - name: product_Name
-    singleValue: false
-    xpath: //h1[@itemprop]
+    xpath: //div[contains(@class,"item-name")]/h1[@itemprop]
   - name: image
     singleValue: false
-    xpath: //img[@id='pdpPrintImage']/@src
+    xpath: //div[@id="thumbnails"]/div[@class="active"]//img/@src
   - name: imageAlt
     singleValue: false
-    xpath: //img[@id='pdpPrintImage']/@alt
+    xpath: //div[@id="thumbnails"]/div[@class="active"]//img/@alt
   - name: alternateImages
     singleValue: false
-    xpath: //div[@id='thumbnails']//a[@class]//img/@src
-  - name: metaKeywords
-    singleValue: false
-    xpath: //meta[contains(@name, 'description')]/@content
-  - name: _pageTimestamp
-    singleValue: false
-  - name: _url
-    singleValue: false
-    xpath: //link[@rel='canonical']/@href
-  - name: category
-    singleValue: false
-    xpath: //div[contains(@id, 'breadcrumb_ctgry')]
-  - name: sabcategory
-    singleValue: false
-    xpath: //div[@id='breadcrumb_ctgry']/span/span[@itemprop='name']
+    xpath: //div[@id="thumbnails"]/div[not(@class="active")]//img/@src
   - name: nameExtended
     singleValue: false
-    xpath: //meta[@name='pageName']/@content
+    xpath: //div[contains(@class,"item-name")]/h1[@itemprop]
   - name: listPrice
     singleValue: false
-    xpath: //div[@class='price-content']/h3/span[@id='save_text']
+    xpath: //h3[@itemprop="offers"]/span[contains(@id,"listPrice_")]
   - name: price
     singleValue: false
-    xpath: //div[@class='price-content']/h3/span[@class='red']
-  - name: lbbPrice
-    singleValue: false
-    xpath: //div[@class='price-content']//span[contains(@id,'savings_752527')]
+    xpath: //h3[@itemprop="offers" or @data-ae_domsib="2"]/span[contains(@id,"offerPrice_")]
   - name: description
     singleValue: false
-    xpath: //p[@itemprop='description']
+    xpath: //div[@class="description-content"]
   - name: descriptionBullets
     singleValue: false
-    xpath: //div[@id='Tab1']/ul
+    xpath: count(//div[@class="description-content"]//li)
   - name: sku
     singleValue: false
-    xpath: //div[@itemprop='sku']
+    xpath: //input[@id="partNumber_pdp" and @type="hidden"]/@value
   - name: ratingCount
     singleValue: false
-    xpath: //span[@class='font-11']
-  - name: aggregateRatingText
-    singleValue: false
-    xpath: //*[@id='starRating2']
+    xpath: //div[contains(@class,"pdp-components")]//div[@class="rating"]/a/span[last()]
   - name: aggregateRating
     singleValue: false
-    xpath: //*[@class='ratings-sprite']//span[@id='starRating2']
-  - name: ratingtext
+    xpath: //div[contains(@class,"pdp-components")]//div[@class="rating"]/a/span[last()-1]
+  - name: weightNet
     singleValue: false
-    xpath: //span[@class='bv-content-rating bv-rating-ratio']
-  - name: shippingInfo
-    singleValue: false
-    xpath: //div[@id='shippingAvlList']//input
+    xpath: //div[@id="Specifications"]/table//td[text()="Product Weight"]/parent::*/td[2]
   - name: color
     singleValue: false
-    xpath: //div[@id='selectedcolorText']
-  - name: colorCode
-    singleValue: false
-    xpath: //div[@class='color-select']//input
+    xpath: //div[@class="color-select"]/input[@name="color" and position()=1]/@value
   - name: availabilityText
     singleValue: false
-    xpath: //div[@id='pickUpAvlList']/input[@id='ship-2']
-  - name: logo
-    singleValue: false
-    xpath: //div[@class]/a[@class='navbar-brand pl-3']
+    defaultValue: In Stock
   - name: brand
     singleValue: false
-    xpath: //table//tr[contains(.,'Brand')]/td[2]
+    xpath: //input[@id="brandValue" and @type="hidden"]/@value
   - name: countryOfOrigin
     singleValue: false
     xpath: //table//tr[contains(.,'Country of Origin')]/td[2]
-  - name: finish
+  - name: materials
     singleValue: false
-    xpath: //table//tr[contains(.,'Finish')]/td[2]
-  - name: fire_rating
-    singleValue: false
-    xpath: //table//tr[contains(.,'Fire Rating')]/td[2]
-  - name: interior_depth
-    singleValue: false
-    xpath: //table//tr[contains(.,'Interior Depth')]/td[2]
-  - name: interior_height
-    singleValue: false
-    xpath: //table//tr[contains(.,'Interior Height')]/td[2]
-  - name: interior_material
-    singleValue: false
-    xpath: //table//tr[contains(.,'Interior Material')]/td[2]
-  - name: manufacturer
-    singleValue: false
-    xpath: //table//tr[contains(.,'Manufacturer Part Number')]/td[2]
-  - name: manufacturerDescription
+    xpath: //div[@id="Specifications"]/table//td[text()="Material"]/parent::*/td[2]
+  - name: mpc
     singleValue: false
     xpath: //table//tr[contains(.,'Manufacturer Part Number')]/td[2]
   - name: specifications
     singleValue: false
-    xpath: //div[@id='Specifications']/table
-  - name: materials
-    singleValue: false
-    xpath: //table//tr[contains(.,'Material')]/td[2]
-  - name: promotion
-    singleValue: false
-    xpath: //div[@id='promotion']/a
-  - name: quantity
-    singleValue: false
-    xpath: //div[@id='quantity-pdp-section']/input
+    xpath: //div[@id='Specifications']/table//tr
   - name: brandLink
     singleValue: false
     xpath: //a[@class='navbar-brand pl-3']/@href
+  - name: variantId
+    singleValue: false
+    xpath: //img[@class="swatch_img" and @id="swatch_img_1"]/@data-src
+  - name: variantCount
+    singleValue: false
+    xpath: count(//img[@class="swatch_img"])
+    defaultValue: '0' 
+  - name: variantInformation
+    singleValue: false
+    xpath: //div[@class="color-select"]/input[@name="color" and position()=1]/@value
+  - name: firstVariant
+    singleValue: false
+    xpath: //img[@class="swatch_img" and @id="swatch_img_1"]/@data-src
   - name: variants
     singleValue: false
-    xpath: //div[@class='img-link']/img/@alt
-  - name: sign-up
+    xpath: //img[@class="swatch_img"]/@data-src
+  - name: additionalDescBulletInfo
     singleValue: false
-    xpath: //div[contains(@class,'form-group')]//input
-  - name: Brand-Name
+    xpath: //div[@class="description-content"]//li
+  - name: warranty
     singleValue: false
-    xpath: //div[contains(@class,'item-name')]//a/@href
-  - name: contact-info
+    xpath: //div[@id="Specifications"]/table//td[text()="Warranty"]/parent::*/td[2]
+  - name: packSize
     singleValue: false
-    xpath: //div[@class='info-left']//a/@href
-  - name: colorcode
-    singleValue: false
-    xpath: //div[@class='color-select']/input/@id
-  - name: size
-    singleValue: false
-    xpath:  //div[@class='d-inline-flex']//select[@class='tsc-select']/option/@value
-  - name: footer-content
-    singleValue: false
-    xpath: //div[@id='footerContainer']
-  - name: askQuestion
-    singleValue: false
-    xpath: //div[@class='bv-ask-question-container bv-write-container']/button[@class]
-  - name: totalNoOfQuestionAsked
-    singleValue: false
-    xpath: //div[@id='bv-content-pagination-pages-questionContentList1-3']/span
-  - name: navigation
-    singleValue: false
-    xpath: //div[@role='navigation']
+    xpath: //div[@id="Specifications"]/table//td[text()="Package Quantity"]/parent::*/td[2]

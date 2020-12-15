@@ -4,7 +4,7 @@ module.exports = {
   parameterValues: {
     domain: 'tractorsupply.com',
     prefix: null,
-    url: 'https://www.tractorsupply.com/tsc?searchTerm={id}',
+    url: null,
     country: 'US',
     store: 'tractorsupplyco',
     zipcode: '',

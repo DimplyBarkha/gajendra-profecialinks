@@ -25,7 +25,27 @@ const transform = (data) => {
     };  
     for (const { group } of data) {
       for (const row of group) {
-        if (row.color) {
+        if (row.alternateImages) {
+          row.alternateImages.forEach(item=>{
+            item.text=item.text.replace('&wid=75&hei=75&','&wid=1275&hei=1275&');
+          })
+        }
+        if (row.image) {
+          row.image.forEach(item=>{
+            item.text=item.text.replace('&wid=75&hei=75&','&wid=1275&hei=1275&');
+          })
+        }
+        if (row.name) {
+          row.name.forEach(item => {
+            item.text = item.text.replace(/(\s*\n\s*)+/g, ' ').trim();
+          });
+        }      
+        if (row.nameExtended) {
+          row.nameExtended.forEach(item => {
+            item.text = item.text.replace(/(\s*\n\s*)+/g, ' ').trim();
+          });
+        }
+        /*if (row.color) {
           row.color.forEach(item => {
             var myRegexp = /Farbe\s*:\s*(.+)/g;
             var match = myRegexp.exec(item.text);
@@ -38,34 +58,8 @@ const transform = (data) => {
             }
           });
         }
-        if (row.name) {
-          row.name.forEach(item => {
-            item.text = item.text.replace(/(\s*\n\s*)+/g, ' ').trim();
-          });
-        }      
-        if (row.nameExtended) {
-          row.nameExtended.forEach(item => {
-            item.text = item.text.replace(/(\s*\n\s*)+/g, ' ').trim();
-          });
-        }
-        if (row.price) {
-          row.price.forEach(item => {
-            item.text = item.text.replace('₽', ' ').trim();
-            item.text = item.text.replace(' ', '').trim();
-          });
-        }
-        if (row.sku) {
-            row.sku.forEach(item => {
-              item.text = item.text.replace('SKU: ', '').trim();
-              item.text = item.text.replace(' ', '').trim();
-            });
-          }
-        if (row.listPrice) {
-          row.listPrice.forEach(item => {
-            item.text = item.text.replace('₽', ' ').trim();
-            item.text = item.text.replace(' ', '').trim();
-          });
-        }
+        
+        
         if (row.gtin) {
           row.gtin.forEach(item => {
             var myRegexp = /ean\"\s*:\s*\"(.+?)\"/g;
@@ -90,11 +84,7 @@ const transform = (data) => {
             item.text = 'https://www.tractorsupply.com' + item.text
           });
         }
-        if (row.productUrl) {
-          row.productUrl.forEach(item => {          
-            item.text = 'https://www.tractorsupply.com'+ item.text
-          });
-        }  
+         
         if (row.category) {
           let info = [];
           row.category.forEach(item => {
@@ -107,33 +97,14 @@ const transform = (data) => {
             });
           }
       }
-        if (row.alternateImages) {
-          let info = [];
-          row.alternateImages.forEach(item => {
-            info.push('https://www.tractorsupply.com' + item.text)
-          });
-          if (info.length) {
-            row.alternateImages = [];
-            info.forEach(item => {
-              row.alternateImages.push({ "text": item });
-            });
-          }
-        }
+        
         if (row.manufacturerImages) {
           row.manufacturerImages.forEach(item => {
-            item.text = 'https://www.tractorsupply.com' + item.text
+            //item.text = 'https://www.tractorsupply.com' + item.text
           });
         }
-        if (row.image) {
-          row.image.forEach(item => {
-            item.text = 'https://www.tractorsupply.com' + item.text
-          });
-        }
-        if (row.warranty) {
-          row.warranty.forEach(item => {
-            item.text = item.text.replace(/Garantie/ig, ' ').trim();
-          });
-        }
+        
+        */
         if (row.variants) {
           let info = [];
           row.variants.forEach(item => {
@@ -141,35 +112,24 @@ const transform = (data) => {
           });
           row.variants = [{ 'text': info.join(' | '), 'xpath': row.variants[0].xpath }];
         }
-        if(row.variantCount){
-          var tot=0;
-          row.variantCount.forEach(item => {
-            tot++;
-          });
-          if(tot==1){
-            tot = 0;
-            row.variants = [{'text':''}]
-            row.firstVariant = [{'text':''}]
-            row.variantInformation = [{'text':''}]          
-          }
-          row.variantCount=[{text:tot}];
-        }
-        if(row.variantInformation){
-          var arr_info=[];
-          row.variantInformation.forEach(item => {          
-            arr_info.push(item.text)
-          });
-          row.variantInformation=[{text:arr_info.join(' | ')}];
+        if(!row.variantId){
+          let variantIdStr;
+          row.sku.forEach(item=>{
+            variantIdStr=item.text;
+          })
+          row.variantId=[{"text":variantIdStr}];
         }
         if (row.specifications) {
+          let inf=[];
           row.specifications.forEach(item => {
-            item.text = item.text.replace(/\n\s*\n\s*\n\s*/g, ' || ').trim();
-            item.text = item.text.replace(/\n\s*/g, ':').trim();
+            //item.text = item.text.replace(/\n\s*\n\s*\n\s*/g, ' || ').trim();
+            inf.push(item.text.replace(/\n\s*/g, ' : ').trim());
           });
+          row.specifications=[{"text":inf.join(' || ')}];
         }
         if (row.ratingCount) {
           row.ratingCount.forEach(item => {
-            item.text = parseInt(item.text);
+            item.text = item.text.replace('(','').replace(')','').trim();
           });
         }
         if (row.aggregateRating) {
