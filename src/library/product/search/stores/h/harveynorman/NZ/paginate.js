@@ -4,7 +4,7 @@ module.exports = {
   parameterValues: {
     country: 'NZ',
     store: 'harveynorman',
-    nextLinkSelector: 'div:not(.hidden-xs) > div>ol>li:not(.inactive)> a.next',
+    nextLinkSelector: 'div.push-out ol.pager a.next',
     mutationSelector: null,
     spinnerSelector: null,
     loadedSelector: 'div.hproduct-col.product-col',
