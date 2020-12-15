@@ -21,7 +21,7 @@ fields:
     xpath: //div[@class="grid-image"]//a[@aria-label="Product Image"]/img/@src
   - name: price
     singleValue: false
-    xpath: //div[contains(@class,"list_price") and @itemprop="price"]
+    xpath: //div[contains(@class,"list_price") or @itemprop="price"]
   - name: aggregateRating
     singleValue: false
     xpath: //div[@class="all-components"]/div[@class="rating"]/a/span[last()-1]
