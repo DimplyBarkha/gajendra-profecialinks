@@ -20,7 +20,7 @@ fields:
   singleValue: true
   description: Alt text of the main product image
 - name: alternateImages
-  xpath: ancestor::html//div[@class="amp-anim-container"]/li/img/@src
+  xpath: ancestor::html//div[@class="amp-anim-container"]/li[position()>1]/img/@src
   regExp: (.+)(\$\d+)
   regExpReplace: $1
   singleValue: false
@@ -54,7 +54,7 @@ fields:
     is no availability but the product can be added to cart, this field should be
     "In Stock"
 - name: description
-  xpath: ancestor::html//div[@id="description"]|ancestor::html//div[@id="descriptionBull"]
+  xpath: concat(ancestor::html//tr[1]//span[@itemprop="description"], ancestor::html//div[@id="descriptionBull"])
   singleValue: true
   description: Product description supplied by website - may be concatenanted from
     multiple places; specifically not the manufacturer description
@@ -247,7 +247,8 @@ fields:
   singleValue: false
   description: 
 - name: secondaryImageTotal
-  singleValue: true
+  xpath: count(ancestor::html//div[@class="amp-anim-container"]/li/img/@src)
+  singleValue: false
   description: 
 - name: news
   singleValue: true
