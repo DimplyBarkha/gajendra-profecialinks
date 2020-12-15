@@ -46,15 +46,15 @@ async function implementation (
     // ]);
     await context.evaluate(async () => {
       const temp_nextLinkSelector = document.querySelector('button[data-testid="reviews-block-page-next"]:enabled');
-      if (temp_nextLinkSelector){
+      if (temp_nextLinkSelector) {
         temp_nextLinkSelector.click();
       }
-      var observer = new MutationObserver(function(mutations) {
+      var observer = new MutationObserver(function (mutations) {
         if (document.querySelector('div.sc-1xuymxc-0.ExfKH')) {
           observer.disconnect();
         }
       });
-      observer.observe(document, {attributes: false, childList: true, characterData: false, subtree:true});
+      observer.observe(document, { attributes: false, childList: true, characterData: false, subtree: true });
     });
     return true;
   }
@@ -63,12 +63,12 @@ async function implementation (
     console.log('Clicking', nextLinkSelector);
     // await context.clickAndWaitForNavigation(nextLinkSelector, {}, { timeout: 20000 })
     // await context.click(nextLinkSelector, { timeout: 20000 })
-    await context.evaluate(async(nextLinkSelector)=>{
-      document.querySelector(nextLinkSelector).scrollIntoView({ behavior: "smooth", block: "center", inline: "center" });
-    },nextLinkSelector).then(async()=>{
-      await new Promise(res=>setTimeout(res,3000))
-      await context.click(nextLinkSelector, { timeout: 20000 })
-    })
+    await context.evaluate(async (nextLinkSelector) => {
+      document.querySelector(nextLinkSelector).scrollIntoView({ behavior: 'smooth', block: 'center', inline: 'center' });
+    }, nextLinkSelector).then(async () => {
+      await new Promise(res => setTimeout(res, 3000));
+      await context.click(nextLinkSelector, { timeout: 20000 });
+    });
     if (loadedSelector) {
       await context.waitForSelector(loadedSelector, { timeout: 20000 });
     }

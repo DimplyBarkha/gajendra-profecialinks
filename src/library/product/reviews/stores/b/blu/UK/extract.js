@@ -15,7 +15,7 @@ module.exports = {
     const { productReviews } = dependencies;
     await context.evaluate(async () => {
       const popUps = document.querySelector('[data-testid="age-wall-button-accept"]');
-      if (popUps){
+      if (popUps) {
         document.getElementById('check').click();
         popUps.click();
         new Promise(resolve => {
