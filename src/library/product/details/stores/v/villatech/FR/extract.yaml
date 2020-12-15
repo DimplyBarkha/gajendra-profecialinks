@@ -36,7 +36,7 @@ fields:
     singleValue: false
     xpath: //p[contains(@class,'netreviews_note_generale')]
     # xpath: //div[contains(@class,'netreviews-widget')]//b[contains(.,'/10')]
-  
+
   - name: ratingCount
     singleValue: false
     xpath: //p[contains(@class,'netreviews_subtitle') and contains(.,'Calculé à partir de') and contains(.,'client')]
@@ -56,7 +56,7 @@ fields:
   - name: metaKeywords
     singleValue: false
     xpath: //meta[@name='keywords']/@content
-    
+
   - name: weightNet
     singleValue: false
     xpath: //td[contains(.,'Puissance utile max. (W)')]/following-sibling::td
@@ -65,11 +65,11 @@ fields:
     singleValue: false
     xpath: //div[@id='collapseWarranty']//ul//li//div[not(contains(.,'GRATUIT'))] | //div[@class='wysiwyg']//li[1]
 
-    
+
   - name: brandText
     singleValue: false
     xpath: //article[@class='product']//h1//img/@title
-  
+
   - name: brandText
     singleValue: false
     xpath: //div[@id='brand']
@@ -101,7 +101,7 @@ fields:
   - name: specifications
     singleValue: false
     xpath: //tr[contains(.,'Dimensions')]/td | //tr[contains(.,'Poids')]/td | //tr[contains(.,'Largeur')]/td | //tr[contains(.,'Hauteur')]/td | //tr[contains(.,'Profondeur')]/td
-  
+
   - name: variantCount
     singleValue: true
     defaultValue: 1
@@ -109,7 +109,7 @@ fields:
   - name: alternateImages
     singleValue: false
     xpath: //ol[@class='carousel-indicators']//li[@data-target='#carousel-product'][position()>1]//img/@src
-  
+
   - name: gtin
     singleValue: false
     xpath: //div[@id='product_ean']
@@ -117,7 +117,7 @@ fields:
   - name: energyEfficiency
     singleValue: false
     xpath: //td[contains(.,'Classe énergétique')]/following-sibling::td
-  
+
   - name: shippingInfo
     singleValue: false
     xpath: //div[@id='collapseDelivery']//ul/li/div[position() mod 2 = 1]
@@ -127,7 +127,6 @@ fields:
     xpath: //div[@class='new-wysiwyg']
 
   - name: hasComparisonTable
-    singleValue: true
+    singleValue: false
     xpath: boolean(//div[@class="inner"])
-    
-    
+
