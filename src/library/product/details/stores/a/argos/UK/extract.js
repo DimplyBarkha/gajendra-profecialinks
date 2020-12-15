@@ -180,7 +180,6 @@ module.exports = {
         await retryAction(3);
       }, parameters.zipcode);
 
-
       async function scrollToRec (node) {
         await context.evaluate(async function (node) {
           var element = (document.querySelector(node)) ? document.querySelector(node) : null;

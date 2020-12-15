@@ -528,7 +528,8 @@ fields:
     defaultValue: Yes
   - name: unInterruptedPDP
     singleValue: false
-    xpath: //div[@data-test="alternatives-product-card"]//a[contains(@data-test, "alternatives-product-card-title")] | //section[@data-test="product-alternatives"]//img/@alt | //div[contains(@class,"MatchingAccessories")]//p
+    xpath: //div[@data-test="alternatives-product-card"]//a[contains(@data-test, "alternatives-product-card-title")] | //section[@data-test="product-alternatives"]//img/@alt
+    # xpath: //div[@data-test="alternatives-product-card"]//a[contains(@data-test, "alternatives-product-card-title")] | //section[@data-test="product-alternatives"]//img/@alt | //div[contains(@class,"MatchingAccessories")]//p
   - name: hasComparisonTable
     singleValue: false
     xpath: (//div[contains(@id,"comparisontable")])[position()=1]
@@ -542,3 +543,6 @@ fields:
   - name: inTheBoxText
     singleValue: false
     xpath: //*[contains(text(),"In the box")]//parent::div//parent::div//parent::div//parent::div[contains(@class,"block")]//following-sibling::*//a/@data-caption
+  - name: backupInTheBoxText
+    singleValue: false
+    xpath: //*[contains(text(),"In the box")]//parent::div//following-sibling::div//ul/li

@@ -21,6 +21,21 @@ const transform = (data) => {
       //   });
       //   row.availabilityText = [{ text }];
       // }
+      if (row.unInterruptedPDP) {
+        const PDPSet = new Set();
+        row.unInterruptedPDP.forEach(el => PDPSet.add(el.text));
+        const PDPData = [];
+        PDPSet.forEach(title => {
+          PDPData.push({ text: title });
+        });
+
+        row.unInterruptedPDP = PDPData;
+      }
+
+      if (row.backupInTheBoxText) {
+        row.inTheBoxText = row.backupInTheBoxText;
+        delete row.inTheBoxUrl;
+      }
 
       if (row.manufacturerDescription) {
         let text = '';
