@@ -4,7 +4,7 @@ module.exports = {
   parameterValues: {
     domain: 'meijer.com',
     prefix: null,
-    suffix: null,
+    suffix: 'bin/meijer/categories',
     subdomain: null,
     url: null,
     country: 'US',
