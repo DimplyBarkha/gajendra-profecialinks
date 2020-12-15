@@ -6,7 +6,17 @@ async function implementation (
   dependencies,
 ) {
   const { productDetails } = dependencies;
-   await context.evaluate(async () => {
+  // await context.evaluate(async function () {
+  //   await new Promise(resolve => setTimeout(resolve, 100));
+  //   for (let i = 0; i < 10; i++) {
+  //     document.getElementById("main").scrollBy({ top: 5000, left: 0, behaviour: 'smooth'});
+  //     // window.scrollBy({ top: 1000, left: 0, behavior: "smooth" });
+  //     await new Promise(resolve => setTimeout(resolve, 500));
+  //     console.log("scrolling");
+  //   }
+  // });
+  await context.evaluate(async () => {
+
     let scrolltop = document.getElementById("main").scrollTop;
 
     while(!!document.querySelector('div.btn-view-more-products > button')){
@@ -18,25 +28,27 @@ async function implementation (
     await new Promise(r => setTimeout(r, 1000));
 
     let thmcount = document.querySelectorAll('ul.productGroup li.item img[src]').length;
+    // let nameCount = document.querySelectorAll('div.namedesc span.name').length;
     let itemcount = document.querySelectorAll('ul.productGroup li.item').length;
 
-
+    // while(itemcount!=nameCount){
     while(itemcount!=thmcount){
       let newscrolltop = document.getElementById("main").scrollTop;
       document.getElementById("main").scrollBy({ top: newscrolltop-scrolltop, left: 0, behavior: 'smooth'});
       scrolltop = newscrolltop;
-      await new Promise(r => setTimeout(r, 500));
+      await new Promise(r => setTimeout(r, 1000));
       let newthmcount = document.querySelectorAll('ul.productGroup li.item img[src]').length;
+      // let newNameCount = document.querySelectorAll('div.namedesc span.name').length;
       let newitemcount = document.querySelectorAll('ul.productGroup li.item').length;
       if(newthmcount==newitemcount){
+        // if(newNameCount ==newitemcount){
         break;
       }
     }
 
   })
-  return await context.extract(productDetails, { transform });
+  return await context.extract(productDetails);
 }
-
 module.exports = {
   implements: 'product/search/extract',
   parameterValues: {
@@ -46,5 +58,5 @@ module.exports = {
     domain: 'migros.ch',
     zipcode: '',
   },
-  implementation,
+  implementation
 };
