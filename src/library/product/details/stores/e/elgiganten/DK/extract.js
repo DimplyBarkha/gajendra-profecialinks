@@ -19,11 +19,10 @@ module.exports = {
     });
 
     if (hasBtn) {
-      try{
-      await context.click('button.coi-banner__accept');
-      }
-      catch(exception){
-        console.log('Unable to click accept button')
+      try {
+        await context.click('button.coi-banner__accept');
+      } catch (exception) {
+        console.log('Unable to click accept button');
       }
     }
     const applyScroll = async function (context) {
@@ -38,7 +37,7 @@ module.exports = {
             break;
           }
         }
-        function stall(ms) {
+        function stall (ms) {
           return new Promise((resolve) => {
             setTimeout(() => {
               resolve();
@@ -50,6 +49,7 @@ module.exports = {
     await applyScroll(context);
 
     await context.evaluate(async function () {
+      // @ts-ignore
       const videoData = document.querySelectorAll('iframe.videoly-box').length > 1 ? document.querySelectorAll('iframe.videoly-box')[0].contentWindow.document.getElementsByTagName('ul')[0] : null;
       if (videoData) {
         document.body.appendChild(videoData);

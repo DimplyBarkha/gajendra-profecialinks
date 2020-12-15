@@ -9,8 +9,8 @@ async function implementation (
   const { transform } = parameters;
   const { productDetails } = dependencies;
   try {
-    await context.waitForSelector('div#coiOverlay:not([style*="none"])')
-    await context.click('div#coiOverlay:not([style*="none"]) button.coi-banner__accept[aria-label*="JAG"]')
+    await context.waitForSelector('div#coiOverlay:not([style*="none"])');
+    await context.click('div#coiOverlay:not([style*="none"]) button.coi-banner__accept[aria-label*="JAG"]');
   } catch (error) {
     console.log('cookie pop up not loded', error);
   }
@@ -19,11 +19,10 @@ async function implementation (
   });
 
   if (hasBtn) {
-    try{
-    await context.click('button.coi-banner__accept');
-    }
-    catch(exception){
-      console.log('Unable to click accept button')
+    try {
+      await context.click('button.coi-banner__accept');
+    } catch (exception) {
+      console.log('Unable to click accept button');
     }
   }
   const applyScroll = async function (context) {
@@ -38,7 +37,7 @@ async function implementation (
           break;
         }
       }
-      function stall(ms) {
+      function stall (ms) {
         return new Promise((resolve) => {
           setTimeout(() => {
             resolve();
@@ -53,8 +52,7 @@ async function implementation (
     await context.waitForSelector('div.recommended-products', { timeout: 35000 });
   } catch (error) {
     console.log('No recommended products ');
-  }  
-
+  }
 
   async function scrollToRec (node) {
     await context.evaluate(async function (node) {
@@ -73,8 +71,8 @@ async function implementation (
     await context.waitForSelector('iframe.videoly-box', { timeout: 30000 });
   } catch (error) {
     console.log('No video ');
-  }  
-await context.evaluate(async () => {
+  }
+  await context.evaluate(async () => {
     function addHiddenDiv (vidurl, content) {
       const newDiv = document.createElement('div');
       newDiv.setAttribute('data-vidurl', vidurl);
@@ -83,15 +81,18 @@ await context.evaluate(async () => {
       document.body.appendChild(newDiv);
     }
 
-    if (document.querySelector('section.section.product-more-info')){
+    if (document.querySelector('section.section.product-more-info')) {
+      // @ts-ignore
       document.querySelector('li#tab-specs').click();
       await new Promise(resolve => setTimeout(resolve, 1000));
     } else if (document.querySelector('div.tab-specs-row')) {
+      // @ts-ignore
       document.querySelector('li#tab-more-info').click();
       await new Promise(resolve => setTimeout(resolve, 1000));
     }
 
     const sku = document.querySelector('p[data-product-sku]').getAttribute('data-product-sku');
+    // @ts-ignore
     const name = document.querySelector('h1.product-title').innerText;
     const vidApiUrl = `https://dapi.videoly.co/1/videos/0/407/?SKU=${sku}&productTitle=${name}&hn=www.elgiganten.se`;
     const videoApi = await fetch(vidApiUrl,

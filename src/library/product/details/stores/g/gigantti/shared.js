@@ -15,13 +15,13 @@ const transform = (data) => {
         row.manufacturerImages = [{ text: newText }];
       }
 
-    //   if (row.videos) {
-    //     let newText = 'https://www.gigantti.fi/';
-    //     row.videos.forEach(item => {
-    //       newText = newText + item.text.trim();
-    //     });
-    //     row.videos = [{ text: newText }];
-    //   }
+      //   if (row.videos) {
+      //     let newText = 'https://www.gigantti.fi/';
+      //     row.videos.forEach(item => {
+      //       newText = newText + item.text.trim();
+      //     });
+      //     row.videos = [{ text: newText }];
+      //   }
 
       if (row.videos) {
         const video = [];

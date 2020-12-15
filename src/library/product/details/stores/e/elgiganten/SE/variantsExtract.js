@@ -9,9 +9,11 @@ async function implementation (
   const { variants } = dependencies;
   await context.evaluate(function () {
     try {
+      // eslint-disable-next-line no-unused-vars
       const overlay = document.querySelector('div#coiOverlay:not([style*="none"])');
       const form = document.querySelector('div#coiOverlay:not([style*="none"]) button.coi-banner__accept[aria-label*="JAG"]');
       if (form) {
+        // @ts-ignore
         form.click();
       }
     } catch (error) {
@@ -24,14 +26,16 @@ async function implementation (
   } catch (error) {
     console.log('error: ', error);
   }
-  let list = await context.evaluate(() => !document.querySelector('div#searchProductsInfo a.product-image-link'))
+  const list = await context.evaluate(() => !document.querySelector('div#searchProductsInfo a.product-image-link'));
   if (!list) {
-    async function firstItemLink() {
+    // eslint-disable-next-line no-inner-declarations
+    async function firstItemLink () {
       return await context.evaluate(function () {
-        let firstItem = document.querySelector('div#searchProductsInfo a.product-image-link')
+        let firstItem = document.querySelector('div#searchProductsInfo a.product-image-link');
         // @ts-ignore
         firstItem = firstItem ? firstItem.href : '';
-        let finalLink
+        // eslint-disable-next-line no-unused-vars
+        let finalLink;
         // @ts-ignore
         // if (firstItem.includes('http') & firstItem !== '') {
         //   finalLink = firstItem
@@ -49,8 +53,8 @@ async function implementation (
     }
     await context.waitForNavigation();
   }
-  await new Promise((resolve, reject) => setTimeout(resolve, 8000))
-  //-------------------------
+  await new Promise((resolve, reject) => setTimeout(resolve, 8000));
+  // -------------------------
   await context.evaluate(async (parentInput) => {
     function addElementToDocument (key, value) {
       const catElement = document.createElement('div');
@@ -61,7 +65,7 @@ async function implementation (
     }
     function findJsonObj () {
       try {
-        const xpath = `//script[contains(.,'sku')]`;
+        const xpath = '//script[contains(.,\'sku\')]';
         const element = document.evaluate(xpath, document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
         let jsonStr = element.textContent;
         jsonStr = jsonStr.trim();
@@ -70,23 +74,23 @@ async function implementation (
         console.log(error.message);
       }
     }
-   let JSONObj = await findJsonObj();
-   console.log('JSONObj: ', JSONObj);
-   let url = JSONObj ? JSONObj.url : '';
-   let variant = document.querySelectorAll('select#variants option');
-   console.log('variant:++++++++++++++++++++ ', variant);
-   if(variant.length === 0){
-    let bodyId = document.querySelector('head');
-    console.log('bodyId: ', bodyId);
-    if(bodyId){
-      bodyId.setAttribute("id", "customId")
+    const JSONObj = await findJsonObj();
+    console.log('JSONObj: ', JSONObj);
+    const url = JSONObj ? JSONObj.url : '';
+    const variant = document.querySelectorAll('select#variants option');
+    console.log('variant:++++++++++++++++++++ ', variant);
+    if (variant.length === 0) {
+      const bodyId = document.querySelector('head');
+      console.log('bodyId: ', bodyId);
+      if (bodyId) {
+        bodyId.setAttribute('id', 'customId');
+      }
     }
-   }
-   console.log('url: ', url);
-    addElementToDocument('bb_url',url);
-    });
+    console.log('url: ', url);
+    addElementToDocument('bb_url', url);
+  });
   return await context.extract(variants, { transform });
-  }
+}
 // async function implementation (
 //   inputs,
 //   parameters,

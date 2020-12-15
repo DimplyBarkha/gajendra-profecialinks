@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 /**
  *
  * @param {ImportIO.Group[]} data
@@ -18,29 +19,28 @@ const transform = (data) => {
     .replace(/[\uD800-\uDBFF][\uDC00-\uDFFF]/g, ' ');
   for (const { group } of data) {
     for (const row of group) {
-
       if (row.image) {
-        let text = "";
+        let text = '';
         row.image.forEach((item, index) => {
-          text = item.text.replace("?$prod_all4one$", "");
+          text = item.text.replace('?$prod_all4one$', '');
           row.image[index].text = text;
         });
       }
       if (row.manufacturerImages) {
-        let text = "";
+        let text = '';
         row.manufacturerImages.forEach((item, index) => {
-          text = item.text.replace("?$prod_tnsm$", "");
+          text = item.text.replace('?$prod_tnsm$', '');
           row.manufacturerImages[index].text = text;
         });
       }
       if (row.alternateImages) {
-        let text = "";
+        let text = '';
         row.alternateImages.forEach((item, index) => {
-          text = item.text.replace("?$prod_all4one$", "");
+          text = item.text.replace('?$prod_all4one$', '');
           row.alternateImages[index].text = text;
         });
       }
-     
+
       if (row.description) {
         let text = '';
         row.description.forEach(item => {
@@ -53,63 +53,62 @@ const transform = (data) => {
         ];
       }
 
-      if (row.manufacturerImages) {        
+      if (row.manufacturerImages) {
         const manufacturerImage = [];
-        let dupUrl = "";
+        let dupUrl = '';
         let urls = [];
         row.manufacturerImages.forEach(item => {
           console.log('item:: ', item.text);
-         urls =  row.manufacturerImages.filter(it => item.text === it.text);
-        if(urls && urls.length === 1 ){
-          manufacturerImage.push(item);
-        }else{
-          if(dupUrl !== item.text){
-            dupUrl =  item.text;
+          urls = row.manufacturerImages.filter(it => item.text === it.text);
+          if (urls && urls.length === 1) {
             manufacturerImage.push(item);
+          } else {
+            if (dupUrl !== item.text) {
+              dupUrl = item.text;
+              manufacturerImage.push(item);
+            }
           }
-        }
         });
-        row.manufacturerImages = manufacturerImage;        
+        row.manufacturerImages = manufacturerImage;
       }
 
-      if (row.variantUrl) {        
+      if (row.variantUrl) {
         const variantUrls = [];
-        let dupUrl = "";
+        let dupUrl = '';
         let urls = [];
         row.variantUrl.forEach(item => {
           console.log('item:: ', item.text);
-         urls =  row.variantUrl.filter(it => item.text === it.text);
-        if(urls && urls.length === 1 ){
-          variantUrls.push(item);
-        }else{
-          if(dupUrl !== item.text){
-            dupUrl =  item.text;
+          urls = row.variantUrl.filter(it => item.text === it.text);
+          if (urls && urls.length === 1) {
             variantUrls.push(item);
+          } else {
+            if (dupUrl !== item.text) {
+              dupUrl = item.text;
+              variantUrls.push(item);
+            }
           }
-        }
         });
-        row.variantUrl = variantUrls;        
+        row.variantUrl = variantUrls;
       }
 
-      if (row.variantId) {        
+      if (row.variantId) {
         const variantIds = [];
-        let dup = "";
+        let dup = '';
         let urls = [];
         row.variantId.forEach(item => {
-          //console.log('item:: ', item.text);
-         urls =  row.variantId.filter(it => item.text === it.text);
-        if(urls && urls.length === 1 ){
-          variantIds.push(item);
-        }else{
-          if(dup !== item.text){
-            dup =  item.text;
+          // console.log('item:: ', item.text);
+          urls = row.variantId.filter(it => item.text === it.text);
+          if (urls && urls.length === 1) {
             variantIds.push(item);
+          } else {
+            if (dup !== item.text) {
+              dup = item.text;
+              variantIds.push(item);
+            }
           }
-        }
         });
-        row.variantId = variantIds;        
+        row.variantId = variantIds;
       }
-
 
       if (row.specifications) {
         let text = '';
@@ -131,7 +130,7 @@ const transform = (data) => {
           let weight;
           row.weightNet.forEach(item => {
             text = item.text.trim();
-             const startIdx = text.indexOf('vikt');
+            const startIdx = text.indexOf('vikt');
             if (startIdx > -1) {
               weight = text.split('vikt:')[1];
               weightRec[0].text = weight.trim();
@@ -140,7 +139,7 @@ const transform = (data) => {
           row.weightNet = weightRec;
         }
       }
-      
+
       if (row.variants) {
         let text = '';
         row.variants.forEach(item => {
@@ -152,7 +151,7 @@ const transform = (data) => {
           },
         ];
       }
-      
+
       if (row.shippingDimensions) {
         let text = '';
         row.shippingDimensions.forEach(item => {
@@ -165,7 +164,7 @@ const transform = (data) => {
         ];
       }
       if (row.videos) {
-        let video = [];
+        const video = [];
         row.videos.forEach(item => {
           if (item.text.indexOf('https:') === -1) {
             item.text = `https://www.elgiganten.se${item.text}`;
@@ -183,7 +182,7 @@ const transform = (data) => {
       //         xpath: item.xpath
       //       })
       //     }
-       // row.videos = video;
+        // row.videos = video;
       }
       // if (row.description) {
       //   const nDesc = [];
@@ -203,8 +202,6 @@ const transform = (data) => {
       //   row.description = nDesc;
       // }
 
-
-       
       if (row.manufacturerImages) {
         let text = '';
         row.manufacturerImages.forEach(item => {
@@ -216,7 +213,7 @@ const transform = (data) => {
           },
         ];
       }
-      
+
       if (row.additionalDescBulletInfo) {
         let text = '';
         row.additionalDescBulletInfo.forEach(item => {
