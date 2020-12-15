@@ -28,20 +28,16 @@ async function implementation (
     await new Promise(r => setTimeout(r, 1000));
 
     let thmcount = document.querySelectorAll('ul.productGroup li.item img[src]').length;
-    // let nameCount = document.querySelectorAll('div.namedesc span.name').length;
     let itemcount = document.querySelectorAll('ul.productGroup li.item').length;
 
-    // while(itemcount!=nameCount){
     while(itemcount!=thmcount){
       let newscrolltop = document.getElementById("main").scrollTop;
       document.getElementById("main").scrollBy({ top: newscrolltop-scrolltop, left: 0, behavior: 'smooth'});
       scrolltop = newscrolltop;
-      await new Promise(r => setTimeout(r, 1000));
+      await new Promise(r => setTimeout(r, 500));
       let newthmcount = document.querySelectorAll('ul.productGroup li.item img[src]').length;
-      // let newNameCount = document.querySelectorAll('div.namedesc span.name').length;
       let newitemcount = document.querySelectorAll('ul.productGroup li.item').length;
       if(newthmcount==newitemcount){
-        // if(newNameCount ==newitemcount){
         break;
       }
     }
@@ -49,6 +45,7 @@ async function implementation (
   })
   return await context.extract(productDetails);
 }
+
 module.exports = {
   implements: 'product/search/extract',
   parameterValues: {
@@ -56,7 +53,6 @@ module.exports = {
     store: 'migros',
     transform : transform,
     domain: 'migros.ch',
-    zipcode: '',
   },
-  implementation
+  implementation,
 };
