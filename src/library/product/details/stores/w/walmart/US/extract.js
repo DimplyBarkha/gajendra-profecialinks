@@ -64,11 +64,15 @@ module.exports = {
       await context.click('ul.persistent-subnav-list li[data-automation-id=tab-item-0]', { timeout: 3000 })
         .catch(() => console.log('no specTab'));
     }
-
-    // Iframe logic for aplus_images & enhanced_content if not picked up in API:
-    const enhancedContentSelector = 'iframe#iframe-AboutThisItem-marketingContent';
-    await context.waitForSelector(enhancedContentSelector, { timeout: 5000 })
+    // scroll to bottom of page, iframe should load if present!
+    await context.evaluate(async () => {
+      await window.scrollTo(0, document.body.scrollHeight);
+    });
+    const getAplusContent = async (aplusSelector, isIframe) => context
+      .waitForSelector(aplusSelector, { timeout: 10000 })
       .then(async () => {
+        console.log(`Attempting to collect Aplus on the following selector: ${aplusSelector}`);
+        if (!isIframe) return null;
         // scroll to bottom of page, iframe should load if present!
         await context.evaluate(async () => {
           await window.scrollTo(0, document.body.scrollHeight);
@@ -77,55 +81,65 @@ module.exports = {
         await context.evaluate((selector) => {
           const marketingIframe = document.querySelector(selector);
           if (marketingIframe) marketingIframe.scrollIntoView();
-        }, enhancedContentSelector);
+        }, aplusSelector);
         // wait for iframe to load
         await new Promise(resolve => setTimeout(resolve, 5000));
       })
-      .then(async () => {
-        await context.evaluate(async (selector) => {
-          function addHiddenDiv (id, content) {
-            const newDiv = document.createElement('div');
-            newDiv.id = id;
-            newDiv.textContent = content;
-            newDiv.style.display = 'none';
-            document.body.appendChild(newDiv);
+      .then(async () => context.evaluate(async (selector) => {
+        function addHiddenDiv (id, content) {
+          const newDiv = document.createElement('div');
+          newDiv.id = id;
+          newDiv.textContent = content;
+          newDiv.style.display = 'none';
+          document.body.appendChild(newDiv);
+        }
+        const getShadowRoots = (elem, resArr = []) => {
+          if (elem.shadowRoot) return [...resArr, elem.shadowRoot];
+          return [...elem.childNodes]
+            .reduce((acc, elC) => [...acc, ...resArr, ...getShadowRoots(elC, resArr)], resArr);
+        };
+
+        const marketingIframe = document.querySelector(selector);
+        if (marketingIframe) {
+          const roots = [...getShadowRoots(marketingIframe.contentDocument || marketingIframe), marketingIframe.contentDocument]
+            .filter(u => u);
+          const imagesSrc = [...roots.reduce((acc, doc) => [...acc, ...doc.querySelectorAll('img')], [])]
+            .map(img => {
+              const src = img.getAttribute('src');
+              return !src.startsWith('http') ? `https:${src}` : src;
+            });
+          addHiddenDiv('my_manufact_images', imagesSrc.join(' | '));
+
+          let setText;
+          const syndigoRoots = roots.filter(root => root.querySelector('.syndi_powerpage'));
+          if (syndigoRoots.length > 0) {
+            const selSyndigo = 'h1, h2, .syndigo-featureset-feature-caption, .syndigo-featureset-feature-description';
+            // @ts-ignore
+            setText = [...syndigoRoots.reduce((acc, doc) => [...acc, ...doc.querySelectorAll(selSyndigo)], [])]
+              .map(el => el.innerText ? el.innerText : '\n');
+          } else {
+            // @ts-ignore
+            setText = [...new Set(
+              [...roots.reduce((acc, doc) => [...acc, ...doc.querySelectorAll('div')], [])]
+                .map(el => el.innerText),
+            )];
           }
-          const getShadowRoots = (elem, resArr = []) => {
-            if (elem.shadowRoot) return [...resArr, elem.shadowRoot];
-            return [...elem.childNodes]
-              .reduce((acc, elC) => [...acc, ...resArr, ...getShadowRoots(elC, resArr)], resArr);
-          };
 
-          const marketingIframe = document.querySelector(selector);
-          if (marketingIframe) {
-            const roots = [...getShadowRoots(marketingIframe.contentDocument), marketingIframe.contentDocument];
-            const imagesSrc = [...roots.reduce((acc, doc) => [...acc, ...doc.querySelectorAll('img')], [])]
-              .map(img => {
-                const src = img.getAttribute('src');
-                return !src.startsWith('http') ? `https:${src}` : src;
-              });
-            addHiddenDiv('my_manufact_images', imagesSrc.join(' | '));
+          addHiddenDiv('my_enh_content', setText.join(' '));
+          return true;
+        }
 
-            let setText;
-            const syndigoRoots = roots.filter(root => root.querySelector('.syndi_powerpage'));
-            if (syndigoRoots.length > 0) {
-              const selSyndigo = 'h1, h2, .syndigo-featureset-feature-caption, .syndigo-featureset-feature-description';
-              // @ts-ignore
-              setText = [...syndigoRoots.reduce((acc, doc) => [...acc, ...doc.querySelectorAll(selSyndigo)], [])]
-                .map(el => el.innerText ? el.innerText : '\n');
-            } else {
-              // @ts-ignore
-              setText = [...new Set(
-                [...roots.reduce((acc, doc) => [...acc, ...doc.querySelectorAll('div')], [])]
-                  .map(el => el.innerText),
-              )];
-            }
-
-            addHiddenDiv('my_enh_content', setText.join(' '));
-          }
-        }, enhancedContentSelector);
-      })
-      .catch(() => console.log('no aplus iframe'));
+        console.error(`Selector is not there: ${aplusSelector}`);
+        return false;
+      }, aplusSelector))
+      .catch(() => {
+        console.log(`no aplus iframe on selector: ${aplusSelector}`);
+        return false;
+      });
+    ;
+    // Iframe logic for aplus_images & enhanced_content if not picked up in API:
+    const enhancedContentSelector = 'iframe#iframe-AboutThisItem-marketingContent';
+    const gotEnhancedContent = await getAplusContent(enhancedContentSelector, true);
 
     // add additionall content
     await context.evaluate(async () => {
@@ -172,6 +186,7 @@ module.exports = {
       // @ts-ignore
       sellerDiv.innerHTML = result;
     });
+    if (!gotEnhancedContent) await getAplusContent('#added-marketing');
     await context.extract(dependencies.productDetails, { transform: transformParam, type: 'APPEND' });
   },
 };
