@@ -18,7 +18,7 @@ fields:
     xpath: (//div[@class="row"])[2]//a//span[not(contains(text(),'Start'))]
   - name: nameExtended
     singleValue: true
-    xpath: //h1[@class="h3"]//text()
+    xpath: //html//div[@id="namee"]
   - name: listPrice
     singleValue: true
     xpath: //span[@class='old-price']//text()

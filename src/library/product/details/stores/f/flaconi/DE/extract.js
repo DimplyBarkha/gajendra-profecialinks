@@ -88,8 +88,10 @@ module.exports = {
       var rating1=rating.split(" ")
       addElementToDocument('rating',rating1[0])
       const name1 = getXpath('//div[@class="product-name"]//a//text()','nodeValue')
-      const name2 = getXpath('//div[@class="product-name"]//span[@itemprop="name"]//text()','nodeValue')
+      const name2 = getXpath('(//div[@class="product-name"]//span)[1]//text()','nodeValue')
+      const name3 = getXpath('(//div[@class="product-name"]//span)[1]//text()','nodeValue')
       addElementToDocument('name',name1+" "+name2)
+      addElementToDocument('namee',name1+" "+name2+" "+name3)
     });
     await context.extract(productDetails);
   },
