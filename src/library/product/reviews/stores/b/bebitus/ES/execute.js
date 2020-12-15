@@ -6,5 +6,6 @@ module.exports = {
     store: 'bebitus',
     domain: 'bebitus.com',
     loadedSelector: 'div.ratings-bazaarvoice-overlay',
+    noResultsXPath: '//div[contains(@class,"page-exception")]',
   },
 };

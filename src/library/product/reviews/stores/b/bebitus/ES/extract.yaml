@@ -39,3 +39,7 @@ fields:
     regExpReplace: $1
   - name: syndicatedFrom
     xpath: //span[@class="ratings-list-syndicated-text"] | //span[@class="bv-badge-syndicated"]
+  - name: sku
+    xpath: ancestor::html//h2[@class="product-description-ean"]
+    regExp: (:)\s(.+)
+    regExpReplace: $2
