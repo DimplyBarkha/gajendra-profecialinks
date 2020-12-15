@@ -1,14 +1,16 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: null
+recordXPath: //body
 fields:
   - name: image
-    singleValue: true
+    singleValue: false
     description: URL of the main product image
+    xpath: //div[@class='product__img']/img/@src
   - name: imageAlt
-    singleValue: true
+    singleValue: false
     description: Alt text of the main product image
+    xpath: //div[@class='product__img']/img/@alt
   - name: alternateImages
     singleValue: false
     description: Other product images (not in manufacturer description)
@@ -18,22 +20,27 @@ fields:
   - name: category
     singleValue: false
     description: The categories (e.g. from breadcrumbs)
+    xpath: //div[@class='ui breadcrumb breadcrumb-container']/div[position() > 1]
   - name: nameExtended
-    singleValue: true
+    singleValue: false
     description: The product name, prefixing "${brand} - " if not included in "name"
       and appending " - ${variantType}" if necessary (fixed per feed)
+    xpath: concat(//body/@brand, " " ,//div[@class='product__name'])
   - name: listPrice
-    singleValue: true
+    singleValue: false
     description: The stated undiscounted price for the product
+    xpath: //p[@class='product__price-line-through']
   - name: price
-    singleValue: true
+    singleValue: false
     description: The offered price for the selected product variant - if a user
       clicks add to basket this is the price they would be charged
+    xpath: //div[@class='product__price']/text()
   - name: availabilityText
-    singleValue: true
+    singleValue: false
     description: Availability as described on page for the selected variant. If
       there is no availability but the product can be added to cart, this field
       should be "In Stock"
+    xpath: //div[@class='add-to-cart-button__add-button']
     regExp: (.+)
     regExpReplace: In Stock
     defaultValue: Out of Stock
@@ -41,37 +48,48 @@ fields:
     singleValue: false
     description: Product description supplied by website - may be concatenanted from
       multiple places; specifically not the manufacturer description
+    xpath: //h2[contains(text(), 'DESCRIPTION')]/following::div[1]
   - name: descriptionBullets
-    singleValue: true
+    singleValue: false
     description: Number of ul > li tags in the description
     type: NUMBER
+    xpath: count(//h2[contains(text(), 'DESCRIPTION')]/following::div[1]//ul//li)
   - name: brandText
-    singleValue: true
+    singleValue: false
     description: Product brand shown - this may actually NOT be just a brand name,
       e.g. "Visit the Gillette Store"
+    xpath: //body/@brand
   - name: manufacturer
     singleValue: true
     description: Product manufacturer
   - name: quantity
-    singleValue: true
+    singleValue: false
     description: Quantity as described on the page
-    regExp: (?:\s?([\d\.]+\s?)([bB]ar[s]?|[cC]ount|[cC]t|[fF][lL][\.]?\s?[oO][zZ][\.]?|FO|[mM][lL]|[oO][zZ][\.]?|pc|[pP]int|[pP]ops|qt|[wW]ipe[s]?).?)$|(?:\s?([\d\.]+\s?)([bB]ar[s]?|[cC]ount|[cC]|[fF][lL][\.]?\s?[oO][zZ][\.]?|FO|[mM][lL]|[oO][zZ][\.]?|pc|[pP]int|[pP]ops|qt|[wW]ipe[s]?).?\s?[\&\-\w\s]+)$
-    regExpReplace: $1$2$3$4
+    xpath: //div[@class='product__conditioning']
+    regExp: Les\s(\d+)
+    regExpReplace: $1
+    defaultValue: '1'
   - name: weightNet
-    singleValue: true
+    singleValue: false
     description: Net weight as described on the page
+    xpath: //div[@class='product__conditioning']
+    regExp: de\s([\dA-z\,]+)
+    regExpReplace: $1
   - name: weightGross
     singleValue: true
     description: Gross weight as described on the page
   - name: gtin
-    singleValue: true
+    singleValue: false
     description: GTIN code (includes UPC/EAN)
+    xpath: //body/@gtin
   - name: sku
-    singleValue: true
+    singleValue: false
     description: The store-specific product identifier
+    xpath: //body/@sku
   - name: variantId
-    singleValue: true
+    singleValue: false
     description: Identifier for a variant from a store where variants share the same sku
+    xpath: //body/@sku
   - name: mpc
     singleValue: true
     description: The manufacturer model code (unique) of the product
@@ -128,17 +146,20 @@ fields:
     singleValue: false
     description: URLs of videos on page
   - name: name
-    singleValue: true
+    singleValue: false
     description: The product name
+    xpath: //div[@class='product__name']
   - name: inStorePrice
-    singleValue: true
+    singleValue: false
     description: Price in the selected store
+    xpath: //div[@class='product__price']/text()
   - name: asin
     singleValue: true
     description: null
   - name: coupon
-    singleValue: true
+    singleValue: false
     description: Text of any coupon offer
+    xpath: (//div[@class='promo_red'])[1]
   - name: amazonChoice
     singleValue: true
     description: YES or Blank
@@ -231,9 +252,10 @@ fields:
     singleValue: true
     description: null
   - name: ingredientsList
-    singleValue: true
+    singleValue: false
     description: List of Ingredients from site - can be string of data if no
       discernible start/end point
+    xpath: //div[@class='product__ingredients-allergens-details']
   - name: servingSize
     singleValue: true
     description: The size of serving Nutritional information is based on.
@@ -245,30 +267,37 @@ fields:
     description: Suggested number of servings of the product.
     type: NUMBER
   - name: caloriesPerServing
-    singleValue: true
+    singleValue: false
     description: Nutritional Information for Calories Per Serving content - Usually
       based on per 100g serving
+    xpath: //span[contains(text(), 'Valeur Energétique en Kilocalories')]/following::span[1]
   - name: caloriesFromFatPerServing
     singleValue: true
     description: Nutritional Information for Calories From Fat content - Usually
       based on per 100g serving
     type: NUMBER
   - name: totalFatPerServing
-    singleValue: true
+    singleValue: false
     description: Nutritional Information for Total Fat content - Usually based on
       per 100g serving
     type: NUMBER
+    xpath: //span[contains(text(), 'Matières grasses')]/following::span[1]
   - name: totalFatPerServingUom
-    singleValue: true
+    singleValue: false
     description: Unit of Measure Data for Total Fat content
+    xpath: //span[contains(text(), 'Matières grasses')]/following::span[1]
+    regExp: ([A-z]+)
   - name: saturatedFatPerServing
-    singleValue: true
+    singleValue: false
     description: Nutritional Information for Saturated Fat content - Usually based
       on per 100g serving
     type: NUMBER
+    xpath: //span[contains(text(), 'Dont Acides Gras Saturés')]/following::span[1]
   - name: saturatedFatPerServingUom
-    singleValue: true
+    singleValue: false
     description: Unit of Measure Data for Saturated Fat content
+    xpath: //span[contains(text(), 'Dont Acides Gras Saturés')]/following::span[1]
+    regExp: ([A-z]+)
   - name: transFatPerServing
     singleValue: true
     description: Nutritional Information for Trans Fat content - Usually based on
@@ -294,13 +323,16 @@ fields:
     singleValue: true
     description: Unit of Measure Data for Sodium content
   - name: totalCarbPerServing
-    singleValue: true
+    singleValue: false
     description: Nutritional Information for Total Carbohydrate content - Usually
       based on per 100g serving
     type: NUMBER
+    xpath: //span[contains(text(), 'Glucides')]/following::span[1]
   - name: totalCarbPerServingUom
-    singleValue: true
+    singleValue: false
     description: Unit of Measure Data for Total Carbohydrate content
+    xpath: //span[contains(text(), 'Glucides')]/following::span[1]
+    regExp: ([A-z]+)
   - name: dietaryFibrePerServing
     singleValue: true
     description: Nutritional Information for Dietary Fibre content - Usually based
@@ -310,21 +342,27 @@ fields:
     singleValue: true
     description: Unit of Measure Data for Dietary Fibre content
   - name: totalSugarsPerServing
-    singleValue: true
+    singleValue: false
     description: Nutritional Information for Total Sugar content - Usually based on
       per 100g serving
     type: NUMBER
+    xpath: //span[contains(text(), 'Dont Sucres')]/following::span[1]
   - name: totalSugarsPerServingUom
-    singleValue: true
+    singleValue: false
     description: Unit of Measure Data for Total Sugar content
+    xpath: //span[contains(text(), 'Dont Sucres')]/following::span[1]
+    regExp: ([A-z]+)
   - name: proteinPerServing
-    singleValue: true
+    singleValue: false
     description: Nutritional Information for Protein content - Usually based on per
       100g serving
     type: NUMBER
+    xpath: //span[contains(text(), 'Protéines')]/following::span[1]
   - name: proteinPerServingUom
-    singleValue: true
+    singleValue: false
     description: Unit of Measure Data for Protein
+    xpath: //span[contains(text(), 'Protéines')]/following::span[1]
+    regExp: ([A-z]+)
   - name: vitaminAPerServing
     singleValue: true
     description: Nutritional Information for Vitamin A content - Usually based on
@@ -369,13 +407,16 @@ fields:
     singleValue: true
     description: Unit of Measure Data for Magnesium
   - name: saltPerServing
-    singleValue: true
+    singleValue: false
     description: Nutritional Information for Salt content - Usually based on per
       100g serving
     type: NUMBER
+    xpath: //div[@class='product__info']//span[contains(text(), 'Sel')]/following::span[1]
   - name: saltPerServingUom
-    singleValue: true
+    singleValue: false
     description: Unit of Measure Data for Salt
+    xpath: //div[@class='product__info']//span[contains(text(), 'Sel')]/following::span[1]
+    regExp: ([A-z]+)
   - name: dietaryInformation
     singleValue: true
     description: null
@@ -386,20 +427,26 @@ fields:
     singleValue: true
     description: Guarantee associated with the product
   - name: storage
-    singleValue: true
+    singleValue: false
     description: Suggested storage location for product
+    xpath: //h2[contains(text(), 'Conseil Conservation')]/following::div[1]
   - name: countryOfOrigin
-    singleValue: true
+    singleValue: false
     description: The country from which the product originates
+    xpath: //div[contains(text(), 'Pays de fabrication')]
+    regExp: :\s([A-z]+)
+    regExpReplace: $1
   - name: allergyAdvice
-    singleValue: true
+    singleValue: false
     description: Allergy information associated with the product
+    xpath: //b[contains(text(), 'Allergènes :')]/ancestor::div[1]/text()
   - name: recyclingInformation
     singleValue: true
     description: Recycling information associated with the product
   - name: productOtherInformation
     singleValue: false
     description: Any other product information
+    xpath: //h2[contains(text(), 'Mentions obligatoires complémentaires :')]/following::div[1] | //h2[contains(text(), "MODE D'EMPLOI")]/following::div[1] 
   - name: packaging
     singleValue: true
     description: Packaging information
@@ -407,11 +454,15 @@ fields:
     singleValue: true
     description: List of additives in the product
   - name: pricePerUnit
-    singleValue: true
+    singleValue: false
     description: Price of the product split into certain units
+    xpath: //div[@class='product__conditioning']
+    regExp: ([\d\,\.]+\s€)
   - name: pricePerUnitUom
-    singleValue: true
+    singleValue: false
     description: The unit of measurement used in price_per_unit
+    xpath: //div[@class='product__conditioning']
+    regExp: ([A-z]+$)
   - name: promotion
     singleValue: true
     description: promotion text on product page
