@@ -10,10 +10,6 @@ module.exports = {
     zipcode: '',
   },
   implementation: async (inputs, { transform }, context, { productDetails }) => {
-    // Slowing down the extraction as it goes too quick and next pages often
-    // don't load at all.
-    await new Promise((resolve) => setTimeout(resolve, 5000));
-
     await context.evaluate(async () => {
       const addedElem = document.createElement('div');
       addedElem.id = 'added_elem';
