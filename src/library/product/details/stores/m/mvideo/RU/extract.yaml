@@ -20,7 +20,7 @@ fields:
   - name: alternateImages
     singleValue: false
     description: Other product images (not in manufacturer description)
-    xpath: //img[@class="c-carousel__img"]/@src
+    xpath: //div[@data-init="pdp-carousel"]//div[@class="slick-track"]//a[position()>1]//@data-src
     regExp: (.+)
     regExpReplace: https:$1
   - name: metaKeywords
@@ -44,7 +44,7 @@ fields:
     singleValue: true
     description: The offered price for the selected product variant - if a user
       clicks add to basket this is the price they would be charged
-    type: CURRENCY
+    # type: CURRENCY
     xpath: //div[@class="fl-pdp-price__current"]/text()
   - name: availabilityText
     singleValue: true
@@ -69,7 +69,6 @@ fields:
   - name: manufacturer
     singleValue: true
     description: Product manufacturer
-    xpath: //div[@class="c-brand-logo"]/img/@alt
   - name: quantity
     singleValue: true
     description: Quantity as described on the page
@@ -248,7 +247,7 @@ fields:
   - name: secondaryImageTotal
     singleValue: true
     description: null
-    xpath: count(//div[@class="c-carousel__item-wrapper"])
+    xpath: count(//div[@data-init="pdp-carousel"]//div[@class="slick-track"]//a[position()>1]//@data-src)
     type: NUMBER
   - name: news
     singleValue: true
@@ -464,9 +463,9 @@ fields:
     description: In product page, information about a new version of the product -
       new desription info
   - name: variantInformation
-    singleValue: true
+    singleValue: false
     description: colour / scent / flavour / other
-    xpath: //table[@class="table table-striped product-details-table"]/tbody//td//span[contains(text(),"Цвет")]/ancestor::*[position()=2]//td[2]/span/text()
+    xpath: (//div[@class="o-container__price-column"]//div[@class="c-btn-group__item"]//span/text())
   - name: firstVariant
     singleValue: true
     description: Unique identifier for a collection of variants. For a subset of
@@ -478,9 +477,11 @@ fields:
       all variants of a product, this rpc becomes the common link between other
       variants. method 3 = apply some logic to determine link between variants,
       this will need analysis
+    xpath: (//div[@class="o-container__price-column"]//div[@class="c-btn-group__item"]//span/text())[1]
   - name: variants
     singleValue: false
     description: null
+    xpath: (//div[@class="o-container__price-column"]//div[@class="c-btn-group__item"]//span/text())
   - name: additionalDescBulletInfo
     singleValue: false
     description: null
