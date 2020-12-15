@@ -1,0 +1,15 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: //div[@data-id="cat-wrapper"]
+fields:
+  - name: category
+    singleValue: false
+    description: name of the category
+    xpath: ./div[@data-id="cat"]
+  - name: categoryUrl
+    singleValue: false
+    description: url of the category
+    xpath: ./div[@data-id="cat-url"]
+    regExp: (.+)
+    regExpReplace: https://www.feelunique.com$1
