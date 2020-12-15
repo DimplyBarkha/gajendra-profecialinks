@@ -86,6 +86,9 @@ fields:
   - name: imageZoomFeaturePresent
     singleValue: true
     defaultValue: No
+  - name: otherSellersName
+    singleValue: false
+    xpath: //tr[@class="row a"]/td[contains(text(),'Producent')]/following-sibling::td/text() | //tr[@class="row"]/td[contains(text(),'Producent')]/following-sibling::td/text()
   - name: manufacturer
     singleValue: false
     xpath: //tr[@class="row a"]/td[contains(text(),'Producent')]/following-sibling::td/text() | //tr[@class="row"]/td[contains(text(),'Producent')]/following-sibling::td/text()
