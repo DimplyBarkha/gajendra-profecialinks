@@ -38,14 +38,9 @@ async function implementation(
       }
     }
     // @ts-ignore
-    try {
-      const jsonString = document.querySelector(
-        "script[type='application/ld+json']"
-      ).innerText;
-    } catch (err) {
-      console.log(err);
-    }
-
+    const jsonString = document.querySelector(
+      "script[type='application/ld+json']"
+    ).innerText;
     let jsonParsed = {};
     if (jsonString && jsonString.trim()) {
       jsonParsed = JSON.parse(jsonString);
