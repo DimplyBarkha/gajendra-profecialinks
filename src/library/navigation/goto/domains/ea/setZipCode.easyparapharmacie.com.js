@@ -1,9 +1,9 @@
 module.exports = {
-  implements: "navigation/goto/setZipCode",
+  implements: 'navigation/goto/setZipCode',
   parameterValues: {
-    country: "FR",
-    domain: "easyparapharmacie.com",
-    store: "easyparapharmacie",
-    zipcode: "",
+    country: 'FR',
+    domain: 'easyparapharmacie.com',
+    store: 'easyparapharmacie',
+    zipcode: '',
   },
 };
