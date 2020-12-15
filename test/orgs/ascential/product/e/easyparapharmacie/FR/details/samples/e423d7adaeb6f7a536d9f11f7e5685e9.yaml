@@ -1,0 +1,98 @@
+input:
+  _url: http://easyparapharmacie.com
+  URL: https://www.easyparapharmacie.com/quies-optik-masque-occultant.html
+extractions:
+  - html: https://workbench.import.io/html/run=0978393c-a341-48ab-a9b0-c9be93a6615e/task=94fb8639-66b9-4db7-a7ff-74f5966baeb5/3f3e4799-e83a-4dc3-bba1-d8d032d0f1f5.html
+    extractionConfigId: product/details/stores/e/easyparapharmacie/FR/extract
+    data:
+      - group:
+          - productUrl:
+              - text: https://www.easyparapharmacie.com/quies-optik-masque-occultant.html
+                xpath: /html/head[1]/meta[20]/@content
+            image:
+              - text: https://cdn.easyparapharmacie.com/media/catalog/product/cache/1/image/494x/0dc2d03fe217f8c83829496872af24a0/q/u/quies_optik_masque_occultant.jpg
+                xpath: /html/head[1]/meta[16]/@content
+            imageAlt:
+              - text: Optik Masque Occultant Quies
+                xpath: /html/head[1]/meta[19]/@content
+            category:
+              - text: Optik Masque Occultant Quies
+                xpath: /html/body/main[1]/div[1]/div[1]/ul[1]/li[2]
+            nameExtended:
+              - text: OPTIK MASQUE OCCULTANT QUIES
+                xpath: /html/body/div[15]
+            price:
+              - text: 9,89 €
+                xpath: /html/body/main[1]/div[1]/div[3]/div[1]/div[2]/form[1]/div[2]/div[1]/div[2]/p[1]/span[1]/span[1]
+            availabilityText:
+              - text: En stock
+                xpath: /html/body/main[1]/div[1]/div[3]/div[1]/div[2]/form[1]/div[2]/div[1]/div[1]/p[1]
+            description:
+              - text: >-
+                  QUIES
+
+                  Optik
+
+                  Masque occultant
+
+                  Fibres naturelles
+                   
+                  Le masque occultant Quies est idéal pour reposer les yeux fatigués en journée, faire une sieste en voyage ou s'endormir quand l'obscurité n'est pas complète.
+                   
+                  Sa forme judicieusement étudiée couvre entièrement les yeux, tout en douceur. 
+
+                  Le coussinet frontal en satin offre un confort parfait, et les coussinets qui bordent le nez permettent d'ouvrir les yeux sous le masque. 
+
+                  Son élastique large et réglable assure un maintien parfait.
+                   
+                  Entièrement cousu main et revêtu d'un tissu en fibre naturelle, il est parfaitement toléré, même par les peaux sensibles.
+                xpath: /html/body/main[1]/div[1]/div[3]/div[2]/section[1]/div[1]/div[1]
+            brandText:
+              - text: QUIES
+                xpath: /html/body/div[16]
+            manufacturer:
+              - text: QUIES
+                xpath: /html/body/div[16]
+            quantity:
+              - text: "1"
+                xpath: /html/body/div[17]
+            gtin:
+              - text: "3435170200016"
+                xpath: /html/body/main[1]/div[1]/div[3]/div[1]/div[2]/form[1]/div[5]/p[1]/span[2]
+            sku:
+              - text: "6026704"
+                xpath: /html/body/main[1]/div[1]/div[3]/div[1]/div[2]/form[1]/div[5]/p[1]/span[1]
+            variantId:
+              - text: "6026704"
+                xpath: /html/body/main[1]/div[1]/div[3]/div[1]/div[2]/form[1]/div[5]/p[1]/span[1]
+            warnings:
+              - text: La composition peut être soumise à des variations, nous vous conseillons
+                  de toujours vérifier la liste figurant sur le produit acheté.
+                xpath: /html/body/div[18]
+            ratingCount:
+              - text: "7"
+                xpath: /html/body/main[1]/div[1]/div[3]/div[1]/div[2]/form[1]/div[1]/div[2]/div[1]/div[1]/button[1]/div[3]/meta[1]/@content
+            aggregateRatingText:
+              - text: "4.4"
+                xpath: /html/body/main[1]/div[1]/div[3]/div[1]/div[2]/form[1]/div[1]/div[2]/div[1]/div[1]/button[1]/div[2]
+            aggregateRating:
+              - text: "4.4"
+                xpath: /html/body/main[1]/div[1]/div[3]/div[1]/div[2]/form[1]/div[1]/div[2]/div[1]/div[1]/button[1]/div[2]
+            variantCount:
+              - text: "0"
+                xpath: /html/body/div[19]
+            name:
+              - text: Optik Masque Occultant Quies
+                xpath: /html/body/main[1]/div[1]/div[3]/div[1]/div[2]/form[1]/div[1]/div[1]/span[1]
+            productOtherInformation:
+              - text: "- Régler l'élastique de façon à passer le masque autour de la tête.-
+                  Mettre le masque sur les yeux puis régler à sa taille."
+                xpath: /html/body/div[20]
+            firstVariant:
+              - text: "6026704"
+                xpath: /html/body/main[1]/div[1]/div[3]/div[1]/div[2]/form[1]/div[5]/p[1]/span[1]
+            materials:
+              - text: "Composition : Fibres naturelles de coton et satin."
+                xpath: /html/body/div[21]
+        xpath: /
+    timestamp: 1608047195858

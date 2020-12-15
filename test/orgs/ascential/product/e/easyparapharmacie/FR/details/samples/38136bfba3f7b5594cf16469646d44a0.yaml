@@ -1,0 +1,89 @@
+input:
+  _url: http://easyparapharmacie.com
+  URL: https://www.easyparapharmacie.com/estipharm-masque-de-relaxation.html
+extractions:
+  - html: https://workbench.import.io/html/run=0978393c-a341-48ab-a9b0-c9be93a6615e/task=d81dc883-163d-473c-af80-66904c41d5ea/7a67f06a-5f37-4917-b744-2664ee02843d.html
+    extractionConfigId: product/details/stores/e/easyparapharmacie/FR/extract
+    data:
+      - group:
+          - productUrl:
+              - text: https://www.easyparapharmacie.com/estipharm-masque-de-relaxation.html
+                xpath: /html/head[1]/meta[20]/@content
+            image:
+              - text: https://cdn.easyparapharmacie.com/media/catalog/product/cache/1/image/494x/0dc2d03fe217f8c83829496872af24a0/e/s/estipharm-masque-de-relaxation.jpg
+                xpath: /html/head[1]/meta[16]/@content
+            imageAlt:
+              - text: Masque De Relaxation Estipharm
+                xpath: /html/head[1]/meta[19]/@content
+            category:
+              - text: Masque De Relaxation Estipharm
+                xpath: /html/body/main[1]/div[1]/div[1]/ul[1]/li[2]
+            nameExtended:
+              - text: MASQUE DE RELAXATION ESTIPHARM
+                xpath: /html/body/div[15]
+            price:
+              - text: 3,59 €
+                xpath: /html/body/main[1]/div[1]/div[3]/div[1]/div[2]/form[1]/div[2]/div[1]/div[2]/p[1]/span[1]/span[1]
+            availabilityText:
+              - text: En stock
+                xpath: /html/body/main[1]/div[1]/div[3]/div[1]/div[2]/form[1]/div[2]/div[1]/div[1]/p[1]
+            description:
+              - text: >-
+                  ESTIPHARM
+
+                  Masque de relaxation
+
+                  Détente et isolement
+
+                  Confortable
+
+                  Idéal en voyage
+                   
+                  Pour vous isoler complètement de la lumière, le masque de relaxation Estipharm est l'accessoire idéal pour vous permettre une détente maximale. Il est composé d'une face molletonnée et d'une face satinée. Parfait pour emporter lors de vos déplacements en tous genres ou chez vous, si vous êtes sensible à la lumière.
+                xpath: /html/body/main[1]/div[1]/div[3]/div[2]/section[1]/div[1]/div[1]
+            brandText:
+              - text: ESTIPHARM
+                xpath: /html/body/div[16]
+            manufacturer:
+              - text: ESTIPHARM
+                xpath: /html/body/div[16]
+            quantity:
+              - text: "1"
+                xpath: /html/body/div[17]
+            sku:
+              - text: "3401544363847"
+                xpath: /html/body/main[1]/div[1]/div[3]/div[1]/div[2]/form[1]/div[5]/p[1]/span[1]
+            variantId:
+              - text: "3401544363847"
+                xpath: /html/body/main[1]/div[1]/div[3]/div[1]/div[2]/form[1]/div[5]/p[1]/span[1]
+            warnings:
+              - text: La liste des ingrédients peut être soumise à des variations, nous vous
+                  conseillons de toujours vérifier la liste figurant sur le
+                  produit acheté.
+                xpath: /html/body/div[18]
+            ratingCount:
+              - text: "4"
+                xpath: /html/body/main[1]/div[1]/div[3]/div[1]/div[2]/form[1]/div[1]/div[2]/div[1]/div[1]/button[1]/div[3]/meta[1]/@content
+            aggregateRatingText:
+              - text: "2.8"
+                xpath: /html/body/main[1]/div[1]/div[3]/div[1]/div[2]/form[1]/div[1]/div[2]/div[1]/div[1]/button[1]/div[2]
+            aggregateRating:
+              - text: "2.8"
+                xpath: /html/body/main[1]/div[1]/div[3]/div[1]/div[2]/form[1]/div[1]/div[2]/div[1]/div[1]/button[1]/div[2]
+            variantCount:
+              - text: "0"
+                xpath: /html/body/div[19]
+            name:
+              - text: Masque De Relaxation Estipharm
+                xpath: /html/body/main[1]/div[1]/div[3]/div[1]/div[2]/form[1]/div[1]/div[1]/span[1]
+            productOtherInformation:
+              - text: Le masque de relaxation se lave en machine à laver, à basse température.
+                xpath: /html/body/div[20]
+            firstVariant:
+              - text: "3401544363847"
+                xpath: /html/body/main[1]/div[1]/div[3]/div[1]/div[2]/form[1]/div[5]/p[1]/span[1]
+            materials:
+              - text: "Composition : Satin + velours"
+                xpath: /html/body/div[21]
+        xpath: /
+    timestamp: 1608047195340
