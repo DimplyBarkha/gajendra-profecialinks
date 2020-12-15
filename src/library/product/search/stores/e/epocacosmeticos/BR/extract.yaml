@@ -21,5 +21,10 @@ fields:
   - name: reviewCount
     singleValue: false
     xpath: //span[@class="ts-shelf-right ts-shelf-rate-count ts-shelf-rate-enabled"]//span
+  - name: aggregateRating
+    singleValue: false
+    xpath: //div[contains(@class, "ts-shelf-rate-symbols ts-sprite")]/@style
+    regExp: (\d+)
+    regExpReplace: $1
   - name: rank
   - name: rankOrganic

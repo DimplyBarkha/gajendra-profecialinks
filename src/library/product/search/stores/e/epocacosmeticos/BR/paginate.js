@@ -4,7 +4,7 @@ module.exports = {
   parameterValues: {
     country: 'BR',
     store: 'epocacosmeticos',
-    nextLinkSelector: 'a.paginacao__next.next',
+    nextLinkSelector: 'a.paginacao__next.next:not(.pgEmpty)',
     mutationSelector: null,
     loadedSelector: null,
     noResultsXPath: '//div[@class="searchrr__buscaVazia"]',

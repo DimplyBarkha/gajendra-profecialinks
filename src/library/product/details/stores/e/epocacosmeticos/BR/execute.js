@@ -6,7 +6,7 @@ module.exports = {
     store: 'epocacosmeticos',
     domain: 'epocacosmeticos.com',
     loadedSelector: null,
-    noResultsXPath: null,
+    noResultsXPath: '//h3[@class="nave-title"]',
     zipcode: '',
   },
 };

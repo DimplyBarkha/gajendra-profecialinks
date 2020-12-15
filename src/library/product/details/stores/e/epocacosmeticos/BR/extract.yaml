@@ -1,13 +1,13 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: //section[@class="product"]
+recordXPath: //body[contains(@class,"product")]
 fields:
   - name: image
     singleValue: false
     xpath: //img[@id="image-main"]//@src
-    regExp: (.*)(-\d+-\d+)(\/.*.jpg)
-    regExpReplace: $1$3
+    regExp: (.*)-\d+-\d+(\/.*jpg)
+    regExpReplace: $1$2
   - name: imageAlt
     singleValue: false
     xpath: (//a[@id="botaoZoom"]//img/@alt)[1]
@@ -17,8 +17,8 @@ fields:
   - name: alternateImages
     singleValue: false
     xpath: //li//a[@id="botaoZoom"]/@rel
-    regExp: (.*)(-\d+-\d+)(\/.*.jpg)
-    regExpReplace: $1$3
+    regExp: (.*)-\d+-\d+(\/.*jpg)
+    regExpReplace: $1$2
   - name: category
     singleValue: false
     xpath: //li[@itemprop="itemListElement"]//span[@itemprop="name"]
@@ -44,10 +44,10 @@ fields:
     regExpReplace: $1
   - name: variantId
     singleValue: false
-    xpath: //meta[@itemprop="productID"]/content
+    xpath: //meta[@itemprop="productID"]/@content
   - name: sku
     singleValue: false
-    xpath: (//meta[@itemprop="sku"]/@content)[1]
+    xpath: //div[@id='selectedSKU']/@data-sku
   - name: gtin
     singleValue: false
     xpath: //meta[@itemprop="gtin13"]/@content
@@ -84,7 +84,7 @@ fields:
     xpath: //div[contains(@class,"product__info--specification")]//div[contains(@class,"accordion__container")]//div[@id="caracteristicas"]
   - name: variants
     singleValue: false
-    xpath: //li[contains(@class,"select")]//input[contains(@class,"skuselector-specification-label")]/@id
+    xpath: //meta[@itemprop="sku"]/@content
   - name: manufacturerImages
     singleValue: false
     xpath: //div[contains(@class, 'product__info--accordion')]//img[not(contains(@title,'Trustvox'))]/@src
