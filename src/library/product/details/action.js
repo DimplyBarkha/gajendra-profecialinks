@@ -6,7 +6,7 @@
  * @param { { execute: ImportIO.Action, extract: ImportIO.Action } } dependencies
  */
 async function implementation (inputs, parameters, context, dependencies) {
-  const { URL, RPC, SKU, UPC } = inputs;
+  const { URL, RPC, SKU, UPC, storeID } = inputs;
   const { execute, extract } = dependencies;
   const url = URL;
   const id = RPC || SKU || UPC || inputs.id;
