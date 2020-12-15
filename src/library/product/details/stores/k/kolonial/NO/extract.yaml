@@ -20,10 +20,12 @@ fields:
   - name: category
     singleValue: false
     description: The categories (e.g. from breadcrumbs)
+    xpath: //ol[@class="breadcrumb"]//li[position()>1]
   - name: nameExtended
     singleValue: true
     description: The product name, prefixing "${brand} - " if not included in "name"
       and appending " - ${variantType}" if necessary (fixed per feed)
+    xpath: (//span[@itemprop="name"])[1]
   - name: url
     singleValue: true
     xpath: //meta[@property="og:url"]
@@ -35,14 +37,16 @@ fields:
     singleValue: true
     description: The offered price for the selected product variant - if a user
       clicks add to basket this is the price they would be charged
+    xpath: //div[@class="price "]
   - name: availabilityText
     singleValue: true
     description: Availability as described on page for the selected variant. If
       there is no availability but the product can be added to cart, this field
       should be "In Stock"
-    regExp: (.+)
-    regExpReplace: In Stock
+    # regExp: (.+)
+    # regExpReplace: In Stock
     defaultValue: Out of Stock
+    xpath: //html//div[@id="stock"]
   - name: description
     singleValue: false
     description: Product description supplied by website - may be concatenanted from
@@ -55,14 +59,14 @@ fields:
     singleValue: true
     description: Product brand shown - this may actually NOT be just a brand name,
       e.g. "Visit the Gillette Store"
+    xpath: //h3[@class="brand-name"]//span  
   - name: manufacturer
     singleValue: true
     description: Product manufacturer
   - name: quantity
     singleValue: true
     description: Quantity as described on the page
-    regExp: (?:\s?([\d\.]+\s?)([bB]ar[s]?|[cC]ount|[cC]t|[fF][lL][\.]?\s?[oO][zZ][\.]?|FO|[mM][lL]|[oO][zZ][\.]?|pc|[pP]int|[pP]ops|qt|[wW]ipe[s]?).?)$|(?:\s?([\d\.]+\s?)([bB]ar[s]?|[cC]ount|[cC]|[fF][lL][\.]?\s?[oO][zZ][\.]?|FO|[mM][lL]|[oO][zZ][\.]?|pc|[pP]int|[pP]ops|qt|[wW]ipe[s]?).?\s?[\&\-\w\s]+)$
-    regExpReplace: $1$2$3$4
+    xpath: //html//div[@id="size"]
   - name: weightNet
     singleValue: true
     description: Net weight as described on the page
@@ -78,6 +82,7 @@ fields:
   - name: variantId
     singleValue: true
     description: Identifier for a variant from a store where variants share the same sku
+    xpath: (//div[@class="not-in-cart"]//button)[1]/@data-product
   - name: mpc
     singleValue: true
     description: The manufacturer model code (unique) of the product
@@ -108,6 +113,8 @@ fields:
   - name: shippingInfo
     singleValue: true
     description: Shipping information for the product
+    xpath: //html//div[@id="shippinginfo"]
+    # defaultValue: kolonial
   - name: shippingDimensions
     singleValue: true
     description: Stated shipping dimensions
@@ -136,6 +143,7 @@ fields:
   - name: name
     singleValue: true
     description: The product name
+    xpath: ((//span[@itemprop="name"])[1]//text())[1]
   - name: inStorePrice
     singleValue: true
     description: Price in the selected store
@@ -240,6 +248,7 @@ fields:
     singleValue: true
     description: List of Ingredients from site - can be string of data if no
       discernible start/end point
+    xpath: //th[contains(text(),"Ingredienser")]//following::td[@class="ingredients-list"]//text()  
   - name: servingSize
     singleValue: true
     description: The size of serving Nutritional information is based on.
@@ -397,6 +406,7 @@ fields:
   - name: countryOfOrigin
     singleValue: true
     description: The country from which the product originates
+    xpath: //th[contains(text(),"Opprinnelsesland")]//following::td[1]
   - name: allergyAdvice
     singleValue: true
     description: Allergy information associated with the product
@@ -415,9 +425,11 @@ fields:
   - name: pricePerUnit
     singleValue: true
     description: Price of the product split into certain units
+    xpath: //div[@id="priceperunit"]
   - name: pricePerUnitUom
     singleValue: true
     description: The unit of measurement used in price_per_unit
+    xpath: //div[@id="priceperunitUom"]
   - name: promotion
     singleValue: true
     description: promotion text on product page
@@ -453,6 +465,7 @@ fields:
   - name: variants
     singleValue: false
     description: null
+    xpath: (//div[@class="not-in-cart"]//button)[position()>1]/@data-product
   - name: additionalDescBulletInfo
     singleValue: false
     description: null
