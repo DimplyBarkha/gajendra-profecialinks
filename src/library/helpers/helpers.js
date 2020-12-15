@@ -1,10 +1,17 @@
 // this is a module containing some ready made functions
 // to use it do the following in extract.js
 /*
-//at the top of the file
+//at the bottom of the file, add the following in the module.exports object:
+dependencies: {
+    productDetails: 'extraction:product/details/stores/${store[0:1]}/${store}/${country}/extract',
+    helperModule: 'module:helper/helpers,
+  },
+
+// within the code of your implementation add the following
 const { Helpers } = require('../../../../../../helpers/helpers') // make sure this is the correct path
 
 //inside the implementation function
+  const { helperModule: { Helpers } } = dependencies;
   const helper = new Helpers(context)
 
   // you can now use any of the function like that
