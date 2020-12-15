@@ -116,16 +116,13 @@ fields:
     singleValue: false
     xpath: //body/@data-article
   - name: inTheBoxUrl
-    singleValue: false
     description: Must include image url to show the accessories/tools which come with the product
   - name: inTheBoxText
-    singleValue: false
     description: Must include text to show the accessories/tools which come with the product
-    xpath: //table[contains(@class,"characteristics-table")]/tbody//tr[7]/td[contains(@class,"characteristics-value")]
+    xpath: //td[contains(@class, "characteristics-label")][contains(.,"Accessoire")]/following-sibling::td[contains(@class, "characteristics-value")]
   - name: hasComparisonTable
-    singleValue: false
     description: Compare the range table or matrix must be present for all vacuum cleaners & air treatment. This is not required for personal care or lighting. As a minimum the comparison table will compare against 1 additional Dyson product.
+    defaultValue: No
   - name: unInterruptedPDP
-    singleValue: false
     description: Titles of products in the sections 'you may also like' or 'sponsored products'. Combine results from Max 3 sections
-    xpath: //div[@id="same-category-products"]//div[contains(@class,"article-name")]/div
+    xpath: //section[contains(@class,"viewed-products")]//article
