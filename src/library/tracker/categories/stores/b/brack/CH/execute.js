@@ -5,7 +5,7 @@ module.exports = {
     country: 'CH',
     store: 'brack',
     domain: 'brack.ch',
-    loadedSelector: null,
+    loadedSelector: 'nav#topNavigation',
     noResultsXPath: null,
     zipcode: '',
   },
