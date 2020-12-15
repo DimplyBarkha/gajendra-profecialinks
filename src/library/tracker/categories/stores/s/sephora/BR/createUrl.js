@@ -4,7 +4,7 @@ module.exports = {
   parameterValues: {
     domain: 'sephora.com.br',
     prefix: null,
-    suffix: null,
+    suffix: 'sitemap',
     subdomain: null,
     url: null,
     country: 'BR',
