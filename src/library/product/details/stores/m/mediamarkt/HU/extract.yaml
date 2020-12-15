@@ -60,6 +60,15 @@ fields:
   - name: variantCount
     singleValue: false
     xpath: count(//div[contains(@class,"product-attributes__group")]/div)
+  - name: manufacturerDescription
+    singleValue: false
+    xpath: //div[@id="inpage_container"]/div[contains(@class,"inpage_selector_info")]
+  - name: manufacturerImages
+    singleValue: false
+    xpath: //div[@id="inpage_container"]//div[contains(@class,"inpage_selector_gallery")]//div[contains(@class,"flix_navigation")]//li/img/@srcset || //div[@id="product-long-description"]//img/@src
+  - name: videos
+    singleValue: false
+    xpath: //div[@id="inpage_container"]//div[contains(@class,"inpage_selector_video")]//iframe/@src
   - name: name
     singleValue: false
     xpath: //meta[@property="og:title"]/@content

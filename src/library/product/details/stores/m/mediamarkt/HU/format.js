@@ -36,6 +36,12 @@ const transform = (data, context) => {
             });
         }
 
+        if (row.manufacturerImages) {
+            row.manufacturerImages.forEach(item => {
+              item.text = item.text.includes('http') ? item.text : 'https:' + item.text;
+            });
+        }
+
         if (row.price) {
             row.price[0].text = row.price[0].text + ' Ft';
         }
@@ -48,22 +54,21 @@ const transform = (data, context) => {
             var spec = "";
 
             for (var i = 0; i < row.specificationsValues.length; i++) {
-                if (row.specificationsValues[i].text == 'Készülék típusa') {
-                    row.specificationsValues.splice(i, 1);
+                if (row.specificationsValues[i] && row.specificationsKeys[i]) {
+                    if (row.specificationsKeys[i].text == 'Gyártó:') {
+                        row.manufacturer = [{ text: row.specificationsValues[i].text, xpath: row.specificationsValues[i].xpath }];
+                    }
+                    if (row.specificationsKeys[i].text == 'Tömeg:') {
+                        row.weightNet = [{ text: row.specificationsValues[i].text, xpath: row.specificationsValues[i].xpath }];
+                    }
+                    if (row.specificationsKeys[i].text == 'Szín:') {
+                        row.color = [{ text: row.specificationsValues[i].text, xpath: row.specificationsValues[i].xpath }];
+                    }
+                    if (row.specificationsKeys[i].text == 'Gyártói garancia:') {
+                        row.warranty = [{ text: row.specificationsValues[i].text, xpath: row.specificationsValues[i].xpath }];
+                    }
+                    spec += row.specificationsKeys[i].text.concat(row.specificationsValues[i].text, ' || ');
                 }
-                if (row.specificationsKeys[i].text == 'Gyártó:') {
-                    row.manufacturer = [{ text: row.specificationsValues[i].text, xpath: row.specificationsValues[i].xpath }];
-                }
-                if (row.specificationsKeys[i].text == 'Tömeg:') {
-                    row.weightNet = [{ text: row.specificationsValues[i].text, xpath: row.specificationsValues[i].xpath }];
-                }
-                if (row.specificationsKeys[i].text == 'Szín:') {
-                    row.color = [{ text: row.specificationsValues[i].text, xpath: row.specificationsValues[i].xpath }];
-                }
-                if (row.specificationsKeys[i].text == 'Gyártói garancia:') {
-                    row.warranty = [{ text: row.specificationsValues[i].text, xpath: row.specificationsValues[i].xpath }];
-                }
-                spec += row.specificationsKeys[i].text.concat(row.specificationsValues[i].text, ' || ');
             }
 
             row.specifications = [{text:spec.slice(0, -4), xpath:row.specificationsValues[0].xpath}];

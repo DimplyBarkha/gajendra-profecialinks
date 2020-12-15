@@ -11,7 +11,16 @@ async function implementation (
 
   await context.evaluate(async function () {
     // @ts-ignore
-    document.querySelector('div.features-wrapper a').click();
+    let featButton = document.querySelector('div.features-wrapper a');
+    if (featButton) {
+      featButton.click();
+    }
+    let featValues = document.querySelectorAll('#features dd + dd');
+    if (featValues) {
+      featValues.forEach(element => {
+        element.remove();
+      });
+    }
   });
   await new Promise(resolve => setTimeout(resolve, 10000));
   return await context.extract(productDetails, { transform });
