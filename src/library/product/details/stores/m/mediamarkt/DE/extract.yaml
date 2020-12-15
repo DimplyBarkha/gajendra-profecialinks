@@ -5,7 +5,7 @@ recordXPath: null
 fields:
   - name: image
     singleValue: true
-    xpath: (//div[contains(@class, "slick-slide")]//div[contains(@class, "SimpleCarousel")]//picture//source/@srcset)[position()=1]
+    xpath: (//div[contains(@class, "slick-slide")]//div[contains(@class, "SimpleCarousel")]//picture//source/@srcset)[position()=1] | (//li[@data-index-number="0"])[1]
     description: URL of the main product image
   - name: imageAlt
     singleValue: true
