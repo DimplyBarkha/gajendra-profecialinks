@@ -26,8 +26,10 @@ fields:
     xpath: //div[contains(@class,'productPriceInfo__wrapper')]//span[contains(@class,'productPriceInfo__price ta-price  withoutLpPromo')]
   - name: availabilityText
     singleValue: false
-    xpath: //button[contains(@class,'addToCart')]
-    defaultValue: "In Stock"
+    xpath: (//button[contains(@class,'addToCart')])[1]
+    regExp: (.+)
+    regExpReplace: In stock
+    defaultValue: Out of Stock
   - name: description
     singleValue: false
     xpath: //div[contains(@class,'productComments productDescription ta-product-description ')]  
@@ -48,10 +50,19 @@ fields:
     xpath: //div[contains(@class,'swiper-slide swiper-slide-visible') and position() >1]//div//@data-big-image
   - name: color
     singleValue: false
-    xpath: //table[@class='productBaseInfo__info ']//tr[contains(@class,'row--text row--text  attributeName ta-attribute-row')]//td/span
+    xpath: //div[@class='concept__color__element']//following-sibling::span
   - name: colorCode
     singleValue: false
-    xpath: //table[@class='productBaseInfo__info ']//tr[contains(@class,'row--text row--text  attributeName ta-attribute-row')]//td//div[@class='concept__color__element']//@style 
+    xpath: //div[@class='concept__color__element']//@style 
   - name: manufacturer
     singlevalue: false
-    xpath: //table[@class='det_list']//td[contains(@class,'productDetailsValue')]//span//a  
+    xpath: //table[@class='productDataTable ']//td[contains(text(),'Producent:')]//following-sibling::td//span//a  
+  - name: materials
+    singleValue: false
+    xpath: //table[@class='productDataTable ']//td[contains(text(),'Materiał:')]//following-sibling::td//span 
+  - name: variantInformation
+    singleValue: false
+    xpath: //table[@class='productBaseInfo__info ']//tr[contains(@class,'row--dropdown')]//td[1]
+  - name: quantity
+    singleValue: false
+    xpath: //select[@id='capacity']//option[@selected='']//text()

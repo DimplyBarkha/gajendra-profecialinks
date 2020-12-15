@@ -36,7 +36,7 @@ const transform = (data) => {
             if(tmp_desc != ''){
                 info.push(tmp_desc);
             }
-            row.description = [{'text':info.join(' | '),'xpath':row.description[0].xpath}];
+            row.description = [{'text':info.join(' || '),'xpath':row.description[0].xpath}];
         }
 
         if(row.ratingCount){
@@ -45,6 +45,12 @@ const transform = (data) => {
               count = item.text.split(" ");
           });
           row.ratingCount = [{'text': count[0],'xpath':row.ratingCount[0].xpath}];
+        }
+
+        if(row.price){
+          row.price.forEach(item => {
+              item.text = item.text.replace(',','.');
+          });
         }
 
         if(row.aggregateRating){
