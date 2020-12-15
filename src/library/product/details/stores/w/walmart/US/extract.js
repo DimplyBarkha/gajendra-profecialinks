@@ -83,7 +83,22 @@ module.exports = {
           if (marketingIframe) marketingIframe.scrollIntoView();
         }, aplusSelector);
         // wait for iframe to load
-        await new Promise(resolve => setTimeout(resolve, 15000));
+        const limit = 60;
+        console.log('..waitForLoader..:', aplusSelector);
+        await context.evaluate(async ([selector, limit]) => {
+          const marketingIframe = document.querySelector(selector);
+          console.log(marketingIframe);
+          if (marketingIframe) {
+            const doc = marketingIframe.contentDocument || marketingIframe;
+            console.log(doc.querySelector('body > div'));
+            let timer = 0;
+            while (timer < limit && !doc.querySelector('body > div')) {
+              console.log('waiting !!!! ');
+              timer++;
+              await new Promise(resolve => setTimeout(resolve, 500));
+            }
+          }
+        }, [aplusSelector, limit]);
       })
       .then(async () => context.evaluate(async (selector) => {
         function addHiddenDiv (id, content) {
@@ -132,7 +147,8 @@ module.exports = {
         console.error(`Selector is not there: ${aplusSelector}`);
         return false;
       }, aplusSelector))
-      .catch(() => {
+      .catch((e) => {
+        console.error(e);
         console.log(`no aplus iframe on selector: ${aplusSelector}`);
         return false;
       });
