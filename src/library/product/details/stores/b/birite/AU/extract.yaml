@@ -107,3 +107,10 @@ fields:
   - name: shippingWeight
     singleValue: true
     xpath: //td[contains(text(), 'Shipping Weight')]/following-sibling::td | //td[contains(text(), 'Packed weight')]/following-sibling::td
+
+  - name: unInterruptedPDP
+    xpath: //div[contains(@class,"related_products")]//ul/li
+  - name: inTheBoxText
+    xpath: //body/@in-the-box-text | //td[contains(., "In the Box") or contains(., "In The Box")]/following-sibling::td
+  - name: hasComparisonTable
+    defaultValue: No
