@@ -48,16 +48,36 @@ const transform = (data) => {
               row.description = [{ "text": description_ar.join(" || "), 'xpath': row.description[0].xpath }];
             }
         }
+        if (row.variants) {
+          let info_ar = [];
+          row.variants.forEach(item => {
+            info_ar.push(item.text);
+          });
+          if (info_ar.length) {
+            row.variants = [{ "text":  info_ar.join(" | "), 'xpath': row.variants[0].xpath }];
+          }
+        }
+        if (row.variantInformation) {
+          let info_ar = [];
+          row.variantInformation.forEach(item => {
+            info_ar.push(item.text);
+          });
+          if (info_ar.length) {
+            row.variantInformation = [{ "text":  info_ar.join(" | "), 'xpath': row.variantInformation[0].xpath }];
+          }
+        }
         if (row.listPrice) {
           row.listPrice.forEach(item => {
+            item.text = item.text.replace(/\s*/g, '').trim();
             item.text =  'CHF'+item.text;
-            item.text =  item.text.replace('.', ',').trim();
+            item.text =  item.text.replace('.', '.').trim();
           });
         }
         if (row.price) {
           row.price.forEach(item => {
+            item.text = item.text.replace(/\s*/g, '').trim();
             item.text =  'CHF'+item.text;
-            item.text =  item.text.replace('.', ',').trim();
+            item.text =  item.text.replace('.', '.').trim();
           });
         }
         if (row.alternateImages) {
