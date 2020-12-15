@@ -12,9 +12,10 @@ module.exports = {
     //const timeout = parameters.timeout ? parameters.timeout : 10000;
 
     //await context.setAntiFingerprint(false);
-    //await context.setLoadAllResources(true);
+    await context.setLoadAllResources(true);
     await context.setBlockAds(false);
+    await context.setLoadImages(true);
     //await context.setFirstRequestTimeout(60000);
-    await context.goto(url, { timeout: 50000, waitUntil: 'load', checkBlocked: true });
+    await context.goto(url, { timeout: 60000, waitUntil: 'load', checkBlocked: true });
   },
 };
