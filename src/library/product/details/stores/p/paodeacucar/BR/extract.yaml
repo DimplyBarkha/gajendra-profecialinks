@@ -253,7 +253,9 @@ fields:
     description: null
   - name: ingredientsList
     singleValue: true
-    xpath: substring-after(//*[contains(text(), "Descrição do produto")]/../..,'Ingredientes:')
+    xpath: //*[contains(text(), "Descrição do produto")]/../..
+    regExp: (?<=Ingredientes:)(\s*)(.*?)[\n]
+    regExpReplace: $2
     description: List of Ingredients from site - can be string of data if no
       discernible start/end point
   - name: servingSize
