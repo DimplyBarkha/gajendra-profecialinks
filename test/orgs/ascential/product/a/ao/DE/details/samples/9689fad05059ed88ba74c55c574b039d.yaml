@@ -2,7 +2,7 @@ input:
   id: 78216
   _url: http://ao.de
 extractions:
-  - html: https://workbench.import.io/html/run=474061ef-838c-4a50-a0f2-08b9517fb1ff/task=f1af4284-16c1-4a0e-978a-86b2bc39af1d/38eeaac0-2b69-48cf-95a2-ff2df70a6cdc.html
+  - html: https://workbench.import.io/html/run=ed0bc679-e654-4f77-a96b-062182e673c2/task=dc728a3f-1881-4bfa-911d-84a43739fa95/3fee9272-2dcf-44f1-b1a2-38523b93baa8.html
     extractionConfigId: product/details/stores/a/ao/DE/extract
     data:
       - group:
@@ -41,10 +41,10 @@ extractions:
                 xpath: /html/body/div[1]/div[1]/main[1]/div[1]/div[2]/section[1]/h1[1]
             listPrice:
               - text: €1.199
-                xpath: /html/body/div[1]/div[1]/main[1]/div[1]/div[2]/section[1]/div[4]/div[1]/div[1]/div[1]/div[2]/span[1]
+                xpath: /html/body/div[1]/div[1]/main[1]/div[1]/div[2]/section[1]/div[5]/div[1]/div[1]/div[1]/div[2]/span[1]
             price:
               - text: 749,0
-                xpath: /html/body/div[1]/div[1]/main[1]/div[1]/div[2]/section[1]/div[4]/div[1]/div[1]/span[1]/@content
+                xpath: /html/body/div[1]/div[1]/main[1]/div[1]/div[2]/section[1]/div[5]/div[1]/div[1]/span[1]/@content
             availabilityText:
               - text: In stock
                 xpath: /html/body/div[10]
@@ -79,9 +79,15 @@ extractions:
             variantId:
               - text: "78216"
                 xpath: /html/body/div[1]/div[1]/main[1]/@data-colour-id
+            ratingCount:
+              - text: "1"
+                xpath: /html/body/div[12]
             aggregateRatingText:
               - text: 5/5
                 xpath: /html/body/div[1]/div[1]/main[1]/div[1]/div[2]/section[1]/div[3]/a[2]
+            aggregateRating:
+              - text: "5"
+                xpath: /html/body/div[13]
             color:
               - text: Schwarz
                 xpath: /html/body/div[1]/div[1]/main[1]/div[1]/div[1]/section[2]/div[1]/div[16]/div[1]/div[1]/table[1]/tbody[1]/tr[4]/td[2]
@@ -157,45 +163,449 @@ extractions:
               - text: 2 Jahr(e)
                 xpath: /html/body/div[1]/div[1]/main[1]/div[1]/div[1]/section[2]/div[1]/div[9]/div[1]/div[1]/table[1]/tbody[1]/tr[1]/td[2]
             productOtherInformation:
+              - text: Maße (H)9,7 x (B)15,8 x (T)3,4
+                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/section[1]/div[1]/div[1]/div[1]/div[1]/div[1]
+              - text: HDMI-Eingang 3
+                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/section[1]/div[1]/div[1]/div[1]/div[1]/div[2]
+              - text: Internet-Verbindung WLAN und LAN
+                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/section[1]/div[1]/div[1]/div[1]/div[1]/div[3]
+              - text: USB-Eingang 2
+                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/section[1]/div[1]/div[1]/div[1]/div[1]/div[4]
+              - text: Art der Bildschirmauflösung 4K/UHD
+                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/section[1]/div[1]/div[1]/div[1]/div[1]/div[5]
+              - text: Bildschirmart LED
+                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/section[1]/div[1]/div[1]/div[1]/div[1]/div[6]
+              - text: Bildschirmauflösung 3840 x 2160
+                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/section[1]/div[1]/div[1]/div[1]/div[1]/div[7]
+              - text: HDR (High Dynamic Range) Ja
+                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/section[1]/div[1]/div[1]/div[1]/div[1]/div[8]
+              - text: Sichtbare Bildschirmdiagonale (Zoll) 70 Zoll
+                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/section[1]/div[1]/div[1]/div[1]/div[1]/div[9]
+              - text: Ständerart statisch
+                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/section[1]/div[1]/div[1]/div[1]/div[1]/div[10]
+              - text: Gewährleistung 2 Jahr(e)
+                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/section[1]/div[1]/div[1]/div[1]/div[1]/div[11]
+              - text: Smart TV Ja
+                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/section[1]/div[1]/div[1]/div[1]/div[1]/div[12]
               - text: |-
-                  Maße (H)9,7 x (B)15,8 x (T)3,4 
+                  Betriebssystem. 
                    
-                   HDMI-Eingang 3 
+                   VIDAA U4.0
+                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/section[1]/div[1]/div[2]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[1]
+              - text: |-
+                  Energieeffizienzklasse (EU) 
                    
-                   Internet-Verbindung WLAN und LAN 
+                   A+
+                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/section[1]/div[1]/div[2]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[2]
+              - text: |-
+                  Highlights 
                    
-                   USB-Eingang 2 
+                   HDR und Alexa-Sprachsteuerung
+                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/section[1]/div[1]/div[2]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[3]
+              - text: |-
+                  Sichtbare Bildschirmdiagonale (cm) 
                    
-                   Art der Bildschirmauflösung 4K/UHD 
+                   177 cm
+                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/section[1]/div[1]/div[2]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[4]
+              - text: |-
+                  CI-Slot 
                    
-                   Bildschirmart LED 
+                   Ja
+                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/section[1]/div[1]/div[2]/div[2]/div[1]/div[1]/table[1]/tbody[1]/tr[1]
+              - text: |-
+                  Digital-Ausgang (optisch) 
                    
-                   Bildschirmauflösung 3840 x 2160 
+                   1
+                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/section[1]/div[1]/div[2]/div[2]/div[1]/div[1]/table[1]/tbody[1]/tr[2]
+              - text: |-
+                  HDMI ARC (Audio Return Channel) 
                    
-                   HDR (High Dynamic Range) Ja 
+                   Ja
+                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/section[1]/div[1]/div[2]/div[2]/div[1]/div[1]/table[1]/tbody[1]/tr[3]
+              - text: |-
+                  HDMI-Eingang 
                    
-                   Sichtbare Bildschirmdiagonale (Zoll) 70 Zoll 
+                   3
+                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/section[1]/div[1]/div[2]/div[2]/div[1]/div[1]/table[1]/tbody[1]/tr[4]
+              - text: |-
+                  Internet-Verbindung 
                    
-                   Ständerart statisch 
+                   WLAN und LAN
+                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/section[1]/div[1]/div[2]/div[2]/div[1]/div[1]/table[1]/tbody[1]/tr[5]
+              - text: |-
+                  Komponenten-Eingang 
                    
-                   Gewährleistung 2 Jahr(e) 
+                   1
+                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/section[1]/div[1]/div[2]/div[2]/div[1]/div[1]/table[1]/tbody[1]/tr[6]
+              - text: |-
+                  USB-Eingang 
                    
-                   Smart TV Ja
-                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/section[1]/div[1]/div[1]/div[1]/div[1]
+                   2
+                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/section[1]/div[1]/div[2]/div[2]/div[1]/div[1]/table[1]/tbody[1]/tr[7]
+              - text: |-
+                  Timeshift-Funktion 
+                   
+                   Ja
+                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/section[1]/div[1]/div[2]/div[3]/div[1]/div[1]/table[1]/tbody[1]/tr[1]
+              - text: |-
+                  4K Ultra HD 
+                   
+                   Ja
+                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/section[1]/div[1]/div[2]/div[4]/div[1]/div[1]/table[1]/tbody[1]/tr[1]
+              - text: |-
+                  4K/UHD-Auflösung 
+                   
+                   Ja
+                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/section[1]/div[1]/div[2]/div[4]/div[1]/div[1]/table[1]/tbody[1]/tr[2]
+              - text: |-
+                  4K/UHD-Upscaling 
+                   
+                   Ja
+                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/section[1]/div[1]/div[2]/div[4]/div[1]/div[1]/table[1]/tbody[1]/tr[3]
+              - text: |-
+                  Art der Bildschirmauflösung 
+                   
+                   4K/UHD
+                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/section[1]/div[1]/div[2]/div[4]/div[1]/div[1]/table[1]/tbody[1]/tr[4]
+              - text: |-
+                  Bildschirmart 
+                   
+                   LED
+                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/section[1]/div[1]/div[2]/div[4]/div[1]/div[1]/table[1]/tbody[1]/tr[5]
+              - text: |-
+                  Bildschirmauflösung 
+                   
+                   3840 x 2160
+                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/section[1]/div[1]/div[2]/div[4]/div[1]/div[1]/table[1]/tbody[1]/tr[6]
+              - text: |-
+                  Bildschirmform 
+                   
+                   Flat
+                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/section[1]/div[1]/div[2]/div[4]/div[1]/div[1]/table[1]/tbody[1]/tr[7]
+              - text: |-
+                  Game Mode 
+                   
+                   Ja
+                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/section[1]/div[1]/div[2]/div[4]/div[1]/div[1]/table[1]/tbody[1]/tr[8]
+              - text: |-
+                  HDR (High Dynamic Range) 
+                   
+                   Ja
+                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/section[1]/div[1]/div[2]/div[4]/div[1]/div[1]/table[1]/tbody[1]/tr[9]
+              - text: |-
+                  HDR Herstellerspezifisch. 
+                   
+                   HDR10, HDR10+, HLG
+                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/section[1]/div[1]/div[2]/div[4]/div[1]/div[1]/table[1]/tbody[1]/tr[10]
+              - text: |-
+                  HDR10 
+                   
+                   Ja
+                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/section[1]/div[1]/div[2]/div[4]/div[1]/div[1]/table[1]/tbody[1]/tr[11]
+              - text: |-
+                  HDR10+ 
+                   
+                   Ja
+                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/section[1]/div[1]/div[2]/div[4]/div[1]/div[1]/table[1]/tbody[1]/tr[12]
+              - text: |-
+                  HLG 
+                   
+                   Ja
+                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/section[1]/div[1]/div[2]/div[4]/div[1]/div[1]/table[1]/tbody[1]/tr[13]
+              - text: |-
+                  Sichtbare Bildschirmdiagonale (Zoll) 
+                   
+                   70 Zoll
+                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/section[1]/div[1]/div[2]/div[4]/div[1]/div[1]/table[1]/tbody[1]/tr[14]
+              - text: |-
+                  Ständerart 
+                   
+                   statisch
+                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/section[1]/div[1]/div[2]/div[5]/div[1]/div[1]/table[1]/tbody[1]/tr[1]
+              - text: |-
+                  Aufnahmefunktionen 
+                   
+                   Timeshift
+                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/section[1]/div[1]/div[2]/div[6]/div[1]/div[1]/table[1]/tbody[1]/tr[1]
+              - text: |-
+                  Elektronischer Programmführer (EPG). 
+                   
+                   Ja
+                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/section[1]/div[1]/div[2]/div[6]/div[1]/div[1]/table[1]/tbody[1]/tr[2]
+              - text: |-
+                  Untertitel-Unterstützung. 
+                   
+                   Ja
+                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/section[1]/div[1]/div[2]/div[6]/div[1]/div[1]/table[1]/tbody[1]/tr[3]
+              - text: |-
+                  DAZN 
+                   
+                   Ja
+                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/section[1]/div[1]/div[2]/div[7]/div[1]/div[1]/table[1]/tbody[1]/tr[1]
+              - text: |-
+                  Empfangsart 
+                   
+                   Triple Tuner
+                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/section[1]/div[1]/div[2]/div[7]/div[1]/div[1]/table[1]/tbody[1]/tr[2]
+              - text: >-
+                  Empfangsarten 
+                   
+                   DVB-C (Kabel), DVB-S (Satellit), DVB-S2 (Satellit), DVB-T2 HD (Terrestrisch/Antenne)
+                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/section[1]/div[1]/div[2]/div[7]/div[1]/div[1]/table[1]/tbody[1]/tr[3]
+              - text: |-
+                  HbbTV 
+                   
+                   Ja
+                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/section[1]/div[1]/div[2]/div[7]/div[1]/div[1]/table[1]/tbody[1]/tr[4]
+              - text: |-
+                  Maxdome 
+                   
+                   Ja
+                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/section[1]/div[1]/div[2]/div[7]/div[1]/div[1]/table[1]/tbody[1]/tr[5]
+              - text: |-
+                  Netflix 
+                   
+                   Ja
+                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/section[1]/div[1]/div[2]/div[7]/div[1]/div[1]/table[1]/tbody[1]/tr[6]
+              - text: |-
+                  Prime Video 
+                   
+                   Ja
+                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/section[1]/div[1]/div[2]/div[7]/div[1]/div[1]/table[1]/tbody[1]/tr[7]
+              - text: |-
+                  Rakuten TV 
+                   
+                   Ja
+                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/section[1]/div[1]/div[2]/div[7]/div[1]/div[1]/table[1]/tbody[1]/tr[8]
+              - text: |-
+                  Unicable-Unterstützung 
+                   
+                   Ja
+                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/section[1]/div[1]/div[2]/div[7]/div[1]/div[1]/table[1]/tbody[1]/tr[9]
+              - text: |-
+                  Web Browser 
+                   
+                   Ja
+                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/section[1]/div[1]/div[2]/div[7]/div[1]/div[1]/table[1]/tbody[1]/tr[10]
+              - text: |-
+                  YouTube 
+                   
+                   Ja
+                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/section[1]/div[1]/div[2]/div[7]/div[1]/div[1]/table[1]/tbody[1]/tr[11]
+              - text: |-
+                  Gewährleistung 
+                   
+                   2 Jahr(e)
+                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/section[1]/div[1]/div[2]/div[8]/div[1]/div[1]/table[1]/tbody[1]/tr[1]
+              - text: |-
+                  Gewicht mit Standfuß 
+                   
+                   21,5 kg
+                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/section[1]/div[1]/div[2]/div[9]/div[1]/div[1]/table[1]/tbody[1]/tr[1]
+              - text: |-
+                  Gewicht ohne Standfuß 
+                   
+                   21 kg
+                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/section[1]/div[1]/div[2]/div[9]/div[1]/div[1]/table[1]/tbody[1]/tr[2]
+              - text: |-
+                  VESA Wandhalterungsnorm 
+                   
+                   400 x 300 mm
+                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/section[1]/div[1]/div[2]/div[9]/div[1]/div[1]/table[1]/tbody[1]/tr[3]
+              - text: |-
+                  Bluetooth 
+                   
+                   Ja
+                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/section[1]/div[1]/div[2]/div[10]/div[1]/div[1]/table[1]/tbody[1]/tr[1]
+              - text: |-
+                  Klangoptimierung 
+                   
+                   DTS Virtual X, Sound Special (Dolby Audio)
+                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/section[1]/div[1]/div[2]/div[11]/div[1]/div[1]/table[1]/tbody[1]/tr[1]
+              - text: |-
+                  DTS Virtual:X 
+                   
+                   Ja
+                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/section[1]/div[1]/div[2]/div[12]/div[1]/div[1]/table[1]/tbody[1]/tr[1]
+              - text: |-
+                  Interne Lautsprecher 
+                   
+                   2
+                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/section[1]/div[1]/div[2]/div[12]/div[1]/div[1]/table[1]/tbody[1]/tr[2]
+              - text: |-
+                  Lautsprecherleistung in Watt (RMS) 
+                   
+                   20 Watt
+                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/section[1]/div[1]/div[2]/div[12]/div[1]/div[1]/table[1]/tbody[1]/tr[3]
+              - text: |-
+                  Lautsprecher-Typ 
+                   
+                   2.0
+                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/section[1]/div[1]/div[2]/div[12]/div[1]/div[1]/table[1]/tbody[1]/tr[4]
+              - text: |-
+                  Lieferumfang 
+                   
+                   Fernbedienung, Batterien, Anleitung
+                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/section[1]/div[1]/div[2]/div[13]/div[1]/div[1]/table[1]/tbody[1]/tr[1]
+              - text: |-
+                  Unterstütze Bildformate 
+                   
+                   JPEG / BMP / PNG
+                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/section[1]/div[1]/div[2]/div[14]/div[1]/div[1]/table[1]/tbody[1]/tr[1]
+              - text: |-
+                  Unterstützte Wiedergabeformate (Audio) 
+                   
+                   MP3
+                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/section[1]/div[1]/div[2]/div[14]/div[1]/div[1]/table[1]/tbody[1]/tr[2]
+              - text: |-
+                  Unterstützte Wiedergabeformate (Video) 
+                   
+                   AVI / WMV / MP4 / MOV / MKV / MPG / MPEG / VOB / FLV
+                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/section[1]/div[1]/div[2]/div[14]/div[1]/div[1]/table[1]/tbody[1]/tr[3]
+              - text: |-
+                  USB-Aufnahme (PVR) 
+                   
+                   Ja
+                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/section[1]/div[1]/div[2]/div[14]/div[1]/div[1]/table[1]/tbody[1]/tr[4]
+              - text: |-
+                  USB-Mediaplayer 
+                   
+                   Ja
+                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/section[1]/div[1]/div[2]/div[14]/div[1]/div[1]/table[1]/tbody[1]/tr[5]
+              - text: |-
+                  EAN 
+                   
+                   6942147460443
+                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/section[1]/div[1]/div[2]/div[15]/div[1]/div[1]/table[1]/tbody[1]/tr[1]
+              - text: |-
+                  Energieverbrauch im Ein-Zustand 
+                   
+                   133 Watt
+                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/section[1]/div[1]/div[2]/div[15]/div[1]/div[1]/table[1]/tbody[1]/tr[2]
+              - text: |-
+                  Energieverbrauch im Standby-Zustand 
+                   
+                   0,5 Watt
+                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/section[1]/div[1]/div[2]/div[15]/div[1]/div[1]/table[1]/tbody[1]/tr[3]
+              - text: |-
+                  Farbe 
+                   
+                   Schwarz
+                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/section[1]/div[1]/div[2]/div[15]/div[1]/div[1]/table[1]/tbody[1]/tr[4]
+              - text: |-
+                  Gewicht 
+                   
+                   21,5 kg
+                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/section[1]/div[1]/div[2]/div[15]/div[1]/div[1]/table[1]/tbody[1]/tr[5]
+              - text: |-
+                  Handelszeichen des Lieferanten (Marke) 
+                   
+                   70AE7000F / Hisense
+                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/section[1]/div[1]/div[2]/div[15]/div[1]/div[1]/table[1]/tbody[1]/tr[6]
+              - text: |-
+                  Jährlicher Energieverbrauch (AV). 
+                   
+                   195 kWh
+                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/section[1]/div[1]/div[2]/div[15]/div[1]/div[1]/table[1]/tbody[1]/tr[7]
+              - text: |-
+                  Kategorie 
+                   
+                   Fernseher
+                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/section[1]/div[1]/div[2]/div[15]/div[1]/div[1]/table[1]/tbody[1]/tr[8]
+              - text: |-
+                  Marke 
+                   
+                   Hisense
+                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/section[1]/div[1]/div[2]/div[15]/div[1]/div[1]/table[1]/tbody[1]/tr[9]
+              - text: |-
+                  Maße 
+                   
+                   (H)9,7 x (B)15,8 x (T)3,4
+                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/section[1]/div[1]/div[2]/div[15]/div[1]/div[1]/table[1]/tbody[1]/tr[10]
+              - text: |-
+                  SKU 
+                   
+                   70AE7000F_BK
+                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/section[1]/div[1]/div[2]/div[15]/div[1]/div[1]/table[1]/tbody[1]/tr[11]
+              - text: |-
+                  Standbreite 
+                   
+                   144,2 cm
+                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/section[1]/div[1]/div[2]/div[15]/div[1]/div[1]/table[1]/tbody[1]/tr[12]
+              - text: |-
+                  Sprachsteuerung 
+                   
+                   Ja
+                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/section[1]/div[1]/div[2]/div[16]/div[1]/div[1]/table[1]/tbody[1]/tr[1]
+              - text: |-
+                  App-Portal/Store 
+                   
+                   Ja
+                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/section[1]/div[1]/div[2]/div[16]/div[1]/div[1]/table[1]/tbody[1]/tr[2]
+              - text: |-
+                  kompatibel mit Amazon Alexa 
+                   
+                   Ja
+                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/section[1]/div[1]/div[2]/div[16]/div[1]/div[1]/table[1]/tbody[1]/tr[3]
+              - text: |-
+                  Screen Mirroring 
+                   
+                   Ja
+                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/section[1]/div[1]/div[2]/div[16]/div[1]/div[1]/table[1]/tbody[1]/tr[4]
+              - text: |-
+                  Smart Phone/Tablet-App verfügbar 
+                   
+                   Ja
+                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/section[1]/div[1]/div[2]/div[16]/div[1]/div[1]/table[1]/tbody[1]/tr[5]
+              - text: |-
+                  Smart TV 
+                   
+                   Ja
+                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/section[1]/div[1]/div[2]/div[16]/div[1]/div[1]/table[1]/tbody[1]/tr[6]
+              - text: |-
+                  Amazon Alexa 
+                   
+                   Ja
+                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/section[1]/div[1]/div[2]/div[17]/div[1]/div[1]/table[1]/tbody[1]/tr[1]
+              - text: |-
+                  Sprachassistenten 
+                   
+                   Ja
+                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/section[1]/div[1]/div[2]/div[17]/div[1]/div[1]/table[1]/tbody[1]/tr[2]
+              - text: |-
+                  Batterien für Fernbedienung enthalten 
+                   
+                   Ja
+                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/section[1]/div[1]/div[2]/div[18]/div[1]/div[1]/table[1]/tbody[1]/tr[1]
+              - text: |-
+                  Fernbedienung 
+                   
+                   Ja
+                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/section[1]/div[1]/div[2]/div[18]/div[1]/div[1]/table[1]/tbody[1]/tr[2]
+              - text: |-
+                  Handbuch / Kurzanleitung 
+                   
+                   Ja
+                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/section[1]/div[1]/div[2]/div[18]/div[1]/div[1]/table[1]/tbody[1]/tr[3]
+              - text: |-
+                  Stromkabel 
+                   
+                   Ja
+                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/section[1]/div[1]/div[2]/div[18]/div[1]/div[1]/table[1]/tbody[1]/tr[4]
             promotion:
               - text: Ersparnis €450
-                xpath: /html/body/div[1]/div[1]/main[1]/div[1]/div[2]/section[1]/div[4]/div[1]/div[1]/div[1]/div[1]
+                xpath: /html/body/div[1]/div[1]/main[1]/div[1]/div[2]/section[1]/div[5]/div[1]/div[1]/div[1]/div[1]
             variantInformation:
               - text: Bildschirmdiagonale
-                xpath: /html/body/div[1]/div[1]/main[1]/div[1]/div[2]/section[1]/div[6]/h3[1]
+                xpath: /html/body/div[1]/div[1]/main[1]/div[1]/div[2]/section[1]/div[7]/h3[1]
             firstVariant:
               - text: 177 cm
-                xpath: /html/body/div[1]/div[1]/main[1]/div[1]/div[2]/section[1]/div[6]/ul[1]/li[1]/span[1]
+                xpath: /html/body/div[1]/div[1]/main[1]/div[1]/div[2]/section[1]/div[7]/ul[1]/li[1]/span[1]
             variants:
               - text: 177 cm
-                xpath: /html/body/div[1]/div[1]/main[1]/div[1]/div[2]/section[1]/div[6]/ul[1]/li[1]/span[1]
+                xpath: /html/body/div[1]/div[1]/main[1]/div[1]/div[2]/section[1]/div[7]/ul[1]/li[1]/span[1]
               - text: 189 cm
-                xpath: /html/body/div[1]/div[1]/main[1]/div[1]/div[2]/section[1]/div[6]/ul[1]/li[2]/span[1]
+                xpath: /html/body/div[1]/div[1]/main[1]/div[1]/div[2]/section[1]/div[7]/ul[1]/li[2]/span[1]
             additionalDescBulletInfo:
               - text: >-
                   4K/UHD-Auflösung - die höchste Auflösung für die schärfsten
@@ -211,7 +621,7 @@ extractions:
                 xpath: /html/body/div[1]/div[1]/main[1]/div[1]/div[2]/section[2]/div[1]/div[1]
             energyEfficiency:
               - text: A+
-                xpath: /html/body/div[1]/div[1]/main[1]/div[1]/div[2]/section[1]/div[4]/div[2]/span[1]/div[1]
+                xpath: /html/body/div[1]/div[1]/main[1]/div[1]/div[2]/section[1]/div[5]/div[2]/span[1]/div[1]
             technicalInformationPdfPresent:
               - text: Yes
                 xpath: /html/body/div[1]/div[1]/div[5]/div[5]/a[2]/@href
@@ -235,4 +645,4 @@ extractions:
             variantCount:
               - text: "2"
         xpath: /
-    timestamp: 1607699711871
+    timestamp: 1607956601032

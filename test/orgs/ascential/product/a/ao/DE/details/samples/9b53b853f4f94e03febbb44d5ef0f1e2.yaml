@@ -2,7 +2,7 @@ input:
   id: 57697
   _url: http://ao.de
 extractions:
-  - html: https://workbench.import.io/html/run=474061ef-838c-4a50-a0f2-08b9517fb1ff/task=aaa0b998-8019-4061-803a-de557291aac1/ca260bed-17b4-4f11-bb6f-ef9fedc8246e.html
+  - html: https://workbench.import.io/html/run=ed0bc679-e654-4f77-a96b-062182e673c2/task=f7f56871-6ba7-4562-b39f-20770464801c/31d24e02-b42e-425d-a090-f272a668d1d5.html
     extractionConfigId: product/details/stores/a/ao/DE/extract
     data:
       - group:
@@ -140,29 +140,218 @@ extractions:
               - text: Miele K34242iF Einbau-Kühlschrank mit Gefrierfach - Festtür-Technik, A++
                 xpath: /html/body/div[1]/div[1]/main[1]/div[1]/div[2]/section[1]/h1[1]
             specifications:
-              - text: (H)121,8 x (B)55,9 x (T)54,4
-                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/section[1]/div[1]/div[1]/div[1]/div[1]/div[1]/span[2]
+              - text: Maße in cm - H121,8 x B55,9 x T54,4
+                xpath: /html/body/div[1]/div[1]/main[1]/div[1]/div[1]/section[2]/section[1]/div[1]/div[1]/ul[1]/li[5]
             warranty:
               - text: 2 Jahr(e)
                 xpath: /html/body/div[1]/div[1]/main[1]/div[1]/div[1]/section[2]/div[1]/div[3]/div[1]/div[1]/table[1]/tbody[1]/tr[1]/td[2]
             productOtherInformation:
+              - text: Maße (H)121,8 x (B)55,9 x (T)54,4
+                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/section[1]/div[1]/div[1]/div[1]/div[1]/div[1]
+              - text: Energieeffizienzklasse (EU) A++
+                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/section[1]/div[1]/div[1]/div[1]/div[1]/div[2]
+              - text: Nutzinhalt (Kühlen) 185 Liter
+                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/section[1]/div[1]/div[1]/div[1]/div[1]/div[3]
+              - text: Gewährleistung 2 Jahr(e)
+                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/section[1]/div[1]/div[1]/div[1]/div[1]/div[4]
+              - text: Marke Miele
+                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/section[1]/div[1]/div[1]/div[1]/div[1]/div[5]
+              - text: Farbe Weiß
+                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/section[1]/div[1]/div[1]/div[1]/div[1]/div[6]
+              - text: Kategorie Kühlschränke
+                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/section[1]/div[1]/div[1]/div[1]/div[1]/div[7]
+              - text: SKU K34242iF WH
+                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/section[1]/div[1]/div[1]/div[1]/div[1]/div[8]
               - text: |-
-                  Maße (H)121,8 x (B)55,9 x (T)54,4 
+                  Betriebsart 
                    
-                   Energieeffizienzklasse (EU) A++ 
+                   Netzbetrieb
+                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/section[1]/div[1]/div[2]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[1]
+              - text: |-
+                  Anzahl der Abstellflächen (davon verstellbar) 
                    
-                   Nutzinhalt (Kühlen) 185 Liter 
+                   5 (4)
+                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/section[1]/div[1]/div[2]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[2]
+              - text: |-
+                  Betriebsgeräusch 
                    
-                   Gewährleistung 2 Jahr(e) 
+                   37 dB
+                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/section[1]/div[1]/div[2]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[3]
+              - text: |-
+                  Display 
                    
-                   Marke Miele 
+                   Digital
+                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/section[1]/div[1]/div[2]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[4]
+              - text: |-
+                  Einbaugerät 
                    
-                   Farbe Weiß 
+                   Ja
+                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/section[1]/div[1]/div[2]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[5]
+              - text: |-
+                  Einbaumaße (H x B x T) 
                    
-                   Kategorie Kühlschränke 
+                   122,0 cm - 123,6 cm x 56,0 cm - 57,0 cm x 55,0 cm cm
+                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/section[1]/div[1]/div[2]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[6]
+              - text: |-
+                  Energieeffizienzklasse (EU) 
                    
-                   SKU K34242iF WH
-                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/section[1]/div[1]/div[1]/div[1]/div[1]
+                   A++
+                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/section[1]/div[1]/div[2]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[7]
+              - text: |-
+                  Gefrierfach 
+                   
+                   Ja
+                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/section[1]/div[1]/div[2]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[8]
+              - text: |-
+                  Gefrierleistung 
+                   
+                   2 kg/24 Std.
+                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/section[1]/div[1]/div[2]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[9]
+              - text: |-
+                  Innenbeleuchtung 
+                   
+                   LED
+                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/section[1]/div[1]/div[2]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[10]
+              - text: |-
+                  Klimaklasse 
+                   
+                   ST
+                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/section[1]/div[1]/div[2]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[11]
+              - text: |-
+                  LED Innenbeleuchtung 
+                   
+                   Ja
+                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/section[1]/div[1]/div[2]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[12]
+              - text: |-
+                  Nutzinhalt (Gefrieren) 
+                   
+                   16 Liter
+                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/section[1]/div[1]/div[2]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[13]
+              - text: |-
+                  Nutzinhalt (Gesamt) 
+                   
+                   201 Liter
+                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/section[1]/div[1]/div[2]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[14]
+              - text: |-
+                  Nutzinhalt (Kühlen) 
+                   
+                   185 Liter
+                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/section[1]/div[1]/div[2]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[15]
+              - text: |-
+                  Position des Türanschlags 
+                   
+                   rechts
+                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/section[1]/div[1]/div[2]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[16]
+              - text: |-
+                  Sternekennzeichnung des Gefrierfachs 
+                   
+                   4
+                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/section[1]/div[1]/div[2]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[17]
+              - text: |-
+                  Türanschlag wechselbar 
+                   
+                   Ja
+                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/section[1]/div[1]/div[2]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[18]
+              - text: |-
+                  Verstellbare Abstellflächen 
+                   
+                   Ja
+                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/section[1]/div[1]/div[2]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[19]
+              - text: |-
+                  Gewährleistung 
+                   
+                   2 Jahr(e)
+                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/section[1]/div[1]/div[2]/div[2]/div[1]/div[1]/table[1]/tbody[1]/tr[1]
+              - text: |-
+                  Möbeltürbefestigung 
+                   
+                   Festtür-Technik
+                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/section[1]/div[1]/div[2]/div[3]/div[1]/div[1]/table[1]/tbody[1]/tr[1]
+              - text: |-
+                  Behälter für Obst/Gemüse 
+                   
+                   Ja
+                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/section[1]/div[1]/div[2]/div[4]/div[1]/div[1]/table[1]/tbody[1]/tr[1]
+              - text: |-
+                  Eierablage 
+                   
+                   Ja
+                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/section[1]/div[1]/div[2]/div[4]/div[1]/div[1]/table[1]/tbody[1]/tr[2]
+              - text: |-
+                  Material der Abstellflächen 
+                   
+                   Sicherheitsglas
+                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/section[1]/div[1]/div[2]/div[4]/div[1]/div[1]/table[1]/tbody[1]/tr[3]
+              - text: |-
+                  Türabsteller 
+                   
+                   Ja
+                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/section[1]/div[1]/div[2]/div[4]/div[1]/div[1]/table[1]/tbody[1]/tr[4]
+              - text: |-
+                  Innenliegendes Display 
+                   
+                   Ja
+                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/section[1]/div[1]/div[2]/div[5]/div[1]/div[1]/table[1]/tbody[1]/tr[1]
+              - text: |-
+                  EAN 
+                   
+                   4002515159200
+                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/section[1]/div[1]/div[2]/div[6]/div[1]/div[1]/table[1]/tbody[1]/tr[1]
+              - text: |-
+                  Farbe 
+                   
+                   Weiß
+                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/section[1]/div[1]/div[2]/div[6]/div[1]/div[1]/table[1]/tbody[1]/tr[2]
+              - text: |-
+                  Gewicht 
+                   
+                   45 kg
+                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/section[1]/div[1]/div[2]/div[6]/div[1]/div[1]/table[1]/tbody[1]/tr[3]
+              - text: |-
+                  Handelszeichen des Lieferanten (Marke) 
+                   
+                   K34242iF / Miele
+                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/section[1]/div[1]/div[2]/div[6]/div[1]/div[1]/table[1]/tbody[1]/tr[4]
+              - text: |-
+                  Kategorie 
+                   
+                   Kühlschränke
+                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/section[1]/div[1]/div[2]/div[6]/div[1]/div[1]/table[1]/tbody[1]/tr[5]
+              - text: |-
+                  Marke 
+                   
+                   Miele
+                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/section[1]/div[1]/div[2]/div[6]/div[1]/div[1]/table[1]/tbody[1]/tr[6]
+              - text: |-
+                  Maße 
+                   
+                   (H)121,8 x (B)55,9 x (T)54,4
+                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/section[1]/div[1]/div[2]/div[6]/div[1]/div[1]/table[1]/tbody[1]/tr[7]
+              - text: |-
+                  SKU 
+                   
+                   K34242iF_WH
+                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/section[1]/div[1]/div[2]/div[6]/div[1]/div[1]/table[1]/tbody[1]/tr[8]
+              - text: |-
+                  Jährlicher Energieverbrauch (AEc) 
+                   
+                   174 kWh
+                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/section[1]/div[1]/div[2]/div[7]/div[1]/div[1]/table[1]/tbody[1]/tr[1]
+              - text: |-
+                  Lagerzeit bei Störung 
+                   
+                   13 Stunden
+                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/section[1]/div[1]/div[2]/div[7]/div[1]/div[1]/table[1]/tbody[1]/tr[2]
+              - text: |-
+                  ComfortClean 
+                   
+                   Ja
+                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/section[1]/div[1]/div[2]/div[8]/div[1]/div[1]/table[1]/tbody[1]/tr[1]
+              - text: |-
+                  Schnellkühl-Funktion 
+                   
+                   Ja
+                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/section[1]/div[1]/div[2]/div[8]/div[1]/div[1]/table[1]/tbody[1]/tr[2]
             promotion:
               - text: Ersparnis €69
                 xpath: /html/body/div[1]/div[1]/main[1]/div[1]/div[2]/section[1]/div[3]/div[1]/div[1]/div[1]/div[1]
@@ -183,7 +372,7 @@ extractions:
                 xpath: /html/body/div[1]/div[1]/main[1]/div[1]/div[2]/section[1]/div[3]/div[2]/span[1]/div[1]
             technicalInformationPdfPresent:
               - text: Yes
-                xpath: /html/body/div[1]/div[1]/div[6]/div[5]/a[2]/@href
+                xpath: /html/body/div[1]/div[1]/div[5]/div[5]/a[2]/@href
             termsAndConditions:
               - text: Yes
                 xpath: /html/body/footer[1]/section[2]/div[2]/ul[2]/li[1]/a[1]/@href
@@ -204,4 +393,4 @@ extractions:
             variantCount:
               - text: "0"
         xpath: /
-    timestamp: 1607699709189
+    timestamp: 1607956598077
