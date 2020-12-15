@@ -4,7 +4,7 @@ regionsSelector: null
 recordXPath: //div[contains(@class,"Article-item") and @id]
 fields:
   - name: category
-    xpath: ancestor::html//li[@class="Breadcrumb-item"][position()=last()]//span[@itemprop="title"]
+    xpath: ancestor::html//li[@class="Breadcrumb-item"][position()!=1]//span[@itemprop="title"]
   - name: _input
   - name: productUrl
     singleValue: false
