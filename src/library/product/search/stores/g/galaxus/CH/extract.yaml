@@ -17,10 +17,10 @@ fields:
     xpath: //a[contains(@class,"styled__StyledLink-sc-5q25ol-0 cMeqUS")]/@aria-label
   - name: price
     SingleValue: false
-    xpath: //div[contains(@class,"ZZb")]//strong[contains(@class,"ZZ")]
+    xpath: //*[@id="productListingContainer"]/div/article/div[2]/div[2]/div[2]/div/div[2]/strong
   - name: reviewCount
     singleValue: false
-    xpath: //article[contains(@class,"panelProduct")]//div[contains(@class,"ZZcd")]//span[not(@class)] 
+    xpath: //*[@id="productListingContainer"]/div/article/div[2]/div[3]/a/span
   - name: ratingCount
     singleValue: false
-    xpath: //article[contains(@class,"panelProduct")]//div[contains(@class,"ZZcd")]//span[not(@class)] 
+    xpath: //*[@id="productListingContainer"]/div/article/div[2]/div[3]/a/span

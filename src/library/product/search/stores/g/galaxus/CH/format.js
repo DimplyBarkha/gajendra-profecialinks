@@ -47,7 +47,8 @@ const transform = (data) => {
         }
         if (row.price) {
           row.price.forEach(item => {
-            item.text = item.text.replace('.', ',').trim();
+            item.text = item.text.replace(/\s*/g, '').trim();
+            item.text = item.text.replace('.', '.').trim();
           });
         }
         if (row.name) {
