@@ -1,0 +1,970 @@
+input:
+  _url: http://insight.com
+  URL: https://www.insight.com/en_US/search.html?qtype=all
+extractions:
+  - html: https://workbench.import.io/html/run=b8329d55-8b52-41e5-9cbc-ef70bb4ad1b1/task=f29ceca4-a8f7-4c96-b8ff-e3af1de98ba9/285367bd-f1a2-42a2-b2a6-a8dc0a266514.html
+    extractionConfigId: tracker/categories/stores/i/insight/US/extract
+    data:
+      - group:
+          - category:
+              - text: Applications
+                xpath: /html/body/div[8]/div[1]
+            categoryUrl:
+              - text: https://www.insight.com/en_US/search.html?qtype=all&pq=%7B%22searchTerms%22%3A%7B%22Applications%22%3A%7B%22field%22%3A%22category%22%2C%22value%22%3A%22C-GB%22%7D%7D%2C%22sortBy%22%3A%22BestMatch%22%7D
+                xpath: /html/body/div[8]/div[2]
+          - category:
+              - text: Services - Warranty Electronic
+                xpath: /html/body/div[9]/div[1]
+            categoryUrl:
+              - text: https://www.insight.com/en_US/search.html?qtype=all&pq=%7B%22searchTerms%22%3A%7B%22Services%2520-%2520Warranty%2520Electronic%22%3A%7B%22field%22%3A%22category%22%2C%22value%22%3A%22C-ZF%22%7D%7D%2C%22sortBy%22%3A%22BestMatch%22%7D
+                xpath: /html/body/div[9]/div[2]
+          - category:
+              - text: Software Service/Support
+                xpath: /html/body/div[10]/div[1]
+            categoryUrl:
+              - text: https://www.insight.com/en_US/search.html?qtype=all&pq=%7B%22searchTerms%22%3A%7B%22Software%2520Service%252FSupport%22%3A%7B%22field%22%3A%22category%22%2C%22value%22%3A%22C-GC%22%7D%7D%2C%22sortBy%22%3A%22BestMatch%22%7D
+                xpath: /html/body/div[10]/div[2]
+          - category:
+              - text: Network Cables
+                xpath: /html/body/div[11]/div[1]
+            categoryUrl:
+              - text: https://www.insight.com/en_US/search.html?qtype=all&pq=%7B%22searchTerms%22%3A%7B%22Network%2520Cables%22%3A%7B%22field%22%3A%22category%22%2C%22value%22%3A%22C-FI%22%7D%7D%2C%22sortBy%22%3A%22BestMatch%22%7D
+                xpath: /html/body/div[11]/div[2]
+          - category:
+              - text: Storage Cabinets
+                xpath: /html/body/div[12]/div[1]
+            categoryUrl:
+              - text: https://www.insight.com/en_US/search.html?qtype=all&pq=%7B%22searchTerms%22%3A%7B%22Storage%2520Cabinets%22%3A%7B%22field%22%3A%22category%22%2C%22value%22%3A%22C-CI%22%7D%7D%2C%22sortBy%22%3A%22BestMatch%22%7D
+                xpath: /html/body/div[12]/div[2]
+          - category:
+              - text: Accessories
+                xpath: /html/body/div[13]/div[1]
+            categoryUrl:
+              - text: https://www.insight.com/en_US/search.html?qtype=all&pq=%7B%22searchTerms%22%3A%7B%22Accessories%22%3A%7B%22field%22%3A%22category%22%2C%22value%22%3A%22C-MI%22%7D%7D%2C%22sortBy%22%3A%22BestMatch%22%7D
+                xpath: /html/body/div[13]/div[2]
+          - category:
+              - text: Answering Machines/Caller ID
+                xpath: /html/body/div[14]/div[1]
+            categoryUrl:
+              - text: https://www.insight.com/en_US/search.html?qtype=all&pq=%7B%22searchTerms%22%3A%7B%22Answering%2520Machines%252FCaller%2520ID%22%3A%7B%22field%22%3A%22category%22%2C%22value%22%3A%22C-PD%22%7D%7D%2C%22sortBy%22%3A%22BestMatch%22%7D
+                xpath: /html/body/div[14]/div[2]
+          - category:
+              - text: Antennas
+                xpath: /html/body/div[15]/div[1]
+            categoryUrl:
+              - text: https://www.insight.com/en_US/search.html?qtype=all&pq=%7B%22searchTerms%22%3A%7B%22Antennas%22%3A%7B%22field%22%3A%22category%22%2C%22value%22%3A%22C-MA%22%7D%7D%2C%22sortBy%22%3A%22BestMatch%22%7D
+                xpath: /html/body/div[15]/div[2]
+          - category:
+              - text: AV Blank Media
+                xpath: /html/body/div[16]/div[1]
+            categoryUrl:
+              - text: https://www.insight.com/en_US/search.html?qtype=all&pq=%7B%22searchTerms%22%3A%7B%22AV%2520Blank%2520Media%22%3A%7B%22field%22%3A%22category%22%2C%22value%22%3A%22C-MC%22%7D%7D%2C%22sortBy%22%3A%22BestMatch%22%7D
+                xpath: /html/body/div[16]/div[2]
+          - category:
+              - text: AV Furniture
+                xpath: /html/body/div[17]/div[1]
+            categoryUrl:
+              - text: https://www.insight.com/en_US/search.html?qtype=all&pq=%7B%22searchTerms%22%3A%7B%22AV%2520Furniture%22%3A%7B%22field%22%3A%22category%22%2C%22value%22%3A%22C-MD%22%7D%7D%2C%22sortBy%22%3A%22BestMatch%22%7D
+                xpath: /html/body/div[17]/div[2]
+          - category:
+              - text: Bar Code Readers
+                xpath: /html/body/div[18]/div[1]
+            categoryUrl:
+              - text: https://www.insight.com/en_US/search.html?qtype=all&pq=%7B%22searchTerms%22%3A%7B%22Bar%2520Code%2520Readers%22%3A%7B%22field%22%3A%22category%22%2C%22value%22%3A%22C-DE%22%7D%7D%2C%22sortBy%22%3A%22BestMatch%22%7D
+                xpath: /html/body/div[18]/div[2]
+          - category:
+              - text: Binoculars
+                xpath: /html/body/div[19]/div[1]
+            categoryUrl:
+              - text: https://www.insight.com/en_US/search.html?qtype=all&pq=%7B%22searchTerms%22%3A%7B%22Binoculars%22%3A%7B%22field%22%3A%22category%22%2C%22value%22%3A%22C-LD%22%7D%7D%2C%22sortBy%22%3A%22BestMatch%22%7D
+                xpath: /html/body/div[19]/div[2]
+          - category:
+              - text: Bridges/Routers
+                xpath: /html/body/div[20]/div[1]
+            categoryUrl:
+              - text: https://www.insight.com/en_US/search.html?qtype=all&pq=%7B%22searchTerms%22%3A%7B%22Bridges%252FRouters%22%3A%7B%22field%22%3A%22category%22%2C%22value%22%3A%22C-FF%22%7D%7D%2C%22sortBy%22%3A%22BestMatch%22%7D
+                xpath: /html/body/div[20]/div[2]
+          - category:
+              - text: Business Phone Systems
+                xpath: /html/body/div[21]/div[1]
+            categoryUrl:
+              - text: https://www.insight.com/en_US/search.html?qtype=all&pq=%7B%22searchTerms%22%3A%7B%22Business%2520Phone%2520Systems%22%3A%7B%22field%22%3A%22category%22%2C%22value%22%3A%22C-FM%22%7D%7D%2C%22sortBy%22%3A%22BestMatch%22%7D
+                xpath: /html/body/div[21]/div[2]
+          - category:
+              - text: Cables
+                xpath: /html/body/div[22]/div[1]
+            categoryUrl:
+              - text: https://www.insight.com/en_US/search.html?qtype=all&pq=%7B%22searchTerms%22%3A%7B%22Cables%22%3A%7B%22field%22%3A%22category%22%2C%22value%22%3A%22C-MH%22%7D%7D%2C%22sortBy%22%3A%22BestMatch%22%7D
+                xpath: /html/body/div[22]/div[2]
+          - category:
+              - text: Cache Memory
+                xpath: /html/body/div[23]/div[1]
+            categoryUrl:
+              - text: https://www.insight.com/en_US/search.html?qtype=all&pq=%7B%22searchTerms%22%3A%7B%22Cache%2520Memory%22%3A%7B%22field%22%3A%22category%22%2C%22value%22%3A%22C-BC%22%7D%7D%2C%22sortBy%22%3A%22BestMatch%22%7D
+                xpath: /html/body/div[23]/div[2]
+          - category:
+              - text: Calculators
+                xpath: /html/body/div[24]/div[1]
+            categoryUrl:
+              - text: https://www.insight.com/en_US/search.html?qtype=all&pq=%7B%22searchTerms%22%3A%7B%22Calculators%22%3A%7B%22field%22%3A%22category%22%2C%22value%22%3A%22C-OE%22%7D%7D%2C%22sortBy%22%3A%22BestMatch%22%7D
+                xpath: /html/body/div[24]/div[2]
+          - category:
+              - text: Cameras
+                xpath: /html/body/div[25]/div[1]
+            categoryUrl:
+              - text: https://www.insight.com/en_US/search.html?qtype=all&pq=%7B%22searchTerms%22%3A%7B%22Cameras%22%3A%7B%22field%22%3A%22category%22%2C%22value%22%3A%22C-LA%22%7D%7D%2C%22sortBy%22%3A%22BestMatch%22%7D
+                xpath: /html/body/div[25]/div[2]
+          - category:
+              - text: Car Audio
+                xpath: /html/body/div[26]/div[1]
+            categoryUrl:
+              - text: https://www.insight.com/en_US/search.html?qtype=all&pq=%7B%22searchTerms%22%3A%7B%22Car%2520Audio%22%3A%7B%22field%22%3A%22category%22%2C%22value%22%3A%22C-KC%22%7D%7D%2C%22sortBy%22%3A%22BestMatch%22%7D
+                xpath: /html/body/div[26]/div[2]
+          - category:
+              - text: Car Audio / Video
+                xpath: /html/body/div[27]/div[1]
+            categoryUrl:
+              - text: https://www.insight.com/en_US/search.html?qtype=all&pq=%7B%22searchTerms%22%3A%7B%22Car%2520Audio%2520%252F%2520Video%22%3A%7B%22field%22%3A%22category%22%2C%22value%22%3A%22C-JJ%22%7D%7D%2C%22sortBy%22%3A%22BestMatch%22%7D
+                xpath: /html/body/div[27]/div[2]
+          - category:
+              - text: CE Carrying Cases
+                xpath: /html/body/div[28]/div[1]
+            categoryUrl:
+              - text: https://www.insight.com/en_US/search.html?qtype=all&pq=%7B%22searchTerms%22%3A%7B%22CE%2520Carrying%2520Cases%22%3A%7B%22field%22%3A%22category%22%2C%22value%22%3A%22C-ME%22%7D%7D%2C%22sortBy%22%3A%22BestMatch%22%7D
+                xpath: /html/body/div[28]/div[2]
+          - category:
+              - text: Cloud-Email Arch
+                xpath: /html/body/div[29]/div[1]
+            categoryUrl:
+              - text: https://www.insight.com/en_US/search.html?qtype=all&pq=%7B%22searchTerms%22%3A%7B%22Cloud-Email%2520Arch%22%3A%7B%22field%22%3A%22category%22%2C%22value%22%3A%22C-TC%22%7D%7D%2C%22sortBy%22%3A%22BestMatch%22%7D
+                xpath: /html/body/div[29]/div[2]
+          - category:
+              - text: Cloud-Email Arch - FS
+                xpath: /html/body/div[30]/div[1]
+            categoryUrl:
+              - text: https://www.insight.com/en_US/search.html?qtype=all&pq=%7B%22searchTerms%22%3A%7B%22Cloud-Email%2520Arch%2520-%2520FS%22%3A%7B%22field%22%3A%22category%22%2C%22value%22%3A%22C-WC%22%7D%7D%2C%22sortBy%22%3A%22BestMatch%22%7D
+                xpath: /html/body/div[30]/div[2]
+          - category:
+              - text: Cloud-Email Cont Delivery
+                xpath: /html/body/div[31]/div[1]
+            categoryUrl:
+              - text: https://www.insight.com/en_US/search.html?qtype=all&pq=%7B%22searchTerms%22%3A%7B%22Cloud-Email%2520Cont%2520Delivery%22%3A%7B%22field%22%3A%22category%22%2C%22value%22%3A%22C-TB%22%7D%7D%2C%22sortBy%22%3A%22BestMatch%22%7D
+                xpath: /html/body/div[31]/div[2]
+          - category:
+              - text: Cloud-Email Cont FS
+                xpath: /html/body/div[32]/div[1]
+            categoryUrl:
+              - text: https://www.insight.com/en_US/search.html?qtype=all&pq=%7B%22searchTerms%22%3A%7B%22Cloud-Email%2520Cont%2520FS%22%3A%7B%22field%22%3A%22category%22%2C%22value%22%3A%22C-WB%22%7D%7D%2C%22sortBy%22%3A%22BestMatch%22%7D
+                xpath: /html/body/div[32]/div[2]
+          - category:
+              - text: Cloud-Email Sec -Delivery
+                xpath: /html/body/div[33]/div[1]
+            categoryUrl:
+              - text: https://www.insight.com/en_US/search.html?qtype=all&pq=%7B%22searchTerms%22%3A%7B%22Cloud-Email%2520Sec%2520-Delivery%22%3A%7B%22field%22%3A%22category%22%2C%22value%22%3A%22C-TD%22%7D%7D%2C%22sortBy%22%3A%22BestMatch%22%7D
+                xpath: /html/body/div[33]/div[2]
+          - category:
+              - text: Cloud-Exchange Delivery
+                xpath: /html/body/div[34]/div[1]
+            categoryUrl:
+              - text: https://www.insight.com/en_US/search.html?qtype=all&pq=%7B%22searchTerms%22%3A%7B%22Cloud-Exchange%2520Delivery%22%3A%7B%22field%22%3A%22category%22%2C%22value%22%3A%22C-TA%22%7D%7D%2C%22sortBy%22%3A%22BestMatch%22%7D
+                xpath: /html/body/div[34]/div[2]
+          - category:
+              - text: Cloud-Exchange FS
+                xpath: /html/body/div[35]/div[1]
+            categoryUrl:
+              - text: https://www.insight.com/en_US/search.html?qtype=all&pq=%7B%22searchTerms%22%3A%7B%22Cloud-Exchange%2520FS%22%3A%7B%22field%22%3A%22category%22%2C%22value%22%3A%22C-WA%22%7D%7D%2C%22sortBy%22%3A%22BestMatch%22%7D
+                xpath: /html/body/div[35]/div[2]
+          - category:
+              - text: Cloud-Other - FS
+                xpath: /html/body/div[36]/div[1]
+            categoryUrl:
+              - text: https://www.insight.com/en_US/search.html?qtype=all&pq=%7B%22searchTerms%22%3A%7B%22Cloud-Other%2520-%2520FS%22%3A%7B%22field%22%3A%22category%22%2C%22value%22%3A%22C-WN%22%7D%7D%2C%22sortBy%22%3A%22BestMatch%22%7D
+                xpath: /html/body/div[36]/div[2]
+          - category:
+              - text: Cloud-Remote Backup - FS
+                xpath: /html/body/div[37]/div[1]
+            categoryUrl:
+              - text: https://www.insight.com/en_US/search.html?qtype=all&pq=%7B%22searchTerms%22%3A%7B%22Cloud-Remote%2520Backup%2520-%2520FS%22%3A%7B%22field%22%3A%22category%22%2C%22value%22%3A%22C-WJ%22%7D%7D%2C%22sortBy%22%3A%22BestMatch%22%7D
+                xpath: /html/body/div[37]/div[2]
+          - category:
+              - text: Cloud-Web Sec -Delivery
+                xpath: /html/body/div[38]/div[1]
+            categoryUrl:
+              - text: https://www.insight.com/en_US/search.html?qtype=all&pq=%7B%22searchTerms%22%3A%7B%22Cloud-Web%2520Sec%2520-Delivery%22%3A%7B%22field%22%3A%22category%22%2C%22value%22%3A%22C-TE%22%7D%7D%2C%22sortBy%22%3A%22BestMatch%22%7D
+                xpath: /html/body/div[38]/div[2]
+          - category:
+              - text: Combined AV Devices
+                xpath: /html/body/div[39]/div[1]
+            categoryUrl:
+              - text: https://www.insight.com/en_US/search.html?qtype=all&pq=%7B%22searchTerms%22%3A%7B%22Combined%2520AV%2520Devices%22%3A%7B%22field%22%3A%22category%22%2C%22value%22%3A%22C-JI%22%7D%7D%2C%22sortBy%22%3A%22BestMatch%22%7D
+                xpath: /html/body/div[39]/div[2]
+          - category:
+              - text: Concentrator/Multiplexer
+                xpath: /html/body/div[40]/div[1]
+            categoryUrl:
+              - text: https://www.insight.com/en_US/search.html?qtype=all&pq=%7B%22searchTerms%22%3A%7B%22Concentrator%252FMultiplexer%22%3A%7B%22field%22%3A%22category%22%2C%22value%22%3A%22C-FC%22%7D%7D%2C%22sortBy%22%3A%22BestMatch%22%7D
+                xpath: /html/body/div[40]/div[2]
+          - category:
+              - text: Desktops/Servers
+                xpath: /html/body/div[41]/div[1]
+            categoryUrl:
+              - text: https://www.insight.com/en_US/search.html?qtype=all&pq=%7B%22searchTerms%22%3A%7B%22Desktops%252FServers%22%3A%7B%22field%22%3A%22category%22%2C%22value%22%3A%22C-AA%22%7D%7D%2C%22sortBy%22%3A%22BestMatch%22%7D
+                xpath: /html/body/div[41]/div[2]
+          - category:
+              - text: Digital AV Players/Recorders
+                xpath: /html/body/div[42]/div[1]
+            categoryUrl:
+              - text: https://www.insight.com/en_US/search.html?qtype=all&pq=%7B%22searchTerms%22%3A%7B%22Digital%2520AV%2520Players%252FRecorders%22%3A%7B%22field%22%3A%22category%22%2C%22value%22%3A%22C-JK%22%7D%7D%2C%22sortBy%22%3A%22BestMatch%22%7D
+                xpath: /html/body/div[42]/div[2]
+          - category:
+              - text: Digital Cameras/Camcorders
+                xpath: /html/body/div[43]/div[1]
+            categoryUrl:
+              - text: https://www.insight.com/en_US/search.html?qtype=all&pq=%7B%22searchTerms%22%3A%7B%22Digital%2520Cameras%252FCamcorders%22%3A%7B%22field%22%3A%22category%22%2C%22value%22%3A%22C-JD%22%7D%7D%2C%22sortBy%22%3A%22BestMatch%22%7D
+                xpath: /html/body/div[43]/div[2]
+          - category:
+              - text: Disk Drives
+                xpath: /html/body/div[44]/div[1]
+            categoryUrl:
+              - text: https://www.insight.com/en_US/search.html?qtype=all&pq=%7B%22searchTerms%22%3A%7B%22Disk%2520Drives%22%3A%7B%22field%22%3A%22category%22%2C%22value%22%3A%22C-CC%22%7D%7D%2C%22sortBy%22%3A%22BestMatch%22%7D
+                xpath: /html/body/div[44]/div[2]
+          - category:
+              - text: DVD Players
+                xpath: /html/body/div[45]/div[1]
+            categoryUrl:
+              - text: https://www.insight.com/en_US/search.html?qtype=all&pq=%7B%22searchTerms%22%3A%7B%22DVD%2520Players%22%3A%7B%22field%22%3A%22category%22%2C%22value%22%3A%22C-JC%22%7D%7D%2C%22sortBy%22%3A%22BestMatch%22%7D
+                xpath: /html/body/div[45]/div[2]
+          - category:
+              - text: ESA Fees
+                xpath: /html/body/div[46]/div[1]
+            categoryUrl:
+              - text: https://www.insight.com/en_US/search.html?qtype=all&pq=%7B%22searchTerms%22%3A%7B%22ESA%2520Fees%22%3A%7B%22field%22%3A%22category%22%2C%22value%22%3A%22C-11%22%7D%7D%2C%22sortBy%22%3A%22BestMatch%22%7D
+                xpath: /html/body/div[46]/div[2]
+          - category:
+              - text: Film
+                xpath: /html/body/div[47]/div[1]
+            categoryUrl:
+              - text: https://www.insight.com/en_US/search.html?qtype=all&pq=%7B%22searchTerms%22%3A%7B%22Film%22%3A%7B%22field%22%3A%22category%22%2C%22value%22%3A%22C-LG%22%7D%7D%2C%22sortBy%22%3A%22BestMatch%22%7D
+                xpath: /html/body/div[47]/div[2]
+          - category:
+              - text: Filters
+                xpath: /html/body/div[48]/div[1]
+            categoryUrl:
+              - text: https://www.insight.com/en_US/search.html?qtype=all&pq=%7B%22searchTerms%22%3A%7B%22Filters%22%3A%7B%22field%22%3A%22category%22%2C%22value%22%3A%22C-LF%22%7D%7D%2C%22sortBy%22%3A%22BestMatch%22%7D
+                xpath: /html/body/div[48]/div[2]
+          - category:
+              - text: Flash Memory
+                xpath: /html/body/div[49]/div[1]
+            categoryUrl:
+              - text: https://www.insight.com/en_US/search.html?qtype=all&pq=%7B%22searchTerms%22%3A%7B%22Flash%2520Memory%22%3A%7B%22field%22%3A%22category%22%2C%22value%22%3A%22C-BD%22%7D%7D%2C%22sortBy%22%3A%22BestMatch%22%7D
+                xpath: /html/body/div[49]/div[2]
+          - category:
+              - text: Flashes
+                xpath: /html/body/div[50]/div[1]
+            categoryUrl:
+              - text: https://www.insight.com/en_US/search.html?qtype=all&pq=%7B%22searchTerms%22%3A%7B%22Flashes%22%3A%7B%22field%22%3A%22category%22%2C%22value%22%3A%22C-LC%22%7D%7D%2C%22sortBy%22%3A%22BestMatch%22%7D
+                xpath: /html/body/div[50]/div[2]
+          - category:
+              - text: Game Controllers
+                xpath: /html/body/div[51]/div[1]
+            categoryUrl:
+              - text: https://www.insight.com/en_US/search.html?qtype=all&pq=%7B%22searchTerms%22%3A%7B%22Game%2520Controllers%22%3A%7B%22field%22%3A%22category%22%2C%22value%22%3A%22C-DC%22%7D%7D%2C%22sortBy%22%3A%22BestMatch%22%7D
+                xpath: /html/body/div[51]/div[2]
+          - category:
+              - text: GPS Kits
+                xpath: /html/body/div[52]/div[1]
+            categoryUrl:
+              - text: https://www.insight.com/en_US/search.html?qtype=all&pq=%7B%22searchTerms%22%3A%7B%22GPS%2520Kits%22%3A%7B%22field%22%3A%22category%22%2C%22value%22%3A%22C-PG%22%7D%7D%2C%22sortBy%22%3A%22BestMatch%22%7D
+                xpath: /html/body/div[52]/div[2]
+          - category:
+              - text: GPS Receivers
+                xpath: /html/body/div[53]/div[1]
+            categoryUrl:
+              - text: https://www.insight.com/en_US/search.html?qtype=all&pq=%7B%22searchTerms%22%3A%7B%22GPS%2520Receivers%22%3A%7B%22field%22%3A%22category%22%2C%22value%22%3A%22C-PF%22%7D%7D%2C%22sortBy%22%3A%22BestMatch%22%7D
+                xpath: /html/body/div[53]/div[2]
+          - category:
+              - text: Handhelds
+                xpath: /html/body/div[54]/div[1]
+            categoryUrl:
+              - text: https://www.insight.com/en_US/search.html?qtype=all&pq=%7B%22searchTerms%22%3A%7B%22Handhelds%22%3A%7B%22field%22%3A%22category%22%2C%22value%22%3A%22C-AC%22%7D%7D%2C%22sortBy%22%3A%22BestMatch%22%7D
+                xpath: /html/body/div[54]/div[2]
+          - category:
+              - text: Hard Drives
+                xpath: /html/body/div[55]/div[1]
+            categoryUrl:
+              - text: https://www.insight.com/en_US/search.html?qtype=all&pq=%7B%22searchTerms%22%3A%7B%22Hard%2520Drives%22%3A%7B%22field%22%3A%22category%22%2C%22value%22%3A%22C-CA%22%7D%7D%2C%22sortBy%22%3A%22BestMatch%22%7D
+                xpath: /html/body/div[55]/div[2]
+          - category:
+              - text: Headsets/Microphones
+                xpath: /html/body/div[56]/div[1]
+            categoryUrl:
+              - text: https://www.insight.com/en_US/search.html?qtype=all&pq=%7B%22searchTerms%22%3A%7B%22Headsets%252FMicrophones%22%3A%7B%22field%22%3A%22category%22%2C%22value%22%3A%22C-KE%22%7D%7D%2C%22sortBy%22%3A%22BestMatch%22%7D
+                xpath: /html/body/div[56]/div[2]
+          - category:
+              - text: Home Audio
+                xpath: /html/body/div[57]/div[1]
+            categoryUrl:
+              - text: https://www.insight.com/en_US/search.html?qtype=all&pq=%7B%22searchTerms%22%3A%7B%22Home%2520Audio%22%3A%7B%22field%22%3A%22category%22%2C%22value%22%3A%22C-KA%22%7D%7D%2C%22sortBy%22%3A%22BestMatch%22%7D
+                xpath: /html/body/div[57]/div[2]
+          - category:
+              - text: HP ASP
+                xpath: /html/body/div[58]/div[1]
+            categoryUrl:
+              - text: https://www.insight.com/en_US/search.html?qtype=all&pq=%7B%22searchTerms%22%3A%7B%22HP%2520ASP%22%3A%7B%22field%22%3A%22category%22%2C%22value%22%3A%22C-ZP%22%7D%7D%2C%22sortBy%22%3A%22BestMatch%22%7D
+                xpath: /html/body/div[58]/div[2]
+          - category:
+              - text: Hubs/Switches
+                xpath: /html/body/div[59]/div[1]
+            categoryUrl:
+              - text: https://www.insight.com/en_US/search.html?qtype=all&pq=%7B%22searchTerms%22%3A%7B%22Hubs%252FSwitches%22%3A%7B%22field%22%3A%22category%22%2C%22value%22%3A%22C-FE%22%7D%7D%2C%22sortBy%22%3A%22BestMatch%22%7D
+                xpath: /html/body/div[59]/div[2]
+          - category:
+              - text: Input Accessories
+                xpath: /html/body/div[60]/div[1]
+            categoryUrl:
+              - text: https://www.insight.com/en_US/search.html?qtype=all&pq=%7B%22searchTerms%22%3A%7B%22Input%2520Accessories%22%3A%7B%22field%22%3A%22category%22%2C%22value%22%3A%22C-DJ%22%7D%7D%2C%22sortBy%22%3A%22BestMatch%22%7D
+                xpath: /html/body/div[60]/div[2]
+          - category:
+              - text: Input Adapters
+                xpath: /html/body/div[61]/div[1]
+            categoryUrl:
+              - text: https://www.insight.com/en_US/search.html?qtype=all&pq=%7B%22searchTerms%22%3A%7B%22Input%2520Adapters%22%3A%7B%22field%22%3A%22category%22%2C%22value%22%3A%22C-DH%22%7D%7D%2C%22sortBy%22%3A%22BestMatch%22%7D
+                xpath: /html/body/div[61]/div[2]
+          - category:
+              - text: Input Cables
+                xpath: /html/body/div[62]/div[1]
+            categoryUrl:
+              - text: https://www.insight.com/en_US/search.html?qtype=all&pq=%7B%22searchTerms%22%3A%7B%22Input%2520Cables%22%3A%7B%22field%22%3A%22category%22%2C%22value%22%3A%22C-DI%22%7D%7D%2C%22sortBy%22%3A%22BestMatch%22%7D
+                xpath: /html/body/div[62]/div[2]
+          - category:
+              - text: Input Service/Support
+                xpath: /html/body/div[63]/div[1]
+            categoryUrl:
+              - text: https://www.insight.com/en_US/search.html?qtype=all&pq=%7B%22searchTerms%22%3A%7B%22Input%2520Service%252FSupport%22%3A%7B%22field%22%3A%22category%22%2C%22value%22%3A%22C-DK%22%7D%7D%2C%22sortBy%22%3A%22BestMatch%22%7D
+                xpath: /html/body/div[63]/div[2]
+          - category:
+              - text: Insight - Internal Accounting
+                xpath: /html/body/div[64]/div[1]
+            categoryUrl:
+              - text: https://www.insight.com/en_US/search.html?qtype=all&pq=%7B%22searchTerms%22%3A%7B%22Insight%2520-%2520Internal%2520Accounting%22%3A%7B%22field%22%3A%22category%22%2C%22value%22%3A%22C-ZZ%22%7D%7D%2C%22sortBy%22%3A%22BestMatch%22%7D
+                xpath: /html/body/div[64]/div[2]
+          - category:
+              - text: Keyboards
+                xpath: /html/body/div[65]/div[1]
+            categoryUrl:
+              - text: https://www.insight.com/en_US/search.html?qtype=all&pq=%7B%22searchTerms%22%3A%7B%22Keyboards%22%3A%7B%22field%22%3A%22category%22%2C%22value%22%3A%22C-DA%22%7D%7D%2C%22sortBy%22%3A%22BestMatch%22%7D
+                xpath: /html/body/div[65]/div[2]
+          - category:
+              - text: Lenses
+                xpath: /html/body/div[66]/div[1]
+            categoryUrl:
+              - text: https://www.insight.com/en_US/search.html?qtype=all&pq=%7B%22searchTerms%22%3A%7B%22Lenses%22%3A%7B%22field%22%3A%22category%22%2C%22value%22%3A%22C-LB%22%7D%7D%2C%22sortBy%22%3A%22BestMatch%22%7D
+                xpath: /html/body/div[66]/div[2]
+          - category:
+              - text: Memory Adapters
+                xpath: /html/body/div[67]/div[1]
+            categoryUrl:
+              - text: https://www.insight.com/en_US/search.html?qtype=all&pq=%7B%22searchTerms%22%3A%7B%22Memory%2520Adapters%22%3A%7B%22field%22%3A%22category%22%2C%22value%22%3A%22C-BF%22%7D%7D%2C%22sortBy%22%3A%22BestMatch%22%7D
+                xpath: /html/body/div[67]/div[2]
+          - category:
+              - text: Mobile Phones
+                xpath: /html/body/div[68]/div[1]
+            categoryUrl:
+              - text: https://www.insight.com/en_US/search.html?qtype=all&pq=%7B%22searchTerms%22%3A%7B%22Mobile%2520Phones%22%3A%7B%22field%22%3A%22category%22%2C%22value%22%3A%22C-PB%22%7D%7D%2C%22sortBy%22%3A%22BestMatch%22%7D
+                xpath: /html/body/div[68]/div[2]
+          - category:
+              - text: Modems
+                xpath: /html/body/div[69]/div[1]
+            categoryUrl:
+              - text: https://www.insight.com/en_US/search.html?qtype=all&pq=%7B%22searchTerms%22%3A%7B%22Modems%22%3A%7B%22field%22%3A%22category%22%2C%22value%22%3A%22C-FA%22%7D%7D%2C%22sortBy%22%3A%22BestMatch%22%7D
+                xpath: /html/body/div[69]/div[2]
+          - category:
+              - text: Monitors
+                xpath: /html/body/div[70]/div[1]
+            categoryUrl:
+              - text: https://www.insight.com/en_US/search.html?qtype=all&pq=%7B%22searchTerms%22%3A%7B%22Monitors%22%3A%7B%22field%22%3A%22category%22%2C%22value%22%3A%22C-EA%22%7D%7D%2C%22sortBy%22%3A%22BestMatch%22%7D
+                xpath: /html/body/div[70]/div[2]
+          - category:
+              - text: Motherboards
+                xpath: /html/body/div[71]/div[1]
+            categoryUrl:
+              - text: https://www.insight.com/en_US/search.html?qtype=all&pq=%7B%22searchTerms%22%3A%7B%22Motherboards%22%3A%7B%22field%22%3A%22category%22%2C%22value%22%3A%22C-AE%22%7D%7D%2C%22sortBy%22%3A%22BestMatch%22%7D
+                xpath: /html/body/div[71]/div[2]
+          - category:
+              - text: Multifunction Machines
+                xpath: /html/body/div[72]/div[1]
+            categoryUrl:
+              - text: https://www.insight.com/en_US/search.html?qtype=all&pq=%7B%22searchTerms%22%3A%7B%22Multifunction%2520Machines%22%3A%7B%22field%22%3A%22category%22%2C%22value%22%3A%22C-OA%22%7D%7D%2C%22sortBy%22%3A%22BestMatch%22%7D
+                xpath: /html/body/div[72]/div[2]
+          - category:
+              - text: Multisite Deployment
+                xpath: /html/body/div[73]/div[1]
+            categoryUrl:
+              - text: https://www.insight.com/en_US/search.html?qtype=all&pq=%7B%22searchTerms%22%3A%7B%22Multisite%2520Deployment%22%3A%7B%22field%22%3A%22category%22%2C%22value%22%3A%22C-XW%22%7D%7D%2C%22sortBy%22%3A%22BestMatch%22%7D
+                xpath: /html/body/div[73]/div[2]
+          - category:
+              - text: Multisite Planning
+                xpath: /html/body/div[74]/div[1]
+            categoryUrl:
+              - text: https://www.insight.com/en_US/search.html?qtype=all&pq=%7B%22searchTerms%22%3A%7B%22Multisite%2520Planning%22%3A%7B%22field%22%3A%22category%22%2C%22value%22%3A%22C-XV%22%7D%7D%2C%22sortBy%22%3A%22BestMatch%22%7D
+                xpath: /html/body/div[74]/div[2]
+          - category:
+              - text: Network Accessories
+                xpath: /html/body/div[75]/div[1]
+            categoryUrl:
+              - text: https://www.insight.com/en_US/search.html?qtype=all&pq=%7B%22searchTerms%22%3A%7B%22Network%2520Accessories%22%3A%7B%22field%22%3A%22category%22%2C%22value%22%3A%22C-FJ%22%7D%7D%2C%22sortBy%22%3A%22BestMatch%22%7D
+                xpath: /html/body/div[75]/div[2]
+          - category:
+              - text: Network Adapters
+                xpath: /html/body/div[76]/div[1]
+            categoryUrl:
+              - text: https://www.insight.com/en_US/search.html?qtype=all&pq=%7B%22searchTerms%22%3A%7B%22Network%2520Adapters%22%3A%7B%22field%22%3A%22category%22%2C%22value%22%3A%22C-FH%22%7D%7D%2C%22sortBy%22%3A%22BestMatch%22%7D
+                xpath: /html/body/div[76]/div[2]
+          - category:
+              - text: Network Deployment
+                xpath: /html/body/div[77]/div[1]
+            categoryUrl:
+              - text: https://www.insight.com/en_US/search.html?qtype=all&pq=%7B%22searchTerms%22%3A%7B%22Network%2520Deployment%22%3A%7B%22field%22%3A%22category%22%2C%22value%22%3A%22C-XO%22%7D%7D%2C%22sortBy%22%3A%22BestMatch%22%7D
+                xpath: /html/body/div[77]/div[2]
+          - category:
+              - text: Network Devices
+                xpath: /html/body/div[78]/div[1]
+            categoryUrl:
+              - text: https://www.insight.com/en_US/search.html?qtype=all&pq=%7B%22searchTerms%22%3A%7B%22Network%2520Devices%22%3A%7B%22field%22%3A%22category%22%2C%22value%22%3A%22C-FG%22%7D%7D%2C%22sortBy%22%3A%22BestMatch%22%7D
+                xpath: /html/body/div[78]/div[2]
+          - category:
+              - text: Network Service/Support
+                xpath: /html/body/div[79]/div[1]
+            categoryUrl:
+              - text: https://www.insight.com/en_US/search.html?qtype=all&pq=%7B%22searchTerms%22%3A%7B%22Network%2520Service%252FSupport%22%3A%7B%22field%22%3A%22category%22%2C%22value%22%3A%22C-FK%22%7D%7D%2C%22sortBy%22%3A%22BestMatch%22%7D
+                xpath: /html/body/div[79]/div[2]
+          - category:
+              - text: Network Storage
+                xpath: /html/body/div[80]/div[1]
+            categoryUrl:
+              - text: https://www.insight.com/en_US/search.html?qtype=all&pq=%7B%22searchTerms%22%3A%7B%22Network%2520Storage%22%3A%7B%22field%22%3A%22category%22%2C%22value%22%3A%22C-CE%22%7D%7D%2C%22sortBy%22%3A%22BestMatch%22%7D
+                xpath: /html/body/div[80]/div[2]
+          - category:
+              - text: Network Testers
+                xpath: /html/body/div[81]/div[1]
+            categoryUrl:
+              - text: https://www.insight.com/en_US/search.html?qtype=all&pq=%7B%22searchTerms%22%3A%7B%22Network%2520Testers%22%3A%7B%22field%22%3A%22category%22%2C%22value%22%3A%22C-FL%22%7D%7D%2C%22sortBy%22%3A%22BestMatch%22%7D
+                xpath: /html/body/div[81]/div[2]
+          - category:
+              - text: Notebooks
+                xpath: /html/body/div[82]/div[1]
+            categoryUrl:
+              - text: https://www.insight.com/en_US/search.html?qtype=all&pq=%7B%22searchTerms%22%3A%7B%22Notebooks%22%3A%7B%22field%22%3A%22category%22%2C%22value%22%3A%22C-AB%22%7D%7D%2C%22sortBy%22%3A%22BestMatch%22%7D
+                xpath: /html/body/div[82]/div[2]
+          - category:
+              - text: Office Shredders
+                xpath: /html/body/div[83]/div[1]
+            categoryUrl:
+              - text: https://www.insight.com/en_US/search.html?qtype=all&pq=%7B%22searchTerms%22%3A%7B%22Office%2520Shredders%22%3A%7B%22field%22%3A%22category%22%2C%22value%22%3A%22C-OB%22%7D%7D%2C%22sortBy%22%3A%22BestMatch%22%7D
+                xpath: /html/body/div[83]/div[2]
+          - category:
+              - text: Onsite Deployment
+                xpath: /html/body/div[84]/div[1]
+            categoryUrl:
+              - text: https://www.insight.com/en_US/search.html?qtype=all&pq=%7B%22searchTerms%22%3A%7B%22Onsite%2520Deployment%22%3A%7B%22field%22%3A%22category%22%2C%22value%22%3A%22C-XY%22%7D%7D%2C%22sortBy%22%3A%22BestMatch%22%7D
+                xpath: /html/body/div[84]/div[2]
+          - category:
+              - text: Onsite Planning
+                xpath: /html/body/div[85]/div[1]
+            categoryUrl:
+              - text: https://www.insight.com/en_US/search.html?qtype=all&pq=%7B%22searchTerms%22%3A%7B%22Onsite%2520Planning%22%3A%7B%22field%22%3A%22category%22%2C%22value%22%3A%22C-XX%22%7D%7D%2C%22sortBy%22%3A%22BestMatch%22%7D
+                xpath: /html/body/div[85]/div[2]
+          - category:
+              - text: Onsite Resident Engineering
+                xpath: /html/body/div[86]/div[1]
+            categoryUrl:
+              - text: https://www.insight.com/en_US/search.html?qtype=all&pq=%7B%22searchTerms%22%3A%7B%22Onsite%2520Resident%2520Engineering%22%3A%7B%22field%22%3A%22category%22%2C%22value%22%3A%22C-X2%22%7D%7D%2C%22sortBy%22%3A%22BestMatch%22%7D
+                xpath: /html/body/div[86]/div[2]
+          - category:
+              - text: Operating Systems
+                xpath: /html/body/div[87]/div[1]
+            categoryUrl:
+              - text: https://www.insight.com/en_US/search.html?qtype=all&pq=%7B%22searchTerms%22%3A%7B%22Operating%2520Systems%22%3A%7B%22field%22%3A%22category%22%2C%22value%22%3A%22C-GA%22%7D%7D%2C%22sortBy%22%3A%22BestMatch%22%7D
+                xpath: /html/body/div[87]/div[2]
+          - category:
+              - text: Other DS Deployment
+                xpath: /html/body/div[88]/div[1]
+            categoryUrl:
+              - text: https://www.insight.com/en_US/search.html?qtype=all&pq=%7B%22searchTerms%22%3A%7B%22Other%2520DS%2520Deployment%22%3A%7B%22field%22%3A%22category%22%2C%22value%22%3A%22C-XI%22%7D%7D%2C%22sortBy%22%3A%22BestMatch%22%7D
+                xpath: /html/body/div[88]/div[2]
+          - category:
+              - text: Other POS
+                xpath: /html/body/div[89]/div[1]
+            categoryUrl:
+              - text: https://www.insight.com/en_US/search.html?qtype=all&pq=%7B%22searchTerms%22%3A%7B%22Other%2520POS%22%3A%7B%22field%22%3A%22category%22%2C%22value%22%3A%22C-X7%22%7D%7D%2C%22sortBy%22%3A%22BestMatch%22%7D
+                xpath: /html/body/div[89]/div[2]
+          - category:
+              - text: Output Accessories
+                xpath: /html/body/div[90]/div[1]
+            categoryUrl:
+              - text: https://www.insight.com/en_US/search.html?qtype=all&pq=%7B%22searchTerms%22%3A%7B%22Output%2520Accessories%22%3A%7B%22field%22%3A%22category%22%2C%22value%22%3A%22C-EJ%22%7D%7D%2C%22sortBy%22%3A%22BestMatch%22%7D
+                xpath: /html/body/div[90]/div[2]
+          - category:
+              - text: Output Cables
+                xpath: /html/body/div[91]/div[1]
+            categoryUrl:
+              - text: https://www.insight.com/en_US/search.html?qtype=all&pq=%7B%22searchTerms%22%3A%7B%22Output%2520Cables%22%3A%7B%22field%22%3A%22category%22%2C%22value%22%3A%22C-EH%22%7D%7D%2C%22sortBy%22%3A%22BestMatch%22%7D
+                xpath: /html/body/div[91]/div[2]
+          - category:
+              - text: Output Service/Support
+                xpath: /html/body/div[92]/div[1]
+            categoryUrl:
+              - text: https://www.insight.com/en_US/search.html?qtype=all&pq=%7B%22searchTerms%22%3A%7B%22Output%2520Service%252FSupport%22%3A%7B%22field%22%3A%22category%22%2C%22value%22%3A%22C-EK%22%7D%7D%2C%22sortBy%22%3A%22BestMatch%22%7D
+                xpath: /html/body/div[92]/div[2]
+          - category:
+              - text: Pagers
+                xpath: /html/body/div[93]/div[1]
+            categoryUrl:
+              - text: https://www.insight.com/en_US/search.html?qtype=all&pq=%7B%22searchTerms%22%3A%7B%22Pagers%22%3A%7B%22field%22%3A%22category%22%2C%22value%22%3A%22C-PC%22%7D%7D%2C%22sortBy%22%3A%22BestMatch%22%7D
+                xpath: /html/body/div[93]/div[2]
+          - category:
+              - text: PC/Network Cameras
+                xpath: /html/body/div[94]/div[1]
+            categoryUrl:
+              - text: https://www.insight.com/en_US/search.html?qtype=all&pq=%7B%22searchTerms%22%3A%7B%22PC%252FNetwork%2520Cameras%22%3A%7B%22field%22%3A%22category%22%2C%22value%22%3A%22C-DG%22%7D%7D%2C%22sortBy%22%3A%22BestMatch%22%7D
+                xpath: /html/body/div[94]/div[2]
+          - category:
+              - text: Photo & Video Accessories
+                xpath: /html/body/div[95]/div[1]
+            categoryUrl:
+              - text: https://www.insight.com/en_US/search.html?qtype=all&pq=%7B%22searchTerms%22%3A%7B%22Photo%2520%2526%2520Video%2520Accessories%22%3A%7B%22field%22%3A%22category%22%2C%22value%22%3A%22C-MK%22%7D%7D%2C%22sortBy%22%3A%22BestMatch%22%7D
+                xpath: /html/body/div[95]/div[2]
+          - category:
+              - text: Pointing Devices
+                xpath: /html/body/div[96]/div[1]
+            categoryUrl:
+              - text: https://www.insight.com/en_US/search.html?qtype=all&pq=%7B%22searchTerms%22%3A%7B%22Pointing%2520Devices%22%3A%7B%22field%22%3A%22category%22%2C%22value%22%3A%22C-DB%22%7D%7D%2C%22sortBy%22%3A%22BestMatch%22%7D
+                xpath: /html/body/div[96]/div[2]
+          - category:
+              - text: Port Expansion
+                xpath: /html/body/div[97]/div[1]
+            categoryUrl:
+              - text: https://www.insight.com/en_US/search.html?qtype=all&pq=%7B%22searchTerms%22%3A%7B%22Port%2520Expansion%22%3A%7B%22field%22%3A%22category%22%2C%22value%22%3A%22C-AI%22%7D%7D%2C%22sortBy%22%3A%22BestMatch%22%7D
+                xpath: /html/body/div[97]/div[2]
+          - category:
+              - text: Portable Audio
+                xpath: /html/body/div[98]/div[1]
+            categoryUrl:
+              - text: https://www.insight.com/en_US/search.html?qtype=all&pq=%7B%22searchTerms%22%3A%7B%22Portable%2520Audio%22%3A%7B%22field%22%3A%22category%22%2C%22value%22%3A%22C-KB%22%7D%7D%2C%22sortBy%22%3A%22BestMatch%22%7D
+                xpath: /html/body/div[98]/div[2]
+          - category:
+              - text: Power Devices & Batteries
+                xpath: /html/body/div[99]/div[1]
+            categoryUrl:
+              - text: https://www.insight.com/en_US/search.html?qtype=all&pq=%7B%22searchTerms%22%3A%7B%22Power%2520Devices%2520%2526%2520Batteries%22%3A%7B%22field%22%3A%22category%22%2C%22value%22%3A%22C-MG%22%7D%7D%2C%22sortBy%22%3A%22BestMatch%22%7D
+                xpath: /html/body/div[99]/div[2]
+          - category:
+              - text: Power Protection/System Batteries
+                xpath: /html/body/div[100]/div[1]
+            categoryUrl:
+              - text: https://www.insight.com/en_US/search.html?qtype=all&pq=%7B%22searchTerms%22%3A%7B%22Power%2520Protection%252FSystem%2520Batteries%22%3A%7B%22field%22%3A%22category%22%2C%22value%22%3A%22C-AG%22%7D%7D%2C%22sortBy%22%3A%22BestMatch%22%7D
+                xpath: /html/body/div[100]/div[2]
+          - category:
+              - text: Printer Consumables
+                xpath: /html/body/div[101]/div[1]
+            categoryUrl:
+              - text: https://www.insight.com/en_US/search.html?qtype=all&pq=%7B%22searchTerms%22%3A%7B%22Printer%2520Consumables%22%3A%7B%22field%22%3A%22category%22%2C%22value%22%3A%22C-EI%22%7D%7D%2C%22sortBy%22%3A%22BestMatch%22%7D
+                xpath: /html/body/div[101]/div[2]
+          - category:
+              - text: Printers
+                xpath: /html/body/div[102]/div[1]
+            categoryUrl:
+              - text: https://www.insight.com/en_US/search.html?qtype=all&pq=%7B%22searchTerms%22%3A%7B%22Printers%22%3A%7B%22field%22%3A%22category%22%2C%22value%22%3A%22C-ED%22%7D%7D%2C%22sortBy%22%3A%22BestMatch%22%7D
+                xpath: /html/body/div[102]/div[2]
+          - category:
+              - text: Processors
+                xpath: /html/body/div[103]/div[1]
+            categoryUrl:
+              - text: https://www.insight.com/en_US/search.html?qtype=all&pq=%7B%22searchTerms%22%3A%7B%22Processors%22%3A%7B%22field%22%3A%22category%22%2C%22value%22%3A%22C-AD%22%7D%7D%2C%22sortBy%22%3A%22BestMatch%22%7D
+                xpath: /html/body/div[103]/div[2]
+          - category:
+              - text: Projectors
+                xpath: /html/body/div[104]/div[1]
+            categoryUrl:
+              - text: https://www.insight.com/en_US/search.html?qtype=all&pq=%7B%22searchTerms%22%3A%7B%22Projectors%22%3A%7B%22field%22%3A%22category%22%2C%22value%22%3A%22C-EC%22%7D%7D%2C%22sortBy%22%3A%22BestMatch%22%7D
+                xpath: /html/body/div[104]/div[2]
+          - category:
+              - text: Quad Processors & Video Multiplexers
+                xpath: /html/body/div[105]/div[1]
+            categoryUrl:
+              - text: https://www.insight.com/en_US/search.html?qtype=all&pq=%7B%22searchTerms%22%3A%7B%22Quad%2520Processors%2520%2526%2520Video%2520Multiplexers%22%3A%7B%22field%22%3A%22category%22%2C%22value%22%3A%22C-YB%22%7D%7D%2C%22sortBy%22%3A%22BestMatch%22%7D
+                xpath: /html/body/div[105]/div[2]
+          - category:
+              - text: RAM
+                xpath: /html/body/div[106]/div[1]
+            categoryUrl:
+              - text: https://www.insight.com/en_US/search.html?qtype=all&pq=%7B%22searchTerms%22%3A%7B%22RAM%22%3A%7B%22field%22%3A%22category%22%2C%22value%22%3A%22C-BA%22%7D%7D%2C%22sortBy%22%3A%22BestMatch%22%7D
+                xpath: /html/body/div[106]/div[2]
+          - category:
+              - text: Read-Only Memory
+                xpath: /html/body/div[107]/div[1]
+            categoryUrl:
+              - text: https://www.insight.com/en_US/search.html?qtype=all&pq=%7B%22searchTerms%22%3A%7B%22Read-Only%2520Memory%22%3A%7B%22field%22%3A%22category%22%2C%22value%22%3A%22C-BE%22%7D%7D%2C%22sortBy%22%3A%22BestMatch%22%7D
+                xpath: /html/body/div[107]/div[2]
+          - category:
+              - text: Reference Material
+                xpath: /html/body/div[108]/div[1]
+            categoryUrl:
+              - text: https://www.insight.com/en_US/search.html?qtype=all&pq=%7B%22searchTerms%22%3A%7B%22Reference%2520Material%22%3A%7B%22field%22%3A%22category%22%2C%22value%22%3A%22C-HA%22%7D%7D%2C%22sortBy%22%3A%22BestMatch%22%7D
+                xpath: /html/body/div[108]/div[2]
+          - category:
+              - text: Remote Controls
+                xpath: /html/body/div[109]/div[1]
+            categoryUrl:
+              - text: https://www.insight.com/en_US/search.html?qtype=all&pq=%7B%22searchTerms%22%3A%7B%22Remote%2520Controls%22%3A%7B%22field%22%3A%22category%22%2C%22value%22%3A%22C-MF%22%7D%7D%2C%22sortBy%22%3A%22BestMatch%22%7D
+                xpath: /html/body/div[109]/div[2]
+          - category:
+              - text: Removable Media
+                xpath: /html/body/div[110]/div[1]
+            categoryUrl:
+              - text: https://www.insight.com/en_US/search.html?qtype=all&pq=%7B%22searchTerms%22%3A%7B%22Removable%2520Media%22%3A%7B%22field%22%3A%22category%22%2C%22value%22%3A%22C-CF%22%7D%7D%2C%22sortBy%22%3A%22BestMatch%22%7D
+                xpath: /html/body/div[110]/div[2]
+          - category:
+              - text: Repeaters/Transceivers
+                xpath: /html/body/div[111]/div[1]
+            categoryUrl:
+              - text: https://www.insight.com/en_US/search.html?qtype=all&pq=%7B%22searchTerms%22%3A%7B%22Repeaters%252FTransceivers%22%3A%7B%22field%22%3A%22category%22%2C%22value%22%3A%22C-FD%22%7D%7D%2C%22sortBy%22%3A%22BestMatch%22%7D
+                xpath: /html/body/div[111]/div[2]
+          - category:
+              - text: Satellite TV
+                xpath: /html/body/div[112]/div[1]
+            categoryUrl:
+              - text: https://www.insight.com/en_US/search.html?qtype=all&pq=%7B%22searchTerms%22%3A%7B%22Satellite%2520TV%22%3A%7B%22field%22%3A%22category%22%2C%22value%22%3A%22C-JG%22%7D%7D%2C%22sortBy%22%3A%22BestMatch%22%7D
+                xpath: /html/body/div[112]/div[2]
+          - category:
+              - text: Scanners
+                xpath: /html/body/div[113]/div[1]
+            categoryUrl:
+              - text: https://www.insight.com/en_US/search.html?qtype=all&pq=%7B%22searchTerms%22%3A%7B%22Scanners%22%3A%7B%22field%22%3A%22category%22%2C%22value%22%3A%22C-DD%22%7D%7D%2C%22sortBy%22%3A%22BestMatch%22%7D
+                xpath: /html/body/div[113]/div[2]
+          - category:
+              - text: Server Deployment
+                xpath: /html/body/div[114]/div[1]
+            categoryUrl:
+              - text: https://www.insight.com/en_US/search.html?qtype=all&pq=%7B%22searchTerms%22%3A%7B%22Server%2520Deployment%22%3A%7B%22field%22%3A%22category%22%2C%22value%22%3A%22C-XD%22%7D%7D%2C%22sortBy%22%3A%22BestMatch%22%7D
+                xpath: /html/body/div[114]/div[2]
+          - category:
+              - text: Service/Support
+                xpath: /html/body/div[115]/div[1]
+            categoryUrl:
+              - text: https://www.insight.com/en_US/search.html?qtype=all&pq=%7B%22searchTerms%22%3A%7B%22Service%252FSupport%22%3A%7B%22field%22%3A%22category%22%2C%22value%22%3A%22C-MJ%22%7D%7D%2C%22sortBy%22%3A%22BestMatch%22%7D
+                xpath: /html/body/div[115]/div[2]
+          - category:
+              - text: Services - Advanced Integration
+                xpath: /html/body/div[116]/div[1]
+            categoryUrl:
+              - text: https://www.insight.com/en_US/search.html?qtype=all&pq=%7B%22searchTerms%22%3A%7B%22Services%2520-%2520Advanced%2520Integration%22%3A%7B%22field%22%3A%22category%22%2C%22value%22%3A%22C-ZN%22%7D%7D%2C%22sortBy%22%3A%22BestMatch%22%7D
+                xpath: /html/body/div[116]/div[2]
+          - category:
+              - text: Services - Asset Management
+                xpath: /html/body/div[117]/div[1]
+            categoryUrl:
+              - text: https://www.insight.com/en_US/search.html?qtype=all&pq=%7B%22searchTerms%22%3A%7B%22Services%2520-%2520Asset%2520Management%22%3A%7B%22field%22%3A%22category%22%2C%22value%22%3A%22C-ZS%22%7D%7D%2C%22sortBy%22%3A%22BestMatch%22%7D
+                xpath: /html/body/div[117]/div[2]
+          - category:
+              - text: Services - Cloud Services
+                xpath: /html/body/div[118]/div[1]
+            categoryUrl:
+              - text: https://www.insight.com/en_US/search.html?qtype=all&pq=%7B%22searchTerms%22%3A%7B%22Services%2520-%2520Cloud%2520Services%22%3A%7B%22field%22%3A%22category%22%2C%22value%22%3A%22C-ZA%22%7D%7D%2C%22sortBy%22%3A%22BestMatch%22%7D
+                xpath: /html/body/div[118]/div[2]
+          - category:
+              - text: Services - Communications
+                xpath: /html/body/div[119]/div[1]
+            categoryUrl:
+              - text: https://www.insight.com/en_US/search.html?qtype=all&pq=%7B%22searchTerms%22%3A%7B%22Services%2520-%2520Communications%22%3A%7B%22field%22%3A%22category%22%2C%22value%22%3A%22C-ZR%22%7D%7D%2C%22sortBy%22%3A%22BestMatch%22%7D
+                xpath: /html/body/div[119]/div[2]
+          - category:
+              - text: Services - Complex Warranties
+                xpath: /html/body/div[120]/div[1]
+            categoryUrl:
+              - text: https://www.insight.com/en_US/search.html?qtype=all&pq=%7B%22searchTerms%22%3A%7B%22Services%2520-%2520Complex%2520Warranties%22%3A%7B%22field%22%3A%22category%22%2C%22value%22%3A%22C-ZU%22%7D%7D%2C%22sortBy%22%3A%22BestMatch%22%7D
+                xpath: /html/body/div[120]/div[2]
+          - category:
+              - text: Services - Custom Configuration
+                xpath: /html/body/div[121]/div[1]
+            categoryUrl:
+              - text: https://www.insight.com/en_US/search.html?qtype=all&pq=%7B%22searchTerms%22%3A%7B%22Services%2520-%2520Custom%2520Configuration%22%3A%7B%22field%22%3A%22category%22%2C%22value%22%3A%22C-ZM%22%7D%7D%2C%22sortBy%22%3A%22BestMatch%22%7D
+                xpath: /html/body/div[121]/div[2]
+          - category:
+              - text: Services - Electronic Services
+                xpath: /html/body/div[122]/div[1]
+            categoryUrl:
+              - text: https://www.insight.com/en_US/search.html?qtype=all&pq=%7B%22searchTerms%22%3A%7B%22Services%2520-%2520Electronic%2520Services%22%3A%7B%22field%22%3A%22category%22%2C%22value%22%3A%22C-Z3%22%7D%7D%2C%22sortBy%22%3A%22BestMatch%22%7D
+                xpath: /html/body/div[122]/div[2]
+          - category:
+              - text: Services - IMS RNOC
+                xpath: /html/body/div[123]/div[1]
+            categoryUrl:
+              - text: https://www.insight.com/en_US/search.html?qtype=all&pq=%7B%22searchTerms%22%3A%7B%22Services%2520-%2520IMS%2520RNOC%22%3A%7B%22field%22%3A%22category%22%2C%22value%22%3A%22C-Z5%22%7D%7D%2C%22sortBy%22%3A%22BestMatch%22%7D
+                xpath: /html/body/div[123]/div[2]
+          - category:
+              - text: Services - Lab Text and Instructions
+                xpath: /html/body/div[124]/div[1]
+            categoryUrl:
+              - text: https://www.insight.com/en_US/search.html?qtype=all&pq=%7B%22searchTerms%22%3A%7B%22Services%2520-%2520Lab%2520Text%2520and%2520Instructions%22%3A%7B%22field%22%3A%22category%22%2C%22value%22%3A%22C-ZV%22%7D%7D%2C%22sortBy%22%3A%22BestMatch%22%7D
+                xpath: /html/body/div[124]/div[2]
+          - category:
+              - text: Services - National Repair Center
+                xpath: /html/body/div[125]/div[1]
+            categoryUrl:
+              - text: https://www.insight.com/en_US/search.html?qtype=all&pq=%7B%22searchTerms%22%3A%7B%22Services%2520-%2520National%2520Repair%2520Center%22%3A%7B%22field%22%3A%22category%22%2C%22value%22%3A%22C-ZH%22%7D%7D%2C%22sortBy%22%3A%22BestMatch%22%7D
+                xpath: /html/body/div[125]/div[2]
+          - category:
+              - text: Services - On Line Services
+                xpath: /html/body/div[126]/div[1]
+            categoryUrl:
+              - text: https://www.insight.com/en_US/search.html?qtype=all&pq=%7B%22searchTerms%22%3A%7B%22Services%2520-%2520On%2520Line%2520Services%22%3A%7B%22field%22%3A%22category%22%2C%22value%22%3A%22C-Z9%22%7D%7D%2C%22sortBy%22%3A%22BestMatch%22%7D
+                xpath: /html/body/div[126]/div[2]
+          - category:
+              - text: Services - Project Management
+                xpath: /html/body/div[127]/div[1]
+            categoryUrl:
+              - text: https://www.insight.com/en_US/search.html?qtype=all&pq=%7B%22searchTerms%22%3A%7B%22Services%2520-%2520Project%2520Management%22%3A%7B%22field%22%3A%22category%22%2C%22value%22%3A%22C-ZO%22%7D%7D%2C%22sortBy%22%3A%22BestMatch%22%7D
+                xpath: /html/body/div[127]/div[2]
+          - category:
+              - text: Services - Security
+                xpath: /html/body/div[128]/div[1]
+            categoryUrl:
+              - text: https://www.insight.com/en_US/search.html?qtype=all&pq=%7B%22searchTerms%22%3A%7B%22Services%2520-%2520Security%22%3A%7B%22field%22%3A%22category%22%2C%22value%22%3A%22C-ZI%22%7D%7D%2C%22sortBy%22%3A%22BestMatch%22%7D
+                xpath: /html/body/div[128]/div[2]
+          - category:
+              - text: Services - Services Disposal
+                xpath: /html/body/div[129]/div[1]
+            categoryUrl:
+              - text: https://www.insight.com/en_US/search.html?qtype=all&pq=%7B%22searchTerms%22%3A%7B%22Services%2520-%2520Services%2520Disposal%22%3A%7B%22field%22%3A%22category%22%2C%22value%22%3A%22C-ZY%22%7D%7D%2C%22sortBy%22%3A%22BestMatch%22%7D
+                xpath: /html/body/div[129]/div[2]
+          - category:
+              - text: Services - Services Labor Misc
+                xpath: /html/body/div[130]/div[1]
+            categoryUrl:
+              - text: https://www.insight.com/en_US/search.html?qtype=all&pq=%7B%22searchTerms%22%3A%7B%22Services%2520-%2520Services%2520Labor%2520Misc%22%3A%7B%22field%22%3A%22category%22%2C%22value%22%3A%22C-ZB%22%7D%7D%2C%22sortBy%22%3A%22BestMatch%22%7D
+                xpath: /html/body/div[130]/div[2]
+          - category:
+              - text: Services - Services Spare Parts
+                xpath: /html/body/div[131]/div[1]
+            categoryUrl:
+              - text: https://www.insight.com/en_US/search.html?qtype=all&pq=%7B%22searchTerms%22%3A%7B%22Services%2520-%2520Services%2520Spare%2520Parts%22%3A%7B%22field%22%3A%22category%22%2C%22value%22%3A%22C-ZC%22%7D%7D%2C%22sortBy%22%3A%22BestMatch%22%7D
+                xpath: /html/body/div[131]/div[2]
+          - category:
+              - text: Services - Software Support/Help Desk
+                xpath: /html/body/div[132]/div[1]
+            categoryUrl:
+              - text: https://www.insight.com/en_US/search.html?qtype=all&pq=%7B%22searchTerms%22%3A%7B%22Services%2520-%2520Software%2520Support%252FHelp%2520Desk%22%3A%7B%22field%22%3A%22category%22%2C%22value%22%3A%22C-ZG%22%7D%7D%2C%22sortBy%22%3A%22BestMatch%22%7D
+                xpath: /html/body/div[132]/div[2]
+          - category:
+              - text: Services - Standard Deployment
+                xpath: /html/body/div[133]/div[1]
+            categoryUrl:
+              - text: https://www.insight.com/en_US/search.html?qtype=all&pq=%7B%22searchTerms%22%3A%7B%22Services%2520-%2520Standard%2520Deployment%22%3A%7B%22field%22%3A%22category%22%2C%22value%22%3A%22C-ZQ%22%7D%7D%2C%22sortBy%22%3A%22BestMatch%22%7D
+                xpath: /html/body/div[133]/div[2]
+          - category:
+              - text: Services - Storage & Data Management
+                xpath: /html/body/div[134]/div[1]
+            categoryUrl:
+              - text: https://www.insight.com/en_US/search.html?qtype=all&pq=%7B%22searchTerms%22%3A%7B%22Services%2520-%2520Storage%2520%2526%2520Data%2520Management%22%3A%7B%22field%22%3A%22category%22%2C%22value%22%3A%22C-ZD%22%7D%7D%2C%22sortBy%22%3A%22BestMatch%22%7D
+                xpath: /html/body/div[134]/div[2]
+          - category:
+              - text: Services - Travel and Expenses
+                xpath: /html/body/div[135]/div[1]
+            categoryUrl:
+              - text: https://www.insight.com/en_US/search.html?qtype=all&pq=%7B%22searchTerms%22%3A%7B%22Services%2520-%2520Travel%2520and%2520Expenses%22%3A%7B%22field%22%3A%22category%22%2C%22value%22%3A%22C-ZW%22%7D%7D%2C%22sortBy%22%3A%22BestMatch%22%7D
+                xpath: /html/body/div[135]/div[2]
+          - category:
+              - text: Services - Warranty Physical
+                xpath: /html/body/div[136]/div[1]
+            categoryUrl:
+              - text: https://www.insight.com/en_US/search.html?qtype=all&pq=%7B%22searchTerms%22%3A%7B%22Services%2520-%2520Warranty%2520Physical%22%3A%7B%22field%22%3A%22category%22%2C%22value%22%3A%22C-ZX%22%7D%7D%2C%22sortBy%22%3A%22BestMatch%22%7D
+                xpath: /html/body/div[136]/div[2]
+          - category:
+              - text: Services - Wireless Activation
+                xpath: /html/body/div[137]/div[1]
+            categoryUrl:
+              - text: https://www.insight.com/en_US/search.html?qtype=all&pq=%7B%22searchTerms%22%3A%7B%22Services%2520-%2520Wireless%2520Activation%22%3A%7B%22field%22%3A%22category%22%2C%22value%22%3A%22C-ZE%22%7D%7D%2C%22sortBy%22%3A%22BestMatch%22%7D
+                xpath: /html/body/div[137]/div[2]
+          - category:
+              - text: Services Consulting
+                xpath: /html/body/div[138]/div[1]
+            categoryUrl:
+              - text: https://www.insight.com/en_US/search.html?qtype=all&pq=%7B%22searchTerms%22%3A%7B%22Services%2520Consulting%22%3A%7B%22field%22%3A%22category%22%2C%22value%22%3A%22C-ZK%22%7D%7D%2C%22sortBy%22%3A%22BestMatch%22%7D
+                xpath: /html/body/div[138]/div[2]
+          - category:
+              - text: Services Technical
+                xpath: /html/body/div[139]/div[1]
+            categoryUrl:
+              - text: https://www.insight.com/en_US/search.html?qtype=all&pq=%7B%22searchTerms%22%3A%7B%22Services%2520Technical%22%3A%7B%22field%22%3A%22category%22%2C%22value%22%3A%22C-ZJ%22%7D%7D%2C%22sortBy%22%3A%22BestMatch%22%7D
+                xpath: /html/body/div[139]/div[2]
+          - category:
+              - text: Sound Cards
+                xpath: /html/body/div[140]/div[1]
+            categoryUrl:
+              - text: https://www.insight.com/en_US/search.html?qtype=all&pq=%7B%22searchTerms%22%3A%7B%22Sound%2520Cards%22%3A%7B%22field%22%3A%22category%22%2C%22value%22%3A%22C-EG%22%7D%7D%2C%22sortBy%22%3A%22BestMatch%22%7D
+                xpath: /html/body/div[140]/div[2]
+          - category:
+              - text: Speakers
+                xpath: /html/body/div[141]/div[1]
+            categoryUrl:
+              - text: https://www.insight.com/en_US/search.html?qtype=all&pq=%7B%22searchTerms%22%3A%7B%22Speakers%22%3A%7B%22field%22%3A%22category%22%2C%22value%22%3A%22C-KD%22%7D%7D%2C%22sortBy%22%3A%22BestMatch%22%7D
+                xpath: /html/body/div[141]/div[2]
+          - category:
+              - text: Storage Accessories
+                xpath: /html/body/div[142]/div[1]
+            categoryUrl:
+              - text: https://www.insight.com/en_US/search.html?qtype=all&pq=%7B%22searchTerms%22%3A%7B%22Storage%2520Accessories%22%3A%7B%22field%22%3A%22category%22%2C%22value%22%3A%22C-CJ%22%7D%7D%2C%22sortBy%22%3A%22BestMatch%22%7D
+                xpath: /html/body/div[142]/div[2]
+          - category:
+              - text: Storage Adapters
+                xpath: /html/body/div[143]/div[1]
+            categoryUrl:
+              - text: https://www.insight.com/en_US/search.html?qtype=all&pq=%7B%22searchTerms%22%3A%7B%22Storage%2520Adapters%22%3A%7B%22field%22%3A%22category%22%2C%22value%22%3A%22C-CG%22%7D%7D%2C%22sortBy%22%3A%22BestMatch%22%7D
+                xpath: /html/body/div[143]/div[2]
+          - category:
+              - text: Storage Cables
+                xpath: /html/body/div[144]/div[1]
+            categoryUrl:
+              - text: https://www.insight.com/en_US/search.html?qtype=all&pq=%7B%22searchTerms%22%3A%7B%22Storage%2520Cables%22%3A%7B%22field%22%3A%22category%22%2C%22value%22%3A%22C-CH%22%7D%7D%2C%22sortBy%22%3A%22BestMatch%22%7D
+                xpath: /html/body/div[144]/div[2]
+          - category:
+              - text: Storage Service/Support
+                xpath: /html/body/div[145]/div[1]
+            categoryUrl:
+              - text: https://www.insight.com/en_US/search.html?qtype=all&pq=%7B%22searchTerms%22%3A%7B%22Storage%2520Service%252FSupport%22%3A%7B%22field%22%3A%22category%22%2C%22value%22%3A%22C-CK%22%7D%7D%2C%22sortBy%22%3A%22BestMatch%22%7D
+                xpath: /html/body/div[145]/div[2]
+          - category:
+              - text: System Accessories
+                xpath: /html/body/div[146]/div[1]
+            categoryUrl:
+              - text: https://www.insight.com/en_US/search.html?qtype=all&pq=%7B%22searchTerms%22%3A%7B%22System%2520Accessories%22%3A%7B%22field%22%3A%22category%22%2C%22value%22%3A%22C-AJ%22%7D%7D%2C%22sortBy%22%3A%22BestMatch%22%7D
+                xpath: /html/body/div[146]/div[2]
+          - category:
+              - text: System Cabinets
+                xpath: /html/body/div[147]/div[1]
+            categoryUrl:
+              - text: https://www.insight.com/en_US/search.html?qtype=all&pq=%7B%22searchTerms%22%3A%7B%22System%2520Cabinets%22%3A%7B%22field%22%3A%22category%22%2C%22value%22%3A%22C-AF%22%7D%7D%2C%22sortBy%22%3A%22BestMatch%22%7D
+                xpath: /html/body/div[147]/div[2]
+          - category:
+              - text: System Service/Support
+                xpath: /html/body/div[148]/div[1]
+            categoryUrl:
+              - text: https://www.insight.com/en_US/search.html?qtype=all&pq=%7B%22searchTerms%22%3A%7B%22System%2520Service%252FSupport%22%3A%7B%22field%22%3A%22category%22%2C%22value%22%3A%22C-AK%22%7D%7D%2C%22sortBy%22%3A%22BestMatch%22%7D
+                xpath: /html/body/div[148]/div[2]
+          - category:
+              - text: System/Power Cables
+                xpath: /html/body/div[149]/div[1]
+            categoryUrl:
+              - text: https://www.insight.com/en_US/search.html?qtype=all&pq=%7B%22searchTerms%22%3A%7B%22System%252FPower%2520Cables%22%3A%7B%22field%22%3A%22category%22%2C%22value%22%3A%22C-AH%22%7D%7D%2C%22sortBy%22%3A%22BestMatch%22%7D
+                xpath: /html/body/div[149]/div[2]
+          - category:
+              - text: Tape Drives/Libraries
+                xpath: /html/body/div[150]/div[1]
+            categoryUrl:
+              - text: https://www.insight.com/en_US/search.html?qtype=all&pq=%7B%22searchTerms%22%3A%7B%22Tape%2520Drives%252FLibraries%22%3A%7B%22field%22%3A%22category%22%2C%22value%22%3A%22C-CD%22%7D%7D%2C%22sortBy%22%3A%22BestMatch%22%7D
+                xpath: /html/body/div[150]/div[2]
+          - category:
+              - text: Telephones
+                xpath: /html/body/div[151]/div[1]
+            categoryUrl:
+              - text: https://www.insight.com/en_US/search.html?qtype=all&pq=%7B%22searchTerms%22%3A%7B%22Telephones%22%3A%7B%22field%22%3A%22category%22%2C%22value%22%3A%22C-PA%22%7D%7D%2C%22sortBy%22%3A%22BestMatch%22%7D
+                xpath: /html/body/div[151]/div[2]
+          - category:
+              - text: Televisions
+                xpath: /html/body/div[152]/div[1]
+            categoryUrl:
+              - text: https://www.insight.com/en_US/search.html?qtype=all&pq=%7B%22searchTerms%22%3A%7B%22Televisions%22%3A%7B%22field%22%3A%22category%22%2C%22value%22%3A%22C-JA%22%7D%7D%2C%22sortBy%22%3A%22BestMatch%22%7D
+                xpath: /html/body/div[152]/div[2]
+          - category:
+              - text: Time Lapse VCRs & DVRs
+                xpath: /html/body/div[153]/div[1]
+            categoryUrl:
+              - text: https://www.insight.com/en_US/search.html?qtype=all&pq=%7B%22searchTerms%22%3A%7B%22Time%2520Lapse%2520VCRs%2520%2526%2520DVRs%22%3A%7B%22field%22%3A%22category%22%2C%22value%22%3A%22C-YA%22%7D%7D%2C%22sortBy%22%3A%22BestMatch%22%7D
+                xpath: /html/body/div[153]/div[2]
+          - category:
+              - text: Training Courses
+                xpath: /html/body/div[154]/div[1]
+            categoryUrl:
+              - text: https://www.insight.com/en_US/search.html?qtype=all&pq=%7B%22searchTerms%22%3A%7B%22Training%2520Courses%22%3A%7B%22field%22%3A%22category%22%2C%22value%22%3A%22C-HB%22%7D%7D%2C%22sortBy%22%3A%22BestMatch%22%7D
+                xpath: /html/body/div[154]/div[2]
+          - category:
+              - text: Tripods
+                xpath: /html/body/div[155]/div[1]
+            categoryUrl:
+              - text: https://www.insight.com/en_US/search.html?qtype=all&pq=%7B%22searchTerms%22%3A%7B%22Tripods%22%3A%7B%22field%22%3A%22category%22%2C%22value%22%3A%22C-MB%22%7D%7D%2C%22sortBy%22%3A%22BestMatch%22%7D
+                xpath: /html/body/div[155]/div[2]
+          - category:
+              - text: Two-Way Radios
+                xpath: /html/body/div[156]/div[1]
+            categoryUrl:
+              - text: https://www.insight.com/en_US/search.html?qtype=all&pq=%7B%22searchTerms%22%3A%7B%22Two-Way%2520Radios%22%3A%7B%22field%22%3A%22category%22%2C%22value%22%3A%22C-PE%22%7D%7D%2C%22sortBy%22%3A%22BestMatch%22%7D
+                xpath: /html/body/div[156]/div[2]
+          - category:
+              - text: VDI Planning
+                xpath: /html/body/div[157]/div[1]
+            categoryUrl:
+              - text: https://www.insight.com/en_US/search.html?qtype=all&pq=%7B%22searchTerms%22%3A%7B%22VDI%2520Planning%22%3A%7B%22field%22%3A%22category%22%2C%22value%22%3A%22C-XL%22%7D%7D%2C%22sortBy%22%3A%22BestMatch%22%7D
+                xpath: /html/body/div[157]/div[2]
+          - category:
+              - text: Video
+                xpath: /html/body/div[158]/div[1]
+            categoryUrl:
+              - text: https://www.insight.com/en_US/search.html?qtype=all&pq=%7B%22searchTerms%22%3A%7B%22Video%22%3A%7B%22field%22%3A%22category%22%2C%22value%22%3A%22C-WU%22%7D%7D%2C%22sortBy%22%3A%22BestMatch%22%7D
+                xpath: /html/body/div[158]/div[2]
+          - category:
+              - text: Video Cards
+                xpath: /html/body/div[159]/div[1]
+            categoryUrl:
+              - text: https://www.insight.com/en_US/search.html?qtype=all&pq=%7B%22searchTerms%22%3A%7B%22Video%2520Cards%22%3A%7B%22field%22%3A%22category%22%2C%22value%22%3A%22C-EF%22%7D%7D%2C%22sortBy%22%3A%22BestMatch%22%7D
+                xpath: /html/body/div[159]/div[2]
+          - category:
+              - text: Video Conferencing
+                xpath: /html/body/div[160]/div[1]
+            categoryUrl:
+              - text: https://www.insight.com/en_US/search.html?qtype=all&pq=%7B%22searchTerms%22%3A%7B%22Video%2520Conferencing%22%3A%7B%22field%22%3A%22category%22%2C%22value%22%3A%22C-FB%22%7D%7D%2C%22sortBy%22%3A%22BestMatch%22%7D
+                xpath: /html/body/div[160]/div[2]
+          - category:
+              - text: Video Game Consoles
+                xpath: /html/body/div[161]/div[1]
+            categoryUrl:
+              - text: https://www.insight.com/en_US/search.html?qtype=all&pq=%7B%22searchTerms%22%3A%7B%22Video%2520Game%2520Consoles%22%3A%7B%22field%22%3A%22category%22%2C%22value%22%3A%22C-JF%22%7D%7D%2C%22sortBy%22%3A%22BestMatch%22%7D
+                xpath: /html/body/div[161]/div[2]
+          - category:
+              - text: Video Memory
+                xpath: /html/body/div[162]/div[1]
+            categoryUrl:
+              - text: https://www.insight.com/en_US/search.html?qtype=all&pq=%7B%22searchTerms%22%3A%7B%22Video%2520Memory%22%3A%7B%22field%22%3A%22category%22%2C%22value%22%3A%22C-BB%22%7D%7D%2C%22sortBy%22%3A%22BestMatch%22%7D
+                xpath: /html/body/div[162]/div[2]
+          - category:
+              - text: Video Surveillance Kits & Solutions
+                xpath: /html/body/div[163]/div[1]
+            categoryUrl:
+              - text: https://www.insight.com/en_US/search.html?qtype=all&pq=%7B%22searchTerms%22%3A%7B%22Video%2520Surveillance%2520Kits%2520%2526%2520Solutions%22%3A%7B%22field%22%3A%22category%22%2C%22value%22%3A%22C-YC%22%7D%7D%2C%22sortBy%22%3A%22BestMatch%22%7D
+                xpath: /html/body/div[163]/div[2]
+          - category:
+              - text: Virtualization Planning
+                xpath: /html/body/div[164]/div[1]
+            categoryUrl:
+              - text: https://www.insight.com/en_US/search.html?qtype=all&pq=%7B%22searchTerms%22%3A%7B%22Virtualization%2520Planning%22%3A%7B%22field%22%3A%22category%22%2C%22value%22%3A%22C-XA%22%7D%7D%2C%22sortBy%22%3A%22BestMatch%22%7D
+                xpath: /html/body/div[164]/div[2]
+          - category:
+              - text: Wearable Electronics
+                xpath: /html/body/div[165]/div[1]
+            categoryUrl:
+              - text: https://www.insight.com/en_US/search.html?qtype=all&pq=%7B%22searchTerms%22%3A%7B%22Wearable%2520Electronics%22%3A%7B%22field%22%3A%22category%22%2C%22value%22%3A%22C-PJ%22%7D%7D%2C%22sortBy%22%3A%22BestMatch%22%7D
+                xpath: /html/body/div[165]/div[2]
+          - category:
+              - text: Web TV
+                xpath: /html/body/div[166]/div[1]
+            categoryUrl:
+              - text: https://www.insight.com/en_US/search.html?qtype=all&pq=%7B%22searchTerms%22%3A%7B%22Web%2520TV%22%3A%7B%22field%22%3A%22category%22%2C%22value%22%3A%22C-JE%22%7D%7D%2C%22sortBy%22%3A%22BestMatch%22%7D
+                xpath: /html/body/div[166]/div[2]
+          - category:
+              - text: Wireless
+                xpath: /html/body/div[167]/div[1]
+            categoryUrl:
+              - text: https://www.insight.com/en_US/search.html?qtype=all&pq=%7B%22searchTerms%22%3A%7B%22Wireless%22%3A%7B%22field%22%3A%22category%22%2C%22value%22%3A%22C-WS%22%7D%7D%2C%22sortBy%22%3A%22BestMatch%22%7D
+                xpath: /html/body/div[167]/div[2]
+        xpath: /html
+    timestamp: 1608028280748
