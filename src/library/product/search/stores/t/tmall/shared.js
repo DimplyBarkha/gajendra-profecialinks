@@ -4,7 +4,7 @@
  * @returns {ImportIO.Group[]}
  */
 const transform = (data, context) => {
-const clean = text => text.toString()
+  const clean = text => text.toString()
     .replace(/\r\n|\r|\n/g, ' ')
     .replace(/&amp;nbsp;/g, ' ')
     .replace(/&amp;#160/g, ' ')
@@ -23,15 +23,15 @@ const clean = text => text.toString()
   for (const { group } of data) {
     for (const row of group) {
       if (row.thumbnail) {
-        let thumbnail = [];
+        const thumbnail = [];
         row.thumbnail.forEach(item => {
           if (item.text.indexOf('https:') === -1) {
             item.text = `https:${item.text}`;
           }
         });
       }
-      if (row.price && row.price[0]) {
-          row.price[0].text = row.price[0].text.replace(',', '.');
+      if (row.aggregateRating2 && row.aggregateRating2[0]) {
+        row.aggregateRating2[0].text = row.aggregateRating2[0].text.replace('.', ',');
       }
       rankCounter += 1;
       if (!row.sponsored) {
@@ -48,7 +48,6 @@ const clean = text => text.toString()
   context.setState({ orgRankCounter });
   console.log(productCodes);
   return data;
+};
 
-  };
-  
-  module.exports = { transform };
+module.exports = { transform };

@@ -9,6 +9,8 @@ fields:
     - name: id
       singleValue: false
       xpath: //div[@class="add-to-wishlist"]/a/@data-product-id
+      regExp: (.+)
+      regExpReplace: ru$1
     - name: productUrl
       singleValue: false
       xpath: //div[@class="pic"]//a[contains(@class,"history-item")]/@href

@@ -14,7 +14,7 @@ async function implementation (
       scrollTop += 1000;
       window.scroll(0, scrollTop);
       if (scrollTop === 20000) {
-        await stall(10000);
+        await stall(5000);
         break;
       }
     }
