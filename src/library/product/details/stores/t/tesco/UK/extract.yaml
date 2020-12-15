@@ -6,57 +6,137 @@ fields:
   - name: nameExtended
     singleValue: true
     xpath: //h1[@class="product-details-tile__title"]
-  - name: category
+  - name: otherSellersName
     singleValue: false
-    xpath: //ol[contains(@class,"beans-breadcrumb__list")]/li
-  - name: description
-    singleValue: true
-    xpath: concat(//div[contains(@id,'product-description')]/ul,' ',//div[contains(@id,'product-marketing')],' ',//div[contains(@id,'brand-marketing')])
-  - name: price
+    defaultValue: "Tesco"
+  - name: otherSellersId
+    singleValue: false
+    defaultValue: 1
+  - name: otherSellersPrice
     singleValue: true
     xpath: //div[@class="product-details-tile"]//div[contains(@class,"price-per-sellable-unit")]|(//div[@data-auto="product-controls"]//div[contains(@class,'price-details--wrapper')]/div//span[@data-auto="price-value"])[1]
+  - name: otherSellersBuyboxWinner
+    singleValue: true
+  - name: otherSellersFulfilledByAmazon
+    singleValue: true
+  - name: otherSellersPrime
+    singleValue: true
+  - name: otherSellersPrimePantry
+    singleValue: true
   - name: availabilityText
     xpath: //script[@type="application/ld+json"][contains(text(),'availability":"http://schema.org/InStock"')]
     regExp: InStock
     regExpReplace: In Stock
     defaultValue: Out Of Stock
-  - name: descriptionBullets
+  - name: gtin
     singleValue: false
-    xpath: count(//div[contains(@id,'product-description')]/ul/li | //div[contains(@id,'product-marketing')]/ul/li  | //div[contains(@id,'brand-marketing')]/ul/li)
-  - name: ingredientsList
+    xpath: //script[@type="application/ld+json"][contains(text(),"gtin")]
+    regExp: gtin13":"([^"]+)
+    regExpReplace: $1
+  - name: upc
+    singleValue: falseeangtin
+  - name: eangtin
     singleValue: false
-    xpath: //div[contains(@id,'ingredients')]/p
-    regExp: "[^|]+"
   - name: brandText
     singleValue: false
     xpath: //script[@type="application/ld+json"][contains(text(),"brand")]
     regExp: brand":{"@type":"[^"]+","name":"([^"]+)
     regExpReplace: $1
-  - name: manufacturer
+  - name: priceCurrency
     singleValue: true
-    xpath: //div[@id="manufacturer-address"]/ul
-  - name: weightNet
+    xpath: //span[@class='currency']
+  - name: description
     singleValue: true
-    xpath: //div[@id="net-contents"]/p
-  - name: sku
+    xpath: concat(//div[contains(@id,'product-description')]/ul,' ',//div[contains(@id,'product-marketing')],' ',//div[contains(@id,'brand-marketing')])
+  - name: manufacturerImages
+    singleValue: true
+  - name: specifications
+    singleValue: true
+  - name: featureBullets
     singleValue: false
-    xpath: //script[@type="application/ld+json"][contains(text(),"sku")]
-    regExp: sku":"([^"]+)
-    regExpReplace: $1
-  - name: variantId
+    description: null
+    xpath: //div[@id='features']
+  - name: featureHighlights
     singleValue: false
-    xpath: //script[@type="application/ld+json"][contains(text(),"sku")]
-    regExp: sku":"([^"]+)
+  - name: allergens
+    singleValue: true
+    xpath: //div[@id="allergens"]/ul
+  - name: caloriesPerServing
+    singleValue: true
+    xpath: concat(//td[contains(text(),"Energy")]/following-sibling::td[1],"/", //tr/following-sibling::td[contains(text(),"cal")]/following-sibling::td[1] | //td[contains(text(),"Energy")]/../following-sibling::tr[contains(.,'cal')]//td[2])
+  - name: legalDisclaimer
+    singleValue: true
+  - name: ingredientsList
+    singleValue: false
+    xpath: //div[contains(@id,'ingredients')]/p
+    regExp: "[^|]+"
+  - name: nutritionInfo
+    singleValue: false
+    # xpath: //table[@class='product__info-table']/tbody
+    xpath: concat(//tr[contains(.,"Energy")],' , ',//tr[contains(.,"Fat")],' , ',//tr[contains(.,"saturates")],' , ',//tr[contains(.,"Carbohydrate")],' , ',//tr[contains(.,"sugars")],' , ',//tr[contains(.,"Protein")],' , ',//tr[contains(.,"Salt")])
+  - name: servingSize
+    singleValue: false
+  - name: category
+    singleValue: false
+    xpath: //ol[contains(@class,"beans-breadcrumb__list")]/li
+  - name: shownImages
+    singleValue: false
+    xpath: //body//@additional_image
+  - name: highQualityImages
+    singleValue: false
+    description: Materials used to make the product
+    xpath: //body//@additional_image
+  - name: mpc
+    singleValue: false
+  - name: mpn
+    singleValue: false
+  - name: price
+    singleValue: true
+    xpath: //div[@class="product-details-tile"]//div[contains(@class,"price-per-sellable-unit")]|(//div[@data-auto="product-controls"]//div[contains(@class,'price-details--wrapper')]/div//span[@data-auto="price-value"])[1]
+  - name: questionsCount
+    singleValue: true
+  - name: salesRank
+    singleValue: true
+  - name: salesRankCategory
+    singleValue: true
+  - name: aggregateRating
+    singleValue: false
+    xpath: //script[@type="application/ld+json"][contains(text(),"ratingValue")]
+    regExp: ratingValue":([^,"]+)
     regExpReplace: $1
   - name: ratingCount
     singleValue: false
     xpath: //script[@type="application/ld+json"][contains(text(),"reviewCount")]
     regExp: reviewCount":([^}]+)
     regExpReplace: $1
-  - name: aggregateRating
+  - name: sku
     singleValue: false
-    xpath: //script[@type="application/ld+json"][contains(text(),"ratingValue")]
-    regExp: ratingValue":([^,"]+)
+    xpath: //script[@type="application/ld+json"][contains(text(),"sku")]
+    regExp: sku":"([^"]+)
+    regExpReplace: $1
+  - name: videos
+    singleValue: true
+  - name: variantInformation
+    singleValue: true
+  - name: variants
+    singleValue: true
+  - name: productUrl
+    singleValue: false
+    xpath: //link[@rel="canonical"]/@href
+  - name: amazonChoice
+    singleValue: true
+  - name: sponsoredProductUrls
+    singleValue: false
+  - name: manufacturer
+    singleValue: true
+    xpath: //div[@id="manufacturer-address"]/ul
+  - name: weightNet
+    singleValue: true
+    xpath: //div[@id="net-contents"]/p
+  - name: variantId
+    singleValue: false
+    xpath: //script[@type="application/ld+json"][contains(text(),"sku")]
+    regExp: sku":"([^"]+)
     regExpReplace: $1
   - name: numberOfServingsInPackage
     singleValue: true
@@ -66,17 +146,9 @@ fields:
   - name: storage
     singleValue: true
     xpath: //div[@id="storage-details"]/p
-  - name: gtin
-    singleValue: false
-    xpath: //script[@type="application/ld+json"][contains(text(),"gtin")]
-    regExp: gtin13":"([^"]+)
-    regExpReplace: $1
   - name: additives
     singleValue: true
     xpath: //div[@id="additives"]/ul
-  - name: allergens
-    singleValue: true
-    xpath: //div[@id="allergens"]/ul
   - name: recyclingInformation
     singleValue: true
     xpath: //div[@id="recycling-info"]/p
@@ -94,42 +166,13 @@ fields:
   - name: warnings
     singleValue: true
     xpath: //div[@id="warnings"]//ul|//div[contains(@id,'lower-age-limit')]
-  - name: productUrl
-    singleValue: false
-    xpath: //link[@rel="canonical"]/@href
   - name: promotion
     singleValue: false
     xpath: (//ul[contains(@class,"product-promotion")]/li//span[@class='offer-text'])[1]
-  - name: alcoholContent
-    singleValue: false
-    xpath: //div[@id="percentage-alcohol"]/p
-  - name: featureBullets
-    singleValue: false
-    description: null
-    xpath: //div[@id='features']
-  - name: priceCurrency
-    singleValue: falses
-    xpath: //span[@class='currency']
-  - name: shownImages
-    singleValue: false
-    xpath: //body//@additional_image
-  - name: otherSellersName
-    singleValue: false
-    defaultValue: "Tesco"
-  - name: otherSellersId
-    singleValue: false
-    defaultValue: 1
-  - name: highQualityImages
-    singleValue: false
-    description: Materials used to make the product
-    xpath: //body//@additional_image
-  - name: nutritionInfo
-    singleValue: false
-    # xpath: //table[@class='product__info-table']/tbody
-    xpath: concat(//tr[contains(.,"Energy")],' , ',//tr[contains(.,"Fat")],' , ',//tr[contains(.,"saturates")],' , ',//tr[contains(.,"Carbohydrate")],' , ',//tr[contains(.,"sugars")],' , ',//tr[contains(.,"Protein")],' , ',//tr[contains(.,"Salt")])
-  - name: caloriesPerServing
-    singleValue: true
-    xpath: concat(//td[contains(text(),"Energy")]/following-sibling::td[1],"/", //tr/following-sibling::td[contains(text(),"cal")]/following-sibling::td[1] | //td[contains(text(),"Energy")]/../following-sibling::tr[contains(.,'cal')]//td[2])
+
+
+
+
 
 
 
