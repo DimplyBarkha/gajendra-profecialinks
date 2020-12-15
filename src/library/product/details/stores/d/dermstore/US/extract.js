@@ -1,3 +1,4 @@
+/* eslint-disable prefer-const */
 const { transform } = require('./format');
 /**
  *
@@ -23,6 +24,8 @@ async function implementation (inputs, parameters, context, dependencies) {
       newDiv.style.display = 'none';
       document.body.appendChild(newDiv);
     }
+    const JSONObj = prod_details_array.prod_sku;
+    addHiddenDiv('Added_sku', JSONObj);
     const scriptTagSelector = document.querySelector('script[type="text/javascript"]');
     // @ts-ignore
     const scriptTagData = scriptTagSelector ? scriptTagSelector.innerText : '';
@@ -37,7 +40,19 @@ async function implementation (inputs, parameters, context, dependencies) {
     const gtin = scriptTagJSON ? scriptTagJSON.gtin13 : '';
     console.log('gtin', gtin);
     addHiddenDiv('added_gtinText', gtin);
-    // @ts-ignore
+    let descArr = [];
+    let descElement1;
+    let description1 = document.querySelector('div#collapseDetails');
+    descElement1 = description1 ? description1.innerHTML.replace(/<li.*?>/gm, ' || ').replace(/\n/gm, ' ').replace(/<script>.*?<\/script>/gm, '').replace(/<style.*?<\/style>/gm, '').replace(/<.*?>/gm, ' ').replace(/•/gm, ' ||').replace(/\s{2,}/gm, ' ').replace(/\&nbsp;/gm, '').trim() : '';
+    if (description1) {
+      descArr.push(descElement1);
+      console.log('descElement1: ', descElement1);
+    }
+    if (descArr) {
+      let finalDes = descArr.join(' ');
+      addHiddenDiv('Added_description', finalDes);
+      console.log('finalDes: ', finalDes);
+    }
     let availabilityText = scriptTagJSON ? scriptTagJSON.offers ? scriptTagJSON.offers[0].availability ? scriptTagJSON.offers[0].availability : '' : '' : '';
     availabilityText = availabilityText && availabilityText.toLowerCase().includes('instock') ? 'In Stock' : 'Out Of Stock';
     addHiddenDiv('added_availabilityText', availabilityText);

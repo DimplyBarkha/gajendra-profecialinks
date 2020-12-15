@@ -22,6 +22,16 @@ const transform = (data) => {
       if (row.listPrice) {
         row.listPrice[0].text += ' $';
       }
+      if (row.description) {
+        row.description.forEach(itemDescription => {
+          itemDescription.text = itemDescription.text.replace('Brand details', '');
+        });
+      }
+      if (row.quantity) {
+        row.quantity.forEach(quantityItem => {
+          quantityItem.text = quantityItem.text.replace('\((.*)\)/gm', '');
+        });
+      }
     }
   }
 
