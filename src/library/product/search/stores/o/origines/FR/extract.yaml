@@ -1,0 +1,26 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: //div [@class="products wrapper grid products-grid"]//ol//li[contains(@class,'item')]
+fields:
+  - name: price
+    singleValue: false
+    xpath: //div[@class='search results']//ol//li//div[@class="product-item-inner"]//span[@data-price-type='finalPrice']/@data-price-amount
+    regExp: (\d+).(\d+)
+    regExpReplace: $1,$2 €    
+  - name: name
+    singleValue: false
+    xpath: //div[@class='search results']//ol//li//div[@data-container="product-grid"]//strong[@class='product name product-item-name']/a/text()
+  - name: productUrl
+    singleValue: false
+    xpath: //div[@class='search results']//ol//li//div[@data-container="product-grid"]/a/@href
+    # regExp: (.+)
+    # regExpReplace: null     
+  - name: thumbnail
+    singleValue: false
+    xpath: //div[@class='search results']//ol//li//div[@data-container="product-grid"]/a//img/@src
+  - name: id
+    singleValue: false
+    xpath: //div[contains(@class,'products wrapper')]/ol/li[starts-with(@id,'product-')]/@id
+    regExp: (\d*)
+    regExpReplace: $1 
