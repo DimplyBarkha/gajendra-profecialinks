@@ -5,7 +5,7 @@ module.exports = {
     domain: 'manor.ch',
     timeout: 80000,
     country: 'CH',
-    store: 'lyreco',
+    store: 'manor',
     zipcode: '',
   },
 };
