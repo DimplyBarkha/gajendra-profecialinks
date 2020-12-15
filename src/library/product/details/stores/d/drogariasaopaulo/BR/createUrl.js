@@ -4,7 +4,7 @@ module.exports = {
   parameterValues: {
     domain: 'drogariasaopaulo.com.br',
     prefix: '',
-    postfix: '/p',
+    postfix: '',
     url: 'https://www.drogariasaopaulo.com.br/{id}/p',
     country: 'BR',
     store: 'drogariasaopaulo',
