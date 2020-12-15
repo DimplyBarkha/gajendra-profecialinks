@@ -102,7 +102,7 @@ module.exports = {
         addElementToDocument('desc', ppp);
       }
 
-      var image = getAllXpath("//ul[@class='thumbnail-wrapper']/li/img/@src", 'nodeValue');
+      var image = getAllXpath("//ul[@class='thumbnail-wrapper']/li[position()>1]/img/@src", 'nodeValue');
       if (image != null) {
         for (var i=0; i < image.length; i++){
           image[i] = "https:" + image[i]
@@ -116,13 +116,15 @@ module.exports = {
       if (specification != null) {
         for (var i = 0; i < specification.length; i++) {
           if (specification[i].length != 150) {
-            aaa.push(specification[i]);
+            aaa.push(specification[i].trim());
           }
         }
         var bbb = getAllXpath("//dl[@class='product-specifications-list']/dd/text()", 'nodeValue');
         var final = ""
         for (var i = 0; i < aaa.length; i++) {
-          final = final + aaa[i] + ":" + bbb[i];
+          console.log('aaa[i]')
+          console.log(aaa[i] + 'i')
+          final = final + aaa[i].replace(/\s([^\s]*)$/, '') + ': ' + bbb[i];
           if (aaa[i + 1] != undefined) {
             final = final + " || "
           }

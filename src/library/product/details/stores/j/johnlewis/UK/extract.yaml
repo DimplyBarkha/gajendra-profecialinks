@@ -5,7 +5,7 @@ recordXPath: null
 fields:
   - name: image
     singleValue: true
-    xpath: (//li[@data-carousel="productCarousel"]/img/@src)[1]
+    xpath: ((//li[@data-carousel="productCarousel"]/img/@src)[1]|(//li[@class="slick-active"]/img/@src)[1])[1]
     regExp: (//johnlewis.*)
     regExpReplace: https:$1
   - name: imageAlt
@@ -44,6 +44,7 @@ fields:
   - name: descriptionBullets
     singleValue: true
     description: Number of ul > li tags in the description
+    xpath: count(//div[contains(@class, "product-detail__description")]//li)
     type: NUMBER
   - name: brandText
     singleValue: true
@@ -54,6 +55,7 @@ fields:
   - name: quantity
     singleValue: true
     xpath: //dl[@class="product-specifications-list"]/dt[contains(text(),'Pack Size')]/following-sibling::dd[1]/text() | //dl[@class="product-specifications-list"]/dt[contains(text(),'Size (g)')]/following-sibling::dd[1]/text() | //dl[@class="product-specifications-list"]/dt[contains(text(),'Volume')]/following-sibling::dd[1]/text() | //dl[@class="product-specifications-list"]/dt[contains(text(),'Size ')]/following-sibling::dd[1]/text()
+    regExp: (\d*\.?\d+)
   - name: weightNet
     singleValue: true
     xpath: //dl[@class="product-specifications-list"]/dt[contains(text(),'Weight')]/following-sibling::dd[1]/text()
@@ -71,7 +73,8 @@ fields:
     xpath: //div[@id="store-stock-app"]/@data-product-code
   - name: mpc
     singleValue: true
-    xpath: //div[@id="store-stock-app"]/@data-sku-id
+    xpath: //dl[@class="product-specifications-list"]/dt[contains(text(),'Manufacturer Part Number (MPN)')]/following-sibling::dd[1]/text()
+    # xpath: //div[@id="store-stock-app"]/@data-sku-id
   - name: packSize
     singleValue: true
     description: The number of packs in the product offer (if stated separately on
@@ -93,6 +96,7 @@ fields:
   - name: aggregateRating
     singleValue: true
     xpath: //html//div[@id="star"]
+    defaultValue: 0.0
     type: NUMBER
   - name: shippingInfo
     singleValue: true
@@ -161,7 +165,7 @@ fields:
     description: null
   - name: secondaryImageTotal
     singleValue: true
-    xpath: count(//ul[@class='thumbnail-wrapper']/li/img/@src)
+    xpath: count(//ul[@class='thumbnail-wrapper']/li[position()>1]/img/@src)
     type: NUMBER
   - name: specifications
     singleValue: true
@@ -181,6 +185,7 @@ fields:
     description: null
   - name: additionalDescBulletInfo
     singleValue: false
+    xpath: //div[contains(@class, "product-detail__description")]//li
     description: null
   - name: technicalInformationPdfPresent
     singleValue: true
