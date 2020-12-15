@@ -1,0 +1,15 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: //td[@align="center"]//a[font[@face="Verdana,Arial,Helvetica"][@size="1"]]
+fields:
+  - name: category
+    singleValue: false
+    description: name of the category
+    xpath: //td[@align="center"]//a/font[@face="Verdana,Arial,Helvetica"][@size="1"]
+  - name: categoryUrl
+    singleValue: false
+    description: url of the category
+    xpath: //td[@align="center"]//a[font[@face="Verdana,Arial,Helvetica"][@size="1"]]/@href
+    regExp: (.+)
+    regExpReplace: https://www.frys.com/$1
