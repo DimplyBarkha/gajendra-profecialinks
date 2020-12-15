@@ -4,7 +4,7 @@ module.exports = {
   parameterValues: {
     domain: 'meny.no',
     prefix: null,
-    url: null,
+    url: 'https://meny.no/varer/-/-/--{id}',
     zipcode: ' ',
     store: 'meny',
     country: 'NO',

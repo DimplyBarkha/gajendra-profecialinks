@@ -5,8 +5,8 @@ module.exports = {
     country: 'NO',
     store: 'meny',
     domain: 'meny.no',
-    loadedSelector: null,
-    noResultsXPath: null,
+    loadedSelector: '#maincontent > div > div > header',
+    noResultsXPath: '//p[contains(., "Noe gikk galt") and contains(., "ikke funnet")]',
     zipcode: ' ',
   },
 };

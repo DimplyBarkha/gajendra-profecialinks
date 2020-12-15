@@ -14,6 +14,12 @@ module.exports = {
     context,
     dependencies,
   ) {
+    if (inputs.zipcode || inputs.storeId) {
+      await context.evaluate((inputs) => {
+        document.body.setAttribute('drive', inputs.zipcode);
+        document.body.setAttribute('retailer', inputs.storeId);
+      }, inputs);
+    }
     const { transform } = parameters;
     const { productDetails } = dependencies;
     await context.evaluate(async () => {
