@@ -32,7 +32,7 @@ fields:
     defaultValue: Out of Stock
   - name: price
     singleValue: false
-    xpath: //div[@class='main-detail-column']//div[@class='prices']//div[@class='price']//span[not(contains(@class,'for-sale'))]//span
+    xpath: //div[@class='main-detail-column']//div[@class='prices']//div[@class='price']//span[not(contains(@class,'for-sale'))]//span[@class='value']
   - name: listPrice
     singleValue: false
     xpath: //div[@class='main-detail-column']//div[@class='prices']//div[@class='price']//span[contains(@class,'for-sale')]//span
