@@ -34,13 +34,11 @@ async function implementation (
               categoryList.push(category);
             } if (i === 0) {
               oldValues = category.values.slice();
-              console.log('category values', category.values);
             }
             const newNode = node.children[i];
             category.id = newNode.id;
             category.url = newNode.url;
             category.values.push(newNode.title);
-            console.log('CATEGORY OBJECT', category);
             getLeafCategoryValue(newNode, newNode.id, categoryList);
           }
         } else {
@@ -61,7 +59,6 @@ async function implementation (
   } else {
     throw new Error('No categories found');
   }
-  console.log(json.children[20]);
   return await context.extract(productMenu);
 }
 module.exports = {
