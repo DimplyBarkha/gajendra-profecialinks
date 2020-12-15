@@ -8,13 +8,16 @@ fields:
     xpath: //h1[contains(@class,"productHeaderTitle__Title-gtvrqo-0")]
   - name: nameExtended
     singleValue: false
-    xpath: //meta[@name="description"]/@content
+    xpath: //h1[contains(@class,"productHeaderTitle__Title-gtvrqo-0")]
   - name: image
     singleValue: false 
     xpath: //meta[@property="og:image"]/@content
   - name: imageAlt
     singleValue: false 
     xpath:  concat(//meta[@property="og:brand"]/@content,' ',//meta[@property="og:title"]/@content)
+  - name: category
+    singleValue: false
+    xpath:  //div[contains(@class,"Z1ac")]//div[contains(@class,"Z1d")]//a
   - name: alternateImages
     singleValue: false 
   - name: brandText
@@ -46,9 +49,12 @@ fields:
   - name: price
     singleValue: false
     xpath: concat(//meta[@property="product:price:currency"]/@content,'',//meta[@property="product:price:amount"]/@content) 
-  - name: category
+  - name: weightNet
     singleValue: false
-    xpath: //*[@id="pageContent"]/div/div[1]/span/div/div/a
+    xpath: //table[contains(@class,"Z1o9")]//th//h3[text()="Dimensions du produit"]/parent::*/parent::*/parent::*/parent::*/tbody//td[text()="Poids"]/parent::tr/td[2]
+  - name: weightGross
+    singleValue: false
+    xpath: //table[contains(@class,"Z1o9")]//th//h3[text()="Dimensions de l’emballage"]/parent::*/parent::*/parent::*/parent::*/tbody//td[text()="Poids"]/parent::tr/td[2]
   - name: ratingCount
     singleValue: false
     xpath: //meta[@property="og:rating_count"]/@content
@@ -65,4 +71,15 @@ fields:
     xpath: //meta[@property="gtin"]/@content
   - name: variantCount
     singleValue: false
-    defaultValue: 0 
+    xpath: count(//span[contains(@class,"volumeDiscountPrices__SaleStyled-iu7k2d-1")])
+  - name: firstVariant
+    singleValue: false
+    xpath: //script[contains(text(), "sku")][1]/text()
+    regExp: sku":([^,]+)
+    regExpReplace: $1
+  - name: variants
+    singleValue: false
+    xpath: //span[contains(@class,"volumeDiscountPrices__SaleStyled-iu7k2d-1")]
+  - name: variantInformation
+    singleValue: false
+    xpath: //div[contains(@class,'volumeDiscountPrices__VolumePricesStyled-iu7k2d-0')]//button[contains(@class,'styled__DeprecatedStyledButton-sc-17ihqnc-1')] 

@@ -41,7 +41,8 @@ const transform = (data) => {
         }
         if (row.price) {
             row.price.forEach(item => {
-                item.text = item.text.replace('.', ',');
+                item.text = item.text.replace(/\s*/g, '').trim();
+                item.text = item.text.replace('.', '.').trim();
             });
         }
         if (row.description) {
@@ -53,6 +54,23 @@ const transform = (data) => {
               row.description = [{ "text": description_ar.join(" || "), 'xpath': row.description[0].xpath }];
             }
         }
+        if(row.variants){
+        
+          let value = []
+          //console.log('Hey there')
+          for (let index = 0; index < row.variants.length; ++index) {
+            value.push(row.variants[index].text);
+            //console.log(index, value);
+          }
+          row.variants = [{"text": value.join(' | '), "xpath": row.variants[0].xpath}]
+        }
+        if(row.variantInformation){
+          var strVariantInfo = ''
+          row.variantInformation.forEach(item => {
+            strVariantInfo = strVariantInfo + item.text + ' | '
+          })
+           row.variantInformation = [{"text": strVariantInfo, "xpath": row.variantInformation[0].xpath}]
+        }       
         if (row.specifications) {
             var rowItem = ''
             var rowCounter = 1
