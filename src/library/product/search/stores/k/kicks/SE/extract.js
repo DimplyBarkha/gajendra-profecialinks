@@ -19,7 +19,7 @@ async function implementation(
     const { transform } = parameters;
     const { productDetails } = dependencies;
     await context.evaluate(async function () {
-        const randomLink = document.evaluate("//button[@class='bm bn bo bp ce ai aj d7 bu bv er an bw cf l dd de bx es a0 g et di ev i eu bq br bs bt']/span", document, null, XPathResult.ANY_TYPE, null);
+        const randomLink = document.evaluate("//button[@class='bx by bz c0 c1 c6 c7 c8 c9 ca cb cc cd ce cf cg ch ci cj ck g cl cm co cp cn c2 c3 c4 c5']/span", document, null, XPathResult.ANY_TYPE, null);
         function addclass(xpathforpagination) {
             var elems = document.querySelectorAll(xpathforpagination);
             elems[0].classList.add('pagination');
