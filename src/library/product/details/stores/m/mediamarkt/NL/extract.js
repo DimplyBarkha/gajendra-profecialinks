@@ -28,7 +28,6 @@ module.exports = {
       let warranty = '';
       let mpc = '';
       let energy = '';
-      let packSize = '';
       document.querySelectorAll('dl.specification').forEach(specificationGroup => {
         specifications += `${specificationGroup.innerText}\n`;
         var specificationsItems = Array.from(specificationGroup.children);
@@ -53,10 +52,6 @@ module.exports = {
           if (item.innerText === 'Energie-efficiëntieklasse:') {
             energy = specificationsItems[index + 1].innerText;
           }
-          // Pack size
-          if (item.innerText === 'Verpakkingsinhoud:') {
-            packSize = specificationsItems[index + 1].innerText;
-          }
         });
       });
       addElementToDocument('mm_specifications', specifications);
@@ -65,7 +60,6 @@ module.exports = {
       addElementToDocument('mm_warranty', warranty);
       addElementToDocument('mm_mpc', mpc);
       addElementToDocument('mm_energy', energy);
-      addElementToDocument('mm_packSize', packSize);
 
       // Getting upc code
       if (eval(`window.product${urlParams.get('ga_query')}`)) {
