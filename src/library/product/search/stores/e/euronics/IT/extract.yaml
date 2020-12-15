@@ -24,9 +24,13 @@ fields:
   - name: reviewCount
     singleValue: false
     xpath: //div[@class='bv_numReviews_component_container']/div[@class='bv_text']
+    regExp: ([0-9])
+    regExpReplace: $1
   - name: ratingCount
     singleValue: false
     xpath: //div[@class='bv_numReviews_component_container']/div[@class='bv_text']
+    regExp: ([0-9])
+    regExpReplace: $1
   - name: price
     singleValue: false
     xpath: //div[contains(@class, 'productCard__price')]
