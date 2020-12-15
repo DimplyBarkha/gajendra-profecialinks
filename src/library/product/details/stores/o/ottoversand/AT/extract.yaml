@@ -37,7 +37,7 @@ fields:
     description: The product name, prefixing "${brand} - " if not included in "name"
       and appending " - ${variantType}" if necessary (fixed per feed)
     # xpath: //h1[@class="sc-AxhUy joerwJ"]
-    xpath: //h1[contains(@data-testid,"headline__component")]    
+    xpath: //h1[contains(@data-testid,"headline__component")]
   - name: listPrice
     singleValue: true
     description: The stated undiscounted price for the product
@@ -63,7 +63,7 @@ fields:
     singleValue: false
     description: Product description supplied by website - may be concatenanted from
       multiple places; specifically not the manufacturer description
-    xpath: //div[contains(@class,'Description-sc-bljq7d hvxUel')]//div      
+    xpath: //div[contains(@class,'Description-sc-bljq7d hvxUel')]//div
     # xpath: //div[contains(@class,'Description-sc-bljq7d hvxUel')]
   - name: descriptionBullets
     singleValue: true
@@ -98,7 +98,7 @@ fields:
   - name: gtin
     singleValue: true
     xpath: //div[contains(@class,'loadbeeTabContent')]//@data-loadbee-gtin
-    description: GTIN code (includes UPC/EAN)    
+    description: GTIN code (includes UPC/EAN)
   - name: sku
     singleValue: true
     description: The store-specific product identifier
@@ -534,8 +534,8 @@ fields:
     xpath: //tr//td//div//span[contains(text(), "Energieeffizienzklasse")]/following::td[1]
   - name: technicalInformationPdfPresent
     singleValue: true
-    description: If there is for example a manual in pdf format on the website. ['Yes','No']    
-    xpath: count(//*[contains(text(),'Herstellergarantie')])    
+    description: If there is for example a manual in pdf format on the website. ['Yes','No']
+    xpath: count(//*[contains(text(),'Herstellergarantie')])
   - name: termsAndConditions
     singleValue: true
     description: Terms and conditions information text ['Yes','No']
@@ -568,6 +568,9 @@ fields:
     xpath: //h1[contains(@class,'sc-AxhUy joerwJ')]
   - name: unInterruptedPDP
     singleValue: false
-    xpath: //div[@data-testid="productNameNoBrand"]/font
+    xpath: //div[@data-testid="productNameNoBrand"]
     description: Titles of products in the sections 'you may also like' or 'sponsored products'. Combine results from Max 3 sections
-  
+  - name: hasComparisonTable
+    singleValue: false
+    description: Compare the range table or matrix must be present for all vacuum cleaners & air treatment. This is not required for personal care or lighting. As a minimum the comparison table will compare against 1 additional Dyson product.
+    defaultValue: No
