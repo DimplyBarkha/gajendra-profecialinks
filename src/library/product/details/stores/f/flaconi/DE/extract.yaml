@@ -5,33 +5,47 @@ recordXPath: null
 fields:
   - name: image
     singleValue: true
-    xpath: //ul[contains(@class,'product-list') and contains(@class,'multiple-variants')]/li[1]/@data-small-image
+    xpath: //div[@class="product-image-slider__slide slick-slide slick-current slick-active"]//img/@src
   - name: imageAlt
     singleValue: true
-    xpath: //div[contains(@class, 'breadcrumbs')]/span[@itemprop='name']
   - name: alternateImages
     singleValue: false
     xpath: //div[@id='image-container']//div[contains(@class,'product-image-slider__slide') and contains(@class,'slick-slide') and not(contains(@class,'slick-active')) and not(contains(@class,'product-video'))]/img/@data-lazy
   - name: metaKeywords
     singleValue: true
   - name: category
-    singleValue: true
-    xpath: //div[contains(@class, 'breadcrumbs')]/a[1]/span
+    singleValue: false
+    xpath: (//div[@class="row"])[2]//a//span[not(contains(text(),'Start'))]
   - name: nameExtended
     singleValue: true
-    xpath: //div[contains(@class, 'breadcrumbs')]/span[@itemprop='name']
-  - name: list_price
+    xpath: //html//div[@id="namee"]
+  - name: listPrice
     singleValue: true
-    xpath: //span[@class='old-price']
+    xpath: //span[@class='old-price']//text()
+    type: CURRENCY
+  - name: pricePerUnit
+    singleValue: true
+    xpath: (//span[@class="base-price"])[1]//text()
+  - name: pricePerUnitUom
+    singleValue: true
+    xpath: (//span[@class="unit"])[1]
   - name: price
     singleValue: true
     xpath: (//div[@class='price-box']/meta[@itemprop='price']/@content)[1]
+  - name: pricePerUnit
+    singleValue: true
+    xpath: //span[@class='base-price']
+    regExp: (.*) ([^\s]*)$
+    regExpReplace: $1
+  - name: pricePerUnitUom
+    singleValue: true
+    xpath: //span[@class='unit']   
   - name: availabilityText
     singleValue: true
     xpath: //div[contains(@class,'add-to-cart')][1]//div[@class='stock ']
   - name: description
     singleValue: true
-    xpath: //div[@class='description-content']
+    xpath: //div[@id="desc"]
   - name: descriptionBullets
     singleValue: true
     xpath: count(//ul[@class='product-properties-list']/li)
@@ -42,7 +56,7 @@ fields:
     singleValue: true
   - name: quantity
     singleValue: true
-    xpath: //div[@class='size-box']/span[@class='amount']
+    xpath: concat(((//div[@class="size-box"])[1]//span)[1],((//div[@class="size-box"])[1]//span)[2])
   - name: weightNet
     singleValue: true
   - name: weightGross
@@ -55,24 +69,26 @@ fields:
     xpath: //meta[@itemprop='sku']/@content
   - name: variantId
     singleValue: true
+    xpath: //html//div[@id="rpc"]
   - name: warnings
     singleValue: true
   - name: ratingCount
-    singleValue: true
-    xpath: //a[@class='text-m']/span
+    singleValue: false
+    xpath: //html//div[@id="rating1"]
+    regExp: (.*) reviews
+    regExpReplace: $1
   - name: aggregateRatingText
     singleValue: true
   - name: aggregateRating
-    singleValue: true
-    xpath: //div[@class='bottom-line-items']/span[1]
+    singleValue: false
+    xpath: //div[@class='average-rating']
   - name: shippingInfo
     singleValue: true
-    xpath: (//div[@class='shipping-cost']/span)[1]
+    xpath: //div[@class="instruction-content"]
+    defaultValue: flaconi
   - name: shippingDimensions
     singleValue: true
   - name: shippingWeight
-    singleValue: true
-  - name: variantCount
     singleValue: true
   - name: mpc
     singleValue: true
@@ -89,6 +105,10 @@ fields:
   - name: directions
     singleValue: true
     xpath: //div[@id='fl_directioninfo']
+  - name: variantCount
+    singleValue: true
+    xpath: //html//div[@id="variantCount"]
+    defaultValue: 0
   - name: manufacturerDescription
     singleValue: true
   - name: manufacturerImages
@@ -96,10 +116,26 @@ fields:
     xpath: //div[@id='product-content-block']/img/@src
   - name: video
     singleValue: false
-    xpath: //div[@id='pd_video']/a/@href
+    xpath: //div[@class="lazyYoutube blank lazyYoutube--loaded"]//a/@href
   - name: name
     singleValue: true
-    xpath: //div[@class='product-name']//span[@itemprop='name']
+    xpath: //html//div[@id="name"]
   - name: url
     singleValue: true
     xpath: //meta[@property='og:url']/@content
+  - name: imageZoomFeaturePresent
+    singleValue: false
+    defaultValue: Yes
+  - name: additionalDescBulletInfo
+    singleValue: false  
+    xpath: //ul[@class="product-properties-list"]//li
+    #xpath: //html//div[@id="additional"]
+  - name: variantInformation
+    singleValue: true
+    xpath: concat(((//div[@class="size-box"])[1]//span)[1],((//div[@class="size-box"])[1]//span)[2])
+  - name: listPrice
+    singleValue: true
+    xpath: (//span[@class="old-price"])[1]
+  - name: ingredientsList
+    singleValue: true
+    xpath: //div[@class="ingredients-content"]//text()
