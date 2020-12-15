@@ -100,3 +100,11 @@ fields:
   - name: energyEfficiency
     singleValue: false
     xpath: //div[contains(@class,'tab-tech-specs')]//tr//th[contains(text(),'Energy efficiency')]//following-sibling::td
+  - name: gtin
+    singleValue: false
+    xpath: //script[(@id='gtm-data-layer-container')]
+    regExp: \"ean\"\s*:\s*\"(.+?)\"
+    regExpReplace: $1
+  - name: quantity
+    singleValue: false
+    xpath: //span[@class='m-productsizeselect-v-2__title']

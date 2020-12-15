@@ -112,6 +112,12 @@ const transform = (data) => {
           item.text = item.text.trim();
         });
       }
+      if (row.quantity) {
+        row.quantity.forEach(item => {
+          item.text = item.text.replace(/Taille\s*:\s*/, '');
+          item.text = item.text.trim();
+        });
+      }
       if (row.specifications) {
         row.specifications.forEach(item => {
           item.text = item.text.replace(/\n\s*\n\s*\n\s*/g, ' || ').trim();
