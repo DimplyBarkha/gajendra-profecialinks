@@ -43,14 +43,16 @@ fields:
     type: NUMBER
   - name: brandText
     singleValue: false
-    xpath: //div[@class="marca"]/a/span
+    xpath: //script[contains(.,"brand") and (contains(.,"price"))]/text()
+    regExp: brand":"([^"]+)
+    regExpReplace: $1
   - name: manufacturer
     singleValue: false
     description: Product manufacturer
   - name: quantity
     singleValue: false
     xpath: //div[@class="product-shop"]//h1/text()
-    regExp: (\d{1,}\s)(g|G|L|Kg|Mg|Ml|ml|mg|Oz|s|l|EA|GR|pièces)
+    regExp: (\d{1,}\s)(mg/ml|%|Pastiglie|Capsule|Bustine|g|Buste|Applicazioni|cannnule|L|Kg|Mg|Ml|ml|mg|Oz||l|EA|gr|pièces)
   - name: weightNet
     singleValue: false
     description: Net weight as described on the page
@@ -78,12 +80,13 @@ fields:
     description: Content under "legal disclaimer" header
   - name: directions
     singleValue: false
-    description: Content under "directions" header
+    xpath: //strong[contains(text(),"Modalità ")]//../following-sibling::text()
   - name: warnings
     singleValue: false
-    xpath: //p[contains(text(),"AVVERTENZE:")]/text()[position()>1]
+    xpath: //p[contains(text(),"AVVERTENZE:")]/text()[position()>1] |//strong[contains(text(),"AVVERTENZE")]//../following-sibling::text()[1]| //strong[contains(text(),"Avvertenze")]//../following-sibling::text()[1]
   - name: ratingCount
     singleValue: false
+    # xpath: //span[@itemprop="reviewCount"]/text()
     xpath: //span[@class="rating"]/text()  | //div[@id="numberOfReviews"]/text()
     # xpath: //script[@type='application/ld+json']
     # regExp: reviewCount":"([^"]+)
@@ -97,11 +100,11 @@ fields:
   - name: aggregateRating
     singleValue: false
     xpath: //script[@type="application/ld+json"][contains(text(),"ratingValue")]/text()
-    # regExp: ratingValue":"([\d.\d]+)
-    # regExpReplace: $1
+    regExp: ratingValue":"([\d.\d]+)
+    regExpReplace: $1
   - name: shippingInfo
     singleValue: false
-    description: Shipping information for the product
+    xpath: //dt[contains(@class,"tab")]/span[contains(text(),"Spedizione")]/../following::div[@class="tab-content"][1]//text()
   - name: shippingDimensions
     singleValue: false
     description: Stated shipping dimensions
