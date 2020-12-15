@@ -74,7 +74,7 @@ async function goto (gotoInput, parameterValues, context, dependencies) {
     if (Object.entries(page).filter(item => item[0] != 'windowLocation').filter(item => item[1] === true).length === 0) {
       context.counter.set('dropped_data', 1);
       await context.reload();
-      await new Promise(r => setTimeout(r, 2000));
+      await new Promise(r => setTimeout(r, 5000));
       console.log('Waiting for page to reload');
       await context.waitForNavigation({ timeout: 30 });
       return await solveCaptchaIfNecessary(await pageContext());
@@ -144,7 +144,7 @@ async function goto (gotoInput, parameterValues, context, dependencies) {
       } else if (!onCorrectZip) {
         console.log('not on correct zipcode, reload');
         await context.reload();
-        await new Promise(r => setTimeout(r, 2000));
+        await new Promise(r => setTimeout(r, 5000));
         console.log('Waiting for page to reload');
         await context.waitForNavigation({ timeout: 30 });
         page = await pageContextCheck(await pageContext());
@@ -265,7 +265,7 @@ async function goto (gotoInput, parameterValues, context, dependencies) {
     await context.waitForNavigation(30);
     if (await context.evaluate(() => !document.querySelector('#a-popover-root'))) {
       await context.reload();
-      await new Promise(r => setTimeout(r, 2000));
+      await new Promise(r => setTimeout(r, 5000));
       console.log('Waiting for page to reload');
       await context.waitForNavigation({ timeout: 30 });
     }
@@ -514,7 +514,7 @@ async function goto (gotoInput, parameterValues, context, dependencies) {
         inSessionRetries += 1;
         context.counter.set('refresh', 1);
         await context.reload();
-        await new Promise(r => setTimeout(r, 2000));
+        await new Promise(r => setTimeout(r, 5000));
         console.log('Waiting for page to reload');
         await context.waitForNavigation({ timeout: 30 });
         console.log('Page reloaded');
@@ -525,7 +525,7 @@ async function goto (gotoInput, parameterValues, context, dependencies) {
         console.log('reload ------>', 'Missing prodDetails when API history says it is expected, and variants  do not exist.');
         context.counter.set('refresh', 1);
         await context.reload();
-        await new Promise(r => setTimeout(r, 2000));
+        await new Promise(r => setTimeout(r, 5000));
         console.log('Waiting for page to reload');
         await context.waitForNavigation({ timeout: 30 });
         console.log('Page reloaded');
