@@ -248,18 +248,9 @@ fields:
     description: If 360 image is present in the carousel ['Yes','No']
     example: https://www.amazon.com/Trinsic-Single-Handle-Magnetic-Champagne-9159-CZ-DST/dp/B0050EN8E6
     defaultValue: "No"
-  - name: inTheBoxUrl
-    singleValue: false
-    description: Must include image url to show the accessories/tools which come with the product
-    xpath: //div[@class="in-the-box"]//img/@src
-  - name: inTheBoxText
-    singleValue: false
-    description: Must include text to show the accessories/tools which come with the product
-    xpath: //div[@class="in-the-box"]//p
   - name: unInterruptedPDP
     singleValue: false
     description: Titles of products in the sections 'you may also like' or 'sponsored products'. Combine results from Max 3 sections
     xpath: //div[@class="en_mdl_product__name"]
 
 
-  
