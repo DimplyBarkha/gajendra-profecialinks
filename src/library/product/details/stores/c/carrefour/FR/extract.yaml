@@ -525,10 +525,6 @@ fields:
     xpath: //div[@class="secondary-details-allergens"]/div[@class='product-block-content']/div
   - name: nutritionInfo
     xpath: //div[@class='nutritional-details__progresses']
-  - name: shownImages
-    xpath: //div[@class='pdp-hero'][count(*)>2]/div[@class='pdp-hero__thumbs']/a/img/@src | //div[@class='pdp-hero'][count(*)=2]/div[@id='data-produit-image']//img/@src
-    regExp: (\/media\/)(43x43|540x540)(\/.*.jpg)
-    regExpReplace: https://www.carrefour.fr$1540x540$3
   - name: highQualityImages
     xpath: //div[@class='pdp-hero'][count(*)>2]/div[@class='pdp-hero__thumbs']/a/img/@src | //div[@class='pdp-hero'][count(*)=2]/div[@id='data-produit-image']//img/@src
     regExp: (\/media\/)(43x43|540x540)(\/.*.jpg)
@@ -543,3 +539,7 @@ fields:
     regExpReplace: $3
   - name: featureBullets
     singleValue: false
+  - name: shownImages
+    xpath: //div[@class='pdp-hero'][count(*)>2]/div[@class='pdp-hero__thumbs']/a/img/@src | //div[@class='pdp-hero'][count(*)=2]/div[@id='data-produit-image']//img/@src
+    regExp: (\/media\/)(43x43|540x540)(\/.*.jpg)
+    regExpReplace: https://www.carrefour.fr$1540x540$3
