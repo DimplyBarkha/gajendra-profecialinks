@@ -5,7 +5,7 @@ module.exports = {
     domain: 'filshill.co.uk',
     usernameSelector: '#username',
     passwordSelector: '#password',
-    buttonSelector: '#login_submit button[class*=subLogin]',
+    buttonSelector: '#login_submit',
     loggedInSelector: null,
     country: 'UK',
     store: 'filshill',

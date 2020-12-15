@@ -92,7 +92,15 @@ module.exports = {
             const tsaltuom = totsaltUOM ? totsaltUOM.match(/([\d\.]+)(.*)/) : [];
             addElementToDocument('tsalt_uom',tsaltuom[2]);
             console.log(tsaltuom[1]);
-            }             
+            }
+            
+            const priceXpath = getXpath("//table[@class='detailsTable']/tbody/tr/td[contains(.,'Price')]/following-sibling::td[1]",'innerText');
+            console.log("priceXpath: ", priceXpath);
+            if(priceXpath != null  ){
+              const priceValue = priceXpath ? priceXpath.split('(') : [];
+              addElementToDocument('price_added',priceValue[0]);
+              console.log(priceValue[0]);
+              }     
 
           const queryString = window.location.search;
           const urlParams = new URLSearchParams(queryString);

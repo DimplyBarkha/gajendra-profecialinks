@@ -5,7 +5,7 @@ module.exports = {
     country: 'UK',
     store: 'filshill',
     domain: 'filshill.co.uk',
-    url: 'https://sales.filshill.co.uk/products/gridlistsearch.asp?product_desc={Keywords}',
+    url: 'https://sales.filshill.co.uk/products/gridlistsearch.asp?product_desc={searchTerms}',
     loadedSelector: null,
     noResultsXPath: null,
     zipcode: '',
