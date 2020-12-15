@@ -5,28 +5,21 @@ recordXPath: //section[@class="cc-item"]
 fields:
   - name: id
     xpath: //section[@class="cc-item"]/@data-id
-    # regExp: 
-    # regExpReplace: $1
   - name: name
     singleValue: false
     xpath: //a[@class="cc-item--title"]
-    # xpath: concat(//div[@class="cc-item--fields"]/a/strong,//div[@class="cc-item--fields"]/a//text())
   - name: productUrl
     xpath: //meta[@itemprop="url"]/@content
-    # regExp: (.+)
-    # regExpReplace: https://www.elcorteingles.es$1
+  - name: searchUrl
+    xpath: //@searchurl
   - name: thumbnail
-    xpath: //meta[@itemprop="image"]/@content | //a[@class="cc-item--img-link mb-2"]/img/@src | //div[@class="cc-item--group cc-group"]/section[@class="cc-item"]/div//img/@src
-    # regExp: (.+)
-    # regExpReplace: https://www.eapteka.ru$1
+    xpath: //div[@class="cc-item--img"]//img/@data-src
   - name: aggregateRating2
     xpath: //meta[@itemprop="ratingValue"]/@content
-  #   regExp: .+(?=\sde)
   - name: reviewCount
     xpath: //meta[@itemprop="reviewCount"]/@content
   - name: price
     xpath: //span[@class="price--num"]/text()
-    # xpath: concat(//span[@class="rate--article"]/span/text()," ",//span[@class="rate--article"]/text()) 
   - name: rank
   - name: rankOrganic
   - name: sponsored

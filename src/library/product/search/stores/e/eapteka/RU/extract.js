@@ -8,24 +8,13 @@ async function implementation (
 ) {
   const { transform } = parameters;
   const { productDetails } = dependencies;
-  await context.evaluate(async function () {
-    let scrollTop = 0;
-    while (scrollTop !== 20000) {
-      await stall(500);
-      scrollTop += 1000;
-      window.scroll(0, scrollTop);
-      if (scrollTop === 20000) {
-        await stall(5000);
-        break;
-      }
-    }
-    function stall (ms) {
-      return new Promise((resolve, reject) => {
-        setTimeout(() => {
-          resolve();
-        }, ms);
-      });
-    }
+
+  await context.evaluate(async () => {
+    const currentUrl = window.location.href;
+    const products = document.querySelectorAll('section.cc-item');
+    products.forEach(product => {
+      product.setAttribute('searchurl', currentUrl);
+    });
   });
   return await context.extract(productDetails, { transform });
 }
