@@ -61,12 +61,6 @@ module.exports = {
       addElementToDocument('mm_mpc', mpc);
       addElementToDocument('mm_energy', energy);
 
-      // Getting upc code
-      if (eval(`window.product${urlParams.get('ga_query')}`)) {
-        const upc = eval(`window.product${urlParams.get('ga_query')}.ean`);
-        addElementToDocument('mm_upc', upc);
-      }
-
       // Getting sku code
       const sku = urlParams.get('ga_query');
       addElementToDocument('mm_skuCode', sku);
