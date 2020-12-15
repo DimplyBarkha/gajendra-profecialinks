@@ -140,4 +140,4 @@ fields:
     defaultValue: '0'
   - name: inTheBoxText
     singleValue: false
-    xpath: //tr/td/p[contains(text(),'This Product Includes')]/ancestor::td/following-sibling::td/ul/li
+    xpath: //tr/td/p[contains(text(),'This Product Includes')]/ancestor::td/following-sibling::td/ul/li | //p[contains(.,'in the Box')]/following-sibling::ul/li
