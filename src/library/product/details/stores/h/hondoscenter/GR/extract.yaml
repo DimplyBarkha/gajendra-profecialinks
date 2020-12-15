@@ -47,11 +47,48 @@ fields:
     singleValue: true
     example: https://www.zalando.de/adidas-neo-sneaker-low-blackwhite-a4315i002-q11.html
     defaultValue: Yes
-
-
-
-
-
-
-
+  - name: manufacturer
+    singleValue: true
+    xpath: //a[@class="manufacturer-link"]/text()
+  - name: availabilityText
+    singleValue: true
+    description: Availability as described on page for the selected variant. If
+      there is no availability but the product can be added to cart, this field
+      should be "In Stock"
+    xpath: //html//div[@id="avl"]
+  - name: description
+    singleValue: false
+    description: Product description supplied by website - may be concatenanted from
+      multiple places; specifically not the manufacturer description
+    xpath: //html//div[@id="bullet"]
+  - name: quantity
+    singleValue: true
+    xpath: //div[@class="one-size-label"]/text()
+  - name: variantCount
+    singleValue: true
+    xpath: count((//ul[@class="dim-list dim-0-list color"])[1]/li)
+  - name: directions
+    singleValue: true
+    xpath: //div[@class="value"]/div/text()
+  - name: sku
+    singleValue: true
+    xpath: //html//div[@id="sku"]
+  - name: secondaryImageTotal
+    singleValue: true
+    xpath: count(//div[@class="selected-product gallery-thumbs"]//div[@class="slick-track"]/li[position()>1]//img/@src)
+  - name: listPrice
+    singleValue: true
+    xpath: (//span[@class="deleted-price  "])[2]/text()
+  - name: variantInformation
+    singleValue: true
+    xpath: (//div[@class="versions-container"]//ul[@class="dim-list dim-0-list color"]/li)[1]/span/@title
+  - name: firstVariant
+    singleValue: true
+    xpath: (//div[@class="versions-container"]//ul[@class="dim-list dim-0-list color"]/li)[1]/@data-value
+  - name: variants
+    singleValue: true
+    xpath: //html//div[@id="variants"]
+  - name: color
+    singleValue: true
+    xpath: //span[contains(text(),'Color')]/div[@class="selected-color-name"]/text()
 
