@@ -96,4 +96,6 @@ fields:
     manualSelector: div[id="bb_countryOfOrigin"]
   - name: brandText
     singleValue: false
-    manualSelector: h1[itemprop="name"]
+    manualSelector: h1[itemprop="name"] [1]
+    regExp: ([A-Z])\w+
+    
