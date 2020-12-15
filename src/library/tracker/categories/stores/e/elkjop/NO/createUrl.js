@@ -4,7 +4,7 @@ module.exports = {
   parameterValues: {
     domain: 'elkjop.no',
     prefix: null,
-    suffix: null,
+    suffix: 'catalog',
     subdomain: null,
     url: null,
     country: 'NO',
