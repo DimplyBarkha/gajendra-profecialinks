@@ -12,7 +12,7 @@ fields:
   - name: imageAlt
     xpath: //div[@id="carousel"]/div[1]/img/@alt
   - name: category
-    xpath: //div[@class="_3moNK"]//a[contains(@class,'rippleEffect')][position()>1]/text() |//div[@class="_3moNK"]//span[contains(@class,'rippleEffect')] | //div[@class="_28KVX"]//a[contains(@class,'rippleEffect')][position()>1]/text() 
+    xpath: //div[@class="_3moNK"]//a[contains(@class,'rippleEffect')][position()>1]/text() |//div[@class="_3moNK"]//span[contains(@class,'rippleEffect')] | //div[@class="_28KVX"]//a[contains(@class,'rippleEffect')][position()>1]/text()
   - name: name
     xpath: //h1
   - name: nameExtended
@@ -102,3 +102,16 @@ fields:
     defaultValue: No
   - name: imageZoomFeaturePresent
     defaultValue: Yes
+
+  # extra GEO fields
+  - name: onlineStore
+    singleValue: true
+    description: store name
+  - name: drive
+    description: Postcode/Drive of the store to identifyPostcode/Drive of the store - To identify which postcode for a certain retailer.
+    xpath: //div[@id="price"]/@zipcode
+  - name: driveId
+  - name: retailerID
+    singleValue: true
+    description: Store number - To identify which store for a certain retailer.
+    xpath: //div[@id="price"]/@storeid
