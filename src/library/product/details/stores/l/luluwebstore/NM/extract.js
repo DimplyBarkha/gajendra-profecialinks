@@ -17,6 +17,9 @@ module.exports = {
         catElement.style.display = 'none';
         document.body.appendChild(catElement);
       }
+      const url=window.location.href
+      addElementToDocument('url', url,);
+
       const getAllXpath = (xpath, prop) => {
         const nodeSet = document.evaluate(xpath, document, null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
         const result = [];
