@@ -21,6 +21,25 @@ async function implementation (
   }
   await dependencies.goto({ url, zipcode, storeId });
 
+  await new Promise((resolve, reject) => setTimeout(resolve, 5000));
+
+  await context.evaluate(async function () {
+    await new Promise(resolve => setTimeout(resolve, 2814));
+    const element = document.querySelector('div[role="presentation"]');
+    if (element) {
+      element.parentNode.removeChild(element);
+    }
+  });
+
+  // try {
+  //   await context.waitForSelector('div[role="presentation"] input#react-select-2-input');
+  //   await context.setInputValue('div[role="presentation"] input#react-select-2-input', 'Bello');
+  //   await context.click('div[role="presentation"] button.exito-geolocation-3-x-primaryButton');
+  //   await new Promise((resolve, reject) => setTimeout(resolve, 1000));
+  // } catch (e) {
+  //   console.log(e);
+  // }
+
   try {
     await context.click('.exito-components-4-x-showMinusButtonBar');
     await new Promise((resolve, reject) => setTimeout(resolve, 1000));
