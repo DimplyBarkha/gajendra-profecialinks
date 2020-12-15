@@ -6,7 +6,7 @@ module.exports = {
     prefix: null,
     suffix: null,
     subdomain: null,
-    url: null,
+    url: 'https://www.viking-direct.co.uk/',
     country: 'UK',
     store: 'viking',
     zipcode: '',
