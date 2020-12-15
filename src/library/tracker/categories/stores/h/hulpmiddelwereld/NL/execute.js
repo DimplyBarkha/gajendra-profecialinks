@@ -5,7 +5,7 @@ module.exports = {
     country: 'NL',
     store: 'hulpmiddelwereld',
     domain: 'hulpmiddelwereld.nl',
-    loadedSelector: null,
+    loadedSelector: 'div[class="top-container"] ul[class="menu side-menu"]',
     noResultsXPath: null,
     zipcode: '',
   },
