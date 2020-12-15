@@ -4,8 +4,14 @@ parameters:
   domain: amazon.com.tr
   store: amazon
   zipcode: ""
+proxy:
+  zone: ZUS
+  type: DATA_CENTER
 meta:
   branches:
-    dev:
+    development:
       extractor: b82fe82c-aec5-4069-ac67-4560a3ce3164
       legacyAccountId: 0e78a773-3cff-48d2-902d-473fb46c535b
+    staging:
+      extractor: ecc54f00-e1ba-46bb-983b-abd20c283fbd
+      legacyAccountId: 39255e08-8495-481b-9eba-0eb99bc49e94
