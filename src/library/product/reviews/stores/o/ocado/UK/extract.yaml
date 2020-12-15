@@ -1,0 +1,77 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: //div[contains(@class,'extract-reviews')]
+fields:
+  - name: id
+    xpath: //@id
+  - name: helpfulCount
+    type: NUMBER
+    description: Number of people who said the review was helpful
+    xpath: //span/@pd_helpfulCount
+  - name: commentCount
+    type: NUMBER
+    description: Number of comments on the review
+  - name: brandText
+    description: Product brand shown - this may actually NOT be just a brand name,
+      e.g. "Visit the Gillette Store"
+    xpath: ancestor::html//h6[contains(.,'Brand')]/following-sibling::div
+  - name: name
+    description: The product name
+    xpath: ancestor::html//header[@class='bop-title']/h2
+  - name: sku
+    description: The store-specific product identifier
+    xpath: ancestor::html//meta[@property='og:url']/@content
+    regExp: (\d+)\?
+    regExpReplace: $1
+  - name: reviewDate
+    description: Date the review was made
+    type: DATETIME
+    xpath: //span/@pd_reviewDate
+  - name: reviewRating
+    description: Rating normalized to be out of 5
+    type: NUMBER
+    xpath: //span/@pd_reviewRating
+  - name: reviewRating2
+    type: NUMBER
+    description: Rating normalized to be out of 5
+    xpath: //span/@pd_reviewRating
+  - name: reviewText
+    description: The text of the review
+    xpath: //span/@pd_reviewText
+  - name: reviewTitle
+    description: The title of the review
+    xpath: //span/@pd_reviewTitle
+  - name: reviewerTags
+    description: The tags a reviewer has
+  - name: gtin
+    description: GTIN code (includes UPC/EAN)
+  - name: productUrl
+    description: The url of the product details page
+    xpath: //span/@pd_productUrl
+  - name: verifiedPurchase
+    description: Whether this of an item the reviewer purchased. "Yes" if true else ""
+    xpath: //span/@pd_verifiedPurchase
+  - name: manufacturerResponse
+    description: The response of the manufacturer (if any)
+  - name: syndicatedFrom
+    description: Stated place the review was syndicated from
+  - name: reviewUrl
+    description: A direct link to the review
+    xpath: //span/@pd_reviewUrl
+    regExp: (.+)
+    regExpReplace: https://www.ocado.com/webshop/readAllCustomerReviews.do?cn=$1
+  - name: reviewedSku
+    description: The SKU of the item that was reviewed (may be different from the
+      sku the review was shown on). 1 if sku == reviewedSku else 0. Get sku
+      value, transform will handle the value.
+    xpath: ancestor::html//meta[@property='og:url']/@content
+    regExp: (\d+)\?
+    regExpReplace: $1
+  - name: user
+    description: The user name of the reviewer
+    type: TEXT
+    xpath: //span/@pd_user
+  - name: aggregateRating
+    description: The product rating
+    xpath: ancestor::html//div[contains(@class,"bop-titleInfoWrapper")]//meta[contains(@itemprop,'ratingValue')]/@content
