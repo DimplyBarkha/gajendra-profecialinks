@@ -509,14 +509,6 @@ fields:
     defaultValue: USD
   - name: upc
     xpath: //div[@class='desktop-only']//th[text()='upc']/../*[last()]
-  - name: shownImages
-    xpath: //div[@class='productimageblock'][count(*)=1]//a[@id='magic-zoom-id']/@href | //div[@class='productimageblock'][count(*)>1]//div[@id='magic-scroll-id']/div[@class='mcs-wrapper']//div[@class='mcs-item']//a[not(contains(@href, 'javascript'))]//img/@src
-    regExp: (.*)\?
-    regExpReplace: $1
-  - name: highQualityImages
-    xpath: //div[@class='productimageblock'][count(*)=1]//a[@id='magic-zoom-id']/@href | //div[@class='productimageblock'][count(*)>1]//div[@id='magic-scroll-id']/div[@class='mcs-wrapper']//div[@class='mcs-item']//a[not(contains(@href, 'javascript'))]//img/@src
-    regExp: (.*)\?
-    regExpReplace: $1
   - name: mpn
     xpath: //script[@data-flix-mpn]/@data-flix-mpn
   - name: productUrl
@@ -525,3 +517,7 @@ fields:
     singleValue: false
     description: URLs of videos on page
     xpath: //import-video/@src
+  - name: shownImages
+    xpath: //import-image/@data
+  - name: highQualityImages
+    xpath: //import-image/@data

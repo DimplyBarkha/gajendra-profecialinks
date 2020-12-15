@@ -11,6 +11,7 @@ module.exports = {
   implementation: async ({ inputString }, { country, domain, transform: transformParam }, context, { productDetails }) => {
     await context.waitForSelector('.pr-snippet-stars-reco-inline .pr-snippet-rating-decimal');
     await context.waitForSelector('.productimageblock #magic-zoom-id');
+    await context.waitForSelector('.pr-snippet-stars-reco-stars');
     await context.evaluate(async function () {
       function addElementToDocument(key, value) {
         const catElement = document.createElement('div');
@@ -179,7 +180,21 @@ module.exports = {
         divEl.setAttribute('src', item);
         document.body.appendChild(divEl);
       }
+
+      const imageEls = document.evaluate("//div[@class='productimageblock'][count(*)=1]//a[@id='magic-zoom-id']/@href | //div[@class='productimageblock'][count(*)>1]//div[@id='magic-scroll-id']/div[@class='mcs-wrapper']//div[@class='mcs-item']//a[not(contains(@href, 'javascript'))]//img/@src", document, null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null );
+
+      for (let i = 0; i < imageEls.snapshotLength; i++) {
+        let imageUrl = imageEls.snapshotItem(i).textContent;
+        imageUrl = imageUrl ? imageUrl.split('?')[0] : null;
+
+        if (imageUrl) {
+          const imgEl = document.createElement('import-image');
+          imgEl.setAttribute('data', imageUrl);
+          document.body.appendChild(imgEl);
+        }
+      }
     });
+
     await context.extract(productDetails, { transform: transformParam });
   },
 };
