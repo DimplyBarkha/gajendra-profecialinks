@@ -4,7 +4,7 @@ module.exports = {
   parameterValues: {
     domain: 'willys.se',
     prefix: null,
-    suffix: null,
+    suffix: 'leftMenu/categorytree',
     subdomain: null,
     url: null,
     country: 'SE',

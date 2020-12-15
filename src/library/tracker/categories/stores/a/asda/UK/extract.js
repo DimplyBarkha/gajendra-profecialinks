@@ -41,8 +41,8 @@ async function implementation (inputs, parameters, context, dependencies) {
             getLeafCategoryValue(newNode, newNode.dimvalid, categoryList);
           }
         } else {
-          const category = categoryList.find(x => x.id === parentId);
-          if (category) category.values.push(node.dimvalid);
+          const url = categoryList.find(x => x.id === parentId);
+          if (url) url.values.push(node.url);
         }
       }
       document.body.innerText = '';
