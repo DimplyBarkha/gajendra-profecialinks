@@ -1,0 +1,1396 @@
+input:
+  _url: http://booker.co.uk
+  URL: https://www.booker.co.uk/catalog/products.aspx?
+extractions:
+  - html: https://workbench.import.io/html/run=c58af3a9-c7e3-4762-b3e1-5bdcbdf296bb/task=04d3b36f-00ec-456d-97ce-0f7229ed2684/f969ed6f-af99-4a53-ab8b-56482605e7be.html
+    extractionConfigId: tracker/categories/stores/b/booker/UK/extract
+    data:
+      - group:
+          - category:
+              - text: New & Clearance Lines
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/dl[1]/dt[1]/text()[1]
+            categoryUrl:
+              - text: https://www.booker.co.uk/catalog/advertmenu.aspx?pg=New+and+Deleted+Lines
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/dl[1]/dt[1]/@producturl
+          - category:
+              - text: Own Label & Diet
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/dl[1]/dt[2]/text()[1]
+            categoryUrl:
+              - text: https://www.booker.co.uk/catalog/products.aspx?categoryName=900001
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/dl[1]/dt[2]/@producturl
+          - category:
+              - text: Happy Shopper
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/dl[1]/dd[1]/ul[1]/li[1]/text()[1]
+            categoryUrl:
+              - text: https://www.booker.co.uk/catalog/productlist.aspx?promotionID=19875
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/dl[1]/dd[1]/ul[1]/li[1]/@producturl
+          - category:
+              - text: Euro Shopper
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/dl[1]/dd[1]/ul[1]/li[2]/text()[1]
+            categoryUrl:
+              - text: https://www.booker.co.uk/catalog/productlist.aspx?promotionID=8172
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/dl[1]/dd[1]/ul[1]/li[2]/@producturl
+          - category:
+              - text: Chef's Larder
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/dl[1]/dd[1]/ul[1]/li[3]/text()[1]
+            categoryUrl:
+              - text: https://www.booker.co.uk/catalog/productlist.aspx?promotionID=11713
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/dl[1]/dd[1]/ul[1]/li[3]/@producturl
+          - category:
+              - text: Chef's Larder Premium
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/dl[1]/dd[1]/ul[1]/li[4]/text()[1]
+            categoryUrl:
+              - text: https://www.booker.co.uk/catalog/productlist.aspx?promotionID=14710
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/dl[1]/dd[1]/ul[1]/li[4]/@producturl
+          - category:
+              - text: Chef's Essentials
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/dl[1]/dd[1]/ul[1]/li[5]/text()[1]
+            categoryUrl:
+              - text: https://www.booker.co.uk/catalog/productlist.aspx?promotionID=1432
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/dl[1]/dd[1]/ul[1]/li[5]/@producturl
+          - category:
+              - text: Lichfields
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/dl[1]/dd[1]/ul[1]/li[6]/text()[1]
+            categoryUrl:
+              - text: https://www.booker.co.uk/catalog/productlist.aspx?promotionID=6356
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/dl[1]/dd[1]/ul[1]/li[6]/@producturl
+          - category:
+              - text: Farm Fresh
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/dl[1]/dd[1]/ul[1]/li[7]/text()[1]
+            categoryUrl:
+              - text: https://www.booker.co.uk/catalog/productlist.aspx?promotionID=17079
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/dl[1]/dd[1]/ul[1]/li[7]/@producturl
+          - category:
+              - text: Beers,Wines,Spirits
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/dl[1]/dd[1]/ul[1]/li[8]/text()[1]
+            categoryUrl:
+              - text: https://www.booker.co.uk/catalog/productlist.aspx?promotionID=21194
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/dl[1]/dd[1]/ul[1]/li[8]/@producturl
+          - category:
+              - text: Clean Pro
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/dl[1]/dd[1]/ul[1]/li[9]/text()[1]
+            categoryUrl:
+              - text: https://www.booker.co.uk/catalog/productlist.aspx?promotionID=10764
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/dl[1]/dd[1]/ul[1]/li[9]/@producturl
+          - category:
+              - text: Tuck Shop
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/dl[1]/dd[1]/ul[1]/li[10]/text()[1]
+            categoryUrl:
+              - text: https://www.booker.co.uk/catalog/productlist.aspx?promotionID=1409
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/dl[1]/dd[1]/ul[1]/li[10]/@producturl
+          - category:
+              - text: Water
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/dl[1]/dd[1]/ul[1]/li[11]/text()[1]
+            categoryUrl:
+              - text: https://www.booker.co.uk/catalog/productlist.aspx?promotionID=16096
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/dl[1]/dd[1]/ul[1]/li[11]/@producturl
+          - category:
+              - text: Mason & Miller
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/dl[1]/dd[1]/ul[1]/li[12]/text()[1]
+            categoryUrl:
+              - text: https://www.booker.co.uk/catalog/productlist.aspx?promotionID=11480
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/dl[1]/dd[1]/ul[1]/li[12]/@producturl
+          - category:
+              - text: Lifestyle Info
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/dl[1]/dd[1]/ul[1]/li[13]/text()[1]
+            categoryUrl:
+              - text: https://www.booker.co.uk/catalog/advertmenu.aspx?pg=Lifestyle+Information
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/dl[1]/dd[1]/ul[1]/li[13]/@producturl
+          - category:
+              - text: On Trade Exclusives
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/dl[1]/dd[1]/ul[1]/li[14]/text()[1]
+            categoryUrl:
+              - text: https://www.booker.co.uk/catalog/productlist.aspx?promotionID=23599
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/dl[1]/dd[1]/ul[1]/li[14]/@producturl
+          - category:
+              - text: Dietary Info
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/dl[1]/dd[1]/ul[1]/li[15]/text()[1]
+            categoryUrl:
+              - text: https://www.booker.co.uk/catalog/advertmenu.aspx?pg=Dietary+Information
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/dl[1]/dd[1]/ul[1]/li[15]/@producturl
+          - category:
+              - text: Beer, Cider & Alcoholic RTDs
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/dl[1]/dt[3]/text()[1]
+            categoryUrl:
+              - text: https://www.booker.co.uk/catalog/products.aspx?categoryName=CS15_100001
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/dl[1]/dt[3]/@producturl
+          - category:
+              - text: Beer
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/dl[1]/dd[2]/ul[1]/li[1]/text()[1]
+            categoryUrl:
+              - text: https://www.booker.co.uk/catalog/products.aspx?categoryName=CS15_200001
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/dl[1]/dd[2]/ul[1]/li[1]/@producturl
+          - category:
+              - text: Bitters & Ales
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/dl[1]/dd[2]/ul[1]/li[2]/text()[1]
+            categoryUrl:
+              - text: https://www.booker.co.uk/catalog/products.aspx?categoryName=CS15_200010
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/dl[1]/dd[2]/ul[1]/li[2]/@producturl
+          - category:
+              - text: Cider
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/dl[1]/dd[2]/ul[1]/li[3]/text()[1]
+            categoryUrl:
+              - text: https://www.booker.co.uk/catalog/products.aspx?categoryName=CS15_200020
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/dl[1]/dd[2]/ul[1]/li[3]/@producturl
+          - category:
+              - text: On Trade
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/dl[1]/dd[2]/ul[1]/li[4]/text()[1]
+            categoryUrl:
+              - text: https://www.booker.co.uk/catalog/products.aspx?categoryName=CS15_200030
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/dl[1]/dd[2]/ul[1]/li[4]/@producturl
+          - category:
+              - text: Ready to Drink
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/dl[1]/dd[2]/ul[1]/li[5]/text()[1]
+            categoryUrl:
+              - text: https://www.booker.co.uk/catalog/products.aspx?categoryName=CS15_200040
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/dl[1]/dd[2]/ul[1]/li[5]/@producturl
+          - category:
+              - text: Biscuits
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/dl[1]/dt[4]/text()[1]
+            categoryUrl:
+              - text: https://www.booker.co.uk/catalog/products.aspx?categoryName=CS15_100005
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/dl[1]/dt[4]/@producturl
+          - category:
+              - text: Biscuit Bars
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/dl[1]/dd[3]/ul[1]/li[1]/text()[1]
+            categoryUrl:
+              - text: https://www.booker.co.uk/catalog/products.aspx?categoryName=CS15_200050
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/dl[1]/dd[3]/ul[1]/li[1]/@producturl
+          - category:
+              - text: Catering Biscuits
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/dl[1]/dd[3]/ul[1]/li[2]/text()[1]
+            categoryUrl:
+              - text: https://www.booker.co.uk/catalog/products.aspx?categoryName=CS15_200060
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/dl[1]/dd[3]/ul[1]/li[2]/@producturl
+          - category:
+              - text: Retail Biscuits
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/dl[1]/dd[3]/ul[1]/li[3]/text()[1]
+            categoryUrl:
+              - text: https://www.booker.co.uk/catalog/products.aspx?categoryName=CS15_200070
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/dl[1]/dd[3]/ul[1]/li[3]/@producturl
+          - category:
+              - text: Wafers & Cones
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/dl[1]/dd[3]/ul[1]/li[4]/text()[1]
+            categoryUrl:
+              - text: https://www.booker.co.uk/catalog/products.aspx?categoryName=CS15_200090
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/dl[1]/dd[3]/ul[1]/li[4]/@producturl
+          - category:
+              - text: Bread & Cakes
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/dl[1]/dt[5]/text()[1]
+            categoryUrl:
+              - text: https://www.booker.co.uk/catalog/products.aspx?categoryName=CS15_100010
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/dl[1]/dt[5]/@producturl
+          - category:
+              - text: Bread
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/dl[1]/dd[4]/ul[1]/li[1]/text()[1]
+            categoryUrl:
+              - text: https://www.booker.co.uk/catalog/products.aspx?categoryName=CS15_200100
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/dl[1]/dd[4]/ul[1]/li[1]/@producturl
+          - category:
+              - text: Cakes & Tarts
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/dl[1]/dd[4]/ul[1]/li[2]/text()[1]
+            categoryUrl:
+              - text: https://www.booker.co.uk/catalog/products.aspx?categoryName=CS15_200110
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/dl[1]/dd[4]/ul[1]/li[2]/@producturl
+          - category:
+              - text: Impulse Cakes
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/dl[1]/dd[4]/ul[1]/li[3]/text()[1]
+            categoryUrl:
+              - text: https://www.booker.co.uk/catalog/products.aspx?categoryName=CS15_200130
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/dl[1]/dd[4]/ul[1]/li[3]/@producturl
+          - category:
+              - text: Morning Goods
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/dl[1]/dd[4]/ul[1]/li[4]/text()[1]
+            categoryUrl:
+              - text: https://www.booker.co.uk/catalog/products.aspx?categoryName=CS15_200140
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/dl[1]/dd[4]/ul[1]/li[4]/@producturl
+          - category:
+              - text: Confectionery
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/dl[1]/dt[6]/text()[1]
+            categoryUrl:
+              - text: https://www.booker.co.uk/catalog/products.aspx?categoryName=CS15_100015
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/dl[1]/dt[6]/@producturl
+          - category:
+              - text: Boxed Chocolates
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/dl[1]/dd[5]/ul[1]/li[1]/text()[1]
+            categoryUrl:
+              - text: https://www.booker.co.uk/catalog/products.aspx?categoryName=CS15_200150
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/dl[1]/dd[5]/ul[1]/li[1]/@producturl
+          - category:
+              - text: Catering Confectionery
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/dl[1]/dd[5]/ul[1]/li[2]/text()[1]
+            categoryUrl:
+              - text: https://www.booker.co.uk/catalog/products.aspx?categoryName=CS15_200160
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/dl[1]/dd[5]/ul[1]/li[2]/@producturl
+          - category:
+              - text: Chocolate
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/dl[1]/dd[5]/ul[1]/li[3]/text()[1]
+            categoryUrl:
+              - text: https://www.booker.co.uk/catalog/products.aspx?categoryName=CS15_200170
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/dl[1]/dd[5]/ul[1]/li[3]/@producturl
+          - category:
+              - text: Ice Cream Sundries
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/dl[1]/dd[5]/ul[1]/li[4]/text()[1]
+            categoryUrl:
+              - text: https://www.booker.co.uk/catalog/products.aspx?categoryName=CS15_200180
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/dl[1]/dd[5]/ul[1]/li[4]/@producturl
+          - category:
+              - text: Mints & Gum
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/dl[1]/dd[5]/ul[1]/li[5]/text()[1]
+            categoryUrl:
+              - text: https://www.booker.co.uk/catalog/products.aspx?categoryName=CS15_200200
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/dl[1]/dd[5]/ul[1]/li[5]/@producturl
+          - category:
+              - text: Pick n Mix
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/dl[1]/dd[5]/ul[1]/li[6]/text()[1]
+            categoryUrl:
+              - text: https://www.booker.co.uk/catalog/products.aspx?categoryName=CS15_200210
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/dl[1]/dd[5]/ul[1]/li[6]/@producturl
+          - category:
+              - text: Sweets
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/dl[1]/dd[5]/ul[1]/li[7]/text()[1]
+            categoryUrl:
+              - text: https://www.booker.co.uk/catalog/products.aspx?categoryName=CS15_200220
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/dl[1]/dd[5]/ul[1]/li[7]/@producturl
+          - category:
+              - text: Crisps, Snacks & Dips
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/dl[1]/dt[7]/text()[1]
+            categoryUrl:
+              - text: https://www.booker.co.uk/catalog/products.aspx?categoryName=CS15_100020
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/dl[1]/dt[7]/@producturl
+          - category:
+              - text: Crisps & Snacks
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/dl[1]/dd[6]/ul[1]/li[1]/text()[1]
+            categoryUrl:
+              - text: https://www.booker.co.uk/catalog/products.aspx?categoryName=CS15_200230
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/dl[1]/dd[6]/ul[1]/li[1]/@producturl
+          - category:
+              - text: Dips
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/dl[1]/dd[6]/ul[1]/li[2]/text()[1]
+            categoryUrl:
+              - text: https://www.booker.co.uk/catalog/products.aspx?categoryName=CS15_200240
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/dl[1]/dd[6]/ul[1]/li[2]/@producturl
+          - category:
+              - text: Nuts
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/dl[1]/dd[6]/ul[1]/li[3]/text()[1]
+            categoryUrl:
+              - text: https://www.booker.co.uk/catalog/products.aspx?categoryName=CS15_200250
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/dl[1]/dd[6]/ul[1]/li[3]/@producturl
+          - category:
+              - text: Food & Drink Disposables
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/dl[1]/dt[8]/text()[1]
+            categoryUrl:
+              - text: https://www.booker.co.uk/catalog/products.aspx?categoryName=CS15_100025
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/dl[1]/dt[8]/@producturl
+          - category:
+              - text: Bags & Bin Liners
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/dl[1]/dd[7]/ul[1]/li[1]/text()[1]
+            categoryUrl:
+              - text: https://www.booker.co.uk/catalog/products.aspx?categoryName=CS15_200260
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/dl[1]/dd[7]/ul[1]/li[1]/@producturl
+          - category:
+              - text: Disposable Food Gloves
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/dl[1]/dd[7]/ul[1]/li[2]/text()[1]
+            categoryUrl:
+              - text: https://www.booker.co.uk/catalog/products.aspx?categoryName=CS15_200270
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/dl[1]/dd[7]/ul[1]/li[2]/@producturl
+          - category:
+              - text: Disposable Tableware
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/dl[1]/dd[7]/ul[1]/li[3]/text()[1]
+            categoryUrl:
+              - text: https://www.booker.co.uk/catalog/products.aspx?categoryName=CS15_200280
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/dl[1]/dd[7]/ul[1]/li[3]/@producturl
+          - category:
+              - text: Food/Takeaway Containers
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/dl[1]/dd[7]/ul[1]/li[4]/text()[1]
+            categoryUrl:
+              - text: https://www.booker.co.uk/catalog/products.aspx?categoryName=CS15_200290
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/dl[1]/dd[7]/ul[1]/li[4]/@producturl
+          - category:
+              - text: Food Wraps & Bags
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/dl[1]/dd[7]/ul[1]/li[5]/text()[1]
+            categoryUrl:
+              - text: https://www.booker.co.uk/catalog/products.aspx?categoryName=CS15_200300
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/dl[1]/dd[7]/ul[1]/li[5]/@producturl
+          - category:
+              - text: Paperware Disposables
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/dl[1]/dd[7]/ul[1]/li[6]/text()[1]
+            categoryUrl:
+              - text: https://www.booker.co.uk/catalog/products.aspx?categoryName=CS15_200310
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/dl[1]/dd[7]/ul[1]/li[6]/@producturl
+          - category:
+              - text: Fresh Food
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/dl[1]/dt[9]/text()[1]
+            categoryUrl:
+              - text: https://www.booker.co.uk/catalog/products.aspx?categoryName=CS15_100030
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/dl[1]/dt[9]/@producturl
+          - category:
+              - text: Butters, Spreads, Fats
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/dl[1]/dd[8]/ul[1]/li[1]/text()[1]
+            categoryUrl:
+              - text: https://www.booker.co.uk/catalog/products.aspx?categoryName=CS15_200330
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/dl[1]/dd[8]/ul[1]/li[1]/@producturl
+          - category:
+              - text: Cheese
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/dl[1]/dd[8]/ul[1]/li[2]/text()[1]
+            categoryUrl:
+              - text: https://www.booker.co.uk/catalog/products.aspx?categoryName=CS15_200340
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/dl[1]/dd[8]/ul[1]/li[2]/@producturl
+          - category:
+              - text: Cooked Meat & Sausages
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/dl[1]/dd[8]/ul[1]/li[3]/text()[1]
+            categoryUrl:
+              - text: https://www.booker.co.uk/catalog/products.aspx?categoryName=CS15_200350
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/dl[1]/dd[8]/ul[1]/li[3]/@producturl
+          - category:
+              - text: Cream
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/dl[1]/dd[8]/ul[1]/li[4]/text()[1]
+            categoryUrl:
+              - text: https://www.booker.co.uk/catalog/products.aspx?categoryName=CS15_200360
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/dl[1]/dd[8]/ul[1]/li[4]/@producturl
+          - category:
+              - text: Eggs
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/dl[1]/dd[8]/ul[1]/li[5]/text()[1]
+            categoryUrl:
+              - text: https://www.booker.co.uk/catalog/products.aspx?categoryName=CS15_200370
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/dl[1]/dd[8]/ul[1]/li[5]/@producturl
+          - category:
+              - text: Milk
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/dl[1]/dd[8]/ul[1]/li[6]/text()[1]
+            categoryUrl:
+              - text: https://www.booker.co.uk/catalog/products.aspx?categoryName=CS15_200380
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/dl[1]/dd[8]/ul[1]/li[6]/@producturl
+          - category:
+              - text: Milk Alternatives
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/dl[1]/dd[8]/ul[1]/li[7]/text()[1]
+            categoryUrl:
+              - text: https://www.booker.co.uk/catalog/products.aspx?categoryName=CS15_200385
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/dl[1]/dd[8]/ul[1]/li[7]/@producturl
+          - category:
+              - text: Pastry, Savouries, Bread & Pasta
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/dl[1]/dd[8]/ul[1]/li[8]/text()[1]
+            categoryUrl:
+              - text: https://www.booker.co.uk/catalog/products.aspx?categoryName=CS15_200390
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/dl[1]/dd[8]/ul[1]/li[8]/@producturl
+          - category:
+              - text: Ready Meals & Soups
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/dl[1]/dd[8]/ul[1]/li[9]/text()[1]
+            categoryUrl:
+              - text: https://www.booker.co.uk/catalog/products.aspx?categoryName=CS15_200400
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/dl[1]/dd[8]/ul[1]/li[9]/@producturl
+          - category:
+              - text: Salads, Sandwich Fillers, Dips
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/dl[1]/dd[8]/ul[1]/li[10]/text()[1]
+            categoryUrl:
+              - text: https://www.booker.co.uk/catalog/products.aspx?categoryName=CS15_200410
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/dl[1]/dd[8]/ul[1]/li[10]/@producturl
+          - category:
+              - text: Yogurt & Desserts
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/dl[1]/dd[8]/ul[1]/li[11]/text()[1]
+            categoryUrl:
+              - text: https://www.booker.co.uk/catalog/products.aspx?categoryName=CS15_200420
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/dl[1]/dd[8]/ul[1]/li[11]/@producturl
+          - category:
+              - text: Yogurt & Probiotic Drinks
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/dl[1]/dd[8]/ul[1]/li[12]/text()[1]
+            categoryUrl:
+              - text: https://www.booker.co.uk/catalog/products.aspx?categoryName=CS15_200430
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/dl[1]/dd[8]/ul[1]/li[12]/@producturl
+          - category:
+              - text: Frozen Food
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/dl[1]/dt[10]/text()[1]
+            categoryUrl:
+              - text: https://www.booker.co.uk/catalog/products.aspx?categoryName=CS15_100035
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/dl[1]/dt[10]/@producturl
+          - category:
+              - text: Frozen Bread & Pastry
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/dl[1]/dd[9]/ul[1]/li[1]/text()[1]
+            categoryUrl:
+              - text: https://www.booker.co.uk/catalog/products.aspx?categoryName=CS15_200440
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/dl[1]/dd[9]/ul[1]/li[1]/@producturl
+          - category:
+              - text: Frozen Burgers, Grills, Sausages
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/dl[1]/dd[9]/ul[1]/li[2]/text()[1]
+            categoryUrl:
+              - text: https://www.booker.co.uk/catalog/products.aspx?categoryName=CS15_200450
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/dl[1]/dd[9]/ul[1]/li[2]/@producturl
+          - category:
+              - text: Frozen Desserts
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/dl[1]/dd[9]/ul[1]/li[3]/text()[1]
+            categoryUrl:
+              - text: https://www.booker.co.uk/catalog/products.aspx?categoryName=CS15_200460
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/dl[1]/dd[9]/ul[1]/li[3]/@producturl
+          - category:
+              - text: Frozen Fish
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/dl[1]/dd[9]/ul[1]/li[4]/text()[1]
+            categoryUrl:
+              - text: https://www.booker.co.uk/catalog/products.aspx?categoryName=CS15_200470
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/dl[1]/dd[9]/ul[1]/li[4]/@producturl
+          - category:
+              - text: Frozen Ready Meals
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/dl[1]/dd[9]/ul[1]/li[5]/text()[1]
+            categoryUrl:
+              - text: https://www.booker.co.uk/catalog/products.aspx?categoryName=CS15_200480
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/dl[1]/dd[9]/ul[1]/li[5]/@producturl
+          - category:
+              - text: Frozen Vegetables
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/dl[1]/dd[9]/ul[1]/li[6]/text()[1]
+            categoryUrl:
+              - text: https://www.booker.co.uk/catalog/products.aspx?categoryName=CS15_200490
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/dl[1]/dd[9]/ul[1]/li[6]/@producturl
+          - category:
+              - text: Ice Cream
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/dl[1]/dd[9]/ul[1]/li[7]/text()[1]
+            categoryUrl:
+              - text: https://www.booker.co.uk/catalog/products.aspx?categoryName=CS15_200500
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/dl[1]/dd[9]/ul[1]/li[7]/@producturl
+          - category:
+              - text: Other Frozen Meat
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/dl[1]/dd[9]/ul[1]/li[8]/text()[1]
+            categoryUrl:
+              - text: https://www.booker.co.uk/catalog/products.aspx?categoryName=CS15_200510
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/dl[1]/dd[9]/ul[1]/li[8]/@producturl
+          - category:
+              - text: Frozen Beef/Veal
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/dl[1]/dd[9]/ul[1]/li[9]/text()[1]
+            categoryUrl:
+              - text: https://www.booker.co.uk/catalog/products.aspx?categoryName=CS15_200520
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/dl[1]/dd[9]/ul[1]/li[9]/@producturl
+          - category:
+              - text: Frozen Lamb
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/dl[1]/dd[9]/ul[1]/li[10]/text()[1]
+            categoryUrl:
+              - text: https://www.booker.co.uk/catalog/products.aspx?categoryName=CS15_200530
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/dl[1]/dd[9]/ul[1]/li[10]/@producturl
+          - category:
+              - text: Frozen Pork
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/dl[1]/dd[9]/ul[1]/li[11]/text()[1]
+            categoryUrl:
+              - text: https://www.booker.co.uk/catalog/products.aspx?categoryName=CS15_200540
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/dl[1]/dd[9]/ul[1]/li[11]/@producturl
+          - category:
+              - text: Frozen Poultry
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/dl[1]/dd[9]/ul[1]/li[12]/text()[1]
+            categoryUrl:
+              - text: https://www.booker.co.uk/catalog/products.aspx?categoryName=CS15_200550
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/dl[1]/dd[9]/ul[1]/li[12]/@producturl
+          - category:
+              - text: Greengrocery
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/dl[1]/dt[11]/text()[1]
+            categoryUrl:
+              - text: https://www.booker.co.uk/catalog/products.aspx?categoryName=CS15_100040
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/dl[1]/dt[11]/@producturl
+          - category:
+              - text: Fresh Fruit
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/dl[1]/dd[10]/ul[1]/li[1]/text()[1]
+            categoryUrl:
+              - text: https://www.booker.co.uk/catalog/products.aspx?categoryName=CS15_200560
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/dl[1]/dd[10]/ul[1]/li[1]/@producturl
+          - category:
+              - text: Fresh Salad
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/dl[1]/dd[10]/ul[1]/li[2]/text()[1]
+            categoryUrl:
+              - text: https://www.booker.co.uk/catalog/products.aspx?categoryName=CS15_200570
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/dl[1]/dd[10]/ul[1]/li[2]/@producturl
+          - category:
+              - text: Fresh Vegetables
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/dl[1]/dd[10]/ul[1]/li[3]/text()[1]
+            categoryUrl:
+              - text: https://www.booker.co.uk/catalog/products.aspx?categoryName=CS15_200580
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/dl[1]/dd[10]/ul[1]/li[3]/@producturl
+          - category:
+              - text: Grocery - Catering
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/dl[1]/dt[12]/text()[1]
+            categoryUrl:
+              - text: https://www.booker.co.uk/catalog/products.aspx?categoryName=CS15_100045
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/dl[1]/dt[12]/@producturl
+          - category:
+              - text: Baking Ingredients Catering
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/dl[1]/dd[11]/ul[1]/li[1]/text()[1]
+            categoryUrl:
+              - text: https://www.booker.co.uk/catalog/products.aspx?categoryName=CS15_200590
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/dl[1]/dd[11]/ul[1]/li[1]/@producturl
+          - category:
+              - text: Breakfast Cereals Catering
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/dl[1]/dd[11]/ul[1]/li[2]/text()[1]
+            categoryUrl:
+              - text: https://www.booker.co.uk/catalog/products.aspx?categoryName=CS15_200595
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/dl[1]/dd[11]/ul[1]/li[2]/@producturl
+          - category:
+              - text: Cooking Ingredients Catering
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/dl[1]/dd[11]/ul[1]/li[3]/text()[1]
+            categoryUrl:
+              - text: https://www.booker.co.uk/catalog/products.aspx?categoryName=CS15_200600
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/dl[1]/dd[11]/ul[1]/li[3]/@producturl
+          - category:
+              - text: Cooking Sauce & Paste Catering
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/dl[1]/dd[11]/ul[1]/li[4]/text()[1]
+            categoryUrl:
+              - text: https://www.booker.co.uk/catalog/products.aspx?categoryName=CS15_200610
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/dl[1]/dd[11]/ul[1]/li[4]/@producturl
+          - category:
+              - text: Desserts Catering
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/dl[1]/dd[11]/ul[1]/li[5]/text()[1]
+            categoryUrl:
+              - text: https://www.booker.co.uk/catalog/products.aspx?categoryName=CS15_200620
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/dl[1]/dd[11]/ul[1]/li[5]/@producturl
+          - category:
+              - text: Dry Veg, Cereals & Rice Catering
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/dl[1]/dd[11]/ul[1]/li[6]/text()[1]
+            categoryUrl:
+              - text: https://www.booker.co.uk/catalog/products.aspx?categoryName=CS15_200630
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/dl[1]/dd[11]/ul[1]/li[6]/@producturl
+          - category:
+              - text: Gravy & Stock Catering
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/dl[1]/dd[11]/ul[1]/li[7]/text()[1]
+            categoryUrl:
+              - text: https://www.booker.co.uk/catalog/products.aspx?categoryName=CS15_200640
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/dl[1]/dd[11]/ul[1]/li[7]/@producturl
+          - category:
+              - text: Instant Snacks & Meals Catering
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/dl[1]/dd[11]/ul[1]/li[8]/text()[1]
+            categoryUrl:
+              - text: https://www.booker.co.uk/catalog/products.aspx?categoryName=CS15_200650
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/dl[1]/dd[11]/ul[1]/li[8]/@producturl
+          - category:
+              - text: Jam, Honey & Spread Catering
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/dl[1]/dd[11]/ul[1]/li[9]/text()[1]
+            categoryUrl:
+              - text: https://www.booker.co.uk/catalog/products.aspx?categoryName=CS15_200660
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/dl[1]/dd[11]/ul[1]/li[9]/@producturl
+          - category:
+              - text: Ketchup & Sauce Catering
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/dl[1]/dd[11]/ul[1]/li[10]/text()[1]
+            categoryUrl:
+              - text: https://www.booker.co.uk/catalog/products.aspx?categoryName=CS15_200670
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/dl[1]/dd[11]/ul[1]/li[10]/@producturl
+          - category:
+              - text: Pasta & Noodles Catering
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/dl[1]/dd[11]/ul[1]/li[11]/text()[1]
+            categoryUrl:
+              - text: https://www.booker.co.uk/catalog/products.aspx?categoryName=CS15_200675
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/dl[1]/dd[11]/ul[1]/li[11]/@producturl
+          - category:
+              - text: Pickle, Chutney & Olives Catering
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/dl[1]/dd[11]/ul[1]/li[12]/text()[1]
+            categoryUrl:
+              - text: https://www.booker.co.uk/catalog/products.aspx?categoryName=CS15_200680
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/dl[1]/dd[11]/ul[1]/li[12]/@producturl
+          - category:
+              - text: Salt, Herbs, Spices Catering
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/dl[1]/dd[11]/ul[1]/li[13]/text()[1]
+            categoryUrl:
+              - text: https://www.booker.co.uk/catalog/products.aspx?categoryName=CS15_200700
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/dl[1]/dd[11]/ul[1]/li[13]/@producturl
+          - category:
+              - text: Soup Catering
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/dl[1]/dd[11]/ul[1]/li[14]/text()[1]
+            categoryUrl:
+              - text: https://www.booker.co.uk/catalog/products.aspx?categoryName=CS15_200710
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/dl[1]/dd[11]/ul[1]/li[14]/@producturl
+          - category:
+              - text: Stuffing & Breadcrumbs Catering
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/dl[1]/dd[11]/ul[1]/li[15]/text()[1]
+            categoryUrl:
+              - text: https://www.booker.co.uk/catalog/products.aspx?categoryName=CS15_200720
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/dl[1]/dd[11]/ul[1]/li[15]/@producturl
+          - category:
+              - text: Sugar & Syrup Catering
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/dl[1]/dd[11]/ul[1]/li[16]/text()[1]
+            categoryUrl:
+              - text: https://www.booker.co.uk/catalog/products.aspx?categoryName=CS15_200730
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/dl[1]/dd[11]/ul[1]/li[16]/@producturl
+          - category:
+              - text: Tinned & Bottled Fish Catering
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/dl[1]/dd[11]/ul[1]/li[17]/text()[1]
+            categoryUrl:
+              - text: https://www.booker.co.uk/catalog/products.aspx?categoryName=CS15_200740
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/dl[1]/dd[11]/ul[1]/li[17]/@producturl
+          - category:
+              - text: Tinned Fruit Catering
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/dl[1]/dd[11]/ul[1]/li[18]/text()[1]
+            categoryUrl:
+              - text: https://www.booker.co.uk/catalog/products.aspx?categoryName=CS15_200750
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/dl[1]/dd[11]/ul[1]/li[18]/@producturl
+          - category:
+              - text: Tinned Meat Catering
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/dl[1]/dd[11]/ul[1]/li[19]/text()[1]
+            categoryUrl:
+              - text: https://www.booker.co.uk/catalog/products.aspx?categoryName=CS15_200760
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/dl[1]/dd[11]/ul[1]/li[19]/@producturl
+          - category:
+              - text: Tinned Milk & Cream Catering
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/dl[1]/dd[11]/ul[1]/li[20]/text()[1]
+            categoryUrl:
+              - text: https://www.booker.co.uk/catalog/products.aspx?categoryName=CS15_200770
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/dl[1]/dd[11]/ul[1]/li[20]/@producturl
+          - category:
+              - text: Tinned Vegetables Catering
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/dl[1]/dd[11]/ul[1]/li[21]/text()[1]
+            categoryUrl:
+              - text: https://www.booker.co.uk/catalog/products.aspx?categoryName=CS15_200780
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/dl[1]/dd[11]/ul[1]/li[21]/@producturl
+          - category:
+              - text: Ritter Grocery Products
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/dl[1]/dd[11]/ul[1]/li[22]/text()[1]
+            categoryUrl:
+              - text: https://www.booker.co.uk/catalog/products.aspx?categoryName=CS15_200785
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/dl[1]/dd[11]/ul[1]/li[22]/@producturl
+          - category:
+              - text: Grocery - Retail
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/dl[1]/dt[13]/text()[1]
+            categoryUrl:
+              - text: https://www.booker.co.uk/catalog/products.aspx?categoryName=CS15_100050
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/dl[1]/dt[13]/@producturl
+          - category:
+              - text: Baking Ingredients Retail
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/dl[1]/dd[12]/ul[1]/li[1]/text()[1]
+            categoryUrl:
+              - text: https://www.booker.co.uk/catalog/products.aspx?categoryName=CS15_200790
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/dl[1]/dd[12]/ul[1]/li[1]/@producturl
+          - category:
+              - text: Breakfast Cereals Retail
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/dl[1]/dd[12]/ul[1]/li[2]/text()[1]
+            categoryUrl:
+              - text: https://www.booker.co.uk/catalog/products.aspx?categoryName=CS15_200800
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/dl[1]/dd[12]/ul[1]/li[2]/@producturl
+          - category:
+              - text: Cooking Ingredients Retail
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/dl[1]/dd[12]/ul[1]/li[3]/text()[1]
+            categoryUrl:
+              - text: https://www.booker.co.uk/catalog/products.aspx?categoryName=CS15_200810
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/dl[1]/dd[12]/ul[1]/li[3]/@producturl
+          - category:
+              - text: Cooking Sauce & Paste Retail
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/dl[1]/dd[12]/ul[1]/li[4]/text()[1]
+            categoryUrl:
+              - text: https://www.booker.co.uk/catalog/products.aspx?categoryName=CS15_200820
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/dl[1]/dd[12]/ul[1]/li[4]/@producturl
+          - category:
+              - text: Desserts Retail
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/dl[1]/dd[12]/ul[1]/li[5]/text()[1]
+            categoryUrl:
+              - text: https://www.booker.co.uk/catalog/products.aspx?categoryName=CS15_200830
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/dl[1]/dd[12]/ul[1]/li[5]/@producturl
+          - category:
+              - text: Dry Veg, Cereals & Rice Retail
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/dl[1]/dd[12]/ul[1]/li[6]/text()[1]
+            categoryUrl:
+              - text: https://www.booker.co.uk/catalog/products.aspx?categoryName=CS15_200840
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/dl[1]/dd[12]/ul[1]/li[6]/@producturl
+          - category:
+              - text: Gravy & Stock Retail
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/dl[1]/dd[12]/ul[1]/li[7]/text()[1]
+            categoryUrl:
+              - text: https://www.booker.co.uk/catalog/products.aspx?categoryName=CS15_200860
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/dl[1]/dd[12]/ul[1]/li[7]/@producturl
+          - category:
+              - text: Instant Snacks & Meals Retail
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/dl[1]/dd[12]/ul[1]/li[8]/text()[1]
+            categoryUrl:
+              - text: https://www.booker.co.uk/catalog/products.aspx?categoryName=CS15_200870
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/dl[1]/dd[12]/ul[1]/li[8]/@producturl
+          - category:
+              - text: Jam, Honey, Spread Retail
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/dl[1]/dd[12]/ul[1]/li[9]/text()[1]
+            categoryUrl:
+              - text: https://www.booker.co.uk/catalog/products.aspx?categoryName=CS15_200880
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/dl[1]/dd[12]/ul[1]/li[9]/@producturl
+          - category:
+              - text: Ketchup & Sauce Retail
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/dl[1]/dd[12]/ul[1]/li[10]/text()[1]
+            categoryUrl:
+              - text: https://www.booker.co.uk/catalog/products.aspx?categoryName=CS15_200890
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/dl[1]/dd[12]/ul[1]/li[10]/@producturl
+          - category:
+              - text: Milk, Cream, Shakes Retail
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/dl[1]/dd[12]/ul[1]/li[11]/text()[1]
+            categoryUrl:
+              - text: https://www.booker.co.uk/catalog/products.aspx?categoryName=CS15_200900
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/dl[1]/dd[12]/ul[1]/li[11]/@producturl
+          - category:
+              - text: Pasta & Noodles Retail
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/dl[1]/dd[12]/ul[1]/li[12]/text()[1]
+            categoryUrl:
+              - text: https://www.booker.co.uk/catalog/products.aspx?categoryName=CS15_200905
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/dl[1]/dd[12]/ul[1]/li[12]/@producturl
+          - category:
+              - text: Pickle, Chutney & Olives Retail
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/dl[1]/dd[12]/ul[1]/li[13]/text()[1]
+            categoryUrl:
+              - text: https://www.booker.co.uk/catalog/products.aspx?categoryName=CS15_200910
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/dl[1]/dd[12]/ul[1]/li[13]/@producturl
+          - category:
+              - text: Salt, Herbs, Spices Retail
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/dl[1]/dd[12]/ul[1]/li[14]/text()[1]
+            categoryUrl:
+              - text: https://www.booker.co.uk/catalog/products.aspx?categoryName=CS15_200920
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/dl[1]/dd[12]/ul[1]/li[14]/@producturl
+          - category:
+              - text: Soup Retail
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/dl[1]/dd[12]/ul[1]/li[15]/text()[1]
+            categoryUrl:
+              - text: https://www.booker.co.uk/catalog/products.aspx?categoryName=CS15_200930
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/dl[1]/dd[12]/ul[1]/li[15]/@producturl
+          - category:
+              - text: Stuffing & Breadcrumbs Retail
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/dl[1]/dd[12]/ul[1]/li[16]/text()[1]
+            categoryUrl:
+              - text: https://www.booker.co.uk/catalog/products.aspx?categoryName=CS15_200940
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/dl[1]/dd[12]/ul[1]/li[16]/@producturl
+          - category:
+              - text: Sugar & Syrup Retail
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/dl[1]/dd[12]/ul[1]/li[17]/text()[1]
+            categoryUrl:
+              - text: https://www.booker.co.uk/catalog/products.aspx?categoryName=CS15_200950
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/dl[1]/dd[12]/ul[1]/li[17]/@producturl
+          - category:
+              - text: Tinned & Bottled Fish Retail
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/dl[1]/dd[12]/ul[1]/li[18]/text()[1]
+            categoryUrl:
+              - text: https://www.booker.co.uk/catalog/products.aspx?categoryName=CS15_200960
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/dl[1]/dd[12]/ul[1]/li[18]/@producturl
+          - category:
+              - text: Tinned Fruit Retail
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/dl[1]/dd[12]/ul[1]/li[19]/text()[1]
+            categoryUrl:
+              - text: https://www.booker.co.uk/catalog/products.aspx?categoryName=CS15_200970
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/dl[1]/dd[12]/ul[1]/li[19]/@producturl
+          - category:
+              - text: Tinned Meat Retail
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/dl[1]/dd[12]/ul[1]/li[20]/text()[1]
+            categoryUrl:
+              - text: https://www.booker.co.uk/catalog/products.aspx?categoryName=CS15_200980
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/dl[1]/dd[12]/ul[1]/li[20]/@producturl
+          - category:
+              - text: Tinned Vegetables Retail
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/dl[1]/dd[12]/ul[1]/li[21]/text()[1]
+            categoryUrl:
+              - text: https://www.booker.co.uk/catalog/products.aspx?categoryName=CS15_200990
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/dl[1]/dd[12]/ul[1]/li[21]/@producturl
+          - category:
+              - text: World Foods Retail
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/dl[1]/dd[12]/ul[1]/li[22]/text()[1]
+            categoryUrl:
+              - text: https://www.booker.co.uk/catalog/products.aspx?categoryName=CS15_200995
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/dl[1]/dd[12]/ul[1]/li[22]/@producturl
+          - category:
+              - text: Health, Beauty & Baby
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/dl[1]/dt[14]/text()[1]
+            categoryUrl:
+              - text: https://www.booker.co.uk/catalog/products.aspx?categoryName=CS15_100055
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/dl[1]/dt[14]/@producturl
+          - category:
+              - text: Baby Food & Drinks
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/dl[1]/dd[13]/ul[1]/li[1]/text()[1]
+            categoryUrl:
+              - text: https://www.booker.co.uk/catalog/products.aspx?categoryName=CS15_201000
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/dl[1]/dd[13]/ul[1]/li[1]/@producturl
+          - category:
+              - text: Bath, Shower, Soap
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/dl[1]/dd[13]/ul[1]/li[2]/text()[1]
+            categoryUrl:
+              - text: https://www.booker.co.uk/catalog/products.aspx?categoryName=CS15_201010
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/dl[1]/dd[13]/ul[1]/li[2]/@producturl
+          - category:
+              - text: Beauty & Skincare
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/dl[1]/dd[13]/ul[1]/li[3]/text()[1]
+            categoryUrl:
+              - text: https://www.booker.co.uk/catalog/products.aspx?categoryName=CS15_201020
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/dl[1]/dd[13]/ul[1]/li[3]/@producturl
+          - category:
+              - text: Contraception
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/dl[1]/dd[13]/ul[1]/li[4]/text()[1]
+            categoryUrl:
+              - text: https://www.booker.co.uk/catalog/products.aspx?categoryName=CS15_201030
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/dl[1]/dd[13]/ul[1]/li[4]/@producturl
+          - category:
+              - text: Dental Care
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/dl[1]/dd[13]/ul[1]/li[5]/text()[1]
+            categoryUrl:
+              - text: https://www.booker.co.uk/catalog/products.aspx?categoryName=CS15_201040
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/dl[1]/dd[13]/ul[1]/li[5]/@producturl
+          - category:
+              - text: Feminine Hygiene
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/dl[1]/dd[13]/ul[1]/li[6]/text()[1]
+            categoryUrl:
+              - text: https://www.booker.co.uk/catalog/products.aspx?categoryName=CS15_201050
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/dl[1]/dd[13]/ul[1]/li[6]/@producturl
+          - category:
+              - text: Haircare
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/dl[1]/dd[13]/ul[1]/li[7]/text()[1]
+            categoryUrl:
+              - text: https://www.booker.co.uk/catalog/products.aspx?categoryName=CS15_201060
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/dl[1]/dd[13]/ul[1]/li[7]/@producturl
+          - category:
+              - text: Medicines & Healthcare
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/dl[1]/dd[13]/ul[1]/li[8]/text()[1]
+            categoryUrl:
+              - text: https://www.booker.co.uk/catalog/products.aspx?categoryName=CS15_201070
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/dl[1]/dd[13]/ul[1]/li[8]/@producturl
+          - category:
+              - text: Men's Toiletries
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/dl[1]/dd[13]/ul[1]/li[9]/text()[1]
+            categoryUrl:
+              - text: https://www.booker.co.uk/catalog/products.aspx?categoryName=CS15_201080
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/dl[1]/dd[13]/ul[1]/li[9]/@producturl
+          - category:
+              - text: Nappies & Toiletries
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/dl[1]/dd[13]/ul[1]/li[10]/text()[1]
+            categoryUrl:
+              - text: https://www.booker.co.uk/catalog/products.aspx?categoryName=CS15_201090
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/dl[1]/dd[13]/ul[1]/li[10]/@producturl
+          - category:
+              - text: Women's Toiletries
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/dl[1]/dd[13]/ul[1]/li[11]/text()[1]
+            categoryUrl:
+              - text: https://www.booker.co.uk/catalog/products.aspx?categoryName=CS15_201110
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/dl[1]/dd[13]/ul[1]/li[11]/@producturl
+          - category:
+              - text: Hot Drinks
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/dl[1]/dt[15]/text()[1]
+            categoryUrl:
+              - text: https://www.booker.co.uk/catalog/products.aspx?categoryName=CS15_100060
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/dl[1]/dt[15]/@producturl
+          - category:
+              - text: Coffee Catering
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/dl[1]/dd[14]/ul[1]/li[1]/text()[1]
+            categoryUrl:
+              - text: https://www.booker.co.uk/catalog/products.aspx?categoryName=CS15_201120
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/dl[1]/dd[14]/ul[1]/li[1]/@producturl
+          - category:
+              - text: Coffee Retail
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/dl[1]/dd[14]/ul[1]/li[2]/text()[1]
+            categoryUrl:
+              - text: https://www.booker.co.uk/catalog/products.aspx?categoryName=CS15_201130
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/dl[1]/dd[14]/ul[1]/li[2]/@producturl
+          - category:
+              - text: Coffee Whiteners Catering
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/dl[1]/dd[14]/ul[1]/li[3]/text()[1]
+            categoryUrl:
+              - text: https://www.booker.co.uk/catalog/products.aspx?categoryName=CS15_201140
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/dl[1]/dd[14]/ul[1]/li[3]/@producturl
+          - category:
+              - text: Other Hot Drinks Catering
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/dl[1]/dd[14]/ul[1]/li[4]/text()[1]
+            categoryUrl:
+              - text: https://www.booker.co.uk/catalog/products.aspx?categoryName=CS15_201150
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/dl[1]/dd[14]/ul[1]/li[4]/@producturl
+          - category:
+              - text: Other Hot Drinks Retail
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/dl[1]/dd[14]/ul[1]/li[5]/text()[1]
+            categoryUrl:
+              - text: https://www.booker.co.uk/catalog/products.aspx?categoryName=CS15_201160
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/dl[1]/dd[14]/ul[1]/li[5]/@producturl
+          - category:
+              - text: Tea Catering
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/dl[1]/dd[14]/ul[1]/li[6]/text()[1]
+            categoryUrl:
+              - text: https://www.booker.co.uk/catalog/products.aspx?categoryName=CS15_201170
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/dl[1]/dd[14]/ul[1]/li[6]/@producturl
+          - category:
+              - text: Tea Retail
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/dl[1]/dd[14]/ul[1]/li[7]/text()[1]
+            categoryUrl:
+              - text: https://www.booker.co.uk/catalog/products.aspx?categoryName=CS15_201180
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/dl[1]/dd[14]/ul[1]/li[7]/@producturl
+          - category:
+              - text: Household, Cleaning & Paper
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/dl[1]/dt[16]/text()[1]
+            categoryUrl:
+              - text: https://www.booker.co.uk/catalog/products.aspx?categoryName=CS15_100065
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/dl[1]/dt[16]/@producturl
+          - category:
+              - text: Air Freshener
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/dl[1]/dd[15]/ul[1]/li[1]/text()[1]
+            categoryUrl:
+              - text: https://www.booker.co.uk/catalog/products.aspx?categoryName=CS15_201190
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/dl[1]/dd[15]/ul[1]/li[1]/@producturl
+          - category:
+              - text: Cleaning
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/dl[1]/dd[15]/ul[1]/li[2]/text()[1]
+            categoryUrl:
+              - text: https://www.booker.co.uk/catalog/products.aspx?categoryName=CS15_201200
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/dl[1]/dd[15]/ul[1]/li[2]/@producturl
+          - category:
+              - text: Cleaning Tools & Gloves
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/dl[1]/dd[15]/ul[1]/li[3]/text()[1]
+            categoryUrl:
+              - text: https://www.booker.co.uk/catalog/products.aspx?categoryName=CS15_201210
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/dl[1]/dd[15]/ul[1]/li[3]/@producturl
+          - category:
+              - text: Dishwasher & Washing Up
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/dl[1]/dd[15]/ul[1]/li[4]/text()[1]
+            categoryUrl:
+              - text: https://www.booker.co.uk/catalog/products.aspx?categoryName=CS15_201220
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/dl[1]/dd[15]/ul[1]/li[4]/@producturl
+          - category:
+              - text: Hygiene Products
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/dl[1]/dd[15]/ul[1]/li[5]/text()[1]
+            categoryUrl:
+              - text: https://www.booker.co.uk/catalog/products.aspx?categoryName=CS15_201230
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/dl[1]/dd[15]/ul[1]/li[5]/@producturl
+          - category:
+              - text: Laundry
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/dl[1]/dd[15]/ul[1]/li[6]/text()[1]
+            categoryUrl:
+              - text: https://www.booker.co.uk/catalog/products.aspx?categoryName=CS15_201240
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/dl[1]/dd[15]/ul[1]/li[6]/@producturl
+          - category:
+              - text: Paper Products
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/dl[1]/dd[15]/ul[1]/li[7]/text()[1]
+            categoryUrl:
+              - text: https://www.booker.co.uk/catalog/products.aspx?categoryName=CS15_201250
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/dl[1]/dd[15]/ul[1]/li[7]/@producturl
+          - category:
+              - text: Pest Control
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/dl[1]/dd[15]/ul[1]/li[8]/text()[1]
+            categoryUrl:
+              - text: https://www.booker.co.uk/catalog/products.aspx?categoryName=CS15_201260
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/dl[1]/dd[15]/ul[1]/li[8]/@producturl
+          - category:
+              - text: Air Fresheners Professional
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/dl[1]/dd[15]/ul[1]/li[9]/text()[1]
+            categoryUrl:
+              - text: https://www.booker.co.uk/catalog/products.aspx?categoryName=CS15_201270
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/dl[1]/dd[15]/ul[1]/li[9]/@producturl
+          - category:
+              - text: Cleaning Professional
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/dl[1]/dd[15]/ul[1]/li[10]/text()[1]
+            categoryUrl:
+              - text: https://www.booker.co.uk/catalog/products.aspx?categoryName=CS15_201280
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/dl[1]/dd[15]/ul[1]/li[10]/@producturl
+          - category:
+              - text: Dishwasher & Wash Up Professional
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/dl[1]/dd[15]/ul[1]/li[11]/text()[1]
+            categoryUrl:
+              - text: https://www.booker.co.uk/catalog/products.aspx?categoryName=CS15_201290
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/dl[1]/dd[15]/ul[1]/li[11]/@producturl
+          - category:
+              - text: Laundry Professional
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/dl[1]/dd[15]/ul[1]/li[12]/text()[1]
+            categoryUrl:
+              - text: https://www.booker.co.uk/catalog/products.aspx?categoryName=CS15_201300
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/dl[1]/dd[15]/ul[1]/li[12]/@producturl
+          - category:
+              - text: Meat, Fish & Poultry
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/dl[1]/dt[17]/text()[1]
+            categoryUrl:
+              - text: https://www.booker.co.uk/catalog/products.aspx?categoryName=CS15_100070
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/dl[1]/dt[17]/@producturl
+          - category:
+              - text: Bacon & Gammon
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/dl[1]/dd[16]/ul[1]/li[1]/text()[1]
+            categoryUrl:
+              - text: https://www.booker.co.uk/catalog/products.aspx?categoryName=CS15_201310
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/dl[1]/dd[16]/ul[1]/li[1]/@producturl
+          - category:
+              - text: Fresh Beef
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/dl[1]/dd[16]/ul[1]/li[2]/text()[1]
+            categoryUrl:
+              - text: https://www.booker.co.uk/catalog/products.aspx?categoryName=CS15_201320
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/dl[1]/dd[16]/ul[1]/li[2]/@producturl
+          - category:
+              - text: Fresh Fish
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/dl[1]/dd[16]/ul[1]/li[3]/text()[1]
+            categoryUrl:
+              - text: https://www.booker.co.uk/catalog/products.aspx?categoryName=CS15_201330
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/dl[1]/dd[16]/ul[1]/li[3]/@producturl
+          - category:
+              - text: Fresh Lamb
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/dl[1]/dd[16]/ul[1]/li[4]/text()[1]
+            categoryUrl:
+              - text: https://www.booker.co.uk/catalog/products.aspx?categoryName=CS15_201340
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/dl[1]/dd[16]/ul[1]/li[4]/@producturl
+          - category:
+              - text: Fresh Pork
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/dl[1]/dd[16]/ul[1]/li[5]/text()[1]
+            categoryUrl:
+              - text: https://www.booker.co.uk/catalog/products.aspx?categoryName=CS15_201350
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/dl[1]/dd[16]/ul[1]/li[5]/@producturl
+          - category:
+              - text: Fresh Poultry
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/dl[1]/dd[16]/ul[1]/li[6]/text()[1]
+            categoryUrl:
+              - text: https://www.booker.co.uk/catalog/products.aspx?categoryName=CS15_201360
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/dl[1]/dd[16]/ul[1]/li[6]/@producturl
+          - category:
+              - text: Fresh Sausages
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/dl[1]/dd[16]/ul[1]/li[7]/text()[1]
+            categoryUrl:
+              - text: https://www.booker.co.uk/catalog/products.aspx?categoryName=CS15_201370
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/dl[1]/dd[16]/ul[1]/li[7]/@producturl
+          - category:
+              - text: Other Fresh Meat & Game
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/dl[1]/dd[16]/ul[1]/li[8]/text()[1]
+            categoryUrl:
+              - text: https://www.booker.co.uk/catalog/products.aspx?categoryName=CS15_201380
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/dl[1]/dd[16]/ul[1]/li[8]/@producturl
+          - category:
+              - text: Non-Food
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/dl[1]/dt[18]/text()[1]
+            categoryUrl:
+              - text: https://www.booker.co.uk/catalog/products.aspx?categoryName=CS15_100075
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/dl[1]/dt[18]/@producturl
+          - category:
+              - text: Appliances
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/dl[1]/dd[17]/ul[1]/li[1]/text()[1]
+            categoryUrl:
+              - text: https://www.booker.co.uk/catalog/products.aspx?categoryName=CS15_201390
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/dl[1]/dd[17]/ul[1]/li[1]/@producturl
+          - category:
+              - text: Bar, Table, Beverage Service
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/dl[1]/dd[17]/ul[1]/li[2]/text()[1]
+            categoryUrl:
+              - text: https://www.booker.co.uk/catalog/products.aspx?categoryName=CS15_201410
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/dl[1]/dd[17]/ul[1]/li[2]/@producturl
+          - category:
+              - text: Bedding & Textiles
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/dl[1]/dd[17]/ul[1]/li[3]/text()[1]
+            categoryUrl:
+              - text: https://www.booker.co.uk/catalog/products.aspx?categoryName=CS15_201415
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/dl[1]/dd[17]/ul[1]/li[3]/@producturl
+          - category:
+              - text: Business Equipment
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/dl[1]/dd[17]/ul[1]/li[4]/text()[1]
+            categoryUrl:
+              - text: https://www.booker.co.uk/catalog/products.aspx?categoryName=CS15_201420
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/dl[1]/dd[17]/ul[1]/li[4]/@producturl
+          - category:
+              - text: Candles & Candle Holders
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/dl[1]/dd[17]/ul[1]/li[5]/text()[1]
+            categoryUrl:
+              - text: https://www.booker.co.uk/catalog/products.aspx?categoryName=CS15_201430
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/dl[1]/dd[17]/ul[1]/li[5]/@producturl
+          - category:
+              - text: Car Care, DIY, Maintenance
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/dl[1]/dd[17]/ul[1]/li[6]/text()[1]
+            categoryUrl:
+              - text: https://www.booker.co.uk/catalog/products.aspx?categoryName=CS15_201440
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/dl[1]/dd[17]/ul[1]/li[6]/@producturl
+          - category:
+              - text: Clothing, Footwear, Accessories
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/dl[1]/dd[17]/ul[1]/li[7]/text()[1]
+            categoryUrl:
+              - text: https://www.booker.co.uk/catalog/products.aspx?categoryName=CS15_201470
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/dl[1]/dd[17]/ul[1]/li[7]/@producturl
+          - category:
+              - text: Cookware & Kitchen Equipment
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/dl[1]/dd[17]/ul[1]/li[8]/text()[1]
+            categoryUrl:
+              - text: https://www.booker.co.uk/catalog/products.aspx?categoryName=CS15_201490
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/dl[1]/dd[17]/ul[1]/li[8]/@producturl
+          - category:
+              - text: Crockery & Tableware
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/dl[1]/dd[17]/ul[1]/li[9]/text()[1]
+            categoryUrl:
+              - text: https://www.booker.co.uk/catalog/products.aspx?categoryName=CS15_201500
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/dl[1]/dd[17]/ul[1]/li[9]/@producturl
+          - category:
+              - text: Electrical Applicances & Accessories
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/dl[1]/dd[17]/ul[1]/li[10]/text()[1]
+            categoryUrl:
+              - text: https://www.booker.co.uk/catalog/products.aspx?categoryName=CS15_201510
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/dl[1]/dd[17]/ul[1]/li[10]/@producturl
+          - category:
+              - text: Food Serving & Display
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/dl[1]/dd[17]/ul[1]/li[11]/text()[1]
+            categoryUrl:
+              - text: https://www.booker.co.uk/catalog/products.aspx?categoryName=CS15_201520
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/dl[1]/dd[17]/ul[1]/li[11]/@producturl
+          - category:
+              - text: Furniture & Furnishings
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/dl[1]/dd[17]/ul[1]/li[12]/text()[1]
+            categoryUrl:
+              - text: https://www.booker.co.uk/catalog/products.aspx?categoryName=CS15_201530
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/dl[1]/dd[17]/ul[1]/li[12]/@producturl
+          - category:
+              - text: Glassware
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/dl[1]/dd[17]/ul[1]/li[13]/text()[1]
+            categoryUrl:
+              - text: https://www.booker.co.uk/catalog/products.aspx?categoryName=CS15_201540
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/dl[1]/dd[17]/ul[1]/li[13]/@producturl
+          - category:
+              - text: Guest Toiletries
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/dl[1]/dd[17]/ul[1]/li[14]/text()[1]
+            categoryUrl:
+              - text: https://www.booker.co.uk/catalog/products.aspx?categoryName=CS15_201550
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/dl[1]/dd[17]/ul[1]/li[14]/@producturl
+          - category:
+              - text: Office & Stationery
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/dl[1]/dd[17]/ul[1]/li[15]/text()[1]
+            categoryUrl:
+              - text: https://www.booker.co.uk/catalog/products.aspx?categoryName=CS15_201580
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/dl[1]/dd[17]/ul[1]/li[15]/@producturl
+          - category:
+              - text: Retailer Resaleable Products
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/dl[1]/dd[17]/ul[1]/li[16]/text()[1]
+            categoryUrl:
+              - text: https://www.booker.co.uk/catalog/products.aspx?categoryName=CS15_201590
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/dl[1]/dd[17]/ul[1]/li[16]/@producturl
+          - category:
+              - text: Safety & Workwear
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/dl[1]/dd[17]/ul[1]/li[17]/text()[1]
+            categoryUrl:
+              - text: https://www.booker.co.uk/catalog/products.aspx?categoryName=CS15_201600
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/dl[1]/dd[17]/ul[1]/li[17]/@producturl
+          - category:
+              - text: Workplace Signs & Sign Boards
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/dl[1]/dd[17]/ul[1]/li[18]/text()[1]
+            categoryUrl:
+              - text: https://www.booker.co.uk/catalog/products.aspx?categoryName=CS15_201620
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/dl[1]/dd[17]/ul[1]/li[18]/@producturl
+          - category:
+              - text: Pet Food
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/dl[1]/dt[19]/text()[1]
+            categoryUrl:
+              - text: https://www.booker.co.uk/catalog/products.aspx?categoryName=CS15_100080
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/dl[1]/dt[19]/@producturl
+          - category:
+              - text: Cats
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/dl[1]/dd[18]/ul[1]/li[1]/text()[1]
+            categoryUrl:
+              - text: https://www.booker.co.uk/catalog/products.aspx?categoryName=CS15_201630
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/dl[1]/dd[18]/ul[1]/li[1]/@producturl
+          - category:
+              - text: Dogs
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/dl[1]/dd[18]/ul[1]/li[2]/text()[1]
+            categoryUrl:
+              - text: https://www.booker.co.uk/catalog/products.aspx?categoryName=CS15_201640
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/dl[1]/dd[18]/ul[1]/li[2]/@producturl
+          - category:
+              - text: Other Animals
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/dl[1]/dd[18]/ul[1]/li[3]/text()[1]
+            categoryUrl:
+              - text: https://www.booker.co.uk/catalog/products.aspx?categoryName=CS15_201650
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/dl[1]/dd[18]/ul[1]/li[3]/@producturl
+          - category:
+              - text: Seasonal
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/dl[1]/dt[20]/text()[1]
+            categoryUrl:
+              - text: https://www.booker.co.uk/catalog/products.aspx?categoryName=CS15_100085
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/dl[1]/dt[20]/@producturl
+          - category:
+              - text: Confectionery
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/dl[1]/dd[19]/ul[1]/li[1]/text()[1]
+            categoryUrl:
+              - text: https://www.booker.co.uk/catalog/products.aspx?categoryName=CS15_201670
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/dl[1]/dd[19]/ul[1]/li[1]/@producturl
+          - category:
+              - text: Festive Items
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/dl[1]/dd[19]/ul[1]/li[2]/text()[1]
+            categoryUrl:
+              - text: https://www.booker.co.uk/catalog/products.aspx?categoryName=CS15_201690
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/dl[1]/dd[19]/ul[1]/li[2]/@producturl
+          - category:
+              - text: Gardening
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/dl[1]/dd[19]/ul[1]/li[3]/text()[1]
+            categoryUrl:
+              - text: https://www.booker.co.uk/catalog/products.aspx?categoryName=CS15_201700
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/dl[1]/dd[19]/ul[1]/li[3]/@producturl
+          - category:
+              - text: Gift Hampers
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/dl[1]/dd[19]/ul[1]/li[4]/text()[1]
+            categoryUrl:
+              - text: https://www.booker.co.uk/catalog/products.aspx?categoryName=CS15_201720
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/dl[1]/dd[19]/ul[1]/li[4]/@producturl
+          - category:
+              - text: Soft Drinks
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/dl[1]/dt[21]/text()[1]
+            categoryUrl:
+              - text: https://www.booker.co.uk/catalog/products.aspx?categoryName=CS15_100090
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/dl[1]/dt[21]/@producturl
+          - category:
+              - text: Adult Drinks
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/dl[1]/dd[20]/ul[1]/li[1]/text()[1]
+            categoryUrl:
+              - text: https://www.booker.co.uk/catalog/products.aspx?categoryName=CS15_201750
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/dl[1]/dd[20]/ul[1]/li[1]/@producturl
+          - category:
+              - text: Cup Drinks
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/dl[1]/dd[20]/ul[1]/li[2]/text()[1]
+            categoryUrl:
+              - text: https://www.booker.co.uk/catalog/products.aspx?categoryName=CS15_201760
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/dl[1]/dd[20]/ul[1]/li[2]/@producturl
+          - category:
+              - text: Dilutables
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/dl[1]/dd[20]/ul[1]/li[3]/text()[1]
+            categoryUrl:
+              - text: https://www.booker.co.uk/catalog/products.aspx?categoryName=CS15_201770
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/dl[1]/dd[20]/ul[1]/li[3]/@producturl
+          - category:
+              - text: Fizzy Drinks
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/dl[1]/dd[20]/ul[1]/li[4]/text()[1]
+            categoryUrl:
+              - text: https://www.booker.co.uk/catalog/products.aspx?categoryName=CS15_201780
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/dl[1]/dd[20]/ul[1]/li[4]/@producturl
+          - category:
+              - text: Freeze Pops
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/dl[1]/dd[20]/ul[1]/li[5]/text()[1]
+            categoryUrl:
+              - text: https://www.booker.co.uk/catalog/products.aspx?categoryName=CS15_201790
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/dl[1]/dd[20]/ul[1]/li[5]/@producturl
+          - category:
+              - text: Fruit Juice & Smoothies
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/dl[1]/dd[20]/ul[1]/li[6]/text()[1]
+            categoryUrl:
+              - text: https://www.booker.co.uk/catalog/products.aspx?categoryName=CS15_201800
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/dl[1]/dd[20]/ul[1]/li[6]/@producturl
+          - category:
+              - text: Juice Drinks
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/dl[1]/dd[20]/ul[1]/li[7]/text()[1]
+            categoryUrl:
+              - text: https://www.booker.co.uk/catalog/products.aspx?categoryName=CS15_201810
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/dl[1]/dd[20]/ul[1]/li[7]/@producturl
+          - category:
+              - text: On Premise
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/dl[1]/dd[20]/ul[1]/li[8]/text()[1]
+            categoryUrl:
+              - text: https://www.booker.co.uk/catalog/products.aspx?categoryName=CS15_201820
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/dl[1]/dd[20]/ul[1]/li[8]/@producturl
+          - category:
+              - text: Retail Mixers
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/dl[1]/dd[20]/ul[1]/li[9]/text()[1]
+            categoryUrl:
+              - text: https://www.booker.co.uk/catalog/products.aspx?categoryName=CS15_201830
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/dl[1]/dd[20]/ul[1]/li[9]/@producturl
+          - category:
+              - text: Sports, Energy & Health
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/dl[1]/dd[20]/ul[1]/li[10]/text()[1]
+            categoryUrl:
+              - text: https://www.booker.co.uk/catalog/products.aspx?categoryName=CS15_201840
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/dl[1]/dd[20]/ul[1]/li[10]/@producturl
+          - category:
+              - text: Water
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/dl[1]/dd[20]/ul[1]/li[11]/text()[1]
+            categoryUrl:
+              - text: https://www.booker.co.uk/catalog/products.aspx?categoryName=CS15_201850
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/dl[1]/dd[20]/ul[1]/li[11]/@producturl
+          - category:
+              - text: Spirits & Liqueurs
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/dl[1]/dt[22]/text()[1]
+            categoryUrl:
+              - text: https://www.booker.co.uk/catalog/products.aspx?categoryName=CS15_100095
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/dl[1]/dt[22]/@producturl
+          - category:
+              - text: Brandy & Cognac
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/dl[1]/dd[21]/ul[1]/li[1]/text()[1]
+            categoryUrl:
+              - text: https://www.booker.co.uk/catalog/products.aspx?categoryName=CS15_201860
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/dl[1]/dd[21]/ul[1]/li[1]/@producturl
+          - category:
+              - text: Gin
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/dl[1]/dd[21]/ul[1]/li[2]/text()[1]
+            categoryUrl:
+              - text: https://www.booker.co.uk/catalog/products.aspx?categoryName=CS15_201870
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/dl[1]/dd[21]/ul[1]/li[2]/@producturl
+          - category:
+              - text: Halves, Quarters, Miniatures
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/dl[1]/dd[21]/ul[1]/li[3]/text()[1]
+            categoryUrl:
+              - text: https://www.booker.co.uk/catalog/products.aspx?categoryName=CS15_201880
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/dl[1]/dd[21]/ul[1]/li[3]/@producturl
+          - category:
+              - text: Rum
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/dl[1]/dd[21]/ul[1]/li[4]/text()[1]
+            categoryUrl:
+              - text: https://www.booker.co.uk/catalog/products.aspx?categoryName=CS15_201900
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/dl[1]/dd[21]/ul[1]/li[4]/@producturl
+          - category:
+              - text: Shots, Liqueurs & Cocktails
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/dl[1]/dd[21]/ul[1]/li[5]/text()[1]
+            categoryUrl:
+              - text: https://www.booker.co.uk/catalog/products.aspx?categoryName=CS15_201910
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/dl[1]/dd[21]/ul[1]/li[5]/@producturl
+          - category:
+              - text: Vodka
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/dl[1]/dd[21]/ul[1]/li[6]/text()[1]
+            categoryUrl:
+              - text: https://www.booker.co.uk/catalog/products.aspx?categoryName=CS15_201920
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/dl[1]/dd[21]/ul[1]/li[6]/@producturl
+          - category:
+              - text: Whisky
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/dl[1]/dd[21]/ul[1]/li[7]/text()[1]
+            categoryUrl:
+              - text: https://www.booker.co.uk/catalog/products.aspx?categoryName=CS15_201930
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/dl[1]/dd[21]/ul[1]/li[7]/@producturl
+          - category:
+              - text: Tobacco & Cigarettes
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/dl[1]/dt[23]/text()[1]
+            categoryUrl:
+              - text: https://www.booker.co.uk/catalog/products.aspx?categoryName=CS15_100100
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/dl[1]/dt[23]/@producturl
+          - category:
+              - text: Cigarettes
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/dl[1]/dd[22]/ul[1]/li[1]/text()[1]
+            categoryUrl:
+              - text: https://www.booker.co.uk/catalog/products.aspx?categoryName=CS15_201940
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/dl[1]/dd[22]/ul[1]/li[1]/@producturl
+          - category:
+              - text: Cigars & Other Tobacco
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/dl[1]/dd[22]/ul[1]/li[2]/text()[1]
+            categoryUrl:
+              - text: https://www.booker.co.uk/catalog/products.aspx?categoryName=CS15_201950
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/dl[1]/dd[22]/ul[1]/li[2]/@producturl
+          - category:
+              - text: E-Cigarettes
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/dl[1]/dd[22]/ul[1]/li[3]/text()[1]
+            categoryUrl:
+              - text: https://www.booker.co.uk/catalog/products.aspx?categoryName=CS15_201955
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/dl[1]/dd[22]/ul[1]/li[3]/@producturl
+          - category:
+              - text: Smoking Accessories
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/dl[1]/dd[22]/ul[1]/li[4]/text()[1]
+            categoryUrl:
+              - text: https://www.booker.co.uk/catalog/products.aspx?categoryName=CS15_201960
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/dl[1]/dd[22]/ul[1]/li[4]/@producturl
+          - category:
+              - text: Wine
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/dl[1]/dt[24]/text()[1]
+            categoryUrl:
+              - text: https://www.booker.co.uk/catalog/products.aspx?categoryName=CS15_100105
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/dl[1]/dt[24]/@producturl
+          - category:
+              - text: Champagne & Sparkling Wine
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/dl[1]/dd[23]/ul[1]/li[1]/text()[1]
+            categoryUrl:
+              - text: https://www.booker.co.uk/catalog/products.aspx?categoryName=CS15_201980
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/dl[1]/dd[23]/ul[1]/li[1]/@producturl
+          - category:
+              - text: Fortified Wines
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/dl[1]/dd[23]/ul[1]/li[2]/text()[1]
+            categoryUrl:
+              - text: https://www.booker.co.uk/catalog/products.aspx?categoryName=CS15_201990
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/dl[1]/dd[23]/ul[1]/li[2]/@producturl
+          - category:
+              - text: Low Alcohol Wine
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/dl[1]/dd[23]/ul[1]/li[3]/text()[1]
+            categoryUrl:
+              - text: https://www.booker.co.uk/catalog/products.aspx?categoryName=CS15_202010
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/dl[1]/dd[23]/ul[1]/li[3]/@producturl
+          - category:
+              - text: Red Wine
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/dl[1]/dd[23]/ul[1]/li[4]/text()[1]
+            categoryUrl:
+              - text: https://www.booker.co.uk/catalog/products.aspx?categoryName=CS15_202020
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/dl[1]/dd[23]/ul[1]/li[4]/@producturl
+          - category:
+              - text: Rosé Wine
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/dl[1]/dd[23]/ul[1]/li[5]/text()[1]
+            categoryUrl:
+              - text: https://www.booker.co.uk/catalog/products.aspx?categoryName=CS15_202030
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/dl[1]/dd[23]/ul[1]/li[5]/@producturl
+          - category:
+              - text: Single Serve Wine
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/dl[1]/dd[23]/ul[1]/li[6]/text()[1]
+            categoryUrl:
+              - text: https://www.booker.co.uk/catalog/products.aspx?categoryName=CS15_202040
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/dl[1]/dd[23]/ul[1]/li[6]/@producturl
+          - category:
+              - text: White Wine
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/dl[1]/dd[23]/ul[1]/li[7]/text()[1]
+            categoryUrl:
+              - text: https://www.booker.co.uk/catalog/products.aspx?categoryName=CS15_202050
+                xpath: /html/body/form[1]/div[3]/div[11]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/dl[1]/dd[23]/ul[1]/li[7]/@producturl
+        xpath: /html
+    timestamp: 1608036979153

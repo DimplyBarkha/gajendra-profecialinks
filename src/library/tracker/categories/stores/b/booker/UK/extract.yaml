@@ -1,0 +1,13 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: //div[@id="MenuName"]/following-sibling::dl//*[@cat]
+fields:
+  - name: category
+    singleValue: false
+    description: name of the category
+    xpath: //div[@id="MenuName"]/following-sibling::dl//*[@cat]/text()
+  - name: categoryUrl
+    singleValue: false
+    description: url of the category
+    xpath: //div[@id="MenuName"]/following-sibling::dl//*[@cat]//@productUrl
