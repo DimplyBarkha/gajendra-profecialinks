@@ -1,10 +1,10 @@
 
 module.exports = {
-  implements: 'navigation/goto',
+  implements: 'tracker/categories',
   parameterValues: {
-    domain: 'flaconi.de',
-    timeout: 120000,
     country: 'DE',
+    domain: 'flaconi.de',
     store: 'flaconi',
+    zipcode: '',
   },
 };
