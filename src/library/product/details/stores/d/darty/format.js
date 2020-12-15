@@ -22,24 +22,29 @@ const transform = (data) => {
   }))));
   for (const { group } of data) {
     for (const row of group) {
+      // if (row.description) {
+      //   let text = '';
+      //   if (row.additionalDescBulletInfo) {
+      //     text = row.additionalDescBulletInfo.reduce((item, currentItem) => `${item} || ${currentItem.text}`, '').trim();
+      //   }
+      //   if (text) {
+      //     row.description = [{
+      //       text: text + ' | ' + row.description[0].text.replace(/\s*\n\s*/g, ' '),
+      //     },
+      //     ];
+      //   } else {
+      //     row.description = [{
+      //       text: row.description[0].text.replace(/\s*\n\s*/g, ' '),
+      //     },
+      //     ];
+      //   }
+      // }
       if (row.description) {
-        let text = '';
-        if (row.additionalDescBulletInfo) {
-          text = row.additionalDescBulletInfo.reduce((item, currentItem) => `${item} || ${currentItem.text}`, '').trim();
-        }
-        if (text) {
-          row.description = [{
-            text: text + ' | ' + row.description[0].text.replace(/\s*\n\s*/g, ' '),
-          },
-          ];
-        } else {
-          row.description = [{
-            text: row.description[0].text.replace(/\s*\n\s*/g, ' '),
-          },
-          ];
-        }
+        const descriptionArr = row.description.map((item) => {
+          return item.text;
+        });
+        row.description = [{ text: descriptionArr.join('|'), xpath: row.description[0].xpath }];
       }
-
       if (row.manufacturerDescription) {
         row.manufacturerDescription[0].text = row.manufacturerDescription[0].text.replace(/\s*\n\s*/g, ' ');
       }
@@ -59,11 +64,15 @@ const transform = (data) => {
         });
         row.specifications = [{ text: specificationsArr.join('|'), xpath: row.specifications[0].xpath }];
       }
-      if (row.additionalDescBulletInfo) {
-        row.descriptionBullets = [{
-          text: row.additionalDescBulletInfo.length,
-        },
-        ];
+      // if (row.additionalDescBulletInfo) {
+      //   row.descriptionBullets = [{
+      //     text: row.additionalDescBulletInfo.length,
+      //   },
+      //   ];
+      // }
+      if (row.secondaryImageTotal) {
+        var secondaryImageTotalCount = row.secondaryImageTotal[0].text === '0' ? '' : row.secondaryImageTotal[0].text;
+        row.secondaryImageTotal = [{ text: secondaryImageTotalCount, xpath: row.secondaryImageTotal[0].xpath }];
       }
     }
   }

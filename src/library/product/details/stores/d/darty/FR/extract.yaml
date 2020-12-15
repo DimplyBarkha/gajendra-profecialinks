@@ -32,10 +32,12 @@ fields:
     defaultValue: Out of Stock
   - name: description
     singleValue: false
-    xpath: //div[@id="product_description"]//div[contains(@class,"product_bloc_content")]
-    #manualSelector: div#product_description > div.product_bloc_content
+    xpath: //div[@class="strong-points"]
+    #xpath: //div[contains(@class,"product_bloc_content")]
+    #manualSelector: div.product_bloc_content
   - name: descriptionBullets
     singleValue: false
+    xpath: count(//div[@class="strong-points"]//ul//li)
   - name: brandText
     singleValue: false
     xpath: //meta[@itemprop="brand"]/@content
@@ -96,10 +98,10 @@ fields:
   - name: specifications
     singleValue: false
     # manualSelector: div#product_caracteristics
-    xpath: //div[@id="product_caracteristics"]
+    xpath: //div[@id="product_caracteristics"]//table
   - name: manufacturerDescription
     singleValue: false
-    xpath: //div[@id="product_brand"]//div[@class="inpage_content_block"]
+    xpath: //div[@id="product_brand"]//div[@class="inpage_content_block"]//div[contains(@class, "bloc ombre")]
     #manualSelector: div#product_brand div.flix-inpage
   - name: manufacturerImages
     singleValue: false
@@ -107,7 +109,6 @@ fields:
     manualSelector: div#product_brand img
   - name: variantCount
     singleValue: false
-    defaultValue: '0'
   - name: secondaryImageTotal
     singleValue: false
     xpath: count(//li[contains(@class,"rr_item")]//img/@src) -1
@@ -120,4 +121,7 @@ fields:
   - name: quantity
     singleValue: false
     xpath: //tr[th[contains(text(),"pouces")]]//li
+  - name: promotion
+    singleValue: false
+    xpath: //span[contains(@class,"product-offer-ripost-text-marketing")]
   

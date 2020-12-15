@@ -59,7 +59,7 @@ module.exports = {
           }
         },
       );
-      await new Promise(resolve => setTimeout(resolve, 20000));
+      await new Promise(resolve => setTimeout(resolve, 10000));
       await context.waitForSelector('#produit > div.product_head');
     } catch (error) {
       console.log('error: NO CPATCHA ENCOUNTER', error);

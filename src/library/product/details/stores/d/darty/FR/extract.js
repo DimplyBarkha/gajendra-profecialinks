@@ -10,17 +10,20 @@ async function implementation (
   const { productDetails } = dependencies;
 
   await context.evaluate(async () => {
-    if (document.querySelector('li#brand_navigation_item > a')) {
-      document.querySelector('li#brand_navigation_item > a').click();
+    window.scroll(0, 1000);
+    if (document.querySelector('li#brand_navigation_item a')) {
+      document.querySelector('li#brand_navigation_item a').click();
       if (document.querySelector('button.btn-expand.btn-reset img[src]')) {
         document.querySelector('button.btn-expand.btn-reset img[src]').click();
-        await new Promise(resolve => setTimeout(resolve, 3000));
+        await new Promise(resolve => setTimeout(resolve, 500));
         let scrollTop = 0;
-        while (scrollTop !== 5000) {
-          await stall(500);
+        let lastscrollvalue = 0;
+        while (scrollTop !== 7000) {
+          await stall(750);
+          lastscrollvalue = scrollTop;
           scrollTop += 1000;
-          window.scroll(0, scrollTop);
-          if (scrollTop === 5000) {
+          window.scroll(lastscrollvalue, scrollTop);
+          if (scrollTop === 7000) {
             await stall(500);
             break;
           }
