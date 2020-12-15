@@ -50,6 +50,7 @@ module.exports = {
 
       const aggregateRating = document.querySelectorAll('div[class="cell"] span[class="black-star"]')
       for (let k = 0; k < aggregateRating.length; k++) {
+        // @ts-ignore
         let singleRating = aggregateRating[k].style.width;
         singleRating = singleRating.slice(0, singleRating.length - 1)
         singleRating = (5 * singleRating) / 100;

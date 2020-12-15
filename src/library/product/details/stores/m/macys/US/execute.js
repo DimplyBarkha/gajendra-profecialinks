@@ -6,7 +6,7 @@ module.exports = {
     store: 'macys',
     domain: 'macys.com',
     loadedSelector: 'body',
-    noResultsXPath: null,
+    noResultsXPath: '//p[@data-auto="error-text"]',
     zipcode: '',
   },
 };
