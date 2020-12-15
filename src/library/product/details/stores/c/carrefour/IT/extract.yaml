@@ -29,7 +29,8 @@ fields:
   - name: price
     description: The offered price for the selected product variant - if a user
       clicks add to basket this is the price they would be charged
-    xpath: //div[@class='product-main-info']//div[@class='prices']//span[contains(@class, 'sales')]/span[contains(@class, 'value')]
+    # xpath: //div[@class='product-main-info']//div[@class='prices']//span[contains(@class, 'sales')]/span[contains(@class, 'value')]
+    xpath: //body/@import-price
   - name: availabilityText
     description: Availability as described on page for the selected variant. If
       there is no availability but the product can be added to cart, this field
@@ -257,7 +258,7 @@ fields:
     description:
       Nutritional Information for Calories Per Serving content - Usually
       based on per 100g serving
-    xpath: //div[contains(@class, 'table-nutritionInfo')]/div[contains(., 'Energia')]/span[last()] | //div[contains(@class, 'table-nutritionInfo')]/div[contains(., 'Power')]/span[last()]
+    xpath: //div[contains(@class, 'table-nutritionInfo')]/div[contains(., 'Energia')]/span[2] | //div[contains(@class, 'table-nutritionInfo')]/div[contains(., 'Power')]/span[last()]
   - name: caloriesFromFatPerServing
     singleValue: true
     description: Nutritional Information for Calories From Fat content - Usually

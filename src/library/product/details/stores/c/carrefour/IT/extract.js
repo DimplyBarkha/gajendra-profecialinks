@@ -31,6 +31,9 @@ module.exports = {
           imgEl.setAttribute('data', image);
           document.querySelector('body').appendChild(imgEl);
         }
+
+        const price = jsonData.offers.price;
+        document.body.setAttribute('import-price', price);
       }
     });
     const { transform } = parameters;
