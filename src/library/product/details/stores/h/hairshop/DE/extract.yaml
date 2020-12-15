@@ -37,8 +37,8 @@ fields:
       clicks add to basket this is the price they would be charged
     xpath: //script[contains(text(),'product_price')]
     #xpath: //div[@class='product-offer']/div/div/div[@class='price-box']/span[@class='regular-price']/span[@class='price']|//div[@class='product-offer']/div/div/div[@class='price-box']/p[@class='special-price']/span[@class='price']
-    regExp: (product_price':) '(.*)','product_currency|€(.*)
-    regExpReplace: €$2
+    regExp: (product_price':) '(.*)\.(.*)','product_currency|(product_price':) '(.*)','product_currency
+    regExpReplace: €$2,$3
   - name: availabilityText
     singleValue: true
     description: Availability as described on page for the selected variant. If
