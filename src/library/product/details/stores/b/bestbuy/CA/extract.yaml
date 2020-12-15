@@ -8,7 +8,9 @@ fields:
     manualSelector: h1[itemprop="name"]
   - name: price
     singleValue: false
-    xpath: //span[@itemprop="offers"]/meta[@itemprop="price"]/@content
+    xpath: concat("$", "",//span[@itemprop="offers"]/meta[@itemprop="price"]/@content)
+    # regExp: (.+)
+    # regExpReplace: $1
   - name: availabilityText
     singleValue: false
     xpath: //link[@itemprop="availability"]/@href
@@ -17,42 +19,43 @@ fields:
     defaultValue: Out of Stock
   - name: shippingInfo
     singleValue: false
-    xpath: //div[@class="soldByBestBuy_1hMn-"] | //div[@class="soldBy_3u6LA"]
+    xpath: //div[@class="soldByBestBuy_1hMn-"] | //div[@class="soldBy_3u6LA"] | //div[@class="x-pdp-availability-online onlineAvailabilityContainer_Z02qk"]
   - name: weightNet
     singleValue: false
-    manualSelector: div[id="bb_weightNet"]
+    xpath: //div[contains(.,"Weight without Stand") or contains(.,"Weight")]/following-sibling::div[@class="itemValue_XPfaq"]
   - name: weightGross
     singleValue: false
-    manualSelector: div[id="bb_weightNet"]
+    xpath: //div[contains(.,"Weight with Stand")]/following-sibling::div[@class="itemValue_XPfaq"]
   - name: shippingWeight
     singleValue: false
-    manualSelector: div[id="bb_weightNet"]
+    xpath: div[id="bb_weightNet"]
   - name: image
     singleValue: false
     # xpath: //img[@class="productImage_AMBPT"]/@src
-    xpath: (//div[@class="x-product-detail-page"]//div[@class="row_1Rbqw"]//div[@data-automation="media-gallery-product-image-slider"]//div[@class="slideShowContainer_2jQI5"]//div[@class="slick-track"]/div[@data-index="0"]//img[@class="productImage_AMBPT"]/@src | //img[@alt="product image"]/@src)[1]
+    xpath: //img[contains(@alt,"product image")]/@src
   - name: description
     singleValue: false
-    manualSelector: div[id="bb_descriptionBullets"]
+    xpath: //div[@class="row_1Rbqw"]//div[@itemprop="description"] |  //div[@class="productDescription_1F7nr"]//text()
   - name: videos
     singleValue: false
-    manualSelector: div[id="bb_videos"]
+    # manualSelector: //div[@id="bb_videos"]
+    xpath:  //div[@class="ytp-title-text"]/a/@href | //div[@id="bb_videos"]
   - name: descriptionBullets
     singleValue: false
-    manualSelector: div[id="bb_descriptionBulletsCount"]
+    manualSelector: div.productDescription_ujYCD ul li
   - name: alternateImages
     singleValue: false
     # xpath: //div[@data-index="0"]//div[@class="productImageContainer_1V2HD touchActionManipulation_31CMi productImage_AMBPT applyResponsiveSquareTrick_35RAF"]/div/div[@class="displayingImage_3xp0y"]/img[@class="productImage_AMBPT" and @alt="product image"]/@src | //div[@class="thumbnailItemContainer_3jIDQ"]//div[@class="displayingImage_3xp0y"]/img[@class="productImage_AMBPT"]/@src 
     xpath: //div[@class="x-product-detail-page"]//div[@class="row_1Rbqw"]//div[@data-automation="media-gallery-product-image-slider"]//div[@class="slideShowContainer_2jQI5"]//div[@class="slick-track"]/div[position() > 1]//img[@class="productImage_AMBPT"]/@src
   - name: promotion
     singleValue: false 
-    # xpath: //div[@class="productPricingContainer_3gTS3"]/span[@class="productSaving_3YmNX top_3XDS1"]
+    xpath: //div[@class="productPricingContainer_3gTS3"]/span[@class="productSaving_3YmNX top_3XDS1"]
   - name: sku
     singleValue: false 
     manualSelector: span[itemprop="sku"]
   - name: specifications
     singleValue: false 
-    manualSelector: div[id="bb_specifications"]
+    xpath: //div[@id="detailsAndSpecs"]/div/div
   - name: variantId
     singleValue: false
     manualSelector: span[itemprop="sku"]
@@ -67,7 +70,9 @@ fields:
     xpath: //h1[@itemprop="name"]
   - name: listPrice
     singleValue: false
-    xpath: //span[@itemprop="offers"]/meta[@itemprop="price"]/@content
+    xpath: concat("$", "",//span[@itemprop="offers"]/meta[@itemprop="price"]/@content)
+    regExp: (.+)
+    regExpReplace: $$1
   - name: productOtherInformation
     singleValue: false
     manualSelector: div[id="bb_productOtherInformation"]
@@ -79,23 +84,96 @@ fields:
     xpath: //div[@class="modelDetailSection_2o3XX"]//span[@itemprop="ratingCount"]
     regExp: ([0-9]{1,}) Review
     regExpReplace: $1
+  - name: ratingCount1
+    singleValue: false
+    xpath: //div[@class="modelDetailSection_2o3XX"]//span[@itemprop="ratingCount"]
+    regExp: rating\W+(.+) review
+    regExpReplace: $1
   - name: warranty
     singleValue: false
-    xpath: //div[@id="bb_warranty"] | //h3[text()="Warranty"]/parent::div/following-sibling::div
+    xpath: //h3[text()="Warranty"]/parent::div/following-sibling::div | //h3[text()="Warranty"]/parent::div/following-sibling::div | //div[contains(.,"Manufacturer's Warranty - Parts")]/following-sibling::div[@class="itemValue_XPfaq"]
+  - name: aggregateRating1
+    singleValue: false
+    xpath: //div[@class="marketplaceRating_oSU31"]/text()
+    regExp: (.+)seller rating,
+    regExpReplace: 
   - name: aggregateRating
     singleValue: false
     xpath: //label[@class="ratings_I_BnL"]/strong | //div[@class="modelDetailSection_2o3XX"]//div[@class="reviews_1KIjQ"]/label[@class="ratings_I_BnL"]/strong
   - name: color
     singleValue: false
-    manualSelector: div[id="bb_colour"]
+    xpath: //div[text()="Colour" or text()="Cabinet Colour"]/following::div[1]
   - name: shippingDimensions
-    singleValue: false
-    manualSelector: div[id="bb_dimension"]
+    singleValue: false  
+    xpath: //div[contains(.,"Dimensions (cm)")]/following-sibling::div[@class="itemValue_XPfaq"]  
   - name: countryOfOrigin
     singleValue: false
-    manualSelector: div[id="bb_countryOfOrigin"]
+    xpath: 
   - name: brandText
     singleValue: false
-    manualSelector: h1[itemprop="name"] [1]
-    regExp: ([A-Z])\w+
-    
+    xpath: //h1[@itemprop="name"]
+    regExp: ^\w+
+  - name: materials
+    singleValue: false
+    xpath: //p[contains(.,"Material")]/text()
+    regExp: Material\W(.+)
+    regExpReplace: $1
+  - name: specifications
+    singleValue: false
+    xpath: //div[@id="detailsAndSpecs"]/div/div 
+  - name: variantCount
+    singleValue: false
+    xpath: count(//div[contains(@class,"optionBox_3fNI1")])
+  - name: variantInformation
+    singleValue: false
+    xpath: //p[@class="selectedScreenSizeMessage_1aqEA"]/text()
+  - name: firstVariant
+    singleValue: false
+    xpath: (//div[contains(@class,"optionBox_3fNI1")]/p[1]/text())[1]
+  - name: variants
+    singleValue: false
+    xpath: //div[contains(@class,"optionBox_3fNI1")]/p[1]
+  - name: energyEfficiency
+    singleValue: false
+  - name: technicalInformationPdfPresent
+    singleValue: false
+    defaultValue: No
+  - name: t_&_cs
+    singleValue: false
+  - name: termsAndConditions
+    singleValue: false
+  - name: privacyPolicy
+    singleValue: false
+  - name: customerServiceAvailability
+    singleValue: false
+    defaultValue: Yes
+  - name: productUrl
+    singleValue: true
+    xpath: //link[@rel='canonical']/@href
+  - name: materials
+    singleValue: true
+    xpath: //table[@id="productDetails_techSpec_section_1"]//tr[contains(.,  "Material")]/td
+  - name: Image360Present
+    singleValue: false
+    defaultValue: No
+  - name: imageZoomFeaturePresent
+    singleValue: false
+    defaultValue: Yes
+  - name: manufacturerDescription
+    singleValue: false
+    xpath: //div[@id="wc-power-page"] | //div[contains(@class,"c-accordion-content  c-accordion-content-active  c-accordion-content-complete")]
+  - name: manufacturerImages
+    singleValue: false
+    xpath: //div[@id="wc-power-page"]//img/@src
+  - name: quantity
+    singleValue: false
+    xpath: h1[itemprop="name"]/text()
+    regExp: \d{1,}(")
+    regExpReplace: $1
+  - name: variantId
+    singleValue: false
+    description: variant id, to uniquely identify variant
+    xpath: //div[@class="sizeVariantWrapper_2FRMM"]//a[@class="link_3hcyN"]/@href 
+  - name: variantUrl
+    singleValue: false    
+    xpath:  //div[@class="sizeVariantWrapper_2FRMM"]//a[@class="link_3hcyN"]/@href  
