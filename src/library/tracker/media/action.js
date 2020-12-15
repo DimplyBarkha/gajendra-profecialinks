@@ -1,27 +1,19 @@
 /**
  *
- * @param { { URL: string, parentInput: string, id: any, RPC: string, UPC: any, SKU: string, zipcode: string, storeID: string, storeId: string } } inputs
- * @param { { store: any, country: any, zipcode: any, storeId: any } } parameters
+ * @param { { URL: string, id: any, RPC: string, SKU: string, zipcode: string } } inputs
+ * @param { { store: any, country: any, zipcode: any } } parameters
  * @param { ImportIO.IContext } context
  * @param { { execute: ImportIO.Action, extract: ImportIO.Action } } dependencies
  */
 async function implementation (inputs, parameters, context, dependencies) {
-  const { URL, RPC, SKU, UPC } = inputs;
   const { execute, extract } = dependencies;
-  const url = URL;
-  const id = RPC || SKU || UPC || inputs.id;
-  const zipcode = inputs.zipcode || parameters.zipcode;
-  const storeId = inputs.storeId || storeID || parameters.storeId;
-
-  const newInput = { ...inputs, storeId, zipcode, url, id };
-
-  const resultsReturned = await execute(newInput);
+  const resultsReturned = await execute(inputs);
   if (!resultsReturned) {
     console.log('No results were returned');
     return;
   }
 
-  await extract(newInput);
+  await extract(inputs);
 }
 
 module.exports = {
@@ -41,6 +33,12 @@ module.exports = {
     {
       name: 'zipcode',
       description: 'to set location',
+      optional: true,
+    },
+    {
+      name: 'storeID',
+      description: 'Id of the store',
+      type: 'string',
       optional: true,
     },
   ],
@@ -64,12 +62,6 @@ module.exports = {
       optional: true,
     },
     {
-      name: 'UPC',
-      description: 'UPC for product',
-      type: 'string',
-      optional: true,
-    },
-    {
       name: 'SKU',
       description: 'sku for product',
       type: 'string',
@@ -82,12 +74,6 @@ module.exports = {
       optional: true,
     },
     {
-      name: 'parentInput',
-      description: 'parent input value',
-      type: 'string',
-      optional: true,
-    },
-    {
       name: 'storeID',
       description: 'Id of the store',
       type: 'string',
@@ -95,9 +81,9 @@ module.exports = {
     },
   ],
   dependencies: {
-    execute: 'action:product/details/execute',
-    extract: 'action:product/details/extract',
+    execute: 'action:product/media/execute',
+    extract: 'action:product/media/extract',
   },
-  path: './details/stores/${store[0:1]}/${store}/${country}/details',
+  path: './media/stores/${store[0:1]}/${store}/${country}/media',
   implementation,
 };
