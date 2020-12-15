@@ -32,6 +32,11 @@ async function implementation(
       var doubleSeparatorText = data.join(' || ');
       addHiddenDiv(id, doubleSeparatorText, 0);
     };
+    // Single Pipe Concatenation
+    const pipeSeparatorSingle = (id, data) => {
+      var doubleSeparatorText = data.join(' | ');
+      addHiddenDiv(id, doubleSeparatorText, 0);
+    };
     const pipeSeparatorDouble2 = (data) => {
       var doubleSeparatorText = data.join(' || ');
       return doubleSeparatorText;
@@ -61,7 +66,7 @@ async function implementation(
         finalDescription.push(description[p]);
       }
     }
-    pipeSeparatorDouble('description', finalDescription);
+    pipeSeparatorSingle('description', finalDescription);
 
     var specifications = [];
     const rawSpecifications = document.querySelectorAll('table[class="product_attributes"]>tbody>tr');
