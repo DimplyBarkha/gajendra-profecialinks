@@ -10,6 +10,7 @@ module.exports = {
   },
   implementation: async (inputs, { transform }, context, { productDetails: data }) => {
     await context.evaluate(async function () {
+      await new Promise(resolve => setTimeout(resolve, 6000));
       const addHiddenDiv = (id, content) => {
         const newDiv = document.createElement('div');
         newDiv.id = id;
@@ -24,7 +25,9 @@ module.exports = {
           productSpecs += tr.children[0].innerText + ': ' + tr.children[1].innerText + '|| ';
         };
       });
+      const productId = window.dataLayer.find(dl => dl.event === "detail").ecommerce.detail.products[0].productid;
       addHiddenDiv('import_product_specs', productSpecs);
+      addHiddenDiv('import_product_id', productId);
     });
     return await context.extract(data, { transform });
   },

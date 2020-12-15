@@ -48,14 +48,10 @@ fields:
     xpath: //td[text() = "Peso"]//following-sibling::td
   - name: sku
     singleValue: false
-    xpath: //div[@class = "ShowInlineElement"]//input[@name = "ObjectPath"]/@value
-    regExp: (\d*$)
-    regExpReplace: $1
+    xpath: //div[@id="import_product_id"]
   - name: variantId
     singleValue: false
-    xpath: //div[@class = "ShowInlineElement"]//input[@name = "ObjectPath"]/@value
-    regExp: (\d*$)
-    regExpReplace: $1
+    xpath: //div[@id="import_product_id"]
   - name: secondaryImageTotal
     singleValue: false
     xpath: count(//div[contains(@class, "ep-uiThumbbox-list")]//li[not(@class = "active")]//img/@src)
