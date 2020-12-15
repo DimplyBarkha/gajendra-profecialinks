@@ -11,11 +11,11 @@ const transform = (data) => {
         row.variantCount = [{
           text: row.variants.length,
         }];
-        row.variantInformation = [{
-          text: row.variantInformation.reduce((item, currentitem) => {
-            return `${item} | ${currentitem.text}`;
-          }, '').slice(3),
-        }];
+        // row.variantInformation = [{
+        //   text: row.variantInformation.reduce((item, currentitem) => {
+        //     return `${item} | ${currentitem.text}`;
+        //   }, '').slice(3),
+        // }];
         row.variants = [{
           text: row.variants.reduce((item, currentitem) => {
             return `${item} | ${currentitem.text}`;

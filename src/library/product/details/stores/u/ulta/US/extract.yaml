@@ -10,7 +10,7 @@ fields:
     regExpReplace: $1  
   - name: alternateImages
     singleValue: false
-    xpath: //div[@class= 's7staticimage']//img/@src
+    xpath: (//div[@class='s7staticimage']//img/@src)[position() > 1]
     regExp: (.*)\?.*
     regExpReplace: $1
   - name: metaKeywords
@@ -56,9 +56,9 @@ fields:
   - name: name
     singleValue: false
     xpath: //div[@class="ProductMainSection__productName"]//span
-  - name: shippingInfo
-    singleValue: false
-    xpath: //div[@id="ShippingBanner"]//a 
+  # - name: shippingInfo
+  #   singleValue: false
+  #   xpath: //div[@id="ShippingBanner"]//a 
   - name: variants
     singleValue: false
     xpath: //div[@class="ProductSwatches__Cell"]//div[@class=""]//img/@src
@@ -107,7 +107,7 @@ fields:
     xpath: //meta[@property="product:color"]/@content
   - name: variantInformation
     singleValue: false  
-    xpath: //div[@class="ProductSwatches__Cell"]//div[@class=""]//img/@alt
+    xpath: //div[@class="ProductSwatches__Cell"]//img[contains(@alt,'selected')]/@alt | //div[@class="ProductSwatches__Cell"]//div[contains(@class,'ProductSwatchImage__Rectangle--selected')]/span/text()
     regExp: ([^\s]+)(\s.*)?
     regExpReplace: $1 
   - name: directions
@@ -121,7 +121,7 @@ fields:
     xpath: //p[contains(.,'Size')]/text()
   - name: ingredientsList
     singleValue: false
-    xpath: //div[@class='ProductDetail__ingredients']//div[@class='Collapsible']//text()
-    
-  
-    
+    xpath: //div[@class='ProductDetail__ingredients']//div[@class="ProductDetail__productContent"]
+  - name: imageZoomFeaturePresent
+    singleValue: false
+    defaultValue: Yes
