@@ -40,7 +40,7 @@ fields:
     regExpReplace: $2
   - name: description
     singleValue: false
-    xpath: //div[contains(@class,'about-desc')] | //div[contains(@class,'DetailedHeroImage-ShortDescription')] | //div[contains(@class,'AboutThisBundle-description')] | //div[contains(@class,'about-item')]/div
+    xpath: //div[contains(@class,'DetailedHeroImage-ShortDescription')] | //div[contains(@class,'AboutThisBundle-description')] | //div[contains(@class,'about-item')]/div | //div[contains(@class,'about-desc')]/text() | //div[contains(@class,'about-desc')]/p[not(strong or b)]
     # xpath: //div[@id="my-desc"]
   - name: descriptionBullets
     xpath: count((//div[contains(@class,'about-desc')] | //div[contains(@class,'DetailedHeroImage-ShortDescription')] | //div[contains(@class,'AboutThisBundle-description')] | //div[contains(@class,'about-item')]/div)//li)
@@ -380,5 +380,5 @@ fields:
     xpath: //div[@id="specs"]
   
   # profitero
-  - name: profiteroDescription
-    xpath: //div[contains(@class,'about-desc')]/text() | //div[contains(@class,'DetailedHeroImage-ShortDescription')] | //div[contains(@class,'AboutThisBundle-description')] | //div[contains(@class,'about-item')]/div/div/text() 
+  # - name: profiteroDescription
+  #   xpath: //div[contains(@class,'about-desc')]/text() | //div[contains(@class,'DetailedHeroImage-ShortDescription')] | //div[contains(@class,'AboutThisBundle-description')] | //div[contains(@class,'about-item')]/div/div/text() 

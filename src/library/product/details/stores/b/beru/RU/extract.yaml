@@ -19,8 +19,6 @@ fields:
     xpath: //div[@data-zone-name="summary"]//h1
     singleValue: false
   - name: description
-    xpath: //div[@data-zone-name="specs"]//div[@data-auto="sku-specs"]//div
-  - name: profiteroDescription
     xpath: //*[@data-tid="7735417f"]
     singleValue: false
   - name: ingredientsList
@@ -145,3 +143,5 @@ fields:
     xpath: //div[@data-auto="sku-specs"]//h3[@data-tid-prop="4b145b4d"]/following-sibling::div/div
   - name: alsoViewedProducts
     xpath: //div[@data-apiary-widget-id="/AlsoViewed"]//div[@data-auto="item"]//img[@class="b_3ifiYhxrvQ"]/@title
+  - name: countryOfOrigin
+    xpath:  //span[contains(text(), "Страна производства")]//ancestor::div[1]/following-sibling::div

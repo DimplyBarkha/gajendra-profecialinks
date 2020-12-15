@@ -16,7 +16,7 @@ async function implementation (inputs, parameters, context, dependencies) {
 
     if (document.querySelector('div.productStrate__raw')) {
       let desc = document.querySelector('div.productStrate__raw').innerHTML;
-      desc = desc.replace(/<li>/gm, ' || ').replace(/<(style|script|noscript)\b[^<]*(?:(?!<\/(style|script|noscript)>)<[^<]*)*<\/(style|script|noscript)>/g, '').replace(/(<([^>]+)>)/ig, '').replace(/&nbsp;/g, '').trim();
+      desc = desc.replace(/<(style|script|noscript)\b[^<]*(?:(?!<\/(style|script|noscript)>)<[^<]*)*<\/(style|script|noscript)>/g, '').replace(/(<([^>]+)>)/ig, '').replace(/&nbsp;/g, '').trim();
       const descriptions = desc.split(/([|]{2,}|Especificaciones)/);
       addHiddenDiv('desc', descriptions[0]);
     }

@@ -453,4 +453,4 @@ fields:
     xpath: /html/body/@variations
     regExp: '[^|]+'
   - name: attributes
-    xpath: //div[contains(@class,"detailsTableRow")]
+    xpath: //div[starts-with(@class,"detailsTableContent")]/div[contains(@class,"detailsTableRow")] | //div[starts-with(@class,"detailsTableProductInfo")][ancestor::html[not(//div[starts-with(@class,"detailsTableContent")]/div[contains(@class,"detailsTableRow")])]]/div[contains(@class,"detailsTableRow")]

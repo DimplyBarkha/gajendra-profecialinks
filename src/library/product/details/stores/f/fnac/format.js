@@ -53,7 +53,7 @@ const transform = (data) => {
       }
 
       if (row.attributes) {
-        row.attributes.forEach(elm => { elm.text = elm.text.replace(/[\n\s]+/, ' : '); });
+        row.attributes.forEach(elm => { elm.text = elm.text.replace(/\n+/, ' : '); });
       }
       if (row.videos) {
         const videos = Array.from(new Set(row.videos.map(elm => elm.text.trim())));
