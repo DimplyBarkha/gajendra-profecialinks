@@ -6,8 +6,8 @@ module.exports = {
     store: 'walmart',
     domain: 'walmart.ca',
     loadedSelector: '[data-automation="product-title"]',
-    noResultsXPath: '/html/body[not(//h1[@data-automation="product-title"])]',
-    offerUrl: 'https://www.walmart.ca/en/ip/{id}',
+    // noResultsXPath: '/html/body[not(//h1[@data-automation="product-title"])]',
+    offerUrl: 'https://www.walmart.ca/en/ip/{id}#[!opt!]{"type":"json"}[/!opt!]',
     zipcode: '',
   },
 };

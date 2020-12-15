@@ -19,7 +19,7 @@ const transform = (data, context) => {
     .trim();
   for (const { group } of data) {
     for (const row of group) {
-      if (row.country && row.country[0].text.toLowerCase() === 'GB') {
+      if (row.country && row.country[0].text.toLowerCase() === 'gb') {
         row.country[0].text = 'UK';
       }
       Object.keys(row).forEach(header => row[header].forEach(el => {

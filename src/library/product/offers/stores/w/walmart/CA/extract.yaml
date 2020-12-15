@@ -20,7 +20,6 @@ fields:
       all if the charecter limit exceeds 255 chars
   - name: image
     xpath: ancestor::html//img[@id="main-image"]/following-sibling::img/@src
-    type: IMAGE
     description: product_images - First image on the product listing, dont assign
       'src, img' attribute only select the class that contains it and import
       will scrape the image properly
