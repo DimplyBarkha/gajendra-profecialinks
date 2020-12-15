@@ -95,6 +95,14 @@ fields:
   - name: servingSize
     singleValue: false
     xpath: //div[contains(@class,'ProductNutricionalInfo')]/h3
+    #Voedingswaarde per 100 milliliter
+    regExp: .+?\s+per\s(.+?)\s
+    regExpReplace: $1
+  - name: servingSizeUom
+    singleValue: false
+    xpath: //div[contains(@class,'ProductNutricionalInfo')]/h3
+    regExp: .+?\s+per\s+.+?\s+(.+)
+    regExpReplace: $1
   - name: caloriesPerServing
     singleValue: false
     xpath: //table//tr[td[contains(text(),'Kilojoule')]]/td[not(contains(@class,'first-text'))]
