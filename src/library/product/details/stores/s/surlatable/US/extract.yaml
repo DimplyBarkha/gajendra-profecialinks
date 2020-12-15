@@ -1,0 +1,79 @@
+fields:
+  - name: image
+    singleValue: false
+    xpath: (//*[@id="pdpMain"]//div[@class="product-primary-image "]/a/img[@class="primary-image"]/@src)[1]
+  - name: alternateImages
+    singleValue: false
+    xpath: (//*[@id="pdpMain"]//div[@class="slick-list"])[1]//a/@href
+  - name: secondaryImageTotal
+    singleValue: false
+    xpath: count((//*[@id="pdpMain"]//div[@class="slick-list"])[1]//a/@href)
+  - name: specifications
+    singleValue: false
+    xpath: //div[@class="product-info"]//div[@id="tab-3"]//li
+  - name: category
+    singleValue: false
+    xpath: (//*[@id="primary"]/div[@class="breadcrumb"]/a)[position()>1]
+  - name: name
+    singleValue: false
+    xpath:	//*[@id="pdpMain"]//h1[@class="product-name"]
+  - name: price
+    singleValue: false
+    xpath: //*[@id="product-content"]//div[@class="regular-price"]/span[@class="price"]
+  - name: availabilityText
+    singleValue: false
+    xpath: //*[@id="add-to-cart"]
+    regExp: (.+)
+    regExpReplace: In Stock
+    defaultValue: Out of Stock
+  - name: additional_description
+    singleValue: false
+    xpath: //*[@id="tab-2"]/div[@class="tab-content"]
+  - name: aggregateRating
+    singleValue: false
+    xpath: //*[@id="product-teasers"]/span[@class="TurnToReviewsTeaser"]/div/@class
+  - name: ingredientsList
+    singleValue: false
+    xpath: ((//*[@id="tab-3"]/div[@class="tab-content"]/ul/li)[contains(text(),'ingredients')]) |((//*[@id="tab-3"]/div[@class="tab-content"]/ul/li)[contains(text(),'Ingredients')])|((//*[@id="tab-3"]/div[@class="tab-content"]/ul/li)[contains(text(),'Material')])		
+  - name: brandText
+    singleValue: false
+    xpath: ((//*[@id="tab-3"]/div[@class="tab-content"]/ul/li)[contains(text(),'Manufacturer')]) 
+  - name: manufacturer
+    singleValue: false
+    xpath: ((//*[@id="tab-3"]/div[@class="tab-content"]/ul/li)[contains(text(),'Manufacturer')]) 
+  - name: weightNet
+    singleValue: false
+    xpath: ((//*[@id="tab-3"]/div[@class="tab-content"]/ul/li)[contains(text(),'Weight')]) | ((//*[@id="tab-6"]/div[@class="tab-content"]/ul/li)[contains(text(),'ml')]) | ((//*[@id="tab-6"]/div[@class="tab-content"]/ul/li)[contains(text(),'oz')])|((//*[@id="tab-3"]/div[@class="tab-content"]/ul/li)[contains(text(),'Capcity')]) 
+  - name: directions
+    singleValue: false
+    xpath: //*[@id="tab-5"]/div[@class="tab-content"]/ul/li
+  - name: imageAlt
+    singleValue: false
+    xpath: (//*[@id="pdpMain"]//div[@class="product-primary-image "]/a/img[@class="primary-image"]/@alt)[1]		
+  - name: promotion
+    singleValue: false
+    xpath: //*[@id="product-content"]//div[contains(@class,'promo-cat ')]
+  - name: listPrice
+    singleValue: false
+    xpath: (//*[@id="product-content"]//div[@class='regular-price']//span[@class='price'])|//*[@id="product-content"]//div[@class='sale-price']//span[@class='price']	
+  - name: ratingCount
+    singleValue: false
+    xpath: //*[@id="readReviews"]
+  - name: sku
+    singleValue: false
+    xpath: //input[@id="pid"]/@value
+  - name: mpc
+    singleValue: false
+    xpath: //script[contains(text(),"mpn")]
+  - name: shippingDimensions
+    singleValue: false
+    xpath: ((//*[@id="tab-3"]/div[@class="tab-content"]/ul/li)[contains(text(),'Dimensions')])
+  - name: technicalInformationPdfPresent
+    singleValue: false
+    defaultValue: No
+  - name: termsAndConditions
+    singleValue: false
+    defaultValue: No
+  - name: imageZoomFeaturePresent
+    singleValue: false
+    defaultValue: Yes
