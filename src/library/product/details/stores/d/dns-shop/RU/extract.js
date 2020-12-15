@@ -107,6 +107,42 @@ module.exports = {
       console.log(videoUrls);
       videoUrls.filter(Boolean).map(url => addHiddenDiv('moreVideos', url));
     });
+    await context.evaluate(async () => {
+      function addHiddenDiv (id, content) {
+        const newDiv = document.createElement('div');
+        newDiv.id = id;
+        newDiv.textContent = content;
+        newDiv.style.display = 'none';
+        document.body.appendChild(newDiv);
+      }
+      function stall (ms) {
+        return new Promise((resolve, reject) => {
+          setTimeout(() => {
+            resolve();
+          }, ms);
+        });
+      }
+      const sideTabs = document.querySelectorAll('div[class*="product-card-tabs__list"] a');
+      for (let i = 0; i < sideTabs.length; i++) {
+        if (sideTabs[i].innerText.includes('Характеристики')) {
+          sideTabs[i].click();
+          await stall(3000);
+          break;
+        }
+      }
+      if (document.querySelectorAll('table.table-params tr')) {
+        const tableRows = document.querySelectorAll('table.table-params tr');
+        let tblData = '';
+        for (let i = 0; i < tableRows.length; i++) {
+          const tableDatas = tableRows[i].querySelectorAll('td');
+          console.log(tableDatas);
+          if (tableRows[i].querySelector('td')) {
+            for (let j = 0; j < tableDatas.length; j++) { tblData += tableDatas[j].innerText + ' || '; }
+          }
+        }
+        addHiddenDiv('specs', tblData);
+      }
+    });
     return await context.extract(productDetails, { transform });
   },
 };
