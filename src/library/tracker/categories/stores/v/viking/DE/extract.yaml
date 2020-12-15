@@ -1,0 +1,13 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: //li[contains(@class,"site-navigation__list-item site-navigation__list-item--level")]//a
+fields:
+  - name: category
+    singleValue: false
+    description: name of the category
+    xpath: //@categoryName
+  - name: categoryUrl
+    singleValue: false
+    description: url of the category
+    xpath: //@categoryUrl
