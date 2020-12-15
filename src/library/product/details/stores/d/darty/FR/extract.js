@@ -12,8 +12,8 @@ async function implementation (
   await context.evaluate(async () => {
     if (document.querySelector('li#brand_navigation_item > a')) {
       document.querySelector('li#brand_navigation_item > a').click();
-      if (document.querySelector('button.btn-expand.btn-reset')) {
-        document.querySelector('button.btn-expand.btn-reset').click();
+      if (document.querySelector('button.btn-expand.btn-reset img[src]')) {
+        document.querySelector('button.btn-expand.btn-reset img[src]').click();
         await new Promise(resolve => setTimeout(resolve, 3000));
         let scrollTop = 0;
         while (scrollTop !== 5000) {

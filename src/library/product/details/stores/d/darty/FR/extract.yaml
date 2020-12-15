@@ -18,8 +18,6 @@ fields:
   - name: nameExtended
     singleValue: false
     xpath: //div[@class="product_head"]//h1
-    regExp: (.*)?\s*\| 
-    regExpReplace: $1
   - name: listPrice
     singleValue: false
     manualSelector: div.product_price_infos div > span
@@ -75,7 +73,7 @@ fields:
     xpath: //div[contains(@class,"no_flag_picture")]//iframe/@src | //input[@class="flix-jw"]/@value
   - name: name
     singleValue: false
-    xpath: //span[contains(@class, "product_name")]
+    xpath: //div[contains(@class, "product_head")]
   - name: warranty
     singleValue: false
     xpath: //p[contains(text(), 'Garantie')] | //div[@class="product-sale-actions"]//li[contains(text(),"arantie") or a[contains(text(),"arantie")]]
@@ -105,7 +103,7 @@ fields:
     #manualSelector: div#product_brand div.flix-inpage
   - name: manufacturerImages
     singleValue: false
-    xpath: //img[@class="dpro"]/@src | //div[@class="inpage_selector_feature"]//img/@srcset | //div[@class="inpage_selector_gallery"]//img/@srcset
+    xpath: //img[@class="dpro"]/@src | //div[@class="inpage_selector_feature"]//img/@srcset | //div[@class="inpage_selector_gallery"]//img/@srcset | //ul[contains(@class,"inpage_block_inner ")]//li//img/@srcset
     manualSelector: div#product_brand img
   - name: variantCount
     singleValue: false

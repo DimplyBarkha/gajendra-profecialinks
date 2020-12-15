@@ -52,14 +52,14 @@ module.exports = {
         function () {
         // @ts-ignore
           if (document.querySelector('.captcha-handler')) {
-            document.querySelector('.captcha-handler').click();
+            document.querySelector('.captcha-handler').click();  
           }
-          if (document.querySelector('.geetest_radar_tip')) {
-            document.querySelector('.geetest_radar_tip').click();
+          if (document.querySelector('.geetest_radar_tip_content')) {
+            document.querySelector('.geetest_radar_tip_content').click();
           }
         },
       );
-      await new Promise(resolve => setTimeout(resolve, 60000));
+      await new Promise(resolve => setTimeout(resolve, 20000));
       await context.waitForSelector('#produit > div.product_head');
     } catch (error) {
       console.log('error: NO CPATCHA ENCOUNTER', error);
