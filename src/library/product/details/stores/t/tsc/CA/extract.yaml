@@ -445,9 +445,5 @@ fields:
     xpath: (//div[@class="pinch-zoom"])[1]/@class
   - name: unInterruptedPDP
     singleValue: false
-    xpath: //*[@id="product-recommend"]//div[@class="prec-name"]
+    xpath: //*[@id="product-recommend"]//div[@class="prec-name"] | //*[@id="divCuratedProductRecs"]//div[@class="prec-name"]
     description: Titles of products in the sections 'you may also like' or 'sponsored products'. Combine results from Max 3 secti
-  - name: inTheBoxText
-    singleValue: false
-    description: Must include text to show the accessories/tools which come with the product
-    xpath: //strong[contains(text(),"Includes")]/following-sibling::text()
