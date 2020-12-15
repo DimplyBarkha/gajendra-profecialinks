@@ -1,6 +1,6 @@
 singleRecord: false
 regionsSelector: null
-recordSelector: div[analytics-tag="product card"]
+recordSelector: null
 recordXPath: null
 fields:
   - name: id
@@ -8,13 +8,12 @@ fields:
     xpath: //div[@analytics-tag='product card']/@data-product-id
   - name: searchUrl
     singleValue: true
-    xpath: //div[@class="rw jum-panel jum-overlay__content accent"]/@searchurl
   - name: name
     singleValue: false
     xpath: //h3[@class='jum-card-title__text mb-0 regular']/span
   - name: productUrl
     singleValue: false
-    xpath: //div[@class="list-methods"]/descendant::a[@class="opposite"]/@producturl
+    xpath: //div[@analytics-tag="product card"]/@producturl
   - name: gtin
     singleValue: false
   - name: thumbnail
@@ -45,7 +44,7 @@ fields:
   - name: rankOrganic
     singleValue: true
     description: The position (rank) within the list excluding sponsored/paid results
-    xpath:  //div[@analytics-tag="product card"]/@rankorganic
+    xpath:  //div[@analytics-tag="product card"]/@rank
     type: NUMBER
   - name: sponsored
     singleValue: false

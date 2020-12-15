@@ -4,13 +4,9 @@ async function implementation (inputs, parameters, context, dependencies) {
   const { productDetails } = dependencies;
   const { transform } = parameters;
 
-  await context.evaluate(() => {
-    const nextLinkSelector = document.querySelector('span.d-xs-inline.d-l-none');
+  await new Promise((resolve) => setTimeout(resolve, 3000));
 
-    if (nextLinkSelector !== null) {
-      document.querySelector('span.d-xs-inline.d-l-none').click();
-    }
-
+  await context.evaluate(async () => {
     const productUrlAll = document.querySelectorAll('.list-methods a.opposite');
     let productUrl;
     const priceArray = [];
@@ -19,24 +15,24 @@ async function implementation (inputs, parameters, context, dependencies) {
     for (let i = 0; i < priceSelector.length; i++) {
       price = priceSelector[i].textContent;
 
-      if (productUrlAll[i].href.includes('https')) {
-        productUrl = productUrlAll[i].href;
-      } else {
-        productUrl = 'https://www.jumbo.com' + productUrlAll[i].href;
-      }
+      productUrl = productUrlAll[i].href;
 
       priceArray[0] = price.match('..$');
       priceArray[1] = price.replace(priceArray[0], '');
       price = priceArray[1] + ',' + priceArray[0];
 
-      document.querySelectorAll('.list-methods a.opposite')[i].setAttribute('productUrl', productUrl);
+      document.querySelectorAll('div[analytics-tag="product card"]')[i].setAttribute('productUrl', productUrl);
       document.querySelectorAll('div[analytics-tag="product card"]')[i].setAttribute('price', price);
       document.querySelectorAll('div[analytics-tag="product card"]')[i].setAttribute('rank', `${i + 1}`);
-      document.querySelectorAll('div[analytics-tag="product card"]')[i].setAttribute('rankOrganic', `${i + 1}`);
-    };
-    const url = window.location.href;
+    }
+  });
 
-    document.querySelector('.rw').setAttribute('searchurl', url);
+  await context.extract(productDetails, { transform });
+
+  await new Promise((resolve) => setTimeout(resolve, 3000));
+
+  await context.evaluate(() => {
+    document.querySelector('span.d-xs-inline.d-l-none').click();
   });
 
   return await context.extract(productDetails, { transform });
