@@ -21,7 +21,7 @@ module.exports = {
       let scrollTop = 500;
       while (true) {
         window.scroll(0, scrollTop);
-        //await stall(1000);
+        // await stall(1000);
         await stall(1000);
         scrollTop += 500;
         if (scrollTop === 10000) {
@@ -41,12 +41,12 @@ module.exports = {
       addHiddenDiv('added-searchurl', url);
     }
 
-    //Add Scroll for the images | Start - 26|11|2020
+    // Add Scroll for the images | Start - 26|11|2020
     const applyScroll = async function (context) {
       await context.evaluate(async function () {
         let scrollTop = 0;
         while (scrollTop !== 30000) {
-          //await stall(500);
+          // await stall(500);
           await stall(1000);
           scrollTop += 1000;
           window.scroll(0, scrollTop);
@@ -61,13 +61,10 @@ module.exports = {
               resolve();
             }, ms);
           });
-        }        
+        }
       });
     };
-    //Add Scroll for the images | End - 26|11|2020
-
-
-
+    // Add Scroll for the images | End - 26|11|2020
 
     await context.evaluate(addUrl);
     await applyScroll(context);
