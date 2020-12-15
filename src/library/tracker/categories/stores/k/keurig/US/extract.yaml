@@ -1,0 +1,13 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: //ul[@class="top-nav-items"]//ul[contains(@class, "Lc")]//li[@class="sub-category"]/a | //ul[@class="top-nav-items"]/li/a
+fields:
+  - name: category
+    singleValue: false
+    description: name of the category
+    xpath: //a/text()
+  - name: categoryUrl
+    singleValue: false
+    description: url of the category
+    xpath: //a/@category_url
