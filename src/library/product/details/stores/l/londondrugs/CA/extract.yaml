@@ -75,25 +75,27 @@ fields:
     xpath: //p[@class="swatches-label"]/strong
   - name: manufacturerImages
     singleValue: true
-    xpath: //div[@class="ccs-cc-inline-feature-content ccs-cc-inline-thumbnail"]/a/@data-url
+    xpath: //a[@class="ccs-cc-inline-thumbnail-image ccs-cc-inline-thumbnail-media ccs-cc-inline-clickable"]/img/@src
   - name: specifications
     singleValue: true
-    xpath: //div[@class="ccs-ds-extendedSpec-area"]
+    xpath: //div[@class="ccs-ds-extendedSpec-area"] | //div[@id="ccs-ext-spec"]
   - name: manufacturerDescription
     singleValue: true
     xpath: //div[@class="ccs-cc-inline-feature-content ccs-cc-inline-feature-description"]
   - name: variantCount
     defaultValue: 0
+    xpath: count(//ul[@class="swatches swatch-list color "]/li)
   - name: secondaryImageTotal
     xpath: count(//div[@class="thumb slick-slide slick-active"])
-  - name: additionalDescBulletInfo
-    xpath: //div[@data-cnet-ccs-icb-annotation][2]/ul/li
+  - name: additionalBulletCount
+    xpath: count((//ul[@data-cnet-ccs-icb-restrictions="style"])[1]/li)
   - name: descriptionBullets
     xpath: count(//div[@data-cnet-ccs-icb-annotation][2]/ul/li)
   - name: warnings
-    xpath: //*[contains(text(), 'Warnings:' )]/following-sibling::*/text()[1]
+    xpath: (//div[@class="ccs-ds-textFeatures"]/p)[3]
   - name: size
-    xpath: //*[contains(text(), 'Size' )]/following-sibling::*/text()[1]
-
-
-
+    xpath: //*[contains(text(), 'Size' )]/following-sibling::*/text()
+  - name: keywords
+    xpath: //meta[@name="keywords"]/@content
+  - name: enhancedContent
+    xpath: (//div[@class="ccs-cc-inline-feature-content ccs-cc-inline-feature-description"])[1]
