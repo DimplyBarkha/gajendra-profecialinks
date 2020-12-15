@@ -1,0 +1,13 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: (//div[@data-testid="category-list"])[1]//a
+fields:
+  - name: category
+    singleValue: false
+    xpath: //a/text()
+  - name: categoryUrl
+    singleValue: false
+    xpath: //a/@href
+    regExp: (\/falabella.*)
+    regExpReplace: https://www.falabella.com.pe$1
