@@ -74,3 +74,6 @@ fields:
   - name: sku
     singleValue: true
     xpath: //div[@class="loadbeeTabContent"]/@data-loadbee-gtin   
+  - name: metaKeywords
+    singleValue: true
+    xpath: //meta[contains(@name,"keywords")]/@content  
