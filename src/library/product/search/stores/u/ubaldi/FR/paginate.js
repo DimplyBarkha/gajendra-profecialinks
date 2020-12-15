@@ -2,20 +2,18 @@
 module.exports = {
   implements: 'navigation/paginate',
   parameterValues: {
-    template: null,
     country: 'FR',
     store: 'ubaldi',
-    nextLinkSelector: null,
-    nextLinkXpath: null,
-    mutationSelector: null,
-    spinnerSelector: null,
-    loadedSelector: null,
-    loadedXpath: null,
-    noResultsXPath: null,
-    stopConditionSelectorOrXpath: null,
-    resultsDivSelector: null,
-    openSearchDefinition: null,
     domain: 'ubaldi.fr',
     zipcode: '',
   },
+  implementation: async function (
+    inputs,
+    parameters,
+    context,
+    dependencies,
+  ) {
+    return false;
+  },
+
 };

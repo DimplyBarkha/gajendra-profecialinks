@@ -48,6 +48,33 @@ module.exports = {
       }, { timeout: 20000 }, parameters.loadedSelector, parameters.noResultsXPath);
     }
 
+    const applyScroll = async function (context) {
+      await context.evaluate(async function () {
+        let scrollTop = 0;
+        let documentScrollHeight = document.body.scrollHeight;
+        console.log(documentScrollHeight);
+        while (scrollTop < documentScrollHeight) {
+          const productsCount = document.evaluate('//div[@id="main-liste-articles"]//div[contains(@class, "la-article")]', document.body, null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null).snapshotLength;
+          console.log('productsCount' + productsCount);
+          if (productsCount >= 150) {
+            break;
+          }
+          scrollTop += 3000;
+          await window.scroll(0, scrollTop);
+          await stall(3000);
+          documentScrollHeight = document.body.scrollHeight;
+        }
+        function stall (ms) {
+          return new Promise((resolve, reject) => {
+            setTimeout(() => {
+              resolve();
+            }, ms);
+          });
+        }
+      });
+    };
+    await applyScroll(context);
+
     console.log('Checking no results', parameters.noResultsXPath);
     return await context.evaluate(function (xp) {
       const r = document.evaluate(xp, document, null, XPathResult.UNORDERED_NODE_ITERATOR_TYPE, null);
