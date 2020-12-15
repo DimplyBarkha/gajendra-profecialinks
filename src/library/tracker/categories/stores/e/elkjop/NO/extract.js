@@ -18,7 +18,7 @@ async function implementation (inputs, parameters, context, dependencies) {
       }
       return newDiv;
     }
-    // const main = document.querySelectorAll('div[class*="department-overview"]');
+
     const mainCategories = document.querySelectorAll('div[class*="department-overview"] h3');
 
     mainCategories.forEach(e => {
