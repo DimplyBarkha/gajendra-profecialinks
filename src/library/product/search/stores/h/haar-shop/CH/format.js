@@ -25,11 +25,11 @@ const transform = (data) => {
   for (const { group } of data) {
     let rank = 1;
     for (const row of group) {
-      if (row.thumbnail) {
-        row.thumbnail.forEach(item => {
-          item.text = item.text.replace('/182x182/', '/1200x1200/');
-        });
-      }
+      // if (row.thumbnail) {
+      //   row.thumbnail.forEach(item => {
+      //     item.text = item.text.replace('/182x182/', '/1200x1200/');
+      //   });
+      // }
       row.rank = row.rankOrganic = [{ text: rank }];
       rank++;
     }
