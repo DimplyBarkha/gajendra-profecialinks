@@ -23,13 +23,13 @@ module.exports = {
         const newDiv = document.createElement('div');
         newDiv.className = className;
         newDiv.textContent = content;
-        // newDiv.style.display = 'none';
+        newDiv.style.display = 'none';
 
         product.appendChild(newDiv);
       }
       const products = document.querySelectorAll('.product-cell');
       console.log(products);
-      products.forEach((product, index) => {
+      products.forEach((product) => {
         addHiddenDiv('position-helper', location.search.replace('?query=', ''), product);
         addHiddenDiv('helper-url', location.href, product);
       });
