@@ -9,9 +9,13 @@ const transform = (data) => {
       try {
         gr['rankOrganic'] = [{ text: index + 1 }];
         gr['rank'] = [{ text: index + 1 }];
-        gr['id'] = [{ text: index + 1 }];
-        gr['_input'] = gr.input;
-        gr['_url'] = gr.url;
+        try {
+          gr['id'] = [{ text: index + 1 }];
+        } catch (e) {
+          gr['id'] = [{ text: 0 }];
+        }
+        if (gr && gr.input && gr.input.length) gr['_input'] = gr.input;
+        if (gr && gr.url && gr.url.length) gr['_url'] = gr.url;
       } catch (e) {
         console.log(e);
       }
