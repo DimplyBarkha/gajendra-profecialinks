@@ -1,0 +1,170 @@
+input:
+  id: 347677PAK
+  _url: http://jumbo.com
+extractions:
+  - html: https://workbench.import.io/html/run=9746b6bf-661e-4395-86ef-2935f7017e89/task=3f6cf3d4-43e5-4ad4-8181-3dc17c9fd919/207c3f09-8359-4b84-9875-ca40cb6608c9.html
+    extractionConfigId: product/details/stores/j/jumbo/NL/extract
+    data:
+      - group:
+          - productUrl:
+              - text: https://www.jumbo.com/vifit-sport-high-protein-recovery-bar-lemon-yoghurt-flavour-55g/347677PAK/
+                xpath: /html/head[1]/link[2]/@href
+            image:
+              - text: https://static-images.jumbo.com/product_images/020420201149_347677PAK-1_360x360_2.png
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[1]/a[1]/img[1]/@src
+            imageAlt:
+              - text: Vifit Sport High Protein Recovery Bar Lemon Yoghurt Flavour 55g
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/img[1]/@alt
+            alternateImages:
+              - text: https://static-images.jumbo.com/product_images/020420201149_347677PAK-9_360x360_2.png
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[2]/a[1]/img[1]/@src
+            category:
+              - text: Mueslirepen
+                xpath: /html/head[1]/title[1]
+            nameExtended:
+              - text: Vifit Sport High Protein Recovery Bar Lemon Yoghurt Flavour 55g
+                xpath: /html/head[1]/meta[8]/@content
+            availabilityText:
+              - text: In Stock
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/button[1]/span[1]
+            description:
+              - text: " -Proteïne draagt bij aan het onderhoud en de groei van spieren. Met 20g
+                  proteïne per portie geeft Vifit Sport Recovery reep je lichaam
+                  de proteïne die nodig is om je spieren te ondersteunen na het
+                  sporten. -Eiwitverrijkte reep, citroen-yoghurt smaak met witte
+                  chocolade coating en toegevoegde vitamine B6, vitamine D,
+                  kalium en magnesium."
+                xpath: /html/body/div[3]/div[5]/article[1]/div[1]/div[1]/section[1]/div[1]/div[1]/p[1]
+            brandText:
+              - text: vifitsport
+                xpath: /html/body/div[3]/div[5]/article[1]/div[1]/div[1]/section[3]/div[14]/p[2]/a[1]/@href
+            quantity:
+              - text: 55 g
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/span[1]
+            variantId:
+              - text: 347677PAK
+                xpath: /html/body/div[3]/div[5]/article[1]/div[1]/div[1]/section[3]/div[1]/@data-jum-product-details
+            manufacturerDescription:
+              - text: "Voor tips en inspiratie over sport: www.vifitsport.com"
+                xpath: /html/body/div[3]/div[5]/article[1]/div[1]/div[1]/section[3]/div[14]/p[1]
+            name:
+              - text: Vifit Sport High Protein Recovery Bar Lemon Yoghurt Flavour 55g
+                xpath: /html/head[1]/meta[8]/@content
+            ingredientsList:
+              - text: " -Melkeiwit (caseïnaat, wei-eiwit) -witte chocolade (suiker, cacaoboter,
+                  volle melkpoeder, emulgator (soja lecithine), natuurlijk
+                  aroma's) -bevochtigingsmiddel (glycerine)
+                  -collageenhydrolysaat -melkeiwit snippers (melkeiwit,
+                  rijstmeel, emulgator (soja lecithine)) -zonnebloemolie
+                  -fructosesiroop -kaliumfosfaat -magnesiumcitraat -aroma's
+                  -zuurteregelaar (citroenzuur) -zout -vitamine B6 -vitamine D
+                  -Kan sporen bevatten van ei, gluten, sesamzaad, pinda's en
+                  andere noten."
+                xpath: /html/body/div[3]/div[5]/article[1]/div[1]/div[1]/section[3]/div[6]/ul[1]/li[1]
+            servingSize:
+              - text: Per 100g
+                xpath: /html/body/div[3]/div[5]/article[1]/div[1]/div[1]/section[3]/div[3]/table[1]/thead[1]/tr[1]/th[3]
+            servingSizeUom:
+              - text: g
+                xpath: /html/body/div[3]/div[5]/article[1]/div[1]/div[1]/section[3]/div[3]/table[1]/thead[1]/tr[1]/th[3]
+            caloriesPerServing:
+              - text: 1571 kJ / 374 kcal
+                xpath: /html/body/div[3]/div[5]/article[1]/div[1]/div[1]/section[3]/div[3]/table[1]/tbody[1]/tr[1]/td[2]
+            totalFatPerServing:
+              - text: "12"
+                xpath: /html/body/div[3]/div[5]/article[1]/div[1]/div[1]/section[3]/div[3]/table[1]/tbody[1]/tr[2]/td[2]
+            totalFatPerServingUom:
+              - text: g
+                xpath: /html/body/div[3]/div[5]/article[1]/div[1]/div[1]/section[3]/div[3]/table[1]/tbody[1]/tr[2]/td[2]
+            saturatedFatPerServing:
+              - text: "6.2"
+                xpath: /html/body/div[3]/div[5]/article[1]/div[1]/div[1]/section[3]/div[3]/table[1]/tbody[1]/tr[3]/td[2]
+            saturatedFatPerServingUom:
+              - text: g
+                xpath: /html/body/div[3]/div[5]/article[1]/div[1]/div[1]/section[3]/div[3]/table[1]/tbody[1]/tr[3]/td[2]
+            totalCarbPerServing:
+              - text: "35"
+                xpath: /html/body/div[3]/div[5]/article[1]/div[1]/div[1]/section[3]/div[3]/table[1]/tbody[1]/tr[4]/td[2]
+            totalCarbPerServingUom:
+              - text: g
+                xpath: /html/body/div[3]/div[5]/article[1]/div[1]/div[1]/section[3]/div[3]/table[1]/tbody[1]/tr[4]/td[2]
+            totalSugarsPerServing:
+              - text: "16"
+                xpath: /html/body/div[3]/div[5]/article[1]/div[1]/div[1]/section[3]/div[3]/table[1]/tbody[1]/tr[5]/td[2]
+            totalSugarsPerServingUom:
+              - text: g
+                xpath: /html/body/div[3]/div[5]/article[1]/div[1]/div[1]/section[3]/div[3]/table[1]/tbody[1]/tr[5]/td[2]
+            proteinPerServing:
+              - text: "37"
+                xpath: /html/body/div[3]/div[5]/article[1]/div[1]/div[1]/section[3]/div[3]/table[1]/tbody[1]/tr[6]/td[2]
+            proteinPerServingUom:
+              - text: g
+                xpath: /html/body/div[3]/div[5]/article[1]/div[1]/div[1]/section[3]/div[3]/table[1]/tbody[1]/tr[6]/td[2]
+            calciumPerServing:
+              - text: "301"
+                xpath: /html/body/div[3]/div[5]/article[1]/div[1]/div[1]/section[3]/div[3]/table[1]/tbody[1]/tr[8]/td[2]
+            calciumPerServingUom:
+              - text: mg
+                xpath: /html/body/div[3]/div[5]/article[1]/div[1]/div[1]/section[3]/div[3]/table[1]/tbody[1]/tr[8]/td[2]
+            magnesiumPerServing:
+              - text: "150"
+                xpath: /html/body/div[3]/div[5]/article[1]/div[1]/div[1]/section[3]/div[3]/table[1]/tbody[1]/tr[10]/td[2]
+            magnesiumPerServingUom:
+              - text: mg
+                xpath: /html/body/div[3]/div[5]/article[1]/div[1]/div[1]/section[3]/div[3]/table[1]/tbody[1]/tr[10]/td[2]
+            saltPerServing:
+              - text: "0.47"
+                xpath: /html/body/div[3]/div[5]/article[1]/div[1]/div[1]/section[3]/div[3]/table[1]/tbody[1]/tr[7]/td[2]
+            saltPerServingUom:
+              - text: g
+                xpath: /html/body/div[3]/div[5]/article[1]/div[1]/div[1]/section[3]/div[3]/table[1]/tbody[1]/tr[7]/td[2]
+            storage:
+              - text: "Bewaren op een koele, droge plaats. Ten minste houdbaar tot: zie
+                  verpakking."
+                xpath: /html/body/div[3]/div[5]/article[1]/div[1]/div[1]/section[3]/div[9]/p[1]
+            allergyAdvice:
+              - text: Kan het volgende bevatten Eieren
+                xpath: /html/body/div[3]/div[5]/article[1]/div[1]/div[1]/section[3]/div[10]/ul[1]/li[1]
+              - text: Bevat Melk
+                xpath: /html/body/div[3]/div[5]/article[1]/div[1]/div[1]/section[3]/div[10]/ul[1]/li[2]
+              - text: Kan het volgende bevatten Noten
+                xpath: /html/body/div[3]/div[5]/article[1]/div[1]/div[1]/section[3]/div[10]/ul[1]/li[3]
+              - text: Kan het volgende bevatten Pinda's
+                xpath: /html/body/div[3]/div[5]/article[1]/div[1]/div[1]/section[3]/div[10]/ul[1]/li[4]
+              - text: Kan het volgende bevatten Gluten
+                xpath: /html/body/div[3]/div[5]/article[1]/div[1]/div[1]/section[3]/div[10]/ul[1]/li[5]
+              - text: Bevat Soja
+                xpath: /html/body/div[3]/div[5]/article[1]/div[1]/div[1]/section[3]/div[10]/ul[1]/li[6]
+              - text: Kan het volgende bevatten Sesam
+                xpath: /html/body/div[3]/div[5]/article[1]/div[1]/div[1]/section[3]/div[10]/ul[1]/li[7]
+            recyclingInformation:
+              - text: "Recycling: Wikkel: Niet-recyclebaar"
+                xpath: /html/body/div[3]/div[5]/article[1]/div[1]/div[1]/section[3]/div[8]/ul[1]/li[1]
+            productOtherInformation:
+              - text: Team Jumbo Visma - Official partner
+                xpath: /html/body/div[3]/div[5]/article[1]/div[1]/div[1]/section[3]/div[12]/p[1]
+            additives:
+              - text: Zonder Kunstmatige zoetstoffen
+                xpath: /html/body/div[3]/div[5]/article[1]/div[1]/div[1]/section[3]/div[11]/p[1]
+            pricePerUnit:
+              - text: 40,91/kilo
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/span[2]/span[2]
+            pricePerUnitUom:
+              - text: kilo
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/span[2]/span[2]
+            technicalInformationPdfPresent:
+              - text: No
+            termsAndConditions:
+              - text: No
+            privacyPolicy:
+              - text: No
+            customerServiceAvailability:
+              - text: No
+            Image360Present:
+              - text: No
+            imageZoomFeaturePresent:
+              - text: No
+            price:
+              - text: 2,25€
+        xpath: /
+    timestamp: 1607952922077
