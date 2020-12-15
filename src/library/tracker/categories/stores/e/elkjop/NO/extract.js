@@ -1,5 +1,6 @@
 async function implementation (inputs, parameters, context, dependencies) {
   const { productMenu } = dependencies;
+
   await context.evaluate(async function () {
     const isPopupPresent = document.querySelector('button[aria-label="JEG GODTAR"]');
     // @ts-ignore
@@ -19,20 +20,20 @@ async function implementation (inputs, parameters, context, dependencies) {
       return newDiv;
     }
 
-    const mainCategories = document.querySelectorAll('div[class*="department-overview"] h3');
+    const mainCategories = document.querySelectorAll('ul[class="links content strong foldable"] > li');
 
     mainCategories.forEach(e => {
       // @ts-ignore
-      const text = e.innerText;
-
-      const ulList = e.nextElementSibling;
-      if (ulList && ulList.childElementCount !== 0) {
-        const subCat = ulList.querySelectorAll('li');
+      const text = e.querySelector('a').innerText;
+      const menuList = e.querySelector('div[class="sub-menu-section"]');
+      // const ulList = e.nextElementSibling;
+      if (menuList && menuList.childElementCount !== 0) {
+        const subCat = menuList.querySelectorAll('li');
         if (subCat) {
           // @ts-ignore
           [...subCat].map(e => {
             const newDiv = addHiddenDiv('categories', '');
-            addHiddenDiv('category', text.split('>').pop(), newDiv);
+            addHiddenDiv('category', text, newDiv);
             addHiddenDiv('category', e.innerText, newDiv);
             addHiddenDiv('categoryUrl', e.querySelector('a').getAttribute('href'), newDiv);
           });
