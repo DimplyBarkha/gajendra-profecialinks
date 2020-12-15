@@ -5,14 +5,14 @@ recordXPath: //div[@class='engine_search_result_block__hits']/ol/li
 fields:
   - name: id
     description: Unique id (within this extractor)
-    xpath: //button[@data-usage_log_object_name='add2watchlist']/@data-usage_log_object_identifier
+    xpath: //div[contains(@class,"product_box_details_button")]//a//@data-usage_log_object_identifier
   - name: rankOrganic
     description: The position (rank) within the list excluding sponsored/paid results
     xpath: //li[@class='engine_search_result_block__result_list_item product_cell']/@count
     type: NUMBER 
   - name: name
     description: The product name
-    xpath: //span[@class='product_name']
+    xpath: //div[contains(@class,"product_box_name")]
   - name: productUrl
     description: The URL for the product details page
     xpath: //div[@class='module_product_teaser']/a/@href
@@ -36,10 +36,10 @@ fields:
     xpath: //meta[@itemprop='reviewCount']/@content
   - name: price
     description: The offered price for the product
-    xpath: //div[@class='single_price']
+    xpath: //div[contains(@class,"price")]
   - name: manufacturer
     description: Product manufacturer
-    xpath: //div[@class='manufacturer_logo']//img/@alt |//div[@class='manufacturer_logo']/span
+    xpath: //div[contains(@class,"manufacturer_name")]
   - name: soldBy
     description: The name of the seller of the item (if available)
   - name: rank
