@@ -33,22 +33,16 @@ const transform = (data) => {
         delete row.specifications1;
         delete row.specifications2;
       }
-      // if (row.specifications) {
-      //   var arrSpecs = [];
-      //   row.specifications.forEach(item => {
-      //     item.text = item.text.replace(/\n\s+\n/, ':');
-      //     arrSpecs.push(item.text);
-      //   });
-      //   row.specifications = [{ text: arrSpecs.join(' || ') }];
-      // }
       if (row.price) {
         row.price.forEach(item => {
           item.text = item.text.replace(',', '');
+          item.text = item.text.replace('.', ',');
         });
       }
       if (row.listPrice) {
         row.listPrice.forEach(item => {
           item.text = item.text.replace(',', '');
+          item.text = item.text.replace('.', ',');
         });
       }
       // if (row.variantCount) {
