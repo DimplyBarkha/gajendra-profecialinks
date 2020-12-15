@@ -21,9 +21,11 @@ fields:
   - name: nameExtended
     singleValue: false
     xpath: //meta[@property="og:title"]/@content
-  - name: listPrice
+  - name: price
     singleValue: false
     xpath: //div[@id="pricing"]/meta[@itemprop="price"]/@content
+    description: The offered price for the selected product variant - if a user
+      clicks add to basket this is the price they would be charged
   - name: availabilityText
     singleValue: false
     xpath: //button[@id="addBtn"]
