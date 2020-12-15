@@ -39,7 +39,7 @@ fields:
     xpath: //div[@class='price']//span[@class='price']//span[@class='list strike-through ']//span[contains(@class,'formatted_price')]
   - name: sku
     singleValue: false
-    xpath: //div[@class='tt-top-comment']//@data-ttsku
+    xpath: //script[@type="text/javascript" and contains(text(),'pageDataObj =')]
   - name: ratingCount
     singleValue: false
     xpath: //div[contains(@class,'product-number-rating')]//a
@@ -63,10 +63,10 @@ fields:
     xpath: //div[@class='attributes']//fieldset//ul//li//@data-attr-value
   - name: firstVariant
     singleValue: false
-    xpath: //div[@class='value content']//div[@class='product-detail-id']
+    xpath: //script[@type="text/javascript" and contains(text(),'pageDataObj =')]
   - name: variants
     singleValue: false
-    xpath: //div[@class='value content']//div[@class='product-detail-id']
+    xpath: //script[@type="text/javascript" and contains(text(),'pageDataObj =')]
   - name: additionaldescbulletinfo
     singleValue: false
     xpath: //div[contains(@id,'collapsible-details')]//ul//li
@@ -88,3 +88,12 @@ fields:
   - name: secondaryImageTotal
     singleValue: false
     xpath: count(//div[contains(@class,'primary-image') and position() >1]//img//@src)
+  - name: imageZoomFeaturePresent
+    singleValue: false
+    defaultValue: "Yes"
+  - name: mpc
+    singleValue: false
+    xpath: (//script[@type='application/ld+json']//text())[1]
+  - name: color
+    singleValue: false
+    xpath: //span[contains(@class,'color')]//span[contains(text(),'Colour')]/following-sibling::span

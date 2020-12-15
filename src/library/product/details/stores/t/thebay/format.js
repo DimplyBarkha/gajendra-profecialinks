@@ -34,20 +34,6 @@ const transform = (data) => {
                 });
                 row.variantId = [{'text': variantId[1].trim(),'xpath':row.variantId[0].xpath}];
             }
-            if (row.variants) {
-                let  variants = [];
-                row.variants.forEach(item => {
-                    variants = item.text.split(":");
-                });
-                row.variants = [{'text': variants[1].trim(),'xpath':row.variants[0].xpath}];
-            }
-            if (row.firstVariant) {
-                let  firstVariant = [];
-                row.firstVariant.forEach(item => {
-                    firstVariant = item.text.split(":");
-                });
-                row.firstVariant = [{'text': firstVariant[1].trim(),'xpath':row.firstVariant[0].xpath}];
-            }
             if (row.description) {
                 let info = [];
                 row.description.forEach(item => {
@@ -82,12 +68,12 @@ const transform = (data) => {
             if (row.nameExtended) {
                 let info = [];
                 row.nameExtended.forEach(item => {
-                  info.push(item.text.replace(/(\s*\n\s*)+/g, ' | ').trim());
+                  info.push(item.text.replace(/(\s*\n\s*)+/g, ' - ').trim());
                 });
                 if(tmp_desc != ''){
                 info.push(tmp_desc);
                 }
-                row.nameExtended = [{'text':info.join(' | '),'xpath':row.nameExtended[0].xpath}];
+                row.nameExtended = [{'text':info.join(' - '),'xpath':row.nameExtended[0].xpath}];
             }
             if (row.variantInformation) {
                 let info = [];
@@ -153,6 +139,67 @@ const transform = (data) => {
                     item.text = "Out of Stock";
                  }
               });      
+            }
+            if (row.sku) {
+                let data=[];
+                row.sku.forEach(item => {
+                    data = item.text.split("= ");
+                    item.text = data[1].replace(";",'').trim();
+                    let data1 = JSON.parse(item.text);
+                    if(data1['products']){
+                        if(data1['products'][0]['skus']){
+                            item.text = data1['products'][0]['skus'][0]['sku'];
+                        }
+                    }else{
+                        item.text = "";
+                    }           
+                });
+            }
+            if (row.firstVariant) {
+                let data=[];
+                row.firstVariant.forEach(item => {
+                    data = item.text.split("= ");
+                    item.text = data[1].replace(";",'').trim();
+                    let data1 = JSON.parse(item.text);
+                    if(data1['products']){
+                        if(data1['products'][0]['skus'][1]){
+                            item.text = data1['products'][0]['skus'][0]['sku'];
+                        }else{
+                            item.text = "";
+                        }
+                    }else{
+                        item.text = "";
+                    }           
+                });
+            }
+            if (row.variants) {
+                let data=[];
+                let info = [];
+                row.variants.forEach(item => {
+                    data = item.text.split("= ");
+                    item.text = data[1].replace(";",'').trim();
+                    let data1 = JSON.parse(item.text);
+                    if(data1['products'][0]['skus'][1]){
+                        data1['products'][0]['skus'].forEach(product => {
+                            item.text = product['sku'];
+                            info.push(item.text.trim());
+                        });
+                    }else{
+                        item.text = "";
+                    }           
+                });
+                row.variants = [{'text':info.join(' | '),'xpath':row.variants[0].xpath}];
+            }
+            if (row.mpc) {
+                row.mpc.forEach(item => {
+                    let data = item.text.split("\n");
+                    let data1 = JSON.parse(data[0]);
+                    if(data1['mpn']){
+                        item.text = data1['mpn'];
+                    }else{
+                        item.text = "";
+                    }           
+                });
             }
         }
     }
