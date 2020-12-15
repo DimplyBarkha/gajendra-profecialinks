@@ -105,3 +105,9 @@ fields:
     singleValue: false
     xpath: //*[@id="related"]//a[@class="item-name"]
     description: Titles of products in the sections 'you may also like' or 'sponsored products'. Combine results from Max 3 sections
+  - name: inTheBoxText
+    singleValue: false
+    xpath: //strong[contains(.,'In the Box:')]/following-sibling::text()[1] | //strong[contains(.,'In the Box:')]/following-sibling::text()[contains(.,'1 x ')] | //*[contains(.,'n the Box:')]/following-sibling::text()[contains(.,'•')]
+  - name: hasComparisonTable
+    singleValue: true
+    defaultValue: No
