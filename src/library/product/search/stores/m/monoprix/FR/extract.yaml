@@ -14,7 +14,7 @@ fields:
     regExpReplace: https://www.monoprix.fr/$1
   - name: name
     singleValue: false
-    xpath: //div[contains(@class, 'item-brand')] | //div[contains(@class, 'item-range')]
+    xpath: //div[contains(@class, 'item-brand')]/@product_title
   - name: productUrl
     singleValue: false
     xpath: //div[contains(@class, 'item__description-offre')]/a/@product_url
