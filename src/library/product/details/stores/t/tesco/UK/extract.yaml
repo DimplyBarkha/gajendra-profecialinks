@@ -125,11 +125,11 @@ fields:
     xpath: //body//@additional_image
   - name: nutritionInfo
     singleValue: false
-    xpath: //table[@class='product__info-table']/tbody
+    # xpath: //table[@class='product__info-table']/tbody
+    xpath: concat(//tr[contains(.,"Energy")],' , ',//tr[contains(.,"Fat")],' , ',//tr[contains(.,"saturates")],' , ',//tr[contains(.,"Carbohydrate")],' , ',//tr[contains(.,"sugars")],' , ',//tr[contains(.,"Protein")],' , ',//tr[contains(.,"Salt")])
   - name: caloriesPerServing
     singleValue: true
     xpath: concat(//td[contains(text(),"Energy")]/following-sibling::td[1],"/", //tr/following-sibling::td[contains(text(),"cal")]/following-sibling::td[1] | //td[contains(text(),"Energy")]/../following-sibling::tr[contains(.,'cal')]//td[2])
-
 
 
 

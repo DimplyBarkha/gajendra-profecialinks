@@ -59,6 +59,13 @@ const transform = (data) => {
                   item.text =  "tesco_" + item.text;
                 });
               }
+
+              if (row.nutritionInfo) {
+                console.log("row.nutritionInfo",row.nutritionInfo)
+                row.nutritionInfo.forEach(item => {
+                  console.log("item",item)
+                });
+              }
         }
     }
     return data;
