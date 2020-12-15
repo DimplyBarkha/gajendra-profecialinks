@@ -10,9 +10,9 @@ module.exports = {
     loadedSelector: '[itemprop="review"]',
     noResultsXPath: '//div[@class="no-wyr-product-review-rounded-overall"][text()="0"] | //div[@class="error-message-margin error-page-message"]|//*[contains(@class,"product-review-first-review-text")]',
     openSearchDefinition: {
-      template: 'https://www.walmart.com/reviews/product/44805491?page={page}&sort=submission-desc',
+      template: 'https://www.walmart.com/reviews/product/{id}?page={page}&sort=submission-desc',
     },
-    pageCheckSelector: 'button.active',
+    // pageCheckSelector: 'button.active',
     domain: 'walmart.com',
     zipcode: '',
   },

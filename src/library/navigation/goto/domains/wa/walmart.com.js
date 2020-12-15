@@ -91,7 +91,7 @@ module.exports = {
     }
 
     try {
-      await context.waitForSelector(captchaFrame, { timeout: 10000 });
+      // await context.waitForSelector(captchaFrame, { timeout: 10000 });
     } catch (error) {
       console.log('No iframe captcha');
     }
