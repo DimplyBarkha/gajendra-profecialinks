@@ -69,7 +69,7 @@ fields:
     xpath: //ul[@class="breadcrumbs"]/li[position()>2 and position()<last()]/a
   - name: upc
     singleValue: true
-    xpath: //meta[@itemprop="gtin"]
+    xpath: //meta[@itemprop="gtin"]/@content
   - name: variantInformation
     singleValue: true
     xpath: //p[@class="swatches-label"]/strong
