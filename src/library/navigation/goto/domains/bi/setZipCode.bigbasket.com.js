@@ -8,14 +8,20 @@ async function implementation(
   //code for appending the storeId and Zipcode
   await context.evaluate(async (inputs) => {
     const locationElement = document.evaluate('//span[contains(text(),"Login")]/../preceding-sibling::div[1]', document).iterateNext();
-    locationElement.click()
-    await new Promise(res => setTimeout(res, 2000));
+    if (locationElement) {
+      locationElement.click()
+      await new Promise(res => setTimeout(res, 2000));
+    }
     const zipcodeElement = document.evaluate('//h4[contains(text(),"Select your city to start shopping")]/following-sibling::div/span/span', document).iterateNext();
-    zipcodeElement.click();
-    await new Promise(res => setTimeout(res, 2000));
+    if (zipcodeElement) {
+      zipcodeElement.click();
+      await new Promise(res => setTimeout(res, 2000));
+    }
     const tryelement = document.querySelector('input[placeholder="Select your city"]');
-    tryelement.click()
-    await new Promise(res => setTimeout(res, 2000));
+    if (tryelement) {
+      tryelement.click()
+      await new Promise(res => setTimeout(res, 2000));
+    }
     const allOptions = document.evaluate('//input[@placeholder="Select your city"]/following-sibling::div/ul/div', document, null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
     let ourZipcode = null;
     for (let i = 0; i < allOptions.snapshotLength; i++) {
@@ -24,14 +30,19 @@ async function implementation(
         ourZipcode = allOptions.snapshotItem(i);
       }
     }
-    ourZipcode.click();
-    await new Promise(res => setTimeout(res, 2000));
+    if (ourZipcode != null) {
+      ourZipcode.click();
+      await new Promise(res => setTimeout(res, 2000));
+    }
     const storeIdElement = document.evaluate('//input[contains(@placeholder,"Enter your area / apartment / pincode")]', document).iterateNext();
-    storeIdElement.value = inputs.storeId;
-
+    if (storeIdElement) {
+      storeIdElement.value = inputs.storeId;
+    }
     const countinueElement = document.evaluate('//button[contains(text(),"Continue")]', document).iterateNext();
-    countinueElement.click();
-    await new Promise(res => setTimeout(res, 2000));
+    if (countinueElement) {
+      countinueElement.click();
+      await new Promise(res => setTimeout(res, 10000));
+    }
   }, inputs)
   await context.evaluate((inputs) => {
     const zipcodeDiv = document.querySelector('div[id="price"]');
