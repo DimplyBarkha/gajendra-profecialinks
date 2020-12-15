@@ -6,7 +6,7 @@ fields:
   - name: image
     xpath: //div[@id="carousel"]/div[1]/img/@src
   - name: alternateImages
-    xpath: //div[contains(@id,'thumb')]/img/@src
+    xpath: //div[contains(@id,'thumb')][position()>1]/img/@src
     regExp: (.+)/p/(.+)/(.+)
     regExpReplace: $1/p/l/$3
   - name: imageAlt
@@ -37,7 +37,7 @@ fields:
     regExp: :\s(.+)
     regExpReplace: $1
   - name: description
-    xpath: //span[contains(text(),"About")]/parent::div/following-sibling::div[1]
+    xpath: //span[contains(text(),"About")]/parent::div/following-sibling::div[1] | //span[contains(text(),"Features")]/parent::div/following-sibling::div[1]//ul/li | //span[contains(text(),"FEATURES")]/parent::div/following-sibling::div[1] | //span[contains(text(),"Features")]/parent::div/following-sibling::div[1]//p
   - name: variantId
     xpath: //link[@rel="canonical"]/@href
     regExp: (\/)([0-9-\d?]+)
@@ -65,7 +65,7 @@ fields:
     regExp: :\s(.+)
     regExpReplace: $1
   - name: ingredientsList
-    xpath: //span[contains(text(),"Ingredients")]/parent::div/following-sibling::div[1]
+    xpath: //span[contains(text(),"Ingredients")]/parent::div/following-sibling::div[1]| //span[contains(text(),'Composition')]/parent::div/following-sibling::div[1] | //span[contains(text(),"INGREDIENTS")]/parent::div/following-sibling::div[1] | //span[contains(text(),'COMPOSITION')]/parent::div/following-sibling::div[1]
   - name: promotion
     xpath: "//td[contains(text(),'You Save: ')] | //td[contains(text(),'You Save: ')]/following-sibling::td"
   - name: gtin
@@ -88,6 +88,10 @@ fields:
     xpath: //strong[contains(.,"Storage:")]/following-sibling::text()
   - name: metaKeywords
     xpath: //meta[contains(@name, "keywords")]/@content
+  - name: productUrl
+    xpath: //link[@rel="canonical"]/@href
+  - name: additionalDescBulletCount
+    xpath: //body/@bullet-count
     # //static
   - name: technicalInformationPdfPresent
     defaultValue: No

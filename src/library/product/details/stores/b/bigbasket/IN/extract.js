@@ -16,6 +16,7 @@ module.exports = {
     await context.evaluate(async function () {
       const finalArray = [];
       let first = '';
+      // @ts-ignore
       const data = window.__PRELOADED_STATE__;
 
       function getElementsByXPath(xpath, parent) {
@@ -29,6 +30,9 @@ module.exports = {
         return results.filter(e => e);
       }
       const dataArr = getElementsByXPath('//*[contains(@id,"about")]/div[2]/div//div/text() | //*[@id="about_3"]/div[2]/div/div//p');
+      const descriptionArr = getElementsByXPath('//span[contains(text(),"About")]/parent::div/following-sibling::div[1] | //span[contains(text(),"Features")]/parent::div/following-sibling::div[1]//ul/li | //span[contains(text(),"FEATURES")]/parent::div/following-sibling::div[1] | //span[contains(text(),"Features")]/parent::div/following-sibling::div[1]//p');
+      const descriptionBulletsCount = descriptionArr.map(elm => elm.replace(/•/g, ' || ').replace(/(\d+)\./g,' || ').replace(/\s\s+/g, ' ').trim()).join(' || ').split('||').length - 1 ;
+      document.body.setAttribute('bullet-count',descriptionBulletsCount.toString());
       const country = dataArr.find(element => element.includes('Country'));
       const manufacture = dataArr.find(element => element.includes('Marketed by') || element.includes('Address :') || element.includes('Manufactured') || element.includes('Manufacturer'));
       const gtin = dataArr.find(element => element.includes('EAN'));
@@ -39,7 +43,7 @@ module.exports = {
       }
 
       const variants = data && data.product && data.product.variants.map(e => e.id).slice(1);
-      const directionData = document.evaluate('//span[contains(text(),"HOW TO USE")]/parent::div/following-sibling::div[1] | //span[contains(text(),"How to Use")]/parent::div/following-sibling::div[1]', document, null, XPathResult.ANY_TYPE, null).iterateNext() && document.evaluate('//span[contains(text(),"HOW TO USE")]/parent::div/following-sibling::div[1] | //span[contains(text(),"How to Use")]/parent::div/following-sibling::div[1]', document, null, XPathResult.ANY_TYPE, null).iterateNext().innerText.trim() || '';
+      const directionData = document.evaluate('//span[contains(text(),"HOW TO USE")]/parent::div/following-sibling::div[1] | //span[contains(text(),"How to Use")]/parent::div/following-sibling::div[1]', document, null, XPathResult.ANY_TYPE, null).iterateNext() && document.evaluate('//span[contains(text(),"HOW TO USE")]/parent::div/following-sibling::div[1] | //span[contains(text(),"How to Use")]/parent::div/following-sibling::div[1]', document, null, XPathResult.ANY_TYPE, null).iterateNext().textContent.trim() || '';
       let direction = '';
       if (directionData && directionData.includes('Storage')) {
         direction = directionData.split('Storage')[0];
