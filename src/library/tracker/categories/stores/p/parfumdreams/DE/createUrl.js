@@ -4,7 +4,7 @@ module.exports = {
   parameterValues: {
     domain: 'parfumdreams.de',
     prefix: null,
-    suffix: null,
+    suffix: 'Seitenuebersicht',
     subdomain: null,
     url: null,
     country: 'DE',
