@@ -41,13 +41,19 @@ const transform = (data) => {
           item.text = item.text.replace('180x180', '600x600');
         });
       }
+      if (row.price2) {
+        if (!row.price) {
+          row.price = [{ text: row.price2[0].text }];
+        }
+        delete row.price2;
+      }
       if (row.manufacturerImages) {
         row.manufacturerImages.forEach(item => {
-          if(item.text.indexOf("https") < 0){
-            item.text = "https:" + item.text;
+          if (item.text.indexOf('https') < 0) {
+            item.text = 'https:' + item.text;
           }
         });
-      }      
+      }
       if (row.specifications) {
         var specificationsArr = [];
         row.specifications.forEach(item => {

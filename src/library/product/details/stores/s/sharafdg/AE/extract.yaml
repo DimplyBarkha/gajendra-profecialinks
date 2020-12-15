@@ -53,6 +53,9 @@ fields:
   - name: price
     singleValue: false
     xpath: //div[contains(@itemprop,'offers')]//div[@class='price']
+  - name: price2
+    singleValue: false
+    xpath: //div[@class='price no-marign']    
   - name: brandText
     singleValue: true
     xpath: //td[contains(@itemprop,'brand')]
