@@ -4,7 +4,7 @@ module.exports = {
   parameterValues: {
     domain: 'kauppahalli24.fi',
     prefix: null,
-    suffix: null,
+    suffix: 'tuotteet',
     subdomain: null,
     url: null,
     country: 'FI',
