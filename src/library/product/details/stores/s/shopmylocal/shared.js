@@ -18,8 +18,11 @@ const cleanUp = (data, context) => {
     .replace(/[\uD800-\uDBFF][\uDC00-\uDFFF]/g, ' ');
   for (const { group } of data) {
     for (const row of group) {
-      if (row.name && row.nameExtended && row.appendPart) {
-        let text = `${row.name[0].text} - ${row.appendPart[0].text}`;
+      if (row.name && row.nameExtended && row.appendPart && row.variantInformationAppend) {
+        if (row.variantInformationAppend[0].text === ' ') {
+          row.variantInformationAppend[0].text = ''
+        }
+        let text = `${row.name[0].text} ${row.variantInformationAppend[0].text} - ${row.appendPart[0].text}`;
         row.name = [{ text: text.trim() }]
         row.nameExtended = [{ text: text.trim() }]
       }

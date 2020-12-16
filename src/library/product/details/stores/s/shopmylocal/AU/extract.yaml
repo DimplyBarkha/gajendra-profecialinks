@@ -135,6 +135,9 @@ fields:
   - name: name
     description: The product name
     xpath: //div[contains(@class,"desktop")]//h1[contains(@class,"productHeader")]
+  - name: variantInformationAppend
+    xpath: //div[contains(@class,"desktop")]//h5[contains(@class,"variantDescription")]
+    defaultValue: " "
   - name: appendPart
     xpath: //div[contains(@class,"desktop")]//span[contains(@itemprop,"price")]/text()
   - name: inStorePrice
