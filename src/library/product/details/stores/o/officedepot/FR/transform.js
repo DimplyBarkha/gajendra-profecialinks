@@ -19,6 +19,17 @@ const transform = (data) => {
 
   for (const { group } of data) {
     for (const row of group) {
+      if (row.description) {
+        let text = '';
+        row.description.forEach(item => {
+          text += `${item.text} | `;
+        });
+        row.description = [
+          {
+            text: cleanUp(text.slice(0, -3)),
+          },
+        ];
+      }
       if (row.specifications) {
         let text = '';
         row.specifications.forEach(item => {
@@ -27,6 +38,17 @@ const transform = (data) => {
         row.specifications = [
           {
             text: cleanUp(text.slice(0, -3)),
+          },
+        ];
+      }
+      if (row.mpc) {
+        const text = '';
+        row.mpc.forEach(item => {
+          if (item.text.includes('(.+)')) { item.text = ''; }
+        });
+        row.mpc = [
+          {
+            text: cleanUp(text),
           },
         ];
       }

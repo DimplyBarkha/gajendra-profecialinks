@@ -45,7 +45,7 @@ fields:
     singleValue: false
     description: Product description supplied by website - may be concatenanted from
       multiple places; specifically not the manufacturer description
-    xpath: //div[contains(@id, 'bulletsWrapper')]
+    xpath: //div[contains(@id, 'bulletsWrapper')]/p
   - name: descriptionBullets
     singleValue: false
     description: Number of ul > li tags in the description
@@ -54,9 +54,7 @@ fields:
     singleValue: false
     description: Product brand shown - this may actually NOT be just a brand name,
       e.g. "Visit the Gillette Store"
-    xpath: //script[contains(text(), 'MfgName')]
-    regExp: MfgName=(.+)?&S
-    regExpReplace: $1
+    xpath: //*[contains(text(), 'Marque')]/following-sibling::*
   - name: weightNet
     singleValue: false
     description: Net weight as described on the page
@@ -64,9 +62,7 @@ fields:
   - name: gtin
     singleValue: false
     description: GTIN code (includes UPC/EAN)
-    xpath: //script[contains(text(), 'UpcEan')]
-    regExp: UpcEan=(.+)?&
-    regExpReplace: $1
+    xpath: //*[contains(text(), 'Code EAN')]/following-sibling::*
   - name: sku
     singleValue: false
     description: The store-specific product identifier
