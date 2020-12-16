@@ -8,7 +8,7 @@
 async function implementation (inputs, parameters, context, dependencies) {
   const { URL, RPC, SKU, UPC, storeID } = inputs;
   const { execute, extract } = dependencies;
-  const url = URL;
+  const url = URL === 'null' ? null : URL;
   const id = RPC || SKU || UPC || inputs.id;
   const zipcode = inputs.zipcode || parameters.zipcode;
   const storeId = inputs.storeId || storeID || parameters.storeId;
