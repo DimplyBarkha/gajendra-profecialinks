@@ -7,15 +7,17 @@ module.exports = {
     store: 'k-ruoka',
     zipcode: '',
   },
-};
 
-implementation: async (inputs, properties, context, { productMenu }) => {
-  await context.evaluate(async () => {
-    const categoryUrlList = document.createElement('ul');
-    categoryUrlList.id = 'category-url-list';
-    const categories = document.querySelectorAll('ul.product-category-list > li');
-    categories.forEach((category) => {
-      let categoryUrl = category.firstChild.href;
-      });
-  });
-}
+  implementation: async (inputs, properties, context, dependencies) => {
+    const { productMenu } = dependencies;
+
+    await context.evaluate(async () => {
+      const categories = document.querySelectorAll('ul.product-category-list > li');
+      categories.forEach((category) => {
+        let categoryUrl = category.firstChild.href;
+        category.setAttribute('src', categoryUrl);
+        });
+    });
+    return await context.extract(productMenu);
+  }
+};
