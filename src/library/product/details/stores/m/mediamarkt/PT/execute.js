@@ -11,13 +11,18 @@ async function implementation (
   url = inputs.URL || inputs.url;
   // url += '#[!opt!]{"block_ads":false,"anti_fingerprint":false,"load_all_resources":true}[/!opt!]';
   // }
+  await context.setBlockAds(false);
+  await context.setLoadAllResources(true);
+  await context.setLoadImages(true);
+  await context.setJavaScriptEnabled(true);
+  await context.setAntiFingerprint(false);
+  await context.setUseRelayProxy(false);
+  // const timeout = parameters.timeout ? parameters.timeout : 30000;
+
   await context.goto(url, {
     timeout: 100000,
-    waitUntil: 'networkidle0',
+    waitUntil: 'load',
     checkBlocked: true,
-    js_enabled: true,
-    css_enabled: false,
-    random_move_mouse: true,
   });
   const applyScroll = async function (context) {
     console.log('calling applyScroll-----------');
@@ -33,7 +38,7 @@ async function implementation (
           break;
         }
       }
-      function stall(ms) {
+      function stall (ms) {
         return new Promise((resolve, reject) => {
           setTimeout(() => {
             resolve();
