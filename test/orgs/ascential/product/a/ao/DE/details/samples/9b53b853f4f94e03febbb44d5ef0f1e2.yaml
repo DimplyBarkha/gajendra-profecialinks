@@ -2,7 +2,7 @@ input:
   id: 57697
   _url: http://ao.de
 extractions:
-  - html: https://workbench.import.io/html/run=1528a50d-c86b-42ae-a06d-0a68087c59e3/task=873fed28-d62b-4935-b1c5-046bf0df2e09/2aa2ef92-e760-4e7f-b26b-9b3d66d430e9.html
+  - html: https://workbench.import.io/html/run=27aaf420-835e-4bbc-807e-758e9425523c/task=b4d14711-b6c8-4be7-8e8f-42cacfcde87b/b185eb52-105e-4493-85b0-2d5f12ea2724.html
     extractionConfigId: product/details/stores/a/ao/DE/extract
     data:
       - group:
@@ -33,9 +33,9 @@ extractions:
                 xpath: /html/head[1]/meta[14]/@content
             category:
               - text: Startseite
-                xpath: /html/body/div[1]/div[1]/div[4]/div[1]/ul[1]/li[1]/a[1]
+                xpath: /html/body/div[1]/div[1]/div[5]/div[1]/ul[1]/li[1]/a[1]
               - text: Kühlschränke
-                xpath: /html/body/div[1]/div[1]/div[4]/div[1]/ul[1]/li[2]/a[1]
+                xpath: /html/body/div[1]/div[1]/div[5]/div[1]/ul[1]/li[2]/a[1]
             nameExtended:
               - text: Miele K34242iF Einbau-Kühlschrank mit Gefrierfach - Festtür-Technik, A++
                 xpath: /html/body/div[1]/div[1]/main[1]/div[1]/div[2]/section[1]/h1[1]
@@ -379,7 +379,7 @@ extractions:
                 xpath: /html/body/div[1]/div[1]/main[1]/div[1]/div[2]/section[1]/div[3]/div[2]/span[1]/div[1]
             technicalInformationPdfPresent:
               - text: Yes
-                xpath: /html/body/div[1]/div[1]/div[5]/div[5]/a[2]/@href
+                xpath: /html/body/div[1]/div[1]/div[6]/div[5]/a[2]/@href
             termsAndConditions:
               - text: Yes
                 xpath: /html/body/footer[1]/section[2]/div[2]/ul[2]/li[1]/a[1]/@href
@@ -402,4 +402,4 @@ extractions:
             hasComparisonTable:
               - text: "false"
         xpath: /
-    timestamp: 1608113480872
+    timestamp: 1608126239862
