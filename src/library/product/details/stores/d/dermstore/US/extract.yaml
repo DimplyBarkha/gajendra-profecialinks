@@ -52,6 +52,8 @@ fields:
   - name: quantity
     singleValue: false
     xpath: //h1[contains(@class,"prod-name hidden-xs")]
+    regExp: (\(.*)
+    regExpReplace: $1
     description: Quantity as described on the page
   - name: weightNet
     singleValue: false
@@ -393,7 +395,6 @@ fields:
     description: The unit of measurement used in price_per_unit
   - name: promotion
     singleValue: false
-    xpath: //p[contains(@class,"rewTxt")]//strong
     description: promotion text on product page
   - name: alcoholContent
     singleValue: false
