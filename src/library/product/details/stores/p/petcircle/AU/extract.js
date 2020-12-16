@@ -9,7 +9,7 @@ module.exports = {
     zipcode: '',
   },
   implementation: async (inputs, parameters, context, dependencies) => {
-    const timeout = 45000;
+    const timeout = 60000;
     const redirectProductDetails = async () => {
       try {
         await context.waitForSelector('h3.product-name>a', { timeout });
