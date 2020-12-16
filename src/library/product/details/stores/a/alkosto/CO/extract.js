@@ -86,7 +86,8 @@ module.exports = {
       if (listPricePath !== null) {
         addElementToDocument('added_listPrice', listPricePath.replace(/\./g, ','));
       }
-      const price = "//div[@class='product-main-info']//p[@class='special-price']//span[contains(@id,'product-price')]";
+      // const price = "//div[@class='product-main-info']//p[@class='special-price']//span[contains(@id,'product-price')]";
+      const price = "//div[@class='product-main-info']//p[@class='special-price']//span[contains(@id,'product-price')] | //div[@class='product-main-info']//div[@class='price-box']//span[@class='regular-price']";
       var pricePath = getXpath(price, 'innerText');
       if (pricePath !== null) {
         addElementToDocument('added_price', pricePath.replace(/\./g, ','));
