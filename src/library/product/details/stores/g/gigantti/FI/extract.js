@@ -42,7 +42,7 @@ module.exports = {
       if (overlay !== undefined) {
         overlay.click();
       }
-      
+      let videoLinks = [];
       const iframeVideoNodes = [...document.querySelectorAll('iframe[id*="videolist"]')];
       if (iframeVideoNodes.length > 0) {
         iframeVideoNodes.forEach(iframe => {
@@ -51,7 +51,8 @@ module.exports = {
           if (iframeVideo && iframeVideo.hasAttribute('data-videoid')) {
             const videoURL = 'https://www.youtube.com/watch?v=' + iframeVideo.getAttribute('data-videoid');
             console.log('videoURL : ' + videoURL);
-            addHiddenDiv('productVideos', videoURL);
+            //addHiddenDiv('productVideos', videoURL);
+            videoLinks.push(videoURL);
           }
         });
       }
@@ -60,6 +61,7 @@ module.exports = {
       prodTitle = encodeURIComponent(prodTitle);
       let brand = document.querySelector('span[itemprop="brand"] meta') && document.querySelector('span[itemprop="brand"] meta').hasAttribute('content') ? document.querySelector('span[itemprop="brand"] meta').getAttribute('content') : "";
       let sku = document.querySelector('p.sku') && document.querySelector('p.sku').hasAttribute('data-product-sku') ? document.querySelector('p.sku').getAttribute('data-product-sku') : "";
+
       try {
         let apiUrl = `https://dapi.videoly.co/1/videos/0/5/?brandName=${brand}&SKU=${sku}&productId=${sku}&productTitle=${prodTitle}&hn=www.gigantti.fi`
         let prom = await fetch(apiUrl);
@@ -68,13 +70,15 @@ module.exports = {
         if (data.items) {
           data.items.forEach(item => {
             if(item.videoId) {
-              addHiddenDiv('productVideos', `https://www.youtube.com/watch?v=${item.videoId}`)
+              //addHiddenDiv('productVideos', `https://www.youtube.com/watch?v=${item.videoId}`)
+              videoLinks.push(`https://www.youtube.com/watch?v=${item.videoId}`);
             }
           })
         }
       } catch (er) {
         console.log("Encountered an issue with videos API");
       }
+      addHiddenDiv('productVideos', videoLinks.join(" | "));
     });
 
     await context.evaluate(async function () {
