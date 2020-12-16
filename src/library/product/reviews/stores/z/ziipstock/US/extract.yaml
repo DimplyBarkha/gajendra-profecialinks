@@ -12,6 +12,9 @@ fields:
   - name: reviewTitle
     description: The title of the review
     xpath: //div[@class="stamped-review-body"]//h3
+  - name: rating
+    description: review rating
+    xpath: //span[contains(@class, 'stamped-starratings')]/@custom_rating
   - name: mediaURL
     description: product media url
     xpath: ancestor::html//div[@class='photos']//div[@id='ProductPhoto'][1]//img/@src
