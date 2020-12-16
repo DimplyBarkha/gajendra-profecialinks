@@ -160,7 +160,7 @@ async function implementation(
     console.log('inBoxText');
     console.log(inBoxText);
     addHiddenInfo('ii_inBoxText', "", inBoxText);
-    
+
     addHiddenInfo('ii_manufContent', content);
     if (image && image.length) {
         addHiddenInfo('ii_manufContentImg', image.join(' || '));
