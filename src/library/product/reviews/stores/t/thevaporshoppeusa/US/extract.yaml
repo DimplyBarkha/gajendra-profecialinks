@@ -23,15 +23,16 @@ fields:
     xpath: ancestor::html//div[@class='product-main-image-item']//img/@src
   - name: pageTitle
     description: The url of the page title
+    xpath: ancestor::html//head/title
   - name: productFamily
-    description: The url of the page productFamily  
+    description: The url of the page productFamily
   - name: productRange
     description: The url of the page productRange
   - name: rating
     description: The rating of review
     xpath: //span[contains(@class, 'spr-starratings')]/@aria-label
     regExp: ([0-9\.]{1,}) of 5 stars
-    regExpReplace: $1   
+    regExpReplace: $1
   - name: reviewText
     description: The text of the review
     xpath: //p[@class='spr-review-content-body']
@@ -39,7 +40,7 @@ fields:
     description: The title of the review
     xpath: //h3[@class='spr-review-header-title']
   - name: sku
-    description: The sku   
+    description: The sku
   - name: verifiedPurchase
     description: Whether this of an item the reviewer purchased. "Yes" if true else ""
   - name: aggregateRating
