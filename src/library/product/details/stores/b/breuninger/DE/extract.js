@@ -49,8 +49,8 @@ module.exports = {
     let content = null;
     let image = null;
     let comparisionText = null;
-    let inBoxText = null;
-    let inBoxUrls = null;
+    let inBoxUrls = [];
+    let inBoxText = [];
     let videos = null;
     if (gotoIframe !== null) await context.goto(gotoIframe);
     await context.waitForNavigation();
@@ -93,28 +93,21 @@ module.exports = {
     //   }
     //   return [description, images];
     // });
-    inBoxText = await context.evaluate(async function () {
-      if (document.querySelectorAll('.in-the-box p')) {
-        const boxContent = document.querySelectorAll('.in-the-box p');
-        const boxText = [];
-        [...boxContent].forEach((element) => {
-          boxText.push(element.innerText);
-        });
-        return boxText;
+    const witbData = await context.evaluate(async () => {
+      const getInTheBox = document.querySelector('div.in-the-box img');
+      const inBoxUrls = [];
+      const inBoxText = [];
+      if (getInTheBox) {
+        const getAllProducts = document.querySelectorAll('div.in-the-box div:not(.side-pics)');
+        for (let i = 0; i < getAllProducts.length; i++) {
+          inBoxUrls.push(getAllProducts[i].querySelector('img').getAttribute('data-src'));
+          inBoxText.push(getAllProducts[i].querySelector('p').innerText);
+        }
       }
-      return null;
+      return { inBoxText, inBoxUrls };
     });
-    inBoxUrls = await context.evaluate(async function () {
-      if (document.querySelectorAll('.in-the-box img')) {
-        const images = document.querySelectorAll('.in-the-box img');
-        const imagesSrc = [];
-        [...images].forEach((element) => {
-          imagesSrc.push(element.getAttribute('data-src'));
-        });
-        return imagesSrc;
-      }
-      return null;
-    });
+    inBoxText = witbData.inBoxText;
+    inBoxUrls = witbData.inBoxUrls;
 
     comparisionText = await context.evaluate(async function () {
       return (!!document.querySelector('.compare-headline') && document.querySelector('.compare-headline').offsetHeight > 0 && document.querySelector('.compare-headline').offsetWidth) > 0;
@@ -196,20 +189,14 @@ module.exports = {
         document.body.appendChild(newDiv);
       }, elementID, content);
     }
-    if (inBoxUrls && inBoxUrls.length) {
-      inBoxUrls.forEach((element) => {
-        addHiddenInfo('ii_inBoxUrls', element);
-      });
-    }
+    inBoxUrls.forEach((element) => {
+      addHiddenInfo('ii_inBoxUrls', element);
+    });
     addHiddenInfo('ii_comparisionText', comparisionText ? 'Yes' : 'No');
-    console.log('inBoxText');
-    console.log(inBoxText);
 
-    if (inBoxText.length) {
-      inBoxText.forEach((element) => {
-        addHiddenInfo('ii_inBoxText', element);
-      });
-    }
+    inBoxText.forEach((element) => {
+      addHiddenInfo('ii_inBoxText', element);
+    });
 
     addHiddenInfo('ii_manufContent', content);
     if (image && image.length) {
