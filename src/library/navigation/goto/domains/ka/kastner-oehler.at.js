@@ -12,10 +12,10 @@ module.exports = {
     { url, zipcode, storeId },
     parameters,
     context,
-    dependencies
-    ) => {
+    dependencies,
+  ) => {
     const timeout = parameters.timeout ? parameters.timeout : 10000;
-    
+
     await context.setBlockAds(false);
     await context.setLoadAllResources(true);
     await context.setLoadImages(true);
@@ -25,16 +25,16 @@ module.exports = {
     * even if we give huge time out and eventually throws timeout error
     */
     try {
-    await context.goto(url, {
-    timeout: timeout,
-    waitUntil: "load",
-    checkBlocked: true,
-    });
+      await context.goto(url, {
+        timeout: timeout,
+        waitUntil: 'load',
+        checkBlocked: true,
+      });
     } catch (e) {
-    console.log("page load time out ----> ", e);
+      console.log('page load time out ----> ', e);
     }
     if (zipcode) {
-    await dependencies.setZipCode({ url: url, zipcode: zipcode, storeId });
+      await dependencies.setZipCode({ url: url, zipcode: zipcode, storeId });
     }
-    },
+  },
 };
