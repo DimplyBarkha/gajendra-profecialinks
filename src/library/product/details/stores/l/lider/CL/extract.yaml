@@ -50,8 +50,9 @@ fields:
       should be "In Stock"
     xpath: //p[@class="agotado"][contains(text(),"Agotado")]
     regExp: (.+)
-    regExpReplace: In Stock
-    defaultValue: Out of Stock
+    regExpReplace: Out of Stock
+    defaultValue: In Stock
+    # defaultValue: Out of Stock
   - name: description
     singleValue: false
     description: Product description supplied by website - may be concatenanted from
@@ -293,7 +294,8 @@ fields:
     singleValue: true
     description: Unit of Measure Data for Total Fat content
     xpath: (//table[@class='nutrition-table']/tbody/tr[3]/td[1])[2]
-    regExp: \(.+\)
+    regExp: \((.+)\)
+    regExpReplace: $1
   - name: saturatedFatPerServing
     singleValue: true
     description: Nutritional Information for Saturated Fat content - Usually based
@@ -304,8 +306,8 @@ fields:
     singleValue: true
     description: Unit of Measure Data for Saturated Fat content
     xpath: (//table[@class='nutrition-table']/tbody/tr[4]/td[1])[2]
-    regExp: \(.+\)
-    # regExpReplace: (/[^a-zA-Z0-9 ]/g$1$3)
+    regExp: \((.+)\)
+    regExpReplace: $1
   - name: transFatPerServing
     singleValue: true
     description: Nutritional Information for Trans Fat content - Usually based on
@@ -316,7 +318,8 @@ fields:
     singleValue: true
     description: Unit of Measure Data for Trans Fat content
     xpath: (//table[@class='nutrition-table']/tbody/tr[7]/td[1])[2]
-    regExp: \(.+\)
+    regExp: \((.+)\)
+    regExpReplace: $1
   - name: cholesterolPerServing
     singleValue: true
     description: Nutritional Information for Cholesterol content - Usually based on
@@ -335,7 +338,8 @@ fields:
     singleValue: true
     description: Unit of Measure Data for Sodium content
     xpath: (//table[@class='nutrition-table']/tbody/tr[11]/td[1])[2]
-    regExp: \(.+\)
+    regExp: \((.+)\)
+    regExpReplace: $1
   - name: totalCarbPerServing
     singleValue: true
     description: Nutritional Information for Total Carbohydrate content - Usually
@@ -346,7 +350,8 @@ fields:
     singleValue: true
     description: Unit of Measure Data for Total Carbohydrate content
     xpath: (//table[@class='nutrition-table']/tbody/tr[9]/td[1])[2]
-    regExp: \(.+\)
+    regExp: \((.+)\)
+    regExpReplace: $1
   - name: dietaryFibrePerServing
     singleValue: true
     description: Nutritional Information for Dietary Fibre content - Usually based
@@ -365,7 +370,8 @@ fields:
     singleValue: true
     description: Unit of Measure Data for Total Sugar content
     xpath: (//table[@class='nutrition-table']/tbody/tr[10]/td[1])[2]
-    regExp: \(.+\)
+    regExp: \((.+)\)
+    regExpReplace: $1
   - name: proteinPerServing
     singleValue: true
     description: Nutritional Information for Protein content - Usually based on per
@@ -376,8 +382,8 @@ fields:
     singleValue: true
     description: Unit of Measure Data for Protein
     xpath: (//table[@class='nutrition-table']/tbody/tr[2]/td[1])[2]
-    regExp: \(.+\)
-    # regExpReplace: /[^a-zA-Z0-9 ]/g$1$3
+    regExp: \((.+)\)
+    regExpReplace: $1
   - name: vitaminAPerServing
     singleValue: true
     description: Nutritional Information for Vitamin A content - Usually based on
