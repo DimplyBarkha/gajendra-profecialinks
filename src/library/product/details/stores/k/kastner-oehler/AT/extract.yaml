@@ -153,11 +153,11 @@ fields:
   - name: manufacturerDescription
     singleValue: false
     description: The extended description of the product supplied by the lister
-    xpath: //div[@class="en_mdl_text__inner en_wrapper"] | //div[@class="en_mdl_image__caption en_spacer_top_small en_wysiwyg"] | //div[@id="enhancedContent"]
+    xpath: //div[@id="enhancedContent"]
   - name: manufacturerImages
     singleValue: false
     description: Images within the third party description
-    xpath: //div[@class="en_mdl_image__inner en_griditeminner"]/img/@src | //div[@id='aplusImage']
+    xpath: //div[@id='manufacturerImages']
   - name: name
     singleValue: true
     description: The product name
