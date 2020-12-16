@@ -7,17 +7,6 @@
 const transform = (data) => {
   for (const { group } of data) {
     for (const row of group) {
-      if (row.nameExtended) {
-        let text = '';
-        row.nameExtended.forEach(item => {
-          text = item.text.replace(/,/g,'');
-        });
-        row.nameExtended = [
-          {
-            text: text,
-          },
-        ];
-      }
       if (row.promotion) {
         let text = '';
         row.promotion.forEach(item => {
@@ -39,6 +28,18 @@ const transform = (data) => {
           }
         });
         row.variants = [
+          {
+            text,
+          },
+        ];
+      }
+
+      if (row.description) {
+        let text = '';
+        row.description.forEach(item => {
+          text = row.description.map(elm => elm.text.replace(/•/g, ' || ').replace(/(\d+)\./g,' || ').replace(/\s\s+/g, ' ').trim()).join(' || ');
+        });
+        row.description = [
           {
             text,
           },
