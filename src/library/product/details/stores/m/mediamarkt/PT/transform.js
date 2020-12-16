@@ -58,6 +58,13 @@ const transform = (data) => {
           item.text = `${item.text}€`;
         });
       }
+
+      if (row.manufacturerImages) {
+        const arr = row.manufacturerImages.filter(item => {
+          return !(item.text.indexOf('.gif') > -1);
+        });
+        console.log('arr', arr);
+      }
     }
   }
   data = cleanUp(data, undefined);

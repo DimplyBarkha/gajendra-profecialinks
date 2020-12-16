@@ -33,9 +33,9 @@ fields:
   # - name: mpc
   #   singleValue: false
   #   xpath: //td[contains(text(),'Modelo')]/following-sibling::td[1]
-  # - name: weightNet
-  #   singleValue: false
-  #   xpath: //td[contains(text(),'Peso')]/following-sibling::td[1]
+  - name: weightNet
+    singleValue: false
+    xpath: (//td[@class='spec-line-title']//span[contains(text(), 'Peso')]//..//following-sibling::td)[1]
   # - name: warranty
   #   singleValue: false
   #   xpath: //td[contains(text(),'Garantía del proveedor')]/following-sibling::td[1]
@@ -60,13 +60,14 @@ fields:
   - name: availabilityText
     singleValue: false
     xpath: //div[@id='custom-product-availablity-text']
-  # - name: description
-  #   singleValue: false
-  #   # xpath: //meta[@property="og:description"]/@content
+  - name: description
+    singleValue: false
+    xpath: //section[contains(@class, 'page-product-box')]//h3//a[contains(text(),'Descrição')]//..//following-sibling::div
   #   xpath: //div[contains(@class,'specifications-list')]/ul/li
-  # - name: descriptionBullets
-  #   singleValue: false
-  #   xpath: count(//div[contains(@class,'specifications-list')]/ul/li)
+  - name: descriptionBullets
+    singleValue: false
+    # xpath: count(//div[contains(@class,'specifications-list')]/ul/li)
+    defaultValue: '0'
   - name: brandText
     singleValue: false
     xpath: //h5[@itemprop='brand']//a//text()
@@ -91,20 +92,19 @@ fields:
     regExpReplace: $1
   - name: videos
     singleValue: false
-    # xpath: //meta[@itemprop="contentURL"]//@content
     xpath: //div[@id='views_block']//meta[@itemprop="contentURL"]//@content
   # - name: specifications
   #   singleValue: false
   #   xpath: //table[contains(@class, 'flix-std-specs-table')]//tr//td
-  # - name: manufacturerImages
-  #   singleValue: false
-  #   xpath: //div[contains(@class,'fb-product-information__product-information-tab')]//img/@src
-  # - name: manufacturerDescription
-  #   singleValue: false
-  #   xpath: //div[contains(@class,'fb-product-information__product-information-tab')]
-  # - name: color
-  #   singleValue: false
-  #   xpath: //div[contains(@class,'color')]//span[contains(@class,'normal')]
+  - name: manufacturerImages
+    singleValue: false
+    xpath: //div[contains(@class,'more_info_block')]//img//@src | //div[contains(@class,'more_info_block')]//img//@srcset
+  - name: manufacturerDescription
+    singleValue: false
+    xpath: //section[contains(@class, 'page-product-box')]//h3//a[contains(text(),'Descrição')]//..//following-sibling::div
+  - name: color
+    singleValue: false
+    xpath: (//td[@class='spec-line-title']//span[contains(text(), 'Cor')]//..//following-sibling::td)[1]
   - name: imageZoomFeaturePresent
     singleValue: false
     defaultValue: 'Yes'
