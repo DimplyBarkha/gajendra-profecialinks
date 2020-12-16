@@ -10,7 +10,7 @@ fields:
   - name: imageAlt
     singleValue: true
     description: Alt text of the main product image
-    xpath: //*[@id="js_prd_productImagesRoot"]/div[1]/div[3]/div/div[4]/img/@alt
+    xpath: //div[@class="js_prd_swiper-slide prd_swiper-slide js_prd_zoomWrapper swiper-slide-visible swiper-slide-active"]/a/img/@alt
   - name: alternateImages
     singleValue: false
     description: Other product images (not in manufacturer description)
@@ -31,13 +31,15 @@ fields:
     singleValue: true
     description: The stated undiscounted price for the product
     xpath: //*[@id="oldPriceAmount"]
-    regExp: (\d+),(\d+)
-    regExpReplace: $1.$2
+    regExp: (.*)
+    regExpReplace: €$1
   - name: price
     singleValue: true
     description: The offered price for the selected product variant - if a user
       clicks add to basket this is the price they would be charged
-    xpath: //div[@class='prd_price__main']/span/span/@content  
+    xpath: //html//div[@id='price']
+    #regExp: (.*)
+    #regExpReplace: $1
   - name: availabilityText
     singleValue: true
     description: Availability as described on page for the selected variant. If
