@@ -125,7 +125,7 @@ const transform = (data) => {
             //item.text = item.text.replace(/\n\s*\n\s*\n\s*/g, ' || ').trim();
             inf.push(item.text.replace(/\n\s*/g, ' : ').trim());
           });
-          row.specifications=[{"text":inf.join(' || ')}];
+          row.specifications=[{"text":inf.join(' || ').replace('Specification :','')}];
         }
         if (row.ratingCount) {
           row.ratingCount.forEach(item => {
@@ -134,7 +134,7 @@ const transform = (data) => {
         }
         if (row.aggregateRating) {
           row.aggregateRating.forEach(item => {          
-            item.text = item.text.replace('.', ',').trim();
+            item.text = item.text.trim();
           });
         }
       }

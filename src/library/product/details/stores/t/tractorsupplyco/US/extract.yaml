@@ -23,7 +23,7 @@ fields:
     xpath: //h3[@itemprop="offers"]/span[contains(@id,"listPrice_")]
   - name: price
     singleValue: false
-    xpath: //h3[@itemprop="offers" or @data-ae_domsib="2"]/span[contains(@id,"offerPrice_")]
+    xpath: //h3/span[contains(@id,"offerPrice_")]
   - name: description
     singleValue: false
     xpath: //div[@class="description-content"]
@@ -48,7 +48,7 @@ fields:
   - name: availabilityText
     singleValue: false
     defaultValue: In Stock
-  - name: brand
+  - name: brandText
     singleValue: false
     xpath: //input[@id="brandValue" and @type="hidden"]/@value
   - name: countryOfOrigin
@@ -90,4 +90,7 @@ fields:
     xpath: //div[@id="Specifications"]/table//td[text()="Warranty"]/parent::*/td[2]
   - name: packSize
     singleValue: false
-    xpath: //div[@id="Specifications"]/table//td[text()="Package Quantity"]/parent::*/td[2]
+    xpath: //div[@id="Specifications"]/table//td[text()="Package Size"]/parent::*/td[2]
+  - name: secondaryImageTotal
+    singleValue: false
+    xpath: count(//div[@id="thumbnails"]/div[not(@class="active")]//img/@src)
