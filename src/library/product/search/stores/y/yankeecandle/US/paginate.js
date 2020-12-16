@@ -4,7 +4,7 @@ module.exports = {
   parameterValues: {
     country: 'US',
     store: 'yankeecandle',
-    nextLinkSelector: 'ul[class="pagination pagination-sm pull-right"] li[class="btn-next-page "] a',
+    nextLinkSelector: null,
     mutationSelector: null,
     spinnerSelector: null,
     loadedSelector: 'body',
