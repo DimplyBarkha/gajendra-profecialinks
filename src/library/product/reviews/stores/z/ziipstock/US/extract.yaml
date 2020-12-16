@@ -22,7 +22,6 @@ fields:
     description: reviewer location
     xpath: //div[@class='review-location']//span[@data-location]
   - name: helpful
-    type: NUMBER
     description: Number of people who said the review was helpful
     xpath: //div[@class='stamped-review-vote']//a[@data-votes][1]
   - name: verifiedPurchase
@@ -41,7 +40,6 @@ fields:
     description: The product name
     xpath: ancestor::html//div[@class='product-single__info-wrapper']//h1[@class='product-single__title']
   - name: commentCount
-    type: NUMBER
     description: Number of comments on the review
   - name: reviewDate
     type: DATETIME

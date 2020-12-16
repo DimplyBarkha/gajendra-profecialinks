@@ -6,7 +6,7 @@ module.exports = {
     store: 'ziipstock',
     domain: 'ziipstock.com',
     loadedSelector: 'div.stamped-reviews',
-    noResultsXPath: null,
+    noResultsXPath: '//li[@id="tab-reviews" and @data-count="0"]',
     reviewUrl: null,
     sortButtonSelectors: null,
     zipcode: "''",
