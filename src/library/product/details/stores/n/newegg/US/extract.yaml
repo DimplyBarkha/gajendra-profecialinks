@@ -1,7 +1,7 @@
 singleRecord: true
 regionsSelector: null
 recordSelector: null
-recordXPath:
+recordXPath: null
 fields:
   - name: image
     singleValue: false
@@ -35,11 +35,9 @@ fields:
     singleValue: false
     xpath: //div[@class='product-price']//li[@class='price-was']
   - name: availabilityText
-    singleValue: false
-    xpath: //span[@class="availability"]
-    regExp: InStock
-    regExpReplace: In stock
-    defaultValue: Out of Stock
+    xpath: (//div[@class="product-inventory"]/strong)[1]
+    regExp: (.+).
+    regExpReplace: $1
   - name: shippingInfo
     singleValue: false
     xpath: (//div[contains(@class,'product-seller')]/text())[1] | (//div[@class="product-seller"]//a)[1]
