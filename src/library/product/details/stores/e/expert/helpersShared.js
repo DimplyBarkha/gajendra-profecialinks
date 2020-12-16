@@ -83,7 +83,7 @@ class SharedHelpers {
     }
     if (comparisionTableSelector) {
       comparisionText = await this.context.evaluate(async function (comparisionTableSelector) {
-        return (!!document.querySelector(comparisionTableSelector) && document.querySelector(comparisionTableSelector).offsetHeight > 0 && document.querySelector(comparisionTableSelector).offsetWidth) > 0        ;
+        return (!!document.querySelector(comparisionTableSelector) && document.querySelector(comparisionTableSelector).offsetHeight > 0 && document.querySelector(comparisionTableSelector).offsetWidth) > 0;
       }, comparisionTableSelector);
     }
     console.log(inBoxText);
@@ -111,7 +111,10 @@ class SharedHelpers {
         return videosArr.join(' || ');
       }, vidSelector, getAttrVidSrc);
     }
-    await this.context.goto(link);
+    await this.context.goto(link, {
+      timeout: 300000,
+      waitUntil: 'load',
+    });
     return { content: content, image: image, video: video, inBoxText: inBoxText, inBoxUrls: inBoxUrls, comparisionText: comparisionText };
   }
 }

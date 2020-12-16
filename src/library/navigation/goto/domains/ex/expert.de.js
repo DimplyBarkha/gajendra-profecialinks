@@ -27,6 +27,7 @@ module.exports = {
     // })
     let location = '';
 
+
     if (zipcode === 'ahlen') {
       location = '/ahlen';
     } else if (zipcode === 'saarwellingen') {
@@ -51,6 +52,14 @@ module.exports = {
     if (zipcode && zipcode.length) {
       // const zipcodeHref = document.querySelector('a[class^="widget-ExpertLogo--link"]') ? document.querySelector('a[class^="widget-ExpertLogo--link"]').getAttribute('href') : '';
       await context.waitForSelector('a[class^="widget-ExpertLogo-link"][href="' + location + '"]', { timeout: 75000 });
+    } else {
+      const ifSpecialist = await context.evaluate(function () {
+        return document.querySelector('a[class^="widget-ExpertLogo-link"]') ? (document.querySelector('a[class^="widget-ExpertLogo-link"]').href === 'https://www.expert.de/') : false;
+      });
+
+      if (!ifSpecialist) {
+        throw new Error('Not in right zipcode');
+      }
     }
 
     // if (zipcode.length) {

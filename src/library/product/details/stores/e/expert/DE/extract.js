@@ -46,6 +46,24 @@ module.exports = {
 
       console.log(obj)
 
+      await context.evaluate(async () => {
+        await new Promise((resolve) => setTimeout(resolve, 5000));
+
+        async function infiniteScroll () {
+          let prevScroll = document.documentElement.scrollTop;
+          while (true) {
+            window.scrollBy(0, document.documentElement.clientHeight);
+            await new Promise(resolve => setTimeout(resolve, 1000));
+            const currentScroll = document.documentElement.scrollTop;
+            if (currentScroll === prevScroll) {
+              break;
+            }
+            prevScroll = currentScroll;
+          }
+        }
+        await infiniteScroll();
+        await new Promise((resolve) => setTimeout(resolve, 8000));
+      });
       if (inBoxUrls.length) {
         inBoxUrls.forEach((element) => {
           sharedhelpers.addHiddenInfo('ii_inBoxUrls', element);
@@ -74,6 +92,7 @@ module.exports = {
     await context.waitForFunction(function (sel) {
       return Boolean(document.querySelector(sel));
     }, { timeout: 20000 }, 'body');
+
     return await context.extract(productDetails, { transform: transformParam });
   },
 };

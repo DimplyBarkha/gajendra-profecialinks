@@ -37,7 +37,9 @@ fields:
     description: The stated undiscounted price for the product
   - name: price
     singleValue: true
-    xpath: translate((//div[contains(@class, "widget-Grid-content")]//div[contains(@class, "widget-Column")]//div[contains(@class, "widget-Container-subContent")]//div[contains(@class, "widget-ArticlePrice-price")]//div[contains(@class, "widget-ArticlePrice-price")])[last()],'.',',')
+    xpath: translate(//div[contains(@class, "widget-Grid-content")]//div[contains(@class, "widget-Column")]//div[contains(@class, "widget-Container-subContent")]//div[contains(@class, "widget-ArticlePrice-priceWrapper")]/following-sibling::div/preceding-sibling::div[contains(@class, "widget-ArticlePrice-priceWrapper")], '.', ',')
+    # xpath: //div[contains(@class, "widget-Grid-content")]//div[contains(@class, "widget-Column")]//div[contains(@class, "widget-Container-subContent")]//div[contains(@class, "widget-ArticlePrice-price")]//div[contains(@class, "widget-ArticlePrice-price")]
+    # xpath: translate((//div[contains(@class, "widget-Grid-content")]//div[contains(@class, "widget-Column")]//div[contains(@class, "widget-Container-subContent")]//div[contains(@class, "widget-ArticlePrice-price")]//div[contains(@class, "widget-ArticlePrice-price")])[last()],'.',',')
     description: The offered price for the selected product variant - if a user
       clicks add to basket this is the price they would be charged
   - name: priceCurrency
