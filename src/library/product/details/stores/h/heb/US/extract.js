@@ -24,12 +24,12 @@ module.exports = {
     else result = elem ? elem.singleNodeValue : '';
     return result && result.trim ? result.trim() : result;
   };
-  const brand1 = getXpath("(//div[@class='block-right']//script[@type='application/json']/text())[1]", 'nodeValue');
-  if (brand1 != null){
-    var ubc = JSON.parse(brand1)
-    var brand = ubc[0].ecommerce.add.products[0].brand
-    addElementToDocument('brand', brand);
-  }
+  // const brand1 = getXpath("(//div[@class='block-right']//script[@type='application/json']/text())[1]", 'nodeValue');
+  // if (brand1 != null){
+  //   var ubc = JSON.parse(brand1)
+  //   var brand = ubc[0].ecommerce.add.products[0].brand
+  //   addElementToDocument('brand', brand);
+  // }
 });
 
 await context.extract(productDetails);
