@@ -47,9 +47,8 @@ async function implementation(
 
     let manufacturerDesc = [], manufacturerImages = [];
     let inBoxUrls = [];
-    let inBoxText = '';
-    let hasComparisionTable = '';
-
+    let inBoxText = [];
+    let hasComparisionTable = await context.evaluate(() => !!document.querySelector('[alt="Dyson Vergleichstabelle"]'));
     // if (await checkExistance(document.querySelector('iframe#loadbeeIframeId'))) {
     if (iframeLink !== null) {
       await context.goto(iframeLink, { timeout: 50000, waitUntil: 'networkidle0', checkBlocked: true });
@@ -85,23 +84,24 @@ async function implementation(
         return manufacturerImages;
       }, manufacturerImages);
 
-      inBoxText = await context.evaluate(async () => {
-        return document.querySelector('.in-the-box') ? document.querySelector('.in-the-box').innerText : '';
+      const witbData = await context.evaluate(async () => {
+        const getInTheBox = document.querySelector('div.in-the-box img');
+        const inBoxUrls = [];
+        const inBoxText = [];
+        if (getInTheBox) {
+          const getAllProducts = document.querySelectorAll('div.in-the-box div:not(.side-pics)');
+          for (let i = 0; i < getAllProducts.length; i++) {
+            inBoxUrls.push(getAllProducts[i].querySelector('img').getAttribute('src'));
+            inBoxText.push(getAllProducts[i].querySelector('p').innerText);
+          }
+        }
+        return { inBoxText, inBoxUrls };
       });
-
-      console.log('inBoxText!@!@!@');
-      console.log(inBoxText);
-
-      inBoxUrls = await context.evaluate(async () => {
-        const images = document.querySelectorAll('.in-the-box img');
-        const imagesSrc = [];
-        [...images].forEach((element) => {
-          imagesSrc.push(element.getAttribute('data-src'));
-        });
-        return imagesSrc;
-      });
-
+      inBoxText = witbData.inBoxText;
+      inBoxUrls = witbData.inBoxUrls;
+      if(!hasComparisionTable)
       hasComparisionTable = await context.evaluate(async () => {
+        if(document.querySelector('img[alt="Dyson Vergleichstabelle"]')) return true;
         return (!!document.querySelector('.compare-headline') && document.querySelector('.compare-headline').offsetHeight > 0 && document.querySelector('.compare-headline').offsetWidth) > 0;
       });
     }
@@ -141,12 +141,12 @@ async function implementation(
           addHiddenDiv('aplusImages', aplusImages);
         }
 
-        if (inBoxUrls.length) {
-          inBoxUrls.forEach((element) => {
-            addHiddenDiv('ii_inBoxUrls', element);
-          });
-        }
-        addHiddenDiv('ii_inBoxText', inBoxText);
+        inBoxUrls.forEach((element) => {
+          addHiddenDiv('ii_inBoxUrls', element);
+        });
+        inBoxText.forEach((element) => {
+            addHiddenDiv('ii_inBoxText', element);
+        });
         addHiddenDiv('ii_comparisionText', hasComparisionTable);
         // Video API call
         var element = (document.querySelectorAll("div[class='videoThumbnails'] > div[class*='video']")) ? document.querySelectorAll("div[class='videoThumbnails'] > div[class*='video']") : null;
