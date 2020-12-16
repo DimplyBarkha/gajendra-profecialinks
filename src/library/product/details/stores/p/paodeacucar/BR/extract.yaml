@@ -272,7 +272,6 @@ fields:
   - name: numberOfServingsInPackage
     singleValue: true
     description: Suggested number of servings of the product.
-    type: NUMBER
   - name: caloriesPerServing
     singleValue: true
     xpath: //tbody[contains(@class,"table-liststyle__ValuesContainer")]
@@ -284,14 +283,12 @@ fields:
     singleValue: true
     description: Nutritional Information for Calories From Fat content - Usually
       based on per 100g serving
-    type: NUMBER
   - name: totalFatPerServing
     singleValue: true
     xpath: //tbody[contains(@class,"table-liststyle__ValuesContainer")]
-    regExp: (Gordura[s]?\s+[t,T]otais)\s*(\d+,?\d*)\s*([K,k,m]?g)
+    regExp: (?<=Gordura[s]?\s+[t,T]otais\s*)\d+,?\d*\s*(?=[K,k,m]?g)
     description: Nutritional Information for Total Fat content - Usually based on
       per 100g serving
-    type: NUMBER
   - name: totalFatPerServingUom
     singleValue: true
     xpath: //tbody[contains(@class,"table-liststyle__ValuesContainer")]
@@ -300,10 +297,9 @@ fields:
   - name: saturatedFatPerServing
     singleValue: true
     xpath: //tbody[contains(@class,"table-liststyle__ValuesContainer")]
-    regExp: (Gordura[s]?\s+[s,S]aturadas)\s*(\d+,?\d*)\s*([K,k,m]?g)
+    regExp: (?<=Gordura[s]?\s+[s,S]aturadas\s*)\d+,?\d*\s*(?=[K,k,m]?g)
     description: Nutritional Information for Saturated Fat content - Usually based
       on per 100g serving
-    type: NUMBER
   - name: saturatedFatPerServingUom
     singleValue: true
     xpath: //tbody[contains(@class,"table-liststyle__ValuesContainer")]
@@ -312,10 +308,9 @@ fields:
   - name: transFatPerServing
     singleValue: true
     xpath: //tbody[contains(@class,"table-liststyle__ValuesContainer")]
-    regExp: (Gordura[s]?\s+[T,t]rans)\s*(\d+,?\d*)\s*([K,k,m]?g)
+    regExp: (?<=Gordura[s]?\s+[T,t]rans\s*)\d+,?\d*\s*(?=[K,k,m]?g)
     description: Nutritional Information for Trans Fat content - Usually based on
       per 100g serving
-    type: NUMBER
   - name: transFatPerServingUom
     singleValue: true
     xpath: //tbody[contains(@class,"table-liststyle__ValuesContainer")]
@@ -324,10 +319,9 @@ fields:
   - name: cholesterolPerServing
     singleValue: true
     xpath: //tbody[contains(@class,"table-liststyle__ValuesContainer")]
-    regExp: Colesterol\s*(\d+,?\d*)\s*([K,k,m]?g)
+    regExp: (?<=Colesterol\s*)\d+,?\d*\s*(?=[K,k,m]?g)
     description: Nutritional Information for Cholesterol content - Usually based on
       per 100g serving
-    type: NUMBER
   - name: cholesterolPerServingUom
     singleValue: true
     xpath: //tbody[contains(@class,"table-liststyle__ValuesContainer")]
@@ -336,10 +330,9 @@ fields:
   - name: sodiumPerServing
     singleValue: true
     xpath: //tbody[contains(@class,"table-liststyle__ValuesContainer")]
-    regExp: Sódio\s*(\d+,?\d*)\s*([K,k,m]?g)
+    regExp: (?<=Sódio\s*)\d+,?\d*\s*(?=[K,k,m]?g)
     description: Nutritional Information for Sodium content - Usually based on per
       100g serving
-    type: NUMBER
   - name: sodiumPerServingUom
     singleValue: true
     xpath: //tbody[contains(@class,"table-liststyle__ValuesContainer")]
@@ -348,10 +341,9 @@ fields:
   - name: totalCarbPerServing
     singleValue: true
     xpath: //tbody[contains(@class,"table-liststyle__ValuesContainer")]
-    regExp: Carboidrato[s]?\s*(\d+,?\d*)\s*([K,k,m]?g)
+    regExp: (?<=Carboidrato[s]?\s*)\d+,?\d*\s*(?=[K,k,m]?g)
     description: Nutritional Information for Total Carbohydrate content - Usually
       based on per 100g serving
-    type: NUMBER
   - name: totalCarbPerServingUom
     singleValue: true
     xpath: //tbody[contains(@class,"table-liststyle__ValuesContainer")]
@@ -360,7 +352,7 @@ fields:
   - name: dietaryFibrePerServing
     singleValue: true
     xpath: //tbody[contains(@class,"table-liststyle__ValuesContainer")]
-    regExp: (Fibra\s+[a,A]limentar)\s*(\d+,?\d*)\s*([K,k,m]?g)
+    regExp: (?<=Fibra\s+[a,A]limentar\s*)\d+,?\d*\s*(?=[K,k,m]?g)
     description: Nutritional Information for Dietary Fibre content - Usually based
       on per 100g serving
   - name: dietaryFibrePerServingUom
@@ -371,10 +363,9 @@ fields:
   - name: totalSugarsPerServing
     singleValue: true
     xpath: //tbody[contains(@class,"table-liststyle__ValuesContainer")]
-    regExp: Açúcar\s*(\d+,?\d*)\s*([K,k,m]?g)
+    regExp: (?<=Açúcar\s*)\d+,?\d*\s*(?=[K,k,m]?g)
     description: Nutritional Information for Total Sugar content - Usually based on
       per 100g serving
-    type: NUMBER
   - name: totalSugarsPerServingUom
     singleValue: true
     xpath: //tbody[contains(@class,"table-liststyle__ValuesContainer")]
@@ -383,10 +374,9 @@ fields:
   - name: proteinPerServing
     singleValue: true
     xpath: //tbody[contains(@class,"table-liststyle__ValuesContainer")]
-    regExp: Proteína[s]?\s*(\d+,?\d*)\s*([K,k,m]?g)
+    regExp: (?<=Proteína[s]?\s*)\d+,?\d*\s*(?=[K,k,m]?g)
     description: Nutritional Information for Protein content - Usually based on per
       100g serving
-    type: NUMBER
   - name: proteinPerServingUom
     singleValue: true
     xpath: //tbody[contains(@class,"table-liststyle__ValuesContainer")]
@@ -395,10 +385,9 @@ fields:
   - name: vitaminAPerServing
     singleValue: true
     xpath: //tbody[contains(@class,"table-liststyle__ValuesContainer")]
-    regExp: ([V,v]itamina\s*[A,a])\s*(\d+,?\d*)\s*([K,k,m]?g)
+    regExp: (?<=[V,v]itamina\s*+[A,a]\s*)\d+,?\d*\s*(?=[K,k,m]?g)
     description: Nutritional Information for Vitamin A content - Usually based on
       per 100g serving
-    type: NUMBER
   - name: vitaminAPerServingUom
     singleValue: true
     xpath: //tbody[contains(@class,"table-liststyle__ValuesContainer")]
@@ -407,10 +396,9 @@ fields:
   - name: vitaminCPerServing
     singleValue: true
     xpath: //tbody[contains(@class,"table-liststyle__ValuesContainer")]
-    regExp: ([V,v]itamina\s*[C,c])\s*(\d+,?\d*)\s*([K,k,m]?g)
+    regExp: (?<=[V,v]itamina\s*+[C,c]\s*)\d+,?\d*\s*(?=[K,k,m]?g)
     description: Nutritional Information for Vitamin C content - Usually based on
       per 100g serving
-    type: NUMBER
   - name: vitaminCPerServingUom
     xpath: //tbody[contains(@class,"table-liststyle__ValuesContainer")]
     regExp: (?<=[V,v]itamina\s*[C,c]\s*\d+,?\d*\s*)[K,k,m]?g
@@ -419,10 +407,9 @@ fields:
   - name: calciumPerServing
     singleValue: true
     xpath: //tbody[contains(@class,"table-liststyle__ValuesContainer")]
-    regExp: Cálcio\s*(\d+,?\d*)\s*([K,k,m]?g)
+    regExp: (?<=Cálcio\s*)\d+,?\d*\s*(?=[K,k,m]?g)
     description: Nutritional Information for Calcium content - Usually based on per
       100g serving
-    type: NUMBER
   - name: calciumPerServingUom
     singleValue: true
     xpath: //tbody[contains(@class,"table-liststyle__ValuesContainer")]
@@ -431,10 +418,9 @@ fields:
   - name: ironPerServing
     singleValue: true
     xpath: //tbody[contains(@class,"table-liststyle__ValuesContainer")]
-    regExp: Ferro\s*(\d+,?\d*)\s*([K,k,m]?g)
+    regExp: (?<=Ferro\s*)\d+,?\d*\s*(?=[K,k,m]?g)
     description: Nutritional Information for Iron content - Usually based on per
       100g serving
-    type: NUMBER
   - name: ironPerServingUom
     singleValue: true
     xpath: //tbody[contains(@class,"table-liststyle__ValuesContainer")]
@@ -446,10 +432,9 @@ fields:
   - name: magnesiumPerServing
     singleValue: true
     xpath: //tbody[contains(@class,"table-liststyle__ValuesContainer")]
-    regExp: Magnésio\s*(\d+,?\d*)\s*([K,k,m]?g)
+    regExp: (?<=Magnésio\s*)\d+,?\d*\s*(?=[K,k,m]?g)
     description: Nutritional Information for Magnesium content - Usually based on
       per 100g serving
-    type: NUMBER
   - name: magnesiumPerServingUom
     xpath: //tbody[contains(@class,"table-liststyle__ValuesContainer")]
     regExp: (?<=Magnésio\s*\d+,?\d*\s*)[K,k,m]?g
@@ -458,10 +443,9 @@ fields:
   - name: saltPerServing
     singleValue: true
     xpath: //tbody[contains(@class,"table-liststyle__ValuesContainer")]
-    regExp: Sal\s*(\d+,?\d*)\s*([K,k,m]?g)
+    regExp: (?<=Sal\s*)\d+,?\d*\s*(?=[K,k,m]?g)
     description: Nutritional Information for Salt content - Usually based on per
       100g serving
-    type: NUMBER
   - name: saltPerServingUom
     singleValue: true
     xpath: //tbody[contains(@class,"table-liststyle__ValuesContainer")]
