@@ -4,7 +4,7 @@ module.exports = {
   parameterValues: {
     domain: 'mediaworld.it',
     prefix: null,
-    suffix: null,
+    suffix: 'informazioni/mappa-del-sito',
     subdomain: null,
     url: null,
     country: 'IT',
