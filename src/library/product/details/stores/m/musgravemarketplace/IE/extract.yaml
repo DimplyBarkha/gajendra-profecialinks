@@ -33,9 +33,6 @@ fields:
 - name: brandText
   singleValue: false
   xpath: //table[@id="tab_code"]//tr[contains(.,'Brand:')]/td
-- name: manufacturer
-  singleValue: false
-  xpath: //table[@id="tab_code"]//tr[contains(.,'Brand:')]/td
 - name: metaKeywords
   singleValue: false
   xpath: //meta[@name="keywords"]/@content
@@ -105,9 +102,6 @@ fields:
 - name: calciumPerServingUom
   singleValue: false
   xpath: //div[@id="nutrition"]//table//tr[contains(.,'Calcium')]/td[3]
-- name: promotion
-  singleValue: false
-  xpath: //div[@id="tab_txt_promotions_items"]
 - name: variantId
   singleValue: false
   xpath: //tr[@id="prod_code"]  
@@ -141,3 +135,6 @@ fields:
 - name: magnesiumPerServingUom
   singleValue: false
   xpath: //div[@id="nutrition"]//table//tr[contains(.,'Magnesium')]/td[3]
+- name: ingredientsList
+  singleValue: false
+  xpath: //div[@id='ingredients'] 
