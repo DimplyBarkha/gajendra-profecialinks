@@ -37,7 +37,7 @@ fields:
     regExp: :\s(.+)
     regExpReplace: $1
   - name: description
-    xpath: //span[contains(text(),"About")]/parent::div/following-sibling::div[1] | //span[contains(text(),"Features")]/parent::div/following-sibling::div[1]//ul/li | //span[contains(text(),"FEATURES")]/parent::div/following-sibling::div[1] | //span[contains(text(),"Features")]/parent::div/following-sibling::div[1]//p
+    xpath: //span[contains(text(),"About")]/parent::div/following-sibling::div[1] | //span[contains(text(),"Features")]/parent::div/following-sibling::div[1]//ul/li | //span[contains(text(),"FEATURES")]/parent::div/following-sibling::div[1] | //span[contains(text(),"Features")]/parent::div/following-sibling::div[1]//p | //span[contains(text(),"How to Use")]/parent::div/following-sibling::div[1]
   - name: variantId
     xpath: //link[@rel="canonical"]/@href
     regExp: (\/)([0-9-\d?]+)
