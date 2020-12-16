@@ -98,16 +98,13 @@ module.exports = {
         console.log('object!@12');
         console.log(obj);
 
-        if (inBoxUrls.length) {
-          inBoxUrls.forEach((element) => {
-            sharedhelpers.addHiddenInfo('ii_inBoxUrls', element);
-          });
-        }
+        inBoxUrls.forEach((element) => {
+          sharedhelpers.addHiddenInfo('ii_inBoxUrls', element);
+        });
+        inBoxText.forEach((element) => {
+          sharedhelpers.addHiddenInfo('ii_inBoxText', element);
+        });
         sharedhelpers.addHiddenInfo('ii_comparisionText', comparisionText);
-        console.log('inBoxText');
-        console.log(inBoxText);
-        console.log(inBoxText);
-        sharedhelpers.addHiddenInfo('ii_inBoxText', inBoxText);
 
         await sharedhelpers.addHiddenInfo('manufContent', content);
         await sharedhelpers.addHiddenInfo('manufImg', image.join(' || '));
