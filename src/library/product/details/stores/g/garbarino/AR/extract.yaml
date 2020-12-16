@@ -10,6 +10,7 @@ fields:
   - name: imageAlt
     singleValue: false
     description: Alt text of the main product image
+    xpath: //div[@class="gb-main-detail-gallery-grid-img-full"]/img/@alt
   - name: alternateImages
     singleValue: false
     description: Other product images (not in manufacturer description)
@@ -29,6 +30,7 @@ fields:
   - name: listPrice
     singleValue: false
     description: The stated undiscounted price for the product
+    xpath: //*[@class="value-note"]/del
   - name: price
     singleValue: false
     description: The offered price for the selected product variant - if a user
@@ -39,9 +41,10 @@ fields:
     description: Availability as described on page for the selected variant. If
       there is no availability but the product can be added to cart, this field
       should be "In Stock"
-    regExp: (.+)
-    regExpReplace: In Stock
-    defaultValue: Out of Stock
+    xpath: //button[@id="purchaseButton"]
+    # regExp: (.+)
+    # regExpReplace: In Stock
+    # defaultValue: Out of Stock
   - name: description
     singleValue: false
     description: Product description supplied by website - may be concatenanted from
@@ -54,6 +57,7 @@ fields:
     singleValue: false
     description: Product brand shown - this may actually NOT be just a brand name,
       e.g. "Visit the Gillette Store"
+    xpath: //h3[@class="gb-tech-spec-module-list-title" and contains(text(),"Marca")]/following-sibling::span[@class="gb-tech-spec-module-list-description"]
   - name: manufacturer
     singleValue: false
     description: Product manufacturer
@@ -65,9 +69,11 @@ fields:
   - name: weightNet
     singleValue: false
     description: Net weight as described on the page
+    xpath: //h3[contains(text(),"Peso")][1]/following-sibling::span
   - name: weightGross
     singleValue: false
     description: Gross weight as described on the page
+    xpath: //h3[@class="gb-tech-spec-module-list-title" and contains(text(),"Peso de la Caja")]/following-sibling::span
   - name: gtin
     singleValue: false
     description: GTIN code (includes UPC/EAN)
@@ -77,9 +83,11 @@ fields:
   - name: variantId
     singleValue: false
     description: Identifier for a variant from a store where variants share the same sku
+    xpath: //body/@data-product-id | //div[@class="gb-rating"]/@data-product-id 
   - name: mpc
     singleValue: false
     description: The manufacturer model code (unique) of the product
+    xpath: //h3[@class="gb-tech-spec-module-list-title" and contains(text(),"Modelo")]/following-sibling::span
   - name: packSize
     singleValue: false
     description: The number of packs in the product offer (if stated separately on
@@ -97,13 +105,17 @@ fields:
     singleValue: false
     description: The number of ratings
     type: NUMBER
+    xpath: //span[@class="gb-rating-legend" and contains(text(), "opinion")]
+    regExp: (.*)\sopini
+    regExpReplace: $1
   - name: aggregateRatingText
     singleValue: false
     description: The stated aggregate rating
+    xpath: //h3[@id="review-section"]/following-sibling::*[@class="gb-product-reviews-rating"]/strong
   - name: aggregateRating
     singleValue: false
     description: The stated aggregate rating normalized to be out of 5
-    type: NUMBER
+    xpath: //h3[@id="review-section"]/following-sibling::*[@class="gb-product-reviews-rating"]/strong
   - name: shippingInfo
     singleValue: false
     description: Shipping information for the product
@@ -116,7 +128,7 @@ fields:
   - name: variantCount
     singleValue: false
     description: Number of variants listed
-    type: NUMBER
+    defaultValue: '0'
   - name: color
     singleValue: false
     description: A textual description of the colour
@@ -126,9 +138,11 @@ fields:
   - name: manufacturerDescription
     singleValue: false
     description: The extended description of the product supplied by the lister
+    xpath: //div[@id="gb_enhancedContent"]
   - name: manufacturerImages
     singleValue: false
     description: Images within the third party description
+    xpath: //div[@id="flix-inpage"]//img/@src
   - name: videos
     singleValue: false
     description: URLs of videos on page
@@ -387,15 +401,18 @@ fields:
   - name: specifications
     singleValue: false
     description: The physical dimensions of the product including packaging.
+    xpath: //div[@id="gb_specification"]
   - name: warranty
     singleValue: false
     description: Guarantee associated with the product
+    xpath: //h3[@class="gb-tech-spec-module-list-title" and contains(text(),"Duración")]/following-sibling::span
   - name: storage
     singleValue: false
     description: Suggested storage location for product
   - name: countryOfOrigin
     singleValue: false
     description: The country from which the product originates
+    xpath: //h3[@class="gb-tech-spec-module-list-title" and contains(text(),"Origen")]/following-sibling::span
   - name: allergyAdvice
     singleValue: false
     description: Allergy information associated with the product
@@ -420,6 +437,7 @@ fields:
   - name: promotion
     singleValue: false
     description: promotion text on product page
+    xpath: //*[@class="value-note"]/span[@class="value-item--discount"]
   - name: alcoholContent
     singleValue: false
     description: Alcohol content information
