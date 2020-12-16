@@ -16,7 +16,7 @@ async function implementation (inputs, parameters, context, dependencies) {
         const parentArr = parent.split('|');
         parentArr.pop();
         categories.push(`${parentArr.join('|')}|${obj[key].categoryName}|${obj[key].code}`);
-      } else categories.push(`${obj[key].categoryName}/${obj[key].code}`);
+      } else categories.push(`${obj[key].categoryName}|${obj[key].code}`);
       if (obj[key].children && Object.keys(obj[key].children).length) {
         categories = loopCategory(obj[key].children, `${obj[key].categoryName}|${obj[key].code}`);
       }
