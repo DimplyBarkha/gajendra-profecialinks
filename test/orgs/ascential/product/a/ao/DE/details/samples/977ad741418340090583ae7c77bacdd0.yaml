@@ -2,7 +2,7 @@ input:
   id: 38238
   _url: http://ao.de
 extractions:
-  - html: https://workbench.import.io/html/run=ed0bc679-e654-4f77-a96b-062182e673c2/task=48136adc-b87a-46a4-a39e-ee222328b6f5/1d42b1c9-a45c-420e-a7c8-c5b28f02fef2.html
+  - html: https://workbench.import.io/html/run=1528a50d-c86b-42ae-a06d-0a68087c59e3/task=f558ac19-c5b2-49ed-8a59-1acbd6aa3979/73251ebd-2002-4e64-bed0-5c656d1987d1.html
     extractionConfigId: product/details/stores/a/ao/DE/extract
     data:
       - group:
@@ -10,29 +10,34 @@ extractions:
               - text: https://www.ao.de/produkt/wa14671w-amica-waschmaschinen-wei%c3%9f-38238-1.aspx?cmredirectionvalue=38238
                 xpath: /html/body/div[9]
             image:
-              - text: https://media.ao.com/produktbild/groß/wa14671w_wh_amica_waschmaschine_1_ux_l.jpg
+              - text: https://f1.media.brightcove.com/8/710857100001/710857100001_5634497037001_5634449427001-vs.jpg?pubId=710857100001&videoId=5634449427001
                 xpath: /html/body/div[1]/div[1]/main[1]/div[1]/div[1]/div[1]/section[1]/section[1]/div[1]/div[1]/div[2]/ul[1]/li[3]/div[1]/img[1]/@src
             imageAlt:
               - text: Amica WA 14671 W Waschmaschine, 7 kg, 1400 U/Min, A+++ - WA 14671 W_WH - 1
                 xpath: /html/body/div[1]/div[1]/main[1]/div[1]/div[1]/div[1]/section[1]/section[1]/div[1]/div[1]/div[2]/ul[1]/li[3]/div[1]/img[1]/@alt
             alternateImages:
-              - text: https://media.ao.com/produktbild/groß/wa14671w_wh_amica_waschmaschine_3_ux_l.jpg
-                xpath: /html/body/ol[1]/img[2]/@src
-              - text: https://media.ao.com/produktbild/groß/wa14671w_wh_amica_waschmaschine_4_ux_l.jpg
-                xpath: /html/body/ol[1]/img[3]/@src
-              - text: https://media.ao.com/produktbild/groß/wa14671w_wh_amica_waschmaschine_5_ux_l.jpg
-                xpath: /html/body/ol[1]/img[4]/@src
-              - text: https://media.ao.com/produktbild/groß/wa14671w_wh_amica_waschmaschine_2_ux_l.jpg
-                xpath: /html/body/ol[1]/img[5]/@src
-              - text: https://media.ao.com/produktbild/groß/wa14671w_wh_amica_waschmaschine_6_ux_l.jpg
-                xpath: /html/body/ol[1]/img[6]/@src
-              - text: https://media.ao.com/produktbild/groß/wa14671w_wh_amica_waschmaschine_7_ux_l.jpg
-                xpath: /html/body/ol[1]/img[7]/@src
               - text: https://media.ao.com/produktbild/groß/wa14671w_wh_amica_waschmaschine_8_ux_l.jpg
-                xpath: /html/body/ol[1]/img[8]/@src
+                xpath: /html/body/ol[1]/img[1]/@src
+              - text: https://media.ao.com/produktbild/groß/wa14671w_wh_amica_waschmaschine_7_ux_l.jpg
+                xpath: /html/body/ol[1]/img[2]/@src
+              - text: https://media.ao.com/produktbild/groß/wa14671w_wh_amica_waschmaschine_6_ux_l.jpg
+                xpath: /html/body/ol[1]/img[3]/@src
+              - text: https://media.ao.com/produktbild/groß/wa14671w_wh_amica_waschmaschine_2_ux_l.jpg
+                xpath: /html/body/ol[1]/img[4]/@src
+              - text: https://media.ao.com/produktbild/groß/wa14671w_wh_amica_waschmaschine_5_ux_l.jpg
+                xpath: /html/body/ol[1]/img[5]/@src
+              - text: https://media.ao.com/produktbild/groß/wa14671w_wh_amica_waschmaschine_4_ux_l.jpg
+                xpath: /html/body/ol[1]/img[6]/@src
+              - text: https://media.ao.com/produktbild/groß/wa14671w_wh_amica_waschmaschine_3_ux_l.jpg
+                xpath: /html/body/ol[1]/img[7]/@src
             metaKeywords:
               - text: Waschmaschinen, Amica, WA 14671 W, Freistehend, Weiß
                 xpath: /html/head[1]/meta[14]/@content
+            category:
+              - text: Startseite
+                xpath: /html/body/div[1]/div[1]/div[5]/div[1]/ul[1]/li[1]/a[1]
+              - text: Waschmaschinen
+                xpath: /html/body/div[1]/div[1]/div[5]/div[1]/ul[1]/li[2]/a[1]
             nameExtended:
               - text: Amica WA 14671 W Waschmaschine, 7 kg, 1400 U/Min, A+++
                 xpath: /html/body/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[1]/h1[1]
@@ -40,7 +45,7 @@ extractions:
               - text: €659
                 xpath: /html/body/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[1]/div[4]/div[1]/div[1]/div[1]/div[2]/span[1]
             price:
-              - text: 299,0
+              - text: 310,0
                 xpath: /html/body/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[1]/div[4]/div[1]/div[1]/span[1]/@content
             availabilityText:
               - text: Out of stock
@@ -60,6 +65,9 @@ extractions:
                   sondern vor allem sparsamen Betrieb!"
                 xpath: /html/body/div[1]/div[1]/main[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]
             brandText:
+              - text: Amica
+                xpath: /html/body/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[1]/div[1]
+            manufacturer:
               - text: Amica
                 xpath: /html/body/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[1]/div[1]
             gtin:
@@ -443,21 +451,20 @@ extractions:
                    Ja
                 xpath: /html/body/div[1]/div[1]/main[1]/div[1]/section[1]/div[1]/div[2]/div[8]/div[1]/div[1]/table[1]/tbody[1]/tr[2]
             promotion:
-              - text: Ersparnis €360
+              - text: Ersparnis €349
                 xpath: /html/body/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[1]/div[4]/div[1]/div[1]/div[1]/div[1]
             additionalDescBulletInfo:
-              - text: >-
-                  AutoSensor Mengenautomatik - Passt automatisch den Energie-
-                  und Wasserbedarf an
-                   
-                  Sport-Programm - reinigt selbst verschwitzte Trikots
-                   
-                  Baby-Programm - hygienische Sauberkeit für die Kleidung Ihres Babys
-                   
-                  A+++ - sparsam, nachhaltig und fortschrittlich
-                   
-                   Maße in cm - H85 x B59,5 x T49,5
-                xpath: /html/body/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[3]/div[2]/div[1]
+              - text: AutoSensor Mengenautomatik - Passt automatisch den Energie- und
+                  Wasserbedarf an
+                xpath: /html/body/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[3]/div[2]/div[1]/ul[1]/li[1]
+              - text: Sport-Programm - reinigt selbst verschwitzte Trikots
+                xpath: /html/body/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[3]/div[2]/div[1]/ul[1]/li[2]
+              - text: Baby-Programm - hygienische Sauberkeit für die Kleidung Ihres Babys
+                xpath: /html/body/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[3]/div[2]/div[1]/ul[1]/li[3]
+              - text: A+++ - sparsam, nachhaltig und fortschrittlich
+                xpath: /html/body/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[3]/div[2]/div[1]/ul[1]/li[4]
+              - text: Maße in cm - H85 x B59,5 x T49,5
+                xpath: /html/body/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[3]/div[2]/div[1]/ul[1]/li[5]
             energyEfficiency:
               - text: A+++
                 xpath: /html/body/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[1]/div[4]/div[2]/span[1]/div[1]
@@ -483,5 +490,7 @@ extractions:
               - text: "5"
             variantCount:
               - text: "0"
+            hasComparisonTable:
+              - text: "false"
         xpath: /
-    timestamp: 1607956603843
+    timestamp: 1608113481547

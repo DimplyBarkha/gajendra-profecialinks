@@ -33,7 +33,7 @@ fields:
 - name: category
   singleValue: false
   description: The categories (e.g. from breadcrumbs)
-  xpath: //ul[@id="breadcrumb"]/li[@class="xh-highlight"]
+  xpath: //ul[@id='breadcrumb']/li/a
 - name: nameExtended
   singleValue: true
   description: The product name, prefixing "${brand} - " if not included in "name"
@@ -71,6 +71,7 @@ fields:
 - name: manufacturer
   singleValue: true
   description: Product manufacturer
+  xpath: //div[@itemprop="brand"]
 - name: quantity
   singleValue: true
   description: Quantity as described on the page
@@ -467,7 +468,7 @@ fields:
 - name: additionalDescBulletInfo
   singleValue: false
   description: 
-  xpath: //section[@class="productOverview" and @data-product-overview]//div[@class="prose text-body-sm"]
+  xpath: //section[@class="productOverview" and @data-product-overview]//div[@class="prose text-body-sm"]//li
 - name: prop65Warning
   singleValue: true
   description: 

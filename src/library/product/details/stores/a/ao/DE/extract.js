@@ -47,12 +47,12 @@ module.exports = {
       );
       if (initImg && initImg.stringValue) {
         do {
-          var nextButt = document.getElementById('mediaGalleryNext');
+          var nextButt = document.getElementById('mediaGalleryPrev');
           await new Promise((resolve, reject) => setTimeout(resolve, 1000));
           if (nextButt) {
             nextButt.click();
             var currImg = document.evaluate(
-              "//li[@id='carousel-right-image' and @data-media-type='image']//img/@src",
+              "//li[@id='carousel-left-image' and @data-media-type='image']//img/@src",
               document,
               null,
               XPathResult.STRING_TYPE,

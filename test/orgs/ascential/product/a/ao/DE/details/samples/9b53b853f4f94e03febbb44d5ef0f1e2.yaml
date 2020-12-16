@@ -2,7 +2,7 @@ input:
   id: 57697
   _url: http://ao.de
 extractions:
-  - html: https://workbench.import.io/html/run=ed0bc679-e654-4f77-a96b-062182e673c2/task=f7f56871-6ba7-4562-b39f-20770464801c/31d24e02-b42e-425d-a090-f272a668d1d5.html
+  - html: https://workbench.import.io/html/run=1528a50d-c86b-42ae-a06d-0a68087c59e3/task=873fed28-d62b-4935-b1c5-046bf0df2e09/2aa2ef92-e760-4e7f-b26b-9b3d66d430e9.html
     extractionConfigId: product/details/stores/a/ao/DE/extract
     data:
       - group:
@@ -10,27 +10,32 @@ extractions:
               - text: https://www.ao.de/produkt/k34242if-miele-k%c3%bchlschr%c3%a4nke-wei%c3%9f-57697-30.aspx?cmredirectionvalue=57697
                 xpath: /html/body/div[9]
             image:
-              - text: https://assets.products-live.ao.com/Images/83955882-3ee6-4baa-a4b4-8b0446d9ff2b/1280x1280/k34242if_wh_miele_kue_3_ux.jpg
-                xpath: /html/body/div[1]/div[1]/main[1]/div[1]/div[1]/section[1]/section[1]/div[1]/div[1]/div[2]/ul[1]/li[3]/div[1]/img[1]/@src
+              - text: https://assets.products-live.ao.com/Images/749b2f30-a032-4e03-b651-424fd79b33bb/1280x1280/k34242if_wh_miele_kuehlschrank_dim1.jpg
+                xpath: /html/body/div[1]/div[1]/main[1]/div[1]/div[1]/section[1]/section[1]/div[1]/div[1]/div[2]/ul[1]/li[3]/img[1]/@src
             imageAlt:
               - text: Miele K34242iF Einbau-Kühlschrank
-                xpath: /html/body/div[1]/div[1]/main[1]/div[1]/div[1]/section[1]/section[1]/div[1]/div[1]/div[2]/ul[1]/li[3]/div[1]/img[1]/@alt
+                xpath: /html/body/div[1]/div[1]/main[1]/div[1]/div[1]/section[1]/section[1]/div[1]/div[1]/div[2]/ul[1]/li[3]/img[1]/@alt
             alternateImages:
-              - text: https://assets.products-live.ao.com/Images/749b2f30-a032-4e03-b651-424fd79b33bb/1280x1280/k34242if_wh_miele_kuehlschrank_dim1.jpg
-                xpath: /html/body/ol[1]/img[1]/@src
-              - text: https://assets.products-live.ao.com/Images/2264ecf7-b829-4f31-8ded-c812c9421a65/1280x1280/k34242if_wh_miele_kue_2_ux.jpg
-                xpath: /html/body/ol[1]/img[2]/@src
-              - text: https://assets.products-live.ao.com/Images/231e0949-c8c5-4757-acab-90fcea6adf06/1280x1280/k34242if_wh_miele_kue_1_ux.jpg
-                xpath: /html/body/ol[1]/img[3]/@src
-              - text: https://assets.products-live.ao.com/Images/9251b28a-aad4-402d-b106-8c41fa36d456/1280x1280/k34242if_wh_miele_kue_4_ux.jpg
-                xpath: /html/body/ol[1]/img[4]/@src
-              - text: https://assets.products-live.ao.com/Images/dd292552-ba74-4f98-bcf8-2734d4691916/1280x1280/k34242if_wh_miele_kue_5_ux.jpg
-                xpath: /html/body/ol[1]/img[5]/@src
               - text: https://assets.products-live.ao.com/Images/31e5fb0b-2f40-40d3-8056-fb13a0997a09/1280x1280/k34242if_wh_miele_kue_6_ux.jpg
+                xpath: /html/body/ol[1]/img[1]/@src
+              - text: https://assets.products-live.ao.com/Images/dd292552-ba74-4f98-bcf8-2734d4691916/1280x1280/k34242if_wh_miele_kue_5_ux.jpg
+                xpath: /html/body/ol[1]/img[2]/@src
+              - text: https://assets.products-live.ao.com/Images/9251b28a-aad4-402d-b106-8c41fa36d456/1280x1280/k34242if_wh_miele_kue_4_ux.jpg
+                xpath: /html/body/ol[1]/img[3]/@src
+              - text: https://assets.products-live.ao.com/Images/231e0949-c8c5-4757-acab-90fcea6adf06/1280x1280/k34242if_wh_miele_kue_1_ux.jpg
+                xpath: /html/body/ol[1]/img[4]/@src
+              - text: https://assets.products-live.ao.com/Images/2264ecf7-b829-4f31-8ded-c812c9421a65/1280x1280/k34242if_wh_miele_kue_2_ux.jpg
+                xpath: /html/body/ol[1]/img[5]/@src
+              - text: https://assets.products-live.ao.com/Images/749b2f30-a032-4e03-b651-424fd79b33bb/1280x1280/k34242if_wh_miele_kuehlschrank_dim1.jpg
                 xpath: /html/body/ol[1]/img[6]/@src
             metaKeywords:
               - text: Kühlschränke, Miele, K34242iF, Eingebaut, Weiß
                 xpath: /html/head[1]/meta[14]/@content
+            category:
+              - text: Startseite
+                xpath: /html/body/div[1]/div[1]/div[4]/div[1]/ul[1]/li[1]/a[1]
+              - text: Kühlschränke
+                xpath: /html/body/div[1]/div[1]/div[4]/div[1]/ul[1]/li[2]/a[1]
             nameExtended:
               - text: Miele K34242iF Einbau-Kühlschrank mit Gefrierfach - Festtür-Technik, A++
                 xpath: /html/body/div[1]/div[1]/main[1]/div[1]/div[2]/section[1]/h1[1]
@@ -62,6 +67,9 @@ extractions:
                   Sie haben noch Fragen zum Produkt? Gerne stehen Ihnen unsere Mitarbeiter von Montag bis Freitag, 6 – 20 Uhr sowie samstags von 7 – 20 Uhr unter der Rufnummer 02271 906 30 67 zur Verfügung.
                 xpath: /html/body/div[1]/div[1]/main[1]/div[1]/div[1]/div[1]/div[1]/div[1]
             brandText:
+              - text: Miele
+                xpath: /html/body/div[1]/div[1]/main[1]/div[1]/div[2]/section[1]/div[1]
+            manufacturer:
               - text: Miele
                 xpath: /html/body/div[1]/div[1]/main[1]/div[1]/div[2]/section[1]/div[1]
             weightNet:
@@ -356,17 +364,16 @@ extractions:
               - text: Ersparnis €69
                 xpath: /html/body/div[1]/div[1]/main[1]/div[1]/div[2]/section[1]/div[3]/div[1]/div[1]/div[1]/div[1]
             additionalDescBulletInfo:
-              - text: |-
-                  ComfortClean - Reinigung der Türabsteller im Geschirrspüler
-                   
-                  Super Kühlen - extra schnelles Kühlen auf Knopfdruck
-                   
-                  LED-Innenbeleuchtung - für den perfekten Überblick
-                   
-                  Gefrierfach - auch Tiefkühlgut ideal lagern!
-                   
-                   Maße in cm - H121,8 x B55,9 x T54,4
-                xpath: /html/body/div[1]/div[1]/main[1]/div[1]/div[2]/section[2]/div[1]/div[1]
+              - text: ComfortClean - Reinigung der Türabsteller im Geschirrspüler
+                xpath: /html/body/div[1]/div[1]/main[1]/div[1]/div[2]/section[2]/div[1]/div[1]/ul[1]/li[1]
+              - text: Super Kühlen - extra schnelles Kühlen auf Knopfdruck
+                xpath: /html/body/div[1]/div[1]/main[1]/div[1]/div[2]/section[2]/div[1]/div[1]/ul[1]/li[2]
+              - text: LED-Innenbeleuchtung - für den perfekten Überblick
+                xpath: /html/body/div[1]/div[1]/main[1]/div[1]/div[2]/section[2]/div[1]/div[1]/ul[1]/li[3]
+              - text: Gefrierfach - auch Tiefkühlgut ideal lagern!
+                xpath: /html/body/div[1]/div[1]/main[1]/div[1]/div[2]/section[2]/div[1]/div[1]/ul[1]/li[4]
+              - text: Maße in cm - H121,8 x B55,9 x T54,4
+                xpath: /html/body/div[1]/div[1]/main[1]/div[1]/div[2]/section[2]/div[1]/div[1]/ul[1]/li[5]
             energyEfficiency:
               - text: A++
                 xpath: /html/body/div[1]/div[1]/main[1]/div[1]/div[2]/section[1]/div[3]/div[2]/span[1]/div[1]
@@ -392,5 +399,7 @@ extractions:
               - text: "5"
             variantCount:
               - text: "0"
+            hasComparisonTable:
+              - text: "false"
         xpath: /
-    timestamp: 1607956598077
+    timestamp: 1608113480872

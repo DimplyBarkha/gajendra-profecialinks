@@ -2,7 +2,7 @@ input:
   id: 78216
   _url: http://ao.de
 extractions:
-  - html: https://workbench.import.io/html/run=ed0bc679-e654-4f77-a96b-062182e673c2/task=dc728a3f-1881-4bfa-911d-84a43739fa95/3fee9272-2dcf-44f1-b1a2-38523b93baa8.html
+  - html: https://workbench.import.io/html/run=1528a50d-c86b-42ae-a06d-0a68087c59e3/task=887f3e89-0253-4642-aa61-9ae9b9548d17/b9377a88-a91b-4718-84d5-85763610e0d6.html
     extractionConfigId: product/details/stores/a/ao/DE/extract
     data:
       - group:
@@ -10,41 +10,48 @@ extractions:
               - text: https://www.ao.de/produkt/70ae7000f-hisense-ae7000f-serie-fernseher-schwarz-78216-108.aspx?cmredirectionvalue=78216
                 xpath: /html/body/div[9]
             image:
-              - text: https://assets.products-live.ao.com/Images/ba6bc573-b466-4f64-b957-40b699ce1d68/1280x1280/70ae7000f_bk_hisense_led-fernseher_01.jpg
-                xpath: /html/body/div[1]/div[1]/main[1]/div[1]/div[1]/section[1]/section[1]/div[1]/div[1]/div[2]/ul[1]/li[3]/div[1]/img[1]/@src
+              - text: https://assets.products-live.ao.com/Images/097520cf-b3f4-428c-a6ed-db646926a3b8/1280x1280/70ae7000f_bk_hisense_led-fernseher_02.jpg
+                xpath: /html/body/div[1]/div[1]/main[1]/div[1]/div[1]/section[1]/section[1]/div[1]/div[1]/div[2]/ul[1]/li[3]/img[1]/@src
             imageAlt:
               - text: 70ae7000f_bk_hisense_led-fernseher_01
-                xpath: /html/body/div[1]/div[1]/main[1]/div[1]/div[1]/section[1]/section[1]/div[1]/div[1]/div[2]/ul[1]/li[3]/div[1]/img[1]/@alt
+                xpath: /html/body/div[1]/div[1]/main[1]/div[1]/div[1]/section[1]/section[1]/div[1]/div[1]/div[2]/ul[1]/li[3]/img[1]/@alt
             alternateImages:
-              - text: https://assets.products-live.ao.com/Images/097520cf-b3f4-428c-a6ed-db646926a3b8/1280x1280/70ae7000f_bk_hisense_led-fernseher_02.jpg
-                xpath: /html/body/ol[1]/img[1]/@src
-              - text: https://assets.products-live.ao.com/Images/401330c9-9179-4f6c-a431-7d69c3c886b4/1280x1280/70ae7000f_bk_hisense_led-fernseher_03.jpg
-                xpath: /html/body/ol[1]/img[2]/@src
-              - text: https://assets.products-live.ao.com/Images/4537c7cd-2c9c-4229-a88a-b7b4865db297/1280x1280/70ae7000f_bk_hisense_led-fernseher_04.jpg
-                xpath: /html/body/ol[1]/img[3]/@src
-              - text: https://assets.products-live.ao.com/Images/b63be07e-6f4e-4223-870e-791e3fc61356/1280x1280/70ae7000f_bk_hisense_led-fernseher_05.jpg
-                xpath: /html/body/ol[1]/img[4]/@src
-              - text: https://assets.products-live.ao.com/Images/ffd42407-9921-49de-926b-a9daf9d95427/1280x1280/70ae7000f_bk_hisense_led-fernseher_06.jpg
-                xpath: /html/body/ol[1]/img[5]/@src
-              - text: https://assets.products-live.ao.com/Images/221db0e6-5b30-48c9-adef-351d5c8de8fa/1280x1280/70ae7000f_bk_hisense_led-fernseher_07.jpg
-                xpath: /html/body/ol[1]/img[6]/@src
-              - text: https://assets.products-live.ao.com/Images/2b96b4cd-fb4a-48ea-adfe-0a33ae3a65dd/1280x1280/70ae7000f_bk_hisense_led-fernseher_08.jpg
-                xpath: /html/body/ol[1]/img[7]/@src
               - text: https://assets.products-live.ao.com/Images/c47ae63a-2f6d-4b87-87f4-3116d382a723/1280x1280/70ae7000f_bk_hisense_led-fernseher_09.jpg
+                xpath: /html/body/ol[1]/img[1]/@src
+              - text: https://assets.products-live.ao.com/Images/2b96b4cd-fb4a-48ea-adfe-0a33ae3a65dd/1280x1280/70ae7000f_bk_hisense_led-fernseher_08.jpg
+                xpath: /html/body/ol[1]/img[2]/@src
+              - text: https://assets.products-live.ao.com/Images/221db0e6-5b30-48c9-adef-351d5c8de8fa/1280x1280/70ae7000f_bk_hisense_led-fernseher_07.jpg
+                xpath: /html/body/ol[1]/img[3]/@src
+              - text: https://assets.products-live.ao.com/Images/ffd42407-9921-49de-926b-a9daf9d95427/1280x1280/70ae7000f_bk_hisense_led-fernseher_06.jpg
+                xpath: /html/body/ol[1]/img[4]/@src
+              - text: https://assets.products-live.ao.com/Images/b63be07e-6f4e-4223-870e-791e3fc61356/1280x1280/70ae7000f_bk_hisense_led-fernseher_05.jpg
+                xpath: /html/body/ol[1]/img[5]/@src
+              - text: https://assets.products-live.ao.com/Images/4537c7cd-2c9c-4229-a88a-b7b4865db297/1280x1280/70ae7000f_bk_hisense_led-fernseher_04.jpg
+                xpath: /html/body/ol[1]/img[6]/@src
+              - text: https://assets.products-live.ao.com/Images/401330c9-9179-4f6c-a431-7d69c3c886b4/1280x1280/70ae7000f_bk_hisense_led-fernseher_03.jpg
+                xpath: /html/body/ol[1]/img[7]/@src
+              - text: https://assets.products-live.ao.com/Images/097520cf-b3f4-428c-a6ed-db646926a3b8/1280x1280/70ae7000f_bk_hisense_led-fernseher_02.jpg
                 xpath: /html/body/ol[1]/img[8]/@src
             metaKeywords:
               - text: Fernseher, Hisense, AE7000F Serie, 70AE7000F, Freistehend, Schwarz
                 xpath: /html/head[1]/meta[14]/@content
+            category:
+              - text: Startseite
+                xpath: /html/body/div[1]/div[1]/div[4]/div[1]/ul[1]/li[1]/a[1]
+              - text: TV & Audio
+                xpath: /html/body/div[1]/div[1]/div[4]/div[1]/ul[1]/li[2]/a[1]
+              - text: Fernseher
+                xpath: /html/body/div[1]/div[1]/div[4]/div[1]/ul[1]/li[3]/a[1]
             nameExtended:
               - text: Hisense AE7000F Serie - 70AE7000F, 4K/UHD, LED, Smart TV, 177 cm [70 Zoll]
                   mit HDR und Alexa-Sprachsteuerung - Schwarz
                 xpath: /html/body/div[1]/div[1]/main[1]/div[1]/div[2]/section[1]/h1[1]
             listPrice:
               - text: €1.199
-                xpath: /html/body/div[1]/div[1]/main[1]/div[1]/div[2]/section[1]/div[5]/div[1]/div[1]/div[1]/div[2]/span[1]
+                xpath: /html/body/div[1]/div[1]/main[1]/div[1]/div[2]/section[1]/div[4]/div[1]/div[1]/div[1]/div[2]/span[1]
             price:
               - text: 749,0
-                xpath: /html/body/div[1]/div[1]/main[1]/div[1]/div[2]/section[1]/div[5]/div[1]/div[1]/span[1]/@content
+                xpath: /html/body/div[1]/div[1]/main[1]/div[1]/div[2]/section[1]/div[4]/div[1]/div[1]/span[1]/@content
             availabilityText:
               - text: In stock
                 xpath: /html/body/div[10]
@@ -65,6 +72,9 @@ extractions:
                   zahlreiche Apps erweitern kannst.
                 xpath: /html/body/div[1]/div[1]/main[1]/div[1]/div[1]/div[1]/div[1]/div[1]
             brandText:
+              - text: Hisense
+                xpath: /html/body/div[1]/div[1]/main[1]/div[1]/div[2]/section[1]/div[1]
+            manufacturer:
               - text: Hisense
                 xpath: /html/body/div[1]/div[1]/main[1]/div[1]/div[2]/section[1]/div[1]
             weightNet:
@@ -594,34 +604,32 @@ extractions:
                 xpath: /html/body/div[1]/div[1]/main[1]/div[2]/section[1]/div[1]/div[2]/div[18]/div[1]/div[1]/table[1]/tbody[1]/tr[4]
             promotion:
               - text: Ersparnis €450
-                xpath: /html/body/div[1]/div[1]/main[1]/div[1]/div[2]/section[1]/div[5]/div[1]/div[1]/div[1]/div[1]
+                xpath: /html/body/div[1]/div[1]/main[1]/div[1]/div[2]/section[1]/div[4]/div[1]/div[1]/div[1]/div[1]
             variantInformation:
               - text: Bildschirmdiagonale
-                xpath: /html/body/div[1]/div[1]/main[1]/div[1]/div[2]/section[1]/div[7]/h3[1]
+                xpath: /html/body/div[1]/div[1]/main[1]/div[1]/div[2]/section[1]/div[6]/h3[1]
             firstVariant:
               - text: 177 cm
-                xpath: /html/body/div[1]/div[1]/main[1]/div[1]/div[2]/section[1]/div[7]/ul[1]/li[1]/span[1]
+                xpath: /html/body/div[1]/div[1]/main[1]/div[1]/div[2]/section[1]/div[6]/ul[1]/li[1]/span[1]
             variants:
               - text: 177 cm
-                xpath: /html/body/div[1]/div[1]/main[1]/div[1]/div[2]/section[1]/div[7]/ul[1]/li[1]/span[1]
+                xpath: /html/body/div[1]/div[1]/main[1]/div[1]/div[2]/section[1]/div[6]/ul[1]/li[1]/span[1]
               - text: 189 cm
-                xpath: /html/body/div[1]/div[1]/main[1]/div[1]/div[2]/section[1]/div[7]/ul[1]/li[2]/span[1]
+                xpath: /html/body/div[1]/div[1]/main[1]/div[1]/div[2]/section[1]/div[6]/ul[1]/li[2]/span[1]
             additionalDescBulletInfo:
-              - text: >-
-                  4K/UHD-Auflösung - die höchste Auflösung für die schärfsten
-                  Bilder!
-                   
-                  Benutzeroberfläche VIDAA U - individuell anpassbare Benutzeroberfläche
-                   
-                  Smart TV - Zugriff auf die Welt des Internets und der Apps
-                   
-                  HDR - detailreiche Wiedergabe von Helligkeitsunterschieden
-                   
-                  TV-Apps: Netflix, Maxdome, Prime Video, YouTube, DAZN, uvm.
-                xpath: /html/body/div[1]/div[1]/main[1]/div[1]/div[2]/section[2]/div[1]/div[1]
+              - text: 4K/UHD-Auflösung - die höchste Auflösung für die schärfsten Bilder!
+                xpath: /html/body/div[1]/div[1]/main[1]/div[1]/div[2]/section[2]/div[1]/div[1]/ul[1]/li[1]
+              - text: Benutzeroberfläche VIDAA U - individuell anpassbare Benutzeroberfläche
+                xpath: /html/body/div[1]/div[1]/main[1]/div[1]/div[2]/section[2]/div[1]/div[1]/ul[1]/li[2]
+              - text: Smart TV - Zugriff auf die Welt des Internets und der Apps
+                xpath: /html/body/div[1]/div[1]/main[1]/div[1]/div[2]/section[2]/div[1]/div[1]/ul[1]/li[3]
+              - text: HDR - detailreiche Wiedergabe von Helligkeitsunterschieden
+                xpath: /html/body/div[1]/div[1]/main[1]/div[1]/div[2]/section[2]/div[1]/div[1]/ul[1]/li[4]
+              - text: "TV-Apps: Netflix, Maxdome, Prime Video, YouTube, DAZN, uvm."
+                xpath: /html/body/div[1]/div[1]/main[1]/div[1]/div[2]/section[2]/div[1]/div[1]/ul[1]/li[5]
             energyEfficiency:
               - text: A+
-                xpath: /html/body/div[1]/div[1]/main[1]/div[1]/div[2]/section[1]/div[5]/div[2]/span[1]/div[1]
+                xpath: /html/body/div[1]/div[1]/main[1]/div[1]/div[2]/section[1]/div[4]/div[2]/span[1]/div[1]
             technicalInformationPdfPresent:
               - text: Yes
                 xpath: /html/body/div[1]/div[1]/div[5]/div[5]/a[2]/@href
@@ -644,5 +652,7 @@ extractions:
               - text: "5"
             variantCount:
               - text: "2"
+            hasComparisonTable:
+              - text: "false"
         xpath: /
-    timestamp: 1607956601032
+    timestamp: 1608113480808

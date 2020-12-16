@@ -2,7 +2,7 @@ input:
   id: 66690
   _url: http://ao.de
 extractions:
-  - html: https://workbench.import.io/html/run=ed0bc679-e654-4f77-a96b-062182e673c2/task=d8d1b260-8262-4f5f-b751-74c03a5a401a/8576f722-e458-49db-9149-bdacd9ae117c.html
+  - html: https://workbench.import.io/html/run=1528a50d-c86b-42ae-a06d-0a68087c59e3/task=78606457-6869-494e-9b3f-829899fe9efe/2768f686-7b07-4220-976b-d16ab684749a.html
     extractionConfigId: product/details/stores/a/ao/DE/extract
     data:
       - group:
@@ -10,48 +10,55 @@ extractions:
               - text: https://www.ao.de/produkt/hb3213ms30-aeg-elektro-herdset-edelstahl-66690-227.aspx?cmredirectionvalue=66690
                 xpath: /html/body/div[9]
             image:
-              - text: https://media.ao.com/produktbild/groß/hb3213ms30_ss_aeg_einbauherdset_fr_l.jpg
-                xpath: /html/body/div[1]/div[1]/main[1]/div[1]/div[1]/div[1]/section[1]/section[1]/div[1]/div[1]/div[2]/ul[1]/li[3]/div[1]/img[1]/@src
+              - text: https://media.ao.com/produktbild/groß/hb3213ms30_ss_aeg_einbauherdset_1_l.jpg
+                xpath: /html/body/div[1]/div[1]/main[1]/div[1]/div[1]/div[1]/section[1]/section[1]/div[1]/div[1]/div[2]/ul[1]/li[3]/img[1]/@src
             imageAlt:
               - text: AEG HB3213MS30 Einbauherd-Set mit Glaskeramik-Kochfeld - Edelstahl -
                   HB3213MS30_SS - 1
-                xpath: /html/body/div[1]/div[1]/main[1]/div[1]/div[1]/div[1]/section[1]/section[1]/div[1]/div[1]/div[2]/ul[1]/li[3]/div[1]/img[1]/@alt
+                xpath: /html/body/div[1]/div[1]/main[1]/div[1]/div[1]/div[1]/section[1]/section[1]/div[1]/div[1]/div[2]/ul[1]/li[3]/img[1]/@alt
             alternateImages:
-              - text: https://media.ao.com/produktbild/groß/hb3213ms30_ss_aeg_einbauherdset_1_l.jpg
-                xpath: /html/body/ol[1]/img[1]/@src
-              - text: https://media.ao.com/produktbild/groß/hb3213ms30_ss_aeg_einbauherdset_2_l.jpg
-                xpath: /html/body/ol[1]/img[2]/@src
-              - text: https://media.ao.com/produktbild/groß/hb3213ms30_ss_aeg_einbauherdset_3_l.jpg
-                xpath: /html/body/ol[1]/img[3]/@src
-              - text: https://media.ao.com/produktbild/groß/hb3213ms30_ss_aeg_einbauherdset_4_l.jpg
-                xpath: /html/body/ol[1]/img[4]/@src
-              - text: https://media.ao.com/produktbild/groß/hb3213ms30_ss_aeg_einbauherdset_5_l.jpg
-                xpath: /html/body/ol[1]/img[5]/@src
-              - text: https://media.ao.com/produktbild/groß/hb3213ms30_ss_aeg_einbauherdset_6_l.jpg
-                xpath: /html/body/ol[1]/img[6]/@src
-              - text: https://media.ao.com/produktbild/groß/hb3213ms30_ss_aeg_einbauherdset_7_l.jpg
-                xpath: /html/body/ol[1]/img[7]/@src
-              - text: https://media.ao.com/produktbild/groß/hb3213ms30_ss_aeg_einbauherdset_8_l.jpg
-                xpath: /html/body/ol[1]/img[8]/@src
-              - text: https://media.ao.com/produktbild/groß/hb3213ms30_ss_aeg_einbauherdset_9_l.jpg
-                xpath: /html/body/ol[1]/img[9]/@src
-              - text: https://media.ao.com/produktbild/groß/hb3213ms30_ss_aeg_einbauherdset_10_l.jpg
-                xpath: /html/body/ol[1]/img[10]/@src
-              - text: https://media.ao.com/produktbild/groß/hb3213ms30_ss_aeg_einbauherdset_11_l.jpg
-                xpath: /html/body/ol[1]/img[11]/@src
-              - text: https://media.ao.com/produktbild/groß/hb3213ms30_ss_aeg_einbauherdset_12_l.jpg
-                xpath: /html/body/ol[1]/img[12]/@src
-              - text: https://media.ao.com/produktbild/groß/hb3213ms30_ss_aeg_einbauherdset_13_l.jpg
-                xpath: /html/body/ol[1]/img[13]/@src
-              - text: https://media.ao.com/produktbild/groß/hb3213ms30_ss_aeg_einbauherdset_14_l.jpg
-                xpath: /html/body/ol[1]/img[14]/@src
-              - text: https://media.ao.com/produktbild/groß/hb3213ms30_ss_aeg_einbauherdset_15_l.jpg
-                xpath: /html/body/ol[1]/img[15]/@src
               - text: https://media.ao.com/produktbild/groß/hb3213ms30_ss_aeg_einbauherdset_dim1_l.jpg
+                xpath: /html/body/ol[1]/img[1]/@src
+              - text: https://media.ao.com/produktbild/groß/hb3213ms30_ss_aeg_einbauherdset_15_l.jpg
+                xpath: /html/body/ol[1]/img[2]/@src
+              - text: https://media.ao.com/produktbild/groß/hb3213ms30_ss_aeg_einbauherdset_14_l.jpg
+                xpath: /html/body/ol[1]/img[3]/@src
+              - text: https://media.ao.com/produktbild/groß/hb3213ms30_ss_aeg_einbauherdset_13_l.jpg
+                xpath: /html/body/ol[1]/img[4]/@src
+              - text: https://media.ao.com/produktbild/groß/hb3213ms30_ss_aeg_einbauherdset_12_l.jpg
+                xpath: /html/body/ol[1]/img[5]/@src
+              - text: https://media.ao.com/produktbild/groß/hb3213ms30_ss_aeg_einbauherdset_11_l.jpg
+                xpath: /html/body/ol[1]/img[6]/@src
+              - text: https://media.ao.com/produktbild/groß/hb3213ms30_ss_aeg_einbauherdset_10_l.jpg
+                xpath: /html/body/ol[1]/img[7]/@src
+              - text: https://media.ao.com/produktbild/groß/hb3213ms30_ss_aeg_einbauherdset_9_l.jpg
+                xpath: /html/body/ol[1]/img[8]/@src
+              - text: https://media.ao.com/produktbild/groß/hb3213ms30_ss_aeg_einbauherdset_8_l.jpg
+                xpath: /html/body/ol[1]/img[9]/@src
+              - text: https://media.ao.com/produktbild/groß/hb3213ms30_ss_aeg_einbauherdset_7_l.jpg
+                xpath: /html/body/ol[1]/img[10]/@src
+              - text: https://media.ao.com/produktbild/groß/hb3213ms30_ss_aeg_einbauherdset_6_l.jpg
+                xpath: /html/body/ol[1]/img[11]/@src
+              - text: https://media.ao.com/produktbild/groß/hb3213ms30_ss_aeg_einbauherdset_5_l.jpg
+                xpath: /html/body/ol[1]/img[12]/@src
+              - text: https://media.ao.com/produktbild/groß/hb3213ms30_ss_aeg_einbauherdset_4_l.jpg
+                xpath: /html/body/ol[1]/img[13]/@src
+              - text: https://media.ao.com/produktbild/groß/hb3213ms30_ss_aeg_einbauherdset_3_l.jpg
+                xpath: /html/body/ol[1]/img[14]/@src
+              - text: https://media.ao.com/produktbild/groß/hb3213ms30_ss_aeg_einbauherdset_2_l.jpg
+                xpath: /html/body/ol[1]/img[15]/@src
+              - text: https://media.ao.com/produktbild/groß/hb3213ms30_ss_aeg_einbauherdset_1_l.jpg
                 xpath: /html/body/ol[1]/img[16]/@src
             metaKeywords:
               - text: Elektro-Herdset, AEG, HB3213MS30, Eingebaut, Edelstahl
                 xpath: /html/head[1]/meta[14]/@content
+            category:
+              - text: Startseite
+                xpath: /html/body/div[1]/div[1]/div[5]/div[1]/ul[1]/li[1]/a[1]
+              - text: Einbau-Herdsets
+                xpath: /html/body/div[1]/div[1]/div[5]/div[1]/ul[1]/li[2]/a[1]
+              - text: Elektro-Herdsets
+                xpath: /html/body/div[1]/div[1]/div[5]/div[1]/ul[1]/li[3]/a[1]
             nameExtended:
               - text: AEG HB3213MS30 Einbauherd-Set mit Glaskeramik-Kochfeld - Edelstahl
                 xpath: /html/body/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[1]/h1[1]
@@ -93,6 +100,9 @@ extractions:
             brandText:
               - text: AEG
                 xpath: /html/body/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[1]/div[1]
+            manufacturer:
+              - text: AEG
+                xpath: /html/body/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[1]/div[1]
             gtin:
               - text: "7332543906697"
                 xpath: /html/body/div[1]/div[1]/main[1]/div[1]/div[1]/div[1]/section[2]/div[1]/div[9]/div[1]/div[1]/table[1]/tbody[1]/tr[2]/td[2]
@@ -124,17 +134,16 @@ extractions:
               - text: Ersparnis €732
                 xpath: /html/body/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[1]/div[4]/div[1]/div[1]/div[1]/div[1]
             additionalDescBulletInfo:
-              - text: >-
-                  Pyrolyse - reinigt den Backofen ohne Reinigungsmittel
-                   
-                  Teleskopauszug - für eine kinderleichte Entnahme der Backbleche
-                   
-                  MaxiKlasse™ - großer Garraum für konstant perfekte Ergebnisse
-                   
-                  Dreikreiszone - große Flexibilität beim Kochen
-                   
-                  Bräterzone - perfekt für Spezialtöpfe und -pfannen
-                xpath: /html/body/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[3]/div[1]/div[1]
+              - text: Pyrolyse - reinigt den Backofen ohne Reinigungsmittel
+                xpath: /html/body/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[3]/div[1]/div[1]/ul[1]/li[1]
+              - text: Teleskopauszug - für eine kinderleichte Entnahme der Backbleche
+                xpath: /html/body/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[3]/div[1]/div[1]/ul[1]/li[2]
+              - text: MaxiKlasse™ - großer Garraum für konstant perfekte Ergebnisse
+                xpath: /html/body/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[3]/div[1]/div[1]/ul[1]/li[3]
+              - text: Dreikreiszone - große Flexibilität beim Kochen
+                xpath: /html/body/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[3]/div[1]/div[1]/ul[1]/li[4]
+              - text: Bräterzone - perfekt für Spezialtöpfe und -pfannen
+                xpath: /html/body/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[3]/div[1]/div[1]/ul[1]/li[5]
             energyEfficiency:
               - text: A+
                 xpath: /html/body/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[1]/div[4]/div[2]/span[1]/div[1]
@@ -160,5 +169,7 @@ extractions:
               - text: "5"
             variantCount:
               - text: "0"
+            hasComparisonTable:
+              - text: "false"
         xpath: /
-    timestamp: 1607956606620
+    timestamp: 1608113489842
