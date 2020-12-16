@@ -5,13 +5,14 @@ async function implementation (inputs, parameters, context, dependencies) {
   const { productDetails } = dependencies;
 
   // If cookie pop up appears then clicking on accept button
-  await context.evaluate(async function () {
+  let isButtonClicked = false;
+  await context.evaluate(async function (isButtonClicked) {
     const storeButtonSelector = document.querySelector('button.d-store-selector__apply-btn.btn.btn-primary.btn-block');
-    storeButtonSelector && storeButtonSelector.click();
+    if (storeButtonSelector && storeButtonSelector.click()) isButtonClicked=true;
     return;
-  });
+  }, isButtonClicked);
 
-  await new Promise((resolve) => setTimeout(resolve, 10000));
+  if (isButtonClicked) await context.waitForNavigation({ timeout: 20000, waitUntil: 'load' });
   return await context.extract(productDetails, { transform });
 }
 
