@@ -26,26 +26,24 @@ const transform = (data) => {
             set.add(text);
           }
         });
-        if (row.alternateImages) {
-          row.alternateImages = [{ text: Array.from(set).join(' || ') }];
-        }
+        row.alternateImages = [{ text: Array.from(set).join(' | ') }];
       }
       if (row.listPrice) {
-        row.listPrice = [{ text: row.listPrice.map(item => item.text + '₽').join(" || ") }]
+        row.listPrice = [{ text: row.listPrice.map(item => item.text + '₽').join(' || ') }];
+      }
+      if (row.availabilityText) {
+        row.availabilityText = [{ text: row.availabilityText[0].text === 'available' ? 'inStock' : 'outOfStock' }];
       }
       if (row.price) {
-        row.price = [{ text: row.price.map(item => item.text.replace(/(\s|\n)/gm, '')).join(" || ") }]
+        row.price = [{ text: row.price.map(item => item.text.replace(/(\s|\n)/gm, '')).join(' || ') }];
       }
       if (row.promotion) {
         row.promotion.map(item => {
-          item.text = item.text.replace(/\n \n /gm, "| ").replace(/\n/gm, "");
+          item.text = item.text.replace(/\n \n /gm, '| ').replace(/\n/gm, '');
         });
       }
-      if (row.specifications) {
-        row.specifications = [{ text: row.specifications.map(item => item.text.replace('\n', ':')).join(" || ") }]
-      }
       if (row.warranty) {
-        row.warranty = [{ text: row.warranty.map(item => item.text.replace(/\n \n /gm, "| ").replace(/\n/gm, "")).join(" | ") }]
+        row.warranty = [{ text: row.warranty.map(item => item.text.replace(/\n \n /gm, '| ').replace(/\n/gm, '')).join(' | ') }];
       }
     }
   }

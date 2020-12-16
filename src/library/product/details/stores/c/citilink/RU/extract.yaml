@@ -40,10 +40,10 @@ fields:
     xpath: //div[@class = "AboutTab__description-text"]
   - name: image
     singleValue: false
-    xpath: //div[@class ="ImageGallery__content"]//div[contains(@class, 'slick-active')]//img/@src
+    xpath: (//div[@class ='ImageGallery__content']//img/@src)[2]
   - name: imageAlt
     singleValue: false
-    xpath: //div[@class ="ImageGallery__content"]//div[contains(@class, 'slick-active')]//img/@alt
+    xpath: (//div[@class ='ImageGallery__content']//img/@alt)[2]
   - name: listPrice
     singleValue: false
     xpath: //div[@id="import_list_price2"]
@@ -79,7 +79,7 @@ fields:
     xpath: //span[@itemprop = "sku"]/@content
   - name: specifications
     singleValue: false
-    xpath: //div[@class = "Specifications__row"]
+    xpath: //div[@id="import_product_specs"]
   - name: variantCount
     singleValue: false
     xpath: '0'
@@ -88,7 +88,7 @@ fields:
     xpath: //span[@itemprop = "sku"]/@content
   - name: videos
     singleValue: false
-    xpath: //iframe[contains(@class, "full_video")]/@src
+    xpath: (//div[@class = "PreviewList__video"]//iframe/@src)[1]
   - name: warranty
     singleValue: false
     xpath: //div[@id="import_product_warranty"]
