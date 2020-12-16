@@ -7,13 +7,13 @@ module.exports = {
     domain: 'epocacosmeticos.com',
     zipcode: '',
   },
-  implementation: async ({ keywords, Keywords, results = 150 }, { country, store, domain, zipcode }, context, { execute, extract, paginate }) => {
+  implementation: async ({ keywords, Keywords, Brands, results = 150 }, { country, store, domain, zipcode }, context, { execute, extract, paginate }) => {
     // TODO: consider moving this to a reusable function
 
     console.log('innn Search JS');
     const length = (results) => results.reduce((acc, { group }) => acc + (Array.isArray(group) ? group.length : 0), 0);
 
-    keywords = (Keywords) || (keywords);
+    keywords = (Keywords) || (keywords) || Brands;
     console.log('zip:' + zipcode);
     // do the search
     const resultsReturned = await execute({ keywords, zipcode });
