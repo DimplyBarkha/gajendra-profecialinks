@@ -7,7 +7,7 @@ module.exports = {
     domain: 'matthewclarklive.com',
     url: "https://www.matthewclarklive.com/products/kw/{searchTerms}",
     loadedSelector: null,
-    noResultsXPath: null,
+    noResultsXPath: '//h1[@class="not-found"]',
     zipcode: '',
   },
 };

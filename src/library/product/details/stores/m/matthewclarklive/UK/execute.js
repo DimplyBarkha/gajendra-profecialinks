@@ -6,7 +6,7 @@ module.exports = {
     store: 'matthewclarklive',
     domain: 'matthewclarklive.com',
     loadedSelector: 'body',
-    noResultsXPath: null,
+    noResultsXPath: '//div[@id="error-information-popup-container"]',
     zipcode: '',
   },
 };
