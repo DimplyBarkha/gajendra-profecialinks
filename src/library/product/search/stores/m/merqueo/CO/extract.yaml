@@ -16,9 +16,9 @@ fields:
   - name: productUrl
     singleValue: false
     # xpath: //div[@class="productinfo"]/@producturl
-    xpath: //div[@class="mq-product-img"]/div/a/@url
-    # regExp: .*
-    # regExpReplace: https:/$1
+    xpath: //h2[@class='mq-product-title']/a/@href
+    regExp: (.*)
+    regExpReplace: https:/$1
   - name: gtin
     singleValue: false
   - name: thumbnail

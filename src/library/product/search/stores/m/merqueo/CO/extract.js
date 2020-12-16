@@ -27,22 +27,18 @@ async function implementation (inputs, parameters, context, dependencies) {
       await stall(1000);
     }
 
-    const productUrl = document.querySelectorAll('div.mq-product-img>div>a');
-    let url;
     const priceSelector = document.querySelectorAll('div.mq-product-prices>h3');
     let price;
 
-    for (let i = 0; i < productUrl.length; i++) {
-      url = productUrl[i].href;
+    for (let i = 0; i < priceSelector.length; i++) {
       price = priceSelector[i].textContent;
       price = price.replace('.', '');
       addProp('div.mq-product-img>div>a', i, 'rank', `${i + 1}`);
-      addProp('div.mq-product-img>div>a', i, 'url', url);
       addProp('div.mq-product-prices>h3', i, 'price', price);
     }
   });
 
-  return await context.extract(productDetails, { transform }, 'MERGE_ROWS');
+  return await context.extract(productDetails, { transform });
 }
 module.exports = {
   implements: 'product/search/extract',
