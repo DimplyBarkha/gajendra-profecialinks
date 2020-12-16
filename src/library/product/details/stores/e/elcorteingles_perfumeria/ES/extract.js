@@ -296,6 +296,7 @@ module.exports = {
           const xpath = '//*[contains(text(),"Ingredientes y alérgensos")]/../ul/li';
           const element = document.evaluate(xpath, document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
           if (element) {
+            //@ts-ignore
             const allElements = [...element.querySelectorAll('b')];
             const allergyAdvice = allElements.map(i => i.textContent).join(' ');
             addElementToDocument('allergyAdvice ', allergyAdvice);
