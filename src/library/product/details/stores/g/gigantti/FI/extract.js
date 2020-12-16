@@ -20,7 +20,7 @@ module.exports = {
         await new Promise(resolve => setTimeout(resolve, 2000));
       }
 
-      function addHiddenDiv (id, content) {
+      function addHiddenDiv(id, content) {
         const newDiv = document.createElement('div');
         newDiv.id = id;
         newDiv.textContent = content;
@@ -33,7 +33,7 @@ module.exports = {
         console.log(secImages[i].getAttribute('src') + ' is secondary image');
         const tempSrc = secImages[i].getAttribute('src');
         if (tempSrc !== null && !tempSrc.includes('/tubby')) {
-        // if(!secImages[i].getAttribute('src').includes('/tubby')){
+          // if(!secImages[i].getAttribute('src').includes('/tubby')){
           addHiddenDiv('secondaryImages', tempSrc);
         }
       }
@@ -42,7 +42,7 @@ module.exports = {
       if (overlay !== undefined) {
         overlay.click();
       }
-
+      
       const iframeVideoNodes = [...document.querySelectorAll('iframe[id*="videolist"]')];
       if (iframeVideoNodes.length > 0) {
         iframeVideoNodes.forEach(iframe => {
@@ -54,6 +54,26 @@ module.exports = {
             addHiddenDiv('productVideos', videoURL);
           }
         });
+      }
+
+      let prodTitle = document.querySelector('h1.product-title') ? document.querySelector('h1.product-title').textContent.trim() : "";
+      prodTitle = encodeURIComponent(prodTitle);
+      let brand = document.querySelector('span[itemprop="brand"] meta') && document.querySelector('span[itemprop="brand"] meta').hasAttribute('content') ? document.querySelector('span[itemprop="brand"] meta').getAttribute('content') : "";
+      let sku = document.querySelector('p.sku') && document.querySelector('p.sku').hasAttribute('data-product-sku') ? document.querySelector('p.sku').getAttribute('data-product-sku') : "";
+      try {
+        let apiUrl = `https://dapi.videoly.co/1/videos/0/5/?brandName=${brand}&SKU=${sku}&productId=${sku}&productTitle=${prodTitle}&hn=www.gigantti.fi`
+        let prom = await fetch(apiUrl);
+        let data = await prom.json();
+        console.log(data);
+        if (data.items) {
+          data.items.forEach(item => {
+            if(item.videoId) {
+              addHiddenDiv('productVideos', `https://www.youtube.com/watch?v=${item.videoId}`)
+            }
+          })
+        }
+      } catch (er) {
+        console.log("Encountered an issue with videos API");
       }
     });
 
