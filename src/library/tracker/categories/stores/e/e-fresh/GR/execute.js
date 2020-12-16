@@ -5,7 +5,7 @@ module.exports = {
     country: 'GR',
     store: 'e-fresh',
     domain: 'e-fresh.gr',
-    loadedSelector: null,
+    loadedSelector: 'div.navbar',
     noResultsXPath: null,
     zipcode: '',
   },

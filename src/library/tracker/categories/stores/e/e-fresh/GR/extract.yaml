@@ -1,13 +1,13 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: null
+recordXPath: //a[@class="dropdown-toggle"] | //ul[@class="level-3"]//li/a | //li[@class="buttons text-center"]/a |//li[contains(@class,'buttons')]/a[contains(@class,'visible')]
 fields:
   - name: category
     singleValue: false
     description: name of the category
-    xpath: null
+    xpath: //@categoryName
   - name: categoryUrl
     singleValue: false
     description: url of the category
-    xpath: null
+    xpath: //@categoryUrl
