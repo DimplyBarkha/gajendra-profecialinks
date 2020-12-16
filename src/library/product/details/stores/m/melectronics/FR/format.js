@@ -24,12 +24,11 @@ const transform = (data) => {
   };
   for (const { group } of data) {
     for (const row of group) {
-      // if (row.alternateImages) {
-      //   row.alternateImages.splice(0, 1);
-      //   if (row.alternateImages.length === 0) {
-      //     delete row.alternateImages;
-      //   }
-      // }
+      if (row.alternateImages) {
+        row.alternateImages.forEach(item => {
+          item.text = item.text.replace('fm-thumbnail', 'fm-xl');
+        });
+      }
       if (row.description) {
         var arrDesc = [];
         row.description.forEach(item => {

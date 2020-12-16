@@ -14,7 +14,7 @@ fields:
     xpath: //div[@class='detail-showcase--main-img-wrap']//img/@alt
   - name: alternateImages
     singleValue: false
-    xpath: //section[@class='detail-showcase--img-teaser-box']/div/div[not(@data-active='1')]//img/@data-lazy-src
+    xpath: //div[@class='detail-showcase--additional-imgs']//div[@class='detail-showcase--additional-img-box' and not(@data-active='1')]/img/@src      
   - name: category
     singleValue: false
     xpath: //div[@class='skel']/header//ol//a[@class='u-reset']
