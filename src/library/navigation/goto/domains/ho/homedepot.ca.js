@@ -8,8 +8,9 @@ module.exports = {
     store: 'homedepot',
     zipcode: '',
   },
-  implementation: async ({ url, zipcode }, parameters, context, dependencies) => {
+  implementation: async ({ id, url, zipcode }, parameters, context, dependencies) => {
     const timeout = parameters.timeout ? parameters.timeout : 30000;
+    // console.log(id+' is product rpc')
     await context.goto(url, { first_request_timeout: 60000, timeout, waitUntil: 'load', checkBlocked: true });
     if (zipcode) {
       await dependencies.setZipCode({ url, zipcode });
