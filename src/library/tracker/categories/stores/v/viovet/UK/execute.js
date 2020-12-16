@@ -5,7 +5,7 @@ module.exports = {
     country: 'UK',
     store: 'viovet',
     domain: 'viovet.co.uk',
-    loadedSelector: null,
+    loadedSelector: 'div#category-nav',
     noResultsXPath: null,
     zipcode: '',
   },
