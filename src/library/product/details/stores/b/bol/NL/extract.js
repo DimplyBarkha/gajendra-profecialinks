@@ -36,6 +36,19 @@ async function implementation (inputs, parameters, context, dependencies) {
     await context.click('button[class="js-confirm-button"]');
   }
 
+  // await new Promise((resolve) => setTimeout(resolve, 2000));
+
+  // const isBelgium = await context.evaluate(async () => {
+  //   const acceptButton = document.querySelector('a[data-analytics-tag="firstBelgiumVisit_dutch_country_nl"]');
+  //   if (acceptButton) {
+  //     return acceptButton;
+  //   } else return null;
+  // });
+
+  // if (isBelgium) {
+  //   await context.click('a[data-analytics-tag="firstBelgiumVisit_dutch_country_nl"]');
+  // }
+
   await context.evaluate(async function () {
     function addElementToDom (element, id) {
       const div = document.createElement('div');
@@ -50,11 +63,6 @@ async function implementation (inputs, parameters, context, dependencies) {
       // @ts-ignore
       element.click();
     });
-    await new Promise((resolve, reject) => {
-      setTimeout(() => {
-        resolve();
-      }, 1000);
-    });
 
     function stall (ms) {
       return new Promise((resolve, reject) => {
@@ -66,11 +74,11 @@ async function implementation (inputs, parameters, context, dependencies) {
 
     let scrollTop = 0;
     while (scrollTop !== 10000) {
-      await stall(500);
+      await stall(1000);
       scrollTop += 1000;
       window.scroll(0, scrollTop);
       if (scrollTop === 10000) {
-        await stall(500);
+        await stall(1000);
         break;
       }
     }
@@ -83,7 +91,7 @@ async function implementation (inputs, parameters, context, dependencies) {
       const priceTwo = priceElem.childNodes[1].textContent.match(regex);
       let price = '';
       if (priceTwo !== null) {
-        price = '€' + priceOne + ',' + priceTwo;
+        price = '€ ' + priceOne + ',' + priceTwo;
       } else {
         price = '€ ' + priceOne;
       }
@@ -109,6 +117,11 @@ async function implementation (inputs, parameters, context, dependencies) {
         'div[class="buy-block__title"]').textContent : null;
 
     addElementToDom(availabilityText, 'availability');
+
+    // add priceperunituom
+    var pricePerUnitUom = document.querySelector('div[data-test="unit-price"]')
+      ? document.querySelector('div[data-test="unit-price"]').textContent.match(/[a-z]+/g).pop() : null;
+    addElementToDom(pricePerUnitUom, 'pricePerUnitUom');
 
     // add nutrients informations
     const isNutrientsAvail = document.evaluate('//dt[normalize-space(text())="Voedingswaarde"]/following-sibling::dd[1]', document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null);
@@ -143,12 +156,28 @@ async function implementation (inputs, parameters, context, dependencies) {
     descriptionLiElements.forEach((li) => {
       descriptionLiTexts.push(li.textContent ? li.textContent : '');
     });
-    descriptionText += ' || ' + descriptionLiTexts.join(' || ');
+    const descriptionBulletsText = descriptionLiTexts.length ? ' || ' + descriptionLiTexts.join(' || ') : '';
+    descriptionText += descriptionBulletsText;
 
-    const count = (descriptionText.match(/•/g) || []).length;
+    const count = (descriptionText.match(/•/g) || []).length + descriptionLiElements.length;
     const modifiedDesc = descriptionText.replace(/•/gi, ' || ');
-    addElementToDom(count, 'strangeBullets');
+    addElementToDom(count, 'bulletsCount');
     addElementToDom(modifiedDesc, 'description');
+    addElementToDom(descriptionBulletsText, 'additionalDescBulletInfo');
+
+    // specifications
+    const specificationsElements = document.querySelectorAll('div[data-test="specifications"] dt, dd');
+    let specificationText = '';
+    specificationsElements.forEach((elem, index) => {
+      if (index % 2 !== 0) {
+        specificationText += elem.textContent + ' || ';
+      } else {
+        specificationText += elem.textContent + ' ';
+      }
+    });
+    if (specificationsElements) {
+      addElementToDom(specificationText, 'specifications');
+    }
   });
 
   await context.evaluate(async function () {
