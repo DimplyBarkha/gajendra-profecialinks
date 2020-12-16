@@ -59,6 +59,8 @@ fields:
     xpath: (//a[@class='image']/@alt)[1]
   - name: secondaryImageTotal
     xpath: count(//a[@class='image'][position()>1]/@href)
+  - name: weightNet
+    xpath: //div[contains(@class,'box__Box')]/div[2]/span[1]
 # serving
   - name: proteinPerServing 
     xpath: //b[contains(text(),"Protein")]/parent::td/text()
