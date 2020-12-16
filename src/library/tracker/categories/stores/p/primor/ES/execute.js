@@ -5,7 +5,7 @@ module.exports = {
     country: 'ES',
     store: 'primor',
     domain: 'primor.eu',
-    loadedSelector: null,
+    loadedSelector: 'div#block_top_menu',
     noResultsXPath: null,
     zipcode: '',
   },
