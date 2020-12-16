@@ -46,12 +46,14 @@ fields:
     description: Number of ul > li tags in the description
     type: NUMBER
   - name: brandText
-    xpath: //td[@class="brand"]//td[@class="label"]
-    description: Product brand shown - this may actually NOT be just a brand name,
-      e.g. "Visit the Gillette Store"
+    xpath: //script[@type='application/ld+json'][contains(text(),'brand')]
+    regExp: \"brand\"\s*:.+?name\"\s*:(.+?)\"
+    regExpReplace: $1
   - name: manufacturer
-    xpath: //td[@class="brand"]//td[@class="label"]
-    description: Product manufacturer
+    xpath: //script[@id='app.digitalData']
+    #"manufacturer":"PHILIPS"
+    regExp: \"manufacturer\"\s*:\s*\"(.+?)\"
+    regExpReplace: $1
   - name: quantity
     xpath: //th[contains(text(), "Dimensions")]/following-sibling::td
     description: Quantity as described on the page
@@ -63,8 +65,9 @@ fields:
   - name: gtin
     description: GTIN code (includes UPC/EAN)
   - name: sku
-    xpath: //script[@data-flix-mpn]/@data-flix-mpn
-    description: The store-specific product identifier
+    xpath: //script[@type='application/ld+json'][contains(text(),'brand')]
+    regExp: \"sku\"\s*:\s*\"(.+?)\"
+    regExpReplace: $1
   - name: variantId
     xpath: //td[@class="sku"]
     description: Identifier for a variant from a store where variants share the same sku
