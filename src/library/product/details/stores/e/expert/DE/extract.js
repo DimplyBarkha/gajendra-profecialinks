@@ -46,37 +46,17 @@ module.exports = {
 
       console.log(obj)
 
-      await context.evaluate(async () => {
-        await new Promise((resolve) => setTimeout(resolve, 5000));
-
-        async function infiniteScroll () {
-          let prevScroll = document.documentElement.scrollTop;
-          while (true) {
-            window.scrollBy(0, document.documentElement.clientHeight);
-            await new Promise(resolve => setTimeout(resolve, 1000));
-            const currentScroll = document.documentElement.scrollTop;
-            if (currentScroll === prevScroll) {
-              break;
-            }
-            prevScroll = currentScroll;
-          }
-        }
-        await infiniteScroll();
-        await new Promise((resolve) => setTimeout(resolve, 8000));
-      });
+      console.log('inBoxUrls');
+      console.log(inBoxUrls);
       if (inBoxUrls.length) {
-        inBoxUrls.forEach((element) => {
-          sharedhelpers.addHiddenInfo('ii_inBoxUrls', element);
-        });
+        sharedhelpers.addHiddenInfo('ii_inBoxUrls', '', inBoxUrls);
       }
       sharedhelpers.addHiddenInfo('ii_comparisionText', comparisionText ? 'Yes' : 'No');
       console.log('inBoxText');
       console.log(inBoxText);
 
       if (inBoxText.length) {
-        inBoxText.forEach((element) => {
-          sharedhelpers.addHiddenInfo('ii_inBoxText', element);
-        });
+        sharedhelpers.addHiddenInfo('ii_inBoxText', '', inBoxText);
       }
       sharedhelpers.addHiddenInfo('ii_manufContent', content);
       if (image.length) {
@@ -91,7 +71,27 @@ module.exports = {
     }
     await context.waitForFunction(function (sel) {
       return Boolean(document.querySelector(sel));
-    }, { timeout: 20000 }, 'body');
+    }, { timeout: 35000 }, 'body');
+
+
+    await context.evaluate(async () => {
+      await new Promise((resolve) => setTimeout(resolve, 5000));
+
+      async function infiniteScroll () {
+        let prevScroll = document.documentElement.scrollTop;
+        while (true) {
+          window.scrollBy(0, document.documentElement.clientHeight);
+          await new Promise(resolve => setTimeout(resolve, 1000));
+          const currentScroll = document.documentElement.scrollTop;
+          if (currentScroll === prevScroll) {
+            break;
+          }
+          prevScroll = currentScroll;
+        }
+      }
+      await infiniteScroll();
+      await new Promise((resolve) => setTimeout(resolve, 8000));
+    });
 
     return await context.extract(productDetails, { transform: transformParam });
   },

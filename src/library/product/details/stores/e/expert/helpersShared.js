@@ -4,14 +4,20 @@ class SharedHelpers {
     this.context = context;
   }
 
-  async addHiddenInfo (elementID, content) {
-    await this.context.evaluate(async function (elementID, content) {
-      const newDiv = document.createElement('div');
-      newDiv.id = elementID;
-      newDiv.textContent = content;
-      newDiv.style.display = 'none';
-      document.body.appendChild(newDiv);
-    }, elementID, content);
+  async addHiddenInfo (elementID, content, contentArr = []) {
+    await this.context.evaluate(async function (elementID, content, contentArr) {
+      if (contentArr.length === 0) { contentArr.push(content); }
+      else {
+        // contentArr.push('');
+        contentArr.forEach((element) => {
+          const newDiv = document.createElement('div');
+          newDiv.id = elementID;
+          newDiv.textContent = element;
+          newDiv.style.display = 'none';
+          document.body.appendChild(newDiv);
+        });
+      }
+    }, elementID, content, contentArr);
   }
 
   async addHiddenArrayList (elementID, value) {
@@ -68,13 +74,13 @@ class SharedHelpers {
       return document.querySelector('body').innerText;
     });
     if (inBoxSelector) {
-       const inTheBoxData = await this.context.evaluate(async function (inBoxSelector, getAttrImgSrc) {
+      const inTheBoxData = await this.context.evaluate(async function (inBoxSelector, getAttrImgSrc) {
         const inBoxUrls = [];
         const inBoxText = [];
         const getAllProducts = document.querySelectorAll(inBoxSelector + ' div:not(.side-pics)');
         for (let i = 0; i < getAllProducts.length; i++) {
-            inBoxUrls.push(getAllProducts[i].querySelector('img').getAttribute(getAttrImgSrc));
-            inBoxText.push(getAllProducts[i].querySelector('p').innerText);
+          inBoxUrls.push(getAllProducts[i].querySelector('img').getAttribute(getAttrImgSrc));
+          inBoxText.push(getAllProducts[i].querySelector('p').innerText);
         }
         return { inBoxText, inBoxUrls };
       }, inBoxSelector, getAttrImgSrc);
