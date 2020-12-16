@@ -20,11 +20,11 @@ async function implementation(
   const { productDetails } = dependencies;
   await context.evaluate(async function () {
     let scrollTop = 0;
-    while (scrollTop !== 100000) {
+    while (scrollTop !== 200000) {
       await stall(500);
       scrollTop += 500;
       window.scroll(0, scrollTop);
-      if (scrollTop === 100000) {
+      if (scrollTop === 200000) {
         await stall(500);
         break;
       }
