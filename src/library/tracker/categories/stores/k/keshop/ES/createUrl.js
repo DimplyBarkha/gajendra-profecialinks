@@ -4,7 +4,7 @@ module.exports = {
   parameterValues: {
     domain: 'keshop.com',
     prefix: null,
-    suffix: null,
+    suffix: 'es',
     subdomain: null,
     url: null,
     country: 'ES',
