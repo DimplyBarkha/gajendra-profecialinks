@@ -1,15 +1,15 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: 
+recordXPath: //div[@data-id="cat-wrapper"]
 fields:
   - name: category
     singleValue: false
     description: name of the category
-    xpath: //li/div/div/ul[1]/li | //li[@class="has-dropdown"]/a
+    xpath: ./div[@data-id="cat"]
   - name: categoryUrl
     singleValue: false
     description: url of the category
-    xpath: //li/div/div/ul[1]/li/a/@href | //li[@class="has-dropdown"]/a/@href
+    xpath: ./div[@data-id="cat-url"]
     regExp: (.+)
     regExpReplace: https://drankdozijn.nl$1
