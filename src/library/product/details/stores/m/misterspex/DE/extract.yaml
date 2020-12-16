@@ -1,0 +1,55 @@
+singleRecord: true
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: name
+    singleValue: false 
+    xpath: //div[@class="spex-contentBlock"]//h1[@class="spex-productImageWithTitle__title"]
+  - name: nameExtended
+    singleValue: false 
+    xpath: //div[@class="spex-productImageWithTitle__imageContainer"]//img[@class="spex-productImageWithTitle__image"]/@alt
+  - name: image
+    singleValue: false 
+    xpath: //div[@class="spex-productImageWithTitle__imageContainer"]//img[@class="spex-productImageWithTitle__image"]/@src
+  - name: imageAlt
+    singleValue: false 
+    xpath: //div[@class="spex-productImageWithTitle__imageContainer"]//img[@class="spex-productImageWithTitle__image"]/@alt
+  - name: alternateImages
+    singleValue: false 
+    xpath: //div[@class="spex-productImageWithTitle__imageContainer"]//img[@class="spex-productImageWithTitle__image"]/@src
+  - name: category
+    singleValue: false
+    xpath: //div[contains(@class,'grid breadcrumb noFloat')]//ol//li[not(contains(@class,'home')) and not(contains(position(),last()))]//a
+  - name: sku
+    singleValue: false
+    xpath: //div[@class="spex-card__content"]//input[@name="LenseConfiguration_MasterSKU"]/@value
+  - name: variantId
+    singleValue: false
+    xpath: //div[@class="spex-card__content"]//input[@name="LenseConfiguration_MasterSKU"]/@value
+  - name: price
+    singleValue: false
+    xpath: //span[@class="spex-selectionInput__priceArea"]//span[@class="spex-selectionInput__price"]
+  - name: description
+    singleValue: false
+    xpath: //section[@class='spex-section']//div[@class="spex-legacydescription"]//p
+  - name: specifications
+    singleValue: false
+    xpath: //div[@class="spex-accordion"]//div[@class="spex-accordion__content"]//ul//li
+  - name: descriptionBullets
+    singleValue: false    
+    xpath: //div[@class="spex-accordion"]//div[@class="spex-accordion__content"]//ul//li
+  - name: availabilityText
+    singleValue: false
+    defaultValue: 'In Stock'
+  - name: brandText
+    singleValue: false
+    xpath: //script[contains(@type, "application/ld+json") and contains(text(), "brand")][1]/text()
+    regExp: brand":([^}]+)
+    regExpReplace: $1
+  - name: variantInformation
+    singleValue: false
+    xpath: //section[contains(@class,'spex-selectionInput spex-selectionInput--fullBorder')]//span[@class="spex-selectionInput__title"]
+  - name: packSize
+    singleValue: false
+    xpath: //div[@id="LensHeadlinePlural"]/var[@name="packageSize"]

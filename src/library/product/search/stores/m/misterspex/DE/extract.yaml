@@ -1,0 +1,43 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: //div[@class="spex-productList__products"]//div[@class="spex-productList__item"]
+fields: 
+  - name: productUrl
+    SingleValue: false
+    xpath: //div[@class="spex-productList__products"]//a[@data-qa="product-tile"]/@href
+  - name: id
+    SingleValue: false
+    xpath: //div[@class="spex-productList__products"]//a[@data-qa="product-tile"]/@data-sku
+  - name: thumbnail
+    singleValue: false
+    xpath: //div[@class='spex-responsiveImage spex-responsiveImage--3-2']/img/@src
+  - name: name
+    singleValue: false
+    xpath: //div[@class='spex-productTile__primaryName spex-productTile__primaryName--doubleLined']
+  - name: price
+    singleValue: false
+    xpath: //div[@class='spex-productTile__priceArea']/p[@class='spex-productTile__priceArea']/span[@class='spex-productTile__salesPrice']
+    regExp: (\d+)\.(\d+)\,(\d+)(.*)
+    regExpReplace: $1$2.$3$4
+  - name: rankOrganic
+    singleValue: false
+  - name: gtin
+    singleValue: false
+  - name: url
+    singleValue: false
+  - name: aggregateRating
+    singleValue: false
+  - name: reviewCount
+    singleValue: false
+  - name: manufacturer
+    singleValue: false
+  - name: soldBy
+    singleValue: false
+  - name: rank
+    singleValue: false
+  - name: endorsementText
+    singleValue: false
+
+
+
