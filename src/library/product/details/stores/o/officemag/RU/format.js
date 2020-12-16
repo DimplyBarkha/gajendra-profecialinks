@@ -58,11 +58,18 @@ const transform = (data) => {
           item.text = 'https://www.officemag.ru' + item.text;
         });
       }
-      // if (row.listPrice) {
-      //   row.listPrice.forEach(item => {
-      //     item.text = item.text.replace(',', '');
-      //   });
-      // }
+      if (row.manufacturer) {
+        row.manufacturer.forEach(item => {
+          item.text = item.text.replace('Производитель —', '');
+          item.text = item.text.trim();
+        });
+      }
+      if (row.packSize) {
+        row.packSize.forEach(item => {
+          item.text = item.text.replace('Размер в упаковке —', '');
+          item.text = item.text.trim();
+        });
+      }
       // if (row.variantCount) {
       //   row.variantCount = [{ text: row.variantCount.length }];
       // }

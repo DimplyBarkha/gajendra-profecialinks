@@ -75,3 +75,9 @@ fields:
   - name: imageZoomFeaturePresent
     singleValue: true
     defaultValue: Yes
+  - name: manufacturer
+    singleValue: false
+    xpath: //ul[@class='infoFeatures']/li[contains(text(),'Производитель')]
+  - name: packSize
+    singleValue: false
+    xpath: //ul[@class='infoFeatures']//span[contains(text(),'Размер в упаковке')]/parent::li
