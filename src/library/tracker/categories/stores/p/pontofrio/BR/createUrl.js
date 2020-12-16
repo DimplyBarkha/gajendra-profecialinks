@@ -2,7 +2,7 @@
 module.exports = {
   implements: 'tracker/categories/createUrl',
   parameterValues: {
-    domain: 'pontofrio.com.br',
+    domain: 'www.pontofrio.com.br',
     prefix: null,
     suffix: null,
     subdomain: null,
