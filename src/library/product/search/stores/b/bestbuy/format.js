@@ -27,7 +27,8 @@ const transform = (data) => {
         for (let row of group) {          
             if (row.price) {
                 row.price.forEach(item => {                    
-                    item.text = item.text.replace(/(\s*,\s*)+/isg, '').trim();                    
+                    item.text = item.text.replace(/(\s*\$\s*)+/isg, '$ ').trim();
+                    //item.text = item.text.replace(/(\s*,\s*)+/isg, '').trim();                    
                 });
             }
             if (row.rankOrganic && row.rank) {
@@ -38,6 +39,11 @@ const transform = (data) => {
             if (row.reviewCount) {
                 row.reviewCount.forEach(item => {                    
                     item.text = item.text.replace(/(\s*\(|reseñas|\)\s*)+/isg, '').trim();                    
+                });
+            }
+            if (row.aggregateRating2) {
+                row.aggregateRating2.forEach(item => {                    
+                    item.text = item.text.replace(/(\s*\.\s*)+/isg, ',').trim();                   
                 });
             }
             if (row.name) {
