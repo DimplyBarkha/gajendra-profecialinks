@@ -50,13 +50,13 @@ fields:
   #   description: online price currency
   #   xpath: //div[@id='addedOnlinePriceCurrency'] 
   - name: availabilityText
-    singleValue: true
     description: Availability as described on page for the selected variant. If
       there is no availability but the product can be added to cart, this field
       should be "In Stock"
     xpath: //div[@id='addedAvailibility']
-    regExp: (.+)
-    regExpReplace: In Stock
+    # xpath: //*[contains(text(),"הוסף לסל")]
+    # regExp: (.+)+(\s)
+    # regExpReplace: In Stock$2
     defaultValue: Out of Stock
   - name: description
     singleValue: false
