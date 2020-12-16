@@ -6,7 +6,7 @@ module.exports = {
     store: 'juul',
     domain: 'juul.com',
     loadedSelector: '*[class="product-page__reviews"]',
-    noResultsXPath: null,
+    noResultsXPath: '//h1[contains(text(),"Page Not Found")]',
     reviewUrl: null,
     sortButtonSelectors: null,
     zipcode: '',
