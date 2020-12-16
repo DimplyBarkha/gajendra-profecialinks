@@ -86,11 +86,28 @@ async function implementation (inputs, parameters, context, dependencies) {
             ? document.querySelector('.descr .product-tabs:nth-of-type(3) div p:nth-of-type(1)').innerText
             : '';
         addElementToDom(productComposition, 'productComposition');
+
+        const aggregateRating = document.querySelector('.product-shop .rates #ratings-summary')
+          ? document.querySelector(".product-shop .rates #ratings-summary div[itemprop='ratingValue']").innerText.replace('.', ',')
+          : '';
+        addElementToDom(aggregateRating, 'aggregateRating');
       });
       const extract = await context.extract(productDetails, { transform });
       data.push(extract);
       await context.evaluate(async function () {
-        const elementsIds = ['nameExtended', 'brandText', 'quantity', 'warningText', 'variantCount', 'variantInfo', 'color', 'productOtherInfo', 'productComposition', 'variants'];
+        const elementsIds = [
+          'nameExtended',
+          'brandText',
+          'quantity',
+          'warningText',
+          'variantCount',
+          'variantInfo',
+          'color',
+          'productOtherInfo',
+          'productComposition',
+          'variants',
+          'aggregateRating',
+        ];
 
         elementsIds.forEach((elemId) => {
           const element = document.querySelector(`div#${elemId}`);
@@ -156,6 +173,11 @@ async function implementation (inputs, parameters, context, dependencies) {
           ? document.querySelector('.descr .product-tabs:nth-of-type(3) div p:nth-of-type(1)').innerText
           : '';
       addElementToDom(productComposition, 'productComposition');
+
+      const aggregateRating = document.querySelector('.product-shop .rates #ratings-summary')
+        ? document.querySelector(".product-shop .rates #ratings-summary div[itemprop='ratingValue']").innerText.replace('.', ',')
+        : '';
+      addElementToDom(aggregateRating, 'aggregateRating');
     });
     return await context.extract(productDetails, { transform });
   }

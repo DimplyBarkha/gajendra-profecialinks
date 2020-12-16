@@ -5,7 +5,7 @@ module.exports = {
     store: 'easyparapharmacie',
     domain: 'easyparapharmacie.com',
     loadedSelector: null,
-    noResultsXPath: '//main[contains(@class,"main-container")]/div[@class="wrap"]/div[@class="std"]/img[@class="center"]',
+    noResultsXPath: '//main//img[@class="center"]',
     zipcode: '',
   },
 };
