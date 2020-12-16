@@ -63,7 +63,7 @@ fields:
     xpath: //div[@id="allergens"]/ul
   - name: caloriesPerServing
     singleValue: true
-    xpath: concat(//td[contains(text(),"Energy")]/following-sibling::td[1],"/", //tr/following-sibling::td[contains(text(),"cal")]/following-sibling::td[1] | //td[contains(text(),"Energy")]/../following-sibling::tr[contains(.,'cal')]//td[2])
+    xpath: concat(//div[@class='product-blocks']//li[contains(.,"Energy")],' , ',//div[@class='product-blocks']//li[contains(.,"Fat")],' , ',//div[@class='product-blocks']//li[contains(.,"Saturates")],' , ',//div[@class='product-blocks']//li[contains(.,"Sugar")],' , ',//div[@class='product-blocks']//li[contains(.,"Salt")])
   - name: legalDisclaimer
     singleValue: true
   - name: ingredientsList
@@ -76,6 +76,7 @@ fields:
     xpath: concat(//tr[contains(.,"Energy")],' , ',//tr[contains(.,"Fat")],' , ',//tr[contains(.,"saturates")],' , ',//tr[contains(.,"Carbohydrate")],' , ',//tr[contains(.,"sugars")],' , ',//tr[contains(.,"Protein")],' , ',//tr[contains(.,"Salt")])
   - name: servingSize
     singleValue: false
+    xpath: //div[@class='product-blocks']//span[contains(.,"servings")]
   - name: category
     singleValue: false
     xpath: //ol[contains(@class,"beans-breadcrumb__list")]/li
