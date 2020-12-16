@@ -22,26 +22,39 @@ const transform = (data, context) => {
   const productCodes = state.productCodes || [];
   for (const { group } of data) {
     for (const row of group) {
-      if (row.brand) {
-        let text = '';
-        row.brand.forEach(item => {
-          text += item.text.split(' ')[0];
-        });
-        row.brand = [
-          {
-            text: text,
-          },
-        ];
-      }
+      // if (row.brand) {
+      //   let text = '';
+      //   row.brand.forEach(item => {
+      //     text += item.text.split(' ')[0];
+      //   });
+      //   row.brand = [
+      //     {
+      //       text: text,
+      //     },
+      //   ];
+      // }
 
       if (row.price) {
         row.price.forEach((priceItem) => {
-          priceItem.text = priceItem.text.replace('/pcs', '').replace(', ', '.').trim();
+          priceItem.text = priceItem.text.replace('/pcs', '').replace(',', '.').trim();
         });
+      }
+      if (row.name && row.brandText) {
+        row.nameExtended = [
+          { text: row.brandText[0].text + ' ' + row.name[0].text },
+        ];
+        row.name = [
+          { text: row.brandText[0].text + ' ' + row.name[0].text },
+        ];
       }
       if (row.productUrl) {
         row.productUrl.forEach((productUrlItem) => {
-          productUrlItem.text = productUrlItem.text.includes('https://www.colruyt.be') ? productUrlItem.text : 'https://www.colruyt.be' + productUrlItem.text;
+          productUrlItem.text = productUrlItem.text.includes('https://colruyt.collectandgo.be') ? productUrlItem.text : 'https://colruyt.collectandgo.be' + productUrlItem.text;
+        });
+      }
+      if (row.thumbnail) {
+        row.thumbnail.forEach((thumbnailItem) => {
+          thumbnailItem.text = thumbnailItem.text.includes('https:') ? thumbnailItem.text : 'https:' + thumbnailItem.text;
         });
       }
       rankCounter += 1;

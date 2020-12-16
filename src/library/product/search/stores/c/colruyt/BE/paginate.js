@@ -6,12 +6,13 @@ module.exports = {
     nextLinkSelector: null,
     mutationSelector: null,
     spinnerSelector: null,
-    loadedSelector: 'div.card__image',
-    noResultsXPath: '//div[contains(@class,"assortment-overview__sorting")]//font[contains(text(),"0 products")]',
+    loadedSelector: 'div#articles',
+    loadedXpath: null,
+    noResultsXPath: '//div[contains(@class,"no-result-page")]',
     resultsDivSelector: null,
-    openSearchDefinition: {
-      template: 'https://www.colruyt.be/fr/produits?page={page}&searchTerm={searchTerms}',
-    },
+    // openSearchDefinition: {
+    //   template: 'https://www.colruyt.be/fr/produits?page={page}&searchTerm={searchTerms}',
+    // },
     domain: 'colruyt.be',
     zipcode: '',
   },
