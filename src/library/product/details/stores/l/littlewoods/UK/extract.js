@@ -1,11 +1,11 @@
-const { cleanUp } = require('../../../../shared');
+const { transform } = require('./transform');
 
 module.exports = {
   implements: 'product/details/extract',
   parameterValues: {
     country: 'UK',
     store: 'littlewoods',
-    transform: cleanUp,
+    transform,
     domain: 'littlewoods.com',
     zipcode: '',
   },
@@ -71,6 +71,6 @@ module.exports = {
           pipeSeparatorDouble('addedProductSpecification', specificationsList);
         }
     });
-    await context.extract(productDetails);
+    await context.extract(productDetails, {transform});
   },
 };
