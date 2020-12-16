@@ -22,8 +22,8 @@ implementation: async (
       newDiv.id = id;
       newDiv.textContent = content;
       newDiv.style.display = 'none';
-      const originalDiv = document.querySelectorAll("li[class='col-lg-3 col-md-3 col-sm-4']")[index];
-      originalDiv.parentNode.insertBefore(newDiv, originalDiv);
+      // const originalDiv = document.querySelectorAll("li[class='col-lg-3 col-md-3 col-sm-4']")[index];
+      // originalDiv.parentNode.insertBefore(newDiv, originalDiv);
     }
     const price = document.querySelectorAll('div.productMainLink div.infoTextCarousel div span.lineinner');
     //const length1=price.length
