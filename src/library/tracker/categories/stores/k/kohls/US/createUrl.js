@@ -4,7 +4,7 @@ module.exports = {
   parameterValues: {
     domain: 'kohls.com',
     prefix: null,
-    suffix: null,
+    suffix: 'feature/sitemapmain.jsp',
     subdomain: null,
     url: null,
     country: 'US',

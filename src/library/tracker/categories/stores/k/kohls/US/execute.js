@@ -5,7 +5,7 @@ module.exports = {
     country: 'US',
     store: 'kohls',
     domain: 'kohls.com',
-    loadedSelector: null,
+    loadedSelector: 'div#sitemap-content',
     noResultsXPath: null,
     zipcode: '',
   },
