@@ -29,7 +29,7 @@ const transform = (data) => {
       }
       if (row.quantity) {
         row.quantity.forEach(quantityItem => {
-          quantityItem.text = quantityItem.text.replace('\((.*)\)/gm', '');
+          quantityItem.text = quantityItem.text.replace('(', '').replace(')', '');
         });
       }
     }
