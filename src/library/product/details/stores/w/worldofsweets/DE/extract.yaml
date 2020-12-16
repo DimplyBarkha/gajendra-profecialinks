@@ -18,6 +18,7 @@ fields:
   - name: metaKeywords
     singleValue: true
     description: The <meta> keywords content
+    xpath: //meta[contains(@name,'keywords')]/@content
   - name: category
     singleValue: false
     description: The categories (e.g. from breadcrumbs)
@@ -336,6 +337,7 @@ fields:
     description: Nutritional Information for Protein content - Usually based on per
       100g serving
     type: NUMBER
+    xpath: //div[@class="row nutrition-info-container"]//div[3]//div[12]/font/font
   - name: proteinPerServingUom
     singleValue: true
     description: Unit of Measure Data for Protein
@@ -387,6 +389,7 @@ fields:
     description: Nutritional Information for Salt content - Usually based on per
       100g serving
     type: NUMBER
+    xpath: //div[@class="row nutrition-info-container"]//div[3]//div[14]/font/font
   - name: saltPerServingUom
     singleValue: true
     description: Unit of Measure Data for Salt
