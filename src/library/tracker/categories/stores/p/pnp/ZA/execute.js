@@ -5,7 +5,7 @@ module.exports = {
     country: 'ZA',
     store: 'pnp',
     domain: 'pnp.co.za',
-    loadedSelector: null,
+    loadedSelector: 'nav.main-navigation',
     noResultsXPath: null,
     zipcode: '',
   },

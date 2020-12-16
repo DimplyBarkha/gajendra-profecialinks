@@ -1,0 +1,1450 @@
+input:
+  _url: http://pnp.co.za
+  URL: https://www.pnp.co.za/
+extractions:
+  - html: https://workbench.import.io/html/run=c3985e81-45a1-49e1-960f-8d6d2cd7d14a/task=be3adff0-8174-42a7-ab1a-3cd365e4c9f8/2f0e510f-cd95-41c3-8b2f-2f53674e4dbd.html
+    extractionConfigId: tracker/categories/stores/p/pnp/ZA/extract
+    data:
+      - group:
+          - category:
+              - text: SHOP BY AISLE
+                xpath: /html/body/main[1]/header[1]/div[2]/div[1]/nav[1]/ul[2]/li[1]/a[1]/@categoryname
+            categoryUrl:
+              - text: https://www.pnp.co.za/pnpstorefront/pnp/en/All-Products/c/pnpbase
+                xpath: /html/body/main[1]/header[1]/div[2]/div[1]/nav[1]/ul[2]/li[1]/a[1]/@categoryurl
+          - category:
+              - text: Fresh Food
+                xpath: /html/body/main[1]/header[1]/div[2]/div[1]/nav[1]/ul[2]/li[1]/div[1]/div[1]/ul[1]/div[1]/ul[1]/li[1]/a[1]/@categoryname
+            categoryUrl:
+              - text: https://www.pnp.co.za/pnpstorefront/pnp/en/All-Products/Fresh-Food/c/fresh-food-423144840
+                xpath: /html/body/main[1]/header[1]/div[2]/div[1]/nav[1]/ul[2]/li[1]/div[1]/div[1]/ul[1]/div[1]/ul[1]/li[1]/a[1]/@categoryurl
+          - category:
+              - text: Bakery
+                xpath: /html/body/main[1]/header[1]/div[2]/div[1]/nav[1]/ul[2]/li[1]/div[1]/div[1]/ul[1]/div[1]/ul[1]/li[2]/a[1]/@categoryname
+            categoryUrl:
+              - text: https://www.pnp.co.za/pnpstorefront/pnp/en/All-Products/Fresh-Food/Bakery/c/bakery703655157
+                xpath: /html/body/main[1]/header[1]/div[2]/div[1]/nav[1]/ul[2]/li[1]/div[1]/div[1]/ul[1]/div[1]/ul[1]/li[2]/a[1]/@categoryurl
+          - category:
+              - text: Butter & Margarine
+                xpath: /html/body/main[1]/header[1]/div[2]/div[1]/nav[1]/ul[2]/li[1]/div[1]/div[1]/ul[1]/div[1]/ul[1]/li[3]/a[1]/@categoryname
+            categoryUrl:
+              - text: https://www.pnp.co.za/pnpstorefront/pnp/en/All-Products/Fresh-Food/Butter-%26-Margarine/c/butter-and-margarine703655157
+                xpath: /html/body/main[1]/header[1]/div[2]/div[1]/nav[1]/ul[2]/li[1]/div[1]/div[1]/ul[1]/div[1]/ul[1]/li[3]/a[1]/@categoryurl
+          - category:
+              - text: Cheese
+                xpath: /html/body/main[1]/header[1]/div[2]/div[1]/nav[1]/ul[2]/li[1]/div[1]/div[1]/ul[1]/div[1]/ul[1]/li[4]/a[1]/@categoryname
+            categoryUrl:
+              - text: https://www.pnp.co.za/pnpstorefront/pnp/en/All-Products/Fresh-Food/Cheese/c/cheese703655157
+                xpath: /html/body/main[1]/header[1]/div[2]/div[1]/nav[1]/ul[2]/li[1]/div[1]/div[1]/ul[1]/div[1]/ul[1]/li[4]/a[1]/@categoryurl
+          - category:
+              - text: Eggs
+                xpath: /html/body/main[1]/header[1]/div[2]/div[1]/nav[1]/ul[2]/li[1]/div[1]/div[1]/ul[1]/div[1]/ul[1]/li[5]/a[1]/@categoryname
+            categoryUrl:
+              - text: https://www.pnp.co.za/pnpstorefront/pnp/en/All-Products/Fresh-Food/Eggs/c/eggs703655157
+                xpath: /html/body/main[1]/header[1]/div[2]/div[1]/nav[1]/ul[2]/li[1]/div[1]/div[1]/ul[1]/div[1]/ul[1]/li[5]/a[1]/@categoryurl
+          - category:
+              - text: Fruit
+                xpath: /html/body/main[1]/header[1]/div[2]/div[1]/nav[1]/ul[2]/li[1]/div[1]/div[1]/ul[1]/div[1]/ul[1]/li[6]/a[1]/@categoryname
+            categoryUrl:
+              - text: https://www.pnp.co.za/pnpstorefront/pnp/en/All-Products/Fresh-Food/Fruit/c/fruit703655157
+                xpath: /html/body/main[1]/header[1]/div[2]/div[1]/nav[1]/ul[2]/li[1]/div[1]/div[1]/ul[1]/div[1]/ul[1]/li[6]/a[1]/@categoryurl
+          - category:
+              - text: Meat & Poultry
+                xpath: /html/body/main[1]/header[1]/div[2]/div[1]/nav[1]/ul[2]/li[1]/div[1]/div[1]/ul[1]/div[1]/ul[1]/li[7]/a[1]/@categoryname
+            categoryUrl:
+              - text: https://www.pnp.co.za/pnpstorefront/pnp/en/All-Products/Fresh-Food/Meat-%26-Poultry/c/meat-and-poultry703655157
+                xpath: /html/body/main[1]/header[1]/div[2]/div[1]/nav[1]/ul[2]/li[1]/div[1]/div[1]/ul[1]/div[1]/ul[1]/li[7]/a[1]/@categoryurl
+          - category:
+              - text: Milk & Cream
+                xpath: /html/body/main[1]/header[1]/div[2]/div[1]/nav[1]/ul[2]/li[1]/div[1]/div[1]/ul[1]/div[1]/ul[1]/li[8]/a[1]/@categoryname
+            categoryUrl:
+              - text: https://www.pnp.co.za/pnpstorefront/pnp/en/All-Products/Fresh-Food/Milk-%26-Cream/c/milk-and-cream703655157
+                xpath: /html/body/main[1]/header[1]/div[2]/div[1]/nav[1]/ul[2]/li[1]/div[1]/div[1]/ul[1]/div[1]/ul[1]/li[8]/a[1]/@categoryurl
+          - category:
+              - text: Prepared Meats
+                xpath: /html/body/main[1]/header[1]/div[2]/div[1]/nav[1]/ul[2]/li[1]/div[1]/div[1]/ul[1]/div[1]/ul[1]/li[9]/a[1]/@categoryname
+            categoryUrl:
+              - text: https://www.pnp.co.za/pnpstorefront/pnp/en/All-Products/Fresh-Food/Prepared-Meats/c/prepared-meats703655157
+                xpath: /html/body/main[1]/header[1]/div[2]/div[1]/nav[1]/ul[2]/li[1]/div[1]/div[1]/ul[1]/div[1]/ul[1]/li[9]/a[1]/@categoryurl
+          - category:
+              - text: Salads & Fresh Herbs
+                xpath: /html/body/main[1]/header[1]/div[2]/div[1]/nav[1]/ul[2]/li[1]/div[1]/div[1]/ul[1]/div[1]/ul[1]/li[10]/a[1]/@categoryname
+            categoryUrl:
+              - text: https://www.pnp.co.za/pnpstorefront/pnp/en/All-Products/Fresh-Food/Salads-%26-Fresh-Herbs/c/salads-and-fresh-herbs703655157
+                xpath: /html/body/main[1]/header[1]/div[2]/div[1]/nav[1]/ul[2]/li[1]/div[1]/div[1]/ul[1]/div[1]/ul[1]/li[10]/a[1]/@categoryurl
+          - category:
+              - text: Vegetables
+                xpath: /html/body/main[1]/header[1]/div[2]/div[1]/nav[1]/ul[2]/li[1]/div[1]/div[1]/ul[1]/div[1]/ul[1]/li[11]/a[1]/@categoryname
+            categoryUrl:
+              - text: https://www.pnp.co.za/pnpstorefront/pnp/en/All-Products/Fresh-Food/Vegetables/c/vegetables703655157
+                xpath: /html/body/main[1]/header[1]/div[2]/div[1]/nav[1]/ul[2]/li[1]/div[1]/div[1]/ul[1]/div[1]/ul[1]/li[11]/a[1]/@categoryurl
+          - category:
+              - text: Yoghurt
+                xpath: /html/body/main[1]/header[1]/div[2]/div[1]/nav[1]/ul[2]/li[1]/div[1]/div[1]/ul[1]/div[1]/ul[1]/li[12]/a[1]/@categoryname
+            categoryUrl:
+              - text: https://www.pnp.co.za/pnpstorefront/pnp/en/All-Products/Fresh-Food/Yoghurt/c/yoghurt703655157
+                xpath: /html/body/main[1]/header[1]/div[2]/div[1]/nav[1]/ul[2]/li[1]/div[1]/div[1]/ul[1]/div[1]/ul[1]/li[12]/a[1]/@categoryurl
+          - category:
+              - text: Biltong & Droëwors
+                xpath: /html/body/main[1]/header[1]/div[2]/div[1]/nav[1]/ul[2]/li[1]/div[1]/div[1]/ul[1]/div[1]/ul[1]/li[13]/a[1]/@categoryname
+            categoryUrl:
+              - text: https://www.pnp.co.za/pnpstorefront/pnp/en/biltong-shop
+                xpath: /html/body/main[1]/header[1]/div[2]/div[1]/nav[1]/ul[2]/li[1]/div[1]/div[1]/ul[1]/div[1]/ul[1]/li[13]/a[1]/@categoryurl
+          - category:
+              - text: Fresh & Smoked Fish
+                xpath: /html/body/main[1]/header[1]/div[2]/div[1]/nav[1]/ul[2]/li[1]/div[1]/div[1]/ul[1]/div[1]/ul[1]/li[14]/a[1]/@categoryname
+            categoryUrl:
+              - text: https://www.pnp.co.za/pnpstorefront/pnp/en/All-Products/Fresh-Food/Fresh-%26-Smoked-Fish/c/fresh-and-smoked-fish703655157
+                xpath: /html/body/main[1]/header[1]/div[2]/div[1]/nav[1]/ul[2]/li[1]/div[1]/div[1]/ul[1]/div[1]/ul[1]/li[14]/a[1]/@categoryurl
+          - category:
+              - text: Food Cupboard
+                xpath: /html/body/main[1]/header[1]/div[2]/div[1]/nav[1]/ul[2]/li[1]/div[1]/div[1]/ul[1]/div[2]/ul[1]/li[1]/a[1]/@categoryname
+            categoryUrl:
+              - text: https://www.pnp.co.za/pnpstorefront/pnp/en/All-Products/Food-Cupboard/c/food-cupboard-423144840
+                xpath: /html/body/main[1]/header[1]/div[2]/div[1]/nav[1]/ul[2]/li[1]/div[1]/div[1]/ul[1]/div[2]/ul[1]/li[1]/a[1]/@categoryurl
+          - category:
+              - text: Baking Ingredients
+                xpath: /html/body/main[1]/header[1]/div[2]/div[1]/nav[1]/ul[2]/li[1]/div[1]/div[1]/ul[1]/div[2]/ul[1]/li[2]/a[1]/@categoryname
+            categoryUrl:
+              - text: https://www.pnp.co.za/pnpstorefront/pnp/en/All-Products/Food-Cupboard/Baking-Ingredients/c/baking-ingredients-487551153
+                xpath: /html/body/main[1]/header[1]/div[2]/div[1]/nav[1]/ul[2]/li[1]/div[1]/div[1]/ul[1]/div[2]/ul[1]/li[2]/a[1]/@categoryurl
+          - category:
+              - text: Beans, Pulses & Lentils
+                xpath: /html/body/main[1]/header[1]/div[2]/div[1]/nav[1]/ul[2]/li[1]/div[1]/div[1]/ul[1]/div[2]/ul[1]/li[3]/a[1]/@categoryname
+            categoryUrl:
+              - text: https://www.pnp.co.za/pnpstorefront/pnp/en/All-Products/Food-Cupboard/Beans%2C-Pulses-%26-Lentils/c/beans-pulses-and-lentils-487551153
+                xpath: /html/body/main[1]/header[1]/div[2]/div[1]/nav[1]/ul[2]/li[1]/div[1]/div[1]/ul[1]/div[2]/ul[1]/li[3]/a[1]/@categoryurl
+          - category:
+              - text: Biscuits & Crackers
+                xpath: /html/body/main[1]/header[1]/div[2]/div[1]/nav[1]/ul[2]/li[1]/div[1]/div[1]/ul[1]/div[2]/ul[1]/li[4]/a[1]/@categoryname
+            categoryUrl:
+              - text: https://www.pnp.co.za/pnpstorefront/pnp/en/All-Products/Food-Cupboard/Biscuits-%26-Crackers/c/biscuits-and-crackers-487551153
+                xpath: /html/body/main[1]/header[1]/div[2]/div[1]/nav[1]/ul[2]/li[1]/div[1]/div[1]/ul[1]/div[2]/ul[1]/li[4]/a[1]/@categoryurl
+          - category:
+              - text: Breakfast Cereals & Bars
+                xpath: /html/body/main[1]/header[1]/div[2]/div[1]/nav[1]/ul[2]/li[1]/div[1]/div[1]/ul[1]/div[2]/ul[1]/li[5]/a[1]/@categoryname
+            categoryUrl:
+              - text: https://www.pnp.co.za/pnpstorefront/pnp/en/All-Products/Food-Cupboard/Breakfast-Cereals-%26-Bars/c/breakfast-cereals-and-bars-487551153
+                xpath: /html/body/main[1]/header[1]/div[2]/div[1]/nav[1]/ul[2]/li[1]/div[1]/div[1]/ul[1]/div[2]/ul[1]/li[5]/a[1]/@categoryurl
+          - category:
+              - text: Canned Foods & Packets
+                xpath: /html/body/main[1]/header[1]/div[2]/div[1]/nav[1]/ul[2]/li[1]/div[1]/div[1]/ul[1]/div[2]/ul[1]/li[6]/a[1]/@categoryname
+            categoryUrl:
+              - text: https://www.pnp.co.za/pnpstorefront/pnp/en/All-Products/Food-Cupboard/Canned-Foods-%26-Packets/c/canned-foods-and-packets-487551153
+                xpath: /html/body/main[1]/header[1]/div[2]/div[1]/nav[1]/ul[2]/li[1]/div[1]/div[1]/ul[1]/div[2]/ul[1]/li[6]/a[1]/@categoryurl
+          - category:
+              - text: Chips & Dips
+                xpath: /html/body/main[1]/header[1]/div[2]/div[1]/nav[1]/ul[2]/li[1]/div[1]/div[1]/ul[1]/div[2]/ul[1]/li[7]/a[1]/@categoryname
+            categoryUrl:
+              - text: https://www.pnp.co.za/pnpstorefront/pnp/en/All-Products/Food-Cupboard/Chips-%26-Dips/c/chips-and-dips-487551153
+                xpath: /html/body/main[1]/header[1]/div[2]/div[1]/nav[1]/ul[2]/li[1]/div[1]/div[1]/ul[1]/div[2]/ul[1]/li[7]/a[1]/@categoryurl
+          - category:
+              - text: Chocolates & Sweets
+                xpath: /html/body/main[1]/header[1]/div[2]/div[1]/nav[1]/ul[2]/li[1]/div[1]/div[1]/ul[1]/div[2]/ul[1]/li[8]/a[1]/@categoryname
+            categoryUrl:
+              - text: https://www.pnp.co.za/pnpstorefront/pnp/en/All-Products/Food-Cupboard/Chocolates-%26-Sweets/c/chocolates-and-sweets-487551153
+                xpath: /html/body/main[1]/header[1]/div[2]/div[1]/nav[1]/ul[2]/li[1]/div[1]/div[1]/ul[1]/div[2]/ul[1]/li[8]/a[1]/@categoryurl
+          - category:
+              - text: Condiments & Salads
+                xpath: /html/body/main[1]/header[1]/div[2]/div[1]/nav[1]/ul[2]/li[1]/div[1]/div[1]/ul[1]/div[2]/ul[1]/li[9]/a[1]/@categoryname
+            categoryUrl:
+              - text: https://www.pnp.co.za/pnpstorefront/pnp/en/c/condiments-and-salads-487551153
+                xpath: /html/body/main[1]/header[1]/div[2]/div[1]/nav[1]/ul[2]/li[1]/div[1]/div[1]/ul[1]/div[2]/ul[1]/li[9]/a[1]/@categoryurl
+          - category:
+              - text: Dried Snacks, Fruit & Nuts
+                xpath: /html/body/main[1]/header[1]/div[2]/div[1]/nav[1]/ul[2]/li[1]/div[1]/div[1]/ul[1]/div[2]/ul[1]/li[10]/a[1]/@categoryname
+            categoryUrl:
+              - text: https://www.pnp.co.za/pnpstorefront/pnp/en/All-Products/Food-Cupboard/Dried-Snacks%2C-Fruit-%26-Nuts/c/dried-snacks-fruit-and-nuts-487551153
+                xpath: /html/body/main[1]/header[1]/div[2]/div[1]/nav[1]/ul[2]/li[1]/div[1]/div[1]/ul[1]/div[2]/ul[1]/li[10]/a[1]/@categoryurl
+          - category:
+              - text: Jams & Spreads
+                xpath: /html/body/main[1]/header[1]/div[2]/div[1]/nav[1]/ul[2]/li[1]/div[1]/div[1]/ul[1]/div[2]/ul[1]/li[11]/a[1]/@categoryname
+            categoryUrl:
+              - text: https://www.pnp.co.za/pnpstorefront/pnp/en/All-Products/Food-Cupboard/Jams-%26-Spreads/c/jams-and-spreads-487551153
+                xpath: /html/body/main[1]/header[1]/div[2]/div[1]/nav[1]/ul[2]/li[1]/div[1]/div[1]/ul[1]/div[2]/ul[1]/li[11]/a[1]/@categoryurl
+          - category:
+              - text: Long-Life Milk (UHT)
+                xpath: /html/body/main[1]/header[1]/div[2]/div[1]/nav[1]/ul[2]/li[1]/div[1]/div[1]/ul[1]/div[2]/ul[1]/li[12]/a[1]/@categoryname
+            categoryUrl:
+              - text: https://www.pnp.co.za/pnpstorefront/pnp/en/All-Products/Beverages/Long-Life-Milk-%28UHT%29/c/long-life-milk-%28uht%29767886124
+                xpath: /html/body/main[1]/header[1]/div[2]/div[1]/nav[1]/ul[2]/li[1]/div[1]/div[1]/ul[1]/div[2]/ul[1]/li[12]/a[1]/@categoryurl
+          - category:
+              - text: Oil & Vinegar
+                xpath: /html/body/main[1]/header[1]/div[2]/div[1]/nav[1]/ul[2]/li[1]/div[1]/div[1]/ul[1]/div[2]/ul[1]/li[13]/a[1]/@categoryname
+            categoryUrl:
+              - text: https://www.pnp.co.za/pnpstorefront/pnp/en/All-Products/Food-Cupboard/Oil-%26-Vinegar/c/oil-and-vinegar-487551153
+                xpath: /html/body/main[1]/header[1]/div[2]/div[1]/nav[1]/ul[2]/li[1]/div[1]/div[1]/ul[1]/div[2]/ul[1]/li[13]/a[1]/@categoryurl
+          - category:
+              - text: Pasta & Noodles
+                xpath: /html/body/main[1]/header[1]/div[2]/div[1]/nav[1]/ul[2]/li[1]/div[1]/div[1]/ul[1]/div[2]/ul[1]/li[14]/a[1]/@categoryname
+            categoryUrl:
+              - text: https://www.pnp.co.za/pnpstorefront/pnp/en/All-Products/Food-Cupboard/Pasta-%26-Noodles/c/pasta-and-noodles-487551153
+                xpath: /html/body/main[1]/header[1]/div[2]/div[1]/nav[1]/ul[2]/li[1]/div[1]/div[1]/ul[1]/div[2]/ul[1]/li[14]/a[1]/@categoryurl
+          - category:
+              - text: Rice, Grains & Maize
+                xpath: /html/body/main[1]/header[1]/div[2]/div[1]/nav[1]/ul[2]/li[1]/div[1]/div[1]/ul[1]/div[2]/ul[1]/li[15]/a[1]/@categoryname
+            categoryUrl:
+              - text: https://www.pnp.co.za/pnpstorefront/pnp/en/All-Products/Food-Cupboard/Rice%2C-Grains-%26-Maize/c/rice-grains-and-maize-487551153
+                xpath: /html/body/main[1]/header[1]/div[2]/div[1]/nav[1]/ul[2]/li[1]/div[1]/div[1]/ul[1]/div[2]/ul[1]/li[15]/a[1]/@categoryurl
+          - category:
+              - text: Sauces & Dressings
+                xpath: /html/body/main[1]/header[1]/div[2]/div[1]/nav[1]/ul[2]/li[1]/div[1]/div[1]/ul[1]/div[2]/ul[1]/li[16]/a[1]/@categoryname
+            categoryUrl:
+              - text: https://www.pnp.co.za/pnpstorefront/pnp/en/All-Products/Food-Cupboard/Sauces-%26-Dressings/c/sauces-and-dressings-487551153
+                xpath: /html/body/main[1]/header[1]/div[2]/div[1]/nav[1]/ul[2]/li[1]/div[1]/div[1]/ul[1]/div[2]/ul[1]/li[16]/a[1]/@categoryurl
+          - category:
+              - text: Spices & Seasoning
+                xpath: /html/body/main[1]/header[1]/div[2]/div[1]/nav[1]/ul[2]/li[1]/div[1]/div[1]/ul[1]/div[2]/ul[1]/li[17]/a[1]/@categoryname
+            categoryUrl:
+              - text: https://www.pnp.co.za/pnpstorefront/pnp/en/All-Products/Food-Cupboard/Spices-%26-Seasoning/c/spices-and-seasoning-487551153
+                xpath: /html/body/main[1]/header[1]/div[2]/div[1]/nav[1]/ul[2]/li[1]/div[1]/div[1]/ul[1]/div[2]/ul[1]/li[17]/a[1]/@categoryurl
+          - category:
+              - text: Sugar & Sweeteners
+                xpath: /html/body/main[1]/header[1]/div[2]/div[1]/nav[1]/ul[2]/li[1]/div[1]/div[1]/ul[1]/div[2]/ul[1]/li[18]/a[1]/@categoryname
+            categoryUrl:
+              - text: https://www.pnp.co.za/pnpstorefront/pnp/en/All-Products/Food-Cupboard/Sugar-%26-Sweeteners/c/sugar-and-sweeteners-487551153
+                xpath: /html/body/main[1]/header[1]/div[2]/div[1]/nav[1]/ul[2]/li[1]/div[1]/div[1]/ul[1]/div[2]/ul[1]/li[18]/a[1]/@categoryurl
+          - category:
+              - text: Gifting
+                xpath: /html/body/main[1]/header[1]/div[2]/div[1]/nav[1]/ul[2]/li[1]/div[1]/div[1]/ul[1]/div[2]/ul[1]/li[19]/a[1]/@categoryname
+            categoryUrl:
+              - text: https://www.pnp.co.za/pnpstorefront/pnp/en/pnp-giftbox
+                xpath: /html/body/main[1]/header[1]/div[2]/div[1]/nav[1]/ul[2]/li[1]/div[1]/div[1]/ul[1]/div[2]/ul[1]/li[19]/a[1]/@categoryurl
+          - category:
+              - text: Health, Protein & Energy Bars
+                xpath: /html/body/main[1]/header[1]/div[2]/div[1]/nav[1]/ul[2]/li[1]/div[1]/div[1]/ul[1]/div[2]/ul[1]/li[20]/a[1]/@categoryname
+            categoryUrl:
+              - text: https://www.pnp.co.za/pnpstorefront/pnp/en/All-Products/Food-Cupboard/Health%2C-Protein-%26-Energy-Bars/c/health-protein-and-energy-bars-487551153
+                xpath: /html/body/main[1]/header[1]/div[2]/div[1]/nav[1]/ul[2]/li[1]/div[1]/div[1]/ul[1]/div[2]/ul[1]/li[20]/a[1]/@categoryurl
+          - category:
+              - text: Frozen Food
+                xpath: /html/body/main[1]/header[1]/div[2]/div[1]/nav[1]/ul[2]/li[1]/div[1]/div[1]/ul[1]/div[3]/ul[1]/li[1]/a[1]/@categoryname
+            categoryUrl:
+              - text: https://www.pnp.co.za/pnpstorefront/pnp/en/All-Products/Frozen-Food/c/frozen-food-423144840
+                xpath: /html/body/main[1]/header[1]/div[2]/div[1]/nav[1]/ul[2]/li[1]/div[1]/div[1]/ul[1]/div[3]/ul[1]/li[1]/a[1]/@categoryurl
+          - category:
+              - text: Frozen Appetizers & Snacks
+                xpath: /html/body/main[1]/header[1]/div[2]/div[1]/nav[1]/ul[2]/li[1]/div[1]/div[1]/ul[1]/div[3]/ul[1]/li[2]/a[1]/@categoryname
+            categoryUrl:
+              - text: https://www.pnp.co.za/pnpstorefront/pnp/en/All-Products/Frozen-Food/Frozen-Meals/c/frozen-meals-556619069
+                xpath: /html/body/main[1]/header[1]/div[2]/div[1]/nav[1]/ul[2]/li[1]/div[1]/div[1]/ul[1]/div[3]/ul[1]/li[2]/a[1]/@categoryurl
+          - category:
+              - text: Frozen Chips & Potatoes
+                xpath: /html/body/main[1]/header[1]/div[2]/div[1]/nav[1]/ul[2]/li[1]/div[1]/div[1]/ul[1]/div[3]/ul[1]/li[3]/a[1]/@categoryname
+            categoryUrl:
+              - text: https://www.pnp.co.za/pnpstorefront/pnp/en/All-Products/Frozen-Food/Frozen-Chips-%26-Potatoes/c/frozen-chips-and-potatoes-556619069
+                xpath: /html/body/main[1]/header[1]/div[2]/div[1]/nav[1]/ul[2]/li[1]/div[1]/div[1]/ul[1]/div[3]/ul[1]/li[3]/a[1]/@categoryurl
+          - category:
+              - text: Frozen Confectionery
+                xpath: /html/body/main[1]/header[1]/div[2]/div[1]/nav[1]/ul[2]/li[1]/div[1]/div[1]/ul[1]/div[3]/ul[1]/li[4]/a[1]/@categoryname
+            categoryUrl:
+              - text: https://www.pnp.co.za/pnpstorefront/pnp/en/All-Products/Frozen-Food/Frozen-Confectionery/c/frozen-confectionery-556619069
+                xpath: /html/body/main[1]/header[1]/div[2]/div[1]/nav[1]/ul[2]/li[1]/div[1]/div[1]/ul[1]/div[3]/ul[1]/li[4]/a[1]/@categoryurl
+          - category:
+              - text: Frozen Fish & Seafood
+                xpath: /html/body/main[1]/header[1]/div[2]/div[1]/nav[1]/ul[2]/li[1]/div[1]/div[1]/ul[1]/div[3]/ul[1]/li[5]/a[1]/@categoryname
+            categoryUrl:
+              - text: https://www.pnp.co.za/pnpstorefront/pnp/en/All-Products/Frozen-Food/Frozen-Fish-%26-Seafood/c/frozen-fish-and-seafood-556619069
+                xpath: /html/body/main[1]/header[1]/div[2]/div[1]/nav[1]/ul[2]/li[1]/div[1]/div[1]/ul[1]/div[3]/ul[1]/li[5]/a[1]/@categoryurl
+          - category:
+              - text: Frozen Fruit
+                xpath: /html/body/main[1]/header[1]/div[2]/div[1]/nav[1]/ul[2]/li[1]/div[1]/div[1]/ul[1]/div[3]/ul[1]/li[6]/a[1]/@categoryname
+            categoryUrl:
+              - text: https://www.pnp.co.za/pnpstorefront/pnp/en/All-Products/Frozen-Food/Frozen-Fruit/c/frozen-fruit-556619069
+                xpath: /html/body/main[1]/header[1]/div[2]/div[1]/nav[1]/ul[2]/li[1]/div[1]/div[1]/ul[1]/div[3]/ul[1]/li[6]/a[1]/@categoryurl
+          - category:
+              - text: Frozen Meat
+                xpath: /html/body/main[1]/header[1]/div[2]/div[1]/nav[1]/ul[2]/li[1]/div[1]/div[1]/ul[1]/div[3]/ul[1]/li[7]/a[1]/@categoryname
+            categoryUrl:
+              - text: https://www.pnp.co.za/pnpstorefront/pnp/en/All-Products/Frozen-Food/Frozen-Meat/c/frozen-meat-556619069
+                xpath: /html/body/main[1]/header[1]/div[2]/div[1]/nav[1]/ul[2]/li[1]/div[1]/div[1]/ul[1]/div[3]/ul[1]/li[7]/a[1]/@categoryurl
+          - category:
+              - text: Frozen Pies
+                xpath: /html/body/main[1]/header[1]/div[2]/div[1]/nav[1]/ul[2]/li[1]/div[1]/div[1]/ul[1]/div[3]/ul[1]/li[8]/a[1]/@categoryname
+            categoryUrl:
+              - text: https://www.pnp.co.za/pnpstorefront/pnp/en/All-Products/Frozen-Food/Frozen-Pies/c/frozen-pies-556619069
+                xpath: /html/body/main[1]/header[1]/div[2]/div[1]/nav[1]/ul[2]/li[1]/div[1]/div[1]/ul[1]/div[3]/ul[1]/li[8]/a[1]/@categoryurl
+          - category:
+              - text: Frozen Pizza
+                xpath: /html/body/main[1]/header[1]/div[2]/div[1]/nav[1]/ul[2]/li[1]/div[1]/div[1]/ul[1]/div[3]/ul[1]/li[9]/a[1]/@categoryname
+            categoryUrl:
+              - text: https://www.pnp.co.za/pnpstorefront/pnp/en/All-Products/Frozen-Food/Frozen-Pizza/c/frozen-pizza-556619069
+                xpath: /html/body/main[1]/header[1]/div[2]/div[1]/nav[1]/ul[2]/li[1]/div[1]/div[1]/ul[1]/div[3]/ul[1]/li[9]/a[1]/@categoryurl
+          - category:
+              - text: Frozen Poultry
+                xpath: /html/body/main[1]/header[1]/div[2]/div[1]/nav[1]/ul[2]/li[1]/div[1]/div[1]/ul[1]/div[3]/ul[1]/li[10]/a[1]/@categoryname
+            categoryUrl:
+              - text: https://www.pnp.co.za/pnpstorefront/pnp/en/All-Products/Frozen-Food/Frozen-Poultry/c/frozen-poultry-556619069
+                xpath: /html/body/main[1]/header[1]/div[2]/div[1]/nav[1]/ul[2]/li[1]/div[1]/div[1]/ul[1]/div[3]/ul[1]/li[10]/a[1]/@categoryurl
+          - category:
+              - text: Frozen Ready Meals
+                xpath: /html/body/main[1]/header[1]/div[2]/div[1]/nav[1]/ul[2]/li[1]/div[1]/div[1]/ul[1]/div[3]/ul[1]/li[11]/a[1]/@categoryname
+            categoryUrl:
+              - text: https://www.pnp.co.za/pnpstorefront/pnp/en/All-Products/Frozen-Food/Frozen-Ready-Meals/c/frozen-ready-meals-556619069
+                xpath: /html/body/main[1]/header[1]/div[2]/div[1]/nav[1]/ul[2]/li[1]/div[1]/div[1]/ul[1]/div[3]/ul[1]/li[11]/a[1]/@categoryurl
+          - category:
+              - text: Frozen Vegetables
+                xpath: /html/body/main[1]/header[1]/div[2]/div[1]/nav[1]/ul[2]/li[1]/div[1]/div[1]/ul[1]/div[3]/ul[1]/li[12]/a[1]/@categoryname
+            categoryUrl:
+              - text: https://www.pnp.co.za/pnpstorefront/pnp/en/All-Products/Frozen-Food/Frozen-Vegetables/c/frozen-vegetables-556619069
+                xpath: /html/body/main[1]/header[1]/div[2]/div[1]/nav[1]/ul[2]/li[1]/div[1]/div[1]/ul[1]/div[3]/ul[1]/li[12]/a[1]/@categoryurl
+          - category:
+              - text: Frozen Vegetarian
+                xpath: /html/body/main[1]/header[1]/div[2]/div[1]/nav[1]/ul[2]/li[1]/div[1]/div[1]/ul[1]/div[3]/ul[1]/li[13]/a[1]/@categoryname
+            categoryUrl:
+              - text: https://www.pnp.co.za/pnpstorefront/pnp/en/All-Products/Frozen-Food/Frozen-Vegetarian/c/frozen-vegetarian-556619069
+                xpath: /html/body/main[1]/header[1]/div[2]/div[1]/nav[1]/ul[2]/li[1]/div[1]/div[1]/ul[1]/div[3]/ul[1]/li[13]/a[1]/@categoryurl
+          - category:
+              - text: Ice Cream & Desserts
+                xpath: /html/body/main[1]/header[1]/div[2]/div[1]/nav[1]/ul[2]/li[1]/div[1]/div[1]/ul[1]/div[3]/ul[1]/li[14]/a[1]/@categoryname
+            categoryUrl:
+              - text: https://www.pnp.co.za/pnpstorefront/pnp/en/All-Products/Frozen-Food/Ice-Cream-%26-Desserts/c/ice-cream-and-desserts-556619069
+                xpath: /html/body/main[1]/header[1]/div[2]/div[1]/nav[1]/ul[2]/li[1]/div[1]/div[1]/ul[1]/div[3]/ul[1]/li[14]/a[1]/@categoryurl
+          - category:
+              - text: Convenience Meals
+                xpath: /html/body/main[1]/header[1]/div[2]/div[1]/nav[1]/ul[2]/li[1]/div[1]/div[1]/ul[1]/div[4]/ul[1]/li[1]/a[1]/@categoryname
+            categoryUrl:
+              - text: https://www.pnp.co.za/pnpstorefront/pnp/en/All-Products/Convenience-Meals/c/convenience-meals-423144840
+                xpath: /html/body/main[1]/header[1]/div[2]/div[1]/nav[1]/ul[2]/li[1]/div[1]/div[1]/ul[1]/div[4]/ul[1]/li[1]/a[1]/@categoryurl
+          - category:
+              - text: Deli & Party Snacks & Dips
+                xpath: /html/body/main[1]/header[1]/div[2]/div[1]/nav[1]/ul[2]/li[1]/div[1]/div[1]/ul[1]/div[4]/ul[1]/li[2]/a[1]/@categoryname
+            categoryUrl:
+              - text: https://www.pnp.co.za/pnpstorefront/pnp/en/All-Products/Convenience-Meals/Deli-%26-Party-Snacks-%26-Dips/c/deli-and-party-snacks-and-dips22677778
+                xpath: /html/body/main[1]/header[1]/div[2]/div[1]/nav[1]/ul[2]/li[1]/div[1]/div[1]/ul[1]/div[4]/ul[1]/li[2]/a[1]/@categoryurl
+          - category:
+              - text: Desserts
+                xpath: /html/body/main[1]/header[1]/div[2]/div[1]/nav[1]/ul[2]/li[1]/div[1]/div[1]/ul[1]/div[4]/ul[1]/li[3]/a[1]/@categoryname
+            categoryUrl:
+              - text: https://www.pnp.co.za/pnpstorefront/pnp/en/All-Products/Convenience-Meals/Desserts/c/desserts22677778
+                xpath: /html/body/main[1]/header[1]/div[2]/div[1]/nav[1]/ul[2]/li[1]/div[1]/div[1]/ul[1]/div[4]/ul[1]/li[3]/a[1]/@categoryurl
+          - category:
+              - text: Meal Accompaniments
+                xpath: /html/body/main[1]/header[1]/div[2]/div[1]/nav[1]/ul[2]/li[1]/div[1]/div[1]/ul[1]/div[4]/ul[1]/li[4]/a[1]/@categoryname
+            categoryUrl:
+              - text: https://www.pnp.co.za/pnpstorefront/pnp/en/All-Products/Convenience-Meals/Meal-Accompaniments/c/meal-accompaniments22677778
+                xpath: /html/body/main[1]/header[1]/div[2]/div[1]/nav[1]/ul[2]/li[1]/div[1]/div[1]/ul[1]/div[4]/ul[1]/li[4]/a[1]/@categoryurl
+          - category:
+              - text: Meals
+                xpath: /html/body/main[1]/header[1]/div[2]/div[1]/nav[1]/ul[2]/li[1]/div[1]/div[1]/ul[1]/div[4]/ul[1]/li[5]/a[1]/@categoryname
+            categoryUrl:
+              - text: https://www.pnp.co.za/pnpstorefront/pnp/en/All-Products/Convenience-Meals/Meals/c/meals22677778
+                xpath: /html/body/main[1]/header[1]/div[2]/div[1]/nav[1]/ul[2]/li[1]/div[1]/div[1]/ul[1]/div[4]/ul[1]/li[5]/a[1]/@categoryurl
+          - category:
+              - text: Pizzas
+                xpath: /html/body/main[1]/header[1]/div[2]/div[1]/nav[1]/ul[2]/li[1]/div[1]/div[1]/ul[1]/div[4]/ul[1]/li[6]/a[1]/@categoryname
+            categoryUrl:
+              - text: https://www.pnp.co.za/pnpstorefront/pnp/en/All-Products/Convenience-Meals/Pizzas/c/pizzas22677778
+                xpath: /html/body/main[1]/header[1]/div[2]/div[1]/nav[1]/ul[2]/li[1]/div[1]/div[1]/ul[1]/div[4]/ul[1]/li[6]/a[1]/@categoryurl
+          - category:
+              - text: Quiches & Pies
+                xpath: /html/body/main[1]/header[1]/div[2]/div[1]/nav[1]/ul[2]/li[1]/div[1]/div[1]/ul[1]/div[4]/ul[1]/li[7]/a[1]/@categoryname
+            categoryUrl:
+              - text: https://www.pnp.co.za/pnpstorefront/pnp/en/All-Products/Convenience-Meals/Quiches-%26-Pies/c/quiches-and-pies22677778
+                xpath: /html/body/main[1]/header[1]/div[2]/div[1]/nav[1]/ul[2]/li[1]/div[1]/div[1]/ul[1]/div[4]/ul[1]/li[7]/a[1]/@categoryurl
+          - category:
+              - text: Soups
+                xpath: /html/body/main[1]/header[1]/div[2]/div[1]/nav[1]/ul[2]/li[1]/div[1]/div[1]/ul[1]/div[4]/ul[1]/li[8]/a[1]/@categoryname
+            categoryUrl:
+              - text: https://www.pnp.co.za/pnpstorefront/pnp/en/All-Products/Convenience-Meals/Soups/c/soups22677778
+                xpath: /html/body/main[1]/header[1]/div[2]/div[1]/nav[1]/ul[2]/li[1]/div[1]/div[1]/ul[1]/div[4]/ul[1]/li[8]/a[1]/@categoryurl
+          - category:
+              - text: Salads
+                xpath: /html/body/main[1]/header[1]/div[2]/div[1]/nav[1]/ul[2]/li[1]/div[1]/div[1]/ul[1]/div[4]/ul[1]/li[9]/a[1]/@categoryname
+            categoryUrl:
+              - text: https://www.pnp.co.za/pnpstorefront/pnp/en/All-Products/Convenience-Meals/Salads/c/salads22677778
+                xpath: /html/body/main[1]/header[1]/div[2]/div[1]/nav[1]/ul[2]/li[1]/div[1]/div[1]/ul[1]/div[4]/ul[1]/li[9]/a[1]/@categoryurl
+          - category:
+              - text: Beverages
+                xpath: /html/body/main[1]/header[1]/div[2]/div[1]/nav[1]/ul[2]/li[1]/div[1]/div[1]/ul[1]/div[5]/ul[1]/li[1]/a[1]/@categoryname
+            categoryUrl:
+              - text: https://www.pnp.co.za/pnpstorefront/pnp/en/All-Products/Beverages/c/beverages-423144840
+                xpath: /html/body/main[1]/header[1]/div[2]/div[1]/nav[1]/ul[2]/li[1]/div[1]/div[1]/ul[1]/div[5]/ul[1]/li[1]/a[1]/@categoryurl
+          - category:
+              - text: Bottled Water
+                xpath: /html/body/main[1]/header[1]/div[2]/div[1]/nav[1]/ul[2]/li[1]/div[1]/div[1]/ul[1]/div[5]/ul[1]/li[2]/a[1]/@categoryname
+            categoryUrl:
+              - text: https://www.pnp.co.za/pnpstorefront/pnp/en/All-Products/Beverages/Bottled-Water/c/bottled-water767886124
+                xpath: /html/body/main[1]/header[1]/div[2]/div[1]/nav[1]/ul[2]/li[1]/div[1]/div[1]/ul[1]/div[5]/ul[1]/li[2]/a[1]/@categoryurl
+          - category:
+              - text: Coffee, Tea & Creamers
+                xpath: /html/body/main[1]/header[1]/div[2]/div[1]/nav[1]/ul[2]/li[1]/div[1]/div[1]/ul[1]/div[5]/ul[1]/li[3]/a[1]/@categoryname
+            categoryUrl:
+              - text: https://www.pnp.co.za/pnpstorefront/pnp/en/All-Products/Beverages/Coffee%2C-Tea-%26-Creamers/c/coffee-tea-and-creamers767886124
+                xpath: /html/body/main[1]/header[1]/div[2]/div[1]/nav[1]/ul[2]/li[1]/div[1]/div[1]/ul[1]/div[5]/ul[1]/li[3]/a[1]/@categoryurl
+          - category:
+              - text: Cold Drinks
+                xpath: /html/body/main[1]/header[1]/div[2]/div[1]/nav[1]/ul[2]/li[1]/div[1]/div[1]/ul[1]/div[5]/ul[1]/li[4]/a[1]/@categoryname
+            categoryUrl:
+              - text: https://www.pnp.co.za/pnpstorefront/pnp/en/All-Products/Beverages/Cold-Drinks/c/cold-drinks767886124
+                xpath: /html/body/main[1]/header[1]/div[2]/div[1]/nav[1]/ul[2]/li[1]/div[1]/div[1]/ul[1]/div[5]/ul[1]/li[4]/a[1]/@categoryurl
+          - category:
+              - text: Hot Chocolate & Malt Drinks
+                xpath: /html/body/main[1]/header[1]/div[2]/div[1]/nav[1]/ul[2]/li[1]/div[1]/div[1]/ul[1]/div[5]/ul[1]/li[5]/a[1]/@categoryname
+            categoryUrl:
+              - text: https://www.pnp.co.za/pnpstorefront/pnp/en/All-Products/Beverages/Hot-Chocolate-%26-Malt-Drinks/c/hot-chocolate-and-malt-drinks767886124
+                xpath: /html/body/main[1]/header[1]/div[2]/div[1]/nav[1]/ul[2]/li[1]/div[1]/div[1]/ul[1]/div[5]/ul[1]/li[5]/a[1]/@categoryurl
+          - category:
+              - text: Juice
+                xpath: /html/body/main[1]/header[1]/div[2]/div[1]/nav[1]/ul[2]/li[1]/div[1]/div[1]/ul[1]/div[5]/ul[1]/li[6]/a[1]/@categoryname
+            categoryUrl:
+              - text: https://www.pnp.co.za/pnpstorefront/pnp/en/All-Products/Beverages/Juice/c/juice767886124
+                xpath: /html/body/main[1]/header[1]/div[2]/div[1]/nav[1]/ul[2]/li[1]/div[1]/div[1]/ul[1]/div[5]/ul[1]/li[6]/a[1]/@categoryurl
+          - category:
+              - text: Long-Life Milk (UHT)
+                xpath: /html/body/main[1]/header[1]/div[2]/div[1]/nav[1]/ul[2]/li[1]/div[1]/div[1]/ul[1]/div[5]/ul[1]/li[7]/a[1]/@categoryname
+            categoryUrl:
+              - text: https://www.pnp.co.za/pnpstorefront/pnp/en/All-Products/Beverages/Long-Life-Milk-%28UHT%29/c/long-life-milk-%28uht%29767886124
+                xpath: /html/body/main[1]/header[1]/div[2]/div[1]/nav[1]/ul[2]/li[1]/div[1]/div[1]/ul[1]/div[5]/ul[1]/li[7]/a[1]/@categoryurl
+          - category:
+              - text: Milk Powders & Blends
+                xpath: /html/body/main[1]/header[1]/div[2]/div[1]/nav[1]/ul[2]/li[1]/div[1]/div[1]/ul[1]/div[5]/ul[1]/li[8]/a[1]/@categoryname
+            categoryUrl:
+              - text: https://www.pnp.co.za/pnpstorefront/pnp/en/All-Products/Beverages/Milk-Powders-%26-Blends/c/milk-powders-and-blends767886124
+                xpath: /html/body/main[1]/header[1]/div[2]/div[1]/nav[1]/ul[2]/li[1]/div[1]/div[1]/ul[1]/div[5]/ul[1]/li[8]/a[1]/@categoryurl
+          - category:
+              - text: Powdered Drinks
+                xpath: /html/body/main[1]/header[1]/div[2]/div[1]/nav[1]/ul[2]/li[1]/div[1]/div[1]/ul[1]/div[5]/ul[1]/li[9]/a[1]/@categoryname
+            categoryUrl:
+              - text: https://www.pnp.co.za/pnpstorefront/pnp/en/All-Products/Beverages/Powdered-Drinks/c/powdered-drinks767886124
+                xpath: /html/body/main[1]/header[1]/div[2]/div[1]/nav[1]/ul[2]/li[1]/div[1]/div[1]/ul[1]/div[5]/ul[1]/li[9]/a[1]/@categoryurl
+          - category:
+              - text: Sports & Energy Drinks
+                xpath: /html/body/main[1]/header[1]/div[2]/div[1]/nav[1]/ul[2]/li[1]/div[1]/div[1]/ul[1]/div[5]/ul[1]/li[10]/a[1]/@categoryname
+            categoryUrl:
+              - text: https://www.pnp.co.za/pnpstorefront/pnp/en/All-Products/Beverages/Sports-%26-Energy-Drinks/c/sports-and-energy-drinks767886124
+                xpath: /html/body/main[1]/header[1]/div[2]/div[1]/nav[1]/ul[2]/li[1]/div[1]/div[1]/ul[1]/div[5]/ul[1]/li[10]/a[1]/@categoryurl
+          - category:
+              - text: Squash, Cordials & Mixers
+                xpath: /html/body/main[1]/header[1]/div[2]/div[1]/nav[1]/ul[2]/li[1]/div[1]/div[1]/ul[1]/div[5]/ul[1]/li[11]/a[1]/@categoryname
+            categoryUrl:
+              - text: https://www.pnp.co.za/pnpstorefront/pnp/en/All-Products/Beverages/Squash%2C-Cordials-%26-Mixers/c/squash-cordials-and-mixers767886124
+                xpath: /html/body/main[1]/header[1]/div[2]/div[1]/nav[1]/ul[2]/li[1]/div[1]/div[1]/ul[1]/div[5]/ul[1]/li[11]/a[1]/@categoryurl
+          - category:
+              - text: Non Alcoholic Beverages
+                xpath: /html/body/main[1]/header[1]/div[2]/div[1]/nav[1]/ul[2]/li[1]/div[1]/div[1]/ul[1]/div[5]/ul[1]/li[12]/a[1]/@categoryname
+            categoryUrl:
+              - text: https://www.pnp.co.za/pnpstorefront/pnp/en/c/non-alcoholic1498227286
+                xpath: /html/body/main[1]/header[1]/div[2]/div[1]/nav[1]/ul[2]/li[1]/div[1]/div[1]/ul[1]/div[5]/ul[1]/li[12]/a[1]/@categoryurl
+          - category:
+              - text: NESCAFÉ Coffee Shop
+                xpath: /html/body/main[1]/header[1]/div[2]/div[1]/nav[1]/ul[2]/li[1]/div[1]/div[1]/ul[1]/div[5]/ul[1]/li[13]/a[1]/@categoryname
+            categoryUrl:
+              - text: https://www.pnp.co.za/pnpstorefront/pnp/en/nescafe-world-coffee
+                xpath: /html/body/main[1]/header[1]/div[2]/div[1]/nav[1]/ul[2]/li[1]/div[1]/div[1]/ul[1]/div[5]/ul[1]/li[13]/a[1]/@categoryurl
+          - category:
+              - text: Starbucks Coffee Shop
+                xpath: /html/body/main[1]/header[1]/div[2]/div[1]/nav[1]/ul[2]/li[1]/div[1]/div[1]/ul[1]/div[5]/ul[1]/li[14]/a[1]/@categoryname
+            categoryUrl:
+              - text: https://www.pnp.co.za/pnpstorefront/pnp/en/campaign/starbucks
+                xpath: /html/body/main[1]/header[1]/div[2]/div[1]/nav[1]/ul[2]/li[1]/div[1]/div[1]/ul[1]/div[5]/ul[1]/li[14]/a[1]/@categoryurl
+          - category:
+              - text: Health & Beauty
+                xpath: /html/body/main[1]/header[1]/div[2]/div[1]/nav[1]/ul[2]/li[1]/div[1]/div[1]/ul[1]/div[6]/ul[1]/li[1]/a[1]/@categoryname
+            categoryUrl:
+              - text: https://www.pnp.co.za/pnpstorefront/pnp/en/All-Products/Health-%26-Beauty/c/health-and-beauty-423144840
+                xpath: /html/body/main[1]/header[1]/div[2]/div[1]/nav[1]/ul[2]/li[1]/div[1]/div[1]/ul[1]/div[6]/ul[1]/li[1]/a[1]/@categoryurl
+          - category:
+              - text: Bath, Shower & Soap
+                xpath: /html/body/main[1]/header[1]/div[2]/div[1]/nav[1]/ul[2]/li[1]/div[1]/div[1]/ul[1]/div[6]/ul[1]/li[2]/a[1]/@categoryname
+            categoryUrl:
+              - text: https://www.pnp.co.za/pnpstorefront/pnp/en/All-Products/Health-%26-Beauty/Bath%2C-Shower-%26-Soap/c/bath-shower-and-soap-1502538597
+                xpath: /html/body/main[1]/header[1]/div[2]/div[1]/nav[1]/ul[2]/li[1]/div[1]/div[1]/ul[1]/div[6]/ul[1]/li[2]/a[1]/@categoryurl
+          - category:
+              - text: Body & Facial Care
+                xpath: /html/body/main[1]/header[1]/div[2]/div[1]/nav[1]/ul[2]/li[1]/div[1]/div[1]/ul[1]/div[6]/ul[1]/li[3]/a[1]/@categoryname
+            categoryUrl:
+              - text: https://www.pnp.co.za/pnpstorefront/pnp/en/All-Products/Health-%26-Beauty/Body-%26-Facial-Care/c/body-and-facial-care-1502538597
+                xpath: /html/body/main[1]/header[1]/div[2]/div[1]/nav[1]/ul[2]/li[1]/div[1]/div[1]/ul[1]/div[6]/ul[1]/li[3]/a[1]/@categoryurl
+          - category:
+              - text: Deodorant
+                xpath: /html/body/main[1]/header[1]/div[2]/div[1]/nav[1]/ul[2]/li[1]/div[1]/div[1]/ul[1]/div[6]/ul[1]/li[4]/a[1]/@categoryname
+            categoryUrl:
+              - text: https://www.pnp.co.za/pnpstorefront/pnp/en/All-Products/Health-%26-Beauty/Deodorant/c/deodorant-1502538597
+                xpath: /html/body/main[1]/header[1]/div[2]/div[1]/nav[1]/ul[2]/li[1]/div[1]/div[1]/ul[1]/div[6]/ul[1]/li[4]/a[1]/@categoryurl
+          - category:
+              - text: Feminine Care
+                xpath: /html/body/main[1]/header[1]/div[2]/div[1]/nav[1]/ul[2]/li[1]/div[1]/div[1]/ul[1]/div[6]/ul[1]/li[5]/a[1]/@categoryname
+            categoryUrl:
+              - text: https://www.pnp.co.za/pnpstorefront/pnp/en/All-Products/Health-%26-Beauty/Feminine-Care/c/feminine-care-1502538597
+                xpath: /html/body/main[1]/header[1]/div[2]/div[1]/nav[1]/ul[2]/li[1]/div[1]/div[1]/ul[1]/div[6]/ul[1]/li[5]/a[1]/@categoryurl
+          - category:
+              - text: Foot Care & Hosiery
+                xpath: /html/body/main[1]/header[1]/div[2]/div[1]/nav[1]/ul[2]/li[1]/div[1]/div[1]/ul[1]/div[6]/ul[1]/li[6]/a[1]/@categoryname
+            categoryUrl:
+              - text: https://www.pnp.co.za/pnpstorefront/pnp/en/All-Products/Health-%26-Beauty/Foot-Care-%26-Hosiery/c/foot-care-and-hosiery-1502538597
+                xpath: /html/body/main[1]/header[1]/div[2]/div[1]/nav[1]/ul[2]/li[1]/div[1]/div[1]/ul[1]/div[6]/ul[1]/li[6]/a[1]/@categoryurl
+          - category:
+              - text: Hair Care & Colourants
+                xpath: /html/body/main[1]/header[1]/div[2]/div[1]/nav[1]/ul[2]/li[1]/div[1]/div[1]/ul[1]/div[6]/ul[1]/li[7]/a[1]/@categoryname
+            categoryUrl:
+              - text: https://www.pnp.co.za/pnpstorefront/pnp/en/All-Products/Health-%26-Beauty/Hair-Care-%26-Colourants/c/hair-care-and-colourants-1502538597
+                xpath: /html/body/main[1]/header[1]/div[2]/div[1]/nav[1]/ul[2]/li[1]/div[1]/div[1]/ul[1]/div[6]/ul[1]/li[7]/a[1]/@categoryurl
+          - category:
+              - text: Make-Up
+                xpath: /html/body/main[1]/header[1]/div[2]/div[1]/nav[1]/ul[2]/li[1]/div[1]/div[1]/ul[1]/div[6]/ul[1]/li[8]/a[1]/@categoryname
+            categoryUrl:
+              - text: https://www.pnp.co.za/pnpstorefront/pnp/en/All-Products/Health-%26-Beauty/Make-Up/c/make-up-1502538597
+                xpath: /html/body/main[1]/header[1]/div[2]/div[1]/nav[1]/ul[2]/li[1]/div[1]/div[1]/ul[1]/div[6]/ul[1]/li[8]/a[1]/@categoryurl
+          - category:
+              - text: Nutritional Supplements
+                xpath: /html/body/main[1]/header[1]/div[2]/div[1]/nav[1]/ul[2]/li[1]/div[1]/div[1]/ul[1]/div[6]/ul[1]/li[9]/a[1]/@categoryname
+            categoryUrl:
+              - text: https://www.pnp.co.za/pnpstorefront/pnp/en/All-Products/Health-%26-Beauty/Nutritional-Supplements/c/nutritional-supplements-1502538597
+                xpath: /html/body/main[1]/header[1]/div[2]/div[1]/nav[1]/ul[2]/li[1]/div[1]/div[1]/ul[1]/div[6]/ul[1]/li[9]/a[1]/@categoryurl
+          - category:
+              - text: Oral Care
+                xpath: /html/body/main[1]/header[1]/div[2]/div[1]/nav[1]/ul[2]/li[1]/div[1]/div[1]/ul[1]/div[6]/ul[1]/li[10]/a[1]/@categoryname
+            categoryUrl:
+              - text: https://www.pnp.co.za/pnpstorefront/pnp/en/All-Products/Health-%26-Beauty/Oral-Care/c/oral-care-1502538597
+                xpath: /html/body/main[1]/header[1]/div[2]/div[1]/nav[1]/ul[2]/li[1]/div[1]/div[1]/ul[1]/div[6]/ul[1]/li[10]/a[1]/@categoryurl
+          - category:
+              - text: Personal Grooming
+                xpath: /html/body/main[1]/header[1]/div[2]/div[1]/nav[1]/ul[2]/li[1]/div[1]/div[1]/ul[1]/div[6]/ul[1]/li[11]/a[1]/@categoryname
+            categoryUrl:
+              - text: https://www.pnp.co.za/pnpstorefront/pnp/en/All-Products/Health-%26-Beauty/Personal-Grooming/c/personal-grooming-1502538597
+                xpath: /html/body/main[1]/header[1]/div[2]/div[1]/nav[1]/ul[2]/li[1]/div[1]/div[1]/ul[1]/div[6]/ul[1]/li[11]/a[1]/@categoryurl
+          - category:
+              - text: Pharmacy
+                xpath: /html/body/main[1]/header[1]/div[2]/div[1]/nav[1]/ul[2]/li[1]/div[1]/div[1]/ul[1]/div[6]/ul[1]/li[12]/a[1]/@categoryname
+            categoryUrl:
+              - text: https://www.pnp.co.za/pnpstorefront/pnp/en/All-Products/Health-%26-Beauty/Pharmacy/c/pharmacy-1502538597
+                xpath: /html/body/main[1]/header[1]/div[2]/div[1]/nav[1]/ul[2]/li[1]/div[1]/div[1]/ul[1]/div[6]/ul[1]/li[12]/a[1]/@categoryurl
+          - category:
+              - text: Sexual Health & Condoms
+                xpath: /html/body/main[1]/header[1]/div[2]/div[1]/nav[1]/ul[2]/li[1]/div[1]/div[1]/ul[1]/div[6]/ul[1]/li[13]/a[1]/@categoryname
+            categoryUrl:
+              - text: https://www.pnp.co.za/pnpstorefront/pnp/en/All-Products/Health-%26-Beauty/Sexual-Health-%26-Condoms/c/sexual-health-and-condoms-1502538597
+                xpath: /html/body/main[1]/header[1]/div[2]/div[1]/nav[1]/ul[2]/li[1]/div[1]/div[1]/ul[1]/div[6]/ul[1]/li[13]/a[1]/@categoryurl
+          - category:
+              - text: Shampoo & Conditioner
+                xpath: /html/body/main[1]/header[1]/div[2]/div[1]/nav[1]/ul[2]/li[1]/div[1]/div[1]/ul[1]/div[6]/ul[1]/li[14]/a[1]/@categoryname
+            categoryUrl:
+              - text: https://www.pnp.co.za/pnpstorefront/pnp/en/All-Products/Health-%26-Beauty/Shampoo-%26-Conditioner/c/shampoo-and-conditioner-1502538597
+                xpath: /html/body/main[1]/header[1]/div[2]/div[1]/nav[1]/ul[2]/li[1]/div[1]/div[1]/ul[1]/div[6]/ul[1]/li[14]/a[1]/@categoryurl
+          - category:
+              - text: Shaving & Hair Removal
+                xpath: /html/body/main[1]/header[1]/div[2]/div[1]/nav[1]/ul[2]/li[1]/div[1]/div[1]/ul[1]/div[6]/ul[1]/li[15]/a[1]/@categoryname
+            categoryUrl:
+              - text: https://www.pnp.co.za/pnpstorefront/pnp/en/All-Products/Health-%26-Beauty/Shaving-%26-Hair-Removal/c/shaving-and-hair-removal-1502538597
+                xpath: /html/body/main[1]/header[1]/div[2]/div[1]/nav[1]/ul[2]/li[1]/div[1]/div[1]/ul[1]/div[6]/ul[1]/li[15]/a[1]/@categoryurl
+          - category:
+              - text: Sun Care & Tanning
+                xpath: /html/body/main[1]/header[1]/div[2]/div[1]/nav[1]/ul[2]/li[1]/div[1]/div[1]/ul[1]/div[6]/ul[1]/li[16]/a[1]/@categoryname
+            categoryUrl:
+              - text: https://www.pnp.co.za/pnpstorefront/pnp/en/All-Products/Health-%26-Beauty/Sun-Care-%26-Tanning/c/sun-care-and-tanning-1502538597
+                xpath: /html/body/main[1]/header[1]/div[2]/div[1]/nav[1]/ul[2]/li[1]/div[1]/div[1]/ul[1]/div[6]/ul[1]/li[16]/a[1]/@categoryurl
+          - category:
+              - text: Vitamins & Supplements
+                xpath: /html/body/main[1]/header[1]/div[2]/div[1]/nav[1]/ul[2]/li[1]/div[1]/div[1]/ul[1]/div[6]/ul[1]/li[17]/a[1]/@categoryname
+            categoryUrl:
+              - text: https://www.pnp.co.za/pnpstorefront/pnp/en/All-Products/Health-%26-Beauty/Vitamins-%26-Supplements/c/vitamins-and-supplements-1502538597
+                xpath: /html/body/main[1]/header[1]/div[2]/div[1]/nav[1]/ul[2]/li[1]/div[1]/div[1]/ul[1]/div[6]/ul[1]/li[17]/a[1]/@categoryurl
+          - category:
+              - text: Baby
+                xpath: /html/body/main[1]/header[1]/div[2]/div[1]/nav[1]/ul[2]/li[1]/div[1]/div[1]/ul[1]/div[7]/ul[1]/li[1]/a[1]/@categoryname
+            categoryUrl:
+              - text: https://www.pnp.co.za/pnpstorefront/pnp/en/All-Products/Baby/c/baby-423144840
+                xpath: /html/body/main[1]/header[1]/div[2]/div[1]/nav[1]/ul[2]/li[1]/div[1]/div[1]/ul[1]/div[7]/ul[1]/li[1]/a[1]/@categoryurl
+          - category:
+              - text: Baby & Toddler Healthcare
+                xpath: /html/body/main[1]/header[1]/div[2]/div[1]/nav[1]/ul[2]/li[1]/div[1]/div[1]/ul[1]/div[7]/ul[1]/li[2]/a[1]/@categoryname
+            categoryUrl:
+              - text: https://www.pnp.co.za/pnpstorefront/pnp/en/All-Products/Baby/Baby-%26-Toddler-Healthcare/c/baby-and-toddler-healthcare1526525998
+                xpath: /html/body/main[1]/header[1]/div[2]/div[1]/nav[1]/ul[2]/li[1]/div[1]/div[1]/ul[1]/div[7]/ul[1]/li[2]/a[1]/@categoryurl
+          - category:
+              - text: Baby Bathing & Toiletries
+                xpath: /html/body/main[1]/header[1]/div[2]/div[1]/nav[1]/ul[2]/li[1]/div[1]/div[1]/ul[1]/div[7]/ul[1]/li[3]/a[1]/@categoryname
+            categoryUrl:
+              - text: https://www.pnp.co.za/pnpstorefront/pnp/en/All-Products/Baby/Baby-Bathing-%26-Toiletries/c/baby-bathing-and-toiletries1526525998
+                xpath: /html/body/main[1]/header[1]/div[2]/div[1]/nav[1]/ul[2]/li[1]/div[1]/div[1]/ul[1]/div[7]/ul[1]/li[3]/a[1]/@categoryurl
+          - category:
+              - text: Baby Bottles & Teats
+                xpath: /html/body/main[1]/header[1]/div[2]/div[1]/nav[1]/ul[2]/li[1]/div[1]/div[1]/ul[1]/div[7]/ul[1]/li[4]/a[1]/@categoryname
+            categoryUrl:
+              - text: https://www.pnp.co.za/pnpstorefront/pnp/en/All-Products/Baby/Baby-Bottles-%26-Teats/c/baby-bottles-and-teats1526525998
+                xpath: /html/body/main[1]/header[1]/div[2]/div[1]/nav[1]/ul[2]/li[1]/div[1]/div[1]/ul[1]/div[7]/ul[1]/li[4]/a[1]/@categoryurl
+          - category:
+              - text: Baby Creams, Lotions & Glycerine
+                xpath: /html/body/main[1]/header[1]/div[2]/div[1]/nav[1]/ul[2]/li[1]/div[1]/div[1]/ul[1]/div[7]/ul[1]/li[5]/a[1]/@categoryname
+            categoryUrl:
+              - text: https://www.pnp.co.za/pnpstorefront/pnp/en/All-Products/Baby/Baby-Creams%2C-Lotions-%26-Glycerine/c/baby-creams-lotions-and-glycerine1526525998
+                xpath: /html/body/main[1]/header[1]/div[2]/div[1]/nav[1]/ul[2]/li[1]/div[1]/div[1]/ul[1]/div[7]/ul[1]/li[5]/a[1]/@categoryurl
+          - category:
+              - text: Baby Essentials
+                xpath: /html/body/main[1]/header[1]/div[2]/div[1]/nav[1]/ul[2]/li[1]/div[1]/div[1]/ul[1]/div[7]/ul[1]/li[6]/a[1]/@categoryname
+            categoryUrl:
+              - text: https://www.pnp.co.za/pnpstorefront/pnp/en/All-Products/Baby/Baby-Essentials/c/baby-essentials1526525998
+                xpath: /html/body/main[1]/header[1]/div[2]/div[1]/nav[1]/ul[2]/li[1]/div[1]/div[1]/ul[1]/div[7]/ul[1]/li[6]/a[1]/@categoryurl
+          - category:
+              - text: Baby Food, Formula & Beverages
+                xpath: /html/body/main[1]/header[1]/div[2]/div[1]/nav[1]/ul[2]/li[1]/div[1]/div[1]/ul[1]/div[7]/ul[1]/li[7]/a[1]/@categoryname
+            categoryUrl:
+              - text: https://www.pnp.co.za/pnpstorefront/pnp/en/All-Products/Baby/Baby-Food%2C-Formula-%26-Beverages/c/baby-food-formula-and-beverages1526525998
+                xpath: /html/body/main[1]/header[1]/div[2]/div[1]/nav[1]/ul[2]/li[1]/div[1]/div[1]/ul[1]/div[7]/ul[1]/li[7]/a[1]/@categoryurl
+          - category:
+              - text: Baby Travel
+                xpath: /html/body/main[1]/header[1]/div[2]/div[1]/nav[1]/ul[2]/li[1]/div[1]/div[1]/ul[1]/div[7]/ul[1]/li[8]/a[1]/@categoryname
+            categoryUrl:
+              - text: https://www.pnp.co.za/pnpstorefront/pnp/en/All-Products/Baby/Baby-Travel/c/baby-travel1526525998
+                xpath: /html/body/main[1]/header[1]/div[2]/div[1]/nav[1]/ul[2]/li[1]/div[1]/div[1]/ul[1]/div[7]/ul[1]/li[8]/a[1]/@categoryurl
+          - category:
+              - text: Baby Wipes
+                xpath: /html/body/main[1]/header[1]/div[2]/div[1]/nav[1]/ul[2]/li[1]/div[1]/div[1]/ul[1]/div[7]/ul[1]/li[9]/a[1]/@categoryname
+            categoryUrl:
+              - text: https://www.pnp.co.za/pnpstorefront/pnp/en/All-Products/Baby/Baby-Wipes/c/baby-wipes1526525998
+                xpath: /html/body/main[1]/header[1]/div[2]/div[1]/nav[1]/ul[2]/li[1]/div[1]/div[1]/ul[1]/div[7]/ul[1]/li[9]/a[1]/@categoryurl
+          - category:
+              - text: Breast Pads & Pumps
+                xpath: /html/body/main[1]/header[1]/div[2]/div[1]/nav[1]/ul[2]/li[1]/div[1]/div[1]/ul[1]/div[7]/ul[1]/li[10]/a[1]/@categoryname
+            categoryUrl:
+              - text: https://www.pnp.co.za/pnpstorefront/pnp/en/All-Products/Baby/Breast-Pads-%26-Pumps/c/breast-pads-and-pumps1526525998
+                xpath: /html/body/main[1]/header[1]/div[2]/div[1]/nav[1]/ul[2]/li[1]/div[1]/div[1]/ul[1]/div[7]/ul[1]/li[10]/a[1]/@categoryurl
+          - category:
+              - text: Feeding Accessories
+                xpath: /html/body/main[1]/header[1]/div[2]/div[1]/nav[1]/ul[2]/li[1]/div[1]/div[1]/ul[1]/div[7]/ul[1]/li[11]/a[1]/@categoryname
+            categoryUrl:
+              - text: https://www.pnp.co.za/pnpstorefront/pnp/en/All-Products/Baby/Feeding-Accessories/c/feeding-accessories1526525998
+                xpath: /html/body/main[1]/header[1]/div[2]/div[1]/nav[1]/ul[2]/li[1]/div[1]/div[1]/ul[1]/div[7]/ul[1]/li[11]/a[1]/@categoryurl
+          - category:
+              - text: Nappies
+                xpath: /html/body/main[1]/header[1]/div[2]/div[1]/nav[1]/ul[2]/li[1]/div[1]/div[1]/ul[1]/div[7]/ul[1]/li[12]/a[1]/@categoryname
+            categoryUrl:
+              - text: https://www.pnp.co.za/pnpstorefront/pnp/en/All-Products/Baby/Nappies/c/nappies1526525998
+                xpath: /html/body/main[1]/header[1]/div[2]/div[1]/nav[1]/ul[2]/li[1]/div[1]/div[1]/ul[1]/div[7]/ul[1]/li[12]/a[1]/@categoryurl
+          - category:
+              - text: Nappy Bags & Liners
+                xpath: /html/body/main[1]/header[1]/div[2]/div[1]/nav[1]/ul[2]/li[1]/div[1]/div[1]/ul[1]/div[7]/ul[1]/li[13]/a[1]/@categoryname
+            categoryUrl:
+              - text: https://www.pnp.co.za/pnpstorefront/pnp/en/All-Products/Baby/Nappy-Bags-%26-Liners/c/nappy-bags-and-liners1526525998
+                xpath: /html/body/main[1]/header[1]/div[2]/div[1]/nav[1]/ul[2]/li[1]/div[1]/div[1]/ul[1]/div[7]/ul[1]/li[13]/a[1]/@categoryurl
+          - category:
+              - text: Baby Toys
+                xpath: /html/body/main[1]/header[1]/div[2]/div[1]/nav[1]/ul[2]/li[1]/div[1]/div[1]/ul[1]/div[7]/ul[1]/li[14]/a[1]/@categoryname
+            categoryUrl:
+              - text: https://www.pnp.co.za/pnpstorefront/pnp/en/All-Products/Baby/Baby-Toys/c/baby-toys1526525998
+                xpath: /html/body/main[1]/header[1]/div[2]/div[1]/nav[1]/ul[2]/li[1]/div[1]/div[1]/ul[1]/div[7]/ul[1]/li[14]/a[1]/@categoryurl
+          - category:
+              - text: Antenatal Lotions
+                xpath: /html/body/main[1]/header[1]/div[2]/div[1]/nav[1]/ul[2]/li[1]/div[1]/div[1]/ul[1]/div[7]/ul[1]/li[15]/a[1]/@categoryname
+            categoryUrl:
+              - text: https://www.pnp.co.za/pnpstorefront/pnp/en/All-Products/Baby/Antenatal-Lotions/c/antenatal-lotions1526525998
+                xpath: /html/body/main[1]/header[1]/div[2]/div[1]/nav[1]/ul[2]/li[1]/div[1]/div[1]/ul[1]/div[7]/ul[1]/li[15]/a[1]/@categoryurl
+          - category:
+              - text: Baby Accessories
+                xpath: /html/body/main[1]/header[1]/div[2]/div[1]/nav[1]/ul[2]/li[1]/div[1]/div[1]/ul[1]/div[7]/ul[1]/li[16]/a[1]/@categoryname
+            categoryUrl:
+              - text: https://www.pnp.co.za/pnpstorefront/pnp/en/All-Products/Baby/Baby-Accessories/c/baby-accessories1526525998
+                xpath: /html/body/main[1]/header[1]/div[2]/div[1]/nav[1]/ul[2]/li[1]/div[1]/div[1]/ul[1]/div[7]/ul[1]/li[16]/a[1]/@categoryurl
+          - category:
+              - text: Baby Grooming
+                xpath: /html/body/main[1]/header[1]/div[2]/div[1]/nav[1]/ul[2]/li[1]/div[1]/div[1]/ul[1]/div[7]/ul[1]/li[17]/a[1]/@categoryname
+            categoryUrl:
+              - text: https://www.pnp.co.za/pnpstorefront/pnp/en/All-Products/Baby/Baby-Grooming/c/baby-grooming1526525998
+                xpath: /html/body/main[1]/header[1]/div[2]/div[1]/nav[1]/ul[2]/li[1]/div[1]/div[1]/ul[1]/div[7]/ul[1]/li[17]/a[1]/@categoryurl
+          - category:
+              - text: Baby Baths Accessories
+                xpath: /html/body/main[1]/header[1]/div[2]/div[1]/nav[1]/ul[2]/li[1]/div[1]/div[1]/ul[1]/div[7]/ul[1]/li[18]/a[1]/@categoryname
+            categoryUrl:
+              - text: https://www.pnp.co.za/pnpstorefront/pnp/en/All-Products/Baby/Baby-Baths-Accessories/c/baby-baths-accessories1526525998
+                xpath: /html/body/main[1]/header[1]/div[2]/div[1]/nav[1]/ul[2]/li[1]/div[1]/div[1]/ul[1]/div[7]/ul[1]/li[18]/a[1]/@categoryurl
+          - category:
+              - text: Baby Clothing & Footwear
+                xpath: /html/body/main[1]/header[1]/div[2]/div[1]/nav[1]/ul[2]/li[1]/div[1]/div[1]/ul[1]/div[7]/ul[1]/li[19]/a[1]/@categoryname
+            categoryUrl:
+              - text: https://www.pnp.co.za/pnpstorefront/pnp/en/All-Products/Baby/Baby-Clothing-%26-Footwear/c/baby-clothing-and-footwear1526525998
+                xpath: /html/body/main[1]/header[1]/div[2]/div[1]/nav[1]/ul[2]/li[1]/div[1]/div[1]/ul[1]/div[7]/ul[1]/li[19]/a[1]/@categoryurl
+          - category:
+              - text: Nestle Baby Shop
+                xpath: /html/body/main[1]/header[1]/div[2]/div[1]/nav[1]/ul[2]/li[1]/div[1]/div[1]/ul[1]/div[7]/ul[1]/li[20]/a[1]/@categoryname
+            categoryUrl:
+              - text: https://www.pnp.co.za/pnpstorefront/pnp/en/All-Products/Baby/c/baby-423144840
+                xpath: /html/body/main[1]/header[1]/div[2]/div[1]/nav[1]/ul[2]/li[1]/div[1]/div[1]/ul[1]/div[7]/ul[1]/li[20]/a[1]/@categoryurl
+          - category:
+              - text: Household Cleaning
+                xpath: /html/body/main[1]/header[1]/div[2]/div[1]/nav[1]/ul[2]/li[1]/div[1]/div[1]/ul[1]/div[8]/ul[1]/li[1]/a[1]/@categoryname
+            categoryUrl:
+              - text: https://www.pnp.co.za/pnpstorefront/pnp/en/All-Products/Household-Cleaning/c/household-cleaning-423144840
+                xpath: /html/body/main[1]/header[1]/div[2]/div[1]/nav[1]/ul[2]/li[1]/div[1]/div[1]/ul[1]/div[8]/ul[1]/li[1]/a[1]/@categoryurl
+          - category:
+              - text: Air Freshener
+                xpath: /html/body/main[1]/header[1]/div[2]/div[1]/nav[1]/ul[2]/li[1]/div[1]/div[1]/ul[1]/div[8]/ul[1]/li[2]/a[1]/@categoryname
+            categoryUrl:
+              - text: https://www.pnp.co.za/pnpstorefront/pnp/en/All-Products/Household-Cleaning/Air-Freshener/c/air-freshener2030272127
+                xpath: /html/body/main[1]/header[1]/div[2]/div[1]/nav[1]/ul[2]/li[1]/div[1]/div[1]/ul[1]/div[8]/ul[1]/li[2]/a[1]/@categoryurl
+          - category:
+              - text: Bathroom Cleaners
+                xpath: /html/body/main[1]/header[1]/div[2]/div[1]/nav[1]/ul[2]/li[1]/div[1]/div[1]/ul[1]/div[8]/ul[1]/li[3]/a[1]/@categoryname
+            categoryUrl:
+              - text: https://www.pnp.co.za/pnpstorefront/pnp/en/All-Products/Household-Cleaning/Bathroom-Cleaners/c/bathroom-cleaners2030272127
+                xpath: /html/body/main[1]/header[1]/div[2]/div[1]/nav[1]/ul[2]/li[1]/div[1]/div[1]/ul[1]/div[8]/ul[1]/li[3]/a[1]/@categoryurl
+          - category:
+              - text: Bleach
+                xpath: /html/body/main[1]/header[1]/div[2]/div[1]/nav[1]/ul[2]/li[1]/div[1]/div[1]/ul[1]/div[8]/ul[1]/li[4]/a[1]/@categoryname
+            categoryUrl:
+              - text: https://www.pnp.co.za/pnpstorefront/pnp/en/All-Products/Household-Cleaning/Bleach/c/bleach2030272127
+                xpath: /html/body/main[1]/header[1]/div[2]/div[1]/nav[1]/ul[2]/li[1]/div[1]/div[1]/ul[1]/div[8]/ul[1]/li[4]/a[1]/@categoryurl
+          - category:
+              - text: Brooms & Mops
+                xpath: /html/body/main[1]/header[1]/div[2]/div[1]/nav[1]/ul[2]/li[1]/div[1]/div[1]/ul[1]/div[8]/ul[1]/li[5]/a[1]/@categoryname
+            categoryUrl:
+              - text: https://www.pnp.co.za/pnpstorefront/pnp/en/All-Products/Household-Cleaning/Brooms-%26-Mops/c/brooms-and-mops2030272127
+                xpath: /html/body/main[1]/header[1]/div[2]/div[1]/nav[1]/ul[2]/li[1]/div[1]/div[1]/ul[1]/div[8]/ul[1]/li[5]/a[1]/@categoryurl
+          - category:
+              - text: Cleaning Accessories
+                xpath: /html/body/main[1]/header[1]/div[2]/div[1]/nav[1]/ul[2]/li[1]/div[1]/div[1]/ul[1]/div[8]/ul[1]/li[6]/a[1]/@categoryname
+            categoryUrl:
+              - text: https://www.pnp.co.za/pnpstorefront/pnp/en/All-Products/Household-Cleaning/Cleaning-Accessories/c/cleaning-accessories2030272127
+                xpath: /html/body/main[1]/header[1]/div[2]/div[1]/nav[1]/ul[2]/li[1]/div[1]/div[1]/ul[1]/div[8]/ul[1]/li[6]/a[1]/@categoryurl
+          - category:
+              - text: Dishwashing
+                xpath: /html/body/main[1]/header[1]/div[2]/div[1]/nav[1]/ul[2]/li[1]/div[1]/div[1]/ul[1]/div[8]/ul[1]/li[7]/a[1]/@categoryname
+            categoryUrl:
+              - text: https://www.pnp.co.za/pnpstorefront/pnp/en/All-Products/Household-Cleaning/Dishwashing/c/dishwashing2030272127
+                xpath: /html/body/main[1]/header[1]/div[2]/div[1]/nav[1]/ul[2]/li[1]/div[1]/div[1]/ul[1]/div[8]/ul[1]/li[7]/a[1]/@categoryurl
+          - category:
+              - text: Floor Cleaners
+                xpath: /html/body/main[1]/header[1]/div[2]/div[1]/nav[1]/ul[2]/li[1]/div[1]/div[1]/ul[1]/div[8]/ul[1]/li[8]/a[1]/@categoryname
+            categoryUrl:
+              - text: https://www.pnp.co.za/pnpstorefront/pnp/en/All-Products/Household-Cleaning/Floor-Cleaners/c/floor-cleaners2030272127
+                xpath: /html/body/main[1]/header[1]/div[2]/div[1]/nav[1]/ul[2]/li[1]/div[1]/div[1]/ul[1]/div[8]/ul[1]/li[8]/a[1]/@categoryurl
+          - category:
+              - text: Foils, Wraps & Bags
+                xpath: /html/body/main[1]/header[1]/div[2]/div[1]/nav[1]/ul[2]/li[1]/div[1]/div[1]/ul[1]/div[8]/ul[1]/li[9]/a[1]/@categoryname
+            categoryUrl:
+              - text: https://www.pnp.co.za/pnpstorefront/pnp/en/All-Products/Household-Cleaning/Foils%2C-Wraps-%26-Bags/c/foils-wraps-and-bags2030272127
+                xpath: /html/body/main[1]/header[1]/div[2]/div[1]/nav[1]/ul[2]/li[1]/div[1]/div[1]/ul[1]/div[8]/ul[1]/li[9]/a[1]/@categoryurl
+          - category:
+              - text: Furniture Cleaners
+                xpath: /html/body/main[1]/header[1]/div[2]/div[1]/nav[1]/ul[2]/li[1]/div[1]/div[1]/ul[1]/div[8]/ul[1]/li[10]/a[1]/@categoryname
+            categoryUrl:
+              - text: https://www.pnp.co.za/pnpstorefront/pnp/en/All-Products/Household-Cleaning/Furniture-Cleaners/c/furniture-cleaners2030272127
+                xpath: /html/body/main[1]/header[1]/div[2]/div[1]/nav[1]/ul[2]/li[1]/div[1]/div[1]/ul[1]/div[8]/ul[1]/li[10]/a[1]/@categoryurl
+          - category:
+              - text: Insecticides
+                xpath: /html/body/main[1]/header[1]/div[2]/div[1]/nav[1]/ul[2]/li[1]/div[1]/div[1]/ul[1]/div[8]/ul[1]/li[11]/a[1]/@categoryname
+            categoryUrl:
+              - text: https://www.pnp.co.za/pnpstorefront/pnp/en/All-Products/Household-Cleaning/Insecticides/c/insecticides2030272127
+                xpath: /html/body/main[1]/header[1]/div[2]/div[1]/nav[1]/ul[2]/li[1]/div[1]/div[1]/ul[1]/div[8]/ul[1]/li[11]/a[1]/@categoryurl
+          - category:
+              - text: Kitchen Cleaners
+                xpath: /html/body/main[1]/header[1]/div[2]/div[1]/nav[1]/ul[2]/li[1]/div[1]/div[1]/ul[1]/div[8]/ul[1]/li[12]/a[1]/@categoryname
+            categoryUrl:
+              - text: https://www.pnp.co.za/pnpstorefront/pnp/en/All-Products/Household-Cleaning/Kitchen-Cleaners/c/kitchen-cleaners2030272127
+                xpath: /html/body/main[1]/header[1]/div[2]/div[1]/nav[1]/ul[2]/li[1]/div[1]/div[1]/ul[1]/div[8]/ul[1]/li[12]/a[1]/@categoryurl
+          - category:
+              - text: Laundry Accessories
+                xpath: /html/body/main[1]/header[1]/div[2]/div[1]/nav[1]/ul[2]/li[1]/div[1]/div[1]/ul[1]/div[8]/ul[1]/li[13]/a[1]/@categoryname
+            categoryUrl:
+              - text: https://www.pnp.co.za/pnpstorefront/pnp/en/All-Products/Household-Cleaning/Laundry-Accessories/c/laundry-accessories2030272127
+                xpath: /html/body/main[1]/header[1]/div[2]/div[1]/nav[1]/ul[2]/li[1]/div[1]/div[1]/ul[1]/div[8]/ul[1]/li[13]/a[1]/@categoryurl
+          - category:
+              - text: Laundry Detergents
+                xpath: /html/body/main[1]/header[1]/div[2]/div[1]/nav[1]/ul[2]/li[1]/div[1]/div[1]/ul[1]/div[8]/ul[1]/li[14]/a[1]/@categoryname
+            categoryUrl:
+              - text: https://www.pnp.co.za/pnpstorefront/pnp/en/All-Products/Household-Cleaning/Laundry-Detergents/c/laundry-detergents2030272127
+                xpath: /html/body/main[1]/header[1]/div[2]/div[1]/nav[1]/ul[2]/li[1]/div[1]/div[1]/ul[1]/div[8]/ul[1]/li[14]/a[1]/@categoryurl
+          - category:
+              - text: PnP Green Range
+                xpath: /html/body/main[1]/header[1]/div[2]/div[1]/nav[1]/ul[2]/li[1]/div[1]/div[1]/ul[1]/div[8]/ul[1]/li[15]/a[1]/@categoryname
+            categoryUrl:
+              - text: https://www.pnp.co.za/pnpstorefront/pnp/en/All-Products/Household-Cleaning/PnP-Green-Range/c/pnp-green-range2030272127
+                xpath: /html/body/main[1]/header[1]/div[2]/div[1]/nav[1]/ul[2]/li[1]/div[1]/div[1]/ul[1]/div[8]/ul[1]/li[15]/a[1]/@categoryurl
+          - category:
+              - text: Refuse Bags
+                xpath: /html/body/main[1]/header[1]/div[2]/div[1]/nav[1]/ul[2]/li[1]/div[1]/div[1]/ul[1]/div[8]/ul[1]/li[16]/a[1]/@categoryname
+            categoryUrl:
+              - text: https://www.pnp.co.za/pnpstorefront/pnp/en/All-Products/Household-Cleaning/Refuse-Bags/c/refuse-bags2030272127
+                xpath: /html/body/main[1]/header[1]/div[2]/div[1]/nav[1]/ul[2]/li[1]/div[1]/div[1]/ul[1]/div[8]/ul[1]/li[16]/a[1]/@categoryurl
+          - category:
+              - text: Scourers & Sponges
+                xpath: /html/body/main[1]/header[1]/div[2]/div[1]/nav[1]/ul[2]/li[1]/div[1]/div[1]/ul[1]/div[8]/ul[1]/li[17]/a[1]/@categoryname
+            categoryUrl:
+              - text: https://www.pnp.co.za/pnpstorefront/pnp/en/All-Products/Household-Cleaning/Scourers-%26-Sponges/c/scourers-and-sponges2030272127
+                xpath: /html/body/main[1]/header[1]/div[2]/div[1]/nav[1]/ul[2]/li[1]/div[1]/div[1]/ul[1]/div[8]/ul[1]/li[17]/a[1]/@categoryurl
+          - category:
+              - text: Serviettes & Roller Towel
+                xpath: /html/body/main[1]/header[1]/div[2]/div[1]/nav[1]/ul[2]/li[1]/div[1]/div[1]/ul[1]/div[8]/ul[1]/li[18]/a[1]/@categoryname
+            categoryUrl:
+              - text: https://www.pnp.co.za/pnpstorefront/pnp/en/All-Products/Household-Cleaning/Serviettes-%26-Roller-Towel/c/serviettes-and-roller-towel2030272127
+                xpath: /html/body/main[1]/header[1]/div[2]/div[1]/nav[1]/ul[2]/li[1]/div[1]/div[1]/ul[1]/div[8]/ul[1]/li[18]/a[1]/@categoryurl
+          - category:
+              - text: Tissues & Toilet Paper
+                xpath: /html/body/main[1]/header[1]/div[2]/div[1]/nav[1]/ul[2]/li[1]/div[1]/div[1]/ul[1]/div[8]/ul[1]/li[19]/a[1]/@categoryname
+            categoryUrl:
+              - text: https://www.pnp.co.za/pnpstorefront/pnp/en/All-Products/Household-Cleaning/Tissues-%26-Toilet-Paper/c/tissues-and-toilet-paper2030272127
+                xpath: /html/body/main[1]/header[1]/div[2]/div[1]/nav[1]/ul[2]/li[1]/div[1]/div[1]/ul[1]/div[8]/ul[1]/li[19]/a[1]/@categoryurl
+          - category:
+              - text: Window Cleaners
+                xpath: /html/body/main[1]/header[1]/div[2]/div[1]/nav[1]/ul[2]/li[1]/div[1]/div[1]/ul[1]/div[8]/ul[1]/li[20]/a[1]/@categoryname
+            categoryUrl:
+              - text: https://www.pnp.co.za/pnpstorefront/pnp/en/All-Products/Household-Cleaning/Window-Cleaners/c/window-cleaners2030272127
+                xpath: /html/body/main[1]/header[1]/div[2]/div[1]/nav[1]/ul[2]/li[1]/div[1]/div[1]/ul[1]/div[8]/ul[1]/li[20]/a[1]/@categoryurl
+          - category:
+              - text: Electronics & Office
+                xpath: /html/body/main[1]/header[1]/div[2]/div[1]/nav[1]/ul[2]/li[1]/div[1]/div[1]/ul[1]/div[9]/ul[1]/li[1]/a[1]/@categoryname
+            categoryUrl:
+              - text: https://www.pnp.co.za/pnpstorefront/pnp/en/All-Products/Electronics-%26-Office/c/electronics-and-office-423144840
+                xpath: /html/body/main[1]/header[1]/div[2]/div[1]/nav[1]/ul[2]/li[1]/div[1]/div[1]/ul[1]/div[9]/ul[1]/li[1]/a[1]/@categoryurl
+          - category:
+              - text: Batteries
+                xpath: /html/body/main[1]/header[1]/div[2]/div[1]/nav[1]/ul[2]/li[1]/div[1]/div[1]/ul[1]/div[9]/ul[1]/li[2]/a[1]/@categoryname
+            categoryUrl:
+              - text: https://www.pnp.co.za/pnpstorefront/pnp/en/All-Products/Electronics-%26-Office/Batteries/c/batteries2090948832
+                xpath: /html/body/main[1]/header[1]/div[2]/div[1]/nav[1]/ul[2]/li[1]/div[1]/div[1]/ul[1]/div[9]/ul[1]/li[2]/a[1]/@categoryurl
+          - category:
+              - text: Cell Phones & Accessories
+                xpath: /html/body/main[1]/header[1]/div[2]/div[1]/nav[1]/ul[2]/li[1]/div[1]/div[1]/ul[1]/div[9]/ul[1]/li[3]/a[1]/@categoryname
+            categoryUrl:
+              - text: https://www.pnp.co.za/pnpstorefront/pnp/en/All-Products/Electronics-%26-Office/Cell-Phones-%26-Accessories/c/cell-phones-and-accessories2090948832
+                xpath: /html/body/main[1]/header[1]/div[2]/div[1]/nav[1]/ul[2]/li[1]/div[1]/div[1]/ul[1]/div[9]/ul[1]/li[3]/a[1]/@categoryurl
+          - category:
+              - text: Computing & Accessories
+                xpath: /html/body/main[1]/header[1]/div[2]/div[1]/nav[1]/ul[2]/li[1]/div[1]/div[1]/ul[1]/div[9]/ul[1]/li[4]/a[1]/@categoryname
+            categoryUrl:
+              - text: https://www.pnp.co.za/pnpstorefront/pnp/en/All-Products/Electronics-%26-Office/Computing-%26-Accessories/c/computing-and-accessories2090948832
+                xpath: /html/body/main[1]/header[1]/div[2]/div[1]/nav[1]/ul[2]/li[1]/div[1]/div[1]/ul[1]/div[9]/ul[1]/li[4]/a[1]/@categoryurl
+          - category:
+              - text: Home & Personal Audio
+                xpath: /html/body/main[1]/header[1]/div[2]/div[1]/nav[1]/ul[2]/li[1]/div[1]/div[1]/ul[1]/div[9]/ul[1]/li[5]/a[1]/@categoryname
+            categoryUrl:
+              - text: https://www.pnp.co.za/pnpstorefront/pnp/en/All-Products/Electronics-%26-Office/Home-%26-Personal-Audio/c/home-and-personal-audio2090948832
+                xpath: /html/body/main[1]/header[1]/div[2]/div[1]/nav[1]/ul[2]/li[1]/div[1]/div[1]/ul[1]/div[9]/ul[1]/li[5]/a[1]/@categoryurl
+          - category:
+              - text: Stationery
+                xpath: /html/body/main[1]/header[1]/div[2]/div[1]/nav[1]/ul[2]/li[1]/div[1]/div[1]/ul[1]/div[9]/ul[1]/li[6]/a[1]/@categoryname
+            categoryUrl:
+              - text: https://www.pnp.co.za/pnpstorefront/pnp/en/All-Products/Electronics-%26-Office/Stationery/c/stationery2090948832
+                xpath: /html/body/main[1]/header[1]/div[2]/div[1]/nav[1]/ul[2]/li[1]/div[1]/div[1]/ul[1]/div[9]/ul[1]/li[6]/a[1]/@categoryurl
+          - category:
+              - text: TVs, DVD & Media Players
+                xpath: /html/body/main[1]/header[1]/div[2]/div[1]/nav[1]/ul[2]/li[1]/div[1]/div[1]/ul[1]/div[9]/ul[1]/li[7]/a[1]/@categoryname
+            categoryUrl:
+              - text: https://www.pnp.co.za/pnpstorefront/pnp/en/All-Products/Electronics-%26-Office/TVs%2C-DVD-%26-Media-Players/c/tvs-dvd-and-media-players2090948832
+                xpath: /html/body/main[1]/header[1]/div[2]/div[1]/nav[1]/ul[2]/li[1]/div[1]/div[1]/ul[1]/div[9]/ul[1]/li[7]/a[1]/@categoryurl
+          - category:
+              - text: Gaming & Entertainment
+                xpath: /html/body/main[1]/header[1]/div[2]/div[1]/nav[1]/ul[2]/li[1]/div[1]/div[1]/ul[1]/div[9]/ul[1]/li[8]/a[1]/@categoryname
+            categoryUrl:
+              - text: https://www.pnp.co.za/pnpstorefront/pnp/en/All-Products/Electronics-%26-Office/Gaming-%26-Entertainment/c/gaming-and-entertainment2090948832
+                xpath: /html/body/main[1]/header[1]/div[2]/div[1]/nav[1]/ul[2]/li[1]/div[1]/div[1]/ul[1]/div[9]/ul[1]/li[8]/a[1]/@categoryurl
+          - category:
+              - text: Photographic
+                xpath: /html/body/main[1]/header[1]/div[2]/div[1]/nav[1]/ul[2]/li[1]/div[1]/div[1]/ul[1]/div[9]/ul[1]/li[9]/a[1]/@categoryname
+            categoryUrl:
+              - text: https://www.pnp.co.za/pnpstorefront/pnp/en/All-Products/Electronics-%26-Office/Photographic/c/photographic2090948832
+                xpath: /html/body/main[1]/header[1]/div[2]/div[1]/nav[1]/ul[2]/li[1]/div[1]/div[1]/ul[1]/div[9]/ul[1]/li[9]/a[1]/@categoryurl
+          - category:
+              - text: Telecommunications
+                xpath: /html/body/main[1]/header[1]/div[2]/div[1]/nav[1]/ul[2]/li[1]/div[1]/div[1]/ul[1]/div[9]/ul[1]/li[10]/a[1]/@categoryname
+            categoryUrl:
+              - text: https://www.pnp.co.za/pnpstorefront/pnp/en/All-Products/Electronics-%26-Office/Telecommunications/c/telecommunications2090948832
+                xpath: /html/body/main[1]/header[1]/div[2]/div[1]/nav[1]/ul[2]/li[1]/div[1]/div[1]/ul[1]/div[9]/ul[1]/li[10]/a[1]/@categoryurl
+          - category:
+              - text: Office Equipment
+                xpath: /html/body/main[1]/header[1]/div[2]/div[1]/nav[1]/ul[2]/li[1]/div[1]/div[1]/ul[1]/div[9]/ul[1]/li[11]/a[1]/@categoryname
+            categoryUrl:
+              - text: https://www.pnp.co.za/pnpstorefront/pnp/en/All-Products/Electronics-%26-Office/Office-Equipment/c/office-equipment2090948832
+                xpath: /html/body/main[1]/header[1]/div[2]/div[1]/nav[1]/ul[2]/li[1]/div[1]/div[1]/ul[1]/div[9]/ul[1]/li[11]/a[1]/@categoryurl
+          - category:
+              - text: Office Furniture
+                xpath: /html/body/main[1]/header[1]/div[2]/div[1]/nav[1]/ul[2]/li[1]/div[1]/div[1]/ul[1]/div[9]/ul[1]/li[12]/a[1]/@categoryname
+            categoryUrl:
+              - text: https://www.pnp.co.za/pnpstorefront/pnp/en/All-Products/Electronics-%26-Office/Office-Furniture/c/office-furniture2090948832
+                xpath: /html/body/main[1]/header[1]/div[2]/div[1]/nav[1]/ul[2]/li[1]/div[1]/div[1]/ul[1]/div[9]/ul[1]/li[12]/a[1]/@categoryurl
+          - category:
+              - text: Home & Outdoor
+                xpath: /html/body/main[1]/header[1]/div[2]/div[1]/nav[1]/ul[2]/li[1]/div[1]/div[1]/ul[1]/div[10]/ul[1]/li[1]/a[1]/@categoryname
+            categoryUrl:
+              - text: https://www.pnp.co.za/pnpstorefront/pnp/en/All-Products/Home-%26-Outdoor/c/home-and-outdoor-423144840
+                xpath: /html/body/main[1]/header[1]/div[2]/div[1]/nav[1]/ul[2]/li[1]/div[1]/div[1]/ul[1]/div[10]/ul[1]/li[1]/a[1]/@categoryurl
+          - category:
+              - text: Braai & Camping
+                xpath: /html/body/main[1]/header[1]/div[2]/div[1]/nav[1]/ul[2]/li[1]/div[1]/div[1]/ul[1]/div[10]/ul[1]/li[2]/a[1]/@categoryname
+            categoryUrl:
+              - text: https://www.pnp.co.za/pnpstorefront/pnp/en/All-Products/Home-%26-Outdoor/Braai-%26-Camping/c/braai-and-camping-517886608
+                xpath: /html/body/main[1]/header[1]/div[2]/div[1]/nav[1]/ul[2]/li[1]/div[1]/div[1]/ul[1]/div[10]/ul[1]/li[2]/a[1]/@categoryurl
+          - category:
+              - text: Car Care & Cleaning
+                xpath: /html/body/main[1]/header[1]/div[2]/div[1]/nav[1]/ul[2]/li[1]/div[1]/div[1]/ul[1]/div[10]/ul[1]/li[3]/a[1]/@categoryname
+            categoryUrl:
+              - text: https://www.pnp.co.za/pnpstorefront/pnp/en/All-Products/Home-%26-Outdoor/Car-Care-%26-Cleaning/c/car-care-and-cleaning-517886608
+                xpath: /html/body/main[1]/header[1]/div[2]/div[1]/nav[1]/ul[2]/li[1]/div[1]/div[1]/ul[1]/div[10]/ul[1]/li[3]/a[1]/@categoryurl
+          - category:
+              - text: DIY
+                xpath: /html/body/main[1]/header[1]/div[2]/div[1]/nav[1]/ul[2]/li[1]/div[1]/div[1]/ul[1]/div[10]/ul[1]/li[4]/a[1]/@categoryname
+            categoryUrl:
+              - text: https://www.pnp.co.za/pnpstorefront/pnp/en/All-Products/Home-%26-Outdoor/DIY/c/diy-517886608
+                xpath: /html/body/main[1]/header[1]/div[2]/div[1]/nav[1]/ul[2]/li[1]/div[1]/div[1]/ul[1]/div[10]/ul[1]/li[4]/a[1]/@categoryurl
+          - category:
+              - text: Kitchen & Dining
+                xpath: /html/body/main[1]/header[1]/div[2]/div[1]/nav[1]/ul[2]/li[1]/div[1]/div[1]/ul[1]/div[10]/ul[1]/li[5]/a[1]/@categoryname
+            categoryUrl:
+              - text: https://www.pnp.co.za/pnpstorefront/pnp/en/All-Products/Home-%26-Outdoor/Kitchen-%26-Dining/c/kitchen-and-dining-517886608
+                xpath: /html/body/main[1]/header[1]/div[2]/div[1]/nav[1]/ul[2]/li[1]/div[1]/div[1]/ul[1]/div[10]/ul[1]/li[5]/a[1]/@categoryurl
+          - category:
+              - text: Large Appliances
+                xpath: /html/body/main[1]/header[1]/div[2]/div[1]/nav[1]/ul[2]/li[1]/div[1]/div[1]/ul[1]/div[10]/ul[1]/li[6]/a[1]/@categoryname
+            categoryUrl:
+              - text: https://www.pnp.co.za/pnpstorefront/pnp/en/All-Products/Home-%26-Outdoor/Large-Appliances/c/large-appliances-517886608
+                xpath: /html/body/main[1]/header[1]/div[2]/div[1]/nav[1]/ul[2]/li[1]/div[1]/div[1]/ul[1]/div[10]/ul[1]/li[6]/a[1]/@categoryurl
+          - category:
+              - text: Party Accessories
+                xpath: /html/body/main[1]/header[1]/div[2]/div[1]/nav[1]/ul[2]/li[1]/div[1]/div[1]/ul[1]/div[10]/ul[1]/li[7]/a[1]/@categoryname
+            categoryUrl:
+              - text: https://www.pnp.co.za/pnpstorefront/pnp/en/All-Products/Home-%26-Outdoor/Party-Accessories/c/party-accessories-517886608
+                xpath: /html/body/main[1]/header[1]/div[2]/div[1]/nav[1]/ul[2]/li[1]/div[1]/div[1]/ul[1]/div[10]/ul[1]/li[7]/a[1]/@categoryurl
+          - category:
+              - text: Pets
+                xpath: /html/body/main[1]/header[1]/div[2]/div[1]/nav[1]/ul[2]/li[1]/div[1]/div[1]/ul[1]/div[10]/ul[1]/li[8]/a[1]/@categoryname
+            categoryUrl:
+              - text: https://www.pnp.co.za/pnpstorefront/pnp/en/pets
+                xpath: /html/body/main[1]/header[1]/div[2]/div[1]/nav[1]/ul[2]/li[1]/div[1]/div[1]/ul[1]/div[10]/ul[1]/li[8]/a[1]/@categoryurl
+          - category:
+              - text: Small Appliances
+                xpath: /html/body/main[1]/header[1]/div[2]/div[1]/nav[1]/ul[2]/li[1]/div[1]/div[1]/ul[1]/div[10]/ul[1]/li[9]/a[1]/@categoryname
+            categoryUrl:
+              - text: https://www.pnp.co.za/pnpstorefront/pnp/en/All-Products/Home-%26-Outdoor/Small-Appliances/c/small-appliances-517886608
+                xpath: /html/body/main[1]/header[1]/div[2]/div[1]/nav[1]/ul[2]/li[1]/div[1]/div[1]/ul[1]/div[10]/ul[1]/li[9]/a[1]/@categoryurl
+          - category:
+              - text: Sports
+                xpath: /html/body/main[1]/header[1]/div[2]/div[1]/nav[1]/ul[2]/li[1]/div[1]/div[1]/ul[1]/div[10]/ul[1]/li[10]/a[1]/@categoryname
+            categoryUrl:
+              - text: https://www.pnp.co.za/pnpstorefront/pnp/en/All-Products/Home-%26-Outdoor/Sports/c/sports-517886608
+                xpath: /html/body/main[1]/header[1]/div[2]/div[1]/nav[1]/ul[2]/li[1]/div[1]/div[1]/ul[1]/div[10]/ul[1]/li[10]/a[1]/@categoryurl
+          - category:
+              - text: Swimming Pool
+                xpath: /html/body/main[1]/header[1]/div[2]/div[1]/nav[1]/ul[2]/li[1]/div[1]/div[1]/ul[1]/div[10]/ul[1]/li[11]/a[1]/@categoryname
+            categoryUrl:
+              - text: https://www.pnp.co.za/pnpstorefront/pnp/en/All-Products/Home-%26-Outdoor/Swimming-Pool/c/swimming-pool-517886608
+                xpath: /html/body/main[1]/header[1]/div[2]/div[1]/nav[1]/ul[2]/li[1]/div[1]/div[1]/ul[1]/div[10]/ul[1]/li[11]/a[1]/@categoryurl
+          - category:
+              - text: Toys
+                xpath: /html/body/main[1]/header[1]/div[2]/div[1]/nav[1]/ul[2]/li[1]/div[1]/div[1]/ul[1]/div[10]/ul[1]/li[12]/a[1]/@categoryname
+            categoryUrl:
+              - text: https://www.pnp.co.za/pnpstorefront/pnp/en/All-Products/Home-%26-Outdoor/Toys/c/toys-517886608
+                xpath: /html/body/main[1]/header[1]/div[2]/div[1]/nav[1]/ul[2]/li[1]/div[1]/div[1]/ul[1]/div[10]/ul[1]/li[12]/a[1]/@categoryurl
+          - category:
+              - text: Home Decor
+                xpath: /html/body/main[1]/header[1]/div[2]/div[1]/nav[1]/ul[2]/li[1]/div[1]/div[1]/ul[1]/div[10]/ul[1]/li[13]/a[1]/@categoryname
+            categoryUrl:
+              - text: https://www.pnp.co.za/pnpstorefront/pnp/en/All-Products/Home-%26-Outdoor/Home-Decor/c/home-decor-517886608
+                xpath: /html/body/main[1]/header[1]/div[2]/div[1]/nav[1]/ul[2]/li[1]/div[1]/div[1]/ul[1]/div[10]/ul[1]/li[13]/a[1]/@categoryurl
+          - category:
+              - text: Electrical & Lighting
+                xpath: /html/body/main[1]/header[1]/div[2]/div[1]/nav[1]/ul[2]/li[1]/div[1]/div[1]/ul[1]/div[10]/ul[1]/li[14]/a[1]/@categoryname
+            categoryUrl:
+              - text: https://www.pnp.co.za/pnpstorefront/pnp/en/All-Products/Home-%26-Outdoor/Electrical-%26-Lighting/c/electrical-and-lighting-517886608
+                xpath: /html/body/main[1]/header[1]/div[2]/div[1]/nav[1]/ul[2]/li[1]/div[1]/div[1]/ul[1]/div[10]/ul[1]/li[14]/a[1]/@categoryurl
+          - category:
+              - text: Garden & Patio
+                xpath: /html/body/main[1]/header[1]/div[2]/div[1]/nav[1]/ul[2]/li[1]/div[1]/div[1]/ul[1]/div[10]/ul[1]/li[15]/a[1]/@categoryname
+            categoryUrl:
+              - text: https://www.pnp.co.za/pnpstorefront/pnp/en/All-Products/Home-%26-Outdoor/Garden-%26-Patio/c/garden-and-patio-517886608
+                xpath: /html/body/main[1]/header[1]/div[2]/div[1]/nav[1]/ul[2]/li[1]/div[1]/div[1]/ul[1]/div[10]/ul[1]/li[15]/a[1]/@categoryurl
+          - category:
+              - text: Magazines, Books & Newspapers
+                xpath: /html/body/main[1]/header[1]/div[2]/div[1]/nav[1]/ul[2]/li[1]/div[1]/div[1]/ul[1]/div[10]/ul[1]/li[16]/a[1]/@categoryname
+            categoryUrl:
+              - text: https://www.pnp.co.za/pnpstorefront/pnp/en/All-Products/Home-%26-Outdoor/Magazines%2C-Books-%26-Newspapers/c/magazines-books-and-newspapers-517886608
+                xpath: /html/body/main[1]/header[1]/div[2]/div[1]/nav[1]/ul[2]/li[1]/div[1]/div[1]/ul[1]/div[10]/ul[1]/li[16]/a[1]/@categoryurl
+          - category:
+              - text: Bedroom & Linen
+                xpath: /html/body/main[1]/header[1]/div[2]/div[1]/nav[1]/ul[2]/li[1]/div[1]/div[1]/ul[1]/div[10]/ul[1]/li[17]/a[1]/@categoryname
+            categoryUrl:
+              - text: https://www.pnp.co.za/pnpstorefront/pnp/en/All-Products/Home-%26-Outdoor/Bedroom-%26-Linen/c/bedroom-and-linen-517886608
+                xpath: /html/body/main[1]/header[1]/div[2]/div[1]/nav[1]/ul[2]/li[1]/div[1]/div[1]/ul[1]/div[10]/ul[1]/li[17]/a[1]/@categoryurl
+          - category:
+              - text: Luggage
+                xpath: /html/body/main[1]/header[1]/div[2]/div[1]/nav[1]/ul[2]/li[1]/div[1]/div[1]/ul[1]/div[10]/ul[1]/li[18]/a[1]/@categoryname
+            categoryUrl:
+              - text: https://www.pnp.co.za/pnpstorefront/pnp/en/All-Products/Home-%26-Outdoor/Luggage/c/luggage-517886608
+                xpath: /html/body/main[1]/header[1]/div[2]/div[1]/nav[1]/ul[2]/li[1]/div[1]/div[1]/ul[1]/div[10]/ul[1]/li[18]/a[1]/@categoryurl
+          - category:
+              - text: Flowers & Pot Plants
+                xpath: /html/body/main[1]/header[1]/div[2]/div[1]/nav[1]/ul[2]/li[1]/div[1]/div[1]/ul[1]/div[10]/ul[1]/li[19]/a[1]/@categoryname
+            categoryUrl:
+              - text: https://www.pnp.co.za/pnpstorefront/pnp/en/All-Products/Home-%26-Outdoor/Flowers-%26-Pot-Plants/c/flowers-and-pot-plants-517886608
+                xpath: /html/body/main[1]/header[1]/div[2]/div[1]/nav[1]/ul[2]/li[1]/div[1]/div[1]/ul[1]/div[10]/ul[1]/li[19]/a[1]/@categoryurl
+          - category:
+              - text: Christmas
+                xpath: /html/body/main[1]/header[1]/div[2]/div[1]/nav[1]/ul[2]/li[1]/div[1]/div[1]/ul[1]/div[10]/ul[1]/li[20]/a[1]/@categoryname
+            categoryUrl:
+              - text: https://www.pnp.co.za/pnpstorefront/pnp/en/All-Products/Home-%26-Outdoor/Christmas/c/christmas-517886608
+                xpath: /html/body/main[1]/header[1]/div[2]/div[1]/nav[1]/ul[2]/li[1]/div[1]/div[1]/ul[1]/div[10]/ul[1]/li[20]/a[1]/@categoryurl
+          - category:
+              - text: Wine & Liquor
+                xpath: /html/body/main[1]/header[1]/div[2]/div[1]/nav[1]/ul[2]/li[1]/div[1]/div[1]/ul[1]/div[11]/ul[1]/li[1]/a[1]/@categoryname
+            categoryUrl:
+              - text: https://www.pnp.co.za/pnpstorefront/pnp/en/All-Products/Wine-%26-Liquor/c/wine-and-liquor-423144840
+                xpath: /html/body/main[1]/header[1]/div[2]/div[1]/nav[1]/ul[2]/li[1]/div[1]/div[1]/ul[1]/div[11]/ul[1]/li[1]/a[1]/@categoryurl
+          - category:
+              - text: Beer
+                xpath: /html/body/main[1]/header[1]/div[2]/div[1]/nav[1]/ul[2]/li[1]/div[1]/div[1]/ul[1]/div[11]/ul[1]/li[2]/a[1]/@categoryname
+            categoryUrl:
+              - text: https://www.pnp.co.za/pnpstorefront/pnp/en/All-Products/Wine-%26-Liquor/Beer/c/beer1498227286
+                xpath: /html/body/main[1]/header[1]/div[2]/div[1]/nav[1]/ul[2]/li[1]/div[1]/div[1]/ul[1]/div[11]/ul[1]/li[2]/a[1]/@categoryurl
+          - category:
+              - text: Ciders & Coolers
+                xpath: /html/body/main[1]/header[1]/div[2]/div[1]/nav[1]/ul[2]/li[1]/div[1]/div[1]/ul[1]/div[11]/ul[1]/li[3]/a[1]/@categoryname
+            categoryUrl:
+              - text: https://www.pnp.co.za/pnpstorefront/pnp/en/All-Products/Wine-%26-Liquor/Ciders-%26-Coolers/c/ciders-and-coolers1498227286
+                xpath: /html/body/main[1]/header[1]/div[2]/div[1]/nav[1]/ul[2]/li[1]/div[1]/div[1]/ul[1]/div[11]/ul[1]/li[3]/a[1]/@categoryurl
+          - category:
+              - text: Spirits
+                xpath: /html/body/main[1]/header[1]/div[2]/div[1]/nav[1]/ul[2]/li[1]/div[1]/div[1]/ul[1]/div[11]/ul[1]/li[4]/a[1]/@categoryname
+            categoryUrl:
+              - text: https://www.pnp.co.za/pnpstorefront/pnp/en/All-Products/Wine-%26-Liquor/Spirits/c/spirits1498227286
+                xpath: /html/body/main[1]/header[1]/div[2]/div[1]/nav[1]/ul[2]/li[1]/div[1]/div[1]/ul[1]/div[11]/ul[1]/li[4]/a[1]/@categoryurl
+          - category:
+              - text: Liqueurs
+                xpath: /html/body/main[1]/header[1]/div[2]/div[1]/nav[1]/ul[2]/li[1]/div[1]/div[1]/ul[1]/div[11]/ul[1]/li[5]/a[1]/@categoryname
+            categoryUrl:
+              - text: https://www.pnp.co.za/pnpstorefront/pnp/en/All-Products/Wine-%26-Liquor/Liqueurs/c/liqueurs1498227286
+                xpath: /html/body/main[1]/header[1]/div[2]/div[1]/nav[1]/ul[2]/li[1]/div[1]/div[1]/ul[1]/div[11]/ul[1]/li[5]/a[1]/@categoryurl
+          - category:
+              - text: Red Wine
+                xpath: /html/body/main[1]/header[1]/div[2]/div[1]/nav[1]/ul[2]/li[1]/div[1]/div[1]/ul[1]/div[11]/ul[1]/li[6]/a[1]/@categoryname
+            categoryUrl:
+              - text: https://www.pnp.co.za/pnpstorefront/pnp/en/All-Products/Wine-%26-Liquor/Red-Wine/c/red-wine1498227286
+                xpath: /html/body/main[1]/header[1]/div[2]/div[1]/nav[1]/ul[2]/li[1]/div[1]/div[1]/ul[1]/div[11]/ul[1]/li[6]/a[1]/@categoryurl
+          - category:
+              - text: White Wine
+                xpath: /html/body/main[1]/header[1]/div[2]/div[1]/nav[1]/ul[2]/li[1]/div[1]/div[1]/ul[1]/div[11]/ul[1]/li[7]/a[1]/@categoryname
+            categoryUrl:
+              - text: https://www.pnp.co.za/pnpstorefront/pnp/en/All-Products/Wine-%26-Liquor/White-Wine/c/white-wine1498227286
+                xpath: /html/body/main[1]/header[1]/div[2]/div[1]/nav[1]/ul[2]/li[1]/div[1]/div[1]/ul[1]/div[11]/ul[1]/li[7]/a[1]/@categoryurl
+          - category:
+              - text: Rose Wine
+                xpath: /html/body/main[1]/header[1]/div[2]/div[1]/nav[1]/ul[2]/li[1]/div[1]/div[1]/ul[1]/div[11]/ul[1]/li[8]/a[1]/@categoryname
+            categoryUrl:
+              - text: https://www.pnp.co.za/pnpstorefront/pnp/en/All-Products/Wine-%26-Liquor/Rose-Wine/c/rose-wine1498227286
+                xpath: /html/body/main[1]/header[1]/div[2]/div[1]/nav[1]/ul[2]/li[1]/div[1]/div[1]/ul[1]/div[11]/ul[1]/li[8]/a[1]/@categoryurl
+          - category:
+              - text: MCC, Champagne & Sparkling Wine
+                xpath: /html/body/main[1]/header[1]/div[2]/div[1]/nav[1]/ul[2]/li[1]/div[1]/div[1]/ul[1]/div[11]/ul[1]/li[9]/a[1]/@categoryname
+            categoryUrl:
+              - text: https://www.pnp.co.za/pnpstorefront/pnp/en/All-Products/Wine-%26-Liquor/MCC%2C-Champagne-%26-Sparkling-Wine/c/mcc-champagne-and-sparkling-wine1498227286
+                xpath: /html/body/main[1]/header[1]/div[2]/div[1]/nav[1]/ul[2]/li[1]/div[1]/div[1]/ul[1]/div[11]/ul[1]/li[9]/a[1]/@categoryurl
+          - category:
+              - text: Box Wine
+                xpath: /html/body/main[1]/header[1]/div[2]/div[1]/nav[1]/ul[2]/li[1]/div[1]/div[1]/ul[1]/div[11]/ul[1]/li[10]/a[1]/@categoryname
+            categoryUrl:
+              - text: https://www.pnp.co.za/pnpstorefront/pnp/en/All-Products/Wine-%26-Liquor/Box-Wine/c/box-wine1498227286
+                xpath: /html/body/main[1]/header[1]/div[2]/div[1]/nav[1]/ul[2]/li[1]/div[1]/div[1]/ul[1]/div[11]/ul[1]/li[10]/a[1]/@categoryurl
+          - category:
+              - text: Glassware & Accessories
+                xpath: /html/body/main[1]/header[1]/div[2]/div[1]/nav[1]/ul[2]/li[1]/div[1]/div[1]/ul[1]/div[11]/ul[1]/li[11]/a[1]/@categoryname
+            categoryUrl:
+              - text: https://www.pnp.co.za/pnpstorefront/pnp/en/All-Products/Wine-%26-Liquor/Glassware-%26-Accessories/c/glassware-and-accessories1498227286
+                xpath: /html/body/main[1]/header[1]/div[2]/div[1]/nav[1]/ul[2]/li[1]/div[1]/div[1]/ul[1]/div[11]/ul[1]/li[11]/a[1]/@categoryurl
+          - category:
+              - text: Dessert Wines
+                xpath: /html/body/main[1]/header[1]/div[2]/div[1]/nav[1]/ul[2]/li[1]/div[1]/div[1]/ul[1]/div[11]/ul[1]/li[12]/a[1]/@categoryname
+            categoryUrl:
+              - text: https://www.pnp.co.za/pnpstorefront/pnp/en/All-Products/Wine-%26-Liquor/Dessert-Wines/c/dessert-wines1498227286
+                xpath: /html/body/main[1]/header[1]/div[2]/div[1]/nav[1]/ul[2]/li[1]/div[1]/div[1]/ul[1]/div[11]/ul[1]/li[12]/a[1]/@categoryurl
+          - category:
+              - text: Mixers
+                xpath: /html/body/main[1]/header[1]/div[2]/div[1]/nav[1]/ul[2]/li[1]/div[1]/div[1]/ul[1]/div[11]/ul[1]/li[13]/a[1]/@categoryname
+            categoryUrl:
+              - text: https://www.pnp.co.za/pnpstorefront/pnp/en/All-Products/Wine-%26-Liquor/Mixers/c/mixers1498227286
+                xpath: /html/body/main[1]/header[1]/div[2]/div[1]/nav[1]/ul[2]/li[1]/div[1]/div[1]/ul[1]/div[11]/ul[1]/li[13]/a[1]/@categoryurl
+          - category:
+              - text: Non Alcoholic Beverages
+                xpath: /html/body/main[1]/header[1]/div[2]/div[1]/nav[1]/ul[2]/li[1]/div[1]/div[1]/ul[1]/div[11]/ul[1]/li[14]/a[1]/@categoryname
+            categoryUrl:
+              - text: https://www.pnp.co.za/pnpstorefront/pnp/en/c/non-alcoholic1498227286
+                xpath: /html/body/main[1]/header[1]/div[2]/div[1]/nav[1]/ul[2]/li[1]/div[1]/div[1]/ul[1]/div[11]/ul[1]/li[14]/a[1]/@categoryurl
+          - category:
+              - text: Canned Wine
+                xpath: /html/body/main[1]/header[1]/div[2]/div[1]/nav[1]/ul[2]/li[1]/div[1]/div[1]/ul[1]/div[11]/ul[1]/li[15]/a[1]/@categoryname
+            categoryUrl:
+              - text: https://www.pnp.co.za/pnpstorefront/pnp/en/All-Products/Wine-%26-Liquor/Canned-Wine/c/canned-wine1498227286
+                xpath: /html/body/main[1]/header[1]/div[2]/div[1]/nav[1]/ul[2]/li[1]/div[1]/div[1]/ul[1]/div[11]/ul[1]/li[15]/a[1]/@categoryurl
+          - category:
+              - text: Awards
+                xpath: /html/body/main[1]/header[1]/div[2]/div[1]/nav[1]/ul[2]/li[1]/div[1]/div[1]/ul[1]/div[11]/ul[1]/li[16]/a[1]/@categoryname
+            categoryUrl:
+              - text: https://www.pnp.co.za/pnpstorefront/pnp/en/All-Products/Wine-%26-Liquor/Awards/c/awards1498227286
+                xpath: /html/body/main[1]/header[1]/div[2]/div[1]/nav[1]/ul[2]/li[1]/div[1]/div[1]/ul[1]/div[11]/ul[1]/li[16]/a[1]/@categoryurl
+          - category:
+              - text: CHRISTMAS
+                xpath: /html/body/main[1]/header[1]/div[2]/div[1]/nav[1]/ul[2]/li[2]/a[1]/@categoryname
+            categoryUrl:
+              - text: https://www.pnp.co.za/pnpstorefront/pnp/en/christmas2020
+                xpath: /html/body/main[1]/header[1]/div[2]/div[1]/nav[1]/ul[2]/li[2]/a[1]/@categoryurl
+          - category:
+              - text: Your Christmas Feast
+                xpath: /html/body/main[1]/header[1]/div[2]/div[1]/nav[1]/ul[2]/li[2]/div[1]/div[1]/ul[1]/div[1]/ul[1]/li[1]/a[1]/@categoryname
+            categoryUrl:
+              - text: https://www.pnp.co.za/pnpstorefront/pnp/en/pnpmerchandising/2020/October/Christmas/Your-Christmas-Feast/c/your-christmas-feast838615893
+                xpath: /html/body/main[1]/header[1]/div[2]/div[1]/nav[1]/ul[2]/li[2]/div[1]/div[1]/ul[1]/div[1]/ul[1]/li[1]/a[1]/@categoryurl
+          - category:
+              - text: Mains
+                xpath: /html/body/main[1]/header[1]/div[2]/div[1]/nav[1]/ul[2]/li[2]/div[1]/div[1]/ul[1]/div[1]/ul[1]/li[2]/a[1]/@categoryname
+            categoryUrl:
+              - text: https://www.pnp.co.za/pnpstorefront/pnp/en/pnpmerchandising/2020/October/Christmas/Your-Christmas-Feast/Mains/c/mains1383048455
+                xpath: /html/body/main[1]/header[1]/div[2]/div[1]/nav[1]/ul[2]/li[2]/div[1]/div[1]/ul[1]/div[1]/ul[1]/li[2]/a[1]/@categoryurl
+          - category:
+              - text: Sides & Salads
+                xpath: /html/body/main[1]/header[1]/div[2]/div[1]/nav[1]/ul[2]/li[2]/div[1]/div[1]/ul[1]/div[1]/ul[1]/li[3]/a[1]/@categoryname
+            categoryUrl:
+              - text: https://www.pnp.co.za/pnpstorefront/pnp/en/pnpmerchandising/2020/October/Christmas/Your-Christmas-Feast/Sides-and-Salads/c/sides-and-salads1383048455
+                xpath: /html/body/main[1]/header[1]/div[2]/div[1]/nav[1]/ul[2]/li[2]/div[1]/div[1]/ul[1]/div[1]/ul[1]/li[3]/a[1]/@categoryurl
+          - category:
+              - text: Desserts
+                xpath: /html/body/main[1]/header[1]/div[2]/div[1]/nav[1]/ul[2]/li[2]/div[1]/div[1]/ul[1]/div[1]/ul[1]/li[4]/a[1]/@categoryname
+            categoryUrl:
+              - text: https://www.pnp.co.za/pnpstorefront/pnp/en/pnpmerchandising/2020/October/Christmas/Your-Christmas-Feast/Desserts/c/desserts1383048455
+                xpath: /html/body/main[1]/header[1]/div[2]/div[1]/nav[1]/ul[2]/li[2]/div[1]/div[1]/ul[1]/div[1]/ul[1]/li[4]/a[1]/@categoryurl
+          - category:
+              - text: Pantry Staples
+                xpath: /html/body/main[1]/header[1]/div[2]/div[1]/nav[1]/ul[2]/li[2]/div[1]/div[1]/ul[1]/div[1]/ul[1]/li[5]/a[1]/@categoryname
+            categoryUrl:
+              - text: https://www.pnp.co.za/pnpstorefront/pnp/en/pnpmerchandising/2020/October/Christmas/Your-Christmas-Feast/Pantry-Staples/c/pantry-staples1383048455
+                xpath: /html/body/main[1]/header[1]/div[2]/div[1]/nav[1]/ul[2]/li[2]/div[1]/div[1]/ul[1]/div[1]/ul[1]/li[5]/a[1]/@categoryurl
+          - category:
+              - text: A Plant-Based Christmas
+                xpath: /html/body/main[1]/header[1]/div[2]/div[1]/nav[1]/ul[2]/li[2]/div[1]/div[1]/ul[1]/div[1]/ul[1]/li[6]/a[1]/@categoryname
+            categoryUrl:
+              - text: https://www.pnp.co.za/pnpstorefront/pnp/en/pnpmerchandising/2020/October/Christmas/Your-Christmas-Feast/A-plant-based-Christmas/c/a-plant-based-christmas1383048455
+                xpath: /html/body/main[1]/header[1]/div[2]/div[1]/nav[1]/ul[2]/li[2]/div[1]/div[1]/ul[1]/div[1]/ul[1]/li[6]/a[1]/@categoryurl
+          - category:
+              - text: Christmas Table
+                xpath: /html/body/main[1]/header[1]/div[2]/div[1]/nav[1]/ul[2]/li[2]/div[1]/div[1]/ul[1]/div[1]/ul[1]/li[7]/a[1]/@categoryname
+            categoryUrl:
+              - text: https://www.pnp.co.za/pnpstorefront/pnp/en/pnpmerchandising/2020/October/Christmas/Your-Christmas-Feast/Christmas-Table/c/christmas-table1383048455
+                xpath: /html/body/main[1]/header[1]/div[2]/div[1]/nav[1]/ul[2]/li[2]/div[1]/div[1]/ul[1]/div[1]/ul[1]/li[7]/a[1]/@categoryurl
+          - category:
+              - text: Liquor
+                xpath: /html/body/main[1]/header[1]/div[2]/div[1]/nav[1]/ul[2]/li[2]/div[1]/div[1]/ul[1]/div[1]/ul[1]/li[8]/a[1]/@categoryname
+            categoryUrl:
+              - text: https://www.pnp.co.za/pnpstorefront/pnp/en/pnpmerchandising/2020/October/Christmas/Your-Christmas-Feast/Liquor/c/liquor1383048455
+                xpath: /html/body/main[1]/header[1]/div[2]/div[1]/nav[1]/ul[2]/li[2]/div[1]/div[1]/ul[1]/div[1]/ul[1]/li[8]/a[1]/@categoryurl
+          - category:
+              - text: Preparing Your Feast
+                xpath: /html/body/main[1]/header[1]/div[2]/div[1]/nav[1]/ul[2]/li[2]/div[1]/div[1]/ul[1]/div[1]/ul[1]/li[9]/a[1]/@categoryname
+            categoryUrl:
+              - text: https://www.pnp.co.za/pnpstorefront/pnp/en/pnpmerchandising/2020/October/Christmas/Your-Christmas-Feast/Preparing-Your-Feast/c/preparing-your-feast1383048455
+                xpath: /html/body/main[1]/header[1]/div[2]/div[1]/nav[1]/ul[2]/li[2]/div[1]/div[1]/ul[1]/div[1]/ul[1]/li[9]/a[1]/@categoryurl
+          - category:
+              - text: Christmas Sweet Treats
+                xpath: /html/body/main[1]/header[1]/div[2]/div[1]/nav[1]/ul[2]/li[2]/div[1]/div[1]/ul[1]/div[2]/ul[1]/li[1]/a[1]/@categoryname
+            categoryUrl:
+              - text: https://www.pnp.co.za/pnpstorefront/pnp/en/pnpmerchandising/2020/October/Christmas/Christmas-Sweet-Treats/c/christmas-sweet-treats838615893
+                xpath: /html/body/main[1]/header[1]/div[2]/div[1]/nav[1]/ul[2]/li[2]/div[1]/div[1]/ul[1]/div[2]/ul[1]/li[1]/a[1]/@categoryurl
+          - category:
+              - text: Chocolates & Advent Calendars
+                xpath: /html/body/main[1]/header[1]/div[2]/div[1]/nav[1]/ul[2]/li[2]/div[1]/div[1]/ul[1]/div[2]/ul[1]/li[2]/a[1]/@categoryname
+            categoryUrl:
+              - text: https://www.pnp.co.za/pnpstorefront/pnp/en/pnpmerchandising/2020/October/Christmas/Christmas-Sweet-Treats/Chocolates-%26-Advent-Calenders/c/chocolates-and-advent-calenders-374578998
+                xpath: /html/body/main[1]/header[1]/div[2]/div[1]/nav[1]/ul[2]/li[2]/div[1]/div[1]/ul[1]/div[2]/ul[1]/li[2]/a[1]/@categoryurl
+          - category:
+              - text: Biscuits, Cakes & Mince Pies
+                xpath: /html/body/main[1]/header[1]/div[2]/div[1]/nav[1]/ul[2]/li[2]/div[1]/div[1]/ul[1]/div[2]/ul[1]/li[3]/a[1]/@categoryname
+            categoryUrl:
+              - text: https://www.pnp.co.za/pnpstorefront/pnp/en/pnpmerchandising/2020/October/Christmas/Christmas-Sweet-Treats/Biscuits%2C-cakes%2C-%26-mince-pies/c/biscuits-cakes-and-mince-pies-374578998
+                xpath: /html/body/main[1]/header[1]/div[2]/div[1]/nav[1]/ul[2]/li[2]/div[1]/div[1]/ul[1]/div[2]/ul[1]/li[3]/a[1]/@categoryurl
+          - category:
+              - text: Baking
+                xpath: /html/body/main[1]/header[1]/div[2]/div[1]/nav[1]/ul[2]/li[2]/div[1]/div[1]/ul[1]/div[2]/ul[1]/li[4]/a[1]/@categoryname
+            categoryUrl:
+              - text: https://www.pnp.co.za/pnpstorefront/pnp/en/pnpmerchandising/2020/October/Christmas/Christmas-Sweet-Treats/Baking-/c/baking--374578998
+                xpath: /html/body/main[1]/header[1]/div[2]/div[1]/nav[1]/ul[2]/li[2]/div[1]/div[1]/ul[1]/div[2]/ul[1]/li[4]/a[1]/@categoryurl
+          - category:
+              - text: Baking Equipment
+                xpath: /html/body/main[1]/header[1]/div[2]/div[1]/nav[1]/ul[2]/li[2]/div[1]/div[1]/ul[1]/div[2]/ul[1]/li[5]/a[1]/@categoryname
+            categoryUrl:
+              - text: https://www.pnp.co.za/pnpstorefront/pnp/en/pnpmerchandising/2020/October/Christmas/Christmas-Sweet-Treats/Baking-equipment-/c/baking-equipment--374578998
+                xpath: /html/body/main[1]/header[1]/div[2]/div[1]/nav[1]/ul[2]/li[2]/div[1]/div[1]/ul[1]/div[2]/ul[1]/li[5]/a[1]/@categoryurl
+          - category:
+              - text: Drinks
+                xpath: /html/body/main[1]/header[1]/div[2]/div[1]/nav[1]/ul[2]/li[2]/div[1]/div[1]/ul[1]/div[3]/ul[1]/li[1]/a[1]/@categoryname
+            categoryUrl:
+              - text: https://www.pnp.co.za/pnpstorefront/pnp/en/pnpmerchandising/2020/October/Christmas/Drinks/c/drinks838615893
+                xpath: /html/body/main[1]/header[1]/div[2]/div[1]/nav[1]/ul[2]/li[2]/div[1]/div[1]/ul[1]/div[3]/ul[1]/li[1]/a[1]/@categoryurl
+          - category:
+              - text: Cold Beverages
+                xpath: /html/body/main[1]/header[1]/div[2]/div[1]/nav[1]/ul[2]/li[2]/div[1]/div[1]/ul[1]/div[3]/ul[1]/li[2]/a[1]/@categoryname
+            categoryUrl:
+              - text: https://www.pnp.co.za/pnpstorefront/pnp/en/pnpmerchandising/2020/October/Christmas/Drinks/Cold-Beverages/c/cold-beverages-359516636
+                xpath: /html/body/main[1]/header[1]/div[2]/div[1]/nav[1]/ul[2]/li[2]/div[1]/div[1]/ul[1]/div[3]/ul[1]/li[2]/a[1]/@categoryurl
+          - category:
+              - text: Hot Drinks
+                xpath: /html/body/main[1]/header[1]/div[2]/div[1]/nav[1]/ul[2]/li[2]/div[1]/div[1]/ul[1]/div[3]/ul[1]/li[3]/a[1]/@categoryname
+            categoryUrl:
+              - text: https://www.pnp.co.za/pnpstorefront/pnp/en/pnpmerchandising/2020/October/Christmas/Drinks/Hot-Drinks/c/hot-drinks-359516636
+                xpath: /html/body/main[1]/header[1]/div[2]/div[1]/nav[1]/ul[2]/li[2]/div[1]/div[1]/ul[1]/div[3]/ul[1]/li[3]/a[1]/@categoryurl
+          - category:
+              - text: Liquor
+                xpath: /html/body/main[1]/header[1]/div[2]/div[1]/nav[1]/ul[2]/li[2]/div[1]/div[1]/ul[1]/div[3]/ul[1]/li[4]/a[1]/@categoryname
+            categoryUrl:
+              - text: https://www.pnp.co.za/pnpstorefront/pnp/en/pnpmerchandising/2020/October/Christmas/Drinks/Liquor/c/liquor-359516636
+                xpath: /html/body/main[1]/header[1]/div[2]/div[1]/nav[1]/ul[2]/li[2]/div[1]/div[1]/ul[1]/div[3]/ul[1]/li[4]/a[1]/@categoryurl
+          - category:
+              - text: Non-Alcoholic
+                xpath: /html/body/main[1]/header[1]/div[2]/div[1]/nav[1]/ul[2]/li[2]/div[1]/div[1]/ul[1]/div[3]/ul[1]/li[5]/a[1]/@categoryname
+            categoryUrl:
+              - text: https://www.pnp.co.za/pnpstorefront/pnp/en/pnpmerchandising/2020/October/Christmas/Drinks/Non-alcoholic-/c/non-alcoholic--359516636
+                xpath: /html/body/main[1]/header[1]/div[2]/div[1]/nav[1]/ul[2]/li[2]/div[1]/div[1]/ul[1]/div[3]/ul[1]/li[5]/a[1]/@categoryurl
+          - category:
+              - text: Glassware
+                xpath: /html/body/main[1]/header[1]/div[2]/div[1]/nav[1]/ul[2]/li[2]/div[1]/div[1]/ul[1]/div[3]/ul[1]/li[6]/a[1]/@categoryname
+            categoryUrl:
+              - text: https://www.pnp.co.za/pnpstorefront/pnp/en/c/glassware-359516636
+                xpath: /html/body/main[1]/header[1]/div[2]/div[1]/nav[1]/ul[2]/li[2]/div[1]/div[1]/ul[1]/div[3]/ul[1]/li[6]/a[1]/@categoryurl
+          - category:
+              - text: Christmas Entertaining
+                xpath: /html/body/main[1]/header[1]/div[2]/div[1]/nav[1]/ul[2]/li[2]/div[1]/div[1]/ul[1]/div[4]/ul[1]/li[1]/a[1]/@categoryname
+            categoryUrl:
+              - text: https://www.pnp.co.za/pnpstorefront/pnp/en/pnpmerchandising/2020/October/Christmas/Entertaining/c/entertaining838615893
+                xpath: /html/body/main[1]/header[1]/div[2]/div[1]/nav[1]/ul[2]/li[2]/div[1]/div[1]/ul[1]/div[4]/ul[1]/li[1]/a[1]/@categoryurl
+          - category:
+              - text: Create Your Platters
+                xpath: /html/body/main[1]/header[1]/div[2]/div[1]/nav[1]/ul[2]/li[2]/div[1]/div[1]/ul[1]/div[4]/ul[1]/li[2]/a[1]/@categoryname
+            categoryUrl:
+              - text: https://www.pnp.co.za/pnpstorefront/pnp/en/pnpmerchandising/2020/October/Christmas/Entertaining/Create-your-platters/c/create-your-platters1395784641
+                xpath: /html/body/main[1]/header[1]/div[2]/div[1]/nav[1]/ul[2]/li[2]/div[1]/div[1]/ul[1]/div[4]/ul[1]/li[2]/a[1]/@categoryurl
+          - category:
+              - text: Biscuits, Chips & Sweets
+                xpath: /html/body/main[1]/header[1]/div[2]/div[1]/nav[1]/ul[2]/li[2]/div[1]/div[1]/ul[1]/div[4]/ul[1]/li[3]/a[1]/@categoryname
+            categoryUrl:
+              - text: https://www.pnp.co.za/pnpstorefront/pnp/en/pnpmerchandising/2020/October/Christmas/Entertaining/Biscuits%2C-chips-%26-sweets/c/biscuits-chips-and-sweets1395784641
+                xpath: /html/body/main[1]/header[1]/div[2]/div[1]/nav[1]/ul[2]/li[2]/div[1]/div[1]/ul[1]/div[4]/ul[1]/li[3]/a[1]/@categoryurl
+          - category:
+              - text: Liquor
+                xpath: /html/body/main[1]/header[1]/div[2]/div[1]/nav[1]/ul[2]/li[2]/div[1]/div[1]/ul[1]/div[4]/ul[1]/li[4]/a[1]/@categoryname
+            categoryUrl:
+              - text: https://www.pnp.co.za/pnpstorefront/pnp/en/pnpmerchandising/2020/October/Christmas/Drinks/Liquor/c/liquor-359516636
+                xpath: /html/body/main[1]/header[1]/div[2]/div[1]/nav[1]/ul[2]/li[2]/div[1]/div[1]/ul[1]/div[4]/ul[1]/li[4]/a[1]/@categoryurl
+          - category:
+              - text: Festive Braai
+                xpath: /html/body/main[1]/header[1]/div[2]/div[1]/nav[1]/ul[2]/li[2]/div[1]/div[1]/ul[1]/div[5]/ul[1]/li[1]/a[1]/@categoryname
+            categoryUrl:
+              - text: https://www.pnp.co.za/pnpstorefront/pnp/en/pnpmerchandising/2020/October/Christmas/Festive-Braai/c/festive-braai838615893
+                xpath: /html/body/main[1]/header[1]/div[2]/div[1]/nav[1]/ul[2]/li[2]/div[1]/div[1]/ul[1]/div[5]/ul[1]/li[1]/a[1]/@categoryurl
+          - category:
+              - text: Meat & Sides
+                xpath: /html/body/main[1]/header[1]/div[2]/div[1]/nav[1]/ul[2]/li[2]/div[1]/div[1]/ul[1]/div[5]/ul[1]/li[2]/a[1]/@categoryname
+            categoryUrl:
+              - text: https://www.pnp.co.za/pnpstorefront/pnp/en/pnpmerchandising/2020/October/Christmas/Festive-Braai/Meat-%26-Sides/c/meat-and-sides-1042672467
+                xpath: /html/body/main[1]/header[1]/div[2]/div[1]/nav[1]/ul[2]/li[2]/div[1]/div[1]/ul[1]/div[5]/ul[1]/li[2]/a[1]/@categoryurl
+          - category:
+              - text: Braais & Accessories
+                xpath: /html/body/main[1]/header[1]/div[2]/div[1]/nav[1]/ul[2]/li[2]/div[1]/div[1]/ul[1]/div[5]/ul[1]/li[3]/a[1]/@categoryname
+            categoryUrl:
+              - text: https://www.pnp.co.za/pnpstorefront/pnp/en/pnpmerchandising/2020/October/Christmas/Festive-Braai/Braais-%26-accessories/c/braais-and-accessories-1042672467
+                xpath: /html/body/main[1]/header[1]/div[2]/div[1]/nav[1]/ul[2]/li[2]/div[1]/div[1]/ul[1]/div[5]/ul[1]/li[3]/a[1]/@categoryurl
+          - category:
+              - text: Desserts
+                xpath: /html/body/main[1]/header[1]/div[2]/div[1]/nav[1]/ul[2]/li[2]/div[1]/div[1]/ul[1]/div[5]/ul[1]/li[4]/a[1]/@categoryname
+            categoryUrl:
+              - text: https://www.pnp.co.za/pnpstorefront/pnp/en/pnpmerchandising/2020/October/Christmas/Festive-Braai/Desserts/c/desserts-1042672467
+                xpath: /html/body/main[1]/header[1]/div[2]/div[1]/nav[1]/ul[2]/li[2]/div[1]/div[1]/ul[1]/div[5]/ul[1]/li[4]/a[1]/@categoryurl
+          - category:
+              - text: Gifting
+                xpath: /html/body/main[1]/header[1]/div[2]/div[1]/nav[1]/ul[2]/li[2]/div[1]/div[1]/ul[1]/div[6]/ul[1]/li[1]/a[1]/@categoryname
+            categoryUrl:
+              - text: https://www.pnp.co.za/pnpstorefront/pnp/en/pnpmerchandising/2020/October/Christmas/Gifting/c/gifting838615893
+                xpath: /html/body/main[1]/header[1]/div[2]/div[1]/nav[1]/ul[2]/li[2]/div[1]/div[1]/ul[1]/div[6]/ul[1]/li[1]/a[1]/@categoryurl
+          - category:
+              - text: Kids' Gifts
+                xpath: /html/body/main[1]/header[1]/div[2]/div[1]/nav[1]/ul[2]/li[2]/div[1]/div[1]/ul[1]/div[6]/ul[1]/li[2]/a[1]/@categoryname
+            categoryUrl:
+              - text: https://www.pnp.co.za/pnpstorefront/pnp/en/pnpmerchandising/2020/October/Christmas/Gifting/Kids%27-Gifts/c/kids%27-gifts991435771
+                xpath: /html/body/main[1]/header[1]/div[2]/div[1]/nav[1]/ul[2]/li[2]/div[1]/div[1]/ul[1]/div[6]/ul[1]/li[2]/a[1]/@categoryurl
+          - category:
+              - text: Homeware Gifts
+                xpath: /html/body/main[1]/header[1]/div[2]/div[1]/nav[1]/ul[2]/li[2]/div[1]/div[1]/ul[1]/div[6]/ul[1]/li[3]/a[1]/@categoryname
+            categoryUrl:
+              - text: https://www.pnp.co.za/pnpstorefront/pnp/en/pnpmerchandising/2020/October/Christmas/Gifting/Homeware-Gifts/c/homeware-gifts991435771
+                xpath: /html/body/main[1]/header[1]/div[2]/div[1]/nav[1]/ul[2]/li[2]/div[1]/div[1]/ul[1]/div[6]/ul[1]/li[3]/a[1]/@categoryurl
+          - category:
+              - text: Teacher's Gifts
+                xpath: /html/body/main[1]/header[1]/div[2]/div[1]/nav[1]/ul[2]/li[2]/div[1]/div[1]/ul[1]/div[6]/ul[1]/li[4]/a[1]/@categoryname
+            categoryUrl:
+              - text: https://www.pnp.co.za/pnpstorefront/pnp/en/pnpmerchandising/2020/October/Christmas/Gifting/Teacher%27s-Gifts/c/teacher%27s-gifts991435771
+                xpath: /html/body/main[1]/header[1]/div[2]/div[1]/nav[1]/ul[2]/li[2]/div[1]/div[1]/ul[1]/div[6]/ul[1]/li[4]/a[1]/@categoryurl
+          - category:
+              - text: Stocking Fillers
+                xpath: /html/body/main[1]/header[1]/div[2]/div[1]/nav[1]/ul[2]/li[2]/div[1]/div[1]/ul[1]/div[6]/ul[1]/li[5]/a[1]/@categoryname
+            categoryUrl:
+              - text: https://www.pnp.co.za/pnpstorefront/pnp/en/pnpmerchandising/2020/October/Christmas/Gifting/Stocking-Fillers/c/stocking-fillers991435771
+                xpath: /html/body/main[1]/header[1]/div[2]/div[1]/nav[1]/ul[2]/li[2]/div[1]/div[1]/ul[1]/div[6]/ul[1]/li[5]/a[1]/@categoryurl
+          - category:
+              - text: Liquor Gifting
+                xpath: /html/body/main[1]/header[1]/div[2]/div[1]/nav[1]/ul[2]/li[2]/div[1]/div[1]/ul[1]/div[6]/ul[1]/li[6]/a[1]/@categoryname
+            categoryUrl:
+              - text: https://www.pnp.co.za/pnpstorefront/pnp/en/pnpmerchandising/2020/October/Christmas/Gifting/Liquor-gifting-/c/liquor-gifting-991435771
+                xpath: /html/body/main[1]/header[1]/div[2]/div[1]/nav[1]/ul[2]/li[2]/div[1]/div[1]/ul[1]/div[6]/ul[1]/li[6]/a[1]/@categoryurl
+          - category:
+              - text: Diy Gifts
+                xpath: /html/body/main[1]/header[1]/div[2]/div[1]/nav[1]/ul[2]/li[2]/div[1]/div[1]/ul[1]/div[6]/ul[1]/li[7]/a[1]/@categoryname
+            categoryUrl:
+              - text: https://www.pnp.co.za/pnpstorefront/pnp/en/pnpmerchandising/2020/October/Christmas/Gifting/DIY-Gifts/c/diy-gifts991435771
+                xpath: /html/body/main[1]/header[1]/div[2]/div[1]/nav[1]/ul[2]/li[2]/div[1]/div[1]/ul[1]/div[6]/ul[1]/li[7]/a[1]/@categoryurl
+          - category:
+              - text: Tech Gifts
+                xpath: /html/body/main[1]/header[1]/div[2]/div[1]/nav[1]/ul[2]/li[2]/div[1]/div[1]/ul[1]/div[6]/ul[1]/li[8]/a[1]/@categoryname
+            categoryUrl:
+              - text: https://www.pnp.co.za/pnpstorefront/pnp/en/pnpmerchandising/2020/October/Christmas/Gifting/Tech-Gifts/c/tech-gifts991435771
+                xpath: /html/body/main[1]/header[1]/div[2]/div[1]/nav[1]/ul[2]/li[2]/div[1]/div[1]/ul[1]/div[6]/ul[1]/li[8]/a[1]/@categoryurl
+          - category:
+              - text: Hampers
+                xpath: /html/body/main[1]/header[1]/div[2]/div[1]/nav[1]/ul[2]/li[2]/div[1]/div[1]/ul[1]/div[6]/ul[1]/li[9]/a[1]/@categoryname
+            categoryUrl:
+              - text: https://www.pnp.co.za/pnpstorefront/pnp/en/pnpmerchandising/2020/October/Christmas/Gifting/Hampers/c/hampers991435771
+                xpath: /html/body/main[1]/header[1]/div[2]/div[1]/nav[1]/ul[2]/li[2]/div[1]/div[1]/ul[1]/div[6]/ul[1]/li[9]/a[1]/@categoryurl
+          - category:
+              - text: Decorations
+                xpath: /html/body/main[1]/header[1]/div[2]/div[1]/nav[1]/ul[2]/li[2]/div[1]/div[1]/ul[1]/div[7]/ul[1]/li[1]/a[1]/@categoryname
+            categoryUrl:
+              - text: https://www.pnp.co.za/pnpstorefront/pnp/en/pnpmerchandising/2020/October/Christmas/Decorations/c/decorations838615893
+                xpath: /html/body/main[1]/header[1]/div[2]/div[1]/nav[1]/ul[2]/li[2]/div[1]/div[1]/ul[1]/div[7]/ul[1]/li[1]/a[1]/@categoryurl
+          - category:
+              - text: Christmas Trees
+                xpath: /html/body/main[1]/header[1]/div[2]/div[1]/nav[1]/ul[2]/li[2]/div[1]/div[1]/ul[1]/div[7]/ul[1]/li[2]/a[1]/@categoryname
+            categoryUrl:
+              - text: https://www.pnp.co.za/pnpstorefront/pnp/en/pnpmerchandising/2020/October/Christmas/Decorations/Trees/c/trees1602165004
+                xpath: /html/body/main[1]/header[1]/div[2]/div[1]/nav[1]/ul[2]/li[2]/div[1]/div[1]/ul[1]/div[7]/ul[1]/li[2]/a[1]/@categoryurl
+          - category:
+              - text: Crackers
+                xpath: /html/body/main[1]/header[1]/div[2]/div[1]/nav[1]/ul[2]/li[2]/div[1]/div[1]/ul[1]/div[7]/ul[1]/li[3]/a[1]/@categoryname
+            categoryUrl:
+              - text: https://www.pnp.co.za/pnpstorefront/pnp/en/pnpmerchandising/2020/October/Christmas/Decorations/Crackers/c/crackers1602165004
+                xpath: /html/body/main[1]/header[1]/div[2]/div[1]/nav[1]/ul[2]/li[2]/div[1]/div[1]/ul[1]/div[7]/ul[1]/li[3]/a[1]/@categoryurl
+          - category:
+              - text: Decorations & Lights
+                xpath: /html/body/main[1]/header[1]/div[2]/div[1]/nav[1]/ul[2]/li[2]/div[1]/div[1]/ul[1]/div[7]/ul[1]/li[4]/a[1]/@categoryname
+            categoryUrl:
+              - text: https://www.pnp.co.za/pnpstorefront/pnp/en/pnpmerchandising/2020/October/Christmas/Decorations/Decorations-%26-Lights/c/decorations-and-lights1602165004
+                xpath: /html/body/main[1]/header[1]/div[2]/div[1]/nav[1]/ul[2]/li[2]/div[1]/div[1]/ul[1]/div[7]/ul[1]/li[4]/a[1]/@categoryurl
+          - category:
+              - text: Holiday Essentials
+                xpath: /html/body/main[1]/header[1]/div[2]/div[1]/nav[1]/ul[2]/li[2]/div[1]/div[1]/ul[1]/div[8]/ul[1]/li[1]/a[1]/@categoryname
+            categoryUrl:
+              - text: https://www.pnp.co.za/pnpstorefront/pnp/en/pnpmerchandising/2020/October/Christmas/Holiday-Essentials/c/holiday-essentials838615893
+                xpath: /html/body/main[1]/header[1]/div[2]/div[1]/nav[1]/ul[2]/li[2]/div[1]/div[1]/ul[1]/div[8]/ul[1]/li[1]/a[1]/@categoryurl
+          - category:
+              - text: Camping & Outdoor
+                xpath: /html/body/main[1]/header[1]/div[2]/div[1]/nav[1]/ul[2]/li[2]/div[1]/div[1]/ul[1]/div[8]/ul[1]/li[2]/a[1]/@categoryname
+            categoryUrl:
+              - text: https://www.pnp.co.za/pnpstorefront/pnp/en/pnpmerchandising/2020/October/Christmas/Holiday-Essentials/Camping-and-Outdoor/c/camping-and-outdoor-1017590077
+                xpath: /html/body/main[1]/header[1]/div[2]/div[1]/nav[1]/ul[2]/li[2]/div[1]/div[1]/ul[1]/div[8]/ul[1]/li[2]/a[1]/@categoryurl
+          - category:
+              - text: Summer Health Kit
+                xpath: /html/body/main[1]/header[1]/div[2]/div[1]/nav[1]/ul[2]/li[2]/div[1]/div[1]/ul[1]/div[8]/ul[1]/li[3]/a[1]/@categoryname
+            categoryUrl:
+              - text: https://www.pnp.co.za/pnpstorefront/pnp/en/pnpmerchandising/2020/October/Christmas/Holiday-Essentials/Summer-Health-Kit/c/summer-health-kit-1017590077
+                xpath: /html/body/main[1]/header[1]/div[2]/div[1]/nav[1]/ul[2]/li[2]/div[1]/div[1]/ul[1]/div[8]/ul[1]/li[3]/a[1]/@categoryurl
+          - category:
+              - text: Holiday Sparkle
+                xpath: /html/body/main[1]/header[1]/div[2]/div[1]/nav[1]/ul[2]/li[2]/div[1]/div[1]/ul[1]/div[9]/ul[1]/li[1]/a[1]/@categoryname
+            categoryUrl:
+              - text: https://www.pnp.co.za/pnpstorefront/pnp/en/pnpmerchandising/2020/October/Christmas/Holiday-Sparkle/c/holiday-sparkle838615893
+                xpath: /html/body/main[1]/header[1]/div[2]/div[1]/nav[1]/ul[2]/li[2]/div[1]/div[1]/ul[1]/div[9]/ul[1]/li[1]/a[1]/@categoryurl
+          - category:
+              - text: Cleaning Appliances
+                xpath: /html/body/main[1]/header[1]/div[2]/div[1]/nav[1]/ul[2]/li[2]/div[1]/div[1]/ul[1]/div[9]/ul[1]/li[2]/a[1]/@categoryname
+            categoryUrl:
+              - text: https://www.pnp.co.za/pnpstorefront/pnp/en/pnpmerchandising/2020/October/Christmas/Holiday-Sparkle/Cleaning-Appliances-/c/cleaning-appliances-152415210
+                xpath: /html/body/main[1]/header[1]/div[2]/div[1]/nav[1]/ul[2]/li[2]/div[1]/div[1]/ul[1]/div[9]/ul[1]/li[2]/a[1]/@categoryurl
+          - category:
+              - text: Household Cleaning
+                xpath: /html/body/main[1]/header[1]/div[2]/div[1]/nav[1]/ul[2]/li[2]/div[1]/div[1]/ul[1]/div[9]/ul[1]/li[3]/a[1]/@categoryname
+            categoryUrl:
+              - text: https://www.pnp.co.za/pnpstorefront/pnp/en/pnpmerchandising/2020/October/Christmas/Holiday-Sparkle/Household-CLeaning/c/household-cleaning152415210
+                xpath: /html/body/main[1]/header[1]/div[2]/div[1]/nav[1]/ul[2]/li[2]/div[1]/div[1]/ul[1]/div[9]/ul[1]/li[3]/a[1]/@categoryurl
+          - category:
+              - text: Storage
+                xpath: /html/body/main[1]/header[1]/div[2]/div[1]/nav[1]/ul[2]/li[2]/div[1]/div[1]/ul[1]/div[9]/ul[1]/li[4]/a[1]/@categoryname
+            categoryUrl:
+              - text: https://www.pnp.co.za/pnpstorefront/pnp/en/pnpmerchandising/2020/October/Christmas/Holiday-Sparkle/Storage/c/storage152415210
+                xpath: /html/body/main[1]/header[1]/div[2]/div[1]/nav[1]/ul[2]/li[2]/div[1]/div[1]/ul[1]/div[9]/ul[1]/li[4]/a[1]/@categoryurl
+          - category:
+              - text: SPECIALS
+                xpath: /html/body/main[1]/header[1]/div[2]/div[1]/nav[1]/ul[2]/li[3]/a[1]/@categoryname
+            categoryUrl:
+              - text: https://www.pnp.co.za/pnpstorefront/pnp/en/specials
+                xpath: /html/body/main[1]/header[1]/div[2]/div[1]/nav[1]/ul[2]/li[3]/a[1]/@categoryurl
+          - category:
+              - text: RECIPES
+                xpath: /html/body/main[1]/header[1]/div[2]/div[1]/nav[1]/ul[2]/li[4]/a[1]/@categoryname
+            categoryUrl:
+              - text: https://www.pnp.co.za/pnpstorefront/pnp/en/recipes/shop-recipes
+                xpath: /html/body/main[1]/header[1]/div[2]/div[1]/nav[1]/ul[2]/li[4]/a[1]/@categoryurl
+          - category:
+              - text: SMART SHOPPER
+                xpath: /html/body/main[1]/header[1]/div[2]/div[1]/nav[1]/ul[2]/li[5]/a[1]/@categoryname
+            categoryUrl:
+              - text: https://www.pnp.co.za/pnpstorefront/pnp/en/smart-shopper
+                xpath: /html/body/main[1]/header[1]/div[2]/div[1]/nav[1]/ul[2]/li[5]/a[1]/@categoryurl
+          - category:
+              - text: Personal Discounts
+                xpath: /html/body/main[1]/header[1]/div[2]/div[1]/nav[1]/ul[2]/li[5]/div[1]/div[1]/ul[1]/div[1]/li[1]/a[1]/@categoryname
+            categoryUrl:
+              - text: https://www.pnp.co.za/pnpstorefront/pnp/en/my-account/voucher-list
+                xpath: /html/body/main[1]/header[1]/div[2]/div[1]/nav[1]/ul[2]/li[5]/div[1]/div[1]/ul[1]/div[1]/li[1]/a[1]/@categoryurl
+          - category:
+              - text: Personal Discounts
+                xpath: /html/body/main[1]/header[1]/div[2]/div[1]/nav[1]/ul[2]/li[5]/div[1]/div[1]/ul[1]/div[1]/ul[1]/li[1]/a[1]/@categoryname
+            categoryUrl:
+              - text: https://www.pnp.co.za/pnpstorefront/pnp/en/my-account/voucher-list
+                xpath: /html/body/main[1]/header[1]/div[2]/div[1]/nav[1]/ul[2]/li[5]/div[1]/div[1]/ul[1]/div[1]/ul[1]/li[1]/a[1]/@categoryurl
+          - category:
+              - text: Clubs
+                xpath: /html/body/main[1]/header[1]/div[2]/div[1]/nav[1]/ul[2]/li[5]/div[1]/div[1]/ul[1]/div[2]/ul[1]/li[1]/a[1]/@categoryname
+            categoryUrl:
+              - text: "#"
+                xpath: /html/body/main[1]/header[1]/div[2]/div[1]/nav[1]/ul[2]/li[5]/div[1]/div[1]/ul[1]/div[2]/ul[1]/li[1]/a[1]/@categoryurl
+          - category:
+              - text: Pet Club
+                xpath: /html/body/main[1]/header[1]/div[2]/div[1]/nav[1]/ul[2]/li[5]/div[1]/div[1]/ul[1]/div[2]/ul[1]/li[2]/a[1]/@categoryname
+            categoryUrl:
+              - text: https://www.pnp.co.za/pnpstorefront/pnp/en/pet-club-deals
+                xpath: /html/body/main[1]/header[1]/div[2]/div[1]/nav[1]/ul[2]/li[5]/div[1]/div[1]/ul[1]/div[2]/ul[1]/li[2]/a[1]/@categoryurl
+          - category:
+              - text: Baby Club
+                xpath: /html/body/main[1]/header[1]/div[2]/div[1]/nav[1]/ul[2]/li[5]/div[1]/div[1]/ul[1]/div[2]/ul[1]/li[3]/a[1]/@categoryname
+            categoryUrl:
+              - text: https://www.pnp.co.za/pnpstorefront/pnp/en/baby-club
+                xpath: /html/body/main[1]/header[1]/div[2]/div[1]/nav[1]/ul[2]/li[5]/div[1]/div[1]/ul[1]/div[2]/ul[1]/li[3]/a[1]/@categoryurl
+          - category:
+              - text: Wine Club
+                xpath: /html/body/main[1]/header[1]/div[2]/div[1]/nav[1]/ul[2]/li[5]/div[1]/div[1]/ul[1]/div[2]/ul[1]/li[4]/a[1]/@categoryname
+            categoryUrl:
+              - text: https://www.pnp.co.za/pnpstorefront/pnp/en/wine-club
+                xpath: /html/body/main[1]/header[1]/div[2]/div[1]/nav[1]/ul[2]/li[5]/div[1]/div[1]/ul[1]/div[2]/ul[1]/li[4]/a[1]/@categoryurl
+          - category:
+              - text: Coffee Club
+                xpath: /html/body/main[1]/header[1]/div[2]/div[1]/nav[1]/ul[2]/li[5]/div[1]/div[1]/ul[1]/div[2]/ul[1]/li[5]/a[1]/@categoryname
+            categoryUrl:
+              - text: https://www.pnp.co.za/pnpstorefront/pnp/en/coffee-club
+                xpath: /html/body/main[1]/header[1]/div[2]/div[1]/nav[1]/ul[2]/li[5]/div[1]/div[1]/ul[1]/div[2]/ul[1]/li[5]/a[1]/@categoryurl
+          - category:
+              - text: Partners
+                xpath: /html/body/main[1]/header[1]/div[2]/div[1]/nav[1]/ul[2]/li[5]/div[1]/div[1]/ul[1]/div[3]/li[1]/a[1]/@categoryname
+            categoryUrl:
+              - text: https://www.pnp.co.za/pnpstorefront/pnp/en/smart-shopper/partners
+                xpath: /html/body/main[1]/header[1]/div[2]/div[1]/nav[1]/ul[2]/li[5]/div[1]/div[1]/ul[1]/div[3]/li[1]/a[1]/@categoryurl
+          - category:
+              - text: Partners
+                xpath: /html/body/main[1]/header[1]/div[2]/div[1]/nav[1]/ul[2]/li[5]/div[1]/div[1]/ul[1]/div[3]/ul[1]/li[1]/a[1]/@categoryname
+            categoryUrl:
+              - text: https://www.pnp.co.za/pnpstorefront/pnp/en/smart-shopper/partners
+                xpath: /html/body/main[1]/header[1]/div[2]/div[1]/nav[1]/ul[2]/li[5]/div[1]/div[1]/ul[1]/div[3]/ul[1]/li[1]/a[1]/@categoryurl
+          - category:
+              - text: IN-STORE CATALOGUES
+                xpath: /html/body/main[1]/header[1]/div[2]/div[1]/nav[1]/ul[2]/li[6]/a[1]/@categoryname
+            categoryUrl:
+              - text: https://www.pnp.co.za/pnpstorefront/pnp/en/catalogues
+                xpath: /html/body/main[1]/header[1]/div[2]/div[1]/nav[1]/ul[2]/li[6]/a[1]/@categoryurl
+          - category:
+              - text: SAME DAY DELIVERY
+                xpath: /html/body/main[1]/header[1]/div[2]/div[1]/nav[1]/ul[2]/li[7]/a[1]/@categoryname
+            categoryUrl:
+              - text: https://www.pnp.co.za/pnpstorefront/pnp/en/bottles
+                xpath: /html/body/main[1]/header[1]/div[2]/div[1]/nav[1]/ul[2]/li[7]/a[1]/@categoryurl
+        xpath: /html
+    timestamp: 1608120960207
