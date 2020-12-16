@@ -8,4 +8,8 @@ module.exports = {
     domain: 'safeway.com',
     zipcode: '',
   },
+  dependencies: {
+    setZipCode: 'action:navigation/goto/setZipCode',
+    // createUrl: 'action:product/details/createUrl',
+  },
 };
