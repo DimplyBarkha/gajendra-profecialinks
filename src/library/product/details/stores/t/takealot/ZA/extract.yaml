@@ -5,10 +5,10 @@ recordXPath: /html/body
 fields:
   - name: image
     singleValue: false
-    xpath: //div[contains(@class,"swiper-slide-active")]/div[contains(@class,"pdp-gallery-module_main-gallery-photo_3gh0y")]/img/@src
+    xpath: //div[contains(@class,"swiper-slide-active")]/div[contains(@class,"pdp-gallery-module_main-gallery-photo_3gh0y")]/img/@src | //div[contains(@class,"pdp-gallery-module_main-gallery-photo-single_3Moxa")]/img/@src
   - name: imageAlt
     singleValue: false
-    xpath: //div[contains(@class,"swiper-slide-active")]/div[contains(@class,"pdp-gallery-module_main-gallery-photo_3gh0y")]/img/@alt
+    xpath: //div[contains(@class,"swiper-slide-active")]/div[contains(@class,"pdp-gallery-module_main-gallery-photo_3gh0y")]/img/@alt | //div[contains(@class,"pdp-gallery-module_main-gallery-photo-single_3Moxa")]/img/@alt
   - name: alternateImages
     singleValue: false
     xpath: //div[@class="pdp-gallery-module_thumb-wrapper_30oA3" and position()>1]/div/img/@src
@@ -39,12 +39,9 @@ fields:
   - name: brandText
     singleValue: false
     xpath: //ul[@class="title-content-list"]//span[@class="brand-link"]/a
-  - name: sku
-    singleValue: false
-    xpath: //div[contains(@class,"rating-and-reviews")]//div[contains(@class,"reviews")]/a/@href
   - name: mpc
     singleValue: false
-    xpath: //div[contains(@class,"product-info")]//td[text()="Model"]/parent::*/td[2]
+    xpath: //script[@src="//media.flixfacts.com/js/loader.js"]/@data-flix-mpn
   - name: warnings
     singleValue: true
     description: Content under "warnings" header
@@ -67,13 +64,13 @@ fields:
     defaultValue: '0'
   - name: color
     singleValue: false
-    xpath: //div[contains(@class,"product-info")]//td[text()="Basic Colours"]/parent::*/td[2]
+    xpath: //div[@class="product-description  product-description-module_product-description_3bMdX"]/p[contains(text(),"Specifications:")]/text()
   - name: name
     singleValue: false
     xpath: //div[@class="product-title"]//h1
   - name: specifications
     singleValue: false
-    xpath: //div[contains(@class,"product-info")]//td
+    xpath: //div[@class="product-description  product-description-module_product-description_3bMdX"]/p[contains(text(),"Specifications:")]
   - name: warranty
     singleValue: true
     xpath: //div[contains(@class,"product-info")]//td[text()="Warranty"]/parent::*/td[2]
@@ -89,9 +86,12 @@ fields:
   - name: firstVariant
     singleValue: true
     xpath: //div[contains(@class,"product-info")]//td[text()="Basic Colours"]/parent::*/td[2]
-  - name: additionalDescBulletInfo
-    singleValue: false
-    xpath: //div[contains(@class,"bullet-point-attributes-list")]//li
   - name: imageZoomFeaturePresent
     singleValue: false
     defaultValue: Yes
+  - name: quantity
+    singleValue: false
+    xpath: //div[@class="product-description  product-description-module_product-description_3bMdX"]/p[contains(text(),"Specifications:")]/text()
+  - name: weightNet
+    singleValue: false
+    xpath: //div[@class="product-description  product-description-module_product-description_3bMdX"]/p[contains(text(),"Specifications:")]/text()

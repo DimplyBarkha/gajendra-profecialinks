@@ -23,8 +23,40 @@ const transform = (data) => {
     return data;
   };
   for (const { group } of data) {
-    var rank = 1;
-    for (let row of group) {   
+    var rank = 1, quantityStr='',weightNetStr='',colorStr='';
+    for (let row of group) { 
+      if(row.quantity){
+        row.quantity.forEach(item=>{
+          if(item.text.indexOf('- Size:')=='0'){
+            quantityStr=item.text.replace('- Size:','').trim();
+          }
+        })
+        row.quantity=[{"text":quantityStr}];
+      }
+      if(row.weightNet){
+        row.weightNet.forEach(item=>{
+          if(item.text.indexOf('- Weight:')=='0'){
+            weightNetStr=item.text.replace('- Weight:','').trim();
+          }
+        })
+        row.weightNet=[{"text":weightNetStr}];
+      }
+      if(row.color){
+        row.color.forEach(item=>{
+          if(item.text.indexOf('- Colour:')=='0'){
+            colorStr=item.text.replace('- Colour:','').trim();
+          }
+        })
+        row.color=[{"text":colorStr}];
+      }
+      
+      if(row.description){
+        let inf=[];
+        row.description.forEach(item=>{
+          inf.push(item.text);
+        })
+        row.description=[{"text":"|| "+inf.join(' || ')}];
+      }
       if(row.alternateImages){
         row.alternateImages.forEach(item=>{
           item.text=item.text.replace('-list.','-zoom.');
@@ -48,20 +80,6 @@ const transform = (data) => {
           variantIdStr=item.text;
         })
         row.variantId=[{"text":variantIdStr}];
-      }
-      if(row.specifications){
-        let no2=0,inf=[],tmp='';
-        row.specifications.forEach(item=>{
-          if(no2==0){
-            tmp=item.text;
-            no2=1
-          }else if(no2==1){
-            tmp=tmp+" : "+item.text;
-            inf.push(tmp);
-            tmp='';no2=0;
-          }
-        })
-        row.specifications=[{"text":inf.join(' || ')}];
       }
       if(row.additionalDescBulletInfo){
         let inf=[];
