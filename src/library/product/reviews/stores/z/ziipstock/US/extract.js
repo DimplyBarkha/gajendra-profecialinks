@@ -1,4 +1,4 @@
-async function implementation(
+async function implementation (
   inputs,
   parameters,
   context,
@@ -33,7 +33,5 @@ module.exports = {
     zipcode: "''",
   },
   implementation,
- 
+
 };
-
-
