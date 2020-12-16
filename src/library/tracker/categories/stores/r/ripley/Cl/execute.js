@@ -5,7 +5,7 @@ module.exports = {
     country: 'CL',
     store: 'ripley',
     domain: 'ripley.cl',
-    loadedSelector: null,
+    loadedSelector: 'nav.header-nav',
     noResultsXPath: null,
     zipcode: '',
   },
