@@ -15,9 +15,9 @@ async function implementation (
       } catch (err) {
         console.log(`Couldn't load selector => ${sel}`);
       }
-    }
+    };
     const acceptCookies = document.querySelector('a[id="cookies-agree"]');
-    if(acceptCookies) {
+    if (acceptCookies) {
       acceptCookies.click();
       optionalWait('//*[contains(@class, "content-list-reviews")]');
     }
@@ -25,7 +25,7 @@ async function implementation (
   try {
     await context.waitForSelector('//*[contains(@class, "content-list-reviews")]', { timeout: 30000 });
   } catch (err) {
-    console.log(`Couldn't load selector => //*[contains(@class, "content-list-reviews")]`);
+    console.log('Couldn\'t load selector => //*[contains(@class, "content-list-reviews")]');
   }
   return await context.extract(productReviews, { transform });
 }
@@ -39,5 +39,5 @@ module.exports = {
     domain: 'elcorteingles.es',
     zipcode: '',
   },
-  implementation
+  implementation,
 };
