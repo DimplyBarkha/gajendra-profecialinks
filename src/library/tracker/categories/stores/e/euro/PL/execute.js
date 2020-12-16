@@ -5,7 +5,7 @@ module.exports = {
     country: 'PL',
     store: 'euro',
     domain: 'euro.com.pl',
-    loadedSelector: null,
+    loadedSelector: 'nav[id="main-menu"]',
     noResultsXPath: null,
     zipcode: '',
   },
