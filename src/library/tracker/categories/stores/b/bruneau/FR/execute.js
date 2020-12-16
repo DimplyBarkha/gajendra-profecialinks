@@ -5,7 +5,7 @@ module.exports = {
     country: 'FR',
     store: 'bruneau',
     domain: 'bruneau.fr',
-    loadedSelector: null,
+    loadedSelector: 'li.CategoryUnivers',
     noResultsXPath: null,
     zipcode: '',
   },

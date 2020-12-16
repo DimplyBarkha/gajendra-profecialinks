@@ -4,7 +4,7 @@ module.exports = {
   parameterValues: {
     domain: 'bruneau.fr',
     prefix: null,
-    suffix: null,
+    suffix: 'Publish/Content/2017/StaticPage/Plan-du-site',
     subdomain: null,
     url: null,
     country: 'FR',
