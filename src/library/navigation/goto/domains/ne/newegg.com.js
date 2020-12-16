@@ -1,3 +1,4 @@
+// const { parameterValues } = require("../am/amazon.com");
 
 module.exports = {
   implements: 'navigation/goto',
@@ -6,6 +7,6 @@ module.exports = {
     timeout: null,
     country: 'US',
     store: 'newegg',
-    zipcode: "''",
+    zipcode: '',
   },
 };

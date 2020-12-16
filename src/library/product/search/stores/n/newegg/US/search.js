@@ -7,4 +7,5 @@ module.exports = {
     domain: 'newegg.com',
     zipcode: "''",
   },
+
 };

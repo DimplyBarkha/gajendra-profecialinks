@@ -6,7 +6,7 @@ module.exports = {
     store: 'newegg',
     domain: 'newegg.com',
     url: 'https://www.newegg.com/p/pl?d={searchTerms}',
-    loadedSelector: 'div.list-wrap',
+    loadedSelector: 'div.items-grid-view > div > div > a img',
     noResultsXPath: '//span[@class="result-message-error"]',
     zipcode: "''",
   },

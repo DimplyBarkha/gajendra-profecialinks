@@ -1,16 +1,16 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: null
+recordXPath: //div[@class="item-cell"]//div[@class="item-container"]
 fields: 
   - name: listPrice
     singleValue: true
     description: The stated undiscounted price for the product
-    xpath: //span[@class="price-was-data"]/text()
+   
   - name: price
     singleValue: false
     description: The offered price for the product
-    xpath: //li[@class="price-current "] | //li[@class="price-current"]
+    xpath: //div[@class="item-cell"]//li[@class="price-current "] | //div[@class="item-cell"]//li[@class="price-current"]
     regExp: (\$)(\d+)(\.)(\d+)
     regExpReplace: $2.$4
   - name: paid
@@ -20,23 +20,28 @@ fields:
   - name: brand
     singleValue: true
     description: The brand name
+    
     example: Panasonic
   - name: category
     singleValue: false
     description: The categories (e.g. from breadcrumbs)
+    
     example: ["Dental Care","Toothbrushes & Accessories","Electric Toothbrushes & Accessories","Electric Toothbrushes","Rotating"]
   - name: productUrl
-    singleValue: true
+    singleValue: false
     description: The URL for the product details page
-    xpath: //div[@class="item-container"]/a/@href
+    xpath: //div[@class="item-cell"]//div[@class="item-container"]/a/@href
+     
   - name: thumbnail
-    singleValue: true
+    singleValue: false
     description: The URL for the product thumbnail image
-    xpath: //a[@class="item-img"]/img/@src
+    xpath: //div[@class="item-cell"]//a[@class="item-img"]/img/@src
+  
   - name: name
-    singleValue: true
+    singleValue: false
     description: The product name
-    xpath: //a[@class="item-title"]/text()
+    xpath: //div[@class="item-cell"]//a[@class="item-title"]/text()
+  
   - name: sku
     singleValue: true
     description: The store-specific product identifier
@@ -55,9 +60,10 @@ fields:
   - name: reviewCount
     singleValue: false
     description: The number of reviews
-    xpath: //span[@class="item-rating-num"]
+    xpath: //div[@class="item-cell"]//span[@class="item-rating-num"]
     regExp: (\()(\d+)(\))
     regExpReplace: $2
+   
   - name: manufacturer
     singleValue: true
     description: Product manufacturer
@@ -73,33 +79,37 @@ fields:
   - name: id
     singleValue: false
     description: Unique id (within this extractor)
-    xpath: //div[@class="item-stock"]/@id
+    xpath: //div[@class="item-stock"]/@id 
     regExp: ([k][\_])(\w.*)
     regExpReplace: $2
   - name: rank
-    singleValue: true
+    singleValue: false
     description: search/listing rank
-    xpath: //div[@class="rank"]
+   
     type: NUMBER    
   - name: rankOrganic
-    singleValue: true
+    singleValue: false
     description: The position (rank) within the list excluding sponsored/paid results
-    xpath: //div[@class="rank"]
+    
     type: NUMBER 
   - name: sponsored
-    singleValue: true
+    singleValue: false
     description: Is sponsored/paid
     type: BOOLEAN    
+    
 
 #  Should these be source specific formulas or in the extractor? 
   - name: nameExtended
-    singleValue: true
+    singleValue: false
     description: The product name, prefixing "${brand} - " if not included in "name" and appending " - ${variantType}" if necessary (fixed per extractor)
-    xpath: //a[@class="item-title"]/text()
+    xpath: //div[@class="item-cell"]//a[@class="item-title"]/text()
   - name: aggregateRating
     singleValue: false
     description: The stated aggregate rating normalized to be out of 5
-    xpath: //a[@class="item-rating"]/i/@class
+    xpath: //div[@class="item-cell"]//a[@class="item-rating"]/i/@class
     regExp: (\-)(\d+)
     regExpReplace: $2
-  
+
+  - name: searchUrl
+    singleValue: false
+    xpath: ancestor::html//div[@id='added-searchurl']

@@ -17,7 +17,7 @@ async function implementation (
   if (loadedSelector) {
     await context.waitForFunction(function (sel, xp) {
       return Boolean(document.querySelector(sel) || document.evaluate(xp, document, null, XPathResult.UNORDERED_NODE_ITERATOR_TYPE, null).iterateNext());
-    }, { timeout: 10000 }, loadedSelector, noResultsXPath);
+    }, { timeout: 170000 }, loadedSelector, noResultsXPath);
   }
   console.log('Checking no results', noResultsXPath);
   return await context.evaluate((xp) => {
