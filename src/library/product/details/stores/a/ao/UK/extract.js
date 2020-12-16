@@ -122,21 +122,34 @@ module.exports = {
       }
       addElementToDocument('initImg', initImg);
       addElementToDocument('initImgAlt', initImgAlt);
-      var chkCond = '';
-      if (initImg && document.getElementById('mediaGalleryNext')) {
-        do {
-          var nextButt = document.getElementById('mediaGalleryNext');
-          await new Promise((resolve, reject) => setTimeout(resolve, 4000));
-          if (nextButt) {
-            nextButt.click();
-            var currImg = document.evaluate("//li[@id='carousel-right-image' and @data-media-type='image']//img/@src", document, null, XPathResult.STRING_TYPE, null);
-          }
-          if (currImg && currImg.stringValue.replace(/https:\/\//g, '//').replace(/\/\//g, 'https://') !== initImg) {
-            addDivClass('altImages', currImg.stringValue.replace(/https:\/\//g, '//').replace(/\/\//g, 'https://'));
-          }
-          chkCond = currImg.stringValue.replace(/https:\/\//g, '//').replace(/\/\//g, 'https://').replace(/ /g, '%20') ? currImg.stringValue.replace(/https:\/\//g, '//').replace(/\/\//g, 'https://').replace(/ /g, '%20') : initImg;
+      const jsonScript = !!document.querySelector('script[id="mediaData"]');
+      if (jsonScript) {
+        const jsonInfo = JSON.parse(document.querySelector('script[id="mediaData"]').innerText);
+        const imgArr = jsonInfo.images || [];
+        for (let i = 1; i < imgArr.length; i++) {
+          addDivClass('altImages', 'https:' + imgArr[i].large);
         }
-        while (chkCond !== initImg);
+        const vidArr = jsonInfo.videos || [];
+        for (let i = 0; i < vidArr.length; i++) {
+          addDivClass('galleryVideos', vidArr[i].playerUrl);
+        }
+      } else {
+        var chkCond = '';
+        if (initImg && document.getElementById('mediaGalleryNext')) {
+          do {
+            var nextButt = document.getElementById('mediaGalleryNext');
+            await new Promise((resolve, reject) => setTimeout(resolve, 4000));
+            if (nextButt) {
+              nextButt.click();
+              var currImg = document.evaluate("//li[@id='carousel-right-image' and @data-media-type='image']//img/@src", document, null, XPathResult.STRING_TYPE, null);
+            }
+            if (currImg && currImg.stringValue.replace(/https:\/\//g, '//').replace(/\/\//g, 'https://') !== initImg) {
+              addDivClass('altImages', currImg.stringValue.replace(/https:\/\//g, '//').replace(/\/\//g, 'https://'));
+            }
+            chkCond = currImg.stringValue.replace(/https:\/\//g, '//').replace(/\/\//g, 'https://').replace(/ /g, '%20') ? currImg.stringValue.replace(/https:\/\//g, '//').replace(/\/\//g, 'https://').replace(/ /g, '%20') : initImg;
+          }
+          while (chkCond !== initImg);
+        }
       }
       const specs = document.querySelectorAll('section.productSpecification div.accordionItem span');
       if (specs) {
