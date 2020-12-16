@@ -5,10 +5,10 @@ recordXPath: null
 fields:
   - name: image
     singleValue: false
-    xpath: (//div[@id="amasty_gallery"]/a/@data-image)[position()=1] | (//div[@id="amasty_gallery"]/a/@data-zoom-image)[position()=1]   
+    xpath: (//div[@id="amasty_gallery"]/a/@data-image)[position()=1] | //div[@class="product-img-box"]//img/@src
   - name: imageAlt
     singleValue: false
-    description: Alt text of the main product image
+    xpath: //div[@class="product-img-box"]//img/@alt
   - name: alternateImages
     singleValue: false
     # xpath: (//a[@data-zoom-image]//img)[position()>1]/@src | (//div[@id="amasty_gallery"]/a/@data-image)[position()>1]
@@ -18,7 +18,7 @@ fields:
     xpath: //meta[@name="keywords"]/@content
   - name: category
     singleValue: false
-    description: The categories (e.g. from breadcrumbs)
+    xpath: //div[@class="breadcrumbs"]/ul/li[position()>1][position()<last()]
   - name: nameExtended
     singleValue: false
     xpath: //div[@class="product-shop"]//h1/text() | (//span[@itemprop="title"])[last()]
@@ -27,7 +27,7 @@ fields:
     xpath: (//span[text()="Prezzo al pubblico"]/following-sibling::span[1])[1]
   - name: price
     singleValue: false
-    xpath: (//span[text()="Prezzo Farmaè"]/following-sibling::span[1])[1]
+    xpath: (//span[text()="Prezzo Farmaè"]/following-sibling::span[1])[1] | //span[@class="regular-price"]/span/text()  
   - name: availabilityText
     singleValue: false
     xpath: //span[text()="Disponibile"]/text()
@@ -36,7 +36,8 @@ fields:
     defaultValue: Out of Stock
   - name: description
     singleValue: false
-    xpath: //dd[@class="tab-container current"]/div
+    # xpath: (//div[@class="tab-content"])[1]//p[following::strong[contains(.,"Formato")]] |(//div[@class="tab-content"])[1]//p[contains(.,"Avvertenze")]/strong[1] | (//div[@class="tab-content"])[1]//p/strong[contains(.,"Avvertenze")]//../following::text()[1]
+    xpath: (//dd[contains(@class,"tab-container")])[1]/div 
   - name: descriptionBullets
     singleValue: false
     description: Number of ul > li tags in the description
@@ -51,8 +52,17 @@ fields:
     description: Product manufacturer
   - name: quantity
     singleValue: false
-    xpath: //div[@class="product-shop"]//h1/text()
-    regExp: (\d{1,}\s)(mg/ml|%|Pastiglie|Capsule|Bustine|g|Buste|Applicazioni|cannnule|L|Kg|Mg|Ml|ml|mg|Oz||l|EA|gr|pièces)
+    xpath: //div[@class="product-shop"]//h1/text() | (//span[@itemprop="title"])[last()]
+    regExp: (([0-9]+)\W+([a-zA-Z]+))$
+    # regExp: (\d{1,}\s)(mg/ml|%|Pastiglie|Capsule|Bustine|g|Buste|Applicazioni|cannnule|L|Kg|Mg|Ml|ml|mg|Oz||l|EA|gr|pièces)
+  - name: quantity1
+    singleValue: false
+    xpath: //div[@class="product-shop"]//h1/text() | (//span[@itemprop="title"])[last()]
+    regExp: (([0-9]+)([a-zA-Z]+))$
+  - name: quantity2
+    singleValue: false
+    xpath: //div[@class="product-shop"]//h1/text() | (//span[@itemprop="title"])[last()]
+    regExp: ([0-9]+)([a-zA-Z]+)
   - name: weightNet
     singleValue: false
     description: Net weight as described on the page
@@ -235,8 +245,7 @@ fields:
     description: null
   - name: ingredientsList
     singleValue: false
-    description: List of Ingredients from site - can be string of data if no
-      discernible start/end point
+    xpath: //strong[contains(text(),"Componenti")]//../following-sibling::text()[1]
   - name: servingSize
     singleValue: false
     description: The size of serving Nutritional information is based on.

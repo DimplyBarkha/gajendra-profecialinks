@@ -49,6 +49,21 @@ const transform = (data) => {
           },
         ];
       }
+      if ((!row.quantity || !row.quantity.length) && row.quantity1) {
+        console.log('quantity1',row.quantity1);
+        row.quantity = row.quantity1;
+        console.log("quantity", row.quantity);
+      }
+      if ((!row.quantity || !row.quantity.length) && row.quantity2) {
+        console.log('quantity2',row.quantity2);
+        row.quantity = row.quantity2;
+        console.log("quantity", row.quantity);
+      }
+      // if ((!row.quantity || !row.quantity.length) && row.quantity3) {
+      //   console.log('quantity3',row.quantity3);
+      //   row.quantity = row.quantity3;
+      //   console.log("quantity", row.quantity);
+      // }
       if (row.image) {
         const img = [];
         row.image.forEach(item => {
