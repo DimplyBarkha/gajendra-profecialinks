@@ -33,9 +33,15 @@ fields:
   - name: price
     singleValue: false
     xpath: //p[@class="special-price"]//span[@class="price"]//span[2] | //span[@class="regular-price"]//span[2]
-  - name: ratingCount
-    singleValue: false
-    xpath: //span[@itemprop="ratingValue"]
   - name: listPrice
     singleValue: false
     xpath: //span[@class="price"]
+  - name: ratingCount
+    singleValue: true
+    xpath: //span[contains(@class,"ts-shelf-left ts-shelf-rate-value ts-shelf-rate-count")]
+  - name: reviewCount
+    singleValue: true
+    description: The number of reviews
+    xpath: //span[contains(@class, 'ts-shelf-right ts-shelf-rate-count')]/span
+
+    
