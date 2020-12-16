@@ -83,7 +83,7 @@ fields:
   - name: legalDisclaimer
     description: Content under "legal disclaimer" header
   - name: directions
-    xpath: //div[@class="product-info-usage"]
+    xpath: //p[contains(@class,'product-info-storage')]
     description: Content under "directions" header
   - name: warnings
     xpath: //div[@class="product-info-usage"]//h4[contains(.,"Waarschuwingen")]/following-sibling::*[1]
