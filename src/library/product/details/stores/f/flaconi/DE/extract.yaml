@@ -36,9 +36,13 @@ fields:
     singleValue: false
     # xpath: //span[@class='old-price'] | (//div[@class='price-box']/meta[@itemprop='price']/@content)[1]
     xpath: //span[@class='old-price']
+  - name: ingredientsList
+    singleValue: false
+    xpath: //div[contains(text(),"Inhaltsstoffe")]/../div[contains(@class,"tab-content")] 
   - name: directions
     singleValue: false
-    xpath: //div[text()="Anwendung"]/following-sibling::div[@class="tab-content"]//div[@class="instruction-content"]
+    xpath: //div[contains(text(),"Anwendung")]/../div[contains(@class,"tab-content")] 
+    # xpath: //div[text()="Anwendung"]/following-sibling::div[@class="tab-content"]//div[@class="instruction-content"] 
   - name: aggregateRating
     singleValue: false
     xpath: translate(//div[@class="average-rating"], '.', ',')
@@ -47,7 +51,8 @@ fields:
     xpath: translate(//meta[@itemprop="ratingCount"]/@content,',','.')
   - name: description
     singleValue: false
-    xpath: //div[@id="bb_descriptionBullets"]
+    xpath: //div[contains(text(),"Produktdetails")]/../div[contains(@class,"tab-content")] 
+    # xpath: //div[@id="bb_descriptionBullets"]
   - name: descriptionBullets
     singleValue: false
     # xpath: //div[@id="bb_descriptionBulletsCount"]
