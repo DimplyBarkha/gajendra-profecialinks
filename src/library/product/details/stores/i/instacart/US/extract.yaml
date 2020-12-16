@@ -153,7 +153,7 @@ fields:
     singleValue: false
     description: null
   - name: otherSellersName
-    xpath: //main[@id="main-content"]/div[contains(@class, 'rmq')]/div[contains(@class, 'rmq')]/section[2]/div/div[1]/h3
+    xpath: //body//@othersellername
   - name: otherSellersPrice
     singleValue: false
     description: null
@@ -382,10 +382,10 @@ fields:
     example: https://www.zalando.de/adidas-neo-sneaker-low-blackwhite-a4315i002-q11.html
     defaultValue: No
 #salsify
-  - name: priceCurrency
-    xpath: //script[@type="application/json"][contains(text(), 'currency')]
-    regExp: ("currency\\"(:)\\"(\w+))
-    regExpReplace: $3
+  # - name: priceCurrency
+  #   xpath: //script[@type="application/json"][contains(text(), 'currency')]
+  #   regExp: ("currency\\"(:)\\"(\w+))
+  #   regExpReplace: $3
   - name: highQualityImages
     xpath: //main[@id="main-content"]//div[contains(@class, 'rmq-c76db721')]/div/img/@src
     regExp: ^((?!4bbe82b8555e4d1c12626fd482cb2409713e8e30835645ff3650ef66a725d03c).)*$
