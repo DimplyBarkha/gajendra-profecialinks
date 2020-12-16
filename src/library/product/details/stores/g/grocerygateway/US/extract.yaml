@@ -1,3 +1,6 @@
+extractionGlobals:
+  screenCapture: true
+  screenCaptureType: "png"
 singleRecord: false
 regionsSelector: null
 recordSelector: null
@@ -28,7 +31,7 @@ fields:
     description:
       Product description supplied by website - may be concatenanted from
       multiple places; specifically not the manufacturer description
-    xpath: //div[@class="about-this-product"]//div[contains(@class,"description")]
+    xpath: //div[contains(@class, "product_main-infos")]//div[contains(@class,"description")]
   - name: sku
     xpath: //div[@class="container"]/div[contains(@class,"product")]/@data-sku
   - name: ratingCount
@@ -51,10 +54,12 @@ fields:
   - name: productUrl
     xpath: //div[@class="about-sku-section"]/@producturl
   - name: ingredientsList
-    xpath: //*[contains(text(),"Ingredients:")]/../text()
+    xpath: normalize-space(//*[contains(text(),"Ingredients:")]/..)
+    regExp: Ingredients:(.*)
+    regExpReplace: $1
   - name: servingSize
     description: The size of serving Nutritional information is based on.
-    xpath: //p[@class="serving-size"]/text()
+    xpath: //p[@class="serving-size"]
     regExp: .+\((.+)\)
     regExpReplace: $1
   - name: caloriesPerServing
@@ -62,3 +67,7 @@ fields:
       Nutritional Information for Calories Per Serving content - Usually
       based on per 100g serving
     xpath: //strong[contains(text(),"Calories")]/../text()
+  - name: legalDisclaimer
+    xpath: //div[contains(@class, "nutrition-disclaimer-section")]
+  - name: otherSellersName
+    defaultValue: Grocery Gateway
