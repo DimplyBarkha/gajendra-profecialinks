@@ -1,13 +1,15 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: null
+recordXPath: '//div[@id="sitemap-pane-categoria"]/div/ul[@class="sitemap-list"]//li[@class="sitemap-item"]/h3'
 fields:
   - name: category
     singleValue: false
     description: name of the category
-    xpath: null
+    xpath: //a
   - name: categoryUrl
     singleValue: false
     description: url of the category
-    xpath: null
+    xpath: //a/@href
+    regExp: (.+)
+    regExpReplace: https://www.submarino.com.br$1
