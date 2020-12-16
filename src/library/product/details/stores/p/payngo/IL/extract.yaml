@@ -22,7 +22,7 @@ fields:
     regExpReplace: $2
   - name: availabilityText
     singleValue: false
-    xpath: //span[contains(string(), "הוספה לסל")]
+    xpath: //span[contains(text(),"הוסף לסל")]
     regExp: (.+)
     regExpReplace: In Stock
     defaultValue: Out of Stock
