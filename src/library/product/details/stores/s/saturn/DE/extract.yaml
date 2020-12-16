@@ -437,3 +437,7 @@ fields:
     xpath: //div[@id="accessories"]//li
   - name: hasComparisonTable
     defaultValue: No
+  - name: inTheBoxText
+    xpath: //div[contains(@class,"in-the-box")]//p//text()
+  - name: inTheBoxUrl
+    xpath: //div[contains(@class,"in-the-box")]//img//@data-src
