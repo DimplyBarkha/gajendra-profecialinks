@@ -2,9 +2,9 @@
 module.exports = {
   implements: 'tracker/categories/extract',
   parameterValues: {
-    country: 'DE',
-    domain: 'parfumdreams.de',
-    store: 'parfumdreams',
+    country: 'AE',
+    domain: 'uae.sharafdg.com',
+    store: 'sharafdg',
     zipcode: '',
   },
   implementation: async (inputs, parameters, context, dependencies) => {
