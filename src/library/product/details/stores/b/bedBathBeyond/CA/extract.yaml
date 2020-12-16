@@ -4,3 +4,6 @@ fields:
     xpath: ancestor::html//a[@itemprop="brand"]/@href
     regExp: (.+)
     regExpReplace: https://www.bedbathandbeyond.ca$1
+  - name: sku
+    xpath: td[@class="sku"]
+    description: The store-specific product identifier

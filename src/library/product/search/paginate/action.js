@@ -76,15 +76,10 @@ async function implementation (
 
   let url;
 
-<<<<<<< HEAD
-  if (openSearchDefinition) {
-    url = openSearchDefinition.template
-=======
   if (!url && openSearchDefinition) {
     const { pageStartNb, indexOffset, pageOffset, pageIndexMultiplier, template } = openSearchDefinition;
     const pageNb = page + pageStartNb - 1;
     url = template
->>>>>>> master
       .replace('{searchTerms}', encodeURIComponent(keywords))
       .replace('{page}', (pageNb + (pageOffset || 0)).toString())
       .replace('{index}', (pageNb * (pageIndexMultiplier || 0)).toString())
