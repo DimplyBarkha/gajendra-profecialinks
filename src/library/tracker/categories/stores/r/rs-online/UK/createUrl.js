@@ -6,7 +6,7 @@ module.exports = {
     prefix: null,
     suffix: null,
     subdomain: null,
-    url: null,
+    url: 'https://uk.rs-online.com/web/',
     country: 'UK',
     store: 'rs-online',
     zipcode: '',
