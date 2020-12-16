@@ -75,13 +75,13 @@ module.exports = {
             ? document.querySelector('x-wrapper-re-1-3 > h1').textContent.trim()
             : '';
           const nameExtended = [brand, productName];
-          const colorName = document.querySelector('x-wrapper-re-1-3 > div:last-child span:last-child')
-            ? document.querySelector('x-wrapper-re-1-3 > div:last-child span:last-child').textContent
-            : '';
-          if (colorName) {
-            addedVariant.setAttribute('variant_information', colorName);
-            nameExtended.push(colorName);
-          }
+          // const colorName = document.querySelector('x-wrapper-re-1-3 > div:last-child span:last-child')
+          //   ? document.querySelector('x-wrapper-re-1-3 > div:last-child span:last-child').textContent
+          //   : '';
+          // if (colorName) {
+          //   addedVariant.setAttribute('variant_information', colorName);
+          //   nameExtended.push(colorName);
+          // }
 
           const outOfStockText = document.evaluate(
             '//x-wrapper-re-1-5//h2[text()="Out of stock"]',
@@ -110,10 +110,10 @@ module.exports = {
             const firstVariantValue = firstVariantElem.getAttribute('value');
             if (firstVariantValue) addedVariant.setAttribute('first_variant', firstVariantValue.replace(sku, ''));
 
-            const variantName = variantElement.querySelector('span > div > span:nth-of-type(1)')
-              ? variantElement.querySelector('span > div > span:nth-of-type(1)').textContent
-              : '';
-            if (variantName) nameExtended.push(variantName);
+            // const variantName = variantElement.querySelector('span > div > span:nth-of-type(1)')
+            //   ? variantElement.querySelector('span > div > span:nth-of-type(1)').textContent
+            //   : '';
+            // if (variantName) nameExtended.push(variantName);
 
             if (inStock) {
               const priceRow = document.querySelector('x-wrapper-re-1-3 > div > div');
