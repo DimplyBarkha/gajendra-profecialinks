@@ -37,5 +37,5 @@ module.exports = {
       addHiddenDiv('import_list_price', parseInt(window.dataLayer[0].productClubPrice));
     });
     return await context.extract(data, { transform });
-  };
+  },
 };
