@@ -24,6 +24,7 @@ const transform = (data) => {
       return data;
     };  
     for (const { group } of data) {
+      let firstVariantStr='';
       for (const row of group) {
         if (row.alternateImages) {
           row.alternateImages.forEach(item=>{
@@ -32,7 +33,7 @@ const transform = (data) => {
         }
         if (row.image) {
           row.image.forEach(item=>{
-            item.text=item.text.replace('&wid=75&hei=75&','&wid=1275&hei=1275&');
+            item.text=item.text.replace('&wid=75&hei=75&','&wid=1275&hei=1275&').replace('?$456$','?fit=constrain,1&wid=1275&hei=1275&fmt=jpg');
           })
         }
         if (row.name) {
@@ -105,19 +106,33 @@ const transform = (data) => {
         }
         
         */
+        if(row.variantId){
+          row.variantId.forEach(item=>{
+            let tmp=item.text.replace('productDisplayJS.setSKUImageId("productMainImage");','').replace('productDisplayJS.setSwatchSelected("','').trim().split(',');
+            //console.log('tmp :',tmp[0].replace('"',''));
+            item.text=tmp[0].replace('"','').trim();
+            firstVariantStr=item.text;
+          })
+        }else{
+          let variantIdStr;
+          row.sku.forEach(item=>{
+            variantIdStr=item.text;
+            firstVariantStr=item.text;
+          })
+          row.variantId=[{"text":variantIdStr}];
+        }
         if (row.variants) {
           let info = [];
           row.variants.forEach(item => {
             info.push(item.text.replace(/(.+\/)/g, '').trim());
           });
           row.variants = [{ 'text': info.join(' | '), 'xpath': row.variants[0].xpath }];
-        }
-        if(!row.variantId){
-          let variantIdStr;
-          row.sku.forEach(item=>{
-            variantIdStr=item.text;
-          })
-          row.variantId=[{"text":variantIdStr}];
+          row.variantCount=[{"text":info.length}];
+          if(firstVariantStr!=''){
+            row.firstVariant=[{"text":firstVariantStr}];
+          }else{
+            row.firstVariant=[{"text":info[0]}];
+          }
         }
         if (row.specifications) {
           let inf=[];
@@ -136,6 +151,13 @@ const transform = (data) => {
           row.aggregateRating.forEach(item => {          
             item.text = item.text.trim();
           });
+        }
+        if(row.additionalDescBulletInfo){
+          let inf=[];
+          row.additionalDescBulletInfo.forEach(item=>{
+            inf.push(item.text);
+          })
+          row.additionalDescBulletInfo=[{"text":"|| "+inf.join(' || ')}];
         }
       }
     }

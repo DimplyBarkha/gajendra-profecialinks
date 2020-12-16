@@ -8,10 +8,10 @@ fields:
     xpath: //div[contains(@class,"item-name")]/h1[@itemprop]
   - name: image
     singleValue: false
-    xpath: //div[@id="thumbnails"]/div[@class="active"]//img/@src
+    xpath: //div[@id="main_image"]//img[@id="pdpPrintImage"]/@src
   - name: imageAlt
     singleValue: false
-    xpath: //div[@id="thumbnails"]/div[@class="active"]//img/@alt
+    xpath: //div[@id="main_image"]//img[@id="pdpPrintImage"]/@alt
   - name: alternateImages
     singleValue: false
     xpath: //div[@id="thumbnails"]/div[not(@class="active")]//img/@src
@@ -68,17 +68,14 @@ fields:
     xpath: //a[@class='navbar-brand pl-3']/@href
   - name: variantId
     singleValue: false
-    xpath: //img[@class="swatch_img" and @id="swatch_img_1"]/@data-src
+    xpath: //img[@class="swatch_img" and @id="swatch_img_1"]/following-sibling::*/text()
   - name: variantCount
     singleValue: false
     xpath: count(//img[@class="swatch_img"])
     defaultValue: '0' 
   - name: variantInformation
     singleValue: false
-    xpath: //div[@class="color-select"]/input[@name="color" and position()=1]/@value
-  - name: firstVariant
-    singleValue: false
-    xpath: //img[@class="swatch_img" and @id="swatch_img_1"]/@data-src
+    xpath: //img[@class="swatch_img" and @id="swatch_img_1"]/@alt
   - name: variants
     singleValue: false
     xpath: //img[@class="swatch_img"]/@data-src
