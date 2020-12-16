@@ -14,12 +14,15 @@ module.exports = {
     context,
     dependencies,
   ) {
-    if (inputs.zipcode || inputs.storeId) {
-      await context.evaluate((inputs) => {
-        document.body.setAttribute('drive', inputs.zipcode);
-        document.body.setAttribute('retailer', inputs.storeId);
-      }, inputs);
-    }
+    // if (inputs.zipcode || inputs.storeId) {
+    //   await context.evaluate((inputs) => {
+    //     // const newDiv = document.createElement('div');
+    //     // newDiv.setAttribute('class','waquas');
+    //     // newDiv.textContent = inputs.zipcode;
+    //     document.body.setAttribute('itsdrive', inputs.zipcode);
+    //     document.body.setAttribute('itsretailer', inputs.storeId);
+    //   }, inputs);
+    // }
     const { transform } = parameters;
     const { productDetails } = dependencies;
     await context.evaluate(async () => {
@@ -61,6 +64,10 @@ module.exports = {
         }
       }
     })
+    await context.waitForSelector('div[class*="topmenu__secondary"]>div[class*="topmenu__order"]>span[class*="topmenu__order"]>.ws-handover-picker>div>button>span');
+    await context.click('div[class*="topmenu__secondary"]>div[class*="topmenu__order"]>span[class*="topmenu__order"]>.ws-handover-picker>div>button>span');
+    await context.waitForSelector('fieldset>div>div:nth-child(2)>[class*="ws-radio-item"]>span:nth-child(2)');
+    await context.click('fieldset>div>div:nth-child(2)>[class*="ws-radio-item"]>span:nth-child(2)');
     return await context.extract(productDetails, { transform });
   },
 };

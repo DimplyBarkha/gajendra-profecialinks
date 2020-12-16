@@ -532,19 +532,18 @@ fields:
       carousel,['Yes','No']
     example: https://www.zalando.de/adidas-neo-sneaker-low-blackwhite-a4315i002-q11.html
     defaultValue: No
-
     # geo attributes
   - name: onlineStore
     singleValue: true
     description: store name
   - name: drive
-    singleValue: true
-    description: Postcode/Drive of the store to identifyPostcode/Drive of the store - To identify which postcode for a certain retailer.
-    xpath: //body/@drive
+    xpath: //p[@class="ws-handover-checker__paragraph"]
+    regExp: (\d{3,8})
+    regexpreplace: $1
   - name: driveId
     singleValue: true
-    description: 
-  - name: retailerID
-    singleValue: true
-    description: Store number - To identify which store for a certain retailer.
-    xpath: //body/@retailer
+    description: s
+  - name: retailerId
+    xpath: //p[@class="ws-handover-checker__paragraph"]
+    regExp: (\d{3,8})
+    regexpreplace: $1
