@@ -26,12 +26,12 @@ module.exports = {
         }
         return result;
       };
-      var dec = getAllXpath('//p[@itemprop="description"]/text()', 'nodeValue');
-      if (dec != null) {
-        var str = dec.join(" | ");
+      var dee = getAllXpath('//div[@id="blocdiv2"]/div/span/text()', 'nodeValue');
+      if (dee != null) {
+        var str = dee.join(" || ");
         addElementToDocument('str', str);
       }
-      var sec = getAllXpath('//ul[@class="product_miniature_cms float jcarousel-list jcarousel-list-vertical"]/li[position()>1]/a/div/@style', 'nodeValue');
+      var sec = getAllXpath('(//ul[@class="product_miniature_cms float jcarousel-list jcarousel-list-vertical"]/li/a/div[@class="hd_miniature hd_miniature_border"])[position()>1]/@style', 'nodeValue');
       if(sec!=null){
         for(var i=0; i<sec.length; i++){
           addElementToDocument('sec_img', sec[i].slice(95,-3));

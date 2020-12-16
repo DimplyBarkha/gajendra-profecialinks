@@ -22,7 +22,7 @@ fields:
   - name: description
     singleValue: false
     description: Product description supplied by website - may be concatenanted from
-      multiple places; specifically not the manufacturer description
+       multiple places; specifically not the manufacturer description
     xpath: //html//div[@id="str"]
   - name: brandText
     singleValue: true
@@ -50,3 +50,16 @@ fields:
   - name: quantity
     singleValue: false
     xpath: //span[contains( text(),'Talla')]/following::span[1]/text()
+  - name: weightNet
+    singleValue: true
+    xpath: //span[contains(text(),'Peso')]/following::span[1]/text()
+  - name: variantCount
+    singleValue: true
+    xpath: count((//ul[@class="dim-list dim-0-list color"])[1]/li)
+  - name: imageAlt
+    singleValue: true
+    xpath: //div[@class="s7staticimage"]//img[1]/@alt
+  - name: variantInformation
+    singleValue: true
+    xpath: //div[@class="product-selector--valueDisplay"]/text()
+    
