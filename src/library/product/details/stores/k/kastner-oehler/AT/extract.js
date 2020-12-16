@@ -113,8 +113,10 @@ module.exports = {
         addHiddenDiv('aplusImage', enhancedContent.aplusImages);
       }, enhancedContent)
     }
-    await context.waitForSelector('.en_lazy_load');
 
+    try{    await context.waitForSelector('.en_lazy_load');
+  }
+    catch(e){}
     await context.evaluate(async function () {
       let similarProduct = document.querySelector('div.productcarousel__inner');
       if (similarProduct) {
