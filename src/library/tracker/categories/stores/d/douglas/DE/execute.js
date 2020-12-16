@@ -5,7 +5,7 @@ module.exports = {
     country: 'DE',
     store: 'douglas',
     domain: 'douglas.de',
-    loadedSelector: null,
+    loadedSelector: 'div.rd__sitemap__category',
     noResultsXPath: null,
     zipcode: '',
   },

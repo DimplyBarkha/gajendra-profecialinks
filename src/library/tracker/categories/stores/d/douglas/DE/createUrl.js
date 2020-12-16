@@ -4,7 +4,7 @@ module.exports = {
   parameterValues: {
     domain: 'douglas.de',
     prefix: null,
-    suffix: null,
+    suffix: 'sitemap',
     subdomain: null,
     url: null,
     country: 'DE',
