@@ -13,6 +13,18 @@ const transform = (data) => {
                     text: row.specifications.reduce((item, currItem) => item ? `${item} || ${currItem.text.replace(/:(\s*\n\s*)+/g, ': ').replace(/(\s*\n\s*)+/, ' || ')}` : currItem.text.replace(/:(\s*\n\s*)/g, ': ').replace(/(\s*\n\s*)+/, ' || '), ''),
                 }];
             }
+            if (row.unInterruptedPDP){
+                const set = new Set();
+                row.unInterruptedPDP.forEach(item=>{
+                    set.add(item.text);
+                })
+                const uniqArr = [];
+                set.forEach(txt=>{
+                    uniqArr.push({ text: txt });
+                })
+                console.log(`uniqArr size: ${uniqArr.length} vs. set size: ${set.size}`)
+                row.unInterruptedPDP = uniqArr;
+            }
             if (row.image && !row.image[0].text.includes('l500')) {
                 row.image[0].text = row.image[0].text.replace(/(.+\/s-)l.*?(\..*)/, '$1l500$2')
             }
