@@ -5,33 +5,28 @@ async function implementation(
   dependencies,
 ) {
   const { transform } = parameters;
-  const { productDetails } = dependencies;
+  const { variants } = dependencies;
   await context.evaluate(() => {
     const scriptData = document.querySelector('script[type="application/ld+json"]') && document.querySelector('script[type="application/ld+json"]').innerText;
     const jsonData = scriptData && JSON.parse(scriptData);
     const variantUrls = jsonData && jsonData.offers && jsonData.offers.offers && jsonData.offers.offers.map(element => element && element.url);
-    let variantId = [];
-    variantUrls.forEach((element) => {
-      variantId.push(element.replace(/(.+)(id=)(\d+)/g, '$3'))
-    })
     variantUrls.forEach((element, index) => {
       const variantDataElement = document.createElement('div');
-      variantDataElement.className = 'variantid';
-      variantDataElement.setAttribute('variantid', variantId[index])
+      variantDataElement.className = 'varianturl';
+      variantDataElement.setAttribute('varianturl', variantUrls[index])
       document.body.append(variantDataElement);
     })
   })
-  return await context.extract(productDetails, { transform });
+  return await context.extract(variants, { transform });
 }
-const { cleanUp } = require('../shared');
 module.exports = {
-  implements: 'product/details/extract',
+  implements: 'product/details/variants/variantsExtract',
   parameterValues: {
     country: 'AU',
     store: 'shopmylocal',
-    transform: cleanUp,
+    transform: null,
     domain: 'shopmylocal.com.au',
-    zipcode: '',
+    zipcode: "''",
   },
   implementation,
 };

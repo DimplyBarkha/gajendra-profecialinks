@@ -56,10 +56,7 @@ fields:
     singleValue: true
     description: Product manufacturer
   - name: quantity
-    singleValue: true
-    description: Quantity as described on the page
-    regExp: (?:\s?([\d\.]+\s?)([bB]ar[s]?|[cC]ount|[cC]t|[fF][lL][\.]?\s?[oO][zZ][\.]?|FO|[mM][lL]|[oO][zZ][\.]?|pc|[pP]int|[pP]ops|qt|[wW]ipe[s]?).?)$|(?:\s?([\d\.]+\s?)([bB]ar[s]?|[cC]ount|[cC]|[fF][lL][\.]?\s?[oO][zZ][\.]?|FO|[mM][lL]|[oO][zZ][\.]?|pc|[pP]int|[pP]ops|qt|[wW]ipe[s]?).?\s?[\&\-\w\s]+)$
-    regExpReplace: $1$2$3$4
+    xpath: //div[contains(@class,"desktop")]//h5[contains(@class,"variantDescription")]
   - name: weightNet
     singleValue: true
     description: Net weight as described on the page
@@ -461,19 +458,10 @@ fields:
     singleValue: true
     description: colour / scent / flavour / other
   - name: firstVariant
-    singleValue: true
-    description: Unique identifier for a collection of variants. For a subset of
-      core feeds (43) we have a column "first_variant" that is populated with a
-      common code to link all variants for a product. method 1 (Preferred) = use
-      common tag (Could be parent sku) that is same value for all variants of a
-      product. method 2 = first_variant method technique, Identify the first
-      varient in the sequence and use this rpc to populate "first_variant" for
-      all variants of a product, this rpc becomes the common link between other
-      variants. method 3 = apply some logic to determine link between variants,
-      this will need analysis
+    xpath: //body//div[@class="variantid"][1]/@variantid
   - name: variants
-    singleValue: false
     description: null
+    xpath: //div[@class="variantid"]/@variantid
   - name: additionalDescBulletInfo
     singleValue: false
     description: null
