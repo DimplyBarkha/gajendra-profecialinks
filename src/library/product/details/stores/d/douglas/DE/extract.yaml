@@ -24,7 +24,8 @@ fields:
     xpath: //*[contains(@id,"availability")]
   - name: description
     singleValue: false
-    xpath: //ul[contains(@class,'rd__list rd__list--disc')]/li
+    xpath: //span[contains(text(),"Produktdetails")]/..//following-sibling::div
+    # xpath: //ul[contains(@class,'rd__list rd__list--disc')]/li
   - name: descriptionBullets
     singleValue: false
     xpath: count(//ul[contains(@class,'rd__list rd__list--disc')]/li)

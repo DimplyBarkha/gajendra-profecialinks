@@ -18,15 +18,18 @@ module.exports = {
     await context.evaluate(async function () {
       const productData = JSON.parse(findProductDetails('//span[contains(@id,"webtrekk")]/preceding-sibling::script[1]'));
       addEleToDoc('gtin13', productData.gtin13);
-      addEleToDoc('ratingCount', productData.aggregateRating.ratingCount);
-      addEleToDoc('ratingValue', productData.aggregateRating.ratingValue);
+      if (productData.aggregateRating) {
+        addEleToDoc('ratingCount', productData.aggregateRating.ratingCount);
+        addEleToDoc('ratingValue', productData.aggregateRating.ratingValue);
+      }
       addEleToDoc('my-url', window.location.href);
 
       // Output value is expected either InStock or Out of Stock but on webpage, its in german
       const availability = getEleByXpath('//div[contains(@class,"rd__product-details__options__availability")]/span[contains(@class,\'rd__copytext\')][1]');
       const outOfStock = 'Leider ausverkauft';
+      const availableAgainSoon = 'Demnächst wieder lieferbar';
       const inStock = 'Auf Lager';
-      if (availability === outOfStock) {
+      if (availability === outOfStock || availability === availableAgainSoon) {
         addEleToDoc('availability', 'Out of stock');
       } else if (availability === inStock) {
         addEleToDoc('availability', 'In stock');
