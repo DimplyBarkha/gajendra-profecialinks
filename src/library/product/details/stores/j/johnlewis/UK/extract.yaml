@@ -67,7 +67,10 @@ fields:
     description: GTIN code (includes UPC/EAN)
   - name: sku
     singleValue: true
-    xpath: //div[@id="store-stock-app"]/@data-sku-id
+    xpath: (//header[contains(@class, "product-header")]/@content)[1]
+    # xpath: //script[@id="jsonPageData"]
+    # regExp: productId":"(.*?)"
+    # regExpReplace: $1
   - name: variantId
     singleValue: true
     xpath: //div[@id="store-stock-app"]/@data-product-code
