@@ -38,9 +38,10 @@ module.exports = {
         prices.push(Array.from(Array.from(Array.from(productItems.snapshotItem(i).children[0].children).find(node => node.className === 'price-height').children[0].children).find(node => node.className === 'pricelabel__price').children).find(node => node.className === 'pricelabel__price-middleline').textContent.replace(/(\s|\*|[a-zA-Z])/gm, '').replace('*', '').replace('.', ','));
 
         const ratingsContainer = productItems.snapshotItem(i).children[0].children[1];
-        if (ratingsContainer.childElementCount === 3) {
+        const ratingNode = Array.from(ratingsContainer.children).find(x => x.className === 'ratings');
+        if (ratingNode) {
           let rating = 0;
-          const ratingNodes = ratingsContainer.children[2].children[0].children;
+          const ratingNodes = ratingNode.children[0].children;
           for (let j = 0; j < 5; j++) {
             rating += parseInt(ratingNodes.item(j).className.match(/\d{1,2}/gm)[0]);
           }
