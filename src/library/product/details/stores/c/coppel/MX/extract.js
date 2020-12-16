@@ -12,6 +12,28 @@ module.exports = {
    // await context.waitForSelector('ul[id="ProductAngleImagesAreaList"] > li > a > img', {}, { timeout: 5000000 });
    // await context.waitForSelector('span[class="sku"]', {}, { timeout: 5000000 });
     //await context.waitForSelector('div[class="flix-feature-image"] > img', {}, { timeout: 5000000 });    
+    const applyScroll = async function (context) {
+      await context.evaluate(async function () {
+        let scrollTop = 0;
+        while (scrollTop !== 20000) {
+          await stall(500);
+          scrollTop += 1000;
+          window.scroll(0, scrollTop);
+          if (scrollTop === 20000) {
+            await stall(5000);
+            break;
+          }
+        }
+        function stall (ms) {
+          return new Promise((resolve, reject) => {
+            setTimeout(() => {
+              resolve();
+            }, ms);
+          });
+        }
+      });
+    };
+    await applyScroll(context);
     await context.evaluate(async function () {
       function addElementToDocument (key, value) {
         const catElement = document.createElement('div');
@@ -19,24 +41,6 @@ module.exports = {
         catElement.textContent = value;
         catElement.style.display = 'none';
         document.body.appendChild(catElement);
-      }
-
-      let scrollTop = 500;
-      while (true) {
-        window.scroll(0, scrollTop);
-        await stall(1000);
-        scrollTop += 500;
-        if (scrollTop === 5000) {
-          break;
-        }
-      }
-
-      function stall (ms) {
-        return new Promise((resolve, reject) => {
-          setTimeout(() => {
-            resolve();
-          }, ms);
-        });
       }
 
       const getXpath = (xpath, prop) => {
@@ -89,7 +93,7 @@ module.exports = {
           addElementToDocument('aplusImages_added',aplusFlixImagesXpath);  
         }
 
-        const allSpecs = getAllXpath("//span[@class='flix-svg-text flix-d-p']/text()",'nodeValue').join('|');
+        const allSpecs = getAllXpath("//div[contains(@class,'flix-tech-spacs-contents')]/ul/li/div/div[2]/font/font/text()",'nodeValue').join('|');
         console.log("Specifications:", allSpecs);
         addElementToDocument('specs_added',allSpecs);
 
