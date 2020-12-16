@@ -45,10 +45,7 @@ fields:
     description: Availability as described on page for the selected variant. If
       there is no availability but the product can be added to cart, this field
       should be "In Stock"
-    xpath: //link[@itemprop='availability']/@href  
-    regExp: (InStock)
-    regExpReplace: In Stock
-    defaultValue: Out of Stock
+    defaultValue: In Stock
   - name: description
     singleValue: false
     description: Product description supplied by website - may be concatenanted from
@@ -123,7 +120,9 @@ fields:
   - name: aggregateRating
     singleValue: true
     description: The stated aggregate rating normalized to be out of 5
-    type: NUMBER
+    xpath: //span[@class='p_rating200']/@content
+    regExp: (\d)\.(\d+)
+    regExpReplace: $1,$2
   - name: shippingInfo
     singleValue: true
     description: Shipping information for the product
@@ -248,6 +247,7 @@ fields:
   - name: secondaryImageTotal
     singleValue: true
     description: null
+    xpath: count(//*[@id="js_prd_verticalImageControlThumbnailList"]/li/img/@src)
     type: NUMBER
   - name: news
     singleValue: true
@@ -411,6 +411,7 @@ fields:
   - name: specifications
     singleValue: true
     description: The physical dimensions of the product including packaging.
+    xpath: //span[contains(text(),'Verpackung')]/parent::td/parent::tr
   - name: warranty
     singleValue: true
     description: Guarantee associated with the product
@@ -432,6 +433,7 @@ fields:
   - name: packaging
     singleValue: true
     description: Packaging information
+    xpath: //span[contains(text(),'Verpackung')]/parent::td/parent::tr
   - name: additives
     singleValue: true
     description: List of additives in the product
@@ -462,7 +464,7 @@ fields:
   - name: variantInformation
     singleValue: false
     description: colour / scent / flavour / other
-    xpath: //div[@class='reco_cinema reco_productlineCinema']/div[@class='reco_cinema__container']/ul/li/a[@class='reco_cinema__adslink']|//ul[@class='p_selTiles50 prd_clearfix']/li/@title
+    xpath: //div[@class='reco_cinema reco_productlineCinema']/div[@class='reco_cinema__container']/ul/li/a[@class='reco_cinema__adslink']/@title|//ul[@class='p_selTiles50 prd_clearfix']/li/@title
   - name: firstVariant
     singleValue: true
     description: Unique identifier for a collection of variants. For a subset of
@@ -474,10 +476,11 @@ fields:
       all variants of a product, this rpc becomes the common link between other
       variants. method 3 = apply some logic to determine link between variants,
       this will need analysis
+    xpath: (//div[@class='reco_cinema reco_productlineCinema']/div[@class='reco_cinema__container']/ul/li/a[@class='reco_cinema__adslink']/@title|//ul[@class='p_selTiles50 prd_clearfix']/li/@title)[1]  
   - name: variants
     singleValue: false
     description: null
-    xpath: //div[@class='reco_cinema reco_productlineCinema']/div[@class='reco_cinema__container']/ul/li/a[@class='reco_cinema__adslink']/@href
+    xpath: //html//div[@id='variant']
   - name: additionalDescBulletInfo
     singleValue: false
     description: null
@@ -494,10 +497,12 @@ fields:
     description: Energy rating of a product.
       https://www.amazon.de/Siemens-WM16W541-Waschmaschine-Schnellwaschprogramm-Nachlegefunktion/dp/B015FJFK14
     example: A+, A+++, B
+    xpath: //span[contains(text(),'Energieeffizienzklasse (Skala)')]/parent::td/parent::tr/td[2]
   - name: technicalInformationPdfPresent
     singleValue: true
     description: If there is for example a manual in pdf format on the website. ['Yes','No']
     example: https://www.amazon.de/Hasbro-Spiele-44220100-Mastermind-Kinderspiel/dp/B0007OHUG6
+    xpath: //div[@class='prd_energyEfficiency__dataSheet']/a/@href
     defaultValue: No
   - name: termsAndConditions
     singleValue: true
@@ -510,6 +515,7 @@ fields:
   - name: customerServiceAvailability
     singleValue: true
     description: Information related to customer service availability (text), ['Yes','No']
+    xpath: //div[@id='articleoptions']/ul/li
     defaultValue: No
   - name: materials
     singleValue: true

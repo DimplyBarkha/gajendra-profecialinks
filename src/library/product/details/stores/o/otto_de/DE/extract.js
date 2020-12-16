@@ -17,6 +17,15 @@ module.exports = {
         catElement.style.display = 'none';
         document.body.appendChild(catElement);
       }
+      const getAllXpath = (xpath, prop) => {
+        const nodeSet = document.evaluate(xpath, document, null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
+        const result = [];
+        for (let index = 0; index < nodeSet.snapshotLength; index++) {
+        const element = nodeSet.snapshotItem(index);
+        if (element) result.push(prop ? element[prop] : element.nodeValue);
+        }
+        return result;
+        };
       const getXpath = (xpath, prop) => {
         const elem = document.evaluate(xpath, document, null, XPathResult.ANY_UNORDERED_NODE_TYPE, null);
         let result;
@@ -30,7 +39,11 @@ module.exports = {
        var price='€'+rawdata
        addElementToDocument('price', price);
       }
-
+      var variant = getAllXpath("//div[@class='reco_cinema reco_productlineCinema']/div[@class='reco_cinema__container']/ul/li/@data-variation-id", 'nodeValue');
+      if (variant != null) {
+      var ab = variant.join(' | ');
+      addElementToDocument('variant', ab);
+      }
       
     });
     await context.extract(productDetails, { transform: transformParam });
