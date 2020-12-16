@@ -25,30 +25,96 @@ const transform = (data) => {
         const attributesNotesCustomArray = row.attributesNotesCustom.map((item) => {
           return item.text.trim();
         });
-        const description = row.description ? row.description[0].text : '';
-        row.description = [{ text: description + '|' + attributesNotesCustomArray.join('|'), xpath: row.description[0].xpath }];
+        const descriptionArray = row.description.map((item) => {
+          return item.text.trim();
+        });
+        const description = descriptionArray.join(' | ');
+        const des = row.description2 ? ' | ' + row.description2[0].text.trim() : '';
+        row.description = [{ text: description + des + ' | ' + attributesNotesCustomArray.join(' | '), xpath: row.description[0].xpath }];
+      }
+      if (row.description) {
+        const descriptionArray = row.description.map((item) => {
+          return item.text.trim();
+        });
+        const description = descriptionArray.join(' | ');
+        // description = row.description2 ? description + '| ' + row.description2[0].text.trim() : description;
+        row.description = [{ text: description, xpath: row.description[0].xpath }];
+      }
+      if (row.descriptionBullets) {
+        const descriptionBullets = row.descriptionBullets2 ? row.descriptionBullets2.length + row.descriptionBullets.length : row.descriptionBullets.length;
+        row.descriptionBullets = [{ text: descriptionBullets, xpath: row.descriptionBullets[0].xpath }];
+      }
+      if (row.descriptionBullets2 && !row.descriptionBullets) {
+        row.descriptionBullets = [{ text: row.descriptionBullets2.length, xpath: row.descriptionBullets2[0].xpath }];
       }
       if (row.image) {
         let image = row.image[0].text.trim();
-        image = image.substring(0, image.lastIndexOf('?'));
+        image = image.includes('NO-IMAGE') ? '' : image.substring(0, image.lastIndexOf('?'));
+        // image = image.substring(0, image.lastIndexOf('?'));
         row.image = [{ text: image, xpath: row.image[0].xpath }];
       }
+      // if (row.imageAlt) {
+      //   const imageAlt = row.imageAlt[0].text.trim().replace('  ', ' ');
+      //   row.imageAlt = [{ text: imageAlt, xpath: row.imageAlt[0].xpath }];
+      // }
+      if (row.shippingDimensions) {
+        const shippingDimensions = row.shippingDimensions[0].text.trim().replace('Breite', 'Breite :').replace('Höhe', '| Höhe :');
+        row.shippingDimensions = [{ text: shippingDimensions, xpath: row.shippingDimensions[0].xpath }];
+      }
+      // if (row.alternateImages) {
+      //   row.alternateImages.shift();
+      //   // const alternateImagesArr = row.alternateImages.map((item) => {
+      //   //   return typeof (item.text) === 'string' ? item.text.trim().substring(0, item.text.lastIndexOf('?')) : '';
+      //   // });
+      //   // alternateImagesArr.shift();
+      //   // row.alternateImages = [{ text: alternateImagesArr.join('|'), xpath: row.alternateImages[0].xpath }];
+      //   row.secondaryImageTotal = [{ text: row.alternateImages.length, xpath: row.alternateImages[0].xpath }];
+      // }
       if (row.alternateImages) {
-        const alternateImagesArr = row.alternateImages.map((item) => {
-          return typeof (item.text) === 'string' ? item.text.trim().substring(0, item.text.lastIndexOf('?')) : '';
-        });
-        row.alternateImages = [{ text: alternateImagesArr.join('|'), xpath: row.alternateImages[0].xpath }];
-        row.secondaryImageTotal = [{ text: alternateImagesArr.length, xpath: row.alternateImages[0].xpath }];
+        row.alternateImages.shift();
+        const alternateImagesLength = row.alternateImages.length;
+        if (alternateImagesLength > 0) {
+          row.secondaryImageTotal = [{ text: alternateImagesLength, xpath: row.alternateImages[0].xpath }];
+        }
       }
       if (row.productOtherInformation) {
-        const productOtherInformationArr = row.productOtherInformation.map((item) => {
+        const productOtherInformationK = row.productOtherInformation.map((item) => {
           return typeof (item.text) === 'string' ? item.text.trim() : '';
         });
-        row.productOtherInformation = [{ text: productOtherInformationArr.join('|'), xpath: row.productOtherInformation[0].xpath }];
+        const productOtherInformationV = row.productOtherInformation2.map((item) => {
+          return typeof (item.text) === 'string' ? item.text.trim() : '';
+        });
+        const productOtherInformation = [];
+        for (let index = 0; index < productOtherInformationK.length; index++) {
+          const element = productOtherInformationK[index] + ' : ' + productOtherInformationV[index].trim();
+          productOtherInformation.push(element);
+        }
+        row.productOtherInformation = [{ text: productOtherInformation.join(' | '), xpath: row.productOtherInformation[0].xpath }];
+      }
+      if (row.manufacturerDescription) {
+        const manufacturerDescriptionArr = row.manufacturerDescription.map((item) => {
+          return typeof (item.text) === 'string' ? item.text.trim() : '';
+        });
+        row.manufacturerDescription = [{ text: manufacturerDescriptionArr.join('|'), xpath: row.manufacturerDescription[0].xpath }];
+      }
+      if (row.aggregateRating2) {
+        const aggregateRating2 = row.aggregateRating2[0].text.trim().split(' ')[0].replace('.', ',');
+        row.aggregateRating2 = [{ text: aggregateRating2, xpath: row.aggregateRating2[0].xpath }];
+      }
+      if (row.aggregateRating) {
+        const aggregateRating = row.aggregateRating[0].text.trim().split(' ')[0].replace('.', ',');
+        row.aggregateRating = [{ text: aggregateRating, xpath: row.aggregateRating[0].xpath }];
+      }
+      if (row.aggregateRatingText) {
+        const aggregateRatingText = row.aggregateRatingText[0].text.trim().split(' ')[0].replace('.', ',');
+        row.aggregateRatingText = [{ text: aggregateRatingText, xpath: row.aggregateRatingText[0].xpath }];
       }
       if (row.videoLength) {
         const videoLength = row.videoLength[0].text.split('/')[1].trim();
         row.videoLength = [{ text: videoLength, xpath: row.videoLength[0].xpath }];
+      }
+      if (row.technicalInformationPdfPresent) {
+        row.technicalInformationPdfPresent = [{ text: 'Yes', xpath: row.technicalInformationPdfPresent[0].xpath }];
       }
     }
   }
