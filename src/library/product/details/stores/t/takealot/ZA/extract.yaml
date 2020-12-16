@@ -62,6 +62,9 @@ fields:
   - name: variantCount
     singleValue: false
     defaultValue: '0'
+  - name: variantId
+    singleValue: false
+    xpath: //div[contains(@class,"rating-and-reviews")]//div[contains(@class,"reviews")]/a/@href
   - name: color
     singleValue: false
     xpath: //div[@class="product-description  product-description-module_product-description_3bMdX"]/p[contains(text(),"Specifications:")]/text()

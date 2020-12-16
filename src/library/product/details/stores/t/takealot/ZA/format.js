@@ -69,17 +69,12 @@ const transform = (data) => {
         })
         row.descriptionBullets=[{"text":inf.join(' | ')}];
       }
-      if(row.sku){
-        let variantIdStr;
-        row.sku.forEach(item=>{
-          //console.log('sku data: ',item.text);
+      if(row.variantId){
+        row.variantId.forEach(item=>{
           let tmp=item.text.replace('/reviews/1','')
           let tmpAr=tmp.split('/');
-          //console.log('tmp :',tmp);
           item.text=tmpAr.pop();
-          variantIdStr=item.text;
         })
-        row.variantId=[{"text":variantIdStr}];
       }
       if(row.additionalDescBulletInfo){
         let inf=[];
