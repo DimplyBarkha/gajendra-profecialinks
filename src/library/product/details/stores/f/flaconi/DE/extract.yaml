@@ -156,5 +156,5 @@ fields:
     description: Compare the range table or matrix must be present for all vacuum cleaners & air treatment. This is not required for personal care or lighting. As a minimum the comparison table will compare against 1 additional Dyson product.
   - name: unInterruptedPDP
     singleValue: false
-    xpath: //div[contains(@class, "related-products")]//a
+    xpath: //div[contains(@class, "related-products")]//a | //div[@id="recommend-related"]//div[contains(@class,"item")]/a/@product-name
     description: Titles of products in the sections 'you may also like' or 'sponsored products'. Combine results from Max 3 sections

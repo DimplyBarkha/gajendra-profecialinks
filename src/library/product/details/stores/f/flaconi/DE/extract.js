@@ -212,5 +212,15 @@ async function implementation (
     
     addElementToDocument('ii_variantInfo', variantAmount+' '+variantUnit);
     });
+    try {
+      await context.evaluate(() => {
+        Array.from(document.querySelectorAll('#recommend-related div.item > a')).forEach(elm => {
+          const name = Array.from(elm.querySelectorAll('span')).map(elm => elm.innerText.trim()).join(' ');
+          elm.setAttribute('product-name', name);
+      })
+      })
+    } catch (err) {
+      console.log('Error adding recommended products');
+    }
     return await context.extract(productDetails, { transform });
     }
