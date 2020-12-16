@@ -1,0 +1,26 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: 
+fields: 
+  - name: name
+    singleValue: false
+    xpath: //span[@class='full-item-name']/text()
+  - name: price
+    singleValue: false
+    xpath: //*[contains(concat( " ", @class, " " ), concat( " ", "item-price", " " ))]//span[(((count(preceding-sibling::*) + 1) = 1) and parent::*)]
+    # regExp: (^\$\d+\.\d+)R?
+    # regExpReplace: $1
+  - name: id
+    singleValue: false
+    xpath: //div[@class='item-info']/@id
+    regExp: _(\d+)
+    regExpReplace: $1
+  - name: productUrl
+    singleValue: false
+    xpath: //li[@class='rmq-926ae505 rmq-6898c4bf item-card']/div/a/@href
+    regExp: (\/store.+)
+    regExpReplace: https://www.instacart.com$1
+  - name: thumbnail
+    singleValue: false
+    xpath: //div[@class='item-card-image-wrapper']/img/@src
