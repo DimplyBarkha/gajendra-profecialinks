@@ -1,15 +1,15 @@
 const transform = (data) => {
-	for (const { group } of data) {
-		for (const row of group) {
+  for (const { group } of data) {
+    for (const row of group) {
       if (row.productUrl) {
-				let text = '';
-				row.productUrl.forEach(item => {
-						item.text = 'https://ziipstock.com' + item.text;
-				})
+        // const text = '';
+        row.productUrl.forEach(item => {
+          item.text = 'https://ziipstock.com' + item.text;
+        });
       }
-		}
-	}
-	return data;
+    }
+  }
+  return data;
 };
 
 module.exports = {
