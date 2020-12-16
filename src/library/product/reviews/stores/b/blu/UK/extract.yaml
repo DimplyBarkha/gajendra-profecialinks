@@ -23,6 +23,7 @@ fields:
   - name: sku
     singleValue: false
     description: The store-specific product identifier
+    defaultValue: "123"
   - name: reviewText
     singleValue: false
     description: The text of the review
@@ -93,12 +94,6 @@ fields:
   - name: reviewUrl
     singleValue: false
     description: A direct link to the review
-  - name: sku
-    singleValue: false
-    description: The SKU of the item that was reviewed (may be different from the
-      sku the review was shown on). 1 if sku == reviewedSku else 0. Get sku
-      value, transform will handle the value.
-    defaultValue: 123
   - name: user
     singleValue: false
     description: The user name of the reviewer
