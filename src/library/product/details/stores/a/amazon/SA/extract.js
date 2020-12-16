@@ -31,9 +31,8 @@ module.exports = {
       else if (b) addElementToDocument('descriptionBullets', b.length);
       else addElementToDocument('descriptionBullets', '');
       const text = document.querySelector('#availability span').innerText;
-      if (text === 'In Stock.' || text.includes('Available')) addElementToDocument('Availability', 'In Stock');
+      if (text === 'In Stock.' || text.includes('Availability') || text.includes('in stock')) addElementToDocument('Availability', 'In Stock');
       else addElementToDocument('Availability', 'Out of Stock');
-      console.log(text);
     });
     return await context.extract(productDetails, { transform });
   },

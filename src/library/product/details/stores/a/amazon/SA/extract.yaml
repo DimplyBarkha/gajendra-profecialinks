@@ -9,9 +9,6 @@ fields:
   - name: imageAlt
     singleValue: true
     xpath: //div[@id='imgTagWrapperId']/img/@alt
-  - name: url
-    singleValue: true
-    xpath: //div[@id='url']
   - name: category
     singleValue: false
     xpath: //ul[@class='a-unordered-list a-horizontal a-size-small']/li/span[@class='a-list-item']/a
@@ -29,15 +26,10 @@ fields:
     xpath: //ul[@class='a-unordered-list a-vertical a-spacing-mini']/li
   - name: brandText
     singleValue: true
-    xpath: //*[@id='bylineInfo']
-
+    xpath: //a[@id='bylineInfo']
   - name: asin
     singleValue: false
     xpath: //div[@id='detailBullets_feature_div']/ul/li/span[@class='a-list-item']
-#  - name: asin
-#    singleValue: false
-#    xpath: //table[@id='productDetails_detailBullets_sections1']/tbody/tr
-
   - name: shippingDimensions
     singleValue: false
     xpath: //div[@id='detailBullets_feature_div']/ul/li/span[@class='a-list-item']
@@ -49,63 +41,35 @@ fields:
     xpath: //div[@id='merchant-info']
   - name: descriptionBullets
     xpath: //div[@id='descriptionBullets']
-    type: NUMBER
   - name: secondaryImageTotal
     singleValue: false
-    type: NUMBER
-    xpath: count(//div[@id='altImages']//li[contains(@class, 'imageThumbnail')])
+    xpath: //ul[@class='a-unordered-list a-nostyle a-button-list a-vertical a-spacing-top-micro']/li[@class='a-spacing-small item imageThumbnail a-declarative']/span/span/span/span/img/@src
   - name: aggregateRating
     singleValue: true
     xpath: //span[@id='acrPopover']
-    type: NUMBER
   - name: specifications
     singleValue: true
-    xpath: //table[contains(@id, "productDetails_techSpec")]/tbody/tr[text()]
+    xpath: //table[@id='productDetails_techSpec_section_1']/tbody
   - name: variantInformation
     singleValue: false
     xpath: //form[@id='twister']/div[@id='variation_size_name']/div[@class='a-row a-spacing-micro singleton']/span[@class='selection']
   - name: manufacturer
     singleValue: false
-    xpath: //th[contains(text(), 'Manufacturer')]/following-sibling::*[1]
+    xpath: //ul[@class='a-unordered-list a-nostyle a-vertical a-spacing-none detail-bullet-list']/li
   - name: quantity
-    singleValue: true
     xpath: //div[@id='variation_size_name']/div[@class='a-row']/span
-    type: NUMBER
-
   - name: weightGross
     singleValue: false
     xpath: //ul[@class='a-unordered-list a-nostyle a-vertical a-spacing-none detail-bullet-list']/li
-  - name: shippingWeight
-    singleValue: false
-    xpath: //ul[@class='a-unordered-list a-nostyle a-vertical a-spacing-none detail-bullet-list']/li
-
-#  - name: weightGross
-#    singleValue: false
-#    xpath: //table[@id='productDetails_techSpec_section_1']/tbody/tr
-
-  - name: salesRank
-    singleValue: false
-    type: NUMBER
-    xpath: //ul[@class='a-unordered-list a-nostyle a-vertical a-spacing-none detail-bullet-list']/li
 #  - name: salesRank
 #    singleValue: false
-#    xpath: //table[@id='productDetails_detailBullets_sections1']/tbody/tr
-#    type: NUMBER
-
+#    xpath: //ul[@class='a-unordered-list a-nostyle a-vertical a-spacing-none detail-bullet-list']/li
   - name: salesRankCategory
     singleValue: false
     xpath: //ul[@class='a-unordered-list a-nostyle a-vertical a-spacing-none detail-bullet-list']/li
-#  - name: salesRankCategory
-#    singleValue: false
-#    xpath: //table[@id='productDetails_detailBullets_sections1']/tbody/tr
-
   - name: mpc
     singleValue: false
     xpath: //ul[@class='a-unordered-list a-nostyle a-vertical a-spacing-none detail-bullet-list']/li
-#  - name: mpc
-#    singleValue: false
-#    xpath: //table[@id='productDetails_techSpec_section_1']/tbody/tr
-
   - name: imageZoomFeaturePresent
     singleValue: true
     defaultValue: Yes
@@ -115,10 +79,6 @@ fields:
   - name: _url
     singleValue: true
     xpath: //link[@rel='canonical']/@href
-  - name: variantCount
-    singleValue: true
-    type: NUMBER
-    xpath: count(//div[contains(@id,"variation")]//ul[contains(@class, "swatch")]/li)
   - name: manufacturerDescription
     singleValue: true
     xpath: //div[@id="productDescription"]/p[text()]/text()
@@ -133,3 +93,7 @@ fields:
   - name: 360ImagePresent
     singleValue: true
     xpath: //div[@id="ppd"]//script[contains(@type,"text/javascript") and contains(text(), "colorImages") and contains(text(), "360")]
+
+
+
+
