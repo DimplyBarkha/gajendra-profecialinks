@@ -69,7 +69,7 @@ async function implementation(
             timeout: 100000,
             waitUntil: 'load',
           });
-        await this.context.evaluate(async () => {
+        await context.evaluate(async () => {
             await new Promise((resolve) => setTimeout(resolve, 5000));
         
             async function infiniteScroll () {
@@ -132,7 +132,7 @@ async function implementation(
             let imagesUrl = '';
             let inBoxText = '';
             if (getInTheBox) {
-                const getAllProducts = document.querySelectorAll('div.in-the-box div');
+                const getAllProducts = document.querySelectorAll('div.in-the-box div:not(.side-pics)');
                 for (let i = 0; i < getAllProducts.length; i++) {
                     inTheBoxImages.push(getAllProducts[i].querySelector('img').getAttribute('src'));
                     inTheBoxTexts.push(getAllProducts[i].querySelector('p').innerText);
