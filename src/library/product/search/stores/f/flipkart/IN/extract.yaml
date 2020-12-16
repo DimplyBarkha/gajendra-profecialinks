@@ -1,0 +1,108 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: //*[div[@class="_4ddWXP" or @class="_2kHMtA"]] #//*[div[@class="_4ddWXP"]]
+fields:
+  - name: thumbnail
+    singleValue: false
+    description: The URL for the product thumbnail image 
+    #xpath: //*[@id="container"]/div/div[3]/div[2]/div[1]/div[2]/div/div/div/div/a[1]/div/div/div/img/@src
+    #xpath: //div[@id='image'] 
+    #xpath: //div[2]/div/div/div/div/a/div[1]/div/div/img/@src | //div[@class="_2kHMtA"]//div[@class="CXW8mj"]/img/@src
+    #xpath: //div[@class="E2-pcE _1q8tSL"]//div[@class="CXW8mj"]/img/@src
+    #xpath: //*[@id="container"]/div/div[3]/div[2]/div[1]/div[2]/div/div/div/div/a/div/div/div/img/@src
+    xpath: //div[2]/div/div/div/div/a/div[1]/div/div/img/@src | //div[@class="_2kHMtA"]//div[@class="CXW8mj"]/img/@src |  //div[@id='image']
+    
+  - name: productUrl
+    singleValue: false
+    description: The URL for the product details page
+    #xpath: //*[@id="container"]/div/div/div/div/div/div/div/div/div/a[2]/@href | //*[@id="container"]/div/div/div/div/div/div/div/div/div/a[1]/@href
+    xpath: //a[@class="s1Q9rs"]/@href | //a[@class="_1fQZEK"]/@href
+    #xpath: //*[@id="container"]/div/div/div/div/div/div/div/div/div/a[1]/@href
+    #xpath: //div[@class="_13oc-S"]/div/@producturl
+    regExp: (.+)
+    regExpReplace: https://www.flipkart.com$1
+     
+    #xpath: //*[@id="container"]/div/div[3]/div[2]/div[1]/div[2]/div/div/div/div/a[1]/div[1]/div/div/img/@src | //*[@id="container"]/div/div[3]/div[2]/div[1]/div[2]/div/div/div/div/a[2]/div[1]/div/div/img/@src | //*[@id="container"]/div/div[3]/div[2]/div[1]/div[2]/div/div/div/div/a[3]/div[1]/div/div/img/@src
+    #xpath: //div/div[3]/div[2]/div[1]/div[2]/div/div/div/div/a[1]/div[1]/div/div/img/@src
+    #xpath: //*[@id="container"]/div/div[3]/div[2]/div[1]/div[2]/div/div/div/div/a/div/div/div/img/@src
+    #xpath: //div/div/div/div/div/div/div/div/div/div[1]/a[1]/div[1]/div[1]/div[1]/img[1]/@src
+    #xpath: (//div[contains(@class,'_3BTv9X')]/img/@src)[1]
+    #xpath: (//div[contains(@class,'Zhf2z-')]/img/@src)[1]
+    #xpath: (//div[contains(@class,'_3BTv9X')]/img/@src)
+    #xpath: //div[@class="_3BTv9X"]/img/@src
+    #xpath: //*[@id="container"]/div/div[3]/div/div/div/div/div/div/div/a[1]/div/div/div/img/@src
+    #xpath: /html/body/div[1]/div/div[3]/div[2]/div[1]/div[2]/div/div/div/div/a[1]/div/div/div/img/@src
+  - name: searchUrl
+    singleValue: true
+    xpath: //div[@id='url']
+  - name: name
+    singleValue: false
+    description: The product name
+    #xpath: //*[@id="container"]/div/div/div/div/div/div/div/div/div/a[2]/@title | //div[@class="_4rR01T"]
+    #xpath:  //a[@class="s1Q9rs"]/@title | //div[@class="_4rR01T"]
+    xpath: //a[@class="s1Q9rs"]/@title | //div[@class="_4rR01T"]
+    #xpath: //*[@id="container"]/div/div[3]/div[2]/div[1]/div[2]/div/div/div/div/a/div[@class = "_3pLy-c row"]/div[1]/div[1] | //*[@id="container"]/div/div/div/div/div/div/div/div/div/a[2]/@title
+    #xpath: //div[@class='_4ddWXP']/a[@class='s1Q9rs']/@title | //*[@id="container"]/div/div[3]/div[2]/div[1]/div[2]/div/div/div/div/a/div[@class = "_3pLy-c row"]/div[1]/div[1]
+    #xpath: (//*[@id="container"]/div/div/div/div/div/div/div/div/div/a[2]/@title) | (//*[@id="container"]/div/div[3]/div[2]/div[1]/div[2]/div/div/div/div/a/div[2]/div[1]/div[@class="_4rR01T"])
+  - name: reviewCount
+    singleValue: false
+    description: The number of reviews
+    #xpath: //div[@id="review"]  
+    xpath: //*[@id="container"]/div/div[3]/div[2]/div/div/div/div/div/div/div/span[2] | //span[@class="_2_R_DZ"]/span/span[1]/text()
+    #xpath: //div[@class="gUuXy- _2D5lwg"]/span/div[@class="_3LWZlK"] | //span[@class="_2_R_DZ"]/span/span[1]/text()
+    #xpath: //*[@id="container"]/div/div[3]/div[2]/div/div/div/div/div/div/div/span[2] | //*[@id="container"]/div/div[3]/div[2]/div[1]/div[2]/div/div/div/div/a/div/div/div/span[2]/span/span[1]
+  - name: ratingCount
+    singleValue: true
+    description: The number of ratings
+    #xpath: //*[@id="container"]/div/div[3]/div[2]/div/div/div/div/div/div/div/span[2]
+  - name: price
+    singleValue: false
+    description: The offered price for the product
+    #xpath: //*[@id="container"]/div/div/div/div/div/div/div/div/div/a[3]/div/div[1] | 
+    xpath: //div[@class="_30jeq3 _1_WHN1"] | //div[@class="_30jeq3"]
+    #xpath: //*[@id="container"]/div/div/div/div/div/div/div/div/div/a[3]/div/div[1] | //*[@id="container"]/div/div[3]/div[2]/div[1]/div[2]/div/div/div/div/a/div/div/div/div/div[1]
+  - name: listPrice
+    singleValue: false
+    description: The stated undiscounted price for the product
+    #xpath: //*[@id="container"]/div/div[3]/div[2]/div[1]/div[2]/div/div/div/div/a[3]/div/div[2] | 
+    xpath: //div[@class="_3I9_wc _27UcVY"] | //div[@class="_3I9_wc"]
+    #xpath: //*[@id="container"]/div/div[3]/div[2]/div[1]/div[2]/div/div/div/div/a[3]/div/div[2] | //*[@id="container"]/div/div[3]/div[2]/div[1]/div[2]/div/div/div/div/a/div/div/div[1]/div/div[2]
+  - name: rank
+    singleValue: false
+    description: search/listing rank
+    type: NUMBER
+    #xpath: //div[@id="rankOrganic"]
+    #xpath: //div[@id='rankOrganic']
+  - name: rankOrganic
+    singleValue: false
+    description: The position (rank) within the list excluding sponsored/paid results
+    type: NUMBER 
+    #xpath: //div[@id="rankOrganic"]
+    
+
+#  Should these be source specific formulas or in the extractor? 
+  - name: id
+    singleValue: true
+    description: Unique id (within this extractor)
+    xpath: //div/div[3]/div[2]/div[1]/div[2]/div/div/div/@data-id
+    #xpath: //div[@class="_13oc-S"]/div/@data-id
+    
+  - name: nameExtended
+    singleValue: true
+    description: The product name, prefixing "${brand} - " if not included in "name" and appending " - ${variantType}" if necessary (fixed per extractor)
+    xpath: //*[@id="container"]/div/div/div/div/div/div/div/div/div/a[2]/@title
+  - name: aggregateRating2
+    singleValue: false
+    description: The stated aggregate rating normalized to be out of 5
+    #xpath: //div[@id="rating"] | //div[1]/div/div[3]/div[2]/div[1]/div[2]/div/div/div/div/div[2]/span[1]/div
+    xpath: /html/body/div[1]/div/div[3]/div/div/div/div/div/div/div/div/span/div | //div[@class="E2-pcE _1q8tSL"]//div[@class="_3LWZlK"]
+    #xpath: //*[@id="container"]//div[@class="_4ddWXP"]/div[@class="gUuXy- _2D5lwg"]/span/div
+    type: NUMBER 
+  
+  - name: sponsored
+    singleValue: false
+    #xpath: //div[@class="_4HTuuX"]/span[text() = "Ad"] | //div[@class="_2tfzpE"]/span[text() = "Ad"]
+    xpath: //div[@class="_220jKJ"]/text() | (//div[@class="_220jKJ JyiPCp"]/text()) | //div[@class="_4HTuuX"]/span[text() = "Ad"] | //div[@class="_2tfzpE"]/span[text() = "Ad"]
+    description: Is sponsored/paid
+    type: BOOLEAN
