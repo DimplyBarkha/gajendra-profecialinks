@@ -32,10 +32,25 @@ const transform = (data) => {
           });          
         }
         if (row.alternateImages) {            
+          let info = [];
           row.alternateImages.forEach(item => {
             item.text = item.text.replace(/\?\$.+/g, '');
             item.text = item.text + "?$690$&wid=690&hei=690";
-          });          
+            info.push("1");
+          });
+          delete row.alternateImages2;
+          row.secondaryImageTotal = [{'text':info.length,'xpath':row.alternateImages[0].xpath}];
+        }
+        if (!row.alternateImages && row.alternateImages2) {                        
+          let info = [];
+          row.alternateImages2.forEach(item => {
+            item.text = item.text.replace(/\?\$.+/g, '');
+            item.text = item.text + "?$690$&wid=690&hei=690";
+            row.alternateImages.push({'text':item.text,'xpath':row.alternateImages2[0].xpath});
+            info.push("1");
+          });
+          row.secondaryImageTotal = [{'text':info.length,'xpath':row.alternateImages[0].xpath}];
+          delete row.alternateImages2;            
         }
         if (row.brandText) {            
           row.brandText.forEach(item => {
@@ -45,7 +60,7 @@ const transform = (data) => {
         if (row.nameExtended) {            
           row.nameExtended.forEach(item => {
               if (brand != ''){
-                  item.text = item.text + " - " + brand;
+                  item.text = brand + " - " + item.text;
               }
           });          
         }
@@ -65,14 +80,7 @@ const transform = (data) => {
           row.listPrice.forEach(item => {
             item.text = item.text.replace(/(\s*was\s*)+/isg, '').trim();
           });
-        }
-        if (row.description) {
-          let info = [];          
-          row.description.forEach(item => {
-            info.push(item.text.replace(/(\s*\n\s*)+/g, ' ').trim());            
-          });
-          row.description = [{'text':info.join(' | '),'xpath':row.description[0].xpath}];          
-        }
+        }        
         if (row.availabilityText) {          
           row.availabilityText.forEach(item => {
             if (item.text == 'Out of Stock'){
@@ -108,12 +116,21 @@ const transform = (data) => {
           });          
           row.specifications = [{'text':info.join(' || '),'xpath':row.specifications[0].xpath}];          
         }
+        let ad_dec_data = '';
         if(row.additionalDescBulletInfo){
           let arr_info = [];
           row.additionalDescBulletInfo.forEach(item=>{
             arr_info.push(item.text);
           });            
           row.additionalDescBulletInfo = [{'text':'|| '+arr_info.join(' || ')}];
+          ad_dec_data = '|| '+arr_info.join(' || ');
+        }
+        if (row.description) {
+          let info = [];          
+          row.description.forEach(item => {
+            info.push(item.text.replace(/(\s*\n\s*)+/g, ' ').trim());            
+          });
+          row.description = [{'text':info.join(' | ') + ad_dec_data,'xpath':row.description[0].xpath}];            
         }
         if(row.variantInformation){
           let arr_info = [];

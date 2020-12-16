@@ -22,9 +22,14 @@ fields:
   - name: imageAlt
     singleValue: false
     xpath: //div[@class='slick-initialized slick-slider']//div[@class='slick-list']//div[contains(@class,'slick-slide slick-active')]//a//img/@alt
+  - name: secondaryImageTotal
+    singleValue: false
   - name: alternateImages
     singleValue: false
-    xpath: //div[@id='rclModal']//ul[contains(@class,'ProductMediaCarouselStyle_')]//li[not(@class='slick-active')]//button/img/@src | //div[@class='slick-initialized slick-slider']//ul[contains(@class,'ProductMediaCarouselStyle_')]//li[not(@class='slick-active')]//img[contains(@class,'ProductMediaCarouselStyle_')]/@src
+    xpath: //div[@id='rclModal']//ul[contains(@class,'ProductMediaCarouselStyle_')]//li[not(@class='slick-active')]//button/img/@src
+  - name: alternateImages2
+    singleValue: false
+    xpath: //div[@class='slick-initialized slick-slider']//ul[contains(@class,'ProductMediaCarouselStyle_')]//li[not(@class='slick-active')]//img[contains(@class,'ProductMediaCarouselStyle_')]/@src
   - name: metaKeywords
     singleValue: false
     xpath: //title
@@ -63,21 +68,19 @@ fields:
     xpath: //a[@data-locator='pdp-reviewslink']//span[@itemprop="ratingValue"]
   - name: additionalDescBulletInfo
     singleValue: false
-    xpath: //div[@id='productDetails']//div[contains(@class,'mt2 Overview_')]//ul//li | //li[contains(text(),"skuId")]
+    xpath: //div[@id='productDetails']//ul//li
   - name: description
     singleValue: false
-    xpath: //div[@id='productDetails']//div[@itemprop='description'] | //div[@id='productDetails']//div[contains(@class,'mt2 Overview_')]//ul//li | //li[contains(text(),"skuId")]
+    xpath: //div[@id='productDetails']//div[@itemprop='description']
   - name: descriptionBullets
     singleValue: false
-    # xpath: //div[@id='productDetails']//div[contains(@class,'mt2 Overview_')]//ul//li | //li[contains(text(),"skuId")]
-    xpath: count(//div[@id="overview"]//ul//li)
+    xpath: count(//div[@id='productDetails']//ul//li)
   - name: variantCount
     singleValue: false
     xpath: '0'
   - name: manufacturerDescription
     SingleValue: false
-    xpath: //div[@id="webcollage"]//h2/text() |  //div[@id="webcollage"]//h3/text()
-    # xpath: //div[@id='wc-aplus'] | //div[@id="wc-power-page"]//h2//text() | //div[@id="added-manufacturer-description"] | //div[@id="wc-power-page"]//h3//text() | //div[@class="wc-rich-content-description"]//text() | //div[@id='product-desc'] | //div[contains(@class,"wc-rich-content-description")]
+    xpath: //div[@id='wc-aplus']
   - name: videos
     SingleValue: false
     xpath: //div[@id='rclModal']//ul[contains(@class,'ProductMediaCarouselStyle_')]//li//button/img[@alt='Video']/@src
@@ -90,41 +93,6 @@ fields:
   - name: variantInformation
     singleValue: false
     xpath: //ul[contains(@class,'rclCustomTiles CustomSelect-inline_')]//li[contains(@class,'tilesItem')]//button/@value
-  - name: shippingInfo
-    singleValue: false
-    xpath: //div[@class="Attributes_3NrIDH mt2 mb2"
   - name: manufacturerImages
-    SingleValue: false
-    xpath: //img[@data-asset-type]/@src  |  //img[contains(@class,"wc-media wc-image")]/@src | //div[class="wc-media-inner-wrap"]/@src | //img[@class="wc-media wc-image"]/@src | //div[@class="wc-aplus-body"]//img[contaims(@class="wc-media wc-image")]/@src | //img[@wcpc]/@src
-  - name: variantInformation
-    # xpath: //div[@id='wc-aplus']//img/@src | //div[@id='manuf-images'] | //div[@id='added-manufacturer-images-'] | //img[contains(@class,"wc-media wc-image")]/@src | //div[class="wc-media-inner-wrap"]/@src || //img[@class="wc-media wc-image"]/@src | //div[@class="wc-aplus-body"]//img[contaims(@class="wc-media wc-image")]/@src | //img[@wcpc]/@src
-  - name: variantInformation
     singleValue: false
-    xpath: //ul[contains(@class,'rclCustomTiles CustomSelect-inline_')]//li[contains(@class,'tilesItem')]//button/@value
-  - name: shippingInfo
-    singleValue: false
-    xpath: //div[@class="Attributes_3NrIDH mt2 mb2"]
-  - name: secondaryImageTotal
-    singleValue: false
-    xpath: count(//div[@id='rclModal']//ul[contains(@class,'ProductMediaCarouselStyle_')]//li[not(@class='slick-active')]//button/img/@src |//div[@class='slick-initializedslick-slider']//ul[contains(@class,'ProductMediaCarouselStyle_')]//li[not(@class='slick-active')]//img[contains(@class,'ProductMediaCarouselStyle_')]/@src) 
-  - name: videos
-    singleValue: false
-    xpath: //div[@class="tvp_video_wrapper_html5"]/video/@src | //div[@id='rclModal']//ul[contains(@class,'ProductMediaCarouselStyle_')]//li//button/img[@alt='Video']/@src | //img[@alt="Video"]/@src
-  - name: mpc
-    singleValue: false
-    xpath: //li[contains(text(),"Model")]
-    regExp: Model\s(.+)
-    regExpReplace: $1
-  - name: countryOfOrigin
-    singleValue: false
-    description: The country from which the product originates
-    xpath: //li[contains(text(),"Manufactured in")] | //div[contains(@class, 'Overview')]//li[contains(text(),'Made in')] 
-  - name: packSize
-    singleValue: false
-    description: The number of packs in the product offer (if stated separately on the  site to quantity)
-    xpath: //dt[contains(text(), "Set Size")]/..//span
-  - name: imageZoomFeaturePresent
-    singleValue: true
-    description: If Zoom feature is available for Main image or images in the carousel,['Yes','No']
-    example: https://www.zalando.de/adidas-neo-sneaker-low-blackwhite-a4315i002-q11.html
-    defaultValue: Yes
+    xpath: //div[@id='wc-aplus']//img/@src  
