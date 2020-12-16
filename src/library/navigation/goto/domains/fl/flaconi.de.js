@@ -15,5 +15,8 @@ module.exports = {
     if (zipcode) {
       await dependencies.setZipCode({ url: url, zipcode: zipcode, storeId });
     }
+    if(await context.evaluate(() => !!document.querySelector('#uc-btn-accept-banner'))) {
+      await context.click('#uc-btn-accept-banner');
+    }
   },
 };
