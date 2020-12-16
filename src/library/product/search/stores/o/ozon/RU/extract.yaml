@@ -12,9 +12,12 @@ fields:
     xpath: //a[@class='a2g0 tile-hover-target']/@href
   - name: pageTimestamp
     singleValue: true
-  # - name: rankOrganic
-  #   singleValue: true
-  #   xpath: //div[@class='a0c6 a0c9 a0c8']/@rank
+  - name: rankOrganic
+    singleValue: true
+    xpath: //div[@class='a0c6 a0c9 a0c8']/@rank
+  - name: rankOrganic
+    singleValue: true
+    xpath: //div[@class='a0c6 a0d a0c9 a0c8']/@rank
   - name: name
     singleValue: true
     description: The product name
@@ -29,6 +32,10 @@ fields:
     singleValue: true
     description: The URL for the product thumbnail image
     xpath: //div[@class='a0i7']/img/@src
+  - name: thumbnail
+    singleValue: true
+    description: The URL for the product thumbnail image
+    xpath: //div[@class='a0i7 a0i8']/img/@src
   - name: aggregateRating
     singleValue: true
     description: The stated aggregate rating normalized to be out of 5
@@ -38,13 +45,21 @@ fields:
     singleValue: true
     description: The number of reviews
     xpath: //div[@class='a1a9']/a[@class='a1b']
+  - name: reviewCount
+    singleValue: true
+    description: The number of reviews
+    xpath: //div[@class='a1a9 a1b0']/a[@class='a1b']
   - name: price
     singleValue: true
     description: The offered price for the product
     xpath: //span[@class='b5v6 b5v7 c4v8']
-  # - name: rank
-  #   singleValue: true
-  #   description: search/listing rank
-  #   xpath: //div[@class='a0c6 a0c9 a0c8']/@rank
+  - name: rank
+    singleValue: true
+    description: search/listing rank
+    xpath: //div[@class='a0c6 a0c9 a0c8']/@rank
+  - name: rank
+    singleValue: true
+    description: search/listing rank
+    xpath: //div[@class='a0c6 a0d a0c9 a0c8']/@rank
 
 
