@@ -27,39 +27,51 @@ const transform = (data) => {
         if (row.aggregateRating) {
           row.aggregateRating.forEach(item => {
             item.text = item.text.replace(/\s*/g, '');
-            item.text = item.text.replace('outof5starrating', '');
+            item.text = Number(item.text);
+          });
+        }
+        if (row.ratingCount) {
+          row.ratingCount.forEach(item => {
+            item.text = item.text.replace('(', '');
+            item.text = item.text.replace(')', '');
             item.text = Number(item.text);
           });
         }
         if (row.description) {
             let description_ar = [];
             row.description.forEach(item => {
-              item.text = item.text.replace("#", '||').trim();
-              item.text = item.text.replace(", ", '||').trim();
-              item.text = item.text.replace(". ", '||').trim();
               description_ar.push(item.text);
             });
             if (description_ar.length) {
               row.description = [{ "text": description_ar.join(" || "), 'xpath': row.description[0].xpath }];
             }
         }
-        if (row.specifications) {
-          var rowItem = ''
-          var rowCounter = 1
-          row.specifications.forEach(item => {
-            if((rowCounter % 2)){
-              rowItem = rowItem +  item.text 
-            } else{
-              rowItem = rowItem +  item.text + ' || '
-            }
-            rowCounter = rowCounter + 1
+        if (row.quantity) {
+          row.quantity.forEach(item => {
+            item.text = item.text.match(/\d\d\d+.*/)[0];
           });
-          row.specifications = [{'text':rowItem, 'xpath': row.specifications[0].xpath}]
-          //console.log(row.specifications)
+
         }
-        if (row.descriptionBullets) {
-          row.descriptionBullets = [{'text':row.descriptionBullets.length, 'xpath':row.descriptionBullets[0].xpath}];              
-        } 
+        if (row.packSize) {
+          row.packSize.forEach(item => {
+            item.text = item.text.replace(/\s*/g, '');
+            item.text = item.text.replace('Pack', '');
+            item.text = item.text.replace('(', '');
+            item.text = item.text.replace(')', '');
+          });
+        }
+        if (row.specifications) {
+          var specificationArr = [];
+          row.specifications.forEach(item => {
+            item.text = item.text.replace(/\n\s\n/, ':');
+            specificationArr.push(item.text);
+          });
+          if (specificationArr.length) {
+            row.specifications = [{ "text": specificationArr.join(" || ") , 'xpath': row.specifications[0].xpath }];
+          } else {
+            delete row.specifications;
+          }
+        }
         if (row.category) {
           let info = [];
           row.category.forEach(item => {

@@ -5,28 +5,36 @@ recordXPath: null
 fields:
   - name: name
     singleValue: false 
-    xpath: //div[(contains(@class,'product-meta-container grid-x'))]//div[@class="product-name-brand"]//h2
+    xpath: //div[(contains(@class,'product-meta-container grid-x'))]//h1
+  - name: quantity
+    singleValue: false 
+    xpath: //div[(contains(@class,'product-meta-container grid-x'))]//h1
   - name: nameExtended
     singleValue: false 
-    xpath: //div[(contains(@class,'product-meta-container grid-x'))]//div[@class="product-name-brand"]//h2
+    xpath: //div[(contains(@class,'product-meta-container grid-x'))]//h1
+  - name: metaKeywords
+    singleValue: false 
+    xpath: //meta[@name="keywords"]/@content
   - name: brandText
     singleValue: false  
-    xpath: //div[(contains(@class,'product-meta-container grid-x'))]//div[@class="product-name-brand"]//h1
+    xpath: //div[(contains(@class,'product-meta-container grid-x'))]//div[@class="product-brand"]
   - name: manufacturer
     singleValue: false  
-    xpath: //div[(contains(@class,'product-meta-container grid-x'))]//div[@class="product-name-brand"]//h1
   - name: image
     singleValue: false 
-    xpath: //div[@class="image-container  "]//div[@class="mz-lens"]//img/@src
+    xpath: //div[@class="image-container  "]//a[@id="sku_gallery"]/@href
   - name: alternateImages
     singleValue: false 
-    xpath: //div[(contains(@class,'sku-thumbnail-row'))]//img/@src
+    xpath: //div[(contains(@class,'sku-thumbnail-row'))]//a[not(contains(position(),1))]//img/@src
+  - name: secondaryImageTotal
+    singleValue: false 
+    xpath: count(//div[(contains(@class,'sku-thumbnail-row'))]//a[not(contains(position(),1))]//img)
   - name: listPrice
     singleValue: false
-    xpath: //div[(contains(@class,'product-meta-container grid-x'))]//span[(contains(@class,'PriceTag zero-cents current secondary'))]//div[@class="FormattedAmount"]
+    xpath: //div[(contains(@class,'product-meta-container grid-x'))]//span[(contains(@class,'secondary'))]//div[@class="FormattedAmount"]
   - name: price
     singleValue: false
-    xpath: //div[(contains(@class,'product-meta-container grid-x'))]//span[(contains(@class,'PriceTag has-cents acrossAnySix primary'))]//div[@class="FormattedAmount"]
+    xpath: //div[(contains(@class,'product-meta-container grid-x'))]//span[(contains(@class,'primary'))]//div[@class="FormattedAmount"]
   - name: category
     singleValue: false
     xpath: //meta[@property="og:url"]/@content
@@ -39,26 +47,40 @@ fields:
   - name: gtin
     singleValue: false
     xpath: //div[contains(@class,"product-properties-container")]//li//span[text()="GTIN"]/parent::*/span[2]
+  - name: packaging
+    singleValue: false
+    xpath: //div[contains(@class,"product-properties-container")]//li//span[text()="Packaging"]/parent::*/span[2]
+  - name: alcoholContent
+    singleValue: false
+    xpath: //div[contains(@class,"product-properties-container")]//li//span[text()="Alcohol Content"]/parent::*/span[2]
+  - name: countryOfOrigin
+    singleValue: false
+    xpath: //div[contains(@class,"product-properties-container")]//li//span[text()="Origin"]/parent::*/span[2]
   - name: mpc
     singleValue: false
-    xpath: //div[contains(@class,"product-properties-container")]//li//span[text()="GTIN"]/parent::*/span[2]
   - name: variantCount
     singleValue: false
     defaultValue: '0'
+  - name: imageZoomFeaturePresent
+    singleValue: false
+    defaultValue: 'Yes'
   - name: description
     singleValue: false
     xpath: //div[@class="product-description"]
+  - name: packSize
+    singleValue: false
+    xpath: //div[(contains(@class,'product-meta-container grid-x'))]//span[@class="unitOfMeasure"]
   - name: specifications
     singleValue: false
-    xpath: //div[contains(@class,"product-properties-container")]//li
+    xpath: //div[contains(@class,"product-properties-container")]//li//span[@class='key'] | //div[contains(@class,"product-properties-container")]//li//span[@class='val']
   - name: descriptionBullets
     singleValue: false    
-    xpath: //div[contains(@class,"product-properties-container")]//li
   - name: availabilityText
     singleValue: false
     defaultValue: 'In Stock'
   - name: aggregateRating
     singleValue: false
-    xpath: //div[(contains(@class,'product-meta-container grid-x'))]//div[@class="product-rating"]//span[@class="StarRating "]//div[@class="show-for-sr"]
-   
-    
+    xpath: //div[(contains(@class,'product-meta-container grid-x'))]//div[@data-bv-show="rating_summary"]//div[(contains(@class,'bv_avgRating_component_container notranslate'))]
+  - name: ratingCount
+    singleValue: false
+    xpath: //div[(contains(@class,'product-meta-container grid-x'))]//div[@data-bv-show="rating_summary"]//div[@class="bv_numReviews_text"]
