@@ -62,7 +62,7 @@ fields:
     xpath: ancestor::html//div[@data-test-id="Thumbnail"]/parent::div[contains(@class,"active")]
   - name: colorCode
   - name: manufacturerImages
-    xpath: ancestor::html//aside//div[@data-test-id="ProductImage"]//img/@src
+    xpath: ancestor::html//div[@data-test-id="ProductName"]/@aplusimages
   - name: videos
   - name: name
     xpath: ancestor::html//h1[@data-test-id="BrandNameProductNameColorName"]

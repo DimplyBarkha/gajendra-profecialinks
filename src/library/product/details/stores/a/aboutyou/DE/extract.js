@@ -38,7 +38,7 @@ async function implementation (
         document.querySelector('ul[data-test-id="DropdownList"]').appendChild(newLi);
         newLi.id = `item${i}`;
       }
-      let array = [...document.querySelectorAll('ul[data-test-id="DropdownList"] li')];
+      const array = [...document.querySelectorAll('ul[data-test-id="DropdownList"] li')];
 
       fetch(`https://api-cloud.aboutyou.de/v1/products/${variantId}?with=variants%2Cvariants.attributes%2Cimages.attributes%3Alegacy%28false%29%2CpriceRange&campaignKey=px&shopId=605`)
         .then(response => response.json())
@@ -48,7 +48,7 @@ async function implementation (
             array[i].setAttribute('sku', data.variants[i].id);
             array[i].setAttribute('price', data.variants[i].price.withTax);
             array[i].setAttribute('mpn', data.variants[i].referenceKey);
-            array[i].setAttribute('availability', data.variants[i].stock.quantity === 0 ? "Out of Stock" : "In Stock");
+            array[i].setAttribute('availability', data.variants[i].stock.quantity === 0 ? 'Out of Stock' : 'In Stock');
             array[i].setAttribute('ean', data.variants[i].attributes.ean.values.value);
             array[i].setAttribute('size', `${data.variants[i].attributes.vendorSize.values.label}`);
             array[i].setAttribute('firstvariant', data.variants[0].id);
@@ -57,7 +57,15 @@ async function implementation (
           }
         });
       optionalWait('ul[data-test-id="DropdownList"] li:nth-last-child(1)');
-      document.querySelectorAll('li[data-test-id="BulletPoint"]').forEach((ele)=> ele.textContent = (` || ${ele.textContent}`));
+      document.querySelectorAll('li[data-test-id="BulletPoint"]').forEach((ele) => ele.textContent = (` || ${ele.textContent}`));
+      const manufacturerImages = document.querySelector('aside div[data-test-id="ProductImage"] img');
+      if (manufacturerImages) {
+        let aplusImages = manufacturerImages.getAttribute('src');
+        document.querySelector('div[data-test-id="ProductName"]').setAttribute('aplusimages', aplusImages);
+      } else {
+        let aplusImages = document.querySelector('div[data-test-id="AdpImageGrid"] div[data-test-id="ImageBoxContainer"] img').getAttribute('src');
+        document.querySelector('div[data-test-id="ProductName"]').setAttribute('aplusimages', aplusImages);
+      }
     }
   });
   return await context.extract(productDetails, { transform });
