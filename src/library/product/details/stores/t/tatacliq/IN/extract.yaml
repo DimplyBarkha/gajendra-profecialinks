@@ -149,7 +149,8 @@ fields:
     singleValue: true
     description: null
   - name: coupon
-    xpath: //ul//li[contains(.,"Coupon")]
+    # xpath: //ul//li[contains(.,"Coupon")]
+    xpath: //ul//li[contains(.,"Coupon")] | //div[@itemprop='offers']/div/span[contains(.,"coupon")]
     description: Text of any coupon offer
   - name: amazonChoice
     singleValue: true
