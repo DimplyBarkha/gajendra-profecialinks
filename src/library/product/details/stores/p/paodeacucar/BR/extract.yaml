@@ -385,7 +385,7 @@ fields:
   - name: vitaminAPerServing
     singleValue: true
     xpath: //tbody[contains(@class,"table-liststyle__ValuesContainer")]
-    regExp: (?<=[V,v]itamina\s*+[A,a]\s*)\d+,?\d*\s*(?=[K,k,m]?g)
+    regExp: (?<=[V,v]itamina\s*[A,a]\s*)\d+,?\d*\s*(?=[K,k,m]?g)
     description: Nutritional Information for Vitamin A content - Usually based on
       per 100g serving
   - name: vitaminAPerServingUom
@@ -396,7 +396,7 @@ fields:
   - name: vitaminCPerServing
     singleValue: true
     xpath: //tbody[contains(@class,"table-liststyle__ValuesContainer")]
-    regExp: (?<=[V,v]itamina\s*+[C,c]\s*)\d+,?\d*\s*(?=[K,k,m]?g)
+    regExp: (?<=[V,v]itamina\s*[C,c]\s*)\d+,?\d*\s*(?=[K,k,m]?g)
     description: Nutritional Information for Vitamin C content - Usually based on
       per 100g serving
   - name: vitaminCPerServingUom
