@@ -34,6 +34,17 @@ async function implementation (
   } catch (error) {
     console.log('error: ', error);
   }
+  await context.evaluate(async function () {
+    function addHiddenDiv (id, content) {
+      const newDiv = document.createElement('div');
+      newDiv.id = id;
+      newDiv.textContent = content;
+      newDiv.style.display = 'none';
+      document.body.appendChild(newDiv);
+    }
+    const searchURL = window.location.href;
+    addHiddenDiv('added_search_url', searchURL);
+  });
   return await context.extract(productDetails, { transform });
 }
 module.exports = {

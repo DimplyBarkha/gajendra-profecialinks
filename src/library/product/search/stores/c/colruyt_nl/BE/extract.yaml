@@ -1,7 +1,7 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: //a[@class="card card--article"]
+recordXPath: //div[contains(@class,"product products__item _bArticle _pArticle")]
 fields:
   - name: searchUrl
     singleValue: false
@@ -10,9 +10,9 @@ fields:
     singleValue: false
     description: Whether this is a sponsored/paid result
     type: BOOLEAN
-  - name: brand
+  - name: brandText
     singleValue: false
-    xpath: //div[contains(@class,"card__body")]//p[contains(@class,"card__text")]
+    xpath: //div[contains(@class,"product__inner")]//div[contains(@class,"product__name")]
     description: The brand name
     example: Panasonic
   - name: category
@@ -26,26 +26,25 @@ fields:
       - Rotating
   - name: productUrl
     singleValue: false
-    xpath: //@href
+    xpath: //div[contains(@class,"product__inner")]//a[contains(@class,"product__info")]/@href
     description: The URL for the product details page
   - name: thumbnail
     singleValue: false
-    xpath: //div[contains(@class,"card__image")]//img/@src
+    xpath: //div[contains(@class,"product__inner")]//a[contains(@class,"product__image")]//img//@src
     description: The URL for the product thumbnail image
   - name: name
     singleValue: false
-    xpath: //div[contains(@class,"card__body")]//p[contains(@class,"card__text")]
+    xpath: //div[contains(@class,"product__inner")]//div[contains(@class,"product__description")]
     description: The product name
   - name: sku
     singleValue: false
-    xpath: //@data-product-id
+    xpath: //@data-productskuid
     description: The store-specific product identifier
   - name: mpc
     singleValue: false
     description: The model code of the product
   - name: gtin
     singleValue: false
-    xpath: //@gtin
     description: GTIN code (includes UPC/EAN)
   - name: aggregateRatingText
     singleValue: false
@@ -58,7 +57,7 @@ fields:
     description: The number of reviews
   - name: price
     singleValue: false
-    xpath: //span[contains(@class,"price-info__price")]
+    xpath: //span[contains(@class,"displayPrice1")]
     description: The offered price for the product
   - name: listPrice
     singleValue: false
@@ -89,11 +88,11 @@ fields:
     type: BOOLEAN
   - name: id
     singleValue: false
-    xpath: //@data-product-id
+    xpath: //@data-productskuid
     description: Unique id (within this extractor)
   - name: nameExtended
     singleValue: false
-    xpath: //div[contains(@class,"card__body")]//p[contains(@class,"card__text")] 
+    xpath: //div[contains(@class,"product__inner")]//div[contains(@class,"product__description")]
     description: The product name, prefixing "${brand} - " if not included in "name"
       and appending " - ${variantType}" if necessary (fixed per extractor)
   - name: aggregateRating
