@@ -1,0 +1,1541 @@
+input:
+  _url: http://vikingdirect.fr
+  url: https://www.import.io
+extractions:
+  - html: https://workbench.import.io/html/run=c4ddcfcc-8caf-4a34-b3a3-d10c9867ac39/task=f8209d3d-6611-46f9-b603-4b858488b66b/d077260b-efdd-46a5-aa04-fbcd42cddf7b.html
+    extractionConfigId: tracker/categories/stores/v/vikingdirect/FR/extract
+    data:
+      - group:
+          - category:
+              - text: Papeterie
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[1]/a[1]/@categoryname
+            categoryUrl:
+              - text: https://www.vikingdirect.fr/specialLinksNoChat.do?file=/papeterie-en-ligne.jsp
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[1]/a[1]/@categoryurl
+          - category:
+              - text: Papier et ramettes
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/h3[1]/a[1]/@categoryname
+            categoryUrl:
+              - text: https://www.vikingdirect.fr/a/bb/Papier-et-ramettes/N=2+1028/
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/h3[1]/a[1]/@categoryurl
+          - category:
+              - text: Bobines papier
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[1]/a[1]/@categoryname
+            categoryUrl:
+              - text: https://www.vikingdirect.fr/a/bb/Papier-et-ramettes/Bobines-papier/N=2+1235/
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[1]/a[1]/@categoryurl
+          - category:
+              - text: Cartes de visite
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[2]/a[1]/@categoryname
+            categoryUrl:
+              - text: https://www.vikingdirect.fr/a/bb/Papier-et-ramettes/Cartes-de-visite/N=2+1214/
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[2]/a[1]/@categoryurl
+          - category:
+              - text: Papier
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[3]/a[1]/@categoryname
+            categoryUrl:
+              - text: https://www.vikingdirect.fr/a/bb/Papier-et-ramettes/Papier/N=2+1193/
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[3]/a[1]/@categoryurl
+          - category:
+              - text: Papier listing & Imprimés
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[4]/a[1]/@categoryname
+            categoryUrl:
+              - text: https://www.vikingdirect.fr/a/bb/Papier-et-ramettes/Papier-listing-Imprimes/N=2+1246/
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[4]/a[1]/@categoryurl
+          - category:
+              - text: Tout voir›
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[5]/a[1]/@categoryname
+            categoryUrl:
+              - text: https://www.vikingdirect.fr/a/bb/Papier-et-ramettes/N=2+1028/
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[5]/a[1]/@categoryurl
+          - category:
+              - text: Bobines de papier
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/h3[1]/a[1]/@categoryname
+            categoryUrl:
+              - text: https://www.vikingdirect.fr/a/bb/Bobines-de-papier/N=2+1235/
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/h3[1]/a[1]/@categoryurl
+          - category:
+              - text: Bobines papier pour caisses enregistreuses
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/ul[1]/li[1]/a[1]/@categoryname
+            categoryUrl:
+              - text: https://www.vikingdirect.fr/a/bb/Bobines-de-papier/Bobines-papier-pour-caisses-enregistreuses/N=2+1236/
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/ul[1]/li[1]/a[1]/@categoryurl
+          - category:
+              - text: Bobines papier pour calculatrices
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/ul[1]/li[2]/a[1]/@categoryname
+            categoryUrl:
+              - text: https://www.vikingdirect.fr/a/bb/Bobines-de-papier/Bobines-papier-pour-calculatrices/N=2+1178936/
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/ul[1]/li[2]/a[1]/@categoryurl
+          - category:
+              - text: Bobines papier pour cartes bancaires
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/ul[1]/li[3]/a[1]/@categoryname
+            categoryUrl:
+              - text: https://www.vikingdirect.fr/a/bb/Bobines-de-papier/Bobines-papier-pour-cartes-bancaires/N=2+1178937/
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/ul[1]/li[3]/a[1]/@categoryurl
+          - category:
+              - text: Tout voir›
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/ul[1]/li[4]/a[1]/@categoryname
+            categoryUrl:
+              - text: https://www.vikingdirect.fr/a/bb/Bobines-de-papier/N=2+1235/
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/ul[1]/li[4]/a[1]/@categoryurl
+          - category:
+              - text: Notes repositionnables
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[3]/h3[1]/a[1]/@categoryname
+            categoryUrl:
+              - text: https://www.vikingdirect.fr/a/bb/Notes-repositionnables/N=2+1178900/
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[3]/h3[1]/a[1]/@categoryurl
+          - category:
+              - text: Blocs cubes
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[3]/ul[1]/li[1]/a[1]/@categoryname
+            categoryUrl:
+              - text: https://www.vikingdirect.fr/a/bb/Notes-repositionnables/Blocs-cubes/N=2+1178901/
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[3]/ul[1]/li[1]/a[1]/@categoryurl
+          - category:
+              - text: Blocs et cubes de notes repositionnables
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[3]/ul[1]/li[2]/a[1]/@categoryname
+            categoryUrl:
+              - text: https://www.vikingdirect.fr/a/bb/Notes-repositionnables/Blocs-et-cubes-de-notes-repositionnables/N=2+1178902/
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[3]/ul[1]/li[2]/a[1]/@categoryurl
+          - category:
+              - text: Dévidoirs pour notes repositionnables
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[3]/ul[1]/li[3]/a[1]/@categoryname
+            categoryUrl:
+              - text: https://www.vikingdirect.fr/a/bb/Notes-repositionnables/Devidoirs-pour-notes-repositionnables/N=2+1178903/
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[3]/ul[1]/li[3]/a[1]/@categoryurl
+          - category:
+              - text: Marque-pages et index repositionnables
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[3]/ul[1]/li[4]/a[1]/@categoryname
+            categoryUrl:
+              - text: https://www.vikingdirect.fr/a/bb/Notes-repositionnables/Marque-pages-et-index-repositionnables/N=2+1178904/
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[3]/ul[1]/li[4]/a[1]/@categoryurl
+          - category:
+              - text: Tout voir›
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[3]/ul[1]/li[5]/a[1]/@categoryname
+            categoryUrl:
+              - text: https://www.vikingdirect.fr/a/bb/Notes-repositionnables/N=2+1178900/
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[3]/ul[1]/li[5]/a[1]/@categoryurl
+          - category:
+              - text: Enveloppes et pochettes
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/h3[1]/a[1]/@categoryname
+            categoryUrl:
+              - text: https://www.vikingdirect.fr/a/bb/Enveloppes-et-pochettes/N=2+1178909/
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/h3[1]/a[1]/@categoryurl
+          - category:
+              - text: Enveloppes
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/ul[1]/li[1]/a[1]/@categoryname
+            categoryUrl:
+              - text: https://www.vikingdirect.fr/a/bb/Enveloppes-et-pochettes/Enveloppes/N=2+1178910/
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/ul[1]/li[1]/a[1]/@categoryurl
+          - category:
+              - text: Etiquettes
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/ul[1]/li[2]/a[1]/@categoryname
+            categoryUrl:
+              - text: https://www.vikingdirect.fr/a/bb/Enveloppes-et-pochettes/Etiquettes/N=2+1178917/
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/ul[1]/li[2]/a[1]/@categoryurl
+          - category:
+              - text: Pochettes
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/ul[1]/li[3]/a[1]/@categoryname
+            categoryUrl:
+              - text: https://www.vikingdirect.fr/a/bb/Enveloppes-et-pochettes/Pochettes/N=2+1178930/
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/ul[1]/li[3]/a[1]/@categoryurl
+          - category:
+              - text: Tout voir›
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/ul[1]/li[4]/a[1]/@categoryname
+            categoryUrl:
+              - text: https://www.vikingdirect.fr/a/bb/Enveloppes-et-pochettes/N=2+1178909/
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/ul[1]/li[4]/a[1]/@categoryurl
+          - category:
+              - text: Etiquettes
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[2]/h3[1]/a[1]/@categoryname
+            categoryUrl:
+              - text: https://www.vikingdirect.fr/a/bb/Etiquettes/N=2+1178917/
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[2]/h3[1]/a[1]/@categoryurl
+          - category:
+              - text: Etiquettes couleurs
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[2]/ul[1]/li[1]/a[1]/@categoryname
+            categoryUrl:
+              - text: https://www.vikingdirect.fr/a/bb/Etiquettes/Etiquettes-couleurs/N=2+1178918/
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[2]/ul[1]/li[1]/a[1]/@categoryurl
+          - category:
+              - text: Etiquettes d'adresses pour enveloppes
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[2]/ul[1]/li[2]/a[1]/@categoryname
+            categoryUrl:
+              - text: https://www.vikingdirect.fr/a/bb/Etiquettes/Etiquettes-d-adresses-pour-enveloppes/N=2+1178919/
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[2]/ul[1]/li[2]/a[1]/@categoryurl
+          - category:
+              - text: Etiquettes d'affranchissement et recommandés
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[2]/ul[1]/li[3]/a[1]/@categoryname
+            categoryUrl:
+              - text: https://www.vikingdirect.fr/a/bb/Etiquettes/Etiquettes-d-affranchissement-et-recommandes/N=2+1178920/
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[2]/ul[1]/li[3]/a[1]/@categoryurl
+          - category:
+              - text: Etiquettes d'expédition pour colis
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[2]/ul[1]/li[4]/a[1]/@categoryname
+            categoryUrl:
+              - text: https://www.vikingdirect.fr/a/bb/Etiquettes/Etiquettes-d-expedition-pour-colis/N=2+1178921/
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[2]/ul[1]/li[4]/a[1]/@categoryurl
+          - category:
+              - text: Tout voir›
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[2]/ul[1]/li[5]/a[1]/@categoryname
+            categoryUrl:
+              - text: https://www.vikingdirect.fr/a/bb/Etiquettes/N=2+1178917/
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[2]/ul[1]/li[5]/a[1]/@categoryurl
+          - category:
+              - text: Registres et Manifolds
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[3]/h3[1]/a[1]/@categoryname
+            categoryUrl:
+              - text: https://www.vikingdirect.fr/a/bb/Registres-et-Manifolds/N=2+1178906/
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[3]/h3[1]/a[1]/@categoryurl
+          - category:
+              - text: Manifods et carnets à souche
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[3]/ul[1]/li[1]/a[1]/@categoryname
+            categoryUrl:
+              - text: https://www.vikingdirect.fr/a/bb/Registres-et-Manifolds/Manifods-et-carnets-a-souche/N=2+1178907/
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[3]/ul[1]/li[1]/a[1]/@categoryurl
+          - category:
+              - text: Registres et Piqûres
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[3]/ul[1]/li[2]/a[1]/@categoryname
+            categoryUrl:
+              - text: https://www.vikingdirect.fr/a/bb/Registres-et-Manifolds/Registres-et-Piqures/N=2+1178908/
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[3]/ul[1]/li[2]/a[1]/@categoryurl
+          - category:
+              - text: Tout voir›
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[3]/ul[1]/li[3]/a[1]/@categoryname
+            categoryUrl:
+              - text: https://www.vikingdirect.fr/a/bb/Registres-et-Manifolds/N=2+1178906/
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[3]/ul[1]/li[3]/a[1]/@categoryurl
+          - category:
+              - text: Blocs et cahiers
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/h3[1]/a[1]/@categoryname
+            categoryUrl:
+              - text: https://www.vikingdirect.fr/a/bb/Blocs-et-cahiers/N=2+1178889/
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/h3[1]/a[1]/@categoryurl
+          - category:
+              - text: Blocs papier et porte-bloc
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/ul[1]/li[1]/a[1]/@categoryname
+            categoryUrl:
+              - text: https://www.vikingdirect.fr/a/bb/Blocs-et-cahiers/Blocs-papier-et-porte-bloc/N=2+1178890/
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/ul[1]/li[1]/a[1]/@categoryurl
+          - category:
+              - text: Cahiers, Carnets et Répertoires
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/ul[1]/li[2]/a[1]/@categoryname
+            categoryUrl:
+              - text: https://www.vikingdirect.fr/a/bb/Blocs-et-cahiers/Cahiers-Carnets-et-Repertoires/N=2+1178893/
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/ul[1]/li[2]/a[1]/@categoryurl
+          - category:
+              - text: Feuilles simple, copies doubles et Fiche bristol
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/ul[1]/li[3]/a[1]/@categoryname
+            categoryUrl:
+              - text: https://www.vikingdirect.fr/a/bb/Blocs-et-cahiers/Feuilles-simple-copies-doubles-et-Fiche-bristol/N=2+1178897/
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/ul[1]/li[3]/a[1]/@categoryurl
+          - category:
+              - text: Notes repositionnables
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/ul[1]/li[4]/a[1]/@categoryname
+            categoryUrl:
+              - text: https://www.vikingdirect.fr/a/bb/Blocs-et-cahiers/Notes-repositionnables/N=2+1178900/
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/ul[1]/li[4]/a[1]/@categoryurl
+          - category:
+              - text: Tout voir›
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/ul[1]/li[5]/a[1]/@categoryname
+            categoryUrl:
+              - text: https://www.vikingdirect.fr/a/bb/Blocs-et-cahiers/N=2+1178889/
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/ul[1]/li[5]/a[1]/@categoryurl
+          - category:
+              - text: Agendas et calendriers
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[2]/h3[1]/a[1]/@categoryname
+            categoryUrl:
+              - text: https://www.vikingdirect.fr/a/bb/Agendas-et-calendriers/N=2+1072018/
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[2]/h3[1]/a[1]/@categoryurl
+          - category:
+              - text: Agendas de banque
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[2]/ul[1]/li[1]/a[1]/@categoryname
+            categoryUrl:
+              - text: https://www.vikingdirect.fr/a/bb/Agendas-et-calendriers/Agendas-de-banque/N=2+1178044/
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[2]/ul[1]/li[1]/a[1]/@categoryurl
+          - category:
+              - text: Agendas de bureau
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[2]/ul[1]/li[2]/a[1]/@categoryname
+            categoryUrl:
+              - text: https://www.vikingdirect.fr/a/bb/Agendas-et-calendriers/Agendas-de-bureau/N=2+1178090/
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[2]/ul[1]/li[2]/a[1]/@categoryurl
+          - category:
+              - text: Agendas de poche
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[2]/ul[1]/li[3]/a[1]/@categoryname
+            categoryUrl:
+              - text: https://www.vikingdirect.fr/a/bb/Agendas-et-calendriers/Agendas-de-poche/N=2+1178092/
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[2]/ul[1]/li[3]/a[1]/@categoryurl
+          - category:
+              - text: Blocs éphémérides
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[2]/ul[1]/li[4]/a[1]/@categoryname
+            categoryUrl:
+              - text: https://www.vikingdirect.fr/a/bb/Agendas-et-calendriers/Blocs-ephemerides/N=2+1072049/
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[2]/ul[1]/li[4]/a[1]/@categoryurl
+          - category:
+              - text: Tout voir›
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[2]/ul[1]/li[5]/a[1]/@categoryname
+            categoryUrl:
+              - text: https://www.vikingdirect.fr/a/bb/Agendas-et-calendriers/N=2+1072018/
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[2]/ul[1]/li[5]/a[1]/@categoryurl
+          - category:
+              - text: Timbres, Enveloppes Prêt-à-poster & Colissimo
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[3]/h3[1]/a[1]/@categoryname
+            categoryUrl:
+              - text: https://www.vikingdirect.fr/a/bb/Timbres-Enveloppes-Pret-a-poster-Colissimo/N=2+900634/
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[3]/h3[1]/a[1]/@categoryurl
+          - category:
+              - text: Tout voir›
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[3]/ul[1]/li[1]/a[1]/@categoryname
+            categoryUrl:
+              - text: https://www.vikingdirect.fr/a/bb/Timbres-Enveloppes-Pret-a-poster-Colissimo/N=2+900634/
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[3]/ul[1]/li[1]/a[1]/@categoryurl
+          - category:
+              - text: Fournitures de bureau
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[2]/a[1]/@categoryname
+            categoryUrl:
+              - text: https://www.vikingdirect.fr/a/bb/Fournitures-de-bureau/N=2+180/?cm_sp=megamenu-_-fournituresdebureau-_-null
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[2]/a[1]/@categoryurl
+          - category:
+              - text: Classement et archivage
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/h3[1]/a[1]/@categoryname
+            categoryUrl:
+              - text: https://www.vikingdirect.fr/a/bb/Classement-et-archivage/N=2+206/
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/h3[1]/a[1]/@categoryurl
+          - category:
+              - text: Boîtes archives et porte-revues
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[1]/a[1]/@categoryname
+            categoryUrl:
+              - text: https://www.vikingdirect.fr/a/bb/Classement-et-archivage/Boites-archives-et-porte-revues/N=2+207/
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[1]/a[1]/@categoryurl
+          - category:
+              - text: Classeurs
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[2]/a[1]/@categoryname
+            categoryUrl:
+              - text: https://www.vikingdirect.fr/a/bb/Classement-et-archivage/Classeurs/N=2+243/
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[2]/a[1]/@categoryurl
+          - category:
+              - text: Dossiers, chemises et sous-chemises
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[3]/a[1]/@categoryname
+            categoryUrl:
+              - text: https://www.vikingdirect.fr/a/bb/Classement-et-archivage/Dossiers-chemises-et-sous-chemises/N=2+305/
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[3]/a[1]/@categoryurl
+          - category:
+              - text: Dossiers suspendus
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[4]/a[1]/@categoryname
+            categoryUrl:
+              - text: https://www.vikingdirect.fr/a/bb/Classement-et-archivage/Dossiers-suspendus/N=2+269/
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[4]/a[1]/@categoryurl
+          - category:
+              - text: Tout voir›
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[5]/a[1]/@categoryname
+            categoryUrl:
+              - text: https://www.vikingdirect.fr/a/bb/Classement-et-archivage/N=2+206/
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[5]/a[1]/@categoryurl
+          - category:
+              - text: Ecriture & correction
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/h3[1]/a[1]/@categoryname
+            categoryUrl:
+              - text: https://www.vikingdirect.fr/a/bb/Ecriture-correction/N=2+472/
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/h3[1]/a[1]/@categoryurl
+          - category:
+              - text: Correction
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/ul[1]/li[1]/a[1]/@categoryname
+            categoryUrl:
+              - text: https://www.vikingdirect.fr/a/bb/Ecriture-correction/Correction/N=2+473/
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/ul[1]/li[1]/a[1]/@categoryurl
+          - category:
+              - text: Marqueurs
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/ul[1]/li[2]/a[1]/@categoryname
+            categoryUrl:
+              - text: https://www.vikingdirect.fr/a/bb/Ecriture-correction/Marqueurs/N=2+494/
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/ul[1]/li[2]/a[1]/@categoryurl
+          - category:
+              - text: Porte-mines, crayons & accessoires
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/ul[1]/li[3]/a[1]/@categoryname
+            categoryUrl:
+              - text: https://www.vikingdirect.fr/a/bb/Ecriture-correction/Porte-mines-crayons-accessoires/N=2+510/
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/ul[1]/li[3]/a[1]/@categoryurl
+          - category:
+              - text: Stylos
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/ul[1]/li[4]/a[1]/@categoryname
+            categoryUrl:
+              - text: https://www.vikingdirect.fr/a/bb/Ecriture-correction/Stylos/N=2+536/
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/ul[1]/li[4]/a[1]/@categoryurl
+          - category:
+              - text: Tout voir›
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/ul[1]/li[5]/a[1]/@categoryname
+            categoryUrl:
+              - text: https://www.vikingdirect.fr/a/bb/Ecriture-correction/N=2+472/
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/ul[1]/li[5]/a[1]/@categoryurl
+          - category:
+              - text: Maroquinerie
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[3]/h3[1]/a[1]/@categoryname
+            categoryUrl:
+              - text: https://www.vikingdirect.fr/a/bb/Maroquinerie/N=2+723/
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[3]/h3[1]/a[1]/@categoryurl
+          - category:
+              - text: Tout voir›
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[3]/ul[1]/li[1]/a[1]/@categoryname
+            categoryUrl:
+              - text: https://www.vikingdirect.fr/a/bb/Maroquinerie/N=2+723/
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[3]/ul[1]/li[1]/a[1]/@categoryurl
+          - category:
+              - text: Agrafage et perforation
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/h3[1]/a[1]/@categoryname
+            categoryUrl:
+              - text: https://www.vikingdirect.fr/a/bb/Agrafage-et-perforation/N=2+697/
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/h3[1]/a[1]/@categoryurl
+          - category:
+              - text: Agrafes et dégrafeurs
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/ul[1]/li[1]/a[1]/@categoryname
+            categoryUrl:
+              - text: https://www.vikingdirect.fr/a/bb/Agrafage-et-perforation/Agrafes-et-degrafeurs/N=2+698/
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/ul[1]/li[1]/a[1]/@categoryurl
+          - category:
+              - text: Agrafeuses de bureau
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/ul[1]/li[2]/a[1]/@categoryname
+            categoryUrl:
+              - text: https://www.vikingdirect.fr/a/bb/Agrafage-et-perforation/Agrafeuses-de-bureau/N=2+703/
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/ul[1]/li[2]/a[1]/@categoryurl
+          - category:
+              - text: Agrafeuses spéciales
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/ul[1]/li[3]/a[1]/@categoryname
+            categoryUrl:
+              - text: https://www.vikingdirect.fr/a/bb/Agrafage-et-perforation/Agrafeuses-speciales/N=2+708/
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/ul[1]/li[3]/a[1]/@categoryurl
+          - category:
+              - text: Perforateurs
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/ul[1]/li[4]/a[1]/@categoryname
+            categoryUrl:
+              - text: https://www.vikingdirect.fr/a/bb/Agrafage-et-perforation/Perforateurs/N=2+713/
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/ul[1]/li[4]/a[1]/@categoryurl
+          - category:
+              - text: Tout voir›
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/ul[1]/li[5]/a[1]/@categoryname
+            categoryUrl:
+              - text: https://www.vikingdirect.fr/a/bb/Agrafage-et-perforation/N=2+697/
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/ul[1]/li[5]/a[1]/@categoryurl
+          - category:
+              - text: Attaches et fixation
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[2]/div[2]/h3[1]/a[1]/@categoryname
+            categoryUrl:
+              - text: https://www.vikingdirect.fr/a/bb/Attaches-et-fixation/N=2+890/
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[2]/div[2]/h3[1]/a[1]/@categoryurl
+          - category:
+              - text: Aimants
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[2]/div[2]/ul[1]/li[1]/a[1]/@categoryname
+            categoryUrl:
+              - text: https://www.vikingdirect.fr/a/bb/Attaches-et-fixation/Aimants/N=2+1006549/
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[2]/div[2]/ul[1]/li[1]/a[1]/@categoryurl
+          - category:
+              - text: Bracelets élastiques
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[2]/div[2]/ul[1]/li[2]/a[1]/@categoryname
+            categoryUrl:
+              - text: https://www.vikingdirect.fr/a/bb/Attaches-et-fixation/Bracelets-elastiques/N=2+896/
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[2]/div[2]/ul[1]/li[2]/a[1]/@categoryurl
+          - category:
+              - text: Pinces
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[2]/div[2]/ul[1]/li[3]/a[1]/@categoryname
+            categoryUrl:
+              - text: https://www.vikingdirect.fr/a/bb/Attaches-et-fixation/Pinces/N=2+906/
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[2]/div[2]/ul[1]/li[3]/a[1]/@categoryurl
+          - category:
+              - text: Punaises
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[2]/div[2]/ul[1]/li[4]/a[1]/@categoryname
+            categoryUrl:
+              - text: https://www.vikingdirect.fr/a/bb/Attaches-et-fixation/Punaises/N=2+911/
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[2]/div[2]/ul[1]/li[4]/a[1]/@categoryurl
+          - category:
+              - text: Tout voir›
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[2]/div[2]/ul[1]/li[5]/a[1]/@categoryname
+            categoryUrl:
+              - text: https://www.vikingdirect.fr/a/bb/Attaches-et-fixation/N=2+890/
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[2]/div[2]/ul[1]/li[5]/a[1]/@categoryurl
+          - category:
+              - text: Plastification et reliure
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[2]/div[3]/h3[1]/a[1]/@categoryname
+            categoryUrl:
+              - text: https://www.vikingdirect.fr/a/bb/Plastification-et-reliure/N=2+1291/
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[2]/div[3]/h3[1]/a[1]/@categoryurl
+          - category:
+              - text: Couvertures et baguettes
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[2]/div[3]/ul[1]/li[1]/a[1]/@categoryname
+            categoryUrl:
+              - text: https://www.vikingdirect.fr/a/bb/Plastification-et-reliure/Couvertures-et-baguettes/N=2+1292/
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[2]/div[3]/ul[1]/li[1]/a[1]/@categoryurl
+          - category:
+              - text: Plastifieuses
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[2]/div[3]/ul[1]/li[2]/a[1]/@categoryname
+            categoryUrl:
+              - text: https://www.vikingdirect.fr/a/bb/Plastification-et-reliure/Plastifieuses/N=2+1302/
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[2]/div[3]/ul[1]/li[2]/a[1]/@categoryurl
+          - category:
+              - text: Pochettes et films adhésifs
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[2]/div[3]/ul[1]/li[3]/a[1]/@categoryname
+            categoryUrl:
+              - text: https://www.vikingdirect.fr/a/bb/Plastification-et-reliure/Pochettes-et-films-adhesifs/N=2+1307/
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[2]/div[3]/ul[1]/li[3]/a[1]/@categoryurl
+          - category:
+              - text: Thermorelieurs
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[2]/div[3]/ul[1]/li[4]/a[1]/@categoryname
+            categoryUrl:
+              - text: https://www.vikingdirect.fr/a/bb/Plastification-et-reliure/Thermorelieurs/N=2+1312/
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[2]/div[3]/ul[1]/li[4]/a[1]/@categoryurl
+          - category:
+              - text: Tout voir›
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[2]/div[3]/ul[1]/li[5]/a[1]/@categoryname
+            categoryUrl:
+              - text: https://www.vikingdirect.fr/a/bb/Plastification-et-reliure/N=2+1291/
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[2]/div[3]/ul[1]/li[5]/a[1]/@categoryurl
+          - category:
+              - text: Adhésifs et colle
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/h3[1]/a[1]/@categoryname
+            categoryUrl:
+              - text: https://www.vikingdirect.fr/a/bb/Adhesifs-et-colle/N=2+630/
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/h3[1]/a[1]/@categoryurl
+          - category:
+              - text: Adhésifs de fixation
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/ul[1]/li[1]/a[1]/@categoryname
+            categoryUrl:
+              - text: https://www.vikingdirect.fr/a/bb/Adhesifs-et-colle/Adhesifs-de-fixation/N=2+631/
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/ul[1]/li[1]/a[1]/@categoryurl
+          - category:
+              - text: Aérosols
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/ul[1]/li[2]/a[1]/@categoryname
+            categoryUrl:
+              - text: https://www.vikingdirect.fr/a/bb/Adhesifs-et-colle/Aerosols/N=2+636/
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/ul[1]/li[2]/a[1]/@categoryurl
+          - category:
+              - text: Bâtons de colle
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/ul[1]/li[3]/a[1]/@categoryname
+            categoryUrl:
+              - text: https://www.vikingdirect.fr/a/bb/Adhesifs-et-colle/Batons-de-colle/N=2+641/
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/ul[1]/li[3]/a[1]/@categoryurl
+          - category:
+              - text: Dévidoirs
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/ul[1]/li[4]/a[1]/@categoryname
+            categoryUrl:
+              - text: https://www.vikingdirect.fr/a/bb/Adhesifs-et-colle/Devidoirs/N=2+646/
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/ul[1]/li[4]/a[1]/@categoryurl
+          - category:
+              - text: Tout voir›
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/ul[1]/li[5]/a[1]/@categoryname
+            categoryUrl:
+              - text: https://www.vikingdirect.fr/a/bb/Adhesifs-et-colle/N=2+630/
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/ul[1]/li[5]/a[1]/@categoryurl
+          - category:
+              - text: Agendas et calendriers
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[3]/div[2]/h3[1]/a[1]/@categoryname
+            categoryUrl:
+              - text: https://www.vikingdirect.fr/a/bb/Agendas-et-calendriers/N=2+1072018/
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[3]/div[2]/h3[1]/a[1]/@categoryurl
+          - category:
+              - text: Agendas de banque
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[3]/div[2]/ul[1]/li[1]/a[1]/@categoryname
+            categoryUrl:
+              - text: https://www.vikingdirect.fr/a/bb/Agendas-et-calendriers/Agendas-de-banque/N=2+1178044/
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[3]/div[2]/ul[1]/li[1]/a[1]/@categoryurl
+          - category:
+              - text: Agendas de bureau
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[3]/div[2]/ul[1]/li[2]/a[1]/@categoryname
+            categoryUrl:
+              - text: https://www.vikingdirect.fr/a/bb/Agendas-et-calendriers/Agendas-de-bureau/N=2+1178090/
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[3]/div[2]/ul[1]/li[2]/a[1]/@categoryurl
+          - category:
+              - text: Agendas de poche
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[3]/div[2]/ul[1]/li[3]/a[1]/@categoryname
+            categoryUrl:
+              - text: https://www.vikingdirect.fr/a/bb/Agendas-et-calendriers/Agendas-de-poche/N=2+1178092/
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[3]/div[2]/ul[1]/li[3]/a[1]/@categoryurl
+          - category:
+              - text: Blocs éphémérides
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[3]/div[2]/ul[1]/li[4]/a[1]/@categoryname
+            categoryUrl:
+              - text: https://www.vikingdirect.fr/a/bb/Agendas-et-calendriers/Blocs-ephemerides/N=2+1072049/
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[3]/div[2]/ul[1]/li[4]/a[1]/@categoryurl
+          - category:
+              - text: Tout voir›
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[3]/div[2]/ul[1]/li[5]/a[1]/@categoryname
+            categoryUrl:
+              - text: https://www.vikingdirect.fr/a/bb/Agendas-et-calendriers/N=2+1072018/
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[3]/div[2]/ul[1]/li[5]/a[1]/@categoryurl
+          - category:
+              - text: Tampons
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[3]/div[3]/h3[1]/a[1]/@categoryname
+            categoryUrl:
+              - text: https://www.vikingdirect.fr/a/bb/Tampons/N=2+1189375/
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[3]/div[3]/h3[1]/a[1]/@categoryurl
+          - category:
+              - text: Recharges pour tampons
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[3]/div[3]/ul[1]/li[1]/a[1]/@categoryname
+            categoryUrl:
+              - text: https://www.vikingdirect.fr/a/bb/Tampons/Recharges-pour-tampons/N=2+1189376/
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[3]/div[3]/ul[1]/li[1]/a[1]/@categoryurl
+          - category:
+              - text: Tampons personnalisables
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[3]/div[3]/ul[1]/li[2]/a[1]/@categoryname
+            categoryUrl:
+              - text: https://www.vikingdirect.fr/a/bb/Tampons/Tampons-personnalisables/N=2+1189379/
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[3]/div[3]/ul[1]/li[2]/a[1]/@categoryurl
+          - category:
+              - text: Tampons standards
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[3]/div[3]/ul[1]/li[3]/a[1]/@categoryname
+            categoryUrl:
+              - text: https://www.vikingdirect.fr/a/bb/Tampons/Tampons-standards/N=2+1189383/
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[3]/div[3]/ul[1]/li[3]/a[1]/@categoryurl
+          - category:
+              - text: Tout voir›
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[3]/div[3]/ul[1]/li[4]/a[1]/@categoryname
+            categoryUrl:
+              - text: https://www.vikingdirect.fr/a/bb/Tampons/N=2+1189375/
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[3]/div[3]/ul[1]/li[4]/a[1]/@categoryurl
+          - category:
+              - text: Cartouches & toners
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[3]/a[1]/@categoryname
+            categoryUrl:
+              - text: https://www.vikingdirect.fr/catalog/inkDepot.do
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[3]/a[1]/@categoryurl
+          - category:
+              - text: Informatique & bureautique
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[4]/a[1]/@categoryname
+            categoryUrl:
+              - text: https://www.vikingdirect.fr/a/bb/Informatique-bureautique/N=2+1351/?cm_sp=megamenu-_-informatiqueandbureautique-_-null
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[4]/a[1]/@categoryurl
+          - category:
+              - text: Imprimantes et multifonctions
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[4]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/h3[1]/a[1]/@categoryname
+            categoryUrl:
+              - text: https://www.vikingdirect.fr/a/bb/Imprimantes-et-multifonctions/N=2+1720/
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[4]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/h3[1]/a[1]/@categoryurl
+          - category:
+              - text: Imprimantes jet d'encre
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[4]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[1]/a[1]/@categoryname
+            categoryUrl:
+              - text: https://www.vikingdirect.fr/a/bb/Imprimantes-et-multifonctions/Imprimantes-jet-d-encre/N=2+1721/
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[4]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[1]/a[1]/@categoryurl
+          - category:
+              - text: Extensions de garantie
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[4]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[2]/a[1]/@categoryname
+            categoryUrl:
+              - text: https://www.vikingdirect.fr/a/bb/Imprimantes-et-multifonctions/Extensions-de-garantie/N=2+1178943/
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[4]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[2]/a[1]/@categoryurl
+          - category:
+              - text: Imprimantes laser
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[4]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[3]/a[1]/@categoryname
+            categoryUrl:
+              - text: https://www.vikingdirect.fr/a/bb/Imprimantes-et-multifonctions/Imprimantes-laser/N=2+1727/
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[4]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[3]/a[1]/@categoryurl
+          - category:
+              - text: Multifonctions jet d'encre
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[4]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[4]/a[1]/@categoryname
+            categoryUrl:
+              - text: https://www.vikingdirect.fr/a/bb/Imprimantes-et-multifonctions/Multifonctions-jet-d-encre/N=2+1738/
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[4]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[4]/a[1]/@categoryurl
+          - category:
+              - text: Tout voir›
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[4]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[5]/a[1]/@categoryname
+            categoryUrl:
+              - text: https://www.vikingdirect.fr/a/bb/Imprimantes-et-multifonctions/N=2+1720/
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[4]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[5]/a[1]/@categoryurl
+          - category:
+              - text: Consommables & media
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[4]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/h3[1]/a[1]/@categoryname
+            categoryUrl:
+              - text: https://www.vikingdirect.fr/a/bb/Consommables-media/N=2+1600/
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[4]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/h3[1]/a[1]/@categoryurl
+          - category:
+              - text: Bobines & rubans
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[4]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/ul[1]/li[1]/a[1]/@categoryname
+            categoryUrl:
+              - text: https://www.vikingdirect.fr/a/bb/Consommables-media/Bobines-rubans/N=2+1601/
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[4]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/ul[1]/li[1]/a[1]/@categoryurl
+          - category:
+              - text: Cartouches jet d'encre
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[4]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/ul[1]/li[2]/a[1]/@categoryname
+            categoryUrl:
+              - text: https://www.vikingdirect.fr/a/bb/Consommables-media/Cartouches-jet-d-encre/N=2+1638/
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[4]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/ul[1]/li[2]/a[1]/@categoryurl
+          - category:
+              - text: Cartouches laser
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[4]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/ul[1]/li[3]/a[1]/@categoryname
+            categoryUrl:
+              - text: https://www.vikingdirect.fr/a/bb/Consommables-media/Cartouches-laser/N=2+1644/
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[4]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/ul[1]/li[3]/a[1]/@categoryurl
+          - category:
+              - text: Cartouches, rubans & bobines pour fax
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[4]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/ul[1]/li[4]/a[1]/@categoryname
+            categoryUrl:
+              - text: https://www.vikingdirect.fr/a/bb/Consommables-media/Cartouches-rubans-bobines-pour-fax/N=2+1650/
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[4]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/ul[1]/li[4]/a[1]/@categoryurl
+          - category:
+              - text: Tout voir›
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[4]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/ul[1]/li[5]/a[1]/@categoryname
+            categoryUrl:
+              - text: https://www.vikingdirect.fr/a/bb/Consommables-media/N=2+1600/
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[4]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/ul[1]/li[5]/a[1]/@categoryurl
+          - category:
+              - text: Ordinateurs & Tablettes
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[4]/div[2]/div[1]/div[1]/div[1]/div[1]/div[3]/h3[1]/a[1]/@categoryname
+            categoryUrl:
+              - text: https://www.vikingdirect.fr/a/bb/Ordinateurs-Tablettes/N=2+1071937/
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[4]/div[2]/div[1]/div[1]/div[1]/div[1]/div[3]/h3[1]/a[1]/@categoryurl
+          - category:
+              - text: Tout voir›
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[4]/div[2]/div[1]/div[1]/div[1]/div[1]/div[3]/ul[1]/li[1]/a[1]/@categoryname
+            categoryUrl:
+              - text: https://www.vikingdirect.fr/a/bb/Ordinateurs-Tablettes/N=2+1071937/
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[4]/div[2]/div[1]/div[1]/div[1]/div[1]/div[3]/ul[1]/li[1]/a[1]/@categoryurl
+          - category:
+              - text: Bureautique
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[4]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/h3[1]/a[1]/@categoryname
+            categoryUrl:
+              - text: https://www.vikingdirect.fr/a/bb/Bureautique/N=2+1476/
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[4]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/h3[1]/a[1]/@categoryurl
+          - category:
+              - text: Calculatrices
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[4]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/ul[1]/li[1]/a[1]/@categoryname
+            categoryUrl:
+              - text: https://www.vikingdirect.fr/a/bb/Bureautique/Calculatrices/N=2+1477/
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[4]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/ul[1]/li[1]/a[1]/@categoryurl
+          - category:
+              - text: Destructeurs de documents
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[4]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/ul[1]/li[2]/a[1]/@categoryname
+            categoryUrl:
+              - text: https://www.vikingdirect.fr/a/bb/Bureautique/Destructeurs-de-documents/N=2+1508/
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[4]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/ul[1]/li[2]/a[1]/@categoryurl
+          - category:
+              - text: Enregistreurs & dictaphones
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[4]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/ul[1]/li[3]/a[1]/@categoryname
+            categoryUrl:
+              - text: https://www.vikingdirect.fr/a/bb/Bureautique/Enregistreurs-dictaphones/N=2+1529/
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[4]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/ul[1]/li[3]/a[1]/@categoryurl
+          - category:
+              - text: Etiqueteuses électroniques
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[4]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/ul[1]/li[4]/a[1]/@categoryname
+            categoryUrl:
+              - text: https://www.vikingdirect.fr/a/bb/Bureautique/Etiqueteuses-electroniques/N=2+1584/
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[4]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/ul[1]/li[4]/a[1]/@categoryurl
+          - category:
+              - text: Tout voir›
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[4]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/ul[1]/li[5]/a[1]/@categoryname
+            categoryUrl:
+              - text: https://www.vikingdirect.fr/a/bb/Bureautique/N=2+1476/
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[4]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/ul[1]/li[5]/a[1]/@categoryurl
+          - category:
+              - text: Outils de communication
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[4]/div[2]/div[1]/div[1]/div[1]/div[2]/div[2]/h3[1]/a[1]/@categoryname
+            categoryUrl:
+              - text: https://www.vikingdirect.fr/a/bb/Outils-de-communication/N=2+1068772/
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[4]/div[2]/div[1]/div[1]/div[1]/div[2]/div[2]/h3[1]/a[1]/@categoryurl
+          - category:
+              - text: Rétroprojection/vidéoprojection
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[4]/div[2]/div[1]/div[1]/div[1]/div[2]/div[2]/ul[1]/li[1]/a[1]/@categoryname
+            categoryUrl:
+              - text: https://www.vikingdirect.fr/a/bb/Outils-de-communication/Retroprojection-videoprojection/N=2+1068779/
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[4]/div[2]/div[1]/div[1]/div[1]/div[2]/div[2]/ul[1]/li[1]/a[1]/@categoryurl
+          - category:
+              - text: Tableaux, chevalets, vitrines & cadres
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[4]/div[2]/div[1]/div[1]/div[1]/div[2]/div[2]/ul[1]/li[2]/a[1]/@categoryname
+            categoryUrl:
+              - text: https://www.vikingdirect.fr/a/bb/Outils-de-communication/Tableaux-chevalets-vitrines-cadres/N=2+1068785/
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[4]/div[2]/div[1]/div[1]/div[1]/div[2]/div[2]/ul[1]/li[2]/a[1]/@categoryurl
+          - category:
+              - text: Tout voir›
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[4]/div[2]/div[1]/div[1]/div[1]/div[2]/div[2]/ul[1]/li[3]/a[1]/@categoryname
+            categoryUrl:
+              - text: https://www.vikingdirect.fr/a/bb/Outils-de-communication/N=2+1068772/
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[4]/div[2]/div[1]/div[1]/div[1]/div[2]/div[2]/ul[1]/li[3]/a[1]/@categoryurl
+          - category:
+              - text: Téléphonie
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[4]/div[2]/div[1]/div[1]/div[1]/div[2]/div[3]/h3[1]/a[1]/@categoryname
+            categoryUrl:
+              - text: https://www.vikingdirect.fr/a/bb/Telephonie/N=2+2005/
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[4]/div[2]/div[1]/div[1]/div[1]/div[2]/div[3]/h3[1]/a[1]/@categoryurl
+          - category:
+              - text: Accessoires téléphoniques
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[4]/div[2]/div[1]/div[1]/div[1]/div[2]/div[3]/ul[1]/li[1]/a[1]/@categoryname
+            categoryUrl:
+              - text: https://www.vikingdirect.fr/a/bb/Telephonie/Accessoires-telephoniques/N=2+2006/
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[4]/div[2]/div[1]/div[1]/div[1]/div[2]/div[3]/ul[1]/li[1]/a[1]/@categoryurl
+          - category:
+              - text: Téléphones filaires
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[4]/div[2]/div[1]/div[1]/div[1]/div[2]/div[3]/ul[1]/li[2]/a[1]/@categoryname
+            categoryUrl:
+              - text: https://www.vikingdirect.fr/a/bb/Telephonie/Telephones-filaires/N=2+2023/
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[4]/div[2]/div[1]/div[1]/div[1]/div[2]/div[3]/ul[1]/li[2]/a[1]/@categoryurl
+          - category:
+              - text: Téléphones sans fil DECT
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[4]/div[2]/div[1]/div[1]/div[1]/div[2]/div[3]/ul[1]/li[3]/a[1]/@categoryname
+            categoryUrl:
+              - text: https://www.vikingdirect.fr/a/bb/Telephonie/Telephones-sans-fil-DECT/N=2+2029/
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[4]/div[2]/div[1]/div[1]/div[1]/div[2]/div[3]/ul[1]/li[3]/a[1]/@categoryurl
+          - category:
+              - text: Tout voir›
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[4]/div[2]/div[1]/div[1]/div[1]/div[2]/div[3]/ul[1]/li[4]/a[1]/@categoryname
+            categoryUrl:
+              - text: https://www.vikingdirect.fr/a/bb/Telephonie/N=2+2005/
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[4]/div[2]/div[1]/div[1]/div[1]/div[2]/div[3]/ul[1]/li[4]/a[1]/@categoryurl
+          - category:
+              - text: Périphériques informatiques
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[4]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/h3[1]/a[1]/@categoryname
+            categoryUrl:
+              - text: https://www.vikingdirect.fr/a/bb/Peripheriques-informatiques/N=2+1803/
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[4]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/h3[1]/a[1]/@categoryurl
+          - category:
+              - text: Appareils photo numériques & Accessoires
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[4]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/ul[1]/li[1]/a[1]/@categoryname
+            categoryUrl:
+              - text: https://www.vikingdirect.fr/a/bb/Peripheriques-informatiques/Appareils-photo-numeriques-Accessoires/N=2+1828/
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[4]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/ul[1]/li[1]/a[1]/@categoryurl
+          - category:
+              - text: Câbles informatiques et vidéo
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[4]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/ul[1]/li[2]/a[1]/@categoryname
+            categoryUrl:
+              - text: https://www.vikingdirect.fr/a/bb/Peripheriques-informatiques/Cables-informatiques-et-video/N=2+1844/
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[4]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/ul[1]/li[2]/a[1]/@categoryurl
+          - category:
+              - text: Cartes mémoire
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[4]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/ul[1]/li[3]/a[1]/@categoryname
+            categoryUrl:
+              - text: https://www.vikingdirect.fr/a/bb/Peripheriques-informatiques/Cartes-memoire/N=2+1850/
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[4]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/ul[1]/li[3]/a[1]/@categoryurl
+          - category:
+              - text: Casques & microphones
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[4]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/ul[1]/li[4]/a[1]/@categoryname
+            categoryUrl:
+              - text: https://www.vikingdirect.fr/a/bb/Peripheriques-informatiques/Casques-microphones/N=2+1074290/
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[4]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/ul[1]/li[4]/a[1]/@categoryurl
+          - category:
+              - text: Tout voir›
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[4]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/ul[1]/li[5]/a[1]/@categoryname
+            categoryUrl:
+              - text: https://www.vikingdirect.fr/a/bb/Peripheriques-informatiques/N=2+1803/
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[4]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/ul[1]/li[5]/a[1]/@categoryurl
+          - category:
+              - text: Accessoires informatique
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[4]/div[2]/div[1]/div[1]/div[1]/div[3]/div[2]/h3[1]/a[1]/@categoryname
+            categoryUrl:
+              - text: https://www.vikingdirect.fr/a/bb/Accessoires-informatique/N=2+1352/
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[4]/div[2]/div[1]/div[1]/div[1]/div[3]/div[2]/h3[1]/a[1]/@categoryurl
+          - category:
+              - text: Nettoyage informatique
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[4]/div[2]/div[1]/div[1]/div[1]/div[3]/div[2]/ul[1]/li[1]/a[1]/@categoryname
+            categoryUrl:
+              - text: https://www.vikingdirect.fr/a/bb/Accessoires-informatique/Nettoyage-informatique/N=2+1353/
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[4]/div[2]/div[1]/div[1]/div[1]/div[3]/div[2]/ul[1]/li[1]/a[1]/@categoryurl
+          - category:
+              - text: Rangements
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[4]/div[2]/div[1]/div[1]/div[1]/div[3]/div[2]/ul[1]/li[2]/a[1]/@categoryname
+            categoryUrl:
+              - text: https://www.vikingdirect.fr/a/bb/Accessoires-informatique/Rangements/N=2+1374/
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[4]/div[2]/div[1]/div[1]/div[1]/div[3]/div[2]/ul[1]/li[2]/a[1]/@categoryurl
+          - category:
+              - text: Supports
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[4]/div[2]/div[1]/div[1]/div[1]/div[3]/div[2]/ul[1]/li[3]/a[1]/@categoryname
+            categoryUrl:
+              - text: https://www.vikingdirect.fr/a/bb/Accessoires-informatique/Supports/N=2+1390/
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[4]/div[2]/div[1]/div[1]/div[1]/div[3]/div[2]/ul[1]/li[3]/a[1]/@categoryurl
+          - category:
+              - text: Tapis de souris, filtres écran, housses & sécurité
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[4]/div[2]/div[1]/div[1]/div[1]/div[3]/div[2]/ul[1]/li[4]/a[1]/@categoryname
+            categoryUrl:
+              - text: https://www.vikingdirect.fr/a/bb/Accessoires-informatique/Tapis-de-souris-filtres-ecran-housses-securite/N=2+1426/
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[4]/div[2]/div[1]/div[1]/div[1]/div[3]/div[2]/ul[1]/li[4]/a[1]/@categoryurl
+          - category:
+              - text: Tout voir›
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[4]/div[2]/div[1]/div[1]/div[1]/div[3]/div[2]/ul[1]/li[5]/a[1]/@categoryname
+            categoryUrl:
+              - text: https://www.vikingdirect.fr/a/bb/Accessoires-informatique/N=2+1352/
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[4]/div[2]/div[1]/div[1]/div[1]/div[3]/div[2]/ul[1]/li[5]/a[1]/@categoryurl
+          - category:
+              - text: Bobines & rubans
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[4]/div[2]/div[1]/div[1]/div[1]/div[3]/div[3]/h3[1]/a[1]/@categoryname
+            categoryUrl:
+              - text: https://www.vikingdirect.fr/a/bb/Bobines-rubans/N=2+1601/
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[4]/div[2]/div[1]/div[1]/div[1]/div[3]/div[3]/h3[1]/a[1]/@categoryurl
+          - category:
+              - text: Bobines pour calculatrices & caisses enregistreuses
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[4]/div[2]/div[1]/div[1]/div[1]/div[3]/div[3]/ul[1]/li[1]/a[1]/@categoryname
+            categoryUrl:
+              - text: https://www.vikingdirect.fr/a/bb/Bobines-rubans/Bobines-pour-calculatrices-caisses-enregistreuses/N=2+1178942/
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[4]/div[2]/div[1]/div[1]/div[1]/div[3]/div[3]/ul[1]/li[1]/a[1]/@categoryurl
+          - category:
+              - text: Rubans caisses enregistreuses
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[4]/div[2]/div[1]/div[1]/div[1]/div[3]/div[3]/ul[1]/li[2]/a[1]/@categoryname
+            categoryUrl:
+              - text: https://www.vikingdirect.fr/a/bb/Bobines-rubans/Rubans-caisses-enregistreuses/N=2+1102623/
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[4]/div[2]/div[1]/div[1]/div[1]/div[3]/div[3]/ul[1]/li[2]/a[1]/@categoryurl
+          - category:
+              - text: Tout voir›
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[4]/div[2]/div[1]/div[1]/div[1]/div[3]/div[3]/ul[1]/li[3]/a[1]/@categoryname
+            categoryUrl:
+              - text: https://www.vikingdirect.fr/a/bb/Bobines-rubans/N=2+1601/
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[4]/div[2]/div[1]/div[1]/div[1]/div[3]/div[3]/ul[1]/li[3]/a[1]/@categoryurl
+          - category:
+              - text: Sièges & mobilier de bureau
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[5]/a[1]/@categoryname
+            categoryUrl:
+              - text: https://www.vikingdirect.fr/a/bb/Sieges-et-Mobilier-de-bureau/N=2+2801/?cm_sp=megamenu-_-siegesan
+                  mobilierdebureau-_-null
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[5]/a[1]/@categoryurl
+          - category:
+              - text: Sièges bureautiques
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/h3[1]/a[1]/@categoryname
+            categoryUrl:
+              - text: https://www.vikingdirect.fr/a/bb/Sieges-bureautiques/N=2+3091/
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/h3[1]/a[1]/@categoryurl
+          - category:
+              - text: Tout voir›
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[1]/a[1]/@categoryname
+            categoryUrl:
+              - text: https://www.vikingdirect.fr/a/bb/Sieges-bureautiques/N=2+3091/
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[1]/a[1]/@categoryurl
+          - category:
+              - text: Gammes de bureaux aménagement
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/h3[1]/a[1]/@categoryname
+            categoryUrl:
+              - text: https://www.vikingdirect.fr/a/bb/Gammes-de-bureaux-amenagement/N=2+2892/
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/h3[1]/a[1]/@categoryurl
+          - category:
+              - text: Gamme Dual
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/ul[1]/li[1]/a[1]/@categoryname
+            categoryUrl:
+              - text: https://www.vikingdirect.fr/a/bb/Gammes-de-bureaux-amenagement/Gamme-Dual/N=2+1178958/
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/ul[1]/li[1]/a[1]/@categoryurl
+          - category:
+              - text: Gamme Expert 4
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/ul[1]/li[2]/a[1]/@categoryname
+            categoryUrl:
+              - text: https://www.vikingdirect.fr/a/bb/Gammes-de-bureaux-amenagement/Gamme-Expert-4/N=2+1178959/
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/ul[1]/li[2]/a[1]/@categoryurl
+          - category:
+              - text: Gamme Integral EVO
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/ul[1]/li[3]/a[1]/@categoryname
+            categoryUrl:
+              - text: https://www.vikingdirect.fr/a/bb/Gammes-de-bureaux-amenagement/Gamme-Integral-EVO/N=2+839711/
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/ul[1]/li[3]/a[1]/@categoryurl
+          - category:
+              - text: Gamme Optimal EVO
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/ul[1]/li[4]/a[1]/@categoryname
+            categoryUrl:
+              - text: https://www.vikingdirect.fr/a/bb/Gammes-de-bureaux-amenagement/Gamme-Optimal-EVO/N=2+830830/
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/ul[1]/li[4]/a[1]/@categoryurl
+          - category:
+              - text: Tout voir›
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/ul[1]/li[5]/a[1]/@categoryname
+            categoryUrl:
+              - text: https://www.vikingdirect.fr/a/bb/Gammes-de-bureaux-amenagement/N=2+2892/
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/ul[1]/li[5]/a[1]/@categoryurl
+          - category:
+              - text: Tables
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/div[3]/h3[1]/a[1]/@categoryname
+            categoryUrl:
+              - text: https://www.vikingdirect.fr/a/bb/Tables/N=2+3105/
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/div[3]/h3[1]/a[1]/@categoryurl
+          - category:
+              - text: Tables de réunion
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/div[3]/ul[1]/li[1]/a[1]/@categoryname
+            categoryUrl:
+              - text: https://www.vikingdirect.fr/a/bb/Tables/Tables-de-reunion/N=2+3106/
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/div[3]/ul[1]/li[1]/a[1]/@categoryurl
+          - category:
+              - text: Tables polyvalentes
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/div[3]/ul[1]/li[2]/a[1]/@categoryname
+            categoryUrl:
+              - text: https://www.vikingdirect.fr/a/bb/Tables/Tables-polyvalentes/N=2+3112/
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/div[3]/ul[1]/li[2]/a[1]/@categoryurl
+          - category:
+              - text: Bureaux
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/div[3]/ul[1]/li[3]/a[1]/@categoryname
+            categoryUrl:
+              - text: https://www.vikingdirect.fr/a/bb/Tables/Bureaux/N=2+1140007/
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/div[3]/ul[1]/li[3]/a[1]/@categoryurl
+          - category:
+              - text: Bureaux ajustables
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/div[3]/ul[1]/li[4]/a[1]/@categoryname
+            categoryUrl:
+              - text: https://www.vikingdirect.fr/a/bb/Tables/Bureaux-ajustables/N=2+1140008/
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/div[3]/ul[1]/li[4]/a[1]/@categoryurl
+          - category:
+              - text: Tout voir›
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/div[3]/ul[1]/li[5]/a[1]/@categoryname
+            categoryUrl:
+              - text: https://www.vikingdirect.fr/a/bb/Tables/N=2+3105/
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/div[3]/ul[1]/li[5]/a[1]/@categoryurl
+          - category:
+              - text: Fauteuils de direction et visiteurs
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[5]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/h3[1]/a[1]/@categoryname
+            categoryUrl:
+              - text: https://www.vikingdirect.fr/a/bb/Fauteuils-de-direction-et-visiteurs/N=2+2879/
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[5]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/h3[1]/a[1]/@categoryurl
+          - category:
+              - text: Tout voir›
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[5]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/ul[1]/li[1]/a[1]/@categoryname
+            categoryUrl:
+              - text: https://www.vikingdirect.fr/a/bb/Fauteuils-de-direction-et-visiteurs/N=2+2879/
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[5]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/ul[1]/li[1]/a[1]/@categoryurl
+          - category:
+              - text: Gammes de bureaux direction
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[5]/div[2]/div[1]/div[1]/div[1]/div[2]/div[2]/h3[1]/a[1]/@categoryname
+            categoryUrl:
+              - text: https://www.vikingdirect.fr/a/bb/Gammes-de-bureaux-direction/N=2+2911/
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[5]/div[2]/div[1]/div[1]/div[1]/div[2]/div[2]/h3[1]/a[1]/@categoryurl
+          - category:
+              - text: Gamme Boston
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[5]/div[2]/div[1]/div[1]/div[1]/div[2]/div[2]/ul[1]/li[1]/a[1]/@categoryname
+            categoryUrl:
+              - text: https://www.vikingdirect.fr/a/bb/Gammes-de-bureaux-direction/Gamme-Boston/N=2+2912/
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[5]/div[2]/div[1]/div[1]/div[1]/div[2]/div[2]/ul[1]/li[1]/a[1]/@categoryurl
+          - category:
+              - text: Gamme Carat
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[5]/div[2]/div[1]/div[1]/div[1]/div[2]/div[2]/ul[1]/li[2]/a[1]/@categoryname
+            categoryUrl:
+              - text: https://www.vikingdirect.fr/a/bb/Gammes-de-bureaux-direction/Gamme-Carat/N=2+828643/
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[5]/div[2]/div[1]/div[1]/div[1]/div[2]/div[2]/ul[1]/li[2]/a[1]/@categoryurl
+          - category:
+              - text: Gamme London
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[5]/div[2]/div[1]/div[1]/div[1]/div[2]/div[2]/ul[1]/li[3]/a[1]/@categoryname
+            categoryUrl:
+              - text: https://www.vikingdirect.fr/a/bb/Gammes-de-bureaux-direction/Gamme-London/N=2+1071964/
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[5]/div[2]/div[1]/div[1]/div[1]/div[2]/div[2]/ul[1]/li[3]/a[1]/@categoryurl
+          - category:
+              - text: Gamme Xenon
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[5]/div[2]/div[1]/div[1]/div[1]/div[2]/div[2]/ul[1]/li[4]/a[1]/@categoryname
+            categoryUrl:
+              - text: https://www.vikingdirect.fr/a/bb/Gammes-de-bureaux-direction/Gamme-Xenon/N=2+1178965/
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[5]/div[2]/div[1]/div[1]/div[1]/div[2]/div[2]/ul[1]/li[4]/a[1]/@categoryurl
+          - category:
+              - text: Tout voir›
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[5]/div[2]/div[1]/div[1]/div[1]/div[2]/div[2]/ul[1]/li[5]/a[1]/@categoryname
+            categoryUrl:
+              - text: https://www.vikingdirect.fr/a/bb/Gammes-de-bureaux-direction/N=2+2911/
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[5]/div[2]/div[1]/div[1]/div[1]/div[2]/div[2]/ul[1]/li[5]/a[1]/@categoryurl
+          - category:
+              - text: Armoires
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[5]/div[2]/div[1]/div[1]/div[1]/div[2]/div[3]/h3[1]/a[1]/@categoryname
+            categoryUrl:
+              - text: https://www.vikingdirect.fr/a/bb/Armoires/N=2+2815/
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[5]/div[2]/div[1]/div[1]/div[1]/div[2]/div[3]/h3[1]/a[1]/@categoryurl
+          - category:
+              - text: Armoires à portes battantes
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[5]/div[2]/div[1]/div[1]/div[1]/div[2]/div[3]/ul[1]/li[1]/a[1]/@categoryname
+            categoryUrl:
+              - text: https://www.vikingdirect.fr/a/bb/Armoires/Armoires-a-portes-battantes/N=2+2816/
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[5]/div[2]/div[1]/div[1]/div[1]/div[2]/div[3]/ul[1]/li[1]/a[1]/@categoryurl
+          - category:
+              - text: Armoires à portes rideaux
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[5]/div[2]/div[1]/div[1]/div[1]/div[2]/div[3]/ul[1]/li[2]/a[1]/@categoryname
+            categoryUrl:
+              - text: https://www.vikingdirect.fr/a/bb/Armoires/Armoires-a-portes-rideaux/N=2+2828/
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[5]/div[2]/div[1]/div[1]/div[1]/div[2]/div[3]/ul[1]/li[2]/a[1]/@categoryurl
+          - category:
+              - text: Tout voir›
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[5]/div[2]/div[1]/div[1]/div[1]/div[2]/div[3]/ul[1]/li[3]/a[1]/@categoryname
+            categoryUrl:
+              - text: https://www.vikingdirect.fr/a/bb/Armoires/N=2+2815/
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[5]/div[2]/div[1]/div[1]/div[1]/div[2]/div[3]/ul[1]/li[3]/a[1]/@categoryurl
+          - category:
+              - text: Tableaux, chevalets, vitrines & cadres
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[5]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/h3[1]/a[1]/@categoryname
+            categoryUrl:
+              - text: https://www.vikingdirect.fr/a/bb/Tableaux-chevalets-vitrines-cadres/N=2+987/
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[5]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/h3[1]/a[1]/@categoryurl
+          - category:
+              - text: Badges
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[5]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/ul[1]/li[1]/a[1]/@categoryname
+            categoryUrl:
+              - text: https://www.vikingdirect.fr/a/bb/Tableaux-chevalets-vitrines-cadres/Badges/N=2+988/
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[5]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/ul[1]/li[1]/a[1]/@categoryurl
+          - category:
+              - text: Chevalets
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[5]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/ul[1]/li[2]/a[1]/@categoryname
+            categoryUrl:
+              - text: https://www.vikingdirect.fr/a/bb/Tableaux-chevalets-vitrines-cadres/Chevalets/N=2+993/
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[5]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/ul[1]/li[2]/a[1]/@categoryurl
+          - category:
+              - text: Plannings à fiches T
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[5]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/ul[1]/li[3]/a[1]/@categoryname
+            categoryUrl:
+              - text: https://www.vikingdirect.fr/a/bb/Tableaux-chevalets-vitrines-cadres/Plannings-a-fiches-T/N=2+998/
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[5]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/ul[1]/li[3]/a[1]/@categoryurl
+          - category:
+              - text: Plannings muraux
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[5]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/ul[1]/li[4]/a[1]/@categoryname
+            categoryUrl:
+              - text: https://www.vikingdirect.fr/a/bb/Tableaux-chevalets-vitrines-cadres/Plannings-muraux/N=2+1003/
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[5]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/ul[1]/li[4]/a[1]/@categoryurl
+          - category:
+              - text: Tout voir›
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[5]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/ul[1]/li[5]/a[1]/@categoryname
+            categoryUrl:
+              - text: https://www.vikingdirect.fr/a/bb/Tableaux-chevalets-vitrines-cadres/N=2+987/
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[5]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/ul[1]/li[5]/a[1]/@categoryurl
+          - category:
+              - text: Gammes de bureaux secrétariat
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[5]/div[2]/div[1]/div[1]/div[1]/div[3]/div[2]/h3[1]/a[1]/@categoryname
+            categoryUrl:
+              - text: https://www.vikingdirect.fr/a/bb/Gammes-de-bureaux-secretariat/N=2+2936/
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[5]/div[2]/div[1]/div[1]/div[1]/div[3]/div[2]/h3[1]/a[1]/@categoryurl
+          - category:
+              - text: Gamme Busy
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[5]/div[2]/div[1]/div[1]/div[1]/div[3]/div[2]/ul[1]/li[1]/a[1]/@categoryname
+            categoryUrl:
+              - text: https://www.vikingdirect.fr/a/bb/Gammes-de-bureaux-secretariat/Gamme-Busy/N=2+1073640/
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[5]/div[2]/div[1]/div[1]/div[1]/div[3]/div[2]/ul[1]/li[1]/a[1]/@categoryurl
+          - category:
+              - text: Gamme BusyLine
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[5]/div[2]/div[1]/div[1]/div[1]/div[3]/div[2]/ul[1]/li[2]/a[1]/@categoryname
+            categoryUrl:
+              - text: https://www.vikingdirect.fr/a/bb/Gammes-de-bureaux-secretariat/Gamme-BusyLine/N=2+1178966/
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[5]/div[2]/div[1]/div[1]/div[1]/div[3]/div[2]/ul[1]/li[2]/a[1]/@categoryurl
+          - category:
+              - text: Gamme Cancun
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[5]/div[2]/div[1]/div[1]/div[1]/div[3]/div[2]/ul[1]/li[3]/a[1]/@categoryname
+            categoryUrl:
+              - text: https://www.vikingdirect.fr/a/bb/Gammes-de-bureaux-secretariat/Gamme-Cancun/N=2+1071948/
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[5]/div[2]/div[1]/div[1]/div[1]/div[3]/div[2]/ul[1]/li[3]/a[1]/@categoryurl
+          - category:
+              - text: Gamme Easy
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[5]/div[2]/div[1]/div[1]/div[1]/div[3]/div[2]/ul[1]/li[4]/a[1]/@categoryname
+            categoryUrl:
+              - text: https://www.vikingdirect.fr/a/bb/Gammes-de-bureaux-secretariat/Gamme-Easy/N=2+1070820/
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[5]/div[2]/div[1]/div[1]/div[1]/div[3]/div[2]/ul[1]/li[4]/a[1]/@categoryurl
+          - category:
+              - text: Tout voir›
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[5]/div[2]/div[1]/div[1]/div[1]/div[3]/div[2]/ul[1]/li[5]/a[1]/@categoryname
+            categoryUrl:
+              - text: https://www.vikingdirect.fr/a/bb/Gammes-de-bureaux-secretariat/N=2+2936/
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[5]/div[2]/div[1]/div[1]/div[1]/div[3]/div[2]/ul[1]/li[5]/a[1]/@categoryurl
+          - category:
+              - text: Ergonomie
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[5]/div[2]/div[1]/div[1]/div[1]/div[3]/div[3]/h3[1]/a[1]/@categoryname
+            categoryUrl:
+              - text: https://www.vikingdirect.fr/a/bb/Ergonomie/N=2+1426/
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[5]/div[2]/div[1]/div[1]/div[1]/div[3]/div[3]/h3[1]/a[1]/@categoryurl
+          - category:
+              - text: Kits de sécurité PC
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[5]/div[2]/div[1]/div[1]/div[1]/div[3]/div[3]/ul[1]/li[1]/a[1]/@categoryname
+            categoryUrl:
+              - text: https://www.vikingdirect.fr/a/bb/Ergonomie/Kits-de-securite-PC/N=2+1432/
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[5]/div[2]/div[1]/div[1]/div[1]/div[3]/div[3]/ul[1]/li[1]/a[1]/@categoryurl
+          - category:
+              - text: Repose-pieds
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[5]/div[2]/div[1]/div[1]/div[1]/div[3]/div[3]/ul[1]/li[2]/a[1]/@categoryname
+            categoryUrl:
+              - text: https://www.vikingdirect.fr/a/bb/Ergonomie/Repose-pieds/N=2+1437/
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[5]/div[2]/div[1]/div[1]/div[1]/div[3]/div[3]/ul[1]/li[2]/a[1]/@categoryurl
+          - category:
+              - text: Repose-poignets
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[5]/div[2]/div[1]/div[1]/div[1]/div[3]/div[3]/ul[1]/li[3]/a[1]/@categoryname
+            categoryUrl:
+              - text: https://www.vikingdirect.fr/a/bb/Ergonomie/Repose-poignets/N=2+1442/
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[5]/div[2]/div[1]/div[1]/div[1]/div[3]/div[3]/ul[1]/li[3]/a[1]/@categoryurl
+          - category:
+              - text: Filtres protecteur pour écrans
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[5]/div[2]/div[1]/div[1]/div[1]/div[3]/div[3]/ul[1]/li[4]/a[1]/@categoryname
+            categoryUrl:
+              - text: https://www.vikingdirect.fr/a/bb/Ergonomie/Filtres-protecteur-pour-ecrans/N=2+1093710/
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[5]/div[2]/div[1]/div[1]/div[1]/div[3]/div[3]/ul[1]/li[4]/a[1]/@categoryurl
+          - category:
+              - text: Tout voir›
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[5]/div[2]/div[1]/div[1]/div[1]/div[3]/div[3]/ul[1]/li[5]/a[1]/@categoryname
+            categoryUrl:
+              - text: https://www.vikingdirect.fr/a/bb/Ergonomie/N=2+1426/
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[5]/div[2]/div[1]/div[1]/div[1]/div[3]/div[3]/ul[1]/li[5]/a[1]/@categoryurl
+          - category:
+              - text: Services généraux & alimentation
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[6]/a[1]/@categoryname
+            categoryUrl:
+              - text: https://www.vikingdirect.fr/a/bb/Services-generaux-Alimentation/N=2+2402/?cm_sp=megamenu-_-servicesgenererauxandalimentation-_-null
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[6]/a[1]/@categoryurl
+          - category:
+              - text: Alimentation & boissons
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[6]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/h3[1]/a[1]/@categoryname
+            categoryUrl:
+              - text: https://www.vikingdirect.fr/a/bb/Alimentation-boissons/N=2+888174/
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[6]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/h3[1]/a[1]/@categoryurl
+          - category:
+              - text: Boissons chaudes
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[6]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[1]/a[1]/@categoryname
+            categoryUrl:
+              - text: https://www.vikingdirect.fr/a/bb/Alimentation-boissons/Boissons-chaudes/N=2+888175/
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[6]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[1]/a[1]/@categoryurl
+          - category:
+              - text: Boissons fraiches
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[6]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[2]/a[1]/@categoryname
+            categoryUrl:
+              - text: https://www.vikingdirect.fr/a/bb/Alimentation-boissons/Boissons-fraiches/N=2+888196/
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[6]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[2]/a[1]/@categoryurl
+          - category:
+              - text: Café
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[6]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[3]/a[1]/@categoryname
+            categoryUrl:
+              - text: https://www.vikingdirect.fr/a/bb/Alimentation-boissons/Cafe/N=2+888212/
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[6]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[3]/a[1]/@categoryurl
+          - category:
+              - text: Confiserie
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[6]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[4]/a[1]/@categoryname
+            categoryUrl:
+              - text: https://www.vikingdirect.fr/a/bb/Alimentation-boissons/Confiserie/N=2+888244/
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[6]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[4]/a[1]/@categoryurl
+          - category:
+              - text: Tout voir›
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[6]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[5]/a[1]/@categoryname
+            categoryUrl:
+              - text: https://www.vikingdirect.fr/a/bb/Alimentation-boissons/N=2+888174/
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[6]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[5]/a[1]/@categoryurl
+          - category:
+              - text: Courrier, emballage & expédition
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[6]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/h3[1]/a[1]/@categoryname
+            categoryUrl:
+              - text: https://www.vikingdirect.fr/a/bb/Courrier-emballage-expedition/N=2+888266/
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[6]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/h3[1]/a[1]/@categoryurl
+          - category:
+              - text: Cerclage
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[6]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/ul[1]/li[1]/a[1]/@categoryname
+            categoryUrl:
+              - text: https://www.vikingdirect.fr/a/bb/Courrier-emballage-expedition/Cerclage/N=2+888267/
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[6]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/ul[1]/li[1]/a[1]/@categoryurl
+          - category:
+              - text: Emballage et Protection
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[6]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/ul[1]/li[2]/a[1]/@categoryname
+            categoryUrl:
+              - text: https://www.vikingdirect.fr/a/bb/Courrier-emballage-expedition/Emballage-et-Protection/N=2+888273/
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[6]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/ul[1]/li[2]/a[1]/@categoryurl
+          - category:
+              - text: Environnement courrier
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[6]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/ul[1]/li[3]/a[1]/@categoryname
+            categoryUrl:
+              - text: https://www.vikingdirect.fr/a/bb/Courrier-emballage-expedition/Environnement-courrier/N=2+888310/
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[6]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/ul[1]/li[3]/a[1]/@categoryurl
+          - category:
+              - text: Expédition
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[6]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/ul[1]/li[4]/a[1]/@categoryname
+            categoryUrl:
+              - text: https://www.vikingdirect.fr/a/bb/Courrier-emballage-expedition/Expedition/N=2+1186059/
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[6]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/ul[1]/li[4]/a[1]/@categoryurl
+          - category:
+              - text: Tout voir›
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[6]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/ul[1]/li[5]/a[1]/@categoryname
+            categoryUrl:
+              - text: https://www.vikingdirect.fr/a/bb/Courrier-emballage-expedition/N=2+888266/
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[6]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/ul[1]/li[5]/a[1]/@categoryurl
+          - category:
+              - text: Electricité & Outillage
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[6]/div[2]/div[1]/div[1]/div[1]/div[1]/div[3]/h3[1]/a[1]/@categoryname
+            categoryUrl:
+              - text: https://www.vikingdirect.fr/a/bb/Electricite-Outillage/N=2+888358/
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[6]/div[2]/div[1]/div[1]/div[1]/div[1]/div[3]/h3[1]/a[1]/@categoryurl
+          - category:
+              - text: Outillage
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[6]/div[2]/div[1]/div[1]/div[1]/div[1]/div[3]/ul[1]/li[1]/a[1]/@categoryname
+            categoryUrl:
+              - text: https://www.vikingdirect.fr/a/bb/Electricite-Outillage/Outillage/N=2+888365/
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[6]/div[2]/div[1]/div[1]/div[1]/div[1]/div[3]/ul[1]/li[1]/a[1]/@categoryurl
+          - category:
+              - text: Parafoudres & Multiprises
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[6]/div[2]/div[1]/div[1]/div[1]/div[1]/div[3]/ul[1]/li[2]/a[1]/@categoryname
+            categoryUrl:
+              - text: https://www.vikingdirect.fr/a/bb/Electricite-Outillage/Parafoudres-Multiprises/N=2+888371/
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[6]/div[2]/div[1]/div[1]/div[1]/div[1]/div[3]/ul[1]/li[2]/a[1]/@categoryurl
+          - category:
+              - text: Piles
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[6]/div[2]/div[1]/div[1]/div[1]/div[1]/div[3]/ul[1]/li[3]/a[1]/@categoryname
+            categoryUrl:
+              - text: https://www.vikingdirect.fr/a/bb/Electricite-Outillage/Piles/N=2+888377/
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[6]/div[2]/div[1]/div[1]/div[1]/div[1]/div[3]/ul[1]/li[3]/a[1]/@categoryurl
+          - category:
+              - text: Rallonges & Enrouleurs
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[6]/div[2]/div[1]/div[1]/div[1]/div[1]/div[3]/ul[1]/li[4]/a[1]/@categoryname
+            categoryUrl:
+              - text: https://www.vikingdirect.fr/a/bb/Electricite-Outillage/Rallonges-Enrouleurs/N=2+888383/
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[6]/div[2]/div[1]/div[1]/div[1]/div[1]/div[3]/ul[1]/li[4]/a[1]/@categoryurl
+          - category:
+              - text: Tout voir›
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[6]/div[2]/div[1]/div[1]/div[1]/div[1]/div[3]/ul[1]/li[5]/a[1]/@categoryname
+            categoryUrl:
+              - text: https://www.vikingdirect.fr/a/bb/Electricite-Outillage/N=2+888358/
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[6]/div[2]/div[1]/div[1]/div[1]/div[1]/div[3]/ul[1]/li[5]/a[1]/@categoryurl
+          - category:
+              - text: Hygiène
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[6]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/h3[1]/a[1]/@categoryname
+            categoryUrl:
+              - text: https://www.vikingdirect.fr/a/bb/Hygiene/N=2+886055/
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[6]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/h3[1]/a[1]/@categoryurl
+          - category:
+              - text: Essuyage
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[6]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/ul[1]/li[1]/a[1]/@categoryname
+            categoryUrl:
+              - text: https://www.vikingdirect.fr/a/bb/Hygiene/Essuyage/N=2+886056/
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[6]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/ul[1]/li[1]/a[1]/@categoryurl
+          - category:
+              - text: Hygiène des mains
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[6]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/ul[1]/li[2]/a[1]/@categoryname
+            categoryUrl:
+              - text: https://www.vikingdirect.fr/a/bb/Hygiene/Hygiene-des-mains/N=2+886082/
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[6]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/ul[1]/li[2]/a[1]/@categoryurl
+          - category:
+              - text: Mouchoirs
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[6]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/ul[1]/li[3]/a[1]/@categoryname
+            categoryUrl:
+              - text: https://www.vikingdirect.fr/a/bb/Hygiene/Mouchoirs/N=2+886093/
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[6]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/ul[1]/li[3]/a[1]/@categoryurl
+          - category:
+              - text: Papier Toilette
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[6]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/ul[1]/li[4]/a[1]/@categoryname
+            categoryUrl:
+              - text: https://www.vikingdirect.fr/a/bb/Hygiene/Papier-Toilette/N=2+886099/
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[6]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/ul[1]/li[4]/a[1]/@categoryurl
+          - category:
+              - text: Tout voir›
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[6]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/ul[1]/li[5]/a[1]/@categoryname
+            categoryUrl:
+              - text: https://www.vikingdirect.fr/a/bb/Hygiene/N=2+886055/
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[6]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/ul[1]/li[5]/a[1]/@categoryurl
+          - category:
+              - text: Signalisation & sécurité
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[6]/div[2]/div[1]/div[1]/div[1]/div[2]/div[2]/h3[1]/a[1]/@categoryname
+            categoryUrl:
+              - text: https://www.vikingdirect.fr/a/bb/Signalisation-securite/N=2+888666/
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[6]/div[2]/div[1]/div[1]/div[1]/div[2]/div[2]/h3[1]/a[1]/@categoryurl
+          - category:
+              - text: Coffre-fort
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[6]/div[2]/div[1]/div[1]/div[1]/div[2]/div[2]/ul[1]/li[1]/a[1]/@categoryname
+            categoryUrl:
+              - text: https://www.vikingdirect.fr/a/bb/Signalisation-securite/Coffre-fort/N=2+1068936/
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[6]/div[2]/div[1]/div[1]/div[1]/div[2]/div[2]/ul[1]/li[1]/a[1]/@categoryurl
+          - category:
+              - text: Pharmacie
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[6]/div[2]/div[1]/div[1]/div[1]/div[2]/div[2]/ul[1]/li[2]/a[1]/@categoryname
+            categoryUrl:
+              - text: https://www.vikingdirect.fr/a/bb/Signalisation-securite/Pharmacie/N=2+888673/
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[6]/div[2]/div[1]/div[1]/div[1]/div[2]/div[2]/ul[1]/li[2]/a[1]/@categoryurl
+          - category:
+              - text: Produits de secours
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[6]/div[2]/div[1]/div[1]/div[1]/div[2]/div[2]/ul[1]/li[3]/a[1]/@categoryname
+            categoryUrl:
+              - text: https://www.vikingdirect.fr/a/bb/Signalisation-securite/Produits-de-secours/N=2+888679/
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[6]/div[2]/div[1]/div[1]/div[1]/div[2]/div[2]/ul[1]/li[3]/a[1]/@categoryurl
+          - category:
+              - text: Sécurité Incendie
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[6]/div[2]/div[1]/div[1]/div[1]/div[2]/div[2]/ul[1]/li[4]/a[1]/@categoryname
+            categoryUrl:
+              - text: https://www.vikingdirect.fr/a/bb/Signalisation-securite/Securite-Incendie/N=2+888685/
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[6]/div[2]/div[1]/div[1]/div[1]/div[2]/div[2]/ul[1]/li[4]/a[1]/@categoryurl
+          - category:
+              - text: Tout voir›
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[6]/div[2]/div[1]/div[1]/div[1]/div[2]/div[2]/ul[1]/li[5]/a[1]/@categoryname
+            categoryUrl:
+              - text: https://www.vikingdirect.fr/a/bb/Signalisation-securite/N=2+888666/
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[6]/div[2]/div[1]/div[1]/div[1]/div[2]/div[2]/ul[1]/li[5]/a[1]/@categoryurl
+          - category:
+              - text: Service Accueil
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[6]/div[2]/div[1]/div[1]/div[1]/div[2]/div[3]/h3[1]/a[1]/@categoryname
+            categoryUrl:
+              - text: https://www.vikingdirect.fr/a/bb/Service-Accueil/N=2+886128/
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[6]/div[2]/div[1]/div[1]/div[1]/div[2]/div[3]/h3[1]/a[1]/@categoryurl
+          - category:
+              - text: Tout voir›
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[6]/div[2]/div[1]/div[1]/div[1]/div[2]/div[3]/ul[1]/li[1]/a[1]/@categoryname
+            categoryUrl:
+              - text: https://www.vikingdirect.fr/a/bb/Service-Accueil/N=2+886128/
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[6]/div[2]/div[1]/div[1]/div[1]/div[2]/div[3]/ul[1]/li[1]/a[1]/@categoryurl
+          - category:
+              - text: Entretien
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[6]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/h3[1]/a[1]/@categoryname
+            categoryUrl:
+              - text: https://www.vikingdirect.fr/a/bb/Entretien/N=2+885893/
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[6]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/h3[1]/a[1]/@categoryurl
+          - category:
+              - text: Cuisine
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[6]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/ul[1]/li[1]/a[1]/@categoryname
+            categoryUrl:
+              - text: https://www.vikingdirect.fr/a/bb/Entretien/Cuisine/N=2+885900/
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[6]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/ul[1]/li[1]/a[1]/@categoryurl
+          - category:
+              - text: Désodorisants et diffuseurs de parfum
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[6]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/ul[1]/li[2]/a[1]/@categoryname
+            categoryUrl:
+              - text: https://www.vikingdirect.fr/a/bb/Entretien/Desodorisants-et-diffuseurs-de-parfum/N=2+885916/
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[6]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/ul[1]/li[2]/a[1]/@categoryurl
+          - category:
+              - text: Lessive
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[6]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/ul[1]/li[3]/a[1]/@categoryname
+            categoryUrl:
+              - text: https://www.vikingdirect.fr/a/bb/Entretien/Lessive/N=2+885932/
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[6]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/ul[1]/li[3]/a[1]/@categoryurl
+          - category:
+              - text: Matériel et textile d'entretien
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[6]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/ul[1]/li[4]/a[1]/@categoryname
+            categoryUrl:
+              - text: https://www.vikingdirect.fr/a/bb/Entretien/Materiel-et-textile-d-entretien/N=2+885948/
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[6]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/ul[1]/li[4]/a[1]/@categoryurl
+          - category:
+              - text: Tout voir›
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[6]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/ul[1]/li[5]/a[1]/@categoryname
+            categoryUrl:
+              - text: https://www.vikingdirect.fr/a/bb/Entretien/N=2+885893/
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[6]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/ul[1]/li[5]/a[1]/@categoryurl
+          - category:
+              - text: Stockage & manutention
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[6]/div[2]/div[1]/div[1]/div[1]/div[3]/div[2]/h3[1]/a[1]/@categoryname
+            categoryUrl:
+              - text: https://www.vikingdirect.fr/a/bb/Stockage-manutention/N=2+886177/
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[6]/div[2]/div[1]/div[1]/div[1]/div[3]/div[2]/h3[1]/a[1]/@categoryurl
+          - category:
+              - text: Bacs de rangements
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[6]/div[2]/div[1]/div[1]/div[1]/div[3]/div[2]/ul[1]/li[1]/a[1]/@categoryname
+            categoryUrl:
+              - text: https://www.vikingdirect.fr/a/bb/Stockage-manutention/Bacs-de-rangements/N=2+886178/
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[6]/div[2]/div[1]/div[1]/div[1]/div[3]/div[2]/ul[1]/li[1]/a[1]/@categoryurl
+          - category:
+              - text: Diables et Chariots
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[6]/div[2]/div[1]/div[1]/div[1]/div[3]/div[2]/ul[1]/li[2]/a[1]/@categoryname
+            categoryUrl:
+              - text: https://www.vikingdirect.fr/a/bb/Stockage-manutention/Diables-et-Chariots/N=2+886194/
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[6]/div[2]/div[1]/div[1]/div[1]/div[3]/div[2]/ul[1]/li[2]/a[1]/@categoryurl
+          - category:
+              - text: Escabeaux et marche-pied
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[6]/div[2]/div[1]/div[1]/div[1]/div[3]/div[2]/ul[1]/li[3]/a[1]/@categoryname
+            categoryUrl:
+              - text: https://www.vikingdirect.fr/a/bb/Stockage-manutention/Escabeaux-et-marche-pied/N=2+886200/
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[6]/div[2]/div[1]/div[1]/div[1]/div[3]/div[2]/ul[1]/li[3]/a[1]/@categoryurl
+          - category:
+              - text: Rayonnage
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[6]/div[2]/div[1]/div[1]/div[1]/div[3]/div[2]/ul[1]/li[4]/a[1]/@categoryname
+            categoryUrl:
+              - text: https://www.vikingdirect.fr/a/bb/Stockage-manutention/Rayonnage/N=2+886206/
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[6]/div[2]/div[1]/div[1]/div[1]/div[3]/div[2]/ul[1]/li[4]/a[1]/@categoryurl
+          - category:
+              - text: Tout voir›
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[6]/div[2]/div[1]/div[1]/div[1]/div[3]/div[2]/ul[1]/li[5]/a[1]/@categoryname
+            categoryUrl:
+              - text: https://www.vikingdirect.fr/a/bb/Stockage-manutention/N=2+886177/
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[6]/div[2]/div[1]/div[1]/div[1]/div[3]/div[2]/ul[1]/li[5]/a[1]/@categoryurl
+          - category:
+              - text: Vestiaires
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[6]/div[2]/div[1]/div[1]/div[1]/div[3]/div[3]/h3[1]/a[1]/@categoryname
+            categoryUrl:
+              - text: https://www.vikingdirect.fr/a/bb/Vestiaires/N=2+886239/
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[6]/div[2]/div[1]/div[1]/div[1]/div[3]/div[3]/h3[1]/a[1]/@categoryurl
+          - category:
+              - text: Vestiaires à monter
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[6]/div[2]/div[1]/div[1]/div[1]/div[3]/div[3]/ul[1]/li[1]/a[1]/@categoryname
+            categoryUrl:
+              - text: https://www.vikingdirect.fr/a/bb/Vestiaires/Vestiaires-a-monter/N=2+886240/
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[6]/div[2]/div[1]/div[1]/div[1]/div[3]/div[3]/ul[1]/li[1]/a[1]/@categoryurl
+          - category:
+              - text: Vestiaires de bureau
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[6]/div[2]/div[1]/div[1]/div[1]/div[3]/div[3]/ul[1]/li[2]/a[1]/@categoryname
+            categoryUrl:
+              - text: https://www.vikingdirect.fr/a/bb/Vestiaires/Vestiaires-de-bureau/N=2+886246/
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[6]/div[2]/div[1]/div[1]/div[1]/div[3]/div[3]/ul[1]/li[2]/a[1]/@categoryurl
+          - category:
+              - text: Vestiaires monoblocs
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[6]/div[2]/div[1]/div[1]/div[1]/div[3]/div[3]/ul[1]/li[3]/a[1]/@categoryname
+            categoryUrl:
+              - text: https://www.vikingdirect.fr/a/bb/Vestiaires/Vestiaires-monoblocs/N=2+886252/
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[6]/div[2]/div[1]/div[1]/div[1]/div[3]/div[3]/ul[1]/li[3]/a[1]/@categoryurl
+          - category:
+              - text: Tout voir›
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[6]/div[2]/div[1]/div[1]/div[1]/div[3]/div[3]/ul[1]/li[4]/a[1]/@categoryname
+            categoryUrl:
+              - text: https://www.vikingdirect.fr/a/bb/Vestiaires/N=2+886239/
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[6]/div[2]/div[1]/div[1]/div[1]/div[3]/div[3]/ul[1]/li[4]/a[1]/@categoryurl
+          - category:
+              - text: Promos & Boutiques
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[7]/a[1]/@categoryname
+            categoryUrl:
+              - text: https://www.vikingdirect.fr/a/bb/Boutiques/N=2+1099745/
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[7]/a[1]/@categoryurl
+          - category:
+              - text: Scotch
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[7]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/a[2]/@categoryname
+            categoryUrl:
+              - text: https://www.vikingdirect.fr/specialLinksNoChat.do?file=/boutique-scotch.jsp
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[7]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/a[2]/@categoryurl
+          - category:
+              - text: HP
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[7]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/a[2]/@categoryname
+            categoryUrl:
+              - text: https://www.vikingdirect.fr/specialLinksNoChat.do?file=/boutique-hp-samsung.jsp
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[7]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/a[2]/@categoryurl
+          - category:
+              - text: Fellowes
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[7]/div[2]/div[1]/div[1]/div[1]/div[1]/div[3]/a[2]/@categoryname
+            categoryUrl:
+              - text: https://www.vikingdirect.fr/a/bb/Boutique-Fellowes/N=2+1122502/
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[7]/div[2]/div[1]/div[1]/div[1]/div[1]/div[3]/a[2]/@categoryurl
+          - category:
+              - text: Canon
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[7]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/a[2]/@categoryname
+            categoryUrl:
+              - text: https://www.vikingdirect.fr/a/bb/FC-21/N=2+1074844/
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[7]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/a[2]/@categoryurl
+          - category:
+              - text: Post-it
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[7]/div[2]/div[1]/div[1]/div[1]/div[2]/div[2]/a[2]/@categoryname
+            categoryUrl:
+              - text: https://www.vikingdirect.fr/specialLinksNoChat.do?file=/boutique-post-it.jsp
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[7]/div[2]/div[1]/div[1]/div[1]/div[2]/div[2]/a[2]/@categoryurl
+          - category:
+              - text: La Poste
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[7]/div[2]/div[1]/div[1]/div[1]/div[2]/div[3]/a[2]/@categoryname
+            categoryUrl:
+              - text: https://www.vikingdirect.fr/a/bb/timbres-enveloppes-pret-a-poster-colissimo/N=2+900633/
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[7]/div[2]/div[1]/div[1]/div[1]/div[2]/div[3]/a[2]/@categoryurl
+          - category:
+              - text: Edding
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[7]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/a[2]/@categoryname
+            categoryUrl:
+              - text: https://www.vikingdirect.fr/a/bb/Boutique-Edding/N=2+1101855/
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[7]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/a[2]/@categoryurl
+          - category:
+              - text: Leitz
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[7]/div[2]/div[1]/div[1]/div[1]/div[3]/div[2]/a[2]/@categoryname
+            categoryUrl:
+              - text: https://www.vikingdirect.fr/specialLinks.do?ID=leitz_v6
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[7]/div[2]/div[1]/div[1]/div[1]/div[3]/div[2]/a[2]/@categoryurl
+          - category:
+              - text: Esselte
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[7]/div[2]/div[1]/div[1]/div[1]/div[3]/div[3]/a[2]/@categoryname
+            categoryUrl:
+              - text: https://www.vikingdirect.fr/specialLinks.do?ID=leitz_v6
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[7]/div[2]/div[1]/div[1]/div[1]/div[3]/div[3]/a[2]/@categoryurl
+          - category:
+              - text: Rapid
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[7]/div[2]/div[1]/div[1]/div[1]/div[4]/div[1]/a[2]/@categoryname
+            categoryUrl:
+              - text: https://www.vikingdirect.fr/specialLinks.do?ID=leitz_v6
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[7]/div[2]/div[1]/div[1]/div[1]/div[4]/div[1]/a[2]/@categoryurl
+          - category:
+              - text: Exacompta
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[7]/div[2]/div[1]/div[1]/div[1]/div[4]/div[2]/a[2]/@categoryname
+            categoryUrl:
+              - text: https://www.vikingdirect.fr/specialLinks.do?ID=exacompta
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[7]/div[2]/div[1]/div[1]/div[1]/div[4]/div[2]/a[2]/@categoryurl
+          - category:
+              - text: DYMO
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[7]/div[2]/div[1]/div[1]/div[1]/div[4]/div[3]/a[2]/@categoryname
+            categoryUrl:
+              - text: https://www.vikingdirect.fr/a/bb/Boutique-DYMO/N=2+1129968/
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[7]/div[2]/div[1]/div[1]/div[1]/div[4]/div[3]/a[2]/@categoryurl
+          - category:
+              - text: Tarifold
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[7]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/a[2]/@categoryname
+            categoryUrl:
+              - text: https://www.vikingdirect.fr/promo/list5.do?listtype=20&customerid=9
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[7]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/a[2]/@categoryurl
+          - category:
+              - text: 3L Office
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[7]/div[2]/div[1]/div[1]/div[1]/div[5]/div[2]/a[2]/@categoryname
+            categoryUrl:
+              - text: https://www.vikingdirect.fr/promo/list5.do?listtype=20&customerid=9
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[7]/div[2]/div[1]/div[1]/div[1]/div[5]/div[2]/a[2]/@categoryurl
+          - category:
+              - text: Toutes nos Marques
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[7]/div[2]/div[1]/div[1]/div[1]/div[5]/div[3]/a[2]/@categoryname
+            categoryUrl:
+              - text: https://www.vikingdirect.fr/a/bb/Boutique-de-Nos-Marques/N=2+1103496/
+                xpath: /html/body/div[2]/div[1]/div[5]/div[1]/div[1]/nav[1]/div[1]/div[7]/div[2]/div[1]/div[1]/div[1]/div[5]/div[3]/a[2]/@categoryurl
+        xpath: /html
+    timestamp: 1608113410663
