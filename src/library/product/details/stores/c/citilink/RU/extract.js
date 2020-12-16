@@ -9,7 +9,10 @@ module.exports = {
     domain: 'citilink.ru',
     zipcode: '',
   },
-  implementation: async ({ url }, { transform }, context, { productDetails: data }) => {
+  implementation: async (inputs, { transform }, context, { productDetails: data }) => {
+    const url = await context.evaluate(async function () {
+      return window.location.href;
+    });
     await context.goto(url + '/properties', { waitUntil: 'networkidle0' });
     await context.waitForNavigation();
     await context.evaluate(async function () {
@@ -18,7 +21,7 @@ module.exports = {
       for (let i = 0; i < specs.snapshotLength; i++) {
         specifications += specs.snapshotItem(i).children[0].innerText + ': ' + specs.snapshotItem(i).children[1].innerText + ' || ';
       }
-      sessionStorage.setItem("Specifications", specifications);
+      sessionStorage.setItem('Specifications', specifications);
     });
     await context.goto(url, { waitUntil: 'networkidle0' });
     await context.waitForNavigation();
