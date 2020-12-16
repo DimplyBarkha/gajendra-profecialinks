@@ -73,8 +73,17 @@ async function implementation (
     });
     videos = await context.evaluate(function () {
       const videos = [];
-      document.querySelectorAll('video').forEach(video => {
-        videos.push(video.querySelector('source').getAttribute('src'));
+      document.querySelectorAll('video, [data-video]').forEach(video => {
+        if(video.querySelector('source') && video.querySelector('source').getAttribute('src')) {
+          if(!videos.includes(video.querySelector('source').getAttribute('src')))  {
+            videos.push(video.querySelector('source').getAttribute('src'));
+          }
+        }
+        if(video.hasAttribute('data-video')) {
+          if(!videos.includes(video.getAttribute('data-video')))  {
+            videos.push(video.getAttribute('data-video'));
+          }
+        }
       });
       return videos;
     });
