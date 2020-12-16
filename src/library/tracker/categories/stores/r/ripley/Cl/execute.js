@@ -2,7 +2,7 @@
 module.exports = {
   implements: 'tracker/categories/execute',
   parameterValues: {
-    country: 'Cl',
+    country: 'CL',
     store: 'ripley',
     domain: 'ripley.cl',
     loadedSelector: null,

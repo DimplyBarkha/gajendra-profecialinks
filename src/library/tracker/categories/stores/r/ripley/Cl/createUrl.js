@@ -7,7 +7,7 @@ module.exports = {
     suffix: null,
     subdomain: null,
     url: null,
-    country: 'Cl',
+    country: 'CL',
     store: 'ripley',
     zipcode: '',
   },

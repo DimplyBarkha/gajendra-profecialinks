@@ -2,7 +2,7 @@
 module.exports = {
   implements: 'navigation/goto/setZipCode',
   parameterValues: {
-    country: 'Cl',
+    country: 'CL',
     domain: 'ripley.cl',
     store: 'ripley',
     zipcode: '',
