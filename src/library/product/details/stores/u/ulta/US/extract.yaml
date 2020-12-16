@@ -118,7 +118,7 @@ fields:
     manualSelector: div.wc-specifications-responsive >  table > tbody > tr 
   - name: quantity
     singleValue: false 
-    xpath: //p[contains(.,'Size')]/text()
+    xpath: //p[contains(.,'Size')]/text() | //div[@class="ProductDetail__colorPanel"]
   - name: ingredientsList
     singleValue: false
     xpath: //div[@class='ProductDetail__ingredients']//div[@class="ProductDetail__productContent"]
