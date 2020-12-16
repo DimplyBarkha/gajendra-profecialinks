@@ -68,22 +68,18 @@ class SharedHelpers {
       return document.querySelector('body').innerText;
     });
     if (inBoxSelector) {
-      inBoxText = await this.context.evaluate(async function (inBoxSelector) {
-        const boxContent = document.querySelectorAll(inBoxSelector + ' p');
-        const boxText = [];
-        [...boxContent].forEach((element) => {
-          boxText.push(element.innerText);
-        });
-        return boxText
-      }, inBoxSelector);
-      inBoxUrls = await this.context.evaluate(async function (inBoxSelector, getAttrImgSrc) {
-        const images = document.querySelectorAll(inBoxSelector+' img');
-        const imagesSrc = [];
-        [...images].forEach((element) => {
-          imagesSrc.push(element.getAttribute(getAttrImgSrc));
-        });
-        return imagesSrc;
+       const inTheBoxData = await this.context.evaluate(async function (inBoxSelector, getAttrImgSrc) {
+        const inBoxUrls = [];
+        const inBoxText = [];
+        const getAllProducts = document.querySelectorAll(inBoxSelector + ' div:not(.side-pics)');
+        for (let i = 0; i < getAllProducts.length; i++) {
+            inBoxUrls.push(getAllProducts[i].querySelector('img').getAttribute(getAttrImgSrc));
+            inBoxText.push(getAllProducts[i].querySelector('p').innerText);
+        }
+        return { inBoxText, inBoxUrls };
       }, inBoxSelector, getAttrImgSrc);
+      inBoxText = inTheBoxData.inBoxText;
+      inBoxUrls = inTheBoxData.inBoxUrls;
     }
     if (comparisionTableSelector) {
       comparisionText = await this.context.evaluate(async function (comparisionTableSelector) {
