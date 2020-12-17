@@ -64,6 +64,17 @@ const transform = (data) => {
       if (row.aggregateRating && row.decimalSeperator && row.decimalSeperator[0].text === 'EU') {
         row.aggregateRating[0].text = row.aggregateRating[0].text.replace('.', ',');
       }
+      if (row.inTheBoxUrl) {
+        for (let i = 0; i < row.inTheBoxUrl.length; i++) {
+          if (row.inTheBoxUrl[i].text.includes('stores.ebay.co')) { row.inTheBoxUrl.splice(i, 1); }
+          if (!row.inTheBoxUrl[i].text.includes('/')) { row.inTheBoxUrl.splice(i, 1); }
+        }
+      }
+      if (row.inTheBoxText) {
+        for (let i = 0; i < row.inTheBoxText.length; i++) {
+          if (row.inTheBoxText[i].text.includes('https://')) { row.inTheBoxText.splice(i, 1); }
+        }
+      }
       // row.hasComparisonTable = row.hasComparisonTable ? [{ text: 'Yes' }] : [{ text: 'No' }]
     }
   }
