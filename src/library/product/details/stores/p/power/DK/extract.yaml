@@ -241,8 +241,11 @@ fields:
     defaultValue: "No"
   - name: inTheBoxUrl
     singleValue: false
-    xpath: //div[@class="inpage_selector_InTheBox"]//img/@src
+    xpath: //div[@class="inpage_selector_InTheBox"]//img/@srcset
     description: Must include image url to show the accessories/tools which come with the product
+    regExp: >-
+      (.+)
+    regExpReplace: https:$1
   - name: inTheBoxText
     singleValue: false
     xpath: //div[@class="inpage_selector_InTheBox"]//span
