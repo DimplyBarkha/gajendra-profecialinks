@@ -27,7 +27,7 @@ fields:
     description: reseller_name - Seller Name, if the website does not have sellers,
       put the website name as seller
   - name: resellerId
-    xpath: ./td[@class="merchantId"]
+    xpath: ./td[@class="partnerId"] | ./td[@class="merchantId"][not(parent::tr[td[@class="partnerId"][text()!=""]])]
     description: reseller_id - Unique seller ID
   - name: resellerLink
     type: LINK
