@@ -519,3 +519,15 @@ fields:
     singleValue: true
     description: The URL of the product
     xpath: //link[@rel="canonical"]/@href
+
+
+  - name: inTheBoxText
+    xpath: //body/@in-the-box-text
+  - name: inTheBoxUrl
+    xpath: //table[@class="complection"]//img/@data-src | //h2[contains(.,"Комплектация")]/following-sibling::div[contains(@class, "pul-left")]//img/@data-src
+    regExp: (.+)
+    regExpReplace: https://static.eldorado.ru$1
+  - name: unInterruptedPDP
+    xpath: //div[@data-algorithm="related"]//div[@class="slick-track"]//div[@class="item-name-block"] | //div[@data-algorithm="alternative"]//div[@class="slick-track"]//div[@class="item-name-block"]
+  - name: hasComparisonTable
+    defaultValue: No
