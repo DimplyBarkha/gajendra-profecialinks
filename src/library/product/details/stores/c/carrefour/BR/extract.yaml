@@ -44,10 +44,10 @@ fields:
       should be "In Stock"
     regExp: (.+)
     regExpReplace: In Stock
-    defaultValue: Out of Stock
+    defaultValue: Out Of Stock
   - name: description
     singleValue: false
-    xpath: //div[contains(@class,"productDescriptionText")]
+    xpath: //body/@desc
     description: Product description supplied by website - may be concatenanted from
       multiple places; specifically not the manufacturer description
   - name: descriptionBullets
