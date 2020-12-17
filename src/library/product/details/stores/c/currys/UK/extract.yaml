@@ -422,7 +422,7 @@ fields:
     # regExpReplace: $2
   - name: inTheBoxText
     singleValue: false
-    xpath: //div[contains(@class, "InTheBox")]//div[contains(@class, "flix-std-content")]
+    xpath: //div[contains(@class, "InTheBox")]//div[contains(@class, "flix-std-content")]| //th[contains(text(), "Box contents")]/following-sibling::td/text()
     description: Must include text to show the accessories/tools which come with the product
   - name: hasComparisonTable
     xpath: boolean(//*[@class="flix-comp-container"])
