@@ -5,7 +5,7 @@ module.exports = {
     country: 'UK',
     store: 'asda',
     domain: 'asda.com',
-    loadedSelector: null,
+    loadedSelector: '#department_select li',
     noResultsXPath: null,
     zipcode: '',
   },

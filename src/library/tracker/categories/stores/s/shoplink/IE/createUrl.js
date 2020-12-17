@@ -6,7 +6,7 @@ module.exports = {
     prefix: null,
     suffix: null,
     subdomain: null,
-    url: null,
+    url: 'http://www.shoplink.ie/',
     country: 'IE',
     store: 'shoplink',
     zipcode: '',
