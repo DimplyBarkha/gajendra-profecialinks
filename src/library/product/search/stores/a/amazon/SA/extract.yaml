@@ -24,16 +24,6 @@ fields:
     xpath: (//i[contains(@class, "a-icon a-icon-star-small")]/span[@class='a-icon-alt'])[1]
     regExp: (.+) out of
     regExpReplace: $1
-  - name: rank
-    singleValue: false
-    xpath: //span[contains(@class,"widgetId=search-results")]/@cel_widget_id
-    regExp: MAIN-SEARCH_RESULTS-(.+)
-    regExpReplace: $1
-  - name: rankOrganic
-    singleValue: false
-    xpath: //span[contains(@class,"widgetId=search-results")]/@cel_widget_id
-    regExp: MAIN-SEARCH_RESULTS-(.+)
-    regExpReplace: $1
   - name: id
     singleValue: false
     xpath: //div/../@data-asin
@@ -43,15 +33,7 @@ fields:
   - name: ratingCount
     singleValue: true
     xpath: //span[contains(@aria-label,"stars")]/following-sibling::span[1]
-  - name: manufacturer
+  - name: _input
     singleValue: true
-    xpath: //div[@id='detailBullets_feature_div']/ul/li/span[@class='a-list-item']/span[contains(text(),"Manufacturer")]/following-sibling::span | //table[@id='productDetails_techSpec_section_1']/tbody/tr/th[contains(text(),"Brand")]/following-sibling::td/text()
-  - name: soldBy
+  - name: _url
     singleValue: true
-    xpath:
-  - name: endorsementText
-    xpath: //span[contains(@class, "a-badge-label") and @id]
-    singleValue: true
-  - name: gtin
-    singleValue: true
-    xpath:
