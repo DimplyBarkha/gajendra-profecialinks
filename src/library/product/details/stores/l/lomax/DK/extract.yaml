@@ -3,81 +3,82 @@ regionsSelector: null
 recordSelector: null
 recordXPath: null
 fields:
-  - name: _input
-    singleValue: true 
   - name: image
     singleValue: true
-    xpath: //div//img[@name="mainImage"]/@src
+    xpath: //div[@class="owl-item active center"]/div/img/@src
   - name: imageAlt
     singleValue: true
-    xpath: //img[@name="mainImage"]/@alt
+    xpath: //div[@class="owl-item active center"]/div/img/@alt
   - name: alternateImages
     singleValue: false
-    xpath: //div[@class='photo with-multiple-photo']//@src
+    xpath: //div[@class="owl-thumbs"]/div/img/@src
   - name: metaKeywords
     singleValue: true
-    xpath: //meta[contains(@name,"keyword")]/@content
-  - name: _pageTimestamp
-    singleValue: true
   - name: url
-    singleValue: true
-    xpath: //link[@rel="canonical"]/@href
+    singleValue: true 
+    xpath: //link[@rel="canonical"]/@href  
   - name: category
     singleValue: false
+    xpath: //li[@class="breadcrumb-item"][4]/a/text()
   - name: nameExtended
     singleValue: true
-    xpath: //meta[@name="title"]/@content
+    xpath: //div[@class="d-inline-block float-left order-2 order-lg-1"]  
   - name: listPrice
     singleValue: true
-    xpath: //div[@class="wide-6 productInformations offerDetails"]//dd[@class="listPrice"]
   - name: price
     singleValue: true
-    xpath: //div[@class="wide-6 productInformations offerDetails"]//dd[@class="yourPrice"]
+    xpath: //div[@class="text-right price-container"]/span/text()  
   - name: availabilityText
     singleValue: true
+    xpath: //span[@class="text-success"]/span[1]  
+    regExp: (.+)
+    regExpReplace: In Stock
+    defaultValue: Out of Stock
   - name: description
-    singleValue: true
-    xpath: //dd[@class='productLongDescription']/p/font[1]/font/text()
+    singleValue: false
+    xpath: //div[@class="productdesc-content"]/p[1]  
   - name: descriptionBullets
     singleValue: true
+    type: NUMBER
   - name: brandText
     singleValue: true
-    xpath: //dd[@class="producer brand"]/font/font/text()
+    xpath: //td[@class="text-right"]/a/text()  
   - name: manufacturer
     singleValue: true
-    xpath: 
   - name: quantity
     singleValue: true
-    xpath: //dd[@class="packageSize"]
+    xpath: //div[@class="price-conditions-container"]/div/table[@class="w-100 table table-hover mb-o"]/tbody/tr[1]/td/label/div
   - name: weightNet
     singleValue: true
   - name: weightGross
     singleValue: true
   - name: gtin
     singleValue: true
+    xpath: //table[@class="table mb-0"]//tbody//tr//th[contains(text(),'EAN nummer')]/following-sibling::td
   - name: sku
     singleValue: true
+    xpath: //div[@class="productdetails-content"]/div/div[1]/table/tbody/tr[1]/td
   - name: variantId
     singleValue: true
   - name: mpc
     singleValue: true
+    xpath: //table[@class="table mb-0"]/tbody/tr/th[contains(text(),'Producentvarenr.')]/following-sibling::td
   - name: packSize
     singleValue: true
-    xpath: //dd[@class="packageSize"]/font/font/text()
   - name: legalDisclaimer
-    singleValue: false
+    singleValue: true
   - name: directions
-    singleValue: false
+    singleValue: true
   - name: warnings
     singleValue: true
   - name: ratingCount
     singleValue: true
-    xpath: //span[@itemprop="reviewCount"]
+    xpath: //div[@id="productreviews"]/div/div/h4
+    type: NUMBER
   - name: aggregateRatingText
     singleValue: true
   - name: aggregateRating
     singleValue: true
-    xpath: //span[@class="rank"]/font[1]/font/text()
     type: NUMBER
   - name: shippingInfo
     singleValue: true
@@ -87,17 +88,18 @@ fields:
     singleValue: true
   - name: variantCount
     singleValue: true
+    xpath: //div[@class="dropdown w-100 variant-dropdown"]/button
+    type: NUMBER
   - name: color
     singleValue: true
   - name: colorCode
     singleValue: true
   - name: manufacturerDescription
-    singleValue: true
+    singleValue: false
   - name: manufacturerImages
-    singleValue: true
+    singleValue: false
   - name: videos
-    singleValue: true
-    xpath: //meta[@property="og:video"]/@content
+    singleValue: false
   - name: name
     singleValue: true
-    xpath: //h1[@itemprop="name"]/font/font/text()
+    xpath: //h1[@class="h3"]
