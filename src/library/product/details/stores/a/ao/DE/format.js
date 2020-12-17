@@ -50,6 +50,13 @@ const transform = (data, context) => {
           });
           row.manufacturerDescription = [{ text }];
         }
+
+        if (row.mpc) {
+          let text = '';
+          text = row.mpc[0].text.split('_')[0];
+          row.mpc = [{ text }];
+        }
+
         row = clean(row);
       } catch (exception) {
         console.log(exception);
