@@ -77,7 +77,7 @@ fields:
   #   regExpReplace: 
   - name: variantId
     singleValue: false
-    xpath: //div[@class='detail-navigation-section--specification-item']//div[contains(text(),'Numéro d’article')]/following-sibling::div    
+    xpath: (//div[@class='detail-navigation-section--specification-item']//div[contains(text(),'Artikelnummer')]/following-sibling::div)[1]
   - name: variantCount
     singleValue: false    
     defaultValue: '0'
