@@ -18,6 +18,12 @@ dependencies,
 ) {
 const { transform } = parameters;
 const { productDetails } = dependencies;
+await context.setBlockAds(false);
+await context.setLoadAllResources(true);
+await context.setLoadImages(true);
+await context.setJavaScriptEnabled(true);
+await context.setAntiFingerprint(false);
+await context.setUseRelayProxy(false);
 await context.evaluate(async function () {
 function addHiddenDiv(id, content, index) {
 const newDiv = document.createElement('div');
