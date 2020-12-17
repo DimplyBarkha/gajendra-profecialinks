@@ -6,14 +6,14 @@ fields:
   - name: image
     singleValue: true
     description: URL of the main product image
-    xpath: //div[@id="productImage"]
+    xpath: //div[@id="productImage"] | (//div[@class="amp-zoom-overflow"]//img/@src)[1] | //li[contains(@class,"border")]//img/@src | (//div[@id="secondaryImagesText"])[1]
   - name: imageAlt
     singleValue: true
     description: Alt text of the main product image
   - name: alternateImages
     singleValue: false
     description: Other product images (not in manufacturer description)
-    xpath: //div[@id="secondaryImagesText"]
+    xpath: //div[@id="secondaryImagesText"][position()>1] | //li[contains(@class,"border")][position()>1]//img/@src
   - name: metaKeywords
     singleValue: true
     description: The <meta> keywords content
@@ -73,7 +73,7 @@ fields:
   - name: sku
     singleValue: true
     description: The store-specific product identifier
-    xpath: //div[@id="microdata"]/div/meta[@itemprop="sku"]/@content
+    xpath: (//div[@id="microdata"]/div/meta[@itemprop="sku"]/@content)[1]
   - name: variantId
     singleValue: true
     description: Identifier for a variant from a store where variants share the same sku
@@ -500,3 +500,11 @@ fields:
     xpath: //div[contains(@id,"recs")]//div[contains(@class,'banner')]
   - name: hasComparisonTable
     defaultValue: No
+  - name: warnings
+    xpath: //li[contains(.,'Warning')]
+    regExp: (.*)Warning\:(.*)
+    regExpReplace: $2
+  - name: videos
+    xpath: (//video//source[@type="video/mp4"]/@src)[1]
+  - name: specifications
+    xpath: //span[@itemprop="description"]
