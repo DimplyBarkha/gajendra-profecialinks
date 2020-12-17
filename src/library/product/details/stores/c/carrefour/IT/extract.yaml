@@ -43,6 +43,7 @@ fields:
     description:
       Product description supplied by website - may be concatenanted from
       multiple places; specifically not the manufacturer description
+    xpath: //div[@id='panel-otherInformation']/p[text() = 'Marketing']/following-sibling::p[1]
   - name: descriptionBullets
     singleValue: true
     description: Number of ul > li tags in the description
