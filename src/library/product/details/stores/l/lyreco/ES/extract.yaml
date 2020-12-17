@@ -62,4 +62,9 @@ fields:
   - name: variantInformation
     singleValue: true
     xpath: //div[@class="product-selector--valueDisplay"]/text()
+  - name: specifications
+    singleValue: true
+    xpath: //section[@id="specification"]//div[@class="container px-0"]/div/p/span/text()
+    
+    
     

@@ -37,6 +37,13 @@ module.exports = {
           addElementToDocument('sec_img', sec[i].slice(95,-3));
         }
       }
+      var spec = getAllXpath('/section[@id="specification"]//div[@class="container px-0"]/div/p/span/text()', 'nodeValue');
+        if(spec != null){
+          var srr = "";
+          for(var i=0; i<spec.length; i++){
+            srr = srr + spec[i].trim() + spec[i+1].trim() + " || "
+          }
+        }
     });
     await context.extract(productDetails);
   },
