@@ -19,8 +19,11 @@ module.exports = {
     goto: 'action:navigation/goto',
     createUrl: 'action:product/details/createUrl',
     productDetails: 'extraction:product/details/stores/${store[0:1]}/${store}/${country}/extract',
+    helperModule: 'module:helpers/helpers',
   },
   implementation: async ({ parentInput }, { country, domain, transform: transformParam }, context, dependencies) => {
+    const { helperModule: { Helpers } } = dependencies;
+    const helper = new Helpers(context);
     await context.addToDom('added-parentInput', parentInput);
 
     await context.click('//span[@class="button-wrapper" and contains(text(),"Show delivery")]')
@@ -83,7 +86,8 @@ module.exports = {
           if (marketingIframe) marketingIframe.scrollIntoView();
         }, aplusSelector);
         // wait for iframe to load
-        await waitingLoop(60, 'body > div', aplusSelector);
+        await helper.waitForInDifferentContext('body > div', aplusSelector, 30000);
+        await helper.waitForFrameToLoad(aplusSelector, 10000);
       })
       .then(async () => context.evaluate(async (selector) => {
         function addHiddenDiv (id, content) {

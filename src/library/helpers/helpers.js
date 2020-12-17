@@ -4,7 +4,7 @@
 //at the bottom of the file, add the following in the module.exports object:
 dependencies: {
     productDetails: 'extraction:product/details/stores/${store[0:1]}/${store}/${country}/extract',
-    helperModule: 'module:helper/helpers,
+    helperModule: 'module:helpers/helpers',
   },
 
 // within the code of your implementation add the following
@@ -12,13 +12,12 @@ const { Helpers } = require('../../../../../../helpers/helpers') // make sure th
 
 //inside the implementation function
   const { helperModule: { Helpers } } = dependencies;
-  const helper = new Helpers(context)
+  const helper = new Helpers(context);
 
   // you can now use any of the function like that
   helper.function()
 
 */
-
 
 module.exports.Helpers = class {
   constructor (context) {
@@ -149,8 +148,11 @@ module.exports.Helpers = class {
   }
 
   // Function which allows to wait for an element within an iframe or a shadowroot
-  async waitForInDifferentContext (limit, selector, documentSelector) {
+  async waitForInDifferentContext (selector, documentSelector, options) {
+    const { timeout = Number(options) ? options : 500 } = options || {};
     console.log('..waitForLoader..:', documentSelector);
+    const waitingTime = 500;
+    const limit = Math.ceil(timeout / waitingTime);
     const rootIsThere = await this.context.evaluate((docSel) => {
       const docOrIframe = document.querySelector(docSel);
       const doc = docOrIframe.contentDocument || docOrIframe.shadowRoot || docOrIframe;
@@ -164,20 +166,40 @@ module.exports.Helpers = class {
       console.log('Root document for waiting loop is not there.');
       return false;
     }
-    let timer = 0;
+    let loopCounter = 0;
     let isThere = false;
-    while (timer < limit && !isThere) {
-      console.log('waiting !!!! ');
-      timer++;
+    while (loopCounter < limit && !isThere) {
+      loopCounter += 1;
       isThere = await this.context.evaluate(([sel, docSel]) => {
         const docOrIframe = document.querySelector(docSel);
         const doc = docOrIframe.contentDocument || docOrIframe.shadowRoot || docOrIframe;
         console.log(`Checking if the following selector is there: ${sel}`);
         return !!doc.querySelector(sel);
       }, [selector, documentSelector]);
-      await new Promise(resolve => setTimeout(resolve, 500));
+      await new Promise(resolve => setTimeout(resolve, waitingTime));
     }
     console.log(`The wait for selector ${selector} within context ${documentSelector} returned ${isThere}`);
     return isThere;
   };
+
+  // Check if an iframe fully loaded
+  async waitForFrameToLoad (selector, options) {
+    const { timeout = Number(options) ? options : 500, selectorType: type = 'css' } = options || {};
+    if (!this.checkSelector(selector, type)) return false;
+    const waitingTime = 500;
+    const limit = Math.ceil(timeout / waitingTime);
+    let loopCounter = 0;
+    let isLoaded = false;
+    while (loopCounter < limit && !isLoaded) {
+      loopCounter += 1;
+      isLoaded = await this.context.evaluate((sel) => {
+        const docOrIframe = document.querySelector(sel);
+        const doc = docOrIframe.contentDocument || docOrIframe; // does not support shadowRoot
+        return doc.readyState === 'complete';
+      }, selector);
+      console.log(`Checking if the following frame selector is loaded: ${selector}, -> ${isLoaded}`);
+      await new Promise(resolve => setTimeout(resolve, waitingTime));
+    }
+    return isLoaded;
+  }
 };
