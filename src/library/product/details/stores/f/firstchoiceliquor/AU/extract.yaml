@@ -22,7 +22,7 @@ fields:
     singleValue: false  
   - name: image
     singleValue: false 
-    xpath: //div[@class="image-container  "]//a[@id="sku_gallery"]/@href
+    xpath: //meta[@property="og:image"]/@content
   - name: alternateImages
     singleValue: false 
     xpath: //div[(contains(@class,'sku-thumbnail-row'))]//a[not(contains(position(),1))]//img/@src
