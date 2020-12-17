@@ -11,13 +11,14 @@ fields:
     singleValue: true
     description: Alt text of the main product image
     xpath: //div[contains(@class,'image-viewer-hero-wrapper d-flex flex-row align-items-center justify-content-center dcsg-card')]//picture//img/@alt
-  - name: alternateImages
+  - name: shownImages
     singleValue: false
     description: Other product images (not in manufacturer description)
-    xpath: //div[contains(@class,'col-12 ng-star-inserted')]//picture
+    xpath: //div[@class='image-viewer-swatch-wrapper dcsg-card']//picture/source/@srcset
   - name: metaKeywords
     singleValue: true
     description: The <meta> keywords content
+    xpath: //meta[@name='keywords']/@content
   - name: category
     singleValue: false
     description: The categories (e.g. from breadcrumbs)
@@ -219,6 +220,7 @@ fields:
   - name: featureBullets
     singleValue: false
     description: null
+    xpath: //div[contains(@class,'product-component')]//ul[1]
   - name: otherSellersName
     singleValue: false
     description: null
