@@ -25,6 +25,8 @@ async function implementation(inputs, parameters, context, dependencies) {
     await context.evaluate(async() => {
         await new Promise((resolve, reject) => setTimeout(resolve, 3000));
         //await context.waitForSelector('img.c-image-gallery__img')
+        let sku = window.location.href.split('_')[1].split('/')[0]
+        document.head.setAttribute('sku', sku)
 
         function addElementToDocument(id, value, key) {
             const catElement = document.createElement('div');
