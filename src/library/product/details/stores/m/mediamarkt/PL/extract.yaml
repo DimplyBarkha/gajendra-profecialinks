@@ -14,11 +14,13 @@ fields:
     regExp: (.+)
     regExpReplace: https://www.youtube.com/embed/$1
   - name: category
-    xpath: //div[@class='m-breadcrumb']/ul/li[position()>2]/a/span
+    xpath: //div[@class='m-breadcrumb']/ul/li[position()>1]/a/span
   - name: nameExtended
     xpath: //h1[contains(@class,"Title")]
   - name: price
-    xpath: //div[contains(@class,"contentSide")]//div[@itemprop="price"]
+    xpath: //meta[@itemprop="price"]/@content
+    regExp: (.+)
+    regExpReplace: $1 PLN
   - name: availabilityText
     xpath: //form[contains(@class, 'no-notify')]//p[@class='m-productUnavail_headerTitle']
     regExp: (.+)
@@ -92,3 +94,5 @@ fields:
     xpath: //div[contains(@class,'description-product')]
   - name: galleryVideos
     xpath: //ul[contains(@id,"js-ytGallery")]/li/@data-video
+    regExp: (.+)
+    regExpReplace: https://www.youtube.com/watch?v=$1
