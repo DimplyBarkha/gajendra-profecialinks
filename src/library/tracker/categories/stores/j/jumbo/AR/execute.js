@@ -5,7 +5,7 @@ module.exports = {
     country: 'AR',
     store: 'jumbo',
     domain: 'jumbo.com.ar',
-    loadedSelector: null,
+    loadedSelector: 'div[class="subitem"]>div>div[class="item"]',
     noResultsXPath: null,
     zipcode: '',
   },

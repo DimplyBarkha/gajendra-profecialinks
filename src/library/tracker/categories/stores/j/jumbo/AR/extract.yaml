@@ -1,13 +1,13 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: null
+recordXPath: //div[@class="subitem"]/div/div[@class="item"] | //div[@class="item category"][div[@class="subitem"]/div[@class="no-results"]]
 fields:
   - name: category
     singleValue: false
     description: name of the category
-    xpath: null
+    xpath: //div[@class="subitem"]/div/div[@class="item"]/a/span | //div[@class="item category"][div[@class="subitem"]/div[@class="no-results"]]/a/span
   - name: categoryUrl
     singleValue: false
     description: url of the category
-    xpath: null
+    xpath: //div[@class="subitem"]/div/div[@class="item"]/a/@href | //div[@class="item category"][div[@class="subitem"]/div[@class="no-results"]]/a/@href
