@@ -1,6 +1,6 @@
 
 
-const { transform } = require('../../../../shared');
+const { cleanUp } = require('../../../../shared');
 
 async function implementation(inputs, parameters, context, dependencies) {
   const { transform } = parameters;
@@ -27,9 +27,15 @@ async function implementation(inputs, parameters, context, dependencies) {
     } else {
       addElementToDocument('isAvailable', '', 'No');
     }
+
   });
 
-  return await context.extract(productDetails, { transform });
+  // return await context.extract(productDetails, { transform });
+  const dataRef = await context.extract(productDetails, { transform });
+  if (dataRef[0].group[0].caloriesPerServing[0].text === "") {
+    delete dataRef[0].group[0].caloriesPerServing;
+  }
+  return dataRef;
 };
 
 module.exports = {
@@ -37,7 +43,7 @@ module.exports = {
   parameterValues: {
     country: 'UK',
     store: 'morrisons',
-    transform: transform,
+    transform: cleanUp,
     domain: 'groceries.morrisons.com',
     zipcode: '',
   },

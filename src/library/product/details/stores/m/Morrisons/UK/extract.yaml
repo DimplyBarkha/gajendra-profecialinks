@@ -75,7 +75,7 @@ fields:
   singleValue: true
   description: Product manufacturer
 - name: quantity
-  regExp: (\d{1,})+.+\s(pack)
+  regExp: (\d{1,}.\d{1,}+g|kg|\d{1,}+g|kg|pack)
   xpath: //header[@class="bop-title"]//span[@class="bop-catchWeight"]
   singleValue: true
   description: Quantity as described on the page
@@ -113,12 +113,12 @@ fields:
   singleValue: true
   description: Content under "legal disclaimer" header
 - name: directions
-  xpath: //div[@class='gn-content bop-info__field'][2]/h6[contains(text(), "Usage")]/following-sibling::div
+  xpath: //div[@class='gn-content bop-info__field']/h6[contains(text(), "Usage")]/following-sibling::div
   singleValue: true
   description: Content under "directions" header
 - name: warnings
-  xpath: //div[contains(text(), "Warning")]
-  singleValue: true
+  xpath: //div[@class="bop-info__content"]/text()[starts-with(.,"Safety Warning")]/following-sibling::text()[1]
+  singleValue: false
   description: Content under "warnings" header
 - name: ratingCount
   xpath: //span[@class="gn-rating__voteCount gn-content__paragraph--small"]
@@ -281,8 +281,8 @@ fields:
   singleValue: true
   description: Suggested number of servings of the product.
 - name: caloriesPerServing
-  xpath: //td[contains(text(), "Energy")]/following::td
-  regExp: (\d+kcal)
+  # xpath: concat(//td[contains(text(), "Energy")]/following::td[1],"/", //tr[./td[contains(text(), "Energy")]]/following-sibling::tr[1]/td[starts-with(text(),"kcal") or starts-with(text(), "") and not(starts-with(text(), "Fat"))]/following-sibling::td[1])
+  xpath: concat(//td[contains(text(), "Energy")]/following::td[1],//a[@href="/"][//body//tr[./td[contains(text(), "Energy")]]/following-sibling::tr[1]/td[1][.=""]/following-sibling::td[1]]/@href,//tr[./td[contains(text(), "Energy")]]/following-sibling::tr[1]/td[1][.=""]/following-sibling::td[1])
   singleValue: true
   description: Nutritional Information for Calories Per Serving content - Usually
     based on per 100g serving
@@ -291,12 +291,12 @@ fields:
   description: Nutritional Information for Calories From Fat content - Usually based
     on per 100g serving
 - name: totalFatPerServing
-  xpath: //td[contains(text(), "Fat")]/following-sibling::td
+  xpath: //td[contains(text(), "Fat")]/following-sibling::td[1]|//td[contains(text(), "FAT")]/following-sibling::td[1]
   singleValue: true
   description: Nutritional Information for Total Fat content - Usually based on per
     100g serving
 - name: totalFatPerServingUom
-  xpath: //td[contains(text(), "Fat")]/following-sibling::td
+  xpath: //td[contains(text(), "Fat")]/following-sibling::td[1]|//td[contains(text(), "FAT")]/following-sibling::td[1]
   regExp: \D$
   singleValue: true
   description: Unit of Measure Data for Total Fat content
@@ -352,12 +352,12 @@ fields:
   singleValue: true
   description: Unit of Measure Data for Dietary Fibre content
 - name: totalSugarsPerServing
-  xpath: //td[contains(text(), "ugars")]/following-sibling::td
+  xpath: //td[contains(text(), "ugars")]/following-sibling::td|//td[contains(text(), "ugar")]/following-sibling::td
   singleValue: true
   description: Nutritional Information for Total Sugar content - Usually based on
     per 100g serving
 - name: totalSugarsPerServingUom
-  xpath: //td[contains(text(), "ugars")]/following-sibling::td
+  xpath: //td[contains(text(), "ugars")]/following-sibling::td|//td[contains(text(), "ugar")]/following-sibling::td
   regExp: \D$
   singleValue: true
   description: Unit of Measure Data for Total Sugar content
@@ -453,6 +453,7 @@ fields:
   singleValue: true
   description: The country from which the product originates
 - name: allergyAdvice
+  xpath: //h6[text()="Dietary Information"]/following-sibling::div
   singleValue: true
   description: Allergy information associated with the product
 - name: recyclingInformation
@@ -488,9 +489,7 @@ fields:
   description: promotion text on product page
 - name: alcoholContent
   xpath: //h6[contains(text(), "ABV")]/following-sibling::div
-  regExp: (.+)
-  regExpReplace: $1%
-  singleValue: true
+  singleValue: false
   description: Alcohol content information
 - name: newVersion
   singleValue: true
