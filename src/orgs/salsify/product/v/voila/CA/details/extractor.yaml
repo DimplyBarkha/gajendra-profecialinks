@@ -2,8 +2,11 @@ robot: product/details
 parameters:
   country: CA
   domain: voila.ca
-  store: voiila
+  store: voila
   zipcode: ""
+extractionGlobals:
+  screenCapture: true
+  screenCaptureType: 'png'
 meta:
   branches:
     salsify-voiila-CA-core:

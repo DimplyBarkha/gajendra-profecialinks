@@ -3,10 +3,17 @@ regionsSelector: null
 recordSelector: null
 recordXPath:  null
 fields:
+  - name: servingSize
+    singleValue: false
+    xpath: //h2[contains(text(),"Nutritional Information")]/following-sibling::div[1]/text()
+    regExp: (per\s)(.+)
+    regExpReplace: $2
   - name: shownImages
     xpath: //a[@class='image']/@href
   - name: nameExtended
     xpath: //h1[not(contains(text(),"Page not found"))]
+  - name: ingredientsList
+    xpath: //body//@ingredients
   - name: price
     xpath: //div[contains(@class,'box__Box')]//span[contains(text(),'$')]
   - name: availabilityText
@@ -28,3 +35,6 @@ fields:
     xpath: //h2[contains(text(),"Nutritional Information")]/following-sibling::div[1]
   - name: highQualityImages
     xpath: //a[@class='image']/@href
+  - name: featureBullets
+    singleValue: false
+    xpath: //table//tr[@class="bullets"]/@bullets

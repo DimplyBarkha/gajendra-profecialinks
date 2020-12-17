@@ -5,6 +5,6 @@ module.exports = {
     domain: 'voila.ca',
     url: 'https://voila.ca/products/{id}/details',
     country: 'CA',
-    store: 'voiila',
+    store: 'voila',
   },
 };

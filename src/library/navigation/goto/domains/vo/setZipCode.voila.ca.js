@@ -4,7 +4,7 @@ module.exports = {
   parameterValues: {
     country: 'CA',
     domain: 'voila.ca',
-    store: 'voiila',
+    store: 'voila',
     zipcode: '',
   },
 };
