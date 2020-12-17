@@ -4,7 +4,7 @@ module.exports = {
   parameterValues: {
     domain: 'docmorris.de',
     prefix: null,
-    suffix: null,
+    suffix: 'navigation',
     subdomain: null,
     url: null,
     country: 'DE',
