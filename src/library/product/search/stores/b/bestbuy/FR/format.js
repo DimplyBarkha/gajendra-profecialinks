@@ -45,7 +45,7 @@ const transform = (data) => {
         let idStrAr=tmpImgUrlStr.split('.');
         row.id=[{"text":idStrAr[0]}];
       }else{
-        row.productUrl=[{"text":"https://www.bestbuy.ca/"+tmpProductURL}];
+        row.productUrl=[{"text":"https://www.bestbuy.ca"+tmpProductURL}];
       }
 
       row.rank = [{ "text": rank }];
