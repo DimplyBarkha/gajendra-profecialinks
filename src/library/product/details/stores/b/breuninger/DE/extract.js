@@ -59,7 +59,7 @@ module.exports = {
     await context.evaluate(async () => {
       await new Promise((resolve) => setTimeout(resolve, 5000));
 
-      async function infiniteScroll () {
+      async function infiniteScroll() {
         let prevScroll = document.documentElement.scrollTop;
         while (true) {
           window.scrollBy(0, document.documentElement.clientHeight);
@@ -180,23 +180,25 @@ module.exports = {
     // await context.extract(productDetails, { transform });
     await new Promise((resolve, reject) => setTimeout(resolve, 2000));
 
-    async function addHiddenInfo (elementID, content) {
-      await context.evaluate(async function (elementID, content) {
-        const newDiv = document.createElement('div');
-        newDiv.id = elementID;
-        newDiv.textContent = content;
-        newDiv.style.display = 'none';
-        document.body.appendChild(newDiv);
-      }, elementID, content);
+    async function addHiddenInfo(elementID, content, contentArr = []) {
+      await context.evaluate(async function (elementID, content, contentArr) {
+        if (contentArr.length == 0)
+          contentArr.push(content);
+        contentArr.forEach((element) => {
+          const newDiv = document.createElement('div');
+          newDiv.id = elementID;
+          newDiv.textContent = element;
+          newDiv.style.display = 'none';
+          document.body.appendChild(newDiv);
+        });
+      }, elementID, content, contentArr);
     }
-    inBoxUrls.forEach((element) => {
-      addHiddenInfo('ii_inBoxUrls', element);
-    });
-    addHiddenInfo('ii_comparisionText', comparisionText ? 'Yes' : 'No');
+    addHiddenInfo('ii_inBoxUrls', "", inBoxUrls);
 
-    inBoxText.forEach((element) => {
-      addHiddenInfo('ii_inBoxText', element);
-    });
+    addHiddenInfo('ii_comparisionText', comparisionText ? 'Yes' : 'No');
+    console.log('inBoxText');
+    console.log(inBoxText);
+    addHiddenInfo('ii_inBoxText', "", inBoxText);
 
     addHiddenInfo('ii_manufContent', content);
     if (image && image.length) {
