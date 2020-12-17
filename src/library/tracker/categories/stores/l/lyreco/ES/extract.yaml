@@ -1,0 +1,13 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: //ul[contains(@class, "navbar-nav js-categories-menu dropdown-menu category megasubmenu")]//li/a
+fields:
+  - name: category
+    singleValue: false
+    description: name of the category
+    xpath: //text()
+  - name: categoryUrl
+    singleValue: false
+    description: url of the category
+    xpath: //@href
