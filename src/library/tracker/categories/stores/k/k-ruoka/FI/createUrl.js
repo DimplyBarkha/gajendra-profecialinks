@@ -4,7 +4,7 @@ module.exports = {
   parameterValues: {
     domain: 'k-ruoka.fi',
     prefix: null,
-    suffix: '/kauppa/tuotteet',
+    suffix: 'kauppa/tuotehaku',
     subdomain: null,
     url: null,
     country: 'FI',

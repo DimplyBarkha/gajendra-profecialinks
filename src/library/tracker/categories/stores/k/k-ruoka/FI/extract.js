@@ -11,7 +11,10 @@ module.exports = {
   implementation: async (inputs, properties, context, dependencies) => {
     const { productMenu } = dependencies;
 
-    await context.evaluate(async () => {
+    await context.evaluate(async () => {   
+      const buttonsContainer = document.querySelector('.buttons-container');
+      buttonsContainer.lastElementChild.click();
+
       const categories = document.querySelectorAll('ul.product-category-list > li');
       categories.forEach((category) => {
         let categoryUrl = category.firstChild.href;
