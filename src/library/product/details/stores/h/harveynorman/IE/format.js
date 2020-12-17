@@ -23,7 +23,70 @@ const transform = (data) => {
       return data;
     };
     for (const { group } of data) {
-      for (let row of group) {               
+      for (let row of group) { 
+        if(row.image){
+          row.image.forEach(item=>{
+              item.text = "https:" + item.text;
+          })
+        }
+        if(row.alternateImages){
+          row.alternateImages.forEach(item=>{
+              item.text = "https:" + item.text;
+              var str = item.text
+              str = str.replace("=150","=833");
+              item.text = str.replace("=100","=555");
+          })
+        }
+        if(row.description) {
+          var arr1 = [];
+          var join1 = " || ";
+          row.description.forEach(item=>{
+              arr1.push(item.text);
+          })
+          var description1 = arr1.join(" || ");
+          row.description = [{"text":join1 + description1}];
+        }
+        if(row.price) {
+          var arr2 = [];
+          row.price.forEach(item=>{
+              arr2.push(item.text);
+          })
+          row.price = [{"text":arr2.join(" ")}];
+        }
+        if(row.listPrice) {
+          var arr3 = [];
+          row.listPrice.forEach(item=>{
+              arr3.push(item.text);
+          })
+          row.listPrice = [{"text":arr3.join(" ")}];
+        }
+        if(row.specifications){
+          let no=0,inf=[],tmp;
+          row.specifications.forEach(item=>{
+            if(no==0){
+              tmp=item.text;
+              no=1
+            }else if(no==1){
+              tmp=tmp+" : "+item.text;
+              inf.push(tmp);tmp='';no=0;
+            }
+          })
+          row.specifications=[{"text":inf.join(' || ')}];
+        }
+        if(row.manufacturerDescription) {
+          var parray = [];
+          var joiner = " || ";
+          row.manufacturerDescription.forEach(item=>{
+            parray.push(item.text);
+          })
+          var mdescription = parray.join(" || ");
+          row.manufacturerDescription = [{"text":joiner + mdescription}];
+        }
+        if(row.manufacturerImages){
+          row.manufacturerImages.forEach(item=>{
+              item.text = "https:" + item.text;
+          })
+        }          
       }
     }
     return cleanUp(data);
