@@ -1,0 +1,150 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: image
+    singleValue: true
+    xpath: (//div[@class="product-pics__container"]//img/@src)[1]
+    description: URL of the main product image
+  - name: imageAlt
+    singleValue: true
+    xpath: (//div[@class="product-pics__container"]//img/@alt)[1]
+    description: Alt text of the main product image
+  - name: alternateImages
+    singleValue: false
+    xpath: //ul[@class='pics-slider__thumbnails']//li[position()>1]//img/@src
+    description: Other product images (not in manufacturer description)
+  - name: metaKeywords
+    singleValue: true
+    xpath: //meta[@name='keywords']/@content
+    description: The <meta> keywords content
+  - name: category
+    singleValue: false
+    xpath: //ul[@class="breadcrumb__list"]/li[position()>1 and position()<last()]
+    description: The categories (e.g. from breadcrumbs)
+  - name: nameExtended
+    singleValue: true
+    xpath: //h1[@class="product-header__name"]
+    description: The product name, prefixing "${brand} - " if not included in "name"
+      and appending " - ${variantType}" if necessary (fixed per feed)
+  - name: listPrice
+    singleValue: true
+    xpath: //span[contains(@class,'buybox__price-strikethrough')]
+    description: The stated undiscounted price for the product
+  - name: price
+    singleValue: true
+    xpath: //span[@class="buybox__price"] | //span[@class="buybox__price--current"]
+    description: The offered price for the selected product variant - if a user
+      clicks add to basket this is the price they would be charged
+  - name: availabilityText
+    description: Availability as described on page for the selected variant. If
+      there is no availability but the product can be added to cart, this field
+      should be "In Stock"
+    xpath: //button[@class="add-to-cart-button__full-button add-to-cart-button__button"]
+    regExp: (.+)
+    regExpReplace: In Stock
+    defaultValue: Out of Stock
+  - name: description
+    singleValue: false
+    xpath: //p[contains(@class,'product-details__text')]
+    description: Product description supplied by website - may be concatenanted from
+      multiple places; specifically not the manufacturer description
+  - name: weightNet
+    singleValue: true
+    xpath: //dt[contains(@class,'product-details__content-title') and contains(.,'Peso')]/following-sibling::dd[1]
+    description: Net weight as described on the page
+  - name: weightGross
+    singleValue: true
+    xpath: //dt[contains(@class,'product-details__content-title') and contains(.,'Peso del producto con caja')]/following-sibling::dd[1]
+    description: Gross weight as described on the page
+  - name: gtin
+    singleValue: true
+    xpath: //script[@data-flix-language='es']/@data-flix-ean
+    description: GTIN code (includes UPC/EAN)
+  - name: sku
+    singleValue: true
+    xpath: //script[@data-flix-language='es']/@data-flix-sku
+    description: The store-specific product identifier
+  - name: variantId
+    singleValue: true
+    xpath: //link[@rel="canonical"]/@href
+    description: Identifier for a variant from a store where variants share the same sku
+  # - name: mpc
+  #   singleValue: true
+  #   xpath: //script[@data-flix-language='es']/@data-flix-brand
+  #   description: The manufacturer model code (unique) of the product
+  # - name: legalDisclaimer
+  #   singleValue: true
+  #   xpath: //div[contains(@class,'footnotes')]
+  #   description: Content under "legal disclaimer" header
+  - name: warnings
+    singleValue: true
+    description: Content under "warnings" header
+  # - name: ratingCount
+  #   singleValue: true
+  #   xpath: //span[contains(@class,'stars-rate-extended__reviews')]
+  #   description: The number of ratings
+  # - name: aggregateRating
+  #   singleValue: true
+  #   description: The stated aggregate rating normalized to be out of 5
+  - name: shippingInfo
+    singleValue: false
+    xpath: //div[contains(@class,'buybox__seller-section')]//span[contains(@class,'buybox__seller-type') or contains(@class,'buybox__seller-name')]
+    description: Shipping information for the product
+  - name: shippingWeight
+    singleValue: true
+    xpath: //dt[contains(@class,'product-details__content-title') and contains(.,'Peso del producto con caja')]/following-sibling::dd[1]
+    description: Stated shipping weight
+  - name: variantCount
+    singleValue: false
+    description: Number of variants listed
+    defaultValue: '0'
+  - name: color
+    singleValue: true
+    xpath: //dt[contains(@class,'product-details__content-title') and contains(.,'Color')]/following-sibling::dd[1]
+    description: A textual description of the colour
+  - name: manufacturerDescription
+    singleValue: false
+    # xpath: //div[contains(@id,'inpage_container')]
+    xpath: //div[@id='manufacturerDesc']
+    description: The extended description of the product supplied by the lister
+  - name: manufacturerImages
+    singleValue: false
+    xpath: //div[@id='ii_aplusImages']
+    description: Images within the third party description
+  - name: videos
+    singleValue: false
+    xpath: //div[contains(@class,'fullJwPlayerWarp') and contains(@class,'fullPlaylist')]/input/@value
+    description: URLs of videos on page
+  - name: name
+    singleValue: true
+    xpath: //h1[@class="product-header__name"]
+    description: The product name
+  - name: lbb
+    singleValue: true
+    xpath: //span[contains(@class,'buybox__seller-name')]
+    description: Check Lost by Box Requirements (just for Amazon and a couple of
+      other stores) - LBB occurs when a product is bought from someone other
+      than Amazon (on Amazon Website) - even though Amazon has the product "in
+      Stock"
+  - name: lbbPrice
+    singleValue: true
+    xpath: //span[contains(@class,'buybox__price')]
+    description: null
+  - name: specifications
+    singleValue: false
+    xpath: //p[contains(@class,'product-details__section-title')]/following-sibling::dl[1]//*
+    description: The physical dimensions of the product including packaging.
+  - name: warranty
+    singleValue: true
+    description: Guarantee associated with the product
+  # - name: productOtherInformation
+  #   singleValue: false
+  #   xpath: //div[contains(@class,'product-details__feature-container')]/dl[position()>1]//*
+  #   description: Any other product information
+  - name: brandText
+    singleValue: true
+    xpath: //h1[@class="product-header__name"]
+    description: Product brand shown - this may actually NOT be just a brand name,
+      e.g. "Visit the Gillette Store"
