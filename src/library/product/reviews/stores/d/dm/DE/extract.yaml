@@ -1,0 +1,84 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: //ol[contains(@class , 'bv-content-list-reviews')]/li
+fields:
+  - name: helpfulCount
+    singleValue: false
+    type: NUMBER
+    description: Number of people who said the review was helpful
+    xpath: //button[contains(@class , 'bv-content-btn-feedback-yes')]
+  - name: commentCount
+    singleValue: false
+    type: NUMBER
+    description: Number of comments on the review
+  - name: brandText
+    singleValue: false
+    description: Product brand shown - this may actually NOT be just a brand name,
+      e.g. "Visit the Gillette Store"
+    xpath: ancestor::html//div[@data-dmid='detail-page-headline-brand-name'] | //div[@id='countryOfOriginText']
+  - name: name
+    singleValue: false
+    description: The product name
+    xpath: ancestor::html//h1[@data-dmid='detail-page-headline-product-title']
+  - name: sku
+    singleValue: false
+    description: The store-specific product identifier
+    xpath: ancestor::html//meta[@itemprop='sku']/@content
+  - name: reviewDate
+    singleValue: false
+    type: DATETIME
+    description: Date the review was made
+    xpath: //meta[@itemprop="datePublished"]/@content
+  - name: reviewRating
+    type: NUMBER
+    singleValue: false
+    description: Rating normalized to be out of 5
+    xpath: //meta[@itemprop="ratingValue"]/@content
+  - name: reviewText
+    singleValue: false
+    description: The text of the review
+    xpath: //div[@class='bv-content-summary-body-text']/p
+  - name: reviewTitle
+    singleValue: false
+    description: The title of the review
+    xpath: //h3[@itemprop="headline"]
+  - name: reviewerTags
+    singleValue: false
+    description: The tags a reviewer has
+  - name: gtin
+    singleValue: false
+    description: GTIN code (includes UPC/EAN)
+    xpath: ancestor::html//meta[@itemprop='gtin13']/@content
+  - name: productUrl
+    singleValue: false
+    description: The url of the product details page
+    xpath: ancestor::html//meta[@property='og:url']/@content
+  - name: verifiedPurchase
+    singleValue: false
+    type: BOOLEAN
+    description: Whether this of an item the reviewer purchased. "Yes" if true else ""
+  - name: manufacturerResponse
+    singleValue: false
+    description: The response of the manufacturer (if any)
+  - name: syndicatedFrom
+    singleValue: false
+    description: Stated place the review was syndicated from
+  - name: reviewUrl
+    singleValue: false
+    description: A direct link to the review
+    xpath: ancestor::html//meta[@property='og:url']/@content
+    regExp: (.+)
+    regExpReplace: $1#review_root
+  - name: reviewedSku
+    singleValue: false
+    description: The SKU of the item that was reviewed (may be different from the
+      sku the review was shown on). 1 if sku == reviewedSku else 0. Get sku
+      value, transform will handle the value.
+    xpath: ancestor::html//meta[@itemprop='sku']/@content
+  - name: user
+    description: The user name of the reviewer
+    xpath: //span[@itemprop="author"]
+  - name: aggregateRating
+    description: The product rating
+    xpath: ancestor::html//div[@class="bv-section-summary"]//div[contains(@class, "bv-secondary-rating-summary")]//div[contains(@class, "bv-secondary-rating-summary-list")]//div[contains(@class, "bv-secondary-rating-summary-stars")]//span[contains(@class, "bv-secondary-rating-summary-rating")]
