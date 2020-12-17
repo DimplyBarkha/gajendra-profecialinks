@@ -19,10 +19,10 @@ fields:
   - name: reviewCount
     singleValue: false
     xpath: //div[@class="tile__product-slide-rating-wrapper"]/e2-rating/@reviews-number
-  - name: aggregateRating
+  - name: aggregateRating2
     singleValue: false
-    type: TEXT
     xpath: //div[@class="tile__product-slide-rating-wrapper"]/e2-rating/@rating
+    # type: NUMBER
   - name: thumbnail
     singleValue: true
     xpath: //a[@class="ClickSearchResultEvent_Class tile__product-slide-link"]/img/@src
