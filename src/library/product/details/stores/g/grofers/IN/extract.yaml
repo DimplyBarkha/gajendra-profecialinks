@@ -23,7 +23,7 @@ fields:
     xpath: //h1[@class='pdp-product__name']
   - name: availabilityText
     singleValue: false
-    xpath: //div[@class='pdp-product']//button[@class='add-to-cart__add-btn']//span[@class='add-to-cart__text' and text()='Add To Cart']
+    xpath: //div[@class='pdp-product']//button[@class='add-to-cart__add-btn']//span[@class='add-to-cart__text' and text()='ADD']
     regExp: (.+)
     regExpReplace: In Stock
     defaultValue: Out of Stock
@@ -62,7 +62,7 @@ fields:
     singleValue: false
   - name: variantCount
     singleValue: false
-    defaultValue: '0'
+    defaultValue: 0
     type: NUMBER
   - name: promotion
     singleValue: false
@@ -90,14 +90,17 @@ fields:
     singleValue: false
     xpath: //div[contains(@class,'pdp-details display--none@mobile')]//span[contains(text(),'Weight')]//parent::div//following-sibling::div[@class='product-attribute__attr--description']
   - name: legalDisclaimer
-    singleValue: false
+    singleValue: true
     xpath: //div[contains(@class,'pdp-details display--none@mobile')]//span[text()='Disclaimer']//parent::div//following-sibling::div[@class='product-attribute__attr--description']
   - name: ingredientsList
     singleValue: false
     xpath: //div[contains(@class,'pdp-details display--none@mobile')]//span[text()='Ingredients']//parent::div//following-sibling::div[@class='product-attribute__attr--description']
   - name: color
-    singleValue: false
+    singleValue: true
     xpath: //div[contains(@class,'pdp-details display--none@mobile')]//span[text()='Colour']//parent::div//following-sibling::div[@class='product-attribute__attr--description']
   - name: shippingDimensions
-    singleValue: false
+    singleValue: true
     xpath: //div[contains(@class,'pdp-details display--none@mobile')]//span[contains(text(),'Dimensions')]//parent::div//following-sibling::div[@class='product-attribute__attr--description'] | concat(//div[contains(@class,'pdp-details display--none@mobile')]//span[contains(text(),'Packed Product Length')]//parent::div//following-sibling::div[@class='product-attribute__attr--description'],'x',//div[contains(@class,'pdp-details display--none@mobile')]//span[contains(text(),'Packed Product Width')]//parent::div//following-sibling::div[@class='product-attribute__attr--description'],'x',//div[contains(@class,'pdp-details display--none@mobile')]//span[contains(text(),'Packed Product Height')]//parent::div//following-sibling::div[@class='product-attribute__attr--description'])
+  - name: quantity
+    singleValue: true  
+    xpath: //*[@class="product-variant__btn pdp-btn product-variant__btn--active"]//text()
