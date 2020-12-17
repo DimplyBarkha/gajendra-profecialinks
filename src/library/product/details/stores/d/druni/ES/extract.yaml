@@ -1,0 +1,57 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: nameExtended
+    singleValue: true
+    xpath: //div[contains(@class,'product-title')]/h1
+  - name: image
+    singleValue: true
+    xpath: (//div[contains(@class,'fotorama__stage__frame')]/img/@src)[1]
+  - name: imageAlt
+    singleValue: true
+    xpath: (//div[contains(@class,'fotorama__stage__frame')]/img/@alt)[1]
+  - name: description
+    singleValue: true
+    xpath: //h2[contains(@class,'description-list-container')]
+  - name: ratingCount
+    singleValue: true
+    xpath: //div[contains(@class, 'reviews-actions')]/a/span
+    regExp: (\d+)
+    regExpReplace: $1
+  - name: briefDescription
+    singleValue: true
+    xpath: //div[contains(@id , 'description')]/div
+  - name: price
+    singleValue: true
+    xpath: //*[@class="product-info-main-head"]//span[contains(@class, 'old-price')]
+  - name: listPrice
+    singleValue: true
+    description: The stated undiscounted price for the product
+    xpath: //*[@class="product-info-main-head"]//span[contains(@class, 'special-price')]
+  - name: aggregateRating
+    singleValue: true
+    xpath: //script[@type="application/ld+json"][contains(text(),"aggregateRating")]
+  - name: secondaryImageTotal
+    singleValue: true
+    xpath: count(//div[contains(@class, 'fotorama__nav__shaft')]/div/div/img/@src)
+  - name: alternateImages
+    singleValue: false
+    xpath: //div[contains(@class, 'fotorama__nav__shaft')]/div/div/img/@src
+  - name: availabilityText
+    singleValue: false
+    xpath: //div[contains(@class , 'box-tocart')]/@class
+  - name: variants
+    singleValue: false
+    xpath: //*[@id='super-product-table']//div[contains(@class ,'product-name-wrapper')]/span[contains(@class,'product-item-name')]
+  - name: variantPrice
+    singleValue: false
+    xpath: //*[@id='super-product-table']//div[contains( @class , 'product-info-price')]/div/div[contains( @class , 'special-old-box')]/span[contains(@class,'special-price')]
+  - name: variantListPrice
+    singleValue: false
+    description: The stated undiscounted price for the product
+    xpath: //*[@id='super-product-table']//div[contains( @class , 'product-info-price')]/div/div[contains( @class , 'special-old-box')]/span[contains(@class,'old-price')]
+  # - name: variantAvailabilityText
+  #   singleValue: false
+  #   xpath: //*[@id='super-product-table']//div[contains(@class , 'box-tocart')]/@class
