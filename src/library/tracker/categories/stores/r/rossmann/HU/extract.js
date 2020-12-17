@@ -24,7 +24,7 @@ module.exports = {
         return newDiv;
       }
       // categories
-      const categories = document.querySelectorAll('li[class="level0"]');
+      const categories = document.querySelectorAll('ol[class="nav-primary"] > li');
 
       categories.forEach((category) => {
         const categoryName = category.querySelector('a').textContent;
