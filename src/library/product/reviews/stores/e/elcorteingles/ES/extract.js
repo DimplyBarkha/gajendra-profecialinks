@@ -8,25 +8,32 @@ async function implementation (
 ) {
   const { transform } = parameters;
   const { productReviews } = dependencies;
+  await new Promise((resolve, reject) => setTimeout(resolve, 3000));
   await context.evaluate(function () {
     const optionalWait = async (sel) => {
       try {
-        await context.waitForSelector(sel, { timeout: 30000 });
+        await context.waitForSelector(sel, { timeout: 60000 });
       } catch (err) {
         console.log(`Couldn't load selector => ${sel}`);
       }
     };
-    const acceptCookies = document.querySelector('a[id="cookies-agree"]');
+    optionalWait('a#cookies-agree-all');
+    const acceptCookies = document.querySelector('a#cookies-agree-all');
     if (acceptCookies) {
       acceptCookies.click();
-      optionalWait('//*[contains(@class, "content-list-reviews")]');
+      optionalWait('meta[itemprop="datePublished"]');
     }
   });
-  try {
-    await context.waitForSelector('//*[contains(@class, "content-list-reviews")]', { timeout: 30000 });
-  } catch (err) {
-    console.log('Couldn\'t load selector => //*[contains(@class, "content-list-reviews")]');
-  }
+
+  await new Promise((resolve, reject) => setTimeout(resolve, 6000));
+  await context.evaluate(function () {
+    const div = document.createElement('div');
+    div.setAttribute('class', 'first-review');
+    div.textContent = document.querySelector('meta[itemprop="datePublished"]')
+      ? document.querySelector('meta[itemprop="datePublished"]').getAttribute('content')
+      : null;
+    document.body.appendChild(div);
+  });
   return await context.extract(productReviews, { transform });
 }
 

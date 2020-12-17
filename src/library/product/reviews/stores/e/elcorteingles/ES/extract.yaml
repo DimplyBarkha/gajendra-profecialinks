@@ -12,7 +12,7 @@ fields:
     singleValue: true
     xpath: ancestor::html//div[@data-product-id]/@data-product-id
   - name: reviewDate
-    xpath: //span[contains(@class, 'content-datetime-stamp')]
+    xpath: //meta[@itemprop="datePublished"]/@content
   - name: reviewRating
   - name: reviewText
     description: The text of the review
