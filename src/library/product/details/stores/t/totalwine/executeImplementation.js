@@ -39,7 +39,7 @@ const implementation = async function (
     }, { timeout: 20000 }, parameters.loadedSelector, parameters.noResultsXPath);
   }
 
-  async function getData (variantUrl) {
+  async function getData(variantUrl) {
     console.log('URL passed - ' + variantUrl);
     const data = await context.evaluate(async function (reqUrl) {
       const response = await fetch(reqUrl, {
@@ -61,8 +61,8 @@ const implementation = async function (
   });
 
   const currentStoreId = await context.evaluate(function () {
-    return document.querySelector('meta[itemprop="branchCode"]') 
-      ? document.querySelector('meta[itemprop="branchCode"]').getAttribute('content') 
+    return document.querySelector('meta[itemprop="branchCode"]')
+      ? document.querySelector('meta[itemprop="branchCode"]').getAttribute('content')
       : null;
   });
 
@@ -74,8 +74,8 @@ const implementation = async function (
     id = id || url.match(/\/p\/(\d+)/)[1];
     if (id) {
     // API call to fetch variants
-      const sku = url.match(/p\/(.+)\?s=/g)[0].replace('?s=', '').replace('p/', '');
-      const storeUniqueId = zipcode === '95825' ? 1108 : url.match(/s=(\d+)/g)[0].replace('s=', '');
+      const sku = url.match(/\/p\/(\d+)/)[1];
+      const storeUniqueId = zipcode === '95825' ? 1108 : url.match(/\/p\/(\d+)/)[1];
       await new Promise((resolve, reject) => setTimeout(resolve, 6000));
       const productDetails = await getData(`https://www.totalwine.com/product/api/product/product-detail/v1/getProduct/${sku}?shoppingMethod=INSTORE_PICKUP&state=US-CA&storeId=${currentStoreId ? currentStoreId : storeUniqueId}`);
       console.log('API call done');
@@ -89,18 +89,20 @@ const implementation = async function (
       }
       await context.evaluate(async function (details) {
         // Add skus to DOM
-        for (let i = 0; i < details.skus.length; i++) {
-          const newDiv = document.createElement('div');
-          console.log('sku id found ' + details.skuId);
-          console.log('sku found ' + JSON.stringify(details.skus[i]));
-          if (details.skuId === details.skus[i].skuId) {
-            newDiv.setAttribute('class', 'currentItemId');
-          } else {
-            newDiv.setAttribute('class', 'itemId');
+        if (details.skus) {
+          for (let i = 0; i < details.skus.length; i++) {
+            const newDiv = document.createElement('div');
+            console.log('sku id found ' + details.skuId);
+            console.log('sku found ' + JSON.stringify(details.skus[i]));
+            if (details.skuId === details.skus[i].skuId) {
+              newDiv.setAttribute('class', 'currentItemId');
+            } else {
+              newDiv.setAttribute('class', 'itemId');
+            }
+            newDiv.textContent = details.skus[i].skuId;
+            newDiv.style.display = 'none';
+            document.body.appendChild(newDiv);
           }
-          newDiv.textContent = details.skus[i].skuId;
-          newDiv.style.display = 'none';
-          document.body.appendChild(newDiv);
         }
       }, productDetails);
     }
