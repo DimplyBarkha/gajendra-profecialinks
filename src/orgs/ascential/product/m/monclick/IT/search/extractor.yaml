@@ -3,7 +3,15 @@ parameters:
   country: IT
   domain: monclick.it
   store: monclick
-  zipcode: ""
+  # zipcode: "45209"
+proxy:
+  zone: ITA
+  type: DATA_CENTRE
+  numberRetries: 3
+  priority: MEDIUM
+  retryDelay: 120 
+  backoffPolicy: EXPONENTIAL
+  retryWithResidentialProxyAfter: 3
 meta:
   branches:
     devmonclick:
