@@ -4,7 +4,7 @@ module.exports = {
   parameterValues: {
     country: 'UK',
     store: 'cromwell',
-    nextLinkSelector: 'a.linkNext',
+    nextLinkSelector: 'li[class=""] a.linkNext',
     mutationSelector: null,
     spinnerSelector: null,
     loadedSelector: 'div.SearchScreen_Results.col-sm-9 > div',
