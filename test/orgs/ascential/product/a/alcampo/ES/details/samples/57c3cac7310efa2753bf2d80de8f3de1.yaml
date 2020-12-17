@@ -2,7 +2,7 @@ input:
   id: 475213
   _url: http://alcampo.es
 extractions:
-  - html: https://workbench.import.io/html/run=cec5178e-4cf3-4d72-a5d9-e3e1bbb0c095/task=438edbaa-11fb-403d-92bf-e8047c04bb4a/a6e777ca-300f-4931-b2ae-1c710a4ea38d.html
+  - html: https://workbench.import.io/html/run=12d17e0a-a74e-461d-811c-d9c29587c1dc/task=598e5e60-b48a-469d-9368-cc9730f39b19/47ad58fb-bcef-478a-a67c-6ca6ecde5d03.html
     extractionConfigId: product/details/stores/a/alcampo/ES/extract
     data:
       - group:
@@ -79,6 +79,9 @@ extractions:
             saturatedFatPerServingUom:
               - text: g
                 xpath: /html/body/div[4]/div[2]/div[8]/div[6]/div[2]/div[1]/div[11]/div[1]/div[1]/div[3]/span[2]
+            sodiumPerServing:
+              - text: 2,
+                xpath: /html/body/div[4]/div[2]/div[8]/section[1]/div[1]/div[2]/div[1]/div[1]/div[1]
             totalCarbPerServing:
               - text: "2.6"
                 xpath: /html/body/div[4]/div[2]/div[8]/div[6]/div[2]/div[1]/div[11]/div[1]/div[1]/div[4]/span[2]
@@ -127,10 +130,10 @@ extractions:
             Image360Present:
               - text: Yes
             imageZoomFeaturePresent:
-              - text: No
+              - text: Yes
             descriptionBullets:
               - text: "0"
             secondaryImageTotal:
               - text: "0"
         xpath: /
-    timestamp: 1606723189112
+    timestamp: 1608194678146

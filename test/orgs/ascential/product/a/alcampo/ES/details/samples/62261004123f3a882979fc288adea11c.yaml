@@ -2,7 +2,7 @@ input:
   id: 549549
   _url: http://alcampo.es
 extractions:
-  - html: https://workbench.import.io/html/run=cec5178e-4cf3-4d72-a5d9-e3e1bbb0c095/task=49b4c6f8-3076-45c2-ab05-b60f65d4c698/279341d6-c7ab-4abc-bf7d-81a527239e73.html
+  - html: https://workbench.import.io/html/run=12d17e0a-a74e-461d-811c-d9c29587c1dc/task=3d04d851-4888-4ba6-9a73-88588b3a7aa5/5beff0c3-e7cb-40e7-a43b-3a4401c6054c.html
     extractionConfigId: product/details/stores/a/alcampo/ES/extract
     data:
       - group:
@@ -28,22 +28,33 @@ extractions:
               - text: Cerveza rubia Punk Ipa BREWDOG 33 cl.
                 xpath: /html/body/div[4]/div[2]/div[8]/div[6]/div[2]/div[1]/div[2]/div[1]/h1[1]
             price:
-              - text: 1,90 €
+              - text: 1,66 €
                 xpath: /html/body/div[4]/div[2]/div[8]/div[6]/div[2]/div[1]/div[8]/div[1]/div[1]/span[1]
             brandText:
               - text: BREWDOG
                 xpath: /html/head[1]/script[6]
             manufacturer:
               - text: Estrella Galicia
-                xpath: /html/body/div[4]/div[2]/div[8]/section[1]/div[1]/div[2]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[2]/td[1]/span[2]
+                xpath: /html/body/div[4]/div[2]/div[8]/section[1]/div[1]/div[4]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[2]/td[1]/span[2]
+            weightNet:
+              - text: 33cl
+                xpath: /html/body/div[4]/div[2]/div[8]/section[1]/div[1]/div[4]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[4]/td[1]/span[2]
             variantId:
               - text: "549549"
                 xpath: /html/head[1]/link[2]/@href
             name:
               - text: Cerveza rubia Punk Ipa BREWDOG 33 cl.
                 xpath: /html/body/div[4]/div[2]/div[8]/div[6]/div[2]/div[1]/div[2]/div[1]/h1[1]
+            ingredientsList:
+              - text: |-
+                  Ingredientes: 
+                   Agua, malta de cebada, lúpulo y levadura
+                xpath: /html/body/div[4]/div[2]/div[8]/section[1]/div[1]/div[2]/div[1]/div[1]/div[1]
+            storage:
+              - text: Mantener en lugar fresco y seco
+                xpath: /html/body/div[4]/div[2]/div[8]/section[1]/div[1]/div[3]/div[1]/div[1]
             pricePerUnit:
-              - text: 5,75 €
+              - text: 5,03 €
                 xpath: /html/body/div[4]/div[2]/div[8]/div[6]/div[2]/div[1]/div[5]/div[1]/div[1]/div[1]/span[1]/span[1]
             pricePerUnitUom:
               - text: Litro
@@ -63,10 +74,10 @@ extractions:
             Image360Present:
               - text: Yes
             imageZoomFeaturePresent:
-              - text: No
+              - text: Yes
             descriptionBullets:
               - text: "0"
             secondaryImageTotal:
               - text: "0"
         xpath: /
-    timestamp: 1606723191184
+    timestamp: 1608194677646

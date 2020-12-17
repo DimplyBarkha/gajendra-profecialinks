@@ -278,7 +278,7 @@ fields:
 - name: numberOfServingsInPackage
   singleValue: true
   description: Suggested number of servings of the product.
-  xpath: //table[@class="tablaInformacionAdicional"]//span[text()="Número de raciones por envase"]/following-sibling::span
+  xpath: //table[@class="tablaInformacionAdicional"]//span[text()="Número de raciones"]/following-sibling::span | //table[@class="tablaInformacionAdicional"]//span[text()="Número de raciones por envase"]/following-sibling::span
   regExp: \d+
 - name: caloriesPerServing
   singleValue: true
@@ -329,6 +329,8 @@ fields:
   singleValue: true
   description: Nutritional Information for Sodium content - Usually based on per 100g
     serving
+  xpath: //div[@class="foodIngredients"]
+  regExp: ([Ss]odio.+?)([0-9][0-9,.]+)
 - name: sodiumPerServingUom
   singleValue: true
   description: Unit of Measure Data for Sodium content
@@ -390,6 +392,8 @@ fields:
   singleValue: true
   description: Nutritional Information for Calcium content - Usually based on per
     100g serving
+  xpath: //div[@class="foodIngredients"]
+  regExp: ([Cc]alcio.+?)([0-9][0-9,.]+)
 - name: calciumPerServingUom
   singleValue: true
   description: Unit of Measure Data for Calcium
@@ -407,6 +411,8 @@ fields:
   singleValue: true
   description: Nutritional Information for Magnesium content - Usually based on per
     100g serving
+  xpath: //div[@class="foodIngredients"]
+  regExp: ([Mm]agnesio.+?)([0-9][0-9,.]+)
 - name: magnesiumPerServingUom
   singleValue: true
   description: Unit of Measure Data for Magnesium
