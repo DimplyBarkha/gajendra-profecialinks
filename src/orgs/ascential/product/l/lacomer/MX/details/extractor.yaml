@@ -1,7 +1,12 @@
 robot: product/details
 proxy:
   zone: MEX
-  type: DATA_CENTER
+  type: DATA_CENTRE
+  numberRetries: 3
+  priority: MEDIUM
+  retryDelay: 120
+  backoffPolicy: EXPONENTIAL
+  retryWithResidentialProxyAfter: 3
 parameters:
   country: MX
   domain: lacomer.com.mx

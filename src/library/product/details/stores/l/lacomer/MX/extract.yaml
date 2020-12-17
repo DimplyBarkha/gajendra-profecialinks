@@ -20,7 +20,7 @@ fields:
     description: The categories (e.g. from breadcrumbs)
   - name: nameExtended
     singleValue: true
-    xpath: //span[@class="txt-product-name"]/text()
+    # xpath: //span[@class="txt-product-name"]/text()
   - name: listPrice
     singleValue: true
     description: The stated undiscounted price for the product
@@ -70,10 +70,10 @@ fields:
     description: The store-specific product identifier
   - name: variantId
     singleValue: true
-    xpath: //div[@id="detail-control"]//input[@name="pasilloId"]/@value
+    # xpath: //div[@id="detail-control"]//input[@name="pasilloId"]/@value
   - name: mpc
     singleValue: true
-    xpath: The manufacturer model code (unique) of the product
+    description: The manufacturer model code (unique) of the product
   - name: packSize
     singleValue: true
     description: The number of packs in the product offer (if stated separately on
