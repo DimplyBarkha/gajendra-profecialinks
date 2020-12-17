@@ -14,6 +14,12 @@ fields:
     xpath: //div[@class="fl-product-tile__title-wrapper height-ready"]/h4//a//@href
     regExp: ^(.+)$
     regExpReplace: https://www.mvideo.ru$1
+  - name: rankOrganic
+    singleValue: false
+    # xpath: //div[@id="rankOrganic"]/text()
+  - name: rank
+    singleValue: false
+    # xpath: //div[@id="rankOrganic"]/text()
   - name: thumbnail
     singleValue: false
     xpath: //div[@class="lazy-load-image-holder lazy-loaded"]//img//@src
