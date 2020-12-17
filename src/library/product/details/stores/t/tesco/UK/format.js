@@ -34,6 +34,13 @@ const transform = (data) => {
                     text: text,
                 }, ];
             }
+            if(row.highQualityImages){
+                row.highQualityImages.forEach(item => {
+                  item.text = item.text.split("?");
+                  item.text = `${item.text[0]}`
+                  console.log("item.text",item.text);
+                })
+              }
 
             //   if (row.sku) {
             //     row.sku.forEach(item => {

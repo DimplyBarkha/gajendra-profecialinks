@@ -42,7 +42,7 @@ fields:
     xpath: //script[@type="application/ld+json"][contains(text(),"brand")]
     regExp: brand":{"@type":"[^"]+","name":"([^"]+)
     regExpReplace: $1
-  - name: Currency
+  - name: priceCurrency
     singleValue: true
     xpath: //script[@type="application/ld+json"][contains(text(),"priceCurrency")]
     regExp: priceCurrency":"([^"]+)
@@ -64,9 +64,9 @@ fields:
     singleValue: true
     xpath: //div[@id="allergens"]/ul
   - name: caloriesPerServing
-    # singleValue: false
+    singleValue: false
     # #xpath: concat(//div[@class='product-blocks']//li[contains(.,"Energy")],' , ',//div[@class='product-blocks']//li[contains(.,"Fat")],' , ',//div[@class='product-blocks']//li[contains(.,"Saturates")],' , ',//div[@class='product-blocks']//li[contains(.,"Sugar")],' , ',//div[@class='product-blocks']//li[contains(.,"Salt")])
-    # xpath: //div[@class='gda']//ul/li
+    xpath: //div[@class='gda']//ul
   - name: legalDisclaimer
     singleValue: true
   - name: ingredientsList
