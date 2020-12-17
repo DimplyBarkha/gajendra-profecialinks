@@ -2,7 +2,7 @@
 module.exports = {
   implements: 'tracker/categories/createUrl',
   parameterValues: {
-    domain: 'coopvitality.ch',
+    domain: 'www.coopvitality.ch',
     prefix: null,
     suffix: null,
     subdomain: null,
