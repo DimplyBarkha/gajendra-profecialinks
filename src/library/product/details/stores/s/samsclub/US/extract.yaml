@@ -107,9 +107,11 @@ fields:
     singleValue: true
     xpath: //div[@class="sc-product-header-title-container"]
     # salsify
-  - name: shownImages
-    singleValue: true
-    xpath: //button[@class="sc-image-viewer-img-button"]/img/@src
+  - name: shownImages1
+    singleValue: false
+    xpath: //div[@class="sc-image-viewer-controls"]//img[@class="sc-image-viewer-thumb"]/@src
+    regExp: (.+\_)(.+)
+    regExpReplace: $1PDP_Image$
   - name: featureHighlights
     singleValue: false
     xpath: //div[contains(@class, 'sc-pc-large-desktop-layout-descriptors')]//li
@@ -119,6 +121,11 @@ fields:
   - name: specifications
     singleValue: true
     xpath: normalize-space(//body//@specification)
+  - name: shownImages
+    singleValue: false
+    xpath: //div[@class="sc-image-viewer-controls"]//img[@class="sc-image-viewer-thumb"]/@src
+    regExp: (.+\_)(.+)
+    regExpReplace: $1PDP_Image$
   - name: productUrl
     singleValue: true
     xpath: //body//@producturl | //link[@rel="canonical"]/@href
