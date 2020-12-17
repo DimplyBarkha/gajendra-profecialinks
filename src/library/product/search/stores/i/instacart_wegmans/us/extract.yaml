@@ -1,0 +1,20 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields: 
+  - name: id
+    singleValue: true
+    xpath: (//ul[@class="rmq-1938cd36 items-grid unstyled"])[1]//a//@href
+  - name: price
+    singleValue: true
+    xpath: (//ul[@class="rmq-1938cd36 items-grid unstyled"])[1]//div[@class="item-price"]/span/span/text()
+  - name: name
+    singleValue: true
+    xpath: (//ul[@class="rmq-1938cd36 items-grid unstyled"])[1]//span[@class="full-item-name"]/text()
+  - name: thumbnail
+    singlevalue: true
+    xpath: (//ul[@class="rmq-1938cd36 items-grid unstyled"])[1]//img//@src
+  - name: productUrl
+    singlevalue: true
+    xpath: (//ul[@class="rmq-1938cd36 items-grid unstyled"])[1]//a//@href
