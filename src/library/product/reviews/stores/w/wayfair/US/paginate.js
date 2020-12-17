@@ -6,6 +6,12 @@ async function implementation (
   dependencies,
 ) {
   const { page } = inputs;
+  // NOTE: Ugly hack to avoid nightmare timeout error in case of more reviews, limiting pages to 35
+
+  if (page > 35) {
+    return false;
+  }
+
   const { loadedSelector, noResultsXPath, nextLinkXpath } = parameters;
 
   if (loadedSelector) {
@@ -29,8 +35,6 @@ async function implementation (
   }
 
   function checkIfReviewIsFromLast30Days (lastDate, reviewDate) {
-    lastDate = lastDate.replace(/(\d+)(st|nd|rd|th)/, '$1');
-    reviewDate = reviewDate.replace(/(\d+)(st|nd|rd|th)/, '$1');
     console.log('lastDate' + lastDate);
     console.log('reviewDate' + reviewDate);
     const timestamp = new Date(lastDate).getTime() - (30 * 24 * 60 * 60 * 1000);
@@ -65,11 +69,9 @@ async function implementation (
 
   const reviewDate = await context.evaluate(function (page) {
     const elePosition = (page - 1) * 10 + 1;
-    const elePosition1 = elePosition*2-1;
-    console.log('elePosition1' + elePosition1);
-    return document.querySelector(`div:nth-child(${elePosition1})>article[class="ProductReview"]>div>div>p[class*="pl-Text"]`).textContent;
+    console.log('elePosition' + elePosition);
+    return document.querySelector(`div:nth-child(${elePosition})>article[class="ProductReview"]>div>div>p[class*="pl-Text"]`).textContent;
   }, page);
-
 
   const productsCount = await context.evaluate(function () {
     return document.querySelectorAll('div[class*="pl-Box--mt"]>div>article[class="ProductReview"]').length;
@@ -90,19 +92,11 @@ async function implementation (
 module.exports = {
   implements: 'navigation/paginate',
   parameterValues: {
-    template: null,
     country: 'US',
     store: 'wayfair',
-    nextLinkSelector: null,
-    nextLinkXpath: null,
-    mutationSelector: null,
-    spinnerSelector: null,
-    loadedSelector: null,
-    loadedXpath: null,
+    nextLinkXpath: '//div[contains(@class,"ProductReviewList-links")]//button',
+    loadedSelector: 'div.pl-Container> div > article',
     noResultsXPath: '//div[@class="RatingBlock"]/p[contains(.,"no review")]',
-    stopConditionSelectorOrXpath: null,
-    resultsDivSelector: null,
-    openSearchDefinition: null,
     domain: 'wayfair.com',
     zipcode: '',
   },

@@ -6,6 +6,6 @@ module.exports = {
     store: 'wayfair',
     domain: 'wayfair.com',
     zipcode: '',
-    mergeType: null,
+    mergeType: 'MERGE_ROWS',
   },
 };
