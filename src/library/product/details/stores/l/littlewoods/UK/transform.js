@@ -25,8 +25,10 @@ const transform = (data) => {
     for (const { group } of data) {
       for (const row of group) {
         if (row.unInterruptedPDP) {
+          console.log('row.unInterruptedPDP')
           const titles = Array.from(new Set(row.unInterruptedPDP.map(elm => elm.text.trim())));
           row.unInterruptedPDP = titles.map(text => ({ text }));
+          console.log(row.unInterruptedPDP)
         }
       }
     }

@@ -1,16 +1,16 @@
-const { transform } = require('./transform');
+const { cleanUp } = require('../../../../shared');
 
 module.exports = {
   implements: 'product/details/extract',
   parameterValues: {
     country: 'UK',
     store: 'littlewoods',
-    transform,
+    transform: cleanUp,
     domain: 'littlewoods.com',
     zipcode: '',
   },
 
-  implementation: async ({ inputString }, { country, domain }, context, { productDetails }) => {
+  implementation: async ({ inputString }, { country, domain, transform }, context, { productDetails }) => {
     await context.evaluate(async function () {
       function addElementToDocument (key, value) {
         const catElement = document.createElement('div');
@@ -71,6 +71,6 @@ module.exports = {
           pipeSeparatorDouble('addedProductSpecification', specificationsList);
         }
     });
-    await context.extract(productDetails, {transform});
+    await context.extract(productDetails, { transform });
   },
 };
