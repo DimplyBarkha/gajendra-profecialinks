@@ -7,4 +7,7 @@ module.exports = {
     store: 'lenstore',
     zipcode: '',
   },
+  implementation: async (inputs, parameters, context, { productMenu }) => {
+    await context.extract(productMenu);
+  },
 };

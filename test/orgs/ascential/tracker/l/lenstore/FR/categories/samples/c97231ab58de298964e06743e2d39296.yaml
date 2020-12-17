@@ -1,0 +1,340 @@
+input:
+  _url: http://lenstore.fr
+  URL: https://www.lenstore.fr/
+extractions:
+  - html: https://workbench.import.io/html/run=dfb72581-36ae-494e-84c9-2a7c4b1631ef/task=6f6ada8d-2980-4d0c-a510-5a55721bc19d/055c890d-870c-4b4d-94f8-f3a0ad573961.html
+    extractionConfigId: tracker/categories/stores/l/lenstore/FR/extract
+    data:
+      - group:
+          - categoryUrl:
+              - text: https://www.lenstore.fr/b317/lentilles-de-contact
+                xpath: /html/body/div[3]/div[1]/ul[1]/li[1]/a[1]/@href
+            category:
+              - text: Lentilles de contact
+                xpath: /html/body/div[3]/div[1]/ul[1]/li[1]/a[1]/@title
+          - categoryUrl:
+              - text: https://www.lenstore.fr/c1/lentilles-journalieres
+                xpath: /html/body/div[3]/div[1]/ul[1]/li[1]/div[1]/div[1]/div[1]/ul[1]/li[2]/a[1]/@href
+            category:
+              - text: Journalières
+                xpath: /html/body/div[3]/div[1]/ul[1]/li[1]/div[1]/div[1]/div[1]/ul[1]/li[2]/a[1]/@data-galabel
+          - categoryUrl:
+              - text: https://www.lenstore.fr/c2/lentilles-bimensuelles
+                xpath: /html/body/div[3]/div[1]/ul[1]/li[1]/div[1]/div[1]/div[1]/ul[1]/li[3]/a[1]/@href
+            category:
+              - text: Bimensuelles
+                xpath: /html/body/div[3]/div[1]/ul[1]/li[1]/div[1]/div[1]/div[1]/ul[1]/li[3]/a[1]/@data-galabel
+          - categoryUrl:
+              - text: https://www.lenstore.fr/c3/lentilles-mensuelles
+                xpath: /html/body/div[3]/div[1]/ul[1]/li[1]/div[1]/div[1]/div[1]/ul[1]/li[4]/a[1]/@href
+            category:
+              - text: Mensuelles
+                xpath: /html/body/div[3]/div[1]/ul[1]/li[1]/div[1]/div[1]/div[1]/ul[1]/li[4]/a[1]/@data-galabel
+          - categoryUrl:
+              - text: https://www.lenstore.fr/c4/lentilles-a-port-prolonge
+                xpath: /html/body/div[3]/div[1]/ul[1]/li[1]/div[1]/div[1]/div[1]/ul[1]/li[5]/a[1]/@href
+            category:
+              - text: Lentilles à port prolongé
+                xpath: /html/body/div[3]/div[1]/ul[1]/li[1]/div[1]/div[1]/div[1]/ul[1]/li[5]/a[1]/@data-galabel
+          - categoryUrl:
+              - text: https://www.lenstore.fr/c5/lentilles-toriques-pour-l-astigmatisme
+                xpath: /html/body/div[3]/div[1]/ul[1]/li[1]/div[1]/div[1]/div[1]/ul[1]/li[6]/a[1]/@href
+            category:
+              - text: Lentilles toriques
+                xpath: /html/body/div[3]/div[1]/ul[1]/li[1]/div[1]/div[1]/div[1]/ul[1]/li[6]/a[1]/@data-galabel
+          - categoryUrl:
+              - text: https://www.lenstore.fr/b123/lentilles-toriques-journalie-res
+                xpath: /html/body/div[3]/div[1]/ul[1]/li[1]/div[1]/div[1]/div[1]/ul[1]/li[7]/a[1]/@href
+            category:
+              - text: Lentilles toriques journalières
+                xpath: /html/body/div[3]/div[1]/ul[1]/li[1]/div[1]/div[1]/div[1]/ul[1]/li[7]/a[1]/@data-galabel
+          - categoryUrl:
+              - text: https://www.lenstore.fr/c6/lentilles-progressives-multifocales
+                xpath: /html/body/div[3]/div[1]/ul[1]/li[1]/div[1]/div[1]/div[1]/ul[1]/li[8]/a[1]/@href
+            category:
+              - text: Lentilles multifocales
+                xpath: /html/body/div[3]/div[1]/ul[1]/li[1]/div[1]/div[1]/div[1]/ul[1]/li[8]/a[1]/@data-galabel
+          - categoryUrl:
+              - text: https://www.lenstore.fr/b330/lentilles-progressives-multifocales-journalie-res
+                xpath: /html/body/div[3]/div[1]/ul[1]/li[1]/div[1]/div[1]/div[1]/ul[1]/li[9]/a[1]/@href
+            category:
+              - text: Lentilles multifocales journalières
+                xpath: /html/body/div[3]/div[1]/ul[1]/li[1]/div[1]/div[1]/div[1]/ul[1]/li[9]/a[1]/@data-galabel
+          - categoryUrl:
+              - text: https://www.lenstore.fr/c7/solutions-et-accessoires
+                xpath: /html/body/div[3]/div[1]/ul[1]/li[1]/div[1]/div[1]/div[1]/ul[1]/li[10]/a[1]/@href
+            category:
+              - text: Solutions et accessoires
+                xpath: /html/body/div[3]/div[1]/ul[1]/li[1]/div[1]/div[1]/div[1]/ul[1]/li[10]/a[1]/@data-galabel
+          - categoryUrl:
+              - text: https://www.lenstore.fr/b345/lentilles-de-couleur
+                xpath: /html/body/div[3]/div[1]/ul[1]/li[1]/div[1]/div[1]/div[1]/ul[1]/li[11]/a[1]/@href
+            category:
+              - text: Lentilles de couleur
+                xpath: /html/body/div[3]/div[1]/ul[1]/li[1]/div[1]/div[1]/div[1]/ul[1]/li[11]/a[1]/@data-galabel
+          - categoryUrl:
+              - text: https://www.lenstore.fr/b110/lentilles-en-silicone-hydrogel
+                xpath: /html/body/div[3]/div[1]/ul[1]/li[1]/div[1]/div[1]/div[1]/ul[1]/li[12]/a[1]/@href
+            category:
+              - text: Silicone Hydrogel
+                xpath: /html/body/div[3]/div[1]/ul[1]/li[1]/div[1]/div[1]/div[1]/ul[1]/li[12]/a[1]/@data-galabel
+          - categoryUrl:
+              - text: https://www.lenstore.fr/b6/1-day-acuvue
+                xpath: /html/body/div[3]/div[1]/ul[1]/li[1]/div[1]/div[1]/div[2]/ul[1]/li[2]/a[1]/@href
+            category:
+              - text: 1 Day ACUVUE
+                xpath: /html/body/div[3]/div[1]/ul[1]/li[1]/div[1]/div[1]/div[2]/ul[1]/li[2]/a[1]/@data-galabel
+          - categoryUrl:
+              - text: https://www.lenstore.fr/b7/acuvue-2
+                xpath: /html/body/div[3]/div[1]/ul[1]/li[1]/div[1]/div[1]/div[2]/ul[1]/li[3]/a[1]/@href
+            category:
+              - text: ACUVUE 2
+                xpath: /html/body/div[3]/div[1]/ul[1]/li[1]/div[1]/div[1]/div[2]/ul[1]/li[3]/a[1]/@data-galabel
+          - categoryUrl:
+              - text: https://www.lenstore.fr/b16/acuvue-oasys
+                xpath: /html/body/div[3]/div[1]/ul[1]/li[1]/div[1]/div[1]/div[2]/ul[1]/li[4]/a[1]/@href
+            category:
+              - text: ACUVUE OASYS
+                xpath: /html/body/div[3]/div[1]/ul[1]/li[1]/div[1]/div[1]/div[2]/ul[1]/li[4]/a[1]/@data-galabel
+          - categoryUrl:
+              - text: https://www.lenstore.fr/b19/air-optix
+                xpath: /html/body/div[3]/div[1]/ul[1]/li[1]/div[1]/div[1]/div[2]/ul[1]/li[5]/a[1]/@href
+            category:
+              - text: Air Optix
+                xpath: /html/body/div[3]/div[1]/ul[1]/li[1]/div[1]/div[1]/div[2]/ul[1]/li[5]/a[1]/@data-galabel
+          - categoryUrl:
+              - text: https://www.lenstore.fr/b90/avaira
+                xpath: /html/body/div[3]/div[1]/ul[1]/li[1]/div[1]/div[1]/div[2]/ul[1]/li[6]/a[1]/@href
+            category:
+              - text: Avaira
+                xpath: /html/body/div[3]/div[1]/ul[1]/li[1]/div[1]/div[1]/div[2]/ul[1]/li[6]/a[1]/@data-galabel
+          - categoryUrl:
+              - text: https://www.lenstore.fr/b27/biofinity
+                xpath: /html/body/div[3]/div[1]/ul[1]/li[1]/div[1]/div[1]/div[2]/ul[1]/li[7]/a[1]/@href
+            category:
+              - text: Biofinity
+                xpath: /html/body/div[3]/div[1]/ul[1]/li[1]/div[1]/div[1]/div[2]/ul[1]/li[7]/a[1]/@data-galabel
+          - categoryUrl:
+              - text: https://www.lenstore.fr/b84/biomedics
+                xpath: /html/body/div[3]/div[1]/ul[1]/li[1]/div[1]/div[1]/div[2]/ul[1]/li[8]/a[1]/@href
+            category:
+              - text: Biomedics
+                xpath: /html/body/div[3]/div[1]/ul[1]/li[1]/div[1]/div[1]/div[2]/ul[1]/li[8]/a[1]/@data-galabel
+          - categoryUrl:
+              - text: https://www.lenstore.fr/b309/biotrue
+                xpath: /html/body/div[3]/div[1]/ul[1]/li[1]/div[1]/div[1]/div[2]/ul[1]/li[9]/a[1]/@href
+            category:
+              - text: Biotrue
+                xpath: /html/body/div[3]/div[1]/ul[1]/li[1]/div[1]/div[1]/div[2]/ul[1]/li[9]/a[1]/@data-galabel
+          - categoryUrl:
+              - text: https://www.lenstore.fr/b302/clariti
+                xpath: /html/body/div[3]/div[1]/ul[1]/li[1]/div[1]/div[1]/div[2]/ul[1]/li[10]/a[1]/@href
+            category:
+              - text: Clariti
+                xpath: /html/body/div[3]/div[1]/ul[1]/li[1]/div[1]/div[1]/div[2]/ul[1]/li[10]/a[1]/@data-galabel
+          - categoryUrl:
+              - text: https://www.lenstore.fr/b149/coopervision-expressions
+                xpath: /html/body/div[3]/div[1]/ul[1]/li[1]/div[1]/div[1]/div[2]/ul[1]/li[11]/a[1]/@href
+            category:
+              - text: CooperVision Expressions
+                xpath: /html/body/div[3]/div[1]/ul[1]/li[1]/div[1]/div[1]/div[2]/ul[1]/li[11]/a[1]/@data-galabel
+          - categoryUrl:
+              - text: https://www.lenstore.fr/b62/dailies
+                xpath: /html/body/div[3]/div[1]/ul[1]/li[1]/div[1]/div[1]/div[2]/ul[1]/li[12]/a[1]/@href
+            category:
+              - text: Dailies
+                xpath: /html/body/div[3]/div[1]/ul[1]/li[1]/div[1]/div[1]/div[2]/ul[1]/li[12]/a[1]/@data-galabel
+          - categoryUrl:
+              - text: https://www.lenstore.fr/b86/frequency
+                xpath: /html/body/div[3]/div[1]/ul[1]/li[1]/div[1]/div[1]/div[2]/ul[1]/li[13]/a[1]/@href
+            category:
+              - text: Frequency
+                xpath: /html/body/div[3]/div[1]/ul[1]/li[1]/div[1]/div[1]/div[2]/ul[1]/li[13]/a[1]/@data-galabel
+          - categoryUrl:
+              - text: https://www.lenstore.fr/b92/freshlook
+                xpath: /html/body/div[3]/div[1]/ul[1]/li[1]/div[1]/div[1]/div[2]/ul[1]/li[14]/a[1]/@href
+            category:
+              - text: Freshlook
+                xpath: /html/body/div[3]/div[1]/ul[1]/li[1]/div[1]/div[1]/div[2]/ul[1]/li[14]/a[1]/@data-galabel
+          - categoryUrl:
+              - text: https://www.lenstore.fr/b310/myday
+                xpath: /html/body/div[3]/div[1]/ul[1]/li[1]/div[1]/div[1]/div[2]/ul[1]/li[15]/a[1]/@href
+            category:
+              - text: MyDay
+                xpath: /html/body/div[3]/div[1]/ul[1]/li[1]/div[1]/div[1]/div[2]/ul[1]/li[15]/a[1]/@data-galabel
+          - categoryUrl:
+              - text: https://www.lenstore.fr/b75/proclear
+                xpath: /html/body/div[3]/div[1]/ul[1]/li[1]/div[1]/div[1]/div[2]/ul[1]/li[16]/a[1]/@href
+            category:
+              - text: Proclear
+                xpath: /html/body/div[3]/div[1]/ul[1]/li[1]/div[1]/div[1]/div[2]/ul[1]/li[16]/a[1]/@data-galabel
+          - categoryUrl:
+              - text: https://www.lenstore.fr/b76/purevision
+                xpath: /html/body/div[3]/div[1]/ul[1]/li[1]/div[1]/div[1]/div[2]/ul[1]/li[17]/a[1]/@href
+            category:
+              - text: Purevision
+                xpath: /html/body/div[3]/div[1]/ul[1]/li[1]/div[1]/div[1]/div[2]/ul[1]/li[17]/a[1]/@data-galabel
+          - categoryUrl:
+              - text: https://www.lenstore.fr/b85/soflens
+                xpath: /html/body/div[3]/div[1]/ul[1]/li[1]/div[1]/div[1]/div[2]/ul[1]/li[18]/a[1]/@href
+            category:
+              - text: Soflens
+                xpath: /html/body/div[3]/div[1]/ul[1]/li[1]/div[1]/div[1]/div[2]/ul[1]/li[18]/a[1]/@data-galabel
+          - categoryUrl:
+              - text: https://www.lenstore.fr/b1/acuvue
+                xpath: /html/body/div[3]/div[1]/ul[1]/li[1]/div[1]/div[1]/div[3]/ul[1]/li[2]/a[1]/@href
+            category:
+              - text: ACUVUE
+                xpath: /html/body/div[3]/div[1]/ul[1]/li[1]/div[1]/div[1]/div[3]/ul[1]/li[2]/a[1]/@data-galabel
+          - categoryUrl:
+              - text: https://www.lenstore.fr/b2/bausch-lomb
+                xpath: /html/body/div[3]/div[1]/ul[1]/li[1]/div[1]/div[1]/div[3]/ul[1]/li[3]/a[1]/@href
+            category:
+              - text: Bausch & Lomb
+                xpath: /html/body/div[3]/div[1]/ul[1]/li[1]/div[1]/div[1]/div[3]/ul[1]/li[3]/a[1]/@data-galabel
+          - categoryUrl:
+              - text: https://www.lenstore.fr/b3/alcon
+                xpath: /html/body/div[3]/div[1]/ul[1]/li[1]/div[1]/div[1]/div[3]/ul[1]/li[4]/a[1]/@href
+            category:
+              - text: Alcon
+                xpath: /html/body/div[3]/div[1]/ul[1]/li[1]/div[1]/div[1]/div[3]/ul[1]/li[4]/a[1]/@data-galabel
+          - categoryUrl:
+              - text: https://www.lenstore.fr/b4/coopervision
+                xpath: /html/body/div[3]/div[1]/ul[1]/li[1]/div[1]/div[1]/div[3]/ul[1]/li[5]/a[1]/@href
+            category:
+              - text: CooperVision
+                xpath: /html/body/div[3]/div[1]/ul[1]/li[1]/div[1]/div[1]/div[3]/ul[1]/li[5]/a[1]/@data-galabel
+          - categoryUrl:
+              - text: https://www.lenstore.fr/b301/sauflon-coopervision
+                xpath: /html/body/div[3]/div[1]/ul[1]/li[1]/div[1]/div[1]/div[3]/ul[1]/li[6]/a[1]/@href
+            category:
+              - text: Sauflon / CooperVision
+                xpath: /html/body/div[3]/div[1]/ul[1]/li[1]/div[1]/div[1]/div[3]/ul[1]/li[6]/a[1]/@data-galabel
+          - categoryUrl:
+              - text: https://www.lenstore.fr/c7/solutions-et-accessoires
+                xpath: /html/body/div[3]/div[1]/ul[1]/li[2]/a[1]/@href
+            category:
+              - text: Accessoires
+                xpath: /html/body/div[3]/div[1]/ul[1]/li[2]/a[1]/@title
+          - categoryUrl:
+              - text: https://www.lenstore.fr/b134/blink
+                xpath: /html/body/div[3]/div[1]/ul[1]/li[2]/div[1]/div[1]/div[1]/ul[1]/li[2]/a[1]/@href
+            category:
+              - text: Blink
+                xpath: /html/body/div[3]/div[1]/ul[1]/li[2]/div[1]/div[1]/div[1]/ul[1]/li[2]/a[1]/@data-galabel
+          - categoryUrl:
+              - text: https://www.lenstore.fr/b315/renu-solutions
+                xpath: /html/body/div[3]/div[1]/ul[1]/li[2]/div[1]/div[1]/div[1]/ul[1]/li[3]/a[1]/@href
+            category:
+              - text: ReNu Solutions
+                xpath: /html/body/div[3]/div[1]/ul[1]/li[2]/div[1]/div[1]/div[1]/ul[1]/li[3]/a[1]/@data-galabel
+          - categoryUrl:
+              - text: https://www.lenstore.fr/b314/macushield
+                xpath: /html/body/div[3]/div[1]/ul[1]/li[2]/div[1]/div[1]/div[1]/ul[1]/li[4]/a[1]/@href
+            category:
+              - text: MacuShield
+                xpath: /html/body/div[3]/div[1]/ul[1]/li[2]/div[1]/div[1]/div[1]/ul[1]/li[4]/a[1]/@data-galabel
+          - categoryUrl:
+              - text: https://www.lenstore.fr/b280/hycosan
+                xpath: /html/body/div[3]/div[1]/ul[1]/li[2]/div[1]/div[1]/div[1]/ul[1]/li[5]/a[1]/@href
+            category:
+              - text: Hycosan
+                xpath: /html/body/div[3]/div[1]/ul[1]/li[2]/div[1]/div[1]/div[1]/ul[1]/li[5]/a[1]/@data-galabel
+          - categoryUrl:
+              - text: https://www.lenstore.fr/b279/optrex
+                xpath: /html/body/div[3]/div[1]/ul[1]/li[2]/div[1]/div[1]/div[1]/ul[1]/li[6]/a[1]/@href
+            category:
+              - text: Optrex
+                xpath: /html/body/div[3]/div[1]/ul[1]/li[2]/div[1]/div[1]/div[1]/ul[1]/li[6]/a[1]/@data-galabel
+          - categoryUrl:
+              - text: https://www.lenstore.fr/b173/biotrue-solutions
+                xpath: /html/body/div[3]/div[1]/ul[1]/li[2]/div[1]/div[1]/div[1]/ul[1]/li[7]/a[1]/@href
+            category:
+              - text: Biotrue Solutions
+                xpath: /html/body/div[3]/div[1]/ul[1]/li[2]/div[1]/div[1]/div[1]/ul[1]/li[7]/a[1]/@data-galabel
+          - categoryUrl:
+              - text: https://www.lenstore.fr/b158/alcon-produits-soin-des-yeux
+                xpath: /html/body/div[3]/div[1]/ul[1]/li[2]/div[1]/div[1]/div[1]/ul[1]/li[8]/a[1]/@href
+            category:
+              - text: Alcon produits soin des yeux
+                xpath: /html/body/div[3]/div[1]/ul[1]/li[2]/div[1]/div[1]/div[1]/ul[1]/li[8]/a[1]/@data-galabel
+          - categoryUrl:
+              - text: https://www.lenstore.fr/b316/opti-free
+                xpath: /html/body/div[3]/div[1]/ul[1]/li[2]/div[1]/div[1]/div[1]/ul[1]/li[9]/a[1]/@href
+            category:
+              - text: Opti-Free
+                xpath: /html/body/div[3]/div[1]/ul[1]/li[2]/div[1]/div[1]/div[1]/ul[1]/li[9]/a[1]/@data-galabel
+          - categoryUrl:
+              - text: https://www.lenstore.fr/b185/solo-care-aqua
+                xpath: /html/body/div[3]/div[1]/ul[1]/li[2]/div[1]/div[1]/div[1]/ul[1]/li[10]/a[1]/@href
+            category:
+              - text: Solo Care Aqua
+                xpath: /html/body/div[3]/div[1]/ul[1]/li[2]/div[1]/div[1]/div[1]/ul[1]/li[10]/a[1]/@data-galabel
+          - categoryUrl:
+              - text: https://www.lenstore.fr/b170/systane
+                xpath: /html/body/div[3]/div[1]/ul[1]/li[2]/div[1]/div[1]/div[1]/ul[1]/li[11]/a[1]/@href
+            category:
+              - text: Systane
+                xpath: /html/body/div[3]/div[1]/ul[1]/li[2]/div[1]/div[1]/div[1]/ul[1]/li[11]/a[1]/@data-galabel
+          - categoryUrl:
+              - text: https://www.lenstore.fr/c105/solutions-multifonctions
+                xpath: /html/body/div[3]/div[1]/ul[1]/li[2]/div[1]/div[1]/div[2]/ul[1]/li[2]/a[1]/@href
+            category:
+              - text: Solutions multifonctions
+                xpath: /html/body/div[3]/div[1]/ul[1]/li[2]/div[1]/div[1]/div[2]/ul[1]/li[2]/a[1]/@data-galabel
+          - categoryUrl:
+              - text: https://www.lenstore.fr/c106/solutions-au-peroxide-d-hydrogene
+                xpath: /html/body/div[3]/div[1]/ul[1]/li[2]/div[1]/div[1]/div[2]/ul[1]/li[3]/a[1]/@href
+            category:
+              - text: Solutions au peroxide d’hydrogène
+                xpath: /html/body/div[3]/div[1]/ul[1]/li[2]/div[1]/div[1]/div[2]/ul[1]/li[3]/a[1]/@data-galabel
+          - categoryUrl:
+              - text: https://www.lenstore.fr/c112/solutions-salines
+                xpath: /html/body/div[3]/div[1]/ul[1]/li[2]/div[1]/div[1]/div[2]/ul[1]/li[4]/a[1]/@href
+            category:
+              - text: Solutions salines
+                xpath: /html/body/div[3]/div[1]/ul[1]/li[2]/div[1]/div[1]/div[2]/ul[1]/li[4]/a[1]/@data-galabel
+          - categoryUrl:
+              - text: https://www.lenstore.fr/c109/solutions-pour-lentilles-rigides
+                xpath: /html/body/div[3]/div[1]/ul[1]/li[2]/div[1]/div[1]/div[2]/ul[1]/li[5]/a[1]/@href
+            category:
+              - text: Solutions pour lentilles rigides
+                xpath: /html/body/div[3]/div[1]/ul[1]/li[2]/div[1]/div[1]/div[2]/ul[1]/li[5]/a[1]/@data-galabel
+          - categoryUrl:
+              - text: https://www.lenstore.fr/c104/gouttes-pour-les-yeux
+                xpath: /html/body/div[3]/div[1]/ul[1]/li[2]/div[1]/div[1]/div[2]/ul[1]/li[6]/a[1]/@href
+            category:
+              - text: Gouttes pour les yeux
+                xpath: /html/body/div[3]/div[1]/ul[1]/li[2]/div[1]/div[1]/div[2]/ul[1]/li[6]/a[1]/@data-galabel
+          - categoryUrl:
+              - text: https://www.lenstore.fr/c108/vitamines-pour-les-yeux
+                xpath: /html/body/div[3]/div[1]/ul[1]/li[2]/div[1]/div[1]/div[2]/ul[1]/li[7]/a[1]/@href
+            category:
+              - text: Vitamines pour les yeux
+                xpath: /html/body/div[3]/div[1]/ul[1]/li[2]/div[1]/div[1]/div[2]/ul[1]/li[7]/a[1]/@data-galabel
+          - categoryUrl:
+              - text: https://www.lenstore.fr/c107/sprays-pour-les-yeux-et-accessoires
+                xpath: /html/body/div[3]/div[1]/ul[1]/li[2]/div[1]/div[1]/div[2]/ul[1]/li[8]/a[1]/@href
+            category:
+              - text: Sprays pour les yeux et autres accessoires
+                xpath: /html/body/div[3]/div[1]/ul[1]/li[2]/div[1]/div[1]/div[2]/ul[1]/li[8]/a[1]/@data-galabel
+          - categoryUrl:
+              - text: https://www.lenstore.fr/c103/etuis-a-lentilles
+                xpath: /html/body/div[3]/div[1]/ul[1]/li[2]/div[1]/div[1]/div[2]/ul[1]/li[9]/a[1]/@href
+            category:
+              - text: Étuis à lentilles
+                xpath: /html/body/div[3]/div[1]/ul[1]/li[2]/div[1]/div[1]/div[2]/ul[1]/li[9]/a[1]/@data-galabel
+          - categoryUrl:
+              - text: https://www.lenstore.fr/garantie-prix-le-moins-cher
+                xpath: /html/body/div[3]/div[1]/ul[1]/li[3]/a[1]/@href
+            category:
+              - text: Garantie prix le moins cher
+                xpath: /html/body/div[3]/div[1]/ul[1]/li[3]/a[1]/@title
+          - categoryUrl:
+              - text: https://www.lenstore.fr/achetez-vos-lentilles-en-ligne
+                xpath: /html/body/div[3]/div[1]/ul[1]/li[4]/a[1]/@href
+            category:
+              - text: Votre ordonnance
+                xpath: /html/body/div[3]/div[1]/ul[1]/li[4]/a[1]/@title
+        xpath: /html
+    timestamp: 1608192255069
