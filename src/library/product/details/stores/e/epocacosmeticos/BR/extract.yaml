@@ -70,9 +70,10 @@ fields:
     xpath: //meta[@itemprop="gtin13"]/@content
   - name: videos
     singleValue: false
-    xpath: //ul[@class="thumbs"]//li[@class="video"]/@data-iframe
-    regExp: (\/\/)(.*)
-    regExpReplace: $2
+    xpath: //ul[contains(@class,"thumbs")]//li[contains(@class,"video")]/@data-iframe
+    #xpath: //div[@class="wc-video-container"]//video/@id
+    #regExp: (\/\/)(.*)
+    #regExpReplace: $2
   - name: promotion
     singleValue: false
     xpath: //label[contains(@class,'checked')]/@data-discount
@@ -87,7 +88,7 @@ fields:
     xpath: //meta[@itemprop="sku"]/@content
   - name: manufacturerImages
     singleValue: false
-    xpath: //div[contains(@class, 'product__info--accordion')]//img[not(contains(@title,'Trustvox'))]/@src
+    xpath: //div[contains(@class, 'product__info--accordion')]//img[not(contains(@title,'Trustvox'))]/@src | //div[@id="caracteristicas"]//table[@class="group Conteudo-Especial"]//img/@src
     regExp: (\/arquivos.*.jpg)
     regExpReplace: https://www.epocacosmeticos.com.br$1
   - name: descriptionBullets
