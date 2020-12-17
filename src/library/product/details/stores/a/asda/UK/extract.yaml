@@ -47,7 +47,7 @@ fields:
     singleValue: true
   - name: description
     singleValue: false
-    xpath: //div[contains(@class,'pdp-description')][div[contains(@class,'title')][contains(text(),'Features') or contains(text(),'Product Information') or contains(text(),'Further Description') or contains(text(), 'Brand Marketing')]]//div[contains(@class,'content')]
+    xpath: //div[contains(@class,'pdp-description')][div[contains(@class,'title')][text()='Product Information']]//div[contains(@class,'content')]
   - name: ingredientsList
     singleValue: false
     xpath: //div[contains(@class,'pdp-description')][div[contains(@class,'title')][contains(text(),'Ingredients')]]//div[contains(@class,'content')]
@@ -69,7 +69,7 @@ fields:
     singleValue: true
   - name: manufacturerImages
     singleValue: false
-    xpath: //div[contains(@class,"wc-media-wrap") or contains(@class,"wc-rf-banner-image-container")]//img/@src
+    xpath: //div[contains(@class,"wc-media-wrap") or contains(@class,"wc-rf-banner-image-container")]//img/@src | //div[@class="oralb__column"]//img/@src
   - name: upc
     singleValue: false
     xpath: //*[@id='s7viewer_container_inner']//div[contains(@class,'s7staticimage')]//img[1]/@src
@@ -347,6 +347,7 @@ fields:
     singleValue: true
   - name: featureBullets
     singleValue: true
+    xpath: //div[@class="oralb__column"]/p
   - name: packSize
     singleValue: true
   - name: secondaryImageTotal
