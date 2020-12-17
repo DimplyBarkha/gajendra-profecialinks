@@ -214,7 +214,7 @@ async function implementation (
     });
     try {
       await context.evaluate(() => {
-        Array.from(document.querySelectorAll('#recommend-related div.item > a')).forEach(elm => {
+        Array.from(document.querySelectorAll('#recommend-related div.item')).forEach(elm => {
           const name = Array.from(elm.querySelectorAll('span')).map(elm => elm.innerText.trim()).join(' ');
           elm.setAttribute('product-name', name);
       })
