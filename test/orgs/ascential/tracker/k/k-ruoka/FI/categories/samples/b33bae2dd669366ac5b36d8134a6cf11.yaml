@@ -1,0 +1,172 @@
+input:
+  _url: http://k-ruoka.fi
+  url: https://www.import.io
+extractions:
+  - html: https://workbench.import.io/html/run=ee82a5bf-2e6f-4508-9f8d-814192be4fc4/task=adee2ee4-62b0-4a4e-8b5e-62ebbae60b66/915986b0-9e34-47aa-8bfa-3d33b871b57c.html
+    extractionConfigId: tracker/categories/stores/k/k-ruoka/FI/extract
+    data:
+      - group:
+          - category:
+              - text: Hedelmät ja vihannekset
+                xpath: /html/body/div[1]/section[1]/section[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[3]/ul[1]/li[1]
+            categoryUrl:
+              - text: https://www.k-ruoka.fi/kauppa/tuotehaku/hedelmat-ja-vihannekset
+                xpath: /html/body/div[1]/section[1]/section[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[3]/ul[1]/li[1]/@src
+          - category:
+              - text: Leivät, keksit ja leivonnaiset
+                xpath: /html/body/div[1]/section[1]/section[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[3]/ul[1]/li[2]
+            categoryUrl:
+              - text: https://www.k-ruoka.fi/kauppa/tuotehaku/leivat-keksit-ja-leivonnaiset
+                xpath: /html/body/div[1]/section[1]/section[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[3]/ul[1]/li[2]/@src
+          - category:
+              - text: Liha ja kasviproteiinit
+                xpath: /html/body/div[1]/section[1]/section[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[3]/ul[1]/li[3]
+            categoryUrl:
+              - text: https://www.k-ruoka.fi/kauppa/tuotehaku/liha-ja-kasviproteiinit
+                xpath: /html/body/div[1]/section[1]/section[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[3]/ul[1]/li[3]/@src
+          - category:
+              - text: Kala ja merenelävät
+                xpath: /html/body/div[1]/section[1]/section[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[3]/ul[1]/li[4]
+            categoryUrl:
+              - text: https://www.k-ruoka.fi/kauppa/tuotehaku/kala-ja-merenelavat
+                xpath: /html/body/div[1]/section[1]/section[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[3]/ul[1]/li[4]/@src
+          - category:
+              - text: Valmisruoka
+                xpath: /html/body/div[1]/section[1]/section[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[3]/ul[1]/li[5]
+            categoryUrl:
+              - text: https://www.k-ruoka.fi/kauppa/tuotehaku/valmisruoka
+                xpath: /html/body/div[1]/section[1]/section[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[3]/ul[1]/li[5]/@src
+          - category:
+              - text: Maito, juusto, munat ja rasvat
+                xpath: /html/body/div[1]/section[1]/section[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[3]/ul[1]/li[6]
+            categoryUrl:
+              - text: https://www.k-ruoka.fi/kauppa/tuotehaku/maito-juusto-munat-ja-rasvat
+                xpath: /html/body/div[1]/section[1]/section[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[3]/ul[1]/li[6]/@src
+          - category:
+              - text: Kuivat elintarvikkeet ja leivonta
+                xpath: /html/body/div[1]/section[1]/section[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[3]/ul[1]/li[7]
+            categoryUrl:
+              - text: https://www.k-ruoka.fi/kauppa/tuotehaku/kuivat-elintarvikkeet-ja-leivonta
+                xpath: /html/body/div[1]/section[1]/section[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[3]/ul[1]/li[7]/@src
+          - category:
+              - text: Säilykkeet, keitot ja ateria-ainekset
+                xpath: /html/body/div[1]/section[1]/section[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[3]/ul[1]/li[8]
+            categoryUrl:
+              - text: https://www.k-ruoka.fi/kauppa/tuotehaku/sailykkeet-keitot-ja-ateria-ainekset
+                xpath: /html/body/div[1]/section[1]/section[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[3]/ul[1]/li[8]/@src
+          - category:
+              - text: Öljyt, etikat ja salaattikastikkeet
+                xpath: /html/body/div[1]/section[1]/section[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[3]/ul[1]/li[9]
+            categoryUrl:
+              - text: https://www.k-ruoka.fi/kauppa/tuotehaku/oljyt-etikat-ja-salaattikastikkeet
+                xpath: /html/body/div[1]/section[1]/section[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[3]/ul[1]/li[9]/@src
+          - category:
+              - text: Mausteet ja maustaminen
+                xpath: /html/body/div[1]/section[1]/section[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[3]/ul[1]/li[10]
+            categoryUrl:
+              - text: https://www.k-ruoka.fi/kauppa/tuotehaku/mausteet-ja-maustaminen
+                xpath: /html/body/div[1]/section[1]/section[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[3]/ul[1]/li[10]/@src
+          - category:
+              - text: Texmex ja maailman maut
+                xpath: /html/body/div[1]/section[1]/section[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[3]/ul[1]/li[11]
+            categoryUrl:
+              - text: https://www.k-ruoka.fi/kauppa/tuotehaku/texmex-ja-maailman-maut
+                xpath: /html/body/div[1]/section[1]/section[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[3]/ul[1]/li[11]/@src
+          - category:
+              - text: Pakasteet
+                xpath: /html/body/div[1]/section[1]/section[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[3]/ul[1]/li[12]
+            categoryUrl:
+              - text: https://www.k-ruoka.fi/kauppa/tuotehaku/pakasteet
+                xpath: /html/body/div[1]/section[1]/section[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[3]/ul[1]/li[12]/@src
+          - category:
+              - text: Makeiset ja naposteltavat
+                xpath: /html/body/div[1]/section[1]/section[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[3]/ul[1]/li[13]
+            categoryUrl:
+              - text: https://www.k-ruoka.fi/kauppa/tuotehaku/makeiset-ja-naposteltavat
+                xpath: /html/body/div[1]/section[1]/section[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[3]/ul[1]/li[13]/@src
+          - category:
+              - text: Juomat
+                xpath: /html/body/div[1]/section[1]/section[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[3]/ul[1]/li[14]
+            categoryUrl:
+              - text: https://www.k-ruoka.fi/kauppa/tuotehaku/juomat
+                xpath: /html/body/div[1]/section[1]/section[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[3]/ul[1]/li[14]/@src
+          - category:
+              - text: Lapset
+                xpath: /html/body/div[1]/section[1]/section[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[3]/ul[1]/li[15]
+            categoryUrl:
+              - text: https://www.k-ruoka.fi/kauppa/tuotehaku/lapset
+                xpath: /html/body/div[1]/section[1]/section[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[3]/ul[1]/li[15]/@src
+          - category:
+              - text: Lemmikit
+                xpath: /html/body/div[1]/section[1]/section[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[3]/ul[1]/li[16]
+            categoryUrl:
+              - text: https://www.k-ruoka.fi/kauppa/tuotehaku/lemmikit
+                xpath: /html/body/div[1]/section[1]/section[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[3]/ul[1]/li[16]/@src
+          - category:
+              - text: Kosmetiikka, terveys ja hygienia
+                xpath: /html/body/div[1]/section[1]/section[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[3]/ul[1]/li[17]
+            categoryUrl:
+              - text: https://www.k-ruoka.fi/kauppa/tuotehaku/kosmetiikka-terveys-ja-hygienia
+                xpath: /html/body/div[1]/section[1]/section[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[3]/ul[1]/li[17]/@src
+          - category:
+              - text: Keittiö, astiat ja kattaus
+                xpath: /html/body/div[1]/section[1]/section[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[3]/ul[1]/li[18]
+            categoryUrl:
+              - text: https://www.k-ruoka.fi/kauppa/tuotehaku/keittio-astiat-ja-kattaus
+                xpath: /html/body/div[1]/section[1]/section[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[3]/ul[1]/li[18]/@src
+          - category:
+              - text: Kodinhoito ja taloustarvikkeet
+                xpath: /html/body/div[1]/section[1]/section[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[3]/ul[1]/li[19]
+            categoryUrl:
+              - text: https://www.k-ruoka.fi/kauppa/tuotehaku/kodinhoito-ja-taloustarvikkeet
+                xpath: /html/body/div[1]/section[1]/section[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[3]/ul[1]/li[19]/@src
+          - category:
+              - text: Kodintekstiilit ja sisustus
+                xpath: /html/body/div[1]/section[1]/section[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[3]/ul[1]/li[20]
+            categoryUrl:
+              - text: https://www.k-ruoka.fi/kauppa/tuotehaku/kodintekstiilit-ja-sisustus
+                xpath: /html/body/div[1]/section[1]/section[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[3]/ul[1]/li[20]/@src
+          - category:
+              - text: Kodinkoneet ja elektroniikka
+                xpath: /html/body/div[1]/section[1]/section[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[3]/ul[1]/li[21]
+            categoryUrl:
+              - text: https://www.k-ruoka.fi/kauppa/tuotehaku/kodinkoneet-ja-elektroniikka
+                xpath: /html/body/div[1]/section[1]/section[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[3]/ul[1]/li[21]/@src
+          - category:
+              - text: Sähkö, pienrauta ja autotarvikkeet
+                xpath: /html/body/div[1]/section[1]/section[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[3]/ul[1]/li[22]
+            categoryUrl:
+              - text: https://www.k-ruoka.fi/kauppa/tuotehaku/sahko-pienrauta-ja-autotarvikkeet
+                xpath: /html/body/div[1]/section[1]/section[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[3]/ul[1]/li[22]/@src
+          - category:
+              - text: Puutarha
+                xpath: /html/body/div[1]/section[1]/section[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[3]/ul[1]/li[23]
+            categoryUrl:
+              - text: https://www.k-ruoka.fi/kauppa/tuotehaku/puutarha
+                xpath: /html/body/div[1]/section[1]/section[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[3]/ul[1]/li[23]/@src
+          - category:
+              - text: Vapaa-aika ja urheilu
+                xpath: /html/body/div[1]/section[1]/section[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[3]/ul[1]/li[24]
+            categoryUrl:
+              - text: https://www.k-ruoka.fi/kauppa/tuotehaku/vapaa-aika-ja-urheilu
+                xpath: /html/body/div[1]/section[1]/section[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[3]/ul[1]/li[24]/@src
+          - category:
+              - text: Kirjat, lehdet ja paperitarvikkeet
+                xpath: /html/body/div[1]/section[1]/section[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[3]/ul[1]/li[25]
+            categoryUrl:
+              - text: https://www.k-ruoka.fi/kauppa/tuotehaku/kirjat-lehdet-ja-paperitarvikkeet
+                xpath: /html/body/div[1]/section[1]/section[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[3]/ul[1]/li[25]/@src
+          - category:
+              - text: Kengät ja kenkienhoito
+                xpath: /html/body/div[1]/section[1]/section[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[3]/ul[1]/li[26]
+            categoryUrl:
+              - text: https://www.k-ruoka.fi/kauppa/tuotehaku/kengat-ja-kenkienhoito
+                xpath: /html/body/div[1]/section[1]/section[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[3]/ul[1]/li[26]/@src
+          - category:
+              - text: Vaatteet ja asusteet
+                xpath: /html/body/div[1]/section[1]/section[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[3]/ul[1]/li[27]
+            categoryUrl:
+              - text: https://www.k-ruoka.fi/kauppa/tuotehaku/vaatteet-ja-asusteet
+                xpath: /html/body/div[1]/section[1]/section[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[3]/ul[1]/li[27]/@src
+        xpath: /html/body/div[1]/section[1]/section[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[3]/ul[1]
+    timestamp: 1608232884338

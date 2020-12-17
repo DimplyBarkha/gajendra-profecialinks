@@ -13,7 +13,9 @@ module.exports = {
 
     await context.evaluate(async () => {   
       const buttonsContainer = document.querySelector('.buttons-container');
+      if(buttonsContainer) {
       buttonsContainer.lastElementChild.click();
+      };
 
       const categories = document.querySelectorAll('ul.product-category-list > li');
       categories.forEach((category) => {
