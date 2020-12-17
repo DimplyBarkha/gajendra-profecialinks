@@ -1,0 +1,34 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: //div[contains(@class,"js-grid-container")]/div/div
+fields:
+  - name: id
+    xpath: //div[contains(@class,"js-product")]/@data-product-id
+    regExp: (\d+)(.+)
+    regExpReplace: $1
+  - name: name
+    singleValue: true
+    xpath: //h3
+  - name: productUrl
+    xpath: //div[@class="product_tile-left_container"]//a[contains(@class,'js-product-link')]/@href
+    regExp: (.+)
+    regExpReplace: https://www.elcorteingles.es$1
+  - name: thumbnail
+    xpath: //div[contains(@class,"product_tile-image _fade")]/a/img/@src
+    regExp: (.+__)\d+x\d+(.+)
+    regExpReplace: http:$1325x325$2
+  - name: aggregateRating2
+    xpath: //a[@itemprop="aggregateRating"]/@aria-label
+    regExp: (\d+).(\d)
+    regExpReplace: $1,$2
+  - name: reviewCount
+    xpath: //meta[@itemprop="reviewCount"]/@content
+  - name: price
+    xpath: //div[contains(@class,"prices-price _current")] | //div[contains(@class,"prices-price _offer")]
+  - name: rank
+  - name: rankOrganic
+  - name: sponsored
+    defaultValue: false
+  - name: searchUrl
+    xpath: ancestor::html//*[contains(@class,"page-link")]
