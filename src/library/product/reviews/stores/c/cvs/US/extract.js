@@ -54,38 +54,20 @@ module.exports = {
       return totalReviews;
     });
 
-    const latestReviewDate = await context.evaluate(() => {
-      let reviewDate = '';
-      const reviewElements = document.querySelectorAll('div[class="css-1dbjc4n r-ml6u3j r-qklmqi r-eqz5dr r-t60dpp r-1mi0q7o r-1ygmrgt"]');
-      if (reviewElements && reviewElements.length > 0) {
-        const reviewDateElement = reviewElements[0].querySelector('div[class="css-901oao r-181bzza"]');
-        if (reviewDateElement) {
+    const getReviewDate = position => {
+      return context.evaluate(position => {
+        let reviewDate = '';
+        const reviewSelector = `div[class="css-1dbjc4n r-ml6u3j r-qklmqi r-eqz5dr r-t60dpp r-1mi0q7o r-1ygmrgt"]:${position}-of-type div[class="css-901oao r-181bzza"]`;
+        const reviewElement = document.querySelector(reviewSelector);
+        if (reviewElement) {
           const pattern = /([0-9]+\/[0-9]+\/[0-9]+)/i;
-          const results = reviewDateElement.textContent.match(pattern);
+          const results = reviewElement.textContent.match(pattern);
           if (results && results.length > 0) {
             reviewDate = results[1];
           }
         }
-      }
-      return reviewDate;
-    });
-
-    const getLastReviewDate = () => {
-      return context.evaluate(() => {
-        let reviewDate = '';
-        const reviewElements = document.querySelectorAll('div[class="css-1dbjc4n r-ml6u3j r-qklmqi r-eqz5dr r-t60dpp r-1mi0q7o r-1ygmrgt"]');
-        if (reviewElements && reviewElements.length > 0) {
-          const reviewDateElement = reviewElements[reviewElements.length - 1].querySelector('div[class="css-901oao r-181bzza"]');
-          if (reviewDateElement) {
-            const pattern = /([0-9]+\/[0-9]+\/[0-9]+)/i;
-            const results = reviewDateElement.textContent.match(pattern);
-            if (results && results.length > 0) {
-              reviewDate = results[1];
-            }
-          }
-        }
         return reviewDate;
-      });
+      }, position);
     };
 
     const getAllReviewsCount = async () => {
@@ -96,12 +78,13 @@ module.exports = {
     };
 
     let allReviewsCount = await getAllReviewsCount();
-    let lastReviewDate = await getLastReviewDate();
+    const latestReviewDate = await getReviewDate('first');
+    let lastReviewDate = await getReviewDate('last');
     while (checkIfReviewIsFromLast30Days(latestReviewDate, lastReviewDate) && allReviewsCount < totalReviews) {
       await context.click('div[aria-label="load more reviews button"]');
       await new Promise(resolve => setTimeout(resolve, 1000));
       allReviewsCount = await getAllReviewsCount();
-      lastReviewDate = await getLastReviewDate();
+      lastReviewDate = await getReviewDate('last');
     }
 
     await context.evaluate(basicDetails => {

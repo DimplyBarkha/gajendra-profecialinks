@@ -24,6 +24,7 @@ fields:
     xpath: ancestor::html//div[@id="ii_sku"]
   - name: reviewDate
     singleValue: false
+    type: DATETIME
     description: Date the review was made
     xpath: //div[@class="css-901oao r-181bzza"]
     regExp: ([0-9]+\/[0-9]+\/[0-9]+)
