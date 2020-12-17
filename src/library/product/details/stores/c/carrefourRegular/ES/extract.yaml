@@ -148,3 +148,9 @@ fields:
     xpath: //h1[@class="product-header__name"]
     description: Product brand shown - this may actually NOT be just a brand name,
       e.g. "Visit the Gillette Store"
+  - name: otherSellersName
+    singleValue: false
+    xpath: //span[contains(@class, 'mpoffer__seller-name')]
+  - name: otherSellersPrice
+    singleValue: false
+    xpath: //span[contains(@class, 'mpoffer__price')]
