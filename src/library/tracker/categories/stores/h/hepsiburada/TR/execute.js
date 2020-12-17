@@ -5,7 +5,7 @@ module.exports = {
     country: 'TR',
     store: 'hepsiburada',
     domain: 'hepsiburada.com',
-    loadedSelector: null,
+    loadedSelector: 'div.content-all-categories',
     noResultsXPath: null,
     zipcode: '',
   },

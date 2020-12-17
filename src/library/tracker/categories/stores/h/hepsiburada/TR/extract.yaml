@@ -1,13 +1,15 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: null
+recordXPath: //div[@class="group"]/div/a
 fields:
   - name: category
     singleValue: false
     description: name of the category
-    xpath: null
+    xpath: //div[@class="group"]/div/a
   - name: categoryUrl
     singleValue: false
     description: url of the category
-    xpath: null
+    xpath: //div[@class="group"]/div/a/@href
+    regExp: (.+)
+    regExpReplace: https://www.hepsiburada.com$1

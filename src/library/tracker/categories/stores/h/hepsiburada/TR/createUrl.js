@@ -4,7 +4,7 @@ module.exports = {
   parameterValues: {
     domain: 'hepsiburada.com',
     prefix: null,
-    suffix: null,
+    suffix: 'tum-kategoriler',
     subdomain: null,
     url: null,
     country: 'TR',
