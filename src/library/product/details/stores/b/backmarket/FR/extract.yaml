@@ -44,7 +44,7 @@ fields:
     description: Availability as described on page for the selected variant. If
       there is no availability but the product can be added to cart, this field
       should be "In Stock"
-    xpath: //button[@data-qa="product-page-buy-button-bottom-var-1"]  | //*[@data-test="buy-button"] | //*[@data-test="active-alert-button"]
+    xpath: //button[@data-qa="product-page-buy-button-bottom-var-1"]  | //*[@data-test="buy-button"] | //*[@data-test="active-alert-button"] | //button[contains(@data-qa,"page-buy-button")]
     defaultValue: 'Out of Stock'
     # xpath: //div[@id="bb_availability"]
     # regExp: \"availability\"\:\s\"http\:\/\/schema\.org\/(.*)\"
