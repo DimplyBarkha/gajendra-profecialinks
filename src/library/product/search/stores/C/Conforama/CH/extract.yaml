@@ -1,0 +1,35 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: //section[contains(@id,"contentSegment")]//article[contains(@class,"box-product")]
+fields:
+  - name: name
+    xpath: //div[contains(@class,"detail-product")]/h3/*[1]/text()
+    singleValue: false
+  - name: thumbnail
+    singleValue: false
+    xpath: //div[contains(@class,"image-product")]/a//img/@data-frz-src | //div[contains(@class,"image-product")]/a//img/@src
+  - name: productUrl
+    xpath: //div[contains(@class,"image-product")]/a/@href
+    regExp: (.+)
+    regExpReplace: https://www.conforama.ch$1
+    singleValue: false
+  - name: price
+    xpath: //div[contains(@class,"price-product")]
+    singleValue: false
+  - name: id
+    xpath: //div[contains(@class ,"detail-product")]/h3/a[1]/@tcproductclick 
+    singleValue: false
+  - name: reviewCount
+    xpath: //span[contains(@class,"avisBaazar")]/a/text()
+    singleValue: false
+    regExp: (\d+)
+    regExpReplace: $1
+  - name: aggregateRating2
+    singleValue: false
+    xpath: //span[contains(@class,"stars")]/@data
+  - name: brandText
+    singleValue: false
+    xpath: //div[contains(@class,"image-product")]/a/@onclick
+    regExp: (.*)'([A-Z]+)', undefined(.*);
+    regExpReplace: $2
