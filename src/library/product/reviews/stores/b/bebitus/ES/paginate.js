@@ -49,22 +49,6 @@ async function implementation (
     return false;
   }
 
-  if (nextLinkXpath) {
-    const hasNextLink = await context.evaluate(async function () {
-      function timeout (ms) {
-        return new Promise((resolve) => setTimeout(resolve, ms));
-      }
-
-      const next = document.querySelector('li.bv-content-pagination-buttons-item-next a');
-      if (!next) return false;
-      // @ts-ignore
-      next.click();
-      await timeout(5000);
-      return true;
-    }, { selector: nextLinkXpath });
-    if (!hasNextLink) return false;
-  }
-
   await new Promise((resolve, reject) => setTimeout(resolve, 1000));
 
   console.log('page' + page);
@@ -79,11 +63,25 @@ async function implementation (
   }, page);
 
   // check if the review in the current page should be extracted or not
-  if (lastReviewDate && reviewDate) {
-    checkIfReviewIsFromLast30Days(lastReviewDate, reviewDate);
+  if (checkIfReviewIsFromLast30Days(lastReviewDate, reviewDate)) {
+    if (nextLinkXpath) {
+      const hasNextLink = await context.evaluate(async function () {
+        function timeout (ms) {
+          return new Promise((resolve) => setTimeout(resolve, ms));
+        }
+  
+        const next = document.querySelector('li.bv-content-pagination-buttons-item-next a');
+        if (!next) return false;
+        // @ts-ignore
+        next.click();
+        await timeout(5000);
+        return true;
+      }, { selector: nextLinkXpath });
+      if (!hasNextLink) return false;
+    }
     console.log('continue');
     return true;
   }
-  console.log('Force stop');
+  console.log('Force stop pagination');
   return false;
 }
