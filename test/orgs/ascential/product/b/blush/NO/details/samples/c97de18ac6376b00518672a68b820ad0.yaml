@@ -2,7 +2,7 @@ input:
   _url: http://blush.no
   URL: https://www.blush.no/product/1133289
 extractions:
-  - html: https://workbench.import.io/html/run=939fe62a-5fb6-4e61-bdcc-b68e3abe4a6e/task=87f5ddd2-220f-454e-98da-3fd10b8347e3/c6b5989f-01b4-4df9-aa68-f5bb1c03eab1.html
+  - html: https://workbench.import.io/html/run=1474bedc-dfaf-421b-858e-aa29a43ca1be/task=09506e64-ec74-4a1d-9d99-251ef1059869/77e465ab-29db-4bc7-bde2-0833980bdce3.html
     extractionConfigId: product/details/stores/b/blush/NO/extract
     data:
       - group:
@@ -33,6 +33,9 @@ extractions:
             sku:
               - text: "1133289"
                 xpath: /html/body/div[9]
+            variantId:
+              - text: K3562300
+                xpath: /html/body/div[2]/main[1]/div[1]/div[2]/div[3]/section[1]/div[1]/section[1]/div[1]/div[2]/span[3]/span[2]
             mpc:
               - text: K3562300
                 xpath: /html/body/div[2]/main[1]/div[1]/div[2]/div[3]/section[1]/div[1]/section[1]/div[1]/div[2]/span[3]/span[2]
@@ -81,4 +84,4 @@ extractions:
                 locale: nb_NO
                 value: 2
         xpath: /
-    timestamp: 1607959350726
+    timestamp: 1608193384114

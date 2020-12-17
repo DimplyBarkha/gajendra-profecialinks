@@ -2,7 +2,7 @@ input:
   _url: http://blush.no
   URL: https://www.blush.no/product/914569/sminke/oeyne/anastasia-brow-definer
 extractions:
-  - html: https://workbench.import.io/html/run=939fe62a-5fb6-4e61-bdcc-b68e3abe4a6e/task=b710e2a2-64de-41b0-8ab0-c028086400bc/4c6704d5-9f26-4bbb-adf5-2d922cb9e8a2.html
+  - html: https://workbench.import.io/html/run=1474bedc-dfaf-421b-858e-aa29a43ca1be/task=f9f4341b-c1c0-4392-9b35-3152a41a72c1/42f91c36-4178-47c4-81d0-3b4e29828cc5.html
     extractionConfigId: product/details/stores/b/blush/NO/extract
     data:
       - group:
@@ -50,6 +50,9 @@ extractions:
             sku:
               - text: "914569"
                 xpath: /html/body/div[9]
+            variantId:
+              - text: ABH01-04401
+                xpath: /html/body/div[2]/main[1]/div[1]/div[2]/div[3]/section[1]/div[1]/section[1]/div[1]/div[2]/span[3]/span[2]
             mpc:
               - text: ABH01-04401
                 xpath: /html/body/div[2]/main[1]/div[1]/div[2]/div[3]/section[1]/div[1]/section[1]/div[1]/div[2]/span[3]/span[2]
@@ -118,4 +121,4 @@ extractions:
                 locale: nb_NO
                 value: 2
         xpath: /
-    timestamp: 1607959349562
+    timestamp: 1608193383607
