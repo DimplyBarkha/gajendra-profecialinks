@@ -61,3 +61,6 @@ fields:
   - name: user
     description: The user name of the reviewer
     xpath: //div[contains(@class,'yotpo-header-element')]//span[contains(@class, 'yotpo-user-name')]
+  - name: sku
+    description: The sku
+    xpath: ancestor::html//div[@class='productView-product']//h1[@class='productView-title']
