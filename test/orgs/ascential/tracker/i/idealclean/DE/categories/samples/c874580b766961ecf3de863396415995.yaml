@@ -1,0 +1,547 @@
+input:
+  _url: http://idealclean.de
+  url: https://www.import.io
+extractions:
+  - html: https://workbench.import.io/html/run=c6262735-d01b-423f-913b-ea085a108e93/task=05f2a5ad-deee-44b9-957f-f3beaab739b1/b399deb7-b0f0-4156-8657-6fe27ef222c7.html
+    extractionConfigId: tracker/categories/stores/i/idealclean/DE/extract
+    data:
+      - group:
+          - category:
+              - text: Reinigungsmittel
+                xpath: /html/body/div[1]/section[1]/header[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/a[1]
+            categoryUrl:
+              - text: https://www.idealclean.de/c/reinigungsmittel/EbjLudqaKXr8b6bKKUjNN
+                xpath: /html/body/div[1]/section[1]/header[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/a[1]/@href
+          - category:
+              - text: Hand & Körperpflege
+                xpath: /html/body/div[1]/section[1]/header[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/a[2]
+            categoryUrl:
+              - text: https://www.idealclean.de/c/hand-und-koerperpflege/F9ubccBrJ6nbDZSku6QEZ3
+                xpath: /html/body/div[1]/section[1]/header[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/a[2]/@href
+          - category:
+              - text: Spendersysteme
+                xpath: /html/body/div[1]/section[1]/header[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/a[3]
+            categoryUrl:
+              - text: https://www.idealclean.de/c/spendersysteme/DNfatQ2FAcquY2qaEYRzf8
+                xpath: /html/body/div[1]/section[1]/header[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/a[3]/@href
+          - category:
+              - text: Einweg & Deko
+                xpath: /html/body/div[1]/section[1]/header[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/a[4]
+            categoryUrl:
+              - text: https://www.idealclean.de/c/einweg-und-deko/HYbJrAJnJjryRrBWdKdAw8
+                xpath: /html/body/div[1]/section[1]/header[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/a[4]/@href
+          - category:
+              - text: Arbeitsschutz
+                xpath: /html/body/div[1]/section[1]/header[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/a[5]
+            categoryUrl:
+              - text: https://www.idealclean.de/c/arbeitsschutz/82QrJTdeHavoxZzGJJpqmB
+                xpath: /html/body/div[1]/section[1]/header[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/a[5]/@href
+          - category:
+              - text: Tücher & Schwämme
+                xpath: /html/body/div[1]/section[1]/header[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/a[6]
+            categoryUrl:
+              - text: https://www.idealclean.de/c/tuecher-und-schwaemme/Gnd6dEMAy4uW4XXREtKFBH
+                xpath: /html/body/div[1]/section[1]/header[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/a[6]/@href
+          - category:
+              - text: Mobile Reinigung
+                xpath: /html/body/div[1]/section[1]/header[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/a[7]
+            categoryUrl:
+              - text: https://www.idealclean.de/c/mobile-reinigung/jKdMHq5Lgf3YHeMhASKSpH
+                xpath: /html/body/div[1]/section[1]/header[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/a[7]/@href
+          - category:
+              - text: Medical & Kontinenz
+                xpath: /html/body/div[1]/section[1]/header[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/a[8]
+            categoryUrl:
+              - text: https://www.idealclean.de/c/medical-und-kontinenz/LvriSikLSjBZEY5ChggrNM
+                xpath: /html/body/div[1]/section[1]/header[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/a[8]/@href
+          - category:
+              - text: Abfallentsorgung
+                xpath: /html/body/div[1]/section[1]/header[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/a[9]
+            categoryUrl:
+              - text: https://www.idealclean.de/c/abfallentsorgung/ZfREZZXpj7KtYMyH3cLixT
+                xpath: /html/body/div[1]/section[1]/header[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/a[9]/@href
+          - category:
+              - text: Besen und Bürsten
+                xpath: /html/body/div[1]/section[1]/header[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/a[10]
+            categoryUrl:
+              - text: https://www.idealclean.de/c/besen-und-buersten/VPFGm584e7NR6qP6nDCWsU
+                xpath: /html/body/div[1]/section[1]/header[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/a[10]/@href
+          - category:
+              - text: Hygienepapier
+                xpath: /html/body/div[1]/section[1]/header[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/a[11]
+            categoryUrl:
+              - text: https://www.idealclean.de/c/hygienepapier/7MsqiJoLUgqHnymyqFpG3f
+                xpath: /html/body/div[1]/section[1]/header[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/a[11]/@href
+          - category:
+              - text: Desinfektionsmittel
+                xpath: /html/body/div[1]/section[1]/header[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/a[12]
+            categoryUrl:
+              - text: https://www.idealclean.de/c/desinfektionsmittel/YVF9acECgsif7VR4qkweZi
+                xpath: /html/body/div[1]/section[1]/header[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/a[12]/@href
+          - category:
+              - text: Bodenreinigung & Pflege
+                xpath: /html/body/div[1]/section[1]/header[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/a[1]
+            categoryUrl:
+              - text: https://www.idealclean.de/c/bodenreinigung-und-pflege/r56BnbygtRnSnwuivAcaxD
+                xpath: /html/body/div[1]/section[1]/header[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/a[1]/@href
+          - category:
+              - text: Poolchemie
+                xpath: /html/body/div[1]/section[1]/header[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/a[2]
+            categoryUrl:
+              - text: https://www.idealclean.de/c/poolchemie/upMc3McXGTcZfkcovbwqvF
+                xpath: /html/body/div[1]/section[1]/header[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/a[2]/@href
+          - category:
+              - text: Landwirtschaft
+                xpath: /html/body/div[1]/section[1]/header[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/a[3]
+            categoryUrl:
+              - text: https://www.idealclean.de/c/landwirtschaft/wyZERU2tcZwX9vUHyWfRgN
+                xpath: /html/body/div[1]/section[1]/header[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/a[3]/@href
+          - category:
+              - text: Reinigungshilfsstoffe
+                xpath: /html/body/div[1]/section[1]/header[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/a[4]
+            categoryUrl:
+              - text: https://www.idealclean.de/c/reinigungshilfsstoffe/3Lo9bD52S2Xb8DwBY8MsnN
+                xpath: /html/body/div[1]/section[1]/header[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/a[4]/@href
+          - category:
+              - text: Sanitärreiniger
+                xpath: /html/body/div[1]/section[1]/header[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/a[5]
+            categoryUrl:
+              - text: https://www.idealclean.de/c/sanitaerreiniger/usyLew6rLDZrPyNSTZ5tBP
+                xpath: /html/body/div[1]/section[1]/header[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/a[5]/@href
+          - category:
+              - text: Winterdienst
+                xpath: /html/body/div[1]/section[1]/header[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/a[6]
+            categoryUrl:
+              - text: https://www.idealclean.de/c/winterdienst/25WeD2E6seU6KY8GCCMFRP
+                xpath: /html/body/div[1]/section[1]/header[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/a[6]/@href
+          - category:
+              - text: Reinigungschemikalien
+                xpath: /html/body/div[1]/section[1]/header[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/a[7]
+            categoryUrl:
+              - text: https://www.idealclean.de/c/reinigungschemikalien/ovtkkrVFgeWRpXjXZVhocS
+                xpath: /html/body/div[1]/section[1]/header[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/a[7]/@href
+          - category:
+              - text: Oberflächenreinigung
+                xpath: /html/body/div[1]/section[1]/header[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/a[8]
+            categoryUrl:
+              - text: https://www.idealclean.de/c/oberflaechenreinigung/Fsu5c5fNZt8cTexH5jX6YW
+                xpath: /html/body/div[1]/section[1]/header[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/a[8]/@href
+          - category:
+              - text: Küchenreiniger
+                xpath: /html/body/div[1]/section[1]/header[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/a[9]
+            categoryUrl:
+              - text: https://www.idealclean.de/c/kuechenreiniger/WppPhbbL7G5654GoSERNiX
+                xpath: /html/body/div[1]/section[1]/header[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/a[9]/@href
+          - category:
+              - text: Waschmittel
+                xpath: /html/body/div[1]/section[1]/header[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/a[10]
+            categoryUrl:
+              - text: https://www.idealclean.de/c/waschmittel/uM3V2fNuvvFNhxEsrckLyd
+                xpath: /html/body/div[1]/section[1]/header[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/a[10]/@href
+          - category:
+              - text: Waschhilfsmittel
+                xpath: /html/body/div[1]/section[1]/header[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/a[11]
+            categoryUrl:
+              - text: https://www.idealclean.de/c/waschhilfsmittel/wthXm9o8voEAg2yz6xYK5e
+                xpath: /html/body/div[1]/section[1]/header[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/a[11]/@href
+          - category:
+              - text: Wäschereibedarf
+                xpath: /html/body/div[1]/section[1]/header[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/a[12]
+            categoryUrl:
+              - text: https://www.idealclean.de/c/waeschereibedarf/JmW7zRr6Azf78JUXbhjere
+                xpath: /html/body/div[1]/section[1]/header[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/a[12]/@href
+          - category:
+              - text: Fahrzeug-Reinigung
+                xpath: /html/body/div[1]/section[1]/header[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/a[13]
+            categoryUrl:
+              - text: https://www.idealclean.de/c/fahrzeug-reinigung/2rueWAh9xUjNUHeW7ygzaf
+                xpath: /html/body/div[1]/section[1]/header[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/a[13]/@href
+          - category:
+              - text: Industriereiniger
+                xpath: /html/body/div[1]/section[1]/header[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/a[14]
+            categoryUrl:
+              - text: https://www.idealclean.de/c/industriereiniger/YCF8NSmE6fW6SpdxxquB9g
+                xpath: /html/body/div[1]/section[1]/header[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/a[14]/@href
+          - category:
+              - text: Sauna & Wellness
+                xpath: /html/body/div[1]/section[1]/header[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[2]/a[1]
+            categoryUrl:
+              - text: https://www.idealclean.de/c/sauna-und-wellness/ePkdd34qY8tcGLogVSZKH4
+                xpath: /html/body/div[1]/section[1]/header[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[2]/a[1]/@href
+          - category:
+              - text: Zahnreinigung
+                xpath: /html/body/div[1]/section[1]/header[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[2]/a[2]
+            categoryUrl:
+              - text: https://www.idealclean.de/c/zahnreinigung/LjY8RtFKVbPqG7i83WPUnF
+                xpath: /html/body/div[1]/section[1]/header[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[2]/a[2]/@href
+          - category:
+              - text: Hotelbedarf
+                xpath: /html/body/div[1]/section[1]/header[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[2]/a[3]
+            categoryUrl:
+              - text: https://www.idealclean.de/c/hotelbedarf/KZ2u8VxwoBRK6dxWoNrKqK
+                xpath: /html/body/div[1]/section[1]/header[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[2]/a[3]/@href
+          - category:
+              - text: Haut & Haare
+                xpath: /html/body/div[1]/section[1]/header[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[2]/a[4]
+            categoryUrl:
+              - text: https://www.idealclean.de/c/haut-und-haare/WorC8YfiwxYWfZqJxmuRgV
+                xpath: /html/body/div[1]/section[1]/header[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[2]/a[4]/@href
+          - category:
+              - text: Handreinigung
+                xpath: /html/body/div[1]/section[1]/header[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[2]/a[5]
+            categoryUrl:
+              - text: https://www.idealclean.de/c/handreinigung/HGFaUHzjtpmbxbyRvZR4iV
+                xpath: /html/body/div[1]/section[1]/header[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[2]/a[5]/@href
+          - category:
+              - text: Duschen & Baden
+                xpath: /html/body/div[1]/section[1]/header[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[2]/a[6]
+            categoryUrl:
+              - text: https://www.idealclean.de/c/duschen-und-baden/5UZ2k78CzLfWfenEMMh3Kb
+                xpath: /html/body/div[1]/section[1]/header[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[2]/a[6]/@href
+          - category:
+              - text: Putztuchspender
+                xpath: /html/body/div[1]/section[1]/header[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[3]/a[1]
+            categoryUrl:
+              - text: https://www.idealclean.de/c/putztuchspender/ZnDsKTxD7BNNcZoBgHRxD8
+                xpath: /html/body/div[1]/section[1]/header[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[3]/a[1]/@href
+          - category:
+              - text: Toilettenpapierspender
+                xpath: /html/body/div[1]/section[1]/header[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[3]/a[2]
+            categoryUrl:
+              - text: https://www.idealclean.de/c/toilettenpapierspender/buSmeyEqLfFJonKfzeYhtG
+                xpath: /html/body/div[1]/section[1]/header[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[3]/a[2]/@href
+          - category:
+              - text: Dosiertechnik
+                xpath: /html/body/div[1]/section[1]/header[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[3]/a[3]
+            categoryUrl:
+              - text: https://www.idealclean.de/c/dosiertechnik/A2DrVnJEvGkHW6mJMQnstS
+                xpath: /html/body/div[1]/section[1]/header[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[3]/a[3]/@href
+          - category:
+              - text: Seifenspender
+                xpath: /html/body/div[1]/section[1]/header[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[3]/a[4]
+            categoryUrl:
+              - text: https://www.idealclean.de/c/seifenspender/rUpahesuioR6cQwTgppRXb
+                xpath: /html/body/div[1]/section[1]/header[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[3]/a[4]/@href
+          - category:
+              - text: Handtuchpapierspender
+                xpath: /html/body/div[1]/section[1]/header[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[3]/a[5]
+            categoryUrl:
+              - text: https://www.idealclean.de/c/handtuchpapierspender/3sek7qcehjGnnSewzCQLPc
+                xpath: /html/body/div[1]/section[1]/header[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[3]/a[5]/@href
+          - category:
+              - text: Duftspender
+                xpath: /html/body/div[1]/section[1]/header[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[3]/a[6]
+            categoryUrl:
+              - text: https://www.idealclean.de/c/duftspender/qCmPf74NoqfP7MzkdKX9Lh
+                xpath: /html/body/div[1]/section[1]/header[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[3]/a[6]/@href
+          - category:
+              - text: Desinfektionsmittelspender
+                xpath: /html/body/div[1]/section[1]/header[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[3]/a[7]
+            categoryUrl:
+              - text: https://www.idealclean.de/c/desinfektionsmittelspender/bYB9J6SEVa2Mq7D4GasJdi
+                xpath: /html/body/div[1]/section[1]/header[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[3]/a[7]/@href
+          - category:
+              - text: Bäckereibedarf
+                xpath: /html/body/div[1]/section[1]/header[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[4]/a[1]
+            categoryUrl:
+              - text: https://www.idealclean.de/c/baeckereibedarf/9Kv3xo6i5bjacnnLvGqyh4
+                xpath: /html/body/div[1]/section[1]/header[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[4]/a[1]/@href
+          - category:
+              - text: Besteck
+                xpath: /html/body/div[1]/section[1]/header[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[4]/a[2]
+            categoryUrl:
+              - text: https://www.idealclean.de/c/besteck/rQ6cSwdWeyvxBpcPMgaeH8
+                xpath: /html/body/div[1]/section[1]/header[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[4]/a[2]/@href
+          - category:
+              - text: Servietten
+                xpath: /html/body/div[1]/section[1]/header[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[4]/a[3]
+            categoryUrl:
+              - text: https://www.idealclean.de/c/servietten/tcp5BL8Az8jL4LkFdCZ62G
+                xpath: /html/body/div[1]/section[1]/header[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[4]/a[3]/@href
+          - category:
+              - text: Brennstoffe
+                xpath: /html/body/div[1]/section[1]/header[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[4]/a[4]
+            categoryUrl:
+              - text: https://www.idealclean.de/c/brennstoffe/VWG3ArcZLxYVhCBvDvfFPK
+                xpath: /html/body/div[1]/section[1]/header[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[4]/a[4]/@href
+          - category:
+              - text: Kerzen
+                xpath: /html/body/div[1]/section[1]/header[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[4]/a[5]
+            categoryUrl:
+              - text: https://www.idealclean.de/c/kerzen/rFAX3aQRGYexmBSWh5wqwL
+                xpath: /html/body/div[1]/section[1]/header[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[4]/a[5]/@href
+          - category:
+              - text: Verpackung
+                xpath: /html/body/div[1]/section[1]/header[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[4]/a[6]
+            categoryUrl:
+              - text: https://www.idealclean.de/c/verpackung/zRADzkU8KBZfHdvGQqRYtU
+                xpath: /html/body/div[1]/section[1]/header[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[4]/a[6]/@href
+          - category:
+              - text: Einweggeschirr
+                xpath: /html/body/div[1]/section[1]/header[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[4]/a[7]
+            categoryUrl:
+              - text: https://www.idealclean.de/c/einweggeschirr/rE3VXRC9bdeqSCcaHR5HUW
+                xpath: /html/body/div[1]/section[1]/header[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[4]/a[7]/@href
+          - category:
+              - text: Tischwäsche
+                xpath: /html/body/div[1]/section[1]/header[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[4]/a[8]
+            categoryUrl:
+              - text: https://www.idealclean.de/c/tischwaesche/ourNCKEdMHwZmtvTxGWKYe
+                xpath: /html/body/div[1]/section[1]/header[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[4]/a[8]/@href
+          - category:
+              - text: Folien & Hauben
+                xpath: /html/body/div[1]/section[1]/header[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[4]/a[9]
+            categoryUrl:
+              - text: https://www.idealclean.de/c/folien-und-hauben/kzjuJB3XDcfWbVEYEaFRqj
+                xpath: /html/body/div[1]/section[1]/header[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[4]/a[9]/@href
+          - category:
+              - text: Geschirr
+                xpath: /html/body/div[1]/section[1]/header[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[4]/a[10]
+            categoryUrl:
+              - text: https://www.idealclean.de/c/geschirr/rFKLoZNXwcHpsHfe6yZSRm
+                xpath: /html/body/div[1]/section[1]/header[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[4]/a[10]/@href
+          - category:
+              - text: Schutzkleidung
+                xpath: /html/body/div[1]/section[1]/header[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[5]/a[1]
+            categoryUrl:
+              - text: https://www.idealclean.de/c/schutzkleidung/G8vfpLXKzNVEqXwsPTtyCH
+                xpath: /html/body/div[1]/section[1]/header[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[5]/a[1]/@href
+          - category:
+              - text: Handschuhe
+                xpath: /html/body/div[1]/section[1]/header[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[5]/a[2]
+            categoryUrl:
+              - text: https://www.idealclean.de/c/handschuhe/DrTUCeBjCwJnPfYJBWmB4g
+                xpath: /html/body/div[1]/section[1]/header[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[5]/a[2]/@href
+          - category:
+              - text: Tücher
+                xpath: /html/body/div[1]/section[1]/header[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[6]/a[1]
+            categoryUrl:
+              - text: https://www.idealclean.de/c/tuecher/jxDp4vmmYz8hVR65xzW2tQ
+                xpath: /html/body/div[1]/section[1]/header[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[6]/a[1]/@href
+          - category:
+              - text: Topfreiniger
+                xpath: /html/body/div[1]/section[1]/header[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[6]/a[2]
+            categoryUrl:
+              - text: https://www.idealclean.de/c/topfreiniger/xmGC4TaCaRyfun8SamGbCV
+                xpath: /html/body/div[1]/section[1]/header[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[6]/a[2]/@href
+          - category:
+              - text: Schwämme
+                xpath: /html/body/div[1]/section[1]/header[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[6]/a[3]
+            categoryUrl:
+              - text: https://www.idealclean.de/c/schwaemme/afdms3bq47fMcx9HmbuWLd
+                xpath: /html/body/div[1]/section[1]/header[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[6]/a[3]/@href
+          - category:
+              - text: Haushaltsartikel
+                xpath: /html/body/div[1]/section[1]/header[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[7]/a[1]
+            categoryUrl:
+              - text: https://www.idealclean.de/c/haushaltsartikel/kNJJhMUMc9i2ER3XJMopN5
+                xpath: /html/body/div[1]/section[1]/header[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[7]/a[1]/@href
+          - category:
+              - text: Padscheiben
+                xpath: /html/body/div[1]/section[1]/header[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[7]/a[2]
+            categoryUrl:
+              - text: https://www.idealclean.de/c/padscheiben/FYDBPhExr2boM6ne4DNct6
+                xpath: /html/body/div[1]/section[1]/header[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[7]/a[2]/@href
+          - category:
+              - text: Leitern
+                xpath: /html/body/div[1]/section[1]/header[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[7]/a[3]
+            categoryUrl:
+              - text: https://www.idealclean.de/c/leitern/AWeZEyQfM5Q239bE6mLECC
+                xpath: /html/body/div[1]/section[1]/header[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[7]/a[3]/@href
+          - category:
+              - text: Fußmatten & Türvorleger
+                xpath: /html/body/div[1]/section[1]/header[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[7]/a[4]
+            categoryUrl:
+              - text: https://www.idealclean.de/c/fussmatten-und-tuervorleger/AwuFYnCFatATEgNbSACJeC
+                xpath: /html/body/div[1]/section[1]/header[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[7]/a[4]/@href
+          - category:
+              - text: Schaufeln & Spachtel
+                xpath: /html/body/div[1]/section[1]/header[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[7]/a[5]
+            categoryUrl:
+              - text: https://www.idealclean.de/c/schaufeln-und-spachtel/k7vbhvTC53rErj8urKVvoE
+                xpath: /html/body/div[1]/section[1]/header[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[7]/a[5]/@href
+          - category:
+              - text: Fensterreinigung
+                xpath: /html/body/div[1]/section[1]/header[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[7]/a[6]
+            categoryUrl:
+              - text: https://www.idealclean.de/c/fensterreinigung/9cFgZzPxiywNTKb9ndHmXF
+                xpath: /html/body/div[1]/section[1]/header[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[7]/a[6]/@href
+          - category:
+              - text: Systemwagen
+                xpath: /html/body/div[1]/section[1]/header[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[7]/a[7]
+            categoryUrl:
+              - text: https://www.idealclean.de/c/systemwagen/CunwXjB8ruszgcrdxTzCZH
+                xpath: /html/body/div[1]/section[1]/header[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[7]/a[7]/@href
+          - category:
+              - text: Staubsaugerzubehör
+                xpath: /html/body/div[1]/section[1]/header[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[7]/a[8]
+            categoryUrl:
+              - text: https://www.idealclean.de/c/staubsaugerzubehoer/EESnP8ZR5VdxF7aFoR5ChX
+                xpath: /html/body/div[1]/section[1]/header[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[7]/a[8]/@href
+          - category:
+              - text: Wischsysteme
+                xpath: /html/body/div[1]/section[1]/header[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[7]/a[9]
+            categoryUrl:
+              - text: https://www.idealclean.de/c/wischsysteme/DeTVfbi48ejA6j6sGnZrjb
+                xpath: /html/body/div[1]/section[1]/header[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[7]/a[9]/@href
+          - category:
+              - text: Nasswischwagen
+                xpath: /html/body/div[1]/section[1]/header[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[7]/a[10]
+            categoryUrl:
+              - text: https://www.idealclean.de/c/nasswischwagen/NLwvn42Js6BmrZ8hdvYEEg
+                xpath: /html/body/div[1]/section[1]/header[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[7]/a[10]/@href
+          - category:
+              - text: Reinigungsgeräte
+                xpath: /html/body/div[1]/section[1]/header[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[7]/a[11]
+            categoryUrl:
+              - text: https://www.idealclean.de/c/reinigungsgeraete/TxRWGeUdmk7GC2xdhD7M9i
+                xpath: /html/body/div[1]/section[1]/header[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[7]/a[11]/@href
+          - category:
+              - text: Winterdienst
+                xpath: /html/body/div[1]/section[1]/header[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[7]/a[12]
+            categoryUrl:
+              - text: https://www.idealclean.de/c/winterdienst/St5APs5qEAbJNobeKGsKCj
+                xpath: /html/body/div[1]/section[1]/header[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[7]/a[12]/@href
+          - category:
+              - text: Patientenversorgung
+                xpath: /html/body/div[1]/section[1]/header[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[8]/a[1]
+            categoryUrl:
+              - text: https://www.idealclean.de/c/patientenversorgung/L6Bcjjqf27N6PS7hxsoYcD
+                xpath: /html/body/div[1]/section[1]/header[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[8]/a[1]/@href
+          - category:
+              - text: Wundbehandlung
+                xpath: /html/body/div[1]/section[1]/header[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[8]/a[2]
+            categoryUrl:
+              - text: https://www.idealclean.de/c/wundbehandlung/AQg2oF8SAQapuVcg8NRS5F
+                xpath: /html/body/div[1]/section[1]/header[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[8]/a[2]/@href
+          - category:
+              - text: OP Bedarf
+                xpath: /html/body/div[1]/section[1]/header[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[8]/a[3]
+            categoryUrl:
+              - text: https://www.idealclean.de/c/op-bedarf/XZRbLQzmQUHj8dUVdfovmQ
+                xpath: /html/body/div[1]/section[1]/header[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[8]/a[3]/@href
+          - category:
+              - text: Inkontinenz
+                xpath: /html/body/div[1]/section[1]/header[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[8]/a[4]
+            categoryUrl:
+              - text: https://www.idealclean.de/c/inkontinenz/gkx2BDFw6wcC3H2y827AAR
+                xpath: /html/body/div[1]/section[1]/header[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[8]/a[4]/@href
+          - category:
+              - text: Praxis- & Stationsbedarf
+                xpath: /html/body/div[1]/section[1]/header[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[8]/a[5]
+            categoryUrl:
+              - text: https://www.idealclean.de/c/praxis-und-stationsbedarf/dFvpNALoBYiKh73Ddn3jgW
+                xpath: /html/body/div[1]/section[1]/header[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[8]/a[5]/@href
+          - category:
+              - text: Medizintechnik
+                xpath: /html/body/div[1]/section[1]/header[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[8]/a[6]
+            categoryUrl:
+              - text: https://www.idealclean.de/c/medizintechnik/Qpcq5oCGoKKoRAiQGE9vyi
+                xpath: /html/body/div[1]/section[1]/header[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[8]/a[6]/@href
+          - category:
+              - text: Abfallsäcke
+                xpath: /html/body/div[1]/section[1]/header[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[9]/a[1]
+            categoryUrl:
+              - text: https://www.idealclean.de/c/abfallsaecke/wtHxrUHzs9FgYfHUhqSJm8
+                xpath: /html/body/div[1]/section[1]/header[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[9]/a[1]/@href
+          - category:
+              - text: Abfallbehälter
+                xpath: /html/body/div[1]/section[1]/header[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[9]/a[2]
+            categoryUrl:
+              - text: https://www.idealclean.de/c/abfallbehaelter/3EkuMas2BGwmCwjQxWmbFF
+                xpath: /html/body/div[1]/section[1]/header[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[9]/a[2]/@href
+          - category:
+              - text: Müllbeutel
+                xpath: /html/body/div[1]/section[1]/header[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[9]/a[3]
+            categoryUrl:
+              - text: https://www.idealclean.de/c/muellbeutel/YyexRaz8MDtyVoL6ZH6PTS
+                xpath: /html/body/div[1]/section[1]/header[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[9]/a[3]/@href
+          - category:
+              - text: Bürsten
+                xpath: /html/body/div[1]/section[1]/header[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[10]/a[1]
+            categoryUrl:
+              - text: https://www.idealclean.de/c/buersten/WhC3CGAJq32tZoSYFfQ7k7
+                xpath: /html/body/div[1]/section[1]/header[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[10]/a[1]/@href
+          - category:
+              - text: Schrubber & Wischer
+                xpath: /html/body/div[1]/section[1]/header[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[10]/a[2]
+            categoryUrl:
+              - text: https://www.idealclean.de/c/schrubber-und-wischer/9QPvFsgPdD6YjoZuvqKjz9
+                xpath: /html/body/div[1]/section[1]/header[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[10]/a[2]/@href
+          - category:
+              - text: Besenstiele
+                xpath: /html/body/div[1]/section[1]/header[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[10]/a[3]
+            categoryUrl:
+              - text: https://www.idealclean.de/c/besenstiele/MQKjTS6ENFFKjvLapRWcmL
+                xpath: /html/body/div[1]/section[1]/header[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[10]/a[3]/@href
+          - category:
+              - text: Wasserschieber
+                xpath: /html/body/div[1]/section[1]/header[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[10]/a[4]
+            categoryUrl:
+              - text: https://www.idealclean.de/c/wasserschieber/S7kX3UXQMhKvUmJ89m2ENT
+                xpath: /html/body/div[1]/section[1]/header[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[10]/a[4]/@href
+          - category:
+              - text: Besen
+                xpath: /html/body/div[1]/section[1]/header[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[10]/a[5]
+            categoryUrl:
+              - text: https://www.idealclean.de/c/besen/jcSC4MkhGBNTejdA4XTXyX
+                xpath: /html/body/div[1]/section[1]/header[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[10]/a[5]/@href
+          - category:
+              - text: Handfeger & Kehrschaufeln
+                xpath: /html/body/div[1]/section[1]/header[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[10]/a[6]
+            categoryUrl:
+              - text: https://www.idealclean.de/c/handfeger-und-kehrschaufeln/XbQsZcqjeUaHMzuZYbehNj
+                xpath: /html/body/div[1]/section[1]/header[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[10]/a[6]/@href
+          - category:
+              - text: Toilettenpapier
+                xpath: /html/body/div[1]/section[1]/header[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[11]/a[1]
+            categoryUrl:
+              - text: https://www.idealclean.de/c/toilettenpapier/ZjnkNpcNJ83m99VeDkqk3L
+                xpath: /html/body/div[1]/section[1]/header[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[11]/a[1]/@href
+          - category:
+              - text: Putztücher
+                xpath: /html/body/div[1]/section[1]/header[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[11]/a[2]
+            categoryUrl:
+              - text: https://www.idealclean.de/c/putztuecher/UTdg8vdjMZSYAtr6Hw3VGV
+                xpath: /html/body/div[1]/section[1]/header[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[11]/a[2]/@href
+          - category:
+              - text: Körperhygiene
+                xpath: /html/body/div[1]/section[1]/header[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[11]/a[3]
+            categoryUrl:
+              - text: https://www.idealclean.de/c/koerperhygiene/Jd2Gb49Wo6RfxKBBxymWKV
+                xpath: /html/body/div[1]/section[1]/header[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[11]/a[3]/@href
+          - category:
+              - text: Handtuchpapier
+                xpath: /html/body/div[1]/section[1]/header[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[11]/a[4]
+            categoryUrl:
+              - text: https://www.idealclean.de/c/handtuchpapier/5ax4pocrx4ZBpb5BbJW8gi
+                xpath: /html/body/div[1]/section[1]/header[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[11]/a[4]/@href
+          - category:
+              - text: Schädlingsbekämpfung
+                xpath: /html/body/div[1]/section[1]/header[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[12]/a[1]
+            categoryUrl:
+              - text: https://www.idealclean.de/c/schaedlingsbekaempfung/H5Ue3k64gM8uNskW4DqVT6
+                xpath: /html/body/div[1]/section[1]/header[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[12]/a[1]/@href
+          - category:
+              - text: Gerätedesinfektion
+                xpath: /html/body/div[1]/section[1]/header[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[12]/a[2]
+            categoryUrl:
+              - text: https://www.idealclean.de/c/geraetedesinfektion/vKDzB66bRGLAykcwgZARGK
+                xpath: /html/body/div[1]/section[1]/header[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[12]/a[2]/@href
+          - category:
+              - text: Haut & Händedesinfektion
+                xpath: /html/body/div[1]/section[1]/header[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[12]/a[3]
+            categoryUrl:
+              - text: https://www.idealclean.de/c/haut-und-haendedesinfektion/X7BJsrV4LQLfyRuVvUCH6M
+                xpath: /html/body/div[1]/section[1]/header[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[12]/a[3]/@href
+          - category:
+              - text: Flächendesinfektion
+                xpath: /html/body/div[1]/section[1]/header[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[12]/a[4]
+            categoryUrl:
+              - text: https://www.idealclean.de/c/flaechendesinfektion/oRHNTvUnF3ABXkDGUaDDjk
+                xpath: /html/body/div[1]/section[1]/header[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[12]/a[4]/@href
+          - categoryUrl:
+              - text: https://www.idealclean.de/page/kundenbewertungen
+                xpath: /html/body/div[1]/section[1]/header[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/a[1]/@href
+        xpath: /html
+    timestamp: 1608215187317

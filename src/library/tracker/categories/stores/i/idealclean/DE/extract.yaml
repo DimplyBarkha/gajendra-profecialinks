@@ -1,13 +1,15 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: null
+recordXPath: //div[@class='AssortmentMenu_assortmentMenu__3qd1M']//a
 fields:
   - name: category
     singleValue: false
     description: name of the category
-    xpath: null
+    xpath: //div[@class='AssortmentMenu_assortmentMenu__3qd1M']//a
   - name: categoryUrl
     singleValue: false
     description: url of the category
-    xpath: null
+    xpath: //div[@class='AssortmentMenu_assortmentMenu__3qd1M']//a/@href
+    regExp: (.+)
+    regExpReplace: https://www.idealclean.de$1
