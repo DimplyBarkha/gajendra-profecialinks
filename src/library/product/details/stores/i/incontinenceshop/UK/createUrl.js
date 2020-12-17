@@ -4,7 +4,7 @@ module.exports = {
   parameterValues: {
     domain: 'incontinenceshop.com',
     prefix: null,
-    url: null,
+    url: 'https://www.incontinenceshop.com/catalogsearch/result/?q={id}',
     country: 'UK',
     store: 'incontinenceshop',
     zipcode: '',
