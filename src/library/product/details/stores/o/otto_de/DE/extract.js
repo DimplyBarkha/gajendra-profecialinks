@@ -36,7 +36,7 @@ module.exports = {
       // @ts-ignore
       const rawdata = getXpath("//div[@class='prd_price__main']/span/span[@id='reducedPriceAmount']/@content|//div[@class='prd_price__main']/span/span[@id='normalPriceAmount']/@content", 'nodeValue');
       if (rawdata != null) {
-        var nr = rawdata.replace('.', ',')
+        var nr = rawdata//.replace('.', ',')
         var price = '€' + nr
         addElementToDocument('price', price);
       }
