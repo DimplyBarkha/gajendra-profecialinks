@@ -1,13 +1,13 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: null
+recordXPath: //ul[@class="o-horizontal-list c-permanent-nav"]//li/a[not(contains(@class, "shopping-cart"))]
 fields:
   - name: category
-    singleValue: false
+    singleValue: true
     description: name of the category
-    xpath: null
+    xpath: '@data-galabel|@title'
   - name: categoryUrl
     singleValue: false
     description: url of the category
-    xpath: null
+    xpath: //@href
