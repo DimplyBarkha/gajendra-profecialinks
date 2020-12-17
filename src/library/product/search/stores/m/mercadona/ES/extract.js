@@ -18,7 +18,6 @@ module.exports = {
     const { productDetails } = dependencies;
     await context.waitForSelector('.section');
     await context.evaluate(() => {
-      console.log(location.search.replace('?query=', ''));
       function addHiddenDiv (className, content, product) {
         const newDiv = document.createElement('div');
         newDiv.className = className;
@@ -29,9 +28,10 @@ module.exports = {
       }
       const products = document.querySelectorAll('.product-cell');
       console.log(products);
-      products.forEach((product) => {
+      products.forEach((product, index) => {
         addHiddenDiv('position-helper', location.search.replace('?query=', ''), product);
         addHiddenDiv('helper-url', location.href, product);
+        addHiddenDiv('helper-id', index + 1, product);
       });
     });
 

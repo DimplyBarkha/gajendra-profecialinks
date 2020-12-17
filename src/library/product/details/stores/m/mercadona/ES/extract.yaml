@@ -1,0 +1,34 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: image
+    singleValue: true
+    xpath: //div[@class='image-zoomer__source']/img/@src
+  - name: imageAlt
+    singleValue: true
+    xpath: //div[@class='image-zoomer__source']/img/@alt
+  - name: price
+    singleValue: true
+    xpath: //p[@class='product-price__unit-price large-b']
+  - name: alternateImages
+    singleValue: false
+    xpath: //div[@class='thumbnail__container']/button/img/@src
+  - name: url
+    singleValue: true
+    xpath: //div[@class='helper-product-url']
+  - name: description
+    singleValue: true
+    xpath: //h1[@class='title2-r private-product-detail__description']
+  - name: btnText
+    singleValue: true
+    xpath: //button[@class='button button-rounded product-quantity-button__add']/span[@class='button__text']
+  - name: _pageTimestamp
+    singleValue: true
+  - name: unitPrice
+    singleValue: true
+    xpath: //div[@class='price-per-unit']
+  - name: packSize
+    singleValue: true
+    xpath: //div[@class='helper-pack-size']
