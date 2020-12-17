@@ -12,6 +12,25 @@ module.exports = {
   implementation: async ({ inputString }, { country, domain, transform: transformParam }, context, { productDetails }) => {
     await context.waitForSelector('script#schemaorg-product', { timeout: 90000 });
 
+    const isSelectorAvailable = async (cssSelector) => {
+      console.log(`Is selector available: ${cssSelector}`);
+      return await context.evaluate(function (selector) {
+        return !!document.querySelector(selector);
+      }, cssSelector);
+    };
+
+    const relatedProducts = await isSelectorAvailable('div.sc-pczax.eSUKWi.emma-slider');
+    if (relatedProducts) {
+      try {
+        await context.evaluate(async function () {
+          document.querySelector('div.sc-pITNg.gYmPPj').scrollIntoView({ block: 'end', behavior: 'smooth' });
+          await new Promise(resolve => setTimeout(resolve, 10000));
+        });
+      } catch (e) {
+        console.log('relatedProducts not loaded');
+      }
+    }
+
     await context.evaluate(async function () {
 
       //   try {
