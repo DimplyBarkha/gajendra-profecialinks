@@ -26,6 +26,13 @@ module.exports = {
         }
         return result;
       };
+      var getXpath = (xpath, prop) => {
+        var elem = document.evaluate(xpath, document, null, XPathResult.ANY_UNORDERED_NODE_TYPE, null);
+        let result;
+        if (prop && elem && elem.singleNodeValue) result = elem.singleNodeValue[prop];
+        else result = elem ? elem.singleNodeValue : '';
+        return result && result.trim ? result.trim() : result;
+      };
       var dee = getAllXpath('//div[@id="blocdiv2"]/div/span/text()', 'nodeValue');
       if (dee != null) {
         var str = dee.join(" || ");
@@ -40,18 +47,37 @@ module.exports = {
       var spec = getAllXpath('//section[@id="specification"]//div[@class="container px-0"]/div/p/span/text()', 'nodeValue');
       if (spec != null) {
         var srr = "";
-        for (var i = 0; i < spec.length; i=i+2) {
-          srr = srr + spec[i].trim() + " " + spec[i+1].trim() + " || "
+        for (var i = 0; i < spec.length; i = i + 2) {
+          srr = srr + spec[i].trim() + " " + spec[i + 1].trim() + " || "
         }
         srr = srr.slice(0, -3)
         addElementToDocument('srr', srr);
       }
       var bull = getAllXpath('//div[@class="description_keySellingPoints"]/div/ul/li/p/text()', 'nodeValue');
-      if(bull != null){
+      if (bull != null) {
         var desbullets = bull.join(" || ");
         addElementToDocument('desbullets', desbullets);
       }
-    });
+      var abc = getXpath('//div[@class="video_s7 hd_miniature"]/@style', 'nodeValue');
+      if (abc != null) {
+        abc = abc.slice(23, -33);
+        addElementToDocument('abc', abc);
+      }
+      var size = getXpath('//div[@class="descriptionAndReference_cms "]/h1/text()', 'nodeValue');
+      if (size != null) {
+        var aar = [];
+        aar = size.split(" ");
+        if (aar[0] == "pack" || aar[1] == "de") {
+          var packsize = aar[0] + " " + aar[1] + " " + aar[2];
+          addElementToDocument('packsize', packsize);
+        }
+      }
+      var pipe = getAllXpath('//div[@class="product-selector--valueDisplay"]/text()', 'nodeValue');
+      if (pipe != null) {
+        var pipeline = pipe.join(" || ");
+        addElementToDocument('pipeline', pipeline);
+      }
+      });
     await context.extract(productDetails);
   },
 };

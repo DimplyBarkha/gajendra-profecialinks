@@ -55,13 +55,19 @@ fields:
     xpath: //span[contains(text(),'Peso')]/following::span[1]/text()
   - name: variantCount
     singleValue: true
-    xpath: count((//ul[@class="dim-list dim-0-list color"])[1]/li)
+    xpath: count((//div[@class="product-selector"]/div[@class="product-selector--attribute"])[1]/a)
   - name: imageAlt
     singleValue: true
-    xpath: //div[@class="s7staticimage"]//img[1]/@alt
+    xpath: //div[@class="descriptionAndReference_cms "]/h1/text()
   - name: variantInformation
     singleValue: true
+    xpath: (//div[@class="product-selector--valueDisplay"]/text())[1]
+  - name: firstVariant
+    singleValue: true
     xpath: //div[@class="product-selector--valueDisplay"]/text()
+  - name: variants
+    singleValue: true
+    xpath: //html//div[@id="pipeline"]
   - name: specifications
     singleValue: true
     xpath: //html//div[@id="srr"]
@@ -71,6 +77,21 @@ fields:
   - name: descriptionBullets
     singleValue: true
     xpath: count(//div[@class="description_keySellingPoints"]/div/ul/li/p/text())
+  - name: videos
+    singleValue: true
+    xpath: //html//div[@id="abc"]
+  - name: packSize
+    singleValue: true
+    xpath: //html//div[@id="packsize"]
+  - name: imageZoomFeaturePresent
+    singleValue: true
+    description: If Zoom feature is available for Main image or images in the
+      carousel,['Yes','No']
+    example: https://www.zalando.de/adidas-neo-sneaker-low-blackwhite-a4315i002-q11.html
+    defaultValue: Yes
+  - name: materials
+    singleValue: true
+    xpath: //span[contains(text(), 'Material del cuerpo')]/following::span[1]/text()
     
 
     
