@@ -151,6 +151,15 @@ module.exports = {
         }
         addElementToDocument('stock', rrr);
       }
+
+      const inTheBoxData = getAllXpath('//dt[contains(.,"Accessories Included")]/following-sibling::dd[1]/text()|//b[contains(text(), "In the box")]/ancestor::p/following-sibling::ul//li/text()', 'nodeValue');
+
+      if (inTheBoxData != null) {
+        for (let i = 0; i < inTheBoxData.length; i++) {
+          inTheBoxData[i] = inTheBoxData[i].replace(/,/gm, ' || ');
+        }
+        addElementToDocument('ii_inTheBoxData', inTheBoxData.join(' || '));
+      }
     });
     await context.extract(productDetails, { transform: transformParam });
   },

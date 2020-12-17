@@ -221,6 +221,11 @@ fields:
     singleValue: false
   - name: inTheBoxText
     singleValue: false
+    xpath: //html//div[@id="ii_inTheBoxData"]
+    # xpath: //dt[contains(.,'Accessories Included')]/following-sibling::dd[1]|//b[contains(text(), "In the box")]/ancestor::p/following-sibling::ul//li
+    # regExp: (([\w ]*),[ ]+)|(.*?)(?=\r|\n)
+    # regExp: ([\w ]*),[ ]+
+    regExpReplace: $1
     description: Must include text to show the accessories/tools which come with the product
   - name: hasComparisonTable
     singleValue: true
