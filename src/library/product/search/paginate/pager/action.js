@@ -47,9 +47,9 @@ async function implementation (
 
   if (nextLinkSelector) {
     console.log('Clicking', nextLinkSelector);
-    await context.clickAndWaitForNavigation(nextLinkSelector, {}, { timeout: 50000 });
+    await context.clickAndWaitForNavigation(nextLinkSelector, {}, { timeout: 100000 });
     if (loadedSelector) {
-      await context.waitForSelector(loadedSelector, { timeout: 50000 });
+      await context.waitForSelector(loadedSelector, { timeout: 100000 });
     }
     return true;
   }
