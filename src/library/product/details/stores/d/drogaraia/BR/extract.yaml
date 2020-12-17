@@ -3,18 +3,18 @@ regionsSelector: null
 recordSelector: null
 recordXPath: null
 fields:
-  - name: name
-    singleValue: true
-    xpath: //div[contains(@class,"product-name")]
   - name: nameExtended
     singleValue: true
-    xpath: //div[contains(@class,"product-name")]
+    xpath: //span[contains(@property, "name")]
   - name: description
     singleValue: true
     xpath: //div[contains(@class,"product-description")]
   - name: image
     singleValue: false
     xpath: //div[contains(@class,"product-image-gallery")]//img/@src
+  - name: imageAlt
+    singleValue: true
+    xpath: //div[contains(@class,"product-image-gallery")]//img/@alt
   - name: alternateImages
     singleValue: false
     xpath: //div[contains(@class,"product-image-gallery")]//img/@src
@@ -43,5 +43,8 @@ fields:
     singleValue: true
     description: The number of reviews
     xpath: //span[contains(@class, 'ts-shelf-right ts-shelf-rate-count')]/span
+  - name: url
+    singleValue: true
+    xpath: //meta[@property='og:url']/@content
 
     

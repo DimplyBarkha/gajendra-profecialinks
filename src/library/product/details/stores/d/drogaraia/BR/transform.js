@@ -32,9 +32,11 @@ const transform = (data, context) => {
         for (const row of group) {
             try {
                 let baseObject = row
-                if(baseObject.ratingCount){
+                if (baseObject.ratingCount) {
                     let rating = row.ratingCount[0].text.split(' ');
-                    row.ratingCount = [{ text : rating[0] }]
+                    row.ratingCount = [{
+                        text: rating[0]
+                    }]
                 }
             } catch (exception) {
                 console.log('Error in transform', exception);
