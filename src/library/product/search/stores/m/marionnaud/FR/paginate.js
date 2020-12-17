@@ -4,7 +4,7 @@ module.exports = {
   parameterValues: {
     country: 'FR',
     store: 'marionnaud',
-    nextLinkSelector: 'a[class="page-link next"]',
+    // nextLinkSelector: 'a[class="page-link next"]',
     mutationSelector: null,
     spinnerSelector: null,
     loadedSelector: 'ul[class="product-listing product-grid"] li',
