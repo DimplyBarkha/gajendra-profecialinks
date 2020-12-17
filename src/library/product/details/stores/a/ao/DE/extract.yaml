@@ -15,7 +15,7 @@ fields:
 - name: image
   singleValue: true
   description: URL of the main product image
-  xpath: //li[@id='carousel-right-image']//img/@src
+  xpath: //li[@id='carousel-right-image']//img/@src | //img[@class="product-img"]/@src
   regExp: \/\/(.+)
   regExpReplace: 'https://$1'
 - name: imageAlt
@@ -96,8 +96,8 @@ fields:
     sku
   xpath: //main/@data-colour-id
 - name: mpc
-  singleValue: true
   description: The manufacturer model code (unique) of the product
+  xpath: //main/@data-product-sku
 - name: packSize
   singleValue: true
   description: The number of packs in the product offer (if stated separately on the
@@ -248,8 +248,8 @@ fields:
   singleValue: false
   description: 
 - name: secondaryImageTotal
-  singleValue: true
   description: 
+  xpath: count(//ol[@id="alternate_images"]/img)
 - name: news
   singleValue: true
   description: 

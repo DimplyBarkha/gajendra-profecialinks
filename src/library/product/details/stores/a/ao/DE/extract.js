@@ -59,6 +59,9 @@ module.exports = {
               null,
             );
           }
+          if (currImg === undefined) {
+            break;
+          }
           if (currImg && currImg.stringValue !== initImg.stringValue) {
             const imgElem = document.createElement('img');
             imgElem.setAttribute('src', currImg.stringValue.replace(/https:\/\//g, '//').replace(/\/\//g, 'https://'));
