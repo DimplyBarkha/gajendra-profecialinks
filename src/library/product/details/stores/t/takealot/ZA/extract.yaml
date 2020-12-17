@@ -1,7 +1,7 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: /html/body
+recordXPath: /html
 fields:
   - name: image
     singleValue: false
@@ -42,6 +42,9 @@ fields:
   - name: mpc
     singleValue: false
     xpath: //script[@src="//media.flixfacts.com/js/loader.js"]/@data-flix-mpn
+  - name: gtin
+    singleValue: false
+    xpath: //script[@src="//media.flixfacts.com/js/loader.js"]/@data-flix-ean
   - name: warnings
     singleValue: true
     description: Content under "warnings" header
@@ -58,7 +61,7 @@ fields:
     xpath: //div[@class="pdp-core-module_main-seller_20BMu"]//a
   - name: shippingDimensions
     singleValue: false
-    xpath: //div[contains(@class,"product-info")]//td[text()="Assembled Dimensions"]/parent::*/td[2]
+    xpath: //div[@id="myCustomProductDescriptionSpecification"]//td[text()="Assembled Dimensions"]/parent::*/td[2]
   - name: variantCount
     singleValue: false
     defaultValue: '0'
@@ -75,20 +78,23 @@ fields:
     singleValue: false
     xpath: //div[@class="product-description  product-description-module_product-description_3bMdX"]/p[contains(text(),"Specifications:")]
   - name: warranty
-    singleValue: true
-    xpath: //div[contains(@class,"product-info")]//td[text()="Warranty"]/parent::*/td[2]
+    singleValue: false
+    xpath: //div[@class="product-description  product-description-module_product-description_3bMdX"]/p[contains(text(),"Specifications:")]/text()
+  - name: materials
+    singleValue: false
+    xpath: //div[@class="product-description  product-description-module_product-description_3bMdX"]/p[contains(text(),"Specifications:")]/text()
   - name: storage
     singleValue: true
     description: Suggested storage location for product
   - name: countryOfOrigin
     singleValue: false
-    xpath: //div[contains(@class,"product-info")]//td[text()="Country"]/parent::*/td[2]
+    xpath: //div[@id="myCustomProductDescriptionSpecification"]//td[text()="Country"]/parent::*/td[2]
   - name: variantInformation
     singleValue: true
     description: colour / scent / flavour / other
   - name: firstVariant
     singleValue: true
-    xpath: //div[contains(@class,"product-info")]//td[text()="Basic Colours"]/parent::*/td[2]
+    xpath: //div[@id="myCustomProductDescriptionSpecification"]//td[text()="Basic Colours"]/parent::*/td[2]
   - name: imageZoomFeaturePresent
     singleValue: false
     defaultValue: Yes

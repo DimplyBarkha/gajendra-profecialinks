@@ -23,7 +23,7 @@ const transform = (data) => {
     return data;
   };
   for (const { group } of data) {
-    var rank = 1, quantityStr='',weightNetStr='',colorStr='';
+    var rank = 1, quantityStr='',weightNetStr='',colorStr='',warrantyStr='',materialsStr='';
     for (let row of group) { 
       if(row.quantity){
         row.quantity.forEach(item=>{
@@ -49,6 +49,23 @@ const transform = (data) => {
         })
         row.color=[{"text":colorStr}];
       }
+      if(row.warranty){
+        row.warranty.forEach(item=>{
+          if(item.text.indexOf('- Warranty:')=='0'){
+            warrantyStr=item.text.replace('- Warranty:','').trim();
+          }
+        })
+        row.warranty=[{"text":warrantyStr}];
+      }
+      if(row.materials){
+        row.materials.forEach(item=>{
+          if(item.text.indexOf('- Material:')=='0'){
+            materialsStr=item.text.replace('- Material:','').trim();
+          }
+        })
+        row.materials=[{"text":materialsStr}];
+      }
+      
       
       if(row.description){
         let inf=[];
