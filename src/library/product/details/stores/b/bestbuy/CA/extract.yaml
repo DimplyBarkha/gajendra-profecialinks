@@ -177,3 +177,14 @@ fields:
   - name: variantUrl
     singleValue: false    
     xpath:  //div[@class="sizeVariantWrapper_2FRMM"]//a[@class="link_3hcyN"]/@href  
+  - name: inTheBoxUrl
+    singleValue: false
+  - name: inTheBoxText
+    singleValue: false
+    xpath: //ul[contains(@class,'boxContents')]//li
+  - name: hasComparisonTable
+    singleValue: true
+    defaultValue: No
+  - name: unInterruptedPDP
+    singleValue: false
+    xpath: //*[contains(@class,'productItemContainer')]//a//div[@itemprop="name"]
