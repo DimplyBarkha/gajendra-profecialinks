@@ -141,6 +141,7 @@ fields:
   - name: color
     singleValue: true
     description: A textual description of the colour
+    xpath: //span[contains(text(),'Farbe')]/parent::td/parent::tr/td[2]
   - name: colorCode
     singleValue: true
     description: A code description of the color (e.g. RGB hex)
@@ -440,6 +441,7 @@ fields:
   - name: pricePerUnit
     singleValue: true
     description: Price of the product split into certain units
+    xpath: //span[@class='prd_price__normAmount']
   - name: pricePerUnitUom
     singleValue: true
     description: The unit of measurement used in price_per_unit
