@@ -21,6 +21,7 @@ module.exports = {
       try {
         const responseStatus = await context.goto(url, {
           antiCaptchaOptions: {
+            provider: 'anti-captcha',
             type: 'GEETEST',
           },
           firstRequestTimeout: 60000,
