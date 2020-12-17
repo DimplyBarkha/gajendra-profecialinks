@@ -6,7 +6,7 @@ module.exports = {
     prefix: null,
     suffix: null,
     subdomain: null,
-    url: null,
+    url: 'https://www.lyreco.com/webshop/FRFR/index.html?lc=FRFR',
     country: 'FR',
     store: 'lyreco',
     zipcode: '',
