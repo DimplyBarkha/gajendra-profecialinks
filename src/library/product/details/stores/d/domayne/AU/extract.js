@@ -41,7 +41,7 @@ async function implementation (inputs, parameters, context, dependencies) {
     function fetchRatingFromScript () {
       const scriptDataTagSelector = document.evaluate('//script[@type="application/ld+json"]', document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
       const scriptTagData = scriptDataTagSelector ? scriptDataTagSelector.innerText : '';
-      const availability = scriptTagData ? scriptTagData.replace(/.*added_availability":"(\d+).*/gm, '$1') : '';
+      const availability = scriptTagData.includes('InStock') ? "In Stock" : "Out of Stock"; //checking for schemaOrg
       addHiddenDiv('added_availability', availability);
     }
 
