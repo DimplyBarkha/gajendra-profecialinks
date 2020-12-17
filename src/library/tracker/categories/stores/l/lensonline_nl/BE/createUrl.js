@@ -6,7 +6,7 @@ module.exports = {
     prefix: null,
     suffix: null,
     subdomain: null,
-    url: null,
+    url: 'https://www.lensonline.be/nl/alle-categorieen',
     country: 'BE',
     store: 'lensonline_nl',
     zipcode: '',

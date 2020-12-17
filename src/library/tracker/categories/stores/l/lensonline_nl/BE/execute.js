@@ -5,7 +5,7 @@ module.exports = {
     country: 'BE',
     store: 'lensonline_nl',
     domain: 'lensonline.be',
-    loadedSelector: null,
+    loadedSelector: 'body > div.container',
     noResultsXPath: null,
     zipcode: '',
   },

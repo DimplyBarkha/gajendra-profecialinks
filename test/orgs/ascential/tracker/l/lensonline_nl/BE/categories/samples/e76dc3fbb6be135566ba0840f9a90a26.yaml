@@ -1,0 +1,76 @@
+input:
+  _url: http://lensonline.be
+  url: https://www.import.io
+extractions:
+  - html: https://workbench.import.io/html/run=6a22cbe4-936c-461f-ac2b-a9bcaa3d454d/task=fc754156-ac77-4b34-8b42-33a8cecf3c9e/c4c15953-b1f4-4c0b-a5d0-65c153ab5e66.html
+    extractionConfigId: tracker/categories/stores/l/lensonline_nl/BE/extract
+    data:
+      - group:
+          - category:
+              - text: Daglenzen
+                xpath: /html/body/div[11]/div[1]
+            categoryUrl:
+              - text: https://www.lensonline.be/nl/daglenzen/
+                xpath: /html/body/div[11]/div[2]
+          - category:
+              - text: Weeklenzen
+                xpath: /html/body/div[12]/div[1]
+            categoryUrl:
+              - text: https://www.lensonline.be/nl/weeklenzen/
+                xpath: /html/body/div[12]/div[2]
+          - category:
+              - text: Maandlenzen
+                xpath: /html/body/div[13]/div[1]
+            categoryUrl:
+              - text: https://www.lensonline.be/nl/maandlenzen/
+                xpath: /html/body/div[13]/div[2]
+          - category:
+              - text: Torische lenzen
+                xpath: /html/body/div[14]/div[1]
+            categoryUrl:
+              - text: https://www.lensonline.be/nl/torische-lenzen/
+                xpath: /html/body/div[14]/div[2]
+          - category:
+              - text: Multifocale lenzen
+                xpath: /html/body/div[15]/div[1]
+            categoryUrl:
+              - text: https://www.lensonline.be/nl/multifocale-lenzen/
+                xpath: /html/body/div[15]/div[2]
+          - category:
+              - text: Silicone Hydrogel lenzen
+                xpath: /html/body/div[16]/div[1]
+            categoryUrl:
+              - text: https://www.lensonline.be/nl/silicone-hydrogel-lenzen/
+                xpath: /html/body/div[16]/div[2]
+          - category:
+              - text: Lenzenvloeistof
+                xpath: /html/body/div[17]/div[1]
+            categoryUrl:
+              - text: https://www.lensonline.be/nl/lenzenvloeistof/
+                xpath: /html/body/div[17]/div[2]
+          - category:
+              - text: Oogzorg
+                xpath: /html/body/div[18]/div[1]
+            categoryUrl:
+              - text: https://www.lensonline.be/nl/oogzorg/
+                xpath: /html/body/div[18]/div[2]
+          - category:
+              - text: Promo Pack
+                xpath: /html/body/div[19]/div[1]
+            categoryUrl:
+              - text: https://www.lensonline.be/nl/promo-pack/
+                xpath: /html/body/div[19]/div[2]
+          - category:
+              - text: Kleurlenzen
+                xpath: /html/body/div[20]/div[1]
+            categoryUrl:
+              - text: https://www.lensonline.be/nl/kleurlenzen/
+                xpath: /html/body/div[20]/div[2]
+          - category:
+              - text: Accessoires
+                xpath: /html/body/div[21]/div[1]
+            categoryUrl:
+              - text: https://www.lensonline.be/nl/accessoires/
+                xpath: /html/body/div[21]/div[2]
+        xpath: /html
+    timestamp: 1608200610844
