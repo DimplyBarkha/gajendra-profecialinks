@@ -74,11 +74,11 @@ fields:
   - name: weightNet
     singleValue: true
     description: Net weight as described on the page
-    xpath: (//*[contains(text(),'Gewicht')]//parent::span//parent::td//parent::tr//td[2])[1]
+    xpath: //html//div[@id='nweight']
   - name: weightGross
     singleValue: true
     description: Gross weight as described on the page
-    xpath: (//*[contains(text(),'Gewicht')]//parent::span//parent::td//parent::tr//td[2])[1]
+    xpath: //html//div[@id='nweight']
   - name: gtin
     singleValue: true
     description: GTIN code (includes UPC/EAN)
