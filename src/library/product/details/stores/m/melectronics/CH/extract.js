@@ -7,7 +7,7 @@ module.exports = {
     transform,
     domain: 'melectronics.ch',
     zipcode: '',
-  }, implementation: async ({ inputString }, { country, domain }, context, { productDetails }) => {
+  }, implementation: async ({ inputString }, { country, domain, transform: transformParam}, context, { productDetails }) => {
     try {
       await context.waitForSelector(".detail-showcase--additional-img-box img[alt='Video']");
     } catch(er) {
@@ -32,6 +32,6 @@ module.exports = {
     }catch(e){
       console.log('gtin not present');
     }
-  await context.extract(productDetails, { transform });
+  await context.extract(productDetails, { transform: transformParam });
   }
 };
