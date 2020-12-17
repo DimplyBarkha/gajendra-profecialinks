@@ -2,7 +2,7 @@ input:
   id: 57697
   _url: http://ao.de
 extractions:
-  - html: https://workbench.import.io/html/run=27aaf420-835e-4bbc-807e-758e9425523c/task=b4d14711-b6c8-4be7-8e8f-42cacfcde87b/b185eb52-105e-4493-85b0-2d5f12ea2724.html
+  - html: https://workbench.import.io/html/run=cdab526f-ed38-44f2-b63d-b3e184faca8b/task=4422f3ad-f3ea-4019-b2f6-1177c98cf3b1/41a38833-821e-42dc-9ded-15f624b5df82.html
     extractionConfigId: product/details/stores/a/ao/DE/extract
     data:
       - group:
@@ -33,9 +33,11 @@ extractions:
                 xpath: /html/head[1]/meta[14]/@content
             category:
               - text: Startseite
-                xpath: /html/body/div[1]/div[1]/div[5]/div[1]/ul[1]/li[1]/a[1]
+                xpath: /html/body/div[1]/div[1]/div[4]/div[1]/ul[1]/li[1]
               - text: Kühlschränke
-                xpath: /html/body/div[1]/div[1]/div[5]/div[1]/ul[1]/li[2]/a[1]
+                xpath: /html/body/div[1]/div[1]/div[4]/div[1]/ul[1]/li[2]
+              - text: Miele K34242iF
+                xpath: /html/body/div[1]/div[1]/div[4]/div[1]/ul[1]/li[3]
             nameExtended:
               - text: Miele K34242iF Einbau-Kühlschrank mit Gefrierfach - Festtür-Technik, A++
                 xpath: /html/body/div[1]/div[1]/main[1]/div[1]/div[2]/section[1]/h1[1]
@@ -84,6 +86,9 @@ extractions:
             variantId:
               - text: "57697"
                 xpath: /html/body/div[1]/div[1]/main[1]/@data-colour-id
+            mpc:
+              - text: K34242iF_WH
+                xpath: /html/body/div[1]/div[1]/main[1]/@data-product-sku
             color:
               - text: Weiß
                 xpath: /html/body/div[1]/div[1]/main[1]/div[1]/div[1]/section[2]/div[1]/div[7]/div[1]/div[1]/table[1]/tbody[1]/tr[2]/td[2]
@@ -379,7 +384,7 @@ extractions:
                 xpath: /html/body/div[1]/div[1]/main[1]/div[1]/div[2]/section[1]/div[3]/div[2]/span[1]/div[1]
             technicalInformationPdfPresent:
               - text: Yes
-                xpath: /html/body/div[1]/div[1]/div[6]/div[5]/a[2]/@href
+                xpath: /html/body/div[1]/div[1]/div[5]/div[5]/a[2]/@href
             termsAndConditions:
               - text: Yes
                 xpath: /html/body/footer[1]/section[2]/div[2]/ul[2]/li[1]/a[1]/@href
@@ -399,7 +404,9 @@ extractions:
               - text: "5"
             variantCount:
               - text: "0"
+            secondaryImageTotal:
+              - text: "6"
             hasComparisonTable:
               - text: "false"
         xpath: /
-    timestamp: 1608126239862
+    timestamp: 1608215340640

@@ -2,7 +2,7 @@ input:
   id: 66690
   _url: http://ao.de
 extractions:
-  - html: https://workbench.import.io/html/run=27aaf420-835e-4bbc-807e-758e9425523c/task=747aef46-da1b-4b28-b552-2d5174246d53/955980dd-f670-4dfd-9cfa-2e402423fcf5.html
+  - html: https://workbench.import.io/html/run=cdab526f-ed38-44f2-b63d-b3e184faca8b/task=690c4c66-6395-40c0-b74f-6a9d98ea29e3/a5d5a550-cf96-4e03-8e07-b9d86fbb7262.html
     extractionConfigId: product/details/stores/a/ao/DE/extract
     data:
       - group:
@@ -54,11 +54,13 @@ extractions:
                 xpath: /html/head[1]/meta[14]/@content
             category:
               - text: Startseite
-                xpath: /html/body/div[1]/div[1]/div[5]/div[1]/ul[1]/li[1]/a[1]
+                xpath: /html/body/div[1]/div[1]/div[5]/div[1]/ul[1]/li[1]
               - text: Einbau-Herdsets
-                xpath: /html/body/div[1]/div[1]/div[5]/div[1]/ul[1]/li[2]/a[1]
+                xpath: /html/body/div[1]/div[1]/div[5]/div[1]/ul[1]/li[2]
               - text: Elektro-Herdsets
-                xpath: /html/body/div[1]/div[1]/div[5]/div[1]/ul[1]/li[3]/a[1]
+                xpath: /html/body/div[1]/div[1]/div[5]/div[1]/ul[1]/li[3]
+              - text: AEG HB3213MS30
+                xpath: /html/body/div[1]/div[1]/div[5]/div[1]/ul[1]/li[4]
             nameExtended:
               - text: AEG HB3213MS30 Einbauherd-Set mit Glaskeramik-Kochfeld - Edelstahl
                 xpath: /html/body/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[1]/h1[1]
@@ -112,6 +114,9 @@ extractions:
             variantId:
               - text: "66690"
                 xpath: /html/body/div[1]/div[1]/main[1]/@data-colour-id
+            mpc:
+              - text: HB3213MS30_SS
+                xpath: /html/body/div[1]/div[1]/main[1]/@data-product-sku
             ratingCount:
               - text: "2"
                 xpath: /html/body/div[12]
@@ -169,7 +174,9 @@ extractions:
               - text: "5"
             variantCount:
               - text: "0"
+            secondaryImageTotal:
+              - text: "16"
             hasComparisonTable:
               - text: "false"
         xpath: /
-    timestamp: 1608126235449
+    timestamp: 1608215351695

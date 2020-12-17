@@ -2,7 +2,7 @@ input:
   id: 74504
   _url: http://ao.de
 extractions:
-  - html: https://workbench.import.io/html/run=27aaf420-835e-4bbc-807e-758e9425523c/task=1a16f405-99d7-4bdd-81fa-53a83ac1db9c/1369a9f8-7232-4a4a-9c6f-9905eb9eb877.html
+  - html: https://workbench.import.io/html/run=cdab526f-ed38-44f2-b63d-b3e184faca8b/task=a599c8f1-6a1e-4e81-a52e-2b0ed22dd0e3/c8be2bb4-0664-4a93-b764-88a2427ecd73.html
     extractionConfigId: product/details/stores/a/ao/DE/extract
     data:
       - group:
@@ -33,9 +33,11 @@ extractions:
                 xpath: /html/head[1]/meta[14]/@content
             category:
               - text: Startseite
-                xpath: /html/body/div[1]/div[1]/div[5]/div[1]/ul[1]/li[1]/a[1]
+                xpath: /html/body/div[1]/div[1]/div[5]/div[1]/ul[1]/li[1]
               - text: Kühl-Gefrierkombinationen
-                xpath: /html/body/div[1]/div[1]/div[5]/div[1]/ul[1]/li[2]/a[1]
+                xpath: /html/body/div[1]/div[1]/div[5]/div[1]/ul[1]/li[2]
+              - text: Bosch KGE39AWCA
+                xpath: /html/body/div[1]/div[1]/div[5]/div[1]/ul[1]/li[3]
             nameExtended:
               - text: Bosch Serie 6 KGE39AWCA Kühl-Gefrierkombination - 60er Breite, Weiß, A+++
                 xpath: /html/body/div[1]/div[1]/main[1]/div[1]/div[2]/section[1]/h1[1]
@@ -43,7 +45,7 @@ extractions:
               - text: €1.019
                 xpath: /html/body/div[1]/div[1]/main[1]/div[1]/div[2]/section[1]/div[4]/div[1]/div[1]/div[1]/div[2]/span[1]
             price:
-              - text: 583,0
+              - text: 739,0
                 xpath: /html/body/div[1]/div[1]/main[1]/div[1]/div[2]/section[1]/div[4]/div[1]/div[1]/span[1]/@content
             availabilityText:
               - text: In stock
@@ -86,6 +88,9 @@ extractions:
             variantId:
               - text: "74504"
                 xpath: /html/body/div[1]/div[1]/main[1]/@data-colour-id
+            mpc:
+              - text: KGE39AWCA_WH
+                xpath: /html/body/div[1]/div[1]/main[1]/@data-product-sku
             ratingCount:
               - text: "1"
                 xpath: /html/body/div[13]
@@ -409,7 +414,7 @@ extractions:
                    Ja
                 xpath: /html/body/div[1]/div[1]/main[1]/div[2]/section[1]/div[1]/div[2]/div[10]/div[1]/div[1]/table[1]/tbody[1]/tr[8]
             promotion:
-              - text: Ersparnis €436
+              - text: Ersparnis €280
                 xpath: /html/body/div[1]/div[1]/main[1]/div[1]/div[2]/section[1]/div[4]/div[1]/div[1]/div[1]/div[1]
             additionalDescBulletInfo:
               - text: VitaFresh - Schublade für deutlich längere Frische!
@@ -447,7 +452,9 @@ extractions:
               - text: "5"
             variantCount:
               - text: "0"
+            secondaryImageTotal:
+              - text: "6"
             hasComparisonTable:
               - text: "false"
         xpath: /
-    timestamp: 1608126226319
+    timestamp: 1608215333491

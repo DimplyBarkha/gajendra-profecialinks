@@ -2,7 +2,7 @@ input:
   id: 38238
   _url: http://ao.de
 extractions:
-  - html: https://workbench.import.io/html/run=27aaf420-835e-4bbc-807e-758e9425523c/task=b8fb0573-74b3-482b-aeca-1aafd093c32c/61b834ba-5b3e-4b4b-8aa9-67752044979c.html
+  - html: https://workbench.import.io/html/run=cdab526f-ed38-44f2-b63d-b3e184faca8b/task=03d9f689-509c-42d8-b307-34f59653ae84/3609075b-3752-47e2-8886-40fd805a4c40.html
     extractionConfigId: product/details/stores/a/ao/DE/extract
     data:
       - group:
@@ -35,9 +35,11 @@ extractions:
                 xpath: /html/head[1]/meta[14]/@content
             category:
               - text: Startseite
-                xpath: /html/body/div[1]/div[1]/div[4]/div[1]/ul[1]/li[1]/a[1]
+                xpath: /html/body/div[1]/div[1]/div[4]/div[1]/ul[1]/li[1]
               - text: Waschmaschinen
-                xpath: /html/body/div[1]/div[1]/div[4]/div[1]/ul[1]/li[2]/a[1]
+                xpath: /html/body/div[1]/div[1]/div[4]/div[1]/ul[1]/li[2]
+              - text: Amica WA 14671 W
+                xpath: /html/body/div[1]/div[1]/div[4]/div[1]/ul[1]/li[3]
             nameExtended:
               - text: Amica WA 14671 W Waschmaschine, 7 kg, 1400 U/Min, A+++
                 xpath: /html/body/div[1]/div[1]/main[1]/div[1]/div[2]/section[1]/h1[1]
@@ -79,6 +81,9 @@ extractions:
             variantId:
               - text: "38238"
                 xpath: /html/body/div[1]/div[1]/main[1]/@data-colour-id
+            mpc:
+              - text: WA 14671 W_WH
+                xpath: /html/body/div[1]/div[1]/main[1]/@data-product-sku
             ratingCount:
               - text: "159"
                 xpath: /html/body/div[13]
@@ -493,7 +498,9 @@ extractions:
               - text: "5"
             variantCount:
               - text: "0"
+            secondaryImageTotal:
+              - text: "8"
             hasComparisonTable:
               - text: "false"
         xpath: /
-    timestamp: 1608126231445
+    timestamp: 1608215347217
