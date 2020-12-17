@@ -4,14 +4,22 @@ class SharedHelpers {
     this.context = context;
   }
 
-  async addHiddenInfo (elementID, content) {
-    await this.context.evaluate(async function (elementID, content) {
-      const newDiv = document.createElement('div');
-      newDiv.id = elementID;
-      newDiv.textContent = content;
-      newDiv.style.display = 'none';
-      document.body.appendChild(newDiv);
-    }, elementID, content);
+  async addHiddenInfo (elementID, content, contentArr = []) {
+    contentArr = contentArr.length ? contentArr : [content];
+    await this.context.evaluate(async function (elementID, content, contentArr) {
+      if (contentArr.length === 0) {
+        contentArr.push(content);
+      } else {
+        // contentArr.push('');
+        contentArr.forEach((element) => {
+          const newDiv = document.createElement('div');
+          newDiv.id = elementID;
+          newDiv.textContent = element;
+          newDiv.style.display = 'none';
+          document.body.appendChild(newDiv);
+        });
+      }
+    }, elementID, content, contentArr);
   }
 
   async addHiddenArrayList (elementID, value) {

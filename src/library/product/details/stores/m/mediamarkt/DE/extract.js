@@ -51,8 +51,8 @@ module.exports = {
       return !!document.querySelector('div[class^="RichProductDescription"] button');
     });
 
-    console.log('manufDescButton')
-    console.log(manufDescButton)
+    console.log('manufDescButton');
+    console.log(manufDescButton);
 
     const expandDetailsButton = await context.evaluate(async function () {
       return !!document.querySelector('div[class^="ProductFeatures"] a[class*="ExpandLink"]');
@@ -95,15 +95,12 @@ module.exports = {
         inBoxUrls = obj.inBoxUrls;
         comparisionText = obj.comparisionText;
 
-        console.log('object!@12');
-        console.log(obj);
-
-        inBoxUrls.forEach((element) => {
-          sharedhelpers.addHiddenInfo('ii_inBoxUrls', element);
-        });
-        inBoxText.forEach((element) => {
-          sharedhelpers.addHiddenInfo('ii_inBoxText', element);
-        });
+        if (inBoxUrls.length) {
+          sharedhelpers.addHiddenInfo('ii_inBoxUrls', '', inBoxUrls);
+        }
+        if (inBoxText.length) {
+          sharedhelpers.addHiddenInfo('ii_inBoxText', '', inBoxText);
+        }
         sharedhelpers.addHiddenInfo('ii_comparisionText', comparisionText);
 
         await sharedhelpers.addHiddenInfo('manufContent', content);
