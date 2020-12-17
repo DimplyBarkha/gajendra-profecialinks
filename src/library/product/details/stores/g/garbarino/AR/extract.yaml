@@ -49,6 +49,7 @@ fields:
     singleValue: false
     description: Product description supplied by website - may be concatenanted from
       multiple places; specifically not the manufacturer description
+    xpath: //div[@id="gb_description"]
   - name: descriptionBullets
     singleValue: false
     description: Number of ul > li tags in the description
@@ -119,6 +120,7 @@ fields:
   - name: shippingInfo
     singleValue: false
     description: Shipping information for the product
+    xpath: //div[@class="gb-main-detail-marketplace"]//span[@class="gb-main-detail-marketplace-info"]//span[@class="gb-popover-body"]
   - name: shippingDimensions
     singleValue: false
     description: Stated shipping dimensions

@@ -7,6 +7,9 @@
 const transform = (data) => {
     for (const { group } of data) {
       for (const row of group) {
+        if (row.category) {
+          row.category.pop();
+        }
         if (row.image) {
           row.image.forEach(item => {
             if(item.text.includes('https:')){

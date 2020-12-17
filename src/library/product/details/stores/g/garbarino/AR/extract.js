@@ -26,6 +26,9 @@ module.exports = {
       let enhancedContent = document.querySelector('div#flix-std-inpage'); 
       let enhancedDesc = enhancedContent ? enhancedContent.innerHTML.replace(/<li.*?>/gm, ' || ').replace(/\n/gm, ' ').replace(/<script>.*?<\/script>/gm, '').replace(/<style.*?<\/style>/gm, '').replace(/<.*?>/gm, ' ').replace(/•/gm, ' ||').replace(/\s{2,}/, ' ').replace(/-->/, '').replace(/\s\|\|\s\|\|\s/gm,'').trim() : '';
       addHiddenDiv('gb_enhancedContent',enhancedDesc);
+      let descriptionContent = document.querySelector('div#gb-description');
+      let description = descriptionContent ? descriptionContent.innerHTML.replace(/<li.*?>/gm, ' || ').replace(/\n/gm, ' ').replace(/<script>.*?<\/script>/gm, '').replace(/<style.*?<\/style>/gm, '').replace(/<.*?>/gm, ' ').replace(/•/gm, ' ||').replace(/\s{2,}/, ' ').replace('Descripción del producto','').replace(/-->/, '').replace(/\s\|\|\s\|\|\s/gm,'').trim() : '';
+      addHiddenDiv('gb_description',description);
       let specTrs = document.querySelectorAll('div#gb-tech-spec-generales ul li');
       let finalSpecArr = [];
       let fieldVal = '';
