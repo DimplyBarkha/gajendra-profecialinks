@@ -23,7 +23,7 @@ fields:
   singleValue: true
   xpath: (//img[@id="productImg"]/@alt|//img[contains(@id,"productImage")]/@alt)[1]
   description: Alt text of the main product image
-- name: alternateImages
+- name: shownImages
   singleValue: false
   xpath: "(//*[@id='added_alternateImages']//text())[position()>1]"
   # xpath: "//*[@id='added_alternateImages']//text()"
