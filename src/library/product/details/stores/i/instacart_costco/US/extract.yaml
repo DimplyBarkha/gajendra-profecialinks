@@ -6,7 +6,7 @@ fields:
   - name: image
     singleValue: true
     description: URL of the main product image
-    xpath: //div[@class="rmq-55d4a504"]/div/div/img/@src
+    xpath: //div[@class="rmq-55d4a504"]/div/div/img/@src | //div[@class="image-container"]/div/img/@src
     # xpath: //div[@class="image-container"]/div/img/@src
   - name: imageAlt
     singleValue: true
@@ -15,7 +15,7 @@ fields:
   - name: alternateImages
     singleValue: false
     description: Other product images (not in manufacturer description)
-    xpath: //div[@class="rmq-c76db721"]/div/img/@src
+    xpath: //div[@class="rmq-c76db721"]/div/img/@src | //ul[@class="item-image-selector"]/li/button/img/@src
     # xpath: //ul[@class="item-image-selector"]/li/button/img/@src
   - name: metaKeywords
     singleValue: true
@@ -23,14 +23,14 @@ fields:
   - name: category
     singleValue: false
     description: The categories (e.g. from breadcrumbs)
-    xpath: (//div[@aria-label="breadcrumbs"])/div[position()>2]
+    xpath: (//div[@aria-label="breadcrumbs"])/div[position()>2] | (//div[@aria-label="breadcrumbs"])[1]/a
     # xpath: (//div[@aria-label="breadcrumbs"])[1]/a
   - name: nameExtended
     singleValue: true
     description:
       The product name, prefixing "${brand} - " if not included in "name"
       and appending " - ${variantType}" if necessary (fixed per feed)
-    xpath: //div[@class="rmq-ff664b58"]/div/div[position()>1]
+    xpath: //div[@class="rmq-ff664b58"]/div/div[position()>1] | //h2[@class="item-title item-title-smaller"]
     # xpath: //h2[@class="item-title item-title-smaller"]
   - name: listPrice
     singleValue: true
@@ -40,7 +40,7 @@ fields:
     singleValue: true
     description: The offered price for the selected product variant - if a user
       clicks add to basket this is the price they would be charged
-    xpath: //div[@class="rmq-ff664b58"]/div/div/div[1]
+    xpath: //div[@class="rmq-ff664b58"]/div/div/div[1] |  //div[@class="col-md-5 itemModalHeader"]/div/div/div/div/span[2]
     # xpath: //div[@class="col-md-5 itemModalHeader"]/div/div/div/div/span[2]
   - name: availabilityText
     singleValue: true
@@ -50,7 +50,7 @@ fields:
     regExp: (.+)
     regExpReplace: In Stock
     defaultValue: Out of Stock
-    xpath: (//button[contains(text(),"Add to Cart")])[2]
+    xpath: (//button[contains(text(),"Add to Cart")])[2] | //select[@id="quantity-selector"]/following-sibling::button
     # xpath: //select[@id="quantity-selector"]/following-sibling::button
   - name: description
     singleValue: false
@@ -158,7 +158,7 @@ fields:
   - name: name
     singleValue: true
     description: The product name
-    xpath: //div[@class="rmq-ff664b58"]/div/div/h3
+    xpath: //div[@class="rmq-ff664b58"]/div/div/h3 | //h2[@class="item-title item-title-smaller"]
   - name: inStorePrice
     singleValue: true
     description: Price in the selected store
