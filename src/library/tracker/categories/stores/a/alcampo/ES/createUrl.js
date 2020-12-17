@@ -4,7 +4,7 @@ module.exports = {
   parameterValues: {
     domain: 'alcampo.es',
     prefix: null,
-    suffix: null,
+    suffix: 'compra-online',
     subdomain: null,
     url: null,
     country: 'ES',
