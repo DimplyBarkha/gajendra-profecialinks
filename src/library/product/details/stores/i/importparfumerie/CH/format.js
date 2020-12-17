@@ -80,6 +80,12 @@ const transform = (data) => {
             item.text =  item.text.replace('.', '.').trim();
           });
         }
+        if (row.gtin) {
+          row.gtin.forEach(item => {
+            item.text = item.text.replace(/\s*/g, '').trim();
+            item.text =  item.text.replace('smt-inci-', '').trim();
+          });
+        }
         if (row.alternateImages) {
           row.alternateImages.forEach(item => {
             item.text =  'https://www.impo.ch'+item.text;

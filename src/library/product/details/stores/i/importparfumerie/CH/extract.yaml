@@ -1,4 +1,4 @@
-singleRecord: false 
+singleRecord: true
 regionsSelector: null
 recordSelector: null
 recordXPath: null
@@ -20,10 +20,9 @@ fields:
     xpath: //div[contains(@class,"image-gallery__thumbs__wrapper image-gallery__thumbs__wrapper--visible")]//a[@class="image-gallery__thumbs__image"]/@href
   - name: brandText
     singleValue: false  
-    xpath: //div[contains(@class,"product-detail-metadata__headings__brand-name")]//a//span
+    xpath: //div[contains(@class,"product-detail-metadata__headings__brand-name")]//a//span | //div[contains(@class,"product-detail-metadata__brand-image-container")]//a//img/@alt
   - name: manufacturer
     singleValue: false
-    xpath: //div[contains(@class,"product-detail-metadata__headings__brand-name")]//a//span
   - name: category
     singleValue: false
     xpath: //ul[contains(@class,"list--horizontal list--chevron")]//li[contains(@class,"crumb-trail__item")]//a
@@ -36,6 +35,9 @@ fields:
   - name: sku
     singleValue: false
     xpath: //div[contains(@class,"product-detail-price__item product-detail-price__item__buttons")]//div/@data-productid
+  - name: gtin
+    singleValue: false
+    xpath: //dd[contains(@class,'product-detail-information__list-item product-detail-information__list-item--right smt-inci-has-loaded')]//@id
   - name: variantId
     singleValue: false
     xpath: //div[contains(@class,"product-detail-price__item product-detail-price__item__buttons")]//div/@data-productid
