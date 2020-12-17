@@ -1,0 +1,228 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: image
+    singleValue: false
+    xpath: //img[@id="image-main"]/parent::*/@href
+  - name: imageAlt
+    singleValue: false
+    xpath: //img[@id="image-main"]/@alt
+  - name: alternateImages
+    singleValue: false
+    xpath: (//a[contains(@class,"cloud-zoom-gallery")]/@href)[position() < last()]
+  - name: metaKeywords
+    singleValue: false
+    xpath: //meta[@name="keywords"]/@content
+  - name: category
+    singleValue: false
+    xpath: //div[@class="breadcrumbs"]//li[not(@class='product')][position() > 1]
+  - name: nameExtended
+    singleValue: false
+    xpath: //div[@class="product-name"]/h1
+  - name: listPrice
+    singleValue: false
+    xpath: //div[contains(@class,"product-primary-column ")]//div[@class="price-box"]
+      /p[not(contains(@class, 'special'))]//span[@class="price"][span[@class="decimal"]]
+  - name: price
+    singleValue: false
+    xpath: //div[contains(@class,"product-primary-column ")]//div[@class="price-box"]
+      /p[contains(@class, 'special')]//span[@class="price"][span[@class="decimal"]]|
+      //span[@class="regular-price"]/span
+  - name: availabilityText
+    singleValue: false
+    xpath: //meta[@property='product:availability'][@content='instock']/@content
+    regExp: (.+)
+    regExpReplace: In Stock
+    defaultValue: Out of Stock
+  - name: description
+    singleValue: false
+    xpath: //h3[text()="Details"]/following-sibling::*[1]
+  - name: descriptionBullets
+    singleValue: false
+    xpath: count(//h3[text()="Details"]/following-sibling::*[1]//li)
+  - name: brandText
+    singleValue: false
+    xpath: //meta[@property="product:brand"]/@content
+  - name: manufacturer
+    singleValue: false
+    xpath: //div[@id="product-manufacturer-move_view"]//img/@alt
+  - name: quantity
+    singleValue: true
+    description: Quantity as described on the page
+  - name: weightNet
+    singleValue: false
+    xpath: //th[text()='Gewicht in kg' or text()='Gewicht in gr']/following-sibling::td
+  - name: weightGross
+    singleValue: true
+    description: Gross weight as described on the page
+  - name: gtin
+    singleValue: false
+    xpath: //th[@class="label"][text()='EAN-Code']/following-sibling::td
+  - name: eangtin
+    singleValue: false
+    xpath: //th[@class="label"][text()='EAN-Code']/following-sibling::td
+  - name: sku
+    singleValue: false
+    xpath: //div[@class="sku"]/span[@class='value']
+  - name: variantId
+    singleValue: false
+    xpath: //div[@class="sku"]/span[@class='value']
+  - name: mpc
+    singleValue: false
+    xpath: //th[@class="label"][text()='Hersteller Artikelnummer']/following-sibling::td
+  - name: packSize
+    singleValue: true
+    description: The number of packs in the product offer (if stated separately on
+      the site to quantity)
+  - name: legalDisclaimer
+    singleValue: true
+    description: Content under "legal disclaimer" header
+  - name: directions
+    singleValue: true
+    description: Content under "directions" header
+  - name: warnings
+    singleValue: true
+    description: Content under "warnings" header
+  - name: ratingCount
+    singleValue: false
+    xpath: //span[@class="ts-stars-reviewCount"]
+  - name: aggregateRating
+    singleValue: false
+    description: The stated aggregate rating normalized to be out of 5
+    xpath: //span[@class="ts-reviewSummary-ratingValue"]
+  - name: shippingInfo
+    singleValue: true
+    description: Shipping information for the product
+  - name: shippingDimensions
+    singleValue: true
+    description: Stated shipping dimensions
+  - name: shippingWeight
+    singleValue: true
+    description: Stated shipping weight
+  - name: variantCount
+    singleValue: false
+    defaultValue: '0'
+  - name: color
+    singleValue: false
+    xpath: //th[text()='Farbe']/following-sibling::td
+  - name: colorCode
+    singleValue: true
+    description: A code description of the color (e.g. RGB hex)
+  - name: manufacturerDescription
+    singleValue: false
+    description: The extended description of the product supplied by the lister
+    xpath: concat(//div[@id='desc_manufacturer'], //div[@id='desc_manufacturer1'], //div[@id='desc_manufacturer2'], //div[@id='dyson_jump_features'] )
+  - name: manufacturerImages
+    singleValue: false
+    description: Images within the third party description
+    xpath: //div[@id="extended-description"]//img/@src|//div[@id="flix-inpage"]//img/@srcset
+  - name: videos
+    singleValue: false
+    xpath: //a[@class="fade-on-hover pu-trigger-responsive"]/@href | //iframe[@title="Flix-media-video-0"]//@src
+  - name: name
+    singleValue: false
+    xpath: //div[@class="product-name"]/h1
+  - name: coupon
+    singleValue: true
+    description: Text of any coupon offer
+  - name: lbb
+    singleValue: true
+    description: Check Lost by Box Requirements (just for Amazon and a couple of other
+      stores) - LBB occurs when a product is bought from someone other than Amazon (on
+      Amazon Website) - even though Amazon has the product "in Stock"
+  - name: lbbPrice
+    singleValue: true
+  - name: specifications
+    description: The physical dimensions of the product including packaging.
+    xpath: //*[contains(@id,"specs-table")] | //th[contains(text(),'Geräteabmessungen')]/following-sibling::td | //div[@id='specifications']
+  - name: warranty
+    singleValue: true
+    description: Guarantee associated with the product
+    xpath: //th[@class="label"][text()='Garantie']/following-sibling::td
+  - name: storage
+    singleValue: true
+    description: Suggested storage location for product
+  - name: countryOfOrigin
+    singleValue: true
+    description: The country from which the product originates
+  - name: recyclingInformation
+    singleValue: true
+    description: Recycling information associated with the product
+  - name: productOtherInformation
+    singleValue: false
+    description: Any other product information
+  - name: packaging
+    singleValue: true
+    description: Packaging information
+  - name: promotion
+    singleValue: true
+    description: promotion text on product page
+    xpath: //div[contains(@class,"product-primary-column")]//p[@class="save-amount"]
+  - name: newDescription
+    singleValue: true
+    description: In product page, information about a new version of the product - new
+      desription info
+  - name: variantInformation
+    singleValue: false
+    xpath: //th[text()='Farbe']/following-sibling::td
+  - name: firstVariant
+    singleValue: true
+    description: Unique identifier for a collection of variants. For a subset of core
+      feeds (43) we have a column "first_variant" that is populated with a common code
+      to link all variants for a product. method 1 (Preferred) = use common tag (Could
+      be parent sku) that is same value for all variants of a product. method 2 = first_variant
+      method technique, Identify the first varient in the sequence and use this rpc
+      to populate "first_variant" for all variants of a product, this rpc becomes the
+      common link between other variants. method 3 = apply some logic to determine link
+      between variants, this will need analysis
+  - name: variants
+    singleValue: false
+    description: null
+  - name: additionalDescBulletInfo
+    singleValue: false
+    xpath: string-join(//h3[text()="Details"]/following-sibling::*[1]//li," ")
+  - name: energyEfficiency
+    singleValue: true
+    description: Energy rating of a product. https://www.amazon.de/Siemens-WM16W541-Waschmaschine-Schnellwaschprogramm-Nachlegefunktion/dp/B015FJFK14
+    example: A+, A+++, B
+  - name: technicalInformationPdfPresent
+    singleValue: true
+    description: If there is for example a manual in pdf format on the website. ['Yes','No']
+    example: https://www.amazon.de/Hasbro-Spiele-44220100-Mastermind-Kinderspiel/dp/B0007OHUG6
+    xpath: //span[@class="label" and text()="Produktdatenblatt anzeigen"]/parent::*/@href
+    regExp: (.+)
+    regExpReplace: "Yes"
+    defaultValue: "No"
+  - name: termsAndConditions
+    singleValue: true
+    description: Terms and conditions information text ['Yes','No']
+    defaultValue: "No"
+  - name: Image360Present
+    singleValue: true
+    description: If 360 image is present in the carousel ['Yes','No']
+    example: https://www.amazon.com/Trinsic-Single-Handle-Magnetic-Champagne-9159-CZ-DST/dp/B0050EN8E6
+    defaultValue: "No"
+  - name: inTheBoxUrl
+    singleValue: false
+    xpath: //div[contains(@class, "InTheBox")]//img/@data-flixsrcset
+  - name: inTheBoxText
+    singleValue: false
+    xpath: //div[contains(@class, "InTheBox")]//div[contains(@class, "flix-std-content")]
+    description: Must include text to show the accessories/tools which come with the product
+  - name: hasComparisonTable
+    singleValue: true
+    xpath: boolean(//*[contains(text(), "Vergleichstabelle")])
+    defaut: false
+    description: Compare the range table or matrix must be present for all vacuum cleaners & air treatment. This is not required for personal care or lighting. As a minimum the comparison table will compare against 1 additional Dyson product.
+  - name: unInterruptedPDP
+    singleValue: false
+    xpath: //div[contains(@id, "itemslider")]//h3
+    description: Titles of products in the sections 'you may also like' or 'sponsored products'. Combine results from Max 3 sections
+  - name: imageZoomFeaturePresent
+    singleValue: false
+    defaultValue: "Yes"
+  - name: materials
+    singleValue: false
+    xpath: //h3[text()="Details"]/following-sibling::*[1]//li[contains(text(),"Material:")]
