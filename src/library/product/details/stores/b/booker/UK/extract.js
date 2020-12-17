@@ -61,7 +61,7 @@ module.exports = {
 
       // Get listPrice
       const listPrice = document.querySelector('div.prodPromo *.offer2') ? document.querySelector('div.prodPromo *.offer2').textContent.replace(/^.*:\s(.+)\sNow.*/g, '$1') : '';
-      addElementToDocument('listPrice', listPrice);
+      if (listPrice.match(/£\d+\.?,?\d*/g) && listPrice.match(/£\d+\.?,?\d*/g)[0]) addElementToDocument('listPrice', listPrice);
     });
     await context.extract(productDetails, { transform });
   },
