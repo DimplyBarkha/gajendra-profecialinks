@@ -1,13 +1,13 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: null
+recordXPath: //ul[@id="infoTopNav"]//li/a[not(@id="flashBasket")]
 fields:
   - name: category
-    singleValue: false
+    singleValue: true
     description: name of the category
-    xpath: null
+    xpath: '@data-galabel|@title'
   - name: categoryUrl
     singleValue: false
     description: url of the category
-    xpath: null
+    xpath: //@href

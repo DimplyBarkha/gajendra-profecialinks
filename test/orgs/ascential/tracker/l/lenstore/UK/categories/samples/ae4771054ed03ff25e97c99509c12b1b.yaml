@@ -1,0 +1,472 @@
+input:
+  _url: http://lenstore.co.uk
+  URL: https://www.lenstore.co.uk/
+extractions:
+  - html: https://workbench.import.io/html/run=321c4b25-d70a-4542-ab9b-890f80757565/task=5e0668e9-2e4d-45cc-8b29-5d4606771531/38258dcc-ff58-4ac9-885a-5b64dd6e0629.html
+    extractionConfigId: tracker/categories/stores/l/lenstore/UK/extract
+    data:
+      - group:
+          - categoryUrl:
+              - text: https://www.lenstore.co.uk/contact-lenses
+                xpath: /html/body/div[1]/div[3]/div[1]/ul[1]/li[1]/a[1]/@href
+            category:
+              - text: Contact Lenses
+                xpath: /html/body/div[1]/div[3]/div[1]/ul[1]/li[1]/a[1]/@title
+          - categoryUrl:
+              - text: https://www.lenstore.co.uk/1-day-acuvue-contact-lenses
+                xpath: /html/body/div[1]/div[3]/div[1]/ul[1]/li[1]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[1]/a[1]/@href
+            category:
+              - text: 1 Day ACUVUE Contact Lenses
+                xpath: /html/body/div[1]/div[3]/div[1]/ul[1]/li[1]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[1]/a[1]/@data-galabel
+          - categoryUrl:
+              - text: https://www.lenstore.co.uk/acuvue-2-contacts
+                xpath: /html/body/div[1]/div[3]/div[1]/ul[1]/li[1]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[2]/a[1]/@href
+            category:
+              - text: ACUVUE 2
+                xpath: /html/body/div[1]/div[3]/div[1]/ul[1]/li[1]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[2]/a[1]/@data-galabel
+          - categoryUrl:
+              - text: https://www.lenstore.co.uk/acuvue-oasys-contacts
+                xpath: /html/body/div[1]/div[3]/div[1]/ul[1]/li[1]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[3]/a[1]/@href
+            category:
+              - text: ACUVUE OASYS
+                xpath: /html/body/div[1]/div[3]/div[1]/ul[1]/li[1]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[3]/a[1]/@data-galabel
+          - categoryUrl:
+              - text: https://www.lenstore.co.uk/air-optix-aqua-contact-lenses
+                xpath: /html/body/div[1]/div[3]/div[1]/ul[1]/li[1]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[4]/a[1]/@href
+            category:
+              - text: Air Optix Aqua
+                xpath: /html/body/div[1]/div[3]/div[1]/ul[1]/li[1]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[4]/a[1]/@data-galabel
+          - categoryUrl:
+              - text: https://www.lenstore.co.uk/avaira
+                xpath: /html/body/div[1]/div[3]/div[1]/ul[1]/li[1]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[5]/a[1]/@href
+            category:
+              - text: Avaira Contact Lenses
+                xpath: /html/body/div[1]/div[3]/div[1]/ul[1]/li[1]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[5]/a[1]/@data-galabel
+          - categoryUrl:
+              - text: https://www.lenstore.co.uk/biofinity-contact-lenses
+                xpath: /html/body/div[1]/div[3]/div[1]/ul[1]/li[1]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[6]/a[1]/@href
+            category:
+              - text: Biofinity Contact Lenses
+                xpath: /html/body/div[1]/div[3]/div[1]/ul[1]/li[1]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[6]/a[1]/@data-galabel
+          - categoryUrl:
+              - text: https://www.lenstore.co.uk/biomedics
+                xpath: /html/body/div[1]/div[3]/div[1]/ul[1]/li[1]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[7]/a[1]/@href
+            category:
+              - text: Biomedics Contact Lenses
+                xpath: /html/body/div[1]/div[3]/div[1]/ul[1]/li[1]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[7]/a[1]/@data-galabel
+          - categoryUrl:
+              - text: https://www.lenstore.co.uk/biotrue
+                xpath: /html/body/div[1]/div[3]/div[1]/ul[1]/li[1]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[8]/a[1]/@href
+            category:
+              - text: Biotrue Contact Lenses
+                xpath: /html/body/div[1]/div[3]/div[1]/ul[1]/li[1]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[8]/a[1]/@data-galabel
+          - categoryUrl:
+              - text: https://www.lenstore.co.uk/clariti-contact-lenses
+                xpath: /html/body/div[1]/div[3]/div[1]/ul[1]/li[1]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[9]/a[1]/@href
+            category:
+              - text: Clariti Contact Lenses
+                xpath: /html/body/div[1]/div[3]/div[1]/ul[1]/li[1]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[9]/a[1]/@data-galabel
+          - categoryUrl:
+              - text: https://www.lenstore.co.uk/coopervision-expressions
+                xpath: /html/body/div[1]/div[3]/div[1]/ul[1]/li[1]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[10]/a[1]/@href
+            category:
+              - text: CooperVision Expressions
+                xpath: /html/body/div[1]/div[3]/div[1]/ul[1]/li[1]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[10]/a[1]/@data-galabel
+          - categoryUrl:
+              - text: https://www.lenstore.co.uk/focus-dailies
+                xpath: /html/body/div[1]/div[3]/div[1]/ul[1]/li[1]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[11]/a[1]/@href
+            category:
+              - text: Focus Dailies Contact Lenses
+                xpath: /html/body/div[1]/div[3]/div[1]/ul[1]/li[1]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[11]/a[1]/@data-galabel
+          - categoryUrl:
+              - text: https://www.lenstore.co.uk/frequency
+                xpath: /html/body/div[1]/div[3]/div[1]/ul[1]/li[1]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[12]/a[1]/@href
+            category:
+              - text: Frequency Contact Lenses
+                xpath: /html/body/div[1]/div[3]/div[1]/ul[1]/li[1]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[12]/a[1]/@data-galabel
+          - categoryUrl:
+              - text: https://www.lenstore.co.uk/freshlook-contact-lenses
+                xpath: /html/body/div[1]/div[3]/div[1]/ul[1]/li[1]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[13]/a[1]/@href
+            category:
+              - text: Freshlook Coloured Contact Lenses
+                xpath: /html/body/div[1]/div[3]/div[1]/ul[1]/li[1]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[13]/a[1]/@data-galabel
+          - categoryUrl:
+              - text: https://www.lenstore.co.uk/myday
+                xpath: /html/body/div[1]/div[3]/div[1]/ul[1]/li[1]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[14]/a[1]/@href
+            category:
+              - text: MyDay Contact Lenses
+                xpath: /html/body/div[1]/div[3]/div[1]/ul[1]/li[1]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[14]/a[1]/@data-galabel
+          - categoryUrl:
+              - text: https://www.lenstore.co.uk/proclear-contact-lenses
+                xpath: /html/body/div[1]/div[3]/div[1]/ul[1]/li[1]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[15]/a[1]/@href
+            category:
+              - text: Proclear Contact Lenses
+                xpath: /html/body/div[1]/div[3]/div[1]/ul[1]/li[1]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[15]/a[1]/@data-galabel
+          - categoryUrl:
+              - text: https://www.lenstore.co.uk/purevision-contact-lenses
+                xpath: /html/body/div[1]/div[3]/div[1]/ul[1]/li[1]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[16]/a[1]/@href
+            category:
+              - text: Purevision Contact Lenses
+                xpath: /html/body/div[1]/div[3]/div[1]/ul[1]/li[1]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[16]/a[1]/@data-galabel
+          - categoryUrl:
+              - text: https://www.lenstore.co.uk/soflens
+                xpath: /html/body/div[1]/div[3]/div[1]/ul[1]/li[1]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[17]/a[1]/@href
+            category:
+              - text: Soflens Contact Lenses
+                xpath: /html/body/div[1]/div[3]/div[1]/ul[1]/li[1]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[17]/a[1]/@data-galabel
+          - categoryUrl:
+              - text: https://www.lenstore.co.uk/daily-disposables
+                xpath: /html/body/div[1]/div[3]/div[1]/ul[1]/li[1]/div[1]/div[1]/div[1]/div[3]/div[1]/ul[1]/li[1]/a[1]/@href
+            category:
+              - text: Daily Disposables
+                xpath: /html/body/div[1]/div[3]/div[1]/ul[1]/li[1]/div[1]/div[1]/div[1]/div[3]/div[1]/ul[1]/li[1]/a[1]/@data-galabel
+          - categoryUrl:
+              - text: https://www.lenstore.co.uk/two-weekly-disposables
+                xpath: /html/body/div[1]/div[3]/div[1]/ul[1]/li[1]/div[1]/div[1]/div[1]/div[3]/div[1]/ul[1]/li[2]/a[1]/@href
+            category:
+              - text: Two Weekly Disposables
+                xpath: /html/body/div[1]/div[3]/div[1]/ul[1]/li[1]/div[1]/div[1]/div[1]/div[3]/div[1]/ul[1]/li[2]/a[1]/@data-galabel
+          - categoryUrl:
+              - text: https://www.lenstore.co.uk/monthly-disposables
+                xpath: /html/body/div[1]/div[3]/div[1]/ul[1]/li[1]/div[1]/div[1]/div[1]/div[3]/div[1]/ul[1]/li[3]/a[1]/@href
+            category:
+              - text: Monthly Disposables
+                xpath: /html/body/div[1]/div[3]/div[1]/ul[1]/li[1]/div[1]/div[1]/div[1]/div[3]/div[1]/ul[1]/li[3]/a[1]/@data-galabel
+          - categoryUrl:
+              - text: https://www.lenstore.co.uk/extended-wear-lenses
+                xpath: /html/body/div[1]/div[3]/div[1]/ul[1]/li[1]/div[1]/div[1]/div[1]/div[3]/div[1]/ul[1]/li[4]/a[1]/@href
+            category:
+              - text: Extended Wear Lenses
+                xpath: /html/body/div[1]/div[3]/div[1]/ul[1]/li[1]/div[1]/div[1]/div[1]/div[3]/div[1]/ul[1]/li[4]/a[1]/@data-galabel
+          - categoryUrl:
+              - text: https://www.lenstore.co.uk/toric-lenses
+                xpath: /html/body/div[1]/div[3]/div[1]/ul[1]/li[1]/div[1]/div[1]/div[1]/div[3]/div[1]/ul[1]/li[5]/a[1]/@href
+            category:
+              - text: Toric/Astigmatism Lenses
+                xpath: /html/body/div[1]/div[3]/div[1]/ul[1]/li[1]/div[1]/div[1]/div[1]/div[3]/div[1]/ul[1]/li[5]/a[1]/@data-galabel
+          - categoryUrl:
+              - text: https://www.lenstore.co.uk/multifocal-lenses
+                xpath: /html/body/div[1]/div[3]/div[1]/ul[1]/li[1]/div[1]/div[1]/div[1]/div[3]/div[1]/ul[1]/li[6]/a[1]/@href
+            category:
+              - text: Multifocal Lenses
+                xpath: /html/body/div[1]/div[3]/div[1]/ul[1]/li[1]/div[1]/div[1]/div[1]/div[3]/div[1]/ul[1]/li[6]/a[1]/@data-galabel
+          - categoryUrl:
+              - text: https://www.lenstore.co.uk/solutions-accessories
+                xpath: /html/body/div[1]/div[3]/div[1]/ul[1]/li[1]/div[1]/div[1]/div[1]/div[3]/div[1]/ul[1]/li[7]/a[1]/@href
+            category:
+              - text: Solutions & Accessories
+                xpath: /html/body/div[1]/div[3]/div[1]/ul[1]/li[1]/div[1]/div[1]/div[1]/div[3]/div[1]/ul[1]/li[7]/a[1]/@data-galabel
+          - categoryUrl:
+              - text: https://www.lenstore.co.uk/coloured-contact-lenses
+                xpath: /html/body/div[1]/div[3]/div[1]/ul[1]/li[1]/div[1]/div[1]/div[1]/div[3]/div[1]/ul[1]/li[8]/a[1]/@href
+            category:
+              - text: Coloured Contact Lenses
+                xpath: /html/body/div[1]/div[3]/div[1]/ul[1]/li[1]/div[1]/div[1]/div[1]/div[3]/div[1]/ul[1]/li[8]/a[1]/@data-galabel
+          - categoryUrl:
+              - text: https://www.lenstore.co.uk/cheap-contact-lenses
+                xpath: /html/body/div[1]/div[3]/div[1]/ul[1]/li[1]/div[1]/div[1]/div[1]/div[3]/div[1]/ul[1]/li[9]/a[1]/@href
+            category:
+              - text: Cheap Contact Lenses
+                xpath: /html/body/div[1]/div[3]/div[1]/ul[1]/li[1]/div[1]/div[1]/div[1]/div[3]/div[1]/ul[1]/li[9]/a[1]/@data-galabel
+          - categoryUrl:
+              - text: https://www.lenstore.co.uk/acuvue-contact-lenses
+                xpath: /html/body/div[1]/div[3]/div[1]/ul[1]/li[1]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[1]/a[1]/@href
+            category:
+              - text: Acuvue Contact Lenses
+                xpath: /html/body/div[1]/div[3]/div[1]/ul[1]/li[1]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[1]/a[1]/@data-galabel
+          - categoryUrl:
+              - text: https://www.lenstore.co.uk/bausch-lomb
+                xpath: /html/body/div[1]/div[3]/div[1]/ul[1]/li[1]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[2]/a[1]/@href
+            category:
+              - text: Bausch & Lomb Contact Lenses
+                xpath: /html/body/div[1]/div[3]/div[1]/ul[1]/li[1]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[2]/a[1]/@data-galabel
+          - categoryUrl:
+              - text: https://www.lenstore.co.uk/ciba-vision
+                xpath: /html/body/div[1]/div[3]/div[1]/ul[1]/li[1]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[3]/a[1]/@href
+            category:
+              - text: CIBA Vision / Alcon Contact Lenses
+                xpath: /html/body/div[1]/div[3]/div[1]/ul[1]/li[1]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[3]/a[1]/@data-galabel
+          - categoryUrl:
+              - text: https://www.lenstore.co.uk/cooper-vision
+                xpath: /html/body/div[1]/div[3]/div[1]/ul[1]/li[1]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[4]/a[1]/@href
+            category:
+              - text: CooperVision Contact Lenses
+                xpath: /html/body/div[1]/div[3]/div[1]/ul[1]/li[1]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[4]/a[1]/@data-galabel
+          - categoryUrl:
+              - text: https://www.lenstore.co.uk/sauflon
+                xpath: /html/body/div[1]/div[3]/div[1]/ul[1]/li[1]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[5]/a[1]/@href
+            category:
+              - text: Sauflon Contact Lenses
+                xpath: /html/body/div[1]/div[3]/div[1]/ul[1]/li[1]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[5]/a[1]/@data-galabel
+          - categoryUrl:
+              - text: https://www.lenstore.co.uk/specsavers-contact-lenses
+                xpath: /html/body/div[1]/div[3]/div[1]/ul[1]/li[1]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[6]/a[1]/@href
+            category:
+              - text: Specsavers Own Brand
+                xpath: /html/body/div[1]/div[3]/div[1]/ul[1]/li[1]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[6]/a[1]/@data-galabel
+          - categoryUrl:
+              - text: https://www.lenstore.co.uk/boots-contact-lenses
+                xpath: /html/body/div[1]/div[3]/div[1]/ul[1]/li[1]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[7]/a[1]/@href
+            category:
+              - text: Boots Own Brand
+                xpath: /html/body/div[1]/div[3]/div[1]/ul[1]/li[1]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[7]/a[1]/@data-galabel
+          - categoryUrl:
+              - text: https://www.lenstore.co.uk/opticians-own-brand-conversion
+                xpath: /html/body/div[1]/div[3]/div[1]/ul[1]/li[1]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[8]/a[1]/@href
+            category:
+              - text: Find your own brand contact lenses
+                xpath: /html/body/div[1]/div[3]/div[1]/ul[1]/li[1]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[8]/a[1]/@data-galabel
+          - categoryUrl:
+              - text: https://www.lenstore.co.uk/solutions-accessories
+                xpath: /html/body/div[1]/div[3]/div[1]/ul[1]/li[2]/a[1]/@href
+            category:
+              - text: Accessories
+                xpath: /html/body/div[1]/div[3]/div[1]/ul[1]/li[2]/a[1]/@title
+          - categoryUrl:
+              - text: https://www.lenstore.co.uk/blink-eye-drops
+                xpath: /html/body/div[1]/div[3]/div[1]/ul[1]/li[2]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[1]/a[1]/@href
+            category:
+              - text: Blink Eye Drops
+                xpath: /html/body/div[1]/div[3]/div[1]/ul[1]/li[2]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[1]/a[1]/@data-galabel
+          - categoryUrl:
+              - text: https://www.lenstore.co.uk/renu-solutions
+                xpath: /html/body/div[1]/div[3]/div[1]/ul[1]/li[2]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[2]/a[1]/@href
+            category:
+              - text: ReNu Solutions
+                xpath: /html/body/div[1]/div[3]/div[1]/ul[1]/li[2]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[2]/a[1]/@data-galabel
+          - categoryUrl:
+              - text: https://www.lenstore.co.uk/macushield
+                xpath: /html/body/div[1]/div[3]/div[1]/ul[1]/li[2]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[3]/a[1]/@href
+            category:
+              - text: MacuShield
+                xpath: /html/body/div[1]/div[3]/div[1]/ul[1]/li[2]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[3]/a[1]/@data-galabel
+          - categoryUrl:
+              - text: https://www.lenstore.co.uk/hycosan
+                xpath: /html/body/div[1]/div[3]/div[1]/ul[1]/li[2]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[4]/a[1]/@href
+            category:
+              - text: Hycosan Eye Care Products
+                xpath: /html/body/div[1]/div[3]/div[1]/ul[1]/li[2]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[4]/a[1]/@data-galabel
+          - categoryUrl:
+              - text: https://www.lenstore.co.uk/optrex
+                xpath: /html/body/div[1]/div[3]/div[1]/ul[1]/li[2]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[5]/a[1]/@href
+            category:
+              - text: Optrex Eye Care Products
+                xpath: /html/body/div[1]/div[3]/div[1]/ul[1]/li[2]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[5]/a[1]/@data-galabel
+          - categoryUrl:
+              - text: https://www.lenstore.co.uk/biotrue-solution
+                xpath: /html/body/div[1]/div[3]/div[1]/ul[1]/li[2]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[6]/a[1]/@href
+            category:
+              - text: Biotrue Contact Lens Solution
+                xpath: /html/body/div[1]/div[3]/div[1]/ul[1]/li[2]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[6]/a[1]/@data-galabel
+          - categoryUrl:
+              - text: https://www.lenstore.co.uk/alcon
+                xpath: /html/body/div[1]/div[3]/div[1]/ul[1]/li[2]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[7]/a[1]/@href
+            category:
+              - text: Alcon Eye Solutions & Drops
+                xpath: /html/body/div[1]/div[3]/div[1]/ul[1]/li[2]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[7]/a[1]/@data-galabel
+          - categoryUrl:
+              - text: https://www.lenstore.co.uk/opti-free-solutions
+                xpath: /html/body/div[1]/div[3]/div[1]/ul[1]/li[2]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[8]/a[1]/@href
+            category:
+              - text: Opti-Free Contact Lens Solutions
+                xpath: /html/body/div[1]/div[3]/div[1]/ul[1]/li[2]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[8]/a[1]/@data-galabel
+          - categoryUrl:
+              - text: https://www.lenstore.co.uk/solo-care-aqua
+                xpath: /html/body/div[1]/div[3]/div[1]/ul[1]/li[2]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[9]/a[1]/@href
+            category:
+              - text: Solo Care Aqua
+                xpath: /html/body/div[1]/div[3]/div[1]/ul[1]/li[2]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[9]/a[1]/@data-galabel
+          - categoryUrl:
+              - text: https://www.lenstore.co.uk/systane-eye-drops
+                xpath: /html/body/div[1]/div[3]/div[1]/ul[1]/li[2]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[10]/a[1]/@href
+            category:
+              - text: Systane Eye Drops
+                xpath: /html/body/div[1]/div[3]/div[1]/ul[1]/li[2]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[10]/a[1]/@data-galabel
+          - categoryUrl:
+              - text: https://www.lenstore.co.uk/multi-purpose-solutions
+                xpath: /html/body/div[1]/div[3]/div[1]/ul[1]/li[2]/div[1]/div[1]/div[1]/div[3]/div[1]/ul[1]/li[1]/a[1]/@href
+            category:
+              - text: Multi-Purpose Solutions
+                xpath: /html/body/div[1]/div[3]/div[1]/ul[1]/li[2]/div[1]/div[1]/div[1]/div[3]/div[1]/ul[1]/li[1]/a[1]/@data-galabel
+          - categoryUrl:
+              - text: https://www.lenstore.co.uk/hydrogen-peroxide-solutions
+                xpath: /html/body/div[1]/div[3]/div[1]/ul[1]/li[2]/div[1]/div[1]/div[1]/div[3]/div[1]/ul[1]/li[2]/a[1]/@href
+            category:
+              - text: Hydrogen Peroxide Solutions
+                xpath: /html/body/div[1]/div[3]/div[1]/ul[1]/li[2]/div[1]/div[1]/div[1]/div[3]/div[1]/ul[1]/li[2]/a[1]/@data-galabel
+          - categoryUrl:
+              - text: https://www.lenstore.co.uk/saline-solutions
+                xpath: /html/body/div[1]/div[3]/div[1]/ul[1]/li[2]/div[1]/div[1]/div[1]/div[3]/div[1]/ul[1]/li[3]/a[1]/@href
+            category:
+              - text: Saline Solutions
+                xpath: /html/body/div[1]/div[3]/div[1]/ul[1]/li[2]/div[1]/div[1]/div[1]/div[3]/div[1]/ul[1]/li[3]/a[1]/@data-galabel
+          - categoryUrl:
+              - text: https://www.lenstore.co.uk/hard-rgp-solutions
+                xpath: /html/body/div[1]/div[3]/div[1]/ul[1]/li[2]/div[1]/div[1]/div[1]/div[3]/div[1]/ul[1]/li[4]/a[1]/@href
+            category:
+              - text: Hard / RGP Solutions
+                xpath: /html/body/div[1]/div[3]/div[1]/ul[1]/li[2]/div[1]/div[1]/div[1]/div[3]/div[1]/ul[1]/li[4]/a[1]/@data-galabel
+          - categoryUrl:
+              - text: https://www.lenstore.co.uk/eye-drops
+                xpath: /html/body/div[1]/div[3]/div[1]/ul[1]/li[2]/div[1]/div[1]/div[1]/div[3]/div[1]/ul[1]/li[5]/a[1]/@href
+            category:
+              - text: Eye Drops
+                xpath: /html/body/div[1]/div[3]/div[1]/ul[1]/li[2]/div[1]/div[1]/div[1]/div[3]/div[1]/ul[1]/li[5]/a[1]/@data-galabel
+          - categoryUrl:
+              - text: https://www.lenstore.co.uk/eye-vitamins
+                xpath: /html/body/div[1]/div[3]/div[1]/ul[1]/li[2]/div[1]/div[1]/div[1]/div[3]/div[1]/ul[1]/li[6]/a[1]/@href
+            category:
+              - text: Eye Vitamins
+                xpath: /html/body/div[1]/div[3]/div[1]/ul[1]/li[2]/div[1]/div[1]/div[1]/div[3]/div[1]/ul[1]/li[6]/a[1]/@data-galabel
+          - categoryUrl:
+              - text: https://www.lenstore.co.uk/other-accessories
+                xpath: /html/body/div[1]/div[3]/div[1]/ul[1]/li[2]/div[1]/div[1]/div[1]/div[3]/div[1]/ul[1]/li[7]/a[1]/@href
+            category:
+              - text: Eye Sprays & Other Accessories
+                xpath: /html/body/div[1]/div[3]/div[1]/ul[1]/li[2]/div[1]/div[1]/div[1]/div[3]/div[1]/ul[1]/li[7]/a[1]/@data-galabel
+          - categoryUrl:
+              - text: https://www.lenstore.co.uk/contact-lens-cases
+                xpath: /html/body/div[1]/div[3]/div[1]/ul[1]/li[2]/div[1]/div[1]/div[1]/div[3]/div[1]/ul[1]/li[8]/a[1]/@href
+            category:
+              - text: Contact Lens Cases
+                xpath: /html/body/div[1]/div[3]/div[1]/ul[1]/li[2]/div[1]/div[1]/div[1]/div[3]/div[1]/ul[1]/li[8]/a[1]/@data-galabel
+          - categoryUrl:
+              - text: https://www.lenstore.co.uk/contact-us
+                xpath: /html/body/div[1]/div[3]/div[1]/ul[1]/li[3]/a[1]/@href
+            category:
+              - text: Help
+                xpath: /html/body/div[1]/div[3]/div[1]/ul[1]/li[3]/a[1]/@title
+          - categoryUrl:
+              - text: https://www.lenstore.co.uk/contact-us
+                xpath: /html/body/div[1]/div[3]/div[1]/ul[1]/li[3]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[1]/a[1]/@href
+            category:
+              - text: Contact Us
+                xpath: /html/body/div[1]/div[3]/div[1]/ul[1]/li[3]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[1]/a[1]/@data-galabel
+          - categoryUrl:
+              - text: https://www.lenstore.co.uk/delivery-postage
+                xpath: /html/body/div[1]/div[3]/div[1]/ul[1]/li[3]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[2]/a[1]/@href
+            category:
+              - text: Delivery & Postage
+                xpath: /html/body/div[1]/div[3]/div[1]/ul[1]/li[3]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[2]/a[1]/@data-galabel
+          - categoryUrl:
+              - text: https://www.lenstore.co.uk/refund-policy
+                xpath: /html/body/div[1]/div[3]/div[1]/ul[1]/li[3]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[3]/a[1]/@href
+            category:
+              - text: Refund Policy
+                xpath: /html/body/div[1]/div[3]/div[1]/ul[1]/li[3]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[3]/a[1]/@data-galabel
+          - categoryUrl:
+              - text: https://www.lenstore.co.uk/how-to-order
+                xpath: /html/body/div[1]/div[3]/div[1]/ul[1]/li[3]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[4]/a[1]/@href
+            category:
+              - text: How to Order
+                xpath: /html/body/div[1]/div[3]/div[1]/ul[1]/li[3]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[4]/a[1]/@data-galabel
+          - categoryUrl:
+              - text: https://www.lenstore.co.uk/?_a=account
+                xpath: /html/body/div[1]/div[3]/div[1]/ul[1]/li[3]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[5]/a[1]/@href
+            category:
+              - text: My Account
+                xpath: /html/body/div[1]/div[3]/div[1]/ul[1]/li[3]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[5]/a[1]/@data-galabel
+          - categoryUrl:
+              - text: https://www.lenstore.co.uk/faqs
+                xpath: /html/body/div[1]/div[3]/div[1]/ul[1]/li[3]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[6]/a[1]/@href
+            category:
+              - text: FAQs
+                xpath: /html/body/div[1]/div[3]/div[1]/ul[1]/li[3]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[6]/a[1]/@data-galabel
+          - categoryUrl:
+              - text: https://www.lenstore.co.uk/eyecare/how-to-read-your-contact-lens-prescription
+                xpath: /html/body/div[1]/div[3]/div[1]/ul[1]/li[3]/div[1]/div[1]/div[1]/div[2]/div[1]/ul[1]/li[1]/a[1]/@href
+            category:
+              - text: Find and Read Prescription
+                xpath: /html/body/div[1]/div[3]/div[1]/ul[1]/li[3]/div[1]/div[1]/div[1]/div[2]/div[1]/ul[1]/li[1]/a[1]/@data-galabel
+          - categoryUrl:
+              - text: https://www.lenstore.co.uk/eyecare/how-to-put-in-take-out-contact-lenses
+                xpath: /html/body/div[1]/div[3]/div[1]/ul[1]/li[3]/div[1]/div[1]/div[1]/div[2]/div[1]/ul[1]/li[2]/a[1]/@href
+            category:
+              - text: Put In Contact Lenses
+                xpath: /html/body/div[1]/div[3]/div[1]/ul[1]/li[3]/div[1]/div[1]/div[1]/div[2]/div[1]/ul[1]/li[2]/a[1]/@data-galabel
+          - categoryUrl:
+              - text: https://www.lenstore.co.uk/eyecare/how-check-if-your-contact-lenses-are-inside-out
+                xpath: /html/body/div[1]/div[3]/div[1]/ul[1]/li[3]/div[1]/div[1]/div[1]/div[2]/div[1]/ul[1]/li[3]/a[1]/@href
+            category:
+              - text: Lenses Inside Out
+                xpath: /html/body/div[1]/div[3]/div[1]/ul[1]/li[3]/div[1]/div[1]/div[1]/div[2]/div[1]/ul[1]/li[3]/a[1]/@data-galabel
+          - categoryUrl:
+              - text: https://www.lenstore.co.uk/eyecare/ask-a-question
+                xpath: /html/body/div[1]/div[3]/div[1]/ul[1]/li[3]/div[1]/div[1]/div[1]/div[2]/div[1]/ul[1]/li[4]/a[1]/@href
+            category:
+              - text: Ask Our Optician
+                xpath: /html/body/div[1]/div[3]/div[1]/ul[1]/li[3]/div[1]/div[1]/div[1]/div[2]/div[1]/ul[1]/li[4]/a[1]/@data-galabel
+          - categoryUrl:
+              - text: https://www.lenstore.co.uk/eyecare/astigmatism
+                xpath: /html/body/div[1]/div[3]/div[1]/ul[1]/li[3]/div[1]/div[1]/div[1]/div[3]/div[1]/ul[1]/li[1]/a[1]/@href
+            category:
+              - text: Astigmatism
+                xpath: /html/body/div[1]/div[3]/div[1]/ul[1]/li[3]/div[1]/div[1]/div[1]/div[3]/div[1]/ul[1]/li[1]/a[1]/@data-galabel
+          - categoryUrl:
+              - text: https://www.lenstore.co.uk/eyecare/your-guide-presbyopia
+                xpath: /html/body/div[1]/div[3]/div[1]/ul[1]/li[3]/div[1]/div[1]/div[1]/div[3]/div[1]/ul[1]/li[2]/a[1]/@href
+            category:
+              - text: Presbyopia
+                xpath: /html/body/div[1]/div[3]/div[1]/ul[1]/li[3]/div[1]/div[1]/div[1]/div[3]/div[1]/ul[1]/li[2]/a[1]/@data-galabel
+          - categoryUrl:
+              - text: https://www.lenstore.co.uk/eyecare/dry-eye-syndrome
+                xpath: /html/body/div[1]/div[3]/div[1]/ul[1]/li[3]/div[1]/div[1]/div[1]/div[3]/div[1]/ul[1]/li[3]/a[1]/@href
+            category:
+              - text: Dry Eye
+                xpath: /html/body/div[1]/div[3]/div[1]/ul[1]/li[3]/div[1]/div[1]/div[1]/div[3]/div[1]/ul[1]/li[3]/a[1]/@data-galabel
+          - categoryUrl:
+              - text: https://www.lenstore.co.uk/eyecare/your-guide-conjunctivitis
+                xpath: /html/body/div[1]/div[3]/div[1]/ul[1]/li[3]/div[1]/div[1]/div[1]/div[3]/div[1]/ul[1]/li[4]/a[1]/@href
+            category:
+              - text: Conjunctivitis
+                xpath: /html/body/div[1]/div[3]/div[1]/ul[1]/li[3]/div[1]/div[1]/div[1]/div[3]/div[1]/ul[1]/li[4]/a[1]/@data-galabel
+          - categoryUrl:
+              - text: https://www.lenstore.co.uk/how-your-eyes-work
+                xpath: /html/body/div[1]/div[3]/div[1]/ul[1]/li[3]/div[1]/div[1]/div[1]/div[4]/div[1]/ul[1]/li[1]/a[1]/@href
+            category:
+              - text: How the Eye Works
+                xpath: /html/body/div[1]/div[3]/div[1]/ul[1]/li[3]/div[1]/div[1]/div[1]/div[4]/div[1]/ul[1]/li[1]/a[1]/@data-galabel
+          - categoryUrl:
+              - text: https://www.lenstore.co.uk/eyecare/7-amazing-eye-facts
+                xpath: /html/body/div[1]/div[3]/div[1]/ul[1]/li[3]/div[1]/div[1]/div[1]/div[4]/div[1]/ul[1]/li[2]/a[1]/@href
+            category:
+              - text: 7 Amazing Facts
+                xpath: /html/body/div[1]/div[3]/div[1]/ul[1]/li[3]/div[1]/div[1]/div[1]/div[4]/div[1]/ul[1]/li[2]/a[1]/@data-galabel
+          - categoryUrl:
+              - text: https://www.lenstore.co.uk/eyecare/101-amazing-eye-facts
+                xpath: /html/body/div[1]/div[3]/div[1]/ul[1]/li[3]/div[1]/div[1]/div[1]/div[4]/div[1]/ul[1]/li[3]/a[1]/@href
+            category:
+              - text: 101 Eye Facts
+                xpath: /html/body/div[1]/div[3]/div[1]/ul[1]/li[3]/div[1]/div[1]/div[1]/div[4]/div[1]/ul[1]/li[3]/a[1]/@data-galabel
+          - categoryUrl:
+              - text: https://www.lenstore.co.uk/eyecare/state-of-the-worlds-eyesight-infographic
+                xpath: /html/body/div[1]/div[3]/div[1]/ul[1]/li[3]/div[1]/div[1]/div[1]/div[4]/div[1]/ul[1]/li[4]/a[1]/@href
+            category:
+              - text: State of the World's Eyesight
+                xpath: /html/body/div[1]/div[3]/div[1]/ul[1]/li[3]/div[1]/div[1]/div[1]/div[4]/div[1]/ul[1]/li[4]/a[1]/@data-galabel
+          - categoryUrl:
+              - text: https://www.lenstore.co.uk/eyecare/eye-anatomy
+                xpath: /html/body/div[1]/div[3]/div[1]/ul[1]/li[3]/div[1]/div[1]/div[1]/div[4]/div[1]/ul[1]/li[5]/a[1]/@href
+            category:
+              - text: Eye Anatomy
+                xpath: /html/body/div[1]/div[3]/div[1]/ul[1]/li[3]/div[1]/div[1]/div[1]/div[4]/div[1]/ul[1]/li[5]/a[1]/@data-galabel
+          - categoryUrl:
+              - text: https://www.lenstore.co.uk/request-your-appointment
+                xpath: /html/body/div[1]/div[3]/div[1]/ul[1]/li[4]/a[1]/@href
+            category:
+              - text: Eye Test Banner - Navbar
+                xpath: /html/body/div[1]/div[3]/div[1]/ul[1]/li[4]/a[1]/@data-galabel
+          - categoryUrl:
+              - text: https://www.lenstore.co.uk/request-your-appointment
+                xpath: /html/body/div[1]/div[3]/div[1]/ul[1]/li[4]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[1]/a[1]/@href
+            category:
+              - text: Existing Customer
+                xpath: /html/body/div[1]/div[3]/div[1]/ul[1]/li[4]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[1]/a[1]/@data-galabel
+          - categoryUrl:
+              - text: https://www.lenstore.co.uk/?_a=storeLocator
+                xpath: /html/body/div[1]/div[3]/div[1]/ul[1]/li[4]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[2]/a[1]/@href
+            category:
+              - text: New to Lenstore
+                xpath: /html/body/div[1]/div[3]/div[1]/ul[1]/li[4]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[2]/a[1]/@data-galabel
+        xpath: /html
+    timestamp: 1608195428357
