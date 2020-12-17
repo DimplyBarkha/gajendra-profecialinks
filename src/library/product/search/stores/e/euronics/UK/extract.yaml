@@ -11,7 +11,8 @@ fields:
     singleValue: false
   - name: name
     singleValue: false
-    xpath: //div[@class="name"]
+    # xpath: //div[@class="name"]
+    xpath: //h3[contains(@class,'product-name')]
   - name: productUrl
     singleValue: false
     xpath: //a[@class='product-card__heading-wrap']/@href
