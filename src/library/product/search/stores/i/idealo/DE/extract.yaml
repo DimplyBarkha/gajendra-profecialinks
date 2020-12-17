@@ -1,0 +1,47 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: //div[contains(@class,"resultlist")]//div[@class="offerList-item"]
+fields:
+  - name: productUrl
+    singleValue: false
+    xpath: //a[contains(@class,"offerList-itemWrapper")]/@href
+    regExp: (.+)
+    regExpReplace: https://www.idealo.de$1
+  - name: thumbnail
+    singleValue: false
+    xpath: //img[contains(@class,"offerList-item-image")]/@src
+    regExp: \/\/(.+)
+    regExpReplace: $1
+  - name: name
+    singleValue: false
+    xpath: //div[contains(@id,"result-title")] 
+  - name: ratingCount
+    singleValue: false
+    xpath: //span[contains(@class,"rating-count")]
+  - name: reviewCount
+    singleValue: false
+    xpath: //span[contains(@class,"rating-count")]
+  - name: price
+    singleValue: false
+    xpath: //div[contains(@class,"offerList-item-priceMin")]/text()[2] | //div[@id="pd_price"]
+  - name: rank
+    singleValue: false
+    description: search/listing rank
+    type: NUMBER
+  - name: rankOrganic
+    singleValue: false
+    description: The position (rank) within the list excluding sponsored/paid results
+    type: NUMBER
+  - name: id
+    singleValue: false
+    xpath: //div[@id="pd_id"]
+  - name: nameExtended
+    singleValue: false
+    xpath: //div[contains(@id,"result-title")]
+  - name: aggregateRating2
+    singleValue: false
+    xpath: //div[contains(@class,"rating-stars")]/@class
+  - name: searchUrl
+    singleValue: true
+    xpath: ancestor::html//div[@id='added-searchurl'][last()]
