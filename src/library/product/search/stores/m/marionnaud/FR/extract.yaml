@@ -15,21 +15,21 @@ fields:
     # xpath: //ul[@class='product-listing product-grid']//li//div/div[@class='infoTextCarousel']//div[@class='range_name'] and //ul[@class='product-listing product-grid']//li//div/div[@class='infoTextCarousel']//div[@class='product_name']
   - name: productUrl
     singleValue: true
-    xpath: //div[@id='productUrl']
+    xpath: //div[@id="productUrl"]
     # regExp: (.+)
     # regExpReplace: https://www.marionnaud.fr$1
   - name: thumbnail
     singleValue: true
-    xpath: //div[@id='thumbnailSrc']
+    xpath: //div[@id="thumbnailSrc"]
     # regExp: (.+)
     # regExpReplace: https://www.marionnaud.fr$1
   - name: aggregateRating
     singleValue: true
-    xpath: //div[@id='aggregateRating']/text()
+    xpath: //div[@id="aggregateRating1"]
   - name: price
     singleValue: true
     type: TEXT
-    xpath: //div[@id='priceText']/text()
+    xpath: //li[@class="col-lg-3 col-md-3 col-sm-4"]//div[@class="infoTextCarousel"]//span[@class="lineinner"]
   - name: rank
     singleValue: true
     xpath: //div[@id='rankOrganic']/text()

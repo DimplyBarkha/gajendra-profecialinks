@@ -22,8 +22,8 @@ implementation: async (
       newDiv.id = id;
       newDiv.textContent = content;
       newDiv.style.display = 'none';
-      // const originalDiv = document.querySelectorAll("li[class='col-lg-3 col-md-3 col-sm-4']")[index];
-      // originalDiv.parentNode.insertBefore(newDiv, originalDiv);
+      const originalDiv = document.querySelectorAll("li[class='col-lg-3 col-md-3 col-sm-4']")[index];
+      originalDiv.parentNode.insertBefore(newDiv, originalDiv);
     }
     const price = document.querySelectorAll('div.productMainLink div.infoTextCarousel div span.lineinner');
     //const length1=price.length
@@ -37,14 +37,15 @@ implementation: async (
           addHiddenDiv('priceText', priceText,k);
     }
     
-    const aggregateRating = document.querySelectorAll("div[class='star-rating__filled-stars']")
+    const aggregateRating = document.querySelectorAll("ul[class='product-listing product-grid'] li div[class='infoTextCarousel'] div[class='star-rating star-rating--plp'] div[class='star-rating__filled-stars']")
     for (let k = 0; k < aggregateRating.length; k++) {
       // @ts-ignore
       let singleRating = aggregateRating[k].style.width;
-      singleRating = singleRating.slice(0, singleRating.length - 1)
-      singleRating = (5 * singleRating) / 100;
-      singleRating = singleRating.toFixed(1);
-      addHiddenDiv('aggregateRating', singleRating, k);
+      singleRating = singleRating.slice(0, singleRating.length)
+      singleRating = parseInt(singleRating)
+      singleRating = parseInt(singleRating)/20;
+      console.log(singleRating)
+      addHiddenDiv('aggregateRating1', singleRating, k);
     }
     const thumbnail=document.querySelectorAll("div.product_img img.primImg.primaryImage_prodcat")
     for(let i=0;i< thumbnail.length;i++){
