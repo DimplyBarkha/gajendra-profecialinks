@@ -33,22 +33,23 @@ module.exports = {
       addElementToDocument('pdfPresent', pdfPresent);
       const tAndCs = document.querySelector('a[href*=terms-conditions]') ? 'Yes' : 'No';
       addElementToDocument('tAndCs', tAndCs);
-      const privacyPolicy = document.querySelector('a[href*=privacy_notice]') ? 'Yes' : 'No';
+      const privacyPolicy = document.querySelector('a[href*=PrivacyNotice]') ? 'Yes' : 'No';
       addElementToDocument('privacyPolicy', privacyPolicy);
       const customerService = document.querySelector('div.footer-links a[href="/en/customer-service"]') ? 'Yes' : 'No';
       addElementToDocument('customerService', customerService);
       const zoomIn = document.querySelector('div#s7viewer_container_inner div[data-component="ZoomInButton"]') ? 'Yes' : 'No';
       addElementToDocument('zoomIn', zoomIn);
 
-      const alternateImages = document.querySelectorAll('div#s7viewer_swatches_listbox div.s7thumb');
+      const image = document.querySelector('div[class="s7thumb"]')
+        ? document.querySelector('div[class="s7thumb"]').getAttribute('style').replace(/.*((?<=url\(").+(?=_)).*/g, '$1') : '';
+      const alternateImages = document.querySelectorAll('div#s7viewer_swatches_listbox div.s7thumb div[type="image"]');
       for (let i = 1; i < alternateImages.length; i++) {
-        if (alternateImages[i] && alternateImages[i].querySelector('div[type="image"]')) {
-          const img = alternateImages[i] ? alternateImages[i].getAttribute('style').replace(/.*url\("(https.*\?).*/g, '$1') : '';
-          addElementToDocument('alternateImg', img);
+        if (image && alternateImages[i]) {
+          const imgUrl = `${image}_alt${i}?`;
+          addElementToDocument('alternateImg', imgUrl);
         }
       }
-
-      const productId = document.querySelector('span[itemprop="sku"]') ? document.querySelector('span[itemprop="sku"]').innerText : '';
+      const productId = document.querySelector('span[itemprop="sku"]') ? document.querySelector('span[itemprop="sku"]').textContent : '';
       const videos = document.querySelectorAll('div#s7viewer_swatches_listbox div.s7thumb div[type="video"]');
       for (let j = 1; j < videos.length + 1; j++) {
         const video = `https://odeu.scene7.com/is/content/odeu13/%21${productId}_v${j}`;
@@ -58,7 +59,7 @@ module.exports = {
       const specifications = document.querySelectorAll('div#contentproductSpecifications tr');
       const specificationsArr = [];
       for (let j = 0; j < specifications.length; j++) {
-        const spec = specifications[j] && specifications[j].innerText ? specifications[j].innerText.replace(/\s+/g, ' ') : '';
+        const spec = specifications[j] && specifications[j].textContent ? specifications[j].textContent.replace(/\s+/g, ' ') : '';
         specificationsArr.push(spec);
       }
       addElementToDocument('specifications', specificationsArr.join(' || '));
