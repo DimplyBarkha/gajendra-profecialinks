@@ -1,13 +1,13 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: null
+recordXPath: //ol[@id="added_categories_list"]/li
 fields:
   - name: category
     singleValue: false
     description: name of the category
-    xpath: null
+    xpath: '@category'
   - name: categoryUrl
     singleValue: false
     description: url of the category
-    xpath: null
+    xpath: '@categoryUrl'

@@ -5,7 +5,7 @@ module.exports = {
     country: 'CH',
     store: 'leshop',
     domain: 'leshop.ch',
-    loadedSelector: null,
+    loadedSelector: 'ul.menu-1',
     noResultsXPath: null,
     zipcode: '',
   },
