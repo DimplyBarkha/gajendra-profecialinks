@@ -111,9 +111,8 @@ fields:
     singleValue: true
     description: Stated shipping weight
   - name: variantCount
-    singleValue: true
     description: Number of variants listed
-    type: NUMBER
+    xpath: count(//div[contains(@class,"varianturl")])
   - name: color
     singleValue: true
     description: A textual description of the colour
