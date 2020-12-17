@@ -16,9 +16,12 @@ fields:
     singleValue: false
     description: The product name
   - name: price
-    xpath: //p[1]
+    xpath: //strong[contains(@class, 'ebx-result-price__value')]
     singleValue: false
     description: The offered price for the product
+  - name: listPrice
+    xpath: //strong[contains(@class, 'ebx-result-price__original-value')]
+    singleValue: false
   - name: id
     xpath: //article[contains(@class,'ebx-grid-item ebx-result')]/@data-scroll-id
     singleValue: false
