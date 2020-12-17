@@ -1,0 +1,516 @@
+input:
+  _url: http://electronic4you.at
+  URL: https://www.electronic4you.at/dyson-v8-absolute-172579.html
+extractions:
+  - html: https://workbench.import.io/html/run=cb001ea7-5d51-4d46-a49e-23959b72b87e/task=3d1eb571-f01f-4254-b8a1-4f59f4b7c925/b6cfec4c-cce8-40f0-a7b1-952425f7fe9d.html
+    extractionConfigId: product/details/stores/e/electronic4you/AT/extract
+    data:
+      - group:
+          - image:
+              - text: https://www.electronic4you.at/media/catalog/product/cache/1/image/478x/040ec09b1e35df139433887a97daa66f/1/7/172579.jpg
+                xpath: /html/body/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[4]/div[2]/form[1]/div[4]/div[1]/p[1]/div[1]/a[1]/img[1]/@src
+            imageAlt:
+              - text: Dyson V Absolute
+                xpath: /html/body/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[4]/div[2]/form[1]/div[4]/div[1]/p[1]/div[1]/a[1]/img[1]/@alt
+            alternateImages:
+              - text: https://www.electronic4you.at/media/catalog/product/cache/1/image/1500x/040ec09b1e35df139433887a97daa66f/1/7/172579-2.jpg
+                xpath: /html/body/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[4]/div[2]/form[1]/div[4]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/a[1]/@href
+              - text: https://www.electronic4you.at/media/catalog/product/cache/1/image/1500x/040ec09b1e35df139433887a97daa66f/1/7/172579-3.jpg
+                xpath: /html/body/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[4]/div[2]/form[1]/div[4]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/a[1]/@href
+              - text: https://www.electronic4you.at/media/catalog/product/cache/1/image/1500x/040ec09b1e35df139433887a97daa66f/1/7/172579-4.jpg
+                xpath: /html/body/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[4]/div[2]/form[1]/div[4]/div[1]/div[1]/div[1]/div[1]/div[1]/div[4]/div[1]/a[1]/@href
+              - text: https://www.electronic4you.at/media/catalog/product/cache/1/image/1500x/040ec09b1e35df139433887a97daa66f/1/7/172579-5.jpg
+                xpath: /html/body/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[4]/div[2]/form[1]/div[4]/div[1]/div[1]/div[1]/div[1]/div[1]/div[5]/div[1]/a[1]/@href
+              - text: https://www.electronic4you.at/media/catalog/product/cache/1/image/1500x/040ec09b1e35df139433887a97daa66f/1/7/172579.jpg
+                xpath: /html/body/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[4]/div[2]/form[1]/div[4]/div[1]/div[1]/div[1]/div[1]/div[1]/div[6]/div[1]/a[1]/@href
+            metaKeywords:
+              - text: DYSON V8 ABSOLUTE
+                xpath: /html/head[1]/meta[4]/@content
+            nameExtended:
+              - text: Dyson V8 Absolute 227296-01 Akkusauger
+                xpath: /html/body/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[4]/div[2]/form[1]/div[5]/div[1]/h1[1]
+            price:
+              - text: € 398,–
+                xpath: /html/body/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[4]/div[2]/form[1]/div[5]/div[4]/div[1]/div[1]/span[1]/span[1]
+            availabilityText:
+              - text: In Stock
+                xpath: /html/head[1]/meta[16]/@content
+            descriptionBullets:
+              - text: "12"
+                xpath: /html/body/div[11]
+                type: NUMBER
+                raw: "12"
+                locale: de_DE
+                value: 12
+            brandText:
+              - text: Dyson
+                xpath: /html/head[1]/meta[17]/@content
+            manufacturer:
+              - text: DYSON
+                xpath: /html/body/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[4]/div[2]/form[1]/div[6]/div[1]/div[1]/div[1]/span[1]/img[1]/@alt
+            weightNet:
+              - text: 2,63 kg
+                xpath: /html/body/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[4]/div[3]/div[1]/div[2]/div[1]/div[2]/table[1]/tbody[1]/tr[3]/td[1]
+            gtin:
+              - text: "5025155031513"
+                xpath: /html/body/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[4]/div[3]/div[1]/div[2]/div[1]/div[2]/table[1]/tbody[1]/tr[11]/td[1]
+            eangtin:
+              - text: "5025155031513"
+                xpath: /html/body/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[4]/div[3]/div[1]/div[2]/div[1]/div[2]/table[1]/tbody[1]/tr[11]/td[1]
+            sku:
+              - text: "172579"
+                xpath: /html/body/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[4]/div[2]/form[1]/div[5]/div[2]/span[2]
+            variantId:
+              - text: "172579"
+                xpath: /html/body/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[4]/div[2]/form[1]/div[5]/div[2]/span[2]
+            mpc:
+              - text: 227296-01
+                xpath: /html/body/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[4]/div[3]/div[1]/div[2]/div[1]/div[2]/table[1]/tbody[1]/tr[12]/td[1]
+            ratingCount:
+              - text: "19"
+                xpath: /html/body/div[17]
+            aggregateRating:
+              - text: 4,74
+                xpath: /html/body/div[18]
+            videos:
+              - text: https://www.youtube-nocookie.com/embed/iCrxM4TJevs?rel=0&autoplay=1
+                xpath: /html/body/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[4]/div[2]/form[1]/div[4]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/a[1]/@href
+            name:
+              - text: Dyson V8 Absolute 227296-01 Akkusauger
+                xpath: /html/body/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[4]/div[2]/form[1]/div[5]/div[1]/h1[1]
+            additionalDescBulletInfo:
+              - text: Bis zu 40 Minuten konstant hohe Saugkraft || Der neue Akku erzeugt eine
+                  höhere Leistung und damit eine längere Laufzeit || Lässt sich
+                  schnell in einen Akkusauger verwandeln Alle Dyson kabellosen
+                  Staubsauger lassen sich für schnelle und punktuelle
+                  Reinigungsaufgaben oder zum Säubern von schwer erreichbaren
+                  Stellen ganz einfach in einen Akkusauger verwandeln. ||
+                  Angetrieben vom Dyson Digitalen Motor V8 Der Dyson Digitale
+                  Motor V8 erzeugt die höchste Saugkraft aller kabellosen
+                  Staubsauger.* || 2 Tier Radial™ Zyklone 15 Zyklone in zwei
+                  Reihen arbeiten parallel und erzeugen einen sehr starken
+                  Luftstrom zur Aufnahme von feinem Staub und Allergenen. ||
+                  MAX-Modus Ermöglicht 7 Minuten lang eine höhere Saugkraft für
+                  starke Verschmutzungen. || Verbesserte hygienische
+                  Behälterentleerung Entleerung des Behälters mit nur einem
+                  Handgriff und ohne mit dem Staub in Berührung zu kommen. ||
+                  Effiziente Filtration Die Ausblasluft des Geräts ist sauberer
+                  als die Raumluft, die Sie atmen. || Praktische Wandhalterung
+                  || Zum Aufbewahren und Laden des Geräts und zum Verstauen von
+                  Zubehör. Wenn Sie das Gerät an der Wandhalterung aufbewahren
+                  und laden, ist es immer einsatzbereit. || Vielseitige
+                  Anwendung vom Boden bis zur Decke Für einfache Reinigung oben,
+                  unten und in Zwischenräumen. Der Schwerpunkt des Gerätes
+                  befindet sich am Handgriff für leichte, einfache Reinigung
+                  oben, unten und in Zwischenräumen. || Elektrobürste mit
+                  Direktantrieb Der leistungsstarke Motor im Inneren der
+                  Bürstwalze lässt die festen Nylonborsten tief in den Teppich
+                  eindringen und entfernt so tiefsitzenden Schmutz und
+                  Tierhaare. 150 % mehr Leistung als bei der Elektrobüste des
+                  Dyson V6 Staubsaugers für die gründliche Reinigung von
+                  Teppichen.
+                xpath: /html/body/div[10]
+            technicalInformationPdfPresent:
+              - text: Yes
+                xpath: /html/body/div[16]
+            variantCount:
+              - text: "0"
+                type: NUMBER
+                raw: "0"
+                locale: de_DE
+                value: 0
+            termsAndConditions:
+              - text: No
+            Image360Present:
+              - text: No
+            description:
+              - text: Abmessungen || 739 x 154 x 271mm || Technologie || 2 Tier Radial™ Zyklone
+                  || Vormotorfilter || Vormotorfilter waschbar || Bodendüse ||
+                  Elektrobürste mit Direktantrieb und Elektrobürste mit
+                  Soft-WalzeBis zu 40 Minuten konstant hohe Saugkraft || Der
+                  neue Akku erzeugt eine höhere Leistung und damit eine längere
+                  Laufzeit || Lässt sich schnell in einen Akkusauger verwandeln
+                  Alle Dyson kabellosen Staubsauger lassen sich für schnelle und
+                  punktuelle Reinigungsaufgaben oder zum Säubern von schwer
+                  erreichbaren Stellen ganz einfach in einen Akkusauger
+                  verwandeln. || Angetrieben vom Dyson Digitalen Motor V8 Der
+                  Dyson Digitale Motor V8 erzeugt die höchste Saugkraft aller
+                  kabellosen Staubsauger.* || 2 Tier Radial™ Zyklone 15 Zyklone
+                  in zwei Reihen arbeiten parallel und erzeugen einen sehr
+                  starken Luftstrom zur Aufnahme von feinem Staub und
+                  Allergenen. || MAX-Modus Ermöglicht 7 Minuten lang eine höhere
+                  Saugkraft für starke Verschmutzungen. || Verbesserte
+                  hygienische Behälterentleerung Entleerung des Behälters mit
+                  nur einem Handgriff und ohne mit dem Staub in Berührung zu
+                  kommen. || Effiziente Filtration Die Ausblasluft des Geräts
+                  ist sauberer als die Raumluft, die Sie atmen. || Praktische
+                  Wandhalterung || Zum Aufbewahren und Laden des Geräts und zum
+                  Verstauen von Zubehör. Wenn Sie das Gerät an der Wandhalterung
+                  aufbewahren und laden, ist es immer einsatzbereit. ||
+                  Vielseitige Anwendung vom Boden bis zur Decke Für einfache
+                  Reinigung oben, unten und in Zwischenräumen. Der Schwerpunkt
+                  des Gerätes befindet sich am Handgriff für leichte, einfache
+                  Reinigung oben, unten und in Zwischenräumen. || Elektrobürste
+                  mit Direktantrieb Der leistungsstarke Motor im Inneren der
+                  Bürstwalze lässt die festen Nylonborsten tief in den Teppich
+                  eindringen und entfernt so tiefsitzenden Schmutz und
+                  Tierhaare. 150 % mehr Leistung als bei der Elektrobüste des
+                  Dyson V6 Staubsaugers für die gründliche Reinigung von
+                  Teppichen.Dyson v8 Absolute Staubsauger kabellos Bis zu 40
+                  Minuten konstant hohe Saugkraft Der neue Akku erzeugt eine
+                  höhere Leistung und damit eine längere Laufzeit Lässt sich
+                  schnell in einen Akkusauger verwandeln Alle Dyson kabellosen
+                  Staubsauger lassen sich für schnelle und punktuelle
+                  Reinigungsaufgaben oder zum Säubern von schwer erreichbaren
+                  Stellen ganz einfach in einen Akkusauger verwandeln.
+                  Angetrieben vom Dyson Digitalen Motor V8 Der Dyson Digitale
+                  Motor V8 erzeugt die höchste Saugkraft aller kabellosen
+                  Staubsauger.* 2 Tier Radial™ Zyklone 15 Zyklone in zwei Reihen
+                  arbeiten parallel und erzeugen einen sehr starken Luftstrom
+                  zur Aufnahme von feinem Staub und Allergenen. MAX-Modus
+                  Ermöglicht 7 Minuten lang eine höhere Saugkraft für starke
+                  Verschmutzungen. Verbesserte hygienische Behälterentleerung
+                  Entleerung des Behälters mit nur einem Handgriff und ohne mit
+                  dem Staub in Berührung zu kommen. Effiziente Filtration Die
+                  Ausblasluft des Geräts ist sauberer als die Raumluft, die Sie
+                  atmen. Praktische Wandhalterung Zum Aufbewahren und Laden des
+                  Geräts und zum Verstauen von Zubehör. Wenn Sie das Gerät an
+                  der Wandhalterung aufbewahren und laden, ist es immer
+                  einsatzbereit. Vielseitige Anwendung vom Boden bis zur Decke
+                  Für einfache Reinigung oben, unten und in Zwischenräumen. Der
+                  Schwerpunkt des Gerätes befindet sich am Handgriff für
+                  leichte, einfache Reinigung oben, unten und in Zwischenräumen.
+                  Elektrobürste mit Direktantrieb Der leistungsstarke Motor im
+                  Inneren der Bürstwalze lässt die festen Nylonborsten tief in
+                  den Teppich eindringen und entfernt so tiefsitzenden Schmutz
+                  und Tierhaare. 150 % mehr Leistung als bei der Elektrobüste
+                  des Dyson V6 Staubsaugers für die gründliche Reinigung von
+                  Teppichen.
+            manufacturerDescription:
+              - text: "Inklusiv 7 Zubehörteilen Bis zu 40 Min. Akkulaufzeit Mit Mini-Softbürste
+                  Hohe Saugkraft für die gründliche Reinigung zwischendurch. Für
+                  die Reinigung von allen Bodenarten. \t
+
+                  \t\t\t\t\t\t
+
+                  \t\t\t\t\t\t\tDyson V8 Absolute
+                  Eigenschaften\t\t\t\t\t\t
+
+
+                  \t\t\t\t\t\t
+
+                  \t\t\t\t\t\t\t\t\t\t\t\t\t\t\t
+
+                  \t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t
+
+                  \                                \t\t\t\t\t\
+                  \t\t\t\t
+
+                  \t\t\t\t\t\t\t\t\t\t
+
+                  \t\t\t\t\t\t\t\t\t\t\tBis zu 40 Minuten
+                  konstant hohe Saugkraft\t\t\t\t\t\t\t\t\t\t
+
+
+                  \t\t\t\t\t\t\t\t\t\t
+
+                  \t\t\t\t\t\t\t\t\t\t\tDer neue Akku erzeugt
+                  eine höhere Leistung und damit eine längere
+                  Laufzeit.\t\t\t\t\t\t\t\t\t\t
+
+                  \t\t\t\t\t\t\t\t\t
+
+                  \t\t\t\t\t\t\t\t
+
+                  \t\t\t\t\t\t\t\t\t\t\t\t\t\t\t
+
+                  \t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t
+
+                  \                                \t\t\t\t\t\
+                  \t\t\t\t
+
+                  \t\t\t\t\t\t\t\t\t\t
+
+                  \t\t\t\t\t\t\t\t\t\t\tLässt sich schnell in
+                  einen Akkusauger verwandeln\t\t\t\t\t\t\t\t\t\t
+
+
+                  \t\t\t\t\t\t\t\t\t\t
+
+                  \t\t\t\t\t\t\t\t\t\t\tAlle Dyson kabellosen
+                  Staubsauger lassen sich für schnelle und punktuelle
+                  Reinigungsaufgaben oder zum Säubern von schwer erreichbaren
+                  Stellen ganz einfach in einen Akkusauger
+                  verwandeln.\t\t\t\t\t\t\t\t\t\t
+
+                  \t\t\t\t\t\t\t\t\t
+
+                  \t\t\t\t\t\t\t\t
+
+                  \t\t\t\t\t\t\t\t\t\t\t\t\t\t\t
+
+                  \t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t
+
+                  \                                \t\t\t\t\t\
+                  \t\t\t\t
+
+                  \t\t\t\t\t\t\t\t\t\t
+
+                  \t\t\t\t\t\t\t\t\t\t\tAngetrieben vom Dyson
+                  Digitalen Motor V8\t\t\t\t\t\t\t\t\t\t
+
+
+                  \t\t\t\t\t\t\t\t\t\t
+
+                  \t\t\t\t\t\t\t\t\t\t\tOhne Kabel. Überall
+                  einsetzbar. Hohe Saugkraft.\t\t\t\t\t\t\t\t\t\t
+
+                  \t\t\t\t\t\t\t\t\t
+
+                  \t\t\t\t\t\t\t\t
+
+                  \t\t\t\t\t\t\t\t\t\t\t\t\t\t\t
+
+                  \t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t
+
+                  \                                \t\t\t\t\t\
+                  \t\t\t\t
+
+                  \t\t\t\t\t\t\t\t\t\t
+
+                  \t\t\t\t\t\t\t\t\t\t\t2 Tier Radial™
+                  Zyklone\t\t\t\t\t\t\t\t\t\t
+
+
+                  \t\t\t\t\t\t\t\t\t\t
+
+                  \t\t\t\t\t\t\t\t\t\t\t15 Zyklone in zwei
+                  Reihen arbeiten parallel und erzeugen einen sehr starken
+                  Luftstrom zur Aufnahme von feinem Staub und
+                  Allergenen.\t\t\t\t\t\t\t\t\t\t
+
+                  \t\t\t\t\t\t\t\t\t
+
+                  \t\t\t\t\t\t\t\t
+
+                  \t\t\t\t\t\t\t\t\t\t\t\t\t\t\t
+
+                  \t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t
+
+                  \                                \t\t\t\t\t\
+                  \t\t\t\t
+
+                  \t\t\t\t\t\t\t\t\t\t
+
+                  \t\t\t\t\t\t\t\t\t\t\tMAX-Modus\t\t\t\t\t\t\
+                  \t\t\t\t
+
+
+                  \t\t\t\t\t\t\t\t\t\t
+
+                  \t\t\t\t\t\t\t\t\t\t\tErmöglicht 7 Minuten
+                  lang eine höhere Saugkraft für starke
+                  Verschmutzungen.\t\t\t\t\t\t\t\t\t\t
+
+                  \t\t\t\t\t\t\t\t\t
+
+                  \t\t\t\t\t\t\t\t
+
+                  \t\t\t\t\t\t\t\t\t\t\t\t\t\t\t
+
+                  \t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t
+
+                  \                                \t\t\t\t\t\
+                  \t\t\t\t
+
+                  \t\t\t\t\t\t\t\t\t\t
+
+                  \t\t\t\t\t\t\t\t\t\t\tVerbesserte
+                  hygienische Behälterentleerung\t\t\t\t\t\t\t\t\t\t
+
+
+                  \t\t\t\t\t\t\t\t\t\t
+
+                  \t\t\t\t\t\t\t\t\t\t\tEntleerung des
+                  Behälters mit nur einem Handgriff und ohne mit dem Staub in
+                  Berührung zu kommen.\t\t\t\t\t\t\t\t\t\t
+
+                  \t\t\t\t\t\t\t\t\t
+
+                  \t\t\t\t\t\t\t\t
+
+                  \t\t\t\t\t\t\t\t\t\t\t\t\t\t\t
+
+                  \t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t
+
+                  \                                \t\t\t\t\t\
+                  \t\t\t\t
+
+                  \t\t\t\t\t\t\t\t\t\t
+
+                  \t\t\t\t\t\t\t\t\t\t\tEffiziente
+                  Filtration\t\t\t\t\t\t\t\t\t\t
+
+
+                  \t\t\t\t\t\t\t\t\t\t
+
+                  \t\t\t\t\t\t\t\t\t\t\tDie Ausblasluft des
+                  Geräts ist sauberer als die Raumluft, die Sie
+                  atmen.\t\t\t\t\t\t\t\t\t\t
+
+                  \t\t\t\t\t\t\t\t\t
+
+                  \t\t\t\t\t\t\t\t
+
+                  \t\t\t\t\t\t\t\t\t\t\t\t\t\t\t
+
+                  \t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t
+
+                  \                                \t\t\t\t\t\
+                  \t\t\t\t
+
+                  \t\t\t\t\t\t\t\t\t\t
+
+                  \t\t\t\t\t\t\t\t\t\t\tPraktische
+                  Wandhalterung\t\t\t\t\t\t\t\t\t\t
+
+
+                  \t\t\t\t\t\t\t\t\t\t
+
+                  \t\t\t\t\t\t\t\t\t\t\tZum Aufbewahren und
+                  Laden des Geräts und zum Verstauen von Zubehör. Wenn Sie das
+                  Gerät an der Wandhalterung aufbewahren und laden, ist es immer
+                  einsatzbereit.\t\t\t\t\t\t\t\t\t\t
+
+                  \t\t\t\t\t\t\t\t\t
+
+                  \t\t\t\t\t\t\t\t
+
+                  \t\t\t\t\t\t\t\t\t\t\t\t\t\t\t
+
+                  \t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t
+
+                  \                                \t\t\t\t\t\
+                  \t\t\t\t
+
+                  \t\t\t\t\t\t\t\t\t\t
+
+                  \t\t\t\t\t\t\t\t\t\t\tVielseitige Anwendung
+                  vom Boden bis zur Decke\t\t\t\t\t\t\t\t\t\t
+
+
+                  \t\t\t\t\t\t\t\t\t\t
+
+                  \t\t\t\t\t\t\t\t\t\t\tFür einfache Reinigung
+                  oben, unten und in Zwischenräumen. Der Schwerpunkt des Gerätes
+                  befindet sich am Handgriff für leichte, einfache Reinigung
+                  oben, unten und in Zwischenräumen.\t\t\t\t\t\t\t\t\t\t
+
+                  \t\t\t\t\t\t\t\t\t
+
+                  \t\t\t\t\t\t\t\t
+
+                  \t\t\t\t\t\t\t\t\t\t\t\t\t\t\t
+
+                  \t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t
+
+                  \                                \t\t\t\t\t\
+                  \t\t\t\t
+
+                  \t\t\t\t\t\t\t\t\t\t
+
+                  \t\t\t\t\t\t\t\t\t\t\tElektrobürste mit
+                  Direktantrieb\t\t\t\t\t\t\t\t\t\t
+
+
+                  \t\t\t\t\t\t\t\t\t\t
+
+                  \t\t\t\t\t\t\t\t\t\t\tDer leistungsstarke
+                  Motor im Inneren der Bürstwalze lässt die festen Nylonborsten
+                  tief in den Teppich eindringen und entfernt so tiefsitzenden
+                  Schmutz und Tierhaare. 150 % mehr Leistung als bei der
+                  Elektrobüste des Dyson V6 Staubsaugers für die gründliche
+                  Reinigung von Teppichen.\t\t\t\t\t\t\t\t\t\t
+
+                  \t\t\t\t\t\t\t\t\t
+
+                  \t\t\t\t\t\t\t\t
+
+                  \t\t\t\t\t\t\t\t\t\t\t\t\t\t\t
+
+                  \t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t
+
+                  \                                \t\t\t\t\t\
+                  \t\t\t\t
+
+                  \t\t\t\t\t\t\t\t\t\t
+
+                  \t\t\t\t\t\t\t\t\t\t\tElektrobürste mit
+                  Soft-Walze\t\t\t\t\t\t\t\t\t\t
+
+
+                  \t\t\t\t\t\t\t\t\t\t
+
+                  \t\t\t\t\t\t\t\t\t\t\tDer
+                  Hartboden-Spezialist. Elektrobürste mit Soft-Walze nimmt
+                  gleichzeitig groben Schmutz und feinen Staub
+                  auf.\t\t\t\t\t\t\t\t\t\t
+
+                  \t\t\t\t\t\t\t\t\t
+
+                  \t\t\t\t\t\t\t\t
+
+                  \t\t\t\t\t\t\t\t\t\t\t\t\t\t\t
+
+                  \t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t
+
+                  \                                \t\t\t\t\t\
+                  \t\t\t\t
+
+                  \t\t\t\t\t\t\t\t\t\t
+
+                  \t\t\t\t\t\t\t\t\t\t\tMini-Elektrobürste\t\t\
+                  \t\t\t\t\t\t\t\t
+
+
+                  \t\t\t\t\t\t\t\t\t\t
+
+                  \t\t\t\t\t\t\t\t\t\t\tMini-Elektrobürste
+                  entfernt Tierhaare und tiefsitzenden Schmutz von
+                  Polstern.\t\t\t\t\t\t\t\t\t\t
+
+                  \t\t\t\t\t\t\t\t\t
+
+                  \t\t\t\t\t\t\t\t
+
+                  \t\t\t\t\t\t\t\t\t\t\t\t\t\t\t
+
+                  \t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t
+
+                  \                                \t\t\t\t\t\
+                  \t\t\t\t
+
+                  \t\t\t\t\t\t\t\t\t\t
+
+                  \t\t\t\t\t\t\t\t\t\t\tExtra-Softbürste\t\t\t\
+                  \t\t\t\t\t\t\t
+
+
+                  \t\t\t\t\t\t\t\t\t\t
+
+                  \t\t\t\t\t\t\t\t\t\t\tWeiche Borsten
+                  entfernen schonend Staub und Allergene von glatten Oberflächen
+                  und Möbeln.\t\t\t\t\t\t\t\t\t\t
+
+                  \t\t\t\t\t\t\t\t\t
+
+                  \t\t\t\t\t\t\t\t
+
+                  \t\t\t\t\t\t\t\t\t\t\t\t\t
+
+
+                  \t\t\t\t\t\t
+
+                  \t\t\t\t\t"
+        xpath: /
+    timestamp: 1600686212547
