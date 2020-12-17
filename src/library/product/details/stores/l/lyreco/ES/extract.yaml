@@ -64,7 +64,15 @@ fields:
     xpath: //div[@class="product-selector--valueDisplay"]/text()
   - name: specifications
     singleValue: true
-    xpath: //section[@id="specification"]//div[@class="container px-0"]/div/p/span/text()
+    xpath: //html//div[@id="srr"]
+  - name: additionalDescBulletInfo
+    singleValue: true
+    xpath: //html//div[@id="desbullets"]
+  - name: descriptionBullets
+    singleValue: true
+    xpath: count(//div[@class="description_keySellingPoints"]/div/ul/li/p/text())
+    
+
     
     
     

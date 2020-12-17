@@ -32,18 +32,25 @@ module.exports = {
         addElementToDocument('str', str);
       }
       var sec = getAllXpath('(//ul[@class="product_miniature_cms float jcarousel-list jcarousel-list-vertical"]/li/a/div[@class="hd_miniature hd_miniature_border"])[position()>1]/@style', 'nodeValue');
-      if(sec!=null){
-        for(var i=0; i<sec.length; i++){
-          addElementToDocument('sec_img', sec[i].slice(95,-3));
+      if (sec != null) {
+        for (var i = 0; i < sec.length; i++) {
+          addElementToDocument('sec_img', sec[i].slice(95, -3));
         }
       }
-      var spec = getAllXpath('/section[@id="specification"]//div[@class="container px-0"]/div/p/span/text()', 'nodeValue');
-        if(spec != null){
-          var srr = "";
-          for(var i=0; i<spec.length; i++){
-            srr = srr + spec[i].trim() + spec[i+1].trim() + " || "
-          }
+      var spec = getAllXpath('//section[@id="specification"]//div[@class="container px-0"]/div/p/span/text()', 'nodeValue');
+      if (spec != null) {
+        var srr = "";
+        for (var i = 0; i < spec.length; i=i+2) {
+          srr = srr + spec[i].trim() + " " + spec[i+1].trim() + " || "
         }
+        srr = srr.slice(0, -3)
+        addElementToDocument('srr', srr);
+      }
+      var bull = getAllXpath('//div[@class="description_keySellingPoints"]/div/ul/li/p/text()', 'nodeValue');
+      if(bull != null){
+        var desbullets = bull.join(" || ");
+        addElementToDocument('desbullets', desbullets);
+      }
     });
     await context.extract(productDetails);
   },
