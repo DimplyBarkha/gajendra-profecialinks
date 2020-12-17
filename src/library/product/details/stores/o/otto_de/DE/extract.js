@@ -45,18 +45,18 @@ module.exports = {
         var ab = variant.join(' | ');
         addElementToDocument('variant', ab);
       }
-      const perunit = getXpath("//span[@class='prd_price__normAmount']/text()", 'nodeValue');
-      if (perunit != null) {
-        var npu = perunit.replace(',', '.')
-        addElementToDocument('perunit', npu);
-      }
+  //     // const perunit = getXpath("//span[@class='prd_price__normAmount']/text()", 'nodeValue');
+  //     // if (perunit != null) {
+  //     //   var npu = perunit.replace(',', '.')
+  //     //   addElementToDocument('perunit', npu);
+  //     // }
       const weight = getXpath("(//*[contains(text(),'Gewicht')]//parent::span//parent::td//parent::tr//td[2])[1]/text()", 'nodeValue');
       if (weight != null) {
         try {
           var nweight = weight.replace(',', '.')
           addElementToDocument('nweight', nweight);
         }
-        catch{
+        catch (error) {
           addElementToDocument('nweight', weight)
         }
       }
