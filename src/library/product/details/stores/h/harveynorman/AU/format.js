@@ -92,9 +92,16 @@ const transform = (data) => {
             if (row.description) {
                 let info = [];
                 row.description.forEach(item => {
-                info.push(item.text.replace(/(\s*\n\s*)+/g, ' | ').trim());
+                info.push(item.text.replace(/(\s*\n\s*)+/g, ' || ').trim());
                 });
-                row.description = [{'text':info.join(' | '),'xpath':row.description[0].xpath}];
+                row.description = [{'text':info.join(' || '),'xpath':row.description[0].xpath}];
+            }
+            if (row.manufacturerImages) {
+                let info = [];
+                row.manufacturerImages.forEach(item => {
+                info.push(item.text.replace(/(\s*\n\s*)+/g, ' || ').trim());
+                });
+                row.manufacturerImages = [{'text':info.join(' || '),'xpath':row.manufacturerImages[0].xpath}];
             }
             if (row.additionalDescBulletInfo) {
                 let info = [];
@@ -116,6 +123,17 @@ const transform = (data) => {
               row.termsAndConditions.forEach(item => {
                 item.text = "Yes";
               });      
+            }
+            if (row.specifications) {
+                let text = '';
+                row.specifications.forEach(item => {
+                  text += `${item.text.replace(/\n \n/g, ':')} || `;
+                });
+                row.specifications = [
+                  {
+                    text: text.slice(0, -4),
+                  },
+                ];
             }
         }
     }
