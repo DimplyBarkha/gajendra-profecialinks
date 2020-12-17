@@ -560,3 +560,14 @@ fields:
   description: If Zoom feature is available for Main image or images in the carousel,['Yes','No']
   example: https://www.zalando.de/adidas-neo-sneaker-low-blackwhite-a4315i002-q11.html
   defaultValue: "No"
+- name: inTheBoxUrl
+  singleValue: false
+- name: inTheBoxText
+  singleValue: false
+  xpath: //p[contains(.,'Lieferumfang')]/following-sibling::ul//li
+- name: hasComparisonTable
+  singleValue: true
+  defaultValue: No
+- name: unInterruptedPDP
+  singleValue: false
+  xpath: //div[@id="recommendations-container"]//ul[contains(@class,'recommended-swiper__wrapper')]/li[contains(@class,'productList__item')]//span[@class="productList__itemTitle"]
