@@ -23,7 +23,6 @@ fields:
   - name: alternateImages
     singleValue: false
     xpath: //li[@data-content='secondary regularImage']/img/@data-main-image
-#    xpath: //li[@data-content='secondary regularImage']/img/@data-main-image
   - name: largeImageCount
     singleValue: false
     xpath: count(//li[contains(@class,"main-image-slides")][position() > 1])

@@ -9,18 +9,19 @@ module.exports = {
     zipcode: '',
   },
   implementation: async (inputs, parameters, context, dependencies) => {
+    const { url, id } = inputs;
     const timeout = 60000;
-    const redirectProductDetails = async () => {
-      try {
-        await context.waitForSelector('h3.product-name>a', { timeout });
-      } catch (err) {
-        console.log('Product with RPC didn\'t load');
-      }
-    };
-    
-    await redirectProductDetails();
-    await context.clickAndWaitForNavigation('h3.product-name>a', { timeout, waitUntil: 'load' });
-    
+    if(id){
+      const redirectProductDetails = async () => {
+        try {
+          await context.waitForSelector('h3.product-name>a', { timeout });
+        } catch (err) {
+          console.log('Product with RPC didn\'t load');
+        }
+      };
+      await redirectProductDetails();
+      await context.clickAndWaitForNavigation('h3.product-name>a', { timeout, waitUntil: 'load' });
+    }
     const { transform } = parameters;
     const { productDetails } = dependencies;
     await context.extract(productDetails, { transform });
