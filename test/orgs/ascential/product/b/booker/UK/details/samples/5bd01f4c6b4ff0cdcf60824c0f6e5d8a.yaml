@@ -2,7 +2,7 @@ input:
   id: "488"
   _url: http://booker.co.uk
 extractions:
-  - html: https://workbench.import.io/html/run=e43fd03e-bd0e-4a98-9dcc-993044182e00/task=bd0bda97-8413-40b2-b958-b0adefcdc791/dd95fe2b-601a-4241-b811-a2ba12e49b1f.html
+  - html: https://workbench.import.io/html/run=5a927b29-f5c0-4db1-84f3-f5991f35d40b/task=0ba325d8-7447-41b6-b7cd-44aa72bb157d/d9103f3b-97b8-4d07-a816-ccbb64786dd7.html
     extractionConfigId: product/details/stores/b/booker/UK/extract
     data:
       - group:
@@ -21,18 +21,18 @@ extractions:
             imageAlt:
               - text: Smarties Milk Chocolate Tube 38g - Click for larger image
                 xpath: /html/body/form[1]/div[3]/div[8]/div[2]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/div[1]/div[1]/a[1]/img[1]/@alt
+            price:
+              - text: £18.19
+                xpath: /html/body/form[1]/div[3]/div[8]/div[2]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/div[2]/ul[1]/li[3]/span[1]
+            quantity:
+              - text: 48 x 38g
+                xpath: /html/body/form[1]/div[3]/div[8]/div[2]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/div[2]/ul[1]/li[2]/span[1]
             sku:
               - text: "488"
                 xpath: /html/body/form[1]/div[3]/div[8]/div[2]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/div[2]/ul[1]/li[1]/span[1]
             variantId:
               - text: "488"
                 xpath: /html/body/form[1]/div[3]/div[8]/div[2]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/div[2]/ul[1]/li[1]/span[1]
-            quantity:
-              - text: 48 x 38g
-                xpath: /html/body/form[1]/div[3]/div[8]/div[2]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/div[2]/ul[1]/li[2]/span[1]
-            price:
-              - text: £18.19
-                xpath: /html/body/form[1]/div[3]/div[8]/div[2]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/div[2]/ul[1]/li[3]/span[1]
             brandText:
               - text: Smarties
                 xpath: /html/body/form[1]/div[3]/div[8]/div[2]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[2]/div[1]/ul[1]/li[7]/span[1]
@@ -72,6 +72,54 @@ extractions:
                   yummy smooth milk chocolate Smarties® covered in more yummy
                   milk chocolate! www.smarties.co.uk
                 xpath: /html/body/form[1]/div[3]/div[8]/div[2]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[2]/div[2]/p[1]
+            warnings:
+              - text: |-
+                  Contains Milk
+                  Contains Wheat
+                xpath: /html/body/form[1]/div[3]/div[8]/div[2]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[2]/div[3]/ul[1]
+            allergyAdvice:
+              - text: |-
+                  Contains Milk
+                  Contains Wheat
+                xpath: /html/body/form[1]/div[3]/div[8]/div[2]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[2]/div[3]/ul[1]
+            dietaryInformation:
+              - text: |-
+                  Free From Artificial Colours
+                  Free From Artificial Flavours
+                  Free From Artificial Preservatives
+                xpath: /html/body/form[1]/div[3]/div[8]/div[2]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[2]/div[4]/ul[1]
+            ingredientsList:
+              - text: >-
+                  Sugar,
+
+                  Cocoa Butter,
+
+                  Skimmed Milk Powder,
+
+                  Cocoa Mass,
+
+                  Wheat Flour,
+
+                  Lactose and Proteins from Whey (from Milk),
+
+                  Butterfat (from Milk),
+
+                  Rice Starch,
+
+                  Emulsifier (Sunflower Lecithin),
+
+                  Fruit and Vegetable Concentrates (Safflower, Radish, Black Carrot, Lemon, Hibiscus),
+
+                  Spirulina Concentrate,
+
+                  Orange Extract,
+
+                  Glazing Agents (Carnauba Wax, Beeswax),
+
+                  Natural Vanilla Flavouring,
+
+                  Invert Sugar Syrup
+                xpath: /html/body/form[1]/div[3]/div[8]/div[2]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[2]/div[5]/ul[1]
             servingSize:
               - text: 100 g
                 xpath: /html/body/form[1]/div[3]/div[8]/div[2]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[2]/div[6]/div[1]/table[1]/tbody[1]/tr[1]/th[2]
@@ -123,6 +171,9 @@ extractions:
             manufacturer:
               - text: PO Box 203
                 xpath: /html/body/form[1]/div[3]/div[8]/div[2]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[2]/div[7]/p[1]
+            packaging:
+              - text: Type Box
+                xpath: /html/body/form[1]/div[3]/div[8]/div[2]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[2]/div[8]/ul[1]
             legalDisclaimer:
               - text: The image and summary details have been prepared for illustration and
                   information purposes only. On occasion the actual product may
@@ -142,27 +193,23 @@ extractions:
                   any way whatsoever without Booker's prior consent, nor without
                   due acknowledgement.
                 xpath: /html/body/new-disclaimer[1]
+            productUrl:
+              - text: https://www.booker.co.uk/catalog/productinformation.aspx?code=488
+                xpath: /html/body/div[1]
             metaKeywords:
               - text: Booker, cash & carry, cash and carry, wholesale service, wholesalers, Big
                   Food Group, Booker Premier, Happy Shopper, Tuck Shop, Malt
                   House Vintners, Chef's Larder, Drop Shipment
-                xpath: /html/body/div[1]
+                xpath: /html/body/div[2]
             availabilityText:
               - text: In Stock
-                xpath: /html/body/div[2]
+                xpath: /html/body/div[3]
             termsAndConditions:
               - text: Yes
-                xpath: /html/body/div[3]
+                xpath: /html/body/div[4]
             servingSizeUom:
               - text: g
-                xpath: /html/body/div[5]
-            allergyAdvice:
-              - text: Contains Milk || Contains Wheat
                 xpath: /html/body/div[6]
-            dietaryInformation:
-              - text: Free From Artificial Colours || Free From Artificial Flavours || Free From
-                  Artificial Preservatives
-                xpath: /html/body/div[7]
             variantCount:
               - text: "0"
             technicalInformationPdfPresent:
@@ -173,17 +220,7 @@ extractions:
               - text: No
             imageZoomFeaturePresent:
               - text: No
-            ingredientsList:
-              - text: Sugar,Cocoa Butter,Skimmed Milk Powder,Cocoa Mass,Wheat Flour,Lactose and
-                  Proteins from Whey (from Milk),Butterfat (from Milk),Rice
-                  Starch,Emulsifier (Sunflower Lecithin),Fruit and Vegetable
-                  Concentrates (Safflower, Radish, Black Carrot, Lemon,
-                  Hibiscus),Spirulina Concentrate,Orange Extract,Glazing Agents
-                  (Carnauba Wax, Beeswax),Natural Vanilla Flavouring,Invert
-                  Sugar Syrup
             productOtherInformation:
               - text: ""
-            packaging:
-              - text: Type Box
         xpath: /html
-    timestamp: 1607090399480
+    timestamp: 1608220840351

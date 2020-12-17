@@ -2,7 +2,7 @@ input:
   id: "237197"
   _url: http://booker.co.uk
 extractions:
-  - html: https://workbench.import.io/html/run=e43fd03e-bd0e-4a98-9dcc-993044182e00/task=455231b1-290b-40a6-984a-da5800d73f54/e5fa8d26-68e3-446d-8997-37765eba5acc.html
+  - html: https://workbench.import.io/html/run=5a927b29-f5c0-4db1-84f3-f5991f35d40b/task=0d4e7795-b7f0-4c4c-b602-20c704fd20f1/84b462f6-034f-4c2a-a8e5-cd1739998767.html
     extractionConfigId: product/details/stores/b/booker/UK/extract
     data:
       - group:
@@ -10,16 +10,17 @@ extractions:
               - text: Browse Categories
                 xpath: /html/body/form[1]/div[3]/div[1]/div[3]/a[2]
             nameExtended:
-              - text: Aptamil 2 Follow On Baby Milk Formula 800g
+              - text: Aptamil 2 Follow On Baby Milk Formula 6-12 Months 800g
                 xpath: /html/body/form[1]/div[3]/div[8]/div[2]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/h3[1]
             name:
-              - text: Aptamil 2 Follow On Baby Milk Formula 800g
+              - text: Aptamil 2 Follow On Baby Milk Formula 6-12 Months 800g
                 xpath: /html/body/form[1]/div[3]/div[8]/div[2]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/h3[1]
             image:
-              - text: https://www.booker.co.uk/bbimages/1/36b20d01-2b3c-4efb-9e6f-d03b9f7f3f57.jpg
+              - text: https://www.booker.co.uk/bbimages/1/f7524cc5-4e72-4df8-b5b2-f4d9e9648e51.jpg
                 xpath: /html/body/form[1]/div[3]/div[8]/div[2]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/div[1]/div[1]/a[1]/img[1]/@src
             imageAlt:
-              - text: Aptamil 2 Follow On Baby Milk Formula 800g - Click for larger image
+              - text: Aptamil 2 Follow On Baby Milk Formula 6-12 Months 800g - Click for larger
+                  image
                 xpath: /html/body/form[1]/div[3]/div[8]/div[2]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/div[1]/div[1]/a[1]/img[1]/@alt
             price:
               - text: £10.75
@@ -33,7 +34,208 @@ extractions:
             variantId:
               - text: "237197"
                 xpath: /html/body/form[1]/div[3]/div[8]/div[2]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/div[2]/ul[1]/li[1]/span[1]
-            servingSize:
+            brandText:
+              - text: Aptamil
+                xpath: /html/body/form[1]/div[3]/div[8]/div[2]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[2]/div[1]/ul[1]/li[6]/span[1]
+            storage:
+              - text: Ambient
+                xpath: /html/body/form[1]/div[3]/div[8]/div[2]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[2]/div[1]/ul[1]/li[7]/span[1]
+            description:
+              - text: Tailored to complement a weaning diet. Our Unique Expertise Nutricia has
+                  over 120 years of expertise in early life science, with a
+                  passionate team of more than 500 scientists and experts. We
+                  have been pioneering breastmilk research for 40 years taking
+                  inspiration from the benefits of nature. Our breastmilk
+                  research has enabled us to develop our next generation
+                  Aptamil® Follow On Milk with Pronutra™-Advance. It is
+                  specifically tailored to support your baby's development and
+                  contains vitamin D to support the normal function of the
+                  immune system. Patented Next Generation Formulation Pronutra™
+                  Advance - Our Unique Process The only Follow On Milk with
+                  Pronutra™-Advance; developed by combining our blend of
+                  ingredients with our unique process. Vitamins A, C & D and
+                  iron - With vitamin D to support the normal function of the
+                  immune system. Enriched with iron to support normal cognitive
+                  development. Omega-3 LCPs (DHA) - Contains Omega-3 (DHA) to
+                  support normal visual development. Benefit obtained from a
+                  daily intake of 100mg DHA. GOS/FOS & 3'GL - Our blend of
+                  Galactoand Fructo- oligosaccharides. 3'-Galactosyllactose
+                  produced by our unique process. Also available in ready to
+                  drink 200ml and 1 litre bottles Pour into your regular feeding
+                  beaker Contains our unique blend of ingredients Moving to the
+                  next stage Aptamil® Growing Up Milk 1-2 years powder Contains
+                  Pronutra™-Advance Enriched with iron to support normal
+                  cognitive development Nutritionally tailored to support your
+                  toddler's development We are devoted to providing you & your
+                  baby our very best. We don't produce for any supermarket
+                  own-label brands. Nutricia Bringing Science to Early Life For
+                  information on Halal, visit our website.
+                xpath: /html/body/form[1]/div[3]/div[8]/div[2]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[2]/div[3]/p[1]
+            warnings:
+              - text: |-
+                  Contains Fish
+                  Contains Milk
+                  Contains Soya
+                xpath: /html/body/form[1]/div[3]/div[8]/div[2]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[2]/div[4]/ul[1]
+            allergyAdvice:
+              - text: |-
+                  Contains Fish
+                  Contains Milk
+                  Contains Soya
+                xpath: /html/body/form[1]/div[3]/div[8]/div[2]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[2]/div[4]/ul[1]
+            ingredientsList:
+              - text: >-
+                  Dairy-Based Blend (of which 28% is Fermented) [Lactose (from
+                  Milk), Vegetable Oils (Palm Oil, Coconut Oil, Rapeseed Oil,
+                  Sunflower Oil, High Oleic Sunflower Oil), Skimmed Milk,
+                  Demineralised Whey (from Milk), Whey Concentrate (from Milk),
+                  Calcium Phosphate, Fish Oil, Potassium Chloride, Potassium
+                  Citrate, Calcium Carbonate, Choline Chloride, Vitamin C,
+                  Sodium Citrate, Emulsifier (Soy Lecithin), Inositol, Magnesium
+                  Chloride, L-Carnitine, Antioxidant (Ascorbyl Palmitate),
+                  Nicotinamide, Pantothe...,
+
+                  Galacto-Oligosaccharides (GOS) (from Milk),
+
+                  Fructo-Oligosaccharides (FOS),
+
+                  Whey Protein (from Milk),
+
+                  Magnesium Hydrogen Phosphate,
+
+                  Oil from Mortierella Alpina,
+
+                  Sodium Chloride,
+
+                  Taurine,
+
+                  Ferrous Sulphate,
+
+                  L-Tryptophan,
+
+                  Zinc Sulphate,
+
+                  Cytidine 5'-Monophosphate,
+
+                  Uridine 5'-Monophosphate Sodium Salt,
+
+                  Adenosine 5'-Monophosphate,
+
+                  Inosine 5'-Monophosphate Sodium Salt,
+
+                  Guanosine 5'-Monophosphate Sodium Salt,
+
+                  Copper Sulphate,
+
+                  Vitamin E,
+
+                  Vitamin A,
+
+                  Manganese Sulphate,
+
+                  Sodium Selenite,
+
+                  Vitamin D3
+                xpath: /html/body/form[1]/div[3]/div[8]/div[2]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[2]/div[5]/ul[1]
+            directions:
+              - text: "Feeding Guide Approx. 1 beaker No. of level scoops per feed (1 scoop =
+                  4.8g): 7, Quantity of water per feed ml: 210, Quantity of
+                  water per feed fl oz: 7 After 6 months, once weaning is
+                  established, we recommend giving your baby about 1 pint
+                  (500-600ml) per day. Aptamil® Follow On Milk is specially
+                  formulated to help meet the increased nutritional needs of
+                  infants from 6 to 12 months. This information is given as a
+                  guide only. Consult your healthcare professional if you
+                  require more advice. Important: Always use the scoop provided,
+                  please note the colour of the scoop in this pack may change
+                  from time to time. How to use this pack To open, remove tamper
+                  evidence strip on the rim of the pack. There is a handy
+                  leveller built into the pack. Store your scoop in the lid so
+                  that it is kept safe and secure. Click the lid securely shut
+                  to keep your powder fresh. Preparing your baby's feed Because
+                  powdered milks are not sterile, failure to follow instructions
+                  may make your baby ill. 1 Wash hands and sterilise all
+                  utensils according to manufacturers' instructions. 2 Boil 1
+                  litre of freshly run water. Leave kettle to cool for 30
+                  minutes and no longer. Measure the required amount of water
+                  (refer to feeding guide) into a sterilised beaker. Be careful
+                  of scalding. Do not use artificially softened or repeatedly
+                  boiled water. 3 Using the scoop provided, level off the powder
+                  with the built in leveller. Do not press/heap the powder. 4
+                  Add the correct measure of powder to the water. Adding too
+                  many or too few scoops can be harmful. Place the sterilised
+                  lid on the beaker and shake immediately, vertically and
+                  vigorously for at least 10 seconds, until the powder is
+                  dissolved. 5 Cool under running tap. Check temperature of
+                  feed. Feed immediately. Important feeding and storage advice -
+                  Make up each feed as required. - For hygiene reasons, do not
+                  store made up feeds, discard unfinished feeds as soon as
+                  possible, and always within 2 hours. - Do not heat feeds in a
+                  microwave, hot spots may occur and cause scalding. - Never add
+                  extra scoops or anything else to your baby's feed. - Never
+                  leave your baby alone during feeding."
+                xpath: /html/body/form[1]/div[3]/div[8]/div[2]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[2]/div[7]/p[1]
+            manufacturer:
+              - text: Nutricia Ltd
+                xpath: /html/body/form[1]/div[3]/div[8]/div[2]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[2]/div[8]/p[1]
+            countryOfOrigin:
+              - text: Produce of the EU
+                xpath: /html/body/form[1]/div[3]/div[8]/div[2]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[2]/div[9]/ul[1]/li[1]/span[1]
+            packaging:
+              - text: Type Can
+                xpath: /html/body/form[1]/div[3]/div[8]/div[2]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[2]/div[10]/ul[1]
+            legalDisclaimer:
+              - text: The image and summary details have been prepared for illustration and
+                  information purposes only. On occasion the actual product may
+                  differ from that shown. Whilst we have taken every care in
+                  preparing this summary and believe it to be accurate, it is
+                  not a substitute for reading the product packaging or label
+                  prior to use. You should note that products and their
+                  ingredients are subject to change. If you do require precise
+                  ingredient information you should consult the manufacturer,
+                  whose contact details will appear on the packaging or label.
+                  Booker is therefore unable to accept liability for any
+                  incorrect information. Where this description contains a link
+                  to another party's website for further information on the
+                  product, please note that Booker has no control over and no
+                  liability for the contents of that website. This data is
+                  supplied for personal use only. It may not be reproduced in
+                  any way whatsoever without Booker's prior consent, nor without
+                  due acknowledgement.
+                xpath: /html/body/new-disclaimer[1]
+            productUrl:
+              - text: https://www.booker.co.uk/catalog/productinformation.aspx?code=237197
+                xpath: /html/body/div[1]
+            metaKeywords:
+              - text: Booker, cash & carry, cash and carry, wholesale service, wholesalers, Big
+                  Food Group, Booker Premier, Happy Shopper, Tuck Shop, Malt
+                  House Vintners, Chef's Larder, Drop Shipment
+                xpath: /html/body/div[2]
+            availabilityText:
+              - text: In Stock
+                xpath: /html/body/div[3]
+            termsAndConditions:
+              - text: Yes
+                xpath: /html/body/div[4]
+            servingSizeUom:
+              - text: ml
+                xpath: /html/body/div[6]
+            variantCount:
+              - text: "0"
+            technicalInformationPdfPresent:
+              - text: No
+            customerServiceAvailability:
+              - text: No
+            Image360Present:
+              - text: No
+            imageZoomFeaturePresent:
+              - text: No
+            productOtherInformation:
+              - text: Packaged in a protective atmosphere. Contents may settle in transit.
+                  Nutricia, Aptamil® and Pronutra™ are registered trademarks.
+        xpath: /html
+      - group:
+          - servingSize:
               - text: 100ml
                 xpath: /html/body/form[1]/div[3]/div[8]/div[2]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[2]/div[6]/div[1]/table[1]/tbody[1]/tr[1]/th[2]
             caloriesPerServing:
@@ -111,87 +313,6 @@ extractions:
             ironPerServingUom:
               - text: mg
                 xpath: /html/body/form[1]/div[3]/div[8]/div[2]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[2]/div[6]/div[1]/table[1]/tbody[1]/tr[39]/td[1]
-            brandText:
-              - text: Aptamil
-                xpath: /html/body/form[1]/div[3]/div[8]/div[2]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[2]/div[1]/ul[1]/li[6]/span[1]
-            storage:
-              - text: Ambient
-                xpath: /html/body/form[1]/div[3]/div[8]/div[2]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[2]/div[1]/ul[1]/li[7]/span[1]
-            description:
-              - text: Updated formulation. With vitamin D to support the normal function of the
-                  immune system. Tailored to complement a weaning diet. Patented
-                  Next Generation Formulation The only Follow On Milk with
-                  Pronutra™-Advance; developed by combining our blend of
-                  ingredients with our unique process. Pronutra™-Advance
-                  Omega-3, LCPs (DHA) - Contains Omega-3 (DHA) to support normal
-                  visual development. Benefit obtained from a daily intake of
-                  100mg DHA. Vitamins A, C & D and Iron - With vitamin D to
-                  support the normal function of the immune system. Enriched
-                  with iron to support normal cognitive development. GOS/FOS &
-                  HMO 3'GL - Our blend of Galacto- and Fructo-oligosaccharides.
-                  HMO 3'-Galactosyl-lactose produced by our unique process. Our
-                  Unique Expertise Nutricia has over 120 years of expertise in
-                  early life science, with a passionate team of more than 500
-                  scientists and experts. We have been pioneering breastmilk
-                  research for 40 years taking inspiration from the benefits of
-                  nature. Our breastmilk research has enabled us to develop our
-                  next generation Aptamil® Follow On Milk with
-                  Pronutra™-Advance. It is specifically tailored to support your
-                  baby's development and contains vitamin D to support the
-                  normal function of the immune system. Also available in ready
-                  to drink 200ml and 1 litre bottles Pour into your regular
-                  feeding beaker Contains our unique blend of ingredients Moving
-                  to the next stage Aptamil® Growing Up Milk 1-2 years powder
-                  Contains Pronutra™-Advance Enriched with iron to support
-                  normal cognitive development Nutritionally tailored to support
-                  your toddler's development We are devoted to providing you &
-                  your baby our very best. We don't produce for any supermarket
-                  own-label brands. Nutricia - Bringing Science to Early Life
-                  For more information visit our website. For information on
-                  Halal, visit our website.
-                xpath: /html/body/form[1]/div[3]/div[8]/div[2]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[2]/div[3]/p[1]
-            manufacturer:
-              - text: Nutricia Ltd
-                xpath: /html/body/form[1]/div[3]/div[8]/div[2]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[2]/div[8]/p[1]
-            countryOfOrigin:
-              - text: Produce of the EU
-                xpath: /html/body/form[1]/div[3]/div[8]/div[2]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[2]/div[9]/ul[1]/li[1]/span[1]
-            legalDisclaimer:
-              - text: The image and summary details have been prepared for illustration and
-                  information purposes only. On occasion the actual product may
-                  differ from that shown. Whilst we have taken every care in
-                  preparing this summary and believe it to be accurate, it is
-                  not a substitute for reading the product packaging or label
-                  prior to use. You should note that products and their
-                  ingredients are subject to change. If you do require precise
-                  ingredient information you should consult the manufacturer,
-                  whose contact details will appear on the packaging or label.
-                  Booker is therefore unable to accept liability for any
-                  incorrect information. Where this description contains a link
-                  to another party's website for further information on the
-                  product, please note that Booker has no control over and no
-                  liability for the contents of that website. This data is
-                  supplied for personal use only. It may not be reproduced in
-                  any way whatsoever without Booker's prior consent, nor without
-                  due acknowledgement.
-                xpath: /html/body/new-disclaimer[1]
-            metaKeywords:
-              - text: Booker, cash & carry, cash and carry, wholesale service, wholesalers, Big
-                  Food Group, Booker Premier, Happy Shopper, Tuck Shop, Malt
-                  House Vintners, Chef's Larder, Drop Shipment
-                xpath: /html/body/div[1]
-            availabilityText:
-              - text: In Stock
-                xpath: /html/body/div[2]
-            termsAndConditions:
-              - text: Yes
-                xpath: /html/body/div[3]
-            servingSizeUom:
-              - text: ml
-                xpath: /html/body/div[5]
-            allergyAdvice:
-              - text: Contains Fish || Contains Milk || Contains Soya
-                xpath: /html/body/div[6]
             variantCount:
               - text: "0"
             technicalInformationPdfPresent:
@@ -202,28 +323,9 @@ extractions:
               - text: No
             imageZoomFeaturePresent:
               - text: No
-            ingredientsList:
-              - text: Dairy-Based Blend (of which 28% is Fermented) [Lactose (from Milk),
-                  Vegetable Oils (Palm Oil, Coconut Oil, Rapeseed Oil, Sunflower
-                  Oil, High Oleic Sunflower Oil), Skimmed Milk, Demineralised
-                  Whey (from Milk), Whey Concentrate (from Milk), Calcium
-                  Phosphate, Fish Oil, Potassium Chloride, Potassium Citrate,
-                  Calcium Carbonate, Choline Chloride, Vitamin C, Sodium
-                  Citrate, Emulsifier (Soy Lecithin), Inositol, Magnesium
-                  Chloride, L-Carnitine, Antioxidant (Ascorbyl Palmitate),
-                  Nicotinamide, Pantothe...,Galacto-Oligosaccharides (GOS) (from
-                  Milk),Fructo-Oligosaccharides (FOS),Whey Protein (from
-                  Milk),Magnesium Hydrogen Phosphate,Oil from Mortierella
-                  Alpina,Sodium Chloride,Taurine,Ferrous
-                  Sulphate,L-Tryptophan,Zinc Sulphate,Cytidine
-                  5'-Monophosphate,Uridine 5'-Monophosphate Sodium
-                  Salt,Adenosine 5'-Monophosphate,Inosine 5'-Monophosphate
-                  Sodium Salt,Guanosine 5'-Monophosphate Sodium Salt,Copper
-                  Sulphate,Vitamin E,Vitamin A,Manganese Sulphate,Sodium
-                  Selenite,Vitamin D3
             productOtherInformation:
               - text: Packaged in a protective atmosphere. Contents may settle in transit.
-            packaging:
-              - text: Type Tub
-        xpath: /html
-    timestamp: 1607090391245
+                  Nutricia, Aptamil® and Pronutra™ are registered trademarks.
+        xpath: /html/body/form[1]/div[3]/div[8]/div[2]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[2]/div[6]/div[1]/table[1]/tbody[1]
+        htmlExtraction: https://crawl-assets.import.io/html/run=5a927b29-f5c0-4db1-84f3-f5991f35d40b/task=0d4e7795-b7f0-4c4c-b602-20c704fd20f1/84b462f6-034f-4c2a-a8e5-cd1739998767.html
+    timestamp: 1608220838059

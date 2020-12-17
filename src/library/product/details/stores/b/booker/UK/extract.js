@@ -35,6 +35,9 @@ module.exports = {
         document.body.appendChild(catElement);
       }
 
+      // Get productUrl
+      const productUrl = window.location.href;
+      addElementToDocument('productUrl', productUrl);
       // Get metakeywords
       const metaKeyword = (document.querySelector('meta[name="keywords"]') && document.querySelector('meta[name="keywords"]').getAttribute('content')) || '';
       addElementToDocument('metaKeyword', metaKeyword);
@@ -56,38 +59,9 @@ module.exports = {
       const servingSizeUomData = servingSize && servingSize.singleNodeValue ? servingSize.singleNodeValue.textContent.replace(/([^\d]+\d*(\.?,?\d+)?\s?([gmlk%]+).*)/g, '$3') : '';
       addElementToDocument('servingSizeUom', servingSizeUomData);
 
-      // Get allergy advice
-      const allergyAdviceSection = document.evaluate('//h1[contains(.,"Allergy Advice")]/following-sibling::ul', document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null);
-      const allergyAdviceNodes = allergyAdviceSection && allergyAdviceSection.singleNodeValue ? allergyAdviceSection.singleNodeValue.querySelectorAll('li') : null;
-      if (allergyAdviceNodes) {
-        const allergyAdviceArr = [];
-        for (let x = 0; x < allergyAdviceNodes.length; x++) {
-          allergyAdviceArr.push(allergyAdviceNodes[x].textContent);
-        }
-        addElementToDocument('allergyAdvice', allergyAdviceArr.join(' || '));
-      }
-
-      // Get recyclingInfo
-      const recyclingInfoSection = document.evaluate('//h1[contains(.,"Recycling")]/following-sibling::ul', document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null);
-      const recyclingInfoNodes = recyclingInfoSection && recyclingInfoSection.singleNodeValue ? recyclingInfoSection.singleNodeValue.querySelectorAll('li') : null;
-      if (recyclingInfoNodes) {
-        const recyclingInfoArr = [];
-        for (let x = 0; x < recyclingInfoNodes.length; x++) {
-          recyclingInfoArr.push(recyclingInfoNodes[x].textContent);
-        }
-        addElementToDocument('recyclingInfo', recyclingInfoArr.join(' || '));
-      }
-
-      // Get dietaryInfo
-      const dietaryInfoSection = document.evaluate('//h1[contains(.,"Dietary Information")]/following-sibling::ul', document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null);
-      const dietaryInfoNodes = dietaryInfoSection && dietaryInfoSection.singleNodeValue ? dietaryInfoSection.singleNodeValue.querySelectorAll('li') : null;
-      if (dietaryInfoNodes) {
-        const dietaryInfoArr = [];
-        for (let x = 0; x < dietaryInfoNodes.length; x++) {
-          dietaryInfoArr.push(dietaryInfoNodes[x].textContent);
-        }
-        addElementToDocument('dietaryInfo', dietaryInfoArr.join(' || '));
-      }
+      // Get listPrice
+      const listPrice = document.querySelector('div.prodPromo *.offer2') ? document.querySelector('div.prodPromo *.offer2').textContent.replace(/^.*:\s(.+)\sNow.*/g, '$1') : '';
+      addElementToDocument('listPrice', listPrice);
     });
     await context.extract(productDetails, { transform });
   },

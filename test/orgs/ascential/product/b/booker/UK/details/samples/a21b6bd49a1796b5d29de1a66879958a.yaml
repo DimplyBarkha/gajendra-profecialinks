@@ -2,7 +2,7 @@ input:
   id: "257876"
   _url: http://booker.co.uk
 extractions:
-  - html: https://workbench.import.io/html/run=e43fd03e-bd0e-4a98-9dcc-993044182e00/task=2fd116af-a5cf-40b5-b343-b2d289eb193d/adf59c3a-6af3-42d0-836d-0dddbe820c95.html
+  - html: https://workbench.import.io/html/run=5a927b29-f5c0-4db1-84f3-f5991f35d40b/task=5ea53544-65e3-4677-9b00-0ac84dfdb52f/1bd77654-27bd-45da-9f2e-50125754119b.html
     extractionConfigId: product/details/stores/b/booker/UK/extract
     data:
       - group:
@@ -33,6 +33,11 @@ extractions:
             variantId:
               - text: "257876"
                 xpath: /html/body/form[1]/div[3]/div[8]/div[2]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/div[2]/ul[1]/li[1]/span[1]
+            promotion:
+              - text: |-
+                  In branch until 05/01/21
+                  Normal WSP: £63.49 Now £47.89 SAVE £15.60
+                xpath: /html/body/form[1]/div[3]/div[8]/div[2]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/div[4]/ul[1]/li[1]
             brandText:
               - text: Chef's Larder
                 xpath: /html/body/form[1]/div[3]/div[8]/div[2]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[2]/div[1]/ul[1]/li[9]/span[1]
@@ -45,6 +50,37 @@ extractions:
                   Microwave from Frozen. Defrost & Serve Hot or Cold. No
                   Artificial Colours or Preservatives. Suitable for vegetarians.
                 xpath: /html/body/form[1]/div[3]/div[8]/div[2]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[2]/div[3]/p[1]
+            warnings:
+              - text: |-
+                  Contains Eggs
+                  Contains Milk
+                  May Contain Nuts
+                  Contains Soya
+                  Contains Wheat
+                xpath: /html/body/form[1]/div[3]/div[8]/div[2]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[2]/div[4]/ul[1]
+            allergyAdvice:
+              - text: |-
+                  Contains Eggs
+                  Contains Milk
+                  May Contain Nuts
+                  Contains Soya
+                  Contains Wheat
+                xpath: /html/body/form[1]/div[3]/div[8]/div[2]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[2]/div[4]/ul[1]
+            dietaryInformation:
+              - text: |-
+                  Free From Artificial Colours
+                  Free From Artificial Preservatives
+                xpath: /html/body/form[1]/div[3]/div[8]/div[2]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[2]/div[5]/ul[1]
+            ingredientsList:
+              - text: >-
+                  Chocolate Fudge Icing (54%),
+
+                  Chocolate Sponge (46%),
+
+                  Chocolate Fudge Icing contains: Sugar, Water, Palm Oil, Fat Reduced Cocoa Powder (9%), Rapeseed Oil, Glucose Syrup, Dried Glucose Syrup, Emulsifiers (Mono- and Di-Glycerides of Fatty Acids, Polyglycerol Esters of Fatty Acids), Whey Powder (Milk), Soya Lecithins, Acidity Regulator (Potassium Hydroxide),
+
+                  Chocolate Sponge contains: Sugar, Wheat Flour (contains Calcium Carbonate, Iron, Nicotinamide, Thiamin), Buttermilk (Milk), Rapeseed Oil, Egg, Fat Reduced Cocoa Powder (3.5%), Egg Yolk, Raising Agent (Sodium Bicarbonate)
+                xpath: /html/body/form[1]/div[3]/div[8]/div[2]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[2]/div[6]/ul[1]
             servingSize:
               - text: 100g
                 xpath: /html/body/form[1]/div[3]/div[8]/div[2]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[2]/div[7]/div[1]/table[1]/tbody[1]/tr[1]/th[2]
@@ -93,9 +129,21 @@ extractions:
             saltPerServingUom:
               - text: g
                 xpath: /html/body/form[1]/div[3]/div[8]/div[2]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[2]/div[7]/div[1]/table[1]/tbody[1]/tr[9]/td[1]
+            directions:
+              - text: Defrosting Guidelines For best results, remove all packaging whilst
+                  product is still frozen. Place on a serving plate and defrost
+                  in a refrigerator (5°C) for approximately 8 hours.
+                  Alternatively, remove the required amount of slices from the
+                  frozen product and defrost each slice on a plate in a
+                  refrigerator (5°C) for approximately 2 hours. Use within 48
+                  hours.
+                xpath: /html/body/form[1]/div[3]/div[8]/div[2]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[2]/div[8]/p[1]
             manufacturer:
               - text: "Produced for: Chef's Larder"
                 xpath: /html/body/form[1]/div[3]/div[8]/div[2]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[2]/div[10]/p[1]
+            packaging:
+              - text: Type Box
+                xpath: /html/body/form[1]/div[3]/div[8]/div[2]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[2]/div[11]/ul[1]
             legalDisclaimer:
               - text: The image and summary details have been prepared for illustration and
                   information purposes only. On occasion the actual product may
@@ -115,26 +163,25 @@ extractions:
                   any way whatsoever without Booker's prior consent, nor without
                   due acknowledgement.
                 xpath: /html/body/new-disclaimer[1]
+            productUrl:
+              - text: https://www.booker.co.uk/catalog/productinformation.aspx?code=257876
+                xpath: /html/body/div[1]
             metaKeywords:
               - text: Booker, cash & carry, cash and carry, wholesale service, wholesalers, Big
                   Food Group, Booker Premier, Happy Shopper, Tuck Shop, Malt
                   House Vintners, Chef's Larder, Drop Shipment
-                xpath: /html/body/div[1]
+                xpath: /html/body/div[2]
             availabilityText:
               - text: In Stock
-                xpath: /html/body/div[2]
+                xpath: /html/body/div[3]
             termsAndConditions:
               - text: Yes
-                xpath: /html/body/div[3]
+                xpath: /html/body/div[4]
             servingSizeUom:
               - text: g
-                xpath: /html/body/div[5]
-            allergyAdvice:
-              - text: Contains Eggs || Contains Milk || May Contain Nuts || Contains Soya ||
-                  Contains Wheat
                 xpath: /html/body/div[6]
-            dietaryInformation:
-              - text: Free From Artificial Colours || Free From Artificial Preservatives
+            listPrice:
+              - text: £63.49
                 xpath: /html/body/div[7]
             variantCount:
               - text: "0"
@@ -146,20 +193,7 @@ extractions:
               - text: No
             imageZoomFeaturePresent:
               - text: No
-            ingredientsList:
-              - text: "Chocolate Fudge Icing (54%),Chocolate Sponge (46%),Chocolate Fudge Icing
-                  contains: Sugar, Water, Palm Oil, Fat Reduced Cocoa Powder
-                  (9%), Rapeseed Oil, Glucose Syrup, Dried Glucose Syrup,
-                  Emulsifiers (Mono- and Di-Glycerides of Fatty Acids,
-                  Polyglycerol Esters of Fatty Acids), Whey Powder (Milk), Soya
-                  Lecithins, Acidity Regulator (Potassium Hydroxide),Chocolate
-                  Sponge contains: Sugar, Wheat Flour (contains Calcium
-                  Carbonate, Iron, Nicotinamide, Thiamin), Buttermilk (Milk),
-                  Rapeseed Oil, Egg, Fat Reduced Cocoa Powder (3.5%), Egg Yolk,
-                  Raising Agent (Sodium Bicarbonate)"
             productOtherInformation:
               - text: © Booker 000520
-            packaging:
-              - text: Type Box
         xpath: /html
-    timestamp: 1607090391554
+    timestamp: 1608220837755

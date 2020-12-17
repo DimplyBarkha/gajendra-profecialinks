@@ -2,7 +2,7 @@ input:
   id: "135923"
   _url: http://booker.co.uk
 extractions:
-  - html: https://workbench.import.io/html/run=e43fd03e-bd0e-4a98-9dcc-993044182e00/task=0e89caef-2867-45f2-9fe7-ad05f6f14c20/17d2f98a-f58a-4d68-857c-b5c2d7b584da.html
+  - html: https://workbench.import.io/html/run=5a927b29-f5c0-4db1-84f3-f5991f35d40b/task=e3270ea7-2ed0-4735-85fb-797334cfd354/7f488321-acac-4939-9b06-90c010a2a656.html
     extractionConfigId: product/details/stores/b/booker/UK/extract
     data:
       - group:
@@ -40,6 +40,77 @@ extractions:
               - text: Chilli rating - hot - 3. Bain marie stable. FSA 2012 salt target
                   compliant. Suitable for vegetarians.
                 xpath: /html/body/form[1]/div[3]/div[8]/div[2]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[2]/div[3]/p[1]
+            warnings:
+              - text: |-
+                  Contains Mustard
+                  Contains Wheat
+                xpath: /html/body/form[1]/div[3]/div[8]/div[2]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[2]/div[4]/ul[1]
+            allergyAdvice:
+              - text: |-
+                  Contains Mustard
+                  Contains Wheat
+                xpath: /html/body/form[1]/div[3]/div[8]/div[2]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[2]/div[4]/ul[1]
+            dietaryInformation:
+              - text: Free From Artificial Colours
+                xpath: /html/body/form[1]/div[3]/div[8]/div[2]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[2]/div[5]/ul[1]
+            ingredientsList:
+              - text: >-
+                  Water,
+
+                  Diced Red and Green Peppers (13%),
+
+                  Tomato Paste (8%),
+
+                  Onion,
+
+                  Sugar,
+
+                  Rapeseed Oil,
+
+                  Modified Maize Starch,
+
+                  Coriander Leaf (1%),
+
+                  Chilli Pepper (0.7%),
+
+                  Salt,
+
+                  Ground Coriander,
+
+                  Acidity Regulator (Lactic Acid),
+
+                  Ground Ginger,
+
+                  Turmeric,
+
+                  Concentrated Lemon Juice,
+
+                  Cumin,
+
+                  Garlic Powder,
+
+                  Colour (Paprika Extract),
+
+                  Preservative (Potassium Sorbate),
+
+                  Allspice,
+
+                  Black Pepper,
+
+                  Fenugreek,
+
+                  Mustard Flour,
+
+                  Bay Leaf,
+
+                  Nutmeg,
+
+                  Wheat Flour (contains Calcium Carbonate, Iron, Nicotinamide, Thiamin),
+
+                  Dried Oregano,
+
+                  Cayenne Pepper
+                xpath: /html/body/form[1]/div[3]/div[8]/div[2]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[2]/div[6]/ul[1]
             servingSize:
               - text: 100g
                 xpath: /html/body/form[1]/div[3]/div[8]/div[2]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[2]/div[7]/div[1]/table[1]/tbody[1]/tr[1]/th[2]
@@ -88,12 +159,21 @@ extractions:
             saltPerServingUom:
               - text: g
                 xpath: /html/body/form[1]/div[3]/div[8]/div[2]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[2]/div[7]/div[1]/table[1]/tbody[1]/tr[9]/td[1]
+            directions:
+              - text: "Shake well before use. Preparation Instructions: Heat 30ml vegetable oil
+                  in a frying pan until hot. Add 1.0-1.5 kg diced meat and stir
+                  fry until thoroughly cooked. Add the contents of the container
+                  to the pan and heat thoroughly."
+                xpath: /html/body/form[1]/div[3]/div[8]/div[2]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[2]/div[8]/p[1]
             manufacturer:
               - text: Chef's Larder
                 xpath: /html/body/form[1]/div[3]/div[8]/div[2]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[2]/div[10]/p[1]
             countryOfOrigin:
               - text: United Kingdom
                 xpath: /html/body/form[1]/div[3]/div[8]/div[2]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[2]/div[11]/ul[1]/li[1]/span[1]
+            packaging:
+              - text: Type Plastic Bottle
+                xpath: /html/body/form[1]/div[3]/div[8]/div[2]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[2]/div[12]/ul[1]
             legalDisclaimer:
               - text: The image and summary details have been prepared for illustration and
                   information purposes only. On occasion the actual product may
@@ -113,26 +193,23 @@ extractions:
                   any way whatsoever without Booker's prior consent, nor without
                   due acknowledgement.
                 xpath: /html/body/new-disclaimer[1]
+            productUrl:
+              - text: https://www.booker.co.uk/catalog/productinformation.aspx?code=135923
+                xpath: /html/body/div[1]
             metaKeywords:
               - text: Booker, cash & carry, cash and carry, wholesale service, wholesalers, Big
                   Food Group, Booker Premier, Happy Shopper, Tuck Shop, Malt
                   House Vintners, Chef's Larder, Drop Shipment
-                xpath: /html/body/div[1]
+                xpath: /html/body/div[2]
             availabilityText:
               - text: Out of Stock
-                xpath: /html/body/div[2]
+                xpath: /html/body/div[3]
             termsAndConditions:
               - text: Yes
-                xpath: /html/body/div[3]
+                xpath: /html/body/div[4]
             servingSizeUom:
               - text: g
-                xpath: /html/body/div[5]
-            allergyAdvice:
-              - text: Contains Mustard || Contains Wheat
                 xpath: /html/body/div[6]
-            dietaryInformation:
-              - text: Free From Artificial Colours
-                xpath: /html/body/div[7]
             variantCount:
               - text: "0"
             technicalInformationPdfPresent:
@@ -143,19 +220,7 @@ extractions:
               - text: No
             imageZoomFeaturePresent:
               - text: No
-            ingredientsList:
-              - text: Water,Diced Red and Green Peppers (13%),Tomato Paste
-                  (8%),Onion,Sugar,Rapeseed Oil,Modified Maize Starch,Coriander
-                  Leaf (1%),Chilli Pepper (0.7%),Salt,Ground Coriander,Acidity
-                  Regulator (Lactic Acid),Ground Ginger,Turmeric,Concentrated
-                  Lemon Juice,Cumin,Garlic Powder,Colour (Paprika
-                  Extract),Preservative (Potassium Sorbate),Allspice,Black
-                  Pepper,Fenugreek,Mustard Flour,Bay Leaf,Nutmeg,Wheat Flour
-                  (contains Calcium Carbonate, Iron, Nicotinamide,
-                  Thiamin),Dried Oregano,Cayenne Pepper
             productOtherInformation:
               - text: ""
-            packaging:
-              - text: Type Plastic Bottle
         xpath: /html
-    timestamp: 1607090392732
+    timestamp: 1608220845262
