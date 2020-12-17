@@ -33,35 +33,38 @@ fields:
     singleValue: true
     description: The product name, prefixing "${brand} - " if not included in "name"
       and appending " - ${variantType}" if necessary (fixed per feed)
-    xpath: //h1[@class="col-xs-12 main-page-header"]
+    # xpath: //h1[@class="col-xs-12 main-page-header"]
+    xpath: //h1[@data-testid="long-description"]
   - name: listPrice
     singleValue: true
     description: The stated undiscounted price for the product
-    xpath: //div[@class="was-price"]/span
+    # xpath: //div[@class="was-price"]/span
     # xpath: //div[@class=" product-price-vat"]
     # regExp: .+\d
-    type: CURRENCY
+    # type: CURRENCY
   - name: price
     singleValue: true
     description: The offered price for the selected product variant - if a user
       clicks add to basket this is the price they would be charged
-    xpath: //div[@class=" product-price"]
-    regExp: .+\d
+    # xpath: //div[@class=" product-price"]
+    xpath: //p[@data-testid="price-exc-vat"]
+    # regExp: .+\d
     type: CURRENCY
   - name: availabilityText
     singleValue: true
     description: Availability as described on page for the selected variant. If
       there is no availability but the product can be added to cart, this field
       should be "In Stock"
-    xpath: //span[@class="stock-msg-content table-cell"]
-    regExp: (.+In stock.+)
+    xpath: //div[@color="Green"]
+    regExp: .+
     regExpReplace: In Stock
     defaultValue: Out of Stock
   - name: description
     singleValue: false
     description: Product description supplied by website - may be concatenanted from
       multiple places; specifically not the manufacturer description
-    xpath: //div[@class="specifications"]
+    # xpath: //div[@class="specifications"]
+    xpath: //section[@data-testid="descriptive-content-container"]
   - name: descriptionBullets
     singleValue: true
     description: Number of ul > li tags in the description
@@ -70,15 +73,18 @@ fields:
     singleValue: true
     description: Product brand shown - this may actually NOT be just a brand name,
       e.g. "Visit the Gillette Store"
-    xpath: //ul[@class="keyDetailsLL"]//span[contains(text(),Brand)]//following::span/a/span[text()]
+    # xpath: //ul[@class="keyDetailsLL"]//span[contains(text(),Brand)]//following::span/a/span[text()]
+    xpath: //dt[@data-testid="brand"]/following-sibling::dd/a[text()]
   - name: manufacturer
     singleValue: true
     description: Product manufacturer
-    xpath: //ul[@class="keyDetailsLL"]//span[contains(text(),Brand)]//following::span/a/span[text()]
+    # xpath: //ul[@class="keyDetailsLL"]//span[contains(text(),Brand)]//following::span/a/span[text()]
+    xpath: //dt[@data-testid="brand"]/following-sibling::dd/a[text()]
   - name: quantity
     singleValue: true
     description: Quantity as described on the page
-    xpath: //table[@class="table table-striped"]//td[text()="Unit Volume"]//following-sibling::td[text()]
+    xpath: //tr/td[contains(text(),"Package Size")]/following-sibling::td[text()]
+    # xpath: //table[@class="table table-striped"]//td[text()="Unit Volume"]//following-sibling::td[text()]
     regExp: (?:\s?([\d\.]+\s?)([bB]ar[s]?|[cC]ount|[cC]t|[fF][lL][\.]?\s?[oO][zZ][\.]?|FO|[mM][lL]|[oO][zZ][\.]?|pc|[pP]int|[pP]ops|qt|[wW]ipe[s]?).?)$|(?:\s?([\d\.]+\s?)([bB]ar[s]?|[cC]ount|[cC]|[fF][lL][\.]?\s?[oO][zZ][\.]?|FO|[mM][lL]|[oO][zZ][\.]?|pc|[pP]int|[pP]ops|qt|[wW]ipe[s]?).?\s?[\&\-\w\s]+)$
     regExpReplace: $1$2$3$4
   - name: weightNet
@@ -94,19 +100,22 @@ fields:
   - name: sku
     singleValue: true
     description: The store-specific product identifier
-    xpath: //ul[@class="keyDetailsLL"]//span[contains(text(),"RS Stock No.")]/following-sibling::span[text()]
+    # xpath: //ul[@class="keyDetailsLL"]//span[contains(text(),"RS Stock No.")]/following-sibling::span[text()]
+    xpath: //dt[@data-testid="stock-number"]/following-sibling::dd[text()][1]
     # regExp: (\d+)-(\d+)
     # regExpReplace: $1$2
   - name: variantId
     singleValue: true
     description: Identifier for a variant from a store where variants share the same sku
-    xpath: //ul[@class="keyDetailsLL"]//span[contains(text(),"RS Stock No.")]/following-sibling::span[text()]
+    # xpath: //ul[@class="keyDetailsLL"]//span[contains(text(),"RS Stock No.")]/following-sibling::span[text()]
+    xpath: //dt[@data-testid="stock-number"]/following-sibling::dd[text()][1]
     # regExp: (\d+)-(\d+)
     # regExpReplace: $1$2
   - name: mpc
     singleValue: true
     description: The manufacturer model code (unique) of the product
-    xpath: //ul[@class="keyDetailsLL"]//span[contains(text(),"Mfr. Part No.")]/following-sibling::span[text()]
+    # xpath: //ul[@class="keyDetailsLL"]//span[contains(text(),"Mfr. Part No.")]/following-sibling::span[text()]
+    xpath: //dt[@data-testid="mpn"]/following-sibling::dd[text()][1]
   - name: packSize
     singleValue: true
     description: The number of packs in the product offer (if stated separately on
@@ -150,7 +159,8 @@ fields:
   - name: color
     singleValue: true
     description: A textual description of the colour
-    xpath: //table[@class="table table-striped"]//td[text()="Colour"]//following-sibling::td[text()]
+    # xpath: //table[@class="table table-striped"]//td[text()="Colour"]//following-sibling::td[text()]
+    xpath: //tr/td[contains(text(),"Colour")]/following-sibling::td[text()]
   - name: colorCode
     singleValue: true
     description: A code description of the color (e.g. RGB hex)
@@ -166,7 +176,8 @@ fields:
   - name: name
     singleValue: true
     description: The product name
-    xpath: //h1[@class="col-xs-12 main-page-header"]/text()
+    # xpath: //h1[@class="col-xs-12 main-page-header"]/text()
+    xpath: //h1[@data-testid="long-description"]
   - name: inStorePrice
     singleValue: true
     description: Price in the selected store
@@ -186,7 +197,8 @@ fields:
     singleValue: true
     description: null
     # xpath: //ul[@class="keyDetailsLL"]//span[contains(text(),Brand)]//following::span/a/@href
-    xpath: concat('https://uk.rs-online.com', //ul[@class="keyDetailsLL"]//span[contains(text(),Brand)]//following::span/a/@href)
+    # xpath: concat('https://uk.rs-online.com', //ul[@class="keyDetailsLL"]//span[contains(text(),Brand)]//following::span/a/@href)
+    xpath: concat('https://uk.rs-online.com', //dt[@data-testid="brand"]/following-sibling::dd/a/@href)
     # regExp: (.+)
     # regExpReplace: https://uk.rs-online.com/$1
   - name: internationalShipping
@@ -434,7 +446,8 @@ fields:
   - name: countryOfOrigin
     singleValue: true
     description: The country from which the product originates
-    xpath: //div[@class="col-xs-6"]/div[contains(text(),"COO (Country of Origin):")]//following-sibling::b[text()]
+    # xpath: //div[@class="col-xs-6"]/div[contains(text(),"COO (Country of Origin):")]//following-sibling::b[text()]
+    xpath: //dt[@data-testid="country-of-origin"]/following-sibling::dd[text()]
   - name: allergyAdvice
     singleValue: true
     description: Allergy information associated with the product
@@ -447,18 +460,21 @@ fields:
   - name: packaging
     singleValue: true
     description: Packaging information
-    xpath: //table[@class="table table-striped"]//td[text()="Package Type"]//following-sibling::td[text()]
+    # xpath: //table[@class="table table-striped"]//td[text()="Package Type"]//following-sibling::td[text()]
+    xpath: //tr/td[contains(text(),"Package Type")]/following-sibling::td[text()]
   - name: additives
     singleValue: true
     description: List of additives in the product
   - name: pricePerUnit
     singleValue: true
     description: Price of the product split into certain units
-    xpath: //div[@class="table-row value-row price-range-bg"]/div[@class="indicativePrice col-xs-4 "]|//div[@class="table-row value-row price-range-bg"]/div[@class="unitPrice col-xs-6 "]
+    # xpath: //div[@class="table-row value-row price-range-bg"]/div[@class="indicativePrice col-xs-4 "]|//div[@class="table-row value-row price-range-bg"]/div[@class="unitPrice col-xs-6 "]
+    xpath: //td[@data-testid="price-breaks-price"]
   - name: pricePerUnitUom
     singleValue: true
     description: The unit of measurement used in price_per_unit
-    xpath: //div[@class="table-row value-row price-range-bg"]/div[@class="indicativePrice col-xs-4 "]|//div[@class="table-row value-row price-range-bg"]/div[@class="unitPrice col-xs-6 "]
+    # xpath: //div[@class="table-row value-row price-range-bg"]/div[@class="indicativePrice col-xs-4 "]|//div[@class="table-row value-row price-range-bg"]/div[@class="unitPrice col-xs-6 "]
+    xpath: //td[@data-testid="price-breaks-price"]
     regExp: ^\W
   - name: promotion
     singleValue: true
@@ -481,7 +497,8 @@ fields:
   - name: variantInformation
     singleValue: true
     description: colour / scent / flavour / other
-    xpath: //div[@class="text-units"]
+    # xpath: //div[@class="text-units"]
+    xpath: //tr/td[contains(text(),"Colour")]/following-sibling::td[text()]
   - name: firstVariant
     singleValue: true
     description: Unique identifier for a collection of variants. For a subset of
@@ -516,8 +533,9 @@ fields:
     singleValue: true
     description: If there is for example a manual in pdf format on the website. ['Yes','No']
     example: https://www.amazon.de/Hasbro-Spiele-44220100-Mastermind-Kinderspiel/dp/B0007OHUG6
-    xpath: //div[@class="col-xs-6"]/a/@href
-    regExp: (.+In stock.+)
+    # xpath: //div[@class="col-xs-6"]/a/@href
+    xpath: //section[@data-testid="technical-documents-container"]//a/@href
+    regExp: .+
     regExpReplace: Yes
     defaultValue: No
   - name: termsAndConditions
