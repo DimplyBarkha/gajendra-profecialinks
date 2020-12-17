@@ -5,7 +5,7 @@ module.exports = {
     country: 'BE',
     store: 'pharmasimple',
     domain: 'pharmasimple.com',
-    loadedSelector: null,
+    loadedSelector: 'div.nav',
     noResultsXPath: null,
     zipcode: '',
   },
