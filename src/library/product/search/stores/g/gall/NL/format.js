@@ -32,14 +32,16 @@ const transform = (data) => {
         }
         if (row.price) {
             row.price.forEach(item => {
-              item.text = parseFloat(item.text);
-              item.text = ' € ' + item.text;
+              item.text = item.text.replace(/(\s*)+/g, '');
+              item.text = '€' + item.text;
+              item.text = item.text.replace('.', ',');
             });
           }
           if (row.listPrice) {
             row.listPrice.forEach(item => {
-              item.text = parseFloat(item.text);
-              item.text = ' € ' + item.text;
+              item.text = item.text.replace(/(\s*)+/g, '');
+              item.text = '€' + item.text;
+              item.text = item.text.replace('.', ',');
             });
           }
         if (row.reviewCount) {

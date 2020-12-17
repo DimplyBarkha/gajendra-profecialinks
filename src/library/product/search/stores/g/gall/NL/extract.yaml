@@ -22,7 +22,7 @@ fields:
     xpath: //div[@class="c-product-grid"]//div[@class="product-tile__image-container"]//img[contains(@class,"image__default u-hidden-with-nojs")]/@src 
   - name: name
     SingleValue: false
-    xpath: //div[@class="c-product-grid"]//div[@itemprop="name"]//a
+    xpath: //div[@class="c-product-grid"]//h6[@itemprop="name"]//a
   - name: reviewCount
     singleValue: false
     xpath: //div[@class="c-product-grid"]//strong[@class="rating__amount"]
