@@ -1,0 +1,13 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: //div[contains(@id, 'menu-login')]//li[contains(@class, 'js-hamburger')]//a[not(contains(text(), 'Ver todo'))]
+fields:
+  - name: category
+    singleValue: false
+    description: name of the category
+    xpath: //a/.
+  - name: categoryUrl
+    singleValue: false
+    description: url of the category
+    xpath: //a/@href
