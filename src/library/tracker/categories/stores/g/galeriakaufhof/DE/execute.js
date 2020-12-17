@@ -5,7 +5,7 @@ module.exports = {
     country: 'DE',
     store: 'galeriakaufhof',
     domain: 'galeria.de',
-    loadedSelector: null,
+    loadedSelector: 'ul[class^="g-navigation__menu"]>li[class^="g-navigation__item"]',
     noResultsXPath: null,
     zipcode: '',
   },
