@@ -69,6 +69,33 @@ module.exports = {
       localStorage.setItem('prodCount', `${lastProductPosition + arr.length}`);
       localStorage.setItem('promotedProductsNumber', `${promotedProductsNumber + arr2.length}`);
     });
+
+    await new Promise((resolve, reject) => setTimeout(resolve, 2000));
+    const applyScroll = async function (context) {
+      await context.evaluate(async function () {
+        let scrollTop = 0;
+        while (scrollTop !== 20000) {
+          await stall(500);
+          scrollTop += 500;
+          window.scroll(0, scrollTop);
+          if (scrollTop === 20000) {
+            await stall(2000);
+            break;
+          }
+        }
+        function stall(ms) {
+          return new Promise((resolve, reject) => {
+            setTimeout(() => {
+              resolve();
+            }, ms);
+          });
+        }
+      });
+    };
+    await applyScroll(context);
+    await context.waitForSelector('.product-card__primary-image', { timeout: 10000 });
+
+
     return await context.extract(productDetails, { transform });
   },
 };
