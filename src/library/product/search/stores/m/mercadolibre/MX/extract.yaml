@@ -16,10 +16,15 @@ fields:
     xpath: //img[@class='ui-search-result-image__element']/@src
   - name: price
     singleValue: true
-    xpath: //div[@class='ui-search-price__second-line']
+    xpath: //div[@class='ui-search-price__second-line']/span[@class='price-tag ui-search-price__part']/span[@class='price-tag-fraction']
   - name: input
     singleValue: true
     xpath: //h1[@class='ui-search-breadcrumb__title']
   - name: url
     singleValue: true
     xpath: //div[@id='url']
+  - name: soldBy
+    singleValue: true
+    xpath: //div[@class='ui-search-item__group ui-search-item__group--title']/a/p
+
+

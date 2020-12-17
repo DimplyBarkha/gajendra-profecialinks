@@ -16,6 +16,8 @@ module.exports = {
   ) => {
     const { transform } = parameters;
     const { productDetails } = dependencies;
+    await context.waitForSelector('.ui-search-main');
+    await context.clickAndWaitForNavigation('li.andes-pagination__button.andes-pagination__button--next', {}, { timeout: 20000 });
     await context.evaluate(() => {
       function addElementToDocument (key, value) {
         const catElement = document.createElement('div');
@@ -26,6 +28,6 @@ module.exports = {
       }
       addElementToDocument('url', location.href);
     });
-    return await context.extract(productDetails);
+    return await context.extract(productDetails, { transform });
   },
 };
