@@ -36,8 +36,8 @@ const transform = (data, context) => {
         });
       }
       if (row.productUrl) {
-        row.productUrl.forEach((item) => {
-          item.text = 'https://www.dermstore.com' + item.text;
+        row.productUrl.forEach(item => {
+          item.text = (item.text.includes('https://www.dermstore.com')) ? item.text : 'https://www.dermstore.com' + item.text;
         });
       }
       if (row.name) {

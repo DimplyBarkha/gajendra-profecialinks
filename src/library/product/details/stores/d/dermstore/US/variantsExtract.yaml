@@ -5,6 +5,4 @@ fields:
   - name: variantUrl
     description: variant Url
     xpath: //ul[contains(@id,"sizeOptions")]//li[contains(@class,"sizeOptions__option")]//a//@href | //div[contains(@id,"color-swatches")]//div[contains(@class,"colorVariant")]//a//@href | //div[@id="added_variantUrl1"]
-    regExp: (.+)
-    regExpReplace: https://www.dermstore.com$1
   

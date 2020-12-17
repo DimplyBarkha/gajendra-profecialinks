@@ -29,12 +29,11 @@ const transform = (data) => {
           variantId1Item.text = variantId1Item.text.replace(/[^\d]/gm, '');
         });
       }
-      // if (!row.variantId && row.variantId1) {
-      //   row.variantId = row.variantId1;
-      // }
-      // if (!row.variantUrl && row.variantUrl1) {
-      //   row.variantUrl = row.variantUrl1;
-      // }
+      if (row.variantUrl) {
+        row.variantUrl.forEach(item => {
+          item.text = (item.text.includes('https://www.dermstore.com')) ? item.text : 'https://www.dermstore.com' + item.text;
+        });
+      }
     }
   }
   data.forEach(obj => obj.group.forEach(row => Object.keys(row).forEach(header => row[header].forEach(el => {
