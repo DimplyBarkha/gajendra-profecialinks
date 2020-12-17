@@ -83,22 +83,7 @@ module.exports = {
           if (marketingIframe) marketingIframe.scrollIntoView();
         }, aplusSelector);
         // wait for iframe to load
-        const limit = 60;
-        console.log('..waitForLoader..:', aplusSelector);
-        await context.evaluate(async ([selector, limit]) => {
-          const marketingIframe = document.querySelector(selector);
-          console.log(marketingIframe);
-          if (marketingIframe) {
-            const doc = marketingIframe.contentDocument || marketingIframe;
-            console.log(doc.querySelector('body > div'));
-            let timer = 0;
-            while (timer < limit && !doc.querySelector('body > div')) {
-              console.log('waiting !!!! ');
-              timer++;
-              await new Promise(resolve => setTimeout(resolve, 500));
-            }
-          }
-        }, [aplusSelector, limit]);
+        await waitingLoop(60, 'body > div', aplusSelector);
       })
       .then(async () => context.evaluate(async (selector) => {
         function addHiddenDiv (id, content) {
