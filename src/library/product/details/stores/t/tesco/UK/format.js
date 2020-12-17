@@ -47,24 +47,24 @@ const transform = (data) => {
             //     }, ];
             // }
 
-            //   if (row.highQualityImages) {
-            //     row.highQualityImages.forEach(item => {
-            //     //   item.text = item.text.replace('?h=225\u0026w=225', ' ').slice();
-            //     });
-            //   }
+              if (row.highQualityImages) {
+                  console.log("row.highQualityImages",row.highQualityImages);
+                row.highQualityImages.forEach(item => {
+                    console.log("item.text",item.text);
 
-
+                });
+              }
               if (row.sku) {
                 row.sku.forEach(item => {
-                  item.text =  "tesco_" + item.text;
+                  item.text = "tesco_" + item.text;
                 });
               }
 
-              if (row.servingSize) {
-                row.servingSize.forEach(item => {
-                 item.text= item.text.replace("servings","  ").trim();
-                });
-              }
+            //   if (row.servingSize) {
+            //     row.servingSize.forEach(item => {
+            //      item.text= item.text.replace("servings","  ").trim();
+            //     });
+            //   }
         }
     }
     return data;

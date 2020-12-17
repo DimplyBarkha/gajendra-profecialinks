@@ -44,10 +44,12 @@ fields:
     regExpReplace: $1
   - name: priceCurrency
     singleValue: true
-    xpath: //span[@class='currency']
+    xpath: //script[@type="application/ld+json"][contains(text(),"priceCurrency")]
+    regExp: priceCurrency":"([^"]+)
+    regExpReplace: $1
   - name: description
     singleValue: true
-    xpath: concat(//div[contains(@id,'product-description')]/ul,' ',//div[contains(@id,'product-marketing')],' ',//div[contains(@id,'brand-marketing')])
+    xpath: concat(//div[contains(@id,'product-description')]/ul,' ',//div[contains(@id,'product-marketing')],' ',//div[contains(@id,'brand-marketing')],' ',//div[@id="pack-size"])
   - name: manufacturerImages
     singleValue: true
   - name: specifications
@@ -55,7 +57,7 @@ fields:
   - name: featureBullets
     singleValue: false
     description: null
-    xpath: //div[@id='features']
+    xpath: //div[@id='features']/ul/li
   - name: featureHighlights
     singleValue: false
   - name: allergens
@@ -82,11 +84,16 @@ fields:
     xpath: //ol[contains(@class,"beans-breadcrumb__list")]/li
   - name: shownImages
     singleValue: false
-    xpath: //body//@additional_image
+    xpath: //script[@type="application/ld+json"][contains(text(),"image")]
+    regExp: image":[^]
+    regExpReplace: $1$2$3
+    # xpath: //body//@additional_image
+    # xpath: //div[@class='multiple-image__wrapper']//img/@src
   - name: highQualityImages
     singleValue: false
     description: Materials used to make the product
     xpath: //body//@additional_image
+    # xpath: //div[@class='multiple-image__wrapper']//img/@src
   - name: mpc
     singleValue: false
   - name: mpn
@@ -170,6 +177,56 @@ fields:
   - name: promotion
     singleValue: false
     xpath: (//ul[contains(@class,"product-promotion")]/li//span[@class='offer-text'])[1]
+  - name: saltPerServing
+    singleValue: true
+    xpath: //td[contains(.,"Salt")]/following-sibling::td[1]
+  - name: saltPerServingUom
+    singleValue: false
+    xpath: //td[contains(.,"Salt")]/following-sibling::td[1]
+  - name: totalFatPerServing
+    singleValue: true
+    xpath: //td[contains(.,"Energy")]/following-sibling::td[1]
+  - name: totalFatPerServingUom
+    singleValue: false
+    xpath: //td[contains(.,"Energy")]/following-sibling::td[1]
+  - name: saturatedFatPerServing
+    singleValue: true
+    xpath: //td[contains(.,"Saturates")]/following-sibling::td[1] | //td[contains(.,"of which saturates")]/following-sibling::td[1]
+  - name: saturatedFatPerServingUom
+    singleValue: false
+    xpath: //td[contains(.,"Saturates")]/following-sibling::td[1] | //td[contains(.,"of which saturates")]/following-sibling::td[1]
+  - name: totalCarbPerServing
+    singleValue: true
+    xpath: //td[contains(.,"Carbohydrate")]/following-sibling::td[1]
+  - name: totalCarbPerServingUom
+    singleValue: false
+    xpath: //td[contains(.,"Carbohydrate")]/following-sibling::td[1]
+  - name: totalSugarsPerServing
+    singleValue: true
+    xpath: //td[contains(.,"Sugars")]/following-sibling::td[1] | //td[contains(.,"of which sugars")]/following-sibling::td[1]
+  - name: totalSugarsPerServingUom
+    singleValue: false
+    xpath: //td[contains(.,"Sugars")]/following-sibling::td[1] | //td[contains(.,"of which sugars")]/following-sibling::td[1]
+  - name: proteinPerServing
+    singleValue: true
+    xpath: //td[contains(.,"Protein")]/following-sibling::td[1]
+  - name: proteinPerServingUom
+    singleValue: false
+    xpath: //td[contains(.,"Protein")]/following-sibling::td[1]
+  - name: calciumPerServing
+    singleValue: true
+    xpath: //td[contains(.,"Calcium")]/following-sibling::td[1]
+  - name: calciumPerServingUom
+    singleValue: false
+    xpath: //td[contains(.,"Calcium")]/following-sibling::td[1]
+  - name: dietaryFibrePerServing
+    singleValue: false
+    xpath: //td[contains(.,"Fibre")]/following-sibling::td[1]
+  - name: dietaryFibrePerServingUom
+    singleValue: false
+    xpath:  //td[contains(.,"Fibre")]/following-sibling::td[1]
+
+
 
 
 

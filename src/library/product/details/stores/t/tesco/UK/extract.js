@@ -40,15 +40,13 @@ module.exports = {
 
       const details = document.querySelector(`script[type="application/ld+json"]`);
       if(details) {
-        if(JSON.parse(details.text)[2]){
-          let imageArr = JSON.parse(details.text)[2].image;
-          let images = imageArr.slice(0).join(' | ');
-          console.log("images",images);
-          document.body.setAttribute('additional_image', images);
+        if(JSON.parse(details.text)){
+          let imageArr = JSON.parse(details.text).image;
+          // let images = imageArr.slice(0).join(' | ');
+          // console.log("images",images);
+          document.body.setAttribute('additional_image', imageArr);
         }
       }
-
-
     });
 
     //await context.waitForSelector('div.product-image__container');

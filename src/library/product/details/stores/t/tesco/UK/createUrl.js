@@ -6,5 +6,6 @@ module.exports = {
     prefix: 'groceries/en-GB/products',
     country: 'UK',
     store: 'tesco',
+    url: 'https://www.tesco.com/groceries/products/{id}'
   },
 };
