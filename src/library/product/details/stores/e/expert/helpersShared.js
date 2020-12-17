@@ -5,9 +5,11 @@ class SharedHelpers {
   }
 
   async addHiddenInfo (elementID, content, contentArr = []) {
+    contentArr = contentArr.length ? contentArr : [content];
     await this.context.evaluate(async function (elementID, content, contentArr) {
-      if (contentArr.length === 0) { contentArr.push(content); }
-      else {
+      if (contentArr.length === 0) {
+        contentArr.push(content);
+      } else {
         // contentArr.push('');
         contentArr.forEach((element) => {
           const newDiv = document.createElement('div');

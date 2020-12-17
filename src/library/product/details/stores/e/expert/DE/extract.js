@@ -29,7 +29,7 @@ module.exports = {
     });
 
     const apiManufCall = await context.evaluate(function () {
-      return document.querySelector('iframe#loadbeeTabContent') ? document.querySelector('iframe#loadbeeTabContent').getAttribute('src') : null;
+      return document.querySelector('iframe#loadbeeTabContent,#loadbeeIframeId') ? document.querySelector('iframe#loadbeeTabContent,#loadbeeIframeId').getAttribute('src') : null;
     });
     console.log('apiManufCall');
     console.log(apiManufCall);
