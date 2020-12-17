@@ -7,11 +7,11 @@ module.exports = {
     nextLinkSelector: null,
     mutationSelector: null,
     spinnerSelector: null,
-    loadedSelector: null,
+    loadedSelector: 'body',
     noResultsXPath: null,
     domain: 'kruidvat.nl',
-    // openSearchDefinition: {
-    //   template: 'https://www.kruidvat.nl/search?q={searchTerms}&searchType=manual&page={page}&size=20',
-    // },
+    openSearchDefinition: {
+      template: 'https://www.kruidvat.nl/search?q={searchTerms}&searchType=manual&page={page}&size=20',
+    },
   },
 };
