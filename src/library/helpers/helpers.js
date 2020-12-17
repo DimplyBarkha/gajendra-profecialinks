@@ -147,4 +147,37 @@ module.exports.Helpers = class {
     }
     return false;
   }
+
+  // Function which allows to wait for an element within an iframe or a shadowroot
+  async waitForInDifferentContext (limit, selector, documentSelector) {
+    console.log('..waitForLoader..:', documentSelector);
+    const rootIsThere = await this.context.evaluate((docSel) => {
+      const docOrIframe = document.querySelector(docSel);
+      const doc = docOrIframe.contentDocument || docOrIframe.shadowRoot || docOrIframe;
+      console.log('=====================');
+      console.log(`the document context node is iframe ${!!docOrIframe.contentDocument}, shadowRoot: ${!!docOrIframe.shadowRoot}, elem: ${!!docOrIframe}`);
+      console.log(doc);
+      console.log('=====================');
+      return !!doc;
+    }, documentSelector);
+    if (!rootIsThere) {
+      console.log('Root document for waiting loop is not there.');
+      return false;
+    }
+    let timer = 0;
+    let isThere = false;
+    while (timer < limit && !isThere) {
+      console.log('waiting !!!! ');
+      timer++;
+      isThere = await this.context.evaluate(([sel, docSel]) => {
+        const docOrIframe = document.querySelector(docSel);
+        const doc = docOrIframe.contentDocument || docOrIframe.shadowRoot || docOrIframe;
+        console.log(`Checking if the following selector is there: ${sel}`);
+        return !!doc.querySelector(sel);
+      }, [selector, documentSelector]);
+      await new Promise(resolve => setTimeout(resolve, 500));
+    }
+    console.log(`The wait for selector ${selector} within context ${documentSelector} returned ${isThere}`);
+    return isThere;
+  };
 };
