@@ -27,20 +27,22 @@ module.exports = {
           const product_code = url.split("item_");
           if (product_code[1].includes("?")) {
             var prod_co = product_code[1].split("?");
-            addHiddenDiv("ii_procode", prod_co[0], i);
+            addHiddenDiv("ii_procode", prod_co[0]);
           } else {
-            addHiddenDiv("ii_procode", product_code[1], i);
+            addHiddenDiv("ii_procode", product_code[1]);
           }
         } else {
           const product_code = url.split("products/");
           if (product_code[1].includes("-")) {
             var prod_co = product_code[1].split("-");
-            addHiddenDiv("ii_procode", prod_co[0], i);
+            addHiddenDiv("ii_procode", prod_co[0]);
           } else {
-            addHiddenDiv("ii_procode", product_code[1], i);
+            addHiddenDiv("ii_procode", product_code[1]);
           }
         }
       }
+      addHiddenDiv("ii_gram", "g");
+      addHiddenDiv("ii_mg", "mg");
     });
     await context.extract(dependencies.productDetails);
   },
