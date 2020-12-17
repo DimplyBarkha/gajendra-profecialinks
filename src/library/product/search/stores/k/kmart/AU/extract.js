@@ -43,10 +43,11 @@ const implementation = async function (
   
       };
       var abc = getAllXpath("//div[@class='product product_box small-6 medium-4 large-4 columns clearfix col ']/@data-attribute-productid", 'nodeValue');
-        if (abc != null) {
+      var pqr;
+      if (abc != null) {
           for (var i = 0; i < abc.length; i++) {
-            abc[i] = "P_" + abc[i]
-            addHiddenDiv('id', abc[i], i);
+            pqr = "P_" + abc[i]
+            addHiddenDiv('id', pqr, i);
           }
         }
     });
