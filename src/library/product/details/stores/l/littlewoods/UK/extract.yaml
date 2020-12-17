@@ -516,5 +516,5 @@ fields:
     example: https://www.zalando.de/adidas-neo-sneaker-low-blackwhite-a4315i002-q11.html
     defaultValue: Yes
   - name: unInterruptedPDP
-    xpath: //div[contains(@id,'recs')]//div[contains(@class, "slick-active")]//span[contains(@class,"title")]
+    xpath: //div[contains(@id,'recs')]//div[contains(@class, "banner") and not(contains(@class,"cloned"))]//span[contains(@class,"title")]
     # xpath: //div[contains(@id,'recs')]//span[contains(@class,"title")]
