@@ -6,7 +6,7 @@ module.exports = {
     prefix: null,
     suffix: null,
     subdomain: null,
-    url: null,
+    url: 'https://www.hagel-shop.de/alle-marken.html',
     country: 'DE',
     store: 'hagel-shop',
     zipcode: '',

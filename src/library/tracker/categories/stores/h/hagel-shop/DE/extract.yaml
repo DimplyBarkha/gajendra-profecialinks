@@ -1,13 +1,13 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: null
+recordXPath: //ul[@id][@class="all-brands"]/li/a
 fields:
   - name: category
     singleValue: false
     description: name of the category
-    xpath: null
+    xpath: //ul[@id][@class="all-brands"]/li/a
   - name: categoryUrl
     singleValue: false
     description: url of the category
-    xpath: null
+    xpath: //ul[@id][@class="all-brands"]/li/a/@href

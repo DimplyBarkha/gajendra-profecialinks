@@ -5,7 +5,7 @@ module.exports = {
     country: 'DE',
     store: 'hagel-shop',
     domain: 'hagel-shop.de',
-    loadedSelector: null,
+    loadedSelector: 'ul[id][class="all-brands"]>li>a',
     noResultsXPath: null,
     zipcode: '',
   },
