@@ -21,8 +21,8 @@ fields:
     xpath: //div[@class="tile__product-slide-rating-wrapper"]/e2-rating/@reviews-number
   - name: aggregateRating
     singleValue: false
-    # xpath: //div[@class="tile__product-slide-rating-wrapper"]/e2-rating/@rating
-    xpath: //div[@id="aggregateRating"]
+    type: NUMBER
+    xpath: //div[@class="tile__product-slide-rating-wrapper"]/e2-rating/@rating
   - name: thumbnail
     singleValue: true
     xpath: //a[@class="ClickSearchResultEvent_Class tile__product-slide-link"]/img/@src
