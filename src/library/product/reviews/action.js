@@ -1,7 +1,7 @@
 
 /**
  *
- * @param { { URL: string, id: any, RPC: string, SKU: string, date: any, days: number, results} } inputs
+ * @param { { URL: string, id: any, RPC: string, SKU: string, date: any, days: number, results, Brands: any } } inputs
  * @param { { store: any, domain: any, country: any, zipcode: any, mergeType: any } } parameters
  * @param { ImportIO.IContext } context
  * @param { { execute: ImportIO.Action, extract: ImportIO.Action, paginate: ImportIO.Action } } dependencies
@@ -13,7 +13,7 @@ async function implementation (
   { execute, extract, paginate },
 ) {
   // const { URL: url, RPC, SKU, date: dateOrigin = null, days = 30, results = 10000 } = inputs;
-  const { URL: url, RPC, SKU, date: dateOrigin = null, days = 30, results = 200 } = inputs;
+  const { URL: url, RPC, SKU, date: dateOrigin = null, days = 30, results = 200, Brands } = inputs;
   const id = RPC || SKU || inputs.id;
   const inputUrl = url;
   const length = (results) => results.reduce((acc, { group }) => acc + (Array.isArray(group) ? group.length : 0), 0);
@@ -21,7 +21,7 @@ async function implementation (
   const date = new Date(days ? new Date().setDate(new Date().getDate() - days) : dateOrigin);
   console.log(`Date Limit: "${date}"`);
 
-  const resultsReturned = await execute({ url, id, zipcode, date, days });
+  const resultsReturned = await execute({ url, id, zipcode, date, days, Brands });
 
   if (!resultsReturned) {
     console.log('No results were returned');
