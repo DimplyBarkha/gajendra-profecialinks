@@ -23,7 +23,7 @@ fields:
   - name: sku
     singleValue: false
     description: The store-specific product identifier
-    defaultValue: "123"
+    xpath: ancestor::html//div[@data-testid='productDetailsBlock']//h1[@data-testid='details-product-title']
   - name: reviewText
     singleValue: false
     description: The text of the review
@@ -39,7 +39,6 @@ fields:
   - name: location
     singleValue: false
     description: reviewer location
-    xpath: //div[@data-testid='review-post']/div[1]/p
     defaultValue: UK
   - name: helpful
     singleValue: true
@@ -56,7 +55,7 @@ fields:
   - name: pageTitle
     singleValue: false
     description: The url of the page title
-    xpath: ancestor::html//title
+    xpath: ancestor::html//head/title
   - name: sourceUrl
     singleValue: false
     description: The url of the product url
