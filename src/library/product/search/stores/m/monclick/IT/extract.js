@@ -1,10 +1,10 @@
-
+const { transform } = require('../../../../shared');
 module.exports = {
   implements: 'product/search/extract',
   parameterValues: {
     country: 'IT',
     store: 'monclick',
-    transform: null,
+    transform,
     domain: 'monclick.it',
     zipcode: '',
   },
