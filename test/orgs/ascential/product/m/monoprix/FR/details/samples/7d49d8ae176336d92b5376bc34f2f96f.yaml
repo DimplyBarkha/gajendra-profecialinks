@@ -1,0 +1,112 @@
+input:
+  _url: http://monoprix.fr
+  URL: https://www.monoprix.fr/courses/one-chat-adulte-boeuf-1.5kg-one-3173653-p
+extractions:
+  - html: https://workbench.import.io/html/run=0dc5d27b-f076-44f9-8100-b90fb21a2b3a/task=b42e39fb-4246-4e7b-852d-8e44a767e409/6212245e-ab2d-4936-8c40-feefd7f7b24a.html
+    extractionConfigId: product/details/stores/m/monoprix/FR/extract
+    data:
+      - group:
+          - image:
+              - text: https://cdn.monoprix.fr/cdn-cgi/image/width=580,quality=75,format=auto,metadata=none/assets/images/grocery/3173653/580x580.jpg
+                xpath: /html/body/div[1]/div[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[1]/div[2]/div[1]/img[1]/@src
+            imageAlt:
+              - text: product
+                xpath: /html/body/div[1]/div[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[1]/div[2]/div[1]/img[1]/@alt
+            category:
+              - text: Courses en ligne
+                xpath: /html/body/div[1]/div[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]
+              - text: Animaux
+                xpath: /html/body/div[1]/div[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]
+              - text: Chat
+                xpath: /html/body/div[1]/div[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[4]
+              - text: Croquette, Friandise
+                xpath: /html/body/div[1]/div[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[5]
+            price:
+              - text: 7,15 €
+                xpath: /html/body/div[1]/div[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/text()[1]
+            availabilityText:
+              - text: In Stock
+                xpath: /html/body/div[1]/div[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]
+            description:
+              - text: |-
+                  ONE ADULTE BOEUF 1,5KG
+                  Pays de fabrication : FRANCE
+                xpath: /html/body/div[1]/div[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]
+            brandText:
+              - text: One
+                xpath: /html/body/@brand
+            weightNet:
+              - text: 1,5kg
+                xpath: /html/body/div[1]/div[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[1]/div[2]/div[2]/h1[1]/div[4]
+            gtin:
+              - text: "7613031306480"
+                xpath: /html/body/@gtin
+            sku:
+              - text: "3173653"
+                xpath: /html/body/@sku
+            variantId:
+              - text: "3173653"
+                xpath: /html/body/@sku
+            name:
+              - text: Croquettes au boeuf et aux céréales complètes, pourr chat adulte
+                xpath: /html/body/div[1]/div[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[1]/div[2]/div[2]/h1[1]/div[2]
+            inStorePrice:
+              - text: 7,15 €
+                xpath: /html/body/div[1]/div[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/text()[1]
+            ingredientsList:
+              - text: >-
+                  Composition: Abats de boeuf (16%), Protéines de volaille
+                  déshydratées, Blé complet (15%), Mais, Farine de soja, Graisse
+                  de porc, Gluten de blé, Farine de protéines de mais, Racine de
+                  chicorée déshydratée (2%), Gruau de mais, Pulpe de betterave
+                  déshydratée, Substances minérales, Hydrolysat (avec ajout de
+                  0,025% de poudre de Lactobacillus Delbrueckii et Fermentum
+                  traitée thermiquement), Levures. Additifs: Additifs
+                  nutritionnels: UI/kg: Vit A: 36000 Vit D3: 1100 Vit E: 460
+                  mg/kg: Vit C: 140 Taurine: 700 Sulfate de fer (II)
+                  monohydraté: (Fe: 50 ) Iodate de calcium anhydre: (I: 1,3)
+                  Sulfate de cuivre (II) pentahydraté: (Cu: 7,8) Sulfate
+                  manganeux monohydraté: (Mn: 23 ) Sulfate de zinc monohydraté:
+                  (Zn: 80) Sélénite de sodium: (Se:0,074). Antioxygènes.
+
+                  Allergènes :IL N'Y A PAS D'ALLERGèNES POUR LES PRODUITS DE LA CATéGORIE PETFOOD
+                xpath: /html/body/div[1]/div[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[2]
+            countryOfOrigin:
+              - text: FRANCE
+                xpath: /html/body/div[1]/div[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[2]
+            allergyAdvice:
+              - text: IL N'Y A PAS D'ALLERGèNES POUR LES PRODUITS DE LA CATéGORIE PETFOOD
+                xpath: /html/body/div[1]/div[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[2]/div[2]/text()[1]
+            pricePerUnit:
+              - text: 4,77 €
+                xpath: /html/body/div[1]/div[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[1]/div[2]/div[2]/h1[1]/div[4]
+            pricePerUnitUom:
+              - text: Kg
+                xpath: /html/body/div[1]/div[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[1]/div[2]/div[2]/h1[1]/div[4]
+            nameExtended:
+              - text: One Croquettes au boeuf et aux céréales complètes, pourr chat adulte
+            descriptionBullets:
+              - text: "0"
+                type: NUMBER
+                raw: "0"
+                locale: fr_FR
+                value: 0
+            coupon:
+              - text: -60%
+                xpath: /html/body/div[1]/div[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/ul[1]/div[1]/div[1]/li[1]/div[1]/div[1]/a[1]/div[2]/div[1]/div[1]/div[1]
+            quantity:
+              - text: "1"
+            technicalInformationPdfPresent:
+              - text: No
+            termsAndConditions:
+              - text: No
+            privacyPolicy:
+              - text: No
+            customerServiceAvailability:
+              - text: No
+            Image360Present:
+              - text: No
+            imageZoomFeaturePresent:
+              - text: No
+        xpath: /html
+    timestamp: 1608197163500

@@ -1,0 +1,176 @@
+input:
+  _url: http://monoprix.fr
+  URL: https://www.monoprix.fr/courses/Céréales miel bio - Cheerios-Nestlé-3343692-p
+extractions:
+  - html: https://workbench.import.io/html/run=0dc5d27b-f076-44f9-8100-b90fb21a2b3a/task=5ba86e32-fece-464c-b5ab-d56f5a176f80/aa5bedce-c091-4299-aa89-03f40db0aa92.html
+    extractionConfigId: product/details/stores/m/monoprix/FR/extract
+    data:
+      - group:
+          - image:
+              - text: https://cdn.monoprix.fr/cdn-cgi/image/width=580,quality=75,format=auto,metadata=none/assets/images/grocery/3343692/580x580.jpg
+                xpath: /html/body/div[1]/div[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[1]/div[2]/div[1]/img[1]/@src
+            imageAlt:
+              - text: product
+                xpath: /html/body/div[1]/div[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[1]/div[2]/div[1]/img[1]/@alt
+            category:
+              - text: Courses en ligne
+                xpath: /html/body/div[1]/div[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]
+              - text: Sélection Nestlé
+                xpath: /html/body/div[1]/div[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]
+            price:
+              - text: 3,69 €
+                xpath: /html/body/div[1]/div[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/text()[1]
+            availabilityText:
+              - text: In Stock
+                xpath: /html/body/div[1]/div[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]
+            description:
+              - text: >-
+                  Céréales prêtes à consommer biologiques aromatisées miel
+
+                  Pays de fabrication : FRANCE
+
+                  Savourez vos céréales Cheerios préférées, maintenant en version Bio ! Vos céréales Cheerios Bio sont élaborées avec des ingrédients issus de l'agriculture biologique, participant au respect de l'environnement et de la biodiversité. Avec du blé complet 1er ingrédient.
+                   Nom de l’exploitant : Cereal Partners France
+                   Adresse de l’exploitant: BP 935 Noisiel 77446 Marne-la-Vallée Cedex 2
+                xpath: /html/body/div[1]/div[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]
+            brandText:
+              - text: Nestlé
+                xpath: /html/body/@brand
+            weightNet:
+              - text: 375g
+                xpath: /html/body/div[1]/div[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[1]/div[2]/div[2]/h1[1]/div[4]
+            gtin:
+              - text: "7613036669498"
+                xpath: /html/body/@gtin
+            sku:
+              - text: "3343692"
+                xpath: /html/body/@sku
+            variantId:
+              - text: "3343692"
+                xpath: /html/body/@sku
+            name:
+              - text: Céréales au miel et aux 5 céréales complètes
+                xpath: /html/body/div[1]/div[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[1]/div[2]/div[2]/h1[1]/div[2]
+            inStorePrice:
+              - text: 3,69 €
+                xpath: /html/body/div[1]/div[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/text()[1]
+            ingredientsList:
+              - text: >-
+                  Céréales 73,9% (farine d'avoine complète* 26,8%, farine de blé
+                  complet* 26,8%, farine d'orge complète* 16,3%, farine de maïs
+                  complet* 2%, farine de riz complet* 2%), sucre*, amidon de
+                  blé*, miel* 3,8%, huile de tournesol*, sirop de sucre
+                  inverti*, sel, mélasse*, antioxydant : extrait riche en
+                  tocophérols, arôme naturel. *Ingrédients issus de
+                  l'agriculture biologique. Peut contenir du lait, de l'arachide
+                  et des fruits à coque. Sans colorant. Sans conservateur. Sans
+                  huile de palme.
+
+                  Allergènes :AVOINE, BLE, ORGE
+                xpath: /html/body/div[1]/div[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[2]
+            caloriesPerServing:
+              - text: 392 Kcal
+                xpath: /html/body/div[1]/div[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[4]/div[2]/div[1]/div[3]/span[2]
+            totalFatPerServing:
+              - text: "5.5"
+                xpath: /html/body/div[1]/div[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[4]/div[2]/div[2]/div[2]/span[2]
+                type: NUMBER
+                raw: 5,5 g
+                locale: fr_FR
+                value: 5.5
+            totalFatPerServingUom:
+              - text: g
+                xpath: /html/body/div[1]/div[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[4]/div[2]/div[2]/div[2]/span[2]
+            saturatedFatPerServing:
+              - text: "0.8"
+                xpath: /html/body/div[1]/div[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[4]/div[2]/div[2]/div[3]/span[2]
+                type: NUMBER
+                raw: 0,8 g
+                locale: fr_FR
+                value: 0.8
+            saturatedFatPerServingUom:
+              - text: g
+                xpath: /html/body/div[1]/div[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[4]/div[2]/div[2]/div[3]/span[2]
+            totalCarbPerServing:
+              - text: "72.8"
+                xpath: /html/body/div[1]/div[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[4]/div[2]/div[2]/div[4]/span[2]
+                type: NUMBER
+                raw: 72,8 g
+                locale: fr_FR
+                value: 72.8
+            totalCarbPerServingUom:
+              - text: g
+                xpath: /html/body/div[1]/div[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[4]/div[2]/div[2]/div[4]/span[2]
+            totalSugarsPerServing:
+              - text: "24.4"
+                xpath: /html/body/div[1]/div[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[4]/div[2]/div[2]/div[5]/span[2]
+                type: NUMBER
+                raw: 24,4 g
+                locale: fr_FR
+                value: 24.4
+            totalSugarsPerServingUom:
+              - text: g
+                xpath: /html/body/div[1]/div[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[4]/div[2]/div[2]/div[5]/span[2]
+            proteinPerServing:
+              - text: "8.6"
+                xpath: /html/body/div[1]/div[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[4]/div[2]/div[2]/div[6]/span[2]
+                type: NUMBER
+                raw: 8,6 g
+                locale: fr_FR
+                value: 8.6
+            proteinPerServingUom:
+              - text: g
+                xpath: /html/body/div[1]/div[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[4]/div[2]/div[2]/div[6]/span[2]
+            saltPerServing:
+              - text: "1.07"
+                xpath: /html/body/div[1]/div[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[4]/div[2]/div[2]/div[7]/span[2]
+                type: NUMBER
+                raw: 1,07 g
+                locale: fr_FR
+                value: 1.07
+            saltPerServingUom:
+              - text: g
+                xpath: /html/body/div[1]/div[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[4]/div[2]/div[2]/div[7]/span[2]
+            storage:
+              - text: Bien refermer le sachet intérieur après chaque utilisation et conserver
+                  dans un endroit sec. -
+                xpath: /html/body/div[1]/div[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[3]
+            countryOfOrigin:
+              - text: FRANCE
+                xpath: /html/body/div[1]/div[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[2]
+            allergyAdvice:
+              - text: AVOINE, BLE, ORGE
+                xpath: /html/body/div[1]/div[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[2]/div[2]/text()[1]
+            pricePerUnit:
+              - text: 9,84 €
+                xpath: /html/body/div[1]/div[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[1]/div[2]/div[2]/h1[1]/div[4]
+            pricePerUnitUom:
+              - text: Kg
+                xpath: /html/body/div[1]/div[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[1]/div[2]/div[2]/h1[1]/div[4]
+            nameExtended:
+              - text: Nestlé Céréales au miel et aux 5 céréales complètes
+            descriptionBullets:
+              - text: "0"
+                type: NUMBER
+                raw: "0"
+                locale: fr_FR
+                value: 0
+            coupon:
+              - text: -50%
+                xpath: /html/body/div[1]/div[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/div[2]/ul[1]/div[1]/div[1]/li[1]/div[1]/div[1]/a[1]/div[2]/div[1]/div[1]/div[1]
+            quantity:
+              - text: "1"
+            technicalInformationPdfPresent:
+              - text: No
+            termsAndConditions:
+              - text: No
+            privacyPolicy:
+              - text: No
+            customerServiceAvailability:
+              - text: No
+            Image360Present:
+              - text: No
+            imageZoomFeaturePresent:
+              - text: No
+        xpath: /html
+    timestamp: 1608197159986

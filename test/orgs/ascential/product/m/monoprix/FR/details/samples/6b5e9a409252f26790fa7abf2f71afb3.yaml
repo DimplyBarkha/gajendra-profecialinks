@@ -1,0 +1,173 @@
+input:
+  _url: http://monoprix.fr
+  URL: https://www.monoprix.fr/courses/Chocolat%20p%C3%A2tissier-Menier-33939-p
+extractions:
+  - html: https://workbench.import.io/html/run=0dc5d27b-f076-44f9-8100-b90fb21a2b3a/task=7edede8b-7496-4920-af95-303053279917/7055b075-b735-403c-9371-e3ea747391d4.html
+    extractionConfigId: product/details/stores/m/monoprix/FR/extract
+    data:
+      - group:
+          - image:
+              - text: https://cdn.monoprix.fr/cdn-cgi/image/width=580,quality=75,format=auto,metadata=none/assets/images/grocery/33939/580x580.jpg
+                xpath: /html/body/div[1]/div[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[1]/div[2]/div[1]/img[1]/@src
+            imageAlt:
+              - text: product
+                xpath: /html/body/div[1]/div[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[1]/div[2]/div[1]/img[1]/@alt
+            category:
+              - text: Courses en ligne
+                xpath: /html/body/div[1]/div[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]
+              - text: Epicerie Sucrée
+                xpath: /html/body/div[1]/div[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]
+              - text: Sucre, Farine, Aide à la pâtisserie
+                xpath: /html/body/div[1]/div[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[4]
+              - text: Chocolat à pâtisser
+                xpath: /html/body/div[1]/div[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[5]
+            price:
+              - text: 1,75 €
+                xpath: /html/body/div[1]/div[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/text()[1]
+            availabilityText:
+              - text: In Stock
+                xpath: /html/body/div[1]/div[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]
+            description:
+              - text: >-
+                  Chocolat cacao : 51% minimum
+
+                  Pays de fabrication : FRANCE
+
+                  Menier Pâtissier, c'est le chocolat des desserts quotidiens pour toute la famille.
+                   Nom de l’exploitant : Société des produits Nestlé S. A.
+                   Adresse de l’exploitant: Nestlé France BP 900 Noisiel 77446 Marne-la-Vallée Cedex 2
+                xpath: /html/body/div[1]/div[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]
+            brandText:
+              - text: Nestlé
+                xpath: /html/body/@brand
+            weightNet:
+              - text: 200g
+                xpath: /html/body/div[1]/div[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[1]/div[2]/div[2]/h1[1]/div[4]
+            gtin:
+              - text: "3069942320901"
+                xpath: /html/body/@gtin
+            sku:
+              - text: "33939"
+                xpath: /html/body/@sku
+            variantId:
+              - text: "33939"
+                xpath: /html/body/@sku
+            name:
+              - text: Chocolat noir pâtissier
+                xpath: /html/body/div[1]/div[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[1]/div[2]/div[2]/h1[1]/div[2]
+            inStorePrice:
+              - text: 1,75 €
+                xpath: /html/body/div[1]/div[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/text()[1]
+            ingredientsList:
+              - text: "Pâte de cacao, sucre, lactose, beurre de cacao, émulsifiant : lécithine
+                  de tournesol, arôme. Traces : fruits à coques, gluten."
+                xpath: /html/body/div[1]/div[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[3]
+            caloriesPerServing:
+              - text: env. 504 Kcal
+                xpath: /html/body/div[1]/div[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[4]/div[2]/div[1]/div[3]/span[2]
+            totalFatPerServing:
+              - text: "28.5"
+                xpath: /html/body/div[1]/div[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[4]/div[2]/div[2]/div[2]/span[2]
+                type: NUMBER
+                raw: env. 28,5 g
+                locale: fr_FR
+                value: 28.5
+            totalFatPerServingUom:
+              - text: env
+                xpath: /html/body/div[1]/div[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[4]/div[2]/div[2]/div[2]/span[2]
+              - text: g
+                xpath: /html/body/div[1]/div[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[4]/div[2]/div[2]/div[2]/span[2]
+            saturatedFatPerServing:
+              - text: "17.9"
+                xpath: /html/body/div[1]/div[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[4]/div[2]/div[2]/div[3]/span[2]
+                type: NUMBER
+                raw: env. 17,9 g
+                locale: fr_FR
+                value: 17.9
+            saturatedFatPerServingUom:
+              - text: env
+                xpath: /html/body/div[1]/div[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[4]/div[2]/div[2]/div[3]/span[2]
+              - text: g
+                xpath: /html/body/div[1]/div[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[4]/div[2]/div[2]/div[3]/span[2]
+            totalCarbPerServing:
+              - text: "51.5"
+                xpath: /html/body/div[1]/div[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[4]/div[2]/div[2]/div[4]/span[2]
+                type: NUMBER
+                raw: env. 51,5 g
+                locale: fr_FR
+                value: 51.5
+            totalCarbPerServingUom:
+              - text: env
+                xpath: /html/body/div[1]/div[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[4]/div[2]/div[2]/div[4]/span[2]
+              - text: g
+                xpath: /html/body/div[1]/div[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[4]/div[2]/div[2]/div[4]/span[2]
+            totalSugarsPerServing:
+              - text: "47.9"
+                xpath: /html/body/div[1]/div[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[4]/div[2]/div[2]/div[5]/span[2]
+                type: NUMBER
+                raw: env. 47,9 g
+                locale: fr_FR
+                value: 47.9
+            totalSugarsPerServingUom:
+              - text: env
+                xpath: /html/body/div[1]/div[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[4]/div[2]/div[2]/div[5]/span[2]
+              - text: g
+                xpath: /html/body/div[1]/div[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[4]/div[2]/div[2]/div[5]/span[2]
+            proteinPerServing:
+              - text: "6"
+                xpath: /html/body/div[1]/div[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[4]/div[2]/div[2]/div[6]/span[2]
+                type: NUMBER
+                raw: env. 6 g
+                locale: fr_FR
+                value: 6
+            proteinPerServingUom:
+              - text: env
+                xpath: /html/body/div[1]/div[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[4]/div[2]/div[2]/div[6]/span[2]
+              - text: g
+                xpath: /html/body/div[1]/div[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[4]/div[2]/div[2]/div[6]/span[2]
+            saltPerServing:
+              - text: "0"
+                xpath: /html/body/div[1]/div[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[4]/div[2]/div[2]/div[7]/span[2]
+                type: NUMBER
+                raw: 0 g
+                locale: fr_FR
+                value: 0
+            saltPerServingUom:
+              - text: g
+                xpath: /html/body/div[1]/div[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[4]/div[2]/div[2]/div[7]/span[2]
+            countryOfOrigin:
+              - text: FRANCE
+                xpath: /html/body/div[1]/div[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[2]
+            productOtherInformation:
+              - text: "cacao : 51% minimum"
+                xpath: /html/body/div[1]/div[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[2]
+            pricePerUnit:
+              - text: 8,75 €
+                xpath: /html/body/div[1]/div[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[1]/div[2]/div[2]/h1[1]/div[4]
+            pricePerUnitUom:
+              - text: Kg
+                xpath: /html/body/div[1]/div[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[1]/div[2]/div[2]/h1[1]/div[4]
+            nameExtended:
+              - text: Nestlé Chocolat noir pâtissier
+            descriptionBullets:
+              - text: "0"
+                type: NUMBER
+                raw: "0"
+                locale: fr_FR
+                value: 0
+            quantity:
+              - text: "1"
+            technicalInformationPdfPresent:
+              - text: No
+            termsAndConditions:
+              - text: No
+            privacyPolicy:
+              - text: No
+            customerServiceAvailability:
+              - text: No
+            Image360Present:
+              - text: No
+            imageZoomFeaturePresent:
+              - text: No
+        xpath: /html
+    timestamp: 1608197162769

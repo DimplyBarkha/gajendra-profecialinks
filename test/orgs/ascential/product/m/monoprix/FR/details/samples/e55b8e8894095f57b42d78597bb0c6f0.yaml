@@ -1,0 +1,93 @@
+input:
+  _url: http://monoprix.fr
+  URL: https://www.monoprix.fr/courses/Croquettes chats
+    Saumon/Légumes-friskies-2321339-p
+extractions:
+  - html: https://workbench.import.io/html/run=0dc5d27b-f076-44f9-8100-b90fb21a2b3a/task=aed8493a-9267-4bc6-b86a-7284022a3cda/c2cd74a9-b7db-4f8c-b43a-f1787b810018.html
+    extractionConfigId: product/details/stores/m/monoprix/FR/extract
+    data:
+      - group:
+          - image:
+              - text: https://cdn.monoprix.fr/cdn-cgi/image/width=580,quality=75,format=auto,metadata=none/assets/images/grocery/2321339/580x580.jpg
+                xpath: /html/body/div[1]/div[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[1]/div[2]/div[1]/img[1]/@src
+            imageAlt:
+              - text: product
+                xpath: /html/body/div[1]/div[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[1]/div[2]/div[1]/img[1]/@alt
+            category:
+              - text: Courses en ligne
+                xpath: /html/body/div[1]/div[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]
+              - text: Animaux
+                xpath: /html/body/div[1]/div[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]
+              - text: Chat
+                xpath: /html/body/div[1]/div[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[4]
+              - text: Croquette, Friandise
+                xpath: /html/body/div[1]/div[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[5]
+            price:
+              - text: 4,09 €
+                xpath: /html/body/div[1]/div[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/text()[1]
+            availabilityText:
+              - text: In Stock
+                xpath: /html/body/div[1]/div[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]
+            description:
+              - text: >-
+                  Pays de fabrication : FRANCE
+
+                  Les croquettes Friskies sont préparées avec des poissons et des viandes de qualité rigoureusement sélectionnés pour apporter à votre chat une nutrition optimale. Votre chat sait qu'il va se régaler et vous savez que Friskies lui apporte tout ce dont il a besoin pour être en peine forme
+                xpath: /html/body/div[1]/div[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]
+            brandText:
+              - text: Friskies
+                xpath: /html/body/@brand
+            weightNet:
+              - text: 2kg
+                xpath: /html/body/div[1]/div[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[1]/div[2]/div[2]/h1[1]/div[4]
+            gtin:
+              - text: "7613034182067"
+                xpath: /html/body/@gtin
+            sku:
+              - text: "2321339"
+                xpath: /html/body/@sku
+            variantId:
+              - text: "2321339"
+                xpath: /html/body/@sku
+            name:
+              - text: Croquettes au saumon et aux légumes pour chat
+                xpath: /html/body/div[1]/div[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[1]/div[2]/div[2]/h1[1]/div[2]
+            inStorePrice:
+              - text: 4,09 €
+                xpath: /html/body/div[1]/div[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/text()[1]
+            storage:
+              - text: A conserver dans un endroit frais et sec.
+                xpath: /html/body/div[1]/div[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[2]
+            countryOfOrigin:
+              - text: FRANCE
+                xpath: /html/body/div[1]/div[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[2]
+            pricePerUnit:
+              - text: 2,05 €
+                xpath: /html/body/div[1]/div[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[1]/div[2]/div[2]/h1[1]/div[4]
+            pricePerUnitUom:
+              - text: Kg
+                xpath: /html/body/div[1]/div[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[1]/div[2]/div[2]/h1[1]/div[4]
+            nameExtended:
+              - text: Friskies Croquettes au saumon et aux légumes pour chat
+            descriptionBullets:
+              - text: "0"
+                type: NUMBER
+                raw: "0"
+                locale: fr_FR
+                value: 0
+            quantity:
+              - text: "1"
+            technicalInformationPdfPresent:
+              - text: No
+            termsAndConditions:
+              - text: No
+            privacyPolicy:
+              - text: No
+            customerServiceAvailability:
+              - text: No
+            Image360Present:
+              - text: No
+            imageZoomFeaturePresent:
+              - text: No
+        xpath: /html
+    timestamp: 1608197163346
