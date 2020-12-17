@@ -5,8 +5,8 @@ module.exports = {
     country: 'DK',
     store: 'lomax',
     domain: 'lomax.dk',
-    loadedSelector: null,
-    noResultsXPath: null,
+    loadedSelector: 'ul#megamenuroot',
+    noResultsXPath: '//body[not(.//ul[@id="megamenuroot"])]',
     zipcode: '',
   },
 };

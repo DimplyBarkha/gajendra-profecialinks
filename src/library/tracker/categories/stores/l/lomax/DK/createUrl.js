@@ -6,7 +6,7 @@ module.exports = {
     prefix: null,
     suffix: null,
     subdomain: null,
-    url: null,
+    url: 'https://www.lomax.dk/api/Sitecore/Menu',
     country: 'DK',
     store: 'lomax',
     zipcode: '',
