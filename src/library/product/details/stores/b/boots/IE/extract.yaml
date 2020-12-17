@@ -5,8 +5,8 @@ recordXpath: null
 fields:
   - name: image
     description: URL of the main product image
-    xpath: ancestor::html//img[@itemprop="image"]/@src
-    regExp: '(^[^?]+)'
+    xpath: ancestor::html//div[contains(@id,'listbox')]/div[1]/div[@class="s7thumb"]/@style
+    regExp: 'url\("([^?]+)'
     # Added custom height nd width values.
     regExpReplace: $1?wid=1920&hei=1080&op_sharpen=1
   - name: imageAlt
@@ -56,9 +56,9 @@ fields:
     xpath: ancestor::html//*[@id="productManufacturerName"]/@value
   - name: quantity
     description: Quantity as described on the page
-    xpath: ancestor::html//div[@class="details details_redesign"]
-    regExp: '(^[^|]+)|'
-    regExpReplace: $1
+    xpath: ancestor::html//h1[@itemprop="name"]
+    regExp: '(.+\s)(\d+\s?)(\w+)$'
+    regExpReplace: $2 $3
   - name: weightNet
     xpath: ancestor::html//p[@id="product_long_description"]/text()[contains(.,"Weight")]
     regExp: '[^\s]+$'
@@ -69,7 +69,7 @@ fields:
     description: GTIN code (includes UPC/EAN)
   - name: sku
     description: The store-specific product identifier
-    xpath: ancestor::html//div[@id="productId"]
+    xpath: ancestor::html//input[@id="product_ID"]/@value
   - name: variantId
     xpath: //div[@id="productId"] | //div[@class="productVarient"]/label/img/@src
     regExp: ([^/]+)\?[^?]+$|(^\d+$)
@@ -200,7 +200,7 @@ fields:
     description: null
   - name: ingredientsList
     # xpath: ancestor::html//*[@id="product_ingredients"][not(following-sibling::ul)]/following-sibling::p/br[following-sibling::br[position()=1]][not(preceding-sibling::br)]/preceding-sibling::span | //*[@id="product_ingredients"][not(following-sibling::ul)]/following-sibling::p/br[following-sibling::br[position()=1]][not(preceding-sibling::br)]/preceding-sibling::text() | //*[@id="product_ingredients"][not(following-sibling::ul)]/following-sibling::p[not(br)] | //*[@id="product_ingredients"]/following-sibling::ul/li
-    xpath: ancestor::html//*[@id="product_ingredients"]/following-sibling::ul | //*[@id="product_ingredients"]/following-sibling::p
+    xpath: ancestor::html//*[@id="product_ingredients"]/following-sibling::ul | //*[@id="product_ingredients"]/following-sibling::p | //div[@id="contentOmnipresent"]//span[contains(.,'Ingredients')]/following-sibling::text()[1]
     html: true
     description: List of Ingredients from site - can be string of data if no
       discernible start/end point
