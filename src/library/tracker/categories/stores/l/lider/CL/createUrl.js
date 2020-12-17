@@ -4,7 +4,7 @@ module.exports = {
   parameterValues: {
     domain: 'lider.cl',
     prefix: null,
-    suffix: null,
+    suffix: 'supermercado',
     subdomain: null,
     url: null,
     country: 'CL',
