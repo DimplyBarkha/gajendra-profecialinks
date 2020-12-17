@@ -4,9 +4,9 @@ recordSelector: null
 recordXPath: //ul[@class="o-horizontal-list c-permanent-nav"]//li/a[not(contains(@class, "shopping-cart"))]
 fields:
   - name: category
-    singleValue: false
+    singleValue: true
     description: name of the category
-    xpath: //@data-galabel | //@title
+    xpath: '@data-galabel|@title'
   - name: categoryUrl
     singleValue: false
     description: url of the category
