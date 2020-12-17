@@ -5,8 +5,9 @@ recordXPath: null
 fields: 
   - name: id
     singleValue: false
-    xpath: //div[@id='content-prod-boxes']/div/@prod-number
-    # regExp: (\d+)
+    xpath: //span[@class='reference-code']
+    # //div[@id='content-prod-boxes']/div/@prod-number
+    regExp: (\d+)
   - name: rankOrganic
     singleValue: false
   - name: name
