@@ -5,8 +5,8 @@ module.exports = {
     country: 'US',
     store: 'holmesproducts',
     domain: 'holmesproducts.com',
-    loadedSelector: 'div#primary',
-    noResultsXPath: '//h1[contains(text(),"Page Not Found")]',
+    loadedSelector: 'div#primary , .product-detail .primary-images',
+    noResultsXPath: '//h1[contains(text(),"Page Not Found")] | //h2[contains(text(),"page was not found")]',
     zipcode: '',
   },
 };

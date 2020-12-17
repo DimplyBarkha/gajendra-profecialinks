@@ -5,15 +5,13 @@ recordXPath: null
 fields:
   - name: image
     singleValue: false
-    xpath: //span[contains(@itemprop,'image')]
+    xpath: (//img[contains(@itemprop,'image')]/@src)[1]
   - name: imageAlt
     singleValue: false
-    xpath: //img[contains(@itemprop,'image')]/@alt
+    xpath: (//img[contains(@itemprop,'image')]/@alt)[1]
   - name: alternateImages
     singleValue: false
-    xpath: //li[contains(@class,'thumb') and not(contains(@class,'selected'))]/a[not(contains(@class,'video'))]/img/@src
-    regExp: (.*)\?sw=63&sh=63&sm=fit
-    regExpReplace: $1
+    xpath: (//button[@class="carousel-img-wrap"]//img/@src)[position()>1]
   - name: secondaryImageTotal
     singleValue: false
     manualSelector: div#imageTotal
@@ -22,19 +20,21 @@ fields:
     xpath: //meta[contains(@name,'keywords')]/@content
   - name: brandText
     singleValue: false
-    xpath: //span[contains(@itemprop,'brand')]
+    xpath: //span[@class="product-object"]/@data-product
+    regExp: ("brand":")(\w+)
+    regExpReplace: $2
   - name: category
     singleValue: false
-    xpath: //ol[contains(@class,'breadcrumb')]/li[position()>1 and position()<last()]
+    xpath: //div[@class="product-breadcrumb"]//li[position()>1]
   - name: nameExtended
     singleValue: false
-    xpath: //h1[contains(@itemprop,'name')]
+    xpath: //h5[contains(@class,'product-name hide-md-down')]
   - name: variantId
     singleValue: false
-    xpath: //span[contains(@itemprop,'productID')]
+    xpath: (//div[@data-bv-show="rating_summary"]/@data-bv-productid)[1]
   - name: name
     singleValue: false
-    xpath: //h1[contains(@itemprop,'name')]
+    xpath: //h5[contains(@class,'product-name hide-md-down')]
   - name: availabilityText
     singleValue: false
     defaultValue: Out of Stock
@@ -43,22 +43,22 @@ fields:
     manualSelector: div#descriptionBulletCount
   - name: description
     singleValue: false
-    xpath: //div[contains(@itemprop,'description')] | //div[contains(@id,'tab1')]
+    xpath:  //div[@class="row"]//div[@class="value content"]
   - name: specifications
     singleValue: false
-    xpath: //div[contains(@itemprop,'description')]/ul
+    xpath: //div[contains(@class,"specifications")]/ul
   - name: additionalDescBulletInfo
     singleValue: false
-    xpath: //div[contains(@class,'feature-bullets bumper')]//li
+    xpath: //div[contains(@class,"attributeList collapsible")]//li
   - name: sku
     singleValue: false
-    xpath: //span[contains(@itemprop,'sku')]
+    xpath: (//*[@class="manufacturer-sku-id"]/@data-manufacturersku)[1]
   - name: ratingCount
     singleValue: false
-    xpath: //span[contains(@itemprop,'reviewCount')]
+    xpath: (//meta[@itemprop="reviewCount"]/@content)[1]
   - name: aggregateRating
     singleValue: false
-    xpath: //span[contains(@itemprop,'ratingValue')]
+    xpath: (//div[contains(@itemprop,'ratingValue')])[1]
   - name: customerServiceAvailability
     singleValue: false
     defaultValue: 'Yes'
@@ -73,13 +73,18 @@ fields:
     xpath: //li[contains(@class,'thumb')]/a[contains(@class,'video')]/@href
   - name: mpc
     singleValue: false
-    xpath: //div[contains(@class,'wc-fragment')]/@data-mpn
+    xpath: //div[contains(@class,"specifications")]//li[contains(text(),"Model")]
+    regExp: (Model:\s)(\w+\-\w+)
+    regExpReplace: $2
   - name: warranty
     singleValue: false
-    xpath: //div[contains(@class,'feature-bullets bumper')]//li[contains(text(),'warranty')]
+    xpath: //div[contains(@class,'attributeList collapsible')]//li[contains(text(),"Warranty")]
   - name: quantity
     singleValue: false
     manualSelector: div#size
+    # xpath: //h5[contains(@class,'product-name hide-md-down')]
+    # regEXp: (\d+\-pack)
+    # regExpReplace: $1
   # - name: aggregateRatingText
   #   singleValue: false
   #   xpath: //a[contains(@class,'bv-rating')]/@aria-label
