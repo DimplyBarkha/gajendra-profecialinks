@@ -532,7 +532,7 @@ fields:
     regExp: (.+)
     regExpReplace: https:$1
   - name: inTheBoxText
-    xpath: //div[contains(@class,'InTheBox')]//span
+    xpath: //div[contains(@class,'InTheBox')]//span|//tr[contains(@class,'in the box')]//td//text()|//tr[contains(@class,'Attachments Included')]//td//text()
   - name: hasComparisonTable
     singleValue: true
     xpath: //li[contains(@class,"flix-comp-item")]
