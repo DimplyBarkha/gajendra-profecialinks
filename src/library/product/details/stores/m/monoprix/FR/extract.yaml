@@ -265,7 +265,6 @@ fields:
   - name: numberOfServingsInPackage
     singleValue: true
     description: Suggested number of servings of the product.
-    type: NUMBER
   - name: caloriesPerServing
     singleValue: false
     description: Nutritional Information for Calories Per Serving content - Usually
@@ -275,12 +274,10 @@ fields:
     singleValue: true
     description: Nutritional Information for Calories From Fat content - Usually
       based on per 100g serving
-    type: NUMBER
   - name: totalFatPerServing
     singleValue: false
     description: Nutritional Information for Total Fat content - Usually based on
       per 100g serving
-    type: NUMBER
     xpath: //span[contains(text(), 'Matières grasses')]/following::span[1]
   - name: totalFatPerServingUom
     singleValue: false
@@ -291,7 +288,6 @@ fields:
     singleValue: false
     description: Nutritional Information for Saturated Fat content - Usually based
       on per 100g serving
-    type: NUMBER
     xpath: //span[contains(text(), 'Dont Acides Gras Saturés')]/following::span[1]
   - name: saturatedFatPerServingUom
     singleValue: false
@@ -302,7 +298,6 @@ fields:
     singleValue: true
     description: Nutritional Information for Trans Fat content - Usually based on
       per 100g serving
-    type: NUMBER
   - name: transFatPerServingUom
     singleValue: true
     description: Unit of Measure Data for Trans Fat content
@@ -310,7 +305,6 @@ fields:
     singleValue: true
     description: Nutritional Information for Cholesterol content - Usually based on
       per 100g serving
-    type: NUMBER
   - name: cholesterolPerServingUom
     singleValue: true
     description: Unit of Measure Data for Cholesterol content
@@ -318,7 +312,6 @@ fields:
     singleValue: true
     description: Nutritional Information for Sodium content - Usually based on per
       100g serving
-    type: NUMBER
   - name: sodiumPerServingUom
     singleValue: true
     description: Unit of Measure Data for Sodium content
@@ -326,7 +319,6 @@ fields:
     singleValue: false
     description: Nutritional Information for Total Carbohydrate content - Usually
       based on per 100g serving
-    type: NUMBER
     xpath: //span[contains(text(), 'Glucides')]/following::span[1]
   - name: totalCarbPerServingUom
     singleValue: false
@@ -337,7 +329,6 @@ fields:
     singleValue: true
     description: Nutritional Information for Dietary Fibre content - Usually based
       on per 100g serving
-    type: NUMBER
   - name: dietaryFibrePerServingUom
     singleValue: true
     description: Unit of Measure Data for Dietary Fibre content
@@ -345,7 +336,6 @@ fields:
     singleValue: false
     description: Nutritional Information for Total Sugar content - Usually based on
       per 100g serving
-    type: NUMBER
     xpath: //span[contains(text(), 'Dont Sucres')]/following::span[1]
   - name: totalSugarsPerServingUom
     singleValue: false
@@ -356,7 +346,6 @@ fields:
     singleValue: false
     description: Nutritional Information for Protein content - Usually based on per
       100g serving
-    type: NUMBER
     xpath: //span[contains(text(), 'Protéines')]/following::span[1]
   - name: proteinPerServingUom
     singleValue: false
@@ -367,7 +356,6 @@ fields:
     singleValue: true
     description: Nutritional Information for Vitamin A content - Usually based on
       per 100g serving
-    type: NUMBER
   - name: vitaminAPerServingUom
     singleValue: true
     description: Unit of Measure Data for Vitamin A
@@ -375,7 +363,6 @@ fields:
     singleValue: true
     description: Nutritional Information for Vitamin C content - Usually based on
       per 100g serving
-    type: NUMBER
   - name: vitaminCPerServingUom
     singleValue: true
     description: Unit of Measure Data for Vitamin C
@@ -383,7 +370,6 @@ fields:
     singleValue: true
     description: Nutritional Information for Calcium content - Usually based on per
       100g serving
-    type: NUMBER
   - name: calciumPerServingUom
     singleValue: true
     description: Unit of Measure Data for Calcium
@@ -391,7 +377,6 @@ fields:
     singleValue: true
     description: Nutritional Information for Iron content - Usually based on per
       100g serving
-    type: NUMBER
   - name: ironPerServingUom
     singleValue: true
     description: Unit of Measure Data for Iron
@@ -402,7 +387,6 @@ fields:
     singleValue: true
     description: Nutritional Information for Magnesium content - Usually based on
       per 100g serving
-    type: NUMBER
   - name: magnesiumPerServingUom
     singleValue: true
     description: Unit of Measure Data for Magnesium
@@ -410,7 +394,6 @@ fields:
     singleValue: false
     description: Nutritional Information for Salt content - Usually based on per
       100g serving
-    type: NUMBER
     xpath: //div[@class='product__info']//span[contains(text(), 'Sel')]/following::span[1]
   - name: saltPerServingUom
     singleValue: false
@@ -518,19 +501,19 @@ fields:
     singleValue: true
     description: If there is for example a manual in pdf format on the website. ['Yes','No']
     example: https://www.amazon.de/Hasbro-Spiele-44220100-Mastermind-Kinderspiel/dp/B0007OHUG6
-    defaultValue: No
+    defaultValue: 'No'
   - name: termsAndConditions
     singleValue: true
     description: Terms and conditions information text ['Yes','No']
-    defaultValue: No
+    defaultValue: 'No'
   - name: privacyPolicy
     singleValue: true
     description: Privacy Policy information text ['Yes','No']
-    defaultValue: No
+    defaultValue: 'No'
   - name: customerServiceAvailability
     singleValue: true
     description: Information related to customer service availability (text), ['Yes','No']
-    defaultValue: No
+    defaultValue: 'No'
   - name: materials
     singleValue: true
     description: Materials used to make the product
@@ -539,10 +522,10 @@ fields:
     singleValue: true
     description: If 360 image is present in the carousel ['Yes','No']
     example: https://www.amazon.com/Trinsic-Single-Handle-Magnetic-Champagne-9159-CZ-DST/dp/B0050EN8E6
-    defaultValue: No
+    defaultValue: 'No'
   - name: imageZoomFeaturePresent
     singleValue: true
     description: If Zoom feature is available for Main image or images in the
       carousel,['Yes','No']
     example: https://www.zalando.de/adidas-neo-sneaker-low-blackwhite-a4315i002-q11.html
-    defaultValue: No
+    defaultValue: 'No'
