@@ -5,7 +5,7 @@ module.exports = {
     country: 'CA',
     store: 'petsmart',
     domain: 'petsmart.ca',
-    loadedSelector: null,
+    loadedSelector: 'li#shop-by-pet',
     noResultsXPath: null,
     zipcode: '',
   },

@@ -2,7 +2,7 @@
 module.exports = {
   implements: 'tracker/categories/createUrl',
   parameterValues: {
-    domain: 'petsmart.ca',
+    domain: 'www.petsmart.ca',
     prefix: null,
     suffix: null,
     subdomain: null,
