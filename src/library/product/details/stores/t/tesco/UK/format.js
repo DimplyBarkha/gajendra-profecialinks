@@ -34,37 +34,13 @@ const transform = (data) => {
                     text: text,
                 }, ];
             }
-            // if (row.caloriesPerServing) {
-            //     let text = '';
-            //     row.caloriesPerServing.forEach(item => {
-            //         text += item.text.replace(new RegExp('(.+)(\\/|\\/-)$', 'g'), '$1');
-            //         if (text === '/') {
-            //             text = '';
-            //         }
-            //     });
-            //     row.caloriesPerServing = [{
-            //         text: text.replace(new RegExp('(.+\\/)\\/(.+)', 'g'), '$1$2'),
-            //     }, ];
-            // }
 
-              if (row.highQualityImages) {
-                  console.log("row.highQualityImages",row.highQualityImages);
-                row.highQualityImages.forEach(item => {
-                    console.log("item.text",item.text);
-
-                });
-              }
-              if (row.sku) {
-                row.sku.forEach(item => {
-                  item.text = "tesco_" + item.text;
-                });
-              }
-
-            //   if (row.servingSize) {
-            //     row.servingSize.forEach(item => {
-            //      item.text= item.text.replace("servings","  ").trim();
+            //   if (row.sku) {
+            //     row.sku.forEach(item => {
+            //       item.text = "tesco_" + item.text;
             //     });
             //   }
+
         }
     }
     return data;
