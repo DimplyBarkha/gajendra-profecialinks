@@ -18,10 +18,20 @@ async function implementation (
         console.log(`Couldn't load selector => ${sel}`);
       }
     };
+    // const varInfo = [...document.querySelectorAll('div[class*="ProductVariationsstyled__OptionsContainer"] div[class*="floats__FloatContainer"]:nth-last-child(1) select option')].map((ele) => ele.getAttribute('label'));
+    const varInfo = [];
+    function getElementsByXPath (xpath) {
+      const query = document.evaluate(xpath, document,
+        null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
+      for (let i = 0, length = query.snapshotLength; i < length; ++i) {
+        varInfo.push(query.snapshotItem(i).textContent);
+      }
+      return varInfo;
+    }
+    getElementsByXPath('//div[contains(@class,"ProductVariationsstyled__OptionsContainer")]//div[contains(@class,"floats__FloatContainer")]//label[contains(.,"weight") or contains(.,"Weight")]/following-sibling::div//select//option');
 
     function getproductInfo () {
       const array = document.querySelectorAll('div[class*="ProductVariationsstyled__OptionsContainer"] div[class*="floats__FloatContainer"]:nth-last-child(1) select option');
-      const varInfo = [...document.querySelectorAll('div[class*="ProductVariationsstyled__OptionsContainer"] div[class*="floats__FloatContainer"]:nth-last-child(1) select option')].map((ele) => ele.getAttribute('label'));
       for (let i = 0; i < Object.keys(jsonString).length; i++) {
         const images = [];
         array[i].setAttribute('name', jsonString[Object.keys(jsonString)[i]].name);
@@ -46,7 +56,7 @@ async function implementation (
       }
     }
 
-    function optionTag() {
+    function optionTag () {
       var option = document.createElement('option');
       document.querySelector('div[class*="ProductVariationsstyled__OptionsContainer"] div[class*="floats__FloatContainer"]:nth-last-child(1) select').appendChild(option);
     }
@@ -61,6 +71,7 @@ async function implementation (
         optionalWait('main h1[class*="ProductNamestyled"]');
         optionTag();
         getproductInfo();
+        document.querySelector('div[class*="ProductVariationsstyled__OptionsContainer"] div[class*="floats__FloatContainer"]:nth-last-child(1) select option:nth-last-child(1)').setAttribute('size', varInfo[1] ? varInfo[1] : varInfo[0]);
       }
     } else {
       optionalWait('main h1[class*="ProductNamestyled"]');

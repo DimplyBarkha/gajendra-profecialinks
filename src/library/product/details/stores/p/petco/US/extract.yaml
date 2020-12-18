@@ -25,7 +25,7 @@ fields:
   - name: availabilityText
     xpath: //@availability
   - name: description
-    xpath: ancestor::html//div[contains(@class,"DescriptionContainer")]
+    xpath: ancestor::html//div[contains(@class,"DescriptionContainer")]//p | ancestor::html//div[contains(@class,"DescriptionContainer")]//ul//li[not(contains(@class,"StyledLi"))]
   - name: descriptionBullets
     xpath: count(//div[contains(@class,"DescriptionContainer")]//ul//li)
   - name: brandText
@@ -78,8 +78,12 @@ fields:
     regExpReplace: https://www.petco.com$1
   - name: featureBullets
   - name: ingredientsList
+    xpath: ancestor::html//p[contains(@class,"IngredientsTab")]
   - name: dietaryInformation
+  - name: specificationsLabel
+    xpath: ancestor::html//h5[contains(@class,"DetailsTablestyled__ItemTitle")]
   - name: specifications
+    xpath: ancestor::html//p[contains(@class,"DetailsTablestyled__ItemDetail")]
   - name: warranty
     xpath: //@warranty[not(contains(.,"null"))]
   - name: storage
