@@ -5,7 +5,7 @@ module.exports = {
     country: 'CA',
     store: 'loblaws',
     domain: 'loblaws.ca',
-    loadedSelector: null,
+    loadedSelector: 'nav.primary-nav',
     noResultsXPath: null,
     zipcode: '',
   },
