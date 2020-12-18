@@ -24,7 +24,6 @@ module.exports = {
         return newDiv;
       }
 
-      const siteUrl = 'https://www.lider.cl';
       const categories = document.querySelectorAll('div.department');
 
       categories.forEach((category) => {
@@ -39,12 +38,7 @@ module.exports = {
             const newDiv = addHiddenDiv('categories');
             const names = [categoryName, subCategoryName, element.textContent];
             names.forEach(name => addHiddenDiv('category', name, newDiv));
-
-            let categoryUrl = element.getAttribute('href');
-            if (!categoryUrl.includes(siteUrl) && categoryUrl) {
-              categoryUrl = siteUrl + categoryUrl;
-            }
-            addHiddenDiv('categoryUrl', categoryUrl, newDiv);
+            addHiddenDiv('categoryUrl', element.href, newDiv);
           });
         });
       });
