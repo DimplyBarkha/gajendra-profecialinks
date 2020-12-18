@@ -5,7 +5,7 @@ module.exports = {
     country: 'CA',
     store: 'londondrugs',
     domain: 'londondrugs.com',
-    loadedSelector: null,
+    loadedSelector: 'span.menu-icon',
     noResultsXPath: null,
     zipcode: '',
   },
