@@ -116,7 +116,7 @@ async function implementation (
     await context.goto(prodDetails.url, { timeout: 80000, waitUntil: 'load', checkBlocked: true });
 
     const compare = await context.evaluate(async function () {
-      return (!!document.querySelector('.flix-comp-mainTitle') && document.querySelector('.flix-comp-mainTitle').offsetHeight > 0 && document.querySelector('.flix-comp-mainTitle').offsetWidth) > 0;
+      return (!!document.querySelector('.flix-comp-mainTitle') && document.querySelector('.flix-comp-mainTitle').offsetHeight > 0 && document.querySelector('.flix-comp-mainTitle').offsetWidth > 0);
     });
 
     await context.evaluate(async function (enhancedContent, inTheBox, compare) {
@@ -147,9 +147,9 @@ async function implementation (
       });
       console.log('comparefddf')
       console.log(compare)
-      if (compare) {
-        addHiddenDiv('ii_compare', 'Yes');
-      }
+      // if (compare) {
+      //   addHiddenDiv('ii_compare', 'Yes');
+      // }
     }, enhancedContent, inTheBox, compare);
   }
   await context.extract(productDetails,{ transform });
