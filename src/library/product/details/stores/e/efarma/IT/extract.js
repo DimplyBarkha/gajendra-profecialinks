@@ -10,7 +10,6 @@ module.exports = {
     zipcode: '',
   },
   implementation: async ({ inputString }, { country, domain, transform }, context, { productDetails }) => {
-
     var data = await context.extract(productDetails, { transform });
     for (let k = 0; k < data.length; k++) {
       for (let i = 0; i < data[k].group.length; i++) {
@@ -19,7 +18,7 @@ module.exports = {
             const descrText = data[k].group[i].description[j].text;
             if (descrText.includes('Modalità d’uso') | descrText.includes('Avvertenze') | descrText.includes('Ingredienti')) {
               data[k].group[i].description[j].text = '';
-              data[k].group[i].description[j+1].text = '';
+              data[k].group[i].description[j + 1].text = '';
             }
             data[k].group[i].description[0].text += ' ' + data[k].group[i].description[j].text;
           }
