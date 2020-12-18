@@ -5,7 +5,7 @@ recordXPath: //div[contains(@class, 'ow-opinions__item')]
 fields:
   - name: helpfulCount
     singleValue: false
-    type: NUMBER
+    xpath: //div[contains(@class, 'ow-opinion__likes')]//span[contains(@class, 'vote-widget__sum')]
     description: Number of people who said the review was helpful
   - name: commentCount
     singleValue: false
@@ -14,13 +14,13 @@ fields:
   - name: brandText
     description: Product brand shown - this may actually NOT be just a brand name,
       e.g. "Visit the Gillette Store"
-    xpath: //ancestor::html//div[contains(@class, 'brand-logo')]//img/@alt
+    xpath: ancestor::html//div[contains(@class, 'brand-logo')]//img/@alt
   - name: name
     description: The product name
-    xpath: //ancestor::html//h1[contains(@class, "page-title price-item-title")]
+    xpath: ancestor::html//h1[contains(@class, "page-title price-item-title")]
   - name: sku
     description: The store-specific product identifier
-    xpath: //ancestor::html//span[contains(@data-product-param, 'code')]
+    xpath: ancestor::html//span[contains(@data-product-param, 'code')]
   - name: reviewDate
     xpath: //span[contains(@class, 'ow-opinion__date')]
     type: DATETIME
@@ -68,4 +68,4 @@ fields:
     xpath: //span[contains(@class, 'ow-user-info__name')]
   - name: aggregateRating
     description: The product rating
-    xpath: //ancestor::html//span[contains(@itemprop, 'ratingValue')]
+    xpath: ancestor::html//span[contains(@itemprop, 'ratingValue')]
