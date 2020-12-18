@@ -117,3 +117,12 @@ fields:
     regExp: (.+)
     regExpReplace: Yes
     defaultValue: No
+  - name: unInterruptedPDP
+    singleValue: false
+    xpath: //p[@data-automation='product-title']
+  - name: inTheBoxText
+    singleValue: false
+    xpath: //div[@class='css-1x8ztzr e1cuz6d12' and contains(text(),'Included Accessories')]/following-sibling::div
+  - name: hasComparisonTable
+    defaultValue: No
+
