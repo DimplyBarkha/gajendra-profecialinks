@@ -11,13 +11,13 @@ fields:
     xpath: //div[@class="spex-productImageWithTitle__imageContainer"]//img[@class="spex-productImageWithTitle__image"]/@alt
   - name: image
     singleValue: false 
-    xpath: //div[@class="spex-productImageWithTitle__imageContainer"]//img[@class="spex-productImageWithTitle__image"]/@src
+    xpath: //img/@src
   - name: imageAlt
     singleValue: false 
     xpath: //div[@class="spex-productImageWithTitle__imageContainer"]//img[@class="spex-productImageWithTitle__image"]/@alt
   - name: alternateImages
     singleValue: false 
-    xpath: //div[@class="spex-productImageWithTitle__imageContainer"]//img[@class="spex-productImageWithTitle__image"]/@src
+    # xpath: //img/@src
   - name: category
     singleValue: false
     xpath: //div[contains(@class,'grid breadcrumb noFloat')]//ol//li[not(contains(@class,'home')) and not(contains(position(),last()))]//a
@@ -35,7 +35,7 @@ fields:
     xpath: //section[@class='spex-section']//div[@class="spex-legacydescription"]//p
   - name: specifications
     singleValue: false
-    xpath: //div[@class="spex-accordion"]//div[@class="spex-accordion__content"]//ul//li
+    xpath: //div[@class='spex-accordion__content']
   - name: descriptionBullets
     singleValue: false    
     xpath: //div[@class="spex-accordion"]//div[@class="spex-accordion__content"]//ul//li
@@ -44,7 +44,7 @@ fields:
     defaultValue: 'In Stock'
   - name: brandText
     singleValue: false
-    xpath: //script[contains(@type, "application/ld+json") and contains(text(), "brand")][1]/text()
+    xpath: //h1[@class='spex-productImageWithTitle__title']
     regExp: brand":([^}]+)
     regExpReplace: $1
   - name: variantInformation
@@ -53,3 +53,6 @@ fields:
   - name: packSize
     singleValue: false
     xpath: //div[@id="LensHeadlinePlural"]/var[@name="packageSize"]
+  - name: manufacturer
+    singleValue: false
+    xpath: //div[@class='spex-accordion__content']/ul[@class='spex-list']/li[@class='spex-list__item'][10]
