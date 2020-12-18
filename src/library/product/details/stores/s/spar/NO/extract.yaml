@@ -33,7 +33,7 @@ fields:
   singleValue: true
   description: The product name, prefixing "${brand} - " if not included in "name"
     and appending " - ${variantType}" if necessary (fixed per feed)
-  xpath: //div[@id='nameExtended']
+  xpath: //h1[@itemprop="name"]
 - name: listPrice
   singleValue: true
   description: The stated undiscounted price for the product
@@ -62,9 +62,8 @@ fields:
   singleValue: true
   description: Product brand shown - this may actually NOT be just a brand name, e.g.
     "Visit the Gillette Store"
-  xpath: //li[@class='ws-manufacturer-info__item'][strong[contains(.,'Merke')]]
-  regExp: ^.*\:\s?(.*)$
-  regExpReplace: $1
+  xpath: (//li[@class='ws-manufacturer-info__item'][strong[contains(.,'Merke')]] | //li[@class='ws-manufacturer-info__item'][strong[contains(.,'Brand')]])[1]
+  regExp: (?<=\:\s).+
 - name: manufacturer
   singleValue: true
   description: Product manufacturer
@@ -72,7 +71,7 @@ fields:
 - name: quantity
   singleValue: true
   description: Quantity as described on the page
-  xpath: //div[@id='size']
+  xpath: //p[@class="cw-product__variant"]
 - name: weightNet
   singleValue: true
   description: Net weight as described on the page
@@ -431,9 +430,8 @@ fields:
 - name: countryOfOrigin
   singleValue: true
   description: The country from which the product originates
-  xpath: //ul[@class="ws-manufacturer-info"]/li[3]
-  regExp: Opprinnelsesland:\s?(.*)$
-  regExpReplace: $1
+  xpath: (//li[@class="ws-manufacturer-info__item"][strong[contains(.,'Opphavssted')]] | //li[@class="ws-manufacturer-info__item"][strong[contains(.,'Opprinnelsesland')]])[1]
+  regExp: (?<=\:\s).+
 - name: allergyAdvice
   singleValue: true
   description: Allergy information associated with the product

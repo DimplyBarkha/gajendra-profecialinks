@@ -2,7 +2,7 @@ input:
   _url: http://spar.no
   URL: https://spar.no/nettbutikk/varer/middag/pasta/bandspagetti/tagliatelle-7035620041631
 extractions:
-  - html: https://workbench.import.io/html/run=428726eb-652e-460d-a92f-51e486bb2dfd/task=b23e38d7-060b-48cb-9963-7088f28b1ab5/ac7b4a0f-5c9f-4e79-9460-646244b5ace8.html
+  - html: https://workbench.import.io/html/run=16820cae-4428-4e92-be2d-17b73ca2fcca/task=5ac7889b-28f3-48b5-b5f2-2c8d11d13e4d/804f0ed8-10d2-4342-93fd-08532ec1df22.html
     extractionConfigId: product/details/stores/s/spar/NO/extract
     data:
       - group:
@@ -54,6 +54,9 @@ extractions:
             manufacturer:
               - text: Unil as d
                 xpath: /html/body/main[1]/div[2]/div[2]/div[1]/div[1]/div[1]/article[1]/div[1]/div[7]/div[1]/ul[1]/li[5]/div[1]/div[1]/div[1]/ul[1]/li[1]/strong[1]
+            brandText:
+              - text: Eldorado
+                xpath: /html/body/main[1]/div[2]/div[2]/div[1]/div[1]/div[1]/article[1]/div[1]/div[7]/div[1]/ul[1]/li[5]/div[1]/div[1]/div[1]/ul[1]/li[2]
             countryOfOrigin:
               - text: Italia
                 xpath: /html/body/main[1]/div[2]/div[2]/div[1]/div[1]/div[1]/article[1]/div[1]/div[7]/div[1]/ul[1]/li[5]/div[1]/div[1]/div[1]/ul[1]/li[3]
@@ -74,6 +77,12 @@ extractions:
                 xpath: /html/body/main[1]/div[1]/ol[1]/li[2]/a[1]/span[1]
               - text: produktdetaljer
                 xpath: /html/body/main[1]/div[1]/ol[1]/li[3]/a[1]/span[1]
+            nameExtended:
+              - text: Tagliatelle
+                xpath: /html/body/main[1]/div[2]/div[2]/div[1]/div[1]/div[1]/article[1]/div[1]/h1[1]
+            quantity:
+              - text: Fullkorn 250g Eldorado
+                xpath: /html/body/main[1]/div[2]/div[2]/div[1]/div[1]/div[1]/article[1]/div[1]/div[1]/p[1]
             name:
               - text: Tagliatelle
                 xpath: /html/body/main[1]/div[2]/div[2]/div[1]/div[1]/div[1]/article[1]/div[1]/h1[1]
@@ -98,19 +107,18 @@ extractions:
             pricePerUnitUom:
               - text: kg
                 xpath: /html/body/main[1]/div[2]/div[2]/div[1]/div[1]/div[1]/article[1]/div[1]/div[5]/p[1]
-            nameExtended:
-              - text: Eldorado Tagliatelle
-                xpath: /html/body/div[4]
             availabilityText:
               - text: In Stock
-                xpath: /html/body/div[5]
+                xpath: /html/body/div[4]
             description:
               - text: "Fullkorn 250g Eldorado || Unil as d || Merke: Eldorado ||
                   Opprinnelsesland: Italia || EAN: 7035620041631"
-                xpath: /html/body/div[6]
+                xpath: /html/body/div[5]
             price:
               - text: kr 19,90
+            descriptionBullets:
+              - text: "4"
             inStorePrice:
               - text: kr 19,90
         xpath: /html
-    timestamp: 1605098362035
+    timestamp: 1608285378373
