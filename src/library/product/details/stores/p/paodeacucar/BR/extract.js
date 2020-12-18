@@ -3,7 +3,7 @@ const implementation = async (inputs, parameters, context, dependencies) => {
   const { cleanUp } = parameters;
   const { productDetails } = dependencies;
   await context.waitForSelector('.product-cardstyles__Container-sc-1uwpde0-1.eaVrql');
-  async function firstItemLink() {
+  async function firstItemLink () {
     return await context.evaluate(function () {
       const firstItem = document.querySelector('.product-cardstyles__Container-sc-1uwpde0-1.eaVrql > a').href;
       return firstItem;
