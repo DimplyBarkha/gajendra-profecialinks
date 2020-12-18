@@ -44,6 +44,32 @@ module.exports = {
         }
       }
     });
+
+    // For inTheBoxText
+    await context.evaluate(() => {
+      const inBox = document.evaluate(
+        '//p[contains(.,"tools included")]/following-sibling::*',
+        document,
+        null,
+        XPathResult.ORDERED_NODE_SNAPSHOT_TYPE,
+        null,
+      );
+      const values = [];
+      for (let i = 0; i < inBox.snapshotLength; i++) {
+        const item = inBox.snapshotItem(i);
+        // @ts-ignore
+        const strong = item.querySelector('strong');
+        if (strong) {
+          break;
+        } else {
+        // @ts-ignore
+          const t = item.textContent;
+          values.push(t);
+        }
+      }
+      const text = values.join('|| ');
+      document.body.setAttribute('in-the-box-text', text);
+    });
     return await context.extract(productDetails, { transform });
   },
 };
