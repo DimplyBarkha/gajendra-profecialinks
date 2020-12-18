@@ -5,8 +5,8 @@ module.exports = {
     country: 'CH',
     store: 'nesspresso_ch_de',
     domain: 'nespresso.com',
-    loadedSelector: null,
-    noResultsXPath: null,
+    // loadedSelector: null,
+    // noResultsXPath: null,
     zipcode: '',
   },
 };
