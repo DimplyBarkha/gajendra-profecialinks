@@ -4,14 +4,14 @@ recordSelector: null
 recordXPath: null
 fields:
   - name: image
-    xpath: (//td[@class="images"]//td[@class="url"])[1]
+    xpath: (//div[@class='simple-slider']//ul//li//a/@href)[1]
     description: URL of the main product image
   - name: imageAlt
-    xpath: //div[contains(@class,"swiper-container")]//a[img][contains(@class,"to-print")]/img/@alt
+    xpath: (//div[@class='simple-slider']//ul//li//a//img/@alt)[1]
     description: Alt text of the main product image
   - name: alternateImages
     singleValue: false
-    xpath: (//td[@class="images"]//td[@class="url"])[position()>1]
+    xpath: //div[@class='simple-slider']//ul//li//a/@href
     description: Other product images (not in manufacturer description)
   - name: metaKeywords
     xpath: //meta[@name="keywords"]/@content
