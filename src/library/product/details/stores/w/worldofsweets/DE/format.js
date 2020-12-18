@@ -50,7 +50,7 @@ const transform = (data) => {
       }
       if (row.productUrl) {
         row.productUrl.forEach(item => {
-          item.text = 'https://mvideo.ru' + item.text
+          item.text = 'https://www.worldofsweets.de/' + item.text
         })
 
       }
@@ -73,15 +73,15 @@ const transform = (data) => {
           }
         });
       }
-      if (row.description) {
+    /*  if (row.description) {
         row.description.forEach(item => {
           item.text = item.text.replace(/(\s*\n\s*)+/g, ' || ').trim();
         });
         row.description[0].text = '||' + row.description[0].text
-      }
+      } */
       if (row.sku) {
         row.sku.forEach(item => {
-          item.text = item.text.replace(/[a-zA-Zó-:]/g, '').trim();
+         // item.text = item.text.replace(/[a-zA-Zó-:]/g, '').trim();
         });
         //row.sku[0].text = '||' + row.description[0].text
       }

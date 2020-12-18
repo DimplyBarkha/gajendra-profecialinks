@@ -26,7 +26,7 @@ fields:
     singleValue: false
     description: The product name, prefixing "${brand} - " if not included in "name"
       and appending " - ${variantType}" if necessary (fixed per feed)
-    xpath: //h1[@class='productTitle
+    xpath: //h1[contains(@class,'productTitle')]//text()
   - name: listPrice
     singleValue: true
     description: The stated undiscounted price for the product
@@ -44,10 +44,10 @@ fields:
     regExpReplace: In Stock
     defaultValue: Out of Stock
   - name: description
-    singleValue: false
+    singleValue: true
     description: Product description supplied by website - may be concatenanted from
       multiple places; specifically not the manufacturer description
-    xpath: //div[contains(@class,'details-toggle-content')]
+    xpath: //p[contains(@class,'MsoNormal')]//text()
   - name: descriptionBullets
     singleValue: true
     description: Number of ul > li tags in the description
