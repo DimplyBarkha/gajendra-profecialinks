@@ -5,7 +5,7 @@ module.exports = {
     country: 'AU',
     store: 'petstock',
     domain: 'petstock.com.au',
-    loadedSelector: null,
+    loadedSelector: 'div.mega-menu-container',
     noResultsXPath: null,
     zipcode: '',
   },
