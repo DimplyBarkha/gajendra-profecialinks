@@ -33,7 +33,7 @@ fields:
   type: STRING
 - name: sku
   type: STRING
-  xpath: ancestor::html//img[@class="hero__single-image"]/@alt
+  xpath: ancestor::html//img[@class="hero__single-image"]/@alt | ancestor::html//h1[@class="product-information__header__title__name heading--large"]
 - name: reviewText
   type: STRING
   xpath: //div[@class="content-review"]
@@ -66,4 +66,3 @@ fields:
 - name: sourceUrl
   type: STRING
   xpath: ancestor::html//meta[@property="og:url"]/@content
- 

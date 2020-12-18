@@ -33,7 +33,7 @@ fields:
   type: STRING
 - name: sku
   type: STRING
-  xpath: ancestor::html//div[@class="product-page-sections"]/@data-sku
+  xpath: ancestor::html//div[@class="product-page-sections"]/@data-sku | ancestor::html//h1[@class="product-information__header__title__name heading--large"]
 - name: reviewText
   type: STRING
   singleValue: false
@@ -67,4 +67,3 @@ fields:
 - name: sourceUrl
   type: STRING
   xpath: ancestor::html//meta[@property="og:url"]/@content
- 
