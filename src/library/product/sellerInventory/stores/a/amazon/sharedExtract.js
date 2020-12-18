@@ -63,6 +63,19 @@ const getStockFunc = async function ({ context, sellerId, id }) {
     }, sellerId, id);
   };
 
+  // find product in cart
+  const productFound = async (id) => {
+    return await context.evaluate(async (b) => {
+      const productXpath = `//div[@data-asin="${b}"]/*[1]`;
+      const el = document.evaluate(productXpath, document, null, XPathResult.ANY_TYPE, null).iterateNext();
+      if (el) {
+        console.log('found product');
+        el.parentElement.setAttribute('prod', 'product');
+        return !!document.querySelector('div[data-asin][prod="product"]:not([data-removed])');
+      }
+    }, id);
+  };
+
   const artifactCartItems = async () => {
     return await context.evaluate(async () => {
       if (document.querySelector('div[data-asin]:not([import]):not([data-removed]) input[value*="Delete"]')) {
@@ -125,31 +138,36 @@ const getStockFunc = async function ({ context, sellerId, id }) {
   }
 
   if (page.isCartPage) {
-    await context.waitForSelector('span.quantity span span,input.sc-quantity-textfield');
-    if (await productSellerFound(sellerId, id)) {
-      while (await artifactCartItems()) {
-        console.log('deleting prods');
-        await context.waitForSelector('div[data-asin][import]:not([data-removed])');
-        await context.click('div[data-asin]:not([import]):not([data-removed]) input[value*="Delete"]');
-        await new Promise(resolve => setTimeout(resolve, 2000));
-        await productSellerFound(sellerId, id);
-        console.log('artifact deleted');
-      }
-      await productSellerFound(sellerId, id);
-      page = await pageContext();
-      if (page.hasdropDownQuantity) {
-        await context.click('[import=element] span[data-action*=dropdown]');
-        await context.waitForSelector('li.quantity-option:last-child a');
-        await context.click('li.quantity-option:last-child a');
-      }
-      await context.setInputValue('[import=element] input.sc-quantity-textfield', '999');
-      await context.click('[import=element] span.sc-update-link a');
-      await new Promise(resolve => setTimeout(resolve, 2000));
+    if(await productFound(id)){
+      console.log('successssss')
+      await context.waitForSelector('span.quantity span span,input.sc-quantity-textfield');
       if (await productSellerFound(sellerId, id)) {
-        console.log('no product found');
-        return;
-      };
-      await context.waitForSelector('div[data-asin][import]:not([data-removed])');
+        while (await artifactCartItems()) {
+          console.log('deleting prods');
+          await context.waitForSelector('div[data-asin][import]:not([data-removed])');
+          await context.click('div[data-asin]:not([import]):not([data-removed]) input[value*="Delete"]');
+          await new Promise(resolve => setTimeout(resolve, 2000));
+          await productSellerFound(sellerId, id);
+          console.log('artifact deleted');
+        }
+        await productSellerFound(sellerId, id);
+        page = await pageContext();
+        if (page.hasdropDownQuantity) {
+          await context.click('[import=element] span[data-action*=dropdown]');
+          await context.waitForSelector('li.quantity-option:last-child a');
+          await context.click('li.quantity-option:last-child a');
+        }
+        await context.setInputValue('[import=element] input.sc-quantity-textfield', '999');
+        await context.click('[import=element] span.sc-update-link a');
+        await new Promise(resolve => setTimeout(resolve, 2000));
+        if (!await productSellerFound(sellerId, id)) {
+          console.log('no product found');
+          return;
+        };
+        await context.waitForSelector('div[data-asin][import]:not([data-removed])');
+      }
+    }else{
+      throw Error('Product not added to cart.');
     }
   }
 };
