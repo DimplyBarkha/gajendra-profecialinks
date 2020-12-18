@@ -46,14 +46,36 @@ module.exports = {
       // @ts-ignore
       const rawdata = document.querySelectorAll('script[type="application/ld+json"]')[1].innerText;
       const jsondata = JSON.parse(rawdata);
-      const gtin = jsondata.gtin13;
-      const mpn = jsondata.mpn;
-      const aggregateRating = jsondata.aggregateRating.ratingValue;
-      const ratingCount = jsondata.aggregateRating.reviewCount;
+      var gtin =''
+      var mpn =''
+      if ('gtin13' in jsondata){
+         gtin = jsondata.gtin13;
+      }
+      else{
+        gtin = ''
+      }
+      if ('mpn' in jsondata){
+        mpn = jsondata.mpn;
+     }
+     else{
+        mpn = ''
+     }
+      var aggregateRating = ''
+      var ratingCount =''
       addElementToDocument('gtin', gtin);
       addElementToDocument('mpn', mpn);
+      if ('aggregateRating' in jsondata){
+        aggregateRating = jsondata.aggregateRating.ratingValue;
+        ratingCount = jsondata.aggregateRating.reviewCount;
+      }
+      else{
+        aggregateRating = ''
+        ratingCount = ''
+      }
+      console.log('aggregateRating+rating',aggregateRating,ratingCount)
       addElementToDocument('aggregateRating', aggregateRating);
       addElementToDocument('ratingCount', ratingCount);
+      
     });
     await context.extract(productDetails, { transform: transformParam });
   },
