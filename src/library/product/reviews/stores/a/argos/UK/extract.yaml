@@ -1,0 +1,76 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: //div[@data-test='review-item']
+fields:
+  - name: helpfulCount
+    singleValue: false
+    xpath: //button[@data-test='helpful-button']
+    regExp: ([0-9]+)
+    regExpReplace: $1
+  - name: reviewTitle
+    singleValue: false
+    xpath: //p[contains(@class,'gWdVXs')]
+  - name: brandText
+    singleValue: false
+    xpath: ancestor::html//span[contains(@data-test,'product-title')]
+    regExp: ^([^\s]+)
+    regExpReplace: $1
+  - name: name
+    singleValue: false
+    xpath: ancestor::html//span[contains(@data-test,'product-title')]
+  - name: sku
+    singleValue: false
+    xpath: ancestor::html//span[contains(@itemprop,'sku')]/@content
+    description: The store-specific product identifier
+  - name: reviewDate
+    singleValue: false
+    xpath: //time[contains(@class,'jbcxwt')]/@datetime
+  - name: reviewRating
+    singleValue: false
+    xpath: //span[contains(@class,'jhkcPQ')]
+  - name: reviewText
+    singleValue: false
+    xpath: //p[contains(@itemprop,'reviewBody')]
+  - name: productUrl
+    singleValue: false
+    xpath: ancestor::html//meta[contains(@property,'og:url')]/@content
+  - name: user
+    singleValue: false
+    description: The user name of the reviewer
+    xpath: //p[contains(@class,'iCkecS')]
+    regExp: ^(.+?),
+    regExpReplace: $1
+  - name: aggregateRating
+    description: The product rating
+    xpath: ancestor::html//div[@data-test="review-summary-box"]/h2[not(contains(text(),'%'))]
+  - name: reviewUrl
+    singleValue: false
+    xpath: ancestor::html//meta[contains(@property,'og:url')]/@content
+  - name: syndicatedFrom
+    singleValue: false
+    xpath: //div[contains(@data-test,'review-item-cross-review')]/a
+  # description: Stated place the review was syndicated from
+  # - name: commentCount
+  #   singleValue: false
+  #   xpath: (//span[contains(@itemprop,'ratingCount')])[1]
+  #   type: NUMBER
+  #   description: Number of comments on the review
+  # - name: reviewerTags
+  #   singleValue: false
+  #   description: The tags a reviewer has
+  # - name: gtin
+  #   singleValue: true
+  #   description: GTIN code (includes UPC/EAN)
+  # - name: verifiedPurchase
+  #   singleValue: true
+  #   type: BOOLEAN
+  #   description: Whether this of an item the reviewer purchased. "Yes" if true else ""
+  # - name: manufacturerResponse
+  #   singleValue: true
+  #   description: The response of the manufacturer (if any)
+  # - name: reviewedSku
+  #   singleValue: true
+  #   description: The SKU of the item that was reviewed (may be different from the
+  #     sku the review was shown on). 1 if sku == reviewedSku else 0. Get sku
+  #     value, transform will handle the value.
