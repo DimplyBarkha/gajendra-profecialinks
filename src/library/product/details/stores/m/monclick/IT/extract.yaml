@@ -44,7 +44,7 @@ fields:
       there is no availability but the product can be added to cart, this field
       should be "In Stock"
     xpath: (//a[@data-action="add-to-cart"]/@title)[1]
-    regExp: Aggiungi al carrello
+    regExp: (.+)
     regExpReplace: In Stock
     defaultValue: Out of Stock
   - name: description
