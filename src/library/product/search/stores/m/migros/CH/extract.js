@@ -40,7 +40,7 @@ module.exports = {
   implements: 'product/search/extract',
   parameterValues: {
     store: 'migros',
-    transform : transform,
+    transform ,
     domain: 'migros.ch',
     zipcode: '',
 },
