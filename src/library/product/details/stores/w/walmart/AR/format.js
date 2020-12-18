@@ -24,47 +24,14 @@ const transform = (data) => {
     };
     for (const { group } of data) {
       for (let row of group) {
-        if (row.sku) {
-          row.sku.forEach(item => {
-            item.text = item.text.replace(/(\s*)+/g, '').trim();
-            item.text = item.text.replace('Item#', '').trim();
-          });
-        } 
-        if (row.variantId) {
-            row.variantId.forEach(item => {
-              item.text = item.text.replace(/(\s*)+/g, '').trim();
-              item.text = item.text.replace('Item#', '').trim();
-            });
-        }
-        if (row.mpc) {
-          row.mpc.forEach(item => {
-            item.text = item.text.replace(/(\s*)+/g, '').trim();
-            item.text = item.text.replace('Model#', '').trim();
-          });
-        }
-        if (row.brandText) {
-            row.brandText.forEach(item => {
-              item.text = item.text.replace(/(\s*)+/g, '').trim();
-              item.text = item.text.replace('All', '').trim();
-            });
-        }
-        if (row.manufacturer) {
-          row.manufacturer.forEach(item => {
-            item.text = item.text.replace(/(\s*)+/g, '').trim();
-            item.text = item.text.replace('All', '').trim();
-          });
-      }
-        if (row.ratingCount) {
-          row.ratingCount.forEach(item => {
-            item.text =  Number(item.text);
+        if (row.aggregateRating) {
+          row.aggregateRating.forEach(item => {
+            item.text =  parseInt(item.text)/10;
           });
         }
         if (row.description) {
             let description_ar = [];
             row.description.forEach(item => {
-              item.text = item.text.replace("#", '||').trim();
-              item.text = item.text.replace(", ", '||').trim();
-              item.text = item.text.replace(". ", '||').trim();
               description_ar.push(item.text);
             });
             if (description_ar.length) {
