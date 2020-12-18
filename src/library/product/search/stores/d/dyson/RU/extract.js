@@ -7,32 +7,31 @@ async function implementation (
   const { transform } = parameters;
   const { productDetails } = dependencies;
 
-  function stall(ms) {
+  function stall (ms) {
     return new Promise(resolve => {
       setTimeout(() => {
         resolve();
-      }, ms)
+      }, ms);
     });
   }
 
-  await context.evaluate(async function() {
-
-    function stall(ms) {
+  await context.evaluate(async function () {
+    function stall (ms) {
       return new Promise(resolve => {
         setTimeout(() => {
           resolve();
-        }, ms)
+        }, ms);
       });
     }
 
-    function addHiddenDiv(el, id, text) {
+    function addHiddenDiv (el, id, text) {
       const div = document.createElement('div');
       div.innerHTML = text;
       div.classList.add(id);
       el.appendChild(div);
     }
 
-    function addHiddenDiv(el, id, text) {
+    function addHiddenDiv (el, id, text) {
       const div = document.createElement('div');
       div.innerHTML = text;
       div.classList.add(id);
@@ -51,14 +50,13 @@ async function implementation (
         if (el.querySelector('.stars-full')) {
           const ratingWidth = el.querySelector('.stars-full').style.width;
           console.log('ratingWidth', ratingWidth);
-          addHiddenDiv(el, 'rating', (Number(ratingWidth.replace('%', '')) / 20).toFixed(2)  );
+          addHiddenDiv(el, 'rating', (Number(ratingWidth.replace('%', '')) / 20).toFixed(2));
         }
-        const thumbnail  = el.querySelector('img').getAttribute('src');
+        const thumbnail = el.querySelector('img').getAttribute('src');
         addHiddenDiv(el, 'thumbnail', 'https://shop.dyson.ru' + thumbnail);
         count++;
       });
     }
-
   });
   return await context.extract(productDetails, { transform });
 }

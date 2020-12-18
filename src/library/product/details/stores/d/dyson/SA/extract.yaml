@@ -85,4 +85,8 @@ fields:
     singleValue: false
     description: Terms and conditions information text ['Yes','No']
     defaultValue: No
+  - name: alternateImages #missing
+    singleValue: false
+    description: Other product images (not in manufacturer description)
+    xpath: //div[contains(@class,"__gallery")]//div[contains(@role,"listbox")]/div//img/@src
   

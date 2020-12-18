@@ -15,7 +15,7 @@ async function implementation (
   const { URL, url } = inputs;
   const { domain } = parameters;
   const { execute, extract } = dependencies;
-  const address = url || URL || `https://${domain.includes('wwww') ? domain : 'wwww.' + domain }/sitemap.xml`;
+  const address = url || URL || `https://${domain.includes('wwww') ? domain : 'wwww.' + domain}/sitemap.xml`;
   await execute({ url: address });
 
   await extract({ url: address });

@@ -1,11 +1,11 @@
-
 /**
  *
  * @param {ImportIO.Group[]} data
  * @returns {ImportIO.Group[]}
  */
 const transform = (data) => {
-  for (const { group } of data) {
+  for (const { group }
+    of data) {
     for (const row of group) {
       if (row.description) {
         let text = '';
@@ -14,8 +14,7 @@ const transform = (data) => {
         }
         row.description = [{
           text: text,
-        },
-        ];
+        }];
       }
 
       if (row.nameExtended) {
@@ -43,9 +42,13 @@ const transform = (data) => {
       //   }
       // // console.log(altImages+' are images transformed');
       // }
-      if (row.availabilityText && row.availabilityText[0]) {
+      if (row.availabilityText && row.availabilityText[0] && row.availabilityText[0].text) {
         row.availabilityText = [
-          { text: row.availabilityText[0].text ? 'In Stock' : 'Out of Stock' },
+          { text: 'In Stock' },
+        ];
+      } else {
+        row.availabilityText = [
+          { text: 'Out Of Stock' },
         ];
       }
     }
@@ -60,7 +63,7 @@ const transform = (data) => {
     .replace(/"\s{1,}/g, '"')
     .replace(/\s{1,}"/g, '"')
     .replace(/^ +| +$|( )+/g, ' ')
-    // eslint-disable-next-line no-control-regex
+  // eslint-disable-next-line no-control-regex
     .replace(/[\x00-\x1F]/g, '')
     .replace(/[\uD800-\uDBFF][\uDC00-\uDFFF]/g, ' ');
 

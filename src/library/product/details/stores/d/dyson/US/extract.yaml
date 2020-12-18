@@ -1,4 +1,5 @@
 extends: ../shared 
+recordxpath: null
 fields:
   - name: image
     description: URL of the main product image
@@ -32,6 +33,9 @@ fields:
       clicks add to basket this is the price they would be charged
     #xpath: (//div[@class='product-hero__price-top']/div[@data-product-price])[1]
     xpath: //div[@id='added_price']
+    # xpath: //script[contains(@type,"application/ld+json")][contains(.,"Product")]
+    # # regExp: "price":\s+\"+(\d+\.+\d+)
+    # # regExpReplace: $1
   - name: currencyOverride
     xpath: //div[@id='added_currency']
   - name: availabilityText #localedependent
@@ -39,7 +43,7 @@ fields:
       there is no availability but the product can be added to cart, this field
       should be "In Stock"
     xpath: //div[contains(concat(' ',normalize-space(@class),' '),' product-hero ')]//form//*[contains(text(),'asket')]//text()
-    defaultValue: 'Out Of Stock'
+    # Add no default value, being take care in transform.js
   - name: description
     description: Product description supplied by website - may be concatenanted from
       multiple places; specifically not the manufacturer description

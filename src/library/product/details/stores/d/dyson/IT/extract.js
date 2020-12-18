@@ -96,7 +96,8 @@ async function implementation (
         }
         if (found) setBrand(brand);
       }
-    } if (!brandText) {
+    }
+    if (!brandText) {
       const lastChance = getXpath("//div[@data-title][contains(normalize-space(@data-title),'™ ')]/@data-title", 'nodeValue');
       // Remove leading 'The'
       const cleaned = lastChance ? lastChance.split('The ') : [];
@@ -143,8 +144,17 @@ async function implementation (
 
     // deal with the price
     const listPrice = getXpath("(//div[@class='product-hero__price-top']/div[1])[1]", 'innerText');
-    const price = getXpath("(//div[@class='product-hero__price-top']/div[@data-product-price])[1]", 'innerText');
-    
+    let price = getXpath("(//div[@class='product-hero__price-top']/div[@data-product-price])[1]", 'innerText');
+    console.log(price + ' is originalPrice');
+    if (price === null) {
+      let priceContainer;
+      if (document.querySelector('div[class="sticky-nav__text-container"]') !== null) {
+        priceContainer = document.querySelector('div[class="sticky-nav__text-container"]');
+        price = priceContainer.innerText;
+      }
+    }
+    // const altPrice=getXpath("normalize-space(//span[contains(@class,'sticky-nav__heading-text')]/text())",'innerText');
+    // console.log(altPrice+' is alternatePrice');
     // transform the price to avoid locale issue
     const localeCleaner = (price) => {
       // first remove all possible thousand spearators
@@ -223,7 +233,7 @@ async function implementation (
       ];
       // keep only letters and currency symbols
       const letter = RegExp(/[a-zA-Z\s]/);
-      let temp = (price || '').split('').filter(char => letter.test(char) || currSymb.includes(char)).join('');
+      const temp = (price || '').split('').filter(char => letter.test(char) || currSymb.includes(char)).join('');
       // split per groups of words and only returns the last one
       return temp.split(' ').filter(word => word).slice(-1);
     };

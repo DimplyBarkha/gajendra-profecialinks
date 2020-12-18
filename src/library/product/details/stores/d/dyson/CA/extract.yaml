@@ -2,12 +2,12 @@ extends: ../shared
 recordXPath: html
 fields:
   - name: image
-    singleValue: true
-    description: URL of the main product image
+    #singleValue: true
+    #description: URL of the main product image
     xpath: (//div[contains(concat(' ',normalize-space(@class),' '),' product-hero ')]//img[@id])[1]/@src
   - name: imageAlt
-    singleValue: true
-    description: Alt text of the main product image
+    #singleValue: true
+    #description: Alt text of the main product image
     xpath: (//div[contains(concat(' ',normalize-space(@class),' '),' product-hero ')]//img[@id])[1]/@alt
   - name: alternateImages #missing
     singleValue: false
@@ -35,11 +35,13 @@ fields:
     #regExp: ([^a-zA-Z:\s]{3,})
     #regExpReplace: $1
   - name: price
-    singleValue: true
+    # singleValue: true
     description: The offered price for the selected product variant - if a user
       clicks add to basket this is the price they would be charged
     #xpath: (//div[@class='product-hero__price-top']/div[@data-product-price])[1]
-    xpath: //div[@id='added_price']
+    # xpath: //div[@id='added_price']
+    xpath: (//span[contains(@class,"sticky-nav__heading-text")])
+    regExp: \$(.+)
   - name: currencyOverride
     singleValue: true
     xpath: //div[@id='added_currency']
@@ -69,12 +71,13 @@ fields:
     description: Quantity as described on the page
     regExp: (?:\s?([\d\.]+\s?)([bB]ar[s]?|[cC]ount|[cC]t|[fF][lL][\.]?\s?[oO][zZ][\.]?|FO|[mM][lL]|[oO][zZ][\.]?|pc|[pP]int|[pP]ops|qt|[wW]ipe[s]?).?)$|(?:\s?([\d\.]+\s?)([bB]ar[s]?|[cC]ount|[cC]|[fF][lL][\.]?\s?[oO][zZ][\.]?|FO|[mM][lL]|[oO][zZ][\.]?|pc|[pP]int|[pP]ops|qt|[wW]ipe[s]?).?\s?[\&\-\w\s]+)$
     regExpReplace: $1$2$3$4
-  - name: weightNet #localedependent
-    singleValue: true
-    description: Net weight as described on the page
-    regExp: ([0-9,\.]+.+)
-    #regExpReplace: $1
-    xpath: (//ul[contains(concat(' ',normalize-space(@class),' '),' product-specification__specification-container ')]//li[.//*[contains(text(), 'Weight')]])[1]
+  - name: weightNet 
+    #singleValue: true
+    #description: Net weight as described on the page
+    xpath: concat(normalize-space(//ul[contains(@class,"product-specification__specification-container")]//li//p[contains(text(), 'Weight')]/following-sibling::p//span[1]),' ',normalize-space(//ul[contains(@class,"product-specification__specification-container")]//li//p[contains(text(), 'Weight')]/following-sibling::p//span[2]))
+    # xpath: (//ul[contains(concat(' ',normalize-space(@class),' '),' product-specification__specification-container ')]//li[.//*[contains(text(), 'Weight')]])[1]
+    # regExp: ([0-9,\.]+.+)
+    # regExpReplace: $1 
   - name: weightGross #localedependent#missing
     singleValue: true
     description: Gross weight as described on the page
@@ -114,18 +117,22 @@ fields:
     description: The number of ratings
     type: NUMBER
     xpath: (//*[contains(concat(' ',normalize-space(@class),' '),' ratings__stars')][@href or contains(concat(' ',normalize-space(@class),' '),'stars-no-link')]//p[contains(concat(' ',normalize-space(@class),' '),'count')][not(contains(concat(' ',normalize-space(@class),' '),'author'))])[1]
+    #xpath: //p[contains(@class,"ratings__count--hasanimation ratings__stars-link")]
   - name: aggregateRatingText
-    singleValue: true
-    description: The stated aggregate rating
+    #singleValue: true
+    #description: The stated aggregate rating
     regExp: (^.{3,3})
     regExpReplace: $1
     xpath: (//*[contains(concat(' ',normalize-space(@class),' '),' ratings__stars')][not(contains(concat(' ',normalize-space(@class),' '),'author'))][@href or contains(concat(' ',normalize-space(@class),' '),'stars-no-link')])[1]/@aria-label
+    #xpath: //div[contains(@class,"ratings ratings--hasanimation")]//a/@aria-label
   - name: aggregateRating
-    singleValue: true
-    description: The stated aggregate rating normalized to be out of 5
+    # singleValue: true
+    # description: The stated aggregate rating normalized to be out of 5
     #type: NUMBER
-    regExp: (^.{3,3})
     xpath: (//*[contains(concat(' ',normalize-space(@class),' '),' ratings__stars')][not(contains(concat(' ',normalize-space(@class),' '),'-author-'))][@href or contains(concat(' ',normalize-space(@class),' '),'stars-no-link')])[1]/@aria-label
+    #regExp: (^.{3,3})
+    #regExpReplace: $1
+    #xpath: (//*[contains(concat(' ',normalize-space(@class),' '),' ratings__stars')][not(contains(concat(' ',normalize-space(@class),' '),'-author-'))][@href or contains(concat(' ',normalize-space(@class),' '),'stars-no-link')])[1]/@aria-label
   - name: shippingDimensions #missing
     singleValue: true
     description: Stated shipping dimensions
@@ -158,7 +165,7 @@ fields:
   - name: videos #localedependent
     singleValue: false
     description: URLs of videos on page
-    xpath: //div[@id='added_videos']//li
+    # xpath: //div[@id='added_videos']//li
     #xpath: (//div[contains(concat(' ',normalize-space(@class),' '),' s7videoviewer ')])[1]/@data-video-src
     #regExp: (.+)
     #regExpReplace: https://www.dyson.co.uk$1
@@ -416,9 +423,10 @@ fields:
     singleValue: true
     description: null
   - name: specifications
-    singleValue: true
-    description: The physical dimensions of the product including packaging.
-    xpath: //div[contains(concat(' ',normalize-space(@class),' '),' product-specification__dimensions ')]/ul
+    #singleValue: true
+    #description: The physical dimensions of the product including packaging.
+    #xpath: //div[contains(concat(' ',normalize-space(@class),' '),' product-specification__dimensions ')]/ul
+    xpath: normalize-space(//ul[contains(@class,"product-specification__dimensions-container")])
   - name: storage #missing
     singleValue: true
     description: Suggested storage location for product
@@ -449,8 +457,8 @@ fields:
     singleValue: true
     description: The unit of measurement used in price_per_unit
   - name: promotion
-    singleValue: true
-    description: promotion text on product page
+    #singleValue: true
+    #description: promotion text on product page
     xpath: //div[contains(concat(' ',normalize-space(@class),' '),' product-hero__savings ')]
   - name: alcoholContent #missing
     singleValue: true
@@ -472,16 +480,16 @@ fields:
     description: colour / scent / flavour / other
     xpath: //div[@id='added_variantinformation']
   - name: firstVariant
-    singleValue: true
-    description: Unique identifier for a collection of variants. For a subset of
-      core feeds (43) we have a column "first_variant" that is populated with a
-      common code to link all variants for a product. method 1 (Preferred) = use
-      common tag (Could be parent sku) that is same value for all variants of a
-      product. method 2 = first_variant method technique, Identify the first
-      varient in the sequence and use this rpc to populate "first_variant" for
-      all variants of a product, this rpc becomes the common link between other
-      variants. method 3 = apply some logic to determine link between variants,
-      this will need analysis
+    #singleValue: true
+    #description: Unique identifier for a collection of variants. For a subset of
+      # core feeds (43) we have a column "first_variant" that is populated with a
+      # common code to link all variants for a product. method 1 (Preferred) = use
+      # common tag (Could be parent sku) that is same value for all variants of a
+      # product. method 2 = first_variant method technique, Identify the first
+      # varient in the sequence and use this rpc to populate "first_variant" for
+      # all variants of a product, this rpc becomes the common link between other
+      # variants. method 3 = apply some logic to determine link between variants,
+      # this will need analysis
     xpath: (//div[contains(concat(' ',normalize-space(@class),' '),' product-hero ')]//div[contains(concat(' ',normalize-space(@class),' '),' swatches ')]//img)[1]/@alt
   - name: variants
     singleValue: false
@@ -549,7 +557,10 @@ fields:
     singleValue: true
     defaultValue: No
   - name: availabilityText
-    xpath: //div[contains(concat(' ',normalize-space(@class),' '),' product-hero ')]//form//*[contains(text(),'art') or contains(text(), 'anier')]//text()
+    # Add no default value, being take care in transform.js
+    #xpath: //div[contains(concat(' ',normalize-space(@class),' '),' product-hero ')]//form//*[contains(text(),'art') or contains(text(), 'anier')]//text()
+    # xpath: //div[contains(concat(' ',normalize-space(@class),' '),' product-hero ')]//form//*[contains(text(),'art') or contains(text(), 'anier')]//text() | //div[@class="product-hero__out-of-stock"]
+    xpath: //div[contains(@class,"sticky-nav__text-container")]//button[contains(.,"Add to Cart")]
   - name: warranty
     xpath: (//div[contains(concat(' ',normalize-space(@class),' '),' reasons-to-buy__overlay-content-container ')][.//*[contains(text(),'arranty ') or contains(text(),'arantie ')] or .//*[contains(text(),'uarantee ')] or .//*[contains(text(),'money back ')]])[1]
   - name: shippingInfo

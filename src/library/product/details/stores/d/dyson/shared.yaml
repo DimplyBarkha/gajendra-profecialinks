@@ -6,7 +6,8 @@ fields:
   - name: image
     singleValue: true
     description: URL of the main product image
-    xpath: (//div[contains(concat(' ',normalize-space(@class),' '),' product-hero ')]//img[@id])[1]/@src
+    #xpath: (//div[contains(concat(' ',normalize-space(@class),' '),' product-hero ')]//img[@id])[1]/@src
+    xpath: ((//div[contains(concat(' ',normalize-space(@class),' '),' product-hero ')]//img[@id])[1]/@src) | ((//div[contains(@class,"media-carousel")]//img//@src)[1])
   - name: imageAlt
     singleValue: true
     description: Alt text of the main product image
@@ -46,12 +47,15 @@ fields:
   - name: currencyOverride
     singleValue: true
     xpath: //div[@id='added_currency']
-  - name: availabilityText #localedependent
-    singleValue: true    
+  - name: availabilityText #localedependent    
     description: Availability as described on page for the selected variant. If
       there is no availability but the product can be added to cart, this field
       should be "In Stock"
-    xpath: //div[contains(concat(' ',normalize-space(@class),' '),' product-hero ')]//form//*[contains(text(),'asket')]//text()| //div[contains(concat(' ',normalize-space(@class),' '),' product-hero ')]//form//*[contains(@class,'add-to-basket')]//text()
+    # No default value should be added. Being taken care in transform.js
+    # xpath: //div[contains(concat(' ',normalize-space(@class),' '),' product-hero ')]//form//*[contains(text(),'asket')]//text()| //div[contains(concat(' ',normalize-space(@class),' '),' product-hero ')]//form//*[contains(@class,'add-to-basket')]//text()
+    # xpath: //script[contains(@type,"application/ld+json")]
+    # regExp: /+(\w+Stock)
+    # regExpReplace: $1
   - name: description
     singleValue: false
     description: Product description supplied by website - may be concatenanted from
@@ -165,8 +169,9 @@ fields:
     #xpath: //div[@class='par parsys']/*[contains(concat(' ',normalize-space(@class),' '),' column-control') or (contains(concat(' ',normalize-space(@class),' '),' parbase ') and (contains(concat(' ',normalize-space(@class),' '),' full-widthimage ') or contains(concat(' ',normalize-space(@class),' '),' rich-content ') or contains(concat(' ',normalize-space(@class),' '),' text ') or contains(concat(' ',normalize-space(@class),' '),' container-par ')))][not(.//*[contains(concat(' ',normalize-space(@class),' '),' icon-arrow ')])]//*[contains(concat(' ',normalize-space(@class),' '),' h1 ') or contains(concat(' ',normalize-space(@class),' '),' h2 ') or contains(concat(' ',normalize-space(@class),' '),' h3 ') or contains(concat(' ',normalize-space(@class),' '),' h4 ') or contains(concat(' ',normalize-space(@class),' '),' h5 ') or contains(concat(' ',normalize-space(@class),' '),' h6 ') or contains(concat(' ',normalize-space(@class),' '),' body ') or contains(concat(' ',normalize-space(@class),' '),' js-text-body ') or contains(concat(' ',normalize-space(@class),' '),' typography-body ')][not(contains(concat(' ',normalize-space(@class),' '),' typography-body--small '))]
   - name: manufacturerImages
     singleValue: false
-    description: Images within the third party description
-    xpath: //div[@id='added_manufacturerImages']//li
+    # description: Images within the third party description
+    #xpath: //div[@id='added_manufacturerImages']//li
+    xpath: //div[@id='added_manufacturerImages']//li[position()>0]
     #xpath: //div[@class='par parsys']/*[contains(concat(' ',normalize-space(@class),' '),' column-control') or (contains(concat(' ',normalize-space(@class),' '),' parbase ') and (contains(concat(' ',normalize-space(@class),' '),' full-widthimage ') or contains(concat(' ',normalize-space(@class),' '),' rich-content ') or contains(concat(' ',normalize-space(@class),' '),' text ') or contains(concat(' ',normalize-space(@class),' '),' container-par ')))][not(.//*[contains(concat(' ',normalize-space(@class),' '),' icon-arrow ')])][not(contains(concat(' ',normalize-space(@class),' '),' recs-container '))]//img/@src
   - name: videos #localedependent
     singleValue: false
@@ -569,5 +574,3 @@ fields:
     xpath: //div[@class="contents"]//img/@src | //div[@class="contents "]//img/@src | //div[contains(@class,"whats-in-the-box")]//img/@src
   - name: inTheBoxText
     xpath: //div[@class="contents"]//strong | //div[@class="contents "]//strong | //div[contains(@class,"whats-in-the-box")]//span[@class="whats-in-the-box__tool-name"] | //p[@class="whats-in-the-box__product-name"]
-  - name: hasComparisonTable
-    defaultValue: No 

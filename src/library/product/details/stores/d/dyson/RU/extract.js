@@ -8,24 +8,23 @@ async function implementation (
   const { transform } = parameters;
   const { productDetails } = dependencies;
 
-  function stall(ms) {
+  function stall (ms) {
     return new Promise(resolve => {
       setTimeout(() => {
         resolve();
-      }, ms)
-    })
+      }, ms);
+    });
   }
 
   await stall(5000);
 
-  await context.evaluate(async function() {
-
-    function stall(ms) {
+  await context.evaluate(async function () {
+    function stall (ms) {
       return new Promise(resolve => {
         setTimeout(() => {
           resolve();
-        }, ms)
-      })
+        }, ms);
+      });
     }
 
     function addHiddenDiv (id, content) {
@@ -39,8 +38,8 @@ async function implementation (
     addHiddenDiv('url', window.location.href);
     addHiddenDiv('pageTimeStamp', new Date());
 
-    let skuMatches = window.location.href.match(/[0-9]{2,}\-[0-9]{1,}/g);
-    if(skuMatches) {
+    const skuMatches = window.location.href.match(/[0-9]{2,}\-[0-9]{1,}/g);
+    if (skuMatches) {
       addHiddenDiv('sku', skuMatches[0]);
     }
 
@@ -75,24 +74,24 @@ async function implementation (
     }
 
     let outOfStock = false;
-    if (document.querySelector('.legacy__product__availability-messaging')
-    && document.querySelector('.legacy__product__availability-messaging').innerText.includes('Unfortunately, this product is no longer available.')) {
+    if (document.querySelector('.legacy__product__availability-messaging') &&
+    document.querySelector('.legacy__product__availability-messaging').innerText.includes('Unfortunately, this product is no longer available.')) {
       outOfStock = true;
     }
 
     if (document.querySelector('.hero__pricing__sold-out') || outOfStock) {
       addHiddenDiv('availabilityText', 'Out of Stock');
     } else {
-      addHiddenDiv('availabilityText', 'In Stock')
+      addHiddenDiv('availabilityText', 'In Stock');
     }
 
     const manufacturerImages = [];
     let enhancedContent = '';
     document.querySelectorAll('.layout').forEach(el => {
-      if(el.querySelector('h2')
-      && (el.querySelector('h2').innerText.includes('In the box')
-      || el.querySelector('h2').innerText.includes('Key features')
-      || el.querySelector('h2').innerText.includes('All features'))) {
+      if (el.querySelector('h2') &&
+      (el.querySelector('h2').innerText.includes('In the box') ||
+      el.querySelector('h2').innerText.includes('Key features') ||
+      el.querySelector('h2').innerText.includes('All features'))) {
         enhancedContent += el.innerText + ' ';
         el.querySelectorAll('img').forEach(img => {
           manufacturerImages.push(img.getAttribute('src'));
@@ -135,7 +134,6 @@ async function implementation (
       }
     });
     addHiddenDiv('specifications', specifications.join(' | '));
-
   });
 
   return await context.extract(productDetails, { transform });
