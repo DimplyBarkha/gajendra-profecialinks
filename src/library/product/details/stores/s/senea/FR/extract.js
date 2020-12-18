@@ -10,6 +10,14 @@ async function implementation (
   const { productDetails } = dependencies;
   if (inputs.id) {
     await context.evaluate(async function () {
+      function stall (ms) {
+        return new Promise((resolve, reject) => {
+          setTimeout(() => {
+            resolve();
+          }, ms);
+        });
+      }
+
       const optionalWait = async (sel) => {
         try {
           await context.waitForSelector(sel, { timeout: 60000 });
@@ -26,6 +34,7 @@ async function implementation (
         try {
           isSelector.click();
           optionalWait('h1[itemprop="name"]');
+          await stall(10000);
         } catch (err) {
           console.log('Not clicked' + err);
         }

@@ -8,9 +8,9 @@ fields:
   - name: imageAlt
     xpath: //div[@class="images__wrapper"]//div[contains(@class,"product-cover")]//img/@alt
   - name: alternateImages
-    xpath: //div[@class="images__wrapper"]//div[contains(@class,"product__thumbnails")]//img[not(contains(@class,"selected"))]/@data-image-large-src
+    xpath: //div[@class="images__wrapper"]//div[contains(@class,"product__thumbnails")]//div[contains(@class,"slick-slide")][not(contains(@class,"slick-cloned") or contains(@class,"slick-current"))]//img/@src
   - name: secondaryImageTotal
-    xpath: count(//div[@class="images__wrapper"]//div[contains(@class,"product__thumbnails")]//img[not(contains(@class,"selected"))])
+    xpath: count(//div[@class="images__wrapper"]//div[contains(@class,"product__thumbnails")]//div[contains(@class,"slick-slide")][not(contains(@class,"slick-cloned") or contains(@class,"slick-current"))]//img/@src)
   - name: metaKeywords
     xpath: //meta[@name="keywords"]/@content
   - name: category
@@ -26,7 +26,7 @@ fields:
     regExpReplace: In Stock
     defaultValue: Out of Stock
   - name: description
-    xpath: //div[@itemprop="description"] | //div[@id="description"] | //div[@id="description"]//a/@href
+    xpath: //div[contains(@class,"product__main-infos")]//span[contains(@class,"cat__name")] | //div[contains(@class,"product-information")]//div[@class="product-description__short"] | //div[@id="description"] | //div[@id="description"]//a/@href
   - name: descriptionBullets
   - name: brandText
     xpath: //div[@class="product__main-infos"]//span[@itemprop="brand"]
