@@ -28,11 +28,17 @@ async function implementation (
       }
       return result;
     };
-    const Price1 = getAllXpath("//div[@class='price-list']//div[@class='finalPrice']/text()[1]",'nodeValue');
-    const Price2 = getAllXpath("//div[@class='price-list']//div[@class='finalPrice']/sup/text()",'nodeValue');
-    const Price3 = Price2[0].replace("€", ".");
-    let finalprice=Price1[0] + Price3+'€';
-    addHiddenDiv('price', finalprice);
+    try {
+      const Price1 = getAllXpath("//div[@class='price-list']//div[@class='finalPrice']/text()[1]",'nodeValue');
+      const Price2 = getAllXpath("//div[@class='price-list']//div[@class='finalPrice']/sup/text()",'nodeValue');
+      const Price3 = Price2[0].replace("€", ".");
+      let finalprice=Price1[0] + Price3+'€';
+      addHiddenDiv('price', finalprice);
+      
+    } catch (error){
+      
+    }
+    
   // @ts-ignore
   const brandText = window.dataLayer[0].ecommerce.detail.products[0].brand;
   addHiddenDiv('brandText', brandText);
