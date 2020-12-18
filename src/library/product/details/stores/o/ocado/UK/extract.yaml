@@ -18,7 +18,8 @@ fields:
   - name: nameExtended
     description: The product name, prefixing "${brand} - " if not included in "name"
       and appending " - ${variantType}" if necessary (fixed per feed)
-    xpath: //header[@class='bop-title']/h2
+    #xpath: //header[@class='bop-title']/h2
+    xpath: (//header[@class='bop-title']/h2/text())[1]
   - name: price
     singleValue: true
     description: The offered price for the selected product variant - if a user
