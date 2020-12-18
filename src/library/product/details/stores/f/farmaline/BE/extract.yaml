@@ -21,18 +21,12 @@ fields:
     singleValue: true
     description: The <meta> keywords content
     xpath: //meta[contains(@name, "keywords")]/@content
-  - name: availabilityText
-    singleValue: true
-    xpath: //*[@class='o-product-detail-info']//span[@id='availability']/font
   - name: price
     singleValue: true
     xpath: //strong[contains(@class, "font-size-lg font-size-md-xl d-inline-block lh-1")]
   - name: listPrice
     singleValue: true
     description: //s[contains(@class, "font-size-sm lh-1 d-inline-block")]
-  - name: availabilityText
-    singleValue: true
-    xpath: //*[@class='o-product-detail-info']//span[@id='availability']
   - name: ratingCount
     singleValue: true
     xpath: //meta[contains(@itemprop,'ratingCount')]/@content
@@ -45,3 +39,12 @@ fields:
   - name: url
     singleValue: true
     xpath: //meta[contains(@property, "og:url")]/@content
+  - name: productsPerPage
+    singleValue: true
+    xpath: count(//ul[contains(@class, 'list-unstyled space-y-3 mb-0')]/li/article)
+  - name: manufacturerName 
+    singleValue: true 
+    xpath: //script[contains(text(),"manufacturer")]
+  # - name: availabilityText
+  #   singleValue: true
+  #   xpath: //*[@class='o-product-detail-info']//span[@id='availability']/font
