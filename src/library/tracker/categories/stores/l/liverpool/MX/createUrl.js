@@ -6,7 +6,7 @@ module.exports = {
     prefix: null,
     suffix: null,
     subdomain: null,
-    url: null,
+    url: 'https://www.liverpool.com.mx/getDepartments',
     country: 'MX',
     store: 'liverpool',
     zipcode: '',
