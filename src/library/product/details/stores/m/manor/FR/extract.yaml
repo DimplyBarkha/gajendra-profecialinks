@@ -27,7 +27,7 @@ fields:
     xpath: //div[@class='g-layout-productdetails g-row']//div[@class='o-productdetail-v-2-titleb']//div[@class='m-productdetailareaa__areaA__title-line g-col g-col-1']
   - name: availabilityText
     singleValue: false
-    xpath: //div[@id='product-actions']//span[@data-name='AddToBasket']
+    xpath: //button[contains(text(),'Ajouter au panier')]/text()
     regExp: (.+)
     regExpReplace: In Stock
     defaultValue: Out of Stock
@@ -100,3 +100,11 @@ fields:
   - name: energyEfficiency
     singleValue: false
     xpath: //div[contains(@class,'tab-tech-specs')]//tr//th[contains(text(),'Energy efficiency')]//following-sibling::td
+  - name: gtin
+    singleValue: false
+    xpath: //script[(@id='gtm-data-layer-container')]
+    regExp: \"ean\"\s*:\s*\"(.+?)\"
+    regExpReplace: $1
+  - name: quantity
+    singleValue: false
+    xpath: //span[@class='m-productsizeselect-v-2__title']

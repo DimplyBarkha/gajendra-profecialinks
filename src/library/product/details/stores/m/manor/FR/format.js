@@ -41,11 +41,11 @@ const transform = (data) => {
           item.text = item.text.replace(/(\s*\n\s*)+/g, ' ').trim();
         });
       }
-      if (row.price) {
-        row.price.forEach(item => {
-          item.text = item.text.replace('.', ',').trim();
-        });
-      }
+      // if (row.price) {
+      //   row.price.forEach(item => {
+      //     item.text = item.text.replace('.', ',').trim();
+      //   });
+      // }
       if (row.gtin) {
         row.gtin.forEach(item => {
           item.text = item.text.replace(/ean"\s*:\s*/g, '');
@@ -109,6 +109,12 @@ const transform = (data) => {
       if (row.variantInformation) {
         row.variantInformation.forEach(item => {
           item.text = item.text.replace('Couleur:', '');
+          item.text = item.text.trim();
+        });
+      }
+      if (row.quantity) {
+        row.quantity.forEach(item => {
+          item.text = item.text.replace(/Taille\s*:\s*/, '');
           item.text = item.text.trim();
         });
       }
