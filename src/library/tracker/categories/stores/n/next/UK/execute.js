@@ -5,7 +5,7 @@ module.exports = {
     country: 'UK',
     store: 'next',
     domain: 'next.co.uk',
-    loadedSelector: null,
+    loadedSelector: 'div.sitemap__LinksContainer',
     noResultsXPath: null,
     zipcode: '',
   },

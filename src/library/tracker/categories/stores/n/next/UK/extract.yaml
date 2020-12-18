@@ -1,13 +1,13 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: null
+recordXPath: //div[@class="sitemap__section"]//h1[contains(text(),'Shop by')]/..//a[@href]
 fields:
   - name: category
     singleValue: false
     description: name of the category
-    xpath: null
+    xpath: //@categoryName
   - name: categoryUrl
     singleValue: false
     description: url of the category
-    xpath: null
+    xpath: //@categoryUrl
