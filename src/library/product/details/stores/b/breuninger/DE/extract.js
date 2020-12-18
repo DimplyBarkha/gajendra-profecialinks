@@ -156,7 +156,7 @@ module.exports = {
       }
       return { specifications: specifications, weightNet: weightNet };
     });
-    await context.goto(myUrl);
+    await context.goto(`${myUrl}#[!opt!]{"block_ads":false, "force200": true}[/!opt!]`, { timeout: 60000, waitUntil: 'load', checkBlocked: false, force200: true });
     await context.waitForNavigation();
     await new Promise((resolve, reject) => setTimeout(resolve, 2000));
     // checking if popup exists and if so, closing it
