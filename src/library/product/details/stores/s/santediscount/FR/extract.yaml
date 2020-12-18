@@ -4,7 +4,7 @@ recordSelector: null
 recordXPath: //main[@id="main-content"]
 fields:
   - name: aggregateRatingText
-    xpath: //*[@review-total]/@review-total
+    xpath: //*[@review-average]/@review-average
   - name: image
     singleValue: true
     xpath: //figure[@data-fancybox-href]/@data-fancybox-href
@@ -51,9 +51,9 @@ fields:
   - name: warnings
     xpath: //*[contains(text(), 'Attention')] | //*[contains(text(), 'Attention')]/following::ul[1]
   - name: ratingCount
-    xpath: //*[@review-average]/@review-average
-  - name: aggregateRating
     xpath: //*[@review-total]/@review-total
+  - name: aggregateRating
+    xpath: //*[@review-average]/@review-average
   - name: shippingInfo
   - name: shippingDimensions
   - name: shippingWeight
