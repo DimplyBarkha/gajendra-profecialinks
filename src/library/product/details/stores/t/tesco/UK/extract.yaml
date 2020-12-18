@@ -114,9 +114,10 @@ fields:
     regExpReplace: $1
   - name: sku
     singleValue: false
-    xpath: //script[@type="application/ld+json"][contains(text(),"sku")]
-    regExp: sku":"([^"]+)
-    regExpReplace: $1
+    # xpath: //script[@type="application/ld+json"][contains(text(),"sku")]
+    xpath: (//input[@name="id"]/@value)[1]
+    # regExp: sku":"([^"]+)
+    # regExpReplace: $1
   - name: videos
     singleValue: true
   - name: variantInformation
