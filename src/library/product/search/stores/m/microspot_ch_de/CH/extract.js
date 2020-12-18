@@ -1,10 +1,10 @@
-
+const { transform } = require('../../../../shared');
 module.exports = {
   implements: 'product/search/extract',
   parameterValues: {
     country: 'CH',
     store: 'microspot_ch_de',
-    transform: null,
+    transform: transform,
     domain: 'microspot.ch',
     zipcode: '',
   },
@@ -32,7 +32,15 @@ async function implementation(
       const originalDiv = document.querySelectorAll('div[class="_3Xsu6q"]')[index];
       originalDiv.parentNode.insertBefore(newDiv, originalDiv);
     }
-
+    function addHiddenDiv1(id, content, index) {
+      const newDiv = document.createElement('div');
+      newDiv.id = id;
+      newDiv.textContent = content;
+      newDiv.style.display = 'none';
+      const originalDiv = document.querySelectorAll('div[class="wQ1zdx _14LFJJ _1ryioq"]')[index];
+      originalDiv.parentNode.insertBefore(newDiv, originalDiv);
+    }
+    
     // Method to Retrieve Xpath content of a Multiple Nodes
     const getAllXpath = (xpath, prop) => {
       const nodeSet = document.evaluate(xpath, document, null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
@@ -63,6 +71,16 @@ async function implementation(
           j = j+1;
         }
         addHiddenDiv('rat', rat, i);
+      }
+    }
+
+    //manufacture
+    var manu = getAllXpath('//script[@id="INITIAL_STATE"]/text()', 'nodeValue');
+    if(manu != null){
+      for(var i=0; i<manu.length; i++){
+        var abc = manu[i].split('manufacturer":"')[1];
+        var manufacture = abc.split('",')[0];
+        addHiddenDiv1('manufacture', manufacture, i);
       }
     }
     
