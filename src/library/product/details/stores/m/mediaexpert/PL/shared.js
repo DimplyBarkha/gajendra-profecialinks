@@ -117,9 +117,9 @@ const transform = (data) => {
 
       if (row.weightNet) {
         let weightNet = row.weightNet[0].text;
-        if (row.weightNetUom) {
+        if (row.weightNetUom && !row.weightNet[0].text.includes('kg')) {
           weightNet = `${weightNet} ${row.weightNetUom[0].text}`;
-        } else {
+        } else if (!row.weightNet[0].text.includes('kg')) {
           weightNet = `${weightNet} kg`;
         }
         row.weightNet = [{ text: weightNet }];
