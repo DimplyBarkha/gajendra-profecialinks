@@ -98,10 +98,8 @@ const transform = (data, context) => {
       if (row.variants) {
         const asins = row.asin.concat(row.variants).map(elm => elm.text);
         row.variants = [...new Set(asins)].map(elm => ({ text: elm }));
-      } else {
-        row.variants = row.asin;
       }
-      row.variantCount = [{ text: row.variants.length }];
+      row.variantCount = [{ text: ((row.variants && row.variants.length) || '0') }];
       if (row.variantId) {
         row.variantId = [{ text: row.variantId[0].text.replace('parentAsin":"', '') }];
       }
@@ -127,7 +125,7 @@ const transform = (data, context) => {
       //   });
       // }
       if (row.manufacturerDescription && row.manufacturerDescription[0]) {
-        const regexIgnoreText = /(Read more|Mehr lesen|Leer mas|Ver más)/g;
+        const regexIgnoreText = /(Read more|Mehr lesen|Leer mas|Ver más|Leggi di più)/g;
         const text = row.manufacturerDescription[0].text.replace(/<(style|script|noscript)\b[^<]*(?:(?!<\/(style|script|noscript)>)<[^<]*)*<\/(style|script|noscript)>/g, '').replace(/(<([^>]+)>)/ig, '').replace(regexIgnoreText, '').trim();
         row.manufacturerDescription = [{ text }];
       }
@@ -159,7 +157,7 @@ const transform = (data, context) => {
         row.specifications.forEach(item => {
           text.push(`${item.text.replace(/\n \n/g, ':')}`);
         });
-        row.specifications = [{ text: text }];
+        row.specifications = [{ text: text.join(' || ') }];
       }
       if (row.productOtherInformation) {
         const text = [];
@@ -177,41 +175,6 @@ const transform = (data, context) => {
           row.additionalDescBulletInfo = [{ text: text.join(' || ').trim().replace(/\|\| \|/g, '|') }];
         }
       }
-      // if (row.otherSellersPrime) {
-      //   row.otherSellersPrime.forEach(item => {
-      //     if (item.text.match(/details/i)) {
-      //       item.text = 'YES';
-      //     } else {
-      //       item.text = 'NO';
-      //     }
-      //   });
-      // }
-      // if (row.availabilityText && row.availabilityText[0]) {
-      //   row.availabilityText = [
-      //     {
-      //       text: /[Ii]n [Ss]tock/gm.test(row.availabilityText[0].text) ? 'In stock' : row.availabilityText[0].text,
-      //     },
-      //   ];
-      // }
-      // if (row.unavailableMsg) {
-      //   row.availabilityText = [{ text: 'Out of stock' }];
-      // }
-
-      // if (row.otherSellersShipping2) {
-      //   row.otherSellersShipping2 = row.otherSellersShipping2.map(item => {
-      //     if (item.text.includes('+ $')) {
-      //       const regex = /\$([0-9.]{3,})/s;
-      //       const mtch = item.text.match(regex);
-      //       return { text: mtch && mtch[1] ? item.text.match(regex)[1] : '0.00' };
-      //     }
-      //     return { text: '0.00' };
-      //   });
-      // }
-      // if (row.primeFlag) {
-      //   row.primeFlag = [{ text: 'Yes - Shipped and Sold' }];
-      // } else {
-      //   row.primeFlag = [{ text: 'NO' }];
-      // }
       if (row.shippingInfo) {
         const text = Array.from(new Set(row.shippingInfo.map(item => item.text.trim())));
         row.shippingInfo = [{ text: text.join(' ') }];
@@ -232,19 +195,6 @@ const transform = (data, context) => {
       if (!row.brandText && row.backupBrand) {
         row.brandText = [{ text: row.backupBrand[0].text }];
       }
-      // if (!row.shippingWeight && row.dimensions) {
-      //   const dimText = row.dimensions[0].text;
-      //   if (dimText.includes(';')) {
-      //     row.shippingWeight = [{ text: dimText.split(';')[1].trim() }];
-      //   }
-      // }
-      // if (row.featureNames && row.featureStars) {
-      //   featArr = [];
-      //   for (let i = 0; i < row.featureNames.length; i++) {
-      //     featArr.push(`${row.featureNames[i].text}:${row.featureStars[i].text}`);
-      //   }
-      //   row.starsByFeature = [{ text: featArr }];
-      // }
       if (row.lbb && row.price) {
         if (row.lbb[0].text === 'YES') {
           row.lbbPrice = row.price;
@@ -364,6 +314,23 @@ const transform = (data, context) => {
       if (row.gtin) {
         const text = row.gtin.slice(0, 10).map(elm => elm.text).join(' ');
         row.gtin = [{ text }];
+      }
+      if (!row.image && row.imageFallback) {
+        const text = row.imageFallback[0].text.replace(/(.+)\.[^\.]*(\.[^\.]+$)/, '$1$2');
+        row.image = [{ text }];
+        delete row.imageFallback;
+      }
+      if (row.promotion) {
+        const text = row.promotion.map(elm => elm.text).join(' ');
+        row.promotion = [{ text }];
+      }
+      if (row.salesRank) {
+        const ranks = row.salesRank.map(elm => elm.text.trim());
+        row.salesRank = [...new Set(ranks)].map(elm => ({ text: elm }));
+      }
+      if (row.salesRankCategory) {
+        const rankCategory = row.salesRankCategory.map(elm => elm.text.trim());
+        row.salesRankCategory = [...new Set(rankCategory)].map(elm => ({ text: elm }));
       }
       Object.keys(row).forEach(header => {
         row[header].forEach(el => {

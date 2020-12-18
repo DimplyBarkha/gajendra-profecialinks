@@ -8,6 +8,10 @@ fields:
     xpath: (//*[@id="detailImg"] | //img[@id="landingImage"] | //div[@id="img-canvas"]/img)[1]/@src | //*[@id="altImages"][ancestor::html[not((//*[@id="detailImg"] | //img[@id="landingImage"] | //div[@id="img-canvas"]/img)[1]/@src)]]/ul/li[contains(@class,"item")]//img/@src
     regExp: (.+)\.[^\.]*(\.[^\.]+$)
     regExpReplace: $1$2
+  - name: imageFallback
+    xpath: //*[contains(text(),"ImageBlockATF")]
+    regExp: main":{"([^"]+)"
+    regExpReplace: $1
   - name: imageAlt
     #singleValue: true
     xpath: (//img[@id="landingImage"])[1]/@alt | //div[@id="img-canvas"]/img[1]/@alt
@@ -56,7 +60,8 @@ fields:
     html: true
     xpath: //*[@id='feature-bullets']//ul/li[not(@id)]
   - name: extraDescription
-    xpath: //div[@id="productDescription"]/*[not(@class="disclaim")]
+    xpath: //div[@id="productDescription"][not(h3)]/*[not(@class="disclaim")] | //div[@id="productDescription"]/h3[1]/following-sibling::*[count(preceding-sibling::h3)=1][not(name()="h3")]
+    # xpath: //div[@id="productDescription"]/*[not(@class="disclaim")]
     html: true
   - name: descriptionBullets
     singleValue: false
@@ -78,7 +83,7 @@ fields:
     xpath: //div[contains(@id, 'detail-bullets')]//text()[contains(., 'Size')]/following-sibling::*[1] | //*[starts-with(@name,"dropdown_selected_size_name")]/option[@class="dropdownSelect"]
   - name: weightNet
     singleValue: false
-    xpath: //*[contains(normalize-space(text()),"Product Dimensions")]/following-sibling::*[1][contains(.,';')] | //*[normalize-space(text())="Item Weight"]/following-sibling::*[1]
+    xpath: //*[contains(normalize-space(text()),"Product Dimensions")]/following-sibling::*[1][contains(.,';')] | //*[normalize-space(text())="Item Weight"]/following-sibling::*[1] | //*[normalize-space(text())="Item Weight"]/following-sibling::*[1] | //*[normalize-space(text())="Item Weight :"]/following-sibling::*[1]
     # xpath: //div[contains(@id, 'detail-bullets')]//div[contains(@class, 'content')]//ul/li/b[contains(text(), 'Item Weight')]/../text() | //table[contains(@id,"productDetails_techSpec")]//tr/th[contains(., "Item Weight")]/following-sibling::td[1]/text() | //th[contains(text(),'Item Weight')]/following-sibling::*
     regExp: '[^;]+$'
   - name: weightGross
@@ -204,9 +209,9 @@ fields:
     regExpReplace: $1
   - name: pasin
     singleValue: false
-    xpath: //script[contains(@type,"a-state") and contains(text(), "parentAsin")]
-    regExp: parentAsin\"\:\"([A-Za-z0-9]{10,})
-    regExpReplace: $1
+    xpath: //div[@id='added-pasin']
+    # regExp: parentAsin\"\:\"([A-Za-z0-9]{10,})
+    # regExpReplace: $1
   - name: videoLength
     singleValue: false
     xpath: //script[contains(text(), "ImageBlockBTF")]/text()
@@ -425,7 +430,7 @@ fields:
 
   - name: countryOfOrigin
     #singleValue: true
-    xpath: //li[contains(.,"Origin:")] | //*[normalize-space(text())="Country of origin"]/following-sibling::*[1]
+    xpath: //li[contains(.,"Origin:")] | //*[normalize-space(text())="Country of origin"]/following-sibling::*[1] | //*[contains(text(),"Country of Origin")]/following-sibling::*[1]
     regExp: '[^:]+$'
   - name: allergyAdvice
     #singleValue: true
@@ -444,13 +449,13 @@ fields:
     xpath: 
   - name: pricePerUnit
     #singleValue: true
-    xpath: //span[contains(@id, 'priceblock_dealprice') or contains(@id, 'priceblock_ourprice')]/following-sibling::span/text()
+    xpath: //span[contains(@id, 'priceblock_dealprice')]/following-sibling::span/text() | //span[contains(@id, 'priceblock_ourprice')]/following-sibling::span/text() 
   - name: pricePerUnitUom
     #singleValue: true
-    xpath: //span[contains(@id, 'priceblock_dealprice') or contains(@id, 'priceblock_ourprice')]/following-sibling::span/text()
+    xpath: //span[contains(@id, 'priceblock_dealprice')]/following-sibling::span/text() | //span[contains(@id, 'priceblock_ourprice')]/following-sibling::span/text() 
   - name: promotion
     singleValue: false
-    xpath: //div[contains(@id, "Promo")]//div[contains(@class, "content")]//ul/li | (//div[@id ="promotions_feature_div"]//ul)[1]//li|//input[@id="productPromosHidden"]//preceding-sibling::li|//tr[@id="almDetailPagePrice_savings_price" or @id="primeNowDetailPagePrice_savings_price"] | //*[@id="regularprice_savings"] | //*[@id="dealprice_savings"]
+    xpath: //div[contains(@id, "Promo")]//div[contains(@class, "content")]//ul/li | (//div[@id ="promotions_feature_div"]//ul)[1]//li|//input[@id="productPromosHidden"]//preceding-sibling::li|//tr[@id="almDetailPagePrice_savings_price" or @id="primeNowDetailPagePrice_savings_price"] | //*[@id="regularprice_savings"] | //*[@id="dealprice_savings"] | //*[@id="priceblock-bundle-savings-row"]//td[not(@class="aok-hidden")]
   - name: alcoholContent
     xpath: //*[contains(text(),"Alcohol Content")]/following-sibling::*[1]
     regExp: '^[^\s]+'
@@ -497,7 +502,7 @@ fields:
     defaultValue: No
   - name: materials
     #singleValue: true
-    xpath: //div[contains(@id, "prodDetails")]//tr[contains(., "Material") or (contains(., "material"))]/td[contains(@class,'value')]
+    xpath: //div[contains(@id, "prodDetails")]//tr[contains(., "Material") or (contains(., "material"))]/td[contains(@class,'value')] | //*[normalize-space(text())="materials" or normalize-space(text())="Material"]/following-sibling::*[1]
   - name: Image360Present
     #singleValue: true
     #xpath: //li[contains(@class, "pos-360") and not(contains(@class,'aok-hidden'))]//img/@src
@@ -723,5 +728,5 @@ fields:
     defaultValue: False
   - name: unInterruptedPDP
     singleValue: false
-    xpath: //div[contains(@class,"customer-also-viewed")]/div | //div[contains(@id,"thematic-highly_rated")]//a/@title | //div[contains(@class,"sponsored-products-truncator")]
+    xpath: //div[contains(@class,"customer-also-viewed")]/div//img/@alt | //div[contains(@id,"thematic-highly_rated")]//a/@title | //div[contains(@class,"sponsored-products-truncator")]/../@title
     

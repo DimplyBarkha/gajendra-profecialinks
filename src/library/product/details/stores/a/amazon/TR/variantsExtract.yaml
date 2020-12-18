@@ -1,4 +1,4 @@
-singleRecord: true
+singleRecord: false
 regionsSelector: null
 recordSelector: null
 recordXPath: null
@@ -6,10 +6,11 @@ fields:
   - name: variantId
     singleValue: false
     description: variant id, to uniquely identify variant
-    xpath: //li[@data-defaultasin]/@data-defaultasin | //*[contains(@id,"variation")]//option/@value | //*[contains(@id,"Swatches")]/ul/li//a[@id and contains(@href,"dp")]/@href
+    xpath: //*[@id='ii_variant']
   - name: variantUrl
     singleValue: false
     description: variant Url
-    xpath: //li[@data-defaultasin]/@data-defaultasin | //*[contains(@id,"variation")]//option/@value | //*[contains(@id,"Swatches")]/ul/li//a[@id and contains(@href,"dp")]/@href
+    # xpath: //*[@id='ii_variant']/text()
+    xpath: //*[@id='ii_variant']
     regExp: (.+)
-    regExpReplace: https://amazon.com.tr/dp/$1
+    regExpReplace: https://amazon.com.tr/dp/product/$1?th=1&psc=1

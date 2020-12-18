@@ -91,6 +91,10 @@ async function implementation (
     }
     const lbb = data.find(elm => elm.sellerName.includes('Amazon')) ? 'YES' : 'NO';
     document.body.setAttribute('is-llb', lbb);
+    const currentSellerId = document.querySelector('[name="merchantID"]') && document.querySelector('[name="merchantID"]').value;
+    if (currentSellerId) {
+      data = data.filter(seller => !(seller.sellerId && seller.sellerId.includes(currentSellerId)));
+    }
     const sellerPrice = data.map(seller => seller.sellerPrice.trim()).join('|');
     const sellerName = data.map(seller => seller.sellerName.trim()).join('|');
     const shippingPrice = data.map(seller => {
@@ -116,15 +120,18 @@ async function implementation (
     return window.location.href.match(/\/dp\/(product\/)?(\w+)/)[2];
   });
   await helpers.addItemToDocument('added-asin', asin);
-  const variants = await amazonHelp.getVariants();
+  let variants = await amazonHelp.getVariants();
 
   if (variants && variants.length) {
+    const asin = context.evaluate(() => document.querySelector('#added-asin').innerText);
     // helpers.addItemToDocument('my-variants', variants.join(' | '));
+    variants = variants.filter(v => !v.trim().includes(asin));
     helpers.addItemToDocument('my-variants', variants);
   }
   async function getCustomerViewed () {
     if (!document.querySelector('#desktop-dp-sims_session-similarities-sims-feature > div[data-p13n-asin-metadata]')) return;
-    const asins = Object.keys(JSON.parse(document.querySelector('#desktop-dp-sims_session-similarities-sims-feature > div[data-p13n-asin-metadata]').getAttribute('data-p13n-asin-metadata')));
+    let asins = Object.keys(JSON.parse(document.querySelector('#desktop-dp-sims_session-similarities-sims-feature > div[data-p13n-asin-metadata]').getAttribute('data-p13n-asin-metadata')));
+    asins = Array.from(new Set(asins));
     const API = `/gp/p13n-shared/faceout-partial?widgetTemplateClass=PI::Similarities::ViewTemplates::Carousel::Desktop&productDetailsTemplateClass=PI::P13N::ViewTemplates::ProductDetails::Desktop::DeliverySpeed&reftagPrefix=pd_sbs_325&faceoutTemplateClass=PI::P13N::ViewTemplates::Product::Desktop::CarouselFaceout&count=7&offset=42&asins=${asins.join(',')}`;
     const res = await fetch(API);
     const json = await res.json();
@@ -163,6 +170,10 @@ async function implementation (
     shippingInfo.length && document.body.setAttribute('shipping-info', shippingInfo);
   });
   await context.evaluate(getCustomerViewed);
+  const pasin = await context.evaluate(() => {
+    return window.isTwisterPage ? window.twisterController.twisterJSInitData.parent_asin : null;
+  });
+  await helpers.addItemToDocument('added-pasin', pasin);
   await context.extract(productDetails, { transform });
 }
 

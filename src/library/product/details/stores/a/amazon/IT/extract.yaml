@@ -2,7 +2,7 @@ extends: ../../../../sharedAmazon/shared
 fields:
   - name: brandText
     singleValue: false
-    xpath: //a[@id="bylineInfo"]/text() | //div[contains(@id,"bylineInfo") and not(//a[@id="bylineInfo"]/text())] | //a[@id="brandteaser"]/img/@alt
+    xpath: //a[@id="bylineInfo"]/text() | //div[contains(@id,"bylineInfo") and not(//a[@id="bylineInfo"]/text())] | //a[@id="brandteaser"]/img/@alt | //td[contains(., 'Marchio')]/following-sibling::*[1]
     regExp: '(Marca:\s+(.+)$|Visita lo Store di (.+)|^(.+)$)'
     regExpReplace: $2$3$4
   - name: quantity
@@ -10,13 +10,13 @@ fields:
     xpath: //td[contains(text(), 'Peso')]/following-sibling::*[1] | //div[@class='content']/ul/li/b[contains(text(), 'Peso')]/parent::*[1]/text() | //div[@class='content']/ul/li/b[contains(text(), 'Dimensioni')]/parent::*[1]/text() | //th[contains(text(), 'Peso')]/following-sibling::*[1]
   - name: weightNet
     singleValue: false
-    xpath: //*[contains(text(), 'Peso')]/following-sibling::*[1]
+    xpath: //*[contains(text(), 'Peso')]/following-sibling::*[1] | //td[contains(., 'Peso')]/following-sibling::*[1]
   - name: weightGross
     singleValue: false
     xpath: //td[contains(text(), 'Paketgewicht')]/following-sibling::*[1]
   - name: mpc
     singleValue: false
-    xpath: //th[contains(text(), 'odello')]/following-sibling::*[1]
+    xpath: //*[contains(text(), 'odello')]/following-sibling::*[1]
   - name: packSize
     singleValue: false
     xpath: //h1[@id='title'] | (//div[contains(@id, 'detail-bullets')]//text()[contains(., 'Peso')]/following-sibling::*[1] | //div[contains(@id, 'detail-bullets')]//*[contains(text(), 'Peso')]/* | //label[contains(text(), 'Peso')]/following-sibling::*[1])[1] | //table[contains(@id,'product-specification-table')]//th[contains(text(), 'Número de unidades en el paquete')]/../td | //td[contains(text(),'Cantidad')]/following-sibling::*[1]
@@ -27,7 +27,7 @@ fields:
     xpath: //*[contains(text(), 'Serving Recommendation')]/following-sibling::*[1]
   - name: warnings
     singleValue: false
-    xpath: //b[contains(text(), 'Avvertenze:')]/parent::*
+    xpath: //b[contains(text(), 'Avvertenze:')]/parent::* | //*[normalize-space(text())="Avvertenze"]/following-sibling::p[not(.="")]
   - name: shippingDimensions
     singleValue: false
     xpath: //*[contains(text(), 'Dimensioni del collo')]/following-sibling::*
@@ -41,17 +41,17 @@ fields:
   - name: salesRank
     singleValue: false
     xpath: //div[contains(@id, "detailBulletsWrapper_feature_div")]//a[contains(@href, "bestseller") and contains(text(), "See")]/preceding-sibling::text()[1] | //div[contains(@id, "productDetails_feature_div")]//a[contains(@href, "bestseller")]/ancestor::span[1] | //div[contains(@id, "detailBulletsWrapper_feature_div")]//a[contains(@href, "bestseller") and not(contains(text(), "See"))]/ancestor::li[1]
-    regExp: n.\s*([0-9,]{1,})[ \t]*in[ \t]*([^\(]+)
+    regExp: n\.\s*([0-9,]{1,})[ \t]*in[ \t]*([^\(]+)
     regExpReplace: $1
   - name: salesRankCategory
     singleValue: false
     xpath: //div[contains(@id, "detailBulletsWrapper_feature_div")]//a[contains(@href, "bestseller") and contains(text(), "See")]/preceding-sibling::text()[1] | //div[contains(@id, "productDetails_feature_div")]//a[contains(@href, "bestseller")]/ancestor::span[1] | //div[contains(@id, "detailBulletsWrapper_feature_div")]//a[contains(@href, "bestseller") and not(contains(text(), "See"))]/ancestor::li[1]
-    regExp: n.\s*([0-9,]{1,})[ \t]*in[ \t]*([^\(]+)
+    regExp: n\.\s*([0-9,]{1,})[ \t]*in[ \t]*([^\(]+)
     regExpReplace: $2
 
   - name: ingredientsList
     singleValue: false
-    xpath: //h3[contains(text(), 'Ingredientes')]/following-sibling::*[1] | //td[contains(.,"Ingredientes")]/following-sibling::td//span[@class="a-truncate-full a-offscreen"]
+    xpath: //h3[contains(text(), 'Ingredientes')]/following-sibling::*[1] | //td[contains(.,"Ingredientes")]/following-sibling::td//span[@class="a-truncate-full a-offscreen"] | //h3[normalize-space(text())="Ingredienti"]/following-sibling::*[1]
   - name: allergyAdvice
     singleValue: false
     xpath: //*[contains(text(), 'Allergen')]/following-sibling::*[1]
@@ -60,7 +60,16 @@ fields:
     xpath: //*[contains(text(), 'Gradazione alcolica')]/following-sibling::*[1]
   - name: legalDisclaimer
     singleValue: false
-    xpath: //h1[contains(text(), 'legale')]/following-sibling::*
+    xpath: //h1[contains(text(), 'legale')]/following-sibling::*[1]
   - name: countryOfOrigin
     singleValue: false
-    xpath: //*[contains(text(), 'Paese')]/following-sibling::*
+    xpath: //*[contains(text(), 'Paese')]/following-sibling::*[1]
+  - name: manufacturer
+    xpath: //*[contains(text(), 'Produttore')]/following-sibling::*[1]
+  - name: storage
+    xpath: //*[normalize-space(text())="Istruzioni di conservazione"]/following-sibling::*[1]
+  - name: energyEfficiency
+    xpath: //*[contains(text(),"Efficienza Energetica")]/following-sibling::*[1] | //*[@id="energyEfficiencyTitleInformation"]
+    regExp: '[^\s]+$'
+  - name: imageZoomFeaturePresent
+    xpath: //span[@id="canvasCaption" and contains(text(),  "Scorri")]
