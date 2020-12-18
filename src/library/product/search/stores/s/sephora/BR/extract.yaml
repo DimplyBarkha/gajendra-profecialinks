@@ -5,7 +5,7 @@ recordXPath: //div[@class='nm-main-search-container']/div[contains(@class,'col-m
 fields: 
   - name: id
     SingleValue: false
-    xpath: //div[@class='nm-product-img-container']//a[@class="product-image nm-product-img-link"]/@href
+    xpath: //li[contains(@class,'nm-product-item')]//@product-id
   - name: productUrl
     SingleValue: false
     xpath: //div[@class='nm-product-img-container']//a[@class="product-image nm-product-img-link"]/@href
@@ -24,6 +24,6 @@ fields:
   - name: rank
     SingleValue: false
     defaultValue: 1
-  - name: aggregateRating2
+  - name: aggregateRating
     SingleValue: false
     xpath: //div[contains(@class,'ratings')]//div[@class="rating"]//@style

@@ -33,13 +33,25 @@ const transform = (data) => {
                 p_count = p_count + 1;
             }    
 
-             if (row.aggregateRating2) {
-                row.aggregateRating2.forEach(item => {  
+             if (row.aggregateRating) {
+                row.aggregateRating.forEach(item => {  
                 item.text = parseFloat(item.text.replace(/\D/g,'')) / 20;
                 item.text = item.text.toFixed(1);                                       
-                item.text = item.text.trim();
+                item.text = Number(item.text.trim());
                 });
-            }       
+            }   
+
+            if (row.thumbnail) {
+                row.thumbnail.forEach(item => {  
+                    item.text = "https:" + item.text
+                });
+            } 
+            
+            if (row.productUrl) {
+                row.productUrl.forEach(item => {  
+                    item.text = "https:" + item.text
+                });
+            }     
         }
     }
     return cleanUp(data);
