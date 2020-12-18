@@ -39,6 +39,22 @@ async function implementation(
         ratingsAndReviews = ratingsAndReviews.substring(ratingsAndReviews.indexOf('{')).replace('})', '}');
     }
 
+
+    async function scrollToRec (node) {
+        await context.evaluate(async function (node) {
+          var element = (document.querySelector(node)) ? document.querySelector(node) : null;
+          if (element) {
+            element.scrollIntoView({ behavior: 'smooth', block: 'end', inline: 'nearest' });
+            await new Promise((resolve) => {
+              setTimeout(resolve, 3000);
+            });
+          }
+        }, node);
+      }
+      await scrollToRec('div#specificationTab');
+      await scrollToRec('div.footer');
+      await scrollToRec('div[class*="InTheBox"]');
+
     await context.evaluate(async function(ratingsAndReviews) {
 
         function stall(ms) {
@@ -48,25 +64,6 @@ async function implementation(
                 }, ms)
             })
         }
-
-        function checkdata() {
-            let getInTheBox = document.querySelector('div.in-the-box img')
-            let inTheBoxImages = [];
-            let inTheBoxTexts = [];
-            if (getInTheBox) {
-                let getAllProducts = document.querySelectorAll('div.in-the-box div');
-                for (i = 0; i < getAllProducts.length; i++) {
-                    inTheBoxImages.push(getAllProducts[i].querySelector('img').getAttribute('src'));
-                    inTheBoxTexts.push(getAllProducts[i].querySelector('p').innerText);
-                }
-                let imagesUrl = inTheBoxImages.join(' || ')
-                let imagesText = inTheBoxTexts.join(' || ')
-                document.head.setAttribute('intheboxurl', imagesUrl);
-                document.head.setAttribute('intheboxtext', imagesText);
-            }
-            return document.querySelector('div.in-the-box img');
-        };
-        checkdata;
         let scrollTop = 500;
         while (true) {
             window.scroll(0, scrollTop);
@@ -186,7 +183,10 @@ async function implementation(
             enhancedContent = document.getElementById('flix-inpage').innerText;
             addHiddenDiv('enhancedContent', enhancedContent);
             document.getElementById('flix-inpage').querySelectorAll('img').forEach(img => {
-                manufacturerImages.push('https:' + img.getAttribute('src'));
+                if (img.getAttribute('data-flixsrcset')) {
+                    const imgSrc = img.getAttribute('data-flixsrcset').includes('200w') ? img.getAttribute('data-flixsrcset').split('200w')[0] : img.getAttribute('data-flixsrcset');
+                    manufacturerImages.push('https:' + imgSrc);
+                }
             });
             if (document.querySelector('.flix-std-specs-table')) {
                 document.querySelectorAll('.flix-std-specs-table').forEach(el => {
@@ -214,6 +214,38 @@ async function implementation(
 
         addHiddenDiv('manufacturerImages', manufacturerImages.join(' | '));
 
+        async function checkdata() {
+            let getInTheBox = document.querySelector('div.in-the-box img, div[class*="InTheBox"] img');
+            let inTheBoxImages = [];
+            let inTheBoxTexts = [];
+            console.log('getInTheeweBox')
+            console.log(getInTheBox)
+            if (getInTheBox) {
+                let getAllProducts = document.querySelectorAll('div.in-the-box div, div[class*="InTheBox"] div.flix-std-table div.flix-std-table-cell');
+                for (let i = 0; i < getAllProducts.length; i++) {
+                    console.log(getAllProducts[i])
+                    if (document.querySelector('div.flix-box-image')) {
+                        const imgSrc = getAllProducts[i].querySelector('img').getAttribute('data-flixsrcset').includes('200w') ? getAllProducts[i].querySelector('img').getAttribute('data-flixsrcset').split('200w')[0] : getAllProducts[i].querySelector('img').getAttribute('data-flixsrcset');
+                        if (!inTheBoxImages.includes('https:' + imgSrc)) {
+                            inTheBoxImages.push('https:' + imgSrc);
+                        }
+                    } else {
+                        inTheBoxImages.push(getAllProducts[i].querySelector('img').getAttribute('src'));
+                    }
+                    const boxText = getAllProducts[i].querySelector('p') ? getAllProducts[i].querySelector('p').innerText : getAllProducts[i].querySelector('span').innerText;
+                    if (!inTheBoxTexts.includes(boxText)) {
+                        inTheBoxTexts.push(boxText);
+                    }
+                }
+                let imagesUrl = inTheBoxImages.join(' || ')
+                let imagesText = inTheBoxTexts.join(' || ')
+                document.head.setAttribute('intheboxurl', imagesUrl);
+                document.head.setAttribute('intheboxtext', imagesText);
+            }
+            return document.querySelector('div.in-the-box img, div[class*="InTheBox"] img');
+        };
+
+        await checkdata();
         const specifications = [];
         if (document.querySelector('#specificationTab').querySelector('table')) {
             document.querySelector('#specificationTab').querySelector('table').querySelectorAll('tr').forEach(tr => {
