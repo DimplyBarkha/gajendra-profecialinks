@@ -1,11 +1,12 @@
 
 module.exports = {
-  implements: 'navigation/goto',
+  implements: 'product/details/createUrl',
   parameterValues: {
     domain: 'farmaline.be',
-    timeout: 60000,
+    prefix: null,
+    url: null,
     country: 'BE',
-    store: 'farmaline',
+    store: 'farmaline_nl',
     zipcode: '',
   },
 };

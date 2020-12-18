@@ -1,0 +1,26 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: //ul[@id="articleList"]//li 
+fields:
+  - name: id
+    xpath: //input[@data-brand]/@id
+    regExp: \d{3,}
+  - name: manufacturer
+    xpath: //input[@data-brand]/@data-brand
+  - name: name
+    singleValue: true
+    xpath: //article//header
+  - name: productUrl
+    xpath: //article/div/a/@href
+    # regExp: (.+)
+    # regExpReplace: https://www.elcorteingles.es$1
+  - name: thumbnail
+    xpath: //div[@class="product-teaser__left"]/img/@src
+  - name: price
+    xpath: //div[@class="pricing__new"]
+  - name: rank
+  - name: rankOrganic
+  - name: sponsored    
+    defaultValue: false
+
