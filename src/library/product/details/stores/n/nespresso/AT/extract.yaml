@@ -1,155 +1,174 @@
-singleRecord: false
+singleRecord: true
 regionsSelector: null
 recordSelector: null
 recordXPath: null
 fields:
   - name: image
-    singleValue: true
-    description: URL of the main product image
+    singleValue: false
+    xpath: //img[@itemprop="image"]/@src
+    regExp: ([^?]+)
+    regExpReplace: https://www.nespresso.com$1   
   - name: imageAlt
-    singleValue: true
+    singleValue: false
     description: Alt text of the main product image
   - name: alternateImages
     singleValue: false
-    description: Other product images (not in manufacturer description)
+    xpath: (//img[@itemprop="image"]/@src)[position()>1]
+    regExp: ([^?]+)
+    regExpReplace: https://www.nespresso.com$1  
   - name: metaKeywords
-    singleValue: true
-    description: The <meta> keywords content
+    singleValue: false
+    xpath: //meta[@name="keywords"]/@content
   - name: category
     singleValue: false
     description: The categories (e.g. from breadcrumbs)
   - name: nameExtended
-    singleValue: true
-    description: The product name, prefixing "${brand} - " if not included in "name"
-      and appending " - ${variantType}" if necessary (fixed per feed)
+    singleValue: false
+    xpath: //div[@itemprop="name"]/text() | //div[@class="ProductDetails__name"]/text()
   - name: listPrice
-    singleValue: true
+    singleValue: false
     description: The stated undiscounted price for the product
   - name: price
-    singleValue: true
-    description: The offered price for the selected product variant - if a user
-      clicks add to basket this is the price they would be charged
+    singleValue: false
+    xpath: //span[@class="ProductDetails__price"]
   - name: availabilityText
-    singleValue: true
-    description: Availability as described on page for the selected variant. If
-      there is no availability but the product can be added to cart, this field
-      should be "In Stock"
+    singleValue: false
+    xpath: //span[contains(text(),"WARENKORB AKTUALISIEREN")] | //span[contains(text(),"IN DEN WARENKORB LEGEN")]
+    # xpath: //span[contains(text(),"NICHT LIEFERBAR")]
     regExp: (.+)
     regExpReplace: In Stock
     defaultValue: Out of Stock
   - name: description
     singleValue: false
-    description: Product description supplied by website - may be concatenanted from
-      multiple places; specifically not the manufacturer description
+    xpath: //div[@itemprop="description"]
+    # xpath: //div[@class="FreeHTML"]/p | //n-pdp-description/@heading | //n-pdp-description/@subheading | //n-pdp-description/@info
   - name: descriptionBullets
-    singleValue: true
-    description: Number of ul > li tags in the description
-    type: NUMBER
+    singleValue: false
+    xpth: count(//h3[contains(.,"Eigenschaften")]/../ul/li)
   - name: brandText
-    singleValue: true
-    description: Product brand shown - this may actually NOT be just a brand name,
-      e.g. "Visit the Gillette Store"
+    singleValue: false
+    xpath: //script[contains(.,"brand") and (contains(.,"currency"))]/text()
+    regExp: brand":"([^"]+)
+    regExpReplace: $1
   - name: manufacturer
-    singleValue: true
+    singleValue: false
     description: Product manufacturer
   - name: quantity
-    singleValue: true
-    description: Quantity as described on the page
-    regExp: (?:\s?([\d\.]+\s?)([bB]ar[s]?|[cC]ount|[cC]t|[fF][lL][\.]?\s?[oO][zZ][\.]?|FO|[mM][lL]|[oO][zZ][\.]?|pc|[pP]int|[pP]ops|qt|[wW]ipe[s]?).?)$|(?:\s?([\d\.]+\s?)([bB]ar[s]?|[cC]ount|[cC]|[fF][lL][\.]?\s?[oO][zZ][\.]?|FO|[mM][lL]|[oO][zZ][\.]?|pc|[pP]int|[pP]ops|qt|[wW]ipe[s]?).?\s?[\&\-\w\s]+)$
-    regExpReplace: $1$2$3$4
+    singleValue: false
+    xpath: //div[@itemprop="name"]/text() 
+    regExp: (([0-9]+)\W+([a-zA-Z]+))
+    #regExpReplace: $1
   - name: weightNet
-    singleValue: true
-    description: Net weight as described on the page
+    singleValue: false
+    xpath: //h4[contains(text(), "NETTOGEWICHT ")]/following::div[1] | //h4[contains(text(), "Nettogewicht")]/following::div[1] 
+  - name: weightNet1
+    singleValue: false
+    xpath: //li[contains(.,"Gewicht")]/text()
+    regExp: :\W+(.+)
+    regExpReplace: $1
   - name: weightGross
-    singleValue: true
+    singleValue: false
     description: Gross weight as described on the page
   - name: gtin
-    singleValue: true
+    singleValue: false
     description: GTIN code (includes UPC/EAN)
   - name: sku
-    singleValue: true
-    description: The store-specific product identifier
+    singleValue: false
+    xpath: //div[@class="ProductDetails"]/../@id
+    # xpath: //script[contains(.,"sku") and (contains(.,"energyProfile"))]/text()
+    # regExp: \d{4,}
+    # regExpReplace: $1
   - name: variantId
-    singleValue: true
-    description: Identifier for a variant from a store where variants share the same sku
+    singleValue: false
+    xpath: //div[@class="ProductDetails"]/../@id
+    # xpath: //script[contains(.,"sku") and (contains(.,"energyProfile"))]/text()
+    # regExp: \d{4,}
+    # regExpReplace: $1
   - name: mpc
-    singleValue: true
-    description: The manufacturer model code (unique) of the product
+    singleValue: false
+    xpath: //div[contains(text(),"Art. Nr.:")]
+    regExp: \d{3,}
   - name: packSize
-    singleValue: true
+    singleValue: false
     description: The number of packs in the product offer (if stated separately on
       the site to quantity)
   - name: legalDisclaimer
-    singleValue: true
+    singleValue: false
     description: Content under "legal disclaimer" header
   - name: directions
-    singleValue: true
+    singleValue: false
     description: Content under "directions" header
   - name: warnings
-    singleValue: true
+    singleValue: false
     description: Content under "warnings" header
   - name: ratingCount
-    singleValue: true
-    description: The number of ratings
-    type: NUMBER
+    singleValue: false
+    xpath: //span[@class="RatingsAndReviewsButton__label"]
+    regExp: \d{1,}
+    # regExpReplace: \d{1,}
   - name: aggregateRatingText
-    singleValue: true
-    description: The stated aggregate rating
+    singleValue: false    
   - name: aggregateRating
-    singleValue: true
-    description: The stated aggregate rating normalized to be out of 5
-    type: NUMBER
+    singleValue: false
+    xpath: //span[@class="RatingsStars__rating-average"] | //meta[@itemprop="reviewCount"]/@content
+    regExpReplace: \d{1,}
   - name: shippingInfo
-    singleValue: true
+    singleValue: false
     description: Shipping information for the product
   - name: shippingDimensions
-    singleValue: true
-    description: Stated shipping dimensions
+    singleValue: false
+    xpath: //li[contains(.,"Abmessungen:")]/text()
+    regExp: :\W+(.+)
+    regExpReplace: $1
   - name: shippingWeight
-    singleValue: true
+    singleValue: false
     description: Stated shipping weight
   - name: variantCount
-    singleValue: true
-    description: Number of variants listed
-    type: NUMBER
+    singleValue: false
+    #xpath: count(//div[@class="ProductDetailsColorSwitcher"]/ul/li)
   - name: color
-    singleValue: true
-    description: A textual description of the colour
+    singleValue: false
+    xpath: //div[@class="ProductDetailsColorSwitcher"]/ul/li
   - name: colorCode
-    singleValue: true
+    singleValue: false
     description: A code description of the color (e.g. RGB hex)
   - name: manufacturerDescription
     singleValue: false
     description: The extended description of the product supplied by the lister
   - name: manufacturerImages
     singleValue: false
-    description: Images within the third party description
+    xpath: //div[@class="c-pdp-banner"]/img/@src
+  - name: manufacturerImages1
+    singleValue: false
+    xpath: //h3[contains(.,"Eigenschaften")]/../ul/li/img/@src
+    regExp: (.+)
+    regExpReplace: https://www.nespresso.com$1  
   - name: videos
     singleValue: false
     description: URLs of videos on page
   - name: name
-    singleValue: true
-    description: The product name
+    singleValue: false
+    xpath: //div[@itemprop="name"]/text() | //div[@class="ProductDetails__name"]/text()
   - name: inStorePrice
-    singleValue: true
+    singleValue: false
     description: Price in the selected store
   - name: asin
-    singleValue: true
+    singleValue: false
     description: null
   - name: coupon
-    singleValue: true
+    singleValue: false
     description: Text of any coupon offer
   - name: amazonChoice
-    singleValue: true
+    singleValue: false
     description: YES or Blank
   - name: amazonChoiceCategory
-    singleValue: true
+    singleValue: false
     description: Text of link next to Amazon choice graphic
   - name: brandLink
-    singleValue: true
+    singleValue: false
     description: null
   - name: internationalShipping
-    singleValue: true
+    singleValue: false
     description: Text next to bullet point
   - name: salesRank
     singleValue: false
@@ -160,50 +179,50 @@ fields:
     description: Amazon best selling rank from product details (linked back) - needs
       to be collapsed
   - name: subscriptionPrice
-    singleValue: true
+    singleValue: false
     description: Subscribe and save price
   - name: subscribeAndSave
-    singleValue: true
+    singleValue: false
     description: YES/NO
   - name: heroQuickPromoHeadline
-    singleValue: true
+    singleValue: false
     description: See image - top section hero area
   - name: heroQuickPromoImageUrl
-    singleValue: true
+    singleValue: false
     description: null
   - name: heroQuickPromoUrl
-    singleValue: true
+    singleValue: false
     description: null
   - name: pasin
-    singleValue: true
+    singleValue: false
     description: Parent asin
   - name: videoLength
     singleValue: false
     description: null
   - name: ingredientImagePresent
-    singleValue: true
+    singleValue: false
     description: null
   - name: factImagePresent
-    singleValue: true
+    singleValue: false
     description: null
   - name: largeImageCount
-    singleValue: true
+    singleValue: false
     description: null
     type: NUMBER
   - name: variantAsins
-    singleValue: true
+    singleValue: false
     description: null
   - name: primeFlag
-    singleValue: true
+    singleValue: false
     description: null
   - name: lbb
-    singleValue: true
+    singleValue: false
     description: Check Lost by Box Requirements (just for Amazon and a couple of
       other stores) - LBB occurs when a product is bought from someone other
       than Amazon (on Amazon Website) - even though Amazon has the product "in
       Stock"
   - name: lbbPrice
-    singleValue: true
+    singleValue: false
     description: null
   - name: featureBullets
     singleValue: false
@@ -218,279 +237,276 @@ fields:
     singleValue: false
     description: null
   - name: secondaryImageTotal
-    singleValue: true
-    description: null
-    type: NUMBER
+    singleValue: false
+    xpath: count((//img[@itemprop="image"]/@src)[position()>1])
   - name: news
-    singleValue: true
+    singleValue: false
     description: null
   - name: addonItem
-    singleValue: true
+    singleValue: false
     description: null
   - name: fastTrack
-    singleValue: true
+    singleValue: false
     description: null
   - name: ingredientsList
-    singleValue: true
-    description: List of Ingredients from site - can be string of data if no
-      discernible start/end point
+    singleValue: false
+    xpath: //button[contains(text(), "INHALTSSTOFFE UND ALLERGENE")]/following-sibling::div/div[1]/text() | //div[contains(text(), "INHALTSSTOFFE UND ALLERGENE")]/../following-sibling::div//b/text()
   - name: servingSize
-    singleValue: true
+    singleValue: false
     description: The size of serving Nutritional information is based on.
   - name: servingSizeUom
-    singleValue: true
+    singleValue: false
     description: Unit of measure of serving
   - name: numberOfServingsInPackage
-    singleValue: true
+    singleValue: false
     description: Suggested number of servings of the product.
     type: NUMBER
   - name: caloriesPerServing
-    singleValue: true
+    singleValue: false
     description: Nutritional Information for Calories Per Serving content - Usually
       based on per 100g serving
   - name: caloriesFromFatPerServing
-    singleValue: true
+    singleValue: false
     description: Nutritional Information for Calories From Fat content - Usually
       based on per 100g serving
     type: NUMBER
   - name: totalFatPerServing
-    singleValue: true
+    singleValue: false
     description: Nutritional Information for Total Fat content - Usually based on
       per 100g serving
     type: NUMBER
   - name: totalFatPerServingUom
-    singleValue: true
+    singleValue: false
     description: Unit of Measure Data for Total Fat content
   - name: saturatedFatPerServing
-    singleValue: true
+    singleValue: false
     description: Nutritional Information for Saturated Fat content - Usually based
       on per 100g serving
     type: NUMBER
   - name: saturatedFatPerServingUom
-    singleValue: true
+    singleValue: false
     description: Unit of Measure Data for Saturated Fat content
   - name: transFatPerServing
-    singleValue: true
+    singleValue: false
     description: Nutritional Information for Trans Fat content - Usually based on
       per 100g serving
     type: NUMBER
   - name: transFatPerServingUom
-    singleValue: true
+    singleValue: false
     description: Unit of Measure Data for Trans Fat content
   - name: cholesterolPerServing
-    singleValue: true
+    singleValue: false
     description: Nutritional Information for Cholesterol content - Usually based on
       per 100g serving
     type: NUMBER
   - name: cholesterolPerServingUom
-    singleValue: true
+    singleValue: false
     description: Unit of Measure Data for Cholesterol content
   - name: sodiumPerServing
-    singleValue: true
+    singleValue: false
     description: Nutritional Information for Sodium content - Usually based on per
       100g serving
     type: NUMBER
   - name: sodiumPerServingUom
-    singleValue: true
+    singleValue: false
     description: Unit of Measure Data for Sodium content
   - name: totalCarbPerServing
-    singleValue: true
+    singleValue: false
     description: Nutritional Information for Total Carbohydrate content - Usually
       based on per 100g serving
     type: NUMBER
   - name: totalCarbPerServingUom
-    singleValue: true
+    singleValue: false
     description: Unit of Measure Data for Total Carbohydrate content
   - name: dietaryFibrePerServing
-    singleValue: true
+    singleValue: false
     description: Nutritional Information for Dietary Fibre content - Usually based
       on per 100g serving
     type: NUMBER
   - name: dietaryFibrePerServingUom
-    singleValue: true
+    singleValue: false
     description: Unit of Measure Data for Dietary Fibre content
   - name: totalSugarsPerServing
-    singleValue: true
+    singleValue: false
     description: Nutritional Information for Total Sugar content - Usually based on
       per 100g serving
     type: NUMBER
   - name: totalSugarsPerServingUom
-    singleValue: true
+    singleValue: false
     description: Unit of Measure Data for Total Sugar content
   - name: proteinPerServing
-    singleValue: true
+    singleValue: false
     description: Nutritional Information for Protein content - Usually based on per
       100g serving
     type: NUMBER
   - name: proteinPerServingUom
-    singleValue: true
+    singleValue: false
     description: Unit of Measure Data for Protein
   - name: vitaminAPerServing
-    singleValue: true
+    singleValue: false
     description: Nutritional Information for Vitamin A content - Usually based on
       per 100g serving
     type: NUMBER
   - name: vitaminAPerServingUom
-    singleValue: true
+    singleValue: false
     description: Unit of Measure Data for Vitamin A
   - name: vitaminCPerServing
-    singleValue: true
+    singleValue: false
     description: Nutritional Information for Vitamin C content - Usually based on
       per 100g serving
     type: NUMBER
   - name: vitaminCPerServingUom
-    singleValue: true
+    singleValue: false
     description: Unit of Measure Data for Vitamin C
   - name: calciumPerServing
-    singleValue: true
+    singleValue: false
     description: Nutritional Information for Calcium content - Usually based on per
       100g serving
     type: NUMBER
   - name: calciumPerServingUom
-    singleValue: true
+    singleValue: false
     description: Unit of Measure Data for Calcium
   - name: ironPerServing
-    singleValue: true
+    singleValue: false
     description: Nutritional Information for Iron content - Usually based on per
       100g serving
     type: NUMBER
   - name: ironPerServingUom
-    singleValue: true
+    singleValue: false
     description: Unit of Measure Data for Iron
   - name: dietarySymbols
-    singleValue: true
+    singleValue: false
     description: Information related to the dietary symbols of a specific product
   - name: magnesiumPerServing
-    singleValue: true
+    singleValue: false
     description: Nutritional Information for Magnesium content - Usually based on
       per 100g serving
     type: NUMBER
   - name: magnesiumPerServingUom
-    singleValue: true
+    singleValue: false
     description: Unit of Measure Data for Magnesium
   - name: saltPerServing
-    singleValue: true
+    singleValue: false
     description: Nutritional Information for Salt content - Usually based on per
       100g serving
     type: NUMBER
   - name: saltPerServingUom
-    singleValue: true
+    singleValue: false
     description: Unit of Measure Data for Salt
   - name: dietaryInformation
-    singleValue: true
+    singleValue: false
     description: null
   - name: specifications
-    singleValue: true
-    description: The physical dimensions of the product including packaging.
+    singleValue: false
+    xpath: //ul[@class="ProductDetailsBodyInformation__specifications-list"]/li
   - name: warranty
-    singleValue: true
-    description: Guarantee associated with the product
+    singleValue: false
+    xpath: //li[contains(.,"Garantie")]/text()
+    regExp: :\W+(.+)
+    regExpReplace: $1
   - name: storage
-    singleValue: true
+    singleValue: false
     description: Suggested storage location for product
   - name: countryOfOrigin
-    singleValue: true
-    description: The country from which the product originates
+    singleValue: false
+    xpath: //button[contains(text(),"RÖSTUNG")]/following-sibling::div/div[1] | //h4[contains(text(), "HERGESTELLT")]/text()
+    #  regExp: \b(\w+)$
   - name: allergyAdvice
-    singleValue: true
-    description: Allergy information associated with the product
+    singleValue: false
+    xpath: //button[contains(text(), "INHALTSSTOFFE UND ALLERGENE")]//../following-sibling::div//h4[text()="Zutaten & Allergene"]/text() | //button[contains(text(), "INHALTSSTOFFE UND ALLERGENE")]//../following-sibling::div//b/text()
   - name: recyclingInformation
-    singleValue: true
-    description: Recycling information associated with the product
+    singleValue: false
+    xpath: //button[contains(text(),"RECYCLING")]/following-sibling::div[1]
   - name: productOtherInformation
     singleValue: false
     description: Any other product information
   - name: packaging
-    singleValue: true
+    singleValue: false
     description: Packaging information
   - name: additives
-    singleValue: true
+    singleValue: false
     description: List of additives in the product
   - name: pricePerUnit
-    singleValue: true
+    singleValue: false
     description: Price of the product split into certain units
   - name: pricePerUnitUom
-    singleValue: true
+    singleValue: false
     description: The unit of measurement used in price_per_unit
   - name: promotion
-    singleValue: true
+    singleValue: false
     description: promotion text on product page
   - name: alcoholContent
-    singleValue: true
+    singleValue: false
     description: Alcohol content information
   - name: newVersion
-    singleValue: true
+    singleValue: false
     description: In product page, information about a new version of the product
       (https://www.amazon.es/DODOT-Sensitive-Pa%C3%B1ales-Talla-240/dp/B01ELA8U0Q/ref=sr_1_4?__mk_es_ES=%C3%85M%C3%85%C5%BD%C3%95%C3%91&dchild=1&keywords=dodot%2B-%2Bpa%C3%B1ales%2Bpara%2Bni&qid=1589984387&sr=8-4&th=1)
   - name: newAsin
-    singleValue: true
+    singleValue: false
     description: In product page, information about a new version of the product -
       new asin info
   - name: newDescription
-    singleValue: true
+    singleValue: false
     description: In product page, information about a new version of the product -
       new desription info
   - name: variantInformation
-    singleValue: true
-    description: colour / scent / flavour / other
+    singleValue: false
+    xpath: //div[@class="ProductDetailsColorSwitcher__title"]
   - name: firstVariant
-    singleValue: true
-    description: Unique identifier for a collection of variants. For a subset of
-      core feeds (43) we have a column "first_variant" that is populated with a
-      common code to link all variants for a product. method 1 (Preferred) = use
-      common tag (Could be parent sku) that is same value for all variants of a
-      product. method 2 = first_variant method technique, Identify the first
-      varient in the sequence and use this rpc to populate "first_variant" for
-      all variants of a product, this rpc becomes the common link between other
-      variants. method 3 = apply some logic to determine link between variants,
-      this will need analysis
+    singleValue: false
+    xpath: //ul[@class="ProductDetailsColorSwitcher__color-list"]/li[1]/a/span
   - name: variants
     singleValue: false
-    description: null
+    xpath: //ul[@class="ProductDetailsColorSwitcher__color-list"]/li/a/span
   - name: additionalDescBulletInfo
     singleValue: false
-    description: null
+    xpath: //h3[contains(.,"Eigenschaften")]/../ul/li//text()
   - name: prop65Warning
-    singleValue: true
+    singleValue: false
     description: null
   - name: ageSuitability
-    singleValue: true
+    singleValue: false
     description: Recommended age displayed on the product page.
       https://www.amazon.com/LEGO-Classic-Medium-Creative-Brick/dp/B00NHQFA1I
     example: 4 - 99 years
   - name: energyEfficiency
-    singleValue: true
-    description: Energy rating of a product.
-      https://www.amazon.de/Siemens-WM16W541-Waschmaschine-Schnellwaschprogramm-Nachlegefunktion/dp/B015FJFK14
-    example: A+, A+++, B
+    singleValue: false
+    xpath: //a[@data-energy-labe-src]/text()  | //a[@class="label__energy label__energy--a energyPopup-trigger"]/text()
+  - name: energyEfficiency1
+    singleValue: false
+    xpath: //script[contains(.,"sku") and (contains(.,"energyProfile"))]/text()
+    regExp: energyProfile\W+([^"]+)
+    regExpReplace: $1   
   - name: technicalInformationPdfPresent
-    singleValue: true
-    description: If there is for example a manual in pdf format on the website. ['Yes','No']
-    example: https://www.amazon.de/Hasbro-Spiele-44220100-Mastermind-Kinderspiel/dp/B0007OHUG6
+    singleValue: false
+    xpath: //span[contains(text(),"Download user manual in pdf")] | //span[contains(text(),"Bedienungsanleitung ")]/../@href
+    regExp: (.+)
+    regExpReplace: Yes
     defaultValue: No
   - name: termsAndConditions
-    singleValue: true
+    singleValue: false
     description: Terms and conditions information text ['Yes','No']
     defaultValue: No
   - name: privacyPolicy
-    singleValue: true
+    singleValue: false
     description: Privacy Policy information text ['Yes','No']
     defaultValue: No
   - name: customerServiceAvailability
-    singleValue: true
+    singleValue: false
     description: Information related to customer service availability (text), ['Yes','No']
-    defaultValue: No
+    defaultValue: Yes
   - name: materials
-    singleValue: true
+    singleValue: false
     description: Materials used to make the product
     example: https://www.jdsports.co.uk/product/blue-adidas-linear-20-reversible-wind-breaker-jacket/15988125/
   - name: Image360Present
-    singleValue: true
+    singleValue: false
     description: If 360 image is present in the carousel ['Yes','No']
     example: https://www.amazon.com/Trinsic-Single-Handle-Magnetic-Champagne-9159-CZ-DST/dp/B0050EN8E6
     defaultValue: No
   - name: imageZoomFeaturePresent
-    singleValue: true
+    singleValue: false
     description: If Zoom feature is available for Main image or images in the
       carousel,['Yes','No']
     example: https://www.zalando.de/adidas-neo-sneaker-low-blackwhite-a4315i002-q11.html
