@@ -162,6 +162,60 @@ module.exports = {
         }
       }
     });
+    const prodUrl = await context.evaluate(async function () {
+      return document.URL;
+    });
+    const iframeLink = await context.evaluate(async function () {
+      let iframeUrl = null;
+      if (document.querySelector('iframe[id*="eky-dyson-iframe"]')) {
+        iframeUrl = document.querySelector('iframe[id*="eky-dyson-iframe"]').getAttribute('src');
+        return iframeUrl;
+      }
+      if (document.querySelector('iframe[id*="flix-iframe0"]')) {
+        iframeUrl = document.querySelector('iframe[id*="flix-iframe0"]').getAttribute('src');
+        return iframeUrl;
+      }
+      return iframeUrl;
+    });
+    if (iframeLink !== null) await context.goto(iframeLink, { timeout: 5000, waitUntil: 'load', checkBlocked: true });
+    let inTheBoxContent = await context.evaluate(async function () {
+      let inTheBoxText = ''; let inTheBoxUrls = '';
+      if (document.querySelectorAll('div[class*="tools-included-section"] div[class*="overlay-text"]')) {
+        const inBoxTexts = document.querySelectorAll('div[class*="tools-included-section"] div[class*="overlay-text"]');
+        for (let i = 0; i < inBoxTexts.length; i++) inTheBoxText += inBoxTexts[i].innerText + ' || ';
+      }
+      if (document.querySelectorAll('div[class*="tools-included-section"] div[class*="video-container"] video')) {
+        const videosList = document.querySelectorAll('div[class*="tools-included-section"] div[class*="video-container"]  video');
+        for (let i = 0; i < videosList.length; i++) inTheBoxUrls += 'http://media.flixfacts.com/eyekandy/dyson/v11/en/' + videosList[i].getAttribute('src') + ' || ';
+      }
+      inTheBoxContent = { inTheBoxText, inTheBoxUrls };
+      return inTheBoxContent;
+    });
+    await context.goto(prodUrl, { timeout: 10000, waitUntil: 'load', checkBlocked: true });
+    await context.evaluate(async function (inTheBoxContent) {
+      function addElementToDocument (key, value) {
+        const catElement = document.createElement('div');
+        catElement.id = key;
+        catElement.textContent = value;
+        catElement.style.display = 'none';
+        document.body.appendChild(catElement);
+      }
+      console.log(inTheBoxContent + ' is content inside');
+      if (inTheBoxContent != null) {
+        addElementToDocument('inBoxText', inTheBoxContent.inTheBoxText);
+        addElementToDocument('inBoxUrl', inTheBoxContent.inTheBoxUrls);
+      }
+      let mainPageImages = null;
+      if (document.querySelectorAll('div[class*="InTheBox"] img')) {
+        let mainPageImage = '';
+        mainPageImages = document.querySelectorAll('div[class*="InTheBox"] img');
+        for (let i = 0; i < mainPageImages.length; i++) {
+          const imageUrl = mainPageImages[i].getAttribute('srcset');
+          mainPageImage += imageUrl + ' || ';
+        }
+        if (mainPageImage.length !== 0) addElementToDocument('inBoxUrl', mainPageImage);
+      }
+    }, inTheBoxContent);
     await context.extract(productDetails, { transform: transformParam });
   },
 };

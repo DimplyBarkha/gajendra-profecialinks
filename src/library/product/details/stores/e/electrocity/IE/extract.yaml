@@ -528,11 +528,13 @@ fields:
     singleValue: true
     xpath: //meta[@property='og:url']/@content
   - name: inTheBoxUrl
-    xpath: //div[contains(@class,'InTheBox')]//img/@src
-    regExp: (.+)
-    regExpReplace: https:$1
+    # xpath: //div[contains(@class,'InTheBox')]//img/@src
+    xpath: //div[@id='inBoxUrl']/text()
+    # regExp: (.+)
+    # regExpReplace: https:$1
   - name: inTheBoxText
-    xpath: //div[contains(@class,'InTheBox')]//span|//tr[contains(@class,'in the box')]//td//text()|//tr[contains(@class,'Attachments Included')]//td//text()
+    # xpath: //div[contains(@class,'InTheBox')]//span|//tr[contains(@class,'in the box')]//td//text()|//tr[contains(@class,'Attachments Included')]//td//text()
+    xpath: //div[contains(@class,'InTheBox')]//span|//tr[contains(@class,'in the box')]//td//text()|//tr[contains(@class,'Attachments Included')]//td//text()|//div[@id='inBoxText']/text()
   - name: hasComparisonTable
     singleValue: true
     xpath: //li[contains(@class,"flix-comp-item")]
