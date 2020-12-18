@@ -115,7 +115,7 @@ fields:
   - name: sku
     singleValue: false
     # xpath: //script[@type="application/ld+json"][contains(text(),"sku")]
-    xpath: (//input[@name="id"]/@value)[1]
+    xpath: (//form[@name="ReportActionForm"]/input[@name="returnUrl"]/@value)[1]
     # regExp: sku":"([^"]+)
     # regExpReplace: $1
   - name: videos
