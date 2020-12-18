@@ -4,7 +4,7 @@ module.exports = {
   parameterValues: {
     domain: 'lyreco.com',
     prefix: null,
-    suffix: null,
+    suffix: 'webshop/ENEN/',
     subdomain: null,
     url: null,
     country: 'UK',
