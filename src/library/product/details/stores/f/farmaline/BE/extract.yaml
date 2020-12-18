@@ -42,3 +42,6 @@ fields:
   - name: description
     singleValue: true
     xpath: //section[contains(@class,"product-detail-content-grid")]/div/div[contains(@class, 'mb-3')]
+  - name: url
+    singleValue: true
+    xpath: //meta[contains(@property, "og:url")]/@content
