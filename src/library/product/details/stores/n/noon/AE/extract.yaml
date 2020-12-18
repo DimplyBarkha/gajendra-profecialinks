@@ -127,3 +127,6 @@ fields:
   - name: ingredientsList
     singleValue: false
     xpath: //tr[contains(.,"Ingredient")]//td[position()>1]
+  - name: descriptionBullets
+    singleValue: false
+    xpath: //div[@id='descriptionBulletCount']/text()
