@@ -9,7 +9,7 @@ module.exports = {
     loggedInSelector: '.css-mtzz8n',
     country: 'US',
     store: 'instacart_publix',
-    zipcode: '',
+    zipcode: '#address_line_1',
   },
   implementation: async function (
     inputs,
@@ -18,9 +18,12 @@ module.exports = {
     dependencies,
   ) {
     const { username, password } = inputs;
-    const { usernameSelector, passwordSelector, buttonSelector, loggedInSelector } = parameters;
+    const { usernameSelector, passwordSelector, buttonSelector, loggedInSelector, zipcode } = parameters;
+    // await context.setInputValue(zipcode, '33770');
+    // await context.click('.rmq-a5d52242 div+ div button');
+    // await context.waitForNavigation({ timeout: 50000, waitUntil: 'load' });
     // alert("username "+username);
-    await context.click('button[type="button"]');
+    await context.click('.rmq-e4836a4c button');
     // console.log("button clicked");
     await context.waitForNavigation({ timeout: 50000, waitUntil: 'load' });
     var userName = username.value;
@@ -39,6 +42,7 @@ module.exports = {
     await context.waitForNavigation({ timeout: 200000, waitUntil: 'load' });
     await context.click('button[type="submit"]');
     await context.waitForNavigation({ timeout: 50000, waitUntil: 'load' });
+    context.solveCaptcha('input#recaptcha-token');
     await context.evaluate(function () {
       document.forms[0].submit();
     });
