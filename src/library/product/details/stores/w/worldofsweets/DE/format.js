@@ -48,6 +48,25 @@ const transform = (data) => {
           item.text = item.text.replace(/(\s*\n\s*)+/g, ' ').trim();
         });
       }
+      if (row.availabilityText){
+        row.availabilityText.forEach(item => {
+
+      // if(true){
+        item.text="In Stock"
+
+      });
+    }
+    else {
+row.availabilityText.forEach(item => {
+
+      // if(true){
+        item.text="Out of Stock"
+
+      });
+
+    }
+
+
       if (row.productUrl) {
         row.productUrl.forEach(item => {
           item.text = 'https://www.worldofsweets.de/' + item.text
