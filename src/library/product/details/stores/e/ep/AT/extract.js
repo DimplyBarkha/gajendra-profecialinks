@@ -20,6 +20,19 @@ async function implementation (
     console.log('No cookies pop-up.');
   }
 
+  async function scrollToRec (node) {
+    await context.evaluate(async (node) => {
+      const element = document.querySelector(node) || null;
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth', block: 'end', inline: 'nearest' });
+        await new Promise((resolve) => {
+          setTimeout(resolve, 5000);
+        });
+      }
+    }, node);
+  }
+  await scrollToRec('footer, div.footer-component');
+
   await context.evaluate(async function () {
     function addHiddenDiv (id, content) {
       const newDiv = document.createElement('div');
