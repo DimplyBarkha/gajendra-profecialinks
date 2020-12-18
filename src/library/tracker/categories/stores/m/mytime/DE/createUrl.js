@@ -2,7 +2,7 @@
 module.exports = {
   implements: 'tracker/categories/createUrl',
   parameterValues: {
-    domain: 'mytime.de',
+    domain: 'www.mytime.de',
     prefix: null,
     suffix: null,
     subdomain: null,

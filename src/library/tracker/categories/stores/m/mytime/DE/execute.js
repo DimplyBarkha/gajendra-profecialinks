@@ -5,7 +5,7 @@ module.exports = {
     country: 'DE',
     store: 'mytime',
     domain: 'mytime.de',
-    loadedSelector: null,
+    loadedSelector: 'ul.nav-cats.nav-cats--lvl-0',
     noResultsXPath: null,
     zipcode: '',
   },
