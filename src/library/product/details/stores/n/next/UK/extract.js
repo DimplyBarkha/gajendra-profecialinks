@@ -10,7 +10,6 @@ module.exports = {
     zipcode: '',
   },
   implementation: async ({ inputString }, { country, domain, transform }, context, { productDetails }) => {
-
     const dataConversion = (data) => {
       for (let k = 0; k < data.length; k++) {
         for (let i = 0; i < data[k].group.length; i++) {
@@ -32,7 +31,7 @@ module.exports = {
     };
     await new Promise((resolve) => setTimeout(resolve, 2000));
     await context.evaluate(async function () {
-      //remove popups
+      // remove popups
       if (document.querySelector('div[class="lightbox_background"]') !== null) {
         document.querySelector('div[class="countrySelector"]').remove();
         document.querySelector('div[class="lightbox_background"]').remove();
@@ -53,14 +52,11 @@ module.exports = {
         document.body.appendChild(element);
       }
     });
-    const variants = await context.evaluate(() => {
-      return document.querySelectorAll('div.colourList > div > ul > li > a').length});
-      console.log(variants);
+    const variants = await context.evaluate(() => { return document.querySelectorAll('div.colourList > div > ul > li > a').length });
     if (variants !== 0) {
       for (let i = 0; i < variants; i++) {
         await context.evaluate((i) => {
           document.querySelectorAll('div.colourList > div > ul > li > a')[i].click();
-          console.log(i);
         }, i);
         // wait for extraction
         await new Promise((resolve, reject) => setTimeout(resolve, 3000));
