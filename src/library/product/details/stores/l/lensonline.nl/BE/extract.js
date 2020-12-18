@@ -59,22 +59,27 @@ async function implementation(
     } catch (error) {
 
     }
-    var description = getAllXpath("//div[@itemprop='description']/text() | //div[@id='descr']/div/p//text() | //div[@id='descr']/div/h2/text() | //div[@id='descr']/div/ul/li/text()", 'nodeValue');
-    var finalDescription = [];
-    for (let p = 0; p < description.length; p++) {
-      if (description[p].trim().length > 2) {
-        finalDescription.push(description[p]);
-      }
-    }
-    pipeSeparatorSingle('description', finalDescription);
-
-    var specifications = [];
-    const rawSpecifications = document.querySelectorAll('table[class="product_attributes"]>tbody>tr');
-    for (let p = 0; p < rawSpecifications.length; p++) {
+    try {
       // @ts-ignore
-      specifications.push(rawSpecifications[p].innerText);
+      var description = document.querySelector('div[id="descr"]').innerText;
+      description = description.replace('Omschrijving', '');
+      addHiddenDiv('description', description, 0);
+    } catch (error) {
+
     }
-    pipeSeparatorDouble('specifications', specifications);
+
+    try {
+      var specifications = [];
+      const rawSpecifications = document.querySelectorAll('table[class="product_attributes"]>tbody>tr');
+      for (let p = 0; p < rawSpecifications.length; p++) {
+        // @ts-ignore
+        specifications.push(rawSpecifications[p].innerText);
+      }
+      pipeSeparatorDouble('specifications', specifications);
+    } catch (error) {
+
+    }
+
 
     const addDescBulletInfo = getAllXpath("//div[@id='descr']/div/ul/li/text()", 'nodeValue');
     var finaladdDescription = [];
@@ -85,6 +90,15 @@ async function implementation(
     }
     var finaladdDescBulletInfo = pipeSeparatorDouble2(finaladdDescription);
     addHiddenDiv('addDescBulletInfo', '||' + finaladdDescBulletInfo, 0);
+    try {
+      // @ts-ignore
+      let servingPackage = document.querySelector('h1[class="product_name"] span').innerText;
+      servingPackage = servingPackage.replace('ml', '');
+      servingPackage = servingPackage.replace('lenzen', '');
+      addHiddenDiv('servingPackage', servingPackage, 0);
+    } catch (error) {
+
+    }
   });
   return await context.extract(productDetails, { transform });
 }

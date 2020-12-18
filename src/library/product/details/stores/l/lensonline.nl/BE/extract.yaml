@@ -11,7 +11,7 @@ fields:
     xpath: (//img[@itemprop="image"])[1]/@alt
   - name: category
     singleValue: false
-    xpath: //div[@class="breadcrumb"]/span[position() != last()]/a/span[not(contains(text(),'LensOnline.nl'))]
+    xpath: //span[@itemprop="itemListElement"]/a/span[not(contains(text(),'LensOnline'))]
   - name: nameExtended
     singleValue: true
     xpath: //h1[@itemprop="name"]
@@ -23,7 +23,7 @@ fields:
     singleValue: true
     regExp: (.+)
     regExpReplace: In Stock
-    defaultValue: Out of Stock
+    defaultValue: Out Of Stock
     xpath: //link[@itemprop="availability"]/@href
   - name: description
     singleValue: false
@@ -101,3 +101,9 @@ fields:
   - name: videos
     singleValue: false
     xpath: //div[@class="video-container"]/iframe/@src
+  - name: secondaryImageTotal
+    singleValue: true
+    defaultValue: '0'
+  - name: numberOfServingsInPackage
+    singleValue: true
+    xpath: //html//div[@id='servingPackage']
