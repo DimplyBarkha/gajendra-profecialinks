@@ -3,36 +3,28 @@ regionsSelector: null
 recordSelector: null
 recordXPath: null
 fields: 
-  - name: thumbnail
-    singlevalue: false
-    xpath: //img[@class="epoq_prodimg"]/@src
-  - name: name
-    singlevalue: false
-    xpath: //div[@class="epoq_title o-producttile__copy2"]/text()
-  - name: manufacturer
-    singlevalue: false
-    xpath: //div[@class="epoq_title o-producttile__title js-product-title"]/text()
-  - name: price
-    singlevalue: false
-    xpath: //span[@class="m-productpricev-2__price"]
-  - name: aggregateRating
-    singlevalue: false
-    xpath: //span[@class="bv-rating"]//span[@aria-hidden="true"]/text()
   - name: id
     singlevalue: false
-    xpath: //div[@class="o-producttile__reviews epoq_rating"]/@data-pid
+    xpath: //html//div[@id='id']
+  - name: thumbnail
+    singlevalue: false
+    xpath: //html//div[@id='image']
+  - name: name
+    singlevalue: false
+    xpath: //html//div[@id='name']
+  - name: price
+    singlevalue: false
+    xpath: //html//div[@id='price']
+  - name: aggregateRating
+    singlevalue: false
+    xpath: //html//div[@id='rating']
   - name: productUrl
     singlevalue: false
-    xpath: //div[@class="epoq_resultrow epoq_grid o-producttile js-product-tile"]/a/@href
-  - name: url
+    xpath: //html//div[@id='productURL']
+  - name: searchUrl
     singlevalue: true
-    xpath: //ul//li[@class="epoq_sort_down active"]//a[@class="sort-select js-sort"]/@href
-  # - name: rankOrganic
-  #   singleValue: false
-  #   xpath: //div[@id="rankOrganic"]/text()
-  # - name: rank
-  #   singleValue: false
-  #   xpath: //div[@id="rankOrganic"]/text()
+    xpath: ancestor::html//div[@id='added-searchurl']
+
 
 
 

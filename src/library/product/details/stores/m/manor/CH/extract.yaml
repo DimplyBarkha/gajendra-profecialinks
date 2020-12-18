@@ -10,7 +10,7 @@ fields:
     singleValue: false
     regExp: (productimages/.*)
     regExpReplace: https://www.manor.ch/$1
-    xpath: (//div[@class="slick-track"]//img[1]/@src)[1]
+    xpath: //html//div[@id='Images']
   - name: imageAlt
     singleValue: false
     xpath: (//div[@class="slick-track"]//img[1]/@alt)[1]
@@ -18,7 +18,7 @@ fields:
     singleValue: false
     regExp: (productimages/.*)
     regExpReplace: https://www.manor.ch/$1
-    xpath: //div[@class="slick-list draggable"]/div/a[@class="m-productgallery__bigimage js-gallery-bigimage slick-slide"]/@data-zoom-image
+    xpath: //html//div[@id='alternateImages']
   - name: metaKeywords
     singleValue: false
     xpath: //meta[@name='keywords'] 
@@ -27,14 +27,16 @@ fields:
     xpath: //div[@data-t-name='Breadcrumb']/a
   - name: description
     singleValue: false
-    xpath: //div[@class='m-productdescription__description js-desc']
+    xpath: //html//div[@id='desc']
   - name: color
     singleValue: false
     xpath: //span[@class='m-productcolorselect-v-2__selector-title']
   - name: availabilityText
     singleValue: false
-    defaultValue: 'In Stock'
-    xpath: //span[contains(@class,'m-addtocart__available__info')]
+    regExp: (.+)
+    regExpReplace: In Stock
+    defaultValue: Out of Stock
+    xpath: //form[@id="addToCartForm"]
   - name: ratingCount
     singleValue: false
     xpath: //span[@itemprop='reviewCount']
@@ -93,29 +95,22 @@ fields:
     xpath: //html//div[@id='gtin']
   - name: technicalInformationPdfPresent
     singleValue: true
-    description: If there is for example a manual in pdf format on the website. ['Yes','No']
-    example: https://www.amazon.de/Hasbro-Spiele-44220100-Mastermind-Kinderspiel/dp/B0007OHUG6
     defaultValue: No
   - name: termsAndConditions
     singleValue: true
-    description: Terms and conditions information text ['Yes','No']
     defaultValue: No
   - name: privacyPolicy
     singleValue: true
-    description: Privacy Policy information text ['Yes','No']
     defaultValue: No
   - name: customerServiceAvailability
     singleValue: true
-    description: Information related to customer service availability (text), ['Yes','No']
     defaultValue: No
   - name: Image360Present
     singleValue: true
-    description: If 360 image is present in the carousel ['Yes','No']
-    example: https://www.amazon.com/Trinsic-Single-Handle-Magnetic-Champagne-9159-CZ-DST/dp/B0050EN8E6
     defaultValue: No
   - name: imageZoomFeaturePresent
     singleValue: true
-    description: If Zoom feature is available for Main image or images in the
-      carousel,['Yes','No']
-    example: https://www.zalando.de/adidas-neo-sneaker-low-blackwhite-a4315i002-q11.html
     defaultValue: Yes
+  - name: quantity
+    singleValue: true
+    xpath: //html//div[@id='size']
