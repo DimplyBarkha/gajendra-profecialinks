@@ -1,8 +1,13 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: //div[@class='ais-infinite-hits--item']
+# recordXPath: //div[@class='ais-infinite-hits--item']
+recordXPath: //div[@id='my-urls']
 fields:
   - name: productUrl
     description: The title of the review
-    xpath: //div[@class='ais-infinite-hits--item']//p[@class='ais-hit--title']//a/@href
+    # xpath: //div[@class='ais-infinite-hits--item']//p[@class='ais-hit--title']//a/@href
+    xpath: //div[@id='my-urls']
+    regExp: >-
+      (.+)
+    regExpReplace: https://vapordna.com$1
