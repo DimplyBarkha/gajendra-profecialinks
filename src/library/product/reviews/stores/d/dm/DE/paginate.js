@@ -5,7 +5,7 @@ module.exports = {
     template: null,
     country: 'DE',
     store: 'dm',
-    // nextLinkSelector: 'li.bv-content-pagination-buttons-item-next a',
+    // nextLinkSelector: 'button.bv-content-btn-pages-active',
     nextLinkXpath: null,
     mutationSelector: null,
     spinnerSelector: null,
