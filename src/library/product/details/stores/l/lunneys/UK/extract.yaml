@@ -520,7 +520,7 @@ fields:
     example: https://www.zalando.de/adidas-neo-sneaker-low-blackwhite-a4315i002-q11.html
     defaultValue: No
   - name: inTheBoxUrl
-    xpath: //div[contains(@class,'InTheBox')]//img/@src
+    xpath: //div[contains(@class,'InTheBox')]//img/@srcset
     regExp: (.+)
     regExpReplace: https:$1
   - name: inTheBoxText
