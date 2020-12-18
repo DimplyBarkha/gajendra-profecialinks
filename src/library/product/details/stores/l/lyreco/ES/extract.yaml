@@ -64,7 +64,7 @@ fields:
     xpath: (//div[@class="product-selector--valueDisplay"]/text())[1]
   - name: firstVariant
     singleValue: true
-    xpath: //div[@class="product-selector--valueDisplay"]/text()
+    xpath: //div[@class="product-selector--attribute"]/a[1]/div/div[@class="product-selector--valueDisplay"]/text()
   - name: variants
     singleValue: true
     xpath: //html//div[@id="pipeline"]
@@ -91,9 +91,13 @@ fields:
     defaultValue: Yes
   - name: materials
     singleValue: true
-    xpath: //span[contains(text(), 'Material del cuerpo')]/following::span[1]/text()
-    
-
+    xpath: //span[contains(text(),"Material")]/following-sibling::span[text()]
+  - name: technicalInformationPdfPresent
+    singleValue: true
+    xpath: //a[@onclick="callMethod(window.trackEventViewSecurity);"]/@href
+    regExp: .+
+    regExpReplace: Yes
+    defaultValue: No
     
     
     
