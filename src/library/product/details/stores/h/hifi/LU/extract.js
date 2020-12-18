@@ -52,6 +52,7 @@ module.exports = {
       }
     });
 
+
     try {
       await context.click('a.brand-content-link');
     } catch (err) {
@@ -130,6 +131,28 @@ module.exports = {
       addElementToDocument('aplusImages', aplusImages);
       addElementToDocument('videos', videos);
     }, enhancedContent, aplusImages, videos);
+    let video='';
+    await context.evaluate(async function(video){
+      let VideoSrc=document.querySelector('.autheos-videothumbnail img');
+      if(VideoSrc){
+      let ImgSrc= document.querySelector('.autheos-videothumbnail img').getAttribute('src');
+      if(ImgSrc){
+        let regex = /(.*)+(\d+p)+(.*)/g;
+        video= ImgSrc.replace(regex,"$1$2");
+      }
+    }
+      console.log('The value of video is',video);
+      function addHiddenDiv (id, content) {
+            const newDiv = document.createElement('div');
+            newDiv.id = id;
+            newDiv.textContent = content;
+            newDiv.style.display = 'none';
+            document.body.appendChild(newDiv);
+          }
+          addHiddenDiv('video',video);
+          console.log('added video div',video);
+      return video;
+    },video);
     // if (src) {
     //   try {
     //     await context.goto(src, { timeout: 30000, waitUntil: 'load', checkBlocked: true });

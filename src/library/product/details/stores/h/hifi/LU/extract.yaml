@@ -134,7 +134,7 @@ fields:
     singleValue: false
     description: URLs of videos on page
     # xpath: //div[@class="header-content desktop"]//div[@class="play-btn centered desktop"]/@data-video
-    xpath: //div[@id='videos']/text()
+    xpath: //div[@id='videos']/text() | //div[@id='video']
   - name: name
     singleValue: false
     description: The product name
