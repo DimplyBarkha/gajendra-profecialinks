@@ -8,6 +8,11 @@ fields:
     description: The product name, prefixing "${brand} - " if not included in "name"
       and appending " - ${variantType}" if necessary (fixed per feed)
     xpath: //h1[@class="pd__header"]
+  - name: name
+    singleValue: true
+    description: The product name, prefixing "${brand} - " if not included in "name"
+      and appending " - ${variantType}" if necessary (fixed per feed)
+    xpath: //h1[@class="pd__header"]
   - name: otherSellersName
     singleValue: true
     defaultValue: Sainsburys
@@ -62,3 +67,46 @@ fields:
   - name: sku
     singleValue: true
     description: The store-specific product identifier
+  - name: brandText
+    singleValue: true
+  - name: manufacturer
+    singleValue: true
+    xpath: //div[contains(@class,"itemTypeGroupContainer productText")]/h3[text()="Manufacturer"]/parent::*/div[@class="itemTypeGroup"]//p
+  - name: countryOfOrigin
+    singleValue: true
+    xpath: //div[contains(@class,"itemTypeGroupContainer productText")]/h3[text()="Country of Origin"]/parent::*/div[@class="itemTypeGroup"]
+  - name: packaging
+    singleValue: true
+    xpath: //div[contains(@class,"itemTypeGroupContainer productText")]/h3[text()="Packaging"]/parent::*/div[@class="itemTypeGroup"]
+  - name: ingredientsList
+    singleValue: true
+    xpath: //div[contains(@class,"itemTypeGroupContainer productText")]//ul[@class="productIngredients"]//li
+  - name: storage
+    singleValue: true
+    xpath: //div[contains(@class,"itemTypeGroupContainer productText")]/h3[text()="Storage"]/parent::*/div[@class="itemTypeGroup"]//p
+  - name: variantId
+    singleValue: true
+    xpath: //p[@class="pd__item-code"]//span[@id="productSKU"]
+  - name: caloriesFromFatPerServing
+    singleValue: true
+    xpath: //table[@class="nutritionTable"]//th[text()="Fat "]/parent::tr/td
+    type: NUMBER
+  - name: totalFatPerServing
+    singleValue: true
+    xpath: //table[@class="nutritionTable"]//th[text()="Fat "]/parent::tr/td
+    type: NUMBER
+  - name: saturatedFatPerServing
+    singleValue: true
+    xpath: //table[@class="nutritionTable"]//th[contains(text(),"of which saturates")]/parent::tr/td
+    type: NUMBER
+  - name: saltPerServing
+    singleValue: true
+    xpath: //table[@class="nutritionTable"]//th[text()="Salt "]/parent::tr/td
+    type: NUMBER
+  - name: totalCarbPerServing
+    singleValue: true
+    xpath: //table[@class="nutritionTable"]//th[contains(text(),"Carbohydrate")]/parent::tr/td
+    type: NUMBER
+  - name: legalDisclaimer
+    singleValue: true
+    xpath: //div[contains(@class,"ln-c-card pd__disclaimer ln-c-card--soft")]

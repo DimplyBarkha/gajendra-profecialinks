@@ -80,6 +80,12 @@ const url1 = require('url');
               item.text = parseInt( item.text.replace(/[^\d-]/g, '') );
             });
           }
+          if (row.countryOfOrigin ) {
+            row.countryOfOrigin.forEach(item => {
+              item.text = item.text.replace(/\s*/g, '');
+              item.text = item.text.replace('Countryoforigin:', '');
+            });
+          }
           if (row.url) {
             let skuText = '';
             row.url.forEach(item => {
