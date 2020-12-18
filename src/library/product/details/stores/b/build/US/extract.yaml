@@ -93,7 +93,7 @@ fields:
     xpath: //div[@id='custom-attr-product-variants-count']/text()
   - name: videos
     singleValue: false
-    xpath: //div[@id='product-images-container']//video[starts-with(@src, 'http')]/@src
+    xpath: //div[@id='product-images-container']//video[@aria-label="Video"]/@src | (//iframe[@title="YouTube video player"]/@src)[1]
   - name: manufacturer
     singleValue: false
     xpath: //div[@id='custom-attr-product-manufacturer-name']/text()
