@@ -67,6 +67,7 @@ fields:
   - name: sku
     singleValue: true
     description: The store-specific product identifier
+    xpath: //p[@class="pd__item-code"]//span[@id="productSKU"]
   - name: brandText
     singleValue: true
   - name: manufacturer
@@ -109,4 +110,4 @@ fields:
     type: NUMBER
   - name: legalDisclaimer
     singleValue: true
-    xpath: //div[contains(@class,"ln-c-card pd__disclaimer ln-c-card--soft")]
+    xpath: //div[contains(@class,"ln-c-card pd__disclaimer ln-c-card--soft")]//following-sibling::p
