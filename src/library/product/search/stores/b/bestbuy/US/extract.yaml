@@ -1,0 +1,43 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: li.sku-item[data-sku-id]
+recordXPath: //li[@class="sku-item" and @data-sku-id]
+fields:
+  - name: id
+    singleValue: false
+    xpath: (//div/../@data-sku-id)[1]
+  - name: name
+    singleValue: false
+    manualSelector: h4.sku-header
+  - name: productUrl
+    singleValue: false
+    xpath: //h4[@class="sku-header"]/a/@href
+    regExp: (.+)
+    regExpReplace: https://www.bestbuy.com$1
+  - name: gtin
+    singleValue: false
+  - name: thumbnail
+    singleValue: false
+    xpath: //img[@class="product-image"]/@src
+    regExp: (.+?);.*
+    regExpReplace: $1
+  - name: price
+    singleValue: false
+    manualSelector: div.priceView-customer-price > span[aria-hidden]
+  - name: aggregateRating2
+    singleValue: false
+    xpath: //div[contains(@class,"ugc-ratings-reviews")]/p
+    regExp: ([\d\.]+)\s+out\s+of
+    regExpReplace: $1  
+  - name: reviewCount
+    singleValue: false
+    xpath: //span[contains(@class,"c-reviews-v4")]
+    regExp: \((.*?)\)
+    regExpReplace: $1
+  - name: manufacturer
+    singleValue: false
+  - name: soldBy
+    singleValue: false
+  - name: sponsored
+    singleValue: false
+    manualSelector: div.is-sponsored

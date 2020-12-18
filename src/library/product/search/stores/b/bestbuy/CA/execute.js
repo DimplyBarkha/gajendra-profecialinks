@@ -6,7 +6,7 @@ module.exports = {
     store: 'bestbuy',
     domain: 'bestbuy.ca/en-ca',
     url: 'https://www.bestbuy.ca/en-ca/search?search={searchTerms}',
-    loadedSelector: 'body',
+    loadedSelector: null,
     noResultsXPath: null,
     zipcode: '',
   },

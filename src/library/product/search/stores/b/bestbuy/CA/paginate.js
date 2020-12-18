@@ -1,4 +1,4 @@
-
+const { transform } = require('../../../../shared');
 module.exports = {
   implements: 'product/search/paginate',
   parameterValues: {
@@ -7,7 +7,7 @@ module.exports = {
     nextLinkSelector: null,
     mutationSelector: null,
     spinnerSelector: null,
-    loadedSelector: 'body',
+    loadedSelector:null,
     noResultsXPath: null,
     // openSearchDefinition: {
     //   offset:30,
