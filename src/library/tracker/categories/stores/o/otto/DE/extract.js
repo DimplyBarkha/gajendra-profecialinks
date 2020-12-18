@@ -24,15 +24,15 @@ module.exports = {
         return newDiv;
       }
       // categories
-      const categories = document.querySelectorAll('ul[class="nav_navi-list"] > li');
+      const categories = document.querySelectorAll('ul[class="nav_navi-list--level-1"] > li');
 
       categories.forEach((category) => {
         const categoryName = category.querySelector('a[class="nav_navi-elem--level-1"]').textContent;
         const subCategories = category.querySelectorAll('ul[class="nav_navi-list"]');
 
         subCategories.forEach((subCategory) => {
-          const subCategoryName = subCategory.querySelector('li[class="nav_navi-elem"] > a').textContent;
-          const elements = subCategory.querySelectorAll('a');
+          const subCategoryName = subCategory.querySelector('li > span[class="nav_navi-elem"] li > a[class="nav_navi-elem]').textContent;
+          const elements = subCategory.querySelectorAll('a[class="nav_navi-elem"] span[class="nav_navi-elem"]');
 
           elements.forEach((element) => {
             const newDiv = addHiddenDiv('categories');
