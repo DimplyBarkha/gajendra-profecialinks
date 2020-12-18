@@ -47,15 +47,15 @@ fields:
   - name: variantId
     xpath: //div[@id="retailer_product_code"]
   - name: mpc
-    xpath: //div[@id="mpc"]
-    regExp: \s+(.+)$
-    regExpReplace: $1
+    xpath: //div[contains(@class,"product_model")]
+    regExp: (.+)(\:)(.+)
+    regExpReplace: $3
   - name: directions
     xpath : //div[@class="infoGroup"]//dt[contains(text(),"Modo de aplicación")]/following-sibling::dd |//div[contains(@class,"product_detail-description-in-image")]//strong[contains(text(),"Modo de aplicación")]//following-sibling::p
   - name: videos
     singleValue: false
     # xpath : //div[@id="videos"]|//div[contains(@class,'video-slides')]/@data-url
-    xpath: //div[@class="image-layout-slides-group"]//img/@data-url
+    xpath: //div[@class="image-layout-slides-group"]//img/@data-url | //div[@id="video"]
     # xpath: //div[contains(@class,'video-slides')]/@data-url
   - name: name
     xpath : //meta[@name="twitter:title"]/@content
@@ -82,7 +82,7 @@ fields:
   - name: shipping
     xpath:
   - name: energyEfficiency
-    xpath: //dt[contains(text(),"Clasificación energética")]/following-sibling::dd[1]
+    xpath: //dt[contains(text(),"Clasificación energética")]/following-sibling::dd[1] | //div[@id="energyRating"] | //tr[contains(.,"eficiencia energética")]//td[2]
   - name: imageZoomFeaturePresent
     xpath: //div[@id="imageZoomFeaturePresent"]
   - name: shippingDimensions
@@ -134,3 +134,13 @@ fields:
     singleValue: false
     # xpath : //div[@id="videos"]|//div[contains(@class,'video-slides')]/@data-url
     xpath: //div[@class="image-layout-slides-group"]//img/@data-url
+  - name: inTheBoxUrl
+    xpath: //div[contains(@class,'InTheBox')]//img/@src
+    regExp: (.+)
+    regExpReplace: https:$1
+  - name: inTheBoxText
+    xpath: //div[contains(@class,'InTheBox')]//span
+  - name: unInterruptedPDP
+    xpath: //ul[@class="nosto-list"]//li
+  - name: hasComparisonTable
+    defaultValue: No

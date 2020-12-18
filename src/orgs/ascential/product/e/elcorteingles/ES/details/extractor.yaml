@@ -4,7 +4,7 @@ parameters:
   domain: elcorteingles.es
   country: ES
 proxy:
-  zone: ESP
+  zone: IND
   type: DATA_CENTER
 policy:
   numberRetries: 1
@@ -12,6 +12,9 @@ policy:
   retryDelay: 60
   backoffPolicy: EXPONENTIAL
   retryWithResidentialProxyAfter: 99
+extractionGlobals:
+  screenCapture: true
+  screenCaptureType: 'png'
 meta:
   branches:
     ascential-elcorteingles-es-details:
@@ -22,4 +25,6 @@ meta:
       legacyAccountId: f94246b4-2d86-4803-9d39-25905b37f013
     ascential-elcorteingles-ES-core:
       extractor: 2560b31c-5f17-4971-91d8-d557e876b7e2
+    techops_test:
+      extractor: 8a429a00-a27a-4a14-9eb5-fc3fbb355261
       legacyAccountId: f94246b4-2d86-4803-9d39-25905b37f013

@@ -17,7 +17,10 @@ fields:
     xpath: normalize-space(//div[contains(@class,"pdp-title")])
   - name: listPrice
     singleValue: true
-    xpath : //div[@id='listPrice']
+    # xpath : //div[@id='listPrice']|//div[contains(@class,'price _before')]
+    xpath: //div[contains(@class,'price _before')]
+    regExp: (.+)( €)
+    regExpReplace: $1
   - name: price
     singleValue: true
     xpath : //div[@id='price']
@@ -53,7 +56,7 @@ fields:
     regExp: \s(.+)
     regExpReplace: $1
   - name: caloriesPerServing
-    xpath: (//td[contains(text(),'Valor energético')]/../td[2]//td[1])
+    xpath: (//td[contains(text(),'Valor energético')]/../td[2]//td[1])[contains(.,'kcal')]
   - name: totalFatPerServing
     singleValue: false
     xpath: (//td[contains(text(),'Grasas')]/../td[2]//td[1])[1]
@@ -184,9 +187,18 @@ fields:
     xpath: //h3[normalize-space(text())="Ingredientes y alérgenos"]/following-sibling::ul[1]/li/b
   - name: warnings
     xpath: //h3[normalize-space(text())="Advertencia de seguridad"]/following-sibling::ul
+
+    #Salsify fields
   - name: sku
     xpath: //ul[@class="cross_site_bar-panel"]/li[position()=1]/a/@href
     regExp: supermarkt\/(\d+)
-    regExpReplace: elcorteingles_$1
-
-    
+    regExpReplace: $1
+  - name: shownImages
+    xpath: //div[@id='product_image']
+  - name: highQualityImages
+    xpath: //div[@id='product_image']
+  - name: allergens
+    xpath: //h3[contains(text(),"Ingredientes y alérgenos")]/..//ul
+  - name : nutritionInfo
+    xpath: //div[@class="info _nutrients"]/table/tbody/tr[position() > 2]
+  
