@@ -385,3 +385,5 @@ fields:
     xpath: //div[contains(@class,'bop-gallery__item')]/img/@src
     regExp: (.+)
     regExpReplace: http://www.ocado.com$1
+  - name: productCurrency
+    xpath: //meta[contains(@itemprop,'priceCurrency')]/@content

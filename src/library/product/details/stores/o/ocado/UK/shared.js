@@ -23,6 +23,11 @@ const transform = (data) => {
         row.description = [{ text: text.trim() }];
         row.descriptionBullets = [{ text: bulletCount }];
       }
+      if(row.nameExtended){
+        let nameExtended =''
+        nameExtended = nameExtended.replace(/[0-9]/g, '');
+        console.log('here is product name',nameExtended);
+      }
 
       if (row.manufacturer) {
         let text = '';
@@ -89,6 +94,7 @@ const transform = (data) => {
           row.servingSizeUom = [{ text: servingSize.match(/(g|mg|Mg|ml|Ml)\/(ml|Ml|l|L|litre)/)[0] }];
         } else if (servingSize.match(/analytical constituents(.+)%/i)) {
           row.servingSize = [{ text: '' }];
+
           row.servingSizeUom = [{ text: '%' }];
         } else {
           row.servingSize = [{ text: '' }];
@@ -156,6 +162,7 @@ const transform = (data) => {
     // eslint-disable-next-line no-control-regex
     .replace(/[\x00-\x1F]/g, '')
     .replace(/[\uD800-\uDBFF][\uDC00-\uDFFF]/g, ' ');
+
 
   data.forEach(obj => obj.group.forEach(row => Object.keys(row).forEach(header => row[header].forEach(el => {
     el.text = clean(el.text);
