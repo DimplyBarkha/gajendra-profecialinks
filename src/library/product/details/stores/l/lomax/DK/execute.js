@@ -5,7 +5,7 @@ module.exports = {
     country: 'DK',
     store: 'lomax',
     domain: 'lomax.dk',
-    loadedSelector: 'body',
+    loadedSelector: 'body', 
     noResultsXPath: null,
     zipcode: '',
   },
