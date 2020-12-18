@@ -6,7 +6,8 @@ fields:
   - name: image
     singleValue: true
     description: URL of the main product image
-    xpath: //div[@data-test="zoom-wrap"]//img[@itemprop="image"]/@src
+    # xpath: //div[@data-test="zoom-wrap"]//img[@itemprop="image"]/@src
+    xpath: (//div[@data-test="img-zoom-wrap"]/img/@src)[1]
   - name:  productUrl
     singleValue: true
     description: URL of the main product image
