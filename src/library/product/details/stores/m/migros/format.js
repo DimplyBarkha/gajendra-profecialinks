@@ -38,7 +38,8 @@ const transform = (data) => {
           });
         }
         if(row.image){
-
+          let Item = '';
+     // Item.text.replace(""background-image:url(\\")").trim()
         }
       }
     }
