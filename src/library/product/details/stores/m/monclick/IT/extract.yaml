@@ -6,41 +6,52 @@ fields:
   - name: image
     singleValue: true
     description: URL of the main product image
+    xpath: //img[@data-component]/@src
   - name: imageAlt
     singleValue: true
     description: Alt text of the main product image
+    xpath: //img[@data-component]/@alt
   - name: alternateImages
     singleValue: false
     description: Other product images (not in manufacturer description)
+    xpath: (//div[@class="owl-stage"]/div[@class="owl-item active"][position()>1]/div[@class="mk-product-page-item-gallery-item"]/a/img/@src)
   - name: metaKeywords
     singleValue: true
     description: The <meta> keywords content
+    xpath: //meta[@name="keywords"]/@content
   - name: category
     singleValue: false
     description: The categories (e.g. from breadcrumbs)
+    xpath: //ul[@class="breadcrumbs"]/li[position()>1]/a
   - name: nameExtended
     singleValue: true
     description: The product name, prefixing "${brand} - " if not included in "name"
       and appending " - ${variantType}" if necessary (fixed per feed)
+    xpath: concat(//h3[@id="titoloProdotto"],' ', //h1[@itemprop])
   - name: listPrice
     singleValue: true
     description: The stated undiscounted price for the product
+    xpath: (//span[@class="price-catalog"])[1]
   - name: price
     singleValue: true
     description: The offered price for the selected product variant - if a user
       clicks add to basket this is the price they would be charged
+    xpath: concat(//div[@class="big mk-award price offer"]//text()[1],' ',(//div[@class="big mk-award price offer"]//text())[2],(//div[@class="big mk-award price offer"]//text())[3])
+    type: CURRENCY
   - name: availabilityText
     singleValue: true
     description: Availability as described on page for the selected variant. If
       there is no availability but the product can be added to cart, this field
       should be "In Stock"
-    regExp: (.+)
+    xpath: (//a[@data-action="add-to-cart"]/@title)[1]
+    regExp: Aggiungi al carrello
     regExpReplace: In Stock
     defaultValue: Out of Stock
   - name: description
     singleValue: false
     description: Product description supplied by website - may be concatenanted from
       multiple places; specifically not the manufacturer description
+    xpath: (//div[@id="description"])[1]//div/text()
   - name: descriptionBullets
     singleValue: true
     description: Number of ul > li tags in the description
@@ -49,6 +60,7 @@ fields:
     singleValue: true
     description: Product brand shown - this may actually NOT be just a brand name,
       e.g. "Visit the Gillette Store"
+    xpath: (//span[@itemprob="brand"])
   - name: manufacturer
     singleValue: true
     description: Product manufacturer
@@ -66,15 +78,19 @@ fields:
   - name: gtin
     singleValue: true
     description: GTIN code (includes UPC/EAN)
+    xpath: //div[@id="gtin"]
   - name: sku
     singleValue: true
     description: The store-specific product identifier
+    xpath: (//a/@data-product-code)[1]
   - name: variantId
     singleValue: true
     description: Identifier for a variant from a store where variants share the same sku
+    xpath: (//a/@data-product-code)[1]
   - name: mpc
     singleValue: true
     description: The manufacturer model code (unique) of the product
+    xpath: //div[@id="mpc"]
   - name: packSize
     singleValue: true
     description: The number of packs in the product offer (if stated separately on
@@ -91,14 +107,15 @@ fields:
   - name: ratingCount
     singleValue: true
     description: The number of ratings
+    xpath: //div[@id="ratingCount"]
     type: NUMBER
   - name: aggregateRatingText
     singleValue: true
     description: The stated aggregate rating
-  - name: aggregateRating
+  - name: aggregateRating2
     singleValue: true
     description: The stated aggregate rating normalized to be out of 5
-    type: NUMBER
+    xpath: //div[@id="aggregateRating"]
   - name: shippingInfo
     singleValue: true
     description: Shipping information for the product
@@ -112,6 +129,7 @@ fields:
     singleValue: true
     description: Number of variants listed
     type: NUMBER
+    defaultValue: 1
   - name: color
     singleValue: true
     description: A textual description of the colour
@@ -130,6 +148,7 @@ fields:
   - name: name
     singleValue: true
     description: The product name
+    xpath: //h1[@itemprop="name"]
   - name: inStorePrice
     singleValue: true
     description: Price in the selected store
@@ -220,6 +239,7 @@ fields:
   - name: secondaryImageTotal
     singleValue: true
     description: null
+    xpath: count(//div[@class="owl-stage"]/div[@class="owl-item active"][position()>1]/div[@class="mk-product-page-item-gallery-item"]/a/img/@src)
     type: NUMBER
   - name: news
     singleValue: true
@@ -382,6 +402,7 @@ fields:
   - name: specifications
     singleValue: true
     description: The physical dimensions of the product including packaging.
+    xpath: //div[@id="specification"]
   - name: warranty
     singleValue: true
     description: Guarantee associated with the product
@@ -409,9 +430,11 @@ fields:
   - name: pricePerUnit
     singleValue: true
     description: Price of the product split into certain units
+    xpath: (//div[@class="big mk-award price offer"])[1]
   - name: pricePerUnitUom
     singleValue: true
     description: The unit of measurement used in price_per_unit
+    xpath: (//span[@class="price-catalog"])[1]
   - name: promotion
     singleValue: true
     description: promotion text on product page
@@ -484,6 +507,7 @@ fields:
     singleValue: true
     description: Materials used to make the product
     example: https://www.jdsports.co.uk/product/blue-adidas-linear-20-reversible-wind-breaker-jacket/15988125/
+    xpath: //span[contains(text(),'Materiale piastra')]/following::span[1]
   - name: Image360Present
     singleValue: true
     description: If 360 image is present in the carousel ['Yes','No']
@@ -494,4 +518,8 @@ fields:
     description: If Zoom feature is available for Main image or images in the
       carousel,['Yes','No']
     example: https://www.zalando.de/adidas-neo-sneaker-low-blackwhite-a4315i002-q11.html
-    defaultValue: No
+    defaultValue: Yes
+  - name: url
+    singleValue: true
+    xpath: //link[@rel="canonical"]/@href
+
