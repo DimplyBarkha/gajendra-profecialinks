@@ -1,0 +1,20 @@
+module.exports = {
+  implements: 'navigation/paginate',
+  parameterValues: {
+    template: null,
+    country: 'US',
+    store: 'dermstore',
+    // nextLinkSelector: 'div.pagination a:last-child',
+    nextLinkXpath: null,
+    mutationSelector: null,
+    spinnerSelector: null,
+    loadedSelector: 'div.reviews',
+    loadedXpath: null,
+    noResultsXPath: "//h1[contains(text(),'OOPS!')]",
+    stopConditionSelectorOrXpath: null,
+    resultsDivSelector: null,
+    openSearchDefinition: null,
+    domain: 'dermstore.com',
+    zipcode: '',
+  },
+};

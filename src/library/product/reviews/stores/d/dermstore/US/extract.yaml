@@ -1,0 +1,80 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: //div[contains(@class,"reviews")]//div[contains(@class,"panel panel-default")]
+fields:
+  - name: helpfulCount
+    singleValue: false
+    type: NUMBER
+    description: Number of people who said the review was helpful
+  - name: commentCount
+    singleValue: false
+    type: NUMBER
+    description: Number of comments on the review
+  - name: brandText
+    singleValue: false
+    xpath: (//h2[contains(@class,"brand")])[1]
+    description: Product brand shown - this may actually NOT be just a brand name,
+      e.g. "Visit the Gillette Store"
+  - name: name
+    singleValue: false
+    xpath: //h3[contains(@is,"ui-heading")]
+    description: The product name
+  - name: sku
+    singleValue: false
+    xpath: ancestor::html//script[@type="text/javascript"]
+    regExp: prod_sku"\:\"(.*)\", 
+    regExpReplace: $1
+    description: The store-specific product identifier
+  - name: reviewDate
+    singleValue: false
+    type: DATETIME
+    description: Date the review was made
+  - name: reviewRating
+    type: NUMBER
+    singleValue: false
+    description: Rating normalized to be out of 5
+  - name: reviewText
+    singleValue: false
+    xpath: //div[contains(@class,"col-sm-9")]//p[1]
+    description: The text of the review
+  - name: reviewTitle
+    singleValue: false
+    xpath: //div[contains(@class,"col-sm-9")]//h5
+    description: The title of the review
+  - name: reviewerTags
+    singleValue: false
+    description: The tags a reviewer has
+  - name: gtin
+    singleValue: false
+    description: GTIN code (includes UPC/EAN)
+  - name: productUrl
+    singleValue: false
+    description: The url of the product details page
+  - name: verifiedPurchase
+    singleValue: false
+    type: BOOLEAN
+    description: Whether this of an item the reviewer purchased. "Yes" if true else ""
+  - name: manufacturerResponse
+    singleValue: false
+    description: The response of the manufacturer (if any)
+  - name: syndicatedFrom
+    singleValue: false
+    description: Stated place the review was syndicated from
+  - name: reviewUrl
+    singleValue: false
+    xpath: //div[@id="Added_reviewUrl"]
+    description: A direct link to the review
+  - name: reviewedSku
+    singleValue: false
+    description: The SKU of the item that was reviewed (may be different from the
+      sku the review was shown on). 1 if sku == reviewedSku else 0. Get sku
+      value, transform will handle the value.
+  - name: user
+    singleValue: false
+    description: The user name of the reviewer
+    xpath: //div[contains(@class,"col-sm-3 reviewer")]//p[contains(text(),"from")][1]
+  - name: aggregateRating
+    singleValue: false
+    xpath: //div[contains(@class,"starsBox")]//@class
+    description: The product rating
