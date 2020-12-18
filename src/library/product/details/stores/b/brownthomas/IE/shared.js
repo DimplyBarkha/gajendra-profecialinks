@@ -74,6 +74,15 @@ const transform = (data) => {
         });
         row.additionalDescBulletInfo = [{ text }];
       }
+
+      if (row.inTheBoxText) {
+        let text = '';
+        if (row.inTheBoxText.length === 1) {
+          const item = row.inTheBoxText[0].text;
+          text = item.includes('?') ? item.split('?')[1] : item;
+          row.inTheBoxText = [{ text }];
+        };
+      }
     }
   }
 

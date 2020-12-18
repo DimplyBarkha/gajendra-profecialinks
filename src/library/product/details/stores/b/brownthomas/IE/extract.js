@@ -14,7 +14,6 @@ module.exports = {
     context,
     dependencies,
   ) => {
-
     const iframeLink = 'iframe[id="eky-dyson-iframe"]';
 
     const optionalWait = async (sel) => {
@@ -112,7 +111,7 @@ module.exports = {
       const isVideo = document.querySelector('#pdp-carousel-video a');
       const nameExtended = document.querySelector('h1[itemprop="name"]');
       if (nameExtended) {
-        let extended = nameExtended.innerText.replace(/Dyson/g, '');
+        const extended = nameExtended.innerText.replace(/Dyson/g, '');
         const body = document.querySelector('body');
         body.setAttribute('nameextended', extended);
       }
@@ -143,6 +142,32 @@ module.exports = {
         const body = document.querySelector('body');
         body.setAttribute('videosele', video);
       }
+    });
+
+    // For inTheBoxText
+    await context.evaluate(() => {
+      const inBox = document.evaluate(
+        '//p[contains(.,"tools included")]/following-sibling::*',
+        document,
+        null,
+        XPathResult.ORDERED_NODE_SNAPSHOT_TYPE,
+        null,
+      );
+      const values = [];
+      for (let i = 0; i < inBox.snapshotLength; i++) {
+        const item = inBox.snapshotItem(i);
+        // @ts-ignore
+        const strong = item.querySelector('strong');
+        if (strong) {
+          break;
+        } else {
+        // @ts-ignore
+          const t = item.textContent;
+          values.push(t);
+        }
+      }
+      const text = values.join('|| ');
+      document.body.setAttribute('in-the-box-text', text);
     });
     const { transform } = parameters;
     const { productDetails } = dependencies;
