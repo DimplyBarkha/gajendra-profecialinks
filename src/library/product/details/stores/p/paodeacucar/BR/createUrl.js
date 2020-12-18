@@ -1,9 +1,10 @@
 
 module.exports = {
-  implements: 'navigation/goto',
+  implements: 'product/details/createUrl',
   parameterValues: {
     domain: 'paodeacucar.com',
-    timeout: 30000,
+    prefix: null,
+    url: 'https://www.paodeacucar.com/busca?w={id}&qt=12&p=1&gt=grid',
     country: 'BR',
     store: 'paodeacucar',
     zipcode: '',
