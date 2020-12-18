@@ -6,7 +6,7 @@ module.exports = {
     prefix: null,
     suffix: null,
     subdomain: null,
-    url: null,
+    url: 'https://www.hair-shop.com/haarpflege-beauty-produkte.html',
     country: 'DE',
     store: 'hair-shop',
     zipcode: '',
