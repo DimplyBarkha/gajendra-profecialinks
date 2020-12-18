@@ -52,7 +52,7 @@ module.exports = {
         document.body.appendChild(element);
       }
     });
-    const variants = await context.evaluate(() => { return document.querySelectorAll('div.colourList > div > ul > li > a').length });
+    const variants = await context.evaluate(() => { return document.querySelectorAll('div.colourList > div > ul > li > a').length; });
     if (variants !== 0) {
       for (let i = 0; i < variants; i++) {
         await context.evaluate((i) => {
