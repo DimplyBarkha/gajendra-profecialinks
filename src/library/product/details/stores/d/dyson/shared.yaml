@@ -570,8 +570,4 @@ fields:
   - name: inTheBoxText
     xpath: //div[@class="contents"]//strong | //div[@class="contents "]//strong | //div[contains(@class,"whats-in-the-box")]//span[@class="whats-in-the-box__tool-name"] | //p[@class="whats-in-the-box__product-name"]
   - name: hasComparisonTable
-    singleValue: true
-    xpath: //h2[contains(.,'Choose your model')]
-    regExp: (.*)
-    regExpReplace: Yes
     defaultValue: No 

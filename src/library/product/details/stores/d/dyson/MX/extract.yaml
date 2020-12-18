@@ -59,10 +59,4 @@ fields:
   - name: description
     singleValue: false
     xpath: //div[contains(@class, "hgroup product__claims")]/*[not(self::a)] | //div[contains(@class, "hero__content__preorder-container")]/div[contains(@class, "hgroup__prefix")]
-  - name: hasComparisonTable
-    singleValue: true
-    xpath: //h2[contains(.,'Elige tu modelo')]
-    regExp: (.*)
-    regExpReplace: Yes
-    defaultValue: No 
   

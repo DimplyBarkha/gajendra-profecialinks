@@ -12,9 +12,4 @@ fields:
   - name: warranty
     singleValue: true
     xpath: (//div[contains(concat(' ',normalize-space(@class),' '),' reasons-to-buy__overlay-content-container ')][.//*[contains(text(),' Garantie')]])[1] | (//div[contains(concat(' ',normalize-space(@class),' '),' reasons-to-buy__overlay-content-container ')][.//*[contains(text(),'arantie ')]])[1] | (//div[contains(concat(' ',normalize-space(@class),' '),' reasons-to-buy__overlay-content-container ')][.//*[contains(text(),'garanzia ')]])[1]
-  - name: hasComparisonTable
-    singleValue: true
-    xpath: //h2[contains(.,'Choisissez votre modèle')]
-    regExp: (.*)
-    regExpReplace: Yes
-    defaultValue: No 
+  

@@ -8,8 +8,4 @@ fields:
     xpath: (//div[contains(concat(' ',normalize-space(@class),' '),' reasons-to-buy__overlay-content-container ')][.//*[contains(text(),'nvío')]])[1]
   - name: warranty
     xpath: (//div[contains(concat(' ',normalize-space(@class),' '),' reasons-to-buy__overlay-content-container ')][.//*[contains(text(),'arantía ')][not(contains(text(),'devolución'))]])[1]
-  - name: hasComparisonTable
-    xpath: //h2[contains(.,'Elige tu modelo')]
-    regExp: (.*)
-    regExpReplace: Yes
-    defaultValue: No 
+  

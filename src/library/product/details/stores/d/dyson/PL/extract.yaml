@@ -93,9 +93,4 @@ fields:
     description: The physical dimensions of the product including packaging.
     # xpath: (//ul[contains(concat(' ',normalize-space(@class),' '),'g-wrap')]//li[.//*[contains(text(), 'Długość') or contains(text(), 'Szerokość') or contains(text(), 'Wysokość') or contains(text(), 'Średnica')] ])
     xpath: //div[contains(@class,"spec-set__list")]/ul
-  - name: hasComparisonTable
-    singleValue: true
-    xpath: //h2[contains(.,'Wybierz model')]
-    regExp: (.*)
-    regExpReplace: Yes
-    defaultValue: No 
+  
