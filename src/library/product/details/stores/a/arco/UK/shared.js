@@ -51,7 +51,7 @@ const transform = (data) => {
         let text = '';
         row.availabilityText.forEach(item => {
           if (item.text.trim() === 'Awaiting stock') {
-            text = 'In Stock';
+            text = 'Out of Stock';
           } else if (item.text.includes('subject to vendor availability')) {
             text = 'In Stock';
           } else {

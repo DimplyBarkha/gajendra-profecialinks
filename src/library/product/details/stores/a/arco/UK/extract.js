@@ -11,6 +11,14 @@ async function implementation (
   const { productDetails } = dependencies;
 
   await context.evaluate(async function () {
+    function stall (ms) {
+      return new Promise((resolve, reject) => {
+        setTimeout(() => {
+          resolve();
+        }, ms);
+      });
+    }
+
     const optionalWait = async (sel) => {
       try {
         await context.waitForSelector(sel, { timeout: 10000 });
@@ -29,10 +37,11 @@ async function implementation (
     document.querySelectorAll('table.producttbl tbody tr td span[class="linedesc"]').forEach((ele) => pack.push(ele.textContent.trim()));
     for (let i = 0; i < pack.length; i++) {
       if (pack[i].includes('(Case of') || pack[i].includes('(Pack of')) {
-        let ele = pack[i].split('(')[1].split(')')[0];
+        const ele = pack[i].split('(')[1].split(')')[0];
         document.querySelectorAll('table.producttbl tbody tr td span[class="linedesc"]')[i].setAttribute('pack', ele);
       }
     }
+    await stall(10000);
   });
   return await context.extract(productDetails, { transform });
 }
