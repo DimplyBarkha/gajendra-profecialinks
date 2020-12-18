@@ -5,7 +5,7 @@ module.exports = {
     country: 'US',
     store: 'ziipstock',
     domain: 'ziipstock.com',
-    url: 'https://ziipstock.com/search?q={searchTerms}',
+    url: 'https://ziipstock.com/collections/{searchTerms}',
     loadedSelector: 'main#MainContent',
     noResultsXPath: null,
     zipcode: "''",
