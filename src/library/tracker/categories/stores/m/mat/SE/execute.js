@@ -5,7 +5,7 @@ module.exports = {
     country: 'SE',
     store: 'mat',
     domain: 'mat.se',
-    loadedSelector: null,
+    loadedSelector: 'div.list-container',
     noResultsXPath: null,
     zipcode: '',
   },
