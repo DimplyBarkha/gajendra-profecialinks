@@ -31,18 +31,20 @@ module.exports = {
         document.body.appendChild(catElement);
       }
       addElementToDocument('url', window.location.href);
-      const otherInfo = document.evaluate('//p[contains(.,"Caracteristici generale")]/following-sibling::div[@class="table-responsive"]//tbody/tr', document, null, XPathResult.ANY_TYPE, null );
+      const otherInfo = document.evaluate('//p[contains(.,"Caracteristici generale")]/following-sibling::div[@class="table-responsive"]//tbody/tr', document, null, XPathResult.ANY_TYPE, null);
       const nodes = [];
       let node;
-      while (node = otherInfo.iterateNext()) {
+      node = otherInfo.iterateNext();
+      while (node) {
         nodes.push(node);
+        node = otherInfo.iterateNext();
       }
       if (nodes.length > 0) {
         let text = '';
         nodes.forEach(info => {
-          console.log(info.textContent);
           text += `${info.textContent.trim()} || `;
         });
+        text = text.slice(0, -3);
         addElementToDocument('other-info', text);
       }
     });
