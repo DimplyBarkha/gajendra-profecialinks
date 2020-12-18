@@ -4,7 +4,7 @@ module.exports = {
   parameterValues: {
     domain: 'superdrug.com',
     prefix: null,
-    suffix: null,
+    suffix: 'sitemap',
     subdomain: null,
     url: null,
     country: 'UK',
