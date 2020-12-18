@@ -6,6 +6,10 @@ fields:
   - name: imageAlt
     singleValue: false
     xpath: //div[contains(@class, "hgroup__main-image")]/img/@alt | //div[contains(@class,"hero--product-variant")]//div[contains(@class,"image--stretch")]//img/@alt
+  - name: alternateImages
+    singleValue: false
+    description: Other product images (not in manufacturer description)
+    xpath: //div[contains(@class,'gallery')]//div[@class='slick-track']//img/@src
   - name: category
     singleValue: false
     manualSelector: footer ol.crumb__list > li:first-child~li > a
