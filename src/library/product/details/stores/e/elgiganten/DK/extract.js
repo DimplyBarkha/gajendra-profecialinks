@@ -54,6 +54,15 @@ module.exports = {
       if (videoData) {
         document.body.appendChild(videoData);
       }
+      if (document.querySelector('section.section.product-more-info')) {
+        // @ts-ignore
+        document.querySelector('li#tab-specs').click();
+        await new Promise(resolve => setTimeout(resolve, 1000));
+      } else if (document.querySelector('div.tab-specs-row')) {
+        // @ts-ignore
+        document.querySelector('li#tab-more-info').click();
+        await new Promise(resolve => setTimeout(resolve, 1000));
+      }
     });
 
     const { transform } = parameters;
