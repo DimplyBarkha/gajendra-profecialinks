@@ -6,9 +6,11 @@ fields:
   - name: image
     singleValue: true
     description: URL of the main product image
+    xpath: (//div[@class="product-image-list__item product-image-list__item--product-details-page product-image-list__item--0"]/img/@src)[1]
   - name: imageAlt
     singleValue: true
     description: Alt text of the main product image
+    xpath: //h1[@class="product-name__item product-name__item--name"]
   - name: alternateImages
     singleValue: false
     description: Other product images (not in manufacturer description)
@@ -18,13 +20,16 @@ fields:
   - name: category
     singleValue: false
     description: The categories (e.g. from breadcrumbs)
+    # xpath: (//span[@class="product-name__item product-name__item--brand"])[1]
   - name: nameExtended
     singleValue: true
     description: The product name, prefixing "${brand} - " if not included in "name"
       and appending " - ${variantType}" if necessary (fixed per feed)
+    xpath: //h1[@class="product-name__item product-name__item--name"]
   - name: listPrice
     singleValue: true
     description: The stated undiscounted price for the product
+    xpath: (//span[@class="price__value selling-price-list__item__price selling-price-list__item__price--now-price__value"])[1]
   - name: price
     singleValue: true
     description: The offered price for the selected product variant - if a user
@@ -41,14 +46,17 @@ fields:
     singleValue: false
     description: Product description supplied by website - may be concatenanted from
       multiple places; specifically not the manufacturer description
+    xpath: (//p[@class="product-description-text__text"])[1]
   - name: descriptionBullets
     singleValue: true
     description: Number of ul > li tags in the description
     type: NUMBER
+    xpath: count(//p[@class="product-description-text__text"]/ul/li)
   - name: brandText
     singleValue: true
     description: Product brand shown - this may actually NOT be just a brand name,
       e.g. "Visit the Gillette Store"
+    xpath: (//span[@class="product-name__item product-name__item--brand"])[1]
   - name: manufacturer
     singleValue: true
     description: Product manufacturer
@@ -69,9 +77,11 @@ fields:
   - name: sku
     singleValue: true
     description: The store-specific product identifier
+    xpath: (//span[@class="product-number__code"])
   - name: variantId
     singleValue: true
     description: Identifier for a variant from a store where variants share the same sku
+    xpath: (//span[@class="product-number__code"])
   - name: mpc
     singleValue: true
     description: The manufacturer model code (unique) of the product
@@ -79,6 +89,7 @@ fields:
     singleValue: true
     description: The number of packs in the product offer (if stated separately on
       the site to quantity)
+    xpath: (//span[@class="product-name__item product-name__item--package-size"])[1]
   - name: legalDisclaimer
     singleValue: true
     description: Content under "legal disclaimer" header
@@ -234,9 +245,11 @@ fields:
     singleValue: true
     description: List of Ingredients from site - can be string of data if no
       discernible start/end point
+    xpath: //div[@class="product-details-page-info-layout-content product-details-page-info-layout-content--i product-details-page-info-layout-content--n product-details-page-info-layout-content--g product-details-page-info-layout-content--r product-details-page-info-layout-content--e product-details-page-info-layout-content--d product-details-page-info-layout-content--t product-details-page-info-layout-content--s product-details-page-info-layout-content--active"]
   - name: servingSize
     singleValue: true
     description: The size of serving Nutritional information is based on.
+    xpath: //strong[@class="nutritional-value__value"]
   - name: servingSizeUom
     singleValue: true
     description: Unit of measure of serving
@@ -281,6 +294,7 @@ fields:
     singleValue: true
     description: Nutritional Information for Cholesterol content - Usually based on
       per 100g serving
+    xpath: (//span[@class="nutrient-per-serving__label-item nutrient-per-serving__label-item--value-gram"])[10]
     type: NUMBER
   - name: cholesterolPerServingUom
     singleValue: true
@@ -321,6 +335,7 @@ fields:
     singleValue: true
     description: Nutritional Information for Protein content - Usually based on per
       100g serving
+    xpath: (//span[@class="nutrient-per-serving__label-item nutrient-per-serving__label-item--value-gram"])[9]
     type: NUMBER
   - name: proteinPerServingUom
     singleValue: true
@@ -345,6 +360,7 @@ fields:
     singleValue: true
     description: Nutritional Information for Calcium content - Usually based on per
       100g serving
+    xpath: (//span[@class="nutrient-per-serving__label-item nutrient-per-serving__label-item--value-gram"])[1]
     type: NUMBER
   - name: calciumPerServingUom
     singleValue: true
