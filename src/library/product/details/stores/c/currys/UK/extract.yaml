@@ -422,11 +422,14 @@ fields:
     # regExpReplace: $2
   - name: inTheBoxText
     singleValue: false
-    xpath: //div[contains(@class, "InTheBox")]//div[contains(@class, "flix-std-content")]
+    xpath: //div[contains(@class, "InTheBox")]//div[contains(@class, "flix-std-content")]| //th[contains(text(), "Box contents")]/following-sibling::td/text()
     description: Must include text to show the accessories/tools which come with the product
   - name: hasComparisonTable
-    xpath: boolean(//*[@class="flix-comp-container"])
-    default: false
+    singleValue: true
+    xpath: //div[contains(., "Compare with similar")][contains(@class,'flix-comp-h2')]
+    regExp: (.+)
+    regExpReplace: Yes
+    defaultValue: No
     description: Compare the range table or matrix must be present for all vacuum cleaners & air treatment. This is not required for personal care or lighting. As a minimum the comparison table will compare against 1 additional Dyson product.
   - name: unInterruptedPDP
     singleValue: false

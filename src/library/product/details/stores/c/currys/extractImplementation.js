@@ -321,7 +321,7 @@ const implementation = async (
       const uri = `${countryRoute}/mcd_postcode_check/sProductId/${sku}/sPostCode/${zip}/latitude/${lat}/longitude/${long}/ajax.html`;
       const res = await makeApiCall(uri);
       console.log(res);
-      if (res.status === 'success' && res.data && res.data.postCodeCheck && res.data.postCodeCheck.state !== 'DELIVERABLE') {
+      if (res && res.status && res.status === 'success' && res.data && res.data.postCodeCheck && res.data.postCodeCheck.state !== 'DELIVERABLE') {
         availability = 'Out Of Stock';
       }
     } else if (outOfStock) {
