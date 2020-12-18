@@ -52,6 +52,25 @@ async function implementation (
   if (isIframeExists.exists) {
     await context.goto(`https:${isIframeExists.iframeUrl}`, { timeout: 80000, waitUntil: 'load', checkBlocked: true });
 
+    await context.evaluate(async () => {
+      await new Promise((resolve) => setTimeout(resolve, 5000));
+
+      async function infiniteScroll () {
+        let prevScroll = document.documentElement.scrollTop;
+        while (true) {
+          window.scrollBy(0, document.documentElement.clientHeight);
+          await new Promise(resolve => setTimeout(resolve, 1000));
+          const currentScroll = document.documentElement.scrollTop;
+          if (currentScroll === prevScroll) {
+            break;
+          }
+          prevScroll = currentScroll;
+        }
+      }
+      await infiniteScroll();
+      await new Promise((resolve) => setTimeout(resolve, 8000));
+    });
+    console.log('tefdf')
     const enhancedContent = await context.evaluate(async function () {
       let enhancedContent = {};
       enhancedContent.description = document.body.innerText.replace(/\n{2,}/g, '').replace(/\s{2,}/g, ' ');
@@ -67,19 +86,40 @@ async function implementation (
           enhancedContent.images.push(q.getAttribute('src'));
         }
       })
-      const specifications = document.querySelectorAll('div#specifications');
+      const specifications = document.querySelectorAll('div#specifications div.eky-specs-col');
       enhancedContent.specArr = [];
       if (specifications) {
+        console.log('specificationsswe')
+        console.log(specifications)
         specifications.forEach(e => {
-          enhancedContent.specArr.push(e.innerText.replace(/\n{2,}/g, '').replace(/\s{2,}/g, ' '));
+          enhancedContent.specArr.push(e.innerText.replace(/\n{2,}/g, ' ').replace(/\s{2,}/g, ' ').trim());
         });
       }
       return enhancedContent;
     });
 
+    const inTheBox = await context.evaluate(async function () {
+      let inTheBox = {};
+      inTheBox.text = [];
+      inTheBox.images = [];
+      [...document.querySelectorAll('div.eky-accessory')].forEach(element => {
+        if (element.querySelector('img').hasAttribute('src')) {
+          inTheBox.images.push('//media.flixfacts.com/eyekandy/dyson/v11/en/'+element.querySelector('img').getAttribute('src'));
+        }
+        if (element.querySelector('.eky-accesory-title')) {
+          inTheBox.text.push(element.querySelector('.eky-accesory-title').innerText);
+        }
+      });
+      return inTheBox;
+    });
+
     await context.goto(prodDetails.url, { timeout: 80000, waitUntil: 'load', checkBlocked: true });
 
-    await context.evaluate(async function (enhancedContent) {
+    const compare = await context.evaluate(async function () {
+      return (!!document.querySelector('.flix-comp-mainTitle') && document.querySelector('.flix-comp-mainTitle').offsetHeight > 0 && document.querySelector('.flix-comp-mainTitle').offsetWidth) > 0;
+    });
+
+    await context.evaluate(async function (enhancedContent, inTheBox, compare) {
       function addHiddenDiv(id, content) {
         const newDiv = document.createElement('div');
         newDiv.id = id;
@@ -97,7 +137,20 @@ async function implementation (
         addHiddenDiv('enhancedContentImages', `https://media.flixfacts.com/eyekandy/dyson/v11/en/${q}`);
       });
       addHiddenDiv('specifications', enhancedContent['specArr'].join(' || '))
-    }, enhancedContent);
+
+      inTheBox.images.forEach(q => {
+        addHiddenDiv('inTheBoxImg', `${q} 200w`);
+      });
+
+      inTheBox.text.forEach(q => {
+        addHiddenDiv('inTheBoxText', q);
+      });
+      console.log('comparefddf')
+      console.log(compare)
+      if (compare) {
+        addHiddenDiv('ii_compare', 'Yes');
+      }
+    }, enhancedContent, inTheBox, compare);
   }
   await context.extract(productDetails,{ transform });
 }
