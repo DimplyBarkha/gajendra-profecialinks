@@ -6,7 +6,7 @@ module.exports = {
     prefix: null,
     suffix: null,
     subdomain: null,
-    url: null,
+    url: 'https://www.heineken.co.uk/site-map/',
     country: 'UK',
     store: 'heineken',
     zipcode: '',
