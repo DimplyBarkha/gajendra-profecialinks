@@ -19,36 +19,68 @@ async function implementation (
       }
     }
     function stall (ms) {
-      return new Promise((resolve, reject) => {
+      return new Promise((resolve) => {
         setTimeout(() => {
           resolve();
         }, ms);
       });
     }
-    function getElementsByXPath (xpath, type, parent) {
-      const results = [];
-      const query = document.evaluate(xpath, parent || document,
-        null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
-      for (let i = 0, length = query.snapshotLength; i < length; ++i) {
-        if (type === 'Specifications') {
-          if (i % 2 === 0) {
-            results.push(query.snapshotItem(i).innerText + ' : ' + query.snapshotItem(i + 1).innerText);
+    const url = window.location.href;
+    if (url.includes('piid') || url.includes('redir')) {
+      document.body.setAttribute('variantid', url.replace(new RegExp('(.+)(piid=|redir=)(.+)', 'g'), '$3'));
+    } else {
+      const skuId = document.querySelector('[property="og:upc"]') ? document.querySelector('[property="og:upc"]').getAttribute('content') : '';
+      document.body.setAttribute('variantid', skuId);
+    }
+    const val = [];
+    try {
+      const data = window.WEBPACK_ENTRY_DATA.application.props.optionComboToPartId;
+      for (const i in data) {
+        val.push(i);
+      }
+      await stall(2000);
+    } catch (err) {
+      console.log({ err });
+    }
+    try {
+      if (val.length === 0) {
+        var data = window.wf.reactData;
+        for (const key in data) {
+          if (data[key].react_component_name === 'pure_react_pdp') {
+            var variant = data[key].bootstrap_data.optionComboToPartId;
+            for (const key in variant) {
+              val.push(key);
+            }
           }
         }
-        if (type === 'Description') {
-          results.push(query.snapshotItem(i).innerText);
-        }
       }
-      return results;
+    } catch (err) {
+      console.log({ err });
     }
-    const specification = getElementsByXPath("//h4[contains(text(),'Specifications')]/following-sibling::div/dl/dt|//h4[contains(text(),'Specifications')]/following-sibling::div/dl/dd", 'Specifications').join(' || ');
-    const description = getElementsByXPath('//div[@class="ProductOverviewInformation-description"]', 'Description');
-    const feature = getElementsByXPath('//h4[contains(text(),"Features")]/following-sibling::ul/li', 'Description') ? 'Features : ' + getElementsByXPath('//h4[contains(text(),"Features")]/following-sibling::ul/li', 'Description').join(' || ') : '';
-    const ProductDetails = getElementsByXPath('//h4[contains(text(),"Product Details")]/following-sibling::ul/li', 'Description') ? 'Product Details : ' + getElementsByXPath('//h4[contains(text(),"Product Details")]/following-sibling::ul/li', 'Description').join(' || ') : '';
-    const included = getElementsByXPath('//h3[contains(text(),"Included?")]/following-sibling::ul/li', 'Description') ? 'What\'s Included? : ' + getElementsByXPath('//h3[contains(text(),"Included?")]/following-sibling::ul/li', 'Description').join(' || ') : '';
-    const descriptionArr = [description, included, feature, ProductDetails].filter(e => e).join(' || ');
-    document.body.setAttribute('description', descriptionArr);
-    document.body.setAttribute('specification', specification);
+    if (val.length === 0) {
+      const values = document.querySelectorAll('div.VisualOptionCard > div > div > label > input');
+      values.forEach(item => {
+        val.push(item.getAttribute('value'));
+        item.setAttribute('url', window.location.href.replace(/[^htm]+$/g, `l?piid=${item.getAttribute('value')}`));
+      });
+    }
+    const table = document.createElement('table');
+    document.body.appendChild(table);
+    const tBody = document.createElement('tbody');
+    table.appendChild(tBody);
+    for (let index = 0; index < val.length; index++) {
+      const newlink = document.createElement('tr');
+      newlink.setAttribute('class', 'append_variant');
+      newlink.setAttribute('variant_id', val[index].replace(/-/g, '_'));
+      tBody.appendChild(newlink);
+
+      const id = document.createElement('td');
+      id.setAttribute('class', 'id');
+      id.setAttribute('id', val[index].replace(/-/g, '_'));
+      id.setAttribute('url', window.location.href.replace(/[^htm]+$/g, `l?piid=${val[index].replace(/-/g, '_')}`));
+      newlink.appendChild(id);
+    }
+    await stall(3000);
   });
   return await context.extract(productDetails, { transform });
 }

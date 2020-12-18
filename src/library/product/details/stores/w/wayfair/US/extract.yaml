@@ -14,6 +14,9 @@ fields:
   - name: nameExtended
   - name: price
     xpath: //div[@class="StandardPriceBlock"]/div[contains(@class,"BasePriceBlock")]
+  - name: pricePerUnit
+    xpath: //span[@class="PricePerItemBlock"]
+    regExp: ([0-9.]+)
   - name: listPrice
     xpath: //div[@class="StandardPriceBlock"]/div[contains(@class,"DetailedPriceBlock")]//div[contains(@class,"BasePriceBlock")]
   - name: availabilityText
@@ -24,30 +27,56 @@ fields:
   - name: brandText
     xpath: (//a[@data-click-location="manufacturer_link"])[1]
   - name: brandLink
-    xpath: //div[@class="ManufacturerDetails"]//a/@href
+    xpath: (//a[@data-click-location="manufacturer_link"]//@href)[1]
   - name: manufacturer
     xpath: (//a[@data-click-location="manufacturer_link"])[1]
+  - name: gtin
+    xpath: //meta[@property="og:upc"]/@content
+  - name: firstVariant
   - name: sku
     xpath: //meta[@property="og:upc"]/@content
   - name: description
-    xpath: //body/@description
-  - name: additionalDescBulletInfodescriptionBullets
+    xpath: //div[contains(@class,'ProductOverviewInformation-description')] | //h3[contains(.,'Features')]/following-sibling::ul//li | //h3[contains(.,'Product Details')]/following-sibling::ul//li | //h3[contains(.,'More About This Product')]/.. | //h4[contains(.,'Features')]/following-sibling::ul//li | //h4[contains(.,'Product Details')]/following-sibling::ul//li | //h4[contains(.,'More About This Product')]/..
+  - name: additionalDescBulletInfo
     xpath: //div[@class="ProductOverviewInformation-content"]//ul//li
   - name: descriptionBullets
-    xpath: count(//div[@class="ProductOverviewInformation-content"]//ul//li)
+    xpath: count(//div[contains(@class,"ProductOverviewInformation")]//ul//li)
   - name: variantId
-    xpath: //input[@name="PiID[Finish]"]/@value
+    xpath: //body//@variantid
+  - name: color
+    xpath: //p[contains(.,'Select')]/following-sibling::p | //p[contains(.,'Select Color')]/following-sibling::p | //div[@class="PdpOptionSelect"]//button[@aria-label="Select Color"]
+  - name: variantInformation
+    xpath: //p[contains(.,'Select')]/following-sibling::p | //p[contains(.,'Select Color')]/following-sibling::p | //div[@class="PdpOptionSelect"]//button[@aria-label="Select Color"]
+  - name: variantCount
+    description: Number of variants listed
+    xpath: count(//table/tbody//tr[contains(@class,'append_variant')]//td//@id)
+  - name: variants
+    xpath: //table/tbody//tr[contains(@class,'append_variant')]//td//@id
   - name: alternateImages
-    xpath: //ul[contains(@class,"ProductDetailImage")]//li[position()>1]//div[@class="ImageComponent ImageComponent--overlay"]/img/@src
+    xpath: //div[contains(@class,"ProductDetailImageCarouselVariantB-imageViewer")]//ul//li[position()>1]//img//@src
+    # regExp: (.+resize)(.+r50)(.+)
+    # regExpReplace: $1-h800-w800%5Ecompr-r85$3
   - name: secondaryImageTotal
-    xpath: count(//ul[contains(@class,"ProductDetailImage")]//li[position()>1]//div[@class="ImageComponent ImageComponent--overlay"]/img/@src)
+    xpath: count(//div[contains(@class,"ProductDetailImageCarouselVariantB-top")]//ul//li[position()>1]//img//@src)
   - name: ratingCount
     xpath: (//span[contains(@class,'ProductRatingNumberWithCount-count--link')])[1]
     regExp: (\d+)
   - name: aggregateRating
     xpath: (//span[@class="ProductRatingNumberWithCount-rating"])[1]
-  - name: video
-    xpath: //video[@class="VideoPlayer-element"]/source[1]/@src
+  - name: countryOfOrigin
+    xpath: //dt[contains(.,'Country of Origin')]/following-sibling::dd
+  - name: manufacturerDescription
+    description: The extended description of the product supplied by the lister
+    xpath: //div[contains(@class,'WaymoreModulesContainer')]//section//text() | //div[@id="wc-power-page"]//div[@class="wc-rich-content-description"] | //div[@id="wc-power-page"]//table | //div[@id="wc-power-page"]//div[@class="wc-rich-content-description"] | //div[@id="wc-power-page"]//ul//li
+  - name: manufacturerImages
+    description: Images within the third party description
+    xpath: //div[contains(@class,'WaymoreModulesContainer')]//section//img//@src | //div[@id="wc-power-page"]//img//@src[contains(.,'jpg')]
+  - name: videos
+    xpath: //video[@class="VideoPlayer-element"]/source[1]/@src | //video/source//@src[contains(.,'mp4')]
+  - name: warranty
+    xpath: //dt[contains(.,'Warranty Length')]/following-sibling::dd[1]
+  - name: materials
+    xpath: //dt[contains(.,'Material')]/following-sibling::dd[1]
   - name: mpc
     xpath: //ol[@class="Breadcrumbs-list"]/li/span[contains(text(),'Part')]
     regExp: 'Part #:\s(.+)'
@@ -57,7 +86,7 @@ fields:
   - name: weightNet
     xpath: //div[contains(text(),"Overall Product Weight")]/parent::dt/following-sibling::dd
   - name: specifications
-    xpath: //body/@specification
+    xpath: //div[@data-enzyme-id="specificationsLeftColumn"]//div[contains(@class,"Specifications-descriptionList-cell")] |//div[@class="Specifications"]/div//div[@class="Specifications-descriptionList"]//div[contains(@class,"Specifications-descriptionList-cell")] | //div[@class="ProductWeightsDimensions-descriptionListItem"]
     # //static
   - name: technicalInformationPdfPresent
     defaultValue: No
@@ -67,8 +96,7 @@ fields:
     defaultValue: No
   - name: customerServiceAvailability
     defaultValue: No
-  - name: materials
   - name: Image360Present
     defaultValue: No
   - name: imageZoomFeaturePresent
-    defaultValue: No
+    defaultValue: Yes
