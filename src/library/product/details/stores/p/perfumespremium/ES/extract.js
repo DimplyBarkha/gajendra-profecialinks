@@ -1,6 +1,6 @@
 const { transform } = require('../../../../shared');
 
-async function implementation(inputs, parameters, context, dependencies) {
+async function implementation (inputs, parameters, context, dependencies) {
   const { transform } = parameters;
   const { productDetails } = dependencies;
 
@@ -21,7 +21,7 @@ async function implementation(inputs, parameters, context, dependencies) {
   await new Promise((resolve) => setTimeout(resolve, 8000));
 
   await context.evaluate(async () => {
-    function addElementToDocument(key, value) {
+    function addElementToDocument (key, value) {
       const catElement = document.createElement('div');
       catElement.id = key;
       catElement.textContent = value;
@@ -30,7 +30,6 @@ async function implementation(inputs, parameters, context, dependencies) {
     }
     const productUrl = window.location.href ? window.location.href : null;
     addElementToDocument('url', productUrl);
-
 
     const productOtherInfo = document.querySelectorAll('tbody tr');
     const trArr = [productOtherInfo];
@@ -41,9 +40,9 @@ async function implementation(inputs, parameters, context, dependencies) {
 
     const imgZoom = document.querySelector('div[data-gallery-role=magnifier-zoom]') ? 'div[data-gallery-role=magnifier-zoom]' : null;
     if (imgZoom !== null) {
-      addElementToDocument('imgzoom', 'Yes')
+      addElementToDocument('imgzoom', 'Yes');
     } else {
-      addElementToDocument('imgzoom', 'No')
+      addElementToDocument('imgzoom', 'No');
     }
   });
 
