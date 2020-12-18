@@ -42,7 +42,7 @@ fields:
     description: Product description supplied by website - may be concatenanted from
       multiple places; specifically not the manufacturer description
   - name: descriptionBullets
-    xpath: count(//td[@class="mainFeatures"]//td[@class="value"])
+    xpath: count(//div[contains(@class,"product-page")]//div[@class="highlights-tablet"]//ul[@class="to-print"]//li)
     description: Number of ul > li tags in the description
     type: NUMBER
   - name: brandText
@@ -378,7 +378,7 @@ fields:
     regExpReplace: $1
   - name: additionalDescBulletInfo
     singleValue: false
-    xpath: //td[@class="mainFeatures"]//td[@class="value"]
+    xpath: //div[contains(@class,"product-page")]//div[@class="highlights-tablet"]//ul[@class="to-print"]//li
   - name: prop65Warning
     description: null
   - name: ageSuitability
