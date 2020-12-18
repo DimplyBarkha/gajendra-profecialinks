@@ -75,7 +75,7 @@ module.exports = {
       }
     });
     const url = await context.evaluate(async function () {
-      return window.location.href
+      return window.location.href;
     });
     var data = await context.extract(productDetails, { transform });
     for (let k = 0; k < data.length; k++) {
