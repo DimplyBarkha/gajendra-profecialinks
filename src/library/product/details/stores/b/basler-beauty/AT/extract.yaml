@@ -11,7 +11,7 @@ fields:
     xpath: //div[contains(@id,'detailsMain')]//div[contains(@class,'picture')]//img[contains(@class,'img-responsive')]/@alt
   - name: alternateImages
     singleValue: false
-    xpath: //div[contains(@class,'otherPictures')]//ul[@class='list-inline']/li/a/@href | //div[contains(@class,'otherPictures')]//ul[@class='slides']/li/a/@href
+    xpath: //div[contains(@class,'otherPictures')]//ul[@class='list-inline']/li[position()>1]/a/@href | //div[contains(@class,'otherPictures')]//ul[@class='slides']/li[position()>1]/a/@href
   - name: metaKeywords
     singleValue: true
     xpath: //meta[@name="keywords"]/@content
