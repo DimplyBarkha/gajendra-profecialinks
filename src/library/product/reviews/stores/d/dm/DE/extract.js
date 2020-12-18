@@ -37,6 +37,10 @@ async function implementation (
       });
     }
   });
+  let xpath = document.querySelector('span.bv-content-btn-pages-next');
+  if(xpath){
+    xpath.click();
+  }
 
   return await context.extract(productReviews);
 }
