@@ -11,7 +11,6 @@ fields:
   - name: flavour
     description: Product flavour
   - name: helpful
-    type: NUMBER
     description: Number of people who said the review was helpful
     xpath: //div[@class='stamped-review-vote']//a[@data-votes][1]
   - name: location
@@ -52,7 +51,6 @@ fields:
     description: The product name
     xpath: ancestor::html//div[@id="shopify-section-product-template"]//div[@class="product-section"][1]//h1[@class='h2 product-single__title']
   - name: commentCount
-    type: NUMBER
     description: Number of comments on the review
   - name: reviewDate
     type: DATETIME
