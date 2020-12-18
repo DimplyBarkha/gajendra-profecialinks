@@ -2,11 +2,11 @@
 module.exports = {
   implements: 'tracker/categories/createUrl',
   parameterValues: {
-    domain: 'perekrestok.ru',
+    domain: 'vprok.ru',
     prefix: null,
     suffix: null,
     subdomain: null,
-    url: null,
+    url: 'https://vprok.ru/',
     country: 'RU',
     store: 'perekrestok',
     zipcode: '',

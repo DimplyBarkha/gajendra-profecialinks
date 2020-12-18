@@ -4,8 +4,8 @@ module.exports = {
   parameterValues: {
     country: 'RU',
     store: 'perekrestok',
-    domain: 'perekrestok.ru',
-    loadedSelector: null,
+    domain: 'vprok.ru',
+    loadedSelector: 'div#main-app',
     noResultsXPath: null,
     zipcode: '',
   },

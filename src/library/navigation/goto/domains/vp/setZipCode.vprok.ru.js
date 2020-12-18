@@ -1,10 +1,9 @@
 
 module.exports = {
-  implements: 'navigation/goto',
+  implements: 'navigation/goto/setZipCode',
   parameterValues: {
-    domain: 'perekrestok.ru',
-    timeout: null,
     country: 'RU',
+    domain: 'vprok.ru',
     store: 'perekrestok',
     zipcode: '',
   },

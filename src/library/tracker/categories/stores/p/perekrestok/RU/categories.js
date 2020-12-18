@@ -3,7 +3,7 @@ module.exports = {
   implements: 'tracker/categories',
   parameterValues: {
     country: 'RU',
-    domain: 'perekrestok.ru',
+    domain: 'vprok.ru',
     store: 'perekrestok',
     zipcode: '',
   },
