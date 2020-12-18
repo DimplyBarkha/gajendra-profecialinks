@@ -17,7 +17,8 @@ const transform = (data, context) => {
     .replace(/(<([^>]+)>)/ig, '')
     .replace(/[\uD800-\uDBFF][\uDC00-\uDFFF]/g, ' ')
     .trim();
-  const regexp = '(?:(<?\\s?[\\d\\.]+)\\s?(\\w*))';
+
+  const regexp = '(?:(<?\\s?[\\d\\.\/]+)\\s?([A-Za-z%]*))';
   function getSplitValue (inputStr, count) {
     if (inputStr) {
       const result = inputStr.match(regexp);
@@ -199,10 +200,10 @@ const transform = (data, context) => {
             const info = JSON.parse(jsonStr);
             console.log(JSON.stringify(info));
             if (info && info.nutritionFacts && info.nutritionFacts.servingInfo && info.nutritionFacts.servingInfo.values) {
-              const servingSize = (info.nutritionFacts.servingInfo.values[0]) ? info.nutritionFacts.servingInfo.values[0].value : '';
+              const servingSize = (info.nutritionFacts.servingInfo.values[1]) ? info.nutritionFacts.servingInfo.values[1].value : '';
               row.servingSize = [{ text: getSplitValue(servingSize, 1) }];
               row.servingSizeUom = [{ text: getSplitValue(servingSize, 2) }];
-              row.numberOfServingsInPackage = [{ text: (info.nutritionFacts.servingInfo.values[1]) ? info.nutritionFacts.servingInfo.values[1].value : '' }];
+              row.numberOfServingsInPackage = [{ text: (info.nutritionFacts.servingInfo.values[0]) ? info.nutritionFacts.servingInfo.values[0].value : '' }];
             }
             if (info && info.nutritionFacts && info.nutritionFacts.calorieInfo) {
               row.caloriesPerServing = [{ text: (info.nutritionFacts.calorieInfo.mainNutrient && info.nutritionFacts.calorieInfo.mainNutrient.amount) ? info.nutritionFacts.calorieInfo.mainNutrient.amount.split(' ')[0].replace('cal', '') : '' }];
