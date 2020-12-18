@@ -221,9 +221,9 @@ module.exports = {
         const API = `https://api.bazaarvoice.com/data/statistics.json?apiversion=5.4&passkey=${passkey}&stats=Reviews&filter=ContentLocale:${locale}&filter=ProductId:${productId}`;
         const response = await fetch(API);
         const data = await response.json();
-        const ratingCount = data.Results[0].ProductStatistics.ReviewStatistics.TotalReviewCount;
+        const ratingCount = (data.Results[0] && data.Results[0].ProductStatistics && data.Results[0].ProductStatistics.ReviewStatistics && data.Results[0].ProductStatistics.ReviewStatistics.TotalReviewCount) ? data.Results[0].ProductStatistics.ReviewStatistics.TotalReviewCount : 0;
 
-        const ratingValue = data.Results[0].ProductStatistics.ReviewStatistics.AverageOverallRating ? data.Results[0].ProductStatistics.ReviewStatistics.AverageOverallRating.toFixed(1).replace('.', ',') : 0;
+        const ratingValue = (data.Results[0] && data.Results[0].ProductStatistics && data.Results[0].ProductStatistics.ReviewStatistics && data.Results[0].ProductStatistics.ReviewStatistics.AverageOverallRating) ? data.Results[0].ProductStatistics.ReviewStatistics.AverageOverallRating.toFixed(1).replace('.', ',') : 0;
         let reviewCount = 0;
         if (ratingCount > 0) {
           const ratingOnlyElm = Array.from(document.querySelectorAll('[itemprop="headline"]')).find(elm => elm.textContent.includes('valoraciones sin reseña'));

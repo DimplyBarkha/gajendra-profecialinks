@@ -7,11 +7,11 @@ module.exports = {
   },
   implementation: async ({ url }, parameters, context, dependencies) => {
     console.log('IN GOTO');
-    const timeout = parameters.timeout ? parameters.timeout : 500000;
+    const timeout = parameters.timeout ? parameters.timeout : 600000;
     await context.setBlockAds(false);
     await context.setLoadAllResources(true);
     await context.setLoadImages(true);
-    await context.setFirstRequestTimeout(60000);
+    await context.setFirstRequestTimeout(90000);
     url = url.replace(/^http:\/\//i, 'https://');
     console.log(`url after adding https is - ${url}`);
 

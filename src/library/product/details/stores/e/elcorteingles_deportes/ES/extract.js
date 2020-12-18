@@ -335,37 +335,40 @@ module.exports = {
         addElementToDocument('ratingCount', responseRatingCount);
         addElementToDocument('aggregateRating', responseReviewRating);
 
-        const productsData = `https://www.elcorteingles.es/api/product/${productID}?product_id=${productID}&skus=${sku}&store_id=${storeId}&original_store=0`;
+        const productsData = `https://www.elcorteingles.es/api/product/${productID}?product_id=${productID}&store_id=${storeId}&original_store=${storeId}`;
         const apiDataResponse = await makeApiCall(productsData, {});
         addElementToDocument('SKU', JSON.parse(apiDataResponse).id);
         addElementToDocument('mpc', JSON.parse(apiDataResponse)._product_model);
         addElementToDocument('promotion', JSON.parse(apiDataResponse).discount ? '-' + JSON.parse(apiDataResponse).discount + '%' : '');
 
         // Append a UL and LI tag append the variant info in the DOM
-        const variants = JSON.parse(apiDataResponse)._delivery_options[0].skus;
+        const variants = JSON.parse(apiDataResponse).skus;
+        console.log(variants, 'Data');
         const targetElement = document.querySelector('body');
         const newUl = document.createElement('ul');
         newUl.id = 'variantsadd';
         targetElement.appendChild(newUl);
-
         const ul = document.querySelector('#variantsadd');
-        console.log('ul created', ul);
-        console.log('Variants', variants);
+        const name = nameExtended();
+        let variantIds = [];
+        variants.forEach(q => {
+          if(q.reference_id) {
+            variantIds.push(q.reference_id.trim());
+          }
+        });
         try {
           if (variants.length) {
             for (let i = 0; i < variants.length; i++) {
               const listItem = document.createElement('li');
-              console.log(i, 'value');
+              console.log(name, 'value');
               setAttributes(listItem, {
-                nameExtended: `${nameExtended()}  ${variants[i].variant ? variants[i].variant[0] ? variants[i].variant[0].value : '' : ''} ${variants[i].variant ? variants[i].variant[1] ? '-' : '' : ''} ${variants[i].variant ? variants[i].variant[1] ? variants[i].variant[1].value : '' : ''}`,
-                quantity: `${variants[i].variant ? variants[i].variant[1] ? variants[i].variant[1].value : '' : ''}`,
-                color: variants[i].variant ? variants[i].variant[0].value : '',
-                gtin: variants[i].gtin ? variants[i].gtin : '',
-                retailer_product_code: variants[i].id.trim(''),
-                stock: getStock(variants[i]),
-                title: variants[i].variant ? variantInformation(variants[i]) : '',
-                variantDetails: variants[i].variant ? variants[i].variant[0] ? variants.filter((e) => { return e.color.title === variants[i].variant[0].value; }).map((e) => { return e.id; }).join(' | ') : '' : '',
-                variantcount: variants[i].variant ? variants[i].variant[0] ? variants.filter((e) => { return e.color.title === variants[i].variant[0].value; }).length : 0 : 0,
+                nameExtended: `${nameExtended()}`,
+                color: variants[i].color.title,
+                gtin: variants[i].gtin,
+                retailer_product_code: variants[i].reference_id,
+                title: variants[i].color.title,
+                variantDetails: variantIds.join(" | "),
+                variantcount: variants.length,
               });
               ul.appendChild(listItem);
             }

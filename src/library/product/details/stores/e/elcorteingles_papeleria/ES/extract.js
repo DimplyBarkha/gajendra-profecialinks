@@ -98,7 +98,7 @@ module.exports = {
 
       if (productID) {
         // API
-        const productsData = `https://www.elcorteingles.es/api/product/${productID}?product_id=${productID}&skus=${sku}&store_id=${storeId}&original_store=0`;
+        const productsData = `https://www.elcorteingles.es/api/product/${productID}?product_id=${productID}&store_id=${storeId}&original_store=${storeId}`;
         const apiDataResponse = await makeApiCall(productsData, {});
 
         if (apiDataResponse) {
@@ -106,9 +106,9 @@ module.exports = {
           //   document.querySelector('.sku-model').textContent = `MODELO: ${JSON.parse(apiDataResponse)._product_model}`;
           // }
           addElementToDocument('mpc', JSON.parse(apiDataResponse)._product_model);
-          addElementToDocument('sku', JSON.parse(apiDataResponse)._datalayer[0].product.variant);
-          addElementToDocument('gtin', JSON.parse(apiDataResponse)._datalayer[0].product.gtin);
-          addElementToDocument('retailer_product_code', JSON.parse(apiDataResponse).id);
+          addElementToDocument('sku', JSON.parse(apiDataResponse)._reference);
+          addElementToDocument('gtin', JSON.parse(apiDataResponse)._gtin);
+          addElementToDocument('retailer_product_code', JSON.parse(apiDataResponse)._reference);
           addElementToDocument('variantInformation', JSON.parse(apiDataResponse)._delivery_options[0].skus[0].variant ? JSON.parse(apiDataResponse)._delivery_options[0].skus[0].variant[0].value : '');
           if (JSON.parse(apiDataResponse).video && JSON.parse(apiDataResponse).video.length > 0) {
             console.log('we have the video array in the api response');

@@ -175,7 +175,7 @@ module.exports = {
           addElementToDocument('sku', JSON.parse(apiDataResponse).id);
           addElementToDocument('gtin', JSON.parse(apiDataResponse)._datalayer[0].product.gtin);
           addElementToDocument('retailer_product_code', JSON.parse(apiDataResponse)._datalayer[0].product.variant);
-          addElementToDocument('variantInformation', JSON.parse(apiDataResponse)._delivery_options[0].skus[0].variant ? JSON.parse(apiDataResponse)._delivery_options[0].skus[0].variant[0].value : '');
+          addElementToDocument('variantInformation', (JSON.parse(apiDataResponse)._delivery_options[0] && JSON.parse(apiDataResponse)._delivery_options[0].skus[0] && JSON.parse(apiDataResponse)._delivery_options[0].skus[0].variant) ? JSON.parse(apiDataResponse)._delivery_options[0].skus[0].variant[0].value : '');
           if (JSON.parse(apiDataResponse).video && JSON.parse(apiDataResponse).video.length > 0) {
             console.log('we have the video array in the api response');
             if (JSON.parse(apiDataResponse).video[0].url) {

@@ -24,6 +24,11 @@ const transform = (data, context) => {
         const text = row.allergyAdvice.map(elm => elm.text.trim()).join(',');
         row.allergyAdvice = [{ text }];
       }
+      if(!row.variantId){
+        if(row.sku){
+          row.variantId = row.sku;
+        }
+      }
       Object.keys(row).forEach(header => row[header].forEach(el => {
         el.text = clean(el.text);
       }));
