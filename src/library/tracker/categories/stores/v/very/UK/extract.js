@@ -9,11 +9,9 @@ module.exports = {
   },
   implementation: async (inputs, parameters, context, dependencies) => {
     const { productMenu } = dependencies;
-
     const isMenuPresent = await context.evaluate(async () => {
       return document.querySelector('div[id="topNav"]') !== null;
     });
-
     if (isMenuPresent) {
       await context.evaluate(async () => {
         function addHiddenDiv (id, content, parentDiv = null) {
@@ -29,27 +27,39 @@ module.exports = {
           }
           return newDiv;
         }
-        const mainCategoryContainers = document.querySelectorAll('div[id="topNav"] a');
-        mainCategoryContainers.forEach(mainCategory => {
-          const subMenuContainer = document.querySelectorAll('div[class="topNavMenu"]');
-          console.log(subMenuContainer.length);
-          subMenuContainer.forEach(categories => {
-            if (categories.id.includes(mainCategory.textContent.split(' ')[0])) {
-              const subCategoriesContainer = categories.querySelectorAll('div[class="topNavCol"]');
-              subCategoriesContainer.forEach(subCategory => {
-                const subCategotyName = subCategory.querySelectorAll('h3')
-                const subSubategoryName = subCategory.querySelectorAll('a')
-                subCategotyName.forEach(subCategory => {
-                  console.log(subCategory.textContent);
-                });              
-              });
+        const mainCategories = document.querySelectorAll('div[id="topNav"] a');
+        const subCategoriesContainers = document.querySelectorAll('div[class="topNavMenu"]');
+        for (let i = 0; i < mainCategories.length; i++) {
+          let mainCategory = 0;
+          for (let j = 0; j < subCategoriesContainers.length; j++) {
+            if (subCategoriesContainers[j].id.includes(mainCategories[i].textContent.split(' ')[0])) {
+              const categoryElements = subCategoriesContainers[j].querySelectorAll('h3, a');
+              let main = '';
+              for (let k = 0; k < categoryElements.length; k++) {
+                if (!categoryElements[k].getAttribute('href')) {
+                  main = categoryElements[k].textContent
+                } else {
+                  const subWrapper = addHiddenDiv('cat-wrapper');
+                  const parent = addHiddenDiv('cat',' ', subWrapper );
+                  const url = 'https://www.very.co.uk' + categoryElements[k].getAttribute('href');
+                  addHiddenDiv('category', mainCategories[i].textContent, parent);
+                  addHiddenDiv('category', main, parent);
+                  addHiddenDiv('category', categoryElements[k].textContent, parent);
+                  addHiddenDiv('cat-url', url, subWrapper);
+                }
+              }
             } else {
-              // const wrapper = addHiddenDiv('category-wrapper');
-              // addHiddenDiv('category', mainCategory ? mainCategory.textContent : '', wrapper);
-              // addHiddenDiv('categoryUrl', mainCategory ? mainCategory.getAttribute('href') : '', wrapper);
+              mainCategory += 1;
             }
-          });
-        });
+          }
+          if (mainCategory === subCategoriesContainers.length) {
+            const subWrapper = addHiddenDiv('cat-wrapper');
+            const parent = addHiddenDiv('cat',' ', subWrapper );
+            const url = 'https://www.very.co.uk' + mainCategories[i].getAttribute('href');
+            addHiddenDiv('category', mainCategories[i].textContent, parent);
+            addHiddenDiv('cat-url', url, subWrapper);
+          }
+        }
       });
     } else {
       throw new Error('No categories found');
