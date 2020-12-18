@@ -33,7 +33,7 @@ fields:
 - name: category
   singleValue: false
   description: The categories (e.g. from breadcrumbs)
-  xpath: //ul[@id='breadcrumb']/li
+  xpath: //ul[@id='breadcrumb']/li[position()>1]
 - name: nameExtended
   singleValue: true
   description: The product name, prefixing "${brand} - " if not included in "name"
