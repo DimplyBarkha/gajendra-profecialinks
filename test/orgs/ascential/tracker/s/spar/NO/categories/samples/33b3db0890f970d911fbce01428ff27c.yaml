@@ -1,0 +1,1390 @@
+input:
+  _url: http://spar.no
+  URL: https://spar.no/nettbutikk/varer
+extractions:
+  - html: https://workbench.import.io/html/run=4415e073-7d58-4d46-92e9-13232ee4fc94/task=8557b30c-f3b1-4a71-8ff8-c39835155398/7867a11b-7c1a-4a77-b280-8846204aba91.html
+    extractionConfigId: tracker/categories/stores/s/spar/NO/extract
+    data:
+      - group:
+          - category:
+              - text: Ukens tilbud!
+                xpath: /html/body/ol[1]/li[1]/@category
+            categoryUrl:
+              - text: https://spar.no/nettbutikk/varer/tilbud/
+                xpath: /html/body/ol[1]/li[1]/@category_url
+          - category:
+              - text: Ukens frukt & grønt
+                xpath: /html/body/ol[1]/li[2]/@category
+            categoryUrl:
+              - text: https://spar.no/nettbutikk/varer/tilbud/frukt-og-gront
+                xpath: /html/body/ol[1]/li[2]/@category_url
+          - category:
+              - text: SPAR Jr. 25% avslag for Trumf-medlemmer
+                xpath: /html/body/ol[1]/li[3]/@category
+            categoryUrl:
+              - text: https://spar.no/tema/spar-jr-25-med-trumf-11109
+                xpath: /html/body/ol[1]/li[3]/@category_url
+          - category:
+              - text: First Price - alltid billig
+                xpath: /html/body/ol[1]/li[4]/@category
+            categoryUrl:
+              - text: https://spar.no/tema/first-price-alltid-billig-12064
+                xpath: /html/body/ol[1]/li[4]/@category_url
+          - category:
+              - text: Bakeartikler og kjeks
+                xpath: /html/body/ol[1]/li[5]/@category
+            categoryUrl:
+              - text: https://spar.no/nettbutikk/varer/bakeartikler-og-kjeks
+                xpath: /html/body/ol[1]/li[5]/@category_url
+          - category:
+              - text: Bakemixer
+                xpath: /html/body/ol[1]/li[6]/@category
+            categoryUrl:
+              - text: https://spar.no/nettbutikk/varer/bakeartikler-og-kjeks/bakemixer
+                xpath: /html/body/ol[1]/li[6]/@category_url
+          - category:
+              - text: Baking
+                xpath: /html/body/ol[1]/li[7]/@category
+            categoryUrl:
+              - text: https://spar.no/nettbutikk/varer/bakeartikler-og-kjeks/baking
+                xpath: /html/body/ol[1]/li[7]/@category_url
+          - category:
+              - text: Gjær
+                xpath: /html/body/ol[1]/li[8]/@category
+            categoryUrl:
+              - text: https://spar.no/nettbutikk/varer/bakeartikler-og-kjeks/gjr
+                xpath: /html/body/ol[1]/li[8]/@category_url
+          - category:
+              - text: Kjeks
+                xpath: /html/body/ol[1]/li[9]/@category
+            categoryUrl:
+              - text: https://spar.no/nettbutikk/varer/bakeartikler-og-kjeks/kjeks
+                xpath: /html/body/ol[1]/li[9]/@category_url
+          - category:
+              - text: Mel og gryn
+                xpath: /html/body/ol[1]/li[10]/@category
+            categoryUrl:
+              - text: https://spar.no/nettbutikk/varer/bakeartikler-og-kjeks/mel-og-gryn
+                xpath: /html/body/ol[1]/li[10]/@category_url
+          - category:
+              - text: Sukker
+                xpath: /html/body/ol[1]/li[11]/@category
+            categoryUrl:
+              - text: https://spar.no/nettbutikk/varer/bakeartikler-og-kjeks/sukker
+                xpath: /html/body/ol[1]/li[11]/@category_url
+          - category:
+              - text: Tørket frukt og nøtter
+                xpath: /html/body/ol[1]/li[12]/@category
+            categoryUrl:
+              - text: https://spar.no/nettbutikk/varer/bakeartikler-og-kjeks/torket-frukt-og-notter
+                xpath: /html/body/ol[1]/li[12]/@category_url
+          - category:
+              - text: Barn
+                xpath: /html/body/ol[1]/li[13]/@category
+            categoryUrl:
+              - text: https://spar.no/nettbutikk/varer/barn
+                xpath: /html/body/ol[1]/li[13]/@category_url
+          - category:
+              - text: Babyartikler
+                xpath: /html/body/ol[1]/li[14]/@category
+            categoryUrl:
+              - text: https://spar.no/nettbutikk/varer/barn/babyartikler
+                xpath: /html/body/ol[1]/li[14]/@category_url
+          - category:
+              - text: Babypleie
+                xpath: /html/body/ol[1]/li[15]/@category
+            categoryUrl:
+              - text: https://spar.no/nettbutikk/varer/barn/babypleie
+                xpath: /html/body/ol[1]/li[15]/@category_url
+          - category:
+              - text: Badebleier
+                xpath: /html/body/ol[1]/li[16]/@category
+            categoryUrl:
+              - text: https://spar.no/nettbutikk/varer/barn/badebleier
+                xpath: /html/body/ol[1]/li[16]/@category_url
+          - category:
+              - text: Barnedessert
+                xpath: /html/body/ol[1]/li[17]/@category
+            categoryUrl:
+              - text: https://spar.no/nettbutikk/varer/barn/barnedessert
+                xpath: /html/body/ol[1]/li[17]/@category_url
+          - category:
+              - text: Barnegrøt
+                xpath: /html/body/ol[1]/li[18]/@category
+            categoryUrl:
+              - text: https://spar.no/nettbutikk/varer/barn/barnegrot
+                xpath: /html/body/ol[1]/li[18]/@category_url
+          - category:
+              - text: Barnekjeks
+                xpath: /html/body/ol[1]/li[19]/@category
+            categoryUrl:
+              - text: https://spar.no/nettbutikk/varer/barn/barnekjeks
+                xpath: /html/body/ol[1]/li[19]/@category_url
+          - category:
+              - text: Barnemat
+                xpath: /html/body/ol[1]/li[20]/@category
+            categoryUrl:
+              - text: https://spar.no/nettbutikk/varer/barn/barnemat
+                xpath: /html/body/ol[1]/li[20]/@category_url
+          - category:
+              - text: Bleier
+                xpath: /html/body/ol[1]/li[21]/@category
+            categoryUrl:
+              - text: https://spar.no/nettbutikk/varer/barn/bleier
+                xpath: /html/body/ol[1]/li[21]/@category_url
+          - category:
+              - text: Morsmelkerstatning
+                xpath: /html/body/ol[1]/li[22]/@category
+            categoryUrl:
+              - text: https://spar.no/nettbutikk/varer/barn/morsmelkerstatning
+                xpath: /html/body/ol[1]/li[22]/@category_url
+          - category:
+              - text: Brød og bakervarer
+                xpath: /html/body/ol[1]/li[23]/@category
+            categoryUrl:
+              - text: https://spar.no/nettbutikk/varer/brod-og-bakervarer
+                xpath: /html/body/ol[1]/li[23]/@category_url
+          - category:
+              - text: Boller og småkaker
+                xpath: /html/body/ol[1]/li[24]/@category
+            categoryUrl:
+              - text: https://spar.no/nettbutikk/varer/brod-og-bakervarer/boller-og-smakaker
+                xpath: /html/body/ol[1]/li[24]/@category_url
+          - category:
+              - text: Brød
+                xpath: /html/body/ol[1]/li[25]/@category
+            categoryUrl:
+              - text: https://spar.no/nettbutikk/varer/brod-og-bakervarer/brod
+                xpath: /html/body/ol[1]/li[25]/@category_url
+          - category:
+              - text: Hamburgerbrød
+                xpath: /html/body/ol[1]/li[26]/@category
+            categoryUrl:
+              - text: https://spar.no/nettbutikk/varer/brod-og-bakervarer/hamburgerbrod
+                xpath: /html/body/ol[1]/li[26]/@category_url
+          - category:
+              - text: Kaker
+                xpath: /html/body/ol[1]/li[27]/@category
+            categoryUrl:
+              - text: https://spar.no/nettbutikk/varer/brod-og-bakervarer/kaker
+                xpath: /html/body/ol[1]/li[27]/@category_url
+          - category:
+              - text: Knekkebrød
+                xpath: /html/body/ol[1]/li[28]/@category
+            categoryUrl:
+              - text: https://spar.no/nettbutikk/varer/brod-og-bakervarer/knekkebrod
+                xpath: /html/body/ol[1]/li[28]/@category_url
+          - category:
+              - text: Lefser
+                xpath: /html/body/ol[1]/li[29]/@category
+            categoryUrl:
+              - text: https://spar.no/nettbutikk/varer/brod-og-bakervarer/lefser
+                xpath: /html/body/ol[1]/li[29]/@category_url
+          - category:
+              - text: Loff
+                xpath: /html/body/ol[1]/li[30]/@category
+            categoryUrl:
+              - text: https://spar.no/nettbutikk/varer/brod-og-bakervarer/loff
+                xpath: /html/body/ol[1]/li[30]/@category_url
+          - category:
+              - text: Lomper
+                xpath: /html/body/ol[1]/li[31]/@category
+            categoryUrl:
+              - text: https://spar.no/nettbutikk/varer/brod-og-bakervarer/lomper
+                xpath: /html/body/ol[1]/li[31]/@category_url
+          - category:
+              - text: Myke runde porsjonsbrød
+                xpath: /html/body/ol[1]/li[32]/@category
+            categoryUrl:
+              - text: https://spar.no/nettbutikk/varer/brod-og-bakervarer/myke-runde-porsjonsbrod
+                xpath: /html/body/ol[1]/li[32]/@category_url
+          - category:
+              - text: Nanbrød
+                xpath: /html/body/ol[1]/li[33]/@category
+            categoryUrl:
+              - text: https://spar.no/nettbutikk/varer/brod-og-bakervarer/nanbrod
+                xpath: /html/body/ol[1]/li[33]/@category_url
+          - category:
+              - text: Pitabrød
+                xpath: /html/body/ol[1]/li[34]/@category
+            categoryUrl:
+              - text: https://spar.no/nettbutikk/varer/brod-og-bakervarer/pitabrod
+                xpath: /html/body/ol[1]/li[34]/@category_url
+          - category:
+              - text: Pølsebrød
+                xpath: /html/body/ol[1]/li[35]/@category
+            categoryUrl:
+              - text: https://spar.no/nettbutikk/varer/brod-og-bakervarer/polsebrod
+                xpath: /html/body/ol[1]/li[35]/@category_url
+          - category:
+              - text: Påsmurte baguetter
+                xpath: /html/body/ol[1]/li[36]/@category
+            categoryUrl:
+              - text: https://spar.no/nettbutikk/varer/brod-og-bakervarer/pasmurte-baguetter
+                xpath: /html/body/ol[1]/li[36]/@category_url
+          - category:
+              - text: Påsmurte lefser
+                xpath: /html/body/ol[1]/li[37]/@category
+            categoryUrl:
+              - text: https://spar.no/nettbutikk/varer/brod-og-bakervarer/pasmurte-lefser
+                xpath: /html/body/ol[1]/li[37]/@category_url
+          - category:
+              - text: Riskaker
+                xpath: /html/body/ol[1]/li[38]/@category
+            categoryUrl:
+              - text: https://spar.no/nettbutikk/varer/brod-og-bakervarer/riskaker
+                xpath: /html/body/ol[1]/li[38]/@category_url
+          - category:
+              - text: Rundstykker og småbrød
+                xpath: /html/body/ol[1]/li[39]/@category
+            categoryUrl:
+              - text: https://spar.no/nettbutikk/varer/brod-og-bakervarer/rundstykker-og-smabrod
+                xpath: /html/body/ol[1]/li[39]/@category_url
+          - category:
+              - text: Tørt brød
+                xpath: /html/body/ol[1]/li[40]/@category
+            categoryUrl:
+              - text: https://spar.no/nettbutikk/varer/brod-og-bakervarer/tort-brod
+                xpath: /html/body/ol[1]/li[40]/@category_url
+          - category:
+              - text: Dessert
+                xpath: /html/body/ol[1]/li[41]/@category
+            categoryUrl:
+              - text: https://spar.no/nettbutikk/varer/dessert
+                xpath: /html/body/ol[1]/li[41]/@category_url
+          - category:
+              - text: Dessertpuddinger
+                xpath: /html/body/ol[1]/li[42]/@category
+            categoryUrl:
+              - text: https://spar.no/nettbutikk/varer/dessert/dessertpuddinger
+                xpath: /html/body/ol[1]/li[42]/@category_url
+          - category:
+              - text: Dessertsauser
+                xpath: /html/body/ol[1]/li[43]/@category
+            categoryUrl:
+              - text: https://spar.no/nettbutikk/varer/dessert/dessertsauser
+                xpath: /html/body/ol[1]/li[43]/@category_url
+          - category:
+              - text: Dessertsuppe
+                xpath: /html/body/ol[1]/li[44]/@category
+            categoryUrl:
+              - text: https://spar.no/nettbutikk/varer/dessert/dessertsuppe
+                xpath: /html/body/ol[1]/li[44]/@category_url
+          - category:
+              - text: Desserttopping
+                xpath: /html/body/ol[1]/li[45]/@category
+            categoryUrl:
+              - text: https://spar.no/nettbutikk/varer/dessert/desserttopping
+                xpath: /html/body/ol[1]/li[45]/@category_url
+          - category:
+              - text: Fruktkompott
+                xpath: /html/body/ol[1]/li[46]/@category
+            categoryUrl:
+              - text: https://spar.no/nettbutikk/varer/dessert/fruktkompott
+                xpath: /html/body/ol[1]/li[46]/@category_url
+          - category:
+              - text: Gele
+                xpath: /html/body/ol[1]/li[47]/@category
+            categoryUrl:
+              - text: https://spar.no/nettbutikk/varer/dessert/gele
+                xpath: /html/body/ol[1]/li[47]/@category_url
+          - category:
+              - text: Hermetisk frukt og bær
+                xpath: /html/body/ol[1]/li[48]/@category
+            categoryUrl:
+              - text: https://spar.no/nettbutikk/varer/dessert/hermetisk-frukt-og-br
+                xpath: /html/body/ol[1]/li[48]/@category_url
+          - category:
+              - text: Is
+                xpath: /html/body/ol[1]/li[49]/@category
+            categoryUrl:
+              - text: https://spar.no/nettbutikk/varer/dessert/is
+                xpath: /html/body/ol[1]/li[49]/@category_url
+          - category:
+              - text: Isbiter
+                xpath: /html/body/ol[1]/li[50]/@category
+            categoryUrl:
+              - text: https://spar.no/nettbutikk/varer/dessert/isbiter
+                xpath: /html/body/ol[1]/li[50]/@category_url
+          - category:
+              - text: Mousse
+                xpath: /html/body/ol[1]/li[51]/@category
+            categoryUrl:
+              - text: https://spar.no/nettbutikk/varer/dessert/mousse
+                xpath: /html/body/ol[1]/li[51]/@category_url
+          - category:
+              - text: Proteinpudding
+                xpath: /html/body/ol[1]/li[52]/@category
+            categoryUrl:
+              - text: https://spar.no/nettbutikk/varer/dessert/proteinpudding
+                xpath: /html/body/ol[1]/li[52]/@category_url
+          - category:
+              - text: Riskrem
+                xpath: /html/body/ol[1]/li[53]/@category
+            categoryUrl:
+              - text: https://spar.no/nettbutikk/varer/dessert/riskrem
+                xpath: /html/body/ol[1]/li[53]/@category_url
+          - category:
+              - text: Smådesserter
+                xpath: /html/body/ol[1]/li[54]/@category
+            categoryUrl:
+              - text: https://spar.no/nettbutikk/varer/dessert/smadesserter
+                xpath: /html/body/ol[1]/li[54]/@category_url
+          - category:
+              - text: Soyadessert
+                xpath: /html/body/ol[1]/li[55]/@category
+            categoryUrl:
+              - text: https://spar.no/nettbutikk/varer/dessert/soyadessert
+                xpath: /html/body/ol[1]/li[55]/@category_url
+          - category:
+              - text: Drikke
+                xpath: /html/body/ol[1]/li[56]/@category
+            categoryUrl:
+              - text: https://spar.no/nettbutikk/varer/drikke
+                xpath: /html/body/ol[1]/li[56]/@category_url
+          - category:
+              - text: Brus
+                xpath: /html/body/ol[1]/li[57]/@category
+            categoryUrl:
+              - text: https://spar.no/nettbutikk/varer/drikke/brus
+                xpath: /html/body/ol[1]/li[57]/@category_url
+          - category:
+              - text: Cider
+                xpath: /html/body/ol[1]/li[58]/@category
+            categoryUrl:
+              - text: https://spar.no/nettbutikk/varer/drikke/cider
+                xpath: /html/body/ol[1]/li[58]/@category_url
+          - category:
+              - text: Energidrikk
+                xpath: /html/body/ol[1]/li[59]/@category
+            categoryUrl:
+              - text: https://spar.no/nettbutikk/varer/drikke/energidrikk
+                xpath: /html/body/ol[1]/li[59]/@category_url
+          - category:
+              - text: Ferdigdrink
+                xpath: /html/body/ol[1]/li[60]/@category
+            categoryUrl:
+              - text: https://spar.no/nettbutikk/varer/drikke/ferdigdrink
+                xpath: /html/body/ol[1]/li[60]/@category_url
+          - category:
+              - text: Gløgg
+                xpath: /html/body/ol[1]/li[61]/@category
+            categoryUrl:
+              - text: https://spar.no/nettbutikk/varer/drikke/glogg
+                xpath: /html/body/ol[1]/li[61]/@category_url
+          - category:
+              - text: Gløggmiks
+                xpath: /html/body/ol[1]/li[62]/@category
+            categoryUrl:
+              - text: https://spar.no/nettbutikk/varer/drikke/gloggmiks
+                xpath: /html/body/ol[1]/li[62]/@category_url
+          - category:
+              - text: Iskaffe
+                xpath: /html/body/ol[1]/li[63]/@category
+            categoryUrl:
+              - text: https://spar.no/nettbutikk/varer/drikke/iskaffe
+                xpath: /html/body/ol[1]/li[63]/@category_url
+          - category:
+              - text: Iste
+                xpath: /html/body/ol[1]/li[64]/@category
+            categoryUrl:
+              - text: https://spar.no/nettbutikk/varer/drikke/iste
+                xpath: /html/body/ol[1]/li[64]/@category_url
+          - category:
+              - text: Juice
+                xpath: /html/body/ol[1]/li[65]/@category
+            categoryUrl:
+              - text: https://spar.no/nettbutikk/varer/drikke/juice
+                xpath: /html/body/ol[1]/li[65]/@category_url
+          - category:
+              - text: Julebrus
+                xpath: /html/body/ol[1]/li[66]/@category
+            categoryUrl:
+              - text: https://spar.no/nettbutikk/varer/drikke/julebrus
+                xpath: /html/body/ol[1]/li[66]/@category_url
+          - category:
+              - text: Kaffe
+                xpath: /html/body/ol[1]/li[67]/@category
+            categoryUrl:
+              - text: https://spar.no/nettbutikk/varer/drikke/kaffe
+                xpath: /html/body/ol[1]/li[67]/@category_url
+          - category:
+              - text: Kaffekapsler
+                xpath: /html/body/ol[1]/li[68]/@category
+            categoryUrl:
+              - text: https://spar.no/nettbutikk/varer/drikke/kaffekapsler
+                xpath: /html/body/ol[1]/li[68]/@category_url
+          - category:
+              - text: Leskedrikk
+                xpath: /html/body/ol[1]/li[69]/@category
+            categoryUrl:
+              - text: https://spar.no/nettbutikk/varer/drikke/leskedrikk
+                xpath: /html/body/ol[1]/li[69]/@category_url
+          - category:
+              - text: Saft
+                xpath: /html/body/ol[1]/li[70]/@category
+            categoryUrl:
+              - text: https://spar.no/nettbutikk/varer/drikke/saft
+                xpath: /html/body/ol[1]/li[70]/@category_url
+          - category:
+              - text: Sjokoladedrikk
+                xpath: /html/body/ol[1]/li[71]/@category
+            categoryUrl:
+              - text: https://spar.no/nettbutikk/varer/drikke/sjokoladedrikk
+                xpath: /html/body/ol[1]/li[71]/@category_url
+          - category:
+              - text: Smoothie
+                xpath: /html/body/ol[1]/li[72]/@category
+            categoryUrl:
+              - text: https://spar.no/nettbutikk/varer/drikke/smoothie
+                xpath: /html/body/ol[1]/li[72]/@category_url
+          - category:
+              - text: Te
+                xpath: /html/body/ol[1]/li[73]/@category
+            categoryUrl:
+              - text: https://spar.no/nettbutikk/varer/drikke/te
+                xpath: /html/body/ol[1]/li[73]/@category_url
+          - category:
+              - text: Toddy
+                xpath: /html/body/ol[1]/li[74]/@category
+            categoryUrl:
+              - text: https://spar.no/nettbutikk/varer/drikke/toddy
+                xpath: /html/body/ol[1]/li[74]/@category_url
+          - category:
+              - text: Vann
+                xpath: /html/body/ol[1]/li[75]/@category
+            categoryUrl:
+              - text: https://spar.no/nettbutikk/varer/drikke/vann
+                xpath: /html/body/ol[1]/li[75]/@category_url
+          - category:
+              - text: Øl
+                xpath: /html/body/ol[1]/li[76]/@category
+            categoryUrl:
+              - text: https://spar.no/nettbutikk/varer/drikke/ol
+                xpath: /html/body/ol[1]/li[76]/@category_url
+          - category:
+              - text: Dyr
+                xpath: /html/body/ol[1]/li[77]/@category
+            categoryUrl:
+              - text: https://spar.no/nettbutikk/varer/dyr
+                xpath: /html/body/ol[1]/li[77]/@category_url
+          - category:
+              - text: Dyreartikler
+                xpath: /html/body/ol[1]/li[78]/@category
+            categoryUrl:
+              - text: https://spar.no/nettbutikk/varer/dyr/dyreartikler
+                xpath: /html/body/ol[1]/li[78]/@category_url
+          - category:
+              - text: Fuglemat
+                xpath: /html/body/ol[1]/li[79]/@category
+            categoryUrl:
+              - text: https://spar.no/nettbutikk/varer/dyr/fuglemat
+                xpath: /html/body/ol[1]/li[79]/@category_url
+          - category:
+              - text: Hundemat
+                xpath: /html/body/ol[1]/li[80]/@category
+            categoryUrl:
+              - text: https://spar.no/nettbutikk/varer/dyr/hundemat
+                xpath: /html/body/ol[1]/li[80]/@category_url
+          - category:
+              - text: Kattemat
+                xpath: /html/body/ol[1]/li[81]/@category
+            categoryUrl:
+              - text: https://spar.no/nettbutikk/varer/dyr/kattemat
+                xpath: /html/body/ol[1]/li[81]/@category_url
+          - category:
+              - text: Fisk og skalldyr
+                xpath: /html/body/ol[1]/li[82]/@category
+            categoryUrl:
+              - text: https://spar.no/nettbutikk/varer/fisk-og-skalldyr
+                xpath: /html/body/ol[1]/li[82]/@category_url
+          - category:
+              - text: Fisk
+                xpath: /html/body/ol[1]/li[83]/@category
+            categoryUrl:
+              - text: https://spar.no/nettbutikk/varer/fisk-og-skalldyr/fisk
+                xpath: /html/body/ol[1]/li[83]/@category_url
+          - category:
+              - text: Hvalkjøtt
+                xpath: /html/body/ol[1]/li[84]/@category
+            categoryUrl:
+              - text: https://spar.no/nettbutikk/varer/fisk-og-skalldyr/hvalkjott
+                xpath: /html/body/ol[1]/li[84]/@category_url
+          - category:
+              - text: Rakfisk
+                xpath: /html/body/ol[1]/li[85]/@category
+            categoryUrl:
+              - text: https://spar.no/nettbutikk/varer/fisk-og-skalldyr/rakfisk
+                xpath: /html/body/ol[1]/li[85]/@category_url
+          - category:
+              - text: Reker
+                xpath: /html/body/ol[1]/li[86]/@category
+            categoryUrl:
+              - text: https://spar.no/nettbutikk/varer/fisk-og-skalldyr/reker
+                xpath: /html/body/ol[1]/li[86]/@category_url
+          - category:
+              - text: Skalldyr
+                xpath: /html/body/ol[1]/li[87]/@category
+            categoryUrl:
+              - text: https://spar.no/nettbutikk/varer/fisk-og-skalldyr/skalldyr
+                xpath: /html/body/ol[1]/li[87]/@category_url
+          - category:
+              - text: Skjell
+                xpath: /html/body/ol[1]/li[88]/@category
+            categoryUrl:
+              - text: https://spar.no/nettbutikk/varer/fisk-og-skalldyr/skjell
+                xpath: /html/body/ol[1]/li[88]/@category_url
+          - category:
+              - text: Tørket fisk
+                xpath: /html/body/ol[1]/li[89]/@category
+            categoryUrl:
+              - text: https://spar.no/nettbutikk/varer/fisk-og-skalldyr/torket-fisk
+                xpath: /html/body/ol[1]/li[89]/@category_url
+          - category:
+              - text: Frukt og grønt
+                xpath: /html/body/ol[1]/li[90]/@category
+            categoryUrl:
+              - text: https://spar.no/nettbutikk/varer/frukt-og-gront
+                xpath: /html/body/ol[1]/li[90]/@category_url
+          - category:
+              - text: Bær
+                xpath: /html/body/ol[1]/li[91]/@category
+            categoryUrl:
+              - text: https://spar.no/nettbutikk/varer/frukt-og-gront/br
+                xpath: /html/body/ol[1]/li[91]/@category_url
+          - category:
+              - text: Frosne bær og grønnsaker
+                xpath: /html/body/ol[1]/li[92]/@category
+            categoryUrl:
+              - text: https://spar.no/nettbutikk/varer/frukt-og-gront/frosne-br-og-gronnsaker
+                xpath: /html/body/ol[1]/li[92]/@category_url
+          - category:
+              - text: Frukt
+                xpath: /html/body/ol[1]/li[93]/@category
+            categoryUrl:
+              - text: https://spar.no/nettbutikk/varer/frukt-og-gront/frukt
+                xpath: /html/body/ol[1]/li[93]/@category_url
+          - category:
+              - text: Grønnsaker
+                xpath: /html/body/ol[1]/li[94]/@category
+            categoryUrl:
+              - text: https://spar.no/nettbutikk/varer/frukt-og-gront/gronnsaker
+                xpath: /html/body/ol[1]/li[94]/@category_url
+          - category:
+              - text: Krydderurter
+                xpath: /html/body/ol[1]/li[95]/@category
+            categoryUrl:
+              - text: https://spar.no/nettbutikk/varer/frukt-og-gront/krydderurter
+                xpath: /html/body/ol[1]/li[95]/@category_url
+          - category:
+              - text: Poteter
+                xpath: /html/body/ol[1]/li[96]/@category
+            categoryUrl:
+              - text: https://spar.no/nettbutikk/varer/frukt-og-gront/poteter
+                xpath: /html/body/ol[1]/li[96]/@category_url
+          - category:
+              - text: Sopp
+                xpath: /html/body/ol[1]/li[97]/@category
+            categoryUrl:
+              - text: https://spar.no/nettbutikk/varer/frukt-og-gront/sopp
+                xpath: /html/body/ol[1]/li[97]/@category_url
+          - category:
+              - text: Hus og hjem
+                xpath: /html/body/ol[1]/li[98]/@category
+            categoryUrl:
+              - text: https://spar.no/nettbutikk/varer/hus-og-hjem
+                xpath: /html/body/ol[1]/li[98]/@category_url
+          - category:
+              - text: Bilpleie
+                xpath: /html/body/ol[1]/li[99]/@category
+            categoryUrl:
+              - text: https://spar.no/nettbutikk/varer/hus-og-hjem/bilpleie
+                xpath: /html/body/ol[1]/li[99]/@category_url
+          - category:
+              - text: Blomster og planter
+                xpath: /html/body/ol[1]/li[100]/@category
+            categoryUrl:
+              - text: https://spar.no/nettbutikk/varer/hus-og-hjem/blomster-og-planter
+                xpath: /html/body/ol[1]/li[100]/@category_url
+          - category:
+              - text: Borddekning
+                xpath: /html/body/ol[1]/li[101]/@category
+            categoryUrl:
+              - text: https://spar.no/nettbutikk/varer/hus-og-hjem/borddekning
+                xpath: /html/body/ol[1]/li[101]/@category_url
+          - category:
+              - text: Grill og ild
+                xpath: /html/body/ol[1]/li[102]/@category
+            categoryUrl:
+              - text: https://spar.no/nettbutikk/varer/hus-og-hjem/grill-og-ild
+                xpath: /html/body/ol[1]/li[102]/@category_url
+          - category:
+              - text: Hus
+                xpath: /html/body/ol[1]/li[103]/@category
+            categoryUrl:
+              - text: https://spar.no/nettbutikk/varer/hus-og-hjem/hus
+                xpath: /html/body/ol[1]/li[103]/@category_url
+          - category:
+              - text: Kjøkken
+                xpath: /html/body/ol[1]/li[104]/@category
+            categoryUrl:
+              - text: https://spar.no/nettbutikk/varer/hus-og-hjem/kjokken
+                xpath: /html/body/ol[1]/li[104]/@category_url
+          - category:
+              - text: Klesvask
+                xpath: /html/body/ol[1]/li[105]/@category
+            categoryUrl:
+              - text: https://spar.no/nettbutikk/varer/hus-og-hjem/klesvask
+                xpath: /html/body/ol[1]/li[105]/@category_url
+          - category:
+              - text: Klær
+                xpath: /html/body/ol[1]/li[106]/@category
+            categoryUrl:
+              - text: https://spar.no/nettbutikk/varer/hus-og-hjem/klr
+                xpath: /html/body/ol[1]/li[106]/@category_url
+          - category:
+              - text: Kontorrekvisita
+                xpath: /html/body/ol[1]/li[107]/@category
+            categoryUrl:
+              - text: https://spar.no/nettbutikk/varer/hus-og-hjem/kontorrekvisita
+                xpath: /html/body/ol[1]/li[107]/@category_url
+          - category:
+              - text: Poser, papir og folie
+                xpath: /html/body/ol[1]/li[108]/@category
+            categoryUrl:
+              - text: https://spar.no/nettbutikk/varer/hus-og-hjem/poser-papir-og-folie
+                xpath: /html/body/ol[1]/li[108]/@category_url
+          - category:
+              - text: Renhold
+                xpath: /html/body/ol[1]/li[109]/@category
+            categoryUrl:
+              - text: https://spar.no/nettbutikk/varer/hus-og-hjem/renhold
+                xpath: /html/body/ol[1]/li[109]/@category_url
+          - category:
+              - text: Sesong og fest
+                xpath: /html/body/ol[1]/li[110]/@category
+            categoryUrl:
+              - text: https://spar.no/nettbutikk/varer/hus-og-hjem/sesong-og-fest
+                xpath: /html/body/ol[1]/li[110]/@category_url
+          - category:
+              - text: Hygiene og helse
+                xpath: /html/body/ol[1]/li[111]/@category
+            categoryUrl:
+              - text: https://spar.no/nettbutikk/varer/hygiene-og-helse
+                xpath: /html/body/ol[1]/li[111]/@category_url
+          - category:
+              - text: Apotekvarer
+                xpath: /html/body/ol[1]/li[112]/@category
+            categoryUrl:
+              - text: https://spar.no/nettbutikk/varer/hygiene-og-helse/apotekvarer
+                xpath: /html/body/ol[1]/li[112]/@category_url
+          - category:
+              - text: Barbering
+                xpath: /html/body/ol[1]/li[113]/@category
+            categoryUrl:
+              - text: https://spar.no/nettbutikk/varer/hygiene-og-helse/barbering
+                xpath: /html/body/ol[1]/li[113]/@category_url
+          - category:
+              - text: Bind og tamponger
+                xpath: /html/body/ol[1]/li[114]/@category
+            categoryUrl:
+              - text: https://spar.no/nettbutikk/varer/hygiene-og-helse/bind-og-tamponger
+                xpath: /html/body/ol[1]/li[114]/@category_url
+          - category:
+              - text: Helsekost
+                xpath: /html/body/ol[1]/li[115]/@category
+            categoryUrl:
+              - text: https://spar.no/nettbutikk/varer/hygiene-og-helse/helsekost
+                xpath: /html/body/ol[1]/li[115]/@category_url
+          - category:
+              - text: Hudpleie
+                xpath: /html/body/ol[1]/li[116]/@category
+            categoryUrl:
+              - text: https://spar.no/nettbutikk/varer/hygiene-og-helse/hudpleie
+                xpath: /html/body/ol[1]/li[116]/@category_url
+          - category:
+              - text: Hårpleie
+                xpath: /html/body/ol[1]/li[117]/@category
+            categoryUrl:
+              - text: https://spar.no/nettbutikk/varer/hygiene-og-helse/harpleie
+                xpath: /html/body/ol[1]/li[117]/@category_url
+          - category:
+              - text: Neglepleie
+                xpath: /html/body/ol[1]/li[118]/@category
+            categoryUrl:
+              - text: https://spar.no/nettbutikk/varer/hygiene-og-helse/neglepleie
+                xpath: /html/body/ol[1]/li[118]/@category_url
+          - category:
+              - text: Personlig hygiene
+                xpath: /html/body/ol[1]/li[119]/@category
+            categoryUrl:
+              - text: https://spar.no/nettbutikk/varer/hygiene-og-helse/personlig-hygiene
+                xpath: /html/body/ol[1]/li[119]/@category_url
+          - category:
+              - text: Sminke
+                xpath: /html/body/ol[1]/li[120]/@category
+            categoryUrl:
+              - text: https://spar.no/nettbutikk/varer/hygiene-og-helse/sminke
+                xpath: /html/body/ol[1]/li[120]/@category_url
+          - category:
+              - text: Tannpleie
+                xpath: /html/body/ol[1]/li[121]/@category
+            categoryUrl:
+              - text: https://spar.no/nettbutikk/varer/hygiene-og-helse/tannpleie
+                xpath: /html/body/ol[1]/li[121]/@category_url
+          - category:
+              - text: Kioskvarer
+                xpath: /html/body/ol[1]/li[122]/@category
+            categoryUrl:
+              - text: https://spar.no/nettbutikk/varer/kioskvarer
+                xpath: /html/body/ol[1]/li[122]/@category_url
+          - category:
+              - text: Lesestoff
+                xpath: /html/body/ol[1]/li[123]/@category
+            categoryUrl:
+              - text: https://spar.no/nettbutikk/varer/kioskvarer/lesestoff
+                xpath: /html/body/ol[1]/li[123]/@category_url
+          - category:
+              - text: Sigaretter
+                xpath: /html/body/ol[1]/li[124]/@category
+            categoryUrl:
+              - text: https://spar.no/nettbutikk/varer/kioskvarer/sigaretter
+                xpath: /html/body/ol[1]/li[124]/@category_url
+          - category:
+              - text: Snus
+                xpath: /html/body/ol[1]/li[125]/@category
+            categoryUrl:
+              - text: https://spar.no/nettbutikk/varer/kioskvarer/snus
+                xpath: /html/body/ol[1]/li[125]/@category_url
+          - category:
+              - text: Tobakk
+                xpath: /html/body/ol[1]/li[126]/@category
+            categoryUrl:
+              - text: https://spar.no/nettbutikk/varer/kioskvarer/tobakk
+                xpath: /html/body/ol[1]/li[126]/@category_url
+          - category:
+              - text: Kjøtt og kylling
+                xpath: /html/body/ol[1]/li[127]/@category
+            categoryUrl:
+              - text: https://spar.no/nettbutikk/varer/kjott-og-kylling
+                xpath: /html/body/ol[1]/li[127]/@category_url
+          - category:
+              - text: And
+                xpath: /html/body/ol[1]/li[128]/@category
+            categoryUrl:
+              - text: https://spar.no/nettbutikk/varer/kjott-og-kylling/and
+                xpath: /html/body/ol[1]/li[128]/@category_url
+          - category:
+              - text: Hamburger
+                xpath: /html/body/ol[1]/li[129]/@category
+            categoryUrl:
+              - text: https://spar.no/nettbutikk/varer/kjott-og-kylling/hamburger
+                xpath: /html/body/ol[1]/li[129]/@category_url
+          - category:
+              - text: Kalkun
+                xpath: /html/body/ol[1]/li[130]/@category
+            categoryUrl:
+              - text: https://spar.no/nettbutikk/varer/kjott-og-kylling/kalkun
+                xpath: /html/body/ol[1]/li[130]/@category_url
+          - category:
+              - text: Karbonader
+                xpath: /html/body/ol[1]/li[131]/@category
+            categoryUrl:
+              - text: https://spar.no/nettbutikk/varer/kjott-og-kylling/karbonader
+                xpath: /html/body/ol[1]/li[131]/@category_url
+          - category:
+              - text: Kebabkjøtt
+                xpath: /html/body/ol[1]/li[132]/@category
+            categoryUrl:
+              - text: https://spar.no/nettbutikk/varer/kjott-og-kylling/kebabkjott
+                xpath: /html/body/ol[1]/li[132]/@category_url
+          - category:
+              - text: Kjøttboller
+                xpath: /html/body/ol[1]/li[133]/@category
+            categoryUrl:
+              - text: https://spar.no/nettbutikk/varer/kjott-og-kylling/kjottboller
+                xpath: /html/body/ol[1]/li[133]/@category_url
+          - category:
+              - text: Kjøttdeig og farse
+                xpath: /html/body/ol[1]/li[134]/@category
+            categoryUrl:
+              - text: https://spar.no/nettbutikk/varer/kjott-og-kylling/kjottdeig-og-farse
+                xpath: /html/body/ol[1]/li[134]/@category_url
+          - category:
+              - text: Kjøttkaker
+                xpath: /html/body/ol[1]/li[135]/@category
+            categoryUrl:
+              - text: https://spar.no/nettbutikk/varer/kjott-og-kylling/kjottkaker
+                xpath: /html/body/ol[1]/li[135]/@category_url
+          - category:
+              - text: Kjøttpudding
+                xpath: /html/body/ol[1]/li[136]/@category
+            categoryUrl:
+              - text: https://spar.no/nettbutikk/varer/kjott-og-kylling/kjottpudding
+                xpath: /html/body/ol[1]/li[136]/@category_url
+          - category:
+              - text: Kylling
+                xpath: /html/body/ol[1]/li[137]/@category
+            categoryUrl:
+              - text: https://spar.no/nettbutikk/varer/kjott-og-kylling/kylling
+                xpath: /html/body/ol[1]/li[137]/@category_url
+          - category:
+              - text: Lammekjøtt
+                xpath: /html/body/ol[1]/li[138]/@category
+            categoryUrl:
+              - text: https://spar.no/nettbutikk/varer/kjott-og-kylling/lammekjott
+                xpath: /html/body/ol[1]/li[138]/@category_url
+          - category:
+              - text: Løvstek
+                xpath: /html/body/ol[1]/li[139]/@category
+            categoryUrl:
+              - text: https://spar.no/nettbutikk/varer/kjott-og-kylling/lovstek
+                xpath: /html/body/ol[1]/li[139]/@category_url
+          - category:
+              - text: Medisterkaker
+                xpath: /html/body/ol[1]/li[140]/@category
+            categoryUrl:
+              - text: https://spar.no/nettbutikk/varer/kjott-og-kylling/medisterkaker
+                xpath: /html/body/ol[1]/li[140]/@category_url
+          - category:
+              - text: Pølser
+                xpath: /html/body/ol[1]/li[141]/@category
+            categoryUrl:
+              - text: https://spar.no/nettbutikk/varer/kjott-og-kylling/polser
+                xpath: /html/body/ol[1]/li[141]/@category_url
+          - category:
+              - text: Storfekjøtt
+                xpath: /html/body/ol[1]/li[142]/@category
+            categoryUrl:
+              - text: https://spar.no/nettbutikk/varer/kjott-og-kylling/storfekjott
+                xpath: /html/body/ol[1]/li[142]/@category_url
+          - category:
+              - text: Svinekjøtt
+                xpath: /html/body/ol[1]/li[143]/@category
+            categoryUrl:
+              - text: https://spar.no/nettbutikk/varer/kjott-og-kylling/svinekjott
+                xpath: /html/body/ol[1]/li[143]/@category_url
+          - category:
+              - text: Viltkjøtt
+                xpath: /html/body/ol[1]/li[144]/@category
+            categoryUrl:
+              - text: https://spar.no/nettbutikk/varer/kjott-og-kylling/viltkjott
+                xpath: /html/body/ol[1]/li[144]/@category_url
+          - category:
+              - text: Meieri og egg
+                xpath: /html/body/ol[1]/li[145]/@category
+            categoryUrl:
+              - text: https://spar.no/nettbutikk/varer/meieri-og-egg
+                xpath: /html/body/ol[1]/li[145]/@category_url
+          - category:
+              - text: Cottage Cheese
+                xpath: /html/body/ol[1]/li[146]/@category
+            categoryUrl:
+              - text: https://spar.no/nettbutikk/varer/meieri-og-egg/cottage-cheese
+                xpath: /html/body/ol[1]/li[146]/@category_url
+          - category:
+              - text: Creme Fraiche
+                xpath: /html/body/ol[1]/li[147]/@category
+            categoryUrl:
+              - text: https://spar.no/nettbutikk/varer/meieri-og-egg/creme-fraiche
+                xpath: /html/body/ol[1]/li[147]/@category_url
+          - category:
+              - text: Egg
+                xpath: /html/body/ol[1]/li[148]/@category
+            categoryUrl:
+              - text: https://spar.no/nettbutikk/varer/meieri-og-egg/egg
+                xpath: /html/body/ol[1]/li[148]/@category_url
+          - category:
+              - text: Fløte
+                xpath: /html/body/ol[1]/li[149]/@category
+            categoryUrl:
+              - text: https://spar.no/nettbutikk/varer/meieri-og-egg/flote
+                xpath: /html/body/ol[1]/li[149]/@category_url
+          - category:
+              - text: Kesam
+                xpath: /html/body/ol[1]/li[150]/@category
+            categoryUrl:
+              - text: https://spar.no/nettbutikk/varer/meieri-og-egg/kesam
+                xpath: /html/body/ol[1]/li[150]/@category_url
+          - category:
+              - text: Melk
+                xpath: /html/body/ol[1]/li[151]/@category
+            categoryUrl:
+              - text: https://spar.no/nettbutikk/varer/meieri-og-egg/melk
+                xpath: /html/body/ol[1]/li[151]/@category_url
+          - category:
+              - text: Plantebasert drikke
+                xpath: /html/body/ol[1]/li[152]/@category
+            categoryUrl:
+              - text: https://spar.no/nettbutikk/varer/meieri-og-egg/plantebasert-drikke
+                xpath: /html/body/ol[1]/li[152]/@category_url
+          - category:
+              - text: Rømme
+                xpath: /html/body/ol[1]/li[153]/@category
+            categoryUrl:
+              - text: https://spar.no/nettbutikk/varer/meieri-og-egg/romme
+                xpath: /html/body/ol[1]/li[153]/@category_url
+          - category:
+              - text: Smør og margarin
+                xpath: /html/body/ol[1]/li[154]/@category
+            categoryUrl:
+              - text: https://spar.no/nettbutikk/varer/meieri-og-egg/smor-og-margarin
+                xpath: /html/body/ol[1]/li[154]/@category_url
+          - category:
+              - text: Yoghurt
+                xpath: /html/body/ol[1]/li[155]/@category
+            categoryUrl:
+              - text: https://spar.no/nettbutikk/varer/meieri-og-egg/yoghurt
+                xpath: /html/body/ol[1]/li[155]/@category_url
+          - category:
+              - text: Middag
+                xpath: /html/body/ol[1]/li[156]/@category
+            categoryUrl:
+              - text: https://spar.no/nettbutikk/varer/middag
+                xpath: /html/body/ol[1]/li[156]/@category_url
+          - category:
+              - text: Ferdigmåltider
+                xpath: /html/body/ol[1]/li[157]/@category
+            categoryUrl:
+              - text: https://spar.no/nettbutikk/varer/middag/ferdigmaltider
+                xpath: /html/body/ol[1]/li[157]/@category_url
+          - category:
+              - text: Fiskeretter
+                xpath: /html/body/ol[1]/li[158]/@category
+            categoryUrl:
+              - text: https://spar.no/nettbutikk/varer/middag/fiskeretter
+                xpath: /html/body/ol[1]/li[158]/@category_url
+          - category:
+              - text: Grøt
+                xpath: /html/body/ol[1]/li[159]/@category
+            categoryUrl:
+              - text: https://spar.no/nettbutikk/varer/middag/grot
+                xpath: /html/body/ol[1]/li[159]/@category_url
+          - category:
+              - text: Middag kit
+                xpath: /html/body/ol[1]/li[160]/@category
+            categoryUrl:
+              - text: https://spar.no/nettbutikk/varer/middag/middag-kit
+                xpath: /html/body/ol[1]/li[160]/@category_url
+          - category:
+              - text: Middagshermetikk
+                xpath: /html/body/ol[1]/li[161]/@category
+            categoryUrl:
+              - text: https://spar.no/nettbutikk/varer/middag/middagshermetikk
+                xpath: /html/body/ol[1]/li[161]/@category_url
+          - category:
+              - text: Nudler
+                xpath: /html/body/ol[1]/li[162]/@category
+            categoryUrl:
+              - text: https://spar.no/nettbutikk/varer/middag/nudler
+                xpath: /html/body/ol[1]/li[162]/@category_url
+          - category:
+              - text: Pasta
+                xpath: /html/body/ol[1]/li[163]/@category
+            categoryUrl:
+              - text: https://spar.no/nettbutikk/varer/middag/pasta
+                xpath: /html/body/ol[1]/li[163]/@category_url
+          - category:
+              - text: Pizza
+                xpath: /html/body/ol[1]/li[164]/@category
+            categoryUrl:
+              - text: https://spar.no/nettbutikk/varer/middag/pizza
+                xpath: /html/body/ol[1]/li[164]/@category_url
+          - category:
+              - text: Potetretter
+                xpath: /html/body/ol[1]/li[165]/@category
+            categoryUrl:
+              - text: https://spar.no/nettbutikk/varer/middag/potetretter
+                xpath: /html/body/ol[1]/li[165]/@category_url
+          - category:
+              - text: Ris
+                xpath: /html/body/ol[1]/li[166]/@category
+            categoryUrl:
+              - text: https://spar.no/nettbutikk/varer/middag/ris
+                xpath: /html/body/ol[1]/li[166]/@category_url
+          - category:
+              - text: Supper
+                xpath: /html/body/ol[1]/li[167]/@category
+            categoryUrl:
+              - text: https://spar.no/nettbutikk/varer/middag/supper
+                xpath: /html/body/ol[1]/li[167]/@category_url
+          - category:
+              - text: Taco
+                xpath: /html/body/ol[1]/li[168]/@category
+            categoryUrl:
+              - text: https://spar.no/nettbutikk/varer/middag/taco
+                xpath: /html/body/ol[1]/li[168]/@category_url
+          - category:
+              - text: Vegetarretter
+                xpath: /html/body/ol[1]/li[169]/@category
+            categoryUrl:
+              - text: https://spar.no/nettbutikk/varer/middag/vegetarretter
+                xpath: /html/body/ol[1]/li[169]/@category_url
+          - category:
+              - text: Middagstilbehør
+                xpath: /html/body/ol[1]/li[170]/@category
+            categoryUrl:
+              - text: https://spar.no/nettbutikk/varer/middagstilbehor
+                xpath: /html/body/ol[1]/li[170]/@category_url
+          - category:
+              - text: Deiger og rører
+                xpath: /html/body/ol[1]/li[171]/@category
+            categoryUrl:
+              - text: https://spar.no/nettbutikk/varer/middagstilbehor/deiger-og-rorer
+                xpath: /html/body/ol[1]/li[171]/@category_url
+          - category:
+              - text: Dressinger
+                xpath: /html/body/ol[1]/li[172]/@category
+            categoryUrl:
+              - text: https://spar.no/nettbutikk/varer/middagstilbehor/dressinger
+                xpath: /html/body/ol[1]/li[172]/@category_url
+          - category:
+              - text: Eddiker
+                xpath: /html/body/ol[1]/li[173]/@category
+            categoryUrl:
+              - text: https://spar.no/nettbutikk/varer/middagstilbehor/eddiker
+                xpath: /html/body/ol[1]/li[173]/@category_url
+          - category:
+              - text: Hermetisk grønt
+                xpath: /html/body/ol[1]/li[174]/@category
+            categoryUrl:
+              - text: https://spar.no/nettbutikk/varer/middagstilbehor/hermetisk-gront
+                xpath: /html/body/ol[1]/li[174]/@category_url
+          - category:
+              - text: Ketchup og sennep
+                xpath: /html/body/ol[1]/li[175]/@category
+            categoryUrl:
+              - text: https://spar.no/nettbutikk/varer/middagstilbehor/ketchup-og-sennep
+                xpath: /html/body/ol[1]/li[175]/@category_url
+          - category:
+              - text: Kokosmelk
+                xpath: /html/body/ol[1]/li[176]/@category
+            categoryUrl:
+              - text: https://spar.no/nettbutikk/varer/middagstilbehor/kokosmelk
+                xpath: /html/body/ol[1]/li[176]/@category_url
+          - category:
+              - text: Kraft og buljong
+                xpath: /html/body/ol[1]/li[177]/@category
+            categoryUrl:
+              - text: https://spar.no/nettbutikk/varer/middagstilbehor/kraft-og-buljong
+                xpath: /html/body/ol[1]/li[177]/@category_url
+          - category:
+              - text: Krydder
+                xpath: /html/body/ol[1]/li[178]/@category
+            categoryUrl:
+              - text: https://spar.no/nettbutikk/varer/middagstilbehor/krydder
+                xpath: /html/body/ol[1]/li[178]/@category_url
+          - category:
+              - text: Linser og frø
+                xpath: /html/body/ol[1]/li[179]/@category
+            categoryUrl:
+              - text: https://spar.no/nettbutikk/varer/middagstilbehor/linser-og-fro
+                xpath: /html/body/ol[1]/li[179]/@category_url
+          - category:
+              - text: Marinader og BBQ-saus
+                xpath: /html/body/ol[1]/li[180]/@category
+            categoryUrl:
+              - text: https://spar.no/nettbutikk/varer/middagstilbehor/marinader-og-bbq-saus
+                xpath: /html/body/ol[1]/li[180]/@category_url
+          - category:
+              - text: Matoljer
+                xpath: /html/body/ol[1]/li[181]/@category
+            categoryUrl:
+              - text: https://spar.no/nettbutikk/varer/middagstilbehor/matoljer
+                xpath: /html/body/ol[1]/li[181]/@category_url
+          - category:
+              - text: Middagssalat
+                xpath: /html/body/ol[1]/li[182]/@category
+            categoryUrl:
+              - text: https://spar.no/nettbutikk/varer/middagstilbehor/middagssalat
+                xpath: /html/body/ol[1]/li[182]/@category_url
+          - category:
+              - text: Potetsalat
+                xpath: /html/body/ol[1]/li[183]/@category
+            categoryUrl:
+              - text: https://spar.no/nettbutikk/varer/middagstilbehor/potetsalat
+                xpath: /html/body/ol[1]/li[183]/@category_url
+          - category:
+              - text: Salt og pepper
+                xpath: /html/body/ol[1]/li[184]/@category
+            categoryUrl:
+              - text: https://spar.no/nettbutikk/varer/middagstilbehor/salt-og-pepper
+                xpath: /html/body/ol[1]/li[184]/@category_url
+          - category:
+              - text: Sauser
+                xpath: /html/body/ol[1]/li[185]/@category
+            categoryUrl:
+              - text: https://spar.no/nettbutikk/varer/middagstilbehor/sauser
+                xpath: /html/body/ol[1]/li[185]/@category_url
+          - category:
+              - text: Stuinger
+                xpath: /html/body/ol[1]/li[186]/@category
+            categoryUrl:
+              - text: https://spar.no/nettbutikk/varer/middagstilbehor/stuinger
+                xpath: /html/body/ol[1]/li[186]/@category_url
+          - category:
+              - text: Sushitilbehør
+                xpath: /html/body/ol[1]/li[187]/@category
+            categoryUrl:
+              - text: https://spar.no/nettbutikk/varer/middagstilbehor/sushitilbehor
+                xpath: /html/body/ol[1]/li[187]/@category_url
+          - category:
+              - text: Ost
+                xpath: /html/body/ol[1]/li[188]/@category
+            categoryUrl:
+              - text: https://spar.no/nettbutikk/varer/ost
+                xpath: /html/body/ol[1]/li[188]/@category_url
+          - category:
+              - text: Blåmuggost
+                xpath: /html/body/ol[1]/li[189]/@category
+            categoryUrl:
+              - text: https://spar.no/nettbutikk/varer/ost/blamuggost
+                xpath: /html/body/ol[1]/li[189]/@category_url
+          - category:
+              - text: Brunost
+                xpath: /html/body/ol[1]/li[190]/@category
+            categoryUrl:
+              - text: https://spar.no/nettbutikk/varer/ost/brunost
+                xpath: /html/body/ol[1]/li[190]/@category_url
+          - category:
+              - text: Cheddar
+                xpath: /html/body/ol[1]/li[191]/@category
+            categoryUrl:
+              - text: https://spar.no/nettbutikk/varer/ost/cheddar
+                xpath: /html/body/ol[1]/li[191]/@category_url
+          - category:
+              - text: Chevre
+                xpath: /html/body/ol[1]/li[192]/@category
+            categoryUrl:
+              - text: https://spar.no/nettbutikk/varer/ost/chevre
+                xpath: /html/body/ol[1]/li[192]/@category_url
+          - category:
+              - text: Fetaost
+                xpath: /html/body/ol[1]/li[193]/@category
+            categoryUrl:
+              - text: https://spar.no/nettbutikk/varer/ost/fetaost
+                xpath: /html/body/ol[1]/li[193]/@category_url
+          - category:
+              - text: Gamalost
+                xpath: /html/body/ol[1]/li[194]/@category
+            categoryUrl:
+              - text: https://spar.no/nettbutikk/varer/ost/gamalost
+                xpath: /html/body/ol[1]/li[194]/@category_url
+          - category:
+              - text: Guloster
+                xpath: /html/body/ol[1]/li[195]/@category
+            categoryUrl:
+              - text: https://spar.no/nettbutikk/varer/ost/guloster
+                xpath: /html/body/ol[1]/li[195]/@category_url
+          - category:
+              - text: Hvitmuggost
+                xpath: /html/body/ol[1]/li[196]/@category
+            categoryUrl:
+              - text: https://spar.no/nettbutikk/varer/ost/hvitmuggost
+                xpath: /html/body/ol[1]/li[196]/@category_url
+          - category:
+              - text: Kittmodnetost
+                xpath: /html/body/ol[1]/li[197]/@category
+            categoryUrl:
+              - text: https://spar.no/nettbutikk/varer/ost/kittmodnetost
+                xpath: /html/body/ol[1]/li[197]/@category_url
+          - category:
+              - text: Manchego
+                xpath: /html/body/ol[1]/li[198]/@category
+            categoryUrl:
+              - text: https://spar.no/nettbutikk/varer/ost/manchego
+                xpath: /html/body/ol[1]/li[198]/@category_url
+          - category:
+              - text: Mozzarella
+                xpath: /html/body/ol[1]/li[199]/@category
+            categoryUrl:
+              - text: https://spar.no/nettbutikk/varer/ost/mozzarella
+                xpath: /html/body/ol[1]/li[199]/@category_url
+          - category:
+              - text: Parmesan og smaksrike fastoster
+                xpath: /html/body/ol[1]/li[200]/@category
+            categoryUrl:
+              - text: https://spar.no/nettbutikk/varer/ost/parmesan-og-smaksrike-fastoster
+                xpath: /html/body/ol[1]/li[200]/@category_url
+          - category:
+              - text: Plantebasert erstatning for ost
+                xpath: /html/body/ol[1]/li[201]/@category
+            categoryUrl:
+              - text: https://spar.no/nettbutikk/varer/ost/plantebasert-erstatning-for-ost
+                xpath: /html/body/ol[1]/li[201]/@category_url
+          - category:
+              - text: Pultost
+                xpath: /html/body/ol[1]/li[202]/@category
+            categoryUrl:
+              - text: https://spar.no/nettbutikk/varer/ost/pultost
+                xpath: /html/body/ol[1]/li[202]/@category_url
+          - category:
+              - text: Revet ost
+                xpath: /html/body/ol[1]/li[203]/@category
+            categoryUrl:
+              - text: https://spar.no/nettbutikk/varer/ost/revet-ost
+                xpath: /html/body/ol[1]/li[203]/@category_url
+          - category:
+              - text: Ricotta
+                xpath: /html/body/ol[1]/li[204]/@category
+            categoryUrl:
+              - text: https://spar.no/nettbutikk/varer/ost/ricotta
+                xpath: /html/body/ol[1]/li[204]/@category_url
+          - category:
+              - text: Smøreoster
+                xpath: /html/body/ol[1]/li[205]/@category
+            categoryUrl:
+              - text: https://spar.no/nettbutikk/varer/ost/smoreoster
+                xpath: /html/body/ol[1]/li[205]/@category_url
+          - category:
+              - text: Pålegg og frokost
+                xpath: /html/body/ol[1]/li[206]/@category
+            categoryUrl:
+              - text: https://spar.no/nettbutikk/varer/palegg-og-frokost
+                xpath: /html/body/ol[1]/li[206]/@category_url
+          - category:
+              - text: Bacon
+                xpath: /html/body/ol[1]/li[207]/@category
+            categoryUrl:
+              - text: https://spar.no/nettbutikk/varer/palegg-og-frokost/bacon
+                xpath: /html/body/ol[1]/li[207]/@category_url
+          - category:
+              - text: Energibar
+                xpath: /html/body/ol[1]/li[208]/@category
+            categoryUrl:
+              - text: https://spar.no/nettbutikk/varer/palegg-og-frokost/energibar
+                xpath: /html/body/ol[1]/li[208]/@category_url
+          - category:
+              - text: Fiskepålegg
+                xpath: /html/body/ol[1]/li[209]/@category
+            categoryUrl:
+              - text: https://spar.no/nettbutikk/varer/palegg-og-frokost/fiskepalegg
+                xpath: /html/body/ol[1]/li[209]/@category_url
+          - category:
+              - text: Frokostblandinger og musli
+                xpath: /html/body/ol[1]/li[210]/@category
+            categoryUrl:
+              - text: https://spar.no/nettbutikk/varer/palegg-og-frokost/frokostblandinger-og-musli
+                xpath: /html/body/ol[1]/li[210]/@category_url
+          - category:
+              - text: Kabaret
+                xpath: /html/body/ol[1]/li[211]/@category
+            categoryUrl:
+              - text: https://spar.no/nettbutikk/varer/palegg-og-frokost/kabaret
+                xpath: /html/body/ol[1]/li[211]/@category_url
+          - category:
+              - text: Kjøttpålegg
+                xpath: /html/body/ol[1]/li[212]/@category
+            categoryUrl:
+              - text: https://spar.no/nettbutikk/varer/palegg-og-frokost/kjottpalegg
+                xpath: /html/body/ol[1]/li[212]/@category_url
+          - category:
+              - text: Majones
+                xpath: /html/body/ol[1]/li[213]/@category
+            categoryUrl:
+              - text: https://spar.no/nettbutikk/varer/palegg-og-frokost/majones
+                xpath: /html/body/ol[1]/li[213]/@category_url
+          - category:
+              - text: Postei og pate
+                xpath: /html/body/ol[1]/li[214]/@category
+            categoryUrl:
+              - text: https://spar.no/nettbutikk/varer/palegg-og-frokost/postei-og-pate
+                xpath: /html/body/ol[1]/li[214]/@category_url
+          - category:
+              - text: Påleggsalat
+                xpath: /html/body/ol[1]/li[215]/@category
+            categoryUrl:
+              - text: https://spar.no/nettbutikk/varer/palegg-og-frokost/paleggsalat
+                xpath: /html/body/ol[1]/li[215]/@category_url
+          - category:
+              - text: Remulade
+                xpath: /html/body/ol[1]/li[216]/@category
+            categoryUrl:
+              - text: https://spar.no/nettbutikk/varer/palegg-og-frokost/remulade
+                xpath: /html/body/ol[1]/li[216]/@category_url
+          - category:
+              - text: Spekemat
+                xpath: /html/body/ol[1]/li[217]/@category
+            categoryUrl:
+              - text: https://spar.no/nettbutikk/varer/palegg-og-frokost/spekemat
+                xpath: /html/body/ol[1]/li[217]/@category_url
+          - category:
+              - text: Syltetøy
+                xpath: /html/body/ol[1]/li[218]/@category
+            categoryUrl:
+              - text: https://spar.no/nettbutikk/varer/palegg-og-frokost/syltetoy
+                xpath: /html/body/ol[1]/li[218]/@category_url
+          - category:
+              - text: Søtpålegg
+                xpath: /html/body/ol[1]/li[219]/@category
+            categoryUrl:
+              - text: https://spar.no/nettbutikk/varer/palegg-og-frokost/sotpalegg
+                xpath: /html/body/ol[1]/li[219]/@category_url
+          - category:
+              - text: Vegansk pålegg
+                xpath: /html/body/ol[1]/li[220]/@category
+            categoryUrl:
+              - text: https://spar.no/nettbutikk/varer/palegg-og-frokost/vegansk-palegg
+                xpath: /html/body/ol[1]/li[220]/@category_url
+          - category:
+              - text: Snacks og godteri
+                xpath: /html/body/ol[1]/li[221]/@category
+            categoryUrl:
+              - text: https://spar.no/nettbutikk/varer/snacks-og-godteri
+                xpath: /html/body/ol[1]/li[221]/@category_url
+          - category:
+              - text: Dip
+                xpath: /html/body/ol[1]/li[222]/@category
+            categoryUrl:
+              - text: https://spar.no/nettbutikk/varer/snacks-og-godteri/dip
+                xpath: /html/body/ol[1]/li[222]/@category_url
+          - category:
+              - text: Godteri
+                xpath: /html/body/ol[1]/li[223]/@category
+            categoryUrl:
+              - text: https://spar.no/nettbutikk/varer/snacks-og-godteri/godteri
+                xpath: /html/body/ol[1]/li[223]/@category_url
+          - category:
+              - text: Marsipangris
+                xpath: /html/body/ol[1]/li[224]/@category
+            categoryUrl:
+              - text: https://spar.no/nettbutikk/varer/snacks-og-godteri/marsipangris
+                xpath: /html/body/ol[1]/li[224]/@category_url
+          - category:
+              - text: Nøtter
+                xpath: /html/body/ol[1]/li[225]/@category
+            categoryUrl:
+              - text: https://spar.no/nettbutikk/varer/snacks-og-godteri/notter
+                xpath: /html/body/ol[1]/li[225]/@category_url
+          - category:
+              - text: Pastiller
+                xpath: /html/body/ol[1]/li[226]/@category
+            categoryUrl:
+              - text: https://spar.no/nettbutikk/varer/snacks-og-godteri/pastiller
+                xpath: /html/body/ol[1]/li[226]/@category_url
+          - category:
+              - text: Popcorn
+                xpath: /html/body/ol[1]/li[227]/@category
+            categoryUrl:
+              - text: https://spar.no/nettbutikk/varer/snacks-og-godteri/popcorn
+                xpath: /html/body/ol[1]/li[227]/@category_url
+          - category:
+              - text: Sjokolade
+                xpath: /html/body/ol[1]/li[228]/@category
+            categoryUrl:
+              - text: https://spar.no/nettbutikk/varer/snacks-og-godteri/sjokolade
+                xpath: /html/body/ol[1]/li[228]/@category_url
+          - category:
+              - text: Snacks
+                xpath: /html/body/ol[1]/li[229]/@category
+            categoryUrl:
+              - text: https://spar.no/nettbutikk/varer/snacks-og-godteri/snacks
+                xpath: /html/body/ol[1]/li[229]/@category_url
+          - category:
+              - text: Tyggegummi
+                xpath: /html/body/ol[1]/li[230]/@category
+            categoryUrl:
+              - text: https://spar.no/nettbutikk/varer/snacks-og-godteri/tyggegummi
+                xpath: /html/body/ol[1]/li[230]/@category_url
+        xpath: /html
+    timestamp: 1608297907382
