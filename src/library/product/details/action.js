@@ -1,6 +1,6 @@
 /**
  *
- * @param { { URL: string, id: any, RPC: string, SKU: string, zipcode: string, UPC: string } } inputs
+ * @param { { URL: string, id: any, RPC: string, SKU: string, zipcode: string } } inputs
  * @param { { store: any, country: any, zipcode: any } } parameters
  * @param { ImportIO.IContext } context
  * @param { { execute: ImportIO.Action, extract: ImportIO.Action } } dependencies
