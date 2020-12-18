@@ -4,51 +4,42 @@ recordSelector: null
 recordXPath: null
 fields:
   - name: image
-    singleValue: true
-    description: URL of the main product image
+    singleValue: false
+    xpath: //div[@class="slick-slide slick-active slick-current" and contains(@style,"806px")]//img[@class="productImage_AMBPT"]/@src
   - name: imageAlt
-    singleValue: true
-    description: Alt text of the main product image
+    singleValue: false
+    xpath: //div[@class="slick-slide slick-active slick-current" and contains(@style,"806px")]//img[@class="productImage_AMBPT"]/@alt
   - name: alternateImages
     singleValue: false
-    description: Other product images (not in manufacturer description)
-  - name: metaKeywords
-    singleValue: true
-    description: The <meta> keywords content
+    xpath: //div[@class="slick-slide slick-active"]//img[@class="productImage_AMBPT"]/@src
   - name: category
     singleValue: false
-    description: The categories (e.g. from breadcrumbs)
+    xpath: //ol[@typeof="BreadcrumbList"]/li[position()>1]/a/span
   - name: nameExtended
-    singleValue: true
-    description: The product name, prefixing "${brand} - " if not included in "name"
-      and appending " - ${variantType}" if necessary (fixed per feed)
+    singleValue: false
+    xpath: //h1[@class="productName_19xJx"]
   - name: listPrice
     singleValue: true
     description: The stated undiscounted price for the product
   - name: price
-    singleValue: true
-    description: The offered price for the selected product variant - if a user
-      clicks add to basket this is the price they would be charged
+    singleValue: false
+    xpath: //div[@class="pricingContainer_25k3c"]//meta[@itemprop="price"]
   - name: availabilityText
     singleValue: true
-    description: Availability as described on page for the selected variant. If
-      there is no availability but the product can be added to cart, this field
-      should be "In Stock"
+    xpath: //div[@class="pricingContainer_25k3c"]//link[@itemprop="availability" and @href="http://schema.org/InStock"]/@href
     regExp: (.+)
     regExpReplace: In Stock
     defaultValue: Out of Stock
   - name: description
     singleValue: false
-    description: Product description supplied by website - may be concatenanted from
-      multiple places; specifically not the manufacturer description
+    xpath: //div[@class="primaryContent_2dj-c"]/div[@id="moreInfo"]//div[@class="productDescription_1F7nr"]
   - name: descriptionBullets
-    singleValue: true
-    description: Number of ul > li tags in the description
-    type: NUMBER
+    singleValue: false
+    xpath: count(//div[@class="primaryContent_2dj-c"]/div[@id="moreInfo"]//div[@class="productDescription_1F7nr"]//li)
   - name: brandText
-    singleValue: true
-    description: Product brand shown - this may actually NOT be just a brand name,
-      e.g. "Visit the Gillette Store"
+    singleValue: false
+    xpath: //span[@class="marketplaceNameLink_5u9Yw"]
+    defaultValue: "BestBuy"
   - name: manufacturer
     singleValue: true
     description: Product manufacturer
@@ -58,8 +49,8 @@ fields:
     regExp: (?:\s?([\d\.]+\s?)([bB]ar[s]?|[cC]ount|[cC]t|[fF][lL][\.]?\s?[oO][zZ][\.]?|FO|[mM][lL]|[oO][zZ][\.]?|pc|[pP]int|[pP]ops|qt|[wW]ipe[s]?).?)$|(?:\s?([\d\.]+\s?)([bB]ar[s]?|[cC]ount|[cC]|[fF][lL][\.]?\s?[oO][zZ][\.]?|FO|[mM][lL]|[oO][zZ][\.]?|pc|[pP]int|[pP]ops|qt|[wW]ipe[s]?).?\s?[\&\-\w\s]+)$
     regExpReplace: $1$2$3$4
   - name: weightNet
-    singleValue: true
-    description: Net weight as described on the page
+    singleValue: false
+    xpath: //div[@class="primaryContent_2dj-c"]/div[@id="detailsAndSpecs"]//div[@class="itemName_37zd4" and text()="Poids"]/parent::*/div[@class="itemValue_XPfaq"]
   - name: weightGross
     singleValue: true
     description: Gross weight as described on the page
@@ -67,14 +58,14 @@ fields:
     singleValue: true
     description: GTIN code (includes UPC/EAN)
   - name: sku
-    singleValue: true
-    description: The store-specific product identifier
+    singleValue: false
+    xpath: //span[@itemprop="sku"]
   - name: variantId
-    singleValue: true
-    description: Identifier for a variant from a store where variants share the same sku
+    singleValue: false
+    xpath: //span[@itemprop="sku"]
   - name: mpc
-    singleValue: true
-    description: The manufacturer model code (unique) of the product
+    singleValue: false
+    xpath: //div[@class="modelInformation_1WYvb"]/span[@itemprop="model"]
   - name: packSize
     singleValue: true
     description: The number of packs in the product offer (if stated separately on
@@ -89,19 +80,17 @@ fields:
     singleValue: true
     description: Content under "warnings" header
   - name: ratingCount
-    singleValue: true
-    description: The number of ratings
-    type: NUMBER
+    singleValue: false
+    xpath: //span[@itemprop="ratingCount"]/a
   - name: aggregateRatingText
     singleValue: true
     description: The stated aggregate rating
   - name: aggregateRating
-    singleValue: true
-    description: The stated aggregate rating normalized to be out of 5
-    type: NUMBER
+    singleValue: false
+    xpath: //label[@class="ratings_I_BnL"]/strong
   - name: shippingInfo
-    singleValue: true
-    description: Shipping information for the product
+    singleValue: false
+    xpath: //span[@class="marketplaceNameLink_5u9Yw"]
   - name: shippingDimensions
     singleValue: true
     description: Stated shipping dimensions
@@ -109,12 +98,11 @@ fields:
     singleValue: true
     description: Stated shipping weight
   - name: variantCount
-    singleValue: true
-    description: Number of variants listed
-    type: NUMBER
+    singleValue: false
+    defaultValue: '0'
   - name: color
-    singleValue: true
-    description: A textual description of the colour
+    singleValue: false
+    xpath: //div[@class="primaryContent_2dj-c"]/div[@id="detailsAndSpecs"]//div[@class="itemName_37zd4" and text()="Couleur"]/parent::*/div[@class="itemValue_XPfaq"]
   - name: colorCode
     singleValue: true
     description: A code description of the color (e.g. RGB hex)
@@ -128,8 +116,8 @@ fields:
     singleValue: false
     description: URLs of videos on page
   - name: name
-    singleValue: true
-    description: The product name
+    singleValue: false
+    xpath: //h1[@class="productName_19xJx"]
   - name: inStorePrice
     singleValue: true
     description: Price in the selected store
@@ -146,8 +134,10 @@ fields:
     singleValue: true
     description: Text of link next to Amazon choice graphic
   - name: brandLink
-    singleValue: true
-    description: null
+    singleValue: false
+    xpath: //a[@class="link_3hcyN secondarySellerLink_u-8Ar"]/@href
+    regExp: (/.+)
+    regExpReplace: https://www.bestbuy.ca$1
   - name: internationalShipping
     singleValue: true
     description: Text next to bullet point
@@ -449,7 +439,7 @@ fields:
     description: null
   - name: additionalDescBulletInfo
     singleValue: false
-    description: null
+    xpath: //div[@class="primaryContent_2dj-c"]/div[@id="moreInfo"]//div[@class="productDescription_1F7nr"]//li
   - name: prop65Warning
     singleValue: true
     description: null
