@@ -6,7 +6,7 @@ module.exports = {
     prefix: null,
     suffix: null,
     subdomain: null,
-    url: null,
+    url: 'https://lyko.com/sv',
     country: 'SE',
     store: 'lyko',
     zipcode: '',

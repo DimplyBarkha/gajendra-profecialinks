@@ -5,7 +5,7 @@ module.exports = {
     country: 'SE',
     store: 'lyko',
     domain: 'lyko.com',
-    loadedSelector: null,
+    loadedSelector: '#container',
     noResultsXPath: null,
     zipcode: '',
   },
