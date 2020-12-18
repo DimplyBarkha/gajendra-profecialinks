@@ -73,7 +73,7 @@ fields:
     regExpReplace: https://www.arco.co.uk$1
   - name: videos
   - name: name
-    xpath: //td//span[@class="linedesc"]
+    xpath: ancestor::html//div[@id="infoholder"]//h1
   - name: secondaryImageTotal
     xpath: count(//ancestor::html//div[@id="imageholder"]//img[@id="lpic"]//following-sibling::img/@src | //ancestor::html//div[@id="imageholder"]//img[@id="lpic"]//following-sibling::a/@href)
   - name: variantInformation
