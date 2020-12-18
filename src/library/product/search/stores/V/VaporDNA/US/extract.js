@@ -15,16 +15,15 @@ const transform = (data) => {
     data.forEach(obj => obj.group.forEach(row => Object.keys(row).forEach(header => row[header].forEach(el => {
       el.text = clean(el.text);
     }))));
-    return data
-  };  
+    return data;
+  };
   for (const { group } of data) {
     for (const row of group) {
-     
       if (row.productUrl) {
-        row.productUrl.forEach(item => {          
-          item.text = 'https://vapordna.com'+ item.text
+        row.productUrl.forEach(item => {
+          item.text = 'https://vapordna.com' + item.text;
         });
-      }  
+      }
     }
   }
   return cleanUp(data);
