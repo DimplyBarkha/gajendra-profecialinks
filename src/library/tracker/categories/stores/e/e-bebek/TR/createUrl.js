@@ -6,7 +6,7 @@ module.exports = {
     prefix: null,
     suffix: null,
     subdomain: null,
-    url: null,
+    url: 'https://www.e-bebek.com/',
     country: 'TR',
     store: 'e-bebek',
     zipcode: '',

@@ -5,7 +5,7 @@ module.exports = {
     country: 'TR',
     store: 'e-bebek',
     domain: 'e-bebek.com',
-    loadedSelector: null,
+    loadedSelector: 'nav.categories.collapse',
     noResultsXPath: null,
     zipcode: '',
   },
