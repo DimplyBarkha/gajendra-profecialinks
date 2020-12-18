@@ -5,7 +5,7 @@ recordXPath: null
 fields:
   - name: image
     singleValue: false
-    xpath: //div[@class="migros_image"]
+    xpath: //div[contains(@class,' ng-star-inserted ng-lazyloaded')]/@style
   - name: category
     singleValue: false
     xpath: //div[@class='migros_category']
@@ -29,7 +29,8 @@ fields:
     xpath: //dd[contains(@id,'product-detail-50817-origin')]/text()
   - name: price
     singleValue: false
-    xpath: //div[@class="migros_price"]
+    xpath: //div[contains(@class,'price-tools')]//span//span//span[1]
+   # xpath: //div[@class="migros_price"]
   - name: weightNet
     singleValue: false
     xpath: //div[@class="migros_weight"]

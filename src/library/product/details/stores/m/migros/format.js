@@ -27,7 +27,7 @@ const transform = (data) => {
       debugger;
       if (row.category) {
         let info = [];
-        
+
         row.category.forEach(item => {
           info.push(item.text.trim());
         });
@@ -36,6 +36,9 @@ const transform = (data) => {
           info.forEach(item => {
             row.category.push({ "text": item});
           });
+        }
+        if(row.image){
+
         }
       }
     }
