@@ -1,46 +1,46 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: //*[div[@class="_3liAhj" or @class="_1UoZlX"]]
+recordXPath: //div[contains(@data-tkid,"SEARCH")]/a[1]/div[1]
 fields:
-  - name: id
-    description: Unique id (within this extractor)
-    xpath: //div[@class="_3O0U0u"]/div/@data-id
-  - name: rankOrganic 
-    description: The position (rank) within the list excluding sponsored/paid results
-    type: NUMBER 
-    xpath: //div[@id='rankOrganic']
-  - name: name
-    description: The product name
-    xpath: //a[@class="_2cLu-l"]|//div[@class="_3wU53n"]
-  - name: productUrl
-    description: The URL for the product details page
-    xpath: //div[@class="_3O0U0u"]/div/@producturl
-  - name: gtin
-    description: GTIN code (includes UPC/EAN)
   - name: thumbnail
     description: The URL for the product thumbnail image
-    xpath: //div[@id='image']
-  - name: aggregateRating2
-    description: The stated aggregate rating normalized to be out of 5
-    xpath: //span/div[@class="hGSR34"]
-  - name: reviewCount
-    description: The number of reviews
-    type: NUMBER
-    xpath: //span[@class="_38sUEc"]/span/span[3]/text()
-  - name: ratingCount
-    description: The number of ratings
-    type: NUMBER
-    xpath: //span[@class="_38sUEc"]/span/span[1]/text()
-  - name: price
-    description: The offered price for the product
-    xpath: //div[@class="_1vC4OE _2rQ-NK"]|//div[@class="_1vC4OE"]
-  - name: manufacturer
-    description: Product manufacturer
-  - name: soldBy
-    description: The name of the seller of the item (if available)
-  - name: rank  
-    description: search/listing rank
-    xpath: //div[@id='rankOrganic']
-  - name: endorsementText
-    description: The text that signifies that a product is endorsed
+    xpath: //img[1]/@src
+  # - name: id
+  #   description: Unique id (within this extractor)
+  #   xpath: //div[@class="_3O0U0u"]/div/@data-id
+  # - name: rankOrganic
+  #   description: The position (rank) within the list excluding sponsored/paid results
+  #   type: NUMBER
+  #   xpath: //div[@id='rankOrganic']
+  # - name: name
+  #   description: The product name
+  #   xpath: //a[@class="_2cLu-l"]|//div[@class="_3wU53n"]
+  # - name: productUrl
+  #   description: The URL for the product details page
+  #   xpath: //div[@class="_3O0U0u"]/div/@producturl
+  # - name: gtin
+  #   description: GTIN code (includes UPC/EAN)
+  # - name: aggregateRating2
+  #   description: The stated aggregate rating normalized to be out of 5
+  #   xpath: //span/div[@class="hGSR34"]
+  # - name: reviewCount
+  #   description: The number of reviews
+  #   type: NUMBER
+  #   xpath: //span[@class="_38sUEc"]/span/span[3]/text()
+  # - name: ratingCount
+  #   description: The number of ratings
+  #   type: NUMBER
+  #   xpath: //span[@class="_38sUEc"]/span/span[1]/text()
+  # - name: price
+  #   description: The offered price for the product
+  #   xpath: //div[@class="_1vC4OE _2rQ-NK"]|//div[@class="_1vC4OE"]
+  # - name: manufacturer
+  #   description: Product manufacturer
+  # - name: soldBy
+  #   description: The name of the seller of the item (if available)
+  # - name: rank
+  #   description: search/listing rank
+  #   xpath: //div[@id='rankOrganic']
+  # - name: endorsementText
+  #   description: The text that signifies that a product is endorsed

@@ -4,10 +4,10 @@ module.exports = {
   parameterValues: {
     country: 'IN',
     store: 'flipkart',
-    nextLinkSelector: 'a._3fVaIS:last-child',
+    nextLinkSelector: 'nav a[href*="page"]:nth-last-child(1)',
     mutationSelector: null,
     spinnerSelector: null,
-    loadedSelector: 'span._2yAnYN',
+    loadedSelector: 'div[style*="flex-grow"] > div.col-12-12:nth-last-child(3)',
     noResultsXPath: '//div[@class="DUFPUZ"]',
     openSearchDefinition: null,
     domain: 'flipkart.com',
