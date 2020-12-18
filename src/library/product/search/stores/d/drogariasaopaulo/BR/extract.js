@@ -14,7 +14,7 @@ const implementation = async (inputs, parameters, context, dependencies) => {
       while (moreItems !== null);
     }
 
-    function stall(ms) {
+    function stall (ms) {
       return new Promise((resolve) => {
         setTimeout(() => {
           resolve();
