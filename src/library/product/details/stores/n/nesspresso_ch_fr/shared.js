@@ -55,12 +55,12 @@ const transform = (data) => {
       }
       if ((!row.energyEfficiency || !row.energyEfficiency.length) && row.energyEfficiency1) {
         console.log('energyEfficiency1',row.energyEfficiency1);
-        row.energyEfficiency = row.energyEfficiency1;
+        row.quantity = row.energyEfficiency1;
         console.log("energyEfficiency", row.energyEfficiency);
       }
       if ((!row.weightNet || !row.weightNet.length) && row.weightNet1) {
         console.log('weightNet1',row.weightNet1);
-        row.weightNet = row.weightNet1;
+        row.quantity = row.weightNet1;
         console.log("weightNet", row.weightNet);
       }
       if ((!row.manufacturerImages || !row.manufacturerImages.length) && row.manufacturerImages1) {

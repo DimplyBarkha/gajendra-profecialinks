@@ -1,0 +1,15 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: variantId
+    singleValue: false
+    xpath: 
+    # regExp: \b(\w+)$
+  - name: variantUrl
+    singleValue: false
+    description: variant Url
+    xpath: //ul[@class="ProductDetailsColorSwitcher__color-list"]/li/a/@href
+    regExp: (.+)
+    regExpReplace: https://www.nespresso.com$1 

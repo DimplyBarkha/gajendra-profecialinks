@@ -33,17 +33,17 @@ fields:
     xpath: //span[@class="ProductDetails__price"]
   - name: availabilityText
     singleValue: false
-    xpath: //div[@id="AddToBagButton__button-CremaComponentId-3"]//span[contains(.,"IN DEN WARENKORB")]
+    xpath: //button[contains(.,"Contact us")]
     # xpath: //span[contains(text(),"NICHT LIEFERBAR")]
     regExp: (.+)
-    regExpReplace: In Stock
-    defaultValue: Out of Stock
+    regExpReplace: Out of Stock
+    defaultValue: In Stock
   - name: description
     singleValue: false
     xpath: //div[@class="FreeHTML"]//text() | //n-pdp-description/@heading | //n-pdp-description/@subheading | //n-pdp-description/@info
   - name: descriptionBullets
     singleValue: false
-    xpth: count(//h3[contains(.,"Eigenschaften")]/../ul/li/text())
+    xpth: count(//h3[contains(.,"Caractéristiques")]/../ul/li//text())
   - name: brandText
     singleValue: false
     xpath: //script[contains(.,"brand") and (contains(.,"currency"))]/text()
@@ -56,13 +56,12 @@ fields:
     singleValue: false
     xpath: //div[@itemprop="name"]/text()
     regExp: (([0-9]+)\W+([a-zA-Z]+))
-    # regExpReplace: $1$2$3$4
-  - name: weightNet
-    singleValue: false
-    xpath: //h4[contains(text(), "NETTOGEWICHT ")]/following::div[1] 
   - name: weightNet1
     singleValue: false
-    xpath: //li[contains(.,"Gewicht")]/text()
+    xpath: //h4[contains(text(), "Poids")]/following::div[1] 
+  - name: weightNet
+    singleValue: false
+    xpath: //li[contains(.,"Poids")]/text()
     regExp: :\W+(.+)
     regExpReplace: $1
   - name: weightGross
@@ -101,21 +100,22 @@ fields:
     description: Content under "warnings" header
   - name: ratingCount
     singleValue: false
-    xpath: //meta[@itemprop="reviewCount"]/@content
-    # regExp: \d{1,}
+    xpath: //span[@class="RatingsAndReviewsButton__label"]
+    regExp: \d{1,}
     # regExpReplace: \d{1,}
   - name: aggregateRatingText
     singleValue: false
-    xpath: //meta[@itemprop="ratingValue"]/@content
+    xpath: //span[@class="RatingsStars__rating-average"]
   - name: aggregateRating
     singleValue: false
-    xpath: //meta[@itemprop="ratingValue"]/@content
+    description: The stated aggregate rating normalized to be out of 5
+    type: NUMBER
   - name: shippingInfo
     singleValue: false
     description: Shipping information for the product
   - name: shippingDimensions
     singleValue: false
-    xpath: //li[contains(.,"Masse (BxTxH)")]/text()
+    xpath: //li[contains(.,"Dimensions (LxPxH)")]/text()
     regExp: :\W+(.+)
     regExpReplace: $1
   - name: shippingWeight
@@ -138,7 +138,7 @@ fields:
     xpath: //div[@class="c-pdp-banner"]/img/@src
   - name: manufacturerImages1
     singleValue: false
-    xpath: //h3[contains(.,"Eigenschaften")]/../ul/li/img/@src
+    xpath: //h3[contains(.,"KEY FEATURES")]/../ul/li/img/@src
     regExp: (.+)
     regExpReplace: https://www.nespresso.com$1  
   - name: videos
@@ -248,7 +248,7 @@ fields:
     description: null
   - name: ingredientsList
     singleValue: false
-    xpath: //button[contains(text(), "INHALTSSTOFFE UND ALLERGENE")]//../following-sibling::div/div[(following::h4[contains(text(),"NETTOGEWICHT")])]/text() | //button[contains(text(), "INHALTSSTOFFE UND ALLERGENE")]//../following-sibling::div//text()[(following::h4[contains(text(),"Nettogewicht")])] | //button[contains(text(), "INHALTSSTOFFE UND ALLERGENE")]//../following-sibling::div//b/text()
+    xpath: //button[contains(text(), "INHALTSSTOFFE UND ALLERGENE")]//../following-sibling::div/div[(following::h4[contains(text(),"NETTOGEWICHT")])]/text() | //button[contains(text(), "INGRÉDIENTS ET ALLERGÈNES")]//../following-sibling::div//text()[(following::h4[contains(text(),"Poids")])] | //button[contains(text(), "INHALTSSTOFFE UND ALLERGENE")]//../following-sibling::div//b/text()
   - name: servingSize
     singleValue: false
     description: The size of serving Nutritional information is based on.
@@ -407,7 +407,7 @@ fields:
     description: Suggested storage location for product
   - name: countryOfOrigin
     singleValue: false
-    xpath: //h4[contains(text(), "HERGESTELLT")]/text()
+    xpath: //h4[contains(text(), "Fabriqué")]/text()
     regExp: \b(\w+)$
   - name: allergyAdvice
     singleValue: false
@@ -459,7 +459,7 @@ fields:
     xpath: //ul[@class="ProductDetailsColorSwitcher__color-list"]/li/a/span
   - name: additionalDescBulletInfo
     singleValue: false
-    xpath: //h3[contains(.,"Eigenschaften")]/../ul/li//text()
+    xpath: //h3[contains(.,"Caractéristiques")]/../ul/li//text()
   - name: prop65Warning
     singleValue: false
     description: null
