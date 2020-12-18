@@ -129,6 +129,7 @@ fields:
     singleValue: true
     description: Number of variants listed
     type: NUMBER
+    defaultValue: 0
   - name: color
     singleValue: true
     description: A textual description of the colour
@@ -532,9 +533,11 @@ fields:
     singleValue: true
     xpath: //meta[@property='og:url']/@content
   - name: inTheBoxUrl
-    xpath: //div[contains(@class,'InTheBox')]//img/@srcset
-    regExp: (.+)
-    regExpReplace: https:$1
+    xpath: //div[contains(@class,'InTheBox')]//img/@data-flixsrcset
+    # regExp: (.+)
+    # regExpReplace: https:$1
+    regExp: ^(.+)\s200w
+    regExpReplace: https:$1    
   - name: inTheBoxText
     xpath: //div[contains(@class,'InTheBox')]//span | //p[contains(.,'In the Box')]//following-sibling::ul[1]//li
   - name: hasComparisonTable

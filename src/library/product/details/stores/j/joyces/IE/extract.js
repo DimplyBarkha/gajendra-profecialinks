@@ -92,8 +92,12 @@ module.exports = {
       const additionalDescriptionInfo = getAllXpath(additionalDescriptionInfoXpath, 'innerText');
       if (additionalDescriptionInfo !== null && additionalDescriptionInfo.length > 0) {
         additionalBulletInfo = additionalDescriptionInfo.join('||');
-        additionalBulletInfo.split('||').forEach((item) => {
-          addElementToDocument('added_description_bullet_info', item);
+        additionalBulletInfo.split('||').forEach((item, i) => {
+          if (i === 0) {
+            addElementToDocument('added_description_bullet_info', '|| '+item);
+          } else {
+            addElementToDocument('added_description_bullet_info', item);
+          }
         });
       }
       // Manufacture Description
