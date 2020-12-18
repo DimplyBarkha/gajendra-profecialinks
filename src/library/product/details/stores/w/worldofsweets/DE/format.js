@@ -73,7 +73,7 @@ const transform = (data) => {
           }
         });
       }
-    /*  if (row.description) {
+     /* if (row.description) {
         row.description.forEach(item => {
           item.text = item.text.replace(/(\s*\n\s*)+/g, ' || ').trim();
         });

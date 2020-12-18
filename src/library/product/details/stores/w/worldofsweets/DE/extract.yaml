@@ -43,11 +43,6 @@ fields:
     regExp: (.+)
     regExpReplace: In Stock
     defaultValue: Out of Stock
-  - name: description
-    singleValue: true
-    description: Product description supplied by website - may be concatenanted from
-      multiple places; specifically not the manufacturer description
-    xpath: //p[contains(@class,'MsoNormal')]//text()
   - name: descriptionBullets
     singleValue: true
     description: Number of ul > li tags in the description
@@ -514,8 +509,10 @@ fields:
     example: https://www.zalando.de/adidas-neo-sneaker-low-blackwhite-a4315i002-q11.html
     defaultValue: No
   - name: description
-    singleValue: true
-    xpath: //*[@id="productShortdesc"]
+    singleValue: false
+    description: Product description supplied by website - may be concatenanted from
+      multiple places; specifically not the manufacturer description
+    xpath: //div[@class="row"]//p[contains(@class,'MsoNormal')]
   - name: productUrl
     singleValue: false
     xpath: //link[@rel="canonical"]/@href
