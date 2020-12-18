@@ -1,0 +1,61 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: div[class*=StyledGrid] div[class*=GridItem]
+recordXPath: null
+fields:
+  - name: id
+    description: Unique id (within this extractor)
+    xpath: //div[contains(@class,"Wrapper")]/a/@href
+    regExp: \/produto\/([^?]*)?.*$
+    regExpReplace: $1
+  - name: searchUrl
+    xpath: //div[@id='searchUrl']
+  - name: rankOrganic
+    singleValue: true
+    description: The position (rank) within the list excluding sponsored/paid results
+  - name: name
+    description: The product name
+    xpath: //span[contains(@class,'Name')]
+  - name: productUrl
+    description: The URL for the product details page
+    xpath: //div[contains(@class,"Wrapper")]/a/@href
+    regExp: (\/produto\/.+)
+    regExpReplace: https://www.americanas.com.br$1
+  - name: gtin
+    description: GTIN code (includes UPC/EAN)
+  - name: thumbnail
+    description: The URL for the product thumbnail image
+    xpath: //div[@id='added_img']
+  - name: aggregateRating2
+    description: The stated aggregate rating normalized to be out of 5
+    xpath: //div[@id='aggregateRating']
+    regExp: ^(\d*)\.?(\d{0,1})\d*
+    regExpReplace: $1,$2
+  - name: reviewCount
+    description: The number of reviews
+    type: NUMBER
+    xpath: //span[contains(@class,'src__Count')]/text()[1]
+    regExp: \d+
+  - name: ratingCount
+    description: The number of ratings
+    type: NUMBER
+    xpath: //span[contains(@class,'src__Count')]/text()[1]
+    regExp: \d+
+  - name: price
+    description: The offered price for the product
+    xpath: //span[contains(@class,'PromotionalPrice')]
+  - name: manufacturer
+    description: Product manufacturer
+  - name: soldBy
+    description: The name of the seller of the item (if available)
+  - name: rank
+    singleValue: true
+    description: search/listing rank
+  - name: endorsementText
+    description: The text that signifies that a product is endorsed
+  - name: sponsored
+    singleValue: false
+    description: Is sponsored/paid
+    xpath: //span[contains(@class,'src__Text')][contains(text(),'patrocinado')]
+    type: BOOLEAN
+    defaultValue: false
