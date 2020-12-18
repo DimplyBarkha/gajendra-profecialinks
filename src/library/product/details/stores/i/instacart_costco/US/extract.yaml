@@ -89,6 +89,7 @@ fields:
   - name: sku
     singleValue: true
     description: The store-specific product identifier
+    xpath: //div[@id = "ii_procode"]
   - name: variantId
     singleValue: true
     description: Identifier for a variant from a store where variants share the same sku
@@ -276,26 +277,26 @@ fields:
   - name: numberOfServingsInPackage
     singleValue: true
     description: Suggested number of servings of the product.
-    # type: NUMBER
+    type: NUMBER
     xpath: //div/h3[contains(text(),"Nutrition Facts")]/following-sibling::div[contains(text(),"Servings Per ")]/text()[2]
   - name: caloriesPerServing
     singleValue: true
     description:
       Nutritional Information for Calories Per Serving content - Usually
       based on per 100g serving
-    # type: NUMBER
+    type: NUMBER
     xpath: //li/strong[contains(text(),"Calories")]/following-sibling::text()[2]
   - name: caloriesFromFatPerServing
     singleValue: true
     description: Nutritional Information for Calories From Fat content - Usually
       based on per 100g serving
-    # type: NUMBER
+    type: NUMBER
   - name: totalFatPerServing
     singleValue: true
     description:
       Nutritional Information for Total Fat content - Usually based on
       per 100g serving
-    # type: NUMBER
+    type: NUMBER
     xpath: //li/strong[contains(text(),"Total Fat")]/following-sibling::text()[2]
   - name: totalFatPerServingUom
     singleValue: true
@@ -306,7 +307,7 @@ fields:
     description:
       Nutritional Information for Saturated Fat content - Usually based
       on per 100g serving
-    # type: NUMBER
+    type: NUMBER
     xpath: //div/li[contains(text(),"Saturated Fat")]/text()[3]
   - name: saturatedFatPerServingUom
     singleValue: true
@@ -317,7 +318,7 @@ fields:
     description:
       Nutritional Information for Trans Fat content - Usually based on
       per 100g serving
-    # type: NUMBER
+    type: NUMBER
   - name: transFatPerServingUom
     singleValue: true
     description: Unit of Measure Data for Trans Fat content
@@ -326,7 +327,7 @@ fields:
     description:
       Nutritional Information for Cholesterol content - Usually based on
       per 100g serving
-    # type: NUMBER
+    type: NUMBER
     xpath: //li/strong[contains(text(),"Cholesterol")]/following-sibling::text()[2]
   - name: cholesterolPerServingUom
     singleValue: true
@@ -337,7 +338,7 @@ fields:
     description:
       Nutritional Information for Sodium content - Usually based on per
       100g serving
-    # type: NUMBER
+    type: NUMBER
     xpath: //li/strong[contains(text(),"Sodium")]/following-sibling::text()[2]
   - name: sodiumPerServingUom
     singleValue: true
@@ -348,7 +349,7 @@ fields:
     description:
       Nutritional Information for Total Carbohydrate content - Usually
       based on per 100g serving
-    # type: NUMBER
+    type: NUMBER
     xpath: (//div[@class="rmq-97f207b6"]/div/div)[2]/div/ul/div/li/strong[contains(text(),"Total Carbohydrate")]/following-sibling::text()[2]
   - name: totalCarbPerServingUom
     singleValue: true
@@ -359,7 +360,7 @@ fields:
     description:
       Nutritional Information for Dietary Fibre content - Usually based
       on per 100g serving
-    # type: NUMBER
+    type: NUMBER
     xpath: //div/li[contains(text(),"Dietary Fiber")]/text()[3]
   - name: dietaryFibrePerServingUom
     singleValue: true
@@ -370,7 +371,7 @@ fields:
     description:
       Nutritional Information for Total Sugar content - Usually based on
       per 100g serving
-    # type: NUMBER
+    type: NUMBER
     xpath: //div/li[contains(text(),"Sugars")]/text()[3]
   - name: totalSugarsPerServingUom
     singleValue: true
@@ -381,7 +382,7 @@ fields:
     description:
       Nutritional Information for Protein content - Usually based on per
       100g serving
-    # type: NUMBER
+    type: NUMBER
     xpath: //li/strong[contains(text(),"Protein")]/following-sibling::text()[2]
   - name: proteinPerServingUom
     singleValue: true
@@ -392,7 +393,7 @@ fields:
     description:
       Nutritional Information for Vitamin A content - Usually based on
       per 100g serving
-    # type: NUMBER
+    type: NUMBER
   - name: vitaminAPerServingUom
     singleValue: true
     description: Unit of Measure Data for Vitamin A
@@ -401,7 +402,7 @@ fields:
     description:
       Nutritional Information for Vitamin C content - Usually based on
       per 100g serving
-    # type: NUMBER
+    type: NUMBER
   - name: vitaminCPerServingUom
     singleValue: true
     description: Unit of Measure Data for Vitamin C
@@ -410,7 +411,7 @@ fields:
     description:
       Nutritional Information for Calcium content - Usually based on per
       100g serving
-    # type: NUMBER
+    type: NUMBER
   - name: calciumPerServingUom
     singleValue: true
     description: Unit of Measure Data for Calcium
@@ -418,7 +419,7 @@ fields:
     singleValue: true
     description: Nutritional Information for Iron content - Usually based on per
       100g serving
-    # type: NUMBER
+    type: NUMBER
   - name: ironPerServingUom
     singleValue: true
     description: Unit of Measure Data for Iron
@@ -430,7 +431,7 @@ fields:
     description:
       Nutritional Information for Magnesium content - Usually based on
       per 100g serving
-    # type: NUMBER
+    type: NUMBER
   - name: magnesiumPerServingUom
     singleValue: true
     description: Unit of Measure Data for Magnesium
@@ -438,7 +439,7 @@ fields:
     singleValue: true
     description: Nutritional Information for Salt content - Usually based on per
       100g serving
-    # type: NUMBER
+    type: NUMBER
   - name: saltPerServingUom
     singleValue: true
     description: Unit of Measure Data for Salt
