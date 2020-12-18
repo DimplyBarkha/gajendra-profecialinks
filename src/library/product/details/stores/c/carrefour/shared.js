@@ -37,15 +37,15 @@ const transform = (data) => {
         row.description = [{ text }];
       }
 
-      if (row.availabilityText) {
-        let newText = 'Out Of Stock';
-        row.availabilityText.forEach(item => {
-          if (item.text.trim() === 'Añadir') {
-            newText = 'In Stock';
-          }
-        });
-        row.availabilityText = [{ text: newText }];
-      }
+      // if (row.availabilityText) {
+      //   let newText = 'Out Of Stock';
+      //   row.availabilityText.forEach(item => {
+      //     if (item.text.trim() === 'Añadir') {
+      //       newText = 'In Stock';
+      //     }
+      //   });
+      //   row.availabilityText = [{ text: newText }];
+      // }
     }
   }
 
