@@ -29,7 +29,8 @@ fields:
   - name: price
     singleValue: true
     type: TEXT
-    xpath: //li[@class="col-lg-3 col-md-3 col-sm-4"]//div[@class="infoTextCarousel"]//span[@class="lineinner"]
+    xpath: //html//div[@id="priceText"]
+    # xpath: //li[@class="col-lg-3 col-md-3 col-sm-4"]//div[@class="infoTextCarousel"]//span[@class="lineinner"]
   - name: rank
     singleValue: true
     xpath: //div[@id='rankOrganic']/text()

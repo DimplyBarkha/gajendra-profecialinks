@@ -11,7 +11,7 @@ module.exports = {
     loadedSelector: 'ul[class="product-listing product-grid"] li',
     noResultsXPath: null,
     openSearchDefinition: {
-      template: 'https://www.marionnaud.fr/maquillage/teint/blush/c/M0103?q=%3Arank-desc&page={page}&pageSize=20',
+      template: 'https://www.marionnaud.fr/search?q={searchTerms}%3Arank-desc&sort=&page={page}&pageSize=100',
       },
     domain: 'marionnaud.fr',
     zipcode: '',
