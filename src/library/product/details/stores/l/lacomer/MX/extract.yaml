@@ -11,31 +11,31 @@ fields:
     xpath: //img[@id="target-src"]/@alt
   - name: alternateImages
     singleValue: false
-    description: Other product images (not in manufacturer description)
+    xpath: //html//div[@id="img"]
   - name: metaKeywords
     singleValue: true
     description: The <meta> keywords content
   - name: category
     singleValue: false
-    description: The categories (e.g. from breadcrumbs)
+    xpath: //ol[@class="breadcrumb"]/li[position()>1 and position()<last()]/a/text()
   - name: nameExtended
     singleValue: true
-    # xpath: //span[@class="txt-product-name"]/text()
+    xpath: //span[@class="txt-product-name"]/text()
   - name: listPrice
     singleValue: true
     description: The stated undiscounted price for the product
   - name: price
     singleValue: true
-    description: The offered price for the selected product variant - if a user
-      clicks add to basket this is the price they would be charged
+    xpath: //span[@class="txt-whitout-line"]/text()
+    regExp: (\$\d+\.\d+)
   - name: availabilityText
     singleValue: true
     description: Availability as described on page for the selected variant. If
       there is no availability but the product can be added to cart, this field
       should be "In Stock"
-    regExp: (.+)
-    regExpReplace: In Stock
-    defaultValue: Out of Stock
+    # regExp: (.+)
+    # regExpReplace: In Stock
+    # defaultValue: Out of Stock
   - name: description
     singleValue: false
     description: Product description supplied by website - may be concatenanted from
@@ -46,8 +46,7 @@ fields:
     type: NUMBER
   - name: brandText
     singleValue: true
-    description: Product brand shown - this may actually NOT be just a brand name,
-      e.g. "Visit the Gillette Store"
+    xpath: //input[@id="marDes"]/@value
   - name: manufacturer
     singleValue: true
     description: Product manufacturer
@@ -67,10 +66,10 @@ fields:
     description: GTIN code (includes UPC/EAN)
   - name: sku
     singleValue: true
-    description: The store-specific product identifier
+    xpath: //input[@id="artean"]/@value
   - name: variantId
     singleValue: true
-    # xpath: //div[@id="detail-control"]//input[@name="pasilloId"]/@value
+    xpath: //div[@id="detail-control"]//input[@name="pasilloId"]/@value
   - name: mpc
     singleValue: true
     description: The manufacturer model code (unique) of the product
@@ -493,4 +492,4 @@ fields:
     description: If Zoom feature is available for Main image or images in the
       carousel,['Yes','No']
     example: https://www.zalando.de/adidas-neo-sneaker-low-blackwhite-a4315i002-q11.html
-    defaultValue: No
+    defaultValue: Yes
