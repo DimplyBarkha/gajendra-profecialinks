@@ -258,6 +258,7 @@ fields:
     singleValue: true
     description: null
     type: NUMBER
+    xpath: count(//ul[@id="media-thumbs"]/li[not(contains(@class,"img0"))])
   - name: news
     singleValue: true
     description: null
@@ -542,7 +543,7 @@ fields:
     example: https://www.zalando.de/adidas-neo-sneaker-low-blackwhite-a4315i002-q11.html
     defaultValue: No
   - name: inTheBoxUrl
-    xpath: //div[contains(@class,'InTheBox')]//img/@src
+    xpath: //div[contains(@class,'InTheBox')]//img/@srcset
     regExp: (.+)
     regExpReplace: https:$1
   - name: inTheBoxText
