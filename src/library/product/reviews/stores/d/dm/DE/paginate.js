@@ -5,7 +5,7 @@ module.exports = {
     template: null,
     country: 'DE',
     store: 'dm',
-    // nextLinkSelector: 'button.bv-content-btn-pages-active',
+    nextLinkSelector: 'button.bv-content-btn-pages-active',
     nextLinkXpath: null,
     mutationSelector: null,
     spinnerSelector: null,
@@ -14,9 +14,9 @@ module.exports = {
     loadedXpath: null,
     stopConditionSelectorOrXpath: null,
     resultsDivSelector: null,
-    openSearchDefinition: {
-      template: 'https://www.dm.de/p{id}.html?bvstate=pg:{page}/ct:r#review_root'
-    },
+    // openSearchDefinition: {
+    //   template: 'https://www.dm.de/p{id}.html?bvstate=pg:{page}/ct:r#review_root'
+    // },
     domain: 'dm.de',
     zipcode: '',
   },
