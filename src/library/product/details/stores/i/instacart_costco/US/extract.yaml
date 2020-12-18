@@ -275,30 +275,30 @@ fields:
   - name: servingSizeUom
     singleValue: true
     description: Unit of measure of serving
-  - name: numberOfServingsInPackage
-    singleValue: true
-    description: Suggested number of servings of the product.
-    type: NUMBER
-    xpath: //div/h3[contains(text(),"Nutrition Facts")]/following-sibling::div[contains(text(),"Servings Per ")]/text()[2]
-  - name: caloriesPerServing
-    singleValue: true
-    description:
-      Nutritional Information for Calories Per Serving content - Usually
-      based on per 100g serving
-    type: NUMBER
-    xpath: //li/strong[contains(text(),"Calories")]/following-sibling::text()[2]
-  - name: caloriesFromFatPerServing
-    singleValue: true
-    description: Nutritional Information for Calories From Fat content - Usually
-      based on per 100g serving
-    type: NUMBER
-  - name: totalFatPerServing
-    singleValue: true
-    description:
-      Nutritional Information for Total Fat content - Usually based on
-      per 100g serving
-    type: NUMBER
-    xpath: //li/strong[contains(text(),"Total Fat")]/following-sibling::text()[2]
+  # - name: numberOfServingsInPackage
+  #   singleValue: true
+  #   description: Suggested number of servings of the product.
+  #   type: NUMBER
+  #   xpath: //div/h3[contains(text(),"Nutrition Facts")]/following-sibling::div[contains(text(),"Servings Per ")]/text()[2]
+  # - name: caloriesPerServing
+  #   singleValue: true
+  #   description:
+  #     Nutritional Information for Calories Per Serving content - Usually
+  #     based on per 100g serving
+  #   type: NUMBER
+  #   xpath: //li/strong[contains(text(),"Calories")]/following-sibling::text()[2]
+  # - name: caloriesFromFatPerServing
+  #   singleValue: true
+  #   description: Nutritional Information for Calories From Fat content - Usually
+  #     based on per 100g serving
+  #   type: NUMBER
+  # - name: totalFatPerServing
+  #   singleValue: true
+  #   description:
+  #     Nutritional Information for Total Fat content - Usually based on
+  #     per 100g serving
+  #   type: NUMBER
+  #   xpath: //li/strong[contains(text(),"Total Fat")]/following-sibling::text()[2]
   # - name: totalFatPerServingUom
   #   singleValue: true
   #   description: Unit of Measure Data for Total Fat content
