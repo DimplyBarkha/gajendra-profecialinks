@@ -137,4 +137,6 @@ fields:
   - name: variantId
     xpath: //div[contains(@class,'swiper-slide')][1]//img[@class="thumbImg"]/@src
     regExp: (N+\d+\w)
-    
+  - name: ingredientsList
+    singleValue: false
+    xpath: //tr[contains(.,"Ingredient")]//td[position()>1]
