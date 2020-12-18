@@ -2,7 +2,7 @@ input:
   id: 66690
   _url: http://ao.de
 extractions:
-  - html: https://workbench.import.io/html/run=cdab526f-ed38-44f2-b63d-b3e184faca8b/task=690c4c66-6395-40c0-b74f-6a9d98ea29e3/a5d5a550-cf96-4e03-8e07-b9d86fbb7262.html
+  - html: https://workbench.import.io/html/run=9aea0190-85c5-4d9b-bc09-00273593408a/task=06788f0c-9bd0-401d-bc64-ba9777fd583e/f252e960-9477-4cd6-9b76-2afaa1f148e8.html
     extractionConfigId: product/details/stores/a/ao/DE/extract
     data:
       - group:
@@ -53,14 +53,12 @@ extractions:
               - text: Elektro-Herdset, AEG, HB3213MS30, Eingebaut, Edelstahl
                 xpath: /html/head[1]/meta[14]/@content
             category:
-              - text: Startseite
-                xpath: /html/body/div[1]/div[1]/div[5]/div[1]/ul[1]/li[1]
               - text: Einbau-Herdsets
-                xpath: /html/body/div[1]/div[1]/div[5]/div[1]/ul[1]/li[2]
+                xpath: /html/body/div[1]/div[1]/div[4]/div[1]/ul[1]/li[2]
               - text: Elektro-Herdsets
-                xpath: /html/body/div[1]/div[1]/div[5]/div[1]/ul[1]/li[3]
+                xpath: /html/body/div[1]/div[1]/div[4]/div[1]/ul[1]/li[3]
               - text: AEG HB3213MS30
-                xpath: /html/body/div[1]/div[1]/div[5]/div[1]/ul[1]/li[4]
+                xpath: /html/body/div[1]/div[1]/div[4]/div[1]/ul[1]/li[4]
             nameExtended:
               - text: AEG HB3213MS30 Einbauherd-Set mit Glaskeramik-Kochfeld - Edelstahl
                 xpath: /html/body/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[1]/h1[1]
@@ -154,7 +152,7 @@ extractions:
                 xpath: /html/body/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[1]/div[4]/div[2]/span[1]/div[1]
             technicalInformationPdfPresent:
               - text: Yes
-                xpath: /html/body/div[1]/div[1]/div[6]/div[5]/a[2]/@href
+                xpath: /html/body/div[1]/div[1]/div[5]/div[5]/a[2]/@href
             termsAndConditions:
               - text: Yes
                 xpath: /html/body/footer[1]/section[2]/div[2]/ul[2]/li[1]/a[1]/@href
@@ -179,4 +177,4 @@ extractions:
             hasComparisonTable:
               - text: "false"
         xpath: /
-    timestamp: 1608215351695
+    timestamp: 1608281041070

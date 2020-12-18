@@ -2,19 +2,19 @@ input:
   id: 74504
   _url: http://ao.de
 extractions:
-  - html: https://workbench.import.io/html/run=cdab526f-ed38-44f2-b63d-b3e184faca8b/task=a599c8f1-6a1e-4e81-a52e-2b0ed22dd0e3/c8be2bb4-0664-4a93-b764-88a2427ecd73.html
+  - html: https://workbench.import.io/html/run=9aea0190-85c5-4d9b-bc09-00273593408a/task=b3389cb5-9f6e-4fa3-9662-5ba021081944/e21dfbca-c1d9-4993-ab62-79dda0788783.html
     extractionConfigId: product/details/stores/a/ao/DE/extract
     data:
       - group:
           - productUrl:
               - text: https://www.ao.de/produkt/kge39awca-bosch-serie-6-k%c3%bchl-gefrierkombinationen-wei%c3%9f-74504-28.aspx?cmredirectionvalue=74504
-                xpath: /html/body/div[10]
+                xpath: /html/body/div[9]
             image:
               - text: https://assets.products-live.ao.com/Images/866469c3-281f-4da1-8cb6-6adad0ffa519/1280x1280/kge39awca_wh_bosch_kuehlgefrierkombi_02.png
-                xpath: /html/body/div[1]/div[1]/main[1]/div[1]/div[1]/section[1]/section[1]/div[1]/div[1]/div[2]/ul[1]/li[3]/img[1]/@src
+                xpath: /html/body/div[1]/div[1]/main[1]/div[1]/div[1]/div[1]/section[1]/section[1]/div[1]/div[1]/div[2]/ul[1]/li[3]/img[1]/@src
             imageAlt:
               - text: kge39awca_wh_bosch_kuehlgefrierkombi_01
-                xpath: /html/body/div[1]/div[1]/main[1]/div[1]/div[1]/section[1]/section[1]/div[1]/div[1]/div[2]/ul[1]/li[3]/img[1]/@alt
+                xpath: /html/body/div[1]/div[1]/main[1]/div[1]/div[1]/div[1]/section[1]/section[1]/div[1]/div[1]/div[2]/ul[1]/li[3]/img[1]/@alt
             alternateImages:
               - text: https://assets.products-live.ao.com/Images/c71f42ed-a5a8-4f38-949c-35bec5b1726c/1280x1280/kge39awca_wh_bosch_kuehlgefrierkombi_dim1.png
                 xpath: /html/body/ol[1]/img[1]/@src
@@ -32,24 +32,22 @@ extractions:
               - text: Kühl-Gefrierkombinationen, Bosch, Serie 6, KGE39AWCA, Freistehend, Weiß
                 xpath: /html/head[1]/meta[14]/@content
             category:
-              - text: Startseite
-                xpath: /html/body/div[1]/div[1]/div[5]/div[1]/ul[1]/li[1]
               - text: Kühl-Gefrierkombinationen
                 xpath: /html/body/div[1]/div[1]/div[5]/div[1]/ul[1]/li[2]
               - text: Bosch KGE39AWCA
                 xpath: /html/body/div[1]/div[1]/div[5]/div[1]/ul[1]/li[3]
             nameExtended:
               - text: Bosch Serie 6 KGE39AWCA Kühl-Gefrierkombination - 60er Breite, Weiß, A+++
-                xpath: /html/body/div[1]/div[1]/main[1]/div[1]/div[2]/section[1]/h1[1]
+                xpath: /html/body/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[1]/h1[1]
             listPrice:
               - text: €1.019
-                xpath: /html/body/div[1]/div[1]/main[1]/div[1]/div[2]/section[1]/div[4]/div[1]/div[1]/div[1]/div[2]/span[1]
+                xpath: /html/body/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[1]/div[4]/div[1]/div[1]/div[1]/div[2]/span[1]
             price:
               - text: 739,0
-                xpath: /html/body/div[1]/div[1]/main[1]/div[1]/div[2]/section[1]/div[4]/div[1]/div[1]/span[1]/@content
+                xpath: /html/body/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[1]/div[4]/div[1]/div[1]/span[1]/@content
             availabilityText:
-              - text: In stock
-                xpath: /html/body/div[11]
+              - text: Out of stock
+                xpath: /html/body/div[10]
             description:
               - text: "Die perfekte Erweiterung für die Küche mittelgroßer Haushalte: die Kühl-
                   Gefrierkombination KGE39AWCA der Serie 6 von Bosch. Mit einem
@@ -69,19 +67,19 @@ extractions:
                   Und wenn man dann doch mal abtauen muss, so geht das
                   unkompliziert dank der praktischen Klappe im Sockel. So lagert
                   man seine Lebensmittel unbesorgt!"
-                xpath: /html/body/div[1]/div[1]/main[1]/div[1]/div[1]/div[1]/div[1]/div[1]
+                xpath: /html/body/div[1]/div[1]/main[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]
             brandText:
               - text: Bosch
-                xpath: /html/body/div[1]/div[1]/main[1]/div[1]/div[2]/section[1]/div[1]
+                xpath: /html/body/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[1]/div[1]
             manufacturer:
               - text: Bosch
-                xpath: /html/body/div[1]/div[1]/main[1]/div[1]/div[2]/section[1]/div[1]
+                xpath: /html/body/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[1]/div[1]
             weightNet:
               - text: 80 kg
-                xpath: /html/body/div[1]/div[1]/main[1]/div[1]/div[1]/section[2]/div[1]/div[9]/div[1]/div[1]/table[1]/tbody[1]/tr[5]/td[2]
+                xpath: /html/body/div[1]/div[1]/main[1]/div[1]/div[1]/div[1]/section[2]/div[1]/div[9]/div[1]/div[1]/table[1]/tbody[1]/tr[5]/td[2]
             gtin:
               - text: "4242005196340"
-                xpath: /html/body/div[1]/div[1]/main[1]/div[1]/div[1]/section[2]/div[1]/div[9]/div[1]/div[1]/table[1]/tbody[1]/tr[2]/td[2]
+                xpath: /html/body/div[1]/div[1]/main[1]/div[1]/div[1]/div[1]/section[2]/div[1]/div[9]/div[1]/div[1]/table[1]/tbody[1]/tr[2]/td[2]
             sku:
               - text: KGE39AWCA_WH
                 xpath: /html/body/div[1]/div[1]/main[1]/@data-product-sku
@@ -93,16 +91,16 @@ extractions:
                 xpath: /html/body/div[1]/div[1]/main[1]/@data-product-sku
             ratingCount:
               - text: "1"
-                xpath: /html/body/div[13]
+                xpath: /html/body/div[12]
             aggregateRatingText:
               - text: 4/5
-                xpath: /html/body/div[1]/div[1]/main[1]/div[1]/div[2]/section[1]/div[3]/a[2]
+                xpath: /html/body/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[1]/div[3]/a[2]
             aggregateRating:
               - text: "4"
-                xpath: /html/body/div[14]
+                xpath: /html/body/div[13]
             color:
               - text: Weiß
-                xpath: /html/body/div[1]/div[1]/main[1]/div[1]/div[1]/section[2]/div[1]/div[9]/div[1]/div[1]/table[1]/tbody[1]/tr[3]/td[2]
+                xpath: /html/body/div[1]/div[1]/main[1]/div[1]/div[1]/div[1]/section[2]/div[1]/div[9]/div[1]/div[1]/table[1]/tbody[1]/tr[3]/td[2]
             manufacturerDescription:
               - text: >-
                   Gut zu wissen
@@ -138,298 +136,298 @@ extractions:
                   Bringt mehr Licht ins Dunkel
                    
                   Die langlebigen und energieeffizinete LED-Beleuchtung erhellt den kompletten Innenraum des Kühlschranks. Durch die Position der Lampen wird Ihnen auch bei voller Beladung eine Ausleuchtung gewährleistet.
-                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/section[2]
+                xpath: /html/body/div[1]/div[1]/main[1]/div[1]/section[2]
             manufacturerImages:
               - text: //www.ao.de/~/media/DE/RichContent/Cooling/Bosch_Kühl-Gefrierkombi_BigBox.ashx
-                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/section[2]/article[1]/div[1]/img[1]/@src
+                xpath: /html/body/div[1]/div[1]/main[1]/div[1]/section[2]/article[1]/div[1]/img[1]/@src
               - text: //www.ao.de/~/media/DE/RichContent/Cooling/Bosch_Kühl-Gefrierkombi_FreshSense.ashx
-                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/section[2]/article[2]/div[1]/img[1]/@src
+                xpath: /html/body/div[1]/div[1]/main[1]/div[1]/section[2]/article[2]/div[1]/img[1]/@src
               - text: //www.ao.de/~/media/DE/RichContent/Cooling/Bosch_Kühl-Gefrierkombi_LEDLicht.ashx
-                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/section[2]/article[3]/div[1]/img[1]/@src
+                xpath: /html/body/div[1]/div[1]/main[1]/div[1]/section[2]/article[3]/div[1]/img[1]/@src
             name:
               - text: Bosch Serie 6 KGE39AWCA Kühl-Gefrierkombination - 60er Breite, Weiß, A+++
-                xpath: /html/body/div[1]/div[1]/main[1]/div[1]/div[2]/section[1]/h1[1]
+                xpath: /html/body/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[1]/h1[1]
             specifications:
               - text: (H)201,0 x (B)60,0 x (T)65,0
-                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/section[1]/div[1]/div[1]/div[1]/div[1]/div[1]/span[2]
+                xpath: /html/body/div[1]/div[1]/main[1]/div[1]/section[1]/div[1]/div[1]/div[1]/div[1]/div[1]/span[2]
             warranty:
               - text: 2 Jahr(e)
-                xpath: /html/body/div[1]/div[1]/main[1]/div[1]/div[1]/section[2]/div[1]/div[3]/div[1]/div[1]/table[1]/tbody[1]/tr[1]/td[2]
+                xpath: /html/body/div[1]/div[1]/main[1]/div[1]/div[1]/div[1]/section[2]/div[1]/div[3]/div[1]/div[1]/table[1]/tbody[1]/tr[1]/td[2]
             productOtherInformation:
               - text: Maße (H)201,0 x (B)60,0 x (T)65,0
-                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/section[1]/div[1]/div[1]/div[1]/div[1]/div[1]
+                xpath: /html/body/div[1]/div[1]/main[1]/div[1]/section[1]/div[1]/div[1]/div[1]/div[1]/div[1]
               - text: Energieeffizienzklasse (EU) A+++
-                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/section[1]/div[1]/div[1]/div[1]/div[1]/div[2]
+                xpath: /html/body/div[1]/div[1]/main[1]/div[1]/section[1]/div[1]/div[1]/div[1]/div[1]/div[2]
               - text: Nutzinhalt (Kühlen) 249 Liter
-                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/section[1]/div[1]/div[1]/div[1]/div[1]/div[3]
+                xpath: /html/body/div[1]/div[1]/main[1]/div[1]/section[1]/div[1]/div[1]/div[1]/div[1]/div[3]
               - text: Anzahl der Lagerfächer (Gefrierbereich) 3
-                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/section[1]/div[1]/div[1]/div[1]/div[1]/div[4]
+                xpath: /html/body/div[1]/div[1]/main[1]/div[1]/section[1]/div[1]/div[1]/div[1]/div[1]/div[4]
               - text: Nutzinhalt (Gesamt) 337 Liter
-                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/section[1]/div[1]/div[1]/div[1]/div[1]/div[5]
+                xpath: /html/body/div[1]/div[1]/main[1]/div[1]/section[1]/div[1]/div[1]/div[1]/div[1]/div[5]
               - text: Gewährleistung 2 Jahr(e)
-                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/section[1]/div[1]/div[1]/div[1]/div[1]/div[6]
+                xpath: /html/body/div[1]/div[1]/main[1]/div[1]/section[1]/div[1]/div[1]/div[1]/div[1]/div[6]
               - text: |-
                   Betriebsart 
                    
                    Netzbetrieb
-                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/section[1]/div[1]/div[2]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[1]
+                xpath: /html/body/div[1]/div[1]/main[1]/div[1]/section[1]/div[1]/div[2]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[1]
               - text: |-
                   Anzahl der Abstellflächen (davon verstellbar) 
                    
                    4 (1)
-                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/section[1]/div[1]/div[2]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[2]
+                xpath: /html/body/div[1]/div[1]/main[1]/div[1]/section[1]/div[1]/div[2]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[2]
               - text: |-
                   Anzahl der Lagerfächer (Gefrierbereich) 
                    
                    3
-                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/section[1]/div[1]/div[2]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[3]
+                xpath: /html/body/div[1]/div[1]/main[1]/div[1]/section[1]/div[1]/div[2]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[3]
               - text: |-
                   Betriebsgeräusch 
                    
                    38 dB
-                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/section[1]/div[1]/div[2]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[4]
+                xpath: /html/body/div[1]/div[1]/main[1]/div[1]/section[1]/div[1]/div[2]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[4]
               - text: |-
                   Display 
                    
                    Digital-Display
-                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/section[1]/div[1]/div[2]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[5]
+                xpath: /html/body/div[1]/div[1]/main[1]/div[1]/section[1]/div[1]/div[2]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[5]
               - text: |-
                   Energieeffizienzklasse (EU) 
                    
                    A+++
-                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/section[1]/div[1]/div[2]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[6]
+                xpath: /html/body/div[1]/div[1]/main[1]/div[1]/section[1]/div[1]/div[2]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[6]
               - text: |-
                   Gefrierleistung 
                    
                    14 kg/24 Std.
-                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/section[1]/div[1]/div[2]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[7]
+                xpath: /html/body/div[1]/div[1]/main[1]/div[1]/section[1]/div[1]/div[2]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[7]
               - text: |-
                   Innenbeleuchtung 
                    
                    LED
-                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/section[1]/div[1]/div[2]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[8]
+                xpath: /html/body/div[1]/div[1]/main[1]/div[1]/section[1]/div[1]/div[2]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[8]
               - text: |-
                   Klimaklasse 
                    
                    SN-T
-                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/section[1]/div[1]/div[2]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[9]
+                xpath: /html/body/div[1]/div[1]/main[1]/div[1]/section[1]/div[1]/div[2]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[9]
               - text: |-
                   Nutzinhalt (Gefrieren) 
                    
                    88 Liter
-                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/section[1]/div[1]/div[2]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[10]
+                xpath: /html/body/div[1]/div[1]/main[1]/div[1]/section[1]/div[1]/div[2]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[10]
               - text: |-
                   Nutzinhalt (Gesamt) 
                    
                    337 Liter
-                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/section[1]/div[1]/div[2]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[11]
+                xpath: /html/body/div[1]/div[1]/main[1]/div[1]/section[1]/div[1]/div[2]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[11]
               - text: |-
                   Nutzinhalt (Kühlen) 
                    
                    249 Liter
-                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/section[1]/div[1]/div[2]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[12]
+                xpath: /html/body/div[1]/div[1]/main[1]/div[1]/section[1]/div[1]/div[2]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[12]
               - text: |-
                   Position des Türanschlags 
                    
                    rechts
-                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/section[1]/div[1]/div[2]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[13]
+                xpath: /html/body/div[1]/div[1]/main[1]/div[1]/section[1]/div[1]/div[2]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[13]
               - text: |-
                   Standardbreite 
                    
                    60 cm
-                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/section[1]/div[1]/div[2]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[14]
+                xpath: /html/body/div[1]/div[1]/main[1]/div[1]/section[1]/div[1]/div[2]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[14]
               - text: |-
                   Sternekennzeichnung des Gefrierfachs 
                    
                    4
-                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/section[1]/div[1]/div[2]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[15]
+                xpath: /html/body/div[1]/div[1]/main[1]/div[1]/section[1]/div[1]/div[2]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[15]
               - text: |-
                   Türanschlag wechselbar 
                    
                    Ja
-                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/section[1]/div[1]/div[2]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[16]
+                xpath: /html/body/div[1]/div[1]/main[1]/div[1]/section[1]/div[1]/div[2]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[16]
               - text: |-
                   Verstellbare Abstellflächen 
                    
                    Ja
-                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/section[1]/div[1]/div[2]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[17]
+                xpath: /html/body/div[1]/div[1]/main[1]/div[1]/section[1]/div[1]/div[2]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[17]
               - text: |-
                   Warnung bei Störung 
                    
                    Ja
-                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/section[1]/div[1]/div[2]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[18]
+                xpath: /html/body/div[1]/div[1]/main[1]/div[1]/section[1]/div[1]/div[2]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[18]
               - text: |-
                   Gewährleistung 
                    
                    2 Jahr(e)
-                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/section[1]/div[1]/div[2]/div[2]/div[1]/div[1]/table[1]/tbody[1]/tr[1]
+                xpath: /html/body/div[1]/div[1]/main[1]/div[1]/section[1]/div[1]/div[2]/div[2]/div[1]/div[1]/table[1]/tbody[1]/tr[1]
               - text: |-
                   Lagerfächer 
                    
                    Schubladen
-                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/section[1]/div[1]/div[2]/div[3]/div[1]/div[1]/table[1]/tbody[1]/tr[1]
+                xpath: /html/body/div[1]/div[1]/main[1]/div[1]/section[1]/div[1]/div[2]/div[3]/div[1]/div[1]/table[1]/tbody[1]/tr[1]
               - text: |-
                   Schnellgefrieren-Funktion 
                    
                    Ja
-                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/section[1]/div[1]/div[2]/div[3]/div[1]/div[1]/table[1]/tbody[1]/tr[2]
+                xpath: /html/body/div[1]/div[1]/main[1]/div[1]/section[1]/div[1]/div[2]/div[3]/div[1]/div[1]/table[1]/tbody[1]/tr[2]
               - text: |-
                   Länge Anschlusskabel 
                    
                    240 m
-                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/section[1]/div[1]/div[2]/div[4]/div[1]/div[1]/table[1]/tbody[1]/tr[1]
+                xpath: /html/body/div[1]/div[1]/main[1]/div[1]/section[1]/div[1]/div[2]/div[4]/div[1]/div[1]/table[1]/tbody[1]/tr[1]
               - text: |-
                   Abtau-Automatik im Kühlbereich 
                    
                    Ja
-                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/section[1]/div[1]/div[2]/div[5]/div[1]/div[1]/table[1]/tbody[1]/tr[1]
+                xpath: /html/body/div[1]/div[1]/main[1]/div[1]/section[1]/div[1]/div[2]/div[5]/div[1]/div[1]/table[1]/tbody[1]/tr[1]
               - text: |-
                   Behälter für Obst/Gemüse 
                    
                    Ja
-                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/section[1]/div[1]/div[2]/div[5]/div[1]/div[1]/table[1]/tbody[1]/tr[2]
+                xpath: /html/body/div[1]/div[1]/main[1]/div[1]/section[1]/div[1]/div[2]/div[5]/div[1]/div[1]/table[1]/tbody[1]/tr[2]
               - text: |-
                   Feuchtigkeitsregulierung 
                    
                    Ja
-                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/section[1]/div[1]/div[2]/div[5]/div[1]/div[1]/table[1]/tbody[1]/tr[3]
+                xpath: /html/body/div[1]/div[1]/main[1]/div[1]/section[1]/div[1]/div[2]/div[5]/div[1]/div[1]/table[1]/tbody[1]/tr[3]
               - text: |-
                   Material der Abstellflächen 
                    
                    Sicherheitsglas
-                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/section[1]/div[1]/div[2]/div[5]/div[1]/div[1]/table[1]/tbody[1]/tr[4]
+                xpath: /html/body/div[1]/div[1]/main[1]/div[1]/section[1]/div[1]/div[2]/div[5]/div[1]/div[1]/table[1]/tbody[1]/tr[4]
               - text: |-
                   Türabsteller 
                    
                    Ja
-                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/section[1]/div[1]/div[2]/div[5]/div[1]/div[1]/table[1]/tbody[1]/tr[5]
+                xpath: /html/body/div[1]/div[1]/main[1]/div[1]/section[1]/div[1]/div[2]/div[5]/div[1]/div[1]/table[1]/tbody[1]/tr[5]
               - text: |-
                   Zubehör 
                    
                    2 x Kälteakku, 3 x Eierablage
-                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/section[1]/div[1]/div[2]/div[6]/div[1]/div[1]/table[1]/tbody[1]/tr[1]
+                xpath: /html/body/div[1]/div[1]/main[1]/div[1]/section[1]/div[1]/div[2]/div[6]/div[1]/div[1]/table[1]/tbody[1]/tr[1]
               - text: |-
                   Innenliegendes Display 
                    
                    Ja
-                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/section[1]/div[1]/div[2]/div[7]/div[1]/div[1]/table[1]/tbody[1]/tr[1]
+                xpath: /html/body/div[1]/div[1]/main[1]/div[1]/section[1]/div[1]/div[2]/div[7]/div[1]/div[1]/table[1]/tbody[1]/tr[1]
               - text: |-
                   Anordnung Kühl-Gefrierkombination 
                    
                    Kühlteil über Gefrierteil
-                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/section[1]/div[1]/div[2]/div[8]/div[1]/div[1]/table[1]/tbody[1]/tr[1]
+                xpath: /html/body/div[1]/div[1]/main[1]/div[1]/section[1]/div[1]/div[2]/div[8]/div[1]/div[1]/table[1]/tbody[1]/tr[1]
               - text: |-
                   EAN 
                    
                    4242005196340
-                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/section[1]/div[1]/div[2]/div[8]/div[1]/div[1]/table[1]/tbody[1]/tr[2]
+                xpath: /html/body/div[1]/div[1]/main[1]/div[1]/section[1]/div[1]/div[2]/div[8]/div[1]/div[1]/table[1]/tbody[1]/tr[2]
               - text: |-
                   Farbe 
                    
                    Weiß
-                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/section[1]/div[1]/div[2]/div[8]/div[1]/div[1]/table[1]/tbody[1]/tr[3]
+                xpath: /html/body/div[1]/div[1]/main[1]/div[1]/section[1]/div[1]/div[2]/div[8]/div[1]/div[1]/table[1]/tbody[1]/tr[3]
               - text: |-
                   Gewerbegerät 
                    
                    Ja
-                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/section[1]/div[1]/div[2]/div[8]/div[1]/div[1]/table[1]/tbody[1]/tr[4]
+                xpath: /html/body/div[1]/div[1]/main[1]/div[1]/section[1]/div[1]/div[2]/div[8]/div[1]/div[1]/table[1]/tbody[1]/tr[4]
               - text: |-
                   Gewicht 
                    
                    80 kg
-                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/section[1]/div[1]/div[2]/div[8]/div[1]/div[1]/table[1]/tbody[1]/tr[5]
+                xpath: /html/body/div[1]/div[1]/main[1]/div[1]/section[1]/div[1]/div[2]/div[8]/div[1]/div[1]/table[1]/tbody[1]/tr[5]
               - text: |-
                   Handelszeichen des Lieferanten (Marke) 
                    
                    KGE39ALCA / Bosch
-                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/section[1]/div[1]/div[2]/div[8]/div[1]/div[1]/table[1]/tbody[1]/tr[6]
+                xpath: /html/body/div[1]/div[1]/main[1]/div[1]/section[1]/div[1]/div[2]/div[8]/div[1]/div[1]/table[1]/tbody[1]/tr[6]
               - text: |-
                   Kategorie 
                    
                    Kühl-Gefrierkombinationen
-                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/section[1]/div[1]/div[2]/div[8]/div[1]/div[1]/table[1]/tbody[1]/tr[7]
+                xpath: /html/body/div[1]/div[1]/main[1]/div[1]/section[1]/div[1]/div[2]/div[8]/div[1]/div[1]/table[1]/tbody[1]/tr[7]
               - text: |-
                   Marke 
                    
                    Bosch
-                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/section[1]/div[1]/div[2]/div[8]/div[1]/div[1]/table[1]/tbody[1]/tr[8]
+                xpath: /html/body/div[1]/div[1]/main[1]/div[1]/section[1]/div[1]/div[2]/div[8]/div[1]/div[1]/table[1]/tbody[1]/tr[8]
               - text: |-
                   Maße 
                    
                    (H)201,0 x (B)60,0 x (T)65,0
-                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/section[1]/div[1]/div[2]/div[8]/div[1]/div[1]/table[1]/tbody[1]/tr[9]
+                xpath: /html/body/div[1]/div[1]/main[1]/div[1]/section[1]/div[1]/div[2]/div[8]/div[1]/div[1]/table[1]/tbody[1]/tr[9]
               - text: |-
                   SKU 
                    
                    KGE39AWCA_WH
-                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/section[1]/div[1]/div[2]/div[8]/div[1]/div[1]/table[1]/tbody[1]/tr[10]
+                xpath: /html/body/div[1]/div[1]/main[1]/div[1]/section[1]/div[1]/div[2]/div[8]/div[1]/div[1]/table[1]/tbody[1]/tr[10]
               - text: |-
                   Jährlicher Energieverbrauch (AEc) 
                    
                    168 kWh
-                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/section[1]/div[1]/div[2]/div[9]/div[1]/div[1]/table[1]/tbody[1]/tr[1]
+                xpath: /html/body/div[1]/div[1]/main[1]/div[1]/section[1]/div[1]/div[2]/div[9]/div[1]/div[1]/table[1]/tbody[1]/tr[1]
               - text: |-
                   Lagerzeit bei Störung 
                    
                    35 Stunden
-                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/section[1]/div[1]/div[2]/div[9]/div[1]/div[1]/table[1]/tbody[1]/tr[2]
+                xpath: /html/body/div[1]/div[1]/main[1]/div[1]/section[1]/div[1]/div[2]/div[9]/div[1]/div[1]/table[1]/tbody[1]/tr[2]
               - text: |-
                   BigBox 
                    
                    Ja
-                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/section[1]/div[1]/div[2]/div[10]/div[1]/div[1]/table[1]/tbody[1]/tr[1]
+                xpath: /html/body/div[1]/div[1]/main[1]/div[1]/section[1]/div[1]/div[2]/div[10]/div[1]/div[1]/table[1]/tbody[1]/tr[1]
               - text: |-
                   Flaschenablage 
                    
                    Ja
-                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/section[1]/div[1]/div[2]/div[10]/div[1]/div[1]/table[1]/tbody[1]/tr[2]
+                xpath: /html/body/div[1]/div[1]/main[1]/div[1]/section[1]/div[1]/div[2]/div[10]/div[1]/div[1]/table[1]/tbody[1]/tr[2]
               - text: |-
                   FreshSense 
                    
                    Ja
-                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/section[1]/div[1]/div[2]/div[10]/div[1]/div[1]/table[1]/tbody[1]/tr[3]
+                xpath: /html/body/div[1]/div[1]/main[1]/div[1]/section[1]/div[1]/div[2]/div[10]/div[1]/div[1]/table[1]/tbody[1]/tr[3]
               - text: |-
                   Kühl- und Gefrierteil getrennt regelbar 
                    
                    Ja
-                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/section[1]/div[1]/div[2]/div[10]/div[1]/div[1]/table[1]/tbody[1]/tr[4]
+                xpath: /html/body/div[1]/div[1]/main[1]/div[1]/section[1]/div[1]/div[2]/div[10]/div[1]/div[1]/table[1]/tbody[1]/tr[4]
               - text: |-
                   Low-Frost/Less-Frost 
                    
                    Ja
-                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/section[1]/div[1]/div[2]/div[10]/div[1]/div[1]/table[1]/tbody[1]/tr[5]
+                xpath: /html/body/div[1]/div[1]/main[1]/div[1]/section[1]/div[1]/div[2]/div[10]/div[1]/div[1]/table[1]/tbody[1]/tr[5]
               - text: |-
                   Schnellkühl-Funktion 
                    
                    Ja
-                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/section[1]/div[1]/div[2]/div[10]/div[1]/div[1]/table[1]/tbody[1]/tr[6]
+                xpath: /html/body/div[1]/div[1]/main[1]/div[1]/section[1]/div[1]/div[2]/div[10]/div[1]/div[1]/table[1]/tbody[1]/tr[6]
               - text: |-
                   Urlaubsschaltung 
                    
                    Ja
-                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/section[1]/div[1]/div[2]/div[10]/div[1]/div[1]/table[1]/tbody[1]/tr[7]
+                xpath: /html/body/div[1]/div[1]/main[1]/div[1]/section[1]/div[1]/div[2]/div[10]/div[1]/div[1]/table[1]/tbody[1]/tr[7]
               - text: |-
                   vitaFresh 
                    
                    Ja
-                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/section[1]/div[1]/div[2]/div[10]/div[1]/div[1]/table[1]/tbody[1]/tr[8]
+                xpath: /html/body/div[1]/div[1]/main[1]/div[1]/section[1]/div[1]/div[2]/div[10]/div[1]/div[1]/table[1]/tbody[1]/tr[8]
             promotion:
               - text: Ersparnis €280
-                xpath: /html/body/div[1]/div[1]/main[1]/div[1]/div[2]/section[1]/div[4]/div[1]/div[1]/div[1]/div[1]
+                xpath: /html/body/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[1]/div[4]/div[1]/div[1]/div[1]/div[1]
             additionalDescBulletInfo:
               - text: VitaFresh - Schublade für deutlich längere Frische!
-                xpath: /html/body/div[1]/div[1]/main[1]/div[1]/div[2]/section[2]/div[1]/div[1]/ul[1]/li[1]
+                xpath: /html/body/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[3]/div[1]/div[1]/ul[1]/li[1]
               - text: BigBox - hier findet alles seinen Platz
-                xpath: /html/body/div[1]/div[1]/main[1]/div[1]/div[2]/section[2]/div[1]/div[1]/ul[1]/li[2]
+                xpath: /html/body/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[3]/div[1]/div[1]/ul[1]/li[2]
               - text: LowFrost - weniger abtauen
-                xpath: /html/body/div[1]/div[1]/main[1]/div[1]/div[2]/section[2]/div[1]/div[1]/ul[1]/li[3]
+                xpath: /html/body/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[3]/div[1]/div[1]/ul[1]/li[3]
               - text: FreshSense - reguliert Temperaturschwankungen
-                xpath: /html/body/div[1]/div[1]/main[1]/div[1]/div[2]/section[2]/div[1]/div[1]/ul[1]/li[4]
+                xpath: /html/body/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[3]/div[1]/div[1]/ul[1]/li[4]
               - text: Flaschenablage - für rutsch-, roll und kippsichere Getränke
-                xpath: /html/body/div[1]/div[1]/main[1]/div[1]/div[2]/section[2]/div[1]/div[1]/ul[1]/li[5]
+                xpath: /html/body/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[3]/div[1]/div[1]/ul[1]/li[5]
             energyEfficiency:
               - text: A+++
-                xpath: /html/body/div[1]/div[1]/main[1]/div[1]/div[2]/section[1]/div[4]/div[2]/span[1]/div[1]
+                xpath: /html/body/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[1]/div[4]/div[2]/span[1]/div[1]
             technicalInformationPdfPresent:
               - text: Yes
                 xpath: /html/body/div[1]/div[1]/div[6]/div[5]/a[2]/@href
@@ -441,13 +439,13 @@ extractions:
                 xpath: /html/body/footer[1]/section[2]/div[2]/ul[2]/li[5]/a[1]/@href
             customerServiceAvailability:
               - text: Yes
-                xpath: /html/body/div[15]
+                xpath: /html/body/div[14]
             Image360Present:
               - text: No
-                xpath: /html/body/div[17]
+                xpath: /html/body/div[16]
             imageZoomFeaturePresent:
               - text: Yes
-                xpath: /html/body/div[16]
+                xpath: /html/body/div[15]
             descriptionBullets:
               - text: "5"
             variantCount:
@@ -457,4 +455,4 @@ extractions:
             hasComparisonTable:
               - text: "false"
         xpath: /
-    timestamp: 1608215333491
+    timestamp: 1608281028075

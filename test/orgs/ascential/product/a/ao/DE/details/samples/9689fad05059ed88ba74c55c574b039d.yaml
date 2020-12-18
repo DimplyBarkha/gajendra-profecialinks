@@ -2,7 +2,7 @@ input:
   id: 78216
   _url: http://ao.de
 extractions:
-  - html: https://workbench.import.io/html/run=cdab526f-ed38-44f2-b63d-b3e184faca8b/task=d0baeb8b-9472-4f09-97da-075c8e3c8fa0/1d061b29-6e49-4f89-a102-3e25108a88f7.html
+  - html: https://workbench.import.io/html/run=9aea0190-85c5-4d9b-bc09-00273593408a/task=886656c6-eac8-4ca6-b7f7-87820ba39e70/f6ed0cf5-e254-48e2-92cf-7d11f1a43ef4.html
     extractionConfigId: product/details/stores/a/ao/DE/extract
     data:
       - group:
@@ -36,14 +36,12 @@ extractions:
               - text: Fernseher, Hisense, AE7000F Serie, 70AE7000F, Freistehend, Schwarz
                 xpath: /html/head[1]/meta[14]/@content
             category:
-              - text: Startseite
-                xpath: /html/body/div[1]/div[1]/div[4]/div[1]/ul[1]/li[1]
               - text: TV & Audio
-                xpath: /html/body/div[1]/div[1]/div[4]/div[1]/ul[1]/li[2]
+                xpath: /html/body/div[1]/div[1]/div[5]/div[1]/ul[1]/li[2]
               - text: Fernseher
-                xpath: /html/body/div[1]/div[1]/div[4]/div[1]/ul[1]/li[3]
+                xpath: /html/body/div[1]/div[1]/div[5]/div[1]/ul[1]/li[3]
               - text: Hisense 70AE7000F
-                xpath: /html/body/div[1]/div[1]/div[4]/div[1]/ul[1]/li[4]
+                xpath: /html/body/div[1]/div[1]/div[5]/div[1]/ul[1]/li[4]
             nameExtended:
               - text: Hisense AE7000F Serie - 70AE7000F, 4K/UHD, LED, Smart TV, 177 cm [70 Zoll]
                   mit HDR und Alexa-Sprachsteuerung - Schwarz
@@ -610,17 +608,6 @@ extractions:
             promotion:
               - text: Ersparnis €450
                 xpath: /html/body/div[1]/div[1]/main[1]/div[1]/div[2]/section[1]/div[4]/div[1]/div[1]/div[1]/div[1]
-            variantInformation:
-              - text: Bildschirmdiagonale
-                xpath: /html/body/div[1]/div[1]/main[1]/div[1]/div[2]/section[1]/div[6]/h3[1]
-            firstVariant:
-              - text: 177 cm
-                xpath: /html/body/div[1]/div[1]/main[1]/div[1]/div[2]/section[1]/div[6]/ul[1]/li[1]/span[1]
-            variants:
-              - text: 177 cm
-                xpath: /html/body/div[1]/div[1]/main[1]/div[1]/div[2]/section[1]/div[6]/ul[1]/li[1]/span[1]
-              - text: 189 cm
-                xpath: /html/body/div[1]/div[1]/main[1]/div[1]/div[2]/section[1]/div[6]/ul[1]/li[2]/span[1]
             additionalDescBulletInfo:
               - text: 4K/UHD-Auflösung - die höchste Auflösung für die schärfsten Bilder!
                 xpath: /html/body/div[1]/div[1]/main[1]/div[1]/div[2]/section[2]/div[1]/div[1]/ul[1]/li[1]
@@ -637,7 +624,7 @@ extractions:
                 xpath: /html/body/div[1]/div[1]/main[1]/div[1]/div[2]/section[1]/div[4]/div[2]/span[1]/div[1]
             technicalInformationPdfPresent:
               - text: Yes
-                xpath: /html/body/div[1]/div[1]/div[5]/div[5]/a[2]/@href
+                xpath: /html/body/div[1]/div[1]/div[6]/div[5]/a[2]/@href
             termsAndConditions:
               - text: Yes
                 xpath: /html/body/footer[1]/section[2]/div[2]/ul[2]/li[1]/a[1]/@href
@@ -656,10 +643,10 @@ extractions:
             descriptionBullets:
               - text: "5"
             variantCount:
-              - text: "2"
+              - text: "0"
             secondaryImageTotal:
               - text: "8"
             hasComparisonTable:
               - text: "false"
         xpath: /
-    timestamp: 1608215344742
+    timestamp: 1608281031121

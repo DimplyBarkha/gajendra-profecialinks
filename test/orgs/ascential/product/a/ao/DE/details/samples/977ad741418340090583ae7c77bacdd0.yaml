@@ -2,19 +2,19 @@ input:
   id: 38238
   _url: http://ao.de
 extractions:
-  - html: https://workbench.import.io/html/run=cdab526f-ed38-44f2-b63d-b3e184faca8b/task=03d9f689-509c-42d8-b307-34f59653ae84/3609075b-3752-47e2-8886-40fd805a4c40.html
+  - html: https://workbench.import.io/html/run=9aea0190-85c5-4d9b-bc09-00273593408a/task=eaf089f3-0b83-4b48-b9c0-ee622d776cf8/986090fc-e277-47cb-97ee-0b571e371019.html
     extractionConfigId: product/details/stores/a/ao/DE/extract
     data:
       - group:
           - productUrl:
               - text: https://www.ao.de/produkt/wa14671w-amica-waschmaschinen-wei%c3%9f-38238-1.aspx?cmredirectionvalue=38238
-                xpath: /html/body/div[10]
+                xpath: /html/body/div[9]
             image:
-              - text: https://f1.media.brightcove.com/8/710857100001/710857100001_5634497037001_5634449427001-vs.jpg?pubId=710857100001&videoId=5634449427001
-                xpath: /html/body/div[1]/div[1]/main[1]/div[1]/div[1]/section[1]/section[1]/div[1]/div[1]/div[2]/ul[1]/li[3]/div[1]/img[1]/@src
+              - text: https://media.ao.com/produktbild/groß/wa14671w_wh_amica_waschmaschine_3_ux_l.jpg
+                xpath: /html/body/div[1]/div[1]/main[1]/div[1]/div[1]/div[1]/section[1]/section[1]/div[1]/div[1]/div[2]/ul[1]/li[3]/img[1]/@src
             imageAlt:
               - text: Amica WA 14671 W Waschmaschine, 7 kg, 1400 U/Min, A+++ - WA 14671 W_WH - 1
-                xpath: /html/body/div[1]/div[1]/main[1]/div[1]/div[1]/section[1]/section[1]/div[1]/div[1]/div[2]/ul[1]/li[3]/div[1]/img[1]/@alt
+                xpath: /html/body/div[1]/div[1]/main[1]/div[1]/div[1]/div[1]/section[1]/section[1]/div[1]/div[1]/div[2]/ul[1]/li[3]/img[1]/@alt
             alternateImages:
               - text: https://media.ao.com/produktbild/groß/wa14671w_wh_amica_waschmaschine_8_ux_l.jpg
                 xpath: /html/body/ol[1]/img[1]/@src
@@ -34,24 +34,22 @@ extractions:
               - text: Waschmaschinen, Amica, WA 14671 W, Freistehend, Weiß
                 xpath: /html/head[1]/meta[14]/@content
             category:
-              - text: Startseite
-                xpath: /html/body/div[1]/div[1]/div[4]/div[1]/ul[1]/li[1]
               - text: Waschmaschinen
-                xpath: /html/body/div[1]/div[1]/div[4]/div[1]/ul[1]/li[2]
+                xpath: /html/body/div[1]/div[1]/div[5]/div[1]/ul[1]/li[2]
               - text: Amica WA 14671 W
-                xpath: /html/body/div[1]/div[1]/div[4]/div[1]/ul[1]/li[3]
+                xpath: /html/body/div[1]/div[1]/div[5]/div[1]/ul[1]/li[3]
             nameExtended:
               - text: Amica WA 14671 W Waschmaschine, 7 kg, 1400 U/Min, A+++
-                xpath: /html/body/div[1]/div[1]/main[1]/div[1]/div[2]/section[1]/h1[1]
+                xpath: /html/body/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[1]/h1[1]
             listPrice:
               - text: €659
-                xpath: /html/body/div[1]/div[1]/main[1]/div[1]/div[2]/section[1]/div[4]/div[1]/div[1]/div[1]/div[2]/span[1]
+                xpath: /html/body/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[1]/div[4]/div[1]/div[1]/div[1]/div[2]/span[1]
             price:
               - text: 310,0
-                xpath: /html/body/div[1]/div[1]/main[1]/div[1]/div[2]/section[1]/div[4]/div[1]/div[1]/span[1]/@content
+                xpath: /html/body/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[1]/div[4]/div[1]/div[1]/span[1]/@content
             availabilityText:
-              - text: In stock
-                xpath: /html/body/div[11]
+              - text: Out of stock
+                xpath: /html/body/div[10]
             description:
               - text: "Immer das passende Programm zur Auswahl – mit der Amica WA 14671 W
                   Waschmaschine mit 16 Programmen! Denn eines steht fest:
@@ -65,16 +63,16 @@ extractions:
                   Maschine ist mit der bestmöglichen Energieeffizienzklasse A+++
                   ausgezeichnet. Das bedeutet nicht nur einen umweltschonenden,
                   sondern vor allem sparsamen Betrieb!"
-                xpath: /html/body/div[1]/div[1]/main[1]/div[1]/div[1]/div[1]/div[1]/div[1]
+                xpath: /html/body/div[1]/div[1]/main[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]
             brandText:
               - text: Amica
-                xpath: /html/body/div[1]/div[1]/main[1]/div[1]/div[2]/section[1]/div[1]
+                xpath: /html/body/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[1]/div[1]
             manufacturer:
               - text: Amica
-                xpath: /html/body/div[1]/div[1]/main[1]/div[1]/div[2]/section[1]/div[1]
+                xpath: /html/body/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[1]/div[1]
             gtin:
               - text: "4040729146715"
-                xpath: /html/body/div[1]/div[1]/main[1]/div[1]/div[1]/section[2]/div[1]/div[6]/div[1]/div[1]/table[1]/tbody[1]/tr[1]/td[2]
+                xpath: /html/body/div[1]/div[1]/main[1]/div[1]/div[1]/div[1]/section[2]/div[1]/div[6]/div[1]/div[1]/table[1]/tbody[1]/tr[1]/td[2]
             sku:
               - text: WA 14671 W_WH
                 xpath: /html/body/div[1]/div[1]/main[1]/@data-product-sku
@@ -86,16 +84,16 @@ extractions:
                 xpath: /html/body/div[1]/div[1]/main[1]/@data-product-sku
             ratingCount:
               - text: "159"
-                xpath: /html/body/div[13]
+                xpath: /html/body/div[12]
             aggregateRatingText:
               - text: 4,7/5
-                xpath: /html/body/div[1]/div[1]/main[1]/div[1]/div[2]/section[1]/div[3]/a[2]
+                xpath: /html/body/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[1]/div[3]/a[2]
             aggregateRating:
               - text: 4,7
-                xpath: /html/body/div[14]
+                xpath: /html/body/div[13]
             color:
               - text: Weiß
-                xpath: /html/body/div[1]/div[1]/main[1]/div[1]/div[1]/section[2]/div[1]/div[6]/div[1]/div[1]/table[1]/tbody[1]/tr[2]/td[2]
+                xpath: /html/body/div[1]/div[1]/main[1]/div[1]/div[1]/div[1]/section[2]/div[1]/div[6]/div[1]/div[1]/table[1]/tbody[1]/tr[2]/td[2]
             manufacturerDescription:
               - text: >-
                   Gut zu wissen
@@ -155,327 +153,324 @@ extractions:
                   Waschkapazität von 7 kg
                    
                   Die perfekte Waschmaschine für Ihre Familie! - Dieses Modell bietet Ihnen mit einer 7 kg-Trommel genug Platz für die Wäsche einer ganzen Woche - 1 kg Wäsche entspricht etwa 5 T-Shirts. Sie ist bestens für eine 3- bis 4-köpfige Familie geeignet.
-                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/section[2]
+                xpath: /html/body/div[1]/div[1]/main[1]/div[1]/section[2]
             manufacturerImages:
               - text: //www.ao.de/~/media/DE/RichContent/Energie/Aplusplusplus.ashx
-                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/section[2]/article[1]/div[1]/img[1]/@src
+                xpath: /html/body/div[1]/div[1]/main[1]/div[1]/section[2]/article[1]/div[1]/img[1]/@src
               - text: //www.ao.de/~/media/DE/RichContent/Waschmaschinen/wash_fuzzylogic.ashx
-                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/section[2]/article[2]/div[1]/img[1]/@src
+                xpath: /html/body/div[1]/div[1]/main[1]/div[1]/section[2]/article[2]/div[1]/img[1]/@src
               - text: //ao.com/~/media/productPage/Washing-Machines/BekoDailyQuick.ashx
-                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/section[2]/article[3]/div[1]/img[1]/@src
+                xpath: /html/body/div[1]/div[1]/main[1]/div[1]/section[2]/article[3]/div[1]/img[1]/@src
               - text: //ao.com/~/media/productPage/Washing-Machines/GenericOutdoorWear.ashx
-                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/section[2]/article[4]/div[1]/img[1]/@src
+                xpath: /html/body/div[1]/div[1]/main[1]/div[1]/section[2]/article[4]/div[1]/img[1]/@src
               - text: //ao.com/~/media/productPage/Washing-Machines/GenericCapacity.ashx
-                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/section[2]/article[5]/div[1]/img[1]/@src
-            videos:
-              - text: https://f1.media.brightcove.com/4/710857100001/710857100001_5644236295001_5634449427001.mp4?pubId=710857100001&videoId=5634449427001
-                xpath: /html/body/div[1]/div[1]/main[1]/div[1]/div[2]/section[2]/div[1]/div[1]/video[1]/@src
+                xpath: /html/body/div[1]/div[1]/main[1]/div[1]/section[2]/article[5]/div[1]/img[1]/@src
             name:
               - text: Amica WA 14671 W Waschmaschine, 7 kg, 1400 U/Min, A+++
-                xpath: /html/body/div[1]/div[1]/main[1]/div[1]/div[2]/section[1]/h1[1]
+                xpath: /html/body/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[1]/h1[1]
             specifications:
               - text: Maße in cm - H85 x B59,5 x T49,5
-                xpath: /html/body/div[1]/div[1]/main[1]/div[1]/div[1]/section[2]/section[1]/div[1]/div[1]/ul[1]/li[5]
+                xpath: /html/body/div[1]/div[1]/main[1]/div[1]/div[1]/div[1]/section[2]/section[1]/div[1]/div[1]/ul[1]/li[5]
             warranty:
               - text: 2 Jahr(e)
-                xpath: /html/body/div[1]/div[1]/main[1]/div[1]/div[1]/section[2]/div[1]/div[4]/div[1]/div[1]/table[1]/tbody[1]/tr[1]/td[2]
+                xpath: /html/body/div[1]/div[1]/main[1]/div[1]/div[1]/div[1]/section[2]/div[1]/div[4]/div[1]/div[1]/table[1]/tbody[1]/tr[1]/td[2]
             productOtherInformation:
               - text: Maße (H)85,0 x (B)59,5 x (T)49,5
-                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/section[1]/div[1]/div[1]/div[1]/div[1]/div[1]
+                xpath: /html/body/div[1]/div[1]/main[1]/div[1]/section[1]/div[1]/div[1]/div[1]/div[1]/div[1]
               - text: Betriebsgeräusche (Schleudern) 78 dB
-                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/section[1]/div[1]/div[1]/div[1]/div[1]/div[2]
+                xpath: /html/body/div[1]/div[1]/main[1]/div[1]/section[1]/div[1]/div[1]/div[1]/div[1]/div[2]
               - text: Energieeffizienzklasse (EU) A+++
-                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/section[1]/div[1]/div[1]/div[1]/div[1]/div[3]
+                xpath: /html/body/div[1]/div[1]/main[1]/div[1]/section[1]/div[1]/div[1]/div[1]/div[1]/div[3]
               - text: Gewährleistung 2 Jahr(e)
-                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/section[1]/div[1]/div[1]/div[1]/div[1]/div[4]
+                xpath: /html/body/div[1]/div[1]/main[1]/div[1]/section[1]/div[1]/div[1]/div[1]/div[1]/div[4]
               - text: Dauer des Kurzprogramms 15 Minuten
-                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/section[1]/div[1]/div[1]/div[1]/div[1]/div[5]
+                xpath: /html/body/div[1]/div[1]/main[1]/div[1]/section[1]/div[1]/div[1]/div[1]/div[1]/div[5]
               - text: |-
                   Betriebsart 
                    
                    Netzbetrieb
-                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/section[1]/div[1]/div[2]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[1]
+                xpath: /html/body/div[1]/div[1]/main[1]/div[1]/section[1]/div[1]/div[2]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[1]
               - text: |-
                   Beladung 
                    
                    Frontlader
-                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/section[1]/div[1]/div[2]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[2]
+                xpath: /html/body/div[1]/div[1]/main[1]/div[1]/section[1]/div[1]/div[2]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[2]
               - text: |-
                   Betriebsgeräusche (Schleudern) 
                    
                    78 dB
-                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/section[1]/div[1]/div[2]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[3]
+                xpath: /html/body/div[1]/div[1]/main[1]/div[1]/section[1]/div[1]/div[2]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[3]
               - text: |-
                   Betriebsgeräusche (Waschen) 
                    
                    58 dB
-                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/section[1]/div[1]/div[2]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[4]
+                xpath: /html/body/div[1]/div[1]/main[1]/div[1]/section[1]/div[1]/div[2]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[4]
               - text: |-
                   Dauer Startzeitvorwahl 
                    
                    24 Stunden
-                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/section[1]/div[1]/div[2]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[5]
+                xpath: /html/body/div[1]/div[1]/main[1]/div[1]/section[1]/div[1]/div[2]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[5]
               - text: |-
                   Einbaugerät 
                    
                    Nein
-                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/section[1]/div[1]/div[2]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[6]
+                xpath: /html/body/div[1]/div[1]/main[1]/div[1]/section[1]/div[1]/div[2]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[6]
               - text: |-
                   Energieeffizienzklasse (EU) 
                    
                    A+++
-                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/section[1]/div[1]/div[2]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[7]
+                xpath: /html/body/div[1]/div[1]/main[1]/div[1]/section[1]/div[1]/div[2]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[7]
               - text: |-
                   Handwäsche 
                    
                    Nein
-                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/section[1]/div[1]/div[2]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[8]
+                xpath: /html/body/div[1]/div[1]/main[1]/div[1]/section[1]/div[1]/div[2]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[8]
               - text: |-
                   Jährlicher Wasserverbrauch (AWc) 
                    
                    9240 Liter
-                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/section[1]/div[1]/div[2]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[9]
+                xpath: /html/body/div[1]/div[1]/main[1]/div[1]/section[1]/div[1]/div[2]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[9]
               - text: |-
                   Max. Schleuderumdrehungen 
                    
                    1400 U/Min
-                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/section[1]/div[1]/div[2]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[10]
+                xpath: /html/body/div[1]/div[1]/main[1]/div[1]/section[1]/div[1]/div[2]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[10]
               - text: |-
                   Mengenautomatik 
                    
                    Ja
-                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/section[1]/div[1]/div[2]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[11]
+                xpath: /html/body/div[1]/div[1]/main[1]/div[1]/section[1]/div[1]/div[2]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[11]
               - text: |-
                   Nennkapazität (Waschen) 
                    
                    7 kg
-                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/section[1]/div[1]/div[2]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[12]
+                xpath: /html/body/div[1]/div[1]/main[1]/div[1]/section[1]/div[1]/div[2]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[12]
               - text: |-
                   Position des Türanschlags 
                    
                    links
-                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/section[1]/div[1]/div[2]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[13]
+                xpath: /html/body/div[1]/div[1]/main[1]/div[1]/section[1]/div[1]/div[2]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[13]
               - text: |-
                   Restfeuchte beim Standardprogramm 
                    
                    53 %
-                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/section[1]/div[1]/div[2]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[14]
+                xpath: /html/body/div[1]/div[1]/main[1]/div[1]/section[1]/div[1]/div[2]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[14]
               - text: |-
                   Restzeitanzeige 
                    
                    Ja
-                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/section[1]/div[1]/div[2]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[15]
+                xpath: /html/body/div[1]/div[1]/main[1]/div[1]/section[1]/div[1]/div[2]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[15]
               - text: |-
                   Schleuderdrehzahlregelung 
                    
                    Ja
-                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/section[1]/div[1]/div[2]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[16]
+                xpath: /html/body/div[1]/div[1]/main[1]/div[1]/section[1]/div[1]/div[2]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[16]
               - text: |-
                   Schleuderwirkungsklasse 
                    
                    B
-                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/section[1]/div[1]/div[2]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[17]
+                xpath: /html/body/div[1]/div[1]/main[1]/div[1]/section[1]/div[1]/div[2]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[17]
               - text: |-
                   Signalton am Programmende 
                    
                    Ja
-                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/section[1]/div[1]/div[2]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[18]
+                xpath: /html/body/div[1]/div[1]/main[1]/div[1]/section[1]/div[1]/div[2]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[18]
               - text: |-
                   Tastensperre 
                    
                    Ja
-                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/section[1]/div[1]/div[2]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[19]
+                xpath: /html/body/div[1]/div[1]/main[1]/div[1]/section[1]/div[1]/div[2]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[19]
               - text: |-
                   Waschwirkungsklasse 
                    
                    A
-                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/section[1]/div[1]/div[2]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[20]
+                xpath: /html/body/div[1]/div[1]/main[1]/div[1]/section[1]/div[1]/div[2]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[20]
               - text: |-
                   Zeitvorwahl 
                    
                    Ja
-                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/section[1]/div[1]/div[2]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[21]
+                xpath: /html/body/div[1]/div[1]/main[1]/div[1]/section[1]/div[1]/div[2]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[21]
               - text: |-
                   Elektronische Fehleranalyse 
                    
                    Ja
-                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/section[1]/div[1]/div[2]/div[2]/div[1]/div[1]/table[1]/tbody[1]/tr[1]
+                xpath: /html/body/div[1]/div[1]/main[1]/div[1]/section[1]/div[1]/div[2]/div[2]/div[1]/div[1]/table[1]/tbody[1]/tr[1]
               - text: |-
                   Unwuchtkontrolle 
                    
                    Ja
-                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/section[1]/div[1]/div[2]/div[2]/div[1]/div[1]/table[1]/tbody[1]/tr[2]
+                xpath: /html/body/div[1]/div[1]/main[1]/div[1]/section[1]/div[1]/div[2]/div[2]/div[1]/div[1]/table[1]/tbody[1]/tr[2]
               - text: |-
                   Wasserschutz-System 
                    
                    Nein
-                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/section[1]/div[1]/div[2]/div[2]/div[1]/div[1]/table[1]/tbody[1]/tr[3]
+                xpath: /html/body/div[1]/div[1]/main[1]/div[1]/section[1]/div[1]/div[2]/div[2]/div[1]/div[1]/table[1]/tbody[1]/tr[3]
               - text: |-
                   Gewährleistung 
                    
                    2 Jahr(e)
-                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/section[1]/div[1]/div[2]/div[3]/div[1]/div[1]/table[1]/tbody[1]/tr[1]
+                xpath: /html/body/div[1]/div[1]/main[1]/div[1]/section[1]/div[1]/div[2]/div[3]/div[1]/div[1]/table[1]/tbody[1]/tr[1]
               - text: >-
                   Hinweis 
                    
                    Vor dem ersten Waschen muss die Transportsicherung entfernt werden.
-                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/section[1]/div[1]/div[2]/div[4]/div[1]/div[1]/table[1]/tbody[1]/tr[1]
+                xpath: /html/body/div[1]/div[1]/main[1]/div[1]/section[1]/div[1]/div[2]/div[4]/div[1]/div[1]/table[1]/tbody[1]/tr[1]
               - text: |-
                   Unterbaufähig 
                    
                    Nein
-                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/section[1]/div[1]/div[2]/div[4]/div[1]/div[1]/table[1]/tbody[1]/tr[2]
+                xpath: /html/body/div[1]/div[1]/main[1]/div[1]/section[1]/div[1]/div[2]/div[4]/div[1]/div[1]/table[1]/tbody[1]/tr[2]
               - text: |-
                   EAN 
                    
                    4040729146715
-                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/section[1]/div[1]/div[2]/div[5]/div[1]/div[1]/table[1]/tbody[1]/tr[1]
+                xpath: /html/body/div[1]/div[1]/main[1]/div[1]/section[1]/div[1]/div[2]/div[5]/div[1]/div[1]/table[1]/tbody[1]/tr[1]
               - text: |-
                   Farbe 
                    
                    Weiß
-                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/section[1]/div[1]/div[2]/div[5]/div[1]/div[1]/table[1]/tbody[1]/tr[2]
+                xpath: /html/body/div[1]/div[1]/main[1]/div[1]/section[1]/div[1]/div[2]/div[5]/div[1]/div[1]/table[1]/tbody[1]/tr[2]
               - text: |-
                   Handelszeichen des Lieferanten (Marke) 
                    
                    WA 14671 W / Amica
-                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/section[1]/div[1]/div[2]/div[5]/div[1]/div[1]/table[1]/tbody[1]/tr[3]
+                xpath: /html/body/div[1]/div[1]/main[1]/div[1]/section[1]/div[1]/div[2]/div[5]/div[1]/div[1]/table[1]/tbody[1]/tr[3]
               - text: |-
                   Höhenverstellbare Füße 
                    
                    Ja
-                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/section[1]/div[1]/div[2]/div[5]/div[1]/div[1]/table[1]/tbody[1]/tr[4]
+                xpath: /html/body/div[1]/div[1]/main[1]/div[1]/section[1]/div[1]/div[2]/div[5]/div[1]/div[1]/table[1]/tbody[1]/tr[4]
               - text: |-
                   Kategorie 
                    
                    Waschmaschinen
-                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/section[1]/div[1]/div[2]/div[5]/div[1]/div[1]/table[1]/tbody[1]/tr[5]
+                xpath: /html/body/div[1]/div[1]/main[1]/div[1]/section[1]/div[1]/div[2]/div[5]/div[1]/div[1]/table[1]/tbody[1]/tr[5]
               - text: |-
                   Marke 
                    
                    Amica
-                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/section[1]/div[1]/div[2]/div[5]/div[1]/div[1]/table[1]/tbody[1]/tr[6]
+                xpath: /html/body/div[1]/div[1]/main[1]/div[1]/section[1]/div[1]/div[2]/div[5]/div[1]/div[1]/table[1]/tbody[1]/tr[6]
               - text: |-
                   Maße 
                    
                    (H)85,0 x (B)59,5 x (T)49,5
-                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/section[1]/div[1]/div[2]/div[5]/div[1]/div[1]/table[1]/tbody[1]/tr[7]
+                xpath: /html/body/div[1]/div[1]/main[1]/div[1]/section[1]/div[1]/div[2]/div[5]/div[1]/div[1]/table[1]/tbody[1]/tr[7]
               - text: |-
                   Schaumerkennung 
                    
                    Ja
-                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/section[1]/div[1]/div[2]/div[5]/div[1]/div[1]/table[1]/tbody[1]/tr[8]
+                xpath: /html/body/div[1]/div[1]/main[1]/div[1]/section[1]/div[1]/div[2]/div[5]/div[1]/div[1]/table[1]/tbody[1]/tr[8]
               - text: |-
                   SKU 
                    
                    WA 14671 W_WH
-                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/section[1]/div[1]/div[2]/div[5]/div[1]/div[1]/table[1]/tbody[1]/tr[9]
+                xpath: /html/body/div[1]/div[1]/main[1]/div[1]/section[1]/div[1]/div[2]/div[5]/div[1]/div[1]/table[1]/tbody[1]/tr[9]
               - text: |-
                   Baumwolle 
                    
                    Ja
-                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/section[1]/div[1]/div[2]/div[6]/div[1]/div[1]/table[1]/tbody[1]/tr[1]
+                xpath: /html/body/div[1]/div[1]/main[1]/div[1]/section[1]/div[1]/div[2]/div[6]/div[1]/div[1]/table[1]/tbody[1]/tr[1]
               - text: |-
                   Dauer des Kurzprogramms 
                    
                    15 Minuten
-                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/section[1]/div[1]/div[2]/div[6]/div[1]/div[1]/table[1]/tbody[1]/tr[2]
+                xpath: /html/body/div[1]/div[1]/main[1]/div[1]/section[1]/div[1]/div[2]/div[6]/div[1]/div[1]/table[1]/tbody[1]/tr[2]
               - text: |-
                   Eco-Programm 
                    
                    Ja
-                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/section[1]/div[1]/div[2]/div[6]/div[1]/div[1]/table[1]/tbody[1]/tr[3]
+                xpath: /html/body/div[1]/div[1]/main[1]/div[1]/section[1]/div[1]/div[2]/div[6]/div[1]/div[1]/table[1]/tbody[1]/tr[3]
               - text: |-
                   Feinwäsche 
                    
                    Ja
-                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/section[1]/div[1]/div[2]/div[6]/div[1]/div[1]/table[1]/tbody[1]/tr[4]
+                xpath: /html/body/div[1]/div[1]/main[1]/div[1]/section[1]/div[1]/div[2]/div[6]/div[1]/div[1]/table[1]/tbody[1]/tr[4]
               - text: |-
                   Halbe Beladung 
                    
                    Automatisch
-                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/section[1]/div[1]/div[2]/div[6]/div[1]/div[1]/table[1]/tbody[1]/tr[5]
+                xpath: /html/body/div[1]/div[1]/main[1]/div[1]/section[1]/div[1]/div[2]/div[6]/div[1]/div[1]/table[1]/tbody[1]/tr[5]
               - text: |-
                   Kurz-Programm 
                    
                    Ja
-                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/section[1]/div[1]/div[2]/div[6]/div[1]/div[1]/table[1]/tbody[1]/tr[6]
+                xpath: /html/body/div[1]/div[1]/main[1]/div[1]/section[1]/div[1]/div[2]/div[6]/div[1]/div[1]/table[1]/tbody[1]/tr[6]
               - text: |-
                   Mix 
                    
                    Ja
-                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/section[1]/div[1]/div[2]/div[6]/div[1]/div[1]/table[1]/tbody[1]/tr[7]
+                xpath: /html/body/div[1]/div[1]/main[1]/div[1]/section[1]/div[1]/div[2]/div[6]/div[1]/div[1]/table[1]/tbody[1]/tr[7]
               - text: |-
                   Pflegeleicht 
                    
                    Ja
-                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/section[1]/div[1]/div[2]/div[6]/div[1]/div[1]/table[1]/tbody[1]/tr[8]
+                xpath: /html/body/div[1]/div[1]/main[1]/div[1]/section[1]/div[1]/div[2]/div[6]/div[1]/div[1]/table[1]/tbody[1]/tr[8]
               - text: |-
                   Seide 
                    
                    Nein
-                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/section[1]/div[1]/div[2]/div[6]/div[1]/div[1]/table[1]/tbody[1]/tr[9]
+                xpath: /html/body/div[1]/div[1]/main[1]/div[1]/section[1]/div[1]/div[2]/div[6]/div[1]/div[1]/table[1]/tbody[1]/tr[9]
               - text: |-
                   Sport-Programm 
                    
                    Ja
-                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/section[1]/div[1]/div[2]/div[6]/div[1]/div[1]/table[1]/tbody[1]/tr[10]
+                xpath: /html/body/div[1]/div[1]/main[1]/div[1]/section[1]/div[1]/div[2]/div[6]/div[1]/div[1]/table[1]/tbody[1]/tr[10]
               - text: |-
                   Wolle/Handwäsche 
                    
                    Ja
-                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/section[1]/div[1]/div[2]/div[6]/div[1]/div[1]/table[1]/tbody[1]/tr[11]
+                xpath: /html/body/div[1]/div[1]/main[1]/div[1]/section[1]/div[1]/div[2]/div[6]/div[1]/div[1]/table[1]/tbody[1]/tr[11]
               - text: |-
                   Jährlicher Energieverbrauch (AEc) 
                    
                    175 kWh
-                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/section[1]/div[1]/div[2]/div[7]/div[1]/div[1]/table[1]/tbody[1]/tr[1]
+                xpath: /html/body/div[1]/div[1]/main[1]/div[1]/section[1]/div[1]/div[2]/div[7]/div[1]/div[1]/table[1]/tbody[1]/tr[1]
               - text: |-
                   Länge des Anschlusskabel 
                    
                    152 cm
-                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/section[1]/div[1]/div[2]/div[7]/div[1]/div[1]/table[1]/tbody[1]/tr[2]
+                xpath: /html/body/div[1]/div[1]/main[1]/div[1]/section[1]/div[1]/div[2]/div[7]/div[1]/div[1]/table[1]/tbody[1]/tr[2]
               - text: |-
                   Länge Zulauf-/Ablaufschlauch 
                    
                    100 / 155 cm
-                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/section[1]/div[1]/div[2]/div[7]/div[1]/div[1]/table[1]/tbody[1]/tr[3]
+                xpath: /html/body/div[1]/div[1]/main[1]/div[1]/section[1]/div[1]/div[2]/div[7]/div[1]/div[1]/table[1]/tbody[1]/tr[3]
               - text: |-
                   Maximale Schleudergeschwindigkeit 
                    
                    1400 U/Min
-                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/section[1]/div[1]/div[2]/div[7]/div[1]/div[1]/table[1]/tbody[1]/tr[4]
+                xpath: /html/body/div[1]/div[1]/main[1]/div[1]/section[1]/div[1]/div[2]/div[7]/div[1]/div[1]/table[1]/tbody[1]/tr[4]
               - text: |-
                   AutoSensor 
                    
                    Ja
-                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/section[1]/div[1]/div[2]/div[8]/div[1]/div[1]/table[1]/tbody[1]/tr[1]
+                xpath: /html/body/div[1]/div[1]/main[1]/div[1]/section[1]/div[1]/div[2]/div[8]/div[1]/div[1]/table[1]/tbody[1]/tr[1]
               - text: |-
                   Babykleidung 
                    
                    Ja
-                xpath: /html/body/div[1]/div[1]/main[1]/div[2]/section[1]/div[1]/div[2]/div[8]/div[1]/div[1]/table[1]/tbody[1]/tr[2]
+                xpath: /html/body/div[1]/div[1]/main[1]/div[1]/section[1]/div[1]/div[2]/div[8]/div[1]/div[1]/table[1]/tbody[1]/tr[2]
             promotion:
               - text: Ersparnis €349
-                xpath: /html/body/div[1]/div[1]/main[1]/div[1]/div[2]/section[1]/div[4]/div[1]/div[1]/div[1]/div[1]
+                xpath: /html/body/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[1]/div[4]/div[1]/div[1]/div[1]/div[1]
             additionalDescBulletInfo:
               - text: AutoSensor Mengenautomatik - Passt automatisch den Energie- und
                   Wasserbedarf an
-                xpath: /html/body/div[1]/div[1]/main[1]/div[1]/div[2]/section[2]/div[2]/div[1]/ul[1]/li[1]
+                xpath: /html/body/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[3]/div[1]/div[1]/ul[1]/li[1]
               - text: Sport-Programm - reinigt selbst verschwitzte Trikots
-                xpath: /html/body/div[1]/div[1]/main[1]/div[1]/div[2]/section[2]/div[2]/div[1]/ul[1]/li[2]
+                xpath: /html/body/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[3]/div[1]/div[1]/ul[1]/li[2]
               - text: Baby-Programm - hygienische Sauberkeit für die Kleidung Ihres Babys
-                xpath: /html/body/div[1]/div[1]/main[1]/div[1]/div[2]/section[2]/div[2]/div[1]/ul[1]/li[3]
+                xpath: /html/body/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[3]/div[1]/div[1]/ul[1]/li[3]
               - text: A+++ - sparsam, nachhaltig und fortschrittlich
-                xpath: /html/body/div[1]/div[1]/main[1]/div[1]/div[2]/section[2]/div[2]/div[1]/ul[1]/li[4]
+                xpath: /html/body/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[3]/div[1]/div[1]/ul[1]/li[4]
               - text: Maße in cm - H85 x B59,5 x T49,5
-                xpath: /html/body/div[1]/div[1]/main[1]/div[1]/div[2]/section[2]/div[2]/div[1]/ul[1]/li[5]
+                xpath: /html/body/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[3]/div[1]/div[1]/ul[1]/li[5]
             energyEfficiency:
               - text: A+++
-                xpath: /html/body/div[1]/div[1]/main[1]/div[1]/div[2]/section[1]/div[4]/div[2]/span[1]/div[1]
+                xpath: /html/body/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/section[1]/div[4]/div[2]/span[1]/div[1]
             technicalInformationPdfPresent:
               - text: Yes
-                xpath: /html/body/div[1]/div[1]/div[5]/div[5]/a[2]/@href
+                xpath: /html/body/div[1]/div[1]/div[6]/div[5]/a[2]/@href
             termsAndConditions:
               - text: Yes
                 xpath: /html/body/footer[1]/section[2]/div[2]/ul[2]/li[1]/a[1]/@href
@@ -484,23 +479,20 @@ extractions:
                 xpath: /html/body/footer[1]/section[2]/div[2]/ul[2]/li[5]/a[1]/@href
             customerServiceAvailability:
               - text: Yes
-                xpath: /html/body/div[15]
+                xpath: /html/body/div[14]
             Image360Present:
               - text: Yes
-                xpath: /html/body/div[17]
+                xpath: /html/body/div[16]
             imageZoomFeaturePresent:
               - text: Yes
-                xpath: /html/body/div[16]
-            unInterruptedPDP:
-              - text: Amica WA 14672 W Waschmaschine
-                xpath: /html/body/div[1]/div[1]/main[1]/div[5]/div[1]/div[1]/div[1]/div[3]/a[1]
+                xpath: /html/body/div[15]
             descriptionBullets:
               - text: "5"
             variantCount:
               - text: "0"
             secondaryImageTotal:
-              - text: "8"
+              - text: "7"
             hasComparisonTable:
               - text: "false"
         xpath: /
-    timestamp: 1608215347217
+    timestamp: 1608281035685
