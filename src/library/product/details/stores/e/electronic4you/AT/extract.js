@@ -14,6 +14,21 @@ module.exports = {
   implementation: async ({ inputString }, { country, domain, transform }, context, { productDetails }) => {
     await new Promise((resolve, reject) => setTimeout(resolve, 10000));
     await context.click('li#tab-description a');
+
+    async function scrollToRec (node) {
+      await context.evaluate(async (node) => {
+        const element = document.querySelector(node) || null;
+        if (element) {
+          element.scrollIntoView({ behavior: 'smooth', block: 'end', inline: 'nearest' });
+          await new Promise((resolve) => {
+            setTimeout(resolve, 5000);
+          });
+        }
+      }, node);
+    }
+    await scrollToRec('div.tabs-panels');
+    await scrollToRec('div.footer-container');
+
     await context.evaluate(async function () {
       function addElementToDocument (key, value) {
         const catElement = document.createElement('div');
@@ -29,7 +44,7 @@ module.exports = {
       const nodes = topBullets.length ? topBullets : topDivs;
       if (nodes) {
         const bulletsArr = [];
-        nodes.forEach(e => bulletsArr.push(e.innerText));
+        nodes.forEach((e, i) => i === 0 ? bulletsArr.push('|| ' + e.innerText) : bulletsArr.push(e.innerText));
         const concatTopBullets = bulletsArr.join(' || ');
         addElementToDocument('top_bullets', concatTopBullets.replace(/\s{2,}/g, ' '));
       }
@@ -41,6 +56,9 @@ module.exports = {
           bullets.push(bullet.innerText);
         }
         addElementToDocument('lenConcatDescBullets', bullets.length);
+        if (bullets[0]) {
+          bullets[0] = '|| ' + bullets[0];
+        }
         const concatDescBullets = bullets.join(' || ');
         if (concatDescBullets) addElementToDocument('concatDescBullets', concatDescBullets.replace(/\s{2,}|\n/g, ' '));
       }
