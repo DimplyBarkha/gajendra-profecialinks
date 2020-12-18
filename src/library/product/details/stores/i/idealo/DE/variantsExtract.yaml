@@ -1,0 +1,25 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: variantId
+    singleValue: false
+    xpath: //div[contains(@class,"oopStage-variantThumbnailsImages")]//a[contains(@class,"oopStage-variantThumbnailsImagesLink")]//@href
+    regExp: OffersOfProduct\/(\d+)(.+)
+    regExpReplace: $1  
+  - name: variantUrl
+    singleValue: false
+    description: variant Url
+    xpath: //div[contains(@class,"oopStage-variantThumbnailsImages")]//a[contains(@class,"oopStage-variantThumbnailsImagesLink")]//@href
+    regExp: (.+)
+    regExpReplace: https://www.idealo.de$1
+  - name: variantIdOne
+    singleValue: false
+    xpath: //link[contains(@rel,"canonical")]/@href
+    regExp: OffersOfProduct\/(\d+)(.+)
+    regExpReplace: $1  
+  - name: variantUrlOne
+    singleValue: false
+    xpath: //link[contains(@rel,"canonical")]/@href
+ 
