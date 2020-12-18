@@ -8,38 +8,37 @@ fields:
     xpath: //div[@id="mtImageContainer"]//div//a//@href
   - name: alternateImages
     singleValue: false
-    xpath: //div[@class="mcs-items-container"]//div[@class="mcs-item"][position()>1]//a//@href
+    xpath: (//a[contains(@class,"mt-thumb-switcher") and not(contains(@class,"video-selector"))]/@href)[position()>1]
   - name: category
     singleValue: false
     xpath: //div[@class="breadcrumbs"]//ul//li[position()>1]
   - name: nameExtended
     singleValue: false
-    xpath: //div[@class="page-title-wrapper product"]//h1[@class="page-title"]//span
+    xpath: //span[@itemprop="name"]/text()
   - name: name
     singleValue: false
-    xpath: //div[@class="page-title-wrapper product"]//h1[@class="page-title"]//span
+    xpath: //span[@itemprop="name"]/text() | //meta[@name="og:title"]/@content
   - name: price
     singleValue: false
     xpath: //span[@data-price-type="finalPrice"]
   - name: aggregateRating2
     singleValue: false
-    xpath: //div[@class="tt-c-reviews-summary__rating tt-u-mb--sm"]//span[@class="tt-c-reviews-summary__rating-number"]
+    xpath: //span[@class="tt-c-reviews-summary__rating-number"]/text()
   - name: ratingCount
     singleValue: false
-    xpath: //div[@id="tt-teaser"]//a[@class="TTteaser__read-reviews"]
-    regExp: \d+
+    xpath: //meta[@itemprop="reviewCount"]/@content
   - name: secondaryImageTotal
     singleValue: false
     xpath: count(//div[@class="mcs-items-container"]//div[@class="mcs-item"][position()>1]//a//@href)
   - name: additionalDescBulletInfo
     singleValue: false
-    xpath: (//div[@class="product attribute more-infos"])[1]//div[@itemprop="more_infos"]//ul//li | //div[@class="product attribute user-care"]//div[@itemprop="user_care"]//ul//li
+    xpath: //div[@itemprop="more_infos"]/ul/li/text()
   - name: descriptionBullets
     singleValue: false
-    xpath: count((//div[@class="product attribute more-infos"])[1]//div[@itemprop="more_infos"]//ul//li | //div[@class="product attribute user-care"]//div[@itemprop="user_care"]//ul//li)
+    xpath: count(//div[@itemprop="more_infos"]/ul/li)
   - name: description
     singleValue: false
-    xpath: concat(//div[@class="product attribute overview"]//div[@itemprop="description"], (//div[@class="product attribute more-infos"])[1]//div[@itemprop="more_infos"]//ul, (//div[@class="product attribute more-infos"])[2]//div[@itemprop="more_infos"], //div[@class="product attribute user-care"]//div[@itemprop="user_care"]//ul)
+    xpath: //div[@itemprop="description"] | //div[@class="product attribute more-infos"]//div[@itemprop="more_infos"]//ul| //div[@class="product attribute user-care"]//div[@itemprop="user_care"]//ul
   - name: sku
     singleValue: false
     xpath: //div[contains(@class,'product-sku')]
@@ -49,7 +48,7 @@ fields:
     xpath: //meta[@property="product:availability"]//@content
   - name: manufacturer
     singleValue: false
-    xpath: //div[@class="product attribute manufacturer"]//div[@itemprop="manufacturer"]
+    xpath: //div[@itemprop="manufacturer"]
   - name: brandText
     singleValue: false
     xpath: //meta[@property="product:brand"]//@content
@@ -77,3 +76,20 @@ fields:
   - name: imageZoomFeaturePresent
     singleValue: false
     xpath: boolean(//figure[@class="mz-figure mz-hover-zoom mz-ready"])
+  - name: weightNet
+    singleValue: false
+    xpath: (//div[@itemprop="more_infos"]/ul/li[contains(.,"Weight")])[1]
+    regExp: :\W+(.+)
+    regExpReplace: $1
+  - name: mpc
+    singleValue: false
+    xpath: //div[contains(@class,'product-sku')]
+    regExp: \d+
+  - name: directions
+    singleValue: false
+    xpath: //div[@itemprop="user_care"]
+  - name: shippingDimensions
+    singleValue: false
+    xpath: //div[@itemprop="more_infos"]/ul/li[contains(.,"Dimensions")]
+    regExp: :\W+(.+)
+    regExpReplace: $1
