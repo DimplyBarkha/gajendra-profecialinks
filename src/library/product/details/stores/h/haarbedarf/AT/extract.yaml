@@ -534,7 +534,7 @@ fields:
     xpath: //div[@class="dyson"]/div//img//@src
   - name: inTheBoxText
     singleValue: false
-    xpath: //div[@class="dyson"]/div//text()
+    xpath: //div[@class="dyson"]/div//text()|//h4[contains(text(), "Lieferumfang")]//following-sibling::ul//li
   - name: hasComparisonTable
     singleValue: true
     defaultValue: No
