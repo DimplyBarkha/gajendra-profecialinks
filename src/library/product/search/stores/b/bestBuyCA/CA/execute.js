@@ -8,6 +8,7 @@ module.exports = {
     url: 'https://bestbuy.ca/en-ca/search?search={searchTerms}',
     //url: 'https://www.bestbuy.ca/en-ca/brand/{searchTerms}',
     loadedSelector: 'div[class="productList_31W-E"]',
+    //loadedSelector: 'div[class*=x-productListItem]',
     noResultsXPath: '//body[@id="page-not-found"]',
   },
 };
