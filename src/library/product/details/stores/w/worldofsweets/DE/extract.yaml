@@ -23,9 +23,10 @@ fields:
     singleValue: false
     description: The categories (e.g. from breadcrumbs)
   - name: nameExtended
-    singleValue: true
+    singleValue: false
     description: The product name, prefixing "${brand} - " if not included in "name"
       and appending " - ${variantType}" if necessary (fixed per feed)
+    xpath: //h1[@class='productTitle
   - name: listPrice
     singleValue: true
     description: The stated undiscounted price for the product
@@ -46,7 +47,7 @@ fields:
     singleValue: false
     description: Product description supplied by website - may be concatenanted from
       multiple places; specifically not the manufacturer description
-    xpath: //div[contains(@class,'details-toggle-content')]//p
+    xpath: //div[contains(@class,'details-toggle-content')]
   - name: descriptionBullets
     singleValue: true
     description: Number of ul > li tags in the description
@@ -515,3 +516,6 @@ fields:
   - name: description
     singleValue: true
     xpath: //*[@id="productShortdesc"]
+  - name: productUrl
+    singleValue: false
+    xpath: //link[@rel="canonical"]/@href
