@@ -5,7 +5,7 @@ module.exports = {
     country: 'ES',
     store: 'perfumespremium',
     domain: 'perfumespremium.es',
-    loadedSelector: null,
+    loadedSelector: 'div.mega-content',
     noResultsXPath: null,
     zipcode: '',
   },
