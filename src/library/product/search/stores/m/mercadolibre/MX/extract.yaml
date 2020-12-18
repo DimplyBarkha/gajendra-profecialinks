@@ -6,7 +6,14 @@ fields:
   - name: name
     singleValue: true
     xpath: //h2[@class='ui-search-item__title']
+  - name: name
+    singleValue: true
+    xpath: //h2[@class='ui-search-item__title ui-search-item__group__element']
   - name: _pageTimestamp
+    singleValue: true
+  - name: _input
+    singleValue: true
+  - name: _url
     singleValue: true
   - name: productUrl
     singleValue: true
@@ -16,15 +23,12 @@ fields:
     xpath: //img[@class='ui-search-result-image__element']/@src
   - name: price
     singleValue: true
-    xpath: //div[@class='ui-search-price__second-line']/span[@class='price-tag ui-search-price__part']/span[@class='price-tag-fraction']
-  - name: input
-    singleValue: true
-    xpath: //h1[@class='ui-search-breadcrumb__title']
-  - name: url
-    singleValue: true
-    xpath: //div[@id='url']
+    xpath: //div[@class='ui-search-price__second-line']/span[@class='price-tag ui-search-price__part']
   - name: soldBy
     singleValue: true
     xpath: //div[@class='ui-search-item__group ui-search-item__group--title']/a/p
+  - name: id
+    singleValue: true
+    xpath: //input[@name='itemId']/@value
 
 
