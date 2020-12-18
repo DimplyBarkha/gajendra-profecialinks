@@ -92,7 +92,8 @@ fields:
   - name: descriptionBullets
     xpath: count(//div[@data-cnet-ccs-icb-annotation][2]/ul/li)
   - name: warnings
-    xpath: (//div[@class="ccs-ds-textFeatures"]/p)[3]
+    defaultValue: null
+    xpath: //*[contains(text(), 'Warnings' )]/following-sibling::*/text()
   - name: size
     xpath: //*[contains(text(), 'Size' )]/following-sibling::*/text()
   - name: keywords
