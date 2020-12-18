@@ -99,7 +99,7 @@ const transform = (data) => {
         var arrVari = [];
         row.variants.forEach(item => {
           // /fr/p/p0-17361702
-          arrVari.push(item.text.replace('/fr/p/', '').trim());
+          arrVari.push(item.text.replace('/de/p/', '').trim());
         });
         if (arrVari.length) {
           row.variants = [{ text: arrVari.join(' | ') }];
@@ -108,14 +108,14 @@ const transform = (data) => {
       }
       if (row.variantInformation) {
         row.variantInformation.forEach(item => {
-          item.text = item.text.replace('Couleur:', '');
+          item.text = item.text.replace('Farbe:', '');
           item.text = item.text.trim();
         });
       }
       if (row.specifications) {
         row.specifications.forEach(item => {
           item.text = item.text.replace(/\n\s*\n\s*\n\s*/g, ' || ').trim();
-          item.text = item.text.replace(/\n\s*/g, ':').trim();
+          item.text = item.text.replace(/\n\s*/g, ' : ').trim();
         });
       }
       if (row.aggregateRating) {
