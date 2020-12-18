@@ -5,7 +5,7 @@ recordXPath: null
 fields:
   - name: id
     singleValue: false
-    xpath: //li/@data-id
+    xpath: (//li/@data-id | //div[@class='price-box price-final_price']/@data-product-id)
   - name: rankOrganic
     singleValue: false
     # xpath: //li/@data-position
