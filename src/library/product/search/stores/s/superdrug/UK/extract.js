@@ -1,9 +1,8 @@
 const { transform } = require('../../../../shared');
 
-async function implementation(inputs, parameters, context, dependencies) {
+async function implementation (inputs, parameters, context, dependencies) {
   const { transform } = parameters;
   const { productDetails } = dependencies;
-
 
   await context.evaluate(async () => {
     let scrollTop = 0;
@@ -16,7 +15,7 @@ async function implementation(inputs, parameters, context, dependencies) {
         break;
       }
     }
-    function stall(ms) {
+    function stall (ms) {
       return new Promise((resolve, reject) => {
         setTimeout(() => {
           resolve();
@@ -24,8 +23,7 @@ async function implementation(inputs, parameters, context, dependencies) {
       });
     }
 
-
-    function addElementToDocument(key, value) {
+    function addElementToDocument (key, value) {
       const catElement = document.createElement('div');
       catElement.id = key;
       catElement.textContent = value;
@@ -40,8 +38,6 @@ async function implementation(inputs, parameters, context, dependencies) {
       // set rank
       product.setAttribute('rank', (index + 1).toString());
     });
-
-
   });
 
   return await context.extract(productDetails, { transform });
@@ -55,5 +51,6 @@ module.exports = {
     transform: transform,
     domain: 'superdrug.com',
     zipcode: '',
-  }, implementation,
+  },
+  implementation,
 };
