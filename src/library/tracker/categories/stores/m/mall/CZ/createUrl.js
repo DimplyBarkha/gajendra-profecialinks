@@ -4,7 +4,7 @@ module.exports = {
   parameterValues: {
     domain: 'mall.cz',
     prefix: null,
-    suffix: null,
+    suffix: 'mapa-stranek',
     subdomain: null,
     url: null,
     country: 'CZ',
