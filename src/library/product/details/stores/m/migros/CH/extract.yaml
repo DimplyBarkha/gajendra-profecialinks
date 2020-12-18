@@ -18,18 +18,15 @@ fields:
   - name: ingredientsList
     singleValue: false
     xpath: //div[@class='migros_ingredients']
-  - name: allergyAdvice
-    singleValue: false
-    xpath: //div[@class='migros_allergy']
   - name: nutritionals
     singleValue: false
     xpath: //div[@class='migros_']
   - name: storage
     singleValue: false
-    xpath: //div[@class='migros_storage']
+    xpath: //dd[contains(@id,'product-detail-50817-conservation')]/text()
   - name: countryOforigin
     singleValue: false
-    xpath: //div[@class='migros_origin']
+    xpath: //dd[contains(@id,'product-detail-50817-origin')]/text()
   - name: price
     singleValue: false
     xpath: //div[@class="migros_price"]
@@ -38,7 +35,10 @@ fields:
     xpath: //div[@class="migros_weight"]
   - name : sku
     singleValue: false
-    xpath: //div[@class="migros_sku"]
+    xpath: //dd[contains(@class,'pid')]/text()
   - name: additional_description
     singleValue: false
     xpath: //div[@class="migros_addescription"]
+  - name: nutrition
+    singleValue: false
+    xpath: //table[contains(@class,'mat-table cdk-table')]
