@@ -4,11 +4,11 @@ module.exports = {
   parameterValues: {
     country: 'AU',
     store: 'lookfantastic',
-    nextLinkSelector: null,//'#mainContent > div.responsiveProductListPage_bottomPagination > nav > ul > li:nth-child(6) > button',
+    nextLinkSelector: null,//'div[class="responsiveProductListPage_topPagination"] ul[class="responsivePageSelectors"] li button[class="responsivePaginationNavigationButton paginationNavigationButtonNext"]',
     mutationSelector: null,
     spinnerSelector: null,
-    loadedSelector: null,//"li[class*='productListProducts_product'] , div.noresults",
-    noResultsXPath: null,
+    loadedSelector: 'body',//"li[class*='productListProducts_product'] , div.noresults",
+    noResultsXPath: '//div[@class="noresults"]',
     domain: 'lookfantastic.com.au',
     zipcode: '',
     openSearchDefinition: {
