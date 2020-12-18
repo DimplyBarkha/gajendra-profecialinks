@@ -1,16 +1,16 @@
-const { cleanUp } = require('../../../../shared');
+const { transform } = require('./transform');
 
 module.exports = {
   implements: 'product/details/extract',
   parameterValues: {
     country: 'AT',
     store: 'redzac',
-    transform: cleanUp,
+    transform,
     domain: 'redzac.at',
     zipcode: '',
   },
 
-  implementation: async (inputs, { country, domain, transform: transformParam }, context, dependencies) => {
+  implementation: async (inputs, { country, domain, transform }, context, dependencies) => {
     // await context.waitForSelector(
     //   '#product_detail_image_wrapper__details_image_container > picture > source:nth-child(1)',
     // );
@@ -179,6 +179,6 @@ module.exports = {
       document.querySelector('body').setAttribute('video-src', videoAppend)
     })
     const { productDetails } = dependencies;
-    await context.extract(productDetails, { transform: transformParam });
+    await context.extract(productDetails, { transform });
   },
 };
