@@ -6,7 +6,7 @@ fields:
   - name: image
     singleValue: true
     description: URL of the main product image
-    xpath: //div[contains(@class,'product media')]//div[contains(@class,'fotorama__active') and contains(@class,'fotorama__stage__frame')]//img/@src
+    xpath: //div[contains(@class,'product media')]//div[contains(@class,'fotorama__active') and contains(@class,'fotorama__stage__frame')]//img/@src | //div[@data-gallery-role="gallery-placeholder"]//img/@src
   - name: imageAlt
     singleValue: true
     description: Alt text of the main product image
@@ -75,6 +75,7 @@ fields:
     singleValue: true
     description: GTIN code (includes UPC/EAN)
     xpath: //script/@data-flix-ean
+    regExp: (.\d+)
   - name: sku
     singleValue: true
     description: The store-specific product identifier
@@ -531,4 +532,4 @@ fields:
     regExpReplace: Yes 
     defaultValue: No 
   - name: unInterruptedPDP
-    xpath: //ul[contains(@class,"products")]//li | //ol[contains(@class,"product-items")]//li
+    xpath: //ul[contains(@class,"products")]//li//a[@class="product-item-link"]/@title | //ol[contains(@class,"product-items")]//li//a[@class="product-item-link"]/@title
