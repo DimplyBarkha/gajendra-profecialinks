@@ -1,0 +1,48 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+# recordXPath: null
+recordXPath: "//div[@id='snize-search-results-grid-mode']//ul//li"
+
+fields:
+  - name: id
+    singleValue: false
+    xpath: //div[@id='snize-search-results-grid-mode']//ul//li[contains(@class,'snize-product')]//@id
+  - name: productUrl
+    singleValue: false
+    xpath: //div[@id='snize-search-results-grid-mode']//ul//li[contains(@class,'snize-product')]//a[contains(@class,'snize-view-link')]//@href
+  - name: thumbnail
+    singleValue: false
+    xpath: //div[@id='snize-search-results-grid-mode']//ul//li[contains(@class,'snize-product')]//span[contains(@class, 'snize-thumbnail')]//img//@src
+  - name: name
+    singleValue: false
+    xpath: //div[@id='snize-search-results-grid-mode']//ul//li[contains(@class,'snize-product')]//span[contains(@class, 'snize-overhidden')]//span[contains(@class,'snize-title')]
+  # - name: soldBy
+  #   singleValue: false
+  #   xpath: //b[contains(@class,'pod-sellerText')]
+  - name: price
+    singleValue: false
+    xpath: //meta[@class='meta-bigprices']/@content
+  #   # xpath: (//li[contains(@class,'price-2')] | //li[contains(@class,'price-1')] | //li[contains(@class,'price-0')])
+  # - name: ratingCount
+  #   singleValue: false
+  #   xpath: //span/@data-rating
+  # - name: reviewCount
+  #   singleValue: false
+  #   xpath: //span/@data-rating
+  # - name: aggregateRating
+  #   singleValue: false
+  #   xpath: //div[contains(@class,'pod-rating')]/div/@data-rating
+  # - name: aggregateRating2
+  #   singleValue: false
+  #   xpath: //div[contains(@class,'pod-rating')]/div/@data-rating
+  # - name: aggregateRatingText
+  #   singleValue: false
+  #   xpath: //div[contains(@class,'pod-rating')]/div/@data-rating
+  # - name: brandText
+  #   singleValue: false
+  #   xpath: //b[contains(@class,'pod-title')]
+  - name: rank
+    singleValue: false
+  - name: rankOrganic
+    singleValue: true
