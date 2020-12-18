@@ -76,16 +76,10 @@ module.exports = {
       type: 'string',
       optional: true,
     },
-    {
-      name: 'zipcode',
-      description: 'zipcode to set  location',
-      type: 'string',
-      optional: true,
-    },
   ],
   dependencies: {
     goto: 'action:navigation/goto',
-    createUrl: 'action:product/details/createUrl',
+    createUrl: 'action:product/media/createUrl',
   },
   path: './stores/${store[0:1]}/${store}/${country}/execute',
   implementation,

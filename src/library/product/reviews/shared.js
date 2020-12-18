@@ -19,11 +19,14 @@ const transform = (data, context) => {
     .trim();
   for (const { group } of data) {
     for (const row of group) {
+<<<<<<< HEAD
       if (row.sku) {
         if (!row.reviewedSku) {
           row.reviewedSku = row.sku;
         }
       }
+=======
+>>>>>>> ba1530b472d6acd392c50f4a7fc78f140e0bac06
       Object.keys(row).forEach(header => row[header].forEach(el => {
         el.text = clean(el.text);
       }));

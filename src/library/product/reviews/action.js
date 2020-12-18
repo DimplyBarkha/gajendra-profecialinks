@@ -8,6 +8,7 @@
  */
 async function implementation (
   inputs,
+<<<<<<< HEAD
   parameters,
   context,
   dependencies,
@@ -20,10 +21,26 @@ async function implementation (
   const length = (results) => results.reduce((acc, { group }) => acc + (Array.isArray(group) ? group.length : 0), 0);
 
   const resultsReturned = await execute({ url, id, zipcode, date, days, context });
+=======
+  { mergeType, zipcode },
+  context,
+  { execute, extract, paginate },
+) {
+  const { URL: url, RPC, SKU, date: dateOrigin = null, days = 30, results = 10000 } = inputs;
+  const id = RPC || SKU || inputs.id;
+  const length = (results) => results.reduce((acc, { group }) => acc + (Array.isArray(group) ? group.length : 0), 0);
+
+  const date = new Date(days ? new Date().setDate(new Date().getDate() - days) : dateOrigin);
+  console.log(`Date Limit: "${date}"`);
+
+  const resultsReturned = await execute({ url, id, zipcode, date, days });
+
+>>>>>>> ba1530b472d6acd392c50f4a7fc78f140e0bac06
   if (!resultsReturned) {
     console.log('No results were returned');
     return;
   }
+<<<<<<< HEAD
   if (!date && days) {
     date = new Date().setDate(new Date().getDate() - days);
   }
@@ -47,6 +64,22 @@ async function implementation (
       // no results
       break;
     }
+=======
+
+  const pageOne = await extract({});
+  let collected = length(pageOne);
+
+  console.log(`Got initial number of results: ${collected}`);
+
+  // check we have some data
+  if (collected === 0) return;
+
+  let page = 2;
+  while (results > collected && await paginate({ id, page, offset: collected, date })) {
+    const data = await extract({});
+    const count = length(data);
+    if (count === 0) break; // no results
+>>>>>>> ba1530b472d6acd392c50f4a7fc78f140e0bac06
     collected = (mergeType && (mergeType === 'MERGE_ROWS') && count) || (collected + count);
     console.log('Got more results', collected);
     page++;
@@ -118,7 +151,11 @@ module.exports = {
   dependencies: {
     execute: 'action:product/reviews/execute',
     extract: 'action:product/reviews/extract',
+<<<<<<< HEAD
     paginate: 'action:product/reviews/paginate',
+=======
+    paginate: 'action:navigation/paginate',
+>>>>>>> ba1530b472d6acd392c50f4a7fc78f140e0bac06
   },
   path: './reviews/stores/${store[0:1]}/${store}/${country}/reviews',
   implementation,
