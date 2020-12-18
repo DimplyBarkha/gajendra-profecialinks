@@ -79,16 +79,16 @@ module.exports = {
     //     return null;
     // });
 
-    await context.evaluate(async function () {
-      if(document.querySelector('section img[alt="DYSON"]')){
-        let moreInfoSpan=document.querySelector('section img[alt="DYSON"]');
-        moreInfoSpan.click();
-        await new Promise((resolve, reject) => setTimeout(resolve, 6000));
-        }
+    // await context.evaluate(async function () {
+    //   if(document.querySelector('section img[alt="DYSON"]')){
+    //     let moreInfoSpan=document.querySelector('section img[alt="DYSON"]');
+    //     moreInfoSpan.click();
+    //     await new Promise((resolve, reject) => setTimeout(resolve, 6000));
+    //     }
 
-        // let playBtn=document.querySelector('div[id="player"] button[class*="play-button"]');
-        // playBtn.click();
-      });
+    //     // let playBtn=document.querySelector('div[id="player"] button[class*="play-button"]');
+    //     // playBtn.click();
+    //   });
     
         try{
         await context.waitForSelector('div[class*="flix-std-row"]', { timeout: 95000 });
