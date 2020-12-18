@@ -32,6 +32,12 @@ const transform = (data, context) => {
           specifications.text = specifications.text.replace(/ \n \n/g, ':').replace(/\n \n/g, ' || ').replace(/\n/g, '').trim();
         });
       }
+      if(row.inTheBoxText) {
+        row.inTheBoxText.forEach(inTheBoxText => {
+          // inTheBoxText.text = inTheBoxText.text.replace(/ \n \n/g, ',').replace(/ \n \n/g, ' || ').replace(/\n/g, '').trim();
+          inTheBoxText.text = inTheBoxText.text.replace(/[\,]/g, ' || ');
+        });
+      }
       if (row.variantCount) {
         row.variantCount.forEach(variantCount => {
           if (variantCount.text == '0') {
