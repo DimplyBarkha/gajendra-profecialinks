@@ -1,0 +1,124 @@
+singleRecord: true
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: image
+    singleValue: false
+    xpath: //img[@class="primary-image"]/@src
+    regExp: (.+?);.*
+    regExpReplace: $1
+  - name: imageAlt
+    singleValue: false
+    xpath: //img[@class="primary-image"]/@alt
+  - name: availabilityText
+    singleValue: false
+    xpath: //button[contains(text(),'Add to Cart')]
+    regExp: (.+)
+    regExpReplace: In Stock
+    defaultValue: Out of Stock
+  - name: price
+    singleValue: false
+    xpath: (//div[@class='priceView-hero-price priceView-customer-price']/span)[1]
+  - name: promotion
+    singleValue: false
+    manualSelector: div.pricing-price__savings
+  - name: alternateImages
+    singleValue: false
+    xpath: //li[@class="image-thumbnail" and position()>1]//img/@src
+    regExp: (.+?);.*
+    regExpReplace: $1
+  - name: alternateImages2
+    singleValue: false
+    xpath: //div[contains(@class,"image-thumbnail-wrapper")]//li[@class="thumbnail-content" and position()>1]//img/@src
+    regExp: (.+?);.*
+    regExpReplace: $1
+  - name: metaKeywords
+    singleValue: false
+    xpath: //meta[@name="keywords"]/@content
+  - name: category
+    singleValue: false
+    manualSelector: nav[aria-label="breadcrumb"] > ol > li:first-child ~ li
+  - name: nameExtended
+    singleValue: false
+    manualSelector: div.sku-title
+  - name: listPrice
+    singleValue: false
+    manualSelector: div[class="pricing-price__regular-price"]
+  - name: variants
+    singleValue: false
+    xpath: //div[@class="shop-product-variations"]//a[contains(@class,"carousel-anchor")]/@href
+    regExp: .*skuId=(.*)
+    regExpReplace: $1
+  - name: firstVariant
+    singleValue: false
+    xpath: //*[span[contains(@class,"variation-carousel-tile")]]/@class
+  - name: weightNet
+    singleValue: false
+    xpath: //li[div[contains(@class,"title-container")]/div[contains(., "Product Weight")]]/div[contains(@class,"row-value")]
+  - name: sku
+    singleValue: false
+    manualSelector: div.sku.product-data>span.product-data-value
+  - name: gtin
+    singleValue: false
+    xpath: //li[div[contains(@class,"title-container")]/div[contains(., "UPC")]]/div[contains(@class,"row-value")]
+  - name: variantId
+    singleValue: false
+    manualSelector: div.sku.product-data>span.product-data-value
+  - name: mpc
+    singleValue: false
+    manualSelector: div.model.product-data>span.product-data-value
+  - name: ratingCount
+    singleValue: false
+    manualSelector: span.popover-wrapper span.c-total-reviews, span.popover-wrapper span.c-reviews-v4
+  - name: aggregateRating
+    singleValue: false
+    manualSelector: span.popover-wrapper span.c-review-average, span.popover-wrapper span.ugc-c-review-average
+  - name: additionalDescBulletInfo
+    singleValue: false
+    manualSelector: div.overview-accordion-content-wrapper li
+  - name: description
+    singleValue: false
+    manualSelector: div#ii_description
+  - name: brandText
+    singleValue: false
+    manualSelector: a.btn-brand-link
+  - name: color
+    singleValue: false
+    xpath: //div[@class='shop-variation-wrapper']//label[@id='Electronics_Color_Category']/parent::*/parent::div//div[@class='hover-name']
+  - name: manufacturerDescription
+    singleValue: false
+    manualSelector: div#wc-power-page
+  - name: manufacturerImages
+    singleValue: false
+    xpath: //div[@id="wc-power-page"]//img/@src
+  - name: videos
+    singleValue: false
+    xpath: //div[starts-with(@id,"ii_video_")] | //img[contains(@class,"wc-video")]/@wcobj
+  - name: name
+    singleValue: false
+    manualSelector: div.sku-title
+  - name: specifications
+    singleValue: false
+    manualSelector: div.spec-categories ul > li 
+  - name: warranty
+    singleValue: false
+    xpath: //li[div[contains(@class,"title-container")]/div[contains(., "Warranty")]] 
+  - name: variantInformation
+    singleValue: false
+    xpath: //div[@class="shop-product-variations"]//a[contains(@class,"carousel-anchor")]/@aria-label | //div[contains(@class,"hover-name")]
+    regExp: ([^\s]+)(\s.*)?
+    regExpReplace: $1 
+  - name: technicalInformationPdfPresent
+    singleValue: false
+    manualSelector: div.shop-product-documentation a[href*='pdf']
+    regExp: (.+)
+    regExpReplace: Yes
+    defaultValue: No
+  - name: Image360Present
+    singleValue: false
+    manualSelector: div#roundimg
+    defaultValue: No
+  - name: variantCount
+    singleValue: false
+    defaultValue: '0'
