@@ -1,10 +1,11 @@
+const { transform } = require('../../../../shared');
 
 module.exports = {
   implements: 'product/reviews/extract',
   parameterValues: {
     country: 'US',
     store: 'vapordna',
-    transform: null,
+    transform,
     domain: 'vapordna.com',
     zipcode: "''",
   },
@@ -26,7 +27,7 @@ module.exports = {
       if (document.querySelector('.product-single__meta')) {
       		var url = window.location.href;
       		var brand = null;
-      		brand = url.match(/Logic|Juul/);
+      		brand = url.match(/Logic|Juul|juul|logic/);
         addHiddenDiv('vapordna_brand', brand);
       }
     });
