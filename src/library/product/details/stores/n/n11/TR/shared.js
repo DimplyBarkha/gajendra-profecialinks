@@ -15,9 +15,16 @@ const transform = (data) => {
         gr['_input'] = gr.input;
         if (gr && gr.category && gr.category.length) gr.category.shift();
         if (gr && gr.brandText && gr.brandText.length) {
-          const info = JSON.parse(gr.brandText.find(e => e.text.includes('brand')).text);
-          if (info) gr.brandText = [{ text: info.brand }];
-          if (info) gr.name = [{ text: info.description }];
+          let info;
+          try {
+            info = JSON.parse(gr.brandText.find(e => e.text.includes('brand')).text);
+          } catch (e) {
+            info = {};
+          }
+          if (info && info.brand && info.brand.length) gr.brandText = [{ text: info.brand }];
+          else gr.brandText = [];
+          if (info && info.description && info.description.length) gr.name = [{ text: info.description }];
+          else gr.name = [];
         }
         if (gr && gr.aggregateRating && gr.aggregateRating.length) gr.aggregateRating[0].text = onlyNumbersAndDot(gr.aggregateRating[0].text);
         if (gr && gr.variantCount && gr.variantCount.length) gr.variantCount = [{ text: gr.variantCount.length }];
