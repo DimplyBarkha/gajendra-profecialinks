@@ -39,8 +39,8 @@ const transform = (data, context) => {
       }
       if (row.variants) {
         row.variantCount = [{
-          text: row.variants.length + 1
-        }]
+          text: row.variants.length + 1,
+        }];
         if (row.firstVariant[0].text.includes('button')) {
           row.firstVariant = [{
             text: row.variantId[0].text,
@@ -52,9 +52,6 @@ const transform = (data, context) => {
         }
         row.variants = [{
           text: row.variants.reduce((item, currItem) => item ? `${item} | ${currItem.text}` : currItem.text, '') + ' | ' + row.sku[0].text,
-        }];
-        row.variantInformation = [{
-          text: row.variantInformation.reduce((item, currItem) => item ? `${item} | ${currItem.text.replace(/\.$/, '')}` : currItem.text.replace(/\.$/, ''), ''),
         }];
       }
       if (row.manufacturerDescription) {

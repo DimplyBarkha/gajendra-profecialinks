@@ -106,7 +106,7 @@ fields:
     xpath: //li[div[contains(@class,"title-container")]/div[contains(., "Warranty")]] 
   - name: variantInformation
     singleValue: false
-    xpath: //div[@class="shop-product-variations"]//a[contains(@class,"carousel-anchor")]/@aria-label | //div[contains(@class,"hover-name")]
+    xpath: //div[@class='shop-variation-wrapper']//label[@id='Electronics_Color_Category']/parent::*/parent::div//div[@class='hover-name']
     regExp: ([^\s]+)(\s.*)?
     regExpReplace: $1 
   - name: technicalInformationPdfPresent
