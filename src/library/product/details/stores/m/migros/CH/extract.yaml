@@ -5,7 +5,7 @@ recordXPath: null
 fields:
   - name: image
     singleValue: false
-    xpath: //div[contains(@class,' ng-star-inserted ng-lazyloaded')]/@style
+    xpath: //div[@class="migros_image"]
   - name: category
     singleValue: false
     xpath: //div[@class='migros_category']
@@ -18,28 +18,28 @@ fields:
   - name: ingredientsList
     singleValue: false
     xpath: //div[@class='migros_ingredients']
+  - name: allergyAdvice
+    singleValue: false
+    xpath: //div[@class='migros_allergy']
   - name: nutritionals
     singleValue: false
     xpath: //div[@class='migros_']
   - name: storage
     singleValue: false
-    xpath: //dd[contains(@id,'product-detail-50817-conservation')]/text()
+    xpath: //div[@class='migros_origin']
   - name: countryOforigin
     singleValue: false
-    xpath: //dd[contains(@id,'product-detail-50817-origin')]/text()
+   # xpath: //div[@class='migros_origin']
+    xpath: //div[@class='migros_storage']
   - name: price
     singleValue: false
-    xpath: //div[contains(@class,'price-tools')]//span//span//span[1]
-   # xpath: //div[@class="migros_price"]
+    xpath: //div[@class="migros_price"]
   - name: weightNet
     singleValue: false
     xpath: //div[@class="migros_weight"]
   - name : sku
     singleValue: false
-    xpath: //dd[contains(@class,'pid')]/text()
+    xpath: //div[@class="migros_sku"]
   - name: additional_description
     singleValue: false
     xpath: //div[@class="migros_addescription"]
-  - name: nutrition
-    singleValue: false
-    xpath: //table[contains(@class,'mat-table cdk-table')]
