@@ -102,4 +102,4 @@ fields:
     defaultValue: No
   - name: unInterruptedPDP
     singleValue: false
-    xpath: //h3[contains(.,'You May Also Like')]/following-sibling::div//div[contains(@class,"slick-track")]/div[contains(@class,'slick-slide')]
+    xpath: //h3/following-sibling::div//div[contains(@class,"slick-track")]/div[contains(@class,'slick-slide')] | //div[@class="tab-content"]/div[contains(@class,'product-recommendations')]//div[contains(@class,'recommended-product')]//h3
