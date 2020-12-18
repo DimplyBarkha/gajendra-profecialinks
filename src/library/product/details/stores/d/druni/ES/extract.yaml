@@ -20,7 +20,7 @@ fields:
     xpath: //div[contains(@class, 'reviews-actions')]/a/span
     regExp: (\d+)
     regExpReplace: $1
-  - name: briefDescription
+  - name: additionalDescription
     singleValue: true
     xpath: //div[contains(@id , 'description')]/div
   - name: price
@@ -39,19 +39,22 @@ fields:
   - name: alternateImages
     singleValue: false
     xpath: //div[contains(@class, 'fotorama__nav__shaft')]/div/div/img/@src
-  - name: availabilityText
-    singleValue: false
-    xpath: //div[contains(@class , 'box-tocart')]/@class
   - name: variants
     singleValue: false
     xpath: //*[@id='super-product-table']//div[contains(@class ,'product-name-wrapper')]/span[contains(@class,'product-item-name')]
-  - name: variantPrice
+  - name: price
     singleValue: false
     xpath: //*[@id='super-product-table']//div[contains( @class , 'product-info-price')]/div/div[contains( @class , 'special-old-box')]/span[contains(@class,'special-price')]
-  - name: variantListPrice
+  - name: listPrice
     singleValue: false
     description: The stated undiscounted price for the product
     xpath: //*[@id='super-product-table']//div[contains( @class , 'product-info-price')]/div/div[contains( @class , 'special-old-box')]/span[contains(@class,'old-price')]
-  # - name: variantAvailabilityText
-  #   singleValue: false
-  #   xpath: //*[@id='super-product-table']//div[contains(@class , 'box-tocart')]/@class
+  - name: availabilityText
+    singleValue: true
+    xpath: //div[contains(@class, 'product-add-form')]/form/div[contains(@class , 'box-tocart')]/@class
+  - name: url
+    singleValue: true
+    xpath: //meta[contains(@property, "og:url")]/@content
+  - name: colour
+    singleValue: false
+    xpath: //ul[contains(@class, 'dropdown-menu inner show')]/li/a
