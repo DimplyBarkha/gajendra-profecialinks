@@ -12,7 +12,20 @@ module.exports = {
     const { transform } = parameters;
     const { productDetails } = dependencies;
     await context.evaluate(async () => {
-      function addHiddenDiv(id, content) {
+      function addHiddenDiv(id, content, index) {
+        const newDiv = document.createElement('div');
+        newDiv.id = id;
+        newDiv.textContent = content;
+        newDiv.style.display = 'none';
+        document.getElementsByClassName(index)[0].appendChild(newDiv);
+      }
+      function addEmptyDiv(id) {
+        const newDiv = document.createElement('div');
+        newDiv.className = id;
+        newDiv.style.display = 'none';
+        document.body.appendChild(newDiv);
+      }
+      function addElement(id, content) {
         const newDiv = document.createElement('div');
         newDiv.id = id;
         newDiv.textContent = content;
@@ -20,11 +33,10 @@ module.exports = {
         document.body.appendChild(newDiv);
       }
 
-
       // Space Concatenation
-      const pipeSeparatorSpace = (id, data) => {
+      const pipeSeparatorSpace = (id, data, index) => {
         var singleSeparatorText = data.join(' ');
-        addHiddenDiv(id, singleSeparatorText);
+        addHiddenDiv(id, singleSeparatorText, index);
       };
       var name = [];
       let data = document.querySelector('pre').innerText;
@@ -36,8 +48,9 @@ module.exports = {
         data = data.result.findings;
         // @ts-ignore
         for (let i = 0; i < data.finding.length; i++) {
-          addHiddenDiv('id', data["finding"][i]["match-item"]["e:epoq_search_id"]["$"]);
-          addHiddenDiv('image', data["finding"][i]["match-item"]["c:imagelink"]["$"]);
+          addEmptyDiv(i);
+          addHiddenDiv('id', data["finding"][i]["match-item"]["e:epoq_search_id"]["$"], i);
+          addHiddenDiv('image', data["finding"][i]["match-item"]["c:imagelink"]["$"], i);
           try {
             if (data["finding"][i]["match-item"]["c:productTitleFirstLine"]["$"]) {
               name.push(data["finding"][i]["match-item"]["c:productTitleFirstLine"]["$"]);
@@ -59,17 +72,17 @@ module.exports = {
           } catch (error) {
 
           }
-          pipeSeparatorSpace('name', name);
+          pipeSeparatorSpace('name', name, i);
           name = [];
-          addHiddenDiv('price', data["finding"][i]["match-item"]["c:pricevalue"]["$"]);
-          addHiddenDiv('rating', data["finding"][i]["match-item"]["c:averagerating"]["$"]);
-          addHiddenDiv('productURL', data["finding"][i]["match-item"]["link"]["$"]);
+          addHiddenDiv('price', data["finding"][i]["match-item"]["c:pricevalue"]["$"], i);
+          addHiddenDiv('rating', data["finding"][i]["match-item"]["c:averagerating"]["$"], i);
+          addHiddenDiv('productURL', data["finding"][i]["match-item"]["link"]["$"], i);
         }
       } catch (error) {
-        addHiddenDiv('noresults', 'noresults')
+        addElement('noresults', 'noresults')
       }
       const url = window.location.href;
-      addHiddenDiv('added-searchurl', url);
+      addElement('added-searchurl', url);
     });
     return await context.extract(productDetails, { transform });
   },
