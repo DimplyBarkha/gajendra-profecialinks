@@ -1,4 +1,3 @@
-
 module.exports = {
   implements: 'product/details/execute',
   parameterValues: {
@@ -38,8 +37,17 @@ module.exports = {
         return new Promise((resolve) => setTimeout(resolve, ms));
       }
       let element = document.querySelector(selector);
+      let priceFromDataLayer = window.dataLayer && window.dataLayer.find(e => e.hasOwnProperty('ecommerce')).ecommerce.detail.products[0].price;
       let count = 0;
       while (element === null) {
+        priceFromDataLayer = window.dataLayer && window.dataLayer.find(e => e.hasOwnProperty('ecommerce')).ecommerce.detail.products[0].price;
+        if (priceFromDataLayer || priceFromDataLayer === 0) {
+          console.log(`priceFromDataLayer found... : ${priceFromDataLayer}`);
+          return true;
+        } else {
+          console.log(`priceFromDataLayer is not found yet... : ${priceFromDataLayer}`);
+        }
+
         count = count + reloadSec;
         element = document.querySelector(selector);
         await timeout(reloadSec);

@@ -43,6 +43,11 @@ module.exports = {
 
     const mainImageCss = '.owl-item:first-child .img img';
     const videoPageCss = '.media-viewer__titles .media-viewer__title:nth-child(2)';
+    try {
+      await context.waitForSelector('.media-viewer__titles .media-viewer__title');
+    } catch (error) {
+      console.log(error);
+    }
 
     const isButtonAvailable = await context.evaluate(async (mainImageCss) => {
       return document.querySelector(mainImageCss);
@@ -53,7 +58,6 @@ module.exports = {
       await context.click(mainImageCss);
     };
 
-    await context.waitForSelector('.media-viewer__titles .media-viewer__title');
     const isVideoPageAvailable = await context.evaluate(async (videoPageCss) => {
       const btn = document.querySelector(videoPageCss);
       return btn && btn.innerText.includes('Видео');
@@ -115,6 +119,7 @@ module.exports = {
         newDiv.style.display = 'none';
         document.body.appendChild(newDiv);
       }
+
       function stall (ms) {
         return new Promise((resolve, reject) => {
           setTimeout(() => {
