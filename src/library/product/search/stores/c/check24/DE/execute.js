@@ -6,7 +6,7 @@ module.exports = {
     store: 'check24',
     domain: 'check24.de',
     url: 'https://shopping.check24.de/suche.html?query={searchTerms}',
-    loadedSelector: 'img.grid-product__image',
+    loadedSelector: null,
     noResultsXPath: '//div[@class="fakeresult_headline"]',
     zipcode: '',
   },
