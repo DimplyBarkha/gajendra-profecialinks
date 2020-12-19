@@ -80,6 +80,12 @@ const transform = (data) => {
           item.text = Number(item.text) ? Number(item.text).toFixed(1) : item.text;
         });
       }
+
+      if (row.gtin) {
+        row.gtin.forEach(item => {
+          item.text = item.text.replace('EAN:', '');
+        });
+      }
     };
   }
 

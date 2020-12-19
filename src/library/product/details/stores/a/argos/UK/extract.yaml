@@ -73,9 +73,9 @@ fields:
     singleValue: true
     description: Gross weight as described on the page
   - name: gtin
-    xpath: //div[@itemprop="description"]//*[contains(text(),"EAN")]
-    regExp: EAN(?:\:)?\s+(\d+)
-    regExpReplace: $1
+    xpath: (//div[@itemprop="description"]//*[contains(text(),"EAN")]|//li[contains(text(),"EAN:")])[1]
+    # regExp: EAN(?:\:)?\s*(\d+)
+    # regExpReplace: $1
     description: GTIN code (includes UPC/EAN)
   - name: sku
     singleValue: true
@@ -406,7 +406,7 @@ fields:
     description: null
   - name: specifications
     singleValue: false
-    xpath: //div[@itemprop="description"]//ul[contains(.,'Size') or contains(.,'size')]//li
+    xpath: //div[@itemprop="description"]//ul[contains(.,'Size') or contains(.,'size')]//li|//p[contains(text(), "Features")]/following-sibling::ul[1]//li
     description: The physical dimensions of the product including packaging.
   - name: warranty
     xpath: //li[contains(text(), "year") and contains(text(), "guarantee")]
