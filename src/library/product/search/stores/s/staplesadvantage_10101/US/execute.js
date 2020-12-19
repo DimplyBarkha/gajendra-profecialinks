@@ -1,5 +1,4 @@
 
-=======
 async function implementation (inputs, parameters, context, dependencies) {
   const url = 'https://www.staplesadvantage.com/search?term={searchTerms}'.replace(
     '{searchTerms}',

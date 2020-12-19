@@ -13,7 +13,6 @@ async function implementation (inputs, parameters, context, dependencies) {
   return await context.extract(productDetails, { transform });
 }
 
-
 module.exports = {
   implements: 'product/search/extract',
   parameterValues: {
