@@ -4,13 +4,9 @@ module.exports = {
   parameterValues: {
     country: 'US',
     store: 'wayfair',
-    nextLinkSelector: 'a[data-codeception-id="PaginationLinkNext"]',
-    mutationSelector: null,
-    spinnerSelector: null,
+    nextLinkSelector: 'a.pl-Pagination-icon--next',
     loadedSelector: '.BrowseProductCardImage',
-    noResultsXPath: '//h2[@class="NoResults-title"]',
-    openSearchDefinition: null,
+    noResultsXPath: 'h2.NoResults-title',
     domain: 'wayfair.com',
-    zipcode: '',
   },
 };

@@ -4,9 +4,9 @@ recordSelector: null
 recordXPath: null
 fields:
   - name: image
-    xpath: //ul[contains(@class,"ProductDetailImage")]//li[position()=1]//div[@class="ImageComponent ImageComponent--overlay"]/img/@src
+    xpath: //ul[contains(@class,"ProductDetailImage")]//li[position()=1]//div[contains(@class,"ImageComponent")]/img/@src
   - name: imageAlt
-    xpath: //ul[contains(@class,"ProductDetailImage")]//li[position()=1]//div[@class="ImageComponent ImageComponent--overlay"]/img/@alt
+    xpath: //ul[contains(@class,"ProductDetailImage")]//li[position()=1]//div[contains(@class,"ImageComponent")]/img/@alt
   - name: category
     xpath: //ol[@class="Breadcrumbs-list"]/li/a
   - name: name
