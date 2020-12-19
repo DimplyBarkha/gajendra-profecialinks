@@ -387,8 +387,10 @@ fields:
     regExp: (.+)
     regExpReplace: http://www.ocado.com$1
   - name: priceCurrency
+    singleValue: true
     xpath: //meta[contains(@itemprop,'priceCurrency')]/@content
-  - name: disclaimer
+  - name: legalDisclaimer
+    singleValue: true
     xpath: //footer[contains(@class,'bop-section bop-disclaimer')]/p/text()
   - name: highQualityImages
     singleValue: false
