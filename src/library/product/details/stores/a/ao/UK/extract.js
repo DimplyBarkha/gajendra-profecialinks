@@ -156,7 +156,9 @@ module.exports = {
         var specsText = '';
         for (var t = 1; t < specs.length - 1; t++) {
           // @ts-ignore
-          specsText = specsText + ' ' + specs[t].innerText;
+          if (specs[t]) {
+            specsText = specsText + ' ' + specs[t].innerText;
+          }
         }
         addDivClass('specificationtext', specsText);
       }
@@ -166,8 +168,10 @@ module.exports = {
         // start point 1 is correct this is to skip first category which is startseite
         for (var q = 1; q < category.length - 1; q++) {
           // @ts-ignore
-          categoryText = category[q].innerText;
-          addDivClass('category', categoryText);
+          if (category[q]) {
+            categoryText = category[q].innerText;
+            addDivClass('category', categoryText);
+          }
         }
       }
       // @ts-ignore
@@ -180,7 +184,9 @@ module.exports = {
       if (nodeListH && nodeListH.length > 0) {
         for (var k = 0; k < nodeListH.length; k++) {
           // @ts-ignore
-          allEnhancedContent = allEnhancedContent + ' ' + nodeListH[k].innerText + ' ' + nodeListH[k].nextElementSibling.innerText;
+          if (nodeListH[k]) {
+            allEnhancedContent = allEnhancedContent + ' ' + nodeListH[k].innerText + ' ' + (nodeListH[k].nextElementSibling ? nodeListH[k].nextElementSibling.innerText : '');
+          }
         }
         addElementToDocument('enhCont', allEnhancedContent);
       }
