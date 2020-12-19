@@ -6,7 +6,7 @@ module.exports = {
     store: 'surlatable',
     domain: 'surlatable.com',
     loadedSelector: '#pdpMain',
-    noResultsXPath: '//body[contains(text(),"Invalid URL. Please continue by going to our")]',
+    noResultsXPath: '//body[contains(text(),"Invalid URL. Please continue by going to our")] | //div[contains(@class, "notfound-error-page")]',
     zipcode: "''",
   },
 };

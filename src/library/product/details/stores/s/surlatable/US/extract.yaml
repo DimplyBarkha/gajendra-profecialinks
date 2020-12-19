@@ -13,7 +13,7 @@ fields:
     xpath: //div[@class="product-info"]//div[@id="tab-3"]//li
   - name: category
     singleValue: false
-    xpath: (//*[@id="primary"]/div[@class="breadcrumb"]/a)[position()>1]
+    xpath: (//*[@id="primary"]/div[@class="breadcrumb"]//a//text())[position()>1]
   - name: name
     singleValue: false
     xpath:	//*[@id="pdpMain"]//h1[@class="product-name"]
@@ -34,28 +34,28 @@ fields:
     xpath: //*[@id="product-teasers"]/span[@class="TurnToReviewsTeaser"]/div/@class
   - name: ingredientsList
     singleValue: false
-    xpath: ((//*[@id="tab-3"]/div[@class="tab-content"]/ul/li)[contains(text(),'ingredients')]) |((//*[@id="tab-3"]/div[@class="tab-content"]/ul/li)[contains(text(),'Ingredients')])|((//*[@id="tab-3"]/div[@class="tab-content"]/ul/li)[contains(text(),'Material')])		
+    xpath: ((//*[@id="tab-3"]/div[@class="tab-content"]/ul/li)[contains(text(),'ingredients')]) |((//*[@id="tab-3"]/div[@class="tab-content"]/ul/li)[contains(text(),'Ingredients')])|((//*[@id="tab-3"]/div[@class="tab-content"]/ul/li)[contains(text(),'Material')])
   - name: brandText
     singleValue: false
-    xpath: ((//*[@id="tab-3"]/div[@class="tab-content"]/ul/li)[contains(text(),'Manufacturer')]) 
+    xpath: ((//*[@id="tab-3"]/div[@class="tab-content"]/ul/li)[contains(text(),'Manufacturer')])
   - name: manufacturer
     singleValue: false
-    xpath: ((//*[@id="tab-3"]/div[@class="tab-content"]/ul/li)[contains(text(),'Manufacturer')]) 
+    xpath: ((//*[@id="tab-3"]/div[@class="tab-content"]/ul/li)[contains(text(),'Manufacturer')])
   - name: weightNet
     singleValue: false
-    xpath: ((//*[@id="tab-3"]/div[@class="tab-content"]/ul/li)[contains(text(),'Weight')]) | ((//*[@id="tab-6"]/div[@class="tab-content"]/ul/li)[contains(text(),'ml')]) | ((//*[@id="tab-6"]/div[@class="tab-content"]/ul/li)[contains(text(),'oz')])|((//*[@id="tab-3"]/div[@class="tab-content"]/ul/li)[contains(text(),'Capcity')]) 
+    xpath: ((//*[@id="tab-3"]/div[@class="tab-content"]/ul/li)[contains(text(),'Weight')]) | ((//*[@id="tab-6"]/div[@class="tab-content"]/ul/li)[contains(text(),'ml')]) | ((//*[@id="tab-6"]/div[@class="tab-content"]/ul/li)[contains(text(),'oz')])|((//*[@id="tab-3"]/div[@class="tab-content"]/ul/li)[contains(text(),'Capcity')])
   - name: directions
     singleValue: false
     xpath: //*[@id="tab-5"]/div[@class="tab-content"]/ul/li
   - name: imageAlt
     singleValue: false
-    xpath: (//*[@id="pdpMain"]//div[@class="product-primary-image "]/a/img[@class="primary-image"]/@alt)[1]		
+    xpath: (//*[@id="pdpMain"]//div[@class="product-primary-image "]/a/img[@class="primary-image"]/@alt)[1]
   - name: promotion
     singleValue: false
     xpath: //*[@id="product-content"]//div[contains(@class,'promo-cat ')]
   - name: listPrice
     singleValue: false
-    xpath: (//*[@id="product-content"]//div[@class='regular-price']//span[@class='price'])|//*[@id="product-content"]//div[@class='sale-price']//span[@class='price']	
+    xpath: (//*[@id="product-content"]//div[@class='regular-price']//span[@class='price'])|//*[@id="product-content"]//div[@class='sale-price']//span[@class='price']
   - name: ratingCount
     singleValue: false
     xpath: //*[@id="readReviews"]
