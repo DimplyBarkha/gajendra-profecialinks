@@ -4,7 +4,7 @@ recordXPath: //ul[@data-gtm-prop-list-name="Search result list"]/li
 fields:
   - name: thumbnail
     singleValue: false
-    xpath: //img[@class="loaded"]/@src
+    xpath: //aside[@class='product-photo']//img[@class="loaded"]/@src
   - name: brandText
     singleValue: false
     xpath: ./script
