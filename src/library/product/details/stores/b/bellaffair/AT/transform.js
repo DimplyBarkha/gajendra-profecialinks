@@ -16,10 +16,14 @@ const transform = (data) => {
                 if (row.packSize) {
                     row.packSize = [{ text: row.packSize[0].text.substring(1) }];
                 }
-                if (row.description) {
-                    let text = '';
-                    text = row.description[0].text.replace(/\n/g, ' || ');;
-                    row.description = [{ text }];
+                if (row.additionalDescBulletInfo) {
+                    const text = row.additionalDescBulletInfo.map(elm => elm.text).join(' ');
+                    row.additionalDescBulletInfo = [{ text }];
+                }
+                if (row.inTheBoxText) {
+                   row.inTheBoxText.forEach(element => {
+                      element.text = element.text.replace('||', '').trim(); 
+                   });
                 }
                 if (row.specifications) {
                     let text = '';
