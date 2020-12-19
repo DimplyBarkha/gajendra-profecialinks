@@ -6,11 +6,11 @@ fields:
   - name: productUrl
     xpath: //a//@href
     regExp: (.+)
-    regExpReplace: https://www.worten.es/$1
+    regExpReplace: https://www.worten.pt$1
   - name: thumbnail
     xpath: //img//@data-src
     regExp: (.+)
-    regExpReplace: https://www.worten.es/$1
+    regExpReplace: https://www.worten.pt$1
   - name: name
     xpath: //h3
   - name: id
