@@ -41,13 +41,8 @@ module.exports = {
       console.log(error);
     }
 
-    const mainImageCss = '.owl-item:first-child .img img';
+    const mainImageCss = '.owl-item:first-child .img img, div.product-images-slider img';
     const videoPageCss = '.media-viewer__titles .media-viewer__title:nth-child(2)';
-    try {
-      await context.waitForSelector('.media-viewer__titles .media-viewer__title');
-    } catch (error) {
-      console.log(error);
-    }
 
     const isButtonAvailable = await context.evaluate(async (mainImageCss) => {
       return document.querySelector(mainImageCss);
@@ -58,6 +53,14 @@ module.exports = {
       await context.click(mainImageCss);
     };
 
+    const photosCss = '.media-viewer__titles .media-viewer__title';
+    try {
+      await context.waitForSelector(photosCss);
+    } catch (error) {
+      console.log(`photosCss does not loaded: ${photosCss}`);
+      console.log(error);
+    }
+
     const isVideoPageAvailable = await context.evaluate(async (videoPageCss) => {
       const btn = document.querySelector(videoPageCss);
       return btn && btn.innerText.includes('Видео');
@@ -65,52 +68,57 @@ module.exports = {
 
     if (isVideoPageAvailable) {
       console.log('VideoPage is available..clicking it');
+      const allVideoCss = 'div[class *= \'video\'] div.tns-item';
       await context.click(videoPageCss);
-    };
-
-    await context.evaluate(async () => {
-      function addHiddenDiv (id, content) {
-        const newDiv = document.createElement('div');
-        newDiv.id = id;
-        newDiv.textContent = content;
-        newDiv.style.display = 'none';
-        document.body.appendChild(newDiv);
-      }
-
-      function getVideoSrc () {
-        const iframe = document.querySelector('div[class*="media-viewer-video"] iframe');
-        const src = iframe && iframe.getAttribute('src');
-        return src !== 'null' ? src : '';
-      }
-
-      async function getVideoUrls () {
-        const allVideoNav = document.querySelectorAll('.tns-inner .tns-item img');
-        const videoUrls = [];
-
-        for (let index = 0; index < allVideoNav.length; index++) {
-          const btnCounter = index + 1;
-          console.log(`clicking ${btnCounter}th nav btn`);
-          if (index === 0) {
-            videoUrls.push(getVideoSrc());
-          } else {
-            allVideoNav[index].click();
-            await new Promise((resolve, reject) => {
-              setTimeout(() => {
-                resolve();
-              }, 3000);
-            });
-            console.log(`clicked ${btnCounter}th nav btn`);
-            videoUrls.push(getVideoSrc());
-          }
+      await context.waitForSelector(allVideoCss);
+      await context.evaluate(async (allVideoCss) => {
+        function addHiddenDiv (id, content) {
+          const newDiv = document.createElement('div');
+          newDiv.id = id;
+          newDiv.textContent = content;
+          newDiv.style.display = 'none';
+          document.body.appendChild(newDiv);
         }
-        return videoUrls;
-      }
 
-      const videoUrls = await getVideoUrls();
-      console.log('videoUrls');
-      console.log(videoUrls);
-      videoUrls.filter(Boolean).map(url => addHiddenDiv('moreVideos', url));
-    });
+        function getVideoSrc () {
+          const iframe = document.querySelector('div[class*="media-viewer-video"] iframe');
+          const src = iframe && iframe.getAttribute('src');
+          return src !== 'null' ? src : '';
+        }
+
+        async function getVideoUrls (allVideoCss) {
+          const allVideoNav = document.querySelectorAll(allVideoCss);
+          const videoUrls = [];
+
+          for (let index = 0; index < allVideoNav.length; index++) {
+            const btnCounter = index + 1;
+            console.log(`clicking ${btnCounter}th nav btn`);
+            if (index === 0) {
+              videoUrls.push(getVideoSrc());
+            } else {
+              allVideoNav[index].click();
+              await new Promise((resolve, reject) => {
+                setTimeout(() => {
+                  resolve();
+                }, 3000);
+              });
+              console.log(`clicked ${btnCounter}th nav btn`);
+              videoUrls.push(getVideoSrc());
+            }
+          }
+          return videoUrls;
+        }
+
+        const videoUrls = await getVideoUrls(allVideoCss);
+        console.log('videoUrls');
+        console.log(videoUrls);
+        videoUrls.filter(Boolean).map(url => addHiddenDiv('moreVideos', url));
+      }, allVideoCss);
+    } else {
+      console.log(`VideoPage not found: CSS => ${isVideoPageAvailable}`);
+    }
+
+    // extracting specs from side tab
     await context.evaluate(async () => {
       function addHiddenDiv (id, content) {
         const newDiv = document.createElement('div');

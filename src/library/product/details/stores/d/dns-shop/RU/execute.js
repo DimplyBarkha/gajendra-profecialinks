@@ -37,10 +37,19 @@ module.exports = {
         return new Promise((resolve) => setTimeout(resolve, ms));
       }
       let element = document.querySelector(selector);
-      let priceFromDataLayer = window.dataLayer && window.dataLayer.find(e => e.hasOwnProperty('ecommerce')).ecommerce.detail.products[0].price;
+
+      function findProperty () {
+        // @ts-ignore
+        return window.dataLayer && window.dataLayer.find(e => Object.prototype.hasOwnProperty.call(e, 'ecommerce'));
+      };
+
+      let priceFromDataLayer = findProperty() &&
+                    findProperty().ecommerce.detail &&
+                    findProperty().ecommerce.detail.products[0] &&
+                    findProperty().ecommerce.detail.products[0].price;
+
       let count = 0;
       while (element === null) {
-        priceFromDataLayer = window.dataLayer && window.dataLayer.find(e => e.hasOwnProperty('ecommerce')).ecommerce.detail.products[0].price;
         if (priceFromDataLayer || priceFromDataLayer === 0) {
           console.log(`priceFromDataLayer found... : ${priceFromDataLayer}`);
           return true;
@@ -48,16 +57,24 @@ module.exports = {
           console.log(`priceFromDataLayer is not found yet... : ${priceFromDataLayer}`);
         }
 
+        priceFromDataLayer = findProperty() &&
+                        findProperty().ecommerce.detail &&
+                        findProperty().ecommerce.detail.products[0] &&
+                        findProperty().ecommerce.detail.products[0].price;
+
         count = count + reloadSec;
         element = document.querySelector(selector);
         await timeout(reloadSec);
         if (count >= maxTime) {
           console.log('price div not found');
           return false;
+        } else {
+          console.log('Waiting price div to load...');
         }
       }
       return true;
-    }, priceDivSelector, 500, 40000);
+    },
+    priceDivSelector, 500, 10000);
 
     if (isPriceDivLoaded === false) {
       console.log('price Div not found');
@@ -65,6 +82,5 @@ module.exports = {
       console.log('price Div found');
     }
     return true;
-    // TODO: Check for not found?
   },
 };
