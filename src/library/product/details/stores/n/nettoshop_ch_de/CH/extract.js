@@ -1,10 +1,10 @@
-
+const { cleanUp } = require('../../../../shared');
 module.exports = {
   implements: 'product/details/extract',
   parameterValues: {
     country: 'CH',
     store: 'nettoshop_ch_de',
-    transform: null,
+    transform: cleanUp,
     domain: 'nettoshop.ch',
     zipcode: '',
   },

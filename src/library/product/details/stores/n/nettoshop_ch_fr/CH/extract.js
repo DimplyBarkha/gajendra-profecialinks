@@ -1,11 +1,11 @@
-const { transform } = require('../../../../shared');
+const { cleanUp } = require('../../../../shared');
 
 module.exports = {
   implements: 'product/details/extract',
   parameterValues: {
     country: 'CH',
     store: 'nettoshop_ch_fr',
-    transform: transform,
+    transform: cleanUp,
     domain: 'nettoshop.ch',
     zipcode: '',
   },
@@ -118,8 +118,9 @@ module.exports = {
       }
       try {
         // @ts-ignore
-        const mpc = document.querySelectorAll('span[class="c-product-detail-infos__manufacturer-code"]')[0].innerText;
-        allElement('mpc', mpc.split(' ')[1], 0);
+        let mpc = document.querySelectorAll('span[class="c-product-detail-infos__manufacturer-code"]')[0].innerText;
+        mpc = mpc.replace('No. fabricant', '');
+        allElement('mpc', mpc, 0);
       } catch (error) {
 
       }
@@ -154,16 +155,16 @@ module.exports = {
       }
       try {
         const tabs = document.querySelectorAll('a[class="ivy-tabs-tab ember-view"]');
-      for (let j = 0; j < tabs.length; j++) {
-        // @ts-ignore
-        tabs[j].click();
-      }
-      var video = document.querySelectorAll('div[id="inpage_container"] iframe');
-      alert(video[0]);
-      var videoFinal = video[0].getAttribute('src');
-      allElement('video', videoFinal, 0);
+        for (let j = 0; j < tabs.length; j++) {
+          // @ts-ignore
+          tabs[j].click();
+        }
+        var video = document.querySelectorAll('div[id="inpage_container"] iframe');
+        alert(video[0]);
+        var videoFinal = video[0].getAttribute('src');
+        allElement('video', videoFinal, 0);
       } catch (error) {
-        
+
       }
     });
     return await context.extract(productDetails, { transform });
