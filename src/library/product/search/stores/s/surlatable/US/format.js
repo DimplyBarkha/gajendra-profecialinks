@@ -10,16 +10,16 @@ const transform = (data, context) => {
                row.brandText.forEach(item => {
                 var arr = item.text;
                 item.text = arr.split(" ")[0]+arr.split(" ")[1];
-            });
+              });
             }
             if (row.aggregateRating2) {
               row.aggregateRating2[0].text = row.aggregateRating2[0].text.replace('TTratingBox TTrating-', '').replace('-', '.');
             }
-            if (row.ratingcount) {
-              row.ratingcount[0].text = row.ratingcount[0].text.replace('(', '').replace(')', '');
+            if (row.ratingCount) {
+              row.ratingCount[0].text = row.ratingCount[0].text.replace('(', '').replace(')', '');
             }
-            if (row.reviewcount) {
-              row.reviewcount[0].text = row.reviewcount[0].text.replace('(', '').replace(')', '');
+            if (row.reviewCount) {
+              row.reviewCount[0].text = row.reviewCount[0].text.replace('(', '').replace(')', '');
             }
 
             if (row.id) {
@@ -53,7 +53,9 @@ const transform = (data, context) => {
         }
         row.rank = [{ text: rankCounter }];
         Object.keys(row).forEach(header => row[header].forEach(el => {
-          el.text = clean(el.text);
+          if (typeof el.text!=='undefined') {
+            el.text = clean(el.text);
+          }
         }));
       }
     }

@@ -4,7 +4,7 @@ fields:
     xpath: //meta[@property="og:image"]/@content
   - name: alternateImages
     singleValue: false
-    xpath: (//*[@id="pdpMain"]//div[@class="slick-list"])[1]//a/@href
+    xpath: ((//*[@id="pdpMain"]//div[@class="slick-list"])[1]//a/@href)[position()>1]
   - name: secondaryImageTotal
     singleValue: false
     xpath: count(((//*[@id="pdpMain"]//div[@class="slick-list"])[1]//a/@href)[position()>1])
