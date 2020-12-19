@@ -21,7 +21,10 @@ fields:
   - name: price
     singleValue: false
     xpath: //span[@data-price-type="finalPrice"]
-  - name: aggregateRating2
+  - name: aggregateRating
+    singleValue: false
+    xpath: //span[@class="tt-c-reviews-summary__rating-number"]/text()
+  - name: aggregateRatingText
     singleValue: false
     xpath: //span[@class="tt-c-reviews-summary__rating-number"]/text()
   - name: ratingCount
@@ -84,9 +87,9 @@ fields:
   #   singleValue: false
   #   xpath: //div[contains(@class,'product-sku')]
   #   regExp: \d+
-  - name: directions
-    singleValue: false
-    xpath: //div[@itemprop="user_care"]
+  # - name: directions
+  #   singleValue: false
+  #   xpath: //div[@itemprop="user_care"]
   - name: promotion
     singleValue: false
     xpath: //div[@class="pdpcontainer"]//div[@class="pdpborder"]
