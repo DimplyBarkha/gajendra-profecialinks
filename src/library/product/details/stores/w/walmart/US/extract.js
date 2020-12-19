@@ -88,6 +88,7 @@ module.exports = {
         // wait for iframe to load
         await helper.waitForInDifferentContext('body > div', aplusSelector, 30000);
         await helper.waitForFrameToLoad(aplusSelector, 10000);
+        await new Promise(resolve => setTimeout(resolve, 3000));
       })
       .then(async () => context.evaluate(async (selector) => {
         function addHiddenDiv (id, content) {
