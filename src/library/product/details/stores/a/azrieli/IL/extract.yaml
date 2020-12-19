@@ -59,8 +59,10 @@ fields:
     singleValue: true
     description: Product brand shown - this may actually NOT be just a brand name,
       e.g. "Visit the Gillette Store"
-    xpath: //h2[@class='deal-title']/text()
-    regExp: (Dyson)
+    xpath: (//div[@class="AttributeValueContainer"]//a[contains(@href, "Brand")]//@href)[1]
+    regExp: Brand/(.*)
+    regExpReplace: $1
+    # regExp: (Dyson)
   - name: manufacturer
     singleValue: true
     description: Product manufacturer
@@ -522,6 +524,10 @@ fields:
     defaultValue: No
 
   - name: inTheBoxText
-    xpath: //*[contains(.,"מה בערכה")]/following-sibling::ul/li
+    xpath: //*[contains(.,"מה בערכה")]/following-sibling::ul[1]/li|//*[contains(.,"מה מגיע בערכה")]/following-sibling::ul[1]/li
   - name: hasComparisonTable
     xpath: //div[@class="finePrint"]//*[contains(.,"השוואות ")]//a
+  - name: unInterruptedPDP
+    singleValue: false
+    xpath: //div[@id='added_UPDP']//text()
+    description: Titles of products in the sections 'you may also like' or 'sponsored products'. Combine results from Max 3 sections
