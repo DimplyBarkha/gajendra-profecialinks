@@ -112,4 +112,6 @@ fields:
   - name: hasComparisonTable
     defaultValue: No 
   - name: unInterruptedPDP
-    xpath: //li[@data-controls="recommendations"]//div
+    xpath: //*[@id="recommendations"]//li[contains(@class,"carousel-item")]//div/@data-gtm
+    regExp: name":"([^"]+)
+    regExpReplace: $1
