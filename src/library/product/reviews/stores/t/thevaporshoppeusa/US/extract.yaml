@@ -43,7 +43,7 @@ fields:
     xpath: //h3[@class='spr-review-header-title']
   - name: sku
     description: The sku
-    defaultValue: ancestor::html//h1[@class='title']
+    xpath: ancestor::html//h1[@class='title']
   - name: verifiedPurchase
     description: Whether this of an item the reviewer purchased. "Yes" if true else ""
   - name: aggregateRating

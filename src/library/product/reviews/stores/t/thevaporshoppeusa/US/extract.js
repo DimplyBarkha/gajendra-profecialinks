@@ -24,9 +24,9 @@ module.exports = {
       }
 
       if (document.querySelector('.product-single__meta')) {
-      		var url = window.location.href;
-      		var brand = null;
-      		brand = url.match(/Vuse|Juul|juul|vuse/);
+        var url = window.location.href;
+        var brand = null;
+        brand = url.match(/Vuse|Juul|juul|vuse/);
         addHiddenDiv('vapordna_brand', brand);
       }
     });

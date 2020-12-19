@@ -1,6 +1,6 @@
 const { transform } = require('../../../../shared');
 
-async function implementation(
+async function implementation (
   inputs,
   parameters,
   context,
@@ -11,7 +11,7 @@ async function implementation(
   const { productDetails } = dependencies;
 
   await context.evaluate((Brands) => {
-    function addHiddenDiv(id, content) {
+    function addHiddenDiv (id, content) {
       const newDiv = document.createElement('div');
       newDiv.id = id;
       newDiv.textContent = content;
@@ -26,11 +26,10 @@ async function implementation(
         addHiddenDiv('my-urls', link);
       }
     });
-  },Brands);
+  }, Brands);
 
   return await context.extract(productDetails, { transform });
 }
-
 
 module.exports = {
   implements: 'product/search/extract',
