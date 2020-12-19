@@ -152,4 +152,11 @@ fields:
     regExp: (.+)
     regExpReplace: Yes
     defaultValue: No
-    
+  - name: unInterruptedPDP
+    singleValue: false
+    xpath: //p[@data-automation-id='product-name']
+  - name: inTheBoxText
+    singleValue: false
+    xpath: //div[@class='product-description_characteristicsRow__3Fz31']/p[contains(text(),'Contenido del Empaque')]/following-sibling::p
+  - name: hasComparisonTable
+    defaultValue: No
