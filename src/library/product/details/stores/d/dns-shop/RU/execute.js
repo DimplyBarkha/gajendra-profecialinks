@@ -6,7 +6,7 @@ module.exports = {
     store: 'dns-shop',
     domain: 'dns-shop.ru',
     loadedSelector: null, // '.product-images-slider',
-    noResultsXPath: "//h1[contains(@class, 'info-block__header') and contains(text(), 'Страница не найдена')]",
+    noResultsXPath: "//h1[contains(@class, 'info-block__header') and contains(text(), 'Страница не найдена')] | //*[@class='low-relevancy'][contains(text(),'результатов не найдено')]",
     zipcode: '',
   },
   implementation: async function implementation (
