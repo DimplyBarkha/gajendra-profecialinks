@@ -22,36 +22,57 @@ async function implementation (inputs, parameters, context, dependencies) {
       return newDiv;
     }
 
+    function isAChild (parent, child) {
+      if (parent && child) {
+        return child.parentNode === (parent.children)[1];
+      }
+    }
+
     // category = maincategory + 7x subcategory + 49 subsubcategory
 
+    let url;
     const mainCategory = document.querySelectorAll('div[id="menu"]>ul>li');
 
     mainCategory.forEach(nodeCategory => {
-      let category = nodeCategory.querySelector('a');
+      const category = nodeCategory.querySelector('a');
       const newCatDiv = addHiddenDiv('categories', '');
       addHiddenDiv('category', category.textContent, newCatDiv);
       addHiddenDiv('categoryUrl', category.getAttribute('href'), newCatDiv);
 
       // subcategories
-      const subCategories = nodeCategory.querySelectorAll('ul>li:not([class])');
+      const subCategoriesDiv = nodeCategory.querySelectorAll('ul>li:not([class])');
+      const subCategories = [];
+
+      subCategoriesDiv.forEach(cat => {
+        if (isAChild(nodeCategory, cat)) {
+          subCategories.push(cat);
+        }
+      });
 
       subCategories.forEach(subCategory => {
-        category = subCategory.querySelector('a')
         const newSubCatDiv = addHiddenDiv('categories', '');
+        url = subCategory.querySelector('a');
         addHiddenDiv('category', category.textContent, newSubCatDiv);
         addHiddenDiv('category', subCategory.textContent, newSubCatDiv);
-
-        addHiddenDiv('categoryUrl', category.getAttribute('href'), newSubCatDiv);
+        addHiddenDiv('categoryUrl', url.getAttribute('href'), newSubCatDiv);
 
         // subsubcategories
-        const subsubCategories = subCategory.parentElement.querySelectorAll('ul>li:not([class])');
+        const subsubCategoriesDiv = subCategory.querySelectorAll('ul.pl-0>li:not([class])');
+        const subsubCategories = [];
+
+        subsubCategoriesDiv.forEach(subCat => {
+          if (isAChild(subCategory, subCat)) {
+            subsubCategories.push(subCat);
+          }
+        });
+
         subsubCategories.forEach(subsubCategory => {
-          category = subsubCategory.querySelector('a')
           const newSubSubCatDiv = addHiddenDiv('categories', '');
+          url = subsubCategory.querySelector('a');
           addHiddenDiv('category', category.textContent, newSubSubCatDiv);
           addHiddenDiv('category', subCategory.textContent, newSubSubCatDiv);
           addHiddenDiv('category', subsubCategory.textContent, newSubSubCatDiv);
-          addHiddenDiv('categoryUrl', category.getAttribute('href'), newSubSubCatDiv);
+          addHiddenDiv('categoryUrl', url.getAttribute('href'), newSubSubCatDiv);
         });
       });
     });
