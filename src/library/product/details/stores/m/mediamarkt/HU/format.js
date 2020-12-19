@@ -67,6 +67,12 @@ const transform = (data, context) => {
                     if (row.specificationsKeys[i].text == 'Gyártói garancia:') {
                         row.warranty = [{ text: row.specificationsValues[i].text, xpath: row.specificationsValues[i].xpath }];
                     }
+                    if (row.specificationsKeys[i].text == 'Képernyőátló:') {
+                        row.size = [{ text: row.specificationsValues[i].text, xpath: row.specificationsValues[i].xpath }];
+                    }
+                    if (row.specificationsKeys[i].text == 'Energiaosztály:') {
+                        row.energyEfficiency = [{ text: row.specificationsValues[i].text, xpath: row.specificationsValues[i].xpath }];
+                    }
                     spec += row.specificationsKeys[i].text.concat(row.specificationsValues[i].text, ' || ');
                 }
             }

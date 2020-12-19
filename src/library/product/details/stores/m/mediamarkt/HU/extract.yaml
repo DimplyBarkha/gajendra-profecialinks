@@ -6,12 +6,21 @@ fields:
   - name: image
     singleValue: false
     xpath: //img[@itemprop="image"]/@src
+  - name: metaKeywords
+    singleValue: false
+    xpath: //meta[@name="keywords"]/@content
+  - name: gtin
+    singleValue: false
+    xpath: //div[@id="product-long-description"]/div[@class="loadbeeTabContent"]/@data-loadbee-gtin
+  - name: eangtin
+    singleValue: false
+    xpath: //div[@id="product-long-description"]/div[@class="loadbeeTabContent"]/@data-loadbee-gtin
   - name: imageAlt
     singleValue: false
     xpath: //img[@itemprop="image"]/@alt
   - name: alternateImages
     singleValue: false
-    xpath: //aside[@id="product-sidebar"]/div[contains(@class,"thumbnail-carousel")]//li/a/@data-magnifier
+    xpath: (//aside[@id="product-sidebar"]/div[contains(@class,"thumbnail-carousel")]//li/a/@data-magnifier)[position()>1]
   - name: category
     singleValue: false
     xpath: //ul[@class="breadcrumbs"]/li[not(@class)]
@@ -48,6 +57,9 @@ fields:
   - name: sku
     singleValue: false
     xpath: //span[@itemprop="sku"]
+  - name: mpc
+    singleValue: false
+    xpath: //span[@itemprop="sku"]
   - name: variantId
     singleValue: false
     xpath: //span[@itemprop="sku"]
@@ -62,13 +74,13 @@ fields:
     xpath: count(//div[contains(@class,"product-attributes__group")]/div)
   - name: manufacturerDescription
     singleValue: false
-    xpath: //div[@id="inpage_container"]/div[contains(@class,"inpage_selector_info")]
+    xpath: //div[@id="inpage_container"]/div[contains(@class,"inpage_selector_info")] | //div[@id="product-long-description"]
   - name: manufacturerImages
     singleValue: false
-    xpath: //div[@id="inpage_container"]//div[contains(@class,"inpage_selector_gallery")]//div[contains(@class,"flix_navigation")]//li/img/@srcset || //div[@id="product-long-description"]//img/@src
+    xpath: //div[@id="inpage_container"]//div[contains(@class,"inpage_selector_feature")]//img/@srcset | //div[@id="product-long-description"]//img/@src
   - name: videos
     singleValue: false
-    xpath: //div[@id="inpage_container"]//div[contains(@class,"inpage_selector_video")]//iframe/@src
+    xpath: //div[@id="inpage_container"]//div[contains(@class,"inpage_selector_video")]//iframe/@src | //div[@id="hotspot"]//iframe/@src
   - name: name
     singleValue: false
     xpath: //meta[@property="og:title"]/@content
