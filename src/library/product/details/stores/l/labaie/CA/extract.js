@@ -16,6 +16,12 @@ module.exports = {
   ) => {
     const { transform } = parameters;
     const { productDetails } = dependencies;
+    const src = await context.evaluate(() => {
+      const iframe = document.querySelector('#collapsible-details-1 iframe');
+      // @ts-ignore
+      const src = iframe ? iframe.src : null;
+      return src;
+    });
     await context.evaluate(() => {
       if (document.querySelector('#consent-close')) {
         // @ts-ignore
@@ -32,6 +38,15 @@ module.exports = {
       // @ts-ignore
       const src = iframe ? iframe.src : '';
       addHiddenDiv('videos', src);
+      const element = document.querySelectorAll('#collapsible-details-1 li');
+      if (element) {
+        for (let i = 1; i <= element.length; i++) {
+          if (document.querySelector(`#collapsible-details-1 li:nth-child(${i})`) && document.querySelector(`#collapsible-details-1 li:nth-child(${i})`).textContent) {
+            const val = document.querySelector(`#collapsible-details-1 li:nth-child(${i})`).textContent.replace(/(.*)/, '|| $1');
+            document.querySelector(`#collapsible-details-1 li:nth-child(${i})`).textContent = val;
+          }
+        }
+      }
 
       // @ts-ignore
       const response = document.querySelector("script[type='application/ld+json']") ? JSON.parse(document.querySelector("script[type='application/ld+json']").innerText) : null;
@@ -60,6 +75,11 @@ module.exports = {
         });
       }
     });
-    return await context.extract(productDetails, { transform });
+    await context.extract(productDetails, { transform });
+    if (src) {
+      await context.goto(src, { timeout: 40000, waitUntil: 'load', checkBlocked: true });
+      await context.waitForSelector('#videoview');
+      await context.extract(productDetails, { type: 'MERGE_ROWS', transform });
+    }
   },
 };

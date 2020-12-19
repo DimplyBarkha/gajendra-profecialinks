@@ -18,9 +18,47 @@ const transform = (data) => {
   // eslint-disable-next-line no-control-regex
     .replace(/[\x00-\x1F]/g, '')
     .replace(/[\uD800-\uDBFF][\uDC00-\uDFFF]/g, ' ');
-
+  console.log('extracted data', data);
   for (const { group } of data) {
     for (const row of group) {
+      if (!row.nameExtended) {
+        if (row.videos1) {
+          delete row.videos1;
+        }
+        if (row.descriptionBullets) {
+          delete row.descriptionBullets;
+        }
+        if (row.variantCount) {
+          delete row.variantCount;
+        }
+        if (row.secondaryImageTotal) {
+          delete row.secondaryImageTotal;
+        }
+        if (row.availabilityText) {
+          delete row.availabilityText;
+        }
+        if (row.technicalInformationPdfPresent) {
+          delete row.technicalInformationPdfPresent;
+        }
+        if (row.termsAndConditions) {
+          delete row.termsAndConditions;
+        }
+        if (row.privacyPolicy) {
+          delete row.privacyPolicy;
+        }
+        if (row.customerServiceAvailability) {
+          delete row.customerServiceAvailability;
+        }
+        if (row.Image360Present) {
+          delete row.Image360Present;
+        }
+        if (row.imageZoomFeaturePresent) {
+          delete row.imageZoomFeaturePresent;
+        }
+        if (row.videos) {
+          delete row.videos;
+        }
+      }
       if (row.price) {
         row.price.forEach(price => {
           price.text = `${price.text} $`;
@@ -52,7 +90,7 @@ const transform = (data) => {
       if (row.description) {
         let text = '';
         row.description.forEach(item => {
-          text = item.text.replace(/\n/, '').replace(/\n \n/, '').replace(/\n/g, ' || ').trim();
+          text = item.text.replace(/\n \n/, '').trim();
         });
         row.description = [
           {
@@ -90,8 +128,14 @@ const transform = (data) => {
       }
       if (row.variantCount) {
         row.variantCount.forEach(variantCount => {
-          if (variantCount.text === '0') {
-            variantCount.text = '1';
+          if (variantCount.text === '1') {
+            variantCount.text = '0';
+            if (variantCount.value) {
+              variantCount.value = 0;
+            }
+            if (variantCount.raw) {
+              variantCount.raw = '0';
+            }
           }
         });
       }
@@ -139,7 +183,7 @@ const transform = (data) => {
       if (row.additionalDescBulletInfo) {
         let text = '';
         row.additionalDescBulletInfo.forEach(item => {
-          text += `|| ${item.text}`;
+          text += `${item.text}`;
         });
         row.additionalDescBulletInfo = [
           {
