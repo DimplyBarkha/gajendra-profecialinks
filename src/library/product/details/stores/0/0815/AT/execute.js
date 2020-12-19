@@ -55,6 +55,7 @@ async function implementation (
       name.innerText = name.innerText + ' ' + desc;
     }
   });
+  return await context.evaluate((xpath) => !document.evaluate(xpath, document, null, XPathResult.BOOLEAN_TYPE, null).booleanValue, parameters.noResultsXPath);
 }
 module.exports = {
   implements: 'product/details/execute',
@@ -62,8 +63,8 @@ module.exports = {
     country: 'AT',
     store: '0815',
     domain: '0815.at',
-    loadedSelector: "div[class*='product-listing-wrapper']",
-    noResultsXPath: '//h1[not(contains(.,"1 Produ"))]',
+    loadedSelector: "div[class*='custom-rating-overlay']",
+    noResultsXPath: '//h1[contains(.,"1 Produ")]',
     zipcode: '',
   },
   implementation,
