@@ -59,6 +59,11 @@
               item.text = ( item.text.includes('€') ) ? 'EUR' : 'GBP';
             });
           }
+          if (row.ingredientsList) {
+            row.ingredientsList.forEach(item => {
+              item.text = item.text.split(':')[1];
+            });
+          }
           if (row.category) {
             let text = '';
             let element = '';
