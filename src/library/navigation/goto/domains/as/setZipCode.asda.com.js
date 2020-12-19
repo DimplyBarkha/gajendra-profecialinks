@@ -1,10 +1,10 @@
 
 module.exports = {
-  implements: 'navigation/goto',
+  implements: 'navigation/goto/setZipCode',
   parameterValues: {
     country: 'GB',
     domain: 'asda.com',
     store: 'asda',
-    timeout: 50000,
+    zipcode: '',
   },
 };
