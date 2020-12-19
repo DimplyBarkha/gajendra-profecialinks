@@ -27,6 +27,7 @@ fields:
     xpath: //div[@class='pd__cost']/div[contains(@class,'pd__cost__total')]
   - name: availabilityText
     singleValue: true
+    defaultValue: Out of Stock
     description: Availability as described on page for the selected variant. If
       there is no availability but the product can be added to cart, this field
       should be "In Stock"
@@ -41,6 +42,9 @@ fields:
   - name: product_enhanced_content_available
     singleValue: true
     defaultValue: false
+  - name: featureBullets
+    singleValue: false
+    xpath: //div[contains(@class,"itemTypeGroupContainer")]/div[@class="memo"]/p | //div[contains(@class,"longTextItems")]/p
   - name: product_features
     xpath: //div[@class='pd__description']
   - name: category
@@ -67,7 +71,7 @@ fields:
   - name: sku
     singleValue: true
     description: The store-specific product identifier
-    xpath: //p[@class="pd__item-code"]//span[@id="productSKU"]
+    xpath: //div[@class="custom_sku"]
   - name: brandText
     singleValue: true
   - name: manufacturer
@@ -111,3 +115,6 @@ fields:
   - name: legalDisclaimer
     singleValue: true
     xpath: //div[contains(@class,"ln-c-card pd__disclaimer ln-c-card--soft")]//following-sibling::p
+  - name: productUrl
+    singleValue: true
+    xpath: //div[@class="product_custom_url"]

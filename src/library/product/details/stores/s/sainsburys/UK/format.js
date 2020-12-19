@@ -86,16 +86,6 @@ const url1 = require('url');
               item.text = item.text.replace('Countryoforigin:', '');
             });
           }
-          if (row.url) {
-            let skuText = '';
-            row.url.forEach(item => {
-             const parseUrl = url1.parse(item, true);
-              skuText = 'sainsburys_' + parseUrl.query.productId;
-            });
-            row.sku = [ {
-                text: skuText
-            }];
-          }
         }
     }
     return data;
