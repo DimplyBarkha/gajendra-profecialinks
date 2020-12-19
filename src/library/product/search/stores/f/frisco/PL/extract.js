@@ -11,6 +11,26 @@ module.exports = {
     productDetails: 'extraction:product/search/stores/${store[0:1]}/${store}/${country}/extract',
   },
   implementation: async ({ inputString }, { country, store, transform: transformParam }, context, dependencies) => {
+    const applyScroll = async function (context) {
+      //provide scroll time  for loading data
+      await context.evaluate(async function () {
+        let scrollTop = 0;
+        while (scrollTop !== 20000) {
+          scrollTop += 1000;
+          window.scroll(0, scrollTop);
+          await stall(1000);
+        }
+        function stall(ms) {
+          return new Promise((resolve, reject) => {
+            setTimeout(() => {
+              resolve();
+            }, ms);
+          });
+        }
+     });
+    };
+    await applyScroll(context);
+    //get the prodcut code from url
     async function getID() {
       function addHiddenDiv (id, content, index) {
         const newDiv = document.createElement('div');
