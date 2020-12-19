@@ -13,7 +13,7 @@ fields:
     xpath: (//li[@data-carousel="productCarousel"]/img/@alt)[2]
   - name: alternateImages
     singleValue: false
-    xpath: //html//div[@id="img"]
+    xpath: //ul[@class='thumbnail-wrapper']//li//img/@data-large-image
     # regExp: (//johnlewis.*)
     # regExpReplace: https:$1
   - name: ingredientsList
@@ -98,9 +98,7 @@ fields:
     type: NUMBER
   - name: aggregateRating
     singleValue: true
-    xpath: //html//div[@id="star"]
-    defaultValue: 0.0
-    type: NUMBER
+    xpath: (//span[@class='stars-caption']/span)[1]    
   - name: shippingInfo
     singleValue: true
     description: Shipping information for the product
