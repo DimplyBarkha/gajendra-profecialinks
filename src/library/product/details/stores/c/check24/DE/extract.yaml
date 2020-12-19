@@ -35,7 +35,7 @@ fields:
     xpath: //div[@class="discount-details__row"]//span[@class="discount-details__value strikethrough qa-strikethrough-price"]
   - name: description
     singleValue: false
-    xpath: concat(//div[@id="descr"]//div//table, //div[@class="detail-list qa-detail-list"], //div[@class="table-view further"])
+    xpath: //div[@class="table-view further"]//div[contains(@class, "table-box")]
   - name: descriptionBullets
     singleValue: false
     xpath: count(//div[@class="detail-list qa-detail-list"]//span)
@@ -62,7 +62,7 @@ fields:
     xpath: concat(//span[@class="shop-sub qa-text"], //strong[@class="qa-partner shop-sub__partner-name"], //div[@class="offer-list__provider-info qa-check24-info"])
   - name: color
     singleValue: false
-    xpath: //div//*[contains(text(),'Farbe:')]//following::div[1]//span
+    xpath: (//div//*[contains(text(),'Farbe:')]//following::div[1]//span)[1]
   - name: videos
     singleValue: false
     xpath: //div[@class="product-video-content js-youtube"]//iframe//@src
@@ -83,13 +83,15 @@ fields:
     xpath: //div[@class="price-info__info-text qa-points-info"]
   - name: variantInformation
     singleValue: false
-    xpath: //div//*[contains(text(),'Farbe:')]//following::div[1]//span | //div//*[contains(text(),'Größe:')]//following::div[1]//span
+    xpath: (//div//*[contains(text(),'Farbe:')]//following::div[1]//span)[1] | (//div//*[contains(text(),'Größe:')]//following::div[1]//span)[1]
   - name: firstVariant
     singleValue: false
     xpath: //div[@class="pdp-top grid-x"]//div[@class="cell auto grid-y"]//div//@data-id
   - name: variants
     singleValue: false
-    xpath: //div[@class="pdp-top grid-x"]//div[@class="cell auto grid-y"]//div//@data-id
+    xpath: //script[@id="page-data"]
+    regExp: ("productId":(\d+))
+    regExpReplace: $2
   - name: imageZoomFeaturePresent
     singleValue: false
     xpath: //div[@class="product-images grid-x"]//div//span[contains(text(),'Für größere Ansicht Maus übers Bild ziehen')]

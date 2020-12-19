@@ -15,10 +15,10 @@ async function implementation (
   // })
 
   var variantCount = await context.evaluate(async () => {
-    return (document.querySelectorAll('div.variations__container').length) ? document.querySelectorAll('div.variations__container').length : 1;
+    return (document.querySelectorAll('.variations__tiles .variations__container a').length) ? document.querySelectorAll('.variations__tiles .variations__container a').length : 1;
   });
   for (var i = 0; i < variantCount; i++) {
-    await preparePage(i + 1, variantCount, true);
+    await preparePage(i + 1, variantCount);
   // if (i !== variantCount - 1) { return await context.extract(variants, { type: 'APPEND' }); }
   }
   async function preparePage (index, variantCount) {
@@ -35,19 +35,6 @@ async function implementation (
           document.body.appendChild(newDiv);
         }
       }
-      async function infiniteScroll () {
-        let prevScroll = document.documentElement.scrollTop;
-        while (true) {
-          window.scrollBy(0, document.documentElement.clientHeight);
-          await new Promise(resolve => setTimeout(resolve, 1000));
-          const currentScroll = document.documentElement.scrollTop;
-          if (currentScroll === prevScroll) {
-            break;
-          }
-          prevScroll = currentScroll;
-        }
-      }
-      await infiniteScroll();
       function getSingleText (xpath, document) {
         const element = document.evaluate(xpath, document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null);
         if (element && element.singleNodeValue) {
@@ -60,15 +47,15 @@ async function implementation (
       // Adding parent div
       addHiddenDiv(`parent-${index}`, '');
       if (variantCount > 1) {
-        const variantXpath = '(//div[@class="pdp-top grid-x"]//div[@class="cell auto grid-y"]//div//@data-id)[' + index + ']';
-        addHiddenDiv('variant_id_text', getSingleText(variantXpath, document), `parent-${index}`);
+        // const variantXpath = '(//div[@class="pdp-top grid-x"]//div[@class="cell auto grid-y"]//div//@data-id)[' + index + ']';
+        // addHiddenDiv('variant_id_text', getSingleText(variantXpath, document), `parent-${index}`);
         // const skuXpath = '(//div[@class="rt-td"]//@href)[' + index + ']';
         // addHiddenDiv('variant_sku_text', getSingleText(skuXpath, document), `parent-${index}`);
         const variantUrlXpath = '(//link[@rel="canonical"]//@href)[' + index + ']';
         addHiddenDiv('variant_url_text', getSingleText(variantUrlXpath, document), `parent-${index}`);
       } else {
-        const variantXpath = '//div[@class="pdp-top grid-x"]//div[@class="cell auto grid-y"]//div//@data-id';
-        addHiddenDiv('variant_id_text', getSingleText(variantXpath, document), `parent-${index}`);
+        // const variantXpath = '//div[@class="pdp-top grid-x"]//div[@class="cell auto grid-y"]//div//@data-id';
+        // addHiddenDiv('variant_id_text', getSingleText(variantXpath, document), `parent-${index}`);
         // const skuXpath = '//h2[@class="productCodeSku"]//span[@data-e2e="productSku"]';
         // addHiddenDiv('variant_sku_text', getSingleText(skuXpath, document), `parent-${index}`);
         const variantUrlXpath = '//link[@rel="canonical"]//@href';

@@ -6,7 +6,7 @@ module.exports = {
     store: 'check24',
     domain: 'check24.de',
     loadedSelector: null,
-    noResultsXPath: null,
+    noResultsXPath: '//div[@id="error-page"] | //div[@class="fakeresult_headline"]',
     zipcode: '',
   },
 };

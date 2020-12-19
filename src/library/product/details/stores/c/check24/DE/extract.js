@@ -1,5 +1,5 @@
 const { transform } = require('../format');
-async function implementation(
+async function implementation (
   inputs,
   parameters,
   context,
@@ -13,20 +13,20 @@ async function implementation(
   // } catch (e) {
   // console.log('No pop up');
   // }
-  await new Promise((resolve, reject) => setTimeout(resolve, 6000));
+  await new Promise((resolve, reject) => setTimeout(resolve, 3000));
   const applyScroll = async function (context) {
     await context.evaluate(async function () {
       let scrollTop = 0;
-      while (scrollTop !== 20000) {
-        await stall(1000);
+      while (scrollTop !== 12000) {
+        await stall(500);
         scrollTop += 1000;
         window.scroll(0, scrollTop);
-        if (scrollTop === 20000) {
-          await stall(5000);
+        if (scrollTop === 12000) {
+          await stall(500);
           break;
         }
       }
-      function stall(ms) {
+      function stall (ms) {
         return new Promise((resolve, reject) => {
           setTimeout(() => {
             resolve();
@@ -35,15 +35,38 @@ async function implementation(
       }
     });
   };
-  await new Promise(resolve => setTimeout(resolve, 6000));
-  await applyScroll(context);
-  await new Promise(resolve => setTimeout(resolve, 6000));
-  await context.evaluate(async function () {
-    const video = document.querySelector('div.product-video-content.js-youtube');
-    if (video) {
-      video.click();
-    }
+  var variantLength = await context.evaluate(async () => {
+    return (document.querySelectorAll('.variations__tiles .variations__container a')) ? document.querySelectorAll('.variations__tiles .variations__container a').length : 0;
   });
+  if (variantLength > 1) {
+    // await preparePageForCommonElement(0, variantLength);
+    for (let j = 0; j < variantLength; j++) {
+      await context.evaluate(async (j) => {
+        return document.querySelectorAll('.variations__tiles .variations__container a')[j].click();
+      }, j);
+      await new Promise(resolve => setTimeout(resolve, 3000));
+      await applyScroll(context);
+      await new Promise(resolve => setTimeout(resolve, 3000));
+      await context.evaluate(async function () {
+        const video = document.querySelector('div.product-video-content.js-youtube');
+        if (video) {
+          video.click();
+        }
+      });
+      console.log('Inside variants', j);
+      // await preparePage(j, variantLength);
+      if (j !== variantLength - 1) { await context.extract(productDetails, { transform }, { type: 'APPEND' }); }
+    }
+  }
+  // await new Promise(resolve => setTimeout(resolve, 6000));
+  // await applyScroll(context);
+  // await new Promise(resolve => setTimeout(resolve, 6000));
+  // await context.evaluate(async function () {
+  //   const video = document.querySelector('div.product-video-content.js-youtube');
+  //   if (video) {
+  //     video.click();
+  //   }
+  // });
   return await context.extract(productDetails, { transform });
 }
 module.exports = {

@@ -19,16 +19,23 @@ const transform = (data, context) => {
   for (const { group } of data) {
     for (const row of group) {
       if (row.additionalDescBulletInfo) {
+        row.additionalDescBulletInfo[0].text = row.additionalDescBulletInfo[0].text.startsWith(' || ') ? row.additionalDescBulletInfo[0].text : ' || ' + row.additionalDescBulletInfo[0].text;
         const descArray = row.additionalDescBulletInfo.map((item) => {
           return item.text;
         });
-        row.additionalDescBulletInfo = [{ text: descArray.join('||'), xpath: row.additionalDescBulletInfo[0].xpath }];
+        row.additionalDescBulletInfo = [{ text: descArray.join(' || '), xpath: row.additionalDescBulletInfo[0].xpath }];
+      }
+      if (row.variants) {
+        const variantsArray = row.variants.map((item) => {
+          return item.text;
+        });
+        row.variants = [{ text: variantsArray.join('|'), xpath: row.variants[0].xpath }];
       }
       if (row.variantInformation) {
         const variantArray = row.variantInformation.map((item) => {
           return item.text;
         });
-        row.variantInformation = [{ text: variantArray.join('||'), xpath: row.variantInformation[0].xpath }];
+        row.variantInformation = [{ text: variantArray.join('/'), xpath: row.variantInformation[0].xpath }];
       }
       if (row.ratingCount) {
         row.ratingCount.forEach(item => {
@@ -44,43 +51,47 @@ const transform = (data, context) => {
         });
         row.imageZoomFeaturePresent = [{ text: newText }];
       }
+      // if (row.description) {
+      //   let text = '';
+      //   row.description.forEach(item => {
+      //     text += item.text.replace(/\n \n \n/g, '').replace(/\n/g, '||');
+      //   });
+      //   row.description = [
+      //     {
+      //       text: text.replace('|| || ||', ''),
+      //       xpath: row.description[0].xpath,
+      //     },
+      //   ];
+      // }
       if (row.description) {
-        let text = '';
-        row.description.forEach(item => {
-            text += item.text.replace(/\n/g, '||');
+        const descriptionArr = row.description.map((item) => {
+          return typeof (item.text) === 'string' ? item.text.replace(/\n/g, '') : '';
         });
-        row.description = [
-          {
-            text: text,
-          },
-        ];
+        row.description = [{ text: descriptionArr.join(' | '), xpath: row.description[0].xpath }];
       }
       if (row.shippingInfo) {
-        let text = '';
+        const text = '';
         row.shippingInfo.forEach(item => {
           item.text = item.text.replace('\n    ', '');
         });
       }
       if (row.productOtherInformation) {
-        let rawText = row.productOtherInformation;
-        let arrayText = rawText[0].text.split('\n \n');
+        const rawText = row.productOtherInformation;
+        const arrayText = rawText[0].text.split('\n \n');
         let formattedStr = '';
         // console.log(rawText[0].text);
         for (let i = 0; i < arrayText.length; i++) {
           // console.log(arrayText[i]);
-          if (i % 2 == 0) {
+          if (i % 2 === 0) {
             if (i < (arrayText.length - 1)) {
               formattedStr += arrayText[i] + '|';
-            }
-            else {
+            } else {
               formattedStr += arrayText[i];
             }
-          }
-          else {
+          } else {
             if (arrayText.length - 1 != i) {
               formattedStr += arrayText[i] + '';
-            }
-            else {
+            } else {
               formattedStr += arrayText[i];
             }
           }
