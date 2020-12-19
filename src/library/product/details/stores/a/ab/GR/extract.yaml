@@ -55,7 +55,7 @@ fields:
     regExpReplace: $1
   - name: descriptionBullets
     description: Number of ul > li tags in the description
-    xpath: translate(count(//div[contains(@class,'ShowMoreLess')]//p[contains(text(),'•')]/br), "0", "")
+    xpath: //div[@id='descriptionBulletCount']/text()
   - name: brandText
     description: Product brand shown - this may actually NOT be just a brand name,
       e.g. "Visit the Gillette Store"
