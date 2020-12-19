@@ -64,7 +64,12 @@ module.exports = {
         await new Promise(resolve => setTimeout(resolve, 1000));
       }
     });
-
+    try {
+      await context.click('[data-template="ProductMoreInformationTab"]');
+      await context.click('data-template="ProductSpecificationTab"');
+    } catch (err) {
+      console.log('Error while clicking more');
+    }
     const { transform } = parameters;
     const { productDetails } = dependencies;
     await context.extract(productDetails, { transform });

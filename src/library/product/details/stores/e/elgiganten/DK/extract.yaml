@@ -137,8 +137,10 @@ fields:
   - name: inTheBoxUrl
     singleValue: false
   - name: inTheBoxText
+    xpath: //text()[preceding-sibling::strong[1][contains(text(),"Inkluderet i pakken:")]]
     singleValue: false
-    xpath: //*[contains(text(), "Inkluderet i pakken:")]/following-sibling::text()[contains(., '-')]
+    regExp: ^[^\w]+(.+)
+    regExpReplace: $1
     description: Must include text to show the accessories/tools which come with the product
   - name: hasComparisonTable
     
