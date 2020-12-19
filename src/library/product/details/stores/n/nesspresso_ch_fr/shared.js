@@ -178,11 +178,11 @@ const transform = (data) => {
       if (row.additionalDescBulletInfo) {
         let text = '';
         row.additionalDescBulletInfo.forEach(item => {
-          text += `${item.text.replace(/\n \n/g, ':')} || `;
+          text += `|| ${item.text.replace(/\n \n/g, ':')} `;
         });
         row.additionalDescBulletInfo = [
           {
-            text: text.slice(0, -3),
+            text: text.slice(0, -1),
           },
         ];
       }

@@ -169,7 +169,7 @@ const transform = (data) => {
       if (row.additionalDescBulletInfo) {
         let text = '';
         row.additionalDescBulletInfo.forEach(item => {
-          text += `${item.text.replace(/\n \n/g, ':')} || `;
+          text += `|| ${item.text.replace(/\n \n/g, ':')} `;
         });
         row.additionalDescBulletInfo = [
           {
