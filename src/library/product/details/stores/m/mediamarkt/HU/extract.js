@@ -10,9 +10,10 @@ async function implementation (
   const { productDetails } = dependencies;
 
   await context.evaluate(async function () {
-    // @ts-ignore
+    
     let featButton = document.querySelector('div.features-wrapper a');
     if (featButton) {
+      // @ts-ignore
       featButton.click();
     }
     let featValues = document.querySelectorAll('#features dd + dd');

@@ -8,7 +8,7 @@ module.exports = {
     nextLinkXpath: "(//li[@class='pagination-next']//a[@rel='next'])[1]",
     mutationSelector: null,
     spinnerSelector: null,
-    loadedSelector: 'ul[data-gtm-prop-list-name="Search result list"]',
+    loadedSelector: 'ul[data-gtm-prop-list-name="Search result list"], #product-wrapper',
     loadedXpath: null,
     noResultsXPath: '//div[@id="nincstalalat"]',
     stopConditionSelectorOrXpath: null,

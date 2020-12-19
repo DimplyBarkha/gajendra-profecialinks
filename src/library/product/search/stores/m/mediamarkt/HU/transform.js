@@ -15,7 +15,7 @@ const transform = (data, context) => {
         row.name = [{ text: jsonData.name, xpath: row.brandText[0].xpath }];
         row.price = [{ text: jsonData.price, xpath: row.brandText[0].xpath }];
         row.id = [{ text: jsonData.id, xpath: row.brandText[0].xpath }];
-        row.upc = [{ text: jsonData.ean, xpath: row.brandText[0].xpath }];
+        row.gtin = [{ text: jsonData.ean, xpath: row.brandText[0].xpath }];
       }
 
       if (row.aggregateRating2) {

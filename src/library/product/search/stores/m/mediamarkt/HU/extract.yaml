@@ -1,25 +1,37 @@
 singleRecord: false
 regionsSelector: null
-recordXPath: //ul[@data-gtm-prop-list-name="Search result list"]/li
+recordXPath: (//ul[@data-gtm-prop-list-name="Search result list"]/li) | (//div[@id="product-wrapper"])
 fields:
   - name: thumbnail
     singleValue: false
-    xpath: //aside[@class='product-photo']//img[@class="loaded"]/@src
+    xpath: //aside[@class='product-photo']//img[@class="loaded"]/@src | //img[@itemprop="image"]/@src
   - name: brandText
     singleValue: false
     xpath: ./script
+  - name: id
+    singleValue: false
+    xpath: //span[@itemprop="sku"]
+  - name: name
+    singleValue: false
+    xpath: //*[@itemprop="name"]
+  - name: price
+    singleValue: false
+    xpath: //meta[@itemprop="price"]/@content
+  - name: gtin
+    singleValue: false
+    xpath: //div[@id="product-long-description"]/div[@class="loadbeeTabContent"]/@data-loadbee-gtin
   - name: aggregateRating2
     singleValue: false
-    xpath: //div[contains(@class,"rating")]/div/@class
+    xpath: //div[contains(@class,"rating")]/div/@class | //*[@itemprop="aggregateRating"]//meta[@itemprop="ratingValue"]/@content
   - name: reviewCount
     singleValue: false
-    xpath: //a[@class="clickable see-reviews"]
+    xpath: //a[@class="clickable see-reviews"] | //*[@itemprop="aggregateRating"]//meta[@itemprop="reviewCount"]/@content
   - name: ratingCount
     singleValue: false
-    xpath: //a[@class="clickable see-reviews"]
+    xpath: //a[@class="clickable see-reviews"] | //*[@itemprop="aggregateRating"]//meta[@itemprop="reviewCount"]/@content
   - name: productUrl
     singleValue: false
-    xpath: //a[@class="photo clickable"]/@href
+    xpath: //a[@class="photo clickable"]/@href | //div[@class="details"]//a[@itemprop="url"]/@href
   - name: searchUrl
     singleValue: false
-    xpath: //div[@id="page_url"]
+    xpath: //div[@id="page_url"] | //div[@class="details"]//a[@itemprop="url"]/@href
