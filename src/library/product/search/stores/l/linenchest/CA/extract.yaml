@@ -1,0 +1,30 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: //div[@id="algolia-right-container"]//ol[@class="ais-Hits-list"]//li[@class="ais-Hits-item"]
+fields:
+  - name: name
+    singleValue: false
+    xpath: //div[@class="result-sub-content"]//h3[@class="result-title"]
+  - name: id
+    singleValue: false
+    xpath: //ol[@class="ais-Hits-list"]//li[@class="ais-Hits-item"]//a//@data-product-code
+  - name: thumbnail
+    singleValue: false
+    xpath: //div[@class="hit-list-left"]//div[@class="result-thumbnail js-result-thumbnail"]//img//@src
+    regExp: (.+)
+    regExpReplace: https:$1
+  - name: price
+    singleValue: false
+    xpath: //div[@class="result-content grid"]//div[@class="result-sub-content"]//div[@class="price-wrapper"]//span[@itemprop="lowPrice"]
+  - name: productUrl
+    singleValue: false
+    xpath: //ol[@class="ais-Hits-list"]//li[@class="ais-Hits-item"]//a//@href
+  - name: manufacturer
+    singleValue: false
+    xpath: //div[@class="hit-list-right"]//div[@class="result-manufacturer"]
+  - name: aggregateRating2
+    singleValue: false
+    xpath: //div[@class="result-content grid"]//div[@class="lc-product-reviews-summary short"]
+    regExp: (.+\d)
+    regExpReplace: $1
