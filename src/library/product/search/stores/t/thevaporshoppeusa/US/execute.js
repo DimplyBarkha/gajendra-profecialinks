@@ -5,7 +5,8 @@ module.exports = {
     country: 'US',
     store: 'thevaporshoppeusa',
     domain: 'thevaporshoppeusa.com',
-    url: 'https://thevaporshoppeusa.com/collections/{searchTerms}',
+    // url: 'https://thevaporshoppeusa.com/collections/{searchTerms}', changed back, no collection for Vuse
+    url: 'https://thevaporshoppeusa.com/search?type=all&q={searchTerms}',
     loadedSelector: 'div.product-listing',
     noResultsXPath: '//img[@alt="Empty Search"]',
     zipcode: "''",

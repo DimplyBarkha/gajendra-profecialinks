@@ -79,7 +79,7 @@ module.exports = {
     }
 
     // try gettings some search results
-    const pageOne = await extract({});
+    const pageOne = await extract(inputs);
 
     let collected = length(pageOne);
 
@@ -90,7 +90,7 @@ module.exports = {
 
     let page = 2;
     while (collected < results && await paginate({ keywords: inputKeywords, page, offset: collected })) {
-      const data = await extract({});
+      const data = await extract(inputs);
       const count = length(data);
       if (count === 0) break; // no results
       collected += count;

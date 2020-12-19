@@ -1,33 +1,36 @@
-const transform = (data) => {
-  const cleanUp = (data, context) => {
-    const clean = text => text.toString()
-      .replace(/\r\n|\r|\n/g, ' ')
-      .replace(/&amp;nbsp;/g, ' ')
-      .replace(/&amp;#160/g, ' ')
-      .replace(/\u00A0/g, ' ')
-      .replace(/\s{2,}/g, ' ')
-      .replace(/"\s{1,}/g, '"')
-      .replace(/\s{1,}"/g, '"')
-      .replace(/^ +| +$|( )+/g, ' ')
-      // eslint-disable-next-line no-control-regex
-      .replace(/[\x00-\x1F]/g, '')
-      .replace(/[\uD800-\uDBFF][\uDC00-\uDFFF]/g, ' ');
-    data.forEach(obj => obj.group.forEach(row => Object.keys(row).forEach(header => row[header].forEach(el => {
-      el.text = clean(el.text);
-    }))));
-    return data;
-  };
-  for (const { group } of data) {
-    for (const row of group) {
-      if (row.productUrl) {
-        row.productUrl.forEach(item => {
-          item.text = 'https://thevaporshoppeusa.com' + item.text;
-        });
-      }
+const { transform } = require('../../../../shared');
+
+async function implementation(
+  inputs,
+  parameters,
+  context,
+  dependencies,
+) {
+  const { Brands } = inputs;
+  const { transform } = parameters;
+  const { productDetails } = dependencies;
+
+  await context.evaluate((Brands) => {
+    function addHiddenDiv(id, content) {
+      const newDiv = document.createElement('div');
+      newDiv.id = id;
+      newDiv.textContent = content;
+      newDiv.style.display = 'none';
+      document.body.appendChild(newDiv);
     }
-  }
-  return cleanUp(data);
-};
+
+    const productUrls = document.querySelectorAll('div.product_inside h2.title a');
+    productUrls.forEach(urlNode => {
+      const link = urlNode.getAttribute('href');
+      if (urlNode.textContent.toLowerCase().includes(Brands.toLowerCase())) {
+        addHiddenDiv('my-urls', link);
+      }
+    });
+  },Brands);
+
+  return await context.extract(productDetails, { transform });
+}
+
 
 module.exports = {
   implements: 'product/search/extract',
@@ -38,4 +41,5 @@ module.exports = {
     domain: 'thevaporshoppeusa.com',
     zipcode: "''",
   },
+  implementation,
 };
