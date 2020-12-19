@@ -1,4 +1,4 @@
-const { transform } = require('../transform');
+const { transform } = require('./transform');
 
 module.exports = {
   implements: 'product/details/extract',
@@ -37,7 +37,9 @@ module.exports = {
         console.log('No videos loading.');
       }
     }
-
+    await context.evaluate(() => {
+      Array.from(document.querySelectorAll('#product_description div.value > ul > li')).forEach(elm => { elm.textContent = '|| ' + elm.textContent; });
+    });
     return await context.extract(productDetails, { transform: transformParam });
   },
 };
