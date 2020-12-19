@@ -7,9 +7,12 @@ module.exports = {
     nextLinkSelector: null,
     mutationSelector: null,
     spinnerSelector: null,
-    loadedSelector: null,
-    noResultsXPath: null,
-    openSearchDefinition: null,
+
+    loadedSelector: 'div.nested_grid_content',
+    noResultsXPath: '//p[@class="NullPage__tryAgainMessage"]',
+    openSearchDefinition: {
+      template: 'https://www.staplesadvantage.com/search?pn={page}&term={searchTerms}',
+    },
     domain: 'staplesadvantage.com',
     zipcode: '10101',
   },
