@@ -13,7 +13,8 @@ async function implementation (
         newDiv.className = elementID;
         newDiv.textContent = content;
         newDiv.style.display = 'none';
-        document.body.appendChild(newDiv);
+        const element = document.querySelector('div.ln-c-card.ln-c-card--soft')
+        element.appendChild(newDiv);
 		}
     var url = window.location.href;
     var query = url.split('/');
