@@ -3,30 +3,8 @@ regionsSelector: null
 recordSelector: ul.productGroup li.item
 recordXPath: //ul[contains(@class,'productGroup')]//li[contains(@class,'item')]
 fields:
-- name: productUrl
-  singleValue: false
-  xpath: //a[@class='show-product-image']/@href
-- name: thumbnail
-  singleValue: false
-  xpath: //ul[contains(@class,'productGroup')]//li[contains(@class,'item')]//img/@src
-- name: name
-  singleValue: false
-  xpath: //span[@class='name ng-star-inserted']
-- name: price
-  singleValue: false
-  xpath: //span[@class='offers']//span[contains(@id,'current-price')]
-- name: listPrice
-  singleValue: false
-  xpath: //span[contains(@id,'original-price')]
-- name: manufacturer
-  singleValue: false
-- name: productType
-  singleValue: false
-- name: id
-  singleValue: false
-  xpath: //a[@class='show-product-image']/@href
-- name: nameExtended
-  singleValue: false
-  xpath: //span[@class='name ng-star-inserted']
-
-
+  - name: productUrl
+    singleValue: false
+    xpath: //a[@class='show-product-image']/@href
+    regExp: (.*)
+    regExpReplace: https://shop.migros.ch$1

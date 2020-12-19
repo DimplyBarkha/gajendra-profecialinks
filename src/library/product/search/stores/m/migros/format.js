@@ -35,7 +35,7 @@ const transform = (data, context) => {
 
       if (row.productUrl) {
         row.productUrl.forEach(item => {
-          item.text = 'https://shop.migros.ch' + item.text
+          item.text = 'https://shop.migros.ch' + item.text;
         });
       }
       if (row.id) {
@@ -43,7 +43,6 @@ const transform = (data, context) => {
           item.text = item.text.replace('/en/direct/product/', ' ').trim();
         });
       }
-
     }
   }
   context.setState({ rankCounter });

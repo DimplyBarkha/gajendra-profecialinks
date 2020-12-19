@@ -1,4 +1,4 @@
-const {transform} = require('../format');
+const { transform } = require('../format');
 async function implementation (
   inputs,
   parameters,
@@ -6,33 +6,32 @@ async function implementation (
   dependencies,
 ) {
   const { productDetails } = dependencies;
-   await context.evaluate(async () => {
-    let scrolltop = document.getElementById("main").scrollTop;
+  await context.evaluate(async () => {
+    let scrolltop = document.getElementById('main').scrollTop;
 
-    while(!!document.querySelector('div.btn-view-more-products > button')){
+    while (document.querySelector('div.btn-view-more-products > button')) {
       document.querySelector('div.btn-view-more-products > button').click();
-      await new Promise(r => setTimeout(r, 1000));
+      await new Promise((resolve) => setTimeout(resolve, 1000));
     }
 
-    document.getElementById("main").scrollBy({ top: 1000, left: 0, behavior: 'smooth'});
-    await new Promise(r => setTimeout(r, 1000));
+    document.getElementById('main').scrollBy({ top: 1000, left: 0, behavior: 'smooth' });
+    await new Promise((resolve) => setTimeout(resolve, 1000));
 
-    let thmcount = document.querySelectorAll('ul.productGroup li.item img[src]').length;
-    let itemcount = document.querySelectorAll('ul.productGroup li.item').length;
+    const thmcount = document.querySelectorAll('ul.productGroup li.item img[src]').length;
+    const itemcount = document.querySelectorAll('ul.productGroup li.item').length;
 
-    while(itemcount!=thmcount){
-      let newscrolltop = document.getElementById("main").scrollTop;
-      document.getElementById("main").scrollBy({ top: newscrolltop-scrolltop, left: 0, behavior: 'smooth'});
+    while (itemcount != thmcount) {
+      const newscrolltop = document.getElementById('main').scrollTop;
+      document.getElementById('main').scrollBy({ top: newscrolltop - scrolltop, left: 0, behavior: 'smooth' });
       scrolltop = newscrolltop;
       await new Promise(r => setTimeout(r, 500));
-      let newthmcount = document.querySelectorAll('ul.productGroup li.item img[src]').length;
-      let newitemcount = document.querySelectorAll('ul.productGroup li.item').length;
-      if(newthmcount==newitemcount){
+      const newthmcount = document.querySelectorAll('ul.productGroup li.item img[src]').length;
+      const newitemcount = document.querySelectorAll('ul.productGroup li.item').length;
+      if (newthmcount == newitemcount) {
         break;
       }
     }
-
-  })
+  });
   return await context.extract(productDetails, { transform });
 }
 
@@ -40,9 +39,9 @@ module.exports = {
   implements: 'product/search/extract',
   parameterValues: {
     store: 'migros',
-    transform ,
+    transform: null,
     domain: 'migros.ch',
     zipcode: '',
-},
-  implementation,
+  },
+  // implementation,
 };
