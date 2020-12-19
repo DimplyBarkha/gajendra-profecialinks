@@ -87,7 +87,8 @@ module.exports = {
       } catch (err) {}
     }
 
-    await context.goto(prodUrl, { timeout: 30000, waitUntil: 'load', checkBlocked: true });
+    // checking if page already navigated to src/iframe url, if not no need to reload/naviagate
+    if (src) await context.goto(prodUrl, { timeout: 30000, waitUntil: 'load', checkBlocked: true });
     await context.evaluate(async function (enhancedContent, aplusImages, videos) {
       function addElementToDocument (key, value) {
         const catElement = document.createElement('div');
