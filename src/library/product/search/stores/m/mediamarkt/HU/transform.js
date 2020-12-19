@@ -31,7 +31,7 @@ const transform = (data, context) => {
       }
 
       if (row.productUrl) {
-        row.productUrl[0].text = 'https://www.mediamarkt.hu/' + row.productUrl[0].text;
+        row.productUrl[0].text = 'https://www.mediamarkt.hu' + row.productUrl[0].text;
       }
 
       if (row.price) {
