@@ -9,8 +9,11 @@ module.exports = {
     domain: 'breuninger.de',
     zipcode: '',
   },
-
-  implementation: async ({ inputString }, { country, domain, transform }, context, { productDetails }) => {
+  dependencies: {
+    productDetails: 'extraction:product/details/stores/${store[0:1]}/${store}/${country}/extract',
+    goto: 'action:navigation/goto',
+  },
+  implementation: async ({ inputString }, { country, domain, transform }, context, { goto, productDetails }) => {
     // checking if popup exists and if so, closing it
     var acceptButtonPresent = await context.evaluate(async function () {
       if (document.querySelector('button[id="uc-btn-accept-banner"]')) { return document.querySelector('button[id="uc-btn-accept-banner"]'); }
@@ -156,7 +159,7 @@ module.exports = {
       }
       return { specifications: specifications, weightNet: weightNet };
     });
-    await context.goto(`${myUrl}#[!opt!]{"block_ads":false, "force200": true}[/!opt!]`, { timeout: 60000, waitUntil: 'load', checkBlocked: false, force200: true });
+    await goto(myUrl);
     await context.waitForNavigation();
     await new Promise((resolve, reject) => setTimeout(resolve, 2000));
     // checking if popup exists and if so, closing it
