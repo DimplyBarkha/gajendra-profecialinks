@@ -41,6 +41,9 @@ const transform = (data) => {
         row.inTheBoxUrl = images.map(text => ({ text }));
       }
 
+      if (row.inTheBoxText && row.inTheBoxText[0]) {
+        row.inTheBoxText.forEach(item => { item = item.text.replace("-","")});       
+      }
       if (row.coupon) {
         let text = '';
         row.coupon.forEach(item => {
