@@ -56,7 +56,6 @@ async function implementation (
   await getPageURL(context);
   return await context.extract(productDetails, { transform });
 }
-
 module.exports = {
   implements: 'product/search/extract',
   parameterValues: {
@@ -64,7 +63,7 @@ module.exports = {
     store: 'mediamarkt',
     transform,
     domain: 'mediamarkt.hu',
-    zipcode: "''",
+    zipcode: '',
   },
   implementation,
 };
