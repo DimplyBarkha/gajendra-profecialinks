@@ -11,7 +11,7 @@ module.exports = {
     spinnerSelector: null,
     loadedSelector: '.PLP_plp__3vv2c',
     loadedXpath: null,
-    noResultsXPath: null,
+    noResultsXPath: '//h1[contains(text(),"Sorry, we couldn\'t find any results")]',
     stopConditionSelectorOrXpath: null,
     resultsDivSelector: null,
     // openSearchDefinition: {
