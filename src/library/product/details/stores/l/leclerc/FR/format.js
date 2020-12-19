@@ -37,6 +37,18 @@
           //     item.text = item.text.replace('€', '');
           //   });
           // }
+
+          if (row.url) {
+            let skuText = '';
+            row.url.forEach(item => {
+             const parseUrl = item.text.split('/');
+              skuText = 'leclercdrive_' + parseUrl.replace(/\D/g,'');
+            });
+            row.sku = [ {
+                text: skuText
+            }];
+          }
+
           if (row.availabilityText) {
             row.availabilityText.forEach(item => {
               item.text = ('Ajouter Produit' === item.text ) ? 'In stock' : 'Out of stock';
