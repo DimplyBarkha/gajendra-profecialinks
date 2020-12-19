@@ -24,12 +24,18 @@ const transform = (data) => {
     };
     for (const { group } of data) {
       for (let row of group) {
-        if (row.aggregateRating) {
-          row.aggregateRating.forEach(item => {
+        if (row.aggregateRating2) {
+          row.aggregateRating2.forEach(item => {
             item.text = item.text.replace(/\s*/g, '');
             item.text = Number(item.text);
           });
         }
+        if (row.reviewRating) {
+            row.reviewRating.forEach(item => {
+              item.text = item.text.replace(/\s*/g, '');
+              item.text = Number(item.text);
+            });
+          }
         if (row.ratingCount) {
           row.ratingCount.forEach(item => {
             item.text = item.text.replace('(', '');

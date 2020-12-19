@@ -12,3 +12,37 @@ fields:
   - name: gtin
     singleValue: false
     xpath: //div[contains(@class,"product-properties-container")]//li//span[text()="GTIN"]/parent::*/span[2]
+  - name: aggregateRating2
+    singleValue: false
+    xpath: //div[(contains(@class,'product-meta-container grid-x'))]//div[@data-bv-show="rating_summary"]//div[(contains(@class,'bv_avgRating_component_container notranslate'))]
+  - name: reviewRating
+    type: NUMBER
+    singleValue: false
+    xpath: //div[(contains(@class,'product-meta-container grid-x'))]//div[@data-bv-show="rating_summary"]//div[(contains(@class,'bv_avgRating_component_container notranslate'))]
+  - name: ratingCount
+    singleValue: false
+    xpath: //div[(contains(@class,'product-meta-container grid-x'))]//div[@data-bv-show="rating_summary"]//div[@class="bv_numReviews_text"]
+  - name: productUrl
+    singleValue: false
+    xpath: //meta[@property="og:url"]/@content
+  - name: name
+    singleValue: false 
+    xpath: //div[(contains(@class,'product-meta-container grid-x'))]//h1
+  - name: reviewedSku
+    singleValue: false 
+    xpath: //div[contains(@class,"product-properties-container")]//li//span[text()="Product ID"]/parent::*/span[2]
+  - name: brandText
+    singleValue: false  
+    xpath: //div[(contains(@class,'product-meta-container grid-x'))]//div[@class="product-brand"]
+  - name: reviewUrl
+    singleValue: false
+    xpath: //meta[@property="og:url"]/@content
+  - name: commentCount
+    singleValue: false
+    xpath: count(//div[(contains(@class,'bv-content-summary'))]//div[(contains(@class,'bv-content-summary-body-text'))]//p)
+  - name: reviewText
+    singleValue: false
+    xpath: //*[@id="BVRRContainer"]//li[1]/div/div[1]/div/div[2]/div/div
+  - name: reviewTitle
+    singleValue: false
+    xpath: //*[@id="BVRRContainer"]//li[1]/div/div[1]/div/div[2]/div/div
