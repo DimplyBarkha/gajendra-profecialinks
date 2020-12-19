@@ -527,7 +527,7 @@ fields:
     defaultValue: No
   - name: inTheBoxText
     singleValue: false
-    xpath: //div[@class="keyfacts"]//li[contains(.,'nkl')]
+    xpath: //td[contains(text(),"Lieferumfang")]/following-sibling::td//p
   - name: unInterruptedPDP
     singleValue: false
     xpath: //div[contains(@class,'boxContentWrapper')]//div[@class="slick-track"]/div[contains(@class,'slick-slide')]//div[@class="productItemWrapper"]//div[@class="productTitle"]
