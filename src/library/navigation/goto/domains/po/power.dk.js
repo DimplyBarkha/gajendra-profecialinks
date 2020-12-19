@@ -16,5 +16,8 @@ module.exports = {
     if (zipcode) {
       await dependencies.setZipCode({ url: url, zipcode: zipcode, storeId });
     }
+    if (await context.evaluate(() => !!document.querySelector('button[aria-label="Accepter alle"]'))) {
+      await context.click('button[aria-label="Accepter alle"]');
+    }
   },
 };
