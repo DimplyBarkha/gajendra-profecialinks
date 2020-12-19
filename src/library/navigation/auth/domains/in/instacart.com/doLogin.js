@@ -14,14 +14,19 @@ async function implementation(
     }
     if (passwordSelector) {
       await context.setInputValue(passwordSelector, password);
-
     }
   }
   await context.click('button[type="submit"]');
+        
   await context.waitForNavigation({ timeout: 50000, waitUntil: 'load' });
   await context.evaluate(function () {
     document.forms[0].submit();
   });
+  if (loggedInSelector) {
+    await context.waitForFunction(function (sel) {
+      return Boolean(document.querySelector(sel));
+    }, { timeout: 10000 }, loggedInSelector);
+  }
   await context.waitForNavigation({ timeout: 100000, waitUntil: 'load' });
 }
 module.exports = {
@@ -31,7 +36,7 @@ module.exports = {
     usernameSelector: '#nextgen-authenticate\\.all\\.log_in_email',
     passwordSelector: '#nextgen-authenticate\\.all\\.log_in_password',
     buttonSelector: '.rmq-a5d52242 div:nth-child(6) button',
-    loggedInSelector: 'body.store-brand-instacart store-home',
+    loggedInSelector: '#store',
     country: 'US',
     store: 'instacart_publix',
     zipcode: '32821',

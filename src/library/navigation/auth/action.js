@@ -20,7 +20,7 @@ async function implementation (
   await dependencies.postLogin(credentials);
 
   console.log('Logged in!');
-}
+  }
 
 module.exports = {
   parameters: [
