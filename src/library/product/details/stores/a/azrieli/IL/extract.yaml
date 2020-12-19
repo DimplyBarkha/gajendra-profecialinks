@@ -6,71 +6,71 @@ fields:
   - name: image
     singleValue: true
     description: URL of the main product image
-    xpath: //div[@id='added_image']
+    xpath: //meta[@property='og:image']/@content
   - name: imageAlt
     singleValue: true
     description: Alt text of the main product image
-    xpath: //div[@class='ms-container']//div[@class='ms-slide-bgcont']//img/@alt
+    xpath: //img[@name='mainImage']//@alt
   - name: alternateImages
     singleValue: false
     description: Other product images (not in manufacturer description)
-    xpath: //div[@id='added_alternateImages']
+    xpath: //div[@id='added_alternateImages']//text()
   - name: metaKeywords
     singleValue: true
     description: The <meta> keywords content
-    xpath: //meta[@name='keywords']/@content
+    xpath: //meta[@name="keywords"]/@content
   - name: category
     singleValue: false
     description: The categories (e.g. from breadcrumbs)
-    xpath: //ol[@class='breadcrumb container']/li[position()>1]/a/text()
   - name: nameExtended
     singleValue: true
     description: The product name, prefixing "${brand} - " if not included in "name"
       and appending " - ${variantType}" if necessary (fixed per feed)
-    xpath: //div[contains(@class,'prodDesc')]//h1/text()
+    xpath: //h2[@class='deal-title']/text()
   - name: listPrice
     singleValue: true
     description: The stated undiscounted price for the product
-    xpath: //h2[@class='price']//div[@class='old-price']/text()
+    xpath: //div[@id='added_listPrice']
   - name: price
     singleValue: true
     description: The offered price for the selected product variant - if a user
-      clicks add to basket this is the price they would be charged
-    xpath: (//h2[contains(@class,'price')]/span/following-sibling::text())[1] | (//h2[contains(@class,'price')]/text())[1]
-    regExp: (\d+(,)?(\d+)?)
-    regExpReplace: $1
+      clicks add to basket this is the price they would be charged 
+    xpath: //div[@id='added_price']
   - name: availabilityText
     singleValue: true
     description: Availability as described on page for the selected variant. If
       there is no availability but the product can be added to cart, this field
       should be "In Stock"
-    xpath: //script[@type='application/ld+json']/text()
-    regExp: (InStock)
+    xpath: //div[@class='br-all blue-button']/div[contains(text(),'הוספה לסל')]/text()
+    regExp: (.+)
+    regExpReplace: In Stock
     defaultValue: Out of Stock
   - name: description
     singleValue: false
     description: Product description supplied by website - may be concatenanted from
       multiple places; specifically not the manufacturer description
-    xpath: //div[@id='added_description']
+    xpath: //div[@class="offer-left"]//div[@style="float:right"]//text()
   - name: descriptionBullets
     singleValue: true
+    xpath: count(//div[@class="finePrint"]//ul//li)
     description: Number of ul > li tags in the description
     type: NUMBER
   - name: brandText
     singleValue: true
     description: Product brand shown - this may actually NOT be just a brand name,
       e.g. "Visit the Gillette Store"
-    xpath: //script[@type='application/ld+json']/text()
-    regExp: \"brand\":\"(Dyson)\"
+    xpath: (//div[@class="AttributeValueContainer"]//a[contains(@href, "Brand")]//@href)[1]
+    regExp: Brand/(.*)
     regExpReplace: $1
+    # regExp: (Dyson)
   - name: manufacturer
     singleValue: true
     description: Product manufacturer
-    xpath: 
   - name: quantity
     singleValue: true
     description: Quantity as described on the page
-    # xpath: //input[@id='quantity']/@value
+    regExp: (?:\s?([\d\.]+\s?)([bB]ar[s]?|[cC]ount|[cC]t|[fF][lL][\.]?\s?[oO][zZ][\.]?|FO|[mM][lL]|[oO][zZ][\.]?|pc|[pP]int|[pP]ops|qt|[wW]ipe[s]?).?)$|(?:\s?([\d\.]+\s?)([bB]ar[s]?|[cC]ount|[cC]|[fF][lL][\.]?\s?[oO][zZ][\.]?|FO|[mM][lL]|[oO][zZ][\.]?|pc|[pP]int|[pP]ops|qt|[wW]ipe[s]?).?\s?[\&\-\w\s]+)$
+    regExpReplace: $1$2$3$4
   - name: weightNet
     singleValue: true
     description: Net weight as described on the page
@@ -108,8 +108,6 @@ fields:
   - name: ratingCount
     singleValue: true
     description: The number of ratings
-    xpath: //span//strong[contains(text(),'צפו בחוות דעת לקוחות')]/text()
-    regExp: (\d+)
     type: NUMBER
   - name: aggregateRatingText
     singleValue: true
@@ -117,10 +115,10 @@ fields:
   - name: aggregateRating
     singleValue: true
     description: The stated aggregate rating normalized to be out of 5
-    xpath: //div[@data-rating]/@data-rating
     type: NUMBER
   - name: shippingInfo
     singleValue: true
+    xpath: //div[@id="offer-bg"]//div[contains(@style,"margin-top")]//strong//text()
     description: Shipping information for the product
   - name: shippingDimensions
     singleValue: true
@@ -132,9 +130,11 @@ fields:
     singleValue: true
     description: Number of variants listed
     xpath: //div[@id='added_variantCount']
+    defaultValue: 0
     type: NUMBER
   - name: color
     singleValue: true
+    xpath: //p//text()[preceding-sibling::br and contains(.,'צבע')]
     description: A textual description of the colour
   - name: colorCode
     singleValue: true
@@ -142,20 +142,17 @@ fields:
   - name: manufacturerDescription
     singleValue: false
     description: The extended description of the product supplied by the lister
-    xpath: //div[@id='added_manufacturerDescription']
   - name: manufacturerImages
     singleValue: false
     description: Images within the third party description
-    xpath: //div[@id='added_manufacturerImages']
   - name: videos
     singleValue: false
+    xpath: //p//iframe//@src
     description: URLs of videos on page
-    xpath: //iframe[contains(@src,'youtube')]/@src
-    # xpath: //div[@id='added_iframe']
   - name: name
     singleValue: true
     description: The product name
-    xpath: //h1/text()
+    xpath: //h2[@class='deal-title']
   - name: inStorePrice
     singleValue: true
     description: Price in the selected store
@@ -411,8 +408,8 @@ fields:
     xpath: //div[@id='added_specifications']
   - name: warranty
     singleValue: true
+    xpath: //div[@class="finePrint"]//p//strong[contains(text(),'שנת') or contains(text(),'שנות')]
     description: Guarantee associated with the product
-    xpath: //div[@id='added_warranty']
   - name: storage
     singleValue: true
     description: Suggested storage location for product
@@ -428,7 +425,6 @@ fields:
   - name: productOtherInformation
     singleValue: false
     description: Any other product information
-    xpath: //div[@id='added_productOtherInformation']
   - name: packaging
     singleValue: true
     description: Packaging information
@@ -443,10 +439,8 @@ fields:
     description: The unit of measurement used in price_per_unit
   - name: promotion
     singleValue: true
+    xpath: //span[@id="pPriceDiscount"]//text()
     description: promotion text on product page
-    xpath: //div[@class='was-container']//span[contains(text(),'%')]/text()
-    regExp: \((.*)\)
-    regExpReplace: $1
   - name: alcoholContent
     singleValue: true
     description: Alcohol content information
@@ -481,6 +475,7 @@ fields:
     description: null
   - name: additionalDescBulletInfo
     singleValue: false
+    xpath: //div[@class="finePrint"]//ul//li//text()
     description: null
   - name: prop65Warning
     singleValue: true
@@ -499,7 +494,7 @@ fields:
     singleValue: true
     description: If there is for example a manual in pdf format on the website. ['Yes','No']
     example: https://www.amazon.de/Hasbro-Spiele-44220100-Mastermind-Kinderspiel/dp/B0007OHUG6
-    defaultValue: No
+    xpath: //div[@id='added_technicalDoc']
   - name: termsAndConditions
     singleValue: true
     description: Terms and conditions information text ['Yes','No']
@@ -527,12 +522,12 @@ fields:
       carousel,['Yes','No']
     example: https://www.zalando.de/adidas-neo-sneaker-low-blackwhite-a4315i002-q11.html
     defaultValue: No
-  - name: inTheBoxUrl
-    xpath: //div[@id="descr"]//div[@class="row"]//strong[contains(.,'כלול באריזה')]/ancestor::p/following-sibling::table//img//@src | //p[contains(.,'מה בתיבה:') or (contains(.,'כלול באריזה'))]//img//@src
+
   - name: inTheBoxText
-    # xpath: //*[contains(.,"מה בערכה")]/following-sibling::ul[1]/li|//*[contains(.,"מה מגיע בערכה")]/following-sibling::ul[1]/li|//*[contains(.,"כלול באריזה")]/ancestor::p/following-sibling::table//td/text()|//*[contains(., "אביזרים נלווים")]/ancestor::p/text()|//*[contains(., "כלול באריזה")]/ancestor::p/following-sibling::table//td//strong
-    xpath: //div[@id="descr"]//div[@class="row"]//strong[contains(.,'כלול באריזה')]/ancestor::p/following-sibling::table//td | //p[contains(.,'אביזרים נלווים')]//text() | //p[contains(.,'אביזרים בערכה')]/following-sibling::table//td
+    xpath: //*[contains(.,"מה בערכה")]/following-sibling::ul[1]/li|//*[contains(.,"מה מגיע בערכה")]/following-sibling::ul[1]/li|//*[contains(.,"כלול באריזה")]/ancestor::p/following-sibling::table//td/text()|//*[contains(., "אביזרים נלווים")]/ancestor::p/text()|//*[contains(., "כלול באריזה")]/ancestor::p/following-sibling::table//td//strong
   - name: hasComparisonTable
-    defaultValue: No
+    xpath: //div[@class="finePrint"]//*[contains(.,"השוואות ")]//a
   - name: unInterruptedPDP
-    xpath: //div[@class="owl-wrapper"]/div[contains(@class,'owl-item')]//div[contains(@class,"description")]//h4
+    singleValue: false
+    xpath: //div[@id='added_UPDP']//text()
+    description: Titles of products in the sections 'you may also like' or 'sponsored products'. Combine results from Max 3 sections
