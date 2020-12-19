@@ -23,4 +23,11 @@ fields:
     xpath: //div[@class="grid-product__figure"]//a//@href
   - name: rank
   - name: rankOrganic
+  - name: fullStar
+    singleValue: false
+    xpath: //div[@class="srp__container js-srp-container"]//div[@class="srp-row products-grid"]//div[@class="grid-product"]//span[@class="rating-stars"]//span[contains(@class,"star_full")]
+  - name: halfStar
+    singleValue: false
+    xpath: //div[@class="srp__container js-srp-container"]//div[@class="srp-row products-grid"]//div[@class="grid-product"]//span[@class="rating-stars"]//span[contains(@class,"star_full")]
+  
   

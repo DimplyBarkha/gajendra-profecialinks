@@ -1,5 +1,5 @@
 const { transform } = require('../format');
-async function implementation(
+async function implementation (
   inputs,
   parameters,
   context,
@@ -36,7 +36,7 @@ async function implementation(
           break;
         }
       }
-      function stall(ms) {
+      function stall (ms) {
         return new Promise((resolve, reject) => {
           setTimeout(() => {
             resolve();
@@ -45,9 +45,9 @@ async function implementation(
       }
     });
   };
-  //await new Promise(resolve => setTimeout(resolve, 6000));
+  // await new Promise(resolve => setTimeout(resolve, 6000));
   await applyScroll(context);
-  //await new Promise(resolve => setTimeout(resolve, 6000));
+  // await new Promise(resolve => setTimeout(resolve, 6000));
   return await context.extract(productDetails, { transform });
 }
 module.exports = {
