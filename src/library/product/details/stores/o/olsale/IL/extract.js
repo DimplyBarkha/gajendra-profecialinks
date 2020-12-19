@@ -58,7 +58,7 @@ module.exports = {
           availabilityStatusValue = 'Out of Stock';
         }
       } else {
-        availabilityStatusValue = '';
+        availabilityStatusValue = 'Out of Stock';
       }
       addElementToDocument('added_availabilityText', availabilityStatusValue);
 
