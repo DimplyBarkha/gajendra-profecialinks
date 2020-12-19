@@ -137,7 +137,7 @@ fields:
   - name: inTheBoxUrl
     singleValue: false
   - name: inTheBoxText
-    xpath: //text()[preceding-sibling::strong[1][contains(text(),"Inkluderet i pakken:")]]
+    xpath: //text()[preceding-sibling::strong[1][contains(text(),"Inkluderet i pakken")]]
     singleValue: false
     regExp: ^[^\w]+(.+)
     regExpReplace: $1
