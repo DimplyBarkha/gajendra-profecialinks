@@ -38,6 +38,7 @@ module.exports = {
         var singleSeparatorText = data.join(' ');
         addHiddenDiv(id, singleSeparatorText, index);
       };
+      const url = window.location.href;
       var name = [];
       let data = document.querySelector('pre').innerText;
       data = data.replace(/null\(/g, '');
@@ -77,12 +78,11 @@ module.exports = {
           addHiddenDiv('price', data["finding"][i]["match-item"]["c:pricevalue"]["$"], i);
           addHiddenDiv('rating', data["finding"][i]["match-item"]["c:averagerating"]["$"], i);
           addHiddenDiv('productURL', data["finding"][i]["match-item"]["link"]["$"], i);
+          addHiddenDiv('added-searchurl', url, i);
         }
       } catch (error) {
         addElement('noresults', 'noresults')
       }
-      const url = window.location.href;
-      addElement('added-searchurl', url);
     });
     return await context.extract(productDetails, { transform });
   },
