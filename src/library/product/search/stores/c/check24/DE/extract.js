@@ -11,9 +11,9 @@ async function implementation(
     await context.evaluate(async () => {
       try {
         if (document.querySelector('.c24-cookie-consent-button')) {
-          document.querySelector('.c24-cookie-consent-button').click();
-          await new Promise(resolve => setTimeout(resolve, 2000));
-          document.querySelectorAll('.c24-cookie-consent-screen .c24-cookie-consent-button')[1].click()
+          // document.querySelector('.c24-cookie-consent-button').click();
+          // await new Promise(resolve => setTimeout(resolve, 2000));
+          document.querySelector('.c24-cookie-consent-screen a:last-child.c24-cookie-consent-button').click();
         }
         return;
       } catch (error) {
@@ -23,7 +23,7 @@ async function implementation(
   } catch (e) {
     console.log('Error while closing popup');
   }
-  //await new Promise((resolve, reject) => setTimeout(resolve, 6000));
+  // await new Promise((resolve, reject) => setTimeout(resolve, 6000));
   const applyScroll = async function (context) {
     await context.evaluate(async function () {
       let scrollTop = 0;

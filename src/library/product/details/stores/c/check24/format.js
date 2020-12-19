@@ -64,11 +64,28 @@ const transform = (data, context) => {
       //   ];
       // }
       if (row.description) {
-        const descriptionArr = row.description.map((item) => {
-          return typeof (item.text) === 'string' ? item.text.replace(/\n/g, '') : '';
+        var text = '';
+        row.description.map((item, index) => {
+          if ((index + 1) !== row.description.length) {
+            text += item.text.replace(/\n/g, '') + ' | ';
+          } else {
+            text += item.text.replace(/\n/g, '');
+          }
         });
-        row.description = [{ text: descriptionArr.join(' | '), xpath: row.description[0].xpath }];
+
+        if (row.additionalDescBulletInfo) {
+          row.additionalDescBulletInfo[0].text = row.additionalDescBulletInfo[0].text.startsWith(' || ') ? row.additionalDescBulletInfo[0].text : ' || ' + row.additionalDescBulletInfo[0].text;
+          row.additionalDescBulletInfo.map((item, index) => {
+            if ((index + 1) !== row.additionalDescBulletInfo.length) {
+              text += item.text + ' || ';
+            } else {
+              text += item.text;
+            }
+          });
+        }
+        row.description = [{ text: text, xpath: row.description[0].xpath }];
       }
+
       if (row.shippingInfo) {
         const text = '';
         row.shippingInfo.forEach(item => {
