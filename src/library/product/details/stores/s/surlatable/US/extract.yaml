@@ -7,7 +7,7 @@ fields:
     xpath: (//*[@id="pdpMain"]//div[@class="slick-list"])[1]//a/@href
   - name: secondaryImageTotal
     singleValue: false
-    xpath: count((//*[@id="pdpMain"]//div[@class="slick-list"])[1]//a/@href)
+    xpath: count(((//*[@id="pdpMain"]//div[@class="slick-list"])[1]//a/@href)[position()>1])
   - name: specifications
     singleValue: false
     xpath: //div[@class="product-info"]//div[@id="tab-3"]//li
@@ -25,7 +25,7 @@ fields:
     xpath: //*[@id="product-content"]//div[@class="sale-price"]//span[@class="price"] | //*[@id="product-content"]//div[@class="regular-price"]/span[@class="price"]
   - name: availabilityText
     singleValue: false
-    xpath: //*[@id="add-to-cart"]
+    xpath: //*[@id="add-to-cart" and not(@disabled='disabled')]
     regExp: (.+)
     regExpReplace: In Stock
     defaultValue: Out of Stock
@@ -46,10 +46,10 @@ fields:
     xpath: ((//*[@id="tab-3"]/div[@class="tab-content"]/ul/li)[contains(text(),'Manufacturer')])
   - name: weightNet
     singleValue: false
-    xpath: ((//*[@id="tab-3"]/div[@class="tab-content"]/ul/li)[contains(text(),'Weight')]) | ((//*[@id="tab-6"]/div[@class="tab-content"]/ul/li)[contains(text(),'ml')]) | ((//*[@id="tab-6"]/div[@class="tab-content"]/ul/li)[contains(text(),'oz')])|((//*[@id="tab-3"]/div[@class="tab-content"]/ul/li)[contains(text(),'Capcity')])
+    xpath: ((//*[@id="tab-3"]/div[@class="tab-content"]/ul/li)[contains(text(),'Weight')]) | ((//*[@id="tab-6"]/div[@class="tab-content"]/ul/li)[contains(text(),'ml')]) | ((//*[@id="tab-6"]/div[@class="tab-content"]/ul/li)[contains(text(),' oz')])|((//*[@id="tab-3"]/div[@class="tab-content"]/ul/li)[contains(text(),'Capcity')])
   - name: directions
     singleValue: false
-    xpath: //*[@id="tab-5"]/div[@class="tab-content"]/ul/li
+    xpath: //*[@id="tab-5"]/div[@class="tab-content"]/ul/li | ((//*[@id="tab-3"]/div[@class="tab-content"]/ul/li)[contains(text(),'Care')])
   - name: imageAlt
     singleValue: false
     xpath: (//*[@id="pdpMain"]//div[@class="product-primary-image "]/a/img[@class="primary-image"]/@alt)[1]
@@ -71,6 +71,9 @@ fields:
   - name: shippingDimensions
     singleValue: false
     xpath: ((//*[@id="tab-3"]/div[@class="tab-content"]/ul/li)[contains(text(),'Dimensions')])
+  - name: warranty
+    singleValue: false
+    xpath: ((//*[@id="tab-3"]/div[@class="tab-content"]/ul/li)[contains(text(),'Warranty')])
   - name: technicalInformationPdfPresent
     singleValue: false
     defaultValue: No

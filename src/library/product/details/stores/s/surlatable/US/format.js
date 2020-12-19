@@ -50,14 +50,20 @@ const transform = (data) => {
               });
             }
 
-            if (row.quantity) {
-              row.quantity.forEach(item => {
+            if (row.weightNet) {
+              row.weightNet.forEach(item => {
                 item.text = item.text.split(":")[1]
               });
             }
 
             if (row.shippingDimensions) {
               row.shippingDimensions.forEach(item => {
+                item.text = item.text.split(":")[1].split(';')[0];
+              });
+            }
+
+            if (row.warranty) {
+              row.warranty.forEach(item => {
                 item.text = item.text.split(":")[1]
               });
             }
@@ -71,6 +77,7 @@ const transform = (data) => {
                     if(ele.sku == row.sku[0].text) {
                         row.mpc = [{text: ele.mpn, xpath: xpath}];                        
                         row.color = [{text: ele.color, xpath: xpath}];
+                        row.imageAlt = [{text: ele.name, xpath: xpath}];
                     }
                 });
                 row.firstVariant = [{text: json[0].sku, xpath: xpath}];
