@@ -44,8 +44,8 @@ fields:
     singleValue: true
     description: List of Ingredients from site - can be string of data if no
       discernible start/end point
+    xpath: //h6[contains(.,'Ingredients')]//following-sibling::div
     #xpath: //h6[contains(.,'Ingredients')]/following-sibling::div
-    xpath: //h6[contains(.,'Ingredients')]//following-sibling::div/text()
   - name: brandText
     singleValue: true
     description: Product brand shown - this may actually NOT be just a brand name,
@@ -390,3 +390,9 @@ fields:
     xpath: //meta[contains(@itemprop,'priceCurrency')]/@content
   - name: disclaimer
     xpath: //footer[contains(@class,'bop-section bop-disclaimer')]/p/text()
+  - name: highQualityImages
+    singleValue: false
+    description: Other product images (not in manufacturer description)
+    xpath: //div[contains(@class,'bop-gallery__item  bop-gallery__itemImage')]/img/@src
+    regExp: (.+)_640x640.jpg
+    regExpReplace: http://www.ocado.com$1_1280x1280.jpg
