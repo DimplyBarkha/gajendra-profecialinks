@@ -47,7 +47,7 @@ fields:
     # xpath: //div[@class="FreeHTML"]/p | //n-pdp-description/@heading | //n-pdp-description/@subheading | //n-pdp-description/@info
   - name: descriptionBullets
     singleValue: false
-    xpth: count(//div[@class="ProductDetails__marketingFeatures"]//ul/li | //h3[contains(.,"KEY FEATURES")]/..//ul/li//text())
+    xpth: count(//div[@class="ProductDetails__marketingFeatures"]//ul/li)
   - name: brandText
     singleValue: false
     xpath: //script[contains(.,"brand") and (contains(.,"currency"))]/text()
@@ -470,7 +470,7 @@ fields:
     # xpath: //ul[@class="ProductDetailsColorSwitcher__color-list"]/li/a/span
   - name: additionalDescBulletInfo
     singleValue: false
-    xpath: //h3[contains(.,"Eigenschaften")]/../ul/li//text()
+    xpath: //div[@class="ProductDetails__marketingFeatures"]//ul/li//text()
   - name: prop65Warning
     singleValue: false
     description: null

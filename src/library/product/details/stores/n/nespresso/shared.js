@@ -173,7 +173,7 @@ const transform = (data) => {
         });
         row.additionalDescBulletInfo = [
           {
-            text: text.slice(0, -2),
+            text: text.slice(0, -1),
           },
         ];
       }
