@@ -6,15 +6,15 @@ fields:
   - name: image
     singleValue: false
     xpath: //img[@itemprop="image"]/@src
-    regExp: ([^?]+)
+    regExp: (.+)
     regExpReplace: https://www.nespresso.com$1   
   - name: imageAlt
     singleValue: false
     description: Alt text of the main product image
   - name: alternateImages
     singleValue: false
-    xpath: (//img[@itemprop="image"]/@src)[position()>1]
-    regExp: ([^?]+)
+    xpath: (//img[@itemprop="image"]/@srcset)[position()>1]
+    regExp: ([^ ]+).*
     regExpReplace: https://www.nespresso.com$1  
   - name: metaKeywords
     singleValue: false
@@ -33,18 +33,21 @@ fields:
     xpath: //span[@class="ProductDetails__price"]
   - name: availabilityText
     singleValue: false
-    xpath: //span[contains(text(),"WARENKORB AKTUALISIEREN")] | //span[contains(text(),"IN DEN WARENKORB LEGEN")]
+    xpath: //button[contains(.,"Contact us")]
     # xpath: //span[contains(text(),"NICHT LIEFERBAR")]
     regExp: (.+)
-    regExpReplace: In Stock
-    defaultValue: Out of Stock
+    regExpReplace: Out of Stock
+    defaultValue: In Stock
   - name: description
     singleValue: false
-    xpath: //div[@itemprop="description"]
+    xpath: //div[@itemprop="description"]//text()
+  - name: description1
+    singleValue: false
+    xpath: //div[@class="ProductDetails__marketingFeatures"]//ul/li 
     # xpath: //div[@class="FreeHTML"]/p | //n-pdp-description/@heading | //n-pdp-description/@subheading | //n-pdp-description/@info
   - name: descriptionBullets
     singleValue: false
-    xpth: count(//h3[contains(.,"Eigenschaften")]/../ul/li)
+    xpth: count(//div[@class="ProductDetails__marketingFeatures"]//ul/li | //h3[contains(.,"KEY FEATURES")]/..//ul/li//text())
   - name: brandText
     singleValue: false
     xpath: //script[contains(.,"brand") and (contains(.,"currency"))]/text()
@@ -53,17 +56,21 @@ fields:
   - name: manufacturer
     singleValue: false
     description: Product manufacturer
-  - name: quantity
+  - name: quantity1
     singleValue: false
     xpath: //div[@itemprop="name"]/text() 
     regExp: (([0-9]+)\W+([a-zA-Z]+))
+  - name: quantity
+    singleValue: false
+    xpath: //div[@itemprop="name"]/text() 
+    regExp: (([0-9]+)([a-zA-Z]+))
     #regExpReplace: $1
   - name: weightNet
     singleValue: false
-    xpath: //h4[contains(text(), "NETTOGEWICHT ")]/following::div[1] | //h4[contains(text(), "Nettogewicht")]/following::div[1] 
+    xpath: //h4[contains(text(), "Weight")]/following::div[1] | //h4[contains(text(), "Net Weight")]/following::div[1] 
   - name: weightNet1
     singleValue: false
-    xpath: //li[contains(.,"Gewicht")]/text()
+    xpath: //li[contains(.,"Weight")]/text()
     regExp: :\W+(.+)
     regExpReplace: $1
   - name: weightGross
@@ -74,16 +81,15 @@ fields:
     description: GTIN code (includes UPC/EAN)
   - name: sku
     singleValue: false
-    xpath: //div[@class="ProductDetails"]/../@id
-    # xpath: //script[contains(.,"sku") and (contains(.,"energyProfile"))]/text()
-    # regExp: \d{4,}
-    # regExpReplace: $1
+    xpath: //div[@class="ProductDetails"]/@id
+    regExp: prod\W+(.+) 
+    regExpReplace: $1
   - name: variantId
     singleValue: false
-    xpath: //div[@class="ProductDetails"]/../@id
+    xpath: //div[@class="ProductDetails"]/@id
     # xpath: //script[contains(.,"sku") and (contains(.,"energyProfile"))]/text()
-    # regExp: \d{4,}
-    # regExpReplace: $1
+    regExp: prod\W+(.+) 
+    regExpReplace: $1
   - name: mpc
     singleValue: false
     xpath: //div[contains(text(),"Art. Nr.:")]
@@ -117,7 +123,7 @@ fields:
     description: Shipping information for the product
   - name: shippingDimensions
     singleValue: false
-    xpath: //li[contains(.,"Abmessungen:")]/text()
+    xpath: //li[contains(.,"Dimensions")]/text()
     regExp: :\W+(.+)
     regExpReplace: $1
   - name: shippingWeight
@@ -125,6 +131,7 @@ fields:
     description: Stated shipping weight
   - name: variantCount
     singleValue: false
+    xpath: count(//ul[@class="ProductDetailsPackageOptions__package-list"]//a/text() | //ul[@class="ProductDetailsColorSwitcher__color-list"]//li//span)
     #xpath: count(//div[@class="ProductDetailsColorSwitcher"]/ul/li)
   - name: color
     singleValue: false
@@ -135,14 +142,14 @@ fields:
   - name: manufacturerDescription
     singleValue: false
     description: The extended description of the product supplied by the lister
-  - name: manufacturerImages
-    singleValue: false
-    xpath: //div[@class="c-pdp-banner"]/img/@src
-  - name: manufacturerImages1
-    singleValue: false
-    xpath: //h3[contains(.,"Eigenschaften")]/../ul/li/img/@src
-    regExp: (.+)
-    regExpReplace: https://www.nespresso.com$1  
+  # - name: manufacturerImages
+  #   singleValue: false
+  #   xpath: //div[@class="c-pdp-banner"]/img/@src
+  # - name: manufacturerImages1
+  #   singleValue: false
+  #   xpath: //ul[@class="ProductDetailsKeyFeatures"]/li//img/@src
+  #   regExp: (.+)
+  #   regExpReplace: https://www.nespresso.com$1  
   - name: videos
     singleValue: false
     description: URLs of videos on page
@@ -401,7 +408,7 @@ fields:
     xpath: //ul[@class="ProductDetailsBodyInformation__specifications-list"]/li
   - name: warranty
     singleValue: false
-    xpath: //li[contains(.,"Garantie")]/text()
+    xpath: //li[contains(.,"Warranty")]/text()
     regExp: :\W+(.+)
     regExpReplace: $1
   - name: storage
@@ -409,11 +416,11 @@ fields:
     description: Suggested storage location for product
   - name: countryOfOrigin
     singleValue: false
-    xpath: //button[contains(text(),"RÖSTUNG")]/following-sibling::div/div[1] | //h4[contains(text(), "HERGESTELLT")]/text()
+    xpath: //*[contains(text(),"ORIGIN")]/following-sibling::div/div[1] | //h4[contains(text(), "HERGESTELLT")]/text()
     #  regExp: \b(\w+)$
   - name: allergyAdvice
     singleValue: false
-    xpath: //button[contains(text(), "INHALTSSTOFFE UND ALLERGENE")]//../following-sibling::div//h4[text()="Zutaten & Allergene"]/text() | //button[contains(text(), "INHALTSSTOFFE UND ALLERGENE")]//../following-sibling::div//b/text()
+    xpath: //button[contains(text(), "INGREDIENTS AND ALLERGENS")]//../following-sibling::div/div[(following::h4[contains(text(),"Net Weight")])]//text()
   - name: recyclingInformation
     singleValue: false
     xpath: //button[contains(text(),"RECYCLING")]/following-sibling::div[1]
@@ -434,7 +441,7 @@ fields:
     description: The unit of measurement used in price_per_unit
   - name: promotion
     singleValue: false
-    description: promotion text on product page
+    xpath: //span[@class="special-price"]
   - name: alcoholContent
     singleValue: false
     description: Alcohol content information
@@ -452,13 +459,15 @@ fields:
       new desription info
   - name: variantInformation
     singleValue: false
-    xpath: //div[@class="ProductDetailsColorSwitcher__title"]
+    # xpath: //div[@class="ProductDetailsColorSwitcher__title"]
   - name: firstVariant
     singleValue: false
-    xpath: //ul[@class="ProductDetailsColorSwitcher__color-list"]/li[1]/a/span
+    xpath: //ul[@class="ProductDetailsPackageOptions__package-list"]//a[1]/text() | //ul[@class="ProductDetailsColorSwitcher__color-list"]//li[1]//span
+     # xpath: //ul[@class="ProductDetailsColorSwitcher__color-list"]/li[1]/a/span
   - name: variants
     singleValue: false
-    xpath: //ul[@class="ProductDetailsColorSwitcher__color-list"]/li/a/span
+    xpath: //ul[@class="ProductDetailsPackageOptions__package-list"]//a/text() | //ul[@class="ProductDetailsColorSwitcher__color-list"]//li//span
+    # xpath: //ul[@class="ProductDetailsColorSwitcher__color-list"]/li/a/span
   - name: additionalDescBulletInfo
     singleValue: false
     xpath: //h3[contains(.,"Eigenschaften")]/../ul/li//text()
@@ -480,18 +489,18 @@ fields:
     regExpReplace: $1   
   - name: technicalInformationPdfPresent
     singleValue: false
-    xpath: //span[contains(text(),"Download user manual in pdf")] | //span[contains(text(),"Bedienungsanleitung ")]/../@href
+    xpath: //span[contains(text(),"Download user manual in pdf")] | //span[contains(text(),"Download PDF Manual")]/../@href
     regExp: (.+)
     regExpReplace: Yes
     defaultValue: No
   - name: termsAndConditions
     singleValue: false
     description: Terms and conditions information text ['Yes','No']
-    defaultValue: No
+    defaultValue: Yes
   - name: privacyPolicy
     singleValue: false
     description: Privacy Policy information text ['Yes','No']
-    defaultValue: No
+    defaultValue: Yes
   - name: customerServiceAvailability
     singleValue: false
     description: Information related to customer service availability (text), ['Yes','No']
