@@ -24,17 +24,6 @@ const transform = (data) => {
   };
   for (const { group } of data) {
     for (const row of group) {
-      if (row.specifications) {
-        let specs = '';
-        row.specifications.forEach((item, index) => {
-          if (index % 2 === 0) {
-            specs += `${item.text} : `;
-          } else {
-            specs += `${item.text} || `;
-          }
-        });
-        row.specifications = [{ text: specs }];
-      }
       if (row.nameExtended) {
         let brandData = '';
         let nameExtended = '';
@@ -45,12 +34,23 @@ const transform = (data) => {
           row.nameExtended.map((item) => {
             nameExtended = item.text;
           });
-          row.nameExtended = [{ text: `${brandData} - ${nameExtended}` }];
+          row.nameExtended = [{ text: `${nameExtended}` }];
+          // row.nameExtended = [{ text: `${brandData} - ${nameExtended}` }];
         }
+      }
+      if (row.image) {
+        row.image.map((item) => {
+          item.text = `${item.text.indexOf('https') === -1 ? 'https:' : ''}${item.text}`;
+        });
       }
       if (row.alternateImages) {
         row.alternateImages.map((item) => {
           item.text = `${item.text.indexOf('https') === -1 ? 'https:' : ''}${item.text}`;
+        });
+      }
+      if (row.aggregateRating) {
+        row.aggregateRating.map((item) => {
+          item.text = item.text.replace('.', ',');
         });
       }
       if (row.price) {
@@ -60,10 +60,16 @@ const transform = (data) => {
       }
 
       if (row.manufacturerImages) {
-        const arr = row.manufacturerImages.filter(item => {
-          return !(item.text.indexOf('.gif') > -1);
+        const arr = row.manufacturerImages.filter((item) => {
+          return !(item.text.indexOf('gif') > -1);
         });
-        console.log('arr', arr);
+        row.manufacturerImages = arr;
+        row.manufacturerImages.map((item) => {
+          item.text = `${item.text.indexOf('https') === -1 ? 'https:' : ''}${item.text}`;
+        });
+      }
+      if (row.description) {
+        // console.log(row.description);
       }
     }
   }

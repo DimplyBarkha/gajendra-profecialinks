@@ -63,10 +63,8 @@ fields:
   - name: description
     singleValue: false
     xpath: //section[contains(@class, 'page-product-box')]//h3//a[contains(text(),'Descrição')]//..//following-sibling::div
-  #   xpath: //div[contains(@class,'specifications-list')]/ul/li
   - name: descriptionBullets
     singleValue: false
-    # xpath: count(//div[contains(@class,'specifications-list')]/ul/li)
     defaultValue: '0'
   - name: brandText
     singleValue: false
@@ -76,7 +74,8 @@ fields:
   #   xpath: //td[contains(text(),'Tamaño de la pantalla')]/following-sibling::td[1]
   - name: variantId
     singleValue: false
-    xpath: //select[@id='productSelect']//option[@selected='selected']/@value
+    xpath: //tr[contains(@class, 'spec-group-line')]//td//span[contains(translate(., 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz'), 'id produto')]//..//following-sibling::*
+    # xpath: //select[@id='productSelect']//option[@selected='selected']/@value
   # - name: shippingInfo
   #   singleValue: false
   #   xpath: //p[contains(@class,'sellerInfo')]
@@ -93,9 +92,9 @@ fields:
   - name: videos
     singleValue: false
     xpath: //div[@id='views_block']//meta[@itemprop="contentURL"]//@content
-  # - name: specifications
-  #   singleValue: false
-  #   xpath: //table[contains(@class, 'flix-std-specs-table')]//tr//td
+  - name: specifications
+    singleValue: false
+    xpath: //div[@id='custom-product-specs']
   - name: manufacturerImages
     singleValue: false
     xpath: //div[contains(@class,'more_info_block')]//img//@src | //div[contains(@class,'more_info_block')]//img//@srcset
