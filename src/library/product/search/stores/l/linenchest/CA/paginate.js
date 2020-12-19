@@ -8,7 +8,7 @@ module.exports = {
     mutationSelector: null,
     spinnerSelector: null,
     loadedSelector: 'ol.ais-Hits-list li.ais-Hits-item',
-    noResultsXPath: '//div[@id="instant-empty-results-container"]//div[@class="no-results"]//b',
+    noResultsXPath: '(//div[@id="instant-empty-results-container"]//div[@class="no-results"]//div)[1]',
     openSearchDefinition: null,
     domain: 'linenchest.com',
     zipcode: '',

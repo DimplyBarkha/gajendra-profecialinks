@@ -8,7 +8,7 @@ fields:
     xpath: //div[@class="result-sub-content"]//h3[@class="result-title"]
   - name: id
     singleValue: false
-    xpath: //ol[@class="ais-Hits-list"]//li[@class="ais-Hits-item"]//a//@data-product-code
+    xpath: //a[contains(@class, 'result')]/@data-objectid
   - name: thumbnail
     singleValue: false
     xpath: //div[@class="hit-list-left"]//div[@class="result-thumbnail js-result-thumbnail"]//img//@src

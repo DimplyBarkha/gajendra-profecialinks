@@ -31,8 +31,12 @@ const transform = (data, context) => {
         });
       }
       if (row.description) {
+        const descArray = row.description.map((item) => {
+          return item.text;
+        });
+        row.description = [{ text: descArray.join('||'), xpath: row.description[0].xpath }];
         row.description.forEach(item => {
-          item.text = item.text.replace(/\n\n/g, '||');
+          item.text = item.text.replace(/\n \n/g, '||');
           item.text = item.text.replace(/\n/g, '||');
         });
       }
