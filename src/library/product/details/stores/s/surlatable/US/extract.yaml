@@ -1,7 +1,7 @@
 fields:
   - name: image
     singleValue: false
-    xpath: (//*[@id="pdpMain"]//div[@class="product-primary-image "]/a/img[@class="primary-image"]/@src)[1]
+    xpath: //meta[@property="og:image"]/@content
   - name: alternateImages
     singleValue: false
     xpath: (//*[@id="pdpMain"]//div[@class="slick-list"])[1]//a/@href
@@ -14,12 +14,15 @@ fields:
   - name: category
     singleValue: false
     xpath: (//*[@id="primary"]/div[@class="breadcrumb"]//a//text())[position()>1]
+  - name: nameExtended
+    singleValue: false
+    xpath: //*[@id="pdpMain"]//h1[@class="product-name"]
   - name: name
     singleValue: false
-    xpath:	//*[@id="pdpMain"]//h1[@class="product-name"]
+    xpath: //*[@id="pdpMain"]//h1[@class="product-name"]
   - name: price
     singleValue: false
-    xpath: //*[@id="product-content"]//div[@class="regular-price"]/span[@class="price"]
+    xpath: //*[@id="product-content"]//div[@class="sale-price"]//span[@class="price"] | //*[@id="product-content"]//div[@class="regular-price"]/span[@class="price"]
   - name: availabilityText
     singleValue: false
     xpath: //*[@id="add-to-cart"]
@@ -55,7 +58,7 @@ fields:
     xpath: //*[@id="product-content"]//div[contains(@class,'promo-cat ')]
   - name: listPrice
     singleValue: false
-    xpath: (//*[@id="product-content"]//div[@class='regular-price']//span[@class='price'])|//*[@id="product-content"]//div[@class='sale-price']//span[@class='price']
+    xpath: //*[@id="product-content"]//div[contains(@class,'suggested-price')]//span[@class='price']
   - name: ratingCount
     singleValue: false
     xpath: //*[@id="readReviews"]
