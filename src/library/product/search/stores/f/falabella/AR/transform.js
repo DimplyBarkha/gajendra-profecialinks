@@ -27,6 +27,7 @@ const transform = (data, context) => {
         row.price.forEach(item => {
           item.text = item.text.replace("(Oferta)", '').trim();
           item.text = item.text.replace(/(\s*\(Precio\s+final\)\s*)+/g, '').trim();
+          item.text = item.text.replace('.', ',');
         });
       }
       var sepratorIndex = nameData.indexOf('-');
