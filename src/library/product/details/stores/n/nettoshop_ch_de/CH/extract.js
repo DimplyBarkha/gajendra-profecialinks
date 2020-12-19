@@ -69,22 +69,26 @@ module.exports = {
         allElement('description', description[0], 0);
       } catch (error) {
       }
-      var finalSpecifications = [];
-      const Height = getAllXpath("//tr[@class='c-product-specifications__tr']/th[contains(text(),'Höhe')]/parent::tr/td/span/text()", 'nodeValue');
-      const HeightCombined = 'Höhe: ' + Height.join(' ');
-      if (Height.length > 0) { finalSpecifications.push(HeightCombined) };
-      const Width = getAllXpath("//tr[@class='c-product-specifications__tr']/th[contains(text(),'Breite')]/parent::tr/td/span/text()", 'nodeValue');
-      const WidthCombined = 'Breite: ' + Width.join(' ');
-      if (Width.length > 0) { finalSpecifications.push(WidthCombined) };
-      const Length = getAllXpath("//tr[@class='c-product-specifications__tr']/th[contains(text(),'Länge')]/parent::tr/td/span/text()", 'nodeValue');
-      const LengthCombined = 'Länge: ' + Length.join(' ');
-      if (Length.length > 0) { finalSpecifications.push(LengthCombined) };
-      const Depth = getAllXpath("//tr[@class='c-product-specifications__tr']/th[contains(text(),'Tiefe')]/parent::tr/td/span/text()", 'nodeValue');
-      const DepthCombined = 'Tiefe: ' + Depth.join(' ');
-      if (Depth.length > 0) { finalSpecifications.push(DepthCombined) };
-      allElement('specifications', finalSpecifications.join(', '), 0);
-      const guarantee = getAllXpath("//tr[@class='c-product-specifications__tr']/th[contains(text(),'Garantie')]/parent::tr/td/span/text()", 'nodeValue');
-      allElement('guarantee', guarantee.join(' '), 0);
+      try {
+        var finalSpecifications = [];
+        const Height = getAllXpath("//tr[@class='c-product-specifications__tr']/th[contains(text(),'Höhe')]/parent::tr/td/span/text()", 'nodeValue');
+        const HeightCombined = 'Höhe: ' + Height.join(' ');
+        if (Height.length > 0) { finalSpecifications.push(HeightCombined) };
+        const Width = getAllXpath("//tr[@class='c-product-specifications__tr']/th[contains(text(),'Breite')]/parent::tr/td/span/text()", 'nodeValue');
+        const WidthCombined = 'Breite: ' + Width.join(' ');
+        if (Width.length > 0) { finalSpecifications.push(WidthCombined) };
+        const Length = getAllXpath("//tr[@class='c-product-specifications__tr']/th[contains(text(),'Länge')]/parent::tr/td/span/text()", 'nodeValue');
+        const LengthCombined = 'Länge: ' + Length.join(' ');
+        if (Length.length > 0) { finalSpecifications.push(LengthCombined) };
+        const Depth = getAllXpath("//tr[@class='c-product-specifications__tr']/th[contains(text(),'Tiefe')]/parent::tr/td/span/text()", 'nodeValue');
+        const DepthCombined = 'Tiefe: ' + Depth.join(' ');
+        if (Depth.length > 0) { finalSpecifications.push(DepthCombined) };
+        allElement('specifications', finalSpecifications.join(', '), 0);
+        const guarantee = getAllXpath("//tr[@class='c-product-specifications__tr']/th[contains(text(),'Garantie')]/parent::tr/td/span/text()", 'nodeValue');
+        allElement('guarantee', guarantee.join(' '), 0);
+      } catch (error) {
+
+      }
       try {
         // @ts-ignore
         var scriptGTIN = document.querySelector('script[type="application/ld+json"]').innerText;
@@ -103,9 +107,12 @@ module.exports = {
       } catch (error) {
 
       }
-      const variantCount = document.querySelectorAll('ul>li[class="c-product-detail__color-variant-item"]');
-      allElement('variantCount', variantCount.length, 0);
+      try {
+        const variantCount = document.querySelectorAll('ul>li[class="c-product-detail__color-variant-item"]');
+        allElement('variantCount', variantCount.length, 0);
+      } catch (error) {
 
+      }
       try {
         // @ts-ignore
         document.evaluate("//span[@data-component='c-youtube-embed']/parent::a", document.body, null, 9, null).singleNodeValue.click();
@@ -113,6 +120,13 @@ module.exports = {
         allElement('video', video, 0);
       } catch (error) {
 
+      }
+      try {
+        const name = getAllXpath("//title/text()", 'nodeValue');
+        allElement('name', name, 0);
+        
+      } catch (error) {
+        
       }
     });
     return await context.extract(productDetails, { transform });
