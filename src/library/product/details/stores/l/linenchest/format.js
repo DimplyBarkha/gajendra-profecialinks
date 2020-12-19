@@ -19,40 +19,43 @@ const transform = (data, context) => {
   for (const { group } of data) {
     for (const row of group) {
       if (row.additionalDescBulletInfo) {
-        const variantArray = row.additionalDescBulletInfo.map((item) => {
+        const additionalDescBulletInfoArray = row.additionalDescBulletInfo.map((item) => {
           return item.text;
         });
-        row.additionalDescBulletInfo = [{ text: variantArray.join('||'), xpath: row.additionalDescBulletInfo[0].xpath }];
+        row.additionalDescBulletInfo = [{ text: additionalDescBulletInfoArray.join('||'), xpath: row.additionalDescBulletInfo[0].xpath }];
       }
       if (row.availabilityText) {
         row.availabilityText.forEach(item => {
-          item.text = item.text.replace('in', 'In');
-          item.text = item.text.replace('out', 'Out');
+          item.text = item.text.replace('in', 'In').replace('out', 'Out');
         });
       }
       if (row.description) {
         const descArray = row.description.map((item) => {
           return item.text;
         });
-        row.description = [{ text: descArray.join('||'), xpath: row.description[0].xpath }];
-        row.description.forEach(item => {
-          item.text = item.text.replace(/\n \n/g, '||');
-          item.text = item.text.replace(/\n/g, '||');
-        });
+        row.description = [{ text: descArray.join(' | '), xpath: row.description[0].xpath }];
       }
-      if (row.imageZoomFeaturePresent) {
-        let newText;
-        row.imageZoomFeaturePresent.forEach(item => {
-          if (item.text == 'true') {
-            newText = 'Yes';
-          }
+      if (row.shippingDimensions) {
+        if (row.shippingDimensions.length > 1) {
+          row.shippingDimensions.shift();
+        }
+      }
+      if (row.directions) {
+        const directionsArray = row.directions.map((item) => {
+          return item.text;
         });
-        row.imageZoomFeaturePresent = [{ text: newText }];
+        row.directions = [{ text: directionsArray.join(' | '), xpath: row.directions[0].xpath }];
+      }
+      if (row.specifications) {
+        const specificationsArray = row.specifications.map((item) => {
+          return item.text;
+        });
+        row.specifications = [{ text: specificationsArray.join(' || '), xpath: row.specifications[0].xpath }];
       }
     }
   }
   data.forEach(obj => obj.group.forEach(row => Object.keys(row).forEach(header => row[header].forEach(el => {
-    el.text = clean(el.text);
+    el.text = el.text && clean(el.text);
   }))));
   return data;
 };
