@@ -35,7 +35,7 @@ const transform = (data) => {
         ];
       }
       if (row.image) {
-        let img = [];
+        const img = [];
         row.image.forEach(item => {
           if (item.text.indexOf('https:') === -1) {
             item.text = `https:${item.text}`;
@@ -54,19 +54,19 @@ const transform = (data) => {
         ];
       }
       if ((!row.energyEfficiency || !row.energyEfficiency.length) && row.energyEfficiency1) {
-        console.log('energyEfficiency1',row.energyEfficiency1);
+        console.log('energyEfficiency1', row.energyEfficiency1);
         row.energyEfficiency = row.energyEfficiency1;
-        console.log("energyEfficiency", row.energyEfficiency);
+        console.log('energyEfficiency', row.energyEfficiency);
       }
       if ((!row.weightNet || !row.weightNet.length) && row.weightNet1) {
-        console.log('weightNet1',row.weightNet1);
+        console.log('weightNet1', row.weightNet1);
         row.weightNet = row.weightNet1;
-        console.log("weightNet", row.weightNet);
+        console.log('weightNet', row.weightNet);
       }
       if ((!row.manufacturerImages || !row.manufacturerImages.length) && row.manufacturerImages1) {
-        console.log('manufacturerImages1',row.manufacturerImages1);
+        console.log('manufacturerImages1', row.manufacturerImages1);
         row.manufacturerImages = row.manufacturerImages1;
-        console.log("manufacturerImages", row.manufacturerImages);
+        console.log('manufacturerImages', row.manufacturerImages);
       }
       if (row.specifications) {
         let text = '';
@@ -79,10 +79,89 @@ const transform = (data) => {
           },
         ];
       }
+      if (row.alternateImages) {
+        const variantUrls = [];
+        let dupUrl = '';
+        let urls = [];
+        row.alternateImages.forEach(item => {
+          console.log('item:: ', item.text);
+          urls = row.alternateImages.filter(it => item.text === it.text);
+          if (urls && urls.length === 1) {
+            variantUrls.push(item);
+          } else {
+            if (dupUrl !== item.text) {
+              dupUrl = item.text;
+              variantUrls.push(item);
+            }
+          }
+        });
+        row.alternateImages = variantUrls;
+      }
+      let descTxt = '';
+      if (row.description) {
+        // let text = '';
+        row.description.forEach(item => {
+          descTxt += item.text.replace(/\s{2,}/g, ' ').replace(/\n/g, ' ').trim();
+        });
+        row.description = [
+          {
+            text: descTxt,
+          },
+        ];
+      }
       if (row.allergyAdvice) {
         let text = '';
         row.allergyAdvice.forEach(item => {
-          text += `${item.text.replace(/\n \n/g, ':')} | `;
+          text += item.text.replace(/\s{2,}/g, ' ').replace(/\n/g, ' ').trim();
+        });
+        row.allergyAdvice = [
+          {
+            text: text,
+          },
+        ];
+      }
+      if (row.ingredientsList) {
+        let text = '';
+        row.ingredientsList.forEach(item => {
+          text += item.text.replace(/\s{2,}/g, ' ').replace(/\n/g, ' ').trim();
+        });
+        row.ingredientsList = [
+          {
+            text: text,
+          },
+        ];
+      }
+      if (row.description1) {
+        let text = '';
+        row.description1.forEach(item => {
+          text += `|| ${item.text.replace(/\n \n/g, ':')}  `;
+        });
+        row.description1 = [
+          {
+            text: text.slice(0, -1),
+          },
+        ];
+        descTxt = ` ${text.slice(0, -3)} ${descTxt}`;
+        row.description = [
+          {
+            text: descTxt,
+          },
+        ];
+      }
+      if ((!row.quantity || !row.quantity.length) && row.quantity1) {
+        console.log('quantity1',row.quantity1);
+        row.quantity = row.quantity1;
+        console.log("quantity", row.quantity);
+      }
+      if ((!row.quantity || !row.quantity.length) && row.quantity2) {
+        console.log('quantity2',row.quantity2);
+        row.quantity = row.quantity2;
+        console.log("quantity", row.quantity);
+      }
+      if (row.allergyAdvice) {
+        let text = '';
+        row.allergyAdvice.forEach(item => {
+          text += `${item.text.replace(/\n \n/g, ':')}  `;
         });
         row.allergyAdvice = [
           {
@@ -112,17 +191,17 @@ const transform = (data) => {
           },
         ];
       }
-      if (row.allergyAdvice) {
-        let text = '';
-        row.allergyAdvice.forEach(item => {
-          text += item.text.replace(/\n/g, '');
-        });
-        row.allergyAdvice = [
-          {
-            text: text,
-          },
-        ];
-      }
+      // if (row.allergyAdvice) {
+      //   let text = '';
+      //   row.allergyAdvice.forEach(item => {
+      //     text += item.text.replace(/\n/g, '');
+      //   });
+      //   row.allergyAdvice = [
+      //     {
+      //       text: text,
+      //     },
+      //   ];
+      // }
 
       if (row.allergens) {
         let text = '';

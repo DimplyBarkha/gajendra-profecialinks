@@ -13,9 +13,9 @@ fields:
     xpath: //img[@itemprop="image"]/@alt
   - name: alternateImages
     singleValue: false
-    xpath: (//img[@itemprop="image"]/@src)[position()>1]
-    regExp: ([^?]+)
-    regExpReplace: https://www.nespresso.com$1 
+    xpath: (//img[@itemprop="image"]/@srcset)[position()>1]
+    regExp: ([^ ]+).*
+    regExpReplace: https://www.nespresso.com$1
   - name: metaKeywords
     singleValue: false
     xpath: //meta[@name="keywords"]/@content
@@ -34,16 +34,18 @@ fields:
   - name: availabilityText
     singleValue: false
     xpath: //button[contains(.,"Contact us")]
-    # xpath: //span[contains(text(),"NICHT LIEFERBAR")]
     regExp: (.+)
     regExpReplace: Out of Stock
     defaultValue: In Stock
+  - name: description1
+    singleValue: false
+    xpath: //div[@class="ProductDetails__marketingFeatures"]//ul/li 
   - name: description
     singleValue: false
-    xpath: //div[@class="FreeHTML"]//text() | //n-pdp-description/@heading | //n-pdp-description/@subheading | //n-pdp-description/@info
+    xpath: //div[@itemprop="description"]//text() | //n-pdp-description/@heading | //n-pdp-description/@subheading | //n-pdp-description/@info
   - name: descriptionBullets
     singleValue: false
-    xpth: count(//h3[contains(.,"Caractéristiques")]/../ul/li//text())
+    xpth: count(//h3[contains(.,"KEY FEATURES")]/../ul/li)
   - name: brandText
     singleValue: false
     xpath: //script[contains(.,"brand") and (contains(.,"currency"))]/text()
@@ -52,16 +54,26 @@ fields:
   - name: manufacturer
     singleValue: false
     description: Product manufacturer
-  - name: quantity
+  - name: quantity2
     singleValue: false
     xpath: //div[@itemprop="name"]/text()
     regExp: (([0-9]+)\W+([a-zA-Z]+))
+  - name: quantity1
+    singleValue: false
+    xpath: //div[@itemprop="name"]/text()
+    regExp: (([0-9]+)([a-zA-Z]+))
+    # regExpReplace: $1$2$3$4
+  - name: quantity
+    singleValue: false
+    xpath: //div[@itemprop="name"]/text()
+    regExp: \(([^)]*)\)[^(]*$
+    regExpReplace: $1
   - name: weightNet1
     singleValue: false
-    xpath: //h4[contains(text(), "Poids")]/following::div[1] 
+    xpath: //h4[contains(text(), "Poids")]/following::div[1] | //div[contains(text(), "Poids")]/following::div[1] 
   - name: weightNet
     singleValue: false
-    xpath: //li[contains(.,"Poids")]/text()
+    xpath: //li[contains(.,"Poids")] | //li[contains(text(),"Poids")]/text()
     regExp: :\W+(.+)
     regExpReplace: $1
   - name: weightGross
@@ -72,16 +84,16 @@ fields:
     description: GTIN code (includes UPC/EAN)
   - name: sku
     singleValue: false
-    xpath: //div[@class="ProductDetails"]/../@id
+    xpath: //div[@class="ProductDetails"]/@id
     # xpath: //script[contains(.,"sku") and (contains(.,"energyProfile"))]/text()
-    # regExp: \d{4,}
-    # regExpReplace: $1
+    regExp: prod\W+(.+)
+    regExpReplace: $1
   - name: variantId
     singleValue: false
-    xpath: //div[@class="ProductDetails"]/../@id
+    xpath: //div[@class="ProductDetails"]/@id
     # xpath: //script[contains(.,"sku") and (contains(.,"energyProfile"))]/text()
-    # regExp: \d{4,}
-    # regExpReplace: $1
+    regExp: prod\W+(.+)
+    regExpReplace: $1
   - name: mpc
     singleValue: false
     description: The manufacturer model code (unique) of the product
@@ -100,16 +112,15 @@ fields:
     description: Content under "warnings" header
   - name: ratingCount
     singleValue: false
-    xpath: //span[@class="RatingsAndReviewsButton__label"]
-    regExp: \d{1,}
+    xpath: //meta[@itemprop="reviewCount"]/@content
+    # regExp: \d{1,}
     # regExpReplace: \d{1,}
   - name: aggregateRatingText
     singleValue: false
     xpath: //span[@class="RatingsStars__rating-average"]
   - name: aggregateRating
     singleValue: false
-    description: The stated aggregate rating normalized to be out of 5
-    type: NUMBER
+    xpath: //meta[@itemprop="ratingValue"]/@content
   - name: shippingInfo
     singleValue: false
     description: Shipping information for the product
@@ -246,9 +257,13 @@ fields:
   - name: fastTrack
     singleValue: false
     description: null
+  # - name: ingredientsList1
+  #   singleValue: false
+  #   xpath: //button[contains(text(), "INGRÉDIENTS ET ALLERGÈNES")]//../following-sibling::div//text()
   - name: ingredientsList
     singleValue: false
-    xpath: //button[contains(text(), "INHALTSSTOFFE UND ALLERGENE")]//../following-sibling::div/div[(following::h4[contains(text(),"NETTOGEWICHT")])]/text() | //button[contains(text(), "INGRÉDIENTS ET ALLERGÈNES")]//../following-sibling::div//text()[(following::h4[contains(text(),"Poids")])] | //button[contains(text(), "INHALTSSTOFFE UND ALLERGENE")]//../following-sibling::div//b/text()
+    xpath: //button[contains(text(), "INGRÉDIENTS ET ALLERGÈNES")]//../following-sibling::div//text()
+    # xpath: //button[contains(text(), "INGRÉDIENTS ET ALLERGÈNES")]//../following-sibling::div/div[(following::h4[contains(text(),"Poids")])]/text() | //button[contains(text(), "INGRÉDIENTS ET ALLERGÈNES")]//../following-sibling::div/div[(following::div[contains(text(),"Poids")])]//text() | //button[contains(text(), "INGRÉDIENTS ET ALLERGÈNES")]//../following-sibling::div//b/text()
   - name: servingSize
     singleValue: false
     description: The size of serving Nutritional information is based on.
@@ -409,9 +424,13 @@ fields:
     singleValue: false
     xpath: //h4[contains(text(), "Fabriqué")]/text()
     regExp: \b(\w+)$
+  # - name: allergyAdvice1
+  #   singleValue: false
+  #   xpath: //button[contains(text(), "INGRÉDIENTS ET ALLERGÈNES")]//../following-sibling::div//text() 
   - name: allergyAdvice
     singleValue: false
-    xpath: //button[contains(text(), "INHALTSSTOFFE UND ALLERGENE")]//../following-sibling::div/div[(following::h4[contains(text(),"NETTOGEWICHT")])]/text() | //button[contains(text(), "INHALTSSTOFFE UND ALLERGENE")]//../following-sibling::div//b/text()
+    xpath: //button[contains(text(), "INGRÉDIENTS ET ALLERGÈNES")]//../following-sibling::div//text()
+    # xpath: //button[contains(text(), "INGRÉDIENTS ET ALLERGÈNES")]//../following-sibling::div/div[(following::h4[contains(text(),"Poids")])]/text() | //button[contains(text(), "INGRÉDIENTS ET ALLERGÈNES")]//../following-sibling::div/div[(following::div[contains(text(),"Poids")])]//text() | //button[contains(text(), "INGRÉDIENTS ET ALLERGÈNES")]//../following-sibling::div//b/text() | //button[contains(text(), "INGRÉDIENTS ET ALLERGÈNES")]//../following-sibling::div//i/text()
   - name: recyclingInformation
     singleValue: false
     description: Recycling information associated with the product
@@ -448,18 +467,18 @@ fields:
     singleValue: false
     description: In product page, information about a new version of the product -
       new desription info
-  - name: variantInformation
-    singleValue: false
-    xpath: //div[@class="ProductDetailsColorSwitcher__title"]
-  - name: firstVariant
-    singleValue: false
-    xpath: //ul[@class="ProductDetailsColorSwitcher__color-list"]/li[1]/a/span
-  - name: variants
-    singleValue: false
-    xpath: //ul[@class="ProductDetailsColorSwitcher__color-list"]/li/a/span
+  # - name: variantInformation
+  #   singleValue: false
+  #   xpath: //div[@class="ProductDetailsColorSwitcher__title"]
+  # - name: firstVariant
+  #   singleValue: false
+  #   xpath: //ul[@class="ProductDetailsColorSwitcher__color-list"]/li[1]/a/span
+  # - name: variants
+  #   singleValue: false
+  #   xpath: //ul[@class="ProductDetailsColorSwitcher__color-list"]/li/a/span
   - name: additionalDescBulletInfo
     singleValue: false
-    xpath: //h3[contains(.,"Caractéristiques")]/../ul/li//text()
+    xpath: //h3[contains(.,"KEY FEATURES")]/../ul/li//text()| //h3[contains(.,"Caractéristiques")]/../ul/li//text() | //div[@class="ProductDetails__marketingFeatures"]//ul/li
   - name: prop65Warning
     singleValue: false
     description: null
@@ -468,28 +487,28 @@ fields:
     description: Recommended age displayed on the product page.
       https://www.amazon.com/LEGO-Classic-Medium-Creative-Brick/dp/B00NHQFA1I
     example: 4 - 99 years
-  - name: energyEfficiency1
-    singleValue: false
-    xpath: //a[@data-energy-labe-src]/text()  
   - name: energyEfficiency
     singleValue: false
-    xpath: //script[contains(.,"sku") and (contains(.,"energyProfile"))]/text()
-    regExp: energyProfile\W+([^"]+)
-    regExpReplace: $1   
+    xpath: //a[@data-energy-labe-src]/text()  
+  # - name: energyEfficiency
+  #   singleValue: false
+  #   xpath: //script[contains(.,"sku") and (contains(.,"energyProfile"))]/text()
+  #   regExp: energyProfile\W+([^"]+)
+  #   regExpReplace: $1   
   - name: technicalInformationPdfPresent
     singleValue: false
-    xpath: //span[contains(text(),"Download user manual in pdf")] | //span[contains(text(),"Bedienungsanleitung ")]/../@href
+    xpath: //span[contains(text(),"Télécharger")]/../@href
     regExp: (.+)
     regExpReplace: Yes
     defaultValue: No
   - name: termsAndConditions
     singleValue: false
     description: Terms and conditions information text ['Yes','No']
-    defaultValue: No
+    defaultValue: Yes
   - name: privacyPolicy
     singleValue: false
     description: Privacy Policy information text ['Yes','No']
-    defaultValue: No
+    defaultValue: Yes
   - name: customerServiceAvailability
     singleValue: false
     description: Information related to customer service availability (text), ['Yes','No']

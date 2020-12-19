@@ -55,12 +55,12 @@ const transform = (data) => {
       }
       if ((!row.energyEfficiency || !row.energyEfficiency.length) && row.energyEfficiency1) {
         console.log('energyEfficiency1',row.energyEfficiency1);
-        row.quantity = row.energyEfficiency1;
+        row.energyEfficiency = row.energyEfficiency1;
         console.log("energyEfficiency", row.energyEfficiency);
       }
       if ((!row.weightNet || !row.weightNet.length) && row.weightNet1) {
         console.log('weightNet1',row.weightNet1);
-        row.quantity = row.weightNet1;
+        row.weightNet = row.weightNet1;
         console.log("weightNet", row.weightNet);
       }
       if ((!row.manufacturerImages || !row.manufacturerImages.length) && row.manufacturerImages1) {
@@ -68,6 +68,11 @@ const transform = (data) => {
         row.manufacturerImages = row.manufacturerImages1;
         console.log("manufacturerImages", row.manufacturerImages);
       }
+      // if ((!row.allergyAdvice || !row.allergyAdvice.length) && row.allergyAdvice1) {
+      //   console.log('allergyAdvice1',row.allergyAdvice1);
+      //   row.allergyAdvice = row.allergyAdvice1;
+      //   console.log("allergyAdvice", row.allergyAdvice);
+      // }
       if (row.specifications) {
         let text = '';
         row.specifications.forEach(item => {
@@ -79,14 +84,83 @@ const transform = (data) => {
           },
         ];
       }
+      //
+      let descTxt = '';
+      if (row.description) {
+        // let text = '';
+        row.description.forEach(item => {
+          descTxt += item.text.replace(/\s{2,}/g, ' ').replace(/\n/g, ' ').trim();
+        });
+        row.description = [
+          {
+            text: descTxt,
+          },
+        ];
+      }
+      if (row.description1) {
+        let text = '';
+        row.description1.forEach(item => {
+          text += `|| ${item.text.replace(/\n \n/g, ':')}  `;
+        });
+        row.description1 = [
+          {
+            text: text.slice(0, -1),
+          },
+        ];
+        descTxt = `${text.slice(0, -3)} ${descTxt}`;
+        row.description = [
+          {
+            text: descTxt,
+          },
+        ];
+      }
+      if (row.alternateImages) {
+        const variantUrls = [];
+        let dupUrl = '';
+        let urls = [];
+        row.alternateImages.forEach(item => {
+          console.log('item:: ', item.text);
+          urls = row.alternateImages.filter(it => item.text === it.text);
+          if (urls && urls.length === 1) {
+            variantUrls.push(item);
+          } else {
+            if (dupUrl !== item.text) {
+              dupUrl = item.text;
+              variantUrls.push(item);
+            }
+          }
+        });
+        row.alternateImages = variantUrls;
+      }
+      if ((!row.quantity || !row.quantity.length) && row.quantity2) {
+        console.log('quantity2',row.quantity2);
+        row.quantity = row.quantity2;
+        console.log("quantity", row.quantity);
+      }
+      if ((!row.quantity || !row.quantity.length) && row.quantity1) {
+        console.log('quantity1',row.quantity1);
+        row.quantity = row.quantity1;
+        console.log("quantity", row.quantity);
+      }
       if (row.allergyAdvice) {
         let text = '';
         row.allergyAdvice.forEach(item => {
-          text += `${item.text.replace(/\n \n/g, ':')} | `;
+          text += item.text.replace(/\s{2,}/g, ' ').replace(/\n/g, ' ').trim();
         });
         row.allergyAdvice = [
           {
-            text: text.slice(0, -2),
+            text: text,
+          },
+        ];
+      }
+      if (row.ingredientsList) {
+        let text = '';
+        row.ingredientsList.forEach(item => {
+          text += item.text.replace(/\s{2,}/g, ' ').replace(/\n/g, ' ').trim();
+        });
+        row.ingredientsList = [
+          {
+            text: text,
           },
         ];
       }
@@ -112,18 +186,6 @@ const transform = (data) => {
           },
         ];
       }
-      if (row.allergyAdvice) {
-        let text = '';
-        row.allergyAdvice.forEach(item => {
-          text += item.text.replace(/\n/g, '');
-        });
-        row.allergyAdvice = [
-          {
-            text: text,
-          },
-        ];
-      }
-
       if (row.allergens) {
         let text = '';
         row.allergens.forEach(item => {
