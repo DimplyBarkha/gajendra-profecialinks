@@ -17,7 +17,7 @@ fields:
     description: Other product images (not in manufacturer description)
     # xpath: //div[contains(@class,'gallery-images-slider')]//img/@data-src
     # xpath: //div[contains(@class,'gallery-images-slider')]//img/@src
-    xpath: //div[@id='altImages']/text()|//div[@class="product-gallery__overlay"]//div[contains(@class,"slick-slide") and not(contains(@class,"slick-cloned"))]//img/@data-src
+    xpath: //div[@id='altImages']/text()|//div[@class="product-gallery__overlay"]//div[contains(@class,"slick-slide") and not(contains(@class,"slick-cloned"))]//img/@data-src| (//div[contains(@class,"__gallery")]//div[contains(@role,"listbox")]/div//img/@src)
   - name: metaKeywords
     singleValue: true
     description: The <meta> keywords content
