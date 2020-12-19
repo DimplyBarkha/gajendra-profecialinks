@@ -44,7 +44,8 @@ fields:
     singleValue: true
     description: List of Ingredients from site - can be string of data if no
       discernible start/end point
-    xpath: //h6[contains(.,'Ingredients')]/following-sibling::div
+    #xpath: //h6[contains(.,'Ingredients')]/following-sibling::div
+    xpath: //h6[contains(.,'Ingredients')]//following-sibling::div/text()
   - name: brandText
     singleValue: true
     description: Product brand shown - this may actually NOT be just a brand name,
@@ -387,3 +388,5 @@ fields:
     regExpReplace: http://www.ocado.com$1
   - name: priceCurrency
     xpath: //meta[contains(@itemprop,'priceCurrency')]/@content
+  - name: disclaimer
+    xpath: //footer[contains(@class,'bop-section bop-disclaimer')]/p/text()
