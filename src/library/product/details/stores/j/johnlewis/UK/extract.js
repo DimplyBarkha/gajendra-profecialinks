@@ -1,10 +1,10 @@
-const { cleanUp } = require('../../../../shared');
+const { transform } = require('./format');
 module.exports = {
   implements: 'product/details/extract',
   parameterValues: {
     country: 'UK',
     store: 'johnlewis',
-    transform: cleanUp,
+    transform,
     domain: 'johnlewis.com',
     zipcode: '',
   },
@@ -98,16 +98,16 @@ module.exports = {
 
       var Description = getAllXpath("//div[@class='product-detail__description-inner']/p[position()>1]/text()", 'nodeValue');
       if (Description != null) {
-        var ppp = Description.join(" || ")
+        var ppp = Description.join(' || ');
         addElementToDocument('desc', ppp);
       }
 
       var image = getAllXpath("//ul[@class='thumbnail-wrapper']/li[position()>1]/img/@src", 'nodeValue');
       if (image != null) {
-        for (var i=0; i < image.length; i++){
-          image[i] = "https:" + image[i]
+        for (var i = 0; i < image.length; i++) {
+          image[i] = 'https:' + image[i];
         }
-        var qqq = image.join(" | ")
+        var qqq = image.join(' | ');
         addElementToDocument('img', qqq);
       }
 
@@ -124,9 +124,9 @@ module.exports = {
         for (var i = 0; i < aaa.length; i++) {
           console.log('aaa[i]')
           console.log(aaa[i] + 'i')
-          final = final + aaa[i].replace(/\s([^\s]*)$/, '') + ': ' + bbb[i];
-          if (aaa[i + 1] != undefined) {
-            final = final + " || "
+          final = final + aaa[i].replace(/\s([^\s]*)$/, '') + ' : ' + bbb[i];
+          if (aaa[i + 1] !== undefined) {
+            final = final + ' || ';
           }
         }
         addElementToDocument('spec', final);
@@ -134,20 +134,20 @@ module.exports = {
 
 
 
-      var xyz = getXpath("//div[@class='star-ratings']/div[@class='stars-empty']/@style", 'nodeValue');
-      if (xyz != null) {
-        var abc = xyz.split(": ")[1]
-        var width = abc.slice(0, -2);
-        width = (width * 5) / 100;
-        addElementToDocument('star', width);
-      }
+      // var xyz = getXpath("//div[@class='star-ratings']/div[@class='stars-empty']/@style", 'nodeValue');
+      // if (xyz != null) {
+      //   var abc = xyz.split(' : ')[1];
+      //   var width = abc.slice(0, -2);
+      //   width = (width * 5) / 100;
+      //   addElementToDocument('star', width);
+      // }
 
       var rrr = getXpath("//p[@class='u-centred']/text() | //h2[@class='email-me-stock__header']/text()", 'nodeValue');
       if (rrr != null) {
-        if (rrr.includes("in stock")) {
-          rrr="In Stock";
+        if (rrr.includes('in stock')) {
+          rrr = 'In Stock';
         } else {
-          rrr="Out of Stock";
+          rrr = 'Out of Stock';
         }
         addElementToDocument('stock', rrr);
       }
