@@ -196,6 +196,13 @@ const transform = (data) => {
           weight.text = weight.text.replace(/(.*) ([0-9]+[.]?[0-9]*) (.*)/, '$2');
         });
       }
+      if (row.videoLength) {
+        row.videoLength.forEach(video => {
+          if (video.text.match(/(.*) \/ (.*)/)) {
+            video.text = video.text.replace(/(.*) \/ (.*)/, '$2');
+          }
+        });
+      }
     }
   }
   data.forEach(obj => obj.group.forEach(row => Object.keys(row).forEach(header => row[header].forEach(el => {

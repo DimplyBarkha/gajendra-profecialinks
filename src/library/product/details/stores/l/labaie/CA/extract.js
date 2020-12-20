@@ -79,6 +79,7 @@ module.exports = {
     if (src) {
       await context.goto(src, { timeout: 40000, waitUntil: 'load', checkBlocked: true });
       await context.waitForSelector('#videoview');
+      await new Promise(resolve => setTimeout(resolve, 10000));
       await context.extract(productDetails, { type: 'MERGE_ROWS', transform });
     }
   },
