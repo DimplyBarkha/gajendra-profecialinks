@@ -95,11 +95,13 @@ fields:
     xpath: (//div[@id="loadbeeTab"]/@data-loadbee-product)[1]|//script[contains(@onload, "initFlixMedia")]/@src
   - name: gtin
     singleValue: true
-    xpath: (//div[@id="loadbeeTab"]/@data-loadbee-product)[1]|//script[contains(@onload, "initFlixMedia")]/@src
+    # xpath: (//div[@id="loadbeeTab"]/@data-loadbee-product)[1]|//script[contains(@onload, "initFlixMedia")]/@src
+    xpath: ((//div[@id="loadbeeTab"]/@data-loadbee-product)[1]|//script[contains(@onload, "initFlixMedia")]/@src)|(//div[contains(@class,"loadbeeTabContent")]/@data-loadbee-gtin)
     description: GTIN code (includes UPC/EAN)
   - name: eangtin
     singleValue: true
-    xpath: (//div[@id="loadbeeTab"]/@data-loadbee-product)[1]|//script[contains(@onload, "initFlixMedia")]/@src
+    # xpath: (//div[@id="loadbeeTab"]/@data-loadbee-product)[1]|//script[contains(@onload, "initFlixMedia")]/@src
+    xpath: ((//div[@id="loadbeeTab"]/@data-loadbee-product)[1]|//script[contains(@onload, "initFlixMedia")]/@src)|(//div[contains(@class,"loadbeeTabContent")]/@data-loadbee-gtin)
   - name: sku
     singleValue: true
     xpath: //span[contains(@class, "widget-ArticleNumber-articleNumber")][2]|//div[contains(@class, "widget-ArticleNumber")]/span[2]
