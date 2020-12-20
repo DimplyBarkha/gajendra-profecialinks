@@ -9,6 +9,7 @@ module.exports = {
     domain: 'hifi.lu',
     zipcode: '',
   },
+  // @ts-ignore
   implementation: async (inputs,
     parameters,
     context,
@@ -20,10 +21,13 @@ module.exports = {
       return document.URL;
     });
 
+    const seeMoreProductInfoCSS = 'a.brand-content-link';
     try {
-      await context.click('a.brand-content-link');
+      await context.waitForSelector(seeMoreProductInfoCSS, { timeout: 10000 });
+      console.log('seeMoreProductInfoCSS found, clicking it...');
+      await context.click(seeMoreProductInfoCSS);
     } catch (err) {
-      console.log('no link found');
+      console.log(`no seeMoreProductInfoCSS link found : CSS => ${seeMoreProductInfoCSS}`);
     }
 
     try {
@@ -31,7 +35,9 @@ module.exports = {
     } catch (err) {
       console.log('no link found');
     }
-    const src = await context.evaluate(async function () {
+
+    // get iframge link src
+    let src = await context.evaluate(async function () {
       const iframe = document.querySelector('#loadbeeIframeId');
       // @ts-ignore
       const src = iframe ? iframe.src : '';
@@ -40,6 +46,38 @@ module.exports = {
     let enhancedContent = '';
     let aplusImages = '';
     let videos = '';
+
+    // getting iframe url from API
+    if (!src) {
+      console.log('Trying to get iframe url from API');
+      try {
+        const iframeDivContainerCss = '#loadbeeTabContentId';
+        await context.waitForSelector(iframeDivContainerCss, { timeout: 30000 });
+        console.log('iframeDivContainerCss selector found');
+        await context.evaluate(async (iframeDivContainerCss) => {
+          const div = document.querySelector(iframeDivContainerCss);
+          const dataSet = div && div.dataset;
+          console.log(`dataset: ${JSON.stringify(dataSet)}`);
+          const gtin = dataSet && dataSet.loadbeeGtin;
+          const apiKey = dataSet && dataSet.loadbeeApikey;
+          if (!(gtin && apiKey)) return;
+
+          const apiUrl = `https://availability.loadbee.com/v3/EAN/${gtin}/fr_BE?template=default&apiKey=${apiKey}`;
+          console.log(`apiUrl: ${apiUrl}`);
+          const data = await fetch(apiKey);
+          console.log(`API status: ${data.status}`);
+          if (data.status === 404) return;
+          const jsonData = await data.json();
+          console.log(`JSON from API: ${JSON.stringify(jsonData)}`);
+          src = jsonData.url;
+          console.log(`Iframe URL: ${src}`);
+        }, iframeDivContainerCss);
+      } catch (error) {
+        console.log('src not found from API as well');
+        console.log(error);
+      }
+    }
+    // navigate to iframe src if available
     if (src) {
       try {
         await context.goto(src, { timeout: 30000, waitUntil: 'load', checkBlocked: true });
@@ -48,18 +86,22 @@ module.exports = {
           let enhancedContent = '';
           if (document.querySelectorAll('div.pic-text')) {
             const characterstics = document.querySelectorAll('div.pic-text');
+            // @ts-ignore
             for (let i = 0; i < characterstics.length; i++) { enhancedContent += characterstics[i].innerText + ' || '; }
           }
           if (document.querySelectorAll('div.animation-text')) {
             const moreCharacterstics = document.querySelectorAll('div.animation-text');
+            // @ts-ignore
             for (let i = 0; i < moreCharacterstics.length; i++) { enhancedContent += moreCharacterstics[i].innerText + ' || '; }
           }
           if (document.querySelectorAll('div.info')) {
             const attributeSections = document.querySelectorAll('div.info');
+            // @ts-ignore
             for (let i = 0; i < attributeSections.length; i++) { enhancedContent += attributeSections[i].innerText + ' || '; }
           }
           if (document.querySelectorAll('div.info2')) {
             const moreAttributeSections = document.querySelectorAll('div.info2');
+            // @ts-ignore
             for (let i = 0; i < moreAttributeSections.length; i++) { enhancedContent += moreAttributeSections[i].innerText + ' || '; }
           }
           return enhancedContent;
@@ -85,6 +127,8 @@ module.exports = {
           return videos;
         });
       } catch (err) {}
+    } else {
+      console.log('Iframe src not found, will not navigate, still at original page');
     }
 
     // checking if page already navigated to src/iframe url, if not no need to reload/naviagate
@@ -102,6 +146,7 @@ module.exports = {
       addElementToDocument('videos', videos);
     }, enhancedContent, aplusImages, videos);
 
+    // videos and src
     const video = '';
     await context.evaluate(async function (video) {
       const VideoSrc = document.querySelector('.autheos-videothumbnail img');
@@ -112,7 +157,7 @@ module.exports = {
           video = ImgSrc.replace(regex, '$1$2');
         }
       }
-      console.log('The value of video is', video);
+      console.log(`The value of video is: ${video}`);
 
       function addHiddenDiv (id, content) {
         const newDiv = document.createElement('div');
@@ -126,9 +171,10 @@ module.exports = {
       return video;
     }, video);
 
+    // pdEan, pd_rating, sku, description
     await context.evaluate(async function () {
       function addElementToDocument (key, value) {
-        console.log(value);
+        console.log(`${key} : ${value}`);
         const catElement = document.createElement('div');
         catElement.id = key;
         catElement.textContent = value;
@@ -136,6 +182,7 @@ module.exports = {
         document.body.appendChild(catElement);
       }
 
+      // desciption
       const descriptionDivCss = 'section[class="description"] div[class="content-wrap"]';
       const descriptionDiv = document.querySelector(descriptionDivCss);
       if (descriptionDiv) {
@@ -143,6 +190,8 @@ module.exports = {
         desc = desc.replace(/•/g, ' || ').replace(/<li>/gm, ' || ').replace(/<.*?>/gm, '').replace(/&nbsp;/g, '').trim();
         addElementToDocument('desc', desc);
       } else console.log(`Description div not found css: ${descriptionDivCss}`);
+
+      // pdEan, pd_rating, sku
       try {
         // @ts-ignore
         const dataObj = window.__data && window.__data.product && window.__data.product;
