@@ -443,6 +443,9 @@ fields:
   - name: imageZoomFeaturePresent
     singleValue: false
     xpath: (//div[@class="pinch-zoom"])[1]/@class
+  - name: inTheBoxText
+    singleValue: false
+    xpath: //div[@id="infoTabContent"]//strong[contains(.,"Includes:")]/following-sibling::br[(following-sibling::strong)]
   - name: unInterruptedPDP
     singleValue: false
     xpath: //*[@id="product-recommend"]//div[@class="prec-name"] | //*[@id="divCuratedProductRecs"]//div[@class="prec-name"]
