@@ -18,7 +18,7 @@ fields:
     xpath: //ul[@id="mainProductGrid"]/li//div[@class="textContainer"]//div[@class="text"]/a/strong
   - name: thumbnail
     singleValue: false
-    xpath: //ul[@id="mainProductGrid"]/li//a[@class="imgContainer"]/@href
+    xpath: //ul[@id="mainProductGrid"]/li//a[@class="imgContainer"]/img/@src
   - name: price
     singleValue: false
     xpath: //ul[@id="mainProductGrid"]/li/@data-product-price
