@@ -225,7 +225,6 @@ fields:
     singleValue: false
     description: null
   - name: otherSellersPrice
-    defaultValue: rewe
     singleValue: false
     description: null
   - name: otherSellersShipping
@@ -512,3 +511,6 @@ fields:
   - name: questionsCount
     singleValue: true
     defaultValue: 0
+  - name: productUrl
+    singleValue: true
+    xpath: //link[@rel="canonical"]/@href

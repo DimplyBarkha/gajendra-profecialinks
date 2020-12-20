@@ -38,8 +38,8 @@ const transform = (data) => {
 
     for (const { group }  of data) {
         for (const row of group) {
-            if (row.alternateImages) {
-                row.alternateImages.forEach(item => {
+            if (row.shownImages) {
+                row.shownImages.forEach(item => {
                     item.text = item.text.split('?')[0];
                 });
             }
@@ -53,7 +53,7 @@ const transform = (data) => {
                     item.text = item.text.split('?')[0];
                 });
             }
-        }
+        } 
     }
 
     return data;
