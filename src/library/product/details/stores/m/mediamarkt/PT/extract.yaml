@@ -30,9 +30,9 @@ fields:
   # # - name: promotion
   # #   singleValue: false
   # #   xpath: //span[contains(@class,'pod-badges-item')]
-  # - name: mpc
-  #   singleValue: false
-  #   xpath: //td[contains(text(),'Modelo')]/following-sibling::td[1]
+  - name: mpc
+    singleValue: false
+    xpath: //script/@data-flix-mpn
   - name: weightNet
     singleValue: false
     xpath: (//td[@class='spec-line-title']//span[contains(text(), 'Peso')]//..//following-sibling::td)[1]
