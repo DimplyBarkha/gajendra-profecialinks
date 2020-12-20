@@ -84,7 +84,6 @@ const transform = (data) => {
           },
         ];
       }
-      //
       let descTxt = '';
       if (row.description) {
         // let text = '';
@@ -141,6 +140,16 @@ const transform = (data) => {
         console.log('quantity1',row.quantity1);
         row.quantity = row.quantity1;
         console.log("quantity", row.quantity);
+      }
+      if ((!row.ingredientsList || !row.ingredientsList.length) && row.ingredientsList1) {
+        console.log('ingredientsList1',row.ingredientsList1);
+        row.ingredientsList = row.ingredientsList1;
+        console.log("ingredientsList", row.ingredientsList);
+      }
+      if ((!row.allergyAdvice || !row.allergyAdvice.length) && row.allergyAdvice1) {
+        console.log('allergyAdvice1',row.allergyAdvice1);
+        row.allergyAdvice = row.allergyAdvice1;
+        console.log("allergyAdvice", row.allergyAdvice);
       }
       if (row.allergyAdvice) {
         let text = '';

@@ -180,6 +180,16 @@ const transform = (data) => {
           },
         ];
       }
+      if ((!row.ingredientsList || !row.ingredientsList.length) && row.ingredientsList1) {
+        console.log('ingredientsList1',row.ingredientsList1);
+        row.ingredientsList = row.ingredientsList1;
+        console.log("ingredientsList", row.ingredientsList);
+      }
+      if ((!row.allergyAdvice || !row.allergyAdvice.length) && row.allergyAdvice1) {
+        console.log('allergyAdvice1',row.allergyAdvice1);
+        row.allergyAdvice = row.allergyAdvice1;
+        console.log("allergyAdvice", row.allergyAdvice);
+      }
       if (row.additionalDescBulletInfo) {
         let text = '';
         row.additionalDescBulletInfo.forEach(item => {

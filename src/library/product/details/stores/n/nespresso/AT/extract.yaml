@@ -25,6 +25,8 @@ fields:
   - name: nameExtended
     singleValue: false
     xpath: //div[@itemprop="name"]/text() | //div[@class="ProductDetails__name"]/text()
+    regExp: (.+)
+    regExpReplace: Nespresso-$1
   - name: listPrice
     singleValue: false
     description: The stated undiscounted price for the product
@@ -40,14 +42,14 @@ fields:
     defaultValue: In Stock
   - name: description
     singleValue: false
-    xpath: //div[@itemprop="description"]//text()
+    xpath: //div[@class="ProductDetailsBodyInformation__description"]//text() | //div[@class="ProductDetailsBodyInformation__title"]
   - name: description1
     singleValue: false
     xpath: //div[@class="ProductDetails__marketingFeatures"]//ul/li 
     # xpath: //div[@class="FreeHTML"]/p | //n-pdp-description/@heading | //n-pdp-description/@subheading | //n-pdp-description/@info
   - name: descriptionBullets
     singleValue: false
-    xpth: count(//div[@class="ProductDetails__marketingFeatures"]//ul/li)
+    xpath: count(//div[@class="ProductDetails__marketingFeatures"]//ul/li//text() | //ul[@class="ProductDetailsBodyInformation__specifications-list"]/li)
   - name: brandText
     singleValue: false
     xpath: //script[contains(.,"brand") and (contains(.,"currency"))]/text()
@@ -257,7 +259,7 @@ fields:
     description: null
   - name: ingredientsList
     singleValue: false
-    xpath: //button[contains(text(), "INHALTSSTOFFE UND ALLERGENE")]/following-sibling::div/div[1]/text() | //div[contains(text(), "INHALTSSTOFFE UND ALLERGENE")]/../following-sibling::div//b/text()
+    xpath: //button[contains(text(), "INGREDIENTS AND ALLERGENS")]//../following-sibling::div/div[(following::h4[contains(text(),"Net Weight")])]//text()
   - name: servingSize
     singleValue: false
     description: The size of serving Nutritional information is based on.
@@ -470,7 +472,7 @@ fields:
     # xpath: //ul[@class="ProductDetailsColorSwitcher__color-list"]/li/a/span
   - name: additionalDescBulletInfo
     singleValue: false
-    xpath: //div[@class="ProductDetails__marketingFeatures"]//ul/li//text()
+    xpath: //div[@class="ProductDetails__marketingFeatures"]//ul/li//text() | //ul[@class="ProductDetailsBodyInformation__specifications-list"]/li
   - name: prop65Warning
     singleValue: false
     description: null

@@ -25,6 +25,8 @@ fields:
   - name: nameExtended
     singleValue: false
     xpath: //div[@itemprop="name"]/text()
+    regExp: (.+)
+    regExpReplace: Nespresso-$1
   - name: listPrice
     singleValue: false
     description: The stated undiscounted price for the product
@@ -40,13 +42,13 @@ fields:
     defaultValue: Out of Stock
   - name: description1
     singleValue: false
-    xpath: //div[@class="ProductDetails__marketingFeatures"]//ul/li | //h3[contains(.,"KEY FEATURES")]/..//ul/li//text()
+    xpath: //div[@class="ProductDetails__marketingFeatures"]//ul/li | //ul[@class="ProductDetailsBodyInformation__specifications-list"]/li
   - name: description
     singleValue: false
     xpath: //div[@itemprop="description"]//text() | //n-pdp-description/@heading | //n-pdp-description/@subheading | //n-pdp-description/@info
   - name: descriptionBullets
     singleValue: false
-    xpth: count(//h3[contains(.,"KEY FEATURES")]/..//ul/li//text()| //h3[contains(.,"Eigenschaften")]/../ul/li/text() |//div[@class="ProductDetails__marketingFeatures"]//ul/li/text())
+    xpath: count(//div[@class="ProductDetails__marketingFeatures"]//ul/li | //ul[@class="ProductDetailsBodyInformation__specifications-list"]/li)
   - name: brandText
     singleValue: false
     xpath: //script[contains(.,"brand") and (contains(.,"currency"))]/text()
@@ -133,9 +135,10 @@ fields:
   - name: shippingWeight
     singleValue: false
     description: Stated shipping weight
-  # - name: variantCount
-  #   singleValue: false
-  #   xpath: count(//div[@class="ProductDetailsColorSwitcher"]/ul/li)
+  - name: variantCount
+    singleValue: false
+    # xpath: count(//div[@class="ProductDetailsColorSwitcher"]/ul/li)
+    defaultValue: "0"
   - name: color
     singleValue: false
     xpath: //div[@class="ProductDetailsColorSwitcher__title"]
@@ -260,7 +263,10 @@ fields:
     description: null
   - name: ingredientsList
     singleValue: false
-    xpath: //button[contains(text(), "INHALTSSTOFFE UND ALLERGENE")]//../following-sibling::div//text()
+    xpath: //h4[contains(text(), "Ingrédients & allergènes")]//../following-sibling::div[(following::h4[contains(text(),"Poids")])]/text() | //h4[contains(text(), "Zutaten")]//../following-sibling::div[(following::h4[contains(text(),"Netto")])]/text() | //div[contains(text(), "Zutaten")]//../following-sibling::*[(following::div[contains(text(),"Netto")])]/text()
+  - name: ingredientsList1
+    singleValue: false
+    xpath: //div[contains(text(), "Zutaten")]//../following-sibling::div 
     # xpath: //button[contains(text(), "INHALTSSTOFFE UND ALLERGENE")]//../following-sibling::div//text()[(following::h4[contains(text(),"Netto Gewicht")])] | //button[contains(text(), "INHALTSSTOFFE UND ALLERGENE")]//../following-sibling::div//text()[(following::div[contains(text(),"Nettogewicht")])] | //button[contains(text(), "INHALTSSTOFFE UND ALLERGENE")]//../following-sibling::div/div[(following::h4[contains(text(),"NETTOGEWICHT")])]/text() | //button[contains(text(), "INHALTSSTOFFE UND ALLERGENE")]//../following-sibling::div//text()[(following::h4[contains(text(),"Nettogewicht")])] | //button[contains(text(), "INHALTSSTOFFE UND ALLERGENE")]//../following-sibling::div//b/text() | //button[contains(text(), "INHALTSSTOFFE UND ALLERGENE")]//../following-sibling::div/div[(following::div[contains(text(),"Peso")])]//text() | //button[contains(text(), "INHALTSSTOFFE UND ALLERGENE")]//../following-sibling::div//text()[(following::h4[contains(text(),"Nettogewicht")])]
   - name: servingSize
     singleValue: false
@@ -422,9 +428,12 @@ fields:
     singleValue: false
     xpath: //h4[contains(text(), "HERGESTELLT")]/text() | //h4[contains(text(), "Hergestellt")]/text()
     regExp: \b(\w+)$
+  - name: allergyAdvice1
+    singleValue: false
+    xpath: //div[contains(text(), "Zutaten")]//../following-sibling::div 
   - name: allergyAdvice
     singleValue: false
-    xpath: //button[contains(text(), "INHALTSSTOFFE UND ALLERGENE")]//../following-sibling::div//text()
+    xpath: //h4[contains(text(), "Ingrédients & allergènes")]//../following-sibling::div[(following::h4[contains(text(),"Poids")])]/text() | //h4[contains(text(), "Zutaten")]//../following-sibling::div[(following::h4[contains(text(),"Netto")])]/text() | //div[contains(text(), "Zutaten")]//../following-sibling::*[(following::div[contains(text(),"Netto")])]/text()
     # xpath: //button[contains(text(), "INHALTSSTOFFE UND ALLERGENE")]//../following-sibling::div//text()[(following::h4[contains(text(),"Netto Gewicht")])] | //button[contains(text(), "INHALTSSTOFFE UND ALLERGENE")]//../following-sibling::div//text()[(following::div[contains(text(),"Nettogewicht")])] | //button[contains(text(), "INHALTSSTOFFE UND ALLERGENE")]//../following-sibling::div/div[(following::h4[contains(text(),"NETTOGEWICHT")])]/text() | //button[contains(text(), "INHALTSSTOFFE UND ALLERGENE")]//../following-sibling::div//text()[(following::h4[contains(text(),"Nettogewicht")])] | //button[contains(text(), "INHALTSSTOFFE UND ALLERGENE")]//../following-sibling::div//b/text() | //button[contains(text(), "INHALTSSTOFFE UND ALLERGENE")]//../following-sibling::div/div[(following::div[contains(text(),"Peso")])]//text() | //button[contains(text(), "INHALTSSTOFFE UND ALLERGENE")]//../following-sibling::div//text()[(following::h4[contains(text(),"Nettogewicht")])]
   - name: recyclingInformation
     singleValue: false
@@ -473,7 +482,7 @@ fields:
   #   xpath: //ul[@class="ProductDetailsColorSwitcher__color-list"]/li/a/span
   - name: additionalDescBulletInfo
     singleValue: false
-    xpath: //h3[contains(.,"KEY FEATURES")]/..//ul/li//text() | //h3[contains(.,"Eigenschaften")]/../ul/li//text() | //div[@class="ProductDetails__marketingFeatures"]//ul/li/text()
+    xpath: //div[@class="ProductDetails__marketingFeatures"]//ul/li | //ul[@class="ProductDetailsBodyInformation__specifications-list"]/li
   - name: prop65Warning
     singleValue: false
     description: null
