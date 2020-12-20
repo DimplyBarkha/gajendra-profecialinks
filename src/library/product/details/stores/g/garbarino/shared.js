@@ -28,6 +28,11 @@ const transform = (data) => {
             }
           });
         }
+        if (row.price) {
+          row.price.forEach(item => {
+              item.text = item.text.replace('.',',');
+          });
+        }
         if (row.manufacturerImages) {
           row.manufacturerImages.forEach(item => {
             if(item.text.includes('http')){
