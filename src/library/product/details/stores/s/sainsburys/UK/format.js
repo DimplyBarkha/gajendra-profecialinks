@@ -41,11 +41,6 @@ const url1 = require('url');
               item.text = ('Add' === item.text ) ? 'In stock' : 'Out of stock';
             });
           }
-          if (row.priceCurrency) {
-            row.priceCurrency.forEach(item => {
-              item.text = ( item.text.includes('£') ) ? 'GBP' : 'EURO';
-            });
-          }
           if (row.shownImages) {
             let text = '';
             let element = '';
