@@ -30,11 +30,15 @@ const transform = (data, context) => {
         row.rankOrganic = [{ text: orgRankCounter }];
       }
       row.rank = [{ text: rankCounter }];
-      if (row.reviewCount) {
-        row.reviewCount.forEach(item => {
-          item.text = item.text.substr(item.text.indexOf('(') + 1);
-          item.text = item.text.substr(0, item.text.indexOf(')'));
-        });
+      if (row.fullStar) {
+        var rating = 0;
+        if (row.halfStar) {
+          rating = parseInt(row.fullStar[0].text) + (parseInt(row.halfStar[0].text) * 0.5);
+        } else {
+          rating = parseInt(row.fullStar[0].text);
+        }
+        row.aggregateRating = [{ text: rating.toString().replace('.', ','), xpath: row.fullStar[0].xpath }];
+        row.aggregateRating2 = [{ text: rating.toString().replace('.', ','), xpath: row.fullStar[0].xpath }];
       }
       if (row.price) {
         row.price.forEach(item => {

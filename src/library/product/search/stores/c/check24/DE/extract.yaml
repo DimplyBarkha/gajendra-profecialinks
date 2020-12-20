@@ -18,6 +18,8 @@ fields:
   - name: reviewCount
     singleValue: false
     xpath: //span[@class="count"]
+    regExp: (\d+)
+    regExpReplace: $1
   - name: productUrl
     singleValue: false
     xpath: //div[@class="grid-product__figure"]//a//@href
@@ -25,9 +27,11 @@ fields:
   - name: rankOrganic
   - name: fullStar
     singleValue: false
-    xpath: //div[@class="srp__container js-srp-container"]//div[@class="srp-row products-grid"]//div[@class="grid-product"]//span[@class="rating-stars"]//span[contains(@class,"star_full")]
+    xpath: //div[@id="fullStarCount"]
   - name: halfStar
     singleValue: false
-    xpath: //div[@class="srp__container js-srp-container"]//div[@class="srp-row products-grid"]//div[@class="grid-product"]//span[@class="rating-stars"]//span[contains(@class,"star_full")]
+    xpath: //div[@id="halfStarCount"]
+  - name: aggregateRating
+  - name: aggregateRating2
   
   

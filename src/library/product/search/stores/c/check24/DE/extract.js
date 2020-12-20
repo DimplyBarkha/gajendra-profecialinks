@@ -27,11 +27,13 @@ async function implementation (
   const applyScroll = async function (context) {
     await context.evaluate(async function () {
       let scrollTop = 0;
-      while (scrollTop !== 15000) {
+      let lastScrollValue = 0;
+      while (scrollTop !== 12000) {
         await stall(1000);
+        lastScrollValue = scrollTop;
         scrollTop += 500;
-        window.scroll(0, scrollTop);
-        if (scrollTop === 15000) {
+        window.scroll(lastScrollValue, scrollTop);
+        if (scrollTop === 12000) {
           await stall(2000);
           break;
         }
@@ -48,6 +50,24 @@ async function implementation (
   // await new Promise(resolve => setTimeout(resolve, 6000));
   await applyScroll(context);
   // await new Promise(resolve => setTimeout(resolve, 6000));
+  await context.evaluate(async function () {
+    function addHiddenDiv (id, content, index) {
+      const newDiv = document.createElement('div');
+      newDiv.id = id;
+      newDiv.textContent = content;
+      newDiv.style.display = 'none';
+      const originalDiv = document.querySelectorAll('.grid-product')[index];
+      originalDiv.appendChild(newDiv);
+      console.log('child appended ' + index);
+    }
+
+    document.querySelectorAll('.grid-product').forEach((element, index) => {
+      const starFull = element.querySelectorAll('.grid-product__details .rating-stars .star_full').length;
+      const starHalf = element.querySelectorAll('.grid-product__details .rating-stars .star_half').length;
+      addHiddenDiv('fullStarCount', starFull, index);
+      addHiddenDiv('halfStarCount', starHalf, index);
+    });
+  });
   return await context.extract(productDetails, { transform });
 }
 module.exports = {
