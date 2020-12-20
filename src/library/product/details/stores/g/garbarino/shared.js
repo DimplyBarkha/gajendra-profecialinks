@@ -33,6 +33,11 @@ const transform = (data) => {
               item.text = item.text.replace('.',',');
           });
         }
+        if (row.listPrice) {
+          row.listPrice.forEach(item => {
+              item.text = item.text.replace('.',',');
+          });
+        }
         if (row.manufacturerImages) {
           row.manufacturerImages.forEach(item => {
             if(item.text.includes('http')){
