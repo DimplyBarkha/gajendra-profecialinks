@@ -15,6 +15,9 @@ fields:
   - name: nameExtended
     singleValue: false
     xpath: //div[@id="ContentPlaceHolder1_itemDetailDiv"]//span[@class="title"]/span
+  - name: name
+    singleValue: false
+    xpath: //div[@id="ContentPlaceHolder1_itemDetailDiv"]//span[@class="title"]/span
   - name: availabilityText
     singleValue: false
     defaultValue: In Stock
@@ -24,6 +27,17 @@ fields:
   - name: variantId
     singleValue: false
     xpath: //div[@id="ContentPlaceHolder1_itemDetailDiv"]//span[@class="title"]/text()
-  - name: specifications
+  - name: alternateImages
     singleValue: false
-    xpath: //table[@class="itemBasic"]//table[@class="dataTable"]//td
+    xpath: //div[@class="imageBox" and position()>1]//img/@src
+  - name: variantCount
+    singleValue: false
+    defaultValue: '0'
+  - name: secondaryImageTotal
+    singleValue: false
+    xpath: count(//div[@class="imageBox" and position()>1]//img/@src)
+  - name: brandLink
+    singleValue: false
+    xpath: //td[@class="brandImage"]/a[@id="brandImageRef"]/@href
+    regExp: (.+)
+    regExpReplace: https://mujbidfood.cz/$1

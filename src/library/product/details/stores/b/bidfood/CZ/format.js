@@ -41,19 +41,10 @@ const transform = (data) => {
             item.text=brandTextStr+" - "+item.text;
           })
         }
-        if(row.specifications){
-          let no2=0,tmp='',inf=[];
-          row.specifications.forEach(item=>{
-            if(no2==0){
-              no2=1;
-              tmp=item.text;
-            }else if(no2=1){
-              tmp=tmp+" "+item.text;
-              inf.push(tmp);
-              no2=0;tmp='';
-            }
+        if(row.alternateImages){
+          row.alternateImages.forEach(item=>{
+            item.text="https://mujbidfood.cz/"+item.text;
           })
-          row.specifications=[{"text":inf.join(' | ')}];
         }
       }
     }
