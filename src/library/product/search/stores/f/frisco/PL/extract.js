@@ -16,7 +16,7 @@ module.exports = {
       await context.evaluate(async function () {
         let scrollTop = 0;
         while (scrollTop !== 20000) {
-          scrollTop += 1000;
+          scrollTop += 200;
           window.scroll(0, scrollTop);
           await stall(1000);
         }
