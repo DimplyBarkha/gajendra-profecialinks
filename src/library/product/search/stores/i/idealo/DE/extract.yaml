@@ -11,8 +11,6 @@ fields:
   - name: thumbnail
     singleValue: false
     xpath: //img[contains(@class,"offerList-item-image")]/@src
-    regExp: \/\/(.+)
-    regExpReplace: $1
   - name: name
     singleValue: false
     xpath: //div[contains(@id,"result-title")] 

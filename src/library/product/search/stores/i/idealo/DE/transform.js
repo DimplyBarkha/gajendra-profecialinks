@@ -24,7 +24,14 @@ const transform = (data, context) => {
     for (const row of group) {
       if (row.aggregateRating2 && row.aggregateRating2[0]) {
         const text = row.aggregateRating2[0].text.replace(/(.+)--(\d+)/g, '$2');
-        row.aggregateRating2[0].text = Number(text) / 20;
+        const finalText = Number(text) / 20;
+        row.aggregateRating2[0].text = finalText.toString().replace('.', ',');
+      }
+      if (row.thumbnail && row.thumbnail[0]) {
+        const image = row.thumbnail[0].text;
+        if (!image.includes('http')) {
+          row.thumbnail[0].text = image.replace(/(.+)/g, 'https:$1');
+        }
       }
       rankCounter += 1;
       if (!row.sponsored) {
