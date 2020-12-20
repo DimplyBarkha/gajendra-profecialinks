@@ -13,6 +13,10 @@ module.exports = {
     const { transform } = parameters;
     const { productDetails } = dependencies;
     await context.evaluate(() => {
+      const cookiesButton = document.querySelector('.gdpr-cookie-layer__btn--submit--all');
+      if (cookiesButton) {
+        cookiesButton.click();
+      }
       function addHiddenDiv (className, content, index) {
         const newDiv = document.createElement('div');
         newDiv.classList.add(className);
