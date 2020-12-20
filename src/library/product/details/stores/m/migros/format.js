@@ -25,23 +25,49 @@ const transform = (data) => {
   for (const { group } of data) {
     for (const row of group) {
       debugger;
-      if (row.category) {
-        let info = [];
+      // if (row.category) {
+      //   let info = [];
 
-        row.category.forEach(item => {
-          info.push(item.text.trim());
-        });
-        if (info.length) {
-          row.category = [];
-          info.forEach(item => {
-            row.category.push({ "text": item});
-          });
-        }
-        if(row.image){
-          let Item = '';
-     // Item.text.replace(""background-image:url(\\")").trim()
-        }
-      }
+      //   row.category.forEach(item => {
+      //     info.push(item.text.trim());
+      //   });
+        // if (info.length) {
+        //   row.category = [];
+        //   info.forEach(item => {
+        //     row.category.push({ "text": item});
+        //   });
+        // }
+    //     if(row.image){
+    //       let Item = '';
+    //  // Item.text.replace(""background-image:url(\\")").trim()
+    //     }
+    if (row.shownImages) {
+
+      row.shownImages.forEach(item => {
+       item.text = item.text.replace("background-image:","  ").trim();
+       item.text = item.text.replace("url","  ").trim();
+       item.text = item.text.replace("(","  ").trim();
+       item.text = item.text.replace(")","  ").trim();
+       item.text = item.text.replace("\"", ' ').trim();
+       item.text = item.text.replace(";", ' ').trim();
+       item.text = item.text.replace("\"", ' ').trim();
+       console.log("item.text",item.text);
+      });
+    }
+
+    if (row.highQualityImages) {
+      row.highQualityImages.forEach(item => {
+       item.text = item.text.replace("background-image:","  ").trim();
+       item.text = item.text.replace("url","  ").trim();
+       item.text = item.text.replace("(","  ").trim();
+       item.text = item.text.replace(")","  ").trim();
+       item.text = item.text.replace("\"", ' ').trim();
+       item.text = item.text.replace(";", ' ').trim();
+       item.text = item.text.replace("\"", ' ').trim();
+       console.log("item.text",item.text);
+      });
+    }
+
     }
   }
   return cleanUp(data);

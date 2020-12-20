@@ -1,18 +1,20 @@
 const { transform } = require('../format');
-
 module.exports = {
   implements: 'product/details/extract',
   parameterValues: {
     country: 'CH',
     store: 'migros',
     domain: 'migros.ch',
-    loadedSelector: null,
-    noResultsXPath: null,
-    zipcode: '',
+    transform
+
   },
-  implementation: async ({ inputString }, { country, domain, transform: transformParam }, context, dependencies) => {
+  implementation: async (inputs,
+    parameters,
+    context,
+    dependencies,
+  ) => {
     await new Promise(resolve => setTimeout(resolve, 10000));
-    await context.evaluate(function () {
+    await context.evaluate(async function () {
       function addHiddenDiv (elementID, content) {
         const newDiv = document.createElement('div');
         newDiv.className = elementID;
@@ -20,57 +22,79 @@ module.exports = {
         newDiv.style.display = 'none';
         document.body.appendChild(newDiv);
       }
-     
+
       var observer = new MutationObserver(function(mutations) {
         if (document.querySelector('.hgroup')) {
           var el = document.getElementsByClassName('hgroup');
           addHiddenDiv("migros_name", el[0].firstElementChild.innerText);
-          
+
           observer.disconnect();
 
          // observer.disconnect();
           addHiddenDiv("migros_description", el[0].children[1].innerText);
+          var url = window.location.href;
+          addHiddenDiv("product_url", url);
 
           var ee = document.querySelectorAll('dd.ng-star-inserted > app-breadcrumb-product-details > div > ol')
           if(ee && ee[0].childElementCount >0){
             for(var i=0; i< ee[0].childElementCount; i++){
               addHiddenDiv("migros_category", ee[0].children[i].textContent);
             }
-          }  
-        
+          }
          var ig= document.querySelectorAll('lsp-product-detail-metadata > dd.ng-star-inserted')[0];
          addHiddenDiv("migros_ingredients",ig.textContent);
-       
+
         var al= document.querySelectorAll('lsp-product-detail-metadata > dd.ng-star-inserted')[1];
         addHiddenDiv("migros_allergy",al.textContent);
 
         var n = document.querySelector('dd[id*="-nutrients"]');
         addHiddenDiv("migros_nutrition",n.textContent);
-     /*  var en =document.querySelectorAll('lsp-product-detail-metadata > dd.ng-star-inserted table.mat-table tr.mat-row:nth-child(1) td')[1]; 
-        addHiddenDiv("migros_energy",en.textContent);
 
-        var ft =document.querySelectorAll('lsp-product-detail-metadata > dd.ng-star-inserted table.mat-table tr.mat-row:nth-child(3) td')[1]; 
-        addHiddenDiv("migros_fats",ft.textContent);
 
-        var cb =document.querySelectorAll('lsp-product-detail-metadata > dd.ng-star-inserted table.mat-table tr.mat-row:nth-child(4) td')[1]; 
-        addHiddenDiv("migros_carbohydrates",cb.textContent);
+        var enTitle = document.querySelectorAll('lsp-product-detail-metadata > dd.ng-star-inserted table.mat-table tr.mat-row:nth-child(1) td')[0];
+        var en =document.querySelectorAll('lsp-product-detail-metadata > dd.ng-star-inserted table.mat-table tr.mat-row:nth-child(1) td')[2];
+        var joinEnergy = enTitle.textContent.concat(":") + en.textContent;
+        addHiddenDiv("migros_energy",joinEnergy);
 
-        var sg =document.querySelectorAll('lsp-product-detail-metadata > dd.ng-star-inserted table.mat-table tr.mat-row:nth-child(5) td')[1]; 
-        addHiddenDiv("migros_sugar",sg.textContent);
+        var lipidsTitle = document.querySelectorAll('lsp-product-detail-metadata > dd.ng-star-inserted table.mat-table tr.mat-row:nth-child(2) td')[0];
+        var lipids = document.querySelectorAll('lsp-product-detail-metadata > dd.ng-star-inserted table.mat-table tr.mat-row:nth-child(2) td')[2];
+        var joinlipids = lipidsTitle.textContent.concat(":") + lipids.textContent;
+        addHiddenDiv("migros_lipids",joinlipids);
 
-        var pt =document.querySelectorAll('lsp-product-detail-metadata > dd.ng-star-inserted table.mat-table tr.mat-row:nth-child(6) td')[1]; 
-        addHiddenDiv("migros_protein",pt.textContent);
+        var ftTitle = document.querySelectorAll('lsp-product-detail-metadata > dd.ng-star-inserted table.mat-table tr.mat-row:nth-child(3) td')[0];
+        var ft = document.querySelectorAll('lsp-product-detail-metadata > dd.ng-star-inserted table.mat-table tr.mat-row:nth-child(3) td')[2];
+        var joinFat = ftTitle.textContent.concat(":") + ft.textContent;
+        addHiddenDiv("migros_fats",joinFat);
 
-        var sd =document.querySelectorAll('lsp-product-detail-metadata > dd.ng-star-inserted table.mat-table tr.mat-row:nth-child(7) td')[1]; 
-        addHiddenDiv("migros_sodium",sd.textContent);
+        var cbTitle = document.querySelectorAll('lsp-product-detail-metadata > dd.ng-star-inserted table.mat-table tr.mat-row:nth-child(4) td')[0];
+        var cb =document.querySelectorAll('lsp-product-detail-metadata > dd.ng-star-inserted table.mat-table tr.mat-row:nth-child(4) td')[2];
+        var joinCB = cbTitle.textContent.concat(":") + cb.textContent;
+        addHiddenDiv("migros_carbohydrates",joinCB);
 
-        var st =document.querySelectorAll('lsp-product-detail-metadata > dd.ng-star-inserted table.mat-table tr.mat-row:nth-child(8) td')[1]; 
-        addHiddenDiv("migros_salt",st.textContent);*/
+        var sgTitle =document.querySelectorAll('lsp-product-detail-metadata > dd.ng-star-inserted table.mat-table tr.mat-row:nth-child(5) td')[0];
+        var sg =document.querySelectorAll('lsp-product-detail-metadata > dd.ng-star-inserted table.mat-table tr.mat-row:nth-child(5) td')[2];
+        var joinSg = sgTitle.textContent.concat(":") + sg.textContent;
+        addHiddenDiv("migros_sugar",joinSg);
+
+        var ptTitle =document.querySelectorAll('lsp-product-detail-metadata > dd.ng-star-inserted table.mat-table tr.mat-row:nth-child(6) td')[0];
+        var pt =document.querySelectorAll('lsp-product-detail-metadata > dd.ng-star-inserted table.mat-table tr.mat-row:nth-child(6) td')[2];
+        var joinPt = ptTitle.textContent.concat(":") + pt.textContent;
+        addHiddenDiv("migros_protein",joinPt);
+
+        var sdTitle =document.querySelectorAll('lsp-product-detail-metadata > dd.ng-star-inserted table.mat-table tr.mat-row:nth-child(7) td')[0];
+        var sd =document.querySelectorAll('lsp-product-detail-metadata > dd.ng-star-inserted table.mat-table tr.mat-row:nth-child(7) td')[2];
+        var joinSd = sdTitle.textContent.concat(":") + sd.textContent;
+        addHiddenDiv("migros_sodium",joinSd);
+
+        var stTitle =document.querySelectorAll('lsp-product-detail-metadata > dd.ng-star-inserted table.mat-table tr.mat-row:nth-child(8) td')[0];
+        var st = document.querySelectorAll('lsp-product-detail-metadata > dd.ng-star-inserted table.mat-table tr.mat-row:nth-child(8) td')[2] ;
+        var joinSt = stTitle.textContent.concat(":") + st.textContent;
+        addHiddenDiv("migros_salt",joinSt);
 
         var store =document.querySelectorAll('lsp-product-detail-metadata > dd.ng-star-inserted:nth-child(8)')[0];
         addHiddenDiv("migros_storage",store.textContent);
 
-        var country= document.querySelectorAll('lsp-product-detail-metadata > dd.ng-star-inserted')[5];
+        var country= document.querySelectorAll('lsp-product-detail-metadata > dd.ng-star-inserted')[4];
         addHiddenDiv("migros_origin",country.textContent)
 
         var price= document.querySelectorAll('lsp-product-price > span.price.ng-star-inserted')[23];
@@ -83,18 +107,21 @@ module.exports = {
         var ss = document.querySelectorAll("dd.pid");
         addHiddenDiv("migros_sku",ss[0].innerText);
 
-       /* var image =document.querySelectorAll('aside.product-detail-image > div.square > div')[0];
-        addHiddenDiv("migros_image",image);*/
+
         var elementImage  = document.querySelectorAll('aside.product-detail-image > div > div');
         addHiddenDiv("migros_image", elementImage[0].style.backgroundImage.slice(4, -1).replace(/"/g, ""));
 
         var ad = document.querySelector('dd[id*="-benefits"]');
         addHiddenDiv("migros_addescription",ad.textContent);
-        
-        } 
+
+        }
       });
       observer.observe(document, {attributes: false, childList: true, characterData: false, subtree:true});
+
     });
-    await context.extract(dependencies.productDetails);
+    const { transform } = parameters;
+    const { productDetails } = dependencies;
+    return await context.extract(productDetails, { transform });
   },
 };
+

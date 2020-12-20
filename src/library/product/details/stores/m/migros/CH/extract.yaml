@@ -3,13 +3,16 @@ regionsSelector: null
 recordSelector:  null
 recordXPath: null
 fields:
-  - name: image
+  - name: shownImages
     singleValue: false
-    xpath: //div[@class="migros_image"]
+    xpath: //aside[@class='product-detail-image']/div[@class='square']/div[@class=' ng-star-inserted ng-lazyloaded']/@style
+  - name: highQualityImages
+    singleValue: false
+    xpath: //aside[@class='product-detail-image']/div[@class='square']/div[@class=' ng-star-inserted ng-lazyloaded']/@style
   - name: category
     singleValue: false
     xpath: //div[@class='migros_category']
-  - name: name
+  - name: nameExtended
     singleValue: false
     xpath: //div[@class='migros_name']
   - name: description
@@ -18,28 +21,52 @@ fields:
   - name: ingredientsList
     singleValue: false
     xpath: //div[@class='migros_ingredients']
-  - name: allergyAdvice
+  - name: allergens
     singleValue: false
     xpath: //div[@class='migros_allergy']
-  - name: nutritionals
+  - name: nutritionInfo
     singleValue: false
-    xpath: //div[@class='migros_']
+    xpath: //div[@class='migros_nutrition']
   - name: storage
     singleValue: false
-    xpath: //div[@class='migros_origin']
+    xpath: //div[@class='migros_storage']
   - name: countryOforigin
     singleValue: false
-   # xpath: //div[@class='migros_origin']
-    xpath: //div[@class='migros_storage']
+    xpath: //div[@class='migros_origin']
   - name: price
     singleValue: false
-    xpath: //div[@class="migros_price"]
+    xpath: //div[@class='price-tools']//span[@class='offers']/span[contains(@class,'actual')]
   - name: weightNet
     singleValue: false
     xpath: //div[@class="migros_weight"]
   - name : sku
     singleValue: false
-    xpath: //div[@class="migros_sku"]
+    xpath: //dd[@class='pid']/text()
   - name: additional_description
     singleValue: false
     xpath: //div[@class="migros_addescription"]
+  - name: servingSize
+    singleValue: false
+    xpath: //dd[@id='product-detail-50817-nutrients']//tr/th[3]
+  - name: productUrl
+    singleValue: false
+    xpath: //div[@class="product_url"]
+  - name : caloriesFromEnergyPerServing
+    singleValue: false
+    xpath: //div[@class="migros_energy"]
+    # xpath: //dd[contains(@id,"-nutrients")]//td[contains(.,"Energy")]/following-sibling::td[2]
+  - name : caloriesFromFatPerServing
+    singleValue: false
+    xpath: //div[@class="migros_fats"]
+  - name : caloriesPerServing
+    singleValue: false
+    xpath: concat(//div[@class="migros_energy"]," , ",//div[@class='migros_lipids']," , ",//div[@class="migros_fats"]," , ",//div[@class="migros_carbohydrates"]," ,  ",//div[@class="migros_sugar"],"  , ",//div[@class="migros_sodium"]," , ",//div[@class="migros_salt"])
+  - name : caloriesFromCarbohydratesPerServing
+    singleValue: false
+    xpath: //div[@class="migros_carbohydrates"]
+  - name : caloriesFromSugarPerServing
+    singleValue: false
+    xpath: //div[@class="migros_sugar"]
+
+
+
