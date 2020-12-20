@@ -348,7 +348,7 @@ module.exports = {
   
       return await context.extract(productDetails, { transform: transformParam });
     } catch (err) {
-      console.log('we got some error - ', err);
+      console.log('we got some error - ', err.message);
     }
     
   },
