@@ -5,8 +5,8 @@ module.exports = {
     country: 'UK',
     store: 'smythstoys',
     domain: 'smythstoys.com',
-    loadedSelector: null,
-    noResultsXPath: null,
+    loadedSelector: 'div#cookieFreshchat + div',
+    noResultsXPath: '//div[contains(@class,"catalouge-error-msg-16")]',
     zipcode: '',
   },
 };
