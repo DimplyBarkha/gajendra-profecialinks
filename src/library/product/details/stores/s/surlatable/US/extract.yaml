@@ -14,6 +14,9 @@ fields:
   - name: category
     singleValue: false
     xpath: (//*[@id="primary"]/div[@class="breadcrumb"]//a//text())[position()>1]
+  - name: metaKeywords
+    singleValue: false
+    xpath: //meta[@name='keywords']//@content
   - name: nameExtended
     singleValue: false
     xpath: //*[@id="pdpMain"]//h1[@class="product-name"]
@@ -29,15 +32,27 @@ fields:
     regExp: (.+)
     regExpReplace: In Stock
     defaultValue: Out of Stock
-  - name: additional_description
+  - name: description
     singleValue: false
-    xpath: //*[@id="tab-2"]/div[@class="tab-content"]
+    xpath: //*[@id="tab-2"]/div[@class="tab-content"]//div[contains(@class,'main-description')]//div[1]
+  - name: additionalDescBulletInfo
+    singleValue: false
+    xpath: //*[@id="tab-2"]/div[@class="tab-content"]//div[contains(@class,'main-description')]//ul//li//text()
+  - name: descriptionBullets
+    singleValue: false
+    xpath: count(//*[@id="tab-2"]/div[@class="tab-content"]//ul//li)
   - name: aggregateRating
     singleValue: false
     xpath: //*[@id="product-teasers"]/span[@class="TurnToReviewsTeaser"]/div/@class
-  - name: ingredientsList
+  - name: materials
     singleValue: false
     xpath: ((//*[@id="tab-3"]/div[@class="tab-content"]/ul/li)[contains(text(),'ingredients')]) |((//*[@id="tab-3"]/div[@class="tab-content"]/ul/li)[contains(text(),'Ingredients')])|((//*[@id="tab-3"]/div[@class="tab-content"]/ul/li)[contains(text(),'Material')])
+  - name: countryOfOrigin
+    singleValue: false
+    xpath: ((//*[@id="tab-3"]/div[@class="tab-content"]/ul/li)[contains(text(),'ingredients')]) |((//*[@id="tab-3"]/div[@class="tab-content"]/ul/li)[contains(text(),'Ingredients')])|((//*[@id="tab-3"]/div[@class="tab-content"]/ul/li)[contains(text(),'Made in')])
+  - name: videos
+    singleValue: false
+    xpath: //div[contains(@class, 'videos')]//div[contains(@class,'slick-track')]//img//@data-vidurl
   - name: brandText
     singleValue: false
     xpath: ((//*[@id="tab-3"]/div[@class="tab-content"]/ul/li)[contains(text(),'Manufacturer')])
@@ -49,7 +64,7 @@ fields:
     xpath: ((//*[@id="tab-3"]/div[@class="tab-content"]/ul/li)[contains(text(),'Weight')]) | ((//*[@id="tab-6"]/div[@class="tab-content"]/ul/li)[contains(text(),'ml')]) | ((//*[@id="tab-6"]/div[@class="tab-content"]/ul/li)[contains(text(),' oz')])|((//*[@id="tab-3"]/div[@class="tab-content"]/ul/li)[contains(text(),'Capcity')])
   - name: directions
     singleValue: false
-    xpath: //*[@id="tab-5"]/div[@class="tab-content"]/ul/li | ((//*[@id="tab-3"]/div[@class="tab-content"]/ul/li)[contains(text(),'Care')])
+    xpath: //*[@id="tab-5"]/div[@class="tab-content"]/ul | ((//*[@id="tab-3"]/div[@class="tab-content"]/ul/li)[contains(text(),'Care')])
   - name: imageAlt
     singleValue: false
     xpath: (//*[@id="pdpMain"]//div[@class="product-primary-image "]/a/img[@class="primary-image"]/@alt)[1]
@@ -68,9 +83,9 @@ fields:
   - name: mpc
     singleValue: false
     xpath: //script[contains(text(),"mpn")]
-  - name: shippingDimensions
-    singleValue: false
-    xpath: ((//*[@id="tab-3"]/div[@class="tab-content"]/ul/li)[contains(text(),'Dimensions')])
+  # - name: shippingDimensions
+  #   singleValue: false
+  #   xpath: ((//*[@id="tab-3"]/div[@class="tab-content"]/ul/li)[contains(text(),'Dimensions')])
   - name: warranty
     singleValue: false
     xpath: ((//*[@id="tab-3"]/div[@class="tab-content"]/ul/li)[contains(text(),'Warranty')])
