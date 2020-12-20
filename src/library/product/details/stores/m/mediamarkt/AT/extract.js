@@ -120,7 +120,15 @@ module.exports = {
     //   addHiddenDiv('enhancedContent',enhancedContent);
     //   });
     // }
-      
+    try{
+      await context.waitForSelector('div.Foldable__StyledFoldable-sc-1e6f7m3-0.bTXMvT >div > div > div > div:nth-child(2) > div > button > span', { timeout: 10000 });
+        await context.click('div.Foldable__StyledFoldable-sc-1e6f7m3-0.bTXMvT >div > div > div > div:nth-child(2) > div > button > span');
+        await context.waitForSelector('#flix-inpage',{ timeout: 10000 });
+      }
+     catch(err){
+       console.log('got some err',err.message)
+     }  
+
     await context.extract(productDetails, { transform: transformParam });
   },
 };
