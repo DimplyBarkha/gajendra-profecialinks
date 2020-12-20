@@ -83,7 +83,7 @@ fields:
     xpath: //div[@class="price-info__info-text qa-points-info"]
   - name: variantInformation
     singleValue: false
-    xpath: (//div//*[contains(text(),'Farbe:')]//following::div[1]//span)[1] | (//div//*[contains(text(),'Größe:')]//following::div[1]//span)[1]
+    xpath: (//div//*[contains(text(),'Farbe:')]//following::div[1]//span)[1]
   - name: firstVariant
     singleValue: false
     xpath: //div[@class="pdp-top grid-x"]//div[@class="cell auto grid-y"]//div//@data-id
@@ -127,8 +127,8 @@ fields:
   - name: caloriesPerServing
     singleValue: false
     xpath: //div//*[contains(text(),'Nährwerte:')]//following::div[1]//span
-    regExp: (?<=Brennwert:)(.*kcal)
-    regExpReplace: $1
+    regExp: (\Brennwert:\s(\d+)\D+(\/\d+))
+    regExpReplace: $2$3
   - name: caloriesFromFatPerServing
     singleValue: false
     xpath: //div//*[contains(text(),'Nährwerte:')]//following::div[1]//span
@@ -190,3 +190,25 @@ fields:
   - name: eangtin
     singleValue: false
     xpath: //div[@class="grid-y product-details"]//script//@data-flix-ean
+  - name: quantity
+    singleValue: false
+    xpath: (//div//*[contains(text(),'Größe:')]//following::div[1]//span)[1]
+    # xpath: //div[@class="detail-list qa-detail-list"]//span[contains(text(), 'Größe')]
+    # regExp: (\:\s(.*))
+    # regExpReplace: $2
+  - name: pricePerUnit
+    singleValue: false
+    xpath: //span[@class="discount-details__basic-price qa-basic-price"]
+    regExp: (.*)\/(.*)
+    regExpReplace: $1
+  - name: pricePerUnitUom
+    singleValue: false
+    xpath: //span[@class="discount-details__basic-price qa-basic-price"]
+    regExp: (.*)\/(.*)
+    regExpReplace: $2
+  - name: mpc
+    singleValue: false
+    xpath: //div[contains(@class,'product productData')]/@data-id
+  - name: materials
+    singleValue: false
+    xpath: //div//*[contains(text(),'Material:')]//following::div[1]//span

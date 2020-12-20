@@ -26,10 +26,14 @@ const transform = (data, context) => {
         row.additionalDescBulletInfo = [{ text: descArray.join(' || '), xpath: row.additionalDescBulletInfo[0].xpath }];
       }
       if (row.variants) {
-        const variantsArray = row.variants.map((item) => {
-          return item.text;
-        });
-        row.variants = [{ text: variantsArray.join('|'), xpath: row.variants[0].xpath }];
+        if (row.variants.length > 1) {
+          const variantsArray = row.variants.map((item) => {
+            return item.text;
+          });
+          row.variants = [{ text: variantsArray.join(' | '), xpath: row.variants[0].xpath }];
+        } else {
+          row.variants.shift();
+        }
       }
       if (row.variantInformation) {
         const variantArray = row.variantInformation.map((item) => {

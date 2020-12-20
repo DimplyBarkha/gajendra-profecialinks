@@ -44,7 +44,7 @@ async function implementation (
       await context.evaluate(async (j) => {
         return document.querySelectorAll('.variations__tiles .variations__container a')[j].click();
       }, j);
-      await new Promise(resolve => setTimeout(resolve, 3000));
+      await new Promise(resolve => setTimeout(resolve, 10000));
       await applyScroll(context);
       await new Promise(resolve => setTimeout(resolve, 3000));
       await context.evaluate(async function () {
