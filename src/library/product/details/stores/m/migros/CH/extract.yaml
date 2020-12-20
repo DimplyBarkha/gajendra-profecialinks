@@ -20,25 +20,30 @@ fields:
     xpath: //div[@class='migros_description']
   - name: ingredientsList
     singleValue: false
-    xpath: //div[@class='migros_ingredients']
+    # xpath: //div[@class='migros_ingredients']
+    xpath: //dd[contains(@id,'ingredients')]
   - name: allergens
     singleValue: false
-    xpath: //div[@class='migros_allergy']
+    # xpath: //div[@class='migros_allergy']
+    xpath: //dd[contains(@id,'-allergens')]
   - name: nutritionInfo
     singleValue: false
     xpath: //div[@class='migros_nutrition']
   - name: storage
     singleValue: false
-    xpath: //div[@class='migros_storage']
+    # xpath: //div[@class='migros_storage']
+    xpath: //dd[contains(@id,'-conservation')]
   - name: countryOforigin
     singleValue: false
-    xpath: //div[@class='migros_origin']
+    # xpath: //div[@class='migros_origin']
+    xpath: //dd[contains(@id,'-origin')]
   - name: price
     singleValue: false
     xpath: //div[@class='price-tools']//span[@class='offers']/span[contains(@class,'actual')]
   - name: weightNet
     singleValue: false
-    xpath: //div[@class="migros_weight"]
+    # xpath: //div[@class="migros_weight"]
+    xpath: //div[@class='weight-price']//span[@class='weight-priceUnit ng-star-inserted']/text()
   - name : sku
     singleValue: false
     xpath: //dd[@class='pid']/text()
@@ -60,13 +65,19 @@ fields:
     xpath: //div[@class="migros_fats"]
   - name : caloriesPerServing
     singleValue: false
-    xpath: concat(//div[@class="migros_energy"]," , ",//div[@class='migros_lipids']," , ",//div[@class="migros_fats"]," , ",//div[@class="migros_carbohydrates"]," ,  ",//div[@class="migros_sugar"],"  , ",//div[@class="migros_sodium"]," , ",//div[@class="migros_salt"])
+    xpath: concat(//div[@class="migros_energy"],"  ",//div[@class='migros_lipids'],"  ",//div[@class="migros_fats"],"  ",//div[@class="migros_carbohydrates"],"  ",//div[@class="migros_sugar"],"   ",//div[@class="migros_sodium"],"  ",//div[@class="migros_salt"])
   - name : caloriesFromCarbohydratesPerServing
     singleValue: false
     xpath: //div[@class="migros_carbohydrates"]
   - name : caloriesFromSugarPerServing
     singleValue: false
     xpath: //div[@class="migros_sugar"]
+  - name: availabilityText
+    singleValue: false
+    xpath: (//div[@class='add-to-basket-container']/button)[1]
+    regExp: (.+)
+    regExpReplace: In Stock
+    defaultValue: Out Of Stock
 
 
 

@@ -32,6 +32,7 @@ module.exports = {
 
          // observer.disconnect();
           addHiddenDiv("migros_description", el[0].children[1].innerText);
+
           var url = window.location.href;
           addHiddenDiv("product_url", url);
 
@@ -41,11 +42,11 @@ module.exports = {
               addHiddenDiv("migros_category", ee[0].children[i].textContent);
             }
           }
-         var ig= document.querySelectorAll('lsp-product-detail-metadata > dd.ng-star-inserted')[0];
-         addHiddenDiv("migros_ingredients",ig.textContent);
+        //  var ig= document.querySelectorAll('lsp-product-detail-metadata > dd.ng-star-inserted')[0];
+        //  addHiddenDiv("migros_ingredients",ig.textContent);
 
-        var al= document.querySelectorAll('lsp-product-detail-metadata > dd.ng-star-inserted')[1];
-        addHiddenDiv("migros_allergy",al.textContent);
+        // var al= document.querySelectorAll('lsp-product-detail-metadata > dd.ng-star-inserted')[1];
+        // addHiddenDiv("migros_allergy",al.textContent);
 
         var n = document.querySelector('dd[id*="-nutrients"]');
         addHiddenDiv("migros_nutrition",n.textContent);
@@ -91,25 +92,25 @@ module.exports = {
         var joinSt = stTitle.textContent.concat(":") + st.textContent;
         addHiddenDiv("migros_salt",joinSt);
 
-        var store =document.querySelectorAll('lsp-product-detail-metadata > dd.ng-star-inserted:nth-child(8)')[0];
-        addHiddenDiv("migros_storage",store.textContent);
+        // var store =document.querySelectorAll('lsp-product-detail-metadata > dd.ng-star-inserted:nth-child(8)')[0];
+        // addHiddenDiv("migros_storage",store.textContent);
 
-        var country= document.querySelectorAll('lsp-product-detail-metadata > dd.ng-star-inserted')[4];
-        addHiddenDiv("migros_origin",country.textContent)
+        // var country= document.querySelectorAll('lsp-product-detail-metadata > dd.ng-star-inserted')[4];
+        // addHiddenDiv("migros_origin",country.textContent)
 
-        var price= document.querySelectorAll('lsp-product-price > span.price.ng-star-inserted')[23];
-        addHiddenDiv("migros_price",price.textContent)
-
-
-        var weight = document.querySelectorAll('lsp-product-price-quantity')[23];
-        addHiddenDiv("migros_weight",weight.textContent);
-
-        var ss = document.querySelectorAll("dd.pid");
-        addHiddenDiv("migros_sku",ss[0].innerText);
+        // var price= document.querySelectorAll('lsp-product-price > span.price.ng-star-inserted')[23];
+        // addHiddenDiv("migros_price",price.textContent)
 
 
-        var elementImage  = document.querySelectorAll('aside.product-detail-image > div > div');
-        addHiddenDiv("migros_image", elementImage[0].style.backgroundImage.slice(4, -1).replace(/"/g, ""));
+        // var weight = document.querySelectorAll('lsp-product-price-quantity')[23];
+        // addHiddenDiv("migros_weight",weight.textContent);
+
+        // var ss = document.querySelectorAll("dd.pid");
+        // addHiddenDiv("migros_sku",ss[0].innerText);
+
+
+        // var elementImage  = document.querySelectorAll('aside.product-detail-image > div > div');
+        // addHiddenDiv("migros_image", elementImage[0].style.backgroundImage.slice(4, -1).replace(/"/g, ""));
 
         var ad = document.querySelector('dd[id*="-benefits"]');
         addHiddenDiv("migros_addescription",ad.textContent);
