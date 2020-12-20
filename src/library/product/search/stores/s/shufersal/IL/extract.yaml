@@ -1,0 +1,27 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: //section[@class="tileSection3"]/ul[@id="mainProductGrid"]/li
+fields:
+  - name: id
+    singleValue: false
+    xpath: //ul[@id="mainProductGrid"]/li/@data-product-code
+    regExp: P_([^,]+)
+    regExpReplace: $1
+  - name: productUrl
+    singleValue: false
+    xpath: //ul[@id="mainProductGrid"]/li//a[@class="imgContainer"]/@href
+    regExp: (.+)
+    regExpReplace: https://www.shufersal.co.il$1
+  - name: name
+    singleValue: false
+    xpath: //ul[@id="mainProductGrid"]/li//div[@class="textContainer"]//div[@class="text"]/a/strong
+  - name: thumbnail
+    singleValue: false
+    xpath: //ul[@id="mainProductGrid"]/li//a[@class="imgContainer"]/@href
+  - name: price
+    singleValue: false
+    xpath: //ul[@id="mainProductGrid"]/li/@data-product-price
+  - name: manufacturer
+    singleValue: false
+    xpath: //ul[@id="mainProductGrid"]/li//div[@class="textContainer"]//div[@class="labelsListContainer"]//span[last()]
