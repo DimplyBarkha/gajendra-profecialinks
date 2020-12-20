@@ -1,10 +1,11 @@
+const { cleanUp } = require('../../../../shared');
 
 module.exports = {
   implements: 'product/details/extract',
   parameterValues: {
     country: 'DE',
     store: 'idealo',
-    transform: null,
+    transform: cleanUp,
     domain: 'idealo.de',
     zipcode: '',
   },
@@ -13,6 +14,11 @@ module.exports = {
     context,
     dependencies,
   ) => {
+    try {
+      await context.waitForXPath('(//img[contains(@class,"oopStage-galleryCollageImage")]/@src)[1] | (//img[contains(@class,"rsMainSlideImage")]/@src)[1]');
+    } catch (error) {
+      console.log('Main Image load failed');
+    }
     await context.evaluate(async function () {
       function addElementToDocument (key, value) {
         const catElement = document.createElement('div');
@@ -41,7 +47,7 @@ module.exports = {
         // @ts-ignore
         const dataObj = JSON.parse(document.querySelector('script[type="application/ld+json"]').innerText.trim());
         if (dataObj) {
-          dataObj && dataObj.aggregateRating && dataObj.aggregateRating.ratingValue && addElementToDocument('agg_rating', dataObj.aggregateRating.ratingValue);
+          dataObj && dataObj.aggregateRating && dataObj.aggregateRating.ratingValue && addElementToDocument('agg_rating', dataObj.aggregateRating.ratingValue.toFixed(2).replace('.', ','));
           dataObj && dataObj.aggregateRating && dataObj.aggregateRating.ratingCount && addElementToDocument('rating_count', dataObj.aggregateRating.ratingCount);
           dataObj && dataObj.manufacturer && dataObj.manufacturer.name && addElementToDocument('pd_manufacturer', dataObj.manufacturer.name);
         }

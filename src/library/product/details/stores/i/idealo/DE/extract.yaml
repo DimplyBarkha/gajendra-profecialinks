@@ -6,16 +6,16 @@ fields:
   - name: image
     singleValue: false
     xpath: (//img[contains(@class,"oopStage-galleryCollageImage")]/@src)[1] | (//img[contains(@class,"rsMainSlideImage")]/@src)[1]
-    regExp: \/\/(.+)
-    regExpReplace: $1
+    regExp: (.+)
+    regExpReplace: https:$1
   - name: imageAlt
     singleValue: false
     xpath: (//img[contains(@class,"oopStage-galleryCollageImage")]/@alt)[1] | (//img[contains(@class,"rsMainSlideImage")]/@alt)[1]
   - name: alternateImages
     singleValue: false
     xpath: //div[contains(@class,"rsThumbsContainer")]/div[contains(@class,"rsThumb")][position()>1]//div[contains(@class,"rsTmb") and not(contains(@class,"rsTmbVideo"))]//img/@src |  (//img[contains(@class,"oopStage-galleryCollageImage")]/@src)[position()>1] 
-    regExp: \/\/(.+)
-    regExpReplace: $1
+    regExp: (.+)
+    regExpReplace: https:$1
   - name: metaKeywords
     singleValue: false
     xpath: //meta[contains(@name, "keywords")]/@content
@@ -126,7 +126,6 @@ fields:
     xpath: //div[contains(@class,"rsThumb")][position()>1]//div[contains(@class,"rsTmb") and contains(@class,"rsTmbVideo")]//img/@data-rsvideo
   - name: name
     singleValue: false
-    xpath: //h1[contains(@class,"oopStage-title")]/span
   - name: inStorePrice
     singleValue: false
     description: Price in the selected store
@@ -428,7 +427,7 @@ fields:
       new desription info
   - name: variantInformation
     singleValue: false
-    xpath: //span[contains(@class,"oopStage-variantThumbnailsVariantName")]
+    xpath: //span[contains(@class,"oopStage-variantThumbnailsVariantName")] | //div[contains(@class,"oopStage-deltaFilterButtons")]//a[contains(@class,"deltaFilterButtonSelected")]
   - name: firstVariant
     singleValue: false
     xpath: (//div[contains(@class,"oopStage-variantThumbnailsImages")]//a[contains(@class,"oopStage-variantThumbnailsImagesLink")]//@href)[1]
