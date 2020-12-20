@@ -23,7 +23,7 @@ fields:
     xpath: //span[contains(@itemprop,"name")]
   - name: price
     singleValue: false
-    xpath: //div[contains(@class,'product-ProductNamePrice')]/p/text() | //div[contains(@class,'product-ProductNamePrice')]/p/span
+    xpath: concat(//div[contains(@class,'product-ProductNamePrice')]/p/text(),'.',//div[contains(@class,'product-ProductNamePrice')]/p/span)
   - name: brandText
     singleValue: false
     xpath: //span[contains(@itemprop,"brand")]
