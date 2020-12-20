@@ -1,5 +1,5 @@
 const { transform } = require('./format');
-async function implementation (
+async function implementation(
   inputs,
   parameters,
   context,
@@ -8,21 +8,24 @@ async function implementation (
   const { transform } = parameters;
   const { productDetails } = dependencies;
   await context.evaluate(async () => {
-		function addHiddenDiv (elementID, content) {
-        const newDiv = document.createElement('div');
-        newDiv.className = elementID;
-        newDiv.textContent = content;
-        newDiv.style.display = 'none';
-        const element = document.querySelector('div.ln-c-card.ln-c-card--soft')
-        element.appendChild(newDiv);
-		}
+    function addHiddenDiv(elementID, content) {
+      const newDiv = document.createElement('div');
+      newDiv.className = elementID;
+      newDiv.textContent = content;
+      newDiv.style.display = 'none';
+      const element = document.querySelector('div.ln-c-card.ln-c-card--soft')
+      element.appendChild(newDiv);
+    }
+
+    const urlParams = new URLSearchParams(window.location.search);
+    const custom_sku = urlParams.get('productId');
     var url = window.location.href;
-    var query = url.split('/');
-		  addHiddenDiv("custom_sku", 'sainsburys_' + query[query.length-1].replace(/\D/g,''));
-    	addHiddenDiv("product_custom_url", url);
-    });
+    addHiddenDiv("custom_sku", 'sainsburys_' + custom_sku);
+    addHiddenDiv("product_custom_url", url);
+  });
   return await context.extract(productDetails, { transform });
 }
+
 
 module.exports = {
   implements: 'product/details/extract',
@@ -32,6 +35,6 @@ module.exports = {
     transform: transform,
     domain: 'sainsburys.co.uk',
     zipcode: '',
-    implementation,
   },
+  implementation,
 };
