@@ -6,7 +6,7 @@ fields:
   - name: image
     singleValue: false
     description: URL of the main product image
-    xpath: (//div[contains(@class, 'img')]/a/img//@data-src)[1]
+    xpath: (//div[contains(@class, 'img')]/a/img//@data-src | //img[contains(@class, 'product-images-slider__main')]/@src)[1]
   - name: imageAlt
     singleValue: false
     description: Alt text of the main product image
@@ -14,7 +14,7 @@ fields:
   - name: alternateImages
     singleValue: false
     description: Other product images (not in manufacturer description)
-    xpath: //div[contains(@class, 'img')]/a/img//@data-src
+    xpath: //div[contains(@class, 'img')]/a/img//@data-src | //div[contains(@class,"media-viewer-slider")]//*[contains(@class, 'img') and contains(@class,'tns-complete')]/@src
   - name: category
     singleValue: false
     description: The categories (e.g. from breadcrumbs)
