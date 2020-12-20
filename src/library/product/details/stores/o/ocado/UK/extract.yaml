@@ -390,8 +390,8 @@ fields:
     singleValue: true
     xpath: //meta[contains(@itemprop,'priceCurrency')]/@content
   - name: legalDisclaimer
-    singleValue: true
-    xpath: //footer[contains(@class,'bop-section bop-disclaimer')]/p/text()
+    singleValue: false
+    xpath: //footer[contains(@class,'bop-section bop-disclaimer')]//p/text()
   - name: highQualityImages
     singleValue: false
     description: Other product images (not in manufacturer description)
