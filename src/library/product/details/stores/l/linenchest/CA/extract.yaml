@@ -6,12 +6,15 @@ fields:
   - name: image
     singleValue: false
     xpath: //div[@id="mtImageContainer"]//div//a//@href
+  - name: imageAlt
+    singleValue: false
+    xpath: //div[@id="mtImageContainer"]//div//a//@alt
   - name: alternateImages
     singleValue: false
     xpath: (//a[contains(@class,"mt-thumb-switcher") and not(contains(@class,"video-selector"))]/@href)[position()>1]
   - name: category
     singleValue: false
-    xpath: //div[@class="breadcrumbs"]//ul//li[position()>1]
+    xpath: //div[@class="breadcrumbs"]//ul//li[not(contains(@class,"product"))][position()>1]
   - name: nameExtended
     singleValue: false
     xpath: //span[@itemprop="name"]/text()
@@ -23,10 +26,10 @@ fields:
     xpath: //span[@data-price-type="finalPrice"]
   - name: aggregateRating
     singleValue: false
-    xpath: //span[@class="tt-c-reviews-summary__rating-number"]/text()
+    xpath: //meta[@itemprop="ratingValue"]/@content
   - name: aggregateRatingText
     singleValue: false
-    xpath: //span[@class="tt-c-reviews-summary__rating-number"]/text()
+    xpath: //meta[@itemprop="ratingValue"]/@content
   - name: ratingCount
     singleValue: false
     xpath: //meta[@itemprop="reviewCount"]/@content
@@ -41,20 +44,21 @@ fields:
   #   xpath: count(//div[@itemprop="more_infos"]/ul/li)
   - name: description
     singleValue: false
-    xpath: //div[@itemprop="description"] | //div[@class="product attribute more-infos"]//div[@itemprop="more_infos"]//ul//li | //div[@class="product attribute user-care"]//div[@itemprop="user_care"]//ul//li
+    xpath: //div[@itemprop="description"] | //div[@class="product attribute more-infos"]//div[@itemprop="more_infos"]//ul//li
   - name: sku
     singleValue: false
-    xpath: //div[contains(@class,'product-sku')]
+    xpath: //meta[@property="product:retailer_item_id"]/@content
     regExp: \d+
   - name: availabilityText
     singleValue: false
-    xpath: //meta[@property="product:availability"]//@content
+    xpath: //meta[@property="product:availability"]/@content
   - name: brandText
     singleValue: false
-    xpath: //meta[@property="product:brand"]//@content
+    xpath: //meta[@property="product:brand"]/@content
   - name: manufacturer
     singleValue: false
-    xpath: //div[@itemprop="manufacturer"]
+    xpath: //div[contains(@class,"manufacturer")] 
+    #//meta[@itemprop="manufacturer"]/@content
   - name: color
     singleValue: false
     xpath: //meta[@property="product:color"]//@content
@@ -70,11 +74,11 @@ fields:
   - name: listPrice
     singleValue: false
     xpath: //span[@data-price-type="oldPrice"]//span
-  - name: shippingDimensions
-    singleValue: false
-    xpath: (//div[@itemprop="more_infos"]/ul/li[contains(.,"Dimensions")])[1]
-    regExp: \:(.*)
-    regExpReplace: $1
+  # - name: shippingDimensions
+  #   singleValue: false
+  #   xpath: (//div[@itemprop="more_infos"]/ul/li[contains(.,"Dimensions")])[1]
+  #   regExp: \:(.*)
+  #   regExpReplace: $1
   - name: imageZoomFeaturePresent
     singleValue: false
     defaultValue: 'Yes'
@@ -83,9 +87,9 @@ fields:
     xpath: (//div[@itemprop="more_infos"]/ul/li[contains(.,"Weight")])[1]
     regExp: :\W+(.+)
     regExpReplace: $1
-  # - name: mpc
-  #   singleValue: false
-  #   xpath: //div[contains(@class,'product-sku')]
+  - name: mpc
+    singleValue: false
+    xpath: //meta[@property="product:retailer_item_id"]/@content
   #   regExp: \d+
   # - name: directions
   #   singleValue: false
@@ -98,9 +102,27 @@ fields:
     xpath: //div[@class="product attribute user-care"]//ul//li
   - name: specifications
     singleValue: false
-    xpath: //div[@itemprop="more_infos"]//ul//li
+    xpath: //div[@itemprop="more_infos"]//li[contains(text(),":")]
   - name: warranty
     singleValue: false
     xpath: (//div[@itemprop="more_infos"]/ul/li[contains(.,"Warranty")])[1]
     regExp: \:(.*)
     regExpReplace: $1
+  - name: gtin
+    singleValue: false
+    xpath: //script[contains(text(),"gtin13")]
+    regExp: ("gtin13":"(\d+))
+    regExpReplace: $2
+  - name: eangtin
+    singleValue: false
+    xpath: //script[contains(text(),"gtin13")]
+    regExp: ("gtin13":"(\d+))
+    regExpReplace: $2
+  - name: variantCount
+    singleValue: false
+    defaultValue: '0'
+  # - name: color
+  #   singleValue: false
+  #   xpath: (//div[@itemprop="more_infos"]//li[contains(text(),"Couleur")])[1]
+  #   regExp: (\:(.*))
+  #   regExpReplace: $2
