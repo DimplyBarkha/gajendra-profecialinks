@@ -36,7 +36,7 @@ fields:
     singleValue: true
     description: The offered price for the selected product variant - if a user
       clicks add to basket this is the price they would be charged
-    xpath: concat(//div[@class="big mk-award price offer"]//text()[1],' ',(//div[@class="big mk-award price offer"]//text())[2],(//div[@class="big mk-award price offer"]//text())[3])
+    xpath: (//div[@class="big mk-award price offer"])[1] | (//div[@class="big mk-award price no-offer"])[1]
     type: CURRENCY
   - name: availabilityText
     singleValue: true
@@ -60,7 +60,7 @@ fields:
     singleValue: true
     description: Product brand shown - this may actually NOT be just a brand name,
       e.g. "Visit the Gillette Store"
-    xpath: (//span[@itemprob="brand"])
+    xpath: (//ul[@class="breadcrumbs"]/li[position()>1]/a)[last()]
   - name: manufacturer
     singleValue: true
     description: Product manufacturer
@@ -90,7 +90,7 @@ fields:
   - name: mpc
     singleValue: true
     description: The manufacturer model code (unique) of the product
-    xpath: //div[@id="mpc"]
+    xpath: //div[@id="mpn"]
   - name: packSize
     singleValue: true
     description: The number of packs in the product offer (if stated separately on
@@ -119,6 +119,7 @@ fields:
   - name: shippingInfo
     singleValue: true
     description: Shipping information for the product
+    xpath: //div[@id="shipping"]
   - name: shippingDimensions
     singleValue: true
     description: Stated shipping dimensions

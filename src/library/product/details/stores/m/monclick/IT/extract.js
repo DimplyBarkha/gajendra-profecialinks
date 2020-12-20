@@ -48,6 +48,16 @@ module.exports = {
       const jsondata = JSON.parse(rawdata);
       var gtin =''
       var mpn =''
+      var shipping=''
+      var shipping1=''
+      if ('offers' in jsondata){
+      shipping = jsondata.offers.seller.name;
+      shipping1 = "Organization"
+      shipping= shipping+ '|' + shipping1
+     }
+     else{
+      shipping = ''
+     }
       if ('gtin13' in jsondata){
          gtin = jsondata.gtin13;
       }
@@ -64,6 +74,8 @@ module.exports = {
       var ratingCount =''
       addElementToDocument('gtin', gtin);
       addElementToDocument('mpn', mpn);
+      console.log(shipping,'================shipp')
+      addElementToDocument('shipping', shipping);
       if ('aggregateRating' in jsondata){
         aggregateRating = jsondata.aggregateRating.ratingValue;
         ratingCount = jsondata.aggregateRating.reviewCount;
