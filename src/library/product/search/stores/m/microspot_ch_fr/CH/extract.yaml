@@ -12,7 +12,8 @@ fields:
     regExp: \d{5,20}
   - name: price
     singleValue: false
-    xpath: concat(//div[@class="rzgLFq _1rUvhT"]/div//div[@class="_2PzTei"]//div[@class="_28doBv"]/span[@class="oXSuYh"]/text()," ",//div[@class="rzgLFq _1rUvhT"]/div//div[@class="_2PzTei"]//div[@class="_28doBv"]/span[2])
+    xpath: //div[@class="rzgLFq _1rUvhT"]/div//div[@class="_2PzTei"]//div[@class="_28doBv"]/span[2]
+    # xpath: concat(//div[@class="rzgLFq _1rUvhT"]/div//div[@class="_2PzTei"]//div[@class="_28doBv"]/span[@class="oXSuYh"]/text()," ",//div[@class="rzgLFq _1rUvhT"]/div//div[@class="_2PzTei"]//div[@class="_28doBv"]/span[2])
     # xpath: //div[@class="rzgLFq _1rUvhT"]/div//div[@class="_2PzTei"]//div[@class="_28doBv"]
   - name: name
     singleValue: false
