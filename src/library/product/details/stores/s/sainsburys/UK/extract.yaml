@@ -33,7 +33,7 @@ fields:
       should be "In Stock"
     xpath: //div[@class='pt-button']/button[contains(@class,'pt__add-button')]
   - name: priceCurrency
-    defaultValue: GBP
+    xpath: //script[@type="application/Id+Json"][contains(text(), "priceCurrency")]
   - name: description
     singleValue: false
     description: Product description supplied by website - may be concatenanted from
