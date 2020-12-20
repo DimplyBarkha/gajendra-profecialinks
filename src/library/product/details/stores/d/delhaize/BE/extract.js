@@ -1,11 +1,11 @@
 const {transform} = require('../BE/format')
 module.exports = {
-  implements: 'product/search/extract',
+  implements: 'product/details/extract',
   parameterValues: {
-    country: 'IN',
-    store: 'myntra',
+    country: 'BE',
+    store: 'delhaize',
     transform,
-    domain: 'myntra.com',
+    domain: 'delhaize.be',
     zipcode: '',
   },
 };

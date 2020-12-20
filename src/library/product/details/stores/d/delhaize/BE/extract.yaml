@@ -1,0 +1,26 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: image
+    singleValue: false
+    xpath: //div[@id="mlens_wrapper_0"]/img[@data-id="mlens_0"]/@src
+  - name: metaKeywords
+    singleValue: false
+    xpath: //meta[@name="Keywords"]/@content
+  - name: category
+    singleValue: false
+    xpath: //div[@class="Breadcrumb"]/div[@class="content"]/a[position() > 1]
+  - name: nameExtended
+    singleValue: false
+    xpath: //div[@class="product-details"]//p[@class="page-title-info"]
+  - name: price
+    singleValue: false
+    xpath: //div[@class="product-details"]//span[contains(@class,"test-price-property")]/span
+  - name: nameExtended
+    singleValue: false
+    xpath: //div[@class="product-details"]//p[@class="page-title-info"]
+  - name: availabilityText
+    singleValue: false
+    defaultValue: In Stock

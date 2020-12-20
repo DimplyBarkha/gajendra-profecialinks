@@ -6,8 +6,8 @@ module.exports = {
     store: 'delhaize',
     domain: 'delhaize.be',
     url: 'https://www.delhaize.be/fr-be/shop/search?q={searchTerms}',
-    loadedSelector: 'div.ctoKut',
-    noResultsXPath: '//div[contains(@class, "sc-3brks3-2")]/p/span',
+    loadedSelector: 'div.ProductSearchResultsPage',
+    noResultsXPath: null,
     zipcode: '',
   },
 };
