@@ -1,6 +1,6 @@
 const { transform } = require('../../../../shared');
 
-async function implementation(
+async function implementation (
   inputs,
   parameters,
   context,
@@ -11,7 +11,7 @@ async function implementation(
   const { productDetails } = dependencies;
 
   await context.evaluate((Brands) => {
-    function addHiddenDiv(id, content) {
+    function addHiddenDiv (id, content) {
       const newDiv = document.createElement('div');
       newDiv.id = id;
       newDiv.textContent = content;
@@ -19,15 +19,11 @@ async function implementation(
       document.body.appendChild(newDiv);
     }
 
-    const productUrls = document.querySelectorAll('div.product_inside');
-    productUrls.forEach(urlNodeMain => {
-      const ratingVal = urlNodeMain.querySelector('div.product_inside_hover span.spr-badge').getAttribute('data-rating');
-      if (ratingVal > 0) {
-        const urlNode = urlNodeMain.querySelector('h2.title a')
-        const link = urlNode.getAttribute('href');
-        if (urlNode.textContent.toLowerCase().includes(Brands.toLowerCase())) {
-          addHiddenDiv('my-urls', link);
-        }
+    const productUrls = document.querySelectorAll('div.product_inside h2.title a');
+    productUrls.forEach(urlNode => {
+      const link = urlNode.getAttribute('href');
+      if (urlNode.textContent.toLowerCase().includes(Brands.toLowerCase())) {
+        addHiddenDiv('my-urls', link);
       }
     });
   }, Brands);
