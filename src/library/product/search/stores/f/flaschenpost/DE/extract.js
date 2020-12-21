@@ -16,12 +16,12 @@ module.exports = {
     const { productDetails } = dependencies;
     await context.evaluate(async () => {
       try {
-        const usernameElements = document.querySelectorAll('#validZipcode');
+        const usernameElements = document.querySelectorAll('[id=validZipcode]');
       // @ts-ignore
       usernameElements.forEach(username => username.value = "28199");
       // @ts-ignore
       document.querySelector('div[class="fp-modal_input"]>button').click()
-      await new Promise(r => setTimeout(r, 6000));
+      await new Promise(r => setTimeout(r, 10000));
         
       } catch (error) {
         
