@@ -15,11 +15,11 @@ fields:
     xpath: //div[@data-tile-start]//div[contains(@class,"tile-body") and @data-pid]//h3[contains(@class,"pdp-link")]/a | //body[contains(@class,"product-details-page")]//h1[contains(@class,"product-name")]
   - name: price
     singleValue: false
-    xpath: //div[@data-tile-start]//div[contains(@class,"hover-bg-content")]//span[contains(@class,"prod-price")]/span[@class="price"]//span[contains(@class,"sales")] | //div[@data-tile-start]//div[contains(@class,"hover-bg-content")]//span[contains(@class,"prod-price")]//span[contains(@class,"range")] | //body[contains(@class,"product-details-page")]//div[contains(@class,"product-secondary-section")]//span[contains(@class,"prod-price")]//span[contains(@class,"formatted_sale_price")]
+    xpath: //div[@data-tile-start]//div[contains(@class,"hover-bg-content")]//span[contains(@class,"prod-price")]/span[@class="price"]//span[contains(@class,"sales")]/span/@content | //div[@data-tile-start]//div[contains(@class,"hover-bg-content")]//span[contains(@class,"prod-price")]//span[contains(@class,"range")]/span[2]//span[contains(@class,"sales")]/span/@content | //body[contains(@class,"product-details-page")]//div[contains(@class,"product-secondary-section")]//span[contains(@class,"prod-price")]//span[contains(@class,"formatted_sale_price")]/@data-unformatted-price
   - name: listPrice
     singleValue: false
     description: The stated undiscounted price for the product
-    xpath: //div[@data-tile-start]//div[contains(@class,"hover-bg-content")]//span[contains(@class,"strike-through")]//span[contains(@class,"bfx-list-price")] | //body[contains(@class,"product-details-page")]//div[contains(@class,"product-secondary-section")]//span[contains(@class,"list strike-through")]//span[contains(@class,"bfx-list-price")]
+    xpath: //div[@data-tile-start]//div[contains(@class,"hover-bg-content")]//span[contains(@class,"strike-through")]//span[contains(@class,"bfx-list-price")]/@data-unformatted-price | //body[contains(@class,"product-details-page")]//div[contains(@class,"product-secondary-section")]//span[contains(@class,"list strike-through")]//span[contains(@class,"bfx-list-price")]/@data-unformatted-price
   - name: rank
     singleValue: false
     description: search/listing rank

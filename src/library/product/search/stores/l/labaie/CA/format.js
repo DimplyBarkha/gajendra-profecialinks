@@ -25,13 +25,12 @@ const transform = (data, context) => {
       rankCounter += 1;
       if (row.price) {
         row.price.forEach(price => {
-          price.text = price.text.replace(',', '.');
-          price.text = price.text.replace(',', '.');
+          price.text = `${price.text} $`;
         });
       }
       if (row.listPrice) {
         row.listPrice.forEach(price => {
-          price.text = price.text.replace(',', '.');
+          price.text = `${price.text} $`;
         });
       }
       if (row.aggregateRating2) {
