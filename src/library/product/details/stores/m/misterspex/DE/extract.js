@@ -13,7 +13,7 @@ module.exports = {
     const { productDetails } = dependencies;
     console.log(parameters);
     await context.evaluate(() => {
-      const button = document.querySelector('section.productoffer .checkout-initiator');
+      const button = document.querySelector('section.spex-section');
       if (button) {
         document.querySelector('div#spex-h3').setAttribute('availability', 'In Stock');
       } else {
