@@ -522,6 +522,7 @@ fields:
     defaultValue: No
 
   - name: inTheBoxText
-    xpath: //*[contains(.,"מה בערכה")]/following-sibling::ul/li
+    # xpath: //*[contains(.,"מה בערכה")]/following-sibling::ul/li
+    xpath: //*[contains(.,"מה בערכה")]/following-sibling::ul/li | //span//strong[contains(.,"הערכה כוללת")]/ancestor::p/following-sibling::p | //div[@class="finePrint"]//div[contains(.,"אביזרים:")]/following-sibling::div[@dir="rtl"] | //strong[contains(.,"הערכה המלאה לקבלת עיצובים לסוגי שיער שונים מכילה:")]/following-sibling::text()
   - name: hasComparisonTable
     xpath: //div[@class="finePrint"]//*[contains(.,"השוואות ")]//a
