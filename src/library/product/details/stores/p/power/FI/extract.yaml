@@ -245,11 +245,12 @@ fields:
     defaultValue: "No"
   - name: inTheBoxUrl
     singleValue: false
-    xpath: //div[@class="inpage_selector_InTheBox"]//img/@src
+    xpath: //div[@class="inpage_selector_InTheBox"]//img/@srcset | //div[@class="inpage_selector_InTheBox"]//img[not(@srcset)]/@data-flixsrcset
+    regExp: ^[^\s]+
     description: Must include image url to show the accessories/tools which come with the product
   - name: inTheBoxText
     singleValue: false
-    xpath: //div[@class="inpage_selector_InTheBox"]//span
+    xpath: //div[@class="inpage_selector_InTheBox"]//span | //div[@class="inpage_selector_InTheBox"]//span | //div[@class="row ng-star-inserted"][contains(.,"Sisältyy") or contains(.,"Sisältyy")]/following-sibling::div[div[2][contains(.,"Kyllä")]]/div[1]
     description: Must include text to show the accessories/tools which come with the product
   - name: hasComparisonTable
     singleValue: true

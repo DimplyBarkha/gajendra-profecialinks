@@ -243,7 +243,7 @@ module.exports = {
         ? document.querySelector('div.product-intro-details button[itemprop="ratingValue"]').innerText : '';
       if (aggRating) addElementToDocument('aggRating', aggRating.replace(/\./g, ','));
     });
-
+    await context.evaluate(() => Array.from(document.querySelectorAll('#product-information-tabs .panel-title')).filter(h => h.innerText.includes('Tekniset')).forEach(elm => elm.click()));
     await context.extract(productDetails, { transform });
   },
 };

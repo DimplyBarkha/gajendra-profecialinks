@@ -23,5 +23,8 @@ module.exports = {
     if (zipcode) {
       await dependencies.setZipCode({ url: url, zipcode: zipcode, storeId });
     }
+    if (await context.evaluate(() => !!document.querySelector('button[aria-label="Hyväksy kaikki"]'))) {
+      await context.click('button[aria-label="Hyväksy kaikki"]');
+    }
   },
 };
