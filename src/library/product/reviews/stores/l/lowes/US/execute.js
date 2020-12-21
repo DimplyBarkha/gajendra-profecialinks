@@ -92,17 +92,17 @@ async function implementation (
     const reviewURL = `https://www.lowes.com/rnr/r/get-by-product/${url.match(/\/(\d+)/)[1]}/pdp/prod?offset=offsetNum&sortMethod=SubmissionTime&sortDirection=desc`;
     let offset = 0;
     const targetReviews = await getData(reviewURL, offset);
-    extractedReviews = extractedReviews.concat(targetReviews.Results);
+    extractedReviews = targetReviews && targetReviews.Results && extractedReviews.concat(targetReviews.Results);
     console.log('Page #1 API call done');
-    const totalReviews = targetReviews.TotalResults;
+    const totalReviews = targetReviews && targetReviews.TotalResults;
     console.log('Total reviews present' + totalReviews);
     if (extractedReviews.length === 0) {
       return false;
     }
 
-    const lastReviewDate = extractedReviews[0].SubmissionTime;
+    const lastReviewDate = extractedReviews && extractedReviews[0] && extractedReviews[0].SubmissionTime;
     console.log('Last review date' + lastReviewDate);
-    const firstReviewDate = extractedReviews[extractedReviews.length - 1].SubmissionTime;
+    const firstReviewDate = extractedReviews && extractedReviews[extractedReviews.length - 1] && extractedReviews[extractedReviews.length - 1].SubmissionTime;
     if (checkIfReviewIsFromLast30Days(lastReviewDate, firstReviewDate) && totalReviews > 10) {
       // Have more reviews that falls under last 30 days
       const expectedPages = Math.round(totalReviews / 10);
@@ -231,7 +231,7 @@ module.exports = {
     store: 'lowes',
     domain: 'lowes.com',
     loadedSelector: 'section#main',
-    noResultsXPath: '//h1[contains(text(), "This Page Is Missing or Moved")] | //p[@class="subTitle"]',
+    noResultsXPath: '//h1[contains(text(), "This Page Is Missing or Moved")] | //p[@class="subTitle"] | //p[contains(text(),"Be the first to leave a review.")] ',
     reviewUrl: null,
     sortButtonSelectors: null,
     zipcode: '',
