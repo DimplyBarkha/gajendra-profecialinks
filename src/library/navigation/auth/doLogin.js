@@ -23,6 +23,7 @@ async function implementation (
 
   if (formSelector) {
     await context.evaluate(function () {
+      // @ts-ignore
       document.querySelector(formSelector).submit();
     });
   }

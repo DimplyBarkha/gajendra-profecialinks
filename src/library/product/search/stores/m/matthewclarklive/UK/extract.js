@@ -8,6 +8,7 @@ module.exports = {
     domain: 'matthewclarklive.com',
     zipcode: '',
   },
+  
   implementation: async (
     inputs,
     parameters,
@@ -17,6 +18,15 @@ module.exports = {
     const { transform } = parameters;
     const { productDetails } = dependencies;
     const applyScroll = async function (context) {
+      if (context.click('a[id="ctl00_ctl06_lbEnterSiteYes"]')) {
+        await new Promise((resolve, reject) => setTimeout(resolve, 8000));
+        await context.waitForNavigation({ timeout: 50000, waitUntil: 'load' });
+      }
+      if (context.click('a[id="ctl00_cookiescontinuebutton"]')) {
+        await new Promise((resolve, reject) => setTimeout(resolve, 8000));
+        await context.waitForNavigation({ timeout: 50000, waitUntil: 'load' });
+      }
+      
       await context.evaluate(async function () {
         let scrollTop = 0;
         while (scrollTop !== 20000) {
@@ -36,4 +46,6 @@ module.exports = {
     await applyScroll(context);  
     return await context.extract(productDetails, { transform });
   }
+
+  
   };
