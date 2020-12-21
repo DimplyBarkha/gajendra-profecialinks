@@ -53,7 +53,7 @@ fields:
   #   xpath: //head//script[contains(., 'dglDataLayer')]
   - name: sku
     xpath: //link[@rel='canonical']/@href
-    regExp: (.+)productbrand_(\d+)(\.html)
+    regExp: (.+)productbrand_(.+)(\.html)
     regExpReplace: $2
   - name: variantId
     singleValue: true
