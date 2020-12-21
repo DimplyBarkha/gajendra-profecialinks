@@ -30,6 +30,7 @@ async function implementation (
 
     const variantNodes = document.querySelectorAll('div[class^="ProductVariantsstyled"] a');
     if (variantNodes.length) {
+      // @ts-ignore
       [...variantNodes].forEach((element) => {
         const text = getVariantsText(element.getAttribute('href'));
         variantList.push(text);
