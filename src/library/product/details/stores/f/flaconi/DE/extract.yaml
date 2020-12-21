@@ -38,10 +38,10 @@ fields:
     xpath: //span[@class='old-price']
   - name: ingredientsList
     singleValue: false
-    xpath: //div[contains(text(),"Inhaltsstoffe")]/../div[contains(@class,"tab-content")] 
+    xpath: //div[contains(text(),"Inhaltsstoffe")]/../div[contains(@class,"tab-content")]//div[@class="ingredients-content"]
   - name: directions
     singleValue: false
-    xpath: //div[contains(text(),"Anwendung")]/../div[contains(@class,"tab-content")] 
+    xpath: //div[contains(text(),"Anwendung")]/../div[contains(@class,"tab-content")]//div[contains(@class,"instruction-content")]
     # xpath: //div[text()="Anwendung"]/following-sibling::div[@class="tab-content"]//div[@class="instruction-content"] 
   - name: aggregateRating
     singleValue: false
