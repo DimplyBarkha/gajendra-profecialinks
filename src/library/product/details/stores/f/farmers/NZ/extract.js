@@ -52,7 +52,11 @@ module.exports = {
         return (document.querySelector(iframeSelector).getAttribute('src') || document.querySelector(iframeSelector).getAttribute('_src'));
       }, iframeSelector);
       await context.goto(iframeUrl, { timeout: 50000, waitUntil: 'networkidle0', checkBlocked: true });
-      await context.waitForXPath('//img');
+      try {
+        await context.waitForXPath('//img', { timout: 30000 });
+      } catch (error) {
+        console.log('Can\'t load iframe.');
+      }
       const lateVideoElement = 'div[class*="video-container"] video';
       if (await checkExistance(lateVideoElement)) {
         await context.evaluate((lateVideoElement) => {
