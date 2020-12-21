@@ -82,7 +82,7 @@ fields:
     xpath: //p[contains(text(),"WARNING")]/following-sibling::ul/li | //ul//li[contains(.,'Warning')]
     description: Content under "warnings" header
   - name: ratingCount
-    xpath: //span[@itemprop="ratingCount"]
+    xpath: //span[@data-test="reviews-flag"]//span[@itemprop="ratingCount"]
     description: The number of ratings
     type: NUMBER
   - name: aggregateRatingText
@@ -305,7 +305,7 @@ fields:
   - name: dietaryInformation
     description: null
   - name: specifications
-    xpath: //div[@itemprop="description"]//ul[contains(.,'Size') or contains(.,'size')]//li|//p[contains(text(), "Features") or contains(.,"information")]/following-sibling::ul[1]//li
+    xpath: //div[@itemprop="description"]//ul[1]//li
     description: The physical dimensions of the product including packaging.
   - name: warranty
     xpath: //li[contains(text(), "year") and contains(text(), "guarantee")]
