@@ -16,7 +16,7 @@ const transform = (data) => {
     .replace(/^ +| +$|( )+/g, ' ')
     // eslint-disable-next-line no-control-regex
     .replace(/[\x00-\x1F]/g, '')
-    .replace(/[\uD800-\uDBFF][\uDC00-\uDFFF]/g, ' ') : text;
+    .replace(/[\uD800-\uDBFF][\uDC00-\uDFFF]/g, ' ');
   for (const { group } of data) {
     for (const row of group) {
       if (row.additionalDescBulletInfo) {
@@ -33,7 +33,7 @@ const transform = (data) => {
         });
         row.description = [{ text: text.slice(0, -2).trim() }];
         row.description[0].text = row.description[0].text.replace(/\n \n \n \n/g, ' || ').replace(/\n \n/g, ' : ') + ' | ';
-        if(row.additionalDescBulletInfo && row.additionalDescBulletInfo[0]){
+        if (row.additionalDescBulletInfo && row.additionalDescBulletInfo[0]) {
           row.description[0].text = row.description[0].text + row.additionalDescBulletInfo[0].text;
         }
       }
@@ -66,7 +66,7 @@ const transform = (data) => {
           test1 = test1 && test1[1].trim();
           row.materials = [{ text: test1 }];
         }
-      }    
+      }
     }
   }
   data.forEach(obj => obj.group.forEach(row => Object.keys(row).forEach(header => row[header].forEach(el => {
