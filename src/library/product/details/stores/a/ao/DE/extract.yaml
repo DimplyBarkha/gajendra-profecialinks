@@ -15,7 +15,7 @@ fields:
 - name: image
   singleValue: true
   description: URL of the main product image
-  xpath: //li[@id='carousel-right-image']//img/@src | //img[@class="product-img"]/@src
+  xpath: //li[@id='carousel-right-image']//img/@src | //img[@class="product-img"]/@src  | //img[@class="product-gallery-image"]/@src
   regExp: \/\/(.+)
   regExpReplace: 'https://$1'
 - name: imageAlt
