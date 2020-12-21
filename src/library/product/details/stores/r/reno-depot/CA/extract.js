@@ -45,6 +45,16 @@ async function implementation (
       newDiv.style.display = 'none';
       document.body.appendChild(newDiv);
     }
+
+
+    function getXpath (xpath, prop) {
+      const elem = document.evaluate(xpath, document, null, XPathResult.ANY_UNORDERED_NODE_TYPE, null);
+      let result;
+      if (prop && elem && elem.singleNodeValue) result = elem.singleNodeValue[prop];
+      else result = elem ? elem.singleNodeValue : '';
+      return result && result.trim ? result.trim() : result;
+    };
+
     addHiddenDiv('pageTimeStamp', new Date());
     addHiddenDiv('url', window.location.href);
 
@@ -194,6 +204,13 @@ async function implementation (
       addHiddenDiv('zoomInfo', 'Yes');
     } else {
       addHiddenDiv('zoomInfo', 'No');
+    }
+
+    var extraWTBText = getXpath('//span[@class="title"][contains(text(), "Included")]/following-sibling::span', 'innerText');
+
+    if (extraWTBText != null) {
+      extraWTBText = extraWTBText.replace(/\s-\s/gm, ' || ');
+      addHiddenDiv('ii_extraWTBText', extraWTBText);
     }
   });
 
