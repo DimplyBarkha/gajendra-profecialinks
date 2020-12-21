@@ -5,7 +5,7 @@
  * @returns {ImportIO.Group[]}
  */
 const transform = (data) => {
-  const clean = text => text.toString()
+  const clean = text => text ? text.toString()
     .replace(/\r\n|\r|\n/g, ' ')
     .replace(/&amp;nbsp;/g, ' ')
     .replace(/&amp;#160/g, ' ')
@@ -16,7 +16,7 @@ const transform = (data) => {
     .replace(/^ +| +$|( )+/g, ' ')
     // eslint-disable-next-line no-control-regex
     .replace(/[\x00-\x1F]/g, '')
-    .replace(/[\uD800-\uDBFF][\uDC00-\uDFFF]/g, ' ');
+    .replace(/[\uD800-\uDBFF][\uDC00-\uDFFF]/g, ' ') : text;
   for (const { group } of data) {
     for (const row of group) {
       if (row.additionalDescBulletInfo) {
@@ -26,13 +26,16 @@ const transform = (data) => {
         });
         row.additionalDescBulletInfo = [{ text: text.slice(0, -3).trim() }];
       }
-      if (row.description) {
+      if (row.description && row.description[0]) {
         let text = '';
         row.description.forEach(ele => {
           text += ele.text + ' | ';
         });
         row.description = [{ text: text.slice(0, -2).trim() }];
-        row.description[0].text = row.description[0].text.replace(/\n \n \n \n/g, ' || ').replace(/\n \n/g, ' : ') + ' | ' + row.additionalDescBulletInfo[0].text;
+        row.description[0].text = row.description[0].text.replace(/\n \n \n \n/g, ' || ').replace(/\n \n/g, ' : ') + ' | ';
+        if(row.additionalDescBulletInfo && row.additionalDescBulletInfo[0]){
+          row.description[0].text = row.description[0].text + row.additionalDescBulletInfo[0].text;
+        }
       }
       if (row.productOtherInformation) {
         let text = '';
@@ -48,10 +51,10 @@ const transform = (data) => {
         });
         row.shippingInfo = [{ text: text.trim() }];
       }
-      if (row.nameExtended && row.brandText) {
+      if (row.nameExtended && row.brandText && row.brandText[0] && row.nameExtended[0]) {
         row.nameExtended[0].text = row.brandText[0].text + ' - ' + row.nameExtended[0].text;
       }
-      if (row.specifications) {
+      if (row.specifications && row.specifications[0]) {
         if (row.specifications[0].text.length && row.specifications[0].text.includes('Especificaciones:')) {
           var test = '';
           var demo = row.specifications[0].text;
@@ -62,7 +65,7 @@ const transform = (data) => {
         }
       }
       if (!row.materials) {
-        if (row.description[0].text.length && row.description[0].text.includes('Material:')) {
+        if (row.description && row.description[0] && row.description[0].text.includes('Material:')) {
           var test1 = '';
           var demo1 = row.description[0].text;
           var regExString1 = new RegExp('(?:' + 'Material:' + ')(.[\\s\\S]*)(?:' + 'Color:' + ')');
@@ -70,7 +73,7 @@ const transform = (data) => {
           test1 = test1 && test1[1].trim();
           row.materials = [{ text: test1 }];
         }
-      }
+      }    
     }
   }
   data.forEach(obj => obj.group.forEach(row => Object.keys(row).forEach(header => row[header].forEach(el => {
