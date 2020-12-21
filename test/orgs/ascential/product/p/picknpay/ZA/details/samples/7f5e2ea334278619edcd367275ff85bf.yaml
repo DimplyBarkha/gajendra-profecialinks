@@ -1,0 +1,73 @@
+input:
+  _url: http://pnp.co.za
+  URL: https://www.pnp.co.za/pnpstorefront/pnp/en/All-Products/Household-Cleaning/Laundry-Detergents/Washing-Powder%2C-Liquid-%26-Gels/Washing-Powder%2C-Liquid-%26-Gels---Regular/SUNLIGHT-REG-WASHING-POWDER-FLEXI-1KG/p/000000000000402665_EA
+extractions:
+  - html: https://workbench.import.io/html/run=3959cc5b-0bf8-4bae-8cd4-64e4d65d91c4/task=879d29ae-047e-4e57-ae87-1666c66a55c6/05fec994-7d45-49f9-bc32-9f7b5acfe883.html
+    extractionConfigId: product/details/stores/p/picknpay/ZA/extract
+    data:
+      - group:
+          - productUrl:
+              - text: https://www.pnp.co.za/pnpstorefront/pnp/en/All-Products/Household-Cleaning/Laundry-Detergents/Washing-Powder,-Liquid-&-Gels/Washing-Powder,-Liquid-&-Gels---Regular/SUNLIGHT-REG-WASHING-POWDER-FLEXI-1KG/p/000000000000402665_EA
+                xpath: /html/head[1]/link[2]/@href
+            image:
+              - text: https://cdn-prd-02.pnp.co.za/sys-master/images/ha0/hf7/9916771631134/silo-product-image-v2-06Aug2020-180106-6001085126375-up-437384-995_400Wx400H
+                xpath: /html/body/main[1]/div[4]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/img[1]/@data-src
+            imageAlt:
+              - text: Sunlight Regular Washing Powder Flexi 1kg
+                xpath: /html/body/main[1]/div[4]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/img[1]/@alt
+            alternateImages:
+              - text: https://cdn-prd-02.pnp.co.za/sys-master/images/h93/h7f/9916777594910/silo-product-image-v2-06Aug2020-180106-6001085126375-front-437228-1005_400Wx400H
+                xpath: /html/body/main[1]/div[4]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/img[1]/@data-src
+            category:
+              - text: each
+                xpath: /html/body/div[5]/@category
+            nameExtended:
+              - text: Sunlight Regular Washing Powder Flexi 1kg
+                xpath: /html/body/main[1]/div[4]/div[1]/div[1]/div[2]/div[1]/h1[1]
+            price:
+              - text: 29,99
+                xpath: /html/body/div[5]/text()[1]
+                type: STRING
+            gtin:
+              - text: "6001085126375"
+                xpath: /html/body/main[1]/div[4]/div[1]/div[1]/div[3]/div[1]/div[2]/div[1]/div[3]/div[3]
+            sku:
+              - text: 000000000000402665_EA
+                xpath: /html/body/main[1]/div[4]/div[1]/div[1]/div[2]/div[3]/div[1]/div[3]/div[1]/form[1]/input[3]/@value
+            variantId:
+              - text: 000000000000402665_EA
+                xpath: /html/body/main[1]/div[4]/div[1]/div[1]/div[2]/div[3]/div[1]/div[3]/div[1]/form[1]/input[3]/@value
+            directions:
+              - text: "null"
+                xpath: /html/body/main[1]/div[4]/div[1]/div[1]/div[3]/div[1]/div[2]/div[1]/div[4]/div[3]
+            ratingCount:
+              - text: "0"
+                xpath: /html/body/main[1]/div[4]/div[1]/div[1]/div[2]/div[3]/div[1]/div[4]/a[1]/text()[1]
+            aggregateRatingText:
+              - text: "0"
+                xpath: /html/body/div[5]/@rating
+            aggregateRating:
+              - text: "0"
+                xpath: /html/body/div[5]/@rating
+            name:
+              - text: Sunlight Regular Washing Powder Flexi 1kg
+                xpath: /html/body/main[1]/div[4]/div[1]/div[1]/div[2]/div[1]/h1[1]
+            storage:
+              - text: "null"
+                xpath: /html/body/main[1]/div[4]/div[1]/div[1]/div[3]/div[1]/div[2]/div[1]/div[4]/div[3]
+            availabilityText:
+              - text: In Stock
+            description:
+              - text: "Sunlight 2in1 Summer Sensations Handwash Washing Powder is ready to get
+                  to work! Made with the best that Sunlight offers, it’s sure to
+                  clean your clothes thoroughly and make them smell sensational
+                  too. ¨ How to Use: ¨ Sprinkle a handful of Sunlight 2in1
+                  Spring Sensations Handwash Washing Powder into a bucket of
+                  clean water. Stir quickly with your hand as the powder
+                  dissolves to make foam. Soak for one hour. Wash as normal and
+                  rinse well. Don’t forget to wash, dry and apply cream to your
+                  hands afterwards. The long-lasting fragrance of Sunlight 2in1
+                  Handwashing Powder releases burst after burst of uplifting
+                  fragrance."
+        xpath: /
+    timestamp: 1608558132743

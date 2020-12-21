@@ -1,0 +1,72 @@
+input:
+  _url: http://pnp.co.za
+  URL: https://www.pnp.co.za/pnpstorefront/pnp/en/All-Products/Frozen-Food/Ice-Cream-%26-Desserts/Ice-Cream/OLA-ICE-CREAM-NEOPOLITAN-1-8L/p/000000000000758387_EA
+extractions:
+  - html: https://workbench.import.io/html/run=3959cc5b-0bf8-4bae-8cd4-64e4d65d91c4/task=696f5e77-46d9-45a2-ada2-13a31a727c0b/44f5e904-d202-4c9c-9059-8dbf726c0e75.html
+    extractionConfigId: product/details/stores/p/picknpay/ZA/extract
+    data:
+      - group:
+          - productUrl:
+              - text: https://www.pnp.co.za/pnpstorefront/pnp/en/All-Products/Frozen-Food/Ice-Cream-&-Desserts/Ice-Cream/OLA-ICE-CREAM-NEOPOLITAN-1-8L/p/000000000000758387_EA
+                xpath: /html/head[1]/link[2]/@href
+            image:
+              - text: https://cdn-prd-02.pnp.co.za/sys-master/images/h39/he4/9790307303454/silo-product-image-v2-30Apr2020-180105-6001087374040-up-421438-401_400Wx400H
+                xpath: /html/body/main[1]/div[4]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/img[1]/@data-src
+            imageAlt:
+              - text: Ola Neopolitan Ice Cream 1.8l
+                xpath: /html/body/main[1]/div[4]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/img[1]/@alt
+            alternateImages:
+              - text: https://cdn-prd-02.pnp.co.za/sys-master/images/h2d/h63/9790304026654/silo-product-image-v2-30Apr2020-180107-6001087374040-front-421427-408_400Wx400H
+                xpath: /html/body/main[1]/div[4]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/img[1]/@data-src
+            category:
+              - text: each,Eid,Christmas Braai,Groceries,Groceries,Christmas Puddings,Chrismas
+                  Puddings,Ola,Shop All,Fresh & Frozen Foods,23 April-10
+                  May,Lunch for Mom,Pantry & Fridge,Get More
+                  Everyday,Braai,Summer Desserts,Smart Price,Smart Price,Braai
+                  Deal,Fresh & Frozen Food,Fresh & Frozen Food,Fresh & Frozen
+                  food,Fresh & Frozen food,Fresh & Frozen food,Fresh & Frozen
+                  food,Fresh & Frozen food,Fresh & Frozen food,Fresh & Frozen
+                  food,Fresh & frozen food,Fresh & frozen food,Fresh & frozen
+                  food,Fresh & frozen food,Fresh & frozen food,Fresh & frozen
+                  food,Fresh & frozen food,Fresh & frozen food,Fresh & frozen
+                  food,Fresh & frozen food,Fresh & frozen food,Fresh & frozen
+                  food,Fresh & frozen food,Fresh & Frozen food,Fresh & Frozen
+                  food,Fresh & frozen food,Core-Deals,Christmas Daily Deal 9
+                xpath: /html/body/div[5]/@category
+            nameExtended:
+              - text: Ola Neopolitan Ice Cream 1.8l
+                xpath: /html/body/main[1]/div[4]/div[1]/div[1]/div[2]/div[1]/h1[1]
+            price:
+              - text: 49,99
+                xpath: /html/body/div[5]/text()[1]
+                type: STRING
+            quantity:
+              - text: 8l
+                xpath: /html/body/main[1]/div[4]/div[1]/div[1]/div[2]/div[1]/h1[1]/text()[1]
+            gtin:
+              - text: "6001087374040"
+                xpath: /html/body/main[1]/div[4]/div[1]/div[1]/div[3]/div[1]/div[2]/div[1]/div[2]/div[3]
+            sku:
+              - text: 000000000000758387_EA
+                xpath: /html/body/main[1]/div[4]/div[1]/div[1]/div[2]/div[3]/div[1]/div[3]/div[1]/form[1]/input[3]/@value
+            variantId:
+              - text: 000000000000758387_EA
+                xpath: /html/body/main[1]/div[4]/div[1]/div[1]/div[2]/div[3]/div[1]/div[3]/div[1]/form[1]/input[3]/@value
+            ratingCount:
+              - text: "0"
+                xpath: /html/body/main[1]/div[4]/div[1]/div[1]/div[2]/div[3]/div[1]/div[4]/a[1]/text()[1]
+            aggregateRatingText:
+              - text: "0"
+                xpath: /html/body/div[5]/@rating
+            aggregateRating:
+              - text: "0"
+                xpath: /html/body/div[5]/@rating
+            name:
+              - text: Ola Neopolitan Ice Cream 1.8l
+                xpath: /html/body/main[1]/div[4]/div[1]/div[1]/div[2]/div[1]/h1[1]
+            availabilityText:
+              - text: In Stock
+            description:
+              - text: Chocolate, Vanilla and strawberry flavoured ice cream.
+        xpath: /
+    timestamp: 1608558134485

@@ -15,14 +15,15 @@ fields:
 - name: image
   singleValue: true
   description: URL of the main product image
-  xpath: //img[@class='owl-lazy']/@data-src  
+  xpath: //div[@class="owl-stage"]/div[@class="owl-item active"]//img[@class="owl-lazy"]/@data-src
 - name: imageAlt
   singleValue: true
   description: Alt text of the main product image
-  xpath: //img[@class='owl-lazy']/@alt
+  xpath: //div[@class="owl-stage"]/div[@class="owl-item active"]//img[@class="owl-lazy"]/@alt
 - name: alternateImages
   singleValue: false
   description: Other product images (not in manufacturer description)
+  xpath: //div[@class="carousel gallery-image js-gallery-image small-chevron owl-carousel owl-theme owl-loaded"]//div[@class="owl-stage"]/div[position()>1]//img[@class="owl-lazy"]/@data-src
 - name: metaKeywords
   singleValue: true
   description: The <meta> keywords content
