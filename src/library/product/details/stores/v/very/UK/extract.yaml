@@ -425,9 +425,7 @@ fields:
   singleValue: true
   description: The unit of measurement used in price_per_unit
 - name: promotion 
-  xpath: ancestor::html//div[@class="priceNow"]/span[contains(@class, "save")]/text()
-  singleValue: false
-  description: promotion text on product page
+  xpath: substring-after(substring-before(//div[@class="priceNow"]/span[contains(@class, "save")]/text(), ')'), '(')
 - name: alcoholContent
   xpath: ancestor::html//li[contains(text(),"Vol")]/text()
   singleValue: false
