@@ -31,13 +31,15 @@ async function implementation (inputs, parameters, context, dependencies) {
         return obj;
       }).flat();
     }
-    // @ts-ignore
+
     let categoriesArr = [];
+
     try {
       categoriesArr = getNodes('ul.nav-level-1 > li');
     } catch (e) {
       console.log('Error extracting categories: ' + e);
     }
+
     if (!categoriesArr.length) throw new Error('Could not extract categories');
 
     for (let i = 0; i < categoriesArr.length; i++) {
