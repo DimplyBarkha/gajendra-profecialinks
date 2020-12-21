@@ -9,7 +9,7 @@ fields:
     xpath: (//ul[contains(concat(' ',normalize-space(@class),' '),' product-specification__specification-container ')]//li[.//*[contains(text(), 'Poids')]])[1] | (//ul[contains(concat(' ',normalize-space(@class),' '),' product-specification__specification-container ')]//li[.//*[contains(text(), 'Gewicht')]])[1]
   - name: shippingInfo
     singleValue: true
-    xpath: (//div[contains(concat(' ',normalize-space(@class),' '),' reasons-to-buy__overlay-content-container ')][.//*[contains(text(),'ivraison ')]])[1] | (//div[contains(concat(' ',normalize-space(@class),' '),' reasons-to-buy__overlay-content-container ')][.//*[contains(text(),'bezorging ')] or .//*[contains(text(),'leveren')]])[1]
+    #xpath: (//div[contains(concat(' ',normalize-space(@class),' '),' reasons-to-buy__overlay-content-container ')][.//*[contains(text(),'ivraison ')]])[1] | (//div[contains(concat(' ',normalize-space(@class),' '),' reasons-to-buy__overlay-content-container ')][.//*[contains(text(),'bezorging ')] or .//*[contains(text(),'leveren')]])[1]
   - name: warranty
     singleValue: true
     xpath: (//div[contains(concat(' ',normalize-space(@class),' '),' reasons-to-buy__overlay-content-container ')][.//*[contains(text(),'arantie ')]])[1] |(//div[contains(concat(' ',normalize-space(@class),' '),' reasons-to-buy__overlay-content-container ')][.//*[contains(text(),' garantie') or contains(text(), 'bedenktijd')]])[1]
