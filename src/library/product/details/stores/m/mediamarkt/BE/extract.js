@@ -19,6 +19,7 @@ module.exports = {
 
     await context.evaluate(async function () {
       if (document.querySelector('gdpr-cookie-layer--show') && document.querySelector('button.gdpr-cookie-layer__btn--submit')) {
+        // @ts-ignore
         document.querySelector('button.gdpr-cookie-layer__btn--submit').click();
       }
     });
@@ -90,10 +91,12 @@ module.exports = {
     }
 
     const availText = await context.evaluate(async function () {
+      // @ts-ignore
       return document.querySelector('div.price-button span') ? (document.querySelector('div.price-button span').innerText === 'In winkelwagen' ? 'In Stock' : 'In Stock') : 'Out of Stock';
     });
 
     const avail = await context.evaluate(async function () {
+      // @ts-ignore
       return document.querySelector('div.price-button span') ? (document.querySelector('div.price-button span').innerText === 'In winkelwagen' ? 'In Stock' : 'In Stock') : 'Out of Stock';
     });
 
