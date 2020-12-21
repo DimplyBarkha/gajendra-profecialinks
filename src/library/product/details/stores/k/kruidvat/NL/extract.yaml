@@ -30,7 +30,7 @@ fields:
     singleValue: true
     description: The product name, prefixing "${brand} - " if not included in "name"
       and appending " - ${variantType}" if necessary (fixed per feed)
-    xpath: concat(//h1,' ' ,//p/span[@class="product-title__subtitle"])
+    xpath: concat(//h1//text(),' ' ,//p/span[@class="product-title__subtitle"])
   - name: listPrice
     singleValue: true
     description: The stated undiscounted price for the product
@@ -80,6 +80,7 @@ fields:
     singleValue: true
     description: GTIN code (includes UPC/EAN)
     xpath: //p[@class="product-information__text product-information__ean"]
+    regExp: \d+
   - name: sku
     singleValue: true
     description: The store-specific product identifier
