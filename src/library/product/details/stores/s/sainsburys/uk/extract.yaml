@@ -28,7 +28,7 @@ fields:
   - name: manufacturer
     singleValue: true
     description: Product manufacturer
-    xpath: (//div[@class="itemTypeGroup"]//div[@class="memo"]/p)[4]/text()|//div[@class="ln-c-card pd-details ln-c-card--soft"]//div[@class="productText"][12]
+    xpath: //*[contains(text(),'Manufacturer')]/following-sibling::*[1]
   - name: sku
     singleValue: true
     description: The store-specific product identifier
@@ -61,10 +61,10 @@ fields:
     xpath: //html//div[@id='brandText']
   - name: ingredientsList
     singleValue: true
-    xpath: //div[@class="ln-c-card pd-details ln-c-card--soft"]//div[@id="mainPart"][1]//div[@class="itemTypeGroupContainer productText"][2]
+    xpath: //*[contains(text(),'Ingredients')]/following-sibling::*[1]|//*[contains(text(),'Dietary Information')]/following-sibling::*[1]
   - name: directions
     singleValue: true
-    xpath: //div[@class="ln-c-card pd-details ln-c-card--soft"]//div[@id="mainPart"][2]//div[@class="itemTypeGroupContainer productText"][2]
+    xpath: //*[contains(text(),'Preparation')]/following-sibling::*[1]
 
     
 
