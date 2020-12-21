@@ -6,7 +6,7 @@ module.exports = {
     store: 'krefel',
     domain: 'krefel.be',
     loadedSelector: null,
-    noResultsXPath: null,
+    noResultsXPath: '//section[contains(@class,"error-content")]',
     zipcode: '',
   },
 };

@@ -14,8 +14,10 @@ module.exports = {
     });
 
     if (needToSelectLanguage) {
-      await context.click('a[href="/nl"]', { timeout: 5000 })
-        .catch((err) => console.log(`Click failed: ${err}`));
+      const currentUrl = await context.evaluate(() => {
+        return window.location.href;
+      });
+      await context.goto(`${currentUrl}/nl`, { timeout: 20000, waitUntil: 'load' });
     }
 
     await context.evaluate(async function () {
