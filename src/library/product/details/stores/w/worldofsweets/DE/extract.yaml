@@ -247,6 +247,7 @@ fields:
   - name: servingSize
     singleValue: true
     description: The size of serving Nutritional information is based on.
+    xpath: //*[@id="content"]/div/div[2]/div/div[2]/div[2]/div/div[1]/span[2]/font/font
   - name: servingSizeUom
     singleValue: true
     description: Unit of measure of serving
@@ -507,10 +508,14 @@ fields:
     example: https://www.zalando.de/adidas-neo-sneaker-low-blackwhite-a4315i002-q11.html
     defaultValue: No
   - name: description
-    singleValue: false
+    singleValue: true
     description: Product description supplied by website - may be concatenanted from
       multiple places; specifically not the manufacturer description
-    xpath: //div[@class="row"]//p[contains(@class,'MsoNormal')]
+    xpath: //div[contains(@class,'details-toggle-content is--open')]//p
+    #xpath: //div[@class="row"]//p[contains(@class,'MsoNormal')]
   - name: productUrl
     singleValue: false
     xpath: //link[@rel="canonical"]/@href
+  - name: highQualityImages
+    singleValue: false
+    xpath: //div[contains(@class,'morepics-container js-morepics-container')]//ul//li//a//img/@src
