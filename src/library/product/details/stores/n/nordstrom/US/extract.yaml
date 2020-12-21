@@ -46,8 +46,11 @@ fields:
     description: URLs of videos on page
   - name: name
     xpath: ancestor::html//h1[@itemprop="name"]
-  - name: sku
-    xpath: //table/tbody/tr[@class="append_variant"]//td[@class='sku']/@sku
+  # - name: sku
+    # xpath: ancestor::html//span[contains(text(),"Item \#")]/text()
+    # regExp: >-
+    #   [0-9]+
+    # xpath: //table/tbody/tr[@class="append_variant"]//td[@class='sku']/@sku
   - name: variants
     xpath: //table/tbody/tr[@class="append_variant"]//@variant_id
   - name: additionalDescBulletInfo

@@ -90,6 +90,15 @@ const transform = (data) => {
         ];
       }
 
+      if (row.additionalDescBulletInfo){
+        row.additionalDescBulletInfo.forEach(bullet => {
+          if(bullet.text.includes('Item')){
+            const numsOnly = new RegExp(/\d+/);
+            row.sku = [{ text: bullet.text.match(numsOnly)[0] }];
+          }
+        })
+      }
+
       let text = '';
       text = [String(row.nameExtended && row.nameExtended[0].text), String(row.firstVariant && row.firstVariant[0].text), String(row.quantity && row.quantity[0].text)].filter(e => e !== 'undefined').join(' - ');
       row.productDescriptionIm = [

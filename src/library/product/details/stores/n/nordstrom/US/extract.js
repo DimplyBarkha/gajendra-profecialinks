@@ -116,6 +116,7 @@ module.exports = {
         tBody.appendChild(tr);
       }
     });
+    await context.waitForXPath('//span[contains(text(),"Item \#")]',{timeout:30000})
     const { transform } = parameters;
     const { productDetails } = dependencies;
     return await context.extract(productDetails, { transform });
