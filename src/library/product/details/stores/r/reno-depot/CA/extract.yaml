@@ -144,11 +144,11 @@ fields:
     xpath: //div[@id="rotateInfo"]
   - name: inTheBoxUrl
     singleValue: false
-    xpath: //div[@data-section-tag="in-the-box"]//img/@src
+    xpath: //div[@data-section-tag="in-the-box"]//img/@src|//div[@data-section-caption="In The Box"]//img/@src
     description: Must include image url to show the accessories/tools which come with the product
   - name: inTheBoxText
     singleValue: false
-    xpath: //div[@data-section-tag="in-the-box"]//h3
+    xpath: //div[@data-section-tag="in-the-box"]//h3|//div[@data-section-caption="In The Box"]//h3
     description: Must include text to show the accessories/tools which come with the product 
   - name: hasComparisonTable
     singleValue: true
