@@ -15,10 +15,17 @@ module.exports = {
     const { transform } = parameters;
     const { productDetails } = dependencies;
     await context.evaluate(async () => {
-      const usernameElements = document.querySelectorAll('#validZipcode');
-      usernameElements.forEach(username => username.value = "48151");
+      try {
+        const usernameElements = document.querySelectorAll('#validZipcode');
+      // @ts-ignore
+      usernameElements.forEach(username => username.value = "28199");
+      // @ts-ignore
       document.querySelector('div[class="fp-modal_input"]>button').click()
       await new Promise(r => setTimeout(r, 6000));
+        
+      } catch (error) {
+        
+      }      
       function addElementToDocument(key, value) {
         const catElement = document.createElement('div');
         catElement.className = key;

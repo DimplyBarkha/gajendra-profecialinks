@@ -8,6 +8,6 @@ module.exports = {
     url: "https://www.flaschenpost.de/katalog/suche/?searchTerm={searchTerms}",
     loadedSelector: 'body',
     noResultsXPath: '//div[@class="fp-productList_content"]//span[contains(text(),"ergab leider keine Treffer")]',
-    zipcode: '48151',
+    zipcode: '28199',
   },
 };

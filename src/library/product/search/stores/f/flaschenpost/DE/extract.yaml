@@ -7,7 +7,7 @@ fields:
     singleValue: false
     description: price of the product
     type: CURRENCY
-    xpath: //div[@class='fp-productList_price fp-productList_price--hasOld']/b[@class='orange']
+    xpath: //div[@class="fp-productList_detail"][1]//b[@class="orange"]/text()
   - name: productUrl
     singleValue: false
     description: The URL for the product details page 
@@ -21,9 +21,9 @@ fields:
   - name: id
     singleValue: false
     description: The store-specific product identifier
-    xpath: //div[@class="fp-productList_detail"]/@data-article
+    xpath: //div[@class="fp-productList_detail"][1]/@data-article
   - name: name
     singleValue: false
     description: The product name
-    xpath: //div[@class='fp-productList_info']/h5[@class='fp-productList_productName']
+    xpath: //div[@class='fp-productList_info']//following-sibling::h5/text()[1]
   
