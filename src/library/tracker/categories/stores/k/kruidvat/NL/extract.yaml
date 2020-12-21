@@ -1,13 +1,15 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: null
+recordXPath: //div[contains(@class, 'nav__link-container')]//span[not(contains(@class, 'service-link'))]/a[@class='nav__link-inner--main'] | //div[contains(@class, 'nav__link-container')]//h3[@class='submenu__title'][contains(text(), 'CATEGORIEËN')]/following-sibling::div//a
 fields:
   - name: category
     singleValue: false
     description: name of the category
-    xpath: null
+    xpath: //a/text()
   - name: categoryUrl
     singleValue: false
     description: url of the category
-    xpath: null
+    xpath: //a/@href
+    regExp: (?<!\/)\/(?!\/)(.*)
+    regExpReplace: https://www.kruidvat.nl/$1

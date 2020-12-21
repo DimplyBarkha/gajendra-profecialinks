@@ -5,7 +5,7 @@ module.exports = {
     country: 'NL',
     store: 'kruidvat',
     domain: 'kruidvat.nl',
-    loadedSelector: null,
+    loadedSelector: 'html body',
     noResultsXPath: null,
     zipcode: '',
   },
