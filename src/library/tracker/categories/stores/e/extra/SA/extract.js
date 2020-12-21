@@ -35,12 +35,14 @@ async function implementation (inputs, parameters, context, dependencies) {
         return obj;
       }).flat().filter(obj => Object.keys(obj).length);
     }
+
     let categoriesArr = [];
     try {
       categoriesArr = getNodes();
     } catch (e) {
       console.log('Error extracting categories: ' + e);
     }
+
     if (!categoriesArr.length) throw new Error('Could not extract categories');
 
     for (let i = 0; i < categoriesArr.length; i++) {
