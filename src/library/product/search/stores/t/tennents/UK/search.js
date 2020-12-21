@@ -4,7 +4,8 @@ module.exports = {
   parameterValues: {
     country: 'UK',
     store: 'tennents',
-    domain: 'tennents.co.uk',
+    domain: 'new.tennentsdirect.com',
     zipcode: '',
+    storeID: null,
   },
 };

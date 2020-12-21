@@ -5,7 +5,7 @@ module.exports = {
     country: 'UK',
     store: 'tennents',
     transform: null,
-    domain: 'tennents.co.uk',
+    domain: 'new.tennentsdirect.com',
     zipcode: '',
   },
 };

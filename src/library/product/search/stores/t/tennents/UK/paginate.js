@@ -1,16 +1,21 @@
 
 module.exports = {
-  implements: 'product/search/paginate',
+  implements: 'navigation/paginate',
   parameterValues: {
+    template: null,
     country: 'UK',
     store: 'tennents',
     nextLinkSelector: null,
+    nextLinkXpath: null,
     mutationSelector: null,
     spinnerSelector: null,
     loadedSelector: null,
+    loadedXpath: null,
     noResultsXPath: null,
+    stopConditionSelectorOrXpath: null,
+    resultsDivSelector: null,
     openSearchDefinition: null,
-    domain: 'tennents.co.uk',
+    domain: 'new.tennentsdirect.com',
     zipcode: '',
   },
 };

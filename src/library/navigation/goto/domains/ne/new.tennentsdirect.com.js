@@ -2,7 +2,7 @@
 module.exports = {
   implements: 'navigation/goto',
   parameterValues: {
-    domain: 'tennents.co.uk',
+    domain: 'new.tennentsdirect.com',
     timeout: null,
     country: 'UK',
     store: 'tennents',

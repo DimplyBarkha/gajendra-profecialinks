@@ -3,7 +3,7 @@ module.exports = {
   implements: 'navigation/goto/setZipCode',
   parameterValues: {
     country: 'UK',
-    domain: 'tennents.co.uk',
+    domain: 'new.tennentsdirect.com',
     store: 'tennents',
     zipcode: '',
   },
