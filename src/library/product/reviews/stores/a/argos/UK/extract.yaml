@@ -49,7 +49,7 @@ fields:
     xpath: ancestor::html//meta[contains(@property,'og:url')]/@content
   - name: syndicatedFrom
     singleValue: false
-    xpath: //div[contains(@data-test,'review-item-cross-review')]/a
+    xpath: //div[contains(@data-test,'review-item-cross-review')]/a[contains(text(),'.')]
   # description: Stated place the review was syndicated from
   # - name: commentCount
   #   singleValue: false
