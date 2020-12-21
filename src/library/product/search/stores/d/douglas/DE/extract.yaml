@@ -4,10 +4,8 @@ recordSelector: null
 recordXPath: //div[@class="rd__product-list"]//a
 fields:
   - name: name
-    singleValue: false
-    xpath: //@data-wt-content
-    regExp: (.+)([^\d,-])
-  - name: aggregateRating
+    xpath: //div[@id="ii_name"]
+  - name: aggregateRating2
     singleValue: false
     xpath: //div[@class="rd__productinfo__rating"]
   - name: price
@@ -21,8 +19,14 @@ fields:
     regExpReplace: https://www.douglas.de$1
   - name: thumbnail
     singleValue: false
-    xpath: //img//@data-src
-    description: The URL for the product thumbnail image
+    xpath: //script[@type="application/ld+json"]
+    regExp: ("image":\s")(.+)(",\s"brand)
+    regExpReplace: $2
+  - name: id
+    singleValue: false
+    xpath: //div[@class="rd__product-list"]/a/@href
+    regExp: ([A-Z]?\d+)(.html)
+    regExpReplace: $1
   - name: rank 
   - name: rankOrganic
 
