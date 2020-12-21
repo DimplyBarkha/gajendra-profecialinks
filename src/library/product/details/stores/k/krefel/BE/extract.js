@@ -14,10 +14,13 @@ module.exports = {
     });
 
     if (needToSelectLanguage) {
-      const currentUrl = await context.evaluate(() => {
-        return window.location.href;
+      const urlSuffix = await context.evaluate(() => {
+        const currentUrl = window.location.href;
+        const filter = new RegExp('(?=\/p)(.*)');
+        return currentUrl.match(filter)[0]
       });
-      await context.goto(`${currentUrl}/nl`, { timeout: 20000, waitUntil: 'load' });
+      // https://www.krefel.be/nl/p/21004082-elektrische-tandenborstel-stages-power
+      await context.goto(`https://www.krefel.be/nl${urlSuffix}`, { timeout: 20000, waitUntil: 'load' });
     }
 
     await context.evaluate(async function () {
