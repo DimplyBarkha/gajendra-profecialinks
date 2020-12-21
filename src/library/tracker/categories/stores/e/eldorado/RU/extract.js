@@ -27,6 +27,7 @@ async function implementation (inputs, parameters, context, dependencies) {
   }
 
   let categoriesArr = [];
+
   try {
     categoriesArr = loopCategory(json);
     console.log(categoriesArr.length + ' categories found.');
@@ -36,7 +37,6 @@ async function implementation (inputs, parameters, context, dependencies) {
 
   if (categoriesArr.length) {
     await context.evaluate(({ categoriesArr }) => {
-      console.log(categoriesArr.length);
       function addHiddenDiv (id, content, parentDiv = null) {
         const newDiv = document.createElement('div');
         newDiv.id = id;
@@ -49,6 +49,7 @@ async function implementation (inputs, parameters, context, dependencies) {
         }
         return newDiv;
       }
+
       for (let i = 0; i < categoriesArr.length; i++) {
         const newDiv = addHiddenDiv('categories', '');
         const splitCategories = categoriesArr[i].split('|');
