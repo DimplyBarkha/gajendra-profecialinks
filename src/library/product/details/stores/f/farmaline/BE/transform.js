@@ -32,33 +32,26 @@ const transform = (data, context) => {
   for (const { group } of data) {
     for (const row of group) {
       try {
-        if (row.manufacturerName) {
-          let x = row.manufacturerName[0].text
+        if (row.manufacturer) {
+          let x = row.manufacturer[0].text
           var ret = x.replace('dataLayer = ','');
           var semi = ret.replace(';','');
           var obj = JSON.parse(semi);
           
-          row.manufacturerName = [
+          row.manufacturer = [
             { text: obj[0].product.manufacturer },
           ];
         }
 
-        // if (row.availabilityText) {
-        //   if (row.availabilityText[0].text == "Op voorraad") {
-        //     row.availabilityText = [{ text: "In stock" }];
-        //   } else {
-        //     row.availabilityText = [{ text: "Out of stock" }];
-        //   }
-        // } else {
-        //   row.availabilityText = [{ text: "Out of stock" }];
-        // }
-
-        // if (row.manufacturerName) {
-        //   var baseObject = JSON.parse(row.aggregateRating[0].text);
-        //   row.aggregateRating = [
-        //     { text: baseObject.aggregateRating.ratingValue },
-        //   ];
-        // }
+        if (row.availabilityText) {
+          if (row.availabilityText[0].text == "Op voorraad") {
+            row.availabilityText = [{ text: "In stock" }];
+          } else {
+            row.availabilityText = [{ text: "Out of stock" }];
+          }
+        } else {
+          row.availabilityText = [{ text: "Out of stock" }];
+        }
 
       } catch (exception) {
         console.log("Error in transform", exception);

@@ -3,6 +3,9 @@ regionsSelector: null
 recordSelector: null
 recordXPath: null
 fields:
+  - name: name
+    singleValue: true
+    xpath: //h1[contains(@class,"h5 font-size-md-xxl mb-0 text-body text-md-primary")]
   - name: nameExtended
     singleValue: true
     xpath: //h1[contains(@class,"h5 font-size-md-xxl mb-0 text-body text-md-primary")]
@@ -42,9 +45,9 @@ fields:
   - name: productsPerPage
     singleValue: true
     xpath: count(//ul[contains(@class, 'list-unstyled space-y-3 mb-0')]/li/article)
-  - name: manufacturerName 
+  - name: manufacturer 
     singleValue: true 
     xpath: //script[contains(text(),"manufacturer")]
-  # - name: availabilityText
-  #   singleValue: true
-  #   xpath: //*[@class='o-product-detail-info']//span[@id='availability']/font
+  - name: availabilityText
+    singleValue: true
+    xpath: //*[@class='o-product-detail-info']//span[@id='availability']/font
