@@ -5,7 +5,7 @@
  * @returns {ImportIO.Group[]}
  */
 const transform = (data) => {
-  const clean = text => text.toString()
+  const clean = text => text && text.toString()
     .replace(/\r\n|\r|\n/g, ' ')
     .replace(/&amp;nbsp;/g, ' ')
     .replace(/&amp;#160/g, ' ')
@@ -33,13 +33,6 @@ const transform = (data) => {
         });
         row.description = [{ text: text.slice(0, -2).trim() }];
         row.description[0].text = row.description[0].text.replace(/\n \n \n \n/g, ' || ').replace(/\n \n/g, ' : ');
-      }
-      if (row.productOtherInformation) {
-        let text = '';
-        row.productOtherInformation.forEach(ele => {
-          text += ele.text + ' || ';
-        });
-        row.productOtherInformation = [{ text: text.slice(0, -3).trim() }];
       }
       if (row.shippingInfo) {
         let text = '';
