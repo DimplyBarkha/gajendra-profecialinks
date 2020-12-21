@@ -155,7 +155,7 @@ fields:
     defaultValue: 'NO'
   - name: inTheBoxText
     singleValue: false
-    xpath: //td[contains(.,'Accessoires fournis')]/following-sibling::td
+    xpath: //td[contains(.,'Accessoires fournis')]/following-sibling::td | //p[@class="normal"]//text()[contains(.,'Accessoires inclus')]/following-sibling::text()[1]
   - name: hasComparisonTable
     singleValue: true
     defaultValue: No
