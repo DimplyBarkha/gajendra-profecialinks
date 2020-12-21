@@ -54,6 +54,18 @@ const transform = (data) => {
           },
         ];
        }
+       if (row.availabilityText){
+        row.availabilityText.forEach(item => {
+        item.text="In Stock"
+
+      });
+    }
+    else {
+           row.availabilityText.forEach(item => {
+        item.text="Out of Stock"
+
+      });
+    }
        if (row.descriptionBullets) {
         let text = '';
         row.descriptionBullets.forEach(item => {

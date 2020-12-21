@@ -6,7 +6,7 @@ module.exports = {
     store: 'kidkraft',
     domain: 'kidkraft.com',
     loadedSelector: null,
-    noResultsXPath: null,
+    noResultsXPath: "//div[contains(@class,'message notice')]//div/text()",
     zipcode: "''",
   },
 };

@@ -38,7 +38,7 @@ fields:
     description: Availability as described on page for the selected variant. If
       there is no availability but the product can be added to cart, this field
       should be "In Stock"
-    xpath: //div[contains(@class,'product-info-stock-sku')]//div//span[2]
+    xpath: boolean(//div[contains(@class,'stock unavailable')]//span[2]/text())
     regExp: (.+)
     regExpReplace: In Stock
     defaultValue: Out of Stock
@@ -76,7 +76,7 @@ fields:
   - name: sku
     singleValue: true
     description: The store-specific product identifier
-    xpath: //meta[contains(@itemprop,'sku')]
+    xpath: //meta[contains(@itemprop,'sku')]/@content
   - name: variantId
     singleValue: true
     description: Identifier for a variant from a store where variants share the same sku
@@ -107,7 +107,8 @@ fields:
   - name: aggregateRating
     singleValue: true
     description: The stated aggregate rating normalized to be out of 5
-    xpath: //*[@id="BVRRContainer"]/div/div/div/div/div[1]/div[3]/div/div/div[2]/div[2]/div[1]/span[2]
+   # xpath: //*[@id="BVRRContainer"]/div/div/div/div/div[1]/div[3]/div/div/div[2]/div[2]/div[1]/span[2]
+    xpath: //dd[contains(@class,'bv-rating-ratio-number')]//span//span/text()
     type: NUMBER
   - name: shippingInfo
     singleValue: true
@@ -138,6 +139,10 @@ fields:
     singleValue: false
     description: URLs of videos on page
   - name: name
+    singleValue: true
+    description: The product name
+    xpath: //span[contains(@class,'hidden-title')]
+  - name: nameExtended
     singleValue: true
     description: The product name
     xpath: //span[contains(@class,'hidden-title')]
@@ -223,6 +228,10 @@ fields:
   - name: otherSellersName
     singleValue: false
     description: null
+  - name: productUrl
+    singleValue: true
+    description: null
+    xpath: //link[@rel="canonical"]/@href
   - name: otherSellersPrice
     singleValue: false
     description: null
@@ -510,3 +519,6 @@ fields:
       carousel,['Yes','No']
     example: https://www.zalando.de/adidas-neo-sneaker-low-blackwhite-a4315i002-q11.html
     defaultValue: No
+  - name: highQualityImages
+    singleValue: false
+    xpath: //div[contains(@class,'fotorama__thumb fotorama_vertical_ratio fotorama__loaded fotorama__loaded--img')]//img/@src
