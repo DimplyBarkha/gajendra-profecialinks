@@ -20,12 +20,17 @@ const transform = (data, context) => {
   for (const { group } of data) {
     for (const row of group) {
       if (row.specifications) {
-        const text = row.specifications.map(elm => elm.text.trim().replace(/\n/, ' - ')).join(', ');
+        const text = row.specifications.map(elm => elm.text.trim().replace(/\n/, ' - ')).join(' || ');
         row.specifications = [{ text }];
       }
       if (row.promotion) {
         const text = row.promotion.map(elm => elm.text.trim()).join(', ');
         row.promotion = [{ text }];
+      }
+
+      if (row.listPrice) {
+        const text = row.listPrice.map(elm => elm.text.replace(/\s/g, '').trim());
+        row.listPrice = [{ text }];
       }
       if (row.description) {
         const text = row.description[0].text.replace(/<li>/g, '<li> || ').replace(/(<([^>]+)>)/ig, '').trim();

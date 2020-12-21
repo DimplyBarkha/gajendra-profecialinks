@@ -4,4 +4,6 @@ recordSelector: null
 recordXPath: null
 fields:
   - name: variantId
-    xpath: //div[@class="variants-id"]
+    xpath: //a[@class="variants-id"]
+  - name: variantUrl
+    xpath: //a[@class="variants-id"]/@href

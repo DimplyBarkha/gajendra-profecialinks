@@ -10,7 +10,7 @@ fields:
     xpath: //li[@data-index-number="0"]//img/@alt
     description: Alt text of the main product image
   - name: alternateImages
-    xpath: //div[contains(@class,"ZoomImage__StyledZoomImage")]//source/@srcset
+    xpath: //ul//li[position()>1]//div[contains(@class,"ZoomImage__StyledZoomImage")]//source/@srcset
     singleValue: false
     description: Other product images (not in manufacturer description)
   - name: metaKeywords
@@ -41,7 +41,7 @@ fields:
     defaultValue: In Stock
   - name: description
     singleValue: false
-    xpath: //div[@data-test="mms-accordion-description"]
+    xpath: //div[contains(@class,'ProductDescription')][not(contains(@class,"RichProductDescription"))]
     html: true
     description: Product description supplied by website - may be concatenanted from
       multiple places; specifically not the manufacturer description
@@ -211,7 +211,7 @@ fields:
   - name: secondaryImageTotal
     description: null
     type: NUMBER
-    xpath: count(//div[contains(@class,"ZoomImage__StyledZoomImage")]//source/@srcset)
+    xpath: count(//ul//li[position()>1]//div[contains(@class,"ZoomImage__StyledZoomImage")]//source/@srcset)
   - name: news
     description: null
   - name: addonItem
@@ -356,7 +356,7 @@ fields:
   - name: pricePerUnitUom
     description: The unit of measurement used in price_per_unit
   - name: promotion
-    xpath: //div[@data-test="mms-select-gallery"]/div/div[contains(@class,"Badgestyled__StyledBadgeWrapper")]
+    xpath: //span[contains(@class,'StyledDiscountLabel')]
     description: promotion text on product page
   - name: alcoholContent
     description: Alcohol content information
@@ -434,3 +434,5 @@ fields:
     xpath: //div[contains(@class,"in-the-box")]//p//text()
   - name: inTheBoxUrl
     xpath: //div[contains(@class,"in-the-box")]//img//@data-src
+  - name: galleryVideos
+    xpath: //body/@video-url

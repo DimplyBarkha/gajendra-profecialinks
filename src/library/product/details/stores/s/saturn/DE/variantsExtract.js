@@ -28,9 +28,10 @@ module.exports = {
           // const allVariants = '';
           variants.forEach((variant) => {
             const body = document.querySelector('body');
-            const div = document.createElement('div');
+            const div = document.createElement('a');
             div.className = 'variants-id';
             div.innerText = variant.productId;
+            div.href= `https://www.saturn.de/de/product/-${variant.productId}.html`;
             body.append(div);
           });
         } else {
