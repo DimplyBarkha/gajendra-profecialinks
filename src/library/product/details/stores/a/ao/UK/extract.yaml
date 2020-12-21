@@ -56,7 +56,7 @@ fields:
     singleValue: false
     description: Product description supplied by website - may be concatenanted from
       multiple places; specifically not the manufacturer description
-    xpath: //div[contains(@class,'topRight')]//div[@data-tag-section='product overview']//div[@itemprop='description']//p|//div[contains(@class, "topRight")]//ul[contains(@class, "featureBullets")]//li
+    xpath: (//*[@data-tag-section='product overview']//div[@itemprop='description']//p)[1] | //div[contains(@class, "topRight")]//ul[contains(@class, "featureBullets")]//li
     # xpath: //div[contains(@class,'topRight')]//div[@data-tag-section='product overview']//div[@itemprop='description']//p|//div[@id='bulletInfoText']
   - name: descriptionBullets
     singleValue: true
@@ -421,14 +421,12 @@ fields:
     singleValue: true
     description: null
   - name: specifications
-    singleValue: true
     description: The physical dimensions of the product including packaging.
-    xpath: //div[contains(@class,"specificationAccordion")]//span[contains(text(), "Dimensions")]//parent::span//following-sibling::span[contains(@class, "value")]
-    #//section[contains(@class,'productSpecification')]/div/div[contains(@class,'accordionItem')]
+    xpath: //section[contains(@class,'productSpecification')]//div[contains(@class,'accordionContentInner')]//div
   - name: warranty
     singleValue: true
     description: Guarantee associated with the product
-    xpath: concat(//div[contains(@class,'feature')]//span[contains(text(),'Warranty')]/parent::th/following-sibling::td | //*[@id="productSpecification"]//div[contains(@class,'accordionContent')]//span[contains(text(),'Warranty')]/parent::th/following-sibling::td, '') 
+    xpath: concat(//div[contains(@class,'feature')]//span[contains(text(),'Warranty')]/parent::th/following-sibling::td | //*[@id="productSpecification"]//div[contains(@class,'accordionContent')]//span[contains(text(),'Warranty')]/parent::th/following-sibling::td, '')
   - name: storage
     singleValue: true
     description: Suggested storage location for product

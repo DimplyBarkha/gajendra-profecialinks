@@ -5,7 +5,7 @@ module.exports = {
     country: 'UK',
     store: 'ao',
     domain: 'ao.com',
-    loadedSelector: 'section.productInformation',
+    loadedSelector: '.productInformation',
     noResultsXPath: '//h1[contains(text(), "Sorry - this page no longer exists") or contains(text(), "Oops - we can\'t find any results for")]',
     zipcode: '',
   },
