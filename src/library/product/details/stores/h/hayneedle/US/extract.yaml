@@ -4,69 +4,50 @@ recordSelector: null
 recordXPath: null
 fields:
   - name: ratingCount
-    singleValue: true
     xpath: (//script[@type="application/ld+json"])[1]
     regExp: ("reviewCount":")(\d+)
     regExpReplace: $2
   - name: shownImages
-    singleValue: false
     xpath: //table//tr/@image
   - name: nameExtended
-    singleValue: true
     xpath: //h1
   - name: price
-    singleValue: true
     xpath: //div[contains(@class ,"price-details")]//div//div/@aria-label
   - name: availabilityText
-    singleValue: true
     xpath: //div[contains(@class,"item-info-right-container")]//button[@data-automation-id="add-to-cart-button"]
-    regExp: ADD TO CART
+    regExp: (.+)
     regExpReplace: In stock
     defaultValue: Out of Stock
   - name: brandText
-    singleValue: true
     xpath: (//a[contains(@class, "product-brand__brand")])[1]
   - name: description
-    singleValue: false
     xpath: //div[contains(@data-automation-id,"accordion-section-details-Description")]
   - name: featureBullets
-    singleValue: false
     xpath: //table//tr//@bullet
   - name: featureHighlights
-    singleValue: false
     xpath: //table//tr//@bullet
   - name: mpc
-    singleValue: true
     xpath: (//div[@class="model product-data"]//span)[2]
   - name: questionsCount
-    singleValue: true
-    xpath: //div[contains(@class,"price-box__reviewsQAndA")]
-    regExp: (\d+)
+    xpath: //div[@id="QATarget"]//div[@class="note"]//span[2]
   - name: aggregateRating
-    singleValue: true
     xpath: //section[@class="pr-review-snapshot-snippets"]//span[@class="pr-review-snapshot-snippets-headline pr-h1"]
     # regExp: ("ratingValue":")(\d+\.\d+)
     # regExpReplace: $2
     # xpath: //span[contains(@class,"pr-review-snapshot-snippets")]
   - name: category
-    singleValue: false
     xpath: //div[@data-automation-id="breadcrumbs-container"]//div[contains(@class,'breadcrumbs__breadcrumb')]
   - name: highQualityImages
-    singleValue: false
     xpath: //table//tr/@image
   - name: sku
-    singleValue: false
     xpath: //body//@sku
     # regExp: (Item\s#\s)(.+)
     # regExpReplace: $2
   - name: productUrl
-    singleValue: true
     xpath: //body//@producturl
   - name: specifications
-    singleValue: true
     xpath: //body//@specifications
   - name: videos
-    singleValue: true
     xpath: //iframe[@id="player0"]/@src
     regExp: (//)(.+)
     regExpReplace: $2
