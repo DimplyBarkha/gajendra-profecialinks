@@ -32,7 +32,7 @@ const transform = (data) => {
           text += ele.text + ' | ';
         });
         row.description = [{ text: text.slice(0, -2).trim() }];
-        row.description[0].text = row.description[0].text.replace(/\n \n \n \n/g, ' || ').replace(/\n \n/g, ' : ') + ' | ' + row.additionalDescBulletInfo[0].text;
+        row.description[0].text = row.description[0].text.replace(/\n \n \n \n/g, ' || ').replace(/\n \n/g, ' : ');
       }
       if (row.productOtherInformation) {
         let text = '';

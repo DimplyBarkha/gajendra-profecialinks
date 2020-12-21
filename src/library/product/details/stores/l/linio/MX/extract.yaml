@@ -42,10 +42,10 @@ fields:
     xpath: //div[contains(@class,'features-box-section')] | //div[contains(@itemprop,'description')]
   - name: additionalDescBulletInfo
     singleValue: false
-    xpath: //div[contains(@class,'product-feature')]//li
+    xpath: //div[contains(@itemprop,'description')]//li
   - name: descriptionBullets
     singleValue: false
-    xpath: count(//div[contains(@class,'product-feature')]//li)
+    xpath: count(//div[contains(@itemprop,'description')]//li)
   - name: brandText
     singleValue: false
     xpath: //meta[contains(@itemprop,'brand')]/@content
@@ -88,12 +88,24 @@ fields:
   - name: imageZoomFeaturePresent
     singleValue: false
     defaultValue: 'Yes'
-  - name: productOtherInformation
-    singleValue: false
-    xpath: //div[contains(@class,'usp-product-container')]//div
   - name: specifications
     singleValue: false
     xpath: //div[contains(@itemprop,'description')]/p[text()[normalize-space() = 'Especificaciones:']]
+  - name: termsAndConditions
+    singleValue: false
+    defaultValue: 'Yes'
+  - name: privacyPolicy
+    singleValue: false
+    defaultValue: 'Yes'
+  - name: variantInformation
+    singleValue: false
+    xpath: //span[contains(@id,'selected-option-normal-select-1')]
+  - name: variantCount
+    singleValue: false
+    defaultValue: '1'
+#  - name: productOtherInformation
+#     singleValue: false
+#     xpath: //div[contains(@class,'usp-product-container')]//div
   # - name: packSize
   #   singleValue: false
   #   xpath: //div[contains(text(),'Qué hay en la caja')]/following::div[1]
@@ -115,9 +127,6 @@ fields:
   # - name: shippingWeight
   #   singleValue: true
   #   description: Stated shipping weight
-  # - name: variantCount
-  #   singleValue: true
-  #   description: Number of variants listed
   # - name: weightGross
   #   singleValue: true
   #   description: Gross weight as described on the page
@@ -425,9 +434,6 @@ fields:
   #   singleValue: true
   #   description: In product page, information about a new version of the product -
   #     new desription info
-  # - name: variantInformation
-  #   singleValue: true
-  #   description: colour / scent / flavour / other
   # - name: firstVariant
   #   singleValue: true
   #   description: Unique identifier for a collection of variants. For a subset of
@@ -459,14 +465,6 @@ fields:
   #   singleValue: true
   #   description: If there is for example a manual in pdf format on the website. ['Yes','No']
   #   example: https://www.amazon.de/Hasbro-Spiele-44220100-Mastermind-Kinderspiel/dp/B0007OHUG6
-  #   defaultValue: No
-  # - name: termsAndConditions
-  #   singleValue: true
-  #   description: Terms and conditions information text ['Yes','No']
-  #   defaultValue: No
-  # - name: privacyPolicy
-  #   singleValue: true
-  #   description: Privacy Policy information text ['Yes','No']
   #   defaultValue: No
   # - name: customerServiceAvailability
   #   singleValue: true
