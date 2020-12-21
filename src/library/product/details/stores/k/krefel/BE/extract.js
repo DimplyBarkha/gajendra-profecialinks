@@ -10,7 +10,7 @@ module.exports = {
   },
   implementation: async ({ inputString }, { country, domain }, context, { productDetails }) => {
     await context.evaluate(async function () {
-      function addElementToDocument(key, value) {
+      function addElementToDocument (key, value) {
         const catElement = document.createElement('div');
         catElement.id = key;
         catElement.textContent = value;
@@ -82,7 +82,7 @@ module.exports = {
     });
 
     await context.click('a[href*="brand-info"]', { timeout: 7000 })
-      .catch(()=>console.log('No extra brand info'));
+      .catch(() => console.log('No extra brand info'));
 
     await new Promise((resolve, reject) => setTimeout(resolve, 6000));
     return await context.extract(productDetails);
