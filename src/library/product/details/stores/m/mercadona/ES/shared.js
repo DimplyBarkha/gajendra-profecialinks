@@ -11,11 +11,11 @@ const transform = (data) => {
           if (gr.url && gr.url.length) {
             // gr['_url'] = gr.url;
 
-            gr['sku'] = [
-              {
-                text: gr.url[0].text.match(/\/product\/(.*?)\//)[1],
-              },
-            ];
+            // gr['sku'] = [
+            //   {
+            //     text: gr.url[0].text.match(/\/product\/(.*?)\//)[1],
+            //   },
+            // ];
             // gr['_input'] = [
             //   {
             //     text: gr.url[0].text.match(/\/product\/(.*?)\//)[1],

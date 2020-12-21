@@ -18,17 +18,6 @@ module.exports = {
     const { transform } = parameters;
     const { productDetails } = dependencies;
     await new Promise((resolve, reject) => setTimeout(resolve, 3000));
-    // const setZipcode = async () => {
-    //   await context.setInputValue('input[name="postalCode"]', '46008');
-    //   await new Promise((resolve, reject) => setTimeout(resolve, 3000));
-    //   await context.click('button.button-big');
-    // };
-    // await context.evaluate(async function () {
-    //   const isPublic = document.querySelector('.public-product-detail');
-    //   if (isPublic) {
-    //     await setZipcode();
-    //   }
-    // });
 
     try {
       await context.setInputValue('input[name="postalCode"]', '46008');
@@ -57,14 +46,8 @@ module.exports = {
         .textContent
         .match(/\d{0,} ud./);
 
-      // console.log(zipcodeInput);
-
-      // if (zipcodeInput) {
-      //   const submitBtn = document.querySelector('.button');
-      //   console.log(submitBtn);
-      //   zipcodeInput.value = '46008';
-      //   submitBtn.click();
-      // }
+      const skuNumber = location.href.match(/\/product\/(.*?)\//)[1];
+      console.log(skuNumber);
 
       if (currentProduct) {
         if (packSize) {
@@ -75,6 +58,7 @@ module.exports = {
         }
         addHiddenDiv('helper-product-url', location.href, currentProduct);
         addHiddenDiv('price-per-unit', pricePerUnit.textContent, currentProduct);
+        addHiddenDiv('helper-sku', skuNumber, currentProduct);
       }
     });
 
