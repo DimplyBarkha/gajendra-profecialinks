@@ -30,7 +30,7 @@ async function implementation (inputs, parameters, context, dependencies) {
   if (json) {
     try {
       categoriesArr = loopCategory(json.categories.normal);
-      console.log(categoriesArr.length + ' categories found.');
+      console.log(categoriesArr.length + ' categories found');
     } catch (e) {
       console.log('Error extracting categories');
     }
