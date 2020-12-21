@@ -63,6 +63,16 @@ const transform = (data) => {
           },
         ];
       }
+      if (row.availabilityText){
+        row.availabilityText.forEach(item => {
+        item.text="In Stock"
+      });
+    }
+    else {
+     row.availabilityText.forEach(item => {
+        item.text="Out of Stock"
+      });
+    }
       if (row.aggregateRating) {
         let rating;
         if (row.aggregateRating[0].text) {
@@ -85,6 +95,17 @@ const transform = (data) => {
         row.weightNet = [
           {
             text: cleanUp(text.trim()),
+          },
+        ];
+      }
+     if (row.servingSize) {
+        let text = '';
+        row.servingSize.forEach(item => {
+          text = item.text.replace(': ', '');
+        });
+          row.weightNet = [
+          {
+            text: cleanUp(text),
           },
         ];
       }

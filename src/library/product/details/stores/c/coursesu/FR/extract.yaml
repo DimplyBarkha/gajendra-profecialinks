@@ -44,7 +44,7 @@ fields:
     description: Availability as described on page for the selected variant. If
       there is no availability but the product can be added to cart, this field
       should be "In Stock"
-    xpath: //a[@class='product-button__bag icon-bag true']
+    xpath: boolean(//a[@class='product-button__bag icon-bag true'])
     #xpath: //p[contains(@class, 'not-available-msg')]
     #regExp: 'null'
     regExp: (.+)
@@ -75,8 +75,8 @@ fields:
     description: Quantity as described on the page
     regExp: (?:\s?([\d\.]+\s?)([bB]ar[s]?|[cC]ount|[cC]t|[fF][lL][\.]?\s?[oO][zZ][\.]?|FO|[mM][lL]|[oO][zZ][\.]?|pc|[pP]int|[pP]ops|qt|[wW]ipe[s]?).?)$|(?:\s?([\d\.]+\s?)([bB]ar[s]?|[cC]ount|[cC]|[fF][lL][\.]?\s?[oO][zZ][\.]?|FO|[mM][lL]|[oO][zZ][\.]?|pc|[pP]int|[pP]ops|qt|[wW]ipe[s]?).?\s?[\&\-\w\s]+)$
     regExpReplace: $1$2$3$4
-  - name: servingSize
-    singleValue: true
+  - name: weightNet
+    singleValue: false
     description: Net weight as described on the page
     xpath: //*[contains(text(), 'Poids net')]
     regExp: net(.+)
@@ -559,3 +559,9 @@ fields:
   - name: highQualityImages
     singleValue: false
     xpath: //li//picture//img//@src
+  - name: servingSize
+    singleValue: false
+    description: Net weight as described on the page
+    xpath: //*[contains(text(), 'Poids net')]
+    regExp: net(.+)
+    regExpReplace: $1
