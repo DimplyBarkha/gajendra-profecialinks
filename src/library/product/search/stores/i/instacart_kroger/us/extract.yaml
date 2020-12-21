@@ -1,0 +1,18 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields: 
+  - name: name
+    singleValue: false
+    xpath: (//ul[@class="rmq-1938cd36 items-grid unstyled"])[1]//span[@class="full-item-name"]
+  - name: id
+    singleValue: false
+    xpath: (//ul[@class="rmq-1938cd36 items-grid unstyled"])[1]//div[@class="item-info"]
+  - name: price
+    singleValue: false
+    xpath: (//ul[@class="rmq-1938cd36 items-grid unstyled"])[1]//div[@class="item-price"]        
+  - name: thumbnail
+    singleValue: false
+    xpath: (//ul[@class="rmq-1938cd36 items-grid unstyled"])[1]//img//@src
+  
