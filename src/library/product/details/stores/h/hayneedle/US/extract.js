@@ -58,6 +58,12 @@ module.exports = {
         newlink.setAttribute('image', images[index].textContent.replace('76,76', '1000,1000').replace('//', 'https://'));
         imagetBody.appendChild(newlink);
       }
+
+      const sku = document.evaluate(`//span[@data-automation-id="product-breadcrumb-sku"]/text()[2]`, document, null, XPathResult.UNORDERED_NODE_ITERATOR_TYPE, null).iterateNext()
+      if (sku) {
+        document.body.setAttribute("sku", sku.textContent);
+      }
+
     });
     await context.extract(productDetails);
   },

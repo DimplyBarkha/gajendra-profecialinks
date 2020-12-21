@@ -55,10 +55,10 @@ fields:
     singleValue: false
     xpath: //table//tr/@image
   - name: sku
-    singleValue: true
-    xpath: //span[@data-automation-id="product-breadcrumb-sku"]
-    regExp: (Item\s#\s)(.+)
-    regExpReplace: $2
+    singleValue: false
+    xpath: //body//@sku
+    # regExp: (Item\s#\s)(.+)
+    # regExpReplace: $2
   - name: productUrl
     singleValue: true
     xpath: //body//@producturl
