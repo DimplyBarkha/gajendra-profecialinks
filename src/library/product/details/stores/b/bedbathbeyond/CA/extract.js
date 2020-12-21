@@ -133,6 +133,40 @@ module.exports = {
           }
         }
       });
+
+
+      async function scrollToRec (node) {
+        await context.evaluate(async (node) => {
+          const element = document.querySelector(node) || null;
+          if (element) {
+            element.scrollIntoView({ behavior: 'smooth', block: 'end', inline: 'nearest' });
+            await new Promise((resolve) => {
+              setTimeout(resolve, 5000);
+            });
+          }
+        }, node);
+      }
+      await scrollToRec('footer');
+      await scrollToRec('div[certonaidentifier^="recommendation"]');
+      await scrollToRec('div#viewItem-PDP');
+      // await this.context.evaluate(async () => {
+      //   await new Promise((resolve) => setTimeout(resolve, 5000));
+  
+      //   async function infiniteScroll () {
+      //     let prevScroll = document.documentElement.scrollTop;
+      //     while (true) {
+      //       window.scrollBy(0, document.documentElement.clientHeight);
+      //       await new Promise(resolve => setTimeout(resolve, 1000));
+      //       const currentScroll = document.documentElement.scrollTop;
+      //       if (currentScroll === prevScroll) {
+      //         break;
+      //       }
+      //       prevScroll = currentScroll;
+      //     }
+      //   }
+      //   await infiniteScroll();
+      //   await new Promise((resolve) => setTimeout(resolve, 8000));
+      // });
       await context.extract(productDetails, { transform });
     };
 
