@@ -9,6 +9,15 @@ module.exports = {
     zipcode: '',
   },
   implementation: async ({ inputString }, { country, domain }, context, { productDetails }) => {
+    const needToSelectLanguage = await context.evaluate(() => {
+      return !!document.querySelector('a[class*="select-language"]');
+    });
+
+    if (needToSelectLanguage) {
+      await context.click('a[href="/nl"]', { timeout: 5000 })
+        .catch((err) => console.log(`Click failed: ${err}`));
+    }
+
     await context.evaluate(async function () {
       function addElementToDocument (key, value) {
         const catElement = document.createElement('div');
