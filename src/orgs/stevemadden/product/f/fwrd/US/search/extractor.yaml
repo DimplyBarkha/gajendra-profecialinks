@@ -4,3 +4,12 @@ parameters:
   domain: fwrd.com
   store: fwrd
   zipcode: ""
+proxy:
+  zone: USA
+  type: DATA_CENTER
+policy:
+  numberRetries: 3
+  priority: MEDIUM
+  retryDelay: 60
+  backoffPolicy: LINEAR
+  retryWithResidentialProxyAfter: 99
