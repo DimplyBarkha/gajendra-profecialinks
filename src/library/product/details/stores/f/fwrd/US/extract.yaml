@@ -1,0 +1,60 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: //div[contains(@class,"pdp__col--fixed-width")]//*[@id="pdp-sizes"]//div[contains(@class,"pdp__size-btn")]
+fields:
+  - name: availability
+    type: BOOLEAN
+    description: Product availability
+    singleValue: false
+    xpath: //input[@name="size-options"]/@data-oos
+    regExp: "false"
+    regExpReplace: "TRUE"
+    defaultValue: "FALSE"
+  - name: brand
+    description: Product brand shown
+    xpath: ancestor::html//h1/a[contains(@class,"pdp__brand-title")]
+  - name: designer
+    description: Product brand shown 
+    type: BOOLEAN
+    singleValue: true
+  - name: filterType
+    description: Filter type extracted from the API call
+    singleValue: true
+  - name: image
+    description: URL of the main product image
+    singleValue: true
+    xpath: ancestor::html/head/meta[@property="og:image"]/@content
+  - name: inventoryText
+    description: Low Inventory Text
+    singleValue: true
+  - name: listPrice
+    description: The stated undiscounted price for the product
+    singleValue: false
+    xpath: ancestor::html//div[contains(@class,'fwd_pdp')]//div[contains(@class,'pdp__col--fixed-width')]//s[contains(@class,'price__retail')]
+  - name: name
+    description: The product name
+    singleValue: false
+    xpath: ancestor::html//h1[a[contains(@class,"pdp__brand-title")]]/div
+  - name: numberHearts
+    description: Number of Hearts 
+    type: NUMBER
+    singleValue: true
+  - name: price
+    description: The offered price for the selected product variant
+    singleValue: false
+    xpath: (ancestor::html//div[contains(@class,'fwd_pdp')]//div[contains(@class,'pdp__col--fixed-width')]//span[contains(@class,'price__sale') or contains(@class,'price__retail')])[1]
+  - name: sku
+    description: The store-specific product identifier
+    singleValue: true
+  - name: variantSize
+    description: Variant Size of the product
+    singleValue: false
+    xpath: //input[@name="size-options"]/@data-size-label
+  - name: viewing
+    description: The number of current views
+    type: NUMBER
+    singleValue: true
+
+
+    
