@@ -5,7 +5,7 @@ recordXPath: null
 fields:
   - name: image
     singleValue: true
-    xpath: //img[@class="product-image product-image-visible"]/@src
+    xpath: //div[@class='product--img']/img/@src | //img[@class="product-image product-image-visible"]/@src
   - name: alternateImages
     singleValue: false
     xpath: //ul[@class="carousel__list"]/li[position()>1]//img/@src
