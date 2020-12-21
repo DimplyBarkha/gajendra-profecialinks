@@ -21,7 +21,7 @@ fields:
     xpath: //html//div[@id="namee"]
   - name: listPrice
     singleValue: true
-    xpath: //span[@class='old-price']//text()
+    xpath: //span[@class="old-price"]
     type: CURRENCY
   - name: pricePerUnit
     singleValue: true
@@ -73,15 +73,16 @@ fields:
   - name: warnings
     singleValue: true
   - name: ratingCount
-    singleValue: false
-    xpath: //html//div[@id="rating1"]
-    regExp: (.*) reviews
+    singleValue: true
+    xpath: //a[@class="text-m"]//span
+    # xpath: //html//div[@id="rating1"]
+    # regExp: (.*) reviews
     regExpReplace: $1
   - name: aggregateRatingText
     singleValue: true
   - name: aggregateRating
-    singleValue: false
-    xpath: //div[@class='average-rating']
+    singleValue: true
+    xpath: //div[@class="average-rating"]
   - name: shippingInfo
     singleValue: true
     xpath: //div[@class="instruction-content"]
