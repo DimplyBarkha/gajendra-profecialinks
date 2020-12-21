@@ -1,0 +1,40 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields: 
+- name: id
+  singleValue: true
+  xpath: //div[@class="product-info border-bottom py-3 "]/@data-product-id
+- name: rankOrganic
+  singleValue: true
+- name: name
+  singleValue: false
+  xpath: //a[@class="product-link"]/h5/text()
+- name: productUrl
+  singleValue: true
+  xpath: //div[@class="img-with-sticker"]/a/@href
+  regExp: (/.+)
+  regExpReplace: https://www.lomax.dk$1 
+- name: gtin
+  singleValue: true
+- name: thumbnail
+  singleValue: true
+  xpath: //div[@class="img-with-sticker"]/a/img/@src
+- name: aggregateRating
+  singleValue: false
+  xpath: //div[@class="product-info border-bottom py-3 "]/@data-gtm-rating
+- name: reviewCount
+  singleValue: false
+  xpath: //div[@class="product-info border-bottom py-3 "]/@data-gtm-rating-count
+- name: price
+  singleValue: false
+  xpath: //div[@class="text-right price-container"]/@data-gtm-price
+- name: manufacturer
+  singleValue: true
+- name: soldBy
+  singleValue: true
+- name: rank
+  singleValue: true
+- name: endorsementText
+  singleValue: true
