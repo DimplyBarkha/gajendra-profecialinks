@@ -9,7 +9,51 @@ module.exports.implementation = async function implementation (
   const { domain, country } = parameters;
   const { keywords } = inputs;
 
+  async function loadResources () {
+    await context.setAntiFingerprint(false);
+    await context.setLoadAllResources(true);
+    await context.setBlockAds(false);
+  }
+
+  await loadResources();
+
+  try {
+    // await stall(100000);
+    await context.waitForSelector('hts-product-info[id*=sponsored]', {}, { timeout: 50000 });
+    // await context.waitForXpath('//hts-product-info[contains(@id,"sponsored-")]', {}, { timeout: 50000 });
+  } catch (error) {
+    console.log(error);
+  }
+
   await context.evaluate(async (domain, country, keywords) => {
+    // function stall (ms) {
+    //   return new Promise((resolve, reject) => {
+    //     setTimeout(() => {
+    //       resolve();
+    //     }, ms);
+    //   });
+    // }
+    // await stall(100000);
+    // let scrollTop = 500;
+    // while (true) {
+    //   window.scroll(0, scrollTop);
+    //   await stall(1000);
+    //   scrollTop += 500;
+    //   if (scrollTop === 10000) {
+    //     break;
+    //   }
+    // }
+
+    const getAllXpath = (xpath, prop) => {
+      const nodeSet = document.evaluate(xpath, document, null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
+      const result = [];
+      for (let index = 0; index < nodeSet.snapshotLength; index++) {
+        const element = nodeSet.snapshotItem(index);
+        if (element) result.push(prop ? element[prop] : element.nodeValue);
+      }
+      return result;
+    };
+
     function addElementToDocument (key, value) {
       const catElement = document.createElement('div');
       catElement.id = key;
@@ -85,6 +129,32 @@ module.exports.implementation = async function implementation (
         row.setAttribute('added_id', id);
         row.setAttribute('added_price', price);
       });
+    }
+
+    if (pageNo === 1) {
+      const sponsoredProductName = getAllXpath("//hts-product-info[contains(@id,'sponsored-')]//span[@class='product-name']//text()", 'nodeValue').join(',');
+      const sponsoredProductNameList = sponsoredProductName.split(',');
+      console.log('sponsoredProductName');
+      console.log(sponsoredProductName);
+
+      const sponsoredProductPrice = getAllXpath("//hts-product-info[contains(@id,'sponsored-')]//span[@class='product-price']//text()", 'nodeValue').join(',');
+      const sponsoredProductPriceList = sponsoredProductPrice.split(',');
+
+      const sponsoredProductUrl = getAllXpath("//hts-product-info[contains(@id,'sponsored-')]//a[contains(@onclick, 'url:')]/@href", 'nodeValue').join(',');
+      const sponsoredProductUrlList = sponsoredProductUrl.split(',');
+
+      for (var count = 0; count < sponsoredProductNameList.length; count++) {
+        const row = addElementToDocument('added_row', '');
+        row.setAttribute('added_name', sponsoredProductNameList[count]);
+        row.setAttribute('added_price', sponsoredProductPriceList[count]);
+        row.setAttribute('added_url', sponsoredProductUrlList[count]);
+      }
+
+      // hts-product-info[contains(@id,"sponsored-")]//span[@class='product-name']//text()
+      // hts-product-info[contains(@id,"sponsored-")]//span[@class='product-price']//text()
+      // hts-product-info[contains(@id,"sponsored-")]//a[contains(@onclick, 'url:')]/@href
+      // id
+      // image
     }
   }, domain, country, keywords);
 
