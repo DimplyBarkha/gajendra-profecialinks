@@ -11,35 +11,16 @@ module.exports = {
     productDetails: 'extraction:product/search/stores/${store[0:1]}/${store}/${country}/extract',
   },
   implementation: async ({ inputString }, { country, store, transform: transformParam }, context, dependencies) => {
-    const applyScroll = async function (context) {
-      //provide scroll time  for loading data
-      await context.evaluate(async function () {
-        let scrollTop = 0;
-        while (scrollTop !== 20000) {
-          scrollTop += 200;
-          window.scroll(0, scrollTop);
-          await stall(1000);
-        }
-        function stall(ms) {
-          return new Promise((resolve, reject) => {
-            setTimeout(() => {
-              resolve();
-            }, ms);
-          });
-        }
-     });
-    };
-    await applyScroll(context);
     //get the prodcut code from url
     async function getID() {
-      function addHiddenDiv (id, content, index) {
+      function addHiddenDiv(id, content, index) {
         const newDiv = document.createElement('div');
         newDiv.id = id;
         newDiv.textContent = content;
         newDiv.style.display = 'none';
         const originalDiv = document.querySelectorAll('a.product-box_image')[index];
         originalDiv.parentNode.insertBefore(newDiv, originalDiv);
-        }
+      }
       const product = document.querySelectorAll('a.product-box_image');
       const regex = '/'
       for (let i = 0; i < product.length; i++) {
@@ -47,11 +28,30 @@ module.exports = {
         let str = product[i].attributes[0].nodeValue; //Get the entire href
         var strArray = str.split(regex);
         var productIDArr = strArray[1].split(","); //Take the second part.
-        let pid = productIDArr[1]; 
-        addHiddenDiv('id1', pid,i);
-         }
+        let pid = productIDArr[1];
+        addHiddenDiv('id1', pid, i);
+      }
     }
     await context.evaluate(getID);
+    //call Api fro search Url
+ //   var yourUrl = 'https://commerce.frisco.pl/api/offer/products/query?includeCategories=true&pageIndex=1&search=zupa&deliveryMethod=Van&pageSize=150&language=pl&facetCount=150&includeWineFacets=false';
+  //   async function load() {
+  //     let url = 'https://commerce.frisco.pl/api/offer/products/query?includeCategories=true&pageIndex=1&search=zupa&deliveryMethod=Van&pageSize=150&language=pl&facetCount=150&includeWineFacets=false';
+  //     let obj = null;
+      
+  //     try {
+  //         obj = await (await fetch(url)).json();
+  //     } catch(e) {
+  //         console.log('error');
+  //     }
+      
+  //     console.log("object :"+obj.totalCount);
+  // }
+  
+  // load();
+
+
+
     return await context.extract(dependencies.productDetails, { transform: transformParam });
   },
 };

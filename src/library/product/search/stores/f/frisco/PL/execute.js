@@ -6,7 +6,7 @@ module.exports = {
     store: 'frisco',
     domain: 'frisco.pl',
     url: 'https://www.frisco.pl/q,{searchTerms}/stn,searchResults',
-    loadedSelector: null,
+    loadedSelector: 'body',
     noResultsXPath: null,
   },
 };
