@@ -7,6 +7,7 @@ fields:
     singleValue: false
     description: URL of the main product image
     xpath: //div[@class='product-primary-image']//img/@src
+    regExp: ^[^?]+
   - name: imageAlt
     singleValue: false
     description: Alt text of the main product image
@@ -15,6 +16,7 @@ fields:
     singleValue: false
     description: Other product images (not in manufacturer description)
     xpath: //div[@id='thumbnails']//li[@class='thumb carousel-item']//img/@src
+    regExp: ^[^?]+
   - name: metaKeywords
     singleValue: false
     description: The <meta> keywords content
@@ -193,7 +195,9 @@ fields:
   - name: hasComparisonTable
     defaultValue: No
   - name: inTheBoxText
-    xpath: //body/@in-the-box-text | //div[contains(@class,"InTheBox")]//div[@class="flix-std-content"]
+    xpath: //div[contains(@class,"module-title")][contains(.,"Tools Included")]/following-sibling::div[1]/div//h1 | //div[contains(@class,"InTheBox")]//div[@class="flix-std-content"]
+  - name: inTheBoxTextFallBack
+    xpath: //body/@in-the-box-text
   - name: inTheBoxUrl
     xpath: //div[contains(@class,"InTheBox")]//div[@class="flix-background-image"]/img/@data-flixsrcset
     regExp: (.+)(\s?200w)(.+)

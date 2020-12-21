@@ -48,7 +48,7 @@ module.exports = {
     // For inTheBoxText
     await context.evaluate(() => {
       const inBox = document.evaluate(
-        '//p[contains(.,"tools included")]/following-sibling::*',
+        '//div[@itemprop="description"]/li[preceding-sibling::p[1][strong[contains(text(),"In the Box")]]]',
         document,
         null,
         XPathResult.ORDERED_NODE_SNAPSHOT_TYPE,
@@ -67,9 +67,40 @@ module.exports = {
           values.push(t);
         }
       }
-      const text = values.join('|| ');
-      document.body.setAttribute('in-the-box-text', text);
+      if(values.length) {
+        const text = values.join('|| ');
+        document.body.setAttribute('in-the-box-text', text);
+      } else {
+      // Second case. Ex:https://www.arnotts.ie/on/demandware.store/Sites-arnotts-global-Site/en_IE/Product-Variation?pid=1000124126
+        
+      const inBox = document.evaluate(
+        '//div[@itemprop="description"]/li[contains(text(),"in the box?")]',
+        document,
+        null,
+        XPathResult.ORDERED_NODE_SNAPSHOT_TYPE,
+        null,
+      );
+      const text = inBox.snapshotItem(0);
+      if(text) {
+        const witb = text.textContent.match(/[^\?]+$/)[0].split(',').map(text => text.trim().replace(/\./,'')).join(' || ');
+        document.body.setAttribute('in-the-box-text', witb);
+      }
+      }
     });
+    async function addIFrameToMainPage() {
+      const iframe = document.querySelector("#eky-dyson-iframe");
+      if (iframe) {
+        const src = iframe.src;
+        if (src) {
+          const res = await fetch(src);
+          const html = await res.text();
+          const parent = iframe.parentElement;
+          parent.innerHTML = "";
+          parent.innerHTML = html;
+        }
+      }
+    }
+  await context.evaluate(addIFrameToMainPage);
     return await context.extract(productDetails, { transform });
   },
 };
