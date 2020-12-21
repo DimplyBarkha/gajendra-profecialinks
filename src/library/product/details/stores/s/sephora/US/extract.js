@@ -36,7 +36,7 @@ module.exports = {
     else {
       let prodUrl = await context.evaluate(function () {
         return window.location.href;
-      });      
+      });
       if (prodUrl.includes('/ca/en')) {
         prodUrl = prodUrl.replace('/ca/en','');
         await context.goto(prodUrl, { timeout: 30000, waitUntil: 'load', checkBlocked: true });

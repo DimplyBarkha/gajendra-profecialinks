@@ -48,39 +48,16 @@ const transform = (data, context) => {
             row.directions[0].text = bulletReplace
           }
 
-          if(row.image){
-            let text = row.image[0].text;
-            let splits = text.split("?");
-
-            row.image[0].text = `https://sephora.com${splits[0]}`
-          }
-
           if(row.quantity){
             let text = row.quantity[0].text;
-
             row.quantity[0].text = text.replace(/(\(|\))/gm, '');
-          }
-
-          if(row.alternateImages){
-              let imageArray = [];
-              if(row.alternateImages.length > 1){
-                for(let i = 0; i < row.alternateImages.length; i++){
-                  let text = row.alternateImages[i].text
-                  let splits = text.split("?");
-                  imageArray.push(`https://sephora.com${splits[0]}`);
-                }
-                let oneLess = imageArray.slice(1);
-                let joins = oneLess.join(" | ");
-                row.alternateImages = [{text: joins}]
-              } else {
-                row.alternateImages = [{text: ""}]
-              }
           }
 
           if(row.shownImages){
             row.shownImages.forEach(item => {
-              item.text = item.text.split("?");
-              item.text = `https://sephora.com${item.text[0]}`
+              console.log("item.text",item.text);
+              item.text = "https://sephora.com" + item.text;
+              console.log("item.text",item.text);
             })
           }
 
@@ -96,16 +73,6 @@ const transform = (data, context) => {
               let splits = text.split(" /");
             row.aggregateRating[0].text = splits[0];
         }
-
-          if(row.nameExtended){
-            let newName = [];
-            let text = row.nameExtended.forEach(name => {
-                newName.push(name.text)
-                name.text = "";
-            })
-            let joins = newName.join(" ")
-            row.nameExtended = [{text: joins}]
-          }
 
           if(row.additionalDescBulletInfo){
             row.additionalDescBulletInfo.forEach(bullet => {
@@ -130,11 +97,6 @@ const transform = (data, context) => {
             row.videos[0].text = videoStr;
           }
 
-          if (row.ratingCount2) {
-            const text = row.ratingCount2[0].text;
-            row.ratingCount[0].text = text;
-          }
-
           if (row.manufacturerImages) {
             let manufImageArray = [];
             row.manufacturerImages.forEach(manufImage => {
@@ -146,6 +108,29 @@ const transform = (data, context) => {
             let manufImageStr = manufImageArray.join(" | ");
             row.manufacturerImages[0].text = manufImageStr;
           }
+
+          if (row.brandLink) {
+            row.brandLink.forEach(item => {
+              console.log("item.text",item.text);
+            item.text = "https://sephora.com" + item.text;
+            console.log("item.text",item.text);
+          })
+          }
+
+          if (row.variantInformation) {
+            row.variantInformation.forEach(item => {
+            item.text = item.text.replace("COLOR: ","").trim();
+          })
+          }
+
+          // if (row.variants) {
+          //   console.log("row.variants",row.variants);
+          //   row.variants.forEach(item => {
+          //     item.text = item.text.replace('/productimages/sku/s','').trim();
+          //     item.text = item.text.split("+");
+          //     console.log("item.text2",item.text);
+          // })
+          // }
 
           // row = cleanUp(row);
           Object.keys(row).forEach(header => row[header].forEach(el => {
