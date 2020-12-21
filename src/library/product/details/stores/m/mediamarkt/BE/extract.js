@@ -37,6 +37,9 @@ module.exports = {
 
     let content = null;
     let image = null;
+    let inBoxText = null;
+    let inBoxUrls = null;
+    let comparisionText = null;
 
     const link = await context.evaluate(async function () {
       return window.location.href;
@@ -64,14 +67,26 @@ module.exports = {
     console.log(apiManufCall);
 
     if (apiManufCall) {
-      const obj = await sharedhelpers.goToiFrameLink(apiManufCall, link, 'body img', 'src');
+      const obj = await sharedhelpers.goToiFrameLink(apiManufCall, link, 'body img', 'src', null, null, '.in-the-box', '.compare-headline');
+
       image = obj.image;
       content = obj.content;
+      inBoxText = obj.inBoxText;
+      inBoxUrls = obj.inBoxUrls;
+      comparisionText = obj.comparisionText;
 
       await sharedhelpers.addHiddenInfo('ii_manufContent', content);
       if (image) {
         await sharedhelpers.addHiddenArrayList('ii_manufImg', image);
       }
+
+      if (inBoxUrls.length) {
+        await sharedhelpers.addHiddenArrayList('ii_inBoxUrls', inBoxUrls);
+      }
+      await sharedhelpers.addHiddenInfo('ii_comparisionText', comparisionText);
+      console.log('inBoxText');
+      console.log(inBoxText);
+      await sharedhelpers.addHiddenInfo('ii_inBoxText', inBoxText);
     }
 
     const availText = await context.evaluate(async function () {
