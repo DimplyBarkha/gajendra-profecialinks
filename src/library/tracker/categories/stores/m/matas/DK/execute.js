@@ -5,7 +5,7 @@ module.exports = {
     country: 'DK',
     store: 'matas',
     domain: 'matas.dk',
-    loadedSelector: null,
+    loadedSelector: 'body',
     noResultsXPath: null,
     zipcode: '',
   },

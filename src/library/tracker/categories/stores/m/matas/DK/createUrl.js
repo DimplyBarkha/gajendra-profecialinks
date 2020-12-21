@@ -6,7 +6,7 @@ module.exports = {
     prefix: null,
     suffix: null,
     subdomain: null,
-    url: null,
+    url: 'https://www.matas.dk/internal/menu/mega',
     country: 'DK',
     store: 'matas',
     zipcode: '',
