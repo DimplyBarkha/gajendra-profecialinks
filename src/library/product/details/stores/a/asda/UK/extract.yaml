@@ -507,9 +507,9 @@ fields:
     xpath: //html/head/link[@rel='canonical']/@href
 # Salsify Attributes 
   - name: shownImages
-    xpath: //div[@class="oralb__row"]//img/@src
+    xpath: //div[@class="oralb__row"]//img/@src |//div[@class="s7staticimage"]//img/@src
   - name: highQualityImages
-    xpath: //div[@class="oralb__row"]//img/@src
+    xpath: //div[@class="oralb__row"]//img/@src |//div[@class="s7staticimage"]//img/@src
     regExp: (.*)(wid\=\d+)
     regExpReplace: $1hei=800
 schema: product/details
