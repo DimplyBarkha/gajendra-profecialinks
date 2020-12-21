@@ -26,6 +26,22 @@ const transform = (data) => {
           }
         }
       }
+      if (row.inTheBoxUrl) {
+        row.inTheBoxUrl.forEach((img) => {
+          if (!img.text && img.src) {
+            img.text = img.src;
+          }
+        });
+      }
+      if(row.alternateImages) {
+        let a = [];
+        for(let i = 0 ; i < row.alternateImages.length ; i++) {
+          a.push(row.alternateImages[i].text);
+        }
+        a = [...new Set(a)];
+        row.alternateImages.splice(a.length);
+        console.log(a.length);
+      }
       // if (row.alternateImages) {
       //   const j = 0;
       //   console.log(row.alternateImages.length + ' is the transform  length');

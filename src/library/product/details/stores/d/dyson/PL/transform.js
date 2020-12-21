@@ -79,6 +79,13 @@ const cleanUp = (data, context) => {
         if (row.termsAndConditions) {
           row.termsAndConditions = [{ text: 'No' }];
         }
+        if (row.inTheBoxUrl) {
+          row.inTheBoxUrl.forEach((img) => {
+            if (!img.text && img.src) {
+              img.text = img.src;
+            }
+          });
+        }
 
         Object.keys(row).forEach(header => row[header].forEach(el => {
           el.text = clean(el.text);

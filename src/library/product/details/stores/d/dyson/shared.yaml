@@ -17,7 +17,10 @@ fields:
     description: Other product images (not in manufacturer description)
     # xpath: //div[contains(@class,'gallery-images-slider')]//img/@data-src
     # xpath: //div[contains(@class,'gallery-images-slider')]//img/@src
-    xpath: //div[@id='altImages']/text()|//div[@class="product-gallery__overlay"]//div[contains(@class,"slick-slide") and not(contains(@class,"slick-cloned"))]//img/@data-src| (//div[contains(@class,"__gallery")]//div[contains(@role,"listbox")]/div//img/@src)
+    # xpath: //div[@id='altImages']/text()|//div[contains(@class,"slick-slide") and not(contains(@class,"slick-cloned"))]//img/@data-src
+    xpath: (//div[@id='altImages']/text()|//div[contains(@class,"slick-slide") and not(contains(@class,"slick-cloned"))]//img/@data-src) | (//div[contains(@class,"__gallery")]//div[contains(@class, "slider__list__slide") and not(contains(@style," 0px"))]//img/@src)
+    #regExp: ((.+)?(\?&cropPathE=desktop&fit=stretch,1&fmt=pjpeg&wid=1920))
+    #regExpReplace: $2
   - name: metaKeywords
     singleValue: true
     description: The <meta> keywords content
@@ -571,6 +574,7 @@ fields:
     singleValue: true
     defaultValue: No  
   - name: inTheBoxUrl
-    xpath: //div[@class="contents"]//img/@src | //div[@class="contents "]//img/@src | //div[contains(@class,"whats-in-the-box")]//img/@src
+    xpath: //div[normalize-space(@class)="contents"]//img | //div[contains(@class,"whats-in-the-box")]//img | //div[@id="in-the-box"]/ul/li//img
+    type: IMAGE
   - name: inTheBoxText
-    xpath: //div[@class="contents"]//strong | //div[@class="contents "]//strong | //div[contains(@class,"whats-in-the-box")]//span[@class="whats-in-the-box__tool-name"] | //p[@class="whats-in-the-box__product-name"]
+    xpath: //div[normalize-space(@class)="contents"]//strong | //div[contains(@class,"whats-in-the-box")]//span[@class="whats-in-the-box__tool-name"] | //p[@class="whats-in-the-box__product-name"] | //div[@id="in-the-box"]/ul/li

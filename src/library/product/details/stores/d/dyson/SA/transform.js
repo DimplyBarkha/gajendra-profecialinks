@@ -46,6 +46,13 @@ const cleanUp = (data, context) => {
           row.variantId = [{ text: id }];
           row.mpc = [{ text: id }];
         }
+        if (row.inTheBoxUrl) {
+          row.inTheBoxUrl.forEach((img) => {
+            if (!img.text && img.src) {
+              img.text = img.src;
+            }
+          });
+        }
 
         // if (row.availabilityText) {
         //   row.availabilityText = [{ text: 'In Stock' }];

@@ -1,3 +1,5 @@
+const { implementation } = require('./dyson.ae');
+
 module.exports = {
   implements: 'navigation/goto',
   parameterValues: {
@@ -7,4 +9,5 @@ module.exports = {
     store: 'dyson',
     zipcode: '',
   },
+  implementation,
 };

@@ -4,10 +4,10 @@ fields:
     xpath: (//div[contains(@class,'hero__media')]//img)[1]/@src|(//div[contains(@class,'hgroup__main-image')]//img)[1]/@src
   - name: imageAlt
     xpath: (//div[contains(@class,'hero__media')]//img)[1]/@alt|(//div[contains(@class,'hgroup__main-image')]//img)[1]/@alt
-  - name: alternateImages #missing
-    singleValue: false
-    xpath: //div[contains(@class, "slider__list__slide")]//img/@src
-    description: Other product images (not in manufacturer description)
+  # - name: alternateImages #missing
+  #   singleValue: false
+  #   xpath: //div[contains(@class, "slider__list__slide") and not(contains(@style," 0px"))]//img/@src
+  #   description: Other product images (not in manufacturer description)
   - name: nameExtended
     singleValue: true
     xpath: //h2[contains(concat(' ',normalize-space(@class),' '),'hgroup__title')] | //div[@class="hgroup__image"]//h1
@@ -68,7 +68,8 @@ fields:
   - name: videos #localedependent
     singleValue: false
     description: URLs of videos on page
-    xpath: //div[contains(@id, "product_mini_gallery_video")]//video//source/@src
+    xpath: //div[contains(@id, 'product_mini_gallery_video') and not(contains(@style,'none'))]//video//source/@src
+    # xpath: //div[contains(@id, "product_mini_gallery_video")]//video//source/@src
   - name: name
     singleValue: true
     description: The product name
