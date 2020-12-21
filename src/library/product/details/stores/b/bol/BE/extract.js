@@ -9,13 +9,12 @@ module.exports = {
     zipcode: '',
   },
   implementation: async ({ inputString }, { country, domain, transform: transformParam }, context, { productDetails }) => {
-
-    async function callWait() {
-      await context.waitForSelector("video[data-test='wsp-video-element']")
+    async function callWait () {
+      await context.waitForSelector("video[data-test='wsp-video-element']");
     }
 
     const waitForVideo = await context.evaluate(async function () {
-      let videoEle = document.querySelector("a[data-test='product-video']")
+      const videoEle = document.querySelector("a[data-test='product-video']");
       if (videoEle) {
         videoEle.click();
         return true;
@@ -28,9 +27,8 @@ module.exports = {
         await callWait();
       }
     } catch (err) {
-      console.log(err.message)
+      console.log(err.message);
     }
-
 
     try {
       await context.evaluate(async function () {
@@ -38,21 +36,19 @@ module.exports = {
         const descBullets = document.querySelector(ulInDesc);
         const body = document.querySelector('body');
 
-        let liInDesc = document.querySelectorAll("div[data-test='description']>ul>li")
-        let divEle = document.createElement('div')
+        const liInDesc = document.querySelectorAll("div[data-test='description']>ul>li");
+        const divEle = document.createElement('div');
         liInDesc.length > 0 ? body.appendChild(divEle) : false;
         divEle.id = 'bulletCount';
         divEle.title = liInDesc.length.toString();
 
-
         if (descBullets) {
           body.appendChild(descBullets);
         }
-      })
+      });
     } catch (err) {
-      console.log(err.message)
+      console.log(err.message);
     }
-
 
     return await context.extract(productDetails, { transform: transformParam });
   },

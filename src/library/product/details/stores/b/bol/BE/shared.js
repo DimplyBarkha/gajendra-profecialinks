@@ -11,33 +11,38 @@ const transform = (data) => {
         if (sufixVal === '-') {
           row.price[0].text = row.price[0].text.replace(',-', '');
         }
-        delete row.priceSufix
+        delete row.priceSufix;
+      }
+      if (row.unInterruptedPDP) {
+        row.unInterruptedPDP.forEach(el => {
+          el.text = el.text.replace(/\<[^]*\>/g, '');
+        });
       }
 
       if (row.availabilityText) {
         const prodInfo = JSON.parse(row.availabilityText[0].text);
         if (prodInfo && prodInfo.offers && prodInfo.offers.availability) {
-          row.availabilityText[0].text = prodInfo.offers.availability
+          row.availabilityText[0].text = prodInfo.offers.availability;
         } else {
-          delete row.availabilityText
+          delete row.availabilityText;
         }
       }
 
       if (row.gtin) {
         const prodInfo = JSON.parse(row.gtin[0].text);
         if (prodInfo && prodInfo.gtin13) {
-          row.gtin[0].text = prodInfo.gtin13
+          row.gtin[0].text = prodInfo.gtin13;
         } else {
-          delete row.gtin
+          delete row.gtin;
         }
       }
 
       if (row.sku) {
         const prodInfo = JSON.parse(row.sku[0].text);
         if (prodInfo && prodInfo.pdpTaxonomyObj && prodInfo.pdpTaxonomyObj.productInfo[0] && prodInfo.pdpTaxonomyObj.productInfo[0].productId) {
-          row.sku[0].text = prodInfo.pdpTaxonomyObj.productInfo[0].productId
+          row.sku[0].text = prodInfo.pdpTaxonomyObj.productInfo[0].productId;
         } else {
-          delete row.sku
+          delete row.sku;
         }
       }
 
@@ -47,16 +52,16 @@ const transform = (data) => {
           const prodData = prodInfo.pdpTaxonomyObj.productInfo[0];
           prodData ? row.variantId[0].text = prodData.ean : delete row.variantId;
         } else {
-          delete row.variantId
+          delete row.variantId;
         }
       }
 
       if (row.aggregateRating) {
-        row.aggregateRating[0].text = row.aggregateRating[0].text.replace('.', ',')
+        row.aggregateRating[0].text = row.aggregateRating[0].text.replace('.', ',');
       }
 
       if (row.shippingInfo) {
-        row.shippingInfo[0].text = row.shippingInfo[0].text.replace('Verkoop door:', '')
+        row.shippingInfo[0].text = row.shippingInfo[0].text.replace('Verkoop door:', '');
       }
 
       if (!row.shippingDimensions && row.shippingDimensionsSplit && row.shippingDimensionsSplit[0].text !== 'xx') {
@@ -74,14 +79,14 @@ const transform = (data) => {
       }
 
       if (row.technicalInformationPdfPresent && row.technicalInformationPdfPresent[0].text === 'Bekijk de handleiding') {
-        row.technicalInformationPdfPresent = [{ text: 'Yes' }]
+        row.technicalInformationPdfPresent = [{ text: 'Yes' }];
       }
 
       if (row.description && row.additionalDescBulletInfo) {
         row.description = row.description.concat(row.additionalDescBulletInfo);
       }
 
-      if(row.additionalDescBulletInfo) {
+      if (row.additionalDescBulletInfo) {
         row.additionalDescBulletInfo[0].text = ` || ${row.additionalDescBulletInfo[0].text}`;
       }
 
@@ -89,10 +94,10 @@ const transform = (data) => {
         row.productOtherInformation = [{ text: '' }];
         let prodOtherInfo = '';
         for (let i = 0; i < row.productOtherInformationDD.length; i++) {
-          prodOtherInfo += `${row.productOtherInformationDT[i].text} : ${row.productOtherInformationDD[i].text} | `
+          prodOtherInfo += `${row.productOtherInformationDT[i].text} : ${row.productOtherInformationDD[i].text} | `;
         }
         prodOtherInfo = prodOtherInfo.substring(0, prodOtherInfo.lastIndexOf('|') - 1).trim();
-        row.productOtherInformation = [{ text: prodOtherInfo }]
+        row.productOtherInformation = [{ text: prodOtherInfo }];
       }
     }
   }

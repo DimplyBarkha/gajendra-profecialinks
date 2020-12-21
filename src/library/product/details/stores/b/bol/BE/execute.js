@@ -1,5 +1,5 @@
 
-async function implementation(
+async function implementation (
   inputs,
   parameters,
   context,
@@ -7,11 +7,11 @@ async function implementation(
 ) {
   await context.goto(inputs.url, { timeout: 50000, waitUntil: 'load', checkBlocked: true });
   const countryClicked = await context.evaluate(async function () {
-    let concentPopUp = document.querySelector("button[data-test='consent-modal-confirm-btn']");
+    const concentPopUp = document.querySelector("button[data-test='consent-modal-confirm-btn']");
     if (concentPopUp) {
-      document.querySelector("button[data-test='consent-modal-confirm-btn']").click()
+      document.querySelector("button[data-test='consent-modal-confirm-btn']").click();
     }
-    let country = document.querySelector('a[data-test="country-BE"]');
+    const country = document.querySelector('a[data-test="country-BE"]');
     if (country) {
       return true;
       country.click();
@@ -34,5 +34,5 @@ module.exports = {
     noResultsXPath: null,
     zipcode: '',
   },
-  implementation
+  implementation,
 };
