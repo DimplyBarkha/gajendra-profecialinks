@@ -58,7 +58,7 @@ fields:
   singleValue: false
   description: Product description supplied by website - may be concatenanted from
     multiple places; specifically not the manufacturer description
-  xpath: (//div[@itemprop="description"])[last()]/*[not(name()="h2")]
+  xpath: (//div[@itemprop="description"])[last()]/*[not(name()="h2")] | //div[contains(@class, "topRight")]//ul[contains(@class, "featureBullets")]//li
 - name: descriptionBullets
   singleValue: true
   description: Number of ul > li tags in the description
@@ -392,10 +392,8 @@ fields:
   singleValue: true
   description: 
 - name: specifications
-  singleValue: true
   description: The physical dimensions of the product including packaging.
-  xpath: //section[@data-tag-section="product specification (highlights)"]//div[contains(@class, "feature")][span[contains(. , "Maße")]]/span[contains(@class, "value")] | //section[@class='productOverview']/div[@data-tag-section="key features"]/div[contains(@class, "prose")]/ul/li[contains(. , "Maße")]
-  regex: H.*
+  xpath: //section[contains(@class,'productSpecification')]//div[contains(@class,'accordionContentInner')]//div
 - name: warranty
   singleValue: true
   description: Guarantee associated with the product
