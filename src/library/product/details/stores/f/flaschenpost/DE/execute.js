@@ -7,6 +7,6 @@ module.exports = {
     domain: 'flaschenpost.de',
     loadedSelector: 'body',
     noResultsXPath: '//div[@class="error-page-container"]',
-    zipcode: '48151',
+    zipcode: '28199',
   },
 };
