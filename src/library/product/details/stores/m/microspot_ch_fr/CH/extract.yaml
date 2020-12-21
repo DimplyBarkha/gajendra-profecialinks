@@ -10,10 +10,11 @@ fields:
   - name: imageAlt
     singleValue: true
     description: Alt text of the main product image
+    xpath: (//div[@class="_165CLk"]/img/@alt)[1]
   - name: alternateImages
-    singleValue: false
+    singleValue: true
     description: Other product images (not in manufacturer description)
-    xpath: //html//div[@id="altImg"]
+    xpath: //html//div[@id="sec_img"]
   - name: metaKeywords
     singleValue: true
     description: The <meta> keywords content
@@ -123,6 +124,7 @@ fields:
     singleValue: true
     description: Number of variants listed
     type: NUMBER
+    xpath: //html//div[@id="ppp"]
   - name: color
     singleValue: true
     description: A textual description of the colour
@@ -137,8 +139,9 @@ fields:
     singleValue: false
     description: Images within the third party description
   - name: videos
-    singleValue: false
+    singleValue: true
     description: URLs of videos on page
+    xpath: //html//div[@id="videos"]
   - name: name
     singleValue: true
     description: The product name
@@ -234,6 +237,7 @@ fields:
     singleValue: true
     description: null
     type: NUMBER
+    xpath: //html//div[@id="len"]
   - name: news
     singleValue: true
     description: null
@@ -448,6 +452,7 @@ fields:
   - name: variantInformation
     singleValue: true
     description: colour / scent / flavour / other
+    xpath: (//div[@class="UNDWZd"]//th[contains(text(),'Coloris')]/parent::tr/td)[1]/text()[1]
   - name: firstVariant
     singleValue: true
     description: Unique identifier for a collection of variants. For a subset of

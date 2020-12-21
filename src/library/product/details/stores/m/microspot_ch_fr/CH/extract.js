@@ -52,7 +52,11 @@ module.exports = {
         var alt = getAllXpath('(//div[@class="_165CLk"]/img/@src)[position()>1]', 'nodeValue');
         if (alt != null) {
           var altImg = uniq(alt);
-          addElementToDocument('altImg', altImg);
+          altImg.pop();
+          var len = altImg.length;
+          addElementToDocument('len', len);
+          var sec_img = altImg.join(" | ");
+          addElementToDocument('sec_img', sec_img);
         }
 
         //specication
@@ -106,6 +110,20 @@ module.exports = {
           ship = "Sold by: "+ ship;
           addElementToDocument('ship', ship);
         }
+
+        var vd = getAllXpath('//div[@class="swiper-container swiper-container-initialized swiper-container-horizontal _2nspnq"]//div[@class="demoup-trigger"]/@src', 'nodeValue');
+        if( vd != null){
+          var arr = [];
+          for(var i=0; i<vd.length; i++){
+            arr.push("https:"+vd[i]);
+          }
+          var videos = arr.join( " | ");
+          addElementToDocument('videos', videos);
+        }
+        
+        var ppp = 0;
+        addElementToDocument('ppp', ppp);
+
 
       });
     await context.extract(productDetails);
