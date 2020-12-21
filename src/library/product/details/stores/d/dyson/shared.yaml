@@ -19,6 +19,8 @@ fields:
     # xpath: //div[contains(@class,'gallery-images-slider')]//img/@src
     # xpath: //div[@id='altImages']/text()|//div[contains(@class,"slick-slide") and not(contains(@class,"slick-cloned"))]//img/@data-src
     xpath: (//div[@id='altImages']/text()|//div[contains(@class,"slick-slide") and not(contains(@class,"slick-cloned"))]//img/@data-src) | (//div[contains(@class,"__gallery")]//div[contains(@role,"listbox")]/div//img/@src)
+    regExp: ((.+)?(\?&cropPathE=desktop&fit=stretch,1&fmt=pjpeg&wid=1920))
+    regExpReplace: $2
   - name: metaKeywords
     singleValue: true
     description: The <meta> keywords content
