@@ -114,6 +114,14 @@ const transform = (data) => {
           },
         ];
       }
+      if (row.inTheBoxUrl && row.inTheBoxUrl[0]) {
+        row.inTheBoxUrl.forEach(item => {
+          item.text = item.text.replace(/200w(.*)/gm, '').trim();
+          if (!item.text.startsWith('http')) {
+            item.text = 'https:' + item.text;
+          }
+        });
+      }
     }
   }
   const clean = text => text.toString()

@@ -29,14 +29,25 @@ module.exports = {
       return url;
     });
 
-    const iframeSelector = 'div#inpage_container iframe';
+    const iframeSelector = 'div#inpage_container iframe, iframe#eky-dyson-iframe';
+    try {
+      await context.waitForSelector(iframeSelector, { timout: 30000 });
+    } catch (error) {
+      console.log('Can\'t load iframe.');
+    }
     let newImages = null;
+    let accessories = null;
     const checkExistance = async (selector) => {
       return await context.evaluate(async (currentSelector) => {
         return await Boolean(document.querySelector(currentSelector));
       }, selector);
     };
     if (await checkExistance(iframeSelector)) {
+      await context.evaluate((iframeSelector) => {
+        const ele = document.querySelector(iframeSelector);
+        ele.scrollIntoView({ behavior: 'smooth' });
+      }, iframeSelector);
+      await new Promise((resolve, reject) => setTimeout(resolve, 7000));
       const iframeUrl = await context.evaluate((iframeSelector) => {
         return (document.querySelector(iframeSelector).getAttribute('src') || document.querySelector(iframeSelector).getAttribute('_src'));
       }, iframeSelector);
@@ -63,6 +74,34 @@ module.exports = {
         }
         return value;
       });
+      try {
+        await context.waitForSelector('div.eky-accesory-container', { timout: 30000 });
+        await context.waitForSelector('div.eky-accessory', { timout: 30000 });
+      } catch (error) {
+        console.log('Can\'t load accessories.');
+      }
+      const accessoriesElement = 'div.eky-accesory-container div.eky-accessory';
+      if (await checkExistance(accessoriesElement)) {
+        await context.evaluate((accessoriesElement) => {
+          const ele = document.querySelector(accessoriesElement);
+          ele.scrollIntoView({ behavior: 'smooth' });
+        }, accessoriesElement);
+        await new Promise((resolve, reject) => setTimeout(resolve, 7000));
+      }
+      accessories = await context.evaluate(() => {
+        function retrieve (nodeEle, isImg) {
+          const element = document.querySelectorAll(nodeEle);
+          const value = [];
+          for (let i = 0; i < element.length; i++) {
+            value.push(isImg ? element[i].src : element[i].innerText);
+          }
+          return value;
+        }
+        const imgSrcs = retrieve('div.eky-accesory-container div.eky-accessory img', true);
+        const textArr = retrieve('div.eky-accesory-container div.eky-accessory div.eky-accesory-title', false);
+        return { img: imgSrcs, text: textArr };
+      });
+
       await context.goto(productUrl, { timeout: 50000, waitUntil: 'load', checkBlocked: true });
 
       try {
@@ -80,7 +119,7 @@ module.exports = {
     }
     console.log(newImages + ' are new images and product url is ' + productUrl);
 
-    await context.evaluate(async (newImages) => {
+    await context.evaluate(async (newImages, accessories) => {
       var src = '';
       // let iframeLink='';
       const imageEle = document.querySelectorAll('div#inpage_container img');
@@ -107,6 +146,12 @@ module.exports = {
         // console.log(newImages[i]);
         }
         addNewHiddenDiv(str);
+      }
+      if (accessories) {
+        const imagesAcc = accessories.img || [];
+        const textAcc = accessories.text || [];
+        addHiddenDiv('ii_accessImg', imagesAcc.join(' || '));
+        addHiddenDiv('ii_accessText', textAcc.join(' || '));
       }
       // if(iframeEle){
       //   // iframeLink=iframeEle.getAttribute('src');
@@ -156,7 +201,7 @@ module.exports = {
         newDiv2.style.display = 'none';
         document.body.appendChild(newDiv2);
       }
-    }, newImages);
+    }, newImages, accessories);
     return await context.extract(productDetails, { transform });
   },
 };

@@ -91,12 +91,12 @@ fields:
     xpath: //div[contains(@id,'manufacture-name')]
   - name: inTheBoxUrl
     singleValue: false
-    xpath: //div[contains(@class, "InTheBox")]//img/@data-flixsrcset
-    regExp: (.+800w,\s)(.+(.png|.jpg))(.+)
-    regExpReplace: $2
+    xpath: //div[contains(@class, "InTheBox")]//img/@data-flixsrcset|//div[@id="ii_accessImg"]
+    # regExp: (.+800w,\s)(.+(.png|.jpg))(.+)
+    # regExpReplace: $2
   - name: inTheBoxText
     singleValue: false
-    xpath: //div[contains(@class,"InTheBox")]//div[contains(@class,"flix-std-content")]
+    xpath: //div[contains(@class,"InTheBox")]//div[contains(@class,"flix-std-content")]|//div[@id="ii_accessText"]
   - name: hasComparisonTable
     singleValue: true
     defaultValue: No
