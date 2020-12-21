@@ -1,4 +1,4 @@
-const { transform } = require('../../../../shared');
+const { transform } = require('../../../../../search/shared');
 module.exports = {
   implements: 'product/details/extract',
   parameterValues: {

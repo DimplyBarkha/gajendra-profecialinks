@@ -1,43 +1,40 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: //div[@class="spex-productList__products"]//div[@class="spex-productList__item"]
-fields: 
-  - name: productUrl
-    SingleValue: false
-    xpath: //div[@class="spex-productList__products"]//a[@data-qa="product-tile"]/@href
+recordXPath: null
+fields:
+  - name: input
+    xpath: //div[@id='pageUrl'] 
   - name: id
-    SingleValue: false
-    xpath: //div[@class="spex-productList__products"]//a[@data-qa="product-tile"]/@data-sku
-  - name: thumbnail
-    singleValue: false
-    xpath: //div[@class='spex-responsiveImage spex-responsiveImage--3-2']/img/@src
+    xpath: //div[@class="spex-productList__item"]//a/@data-sku
+  - name: pageTimestamp
+    singleValue: true
+  # ????
   - name: name
-    singleValue: false
+    singleValue: true
+    description: The product name
+    xpath: //div[@class='spex-productTile__nameArea']
+  - name: name
+    singleValue: true
+    description: The product name
+    xpath: //div[@class='spex-productTile__primaryName']
+  - name: name
+    singleValue: true
+    description: The product name
     xpath: //div[@class='spex-productTile__primaryName spex-productTile__primaryName--doubleLined']
-  - name: price
-    singleValue: false
-    xpath: //div[@class='spex-productTile__priceArea']/p[@class='spex-productTile__priceArea']/span[@class='spex-productTile__salesPrice']
-    regExp: (\d+)\.(\d+)\,(\d+)(.*)
-    regExpReplace: $1$2.$3$4
-  - name: rankOrganic
-    singleValue: false
-  - name: gtin
-    singleValue: false
   - name: url
-    singleValue: false
-  - name: aggregateRating
-    singleValue: false
-  - name: reviewCount
-    singleValue: false
-  - name: manufacturer
-    singleValue: false
-  - name: soldBy
-    singleValue: false
+    singleValue: true
+    xpath: //div[@id='pageUrl'] 
+  - name: rankOrganic
+    singleValue: true
+    xpath: //div[@class='spex-productList__item']/@rank
   - name: rank
-    singleValue: false
-  - name: endorsementText
-    singleValue: false
-
-
-
+    singleValue: true
+    description: search/listing rank
+    xpath: //div[@class='spex-productList__item']/@rank
+  - name: productUrl
+    xpath: //div[@class="spex-productList__item"]/a/@href
+  - name: thumbnail
+    xpath: //div[@class="spex-productTile__foregroundImage"]/div/img/@src
+  - name: price
+    xpath: //span[@class='spex-productTile__salesPrice']
