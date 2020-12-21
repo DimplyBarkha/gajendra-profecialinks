@@ -5,7 +5,7 @@ module.exports = {
     country: 'SE',
     store: 'mathem',
     domain: 'mathem.se',
-    loadedSelector: null,
+    loadedSelector: 'body',
     noResultsXPath: null,
     zipcode: '',
   },
