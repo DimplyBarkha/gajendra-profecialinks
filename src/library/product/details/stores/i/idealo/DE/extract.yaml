@@ -108,7 +108,7 @@ fields:
     description: Stated shipping weight
   - name: variantCount
     singleValue: false
-    xpath: count(//div[contains(@class,"oopStage-variantThumbnailsImages")]//a[contains(@class,"oopStage-variantThumbnailsImagesLink")]//@href)
+    xpath: count(//a[contains(@class,"oopStage-variantThumbnailsImagesLink")]//@href | //div[contains(@class,"oopStage-deltaFilterButtons")]/a[contains(@class,"button--transparent")]/@href)
   - name: color
     singleValue: false
     description: A textual description of the colour
@@ -435,7 +435,7 @@ fields:
     regExpReplace: $1
   - name: variants
     singleValue: false
-    xpath: //div[contains(@class,"oopStage-variantThumbnailsImages")]//a[contains(@class,"oopStage-variantThumbnailsImagesLink")]//@href
+    xpath: //a[contains(@class,"oopStage-variantThumbnailsImagesLink")]//@href | //div[contains(@class,"oopStage-deltaFilterButtons")]/a[contains(@class,"button--transparent")]/@href
     regExp: OffersOfProduct\/(\d+)(.+)
     regExpReplace: $1
   - name: additionalDescBulletInfo

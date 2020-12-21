@@ -1,11 +1,11 @@
-const { cleanUp } = require('../../../../shared');
+const { transform } = require('./transform');
 
 module.exports = {
   implements: 'product/details/extract',
   parameterValues: {
     country: 'DE',
     store: 'idealo',
-    transform: cleanUp,
+    transform,
     domain: 'idealo.de',
     zipcode: '',
   },
@@ -28,28 +28,13 @@ module.exports = {
         document.body.appendChild(catElement);
       }
       try {
-        let price = document.querySelector('span[class*="oopStage-priceRangePrice"]');
-        // @ts-ignore
-        price = price ? price.innerText.trim() : '';
-        if (price) {
-          // @ts-ignore
-          if (price.includes('–')) {
-            // @ts-ignore
-            addElementToDocument('pd_price', price.replace(/(.+)\s*–\s*(.+)/g, '$2'));
-          } else {
-            addElementToDocument('pd_price', price);
-          }
-        }
-      } catch (error) {
-        console.log('price not present');
-      }
-      try {
         // @ts-ignore
         const dataObj = JSON.parse(document.querySelector('script[type="application/ld+json"]').innerText.trim());
         if (dataObj) {
           dataObj && dataObj.aggregateRating && dataObj.aggregateRating.ratingValue && addElementToDocument('agg_rating', dataObj.aggregateRating.ratingValue.toFixed(2).replace('.', ','));
           dataObj && dataObj.aggregateRating && dataObj.aggregateRating.ratingCount && addElementToDocument('rating_count', dataObj.aggregateRating.ratingCount);
           dataObj && dataObj.manufacturer && dataObj.manufacturer.name && addElementToDocument('pd_manufacturer', dataObj.manufacturer.name);
+          dataObj && dataObj.offers && dataObj.offers && dataObj.offers.lowPrice && addElementToDocument('pd_price', dataObj.offers.lowPrice.toString().replace('.', ','));
         }
       } catch (error) {
         console.log('json one not present');
