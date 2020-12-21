@@ -48,9 +48,13 @@ fields:
     xpath: //div[contains(@class, 'rd__product-details__options__price__item rd__product-details__options__price__item--selected')]//div[@class='rd__product-details__options__price__item__quantity']/span[1]
   - name: gtin
     xpath: //span[contains(@id,"webtrekk")]/preceding-sibling::script[1]
+  # - name: sku
+  #   singleValue: true
+  #   xpath: //head//script[contains(., 'dglDataLayer')]
   - name: sku
-    singleValue: true
-    xpath: //head//script[contains(., 'dglDataLayer')]
+    xpath: //link[@rel='canonical']/@href
+    regExp: (.+)productbrand_(\d+)(\.html)
+    regExpReplace: $2
   - name: variantId
     singleValue: true
     xpath: //script[contains(.,"customExactagConfig")]
