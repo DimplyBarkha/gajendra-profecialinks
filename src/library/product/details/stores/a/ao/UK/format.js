@@ -35,7 +35,7 @@ const transform = (data, context) => {
         }
 
         if (row.specifications) {
-          let specificationsText = 'Produkt-Eigenschaften Highlights '
+          let specificationsText = 'Produkt-Eigenschaften Highlights ';
           row.specifications.forEach(item => {
             if (item.text) {
               specificationsText += `${item.text} `;
@@ -43,7 +43,7 @@ const transform = (data, context) => {
           });
           row.specifications = [{
             text: specificationsText.trim(),
-          }]
+          }];
         }
 
         if (row.imageZoomFeaturePresent) {
