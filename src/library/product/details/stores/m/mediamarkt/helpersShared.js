@@ -1,3 +1,4 @@
+// @ts-nocheck
 
 class SharedHelpers {
   constructor (context) {
@@ -55,9 +56,10 @@ class SharedHelpers {
       waitUntil: 'load',
     });
     try {
-      await this.context.waitForSelector('div.preview-more a', { timeout: 35000 });
+      // await this.context.waitForSelector('div.preview-more a', { timeout: 35000 });
+      await this.context.waitForSelector('div.more', { timeout: 35000 });
       await this.context.evaluate(async () => {
-        const previewButton = document.querySelector('div.preview-more a');
+        const previewButton = document.querySelector('div.more');
         previewButton.click();
       });
     } catch (error) {
@@ -104,6 +106,8 @@ class SharedHelpers {
     }
     console.log(inBoxText);
     content = text;
+
+    await this.context.waitForSelector(imgSelector, { timeout: 30000 });
     const images = await this.context.evaluate(async function (imgSelector, getAttrImgSrc) {
       const images = document.querySelectorAll(imgSelector);
       const imagesSrc = [];

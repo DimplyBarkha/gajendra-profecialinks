@@ -118,15 +118,15 @@ const transform = (data, context) => {
           },
         ];
       }
-      console.log('row.videos');
-      console.log(row.videos);
+      // console.log('row.videos');
+      // console.log(row.videos);
 
-      if (row.videos) {
-        console.log(row.videos);
-        row.videos.forEach(item => {
-          item.text = (item.text.includes('http')) ? item.text : 'https:' + item.text;
-        });
-      }
+      // if (row.videos) {
+      //   console.log(row.videos);
+      //   row.videos.forEach(item => {
+      //     item.text = (item.text.includes('http')) ? item.text : 'https:' + item.text;
+      //   });
+      // }
 
       if (row.availabilityText) {
         row.availabilityText.forEach(item => {
@@ -172,26 +172,26 @@ const transform = (data, context) => {
           },
         ];
       }
-      if (row.description) {
-        let ignoreSinglePip = false;
-        row.description.forEach(item => {
-          if (item.text.includes('mms-accordion-description')) {
-            item.text = '';
-            ignoreSinglePip = true;
-          }
-        });
-        const textArr = [];
-        row.description.forEach(item => {
-          textArr.push(item.text.replace('Descripción', ''));
-        });
-        row.description = [
-          {
-            text: ignoreSinglePip ? textArr.join(' || ') : textArr.join(' | '),
-          },
-        ];
+      // if (row.description) {
+      //   let ignoreSinglePip = false;
+      //   row.description.forEach(item => {
+      //     if (item.text.includes('mms-accordion-description')) {
+      //       item.text = '';
+      //       ignoreSinglePip = true;
+      //     }
+      //   });
+      //   const textArr = [];
+      //   row.description.forEach(item => {
+      //     textArr.push(item.text.replace('Descripción', ''));
+      //   });
+      //   row.description = [
+      //     {
+      //       text: ignoreSinglePip ? textArr.join(' || ') : textArr.join(' | '),
+      //     },
+      //   ];
 
-        row.description = [{ text: clean(row.description[0].text) }];
-      }
+      //   row.description = [{ text: clean(row.description[0].text) }];
+      // }
       if (row.aggregateRating) {
         row.aggregateRating[0].text = row.aggregateRating[0].text.replace('.', ',');
       }
@@ -239,13 +239,15 @@ const transform = (data, context) => {
             item.text = imgText;
           }
         });
+
+        row.manufacturerImages[0].text = row.manufacturerImages[0].text.includes('.gif') ? row.manufacturerImages[0].text.replace(/\.gif/g, '') : row.manufacturerImages[0].text;
       }
 
-      if (row.image && row.image[0]) {
-        if (row.image[0].text.includes('fee_325_225_png')) {
-          row.image[0].text = row.image[0].text.replace('fee_325_225_png', 'fee_800_800_png');
-        }
-      }
+      // if (row.image && row.image[0]) {
+      //   if (row.image[0].text.includes('fee_325_225_png')) {
+      //     row.image[0].text = row.image[0].text.replace('fee_325_225_png', 'fee_800_800_png');
+      //   }
+      // }
     }
   }
 
