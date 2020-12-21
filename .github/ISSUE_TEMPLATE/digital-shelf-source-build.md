@@ -1,7 +1,7 @@
 ---
-name: Digital Shelf Source Build
+name: "[Deprecated template] Digital Shelf Source Build"
 about: Create an issue with this template before starting a source build.
-title: DS-{:collection}-{:source}
+title: {DS-{:collection}-{:source}
 labels: Source
 assignees: ''
 
