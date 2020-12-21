@@ -180,4 +180,5 @@ fields:
   - name: unInterruptedPDP
     singleValue:  false
     xpath: //div[contains(@class,'recommendation')]//div[@class="card-carousel__title"] |//div[contains(@class,'recommendation')]//div[@class="card__title"] |//div[contains(@class,'recommendation')]//div[@class="card-link__title"]
-  
+  - name: inTheBoxText
+    xpath: //*[contains(@class,"product__spec__title")][contains(text(),"Комплектация")]/following-sibling::div/div/p[text()="да"]/preceding-sibling::p
