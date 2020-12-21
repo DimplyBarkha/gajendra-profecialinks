@@ -431,3 +431,10 @@ fields:
   xpath: boolean(//div[@id='zoomLensContainer'])
   description: If Zoom feature is available for Main image or images in the carousel,['Yes','No']
   example: https://www.zalando.de/adidas-neo-sneaker-low-blackwhite-a4315i002-q11.html
+- name: highQualityImages
+  singleValue: false
+  xpath: "(//*[@id='added_alternateImages']//text())[position()>1]"
+- name: servingSize
+  singleValue: true
+  description: The size of serving Nutritional information is based on.
+  xpath: "//*[@id='added_weightNet']//text()"
