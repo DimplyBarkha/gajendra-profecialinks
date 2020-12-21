@@ -5,7 +5,7 @@ recordXPath: null
 fields:
   - name: id
     singleValue: false
-    xpath: //div[@class="pInfo"]/div/a/@data-id
+    xpath: (//div[@class="pInfo"]/div/a/@data-id)[1]
   - name: name
     singleValue: false
     description: The product name
