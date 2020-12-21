@@ -6,7 +6,7 @@ fields:
   - name: image
     singleValue: true
     description: URL of the main product image
-    xpath: //div[@id='images'][1]
+    xpath: ancestor::html//meta[@property="og:image"][not(contains(@content,"empty_product"))]/@content
   - name: imageAlt
     singleValue: true
     description: Alt text of the main product image
@@ -247,7 +247,7 @@ fields:
     regExpReplace: https:$1
   - name: inTheBoxText
     singleValue: false
-    xpath: //div[@class="inpage_selector_InTheBox"]//span
+    xpath: //div[@class="inpage_selector_InTheBox"]//span | //div[@class="inpage_selector_InTheBox"]//span | //div[@class="row ng-star-inserted"][contains(.,"Inkluderet") or contains(.,"Inkludert")]/following-sibling::div[div[2][contains(.,"Ja")]]/div[1]
     description: Must include text to show the accessories/tools which come with the product
   - name: hasComparisonTable
     defaultValue: No
