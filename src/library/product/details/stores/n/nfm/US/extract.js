@@ -19,6 +19,21 @@ module.exports = {
       console.log('got some error while for the price div', err);
     }
 
+    async function scrollToRec (node) {
+      await context.evaluate(async (node) => {
+        const element = document.querySelector(node) || null;
+        if (element) {
+          element.scrollIntoView({ behavior: 'smooth', block: 'end', inline: 'nearest' });
+          await new Promise((resolve) => {
+            setTimeout(resolve, 5000);
+          });
+        }
+      }, node);
+    }
+    await scrollToRec('div#syndi_powerpage');
+    await scrollToRec('div#productSpecificationsContainer');
+    await scrollToRec('div.syndi_powerpage');
+
     try {
       await context.evaluate(async function () {
         function addHiddenDiv (id, content) {
@@ -66,6 +81,29 @@ module.exports = {
         document.body.appendChild(newDiv);
       }
       addHiddenDiv('videosExtracted', src);
+
+      const inTheBoxNode = document.querySelector('div.syndi_powerpage');
+      if (inTheBoxNode) {
+        const inTheBox = inTheBoxNode.shadowRoot ? inTheBoxNode.shadowRoot : null;
+        if (inTheBox) {
+          [...inTheBox.querySelectorAll('h2.syndigo-widget-section-header')].forEach(element => {
+            const ifInTheBoxTitle = element ? (element.innerText.includes('In the Box') || element.innerText.includes('In The Box')) : false;
+            if (ifInTheBoxTitle) {
+              const inTheBoxContent = element.parentElement.querySelector('div.syndigo-featureset-layout');
+              const inTheBoxImg = inTheBoxContent.querySelectorAll('img');
+              [...inTheBoxImg].forEach((element) => {
+                addHiddenDiv('ii_inTheBoxUrls', element.src);
+              });
+              const inTheBoxText = inTheBoxContent.querySelectorAll('h3.syndigo-featureset-feature-caption');
+              [...inTheBoxText].forEach((element) => {
+                if (element.innerText.length) {
+                  addHiddenDiv('ii_inTheBoxText', element.innerText);
+                }
+              });
+            }
+          });
+        }
+      }
     }, src);
 
     return await context.extract(productDetails, { transform });
