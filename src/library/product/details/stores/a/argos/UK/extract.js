@@ -100,7 +100,7 @@ module.exports = {
         offers.forEach((offer, index) => {
           let offerText = (offer.attributes && offer.attributes.longDescription) || '';
           if (offer.attributes && offer.attributes.totalFromPrice) {
-            offerText += ` From: ${offer.attributes.totalFromPrice}`;
+            offerText = ` From: ${offer.attributes.totalFromPrice}`;
           }
           injectElementToBody(`offer-text-${++index}`, offerText);
         });
