@@ -3,6 +3,9 @@ regionsSelector: null
 recordSelector: null
 recordXPath: null
 fields:
+  - name: name
+    singleValue: true
+    xpath: //span[contains(@property, "name")]
   - name: nameExtended
     singleValue: true
     xpath: //span[contains(@property, "name")]
@@ -46,5 +49,11 @@ fields:
   - name: url
     singleValue: true
     xpath: //meta[@property='og:url']/@content
+  - name: manufacturer
+    singleValue: true
+    xpath: //table[@id='product-attribute-specs-table']
+  - name: eangtin
+    singleValue: true
+    xpath: //table[@id='product-attribute-specs-table']
 
     

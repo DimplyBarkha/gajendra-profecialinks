@@ -25,6 +25,17 @@ const transform = (data, context) => {
                 row[header].forEach((el) => {
                     el.text = clean(el.text);
                 }))));
+                
+    function getFeature(array, find){
+        let baseArrayFeature = array[0].text.split(' ')
+        var featureKey = baseArrayFeature.indexOf(find);
+        if(featureKey){
+            var featureName = baseArrayFeature[featureKey + 1]
+            return featureName;
+        }else{
+            return;
+        }
+    }
 
     for (const {
             group
@@ -37,6 +48,23 @@ const transform = (data, context) => {
                     row.ratingCount = [{
                         text: rating[0]
                     }]
+                }
+
+                if (baseObject.manufacturer){
+                    let manufacturerName = getFeature(baseObject.manufacturer, 'Fabricante')
+                    if(manufacturerName){
+                        row.manufacturer = [{
+                            text: manufacturerName
+                        }]
+                    }
+                }
+                if (baseObject.eangtin){
+                    let eanName = getFeature(baseObject.eangtin, 'EAN')
+                    if(eanName){
+                        row.eangtin = [{
+                            text: eanName
+                        }]
+                    }
                 }
             } catch (exception) {
                 console.log('Error in transform', exception);
