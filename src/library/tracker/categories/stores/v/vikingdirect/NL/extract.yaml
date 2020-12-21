@@ -1,13 +1,13 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: //div[contains(@id, 'added_category')]
+recordXPath: //div[@id='categories']
 fields:
   - name: category
     singleValue: false
     description: name of the category
-    xpath: //div[@id='category_name']
+    xpath: //div[@id='category']
   - name: categoryUrl
     singleValue: false
     description: url of the category
-    xpath: //div[@id='category_url']
+    xpath: //div[@id='categoryUrl']

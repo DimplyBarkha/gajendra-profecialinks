@@ -1,32 +1,63 @@
 async function implementation(inputs, parameters, context, dependencies) {
   const { productMenu } = dependencies;
+
   await context.evaluate(async function () {
-    function addElementToDocument(key) {
-      const catElement = document.createElement('div');
-      catElement.id = key;
-      catElement.style.display = 'none';
-      document.body.appendChild(catElement);
+    function addHiddenDiv(id, content, parentDiv = null) {
+      const newDiv = document.createElement('div');
+      newDiv.id = id;
+      newDiv.textContent = content;
+      newDiv.style.display = 'none';
+      if (parentDiv) {
+        parentDiv.appendChild(newDiv);
+      } else {
+        document.body.appendChild(newDiv);
+      }
+      return newDiv;
     }
 
-    function addChildDiv(parentKey, key, value) {
-      const catElement = document.createElement('div');
-      catElement.id = key;
-      catElement.textContent = value;
-      catElement.style.display = 'none';
-      document.getElementById(parentKey).appendChild(catElement);
-    }
+    // categories
+    const mainCategories = document.querySelectorAll('div[id="siteNavigation"] ul li[class*="site-navigation__list-item--level-0"][data-children="true"]');
+    mainCategories.forEach(categoryNode => {
+      const category = categoryNode.querySelector('a');
+      const url = categoryNode.querySelector('a') ? categoryNode.querySelector('a').getAttribute('href') : null;
+      const newCatDiv = addHiddenDiv('categories', '');
+      if (url !== null) {
+        const link = url.startsWith('http') ? url : 'https://www.vikingdirect.nl/nl/' + url;
+        addHiddenDiv('category', category.textContent, newCatDiv);
+        addHiddenDiv('categoryUrl', link, newCatDiv);
+      }
 
-    const allCategories = document.evaluate('//ul[contains(@class,"site-navigation__list--level-1")]//li[contains(@class, "site-navigation__list-item")]/a|//ul[contains(@class,"site-navigation__list--level-0")]/li[contains(@class, "site-navigation__list-item--has-children")]/a',
-      document, null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
-    let categoryDivName;
-    for (let i = 0; i < allCategories.snapshotLength; i++) {
-      categoryDivName = 'added_category_' + i;
-      addElementToDocument(categoryDivName);
-      addChildDiv(categoryDivName, 'category_name', allCategories.snapshotItem(i).textContent);
-      addChildDiv(categoryDivName, 'category_url', allCategories.snapshotItem(i).href);
-    }
+      // subcategories
+      const subCategories = categoryNode.querySelectorAll('ul.site-navigation__list--level-1');
+      subCategories.forEach(subCategory => {
+        const subCategoryName = subCategory.querySelector('li.site-navigation__list-item--level-1>a') ? subCategory.querySelector('li.site-navigation__list-item--level-1>a').textContent : null;
+        const newSubCatDiv = addHiddenDiv('categories', '');
+        const url = subCategory.querySelector('li.site-navigation__list-item--level-1>a') ? subCategory.querySelector('li.site-navigation__list-item--level-1>a').getAttribute('href') : null;
+        addHiddenDiv('category', category.textContent, newSubCatDiv);
+        addHiddenDiv('category', subCategoryName, newSubCatDiv);
+        if (url) {
+          const link = url.startsWith('http') ? url : 'https://www.vikingdirect.nl' + url;
+          addHiddenDiv('categoryUrl', link, newSubCatDiv);
+        }
+
+        // subsubcategories
+        const subsubCategories = subCategory.querySelectorAll('ul.site-navigation__list--level-2 li.site-navigation__list-item--level-2>a');
+        subsubCategories.forEach(subsubCategory => {
+          const subsubCategoryName = subsubCategory.textContent;
+          const newSubSubCatDiv = addHiddenDiv('categories', '');
+          const url = subsubCategory.getAttribute('href').startsWith('http') ? subsubCategory.getAttribute('href') : 'https://www.vikingdirect.nl' + subsubCategory.getAttribute('href');
+          addHiddenDiv('category', category.textContent, newSubSubCatDiv);
+          addHiddenDiv('category', subCategoryName, newSubSubCatDiv);
+          addHiddenDiv('category', subsubCategoryName, newSubSubCatDiv);
+          addHiddenDiv('categoryUrl', url, newSubSubCatDiv);
+
+        });
+      });
+    });
   });
+
   return await context.extract(productMenu);
+
 }
 module.exports = {
   implements: 'tracker/categories/extract',
@@ -38,6 +69,5 @@ module.exports = {
   },
   dependencies: {
     productMenu: 'extraction:tracker/categories/stores/${store[0:1]}/${store}/${country}/extract',
-  },
-  implementation,
+  }, implementation,
 };
