@@ -11,20 +11,28 @@ async function implementation(
 
   await context.evaluate(async function () {
     const query = document.evaluate(`//div[@class="slick-track"]//img[contains(@data-automation-id,"product-image-block")]//@src`, document, null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
-    if(query) {
-    const results = Array(query.snapshotLength).fill(0).map((element, index) => query.snapshotItem(index));
+    if (query) {
+      const results = Array(query.snapshotLength).fill(0).map((element, index) => query.snapshotItem(index));
 
-    const table = document.createElement('table');
-    document.body.appendChild(table);
-    const tBody = document.createElement('tbody');
-    table.appendChild(tBody);
+      const table = document.createElement('table');
+      document.body.appendChild(table);
+      const tBody = document.createElement('tbody');
+      table.appendChild(tBody);
 
-    for (let index = 0; index < results.length; index++) {
-      const newlink = document.createElement('tr');
-      newlink.setAttribute('class', 'append_image');
-      newlink.setAttribute('images', results[index].textContent.replace('hei=550', 'hei=1000').replace('wid=550', 'wid=1000').replace('hei=150', 'hei=1000').replace('wid=150', 'wid=1000'));
-      tBody.appendChild(newlink);
+      for (let index = 0; index < results.length; index++) {
+        const newlink = document.createElement('tr');
+        newlink.setAttribute('class', 'append_image');
+        newlink.setAttribute('images', results[index].textContent.replace('hei=550', 'hei=1000').replace('wid=550', 'wid=1000').replace('hei=150', 'hei=1000').replace('wid=150', 'wid=1000'));
+        tBody.appendChild(newlink);
+      }
     }
+
+    const desc = document.evaluate(`//div[@aria-label="productDeccription"]//div/text()`, document, null, XPathResult.UNORDERED_NODE_ITERATOR_TYPE, null).iterateNext()
+    if (!desc) {
+      const descPara = document.evaluate(`//div[@aria-label="productDeccription"]//div//p[1]`, document, null, XPathResult.UNORDERED_NODE_ITERATOR_TYPE, null).iterateNext();
+      if (descPara) {
+        document.body.setAttribute('description', descPara.textContent);
+      }
     }
 
     const isSelector = document.evaluate('//h3[contains(.,"Oops, something went wrong")]', document).iterateNext();

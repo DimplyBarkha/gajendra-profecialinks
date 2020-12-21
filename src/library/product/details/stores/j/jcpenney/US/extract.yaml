@@ -164,5 +164,5 @@ fields:
     regExpReplace: https:$1
   - name: shortDescription
     singleValue: false
-    xpath: ancestor::html//div[@aria-label="productDeccription"]//div/text()
+    xpath: ancestor::html//div[@aria-label="productDeccription"]//div/text() | ancestor::html//body//@description
 
