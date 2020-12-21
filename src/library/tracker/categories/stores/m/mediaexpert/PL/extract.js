@@ -23,7 +23,8 @@ async function implementation (inputs, parameters, context, dependencies) {
     function getNodes (node = document, parentObj, currentLevel) {
       const level = currentLevel || 0;
       // @ts-ignore
-      return [...node.querySelectorAll(`${level === 0 ? 'ul.c-menu_list.is-list ul[data-zone="MAINMENU"] ' : ''}li[class*="c-menu_item is-item${level}"]`)].map(childNode => {
+      return [...node.querySelectorAll(`${level === 0
+        ? 'ul.c-menu_list.is-list ul[data-zone="MAINMENU"] ' : ''}li[class*="c-menu_item is-item${level}"]`)].map(childNode => {
         const obj = {};
         if (childNode.querySelector('a')) {
           const categoryName = childNode.querySelector('a').innerText.trim();
