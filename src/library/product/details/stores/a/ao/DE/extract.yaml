@@ -38,7 +38,7 @@ fields:
   singleValue: true
   description: The product name, prefixing "${brand} - " if not included in "name"
     and appending " - ${variantType}" if necessary (fixed per feed)
-  xpath: //h1[@id='pageTitle']
+  xpath: //*[@id='pageTitle']
 - name: listPrice
   singleValue: true
   description: The stated undiscounted price for the product
@@ -58,7 +58,7 @@ fields:
   singleValue: false
   description: Product description supplied by website - may be concatenanted from
     multiple places; specifically not the manufacturer description
-  xpath: (//div[@itemprop="description"])[last()]/*[not(name()="h2")] | //div[contains(@class, "topRight")]//ul[contains(@class, "featureBullets")]//li
+  xpath: (//div[@itemprop="description"])[last()]/*[not(name()="h2")] | //div[contains(@class, "topRight")]//ul[contains(@class, "featureBullets")]//li | //section[@id='discontinuedProductNoAlt']//ul[contains(@class, "feature-bullets-discontinued")]//li/div[@class='font-regular']
 - name: descriptionBullets
   singleValue: true
   description: Number of ul > li tags in the description
@@ -165,7 +165,7 @@ fields:
   description: Price in the selected store
 - name: asin
   singleValue: true
-  description: 
+  description:
 - name: coupon
   singleValue: true
   description: Text of any coupon offer
@@ -177,7 +177,7 @@ fields:
   description: Text of link next to Amazon choice graphic
 - name: brandLink
   singleValue: true
-  description: 
+  description:
 - name: internationalShipping
   singleValue: true
   description: Text next to bullet point
@@ -200,31 +200,31 @@ fields:
   description: See image - top section hero area
 - name: heroQuickPromoImageUrl
   singleValue: true
-  description: 
+  description:
 - name: heroQuickPromoUrl
   singleValue: true
-  description: 
+  description:
 - name: pasin
   singleValue: true
   description: Parent asin
 - name: videoLength
   singleValue: false
-  description: 
+  description:
 - name: ingredientImagePresent
   singleValue: true
-  description: 
+  description:
 - name: factImagePresent
   singleValue: true
-  description: 
+  description:
 - name: largeImageCount
   singleValue: true
-  description: 
+  description:
 - name: variantAsins
   singleValue: true
-  description: 
+  description:
 - name: primeFlag
   singleValue: true
-  description: 
+  description:
 - name: lbb
   singleValue: true
   description: Check Lost by Box Requirements (just for Amazon and a couple of other
@@ -232,33 +232,33 @@ fields:
     Amazon Website) - even though Amazon has the product "in Stock"
 - name: lbbPrice
   singleValue: true
-  description: 
+  description:
 - name: featureBullets
   singleValue: false
-  description: 
+  description:
 - name: otherSellersName
   singleValue: false
-  description: 
+  description:
 - name: otherSellersPrime
   singleValue: false
 - name: otherSellersPrice
   singleValue: false
-  description: 
+  description:
 - name: otherSellersShipping
   singleValue: false
-  description: 
+  description:
 - name: secondaryImageTotal
-  description: 
+  description:
   xpath: count(//ol[@id="alternate_images"]/img)
 - name: news
   singleValue: true
-  description: 
+  description:
 - name: addonItem
   singleValue: true
-  description: 
+  description:
 - name: fastTrack
   singleValue: true
-  description: 
+  description:
 - name: ingredientsList
   singleValue: true
   description: List of Ingredients from site - can be string of data if no discernible
@@ -390,7 +390,7 @@ fields:
   description: Unit of Measure Data for Salt
 - name: dietaryInformation
   singleValue: true
-  description: 
+  description:
 - name: specifications
   description: The physical dimensions of the product including packaging.
   xpath: //section[contains(@class,'productSpecification')]//div[contains(@class,'accordionContentInner')]//div
@@ -465,11 +465,11 @@ fields:
   xpath: //ul[@id='colour-options-picker']/li/span
 - name: additionalDescBulletInfo
   singleValue: false
-  description: 
+  description:
   xpath: //section[@class="productOverview" and @data-product-overview]//div[@class="prose text-body-sm"]//li
 - name: prop65Warning
   singleValue: true
-  description: 
+  description:
 - name: ageSuitability
   singleValue: true
   description: Recommended age displayed on the product page. https://www.amazon.com/LEGO-Classic-Medium-Creative-Brick/dp/B00NHQFA1I
