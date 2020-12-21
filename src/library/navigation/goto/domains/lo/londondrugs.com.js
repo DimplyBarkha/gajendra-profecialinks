@@ -14,7 +14,7 @@ module.exports = {
     context,
     dependencies,
   ) => {
-    const timeout = parameters.timeout ? parameters.timeout : 10000;
+    const timeout = parameters.timeout ? parameters.timeout : 80000;
 
     await context.setBlockAds(false);
     await context.setLoadAllResources(true);
