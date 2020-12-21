@@ -25,8 +25,8 @@ fields:
   - name: id
     singleValue: false
     xpath: //div[@class="rd__product-list"]/a/@href
-    regExp: ([A-Z]?\d+)(.html)
-    regExpReplace: $1
+    regExp: (.+)productbrand_(.+)(\.html)
+    regExpReplace: $2
   - name: rank 
   - name: rankOrganic
 
