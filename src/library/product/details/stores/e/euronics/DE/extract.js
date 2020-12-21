@@ -109,7 +109,7 @@ async function implementation(
         });
 
         videos = await context.evaluate(function() {
-            if (document.querySelector('.logo-wrapper')) {
+            if (document.querySelector('.logo-wrapper') || document.querySelector('div[class*="image-slider--thumbnails"] a *[class="icon--play"]')) {
                 let videos = [];
                 document.querySelectorAll('video').forEach(video => {
                     if (video.querySelector('source')) {
@@ -121,6 +121,17 @@ async function implementation(
                         videos.push(btn.getAttribute('data-video'));
                     }
                 });
+                let utubeVideosElms = document.querySelectorAll('div[class*="image-slider--thumbnails"] a *[class="icon--play"]');
+                if(utubeVideosElms.length > 0) {
+                    console.log('we have the videos for youtube', utubeVideosElms.length);
+                    for(let i = 0; i < utubeVideosElms.length; i++) {
+                        videos.push(utubeVideosElms[i].parentElement.parentElement.getAttribute('href'));
+                    }
+
+                } else {
+                    console.log('we do not have the videos for youtube', utubeVideosElms.length);
+                    console.log('please check the xpath');
+                }
                 return videos.join(' | ');
             }
         });
@@ -281,18 +292,25 @@ async function implementation(
                 if (el.querySelector('.table-attribut').innerText.includes('Gehäuse-Farben')) {
                     addHiddenDiv('color', el.querySelector('.table-attribut-value').innerText);
                 }
-                if (el.querySelector('.table-attribut').innerText.includes('Breite (cm)')) {
-                    specifications.push(el.querySelector('.table-attribut-value').innerText + ' Breite (cm)');
-                }
-                if (el.querySelector('.table-attribut').innerText.includes('Höhe (cm)')) {
-                    specifications.push(el.querySelector('.table-attribut-value').innerText + ' Höhe (cm)');
-                }
-                if (el.querySelector('.table-attribut').innerText.includes('Tiefe (cm)')) {
-                    specifications.push(el.querySelector('.table-attribut-value').innerText + ' Tiefe (cm)');
+                // if (el.querySelector('.table-attribut').innerText.includes('Breite (cm)')) {
+                //     specifications.push(el.querySelector('.table-attribut-value').innerText + ' Breite (cm)');
+                // }
+                // if (el.querySelector('.table-attribut').innerText.includes('Höhe (cm)')) {
+                //     specifications.push(el.querySelector('.table-attribut-value').innerText + ' Höhe (cm)');
+                // }
+                // if (el.querySelector('.table-attribut').innerText.includes('Tiefe (cm)')) {
+                //     specifications.push(el.querySelector('.table-attribut-value').innerText + ' Tiefe (cm)');
+                // }
+                let eachSpec = ""; //
+                if(el.children.length > 1) {
+                    eachSpec = el.children[0].innerText + " " + el.children[1].innerText;
+                    specifications.push(eachSpec);
+                } else {
+                    console.log('need to check -- there is only 1 or less child as of now');
                 }
             })
         }
-        addHiddenDiv('specifications', specifications.join(' x '));
+        addHiddenDiv('specifications', specifications.join(' | '));
 
 
         addHiddenDiv('pageTimeStamp', new Date());
