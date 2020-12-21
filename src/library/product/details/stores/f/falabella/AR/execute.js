@@ -23,7 +23,9 @@ async function implementation (
 
   return await context.evaluate(function (xp) {
     const r = document.evaluate(xp, document, null, XPathResult.UNORDERED_NODE_ITERATOR_TYPE, null);
-    return !r;
+    return true;
+    // console.log('r', r,data);
+    // return !r;
   }, parameters.noResultsXPath);
 }
 module.exports = {
@@ -32,8 +34,8 @@ module.exports = {
     country: 'AR',
     store: 'falabella',
     domain: 'falabella.com.ar',
-    loadedSelector: null,
-    noResultsXPath: null,
+    loadedSelector: 'div.imageGallery img',
+    noResultsXPath: "//div[contains(@class, 'no-result')]",
     zipcode: '',
   },
   implementation,

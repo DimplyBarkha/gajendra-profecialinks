@@ -32,15 +32,28 @@ const transform = (data) => {
       if (row.videos) {
         row.videos = row.videos.filter((video) => {
           return video.text;
-        })
+        });
         row.videos.forEach(item => {
           item.text = item.text.indexOf('https:') === -1 ? ('https:' + item.text) : item.text;
         });
       }
+
+      if (row.listPrice) {
+        row.listPrice.map(item => {
+          item.text = item.text.replace('.', ',');
+        });
+      }
+
+      if (row.price) {
+        row.price.map(item => {
+          item.text = item.text.replace('.', ',');
+        });
+      }
+
       if (row.specifications) {
         row.specifications.forEach(item => {
           const specs = item.text.trim().split('\n');
-          console.log('specs', specs[0])
+          console.log('specs', specs[0]);
           var cs = '';
           var flag = true;
           specs.forEach((spec, index) => {
@@ -52,12 +65,12 @@ const transform = (data) => {
       }
       if (row.image) {
         row.image.forEach(item => {
-          item.text = item.text.split('?')[0]
+          item.text = item.text.split('?')[0];
         });
       }
       if (row.alternateImages && row.alternateImages.length) {
         row.alternateImages.forEach(item => {
-          item.text = item.text.split('?')[0]
+          item.text = item.text.split('?')[0];
         });
 
         row.alternateImages = row.alternateImages.filter(alternateItem => {
