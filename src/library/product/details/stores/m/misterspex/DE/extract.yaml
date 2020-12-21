@@ -41,7 +41,7 @@ fields:
     xpath: //div[@class="spex-accordion"]//div[@class="spex-accordion__content"]//ul//li
   - name: availabilityText
     singleValue: false
-    defaultValue: 'In Stock'
+    # defaultValue: 'In Stock'
   - name: brandText
     singleValue: false
     xpath: //h1[@class='spex-productImageWithTitle__title']
@@ -55,4 +55,5 @@ fields:
     xpath: //div[@id="LensHeadlinePlural"]/var[@name="packageSize"]
   - name: manufacturer
     singleValue: false
-    xpath: //div[@class='spex-accordion__content']/ul[@class='spex-list']/li[@class='spex-list__item'][10]
+    xpath: //div[@class='spex-accordion__content']
+    regExp: /.{0,}Hersteller:/

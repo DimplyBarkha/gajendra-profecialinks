@@ -4,7 +4,7 @@ module.exports = {
   parameterValues: {
     domain: 'misterspex.de',
     prefix: null,
-    url: 'https://www.misterspex.de/supermercado/R-{id}/p',
+    url: null,
     country: 'DE',
     store: 'misterspex',
     zipcode: '',
