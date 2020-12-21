@@ -3,7 +3,7 @@ module.exports = {
   implements: 'navigation/goto',
   parameterValues: {
     domain: 'neonet.pl',
-    timeout: 60000,
+    timeout: 80000,
     country: 'PL',
     store: 'neonet',
     zipcode: '',
