@@ -17,12 +17,12 @@ module.exports = {
     await new Promise((resolve, reject) => setTimeout(resolve, 4000));
     await context.evaluate(async function () {
       const overlay = document.getElementById('headingOne');
-      if (overlay !== undefined) {
+      if (overlay && overlay !== undefined) {
         overlay.click();
       }
 
       const inTheBox = document.getElementById('headingFour');
-      if (inTheBox !== undefined) {
+      if (inTheBox && inTheBox !== undefined) {
         inTheBox.click();
         await new Promise((resolve, reject) => setTimeout(resolve, 1000));
       }
