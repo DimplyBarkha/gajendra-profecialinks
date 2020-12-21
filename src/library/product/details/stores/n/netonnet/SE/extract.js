@@ -22,7 +22,7 @@ module.exports = {
       }
 
       const inTheBox = document.getElementById('headingFour');
-      if (inTheBox !== undefined) {
+      if (inTheBox && inTheBox !== undefined) {
         inTheBox.click();
       }
     });
