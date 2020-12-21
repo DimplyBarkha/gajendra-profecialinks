@@ -396,3 +396,5 @@ fields:
     singleValue: false
     xpath: //ul[@class="items_strip_bk clearfix"]//h3[@class="dealboxttl bold"]
     description: Titles of products in the sections 'you may also like' or 'sponsored products'. Combine results from Max 3 sections
+  - name: inTheBoxText
+    xpath: //*[@id="AdditionDescription"]//text()[preceding-sibling::text()[contains(.,"מה בקופסא") or contains(.,"הערכה כוללת") or contains(.,"מה כלול בערכה")]] | //*[@id="AdditionDescription"]//text()[preceding-sibling::strong[1][contains(.,"אביזרים:") or contains(.,"אביזרים נלווים") or contains(.,"אביזרים")]][not(normalize-space(.)="")]
