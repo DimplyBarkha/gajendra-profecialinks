@@ -1,7 +1,7 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: //div[contains(@class, 'nav__link-container')]//span[not(contains(@class, 'service-link'))]/a[@class='nav__link-inner--main'] | //div[contains(@class, 'nav__link-container')]//h3[@class='submenu__title'][contains(text(), 'CATEGORIEËN')]/following-sibling::div//a
+recordXPath: //div[contains(@class, 'e2-header__nav-container')]//span[not(contains(@class, 'service-link'))][not(@style)]/a[@class='nav__link-inner--main'] | //div[contains(@class, 'e2-header__nav-container')]//h3[@class='submenu__title'][contains(text(), 'CATEGORIEËN')]/following-sibling::div//a
 fields:
   - name: category
     singleValue: false
