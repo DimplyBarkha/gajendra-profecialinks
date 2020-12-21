@@ -12,14 +12,13 @@ module.exports = {
     await context.setLoadImages(true);
     await context.setJavaScriptEnabled(true);
     await context.setAntiFingerprint(false);
-    // await context.setUseRelayProxy(false); 
+    await context.setUseRelayProxy(false); 
+    await context.setFirstRequestTimeout(60000);
     console.log('Block ads set to false for context');
-    const optUrl = `${url}#[!opt!]{"anti_fingerprint":false, "first_request_timeout": 60, "proxy":{"use_relay_proxy": false}}[/!opt!]`;
-    console.log(`going to optUrt, which is - ${url}`);
     await context.goto(url, { timeout: 50000, waitUntil: 'load', checkBlocked: true });
     console.log(zipcode);
     if (zipcode) {
-      await dependencies.setZipCode({ url: optUrl, zipcode });
+      await dependencies.setZipCode({ url, zipcode });
     }
   },
 };
