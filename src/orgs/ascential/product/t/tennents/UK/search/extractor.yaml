@@ -1,6 +1,21 @@
+proxy:
+  zone: GBR
+  type: DATA_CENTER
+policy:
+  numberRetries: 3
+  priority: MEDIUM
+  retryDelay: 60
+  backoffPolicy: EXPONENTIAL
+  retryWithResidentialProxyAfter: 99
+honorRobots: false
 robot: product/search
 parameters:
   country: UK
   domain: new.tennentsdirect.com
   store: tennents
   zipcode: ""
+meta:
+  branches:
+    tdcm_tennents_UK_search:
+      extractor: 6a8016b3-b674-48f9-98b2-133e38025d62
+      legacyAccountId: 63fd92cf-ba0e-42f9-9361-28797373bac8
