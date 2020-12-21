@@ -1,10 +1,9 @@
 
 module.exports = {
-  implements: 'navigation/goto',
+  implements: 'navigation/goto/setZipCode',
   parameterValues: {
-    domain: 'tennents.co.uk',
-    timeout: null,
     country: 'UK',
+    domain: 'new.tennentsdirect.com',
     store: 'tennents',
     zipcode: '',
   },
