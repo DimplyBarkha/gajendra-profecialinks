@@ -25,20 +25,15 @@ const transform = (data) => {
           });
         }
         if (row.specifications) {
-          const specs = [];
-          let newTxt = '';
-          let cnt = 0;
+          let text = '';
           row.specifications.forEach(item => {
-            specs[0] = item;
-            item.text = item.text.replace(/(\s?\n)+/g, ' ');
-            if (cnt > 0) newTxt = newTxt + ' || ' + item.text;
-            else newTxt = newTxt + item.text;
-            cnt++;
+            text += `${item.text.replace(/\n \n/g, ':')} || `;
           });
-          specs.forEach(item => {
-            item.text = newTxt;
-          });
-          row.specifications = specs;
+          row.specifications = [
+            {
+              text: text.slice(0, -3),
+            },
+          ];
         }
         if (row.variantUrl) {
           const variantUrls = [];
@@ -57,6 +52,17 @@ const transform = (data) => {
             }
           });
           row.variantUrl = variantUrls;
+        }
+        if (row.additionalDescBulletInfo) {
+          let text = '';
+          row.additionalDescBulletInfo.forEach(item => {
+            text += `|| ${item.text.replace(/\n \n/g, ':')} `;
+          });
+          row.additionalDescBulletInfo = [
+            {
+              text: text.slice(0, -1),
+            },
+          ];
         }
   
         if (row.videos) {
