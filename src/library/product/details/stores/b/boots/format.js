@@ -79,15 +79,15 @@ const transform = (data, context) => {
         ];
       }
 
-      if (row.warnings && Array.isArray(row.warnings)){
-        row.warnings = [{ text: row.warnings.map(el=>el.text).join(' ') }];
+      if (row.warnings && Array.isArray(row.warnings)) {
+        row.warnings = [{ text: row.warnings.map(el => el.text).join(' ') }];
       }
-      if (row.storage && Array.isArray(row.storage)){
-        row.storage = [{ text: row.storage.map(el=>el.text).join(' ') }];
+      if (row.storage && Array.isArray(row.storage)) {
+        row.storage = [{ text: row.storage.map(el => el.text).join(' ') }];
       }
 
       if (!row.ingredientsList && row.backupIngredients) {
-        row.ingredientsList = [{ text: row.backupIngredients[0].text }]
+        row.ingredientsList = [{ text: row.backupIngredients[0].text }];
       }
 
       // if (row.pricePerUnitUom) {

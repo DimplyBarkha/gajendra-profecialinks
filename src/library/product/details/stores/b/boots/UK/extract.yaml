@@ -45,13 +45,13 @@ fields:
     description: The offered price for the selected product variant - if a user
       clicks add to basket this is the price they would be charged
   - name: availabilityText
-    xpath: //link[@itemprop="availability"]/following-sibling::text()
+    xpath: //span[contains(@class,'OutofStock')]
     description: Availability as described on page for the selected variant. If
       there is no availability but the product can be added to cart, this field
       should be "In Stock"
     regExp: (.+)
-    regExpReplace: In Stock
-    defaultValue: Out of Stock
+    regExpReplace: Out of Stock
+    defaultValue: In Stock
   - name: description
     xpath: ancestor::html//*[@id="estore_product_longdesc"]
     description:
@@ -83,7 +83,7 @@ fields:
     description: GTIN code (includes UPC/EAN)
   - name: sku
     description: The store-specific product identifier
-    xpath: //input[contains(@id, 'cvosSkuID')]/@value
+    xpath: //div[contains(@class,"bv-cleanslate")]//div/@data-product-id
   - name: variantId
     xpath: //div[@id="productId"] | //div[@class="productVarient"]/label/img/@src
     regExp: ([^/]+)\?[^?]+$|(^\d+$)
