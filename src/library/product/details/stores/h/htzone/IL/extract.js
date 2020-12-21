@@ -1,15 +1,15 @@
-const { transform } = require('../../../../shared');
+const { cleanUp } = require('../../../../shared');
 module.exports = {
   implements: 'product/details/extract',
   parameterValues: {
     country: 'IL',
     store: 'htzone',
-    transform: transform,
+    transform: cleanUp,
     domain: 'htzone.co.il',
     zipcode: '',
   },
 
-  implementation: async ({ inputString }, { country, domain, transform: transformParam }, context, { productDetails }) => {
+  implementation: async ({ inputString }, { country, domain, transform }, context, { productDetails }) => {
     await context.evaluate(async function () {
       function addElementToDocument (key, value) {
         const catElement = document.createElement('div');
@@ -164,6 +164,6 @@ module.exports = {
         }
       }
     });
-    await context.extract(productDetails, { transform: transformParam });
+    await context.extract(productDetails, { transform });
   },
 };

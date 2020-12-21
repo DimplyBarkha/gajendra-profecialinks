@@ -1,7 +1,7 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: null
+recordXPath: /html[//*[@id="product"]]
 fields:
   - name: image
     singleValue: true
@@ -541,3 +541,5 @@ fields:
     xpath: //div[contains(@class,'PageCategory')]//ul//li
   - name: hasComparisonTable
     defaultValue: No
+  - name: inTheBoxText
+    xpath: //*[@id="productFullSpec2"]//text()[preceding-sibling::strong[1][contains(.,"מה מגיע בערכה") or contains(.,"הערכה כוללת")]][not(normalize-space(.)="")]
