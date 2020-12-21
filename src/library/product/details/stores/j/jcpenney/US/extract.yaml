@@ -162,4 +162,7 @@ fields:
     xpath: ancestor::html//tr[@class="append_image"]//@images
     regExp: (.+)
     regExpReplace: https:$1
+  - name: shortDescription
+    singleValue: false
+    xpath: ancestor::html//div[@aria-label="productDeccription"]//div/text()
 
