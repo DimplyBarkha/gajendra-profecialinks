@@ -36,16 +36,16 @@ module.exports = {
         return newDiv;
       }
 
-      function findCategories (categories, subCategorySelectors, count = 0, names = []) {
+      function findCategories (categories, subCategorySelectors, counter = 0, names = []) {
         categories.forEach(category => {
-          names[count] = category.querySelector('span').textContent;
-          if (category.querySelector('i') && count < subCategorySelectors.length) {
+          names[counter] = category.querySelector('span').textContent;
+          if (category.querySelector('i') && counter < subCategorySelectors.length) {
             category.querySelector('a').click();
-            const subCategories = document.querySelectorAll(subCategorySelectors[count]);
-            findCategories(subCategories, subCategorySelectors, count + 1, names);
+            const subCategories = document.querySelectorAll(subCategorySelectors[counter]);
+            findCategories(subCategories, subCategorySelectors, counter + 1, names);
           } else {
             const newDiv = addHiddenDiv('categories');
-            for (let i = 0; i <= count; ++i) {
+            for (let i = 0; i <= counter; ++i) {
               addHiddenDiv('category', names[i], newDiv);
             }
             addHiddenDiv('categoryUrl', category.querySelector('a').href, newDiv);
