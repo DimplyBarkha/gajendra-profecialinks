@@ -140,3 +140,6 @@ fields:
   - name: ingredientsList
     singleValue: false
     xpath: //tr[contains(.,"Ingredient")]//td[position()>1]
+  - name: unInterruptedPDP
+    singleValue: false
+    xpath: //div[contains(.,'Customer Also Viewed')]/following-sibling::div//div[contains(@class,'swiper-wrapper')]/div[contains(@class,'swiper-slide')]//div[@class="productImage"]//img//@alt
