@@ -22,23 +22,19 @@ const transform = (data, context) => {
   const productCodes = state.productCodes || [];
   for (const { group } of data) {
     for (const row of group) {
-
-
-      if(row.productUrl){
-        let url = row.productUrl[0].text;
-        row.productUrl = [{text: url}];
+      if (row.productUrl) {
+        const url = row.productUrl[0].text;
+        row.productUrl = [{ text: url }];
       }
-      
 
-      if(row.name){
-        let names = [];
+      if (row.name) {
+        const names = [];
         row.name.forEach(n => {
           names.push(n.text);
         });
-        let nameJoin = names.join(" - ")
-        row.name = [{text: nameJoin}]
+        const nameJoin = names.join(' - ');
+        row.name = [{ text: nameJoin }];
       }
-
 
       if (row.id && row.id[0]) {
         productCodes.push(row.id[0].text);

@@ -16,13 +16,12 @@ module.exports = {
     const MAX_CAPTCHAS = 3;
 
     // let pageId;
-    let captchas = 0;
+    const captchas = 0;
     // let hasCaptcha = false;
     let lastResponseData;
     // eslint-disable-next-line
     // const js_enabled = true; // Math.random() > 0.7;
     // console.log('js_enabled', js_enabled); ;
-
 
     const run = async () => {
       // do we perhaps want to go to the homepage for amazon first?
@@ -36,19 +35,18 @@ module.exports = {
       });
       // context.waitForNavigation()
 
-
       // if (lastResponseData.status === 503 || lastResponseData.status === 502 || lastResponseData.status === 410 || lastResponseData.status === 404 || lastResponseData.status === 456 || lastResponseData.status === 405) {
       //   let hasCaptcha = await context.evaluate(function() {
       //     let element = document.querySelector("div.container-fluid h1");
       //     if( element != null && element.textContent == "Oops! Something went wrong") {
-      //       return true; 
+      //       return true;
       //     }
       //     return false;
       //   });
-    
+
       //   if( hasCaptcha ) {
       //     console.log('resolveCaptcha!!!!!!!!!!!!!!!!!!!!!!!!!!!!!????????????????????????????????');
-    
+
       //     await context.solveCaptcha({
       //         type: 'RECAPTCHA',
       //         inputElement: '.g-recaptcha',
@@ -63,8 +61,6 @@ module.exports = {
       // }
     };
 
-    
-      await run();
- 
+    await run();
   },
 };

@@ -22,8 +22,6 @@ const transform = (data, context) => {
   const productCodes = state.productCodes || [];
   for (const { group } of data) {
     for (const row of group) {
-
-
       // if(row.price){
       //   let text = row.price[0].text;
       //   let splits = text.split(" ");
@@ -41,26 +39,26 @@ const transform = (data, context) => {
       //   }
       // }
 
-      if(row.name){
-        let names = [];
+      if (row.name) {
+        const names = [];
         row.name.forEach(n => {
           names.push(n.text);
         });
-        let nameJoin = names.join(" - ")
-        row.name = [{text: nameJoin}]
+        const nameJoin = names.join(' - ');
+        row.name = [{ text: nameJoin }];
       }
 
-      if(row.aggregateRating2){
-        let text = row.aggregateRating2[0].text;
-        if(text === "No stars"){
-          row.aggregateRating2[0].text = "0"
+      if (row.aggregateRating2) {
+        const text = row.aggregateRating2[0].text;
+        if (text === 'No stars') {
+          row.aggregateRating2[0].text = '0';
         } else {
-          let split = text.split(" ");
-          if(split[0]){
-            let rating = parseFloat(split[0]);
-            let adjusted = rating.toPrecision(2);
-  
-            if(adjusted){
+          const split = text.split(' ');
+          if (split[0]) {
+            const rating = parseFloat(split[0]);
+            const adjusted = rating.toPrecision(2);
+
+            if (adjusted) {
               row.aggregateRating2[0].text = adjusted;
             }
           }
@@ -72,7 +70,7 @@ const transform = (data, context) => {
       //   let splits = text.split(" ");
       //   if(splits[0]){
       //     let joins = splits[0];
-  
+
       //     if(joins){
       //       row.reviewCount[0].text = joins;
       //     }
@@ -93,13 +91,13 @@ const transform = (data, context) => {
       //   }
       // }
 
-      if(row.productUrl){
-        let text = row.productUrl[0].text;
-        let splits = text.split(" ");
+      if (row.productUrl) {
+        const text = row.productUrl[0].text;
+        const splits = text.split(' ');
         let joins;
-        if(splits[0]){
-          if(!splits[0].includes(".com")){
-            joins = "https://www.sephora.com.au" + splits[0];
+        if (splits[0]) {
+          if (!splits[0].includes('.com')) {
+            joins = 'https://www.sephora.com.au' + splits[0];
             row.productUrl[0].text = joins;
           }
         } else {
@@ -111,9 +109,9 @@ const transform = (data, context) => {
       // if(row.id){
       //   if(row.id[0].text){
       //     let text = row.id[0].text
-          
+
       //     let sNum = text.match(/(s[0-9]+)/g);
-          
+
       //     if(sNum){
       //       console.log(sNum[0])
 
@@ -121,13 +119,12 @@ const transform = (data, context) => {
       //       if(num[0]){
       //         // console.log("TEXT HERE" + " " + num[0]);
       //         // row.id[0].text = text
-  
+
       //         row.id[0].text = num[0];
       //       }
       //     }
       //   }
       // }
-
 
       if (row.id && row.id[0]) {
         productCodes.push(row.id[0].text);

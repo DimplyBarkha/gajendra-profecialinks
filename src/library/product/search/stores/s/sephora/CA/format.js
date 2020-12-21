@@ -22,7 +22,6 @@ const transform = (data, context) => {
   const productCodes = state.productCodes || [];
   for (const { group } of data) {
     for (const row of group) {
-
       // if(row.thumbnail){
       //   let text = row.thumbnail[0].text;
       //   let split = text.split("&");
@@ -34,18 +33,18 @@ const transform = (data, context) => {
       //   }
       // }
 
-      if(row.price){
-        let text = row.price[0].text;
-        let splits = text.split(" ");
+      if (row.price) {
+        const text = row.price[0].text;
+        const splits = text.split(' ');
         row.price[0].text = splits[0];
       }
 
-      if(row.productUrl){
-        let text = row.productUrl[0].text;
-        let split = text.split("?");
-        if(split[0]){
-          let url = split[0];
-          if(url){
+      if (row.productUrl) {
+        const text = row.productUrl[0].text;
+        const split = text.split('?');
+        if (split[0]) {
+          const url = split[0];
+          if (url) {
             row.productUrl[0].text = url;
           }
         }
@@ -60,17 +59,17 @@ const transform = (data, context) => {
       //   row.name = [{text: nameJoin}]
       // }
 
-      if(row.aggregateRating2){
-        let text = row.aggregateRating2[0].text;
-        if(text === "No stars"){
-          row.aggregateRating2[0].text = "0"
+      if (row.aggregateRating2) {
+        const text = row.aggregateRating2[0].text;
+        if (text === 'No stars') {
+          row.aggregateRating2[0].text = '0';
         } else {
-          let split = text.split(" ");
-          if(split[0]){
-            let rating = parseFloat(split[0]);
-            let adjusted = rating.toPrecision(2);
-  
-            if(adjusted){
+          const split = text.split(' ');
+          if (split[0]) {
+            const rating = parseFloat(split[0]);
+            const adjusted = rating.toPrecision(2);
+
+            if (adjusted) {
               row.aggregateRating2[0].text = adjusted;
             }
           }
@@ -87,28 +86,28 @@ const transform = (data, context) => {
       //   }
       // }
 
-      if(row.reviewCount){
-        let text = row.reviewCount[0].text;
-        let splits = text.split(" ");
-        if(splits[0]){
-          let joins = splits[0];
-  
-          if(joins){
+      if (row.reviewCount) {
+        const text = row.reviewCount[0].text;
+        const splits = text.split(' ');
+        if (splits[0]) {
+          const joins = splits[0];
+
+          if (joins) {
             row.reviewCount[0].text = joins;
           }
         }
       }
 
-      if(row.thumbnail){
-        let text = row.thumbnail[0].text;
+      if (row.thumbnail) {
+        const text = row.thumbnail[0].text;
         let joins;
-        if(!text.includes("sephora.com")){
-          joins = "https://www.sephora.com/ca/en" + text;
+        if (!text.includes('sephora.com')) {
+          joins = 'https://www.sephora.com/ca/en' + text;
         } else {
           joins = text;
         }
 
-        if(joins){
+        if (joins) {
           row.thumbnail[0].text = joins;
         }
       }
@@ -131,9 +130,9 @@ const transform = (data, context) => {
       // if(row.id){
       //   if(row.id[0].text){
       //     let text = row.id[0].text
-          
+
       //     let sNum = text.match(/(s[0-9]+)/g);
-          
+
       //     if(sNum){
       //       console.log(sNum[0])
 
@@ -141,13 +140,12 @@ const transform = (data, context) => {
       //       if(num[0]){
       //         // console.log("TEXT HERE" + " " + num[0]);
       //         // row.id[0].text = text
-  
+
       //         row.id[0].text = num[0];
       //       }
       //     }
       //   }
       // }
-
 
       if (row.id && row.id[0]) {
         productCodes.push(row.id[0].text);

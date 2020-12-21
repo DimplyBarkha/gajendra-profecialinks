@@ -9,7 +9,7 @@ module.exports = {
     domain: 'sephora.nz',
     zipcode: '',
   },
-  implementation
+  implementation,
 };
 async function implementation (
   inputs,
@@ -20,13 +20,11 @@ async function implementation (
   const { transform } = parameters;
   const { productDetails } = dependencies;
 
-  await context.evaluate(function() {
-    document.cookie = "locale=au;";
-  })
-    
-  await new Promise(resolve => setTimeout(resolve, 5000));
-    
+  await context.evaluate(function () {
+    document.cookie = 'locale=au;';
+  });
 
+  await new Promise(resolve => setTimeout(resolve, 5000));
 
   return await context.extract(productDetails, { transform });
 }
