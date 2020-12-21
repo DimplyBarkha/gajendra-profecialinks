@@ -134,7 +134,6 @@ module.exports = {
         }
       });
 
-
       async function scrollToRec (node) {
         await context.evaluate(async (node) => {
           const element = document.querySelector(node) || null;
