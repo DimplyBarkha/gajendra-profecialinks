@@ -1,5 +1,5 @@
 const { transform } = require('../shared');
-async function implementation (
+async function implementation(
   inputs,
   parameters,
   context,
@@ -8,7 +8,7 @@ async function implementation (
   const { transform } = parameters;
   const { productDetails } = dependencies;
 
-  async function autoScroll () {
+  async function autoScroll() {
     await context.evaluate(async function () {
       await new Promise((resolve, reject) => {
         var totalHeight = 0;
@@ -27,9 +27,21 @@ async function implementation (
     });
   }
   autoScroll();
-  await context.waitForFunction(function (sel) {
-    return Boolean(document.querySelector(sel));
-  }, { timeout: 15000 }, 'body');
+  await new Promise(resolve => setTimeout(resolve, 15000));
+  try {
+    await context.waitForFunction(function (sel) {
+      return Boolean(document.querySelector(sel));
+    }, { timeout: 15000 }, 'body');
+  } catch (e) {
+    console.log('selector did not load at all')
+  }
+  try {
+    await context.waitForFunction(function (sel) {
+      return Boolean(document.querySelector(sel));
+    }, { timeout: 30000 }, 'div[data-test*="mms-search-srp-productlist-item"] picture img');
+  } catch (e) {
+    console.log('failed to load the image')
+  }
   return await context.extract(productDetails, { transform });
 }
 module.exports = {

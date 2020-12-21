@@ -42,12 +42,16 @@ fields:
   - name: aggregateRating
     singleValue: false
     xpath: //div[contains(@class, "ProductRating")]/@aria-label
-    regExp: (?<=:\s)(.*)(?=von)
+    # regExp: (?<=:\s)(.*)(?=von)
+    regExp: (\w+:\s)(\d+)(.?)(\d?)
+    regExpReplace: $2$3$4
     description: The stated aggregate rating normalized to be out of 5
   - name: aggregateRating2
     singleValue: false
     xpath: //div[contains(@class, "ProductRating")]/@aria-label
-    regExp: (?<=:\s)(.*)(?=von)
+    # regExp: (?<=:\s)(.*)(?=von)
+    regExp: (\w+:\s)(\d+)(.?)(\d?)
+    regExpReplace: $2$3$4
     description: The stated aggregate rating normalized to be out of 5
   - name: manufacturer
     singleValue: false
