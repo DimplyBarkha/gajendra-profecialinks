@@ -1,14 +1,17 @@
 
 async function implementation (inputs, parameters, context, dependencies) {
   const { productMenu } = dependencies;
+
   const doesPopupExist = await context.evaluate(function () {
     return !!document.querySelector('#fancy-warning-cy > button');
   });
+
   if (doesPopupExist) {
     console.log('Close popup');
     await context.click('#fancy-warning-cy > button');
     await new Promise(resolve => setTimeout(resolve, 2000));
   }
+
   await context.evaluate(() => {
     function addHiddenDiv (id, content, parentDiv = null) {
       const newDiv = document.createElement('div');
