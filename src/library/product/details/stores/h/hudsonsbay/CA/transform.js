@@ -70,13 +70,6 @@ const transform = (data) => {
           specifications.text = specifications.text.replace(/\n/g, '||').trim();
         });
       }
-      if (row.variantCount) {
-        row.variantCount.forEach(variantCount => {
-          if (variantCount.text == '0') {
-            variantCount.text = '1';
-          }
-        });
-      }
       if (row.variantAsins) {
         let text = '';
         row.variantAsins.forEach(item => {
@@ -98,6 +91,7 @@ const transform = (data) => {
             text: cleanUp(text.slice(0, -3)),
           },
         ];
+        row.firstVariant = row.gtin;
       }
       if (row.promotion) {
         let text = '';
