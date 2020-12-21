@@ -14,7 +14,7 @@ fields:
     singleValue: false
     xpath: //a[@class="imageProductDouble"]/@href
     regExp: (/.+)
-    regExpReplace: https://www.prefumesclub.com$1
+    regExpReplace: https://www.perfumesclub.com$1
   - name: thumbnail
     singleValue: false
     xpath: //div[@class="imageProductBack"]/img/@src
@@ -22,10 +22,16 @@ fields:
     singleValue: false
     description: The offered price for the product
     xpath: //span[@class="newPriceND"]/strong/text()
+    regExp: 
+    regExpReplace: $1.$2
   - name: aggregateRating
     singleValue: false
     xpath: //div[@class="quedanMenos"]/img/@alt
     regExp: \b[\w=.]+
+    regExpReplace: $1.$2
+  - name: aggregateRating2
+    xpath: //div[@class="quedanMenos"]/img/@alt
+    type: NUMBER
   # - name: reviewCount
   #   singleValue: false
   #   xpath: //div[@class="reviews_1KIjQ"]/span/span/text()
