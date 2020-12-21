@@ -1,6 +1,6 @@
 const { transform } = require('./shared');
 
-async function implementation (
+async function implementation(
   inputs,
   parameters,
   context,
@@ -10,11 +10,28 @@ async function implementation (
   const { productDetails } = dependencies;
 
   await context.evaluate(async function () {
+    const query = document.evaluate(`//div[@class="slick-track"]//img[contains(@data-automation-id,"product-image-block")]//@src`, document, null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
+    if(query) {
+    const results = Array(query.snapshotLength).fill(0).map((element, index) => query.snapshotItem(index));
+
+    const table = document.createElement('table');
+    document.body.appendChild(table);
+    const tBody = document.createElement('tbody');
+    table.appendChild(tBody);
+
+    for (let index = 0; index < results.length; index++) {
+      const newlink = document.createElement('tr');
+      newlink.setAttribute('class', 'append_image');
+      newlink.setAttribute('images', results[index].textContent.replace('hei=550', 'hei=1000').replace('wid=550', 'wid=1000').replace('hei=150', 'hei=1000').replace('wid=150', 'wid=1000'));
+      tBody.appendChild(newlink);
+    }
+    }
+
     const isSelector = document.evaluate('//h3[contains(.,"Oops, something went wrong")]', document).iterateNext();
     if (isSelector) {
       throw Error(isSelector.textContent);
     }
-    function stall (ms) {
+    function stall(ms) {
       return new Promise((resolve, reject) => {
         setTimeout(() => {
           resolve();
@@ -22,7 +39,7 @@ async function implementation (
       });
     }
 
-    function appendImages (selector, images) {
+    function appendImages(selector, images) {
       [...document.querySelectorAll(selector)].map((e, index) => { e.setAttribute('mainImage', `https:${images[index][0]}`); });
     }
 
@@ -43,7 +60,7 @@ async function implementation (
       document.querySelectorAll('ul[data-automation-id="product-dimensions-color"] li button')[i].appendChild(newDiv3).innerHTML = color[i];
     }
 
-    function timeout (ms) {
+    function timeout(ms) {
       return new Promise((resolve) => setTimeout(resolve, ms));
     }
 
