@@ -16,6 +16,11 @@ module.exports = {
     const { transform } = parameters;
     const { productDetails } = dependencies;
     await context.evaluate(async () => {
+      function timeout (ms) {
+        return new Promise((resolve) => setTimeout(resolve, ms));
+      }
+
+      await timeout(5000);
       const video = document.querySelector('video.jw-video');
       if (video) {
         var url = '';

@@ -113,8 +113,6 @@ fields:
   - name: manufacturerImages
     singleValue: false
     xpath: //article[contains(@class, 'a_plus_content')]//img/@src | //div[contains(@class,'wc-reset')]//li//img/@src | //article[contains(@class, 'a-plus-content')]//img/@src | //div[@id="product-overview"]//div[@class="flix-container"]//img/@src | (//div[@id="product-overview"]//a//img[@alt="Product image"]/@src)[1] | (//div[@id="product-overview"]//a//img/@src)[1]
-    regExp: ([^()]+)
-    regExpReplace: https:$1
   - name: manufacturerDescription
     singleValue: false
     manualSelector: article.a_plus_content,div.wc-reset
