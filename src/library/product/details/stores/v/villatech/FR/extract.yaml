@@ -130,3 +130,7 @@ fields:
     singleValue: false
     xpath: boolean(//div[@class="inner"])
 
+  - name: unInterruptedPDP
+    singleValue: false
+    xpath: //div[contains(@class,'row accordion-body')]//article[@itemprop="itemListElement"]//span[@itemprop="name"]
+
