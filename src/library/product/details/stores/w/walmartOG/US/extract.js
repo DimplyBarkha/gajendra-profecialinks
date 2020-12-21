@@ -79,7 +79,7 @@ module.exports = {
             return !(outOfStock.getAttribute('data-automation-id') === 'out-of-stock-label');
           }
 
-          const error = document.querySelector('section[class^="ProductPage__errorContainer"');
+          const error = document.querySelector('section[class^="ProductPage__errorContainer"]');
           if (error !== null) {
             return false;
           }

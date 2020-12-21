@@ -9,19 +9,18 @@ const transform = (data) => {
       try {
         if (gr) {
           if (gr.url && gr.url.length) {
-            gr['_url'] = gr.url;
+            // gr['_url'] = gr.url;
 
             gr['sku'] = [
               {
                 text: gr.url[0].text.match(/\/product\/(.*?)\//)[1],
               },
             ];
-
-            gr['_input'] = [
-              {
-                text: gr.url[0].text.match(/\/product\/(.*?)\//)[1],
-              },
-            ];
+            // gr['_input'] = [
+            //   {
+            //     text: gr.url[0].text.match(/\/product\/(.*?)\//)[1],
+            //   },
+            // ];
           }
           if (gr.btnText[0].text === 'Añadir al carro') {
             gr['availabilityText'] = [{ text: 'In Stock' }];
