@@ -4,7 +4,7 @@ module.exports = {
   parameterValues: {
     domain: 'waitrose.com',
     prefix: null,
-    suffix: null,
+    suffix: 'ecom/shop/browse/groceries',
     subdomain: null,
     url: null,
     country: 'UK',
