@@ -1,6 +1,6 @@
 async function implementation (inputs, parameters, context, dependencies) {
   const { productMenu } = dependencies;
-  await context.evaluate((records) => {
+  await context.evaluate(() => {
     function addHiddenDiv (id, content, parentDiv = null) {
       const newDiv = document.createElement('div');
       newDiv.id = id;
