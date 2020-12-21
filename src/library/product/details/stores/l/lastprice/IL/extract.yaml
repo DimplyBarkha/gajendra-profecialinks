@@ -528,10 +528,10 @@ fields:
     example: https://www.zalando.de/adidas-neo-sneaker-low-blackwhite-a4315i002-q11.html
     defaultValue: No
   - name: inTheBoxUrl
-    xpath: //div[@id="descr"]//div[@class="row"]//strong[contains(.,'כלול באריזה')]/ancestor::p/following-sibling::table//img//@src | //p[contains(.,'מה בתיבה:') or (contains(.,'כלול באריזה'))]//img//@src
+    xpath: //div[@id="descr"]//div[@class="row"]//strong[contains(.,'כלול באריזה')]/ancestor::p/following-sibling::table//img//@src | //p[contains(.,'מה בתיבה:') or (contains(.,'כלול באריזה'))]//img//@src | //div[@id="descr"]//p//img[contains(@style,'border-radius:10px')]/@src
   - name: inTheBoxText
     # xpath: //*[contains(.,"מה בערכה")]/following-sibling::ul[1]/li|//*[contains(.,"מה מגיע בערכה")]/following-sibling::ul[1]/li|//*[contains(.,"כלול באריזה")]/ancestor::p/following-sibling::table//td/text()|//*[contains(., "אביזרים נלווים")]/ancestor::p/text()|//*[contains(., "כלול באריזה")]/ancestor::p/following-sibling::table//td//strong
-    xpath: //div[@id="descr"]//div[@class="row"]//strong[contains(.,'כלול באריזה')]/ancestor::p/following-sibling::table//td | //p[contains(.,'אביזרים נלווים')]//text() | //p[contains(.,'אביזרים בערכה')]/following-sibling::table//td
+    xpath: //div[@id="descr"]//div[@class="row"]//strong[contains(.,'כלול באריזה')]/ancestor::p/following-sibling::table//td | //p[contains(.,'אביזרים נלווים')]//text() | //p[contains(.,'אביזרים בערכה')]/following-sibling::table//td | //div[@id="descr"]//p//strong[contains(text(),"באריזה")]/parent::*
   - name: hasComparisonTable
     defaultValue: No
   - name: unInterruptedPDP
