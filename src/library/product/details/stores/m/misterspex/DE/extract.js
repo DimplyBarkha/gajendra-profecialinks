@@ -17,7 +17,7 @@ module.exports = {
       if (button) {
         document.querySelector('div#spex-h3').setAttribute('availability', 'In Stock');
       } else {
-        document.querySelector('p#spex-p').setAttribute('availability', 'Out of Stock');
+        document.querySelector('div#spex-card').setAttribute('availability', 'Out of Stock');
       }
     });
     return await context.extract(productDetails, { transform });
