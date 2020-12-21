@@ -132,7 +132,8 @@ fields:
     description: The product name
     xpath: //div[contains(@class,"desktop")]//h1[contains(@class,"productHeader")]
   - name: variantInformationAppend
-    xpath: //div[contains(@class,"desktop")]//h5[contains(@class,"variantDescription")]
+    xpath: //div[contains(@class,"desktop")]//h5[contains(@class,"variantDescription")] | //div[contains(@class,"desktop")]//select[contains(@id,"SelectVariant")]
+    regExp: Bottle\s\/\s(\w+)
     defaultValue: " "
   - name: appendPart
     xpath: //div[contains(@class,"desktop")]//span[contains(@itemprop,"price")]/text()
