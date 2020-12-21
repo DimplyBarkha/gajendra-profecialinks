@@ -8,7 +8,7 @@ module.exports = {
     mutationSelector: null,
     spinnerSelector: null,
     loadedSelector: 'div[class*="ab4-less"] ul[class*="g-product-list"]',
-    noResultsXPath: '//div[contains(@class, "33b-less")] | //section/h2[contains(text(), "Out of Stock")]',
+    noResultsXPath: '//div[contains(@class, "33b-less")]',
     openSearchDefinition: null,
     domain: 'boxed.com',
     zipcode: '',
