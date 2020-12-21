@@ -11,7 +11,7 @@ fields:
     xpath: (//div[contains(@class,"mainSlide")]//img/@alt)[1]
   - name: Image360Present
     singleValue: false
-    defaultValue: 'No'
+    defaultValue: "No"
     manualSelector: div.wc-fragment > h2
   - name: alternateImages
     singleValue: false
@@ -73,7 +73,7 @@ fields:
     xpath: count(//div[contains(@class,'product-bullets')]//li)
   - name: description
     singleValue: false
-    xpath: //div[@id="product-overview"]/div/p |//div[contains(@class,'product-bullets')]
+    xpath: //div[@id="product-overview"]/div/p
   - name: warranty
     singleValue: false
     xpath: //div[@class="info-cell"]//div[contains(@class,'info-item')]//li[contains(text(),'Warranty')]
@@ -104,7 +104,7 @@ fields:
     regExpReplace: $1
   - name: aggregateRating
     singleValue: false
-    xpath: //div[contains(@class,'product-reviews')]//i/@title | //div[contains(@class,"rating-views-head")]//i/@title
+    xpath: //div[@class='product-wrap']//div[@class='product-reviews']//i/@title
     regExp: ([0-9\.]{1,}) out of
     regExpReplace: $1
   - name: ratingCount
@@ -120,7 +120,7 @@ fields:
     manualSelector: article.a_plus_content,div.wc-reset
   - name: variantCount
     singleValue: false
-    defaultValue: '0'
+    defaultValue: "0"
   - name: mpc
     singleValue: false
     xpath: //script[@type="application/ld+json"][contains(text(),"mpn")]
