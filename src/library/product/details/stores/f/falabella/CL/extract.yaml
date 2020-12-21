@@ -93,9 +93,9 @@ fields:
   - name: manufacturerImages
     singleValue: false
     xpath: //div[contains(@class,"description")]/section/div[contains(@class,"bodyContainer")]//img/@src
-  - name: shippingDimensions
+  - name: materials
     singleValue: false
-    xpath: concat(//table[contains(@class,"specification-table")]//tr/td[contains(text(),"Alto")]," x ",//table[contains(@class,"specification-table")]//tr/td[contains(text(),"Ancho")]," x ",//table[contains(@class,"specification-table")]//tr/td[contains(text(),"Profundidad")])
+    xpath: //table[contains(@class,"specification-table")]/tbody/tr/td[contains(text(),"Material")]/following-sibling::td
   - name: variants
     singleValue: false
     xpath: //script[@id="__NEXT_DATA__"]/text()
