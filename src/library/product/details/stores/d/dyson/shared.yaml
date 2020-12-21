@@ -144,8 +144,8 @@ fields:
     xpath: (//*[contains(concat(' ',normalize-space(@class),' '),' ratings__stars')][not(contains(concat(' ',normalize-space(@class),' '),'-author-'))][@href or contains(concat(' ',normalize-space(@class),' '),'stars-no-link')])[1]/@aria-label
   - name: shippingInfo #localedependent
     singleValue: true
-    description: Shipping information for the product
-    xpath: (//div[contains(concat(' ',normalize-space(@class),' '),' reasons-to-buy__overlay-content-container ')][not(.//*[contains(text(),'guarantee ')])][.//*[contains(text(),'hipping ')] or .//*[contains(text(),'elivery')]])[1]
+    description: Shipping information for the product, ex ; ships and sold by amazon.com
+    #xpath: (//div[contains(concat(' ',normalize-space(@class),' '),' reasons-to-buy__overlay-content-container ')][not(.//*[contains(text(),'guarantee ')])][.//*[contains(text(),'hipping ')] or .//*[contains(text(),'elivery')]])[1]
   - name: shippingDimensions #missing
     singleValue: true
     description: Stated shipping dimensions
