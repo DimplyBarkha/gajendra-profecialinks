@@ -39,8 +39,10 @@ const transform = (data) => {
           a.push(row.alternateImages[i].text);
         }
         a = [...new Set(a)];
-        row.alternateImages.splice(a.length);
-        console.log(a.length);
+        let images = a.join(' | ');
+        row.alternateImages[0].text = images;
+        delete row.alternateImages[0].xpath;
+        row.alternateImages.splice(1);
       }
       // if (row.alternateImages) {
       //   const j = 0;
