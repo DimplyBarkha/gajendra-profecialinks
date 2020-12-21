@@ -5,7 +5,7 @@ module.exports = {
     country: 'PT',
     store: 'perfumesecompanhia',
     domain: 'perfumesecompanhia.pt',
-    loadedSelector: null,
+    loadedSelector: 'li.first-level',
     noResultsXPath: null,
     zipcode: '',
   },
