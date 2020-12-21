@@ -5,7 +5,7 @@ module.exports = {
     country: 'DE',
     store: 'snipes',
     domain: 'snipes.com',
-    loadedSelector: null,
+    loadedSelector: 'div.js-menu-section',
     noResultsXPath: null,
     zipcode: '',
   },
