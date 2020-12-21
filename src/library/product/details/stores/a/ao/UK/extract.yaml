@@ -16,6 +16,12 @@ fields:
     singleValue: true
     description: URL of the main product image
     xpath: //div[@id='initImg']
+  - name: image2
+    singleValue: true
+    description: URL of the main product image
+    xpath: //section[@id='discontinuedProductNoAlt']//img[@class='product-img']
+    regExp: (.+)
+    regExpReplace: https:$1
   - name: imageAlt
     singleValue: true
     description: Alt text of the main product image
@@ -36,7 +42,7 @@ fields:
     singleValue: true
     description: The product name, prefixing "${brand} - " if not included in "name"
       and appending " - ${variantType}" if necessary (fixed per feed)
-    xpath: //h1[@id='pageTitle']
+    xpath: //*[@id='pageTitle']
   - name: listPrice
     singleValue: true
     description: The stated undiscounted price for the product
@@ -56,7 +62,7 @@ fields:
     singleValue: false
     description: Product description supplied by website - may be concatenanted from
       multiple places; specifically not the manufacturer description
-    xpath: (//*[@data-tag-section='product overview']//div[@itemprop='description']//p)[1] | //div[contains(@class, "topRight")]//ul[contains(@class, "featureBullets")]//li
+    xpath: (//*[@data-tag-section='product overview']//div[@itemprop='description']//p)[1] | //div[contains(@class, "topRight")]//ul[contains(@class, "featureBullets")]//li | //section[@id='discontinuedProductNoAlt']//ul[contains(@class, "feature-bullets-discontinued")]//li/div[@class='font-regular']
     # xpath: //div[contains(@class,'topRight')]//div[@data-tag-section='product overview']//div[@itemprop='description']//p|//div[@id='bulletInfoText']
   - name: descriptionBullets
     singleValue: true
@@ -129,6 +135,9 @@ fields:
     singleValue: true
     description: The stated aggregate rating normalized to be out of 5
     xpath: (//span[@itemprop='ratingValue'])[position()=last()]
+  - name: aggregateRatingOther
+    description: The stated aggregate rating
+    xpath: //section[@id='discontinuedProductNoAlt']//a[@data-tag-name='review score']
   - name: shippingInfo
     singleValue: true
     description: Shipping information for the product

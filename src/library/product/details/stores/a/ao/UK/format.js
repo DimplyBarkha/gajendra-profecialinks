@@ -52,6 +52,18 @@ const transform = (data, context) => {
           });
         }
 
+        if (row.image2 && !row.image) {
+          row.image = [{
+            text: row.image2[0].text,
+          }];
+        }
+
+        if (row.aggregateRatingOther && !row.aggregateRating) {
+          row.aggregateRating = [{
+            text: row.aggregateRatingOther[0].text.replace(/(.)\/(.+)/, '$1'),
+          }];
+        }
+
         row = clean(row);
       } catch (exception) {
         console.log(exception);
