@@ -56,13 +56,30 @@ async function implementation(
         css_enabled: false,
         random_move_mouse: true,
       });
+      // TINY.box.hide();
+      // await context.setBlockAds(false);
+      // await context.setLoadAllResources(true);
+      // await context.setLoadImages(true);
+      // await context.setJavaScriptEnabled(true);
+      // await context.setAntiFingerprint(false);
+      // await context.setUseRelayProxy(false);
+      await context.waitForNavigation();
+      // await new Promise(resolve => setTimeout(resolve, 3000));
       const policyAcceptPopup = await context.evaluate(function () {
         return !!document.evaluate('//div[@id="tinycontent"]//a[@id="closeButton"]', document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
       });
       if (policyAcceptPopup) {
         await context.click('div#tinycontent a#closeButton');
       }
-      await context.waitForSelector('div.availability-wrapper, div.dimension-content');
+      await new Promise(resolve => setTimeout(resolve, 7000));
+      /*await context.evaluate(async function() {
+        if(document.querySelector("ul.tablist li:last-child a")) {
+          document.querySelector("ul.tablist li:last-child a").click();
+        }
+        return;
+      });*/
+      
+      //await context.waitForSelector('div.availability-wrapper, div.dimension-content, a#closeButton');
       await context.evaluate(async function (url) {
         const newDiv = document.createElement('div');
         newDiv.id = 'page_url';

@@ -55,21 +55,35 @@ const transform = (data) => {
           },
         ];
       }
-      /*if (row.specifications) {
+      if (row.specifications) {
         console.log("specifications available ")
         let finalSpecifications = '';
         row.specifications.forEach(item => {
           finalSpecifications += item.text + " || ";
         });
         if (finalSpecifications.trim().endsWith('||')) {
-          finalSpecifications = finalSpecifications.trim().substring(0, finalSpecifications.length-2);
+          finalSpecifications = finalSpecifications.trim().substring(0, finalSpecifications.length-3);
         }
         row.specifications = [
           {
             text: finalSpecifications,
           },
         ];
-      }*/
+      }
+      if (row.alternateImages) {
+        const alternateImagesArr = row.alternateImages.map((item) => {
+          let regExV1 = /(.+)_thumb_(.+)/;
+          if(regExV1.test(item.text)) {
+            return { text: `${item.text.match(regExV1)[1]}${item.text.match(regExV1)[2]}` };
+          }
+          let regExV2 = /(.+)\?\$web_Lineitem\$&amp;wid=60&amp;hei=60/;
+          if(regExV2.test(item.text)) {
+            return { text: `${item.text.match(regExV2)[1]}` };
+          }
+        });
+        const alternateImagesResult = alternateImagesArr && alternateImagesArr.slice(1);
+        row.alternateImages = alternateImagesResult;
+      }
       if(row.aggregateRating) {
         var rating = '';
         row.aggregateRating.forEach(item => {

@@ -5,8 +5,8 @@ module.exports = {
     country: 'US',
     store: 'crateandbarrel',
     domain: 'crateandbarrel.com',
-    loadedSelector: 'div.availability-wrapper,div.dimension-content',
-    noResultsXPath: '//h1[contains(text(), "Oops")]',
+    loadedSelector: null,
+    noResultsXPath: '//h1[contains(text(), "Oops")] | //ul[@class="card-deck-container"]',
     zipcode: '',
   },
 };

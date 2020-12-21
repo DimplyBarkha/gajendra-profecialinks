@@ -5,67 +5,65 @@ recordXPath: //div[@id="bodyContainer"]
 fields:
   - name: image
     singleValue: false
-    xpath: //div[@class="gallery-main-image"]//img/@src
+    xpath: //div[@class="gallery-main-image"]//img/@src | (//div[contains(@class,"showcase-item")]//img[contains(@class,"showcase-item")]/@src)[1]
   - name: imageAlt
     singleValue: false
-    xpath: //div[@class="gallery-main-image"]//img/@alt
+    xpath: //div[@class="gallery-main-image"]//img/@alt | (//div[contains(@class,"showcase-item")]//img[contains(@class,"showcase-item")]/@alt)[1]
   - name: alternateImages
     singleValue: false
-    xpath: //div[contains(@class,"gallery-thumbnail-item")][position()>1]//img/@src
-    regExp: (.+)_thumb_(.+)
-    regExpReplace: $1$2
+    xpath: //div[contains(@class,"gallery-thumbnail-item")][position()>1]//img/@src | //div[contains(@class,"showcase-thumbnail")]//div[contains(@class,"slick-track")]//div[contains(@class,"slick-slide")][position()>1]//img/@src
   - name: secondaryImageTotal
     singleValue: false
-    xpath: count(//div[contains(@class,"gallery-thumbnail-item")][position()>1]//img/@src)
+    xpath: count(//div[contains(@class,"gallery-thumbnail-item")][position()>1]//img/@src | //div[contains(@class,"showcase-thumbnail")]//div[contains(@class,"slick-track")]//div[contains(@class,"slick-slide")][position()>1]//img/@src)
   - name: category
     singleValue: false
     xpath: //ol[@class="breadcrumb-list"]//li
   - name: nameExtended
     singleValue: false
-    xpath: //div[contains(@class,"right-col")]//h1[contains(@class,"product-name")]
+    xpath: //div[contains(@class,"right-col")]//h1[contains(@class,"product-name")] | //div[contains(@class,"shop-bar")]//h1[contains(@class,"shop-bar-product-title")]
   - name: name
     singleValue: false
-    xpath: //div[contains(@class,"right-col")]//h1[contains(@class,"product-name")]
+    xpath: //div[contains(@class,"right-col")]//h1[contains(@class,"product-name")] |  //div[contains(@class,"shop-bar")]//h1[contains(@class,"shop-bar-product-title")]
   - name: listPrice
     singleValue: false
-    xpath: //div[contains(@class,"right-col")]//div[contains(@class,"shop-button-container")]//span[@class="sale"]//span[@class="regPrice"]
+    xpath: //div[contains(@class,"right-col")]//div[contains(@class,"shop-button-container")]//span[@class="sale"]//span[@class="regPrice"] | //div[contains(@class,"shop-bar-right-product-info")]//span[contains(@class,"regPrice")]
     regExp: (\$.*)
     regExpReplace: $1
   - name: price
     singleValue: false
-    xpath: //div[contains(@class,"right-col")]//div[contains(@class,"shop-button-container")]//span[@class="sale"]//span[@class="salePrice"] | //div[contains(@class,"right-col")]//div[contains(@class,"shop-button-container")]//span[@class="sale"]//span[@class="salePriceDetail"] | //div[contains(@class,"right-col")]//div[contains(@class,"shop-button-container")]//span[@class="reg"]//span[@class="regPrice"]
+    xpath: //div[contains(@class,"right-col")]//div[contains(@class,"shop-button-container")]//span[@class="sale"]//span[@class="salePrice"] | //div[contains(@class,"right-col")]//div[contains(@class,"shop-button-container")]//span[@class="sale"]//span[@class="salePriceDetail"] | //div[contains(@class,"right-col")]//div[contains(@class,"shop-button-container")]//span[@class="reg"]//span[@class="regPrice"] | //div[contains(@class,"shop-bar-right-product-info")]//span[contains(@class,"salePriceDetail")]
     regExp: (\$.*)
     regExpReplace: $1
   - name: availabilityText
     singleValue: false
-    xpath: //div[contains(@class,"right-col")]//div[@class="availability-sub-label"]//span
+    xpath: //div[contains(@class,"right-col")]//div[@class="availability-sub-label"]//span | //div[@class="shop-bar"]//button[@data-id="addToCartButton"]
     regExp: (.+)
     regExpReplace: In Stock
     defaultValue: Out of Stock
   - name: description
     singleValue: false
-    xpath: //div[@class="details-content"]//div/text() | //ul[@class="details-list"]//li
+    xpath: //div[@class="details-content"]//div/text() | //ul[@class="details-list"]//li | //div[@id="section1"]//div[contains(@class,"description-intro")] | //div[@id="section2"]//ul//li
   - name: descriptionBullets
     singleValue: false
-    xpath: count(//ul[@class="details-list"]//li)
+    xpath: count(//ul[@class="details-list"]//li | //div[@id="section2"]//ul//li)
   - name: mpc
     singleValue: false
-    xpath: substring-after(//div[@class="details-vendor-number"], "Item Number:")
+    xpath: //div[@class="details-vendor-number"]/text()[2] | //div[@id="section2"]//span[contains(text(),"Item Number")]/text()[2]
   - name: sku
     singleValue: false
-    xpath: //div[contains(@class,"right-col")]//span[@class="sku-number"]
+    xpath: //div[contains(@class,"right-col")]//span[@class="sku-number"] | //div[contains(@class,"sku-review-area")]//span[contains(@class,"shop-bar-sku-number")]
   - name: variantId
     singleValue: false
-    xpath: //div[contains(@class,"right-col")]//span[@class="sku-number"]
+    xpath: //div[contains(@class,"right-col")]//span[@class="sku-number"] | //div[contains(@class,"sku-review-area")]//span[contains(@class,"shop-bar-sku-number")]
   - name: ratingCount
     singleValue: false
-    xpath: substring-before(//div[contains(@class, "review-total")], "Review")
+    xpath: substring-before(//div[contains(@class, "review-total")], "Review") | //div[contains(@class,"sku-review-area")]//div[contains(@class,"review-count")]/text()[1]
   - name: aggregateRating2
     singleValue: false
-    xpath: substring-before(//div[contains(@class,"right-col")]//div[@class="product-review-sku"]//span[@class="review-stars-bar"]/@title,"out")
+    xpath: substring-before(//div[contains(@class,"right-col")]//div[@class="product-review-sku"]//span[@class="review-stars-bar"]/@title,"out") | //div[contains(@class,"sku-review-area")]//span[contains(@class,"rating")]/text()[2]
   - name: aggregateRating
     singleValue: false
-    xpath: substring-before(//div[contains(@class,"right-col")]//div[@class="product-review-sku"]//span[@class="review-stars-bar"]/@title,"out")
+    xpath: substring-before(//div[contains(@class,"right-col")]//div[@class="product-review-sku"]//span[@class="review-stars-bar"]/@title,"out") | //div[contains(@class,"sku-review-area")]//span[contains(@class,"rating")]/text()[2]
   - name: variantCount
     singleValue: false
     xpath: count(//div[@class="hidden"]//a)
@@ -87,7 +85,7 @@ fields:
     regExpReplace: $1
   - name: additionalDescBulletInfo
     singleValue: false
-    xpath: //ul[@class="details-list"]//li
+    xpath: //ul[@class="details-list"]//li | //div[@id="section2"]//ul//li
   - name: imageZoomFeaturePresent
     singleValue: false
     xpath: //div[@data-module="zoomableCarousel"]
@@ -107,4 +105,4 @@ fields:
     xpath: substring-after(//ul[@class="details-list"]//li[contains(text(), "Made in")],"Made in")
   - name: specifications
     singleValue: false
-    xpath: //div[@class="dimension-content"]
+    xpath: //div[@class="dimension-content"]//p | //div[contains(@class,"dimensions-details")]//div[contains(@class,"dimensions-item")]//p
