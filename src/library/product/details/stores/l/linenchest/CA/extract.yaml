@@ -44,7 +44,7 @@ fields:
   #   xpath: count(//div[@itemprop="more_infos"]/ul/li)
   - name: description
     singleValue: false
-    xpath: //div[@itemprop="description"] | //div[@class="product attribute more-infos"]//div[@itemprop="more_infos"]//ul//li
+    xpath: //div[@itemprop="description"] | //div[@class="product attribute more-infos"]//div[@itemprop="more_infos"]
   - name: sku
     singleValue: false
     xpath: //meta[@property="product:retailer_item_id"]/@content

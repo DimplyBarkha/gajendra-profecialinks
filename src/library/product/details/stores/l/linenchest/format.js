@@ -27,10 +27,11 @@ const transform = (data, context) => {
         });
       }
       if (row.description) {
-        const descArray = row.description.map((item) => {
-          return item.text;
+        let text = '';
+        row.description.forEach(item => {
+          text += `${item.text} | `;
         });
-        row.description = [{ text: descArray.join(' | '), xpath: row.description[0].xpath }];
+        row.description = [{ text: text.slice(0, -3), xpath: row.description[0].xpath }];
       }
       if (row.nameExtended) {
         var text = '';
