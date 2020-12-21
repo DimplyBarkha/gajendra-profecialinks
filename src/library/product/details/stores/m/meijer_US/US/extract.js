@@ -38,7 +38,7 @@ module.exports = {
           addElementToDocument('size', '1')
         }
       }
-      catch {
+      catch (error) {
 
       }
       try {
@@ -55,7 +55,7 @@ module.exports = {
         addElementToDocument('price', '$' + price);
       }
       }
-      catch{
+      catch(error){
         
       }
     });
