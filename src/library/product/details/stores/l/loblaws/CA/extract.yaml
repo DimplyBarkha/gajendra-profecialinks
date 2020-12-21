@@ -32,6 +32,7 @@ fields:
     xpath: (//span[@class="price__value selling-price-list__item__price selling-price-list__item__price--now-price__value"])[1]
   - name: price
     singleValue: true
+    xpath: (//span[@class="price__value selling-price-list__item__price selling-price-list__item__price--now-price__value"])[1]
     description: The offered price for the selected product variant - if a user
       clicks add to basket this is the price they would be charged
   - name: availabilityText
@@ -143,6 +144,7 @@ fields:
     description: The product name
   - name: inStorePrice
     singleValue: true
+    xpath: (//span[@class="price__value selling-price-list__item__price selling-price-list__item__price--now-price__value"])[1]
     description: Price in the selected store
   - name: asin
     singleValue: true
@@ -424,6 +426,7 @@ fields:
     description: List of additives in the product
   - name: pricePerUnit
     singleValue: true
+    defaultValue: $
     description: Price of the product split into certain units
   - name: pricePerUnitUom
     singleValue: true
