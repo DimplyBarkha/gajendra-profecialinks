@@ -1,7 +1,7 @@
-async function implementation(
+async function implementation (
   inputs, parameters, context, dependencies,
 ) {
-  const { url, zipcode } = inputs;
+  const { zipcode } = inputs;
 
   // const findClosestStore = async () => {
   //   const indexToClick = await context.evaluate(async function () {
@@ -162,7 +162,7 @@ async function implementation(
       }
     }
 
-    async function getStoreDetails(zipcode) {
+    async function getStoreDetails (zipcode) {
       const API = 'https://www.kroger.com/atlas/v1/modality/options';
       const body = {
         address: {
@@ -180,7 +180,7 @@ async function implementation(
       console.log(json);
       const modalities = json.data.modalityOptions.IN_STORE.filter(q => {
         if (q.destination.locationId === zipAndStoreDetails[zipcode].locationId) {
-          return q
+          return q;
         }
       });
       console.log(modalities);
@@ -204,7 +204,7 @@ async function implementation(
 
     try {
       await getStoreDetails(zipcode);
-    } catch(er) {
+    } catch (er) {
       throw Error('Error!! While updating the zipcode');
     }
   }, zipcode);
