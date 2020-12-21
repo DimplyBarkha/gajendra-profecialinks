@@ -1,11 +1,11 @@
 const { cleanUp } = require('../../../../shared');
 
-async function implementation(inputs, parameters, context, dependencies) {
+async function implementation (inputs, parameters, context, dependencies) {
   const { transform } = parameters;
   const { productDetails } = dependencies;
 
   await context.evaluate(async () => {
-    function addElementToDocument(key, value, src) {
+    function addElementToDocument (key, value, src) {
       const catElement = document.createElement('div');
       catElement.id = key;
       catElement.innerText = value;
@@ -16,7 +16,7 @@ async function implementation(inputs, parameters, context, dependencies) {
     const name = document.querySelector('h1[itemprop="name"]') ? document.querySelector('h1[itemprop="name"]').innerText : null;
     const brand = document.querySelector('span[class="product__brand-name"] a') ? document.querySelector('span[class="product__brand-name"] a').innerText : null;
     if (name !== null && brand !== null) {
-      //@ts-ignore
+      // @ts-ignore
       addElementToDocument('nameextended', `${brand} - ${name}`);
     }
 
@@ -33,16 +33,13 @@ async function implementation(inputs, parameters, context, dependencies) {
       document.querySelector('body').setAttribute('price', price.match(regex)[1]);
     }
 
-
     // if product is not available set availabilityText to Out of Stock
     const availabilityText = document.querySelector('span[class="product-stock-message__title"]') ? document.querySelector('span[class="product-stock-message__title"]').innerText : null;
     if (availabilityText === null && document.querySelector('div[role="alertdialog"]').innerText === 'Helaas is dit product niet langer beschikbaar') {
-      addElementToDocument('availabilityText', 'Out of Stock')
+      addElementToDocument('availabilityText', 'Out of Stock');
     } else if (availabilityText) {
-      addElementToDocument('availabilityText', availabilityText)
+      addElementToDocument('availabilityText', availabilityText);
     }
-
-
   });
 
   // return await context.extract(productDetails, { transform });
