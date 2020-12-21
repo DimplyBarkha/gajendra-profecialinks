@@ -82,7 +82,7 @@ fields:
     xpath: //li[contains(@class,'active-sku')]/input[@name='rad']/@data-sku
   - name: ingredientsList
     singleValue: true
-    xpath: //div[@class="ingredients-section"]
+    xpath: //div[@class="ingredients-section"]/h3[@class="ingredients-heading"]/following-sibling::div[@class='content']
   - name: quantity
     singleValue: true
     xpath: (//span[@class="sku-data-size"])[1]
