@@ -24,8 +24,8 @@ fields:
     xpath: //meta[@name="keywords"]/@content
   - name: category
     singleValue: false
-    description: The categories (e.g. from breadcrumbs)  
-   # commented category  and added new one    
+    description: The categories (e.g. from breadcrumbs)
+   # commented category  and added new one
     xpath: //ol[@class="breadcrumb"]//li[last()]//a/text()
     #xpath: //div[@class="BreadCrumbs"]//li//text()[not(parent::a[@id="HomePageBtn"])]
   - name: nameExtended
@@ -93,7 +93,7 @@ fields:
     xpath: //div[@id='added_sku']
   - name: variantId
     singleValue: true
-    description: Identifier for a variant from a store where variants share the same sku  
+    description: Identifier for a variant from a store where variants share the same sku
     xpath: //div[@class="panel-body"]//dl//dd[1]//text()
   - name: mpc
     singleValue: true
@@ -134,7 +134,7 @@ fields:
   - name: variantCount
     singleValue: true
     description: Number of variants listed
-    xpath: //div[@id='added_variantCount']    
+    xpath: //div[@id='added_variantCount']
     type: NUMBER
   - name: color
     singleValue: true
@@ -143,13 +143,13 @@ fields:
     singleValue: true
     description: A code description of the color (e.g. RGB hex)
   - name: manufacturerDescription
-    singleValue: false 
-    description: The extended description of the product supplied by the lister  
+    singleValue: false
+    description: The extended description of the product supplied by the lister
     xpath: //div[@id='addedEnhancedContent']
   - name: manufacturerImages
     singleValue: false
     description: Images within the third party description
-    xpath: //div[@id='divAdditionalDataTabHeader']//img/@src   
+    xpath: //div[@id='divAdditionalDataTabHeader']//img/@src
   - name: videos
     singleValue: false
     description: URLs of videos on page
@@ -527,11 +527,10 @@ fields:
       carousel,['Yes','No']
     example: https://www.zalando.de/adidas-neo-sneaker-low-blackwhite-a4315i002-q11.html
     defaultValue: No
-
   - name: hasComparisonTable
     defaultValue: No
   - name: inTheBoxText
     # xpath: //p[contains(.,"מה בערכה")]/strong/following-sibling::text() | //*[contains(.,"אביזרים")]/../following-sibling::div[following-sibling::div[contains(.,"מפרט")]]
-    xpath: //p[contains(.,"מה בערכה")]/strong/following-sibling::text() | //strong[contains(.,"אביזרים")]/../following-sibling::div[following-sibling::div[contains(.,"מפרט")]]| //strong[contains(.,"אביזרים ")]/ancestor::p
+    xpath: //p[contains(.,"מה בערכה")]/strong/following-sibling::text() | //strong[contains(.,"אביזרים")]/../following-sibling::div[following-sibling::div[contains(.,"מפרט")]] | //strong[contains(.,"אביזרים ")]/ancestor::p | //strong[contains(.,"אביזרים")]/parent::node()/parent::node()/following-sibling::div[1]/text() | //div[contains(text(),"אביזרים")]
   - name: inTheBoxUrl
     xpath: //*[contains(.,"אביזרים")]/../following-sibling::div[following-sibling::div[contains(.,"מפרט")]]/img/@src|//*[contains(.,"בערכה")]/following-sibling::div//img[contains(@src, "olsale")]/@src|//*[contains(.,"בערכה")]/following-sibling::p//img[contains(@src, "olsale")]/@src
