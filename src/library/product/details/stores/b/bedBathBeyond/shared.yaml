@@ -197,6 +197,9 @@ fields:
     xpath: ancestor::html//div[@id="productDetails"]//div[contains(@class, "mt2 Overview_18CMhs")]//ul//li
     singleValue: false
     description: null
+  - name: shortDescription
+    xpath: ancestor::html//div[@id="productDetails"]//div[@itemprop="description"]
+    singleValue: false
 
   - name: inTheBoxText
     xpath: ancestor::html//body/@in-the-box-text
