@@ -124,7 +124,7 @@ fields:
     xpath: //p[contains(.,'Size')]/text()
   - name: ingredientsList
     singleValue: false
-    xpath: //div[@class='ProductDetail__ingredients']//div[@class='Collapsible']//text()
+    manualSelector: div#ii_ingredients
   - name: priceCurrency
     singleValue: false
     xpath: //script[@type="application/ld+json"][contains(text(),'priceCurrency')]
@@ -146,7 +146,12 @@ fields:
   - name: productUrl
     singleValue: false
     xpath: //link[@rel="canonical"]/@href
-
+  - name: otherSellersName
+    singleValue: false
+    defaultValue: Ulta Beauty, Inc.
+  - name: otherSellersId
+    singleValue: false
+    defaultValue: 1
 
 
 

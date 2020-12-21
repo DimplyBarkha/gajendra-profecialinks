@@ -24,6 +24,11 @@ async function implementation(
     }
     const descContent = (document.querySelector('div.ProductDetail__productContent')) ? document.querySelector('div.ProductDetail__productContent').innerHTML.replace(/<li>/gm, ' || ').replace(/<.*?>/gm, '').replace(/\n/gm, ' ').replace(/•/gm, ' ||').replace(/\s{2,}/, ' ').trim() : '';
     descContent && addHiddenDiv('ii_description', descContent);
+
+    const ingredientsContent = (document.querySelector('div.ProductDetail__ingredients')) ? document.querySelector('div.ProductDetail__ingredients').innerHTML.replace(/<li>/gm, ' || ').replace(/<.*?>/gm, '').replace(/\n/gm, ' ').replace(/•/gm, ' ||').replace(/\s{2,}/, ' ').trim() : '';
+    ingredientsContent && addHiddenDiv('ii_ingredients',ingredientsContent);
+
+
     document.querySelectorAll('iframe[title*="Videos"]').forEach((frame, index) => {
       frame.querySelectorAll('video').forEach((video, index1) => {
         addHiddenDiv(`video_${index}_${index1}`, video.src);

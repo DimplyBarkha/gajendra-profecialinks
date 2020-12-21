@@ -51,6 +51,20 @@ const transform = (data) => {
           text: text,
         }];
       }
+
+      if (row.ingredientsList) {
+        row.ingredientsList.forEach(item => {
+          item.text = item.text.replace('Ingredients','').trim();
+          console.log("item.text",item.text);
+      });
+      }
+
+      if (row.highQualityImages) {
+        row.highQualityImages.forEach(item => {
+            item.text = item.text + "?\u0026wid=1000\u0026hei=1000";
+        });
+
+      }
     }
   }
   const clean = text => text.toString()
