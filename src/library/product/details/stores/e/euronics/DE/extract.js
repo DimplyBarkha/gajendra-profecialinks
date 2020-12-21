@@ -109,7 +109,7 @@ async function implementation(
         });
 
         videos = await context.evaluate(function() {
-            if (document.querySelector('.logo-wrapper') || document.querySelector('div[class*="image-slider--thumbnails"] a *[class="icon--play"]')) {
+            if (document.querySelector('.logo-wrapper') || document.querySelector('div[class*="image-slider--thumbnails"] a[href*="youtube"]')) {
                 let videos = [];
                 document.querySelectorAll('video').forEach(video => {
                     if (video.querySelector('source')) {
@@ -121,17 +121,6 @@ async function implementation(
                         videos.push(btn.getAttribute('data-video'));
                     }
                 });
-                let utubeVideosElms = document.querySelectorAll('div[class*="image-slider--thumbnails"] a *[class="icon--play"]');
-                if(utubeVideosElms.length > 0) {
-                    console.log('we have the videos for youtube', utubeVideosElms.length);
-                    for(let i = 0; i < utubeVideosElms.length; i++) {
-                        videos.push(utubeVideosElms[i].parentElement.parentElement.getAttribute('href'));
-                    }
-
-                } else {
-                    console.log('we do not have the videos for youtube', utubeVideosElms.length);
-                    console.log('please check the xpath');
-                }
                 return videos.join(' | ');
             }
         });
@@ -311,6 +300,21 @@ async function implementation(
             })
         }
         addHiddenDiv('specifications', specifications.join(' | '));
+
+        let youtubeVideo = []
+        let utubeVideosElms = document.querySelectorAll('div[class*="image-slider--thumbnails"] a[href*="youtube"]');
+        if(utubeVideosElms.length > 0) {
+            console.log('we have the videos for youtube', utubeVideosElms.length);
+            for(let i = 0; i < utubeVideosElms.length; i++) {
+                youtubeVideo.push(utubeVideosElms[i].getAttribute('href'));
+            }
+
+        } else {
+            console.log('we do not have the videos for youtube', utubeVideosElms.length);
+            console.log('please check the xpath');
+        }
+        console.log('we have the youtube videos - ', youtubeVideo.join(' | '));
+        addHiddenDiv('utubevideo', youtubeVideo.join(' | '));
 
 
         addHiddenDiv('pageTimeStamp', new Date());

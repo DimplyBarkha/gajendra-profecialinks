@@ -116,13 +116,11 @@ fields:
     singleValue: true
     xpath: //div[@id="manufacturerImages"]
   - name: videos
-    singleValue: true
-    xpath: //div[@id="videos"]
+    xpath: //div[@id="videos"] | //div[@id="utubevideo"]
   - name: name
     singleValue: true
     xpath: //h1[@itemprop="name"]
   - name: specifications
-    singleValue: true
     xpath: //div[@id="specifications"]
   - name: warranty
     singleValue: true
