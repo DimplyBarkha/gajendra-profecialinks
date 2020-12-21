@@ -82,6 +82,17 @@ module.exports = {
       } else {
         technicalDoc = 'No';
       }
+
+      let allProducts = document.querySelectorAll('div[data-container-type="similarDealsContainer"] a');
+      const prod = [];
+      [...allProducts].forEach((element) => {
+        const brand = element.querySelector('span.attValueOfferBox') ? element.querySelector('span.attValueOfferBox').innerText : '';
+        const title = element.querySelector('.title-link') ? element.querySelector('.title-link').innerText : '';
+        prod.push(brand + ' ' + title);
+      });
+
+      addElementToDocument('added_UPDP', prod.join(' || '));
+
       addElementToDocument('added_technicalDoc', technicalDoc);
 
       addElementToDocument('added_variantCount', 0);
