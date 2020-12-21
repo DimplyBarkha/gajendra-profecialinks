@@ -15,10 +15,10 @@ module.exports = {
     dependencies,
   ) => {
     await context.evaluate(async function () {
-      const popUps = document.querySelector('button.cookieProcessed').click();
-      if (popUps) {
-        popUps.click();
-      }
+      // const popUps = document.querySelector('button.cookieProcessed').click();
+      // if (popUps) {
+      //   popUps.click();
+      // }
     });
     const { transform } = parameters;
     const { productDetails } = dependencies;
