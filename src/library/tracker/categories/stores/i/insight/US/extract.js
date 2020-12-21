@@ -17,6 +17,7 @@ async function implementation (inputs, parameters, context, dependencies) {
     }
 
     let categoriesArr = [];
+
     try {
       // @ts-ignore
       categoriesArr = [...document.querySelectorAll('label[for*="category-checkbox"] > span[data-category]')].map(el => {
@@ -32,6 +33,7 @@ async function implementation (inputs, parameters, context, dependencies) {
     } catch (e) {
       console.log('Error extracting categories: ' + e);
     }
+
     if (!categoriesArr.length) throw new Error('Could not extract categories');
 
     for (let i = 0; i < categoriesArr.length; i++) {
