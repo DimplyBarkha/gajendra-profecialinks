@@ -42,6 +42,18 @@ const transform = (data) => {
           },
         ];
       }
+      if (row.weightNet && row.weightNet[0]) {
+        row.weightNet[0].text = row.weightNet[0].text.replace('Net weight: ', '');
+      }
+      if (row.ingredientsList && row.ingredientsList[0]) {
+        row.ingredientsList[0].text = row.ingredientsList[0].text.replace('Ingredients & allergens', '');
+      }
+      if (row.ingredientsList && row.ingredientsList[0]) {
+        row.ingredientsList[0].text = row.ingredientsList[0].text.replace('Ingredients: ', '');
+      }
+      if (row.allergyAdvice && row.allergyAdvice[0]) {
+        row.allergyAdvice[0].text = row.allergyAdvice[0].text.replace('Ingredients & allergens', '');
+      }
       if ((!row.quantity || !row.quantity.length) && row.quantity1) {
         console.log('quantity1',row.quantity1);
         row.quantity = row.quantity1;
