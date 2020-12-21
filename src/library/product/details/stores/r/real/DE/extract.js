@@ -64,21 +64,17 @@ module.exports = {
         var doubleSeparatorText = data.join(' || ');
         addElementToDocument(id, doubleSeparatorText);
       };
-      var descFinal = [];
       // XPATH Data Extraction For Description Bullet
-      const description = getAllXpath("//div[@class='rd-product-description__text']//text()", 'nodeValue');
-      for (let i = 0; i < description.length; i++) {
-        if (description[i].length > 2) {
-          descFinal.push(description[i]);
-        }
-      }
-      pipeSeparatorDouble('description', descFinal);
+      // @ts-ignore
+      const description = document.querySelector('div[class="rd-product-description"]').innerText
+      addElementToDocument('description', description);
       try {
         var temp;
         const sliceURL = (data) => {
           for (let index = 0; index < data.length; index++) {
             if (data[index].includes('background-image: url')) {
               temp = data[index];
+              temp = temp.replace('100x100', '1024x1024');
               addElementToDocument('altImages', temp.split('("').join('")').split('")')[1]);
             }
           }

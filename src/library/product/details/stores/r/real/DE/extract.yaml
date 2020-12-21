@@ -6,6 +6,9 @@ fields:
   - name: image
     singleValue: true
     xpath: (//div[contains(@class,'swiper-slide rd-product-image-gallery__slide')])[1]/img/@src
+  - name: imageAlt
+    singleValue: true
+    xpath: //h1[@class="rd-product-detail__title"]/@title
   - name: alternateImages
     singleValue: false
     xpath: //html//div[@id='altImages']
@@ -28,7 +31,7 @@ fields:
     singleValue: true
     regExp: (.+)
     regExpReplace: In Stock
-    defaultValue: Out of Stock
+    defaultValue: Out Of Stock
     xpath: //meta[@property="product:availability"]/@content
   - name: description
     singleValue: false
