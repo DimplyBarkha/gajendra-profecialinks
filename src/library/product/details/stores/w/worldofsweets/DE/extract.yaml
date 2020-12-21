@@ -247,7 +247,7 @@ fields:
   - name: servingSize
     singleValue: true
     description: The size of serving Nutritional information is based on.
-    xpath: //*[@id="content"]/div/div[2]/div/div[2]/div[2]/div/div[1]/span[2]/font/font
+    xpath: //div[contains(@class,'details-toggle-content')]//div[1]//div[1]//span[2]//font/text()
   - name: servingSizeUom
     singleValue: true
     description: Unit of measure of serving
