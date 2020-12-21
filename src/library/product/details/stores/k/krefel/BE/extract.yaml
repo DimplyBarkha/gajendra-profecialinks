@@ -502,14 +502,18 @@ fields:
     example: https://www.zalando.de/adidas-neo-sneaker-low-blackwhite-a4315i002-q11.html
     defaultValue: "No"
   - name: inTheBoxUrl
-    singleValue: true
+    singleValue: false
     description: Must include image url to show the accessories/tools which come with the product
     xpath: //div[@class="in-the-box"]//img/@src
   - name: inTheBoxText
-    singleValue: true
+    singleValue: false
     description: Must include text to show the accessories/tools which come with the product
-    xpath: //div[@class="in-the-box"]//  
+    xpath: //div[@class="in-the-box"] | //h4[contains(text(),"Meegeleverde accessoires")]/..//following-sibling::div//li
   - name: hasComparisonTable
     singleValue: true
     description: Compare the range table or matrix must be present for all vacuum cleaners & air treatment. This is not required for    personal care or lighting. As a minimum the comparison table will compare against 1 additional Dyson product.
-    xpath: boolean(//div[class="product-compare"])
+    defaultValue: 'No'
+    xpath: //*[contains(text(),"Vergelijkingstabel")] | //div[@data-section-tag="compare"]
+    regExp: >-
+      (.+)
+    regExpReplace: 'Yes'

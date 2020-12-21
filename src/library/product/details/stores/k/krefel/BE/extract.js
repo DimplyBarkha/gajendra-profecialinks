@@ -80,6 +80,10 @@ module.exports = {
         addElementToDocument('videosText', videosText);
       }
     });
+
+    await context.click('a[href*="brand-info"]', { timeout: 7000 })
+      .catch(()=>console.log('No extra brand info'));
+
     await new Promise((resolve, reject) => setTimeout(resolve, 6000));
     return await context.extract(productDetails);
   },
