@@ -1,0 +1,110 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: //div[@id="bodyContainer"]
+fields:
+  - name: image
+    singleValue: false
+    xpath: //div[@class="gallery-main-image"]//img/@src
+  - name: imageAlt
+    singleValue: false
+    xpath: //div[@class="gallery-main-image"]//img/@alt
+  - name: alternateImages
+    singleValue: false
+    xpath: //div[contains(@class,"gallery-thumbnail-item")][position()>1]//img/@src
+    regExp: (.+)_thumb_(.+)
+    regExpReplace: $1$2
+  - name: secondaryImageTotal
+    singleValue: false
+    xpath: count(//div[contains(@class,"gallery-thumbnail-item")][position()>1]//img/@src)
+  - name: category
+    singleValue: false
+    xpath: //ol[@class="breadcrumb-list"]//li
+  - name: nameExtended
+    singleValue: false
+    xpath: //div[contains(@class,"right-col")]//h1[contains(@class,"product-name")]
+  - name: name
+    singleValue: false
+    xpath: //div[contains(@class,"right-col")]//h1[contains(@class,"product-name")]
+  - name: listPrice
+    singleValue: false
+    xpath: //div[contains(@class,"right-col")]//div[contains(@class,"shop-button-container")]//span[@class="sale"]//span[@class="regPrice"]
+    regExp: (\$.*)
+    regExpReplace: $1
+  - name: price
+    singleValue: false
+    xpath: //div[contains(@class,"right-col")]//div[contains(@class,"shop-button-container")]//span[@class="sale"]//span[@class="salePrice"] | //div[contains(@class,"right-col")]//div[contains(@class,"shop-button-container")]//span[@class="sale"]//span[@class="salePriceDetail"] | //div[contains(@class,"right-col")]//div[contains(@class,"shop-button-container")]//span[@class="reg"]//span[@class="regPrice"]
+    regExp: (\$.*)
+    regExpReplace: $1
+  - name: availabilityText
+    singleValue: false
+    xpath: //div[contains(@class,"right-col")]//div[@class="availability-sub-label"]//span
+    regExp: (.+)
+    regExpReplace: In Stock
+    defaultValue: Out of Stock
+  - name: description
+    singleValue: false
+    xpath: //div[@class="details-content"]//div/text() | //ul[@class="details-list"]//li
+  - name: descriptionBullets
+    singleValue: false
+    xpath: count(//ul[@class="details-list"]//li)
+  - name: mpc
+    singleValue: false
+    xpath: substring-after(//div[@class="details-vendor-number"], "Item Number:")
+  - name: sku
+    singleValue: false
+    xpath: //div[contains(@class,"right-col")]//span[@class="sku-number"]
+  - name: variantId
+    singleValue: false
+    xpath: //div[contains(@class,"right-col")]//span[@class="sku-number"]
+  - name: ratingCount
+    singleValue: false
+    xpath: substring-before(//div[contains(@class, "review-total")], "Review")
+  - name: aggregateRating2
+    singleValue: false
+    xpath: substring-before(//div[contains(@class,"right-col")]//div[@class="product-review-sku"]//span[@class="review-stars-bar"]/@title,"out")
+  - name: aggregateRating
+    singleValue: false
+    xpath: substring-before(//div[contains(@class,"right-col")]//div[@class="product-review-sku"]//span[@class="review-stars-bar"]/@title,"out")
+  - name: variantCount
+    singleValue: false
+    xpath: count(//div[@class="hidden"]//a)
+  - name: color
+    singleValue: false
+    xpath: //span[contains(text(), "Color")]//span
+  - name: variantInformation
+    singleValue: false
+    xpath: //legend[@class="radio-swatch-legend"]/text()
+  - name: firstVariant
+    singleValue: false
+    xpath: //div[@class="hidden"]//a[position()=1]
+    regExp: (\d+$)
+    regExpReplace: $1
+  - name: variants
+    singleValue: false
+    xpath: //div[@class="hidden"]//a[position()>1]
+    regExp: (\d+$)
+    regExpReplace: $1
+  - name: additionalDescBulletInfo
+    singleValue: false
+    xpath: //ul[@class="details-list"]//li
+  - name: imageZoomFeaturePresent
+    singleValue: false
+    xpath: //div[@data-module="zoomableCarousel"]
+    regExp: (.+)
+    regExpReplace: 'Yes'
+    defaultValue: 'No'
+  - name: brandText
+    singleValue: false
+    xpath: //script[contains(text(),"brand") and contains(text(), "DOMContentLoaded")]
+    regExp: brand":"([^"]+)
+    regExpReplace: $1
+  - name: productUrl
+    singleValue: false
+    xpath: //div[@id="page_url"]
+  - name: countryOfOrigin
+    singleValue: false
+    xpath: substring-after(//ul[@class="details-list"]//li[contains(text(), "Made in")],"Made in")
+  - name: specifications
+    singleValue: false
+    xpath: //div[@class="dimension-content"]

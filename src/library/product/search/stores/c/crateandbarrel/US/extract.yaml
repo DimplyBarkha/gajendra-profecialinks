@@ -1,0 +1,27 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: //ul[@class="card-deck-container"]//li[position()<151]
+fields:
+  - name: id
+    singleValue: false
+    xpath: //ul[@class="card-deck-container"]//li[position()<151]//a[@class="product-link"]/@href
+    regExp: (\d+$)
+    regExpReplace: $1
+  - name: rankOrganic
+  - name: name
+    singleValue: false
+    xpath: //ul[@class="card-deck-container"]//li[position()<151]//span[@class="product-name-text"]/text()
+  - name: productUrl
+    singleValue: false
+    xpath: //ul[@class="card-deck-container"]//li[position()<151]//a[@class="product-link"]/@href
+    regExp: (.+)
+    regExpReplace: https://www.crateandbarrel.com$1
+  - name: thumbnail
+    singleValue: false
+    xpath: //ul[@class="card-deck-container"]//li[position()<151]//a[@class="product-link"]//picture//img/@src
+  - name: price
+    singleValue: false
+    xpath: //ul[@class="card-deck-container"]//li[position()<151]//span[@class="sale"]//span[@class="salePrice"] | //ul[@class="card-deck-container"]//li[position()<151]//span[@class="sale"]//span[@class="salePriceDetail"] | //ul[@class="card-deck-container"]//li[position()<151]//span[@class="reg"]//span[@class="regPrice"]
+    regExp: (\$.*)
+    regExpReplace: $1
