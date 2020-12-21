@@ -1,10 +1,10 @@
-
+const { transform } = require('../../../../shared');
 module.exports = {
   implements: 'product/details/extract',
   parameterValues: {
     country: 'CH',
     store: 'microspot_ch_fr',
-    transform: null,
+    transform: transform,
     domain: 'microspot.ch',
     zipcode: '',
   },
@@ -99,6 +99,12 @@ module.exports = {
             aval = "Out of Stock"
           }
           addElementToDocument('aval', aval);
+        }
+
+        var ship = getXpath('//meta[@name="application-name"]/@content', 'nodeValue');
+        if(ship != null){
+          ship = "Sold by: "+ ship;
+          addElementToDocument('ship', ship);
         }
 
       });
