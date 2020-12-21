@@ -5,7 +5,7 @@ module.exports = {
     country: 'SE',
     store: 'kicks',
     domain: 'kicks.se',
-    loadedSelector: null,
+    loadedSelector: '#container',
     noResultsXPath: null,
     zipcode: '',
   },
