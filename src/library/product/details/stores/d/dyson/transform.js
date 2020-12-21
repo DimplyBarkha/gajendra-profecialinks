@@ -26,6 +26,13 @@ const transform = (data) => {
           }
         }
       }
+      if (row.inTheBoxUrl) {
+        row.inTheBoxUrl.forEach((img) => {
+          if (!img.text && img.src) {
+            img.text = img.src;
+          }
+        });
+      }
       // if (row.alternateImages) {
       //   const j = 0;
       //   console.log(row.alternateImages.length + ' is the transform  length');
