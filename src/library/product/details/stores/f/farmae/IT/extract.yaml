@@ -1,0 +1,106 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: image
+    singleValue: true
+    xpath: '//*[@id="amasty_zoom"]/@src'
+    description: URL of the main product image
+  - name: imageAlt
+    singleValue: true
+    xpath: //*[@id="amasty_zoom"]/@alt
+    description: Alt text of the main product image
+  - name: alternateImages
+    singleValue: false
+    xpath: '//*[@id="amasty_gallery"]/a/img/@src'
+    description: Other product images (not in manufacturer description)
+  - name: metaKeywords
+    singleValue: true
+    xpath: //meta[@name="keywords"]
+    description: The <meta> keywords content
+  - name: category
+    singleValue: false
+    xpath: //*[@id="mm-0"]/div//div[contains(@class,"breadcrumbs")]/ul/li
+    description: The categories (e.g. from breadcrumbs)
+  - name: nameExtended
+    singleValue: true
+    xpath: //*[@id="reviewdesk"]/h1[1]
+    description: The product name, prefixing "${brand} - " if not included in "name"
+      and appending " - ${variantType}" if necessary (fixed per feed)
+  - name: listPrice
+    singleValue: true
+    xpath: //*[@id="product_addtocart_form"]/div//div/p[contains(@class,"old-price")]/span[2]
+    description: The stated undiscounted price for the product
+  - name: price
+    singleValue: true
+    xpath: //*[@id="product_addtocart_form"]/div[2]//div//p[contains(@class,"special-price")]/span[2]
+    description: The offered price for the selected product variant - if a user
+      clicks add to basket this is the price they would be charged
+  - name: availabilityText
+    singleValue: true
+    xpath: //*[@id="product_addtocart_form"]/div//div//div//div/div/p/span
+    description: Availability as described on page for the selected variant. If
+      there is no availability but the product can be added to cart, this field
+      should be "In Stock"
+    # regExp: (.+)
+    # regExpReplace: In Stock
+    # defaultValue: Out of Stock
+  - name: description
+    singleValue: false
+    # xpath: //meta[@itemprop="description"]/@content
+    xpath: //*[@id="collateral-tabs"]/dd[1]/div
+    description: Product description supplied by website - may be concatenanted from
+      multiple places; specifically not the manufacturer description
+  - name: brandText
+    singleValue: true
+    xpath: //div[contains(@class,"desc_brand")]
+    description: Product brand shown - this may actually NOT be just a brand name,
+      e.g. "Visit the Gillette Store" 
+  - name: shippingInfo
+    singleValue: true
+    xpath: //*[@id="collateral-tabs"]/dd[2]/div
+    description: Shipping information for the product
+  - name: videos
+    singleValue: false
+    xpath: //*[@id="collateral-tabs"]/dd[1]/div/div/iframe/@src
+    description: URLs of videos on page
+  - name: name
+    singleValue: true
+    xpath: //*[@id="reviewdesk"]/h1
+    description: The product name
+  - name: brandLink
+    singleValue: true
+    xpath: //div[contains(@class,'marca')]//a/@href
+    # xapth: //*[@class="marca"]//a/@href
+    description: null
+  - name: internationalShipping
+    singleValue: false
+    xpath: //*[@id="tabella-spedizioni"]/tbody/tr
+    description: Text next to bullet point
+  - name: Image360Present
+    singleValue: true
+    description: If 360 image is present in the carousel ['Yes','No']
+    example: https://www.amazon.com/Trinsic-Single-Handle-Magnetic-Champagne-9159-CZ-DST/dp/B0050EN8E6
+    defaultValue: No
+  - name: imageZoomFeaturePresent
+    singleValue: true
+    description: If Zoom feature is available for Main image or images in the
+      carousel,['Yes','No']
+    example: https://www.zalando.de/adidas-neo-sneaker-low-blackwhite-a4315i002-q11.html
+    defaultValue: No
+  - name: sku
+    singleValue: true
+    xpath: //script[@type="application/ld+json"]
+    description: The store-specific product identifier
+  - name: aggregateRating
+    singleValue: true
+    xpath: //script[contains(text(), 'ratingValue')]
+    description: The stated aggregate rating normalized to be out of 5
+    type: NUMBER
+  - name: ratingCount
+    singleValue: true
+    xpath: //script[contains(text(), 'reviewCount')]
+    # xpath: //*[@id="tp-widget-wrapper"]/div/div[1]/div/div[2]/span[contains(@class,'tp-widget-summary__count')]
+    description: The number of ratings
+    type: NUMBER
