@@ -10,7 +10,9 @@ fields:
     xpath: //li[@data-index-number="0"]//img/@alt
     description: Alt text of the main product image
   - name: alternateImages
-    xpath: //ul//li[position()>1]//div[contains(@class,"ZoomImage__StyledZoomImage")]//source/@srcset
+    xpath: //ul//li[position()>1]//div[@data-test="mms-image-thumbnail"]//picture//img/@src
+    regExp: (.+)194_131(.+)
+    regExpReplace: $1786_587$2
     singleValue: false
     description: Other product images (not in manufacturer description)
   - name: metaKeywords
@@ -41,7 +43,7 @@ fields:
     defaultValue: In Stock
   - name: description
     singleValue: false
-    xpath: //div[contains(@class,'ProductDescription')][not(contains(@class,"RichProductDescription"))]
+    xpath: //div[@data-test="mms-accordion-description"]
     html: true
     description: Product description supplied by website - may be concatenanted from
       multiple places; specifically not the manufacturer description
@@ -211,7 +213,7 @@ fields:
   - name: secondaryImageTotal
     description: null
     type: NUMBER
-    xpath: count(//ul//li[position()>1]//div[contains(@class,"ZoomImage__StyledZoomImage")]//source/@srcset)
+    xpath: count(//ul//li[position()>1]//div[@data-test="mms-image-thumbnail"]//picture//img/@src)
   - name: news
     description: null
   - name: addonItem
