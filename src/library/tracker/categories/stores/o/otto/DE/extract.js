@@ -24,15 +24,15 @@ module.exports = {
         return newDiv;
       }
       // categories
-      const categories = document.querySelectorAll('ul[class="nav_navi-list--level-1"] > li');
+      const categories = document.querySelectorAll('ul[class="nav_navi-list nav_navi-list--level-1 nav_navi-list--bottom-spacing"] > li:not(.nav_navi-list__separator)');
 
       categories.forEach((category) => {
-        const categoryName = category.querySelector('a[class="nav_navi-elem--level-1"]').textContent;
-        const subCategories = category.querySelectorAll('ul[class="nav_navi-list"]');
+        const categoryName = category.querySelector('a[class="nav_navi-elem nav_navi-elem--level-1 nav_navi-elem--row-1 nav_navi-elem--emphasized"], a[class="nav_navi-elem nav_navi-elem--level-1 nav_navi-elem--row-2 nav_navi-elem--emphasized"]').textContent;
+        const subCategories = category.querySelectorAll('div[class="nav_level-container nav_level-container--level-2"] div[class="nav_navi-panel__body"] > ul');
 
         subCategories.forEach((subCategory) => {
-          const subCategoryName = subCategory.querySelector('li > span[class="nav_navi-elem"] li > a[class="nav_navi-elem]').textContent;
-          const elements = subCategory.querySelectorAll('a[class="nav_navi-elem"] span[class="nav_navi-elem"]');
+          const subCategoryName = subCategory.querySelector('div[class="nav_navi-panel nav_navi-panel--level-2 nav_navi-panel--full-screen"] li a[class="nav_navi-elem ts-link"]').textContent;
+          const elements = subCategory.querySelectorAll('a[class="nav_navi-elem ts-link"] href');
 
           elements.forEach((element) => {
             const newDiv = addHiddenDiv('categories');
