@@ -6,6 +6,9 @@ fields:
   - name: image
     singleValue: true    
     xpath: //div[@class='fp-productList_image']/img/@src
+  - name: _url
+    singleValue: true    
+    xpath: /html/head/link[@rel="canonical"]/@href
   - name: imageAlt
     singleValue: true
     xpath: //div[@class='fp-productList_image']/img/@alt  
@@ -25,11 +28,8 @@ fields:
     singleValue: true
     xpath: //div[@class="fp-pagination"]/@data-brand-name
   - name: quantity
-    singleValue: false
+    singleValue: true
     xpath: //div[@class="fp-productList_bottleInfo"]/text()
-  # - name: weightNet
-  #   singleValue: false
-  #   xpath: //tbody//tr//th[@width="25%"]/text()
   - name: variantId
     singleValue: true
     xpath: //div[@class="fp-productList_content"]/div/@data-article 
@@ -38,7 +38,6 @@ fields:
     xpath: //div[@class="fp-productList_bottleInfo"]/text()
   - name: variantCount
     singleValue: true
-    description: Number of variants listed
     type: NUMBER
     xpath: count(//div[@class='fp-productList_bottleDetails'])
   - name: name
@@ -46,12 +45,12 @@ fields:
     description: The product name
     xpath: //div[@class='fp-productList_info']/h5[@class='fp-productList_productName']
   - name: price
-    singleValue: false
+    singleValue: true
     type: CURRENCY
     xpath: //b[@class="fp-price-is-special-offer"]/text()
   - name: ingredientsList
-    singleValue: false
-    xpath: //div[@class="swiper-wrapper"]//p[position()>1]/text()
+    singleValue: true
+    xpath: //div[@class="swiper-wrapper"]//p[2]/text()
   - name: manufacturer
     singleValue: false
     xpath: //div[@class="swiper-wrapper"]//p[1][contains(text(),'Hersteller')]/text()
