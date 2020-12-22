@@ -15,4 +15,10 @@ fields:
   - name: warranty
     singleValue: true
     xpath: (//div[contains(concat(' ',normalize-space(@class),' '),' reasons-to-buy__overlay-content-container ')][.//*[contains(text(),' Garantie')]])[1] | (//div[contains(concat(' ',normalize-space(@class),' '),' reasons-to-buy__overlay-content-container ')][.//*[contains(text(),'arantie ')]])[1] | (//div[contains(concat(' ',normalize-space(@class),' '),' reasons-to-buy__overlay-content-container ')][.//*[contains(text(),'garanzia ')]])[1]
-  
+  - name: availabilityText
+    singleValue: true
+    description: Availability as described on page for the selected variant. If there is no availability but the product can be added to cart, this field should be "In Stock"
+    xpath: //div[@id="availabilityText"]
+    regExp: (.+)
+    regExpReplace: In Stock
+    defaultValue: Out of Stock
