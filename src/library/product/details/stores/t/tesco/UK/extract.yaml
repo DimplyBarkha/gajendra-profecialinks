@@ -169,6 +169,72 @@ fields:
   - name: promotion
     singleValue: false
     xpath: (//ul[contains(@class,"product-promotion")]/li//span[@class='offer-text'])[1]
+  - name: caloriesFromFatPerServing
+    singleValue: true
+    description: Nutritional Information for Calories From Fat content - Usually
+      based on per 100g serving
+    type: NUMBER
+    xpath: //table[@class='product__info-table']/tbody//td[contains(.,"Fat")]/following-sibling::td[1]
+  - name: totalFatPerServing
+    singleValue: true
+    description: Nutritional Information for Total Fat content - Usually based on
+      per 100g serving
+    type: NUMBER
+    xpath: //table[@class='product__info-table']/tbody//td[contains(.,"Fat")]/following-sibling::td[1]
+  - name: totalFatPerServingUom
+    singleValue: true
+    description: Unit of Measure Data for Total Fat content
+    xpath: //table[@class='product__info-table']/tbody//td[contains(.,"Fat")]/following-sibling::td[1]
+  - name: saturatedFatPerServing
+    singleValue: true
+    description: Nutritional Information for Saturated Fat content - Usually based
+      on per 100g serving
+    type: NUMBER
+    xpath: //table[@class='product__info-table']/tbody//td[contains(.,"Of which saturates ")]/following-sibling::td[1]
+  - name: saturatedFatPerServingUom
+    singleValue: true
+    description: Unit of Measure Data for Saturated Fat content
+    xpath: //table[@class='product__info-table']/tbody//td[contains(.,"Of which saturates ")]/following-sibling::td[1]
+  - name: totalCarbPerServing
+    singleValue: true
+    description: Nutritional Information for Total Carbohydrate content - Usually
+      based on per 100g serving
+    xpath: //table[@class='product__info-table']/tbody//td[contains(.,"Carbohydrate")]/following-sibling::td[1]
+    type: NUMBER
+  - name: totalCarbPerServingUom
+    singleValue: true
+    description: Unit of Measure Data for Total Carbohydrate content
+    xpath: //table[@class='product__info-table']/tbody//td[contains(.,"Carbohydrate")]/following-sibling::td[1]
+  - name: totalSugarsPerServing
+    singleValue: true
+    description: Nutritional Information for Total Sugar content - Usually based on
+      per 100g serving
+    type: NUMBER
+    xpath: //table[@class='product__info-table']/tbody//td[contains(.,"Of which sugars ")]/following-sibling::td[1]
+  - name: totalSugarsPerServingUom
+    singleValue: true
+    description: Unit of Measure Data for Total Sugar content
+    xpath: //table[@class='product__info-table']/tbody//td[contains(.,"Of which sugars ")]/following-sibling::td[1]
+  - name: proteinPerServing
+    singleValue: true
+    description: Nutritional Information for Protein content - Usually based on per
+      100g serving
+    type: NUMBER
+    xpath: //table[@class='product__info-table']/tbody//td[contains(.,"Protein")]/following-sibling::td[1]
+  - name: proteinPerServingUom
+    singleValue: true
+    description: Unit of Measure Data for Protein
+    xpath: //table[@class='product__info-table']/tbody//td[contains(.,"Protein")]/following-sibling::td[1]
+  - name: saltPerServing
+    singleValue: true
+    description: Nutritional Information for Salt content - Usually based on per
+      100g serving
+    xpath: //table[@class='product__info-table']/tbody//td[contains(.,"Salt ")]/following-sibling::td[1]
+    type: NUMBER
+  - name: saltPerServingUom
+    singleValue: true
+    description: Unit of Measure Data for Salt
+    xpath: //table[@class='product__info-table']/tbody//td[contains(.,"Salt ")]/following-sibling::td[1]
 
 
 
