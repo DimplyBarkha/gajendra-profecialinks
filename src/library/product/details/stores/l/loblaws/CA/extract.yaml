@@ -252,6 +252,7 @@ fields:
     singleValue: true
     description: The size of serving Nutritional information is based on.
     xpath: //strong[@class="nutritional-value__value"]
+    type: NUMBER
   - name: servingSizeUom
     singleValue: true
     description: Unit of measure of serving
@@ -297,7 +298,7 @@ fields:
     description: Nutritional Information for Cholesterol content - Usually based on
       per 100g serving
     xpath: (//span[@class="nutrient-per-serving__label-item nutrient-per-serving__label-item--value-gram"])[10]
-    type: NUMBER
+    # type: NUMBER
   - name: cholesterolPerServingUom
     singleValue: true
     description: Unit of Measure Data for Cholesterol content
@@ -338,7 +339,7 @@ fields:
     description: Nutritional Information for Protein content - Usually based on per
       100g serving
     xpath: (//span[@class="nutrient-per-serving__label-item nutrient-per-serving__label-item--value-gram"])[9]
-    type: NUMBER
+    # type: NUMBER
   - name: proteinPerServingUom
     singleValue: true
     description: Unit of Measure Data for Protein
