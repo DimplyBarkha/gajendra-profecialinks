@@ -19,26 +19,6 @@ async function implementation (
   } catch (error) {
     console.log('No cookies pop-up.');
   }
-
-  await context.evaluate(async function () {
-    function addHiddenDiv (id, content) {
-      const newDiv = document.createElement('div');
-      newDiv.id = id;
-      newDiv.textContent = content;
-      newDiv.style.display = 'none';
-      document.body.appendChild(newDiv);
-    }
-
-    const productCarousel = [...document.querySelectorAll('div.carousel-item')];
-    const uipdpArr = [];
-    productCarousel.forEach((element) => {
-      const brand = element.querySelector('.carousel-brand') ? element.querySelector('.carousel-brand').innerText : '';
-      const productName = element.querySelector('.carousel-name') ? element.querySelector('.carousel-name').innerText : '';
-      uipdpArr.push(brand + ' ' + productName);
-    });
-    addHiddenDiv('ii_uipdp', uipdpArr.filter(elm => elm.trim().length).join(' || '));
-  });
-
   try {
     await context.waitForSelector('iframe[title="Flix-media-video-0"]');
   } catch (e) {
@@ -77,7 +57,22 @@ async function implementation (
   } else {
     console.log('script is not loaded yet - check with xpathForScript');
   }
-
+  await context.waitForSelector('div.carousel-item').catch((err) => 'Could not load related products' + err);
+  const unInterruptedPDP = await context.evaluate(async function () {
+    const productCarousel = [...document.querySelectorAll('div.carousel-item')];
+    const uipdpArr = [];
+    productCarousel.forEach((element) => {
+      const brand = element.querySelector('.carousel-brand') ? element.querySelector('.carousel-brand').textContent : '';
+      const productName = element.querySelector('.carousel-name') ? element.querySelector('.carousel-name').textContent : '';
+      if (!productName) {
+        throw Error('Error during udp collection');
+      }
+      uipdpArr.push(brand + ' ' + productName);
+    });
+    document.body.setAttribute('ii_uipdp', uipdpArr.filter(elm => elm.trim().length).join(' || '));
+    return uipdpArr;
+  });
+  console.log('unInterruptedPDP', unInterruptedPDP);
   return await context.extract(productDetails, { transform });
 }
 
