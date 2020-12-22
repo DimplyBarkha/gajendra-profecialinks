@@ -19,7 +19,7 @@ fields:
     # regExpReplace: $1l500$2
   - name: videos
     singleValue: false
-    xpath: //*[@class="buttons"]//*[@class="video"]/@data-title
+    xpath: //*[@class="buttons"]//*[@class="video"]/@data-title | //*[contains(@class,"video") and contains(@for,"toggleVideo")]/@hideifempty
   - name: price
     singleValue: false
     manualSelector: span#prcIsum, span#prcIsum_bidPrice, span#mm-saleDscPrc
