@@ -8,6 +8,9 @@ const transform = (data) => {
   function onlyNumbersAndDot (string) {
     return string.replace(',', '.').replace(/[^\d\.]/g, '').replace(/\./, 'x').replace(/\./g, '').replace(/x/, ".");string = Math.round( parseFloat(string) * 100) / 100;
   }
+  function cleanText (str) {
+    return str.replace(/(\r\n|\n|\r)/gm, '').replace(/\s+/g, ' ').trim();
+  }
   data.forEach(el => {
     el.group.forEach(gr => {
       try {
@@ -23,7 +26,7 @@ const transform = (data) => {
           }
           if (info && info.brand && info.brand.length) gr.brandText = [{ text: info.brand }];
           else gr.brandText = [];
-          if (info && info.description && info.description.length) gr.name = [{ text: info.description }];
+          if (info && info.description && info.description.length) gr.name = [{ text: cleanText(info.description) }];
           else gr.name = [];
         }
         if (gr && gr.aggregateRating && gr.aggregateRating.length) gr.aggregateRating[0].text = onlyNumbersAndDot(gr.aggregateRating[0].text);
