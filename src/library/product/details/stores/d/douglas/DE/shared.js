@@ -91,13 +91,11 @@ const transform = (data) => {
         row.additionalDescBulletInfo[0].text = `|| ${row.additionalDescBulletInfo[0].text}`;
       }
 
-      // if (row.sku) {
-      //   let skuStr = row.sku[0].text;
-      //   skuStr = skuStr.replace('var dglDataLayer =', '').trim();
-      //   skuStr = skuStr.replace(';', '');
-      //   skuStr = JSON.parse(skuStr);
-      //   row.sku = [{ text: skuStr.master_id }];
-      // }
+      if (row.unInterruptedPDP) {
+        for (let i = 0; i < row.unInterruptedPDP.length; i++) {
+          row.unInterruptedPDP[i].text = `|| ${row.unInterruptedPDP[i].text}`;
+        }
+      }
 
       if (row.variantInformation) {
         if (row.color) {
