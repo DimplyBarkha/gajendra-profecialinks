@@ -63,20 +63,10 @@ async function implementation(
     const { transform } = parameters;
     // @ts-ignore
     const { productDetails } = dependencies;
-    try {
-        await context.waitForSelector('div[class="uc-banner-content"]');
-        await context.evaluate(async() => {
-            let acceptCookie = document.querySelector('#uc-btn-accept-banner');
-            // @ts-ignore
-            acceptCookie = acceptCookie ? acceptCookie.click() : '';
-        });
-    } catch (error) {
-        console.log('error: ', error);
-    }
     await context.evaluate(async(parentInput) => {
 
-        const dataMore = document.querySelectorAll('div[data-more-text="Mehr anzeigen"]');
-        dataMore.forEach((b) => { b.textContent = "" });
+        // const dataMore = document.querySelectorAll('div[data-more-text="Mehr anzeigen"]');
+        // dataMore.forEach((b) => { b.textContent = "" });
 
         function addElementToDocument(key, value) {
             const catElement = document.createElement('div');

@@ -51,7 +51,7 @@ fields:
     xpath: translate(//meta[@itemprop="ratingCount"]/@content,',','.')
   - name: description
     singleValue: false
-    xpath: //div[contains(text(),"Produktdetails")]/../div[contains(@class,"tab-content")] 
+    xpath: //div[contains(text(),"Produktdetails")]/../div[contains(@class,"tab-content")]/text() | //div[contains(text(),"Produktdetails")]/../div[contains(@class,"tab-content")]//div[contains(@class,"description-content")]
     # xpath: //div[@id="bb_descriptionBullets"]
   - name: descriptionBullets
     singleValue: false
