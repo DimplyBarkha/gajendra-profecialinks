@@ -558,9 +558,9 @@ fields:
     defaultValue: No
   - name: inTheBoxText
     singleValue: false
-    xpath: //strong[contains(.,'in the box')]/../following-sibling::ul[1]/li
+    xpath: //strong[contains(.,'in the box')]/../following-sibling::ul[1]/li | //section[@class="product-description"]//p[not(strong)] 
   - name: hasComparisonTable
     singleValue: true
     defaultValue: No
   - name: unInterruptedPDP
-    xpath: //div[@class="swiper-wrapper theme"]//div[contains(@class,'product-card')] | //div[@class="grid-row product-flex"]/div[@class="product"]
+    xpath: //div[@class="swiper-wrapper theme"]//div[contains(@class,'product-card')]//div[@class="product--title"]
