@@ -7,6 +7,14 @@ async function implementation (
 ) {
   const { transform } = parameters;
   const { productDetails } = dependencies;
+
+  const onSearchPage = await context.evaluate(() => {
+    return !!document.querySelector('.product_name_link');
+  });
+  if (onSearchPage) {
+    await context.clickAndWaitForNavigation('.product_name_link', { timeout: 15000 }, { waitUntil: 'load' });
+  }
+
   async function getVideoLinks () {
     const iframe = document.querySelector('div.videoContainer iframe');
     if (!iframe) return;

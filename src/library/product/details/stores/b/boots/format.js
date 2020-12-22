@@ -79,6 +79,17 @@ const transform = (data, context) => {
         ];
       }
 
+      if (row.warnings && Array.isArray(row.warnings)) {
+        row.warnings = [{ text: row.warnings.map(el => el.text).join(' ') }];
+      }
+      if (row.storage && Array.isArray(row.storage)) {
+        row.storage = [{ text: row.storage.map(el => el.text).join(' ') }];
+      }
+
+      if (!row.ingredientsList && row.backupIngredients) {
+        row.ingredientsList = [{ text: row.backupIngredients[0].text }];
+      }
+
       // if (row.pricePerUnitUom) {
       //     row.pricePerUnitUom.forEach(item => {
       //         item.text = item.text.substr(item.text.indexOf('r')+2)
@@ -108,7 +119,7 @@ const transform = (data, context) => {
         const baseUrl = row.alternateImages[0].text.match(/url\("([^?]+)/)[1];
         row.alternateImages = row.alternateImages.slice(1).map((elm, index) => {
           elm.text = `${baseUrl}_${index + 1}?wid=1920&hei=1080&op_sharpen=1`;
-          return { text: elm.text };
+          return { text: clean(elm.text) };
         });
       }
 
@@ -125,6 +136,15 @@ const transform = (data, context) => {
           {
             text: text,
             xpath: row.color[0].xpath,
+          },
+        ];
+      }
+      if (row.description) {
+        const text = row.description.map(elm => elm.text.replace('...read more', '').replace('...read less', '')).join(' ');
+        row.description = [
+          {
+            text: text,
+            xpath: row.description[0].xpath,
           },
         ];
       }

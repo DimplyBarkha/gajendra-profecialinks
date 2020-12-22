@@ -1,4 +1,4 @@
-async function implementation(
+async function implementation (
   inputs,
   parameters,
   context,
@@ -25,9 +25,8 @@ module.exports = {
     country: 'UK',
     store: 'boots',
     domain: 'boots.com',
-    loadedSelector: 'canvas',
+    loadedSelector: '.product_name_link,div#estore_product_title',
     noResultsXPath: '//div[@class="no-result"]//div[@class="results_none_description"]',
     zipcode: '',
   },
-  //implementation,
 };

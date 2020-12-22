@@ -1,71 +1,5 @@
 const { transform } = require('../format');
-async function implementation(
-  inputs,
-  parameters,
-  context,
-  dependencies,
-) {
-  await context.evaluate(async function () {
-    // if (document.querySelector('button.results-btn-viewmore').disabled === false) {
-    //   while (document.querySelector('button.results-btn-viewmore').disabled === false) {
-    //     await loadGTIN();
-    //   }
-    // } else {
-    await loadGTIN();
-    // }
-    async function loadGTIN() {
-      await new Promise(resolve => setTimeout(resolve, 1000));
-      //document.querySelector('button.results-btn-viewmore').click();
-      await new Promise(resolve => setTimeout(resolve, 3000));
-      let scrollTop = 0;
-      while (scrollTop !== 20000) {
-        await stall(1000);
-        scrollTop += 1000;
-        window.scroll(0, scrollTop);
 
-        await new Promise(resolve => setTimeout(resolve, 1000));
-        if (scrollTop === 20000) {
-          await stall(5000);
-          break;
-        }
-      }
-      function stall(ms) {
-        return new Promise((resolve, reject) => {
-          setTimeout(() => {
-            resolve();
-          }, ms);
-        });
-      }
-    }
-    await new Promise(resolve => setTimeout(resolve, 3000));
-    const items = document.querySelectorAll('.ais-Hits ol.ais-Hits-list li');
-    const liItems = document.querySelectorAll('.product_listing_container ul.grid_mode.grid li.estore_product_container');
-    items.forEach((item, index) => {
-      try {
-        const obj = JSON.parse(item.textContent);
-        if (obj) {
-          const alreadyExists = liItems[index].querySelector('div#upc');
-          if (!alreadyExists) {
-            const upcDiv = document.createElement('div')
-            upcDiv.id = "upc"
-            upcDiv.textContent = obj.upc
-            liItems[index].appendChild(upcDiv)
-            const idDiv = document.createElement('div')
-            idDiv.id = "manufacturerModel"
-            idDiv.textContent = obj.manufacturerModel
-            liItems[index].appendChild(idDiv)
-          }
-        }
-      } catch (error) {
-        console.log('Error =>', error);
-      }
-    })
-  })
-  const { transform } = parameters;
-  const { productDetails } = dependencies;
-  return await context.extract(productDetails, { transform });
-  //return await context.extract(productDetails, { transform, type: 'MERGE_ROWS' });
-}
 module.exports = {
   implements: 'product/search/extract',
   parameterValues: {
@@ -75,5 +9,94 @@ module.exports = {
     domain: 'boots.com',
     zipcode: '',
   },
-  implementation,
+  implementation: async ({ url }, { country, domain, transform }, context, { productDetails }) => {
+    const upcDataResults = await context.evaluate(async () => {
+      function stall (ms) {
+        return new Promise((resolve, reject) => {
+          setTimeout(() => {
+            resolve();
+          }, ms);
+        });
+      }
+      const upcData = {};
+      let indexElement = 0;
+      let offset = 0;
+
+      async function collectUpdateData (offset) {
+        await new Promise((resolve, reject) => setTimeout(resolve, 1000));
+        try {
+          const items = document.querySelectorAll('.ais-Hits ol.ais-Hits-list li');
+          items.forEach((item, index) => {
+            try {
+              indexElement = offset + index;
+              const obj = JSON.parse(item.textContent);
+              if (Object.keys(obj).length) {
+                upcData[indexElement] = { upc: obj.upc, manufacturerModel: obj.manufacturerModel };
+              }
+            } catch (error) {
+              console.log('Error =>', error);
+            }
+          });
+          offset += items.length;
+          return offset;
+        } catch (error) {
+          console.log('Error while collecting update data', error);
+        }
+      }
+
+      async function scrollPage () {
+        let scrollTop = 0;
+        while (scrollTop !== 20000) {
+          await stall(500);
+          scrollTop += 1000;
+          window.scroll(0, scrollTop);
+          if (scrollTop === 20000) {
+            await stall(500);
+            break;
+          }
+        }
+      }
+
+      const moreButton = document.evaluate('//button[@class="results-btn-viewmore"]', document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null);
+      if (moreButton && moreButton.singleNodeValue != null) {
+        while (document.querySelector('button[class="results-btn-viewmore"]').getAttribute('disabled') != '') {
+          offset = await collectUpdateData(offset);
+          moreButton.singleNodeValue.click();
+          await new Promise((resolve, reject) => setTimeout(resolve, 1000));
+          scrollPage();
+        }
+        console.log('offset =>', offset);
+        await new Promise((resolve, reject) => setTimeout(resolve, 1000));
+        offset = await collectUpdateData(offset);
+        await new Promise((resolve, reject) => setTimeout(resolve, 1000));
+        scrollPage();
+      } else {
+        await new Promise((resolve, reject) => setTimeout(resolve, 1000));
+        offset = await collectUpdateData(offset);
+        await new Promise((resolve, reject) => setTimeout(resolve, 1000));
+        await scrollPage();
+      }
+      return upcData;
+    });
+    console.log('upcDataResults =>', upcDataResults);
+    await context.evaluate(async (upcDataResults) => {
+      const liItems = document.querySelectorAll('.product_listing_container ul.grid_mode.grid li.estore_product_container');
+      liItems.forEach((item, index) => {
+        const productDetails = upcDataResults[index];
+        const alreadyExists = liItems[index].querySelector('div#upc');
+        if (!alreadyExists && productDetails) {
+          const upcDiv = document.createElement('div');
+          upcDiv.id = 'upc';
+          upcDiv.textContent = productDetails.upc;
+          liItems[index].appendChild(upcDiv);
+          const idDiv = document.createElement('div');
+          idDiv.id = 'manufacturerModel';
+          idDiv.textContent = productDetails.manufacturerModel;
+          liItems[index].appendChild(idDiv);
+        }
+      });
+    }, upcDataResults);
+
+    return await context.extract(productDetails, { transform });
+  },
 };
