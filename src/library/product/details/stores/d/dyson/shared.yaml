@@ -7,7 +7,7 @@ fields:
     singleValue: true
     description: URL of the main product image
     #xpath: (//div[contains(concat(' ',normalize-space(@class),' '),' product-hero ')]//img[@id])[1]/@src
-    xpath: ((//div[contains(concat(' ',normalize-space(@class),' '),' product-hero ')]//img[@id])[1]/@src) | ((//div[contains(@class,"media-carousel")]//img//@src)[1])
+    xpath: (//meta[@property="og:image"]/@content)[1] | (//div[starts-with(@class,"responsive-image")]/link[@as="image"]/@href)[last()] | ((//div[contains(concat(' ',normalize-space(@class),' '),' product-hero ')]//img[@id])[1]/@src) | ((//div[contains(@class,"media-carousel")]//img//@src)[1])
   - name: imageAlt
     singleValue: true
     description: Alt text of the main product image
