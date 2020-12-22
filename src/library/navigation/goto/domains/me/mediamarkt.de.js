@@ -10,7 +10,8 @@ module.exports = {
   },
   implementation: async ({ url }, parameters, context, dependencies) => {
     await context.setBlockAds(false);
-
+    await context.setLoadAllResources(true);
+    await context.setLoadImages(true);
     const lastResponseData = await context.goto(url, {
       timeout: 100000,
       waitUntil: 'load',

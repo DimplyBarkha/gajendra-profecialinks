@@ -9,9 +9,9 @@ module.exports = {
     spinnerSelector: null,
     loadedSelector: null,
     noResultsXPath: null,
-    openSearchDefinition: {
-      template: 'https://www.mediamarkt.de/de/search.html?page={page}&query={searchTerms}',
-    },
+    // openSearchDefinition: {
+    //   template: 'https://www.mediamarkt.de/de/search.html?page={page}&query={searchTerms}',
+    // },
     domain: 'mediamarkt.de',
     zipcode: '',
   },
