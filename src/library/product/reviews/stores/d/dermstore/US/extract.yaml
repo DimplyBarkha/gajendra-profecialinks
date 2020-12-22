@@ -30,10 +30,11 @@ fields:
     singleValue: false
     type: DATETIME
     description: Date the review was made
+    xpath: //div[contains(@class,"reviewer")]//p[2]
   - name: reviewRating
-    type: NUMBER
     singleValue: false
     description: Rating normalized to be out of 5
+    xpath: ancestor::html//meta[@itemprop="ratingValue"]/@content
   - name: reviewText
     singleValue: false
     xpath: //div[contains(@class,"col-sm-9")]//p[1]
@@ -51,9 +52,13 @@ fields:
   - name: productUrl
     singleValue: false
     description: The url of the product details page
+    xpath: ancestor::html//meta[@property='og:url']/@content
   - name: verifiedPurchase
     singleValue: false
-    type: BOOLEAN
+    xpath: //div[contains(@class,"col-sm-3 reviewer")]//span[contains(@class,"highlight")]/*[contains(text(),"Verified Purchaser")]
+    regExp: (.+)
+    regExpReplace: 'YES'
+    defaultValue: 'NO'
     description: Whether this of an item the reviewer purchased. "Yes" if true else ""
   - name: manufacturerResponse
     singleValue: false
@@ -63,7 +68,9 @@ fields:
     description: Stated place the review was syndicated from
   - name: reviewUrl
     singleValue: false
-    xpath: //div[@id="Added_reviewUrl"]
+    xpath: ancestor::html//meta[@property='og:url']/@content
+    regExp: (.+)
+    regExpReplace: $1#reviews
     description: A direct link to the review
   - name: reviewedSku
     singleValue: false
@@ -73,8 +80,9 @@ fields:
   - name: user
     singleValue: false
     description: The user name of the reviewer
-    xpath: //div[contains(@class,"col-sm-3 reviewer")]//p[contains(text(),"from")][1]
+    xpath: //div[contains(@class,"col-sm-3 reviewer")]//a
   - name: aggregateRating
     singleValue: false
     xpath: //div[contains(@class,"starsBox")]//@class
+    regExp: \d+
     description: The product rating

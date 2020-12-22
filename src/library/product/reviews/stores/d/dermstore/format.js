@@ -1,10 +1,9 @@
-
 /**
  *
  * @param {ImportIO.Group[]} data
  * @returns {ImportIO.Group[]}
  */
-const transform = (data) => {
+const transform = (data, context) => {
   const clean = text => text.toString()
     .replace(/\r\n|\r|\n/g, ' ')
     .replace(/&amp;nbsp;/g, ' ')
@@ -16,23 +15,15 @@ const transform = (data) => {
     .replace(/^ +| +$|( )+/g, ' ')
     // eslint-disable-next-line no-control-regex
     .replace(/[\x00-\x1F]/g, '')
-    .replace(/[\uD800-\uDBFF][\uDC00-\uDFFF]/g, ' ');
+    .replace(/[\uD800-\uDBFF][\uDC00-\uDFFF]/g, ' ')
+    .trim();
   for (const { group } of data) {
     for (const row of group) {
-      if (row.aggregateRating) {
-        row.aggregateRating.forEach(itemaggregateRating => {
-          itemaggregateRating.text = itemaggregateRating.text.replace(/[^\d]/gm, '');
-        });
-      }
+      Object.keys(row).forEach(header => row[header].forEach(el => {
+        el.text = clean(el.text);
+      }));
     }
   }
-
-  data.forEach(obj => obj.group.forEach(row => Object.keys(row).forEach(header => row[header].forEach(el => {
-    if (typeof el.text !== 'undefined') {
-      el.text = clean(el.text);
-    }
-  }))));
   return data;
 };
-
 module.exports = { transform };

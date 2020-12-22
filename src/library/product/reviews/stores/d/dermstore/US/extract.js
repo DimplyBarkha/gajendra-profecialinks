@@ -1,18 +1,5 @@
 const { transform } = require('../format');
-
-module.exports = {
-  implements: 'product/reviews/extract',
-  parameterValues: {
-    country: 'US',
-    store: 'dermstore',
-    transform,
-    domain: 'dermstore.com',
-    zipcode: '',
-  },
-  implementation,
-};
 async function implementation (inputs, parameters, context, dependencies) {
-  //h3[@itemprop="headline"]
   const { transform } = parameters;
   const { productReviews } = dependencies;
 
@@ -33,31 +20,37 @@ async function implementation (inputs, parameters, context, dependencies) {
   //     return reviewDate;
   //   }, position);
   // };
-  // const nextXpath = document.querySelector('a.pages:last-of-type').innerText;
-  const nextXpath = await context.evaluate(async () => {
-    return document.querySelector('a.pages:last-of-type').innerText;
-  });
-  console.log('nextXpath', nextXpath === 'next');
   const getNextLinkCheck = () => {
     return context.evaluate(() => {
-      return document.querySelector(
-        'a.pages:last-of-type'
-      );
+      if (document.querySelector(
+        'a.pages:last-of-type').innerText === 'next') {
+        return document.querySelector(
+          'a.pages:last-of-type');
+      }
     });
   };
   let getNextLinkTest = await getNextLinkCheck();
-  console.log('nextXpath', nextXpath === 'next');
-  console.log('getNextLinkTest', getNextLinkTest);
-
+  // const latestReviewDate = await getReviewDate('first');
+  // let lastReviewDate = await getReviewDate('last');
   while (getNextLinkTest
   ) {
-    if (nextXpath === 'next') {
-      await context.extract(productReviews, { type: 'APPEND' });
-      await context.click('a.pages:last-of-type');
-      await new Promise((resolve) => setTimeout(resolve, 1000));
-      // lastReviewDate = await getReviewDate('last');
-      getNextLinkTest = await getNextLinkCheck();
-    }
+    await context.extract(productReviews, { type: 'APPEND' });
+    await context.click('a.pages:last-of-type');
+    await new Promise((resolve) => setTimeout(resolve, 1000));
+    // lastReviewDate = await getReviewDate('last');
+    getNextLinkTest = await getNextLinkCheck();
   }
-  return await context.extract(productReviews, transform);
+  return await context.extract(productReviews, { transform });
 }
+
+module.exports = {
+  implements: 'product/reviews/extract',
+  parameterValues: {
+    country: 'US',
+    store: 'dermstore',
+    transform,
+    domain: 'dermstore.com',
+    zipcode: '',
+  },
+  implementation,
+};
