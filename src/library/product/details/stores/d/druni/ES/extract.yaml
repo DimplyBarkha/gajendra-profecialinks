@@ -3,6 +3,9 @@ regionsSelector: null
 recordSelector: null
 recordXPath: null
 fields:
+  - name: name
+    singleValue: true
+    xpath: //div[contains(@class,'product-title')]/h1
   - name: nameExtended
     singleValue: true
     xpath: //div[contains(@class,'product-title')]/h1
@@ -57,4 +60,7 @@ fields:
     xpath: //meta[contains(@property, "og:url")]/@content
   - name: colour
     singleValue: false
-    xpath: //ul[contains(@class, 'dropdown-menu inner show')]/li/a
+    xpath: //*[contains(@class,'dropdown-menu inner show')]//li/a/span/span[contains(@class,'swatch-color-content')]
+  - name: manufacturerName
+    singleValue: true
+    xpath: //h1[contains(@class, 'product attribute manufacturer')]/a

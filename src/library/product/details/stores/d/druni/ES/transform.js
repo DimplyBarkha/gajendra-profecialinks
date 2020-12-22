@@ -38,14 +38,14 @@ const transform = (data, context) => {
             { text: baseObject.aggregateRating.ratingValue },
           ];
         }
-        if (row.variantAvailabilityText) {
-          if (row.variantAvailabilityText[0].text == "box-tocart unavailable") {
+        if (row.availabilityText) {
+          if (row.availabilityText[0].text == "box-tocart unavailable") {
             // console.log("Out of stock");
-            row.variantAvailabilityText = [{ text: "Out of stock" }];
+            row.availabilityText = [{ text: "Out of stock" }];
           }
-          if(row.variantAvailabilityText[0].text == "box-tocart"){
+          if(row.availabilityText[0].text == "box-tocart"){
             // console.log("In stock");
-            row.variantAvailabilityText = [{ text: "In stock" }];
+            row.availabilityText = [{ text: "In stock" }];
           }
         }
       } catch (exception) {
