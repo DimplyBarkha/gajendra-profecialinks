@@ -86,11 +86,23 @@ module.exports = {
                 mode: 'no-cors',
                 headers: { 'Content-Type': 'application/json' },
               };
-
-              return await (await fetch(url, options)).json();
+  
+              // return await (await fetch(url, options)).json();
+              const response = await fetch(url, options);
+              if (response.status != 500) { 
+                return await (response).json();
+              } else {
+                return;
+              }
             }
-
-            return await (await fetch(url, options)).text();
+  
+            // return await (await fetch(url, options)).text();
+            const response = await fetch(url, options);
+            if (response.status != 500) { 
+              return await (response).text();
+            } else {
+              return;
+            }
           } catch (err) {
             console.log('Error while making API call.', err);
           }
