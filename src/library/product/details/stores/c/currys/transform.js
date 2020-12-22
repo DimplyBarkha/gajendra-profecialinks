@@ -18,6 +18,17 @@ const transform = (data) => {
         ];
       }
 
+      if (row.aggregateRating) {
+        let text = '';
+        row.aggregateRating.forEach(item => {
+          text = (Number(item.text)/10*5).toFixed(1);
+        });
+        row.aggregateRating = [
+          {
+            text: text,
+          },
+        ];
+      }
       if (row.manufacturerImages) {
         let text = '';
         row.manufacturerImages.forEach(item => {
@@ -64,10 +75,10 @@ const transform = (data) => {
         });
         row.additionalDescBulletInfo = [{ text: '|| ' + arrBullets.join(' || ') }];
       }
-      if (row.category && row.category.length) {
-        row.category = row.category.slice(1);
-        row.category.pop();
-      }
+      // if (row.category && row.category.length) {
+      //   row.category = row.category.slice(1);
+      //   row.category.pop();
+      // }
       if (row.manufacturerDescription1) {
         if (!row.manufacturerDescription) {
           row.manufacturerDescription = [{ text: row.manufacturerDescription1[0].text }];
@@ -79,9 +90,9 @@ const transform = (data) => {
         row.manufacturerImages = images.map(text => ({ text }));
       }
 
-      if (row.alternateImages && row.alternateImages.length) {
-        row.alternateImages = row.alternateImages.slice(1);
-      }
+      // if (row.alternateImages && row.alternateImages.length) {
+      //   row.alternateImages = row.alternateImages.slice(1);
+      // }
     }
   }
 
