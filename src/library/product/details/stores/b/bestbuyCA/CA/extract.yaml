@@ -53,9 +53,9 @@ fields:
   - name: sku
     singleValue: false 
     manualSelector: span[itemprop="sku"]
-  - name: specifications
-    singleValue: false 
-    xpath: //div[@id="detailsAndSpecs"]/div/div
+  # - name: specifications
+  #   singleValue: false 
+  #   xpath: //div[@id="detailsAndSpecs"]/div/div
   - name: variantId
     singleValue: false
     manualSelector: span[itemprop="sku"]
@@ -68,11 +68,11 @@ fields:
   - name: nameExtended
     singleValue: false
     xpath: //h1[@itemprop="name"]
-  - name: listPrice
-    singleValue: false
-    xpath: concat("$", "",//span[@itemprop="offers"]/meta[@itemprop="price"]/@content)
-    regExp: (.+)
-    regExpReplace: $$1
+  # - name: listPrice
+  #   singleValue: false
+  #   xpath: concat("$", "",//span[@itemprop="offers"]/meta[@itemprop="price"]/@content)
+  #   regExp: (.+)
+  #   regExpReplace: $$1
   - name: productOtherInformation
     singleValue: false
     manualSelector: div[id="bb_productOtherInformation"]
@@ -92,6 +92,8 @@ fields:
   - name: warranty
     singleValue: false
     xpath: //h3[text()="Warranty"]/parent::div/following-sibling::div | //h3[text()="Warranty"]/parent::div/following-sibling::div | //div[contains(.,"Manufacturer's Warranty - Parts")]/following-sibling::div[@class="itemValue_XPfaq"]
+    regExp: \d{1,}.+
+    # regExpReplace: $1
   - name: aggregateRating1
     singleValue: false
     xpath: //div[@class="marketplaceRating_oSU31"]/text()
@@ -111,17 +113,16 @@ fields:
     xpath: 
   - name: brandText
     singleValue: false
-    manualSelector: h1[itemprop="name"]
+    xpath: //h1[@itemprop="name"]
+    regExp: ^\w+
+  # - name: brandText2
+  #   singleValue: false
+  #   xpath: //h1[@itemprop="name"]
   - name: materials
     singleValue: false
     xpath: //p[contains(.,"Material")]/text()
     regExp: Material\W(.+)
     regExpReplace: $1
-  # - name: materials
-  #   singleValue: false
-  #   xpath: //p[contains(.,"Material")]/text()
-  #   regExp: Material\W(.+)
-  #   regExpReplace: $1
   - name: specifications
     singleValue: false
     xpath: //div[@id="detailsAndSpecs"]/div/div 
@@ -151,12 +152,12 @@ fields:
   - name: customerServiceAvailability
     singleValue: false
     defaultValue: Yes
-  # - name: productUrl
-  #   singleValue: true
-  #   xpath: //link[@rel='canonical']/@href
-  # - name: materials
-  #   singleValue: true
-  #   xpath: //table[@id="productDetails_techSpec_section_1"]//tr[contains(.,  "Material")]/td
+  - name: productUrl
+    singleValue: true
+    xpath: //link[@rel='canonical']/@href
+  - name: materials
+    singleValue: true
+    xpath: //table[@id="productDetails_techSpec_section_1"]//tr[contains(.,  "Material")]/td
   - name: Image360Present
     singleValue: false
     defaultValue: No

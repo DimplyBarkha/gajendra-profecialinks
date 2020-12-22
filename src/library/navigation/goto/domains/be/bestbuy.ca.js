@@ -3,9 +3,9 @@ module.exports = {
   implements: 'navigation/goto',
   parameterValues: {
     domain: 'bestbuy.ca',
-    timeout: 80000,
+    timeout: 50000,
     country: 'CA',
-    store: 'bestbuyCA',
+    store: 'bestbuy',
     zipcode: '',
   },
 };

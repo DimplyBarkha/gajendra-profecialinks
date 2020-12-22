@@ -35,24 +35,7 @@ const transform = (data) => {
             },
           ];
         }
-        if (row.variantUrl) {
-          const variantUrls = [];
-          let dupUrl = '';
-          let urls = [];
-          row.variantUrl.forEach(item => {
-            console.log('item:: ', item.text);
-            urls = row.variantUrl.filter(it => item.text === it.text);
-            if (urls && urls.length === 1) {
-              variantUrls.push(item);
-            } else {
-              if (dupUrl !== item.text) {
-                dupUrl = item.text;
-                variantUrls.push(item);
-              }
-            }
-          });
-          row.variantUrl = variantUrls;
-        }
+        
         if (row.additionalDescBulletInfo) {
           let text = '';
           row.additionalDescBulletInfo.forEach(item => {

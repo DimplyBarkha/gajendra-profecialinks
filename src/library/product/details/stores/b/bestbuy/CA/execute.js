@@ -4,7 +4,7 @@ module.exports = {
   parameterValues: {
     country: 'CA',
     store: 'bestbuy',
-    domain: 'bestbuy.ca/en-ca',
+    domain: 'bestbuy.ca',
     loadedSelector: null,
     noResultsXPath: null,
     zipcode: '',

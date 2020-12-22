@@ -2,9 +2,9 @@
 module.exports = {
   implements: 'product/details/createUrl',
   parameterValues: {
-    domain: 'bestbuy.ca/en-ca',
+    domain: 'bestbuy.ca',
     prefix: null,
-    url: null,
+    url: 'https://www.bestbuy.ca/en-ca/product/{id}',
     country: 'CA',
     store: 'bestbuy',
     zipcode: '',
