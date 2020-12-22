@@ -298,7 +298,7 @@ module.exports = {
           }
         }
 
-        function getStock (variants) {
+        function getAvailability (variants) {
           if (variants) {
             if (variants.status.toLocaleLowerCase() === 'add') {
               return 'In Stock';
@@ -364,7 +364,7 @@ module.exports = {
                 variantinformation: variantInformation(variants[i]), // variantInformation,
                 variantDetails: variantIds.join(' | '), // variants
                 variantcount: variants.length, // variantCount
-                availability: getStock(variants[i]), // availabilityText
+                availability: getAvailability(variants[i]), // availabilityText
               };
               console.log(`variantInfo: ${JSON.stringify(variantInfo)}`);
 
