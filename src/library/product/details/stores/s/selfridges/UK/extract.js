@@ -30,16 +30,47 @@ async function implementation (inputs, parameters, context, dependencies) {
 
   await context.evaluate(async () => {
     await new Promise((resolve, reject) => setTimeout(resolve, 3000));
-    const availability = document.querySelector('button[data-action="add-to-bag"].--disabled');
-    if (availability) {
-      document.querySelector('section[data-js-component="productHero"]').setAttribute('availability', 'Out of Stock');
-    } else {
-      document.querySelector('section[data-js-component="productHero"]').setAttribute('availability', 'In Stock');
-    }
 
-    // await context.waitForSelector('img.c-image-gallery__img')
-    const sku = window.location.href.split('_')[1].split('/')[0];
-    document.head.setAttribute('sku', sku);
+    const isVariants = document.querySelector('section.multi-size div.c-select__dropdown-item-container span.c-select__dropdown-item');
+    if (isVariants) {
+      const isVariants = document.querySelectorAll('section.multi-size div.c-select__dropdown-item-container span.c-select__dropdown-item');
+      const rpc = [];
+      const sizeVariants = JSON.parse(document.querySelector('script[data-component="pdp-semantic-data"]').textContent);
+      for (let i = 0; i < isVariants.length; i++) {
+        rpc.push(sizeVariants.model[i].sku);
+      }
+      for (let i = 0; i < isVariants.length; i++) {
+        isVariants[i].setAttribute('variantId', rpc[i]);
+        isVariants[i].setAttribute('availability', sizeVariants.model[i].offers[0].availability);
+      }
+      document.querySelector('section[data-js-component="productHero"]').setAttribute('firstVariant', rpc[0]);
+      document.querySelector('section[data-js-component="productHero"]').setAttribute('variants', rpc);
+    } else {
+      var newSection = document.createElement('section');
+      newSection.className = 'multi-size';
+      document.querySelector('section[data-js-component="productHero"]').append(newSection);
+
+      var newDiv = document.createElement('div');
+      newDiv.className = 'c-select__dropdown-item-container';
+      document.querySelector('section[data-js-component="productHero"] section.multi-size').append(newDiv);
+
+      var newSpan = document.createElement('span');
+      newSpan.className = 'c-select__dropdown-item';
+      document.querySelector('section[data-js-component="productHero"] section.multi-size div.c-select__dropdown-item-container').appendChild(newSpan);
+
+      const availability = document.querySelector('button[data-action="add-to-bag"].--disabled');
+      if (availability) {
+        document.querySelector('section[data-js-component="productHero"]').setAttribute('availability', 'Out of Stock');
+      } else {
+        document.querySelector('section[data-js-component="productHero"]').setAttribute('availability', 'In Stock');
+      }
+      document.querySelector('section.multi-size div.c-select__dropdown-item-container span.c-select__dropdown-item').setAttribute('variantId', JSON.parse(document.querySelector('script[data-component="pdp-semantic-data"]').textContent).model[0].sku);
+      const size = document.querySelector('section[data-js-variant-type="single-size"] div[data-select-name="Size"] button');
+      if (size) {
+        const singleSize = size.textContent;
+        document.querySelector('section.multi-size div.c-select__dropdown-item-container span.c-select__dropdown-item').setAttribute('data-js-action', singleSize);
+      }
+    }
 
     function addElementToDocument (id, value, key) {
       const catElement = document.createElement('div');
@@ -49,31 +80,6 @@ async function implementation (inputs, parameters, context, dependencies) {
       catElement.style.display = 'none';
       document.body.appendChild(catElement);
     };
-    // getting nameExtended
-    const name = document.querySelector('span.a-txt-product-description') ? document.querySelector('span.a-txt-product-description').innerText : null;
-    const brand = document.querySelector('span.a-txt-brand-name>a') ? document.querySelector('span.a-txt-brand-name>a').innerText : null;
-    if (name !== null && brand !== null) {
-      // @ts-ignore
-      addElementToDocument('nameextended', `${brand} - ${name}`);
-    }
-
-    const script = document.querySelector('script[data-component="pdp-semantic-data"]') ? document.querySelector('script[data-component="pdp-semantic-data"]').innerText : null;
-    if (document.querySelector('section[data-js-component="productHero"]') !== null) {
-      const scriptToString = JSON.parse(script);
-      // @ts-ignore
-
-      if (script !== null) {
-        // getting variantId
-        const sku = scriptToString.model[0].sku;
-        // @ts-ignore
-        addElementToDocument('variantid', sku);
-
-        // getting availability
-        const isAvailable = scriptToString.model[0].offers[0].availability;
-        // @ts-ignore
-        addElementToDocument('availability', isAvailable);
-      }
-    }
 
     const isImgZoom = document.querySelector('span.hero-zoom')
       ? document.querySelector('span.hero-zoom') : null;
@@ -103,21 +109,15 @@ async function implementation (inputs, parameters, context, dependencies) {
       console.log(description1);
     }
 
-    function getElementsByXPath (xpath, parent) {
-      const results = [];
-      const query = document.evaluate(xpath, parent || document,
-        null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
-      for (let i = 0, length = query.snapshotLength; i < length; ++i) {
-        results.push(query.snapshotItem(i).textContent.trim());
-      }
-      return results;
-    }
-    const items = getElementsByXPath("//script[contains(.,'productId')]");
-    if (items && items[0]) {
-      const data = items[0].split('"productId":"')[1].split('"')[0];
-      console.log(data);
-      document.head.setAttribute('variantid', data);
-    }
+    // function getElementsByXPath (xpath, parent) {
+    //   const results = [];
+    //   const query = document.evaluate(xpath, parent || document,
+    //     null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
+    //   for (let i = 0, length = query.snapshotLength; i < length; ++i) {
+    //     results.push(query.snapshotItem(i).textContent.trim());
+    //   }
+    //   return results;
+    // }
   });
 
   return await context.extract(productDetails, { transform });

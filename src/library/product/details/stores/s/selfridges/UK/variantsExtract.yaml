@@ -1,7 +1,7 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: //section[@data-js-variant-type="multi-colour"]//div[@data-select-count-text="Colours"]//span[contains(@class,"c-select__dropdown-item")] | //section[@data-js-component="productHero"]
+recordXPath: //section[contains(@data-js-variant-type,"multi-colour")]//div[@data-select-count-text="Colours"]//span[contains(@class,"c-select__dropdown-item")] | //section[@data-js-component="productHero"]
 fields:
   - name: variantUrl
     xpath: //@varianturl
