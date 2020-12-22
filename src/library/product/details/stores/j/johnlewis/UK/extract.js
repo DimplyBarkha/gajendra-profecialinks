@@ -34,10 +34,22 @@ module.exports = {
         return result;
       };
       var Description = getAllXpath("//div[@class='product-detail__description-inner']/p[position()>1]/text()", 'nodeValue');
+      var bullet = getAllXpath("//div[@class='product-detail__description-inner']/ul/li/text()", 'nodeValue');
+      var ppp = "";
+      var uuu = "";
       if (Description != null) {
-        var ppp = Description.join(" || ")
-        addElementToDocument('desc', ppp);
+        ppp = Description.join(" || ")
       }
+      if (bullet != null) {
+        uuu = bullet.join(" || ")
+      }
+      var desc = ppp + uuu
+      if (desc!= null){
+        addElementToDocument('desc', desc);
+
+      }
+      
+
 
       var image = getAllXpath("//ul[@class='thumbnail-wrapper']/li[@class='thumbnail-slide']/img/@src", 'nodeValue');
       if (image != null) {
@@ -67,6 +79,39 @@ module.exports = {
         addElementToDocument('spec', final);
       }
 
+      // @ts-ignore
+      var response = document.querySelector('script') ? JSON.parse(document.querySelector("script[type='application/ld+json']").innerText) : null;
+      if (response) {
+      var price = response.offers.price;
+      price = "£" + price
+      addElementToDocument('price', price);
+      }
+
+      if (response) {
+        var id = response.productId
+        addElementToDocument('variant', id);
+        }
+
+      if (response) {
+        var ooo = response.sku
+        addElementToDocument('sku', ooo);
+        }
+
+      if (response) {
+        var yyy = response.aggregateRating.reviewCount
+        addElementToDocument('review', yyy);
+        }
+
+      if (response) {
+        var ava = response.offers.availability;
+        if (ava.includes("InStock")){
+          ava = "In Stock"
+
+        }
+        else ava = "Out of Stock"
+        addElementToDocument('stock', ava);
+        }
+
 
 
       var xyz = getXpath("//div[@class='star-ratings']/div[@class='stars-empty']/@style", 'nodeValue');
@@ -77,16 +122,16 @@ module.exports = {
         addElementToDocument('star', width);
       }
 
-      var rrr = getXpath("//p[@class='u-centred']/text() | //h2[@class='email-me-stock__header']/text()", 'nodeValue');
-      if (rrr!=null){
-        if (rrr.includes("in stock")){
-        rrr="In Stock"
-    }else{
-        rrr="Out of Stock"
+    //   var rrr = getXpath("//p[@class='u-centred']/text() | //h2[@class='email-me-stock__header']/text()", 'nodeValue');
+    //   if (rrr!=null){
+    //     if (rrr.includes("in stock")){
+    //     rrr="In Stock"
+    // }else{
+    //     rrr="Out of Stock"
 
-      }
-      addElementToDocument('stock', rrr);
-    }
+    //   }
+    //   addElementToDocument('stock', rrr);
+    // }
     });
     await context.extract(productDetails, { transform: transformParam });
   },

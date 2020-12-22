@@ -31,7 +31,8 @@ fields:
     regExp: (\£.+\d )
   - name: price
     singleValue: true
-    xpath: (//p[@class="price price--large"]/text())[1]
+    # xpath: (//p[@class="price price--large"]/text())[1]
+    xpath: //html//div[@id="price"]
   - name: availabilityText
     singleValue: true
     xpath: //html//div[@id="stock"]
@@ -65,10 +66,11 @@ fields:
     description: GTIN code (includes UPC/EAN)
   - name: sku
     singleValue: true
-    xpath: //div[@id="store-stock-app"]/@data-sku-id
+    xpath: //html//div[@id="sku"]
   - name: variantId
     singleValue: true
-    xpath: //div[@id="store-stock-app"]/@data-product-code
+    # xpath: //div[@id="store-stock-app"]/@data-product-code
+    xpath: //html//div[@id="variant"]
   - name: mpc
     singleValue: true
     xpath: //dl[@class="product-specifications-list"]/dt[contains(text(),'MPN')]/following-sibling::dd[1]/text()
@@ -87,8 +89,9 @@ fields:
     description: Content under "warnings" header
   - name: ratingCount
     singleValue: true
-    xpath: //div[@class="stars-caption"]/text()
-    regExp: (\d+)
+    xpath: //html//div[@id="review"]
+    # xpath: //div[@class="stars-caption"]/text()
+    # regExp: (\d+)
     type: NUMBER
   - name: aggregateRating
     singleValue: true
