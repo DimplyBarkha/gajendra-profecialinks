@@ -6,7 +6,7 @@ module.exports = {
         domain: 'flaconi.de',
         url: 'https://www.flaconi.de/search?q={searchTerms}',
         loadedSelector: 'div.canvas-menu-wrapper',
-        noResultsXPath: '//*[contains(text(),"0 Artikel")]',
+        noResultsXPath: '//*[contains(@class,"head-search-null")]',
         zipcode: '',
     },
     implementation: async function(
