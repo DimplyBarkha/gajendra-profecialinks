@@ -33,9 +33,11 @@ async function implementation (inputs, parameters, context, dependencies) {
       addHiddenDiv('added_brandText', brandText);
     }
     fetchBrandFromScript();
-    const scrollToElement = document.querySelector('div#flix-location-content');
+    if(document.querySelector('div#flix-location-content')){
+      const scrollToElement = document.querySelector('div#flix-location-content');
     console.log('scroll element ' + scrollToElement);
     scrollToElement.scrollIntoView({ behavior: 'smooth' });
+    }
     function stall (ms) {
       return new Promise((resolve, reject) => {
         setTimeout(() => {
