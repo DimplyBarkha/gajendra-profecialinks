@@ -6,7 +6,7 @@ fields:
   - name: image
     singleValue: true    
     xpath: //div[@class='fp-productList_image']/img/@src
-  - name: _url
+  - name: productUrl
     singleValue: true    
     xpath: /html/head/link[@rel="canonical"]/@href
   - name: imageAlt
@@ -28,13 +28,13 @@ fields:
     singleValue: true
     xpath: //div[@class="fp-pagination"]/@data-brand-name
   - name: quantity
-    singleValue: true
+    singleValue: false
     xpath: //div[@class="fp-productList_bottleInfo"]/text()
   - name: variantId
-    singleValue: true
+    singleValue: false
     xpath: //div[@class="fp-productList_content"]/div/@data-article 
   - name: variantInformation
-    singleValue: true
+    singleValue: false
     xpath: //div[@class="fp-productList_bottleInfo"]/text()
   - name: variantCount
     singleValue: true
@@ -45,7 +45,7 @@ fields:
     description: The product name
     xpath: //div[@class='fp-productList_info']/h5[@class='fp-productList_productName']
   - name: price
-    singleValue: true
+    singleValue: false
     type: CURRENCY
     xpath: //b[@class="fp-price-is-special-offer"]/text()
   - name: ingredientsList
