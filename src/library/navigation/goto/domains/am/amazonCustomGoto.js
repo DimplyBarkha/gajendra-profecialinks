@@ -71,7 +71,7 @@ async function goto (gotoInput, parameterValues, context, dependencies) {
   // checking for blank pages and reloads if blank (data dropped)
   const pageContextCheck = async (page) => {
     console.log('pageContextCheck', page);
-    if (Object.entries(page).filter(item => item[0] != 'windowLocation').filter(item => item[1] === true).length === 0) {
+    if (Object.entries(page).filter(item => item[0] !== 'windowLocation').filter(item => item[1] === true).length === 0) {
       context.counter.set('dropped_data', 1);
       await context.reload();
       await new Promise(r => setTimeout(r, 2000));
@@ -185,7 +185,7 @@ async function goto (gotoInput, parameterValues, context, dependencies) {
       };
       const params = await getParams();
       try {
-        if (Object.entries(params).filter(item => item[1] != undefined).length === 7) {
+        if (Object.entries(params).filter(item => item[1] !== undefined).length === 7) {
           let url;
           if (page.windowLocation.hostname.includes('com')) {
             url = `https://${page.windowLocation.hostname}/gp/page/refresh?acAsin=${params.current_asin}&asinList=${params.current_asin}&auiAjax=1&dpEnvironment=softlines&dpxAjaxFlag=1&ee=2&enPre=1&id=${params.current_asin}&isFlushing=2&isP=1&isUDPFlag=1&json=1&mType=full&parentAsin=${params.parent_asin ? params.parent_asin : params.current_asin}&pgid=${params.pgid}&psc=1&ptd=${params.ptd}&rid=${params.rid}=1&sCac=1&sid=${params.sid}&storeID=${params.storeID}&triggerEvent=Twister&twisterView=glance`;
@@ -457,7 +457,7 @@ async function goto (gotoInput, parameterValues, context, dependencies) {
     return page;
   };
 
-  const run = async (user_agent) => {
+  const run = async (userAgent) => {
     // context.enableNetworkDebugger();
     // redshift health counters set to 0
     context.counter.set('task', 0);
@@ -467,7 +467,7 @@ async function goto (gotoInput, parameterValues, context, dependencies) {
     context.counter.set('append', 0);
 
     // options used for all goto's
-    await context.setUserAgent(user_agent);
+    await context.setUserAgent(userAgent);
     await context.setJavaScriptEnabled(true);
     await context.setCssEnabled(false);
 
