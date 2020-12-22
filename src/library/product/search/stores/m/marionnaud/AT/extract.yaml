@@ -1,13 +1,14 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: //div[contains(@class,"more-data-loader")]//div[contains(@class,'product-tile__wrapper')]
+recordXPath: //div[@data-component="MasonryGrid"]//div[@class="product-tile__container"]
 fields:
   - name: id
     singleValue: false
     xpath: //@product-tile-id
   - name: searchUrl
     singleValue: true
+    xpath: //@search-url
   - name: name
     xpath: //@product-tile-name
     singleValue: false
@@ -16,15 +17,11 @@ fields:
   - name: gtin
     singleValue: false
   - name: thumbnail
-    xpath: //img[@class="product-tile__image"]/@src
-    regExp: (\/medias.*)
-    regExpReplace: https://www.marionnaud.at$1
+    xpath: //@thumbnail
   - name: aggregateRating
     singleValue: false
   - name: aggregateRating2
-    xpath: //div[@data-ref="stars"]/@data-rating
-    regExp: (\d+)\.?\,?(\d+)?
-    regExpReplace: $1,$2
+    xpath: //@aggregateRating
     singleValue: false
   - name: reviewCount
     singleValue: false

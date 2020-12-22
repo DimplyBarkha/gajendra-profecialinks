@@ -2,309 +2,1125 @@ input:
   keywords: Lipgloss
   _url: http://marionnaud.at
 extractions:
-  - html: https://workbench.import.io/html/run=cfd25b52-6940-4888-b31c-3cd9df09136b/task=de9464d9-029e-4296-b367-48d510d7dd85/e167ec49-a6d7-4e94-b8d9-f4bee0440d08.html
+  - html: https://workbench.import.io/html/run=ba26a444-7391-4a8a-83a7-53c6b457a0af/task=fa6d3baf-818a-4be6-9621-586f95022dbc/e2d587fd-ff54-4fe0-a77a-ced121865cc4.html
     extractionConfigId: product/search/stores/m/marionnaud/AT/extract
     data:
       - group:
           - id:
               - text: 143MSS1903
-                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[1]/@product-tile-id
+                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[1]/div[1]/@product-tile-id
+            searchUrl:
+              - text: https://www.marionnaud.at/marionnaud/make-up/lippen/lipgloss/c/300030002
+                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[1]/div[1]/@search-url
             name:
               - text: Marionnaud Lipgloss
-                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[1]/@product-tile-name
+                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[1]/div[1]/@product-tile-name
             productUrl:
               - text: https://www.marionnaud.at/marionnaud/make-up/lippen/lipgloss/lipgloss/p/143MSS1903
-                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[1]/@product-tile-url
+                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[1]/div[1]/@product-tile-url
             thumbnail:
               - text: https://www.marionnaud.at/medias/sys_master/front-cat/front-cat/8942447034398/Marionnaud-Lipgloss-3607940028599-MARIONNAUD-SOMMER-19.jpg
-                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/a[1]/img[1]/@src
+                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[1]/div[1]/@thumbnail
             price:
               - text: € 6,49
-                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[1]/@product-tile-price
-          - id:
-              - text: 143ADLIMAXI
-                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[3]/div[1]/@product-tile-id
-            name:
-              - text: Dior Lipgloss
-                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[3]/div[1]/@product-tile-name
-            productUrl:
-              - text: https://www.marionnaud.at/marionnaud/make-up/lippen/lipgloss/lipgloss/p/143ADLIMAXI
-                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[3]/div[1]/@product-tile-url
-            thumbnail:
-              - text: https://www.marionnaud.at/medias/sys_master/front-cat/front-cat/8933933285406/Dior-Lipgloss-3348901431040-DIOR-ADDICT-LIP-MAXIMIZER.jpg
-                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/a[1]/img[1]/@src
-            price:
-              - text: € 40,99
-                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[3]/div[1]/@product-tile-price
+                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[1]/div[1]/@product-tile-price
           - id:
               - text: 143ADDICTROU
-                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[4]/div[1]/@product-tile-id
+                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[3]/div[1]/div[1]/@product-tile-id
+            searchUrl:
+              - text: https://www.marionnaud.at/marionnaud/make-up/lippen/lipgloss/c/300030002
+                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[3]/div[1]/div[1]/@search-url
             name:
               - text: Dior Lip Glow Feuchtigkeit spendender Lippenbalsam für intensive Farbe
-                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[4]/div[1]/@product-tile-name
+                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[3]/div[1]/div[1]/@product-tile-name
             productUrl:
               - text: https://www.marionnaud.at/marionnaud/pflege/gesicht/lippenpflege/lip-glow-feuchtigkeit-spendender-lippenbalsam-fu%CC%88r-intensive-farbe/p/143ADDICTROU
-                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[4]/div[1]/@product-tile-url
+                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[3]/div[1]/div[1]/@product-tile-url
             thumbnail:
               - text: https://www.marionnaud.at/medias/sys_master/front-cat/front-cat/8934170689566/Dior-Lip-Glow-Feuchtigkeit-spendender-Lippenbalsam-f-r-intensive-Farbe-3348901394673-LIP-GLOW.jpg
-                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[4]/div[1]/div[1]/div[1]/a[1]/img[1]/@src
+                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[3]/div[1]/div[1]/@thumbnail
             price:
               - text: € 40,99
-                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[4]/div[1]/@product-tile-price
-          - id:
-              - text: 143ADGLOWOI
-                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[5]/div[1]/@product-tile-id
-            name:
-              - text: Dior getönte Lippenpflege
-                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[5]/div[1]/@product-tile-name
-            productUrl:
-              - text: https://www.marionnaud.at/marionnaud/make-up/lippen/lipgloss/geto%CC%88nte-lippenpflege/p/143ADGLOWOI
-                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[5]/div[1]/@product-tile-url
-            thumbnail:
-              - text: https://www.marionnaud.at/medias/sys_master/front-cat/front-cat/8966009258014/Dior-get-nte-Lippenpflege-3348901491150-ADDICT-LIP-GLOW-OIL.jpg
-                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[5]/div[1]/div[1]/div[1]/a[1]/img[1]/@src
-            price:
-              - text: € 39,99
-                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[5]/div[1]/@product-tile-price
+                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[3]/div[1]/div[1]/@product-tile-price
           - id:
               - text: 143CQF181
-                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[6]/div[1]/@product-tile-id
+                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[4]/div[1]/div[1]/@product-tile-id
+            searchUrl:
+              - text: https://www.marionnaud.at/marionnaud/make-up/lippen/lipgloss/c/300030002
+                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[4]/div[1]/div[1]/@search-url
             name:
               - text: Clinique Lipgloss
-                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[6]/div[1]/@product-tile-name
+                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[4]/div[1]/div[1]/@product-tile-name
             productUrl:
               - text: https://www.marionnaud.at/marionnaud/make-up/lippen/lipgloss/lipgloss/p/143CQF181
-                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[6]/div[1]/@product-tile-url
+                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[4]/div[1]/div[1]/@product-tile-url
             thumbnail:
               - text: https://www.marionnaud.at/medias/sys_master/front-cat/front-cat/8926111629342/Clinique-Lipgloss-020714918019-POP-SPLASH-HYDRATION.jpg
-                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[6]/div[1]/div[1]/div[1]/a[1]/img[1]/@src
+                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[4]/div[1]/div[1]/@thumbnail
             price:
-              - text: € 17,50
-                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[6]/div[1]/@product-tile-price
+              - text: € 22,03
+                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[4]/div[1]/div[1]/@product-tile-price
           - id:
               - text: 1342CLECLATLEVRES01MINUTEEMBELLISSEUR
-                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[7]/div[1]/@product-tile-id
+                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[5]/div[1]/div[1]/@product-tile-id
+            searchUrl:
+              - text: https://www.marionnaud.at/marionnaud/make-up/lippen/lipgloss/c/300030002
+                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[5]/div[1]/div[1]/@search-url
             name:
               - text: Clarins Eclat Minute Embellisseur Lèvres
-                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[7]/div[1]/@product-tile-name
+                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[5]/div[1]/div[1]/@product-tile-name
             productUrl:
               - text: https://www.marionnaud.at/marionnaud/make-up/lippen/lipgloss/eclat-minute-embellisseur-le%CC%80vres/p/1342CLECLATLEVRES01MINUTEEMBELLISSEUR
-                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[7]/div[1]/@product-tile-url
+                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[5]/div[1]/div[1]/@product-tile-url
             thumbnail:
               - text: https://www.marionnaud.at/medias/sys_master/front-cat/front-cat/8800255311902/Clarins-Eclat-Minute-Embellisseur-L-vres-3380810346336-ECLAT-MINUTE-LEVRES.jpg
-                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[7]/div[1]/div[1]/div[1]/a[1]/img[1]/@src
+                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[5]/div[1]/div[1]/@thumbnail
             price:
-              - text: € 15,39
-                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[7]/div[1]/@product-tile-price
+              - text: € 16,71
+                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[5]/div[1]/div[1]/@product-tile-price
           - id:
               - text: 143THEBLONDS3
-                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[8]/div[1]/@product-tile-id
+                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[6]/div[1]/div[1]/@product-tile-id
+            searchUrl:
+              - text: https://www.marionnaud.at/marionnaud/make-up/lippen/lipgloss/c/300030002
+                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[6]/div[1]/div[1]/@search-url
             name:
               - text: Jeffree Star Lipgloss
-                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[8]/div[1]/@product-tile-name
+                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[6]/div[1]/div[1]/@product-tile-name
             productUrl:
               - text: https://www.marionnaud.at/marionnaud/make-up/lippen/lipgloss/lipgloss/p/143THEBLONDS3
-                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[8]/div[1]/@product-tile-url
+                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[6]/div[1]/div[1]/@product-tile-url
             thumbnail:
               - text: https://www.marionnaud.at/medias/sys_master/front-cat/front-cat/8970370187294/Jeffree-Star-Lipgloss-815446029221-THE-GLOSS.jpg
-                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[8]/div[1]/div[1]/div[1]/a[1]/img[1]/@src
+                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[6]/div[1]/div[1]/@thumbnail
             price:
-              - text: € 14,00
-                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[8]/div[1]/@product-tile-price
+              - text: € 15,19
+                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[6]/div[1]/div[1]/@product-tile-price
           - id:
               - text: 143EXLIPGLOS2
-                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[9]/div[1]/@product-tile-id
+                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[7]/div[1]/div[1]/@product-tile-id
+            searchUrl:
+              - text: https://www.marionnaud.at/marionnaud/make-up/lippen/lipgloss/c/300030002
+                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[7]/div[1]/div[1]/@search-url
             name:
               - text: EXURBE Flower Power
-                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[9]/div[1]/@product-tile-name
+                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[7]/div[1]/div[1]/@product-tile-name
             productUrl:
               - text: https://www.marionnaud.at/marionnaud/make-up/lippen/lipgloss/flower-power/p/143EXLIPGLOS2
-                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[9]/div[1]/@product-tile-url
+                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[7]/div[1]/div[1]/@product-tile-url
             thumbnail:
               - text: https://www.marionnaud.at/medias/sys_master/front-cat/front-cat/8957524836382/EXURBE-Flower-Power-7640165183960-Lipgloss.jpg
-                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[9]/div[1]/div[1]/div[1]/a[1]/img[1]/@src
+                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[7]/div[1]/div[1]/@thumbnail
             price:
-              - text: € 19,59
-                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[9]/div[1]/@product-tile-price
+              - text: € 21,27
+                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[7]/div[1]/div[1]/@product-tile-price
           - id:
               - text: 143KKISSLISHI
-                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[10]/div[1]/@product-tile-id
+                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[8]/div[1]/div[1]/@product-tile-id
+            searchUrl:
+              - text: https://www.marionnaud.at/marionnaud/make-up/lippen/lipgloss/c/300030002
+                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[8]/div[1]/div[1]/@search-url
             name:
               - text: Guerlain Lipgloss
-                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[10]/div[1]/@product-tile-name
+                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[8]/div[1]/div[1]/@product-tile-name
             productUrl:
               - text: https://www.marionnaud.at/marionnaud/make-up/lippen/lippenstift/lipgloss/p/143KKISSLISHI
-                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[10]/div[1]/@product-tile-url
+                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[8]/div[1]/div[1]/@product-tile-url
             thumbnail:
               - text: https://www.marionnaud.at/medias/sys_master/front-cat/front-cat/8952712691742/Guerlain-Lipgloss-3346470429499-KissKiss-Liquid-Shine-Lippenstift.jpg
-                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[10]/div[1]/div[1]/div[1]/a[1]/img[1]/@src
+                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[8]/div[1]/div[1]/@thumbnail
             price:
-              - text: € 30,09
-                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[10]/div[1]/@product-tile-price
+              - text: € 32,67
+                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[8]/div[1]/div[1]/@product-tile-price
           - id:
               - text: 143ECHUILEV
-                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[11]/div[1]/@product-tile-id
+                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[9]/div[1]/div[1]/@product-tile-id
+            searchUrl:
+              - text: https://www.marionnaud.at/marionnaud/make-up/lippen/lipgloss/c/300030002
+                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[9]/div[1]/div[1]/@search-url
             name:
               - text: Clarins Lippenpflege-Öl
-                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[11]/div[1]/@product-tile-name
+                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[9]/div[1]/div[1]/@product-tile-name
             productUrl:
               - text: https://www.marionnaud.at/marionnaud/make-up/lippen/lipgloss/lippenpflege-o%CC%88l/p/143ECHUILEV
-                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[11]/div[1]/@product-tile-url
+                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[9]/div[1]/div[1]/@product-tile-url
             thumbnail:
               - text: https://www.marionnaud.at/medias/sys_master/front-cat/front-cat/8849487396894/Clarins-Lippenpflege-l-3380810279481-ECLAT-MINUTE-HUILE.jpg
-                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[11]/div[1]/div[1]/div[1]/a[1]/img[1]/@src
+                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[9]/div[1]/div[1]/@thumbnail
             price:
-              - text: € 18,19
-                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[11]/div[1]/@product-tile-price
+              - text: € 19,75
+                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[9]/div[1]/div[1]/@product-tile-price
           - id:
               - text: 143LABSOLUG2
-                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[12]/div[1]/@product-tile-id
+                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[10]/div[1]/div[1]/@product-tile-id
+            searchUrl:
+              - text: https://www.marionnaud.at/marionnaud/make-up/lippen/lipgloss/c/300030002
+                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[10]/div[1]/div[1]/@search-url
             name:
               - text: Lancôme Plumper
-                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[12]/div[1]/@product-tile-name
+                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[10]/div[1]/div[1]/@product-tile-name
             productUrl:
               - text: https://www.marionnaud.at/marionnaud/make-up/lippen/lipgloss/plumper/p/143LABSOLUG2
-                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[12]/div[1]/@product-tile-url
+                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[10]/div[1]/div[1]/@product-tile-url
             thumbnail:
               - text: https://www.marionnaud.at/medias/sys_master/front-cat/front-cat/8891511308318/Lanc-me-Plumper-3614271636621-L-ABSOLU-GLOSS.jpg
-                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[12]/div[1]/div[1]/div[1]/a[1]/img[1]/@src
+                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[10]/div[1]/div[1]/@thumbnail
             price:
-              - text: € 22,39
-                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[12]/div[1]/@product-tile-price
-          - id:
-              - text: 143GLOSSREV
-                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[13]/div[1]/@product-tile-id
-            name:
-              - text: GIVENCHY Vinyl Lipgloss
-                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[13]/div[1]/@product-tile-name
-            productUrl:
-              - text: https://www.marionnaud.at/marionnaud/make-up/lippen/lipgloss/vinyl-lipgloss/p/143GLOSSREV
-                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[13]/div[1]/@product-tile-url
-            thumbnail:
-              - text: https://www.marionnaud.at/medias/sys_master/front-cat/front-cat/8906924752926/GIVENCHY-Vinyl-Lipgloss-3274872355132-GLOSS-INTERDIT.jpg
-                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[13]/div[1]/div[1]/div[1]/a[1]/img[1]/@src
-            price:
-              - text: € 24,49
-                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[13]/div[1]/@product-tile-price
-          - id:
-              - text: 143PHYTOGLOS
-                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[14]/div[1]/@product-tile-id
-            name:
-              - text: Sisley Phyto-Lip Gloss
-                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[14]/div[1]/@product-tile-name
-            productUrl:
-              - text: https://www.marionnaud.at/marionnaud/make-up/lippen/lipgloss/phyto-lip-gloss/p/143PHYTOGLOS
-                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[14]/div[1]/@product-tile-url
-            thumbnail:
-              - text: https://www.marionnaud.at/medias/sys_master/front-cat/front-cat/8983021682718/Sisley-Phyto-Lip-Gloss-3473311754011-PHYTO-LIP-GLOSS.jpg
-                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[14]/div[1]/div[1]/div[1]/a[1]/img[1]/@src
-            price:
-              - text: € 34,29
-                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[14]/div[1]/@product-tile-price
-          - id:
-              - text: 143ROUGEPC
-                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[15]/div[1]/@product-tile-id
-            name:
-              - text: Yves Saint Laurent Lipgloss
-                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[15]/div[1]/@product-tile-name
-            productUrl:
-              - text: https://www.marionnaud.at/marionnaud/make-up/lippen/lippenstift/lipgloss/p/143ROUGEPC
-                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[15]/div[1]/@product-tile-url
-            thumbnail:
-              - text: https://www.marionnaud.at/medias/sys_master/front-cat/front-cat/8839505772574/Yves-Saint-Laurent-Lipgloss-3614271049711-ROUGE-PUR-COUTURE-VERNIS-L-V.jpg
-                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[15]/div[1]/div[1]/div[1]/a[1]/img[1]/@src
-            price:
-              - text: € 30,09
-                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[15]/div[1]/@product-tile-price
-          - id:
-              - text: 143LABSOLUG
-                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[16]/div[1]/@product-tile-id
-            name:
-              - text: Lancôme Lipgloss
-                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[16]/div[1]/@product-tile-name
-            productUrl:
-              - text: https://www.marionnaud.at/marionnaud/make-up/lippen/lipgloss/lipgloss/p/143LABSOLUG
-                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[16]/div[1]/@product-tile-url
-            thumbnail:
-              - text: https://www.marionnaud.at/medias/sys_master/front-cat/front-cat/8891660140574/Lanc-me-Lipgloss-3614271636478-L-ABSOLU-GLOSS.jpg
-                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[16]/div[1]/div[1]/div[1]/a[1]/img[1]/@src
-            price:
-              - text: € 22,39
-                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[16]/div[1]/@product-tile-price
-          - id:
-              - text: 143RDLIQUID
-                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[17]/div[1]/@product-tile-id
-            name:
-              - text: Dior Lippenstift
-                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[17]/div[1]/@product-tile-name
-            productUrl:
-              - text: https://www.marionnaud.at/marionnaud/make-up/lippen/lippenstift/lippenstift/p/143RDLIQUID
-                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[17]/div[1]/@product-tile-url
-            thumbnail:
-              - text: https://www.marionnaud.at/medias/sys_master/front-cat/front-cat/8893648338974/Dior-Lippenstift-3348901356893-ROUGE-DIOR-LIQUID.jpg
-                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[17]/div[1]/div[1]/div[1]/a[1]/img[1]/@src
-            price:
-              - text: € 39,99
-                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[17]/div[1]/@product-tile-price
-          - id:
-              - text: 143VERNALEV
-                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[18]/div[1]/@product-tile-id
-            name:
-              - text: Yves Saint Laurent Lipgloss
-                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[18]/div[1]/@product-tile-name
-            productUrl:
-              - text: https://www.marionnaud.at/marionnaud/make-up/lippen/lippenstift/lipgloss/p/143VERNALEV
-                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[18]/div[1]/@product-tile-url
-            thumbnail:
-              - text: https://www.marionnaud.at/medias/sys_master/front-cat/front-cat/8955458355230/Yves-Saint-Laurent-Lipgloss-3614271332578-ROUGE-PUR-COUTURE-VERNIS-L-V.jpg
-                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[18]/div[1]/div[1]/div[1]/a[1]/img[1]/@src
-            price:
-              - text: € 30,09
-                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[18]/div[1]/@product-tile-price
+              - text: € 24,31
+                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[10]/div[1]/div[1]/@product-tile-price
           - id:
               - text: 143POPLACQUE
-                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[19]/div[1]/@product-tile-id
+                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[11]/div[1]/div[1]/@product-tile-id
+            searchUrl:
+              - text: https://www.marionnaud.at/marionnaud/make-up/lippen/lipgloss/c/300030002
+                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[11]/div[1]/div[1]/@search-url
             name:
               - text: Clinique Pop Lacquer Lip Colour + Primer Lipgloss
-                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[19]/div[1]/@product-tile-name
+                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[11]/div[1]/div[1]/@product-tile-name
             productUrl:
               - text: https://www.marionnaud.at/marionnaud/make-up/lippen/lipgloss/pop-lacquer-lip-colour-primer-lipgloss/p/143POPLACQUE
-                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[19]/div[1]/@product-tile-url
+                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[11]/div[1]/div[1]/@product-tile-url
             thumbnail:
               - text: https://www.marionnaud.at/medias/sys_master/front-cat/front-cat/8839015497758/Clinique-Pop-Lacquer-Lip-Colour-Primer-Lipgloss-020714802424-POP-LACQUER-LIP-COLOUR.jpg
-                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[19]/div[1]/div[1]/div[1]/a[1]/img[1]/@src
-            price:
-              - text: € 16,80
-                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[19]/div[1]/@product-tile-price
+                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[11]/div[1]/div[1]/@thumbnail
           - id:
-              - text: 143ADDTATTOO
-                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[20]/div[1]/@product-tile-id
+              - text: 143LILIPINT
+                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[12]/div[1]/div[1]/@product-tile-id
+            searchUrl:
+              - text: https://www.marionnaud.at/marionnaud/make-up/lippen/lipgloss/c/300030002
+                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[12]/div[1]/div[1]/@search-url
+            name:
+              - text: BE Creative Make Up Licious Intense Lipgloss
+                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[12]/div[1]/div[1]/@product-tile-name
+            productUrl:
+              - text: https://www.marionnaud.at/marionnaud/make-up/lippen/lipgloss/licious-intense-lipgloss/p/143LILIPINT
+                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[12]/div[1]/div[1]/@product-tile-url
+            thumbnail:
+              - text: https://www.marionnaud.at/medias/sys_master/front-cat/front-cat/8814994948126/BE-Creative-Make-Up-Licious-Intense-Lipgloss-8717333665074-LICIOUS-LIPS-INTENSE.jpg
+                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[12]/div[1]/div[1]/@thumbnail
+            price:
+              - text: € 11,39
+                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[12]/div[1]/div[1]/@product-tile-price
+          - id:
+              - text: 143LILIPSHEER
+                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[13]/div[1]/div[1]/@product-tile-id
+            searchUrl:
+              - text: https://www.marionnaud.at/marionnaud/make-up/lippen/lipgloss/c/300030002
+                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[13]/div[1]/div[1]/@search-url
+            name:
+              - text: BE Creative Make Up Licious Sheer Lipgloss
+                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[13]/div[1]/div[1]/@product-tile-name
+            productUrl:
+              - text: https://www.marionnaud.at/marionnaud/make-up/lippen/lipgloss/licious-sheer-lipgloss/p/143LILIPSHEER
+                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[13]/div[1]/div[1]/@product-tile-url
+            thumbnail:
+              - text: https://www.marionnaud.at/medias/sys_master/front-cat/front-cat/8815060746270/BE-Creative-Make-Up-Licious-Sheer-Lipgloss-8717333665203-LICIOUS-LIPS-SHEER.jpg
+                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[13]/div[1]/div[1]/@thumbnail
+            price:
+              - text: € 14,99
+                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[13]/div[1]/div[1]/@product-tile-price
+          - id:
+              - text: 143VERSICOLOU
+                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[14]/div[1]/div[1]/@product-tile-id
+            searchUrl:
+              - text: https://www.marionnaud.at/marionnaud/make-up/lippen/lipgloss/c/300030002
+                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[14]/div[1]/div[1]/@search-url
+            name:
+              - text: MAC Versicolour Stain Lipgloss
+                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[14]/div[1]/div[1]/@product-tile-name
+            productUrl:
+              - text: https://www.marionnaud.at/marionnaud/make-up/lippen/lipgloss/versicolour-stain-lipgloss/p/143VERSICOLOU
+                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[14]/div[1]/div[1]/@product-tile-url
+            thumbnail:
+              - text: https://www.marionnaud.at/medias/sys_master/front-cat/front-cat/8844265586718/MAC-Versicolour-Stain-Lipgloss-773602380060-VERSICOLOUR-STAIN-LIPGLOSS.jpg
+                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[14]/div[1]/div[1]/@thumbnail
+            price:
+              - text: € 22,03
+                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[14]/div[1]/div[1]/@product-tile-price
+          - id:
+              - text: 143MACLIPGLAS
+                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[15]/div[1]/div[1]/@product-tile-id
+            searchUrl:
+              - text: https://www.marionnaud.at/marionnaud/make-up/lippen/lipgloss/c/300030002
+                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[15]/div[1]/div[1]/@search-url
+            name:
+              - text: MAC Lippenstift
+                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[15]/div[1]/div[1]/@product-tile-name
+            productUrl:
+              - text: https://www.marionnaud.at/marionnaud/make-up/lippen/lipgloss/lippenstift/p/143MACLIPGLAS
+                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[15]/div[1]/div[1]/@product-tile-url
+            thumbnail:
+              - text: https://www.marionnaud.at/medias/sys_master/front-cat/front-cat/8829950394398/MAC-Lippenstift-773602297375-LIPGLASS.jpg
+                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[15]/div[1]/div[1]/@thumbnail
+            price:
+              - text: € 18,23
+                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[15]/div[1]/div[1]/@product-tile-price
+          - id:
+              - text: 143CREAMSHPE
+                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[16]/div[1]/div[1]/@product-tile-id
+            searchUrl:
+              - text: https://www.marionnaud.at/marionnaud/make-up/lippen/lipgloss/c/300030002
+                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[16]/div[1]/div[1]/@search-url
+            name:
+              - text: MAC Cremesheen Glass - Lipgloss
+                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[16]/div[1]/div[1]/@product-tile-name
+            productUrl:
+              - text: https://www.marionnaud.at/marionnaud/make-up/lippen/lipgloss/cremesheen-glass-lipgloss/p/143CREAMSHPE
+                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[16]/div[1]/div[1]/@product-tile-url
+            thumbnail:
+              - text: https://www.marionnaud.at/medias/sys_master/front-cat/front-cat/8829836722206/MAC-Cremesheen-Glass-Lipgloss-773602199150-CREMESHEEN-PEARL.jpg
+                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[16]/div[1]/div[1]/@thumbnail
+            price:
+              - text: € 20,51
+                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[16]/div[1]/div[1]/@product-tile-price
+          - id:
+              - text: 143DAZZLEGLAS
+                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[17]/div[1]/div[1]/@product-tile-id
+            searchUrl:
+              - text: https://www.marionnaud.at/marionnaud/make-up/lippen/lipgloss/c/300030002
+                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[17]/div[1]/div[1]/@search-url
+            name:
+              - text: MAC Dazzleglass - Lippenfarbe
+                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[17]/div[1]/div[1]/@product-tile-name
+            productUrl:
+              - text: https://www.marionnaud.at/marionnaud/make-up/lippen/lippenstift/dazzleglass-lippenfarbe/p/143DAZZLEGLAS
+                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[17]/div[1]/div[1]/@product-tile-url
+            thumbnail:
+              - text: https://www.marionnaud.at/medias/sys_master/front-cat/front-cat/8829866377246/MAC-Dazzleglass-Lippenfarbe-773602151110-DAZZLEGLASS.jpg
+                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[17]/div[1]/div[1]/@thumbnail
+            price:
+              - text: € 18,23
+                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[17]/div[1]/div[1]/@product-tile-price
+          - id:
+              - text: 143MACLIPGLAS1
+                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[18]/div[1]/div[1]/@product-tile-id
+            searchUrl:
+              - text: https://www.marionnaud.at/marionnaud/make-up/lippen/lipgloss/c/300030002
+                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[18]/div[1]/div[1]/@search-url
+            name:
+              - text: MAC Clear Lipglass
+                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[18]/div[1]/div[1]/@product-tile-name
+            productUrl:
+              - text: https://www.marionnaud.at/marionnaud/make-up/lippen/lipgloss/clear-lipglass/p/143MACLIPGLAS1
+                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[18]/div[1]/div[1]/@product-tile-url
+            thumbnail:
+              - text: https://www.marionnaud.at/medias/sys_master/front-cat/front-cat/8883500449822/MAC-Clear-Lipglass-773602003679-LIPGLASS.jpg
+                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[18]/div[1]/div[1]/@thumbnail
+            price:
+              - text: € 16,71
+                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[18]/div[1]/div[1]/@product-tile-price
+          - id:
+              - text: 143GIVSO191
+                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[19]/div[1]/div[1]/@product-tile-id
+            searchUrl:
+              - text: https://www.marionnaud.at/marionnaud/make-up/lippen/lipgloss/c/300030002
+                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[19]/div[1]/div[1]/@search-url
+            name:
+              - text: GIVENCHY Lipgloss Sommerlook 2019
+                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[19]/div[1]/div[1]/@product-tile-name
+            productUrl:
+              - text: https://www.marionnaud.at/exklusiv/lipgloss-sommerlook-2019/p/143GIVSO191
+                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[19]/div[1]/div[1]/@product-tile-url
+            thumbnail:
+              - text: https://www.marionnaud.at/medias/sys_master/front-cat/front-cat/8942532132894/GIVENCHY-Lipgloss-Sommerlook-2019-3274872378681-GIV-SOMMER-2019-LOOK.jpg
+                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[19]/div[1]/div[1]/@thumbnail
+            price:
+              - text: € 16,90
+                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[19]/div[1]/div[1]/@product-tile-price
+          - id:
+              - text: 143ADDLACPL
+                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[20]/div[1]/div[1]/@product-tile-id
+            searchUrl:
+              - text: https://www.marionnaud.at/marionnaud/make-up/lippen/lipgloss/c/300030002
+                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[20]/div[1]/div[1]/@search-url
+            name:
+              - text: Dior Lippenfarbe
+                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[20]/div[1]/div[1]/@product-tile-name
+            productUrl:
+              - text: https://www.marionnaud.at/marionnaud/make-up/lippen/lipgloss/lippenfarbe/p/143ADDLACPL
+                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[20]/div[1]/div[1]/@product-tile-url
+            thumbnail:
+              - text: https://www.marionnaud.at/medias/sys_master/front-cat/front-cat/8911381626910/Dior-Lippenfarbe-3348901404853-DIOR-ADDICT-LACQUER-PLUMP.jpg
+                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[20]/div[1]/div[1]/@thumbnail
+            price:
+              - text: € 41,99
+                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[20]/div[1]/div[1]/@product-tile-price
+          - id:
+              - text: 143CRYSTALGE
+                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[21]/div[1]/div[1]/@product-tile-id
+            searchUrl:
+              - text: https://www.marionnaud.at/marionnaud/make-up/lippen/lipgloss/c/300030002
+                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[21]/div[1]/div[1]/@search-url
+            name:
+              - text: Shiseido Gel-Gloss
+                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[21]/div[1]/div[1]/@product-tile-name
+            productUrl:
+              - text: https://www.marionnaud.at/marionnaud/make-up/lippen/lipgloss/gel-gloss/p/143CRYSTALGE
+                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[21]/div[1]/div[1]/@product-tile-url
+            thumbnail:
+              - text: https://www.marionnaud.at/medias/sys_master/front-cat/front-cat/8923903754270/Shiseido-Gel-Gloss-730852148239-CRYSTAL-GEL-GLOSS.jpg
+                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[21]/div[1]/div[1]/@thumbnail
+            price:
+              - text: € 22,79
+                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[21]/div[1]/div[1]/@product-tile-price
+          - id:
+              - text: 143LACQUERIN
+                xpath: /html/body/main[1]/div[6]/div[1]/div[2]/div[2]/div[1]/div[1]/@product-tile-id
+            searchUrl:
+              - text: https://www.marionnaud.at/marionnaud/make-up/lippen/lipgloss/c/300030002
+                xpath: /html/body/main[1]/div[6]/div[1]/div[2]/div[2]/div[1]/div[1]/@search-url
+            name:
+              - text: Shiseido Lipgloss
+                xpath: /html/body/main[1]/div[6]/div[1]/div[2]/div[2]/div[1]/div[1]/@product-tile-name
+            productUrl:
+              - text: https://www.marionnaud.at/marionnaud/make-up/lippen/lipgloss/lipgloss/p/143LACQUERIN
+                xpath: /html/body/main[1]/div[6]/div[1]/div[2]/div[2]/div[1]/div[1]/@product-tile-url
+            thumbnail:
+              - text: https://www.marionnaud.at/medias/sys_master/front-prd/front-prd/8926197088286.jpg
+                xpath: /html/body/main[1]/div[6]/div[1]/div[2]/div[2]/div[1]/div[1]/@thumbnail
+            price:
+              - text: € 28,11
+                xpath: /html/body/main[1]/div[6]/div[1]/div[2]/div[2]/div[1]/div[1]/@product-tile-price
+          - id:
+              - text: 143ECSTASSHI2
+                xpath: /html/body/main[1]/div[6]/div[1]/div[2]/div[3]/div[1]/div[1]/@product-tile-id
+            searchUrl:
+              - text: https://www.marionnaud.at/marionnaud/make-up/lippen/lipgloss/c/300030002
+                xpath: /html/body/main[1]/div[6]/div[1]/div[2]/div[3]/div[1]/div[1]/@search-url
+            name:
+              - text: Armani Lippenstift Tokyo Garden
+                xpath: /html/body/main[1]/div[6]/div[1]/div[2]/div[3]/div[1]/div[1]/@product-tile-name
+            productUrl:
+              - text: https://www.marionnaud.at/marionnaud/make-up/lippen/lippenstift/lippenstift-tokyo-garden/p/143ECSTASSHI2
+                xpath: /html/body/main[1]/div[6]/div[1]/div[2]/div[3]/div[1]/div[1]/@product-tile-url
+            thumbnail:
+              - text: https://www.marionnaud.at/medias/sys_master/front-prd/front-prd/8920053940254.jpg
+                xpath: /html/body/main[1]/div[6]/div[1]/div[2]/div[3]/div[1]/div[1]/@thumbnail
+            price:
+              - text: € 31,15
+                xpath: /html/body/main[1]/div[6]/div[1]/div[2]/div[3]/div[1]/div[1]/@product-tile-price
+          - id:
+              - text: 143LIPMAESTR
+                xpath: /html/body/main[1]/div[6]/div[1]/div[2]/div[4]/div[1]/div[1]/@product-tile-id
+            searchUrl:
+              - text: https://www.marionnaud.at/marionnaud/make-up/lippen/lipgloss/c/300030002
+                xpath: /html/body/main[1]/div[6]/div[1]/div[2]/div[4]/div[1]/div[1]/@search-url
+            name:
+              - text: Armani Lipgloss
+                xpath: /html/body/main[1]/div[6]/div[1]/div[2]/div[4]/div[1]/div[1]/@product-tile-name
+            productUrl:
+              - text: https://www.marionnaud.at/marionnaud/make-up/lippen/lipgloss/p/143LIPMAESTR
+                xpath: /html/body/main[1]/div[6]/div[1]/div[2]/div[4]/div[1]/div[1]/@product-tile-url
+            thumbnail:
+              - text: https://www.marionnaud.at/medias/sys_master/front-prd/front-prd/8920049451038.jpg
+                xpath: /html/body/main[1]/div[6]/div[1]/div[2]/div[4]/div[1]/div[1]/@thumbnail
+            price:
+              - text: € 30,39
+                xpath: /html/body/main[1]/div[6]/div[1]/div[2]/div[4]/div[1]/div[1]/@product-tile-price
+          - id:
+              - text: 143ECSTASSHI
+                xpath: /html/body/main[1]/div[6]/div[1]/div[2]/div[5]/div[1]/div[1]/@product-tile-id
+            searchUrl:
+              - text: https://www.marionnaud.at/marionnaud/make-up/lippen/lipgloss/c/300030002
+                xpath: /html/body/main[1]/div[6]/div[1]/div[2]/div[5]/div[1]/div[1]/@search-url
+            name:
+              - text: Armani Lippenstift
+                xpath: /html/body/main[1]/div[6]/div[1]/div[2]/div[5]/div[1]/div[1]/@product-tile-name
+            productUrl:
+              - text: https://www.marionnaud.at/marionnaud/make-up/lippen/lipgloss/lippenstift/p/143ECSTASSHI
+                xpath: /html/body/main[1]/div[6]/div[1]/div[2]/div[5]/div[1]/div[1]/@product-tile-url
+            thumbnail:
+              - text: https://www.marionnaud.at/medias/sys_master/front-prd/front-prd/8919574773790.jpg
+                xpath: /html/body/main[1]/div[6]/div[1]/div[2]/div[5]/div[1]/div[1]/@thumbnail
+            price:
+              - text: € 31,91
+                xpath: /html/body/main[1]/div[6]/div[1]/div[2]/div[5]/div[1]/div[1]/@product-tile-price
+          - id:
+              - text: 143LABSOLUL
+                xpath: /html/body/main[1]/div[6]/div[1]/div[2]/div[6]/div[1]/div[1]/@product-tile-id
+            searchUrl:
+              - text: https://www.marionnaud.at/marionnaud/make-up/lippen/lipgloss/c/300030002
+                xpath: /html/body/main[1]/div[6]/div[1]/div[2]/div[6]/div[1]/div[1]/@search-url
+            name:
+              - text: Lancôme Lipgloss
+                xpath: /html/body/main[1]/div[6]/div[1]/div[2]/div[6]/div[1]/div[1]/@product-tile-name
+            productUrl:
+              - text: https://www.marionnaud.at/marionnaud/make-up/lippen/lipgloss/lipgloss/p/143LABSOLUL
+                xpath: /html/body/main[1]/div[6]/div[1]/div[2]/div[6]/div[1]/div[1]/@product-tile-url
+            thumbnail:
+              - text: https://www.marionnaud.at/medias/sys_master/front-prd/front-prd/8913977999390.jpg
+                xpath: /html/body/main[1]/div[6]/div[1]/div[2]/div[6]/div[1]/div[1]/@thumbnail
+            price:
+              - text: € 28,11
+                xpath: /html/body/main[1]/div[6]/div[1]/div[2]/div[6]/div[1]/div[1]/@product-tile-price
+          - id:
+              - text: 143PHYTODELI
+                xpath: /html/body/main[1]/div[6]/div[1]/div[2]/div[7]/div[1]/div[1]/@product-tile-id
+            searchUrl:
+              - text: https://www.marionnaud.at/marionnaud/make-up/lippen/lipgloss/c/300030002
+                xpath: /html/body/main[1]/div[6]/div[1]/div[2]/div[7]/div[1]/div[1]/@search-url
+            name:
+              - text: Sisley Lipgloss
+                xpath: /html/body/main[1]/div[6]/div[1]/div[2]/div[7]/div[1]/div[1]/@product-tile-name
+            productUrl:
+              - text: https://www.marionnaud.at/marionnaud/make-up/lippen/lipgloss/lipgloss/p/143PHYTODELI
+                xpath: /html/body/main[1]/div[6]/div[1]/div[2]/div[7]/div[1]/div[1]/@product-tile-url
+            thumbnail:
+              - text: https://www.marionnaud.at/medias/sys_master/front-prd/front-prd/8917469757470.jpg
+                xpath: /html/body/main[1]/div[6]/div[1]/div[2]/div[7]/div[1]/div[1]/@thumbnail
+            price:
+              - text: € 35,71
+                xpath: /html/body/main[1]/div[6]/div[1]/div[2]/div[7]/div[1]/div[1]/@product-tile-price
+          - id:
+              - text: 143VOLUPLIB
+                xpath: /html/body/main[1]/div[6]/div[1]/div[2]/div[8]/div[1]/div[1]/@product-tile-id
+            searchUrl:
+              - text: https://www.marionnaud.at/marionnaud/make-up/lippen/lipgloss/c/300030002
+                xpath: /html/body/main[1]/div[6]/div[1]/div[2]/div[8]/div[1]/div[1]/@search-url
+            name:
+              - text: Yves Saint Laurent Lipgloss
+                xpath: /html/body/main[1]/div[6]/div[1]/div[2]/div[8]/div[1]/div[1]/@product-tile-name
+            productUrl:
+              - text: https://www.marionnaud.at/marionnaud/make-up/lippen/lipgloss/lipgloss/p/143VOLUPLIB
+                xpath: /html/body/main[1]/div[6]/div[1]/div[2]/div[8]/div[1]/div[1]/@product-tile-url
+            thumbnail:
+              - text: https://www.marionnaud.at/medias/sys_master/front-prd/front-prd/8916313407518.jpg
+                xpath: /html/body/main[1]/div[6]/div[1]/div[2]/div[8]/div[1]/div[1]/@thumbnail
+            price:
+              - text: € 29,63
+                xpath: /html/body/main[1]/div[6]/div[1]/div[2]/div[8]/div[1]/div[1]/@product-tile-price
+          - id:
+              - text: 143LIPMAGVIBE
+                xpath: /html/body/main[1]/div[6]/div[1]/div[2]/div[9]/div[1]/div[1]/@product-tile-id
+            searchUrl:
+              - text: https://www.marionnaud.at/marionnaud/make-up/lippen/lipgloss/c/300030002
+                xpath: /html/body/main[1]/div[6]/div[1]/div[2]/div[9]/div[1]/div[1]/@search-url
+            name:
+              - text: Armani Liquid Lippenstift
+                xpath: /html/body/main[1]/div[6]/div[1]/div[2]/div[9]/div[1]/div[1]/@product-tile-name
+            productUrl:
+              - text: https://www.marionnaud.at/marionnaud/make-up/lippen/liquid-lippenstift/p/143LIPMAGVIBE
+                xpath: /html/body/main[1]/div[6]/div[1]/div[2]/div[9]/div[1]/div[1]/@product-tile-url
+            thumbnail:
+              - text: https://www.marionnaud.at/medias/sys_master/front-prd/front-prd/8920322736158.jpg
+                xpath: /html/body/main[1]/div[6]/div[1]/div[2]/div[9]/div[1]/div[1]/@thumbnail
+            price:
+              - text: € 31,15
+                xpath: /html/body/main[1]/div[6]/div[1]/div[2]/div[9]/div[1]/div[1]/@product-tile-price
+          - id:
+              - text: 143LIPMAESTRVIBE
+                xpath: /html/body/main[1]/div[6]/div[1]/div[2]/div[10]/div[1]/div[1]/@product-tile-id
+            searchUrl:
+              - text: https://www.marionnaud.at/marionnaud/make-up/lippen/lipgloss/c/300030002
+                xpath: /html/body/main[1]/div[6]/div[1]/div[2]/div[10]/div[1]/div[1]/@search-url
+            name:
+              - text: Armani Lipgloss
+                xpath: /html/body/main[1]/div[6]/div[1]/div[2]/div[10]/div[1]/div[1]/@product-tile-name
+            productUrl:
+              - text: https://www.marionnaud.at/marionnaud/make-up/lippen/lipgloss/p/143LIPMAESTRVIBE
+                xpath: /html/body/main[1]/div[6]/div[1]/div[2]/div[10]/div[1]/div[1]/@product-tile-url
+            thumbnail:
+              - text: https://www.marionnaud.at/medias/sys_master/front-prd/front-prd/8920315789342.jpg
+                xpath: /html/body/main[1]/div[6]/div[1]/div[2]/div[10]/div[1]/div[1]/@thumbnail
+            price:
+              - text: € 31,15
+                xpath: /html/body/main[1]/div[6]/div[1]/div[2]/div[10]/div[1]/div[1]/@product-tile-price
+          - id:
+              - text: 143LITTLEMAC2
+                xpath: /html/body/main[1]/div[6]/div[1]/div[2]/div[11]/div[1]/div[1]/@product-tile-id
+            searchUrl:
+              - text: https://www.marionnaud.at/marionnaud/make-up/lippen/lipgloss/c/300030002
+                xpath: /html/body/main[1]/div[6]/div[1]/div[2]/div[11]/div[1]/div[1]/@search-url
+            name:
+              - text: MAC Lipglass
+                xpath: /html/body/main[1]/div[6]/div[1]/div[2]/div[11]/div[1]/div[1]/@product-tile-name
+            productUrl:
+              - text: https://www.marionnaud.at/marionnaud/make-up/lippen/lipgloss/lipglass/p/143LITTLEMAC2
+                xpath: /html/body/main[1]/div[6]/div[1]/div[2]/div[11]/div[1]/div[1]/@product-tile-url
+            thumbnail:
+              - text: https://www.marionnaud.at/medias/sys_master/front-prd/front-prd/8913174560798.jpg
+                xpath: /html/body/main[1]/div[6]/div[1]/div[2]/div[11]/div[1]/div[1]/@thumbnail
+            price:
+              - text: € 10,63
+                xpath: /html/body/main[1]/div[6]/div[1]/div[2]/div[11]/div[1]/div[1]/@product-tile-price
+          - id:
+              - text: 143HIFISHIN
+                xpath: /html/body/main[1]/div[6]/div[1]/div[2]/div[12]/div[1]/div[1]/@product-tile-id
+            searchUrl:
+              - text: https://www.marionnaud.at/marionnaud/make-up/lippen/lipgloss/c/300030002
+                xpath: /html/body/main[1]/div[6]/div[1]/div[2]/div[12]/div[1]/div[1]/@search-url
+            name:
+              - text: Urban Decay Lipgloss
+                xpath: /html/body/main[1]/div[6]/div[1]/div[2]/div[12]/div[1]/div[1]/@product-tile-name
+            productUrl:
+              - text: https://www.marionnaud.at/marionnaud/make-up/lippen/lipgloss/lipgloss/p/143HIFISHIN
+                xpath: /html/body/main[1]/div[6]/div[1]/div[2]/div[12]/div[1]/div[1]/@product-tile-url
+            thumbnail:
+              - text: https://www.marionnaud.at/medias/sys_master/front-prd/front-prd/8913935892510.jpg
+                xpath: /html/body/main[1]/div[6]/div[1]/div[2]/div[12]/div[1]/div[1]/@thumbnail
+            price:
+              - text: € 18,99
+                xpath: /html/body/main[1]/div[6]/div[1]/div[2]/div[12]/div[1]/div[1]/@product-tile-price
+          - id:
+              - text: 143TFLIPGLOS
+                xpath: /html/body/main[1]/div[6]/div[1]/div[2]/div[13]/div[1]/div[1]/@product-tile-id
+            searchUrl:
+              - text: https://www.marionnaud.at/marionnaud/make-up/lippen/lipgloss/c/300030002
+                xpath: /html/body/main[1]/div[6]/div[1]/div[2]/div[13]/div[1]/div[1]/@search-url
+            name:
+              - text: Tom Ford Lipgloss
+                xpath: /html/body/main[1]/div[6]/div[1]/div[2]/div[13]/div[1]/div[1]/@product-tile-name
+            productUrl:
+              - text: https://www.marionnaud.at/marionnaud/make-up/lippen/lipgloss/lipgloss/p/143TFLIPGLOS
+                xpath: /html/body/main[1]/div[6]/div[1]/div[2]/div[13]/div[1]/div[1]/@product-tile-url
+            thumbnail:
+              - text: https://www.marionnaud.at/medias/sys_master/front-prd/front-prd/8913113579550.jpg
+                xpath: /html/body/main[1]/div[6]/div[1]/div[2]/div[13]/div[1]/div[1]/@thumbnail
+            price:
+              - text: € 24,90
+                xpath: /html/body/main[1]/div[6]/div[1]/div[2]/div[13]/div[1]/div[1]/@product-tile-price
+          - id:
+              - text: 143BIOMINERAL2
+                xpath: /html/body/main[1]/div[6]/div[1]/div[2]/div[14]/div[1]/div[1]/@product-tile-id
+            searchUrl:
+              - text: https://www.marionnaud.at/marionnaud/make-up/lippen/lipgloss/c/300030002
+                xpath: /html/body/main[1]/div[6]/div[1]/div[2]/div[14]/div[1]/div[1]/@search-url
+            name:
+              - text: Estelle & Thild Lipgloss
+                xpath: /html/body/main[1]/div[6]/div[1]/div[2]/div[14]/div[1]/div[1]/@product-tile-name
+            productUrl:
+              - text: https://www.marionnaud.at/marionnaud/make-up/lippen/lipgloss/lipgloss/p/143BIOMINERAL2
+                xpath: /html/body/main[1]/div[6]/div[1]/div[2]/div[14]/div[1]/div[1]/@product-tile-url
+            thumbnail:
+              - text: https://www.marionnaud.at/medias/sys_master/front-prd/front-prd/8926583685150.jpg
+                xpath: /html/body/main[1]/div[6]/div[1]/div[2]/div[14]/div[1]/div[1]/@thumbnail
+            price:
+              - text: € 20,51
+                xpath: /html/body/main[1]/div[6]/div[1]/div[2]/div[14]/div[1]/div[1]/@product-tile-price
+          - id:
+              - text: 143GLOSSREV
+                xpath: /html/body/main[1]/div[6]/div[1]/div[2]/div[15]/div[1]/div[1]/@product-tile-id
+            searchUrl:
+              - text: https://www.marionnaud.at/marionnaud/make-up/lippen/lipgloss/c/300030002
+                xpath: /html/body/main[1]/div[6]/div[1]/div[2]/div[15]/div[1]/div[1]/@search-url
+            name:
+              - text: GIVENCHY Vinyl Lipgloss
+                xpath: /html/body/main[1]/div[6]/div[1]/div[2]/div[15]/div[1]/div[1]/@product-tile-name
+            productUrl:
+              - text: https://www.marionnaud.at/marionnaud/make-up/lippen/lipgloss/vinyl-lipgloss/p/143GLOSSREV
+                xpath: /html/body/main[1]/div[6]/div[1]/div[2]/div[15]/div[1]/div[1]/@product-tile-url
+            thumbnail:
+              - text: https://www.marionnaud.at/medias/sys_master/front-prd/front-prd/8906924621854.jpg
+                xpath: /html/body/main[1]/div[6]/div[1]/div[2]/div[15]/div[1]/div[1]/@thumbnail
+            price:
+              - text: € 26,59
+                xpath: /html/body/main[1]/div[6]/div[1]/div[2]/div[15]/div[1]/div[1]/@product-tile-price
+          - id:
+              - text: 143PHYTOGLOS
+                xpath: /html/body/main[1]/div[6]/div[1]/div[2]/div[16]/div[1]/div[1]/@product-tile-id
+            searchUrl:
+              - text: https://www.marionnaud.at/marionnaud/make-up/lippen/lipgloss/c/300030002
+                xpath: /html/body/main[1]/div[6]/div[1]/div[2]/div[16]/div[1]/div[1]/@search-url
+            name:
+              - text: Sisley Phyto-Lip Gloss
+                xpath: /html/body/main[1]/div[6]/div[1]/div[2]/div[16]/div[1]/div[1]/@product-tile-name
+            productUrl:
+              - text: https://www.marionnaud.at/marionnaud/make-up/lippen/lipgloss/phyto-lip-gloss/p/143PHYTOGLOS
+                xpath: /html/body/main[1]/div[6]/div[1]/div[2]/div[16]/div[1]/div[1]/@product-tile-url
+            thumbnail:
+              - text: https://www.marionnaud.at/medias/sys_master/front-prd/front-prd/8983021551646.jpg
+                xpath: /html/body/main[1]/div[6]/div[1]/div[2]/div[16]/div[1]/div[1]/@thumbnail
+            price:
+              - text: € 37,23
+                xpath: /html/body/main[1]/div[6]/div[1]/div[2]/div[16]/div[1]/div[1]/@product-tile-price
+          - id:
+              - text: 143ROUGEPC
+                xpath: /html/body/main[1]/div[6]/div[1]/div[2]/div[17]/div[1]/div[1]/@product-tile-id
+            searchUrl:
+              - text: https://www.marionnaud.at/marionnaud/make-up/lippen/lipgloss/c/300030002
+                xpath: /html/body/main[1]/div[6]/div[1]/div[2]/div[17]/div[1]/div[1]/@search-url
+            name:
+              - text: Yves Saint Laurent Lipgloss
+                xpath: /html/body/main[1]/div[6]/div[1]/div[2]/div[17]/div[1]/div[1]/@product-tile-name
+            productUrl:
+              - text: https://www.marionnaud.at/marionnaud/make-up/lippen/lippenstift/lipgloss/p/143ROUGEPC
+                xpath: /html/body/main[1]/div[6]/div[1]/div[2]/div[17]/div[1]/div[1]/@product-tile-url
+            thumbnail:
+              - text: https://www.marionnaud.at/medias/sys_master/front-prd/front-prd/8839505641502.jpg
+                xpath: /html/body/main[1]/div[6]/div[1]/div[2]/div[17]/div[1]/div[1]/@thumbnail
+            price:
+              - text: € 32,67
+                xpath: /html/body/main[1]/div[6]/div[1]/div[2]/div[17]/div[1]/div[1]/@product-tile-price
+          - id:
+              - text: 143LABSOLUG
+                xpath: /html/body/main[1]/div[6]/div[1]/div[2]/div[18]/div[1]/div[1]/@product-tile-id
+            searchUrl:
+              - text: https://www.marionnaud.at/marionnaud/make-up/lippen/lipgloss/c/300030002
+                xpath: /html/body/main[1]/div[6]/div[1]/div[2]/div[18]/div[1]/div[1]/@search-url
+            name:
+              - text: Lancôme Lipgloss
+                xpath: /html/body/main[1]/div[6]/div[1]/div[2]/div[18]/div[1]/div[1]/@product-tile-name
+            productUrl:
+              - text: https://www.marionnaud.at/marionnaud/make-up/lippen/lipgloss/lipgloss/p/143LABSOLUG
+                xpath: /html/body/main[1]/div[6]/div[1]/div[2]/div[18]/div[1]/div[1]/@product-tile-url
+            thumbnail:
+              - text: https://www.marionnaud.at/medias/sys_master/front-prd/front-prd/8891660075038.jpg
+                xpath: /html/body/main[1]/div[6]/div[1]/div[2]/div[18]/div[1]/div[1]/@thumbnail
+            price:
+              - text: € 24,31
+                xpath: /html/body/main[1]/div[6]/div[1]/div[2]/div[18]/div[1]/div[1]/@product-tile-price
+          - id:
+              - text: 143RDLIQUID
+                xpath: /html/body/main[1]/div[6]/div[1]/div[2]/div[19]/div[1]/div[1]/@product-tile-id
+            searchUrl:
+              - text: https://www.marionnaud.at/marionnaud/make-up/lippen/lipgloss/c/300030002
+                xpath: /html/body/main[1]/div[6]/div[1]/div[2]/div[19]/div[1]/div[1]/@search-url
             name:
               - text: Dior Lippenstift
-                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[20]/div[1]/@product-tile-name
+                xpath: /html/body/main[1]/div[6]/div[1]/div[2]/div[19]/div[1]/div[1]/@product-tile-name
+            productUrl:
+              - text: https://www.marionnaud.at/marionnaud/make-up/lippen/lippenstift/lippenstift/p/143RDLIQUID
+                xpath: /html/body/main[1]/div[6]/div[1]/div[2]/div[19]/div[1]/div[1]/@product-tile-url
+            thumbnail:
+              - text: https://www.marionnaud.at/medias/sys_master/front-prd/front-prd/8893648273438.jpg
+                xpath: /html/body/main[1]/div[6]/div[1]/div[2]/div[19]/div[1]/div[1]/@thumbnail
+            price:
+              - text: € 39,99
+                xpath: /html/body/main[1]/div[6]/div[1]/div[2]/div[19]/div[1]/div[1]/@product-tile-price
+          - id:
+              - text: 143VERNALEV
+                xpath: /html/body/main[1]/div[6]/div[1]/div[2]/div[20]/div[1]/div[1]/@product-tile-id
+            searchUrl:
+              - text: https://www.marionnaud.at/marionnaud/make-up/lippen/lipgloss/c/300030002
+                xpath: /html/body/main[1]/div[6]/div[1]/div[2]/div[20]/div[1]/div[1]/@search-url
+            name:
+              - text: Yves Saint Laurent Lipgloss
+                xpath: /html/body/main[1]/div[6]/div[1]/div[2]/div[20]/div[1]/div[1]/@product-tile-name
+            productUrl:
+              - text: https://www.marionnaud.at/marionnaud/make-up/lippen/lippenstift/lipgloss/p/143VERNALEV
+                xpath: /html/body/main[1]/div[6]/div[1]/div[2]/div[20]/div[1]/div[1]/@product-tile-url
+            thumbnail:
+              - text: https://www.marionnaud.at/medias/sys_master/front-prd/front-prd/8955458224158.jpg
+                xpath: /html/body/main[1]/div[6]/div[1]/div[2]/div[20]/div[1]/div[1]/@thumbnail
+            price:
+              - text: € 32,67
+                xpath: /html/body/main[1]/div[6]/div[1]/div[2]/div[20]/div[1]/div[1]/@product-tile-price
+          - id:
+              - text: 143ADDTATTOO
+                xpath: /html/body/main[1]/div[6]/div[1]/div[2]/div[21]/div[1]/div[1]/@product-tile-id
+            searchUrl:
+              - text: https://www.marionnaud.at/marionnaud/make-up/lippen/lipgloss/c/300030002
+                xpath: /html/body/main[1]/div[6]/div[1]/div[2]/div[21]/div[1]/div[1]/@search-url
+            name:
+              - text: Dior Lippenstift
+                xpath: /html/body/main[1]/div[6]/div[1]/div[2]/div[21]/div[1]/div[1]/@product-tile-name
             productUrl:
               - text: https://www.marionnaud.at/marionnaud/make-up/lippen/lippenstift/lippenstift/p/143ADDTATTOO
-                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[20]/div[1]/@product-tile-url
+                xpath: /html/body/main[1]/div[6]/div[1]/div[2]/div[21]/div[1]/div[1]/@product-tile-url
             thumbnail:
-              - text: https://www.marionnaud.at/medias/sys_master/front-cat/front-cat/8887737417758/Dior-Lippenstift-3348901366823-DIOR-ADDICT-LIP-TATTOO.jpg
-                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[20]/div[1]/div[1]/div[1]/a[1]/img[1]/@src
+              - text: https://www.marionnaud.at/medias/sys_master/front-prd/front-prd/8887737352222.jpg
+                xpath: /html/body/main[1]/div[6]/div[1]/div[2]/div[21]/div[1]/div[1]/@thumbnail
             price:
               - text: € 37,99
-                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[20]/div[1]/@product-tile-price
+                xpath: /html/body/main[1]/div[6]/div[1]/div[2]/div[21]/div[1]/div[1]/@product-tile-price
           - id:
               - text: 143LIPGLREPA
-                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[21]/div[1]/@product-tile-id
+                xpath: /html/body/main[1]/div[6]/div[1]/div[3]/div[2]/div[1]/div[1]/@product-tile-id
+            searchUrl:
+              - text: https://www.marionnaud.at/marionnaud/make-up/lippen/lipgloss/c/300030002
+                xpath: /html/body/main[1]/div[6]/div[1]/div[3]/div[2]/div[1]/div[1]/@search-url
             name:
               - text: MAC Lipgloss
-                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[21]/div[1]/@product-tile-name
+                xpath: /html/body/main[1]/div[6]/div[1]/div[3]/div[2]/div[1]/div[1]/@product-tile-name
             productUrl:
               - text: https://www.marionnaud.at/marionnaud/make-up/lippen/lipgloss/lipgloss/p/143LIPGLREPA
-                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[21]/div[1]/@product-tile-url
+                xpath: /html/body/main[1]/div[6]/div[1]/div[3]/div[2]/div[1]/div[1]/@product-tile-url
             thumbnail:
-              - text: https://www.marionnaud.at/medias/sys_master/front-cat/front-cat/8884174815262/MAC-Lipgloss-773602411610-LIPGLASS-REPACK.jpg
-                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[21]/div[1]/div[1]/div[1]/a[1]/img[1]/@src
+              - text: https://www.marionnaud.at/medias/sys_master/front-prd/front-prd/8884174684190.jpg
+                xpath: /html/body/main[1]/div[6]/div[1]/div[3]/div[2]/div[1]/div[1]/@thumbnail
             price:
-              - text: € 14,69
-                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[21]/div[1]/@product-tile-price
+              - text: € 15,95
+                xpath: /html/body/main[1]/div[6]/div[1]/div[3]/div[2]/div[1]/div[1]/@product-tile-price
+          - id:
+              - text: 143ECSTASYLA
+                xpath: /html/body/main[1]/div[6]/div[1]/div[3]/div[3]/div[1]/div[1]/@product-tile-id
+            searchUrl:
+              - text: https://www.marionnaud.at/marionnaud/make-up/lippen/lipgloss/c/300030002
+                xpath: /html/body/main[1]/div[6]/div[1]/div[3]/div[3]/div[1]/div[1]/@search-url
+            name:
+              - text: Armani Lipgloss
+                xpath: /html/body/main[1]/div[6]/div[1]/div[3]/div[3]/div[1]/div[1]/@product-tile-name
+            productUrl:
+              - text: https://www.marionnaud.at/marionnaud/make-up/lippen/lipgloss/p/143ECSTASYLA
+                xpath: /html/body/main[1]/div[6]/div[1]/div[3]/div[3]/div[1]/div[1]/@product-tile-url
+            thumbnail:
+              - text: https://www.marionnaud.at/medias/sys_master/front-prd/front-prd/8920047124510.jpg
+                xpath: /html/body/main[1]/div[6]/div[1]/div[3]/div[3]/div[1]/div[1]/@thumbnail
+            price:
+              - text: € 30,39
+                xpath: /html/body/main[1]/div[6]/div[1]/div[3]/div[3]/div[1]/div[1]/@product-tile-price
+          - id:
+              - text: 143CDLOSO191
+                xpath: /html/body/main[1]/div[6]/div[1]/div[3]/div[4]/div[1]/div[1]/@product-tile-id
+            searchUrl:
+              - text: https://www.marionnaud.at/marionnaud/make-up/lippen/lipgloss/c/300030002
+                xpath: /html/body/main[1]/div[6]/div[1]/div[3]/div[4]/div[1]/div[1]/@search-url
+            name:
+              - text: Dior Lipgloss
+                xpath: /html/body/main[1]/div[6]/div[1]/div[3]/div[4]/div[1]/div[1]/@product-tile-name
+            productUrl:
+              - text: https://www.marionnaud.at/marionnaud/make-up/lippen/lippenstift/lipgloss/p/143CDLOSO191
+                xpath: /html/body/main[1]/div[6]/div[1]/div[3]/div[4]/div[1]/div[1]/@product-tile-url
+            thumbnail:
+              - text: https://www.marionnaud.at/medias/sys_master/front-prd/front-prd/8943099248670.jpg
+                xpath: /html/body/main[1]/div[6]/div[1]/div[3]/div[4]/div[1]/div[1]/@thumbnail
+            price:
+              - text: € 39,99
+                xpath: /html/body/main[1]/div[6]/div[1]/div[3]/div[4]/div[1]/div[1]/@product-tile-price
+          - id:
+              - text: 143KKISSLIQMA
+                xpath: /html/body/main[1]/div[6]/div[1]/div[3]/div[5]/div[1]/div[1]/@product-tile-id
+            searchUrl:
+              - text: https://www.marionnaud.at/marionnaud/make-up/lippen/lipgloss/c/300030002
+                xpath: /html/body/main[1]/div[6]/div[1]/div[3]/div[5]/div[1]/div[1]/@search-url
+            name:
+              - text: Guerlain Lipgloss
+                xpath: /html/body/main[1]/div[6]/div[1]/div[3]/div[5]/div[1]/div[1]/@product-tile-name
+            productUrl:
+              - text: https://www.marionnaud.at/marionnaud/make-up/lippen/lippenstift/lipgloss/p/143KKISSLIQMA
+                xpath: /html/body/main[1]/div[6]/div[1]/div[3]/div[5]/div[1]/div[1]/@product-tile-url
+            thumbnail:
+              - text: https://www.marionnaud.at/medias/sys_master/front-prd/front-prd/8952716361758.jpg
+                xpath: /html/body/main[1]/div[6]/div[1]/div[3]/div[5]/div[1]/div[1]/@thumbnail
+            price:
+              - text: € 32,67
+                xpath: /html/body/main[1]/div[6]/div[1]/div[3]/div[5]/div[1]/div[1]/@product-tile-price
+          - id:
+              - text: 143KKISSLIGLI
+                xpath: /html/body/main[1]/div[6]/div[1]/div[3]/div[6]/div[1]/div[1]/@product-tile-id
+            searchUrl:
+              - text: https://www.marionnaud.at/marionnaud/make-up/lippen/lipgloss/c/300030002
+                xpath: /html/body/main[1]/div[6]/div[1]/div[3]/div[6]/div[1]/div[1]/@search-url
+            name:
+              - text: Guerlain Lipgloss
+                xpath: /html/body/main[1]/div[6]/div[1]/div[3]/div[6]/div[1]/div[1]/@product-tile-name
+            productUrl:
+              - text: https://www.marionnaud.at/marionnaud/make-up/lippen/lipgloss/lipgloss/p/143KKISSLIGLI
+                xpath: /html/body/main[1]/div[6]/div[1]/div[3]/div[6]/div[1]/div[1]/@product-tile-url
+            thumbnail:
+              - text: https://www.marionnaud.at/medias/sys_master/front-prd/front-prd/8952730353694.jpg
+                xpath: /html/body/main[1]/div[6]/div[1]/div[3]/div[6]/div[1]/div[1]/@thumbnail
+            price:
+              - text: € 32,67
+                xpath: /html/body/main[1]/div[6]/div[1]/div[3]/div[6]/div[1]/div[1]/@product-tile-price
+          - id:
+              - text: 143ENCREINT
+                xpath: /html/body/main[1]/div[6]/div[1]/div[3]/div[7]/div[1]/div[1]/@product-tile-id
+            searchUrl:
+              - text: https://www.marionnaud.at/marionnaud/make-up/lippen/lipgloss/c/300030002
+                xpath: /html/body/main[1]/div[6]/div[1]/div[3]/div[7]/div[1]/div[1]/@search-url
+            name:
+              - text: GIVENCHY Flüssiger Lippenstift
+                xpath: /html/body/main[1]/div[6]/div[1]/div[3]/div[7]/div[1]/div[1]/@product-tile-name
+            productUrl:
+              - text: https://www.marionnaud.at/marionnaud/make-up/lippen/lipgloss/flu%CC%88ssiger-lippenstift/p/143ENCREINT
+                xpath: /html/body/main[1]/div[6]/div[1]/div[3]/div[7]/div[1]/div[1]/@product-tile-url
+            thumbnail:
+              - text: https://www.marionnaud.at/medias/sys_master/front-prd/front-prd/8938265772062.jpg
+                xpath: /html/body/main[1]/div[6]/div[1]/div[3]/div[7]/div[1]/div[1]/@thumbnail
+            price:
+              - text: € 28,87
+                xpath: /html/body/main[1]/div[6]/div[1]/div[3]/div[7]/div[1]/div[1]/@product-tile-price
+          - id:
+              - text: 143EXLIPGLOS1
+                xpath: /html/body/main[1]/div[6]/div[1]/div[3]/div[8]/div[1]/div[1]/@product-tile-id
+            searchUrl:
+              - text: https://www.marionnaud.at/marionnaud/make-up/lippen/lipgloss/c/300030002
+                xpath: /html/body/main[1]/div[6]/div[1]/div[3]/div[8]/div[1]/div[1]/@search-url
+            name:
+              - text: EXURBE Volumen-Lippenserum
+                xpath: /html/body/main[1]/div[6]/div[1]/div[3]/div[8]/div[1]/div[1]/@product-tile-name
+            productUrl:
+              - text: https://www.marionnaud.at/marionnaud/make-up/lippen/lipgloss/volumen-lippenserum/p/143EXLIPGLOS1
+                xpath: /html/body/main[1]/div[6]/div[1]/div[3]/div[8]/div[1]/div[1]/@product-tile-url
+            thumbnail:
+              - text: https://www.marionnaud.at/medias/sys_master/front-prd/front-prd/8960732823582.jpg
+                xpath: /html/body/main[1]/div[6]/div[1]/div[3]/div[8]/div[1]/div[1]/@thumbnail
+            price:
+              - text: € 25,07
+                xpath: /html/body/main[1]/div[6]/div[1]/div[3]/div[8]/div[1]/div[1]/@product-tile-price
+          - id:
+              - text: 143ROSEPERFL
+                xpath: /html/body/main[1]/div[6]/div[1]/div[3]/div[9]/div[1]/div[1]/@product-tile-id
+            searchUrl:
+              - text: https://www.marionnaud.at/marionnaud/make-up/lippen/lipgloss/c/300030002
+                xpath: /html/body/main[1]/div[6]/div[1]/div[3]/div[9]/div[1]/div[1]/@search-url
+            name:
+              - text: GIVENCHY Lippenbalsam
+                xpath: /html/body/main[1]/div[6]/div[1]/div[3]/div[9]/div[1]/div[1]/@product-tile-name
+            productUrl:
+              - text: https://www.marionnaud.at/marionnaud/make-up/lippen/lipgloss/lippenbalsam/p/143ROSEPERFL
+                xpath: /html/body/main[1]/div[6]/div[1]/div[3]/div[9]/div[1]/div[1]/@product-tile-url
+            thumbnail:
+              - text: https://www.marionnaud.at/medias/sys_master/front-prd/front-prd/8977515872286.jpg
+                xpath: /html/body/main[1]/div[6]/div[1]/div[3]/div[9]/div[1]/div[1]/@thumbnail
+            price:
+              - text: € 29,63
+                xpath: /html/body/main[1]/div[6]/div[1]/div[3]/div[9]/div[1]/div[1]/@product-tile-price
+          - id:
+              - text: 143EXLIPGLOS
+                xpath: /html/body/main[1]/div[6]/div[1]/div[3]/div[10]/div[1]/div[1]/@product-tile-id
+            searchUrl:
+              - text: https://www.marionnaud.at/marionnaud/make-up/lippen/lipgloss/c/300030002
+                xpath: /html/body/main[1]/div[6]/div[1]/div[3]/div[10]/div[1]/div[1]/@search-url
+            name:
+              - text: EXURBE Lipgloss
+                xpath: /html/body/main[1]/div[6]/div[1]/div[3]/div[10]/div[1]/div[1]/@product-tile-name
+            productUrl:
+              - text: https://www.marionnaud.at/marionnaud/make-up/lippen/lipgloss/lipgloss/p/143EXLIPGLOS
+                xpath: /html/body/main[1]/div[6]/div[1]/div[3]/div[10]/div[1]/div[1]/@product-tile-url
+            thumbnail:
+              - text: https://www.marionnaud.at/medias/sys_master/front-prd/front-prd/8954441433118.jpg
+                xpath: /html/body/main[1]/div[6]/div[1]/div[3]/div[10]/div[1]/div[1]/@thumbnail
+            price:
+              - text: € 17,47
+                xpath: /html/body/main[1]/div[6]/div[1]/div[3]/div[10]/div[1]/div[1]/@product-tile-price
+          - id:
+              - text: 143THEGLOSS
+                xpath: /html/body/main[1]/div[6]/div[1]/div[3]/div[11]/div[1]/div[1]/@product-tile-id
+            searchUrl:
+              - text: https://www.marionnaud.at/marionnaud/make-up/lippen/lipgloss/c/300030002
+                xpath: /html/body/main[1]/div[6]/div[1]/div[3]/div[11]/div[1]/div[1]/@search-url
+            name:
+              - text: Jeffree Star Lipgloss
+                xpath: /html/body/main[1]/div[6]/div[1]/div[3]/div[11]/div[1]/div[1]/@product-tile-name
+            productUrl:
+              - text: https://www.marionnaud.at/marionnaud/make-up/lippen/lipgloss/lipgloss/p/143THEGLOSS
+                xpath: /html/body/main[1]/div[6]/div[1]/div[3]/div[11]/div[1]/div[1]/@product-tile-url
+            thumbnail:
+              - text: https://www.marionnaud.at/medias/sys_master/front-prd/front-prd/8949386510366.jpg
+                xpath: /html/body/main[1]/div[6]/div[1]/div[3]/div[11]/div[1]/div[1]/@thumbnail
+            aggregateRating2:
+              - text: 5,
+                xpath: /html/body/main[1]/div[6]/div[1]/div[3]/div[11]/div[1]/div[1]/@aggregaterating
+            price:
+              - text: € 15,19
+                xpath: /html/body/main[1]/div[6]/div[1]/div[3]/div[11]/div[1]/div[1]/@product-tile-price
+          - id:
+              - text: 143TFLIQMET
+                xpath: /html/body/main[1]/div[6]/div[1]/div[3]/div[12]/div[1]/div[1]/@product-tile-id
+            searchUrl:
+              - text: https://www.marionnaud.at/marionnaud/make-up/lippen/lipgloss/c/300030002
+                xpath: /html/body/main[1]/div[6]/div[1]/div[3]/div[12]/div[1]/div[1]/@search-url
+            name:
+              - text: Tom Ford Lipgloss
+                xpath: /html/body/main[1]/div[6]/div[1]/div[3]/div[12]/div[1]/div[1]/@product-tile-name
+            productUrl:
+              - text: https://www.marionnaud.at/marionnaud/make-up/lippen/lipgloss/lipgloss/p/143TFLIQMET
+                xpath: /html/body/main[1]/div[6]/div[1]/div[3]/div[12]/div[1]/div[1]/@product-tile-url
+            thumbnail:
+              - text: https://www.marionnaud.at/medias/sys_master/front-prd/front-prd/8932477009950.jpg
+                xpath: /html/body/main[1]/div[6]/div[1]/div[3]/div[12]/div[1]/div[1]/@thumbnail
+            price:
+              - text: € 41,29
+                xpath: /html/body/main[1]/div[6]/div[1]/div[3]/div[12]/div[1]/div[1]/@product-tile-price
+          - id:
+              - text: 143TFLIQMAT
+                xpath: /html/body/main[1]/div[6]/div[1]/div[3]/div[13]/div[1]/div[1]/@product-tile-id
+            searchUrl:
+              - text: https://www.marionnaud.at/marionnaud/make-up/lippen/lipgloss/c/300030002
+                xpath: /html/body/main[1]/div[6]/div[1]/div[3]/div[13]/div[1]/div[1]/@search-url
+            name:
+              - text: Tom Ford Lipgloss
+                xpath: /html/body/main[1]/div[6]/div[1]/div[3]/div[13]/div[1]/div[1]/@product-tile-name
+            productUrl:
+              - text: https://www.marionnaud.at/marionnaud/make-up/lippen/lipgloss/lipgloss/p/143TFLIQMAT
+                xpath: /html/body/main[1]/div[6]/div[1]/div[3]/div[13]/div[1]/div[1]/@product-tile-url
+            thumbnail:
+              - text: https://www.marionnaud.at/medias/sys_master/front-prd/front-prd/8932497227806.jpg
+                xpath: /html/body/main[1]/div[6]/div[1]/div[3]/div[13]/div[1]/div[1]/@thumbnail
+            price:
+              - text: € 41,29
+                xpath: /html/body/main[1]/div[6]/div[1]/div[3]/div[13]/div[1]/div[1]/@product-tile-price
+          - id:
+              - text: 143TFLIQPAT
+                xpath: /html/body/main[1]/div[6]/div[1]/div[3]/div[14]/div[1]/div[1]/@product-tile-id
+            searchUrl:
+              - text: https://www.marionnaud.at/marionnaud/make-up/lippen/lipgloss/c/300030002
+                xpath: /html/body/main[1]/div[6]/div[1]/div[3]/div[14]/div[1]/div[1]/@search-url
+            name:
+              - text: Tom Ford Lipgloss
+                xpath: /html/body/main[1]/div[6]/div[1]/div[3]/div[14]/div[1]/div[1]/@product-tile-name
+            productUrl:
+              - text: https://www.marionnaud.at/marionnaud/make-up/lippen/lipgloss/lipgloss/p/143TFLIQPAT
+                xpath: /html/body/main[1]/div[6]/div[1]/div[3]/div[14]/div[1]/div[1]/@product-tile-url
+            thumbnail:
+              - text: https://www.marionnaud.at/medias/sys_master/front-prd/front-prd/8932493787166.jpg
+                xpath: /html/body/main[1]/div[6]/div[1]/div[3]/div[14]/div[1]/div[1]/@thumbnail
+            price:
+              - text: € 41,29
+                xpath: /html/body/main[1]/div[6]/div[1]/div[3]/div[14]/div[1]/div[1]/@product-tile-price
+          - id:
+              - text: 143ENVYLIP
+                xpath: /html/body/main[1]/div[6]/div[1]/div[3]/div[15]/div[1]/div[1]/@product-tile-id
+            searchUrl:
+              - text: https://www.marionnaud.at/marionnaud/make-up/lippen/lipgloss/c/300030002
+                xpath: /html/body/main[1]/div[6]/div[1]/div[3]/div[15]/div[1]/div[1]/@search-url
+            name:
+              - text: Estée Lauder Lippenstift
+                xpath: /html/body/main[1]/div[6]/div[1]/div[3]/div[15]/div[1]/div[1]/@product-tile-name
+            productUrl:
+              - text: https://www.marionnaud.at/marionnaud/make-up/lippen/lippenstift/lippenstift/p/143ENVYLIP
+                xpath: /html/body/main[1]/div[6]/div[1]/div[3]/div[15]/div[1]/div[1]/@product-tile-url
+            thumbnail:
+              - text: https://www.marionnaud.at/medias/sys_master/front-prd/front-prd/8969217310750.jpg
+                xpath: /html/body/main[1]/div[6]/div[1]/div[3]/div[15]/div[1]/div[1]/@thumbnail
+            price:
+              - text: € 31,91
+                xpath: /html/body/main[1]/div[6]/div[1]/div[3]/div[15]/div[1]/div[1]/@product-tile-price
+          - id:
+              - text: LippennurFarbePowerglassPlumping
+                xpath: /html/body/main[1]/div[6]/div[1]/div[3]/div[16]/div[1]/div[1]/@product-tile-id
+            searchUrl:
+              - text: https://www.marionnaud.at/marionnaud/make-up/lippen/lipgloss/c/300030002
+                xpath: /html/body/main[1]/div[6]/div[1]/div[3]/div[16]/div[1]/div[1]/@search-url
+            name:
+              - text: MAC Lipgloss
+                xpath: /html/body/main[1]/div[6]/div[1]/div[3]/div[16]/div[1]/div[1]/@product-tile-name
+            productUrl:
+              - text: https://www.marionnaud.at/marionnaud/make-up/lippen/lipgloss/lipgloss/p/LippennurFarbePowerglassPlumping
+                xpath: /html/body/main[1]/div[6]/div[1]/div[3]/div[16]/div[1]/div[1]/@product-tile-url
+            thumbnail:
+              - text: https://www.marionnaud.at/medias/sys_master/front-prd/front-prd/9027305504798.jpg
+                xpath: /html/body/main[1]/div[6]/div[1]/div[3]/div[16]/div[1]/div[1]/@thumbnail
+            price:
+              - text: € 18,99
+                xpath: /html/body/main[1]/div[6]/div[1]/div[3]/div[16]/div[1]/div[1]/@product-tile-price
+          - id:
+              - text: MACLipglass
+                xpath: /html/body/main[1]/div[6]/div[1]/div[3]/div[17]/div[1]/div[1]/@product-tile-id
+            searchUrl:
+              - text: https://www.marionnaud.at/marionnaud/make-up/lippen/lipgloss/c/300030002
+                xpath: /html/body/main[1]/div[6]/div[1]/div[3]/div[17]/div[1]/div[1]/@search-url
+            name:
+              - text: MAC Lipglass
+                xpath: /html/body/main[1]/div[6]/div[1]/div[3]/div[17]/div[1]/div[1]/@product-tile-name
+            productUrl:
+              - text: https://www.marionnaud.at/marionnaud/make-up/lippen/lipgloss/lipglass/p/MACLipglass
+                xpath: /html/body/main[1]/div[6]/div[1]/div[3]/div[17]/div[1]/div[1]/@product-tile-url
+            thumbnail:
+              - text: https://www.marionnaud.at/medias/sys_master/front-prd/front-prd/9010675613726.jpg
+                xpath: /html/body/main[1]/div[6]/div[1]/div[3]/div[17]/div[1]/div[1]/@thumbnail
+            price:
+              - text: € 19,75
+                xpath: /html/body/main[1]/div[6]/div[1]/div[3]/div[17]/div[1]/div[1]/@product-tile-price
+          - id:
+              - text: LippennurFarbeVelvetLipPerfector
+                xpath: /html/body/main[1]/div[6]/div[1]/div[3]/div[18]/div[1]/div[1]/@product-tile-id
+            searchUrl:
+              - text: https://www.marionnaud.at/marionnaud/make-up/lippen/lipgloss/c/300030002
+                xpath: /html/body/main[1]/div[6]/div[1]/div[3]/div[18]/div[1]/div[1]/@search-url
+            name:
+              - text: Clarins Lippenstift
+                xpath: /html/body/main[1]/div[6]/div[1]/div[3]/div[18]/div[1]/div[1]/@product-tile-name
+            productUrl:
+              - text: https://www.marionnaud.at/marionnaud/make-up/lippen/lipgloss/lippenstift/p/LippennurFarbeVelvetLipPerfector
+                xpath: /html/body/main[1]/div[6]/div[1]/div[3]/div[18]/div[1]/div[1]/@product-tile-url
+            thumbnail:
+              - text: https://www.marionnaud.at/medias/sys_master/front-prd/front-prd/8983055532062.jpg
+                xpath: /html/body/main[1]/div[6]/div[1]/div[3]/div[18]/div[1]/div[1]/@thumbnail
+            price:
+              - text: € 16,71
+                xpath: /html/body/main[1]/div[6]/div[1]/div[3]/div[18]/div[1]/div[1]/@product-tile-price
+          - id:
+              - text: 143BBCROILIN
+                xpath: /html/body/main[1]/div[6]/div[1]/div[3]/div[19]/div[1]/div[1]/@product-tile-id
+            searchUrl:
+              - text: https://www.marionnaud.at/marionnaud/make-up/lippen/lipgloss/c/300030002
+                xpath: /html/body/main[1]/div[6]/div[1]/div[3]/div[19]/div[1]/div[1]/@search-url
+            name:
+              - text: Bobbi Brown Crushed Oil-Infused Gloss
+                xpath: /html/body/main[1]/div[6]/div[1]/div[3]/div[19]/div[1]/div[1]/@product-tile-name
+            productUrl:
+              - text: https://www.marionnaud.at/marionnaud/make-up/lippen/lipgloss/crushed-oil-infused-gloss/p/143BBCROILIN
+                xpath: /html/body/main[1]/div[6]/div[1]/div[3]/div[19]/div[1]/div[1]/@product-tile-url
+            thumbnail:
+              - text: https://www.marionnaud.at/medias/sys_master/front-prd/front-prd/8980372979742.jpg
+                xpath: /html/body/main[1]/div[6]/div[1]/div[3]/div[19]/div[1]/div[1]/@thumbnail
+            price:
+              - text: € 25,83
+                xpath: /html/body/main[1]/div[6]/div[1]/div[3]/div[19]/div[1]/div[1]/@product-tile-price
+          - id:
+              - text: LippennurFarbeGIVBlackTopCoatXM20
+                xpath: /html/body/main[1]/div[6]/div[1]/div[3]/div[20]/div[1]/div[1]/@product-tile-id
+            searchUrl:
+              - text: https://www.marionnaud.at/marionnaud/make-up/lippen/lipgloss/c/300030002
+                xpath: /html/body/main[1]/div[6]/div[1]/div[3]/div[20]/div[1]/div[1]/@search-url
+            name:
+              - text: GIVENCHY Lipgloss
+                xpath: /html/body/main[1]/div[6]/div[1]/div[3]/div[20]/div[1]/div[1]/@product-tile-name
+            productUrl:
+              - text: https://www.marionnaud.at/marionnaud/make-up/lippen/lipgloss/lipgloss/p/LippennurFarbeGIVBlackTopCoatXM20
+                xpath: /html/body/main[1]/div[6]/div[1]/div[3]/div[20]/div[1]/div[1]/@product-tile-url
+            thumbnail:
+              - text: https://www.marionnaud.at/medias/sys_master/front-prd/front-prd/9006167162910.jpg
+                xpath: /html/body/main[1]/div[6]/div[1]/div[3]/div[20]/div[1]/div[1]/@thumbnail
+            price:
+              - text: € 26,59
+                xpath: /html/body/main[1]/div[6]/div[1]/div[3]/div[20]/div[1]/div[1]/@product-tile-price
+          - id:
+              - text: RedGoldSublimeXMASMarionnaud2020
+                xpath: /html/body/main[1]/div[6]/div[1]/div[3]/div[21]/div[1]/div[1]/@product-tile-id
+            searchUrl:
+              - text: https://www.marionnaud.at/marionnaud/make-up/lippen/lipgloss/c/300030002
+                xpath: /html/body/main[1]/div[6]/div[1]/div[3]/div[21]/div[1]/div[1]/@search-url
+            name:
+              - text: Marionnaud Mini Geschenk Set
+                xpath: /html/body/main[1]/div[6]/div[1]/div[3]/div[21]/div[1]/div[1]/@product-tile-name
+            productUrl:
+              - text: https://www.marionnaud.at/marionnaud/make-up/lippen/lipgloss/mini-geschenk-set/p/RedGoldSublimeXMASMarionnaud2020
+                xpath: /html/body/main[1]/div[6]/div[1]/div[3]/div[21]/div[1]/div[1]/@product-tile-url
+            thumbnail:
+              - text: https://www.marionnaud.at/medias/sys_master/front-prd/front-prd/9007473852446.jpg
+                xpath: /html/body/main[1]/div[6]/div[1]/div[3]/div[21]/div[1]/div[1]/@thumbnail
+            price:
+              - text: € 4,99
+                xpath: /html/body/main[1]/div[6]/div[1]/div[3]/div[21]/div[1]/div[1]/@product-tile-price
+          - id:
+              - text: 143STELLGLOS
+                xpath: /html/body/main[1]/div[6]/div[1]/div[4]/div[2]/div[1]/div[1]/@product-tile-id
+            searchUrl:
+              - text: https://www.marionnaud.at/marionnaud/make-up/lippen/lipgloss/c/300030002
+                xpath: /html/body/main[1]/div[6]/div[1]/div[4]/div[2]/div[1]/div[1]/@search-url
+            name:
+              - text: Dior Lippenstift
+                xpath: /html/body/main[1]/div[6]/div[1]/div[4]/div[2]/div[1]/div[1]/@product-tile-name
+            productUrl:
+              - text: https://www.marionnaud.at/marionnaud/make-up/lippen/lipgloss/lippenstift/p/143STELLGLOS
+                xpath: /html/body/main[1]/div[6]/div[1]/div[4]/div[2]/div[1]/div[1]/@product-tile-url
+            thumbnail:
+              - text: https://www.marionnaud.at/medias/sys_master/front-prd/front-prd/8974040039454.jpg
+                xpath: /html/body/main[1]/div[6]/div[1]/div[4]/div[2]/div[1]/div[1]/@thumbnail
+            price:
+              - text: € 37,99
+                xpath: /html/body/main[1]/div[6]/div[1]/div[4]/div[2]/div[1]/div[1]/@product-tile-price
+          - id:
+              - text: 143SHIMGELGL
+                xpath: /html/body/main[1]/div[6]/div[1]/div[4]/div[3]/div[1]/div[1]/@product-tile-id
+            searchUrl:
+              - text: https://www.marionnaud.at/marionnaud/make-up/lippen/lipgloss/c/300030002
+                xpath: /html/body/main[1]/div[6]/div[1]/div[4]/div[3]/div[1]/div[1]/@search-url
+            name:
+              - text: Shiseido Lipgloss
+                xpath: /html/body/main[1]/div[6]/div[1]/div[4]/div[3]/div[1]/div[1]/@product-tile-name
+            productUrl:
+              - text: https://www.marionnaud.at/marionnaud/make-up/lippen/lipgloss/lipgloss/p/143SHIMGELGL
+                xpath: /html/body/main[1]/div[6]/div[1]/div[4]/div[3]/div[1]/div[1]/@product-tile-url
+            thumbnail:
+              - text: https://www.marionnaud.at/medias/sys_master/front-prd/front-prd/8983045865502.jpg
+                xpath: /html/body/main[1]/div[6]/div[1]/div[4]/div[3]/div[1]/div[1]/@thumbnail
+            price:
+              - text: € 23,55
+                xpath: /html/body/main[1]/div[6]/div[1]/div[4]/div[3]/div[1]/div[1]/@product-tile-price
         xpath: /html
-    timestamp: 1606838242691
+    timestamp: 1608666291490
