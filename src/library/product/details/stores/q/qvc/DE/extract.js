@@ -46,6 +46,7 @@ async function implementation(
     });
 
     let manufacturerDesc = [], manufacturerImages = [];
+    let manufacturerVideo=[];
     let inBoxUrls = [];
     let inBoxText = [];
     let hasComparisionTable = await context.evaluate(() => !!document.querySelector('[alt="Dyson Vergleichstabelle"]'));
@@ -97,6 +98,16 @@ async function implementation(
         }
         return { inBoxText, inBoxUrls };
       });
+      manufacturerVideo= await context.evaluate(async function(){
+        let manufacturerVideosArray=[...document.querySelectorAll('div.play-btn.centered')];
+        let manufacturerVideoArray=[];
+        for(let i=0;i<manufacturerVideosArray.length;i++){
+          manufacturerVideoArray.push(manufacturerVideosArray[i].getAttribute('data-video'));
+        }
+        manufacturerVideoArray=[...new Set(manufacturerVideoArray)];
+      return manufacturerVideoArray;
+      });
+
       inBoxText = witbData.inBoxText;
       inBoxUrls = witbData.inBoxUrls;
       if(!hasComparisionTable)
@@ -108,7 +119,7 @@ async function implementation(
 
     await context.goto(productUrl, { timeout: 50000, waitUntil: 'load', checkBlocked: true });
 
-    await context.evaluate(async (index, variantLength, manufacturerDesc, manufacturerImages, inBoxUrls, inBoxText, hasComparisionTable) => {
+    await context.evaluate(async (index, variantLength, manufacturerDesc, manufacturerImages, inBoxUrls, inBoxText, hasComparisionTable,manufacturerVideo) => {
       console.log('index of variant', index);
 
       try {
@@ -139,6 +150,10 @@ async function implementation(
               aplusImages += manufacturerImages[i];
           }
           addHiddenDiv('aplusImages', aplusImages);
+        }
+        if(manufacturerVideo!==null){
+          let mvideo= manufacturerVideo.join(' || ');
+          addHiddenDiv('manufacturerVideo',mvideo);
         }
 
         inBoxUrls.forEach((element) => {
@@ -183,7 +198,7 @@ async function implementation(
       } catch (err) {
         console.log(err)
       }
-    }, index, variantLength, manufacturerDesc, manufacturerImages, inBoxUrls, inBoxText, hasComparisionTable);
+    }, index, variantLength, manufacturerDesc, manufacturerImages, inBoxUrls, inBoxText, hasComparisionTable,manufacturerVideo);
   }
   async function scrollToImg() {
     await context.evaluate(async () => {

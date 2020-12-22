@@ -124,7 +124,7 @@ fields:
     description: Images within the third party description
   - name: videos
     singleValue: false
-    xpath: //div[@id='ii_video']
+    xpath: //div[@id='ii_video'] | //div[@id='manufacturerVideo']
     description: URLs of videos on page
   - name: name
     singleValue: false
