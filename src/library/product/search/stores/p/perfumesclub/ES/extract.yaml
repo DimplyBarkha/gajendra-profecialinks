@@ -26,10 +26,7 @@ fields:
   - name: aggregateRating
     singleValue: false
     xpath: //div[@class="quedanMenos"]/img/@alt
-    regExp: \b[\w=.]+
-  - name: aggregateRating2
-    xpath: //div[@class="quedanMenos"]/img/@alt
-    type: NUMBER
+    regExp: (\d).?(\d)?
   # - name: reviewCount
   #   singleValue: false
   #   xpath: //div[@class="reviews_1KIjQ"]/span/span/text()
