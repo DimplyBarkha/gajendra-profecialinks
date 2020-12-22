@@ -241,10 +241,8 @@ fields:
     defaultValue: "No"
   - name: inTheBoxUrl
     singleValue: false
-    xpath: //div[@class="inpage_selector_InTheBox"]//img/@data-flixsrcset
-    description: Must include image url to show the accessories/tools which come with the product
-    regExp: ^(.+)\s200w
-    regExpReplace: https:$1
+    xpath: //div[@class="inpage_selector_InTheBox"]//img/@srcset | //div[@class="inpage_selector_InTheBox"]//img[not(@srcset)]/@data-flixsrcset
+    regExp: ^[^\s]+
   - name: inTheBoxText
     singleValue: false
     xpath: //div[@class="inpage_selector_InTheBox"]//span | //div[@class="inpage_selector_InTheBox"]//span | //div[@class="row ng-star-inserted"][contains(.,"Inkluderet") or contains(.,"Inkludert")]/following-sibling::div[div[2][contains(.,"Ja")]]/div[1]
