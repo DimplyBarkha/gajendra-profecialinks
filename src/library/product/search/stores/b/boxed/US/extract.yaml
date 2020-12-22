@@ -5,22 +5,22 @@ recordXPath: //div[contains(@class,'ab4-less')]//li[@data-bx='ple']
 fields:
   - name: id
     singleValue: false
-    xpath: //div[contains(@class,'ab4-less')]//li[@data-bx='ple'][@rank]//div[@data-bx='ple-wrap']/a/@href
+    xpath: //div[contains(@class,'ab4-less')]//div[@data-bx='ple-wrap']/a/@href
     regExp: \/(\d+)\/
     regExpReplace: $1
   - name: searchUrl
     singleValue: true
   - name: name
     singleValue: false
-    xpath: //div[contains(@class,'ab4-less')]//li[@data-bx='ple'][@rank]//div[contains(@class, 'brand-text')]
+    xpath: //div[contains(@class,'ab4-less')]//div[contains(@class, 'brand-text')]
   - name: productUrl
     singleValue: false
-    xpath: //div[contains(@class,'ab4-less')]//li[@data-bx='ple'][@rank]//div[@data-bx='ple-wrap']/a/@href
+    xpath: //div[contains(@class,'ab4-less')]//div[@data-bx='ple-wrap']/a/@href
   - name: gtin
     singleValue: false
   - name: thumbnail
     singleValue: false
-    xpath: //div[contains(@class,'ab4-less')]//li[@data-bx='ple'][@rank]//figure/*[1]/@src
+    xpath: //div[contains(@class,'ab4-less')]//figure/*[1]/@src
     regExp: \/\/(.*)
     regExpReplace: $1
   - name: aggregateRating
@@ -33,10 +33,10 @@ fields:
     singleValue: false
   - name: price
     singleValue: false
-    xpath: //div[contains(@class,'ab4-less')]//li[@data-bx='ple'][@rank]//div[contains(@id,'g-caption')]//span[@aria-label and not(contains(@aria-label, 'Instead'))]
+    xpath: //div[contains(@class,'ab4-less')]//div[contains(@id,'g-caption')]//span[@aria-label and not(contains(@aria-label, 'Instead'))]
   - name: manufacturer
     singleValue: false
-    xpath: //div[contains(@class,'ab4-less')]//li[@data-bx='ple'][@rank]//div[@data-bx='ple-wrap']/a/@title
+    xpath: //div[contains(@class,'ab4-less')]//div[@data-bx='ple-wrap']/a/@title
     regExp: ^(.*?)\-
     regExpReplace: $1  
   - name: soldBy
@@ -57,7 +57,7 @@ fields:
     singleValue: false
     description: Is sponsored/paid
     type: BOOLEAN
-    xpath: //div[contains(@class,"sponsored")]/@sponsored
+    xpath: //@sponsored
     defaultValue: false
   # - name: totalRecordCount
   #   singleValue: true 

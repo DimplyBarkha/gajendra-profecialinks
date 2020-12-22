@@ -4,28 +4,14 @@ async function implementation (inputs, parameters, context, dependencies) {
   const { transform } = parameters;
   const { productDetails } = dependencies;
 
-  // await context.evaluate(async function () {
-  //   const isPopupPresent = document.querySelector('p[id*="dialog"] + button');
-  //   // @ts-ignore
-  //   if (isPopupPresent) isPopupPresent.click();
-  // });
-
   await context.evaluate(async function () {
-    // @ts-ignore
-    while ([...document.querySelectorAll('button[class*="b05-less _"]')].filter(e => e.innerText.includes('LOAD'))[0] !== undefined) {
+    while (document.querySelector('button[class*="b048d-less"]') !== null) {
       // @ts-ignore
-      [...document.querySelectorAll('button[class*="b05-less _"]')].filter(e => e.innerText.includes('LOAD'))[0].click();
-      await stall(2000);
+      document.querySelector('button[class*="b048d-less"]').click();
+      await new Promise((resolve, reject) => setTimeout(resolve, 1500));
     };
-
-    function stall (ms) {
-      return new Promise((resolve) => {
-        setTimeout(() => {
-          resolve();
-        }, ms);
-      });
-    }
   });
+
   await context.evaluate(async () => {
     // @ts-ignore
     if (window !== undefined) {
@@ -51,12 +37,11 @@ async function implementation (inputs, parameters, context, dependencies) {
     }
     const prodContainer = document.querySelectorAll('div[class*="ab4-less"] li[data-bx="ple"]');
     if (prodContainer.length !== 0 && prodContainer !== null) {
-      for (let i = 0; i < prodContainer.length; i++) {
-        prodContainer[i].setAttribute('rank', `${i + 1}`);
-        if (i > 149) break;
-      }
+      prodContainer.forEach((element, index) => {
+        element.setAttribute('rank', `${index + 1}`);
+      });
     }
-    const sponsoredProducts = document.querySelectorAll('div[class*="ab4-less"] li[data-bx*="ple"][rank] div[class*="cc3-less"]');
+    const sponsoredProducts = document.querySelectorAll('div[class*="ab4-less"] li[data-bx*="ple"] div[class*="cc3-less"]');
     // @ts-ignore
     if (sponsoredProducts.length !== 0 && sponsoredProducts !== null) {
       sponsoredProducts.forEach(e => {
@@ -66,17 +51,24 @@ async function implementation (inputs, parameters, context, dependencies) {
         e.parentNode.parentNode.setAttribute('sponsored', 'yes');
       });
     }
-
+  });
+  await new Promise((resolve, reject) => setTimeout(resolve, 1500));
+  await context.evaluate(async () => {
     const notSponsoredProducts = document.querySelectorAll('div[class*="ab4-less"] li[data-bx="ple"]:not([class*="sponsored"])');
     if (notSponsoredProducts.length !== 0 && notSponsoredProducts !== null) {
-      for (let j = 0; j < notSponsoredProducts.length; j++) {
-        notSponsoredProducts[j].setAttribute('rankorganic', `${j + 1}`);
-        if (j > 149) break;
-      }
+      notSponsoredProducts.forEach((product, index) => {
+        product.setAttribute('rankorganic', `${index + 1}`);
+      });
     }
   });
 
-  return await context.extract(productDetails, { transform });
+  var dataRef = await context.extract(productDetails, { transform });
+
+  if (dataRef[0].group.length > 150) {
+    dataRef[0].group = dataRef[0].group.slice(0, 150);
+  }
+
+  return dataRef;
 }
 module.exports = {
   implements: 'product/search/extract',
