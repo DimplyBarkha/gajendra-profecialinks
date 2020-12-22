@@ -7,10 +7,11 @@ async function implementation(
     const { transform, mergeType } = parameters;
     const { productReviews } = dependencies;
     await context.evaluate(async function () {
-        function addHiddenDiv(id, content, ratingVal) {
+        function addHiddenDiv(id, content, ratingVal, date) {
             const catElement = document.createElement('div');
             catElement.id = id;
             catElement.setAttribute('rating', ratingVal);
+            catElement.setAttribute('reviewDate', date);
             catElement.textContent = content;
             catElement.style.display = 'none';
             document.body.appendChild(catElement);
@@ -24,7 +25,7 @@ async function implementation(
                 let reviews = scriptContent[index].review;
                 if(reviews){
                     reviews.forEach(review => {
-                        addHiddenDiv('script-review', review.description, review.reviewRating.ratingValue);
+                        addHiddenDiv('script-review', review.description, review.reviewRating.ratingValue, review.datePublished);
                     });
                 }
 

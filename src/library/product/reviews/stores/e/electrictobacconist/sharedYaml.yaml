@@ -6,6 +6,10 @@ fields:
   - name: rating
     singleValue: false
     xpath: //@rating
+  - name: reviewDate
+    singleValue: false
+    description: Date the review was made
+    xpath: //@reviewDate
   - name: sourceUrl
     singleValue: false
     xpath: ancestor::html//meta[@property="og:url"]/@content
@@ -43,14 +47,6 @@ fields:
     singleValue: false
     description: The store-specific product identifier
     xpath: ancestor::html//span[@id="js-product-reference"]/@data-ref
-  - name: reviewDate
-    singleValue: false
-    type: DATETIME
-    description: Date the review was made
-  - name: reviewRating
-    type: NUMBER
-    singleValue: false
-    description: Rating normalized to be out of 5
   - name: reviewText
     singleValue: false
     description: The text of the review
