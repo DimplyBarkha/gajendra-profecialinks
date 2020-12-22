@@ -20,6 +20,8 @@ async function implementation(
     const { productDetails } = dependencies;
     await context.evaluate(async function() {
 
+        document.body.setAttribute('search-url', window.location.href)
+
         let nextLink = document.querySelector('a[class*="next"]');
         if (nextLink) {
             let b = document.createElement('link');
