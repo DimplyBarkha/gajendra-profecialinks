@@ -4,11 +4,11 @@ recordSelector: 'div[data-component-type="s-search-result"]'
 fields:
   - name: price
     singleValue: single
-    xpath: (//span[contains(@class, 'a-price')])[1] 
-    regExp: 
+    xpath: (//span[contains(@class, 'a-price')])[1]
+    regExp:
   - name: rankOrganic
     singleValue: false
-    xpath: 
+    xpath:
   - name: rank
     singleValue: false
     xpath: 
@@ -20,7 +20,7 @@ fields:
     xpath: (//div[contains(@class, 'a-section a-spacing-medium')]//a/@href)[1]
   - name: gtin
     singleValue: false
-    xpath: 
+    xpath:
   - name: thumbnail
     singleValue: false
     xpath: (//div[contains(@class, 'a-section aok-relative s-image-square-aspect')]/img/@src)[1]

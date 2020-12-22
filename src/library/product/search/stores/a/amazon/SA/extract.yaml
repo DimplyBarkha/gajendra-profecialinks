@@ -5,7 +5,7 @@ recordXPath: //div[contains(@data-component-type,"s-search-result") and not(cont
 fields:
   - name: price
     singleValue: false
-    xpath: //span[@class='a-price']/span[2]
+    xpath: //div[@class='a-row a-size-base a-color-base']/div[@class='a-row']/div[@class='a-row']/a[@class='a-size-base a-link-normal s-no-hover a-text-normal']/span[@class='a-price']/span[2]
   - name: name
     singleValue: true
     xpath: //h2
@@ -19,18 +19,16 @@ fields:
     xpath: //div[@class='a-section aok-relative s-image-square-aspect']/img[@class='s-image']/@src
   - name: aggregateRating
     singleValue: false
-    xpath: (//i[contains(@class, "a-icon a-icon-star-small")]/span[@class='a-icon-alt'])[1]
-    regExp: (.+) out of
-    regExpReplace: $1
+    xpath: //a[@class='a-popover-trigger a-declarative']/i[@class='a-icon a-icon-star-small a-star-small-5 aok-align-bottom']
   - name: id
     singleValue: false
     xpath: //div/../@data-asin
   - name: reviewCount
     singleValue: false
-    xpath: (//a[@class='a-link-normal']/span[@class='a-size-base'])[1]
+    xpath: //a[@class='a-link-normal']/span[@class='a-size-base']
   - name: ratingCount
     singleValue: true
-    xpath: //span[contains(@aria-label,"stars")]/following-sibling::span[1]
+    xpath: //a[@class='a-link-normal']/span[@class='a-size-base']
   - name: _input
     singleValue: true
   - name: _url
