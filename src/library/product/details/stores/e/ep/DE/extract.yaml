@@ -573,7 +573,7 @@ fields:
   - name: hasComparisonTable
     # singleValue: true
     # xpath: //*[@id="ii_comparisionText"]
-    xpath: //h2[@class="productcompare-component-title"]
+    xpath: //h2[@class="productcompare-component-title"] | //div[@id="ii_comparisionText"]
     regExp: (.+)
     regExpReplace: Yes
     defaultValue: No

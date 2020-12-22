@@ -110,7 +110,11 @@ async function implementation (
     });
 
     hasComparisionTable = await context.evaluate(async () => {
-      return (!!document.querySelector('.compare-headline') && document.querySelector('.compare-headline').offsetHeight > 0 && document.querySelector('.compare-headline').offsetWidth) > 0;
+      if(document.querySelector('.compare-headline')) {
+        return true;
+      } else {
+        return false;
+      }
     });
 
     await context.goto(currentUrl, { timeout: 50000 });
