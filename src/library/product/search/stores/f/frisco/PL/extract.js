@@ -33,25 +33,26 @@ module.exports = {
       }
     }
     await context.evaluate(getID);
-    //call Api fro search Url
- //   var yourUrl = 'https://commerce.frisco.pl/api/offer/products/query?includeCategories=true&pageIndex=1&search=zupa&deliveryMethod=Van&pageSize=150&language=pl&facetCount=150&includeWineFacets=false';
-  //   async function load() {
-  //     let url = 'https://commerce.frisco.pl/api/offer/products/query?includeCategories=true&pageIndex=1&search=zupa&deliveryMethod=Van&pageSize=150&language=pl&facetCount=150&includeWineFacets=false';
-  //     let obj = null;
-      
-  //     try {
-  //         obj = await (await fetch(url)).json();
-  //     } catch(e) {
-  //         console.log('error');
-  //     }
-      
-  //     console.log("object :"+obj.totalCount);
-  // }
-  
-  // load();
-
-
-
+    //provide scroll time  for loading data
+    const applyScroll = async function (context) {
+      await context.evaluate(async function () {
+        let scrollTop = 0;
+        while (scrollTop !== 20000) {
+          scrollTop += 500;
+          window.scroll(0, scrollTop);
+          await stall(1000);
+        }
+        function stall(ms) {
+          return new Promise((resolve, reject) => {
+            setTimeout(() => {
+              resolve();
+            }, ms);
+          });
+        }
+      });
+    };
+    await applyScroll(context);
+    
     return await context.extract(dependencies.productDetails, { transform: transformParam });
   },
 };
