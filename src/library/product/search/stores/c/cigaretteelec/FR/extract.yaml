@@ -1,12 +1,12 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: //div[@class="sr-item"]
+recordXPath: //div[contains(@class,"product-item-body")]
 fields:
   - name: productUrl
     singleValue: false
     description: The URL for the product details page
-    xpath: //a[@class="sr-link db"]/@href
+    xpath: //span[contains(@class,"product-item-top")]//a[@class="swup"]/@href
   - name: paid
     singleValue: true
     description: Whether this is a sponsored/paid result

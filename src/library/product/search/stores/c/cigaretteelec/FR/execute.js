@@ -1,4 +1,4 @@
-async function implementation(
+async function implementation (
   inputs,
   { url, loadedSelector, noResultsXPath },
   context,
@@ -7,17 +7,13 @@ async function implementation(
   const { keywords } = inputs;
   const destinationUrl = url.replace('{searchTerms}', encodeURIComponent(keywords));
   await dependencies.goto({ ...inputs, url: destinationUrl });
-  
-  const needToAcceptCookies = await context.evaluate(()=>{
+
+  const needToAcceptCookies = await context.evaluate(() => {
     return !!document.querySelector('div[id*="accept-cookies"]');
   });
-  if (needToAcceptCookies){
-    await context.click('button[class*="rgpd-acceptance"]',{ timeout: 7000 });
+  if (needToAcceptCookies) {
+    await context.click('button[class*="rgpd-acceptance"]', { timeout: 7000 });
   }
-  await context.evaluate(async()=>{
-    await new Promise(res=>setTimeout(res,3000))
-    debugger
-  })
 
   if (loadedSelector) {
     await context.waitForFunction(function (sel, xp) {
@@ -41,7 +37,7 @@ module.exports = {
     store: 'cigaretteelec',
     domain: 'cigaretteelec.fr',
     url: 'https://www.cigaretteelec.fr/recherche?search_query={searchTerms}',
-    loadedSelector: 'div.sr-item',
+    loadedSelector: 'div[class*="component-product-list"]',
     noResultsXPath: '//*[contains(text(),"Vous ne trouvez pas votre produit?")]',
     zipcode: '',
   },
