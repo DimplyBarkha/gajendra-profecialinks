@@ -22,7 +22,7 @@ fields:
     xpath: //p[contains(text(), "Descripción") or contains(text(), "Información del producto") or normalize-space(text())="Información"]/following-sibling::div | //span[@class="nutrition-more-info__list-name" and contains(text(),"Denominación del alimento")]/following-sibling::span/text() | //div[p[contains(text(), "Información adicional del producto")]]/following-sibling::div
     singleValue: false
   - name: ingredientsList
-    xpath: //p[contains(text(),"Ingredientes")]/following-sibling::p[contains(@class,"ingredients__content")]
+    xpath: //p[contains(text(),"Ingredientes")]/following-sibling::p[contains(@class,"ingredients__content")] | //p[contains(text(),"Ingredientes")]/following-sibling::div[contains(@class,"additional-info__description additional-info__text1")]
     singleValue: false
   - name: brandText
     xpath: //body/@brand
