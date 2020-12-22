@@ -45,7 +45,7 @@ const transform = (data) => {
               if (row.sku) {
                 row.sku.forEach(item => {
                   const url = item.text.split('/');
-                  item.text = "tesco_" + url[url.length-1];
+                  item.text = url[url.length-1];
                 });
               }
 
