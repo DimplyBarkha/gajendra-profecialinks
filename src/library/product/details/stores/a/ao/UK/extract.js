@@ -192,6 +192,10 @@ module.exports = {
               allEnhancedContent = allEnhancedContent + ' ' + nodeListH[k].innerText + ' ' + (nodeListH[k].nextElementSibling ? nodeListH[k].nextElementSibling.innerText : '');
             }
           }
+          const allEnhancedContentHeader = document.querySelector('section.richContent h2');
+          if (allEnhancedContentHeader) {
+            allEnhancedContent = allEnhancedContentHeader.textContent + ' ' + allEnhancedContent;
+          }
           addElementToDocument('enhCont', allEnhancedContent);
         }
         const rating = document.evaluate("//span[@itemprop='ratingValue']", document, null, XPathResult.STRING_TYPE, null);

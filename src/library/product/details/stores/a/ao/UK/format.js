@@ -35,7 +35,7 @@ const transform = (data, context) => {
         }
 
         if (row.specifications) {
-          let specificationsText = 'Produkt-Eigenschaften Highlights ';
+          let specificationsText = 'Product Specification Highlights ';
           row.specifications.forEach(item => {
             if (item.text) {
               specificationsText += `${item.text} `;
