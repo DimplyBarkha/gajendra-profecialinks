@@ -74,13 +74,13 @@ async function implementation (
     videos = await context.evaluate(function () {
       const videos = [];
       document.querySelectorAll('video, [data-video]').forEach(video => {
-        if(video.querySelector('source') && video.querySelector('source').getAttribute('src')) {
-          if(!videos.includes(video.querySelector('source').getAttribute('src')))  {
+        if (video.querySelector('source') && video.querySelector('source').getAttribute('src')) {
+          if (!videos.includes(video.querySelector('source').getAttribute('src'))) {
             videos.push(video.querySelector('source').getAttribute('src'));
           }
         }
-        if(video.hasAttribute('data-video')) {
-          if(!videos.includes(video.getAttribute('data-video')))  {
+        if (video.hasAttribute('data-video')) {
+          if (!videos.includes(video.getAttribute('data-video'))) {
             videos.push(video.getAttribute('data-video'));
           }
         }
@@ -110,7 +110,8 @@ async function implementation (
     });
 
     hasComparisionTable = await context.evaluate(async () => {
-      if(document.querySelector('.compare-headline')) {
+      console.log(document.URL + ' here we check the comparison table');
+      if (document.querySelector('.compare-headline')) {
         return true;
       } else {
         return false;
@@ -180,14 +181,14 @@ async function implementation (
     if (document.querySelector('.priceOfProduct.product-price-panel-offer , .offerPrice.product-price-panel-offer')) {
       addHiddenDiv('price', document.querySelector('.priceOfProduct.product-price-panel-offer , .offerPrice.product-price-panel-offer').innerText.replace('*', ''));
     }
-  
+
     if (inBoxUrls.length) {
       addHiddenDiv('ii_inBoxUrls', inBoxUrls.join(' || '));
       // inBoxUrls.forEach((element) => {
       //   addHiddenDiv('ii_inBoxUrls', element);
       // });
     }
-  
+
     if (inBoxText.length) {
       addHiddenDiv('ii_inBoxText', inBoxText.join(' || '));
       // inBoxText.forEach((element) => {
@@ -195,7 +196,9 @@ async function implementation (
       // });
     }
     // addHiddenDiv('ii_inBoxText', inBoxText);
-    addHiddenDiv('ii_comparisionText', hasComparisionTable ? 'Yes' : 'No');
+    // addHiddenDiv('ii_comparisionText', hasComparisionTable ? 'Yes' : 'No');
+    console.log(hasComparisionTable + ' comp table');
+    if (hasComparisionTable === true) addHiddenDiv('ii_comparisionText', hasComparisionTable);
 
     let inStore = false;
     let delivery = false;

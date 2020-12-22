@@ -1,4 +1,4 @@
-const{transform} = require('./transform');
+const { transform } = require('./transform');
 
 async function implementation (
   inputs,
@@ -54,7 +54,7 @@ async function implementation (
 
   try {
     await context.waitForSelector('iframe[title="Flix-media-video-0"]');
-  } catch(e) {
+  } catch (e) {
     console.log('Video in product information is not present');
   }
 
@@ -64,7 +64,7 @@ async function implementation (
   const isScriptLoaded = await context.evaluate(async function (xpathForScript, reloadSec, maxTime) {
     let element = document.evaluate(xpathForScript, document, null, 7, null);
     window.scrollTo(0, document.body.scrollHeight);
-    async function timeout(ms) {
+    async function timeout (ms) {
       console.log('waiting for ' + ms + ' millisecs');
       return new Promise((resolve) => setTimeout(resolve, ms));
     }
@@ -86,7 +86,7 @@ async function implementation (
   }, xpathForScript, 500, 30000);
 
   if (isScriptLoaded) {
-    console.log('we have the script - which takes most time to load')
+    console.log('we have the script - which takes most time to load');
   } else {
     console.log('script is not loaded yet - check with xpathForScript');
   }
