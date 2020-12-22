@@ -32,7 +32,7 @@ const transform = (data) => {
       }
       if (row.brandText) {
         row.brandText.forEach(item => {
-          let itemmatch = item.text.match(/Dyson/);
+          const itemmatch = item.text.match(/Dyson/);
           if (itemmatch) {
             item.text = 'Dyson';
           } else {
@@ -58,21 +58,21 @@ const transform = (data) => {
         });
       }
       if (row.additionalDescBulletInfo) {
-        var arr_info = []
+        var arrInfo = [];
         row.additionalDescBulletInfo.forEach(item => {
-          arr_info.push(item.text.trim());
+          arrInfo.push(item.text.trim());
         });
-        if (arr_info.length) {
-          row.descriptionBullets = [{ 'text': arr_info.length }];
-          var temp_text = arr_info.join(' || ');
-          temp_text = '|| ' + temp_text;
-          row.additionalDescBulletInfo = [{ 'text': temp_text }];
+        if (arrInfo.length) {
+          row.descriptionBullets = [{ text: arrInfo.length }];
+          var tempText = arrInfo.join(' || ');
+          tempText = '|| ' + tempText;
+          row.additionalDescBulletInfo = [{ text: tempText }];
         }
       }
       if (row.availabilityText) {
         row.availabilityText.forEach(item => {
-          if (item.text == 'Buy Now') {
-            item.text = 'In Stock'
+          if (item.text === 'Buy Now') {
+            item.text = 'In Stock';
           }
         });
       }
@@ -86,7 +86,7 @@ const transform = (data) => {
       if (row.alternateImages) {
         row.alternateImages.forEach(item => {
           item.text = item.text.match(/\(([^)]+)\)/)[1].slice(1, -1);
-          item.text = item.text.replace(/\/thumb\//, '\/full\/');
+          item.text = item.text.replace(/\/thumb\//, '/full/');
         });
         if (row.alternateImages.length > 1) {
           row.alternateImages.splice(0, 1);
