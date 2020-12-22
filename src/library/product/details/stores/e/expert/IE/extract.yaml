@@ -275,9 +275,10 @@ fields:
     singleValue: true
     description: null
   - name: specifications
-    singleValue: true
+    singleValue: false
     # xpath: //th[contains(text(),'Paketgewicht')]//ancestor::th//parent::tr|//th[contains(text(),'Verpackungsbreite')]//ancestor::th//parent::tr|//th[contains(text(),'Paketgewicht')]//ancestor::th//parent::tr|//th[contains(text(),'Verpackungshöhe')]//ancestor::th//parent::tr|//th[contains(text(),'Paketgewicht')]//ancestor::th//parent::tr|//th[contains(text(),'Verpackungstiefe')]//ancestor::th//parent::tr
     description: The physical dimensions of the product including packaging.
+    xpath: (//div[@class="inpage_selector_specification"]//table[contains(@class,"flix-std-specs-table")]//td)
   - name: warranty
     singleValue: true
     xpath: //div[@id="warranty"]//p//text()
