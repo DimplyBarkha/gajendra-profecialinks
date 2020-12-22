@@ -16,7 +16,7 @@ module.exports = {
     // removing cookies popup
     await context.waitForNavigation();
     const isPopupPresent = await context.evaluate(async () => {
-      return document.querySelector('button#onetrust-accept-btn-handler');
+      return document.querySelector('button#onetrust-accept-btn-handler') !== null;
     });
     if (isPopupPresent) {
       await context.click('button#onetrust-accept-btn-handler');
@@ -24,6 +24,9 @@ module.exports = {
     await context.waitForNavigation();
 
     // load more pagination implementation
+    await context.evaluate(async () => {
+      window.scrollTo(0, document.body.scrollHeight);
+    });
     let isLoadMoreButtonPresent = await context.evaluate(async () => {
       const button = document.querySelector('button.more-data-loader__btn');
       if (button) {
@@ -36,7 +39,7 @@ module.exports = {
       return document.querySelectorAll('div.more-data-loader div.product-tile').length;
     });
     let clicksAmount = 0;
-    while (isLoadMoreButtonPresent && productsAmount < 150 && clicksAmount < 15) {
+    while (isLoadMoreButtonPresent && productsAmount < 150 && clicksAmount < 25) {
       await context.click('button.more-data-loader__btn span');
       await context.waitForSelector('button.more-data-loader__btn', { timeout: 2000 });
       isLoadMoreButtonPresent = await context.evaluate(async () => {
