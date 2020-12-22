@@ -1,7 +1,7 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: //section[contains(@class,"multi-size")]//div[contains(@class,"c-select__dropdown-item-container")]//span[contains(@class,"c-select__dropdown-item")]
+recordXPath: //section[contains(@class,"multi-size")]//div[@data-ts-select-label="Size"]//div[contains(@class,"c-select__dropdown-item-container")]//span[contains(@class,"c-select__dropdown-item")]
 fields:
 - name: inTheBoxUrl
 - name: inTheBoxText
@@ -57,9 +57,9 @@ fields:
   regExp: (You must be over.+)
   regExpReplace: $1
 - name: directions
-  xpath: ancestor::html///li[contains(.,"Application:")]
+  xpath: ancestor::html//li[contains(.,"Application:")]
 - name: warnings
-  xpath: ancestor::html///li[contains(.,"Warning:")]
+  xpath: ancestor::html//li[contains(.,"Warning:")]
 - name: ratingCount
 - name: aggregateRatingText
 - name: aggregateRating

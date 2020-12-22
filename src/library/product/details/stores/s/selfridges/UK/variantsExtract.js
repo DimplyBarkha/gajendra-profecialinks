@@ -25,19 +25,27 @@ module.exports = {
     });
 
     if (inputs.id) {
-      // if we're on search site we should click and select first item
-      var detailsPage = await context.evaluate(async () => {
-        if (document.querySelector('a.c-prod-card__images') != null) {
-          var productLink = document.querySelector('a.c-prod-card__images').getAttribute('href');
-        }
-        return productLink;
-      });
+      try {
+        // if we're on search site we should click and select first item
+        var detailsPage = await context.evaluate(async () => {
+          await new Promise((resolve) => setTimeout(resolve, 8000));
+          const selector = document.querySelector('a.c-prod-card__images');
+          if (selector) {
+            var productLink = selector.getAttribute('href');
+          }
+          return productLink;
+        });
 
-      // check if detailsPage exists
-      if (detailsPage) {
-        await context.goto('https://www.selfridges.com/' + detailsPage, { waitUntil: 'networkidle0', checkBlocked: true });
+        // check if detailsPage exists
+        if (detailsPage) {
+          await context.goto('https://www.selfridges.com/' + detailsPage, { waitUntil: 'networkidle0', checkBlocked: true });
+          await new Promise((resolve) => setTimeout(resolve, 8000));
+        }
+      } catch (err) {
+        console.log('Stopped at search page');
       }
     }
+
     await new Promise((resolve) => setTimeout(resolve, 8000));
     await context.evaluate(() => {
       const isColor = document.querySelector('section[data-js-variant-type="multi-colour"]');

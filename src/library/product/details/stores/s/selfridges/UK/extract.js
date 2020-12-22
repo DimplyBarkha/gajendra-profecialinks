@@ -13,17 +13,24 @@ async function implementation (inputs, parameters, context, dependencies) {
   });
 
   if (inputs.id) {
-  // if we're on search site we should click and select first item
-    var detailsPage = await context.evaluate(async () => {
-      if (document.querySelector('a.c-prod-card__images') != null) {
-        var productLink = document.querySelector('a.c-prod-card__images').getAttribute('href');
-      }
-      return productLink;
-    });
+    try {
+      // if we're on search site we should click and select first item
+      var detailsPage = await context.evaluate(async () => {
+        await new Promise((resolve) => setTimeout(resolve, 8000));
+        const selector = document.querySelector('a.c-prod-card__images');
+        if (selector) {
+          var productLink = selector.getAttribute('href');
+        }
+        return productLink;
+      });
 
-    // check if detailsPage exists
-    if (detailsPage) {
-      await context.goto('https://www.selfridges.com/' + detailsPage, { waitUntil: 'networkidle0', checkBlocked: true });
+      // check if detailsPage exists
+      if (detailsPage) {
+        await context.goto('https://www.selfridges.com/' + detailsPage, { waitUntil: 'networkidle0', checkBlocked: true });
+        await new Promise((resolve) => setTimeout(resolve, 8000));
+      }
+    } catch (err) {
+      console.log('Stopped at search page');
     }
   }
   await new Promise((resolve) => setTimeout(resolve, 8000));
@@ -31,32 +38,35 @@ async function implementation (inputs, parameters, context, dependencies) {
   await context.evaluate(async () => {
     await new Promise((resolve, reject) => setTimeout(resolve, 3000));
 
-    const isVariants = document.querySelector('section.multi-size div.c-select__dropdown-item-container span.c-select__dropdown-item');
+    const isVariants = document.querySelector('section.multi-size div[data-ts-select-label="Size"] div.c-select__dropdown-item-container span.c-select__dropdown-item');
     if (isVariants) {
-      const isVariants = document.querySelectorAll('section.multi-size div.c-select__dropdown-item-container span.c-select__dropdown-item');
+      const variants = document.querySelectorAll('section.multi-size div[data-ts-select-label="Size"] div.c-select__dropdown-item-container span.c-select__dropdown-item');
       const rpc = [];
       const sizeVariants = JSON.parse(document.querySelector('script[data-component="pdp-semantic-data"]').textContent);
-      for (let i = 0; i < isVariants.length; i++) {
+      for (let i = 0; i < variants.length; i++) {
         rpc.push(sizeVariants.model[i].sku);
       }
-      for (let i = 0; i < isVariants.length; i++) {
-        isVariants[i].setAttribute('variantId', rpc[i]);
-        isVariants[i].setAttribute('availability', sizeVariants.model[i].offers[0].availability);
+      for (let i = 0; i < variants.length; i++) {
+        variants[i].setAttribute('variantId', rpc[i]);
+        variants[i].setAttribute('availability', sizeVariants.model[i].offers[0].availability);
       }
       document.querySelector('section[data-js-component="productHero"]').setAttribute('firstVariant', rpc[0]);
-      document.querySelector('section[data-js-component="productHero"]').setAttribute('variants', rpc);
     } else {
       var newSection = document.createElement('section');
       newSection.className = 'multi-size';
       document.querySelector('section[data-js-component="productHero"]').append(newSection);
 
+      var newDiv1 = document.createElement('div');
+      newDiv1.setAttribute('data-ts-select-label', 'Size');
+      document.querySelector('section[data-js-component="productHero"] section.multi-size').append(newDiv1);
+
       var newDiv = document.createElement('div');
       newDiv.className = 'c-select__dropdown-item-container';
-      document.querySelector('section[data-js-component="productHero"] section.multi-size').append(newDiv);
+      document.querySelector('section[data-js-component="productHero"] section.multi-size div[data-ts-select-label="Size"]').append(newDiv);
 
       var newSpan = document.createElement('span');
       newSpan.className = 'c-select__dropdown-item';
-      document.querySelector('section[data-js-component="productHero"] section.multi-size div.c-select__dropdown-item-container').appendChild(newSpan);
+      document.querySelector('section[data-js-component="productHero"] section.multi-size div[data-ts-select-label="Size"] div.c-select__dropdown-item-container').appendChild(newSpan);
 
       const availability = document.querySelector('button[data-action="add-to-bag"].--disabled');
       if (availability) {
@@ -64,11 +74,19 @@ async function implementation (inputs, parameters, context, dependencies) {
       } else {
         document.querySelector('section[data-js-component="productHero"]').setAttribute('availability', 'In Stock');
       }
-      document.querySelector('section.multi-size div.c-select__dropdown-item-container span.c-select__dropdown-item').setAttribute('variantId', JSON.parse(document.querySelector('script[data-component="pdp-semantic-data"]').textContent).model[0].sku);
-      const size = document.querySelector('section[data-js-variant-type="single-size"] div[data-select-name="Size"] button');
+      const isSku = JSON.parse(document.querySelector('script[data-component="pdp-semantic-data"]').textContent).model;
+      if (isSku) {
+        document.querySelector('section.multi-size div[data-ts-select-label="Size"] div.c-select__dropdown-item-container span.c-select__dropdown-item').setAttribute('variantId', JSON.parse(document.querySelector('script[data-component="pdp-semantic-data"]').textContent).model[0].sku);
+      } else {
+        const sku = document.querySelector('span[data-js-action="updateSKU"]');
+        if (sku) {
+          document.querySelector('section.multi-size div[data-ts-select-label="Size"] div.c-select__dropdown-item-container span.c-select__dropdown-item').setAttribute('variantId', sku.textContent);
+        }
+      }
+      const size = document.querySelector('section[data-js-variant-type="single-size"] div[data-select-name="Size"] span.c-select__dropdown-item');
       if (size) {
-        const singleSize = size.textContent;
-        document.querySelector('section.multi-size div.c-select__dropdown-item-container span.c-select__dropdown-item').setAttribute('data-js-action', singleSize);
+        const singleSize = size.getAttribute('data-js-action');
+        document.querySelector('section.multi-size div[data-ts-select-label="Size"] div.c-select__dropdown-item-container span.c-select__dropdown-item').setAttribute('data-js-action', singleSize);
       }
     }
 
