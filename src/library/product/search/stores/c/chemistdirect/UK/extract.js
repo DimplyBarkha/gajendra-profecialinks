@@ -33,11 +33,19 @@ async function implementation(
   
   await context.evaluate(async function () {
       document.querySelector('input.Backtoshop') ? document.querySelector('input.Backtoshop').click() : console.log('no pop-up');
-      GlobalE.ShippingSwitcher.Show()
-      await new Promise((resolve, reject) => setTimeout(resolve, 1000));
-      var gle_selectedCountry = document.querySelector("#gle_selectedCountry");
-      gle_selectedCountry.value = "GB";
-      GlobalE.ShippingSwitcher.SaveAndClose();
+      try{
+        GlobalE.ShippingSwitcher.Show();
+        await new Promise((resolve, reject) => setTimeout(resolve, 1000));
+        var gle_selectedCountry = document.querySelector("#gle_selectedCountry");
+        gle_selectedCountry.value = "GB";
+      } catch (e) {
+        console.log('GlobalE not defined', e.message);
+      }
+      try{
+        GlobalE.ShippingSwitcher.SaveAndClose();
+      } catch (e) {
+        console.log('GlobalE not defined', e.message);
+      }
       await new Promise((resolve, reject) => setTimeout(resolve, 3000));
 
     let URL = window.location.href;
