@@ -51,8 +51,8 @@ fields:
     description: Product description supplied by website - may be concatenanted from
       multiple places; specifically not the manufacturer description
   - name: weightNet
-    singleValue: true
-    xpath: //dt[contains(@class,'product-details__content-title') and contains(.,'Peso')]/following-sibling::dd[1]
+    singleValue: false
+    xpath: //dt[contains(@class,'product-details__content-title') and contains(.,'Peso')]/following-sibling::dd[1] | //*[contains(text(), 'Peso')]/following-sibling::*
     description: Net weight as described on the page
   - name: weightGross
     singleValue: true
@@ -154,3 +154,12 @@ fields:
   - name: otherSellersPrice
     singleValue: false
     xpath: //span[contains(@class, 'mpoffer__price')]
+  - name: ingredientsList
+    singleValue: false
+    xpath: //p[contains(@class, 'nutrition-ingredients__content')]
+  - name: directions
+    singleValue: false
+    xpath: //p[contains(text(), 'Modo de empleo')]/following-sibling::*
+  - name: largeImageCount
+    singleValue: false
+    xpath: count(//ul[@class='pics-slider__thumbnails']//li[position()>1]//img/@src)
