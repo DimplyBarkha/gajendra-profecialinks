@@ -65,9 +65,7 @@ fields:
     xpath: //div[@id="allergens"]/ul
   - name: caloriesPerServing
     singleValue: false
-    # #xpath: concat(//div[@class='product-blocks']//li[contains(.,"Energy")],' , ',//div[@class='product-blocks']//li[contains(.,"Fat")],' , ',//div[@class='product-blocks']//li[contains(.,"Saturates")],' , ',//div[@class='product-blocks']//li[contains(.,"Sugar")],' , ',//div[@class='product-blocks']//li[contains(.,"Salt")])
-    # xpath:
-    xpath: //body/@Energy
+    xpath: //table[@class='product__info-table']//tbody//td[contains(.,"Energy")]/following-sibling::td[2]
   - name: legalDisclaimer
     singleValue: true
     xpath: //div[@id="warnings"]//ul
@@ -78,7 +76,6 @@ fields:
   - name: nutritionInfo
     singleValue: false
     xpath: //table[@class='product__info-table']/tbody
-    #xpath: concat(//tr[contains(.,"Energy")],' , ',//tr[contains(.,"Fat")],' , ',//tr[contains(.,"saturates")],' , ',//tr[contains(.,"Carbohydrate")],' , ',//tr[contains(.,"sugars")],' , ',//tr[contains(.,"Protein")],' , ',//tr[contains(.,"Salt")])
   - name: servingSize
     singleValue: false
     xpath: //table[@class='product__info-table']/thead/tr/th[3]
@@ -116,10 +113,7 @@ fields:
     regExpReplace: $1
   - name: sku
     singleValue: false
-    # xpath: //script[@type="application/ld+json"][contains(text(),"sku")]
     xpath: //link[@rel="canonical"]/@href
-    # regExp: sku":"([^"]+)
-    # regExpReplace: $1
   - name: videos
     singleValue: true
   - name: variantInformation
@@ -175,65 +169,6 @@ fields:
   - name: promotion
     singleValue: false
     xpath: (//ul[contains(@class,"product-promotion")]/li//span[@class='offer-text'])[1]
-  - name: saltPerServing
-    singleValue: true
-    xpath: //td[contains(.,"Salt")]/following-sibling::td[1]
-  - name: saltPerServingUom
-    singleValue: false
-    xpath: //td[contains(.,"Salt")]/following-sibling::td[1]
-  - name: totalFatPerServing
-    singleValue: true
-    xpath: //td[contains(.,"Energy")]/following-sibling::td[1]
-  - name: totalFatPerServingUom
-    singleValue: false
-    xpath: //td[contains(.,"Energy")]/following-sibling::td[1]
-  - name: saturatedFatPerServing
-    singleValue: true
-    xpath: //td[contains(.,"Saturates")]/following-sibling::td[1] | //td[contains(.,"of which saturates")]/following-sibling::td[1]
-  - name: saturatedFatPerServingUom
-    singleValue: false
-    xpath: //td[contains(.,"Saturates")]/following-sibling::td[1] | //td[contains(.,"of which saturates")]/following-sibling::td[1]
-  - name: totalCarbPerServing
-    singleValue: true
-    xpath: //td[contains(.,"Carbohydrate")]/following-sibling::td[1]
-  - name: totalCarbPerServingUom
-    singleValue: false
-    xpath: //td[contains(.,"Carbohydrate")]/following-sibling::td[1]
-  - name: totalSugarsPerServing
-    singleValue: true
-    xpath: //td[contains(.,"Sugars")]/following-sibling::td[1] | //td[contains(.,"of which sugars")]/following-sibling::td[1]
-  - name: totalSugarsPerServingUom
-    singleValue: false
-    xpath: //td[contains(.,"Sugars")]/following-sibling::td[1] | //td[contains(.,"of which sugars")]/following-sibling::td[1]
-  - name: proteinPerServing
-    singleValue: true
-    xpath: //td[contains(.,"Protein")]/following-sibling::td[1]
-  - name: proteinPerServingUom
-    singleValue: false
-    xpath: //td[contains(.,"Protein")]/following-sibling::td[1]
-  - name: calciumPerServing
-    singleValue: true
-    xpath: //td[contains(.,"Calcium")]/following-sibling::td[1]
-  - name: calciumPerServingUom
-    singleValue: false
-    xpath: //td[contains(.,"Calcium")]/following-sibling::td[1]
-  - name: dietaryFibrePerServing
-    singleValue: false
-    xpath: //td[contains(.,"Fibre")]/following-sibling::td[1]
-  - name: dietaryFibrePerServingUom
-    singleValue: false
-    xpath:  //td[contains(.,"Fibre")]/following-sibling::td[1]
-
-
-
-
-
-
-
-
-
-
-
 
 
 
