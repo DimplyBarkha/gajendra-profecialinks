@@ -111,6 +111,8 @@ fields:
   - name: unInterruptedPDP
     xpath: //div[contains(@class,"related_products")]//ul/li
   - name: inTheBoxText
-    xpath: //body/@in-the-box-text | //td[contains(., "In the Box") or contains(., "In The Box")]/following-sibling::td
+    xpath: >-
+      //tr[not(td/strong)][preceding::tr[td/strong][1][contains(translate(.,'ABCDEFGHIJKLMNOPQRSTUVWXYZ','abcdefghijklmnopqrstuvwxyz'),'in the box')]][td[2]=""] | //tr[not(td/strong)][contains(.,"1 x") or contains(.,"YES")][preceding::tr[td/strong][1][contains(translate(.,'ABCDEFGHIJKLMNOPQRSTUVWXYZ','abcdefghijklmnopqrstuvwxyz'),'in the box')]] | //td[following-sibling::td[text()='Included']] | //div[@class='std']//text()[contains(.,': Yes')] | //tr[contains(translate(.,'ABCDEFGHIJKLMNOPQRSTUVWXYZ','abcdefghijklmnopqrstduvwxyz'),'in the box')][not(td/strong)]/td[last()]
+    regExp: '[^,]+'
   - name: hasComparisonTable
     defaultValue: No

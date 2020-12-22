@@ -42,7 +42,7 @@ const transform = (data) => {
       }
       if (row.alternateImages) {
         let text = '';
-        let newAltImage = []
+        const newAltImage = [];
         row.alternateImages.forEach(item => {
           text = item.text.replace('-147x116', '');
           newAltImage.push({ text });
@@ -51,7 +51,7 @@ const transform = (data) => {
       }
       if (row.specifications) {
         let text = '';
-        let rowCount = 0
+        let rowCount = 0;
         row.specifications.forEach(item => {
           rowCount++;
 
@@ -71,7 +71,7 @@ const transform = (data) => {
       if (row.warranty) {
         let text = '';
         row.warranty.forEach(item => {
-          let warrentyArr = item.text.match(/\d+/g);
+          const warrentyArr = item.text.match(/\d+/g);
           text = warrentyArr[0] + ' Years';
         });
         row.warranty = [
@@ -84,15 +84,17 @@ const transform = (data) => {
       if (row.termsAndConditions) {
         let text = '';
         row.termsAndConditions.forEach(item => {
-          text = (item.text) ? 'Yes' : 'No'
+          text = (item.text) ? 'Yes' : 'No';
         });
         row.termsAndConditions = [
           {
-            text
+            text,
           },
         ];
       }
-
+      if (row.inTheBoxText) {
+        row.inTheBoxText.forEach(elm => { elm.text = elm.text.replace('YES', '').replace(': Yes', ''); });
+      }
     }
   }
   // Clean up data
@@ -107,7 +109,8 @@ const transform = (data) => {
     .replace(/^ +| +$|( )+/g, ' ')
     // eslint-disable-next-line no-control-regex
     .replace(/[\x00-\x1F]/g, '')
-    .replace(/[\uD800-\uDBFF][\uDC00-\uDFFF]/g, ' ');
+    .replace(/[\uD800-\uDBFF][\uDC00-\uDFFF]/g, ' ')
+    .trim();
 
   data.forEach(obj => obj.group.forEach(row => Object.keys(row).forEach(header => row[header].forEach(el => {
     el.text = clean(el.text);
