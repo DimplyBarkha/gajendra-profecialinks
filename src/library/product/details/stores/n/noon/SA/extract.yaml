@@ -127,10 +127,6 @@ fields:
   - name: manufacturerDescription
     singleValue: false
     xpath: //div[contains(@class,"richContent")])]
-  - name: unInterruptedPDP
-    singleValue: false
-    xpath: //div[@class="wx1egl-1 dcdQwh"]//div[@class="e3js0d-10 cyUANN"]
-    description: Titles of products in the sections 'you may also like' or 'sponsored products'. Combine results from Max 3 sections
   - name: descriptionBullets
     singleValue: false
     xpath: //div[@id='descriptionBulletCount']/text()
@@ -143,3 +139,9 @@ fields:
   - name: unInterruptedPDP
     singleValue: false
     xpath: //div[contains(.,'Customer Also Viewed')]/following-sibling::div//div[contains(@class,'swiper-wrapper')]/div[contains(@class,'swiper-slide')]//div[@class="productImage"]//img//@alt
+  - name: inTheBoxText
+    singleValue: false
+    xpath: //tbody/tr/td[contains(.,'Set Includes')]/following-sibling::td
+  - name: hasComparisonTable
+    singleValue: true
+    defaultValue: No
