@@ -2,15 +2,15 @@
 /**
  *
  * @param {{
- *  nextLinkSelector: string,
- *  mutationSelector: string,
- *  loadedSelector: string,
- *  spinnerSelector: string,
- * }} inputs
- * @param { Record<string, any> } parameters
- * @param { ImportIO.IContext } context
- * @param { Record<string, any> } dependencies
- */
+  *  nextLinkSelector: string,
+  *  mutationSelector: string,
+  *  loadedSelector: string,
+  *  spinnerSelector: string,
+  * }} inputs
+  * @param { Record<string, any> } parameters
+  * @param { ImportIO.IContext } context
+  * @param { Record<string, any> } dependencies
+  */
 async function implementation (
   inputs,
   parameters,
