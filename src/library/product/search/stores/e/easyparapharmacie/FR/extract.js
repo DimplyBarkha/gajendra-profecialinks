@@ -18,8 +18,7 @@ const implementation = async (inputs, parameters, context, dependencies) => {
         buttonShowMore.click();
         await stall(500);
         counter++;
-      }
-      while (buttonShowMore.disabled == false);
+      } while (buttonShowMore.disabled === false);
     }
 
     function stall (ms) {
@@ -33,9 +32,7 @@ const implementation = async (inputs, parameters, context, dependencies) => {
 
   const addSearchUrl = async function (context) {
     await context.evaluate(async () => {
-      const productList = document.querySelectorAll(
-        '.products-list div[class="products small-product"]',
-      );
+      const productList = document.querySelectorAll('.products-list div[class="products small-product"]');
       const url = window.location.href;
       productList.forEach((product) => product.setAttribute('searchurl', url));
     });
