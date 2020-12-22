@@ -1,0 +1,67 @@
+singleRecord: true
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: metaKeywords
+    singleValue: false
+    xpath: //meta[@name='keywords']/@content
+  - name: image
+    singleValue: false
+    xpath: //div[@class='sxa-recipe-brief__image-container']//img/@src    
+  - name: category
+    singleValue: false
+    xpath: //ol[@class='sxa-breadcrumb__list']//li[@class='sxa-breadcrumb__list-item']//a[@class='sxa-breadcrumb__link']
+# Please check this, it is present in the site but its xpath is not available in html source page.
+  - name: name
+    singleValue: false
+    xpath: //h3[@class='sxa-recipe-brief__heading field-title']
+  - name: nameExtended
+    singleValue: false
+    xpath: //h3[@class='sxa-recipe-brief__heading field-title']
+  - name: availabilityText
+    singleValue: false
+    xpath: //div[contains(@class,'fs-add-to-wishlist')]/button
+    regExp: (.+)
+    regExpReplace: In Stock
+    defaultValue: Out of Stock
+  - name: price
+    singleValue: false
+    xpath: //div[contains(@class,'fs-price-lockup')]
+    regExp: \d+ \d+ 
+  - name:  description
+    singleValue: false
+    xpath: //div[contains(@class,'u-full-width')]/p[contains(@class,'u-color-dark')]
+  - name: variantId
+    singleValue: false
+    xpath: //div[contains(@class,'fs-product-detail__wishlist')]/@data-options
+    regExp: \"productId\"\s*:\s*\"(.+?)\"
+    regExpReplace: $1 
+  - name: variantCount
+    singleValue: false
+    defaultValue: '0'
+    type: NUMBER
+  - name: promotion
+    singleValue: false
+    xpath: //div[contains(@class,'fs-product-detail__promotext')]/p 
+  - name: ingredientsList
+    singleValue: false
+    xpath: //div[@class='component-content field-ingredients']//ul
+  - name: countryOfOrigin
+    singleValue: false
+    xpath: //div[contains(@class,'u-full-width')]//span[@class='u-bold'][not(contains(text(),'Imported'))]
+  - name: pricePerUnit
+    singleValue: false
+    xpath: //div[contains(@class,'fs-product-card__price-by-weight')]
+  - name: imageZoomFeaturePresent
+    singleValue: false
+    defaultValue: Yes 
+  - name: Image360Present
+    singleValue: false
+    defaultValue: No
+  - name: termsAndConditions
+    singleValue: false
+    defaultValue: No 
+  - name: privacyPolicy
+    singleValue: false
+    defaultValue: No
