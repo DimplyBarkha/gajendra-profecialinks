@@ -1,0 +1,11 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: //div[@class="no-tablet"]//ul[@class="dc-product-swatches-list"]//li[not(contains(@class,"active"))]//a | //html//link[@rel="canonical"]
+fields:
+  - name: variantId
+    xpath: //@href
+    regExp: (\d+)\-pdt\.html
+    regExpReplace: $1
+  - name: variantUrl
+    xpath: //@href
