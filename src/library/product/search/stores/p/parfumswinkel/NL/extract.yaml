@@ -3,6 +3,12 @@ regionsSelector: null
 recordSelector: null
 recordXPath: //div[contains(@class,"pl-lg-1 catalog-products")]//div[contains(@class,"productbox productbox-grid col-6")]
 fields: 
+  - name: id
+    SingleValue: false
+    xpath: //div[contains(@class,"pl-lg-1 catalog-products")]//section[contains(@class,"row productbox-container pt-1 flex-nowrap")]//a//h3
+  - name: productUrl
+    SingleValue: false
+    defaultValue: '#'
   - name: name
     SingleValue: false
     xpath: //div[contains(@class,"pl-lg-1 catalog-products")]//section[contains(@class,"row productbox-container pt-1 flex-nowrap")]//a//h3
