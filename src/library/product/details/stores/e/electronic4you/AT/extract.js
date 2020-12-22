@@ -14,7 +14,7 @@ module.exports = {
   implementation: async ({ inputString }, { country, domain, transform }, context, { productDetails }) => {
     await new Promise((resolve, reject) => setTimeout(resolve, 10000));
     await context.click('li#tab-description a');
-
+    
     async function scrollToRec (node) {
       await context.evaluate(async (node) => {
         const element = document.querySelector(node) || null;
@@ -27,7 +27,14 @@ module.exports = {
       }, node);
     }
     await scrollToRec('div.tabs-panels');
+    await scrollToRec('div#flix-inpage');
     await scrollToRec('div.footer-container');
+    
+    try {
+      await context.waitForSelector('div#flix-comp', { timeout: 45000 });
+    } catch(error) {
+      console.log('No CTR');
+    }
 
     await context.evaluate(async function () {
       function addElementToDocument (key, value) {
