@@ -195,12 +195,14 @@ fields:
   - name: hasComparisonTable
     defaultValue: No
   - name: inTheBoxText
-    xpath: //div[contains(@class,"module-title")][contains(.,"Tools Included")]/following-sibling::div[1]/div//h1 | //div[contains(@class,"InTheBox")]//div[@class="flix-std-content"]
+    xpath: //div[contains(@class,"module-title")][contains(.,"Tools Included")]/following-sibling::div[1]/div//h1 | //div[contains(@class,"InTheBox")]//div[@class="flix-std-content"] | //div[@class="eky-accessory"]
   - name: inTheBoxTextFallBack
     xpath: //body/@in-the-box-text
   - name: inTheBoxUrl
-    xpath: //div[contains(@class,"InTheBox")]//div[@class="flix-background-image"]/img/@data-flixsrcset
-    regExp: (.+)(\s?200w)(.+)
-    regExpReplace: https:$1
+    xpath: //div[contains(@class,"InTheBox")]//div[@class="flix-background-image"]/img/@data-src | //div[contains(@class,"InTheBox")]//div[@class="flix-background-image"]/img/@data-flixsrcset
+    regExp: ^[^\s]+
+  - name: inTheBoxUrlSecond
+    xpath: //div[@class="eky-accessory"]/img
+    type: IMAGE
   - name: unInterruptedPDP
     xpath: //div[@id="recommendations"]//ul/li/div | //div[@id="lastVisited"]//ul/li/div

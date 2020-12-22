@@ -121,6 +121,16 @@ const transform = (data, context) => {
       if (!row.inTheBoxText && row.inTheBoxTextFallBack) {
         row.inTheBoxText = row.inTheBoxTextFallBack;
       }
+      if (row.inTheBoxUrlSecond) {
+        row.inTheBoxUrlSecond.forEach(img => {
+          img.text = img.src;
+        });
+        if (row.inTheBoxUrl) {
+          row.inTheBoxUrl = row.inTheBoxUrl.concat(row.inTheBoxUrlSecond);
+        } else {
+          row.inTheBoxUrl = row.inTheBoxUrlSecond;
+        }
+      }
     }
   }
   data.forEach(obj => obj.group.forEach(row => Object.keys(row).forEach(header => row[header].forEach(el => {
