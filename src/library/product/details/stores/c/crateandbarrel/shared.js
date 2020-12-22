@@ -89,7 +89,7 @@ const transform = (data) => {
             return { text: `${item.text.match(regExV2)[1]}` };
           }
         });
-        const alternateImagesResult = alternateImagesArr && alternateImagesArr.slice(1);
+        const alternateImagesResult = alternateImagesArr;
         row.alternateImages = alternateImagesResult;
       }
       if (row.aggregateRating) {
@@ -99,7 +99,7 @@ const transform = (data) => {
             rating = item.text.replace(/(.+)\s*out(.+)/g, '$1');
             rating = Number(rating).toFixed(3);
           } else {
-            rating = item.text.trim();
+            rating = item.text;
           }
         });
         row.aggregateRating = [

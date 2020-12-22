@@ -13,6 +13,15 @@ async function implementation (
     await context.waitForSelector('div[class="gallery-thumbnail"] div[class*="gallery-thumbnail-item thumbnail-video"] button');
     await context.click('div[class="gallery-thumbnail"] div[class*="gallery-thumbnail-item thumbnail-video"] button');
   } catch (error) {
+    try {
+      await context.evaluate(async function () {
+        const videoButton = document.querySelector('div[class="gallery-thumbnail"] div[class*="gallery-thumbnail-item thumbnail-video"] button');
+        // @ts-ignore
+        videoButton && videoButton.click();
+      });
+    } catch (error) {
+      console.log('Failed to click video attempt 2');
+    }
     console.log('Failed to click video');
   }
   try {
