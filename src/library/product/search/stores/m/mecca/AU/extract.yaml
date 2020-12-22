@@ -1,24 +1,24 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: //div[@class="product-tile"]
+recordXPath: //li[contains(@class, "grid-tile")] | //li[@class="col-xs-6 col-sm-4 col-md-3 grid-product"]
 fields:
   - name: id
     singleValue: false
-    xpath: //div[@class="product-tile"]/@data-itemid
+    xpath: //div[@class="product-tile"]/@data-itemid | //div[@class="grid-product-rating"]/div/@data-bv-product-id
   - name: searchUrl
     singleValue: true
   - name: name
     singleValue: false
-    xpath: //a[@class="name-link"]/@title
+    xpath: //a[@class="name-link"]/@title | //a[@class="grid-product-image"]/@title
   - name: productUrl
     singleValue: false
-    xpath: //a[@class="thumb-link"]/@href
+    xpath: //a[@class="thumb-link"]/@href | //div[@class="product-image"]/a[@class="grid-product-image"]/@href
   - name: gtin
     singleValue: false
   - name: thumbnail
     singleValue: false
-    xpath: //img[@class="img-responsive"]/@data-src
+    xpath: //img[@class="img-responsive"]/@data-src | //a[@class="grid-product-image"]/img/@data-src
     regExp: (.+)
     regExpReplace: https://www.mecca.com.au$1
   - name: aggregateRating
@@ -26,7 +26,7 @@ fields:
   - name: aggregateRating2
     singleValue: false
     type: STRING
-    xpath: //div[@class="bv_averageRating_component_container"]/meta/@content
+    xpath: //li[contains(@class, "grid-product") or contains(@class, "grid-tile")]//div[@class="bv_averageRating_component_container"]/meta/@content
   - name: reviewCount
     singleValue: false
     xpath: //div[@class="bv_numReviews_component_container"]
@@ -35,10 +35,10 @@ fields:
     singleValue: false
   - name: price
     singleValue: false
-    xpath: //div[@class="search-results-page-product-pricing"]/span/text()
+    xpath: //div[@class="search-results-page-product-pricing"]/span/text() | //div[@class="grid-product-price"]/span/text()
   - name: manufacturer
     singleValue: false
-    xpath: //a[@class="brand-name"]/@title
+    xpath: //a[@class="brand-name"]/@title | //div[@class="grid-product-info"]//span[@class="grid-product-name"]
   - name: soldBy
     singleValue: true
   - name: endorsementText
@@ -50,7 +50,7 @@ fields:
     type: NUMBER
   - name: rankOrganic
     singleValue: true
-    xpath: //div[@class="product-tile"]/@rank
+    xpath: //div[@clasks="product-tile"]/@rank
     description: The position (rank) within the list excluding sponsored/paid results
     type: NUMBER
   - name: sponsored
