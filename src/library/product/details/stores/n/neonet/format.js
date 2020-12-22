@@ -142,7 +142,13 @@ const transform = (data) => {
         });
         row.additionalDescBulletInfo = [{text: info.join(' | '), xpath: elem[0].xpath}];
       }
-      
+
+      if (row.inTheBoxText) {
+        row.inTheBoxText.forEach(item => {
+          item.text = item.text.replace(/\s-\s/gm, ' || ').replace(/-\s/gm, '');
+        });
+      }
+
       Object.keys(row).forEach(header => row[header].forEach(el => {
         el.text = clean(el.text);
       }));
