@@ -19,30 +19,31 @@ fields:
     xpath: //link[@rel="canonical"]/@href  
   - name: category
     singleValue: false
-    xpath: //li[@class="breadcrumb-item"][4]/a/text()
+    xpath: //div[@class="container productcard"]/@data-gtm-category
   - name: nameExtended
     singleValue: true
-    xpath: //div[@class="d-inline-block float-left order-2 order-lg-1"]  
+    xpath: //meta[@itemprop="description"]/@content  
   - name: listPrice
     singleValue: true
+    xpath: //meta[@property="product:pretax_price:amount"]/@content
   - name: price
     singleValue: true
-    xpath: //div[@class="text-right price-container"]/span
+    xpath: //meta[@property="product:price:amount"]/@content
   - name: availabilityText
     singleValue: true
-    xpath: //span[@class="text-success"]/span[1]  
+    xpath: //div[@class="container productcard"]/@data-gtm-stock-status  
     regExp: (.+)
     regExpReplace: In Stock
     defaultValue: Out of Stock
   - name: description
     singleValue: false
-    xpath: //div[@class="productdesc-content"]/p[1]  
+    xpath: //meta[@name="description"]/@content 
   - name: descriptionBullets
     singleValue: true
     type: NUMBER
   - name: brandText
     singleValue: true
-    xpath: //td[@class="text-right"]/a/text()  
+    xpath: //div[@class="container productcard"]/@data-gtm-brand  
   - name: manufacturer
     singleValue: true
   - name: quantity
@@ -57,7 +58,7 @@ fields:
     xpath: //table[@class="table mb-0"]//tbody//tr//th[contains(text(),'EAN nummer')]/following-sibling::td
   - name: sku
     singleValue: true
-    xpath: //div[@class="productdetails-content"]/div/div[1]/table/tbody/tr[1]/td
+    xpath: //div[@class="container productcard"]/@data-rr-product-id
   - name: variantId
     singleValue: true
   - name: mpc
@@ -73,13 +74,12 @@ fields:
     singleValue: true
   - name: ratingCount
     singleValue: true
-    xpath: //div[@id="productreviews"]/div/div/h4
-    type: NUMBER
+    xpath: //div[@class="container productcard"]/@data-gtm-rating-count
   - name: aggregateRatingText
     singleValue: true
   - name: aggregateRating
     singleValue: true
-    type: NUMBER
+    xpath: //div[@class="container productcard"]/@data-gtm-rating
   - name: shippingInfo
     singleValue: true
   - name: shippingDimensions
@@ -102,4 +102,4 @@ fields:
     singleValue: false
   - name: name
     singleValue: true
-    xpath: //h1[@class="h3"]
+    xpath: //div[@class="container productcard"]/@data-rr-product-name
