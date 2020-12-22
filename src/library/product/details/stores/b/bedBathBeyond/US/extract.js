@@ -290,6 +290,24 @@ async function implementation (
       document.body.setAttribute('in-the-box-text', inTheBoxText);
       document.body.setAttribute('in-the-box-url', inTheBoxUrl);
     });
+    // let promotionText='';
+    // let priceDivs=document.querySelectorAll('div[class*="PDPPrice-inline"]');
+    // for(let i=0;i<priceDivs.length;i++)
+    // {
+    //   if(priceDivs[i].innerText.includes('You save')){
+    //   promotionText=priceDivs[i].innerText;
+    //   console.log(promotionText+ ' is promotional text');
+    //   break;
+    // }
+    // }
+    // function addHiddenDiv (id, content) {
+    //   const newDiv = document.createElement('div');
+    //   newDiv.id = id;
+    //   newDiv.textContent = content;
+    //   newDiv.style.display = 'none';
+    //   document.body.appendChild(newDiv);
+    //   }
+    //   addHiddenDiv('promotionText',promotionText);
   
     const { transform } = parameters;
     const { productDetails } = dependencies;

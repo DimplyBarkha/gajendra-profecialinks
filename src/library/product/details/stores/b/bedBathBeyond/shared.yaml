@@ -108,7 +108,7 @@ fields:
     xpath: //td[@class="name"]
     description: The product name
   - name: specifications
-    xpath: td[@class="specifications"] | //div[contains(@id,"specification-")]
+    xpath: td[@class="specifications"] | //div[contains(@id,"specification-")] | //div[@class="grid-x Specs_5UF8Em"]/div
     description: The physical dimensions of the product including packaging.
   - name: warranty
     xpath: td[@class="warranty"] | ancestor::html//div[@id="productDetails"]//ul/li[contains(text(),"warranty")]
@@ -200,6 +200,8 @@ fields:
   - name: shortDescription
     xpath: ancestor::html//div[@id="productDetails"]//div[@itemprop="description"]
     singleValue: false
+  - name: promotion
+    xpath: ancestor::html(//div[@id="first"]//div[@class="Attributes_3JHVC0 mb1"])
 
   - name: inTheBoxText
     xpath: ancestor::html//body/@in-the-box-text

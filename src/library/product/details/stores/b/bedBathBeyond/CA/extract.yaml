@@ -7,3 +7,11 @@ fields:
   - name: sku
     xpath: td[@class="sku"]
     description: The store-specific product identifier
+  - name: promotion
+    xpath: (//div[@id="first"]//div[@class="Attributes_3JHVC0 mb1"])
+  - name: specifications
+    xpath: td[@class="specifications"] | //div[contains(@id,"specification-")] | //div[@class="grid-x Specs_5UF8Em"]/div
+    description: The physical dimensions of the product including packaging.
+  - name: countryOfOrigin
+    xpath: td[@class="countryOfOrigin"][not(.="Imported")] | //div[@class="cell Features_1bdKhe small-12 medium-6 large-6"]//dt[contains(text(),'Made In')]/following-sibling::dd[not(.="Imported")]
+    description: The country from which the product originates
