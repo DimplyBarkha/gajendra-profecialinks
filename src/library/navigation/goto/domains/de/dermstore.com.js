@@ -3,7 +3,7 @@ module.exports = {
   implements: 'navigation/goto',
   parameterValues: {
     domain: 'dermstore.com',
-    timeout: 100000,
+    timeout: 90000,
     country: 'US',
     store: 'dermstore',
     zipcode: "''",
@@ -14,7 +14,7 @@ module.exports = {
     await context.setLoadImages(true);
     await context.setLoadAllResources(true);
     await context.setJavaScriptEnabled(true);
-    const timeout = parameters.timeout ? parameters.timeout : 100000;
+    const timeout = parameters.timeout ? parameters.timeout : 90000;
     await context.goto(url, { timeout: timeout, waitUntil: 'load', checkBlocked: true });
     console.log(zipcode);
   },
