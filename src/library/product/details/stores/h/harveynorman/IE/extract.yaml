@@ -11,28 +11,28 @@ fields:
     xpath: //div[contains(@class,"product-img")]/div[contains(@class,"cm-image-wrap center")]/a[not(contains(@class,"hidden"))]/img/@alt
   - name: alternateImages
     singleValue: false
-    xpath: //div[@class="bx-viewport"]/ul/li[position()>1]//img/@src
+    xpath: //div[@class="bx-viewport"]/ul/li[not(contains(@class,"bx-clone"))]/a[not(contains(@class,"cm-cur-item"))]/img/@src
   - name: metaKeywords
     singleValue: false
     xpath: //meta[@name="keywords"]/@content
   - name: category
     singleValue: false
-    xpath: //ul[contains(@class,"nav-breadcrumbs")]/li//text()
+    xpath: //ul[contains(@class,"nav-breadcrumbs")]/li//a/text()
   - name: nameExtended
     singleValue: false
     xpath: //div[contains(@id,"product_name")]/h1
   - name: listPrice
     singleValue: false
-    xpath: //span[@class="price-old"]/span[@class="strike"]/span
+    xpath: //div[@class="row"]/div/div//span[contains(@id,"old_price_update")]/span[@class="price-old"]/span[@class="strike"]/span
   - name: price
     singleValue: false
-    xpath: //span[contains(@id,"line_discounted_price")]/span
+    xpath: //div[@class="row"]/div/div//span[contains(@id,"line_discounted_price")]/span
   - name: availabilityText
     singleValue: false 
     defaultValue: In Stock
   - name: description
     singleValue: false
-    xpath: //div[@id="content_description"]//div[not(@id="flix-inpage")]//p/text()
+    xpath: //div[@id="content_description"]//p/text()
   - name: descriptionBullets
     singleValue: false
     xpath:
@@ -48,6 +48,9 @@ fields:
   - name: variantId
     singleValue: false
     xpath: //a[contains(@class,"availability_modal_btn") and not(contains(@class,"btn_sm"))]/@data-product-code
+  - name: mpc
+    singleValue: false
+    xpath: //div[@id="content_description"]/div/script/@data-flix-mpn
   - name: packSize
     singleValue: true
     description: The number of packs in the product offer (if stated separately on
@@ -420,7 +423,7 @@ fields:
     description: null
   - name: additionalDescBulletInfo
     singleValue: false
-    description: null
+    xpath: //div[@id="content_description"]//ul/li
   - name: prop65Warning
     singleValue: true
     description: null
@@ -456,13 +459,12 @@ fields:
     description: Materials used to make the product
     example: https://www.jdsports.co.uk/product/blue-adidas-linear-20-reversible-wind-breaker-jacket/15988125/
   - name: Image360Present
-    singleValue: true
-    description: If 360 image is present in the carousel ['Yes','No']
-    example: https://www.amazon.com/Trinsic-Single-Handle-Magnetic-Champagne-9159-CZ-DST/dp/B0050EN8E6
+    singleValue: false
+    xpath: //div[@class="tangiblee-cta"]
     defaultValue: No
   - name: imageZoomFeaturePresent
     singleValue: true
     description: If Zoom feature is available for Main image or images in the
       carousel,['Yes','No']
     example: https://www.zalando.de/adidas-neo-sneaker-low-blackwhite-a4315i002-q11.html
-    defaultValue: No
+    defaultValue: Yes

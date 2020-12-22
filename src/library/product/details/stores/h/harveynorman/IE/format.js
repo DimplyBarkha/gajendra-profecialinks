@@ -74,19 +74,29 @@ const transform = (data) => {
           row.specifications=[{"text":inf.join(' || ')}];
         }
         if(row.manufacturerDescription) {
-          var parray = [];
+          var mar1 = [];
           var joiner = " || ";
           row.manufacturerDescription.forEach(item=>{
-            parray.push(item.text);
+              mar1.push(item.text);
           })
-          var mdescription = parray.join(" || ");
+          var mdescription = mar1.join(" || ");
           row.manufacturerDescription = [{"text":joiner + mdescription}];
         }
         if(row.manufacturerImages){
           row.manufacturerImages.forEach(item=>{
               item.text = "https:" + item.text;
           })
-        }          
+        }
+        if(row.additionalDescBulletInfo){
+          let array1 = [];
+          row.additionalDescBulletInfo.forEach(item=>{
+            array1.push(item.text);
+          })
+          row.additionalDescBulletInfo = [{"text":array1.length}];
+        }
+        if(row.Image360Present){
+          row.Image360Present=[{"text":"Yes"}];
+        }         
       }
     }
     return cleanUp(data);
