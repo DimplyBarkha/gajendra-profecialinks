@@ -144,6 +144,23 @@ const transform = (data) => {
           delete row.weightGross;
         }
       }
+      if (row.inTheBoxText) {
+        let info = [];
+        row.inTheBoxText.forEach(item => {
+            info.push(item.text.trim());
+        });
+        function removeDuplicates(data)
+       {
+         return data.filter((value, index) => data.indexOf(value)===index);
+       }
+       let itm1= removeDuplicates(info);
+        if (itm1.length) {
+            row.inTheBoxText= [];
+            itm1.forEach(item => {
+                row.inTheBoxText.push({ 'text': item });
+            });
+        }
+    }
     }
   }
   return cleanUp(data);
