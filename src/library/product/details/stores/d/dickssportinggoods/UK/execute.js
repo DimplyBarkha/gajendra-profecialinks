@@ -1,4 +1,3 @@
-
 module.exports = {
   implements: 'product/details/execute',
   parameterValues: {
@@ -6,7 +5,7 @@ module.exports = {
     store: 'dickssportinggoods',
     domain: 'dickssportinggoods.com',
     loadedSelector: null,
-    noResultsXPath: null,
+    noResultsXPath: "//div[contains(@class,'dsg-flex flex-column rs-header-section')]//h1",
     zipcode: "''",
   },
 };

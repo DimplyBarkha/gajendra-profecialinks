@@ -39,9 +39,8 @@ fields:
     description: Availability as described on page for the selected variant. If
       there is no availability but the product can be added to cart, this field
       should be "In Stock"
-    regExp: (.+)
-    regExpReplace: In Stock
     defaultValue: Out of Stock
+    xpath: boolean(//div[contains(@class,"add-to-cart-row ng-tns-c125-1")]//button)
   - name: description
     singleValue: false
     description: Product description supplied by website - may be concatenanted from
@@ -508,3 +507,6 @@ fields:
       carousel,['Yes','No']
     example: https://www.zalando.de/adidas-neo-sneaker-low-blackwhite-a4315i002-q11.html
     defaultValue: No
+  - name: highQualityImages
+    singleValue: false
+    xpath: //div[@class='image-viewer-swatch-wrapper dcsg-card']//picture/source/@srcset
