@@ -83,9 +83,8 @@ fields:
     singleValue: true
     description: Stated shipping weight
   - name: variantCount
-    singleValue: true
-    description: Number of variants listed
-    type: NUMBER
+    singleValue: false
+    defaultValue: //span[@itemprop="ratingValue"]/text()
   - name: color
     singleValue: false
     xpath: //table[contains(@class,"table-product-features")]/tbody/tr/th/strong[text()="Colour"]/parent::*/parent::*/td
@@ -97,7 +96,7 @@ fields:
     xpath: //div[@id="flix-inpage"]//div[@class="flix_featdiv"]//div[@class="allcontent"]
   - name: manufacturerImages
     singleValue: false
-    xpath: //div[@class="flix_feat"]/img/@srcset
+    xpath: //div[@id="content_description"]/div/div[@class="clearfix"]/img/@src
   - name: videos
     singleValue: false
     xpath: //div[contains(@class,"flex-video")]/iframe/@src
@@ -192,7 +191,7 @@ fields:
     singleValue: false
     description: null
   - name: secondaryImageTotal
-    singleValue: true
+    singleValue: false
     description: null
     type: NUMBER
   - name: news

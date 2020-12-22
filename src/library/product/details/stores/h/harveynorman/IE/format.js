@@ -82,11 +82,6 @@ const transform = (data) => {
           var mdescription = mar1.join(" || ");
           row.manufacturerDescription = [{"text":joiner + mdescription}];
         }
-        if(row.manufacturerImages){
-          row.manufacturerImages.forEach(item=>{
-              item.text = "https:" + item.text;
-          })
-        }
         if(row.additionalDescBulletInfo){
           let array1 = [];
           row.additionalDescBulletInfo.forEach(item=>{
@@ -96,6 +91,20 @@ const transform = (data) => {
         }
         if(row.Image360Present){
           row.Image360Present=[{"text":"Yes"}];
+        }
+        if(row.alternateImages){
+          let arrayImg = [];
+          row.alternateImages.forEach(item=>{
+            arrayImg.push(item.text);
+          })
+          row.secondaryImageTotal = [{"text":arrayImg.length}];
+        }
+        if(row.variantCount){
+          var count = [];
+          row.variantCount.forEach(item=>{
+                count.push(item.text);
+          })
+          row.variantCount = [{"text":"0"}];
         }         
       }
     }
