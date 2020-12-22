@@ -26,7 +26,12 @@ const transform = (data) => {
   };
   for (const { group } of data) {
     var rank = 1;
-    for (let row of group) {  
+    for (let row of group) { 
+      if(row.aggregateRating){
+        row.aggregateRating.forEach(item=>{
+          item.text=item.text.replace('.',',');
+        })
+      } 
       row.rank = [{ "text": rank }];
       row.rankOrganic = [{ "text": rank }];
       rank++;
