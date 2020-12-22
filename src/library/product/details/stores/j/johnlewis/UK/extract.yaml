@@ -1,0 +1,211 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: image
+    singleValue: true
+    xpath: (//li[@data-carousel="productCarousel"]/img/@src)[1]
+    regExp: (//johnlewis.*)
+    regExpReplace: https:$1
+  - name: imageAlt
+    singleValue: true
+    xpath: (//li[@data-carousel="productCarousel"]/img/@alt)[2]
+  - name: alternateImages
+    singleValue: false
+    xpath: //html//div[@id="img"]
+    # regExp: (//johnlewis.*)
+    # regExpReplace: https:$1
+  - name: ingredientsList
+    singleValue: true
+    xpath: //div[@class="product-detail__description-inner"]/ul[2]/li/text() | //div[@class="product-detail__description-inner"]/ul/li/text()
+  - name: category
+    singleValue: false
+    xpath: //ul[@class='breadcrumbs__list']//li[position()>1]/a/text()
+  - name: nameExtended
+    singleValue: true
+    xpath: //div[@id="store-stock-app"]/@data-product-name
+  - name: pricePerUnit
+    singleValue: true
+    xpath: //p[@class="unit-price"]/text()
+    regExp: (\£.+\d )
+  - name: price
+    singleValue: true
+    xpath: (//p[@class="price price--large"]/text())[1]
+  - name: availabilityText
+    singleValue: true
+    xpath: //html//div[@id="stock"]
+    # regExp: (in stock)
+    # regExpReplace: In Stock
+    # defaultValue: Out of Stock
+  - name: description
+    singleValue: false
+    xpath: //html//div[@id="desc"]
+  - name: descriptionBullets
+    singleValue: true
+    xpath: count(//div[@class="product-detail__description-inner"]/ul/li)
+    type: NUMBER
+  - name: brandText
+    singleValue: true
+    xpath: //span[@id="brand-link-app"]/@data-brand-name
+  - name: manufacturer
+    singleValue: true
+    description: Product manufacturer
+  - name: quantity
+    singleValue: true
+    xpath: //dl[@class="product-specifications-list"]/dt[contains(text(),'Pack Size')]/following-sibling::dd[1]/text() | //dl[@class="product-specifications-list"]/dt[contains(text(),'Size (g)')]/following-sibling::dd[1]/text() | //dl[@class="product-specifications-list"]/dt[contains(text(),'Volume')]/following-sibling::dd[1]/text() | //dl[@class="product-specifications-list"]/dt[contains(text(),'Size ')]/following-sibling::dd[1]/text()
+  - name: weightNet
+    singleValue: true
+    xpath: //dl[@class="product-specifications-list"]/dt[contains(text(),'Weight')]/following-sibling::dd[1]/text()
+  - name: weightGross
+    singleValue: true
+    description: Gross weight as described on the page
+  - name: gtin
+    singleValue: true
+    description: GTIN code (includes UPC/EAN)
+  - name: sku
+    singleValue: true
+    xpath: //div[@id="store-stock-app"]/@data-sku-id
+  - name: variantId
+    singleValue: true
+    xpath: //div[@id="store-stock-app"]/@data-product-code
+  - name: mpc
+    singleValue: true
+    xpath: //dl[@class="product-specifications-list"]/dt[contains(text(),'MPN')]/following-sibling::dd[1]/text()
+  - name: packSize
+    singleValue: true
+    description: The number of packs in the product offer (if stated separately on
+      the site to quantity)
+  - name: countryOfOrigin
+    singleValue: true
+    xpath: //dl[@class="product-specifications-list"]/dt[contains(text(),'Country of Origin')]/following-sibling::dd[1]/text()
+  - name: energyEfficiency
+    singleValue: true
+    xpath: //dl[@class="product-specifications-list"]/dt[contains(text(),'Energy Rating')]/following-sibling::dd[1]/text()
+  - name: warnings
+    singleValue: true
+    description: Content under "warnings" header
+  - name: ratingCount
+    singleValue: true
+    xpath: //div[@class="stars-caption"]/text()
+    regExp: (\d+)
+    type: NUMBER
+  - name: aggregateRating
+    singleValue: true
+    xpath: //html//div[@id="star"]
+    type: NUMBER
+  - name: shippingInfo
+    singleValue: true
+    description: Shipping information for the product
+  - name: shippingDimensions
+    singleValue: true
+    xpath: //dl[@class="product-specifications-list"]/dt[contains(text(),'Dimensions')]/following-sibling::dd[1]/text()
+  - name: shippingWeight
+    singleValue: true
+    description: Stated shipping weight
+  - name: variantCount
+    singleValue: true
+    description: Number of variants listed
+    defaultValue: "0"
+    type: NUMBER
+  - name: color
+    singleValue: true
+    description: A textual description of the colour
+  - name: colorCode
+    singleValue: true
+    description: A code description of the color (e.g. RGB hex)
+  - name: manufacturerDescription
+    singleValue: false
+    description: The extended description of the product supplied by the lister
+  - name: manufacturerImages
+    singleValue: false
+    description: Images within the third party description
+  - name: videos
+    singleValue: false
+    xpath: (//video[@class="product-video"]/source)[1]/@src
+  - name: name
+    singleValue: true
+    xpath: //div[@id="store-stock-app"]/@data-product-name
+  - name: inStorePrice
+    singleValue: true
+    description: Price in the selected store
+  - name: coupon
+    singleValue: true
+    description: Text of any coupon offer
+  - name: brandLink
+    singleValue: true
+    xpath: //span[@id="brand-link-app"]/@data-brand-link
+    regExp: (/brand.*)
+    regExpReplace: https://www.johnlewis.com$1
+  - name: url
+    singleValue: true
+    xpath: //meta[@name="og:url"]/@content
+  - name: videoLength
+    singleValue: false
+    description: null
+  - name: largeImageCount
+    singleValue: true
+    description: null
+    type: NUMBER
+  - name: featureBullets
+    singleValue: false
+    description: null
+  - name: otherSellersName
+    singleValue: false
+    description: null
+  - name: otherSellersPrice
+    singleValue: false
+    description: null
+  - name: otherSellersShipping
+    singleValue: false
+    description: null
+  - name: secondaryImageTotal
+    singleValue: true
+    xpath: count(//ul[@class='thumbnail-wrapper']/li[@class="thumbnail-slide"]/img/@src)
+    type: NUMBER
+  - name: specifications
+    singleValue: true
+    xpath: //html//div[@id="spec"]
+  - name: warranty
+    singleValue: true
+    xpath: //p[@class="additional-service-options-item__description"]/text()
+    regExp: (\w+\s+){2}
+  - name: variantInformation
+    singleValue: true
+    xpath: //dd[@class="item-attribute-details"]/text()
+  - name: firstVariant
+    singleValue: true
+    description: null
+  - name: variants
+    singleValue: false
+    description: null
+  - name: additionalDescBulletInfo
+    singleValue: false
+    description: null
+  - name: technicalInformationPdfPresent
+    singleValue: true
+    description: If there is for example a manual in pdf format on the website. ['Yes','No']
+    example: https://www.amazon.de/Hasbro-Spiele-44220100-Mastermind-Kinderspiel/dp/B0007OHUG6
+    defaultValue: No
+  - name: termsAndConditions
+    singleValue: true
+    description: Terms and conditions information text ['Yes','No']
+    defaultValue: No
+  - name: privacyPolicy
+    singleValue: true
+    description: Privacy Policy information text ['Yes','No']
+    defaultValue: No
+  - name: customerServiceAvailability
+    singleValue: true
+    description: Information related to customer service availability (text), ['Yes','No']
+    defaultValue: No
+  - name: materials
+    singleValue: true
+    description: Materials used to make the product
+    example: https://www.jdsports.co.uk/product/blue-adidas-linear-20-reversible-wind-breaker-jacket/15988125/
+  - name: imageZoomFeaturePresent
+    singleValue: true
+    description: If Zoom feature is available for Main image or images in the
+      carousel,['Yes','No']
+    example: https://www.zalando.de/adidas-neo-sneaker-low-blackwhite-a4315i002-q11.html
+    defaultValue: Yes

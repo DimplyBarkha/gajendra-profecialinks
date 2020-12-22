@@ -1,0 +1,49 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: id
+    singleValue: false
+    xpath: //div[@data-test="component-grid-column"]/section/@data-product-id
+    # xpath: //html//div[@id="id"]
+  - name: rankOrganic
+    singleValue: true
+    # xpath: //li//meta[@itemprop="position"]//@content
+  - name: name
+    singleValue: false
+    xpath: //h2[@class="title_title__1MULs title_title--four-lines__VHzXP"]/text()
+  - name: productUrl
+    singleValue: false
+    xpath: //a[@class="product-card_c-product-card__link__3NDUX"]/@href
+    regExp: (\/.*)
+    regExpReplace: https://www.johnlewis.com$1
+  - name: gtin
+    singleValue: false
+    # xpath: //h5[@class="product-name"]//a//@onclick
+    # regExp: (\d{8,17})
+  - name: thumbnail
+    singleValue: false
+    xpath: //a[@class="image_imageLink__1tBDW product-card_c-product-card__image__3CdTi product__image"]/img/@src
+    regExp: (johnlewis.*)
+    regExpReplace: https://$1
+  - name: price
+    singleValue: false
+    xpath: //div[@class="info-section_c-product-card__section__2D2D- price_c-product-card__price__3NI9k"]/text()
+    # regExp: (\d+),?(\d+).+
+    # regExpReplace: $1.$2
+  - name: manufacturer
+    singleValue: true
+    # xpath: //h4[@class="product-manufacturer"]
+  - name: aggregateRating2
+    singleValue: true
+    xpath: //span[@class="rating_stars__34OwL"]/text()
+    regExp: (\d+.\d+)
+    # type: FLOAT
+  - name: reviewCount
+    singleValue: true
+    xpath: //span[@class="rating_reviews__tWPMc"]/text()
+    regExp: (\d+)
+  - name: rank
+    singleValue: false
+    # xpath: //li//meta[@itemprop="position"]//@content
