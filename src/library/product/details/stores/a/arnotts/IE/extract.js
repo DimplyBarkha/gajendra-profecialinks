@@ -16,6 +16,14 @@ module.exports = {
   ) => {
     const { transform } = parameters;
     const { productDetails } = dependencies;
+
+    try {
+      await context.waitForXPath('//button[contains(@id,"accept-btn") and contains(text(),"Accept All Cookies")]', {timeout : 15000});
+      await context.click('button[id*="accept-btn"]');
+      console.log('cookie button cliked');
+    } catch(err) {
+      console.log('something went wrong while waiting and clicking the cookie button - ', err.message);
+    }
     await context.evaluate(async function () {
       function addHiddenDiv (id, content) {
         const newDiv = document.createElement('div');
@@ -98,9 +106,75 @@ module.exports = {
           parent.innerHTML = "";
           parent.innerHTML = html;
         }
+      } else {
+        console.log('we do not have the iframe - checkthe selector');
       }
     }
   await context.evaluate(addIFrameToMainPage);
+
+  await new Promise((resolve, reject) => setTimeout(resolve, 5000));
+  const applyScroll = async function (context) {
+    await context.evaluate(async function () {
+      let scrollTop = 0;
+      while (scrollTop !== 20000) {
+        await stall(500);
+        scrollTop += 500;
+        window.scroll(0, scrollTop);
+        console.log('scrolling again -- ');
+        if (scrollTop === 20000) {
+          await stall(2000);
+          break;
+        }
+      }
+      function stall (ms) {
+        return new Promise((resolve, reject) => {
+          setTimeout(() => {
+            resolve();
+          }, ms);
+        });
+      }
+    });
+  };
+  await applyScroll(context);
+  await new Promise((resolve, reject) => setTimeout(resolve, 4000));
+  console.log('done scrolling');
+
+  try {
+    await context.waitForSelector('div[class*="flix-videodiv"] iframe', { timeout: 10000 });
+    let videoLinks = await context.evaluate(async function() {
+      function addHiddenDiv (id, content) {
+        const newDiv = document.createElement('div');
+        newDiv.id = id;
+        newDiv.textContent = content;
+        newDiv.style.display = 'none';
+        document.body.appendChild(newDiv);
+      }
+
+      let videoLinkElm = document.querySelectorAll('div[class*="flix-videodiv"] iframe');
+      let videoLinksArr = [];
+      if(videoLinkElm.length > 0) {
+        for(let i = 0; i < videoLinkElm.length; i++) {
+          if(videoLinkElm[i].hasAttribute('src')) {
+            videoLinksArr.push(videoLinkElm[i].getAttribute('src'));
+          } else if(videoLinkElm[i].hasAttribute('_src')) {
+            videoLinksArr.push(videoLinkElm[i].getAttribute('_src'));
+          } else {
+            console.log('we do not have src for this iframe - ' + i);
+          }
+        }
+      } else {
+        console.log('we do not have the video iframe');
+      }
+      console.log('video links are - ' + videoLinksArr.join(' || '));
+      addHiddenDiv('videolinks', videoLinksArr.join(' || '));
+      return videoLinksArr.join(' || ');
+    });
+    console.log(videoLinks);
+  } catch(err) {
+    console.log('error while waiting for video - ', err.messsage);
+  }
+  
+
     return await context.extract(productDetails, { transform });
   },
 };

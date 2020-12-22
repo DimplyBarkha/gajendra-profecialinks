@@ -108,7 +108,8 @@ fields:
   - name: videos
     singleValue: false
     description: URLs of videos on page
-    xpath: //div[@id='videoUrl']
+    xpath: //div[@id='videoUrl'] | //div[contains(@id,'videolinks')] 
+    # //div[contains(@class,"flix-videodiv")]//iframe/@src | //div[contains(@class,"flix-videodiv")]//iframe/@_src
   - name: name
     singleValue: false
     description: The product name
@@ -150,7 +151,8 @@ fields:
   - name: specifications
     singleValue: false
     description: The physical dimensions of the product including packaging.
-    xpath: //*[contains(text(), 'Specifications')]/parent::*[1]/following-sibling::*
+    xpath: //div[@class="inpage_selector_specification"]//*[contains(text(), 'Specifications')]/parent::*//following-sibling::table//tr
+    # xpath: //*[contains(text(), 'Specifications')]/parent::*[1]/following-sibling::*
   - name: warranty
     singleValue: false
     description: Guarantee associated with the product
