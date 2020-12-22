@@ -414,7 +414,7 @@ fields:
     description: Must include text to show the accessories/tools which come with the product
   - name: hasComparisonTable
     singleValue: true
-    xpath: //*[contains(text(), "Vergleichstabelle")]
+    xpath: //*[contains(@class,"inpage_selector_comparison")]/@class
     regExp: (.*)
     regExpReplace: Yes
     defaultValue: No
