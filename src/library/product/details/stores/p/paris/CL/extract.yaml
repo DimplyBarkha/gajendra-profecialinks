@@ -106,6 +106,9 @@ fields:
     singleValue: false
     xpath: //font[contains(text(), "Dimensiones con Base")]/../parent::*/following-sibling::td | //td[contains(text(), "Dimensiones con Base")]//following-sibling::td
     description: Stated shipping dimensions
+  - name: shippingInfo
+    singleValue: false
+    xpath: //b[contains(@class,"sellerMkp")]
   - name: color
     singleValue: false
     description: A textual description of the colour

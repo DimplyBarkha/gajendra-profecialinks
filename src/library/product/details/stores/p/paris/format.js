@@ -93,6 +93,18 @@ const transform = (data) => {
           item.text = (item.text.includes('Modelo:')) ? item.text.replace('Modelo:', '') : item.text;
         });
       }
+      if (row.name && row.brandText) {
+        row.nameExtended = [
+          { text: row.brandText[0].text + ' - ' + row.name[0].text },
+        ];
+        const brandText = row.brandText[0].text;
+        row.nameExtended.forEach(nameExtendedItem => {
+          row.name.forEach(nameItem => {
+            console.log('nameExtendedItem.text.includes(brandText)', nameExtendedItem.text.includes(brandText));
+            nameExtendedItem.text = nameItem.text.includes(brandText) ? nameExtendedItem.text.replace(brandText, '').replace(' - ', '') : nameExtendedItem.text;
+          });
+        });
+      }
       if (row.category) {
         var dups = [];
         row.category = row.category.filter(function (el) {
