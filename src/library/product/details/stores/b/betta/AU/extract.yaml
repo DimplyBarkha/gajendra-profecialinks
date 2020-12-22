@@ -1,14 +1,12 @@
-singleRecord: false
+singleRecord: true
 regionsSelector: null
 recordSelector: null
 recordXPath: null
 fields:
   - name: image
-    singleValue: true
     description: URL of the main product image
     xpath: //img[contains(@class,'slider-image')]/@src
   - name: imageAlt
-    singleValue: true
     xpath: //img[contains(@class,'slider-image')]/@alt
   - name: alternateImages
     singleValue: false
@@ -16,17 +14,14 @@ fields:
     xpath: //div[contains(@class,'thumb-item')][not(contains(@class,'current'))]//img/@src
     # xpath: //div[contains(@class, "image-wrapper")]//img[contains(@class, "slider-image")]//@data-zoom
   - name: metaKeywords
-    singleValue: true
     # xpath: //meta[@name="keywords"]/@content
     xpath: //meta[@name="description"]/@content    
   - name: category
     singleValue: false
     xpath: //div[contains(@class, 'breadcrumbs')]//ul[contains(@class, 'items')]//li[position()>1 and position()<last()]
   - name: nameExtended
-    singleValue: true
     xpath: //span[@data-ui-id="page-title-wrapper"]
   - name: listPrice
-    singleValue: true
     description: The stated undiscounted price for the product
     xpath: //span[contains(@class, "old-price")]//span//span[contains(@data-price-type, "oldPrice")]//@data-price-amount
     type: CURRENCY
@@ -40,7 +35,6 @@ fields:
     singleValue: false
     xpath: //meta[@itemprop="priceCurrency"]//@content
   - name: availabilityText
-    singleValue: true
     description: Availability as described on page for the selected variant. If
       there is no availability but the product can be added to cart, this field
       should be "In Stock"
@@ -53,14 +47,11 @@ fields:
     description: Product description supplied by website - may be concatenanted from multiple places; specifically not the manufacturer description
     xpath: //div[@itemprop="description"]
   - name: brandText
-    singleValue: true
     xpath: //span[@class = "brand"]
   - name: manufacturer
-    singleValue: true
     description: Product manufacturer
     xpath: //span[@class = "manufacturer"]
   - name: quantity
-    singleValue: true
     description: Quantity as described on the page
     xpath: //table[@id = "product-attribute-specs-table"]//tbody//tr//th[contains(text(), "Size")]//following-sibling::td
   - name: weightNet
@@ -75,44 +66,33 @@ fields:
     singleValue: false
     xpath: //div[contains(@class, "flix-tech-spacs-contents")]//ul//li//div//div[contains(text(), "Weight")]//following-sibling::div
   - name: gtin
-    singleValue: true
     xpath: //div[contains(@class, "flix-tech-spacs-contents")]//ul//li//div//div[contains(text(), "EAN")]//following-sibling::div
   - name: sku
-    singleValue: true
     description: The store-specific product identifier
     xpath: //div[@itemprop="sku"]
   - name: variantId
-    singleValue: true
     xpath: //div[@itemprop="sku"]
   - name: mpc
-    singleValue: true
     xpath: //table[@id="product-attribute-specs-table"]/tbody/tr[3]/td
   - name: packSize
-    singleValue: true
   - name: productUrl
-    singleValue: true
     xpath: //meta[@property='og:url']/@content
   - name: videos
     singleValue: false
     xpath: //input[@class="flix-jw"]//@value
   - name: name
-    singleValue: true
     xpath: //meta[@property = "og:title"]/@content
   - name: secondaryImageTotal
-    singleValue: true
     type: NUMBER
     xpath: count(//img[contains(@class,'thumb image')])
   - name: specifications
     singleValue: false
     xpath: //table[@id="product-attribute-specs-table"]
   - name: warranty
-    singleValue: true
     description: Guarantee associated with the product
     xpath: //table[contains(@class,'data table additional-attributes')][2]/tbody/tr/td
   - name: recyclingInformation
-    singleValue: true
   - name: variantCount
-    singleValue: true
     xpath: count(//div[contains(@class, "dummy-text-for-variant")])
     type: NUMBER
     defaultValue: 0
@@ -131,37 +111,30 @@ fields:
   - name: packaging
     singleValue: false
   - name: promotion
-    singleValue: true
     xpath: //div[contains(@class, "tagline")]//span[not(contains(@class, "learn-more"))]
   - name: ratingCount
-    singleValue: true
     xpath: sum(//div[contains(@class,'bv-inline-histogram-ratings-bar')]//@data-bv-histogram-rating-count)
     type: NUMBER
   - name: aggregateRating
-    singleValue: true
     xpath: //div[contains(@itemprop, "ratingValue")]
     type: NUMBER
-  - name: countryOfOrigin
-    singleValue: true    
+  - name: countryOfOrigin    
   - name: energyEfficiency
-    singleValue: true
     xpath: //p[contains(@class,'feature-icons')]//img//@src
   - name: additionalDescBulletInfo
     singleValue: false
     xpath: //ul[contains(@class, "flix-key-feature")]//li
   - name: technicalInformationPdfPresent    
-    singleValue: true
     regExp: (.+)
     regExpReplace: 'YES'
     defaultValue: 'NO'
   - name: Image360Present    
-    singleValue: true
   - name: termsAndConditions    
-    singleValue: true
     xpath: count(//a[(@href="https://www.betta.com.au/terms-and-conditions/")])
 
   - name: inTheBoxText
-    xpath: //div[contains(@class,"InTheBox")]//div[@class="flix-std-content"]
+    xpath: //div[contains(@class,"InTheBox")]//div[@class="flix-std-content"] | //th[contains(text(),"What’s in the box?")]/following-sibling::td[1]
+    regExp: '[^,]+'
   - name: inTheBoxUrl
     xpath: //div[contains(@class,"InTheBox")]//div[@class="flix-background-image"]/img/@data-flixsrcset
     regExp: (.+)(\s?200w)(.+)
