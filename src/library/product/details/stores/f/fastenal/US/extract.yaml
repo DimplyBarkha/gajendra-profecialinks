@@ -6,7 +6,7 @@ fields:
   - name: shownImages
     singleValue: false
     description: Other product images (not in manufacturer description)
-    xpath: //div[@class='product--thumbnail-wrap']/a/img/@src
+    xpath: //div[@class='product--img']/img/@src |  //div[@class='product--thumbnail-wrap']/a[position()>1]/img/@src
   - name: category
     singleValue: false
     description: The categories (e.g. from breadcrumbs)
@@ -86,7 +86,7 @@ fields:
   - name: highQualityImages
     singleValue: false
     description: Other product images (not in manufacturer description)
-    xpath: //div[@class='product--thumbnail-wrap']/a/img/@src
+    xpath: //div[@class='product--img']/img/@src |  //div[@class='product--thumbnail-wrap']/a[position()>1]/img/@src
   - name: directions
     singleValue: true
     description: Content under "directions" header
@@ -497,6 +497,8 @@ fields:
     # example: https://www.zalando.de/adidas-neo-sneaker-low-blackwhite-a4315i002-q11.html
     defaultValue: No
   - name: productUrl
-    singleValue: false
-    xpath: //body/@productUrl
-
+    singleValue: true
+    xpath: //div[@class="product_custom_url"]
+  - name: otherSellersId
+    singleValue: true
+    defaultValue: 1

@@ -23,7 +23,7 @@ const transform = (data) => {
 
   for (const { group }
     of data) {
-    var rank = 1;
+
     for (const row of group) {
       if (row.shownImages) {
         row.shownImages.forEach(item => {
@@ -52,9 +52,7 @@ const transform = (data) => {
           console.log("item.text",item.text);
         });
       }
-      row.salesRank = [{ "text": rank }];
-      row.rankOrganic = [{ "text": rank }];
-      rank++;
+
 
     }
 
