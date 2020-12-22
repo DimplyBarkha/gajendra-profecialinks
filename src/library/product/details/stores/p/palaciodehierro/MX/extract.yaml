@@ -96,9 +96,10 @@ fields:
     xpath: //span[contains(@class,'b-pdp_specification-label') and contains(.,'Incluye')]/following-sibling::span[contains(@class,'b-pdp_specification-value')]
   - name: unInterruptedPDP
     singleValue: false
-    xpath: //div[@class="l-pdp-content"]//div[@class="b-product_tile m-type_1"]//a[2]
+    xpath: //div[@class="l-pdp-content"]//div[@class="b-product"]/@data-analytics
+    regExp: name":"([^"]+)
+    regExpReplace: $1
     description: Titles of products in the sections 'you may also like' or 'sponsored products'. Combine results from Max 3 secti
   - name: inTheBoxText
-    singleValue: false
-    description: null
+    regExp: '[^,]+'
     xpath: //span[contains(@class,'b-pdp_specification-label') and contains(.,'Incluye')]/following-sibling::span[contains(@class,'b-pdp_specification-value')]
