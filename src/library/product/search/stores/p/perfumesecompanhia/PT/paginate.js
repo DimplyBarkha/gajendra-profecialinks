@@ -10,7 +10,7 @@ module.exports = {
     mutationSelector: null,
     spinnerSelector: null,
     loadedSelector: 'div.col.active',
-    loadedXpath: '//div[@class="col   active"]',
+    loadedXpath: '//div[contains(@class, "col ")][contains(@class, " active")]',
     noResultsXPath: '//div[contains(text(), "0 resultados")]',
     stopConditionSelectorOrXpath: null,
     resultsDivSelector: null,
