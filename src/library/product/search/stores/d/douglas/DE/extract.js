@@ -22,6 +22,8 @@ async function implementation (
       const originalDiv = document.querySelectorAll('div.rd__productinfo')[index];
       originalDiv.parentNode.insertBefore(newDiv, originalDiv);
     }
+
+    await new Promise((resolve, reject) => setTimeout(resolve, 6000));
     const product = document.querySelectorAll('div.rd__productinfo');
     for (let i = 0; i < product.length; i++) {
       // @ts-ignore

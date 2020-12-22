@@ -1,7 +1,7 @@
 singleRecord: false
 regionsSelector:
 recordSelector: null
-recordXPath: //div[@class="rd__product-list"]//a
+recordXPath: //div[@class="rd__product-list"]/a
 fields:
   - name: name
     xpath: //div[@id="ii_name"]
@@ -25,9 +25,10 @@ fields:
   - name: id
     singleValue: false
     xpath: //div[@class="rd__product-list"]/a/@href
-    regExp: (.+)productbrand_(.+)(\.html)
-    regExpReplace: $2
+    regExp: (.+)(_product_|productbrand_)(.+)(\.html)(.+)?
+    regExpReplace: $3
   - name: rank 
   - name: rankOrganic
+
 
 
