@@ -15,7 +15,7 @@ fields:
   - name: category
     singleValue: false
     xpath: //div[@class="bread-crumb"]//li[2]//a//span[@itemprop="name"]
-  - name: subcategory
+  - name: subCategory
     singleValue: false
     xpath: concat(//div[@class="bread-crumb"]//li[3]//a//span[@itemprop="name"], " > ", //div[@class="bread-crumb"]//li[@class="last"]//a//span[@itemprop="name"])
   - name: nameExtended
