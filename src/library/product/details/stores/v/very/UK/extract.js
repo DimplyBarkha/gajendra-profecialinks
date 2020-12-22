@@ -1,4 +1,4 @@
-const { transform } = require('../../../../shared');
+const { transform } = require('./shared');
 
 async function implementation (inputs, parameters, context, dependencies) {
   const { transform } = parameters;
@@ -21,6 +21,8 @@ async function implementation (inputs, parameters, context, dependencies) {
   for (let i = 0; i < numOfVariants; i++) {
     await context.evaluate(
       async ({ i, variantsArr }) => {
+        // @ts-ignore
+        const colors = [...document.querySelectorAll('ul.ppOption--colour li label')].map((ele) => ele.getAttribute('rel'));
         const addedVariant = document.createElement('div');
         addedVariant.id = `addedVariant${i}`;
         addedVariant.id = `added_variant${i}`;
@@ -38,6 +40,7 @@ async function implementation (inputs, parameters, context, dependencies) {
           const size = variantLi[i].size;
           addedVariant.setAttribute('size', size);
         }
+        if (colors.length) addedVariant.setAttribute('color', colors[i]);
         addedVariant.setAttribute('sku', sku);
         addedVariant.setAttribute('availability', availability);
         addedVariant.setAttribute('price', price);
