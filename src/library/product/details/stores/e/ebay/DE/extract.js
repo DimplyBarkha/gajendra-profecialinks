@@ -192,6 +192,26 @@ module.exports = {
               newDiv.style.display = 'none';
               document.body.appendChild(newDiv);
             }
+
+            function getNodesFromxpath(STR_XPATH, context) {
+              var xresult = document.evaluate(
+                  STR_XPATH,
+                  context,
+                  null,
+                  XPathResult.ANY_TYPE,
+                  null
+              );
+              var xnodes = [];
+              var xres;
+              while ((xres = xresult.iterateNext())) {
+                  xnodes.push(xres);
+              }
+              return xnodes;
+            }
+            let compareTableXpath = `//p[contains(.,"Vergleich")]`;
+            if(getNodesFromxpath(compareTableXpath, document)) {
+                addHiddenDiv('hasComparisionTable', "Yes");
+            }
             inTheBoxUrl.inTheBoxUrlArray.forEach(elm => {
               addHiddenDiv('inTheBoxUrl', elm);
             });
