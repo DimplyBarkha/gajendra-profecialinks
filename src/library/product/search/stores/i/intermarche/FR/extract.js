@@ -18,7 +18,7 @@ module.exports = {
         scrollTop += 1000;
         window.scroll(0, scrollTop);
         if (scrollTop === 40000) {
-          await stall(7000);
+          await stall(2000);
           break;
         }
       }
