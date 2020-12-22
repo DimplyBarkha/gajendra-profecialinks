@@ -147,7 +147,7 @@ module.exports = {
     // For inTheBoxText
     await context.evaluate(() => {
       const inBox = document.evaluate(
-        '//p[contains(.,"tools included")]/following-sibling::*',
+        '//p[contains(.,"In the Box")]/following-sibling::*',
         document,
         null,
         XPathResult.ORDERED_NODE_SNAPSHOT_TYPE,
