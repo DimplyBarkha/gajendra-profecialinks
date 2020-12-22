@@ -30,7 +30,7 @@ fields:
 - name: listPrice
   xpath: ancestor::html//span[@data-js-action="updateWasPrice"]
 - name: price
-  xpath: ancestor::html//span[@data-js-action="updatePrice"]
+  xpath: ancestor::html//span[@data-js-action="updatePrice"]/parent::p[contains(@class,"o-price")]
 - name: availabilityText
   xpath: ancestor::html//section[@data-js-component="productHero"] | //@availability
 - name: description

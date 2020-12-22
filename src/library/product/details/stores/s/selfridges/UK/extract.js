@@ -43,10 +43,10 @@ async function implementation (inputs, parameters, context, dependencies) {
       const variants = document.querySelectorAll('section.multi-size div[data-ts-select-label="Size"] div.c-select__dropdown-item-container span.c-select__dropdown-item');
       const rpc = [];
       const sizeVariants = JSON.parse(document.querySelector('script[data-component="pdp-semantic-data"]').textContent);
-      for (let i = 0; i < variants.length; i++) {
+      for (let i = 0; i < sizeVariants.model.length; i++) {
         rpc.push(sizeVariants.model[i].sku);
       }
-      for (let i = 0; i < variants.length; i++) {
+      for (let i = 0; i < sizeVariants.model.length; i++) {
         variants[i].setAttribute('variantId', rpc[i]);
         variants[i].setAttribute('availability', sizeVariants.model[i].offers[0].availability);
       }
