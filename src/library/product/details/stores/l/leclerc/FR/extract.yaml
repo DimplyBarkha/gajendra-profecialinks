@@ -216,12 +216,14 @@ fields:
   - name: featureBullets
     singleValue: false
     description: null
+    xpath: //div[@class="ligne element"]/p[@class="accordeons-detail-paragaphe"]
   - name: otherSellersName
     singleValue: false
     description: null
   - name: otherSellersPrice
     singleValue: false
     description: null
+    xpath: //div[@class='prix']/p[contains(@class,"prix-actuel")]
   - name: otherSellersShipping
     singleValue: false
     description: null
@@ -242,7 +244,7 @@ fields:
     singleValue: true
     description: List of Ingredients from site - can be string of data if no
       discernible start/end point
-    xpath: (//p[@class="accordeons-sous-titre ingredients"]/following-sibling::p)[1]
+    xpath: //p[@class="accordeons-detail-paragaphe"][contains(text(), "Ingrédients :")]
   - name: servingSize
     singleValue: true
     description: The size of serving Nutritional information is based on.

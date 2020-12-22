@@ -21,9 +21,6 @@
         el.text = clean(el.text);
     }))));
 
-    // const urlquery = data[0].url.split('/')
-    // const sku = urlquery[urlquery-1].replace(/[^\d-]/g, '');
-    // data[0].group[0].sku = [ { text: 'leclercdrive_' + sku }];
     for (const { group}  of data) {
         for (const row of group) {
 
@@ -33,22 +30,31 @@
           //   });
           // }
           // if (row.listPrice) {
-          //   row.listPrice.forEach(item => {
+          //   row.listPrice.fo rEach(item => {
           //     item.text = item.text.replace('€', '');
           //   });
           // }
 
           if (row.url) {
-            let skuText = '';
+            let skuId = '';
             row.url.forEach(item => {
              const parseUrl = item.text.split('/');
-              skuText = 'leclercdrive_' + parseUrl.replace(/\D/g,'');
+             skuId = parseUrl.replace(/\D/g,'');
             });
             row.sku = [ {
-                text: skuText
+                text: skuId
             }];
           }
-
+          if (row.featureBullets) {
+            row.featureBullets.forEach(item => {
+              item.text = item.text.replace( 'Les avantages du produit :', '');
+            });
+          }
+          if (row.ingredientsList) {
+            row.ingredientsList.forEach(item => {
+              item.text = item.text.replace( 'Ingrédients :', '');
+            });
+          }
           if (row.availabilityText) {
             row.availabilityText.forEach(item => {
               item.text = ('Ajouter Produit' === item.text ) ? 'In stock' : 'Out of stock';
@@ -57,11 +63,6 @@
           if (row.priceCurrency) {
             row.priceCurrency.forEach(item => {
               item.text = ( item.text.includes('€') ) ? 'EUR' : 'GBP';
-            });
-          }
-          if (row.ingredientsList) {
-            row.ingredientsList.forEach(item => {
-              item.text = item.text.split(':')[1];
             });
           }
           if (row.category) {
