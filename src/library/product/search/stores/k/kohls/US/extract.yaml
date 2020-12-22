@@ -11,7 +11,7 @@ fields:
   - name: searchUrl
     singleValue: true
   - name: name
-    xpath: //li[contains(@class, 'products_grid ')]//p[not(@class)]
+    xpath: //div[@class="prod_img_block"]//img/@title
     singleValue: false
   - name: productUrl
     singleValue: false
@@ -42,7 +42,9 @@ fields:
     regExpReplace: $1
   - name: price
     singleValue: false
-    xpath: //span[contains (@class, 'prod_price_amount')]
+    xpath: //span[contains (@class, 'prod_price_amount')][not(text())]/following-sibling::div[@class='prod_price_original'] | //span[contains (@class, 'prod_price_amount')]
+    regExp: (\$.+)
+    regionsSelector: $1
   - name: manufacturer
     singleValue: true
   - name: soldBy
