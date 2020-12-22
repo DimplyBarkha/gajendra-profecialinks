@@ -8,7 +8,9 @@ fields:
     xpath: //meta[@name='keywords']/@content
   - name: image
     singleValue: false
-    xpath: //div[@class='sxa-recipe-brief__image-container']//img/@src    
+    xpath: //div[contains(@class,'fs-product-image__image-layer ')]/div/@style
+    regExp: url\((.*png) 
+    regExpReplace: $1
   - name: category
     singleValue: false
     xpath: //ol[@class='sxa-breadcrumb__list']//li[@class='sxa-breadcrumb__list-item']//a[@class='sxa-breadcrumb__link']
@@ -44,9 +46,6 @@ fields:
   - name: promotion
     singleValue: false
     xpath: //div[contains(@class,'fs-product-detail__promotext')]/p 
-  - name: ingredientsList
-    singleValue: false
-    xpath: //div[@class='component-content field-ingredients']//ul
   - name: countryOfOrigin
     singleValue: false
     xpath: //div[contains(@class,'u-full-width')]//span[@class='u-bold'][not(contains(text(),'Imported'))]

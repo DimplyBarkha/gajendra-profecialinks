@@ -51,7 +51,9 @@ const transform = (data) => {
       }
       if (row.image) {
         row.image.forEach(item => {
-          item.text = 'https://www.paknsave.co.nz' + item.text;
+          // item.text = 'https://www.paknsave.co.nz' + item.text;
+          item.text = item.text.replace('background-image: url(', '');
+          item.text = item.text.replace(')', '');
         });
       }
       // if (row.listPrice) {
