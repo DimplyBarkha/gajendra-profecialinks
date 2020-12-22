@@ -212,6 +212,13 @@ async function implementation (
       extraWTBText = extraWTBText.replace(/\s-\s/gm, ' || ');
       addHiddenDiv('ii_extraWTBText', extraWTBText);
     }
+
+    let udpd = document.querySelectorAll('div.product_desc div.top');
+    [...udpd].forEach((element) => {
+      const brand = element.querySelector('div.product_manufacturer') ? element.querySelector('div.product_manufacturer').innerText : '';
+      const title = element.querySelector('div.product_name') ? element.querySelector('div.product_name').innerText : '';
+      addHiddenDiv('ii_UDPD', brand + ' ' + title);
+    })
   });
 
   return await context.extract(productDetails, { transform });

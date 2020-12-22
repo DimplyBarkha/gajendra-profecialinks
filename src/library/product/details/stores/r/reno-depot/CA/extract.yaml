@@ -155,8 +155,9 @@ fields:
     xpath: //div[@data-section-tag="compare"]
     regExp: (.+)
     regExpReplace: true
-    defaultValue: false  
+    defaultValue: false
   - name: unInterruptedPDP
     singleValue: false
-    xpath: //div[@data-track-module-type="recommendations"]//div[@class="product_name"]
+    xpath: //div[@id="ii_UDPD"]
+    # xpath: //div[@data-track-module-type="recommendations"]//div[@class="product_name"]
     description: Titles of products in the sections 'you may also like' or 'sponsored products'. Combine results from Max 3 sections
