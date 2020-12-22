@@ -15,7 +15,7 @@ async function implementation (
   if (seeMoreButton) {
     await context.click('button[class*="sr-see-more"]')
       .then(async () => {
-        await new Promise((resolve, reject) => setTimeout(resolve, 4000));
+        await new Promise((resolve, reject) => setTimeout(resolve, 5000));
       });
   }
 
