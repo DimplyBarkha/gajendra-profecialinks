@@ -132,7 +132,7 @@ fields:
     regExp: (.+800w,\s)(.+(.png|.jpg))(.+)
     regExpReplace: $2
   - name: inTheBoxText
-    xpath: //div[contains(@class, "InTheBox")]//div[contains(@class, "flix-std-content")]
+    xpath: //div[contains(@class, "InTheBox")]//div[contains(@class, "flix-std-content")] | //ul[@class="details-heading-product"]//li/span[contains(.,'Accessoires') or (contains(.,'Brosses spécifiques'))]/following-sibling::span
   - name: hasComparisonTable
     defaultValue: No
   - name: unInterruptedPDP
