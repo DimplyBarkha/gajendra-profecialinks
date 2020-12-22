@@ -1,0 +1,57 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: name
+    singleValue: true
+    xpath: //h1[contains(@class,"h5 font-size-md-xxl mb-0 text-body text-md-primary")]
+  - name: nameExtended
+    singleValue: true
+    xpath: //h1[contains(@class,"h5 font-size-md-xxl mb-0 text-body text-md-primary")]
+  - name: image
+    singleValue: true
+    description: URL of the main product image
+    xpath: //div[@class='mt-3 carousel-inner js-carousel-items']/button/img/@src
+  - name: imageAlt
+    singleValue: true
+    xpath: //div[@class='mt-3 carousel-inner js-carousel-items']/button/img/@alt
+  - name: alternateImages
+    singleValue: false
+    description: Other product images (not in manufacturer description)
+    xpath: //div[@class='mt-3 carousel-inner js-carousel-items']/button/img/@src
+  - name: metaKeywords
+    singleValue: true
+    description: The <meta> keywords content
+    xpath: //meta[contains(@name, "keywords")]/@content
+  - name: listPrice
+    singleValue: true
+    description: The stated undiscounted price for the product
+    xpath: //*[@class="right"]//s[contains(@class, "font-size-sm lh-1 d-inline-block text-muted text-nowrap")]
+  - name: price
+    singleValue: true
+    xpath: //*[@class="right"]//strong[contains(@class, "font-size-lg font-size-md-xl d-inline-block lh-1")]
+  - name: availabilityText
+    singleValue: true
+    xpath: //*[@class="right"]//*[@class='o-product-detail-info']//span[@id='availability']
+  - name: ratingCount
+    singleValue: true
+    xpath: //meta[contains(@itemprop,'ratingCount')]/@content
+  - name: aggregateRating
+    singleValue: true
+    xpath: //meta[contains(@itemprop,'ratingValue')]/@content
+  - name: videos
+    singleValue: false
+    xpath: //section[contains(@class,"product-detail-content-grid")]//iframe/@src
+  - name: description
+    singleValue: true
+    xpath: //section[contains(@class,"product-detail-content-grid")]/div/div[contains(@class, 'mb-3')]
+  - name: url
+    singleValue: true
+    xpath: //meta[contains(@property, "og:url")]/@content
+  - name: productsPerPage
+    singleValue: true
+    xpath: count(//ul[contains(@class, 'list-unstyled space-y-3 mb-0')]/li/article)
+  - name: manufacturer 
+    singleValue: true 
+    xpath: //script[contains(text(),"manufacturer")]
