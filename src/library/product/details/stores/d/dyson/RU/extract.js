@@ -87,20 +87,24 @@ async function implementation (
 
     const manufacturerImages = [];
     let enhancedContent = '';
-    document.querySelectorAll('.layout').forEach(el => {
-      if (el.querySelector('h2') &&
-      (el.querySelector('h2').innerText.includes('In the box') ||
-      el.querySelector('h2').innerText.includes('Key features') ||
-      el.querySelector('h2').innerText.includes('All features'))) {
-        enhancedContent += el.innerText + ' ';
-        el.querySelectorAll('img').forEach(img => {
-          manufacturerImages.push(img.getAttribute('src'));
-        });
-      }
-    });
+    enhancedContent = document.querySelector('.product-features') ? document.querySelector('.product-features').innerText : "";
     if (enhancedContent) {
       addHiddenDiv('hasEnhancedContent', 'Yes');
     }
+    const imgNodes = document.querySelectorAll('.product-features li > img');
+    imgNodes.forEach(q => {
+      if(q.hasAttribute('src')) {
+        manufacturerImages.push(`https://shop.dyson.ru` + q.getAttribute('src'));
+      }
+    })
+    const videoNodes = document.querySelectorAll('iframe[id*=myExperience]');
+    let videoLinks = [];
+    videoNodes.forEach(q => {
+      if(q.hasAttribute('src')) {
+        videoLinks.push(q.getAttribute('src'));
+      }
+    });
+    addHiddenDiv('videos', videoLinks.join(" | "));
     addHiddenDiv('enhancedContent', enhancedContent);
     addHiddenDiv('manufacturerImages', manufacturerImages.join(' | '));
 
