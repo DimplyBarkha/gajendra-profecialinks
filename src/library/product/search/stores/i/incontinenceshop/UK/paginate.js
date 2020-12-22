@@ -6,10 +6,10 @@ module.exports = {
     store: 'incontinenceshop',
     // nextLinkSelector: 'li[class="item pages-item-next"]>a',
     loadedSelector: 'body',
-    stopConditionSelectorOrXpath: 'div[id="noResults"]',
     openSearchDefinition: {
       template: 'https://www.incontinenceshop.com/catalogsearch/result/index/?p={page}&q={searchTerms}',
     },
+    stopConditionSelectorOrXpath: 'div[id="noResults"]',
     domain: 'incontinenceshop.com',
     zipcode: '',
   },
@@ -25,23 +25,6 @@ async function implementation(
   const { stopConditionSelectorOrXpath, nextLinkSelector, loadedSelector, noResultsXPath, mutationSelector, loadedXpath, resultsDivSelector, spinnerSelector, openSearchDefinition, nextLinkXpath } = parameters;
 
   let nextLink;
-  if (stopConditionSelectorOrXpath) {
-    const conditionIsTrue = await context.waitForFunction((sel) => {
-      try {
-        const isThere = document.querySelectorAll(sel);
-        if (isThere.length > 0) {
-          return false;
-        }
-        else {
-          return !!isThere;
-        }
-      } catch (error) {
-        return false;
-      }
-    }, { timeout: 10000 }, stopConditionSelectorOrXpath);
-    // @ts-ignore
-    if (conditionIsTrue) return false;
-  }
   const { pager } = dependencies;
 
   const success = openSearchDefinition ? false : await pager({ ...inputs, nextLinkSelector: nextLink, loadedSelector, loadedXpath, mutationSelector, spinnerSelector });
@@ -60,17 +43,32 @@ async function implementation(
   });
 
   if (!url && openSearchDefinition) {
+    const PageNumber = await context.evaluate(async () => {
+      // Method to Retrieve Xpath content of a Single Node
+      const getXpath = (xpath, prop) => {
+        const elem = document.evaluate(xpath, document, null, XPathResult.ANY_UNORDERED_NODE_TYPE, null);
+        let result;
+        if (prop && elem && elem.singleNodeValue) result = elem.singleNodeValue[prop];
+        else result = elem ? elem.singleNodeValue : '';
+        return result && result.trim ? result.trim() : result;
+      };
+      let PageNumber = getXpath("//li[@class='item pages-item-next']/a/@href", 'nodeValue');
+      if (PageNumber != null) {
+        return PageNumber.split('?')[1].split('&')[0].split('=')[1];
+      }
+    });
     const { pageStartNb = 1, indexOffset, pageOffset, pageIndexMultiplier, template } = openSearchDefinition;
-    const pageNb = page + pageStartNb - 1;
-    url = template
-      .replace(/{searchTerms}/g, encodeURIComponent(keywords))
-      .replace(/{id}/g, encodeURIComponent(id))
-      .replace(/{date}/g, encodeURIComponent(date))
-      .replace(/{page}/g, (pageNb + (pageOffset || 0)).toString())
-      .replace(/{index}/g, (pageNb * (pageIndexMultiplier || 0)).toString())
-      .replace(/{offset}/g, (offset + (indexOffset || 0)).toString());
+    if (PageNumber != null) {
+      const pageNb = PageNumber;
+      url = template
+        .replace(/{searchTerms}/g, encodeURIComponent(keywords))
+        .replace(/{id}/g, encodeURIComponent(id))
+        .replace(/{date}/g, encodeURIComponent(date))
+        .replace(/{page}/g, (pageNb).toString())
+        .replace(/{index}/g, (pageNb * (pageIndexMultiplier || 0)).toString())
+        .replace(/{offset}/g, (offset + (indexOffset || 0)).toString());
+    }
   }
-
   if (!url) {
     return false;
   }
