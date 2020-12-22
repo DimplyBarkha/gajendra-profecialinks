@@ -72,3 +72,6 @@ fields:
   - name: materials
     singleValue: false
     xpath: //div[contains(@class,"description-sku-wrapper__section") and @id="feature"]//li/span[contains(text(),"Matériau")]/following-sibling::*
+  - name: quantity
+    singleValue: false
+    xpath: //div[@class="product-sku__pack"]/p[1]
