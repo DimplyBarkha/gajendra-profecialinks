@@ -248,12 +248,6 @@ module.exports = {
         // Check for the data and append to DOM
         if (dataObj) {
           if (dataObj[0].product) {
-            // if (dataObj[0].product.status.toLowerCase() === 'available' || dataObj[0].product.status.toLowerCase() === 'add' || dataObj[0].product.status.toLowerCase() === 'mixed') {
-            //   addElementToDocument('availability', 'In Stock');
-            // } else {
-            //   addElementToDocument('availability', 'Out Of Stock');
-            // }
-            // Check for the brand  and append to DOM
             if (dataObj[0].product.brand) {
               addElementToDocument('brand', dataObj[0].product.brand);
             }
@@ -348,11 +342,13 @@ module.exports = {
         const newUl = document.createElement('ul');
         newUl.id = 'variantsadd';
         targetElement.appendChild(newUl);
+
         const ul = document.querySelector('#variantsadd');
-        const name = nameExtended();
-        let variantIds = [];
+        const name = nameExtended(); // same for all variant
+
+        const variantIds = [];
         variants.forEach(q => {
-          if(q.reference_id) {
+          if (q.reference_id) {
             variantIds.push(q.reference_id.trim());
           }
         });
@@ -360,16 +356,19 @@ module.exports = {
           if (variants.length) {
             for (let i = 0; i < variants.length; i++) {
               const listItem = document.createElement('li');
-              console.log(name, 'value');
-              setAttributes(listItem, {
-                nameExtended: `${nameExtended()}`,
+              const variantInfo = {
+                nameExtended: name,
                 color: variants[i].color.title,
-                gtin: variants[i].gtin,
+                gtin: variants[i].gtin, // eangtin
                 retailer_product_code: variants[i].reference_id,
-                title: variants[i].color.title,
-                variantDetails: variantIds.join(" | "),
-                variantcount: variants.length,
-              });
+                variantinformation: variantInformation(variants[i]), // variantInformation,
+                variantDetails: variantIds.join(' | '), // variants
+                variantcount: variants.length, // variantCount
+                availability: getStock(variants[i]), // availabilityText
+              };
+              console.log(`variantInfo: ${JSON.stringify(variantInfo)}`);
+
+              setAttributes(listItem, variantInfo);
               ul.appendChild(listItem);
             }
           }

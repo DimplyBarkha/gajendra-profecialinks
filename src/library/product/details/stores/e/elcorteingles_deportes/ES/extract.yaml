@@ -9,7 +9,7 @@ fields:
     xpath: //*/@variantcount
   - name: variantInformation
     singleValue: true
-    xpath: //*/@title
+    xpath: //*/@variantinformation
   - name: gtin
     singleValue: true
     xpath : //*/@gtin    
@@ -61,7 +61,7 @@ fields:
     xpath : ancestor::html //div[@id='price']
   - name: availabilityText
     singleValue: true
-    xpath : //*/@stock
+    xpath : //*/@availability
     defaultValue: Out of Stock
   - name: description
     singleValue: false
