@@ -6,6 +6,8 @@ fields:
   - name: productUrl
     singleValue: false
     xpath: //div[@id="articleListContent"]//article//div[@class="c-product-card__wrapper"]/a/@href
+    regExp: (.+)
+    regExpReplace: https://www.pccomponentes.com$1
   - name: id
     singleValue: false
     xpath: //div[@id="articleListContent"]//article/@data-id
@@ -27,6 +29,3 @@ fields:
   - name: price
     singleValue: false
     xpath: //div[@id="articleListContent"]//article//div[@class="c-product-card__wrapper"]//div[contains(@class,"c-product-card__prices-actual")]
-  - name: soldBy
-    singleValue: false
-    xpath: //div[@id="articleListContent"]//article//div[@class="c-product-card__wrapper"]//div[contains(@class,"c-product-card__availability")]

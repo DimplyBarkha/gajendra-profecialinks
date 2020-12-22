@@ -27,11 +27,6 @@ const transform = (data) => {
   for (const { group } of data) {
     var rank = 1;
     for (let row of group) {  
-      if(row.productUrl){
-        row.productUrl.forEach(item=>{
-          item.text="https://www.pccomponentes.com"+item.text;
-        })
-      }
       row.rank = [{ "text": rank }];
       row.rankOrganic = [{ "text": rank }];
       rank++;
