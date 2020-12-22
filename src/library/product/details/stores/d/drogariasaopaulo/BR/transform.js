@@ -29,6 +29,56 @@ const transform = (data, context) => {
   for (const { group } of data) {
     for (const row of group) {
       try {
+        var product;
+        var regEx;
+        var regexMatch;
+        var productDetails;
+        if (row.nameExtended) {
+          product = row.brandText[0].text;
+          regEx = /\(([^)]+)\)/;
+          regexMatch = regEx.exec(product);
+
+          productDetails = JSON.parse(regexMatch[1]);
+          if (productDetails.productName.includes(productDetails.productBrandName)) {
+            row.nameExtended = [
+              { text: productDetails.productName },
+            ];
+          } else {
+            row.nameExtended = [
+              { text: `${productDetails.productBrandName} ${productDetails.productName}` },
+            ];
+          }
+        }
+        if (row.brandText) {
+          product = row.brandText[0].text;
+          regEx = /\(([^)]+)\)/;
+          regexMatch = regEx.exec(product);
+
+          productDetails = JSON.parse(regexMatch[1]);
+          row.brandText = [
+            { text: productDetails.productBrandName },
+          ];
+        }
+        // if (row.gtin) {
+        //   product = row.gtin[0].text;
+        //   regEx = /\(([^)]+)\)/;
+        //   regexMatch = regEx.exec(product);
+
+        //   productDetails = JSON.parse(regexMatch[1]);
+        //   row.gtin = [
+        //     { text: productDetails.productEans },
+        //   ];
+        // }
+        // if (row.weightNet) {
+        //   product = row.weightNet[0].text;
+        //   regEx = /\{([^]+)\}/;
+        //   regexMatch = regEx.exec(product);
+
+        //   productDetails = JSON.parse(regexMatch[0]);
+        //   row.weightNet = [
+        //     { text: productDetails.skus[0].measures.weight },
+        //   ];
+        // }
         if (row.availabilityText) {
           row.availabilityText = [
             { text: row.availabilityText[0].text === 'true' ? 'In Stock' : 'Out of Stock' },

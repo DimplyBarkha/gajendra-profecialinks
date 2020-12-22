@@ -5,23 +5,23 @@ recordXPath: null
 fields:
   - name: image
     singleValue: true
-    xpath: //div/img[contains(@id, 'image-main')]/@src
+    xpath: //div/img[contains(@id,'image-main')]/@src
     description: URL of the main product image
   - name: alternateImages
     singleValue: false
-    xpath: //ul[contains(@class, 'thumbs')]/li/a/@rel
+    xpath: //ul[contains(@class,'thumbs')]/li/a/@rel
     description: Other product images (not in manufacturer description)
   - name: metaKeywords
     singleValue: true
-    xpath: //meta[contains(@name, 'keywords')]/@content
+    xpath: //meta[contains(@name,'keywords')]/@content
     description: The <meta> keywords content
   - name: category
     singleValue: false
-    xpath: //div[contains(@class, 'rnk-container-product-highlight')]//div/ul/li/a/span
+    xpath: //div[contains(@class,'rnk-container-product-highlight')]//span[contains(@itemprop, 'name')]
     description: The categories (e.g. from breadcrumbs)
   - name: nameExtended
     singleValue: true
-    xpath: //div/h1/div[contains(@class,'productName')]
+    xpath: //script[contains(text(),'productName')]
     description: The product name, prefixing "${brand} - " if not included in "name"
       and appending " - ${variantType}" if necessary (fixed per feed)
   - name: listPrice
@@ -39,22 +39,20 @@ fields:
     description: Availability as described on page for the selected variant. If
       there is no availability but the product can be added to cart, this field
       should be "In Stock"
-    # regExp: (.+)
-    # regExpReplace: In Stock
-    # defaultValue: Out of Stock
   - name: description
     singleValue: false
-    xpath: //div[contains(@class,'productDescription')]//font/font
+    xpath: //div[contains(@class,'productDescription')]
     description: Product description supplied by website - may be concatenanted from
       multiple places; specifically not the manufacturer description
   # - name: descriptionBullets
   #   singleValue: true
   #   description: Number of ul > li tags in the description
   #   type: NUMBER
-  # - name: brandText
-  #   singleValue: true
-  #   description: Product brand shown - this may actually NOT be just a brand name,
-  #     e.g. "Visit the Gillette Store"
+  - name: brandText
+    singleValue: true
+    xpath: //script[contains(text(),'productBrandName')]
+    description: Product brand shown - this may actually NOT be just a brand name,
+      e.g. "Visit the Gillette Store"
   # - name: manufacturer
   #   singleValue: true
   #   description: Product manufacturer
@@ -66,11 +64,13 @@ fields:
   # - name: weightNet
   #   singleValue: true
   #   description: Net weight as described on the page
+  #   xpath: //script[contains(text(),'cubicweight')]
   # - name: weightGross
   #   singleValue: true
   #   description: Gross weight as described on the page
   # - name: gtin
   #   singleValue: true
+  #   xpath: //script[contains(text(),'productEans')]
   #   description: GTIN code (includes UPC/EAN)
   - name: sku
     singleValue: true
