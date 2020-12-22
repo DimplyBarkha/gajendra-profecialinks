@@ -190,12 +190,19 @@ fields:
     xpath: //link[@rel="canonical"]/@href
   - name: otherSellersPrice
     xpath: //span[@class="buybox__price"] | //span[@class="buybox__price--current"]
-  - name: manufacturerImages
-    xpath: //body/@import-enhanced-content
-    regExp: true
+  # - name: manufacturerImages
+  #   xpath: //body/@import-enhanced-content
+  #   regExp: true
   - name: nutritionInfo
     xpath: //div[@class='nutrition']//div[@class='nutrition-legend__box']
-  - name: otherSellersAvailability
-    xpath: //body/@import-availability
+  # - name: otherSellersAvailability
+  #   xpath: //body/@import-availability
   - name: availabilityText
-    xpath: //body/@import-availability
+    xpath: //body//@availabilitytext
+  - name: featureBullets
+    xpath: //div[@class="nutrition-more-info__container"][contains(.,'Datos del producto')]/div
+  - name: allergens
+    xpath: //div[@class="nutrition-allergens"]//span[@class="nutrition-allergens__contain"]
+    singleValue: true
+    regExp: (Contiene:\s)(.+)
+    regExpReplace: $2

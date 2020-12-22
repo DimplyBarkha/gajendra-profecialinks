@@ -14,7 +14,7 @@ module.exports = {
   ) => {
     await context.evaluate(async function () {
       const clickOnImages = async function () {
-        function timeout (ms) {
+        function timeout(ms) {
           return new Promise((resolve) => setTimeout(resolve, ms));
         }
         const nextButton = document.querySelector('div.main-image__container img');
@@ -44,6 +44,15 @@ module.exports = {
       document.body.setAttribute('import-puchasability', purchasability);
       const availability = document.querySelector('.pdp-view__buybox .buybox__price') ? 'In stock' : 'Out of stock';
       document.body.setAttribute('import-availability', availability);
+
+      const availabilityText = document.evaluate(`//button[contains(@class,"add-to-cart-button")]`, document, null, XPathResult.UNORDERED_NODE_ITERATOR_TYPE, null).iterateNext();
+
+      if (availabilityText && availabilityText.textContent.match('Añadir')) {
+        document.body.setAttribute('availabilityText', 'In stock');
+      } else {
+        document.body.setAttribute('availabilityText', 'Out of stock');
+      }
+
     });
     const { transform } = parameters;
     const { productDetails } = dependencies;
