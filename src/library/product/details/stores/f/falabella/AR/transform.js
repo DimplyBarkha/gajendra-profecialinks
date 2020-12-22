@@ -93,6 +93,21 @@ const transform = (data) => {
         });
         row.secondaryImageTotal = [{ text: row.alternateImages ? row.alternateImages.length : 0 }];
       }
+      if (row.variants) {
+        const unqVariants = [...new Set(row.variants.map(item => item.text))];
+
+        row.variants = [];
+        unqVariants.forEach((item) => {
+          row.variants.push({ text: item });
+        });
+
+        const unqVariantCount = [...new Set(row.variantCount.map(item => item.text))];
+
+        row.variantCount = [];
+        unqVariantCount.forEach((item) => {
+          row.variantCount.push({ text: item });
+        });
+      }
     }
   }
   data = cleanUp(data, undefined);
