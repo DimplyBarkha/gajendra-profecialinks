@@ -81,18 +81,16 @@ fields:
   singleValue: true
   description: Gross weight as described on the page
 - name: gtin
-  xpath: ancestor::html//span[@id="productEAN"]
+  xpath: substring-after(ancestor::html//span[@id="productEAN"]/text(), ':')
   singleValue: true
   description: GTIN code (includes UPC/EAN) 
 - name: sku
   # xpath: //div[@id="ii_sku"]
-  xpath: "@sku"
+  xpath: //div[starts-with(@id, "added_variant")]/@sku
   singleValue: true
   description: The store-specific product identifier
 - name: variantId
-  xpath: ancestor::html//link[@rel="canonical"]//@href
-  regExp: (\d+).prd
-  regExpReplace: $1
+  xpath: ancestor::html//span[@id="catalogueNumber"]
   singleValue: true
   description: Identifier for a variant from a store where variants share the same
     sku
@@ -425,7 +423,7 @@ fields:
   singleValue: true
   description: The unit of measurement used in price_per_unit
 - name: promotion 
-  xpath: substring-after(substring-before(//div[@class="priceNow"]/span[contains(@class, "save")]/text(), ')'), '(')
+  xpath: substring-after(substring-before(ancestor::html//div[@class="priceNow"]/span[contains(@class, "save")]/text(), ')'), '(')
 - name: alcoholContent
   xpath: ancestor::html//li[contains(text(),"Vol")]/text()
   singleValue: false

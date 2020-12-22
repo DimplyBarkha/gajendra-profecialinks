@@ -1,6 +1,6 @@
 const { transform } = require('../../../../shared');
 
-async function implementation(inputs, parameters, context, dependencies) {
+async function implementation (inputs, parameters, context, dependencies) {
   const { transform } = parameters;
   const { productDetails } = dependencies;
 
@@ -10,14 +10,13 @@ async function implementation(inputs, parameters, context, dependencies) {
 
   // @ts-ignore
   const variantsArr = await context.evaluate(async () => [...document.querySelectorAll('div[itemprop=offers]')].map(el => {
-    const variantObj = {}
-    variantObj.sku = el.querySelector('meta[itemprop=sku]').getAttribute('content')
-    variantObj.availability = el.querySelector('link[itemprop=availability]').getAttribute('href')
-    variantObj.price = el.querySelector('meta[itemprop=price]').getAttribute('content')
+    const variantObj = {};
+    variantObj.sku = el.querySelector('meta[itemprop=sku]').getAttribute('content');
+    variantObj.availability = el.querySelector('link[itemprop=availability]').getAttribute('href');
+    variantObj.price = el.querySelector('meta[itemprop=price]').getAttribute('content');
     return variantObj;
   }));
   const numOfVariants = variantsArr.length;
-
 
   for (let i = 0; i < numOfVariants; i++) {
     await context.evaluate(
@@ -27,13 +26,13 @@ async function implementation(inputs, parameters, context, dependencies) {
         addedVariant.id = `added_variant${i}`;
         addedVariant.style.display = 'none';
         const sku = variantsArr[i].sku;
-        const availability = variantsArr[i].availability ? variantsArr[i].availability.replace('https://schema.org/', "") : null;
+        const availability = variantsArr[i].availability ? variantsArr[i].availability.replace('https://schema.org/', '') : null;
         const price = variantsArr[i].price;
         if (document.querySelectorAll('li.ppOption__item label').length > 0) {
           // @ts-ignore
           const variantLi = [...document.querySelectorAll('li.ppOption__item label')].map(el => {
-            const variantLis = {}
-            variantLis.size = el.getAttribute('rel')
+            const variantLis = {};
+            variantLis.size = el.getAttribute('rel');
             return variantLis;
           });
           const size = variantLi[i].size;
@@ -54,7 +53,6 @@ async function implementation(inputs, parameters, context, dependencies) {
   //   [...allNodeOffers].forEach((prod) => {
   //     const sku = prod.querySelector('meta[itemprop="sku"]') ? prod.querySelector('meta[itemprop="sku"]').getAttribute('content') : '';
   //     const price = prod.querySelector('meta[itemprop="price"]') ? prod.querySelector('meta[itemprop="price"]').getAttribute('content') : '';
-
 
   //     products.push({
   //       sku,
@@ -81,7 +79,7 @@ async function implementation(inputs, parameters, context, dependencies) {
   //     document.querySelector('#description').remove();
   //   }
   await context.evaluate(async function () {
-    async function addElementToDocument(id, value, key) {
+    async function addElementToDocument (id, value, key) {
       const catElement = document.createElement('div');
       catElement.id = id;
       catElement.innerText = value;
@@ -125,8 +123,7 @@ async function implementation(inputs, parameters, context, dependencies) {
       // @ts-ignore
       description2.forEach(e => bulletsArrSliced.push(e.textContent));
       let concatDesc = bulletsArrSliced.join(' || ');
-      if (concatDesc)
-        concatDesc = '|| ' + concatDesc;
+      if (concatDesc) { concatDesc = '|| ' + concatDesc; }
       addElementToDocument('descriptionBull', concatDesc);
       console.log(concatDesc);
     } else if (description1) {
@@ -138,7 +135,6 @@ async function implementation(inputs, parameters, context, dependencies) {
   //   const element = allProducts[i];
   //   await addElements(element);
   return await context.extract(productDetails, { transform });
-
 }
 module.exports = {
   implements: 'product/details/extract',
