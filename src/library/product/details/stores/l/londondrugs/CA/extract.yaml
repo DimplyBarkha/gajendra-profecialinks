@@ -97,6 +97,6 @@ fields:
   - name: size
     xpath: //*[contains(text(), 'Size' )]/following-sibling::*/text()
   - name: keywords
-    xpath: //ul[@class="breadcrumbs"]/li
+    xpath: //meta[@name="keywords"]/@content
   - name: enhancedContent
     xpath: (//div[@class="ccs-cc-inline-feature-content ccs-cc-inline-feature-description"])[1]
