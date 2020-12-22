@@ -15,9 +15,12 @@ fields:
   - name: category
     singleValue: false
     xpath: //div[@class="bread-crumb"]/ul/li[2]/a/span
+  - name: subCategory
+    singleValue: false
+    xpath: concat(//div[@class="bread-crumb"]/ul/li[3]/a/span, ' > ', //div[@class="bread-crumb"]/ul/li[@class="last"]/a/span)
   - name: nameExtended
     singleValue: false
-    xpath: //meta[@name="Abstract"]/@content
+    xpath: concat(//div[@class="brand-name desktop-only"]//a, ' - ', //div[@class="product-name desktop-only"]/div)
   - name: listPrice
     singleValue: false
     xpath: //div[@class="product-price desktop-only"]//strong[@class="skuListPrice"]
@@ -51,6 +54,9 @@ fields:
   - name: brandLink
     singleValue: false
     xpath: //div[@class="brand-name desktop-only"]//a/@href
+  - name: shippingInfo
+    singleValue: false
+    xpath: concat(//div[@class="product-links desktop-only"]/div[@class="payment-link"], ' | ', //div[@class="product-links desktop-only"]/div[@class="shipping-link"], ' | ', //div[@class="product-links desktop-only"]/div[@class="pickup-link"])
   - name: videos
     singleValue: false
     description: //div[@class="productDescription"]/iframe/@src
