@@ -225,8 +225,8 @@ async function implementation (
       }
       if (document.querySelector('.out-of-ten')) {
         const rating = (document.querySelector('.out-of-ten').innerText.split(' ')[0]) / 2;
-        addHiddenDiv('aggregatedRating', rating.toString().replace('.', ','));
-        addHiddenDiv('aggregatedRatingText', rating.toString().replace('.', ',') + ' out of 5');
+        addHiddenDiv('aggregatedRating', rating.toString());
+        addHiddenDiv('aggregatedRatingText', rating.toString() + ' out of 5');
       }
     }
 

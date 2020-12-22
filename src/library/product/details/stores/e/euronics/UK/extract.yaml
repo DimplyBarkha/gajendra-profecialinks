@@ -90,10 +90,10 @@ fields:
     xpath: //div[@id="ratingCount"]
   - name: aggregateRatingText
     singleValue: true
-    xpath: //div[@id="aggregatedRatingText"]
+    xpath: translate(//div[@id="aggregatedRatingText"],",",".")
   - name: aggregateRating
     singleValue: true
-    xpath: //div[@id="aggregatedRating"]
+    xpath: translate(//div[@id="aggregatedRating"],",",".")
 #  - name: shippingInfo
 #    singleValue: true
 #    xpath: //div[@id="shippingInfo"]
