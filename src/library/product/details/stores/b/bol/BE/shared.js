@@ -19,6 +19,12 @@ const transform = (data) => {
         });
       }
 
+      if (row.inTheBoxText) {
+        if (row.inTheBoxText[0].text === 'System.Object[]') {
+          delete row.inTheBoxText;
+        }
+      }
+
       if (row.availabilityText) {
         const prodInfo = JSON.parse(row.availabilityText[0].text);
         if (prodInfo && prodInfo.offers && prodInfo.offers.availability) {
@@ -115,6 +121,11 @@ const transform = (data) => {
     // eslint-disable-next-line no-control-regex
     .replace(/[\x00-\x1F]/g, '')
     .replace(/[\uD800-\uDBFF][\uDC00-\uDFFF]/g, ' ')
+    .replace(/<li>/g, '')
+    .replace(/<\/li>/g, '')
+    .replace(/<ul>/g, '')
+    .replace(/<\/ul>/g, '')
+    .replace(/<br \/>/g, '')
     .trim();
 
   data.forEach(obj => obj.group.forEach(row => Object.keys(row).forEach(header => row[header].forEach(el => {
