@@ -16,3 +16,7 @@ fields:
    singleValue: false
    description: Unique id (within this extractor)
    xpath: //div[@class="ProductCard-container"]//a/@data-sku
+ - name: manufacturer
+   singleValue: false
+   description: Unique id (within this extractor)
+   xpath: //p[@class="ProductCard-manufacturer"]/text()
