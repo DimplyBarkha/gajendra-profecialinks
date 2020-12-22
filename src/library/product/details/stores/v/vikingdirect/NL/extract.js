@@ -13,11 +13,11 @@ async function implementation (inputs, parameters, context, dependencies) {
       catElement.style.display = 'none';
       document.body.appendChild(catElement);
     }
-    const name = document.querySelector('h1[itemprop="name"]') ? document.querySelector('h1[itemprop="name"]').innerText : null;
-    const brand = document.querySelector('span[class="product__brand-name"] a') ? document.querySelector('span[class="product__brand-name"] a').innerText : null;
-    if (name !== null && brand !== null) {
-      // @ts-ignore
-      addElementToDocument('nameextended', `${brand} - ${name}`);
+
+    const sku = document.querySelector('span[itemprop="sku"]') ? document.querySelector('span[itemprop="sku"]').innerText : null;
+    const url = 'https://www.vikingdirect.nl/nl/-p-' + sku;
+    if (sku) {
+      addElementToDocument('producturl', url);
     }
 
     const brandUrl = document.querySelector('span[class="product__brand-name"] a').getAttribute('href');

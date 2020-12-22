@@ -8,14 +8,12 @@ fields:
 - name: _url
   singleValue: false
 - name: productUrl
-  xpath: //link[@rel="canonical"]/@href
+  xpath: //div[@id="producturl"]
   singleValue: false
 - name: _pageTimeStamp
   singleValue: false
 - name: image
   xpath: //img[@class="img-responsive" and @itemprop="image"]/@src
-  regExp: (.+)\?
-  regExpReplace: $1
   singleValue: true
   description: URL of the main product image
 - name: imageAlt
@@ -24,7 +22,7 @@ fields:
   description: Alt text of the main product image
 - name: alternateImages
   xpath: //div[@state="default"]/@style
-  regExp: (http.+)\?
+  regExp: (http.+alt.+jpg)
   singleValue: false
   description: Other product images (not in manufacturer description)
 - name: metaKeywords
@@ -32,11 +30,11 @@ fields:
   singleValue: true
   description: The <meta> keywords content
 - name: category
-  xpath: //ol/li[@class="breadcrumb-item"]//text()
+  xpath: //ol/li[@class="breadcrumb-item"][position()>1]//text()
   singleValue: false
   description: The categories (e.g. from breadcrumbs)
 - name: nameExtended
-  xpath: //div[@id="nameextended"]
+  xpath: //h1[@itemprop="name"]
   singleValue: true
   description: The product name, prefixing "${brand} - " if not included in "name"
     and appending " - ${variantType}" if necessary (fixed per feed)
@@ -56,7 +54,7 @@ fields:
     is no availability but the product can be added to cart, this field should be
     "In Stock"
 - name: description
-  xpath: concat(//div[@class="product__intro"],//div[@itemprop="description"])
+  xpath: normalize-space(concat(//div[@itemprop="description"], "|" ,//div[@class="product__intro"]))
   singleValue: false
   description: Product description supplied by website - may be concatenanted from
     multiple places; specifically not the manufacturer description
@@ -129,6 +127,7 @@ fields:
   singleValue: true
   description: Shipping information for the product
 - name: shippingDimensions
+  xpath: //td[contains(text(), "Afmetingen")]/following-sibling::td
   singleValue: true
   description: Stated shipping dimensions
 - name: shippingWeight
@@ -246,7 +245,6 @@ fields:
   singleValue: false
   description: 
 - name: secondaryImageTotal
-  xpath: count(//div[@state="default"]/@style)
   singleValue: true
   description: 
 - name: news
