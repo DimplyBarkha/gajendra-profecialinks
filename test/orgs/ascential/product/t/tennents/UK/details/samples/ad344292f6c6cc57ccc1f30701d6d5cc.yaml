@@ -1,0 +1,78 @@
+input:
+  _url: http://new.tennentsdirect.com
+  URL: https://tennentsdirect.com/Catalogue/Search?term=LAG001
+extractions:
+  - html: https://workbench.import.io/html/run=5fc9a2b9-61c6-4508-8baf-e87f76024a9c/task=b21491fc-5199-4d22-9d7e-33ebcc5a277a/4d283228-da65-4b52-9800-d166c3783e82.html
+    extractionConfigId: product/details/stores/t/tennents/UK/extract
+    data:
+      - group:
+          - productUrl:
+              - text: https://new.tennentsdirect.com/products/LAG001_product
+                xpath: /html/body/@url
+            image:
+              - text: https://new.tennentsdirect.com/netalogue/zoom/lag001_mcw.jpg
+                xpath: /html/body/form[1]/div[5]/section[1]/div[1]/div[1]/div[2]/div[3]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/a[1]/@href
+            metaKeywords:
+              - text: ",Lagavulin,16,Year,Old,Malt,Whisky,43.0%,70cl,,"
+                xpath: /html/head[1]/meta[6]/@content
+            category:
+              - text: Home
+                xpath: /html/body/form[1]/div[5]/div[5]/div[1]/div[3]/div[1]/a[1]
+              - text: All Products
+                xpath: /html/body/form[1]/div[5]/div[5]/div[1]/div[3]/div[1]/span[1]/a[1]
+              - text: Spirits
+                xpath: /html/body/form[1]/div[5]/div[5]/div[1]/div[3]/div[1]/span[1]/a[2]
+              - text: Whisky
+                xpath: /html/body/form[1]/div[5]/div[5]/div[1]/div[3]/div[1]/span[1]/a[3]
+              - text: Single Malt
+                xpath: /html/body/form[1]/div[5]/div[5]/div[1]/div[3]/div[1]/span[1]/a[4]
+            nameExtended:
+              - text: Lagavulin 16 Year Old Malt Whisky 43.0% 70cl
+                xpath: /html/body/form[1]/div[5]/section[1]/div[1]/div[1]/div[2]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]
+            price:
+              - text: --
+                xpath: /html/body/form[1]/div[5]/section[1]/div[1]/div[1]/div[2]/div[3]/div[2]/div[2]/input[1]/@value
+            description:
+              - text: Lagavulin 16-year-old is a single malt from southern Islay. Very smoky and
+                  concentrated, thick and rich with tastes of fig, vanilla,
+                  mature sherry and a long, spicy finish.
+                xpath: /html/body/form[1]/div[5]/section[1]/div[1]/div[1]/div[2]/div[3]/div[3]/div[2]/div[1]/div[2]/div[1]/div[1]
+            quantity:
+              - text: " 70cl"
+                xpath: /html/body/form[1]/div[5]/section[1]/div[1]/div[1]/div[2]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]
+            sku:
+              - text: LAG001
+                xpath: /html/body/form[1]/div[5]/section[1]/div[1]/div[1]/div[2]/div[3]/div[2]/div[2]/div[1]/div[1]/div[1]
+            variantId:
+              - text: LAG001
+                xpath: /html/body/form[1]/div[5]/section[1]/div[1]/div[1]/div[2]/div[3]/div[2]/div[2]/div[1]/div[1]/div[1]
+            name:
+              - text: Lagavulin 16 Year Old Malt Whisky 43.0% 70cl
+                xpath: /html/body/form[1]/div[5]/section[1]/div[1]/div[1]/div[2]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]
+            countryOfOrigin:
+              - text: Scotland
+                xpath: /html/body/form[1]/div[5]/section[1]/div[1]/div[1]/div[2]/div[3]/div[2]/div[2]/div[2]/div[1]/div[1]
+            allergyAdvice:
+              - text: |-
+                  Vegan: Yes
+                  Vegetarian: Yes
+                xpath: /html/body/form[1]/div[5]/section[1]/div[1]/div[1]/div[2]/div[3]/div[3]/div[2]/div[1]/div[2]/div[2]/div[1]
+            alcoholContent:
+              - text: 43.0%
+                xpath: /html/body/form[1]/div[5]/section[1]/div[1]/div[1]/div[2]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]
+            technicalInformationPdfPresent:
+              - text: No
+            termsAndConditions:
+              - text: Yes
+            privacyPolicy:
+              - text: Yes
+            customerServiceAvailability:
+              - text: No
+            Image360Present:
+              - text: No
+            imageZoomFeaturePresent:
+              - text: Yes
+            descriptionBullets:
+              - text: "0"
+        xpath: /
+    timestamp: 1608631043520

@@ -1,0 +1,78 @@
+input:
+  _url: http://new.tennentsdirect.com
+  URL: https://tennentsdirect.com/Catalogue/Search?term=KNO001
+extractions:
+  - html: https://workbench.import.io/html/run=5fc9a2b9-61c6-4508-8baf-e87f76024a9c/task=db96fc8e-c995-4e28-9bc1-c8c5af4337cb/55a16a18-306a-409f-b066-dc4bdcc64f55.html
+    extractionConfigId: product/details/stores/t/tennents/UK/extract
+    data:
+      - group:
+          - productUrl:
+              - text: https://new.tennentsdirect.com/products/KNO001_product
+                xpath: /html/body/@url
+            image:
+              - text: https://new.tennentsdirect.com/netalogue/zoom/kno001_mcw.jpg
+                xpath: /html/body/form[1]/div[5]/section[1]/div[1]/div[1]/div[2]/div[3]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/a[1]/@href
+            metaKeywords:
+              - text: ",Knockando,12,Year,Old,Malt,Whisky,43.0%,70cl,,"
+                xpath: /html/head[1]/meta[6]/@content
+            category:
+              - text: Home
+                xpath: /html/body/form[1]/div[5]/div[5]/div[1]/div[3]/div[1]/a[1]
+              - text: All Products
+                xpath: /html/body/form[1]/div[5]/div[5]/div[1]/div[3]/div[1]/span[1]/a[1]
+              - text: Spirits
+                xpath: /html/body/form[1]/div[5]/div[5]/div[1]/div[3]/div[1]/span[1]/a[2]
+              - text: Whisky
+                xpath: /html/body/form[1]/div[5]/div[5]/div[1]/div[3]/div[1]/span[1]/a[3]
+              - text: Single Malt
+                xpath: /html/body/form[1]/div[5]/div[5]/div[1]/div[3]/div[1]/span[1]/a[4]
+            nameExtended:
+              - text: Knockando 12 Year Old Malt Whisky 43.0% 70cl
+                xpath: /html/body/form[1]/div[5]/section[1]/div[1]/div[1]/div[2]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]
+            price:
+              - text: --
+                xpath: /html/body/form[1]/div[5]/section[1]/div[1]/div[1]/div[2]/div[3]/div[2]/div[2]/input[1]/@value
+            description:
+              - text: Charming and delicate, this 12-year-old single malt by Knockando has a
+                  palate of honeyed sweetness and supple peat tastes. It has a
+                  long finish with gingery spice.
+                xpath: /html/body/form[1]/div[5]/section[1]/div[1]/div[1]/div[2]/div[3]/div[3]/div[2]/div[1]/div[2]/div[1]/div[1]
+            quantity:
+              - text: " 70cl"
+                xpath: /html/body/form[1]/div[5]/section[1]/div[1]/div[1]/div[2]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]
+            sku:
+              - text: KNO001
+                xpath: /html/body/form[1]/div[5]/section[1]/div[1]/div[1]/div[2]/div[3]/div[2]/div[2]/div[1]/div[1]/div[1]
+            variantId:
+              - text: KNO001
+                xpath: /html/body/form[1]/div[5]/section[1]/div[1]/div[1]/div[2]/div[3]/div[2]/div[2]/div[1]/div[1]/div[1]
+            name:
+              - text: Knockando 12 Year Old Malt Whisky 43.0% 70cl
+                xpath: /html/body/form[1]/div[5]/section[1]/div[1]/div[1]/div[2]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]
+            countryOfOrigin:
+              - text: Scotland
+                xpath: /html/body/form[1]/div[5]/section[1]/div[1]/div[1]/div[2]/div[3]/div[2]/div[2]/div[2]/div[1]/div[1]
+            allergyAdvice:
+              - text: |-
+                  Vegan: Yes
+                  Vegetarian: Yes
+                xpath: /html/body/form[1]/div[5]/section[1]/div[1]/div[1]/div[2]/div[3]/div[3]/div[2]/div[1]/div[2]/div[2]/div[1]
+            alcoholContent:
+              - text: 43.0%
+                xpath: /html/body/form[1]/div[5]/section[1]/div[1]/div[1]/div[2]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]
+            technicalInformationPdfPresent:
+              - text: No
+            termsAndConditions:
+              - text: Yes
+            privacyPolicy:
+              - text: Yes
+            customerServiceAvailability:
+              - text: No
+            Image360Present:
+              - text: No
+            imageZoomFeaturePresent:
+              - text: Yes
+            descriptionBullets:
+              - text: "0"
+        xpath: /
+    timestamp: 1608631038677

@@ -25,6 +25,7 @@ module.exports = {
     const loginUrl = await context.evaluate(async () => {
       return window.location.href;
     });
+
     if (loginUrl.includes('customerlogin')) {
       const isUsernameInputPresent = await context.evaluate(async () => {
         return document.querySelector('input#tbUsername') !== null;
@@ -44,13 +45,11 @@ module.exports = {
       ) {
         await context.setInputValue('input#tbUsername', userLogin);
         await context.setInputValue('input#tbPassword', userPassword);
-        await context.clickAndWaitForNaviagtion(
-          'a[href*="customerloginbutton"]',
-        );
+        await context.click('a[href*="customerloginbutton"]');
       }
     }
 
-    // await context.waitForNavigation();
+    await context.waitForNavigation();
     await dependencies.goto({ ...inputs, url: productUrl });
 
     if (loadedSelector) {

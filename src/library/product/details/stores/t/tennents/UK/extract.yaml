@@ -146,6 +146,7 @@ fields:
   singleValue: true
   description: The product name
   xpath: //div[@class="ProductTitleBar_Title"]
+  #################################################
 - name: inStorePrice
   singleValue: true
   description: Price in the selected store
@@ -245,6 +246,7 @@ fields:
 - name: fastTrack
   singleValue: true
   description: 
+  ###########################################################
 - name: ingredientsList
   singleValue: true
   description: List of Ingredients from site - can be string of data if no discernible
@@ -389,9 +391,13 @@ fields:
 - name: countryOfOrigin
   singleValue: true
   description: The country from which the product originates
+  xpath: //div[@class="ProductShortDescription"]
+  regExp: (Country[:] )(.+)
+  regExpReplace: $2
 - name: allergyAdvice
   singleValue: true
   description: Allergy information associated with the product
+  xpath: //h3[span[contains(text(), "Allergen Information")]]/following-sibling::div[1]/div[@class="TabbedData_SectionContainer"]
 - name: recyclingInformation
   singleValue: true
   description: Recycling information associated with the product
@@ -416,6 +422,8 @@ fields:
 - name: alcoholContent
   singleValue: true
   description: Alcohol content information
+  xpath: //div[@class="ProductTitleBar_Title"]
+  regExp: ([0-9\.]+%)
 - name: newVersion
   singleValue: true
   description: In product page, information about a new version of the product (https://www.amazon.es/DODOT-Sensitive-Pa%C3%B1ales-Talla-240/dp/B01ELA8U0Q/ref=sr_1_4?__mk_es_ES=%C3%85M%C3%85%C5%BD%C3%95%C3%91&dchild=1&keywords=dodot%2B-%2Bpa%C3%B1ales%2Bpara%2Bni&qid=1589984387&sr=8-4&th=1)
@@ -461,19 +469,19 @@ fields:
   singleValue: true
   description: If there is for example a manual in pdf format on the website. ['Yes','No']
   example: https://www.amazon.de/Hasbro-Spiele-44220100-Mastermind-Kinderspiel/dp/B0007OHUG6
-  defaultValue: false
+  defaultValue: No
 - name: termsAndConditions
   singleValue: true
   description: Terms and conditions information text ['Yes','No']
-  defaultValue: false
+  defaultValue: Yes
 - name: privacyPolicy
   singleValue: true
   description: Privacy Policy information text ['Yes','No']
-  defaultValue: false
+  defaultValue: Yes
 - name: customerServiceAvailability
   singleValue: true
   description: Information related to customer service availability (text), ['Yes','No']
-  defaultValue: false
+  defaultValue: No
 - name: materials
   singleValue: true
   description: Materials used to make the product
@@ -482,9 +490,9 @@ fields:
   singleValue: true
   description: If 360 image is present in the carousel ['Yes','No']
   example: https://www.amazon.com/Trinsic-Single-Handle-Magnetic-Champagne-9159-CZ-DST/dp/B0050EN8E6
-  defaultValue: false
+  defaultValue: No
 - name: imageZoomFeaturePresent
   singleValue: true
   description: If Zoom feature is available for Main image or images in the carousel,['Yes','No']
   example: https://www.zalando.de/adidas-neo-sneaker-low-blackwhite-a4315i002-q11.html
-  defaultValue: false
+  defaultValue: Yes
