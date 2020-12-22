@@ -1,4 +1,4 @@
-const { cleanUp } = require('../../../../shared');
+const { transform } = require('../../../../shared');
 
 async function implementation (
   inputs,
@@ -34,7 +34,6 @@ async function implementation (
     for (let i = 0; i < allProducts.length; i++) {
       allProducts[i].scrollIntoView();
       await new Promise((resolve, reject) => setTimeout(resolve, 500));
-      addProp('li.shelf-item', i, 'rankOrganic', `${i + 1}`);
       addProp('li.shelf-item', i, 'productUrl', 'https://www.jumbo.cl' + productUrls[i].getAttribute('href'));
     }
   });
@@ -46,7 +45,7 @@ module.exports = {
   parameterValues: {
     country: 'CL',
     store: 'jumbo',
-    transform: cleanUp,
+    transform,
     domain: 'jumbo.cl',
     zipcode: '',
   },

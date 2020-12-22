@@ -13,7 +13,7 @@ fields:
     xpath: ancestor::html//div[@id="searchUrl"][last()]
   - name: name
     singleValue: false
-    xpath: //a[contains(@class, 'shelf-product-title')]/h2
+    xpath: //a[contains(@class, 'shelf-product-title')]/@title
   - name: productUrl
     singleValue: false
     xpath: //li[@class='shelf-item']/@producturl
@@ -22,6 +22,8 @@ fields:
   - name: thumbnail
     singleValue: false
     xpath: //div[contains(@class, 'lazy-image-wrap')]/img/@src
+    regExp: (.*)(150-150)(.*)
+    regExpReplace: $1750-750$3
   - name: aggregateRating
     singleValue: false
   - name: aggregateRating2
@@ -43,12 +45,10 @@ fields:
     singleValue: false
     description: search/listing rank
     type: NUMBER
-    xpath: //li[@class='shelf-item']/@rankorganic
   - name: rankOrganic
     singleValue: false
     description: The position (rank) within the list excluding sponsored/paid results
     type: NUMBER
-    xpath: //li[@class='shelf-item']/@rankorganic
   - name: sponsored
     singleValue: false
     description: Is sponsored/paid
