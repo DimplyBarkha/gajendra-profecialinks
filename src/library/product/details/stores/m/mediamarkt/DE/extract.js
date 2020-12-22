@@ -173,80 +173,59 @@ module.exports = {
 
     async function graphQLCallObj (productID) {
       const obj = await context.evaluate(async function (productID) {
-        // function addHiddenDiv (id, content) {
-        //   const newDiv = document.createElement('div');
-        //   newDiv.id = id;
-        //   newDiv.textContent = content;
-        //   newDiv.style.display = 'none';
-        //   document.body.appendChild(newDiv);
-        // }
-
-        // async function getData (url) {
-        //   let data = {};
-
-        //   const response = await fetch(url, {
-        //     accept: 'application/json, text/plain, */*',
-        //     referrer: window.location.href,
-        //     referrerPolicy: 'no-referrer-when-downgrade',
-        //     body: null,
-        //     method: 'GET',
-        //     mode: 'cors',
-        //   });
-
-        //   if (response && response.status === 404) {
-        //     console.log('Product Not Found!!!!');
-        //     return data;
-        //   }
-
-        //   if (response && response.status === 200) {
-        //     console.log('Product Found!!!!');
-        //     data = await response.json();
-        //     return data;
-        //   }
-        // };
-
-        console.log(productID);
-
         const productIDText = productID.replace('| Art.-Nr. ', '').replace(' | ', '').trim();
         const graphQLCall = `GraphqlProduct:${productIDText}`;
         console.log(graphQLCall);
-        // eslint-disable-next-line prefer-const
-        // let videos = [];
+        const videos = [];
         let ean = null;
+        let allVideos = '';
         if (window.__PRELOADED_STATE__ && window.__PRELOADED_STATE__.apolloState && window.__PRELOADED_STATE__.apolloState[graphQLCall]) {
           console.log(window.__PRELOADED_STATE__.apolloState[graphQLCall]);
           if (window.__PRELOADED_STATE__.apolloState[graphQLCall].ean) {
             ean = window.__PRELOADED_STATE__.apolloState[graphQLCall].ean;
           }
-          // if (window.__PRELOADED_STATE__.apolloState[graphQLCall].assets) {
-          //   const totalAssets = window.__PRELOADED_STATE__.apolloState[graphQLCall].assets;
-          //   totalAssets.forEach(async function (element) {
-          //     if (window.__PRELOADED_STATE__.apolloState[element.id].usageType === 'Video') {
-          //       const url = window.__PRELOADED_STATE__.apolloState[element.id].link;
-          //       const result = await getData(url);
-          //       console.log(result);
-          //       if (result !== null && Object.keys(result).length) {
-          //         console.log(result);
-          //         result.forEach((element) => {
-          //           console.log(element);
-          //           const videosResults = element.videos !== null ? element.videos : [];
-          //           console.log(videosResults);
-          //           videosResults.forEach(async function (video) {
-          //             console.log(video);
-          //             const videoText = video.links[0].location;
-          //             videos.push(videoText.replace('/thumb/', '/vm/'));
-          //           });
-          //         });
-          //       }
-          //       addHiddenDiv('ii_videos', videos.join(' || '));
-          //     }
-          //   });
-          // }
+          if (window.__PRELOADED_STATE__.apolloState[graphQLCall].assets) {
+            const totalAssets = window.__PRELOADED_STATE__.apolloState[graphQLCall].assets;
+            totalAssets.forEach(async function (element) {
+              if (element.usageType === 'Video') {
+                const url = element.link;
+                const response = await fetch(url, {
+                  accept: 'application/json, text/plain, */*',
+                  referrer: window.location.href,
+                  referrerPolicy: 'no-referrer-when-downgrade',
+                  body: null,
+                  method: 'GET',
+                  mode: 'cors',
+                });
+
+                if (response && response.status === 404) {
+                  console.log('Product Not Found!!!!');
+                }
+
+                if (response && response.status === 200) {
+                  console.log('Product Found!!!!');
+                  const data = await response.json();
+                  console.log(data);
+                  if (data) {
+                    const vids = data[0].videos;
+                    vids.forEach(vid => {
+                      let link = vid.links[0].location;
+                      link = link.replace('/thumb/', '/vm/');
+                      videos.push(link);
+                    });
+                    allVideos = videos.join(' | ');
+                    console.log('ALL VIDEOS: ' + allVideos);
+                    const div = document.createElement('div');
+                    div.id = 'all-videos';
+                    div.innerText = allVideos;
+                    document.body.append(div);
+                  }
+                }
+              }
+            });
+          }
         }
-        // console.log('{ videos: videos, ean: ean }');
-        // console.log({ videos: videos, ean: ean });
-        // return { videos: videos, ean: ean };
-        return { ean: ean };
+        return ean;
       }, productID);
       return obj;
     }
@@ -254,14 +233,16 @@ module.exports = {
 
     if (graphQLObj !== null) {
       await sharedhelpers.addHiddenInfo('ii_ean', graphQLObj.ean);
-      // await sharedhelpers.addHiddenInfo('ii_videos1', graphQLObj.videos.join(' || '));
     }
 
     // For alternate images
     try {
-      await context.click('div[data-test="mms-th-gallery"] div[direction="next"]');
-      const delay = t => new Promise(resolve => setTimeout(resolve, t));
-      await delay(2000);
+      await context.evaluate(() => {
+        const next = document.querySelector('div[data-test="mms-th-gallery"] div[direction="next"][style*="block"]');
+        if (next) {
+          next.click();
+        }
+      });
     } catch (e) {
       console.log(e.message);
     }
@@ -270,101 +251,58 @@ module.exports = {
     try {
       await context.evaluate(() => {
         const desc = document.evaluate(
-          '//section[@id="description"]//div[@data-test="mms-info-teaser-regular"]/* | //div[contains(@class,"FallbackDescription")]/*',
+          '//section[@id="description"]//div[@data-test="mms-accordion-description"]/*',
           document, null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null,
         );
         let text = '';
+        let counter = 0;
         for (let i = 0; i < desc.snapshotLength; i++) {
           const item = desc.snapshotItem(i);
           let t = '';
           if (item.querySelector('a')) {
-            item.textContent = '';
+            item.querySelector('a').innerText = '';
           }
-          if (item.nodeName === 'UL') {
+          if (item.querySelector('button')) {
+            item.querySelector('button').innerText = '';
+          }
+          if (item.nodeName === 'UL' || item.querySelector('ul')) {
             const lis = [...item.querySelectorAll('li')];
             lis.forEach(li => {
+              counter++;
               t = t + (t ? ' || ' : '') + li.innerText;
             });
-            item.textContent = ' || ' + t + ' | ';
+            item.innerText = ' || ' + t + ' | ';
           }
-          text = text + (text ? ' ' : '') + item.textContent;
+          text = text + (text ? ' ' : '') + item.innerText;
         }
-        text = text.replace(/(\|\s?)$/, '');
         if (text === '' || text === null) {
           text = document.querySelector('div[class*="FallbackDescription"]').innerText;
         }
+        text = text.replace(/(\|\s?)$/, '');
         const div = document.createElement('div');
         div.id = 'additional-description';
         div.innerText = text;
         document.body.append(div);
-      });
-    } catch (e) {
-      console.log(e.message);
-    }
-
-    // For videos
-    try {
-      await context.evaluate(async () => {
-        const delay = t => new Promise(resolve => setTimeout(resolve, t));
-        async function clickImages (image) {
-          const videos = Array.from(document.querySelectorAll(image));
-          try {
-            for (const video of videos) {
-              console.log('Clicking on video thumbnail');
-              video.click();
-              await delay(2000);
-            }
-          } catch (err) {
-            console.log('Video Loading issues');
-          }
-        }
-        await clickImages('div[data-test="mms-video-thumbnail"] img');
-      });
-      const delay = t => new Promise(resolve => setTimeout(resolve, t));
-      await delay(2000);
-      await context.waitForNavigation({ timeout: 15000, waitUntil: 'networkidle0' });
-      await context.evaluate(async () => {
-        const delay = t => new Promise(resolve => setTimeout(resolve, t));
-        async function clickPlayButtons (btn) {
-          const videos = Array.from(document.querySelectorAll(btn));
-          try {
-            for (const video of videos) {
-              console.log('Clicking on play button');
-              video.click();
-              await delay(2000);
-            }
-          } catch (err) {
-            console.log('Video Loading issues');
-          }
-        }
-        await clickPlayButtons('.cliplister-viewer #playButton > div');
-      });
-      await context.evaluate(() => {
-        const vids = [...document.querySelectorAll('.cliplister-viewer video')];
-        const videos = [];
-        vids.forEach(vid => {
-          const item = vid.getAttribute('src');
-          videos.push(item);
-        });
-        const video = videos.join(' | ');
-        const div = document.createElement('div');
-        div.id = 'videos-url';
-        div.innerText = video;
-        document.body.append(div);
+        document.body.setAttribute('bullets', counter);
       });
     } catch (e) {
       console.log(e.message);
     }
 
     // For unInterruptedPDP
-    await context.evaluate(async () => {
-      const scrollDiv = document.querySelector('#accessories');
-      if (scrollDiv) {
-        scrollDiv.scrollIntoView({ behavior: 'smooth' });
-        const delay = t => new Promise(resolve => setTimeout(resolve, t));
-        await delay(2000);
-      }
-    });
+    try {
+      await context.evaluate(async () => {
+        const scrollDiv = document.querySelector('#accessories');
+        if (scrollDiv) {
+          console.log('SCROLL DIV EXISTS');
+          scrollDiv.scrollIntoView({ behavior: 'smooth' });
+          // const delay = t => new Promise(resolve => setTimeout(resolve, t));
+          // await delay(2000);
+        }
+      });
+    } catch (e) {
+      console.log(e.message);
+    }
 
     await context.extract(productDetails, { transform });
   },

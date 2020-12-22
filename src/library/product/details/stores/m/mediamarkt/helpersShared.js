@@ -57,11 +57,8 @@ class SharedHelpers {
     });
     try {
       // await this.context.waitForSelector('div.preview-more a', { timeout: 35000 });
-      await this.context.waitForSelector('div.more', { timeout: 35000 });
-      await this.context.evaluate(async () => {
-        const previewButton = document.querySelector('div.more');
-        previewButton.click();
-      });
+      await this.context.waitForSelector('div.more, .preview-more a', { timeout: 35000 });
+      await this.context.click('div.more, .preview-more a');
     } catch (error) {
       console.log('No preview button');
     }

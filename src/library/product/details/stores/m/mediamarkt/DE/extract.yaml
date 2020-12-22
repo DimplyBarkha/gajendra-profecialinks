@@ -47,7 +47,7 @@ fields:
     description: Product description supplied by website - may be concatenanted from
       multiple places; specifically not the manufacturer description
   - name: descriptionBullets
-    xpath: count(//div[contains(@data-test, "mms-accordion-description")]//li)
+    xpath: //body/@bullets
     description: Number of ul > li tags in the description
     type: NUMBER
   - name: promotion
@@ -127,10 +127,10 @@ fields:
     xpath: //*[@id="manufImg"]
     description: Images within the third party description
   - name: videos
-    xpath: //div[@id="videos-url"]
+    xpath: //div[@id="all-videos"]
     description: URLs of videos on page
   - name: galleryVideos
-    xpath: //div[@id="videos-url"]
+    xpath: //div[@id="all-videos"]
   - name: name
     xpath: //h1[@itemprop="name"]
     description: The product name
@@ -306,5 +306,5 @@ fields:
     defaut: false
     description: Compare the range table or matrix must be present for all vacuum cleaners & air treatment. This is not required for personal care or lighting. As a minimum the comparison table will compare against 1 additional Dyson product.
   - name: unInterruptedPDP
-    xpath: //div[contains(@class, "RecommendationSlider")]//p[@data-test="product-title"]
+    xpath: //div[contains(@class, "RecommendationSlider")]//p[@data-test="product-title"] | //div[contains(@class, "slick-slide")]//p[@data-test="product-title"]
     description: Titles of products in the sections 'you may also like' or 'sponsored products'. Combine results from Max 3 sections

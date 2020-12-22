@@ -240,6 +240,20 @@ const transform = (data, context) => {
           }
         });
 
+        if (row.manufacturerImages.length === 1) {
+          const images = row.manufacturerImages[0].text.split(' || ');
+          const image = [];
+          for (let i = 0; i < images.length; i++) {
+            if (images[i].includes('data:image/jpeg;base64')) {
+              continue;
+            } else {
+              image.push(images[i]);
+            }
+          }
+          const text = image.join(' || ');
+          row.manufacturerImages = [{ text }];
+        }
+
         row.manufacturerImages[0].text = row.manufacturerImages[0].text.includes('.gif') ? row.manufacturerImages[0].text.replace(/\.gif/g, '') : row.manufacturerImages[0].text;
       }
 
