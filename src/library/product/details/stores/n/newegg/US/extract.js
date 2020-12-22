@@ -15,12 +15,8 @@ module.exports = {
   ) => {
     const { transform } = parameters;
     const { productDetails } = dependencies;
+    await context.waitForXPath(`//article[contains(@class, 'a_plus_content')]//img/@src | //div[contains(@class,'wc-reset')]//li//img/@src | //article[contains(@class, 'a-plus-content')]//img/@src | //div[@id="product-overview"]//div[@class="flix-container"]//img/@src | (//div[@id="product-overview"]//a//img[@alt="Product image"]/@src)[1] | (//div[@id="product-overview"]//a//img/@src)[1]`);
     await context.evaluate(async () => {
-      function timeout (ms) {
-        return new Promise((resolve) => setTimeout(resolve, ms));
-      }
-
-      await timeout(5000);
       const video = document.querySelector('video.jw-video');
       if (video) {
         var url = '';
@@ -61,6 +57,22 @@ module.exports = {
       });
     };
     await applyScroll(context);
+    
+
+    // async function smoothToBottom(context) {
+    //     // change the time to make the ani go faster or slower
+    //     await context.evaluate(async function() {
+    //       var scrollTimer = setInterval(function () {
+    //         window.scrollBy(0, 10);
+    //       }, 200);
+    //       if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight) {
+    //           // you're at the bottom of the page
+    //           clearInterval(scrollTimer);
+    //       }
+    //     });
+    // }
+  
+    // await smoothToBottom(context);
     await new Promise(resolve => setTimeout(resolve, 20000));
     await context.evaluate(async () => {
       let checkElement = document.querySelector("#product-buying + div > div.tab-navs div:nth-child(2)");

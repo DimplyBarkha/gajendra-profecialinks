@@ -9,13 +9,23 @@ module.exports = {
     zipcode: '',
   },
   implementation: async ({ url }, parameters, context, dependencies) => {
-    url = `${url}#[!opt!]{"first_request_timeout":50000, "force200": true}[/!opt!]`;
-    await context.goto(url, {
-      block_ads: false,
-      load_all_resources: true,
-      images_enabled: true,
-      timeout: 100000,
-      waitUntil: 'load',
-    });
+    console.log('IN GOTO');
+    const timeout = parameters.timeout ? parameters.timeout : 600000;
+    await context.setBlockAds(false);
+    await context.setLoadAllResources(true);
+    await context.setLoadImages(true);
+    await context.setFirstRequestTimeout(90000);
+    url = url.replace(/^http:\/\//i, 'https://');
+    console.log(`url after adding https is - ${url}`);
+
+    const lastResponseData = await context.goto(url, { timeout: timeout, waitUntil: 'load', checkBlocked: false });
+
+    if (lastResponseData.status === 500) {
+      throw Error('Bad response code: ' + lastResponseData.status);
+    }
+
+    if (lastResponseData.status === 403) {
+      return context.reportBlocked(lastResponseData.status, 'Blocked: ' + lastResponseData.status);
+    }
   },
 };
