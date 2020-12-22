@@ -30,8 +30,14 @@ fields:
     regExp: \d\.?\d?
   - name: reviewCount
     singleValue: false
+    xpath: //a[contains(@class,"reviewRollupReadAll")]
+    regExp: (\d.+)[ ]
+    regExpReplace: $1
   - name: ratingCount
     singleValue: false
+    xpath: //a[contains(@class,"reviewRollupReadAll")]
+    regExp: (\d.+)[ ]
+    regExpReplace: $1
   - name: price
     singleValue: false
     xpath: //a[@class="productPrice"]/@price
