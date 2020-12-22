@@ -1,17 +1,21 @@
 
 module.exports = {
-  implements: 'product/search/paginate',
+  implements: 'navigation/paginate',
   parameterValues: {
+    template: null,
     country: 'CH',
-    store: 'conforama',
+    store: 'Conforama',
     nextLinkSelector: 'div.ctrl-next a',
-    loadedSelector: 'div.contentProducts',
-    // 'section[class="main-section"], form[id="productSheet"]',
+    nextLinkXpath: null,
+    mutationSelector: null,
+    spinnerSelector: null,
+    loadedSelector: 'article.box-product',
+    loadedXpath: null,
     noResultsXPath: '//section[contains(@class,"emptySearch")]',
-    // openSearchDefinition: {
-    //   template: 'https://www.conforama.ch/de/recherche-conforama/{searchTerms}?p={page}',
-    // },
-    domain: 'conforama.ch',
+    stopConditionSelectorOrXpath: null,
+    resultsDivSelector: null,
+    openSearchDefinition: null,
+    domain: 'Conforama.ch',
     zipcode: '',
   },
 };

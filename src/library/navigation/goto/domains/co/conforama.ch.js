@@ -2,10 +2,10 @@
 module.exports = {
   implements: 'navigation/goto',
   parameterValues: {
-    domain: 'conforama.ch',
+    domain: 'Conforama.ch',
     timeout: 40000,
     country: 'CH',
-    store: 'conforama',
+    store: 'Conforama',
     zipcode: '',
   },
 };

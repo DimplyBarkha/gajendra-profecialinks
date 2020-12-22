@@ -1,4 +1,4 @@
-const { transform } = require('../shared');
+const { transform } = require('./shared');
 async function implementation (
   inputs,
   parameters,
@@ -8,6 +8,11 @@ async function implementation (
   const { transform } = parameters;
   const { productDetails } = dependencies;
   await context.evaluate(async function () {
+    try {
+      await context.click('.gb-close');
+    } catch (error) {
+      console.log('no popup found');
+    }
     let scrollTop = 0;
     while (scrollTop !== 10000) {
       await stall(500);
@@ -32,9 +37,9 @@ module.exports = {
   implements: 'product/search/extract',
   parameterValues: {
     country: 'CH',
-    store: 'conforama',
-    transform: transform,
-    domain: 'conforama.ch',
+    store: 'Conforama',
+    transform,
+    domain: 'Conforama.ch',
     zipcode: '',
   },
   implementation,
