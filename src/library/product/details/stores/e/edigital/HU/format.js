@@ -110,16 +110,16 @@ const transform = (data) => {
               }
             });            
           }
-          if (row.variantInformation){
-            let info = [];          
-            row.variantInformation.forEach(item => {              
-              info.push(item.text.trim());
-            });
+          // if (row.variantInformation){
+          //   let info = [];          
+          //   row.variantInformation.forEach(item => {              
+          //     info.push(item.text.trim());
+          //   });
             
-            if (info.length>0){
-              row.variantInformation = [{'text':info.join(' | '),'xpath':row.variantInformation[0].xpath}];            
-            }
-          }
+          //   if (info.length>0){
+          //     row.variantInformation = [{'text':info.join(' | '),'xpath':row.variantInformation[0].xpath}];            
+          //   }
+          // }
           if (row.firstVariant) {            
             row.firstVariant.forEach(item => {
               if(item.text == '#'){
@@ -149,9 +149,9 @@ const transform = (data) => {
             });
             row.variants = [{'text':info.join(' | '),'xpath':row.variants[0].xpath}];
           }
-          if (row.variantCount) {
-            row.variantCount = [{'text':row.variantCount.length,'xpath':row.variantCount[0].xpath}];
-          }
+          // if (row.variantCount) {
+          //   row.variantCount = [{'text':row.variantCount.length,'xpath':row.variantCount[0].xpath}];
+          // }
           if (row.imageZoomFeaturePresent) {
             if (row.imageZoomFeaturePresent.length) {
               row.imageZoomFeaturePresent[0].text = 'Yes';

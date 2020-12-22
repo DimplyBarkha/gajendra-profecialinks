@@ -14,10 +14,10 @@ fields:
     xpath: //div[@class='carousel-inner']//div[@class='item active']//a[@class='main-image-link']//img[@itemprop='contentUrl']/@alt
   - name: alternateImages
     singleValue: false
-    xpath: //div[@class='carousel-inner']//div[@class='item']//a[@class='main-image-link']//img[@itemprop='contentUrl']/@src
-  # - name: quantity
-  #   singleValue: false    
-  #   defaultValue: 1
+    xpath: (//div[@class='carousel-inner']//div[contains(@class,'item')]//a[contains(@class,'main-image-link')]//img[@itemprop='contentUrl']/@src)[position() > 1]
+  - name: quantity
+    singleValue: false    
+    xpath: (//dl[contains(@class,'property-group__list')]//dt[contains(@title,'Méret')]//following-sibling::dd)[1]
   - name: availabilityText
     singleValue: false
     xpath: //div[@class='stock-info clearfix']//h3[@class='stock-info__status stock-info__status--in_stock']
@@ -34,18 +34,18 @@ fields:
   - name: promotion
     singleValue: false
     xpath: //div[@itemprop='offers']//span[@class='price-wrapper']//strong[@data-vat-name='item-old-price']//span[@class='discount--old']
-  - name: metaKeywords
-    singleValue: false
-    xpath: //title
+  # - name: metaKeywords
+  #   singleValue: false
+  #   xpath: //title
   - name: listPrice
     singleValue: false
     xpath: //div[@itemprop='offers']//span[@class='price-wrapper']//strong[@data-vat-name='item-old-price']//s
   - name: weightNet
     singleValue: false
     xpath: //div[@class='product-desc-box__description']//div[contains(@class,'product-specification product-desc-box__long')]//dt[@title='Súly']/following-sibling::dd[1]//span
-  - name: sku
-    singleValue: false
-    xpath: //article[@class="product-details" ]/@data-product-id
+  # - name: sku
+  #   singleValue: false
+  #   xpath: //article[@class="product-details" ]/@data-product-id
   - name: variantId
     singleValue: false
     xpath: //article[@class="product-details" ]/@data-product-id
@@ -81,13 +81,13 @@ fields:
     xpath: //div[@class='hidden-xs']//div[@class='product-details__row model-variations']//div[@class='model-variations__item-container']//a//img/@alt | //div[@class='hidden-xs']//div[@class='product-details__row model-variations']//div[@class='model-variations__item-container']//a
   - name: firstVariant
     singleValue: false
-    xpath: //div[@class='hidden-xs']//div[@class='product-details__row model-variations']//div[@class='model-variations__item-container']//a[1]/@href
+    xpath: (//div[contains(@class,'hidden-xs')]//div[contains(@class,'model-variations__item-container')]//a[contains(@class,'model-variations__item--active')] | //div[contains(@class,'hidden-xs')]//div[contains(@class,'model-variations__item-container')]//a[contains(@class,'model-variations__item--active')]//img//@alt)
   - name: variants
     singleValue: false
     xpath: //div[@class='hidden-xs']//div[@class='product-details__row model-variations']//div[@class='model-variations__item-container']//a/@href
   - name: variantCount
     singleValue: false
-    xpath: //div[@class='hidden-xs']//div[@class='product-details__row model-variations']//div[@class='model-variations__item-container']//a
+    xpath: count(//div[@class='hidden-xs']//div[@class='product-details__row model-variations']//div[@class='model-variations__item-container']//a)
   - name: imageZoomFeaturePresent
     singleValue: false
     description: If Zoom feature is available for Main image or images in the
@@ -97,9 +97,16 @@ fields:
   - name: category
     singleValue: false
     xpath: //ul[contains(@class,'breadcrumb')]//li[contains(@class,'breadcrumb__item')][position() > 1]
-  - name: manufacturerImages
+  # - name: manufacturerImages
+  #   singleValue: false
+  #   xpath: //div[@class='product-desc-box__description']//img//@src
+  # - name: manufacturerDescription
+  #   singleValue: false
+  #   xpath: string(//div[@id='product-description']//section[contains(@class,'col-sm-7')]//div[contains(@class,'product-description')]//*[not(contains(@class,'json') or self::script)])
+  - name: secondaryImageTotal
     singleValue: false
-    xpath: //div[@class='product-desc-box__description']//img//@src
-  - name: manufacturerDescription
+    xpath: count((//div[@class='carousel-inner']//div[contains(@class,'item')]//a[contains(@class,'main-image-link')]//img[@itemprop='contentUrl']/@src)[position() > 1])
+  - name: videos
     singleValue: false
-    xpath: string(//div[@id='product-description']//section[contains(@class,'col-sm-7')]//div[contains(@class,'product-description')]//*[not(contains(@class,'json') or self::script)])
+    description: URLs of videos on page
+    xpath: //div[contains(@class,'product-desc-box__description')]//iframe//@src
