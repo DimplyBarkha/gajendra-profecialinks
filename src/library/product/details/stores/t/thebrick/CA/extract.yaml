@@ -140,6 +140,6 @@ fields:
     defaultValue: '0'
   - name: inTheBoxText
     singleValue: false
-    xpath: //tr/td/p[contains(text(),'This Product Includes')]/ancestor::td/following-sibling::td/ul/li | //p[contains(.,'in the Box') or contains(.,'In the Box')]/following-sibling::ul/li | //div[@itemprop="description"]//text()[preceding-sibling::span[1][contains(text(),"Included Accessories")]][normalize-space(.)!=""] | //ul[contains(text(),"Tools Included")]/li
+    xpath: //tr/td[p[contains(text(),'This Product Includes')]]/following-sibling::td//text()[not(normalize-space(.)="")] | //tr/td/p[contains(text(),'This Product Includes')]/ancestor::td/following-sibling::td/ul/li | //p[contains(.,'in the Box') or contains(.,'In the Box')]/following-sibling::ul/li | //div[@itemprop="description"]//text()[preceding-sibling::span[1][contains(text(),"Included Accessories")]][normalize-space(.)!=""] | //ul[contains(text(),"Tools Included")]/li
   - name: unInterruptedPDP
     xpath: //div[contains(@class,"otherproduct-wrapper")]//div[@class="desc"] | //div[@id="rv__recent_products"]//div[@class="desc"]//a/@title
