@@ -26,12 +26,12 @@ fields:
     xpath: //div[contains(@class,"right-col")]//h1[contains(@class,"product-name")] |  //div[contains(@class,"shop-bar")]//h1[contains(@class,"shop-bar-product-title")]
   - name: listPrice
     singleValue: false
-    xpath: //div[contains(@class,"right-col")]//div[contains(@class,"shop-button-container")]//span[@class="sale"]//span[@class="regPrice"] | //div[contains(@class,"shop-bar-right-product-info")]//span[contains(@class,"regPrice")]
+    xpath: (//div[contains(@class,"header-container")]//div[contains(@class,"shop-bar-price-area jsProductPrice")])[2]//span[contains(@class,"sale")]//span[contains(@class,"regPrice")]
     regExp: (\$.*)
     regExpReplace: $1
   - name: price
     singleValue: false
-    xpath: //div[contains(@class,"right-col")]//div[contains(@class,"shop-button-container")]//span[@class="sale"]//span[@class="salePrice"] | //div[contains(@class,"right-col")]//div[contains(@class,"shop-button-container")]//span[@class="sale"]//span[@class="salePriceDetail"] | //div[contains(@class,"right-col")]//div[contains(@class,"shop-button-container")]//span[@class="reg"]//span[@class="regPrice"] | //div[contains(@class,"shop-bar-right-product-info")]//span[contains(@class,"salePriceDetail")]
+    xpath: (//div[contains(@class,"header-container")]//span[contains(@class,"shop-bar-price-area")])//span[contains(@class,"regPrice")] | (//div[contains(@class,"header-container")]//div[contains(@class,"shop-bar-price-area")])[2]//span[contains(@class,"salePriceDetail")]| (//div[contains(@class,"header-container")]//div[contains(@class,"shop-bar-price-area")])[2]//span[contains(@class,"regPrice")]
     regExp: (\$.*)
     regExpReplace: $1
   - name: availabilityText
@@ -57,13 +57,13 @@ fields:
     xpath: //div[contains(@class,"right-col")]//span[@class="sku-number"] | //div[contains(@class,"sku-review-area")]//span[contains(@class,"shop-bar-sku-number")]
   - name: ratingCount
     singleValue: false
-    xpath: substring-before(//div[contains(@class, "review-total")], "Review") | //div[contains(@class,"sku-review-area")]//div[contains(@class,"review-count")]/text()[1]
+    xpath: (//div[contains(@class,"product-review-sku")]//div[contains(@class, "review-total")])[2]/text()[1] | //div[contains(@class,"sku-review-area")]//div[contains(@class,"review-count")]/text()[1]
   - name: aggregateRating2
     singleValue: false
-    xpath: substring-before(//div[contains(@class,"right-col")]//div[@class="product-review-sku"]//span[@class="review-stars-bar"]/@title,"out") | //div[contains(@class,"sku-review-area")]//span[contains(@class,"rating")]/text()[2]
+    xpath: //div[contains(@class,"right-col")]//div[@class="product-review-sku"]//span[@class="review-stars-bar"]/@title | //div[contains(@class,"sku-review-area")]//span[contains(@class,"rating")]/text()[2]
   - name: aggregateRating
     singleValue: false
-    xpath: substring-before(//div[contains(@class,"right-col")]//div[@class="product-review-sku"]//span[@class="review-stars-bar"]/@title,"out") | //div[contains(@class,"sku-review-area")]//span[contains(@class,"rating")]/text()[2]
+    xpath: //div[contains(@class,"right-col")]//div[@class="product-review-sku"]//span[@class="review-stars-bar"]/@title | //div[contains(@class,"sku-review-area")]//span[contains(@class,"rating")]/text()[2]
   - name: variantCount
     singleValue: false
     xpath: count(//div[@class="hidden"]//a)
@@ -72,15 +72,15 @@ fields:
     xpath: //span[contains(text(), "Color")]//span
   - name: variantInformation
     singleValue: false
-    xpath: //legend[@class="radio-swatch-legend"]/text()
+    xpath: //legend[@class="radio-swatch-legend"]//span[contains(@class,"radio-swatch-selected-name")]
   - name: firstVariant
     singleValue: false
-    xpath: //div[@class="hidden"]//a[position()=1]
+    xpath: //div[@class="hidden"]//a[position()=1]/@href
     regExp: (\d+$)
     regExpReplace: $1
   - name: variants
     singleValue: false
-    xpath: //div[@class="hidden"]//a[position()>1]
+    xpath: //div[@class="hidden"]//a/@href
     regExp: (\d+$)
     regExpReplace: $1
   - name: additionalDescBulletInfo
@@ -106,3 +106,6 @@ fields:
   - name: specifications
     singleValue: false
     xpath: //div[@class="dimension-content"]//p | //div[contains(@class,"dimensions-details")]//div[contains(@class,"dimensions-item")]//p
+  - name: videos
+    singleValue: false
+    xpath: //div[@id="pd_video"]  

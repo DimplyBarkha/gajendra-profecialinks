@@ -5,24 +5,21 @@
  * @returns {ImportIO.Group[]}
  */
 const transform = (data) => {
-  const cleanUp = (data, context) => {
-    let dataStr = JSON.stringify(data);
-    console.log('INSIDE OF CLEANUP');
-    dataStr = dataStr.replace(/(?:\\r\\n|\\r|\\n)/g, ' ')
-      .replace(/&amp;nbsp;/g, ' ')
-      .replace(/&amp;#160/g, ' ')
-      .replace(/\\u00A0/g, ' ')
-      .replace(/\s{2,}/g, ' ')
-      .replace(/"\s{1,}/g, '"')
-      .replace(/\s{1,}"/g, '"')
-      .replace(/^ +| +$|( )+/g, ' ')
-      // eslint-disable-next-line no-control-regex
-      .replace(/[^\x00-\x7F]/g, '');
-
-    return JSON.parse(dataStr);
-  };
+  const clean = text => text.toString()
+    .replace(/\r\n|\r|\n/g, ' ')
+    .replace(/&amp;nbsp;/g, ' ')
+    .replace(/&amp;#160/g, ' ')
+    .replace(/\u00A0/g, ' ')
+    .replace(/\s{2,}/g, ' ')
+    .replace(/"\s{1,}/g, '" ')
+    .replace(/\s{1,}"/g, '"')
+    .replace(/^ +| +$|( )+/g, ' ')
+    .replace(/\\"/gm, '"')
+    // eslint-disable-next-line no-control-regex
+    .replace(/[\x00-\x1F]/g, '')
+    .replace(/[\uD800-\uDBFF][\uDC00-\uDFFF]/g, ' ');
   for (const { group } of data) {
-    for (let row of group) {
+    for (const row of group) {
       if (row.description) {
         let finalDesc = '';
         for (let i = 0; i < row.description.length; i++) {
@@ -33,7 +30,7 @@ const transform = (data) => {
           }
         }
         if (finalDesc.trim().endsWith('||')) {
-          finalDesc = finalDesc.trim().substring(0, finalDesc.length-2);
+          finalDesc = finalDesc.trim().substring(0, finalDesc.length - 2);
         }
         row.description = [
           {
@@ -44,7 +41,7 @@ const transform = (data) => {
       if (row.nameExtended && row.brandText) {
         let finalDescription = '';
         row.brandText.forEach(item => {
-          finalDescription += item.text + " - ";
+          finalDescription += item.text + ' - ';
         });
         row.nameExtended.forEach(item => {
           finalDescription += item.text;
@@ -56,39 +53,53 @@ const transform = (data) => {
         ];
       }
       if (row.specifications) {
-        console.log("specifications available ")
-        let finalSpecifications = '';
+        let text = '';
         row.specifications.forEach(item => {
-          finalSpecifications += item.text + " || ";
+          text += `${item.text.replace(/\n \n/g, ': ')} || `;
         });
-        if (finalSpecifications.trim().endsWith('||')) {
-          finalSpecifications = finalSpecifications.trim().substring(0, finalSpecifications.length-3);
-        }
         row.specifications = [
           {
-            text: finalSpecifications,
+            text: text.slice(0, -4),
           },
         ];
       }
+      //   if (row.specifications) {
+      //     console.log('specifications available ');
+      //     let finalSpecifications = '';
+      //     row.specifications.forEach(item => {
+      //       finalSpecifications += item.text + ' || ';
+      //     });
+      //     if (finalSpecifications.trim().endsWith('||')) {
+      //       finalSpecifications = finalSpecifications.trim().substring(0, finalSpecifications.length - 3);
+      //     }
+      //     row.specifications = [
+      //       {
+      //         text: finalSpecifications,
+      //       },
+      //     ];
+      //   }
       if (row.alternateImages) {
         const alternateImagesArr = row.alternateImages.map((item) => {
-          let regExV1 = /(.+)_thumb_(.+)/;
-          if(regExV1.test(item.text)) {
+          const regExV1 = /(.+)_thumb_(.+)/;
+          if (regExV1.test(item.text)) {
             return { text: `${item.text.match(regExV1)[1]}${item.text.match(regExV1)[2]}` };
           }
-          let regExV2 = /(.+)\?\$web_Lineitem\$&amp;wid=60&amp;hei=60/;
-          if(regExV2.test(item.text)) {
+          const regExV2 = /(.+)\?\$web_Lineitem\$&amp;wid=60&amp;hei=60/;
+          if (regExV2.test(item.text)) {
             return { text: `${item.text.match(regExV2)[1]}` };
           }
         });
         const alternateImagesResult = alternateImagesArr && alternateImagesArr.slice(1);
         row.alternateImages = alternateImagesResult;
       }
-      if(row.aggregateRating) {
-        var rating = '';
+      if (row.aggregateRating) {
+        let rating = '';
         row.aggregateRating.forEach(item => {
-          if(item.text != '') {
-            rating = parseFloat(item.text).toFixed(3);
+          if (item.text.includes('out')) {
+            rating = item.text.replace(/(.+)\s*out(.+)/g, '$1');
+            rating = Number(rating).toFixed(3);
+          } else {
+            rating = item.text.trim();
           }
         });
         row.aggregateRating = [
@@ -97,23 +108,24 @@ const transform = (data) => {
           },
         ];
       }
-      if(row.aggregateRating2) {
-        var rating = '';
-        row.aggregateRating2.forEach(item => {
-          if(item.text != '') {
-            rating = parseFloat(item.text).toFixed(3);
-          }
-        });
-        row.aggregateRating2 = [
-          {
-            text: rating,
-          },
-        ];
-      }
-      row = cleanUp(row);
+      //   if (row.aggregateRating2) {
+      //     let rating = '';
+      //     row.aggregateRating2.forEach(item => {
+      //       if (item.text !== '') {
+      //         rating = parseFloat(item.text).toFixed(3);
+      //       }
+      //     });
+      //     row.aggregateRating2 = [
+      //       {
+      //         text: rating,
+      //       },
+      //     ];
+      //   }
     }
-    
   }
+  data.forEach(obj => obj.group.forEach(row => Object.keys(row).forEach(header => row[header].forEach(el => {
+    el.text = clean(el.text);
+  }))));
   return data;
 };
 
