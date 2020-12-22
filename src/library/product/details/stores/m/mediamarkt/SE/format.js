@@ -36,6 +36,8 @@ const transform = (data) => {
             availabilityTextItem.text = 'Out Of Stock';
           }
         });
+      } else {
+        row.availabilityText = [{ text:'Out Of Stock' }];
       }
       if (row.image) {
         row.image.forEach(itemText => {
