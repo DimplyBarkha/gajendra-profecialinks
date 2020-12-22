@@ -63,6 +63,17 @@ const transform = (data, context) => {
             text: row.aggregateRatingOther[0].text.replace(/(.)\/(.+)/, '$1'),
           }];
         }
+        if (row.description) {
+          let text = '';
+          row.description.forEach(item => {
+            text += `${item.text.replace(/\n \n/g, ':')} || `;
+          });
+          row.description = [
+            {
+              text: text.slice(0, -4),
+            },
+          ];
+        }
 
         row = clean(row);
       } catch (exception) {
