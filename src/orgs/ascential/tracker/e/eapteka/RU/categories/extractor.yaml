@@ -4,3 +4,17 @@ parameters:
   domain: eapteka.ru
   store: eapteka
   zipcode: ""
+proxy:
+  zone: ZRU
+  type: DATA_CENTRE
+policy:
+  numberRetries: 4
+  priority: MEDIUM
+  retryDelay: 60
+  backoffPolicy: EXPONENTIAL
+  retryWithResidentialProxyAfter: 99
+meta:
+  branches:
+    eapteka_ru_menu_only:
+      extractor: 1eab092b-aa8b-4fe7-819f-c3d836c1e3c0
+      legacyAccountId: 63fd92cf-ba0e-42f9-9361-28797373bac8
