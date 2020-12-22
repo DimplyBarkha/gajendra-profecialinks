@@ -16,7 +16,7 @@ fields:
     xpath: translate((//div[@class='price-box']/meta[@itemprop='price']/@content)[1], '.', ',')
   - name: promotion
     singleValue: false
-    # xpath: //div[@class='badge-container']
+    xpath: //ul[contains(@class,"product-list")]/li[contains(@class,"selected")]//span[contains(@class,"save")] | //ul[@class="product-list"]/li[contains(@class,"visible")]//span[contains(@class,"save")]
   - name: image
     singleValue: false
     xpath: //div[contains(@class,"product-image-slider__slide slick-slide slick-current")]/img/@src
@@ -38,10 +38,10 @@ fields:
     xpath: //span[@class='old-price']
   - name: ingredientsList
     singleValue: false
-    xpath: //div[contains(text(),"Inhaltsstoffe")]/../div[contains(@class,"tab-content")]//div[@class="ingredients-content"]
+    xpath: //div[contains(text(),"Inhaltsstoffe")]/../div[contains(@class,"tab-content")]//*[@class="ingredients-content"]
   - name: directions
     singleValue: false
-    xpath: //div[contains(text(),"Anwendung")]/../div[contains(@class,"tab-content")]//div[contains(@class,"instruction-content")]
+    xpath: //div[text()="Anwendung"]/following-sibling::div[@class="tab-content"]//div[@class="instruction-content"] |//div[text()="Anwendung"]/following-sibling::div/div[contains(@class,"instruction")]/text()
     # xpath: //div[text()="Anwendung"]/following-sibling::div[@class="tab-content"]//div[@class="instruction-content"] 
   - name: aggregateRating
     singleValue: false
