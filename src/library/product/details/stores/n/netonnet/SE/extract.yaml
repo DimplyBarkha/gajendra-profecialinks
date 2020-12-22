@@ -137,11 +137,11 @@ fields:
     xpath: //td[contains(text(), "Vikt")]/following::td[1]
   - name: inTheBoxUrl
     singleValue: false
-    xpath: //div[contains(@class,"productSpec")]//div[contains(@class,"cPromotionItem")]//img/@src
+    xpath: //div[contains(@class,"productSpec")]//div[contains(@class,"cPromotionItem")]//img/@src | //div[contains(@class,"productSpec")]//div/h2[contains(text(), "Produktbeskrivning")]/../following-sibling::div//img/@src
     description: Must include image url to show the accessories/tools which come with the product
   - name: inTheBoxText
     singleValue: false
-    xpath: //div[contains(@class,"productSpec")]//div[contains(@class,"cPromotionItem")]//div[@class="name"]/a
+    xpath: //div[contains(@class,"productSpec")]//div[contains(@class,"cPromotionItem")]//div[@class="name"]/a | //div[contains(@class,"productSpec")]//div/h2[contains(text(), "Produktbeskrivning")]/../following-sibling::div//h2
   - name: hasComparisonTable
     singleValue: false
     xpath: boolean(//div[@class="matrix-heading"])
