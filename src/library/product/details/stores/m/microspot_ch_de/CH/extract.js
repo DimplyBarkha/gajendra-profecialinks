@@ -49,10 +49,23 @@ module.exports = {
       }
 
         // removing duplicates url from alternateImage
+        // var alt = getAllXpath('(//div[@class="_165CLk"]/img/@src)[position()>1]', 'nodeValue');
+        // if (alt != null) {
+        //   var altImg = uniq(alt);
+        //   addElementToDocument('altImg', altImg);
+        // }
+
+        // removing duplicates url from alternateImage
         var alt = getAllXpath('(//div[@class="_165CLk"]/img/@src)[position()>1]', 'nodeValue');
         if (alt != null) {
           var altImg = uniq(alt);
-          addElementToDocument('altImg', altImg);
+          altImg.pop();
+          var len = altImg.length;
+          addElementToDocument('len', len);
+          // if(altImg.length > 1 ){
+            var sec_img = altImg.join(" | ");
+          addElementToDocument('sec_img', sec_img);
+          // }
         }
 
         //specication
@@ -99,6 +112,26 @@ module.exports = {
             aval = "Out of Stock"
           }
           addElementToDocument('aval', aval);
+        }
+
+        //uan 
+        if(txt != null){
+          if(txt.includes("ean")){
+            var uan = txt.split('ean":')[1];
+            uan = uan.split(",")[0];
+            uan = uan.slice(1,-1);
+            addElementToDocument('uan', uan);
+          }
+        }
+
+        //ppu
+        var ppp = 0;
+        addElementToDocument('ppp', ppp);
+
+        var ship = getXpath('//meta[@name="application-name"]/@content', 'nodeValue');
+        if(ship != null){
+          ship = "Sold by: "+ ship;
+          addElementToDocument('ship', ship);
         }
 
       });

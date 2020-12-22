@@ -11,9 +11,9 @@ fields:
     singleValue: true
     description: Alt text of the main product image
   - name: alternateImages
-    singleValue: false
+    singleValue: true
     description: Other product images (not in manufacturer description)
-    xpath: //html//div[@id="altImg"]
+    xpath: //html//div[@id="sec_img"]
   - name: metaKeywords
     singleValue: true
     description: The <meta> keywords content
@@ -66,12 +66,18 @@ fields:
   - name: weightNet
     singleValue: true
     description: Net weight as described on the page
+    xpath: (//th[contains(text(),'Gewicht')])[1]/following::td[1]
   - name: weightGross
     singleValue: true
     description: Gross weight as described on the page
   - name: gtin
     singleValue: true
     description: GTIN code (includes UPC/EAN)
+    xpath: //html//div[@id="uan"]
+  - name: eangtin
+    singleValue: true
+    description: GTIN code (includes UPC/EAN)
+    xpath: //html//div[@id="uan"]
   - name: sku
     singleValue: true
     description: The store-specific product identifier
@@ -111,6 +117,7 @@ fields:
   - name: shippingInfo
     singleValue: true
     description: Shipping information for the product
+    xpath: //html//div[@id="ship"]
   - name: shippingDimensions
     singleValue: true
     description: Stated shipping dimensions
@@ -121,6 +128,7 @@ fields:
     singleValue: true
     description: Number of variants listed
     type: NUMBER
+    xpath: //html//div[@id="ppp"]
   - name: color
     singleValue: true
     description: A textual description of the colour
@@ -131,9 +139,11 @@ fields:
   - name: manufacturerDescription
     singleValue: false
     description: The extended description of the product supplied by the lister
+    xpath: //div[@class="t8cgyc"]/span/text()
   - name: manufacturerImages
     singleValue: false
     description: Images within the third party description
+    xpath: //div[@class="_1qqZVp"]/img/@src
   - name: videos
     singleValue: false
     description: URLs of videos on page
@@ -232,6 +242,7 @@ fields:
     singleValue: true
     description: null
     type: NUMBER
+    xpath: //html//div[@id="len"]
   - name: news
     singleValue: true
     description: null
