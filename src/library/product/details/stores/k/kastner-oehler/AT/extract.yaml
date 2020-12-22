@@ -80,11 +80,11 @@ fields:
   - name: gtin
     singleValue: true
     description: GTIN code (includes UPC/EAN)
-    xpath: //div[@data-loadbee-manufacturer="EAN"]/@data-loadbee-product
+    xpath: //div[@data-loadbee-manufacturer="EAN"]/@data-loadbee-product | //span[@itemprop="gtin13"]
   - name: eangtin
     singleValue: true
     description: European Article Number which is a superset of UPC
-    xpath: //div[@data-loadbee-manufacturer="EAN"]/@data-loadbee-product
+    xpath: //div[@data-loadbee-manufacturer="EAN"]/@data-loadbee-product | //span[@itemprop="gtin13"]
   - name: sku
     singleValue: true
     description: The store-specific product identifier
