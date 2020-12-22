@@ -24,8 +24,8 @@ fields:
   - name: aggregateRating
     singleValue: false
     # xpath: //div[contains(@itemprop,"aggregateRating")]/p[contains(@class,"scoreTag")]
-    #xpath: //span[@class='scoreTag']/text()
-    xpath: //div[contains(@class,"scoreTag")]
+    # xpath: //span[@class='scoreTag']/text()
+    xpath: //*[contains(@class,"scoreTag")]
   - name: listPrice
     singleValue: false
     # xpath: //div[contains(@class,"coreWrapper")]//span[contains(@class,'value')]/span[contains(@class,'preReductionPrice')]
