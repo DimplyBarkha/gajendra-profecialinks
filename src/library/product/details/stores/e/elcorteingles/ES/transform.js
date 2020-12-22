@@ -21,7 +21,7 @@ const transform = (data, context) => {
       if (row.nutritionInfo) {
         let text = '';
         text = row.nutritionInfo.map(element => element.text.trim()).join(' ');
-        row.nutritionInfo = [{ text }]
+        row.nutritionInfo = [{ text }];
       }
     }
   }

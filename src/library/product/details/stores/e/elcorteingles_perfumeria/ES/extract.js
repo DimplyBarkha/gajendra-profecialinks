@@ -206,6 +206,22 @@ module.exports = {
           }
         }
 
+        function getAvailability (variants) {
+          if (variants) {
+            if (variants.status.toLocaleLowerCase() === 'add') {
+              return 'In Stock';
+            } else if (variants.status.toLocaleLowerCase() === 'available') {
+              return 'In Stock';
+            } else if (variants.status.toLocaleLowerCase() === 'mixed') {
+              return 'In Stock';
+            } else {
+              return 'Out Of Stock';
+            }
+          } else {
+            return 'Out Of Stock';
+          }
+        }
+
         // Number of reviews and rating
         const passKey = 'caBFucP0zZYZzTkaZEBiCUIK6sp46Iw7JWooFww0puAxQ';
         const productAvailablity = '//div[contains(@class,"product_detail-purchase")]//div[contains(@class,"product_detail-add_to_cart")]//span[@class="dataholder"]/@data-json';
@@ -239,9 +255,9 @@ module.exports = {
         targetElement.appendChild(newUl);
         const ul = document.querySelector('#variantsadd');
         const name = nameExtended();
-        let variantIds = [];
+        const variantIds = [];
         variants.forEach(q => {
-          if(q.skus && q.skus[0] && q.skus[0].reference_id) {
+          if (q.skus && q.skus[0] && q.skus[0].reference_id) {
             variantIds.push(q.skus[0].reference_id.trim());
           }
         });
@@ -249,14 +265,13 @@ module.exports = {
           if (variants.length) {
             for (let i = 0; i < variants.length; i++) {
               const listItem = document.createElement('li');
-              console.log(name, 'value');
               setAttributes(listItem, {
                 nameExtended: `${nameExtended()}`,
                 color: variants[i].title,
                 gtin: variants[i].skus[0].gtin,
                 retailer_product_code: variants[i].skus[0].reference_id,
                 title: variants[i].title,
-                variantDetails: variantIds.join(" | "),
+                variantDetails: variantIds.join(' | '),
                 variantcount: variants.length,
               });
               ul.appendChild(listItem);
@@ -296,7 +311,7 @@ module.exports = {
           const xpath = '//*[contains(text(),"Ingredientes y alérgensos")]/../ul/li';
           const element = document.evaluate(xpath, document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
           if (element) {
-            //@ts-ignore
+            // @ts-ignore
             const allElements = [...element.querySelectorAll('b')];
             const allergyAdvice = allElements.map(i => i.textContent).join(' ');
             addElementToDocument('allergyAdvice ', allergyAdvice);
