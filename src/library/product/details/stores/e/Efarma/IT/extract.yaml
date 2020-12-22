@@ -23,10 +23,10 @@ fields:
     xpath: //h1[@itemprop="name"]/text() 
   - name: listPrice
     singleValue: false
-    xpath: (//span[text()="Prezzo listino:"]/following-sibling::span[1])[1]
+    xpath: (//span[text()="Prezzo listino:"]/following-sibling::span[1])[1] | //p[@class="minimal-price"]/span[2]
   - name: price
     singleValue: false
-    xpath: (//span[text()="Prezzo"]/following-sibling::span[1])[1] | (//span[@itemprop="price"]/text())[1]
+    xpath: (//span[text()="Prezzo"]/following-sibling::span[1])[1] | (//span[@itemprop="price"]/text())[1] | //span[@class="full-product-price"]/span
   - name: availabilityText
     singleValue: false
     xpath: //span[text()="Disponibile"]
