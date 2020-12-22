@@ -6,8 +6,6 @@ fields:
   - name: price
     singleValue: false
     xpath: //span[@class='a-price']/span[2]
-    regExp: (.+)
-    regExpReplace: $1
   - name: name
     singleValue: true
     xpath: //h2
@@ -18,7 +16,7 @@ fields:
     regExpReplace: https://www.amazon.sa$1
   - name: thumbnail
     singleValue: false
-    xpath: (//*[contains(@class, 'image')]/img/@src)[1]
+    xpath: //div[@class='a-section aok-relative s-image-square-aspect']/img[@class='s-image']/@src
   - name: aggregateRating
     singleValue: false
     xpath: (//i[contains(@class, "a-icon a-icon-star-small")]/span[@class='a-icon-alt'])[1]
