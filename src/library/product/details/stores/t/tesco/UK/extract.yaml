@@ -66,7 +66,8 @@ fields:
   - name: caloriesPerServing
     singleValue: false
     # #xpath: concat(//div[@class='product-blocks']//li[contains(.,"Energy")],' , ',//div[@class='product-blocks']//li[contains(.,"Fat")],' , ',//div[@class='product-blocks']//li[contains(.,"Saturates")],' , ',//div[@class='product-blocks']//li[contains(.,"Sugar")],' , ',//div[@class='product-blocks']//li[contains(.,"Salt")])
-    xpath: //div[@class='gda']//ul
+    # xpath:
+    xpath: //body/@Energy
   - name: legalDisclaimer
     singleValue: true
     xpath: //div[@id="warnings"]//ul
