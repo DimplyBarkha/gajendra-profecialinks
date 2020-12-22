@@ -7,6 +7,6 @@ module.exports = {
     country: 'AT',
     store: 'expert',
     zipcode: '',
-    url: 'https://www.expert.at/shop/?q={id}&perPage=151',
+    url: 'https://www.expert.at/shop/*~p{id}',
   },
 };
