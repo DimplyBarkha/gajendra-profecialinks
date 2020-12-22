@@ -46,9 +46,14 @@ const transform = (data) => {
                 item.text = item.text.replace(/[Por: | à vista]/g, '').trim();
             });
         }
-        if (row.retailer_product_code) {
-            row.retailer_product_code.forEach(item => {                    
+        if (row.retailerProductCode) {
+            row.retailerProductCode.forEach(item => {                    
                 item.text = item.text.replace("ts-js-shelf-", '').trim();
+            });
+        }
+        if (row.proteinPerServingUom) {
+            row.proteinPerServingUom.forEach(item => {                    
+                item.text = item.text.substring(item.text.indexOf(' ')+1).trim();
             });
         }
         if (row.upc) {

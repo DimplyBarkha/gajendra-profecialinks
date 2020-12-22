@@ -11,13 +11,13 @@ fields:
     xpath: //div[@class="gallery__images"]//div[@class="slick-slide slick-current slick-active"]//img[@class="gallery-images__image"]/@alt
   - name: alternateImages
     singleValue: false
-    xpath: //div[@class="gallery__thumbs"]//ul//li[@class="thumb__item"]//img[@class="thumb__image"]/@src
+    xpath: //div[@class="gallery__thumbs"]//div[@class="slick-track"]/div[not(contains(@class, 'slick-current'))]//img[@class="thumb__image"]/@src
   - name: category
     singleValue: false
     xpath: //div[@class="bread-crumb"]//li[2]//a//span[@itemprop="name"]
   - name: subcategory
     singleValue: false
-    xpath: //div[@class="bread-crumb"]//li[@class="last"]//a//span[@itemprop="name"]
+    xpath: concat(//div[@class="bread-crumb"]//li[3]//a//span[@itemprop="name"], " > ", //div[@class="bread-crumb"]//li[@class="last"]//a//span[@itemprop="name"])
   - name: nameExtended
     singleValue: false
     xpath: //h1[@class="product__name"]
@@ -47,13 +47,16 @@ fields:
     defaultValue: "In Stock"
   - name: description
     singleValue: false
-    xpath: concat(//div[@class="product__brand"]//a, ' - ', //div[@class="productDescription"])
+    xpath: concat(//div[@class="product__brand"]//a, ' - ', //h1[@class="product__name"], ' - ', //div[@class="productDescription"])
   - name: brandText
     singleValue: false
     xpath: //div[@class="product__brand"]//a
   - name: quantity
     singleValue: false
     xpath: //div[@class="quantity__selector"]//input[@type="number"]/@value
+  - name: weightNet
+    singleValue: false
+    xpath: //span[@class="js-sku-selected"]
   - name: size
     singleValue: false
     xpath: //div[@class="quantity__selector"]//input[@type="number"]/@value
@@ -63,9 +66,12 @@ fields:
   - name: variantId
     singleValue: false
     xpath: //span[@class="js-sku-selected"]//@data-currentsku | //div[@class="sku__selected js-sku-selected"]//@data-currentsku
-  - name: retailer_product_code
+  - name: retailerProductCode
     singleValue: false
     xpath: //div[@class="ts-shelf-container"]/@id
+  - name: proteinPerServingUom
+    singleValue: false
+    xpath: //div[@class="productDescription"]/table//tr/td[contains(text(), 'Proteína (mín.)')]/following-sibling::td[1]
   - name: ratingCount
     singleValue: false
     xpath: //span[@itemprop="ratingCount"]
