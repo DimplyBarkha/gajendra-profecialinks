@@ -517,3 +517,6 @@ fields:
     regExp: >-
       (.+)
     regExpReplace: 'Yes'
+  - name: unInterruptedPDP
+    singleValue: false
+    xpath: //*[contains(text(),"Recent bekeken producten")]//parent::header//following-sibling::div//div[@class="product"]

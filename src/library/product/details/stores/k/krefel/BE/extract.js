@@ -8,7 +8,7 @@ module.exports = {
     domain: 'krefel.be',
     zipcode: '',
   },
-  implementation: async ({ inputString }, { country, domain }, context, { productDetails }) => {
+  implementation: async ({ inputString }, { country, domain, transform }, context, { productDetails }) => {
     const needToSelectLanguage = await context.evaluate(() => {
       return !!document.querySelector('a[class*="select-language"]');
     });
@@ -99,6 +99,6 @@ module.exports = {
       .catch(() => console.log('No extra brand info'));
 
     await new Promise((resolve, reject) => setTimeout(resolve, 6000));
-    return await context.extract(productDetails);
+    return await context.extract(productDetails, { transform });
   },
 };
