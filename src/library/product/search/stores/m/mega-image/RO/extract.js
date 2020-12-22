@@ -28,7 +28,7 @@ module.exports = {
             productDiv.setAttribute('thumbnail', images[images.length - 1].url);
           }
           if (stock.inStock) {
-            const stringPrice = String(price.value);
+            const stringPrice = price.formattedValue.replace(',', '.');
             productDiv.textContent = stringPrice;
           }
           productDiv.setAttribute('manufacturer', manufacturerName);
@@ -38,7 +38,7 @@ module.exports = {
       const fetchProducts = async function () {
         const refURL = window.location.href;
         const page = 0;
-        const searchQuery = refURL.match(/q=(.*):/)[1];
+        const searchQuery = decodeURIComponent(refURL.match(/q=(.*):/)[1]);
         const response = await fetch('https://api.mega-image.ro/', {
           headers: {
             accept: '*/*',
@@ -64,9 +64,9 @@ module.exports = {
           throw new Error('Products not Found');
         }
         if (response && response.status === 200) {
-          const prodcutsData = await response.json();
-          addHiddenDivs(prodcutsData.data.productSearch.products);
-          return prodcutsData;
+          const productsData = await response.json();
+          addHiddenDivs(productsData.data.productSearch.products);
+          return productsData;
         }
       };
       await fetchProducts();
