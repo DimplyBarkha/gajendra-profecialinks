@@ -215,10 +215,15 @@ module.exports = {
       addElementToDocument('specifications', specArr.join(' || '));
 
       const bulletInfo = document.querySelectorAll('div.product-intro-details ul.product-description-bullets li');
-      const descBulletInfo = [''];
+      const descBulletInfo = [];
       if (bulletInfo) {
         bulletInfo.forEach(e => {
-          descBulletInfo.push(e.innerText);
+          const childEl = e.querySelector('a');
+
+          if (!childEl) {
+            descBulletInfo.push(e.innerText);
+          }
+
         });
       }
       addElementToDocument('descBulletInfo', descBulletInfo.join(' || '));
