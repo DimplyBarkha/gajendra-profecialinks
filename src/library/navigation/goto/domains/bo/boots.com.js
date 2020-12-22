@@ -6,10 +6,9 @@ module.exports = {
     country: 'UK',
     store: 'boots',
     zipcode: '',
-    timeout: 50000,
+    timeout: 90000,
   },
   implementation: async ({ url }, { country, domain, timeout }, context, dependencies) => {
-
     // await context.setBlockAds(false);
     // await context.setLoadAllResources(true);
     // await context.setLoadImages(true);
