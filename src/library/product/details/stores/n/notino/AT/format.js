@@ -25,12 +25,11 @@ const transform = (data) => {
       for (const { group } of data) {
         for (let row of group) {
           
-          /*if (row.alternateImages) {
-            let info = [];          
-            row.alternateImages.forEach(item => {
-              item.text = item.text.replace(/(\/wc\d+\/)+/g, '\/wc1200\/');
+          if (row.mpc) {            
+            row.mpc.forEach(item => {
+              item.text = item.text.replace(/(\s*Code\s*\:\s*)+/g, '').trim()
             });          
-          }*/
+          }
           
           if (row.variants) {
             let info = [];
