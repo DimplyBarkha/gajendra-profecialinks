@@ -23,7 +23,7 @@ const transform = (data) => {
       if (row.availabilityText) {
         const availabilityText = row.availabilityText[0].text;
         if (availabilityText.includes('OutOfStock')) {
-          row.availabilityText = [{ text: 'Out of stock' }];
+          row.availabilityText = [{ text: 'Out of Stock' }];
         } else {
           row.availabilityText = [{ text: 'In Stock' }];
         }
@@ -94,6 +94,26 @@ const transform = (data) => {
 
       if (!row.quantity) {
         row.quantity = row.quantityFromProdTitle;
+      }
+
+      if (row.specifications) {
+        let text = '';
+        row.specifications.forEach(spec => {
+          text = text + (text ? ' || ' : '') + spec.text;
+        });
+        text = text.replace(/:/g, ' : ');
+        row.specifications = [{ text }];
+      }
+
+      if (row.inTheBoxText) {
+        let text = '';
+        row.inTheBoxText.forEach(item => {
+          item.text = item.text.includes('Zakres dostawy:') ? item.text.replace('Zakres dostawy:', '') : item.text;
+          if (item.text) {
+            text = text + (text ? ' || ' : '') + item.text;
+          }
+        });
+        row.inTheBoxText = [{ text }];
       }
     }
   }

@@ -114,3 +114,12 @@ fields:
     regExp: >-
       ((\d+)\s?(x)?\s?(\d+)?(,\d+)?)\s?(g|mg|ml|IU|Mg|Ml|litre|L|szt|kg|l)
     regExpReplace: $1$6
+  - name: specifications
+    xpath: //div[@data-box-name="Parameters"]//div/ul/li/div
+  - name: inTheBoxText
+    xpath: //p[contains(.,"Zestaw składa się z")]/following-sibling::p[contains(.,"x")] | //div[contains(.,"Zestaw zawiera")]/p[contains(.,"Zestaw zawiera")]/following-sibling::p | //p[contains(., "Zakres dostawy")] | //p[contains(., "Zakres dostawy")]/following-sibling::p
+  - name: inTheBoxUrl
+  - name: hasComparisonTable
+    defaultValue: No
+  - name: unInterruptedPDP
+    xpath: //div[@data-box-name="offers_top_reco"]//a[@data-analytics-click-label="regular"] | //div[contains(@data-box-name,"carousel_ads")]//a[@data-analytics-click-label="sponsored"] | //div[@data-box-name="Carousel_reco_bottom"]//a[@data-analytics-click-label="regular"]
