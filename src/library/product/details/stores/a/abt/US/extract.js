@@ -59,7 +59,7 @@ async function implementation (
     }
     addElementToDocument('descBulletInfo', descBulletInfo.join('||'));
     let availablility = document.querySelector('div#pricing_container span.pricing-availability-desc.instock') ? 'In Stock' : 'Out of Stock';
-    if (document.querySelector('button[class*="addToCart"]').innerText.includes('ADD')) { availablility = 'In Stock'; }
+    if (document.querySelector('button[class*="addToCart"]') && document.querySelector('button[class*="addToCart"]').innerText.includes('ADD')) { availablility = 'In Stock'; }
     addElementToDocument('availablility', availablility);
 
     const variants = document.querySelector('div.display-group-color');
