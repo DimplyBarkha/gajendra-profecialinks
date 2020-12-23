@@ -8,9 +8,9 @@ module.exports = {
     mutationSelector: null,
     spinnerSelector: null,
     loadedSelector: null,
-    noResultsXPath: null,
+    noResultsXPath: null, 
     openSearchDefinition: {
-      offset: 24,
+      offset: 1,
       template: 'https://www.douglas.at/jsapi/v2/products/search?currentPage={offset}&pageSize=180&query={searchTerms}&fields=FULL&crealyticsSpaEnabled=true#[!opt!]{"type":"json"}[/!opt!]',
     },
     domain: 'douglas.at',

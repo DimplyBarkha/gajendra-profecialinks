@@ -10,7 +10,7 @@ fields:
   - name: thumbnail
     xpath: //td[contains(@class,"url depth_2")]
   - name: price
-    xpath: //td[contains(@class,""value depth_3")]
+    xpath: //td[@class="priceData depth_2"]//td[@class="value depth_3"]
   # - name: searchUrl
   #   xpath: '@search-url'
   - name: productUrl
