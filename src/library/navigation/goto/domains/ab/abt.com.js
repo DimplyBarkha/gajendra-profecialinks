@@ -11,7 +11,7 @@ module.exports = {
   implementation: async ({ url, zipcode, storeId }, parameters, context, dependencies) => {
     const timeout = parameters.timeout ? parameters.timeout : 10000;
     await context.setBlockAds(false);
-    await context.setFirstRequestTimeout(60000);
+    url = `${url}#[!opt!]{"first_request_timeout":60000, "block_ads": false}[/!opt!]`;
     await context.goto(url, { timeout: timeout, waitUntil: 'networkidle0', block_ads: false });
     console.log(zipcode);
     if (zipcode) {
