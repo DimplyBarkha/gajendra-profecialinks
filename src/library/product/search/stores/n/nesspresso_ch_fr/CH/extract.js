@@ -1,11 +1,11 @@
-const { transform } = require('../../../../shared');
+const { transform } = require('../../nespressoTransform');
 
 module.exports = {
   implements: 'product/search/extract',
   parameterValues: {
     country: 'CH',
     store: 'nesspresso_ch_fr',
-    transform: transform,
+    transform,
     domain: 'nespresso.com',
     zipcode: '',
   },
