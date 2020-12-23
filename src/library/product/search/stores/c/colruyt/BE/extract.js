@@ -1,38 +1,24 @@
 const { transform } = require('../format.js');
 async function implementation (
-  inputs,
+  { results },
   parameters,
   context,
   dependencies,
 ) {
   const { transform } = parameters;
   const { productDetails } = dependencies;
-
-  await context.evaluate(async () => {
-    try {
-      await new Promise((resolve) => setTimeout(resolve, 6000));
-    } catch (error) {
-      console.log(error);
-    }
-    async function infiniteScroll () {
-      let prevScroll = document.documentElement.scrollTop;
+  await context.evaluate(async function (results) {
+    await new Promise(resolve => setTimeout(resolve, 2814));
+    const element = document.querySelector('div[class*="footer__logo"]');
+    if (element) {
       while (true) {
-        window.scrollBy(0, document.documentElement.clientHeight);
-        await new Promise(resolve => setTimeout(resolve, 1000));
-        const currentScroll = document.documentElement.scrollTop;
-        if (currentScroll === prevScroll) {
+        const productsCount = document.querySelectorAll('div[class*="product products__item _bArticle _pArticle"]');
+        if (productsCount && productsCount.length > results) {
           break;
         }
-        prevScroll = currentScroll;
       }
     }
-    await infiniteScroll();
-  });
-  try {
-    await new Promise((resolve) => setTimeout(resolve, 6000));
-  } catch (error) {
-    console.log('error: ', error);
-  }
+  }, results);
   await context.evaluate(async function () {
     function addHiddenDiv (id, content) {
       const newDiv = document.createElement('div');
