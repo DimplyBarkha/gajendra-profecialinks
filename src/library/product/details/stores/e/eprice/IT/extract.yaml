@@ -208,3 +208,5 @@ fields:
     xpath: //section[contains(@data-index_name,"prd_products_suggest")]//a
   - name: hasComparisonTable
     defaultValue: No
+  - name: inTheBoxText
+    xpath: //h4[contains(.,"Contenuto dell'imballo")]/following-sibling::ul[1]/li/span[1]
