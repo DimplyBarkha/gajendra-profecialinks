@@ -74,8 +74,6 @@ module.exports = {
       const description = getAllXpath("//div[@class='product-collateral']//div[@class='std']//p | //div[@class='product-collateral']//div[@class='std']//h4 | //div[@class='product-collateral']//div[@class='std']//h3", 'innerText').join(' ');
       // console.log(description);
       if (description) {
-        // var added_description = description.replace(/\-/g,"");
-
         addElementToDocument('added_description', description);
       }
 
