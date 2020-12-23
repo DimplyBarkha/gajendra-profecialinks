@@ -15,7 +15,7 @@ fields:
   - name: brandText
     description: Product brand shown - this may actually NOT be just a brand name,
       e.g. "Visit the Gillette Store"
-    xpath: ancestor::html//h6[contains(.,'Brand')]/following-sibling::div
+    xpath: ancestor::html//h6[contains(.,'Brand')]/following-sibling::div | ancestor::html//span[contains(.,'Brands') and contains(@class,"tagLabel")]/following-sibling::div/a
   - name: name
     description: The product name
     xpath: ancestor::html//header[@class='bop-title']/h2
