@@ -42,22 +42,7 @@ const transform = (data) => {
           item.text = "fastenal_" + item.text;
         });
       }
-
-
-      // if (row.otherSellersName) {
-      //   row.otherSellersName.forEach(item => {
-      //     console.log("item",item);
-      //     item.text = item.text.replace('Copyright © 2020', ' ').trim();
-      //     item.text = item.text.replace('. All Rights Reserved.', ' ').trim();
-      //     console.log("item.text",item.text);
-      //   });
-      // }
-
-
     }
-
-
-
   }
   return data;
 };
