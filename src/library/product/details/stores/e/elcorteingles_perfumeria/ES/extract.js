@@ -255,7 +255,8 @@ module.exports = {
         const productsData = `https://www.elcorteingles.es/api/product/${productID}?product_id=${productID}&store_id=${storeId}&original_store=${storeId}`;
         const apiDataResponse = await makeApiCall(productsData, {});
         addElementToDocument('SKU', JSON.parse(apiDataResponse).id);
-        addElementToDocument('mpc', JSON.parse(apiDataResponse)._product_model);
+        const mpc = JSON.parse(apiDataResponse) && JSON.parse(apiDataResponse)._product_model ? JSON.parse(apiDataResponse)._product_model : '';
+        addElementToDocument('mpc', mpc);
         addElementToDocument('promotion', JSON.parse(apiDataResponse).discount ? '-' + JSON.parse(apiDataResponse).discount + '%' : '');
 
         // Append a UL and LI tag append the variant info in the DOM
@@ -266,7 +267,7 @@ module.exports = {
         newUl.id = 'variantsadd';
         targetElement.appendChild(newUl);
         const ul = document.querySelector('#variantsadd');
-        const name = nameExtended();
+        const name = nameExtended();  // same for all variant
         const variantIds = [];
         variants.forEach(q => {
           if (q.skus && q.skus[0] && q.skus[0].reference_id) {
@@ -277,15 +278,25 @@ module.exports = {
           if (variants.length) {
             for (let i = 0; i < variants.length; i++) {
               const listItem = document.createElement('li');
-              setAttributes(listItem, {
-                nameExtended: `${nameExtended()}`,
-                color: variants[i].title,
-                gtin: variants[i].skus[0].gtin,
-                retailer_product_code: variants[i].skus[0].reference_id,
-                title: variants[i].title,
-                variantDetails: variantIds.join(' | '),
-                variantcount: variants.length,
-              });
+              const variantSKU = variants[i] && variants[i].skus && variants[i].skus[0] ? variants[i].skus[0] : '';
+              const color = variantSKU && variantSKU.color && variantSKU.color.title ? variantSKU.color.title : '';
+              const gtin = variantSKU && variantSKU.gtin ? variantSKU.gtin : '';
+              const retailer_product_code = variantSKU && variantSKU.reference_id ? variantSKU.reference_id : '';
+              const variantinformation = variantSKU ? variantInformation(variantSKU) : '';
+              const availability = variantSKU ? getAvailability(variantSKU) : '';
+              const variantInfo = {
+                nameExtended: name,
+                color,
+                gtin,
+                retailer_product_code,
+                variantinformation, // variantInformation,
+                variantDetails: variantIds.join(' | '), // variants
+                variantcount: variants.length, // variantCount
+                availability, // availabilityText
+              };
+              console.log(`variantInfo: ${JSON.stringify(variantInfo)}`);
+
+              setAttributes(listItem, variantInfo);
               ul.appendChild(listItem);
             }
           }

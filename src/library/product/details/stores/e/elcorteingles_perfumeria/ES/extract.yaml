@@ -3,11 +3,11 @@ singleRecord: false
 # regionsSelector: null
 # recordSelector: null
 # recordXPath: //div[contains(@class,"product_detail-aside")]//div[count(//div[contains(@class,"product_detail-colors")])>0]//ul[contains(@class,"colors_list")]/li | //div[contains(@class,"product_detail-aside")]//div[count(//div[contains(@class,"product_detail-colors")])!=1]//h1[@id="js-product-detail-title"] | //div[contains(@class,"product_detail-aside")]//div[contains(@class,"product_detail-colors") and count(//div[contains(@class,'colors_content_mobile')]) != 1]
-fields:
-    - name: availabilityText
-      singleValue: true
-      xpath : ancestor::html //div[@id='availability']
-      defaultValue: Out of Stock
+# fields:
+#   - name: availabilityText
+#     singleValue: true
+#     xpath : ancestor::html//div[@id='availability']
+#     defaultValue: Out of Stock
 #   - name: imageAlt
 #     singleValue: true
 #     xpath : ancestor::html //meta[@name="twitter:title"]/@content
