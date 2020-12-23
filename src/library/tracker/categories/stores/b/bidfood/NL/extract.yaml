@@ -1,0 +1,11 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: category
+    singleValue: false
+    xpath: //div[contains(@class,"product-detail-wrapper")]//div[@class="span7"]//table//td[contains(text(),"Categorie")]/parent::*/td[2]/a
+  - name: categoryUrl
+    singleValue: false
+    xpath: //div[contains(@class,"product-detail-wrapper")]//div[@class="span7"]//table//td[contains(text(),"Categorie")]/parent::*/td[2]/a/@href
