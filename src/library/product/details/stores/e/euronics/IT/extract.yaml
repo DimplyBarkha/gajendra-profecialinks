@@ -40,10 +40,8 @@ fields:
     description: Availability as described on page for the selected variant. If
       there is no availability but the product can be added to cart, this field
       should be "In Stock"
-    regExp: (.+)
-    regExpReplace: In Stock
     defaultValue: Out of Stock
-    xpath: substring('In Stock', 1, not(//a[@class='button button--grey cart__cta button--iconTxt ']) div 0)
+    xpath: //div[@id="stock"]
   - name: description
     singleValue: false
     description: Product description supplied by website - may be concatenanted from
@@ -70,11 +68,11 @@ fields:
   - name: weightNet
     singleValue: false
     description: Net weight as described on the page
-    xpath: //*[contains(text(), 'Peso-Kg')]/following-sibling::*[1] | //*[contains(text(), 'Peso-gr')]/following-sibling::*[1]
+    xpath: //*[contains(text(), 'Peso lordo')]/following-sibling::*[1] | //*[contains(text(), 'Peso senza base-Kg')]/following-sibling::*[1]
   - name: weightGross
-    singleValue: true
+    singleValue: false
     description: Gross weight as described on the page
-    xpath: //*[contains(text(), 'Peso lordo')]/following-sibling::*[1]
+    xpath: //*[contains(text(), 'Peso-Kg')]/following-sibling::*[1] | //*[contains(text(), 'Peso-gr')]/following-sibling::*[1]
   - name: gtin
     singleValue: true
     description: GTIN code (includes UPC/EAN) //script[contains(@src, flixfacts)]/@data-flix-ean
@@ -107,17 +105,18 @@ fields:
     singleValue: true
     description: Content under "warnings" header
   - name: ratingCount
-    singleValue: true
+    singleValue: false
     description: The number of ratings
-    type: NUMBER
+    xpath: (//div[contains(@class, 'bv_numReviews_text')])[1]
+    regExp: ([0-9]+)
+    regExpReplace: $1
   - name: aggregateRatingText
-    singleValue: true
+    singleValue: false
     description: The stated aggregate rating
   - name: aggregateRating
     singleValue: false
     description: The stated aggregate rating normalized to be out of 5
     xpath: (//button[@id='ratings-summary']/div[@class='bv_avgRating_component_container notranslate'])[1]
-    type: NUMBER
   - name: shippingInfo
     singleValue: true
     description: Shipping information for the product
@@ -445,8 +444,9 @@ fields:
     singleValue: true
     description: The unit of measurement used in price_per_unit
   - name: promotion
-    singleValue: true
+    singleValue: false
     description: promotion text on product page
+    xpath: //span[@class='productDetails__availability availability']
   - name: alcoholContent
     singleValue: true
     description: Alcohol content information
