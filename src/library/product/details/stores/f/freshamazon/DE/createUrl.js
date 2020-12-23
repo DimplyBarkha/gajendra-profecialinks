@@ -1,9 +1,11 @@
 
 module.exports = {
-  implements: 'navigation/goto/setZipCode',
+  implements: 'product/details/createUrl',
   parameterValues: {
-    country: 'DE',
     domain: 'freshamazon.de',
+    prefix: null,
+    url: null,
+    country: 'DE',
     store: 'freshamazon',
     zipcode: '',
   },

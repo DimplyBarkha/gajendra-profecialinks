@@ -5,14 +5,12 @@
  * @param { ImportIO.IContext } context
  * @param { { goto: ImportIO.Action, createUrl: ImportIO.Action} } dependencies
  */
-const implementation = async (inputs, { loadedSelector, noResultsXPath }, context, dependencies) => {
-  const { url, id } = inputs;
-  let builtUrl;
+const implementation = async ({ url, id, zipcode, storeId }, { loadedSelector, noResultsXPath }, context, dependencies) => {
   if (!url) {
     if (!id) throw new Error('No id provided');
-    else builtUrl = await dependencies.createUrl(inputs);
+    else url = await dependencies.createUrl({ id });
   }
-  await dependencies.goto({ url, zipcode, storeId, inputs });
+  await dependencies.goto({ url, zipcode, storeId });
 
   if (loadedSelector) {
     await context.waitForFunction(
@@ -24,16 +22,8 @@ const implementation = async (inputs, { loadedSelector, noResultsXPath }, contex
       noResultsXPath,
     );
   }
-
-  console.log('Checking no results', parameters.noResultsXPath);
-  return await context.evaluate(function (xp) {
-    const r = document.evaluate(xp, document, null, XPathResult.UNORDERED_NODE_ITERATOR_TYPE, null);
-    console.log(xp, r);
-    const e = r.iterateNext();
-    console.log(e);
-    return !e;
-  }, parameters.noResultsXPath);
-}
+  return await context.evaluate((xpath) => !document.evaluate(xpath, document, null, XPathResult.BOOLEAN_TYPE, null).booleanValue, noResultsXPath);
+};
 
 module.exports = {
   parameters: [
@@ -81,12 +71,6 @@ module.exports = {
     {
       name: 'storeId',
       description: 'storeId for product',
-      type: 'string',
-      optional: true,
-    },
-    {
-      name: 'zipcode',
-      description: 'zipcode to set  location',
       type: 'string',
       optional: true,
     },
