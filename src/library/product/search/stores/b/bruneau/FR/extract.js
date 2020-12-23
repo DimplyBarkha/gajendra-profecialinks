@@ -1,4 +1,4 @@
-const { transform } = require('../../../../shared')
+const { transform } = require('../../../../shared');
 
 const implementation = async (inputs, parameters, context, dependencies) => {
   const { transform } = parameters;
