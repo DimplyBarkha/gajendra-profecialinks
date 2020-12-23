@@ -45,12 +45,12 @@ fields:
     singleValue: false
   - name: rank
     singleValue: true
-    xpath: //div[@class="product-tile"]/@rank
+    xpath: //div[@class="product-tile"]/@rank | //li[@class="col-xs-6 col-sm-4 col-md-3 grid-product"]/@rank
     description: search/listing rank
     type: NUMBER
   - name: rankOrganic
     singleValue: true
-    xpath: //div[@clasks="product-tile"]/@rank
+    xpath: //div[@class="product-tile"]/@rank | //li[@class="col-xs-6 col-sm-4 col-md-3 grid-product"]/@rank
     description: The position (rank) within the list excluding sponsored/paid results
     type: NUMBER
   - name: sponsored
