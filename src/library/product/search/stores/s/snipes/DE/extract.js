@@ -10,13 +10,6 @@ module.exports = {
   },
   implementation: async ({ inputString }, { country, domain }, context, { productDetails }) => {
     await context.evaluate(async function () {
-      // function addElementToDocument(key, value) {
-      //   const catElement = document.createElement('div');
-      //   catElement.id = key;
-      //   catElement.textContent = value;
-      //   catElement.style.display = 'none';
-      //   document.body.appendChild(catElement);
-      // }
       function addHiddenDiv (id, content, index) {
         const newDiv = document.createElement('div');
         newDiv.id = id;
@@ -41,15 +34,17 @@ module.exports = {
         }
         return result;
       };
+      try {
+        // @ts-ignore
+        document.querySelector('button[class="f-button f-button--primary f-button--big js-localization-submit b-localization-submit-button"]').click();
+        // eslint-disable-next-line promise/param-names
+        await new Promise(r => setTimeout(r, 6000));
+      } catch (error) {
+
+      }
+
       // aggregateRating
       var str = getAllXpath('//div[@class="b-rating-value"]/@style', 'nodeValue');
-      // var regexp = /(\d+)%/;
-      // var result = String(str).match(regexp);
-      // var rating = result;
-      // if (rating != null) {
-      //   var rating1 = rating / 20;
-      //   addElementToDocument('aggregateRating', rating1);
-      // }
       if (str != null) {
         for (var i = 0; i < str.length; i++) {
           var abc = str[i].split(': ')[1];
