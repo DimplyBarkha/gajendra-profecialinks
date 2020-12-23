@@ -256,7 +256,17 @@ fields:
     singleValue: false
     description: Must include text to show the accessories/tools which come with the product
     xpath: //div[@class="in-the-box"]//p
+  # - name: unInterruptedPDPP
+  #   singleValue: false
+  #   description: Titles of products in the sections 'you may also like' or 'sponsored products'. Combine results from Max 3 sections
+  #   xpath: //*[contains(text(), "Andere Kunden kauften auch")]/ancestor::div[@class="productcarousel__header"]/following-sibling::div[contains(@class, "productcarousel__list")]//a[contains(@class, "product__content--default")]|//*[contains(text(), "Ihre zuletzt angesehenen Artikel")]/ancestor::div[@class="productcarousel__header"]/following-sibling::div[contains(@class, "productcarousel__list")]//a[contains(@class, "product__content--default")]
+  #   # regExp: (^(.*?)\s€)
+  #   # regExpReplace: $1
+  #   regExp: ^(.*?)14
+  #   regExpReplace: https:$1
+    # regExp: (.+?(?=€))
+    # regExpReplace: $1
   - name: unInterruptedPDP
     singleValue: false
     description: Titles of products in the sections 'you may also like' or 'sponsored products'. Combine results from Max 3 sections
-    xpath: //div[@class="en_mdl_product__name"]
+    xpath: //*[contains(text(), "Andere Kunden kauften auch")]/ancestor::div[@class="productcarousel__header"]/following-sibling::div[contains(@class, "productcarousel__list")]//a[contains(@class, "product__content--default")]|//*[contains(text(), "Ihre zuletzt angesehenen Artikel")]/ancestor::div[@class="productcarousel__header"]/following-sibling::div[contains(@class, "productcarousel__list")]//a[contains(@class, "product__content--default")]

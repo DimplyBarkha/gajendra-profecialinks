@@ -1,4 +1,4 @@
-const { cleanUp } = require('../../../../shared');
+const { cleanUp } = require('./format');
 
 module.exports = {
     implements: 'product/details/extract',
