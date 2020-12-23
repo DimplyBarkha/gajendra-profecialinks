@@ -8,18 +8,20 @@ const transform = (data) => {
     // var rank = 1;
     for (const row of group) {
       if (row.image) {
-        const image = row.image.map((item) => {
-          return 'https://shop.apotal.de' + item.text;
-        });
+        // const image = row.image.map((item) => {
+        //   return 'https://shop.apotal.de' + item.text;
+        // });
+        let image = row.image[0].text.split("'")[1];
+        image = 'https://shop.apotal.de' + image;
         row.image = [{ text: image, xpath: row.image[0].xpath }];
         row.imageZoomFeaturePresent = [{ text: 'Yes', xpath: row.image[0].xpath }];
       }
-      if (row.availabilityText) {
-        const availabilityTextArr = row.availabilityText.map((item) => {
-          return (typeof (item.text) === 'string') && (item.text.trim() === 'sofort lieferbar') ? 'In Stock' : 'Out of Stock';
-        });
-        row.availabilityText = [{ text: availabilityTextArr.join(), xpath: row.availabilityText[0].xpath }];
-      }
+      // if (row.availabilityText) {
+      //   const availabilityTextArr = row.availabilityText.map((item) => {
+      //     return (typeof (item.text) === 'string') && (item.text.trim() === 'sofort lieferbar') ? 'In Stock' : 'Out of Stock';
+      //   });
+      //   row.availabilityText = [{ text: availabilityTextArr.join(), xpath: row.availabilityText[0].xpath }];
+      // }
       if (row.description) {
         const descriptionArr = row.description.map((item) => {
           return typeof (item.text) === 'string' ? item.text.replace(/\n \n \n \n/g, '').replace(/\n \n \n \n \n/g, '') : '';

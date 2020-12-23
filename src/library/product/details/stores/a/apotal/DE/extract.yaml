@@ -10,10 +10,10 @@ fields:
     xpath: //div[@class="boxProductDetail"]//h1
     singleValue: false
   - name: nameExtended
-    xpath: concat(//div[@class="boxProductDetail"]//h1, ' - ', //div[@class="boxProductDetail"]//dd[@itemprop="brand"], ' - ', //div[@class="boxProductDetail"]//div[contains(@class,"similarProducts")]//div[contains(@class,"boxProductSimilar current")]//dl[@class="productInfos"]//dd)
+    xpath: //div[@class="boxProductDetail"]//h1
     singleValue: false
   - name: image
-    xpath: //div[@class="boxProductDetail"]//div[@class="image"]//img/@src
+    xpath: //div[@class="boxProductDetail"]//div[@class="image"]//img/@onClick
     singleValue: false
   - name: manufacturer
     xpath: //div[@class="boxProductDetail"]//dd[@class="producer"]
