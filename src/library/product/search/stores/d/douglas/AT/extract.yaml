@@ -4,29 +4,29 @@ recordSelector: null
 recordXPath: //td[@class="products depth_0"]//tbody/tr
 fields:
   - name: name
-    xpath: //td[contains(@class,"baseProductName")]
+    xpath: //td[@class="classifications depth_1"]//td[@class="name depth_2"] | //td[@class="brandPath depth_1"]//tr[3]//td[@class="name depth_2"] | //td[@class="baseProductName depth_1"] 
   - name: id
-    xpath: //td[contains(@class,"baseProduct")]
-  # - name: thumbnail
-  #   xpath: //div[@class="product-tile__image"]//img/@data-lazy-src
-  # - name: price
-  #   xpath: //div[contains(@class,"product-price__discount product-price__discount--unit")] | //div[contains(@class,"product-price__no-discount product-price__no-discount--unit ")]
-  # # - name: searchUrl
-  # #   xpath: '@search-url'
-  # - name: productUrl
-  #   xpath: //a[contains(@class,"product-tile__main-link")]/@href
-  #   regExp: (.+)
-  #   regExpReplace: https://www.douglas.at$1
-  # - name: reviewCount
-  #   xpath: //div[@class="product-tile__ratings-row"]
-  #   regExp: \((\d+)\)
-  #   regExpReplace: $1
-  # - name: aggregateRating2
-  #   xpath: //div[@class="product-tile__ratings-row"]
-  #   regExp: (\d.\d+\s)|\d\s
-  # - name: gtin
-  #   xpath: '@gtin'
-  # - name: manufacturer
-  #   xpath: //div[contains(@class,"product-tile__top-brand")]
-  # - name: rank
-  # - name: rankOrganic
+    xpath: //td[contains(@class,"code depth_1")]
+  - name: thumbnail
+    xpath: //td[contains(@class,"url depth_2")]
+  - name: price
+    xpath: //td[contains(@class,""value depth_3")]
+  # - name: searchUrl
+  #   xpath: '@search-url'
+  - name: productUrl
+    xpath: //td[contains(@class,"url depth_1")]
+    regExp: (.+)
+    regExpReplace: https://www.douglas.at$1
+  - name: reviewCount
+    xpath: //td[contains(@class,"numberOfReviews depth_1")]
+    regExp: \((\d+)\)
+    regExpReplace: $1
+  - name: aggregateRating2
+    xpath: //td[contains(@class,"ratingStars depth_1")]
+    regExp: (\d.\d+\s)|\d\s
+  - name: gtin
+    xpath: //td[contains(@class,"code depth_1")]
+  - name: manufacturer
+    xpath: //td[contains(@class,"name depth_2")]
+  - name: rank
+  - name: rankOrganic
