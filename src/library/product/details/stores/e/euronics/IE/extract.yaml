@@ -171,3 +171,7 @@ fields:
     xpath: //head//@intheboxurl
   - name: inTheBoxText
     xpath: //head//@intheboxtext
+  - name: unInterruptedPDP
+    singleValue: false
+    xpath: //h4[contains(text(), "Other Customers Were Interested")]/following-sibling::ul[contains(@class, "nosto-list")]//li//a[contains(@class, "nosto-product-name")]
+    description: Titles of products in the sections 'you may also like' or 'sponsored products'. Combine results from Max 3 sections
