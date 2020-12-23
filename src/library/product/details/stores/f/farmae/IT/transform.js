@@ -47,14 +47,16 @@ const transform = (data, context) => {
      
         if (row.aggregateRating) {
          
-          var ratobj = JSON.parse(row.aggregateRating[0].raw);
+          console.log(row.aggregateRating[0])
+          var ratobj = JSON.parse(row.aggregateRating[0].text);
           row.aggregateRating = [{ text: ratobj.aggregateRating.ratingValue }];
           console.log(ratobj);
         }
         if (row.ratingCount) {
-          // console.log(row.ratingCount);
-          var reviewcntobj = JSON.parse(row.ratingCount[0].raw);
+          console.log(row.ratingCount);
+          var reviewcntobj = JSON.parse(row.ratingCount[0].text);
           row.ratingCount = [{ text: reviewcntobj.aggregateRating.reviewCount }];
+          console.log(row.ratingCount);
         }
       } catch (exception) {
         console.log('Error in transform', exception);

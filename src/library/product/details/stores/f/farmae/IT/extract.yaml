@@ -91,16 +91,16 @@ fields:
     defaultValue: No
   - name: sku
     singleValue: true
-    xpath: //script[@type="application/ld+json"]
+    xpath: //script[@type="application/ld+json"][contains(text(), 'sku')]
     description: The store-specific product identifier
   - name: aggregateRating
     singleValue: true
     xpath: //script[contains(text(), 'ratingValue')]
     description: The stated aggregate rating normalized to be out of 5
-    type: NUMBER
+    # type: NUMBER
   - name: ratingCount
     singleValue: true
     xpath: //script[contains(text(), 'reviewCount')]
     # xpath: //*[@id="tp-widget-wrapper"]/div/div[1]/div/div[2]/span[contains(@class,'tp-widget-summary__count')]
     description: The number of ratings
-    type: NUMBER
+    # type: NUMBER
