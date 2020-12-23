@@ -32,7 +32,9 @@ fields:
     singleValue: false
   - name: price
     singleValue: false
-    xpath: concat(//span[@class="jum-product-price__current-price--larger"], ',', //span[@class="jum-product-price__current-price--larger"]/following-sibling::span)
+    xpath: //span[@class="d-flex font-weight-black"]
+    regExp: '(.*)(..$)'
+    regExpReplace: $1,$2
   - name: manufacturer
     singleValue: true
   - name: soldBy
