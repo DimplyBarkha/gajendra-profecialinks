@@ -122,14 +122,11 @@ fields:
     regExpReplace: $2
   - name: unInterruptedPDP
     singleValue: false
-    xpath: //h3[contains(text(),'Customer Also Viewed')]/parent::div/parent::div//@title
+    xpath: //div[@class='swiper-container swiper-container-initialized swiper-container-horizontal']//div[@class='e3js0d-10 cyUANN']
     description: Titles of products in the sections 'you may also like' or 'sponsored products'. Combine results from Max 3 sections
   - name: ingredientsList
     singleValue: false
     xpath: //tr[contains(.,"Ingredient")]//td[position()>1]
   - name: descriptionBullets
     singleValue: false
-    xpath: //div[@id='descriptionBulletCount']/text()
-  - name: unInterruptedPDP
-    singleValue: false
-    xpath: //div[@class='swiper-container swiper-container-initialized swiper-container-horizontal']//div[@class='e3js0d-10 cyUANN']
+    xpath: //div[@id='descriptionBulletCount']/text()  
