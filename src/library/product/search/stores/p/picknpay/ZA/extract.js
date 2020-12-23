@@ -38,20 +38,22 @@ async function implementation (inputs, parameters, context, dependencies) {
         product.setAttribute('rating', ratingObject.rating);
       }
       // set price
-      const priceElem = product.querySelector('div[class="item-price"] div');
-      const priceOne = priceElem.childNodes[0].textContent.match(priceReg);
-      const priceTwo = priceElem.childNodes[1].textContent.match(priceReg);
+      const priceElem = product.querySelector('div.currentPrice');
+      if (priceElem) {
+        const priceOne = priceElem.childNodes[0].textContent.match(priceReg);
+        const priceTwo = priceElem.childNodes[1].textContent.match(priceReg);
 
-      let price = '';
-      if (priceTwo !== null) {
-        price = priceOne + ',' + priceTwo;
-      } else {
-        price = priceOne.toString();
+        let price = '';
+        if (priceTwo !== null) {
+          price = priceOne + ',' + priceTwo;
+        } else {
+          price = priceOne.toString();
+        }
+        product.setAttribute('price', price);
       }
-      product.setAttribute('price', price);
     });
 
-    await new Promise((resolve, reject) => setTimeout(resolve, 1500));
+    // await new Promise((resolve, reject) => setTimeout(resolve, 1500));
   });
 
   return await context.extract(productDetails, { transform });

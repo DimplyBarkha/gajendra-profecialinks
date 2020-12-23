@@ -7,7 +7,7 @@ module.exports = {
     nextLinkSelector: 'li[class="pagination-next"]',
     mutationSelector: null,
     spinnerSelector: null,
-    loadedSelector: 'div[class="results"]',
+    loadedSelector: 'html',
     noResultsXPath: '//div[@class="no-results"]',
     resultsDivSelector: null,
     openSearchDefinition: null,

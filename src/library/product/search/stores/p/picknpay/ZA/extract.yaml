@@ -6,7 +6,7 @@ fields:
   - name: id
     singleValue: false
     xpath: //div[@class="productCarouselItemContainer"]/div/div/@data-pdt-code
-    regExp: (\d+)\_
+    regExp: (\d+\_[A-Z]+)
     regExpReplace: $1
   - name: searchUrl
     singleValue: true
