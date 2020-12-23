@@ -52,6 +52,15 @@ const transform = (data) => {
           item.text = item.text.replace(/cart\./g, 'zoom-desktop.').trim();
         });
       }
+      if (row.unInterruptedPDP) {
+        var arrTemp = [];
+        row.unInterruptedPDP.forEach(item => {
+          arrTemp.push(item.text);
+        });
+        if (arrTemp.length) {
+          row.unInterruptedPDP = [{ text: arrTemp.join(' || ') }];
+        }
+      }
       if (row.variants) {
         const variations = [];
         const vInfo = [];
