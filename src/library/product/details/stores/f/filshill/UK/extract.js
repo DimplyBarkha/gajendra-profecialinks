@@ -49,6 +49,7 @@ module.exports = {
       if(saturatedUOM != null  ){
         const sfatUOM = saturatedUOM ? saturatedUOM.match(/([\d\.]+)(.*)/) : [];
         addElementToDocument('sfat_uom',sfatUOM[2]);
+        addElementToDocument('sfat',sfatUOM[1]);
         console.log(sfatUOM[1]);
         }
 
@@ -57,6 +58,7 @@ module.exports = {
         if(totfatUOM != null  ){
           const tfat = totfatUOM ? totfatUOM.match(/([\d\.]+)(.*)/) : [];
           addElementToDocument('tfat_uom',tfat[2]);
+          addElementToDocument('tfat',tfat[1]);
           console.log(tfat[1]);
           }
 
@@ -65,6 +67,7 @@ module.exports = {
           if(totcarbUOM != null  ){
             const tcarb = totcarbUOM ? totcarbUOM.match(/([\d\.]+)(.*)/) : [];
             addElementToDocument('tcarb_uom',tcarb[2]);
+            addElementToDocument('tcarb',tcarb[1]);
             console.log(tcarb[1]);
             }
 
@@ -74,6 +77,7 @@ module.exports = {
           if(totsugarUOM != null  ){
             const tsuguom = totsugarUOM ? totsugarUOM.match(/([\d\.]+)(.*)/) : [];
             addElementToDocument('tsugar_uom',tsuguom[2]);
+            addElementToDocument('tsugar',tsuguom[1]);
             console.log(tsuguom[1]);
             }
 
@@ -83,14 +87,16 @@ module.exports = {
           if(totproteinUOM != null  ){
             const tprotienuom = totproteinUOM ? totproteinUOM.match(/([\d\.]+)(.*)/) : [];
             addElementToDocument('tprotien_uom',tprotienuom[2]);
+            addElementToDocument('tprotien',tprotienuom[1]);
             console.log(tprotienuom[1]);
             }
 
-          const totsaltUOM = getXpath("/html/body/table/tbody/tr/td[2]/div/table[5]/tbody/tr[2]/td/table/tbody/tr[3]/td[2]",'innerText');
+          const totsaltUOM = getXpath("//table[@class='detailsTable']/tbody/tr/td/table/tbody/tr/td[contains(.,'Salt')]/following-sibling::td[1]",'innerText');
           console.log("totalsaltuom: ", totsaltUOM);
           if(totsaltUOM != null  ){
             const tsaltuom = totsaltUOM ? totsaltUOM.match(/([\d\.]+)(.*)/) : [];
             addElementToDocument('tsalt_uom',tsaltuom[2]);
+            addElementToDocument('tsalt',tsaltuom[1]);
             console.log(tsaltuom[1]);
             }
             
