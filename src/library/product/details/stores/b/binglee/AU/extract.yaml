@@ -510,4 +510,5 @@ fields:
   - name: hasComparisonTable
     defaultValue: No
   - name: unInterruptedPDP
-    xpath: //div[contains(.,'You Might Also Like')][contains(@class,'tabbed-container-title')]/following-sibling::div[contains(@class,'tabbed-container-content')]//div[@class="slick-track"]/div[contains(@class,"slick-slide") and (not(contains(@class,'slick-cloned')))]
+    singleValue: false
+    xpath: //div[@class='product-name']/a[@class] | //div[contains(.,'You Might Also Like')][contains(@class,'tabbed-container-title')]/following-sibling::div[contains(@class,'tabbed-container-content')]//div[@class="slick-track"]/div[contains(@class,"slick-slide") and (not(contains(@class,'slick-cloned')))]
