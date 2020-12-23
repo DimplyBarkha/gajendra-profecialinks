@@ -209,4 +209,4 @@ fields:
   - name: hasComparisonTable
     defaultValue: No
   - name: inTheBoxText
-    xpath: //h4[contains(.,"Contenuto dell'imballo")]/following-sibling::ul[1]/li/span[1]
+    xpath: //h4[contains(.,"Contenuto dell'imballo")]/following-sibling::ul[preceding-sibling::h4[1][contains(.,"Contenuto dell'imballo")]]/li/span[1]
