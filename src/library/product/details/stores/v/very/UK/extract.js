@@ -6,6 +6,15 @@ async function implementation (inputs, parameters, context, dependencies) {
 
   await context.evaluate(async () => {
     await new Promise((resolve, reject) => setTimeout(resolve, 750));
+    try {
+      // @ts-ignore
+      if (window.universal_variable && window.universal_variable.product.id) {
+      // @ts-ignore
+        document.body.setAttribute('produt-id', window.universal_variable.product.id);
+      }
+    } catch (e) {
+      console.log('variant id not found');
+    }
   });
 
   // @ts-ignore
