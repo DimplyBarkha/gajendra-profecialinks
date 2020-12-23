@@ -508,7 +508,8 @@ fields:
   - name: inTheBoxText
     singleValue: false
     description: Must include text to show the accessories/tools which come with the product
-    xpath: //div[@class="in-the-box"] | //h4[contains(text(),"Meegeleverde accessoires")]/..//following-sibling::div//li
+    # xpath: //div[@class="in-the-box"] | //h4[contains(text(),"Meegeleverde accessoires")]/..//following-sibling::div//li
+    xpath: //h4[contains(text(),"Meegeleverde accessoires")]/..//following-sibling::div//li//span[@class="value"]//*[name()="svg" and not(contains(@class,"cross-red"))]/../../../span[@class="name"] | //h4[contains(text(),"Meegeleverde accessoires")]/..//following-sibling::div//li//span[@class="value"]/span/span/../../../span[@class="name"] | //h4[contains(text(),"Meegeleverde accessoires")]/..//following-sibling::div//li//span[@class="value"]/span/span
   - name: hasComparisonTable
     singleValue: true
     description: Compare the range table or matrix must be present for all vacuum cleaners & air treatment. This is not required for    personal care or lighting. As a minimum the comparison table will compare against 1 additional Dyson product.
