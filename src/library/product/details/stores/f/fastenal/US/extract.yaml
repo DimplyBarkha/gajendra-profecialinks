@@ -37,7 +37,7 @@ fields:
     singleValue: false
     description: Product description supplied by website - may be concatenanted from
       multiple places; specifically not the manufacturer description
-    xpath: //div[@id='note']/p
+    xpath: //div[@id='note']/p//div[@id='note']/p |  //div[@id='note']/text()[1]
   - name: descriptionBullets
     singleValue: true
     description: Number of ul > li tags in the description
@@ -211,10 +211,11 @@ fields:
   - name: featureBullets
     singleValue: false
     description: null
-    xpath: //div[@id='note']/ul/li
+    xpath: //div[@id='note']/ul/li/text()
   - name: otherSellersName
     singleValue: false
-    xpath: //div[@class='copyright']
+    # xpath: //div[@class='copyright']
+    defaultValue: Fastenal Company
   - name: otherSellersShipping
     singleValue: false
     description: null
