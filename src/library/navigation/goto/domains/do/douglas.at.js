@@ -1,5 +1,5 @@
 
-mmodule.exports = {
+module.exports = {
   implements: 'navigation/goto',
   parameterValues: {
     domain: 'douglas.at',

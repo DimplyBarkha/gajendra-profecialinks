@@ -5,9 +5,8 @@ module.exports = {
     country: 'AT',
     store: 'douglas',
     domain: 'douglas.at',
-    url: 'https://www.douglas.at/de/search?q={searchTerms}',
-    loadedSelector: '.product-tile:last-child img',
-    noResultsXPath: '//div[contains(@class,"search-page--empty")]',
+    noResultsXPath: null,
+    url: 'https://www.douglas.at/jsapi/v2/products/search?currentPage=0&pageSize=48&query={searchTerms}&fields=FULL&crealyticsSpaEnabled=true#[!opt!]{"type":"json"}[/!opt!]',
     zipcode: '',
   },
 };
