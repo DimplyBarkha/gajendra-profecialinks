@@ -39,7 +39,6 @@ module.exports = {
       }
 
       const currentProduct = document.querySelector('.private-product-detail__content');
-      // const zipcodeInput = document.querySelector('.input-text__label')?.nextElementSibling;
       const headLinesOfProduct = document.querySelectorAll('.headline1-r');
       const pricePerUnit = headLinesOfProduct[headLinesOfProduct.length - 1];
       const packSize = headLinesOfProduct[headLinesOfProduct.length - 2]
@@ -47,7 +46,6 @@ module.exports = {
         .match(/\d{0,} ud./);
 
       const skuNumber = location.href.match(/\/product\/(.*?)\//)[1];
-      console.log(skuNumber);
 
       if (currentProduct) {
         if (packSize) {
