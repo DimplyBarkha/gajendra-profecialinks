@@ -23,8 +23,14 @@ const transform = (data) => {
     return data;
   };
   for (const { group } of data) {
-    var rank = 1;
-    for (let row of group) {               
+    var rank = 1;let idStr='';
+    for (let row of group) { 
+      if(row.id){
+        row.id.forEach(item=>{
+          idStr="P_"+item.text;
+        })
+      }
+      row.productUrl=[{"text":"https://www.shufersal.co.il/online/he/details/p/"+idStr}];
       row.rank = [{ "text": rank }];
       row.rankOrganic = [{ "text": rank }];
       rank++;

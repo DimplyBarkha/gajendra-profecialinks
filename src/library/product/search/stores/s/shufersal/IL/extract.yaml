@@ -11,11 +11,9 @@ fields:
   - name: productUrl
     singleValue: false
     xpath: //ul[@id="mainProductGrid"]/li//a[@class="imgContainer"]/@href
-    regExp: (.+)
-    regExpReplace: https://www.shufersal.co.il$1
   - name: name
     singleValue: false
-    xpath: //ul[@id="mainProductGrid"]/li//div[@class="textContainer"]//div[@class="text"]/a/strong
+    xpath: //ul[@id="mainProductGrid"]/li//div[@class="textContainer"]//div[@class="text"]/a/strong | //ul[@id="mainProductGrid"]/li//div[@class="textContainer"]//div[@class="text"]/strong
   - name: thumbnail
     singleValue: false
     xpath: //ul[@id="mainProductGrid"]/li//a[@class="imgContainer"]/img/@src
