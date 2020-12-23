@@ -160,8 +160,8 @@ fields:
     singleValue: false
     description: Images within the third party description
     xpath: //div[contains(@class, "inpage_block")]//img/@srcset | //div[@id="product-tab-description"]//img/@src | //div[contains(@id, "product-tab-description-panel")]//img/@src
-    regExp: (.+)
-    RegExpReplace: https:$1
+    regExp: (\/\/.+)
+    regExpReplace: https:$1
   - name: videos
     singleValue: false
     description: URLs of videos on page
