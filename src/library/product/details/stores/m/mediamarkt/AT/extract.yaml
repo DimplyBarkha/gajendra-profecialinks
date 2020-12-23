@@ -65,7 +65,7 @@ fields:
     xpath: (//div[contains(@class, "dy-icon-info-promo-popup")]|//div[contains(@class, "price-old-you-save")])[1]
   - name: brandText
     singleValue: true
-    xpath: //div[contains(@class, "DetailsHeader")]//img/@alt
+    xpath: //a[contains(@class,'Linkstyled__StyledLinkAnchor-sc-1drhx1h-0 jFLlhC DetailsHeader__StyledLink-sc-1pqzue0-0 kBiqql')]/span
     description: Product brand shown - this may actually NOT be just a brand name,
       e.g. "Visit the Gillette Store"
   - name: manufacturer
