@@ -1,0 +1,32 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: //div[@class='category-products']/ul/li[@class=' item']
+fields:
+  - name: name
+    singleValue: false
+    xpath: //div[@class='category-products-grid']//h2[@class='product-name']/a/text()
+  - name: price    
+    singleValue: false    
+    xpath: //div[@class='category-products-grid']//div[@class='price-box']//span[@class='regular-price']/span[@class='price']/text() | //div[@class='category-products-grid']//div[@class='price-box']//p[@class='special-price']/span[@class='price']/text()
+  - name: productUrl
+    singleValue: false
+    xpath: //div[@class='category-products-grid']//h2[@class='product-name']/a/@href
+  - name: thumbnail
+    singleValue: false
+    xpath: //div[@class='category-products-grid']//div[@class='images-container']//a/img/@src
+  - name: id
+    singleValue: false
+    xpath: //div[@class='category-products-grid']//h2[@class='product-name']/a/text()
+    regExp: ( - )(\d+)(-)(\d+)
+    regExpReplace: $2-$4  
+  - name: aggregateRating
+    singleValue: false
+    type: NUMBER
+    xpath: 
+  - name: reviewCount
+    singleValue: false
+    type: NUMBER
+    xpath: 
+    regExp: (\d*)
+    regExpReplace: $1
