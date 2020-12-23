@@ -198,7 +198,7 @@ fields:
   - name: highQualityImages
     xpath: //div[@id='product_image']
   - name: allergens
-    xpath: //h3[contains(text(),"Ingredientes y alérgenos")]/..//ul
+    xpath: //body//@allergen
   - name : nutritionInfo
     xpath: //div[@class="info _nutrients"]/table/tbody/tr[position() > 2]
   

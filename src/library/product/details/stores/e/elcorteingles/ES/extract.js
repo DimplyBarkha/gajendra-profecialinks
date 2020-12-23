@@ -10,6 +10,12 @@ module.exports = {
   },
 
   implementation: async ({ inputString }, { country, domain, transform }, context, { productDetails }) => {
+    await context.evaluate(() => {
+      if (document.querySelector('div > div.sitemanager-data.disabled')) {
+        throw new Error('ERROR: Not a Product Page');
+      }
+    });
+
     await context.evaluate(async function () {
       const searchPage = document.querySelector('div.artwork.image');
       if (searchPage) {
@@ -71,6 +77,12 @@ module.exports = {
         addElementToDocument('product_description', imageData.description);
       }
 
+      const allergensArray = document.evaluate(`//h3[normalize-space(text())='Ingredientes y alérgenos']/following-sibling::ul[1]/li/b`, document, null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
+      if (allergensArray.snapshotLength) {
+        const results = Array(allergensArray.snapshotLength).fill(0).map((element, index) => allergensArray.snapshotItem(index).textContent);
+        const allergen = results.join(', ');
+        document.body.setAttribute('allergen', allergen);
+      }
       // elements from data Layer object
       const dataObj = findJsonData('dataLayer', '=', ';');
       // Check for the data and append to DOM
