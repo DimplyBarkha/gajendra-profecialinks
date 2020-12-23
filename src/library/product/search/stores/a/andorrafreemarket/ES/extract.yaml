@@ -22,20 +22,27 @@ fields:
     xpath: //div[@class="category-products"]//ul/li//div[@class="price-box"]
   - name: sku
     singleValue: false
-    xpath: //div[@class="category-products"]//ul/li//p[1]
-    regExp: (AFM.*?):\s(\d.*)
+    # xpath: //div[@class="category-products"]//ul/li//p[1]
+    # regExp: (AFM.*?):\s(\d.*)
+    # regExpReplace: $2
+    xpath: //div[contains(@class,"product-shop-inner")]//div[contains(@class,"sku")]
+    regExp: (.+)\s(\d+)
     regExpReplace: $2
   - name: rankOrganic
     singleValue: false
     xpath: //div[@class="category-products"]//ul/li
   - name: productUrl
     singleValue: false
-    xpath: //div[@class="category-products"]//ul/li//div[@class="product-image-wrapper"]/a/@href
+    # xpath: //div[@class="category-products"]//ul/li//div[@class="product-image-wrapper"]/a/@href
+    xpath: //div[contains(@class,"product-shop-inner")]//h2[contains(@class,"product-name")]//a/@href
   - name: brandText
     singleValue: false
     xpath: //div[@class="category-products"]//ul/li//div[@class="product-image-wrapper"]/img/@alt
   - name: id
     singleValue: false
-    xpath: //div[@class="category-products"]//ul/li//p[1]
-    regExp: (AFM.*?):\s(\d.*)
+    # xpath: //div[@class="category-products"]//ul/li//p[1]
+    # regExp: (AFM.*?):\s(\d.*)
+    # regExpReplace: $2
+    xpath: //div[contains(@class,"product-shop-inner")]//div[contains(@class,"sku")]
+    regExp: (.+)\s(\d+)
     regExpReplace: $2

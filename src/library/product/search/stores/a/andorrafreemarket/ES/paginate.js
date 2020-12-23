@@ -4,14 +4,14 @@ module.exports = {
   parameterValues: {
     country: 'ES',
     store: 'andorrafreemarket',
-    nextLinkSelector: null,
+    nextLinkSelector: 'div[class="category-products"]>div[class="toolbar"]>div[class="pager"]>div>ol>li[class="next"] a.next',
     mutationSelector: null,
     spinnerSelector: null,
     loadedSelector: 'div[class="category-products"]',
     noResultsXPath: '//p[contains(@class,"empty-catalog")]',
-    openSearchDefinition: {
-      template: 'https://www.andorrafreemarket.com/catalogsearch/result/index/?cat=0&p={page}&q={searchTerms}',
-    },
+    // openSearchDefinition: {
+    //   template: 'https://www.andorrafreemarket.com/catalogsearch/result/index/?cat=0&p={page}&q={searchTerms}',
+    // },
     domain: 'andorrafreemarket.com',
     zipcode: '',
   },
