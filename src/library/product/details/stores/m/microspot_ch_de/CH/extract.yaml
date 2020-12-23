@@ -117,7 +117,8 @@ fields:
   - name: shippingInfo
     singleValue: true
     description: Shipping information for the product
-    xpath: //html//div[@id="ship"]
+    # xpath: //html//div[@id="ship"]
+    xpath: //div[contains(text(),'Verkauft durch')]/span/text()
   - name: shippingDimensions
     singleValue: true
     description: Stated shipping dimensions
