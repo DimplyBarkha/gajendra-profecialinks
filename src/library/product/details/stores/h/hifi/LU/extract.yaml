@@ -217,10 +217,8 @@ fields:
     regExp: (.*)p\/(\d+)(.*)
     regExpReplace: $2
   - name: inTheBoxText
-    singleValue: false
     xpath: //div[@class="block-header"][contains(.,"inclus")]/following-sibling::div//span[@class="name"]/following-sibling::span[contains(.,"Dans la boîte")] | //strong[contains(.,"Dans la boîte")]/following-sibling::text() | //div[@class="block-header"][contains(.,"inclus") or contains(.,"Accessoires")]/following-sibling::div//li/span[@class="name"]
   - name: hasComparisonTable
-    singleValue: false
     defaultValue: No
   - name: unInterruptedPDP
-    xpath: //section[contains(@class,"alt-product-slider")]//div[@class="product"]//div[@class='top-content']
+    xpath: //section[contains(@class,"alt-product-slider")]//div[@class="product"]//div[@class='top-content']//h3[@class='product-title h-style-5']
