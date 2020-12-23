@@ -1,0 +1,42 @@
+extends: ../../../../sharedAmazon/shared
+fields:
+  - name: topReviewsInformation
+    singleValue: false
+    xpath: //div[contains(@id, "dp-review-list")]//div[@data-hook='review-collapsed']/span/text()
+  - name: brandText
+    singleValue: false
+    xpath: //*[normalize-space(text())="Marca" or normalize-space(text())="Marca:" or normalize-space(text())="Nombre de la marca"]/following-sibling::*[1]
+  - name: manufacturer
+    singleValue: false
+    xpath: //*[normalize-space(text())='Produttore']/following-sibling::*[1] | //*[normalize-space(text())='Produttore :']/following-sibling::*[1]
+  - name: extraDescription
+    xpath: //div[@id="productDescription"][not(h3)]/*[not(@class="disclaim")] | //div[@id="productDescription"]/h3[1]/following-sibling::*[count(preceding-sibling::h3)=1][not(name()="h3")]/text()
+  - name: weightNet
+    singleValue: false
+    xpath: //*[normalize-space(text())="Peso articolo"]/following-sibling::*[1] | //*[normalize-space(text())="Peso articolo :"]/following-sibling::*[1]
+    regExp: '[^;]+$'
+  - name: directions
+    singleValue: false
+    xpath: //div[contains(@id, 'important-information')]/div[contains(@class,'content')]/h4[contains(text(), 'Indicazioni')]/../p[text()]/text()
+  - name: warnings
+    singleValue: false
+    xpath: (//*[contains(@class, 'a-alert-heading') and contains(text(), 'Avvertenze')]/following-sibling::div[contains(@class, 'a-alert-content')] | //div[contains(@id, 'important-information')]/div[contains(@class,'content')]/h4[contains(text(), 'Informazioni sulla sicurezza')]/../p[text()]/text() | //div[contains(@id, "important-information")]/div[contains(@class, "a-section content") and contains(., "Avvertenze")])[1]/p[text()]/text() | (//div[@id='importantInformation_feature_div']//div[contains(.,'Informazioni sulla sicurezza')]/p)
+  - name: shippingInfo
+    singleValue: false
+    xpath: //*[@id="shipsFromSoldByInsideBuyBox_feature_div"] | //div[contains(@id,"freshShipsFromSoldBy")] | //span[contains(@class,"buybox") and contains(text(),"spedito da")]//parent::td//following-sibling::td/span/span[not(@aria-hidden="true")] | //div[contains(@id,"shipsFromSoldBy")]/div[@id="merchant-info"] | //body/@shipping-info | //*[@id="sellerProfileTriggerId"]/..
+  - name: ingredientsList
+    xpath: //div[@id='importantInformation_feature_div']//div[contains(.,'Ingredienti')]/p | //td[contains(.,"Ingredienti")]/following-sibling::td//span[@class="a-truncate-full a-offscreen"]
+  - name: countryOfOrigin   
+    xpath: //li[contains(.,"Origin:")] | //*[normalize-space(text())="Paese d'origine"]/following-sibling::*[1] | //*[contains(text(),"Paese d'origine")]/following-sibling::*[1]
+    regExp: '[^:]+$'
+  - name: ratingCount
+    singleValue: false   
+    xpath: //div[@id='productDetails_db_sections']//span[@id="acrCustomerReviewText"]/text()
+  - name: reviewCount
+    singleValue: false  
+    xpath: //div[@id='productDetails_db_sections']//span[@id="acrCustomerReviewText"]/text()
+    regExp: >-
+      [^a-zA-Z ]+
+  - name: aggregateRating
+    xpath: //div[@id='productDetails_db_sections']//span[@id="acrPopover"]/@title
+    regExp: ^[^\s]+
