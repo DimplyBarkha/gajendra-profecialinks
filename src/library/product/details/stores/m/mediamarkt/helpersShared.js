@@ -56,7 +56,6 @@ class SharedHelpers {
       waitUntil: 'load',
     });
     try {
-      // await this.context.waitForSelector('div.preview-more a', { timeout: 35000 });
       await this.context.waitForSelector('div.more, .preview-more a', { timeout: 35000 });
       await this.context.click('div.more, .preview-more a');
     } catch (error) {
@@ -107,10 +106,28 @@ class SharedHelpers {
     await this.context.waitForSelector(imgSelector, { timeout: 30000 });
     const images = await this.context.evaluate(async function (imgSelector, getAttrImgSrc) {
       const images = document.querySelectorAll(imgSelector);
+      const backImgs = [...document.querySelectorAll('*[style*="background-image"]')];
+      const src = [];
+      let srcUnique = [];
+      if (backImgs) {
+        backImgs.forEach(img => {
+          let link = img.getAttribute('style').replace(/(.+\()(.+)(\))(.+)?/, '$2');
+          if (link.includes('"')) {
+            link = link.replace(/"/g, '');
+          }
+          src.push(link);
+        });
+        srcUnique = [...new Set(src)];
+      }
       const imagesSrc = [];
       [...images].forEach((element) => {
         imagesSrc.push(element.getAttribute(getAttrImgSrc));
       });
+      if (srcUnique.length >= 1) {
+        srcUnique.forEach(src => {
+          imagesSrc.push(src);
+        });
+      }
       return imagesSrc;
     }, imgSelector, getAttrImgSrc);
     image = images;

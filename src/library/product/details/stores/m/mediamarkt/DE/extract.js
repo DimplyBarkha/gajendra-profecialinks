@@ -172,7 +172,7 @@ module.exports = {
     const productID = await sharedhelpers.getEleByXpath('(//span[contains(@class, "DetailsHeader__")]//span)[1]');
 
     async function graphQLCallObj (productID) {
-      const obj = await context.evaluate(async function (productID) {
+      const upc = await context.evaluate(async function (productID) {
         const productIDText = productID.replace('| Art.-Nr. ', '').replace(' | ', '').trim();
         const graphQLCall = `GraphqlProduct:${productIDText}`;
         console.log(graphQLCall);
@@ -206,7 +206,7 @@ module.exports = {
                   console.log('Product Found!!!!');
                   const data = await response.json();
                   console.log(data);
-                  if (data) {
+                  if (data.length === 1) {
                     const vids = data[0].videos;
                     vids.forEach(vid => {
                       let link = vid.links[0].location;
@@ -227,12 +227,12 @@ module.exports = {
         }
         return ean;
       }, productID);
-      return obj;
+      return upc;
     }
-    const graphQLObj = await graphQLCallObj(productID);
+    const UPC = await graphQLCallObj(productID);
 
-    if (graphQLObj !== null) {
-      await sharedhelpers.addHiddenInfo('ii_ean', graphQLObj.ean);
+    if (UPC !== null) {
+      await sharedhelpers.addHiddenInfo('ii_ean', UPC);
     }
 
     // For alternate images
@@ -289,6 +289,13 @@ module.exports = {
       console.log(e.message);
     }
 
+    await context.evaluate(() => {
+      const moreFeatures = document.querySelector('button[class*="ProductFeatures"]');
+      if (moreFeatures) {
+        moreFeatures.click();
+      }
+    });
+
     // For unInterruptedPDP
     try {
       await context.evaluate(async () => {
@@ -296,10 +303,9 @@ module.exports = {
         if (scrollDiv) {
           console.log('SCROLL DIV EXISTS');
           scrollDiv.scrollIntoView({ behavior: 'smooth' });
-          // const delay = t => new Promise(resolve => setTimeout(resolve, t));
-          // await delay(2000);
         }
       });
+      await context.waitForXPath('//div[contains(@class, "RecommendationSlider")]//p[@data-test="product-title"] | //div[contains(@class, "slick-slide")]//p[@data-test="product-title"]');
     } catch (e) {
       console.log(e.message);
     }
