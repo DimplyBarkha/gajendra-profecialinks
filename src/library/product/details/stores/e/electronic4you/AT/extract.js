@@ -15,6 +15,12 @@ module.exports = {
     await new Promise((resolve, reject) => setTimeout(resolve, 10000));
     await context.click('li#tab-description a');
     
+    try {
+      await context.waitForSelector('div#flix-inpage', { timeout: 45000 });
+    } catch(error) {
+      console.log('No CTR');
+    }
+
     async function scrollToRec (node) {
       await context.evaluate(async (node) => {
         const element = document.querySelector(node) || null;
@@ -30,6 +36,7 @@ module.exports = {
     await scrollToRec('div#flix-inpage');
     await scrollToRec('div.footer-container');
     
+
     try {
       await context.waitForSelector('div#flix-comp', { timeout: 45000 });
     } catch(error) {
@@ -149,6 +156,9 @@ module.exports = {
       const aggRating = document.querySelector('span.ts-reviewSummary-ratingValue')
         ? document.querySelector('span.ts-reviewSummary-ratingValue').innerText : '';
       addElementToDocument('aggRating', aggRating.replace(/(\d+)\.?(\d+)?/g, '$1,$2'));
+      if (!!document.querySelector('div.flix-comp-h2')) {
+        addElementToDocument('ii_compare', !!document.querySelector('div.flix-comp-h2'));
+      }
     });
     await context.extract(productDetails, {transform});
   },
