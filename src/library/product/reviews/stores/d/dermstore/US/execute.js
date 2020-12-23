@@ -5,7 +5,7 @@ module.exports = {
     store: 'dermstore',
     domain: 'dermstore.com',
     loadedSelector: 'div.reviews',
-    noResultsXPath: "//h1[contains(text(),'OOPS!')]",
+    noResultsXPath: '//p[contains(text(),"No Reviews yet")]',
     reviewUrl: null,
     sortButtonSelectors: null,
     zipcode: '',

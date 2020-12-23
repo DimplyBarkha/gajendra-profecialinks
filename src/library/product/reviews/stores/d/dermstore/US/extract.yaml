@@ -6,6 +6,8 @@ fields:
   - name: helpfulCount
     singleValue: false
     type: NUMBER
+    xpath: //p[contains(@class,"clearfix text-right helpful")]
+    regExp: \d+
     description: Number of people who said the review was helpful
   - name: commentCount
     singleValue: false
