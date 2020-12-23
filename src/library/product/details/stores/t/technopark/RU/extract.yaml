@@ -183,4 +183,5 @@ fields:
   - name: inTheBoxText
     xpath: //h3[contains(.,"Комплектация")]/following-sibling::ul/li//p | /html[not(//h3[contains(.,"Комплектация")]/following-sibling::ul/li//p)]//*[contains(@class,"product__spec__title")][contains(text(),"Комплектация")]/following-sibling::div/div
   - name: inTheBoxUrl
-    xpath: //h3[contains(.,"Комплектация")]/following-sibling::ul/li//img/@src
+    xpath: //h3[contains(.,"Комплектация")]/following-sibling::ul/li//img
+    type: IMAGE

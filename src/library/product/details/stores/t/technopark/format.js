@@ -102,6 +102,9 @@ const transform = (data) => {
         const pdps = row.unInterruptedPDP.map(elm => elm.text.trim());
         row.unInterruptedPDP = Array.from(new Set(pdps)).map(text => ({ text }));
       }
+      if (row.inTheBoxUrl) {
+        row.inTheBoxUrl.forEach(elm => { if (!elm.text) { elm.text = elm.src; } });
+      }
     }
   }
   data.forEach(obj => obj.group.forEach(row => Object.keys(row).forEach(header => row[header].forEach(el => {
