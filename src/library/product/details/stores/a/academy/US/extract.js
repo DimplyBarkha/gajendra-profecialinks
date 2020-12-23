@@ -17,6 +17,13 @@ module.exports = {
         catElement.style.display = 'none';
         document.body.appendChild(catElement);
       }
+      function stall (ms) {
+        return new Promise((resolve, reject) => {
+          setTimeout(() => {
+            resolve();
+          }, ms);
+        });
+      }
 
       const getXpath = (xpath, prop) => {
         const elem = document.evaluate(xpath, document, null, XPathResult.ANY_UNORDERED_NODE_TYPE, null);
@@ -40,10 +47,18 @@ module.exports = {
       // console.log('category   ' + category);
       // addElementToDocument('added_category', category);
 
-      const description = getAllXpath("//div[@class='product-details-content']//div[@class=''] | //div[@class='product-details-content']//div[@class='active']", 'innerText');
-      console.log('description   ' + description);
-      addElementToDocument('added_description', description);
+      // const description = getAllXpath("//div[@class='product-details-content']//div[@class=''] | //div[@class='product-details-content']//div[@class='active']", 'innerText');
+      // console.log('description   ' + description);
+      // addElementToDocument('added_description', description);
 
+      const addtionalDescBullets = getAllXpath("//div[@class='product-details-content']//div[@class='']//li", 'innerText');
+      if (addtionalDescBullets) {
+        var additionalDescBulletText = addtionalDescBullets.join('|| ');
+        addElementToDocument('addedAdditionaDescBullets', additionalDescBulletText);
+      }
+      const addtionalDesc = getAllXpath("//div[@class='product-details-content']//div[@class='css-nx0jru']//text()", 'nodeValue');
+      var finalText = (additionalDescBulletText !== '') ? (addtionalDesc + ' | ' + additionalDescBulletText) : addtionalDesc;
+      addElementToDocument('added_description', finalText);
       // const alternateImages = getAllXpath("//div[@id='offer-bg']//div[@id='offerImges']/div[position()>1]/img/@src", 'nodeValue').join(' | ');
       // console.log('alternateImages   ' + alternateImages);
       // addElementToDocument('added_alternateImages', alternateImages);
@@ -55,7 +70,6 @@ module.exports = {
       // const color = getXpath("//div[@class='d-flex css-aw3xrg']", 'content');
       // const colorValue = color.split(":")[1]
       // addElementToDocument('added_color', colorValue);
-
       // let listPrice = getXpath("//div[@id='DealValueWrap']", 'innerText');
       // console.log('listPrice ', listPrice);
       // let listPriceValue;
@@ -83,8 +97,13 @@ module.exports = {
       }
       addElementToDocument('added_netWeight', netWeight);
 
+      let netSize = getXpath("//header[@data-auid='PDP_Size_heading']//div[@class='d-flex css-aw3xrg'] | //header[@data-auid='PDP_Shoe Size_heading']//div[@class='d-flex css-aw3xrg']", 'innerText');
+      if (netSize != null) {
+        netSize = netSize.split(':')[1];
+      }
+      addElementToDocument('added_netSize', netSize);
+
       let technicalDoc = getXpath("//div[@role='list']//a//@href", 'nodeValue');
-      console.log('technicalDoc   ' + technicalDoc);
       if (technicalDoc != null && technicalDoc.includes('https')) {
         technicalDoc = 'Yes';
       } else {
@@ -93,7 +112,37 @@ module.exports = {
       addElementToDocument('added_technicalDoc', technicalDoc);
 
       addElementToDocument('added_variantCount', 0);
+      if (document.querySelector('li.PDP_REVIEWS')) {
+        // @ts-ignore
+        document.querySelector('li.PDP_REVIEWS').click();
+        // eslint-disable-next-line promise/param-names
+        await new Promise(r => setTimeout(r, 1000));
+      }
+      let scrollTop = 500;
+      while (true) {
+        window.scroll(0, scrollTop);
+        await stall(1000);
+        scrollTop += 500;
+        if (scrollTop === 10000) {
+          break;
+        }
+      }
+      const ratingCount1 = getXpath('//div[@class="bv-control-bar"]//div[@class="bv-control-bar-count"]//span', 'innerText');
+      if (ratingCount1) {
+        const ratingArray = ratingCount1.split(' ');
+        const ratingVal = ratingArray[2];
+        addElementToDocument('added_ratingCount1', ratingVal);
+      }
     });
+    // await context.evaluate(async () => {
+    //   if (document.querySelector('li.PDP_REVIEWS')) {
+    //     // @ts-ignore
+    //     document.querySelector('li.PDP_REVIEWS').click();
+    //     // eslint-disable-next-line promise/param-names
+    //     await new Promise(r => setTimeout(r, 1000));
+    //   }
+    // });
+
     await context.extract(productDetails);
   },
 };
