@@ -103,3 +103,12 @@ fields:
   - name: imageZoomFeaturePresent
     singleValue: false
     defaultValue: 'Yes'
+  - name: variantInformation
+    singleValue: false
+    xpath: //div[contains(@class,'color')]//span[contains(@class,'normal')]
+  - name: variants
+    singleValue: false
+    xpath: //div[@id='custom-variants']
+  - name: variantCount
+    singleValue: false
+    xpath: //div[@id='custom-variants-count']

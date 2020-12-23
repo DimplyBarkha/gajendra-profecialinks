@@ -1,40 +1,32 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: "//div[contains(@class,'search-results-4-grid')]"
-
+recordXPath: //div[@id="testId-searchResults-products"]/div[not(contains(@class,"hide"))]
 fields:
-  - name: id
-    singleValue: false
-    xpath: //div/@data-key
-  - name: productUrl
-    singleValue: false
-    xpath: //a[contains(@class,'layout_grid-view')]/@href
-  - name: thumbnail
-    singleValue: false
-    xpath: //a[contains(@class,'layout_grid-view')]//img/@src    
   - name: name
     singleValue: false
-    xpath: //b[contains(@id,'testId-pod-displaySubTitle')]
-  - name: soldBy
+    xpath: //div[@id="testId-searchResults-products"]/div[not(contains(@class,"hide"))]//div[contains(@class,"pod-details-4_GRID")]//b[contains(@class,"pod-subTitle")]
+  - name: id
     singleValue: false
-    xpath: //b[contains(@class,'pod-sellerText')]
+    xpath: //div[@id="testId-searchResults-products"]/div[not(contains(@class,"hide"))]/div/@data-key
+  - name: productUrl
+    singleValue: false
+    xpath: //div[@id="testId-searchResults-products"]/div[not(contains(@class,"hide"))]//div[@class="jsx-1637297673"]/a/@href
+  - name: thumbnail
+    singleValue: false
+    xpath: //div[@id="testId-searchResults-products"]/div[not(contains(@class,"hide"))]//div[@class="jsx-1637297673"]/a/img/@src
   - name: price
     singleValue: false
-    xpath: //li[contains(@class,'price-2') or contains(@class,'price-1') or contains(@class,'price-0')][1]    
-  - name: reviewCount
-    singleValue: false
-    xpath: //span/@data-rating
-  - name: ratingCount
-    singleValue: false
-    xpath: //span/@data-rating
+    xpath: //div[@id="testId-searchResults-products"]/div[not(contains(@class,"hide"))]/div/a//li[contains(@class,"price-0")]//span//text()
   - name: aggregateRating
     singleValue: false
-    xpath: //div[contains(@class,'pod-rating')]/div/@data-rating
-  - name: brandText
+    xpath: //div[@id="testId-searchResults-products"]/div[not(contains(@class,"hide"))]/div/a//div/@data-rating
+  - name: reviewCount
     singleValue: false
-    xpath: //b[contains(@class,'pod-title')]
-  - name: rank
+    xpath: //div[@id="testId-searchResults-products"]/div[not(contains(@class,"hide"))]/div/a//span/@data-rating
+  - name: soldBy
     singleValue: false
-  - name: rankOrganic
-    singleValue: true
+    xpath: //div[@id="testId-searchResults-products"]/div[not(contains(@class,"hide"))]//div[contains(@class,"pod-details-4_GRID")]//b[contains(@class,"pod-sellerText")]
+  - name: ratingCount
+    singleValue: false
+    xpath: //div[@id="testId-searchResults-products"]/div[not(contains(@class,"hide"))]/div/a//span/@data-rating

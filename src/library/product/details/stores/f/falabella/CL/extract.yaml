@@ -1,7 +1,7 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: null
+recordXPath: /html/body
 fields:  
   - name: image
     singleValue: false
@@ -11,12 +11,10 @@ fields:
     xpath: //ol[contains(@class,'breadcrum')]/li[position() >1 ]
   - name: sku
     singleValue: false
-    xpath: //script[@type="application/ld+json"][contains(text(),"sku")]
-    regExp: '"sku": "([^"]+)"'
-    regExpReplace: $1    
+    xpath: //div[contains(@class,"jsx-1599888651")]/div/@data-id
   - name: imageAlt
     singleValue: false
-    xpath: //meta[@property="og:image:alt"]/@content
+    xpath: //div[contains(@class,"jsx-2134917503")]/img/@alt
   - name: alternateImages
     singleValue: false
     xpath: //div[contains(@class,'fa--image-gallery-item__desktop')]/div/img[contains(@src,'_') and not(contains(@src,'_1?'))]/@src
@@ -28,50 +26,46 @@ fields:
     xpath: //span[contains(@class,'pod-badges-item')]
   - name: mpc
     singleValue: false
-    xpath: //td[contains(text(),'Modelo')]/following-sibling::td[1]
+    xpath: //td[contains(text(),'Modelo')]/following-sibling::td
   - name: weightNet
     singleValue: false
-    xpath: //td[contains(text(),'Peso')]/following-sibling::td[1]    
+    xpath: //table[contains(@class,"specification-table")]/tbody/tr/td[contains(text(),"Peso")]/following-sibling::td
   - name: warranty
     singleValue: false
-    xpath: //td[contains(text(),'Garantía del proveedor')]/following-sibling::td[1]      
+    xpath: //td[contains(text(),'Garantía del proveedor')]/following-sibling::td[1]
   - name: energyEfficiency
     singleValue: false
-    xpath: //td[contains(text(),'Eficiencia energética')]/following-sibling::td[1]     
+    xpath: //td[contains(text(),'Eficiencia energética')]/following-sibling::td[1]
   - name: name
     singleValue: true
     xpath: //div/@data-name
   - name: nameExtended
     singleValue: true
-    xpath: concat(//div/@data-brand,'-',//div/@data-name) 
+    xpath: concat(//div/@data-brand,'-',//div/@data-name)
   - name: listPrice
     singleValue: false
-    xpath: //section[contains(@class,'pdp-detail-section')]//li[contains(@class,'price-1')]//div[contains(@class,'cmr-icon-container')]/span
+    xpath: //div[contains(@class,"jsx-2170457292")]//ol/li[contains(@class,"price-1")]//span
   - name: price
     singleValue: false
-    xpath: //section[contains(@class,'pdp-detail-section')]//li[contains(@class,'price-0')]//div[contains(@class,'cmr-icon-container')]/span
+    xpath: //div[contains(@class,"jsx-2170457292")]//ol/li[contains(@class, "price-0")]//span
   - name: quantity
     singleValue: false
     defaultValue: 1
   - name: availabilityText
     singleValue: false
-    xpath: concat(substring('Out Of Stock', 1 div boolean(//div[contains(@class,'outofstock-container')])),
-       substring('In Stock', 1 div not(//div[contains(@class,'outofstock-container')])))
+    xpath: concat(substring('Out Of Stock', 1 div boolean(//div[contains(@class,'outofstock-container')])),substring('In Stock', 1 div not(//div[contains(@class,'outofstock-container')])))
   - name: description
     singleValue: false    
-    xpath: //div[@class='fb-product-information__product-information-tab']
-  - name: additionalDescBulletInfo
-    singleValue: false
-    xpath: //div[contains(@class,'specifications-list')]/ul/li
+    xpath: //div[contains(@class,"product-characteristic-features")]//ul/li//text()
   - name: descriptionBullets
     singleValue: false
-    xpath: count(//div[contains(@class,'specifications-list')]/ul/li)  
+    xpath: count(//div[contains(@class,"jsx-3624412160")]/ul/li)
   - name: brandText
     singleValue: false
-    xpath: //div/@data-brand  
+    xpath: //div/@data-brand
   - name: variantId
     singleValue: false
-    xpath: //div/@data-id
+    xpath: //div[contains(@class,"jsx-1599888651")]/div/@data-id
   - name: shippingInfo
     singleValue: false
     xpath: //p[contains(@class,'sellerInfo')]
@@ -86,10 +80,40 @@ fields:
     xpath: concat(substring-after(//img[contains(@id,'https://www.youtube.com/')]/@id, 'image-') , //iframe[contains(@src,'youtube')]/@src)
   - name: specifications
     singleValue: false
-    xpath: //table[contains(@class,'specification-table')]//tr
+    xpath: //div[contains(@class,"specification")]//div[contains(@class,"bodyContainer")]/table//td/text()
   - name: variantCount
     singleValue: false
-    defaultValue: "0"  
+    xpath: //script[@id="__NEXT_DATA__"]/text()
   - name: color
     singleValue: false
-    xpath: //div[contains(@class,'color-swatch-container fa--color-swatches__desktop')]//span[contains(text(),'Color:')]/following-sibling::span[contains(@class,'copy3 primary')]
+    xpath: //div[contains(@class,"color-swatch-container")]/span[contains(@class,"normal")]
+  - name: manufacturerDescription
+    singleValue: false
+    xpath: //div[contains(@class,"description")]/section/div[contains(@class,"bodyContainer")]//p
+  - name: manufacturerImages
+    singleValue: false
+    xpath: //div[contains(@class,"description")]/section/div[contains(@class,"bodyContainer")]//img/@src
+  - name: materials
+    singleValue: false
+    xpath: //table[contains(@class,"specification-table")]/tbody/tr/td[contains(text(),"Material")]/following-sibling::td
+  - name: variants
+    singleValue: false
+    xpath: //script[@id="__NEXT_DATA__"]/text()
+  - name: technicalInformationPdfPresent
+    singleValue: false
+    defaultValue: No
+  - name: termsAndConditions
+    singleValue: false
+    defaultValue: No
+  - name: privacyPolicy
+    singleValue: false
+    defaultValue: No
+  - name: customerServiceAvailability
+    singleValue: false
+    defaultValue: No
+  - name: Image360Present
+    singleValue: false
+    defaultValue: No
+  - name: imageZoomFeaturePresent
+    singleValue: false
+    defaultValue: Yes
