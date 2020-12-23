@@ -11,14 +11,14 @@ fields:
     description: Alt text of the main product image
   - name: alternateImages
     singleValue: false
-    xpath: //div[@class='simple-slider']//ul//li//a/@href
+    xpath: //div[@class='simple-slider']//ul//li[position()>1]//a/@href
     description: Other product images (not in manufacturer description)
   - name: metaKeywords
     xpath: //meta[@name="keywords"]/@content
     description: The <meta> keywords content
   - name: category
     singleValue: false
-    xpath: //div[@class="breadcrumb"]//span[not(contains(text(), "›"))]
+    xpath: //div[@class="breadcrumb"]//a[position()>1]//span[not(contains(text(), "›"))]
     description: The categories (e.g. from breadcrumbs)
   - name: nameExtended
     xpath: //h1[contains(@class, "page-title")]
@@ -46,9 +46,7 @@ fields:
     description: Number of ul > li tags in the description
     type: NUMBER
   - name: brandText
-    xpath: //script[@type='application/ld+json'][contains(text(),'brand')]
-    regExp: \"brand\"\s*:.+?name\"\s*:(.+?)\"
-    regExpReplace: $1
+    xpath: //h1[@class="page-title nosp"]/span[1]
   - name: manufacturer
     xpath: //script[@id='app.digitalData']
     #"manufacturer":"PHILIPS"
@@ -58,7 +56,7 @@ fields:
     xpath: //th[contains(text(), "Dimensions")]/following-sibling::td
     description: Quantity as described on the page
   - name: weightNet
-    xpath: //th[contains(text(), "Weight")]/following-sibling::td
+    xpath: //caption[contains(text(),'GENERAL')]/following-sibling::tbody//th[contains(text(), "Weight")]/following-sibling::td
     description: Net weight as described on the page
   - name: weightGross
     description: Gross weight as described on the page
@@ -91,13 +89,15 @@ fields:
     manualSelector: div#rating
     description: The stated aggregate rating
   - name: aggregateRating
-    manualSelector: div#rating
+    xpath: //script[contains(text(),'ratingCount')]
+    regExp: '"ratingValue":\s"(.+)",'
+    regExpReplace: $1
     description: The stated aggregate rating normalized to be out of 5
     type: NUMBER
   - name: shippingInfo
     description: Shipping information for the product
   - name: shippingDimensions
-    xpath: //th[contains(text(), "Boxed dimensions")]/following-sibling::td
+    xpath: //th[contains(text(), "Boxed dimensions")]/following-sibling::td | //th[contains(text(), "Dimensions")]/following-sibling::td
     description: Stated shipping dimensions
   - name: shippingWeight
     xpath: //th[contains(text(), "Boxed weight")]/following-sibling::td
@@ -126,7 +126,7 @@ fields:
     description: Images within the third party description
   - name: videos
     singleValue: false
-    xpath: //td[@class="videoUrl"]
+    xpath: //td[@class="videoUrl"] | //iframe[contains(@title, 'COVID')]/@src
     description: URLs of videos on page
   - name: name
     xpath: //h1[contains(@class, "page-title")]
@@ -202,7 +202,7 @@ fields:
     singleValue: false
     description: null
   - name: secondaryImageTotal
-    description: null
+    xpath: count(//div[@class='simple-slider']//ul//li[position()>1]//a/@href)
     type: NUMBER
   - name: news
     description: null
@@ -325,7 +325,7 @@ fields:
     manualSelector: div#specification
     description: The physical dimensions of the product including packaging.
   - name: warranty
-    xpath: //th[contains(text(), "guarantee") or contains(text(),"warranty") or contains(text(), "gurantee")]/following-sibling::td
+    xpath: //th[contains(text(), "guarantee") or contains(text(),"warranty") or contains(text(), "gurantee") or contains(text(), "Guarantee")]/following-sibling::td
     description: Guarantee associated with the product
   - name: storage
     description: Suggested storage location for product
@@ -348,7 +348,7 @@ fields:
     description: The unit of measurement used in price_per_unit
   - name: promotion
     singleValue: false
-    xpath: //a[contains(.,"Offers & deals")]/following-sibling::div//li[contains(@id,"product-deal")]
+    xpath: //div[@id="product-actions"]//span[contains(@class,'aveLabelDesktop')]
     description: promotion text on product page
   - name: alcoholContent
     description: Alcohol content information

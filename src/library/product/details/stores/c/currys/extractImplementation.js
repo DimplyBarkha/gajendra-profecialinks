@@ -331,9 +331,9 @@ const implementation = async (
     }
     addElement('availability', availability);
 
-    const actualRating = Number(document.querySelector('td[class="averageScore"]'));
-    const updatedRating = actualRating ? (actualRating * 5) / 10 : '';
-    addElement('rating', updatedRating);
+    // const actualRating = Number(document.querySelector('td[class="averageScore"]'));
+    // const updatedRating = actualRating ? (actualRating * 5) / 10 : '';
+    // addElement('rating', updatedRating);
 
     const productId = document.querySelector('div#added-table > table > tbody > tr > td[class="id"]')  && document.querySelector('div#added-table > table > tbody > tr > td[class="id"]').innerText || '';
     addElement('productId', productId);
