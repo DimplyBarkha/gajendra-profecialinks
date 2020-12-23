@@ -5,16 +5,29 @@ recordXPath: //div[@itemprop="review"]
 fields:
   - name: helpfulCount
     singleValue: false
-    type: NUMBER
     description: Number of people who said the review was helpful
+  - name: rating
+    singleValue: false
+    type: NUMBER
+    xpath: //span[@itemprop="ratingValue"]
+  - name: pageTitle
+    xpath: ancestor::html//head/title
+  - name: location
+    defaultValue: 'FR'
+  - name: sourceUrl
+    xpath: (ancestor::html//meta[@itemprop="url"]/@content)[position()=1]
+  - name: flavour
+    singleValue: false
+    xpath: (ancestor::html//div[@id="features"]//td[contains(text(),"Saveurs")]//following-sibling::td)[position()=1]
   - name: commentCount
     singleValue: false
     type: NUMBER
     description: Number of comments on the review
-  - name: brandText
+  - name: brand
     singleValue: false
     description: Product brand shown - this may actually NOT be just a brand name,
       e.g. "Visit the Gillette Store"
+    xpath: ancestor::html//meta[@itemprop="brand"]/@content
   - name: name
     singleValue: false
     description: The product name
@@ -23,12 +36,10 @@ fields:
     description: The store-specific product identifier
   - name: reviewDate
     singleValue: false
-    type: DATETIME
     description: Date the review was made
-  - name: reviewRating
-    type: NUMBER
-    singleValue: false
-    description: Rating normalized to be out of 5
+    xpath: //span[@itemprop="author"]//following-sibling::span[not(@class="order_date")]
+    regExp: >-
+      [0-9,/]+
   - name: reviewText
     singleValue: false
     description: The text of the review
@@ -47,8 +58,12 @@ fields:
     description: The url of the product details page
   - name: verifiedPurchase
     singleValue: false
-    type: BOOLEAN
+    defaultValue: 'No'
     description: Whether this of an item the reviewer purchased. "Yes" if true else ""
+    xpath: //span[@class="order_date"]
+    regExp: >-
+      (.*)
+    regExpReplace: 'Yes'
   - name: manufacturerResponse
     singleValue: false
     description: The response of the manufacturer (if any)
