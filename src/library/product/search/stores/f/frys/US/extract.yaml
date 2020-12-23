@@ -1,0 +1,53 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: productUrl
+    description: The URL for the product details page
+    xpath: //div/a[@data-ajax]/@href
+    regExp: (.+)
+    regExpReplace: https://www.frys.com$1
+  - name: thumbnail
+    description: The URL for the product thumbnail image
+    xpath: //img[@class="img-responsive"]/@src
+  - name: name
+    description: The product name
+    xpath: //p[@id="prodDescp"]
+  - name: gtin
+    singleValue: true
+    description: GTIN code (includes UPC/EAN)
+    xpath: //b[contains(text(),'UPC')]/following::text()[1]
+  - name: manufacturer
+    singleValue: true
+    description: Product manufacturer
+    xpath: //b[contains(text(),'Manufacturer:')]/following::text()[1]
+  - name: skus
+    description: The store-specific product identifiera
+    xpath: //a/@data-prod-id
+  - name: ratingCount
+    description: The number of ratings
+  - name: reviewCount
+    description: The number of reviews
+    # xpath: //p[@class="mk-listingProductOpinions"]/a
+    # regExp: (\d+)
+  - name: price
+    description: The offered price for the product
+    xpath: //span[@id="did_price1valuediv"]
+    type: CURRENCY
+  - name: rank
+    description: search/listing rank
+    type: NUMBER
+  - name: rankOrganic
+    description: The position (rank) within the list excluding sponsored/paid results
+    type: NUMBER
+  - name: sponsored
+    description: Is sponsored/paid
+    defaultValue: false
+    type: BOOLEAN
+  - name: id
+    description: Unique id (within this extractor)
+    xpath: //a/@data-prod-id
+  - name: aggregateRating
+    # xpath: //div[@id="aggregateRating"]
+  - name: hasVariants
