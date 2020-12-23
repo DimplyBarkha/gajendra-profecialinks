@@ -7,24 +7,15 @@ async function implementation (
 ) {
   const { transform } = parameters;
   const { productDetails } = dependencies;
-  await context.waitForSelector('ol.ais-Hits-list li.ais-Hits-item');
-  async function firstItemLink () {
-    return await context.evaluate(function () {
-      const firstItem = document.querySelector('ol.ais-Hits-list li.ais-Hits-item div.result-wrapper a').href;
-      return firstItem;
-    });
-  }
-  const url = await firstItemLink();
-  if (url !== null) {
-    await context.goto(url, { timeout: 200000, waitUntil: 'load', checkBlocked: true });
-  }
+  await new Promise(resolve => setTimeout(resolve, 10000));
+  await context.evaluate(async function () {
+    const detailsPage = document.querySelector('.result-wrapper a');
+    if (detailsPage) {
+      detailsPage.click();
+    }
+  });
+  await new Promise(resolve => setTimeout(resolve, 20000));
   // await context.waitForSelector('button.more-button.more_infos_tab-button');
-  async function moreInfo () {
-    return await context.evaluate(function () {
-      const fullContent = document.querySelector('button.more-button.more_infos_tab-button').click();
-      return fullContent;
-    });
-  }
   return await context.extract(productDetails, { transform });
 }
 module.exports = {
