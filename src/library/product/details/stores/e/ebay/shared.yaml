@@ -5,16 +5,16 @@ recordXPath: null
 fields:
   - name: nameExtended
     singleValue: false
-    xpath: concat(//h1[@id="itemTitle"]/text()[1],//h1[@id="itemTitle"]/text()[2])
+    xpath: concat(//h1[@id="itemTitle"]/text()[1],//h1[@id="itemTitle"]/text()[2],//h1[@class="product-title"])
   - name: metaKeywords
     singleValue: false
     xpath: //meta[contains(@name,"keyword")]/@content
   - name: image
     singleValue: false
-    xpath: //img[@id="icImg"]/@src
+    xpath: //img[@id="icImg"]/@src | //img[contains(@class,"vi-image-gallery__image")]/@src
   - name: alternateImages
     singleValue: false
-    xpath: //div[contains(@id,"vi_main_img_fs")]/ul/li[position()>1]//img/@src
+    xpath: //div[contains(@id,"vi_main_img_fs")]/ul/li[position()>1]//img/@src | //div[contains(@class,"vi-image-gallery__wrapper")]//li[position()>1]//img/@src
     # regExp: (.+\/s-)l.*?(\..*)
     # regExpReplace: $1l500$2
   - name: videos
@@ -31,7 +31,7 @@ fields:
     manualSelector: span.vi-discount
   - name: specifications
     singleValue: false
-    xpath: //div[contains(@class,"itemAttr")]//table//tr[td[contains(@class,"attrLabels")]]
+    xpath: //div[contains(@class,"itemAttr")]//table//tr[td[contains(@class,"attrLabels")]] | //div[@id="ProductDetails"]//li
   - name: availabilityText
     singleValue: false
     xpath: //*[contains(@id,"binBtn_btn")]/@class | //div[@class='item-action']/a[1]
@@ -66,15 +66,15 @@ fields:
     xpath: normalize-space(//td[contains(text(), 'Box Weight:')]/following-sibling::td)
   - name: mpc
     singleValue: false
-    xpath: normalize-space(//td[contains(text(), 'MPN') or contains(text(), 'Modell')]/following-sibling::td)
+    xpath: //div[contains(text(),'MPN')]/following-sibling::div | (//td[contains(text(),'MPN')]/following-sibling::td)[1]
   - name: variantId
     singleValue: false
-    manualSelector: div#descItemNumber
+    xpath: (//div[@class="vi-component-transaction-layer"]/@data-itemid)[1] | //div[@id="descItemNumber"]
   - name: shippingDimensions
     singleValue: false
   - name: name
     singleValue: false
-    xpath: concat(//h1[@id="itemTitle"]/text()[1],//h1[@id="itemTitle"]/text()[2])
+    xpath: concat(//h1[@id="itemTitle"]/text()[1],//h1[@id="itemTitle"]/text()[2],//h1[@class="product-title"])
   - name: additionalDescBulletInfo
     singleValue: false
   - name: variantCount
@@ -85,7 +85,7 @@ fields:
     xpath: //td[contains(text(), 'EAN')]/following-sibling::td | //td[contains(text(), 'GTIN')]/following-sibling::td
   - name: upc
     singleValue: false
-    xpath: normalize-space(//td[contains(text(), 'UPC')]/following-sibling::td)
+    xpath: //td[contains(text(), 'EAN')]/following-sibling::td | //div[contains(text(), 'EAN')]/following-sibling::div
   - name: packSize
     singleValue: false
     xpath: normalize-space(//td[contains(text(), 'Number in Pack')]/following-sibling::td)
