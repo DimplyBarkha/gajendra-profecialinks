@@ -22,6 +22,8 @@ fields:
   singleValue: false
   description: Other product images (not in manufacturer description)
   xpath: //ul[contains(@class,'product-media-gallery-thumbnails__wrapper')]//li[position() > 1]//img/@src
+  regExp: (\w.+.be/)(\d.+)([/][a-z]+[/]\w.+)
+  regExpReplace: $1500x500$3
 - name: metaKeywords
   singleValue: true
   description: The <meta> keywords content
@@ -33,7 +35,7 @@ fields:
   singleValue: true
   description: The product name, prefixing "${brand} - " if not included in "name"
     and appending " - ${variantType}" if necessary (fixed per feed)
-  xpath: //div[@id='product-content']//h1/text() | //h1//span/text()
+  xpath: //span[@class="js-product-name"]
 - name: listPrice
   singleValue: true
   description: The stated undiscounted price for the product
@@ -48,12 +50,15 @@ fields:
   description: Availability as described on page for the selected variant. If there
     is no availability but the product can be added to cart, this field should be
     "In Stock"
-  xpath: //div[@id="added-availability"]
+  xpath: //div[contains(@class,"grid-section")]//button[contains(@class,"js-add-to-cart-button")]
+  regExp: (.+)
+  regExpReplace: In Stock
+  defaultValue: Out of Stock
 - name: description
   singleValue: false
   description: Product description supplied by website - may be concatenanted from
     multiple places; specifically not the manufacturer description
-  xpath: //h2[contains(text(),"Productinformatie")]/..//ul[@class="list"]//li//div[@class="icon-with-text__text"]|(//div[@data-track-action="Product description"]//div/p)[1]
+  xpath: //div[contains(@class,"cms-content")]
 - name: descriptionBullets
   singleValue: true
   description: Number of ul > li tags in the description
@@ -85,11 +90,13 @@ fields:
 - name: sku
   description: The store-specific product identifier
   xpath: //main[@id="main-content"]/@data-product-id
+  regExp: \d+
 - name: variantId
   singleValue: true
   description: Identifier for a variant from a store where variants share the same
     sku
   xpath: //main[@id="main-content"]/@data-product-id
+  regExp: \d+
 - name: mpc
   singleValue: tru
   description: The manufacturer model code (unique) of the product
@@ -119,7 +126,7 @@ fields:
 - name: aggregateRating
   singleValue: true
   description: The stated aggregate rating normalized to be out of 5
-  xpath: //div[@id="added-aggregate-rating"]
+  xpath: //div[contains(@class,"review-rating--large")]//span[contains(@class,"review-rating")]//meter/@value
 - name: shippingInfo
   singleValue: true
   description: Shipping information for the product

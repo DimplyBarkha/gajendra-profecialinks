@@ -48,14 +48,14 @@ module.exports = {
       };
 
       const data = {};
-      let availabilityText = document.querySelector('div[data-multi-discriminant-preview-availability-state]')
-        ? document.querySelector('div[data-multi-discriminant-preview-availability-state]').textContent : '';
-      if (!availabilityText) {
-        availabilityText = document.querySelector('meta[itemprop="availability"] ~ div h2')
-          ? document.querySelector('meta[itemprop="availability"] ~ div h2').textContent : '';
-      }
-      if (availabilityText) data.availability = availabilityText;
-      else data.availability = document.querySelector('div.product-order form button.button--order') ? 'In Stock' : 'Out of Stock';
+      // let availabilityText = document.querySelector('div[data-multi-discriminant-preview-availability-state]')
+      //   ? document.querySelector('div[data-multi-discriminant-preview-availability-state]').textContent : '';
+      // if (!availabilityText) {
+      //   availabilityText = document.querySelector('meta[itemprop="availability"] ~ div h2')
+      //     ? document.querySelector('meta[itemprop="availability"] ~ div h2').textContent : '';
+      // }
+      // if (availabilityText) data.availability = availabilityText;
+      // else data.availability = document.querySelector('div.product-order form button.button--order') ? 'In Stock' : 'Out of Stock';
       const ratingNode = getXpath('//div[contains(@class,"product-page--title-links")]//span[contains(@class,"review-rating__reviews")]');
       if (ratingNode) {
         data.ratingCount = ratingNode.textContent.match(/(\d+) reviews/) ? ratingNode.textContent.match(/(\d+) reviews/)[1] : '0';
@@ -64,7 +64,7 @@ module.exports = {
         if (ratingString) data.aggregateRating = (parseFloat(ratingString) / 2).toString().replace('.', ',');
       }
       // @ts-ignore
-      data.warranty = [...document.querySelectorAll('dl[data-property-name*=Garantie] dd')].map(el => el.innerText).join(', ');
+      data.warranty = [...document.querySelectorAll('dl[data-property-name*=Garantie] dd')].map(el => el.innerText).join(' ');
       // @ts-ignore
       const variantTypes = [...document.querySelectorAll('div[class*=js-multi-discriminant-field]')].map(el => {
         return el.querySelector('strong').innerText.match(/:$/) ? el.querySelector('strong').innerText : `${el.querySelector('strong').innerText}:`;
