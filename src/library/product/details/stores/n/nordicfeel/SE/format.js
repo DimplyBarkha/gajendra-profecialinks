@@ -23,12 +23,7 @@ const transform = (data) => {
       return data;
     };
     for (const { group } of data) {
-      for (let row of group) {       
-        if (row.image) {
-            row.image.forEach(item => {
-                item.text = "https://www.bell.ca" + item.text;                
-            });
-        }
+      for (let row of group) {               
         if (row.variantInformation) {
             let info = []
             row.variantInformation.forEach(item => {
