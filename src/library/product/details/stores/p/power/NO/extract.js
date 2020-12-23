@@ -227,17 +227,33 @@ module.exports = {
         });
       }
       addElementToDocument('descBulletInfo', descBulletInfo.join(' || '));
+      const sku = document.querySelector(`meta[itemprop='sku']`) ? document.querySelector(`meta[itemprop='sku']`).content : null;
+      const productName = document.querySelector('.old-product-page h1') ? document.querySelector('.old-product-page h1').innerText : null;
 
-      const iframe = document.querySelector('iframe.videoly-box');
-      if (iframe) {
-        const videos = iframe.contentDocument ? iframe.contentDocument.querySelectorAll('li.b-video-item div.b-video-item-tile') : [];
-        videos.forEach(el =>
-          addElementToDocument('urlsForVideos', `https://www.youtube.com/watch?v=${el.getAttribute('data-videoid')}`));
-      };
-      const videoWrapper = getElementByXpath('//div[@class="video-wrapper"]//iframe/@src')
-        ? getElementByXpath('//div[@class="video-wrapper"]//iframe/@src').textContent
-        : '';
-      addElementToDocument('urlsForVideos', videoWrapper);
+      if (sku && productName) {
+        const url = `https://dapi.videoly.co/1/videos/0/394?SKU=${sku}&productId=${sku}&productTitle=${productName}&hn=www.power.no`;
+        const response = await fetch(url);
+
+        if (response.ok) {
+          const json = await response.json();
+
+          for (const item of json.items) {
+            const videoId = item.videoId;
+            const newEl = document.createElement('import-video');
+            newEl.setAttribute('data', `https://www.youtube.com/watch?v=${videoId}`);
+            document.body.appendChild(newEl);
+          }
+        }
+      }
+
+      const imageEl =document.evaluate(`//div[@id='product-image-carousel']//div[contains(@class, 'owl-item')][1]//source[last()]/@srcset`, document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
+
+      if (imageEl) {
+        let productImageUrl = imageEl.textContent;
+        productImageUrl = productImageUrl.split(', ');
+        productImageUrl = productImageUrl[productImageUrl.length - 1].split(' ')[0];
+        document.body.setAttribute('import-primary-image', productImageUrl)
+      }
 
       const cookies = document.querySelector('button#cookie-notification-accept');
       if (cookies) {

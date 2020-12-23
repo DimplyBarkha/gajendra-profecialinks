@@ -6,9 +6,7 @@ fields:
   - name: image
     singleValue: false
     description: URL of the main product image
-    xpath: //div[@id='product-image-carousel']//div[contains(@class, 'owl-item')][1]//img/@data-src
-    regExp: (.*)600x600(.*)
-    regExpReplace: $11200x1200$2
+    xpath: //body/@import-primary-image
   - name: imageAlt
     singleValue: false
     description: Alt text of the main product image
@@ -17,8 +15,6 @@ fields:
     singleValue: false
     description: Other product images (not in manufacturer description)
     xpath: //div[@id='product-image-carousel']//div[contains(@class, 'owl-item')][1]/following-sibling::*//img/@data-src
-    regExp: (.*)600x600(.*)
-    regExpReplace: $11200x1200$2
   - name: secondaryImageTotal
     singleValue: false
     xpath: count(//div[@id='product-image-carousel']//div[contains(@class, 'owl-item')][1]/following-sibling::*//img/@src)
@@ -169,7 +165,7 @@ fields:
   - name: videos
     singleValue: false
     description: URLs of videos on page
-    xpath: //div[@id="urlsForVideos"]
+    xpath: //import-video/@data
   - name: name
     singleValue: false
     description: The product name
@@ -263,6 +259,6 @@ fields:
   - name: galleryVideos
     singleValue: false
     description: URLs of videos on page
-    xpath: //div[@id="urlsForVideos"]
+    xpath: //import-video/@data
   - name: currencyOverride
     defaultValue: NOK
