@@ -5,7 +5,7 @@ module.exports = {
     country: 'NL',
     store: 'drogistplein',
     domain: 'drogistplein.nl',
-    loadedSelector: null,
+    loadedSelector: 'div.container',
     noResultsXPath: null,
     zipcode: "''",
   },

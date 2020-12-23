@@ -1,13 +1,13 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: null
+recordXPath: //div[@class="container"]//ul[@class="breadcrumb"]
 fields:
   - name: category
     singleValue: false
     description: name of the category
-    xpath: null
+    xpath: //ul[@class="breadcrumb"]//li[not(contains(@class,'breadcrumb-back'))]//a
   - name: categoryUrl
     singleValue: false
     description: url of the category
-    xpath: null
+    xpath: //ul[@class="breadcrumb"]//li[not(contains(@class,'breadcrumb-back'))]//a/@href
