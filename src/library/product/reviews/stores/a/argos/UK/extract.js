@@ -1,10 +1,10 @@
-const { transform } = require('./format');
+// const { transform } = require('./format');
 module.exports = {
   implements: 'product/reviews/extract',
   parameterValues: {
     country: 'UK',
     store: 'argos',
-    transform,
+    transform: null,
     domain: 'argos.co.uk',
     zipcode: '',
   },
@@ -37,14 +37,14 @@ module.exports = {
     // }
 
     // await new Promise(resolve => setTimeout(resolve, 10000));
-    const cookieCheck = await context.evaluate(async () => {
-      const cookie = document.querySelector('div[class*="consent_prompt explicit_consent"]') ? document.querySelector('div[class*="consent_prompt explicit_consent"]') : '';
-      if (cookie && cookie.innerHTML.length) {
-        await new Promise(resolve => setTimeout(resolve, 10000));
-        await context.waitForSelector('div[class*="consent_prompt explicit_consent"]');
-        await context.click('button[id*="consent_prompt_submit"]');
-      }
-    });
+    // const cookieCheck = await context.evaluate(async () => {
+    //   const cookie = document.querySelector('div[class*="consent_prompt explicit_consent"]') ? document.querySelector('div[class*="consent_prompt explicit_consent"]') : '';
+    //   if (cookie && cookie.innerHTML.length) {
+    //     await new Promise(resolve => setTimeout(resolve, 10000));
+    //     await context.waitForSelector('div[class*="consent_prompt explicit_consent"]');
+    //     await context.click('button[id*="consent_prompt_submit"]');
+    //   }
+    // });
 
     await new Promise(resolve => setTimeout(resolve, 10000));
     await context.click('a[data-test*="reviews-flag-link"]');
