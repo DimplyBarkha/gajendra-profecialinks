@@ -47,6 +47,10 @@ async function implementation(inputs, parameters, context, dependencies) {
 
   try {
     await context.evaluate(() => {
+      var clickArrow = document.querySelector('div[ data-test="mms-th-gallery"] div[direction="next"]');
+      if (clickArrow) {
+        clickArrow.click();
+      }
       // @ts-ignore
       const x = window.__PRELOADED_STATE__.apolloState;
       const sku = window.location.href.replace(/(.+-)(\d+)(.htm.+)/g, '$2');
@@ -83,7 +87,7 @@ async function implementation(inputs, parameters, context, dependencies) {
         for (const video of videos) {
           console.log('clicking on play button:');
           video.click();
-          await delay(2000);
+          await delay(5000);
         }
       } catch (err) {
         console.log('Video Loading issues');
@@ -91,12 +95,6 @@ async function implementation(inputs, parameters, context, dependencies) {
     }
     // Call the function to get the images
     await clickImages('div > div > picture > img[alt]');
-
-
-    var clickArrow = document.querySelector('div[ data-test="mms-th-gallery"] div[direction="next"]');
-    if (clickArrow) {
-      clickArrow.click();
-    }
   });
 
   await gDelay(2000);
