@@ -43,7 +43,7 @@ fields:
     manualSelector: div.prodDetailSec
   - name: imageAlt
     singleValue: false
-    xpath: //img[@id="icImg"]/@alt
+    xpath: //img[@id="icImg"]/@alt | //img[contains(@class,"vi-image-gallery__image")]/@alt
   - name: ratingCount
     singleValue: false
     xpath: //span[@itemprop="reviewCount"]/@content | //a[@id="_rvwlnk"]
