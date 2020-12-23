@@ -120,7 +120,7 @@ fields:
     xpath: //div[@id="product-info"]
   - name: manufacturerImages
     singleValue: false
-    xpath: //div[@id="product-info"]/following-sibling::div/div[@id="richmedia-container"]//div[@id="inpage_container"]//img/@srcset
+    xpath: //div[@id="product-info"]/following-sibling::div/div[@id="richmedia-container"]//div[@id="inpage_container"]//img/@src
     regExp: (.+)
     regExpReplace: https:$1
     description: Images within the third party description
