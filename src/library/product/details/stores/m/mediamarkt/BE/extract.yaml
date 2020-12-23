@@ -382,7 +382,7 @@ fields:
     xpath: //*[@id="added_ii_inBoxUrls"]//li
   - name: inTheBoxText
     singleValue: false
-    xpath: //*[@id="ii_inBoxText"]
+    xpath: //*[@id="ii_inBoxText"]|(//dl[@class="specification"]//dt[contains(text(),"Verpakkingsinhoud")]//following-sibling::dd)[1]
     description: Must include text to show the accessories/tools which come with the product
   - name: hasComparisonTable
     singleValue: true
