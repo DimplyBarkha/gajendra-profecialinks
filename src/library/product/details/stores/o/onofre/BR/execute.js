@@ -10,16 +10,22 @@ async function implementation(
   } else {
     url = inputs.URL || inputs.url;
   }
+  await context.setBlockAds(false);
+  await context.setLoadAllResources(true);
+  await context.setLoadImages(true);
+  await context.setJavaScriptEnabled(true);
+  await context.setAntiFingerprint(false);
+  // await context.setUseRelayProxy(false);
   await context.goto(url, {
     timeout: 100000,
-    waitUntil: 'load',
+    waitUntil: 'networkidle0',
     checkBlocked: true,
     js_enabled: true,
     css_enabled: false,
     random_move_mouse: true,
   });
 
-  await context.waitForNavigation({ waitUntil: 'load' });
+  await context.waitForNavigation({ waitUntil: 'networkidle0' });
 
   return await context.evaluate(function () {
     const title = document.title;

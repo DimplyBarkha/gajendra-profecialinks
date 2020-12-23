@@ -38,7 +38,17 @@ const transform = (data) => {
         });
       }
 
-      row.nameExtended = [{ text: `${brandData} ${brandData ? '-' : ''} ${nameData}` }]
+      // row.nameExtended = [{ text: `${brandData} ${brandData ? '-' : ''} ${nameData}` }];
+
+      if (row.description) {
+        row.description.forEach(item => {
+          // item.text = item.text.replace(/(\s?\n)+/g, ' ').trim();
+          // if (row.directions && row.directions.length) {
+          //   item.text = item.text.replace(row.directions[0].text, '');
+          // }
+          item.text = item.text.trim();
+        });
+      }
       if (row.directions) {
         row.directions.forEach((item) => {
           item.text = item.text.replace('Modo de usar:', '').trim();
@@ -72,25 +82,34 @@ const transform = (data) => {
       //   }
       if (row.image) {
         row.image.forEach(item => {
-          item.text = item.text.split('?')[0]
+          item.text = item.text.split('?')[0];
         });
       }
 
       if (row.aggregateRating) {
         row.aggregateRating.forEach(item => {
-          item.text = item.text.replace('.', ',')
+          if (item.text.indexOf('.') === -1) {
+            item.text = `${item.text}.0`;
+          }
+          item.text = item.text.replace('.', ',');
         });
         row.aggregateRating2.forEach(item => {
-          item.text = item.text.replace('.', ',')
+          if (item.text.indexOf('.') === -1) {
+            item.text = `${item.text}.0`;
+          }
+          item.text = item.text.replace('.', ',');
         });
         row.aggregateRatingText.forEach(item => {
-          item.text = item.text.replace('.', ',')
+          if (item.text.indexOf('.') === -1) {
+            item.text = `${item.text}.0`;
+          }
+          item.text = item.text.replace('.', ',');
         });
       }
 
       if (row.alternateImages && row.alternateImages.length) {
         row.alternateImages.forEach(item => {
-          item.text = item.text.split('?')[0]
+          item.text = item.text.split('?')[0];
         });
 
         row.alternateImages = row.alternateImages.filter(alternateItem => {
@@ -112,12 +131,11 @@ const transform = (data) => {
           row.alternateImages.push({ text: item });
         });
         row.secondaryImageTotal = [{ text: row.alternateImages ? row.alternateImages.length : 0 }];
-
       }
     }
     data = cleanUp(data, undefined);
     return data;
   };
-}
+};
 
-module.exports = { transform }
+module.exports = { transform };
