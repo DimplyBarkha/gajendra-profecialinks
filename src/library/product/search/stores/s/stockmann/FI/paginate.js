@@ -4,10 +4,10 @@ module.exports = {
   parameterValues: {
     country: 'FI',
     store: 'stockmann',
-    nextLinkSelector: 'div.show-more-wrapper button',
+    nextLinkSelector: null,
     nextLinkXpath: null,
     mutationSelector: null,
-    spinnerSelector: 'div.spinner',
+    spinnerSelector: null,
     loadedSelector: 'div.product-grid div.product',
     loadedXpath: null,
     noResultsXPath: '//h1[@class="header page-title" and contains(text(),"Pahoittelemme, haullasi ei löytynyt tuloksia")]',
@@ -18,3 +18,4 @@ module.exports = {
     zipcode: "''",
   },
 };
+
