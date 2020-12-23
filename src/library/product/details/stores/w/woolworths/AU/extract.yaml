@@ -27,7 +27,7 @@ fields:
     defaultValue: "In Stock"
   - name: description
     singleValue: false
-    xpath: (//wow-view-more//div[@class='viewMore-expanded']//div)[1]//text()
+    xpath: //h2[text()='Product Details']/following-sibling::wow-view-more//div[contains(@class,'viewMore-')]//div//text()
   - name: variantCount
     singleValue: false
     defaultValue: 0    
@@ -45,10 +45,10 @@ fields:
     xpath: //ul[contains(@class,'thumbnails')]//li[position()>1]//a//img//@src
   - name: directions
     singleValue: false
-    xpath: //h3[text()='Directions']/parent::section[contains(@class,'directions')]//wow-view-more//div[contains(@class,'viewMore-html')]//text()
+    xpath: //h3[text()='Directions']/parent::section[contains(@class,'directions')]//wow-view-more//div[contains(@class,'viewMore-')]//div//text()
   - name: warnings
     singleValue: false
-    xpath: //h3[text()='Product Warnings']/parent::section[contains(@class,'product-warnings')]//div[contains(@class,'viewMore-')]//text()
+    xpath: //h3[text()='Product Warnings']/parent::section[contains(@class,'product-warnings')]//div[contains(@class,'viewMore-')]//div//text()
   - name: gtin
     singleValue: false
     xpath: //div[@class='ng-star-inserted']//script[@type='application/ld+json']
@@ -57,7 +57,10 @@ fields:
     xpath: //div[@class='ng-star-inserted']//script[@type='application/ld+json']
   - name: ingredientsList
     singleValue: false
-    xpath: //h3[text()='Ingredients']/parent::section[contains(@class,'ingredients')]//wow-view-more//div[contains(@class,'viewMore-')]//text()
+    xpath: //h3[text()='Ingredients']/parent::section[contains(@class,'ingredients')]//wow-view-more//div[contains(@class,'viewMore-')]//div//text()
   - name: quantity
     singleValue: false
     defaultValue: 1
+  - name: imageZoomFeaturePresent
+    singleValue: false
+    defaultValue: "Yes"
