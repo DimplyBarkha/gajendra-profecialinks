@@ -99,7 +99,7 @@ const transform = (data) => {
         if (arrVari.length) {
           row.variants = [{ text: arrVari.join(' | ') }];
           row.variantCount = [{ text: arrVari.length }];
-          row.firstVariant = [{ text: arrVari[0].text }];
+          row.firstVariant = [{ text: arrVari[0] }];
         }
       }
       if (row.variantInformation) {
@@ -107,7 +107,9 @@ const transform = (data) => {
           item.text = item.text.replace('Farbe:', '');
           item.text = item.text.trim();
         });
-        row.color = row.variantInformation;
+        if (!row.color) {
+          row.color = row.variantInformation;
+        }
       }
       if (row.nameExtended) {
         row.nameExtended.forEach(item => {
