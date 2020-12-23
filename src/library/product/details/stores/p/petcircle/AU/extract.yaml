@@ -23,7 +23,6 @@ fields:
   - name: alternateImages
     singleValue: false
     xpath: //li[@data-content='secondary regularImage']/img/@data-main-image
-#    xpath: //li[@data-content='secondary regularImage']/img/@data-main-image
   - name: largeImageCount
     singleValue: false
     xpath: count(//li[contains(@class,"main-image-slides")][position() > 1])
@@ -77,10 +76,16 @@ fields:
     xpath: //span[@class='name' and @itemprop='name']
   - name: variantInformation
     singleValue: false
-    xpath: //span[@class="sku-data-size"]
+    xpath: (//span[@class="sku-data-size"])[1]
   - name: firstVariant
     singleValue: true
     xpath: //li[contains(@class,'active-sku')]/input[@name='rad']/@data-sku
   - name: ingredientsList
     singleValue: true
-    xpath: //div[@class="ingredients-section"]
+    xpath: //div[@class="ingredients-section"]/h3[@class="ingredients-heading"]/following-sibling::div[@class='content']
+  - name: quantity
+    singleValue: true
+    xpath: (//span[@class="sku-data-size"])[1]
+  - name: imageZoomFeaturePresent
+    singleValue: true
+    defaultValue: Yes

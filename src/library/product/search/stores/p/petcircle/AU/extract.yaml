@@ -2,7 +2,7 @@ singleRecord: false
 regionsSelector: null
 recordSelector: null
 recordXPath: //ul[@id='productListing']/li
-fields: 
+fields:
   - name: thumbnail
     singleValue: false
     xpath: //figure/a/img/@src
@@ -38,3 +38,6 @@ fields:
   - name: aggregateRating2
     singleValue: false
     xpath: //div[@class='rating-holder']/img/@src
+  - name: sku
+    singleValue: false
+    xpath: //div[@class="sizes-wrapper"]/input[contains(@class,'active')]/@id
