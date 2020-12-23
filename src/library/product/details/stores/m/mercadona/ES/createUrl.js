@@ -4,7 +4,7 @@ module.exports = {
   parameterValues: {
     domain: 'mercadona.es',
     prefix: null,
-    url: null,
+    url: 'https://tienda.mercadona.es/product/{id}',
     country: 'ES',
     store: 'mercadona',
     zipcode: '46008',

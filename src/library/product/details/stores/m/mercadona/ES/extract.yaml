@@ -12,13 +12,11 @@ fields:
   - name: price
     singleValue: true
     xpath: //p[@class='product-price__unit-price large-b']
+    type: CURRENCY
   - name: alternateImages
     singleValue: false
     xpath: //div[@class='thumbnail__container']/button/img/@src
-  - name: url
-    singleValue: true
-    xpath: //div[@class='helper-product-url']
-  - name: description
+  - name: nameExtended
     singleValue: true
     xpath: //h1[@class='title2-r private-product-detail__description']
   - name: btnText

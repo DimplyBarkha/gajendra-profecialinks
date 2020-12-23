@@ -8,20 +8,6 @@ const transform = (data) => {
     el.group.forEach((gr) => {
       try {
         if (gr) {
-          if (gr.url && gr.url.length) {
-            // gr['_url'] = gr.url;
-
-            // gr['sku'] = [
-            //   {
-            //     text: gr.url[0].text.match(/\/product\/(.*?)\//)[1],
-            //   },
-            // ];
-            // gr['_input'] = [
-            //   {
-            //     text: gr.url[0].text.match(/\/product\/(.*?)\//)[1],
-            //   },
-            // ];
-          }
           if (gr.btnText[0].text === 'Añadir al carro') {
             gr['availabilityText'] = [{ text: 'In Stock' }];
           };
@@ -32,9 +18,12 @@ const transform = (data) => {
           };
 
           if (gr.unitPrice) {
+            const unitPriceFormat = gr.unitPrice[0].text.includes('/100')
+              ? `€${gr.unitPrice[0].text.replace(/[^0-9,/]/g, '')}`.replace(',', '.')
+              : `€${gr.unitPrice[0].text.replace(/[^0-9,]/g, '').replace(',', '.')}`;
             gr['pricePerUnit'] = [
               {
-                text: gr.unitPrice[0].text.replace(/[^0-9,]/g, '').replace(',', '.'),
+                text: unitPriceFormat,
               },
             ];
             gr['pricePerUnitUom'] = [
