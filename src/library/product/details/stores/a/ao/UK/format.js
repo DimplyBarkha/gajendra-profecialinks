@@ -75,14 +75,6 @@ const transform = (data, context) => {
           ];
         }
 
-        if (row.nameExtended && row.brandText) {
-          row.nameExtended = [
-            {
-              text: row.nameExtended[0].text.replace(row.brandText[0].text, '').trim(),
-            },
-          ];
-        }
-
         row = clean(row);
       } catch (exception) {
         console.log(exception);
