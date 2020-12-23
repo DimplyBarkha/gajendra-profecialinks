@@ -5,7 +5,7 @@ recordXPath: null
 fields:
   - name: image
     singleValue: false
-    xpath: //img[@itemprop="image"]/@src
+    xpath: //img[@itemprop="image"]/@src | //div[contains(@id,'constructedImageUrl')]
     regExp: ([^?]+)
     regExpReplace: https://www.nespresso.com$1   
   - name: imageAlt
@@ -22,11 +22,12 @@ fields:
   - name: category
     singleValue: false
     description: The categories (e.g. from breadcrumbs)
+    xpath: //span[contains(@class,'ProductDetails__link-text')]
   - name: nameExtended
     singleValue: false
-    xpath: //div[@itemprop="name"]/text()
-    regExp: (.+)
-    regExpReplace: Nespresso-$1
+    xpath: //div[@itemprop="name"]/text() | //div[contains(@class,'ProductDetails__name')]
+    # regExp: (.+)
+    # regExpReplace: Nespresso-$1
   - name: listPrice
     singleValue: false
     description: The stated undiscounted price for the product
@@ -44,7 +45,7 @@ fields:
     xpath: //div[@class="ProductDetails__marketingFeatures"]//ul/li | //ul[@class="ProductDetailsBodyInformation__specifications-list"]/li
   - name: description
     singleValue: false
-    xpath: //div[@itemprop="description"]//text() | //n-pdp-description/@heading | //n-pdp-description/@subheading | //n-pdp-description/@info
+    xpath: //h2[contains(@class,'coffeProfileTitleValue')] | //div[@itemprop="description"]//text() | //n-pdp-description/@heading | //n-pdp-description/@subheading | //n-pdp-description/@info
   - name: descriptionBullets
     singleValue: false
     xpath: count(//div[@class="ProductDetails__marketingFeatures"]//ul/li | //ul[@class="ProductDetailsBodyInformation__specifications-list"]/li)
@@ -149,6 +150,7 @@ fields:
   - name: manufacturerDescription
     singleValue: false
     description: The extended description of the product supplied by the lister
+    manualSelector: div.ProductDetailsBody.PDParomaticSection, div.PDPoriginSection, div.PDProastingSection
   - name: manufacturerImages
     singleValue: false
     xpath: //div[@class="c-pdp-banner"]/img/@src
@@ -160,9 +162,10 @@ fields:
   - name: videos
     singleValue: false
     description: URLs of videos on page
+    xpath: //iframe[contains(@src, 'youtube')]/@src
   - name: name
     singleValue: false
-    xpath: //div[@itemprop="name"]/text()
+    xpath: //div[@itemprop="name"]/text() | //div[contains(@class,'ProductDetails__name')]
   - name: inStorePrice
     singleValue: false
     description: Price in the selected store
