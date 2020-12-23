@@ -118,8 +118,11 @@ const implementation = async (
       return document.querySelector('div[data-open-label="Read more"] ~ .long-text-ctl a') && document.querySelector('div[data-open-label="Read more"] ~ .long-text-ctl a').innerText === 'Read more';
     });
     if (readMore) {
-      await context.evaluate(() => {
+      await context.evaluate(async() => {
         document.querySelector('div[data-open-label="Read more"] ~ .long-text-ctl a').click();
+        const delay = t => new Promise(resolve => setTimeout(resolve, t));
+        console.log('clicked on read more waiting for 10 sec ');
+        await delay(10000);
       });
     }
   }
