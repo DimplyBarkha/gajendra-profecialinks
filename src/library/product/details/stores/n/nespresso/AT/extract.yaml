@@ -5,7 +5,7 @@ recordXPath: null
 fields:
   - name: image
     singleValue: false
-    xpath: //img[@itemprop="image"]/@src
+    xpath: //img[@itemprop="image"]/@src | //div[contains(@id,'constructedImageUrl')]
     regExp: (.+)
     regExpReplace: https://www.nespresso.com$1   
   - name: imageAlt
@@ -22,6 +22,7 @@ fields:
   - name: category
     singleValue: false
     description: The categories (e.g. from breadcrumbs)
+    xpath: //span[contains(@class,'ProductDetails__link-text')]
   - name: nameExtended
     singleValue: false
     xpath: //div[@itemprop="name"]/text() | //div[@class="ProductDetails__name"]/text()
@@ -42,7 +43,7 @@ fields:
     defaultValue: In Stock
   - name: description
     singleValue: false
-    xpath: //div[@class="ProductDetailsBodyInformation__description"]//text() | //div[@class="ProductDetailsBodyInformation__title"]
+    xpath: //h2[contains(@class,'coffeProfileTitleValue')] | //div[@class="ProductDetailsBodyInformation__description"]//text() | //div[@class="ProductDetailsBodyInformation__title"]
   - name: description1
     singleValue: false
     xpath: //div[@class="ProductDetails__marketingFeatures"]//ul/li 
@@ -144,6 +145,7 @@ fields:
   - name: manufacturerDescription
     singleValue: false
     description: The extended description of the product supplied by the lister
+    manualSelector: div.ProductDetailsBody.PDParomaticSection, div.PDPoriginSection, div.PDProastingSection
   # - name: manufacturerImages
   #   singleValue: false
   #   xpath: //div[@class="c-pdp-banner"]/img/@src
@@ -155,6 +157,7 @@ fields:
   - name: videos
     singleValue: false
     description: URLs of videos on page
+    xpath: //iframe[contains(@src, 'youtube')]/@src
   - name: name
     singleValue: false
     xpath: //div[@itemprop="name"]/text() | //div[@class="ProductDetails__name"]/text()
