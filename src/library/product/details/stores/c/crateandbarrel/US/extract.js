@@ -10,19 +10,19 @@ async function implementation (
   const { productDetails } = dependencies;
 
   try {
+    await context.evaluate(async function () {
+      const videoButton = document.querySelector('div[class="gallery-thumbnail"] div[class*="gallery-thumbnail-item thumbnail-video"] button');
+      // @ts-ignore
+      videoButton && videoButton.click();
+    });
+  } catch (error) {
+    console.log('Failed to click video');
+  }
+  try {
     await context.waitForSelector('div[class="gallery-thumbnail"] div[class*="gallery-thumbnail-item thumbnail-video"] button');
     await context.click('div[class="gallery-thumbnail"] div[class*="gallery-thumbnail-item thumbnail-video"] button');
   } catch (error) {
-    try {
-      await context.evaluate(async function () {
-        const videoButton = document.querySelector('div[class="gallery-thumbnail"] div[class*="gallery-thumbnail-item thumbnail-video"] button');
-        // @ts-ignore
-        videoButton && videoButton.click();
-      });
-    } catch (error) {
-      console.log('Failed to click video attempt 2');
-    }
-    console.log('Failed to click video');
+    console.log('Failed to click video attempt 2');
   }
   try {
     await context.evaluate(async function () {
@@ -32,7 +32,10 @@ async function implementation (
         catElement.id = key;
         catElement.textContent = value;
         catElement.style.display = 'none';
-        document.body.appendChild(catElement);
+        const parentDiv = document.querySelector('div[id*="bodyContainer"]');
+        if (parentDiv) {
+          parentDiv.appendChild(catElement);
+        }
       }
       const video = document.querySelector('iframe[aria-label*="Video"]');
       // @ts-ignore

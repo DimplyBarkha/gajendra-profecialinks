@@ -79,18 +79,14 @@ const transform = (data) => {
       //     ];
       //   }
       if (row.alternateImages) {
-        const alternateImagesArr = row.alternateImages.map((item) => {
-          const regExV1 = /(.+)_thumb_(.+)/;
-          if (regExV1.test(item.text)) {
-            return { text: `${item.text.match(regExV1)[1]}${item.text.match(regExV1)[2]}` };
-          }
-          const regExV2 = /(.+)\?\$web_Lineitem\$&amp;wid=60&amp;hei=60/;
-          if (regExV2.test(item.text)) {
-            return { text: `${item.text.match(regExV2)[1]}` };
-          }
+        const newAlternateImages = row.alternateImages.map(item => {
+          let image = item.text.trim();
+          image = image.split('$');
+          return {
+            text: image[0],
+          };
         });
-        const alternateImagesResult = alternateImagesArr;
-        row.alternateImages = alternateImagesResult;
+        row.alternateImages = newAlternateImages;
       }
       if (row.aggregateRating) {
         let rating = '';
