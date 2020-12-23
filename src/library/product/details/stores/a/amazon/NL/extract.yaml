@@ -1,0 +1,32 @@
+extends: ../../../../sharedAmazon/shared
+# singleRecord: false
+# regionsSelector: null
+# recordSelector: null
+# recordXPath: /html[//div[@id="a-page"]]
+fields:
+  - name: image
+    singleValue: true
+    xpath: //div[@id="imgTagWrapperId"]/img/@data-old-hires
+  - name: description
+    singleValue: false
+    #html: true
+    xpath: //*[@id='feature-bullets']//ul/li[not(@id)] 
+  - name: extraDescription
+    singleValue: true
+    xpath: //div[@id="productDescription"][not(h3)]/*[not(@class="disclaim")] | //div[@id="productDescription"]/h3[1]/following-sibling::*[count(preceding-sibling::h3)=1][not(name()="h3")]
+    # xpath: //div[@id="productDescription"]/*[not(@class="disclaim")]
+    #html: true  
+  - name: manufacturerDescription
+    singleValue: false
+    xpath: //div[@id="aplus"]/div | //div[@class="aplus"]
+    #html: true   
+  - name: _url
+    #singleValue: true
+    xpath: //link[@rel='canonical']/@href          
+  - name: asin
+    #singleValue: true
+    xpath: //div[@class="a-section"]//input[@id="ASIN"]/@value
+    description: ASIN value here  
+  - name: videos
+    singleValue: false
+    xpath: //div[@class="airy-renderer-container"]//video[@preload="auto"]/@src
