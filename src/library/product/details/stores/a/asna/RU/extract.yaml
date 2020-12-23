@@ -26,7 +26,7 @@ fields:
     xpath: //div[@class="product-title"]/h1
   - name: price
     singleValue: false
-    xpath: //div[@class="product-detail-controls"]/div[@class="item-component-price-wapper"]/div/span/span   
+    xpath: concat(//div[@class="product-detail-controls"]/div[@class="item-component-price-wapper"]/div/link[@itemprop='price']//@content, ' ' ,//div[@class="product-detail-controls"]/div[@class="item-component-price-wapper"]/div/meta[@itemprop='priceCurrency']//@content)
   - name: availabilityText
     singleValue: false
     xpath: //div[@class="product__additional-block js-product__additional-block  js-product__additional-block-5666 "]/button
