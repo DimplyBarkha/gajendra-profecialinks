@@ -42,6 +42,11 @@ const transform = (data) => {
           }
         });
       }
+      if (row.nameExtended) {
+        row.nameExtended.forEach(item => {
+          item.text = `Nespresso-${item.text}`;
+        });
+      }
       if (row.manufacturerDescription) {
         let text = '';
         row.manufacturerDescription.forEach(item => {
@@ -149,14 +154,14 @@ const transform = (data) => {
         ];
       }
       if ((!row.quantity || !row.quantity.length) && row.quantity1) {
-        console.log('quantity1',row.quantity1);
+        console.log('quantity1', row.quantity1);
         row.quantity = row.quantity1;
-        console.log("quantity", row.quantity);
+        console.log('quantity', row.quantity);
       }
       if ((!row.quantity || !row.quantity.length) && row.quantity2) {
-        console.log('quantity2',row.quantity2);
+        console.log('quantity2', row.quantity2);
         row.quantity = row.quantity2;
-        console.log("quantity", row.quantity);
+        console.log('quantity', row.quantity);
       }
       if (row.allergyAdvice) {
         let text = '';
@@ -181,14 +186,14 @@ const transform = (data) => {
         ];
       }
       if ((!row.ingredientsList || !row.ingredientsList.length) && row.ingredientsList1) {
-        console.log('ingredientsList1',row.ingredientsList1);
+        console.log('ingredientsList1', row.ingredientsList1);
         row.ingredientsList = row.ingredientsList1;
-        console.log("ingredientsList", row.ingredientsList);
+        console.log('ingredientsList', row.ingredientsList);
       }
       if ((!row.allergyAdvice || !row.allergyAdvice.length) && row.allergyAdvice1) {
-        console.log('allergyAdvice1',row.allergyAdvice1);
+        console.log('allergyAdvice1', row.allergyAdvice1);
         row.allergyAdvice = row.allergyAdvice1;
-        console.log("allergyAdvice", row.allergyAdvice);
+        console.log('allergyAdvice', row.allergyAdvice);
       }
       if (row.additionalDescBulletInfo) {
         let text = '';
