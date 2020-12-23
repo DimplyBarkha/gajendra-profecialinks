@@ -44,9 +44,9 @@ fields:
     xpath: //div[@id='product-attribute-specs-table']//ul//li//div[@class='label' and text()='Brand']/following-sibling::div[@class='data']
   - name: quantity
     singleValue: false
-    xpath: //div[@class='add-to-cart']//button[@id='product-addtocart-button']//span[@class='added' and text()='Add to Cart']
-    regExp: (.+)
-    regExpReplace: 1  
+    xpath: //div[@class='product-name']//h1
+    regExp: (?:\s?([\d\.]+\s?)([bB]ar[s]?|[cC]ount|[cC]t|[fF][lL][\.]?\s?[oO][zZ][\.]?|FO|[mM][lL]|[gG]|[oO][zZ][\.]?|pc|[pP]int|[pP]ops|qt|[wW]ipe[s]?).?)$|(?:\s?([\d\.]+\s?)([bB]ar[s]?|[cC]ount|[cC]|[fF][lL][\.]?\s?[oO][zZ][\.]?|FO|[mM][lL]|[gG]|[oO][zZ][\.]?|pc|[pP]int|[pP]ops|qt|[wW]ipe[s]?).?\s?[\&\-\w\s]+)$
+    regExpReplace: $1$2$3$4
   - name: sku
     singleValue: false
     xpath: //input[@id='product-sku']/@value
