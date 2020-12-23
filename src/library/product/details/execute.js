@@ -24,6 +24,15 @@ const implementation = async (inputs, { loadedSelector, noResultsXPath }, contex
       noResultsXPath,
     );
   }
+  console.log('Checking no results', noResultsXPath);
+  const noResult = await context.evaluate((xp) => {
+    const r = document.evaluate(xp, document, null, XPathResult.UNORDERED_NODE_ITERATOR_TYPE, null);
+    console.log(xp, r);
+    const e = r.iterateNext();
+    console.log(e);
+    return e;
+  }, noResultsXPath);
+  if (noResult) return false;
   return await context.evaluate((xpath) => !document.evaluate(xpath, document, null, XPathResult.BOOLEAN_TYPE, null).booleanValue, noResultsXPath);
 };
 
