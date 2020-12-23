@@ -49,19 +49,24 @@ fields:
 
   - name: listPrice
     singleValue: true
+    type: CURRENCY
     xpath: //div[@class='price']/div[@class='priceDetail']/del[@class='oldPrice']
   - name: listPrice
     singleValue: true
+    type: CURRENCY
     xpath: //div[@class='priceDetail']/div[@class='newPrice']/ins
   - name: listPrice
     singleValue: true
+    type: CURRENCY
     xpath: //div[@class='discount-view__row']/p[@class='discount-view__info']/del[@class='price-fullPrice']
 
   - name: price
     singleValue: true
+    type: CURRENCY
     xpath: //div[@class='price']/div[@class='priceDetail']/div[@class='newPrice']/ins
   - name: price
     singleValue: true
+    type: CURRENCY
     xpath: //p[@class='discount-view__info']/ins[@class='price-now is-big']/span[@class='price-amount']
 
   - name: availabilityText
