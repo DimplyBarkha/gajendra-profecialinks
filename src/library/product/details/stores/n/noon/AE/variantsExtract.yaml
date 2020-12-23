@@ -2,19 +2,19 @@ singleRecord: false
 regionsSelector: null
 recordSelector: null
 # recordXPath: //div[@id="content"]//ul[contains(@class,"thumbnails")]//li
-recordXPath: //div[@class='section']/div/header/following-sibling::ul/li
+recordXPath: //div[@id='variants']
 fields:
   - name: variantId
     singleValue: false
     # xpath: //div[@id="content"]//ul[contains(@class,"thumbnails")]//li//img/@src
-    xpath: //div[@class='section']/div/header/following-sibling::ul/li//img/@src
+    xpath: //div[@id='variants']
     regExp: .+\/(.+?)_.+
     regExpReplace: $1
   - name: variantUrl
     singleValue: false
     # xpath: //div[@id="content"]//ul[contains(@class,"thumbnails")]//li//img/@src
-    xpath: //div[@class='section']/div/header/following-sibling::ul/li//img/@src
+    # xpath: //div[@class='section']/div/header/following-sibling::ul/li//img/@src
   - name: variant
     singleValue: false
     # xpath: //li//button/@title
-    xpath: //a/following-sibling::h1/text()
+    # xpath: //a/following-sibling::h1/text()
