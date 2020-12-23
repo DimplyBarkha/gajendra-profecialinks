@@ -1,14 +1,14 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: //div[@data-component="MasonryGrid"]//div[@class="product-tile__container"]
+recordXPath: //div[contains(@id,"productElement-")][position()<=150]
 fields:
   - name: id
     singleValue: false
     xpath: //@product-tile-id
   - name: searchUrl
     singleValue: true
-    xpath: //@search-url
+    xpath: //@product-tile-search-url
   - name: name
     xpath: //@product-tile-name
     singleValue: false
@@ -17,11 +17,13 @@ fields:
   - name: gtin
     singleValue: false
   - name: thumbnail
-    xpath: //@thumbnail
+    xpath: //@product-tile-thumbnail
   - name: aggregateRating
     singleValue: false
   - name: aggregateRating2
-    xpath: //@aggregateRating
+    xpath: //@product-tile-aggRating
+    regExp: (\d+)\.?,?(\d+)?
+    regExpReplace: $1,$2
     singleValue: false
   - name: reviewCount
     singleValue: false

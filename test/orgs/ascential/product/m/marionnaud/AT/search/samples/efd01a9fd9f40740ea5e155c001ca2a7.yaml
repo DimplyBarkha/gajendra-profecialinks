@@ -2,300 +2,558 @@ input:
   keywords: bb cream
   _url: http://marionnaud.at
 extractions:
-  - html: https://workbench.import.io/html/run=ba26a444-7391-4a8a-83a7-53c6b457a0af/task=c8452865-c9ba-4bfd-aaa7-b23521d3c082/7c2f09b5-1db8-401d-83aa-00882c20fae0.html
+  - html: https://workbench.import.io/html/run=36fa8125-edd6-41cf-a4f4-20191456e447/task=7000baf3-b3a0-4a21-8ff2-acf1be1ab246/64d09b3c-a2d3-4dd9-b928-1503c011c15f.html
     extractionConfigId: product/search/stores/m/marionnaud/AT/extract
     data:
       - group:
           - id:
-              - text: 133CQMOISTURIZINGBBGELDD
-                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[1]/div[1]/@product-tile-id
+              - text: "9003236"
+                xpath: /html/body/div[1]/@product-tile-id
             searchUrl:
-              - text: https://www.marionnaud.at/marionnaud/pflege/gesicht/bb-cream/c/200010006
-                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[1]/div[1]/@search-url
-            name:
-              - text: Clinique iD Dramatically Different Moisturizing BB-Gel
-                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[1]/div[1]/@product-tile-name
-            productUrl:
-              - text: https://www.marionnaud.at/marionnaud/pflege/gesicht/bb-cream/id-dramatically-different-moisturizing-bb-gel-/p/133CQMOISTURIZINGBBGELDD
-                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[1]/div[1]/@product-tile-url
-            thumbnail:
-              - text: https://www.marionnaud.at/medias/sys_master/front-cat/front-cat/8967712604190/Clinique-iD-Dramatically-Different-Moisturizing-BB-Gel-192333011652-DRAMATICALLY-DIFFERENT-BB-GEL.jpg
-                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[1]/div[1]/@thumbnail
-            price:
-              - text: € 30,39
-                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[2]/div[1]/div[1]/@product-tile-price
-          - id:
-              - text: 133BTAQUASBBFAIRTOMEDIUMCREAM
-                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[3]/div[1]/div[1]/@product-tile-id
-            searchUrl:
-              - text: https://www.marionnaud.at/marionnaud/pflege/gesicht/bb-cream/c/200010006
-                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[3]/div[1]/div[1]/@search-url
+              - text: https://www.marionnaud.at/search/results?page=0&resultsForPage=20&q=bb%20cream
+                xpath: /html/body/div[1]/@product-tile-search-url
             name:
               - text: Biotherm Aquasource BB Cream
-                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[3]/div[1]/div[1]/@product-tile-name
+                xpath: /html/body/div[1]/@product-tile-name
             productUrl:
               - text: https://www.marionnaud.at/marionnaud/pflege/gesicht/tagespflege/aquasource-bb-cream/p/133BTAQUASBBFAIRTOMEDIUMCREAM
-                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[3]/div[1]/div[1]/@product-tile-url
+                xpath: /html/body/div[1]/@product-tile-url
             thumbnail:
-              - text: https://www.marionnaud.at/medias/sys_master/front-cat/front-cat/8803377152030/Biotherm-Aquasource-BB-Cream-3605540853764-AQUASOURCE.jpg
-                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[3]/div[1]/div[1]/@thumbnail
+              - text: https://www.marionnaud.at/medias/sys_master/front-prd/front-prd/8803377020958.jpg
+                xpath: /html/body/div[1]/@product-tile-thumbnail
             price:
-              - text: € 23,55
-                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[3]/div[1]/div[1]/@product-tile-price
+              - text: € 30,99
+                xpath: /html/body/div[1]/@product-tile-price
           - id:
-              - text: 31LCRVISAGELSF50SOLEILBRONZER
-                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[4]/div[1]/div[1]/@product-tile-id
+              - text: "51003767"
+                xpath: /html/body/div[2]/@product-tile-id
             searchUrl:
-              - text: https://www.marionnaud.at/marionnaud/pflege/gesicht/bb-cream/c/200010006
-                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[4]/div[1]/div[1]/@search-url
-            name:
-              - text: Lancôme Soleil Bronzer Creme Visage SPF50 BB-Cream - Sonnenschutz Gesicht
-                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[4]/div[1]/div[1]/@product-tile-name
-            productUrl:
-              - text: https://www.marionnaud.at/marionnaud/pflege/sonnenpflege/sonnenschutz/soleil-bronzer-creme-visage-spf50-bb-cream-sonnenschutz-gesicht/p/31LCRVISAGELSF50SOLEILBRONZER
-                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[4]/div[1]/div[1]/@product-tile-url
-            thumbnail:
-              - text: https://www.marionnaud.at/medias/sys_master/front-cat/front-cat/8970436608030/Lanc-me-Soleil-Bronzer-Creme-Visage-SPF50-BB-Cream-Sonnenschutz-Gesicht-3605533155813-SOLEIL-BRONZER.jpg
-                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[4]/div[1]/div[1]/@thumbnail
-            price:
-              - text: € 28,87
-                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[4]/div[1]/div[1]/@product-tile-price
-          - id:
-              - text: 133LHYDRAZEN04BBCREAM
-                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[5]/div[1]/div[1]/@product-tile-id
-            searchUrl:
-              - text: https://www.marionnaud.at/marionnaud/pflege/gesicht/bb-cream/c/200010006
-                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[5]/div[1]/div[1]/@search-url
+              - text: https://www.marionnaud.at/search/results?page=0&resultsForPage=20&q=bb%20cream
+                xpath: /html/body/div[2]/@product-tile-search-url
             name:
               - text: Lancôme Hydra Zen BB Cream
-                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[5]/div[1]/div[1]/@product-tile-name
+                xpath: /html/body/div[2]/@product-tile-name
             productUrl:
               - text: https://www.marionnaud.at/marionnaud/pflege/gesicht/bb-cream/hydra-zen-bb-cream/p/133LHYDRAZEN04BBCREAM
-                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[5]/div[1]/div[1]/@product-tile-url
+                xpath: /html/body/div[2]/@product-tile-url
             thumbnail:
-              - text: https://www.marionnaud.at/medias/sys_master/front-cat/front-cat/8824091901982/Lanc-me-Hydra-Zen-BB-Cream-3614270547577-HYDRA-ZEN-NEUROCALM.jpg
-                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[5]/div[1]/div[1]/@thumbnail
+              - text: https://www.marionnaud.at/medias/sys_master/front-prd/front-prd/8824091770910.jpg
+                xpath: /html/body/div[2]/@product-tile-thumbnail
             price:
-              - text: € 34,19
-                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[5]/div[1]/div[1]/@product-tile-price
+              - text: € 44,99
+                xpath: /html/body/div[2]/@product-tile-price
           - id:
-              - text: 133SHIPERFHYDRAMEDIUMBBCREAMSPF30
-                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[6]/div[1]/div[1]/@product-tile-id
+              - text: "83502310"
+                xpath: /html/body/div[3]/@product-tile-id
             searchUrl:
-              - text: https://www.marionnaud.at/marionnaud/pflege/gesicht/bb-cream/c/200010006
-                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[6]/div[1]/div[1]/@search-url
+              - text: https://www.marionnaud.at/search/results?page=0&resultsForPage=20&q=bb%20cream
+                xpath: /html/body/div[3]/@product-tile-search-url
             name:
               - text: Shiseido Perfect Hydrating BB Cream SPF 30 Gesichtscreme
-                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[6]/div[1]/div[1]/@product-tile-name
+                xpath: /html/body/div[3]/@product-tile-name
             productUrl:
               - text: https://www.marionnaud.at/marionnaud/pflege/gesicht/bb-cream/perfect-hydrating-bb-cream-spf-30-gesichtscreme/p/133SHIPERFHYDRAMEDIUMBBCREAMSPF30
-                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[6]/div[1]/div[1]/@product-tile-url
+                xpath: /html/body/div[3]/@product-tile-url
             thumbnail:
-              - text: https://www.marionnaud.at/medias/sys_master/front-cat/front-cat/8807486455838/Shiseido-Perfect-Hydrating-BB-Cream-SPF-30-Gesichtscreme-730852109032-PERFECT-HYDRATING.jpg
-                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[6]/div[1]/div[1]/@thumbnail
+              - text: https://www.marionnaud.at/medias/sys_master/front-prd/front-prd/8807486324766.jpg
+                xpath: /html/body/div[3]/@product-tile-thumbnail
             aggregateRating2:
-              - text: 5,0
-                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[6]/div[1]/div[1]/@aggregaterating
+              - text: 5,
+                xpath: /html/body/div[3]/@product-tile-aggrating
             price:
-              - text: € 34,95
-                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[6]/div[1]/div[1]/@product-tile-price
+              - text: € 45,99
+                xpath: /html/body/div[3]/@product-tile-price
           - id:
-              - text: 133CDFDT000DSKMOISTPERFCUSH
-                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[7]/div[1]/div[1]/@product-tile-id
+              - text: "21003462"
+                xpath: /html/body/div[4]/@product-tile-id
             searchUrl:
-              - text: https://www.marionnaud.at/marionnaud/pflege/gesicht/bb-cream/c/200010006
-                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[7]/div[1]/div[1]/@search-url
+              - text: https://www.marionnaud.at/search/results?page=0&resultsForPage=20&q=bb%20cream
+                xpath: /html/body/div[4]/@product-tile-search-url
             name:
-              - text: Dior Moist & Perfect Cushion
-                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[7]/div[1]/div[1]/@product-tile-name
+              - text: Clinique Age Defense BB Cream SPF 30
+                xpath: /html/body/div[4]/@product-tile-name
             productUrl:
-              - text: https://www.marionnaud.at/marionnaud/pflege/gesicht/bb-cream/moist-perfect-cushion/p/133CDFDT000DSKMOISTPERFCUSH
-                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[7]/div[1]/div[1]/@product-tile-url
+              - text: https://www.marionnaud.at/marionnaud/pflege/gesicht/tagespflege/age-defense-bb-cream-spf-30/p/133CQBB01CREAMAGEDEFENSESPF30
+                xpath: /html/body/div[4]/@product-tile-url
             thumbnail:
-              - text: https://www.marionnaud.at/medias/sys_master/front-cat/front-cat/8924173172766/Dior-Moist-Perfect-Cushion-3348901423182-CAPTURE-DREAMSKIN.jpg
-                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[7]/div[1]/div[1]/@thumbnail
+              - text: https://www.marionnaud.at/medias/sys_master/front-prd/front-prd/8802042970142.jpg
+                xpath: /html/body/div[4]/@product-tile-thumbnail
             price:
-              - text: € 89,99
-                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[7]/div[1]/div[1]/@product-tile-price
+              - text: € 36,99
+                xpath: /html/body/div[4]/@product-tile-price
           - id:
-              - text: 133CLBLURANDMATSTICKPORELESSMYCL
-                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[8]/div[1]/div[1]/@product-tile-id
+              - text: "51019703"
+                xpath: /html/body/div[5]/@product-tile-id
             searchUrl:
-              - text: https://www.marionnaud.at/marionnaud/pflege/gesicht/bb-cream/c/200010006
-                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[8]/div[1]/div[1]/@search-url
+              - text: https://www.marionnaud.at/search/results?page=0&resultsForPage=20&q=bb%20cream
+                xpath: /html/body/div[5]/@product-tile-search-url
             name:
-              - text: Clarins Poreless Matteriender Stick
-                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[8]/div[1]/div[1]/@product-tile-name
+              - text: Lancôme Soleil Bronzer Creme Visage SPF50 BB-Cream - Sonnenschutz Gesicht
+                xpath: /html/body/div[5]/@product-tile-name
             productUrl:
-              - text: https://www.marionnaud.at/marionnaud/pflege/gesicht/bb-cream/poreless-matteriender-stick/p/133CLBLURANDMATSTICKPORELESSMYCL
-                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[8]/div[1]/div[1]/@product-tile-url
+              - text: https://www.marionnaud.at/marionnaud/pflege/sonnenpflege/sonnenschutz/soleil-bronzer-creme-visage-spf50-bb-cream-sonnenschutz-gesicht/p/31LCRVISAGELSF50SOLEILBRONZER
+                xpath: /html/body/div[5]/@product-tile-url
             thumbnail:
-              - text: https://www.marionnaud.at/medias/sys_master/front-cat/front-cat/8938198237214/Clarins-Poreless-Matteriender-Stick-3380810258288-MY-CLARINS.jpg
-                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[8]/div[1]/div[1]/@thumbnail
+              - text: https://www.marionnaud.at/medias/sys_master/front-prd/front-prd/8970436476958.jpg
+                xpath: /html/body/div[5]/@product-tile-thumbnail
             price:
-              - text: € 15,95
-                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[8]/div[1]/div[1]/@product-tile-price
+              - text: € 37,99
+                xpath: /html/body/div[5]/@product-tile-price
           - id:
-              - text: 133CLFDT0FAIRBBSKINDETOXFLUID
-                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[9]/div[1]/div[1]/@product-tile-id
+              - text: "8102012"
+                xpath: /html/body/div[6]/@product-tile-id
             searchUrl:
-              - text: https://www.marionnaud.at/marionnaud/pflege/gesicht/bb-cream/c/200010006
-                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[9]/div[1]/div[1]/@search-url
+              - text: https://www.marionnaud.at/search/results?page=0&resultsForPage=20&q=bb%20cream
+                xpath: /html/body/div[6]/@product-tile-search-url
             name:
-              - text: Clarins BB Skin Detox Make-up Fluid SPF25
-                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[9]/div[1]/div[1]/@product-tile-name
-            productUrl:
-              - text: https://www.marionnaud.at/marionnaud/pflege/gesicht/bb-cream/bb-skin-detox-make-up-fluid-spf25/p/133CLFDT0FAIRBBSKINDETOXFLUID
-                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[9]/div[1]/div[1]/@product-tile-url
-            thumbnail:
-              - text: https://www.marionnaud.at/medias/sys_master/front-cat/front-cat/8838346309662/Clarins-BB-Skin-Detox-Make-up-Fluid-SPF25-3380810016697-BB-SKIN-DETOX-FLUID-SPF-25.jpg
-                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[9]/div[1]/div[1]/@thumbnail
-            price:
-              - text: € 31,91
-                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[9]/div[1]/div[1]/@product-tile-price
-          - id:
-              - text: 133BEBBCREAMLIGHTSKINPERFECTHYDRAT
-                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[10]/div[1]/div[1]/@product-tile-id
-            searchUrl:
-              - text: https://www.marionnaud.at/marionnaud/pflege/gesicht/bb-cream/c/200010006
-                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[10]/div[1]/div[1]/@search-url
-            name:
-              - text: BE Creative Make Up BB Creme
-                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[10]/div[1]/div[1]/@product-tile-name
+              - text: Be creative make up BB Creme
+                xpath: /html/body/div[6]/@product-tile-name
             productUrl:
               - text: https://www.marionnaud.at/marionnaud/pflege/gesicht/bb-cream/bb-creme/p/133BEBBCREAMLIGHTSKINPERFECTHYDRAT
-                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[10]/div[1]/div[1]/@product-tile-url
+                xpath: /html/body/div[6]/@product-tile-url
             thumbnail:
-              - text: https://www.marionnaud.at/medias/sys_master/front-cat/front-cat/8916303675422/BE-Creative-Make-Up-BB-Creme-8719179253460-SKIN-PERFECT-HYDRATING-BB-CREA.jpg
-                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[10]/div[1]/div[1]/@thumbnail
+              - text: https://www.marionnaud.at/medias/sys_master/front-prd/front-prd/8916303609886.jpg
+                xpath: /html/body/div[6]/@product-tile-thumbnail
             price:
-              - text: € 18,99
-                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[10]/div[1]/div[1]/@product-tile-price
+              - text: € 24,99
+                xpath: /html/body/div[6]/@product-tile-price
           - id:
-              - text: 133MACMEDIUMLIGTHFCCOGR
-                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[11]/div[1]/div[1]/@product-tile-id
+              - text: "13363097"
+                xpath: /html/body/div[7]/@product-tile-id
             searchUrl:
-              - text: https://www.marionnaud.at/marionnaud/pflege/gesicht/bb-cream/c/200010006
-                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[11]/div[1]/div[1]/@search-url
+              - text: https://www.marionnaud.at/search/results?page=0&resultsForPage=20&q=bb%20cream
+                xpath: /html/body/div[7]/@product-tile-search-url
             name:
-              - text: MAC Getönte Tagespflege Medium
-                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[11]/div[1]/div[1]/@product-tile-name
+              - text: Bobbi brown Creamy Concealer Kit
+                xpath: /html/body/div[7]/@product-tile-name
+            productUrl:
+              - text: https://www.marionnaud.at/marionnaud/make-up/teint/abdeckprodukte/creamy-concealer-kit/p/141BBCRCOK
+                xpath: /html/body/div[7]/@product-tile-url
+            thumbnail:
+              - text: https://www.marionnaud.at/medias/sys_master/front-prd/front-prd/8980064600094.jpg
+                xpath: /html/body/div[7]/@product-tile-thumbnail
+            price:
+              - text: € 46,99
+                xpath: /html/body/div[7]/@product-tile-price
+          - id:
+              - text: "83503985"
+                xpath: /html/body/div[8]/@product-tile-id
+            searchUrl:
+              - text: https://www.marionnaud.at/search/results?page=0&resultsForPage=20&q=bb%20cream
+                xpath: /html/body/div[8]/@product-tile-search-url
+            name:
+              - text: Shiseido BB Creme
+                xpath: /html/body/div[8]/@product-tile-name
+            productUrl:
+              - text: https://www.marionnaud.at/marionnaud/pflege/sonnenpflege/sonnenschutz/bb-creme/p/141GLOBALSUN
+                xpath: /html/body/div[8]/@product-tile-url
+            thumbnail:
+              - text: https://www.marionnaud.at/medias/sys_master/front-prd/front-prd/8937369665566.jpg
+                xpath: /html/body/div[8]/@product-tile-thumbnail
+            price:
+              - text: € 39,99
+                xpath: /html/body/div[8]/@product-tile-price
+          - id:
+              - text: "13362474"
+                xpath: /html/body/div[9]/@product-tile-id
+            searchUrl:
+              - text: https://www.marionnaud.at/search/results?page=0&resultsForPage=20&q=bb%20cream
+                xpath: /html/body/div[9]/@product-tile-search-url
+            name:
+              - text: Bobbi brown Long-Wear Cream Shadow Stick
+                xpath: /html/body/div[9]/@product-tile-name
+            productUrl:
+              - text: https://www.marionnaud.at/marionnaud/make-up/augen/lidschatten/long-wear-cream-shadow-stick/p/142BBLWCRST
+                xpath: /html/body/div[9]/@product-tile-url
+            thumbnail:
+              - text: https://www.marionnaud.at/medias/sys_master/front-prd/front-prd/8980425474078.jpg
+                xpath: /html/body/div[9]/@product-tile-thumbnail
+            price:
+              - text: € 40,99
+                xpath: /html/body/div[9]/@product-tile-price
+          - id:
+              - text: "13364644"
+                xpath: /html/body/div[10]/@product-tile-id
+            searchUrl:
+              - text: https://www.marionnaud.at/search/results?page=0&resultsForPage=20&q=bb%20cream
+                xpath: /html/body/div[10]/@product-tile-search-url
+            name:
+              - text: Bobbi brown Hydrating Face Cream
+                xpath: /html/body/div[10]/@product-tile-name
+            productUrl:
+              - text: https://www.marionnaud.at/marionnaud/pflege/gesicht/tagespflege/hydrating-face-cream/p/133BOBHYDRATINGFACECREAM
+                xpath: /html/body/div[10]/@product-tile-url
+            thumbnail:
+              - text: https://www.marionnaud.at/medias/sys_master/front-prd/front-prd/8980271235102.jpg
+                xpath: /html/body/div[10]/@product-tile-thumbnail
+            price:
+              - text: € 60,99
+                xpath: /html/body/div[10]/@product-tile-price
+          - id:
+              - text: "13364637"
+                xpath: /html/body/div[11]/@product-tile-id
+            searchUrl:
+              - text: https://www.marionnaud.at/search/results?page=0&resultsForPage=20&q=bb%20cream
+                xpath: /html/body/div[11]/@product-tile-search-url
+            name:
+              - text: Bobbi brown Hydrating Eye Cream
+                xpath: /html/body/div[11]/@product-tile-name
+            productUrl:
+              - text: https://www.marionnaud.at/marionnaud/pflege/gesicht/augenpflege/hydrating-eye-cream/p/1341BOBHYDRATINGEYECREAM
+                xpath: /html/body/div[11]/@product-tile-url
+            thumbnail:
+              - text: https://www.marionnaud.at/medias/sys_master/front-prd/front-prd/8980026261534.jpg
+                xpath: /html/body/div[11]/@product-tile-thumbnail
+            price:
+              - text: € 54,99
+                xpath: /html/body/div[11]/@product-tile-price
+          - id:
+              - text: "13364651"
+                xpath: /html/body/div[12]/@product-tile-id
+            searchUrl:
+              - text: https://www.marionnaud.at/search/results?page=0&resultsForPage=20&q=bb%20cream
+                xpath: /html/body/div[12]/@product-tile-search-url
+            name:
+              - text: Bobbi brown Hydrating Water Fresh Cream
+                xpath: /html/body/div[12]/@product-tile-name
+            productUrl:
+              - text: https://www.marionnaud.at/marionnaud/pflege/gesicht/tagespflege/hydrating-water-fresh-cream/p/133BOBHYDRATINGWATERFRESHCREAM
+                xpath: /html/body/div[12]/@product-tile-url
+            thumbnail:
+              - text: https://www.marionnaud.at/medias/sys_master/front-prd/front-prd/8985953828894.jpg
+                xpath: /html/body/div[12]/@product-tile-thumbnail
+            price:
+              - text: € 60,99
+                xpath: /html/body/div[12]/@product-tile-price
+          - id:
+              - text: "13364672"
+                xpath: /html/body/div[13]/@product-tile-id
+            searchUrl:
+              - text: https://www.marionnaud.at/search/results?page=0&resultsForPage=20&q=bb%20cream
+                xpath: /html/body/div[13]/@product-tile-search-url
+            name:
+              - text: Bobbi brown Extra Repair Eye Cream
+                xpath: /html/body/div[13]/@product-tile-name
+            productUrl:
+              - text: https://www.marionnaud.at/marionnaud/pflege/gesicht/tagespflege/extra-repair-eye-cream/p/133BOBEXTRAREPAIREYECREAM
+                xpath: /html/body/div[13]/@product-tile-url
+            thumbnail:
+              - text: https://www.marionnaud.at/medias/sys_master/front-prd/front-prd/8980332314654.jpg
+                xpath: /html/body/div[13]/@product-tile-thumbnail
+            price:
+              - text: € 84,99
+                xpath: /html/body/div[13]/@product-tile-price
+          - id:
+              - text: "13364679"
+                xpath: /html/body/div[14]/@product-tile-id
+            searchUrl:
+              - text: https://www.marionnaud.at/search/results?page=0&resultsForPage=20&q=bb%20cream
+                xpath: /html/body/div[14]/@product-tile-search-url
+            name:
+              - text: Bobbi brown Extra Repair Moisture Cream
+                xpath: /html/body/div[14]/@product-tile-name
+            productUrl:
+              - text: https://www.marionnaud.at/marionnaud/pflege/gesicht/tagespflege/extra-repair-moisture-cream/p/133BOBEXTRAREPAIRMOISTURECREAM
+                xpath: /html/body/div[14]/@product-tile-url
+            thumbnail:
+              - text: https://www.marionnaud.at/medias/sys_master/front-prd/front-prd/8980413513758.jpg
+                xpath: /html/body/div[14]/@product-tile-thumbnail
+            price:
+              - text: € 124,99
+                xpath: /html/body/div[14]/@product-tile-price
+          - id:
+              - text: "13362579"
+                xpath: /html/body/div[15]/@product-tile-id
+            searchUrl:
+              - text: https://www.marionnaud.at/search/results?page=0&resultsForPage=20&q=bb%20cream
+                xpath: /html/body/div[15]/@product-tile-search-url
+            name:
+              - text: Bobbi brown Long-Wear Cream Shadow Stick
+                xpath: /html/body/div[15]/@product-tile-name
+            productUrl:
+              - text: https://www.marionnaud.at/marionnaud/make-up/augen/augenbrauenstift/long-wear-cream-shadow-stick/p/142BBLWGEL
+                xpath: /html/body/div[15]/@product-tile-url
+            thumbnail:
+              - text: https://www.marionnaud.at/medias/sys_master/front-prd/front-prd/8980144422942.jpg
+                xpath: /html/body/div[15]/@product-tile-thumbnail
+            price:
+              - text: € 33,99
+                xpath: /html/body/div[15]/@product-tile-price
+          - id:
+              - text: "20003695"
+                xpath: /html/body/div[16]/@product-tile-id
+            searchUrl:
+              - text: https://www.marionnaud.at/search/results?page=0&resultsForPage=20&q=bb%20cream
+                xpath: /html/body/div[16]/@product-tile-search-url
+            name:
+              - text: Clarins BB Skin Detox Make-up Fluid SPF25
+                xpath: /html/body/div[16]/@product-tile-name
+            productUrl:
+              - text: https://www.marionnaud.at/marionnaud/pflege/gesicht/bb-cream/bb-skin-detox-make-up-fluid-spf25/p/133CLFDT0FAIRBBSKINDETOXFLUID
+                xpath: /html/body/div[16]/@product-tile-url
+            thumbnail:
+              - text: https://www.marionnaud.at/medias/sys_master/front-prd/front-prd/8838346178590.jpg
+                xpath: /html/body/div[16]/@product-tile-thumbnail
+            price:
+              - text: € 41,99
+                xpath: /html/body/div[16]/@product-tile-price
+          - id:
+              - text: "20002990"
+                xpath: /html/body/div[17]/@product-tile-id
+            searchUrl:
+              - text: https://www.marionnaud.at/search/results?page=0&resultsForPage=20&q=bb%20cream
+                xpath: /html/body/div[17]/@product-tile-search-url
+            name:
+              - text: Clarins Poreless Matteriender Stick
+                xpath: /html/body/div[17]/@product-tile-name
+            productUrl:
+              - text: https://www.marionnaud.at/marionnaud/pflege/gesicht/bb-cream/poreless-matteriender-stick/p/133CLBLURANDMATSTICKPORELESSMYCL
+                xpath: /html/body/div[17]/@product-tile-url
+            thumbnail:
+              - text: https://www.marionnaud.at/medias/sys_master/front-prd/front-prd/8938198171678.jpg
+                xpath: /html/body/div[17]/@product-tile-thumbnail
+            price:
+              - text: € 20,99
+                xpath: /html/body/div[17]/@product-tile-price
+          - id:
+              - text: "58801248"
+                xpath: /html/body/div[18]/@product-tile-id
+            searchUrl:
+              - text: https://www.marionnaud.at/search/results?page=0&resultsForPage=20&q=bb%20cream
+                xpath: /html/body/div[18]/@product-tile-search-url
+            name:
+              - text: Mac Getönte Tagespflege Medium
+                xpath: /html/body/div[18]/@product-tile-name
             productUrl:
               - text: https://www.marionnaud.at/marionnaud/pflege/gesicht/bb-cream/geto%CC%88nte-tagespflege-medium/p/133MACMEDIUMLIGTHFCCOGR
-                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[11]/div[1]/div[1]/@product-tile-url
+                xpath: /html/body/div[18]/@product-tile-url
             thumbnail:
-              - text: https://www.marionnaud.at/medias/sys_master/front-cat/front-cat/8921522208798/MAC-Get-nte-Tagespflege-Medium-773602440368-LIGHTFUL-C-CORAL-GRASS.jpg
-                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[11]/div[1]/div[1]/@thumbnail
+              - text: https://www.marionnaud.at/medias/sys_master/front-prd/front-prd/8921522143262.jpg
+                xpath: /html/body/div[18]/@product-tile-thumbnail
             price:
-              - text: € 30,39
-                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[11]/div[1]/div[1]/@product-tile-price
+              - text: € 39,99
+                xpath: /html/body/div[18]/@product-tile-price
           - id:
-              - text: 133MACMEDIUMPLUSLIGTHFCCOGR
-                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[12]/div[1]/div[1]/@product-tile-id
+              - text: "58801249"
+                xpath: /html/body/div[19]/@product-tile-id
             searchUrl:
-              - text: https://www.marionnaud.at/marionnaud/pflege/gesicht/bb-cream/c/200010006
-                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[12]/div[1]/div[1]/@search-url
+              - text: https://www.marionnaud.at/search/results?page=0&resultsForPage=20&q=bb%20cream
+                xpath: /html/body/div[19]/@product-tile-search-url
             name:
-              - text: MAC Getönte Tagespflege Medium Plus
-                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[12]/div[1]/div[1]/@product-tile-name
+              - text: Mac Getönte Tagespflege Medium Plus
+                xpath: /html/body/div[19]/@product-tile-name
             productUrl:
               - text: https://www.marionnaud.at/marionnaud/pflege/gesicht/bb-cream/geto%CC%88nte-tagespflege-medium-plus/p/133MACMEDIUMPLUSLIGTHFCCOGR
-                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[12]/div[1]/div[1]/@product-tile-url
+                xpath: /html/body/div[19]/@product-tile-url
             thumbnail:
-              - text: https://www.marionnaud.at/medias/sys_master/front-cat/front-cat/8921513656350/MAC-Get-nte-Tagespflege-Medium-Plus-773602440375-LIGHTFUL-C-CORAL-GRASS.jpg
-                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[12]/div[1]/div[1]/@thumbnail
+              - text: https://www.marionnaud.at/medias/sys_master/front-prd/front-prd/8921513590814.jpg
+                xpath: /html/body/div[19]/@product-tile-thumbnail
             price:
-              - text: € 30,39
-                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[12]/div[1]/div[1]/@product-tile-price
+              - text: € 39,99
+                xpath: /html/body/div[19]/@product-tile-price
           - id:
-              - text: 133MACLIGHTLIGTHFCCOGR
-                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[13]/div[1]/div[1]/@product-tile-id
+              - text: "58801246"
+                xpath: /html/body/div[20]/@product-tile-id
             searchUrl:
-              - text: https://www.marionnaud.at/marionnaud/pflege/gesicht/bb-cream/c/200010006
-                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[13]/div[1]/div[1]/@search-url
+              - text: https://www.marionnaud.at/search/results?page=0&resultsForPage=20&q=bb%20cream
+                xpath: /html/body/div[20]/@product-tile-search-url
             name:
-              - text: MAC Getönte Tagespflege Light
-                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[13]/div[1]/div[1]/@product-tile-name
+              - text: Mac Getönte Tagespflege Light
+                xpath: /html/body/div[20]/@product-tile-name
             productUrl:
               - text: https://www.marionnaud.at/marionnaud/pflege/gesicht/bb-cream/geto%CC%88nte-tagespflege-light/p/133MACLIGHTLIGTHFCCOGR
-                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[13]/div[1]/div[1]/@product-tile-url
+                xpath: /html/body/div[20]/@product-tile-url
             thumbnail:
-              - text: https://www.marionnaud.at/medias/sys_master/front-cat/front-cat/8921506349086/MAC-Get-nte-Tagespflege-Light-773602440344-LIGHTFUL-C-CORAL-GRASS.jpg
-                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[13]/div[1]/div[1]/@thumbnail
+              - text: https://www.marionnaud.at/medias/sys_master/front-prd/front-prd/8921506283550.jpg
+                xpath: /html/body/div[20]/@product-tile-thumbnail
             price:
-              - text: € 30,39
-                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[13]/div[1]/div[1]/@product-tile-price
+              - text: € 39,99
+                xpath: /html/body/div[20]/@product-tile-price
           - id:
-              - text: 133KIEHLSCC1UVDEFENSE
-                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[14]/div[1]/div[1]/@product-tile-id
+              - text: "48901358"
+                xpath: /html/body/div[21]/@product-tile-id
             searchUrl:
-              - text: https://www.marionnaud.at/marionnaud/pflege/gesicht/bb-cream/c/200010006
-                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[14]/div[1]/div[1]/@search-url
+              - text: https://www.marionnaud.at/search/results?page=1&resultsForPage=20&q=bb%20cream
+                xpath: /html/body/div[21]/@product-tile-search-url
             name:
               - text: Kiehl's UV Defense CC Cream
-                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[14]/div[1]/div[1]/@product-tile-name
+                xpath: /html/body/div[21]/@product-tile-name
             productUrl:
               - text: https://www.marionnaud.at/marionnaud/pflege/gesicht/tagespflege/uv-defense-cc-cream-/p/133KIEHLSCC1UVDEFENSE
-                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[14]/div[1]/div[1]/@product-tile-url
+                xpath: /html/body/div[21]/@product-tile-url
             thumbnail:
-              - text: https://www.marionnaud.at/medias/sys_master/front-cat/front-cat/8915597656094/Kiehl-s-UV-Defense-CC-Cream-3605971655876-UV-DEFENSE-CC-CREAM.jpg
-                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[14]/div[1]/div[1]/@thumbnail
+              - text: https://www.marionnaud.at/medias/sys_master/front-prd/front-prd/8915597590558.jpg
+                xpath: /html/body/div[21]/@product-tile-thumbnail
             price:
-              - text: € 34,19
-                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[14]/div[1]/div[1]/@product-tile-price
+              - text: € 44,99
+                xpath: /html/body/div[21]/@product-tile-price
           - id:
-              - text: 133CDFDT000DSKMOISTPERFCUSHREF
-                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[15]/div[1]/div[1]/@product-tile-id
+              - text: "13340851"
+                xpath: /html/body/div[22]/@product-tile-id
             searchUrl:
-              - text: https://www.marionnaud.at/marionnaud/pflege/gesicht/bb-cream/c/200010006
-                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[15]/div[1]/div[1]/@search-url
+              - text: https://www.marionnaud.at/search/results?page=1&resultsForPage=20&q=bb%20cream
+                xpath: /html/body/div[22]/@product-tile-search-url
             name:
-              - text: Dior Moist & Perfect Cushion Refill
-                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[15]/div[1]/div[1]/@product-tile-name
+              - text: Clinique iD Dramatically Different Moisturizing BB-Gel
+                xpath: /html/body/div[22]/@product-tile-name
             productUrl:
-              - text: https://www.marionnaud.at/marionnaud/make-up/teint/abdeckprodukte/moist-perfect-cushion-refill/p/133CDFDT000DSKMOISTPERFCUSHREF
-                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[15]/div[1]/div[1]/@product-tile-url
+              - text: https://www.marionnaud.at/marionnaud/pflege/gesicht/bb-cream/id-dramatically-different-moisturizing-bb-gel-/p/133CQMOISTURIZINGBBGELDD
+                xpath: /html/body/div[22]/@product-tile-url
             thumbnail:
-              - text: https://www.marionnaud.at/medias/sys_master/front-cat/front-cat/8927455838238/Dior-Moist-Perfect-Cushion-Refill-3348901420112-CAPTURE-DREAMSKIN.jpg
-                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[15]/div[1]/div[1]/@thumbnail
+              - text: https://www.marionnaud.at/medias/sys_master/front-prd/front-prd/8967712538654.jpg
+                xpath: /html/body/div[22]/@product-tile-thumbnail
             price:
-              - text: € 47,99
-                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[15]/div[1]/div[1]/@product-tile-price
+              - text: € 39,99
+                xpath: /html/body/div[22]/@product-tile-price
           - id:
-              - text: 141PROCELLGLO
-                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[16]/div[1]/div[1]/@product-tile-id
+              - text: "13374682"
+                xpath: /html/body/div[23]/@product-tile-id
             searchUrl:
-              - text: https://www.marionnaud.at/marionnaud/pflege/gesicht/bb-cream/c/200010006
-                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[16]/div[1]/div[1]/@search-url
-            name:
-              - text: Helena Rubinstein getönte Tagespflege
-                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[16]/div[1]/div[1]/@product-tile-name
-            productUrl:
-              - text: https://www.marionnaud.at/marionnaud/make-up/teint/abdeckprodukte/geto%CC%88nte-tagespflege/p/141PROCELLGLO
-                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[16]/div[1]/div[1]/@product-tile-url
-            thumbnail:
-              - text: https://www.marionnaud.at/medias/sys_master/front-cat/front-cat/8955117305886/Helena-Rubinstein-get-nte-Tagespflege-3614272527409-PRODIGY-GELLGLOW.jpg
-                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[16]/div[1]/div[1]/@thumbnail
-            price:
-              - text: € 103,32
-                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[16]/div[1]/div[1]/@product-tile-price
-          - id:
-              - text: KenzoGingerFlowerSkinPerfectorPrimer
-                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[17]/div[1]/div[1]/@product-tile-id
-            searchUrl:
-              - text: https://www.marionnaud.at/marionnaud/pflege/gesicht/bb-cream/c/200010006
-                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[17]/div[1]/div[1]/@search-url
+              - text: https://www.marionnaud.at/search/results?page=1&resultsForPage=20&q=bb%20cream
+                xpath: /html/body/div[23]/@product-tile-search-url
             name:
               - text: Kenzo Kenzoki Pore Minimizer Flash Perfector Primer
-                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[17]/div[1]/div[1]/@product-tile-name
+                xpath: /html/body/div[23]/@product-tile-name
             productUrl:
               - text: https://www.marionnaud.at/marionnaud/pflege/gesicht/bb-cream/kenzoki-pore-minimizer-flash-perfector-primer/p/KenzoGingerFlowerSkinPerfectorPrimer
-                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[17]/div[1]/div[1]/@product-tile-url
+                xpath: /html/body/div[23]/@product-tile-url
             thumbnail:
-              - text: https://www.marionnaud.at/medias/sys_master/front-cat/front-cat/9035194269726/Kenzo-Kenzoki-Pore-Minimizer-Flash-Perfector-Primer-3274872410381-GINGER-FLOWER.jpg
-                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[17]/div[1]/div[1]/@thumbnail
+              - text: https://www.marionnaud.at/medias/sys_master/front-prd/front-prd/9035194204190.jpg
+                xpath: /html/body/div[23]/@product-tile-thumbnail
             price:
-              - text: € 25,07
-                xpath: /html/body/main[1]/div[6]/div[1]/div[1]/div[17]/div[1]/div[1]/@product-tile-price
+              - text: € 32,99
+                xpath: /html/body/div[23]/@product-tile-price
+          - id:
+              - text: "27009766"
+                xpath: /html/body/div[24]/@product-tile-id
+            searchUrl:
+              - text: https://www.marionnaud.at/search/results?page=1&resultsForPage=20&q=bb%20cream
+                xpath: /html/body/div[24]/@product-tile-search-url
+            name:
+              - text: Dior Moist & Perfect Cushion
+                xpath: /html/body/div[24]/@product-tile-name
+            productUrl:
+              - text: https://www.marionnaud.at/marionnaud/pflege/gesicht/bb-cream/moist-perfect-cushion/p/133CDFDT000DSKMOISTPERFCUSH
+                xpath: /html/body/div[24]/@product-tile-url
+            thumbnail:
+              - text: https://www.marionnaud.at/medias/sys_master/front-prd/front-prd/8924173107230.jpg
+                xpath: /html/body/div[24]/@product-tile-thumbnail
+            aggregateRating2:
+              - text: 5,
+                xpath: /html/body/div[24]/@product-tile-aggrating
+            price:
+              - text: € 89,99
+                xpath: /html/body/div[24]/@product-tile-price
+          - id:
+              - text: "27009776"
+                xpath: /html/body/div[25]/@product-tile-id
+            searchUrl:
+              - text: https://www.marionnaud.at/search/results?page=1&resultsForPage=20&q=bb%20cream
+                xpath: /html/body/div[25]/@product-tile-search-url
+            name:
+              - text: Dior Moist & Perfect Cushion Refill
+                xpath: /html/body/div[25]/@product-tile-name
+            productUrl:
+              - text: https://www.marionnaud.at/marionnaud/make-up/teint/abdeckprodukte/moist-perfect-cushion-refill/p/133CDFDT000DSKMOISTPERFCUSHREF
+                xpath: /html/body/div[25]/@product-tile-url
+            thumbnail:
+              - text: https://www.marionnaud.at/medias/sys_master/front-prd/front-prd/8927455707166.jpg
+                xpath: /html/body/div[25]/@product-tile-thumbnail
+            price:
+              - text: € 47,99
+                xpath: /html/body/div[25]/@product-tile-price
+          - id:
+              - text: "13303114"
+                xpath: /html/body/div[26]/@product-tile-id
+            searchUrl:
+              - text: https://www.marionnaud.at/search/results?page=1&resultsForPage=20&q=bb%20cream
+                xpath: /html/body/div[26]/@product-tile-search-url
+            name:
+              - text: Helena rubinstein getönte Tagespflege
+                xpath: /html/body/div[26]/@product-tile-name
+            productUrl:
+              - text: https://www.marionnaud.at/marionnaud/make-up/teint/abdeckprodukte/geto%CC%88nte-tagespflege/p/141PROCELLGLO
+                xpath: /html/body/div[26]/@product-tile-url
+            thumbnail:
+              - text: https://www.marionnaud.at/medias/sys_master/front-prd/front-prd/8955117240350.jpg
+                xpath: /html/body/div[26]/@product-tile-thumbnail
+            price:
+              - text: € 135,95
+                xpath: /html/body/div[26]/@product-tile-price
+          - id:
+              - text: "1001155"
+                xpath: /html/body/div[27]/@product-tile-id
+            searchUrl:
+              - text: https://www.marionnaud.at/search/results?page=1&resultsForPage=20&q=bb%20cream
+                xpath: /html/body/div[27]/@product-tile-search-url
+            name:
+              - text: Elizabeth arden Moisture Cream SPF 30 PA++ Gesichtscreme
+                xpath: /html/body/div[27]/@product-tile-name
+            productUrl:
+              - text: https://www.marionnaud.at/marionnaud/pflege/gesicht/tagespflege/moisture-cream-spf-30-pa-gesichtscreme/p/133EAMOISTURECREAMSPF30PAFLAWLESSFUTURE
+                xpath: /html/body/div[27]/@product-tile-url
+            thumbnail:
+              - text: https://www.marionnaud.at/medias/sys_master/front-prd/front-prd/8820246478878.jpg
+                xpath: /html/body/div[27]/@product-tile-thumbnail
+            price:
+              - text: € 54,99
+                xpath: /html/body/div[27]/@product-tile-price
+          - id:
+              - text: "83503105"
+                xpath: /html/body/div[28]/@product-tile-id
+            searchUrl:
+              - text: https://www.marionnaud.at/search/results?page=1&resultsForPage=20&q=bb%20cream
+                xpath: /html/body/div[28]/@product-tile-search-url
+            name:
+              - text: Shiseido Advanced Super Revitalizer Cream Gesichtscreme
+                xpath: /html/body/div[28]/@product-tile-name
+            productUrl:
+              - text: https://www.marionnaud.at/marionnaud/pflege/gesicht/tagespflege/advanced-super-revitalizer-cream-gesichtscreme/p/133SHISEIDOBIOPERFADVSUPERREVCREAM
+                xpath: /html/body/div[28]/@product-tile-url
+            thumbnail:
+              - text: https://www.marionnaud.at/medias/sys_master/front-prd/front-prd/8807549796382.jpg
+                xpath: /html/body/div[28]/@product-tile-thumbnail
+            aggregateRating2:
+              - text: 5,
+                xpath: /html/body/div[28]/@product-tile-aggrating
+            price:
+              - text: € 113,95
+                xpath: /html/body/div[28]/@product-tile-price
+          - id:
+              - text: "58525018"
+                xpath: /html/body/div[29]/@product-tile-id
+            searchUrl:
+              - text: https://www.marionnaud.at/search/results?page=1&resultsForPage=20&q=bb%20cream
+                xpath: /html/body/div[29]/@product-tile-search-url
+            name:
+              - text: Marionnaud Moisturizing Daily Cream Gesichtscreme
+                xpath: /html/body/div[29]/@product-tile-name
+            productUrl:
+              - text: https://www.marionnaud.at/marionnaud/pflege/herrenpflege/gesicht/moisturizing-daily-cream-gesichtscreme/p/232MMEN4
+                xpath: /html/body/div[29]/@product-tile-url
+            thumbnail:
+              - text: https://www.marionnaud.at/medias/sys_master/front-prd/front-prd/8848360931358.jpg
+                xpath: /html/body/div[29]/@product-tile-thumbnail
+            price:
+              - text: € 16,99
+                xpath: /html/body/div[29]/@product-tile-price
+          - id:
+              - text: "1001157"
+                xpath: /html/body/div[30]/@product-tile-id
+            searchUrl:
+              - text: https://www.marionnaud.at/search/results?page=1&resultsForPage=20&q=bb%20cream
+                xpath: /html/body/div[30]/@product-tile-search-url
+            name:
+              - text: Elizabeth arden Flawless Future Night Cream Nachtcreme
+                xpath: /html/body/div[30]/@product-tile-name
+            productUrl:
+              - text: https://www.marionnaud.at/marionnaud/pflege/gesicht/nachtpflege/flawless-future-night-cream-nachtcreme/p/133EANIGHTCREAMFLAWLESSFUTURE
+                xpath: /html/body/div[30]/@product-tile-url
+            thumbnail:
+              - text: https://www.marionnaud.at/medias/sys_master/front-prd/front-prd/8825865175070.jpg
+                xpath: /html/body/div[30]/@product-tile-thumbnail
+            price:
+              - text: € 58,99
+                xpath: /html/body/div[30]/@product-tile-price
         xpath: /html
-    timestamp: 1608666284021
+    timestamp: 1608734454413

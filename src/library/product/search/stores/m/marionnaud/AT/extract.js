@@ -17,43 +17,65 @@ module.exports = {
     await new Promise((resolve, reject) => setTimeout(resolve, 3000));
 
     await context.evaluate(async () => {
-      const totalNoOfResults = document.querySelector('div[data-total-amount')
-        ? parseInt(document.querySelector('div[data-total-amount').getAttribute('data-total-amount')) : 0;
-      const numOfPages = Math.ceil((totalNoOfResults) / 20);
+      function addEleToDoc (key, value) {
+        const prodEle = document.createElement('div');
+        prodEle.id = key;
+        prodEle.textContent = value;
+        prodEle.style.display = 'none';
+        document.body.appendChild(prodEle);
+      }
+      function capitalize (string) {
+        return string.charAt(0).toUpperCase() + string.slice(1).toLowerCase();
+      }
+      const numOfPages = Math.ceil(150 / 20);
 
-      if (document.querySelector('button[data-ref="loadMoreBtn"]')) {
-        for (let i = 0; i <= numOfPages; i++) {
-          document.querySelector('button[data-ref="loadMoreBtn"]').click();
-          await new Promise((resolve, reject) => setTimeout(resolve, 1000));
+      for (let i = 0; i < numOfPages; i++) {
+        const pageUrl = window.location.href;
+        const searchUrl = pageUrl.replace(/page=0/g, `page=${i}`);
+        const response = await fetch(searchUrl, {
+          headers: {
+            accept: 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9',
+            'accept-language': 'pl-PL,pl;q=0.9,en-US;q=0.8,en;q=0.7',
+            'cache-control': 'max-age=0',
+            'sec-ch-ua': '"Google Chrome";v="87", " Not;A Brand";v="99", "Chromium";v="87"',
+            'sec-ch-ua-mobile': '?0',
+            'sec-fetch-dest': 'document',
+            'sec-fetch-mode': 'navigate',
+            'sec-fetch-site': 'cross-site',
+            'sec-fetch-user': '?1',
+            'upgrade-insecure-requests': '1',
+          },
+          referrer: 'https://uat.import.io/',
+          referrerPolicy: 'strict-origin-when-cross-origin',
+          body: null,
+          method: 'GET',
+          mode: 'cors',
+          credentials: 'include',
+        });
+        if (response && response.status === 200) {
+          const data = await response.json();
+          console.log(data);
+          const resultsNumber = data.results ? data.results.length : 0;
+          console.log(resultsNumber);
+          for (let j = 0; j < resultsNumber; j++) {
+            addEleToDoc(`productElement-${i * 20 + j}`, i * 20 + j);
+            const product = data.results[j];
+            const productElemId = `div#productElement-${i * 20 + j}`;
+            document.querySelector(productElemId).setAttribute('product-tile-id', product.defaultVariantCode);
+            const brandName = product.brandData ? capitalize(product.brandData.name) : '';
+            document.querySelector(productElemId).setAttribute('product-tile-name', `${brandName} ${product.escapeName}`);
+            const productUrl = product.url ? `https://www.marionnaud.at${product.url}` : '';
+            document.querySelector(productElemId).setAttribute('product-tile-url', productUrl);
+            document.querySelector(productElemId).setAttribute('product-tile-search-url', searchUrl);
+            const thumbnail = product.primaryImageUrl ? `https://www.marionnaud.at${product.primaryImageUrl}` : '';
+            document.querySelector(productElemId).setAttribute('product-tile-thumbnail', thumbnail);
+            document.querySelector(productElemId).setAttribute('product-tile-aggRating', product.averageRating);
+            const price = product.price ? product.price.formattedValue : '';
+            document.querySelector(productElemId).setAttribute('product-tile-price', price);
+          }
         }
       }
     });
-    await new Promise((resolve, reject) => setTimeout(resolve, 3000));
-    await context.evaluate(async () => {
-      window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
-    });
-    await new Promise((resolve, reject) => setTimeout(resolve, 1000));
-    await context.evaluate(async () => {
-      const allProducts = document.querySelectorAll('div[data-component=MasonryGrid] div.product-tile__container');
-      for (let i = 0; i < allProducts.length && i < 150; i++) {
-        const brand = allProducts[i].querySelector('a.product-tile__brand') ? allProducts[i].querySelector('a.product-tile__brand').textContent.trim() : '';
-        const subtitle = allProducts[i].querySelector('a.product-tile__description') ? allProducts[i].querySelector('a.product-tile__description').textContent.trim() : '';
-        allProducts[i].setAttribute('product-tile-name', `${brand} ${subtitle}`);
-        const productUrl = allProducts[i].querySelector('div.product-tile__container a[data-product-link]') ? allProducts[i].querySelector('div.product-tile__container a[data-product-link]').getAttribute('href') : '';
-        allProducts[i].setAttribute('product-tile-url', `https://www.marionnaud.at${productUrl}`);
-        allProducts[i].setAttribute('product-tile-id', productUrl.replace(/.*\/p\/(.*)/g, '$1'));
-        const oldPrice = allProducts[i].querySelector('a.product-tile__price span.text--gray-dark') ? allProducts[i].querySelector('a.product-tile__price span.text--gray-dark').textContent : '';
-        const price = allProducts[i].querySelector('a.product-tile__price span.text--pink') ? allProducts[i].querySelector('a.product-tile__price span.text--pink').textContent : oldPrice;
-        allProducts[i].setAttribute('product-tile-price', price);
-        const searchUrl = window.location.href;
-        allProducts[i].setAttribute('search-url', searchUrl);
-        const thumbnail = allProducts[i].querySelector('img.product-tile__image') ? allProducts[i].querySelector('img.product-tile__image').getAttribute('src').replace(/(\/medias.*)/g, 'https://www.marionnaud.at$1') : '';
-        allProducts[i].setAttribute('thumbnail', thumbnail);
-        const aggregateRating = allProducts[i].querySelector('div[data-ref=stars]') ? allProducts[i].querySelector('div[data-ref=stars]').getAttribute('data-rating').replace(/(\d+)\.?,?(\d+)?/g, '$1,$2') : '';
-        allProducts[i].setAttribute('aggregateRating', aggregateRating);
-      }
-    });
-
     return await context.extract(productDetails, { transform });
   },
 };

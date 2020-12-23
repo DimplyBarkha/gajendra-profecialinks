@@ -2,99 +2,99 @@ input:
   keywords: cacharel
   _url: http://marionnaud.at
 extractions:
-  - html: https://workbench.import.io/html/run=ba26a444-7391-4a8a-83a7-53c6b457a0af/task=e2408333-32bd-4e35-96ca-ede41d6df995/9ff965af-8398-45f3-9801-42ef4d82e79d.html
+  - html: https://workbench.import.io/html/run=36fa8125-edd6-41cf-a4f4-20191456e447/task=057a177b-29dc-44f4-9554-f579ced9f244/ff2764df-78a3-4862-a60a-e2baf73515c9.html
     extractionConfigId: product/search/stores/m/marionnaud/AT/extract
     data:
       - group:
           - id:
-              - text: 1122AMORAMOR
-                xpath: /html/body/main[1]/div[7]/div[1]/div[1]/div[2]/div[1]/div[1]/@product-tile-id
+              - text: "13015310"
+                xpath: /html/body/div[1]/@product-tile-id
             searchUrl:
-              - text: https://www.marionnaud.at/marionnaud/marken/90/brand/Cacharel
-                xpath: /html/body/main[1]/div[7]/div[1]/div[1]/div[2]/div[1]/div[1]/@search-url
+              - text: https://www.marionnaud.at/search/results?page=0&resultsForPage=20&q=cacharel
+                xpath: /html/body/div[1]/@product-tile-search-url
             name:
               - text: Cacharel Eau de Toilette
-                xpath: /html/body/main[1]/div[7]/div[1]/div[1]/div[2]/div[1]/div[1]/@product-tile-name
+                xpath: /html/body/div[1]/@product-tile-name
             productUrl:
               - text: https://www.marionnaud.at/marionnaud/marken/cacharel/amor-amor/eau-de-toilette/p/1122AMORAMOR
-                xpath: /html/body/main[1]/div[7]/div[1]/div[1]/div[2]/div[1]/div[1]/@product-tile-url
+                xpath: /html/body/div[1]/@product-tile-url
             thumbnail:
-              - text: https://www.marionnaud.at/medias/sys_master/front-cat/front-cat/8803782295582/Cacharel-Eau-de-Toilette-3360373063697-AMOR-AMOR.jpg
-                xpath: /html/body/main[1]/div[7]/div[1]/div[1]/div[2]/div[1]/div[1]/@thumbnail
+              - text: https://www.marionnaud.at/medias/sys_master/front-prd/front-prd/8803782164510.jpg
+                xpath: /html/body/div[1]/@product-tile-thumbnail
             price:
-              - text: € 30,39
-                xpath: /html/body/main[1]/div[7]/div[1]/div[1]/div[2]/div[1]/div[1]/@product-tile-price
+              - text: € 39,99
+                xpath: /html/body/div[1]/@product-tile-price
           - id:
-              - text: 1122NOA
-                xpath: /html/body/main[1]/div[7]/div[1]/div[1]/div[3]/div[1]/div[1]/@product-tile-id
+              - text: "13040350"
+                xpath: /html/body/div[2]/@product-tile-id
             searchUrl:
-              - text: https://www.marionnaud.at/marionnaud/marken/90/brand/Cacharel
-                xpath: /html/body/main[1]/div[7]/div[1]/div[1]/div[3]/div[1]/div[1]/@search-url
+              - text: https://www.marionnaud.at/search/results?page=0&resultsForPage=20&q=cacharel
+                xpath: /html/body/div[2]/@product-tile-search-url
             name:
               - text: Cacharel Noa Eau de Toilette
-                xpath: /html/body/main[1]/div[7]/div[1]/div[1]/div[3]/div[1]/div[1]/@product-tile-name
+                xpath: /html/body/div[2]/@product-tile-name
             productUrl:
               - text: https://www.marionnaud.at/marionnaud/marken/cacharel/noa-/noa-eau-de-toilette/p/1122NOA
-                xpath: /html/body/main[1]/div[7]/div[1]/div[1]/div[3]/div[1]/div[1]/@product-tile-url
+                xpath: /html/body/div[2]/@product-tile-url
             thumbnail:
-              - text: https://www.marionnaud.at/medias/sys_master/front-cat/front-cat/8803761782814/Cacharel-Noa-Eau-de-Toilette-3360373016334-NOA.jpg
-                xpath: /html/body/main[1]/div[7]/div[1]/div[1]/div[3]/div[1]/div[1]/@thumbnail
+              - text: https://www.marionnaud.at/medias/sys_master/front-prd/front-prd/8803761651742.jpg
+                xpath: /html/body/div[2]/@product-tile-thumbnail
             price:
-              - text: € 31,91
-                xpath: /html/body/main[1]/div[7]/div[1]/div[1]/div[3]/div[1]/div[1]/@product-tile-price
+              - text: € 41,99
+                xpath: /html/body/div[2]/@product-tile-price
           - id:
-              - text: 1122DLOULOU
-                xpath: /html/body/main[1]/div[7]/div[1]/div[1]/div[4]/div[1]/div[1]/@product-tile-id
+              - text: "13030400"
+                xpath: /html/body/div[3]/@product-tile-id
             searchUrl:
-              - text: https://www.marionnaud.at/marionnaud/marken/90/brand/Cacharel
-                xpath: /html/body/main[1]/div[7]/div[1]/div[1]/div[4]/div[1]/div[1]/@search-url
+              - text: https://www.marionnaud.at/search/results?page=0&resultsForPage=20&q=cacharel
+                xpath: /html/body/div[3]/@product-tile-search-url
             name:
               - text: Cacharel Loulou Eau de Parfum
-                xpath: /html/body/main[1]/div[7]/div[1]/div[1]/div[4]/div[1]/div[1]/@product-tile-name
+                xpath: /html/body/div[3]/@product-tile-name
             productUrl:
               - text: https://www.marionnaud.at/marionnaud/marken/cacharel/loulou/loulou-eau-de-parfum/p/1122DLOULOU
-                xpath: /html/body/main[1]/div[7]/div[1]/div[1]/div[4]/div[1]/div[1]/@product-tile-url
+                xpath: /html/body/div[3]/@product-tile-url
             thumbnail:
-              - text: https://www.marionnaud.at/medias/sys_master/front-cat/front-cat/8803781869598/Cacharel-Loulou-Eau-de-Parfum-3360373000081-LOULOU.jpg
-                xpath: /html/body/main[1]/div[7]/div[1]/div[1]/div[4]/div[1]/div[1]/@thumbnail
+              - text: https://www.marionnaud.at/medias/sys_master/front-prd/front-prd/8803781738526.jpg
+                xpath: /html/body/div[3]/@product-tile-thumbnail
             price:
-              - text: € 56,23
-                xpath: /html/body/main[1]/div[7]/div[1]/div[1]/div[4]/div[1]/div[1]/@product-tile-price
+              - text: € 73,99
+                xpath: /html/body/div[3]/@product-tile-price
           - id:
-              - text: 1122EDEN
-                xpath: /html/body/main[1]/div[7]/div[1]/div[1]/div[5]/div[1]/div[1]/@product-tile-id
+              - text: "13010400"
+                xpath: /html/body/div[4]/@product-tile-id
             searchUrl:
-              - text: https://www.marionnaud.at/marionnaud/marken/90/brand/Cacharel
-                xpath: /html/body/main[1]/div[7]/div[1]/div[1]/div[5]/div[1]/div[1]/@search-url
+              - text: https://www.marionnaud.at/search/results?page=0&resultsForPage=20&q=cacharel
+                xpath: /html/body/div[4]/@product-tile-search-url
             name:
               - text: Cacharel Eden Eau de Parfum
-                xpath: /html/body/main[1]/div[7]/div[1]/div[1]/div[5]/div[1]/div[1]/@product-tile-name
+                xpath: /html/body/div[4]/@product-tile-name
             productUrl:
               - text: https://www.marionnaud.at/marionnaud/duft/damen/damenduft/eden-eau-de-parfum/p/1122EDEN
-                xpath: /html/body/main[1]/div[7]/div[1]/div[1]/div[5]/div[1]/div[1]/@product-tile-url
+                xpath: /html/body/div[4]/@product-tile-url
             thumbnail:
-              - text: https://www.marionnaud.at/medias/sys_master/front-cat/front-cat/8803747725342/Cacharel-Eden-Eau-de-Parfum-3360373048878-EDEN.jpg
-                xpath: /html/body/main[1]/div[7]/div[1]/div[1]/div[5]/div[1]/div[1]/@thumbnail
+              - text: https://www.marionnaud.at/medias/sys_master/front-prd/front-prd/8803747594270.jpg
+                xpath: /html/body/div[4]/@product-tile-thumbnail
             price:
-              - text: € 56,23
-                xpath: /html/body/main[1]/div[7]/div[1]/div[1]/div[5]/div[1]/div[1]/@product-tile-price
+              - text: € 73,99
+                xpath: /html/body/div[4]/@product-tile-price
           - id:
-              - text: 1122ANAIS
-                xpath: /html/body/main[1]/div[7]/div[1]/div[1]/div[6]/div[1]/div[1]/@product-tile-id
+              - text: "13020390"
+                xpath: /html/body/div[5]/@product-tile-id
             searchUrl:
-              - text: https://www.marionnaud.at/marionnaud/marken/90/brand/Cacharel
-                xpath: /html/body/main[1]/div[7]/div[1]/div[1]/div[6]/div[1]/div[1]/@search-url
+              - text: https://www.marionnaud.at/search/results?page=0&resultsForPage=20&q=cacharel
+                xpath: /html/body/div[5]/@product-tile-search-url
             name:
               - text: Cacharel Anais Anais Eau de Toilette
-                xpath: /html/body/main[1]/div[7]/div[1]/div[1]/div[6]/div[1]/div[1]/@product-tile-name
+                xpath: /html/body/div[5]/@product-tile-name
             productUrl:
               - text: https://www.marionnaud.at/marionnaud/marken/cacharel/anais-anais/anais-anais-eau-de-toilette/p/1122ANAIS
-                xpath: /html/body/main[1]/div[7]/div[1]/div[1]/div[6]/div[1]/div[1]/@product-tile-url
+                xpath: /html/body/div[5]/@product-tile-url
             thumbnail:
-              - text: https://www.marionnaud.at/medias/sys_master/front-cat/front-cat/8816607199262/Cacharel-Anais-Anais-Eau-de-Toilette-3360370512044-ANAIS-ANAIS.jpg
-                xpath: /html/body/main[1]/div[7]/div[1]/div[1]/div[6]/div[1]/div[1]/@thumbnail
+              - text: https://www.marionnaud.at/medias/sys_master/front-prd/front-prd/8816607068190.jpg
+                xpath: /html/body/div[5]/@product-tile-thumbnail
             price:
-              - text: € 30,39
-                xpath: /html/body/main[1]/div[7]/div[1]/div[1]/div[6]/div[1]/div[1]/@product-tile-price
+              - text: € 39,99
+                xpath: /html/body/div[5]/@product-tile-price
         xpath: /html
-    timestamp: 1608666292422
+    timestamp: 1608734457434
