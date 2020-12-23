@@ -1,0 +1,41 @@
+extends: ../../../../sharedAmazon/shared
+fields:
+  - name: ingredientsList
+    xpath: //div[@id='importantInformation_feature_div']//div[contains(.,'Ingredientes')]/p//text()[normalize-space(.)] | //td[contains(.,"Ingredientes")]/following-sibling::td//span[@class="a-truncate-full a-offscreen"]/text()[normalize-space(.)]
+  - name: brandText
+    singleValue: false
+    xpath: substring-after(//div[@id='bylineInfo_feature_div']//div,'de') 
+    # | //*[normalize-space(text())="Marca" or normalize-space(text())="Marca:" or normalize-space(text())="nombre de la marca"]/following-sibling::*[1]
+  - name: quantity
+    singleValue: false
+    xpath: //*[normalize-space(text())="Volumen" or normalize-space(text())="Volumen:" or normalize-space(text())="Volumen"]/following-sibling::*[1]/text() | //*[starts-with(@name,"dropdown_selected_size_name")]/option[@class="dropdownSelect"]/text()
+  - name: weightNet
+    singleValue: false
+    xpath: //*[contains(normalize-space(text()),"Dimensiones del producto")]/following-sibling::*[1][contains(.,';')] | //*[normalize-space(text())="Peso del producto"]/following-sibling::*[1] | //*[normalize-space(text())="Peso del producto"]/following-sibling::*[1] | //*[normalize-space(text())="Peso del producto :"]/following-sibling::*[1]
+  - name: warnings
+    singleValue: false
+    xpath: (//*[contains(@class, 'a-alert-heading') and contains(text(), 'WARNING')]/following-sibling::div[contains(@class, 'a-alert-content')] | //div[contains(@id, 'important-information')]/div[contains(@class,'content')]/h4[contains(text(), 'Información de seguridad')]/../p[text()]/text() | //div[contains(@id, "important-information")]/div[contains(@class, "a-section content") and contains(., "Warning")])[1] | (//div[@id='importantInformation_feature_div']//div[contains(.,'Información de seguridad')]/p)
+  - name: manufacturer
+    singleValue: false
+    xpath: //*[normalize-space(text())='Fabricante']/following-sibling::*[1] | //*[normalize-space(text())='Manufacturer :']/following-sibling::*[1]
+  - name: countryOfOrigin
+    #singleValue: true
+    xpath: //li[contains(.,"País de origen:")] | //*[normalize-space(text())="País de origen"]/following-sibling::*[1] | //*[contains(text(),"País de origen")]/following-sibling::*[1]
+    regExp: '[^:]+$'        
+  - name: mpc
+    singleValue: false
+    xpath: //*[contains(text(),"Número de modelo del producto")]/following-sibling::*[1]
+  - name: legalDisclaimer
+    singleValue: false
+    xpath: //div[contains(@id, 'important-information')]/div[contains(@class,'content')]/h4[contains(text(), "Nota legal")]/../p[text()]/text() | //div[contains(@id, 'important-information')]/div[contains(@class,'content')]/span[contains(text(), "Nota legal")]/../p[text()]/text()
+  - name: directions
+    singleValue: false
+    xpath: //*[contains(text(), "Instrucciones")][not(ancestor::*[@id="aplus" or @class="aplus"])]/following-sibling::*[text()]/text() | //div[contains(@id, 'important-information')]/div[contains(@class,'content')]/h4[contains(text(), 'Instrucciones')]/../p[text()]/text()
+  - name: mpc
+    singleValue: false
+    xpath: //*[contains(text(),"Número de modelo del producto")]/following-sibling::*[1]
+  - name: color
+    singleValue: false
+    xpath: //th[contains(text(),"Color")]/following-sibling::*[1]
+
+    
