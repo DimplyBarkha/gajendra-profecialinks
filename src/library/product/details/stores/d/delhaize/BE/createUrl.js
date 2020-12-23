@@ -4,7 +4,7 @@ module.exports = {
   parameterValues: {
     domain: 'delhaize.be',
     prefix: null,
-    url: null,
+    url: 'https://www.delhaize.be/fr-be/shop/details/p/{id}',
     country: 'BE',
     store: 'delhaize',
     zipcode: '',
