@@ -5,7 +5,7 @@ module.exports = {
     country: 'MX',
     store: 'farmaciasanpablo',
     domain: 'farmaciasanpablo.com.mx',
-    url: 'https://www.farmaciasanpablo.com.mx/search?q={searchTerms}',
+    url: 'https://www.farmaciasanpablo.com.mx/search/?text={searchTerms}',
     loadedSelector: 'div[id="product-facet"]',
     noResultsXPath: '//div[@class="yCmsContentSlot searchEmptyPageMiddle"]',
     zipcode: "''",

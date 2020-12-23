@@ -5,7 +5,7 @@ async function implementation (inputs, parameters, context, dependencies) {
   const { productDetails } = dependencies;
 
   await context.evaluate(async () => {
-    function stall (ms) {
+    function stall(ms) {
       return new Promise((resolve, reject) => {
         setTimeout(() => {
           resolve();
@@ -26,20 +26,43 @@ async function implementation (inputs, parameters, context, dependencies) {
   });
 
   await context.evaluate(() => {
+    function stall(ms) {
+      return new Promise((resolve, reject) => {
+        setTimeout(() => {
+          resolve();
+        }, ms);
+      });
+    }
     const productUrl = document.querySelectorAll('div.col-xs-5.col-sm-5.col-md-12.img-wrap>a');
     const priceSelector = document.querySelectorAll('p.item-prize');
-    const searchUrl = window.location.href;
 
     for (let i = 0; i < productUrl.length; i++) {
       let price = priceSelector[i].textContent;
       price = price.replace('.', ',');
       productUrl[i].setAttribute('url', productUrl[i].href);
-      productUrl[i].setAttribute('rank', `${i + 1}`);
       priceSelector[i].setAttribute('price', price);
     }
 
-    document.querySelector('body').setAttribute('searchurl', searchUrl);
+    stall(3000);
   });
+
+  // const nextLinkSelector = await context.evaluate(() => {
+  //   return document.querySelector('div.row.section-header.hidden-xs.hidden-sm a.next').click();
+  // });
+
+  // if (nextLinkSelector !== null) {
+  //   await extractionHelper();
+
+  //   await context.extract(productDetails, { transform });
+
+  //   await context.evaluate(() => {
+  //     document.querySelector('div.row.section-header.hidden-xs.hidden-sm a.next').click();
+  //   });
+  // } else {
+  //   await extractionHelper();
+
+  // return await context.extract(productDetails, { transform });
+  // }
 
   return await context.extract(productDetails, { transform });
 }
