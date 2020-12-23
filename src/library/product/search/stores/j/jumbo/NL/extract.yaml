@@ -8,13 +8,15 @@ fields:
     xpath: //div[@analytics-tag='product card']/@data-product-id
   - name: searchUrl
     singleValue: true
-    xpath: //body/@searchurl
   - name: name
     singleValue: false
     xpath: //h3[@class='jum-card-title__text mb-0 regular']/span
   - name: productUrl
     singleValue: false
-    xpath: //div[@analytics-tag="product card"]/@producturl
+    xpath: //a[@class="jum-card-image jum-product-card__image autosize"]/@href
+    regExp: (.+)
+    regExpReplace: https://www.jumbo.com$1
+    # xpath: //div[@analytics-tag="product card"]/@producturl
   - name: gtin
     singleValue: false
   - name: thumbnail
@@ -30,7 +32,7 @@ fields:
     singleValue: false
   - name: price
     singleValue: false
-    xpath: //div[@analytics-tag="product card"]/@price
+    xpath: concat(//span[@class="jum-product-price__current-price--larger"], ',', //span[@class="jum-product-price__current-price--larger"]/following-sibling::span)
   - name: manufacturer
     singleValue: true
   - name: soldBy
@@ -40,12 +42,10 @@ fields:
   - name: rank
     singleValue: false
     description: search/listing rank
-    xpath:  //div[@analytics-tag="product card"]/@rank
     type: NUMBER
   - name: rankOrganic
     singleValue: true
     description: The position (rank) within the list excluding sponsored/paid results
-    xpath:  //div[@analytics-tag="product card"]/@rank
     type: NUMBER
   - name: sponsored
     singleValue: false
