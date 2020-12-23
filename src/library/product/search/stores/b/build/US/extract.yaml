@@ -1,6 +1,6 @@
 singleRecord: false
 regionsSelector: null
-recordSelector: "div.js-product-wrapper"
+recordSelector: "div.js-product-wrapper,div.flex.flex-wrap > div.bg-theme-white.bb-ns"
 recordXPath: null
 fields: 
   # - name: _url
@@ -8,33 +8,31 @@ fields:
   #   xpath: //link[@rel="canonical"]//@href
   - name: id
     singleValue: false
-    xpath: //div[contains(@class, 'js-product-grid-container')]//div[contains(@class, 'image-contanier')]//a/@href
+    xpath: //div[contains(@class, 'js-product-grid-container')]//div[contains(@class, 'image-contanier')]//a/@href | //div[contains(@class,"flex flex-column")]/div/a/@href
     regExp: .*uid=(\d+).*
     regExpReplace: $1
   - name: name
     singleValue: false
-    xpath: //div[contains(@class, 'js-product-grid-container')]//div[contains(@class, 'product-details')]//a//div[contains(@class, 'lh-title')]/text()
+    xpath: //div[contains(@class, 'js-product-grid-container')]//div[contains(@class, 'product-details')]//a//div[contains(@class, 'lh-title')]/text() | //div[contains(@class,"flex flex-column")]//div[contains(@class,"overflow-hidden")]/a/div[contains(@class, 'lh-title')]/text()
   - name: productUrl
     singleValue: false
-    xpath: //div[contains(@class, 'js-product-grid-container')]//div[contains(@class, 'image-contanier')]//a/@href
+    xpath: //div[contains(@class, 'js-product-grid-container')]//div[contains(@class, 'image-contanier')]//a/@href | //div[contains(@class,"flex flex-column")]/div/a/@href
   - name: thumbnail
     singleValue: false
-    xpath: //div[contains(@class, 'js-product-grid-container')]//div[contains(@class, 'image-contanier')]//a//img/@src
+    xpath: //div[contains(@class, 'js-product-grid-container')]//div[contains(@class, 'image-contanier')]//a//img/@src | //div[contains(@class,"flex flex-column")]/div/a//img/@src
   - name: price
     singleValue: false
-    xpath: //div[contains(@class, 'js-product-grid-container')]//div[contains(@class, 'js-product-wrapper')]//div[contains(@class, 'product-details')]//strong[contains(@class, 'product-price')]
+    xpath: //div[contains(@class, 'js-product-grid-container')]//div[contains(@class, 'js-product-wrapper')]//div[contains(@class, 'product-details')]//strong[contains(@class, 'product-price')] | //div[contains(@class,"items-stretch")]/span
     regExp: .*\$(\d+).(\d+).*
     regExpReplace: $$$1.$2
   - name: aggregateRating2
     singleValue: false
-    xpath: //div[contains(@class, 'product-details')]//div[contains(@class, 'star-rating')]/@class
-    regExp: .*rating-(\d{1})(\d{1}).*
-    regExpReplace: $1.$2
+    xpath: //div[contains(@class, 'product-details')]//div[contains(@class, 'star-rating')]/@class | //div[contains(@class,"flex flex-column")]//div[contains(@aria-label,"out of")]/@aria-label
   - name: reviewCount
     singleValue: false
-    xpath: //div[contains(@class, 'product-details')]//span[contains(@class, 'review-count')]//text()
+    xpath: //div[contains(@class, 'product-details')]//span[contains(@class, 'review-count')]//text() | //div[contains(@class,"flex flex-column")]//a[contains(@href,"#reviews")]/text()
     regExp: \d+
     regExpMatch: "0"
   - name: manufacturer
     singleValue: false
-    xpath: //div[@class='custom-attr-product-manufacturer-name']/text()
+    xpath: //div[@class='custom-attr-product-manufacturer-name']/text() | //div[contains(@class,"flex flex-column")]//div[contains(@class,"overflow-hidden")]/a/div[contains(@class, 'lh-title')]/span/text()
