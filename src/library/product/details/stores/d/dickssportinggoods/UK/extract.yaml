@@ -123,8 +123,9 @@ fields:
     description: Number of variants listed
     type: NUMBER
   - name: color
-    singleValue: true
+    singleValue: false
     description: A textual description of the colour
+    xpath: //div[contains(@class,'color-attributes-container sliding_row_inner')]//button/@aria-label
   - name: colorCode
     singleValue: true
     description: A code description of the color (e.g. RGB hex)
