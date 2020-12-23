@@ -374,6 +374,7 @@ fields:
 - name: specifications
   singleValue: true
   description: The physical dimensions of the product including packaging.
+  xpath: //div[contains(@class,"js-specifications-content")]
 - name: warranty
   singleValue: true
   description: Guarantee associated with the product
@@ -409,7 +410,7 @@ fields:
 - name: promotion
   singleValue: true
   description: promotion text on product page
-  xpath: //div[@class="product-page--promo-icon"]/button/@title
+  xpath: //button[contains(@class,"js-promo-icon")]//span
 - name: alcoholContent
   singleValue: true
   description: Alcohol content information
