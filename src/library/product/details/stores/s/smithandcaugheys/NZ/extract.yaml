@@ -105,5 +105,6 @@ fields:
       products'. Combine results from Max 3 sections
   - name: inTheBoxText
     singleValue: false
-    xpath: //p[contains(.,"in the Box")]/following-sibling::p  | //p[contains(.,"in the Box")]
+    xpath: //p[contains(.," in the Box")][contains(.,":")] | //p[preceding-sibling::p[contains(.," in the Box")]][not(contains(.,":"))] | //p[preceding-sibling::p[strong][1][contains(.,"In the box")]][not(strong)]
+    regExp: '[^:]+$'
     
