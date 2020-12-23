@@ -4,6 +4,14 @@ parameters:
   domain: uk.rs-online.com
   store: rs-online
   zipcode: ""
+proxy:
+  zone: GBR
+  type: DATA_CENTRE
+  numberRetries: 3
+  priority: MEDIUM
+  retryDelay: 120 
+  backoffPolicy: EXPONENTIAL
+  retryWithResidentialProxyAfter: 3
 meta:
   branches:
     devrs-onlinecore:
