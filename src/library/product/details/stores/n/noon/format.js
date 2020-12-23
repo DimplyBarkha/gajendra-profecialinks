@@ -55,7 +55,15 @@ const transform = (data) => {
           item.text = brandText + ' - ' + item.text;
         });
       }
-
+      if (row.unInterruptedPDP) {
+        var arrTemp = [];
+        row.unInterruptedPDP.forEach(item => {
+          arrTemp.push(item.text);
+        });
+        if (arrTemp.length) {
+          row.unInterruptedPDP = [{ text: arrTemp.join(' || ') }];
+        }
+      }
       if (row.specifications) {
         const info = [];
         row.specifications.forEach(item => {
