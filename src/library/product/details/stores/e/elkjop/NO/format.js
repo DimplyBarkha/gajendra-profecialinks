@@ -17,14 +17,15 @@ const transform = (data) => {
     .replace(/\\"/gm, '"')
   // eslint-disable-next-line no-control-regex
     .replace(/[\x00-\x1F]/g, '')
-    .replace(/[\uD800-\uDBFF][\uDC00-\uDFFF]/g, ' ');
+    .replace(/[\uD800-\uDBFF][\uDC00-\uDFFF]/g, ' ')
+    .trim();
   for (const { group } of data) {
     for (const row of group) {
       if (row.videos) {
         const newAlternateImages = row.videos.map(item => {
           if (item.text.includes('mp4') && !item.text.includes('elkjop.no')) {
             return {
-              text: `https://www.elkjop.no/${item.text.trim()}`,
+              text: `https://www.elkjop.no${item.text.trim()}`,
             };
           } else if (item.text.includes('mp4') && item.text.includes('elkjop.no')) {
             return {
@@ -73,12 +74,18 @@ const transform = (data) => {
         row.manufacturerDescription.forEach(desc => {
           manufacturerDesc += `${desc.text} `;
         });
-        row.manufacturerDescription = [{ text: manufacturerDesc }];
+        row.manufacturerDescription = [{ text: manufacturerDesc.replace('Les merProduktinformasjon', '') }];
+      }
+
+      if (row.largeImage) {
+        row.image = row.largeImage;
       }
     }
   }
   data.forEach(obj => obj.group.forEach(row => Object.keys(row).forEach(header => row[header].forEach(el => {
-    el.text = clean(el.text);
+    if (el) {
+      el.text = clean(el.text);
+    }
   }))));
   return data;
 };

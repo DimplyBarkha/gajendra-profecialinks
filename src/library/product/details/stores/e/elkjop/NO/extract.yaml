@@ -9,6 +9,12 @@ fields:
     xpath: concat('https://www.elkjop.no',//*[contains(@class, "first-product-image")]/@src[1])
     regExp: (.+)
     regExpReplace: https://elkjop.no$1
+  - name: largeImage
+    singleValue: false
+    description: URL of the main product image
+    xpath: concat('https://www.elkjop.no',//div[contains(@class, 'view-large')]/a/@href)
+    regExp: (.+)
+    regExpReplace: https://elkjop.no$1
   - name: imageAlt
     singleValue: false
     description: Alt text of the main product image
