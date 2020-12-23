@@ -39,7 +39,7 @@ module.exports = {
   parameterValues: {
     country: 'CL',
     store: 'falabella',
-    transform: null,
+    transform,
     domain: 'falabella.com',
     zipcode: '',
   },
