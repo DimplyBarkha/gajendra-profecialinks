@@ -6,7 +6,7 @@ async function implementation (
   context,
   dependencies,
 ) {
-  //const { transform } = parameters;
+  // const { transform } = parameters;
   const { productDetails } = dependencies;
   const applyScroll = async function (context) {
     await context.evaluate(async function () {
@@ -27,24 +27,8 @@ async function implementation (
           }, ms);
         });
       }
-
-      function addElementToDocument (key, value) {
-        const catElement = document.createElement('div');
-        catElement.id = key;
-        catElement.textContent = value;
-        catElement.style.display = 'none';
-        document.body.appendChild(catElement);
-      }
-    
-      var added_baseurl = 'https://fetch.co.uk'; 
-      addElementToDocument('added_base_url',added_baseurl);      
     });
-
-    
-    
   };
-  
-  
 
   await applyScroll(context);
   return await context.extract(productDetails, { transform: transformParam });

@@ -1,26 +1,34 @@
+singleRecord: false
 regionsSelector: null
 recordSelector: null
+recordXPath: //div[@data-test="product-list-scroller"]//div[contains(@class,'sc-iwsKbI')]//div[contains(@class,'sc-dnqmqq')]
 fields:
   - name: id
-    xpath: //div[@data-test="product-list-scroller"]//div[@data-test="fop-container"]/@data-sku
+    singleValue: false
+    xpath: //div[@data-test="product-list-scroller"]//div[contains(@class,'sc-iwsKbI')]//div[@data-test="fop-container"]/@data-sku
   - name: name
-    xpath: //div[@data-test="product-list-scroller"]//div[@data-test="fop-container"]//a[@data-test="link-to-bop"]/@title
+    singleValue: false
+    xpath: //div[@data-test="product-list-scroller"]//div[contains(@class,'sc-iwsKbI')]//div[@data-test="fop-container"]//a[@data-test="link-to-bop"]/@title
   - name: productUrl
-    xpath: //div[@data-test="product-list-scroller"]//div[@data-test="fop-container"]//a[@data-test="link-to-bop"]/@href
+    singleValue: false
+    xpath: //div[@data-test="product-list-scroller"]//div[contains(@class,'sc-iwsKbI')]//div[@data-test="fop-container"]//a[@data-test="link-to-bop"]/@href
     regExp: (.+)
     regExpReplace: https://fetch.co.uk$1
   - name: reviewCount
   - name: thumbnail
-    xpath: //div[@data-test="product-list-scroller"]//img[@data-image="fop-image"]/@src
+    singleValue: false
+    xpath: //div[@data-test="product-list-scroller"]//div[contains(@class,'sc-iwsKbI')]//img[@data-image="fop-image"]/@src
     regExp: (.+)
     regExpReplace: https:$1
   - name: ratingCount    
   - name: aggregateRating
-    xpath: //div[@data-test="product-list-scroller"]//div[@data-test="fop-container"]//dl[@class="bv-stars-container"]//span[@class="bv-off-screen"]/text()
+    singleValue: false
+    xpath: //div[@data-test="product-list-scroller"]//div[contains(@class,'sc-iwsKbI')]//div[@data-test="fop-container"]//dl[@class="bv-stars-container"]//span[@class="bv-off-screen"]/text()
     regExp: (.+)?( out of.*|No rating.*)
     regExpReplace: '$1'
   - name: price
-    xpath: //div[@data-test="product-list-scroller"]//span[@data-test="product-final-price"]/text() 
+    singleValue: false
+    xpath: //div[@data-test="product-list-scroller"]//div[contains(@class,'sc-iwsKbI')]//span[@data-test="product-final-price"]/text() 
   - name: rankOrganic
   - name: rank
   - name: sponsored

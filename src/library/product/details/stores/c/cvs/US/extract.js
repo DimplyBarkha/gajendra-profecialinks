@@ -27,7 +27,7 @@ module.exports = {
     const sectionsDiv = 'div.css-1dbjc4n.r-13awgt0.r-1mlwlqe.r-dnmrzs';
     const variantInfoDiv = 'div.css-1dbjc4n.r-16lk18l.r-11c0sde.r-1xi2sqm';
     // const variantInfoDiv = 'div.css-1dbjc4n.r-16lk18l.r-11c0sde.r-1xi2sqm div.css-1dbjc4n.r-utggzx';
-
+   
     await context.waitForSelector(sectionsDiv, { timeout: 90000 });
     await context.waitForSelector(variantInfoDiv, { timeout: 90000 });
 
