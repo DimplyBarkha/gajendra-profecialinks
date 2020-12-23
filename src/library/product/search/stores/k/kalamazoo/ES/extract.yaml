@@ -8,7 +8,7 @@ fields:
     regExp: WW\s-\s(.+)
     regExpReplace: $1
   - name: name
-    xpath: //a/@title
+    xpath: //*[contains(@class,"txt-left")]//a/span/@title
   - name: thumbnail
     xpath: //img[@class="product-card__pic"]/@src
     regExp: (.+)(hei=)(\d+)(&wid=)(\d+)
@@ -19,4 +19,4 @@ fields:
   - name: searchUrl
     xpath: //article[contains(@class,"product-card product-card--close")]/@searchurl
   - name: productUrl
-    xpath: //span[@class="product-card__size js-count-limit-characters"]/@href
+    xpath: //*[contains(@class,"txt-left")]//a/@href
