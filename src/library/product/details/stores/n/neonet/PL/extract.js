@@ -146,6 +146,20 @@ async function implementation (
       }
     });
   }
+  //extracting manufacturer content and mnufacturer images which is not in iframe
+  await context.evaluate(()=>{
+    if(document.querySelector('button[class*=productRichContent]')) {
+      document.querySelector('button[class*=productRichContent]').click();
+      document.querySelector('button[class*=productRichContent]').scrollIntoView({behavior: 'smooth'});
+      document.querySelector('nav[class*="sectionsNavigation"]').scrollIntoView({behavior: 'smooth'});
+      document.querySelector('button[class*=productRichContent]').scrollIntoView({behavior: 'smooth'});
+    }
+  });
+  try{
+    await context.waitForSelector('div[id="productRichContent"] img');
+  } catch(e){
+    console.log('Either manufacturer image not present or it is under iframe', e.message);
+  }
   // Function to fetch manufacturer content and mnufacturer images after visiting iframe URL
   async function fetchManufacturerContentIframe (url) {
     try {

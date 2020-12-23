@@ -156,12 +156,12 @@ fields:
   - name: energyEfficiency
     singleValue: false
     xpath: //div[@class="productExtraInfoCss-energy__class-2Tl"]//img/@src
-  - name: manufacturerImages1
+  - name: manufacturerImages
     singleValue: false
-    xpath: //div[contains(@id, "added-manufacturer-images")]
-  - name: manufacturerDescription1
+    xpath: //div[contains(@id, "added-manufacturer-images")] | //div[@id="productRichContent"]//img/@src
+  - name: manufacturerDescription
     singleValue: false
-    xpath: //div[@id="added-manufacturer-description"]
+    xpath: //div[@id="added-manufacturer-description"] | //div[@id="productRichContent"]
   - name: video1
     singleValue: false
     # xpath: //div[@id="added-video"]

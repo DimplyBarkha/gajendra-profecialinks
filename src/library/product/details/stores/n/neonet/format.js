@@ -108,19 +108,21 @@ const transform = (data) => {
         });
       }
 
-      if (row.manufacturerImages1) {
-        manufacturerImages = [...manufacturerImages, ...row.manufacturerImages1];
-        delete row.manufacturerImages1;
-        row.manufacturerImages = manufacturerImages;
+      if (row.manufacturerImages) {
+        row.manufacturerImages.forEach(element => {
+          let imageLink = element.text.search('https://');
+          if(imageLink === -1) {
+            element.text = 'https://www.neonet.pl/' + element.text;
+          }
+        });
       }
 
-      if (row.manufacturerDescription1) {
-        row.manufacturerDescription1.forEach(item => {
-          item.text = clean(item.text);
-          manufacturerDescription[0] = item;
+      if (row.manufacturerDescription) {
+        let text = '';
+        row.manufacturerDescription.forEach(item => {
+          text = text + (text ? ' ' : '') + item.text;
         });
-        delete row.manufacturerDescription1;
-        row.manufacturerDescription = manufacturerDescription;
+        row.manufacturerDescription = [{ text }];
       }
 
       if (row.video1) {
