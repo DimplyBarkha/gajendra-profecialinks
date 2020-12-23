@@ -14,6 +14,7 @@ module.exports = {
     await context.setLoadAllResources(true);
     await context.setLoadImages(true);
     await context.setAntiFingerprint(false);
-    await context.goto(url, { timeout: timeout, waitUntil: 'load', checkBlocked: true });
+    url = `${url}#[!opt!]{"force200": true}[/!opt!]`;
+    await context.goto(url, { timeout: timeout, waitUntil: 'load' });
   },
 };

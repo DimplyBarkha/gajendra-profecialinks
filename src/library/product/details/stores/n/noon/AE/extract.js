@@ -45,9 +45,9 @@ module.exports = {
         document.body.appendChild(newDiv);
       }
 
-      let descriptionBulletCount = document.evaluate(`count(//span[starts-with(.,'Highlights')]//parent::div/ul/li)`,document).numberValue;
-      addHiddenDiv('descriptionBulletCount' , descriptionBulletCount);
-      
+      const descriptionBulletCount = document.evaluate('count(//span[starts-with(.,"Highlights")]//parent::div/ul/li)', document).numberValue;
+      addHiddenDiv('descriptionBulletCount', descriptionBulletCount);
+
       if (document.querySelector('div[class="viewFullSpec"] a')) {
         document.querySelector('div[class="viewFullSpec"] a').click();
         await stall(2000);
