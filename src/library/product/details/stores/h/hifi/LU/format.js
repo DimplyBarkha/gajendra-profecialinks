@@ -55,6 +55,13 @@ const transform = (data) => {
           },
         ];
       }
+      if (row.unInterruptedPDP) {
+        var arrTemp = [];
+        row.unInterruptedPDP.forEach(item => {
+          arrTemp.push(item.text);
+        });
+        row.unInterruptedPDP = [{ text: arrTemp.join(' || ') }];
+      }
       if (row.description) {
         let descriptionOne = '';
         const bulletInfo = [];
