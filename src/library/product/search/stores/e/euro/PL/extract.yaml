@@ -42,4 +42,6 @@ fields:
     singleValue: false
   - name: sponsored
     xpath: //span[@class="product-status promocja"]
+    regExp: (.+)
+    regExpReplace: true    
     defaultValue: false
