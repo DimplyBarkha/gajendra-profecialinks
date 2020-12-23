@@ -5,7 +5,7 @@ recordXPath: null
 fields:
   - name: image
     singleValue: true
-    xpath: //div[@id='ii_image']
+    xpath: (//img[@class="productImageCarousel_image"]/@src)[1]
   - name: url
     singleValue: true
     xpath: //link[@rel="canonical"]/@href
@@ -47,7 +47,7 @@ fields:
     xpath: //div[@id='ii_warnings']
   - name: alternateImages
     singleValue: true
-    xpath: //div[@id='ii_alternateImages']
+    xpath: (//img[@class="productImageCarousel_thumbnail"]//@src)[position()>1]
   - name: manufacturerImages
     singleValue: true
   - name: ratingCount
