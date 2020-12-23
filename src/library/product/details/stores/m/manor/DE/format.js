@@ -90,6 +90,15 @@ const transform = (data) => {
           item.text = item.text.replace(/Garantie\s*:/ig, '').trim();
         });
       }
+      if (row.variantInformation) {
+        row.variantInformation.forEach(item => {
+          item.text = item.text.replace('Farbe:', '');
+          item.text = item.text.trim();
+        });
+        if (!row.color) {
+          row.color = row.variantInformation;
+        }
+      }
       if (row.variants) {
         var arrVari = [];
         row.variants.forEach(item => {
@@ -100,15 +109,10 @@ const transform = (data) => {
           row.variants = [{ text: arrVari.join(' | ') }];
           row.variantCount = [{ text: arrVari.length }];
           row.firstVariant = [{ text: arrVari[0] }];
-        }
-      }
-      if (row.variantInformation) {
-        row.variantInformation.forEach(item => {
-          item.text = item.text.replace('Farbe:', '');
-          item.text = item.text.trim();
-        });
-        if (!row.color) {
-          row.color = row.variantInformation;
+        } else {
+          if (row.variantInformation) {
+            delete row.variantInformation;
+          }
         }
       }
       if (row.nameExtended) {
