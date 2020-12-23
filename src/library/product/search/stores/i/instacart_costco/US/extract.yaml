@@ -1,0 +1,47 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields: 
+  - name: name
+    singleValue: false
+    xpath: //div[@class="rmq-11ec9fcc item-card-contents"]/div[@class="item-info"]/div/span[@class="full-item-name"]
+  - name: searchUrl
+    singleValue: false
+    xpath: //link[@rel="canonical"]/@href
+  - name: price
+    singleValue: false
+    description: The offered price for the product
+    xpath: //div[@class="rmq-11ec9fcc item-card-contents"]/div[@class="item-info"]/div[@class="item-name item-row"]/div/div/div[@class="item-price"]/span
+  - name: thumbnail
+    singleValue: false
+    xpath: //div[@class="rmq-11ec9fcc item-card-contents"]/div[@class='media']/div/img/@src        
+  - name: id
+    singleValue: false
+    xpath: //div[@class="rmq-11ec9fcc item-card-contents"]/div[@class="item-info"]/@id
+    regExp: (\d+)
+    #regExpReplace: $2  
+  - name: productUrl
+    singleValue: false
+    xpath: //li[@class="rmq-926ae505 rmq-6898c4bf item-card"]/div/a/@href  
+    #regExp: (.*)$
+    regExp: (/.+)
+    regExpReplace: https://www.instacart.com$1    
+  - name: brand
+    singleValue: false
+    description: The brand name
+    xpath: 
+  - name: store
+    singleValue: false
+    description: The store name
+    xpath: //div[@class="header-secondary-nav-inner-wrapper"]/a[@class="header-secondary-nav-store-name clearfix"]/p[@class="pull-left"]   
+  - name: rank
+    singleValue: false
+    type: number
+  - name: rankOrganic
+    singleValue: false
+    type: NUMBER   
+  - name: size
+    singleValue: false
+    description: The size of product
+    xpath: //div[@class="rmq-11ec9fcc item-card-contents"]/div[@class="item-info"]/div[@class="item-name item-row"]/span[@class="item-size muted"]     
