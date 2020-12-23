@@ -5,10 +5,10 @@ recordXPath: null
 fields:
   - name: image
     singleValue: false
-    xpath: //a[contains(@class,"mz-thumb mz-thumb-selected")]/img/@alt | //meta[@property="og:image"]/@content | //a[@class="MagicZoom"]/@href | (//a[contains(@class,"mt-thumb-switcher")]/@href)[position()=1] 
+    xpath: //meta[@property="og:image"]/@content | //a[@class="MagicZoom"]/@href | (//a[contains(@class,"mt-thumb-switcher")]/@href)[position()=1] 
   - name: imageAlt
     singleValue: false
-    xpath: //a[contains(@class,"mz-thumb mz-thumb-selected")]/img/@alt
+    xpath: //div[@class="mcs-item"]//img/@alt | //meta[@property="og:title"]/@content
   - name: alternateImages
     singleValue: false
     xpath: (//a[contains(@class,"mt-thumb-switcher") and not(contains(@class,"video-selector"))]/@href)[position()>1]
@@ -44,12 +44,27 @@ fields:
     xpath: //div[@itemprop="manufacturer"]
   - name: manufacturer
     singleValue: false
-    description: Product manufacturer
+    xpath: //div[@itemprop="manufacturer"]/text()
   - name: quantity
     singleValue: false
-    description: Quantity as described on the page
-    regExp: (?:\s?([\d\.]+\s?)([bB]ar[s]?|[cC]ount|[cC]t|[fF][lL][\.]?\s?[oO][zZ][\.]?|FO|[mM][lL]|[oO][zZ][\.]?|pc|[pP]int|[pP]ops|qt|[wW]ipe[s]?).?)$|(?:\s?([\d\.]+\s?)([bB]ar[s]?|[cC]ount|[cC]|[fF][lL][\.]?\s?[oO][zZ][\.]?|FO|[mM][lL]|[oO][zZ][\.]?|pc|[pP]int|[pP]ops|qt|[wW]ipe[s]?).?\s?[\&\-\w\s]+)$
-    regExpReplace: $1$2$3$4
+    xpath: //div[@class="tabs-content"]//ul/li[contains(.,"Capacité") or (contains(.,"réservoir"))]/text()
+    regExp: :\W+(.+)
+    regExpReplace: $1
+  - name: quantity1
+    singleValue: false
+    xpath: //div[@class="tabs-content"]//strong[contains(.,"Cinq formats de tasse")]/following::ul[1]/li/text()
+    # regExp: :\W+(.+)
+    # regExpReplace: $1
+  - name: quantity2
+    singleValue: false
+    xpath: //div[@class="tabs-content"]//ul/li[contains(.,"cm") and (contains(.,"po"))]/text()
+    regExp: (.+)po.
+    # regExpReplace: $1
+  - name: mpc
+    singleValue: false
+    xpath: //script[contains(.,"gtin")]/text()
+    regExp: mpn":"([^"]+)
+    regExpReplace: $1
   - name: weightNet
     singleValue: false
     xpath: //div[@itemprop="more_infos"]/ul/li[contains(.,"Poids")]
@@ -60,16 +75,23 @@ fields:
     description: Gross weight as described on the page
   - name: gtin
     singleValue: false
-    description: GTIN code (includes UPC/EAN)
+    xpath: //script[contains(.,"gtin")]/text()
+    regExp: gtin13":"([^"]+)
+    regExpReplace: $1
+  - name: eangtin
+    singleValue: false
+    xpath: //script[contains(.,"gtin")]/text()
+    regExp: gtin13":"([^"]+)
+    regExpReplace: $1
   - name: sku
     singleValue: false
     xpath: //span[@class="sku"] | //form/@data-product-sku
   - name: variantId
     singleValue: false
     xpath: //span[@class="sku"] | //form/@data-product-sku
-  - name: mpc
-    singleValue: false
-    description: The manufacturer model code (unique) of the product
+  # - name: mpc
+  #   singleValue: false
+  #   description: The manufacturer model code (unique) of the product
   - name: packSize
     singleValue: false
     description: The number of packs in the product offer (if stated separately on
@@ -91,7 +113,7 @@ fields:
     description: The stated aggregate rating
   - name: aggregateRating
     singleValue: false
-    xoath: //span[@class="tt-c-reviews-summary__rating-number"]/text()
+    xpath: //span[@class="tt-c-reviews-summary__rating-number"] 
   - name: shippingInfo
     singleValue: false
     description: Shipping information for the product
@@ -105,11 +127,12 @@ fields:
     description: Stated shipping weight
   - name: variantCount
     singleValue: false
-    description: Number of variants listed
-    type: NUMBER
+    defaultValue: '0'
   - name: color
     singleValue: false
-    xpath: //meta[@property="product:color"]/@content
+    xpath: (//div[@itemprop="more_infos"]//li[contains(text(),"Couleur")])[1]
+    regExp: (\:(.*))
+    regExpReplace: $2
   - name: colorCode
     singleValue: false
     description: A code description of the color (e.g. RGB hex)
