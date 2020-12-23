@@ -20,7 +20,7 @@ fields:
       e.g. "Visit the Gillette Store"
   - name: name
     singleValue: false
-    xpath: //h3[contains(@is,"ui-heading")]
+    xpath: (//h1[contains(@class,"prod-name")])[1]
     description: The product name
   - name: sku
     singleValue: false
@@ -32,7 +32,7 @@ fields:
     singleValue: false
     type: DATETIME
     description: Date the review was made
-    xpath: //div[contains(@class,"reviewer")]//p[2]
+    xpath: //div[contains(@class,"reviewer")]
   - name: reviewRating
     singleValue: false
     description: Rating normalized to be out of 5

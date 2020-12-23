@@ -17,12 +17,13 @@ async function implementation (inputs, parameters, context, dependencies) {
     return context.evaluate(() => {
       try {
         reviewDate = document.querySelector('div.reviewer > p:nth-child(3)').innerText;
+        return reviewDate;
       } catch (error) {
         console.log('no review date available');
       }
-      const reviewDateData = reviewDate.split('\n').pop();
+      // const reviewDateData = reviewDate.split('\n').pop();
       // console.log(reviewDateData);
-      return reviewDateData;
+
     }, position);
   };
   const getNextLinkCheck = () => {
