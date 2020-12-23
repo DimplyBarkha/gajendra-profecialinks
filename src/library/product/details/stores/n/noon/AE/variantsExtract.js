@@ -30,7 +30,7 @@ module.exports = {
         }
       } else {
         // @ts-ignore
-        const n = [...document.querySelectorAll('.section ul>li')].length;
+        const n = [...document.querySelectorAll('.section ul>li img')].length;
         for (let i = 0; i < n; i++) {
           const n = i + 1;
           const selector = '.section ul>li:nth-child(' + n + ') img';
