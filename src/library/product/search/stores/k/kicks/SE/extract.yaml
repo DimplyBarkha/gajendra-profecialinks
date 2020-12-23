@@ -1,0 +1,36 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: price
+    singleValue: false
+    xpath: //*[contains(./@id, 'product-card')]/span/span
+  - name: name
+    singleValue: true
+    xpath: //*[contains(./@id, 'product-card')]//@title
+    type: TEXT
+  - name: productUrl
+    singleValue: false
+    xpath: //*[contains(./@id, 'product-card')]//@href
+    regExp: ^(.+)$
+    regExpReplace: https://www.kicks.se$1
+  - name: thumbnail
+    singleValue: false
+    xpath: //*[contains(./@id, 'product-card')]//img/@src
+  - name: aggregateRating
+    singleValue: false
+    xpath: //html//div[@id="rating"]
+  - name: reviewCount
+    singleValue: false
+    type: NUMBER
+    xpath: //*[contains(./@id, 'product-card')]/div[2]/div//span/span
+  - name: id
+    singleValue: false
+    xpath: //a[@class="c8 d2"]/@id
+  - name: sku
+    singleValue: false
+    xpath: //a[@class="c8 d2"]/@id
+  - name: manufacturer
+    singleValue: true 
+    xpath: //*[contains(./@id, 'product-card')]/div[3]/div/div/span[1]

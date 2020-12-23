@@ -1,0 +1,43 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: price
+    singleValue: false
+    xpath: //span[@itemprop="price"]
+  - name: name
+    singleValue: true
+    xpath: //div//h4[@class="fl-product-tile-title e-h4 fl-product-tile__title"]
+  - name: productUrl
+    singleValue: false
+    xpath: //div[@class="fl-product-tile__title-wrapper height-ready"]/h4//a//@href
+    regExp: ^(.+)$
+    regExpReplace: https://www.mvideo.ru$1
+  - name: thumbnail
+    singleValue: false
+    xpath: //div[@class="lazy-load-image-holder lazy-loaded"]//img//@src
+    regExp: (.+)
+    regExpReplace: https:$1
+  - name: aggregateRating2
+    singleValue: true
+    xpath: //span[@class="fl-product-tile-rating__stars-value"]
+  - name: id
+    singleValue: false
+    xpath: //div[@class="fl-product-tile c-product-tile "]/@data-productid
+  - name: sku
+    singleValue: false
+    xpath: //div[@class="fl-product-tile c-product-tile "]/@data-productid
+  - name: reviewCount
+    singleValue: false
+    type: NUMBER
+    xpath: //span[@class="fl-product-tile-rating__reviews"]
+  - name: rankOrganic
+    singleValue: true
+    xpath: //div[@id='rankOrganic']/text()
+  - name: rank
+    singleValue: true
+    xpath: //div[@id='rankOrganic']/text()
+  - name: manufacturer
+    singleValue: true 
+    xpath: //meta[@itemprop="description"]/@content

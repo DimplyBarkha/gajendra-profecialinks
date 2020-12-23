@@ -1,0 +1,30 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: productUrl
+    xpath: //div[@class='klevuImgWrap']/a/@href
+    description: The URL for the product details page
+  - name: thumbnail
+    description: The URL for the product thumbnail image
+    xpath: //ul[@id="kuLandingProductsListUl"]//img/@src
+  - name: name
+    singleValue: true
+    description: The product name
+    xpath: //div[@class="klevuImgWrap"]//a//img/@alt
+  - name: id
+    singleValue: true
+    description: The store-specific product identifier
+    xpath: //div[@class='klevuImgWrap']/a/@href
+    regExp: (\d+\d)$
+  - name: price
+    singleValue: true
+    description: The offered price for the product
+  - name: rankOrganic
+    singleValue: true
+  - name: rank
+    singleValue: true
+  - name: sponsored
+    singleValue: true
+    defaultValue: false

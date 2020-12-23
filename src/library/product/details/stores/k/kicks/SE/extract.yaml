@@ -1,0 +1,111 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: image
+    singleValue: true
+    description: URL of the main product image
+    xpath: (//div[@class="is-draggable"]/div/div/div/img/@src)[1]
+  - name: imageAlt
+    singleValue: true
+    description: Alt text of the main product image
+    xpath: (//div[@class="is-draggable"]/div/div/div/img/@alt)[1]
+  - name: alternateImages
+    singleValue: false
+    description: Other product images (not in manufacturer description)
+    xpath: //div[@class="is-draggable"]/div/div/div/img/@srcset
+  - name: category
+    singleValue: false
+    description: The categories (e.g. from breadcrumbs)
+    xpath: //li[@itemprop="itemListElement"]//a[not(contains(text(),'Start'))]
+  - name: nameExtended
+    singleValue: true
+    xpath: (//div[@class="is-draggable"]/div/div/div/img/@title)[1]
+  - name: price
+    singleValue: true
+    description: The offered price for the selected product variant - if a user
+      clicks add to basket this is the price they would be charged
+    xpath: //div[@id="videoly-info"]//div[@id="videoly-product-price"]/text()
+    type: CURRENCY
+  - name: availabilityText
+    singleValue: true
+    description: Availability as described on page for the selected variant. If
+      there is no availability but the product can be added to cart, this field
+      should be "In Stock"
+    regExp: (.+)
+    regExpReplace: In Stock
+    defaultValue: In Stock
+  - name: brandText
+    singleValue: true
+    description: Product brand shown - this may actually NOT be just a brand name,
+      e.g. "Visit the Gillette Store"
+    xpath: //div[@id="videoly-info"]//div[@id="videoly-product-brand"]/text()
+  - name: manufacturer
+    singleValue: true
+    description: Product manufacturer
+    xpath: //div[@id="videoly-info"]//div[@id="videoly-product-brand"]/text()
+  # - name: directions
+  #   xpath://*[@id="container"]/div/div/div[1]/main/div/div/div[1]/div[2]/div/div[9]/div/div[2]/div/div/div/div
+  - name: sku
+    singleValue: true
+    description: The store-specific product identifier
+    xpath: //div[@id="videoly-info"]//div[@id="videoly-product-sku"]/text()
+  - name: variantId
+    singleValue: true
+    description: Identifier for a variant from a store where variants share the same sku
+    xpath: //div[@id="videoly-info"]//div[@id="videoly-product-id"]/text()
+  - name: ratingCount
+    singleValue: true
+    description: The number of ratings
+    type: NUMBER
+    xpath: (//div[@id="reviews"]//div[2]/div[2]/div)[2]
+  - name: aggregateRating
+    singleValue: true
+    description: The stated aggregate rating normalized to be out of 5
+    type: NUMBER
+    xpath: (//div[@id="reviews"]//div[2]/div[2]/div)[1]
+  # - name: shippingInfo
+  #   singleValue: true
+  #   description: Shipping information for the product
+  # - name: variantCount
+  #   singleValue: true
+  #   description: Number of variants listed
+  #   type: NUMBER
+  # - name: color
+  #   singleValue: true
+  #   description: A textual description of the colour
+  - name: name
+    singleValue: true
+    description: The product name, prefixing "${brand} - " if not included in "name"
+      and appending " - ${variantType}" if necessary (fixed per feed)
+    xpath: (//div[@class="is-draggable"]/div/div/div/img/@title)[1]
+  - name: subscribeAndSave
+    singleValue: true
+    description: Yes
+  - name: secondaryImageTotal
+    singleValue: true
+    description: null
+    xpath: count(//div[@class="is-draggable"]/div/div/div/img/@src)
+    type: NUMBER
+  # - name: variantInformation
+  #   singleValue: true
+  #   description: colour / scent / flavour / other
+  - name: termsAndConditions
+    singleValue: true
+    description: Terms and conditions information text ['Yes','No']
+    defaultValue: No
+  - name: privacyPolicy
+    singleValue: true
+    description: Privacy Policy information text ['Yes','No']
+    defaultValue: Yes
+  - name: customerServiceAvailability
+    singleValue: true
+    description: Information related to customer service availability (text), ['Yes','No']
+    defaultValue: Yes
+  - name: imageZoomFeaturePresent
+    singleValue: true
+    description: If Zoom feature is available for Main image or images in the
+      carousel,['Yes','No']
+    example: https://www.zalando.de/adidas-neo-sneaker-low-blackwhite-a4315i002-q11.html
+    defaultValue: No

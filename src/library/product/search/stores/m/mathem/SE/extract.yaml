@@ -1,0 +1,40 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: id
+    singleValue: false
+    xpath: //button[@class="decrease"]/@aria-controls
+    # type: NUMBER
+    regExp: \d+
+    # regExpReplace: ''
+  - name: name
+    singleValue: false
+    xpath: //div[@class="title"]
+  - name: productUrl
+    singleValue: false
+    xpath: //div[@class="title"]/h3/a/@href
+    regExp: (/.+)
+    regExpReplace: https://www.mathem.se$1
+  - name: thumbnail
+    singleValue: false
+    xpath: //figure//img[@class="lazyload"]/@src
+    regExp: (/.+)
+    regExpReplace: https://www.mathem.se$1
+  - name: url
+    singleValue: false
+    xpath: //iframe[@id="esw_storage_iframe"]/@src
+  - name: price
+    singleValue: false
+    xpath: //mh-product-active-price
+  - name: rankOrganic
+    singleValue: false
+    # xpath: //div[@id="rankOrganic"]/text()
+  - name: rank
+    singleValue: false
+    # xpath: //div[@id="rankOrganic"]/text()
+    # type: NUMBER
+  # 
+  
+    
