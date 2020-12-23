@@ -98,6 +98,10 @@ const transform = (data) => {
       if (row.inTheBoxText) {
         row.inTheBoxText.forEach(elm => { elm.text = elm.text.replace(/(в комплекте$|да$)/, ''); });
       }
+      if (row.unInterruptedPDP) {
+        const pdps = row.unInterruptedPDP.map(elm => elm.text.trim());
+        row.unInterruptedPDP = Array.from(new Set(pdps)).map(text => ({ text }));
+      }
     }
   }
   data.forEach(obj => obj.group.forEach(row => Object.keys(row).forEach(header => row[header].forEach(el => {
