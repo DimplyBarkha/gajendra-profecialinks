@@ -1,6 +1,5 @@
 
 module.exports.implementation = async ({ inputString }, { country, domain, transform: transformParam }, context, { productDetails }) => {
- 
   await context.evaluate(async function () {
     function addElementToDocument (key, value) {
       const catElement = document.createElement('div');
@@ -16,6 +15,7 @@ module.exports.implementation = async ({ inputString }, { country, domain, trans
       else result = elem ? elem.singleNodeValue : '';
       return result && result.trim ? result.trim() : result;
     };
+
     const ServingSize = getXpath('//div[@id="nutrionFacts"]//div//label[contains(text(),"Serving Size")]/following-sibling::span', 'innerText');
     const ServingPerContainer = getXpath('//div[@id="nutrionFacts"]//div//label[contains(text(),"Per Container")]/following-sibling::span | //div[@id="nutrionFacts"]//div//label[contains(text(),"Per Container")]/preceding-sibling::span', 'innerText');
     const Calories = getXpath('//div[@id="nutrionFacts"]//div//label[contains(text(),"Calories")]/following-sibling::span[1]', 'innerText');
@@ -147,7 +147,7 @@ module.exports.implementation = async ({ inputString }, { country, domain, trans
         addElementToDocument('added_iron_per_serving', IronPerServing);
         addElementToDocument('added_iron_per_serving_uom', IronPerServingUOM);
       }
-    } 
+    }
   });
   await context.extract(productDetails, { transform: transformParam });
 };
