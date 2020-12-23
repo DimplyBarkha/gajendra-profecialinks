@@ -20,6 +20,21 @@ const transform = (data) => {
   data.forEach(el => {
     el.group.forEach((gr, index) => {
       try {
+        if (gr && gr.nameExtended && gr.nameExtended.length) {
+          const text = gr.nameExtended[0].text;
+          let packSize = null;
+          try {
+            packSize = text.includes('Pack');
+          } catch (e) {
+            packSize = null;
+          }
+          if (packSize) {
+            const start = text.indexOf('Pack');
+            const cutText = text.slice(start, 200);
+            const end = cutText.indexOf(',');
+            gr['packSize'] = [{ text: cutText.slice(0, end).match(numberPattern).join('') }];
+          }
+        }
         if (gr && gr.secondaryImageTotal && gr.secondaryImageTotal.length) gr.secondaryImageTotal = [{ text: gr.secondaryImageTotal.length - 1 }];
         if (gr && gr.quantity && gr.quantity.length) gr.quantity[0].text = gr.quantity[0].text.match(numberPattern).join('');
         if (gr && gr.specifications && gr.specifications.length) gr.specifications[0].text = cleanText(gr.specifications[0].text);
