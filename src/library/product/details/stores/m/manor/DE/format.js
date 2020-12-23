@@ -36,28 +36,23 @@ const transform = (data) => {
           item.text = item.text.replace(/(\s*\n\s*)+/g, ' ').trim();
         });
       }
-      if (row.nameExtended) {
-        row.nameExtended.forEach(item => {
-          item.text = item.text.replace(/(\s*\n\s*)+/g, ' ').trim();
-        });
-      }
-      if (row.price) {
-        row.price.forEach(item => {
-          item.text = item.text.replace('.', ',').trim();
-        });
-      }
+      // if (row.price) {
+      //   row.price.forEach(item => {
+      //     item.text = item.text.replace('.', ',').trim();
+      //   });
+      // }
       if (row.gtin) {
         row.gtin.forEach(item => {
           item.text = item.text.replace(/ean"\s*:\s*/g, '');
           item.text = item.text.trim();
         });
       }
-      if (row.description) {
-        row.description.forEach(item => {
-          item.text = item.text.replace(/(\s*\n\s*)+/g, ' || ').trim();
-        });
-        row.description[0].text = '||' + row.description[0].text;
-      }
+      // if (row.description) {
+      //   row.description.forEach(item => {
+      //     item.text = item.text.replace(/(\s*\n\s*)+/g, ' || ').trim();
+      //   });
+      //   row.description[0].text = '||' + row.description[0].text;
+      // }
       if (row.brandLink) {
         row.brandLink.forEach(item => {
           item.text = 'https://www.manor.ch' + item.text;
@@ -92,7 +87,7 @@ const transform = (data) => {
       }
       if (row.warranty) {
         row.warranty.forEach(item => {
-          item.text = item.text.replace(/Garantie/ig, ' ').trim();
+          item.text = item.text.replace(/Garantie\s*:/ig, '').trim();
         });
       }
       if (row.variants) {
@@ -104,12 +99,22 @@ const transform = (data) => {
         if (arrVari.length) {
           row.variants = [{ text: arrVari.join(' | ') }];
           row.variantCount = [{ text: arrVari.length }];
+          row.firstVariant = [{ text: arrVari[0].text }];
         }
       }
       if (row.variantInformation) {
         row.variantInformation.forEach(item => {
           item.text = item.text.replace('Farbe:', '');
           item.text = item.text.trim();
+        });
+        row.color = row.variantInformation;
+      }
+      if (row.nameExtended) {
+        row.nameExtended.forEach(item => {
+          item.text = item.text.replace(/(\s*\n\s*)+/g, ' ').trim();
+          if (row.variantInformation) {
+            item.text = item.text + ' - ' + row.variantInformation[0].text;
+          }
         });
       }
       if (row.specifications) {
@@ -120,8 +125,17 @@ const transform = (data) => {
       }
       if (row.aggregateRating) {
         row.aggregateRating.forEach(item => {
-          item.text = item.text.replace('.', ',').trim();
+          item.text = item.text.trim();
         });
+      }
+      if (row.additionalDescBulletInfo) {
+        var bulletInfo = [];
+        row.additionalDescBulletInfo.forEach(item => {
+          bulletInfo.push(item.text);
+        });
+        if (bulletInfo.length) {
+          row.additionalDescBulletInfo = [{ text: '|| ' + bulletInfo.join(' || ') }];
+        }
       }
     }
   }
