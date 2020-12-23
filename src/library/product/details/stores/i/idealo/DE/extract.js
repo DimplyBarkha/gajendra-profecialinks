@@ -28,6 +28,12 @@ module.exports = {
         document.body.appendChild(catElement);
       }
       try {
+        const shippingInfo = JSON.parse(document.evaluate('//div[contains(@class,"leadoutbox-price")]/a[@data-gtm-payload]', document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue.getAttribute('data-gtm-payload'));
+        shippingInfo && shippingInfo.shop_name && addElementToDocument('pd_shipping_info', shippingInfo.shop_name);
+      } catch (error) {
+        console.log('Failed to fetch shipping info');
+      }
+      try {
         // @ts-ignore
         const dataObj = JSON.parse(document.querySelector('script[type="application/ld+json"]').innerText.trim());
         if (dataObj) {
