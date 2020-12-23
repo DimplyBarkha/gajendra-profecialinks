@@ -27,12 +27,6 @@ const transform = (data, context) => {
         const finalText = Number(text) / 20;
         row.aggregateRating2[0].text = finalText.toString().replace('.', ',');
       }
-      if (row.thumbnail && row.thumbnail[0]) {
-        const image = row.thumbnail[0].text;
-        if (!image.includes('http')) {
-          row.thumbnail[0].text = image.replace(/(.+)/g, 'https:$1');
-        }
-      }
       rankCounter += 1;
       if (!row.sponsored) {
         orgRankCounter += 1;

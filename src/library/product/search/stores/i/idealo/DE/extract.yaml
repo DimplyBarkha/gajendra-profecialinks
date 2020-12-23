@@ -10,7 +10,9 @@ fields:
     regExpReplace: https://www.idealo.de$1
   - name: thumbnail
     singleValue: false
-    xpath: //img[contains(@class,"offerList-item-image")]/@src
+    xpath: //noscript
+    regExp: <img\s*src="(.+).jpg"(.+)?
+    regExpReplace: https:$1.jpg
   - name: name
     singleValue: false
     xpath: //div[contains(@id,"result-title")] 
