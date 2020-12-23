@@ -3,7 +3,7 @@ module.exports = {
   implements: 'navigation/goto',
   parameterValues: {
     domain: 'wayfair.US',
-    timeout: null,
+    timeout: 30000,
     country: 'US',
     store: 'wayfair',
     zipcode: '',
