@@ -3,6 +3,10 @@ parameters:
   country: US
   domain: amazon.com
   store: amazonFresh
+  zipcode: "90210"
+proxy:
+  zone: ZUS
+  type: DATA_CENTER
 meta:
   branches:
     test:
@@ -10,4 +14,7 @@ meta:
       legacyAccountId: 39255e08-8495-481b-9eba-0eb99bc49e94
     staging:
       extractor: 0584c65f-3d69-49df-8cc5-132112bcb4fa
+      legacyAccountId: 39255e08-8495-481b-9eba-0eb99bc49e94
+    adam-test:
+      extractor: c3c69213-5db1-45c7-8a12-4809b2239480
       legacyAccountId: 39255e08-8495-481b-9eba-0eb99bc49e94

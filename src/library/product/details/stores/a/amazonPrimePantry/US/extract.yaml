@@ -1,0 +1,15 @@
+extends: ../../../../sharedAmazon/shared
+fields:
+  # - name: shippingInfo
+  #   singleValue: false
+  #   xpath: (//div[contains(@id,"shipsFromSoldBy")]/div[@id="merchant-info"][not(a)][normalize-space(text())="Ships from and sold by Amazon Pantry."])[1]
+  #   regExp: Amazon Pantry
+  - name: drive
+    singleValue: false
+    xpath: //span[@id="glow-ingress-line2"]
+    regExp: (.*)\s(\d+)
+    regExpReplace: $2
+  - name: retailerId
+    xpath: //span[@id="glow-ingress-line2"]
+    regExp: (.*)\s(\d+)
+    regExpReplace: $2

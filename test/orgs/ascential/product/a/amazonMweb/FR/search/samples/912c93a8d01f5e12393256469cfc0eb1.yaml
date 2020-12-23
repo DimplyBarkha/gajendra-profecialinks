@@ -1,0 +1,39 @@
+input:
+  Keywords: bain de bouche enfant
+  _url: https://amazon.fr
+extractions:
+  - html: https://workbench.import.io/html/run=3aa8195b-7987-4b11-bc37-e76a92c6211b/task=7556aa58-c196-48c9-b1f1-9f84828b8304/dc960869-c599-4e15-96df-a12a725483bd.html
+    extractionConfigId: product/search/stores/a/amazonMweb/FR/extract
+    data:
+      - group:
+          - id:
+              - text: "2716314705"
+                xpath: /html/body/div[1]/div[2]/div[1]/div[2]/div[1]/span[3]/div[2]/div[1]/@data-asin
+            name:
+              - text: "La santé entre vos mains par l'acupression et la réflexothérapie selon
+                  les enseignements traditionnels de l'Inde: étirements, bains
+                  de bouche, ... par jour pour une santé parfaite (SANTE)"
+                xpath: /html/body/div[1]/div[2]/div[1]/div[2]/div[1]/span[3]/div[2]/div[1]/div[1]/span[1]/div[1]/div[1]/div[2]/h2[1]
+            productUrl:
+              - text: https://www.amazon.fr/sant%C3%A9-entre-mains-r%C3%A9flexoth%C3%A9rapie-enseignements/dp/2716314705/ref=sr_1_1?dchild=1&keywords=bain+de+bouche+enfant&qid=1593446810&sr=8-1
+                xpath: /html/body/div[1]/div[2]/div[1]/div[2]/div[1]/span[3]/div[2]/div[1]/div[1]/span[1]/div[1]/div[1]/div[2]/h2[1]/a[1]/@href
+            thumbnail:
+              - text: https://m.media-amazon.com/images/I/41DCCW-m31L._AC_UL320_.jpg
+                xpath: /html/body/div[1]/div[2]/div[1]/div[2]/div[1]/span[3]/div[2]/div[1]/div[1]/span[1]/div[1]/div[1]/span[1]/a[1]/div[1]/img[1]/@src
+            price:
+              - text: $33.07
+                xpath: /html/body/div[1]/div[2]/div[1]/div[2]/div[1]/span[3]/div[2]/div[1]/div[1]/span[1]/div[1]/div[1]/div[4]/div[2]/div[1]/a[1]/span[1]/span[1]
+          - id:
+              - text: "2354814925"
+                xpath: /html/body/div[1]/div[2]/div[1]/div[2]/div[1]/span[3]/div[2]/div[2]/@data-asin
+            name:
+              - text: Mes plus belles chansons Françaises (Sonores) (French Edition)
+                xpath: /html/body/div[1]/div[2]/div[1]/div[2]/div[1]/span[3]/div[2]/div[2]/div[1]/span[1]/div[1]/div[1]/div[2]/h2[1]
+            productUrl:
+              - text: https://www.amazon.fr/plus-belles-comptines-chansons-fran%C3%A7aises/dp/2354814925/ref=sr_1_2?dchild=1&keywords=bain+de+bouche+enfant&qid=1593446810&sr=8-2
+                xpath: /html/body/div[1]/div[2]/div[1]/div[2]/div[1]/span[3]/div[2]/div[2]/div[1]/span[1]/div[1]/div[1]/div[2]/h2[1]/a[1]/@href
+            thumbnail:
+              - text: https://m.media-amazon.com/images/I/91kK9w1xl3L._AC_UL320_.jpg
+                xpath: /html/body/div[1]/div[2]/div[1]/div[2]/div[1]/span[3]/div[2]/div[2]/div[1]/span[1]/div[1]/div[1]/span[1]/a[1]/div[1]/img[1]/@src
+        xpath: /html
+    timestamp: 1593446815281
