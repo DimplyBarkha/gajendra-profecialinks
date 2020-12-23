@@ -6,6 +6,9 @@ fields:
   - name: image
     singleValue: false
     xpath: //div[@id="mlens_wrapper_0"]/img[@data-id="mlens_0"]/@src
+  - name: imageAlt
+    singleValue: false
+    xpath: //div[@id="mlens_wrapper_0"]/img[@data-id="mlens_0"]/@alt
   - name: metaKeywords
     singleValue: false
     xpath: //meta[@name="Keywords"]/@content
@@ -14,13 +17,37 @@ fields:
     xpath: //div[@class="Breadcrumb"]/div[@class="content"]/a[position() > 1]
   - name: nameExtended
     singleValue: false
-    xpath: //div[@class="product-details"]//p[@class="page-title-info"]
+    xpath: concat(//div[@class="product-details"]//p[@class="page-title-info"],' | ', //div[@class="ProductPageHeader hidden-xs"]//h1[@class="page-title"])
   - name: price
     singleValue: false
     xpath: //div[@class="product-details"]//span[contains(@class,"test-price-property")]/span
-  - name: nameExtended
-    singleValue: false
-    xpath: //div[@class="product-details"]//p[@class="page-title-info"]
   - name: availabilityText
     singleValue: false
     defaultValue: In Stock
+  - name: brandText
+    singleValue: false
+    xpath: //div[@class="product-details"]//p[@class="page-title-info"]
+  - name: description
+    singleValue: false
+    xpath: //h3[contains(text(), "Description")]/following::p[1]
+  - name: weightNet
+    singleValue: false
+    xpath: //h3[contains(text(), "Contenu net")]/following::p[1]
+  - name: sku
+    singleValue: false
+    xpath: //div[@class="Product component"]/@data-item-id
+  - name: variantId
+    singleValue: false
+    xpath: //div[@class="Product component"]/@data-item-id
+  - name: name
+    singleValue: false
+    xpath: //div[@class="ProductPageHeader hidden-xs"]//h1[@class="page-title"]
+  - name: inStorePrice
+    singleValue: false
+    xpath: //div[@class="product-details"]//span[contains(@class,"test-price-property")]/span
+  - name: storage
+    singleValue: false
+    xpath: //h3[contains(text(), "Conditions particulières de conservation")]/following::p[1]
+  - name: allergyAdvice
+    singleValue: false
+    xpath: //h3[contains(text(), "Allergènes")]/following::p[1]
