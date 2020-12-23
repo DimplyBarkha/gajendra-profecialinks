@@ -9,9 +9,10 @@ module.exports = {
   spinnerSelector: null,
   loadedSelector: null,
   noResultsXPath: null,
-  openSearchDefinition: {
-    template: 'https://www.kicks.se/sok?q={searchTerms}&sortBy=popularity&count={offset}',
-    },
+  openSearchDefinition:null,
+  //  {
+  //   template: 'https://www.kicks.se/sok?q={searchTerms}&sortBy=popularity&count={offset}',
+  //   },
   domain: 'kicks.se',
   zipcode: '',
   },
