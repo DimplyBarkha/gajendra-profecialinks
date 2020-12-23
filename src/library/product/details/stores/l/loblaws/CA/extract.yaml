@@ -252,7 +252,6 @@ fields:
     singleValue: true
     description: The size of serving Nutritional information is based on.
     xpath: //strong[@class="nutritional-value__value"]
-    type: NUMBER
   - name: servingSizeUom
     singleValue: true
     description: Unit of measure of serving
@@ -364,7 +363,7 @@ fields:
     description: Nutritional Information for Calcium content - Usually based on per
       100g serving
     xpath: (//span[@class="nutrient-per-serving__label-item nutrient-per-serving__label-item--value-gram"])[1]
-    type: NUMBER
+    # type: NUMBER
   - name: calciumPerServingUom
     singleValue: true
     description: Unit of Measure Data for Calcium
