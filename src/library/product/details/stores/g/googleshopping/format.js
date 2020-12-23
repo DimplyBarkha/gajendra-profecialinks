@@ -123,6 +123,16 @@ const transform = (data) => {
           item.text = item.text.split(',')[0];
         });
       }
+      if (row.inTheBoxText)
+      {
+        let info=[];
+        row.inTheBoxText.forEach(item =>{
+          item.text = item.text.replace(/[\,]/g, " || ")
+          info.push(item.text);
+        });
+        row.inTheBoxText = [{ 'text': info.join(' || '), 'xpath': row.inTheBoxText[0].xpath }];
+        row.inTheBoxText[0].text = ' || ' + row.inTheBoxText[0].text;
+      }
       Object.keys(row).forEach(header => row[header].forEach(el => {
         el.text = clean(el.text);
       }));

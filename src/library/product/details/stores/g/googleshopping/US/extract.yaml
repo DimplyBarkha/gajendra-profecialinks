@@ -155,3 +155,9 @@ fields:
   - name: addedDescCnt
     singleValue: false
     xpath: count(//div[contains(@id, "added-desc-")])
+  - name: inTheBoxText
+    singleValue: false
+    xpath: //tr//td[contains(.,'Included')]/following-sibling::td
+  - name: unInterruptedPDP 
+    singleValue: false
+    xpath: //div[@class="sh-dc__carousel"]//div[@class="YmbeHb"]
