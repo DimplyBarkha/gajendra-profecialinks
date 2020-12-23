@@ -163,7 +163,7 @@ fields:
     xpath: //div[contains(@class, "InTheBox")]//img/@data-flixsrcset
   - name: inTheBoxText
     singleValue: false
-    xpath: //div[contains(@class, "InTheBox")]//div[contains(@class, "flix-std-content")]
+    xpath: //div[contains(@class, "InTheBox")]//div[contains(@class, "flix-std-content")] | /html[not(//div[contains(@class, "InTheBox")]//div[contains(@class, "flix-std-content")])]//div[text()="Zubehör"]/following-sibling::table//tr/td[1]
     description: Must include text to show the accessories/tools which come with the product
   - name: hasComparisonTable
     xpath: boolean(//*[@class="inpage_selector_comparison"]/@class)
