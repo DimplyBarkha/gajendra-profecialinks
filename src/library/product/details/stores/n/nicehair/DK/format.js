@@ -92,7 +92,7 @@ const transform = (data) => {
               item.text = (parseInt(item.text) * 5) / 100;            
             });
           }          
-          if (row.brandText) {            
+          /*if (row.brandText) {            
             row.brandText.forEach(item => {
               item.text = item.text.replace(/(\s*\'\s*)+/g, '"');
               var matches = /dataLayer\s*=\s*(\[.+\]);/isg.exec(item.text);              
@@ -117,7 +117,7 @@ const transform = (data) => {
                 return false;
               }
             });
-          }
+          }*/
                 
         }
       }

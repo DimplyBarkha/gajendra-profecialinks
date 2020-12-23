@@ -45,7 +45,10 @@ fields:
     xpath: //div[@class='accordion-item']//div[@class='accordion-header' and contains(.,'Beskrivelse')]/following-sibling::div[@class='accordion-body']//ul//li    
   - name: brandText
     singleValue: false
-    xpath: //script[contains(text(),'dataLayer') and contains(text(),"'brand':")]/text()  
+    xpath: //h1[@itemprop='name']
+    regExp: \s*(.*?)\s+.+
+    regExpReplace: $1
+    #xpath: //script[contains(text(),'dataLayer') and contains(text(),"'brand':")]/text()  
   - name: sku
     singleValue: false
     xpath: //script[@type='application/ld+json']/text()
