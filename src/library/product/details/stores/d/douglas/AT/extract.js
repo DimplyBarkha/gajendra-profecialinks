@@ -129,6 +129,14 @@ async function implementation (
   } catch (e) {
     console.log(e.message);
   }
+  await context.evaluate(async () => {
+    const isdirections = document.evaluate('//div[@class="truncate__html-container"][contains(.,"Anwendung:")]', document).iterateNext();
+    if (isdirections) {
+      const direction = isdirections.textContent.replace(/(.+)(Anwendung: ):?(.+)/g, '$3');
+      document.querySelector('span.product-detail-header__name').setAttribute('directions', direction);
+    }
+  });
+
   return await context.extract(productDetails, { transform });
 }
 

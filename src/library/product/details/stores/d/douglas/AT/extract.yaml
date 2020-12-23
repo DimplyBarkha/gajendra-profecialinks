@@ -53,7 +53,7 @@ fields:
     description: Gross weight as described on the page
   - name: gtin
     description: GTIN code (includes UPC/EAN)
-    xpath: '@gtin' 
+    xpath: '@gtin'
   - name: eangtin
     xpath: '@gtin'
   - name: sku
@@ -71,7 +71,7 @@ fields:
     description: Content under "legal disclaimer" header
   - name: directions
     description: Content under "directions" header
-    xpath: '@directions'
+    xpath: //span[@class="product-detail-header__name"]/@directions | '@directions'
   - name: warnings
     description: Content under "warnings" header
   - name: ratingCount
@@ -141,7 +141,7 @@ fields:
   - name: pricePerUnitUom
     description: The unit of measurement used in price_per_unit
   - name: promotion
-    description: promotion text on product page
+    xpath: //div[contains(@class,"eyecatcher--discount")]
   - name: alcoholContent
     description: Alcohol content information
   - name: variantInformation
