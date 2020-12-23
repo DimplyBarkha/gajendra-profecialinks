@@ -11,47 +11,9 @@ async function implementation (
   context,
   dependencies,
 ) {
-  const { date, results } = inputs;
-  const { transform, mergeType } = parameters;
-  let filterReviews = parameters.filterReviews;
+  const { transform } = parameters;
   const { productReviews } = dependencies;
-  // Adding current page url
-  await context.evaluate(async function () {
-    function addElementToDocument (key, value) {
-      const catElement = document.createElement('div');
-      catElement.id = key;
-      catElement.textContent = value;
-      catElement.style.display = 'none';
-      document.body.appendChild(catElement);
-    }
-
-    const currentPageUrl = window.location.href;
-
-    const currentPageDiv = document.querySelector('#currentPageUrl');
-    currentPageDiv ? currentPageDiv.textContent = currentPageUrl : addElementToDocument('currentPageUrl', currentPageUrl);
-  });
-  const mergeOptions = mergeType ? { transform, type: mergeType } : { transform };
-  const data = await context.extract(productReviews, mergeOptions);
-  let stop = false;
-  // Fiter out reviews in case reviews outside limit is present in the page.
-  if (data && data[0]) {
-    const filteredReivews = data[0].group.filter(review => {
-      const reviewDate = new Date(review.reviewDate[0].text).setHours(0, 0, 0, 0);
-      const dateLimit = new Date(new Date(date)).setHours(0, 0, 0, 0);
-      return (reviewDate - dateLimit) >= 0;
-    });
-    if (filteredReivews.length < data[0].group.length) {
-      stop = true;
-    }
-    if (results !== Infinity) {
-      stop = false;
-      filterReviews = false;
-    }
-    if (filterReviews) {
-      data[0].group = filteredReivews;
-    }
-  }
-  return { data, stop };
+  return await context.extract(productReviews, { transform });
 }
 
 module.exports = {
@@ -67,16 +29,6 @@ module.exports = {
     {
       name: 'transform',
       description: 'transform function for the extraction',
-      optional: true,
-    },
-    {
-      name: 'filterReviews',
-      description: 'Boolean (true or false), filters out reviews outside given date.',
-      optional: true,
-    },
-    {
-      name: 'mergeType',
-      description: 'In case of MERGE_ROWS, pass here',
       optional: true,
     },
   ],

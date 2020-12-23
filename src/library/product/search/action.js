@@ -17,6 +17,12 @@ module.exports = {
       description: 'to set location',
       optional: true,
     },
+    {
+      name: 'storeID',
+      description: 'Id of the store',
+      type: 'string',
+      optional: true,
+    },
   ],
   inputs: [
     {
@@ -47,7 +53,7 @@ module.exports = {
   ],
   dependencies: {
     execute: 'action:product/search/execute',
-    paginate: 'action:product/search/paginate',
+    paginate: 'action:navigation/paginate',
     extract: 'action:product/search/extract',
   },
   path: './search/stores/${store[0:1]}/${store}/${country}/search',
@@ -77,18 +83,13 @@ module.exports = {
     console.log('Got initial number of results', collected);
 
     // check we have some data
-    if (collected === 0) {
-      return;
-    }
+    if (collected === 0) return;
 
     let page = 2;
-    while (collected < results && await paginate({ keywords, page, offset: collected })) {
+    while (collected < results && await paginate({ keywords: inputKeywords, page, offset: collected })) {
       const data = await extract({});
       const count = length(data);
-      if (count === 0) {
-        // no results
-        break;
-      }
+      if (count === 0) break; // no results
       collected += count;
       console.log('Got more results', collected);
       page++;

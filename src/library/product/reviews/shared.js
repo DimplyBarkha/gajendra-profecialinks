@@ -19,11 +19,6 @@ const transform = (data, context) => {
     .trim();
   for (const { group } of data) {
     for (const row of group) {
-      if (row.sku) {
-        if (!row.reviewedSku) {
-          row.reviewedSku = row.sku;
-        }
-      }
       Object.keys(row).forEach(header => row[header].forEach(el => {
         el.text = clean(el.text);
       }));
