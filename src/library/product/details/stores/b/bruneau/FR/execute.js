@@ -6,7 +6,7 @@ module.exports = {
     store: 'bruneau',
     domain: 'bruneau.fr',
     loadedSelector: null,
-    noResultsXPath: null,
+    noResultsXPath: '//div[@class="isg-generate-banner isg-banner-content"]',
     zipcode: '',
   },
 };
