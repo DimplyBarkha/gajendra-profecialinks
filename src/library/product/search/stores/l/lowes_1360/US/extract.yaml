@@ -11,6 +11,8 @@ fields:
   - name: thumbnail
     singleValue: false
     xpath: //div[@data-selector="splp-prd-lst-plpo"]//div[contains(@data-selector,"splp-prd-tl-wrp")]//article[@data-selector=" splp-prd-tl-dsktp"]//div[@data-selector="splp-prd-crd"]//div[@data-selector="splp-prd-img"]//img/@src
+    regExp: (htt.*.jpg)
+    regExpReplace: $1
   - name: name
     singleValue: false
     xpath: //div[@data-selector="splp-prd-lst-plpo"]//div[contains(@data-selector,"splp-prd-tl-wrp")]//article[@data-selector="splp-prd-ttl"]
