@@ -83,7 +83,7 @@ module.exports = {
             break;
           }
         }
-        function stall(ms) {
+        function stall (ms) {
           return new Promise((resolve, reject) => {
             setTimeout(() => {
               resolve();
@@ -94,7 +94,6 @@ module.exports = {
     };
     await applyScroll(context);
     await context.waitForSelector('.product-card__primary-image', { timeout: 10000 });
-
 
     return await context.extract(productDetails, { transform });
   },

@@ -34,15 +34,37 @@ const transform = (data, context) => {
           });
         }
 
+        const concatFunction = (item, index) => {
+          let text = '';
+          if ((index + 1) % 2 === 0) {
+            text += `${item.text} || `;
+          } else {
+            text += `${item.text} : `;
+          }
+          return text;
+        };
+
         if (row.specifications) {
           let specificationsText = 'Product Specification Highlights ';
-          row.specifications.forEach(item => {
+          row.specifications.forEach((item, i) => {
             if (item.text) {
-              specificationsText += `${item.text} `;
+              specificationsText += concatFunction(item, i);
             }
           });
           row.specifications = [{
-            text: specificationsText.trim(),
+            text: specificationsText.slice(0, -4).trim(),
+          }];
+        }
+
+        if (!row.specifications && row.specifications2) {
+          let specificationsText = '';
+          row.specifications2.forEach((item, i) => {
+            if (item.text) {
+              specificationsText += concatFunction(item, i);
+            }
+          });
+          row.specifications = [{
+            text: specificationsText.slice(0, -4).trim(),
           }];
         }
 

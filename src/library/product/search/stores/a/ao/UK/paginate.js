@@ -8,7 +8,7 @@ module.exports = {
     mutationSelector: null,
     spinnerSelector: null,
     loadedSelector: 'a > img[class*="primary-image"]',
-    noResultsXPath: '//div[@class="no-results"]' ,
+    noResultsXPath: '//div[@class="no-results"]',
     openSearchDefinition: null,
     domain: 'ao.com',
     zipcode: '',

@@ -77,18 +77,26 @@ module.exports = {
         } else {
           addElementToDocument('inStockText', 'Out of Stock');
         }
-        // const manufacturer = document.evaluate("//script[contains(text(), 'manufacturer')]", document, null, XPathResult.STRING_TYPE, null);
-        // if (manufacturer && manufacturer.stringValue) {
-        //   // @ts-ignore
-        //   var manufText = /manufacturer":[\s"]+([A-z]+)/.exec(manufacturer.stringValue);
-        //   addElementToDocument('manufacturer', manufText[1]);
-        // }
+
+        const rating = document.evaluate("//span[@itemprop='ratingValue']", document, null, XPathResult.STRING_TYPE, null);
+        if (rating && rating.stringValue) {
+          const formattedRating = rating.stringValue.replace(',', '.');
+          addElementToDocument('rating2', formattedRating);
+        }
+
+        // @ts-ignore
+        const brand = window.digitalData.page.product.brand;
+        if (brand) {
+          addElementToDocument('brand', brand);
+        }
 
         const isVisible = (element) => document.querySelector(element) ? !!(document.querySelector(element).offsetWidth || document.querySelector(element).offsetHeight) : false;
         if (isVisible('section.alternative-products')) {
           const alternativeProducts = document.querySelectorAll('section.alternative-products span[data-tag-name^="title"]');
           [...alternativeProducts].forEach((element) => {
-            addDivClass('ii_AltProducts', element.innerText);
+            if (element) {
+              addDivClass('ii_AltProducts', element.innerText);
+            }
           });
         }
 
@@ -105,10 +113,13 @@ module.exports = {
           var bulletInfoText = '';
           for (var n = 0; n < bulletInfo.length; n++) {
             // @ts-ignore
-            bulletInfoText = bulletInfoText + '||' + bulletInfo[n].innerText;
+            if (bulletInfo[n]) {
+              bulletInfoText = bulletInfoText + '||' + bulletInfo[n].innerText;
+            }
           }
           addElementToDocument('bulletInfoText', bulletInfoText);
         }
+
         var initImg = '';
         var initImgAlt = '';
         var initImgNode = document.querySelector('ul[data-testid="c-carousel"] li#carousel-centre-image img');
@@ -127,7 +138,7 @@ module.exports = {
         addElementToDocument('initImg', initImg);
         addElementToDocument('initImgAlt', initImgAlt);
         const jsonScript = !!document.querySelector('script[id="mediaData"]');
-        if (jsonScript) {
+        if (jsonScript && document.querySelector('script[id="mediaData"]')) {
           const jsonInfo = JSON.parse(document.querySelector('script[id="mediaData"]').innerText);
           const imgArr = jsonInfo.images || [];
           for (let i = 1; i < imgArr.length; i++) {
@@ -178,11 +189,6 @@ module.exports = {
             }
           }
         }
-        // @ts-ignore
-        const brand = window.digitalData.page.product.brand;
-        if (brand) {
-          addElementToDocument('brand', brand);
-        }
         const nodeListH = document.querySelectorAll('section.richContent h3');
         var allEnhancedContent = '';
         if (nodeListH && nodeListH.length > 0) {
@@ -197,11 +203,6 @@ module.exports = {
             allEnhancedContent = allEnhancedContentHeader.textContent + ' ' + allEnhancedContent;
           }
           addElementToDocument('enhCont', allEnhancedContent);
-        }
-        const rating = document.evaluate("//span[@itemprop='ratingValue']", document, null, XPathResult.STRING_TYPE, null);
-        if (rating && rating.stringValue) {
-          const formattedRating = rating.stringValue.replace(',', '.');
-          addElementToDocument('rating2', formattedRating);
         }
       });
     } catch (err) {

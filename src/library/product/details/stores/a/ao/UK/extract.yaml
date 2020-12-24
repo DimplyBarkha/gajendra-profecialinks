@@ -19,7 +19,7 @@ fields:
   - name: image2
     singleValue: true
     description: URL of the main product image
-    xpath: //section[@id='discontinuedProductNoAlt']//img[@class='product-img']
+    xpath: //section[@id='discontinuedProductNoAlt']//img[@class='product-img']/@src
     regExp: (.+)
     regExpReplace: https:$1
   - name: imageAlt
@@ -422,7 +422,6 @@ fields:
     singleValue: true
     description: Nutritional Information for Salt content - Usually based on per
       100g serving
-
   - name: saltPerServingUom
     singleValue: true
     description: Unit of Measure Data for Salt
@@ -431,7 +430,10 @@ fields:
     description: null
   - name: specifications
     description: The physical dimensions of the product including packaging.
-    xpath: //section[contains(@class,'productSpecification ue-spechl')]//div[contains(@class,'accordionContentInner')]//div
+    xpath: //section[contains(@class,'productSpecification ue-spechl')]//div[contains(@class,'accordionContentInner')]//div/span
+  - name: specifications2
+    description: The physical dimensions of the product including packaging.
+    xpath: //div[contains(@data-tag-name,'key-information')]//tr/*[contains(@class,'second') or contains(@class,'third')]
   - name: warranty
     singleValue: true
     description: Guarantee associated with the product
