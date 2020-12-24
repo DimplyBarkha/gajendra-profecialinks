@@ -5,8 +5,8 @@ module.exports = {
     country: 'NO',
     store: 'power',
     domain: 'power.no',
-    loadedSelector: 'body',
-    noResultsXPath: null,
+    loadedSelector: 'section#product-intro',
+    noResultsXPath: '//section[@class="error-404"]',
     zipcode: '',
   },
 };
