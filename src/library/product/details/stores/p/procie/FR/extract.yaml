@@ -121,3 +121,6 @@ fields:
   - name: unInterruptedPDP
     singleValue: false
     xpath: //div[@class="procie-container-widget"]//h2[@class="ng-binding"]
+  - name: inTheBoxText
+    singleValue: false
+    xpath: //h3[text()="Caractéristiques techniques"]/parent::*/parent::*/following::table//tr
