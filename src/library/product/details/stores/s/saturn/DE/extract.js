@@ -47,6 +47,10 @@ async function implementation(inputs, parameters, context, dependencies) {
 
   try {
     await context.evaluate(() => {
+      var clickArrow = document.querySelector('div[ data-test="mms-th-gallery"] div[direction="next"]');
+      if (clickArrow) {
+        clickArrow.click();
+      }
       // @ts-ignore
       const x = window.__PRELOADED_STATE__.apolloState;
       const sku = window.location.href.replace(/(.+-)(\d+)(.htm.+)/g, '$2');
