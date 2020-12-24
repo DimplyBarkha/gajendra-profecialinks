@@ -6,12 +6,12 @@ fields:
   - name: name
     singleValue: true
     xpath: //h4[@class='subhead1-r product-cell__description-name']
-  - name: input
+  - name: _input
     singleValue: false
-    xpath: //div[@class='position-helper']
-  - name: url
+#    xpath: //div[@class='position-helper']
+  - name: _url
     singleValue: false
-    xpath: //div[@class='helper-url']
+#    xpath: //div[@class='helper-url']
   - name: _pageTimestamp
     singleValue: true
   - name: thumbnail
@@ -23,3 +23,6 @@ fields:
   - name: id
     singleValue: true
     xpath: //div[@class='helper-id']
+  - name: productUrl
+    singleValue: true
+    xpath: //div[@class='helper-productUrl']
