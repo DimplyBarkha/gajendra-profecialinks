@@ -101,7 +101,7 @@ module.exports = {
 
       // Getting base url
       if (window) {
-        addElementToDocument('mm_baseUrl', window.location.href);
+        addElementToDocument('mm_baseUrl', window.location.href.replace(/\?ga_query=\d{7}/, ''));
       }
     });
     await context.extract(productDetails);
