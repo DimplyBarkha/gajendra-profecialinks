@@ -21,41 +21,47 @@ fields:
     description: The <meta> keywords content
   - name: category
     singleValue: false
-    xpath: //div[@class="m-breadcrumb"]//ul//li[position()>1 and position() < last()]
+    xpath: //div[contains(@class,"breadcrumb")]/ul/li[position()>1 and position()<last()]/a/span
     description: The categories (e.g. from breadcrumbs)
   - name: nameExtended
     singleValue: false
-    xpath: //div[contains(@class, "is-product")]//h1
-    description: The product name, prefixing "${brand} - " if not included in "name"
+    xpath: //h1[contains(@class,"headDataTitle")]
+    description:
+      The product name, prefixing "${brand} - " if not included in "name"
       and appending " - ${variantType}" if necessary (fixed per feed)
   - name: listPrice
     singleValue: false
     xpath: (//div[@data-section="price"]//div[contains(@class, "m-priceBox_old")])[1]
     description: The stated undiscounted price for the product
   - name: price
-    singleValue: false
-    xpath: //span[@itemprop="price"]
+    xpath: //meta[@itemprop="price"]/@content
     description: The offered price for the selected product variant - if a user
       clicks add to basket this is the price they would be charged
+    defaultValue: 0
   - name: availabilityText
     singleValue: false
-    xpath: (//link[@itemprop="availability"]/@href)[1]
+    xpath: //span[contains(text(),"niedostępny")]
     description: Availability as described on page for the selected variant. If
       there is no availability but the product can be added to cart, this field
       should be "In Stock"
+    regExp: (.+)
+    regExpReplace: Out of stock
+    defaultValue: In Stock
   - name: description
     singleValue: false
     xpath: //div[contains(@class, "offerDescription")]
-    description: Product description supplied by website - may be concatenanted from
+    description:
+      Product description supplied by website - may be concatenanted from
       multiple places; specifically not the manufacturer description
   - name: descriptionBullets
     singleValue: false
     xpath: count(//*[@class="description-product"]//li)
-    description: Number of ul > li tags in the description 
+    description: Number of ul > li tags in the description
   - name: brandText
     singleValue: false
     xpath: //meta[@itemprop="brand"]/@content
-    description: Product brand shown - this may actually NOT be just a brand name,
+    description:
+      Product brand shown - this may actually NOT be just a brand name,
       e.g. "Visit the Gillette Store"
   - name: manufacturer
     singleValue: false
@@ -88,12 +94,12 @@ fields:
     xpath: (//meta[@itemprop="sku"]/@content)[1]
     description: Identifier for a variant from a store where variants share the same sku
   - name: mpc
-    singleValue: false
-    xpath: (//meta[@itemprop="mpn"]/@content)[1]
+    xpath: //meta[@itemprop="model"]/@content
     description: The manufacturer model code (unique) of the product
   - name: packSize
     singleValue: false
-    description: The number of packs in the product offer (if stated separately on
+    description:
+      The number of packs in the product offer (if stated separately on
       the site to quantity)
   - name: legalDisclaimer
     singleValue: false
@@ -112,9 +118,8 @@ fields:
     singleValue: false
     description: The stated aggregate rating
   - name: aggregateRating
-    singleValue: false
     xpath: //div[@itemprop="aggregateRating"]//meta[@itemprop="ratingValue"]/@content
-    description: The stated aggregate rating normalized to be out of 5 
+    description: The stated aggregate rating normalized to be out of 5
   - name: shippingInfo
     singleValue: false
     description: Shipping information for the product
@@ -127,7 +132,7 @@ fields:
   - name: variantCount
     singleValue: false
     default: "0"
-    description: Number of variants listed 
+    description: Number of variants listed
   - name: color
     singleValue: false
     xpath: //dl[contains(@class,"m-offerShowData")]//p//span[contains(text(),"Kolor")]//parent::p//parent::dt//following-sibling::dd
@@ -136,20 +141,16 @@ fields:
     singleValue: false
     description: A code description of the color (e.g. RGB hex)
   - name: manufacturerDescription
-    singleValue: false
-    xpath: //div[@class="description-product"]
-    description: The extended description of the product supplied by the lister
+    xpath: //h2[contains(text(),"Opis i specyfikacja")]/following-sibling::div//div[contains(@class,"offerDescription")]
   - name: manufacturerImages
     singleValue: false
     xpath: //*[@class="description-product"]//img/@src
     description: Images within the third party description
   - name: videos
-    singleValue: false
     xpath: //video/@src|//div[contains(@class, "m-slider_item")]//iframe/@src|//div[@id="description"]//a/@href | (//div[@data-media="yt"]/@data-yt)[1]
     description: URLs of videos on page
   - name: name
-    singleValue: false
-    xpath: //div[contains(@class, "is-product")]//h1
+    xpath: //h1[contains(@class,"headDataTitle")]
     description: The product name
   - name: inStorePrice
     singleValue: false
@@ -174,11 +175,13 @@ fields:
     description: Text next to bullet point
   - name: salesRank
     singleValue: false
-    description: Amazon best selling rank from product details (linked back) - needs
+    description:
+      Amazon best selling rank from product details (linked back) - needs
       to be collapsed
   - name: salesRankCategory
     singleValue: false
-    description: Amazon best selling rank from product details (linked back) - needs
+    description:
+      Amazon best selling rank from product details (linked back) - needs
       to be collapsed
   - name: subscriptionPrice
     singleValue: false
@@ -209,7 +212,7 @@ fields:
     description: null
   - name: largeImageCount
     singleValue: false
-    description: null 
+    description: null
   - name: variantAsins
     singleValue: false
     description: null
@@ -239,7 +242,7 @@ fields:
     description: null
   - name: secondaryImageTotal
     singleValue: false
-    description: null 
+    description: null
   - name: news
     singleValue: false
     description: null
@@ -261,103 +264,116 @@ fields:
     description: Unit of measure of serving
   - name: numberOfServingsInPackage
     singleValue: false
-    description: Suggested number of servings of the product. 
+    description: Suggested number of servings of the product.
   - name: caloriesPerServing
     singleValue: false
-    description: Nutritional Information for Calories Per Serving content - Usually
+    description:
+      Nutritional Information for Calories Per Serving content - Usually
       based on per 100g serving
   - name: caloriesFromFatPerServing
     singleValue: false
     description: Nutritional Information for Calories From Fat content - Usually
-      based on per 100g serving 
+      based on per 100g serving
   - name: totalFatPerServing
     singleValue: false
-    description: Nutritional Information for Total Fat content - Usually based on
-      per 100g serving 
+    description:
+      Nutritional Information for Total Fat content - Usually based on
+      per 100g serving
   - name: totalFatPerServingUom
     singleValue: false
     description: Unit of Measure Data for Total Fat content
   - name: saturatedFatPerServing
     singleValue: false
-    description: Nutritional Information for Saturated Fat content - Usually based
-      on per 100g serving 
+    description:
+      Nutritional Information for Saturated Fat content - Usually based
+      on per 100g serving
   - name: saturatedFatPerServingUom
     singleValue: false
     description: Unit of Measure Data for Saturated Fat content
   - name: transFatPerServing
     singleValue: false
-    description: Nutritional Information for Trans Fat content - Usually based on
-      per 100g serving 
+    description:
+      Nutritional Information for Trans Fat content - Usually based on
+      per 100g serving
   - name: transFatPerServingUom
     singleValue: false
     description: Unit of Measure Data for Trans Fat content
   - name: cholesterolPerServing
     singleValue: false
-    description: Nutritional Information for Cholesterol content - Usually based on
-      per 100g serving 
+    description:
+      Nutritional Information for Cholesterol content - Usually based on
+      per 100g serving
   - name: cholesterolPerServingUom
     singleValue: false
     description: Unit of Measure Data for Cholesterol content
   - name: sodiumPerServing
     singleValue: false
-    description: Nutritional Information for Sodium content - Usually based on per
-      100g serving 
+    description:
+      Nutritional Information for Sodium content - Usually based on per
+      100g serving
   - name: sodiumPerServingUom
     singleValue: false
     description: Unit of Measure Data for Sodium content
   - name: totalCarbPerServing
     singleValue: false
-    description: Nutritional Information for Total Carbohydrate content - Usually
-      based on per 100g serving 
+    description:
+      Nutritional Information for Total Carbohydrate content - Usually
+      based on per 100g serving
   - name: totalCarbPerServingUom
     singleValue: false
     description: Unit of Measure Data for Total Carbohydrate content
   - name: dietaryFibrePerServing
     singleValue: false
-    description: Nutritional Information for Dietary Fibre content - Usually based
-      on per 100g serving 
+    description:
+      Nutritional Information for Dietary Fibre content - Usually based
+      on per 100g serving
   - name: dietaryFibrePerServingUom
     singleValue: false
     description: Unit of Measure Data for Dietary Fibre content
   - name: totalSugarsPerServing
     singleValue: false
-    description: Nutritional Information for Total Sugar content - Usually based on
-      per 100g serving 
+    description:
+      Nutritional Information for Total Sugar content - Usually based on
+      per 100g serving
   - name: totalSugarsPerServingUom
     singleValue: false
     description: Unit of Measure Data for Total Sugar content
   - name: proteinPerServing
     singleValue: false
-    description: Nutritional Information for Protein content - Usually based on per
-      100g serving 
+    description:
+      Nutritional Information for Protein content - Usually based on per
+      100g serving
   - name: proteinPerServingUom
     singleValue: false
     description: Unit of Measure Data for Protein
   - name: vitaminAPerServing
     singleValue: false
-    description: Nutritional Information for Vitamin A content - Usually based on
-      per 100g serving 
+    description:
+      Nutritional Information for Vitamin A content - Usually based on
+      per 100g serving
   - name: vitaminAPerServingUom
     singleValue: false
     description: Unit of Measure Data for Vitamin A
   - name: vitaminCPerServing
     singleValue: false
-    description: Nutritional Information for Vitamin C content - Usually based on
-      per 100g serving 
+    description:
+      Nutritional Information for Vitamin C content - Usually based on
+      per 100g serving
   - name: vitaminCPerServingUom
     singleValue: false
     description: Unit of Measure Data for Vitamin C
   - name: calciumPerServing
     singleValue: false
-    description: Nutritional Information for Calcium content - Usually based on per
-      100g serving 
+    description:
+      Nutritional Information for Calcium content - Usually based on per
+      100g serving
   - name: calciumPerServingUom
     singleValue: false
     description: Unit of Measure Data for Calcium
   - name: ironPerServing
     singleValue: false
     description: Nutritional Information for Iron content - Usually based on per
-      100g serving 
+      100g serving
   - name: ironPerServingUom
     singleValue: false
     description: Unit of Measure Data for Iron
@@ -366,15 +382,16 @@ fields:
     description: Information related to the dietary symbols of a specific product
   - name: magnesiumPerServing
     singleValue: false
-    description: Nutritional Information for Magnesium content - Usually based on
-      per 100g serving 
+    description:
+      Nutritional Information for Magnesium content - Usually based on
+      per 100g serving
   - name: magnesiumPerServingUom
     singleValue: false
     description: Unit of Measure Data for Magnesium
   - name: saltPerServing
     singleValue: false
     description: Nutritional Information for Salt content - Usually based on per
-      100g serving 
+      100g serving
   - name: saltPerServingUom
     singleValue: false
     description: Unit of Measure Data for Salt
@@ -386,7 +403,6 @@ fields:
     xpath: //div[@class="m-offerShowData"]
     description: The physical dimensions of the product including packaging.
   - name: warranty
-    singleValue: false
     xpath: //dt[.//*[descendant::*[contains(text(), "Okres gwarancji")]]]/following-sibling::* | //dt[.//*[descendant::*[contains(text(), "okres gwarancji")]]]/following-sibling::*
     description: Guarantee associated with the product
   - name: storage
@@ -428,11 +444,13 @@ fields:
       (https://www.amazon.es/DODOT-Sensitive-Pa%C3%B1ales-Talla-240/dp/B01ELA8U0Q/ref=sr_1_4?__mk_es_ES=%C3%85M%C3%85%C5%BD%C3%95%C3%91&dchild=1&keywords=dodot%2B-%2Bpa%C3%B1ales%2Bpara%2Bni&qid=1589984387&sr=8-4&th=1)
   - name: newAsin
     singleValue: false
-    description: In product page, information about a new version of the product -
+    description:
+      In product page, information about a new version of the product -
       new asin info
   - name: newDescription
     singleValue: false
-    description: In product page, information about a new version of the product -
+    description:
+      In product page, information about a new version of the product -
       new desription info
   - name: variantInformation
     singleValue: false
@@ -486,3 +504,5 @@ fields:
     example: https://www.zalando.de/adidas-neo-sneaker-low-blackwhite-a4315i002-q11.html
   - name: uninterruptedPDP
     singleValue: false
+  - name: galleryVideos
+    xpath: //video/@src|//div[contains(@class, "m-slider_item")]//iframe/@src|//div[@id="description"]//a/@href | (//div[@data-media="yt"]/@data-yt)[1]

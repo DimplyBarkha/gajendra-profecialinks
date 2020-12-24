@@ -28,26 +28,36 @@ const transform = (data) => {
       if (!row.brandText) {
         row.brandText = [{ text: row.name[0].text.replace(/^([\w]+).*/gm, '$1') }];
       }
-      if (row.category) {
-        row.category.shift();
-      }
+      // if (row.category) {
+      //   row.category.shift();
+      // }
       if (row.specifications) {
         row.specifications[0].text = cleanUp(row.specifications[0].text
           .replace(/(\n\s*){4,}/g, ' || ')
           .replace(/(\n\s*){2,}/g, ' : '));
       }
-      if (row.availabilityText) {
-        row.availabilityText.forEach(availabilityTextItem => {
-          if (availabilityTextItem.text.toLowerCase().includes('instock') || availabilityTextItem.text.toLowerCase().includes('instore')) {
-            availabilityTextItem.text = 'In stock';
-          } else {
-            availabilityTextItem.text = 'Out of stock';
-          }
-        });
-      }
+      // if (row.category) {
+      //   row.category.forEach((element) => {
+      //     element.text = element.text.replace('–', '').trim();
+      //   })
+      // }
+      // if (row.availabilityText) {
+      //   row.availabilityText.forEach(availabilityTextItem => {
+      //     if (availabilityTextItem.text.toLowerCase().includes('instock') || availabilityTextItem.text.toLowerCase().includes('instore')) {
+      //       availabilityTextItem.text = 'In stock';
+      //     } else {
+      //       availabilityTextItem.text = 'Out of stock';
+      //     }
+      //   });
+      // }
       if (row.image) {
         row.image.forEach(itemText => {
           itemText.text = itemText.text.includes('http') ? itemText.text : 'https:' + itemText.text;
+        });
+      }
+      if (row.galleryVideos) {
+        row.galleryVideos.forEach(videoText => {
+          videoText.text = videoText.text.includes('youtube') ? videoText.text : 'https://www.youtube.com/watch?v=' + videoText.text;
         });
       }
       if (row.videos) {
@@ -66,9 +76,8 @@ const transform = (data) => {
         });
       }
       if (row.aggregateRating) {
-        row.aggregateRating.forEach((aggregateRatingItem) => {
-          aggregateRatingItem.text = aggregateRatingItem.text.replace('.', ',');
-        });
+        let text = parseFloat(row.aggregateRating[0].text).toFixed(1).replace('.', ',');
+        row.aggregateRating = [{ text }]
       }
       if (row.listPrice) {
         row.listPrice.forEach((listPriceItem) => {
@@ -80,16 +89,16 @@ const transform = (data) => {
           priceItem.text = priceItem.text.replace('.', ',');
         });
       }
-      if (row.warranty) {
-        row.warranty.forEach((warrantyItem) => {
-          warrantyItem.text = warrantyItem.text.replace(/[^\d]/gm, '');
-        });
-      }
-      if (row.name && row.brandText) {
-        row.nameExtended = [
-          { text: row.brandText[0].text + ' - ' + row.name[0].text },
-        ];
-      }
+      // if (row.warranty) {
+      //   row.warranty.forEach((warrantyItem) => {
+      //     warrantyItem.text = warrantyItem.text.replace(/[^\d]/gm, '');
+      //   });
+      // }
+      // if (row.name && row.brandText) {
+      //   row.nameExtended = [
+      //     { text: row.brandText[0].text + ' - ' + row.name[0].text },
+      //   ];
+      // }
       if (row.ratingCount) {
         row.ratingCount.forEach((ratingCountItem) => {
           ratingCountItem.text = ratingCountItem.text.replace(/[^\d]/gm, '');
