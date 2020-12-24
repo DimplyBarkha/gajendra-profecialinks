@@ -1,0 +1,45 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: productUrl
+    description: The URL for the product details page
+    xpath: //div[@data-buyable-variant-code]/div/div[1]/a[@data-scope-link]/@href
+    regExp: (.+)
+    regExpReplace: https://lyko.com$1
+  - name: thumbnail
+    description: The URL for the product thumbnail image
+    xpath: //div[contains(@class, 'link-product-page')]/picture/img/@src
+  - name: name
+    description: The product name
+    xpath: //a[@data-scope-link]/h5
+  - name: skus
+    description: The store-specific product identifiera
+    xpath: //div[@class="gXdoAx"]/@data-buyable-variant-code
+  - name: ratingCount
+    description: The number of ratings
+    regExp: (\d+)
+  - name: reviewCount
+    description: The number of reviews
+    regExp: (\d+)
+  - name: price
+    description: The offered price for the product
+    xpath: //div/a[@data-scope-link]/span/span[1]
+  - name: rank
+    description: search/listing rank
+    type: NUMBER
+  - name: rankOrganic
+    description: The position (rank) within the list excluding sponsored/paid results
+    type: NUMBER
+  - name: sponsored
+    description: Is sponsored/paid
+    defaultValue: false
+    type: BOOLEAN
+  - name: id
+    description: Unique id (within this extractor)
+    xpath: //div[@class="gXdoAx"]/@data-buyable-variant-code
+  - name: aggregateRating
+    type: NUMBER
+  - name: hasVariants
+

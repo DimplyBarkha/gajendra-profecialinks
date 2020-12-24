@@ -1,15 +1,4 @@
-
-module.exports = {
-  implements: 'product/details/extract',
-  parameterValues: {
-    country: 'SE',
-    store: 'mathem',
-    transform: null,
-    domain: 'mathem.se',
-    zipcode: '',
-  },
-  implementation
-};
+const { cleanUp } = require('../../../../shared');
 async function implementation(
   inputs,
   parameters,
@@ -25,7 +14,7 @@ async function implementation(
       newDiv.id = id;
       newDiv.textContent = content;
       newDiv.style.display = 'none';
-      const originalDiv = document.querySelectorAll("span[class='product-name']")[index];
+      const originalDiv = document.querySelectorAll("div")[index];
       originalDiv.parentNode.insertBefore(newDiv, originalDiv);
     }
     let firstChildNode;
@@ -36,3 +25,14 @@ async function implementation(
   //rank end
   return await context.extract(productDetails, { transform });
 }
+module.exports = {
+  implements: 'product/details/extract',
+  parameterValues: {
+    country: 'SE',
+    store: 'mathem',
+    transform: cleanUp,
+    domain: 'mathem.se',
+    zipcode: '',
+  },
+  implementation
+};
