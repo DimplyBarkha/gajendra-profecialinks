@@ -89,19 +89,19 @@ const transform = (data) => {
       if (row.aggregateRating) {
         row.aggregateRating.forEach(item => {
           if (item.text.indexOf('.') === -1) {
-            item.text = `${item.text}.0`;
+            item.text = `${item.text},0`;
           }
           item.text = item.text.replace('.', ',');
         });
         row.aggregateRating2.forEach(item => {
           if (item.text.indexOf('.') === -1) {
-            item.text = `${item.text}.0`;
+            item.text = `${item.text},0`;
           }
           item.text = item.text.replace('.', ',');
         });
         row.aggregateRatingText.forEach(item => {
           if (item.text.indexOf('.') === -1) {
-            item.text = `${item.text}.0`;
+            item.text = `${item.text},0`;
           }
           item.text = item.text.replace('.', ',');
         });

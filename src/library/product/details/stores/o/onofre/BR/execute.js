@@ -1,4 +1,4 @@
-async function implementation(
+async function implementation (
   inputs,
   parameters,
   context,
@@ -28,6 +28,25 @@ async function implementation(
   await context.waitForNavigation({ waitUntil: 'networkidle0' });
 
   return await context.evaluate(function () {
+    function addHiddenDiv (id, content) {
+      const newDiv = document.createElement('div');
+      newDiv.id = id;
+      newDiv.innerHTML = content;
+      newDiv.style.display = 'none';
+      document.body.appendChild(newDiv);
+    }
+    try {
+      const avl = window.dataLayerStage[0].ecommerce.detail.products[0].availability;
+      let availability = '';
+      if (avl) {
+        if (avl === 'Sim') {
+          availability = 'In Stock';
+        } else if (avl === 'Não') {
+          availability = 'Out of stock';
+        }
+        addHiddenDiv('custom-availability', availability);
+      }
+    } catch (e) { }
     const title = document.title;
     if (title.indexOf('404 - Página não') >= 0) {
       return false;
@@ -46,5 +65,5 @@ module.exports = {
     noResultsXPath: null,
     zipcode: '',
   },
-  implementation
+  implementation,
 };

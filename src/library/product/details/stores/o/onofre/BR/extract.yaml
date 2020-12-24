@@ -59,7 +59,8 @@ fields:
     xpath: //div[contains(@class,'price-info')]//span[@class='regular-price'] | //div[contains(@class,'price-info')]//p[@class='special-price']
   - name: availabilityText
     singleValue: false
-    xpath: concat(substring('In Stock', 1 div boolean(//p[contains(@class,'availability in-stock')])), substring('Out of stock', 1 div not(//p[contains(@class,'availability in-stock')])))
+    # xpath: concat(substring('In Stock', 1 div boolean(//p[contains(@class,'availability in-stock')])), substring('Out of stock', 1 div not(//p[contains(@class,'availability in-stock')])))
+    xpath: //div[@id='custom-availability']
   - name: description
     singleValue: false
     xpath: //div[@class='product-description']//p/..
