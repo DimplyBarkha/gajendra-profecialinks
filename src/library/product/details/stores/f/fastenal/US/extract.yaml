@@ -23,7 +23,7 @@ fields:
     defaultValue: Out of Stock
   - name: description
     singleValue: false
-    xpath: //div[@id='note']/p | //div[@id='note']/text()[1]
+    xpath: //div[@id='note']/p
   - name: manufacturer
     singleValue: true
     xpath: (//td[div[contains(text()," Manufacturer")]]/following-sibling::td[1])[2]
@@ -56,7 +56,7 @@ fields:
     xpath: //div[@class='info--description ']
   - name: featureBullets
     singleValue: false
-    xpath: //div[@id='note']/ul/li
+    xpath: //div[@class='panel__content collapse in']//ul/li
   - name: otherSellersName
     singleValue: false
     defaultValue: Fastenal Company
