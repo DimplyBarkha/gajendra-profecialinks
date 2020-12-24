@@ -37,7 +37,7 @@ fields:
       clicks add to basket this is the price they would be charged
   - name: availabilityText
     singleValue: false
-    xpath: //div[@class="product-cart-deliverymode product-cart-delivery"]//div[@class="product-cart-delivery-availability"]
+    xpath: //button[@class='product-cart-add-to-cart-button']
     description: Availability as described on page for the selected variant. If
       there is no availability but the product can be added to cart, this field
       should be "In Stock"
@@ -515,10 +515,10 @@ fields:
   # - name: inTheBoxUrl
   #   singleValue: false
   #   xpath: //div[contains(@class, "InTheBox")]//img/@data-flixsrcset
-  # - name: inTheBoxText
-  #   singleValue: false
-  #   xpath: //div[contains(@class, "InTheBox")]//div[contains(@class, "flix-std-content")]
-  #   description: Must include text to show the accessories/tools which come with the product
+  - name: inTheBoxText
+    singleValue: false
+    xpath: //div[text()='Ausstattung innen']/following-sibling::table//td
+    description: Must include text to show the accessories/tools which come with the product
   # - name: hasComparisonTable
   #   singleValue: true
   #   xpath: boolean(//*[contains(text(), "Compare with similar")])

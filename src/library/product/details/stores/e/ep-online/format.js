@@ -103,6 +103,17 @@ const transform = (data) => {
           manufacturerDescriptionItem.text = cleanUp(manufacturerDescriptionItem.text);
         });
       }
+
+      const info = [];
+      if (row.inTheBoxText) {
+        row.inTheBoxText.forEach((item) => {
+          info.push(item.text);
+        });
+      }
+
+      row.inTheBoxText = [{ text: info.join(' || ') }];
+
+     
     }
   }
   return data;
