@@ -1,0 +1,40 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: input
+    xpath: //div[@id='pageUrl'] 
+  - name: id
+    xpath: //div[@class="spex-productList__item"]//a/@data-sku
+  - name: pageTimestamp
+    singleValue: true
+  # ????
+  - name: name
+    singleValue: true
+    description: The product name
+    xpath: //div[@class='spex-productTile__nameArea']
+  - name: name
+    singleValue: true
+    description: The product name
+    xpath: //div[@class='spex-productTile__primaryName']
+  - name: name
+    singleValue: true
+    description: The product name
+    xpath: //div[@class='spex-productTile__primaryName spex-productTile__primaryName--doubleLined']
+  - name: url
+    singleValue: true
+    xpath: //div[@id='pageUrl'] 
+  - name: rankOrganic
+    singleValue: true
+    xpath: //div[@class='spex-productList__item']/@rank
+  - name: rank
+    singleValue: true
+    description: search/listing rank
+    xpath: //div[@class='spex-productList__item']/@rank
+  - name: productUrl
+    xpath: //div[@class="spex-productList__item"]/a/@href
+  - name: thumbnail
+    xpath: //div[@class="spex-productTile__foregroundImage"]/div/img/@src
+  - name: price
+    xpath: //span[@class='spex-productTile__salesPrice']
