@@ -17,7 +17,7 @@ module.exports = {
     await context.setBlockAds(false);
     await context.setLoadAllResources(true);
     await context.setLoadImages(true);
-    const inputUrl = `${url}#[!opt!]{"discard_CSP_header":true, "block_ads": false}[/!opt!]`;
-    await context.goto(inputUrl, { timeout: timeout, waitUntil: 'load', checkBlocked: false });
+    const inputUrl = `${url}#[!opt!]{"discard_CSP_header":true, "block_ads": false, "first_request_timeout":60,"load_timeout":60}[/!opt!]`;
+    await context.goto(inputUrl, { timeout: timeout, waitUntil: 'networkidle0', checkBlocked: false });
   },
 };
