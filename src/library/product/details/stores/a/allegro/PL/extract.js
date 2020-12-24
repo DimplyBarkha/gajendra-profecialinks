@@ -12,6 +12,13 @@ module.exports = {
   implementation: async ({ inputString }, { country, domain, transform: transformParam }, context, { productDetails }) => {
     const applyScroll = async function (context) {
       await context.evaluate(async function () {
+        function addHiddenDiv (id, content) {
+          const newDiv = document.createElement('div');
+          newDiv.id = id;
+          newDiv.textContent = content;
+          newDiv.style.display = 'none';
+          document.body.appendChild(newDiv);
+        }
         let scrollTop = 0;
         while (scrollTop !== 20000) {
           await stall(500);
@@ -29,6 +36,7 @@ module.exports = {
             }, ms);
           });
         }
+        addHiddenDiv('prodUrl', document.URL);
       });
     };
     await applyScroll(context);

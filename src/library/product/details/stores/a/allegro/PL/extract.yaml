@@ -21,6 +21,8 @@ fields:
     xpath: //link[@itemprop='availability']/@href
   - name: sku
     xpath: //meta[contains(@itemprop, 'sku')]/@content
+  - name: productUrl
+    xpath: //div[@id='prodUrl']//text()
   - name: skuSecondary
     xpath: //small[contains(@class, 'asi-offer__offer-id')]
     regExp: (\d+)

@@ -5,8 +5,8 @@ module.exports = {
     country: 'PL',
     store: 'allegro',
     domain: 'allegro.pl',
-    loadedSelector: 'div[data-box-name*="Description"]',
-    noResultsXPath: '//div[contains(@data-box-name,"Non existing offer")]',
+    loadedSelector: null,
+    noResultsXPath: '//div[contains(@data-box-name,"Non existing offer")] | //p[contains(.,"Czy na pewno szukasz")]',
     zipcode: '',
   },
 };
