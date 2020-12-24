@@ -5,9 +5,11 @@ recordXPath: null
 fields:
   - name: image
     singleValue: true
+    xpath: //div[@class='image-container']/div/img/@src
     description: URL of the main product image
   - name: imageAlt
     singleValue: true
+    xpath: //div[@class='image-container']/div/img/@alt
     description: Alt text of the main product image
   - name: alternateImages
     singleValue: false
