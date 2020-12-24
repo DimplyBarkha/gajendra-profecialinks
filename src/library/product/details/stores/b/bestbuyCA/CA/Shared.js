@@ -1,8 +1,3 @@
-/**
- *
- * @param {ImportIO.Group[]} data
- * @returns {ImportIO.Group[]}
- */
 const transform = (data) => {
   const clean = text => text.toString()
     .replace(/\r\n|\r|\n/g, ' ')
@@ -13,7 +8,6 @@ const transform = (data) => {
     .replace(/"\s{1,}/g, '"')
     .replace(/\s{1,}"/g, '"')
     .replace(/^ +| +$|( )+/g, ' ')
-  // eslint-disable-next-line no-control-regex
     .replace(/[\x00-\x1F]/g, '')
     .replace(/[\uD800-\uDBFF][\uDC00-\uDFFF]/g, ' ');
 
@@ -31,38 +25,27 @@ const transform = (data) => {
         });
       }
       if (row.specifications) {
-        const specs = [];
-        let newTxt = '';
-        let cnt = 0;
+        let text = '';
         row.specifications.forEach(item => {
-          specs[0] = item;
-          item.text = item.text.replace(/(\s?\n)+/g, ' ');
-          if (cnt > 0) newTxt = newTxt + ' || ' + item.text;
-          else newTxt = newTxt + item.text;
-          cnt++;
+          text += `${item.text.replace(/\n \n/g, ':')} || `;
         });
-        specs.forEach(item => {
-          item.text = newTxt;
-        });
-        row.specifications = specs;
+        row.specifications = [
+          {
+            text: text.slice(0, -3),
+          },
+        ];
       }
-      if (row.variantUrl) {
-        const variantUrls = [];
-        let dupUrl = '';
-        let urls = [];
-        row.variantUrl.forEach(item => {
-          console.log('item:: ', item.text);
-          urls = row.variantUrl.filter(it => item.text === it.text);
-          if (urls && urls.length === 1) {
-            variantUrls.push(item);
-          } else {
-            if (dupUrl !== item.text) {
-              dupUrl = item.text;
-              variantUrls.push(item);
-            }
-          }
+
+      if (row.additionalDescBulletInfo) {
+        let text = '';
+        row.additionalDescBulletInfo.forEach(item => {
+          text += `|| ${item.text.replace(/\n \n/g, ':')} `;
         });
-        row.variantUrl = variantUrls;
+        row.additionalDescBulletInfo = [
+          {
+            text: text.slice(0, -1),
+          },
+        ];
       }
 
       if (row.videos) {
@@ -101,6 +84,37 @@ const transform = (data) => {
           }
         });
         row.manufacturerDescription = manufacturerDescriptions;
+      }
+      if (row.alternateImages) {
+        //const variantUrls = [];
+        let imgUrls = [];
+        //let dupUrl = '';
+        let urls = [];
+        row.alternateImages.forEach(item => {
+          // console.log('item:: ', item.text);
+          urls = row.alternateImages.filter(it => item.text === it.text);
+          //console.log('imgUrls.indexOf(item):: ', imgUrls.indexOf(item.text));
+          if (imgUrls.indexOf(item.text) == -1) {
+            imgUrls.push(item.text);
+          }
+          //console.log('imgUrls:: ', imgUrls);
+          // if (urls && urls.length === 1) {
+          //   variantUrls.push(item);
+          // } else {
+          //   if (variantUrls.indexOf() !== item.text) {
+          //     dupUrl = item.text;
+          //     variantUrls.push(item);
+          //   }
+          // }
+        });
+        // row.alternateImages = variantUrls;
+        row.alternateImages = [
+          imgUrls.map((e) => {
+            return { text: e }
+
+          })
+
+        ]
       }
 
       if (row.manufacturerImages) {
@@ -149,7 +163,6 @@ const transform = (data) => {
         let dup = '';
         let urls = [];
         row.variantId.forEach(item => {
-          // console.log('item:: ', item.text);
           urls = row.variantId.filter(it => item.text === it.text);
           if (urls && urls.length === 1) {
             variantIds.push(item);
@@ -179,13 +192,6 @@ const transform = (data) => {
         });
         row.description = descs;
       }
-      // if (row.price) {
-      //   row.price = [
-      //     {
-      //       text: row.price[0].text.replace(' ', ','),
-      //     },
-      //   ];
-      // }
       if (row.aggregateRating) {
         row.aggregateRating = [
           {
@@ -193,25 +199,18 @@ const transform = (data) => {
           },
         ];
       }
-      if (row.alternateImages) {
-        const images = row.alternateImages.filter(img => !img.text.match('#'));
-        // console.log('images:: ', images);
-        row.alternateImages = images;
-      }
       // if (row.alternateImages) {
-      //   row.alternateImages = [
-      //     {
-      //       text: row.alternateImages[0].text.replace('#', ''),
-      //     },
-      //   ];
+      //   const images = row.alternateImages.filter(img => !img.text.match('#'));
+      //   row.alternateImages = images;
       // }
+
     }
   }
-  // clean data
   data.forEach(obj => obj.group.forEach(row => Object.keys(row).forEach(header => row[header].forEach(el => {
     el.text = clean(el.text);
   }))));
 
   return data;
 };
+
 module.exports = { transform };

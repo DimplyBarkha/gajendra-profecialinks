@@ -248,14 +248,14 @@ module.exports = {
     //  otherInfoArr = otherInfoArr.join('');
     //  addElementToDocument('bb_productOtherInformation', otherInfoArr);
      //------------------------------------------------------------------------------
-  //    function addElementToDocument (key, value) {
-  //     const catElement = document.createElement('div');
-  //     catElement.id = key;
-  //     catElement.textContent = value;
-  //     catElement.style.display = 'none';
-  //     document.body.appendChild(catElement);
-  //   }
-  //  });
+    //    function addElementToDocument (key, value) {
+    //     const catElement = document.createElement('div');
+    //     catElement.id = key;
+    //     catElement.textContent = value;
+    //     catElement.style.display = 'none';
+    //     document.body.appendChild(catElement);
+    //   }
+    //  });
    
     return await context.extract(productDetails, { transform });
   },
