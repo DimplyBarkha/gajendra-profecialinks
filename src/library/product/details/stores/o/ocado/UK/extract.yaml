@@ -223,7 +223,7 @@ fields:
   - name: alternateImages
     singleValue: false
     description: Other product images (not in manufacturer description)
-    xpath: //div[contains(@class,'bop-gallery__item  bop-gallery__itemImage')]/img/@src
+    xpath: //div[@class="bop-gallery__item  bop-gallery__itemImage"]/img/@src
     regExp: (.+)_640x640.jpg
     regExpReplace: http://www.ocado.com$1_1280x1280.jpg
   - name: ratingCount
