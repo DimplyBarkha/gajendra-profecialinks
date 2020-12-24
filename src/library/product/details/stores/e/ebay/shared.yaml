@@ -109,7 +109,7 @@ fields:
   - name: termsAndConditions
     singleValue: false
   - name: unInterruptedPDP
-    xpath: //div[contains(@id,'nume_html') and not(contains(.,'from this seller'))]//div[contains(@class,"mfe-reco")]//li|//div[@class="mfe-recos-container"]//div[@class="mfe-title container-truncate"]/span
+    xpath: //div[contains(@id,'nume_html') and not(contains(.,'from this seller'))]//div[contains(@class,"mfe-reco")]//li|//div[@class="updp_item"]
   - name: inTheBoxText
     xpath: //p[contains(.,'In the Box')]/..//ul//li | //h1[contains(.,'In the box')]/..//span[@class="title"] | //div[contains(@class,'inthebox')]//span | //div[@id='inTheBoxText']|//td[contains(text(),'Included Accessories')]/following-sibling::td
   - name: inTheBoxUrl
