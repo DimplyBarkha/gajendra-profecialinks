@@ -10,25 +10,24 @@ const { transform } = require('../format');
 async function implementation (inputs, parameters, context, dependencies) {
   const { transform } = parameters;
   const { productDetails } = dependencies;
-  try{
-    context.waitForSelector('#dyson_jump_features', {timeout: 30000});
- } catch(error){
-      console.log('dyson_jump_features not found');
- }
-  const waitSelector = await context.evaluate(()=>{
-    return document.querySelector('#dyson_jump_features')? true:false ;
-  })
-  if(waitSelector){
-  await context.evaluate(()=>{
-    document.querySelector('.inpage_block.inpage_selector_feature').scrollIntoView({behavior: "smooth"});
-  })
+  try {
+    context.waitForSelector('#dyson_jump_features', { timeout: 30000 });
+  } catch (error) {
+    console.log('dyson_jump_features not found');
+  }
+  const waitSelector = await context.evaluate(() => {
+    return !!document.querySelector('#dyson_jump_features');
+  });
+  if (waitSelector) {
+    await context.evaluate(() => {
+      document.querySelector('.inpage_block.inpage_selector_feature').scrollIntoView({ behavior: 'smooth' });
+    });
   }
   await context.evaluate(async function () {
-   
     if (document.querySelector('#category-grid > div[data-position="1"]')) {
-        document.querySelector('#category-grid > div > div > div.photo-box > a').click();
-      }
-   
+      document.querySelector('#category-grid > div > div > div.photo-box > a').click();
+    }
+
     function addHiddenDiv (id, content) {
       const newDiv = document.createElement('div');
       newDiv.id = id;
@@ -41,7 +40,7 @@ async function implementation (inputs, parameters, context, dependencies) {
     function fetchRatingFromScript () {
       const scriptDataTagSelector = document.evaluate('//script[@type="application/ld+json"]', document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
       const scriptTagData = scriptDataTagSelector ? scriptDataTagSelector.innerText : '';
-      const availability = scriptTagData.includes('InStock') ? "In Stock" : "Out of Stock"; //checking for schemaOrg
+      const availability = scriptTagData.includes('InStock') ? 'In Stock' : 'Out of Stock'; // checking for schemaOrg
       addHiddenDiv('added_availability', availability);
     }
 
