@@ -41,30 +41,29 @@ const transform = (data, context) => {
       }
       if (row.alternateImages) {
         row.alternateImages.shift();
+        row.secondaryImageTotal = [{ text: row.alternateImages.length, xpath: row.alternateImages[0].xpath }];
       }
       if (row.specifications) {
         const specificationsArr = row.specifications.map((item) => {
-          return clean(typeof (item.text) === 'string' ? item.text.replace(/www.youtube.com\/embed\/[\w\-/_]*/g, '').replace('Video', '').replace('https://', '').replace(/\n \n \n \n \n \n \n/g, '||').replace(/\n \n \n \n/g, '|').replace(/\n \n/g, ':').replace(/\n/g, ' ').replace('Concentração Concentração', 'Concentração').replace('Imagem Imagem', '').replace('Gênero Gênero', 'Gênero') : '||');
+          return clean(typeof (item.text) === 'string' ? item.text.replace(/www.youtube.com\/embed\/[\w\-/_]*/g, '').replace('Video', '').replace('https://', '').replace(/\n \n \n \n \n \n \n/g, '').replace(/\n \n \n \n/g, '').replace(/\n \n/g, ':').replace(/\n/g, ' ').replace('Concentração Concentração', 'Concentração').replace('Imagem Imagem', '').replace('Gênero Gênero', 'Gênero') : '');
         });
-        row.specifications = [{ text: specificationsArr.join('|'), xpath: row.specifications[0].xpath }];
+        row.specifications = [{ text: specificationsArr.join('||'), xpath: row.specifications[0].xpath }];
       }
       if (row.manufacturerDescription) {
         const manufacturerDescriptionArr = row.manufacturerDescription.map((item) => {
-          return clean(typeof (item.text) === 'string' ? item.text.replace(/\n \n \n \n \n \n \n/g, ' || ').replace(/\n \n \n \n/g, '||').replace(/\n \n/g, ':').replace(/\n/g, ' ') : '||');
+          return clean(typeof (item.text) === 'string' ? item.text.replace(/\n \n \n \n \n \n \n/g, ' | ').replace(/\n \n \n \n/g, ' | ').replace(/\n \n/g, ':').replace(/\n/g, ' ') : ' | ');
         });
-        row.manufacturerDescription = [{ text: manufacturerDescriptionArr.join('||'), xpath: row.manufacturerDescription[0].xpath }];
+        row.manufacturerDescription = [{ text: manufacturerDescriptionArr.join(' | '), xpath: row.manufacturerDescription[0].xpath }];
       }
       if (row.additionalDescBulletInfo && row.additionalDescBulletInfo[0] && row.additionalDescBulletInfo[0].text.length > 1) {
         row.additionalDescBulletInfo[0].text = row.additionalDescBulletInfo[0].text.startsWith(' || ') ? row.additionalDescBulletInfo[0].text : ' || ' + row.additionalDescBulletInfo[0].text;
+        row.descriptionBullets = [{ text: row.additionalDescBulletInfo.length, xpath: row.additionalDescBulletInfo[0].xpath }];
       }
       if (row.manufacturerImages) {
         const manufacturerImagesArr = row.manufacturerImages.map((item) => {
           return item.text;
         });
         row.manufacturerImages = [{ text: manufacturerImagesArr.join(' | '), xpath: row.manufacturerImages[0].xpath }];
-      }
-      if (row.descriptionBullets) {
-        row.descriptionBullets = [{ text: row.descriptionBullets.length, xpath: row.descriptionBullets[0].xpath }];
       }
       Object.keys(row).forEach(header => row[header].forEach(el => {
         el.text = clean(el.text);

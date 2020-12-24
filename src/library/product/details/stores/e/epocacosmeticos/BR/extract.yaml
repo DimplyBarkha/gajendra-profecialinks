@@ -1,7 +1,7 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: //body[contains(@class,"product")]
+recordXPath: //section[@class="product"]
 fields:
   - name: image
     singleValue: false
@@ -10,10 +10,12 @@ fields:
     regExpReplace: $1$2
   - name: imageAlt
     singleValue: false
-    xpath: (//a[@id="botaoZoom"]//img/@alt)[1]
+    xpath: //img[@id="image-main"]//@src
+    regExp: (-\d+-\d+\/(.*).jpg)
+    regExpReplace: $2
   - name: manufacturerDescription
     singleValue: false
-    xpath: //td[contains(@class,"Sobre-a-Marca")]
+    xpath: //td[@class="value-field Conteudo-Especial"]//div//div//div//li | //td[@class="value-field Conteudo-Especial"]//div//div//div//p
   - name: alternateImages
     singleValue: false
     xpath: //li//a[@id="botaoZoom"]/@rel
@@ -22,6 +24,9 @@ fields:
   - name: category
     singleValue: false
     xpath: //li[@itemprop="itemListElement"]//span[@itemprop="name"]
+  - name: name
+    singleValue: false
+    xpath: //div[contains(@class,'fn')]
   - name: nameExtended
     singleValue: false
     xpath: //div[contains(@class,'fn')]
@@ -52,8 +57,6 @@ fields:
     singleValue: false
     xpath: //meta[@itemprop="gtin13"]/@content
   - name: secondaryImageTotal
-    singleValue: false
-    xpath: count(//ul[contains(@class,'thumbs')]//a[(@id="botaoZoom")]//img/@src)-1
   - name: ratingCount
     singleValue: false
     xpath: //div[@class="ts-v-rating-based-on"]//span
@@ -76,7 +79,10 @@ fields:
     #regExpReplace: $2
   - name: promotion
     singleValue: false
-    xpath: //label[contains(@class,'checked')]/@data-discount
+    xpath: //div[@class="product__image--flags"]//div[@class="discount"]
+    #//div[@class="product__image"]//div[@class="product__image--flags"]//p[contains(@class,"flag")]
+    regExp: (\d+%)
+    regExpReplace: $1
   - name: listPrice
     singleValue: false
     xpath: //p[@class="descricao-preco"]//strong[@class="skuListPrice"]
@@ -92,7 +98,6 @@ fields:
     regExp: (\/arquivos.*.jpg)
     regExpReplace: https://www.epocacosmeticos.com.br$1
   - name: descriptionBullets
+  - name: additionalDescBulletInfo
     singleValue: false
-    xpath: //div[@class="productDescription"]
-    regExp: (•.*)
-    regExpReplace: $1
+    xpath: //td[@class="value-field Conteudo-Especial"]//div//div//div//li | //td[@class="value-field Conteudo-Especial"]//div//div//div//p
