@@ -151,7 +151,7 @@ fields:
   - name: specifications
     singleValue: false
     description: The physical dimensions of the product including packaging.
-    xpath: //div[@class="inpage_selector_specification"]//*[contains(text(), 'Specifications')]/parent::*//following-sibling::table//tr
+    xpath: //div[@class="inpage_selector_specification"]//*[contains(text(), 'Specifications')]/parent::*//following-sibling::table//tr | //div[@itemprop="description"]//*[contains(.,"Specifications")]/following-sibling::*//li | //div[@itemprop="description"]//*[contains(.,"Specifications")]/following-sibling::*
     # xpath: //*[contains(text(), 'Specifications')]/parent::*[1]/following-sibling::*
   - name: warranty
     singleValue: false
