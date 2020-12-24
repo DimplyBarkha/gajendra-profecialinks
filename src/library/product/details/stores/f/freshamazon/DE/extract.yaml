@@ -23,26 +23,23 @@ fields:
     xpath: //span[@class="a-size-base a-color-secondary priceBlockStrikePriceString a-text-strike"]
   - name: price
     singleValue: true
+    xpath: //span[@id="priceblock_ourprice"]
   - name: availabilityText
     singleValue: true
-    description: Availability as described on page for the selected variant. If
-      there is no availability but the product can be added to cart, this field
-      should be "In Stock"
-    regExp: (.+)
-    regExpReplace: In Stock
-    defaultValue: Out of Stock
+    xpath: //span[@class="a-size-medium a-color-success"]
+    # regExp: (.+)
+    # regExpReplace: In Stock
+    # defaultValue: Out of Stock
   - name: description
     singleValue: false
-    description: Product description supplied by website - may be concatenanted from
-      multiple places; specifically not the manufacturer description
+    xpath: //html//div[@id='addProductDescription']
   - name: descriptionBullets
     singleValue: true
-    description: Number of ul > li tags in the description
+    xpath: count(//div[@id='feature-bullets']/ul/li)
     type: NUMBER
   - name: brandText
     singleValue: true
-    description: Product brand shown - this may actually NOT be just a brand name,
-      e.g. "Visit the Gillette Store"
+    xpath: //div[@class="a-section a-spacing-none"]/a
   - name: manufacturer
     singleValue: true
     description: Product manufacturer
