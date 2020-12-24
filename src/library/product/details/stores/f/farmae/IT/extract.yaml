@@ -43,12 +43,8 @@ fields:
     description: Availability as described on page for the selected variant. If
       there is no availability but the product can be added to cart, this field
       should be "In Stock"
-    # regExp: (.+)
-    # regExpReplace: In Stock
-    # defaultValue: Out of Stock
   - name: description
     singleValue: false
-    # xpath: //meta[@itemprop="description"]/@content
     xpath: //*[@id="collateral-tabs"]/dd[1]/div
     description: Product description supplied by website - may be concatenanted from
       multiple places; specifically not the manufacturer description
@@ -72,35 +68,18 @@ fields:
   - name: brandLink
     singleValue: true
     xpath: //div[contains(@class,'marca')]//a/@href
-    # xapth: //*[@class="marca"]//a/@href
-    description: null
   - name: internationalShipping
     singleValue: false
     xpath: //*[@id="tabella-spedizioni"]/tbody/tr
     description: Text next to bullet point
-  - name: Image360Present
-    singleValue: true
-    description: If 360 image is present in the carousel ['Yes','No']
-    example: https://www.amazon.com/Trinsic-Single-Handle-Magnetic-Champagne-9159-CZ-DST/dp/B0050EN8E6
-    defaultValue: No
-  - name: imageZoomFeaturePresent
-    singleValue: true
-    description: If Zoom feature is available for Main image or images in the
-      carousel,['Yes','No']
-    example: https://www.zalando.de/adidas-neo-sneaker-low-blackwhite-a4315i002-q11.html
-    defaultValue: No
   - name: sku
     singleValue: true
-    xpath: //script[@type="application/ld+json"][contains(text(), 'sku')]
+    xpath: //meta[@itemprop="sku"]/@content
     description: The store-specific product identifier
-  - name: aggregateRating
-    singleValue: true
-    xpath: //script[contains(text(), 'ratingValue')]
-    description: The stated aggregate rating normalized to be out of 5
-    # type: NUMBER
-  - name: ratingCount
-    singleValue: true
-    xpath: //script[contains(text(), 'reviewCount')]
-    # xpath: //*[@id="tp-widget-wrapper"]/div/div[1]/div/div[2]/span[contains(@class,'tp-widget-summary__count')]
-    description: The number of ratings
-    # type: NUMBER
+  # - name: aggregateRating
+  #   singleValue: true
+  #   xpath:  //script[contains(text(),"aggregateRating")]
+  # - name: ratingCount
+  #   singleValue: true
+  #   xpath: //script[contains(text(),"reviewCount")]
+  #   description: The number of ratings

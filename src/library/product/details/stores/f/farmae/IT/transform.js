@@ -29,35 +29,34 @@ const transform = (data, context) => {
   for (const { group } of data) {
     for (const row of group) {
       try {
-
-
         if (row.availabilityText) {
           row.availabilityText = [
-            { text: row.availabilityText[0].text === 'Disponibile' ? 'In Stock' : 'Out of Stock' },
+            { text: row.availabilityText[0].text === 'Disponibile' ? 'In Stock' : 'Out of Stock' }
           ];
         }
+        if(row.aggregateRating) {
+          var baseObject = JSON.parse(row.aggregateRating[0].text);
 
-        if (row.sku) {
-          // console.log(row.sku);
-          var obj = JSON.parse(row.sku[0].text);
+          // console.log(baseObject.aggregateRating.ratingValue);
+          
 
-          // console.log(obj.sku);
-          row.sku = [{ text: obj.sku }];
+           row.aggregateRating = [ { text: baseObject.aggregateRating.type } ];
+          console.log(row.aggregateRating[0].text);
         }
+
+
      
-        if (row.aggregateRating) {
+        // if (row.aggregateRating) {
          
-          console.log(row.aggregateRating[0])
-          var ratobj = JSON.parse(row.aggregateRating[0].text);
-          row.aggregateRating = [{ text: ratobj.aggregateRating.ratingValue }];
-          console.log(ratobj);
-        }
-        if (row.ratingCount) {
-          console.log(row.ratingCount);
-          var reviewcntobj = JSON.parse(row.ratingCount[0].text);
-          row.ratingCount = [{ text: reviewcntobj.aggregateRating.reviewCount }];
-          console.log(row.ratingCount);
-        }
+        //   // console.log(row.aggregateRating[0])
+        //   var ratobj = JSON.parse(row.aggregateRating[0].text);
+        //   row.aggregateRating = [{ text: ratobj.aggregateRating.ratingValue }];
+        //   // console.log(ratobj);
+        // }
+        // if (row.ratingCount) {
+        //   var reviewcntobj = JSON.parse(row.ratingCount[0].text);
+        //   row.ratingCount = [{ text: reviewcntobj.aggregateRating.reviewCount}];
+        // }
       } catch (exception) {
         console.log('Error in transform', exception);
       }
