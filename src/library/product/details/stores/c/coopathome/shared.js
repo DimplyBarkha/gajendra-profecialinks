@@ -115,7 +115,7 @@ const transform = (data) => {
       if (row.description) {
         let text = '';
         row.description.forEach(item => {
-          text += `${item.text.replace(/\n \n/g, ':')} || `;
+          text += `${item.text.replace(/\n \n/g, ':')}|| `;
         });
         row.description = [
           {
@@ -130,7 +130,7 @@ const transform = (data) => {
         });
         row.specifications = [
           {
-            text: text.slice(0, -3),
+            text: text.slice(0, -4),
           },
         ];
       }
@@ -141,7 +141,7 @@ const transform = (data) => {
         });
         row.allergyAdvice = [
           {
-            text: text.slice(0, -2),
+            text: text.slice(0, -3),
           },
         ];
       }
@@ -152,21 +152,21 @@ const transform = (data) => {
         });
         row.additionalDescBulletInfo = [
           {
-            text: text.slice(0, -2),
+            text: text.slice(0, -4),
           },
         ];
       }
-      if (row.allergyAdvice) {
-        let text = '';
-        row.allergyAdvice.forEach(item => {
-          text += item.text.replace(/\n/g, '');
-        });
-        row.allergyAdvice = [
-          {
-            text: text,
-          },
-        ];
-      }
+      // if (row.allergyAdvice) {
+      //   let text = '';
+      //   row.allergyAdvice.forEach(item => {
+      //     text += item.text.replace(/\n/g, '');
+      //   });
+      //   row.allergyAdvice = [
+      //     {
+      //       text: text.slice(0, -1),
+      //     },
+      //   ];
+      // }
 
       if (row.allergens) {
         let text = '';

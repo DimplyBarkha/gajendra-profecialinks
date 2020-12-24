@@ -71,7 +71,7 @@ fields:
     description: Product manufacturer
   - name: quantity
     singleValue: false
-    xpath: concat(//span[@itemprop="value"]/text() , (//span[@itemprop="weight"]/text())[2])
+    xpath: normalize-space(concat(//span[@itemprop="value"]/text() , (//span[@itemprop="weight"]/text())[2]))
     # xpath: //span[@itemprop="weight"]//text()
   - name: weightNet
     singleValue: false
