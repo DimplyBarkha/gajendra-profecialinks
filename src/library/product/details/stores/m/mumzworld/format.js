@@ -7,39 +7,39 @@
 const transform = (data) => {
   const cleanUp = (data, context) => {
     const clean = text => text.toString()
-    .replace(/\r\n|\r|\n/g, ' ')
-    .replace(/&amp;nbsp;/g, ' ')
-    .replace(/&amp;#160/g, ' ')
-    .replace(/\u00A0/g, ' ')
-    .replace(/\s{2,}/g, ' ')
-    .replace(/"\s{1,}/g, '"')
-    .replace(/\s{1,}"/g, '"')
-    .replace(/^ +| +$|( )+/g, ' ')
+      .replace(/\r\n|\r|\n/g, ' ')
+      .replace(/&amp;nbsp;/g, ' ')
+      .replace(/&amp;#160/g, ' ')
+      .replace(/\u00A0/g, ' ')
+      .replace(/\s{2,}/g, ' ')
+      .replace(/"\s{1,}/g, '"')
+      .replace(/\s{1,}"/g, '"')
+      .replace(/^ +| +$|( )+/g, ' ')
     // eslint-disable-next-line no-control-regex
-    .replace(/[\x00-\x1F]/g, '')
-    .replace(/[\uD800-\uDBFF][\uDC00-\uDFFF]/g, ' ');
+      .replace(/[\x00-\x1F]/g, '')
+      .replace(/[\uD800-\uDBFF][\uDC00-\uDFFF]/g, ' ');
     data.forEach(obj => obj.group.forEach(row => Object.keys(row).forEach(header => row[header].forEach(el => {
       el.text = clean(el.text);
     }))));
     return data;
   };
   for (const { group } of data) {
-    for (let row of group) {       
+    for (const row of group) {
       if (row.variantInformation) {
-        let info = [];          
+        const info = [];
         row.variantInformation.forEach(item => {
-          info.push(item.text.trim());            
+          info.push(item.text.trim());
         });
-        //row.variantCount = [{'text': info.length}];
-        row.variantInformation = [{'text':info.join(' | '),'xpath':row.variantInformation[0].xpath}];          
-      }           
+        // row.variantCount = [{'text': info.length}];
+        row.variantInformation = [{ text: info.join(' | '), xpath: row.variantInformation[0].xpath }];
+      }
       if (row.additionalDescBulletInfo) {
-        let info = [];          
+        const info = [];
         row.additionalDescBulletInfo.forEach(item => {
-          info.push(item.text.trim());            
+          info.push(item.text.trim());
         });
-        row.descriptionBullets = [{'text': info.length}];
-        row.additionalDescBulletInfo = [{'text':'|| ' + info.join(' || '),'xpath':row.additionalDescBulletInfo[0].xpath}];          
+        row.descriptionBullets = [{ text: info.length }];
+        row.additionalDescBulletInfo = [{ text: '|| ' + info.join(' || '), xpath: row.additionalDescBulletInfo[0].xpath }];
       }
       if (row.specifications) {
         row.specifications.forEach(item => {
@@ -50,41 +50,39 @@ const transform = (data) => {
       if (row.packSize) {
         row.packSize.forEach(item => {
           var matches = /.*Pack\s+Of\s+(\d+).*/isg.exec(item.text);
-          if (matches){
+          if (matches) {
             item.text = matches[1];
-          }
-          else{
+          } else {
             delete row.packSize;
           }
         });
-      } 
+      }
       if (row.quantity) {
         row.quantity.forEach(item => {
-          item.text = 1;          
+          item.text = 1;
         });
       }
       if (row.ratingCount) {
         row.ratingCount.forEach(item => {
-          let data = JSON.parse(item.text);                          
-          if(data.length>0 && data[0]['aggregateRating'] && data[0]['aggregateRating']['reviewCount']){
-            item.text = data[0]['aggregateRating']['reviewCount'];
-          }
-          else{
+          const data = JSON.parse(item.text);
+          if (data.length > 0 && data[0].aggregateRating && data[0].aggregateRating.reviewCount) {
+            item.text = data[0].aggregateRating.reviewCount;
+          } else {
             delete row.ratingCount;
           }
         });
-      }        
+      }
       if (row.description) {
-        let info = []
+        const info = [];
         row.description.forEach(item => {
           var matches = /Description\s*:\s(.+)/isg.exec(item.text);
           if (matches) {
-            item.text = matches[1]
+            item.text = matches[1];
           }
-          info.push(item.text.replace(/(\s*\n\s*)+/g, ' ').trim());            
+          info.push(item.text.replace(/(\s*\n\s*)+/g, ' ').trim());
         });
-        row.description = [{'text':info.join(' | '),'xpath':row.description[0].xpath}];          
-      }                        
+        row.description = [{ text: info.join(' | '), xpath: row.description[0].xpath }];
+      }
     }
   }
   return cleanUp(data);
