@@ -10,6 +10,9 @@ const cleanUp = (data, context) => {
         const ratingValue = row.aggregateRating[0].text;
         row.aggregateRating = [{ text: ratingValue.replace('.', ',') }];
       }
+      if (row.description) {
+        row.description = [{ text: row.description[0].text }];
+      }
     }
   }
   const clean = (text) =>
