@@ -207,8 +207,13 @@ async function implementation (
     }
 
     var extraWTBText = getXpath('//span[@class="title"][contains(text(), "Included")]/following-sibling::span', 'innerText');
-
-    if (extraWTBText != null) {
+    const widgetWTBText = document.querySelectorAll('div[data-section-tag="in-the-box"] h3, div[data-section-caption="In The Box"] h3');    ;
+    if (widgetWTBText && widgetWTBText.length) {
+      [...widgetWTBText].forEach((element) => {
+        addHiddenDiv('ii_extraWTBText', element.innerText);
+      });
+    }
+    else if (extraWTBText != null) {
       extraWTBText = extraWTBText.replace(/\s-\s/gm, ' || ');
       addHiddenDiv('ii_extraWTBText', extraWTBText);
     }
