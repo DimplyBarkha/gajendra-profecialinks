@@ -67,3 +67,6 @@ fields:
   - name: sku
     singleValue: true
     xpath: //div/form[contains(@id, 'product_addtocart_form')]/@data-product-sku
+  - name: category
+    singleValue: true
+    xpath: //script[@id="exclude_tag_manager"]
