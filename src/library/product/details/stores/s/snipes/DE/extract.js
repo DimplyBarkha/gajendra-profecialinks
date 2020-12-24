@@ -58,6 +58,15 @@ module.exports = {
         aval = 'In stock';
         addElementToDocument('aval', aval);
       }
+      var str = getXpath('(//div[@class="b-rating-value"]/@style)[1]', 'nodeValue');
+      if (str != null) {
+        // for (var i = 0; i < str.length; i++) {
+        var abc = str.split(': ')[1];
+        abc = abc.slice(0, -1);
+        abc = (abc) / 20;
+        addElementToDocument('agg', abc);
+        // }
+      }
     });
     await context.extract(productDetails);
   },

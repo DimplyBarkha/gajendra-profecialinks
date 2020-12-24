@@ -5,7 +5,7 @@ recordXPath: null
 fields:
   - name: variantId
     singleValue: false
-    xpath: (//td[@class='b-fact-value js-fact-value'])[5]
+    xpath: //div[@class='s-pdp l-container js-product-details']/@data-pid
   - name: image
     singleValue: false
     xpath: //div[@id='slick-slide10']/div/div/picture/img/@src
@@ -43,9 +43,9 @@ fields:
   - name: aggregateRatingText
     singleValue: true
     xpath: 
-  - name: aggregateRating
-    singleValue: true
-    xpath: 
+  - name: aggregateRating2
+    singleValue: false
+    xpath: //html//div[@id='agg']
   - name: alternateImages
     singleValue: false
     xpath: (//div[@class="b-pdp-thumbs-carousel js-pdp-thumbs-carousel slick-initialized slick-slider slick-vertical"])/div/div/div[position()>1 and position() <= last()]/div/div/picture/img/@src
@@ -57,7 +57,7 @@ fields:
     xpath: (//td[@class='b-fact-value js-fact-value'])[2]
   - name: sku
     singleValue: false
-    xpath: //div[@class='s-pdp l-container js-product-details']/@data-pid
+    xpath: (//td[@class='b-fact-value js-fact-value'])[5]
   - name: variantInformation
     singleValue: false
     xpath: (//div[@class='b-pdp-attribute b-pdp-attribute--size js-pdp-attributes--size']/div/a/@data-value)
