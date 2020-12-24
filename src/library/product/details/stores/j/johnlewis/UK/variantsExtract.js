@@ -16,7 +16,7 @@ async function implementation (
   try {
     await context.waitForSelector('section[data-test="product-card"] img');
     await context.click('h2[class*=title_title]');
-    let a = await context.evaluate(()=>{
+    const a = await context.evaluate(() => {
       return (document.querySelector('section[data-test="product-card"] a').getAttribute('href'));
     });
     console.log(a);
@@ -34,7 +34,7 @@ async function implementation (
       document.body.appendChild(newDiv);
       return newDiv;
     }
-    function getId(url) {
+    function getId (url) {
       const splits = url ? url.split('/p') : [];
       let id = (splits.length > 0) ? splits[splits.length - 1] : '';
       id = id.includes('?') ? id.split('?')[0] : id;
