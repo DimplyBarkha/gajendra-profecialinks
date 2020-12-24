@@ -1,0 +1,81 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: //div[@class="variantinformation"] | //*[@id="defaultdiv"]
+fields:
+  - name: image
+    xpath: //@mainimage
+  - name: imageAlt
+    xpath: ancestor::html//div[contains(@class,"big-image-container")]/div[1]/a/img/@alt | ancestor::html//div[contains(@class,"big-image-container")]//div[contains(@class,'big-image swiper-slide')and position()=1]//img/@alt
+  - name: alternateImages
+    xpath: //@secondaryimage
+  - name: metaKeywords
+    xpath: ancestor::html//meta[@name="keywords"]/@content
+  - name: category
+    xpath: ancestor::html//ol[contains(@class,"breadcrumb")]/li/a
+  - name: nameExtended
+    xpath: ancestor::html//h1[contains(@class,"product-name")]
+  - name: listPrice
+    singleValue: true
+    xpath: ancestor::html//div[contains(@class,"price-box")]//span[contains(@class,"skin-obsolete")]
+  - name: price
+    singleValue: true
+    xpath: ancestor::html//span[@class='price skin-big'] | ancestor::html//div[@class='detail-name-prices']//div[@class='price']//span[@class='value']//text()
+  - name: availabilityText
+    xpath: ancestor::html//div[@id="availabilitystatus"]/@availability
+    regExp: (InStock)
+    regExpReplace: In stock
+    defaultValue: Out of Stock
+  - name: description
+    singleValue: false
+    xpath: ancestor::html//ul[@class='detail-content']//div[@class='content txt']
+  - name: brandText
+    xpath: ancestor::html//h2[contains(@class,"brand-name")]/a
+    defaultValue: " "
+  - name: quantity
+    xpath: ancestor::html//div[@class="main-detail-column"]//select[contains(@class,"select-size")]/option[@selected]/@data-attr-value |ancestor::html//div[@class="main-detail-column"]//select[contains(@class,"select-size")]/option[contains(@class,"first")] | ancestor::html//div[@class="main-detail-column"]//select[contains(@class,"select-size")]/option[position()=1][@selected]/@data-attr-value
+    defaultValue: " "
+  - name: weightNet
+    xpath: ancestor::html//table[contains(@class, "product-properties")]//tbody//tr//td[contains(text(), 'Paino')]/following::td[1] | ancestor::html//table//tr/th//div[contains(text(),'Paino')]/../following-sibling::td
+  - name: weightGross
+  - name: sku
+    xpath: //@sku
+  - name: variantId
+    # xpath: ancestor::html//link[@rel="canonical"]/@href
+    # regExp: (\d+)(\-\d+|)(\.html)
+    xpath: //@variantid
+    # regExpReplace: $1$2
+  - name: mpc
+    xpath: ancestor::html//div[contains(text(),"Valmistajan tuotenumero")]/../../td
+  - name: packSize
+    xpath: ancestor::html//table[contains(@class, "product-properties")]//tbody//tr//td[contains(text(), 'Accessories')]/following::td[1]
+  - name: productUrl
+    xpath: //link[@rel="canonical"]/@href
+  - name: videos
+    xpath: ancestor::html//div[@id="videoinformation"]/@video
+    description: URLs of videos on page
+  - name: name
+    xpath: ancestor::html//h1[contains(@class,"product-name")]
+  - name: warranty
+    xpath: ancestor::html//table[contains(@class, "product-properties")]//tbody//tr//td[contains(text(), 'Takuu')]/following::td[1] | ancestor::html//table//tbody//tr//div[contains(text(), 'Takuu')]/../following-sibling::td
+  - name: variantCount
+    # xpath: count(ancestor::html//div[@class="variantinformation"]) | count(ancestor::html//*[@id="defaultdiv"])
+  - name: productOtherInformation
+  - name: color
+    description: A textual description of the colour
+    xpath: //@color
+    defaultValue: " "
+  - name: colorCode
+    description: A code description of the color (e.g. RGB hex)
+  - name: promotion
+    xpath: ancestor::html//div[contains(@class, "marketing-texts")]
+  - name: variantInformation
+    xpath: ancestor::html//div[contains(@class, "form-group-color")]//ul//li
+  - name: firstVariant
+    xpath: ancestor::html//div[@class="variantinformation"][position()=1]//@variantid | ancestor::html//*[@id="defaultdiv"]//@variantid
+  - name: variants
+    xpath: ancestor::html//div[@class="variantinformation"]//@variantid | ancestor::html//*[@id="defaultdiv"]//@variantid
+  - name: manufacturerImages
+    xpath: ancestor::html//div[contains(@id,"stflix")]//div[contains(@id, "inpage_container")]//img//@srcset | ancestor::html//div[contains(@id,'flix-dyson')]//img/@srcset
+  - name: manufacturerDescription
+    xpath: ancestor::html//div[contains(@id, "inpage_container")]//div[contains(@class, "flix-Text-block")]//text() | ancestor::html//div[contains(@id, "inpage_container")]//div[contains(@class, "flix-std-title")]/text() |//div[contains(@id, "inpage_container")]//div[contains(@class,'flix-std-desc')]//text()

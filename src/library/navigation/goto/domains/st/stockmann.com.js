@@ -4,7 +4,7 @@ module.exports = {
   parameterValues: {
     domain: 'stockmann.com',
     timeout: 70000,
-    country: '',
+    country: 'FI',
     store: 'stockmann',
     zipcode: '',
   },

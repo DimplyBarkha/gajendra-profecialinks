@@ -2,7 +2,7 @@
 module.exports = {
   implements: 'product/details/execute',
   parameterValues: {
-    country: '',
+    country: 'FI',
     store: 'stockmann',
     domain: 'stockmann.com',
     loadedSelector: 'body',

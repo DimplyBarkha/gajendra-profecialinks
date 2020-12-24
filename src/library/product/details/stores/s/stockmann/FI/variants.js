@@ -1,10 +1,10 @@
 
 module.exports = {
-  implements: 'product/details',
+  implements: 'product/details/variants',
   parameterValues: {
-    country: '',
+    country: 'FI',
     store: 'stockmann',
     domain: 'stockmann.com',
-    zipcode: '',
+    zipcode: "''",
   },
 };
