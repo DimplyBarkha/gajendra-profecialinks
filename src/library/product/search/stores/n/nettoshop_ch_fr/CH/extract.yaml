@@ -7,8 +7,8 @@ fields:
     singleValue: false
     xpath: //html//div[@id='productID']
   - name: name
-    singleValue: true
-    xpath: //div[@class="c-product-grid-item__title"]/a
+    singleValue: false
+    xpath: //div[@class="c-product-grid-item__title"]/a/text() | //div[@class="c-product-grid-item__title"]/text()
   - name: productUrl
     singleValue: false
     xpath: //div[@class="c-product-grid-item__title"]/a/@href
@@ -19,6 +19,8 @@ fields:
     xpath: ancestor::html//div[@id='added-searchurl']
   - name: thumbnail
     singleValue: false
+    regExp: ^(.+)$
+    regExpReplace: https:$1
     xpath: //div[@class="c-product-grid-item__product"]/a/div/picture/img/@data-src
   - name: price
     singleValue: false
