@@ -21,7 +21,7 @@ fields:
     xpath: (//meta[@name="keywords"]/@content)[1]
   - name: category
     singleValue: false
-    xpath: //div[contains(@class,"breadcrumbs-mobile")]//ul[@class="breadcrumbs"]//li[not(contains(@class,"home"))]//a//span[@class="text"]//span[@class="content"]
+    xpath: //div[contains(@class,"breadcrumbs-mobile")]//ul[@class="breadcrumbs"]//li//a//span[@class="text"]//span[@class="content"]
   - name: nameExtended
     singleValue: false
     xpath: //h1[@class="title--main product-title-right"]

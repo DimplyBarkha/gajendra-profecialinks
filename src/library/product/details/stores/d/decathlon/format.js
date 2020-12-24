@@ -25,7 +25,7 @@ const transform = (data) => {
       try {
         if (row.availabilityText) {
           const availabilityTextArr = row.availabilityText.map((item) => {
-            return (typeof (item.text) === 'string') && (item.text.includes('en stock')) ? 'In Stock' : 'Out of Stock';
+            return (typeof (item.text) === 'string') && (item.text.includes('en stock')) ? 'In Stock' : 'Out Of Stock';
           });
           row.availabilityText = [{ text: availabilityTextArr.join(), xpath: row.availabilityText[0].xpath }];
         }
@@ -65,9 +65,9 @@ const transform = (data) => {
         }
         if (row.description) {
           const descriptionArray = row.description.map((item) => {
-            return typeof (item.text) === 'string' ? item.text.replace(/\n \n/g, ' : ').replace(/\n/g, '') : '||';
+            return typeof (item.text) === 'string' ? item.text.replace(/\n \n/g, ' ').replace(/\n/g, ' ') : ' ';
           });
-          row.description = [{ text: descriptionArray.join(' || '), xpath: row.description[0].xpath }];
+          row.description = [{ text: descriptionArray.join(' '), xpath: row.description[0].xpath }];
         }
         if (row.additionalDescription) {
           const additionalDescriptionArray = row.additionalDescription.map((item) => {
