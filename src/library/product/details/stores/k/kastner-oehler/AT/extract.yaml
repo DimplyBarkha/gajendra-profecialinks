@@ -251,11 +251,11 @@ fields:
   - name: inTheBoxUrl
     singleValue: false
     description: Must include image url to show the accessories/tools which come with the product
-    xpath: //div[@class="in-the-box"]//img/@src
+    xpath: //div[@id="ii_inBoxImg"]
   - name: inTheBoxText
     singleValue: false
     description: Must include text to show the accessories/tools which come with the product
-    xpath: //div[@class="in-the-box"]//p
+    xpath: //div[@id="ii_inBoxText"]
   # - name: unInterruptedPDPP
   #   singleValue: false
   #   description: Titles of products in the sections 'you may also like' or 'sponsored products'. Combine results from Max 3 sections
