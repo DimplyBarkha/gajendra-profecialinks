@@ -530,11 +530,13 @@ fields:
     defaultValue: Yes
   - name: inTheBoxUrl
     singleValue: false
-    xpath: //div[contains(@class, "inpage_selector_InTheBox")]//img/@src
+    xpath: //div[@id="iframe_data"]//video/@src
+    regExp: (.+)
+    regExpReplace: https://media.flixfacts.com/eyekandy/dyson/v11/en/$1
     description: Must include image url to show the accessories/tools which come with the product
   - name: inTheBoxText
     singleValue: false
-    xpath: //div[contains(@class, "inpage_selector_InTheBox")]//span
+    xpath: //div[@id="iframe_data"]/div
     description: Must include text to show the accessories/tools which come with the product
   - name: inTheBoxText2
     singleValue: false

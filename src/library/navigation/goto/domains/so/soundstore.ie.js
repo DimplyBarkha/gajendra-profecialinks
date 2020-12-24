@@ -3,7 +3,7 @@ module.exports = {
   implements: 'navigation/goto',
   parameterValues: {
     domain: 'soundstore.ie',
-    timeout: null,
+    timeout: 500000,
     country: 'Ireland',
     store: 'soundstore',
     zipcode: '',
