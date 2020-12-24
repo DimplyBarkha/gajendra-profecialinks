@@ -14,7 +14,6 @@ module.exports = {
     context,
     dependencies,
   ) => {
-
     const delay = t => new Promise(resolve => setTimeout(resolve, t));
     const checkExistance = async (selector) => {
       return await context.evaluate(async (currentSelector) => {
@@ -23,55 +22,55 @@ module.exports = {
     };
 
     const currentUrl = await context.evaluate(() => {
-      return document.querySelector('meta[property="og:url"]').getAttribute('content')
+      return document.querySelector('meta[property="og:url"]').getAttribute('content');
     });
 
-    if(await checkExistance('.swiper-wrapper a[class*=video]')){
+    if (await checkExistance('.swiper-wrapper a[class*=video]')) {
       await context.evaluate((video) => {
-        //@ts-ignore
-      let galleryVideo = [...document.querySelectorAll('.swiper-wrapper a[class*=video]')]
-      let videos = [];
-      for(let i = 0 ; i < galleryVideo.length ; i++){
-        galleryVideo[i].click();
-        videos.push(document.querySelector('.mfp-iframe').getAttribute('src'));
-        //@ts-ignore
-        document.querySelector('.mfp-close').click();
-      }
-      let galVideo = videos.join(' | ');
-      document.querySelector('body').setAttribute('gallery-video', galVideo);
+        // @ts-ignore
+        const galleryVideo = [...document.querySelectorAll('.swiper-wrapper a[class*=video]')];
+        const videos = [];
+        for (let i = 0; i < galleryVideo.length; i++) {
+          galleryVideo[i].click();
+          videos.push(document.querySelector('.mfp-iframe').getAttribute('src'));
+          // @ts-ignore
+          document.querySelector('.mfp-close').click();
+        }
+        const galVideo = videos.join(' | ');
+        document.querySelector('body').setAttribute('gallery-video', galVideo);
       });
     }
 
     try {
       await context.waitForXPath('//script[contains(.,"reviewListStatistics")]');
     } catch (error) {
-      console.log("SCript not loaded");
+      console.log('SCript not loaded');
     }
     try {
       await context.waitForXPath("//div[@class='s7staticimage']//img");
     } catch (error) {
-      console.log("Image not loaded");
+      console.log('Image not loaded');
     }
     const { transform } = parameters;
     const { productDetails } = dependencies;
     await context.evaluate(async function () {
-       // function to get the json data from the string
+      // function to get the json data from the string
     // function findJsonData (scriptSelector, startString, endString) {
-       
-    //     const xpath = `//script[contains(.,'${scriptSelector}')]`;
-    //     let element = document.evaluate(xpath, document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
-    //     // @ts-ignore
-    //    let elementTxt = (element !== null) ? element.textContent : ''
-    //     return elementTxt;
-    // };
-    // let videoContent = findJsonData ('reviewListStatistics',' var appData =','};')
-    // addHiddenDiv('videos', videoContent);
-    function addHiddenDiv (id, content) {
-      const newDiv = document.createElement('div');
-      newDiv.id = id;
-      newDiv.textContent = content;
-      newDiv.style.display = 'none';
-      document.body.appendChild(newDiv);
+
+      //     const xpath = `//script[contains(.,'${scriptSelector}')]`;
+      //     let element = document.evaluate(xpath, document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
+      //     // @ts-ignore
+      //    let elementTxt = (element !== null) ? element.textContent : ''
+      //     return elementTxt;
+      // };
+      // let videoContent = findJsonData ('reviewListStatistics',' var appData =','};')
+      // addHiddenDiv('videos', videoContent);
+      function addHiddenDiv (id, content) {
+        const newDiv = document.createElement('div');
+        newDiv.id = id;
+        newDiv.textContent = content;
+        newDiv.style.display = 'none';
+        document.body.appendChild(newDiv);
       }
       let image = document.querySelector('div.s7staticimage img');
       // @ts-ignore
@@ -94,12 +93,12 @@ module.exports = {
       // videoArr = videoArr.join(' | ');
       // addHiddenDiv('videos', videoArr);
 
-      let description = document.querySelector('div[id="feature-product"]');
+      const description = document.querySelector('div[id="feature-product"]');
       let descriptionHTML = description ? description.innerHTML : '';
-      descriptionHTML = descriptionHTML ? descriptionHTML.replace(/(.*)\<div\sid="flix-inpage"/gm,'$1').replace(/<li>/gm, ' || ').replace(/<.*?>/gm, '').replace(/\n/gm, ' ').replace(/\s{2,}/, ' ').replace('Les plus produit','').replace('description produit','').replace('Caractéristiques','').trim() : '';
+      descriptionHTML = descriptionHTML ? descriptionHTML.replace(/(.*)<div\sid="flix-inpage"/gm, '$1').replace(/<li>/gm, ' || ').replace(/<.*?>/gm, '').replace(/\n/gm, ' ').replace(/\s{2,}/, ' ').replace('Les plus produit', '').replace('description produit', '').replace('Caractéristiques', '').trim() : '';
       addHiddenDiv('descriptionHTML', descriptionHTML);
     });
-    
+
     const iframeSelector = '#eky-dyson-iframe';
     await delay(10000);
     if (await checkExistance(iframeSelector)) {
@@ -122,7 +121,7 @@ module.exports = {
         }
         return value;
       });
-  
+
       await context.evaluate(() => {
         const scrollTo = document.querySelector('#specifications');
         scrollTo.scrollIntoView({ behavior: 'smooth' });
@@ -141,7 +140,7 @@ module.exports = {
         }
         return value;
       });
-  
+
       const desc = await context.evaluate(() => {
         const src = document.querySelectorAll('h1,h2,h3,h4,p,div.eky-accessory>div');
         const value = [];

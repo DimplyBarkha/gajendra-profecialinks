@@ -55,7 +55,7 @@ fields:
     regExpReplace: $1  
     singleValue: false
   - name: availabilityText
-    xpath: //div[@class="availability nomargin"]/div[@class="l-available"] | //div[@class="availability"]
+    xpath: //div[@class="availability nomargin"]/div[@class="l-available"] | //div[@class="availability"]|//div[@class='no-availability']
     # xpath: //div[@class="availability"] | //div[@class="availability nomargin"]
     singleValue: false
   - name: gtin
