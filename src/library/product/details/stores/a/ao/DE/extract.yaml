@@ -15,17 +15,21 @@ fields:
 - name: image
   singleValue: true
   description: URL of the main product image
-  xpath: //li[@id='carousel-right-image']//img/@src | //img[@class="product-img"]/@src  | //img[@class="product-gallery-image"]/@src
-  regExp: \/\/(.+)
-  regExpReplace: 'https://$1'
+  xpath: //div[@id='initImg']
+- name: image2
+  singleValue: true
+  description: URL of the main product image
+  xpath: //section[@id='discontinuedProductNoAlt']//img[@class='product-img']/@src
+  regExp: (.+)
+  regExpReplace: https:$1
 - name: imageAlt
   singleValue: true
   description: Alt text of the main product image
-  xpath: //li[@id='carousel-right-image']//img/@alt
+  xpath: //div[@id='initImgAlt']
 - name: alternateImages
   singleValue: false
   description: Other product images (not in manufacturer description)
-  xpath: //ol[@id="alternate_images"]/img/@src
+  xpath: //div[contains(@class, "altImages")]
 - name: metaKeywords
   singleValue: true
   description: The <meta> keywords content
@@ -67,7 +71,7 @@ fields:
   singleValue: true
   description: Product brand shown - this may actually NOT be just a brand name, e.g.
     "Visit the Gillette Store"
-  xpath: //div[@itemprop="brand"]
+  xpath: //div[@id="brand"]
 - name: manufacturer
   singleValue: true
   description: Product manufacturer
@@ -147,7 +151,7 @@ fields:
 - name: manufacturerDescription
   singleValue: false
   description: The extended description of the product supplied by the lister
-  xpath: //section[contains(@class, "richContent")]
+  xpath: //div[@id='enhCont']
 - name: manufacturerImages
   singleValue: false
   description: Images within the third party description
@@ -155,7 +159,7 @@ fields:
 - name: videos
   singleValue: false
   description: URLs of videos on page
-  xpath:  //video/@src
+  xpath:  //video/@src | //div[@data-vidurl='vidURL']
 - name: name
   singleValue: true
   description: The product name
@@ -249,7 +253,7 @@ fields:
   description:
 - name: secondaryImageTotal
   description:
-  xpath: count(//ol[@id="alternate_images"]/img)
+  xpath: count(//div[contains(@class, "altImages")])
 - name: news
   singleValue: true
   description:

@@ -33,14 +33,11 @@ const transform = (data, context) => {
             }
           });
         }
-        if (row.image) {
-          row.image.forEach(item => {
-            if (!(item.text.startsWith('http'))) {
-              const img = item.text;
-              const imgText = 'https:' + img;
-              item.text = imgText;
-            }
-          });
+
+        if (row.image2 && !row.image) {
+          row.image = [{
+            text: row.image2[0].text,
+          }];
         }
 
         if (row.specifications) {
@@ -109,6 +106,20 @@ const transform = (data, context) => {
               text: row.descriptionBullets.length,
             },
           ];
+        }
+
+        if (row.videos) {
+          const videoArr = [];
+          const items = [];
+          row.videos.forEach(item => {
+            if (videoArr.indexOf(item.text) < 0) {
+              videoArr.push(item.text);
+              items.push({
+                text: item.text,
+              });
+            }
+          });
+          row.videos = items;
         }
 
         row = clean(row);
