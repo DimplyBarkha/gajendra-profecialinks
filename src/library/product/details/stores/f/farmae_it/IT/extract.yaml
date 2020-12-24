@@ -36,9 +36,9 @@ fields:
     defaultValue: Out of stock
   - name: description
     singleValue: false
-    xpath: (//dd[contains(@class,"tab-container")])[1]/div/br[(following::strong[contains(text(),"Caratteristiche")])]
+    # xpath: (//dd[contains(@class,"tab-container")])[1]/div/br[(following::strong[contains(text(),"Caratteristiche")])]
     # xpath: (//div[@class="tab-content"])[1]//p[following::strong[contains(.,"Formato")]] |(//div[@class="tab-content"])[1]//p[contains(.,"Avvertenze")]/strong[1] | (//div[@class="tab-content"])[1]//p/strong[contains(.,"Avvertenze")]//../following::text()[1]
-    # xpath: (//dd[contains(@class,"tab-container")])[1]/div 
+    xpath: (//dd[contains(@class,"tab-container")])[1]/div 
   - name: descriptionBullets
     singleValue: false
     description: Number of ul > li tags in the description
@@ -79,6 +79,7 @@ fields:
     xpath: //meta[@itemprop="sku"]/@content
   - name: variantId
     singleValue: false
+    # xpath: //meta[@itemprop="sku"]/@content
     xpath: //b[contains(text(), "Cod.")]//../following-sibling::text()[1]
   - name: mpc
     singleValue: false
