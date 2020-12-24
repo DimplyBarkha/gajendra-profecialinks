@@ -54,9 +54,9 @@ const transform = (data, context) => {
         });
         row.manufacturerDescription = [{ text: manufacturerDescriptionArr.join('||'), xpath: row.manufacturerDescription[0].xpath }];
       }
-      // if (row.additionalDescBulletInfo && row.additionalDescBulletInfo[0] && row.additionalDescBulletInfo[0].text.length > 1) {
-      //   row.additionalDescBulletInfo[0].text = row.additionalDescBulletInfo[0].text.startsWith(' || ') ? row.additionalDescBulletInfo[0].text : ' || ' + row.additionalDescBulletInfo[0].text;
-      // }
+      if (row.additionalDescBulletInfo && row.additionalDescBulletInfo[0] && row.additionalDescBulletInfo[0].text.length > 1) {
+        row.additionalDescBulletInfo[0].text = row.additionalDescBulletInfo[0].text.startsWith(' || ') ? row.additionalDescBulletInfo[0].text : ' || ' + row.additionalDescBulletInfo[0].text;
+      }
       if (row.manufacturerImages) {
         const manufacturerImagesArr = row.manufacturerImages.map((item) => {
           return item.text;

@@ -1,29 +1,29 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: null
+recordXPath: //div[contains(@class,"shelf-default")]//ul//li[contains(@class,"produtos-para-cabelos---epoca-cosmeticos")]
 fields: 
   - name: name
     singleValue: false
-    xpath: //figcaption[@class="shelf-default__image--caption"]//a[@class="shelf-default__product-name"]
+    xpath: //div[contains(@class,"shelf-default")]//ul//li[contains(@class,"produtos-para-cabelos---epoca-cosmeticos")]//figcaption[@class="shelf-default__image--caption"]//a[@class="shelf-default__product-name"]
   - name: id
     singleValue: false
-    xpath: //ul//li//div[@class="shelf-default__item skip"]/@data-id
+    xpath: //div[contains(@class,"shelf-default")]//ul//li[contains(@class,"produtos-para-cabelos---epoca-cosmeticos")]//div[@class="shelf-default__item skip"]/@data-id
   - name: productUrl
     singleValue: false
-    xpath: //figure[@class="shelf-default__image"]//a[@class="shelf-default__image-link"]/@href
+    xpath: //div[contains(@class,"shelf-default")]//ul//li[contains(@class,"produtos-para-cabelos---epoca-cosmeticos")]//figure[@class="shelf-default__image"]//a[@class="shelf-default__image-link"]/@href
   - name: thumbnail
     singleValue: false
-    xpath: //a[@class="shelf-default__image-link"]//img//@src
+    xpath: //div[contains(@class,"shelf-default")]//ul//li[contains(@class,"produtos-para-cabelos---epoca-cosmeticos")]//a[@class="shelf-default__image-link"]//img//@src
   - name: price
     singleValue: false
-    xpath: //span[@itemprop="price"]
+    xpath: //div[contains(@class,"shelf-default")]//ul//li[contains(@class,"produtos-para-cabelos---epoca-cosmeticos")]//span[@itemprop="price"]
   - name: reviewCount
     singleValue: false
-    xpath: //span[@class="ts-shelf-right ts-shelf-rate-count ts-shelf-rate-enabled"]//span
+    xpath: //div[contains(@class,"shelf-default")]//ul//li[contains(@class,"produtos-para-cabelos---epoca-cosmeticos")]//span[@class="ts-shelf-right ts-shelf-rate-count ts-shelf-rate-enabled"]//span
   - name: aggregateRating
     singleValue: false
-    xpath: //div[contains(@class, "ts-shelf-rate-symbols ts-sprite")]/@style
+    xpath: //div[contains(@class,"shelf-default")]//ul//li[contains(@class,"produtos-para-cabelos---epoca-cosmeticos")]//div[contains(@class, "ts-shelf-rate-symbols ts-sprite")]/@style
     regExp: (\d+)
     regExpReplace: $1
   - name: rank
