@@ -51,6 +51,33 @@ module.exports = {
       }
     }
 
+    await context.evaluate(async () => {
+      const descEl = document.querySelector('#description-text');
+
+      if (descEl) {
+        const styleEl = descEl.querySelectorAll('style');
+
+        for (const el of styleEl) {
+          el.remove();
+        }
+      }
+
+      const videoThumbnailEl = document.querySelector('.miniatures-video a');
+
+      if (videoThumbnailEl) {
+        videoThumbnailEl.click();
+        const delay = ms => new Promise(res => setTimeout(res, ms));
+        await delay(6000);
+        const videoLoaded = document.querySelectorAll('#multimedia-preview li.video');
+
+        for (const item of videoLoaded) {
+          const newEl = document.createElement('import-video');
+          newEl.setAttribute('data', item.getAttribute('data-src'));
+          document.body.appendChild(newEl);
+        }
+      }
+    });
+
     // const cssProduct1 = 'div#description';
     // const cssProductDetails1 = 'button[data-read-more="Rozwiń pełny opis"]';
 

@@ -4,6 +4,7 @@ async function implementation (
   context,
   dependencies,
 ) {
+  console.log('started execute.js');
   let { url, id, zipcode, storeId } = inputs;
   if (!url) {
     if (!id) {
@@ -32,5 +33,5 @@ module.exports = {
     noResultsXPath: null,
     zipcode: '',
   },
-  implementation,
+  // implementation,
 };
