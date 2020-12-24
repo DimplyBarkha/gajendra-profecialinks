@@ -17,9 +17,10 @@ const transform = (data) => {
     } 
 
     function cleanText (str) {
-        return str.replace(/(\r\n|\n|\r)/gm, '').replace(/\s+/g, ' ').trim();
+    return str.replace(/(\r\n|\n|\r)/gm, '').replace(/\s+/g, ' ').trim();
     }
 
+    // const mainUrl = 'https://www.ozon.ru';
     const inputFieldValue = findKeyValue('input', data);
     const urlFieldValue = findKeyValue('url', data);
 
@@ -41,10 +42,6 @@ const transform = (data) => {
 
             if(fieldName.name){
                 fieldName.name[0].text = cleanText(fieldName.name[0].text);
-            }
-
-            if(fieldName.thumbnail){
-                fieldName.thumbnail[0].text = `https:${fieldName.thumbnail[0].text}`
             }
         });
     });

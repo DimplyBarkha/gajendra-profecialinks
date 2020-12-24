@@ -17,6 +17,7 @@ module.exports = {
   ) => {
     const { transform } = parameters;
     const { productDetails } = dependencies;
+    // await new Promise((resolve, reject) => setTimeout(resolve, 10000));
     context.evaluate(() => {
       function addElementToDocument (key, value) {
         const catElement = document.createElement('div');
