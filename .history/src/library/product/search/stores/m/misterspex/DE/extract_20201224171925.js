@@ -21,6 +21,7 @@ module.exports = {
     await context.setLoadAllResources(true);
     await context.setLoadImages(true);
     await new Promise((resolve, reject) => setTimeout(resolve, 1000));
+    // await context.waitForXPath('//div[contains(@id, "state-searchResults")]');
     context.evaluate(() => {
       function addElementToDocument (key, value) {
         const catElement = document.createElement('div');
