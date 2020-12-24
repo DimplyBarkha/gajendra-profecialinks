@@ -1,0 +1,149 @@
+
+singleRecord: true
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: image
+    singleValue: false
+    xpath: (//div[@class="c-product-gallery__item"])[1]//img//@src
+    regExp: (.+)
+    regExpReplace: https:$1
+  - name: imageAlt
+    singleValue: false
+    xpath: (//div[@class="swiper-slide ember-view swiper-slide-active"])[1]//img[@class="c-media-container__fallback-img lazyloaded"]/@alt
+  - name: alternateImages
+    singleValue: false
+    xpath: (//div[@class="c-product-gallery__item"])[position()>1]//img//@src
+    regExp: (.+)
+    regExpReplace: https:$1
+  - name: metaKeywords
+    singleValue: false
+    xpath: //meta[contains(@name, "keywords")]/@content
+  - name: category
+    singleValue: false
+    xpath: //ul[@class="c-breadcrumb__list"]/li[1]//following-sibling::li
+    #xpath: //script[@type="application/ld+json"][contains(text(),"category")]
+    #regExp: category":"([^"]+)
+    #regExpReplace: $1
+  - name: mpc
+    singleValue: false
+    xpath: //div[@class="c-product-tour__item-content"]/script/@data-flix-mpn
+  - name: nameExtended
+    singleValue: false
+    xpath: //h1[@class="c-product-detail__product-name"]/text()
+    # //meta[contains(@name, "description")]/@content
+  - name: listPrice
+    singleValue: false
+    #xpath: //div[contains(@class,'c-product-detail-infos__price-total')]
+  - name: price
+    singleValue: false
+    #xpath: //span[contains(@class,'c-product-detail-infos__price-discount-price')]
+    xpath: //div[contains(@class,'c-product-detail-infos__price-total')]
+  - name: availabilityText
+    singleValue: false
+    # xpath: //script[@type="application/ld+json"][contains(text(),'"availability":"https://schema.org/InStock"')]
+    xpath: //div[@class="c-product-detail-infos__delivery-block"]//div[contains(@class, "c-delivery-state__state") and contains(text(), "Artikel nicht mehr erhältlich")]/text()
+    regExp: (.+)
+    regExpReplace: Out of Stock
+    defaultValue: In Stock
+    #type: NUMBER
+  - name: brandText
+    singleValue: false
+    #xpath: //div[@id='ember47']//img[@class='c-media-container__fallback-img lazyloaded']/@title
+    xpath: //div[@class="c-product-tour__item-content"]/script/@data-flix-brand
+    #//div[@class='c-product-detail__header']//img[@class='c-media-container__fallback-img lazyloaded']/@title
+  - name: manufacturer
+    singleValue: false
+    xpath: //div[@class="c-product-tour__item-content"]/script/@data-flix-brand
+    #  //span[@class='c-product-detail-infos__manufacturer-code'][1]
+  - name: sku
+    singleValue: false
+    xpath: //script[@type="application/ld+json"][contains(text(),"sku")]
+    regExp: sku":"([^"]+)
+    regExpReplace: $1
+  - name: ratingCount
+    singleValue: false
+    #type: NUMBER
+    xpath: //script[@type="application/ld+json"][contains(text(),"reviewCount")]
+    regExp: reviewCount":([^,]+)
+    regExpReplace: $1
+  - name: aggregateRating
+    singleValue: false
+    #type: NUMBER
+    xpath: //script[@type="application/ld+json"][contains(text(),"ratingValue")]
+    regExp: ratingValue":"([^"]+)
+    regExpReplace: $1
+  - name: name
+    singleValue: false
+    xpath: //h1[@class='c-product-detail__product-name']
+  - name: manufacturerImages
+    singleValue: false
+    xpath: //div[@class="manufactureImages"]
+    #xpath: //div[@id="inpage_container"]//img/@src
+    #xpath: //div[@class="c-product-tour__item-content"]//img/@data-flixsrcset
+      #//div[@class="c-product-tour__item-content"]//img/@srcset
+    #//ul[@class="inpage_features_grid"]//li/div/img/@srcset
+    #xpath: //img[contains(@data-src,'//www.nettoshop.ch/img/common_manufacturer')]/@src
+    regExp: (https:)?(.+)
+    regExpReplace: https:$2
+  - name: manufacturerDescription
+    xpath: //div[@id="inpage_container"]//div[contains(@class,"flix-Text-block" ) or contains(@class,"inpage_ftgridtext")]//div/text() | //div[@id="inpage_container"]//div[contains(@class,"content")]
+    #xpath: //div[@id="inpage_container"]//div[contains(@class,"flix-Text-block" ) or contains(@class,"inpage_ftgridtext")]
+    #xpath: //div[@id="inpage_container"]//div[contains(@class,"flix-Text-block" ) or contains(@class,"flix-std-content") or contains(@class,"inpage_block") or contains(@class,"flix-std-content") or contains(@class,"inpage_ftgridtext")]
+  - name: description
+    singleValue: false
+    xpath: //div[contains(@class,'c-accordion__text')]
+    #xpath: //meta[contains(@name, "og:description")]/@content
+  - name: descriptionBullets
+    singleValue: false
+  # - name: shippingInfo
+  #   singleValue: false
+  #   xpath: concat(//div[contains(@class,'c-product-info-label__state')], //div[contains(@class,'c-delivery-state__state')])
+  - name: shippingDimensions
+    singleValue: false
+    #description: Stated shipping dimensions
+    #xpath: concat(//dt[contains(text(),"Höhe (Produkt)")]//following-sibling::dd//div[text()], ' X ', //dt[contains(text(),"Breite (Produkt)")]//following-sibling::dd//div[text()],' X ', //dt[contains(text(),"Tiefe (Produkt)")]//following-sibling::dd//div[text()])
+  - name: weightNet
+    singleValue: false
+    xpath: //dt[contains(text(),"Gewicht")]//following-sibling::dd//div[text()]
+  - name: warranty
+    singleValue: false
+    xpath: //dt[contains(text(),"Garantie")]/following-sibling::dd//div[@class="c-product-specifications__table-value"][text()]
+  - name: specifications
+    singleValue: false
+    # xpath: //div[contains(@class,'c-accordion__text')]
+    # xpath: //div[@class="c-product-specifications ember-view"]
+    xpath: //strong[contains(.,'Produktdaten')]//following-sibling::text() | //div[contains(@class,"c-product-specifications ember-view")]/table
+  - name: gtin
+    singleValue: false
+    xpath: //script[@type="application/ld+json"][contains(text(),"gtin12")]
+    regExp: gtin12":"([^"]+)
+    regExpReplace: $1
+  - name: color
+    singleValue: false
+    xpath: //dt[contains(text(),"Produkt Farbe")]/following-sibling::dd//div[@class="c-product-specifications__table-value"][text()]
+  - name: energyEfficiency
+    singleValue: false
+    xpath: //dt[contains(text(),"Energieeffizienzklasse")]/following-sibling::dd//div[text()]
+  - name: variantId
+    singleValue: false
+    xpath: //script[@type="application/ld+json"][contains(text(),"sku")]
+    regExp: sku":"([^"]+)
+    regExpReplace: $1
+  - name: variantCount
+    singleValue: false
+    xpath: count(//div[contains(@id,"variation")]//ul[contains(@class, "swatch")]/li)
+    defaultValue: 0
+  - name: videos
+    singleValue: false
+    xpath: //div[@class="productVideos"]
+    # //div[@class="flix-videodiv "]//@src
+  - name: inTheBoxUrl
+    singleValue: false
+    xpath: //div[@class="inpage_selector_InTheBox"]//img/@src
+    description: Must include image url to show the accessories/tools which come with the product
+  - name: inTheBoxText
+    singleValue: false
+    xpath: //th[text()='Lieferumfang']/following-sibling::td//span
+    description: Must include text to show the accessories/tools which come with the product
