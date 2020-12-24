@@ -13,8 +13,8 @@ fields:
     xpath: //td[@class="priceData depth_2"]//td[@class="formattedValue depth_3"]
     regExp: €\s(\d+,\d+)
     regExpReplace: $1
-  # - name: searchUrl
-  #   xpath: '@search-url'
+  - name: searchUrl
+    xpath: //td[@class="currentQuery depth_0"]//td[@class="url depth_1"]
   - name: productUrl
     xpath: //td[contains(@class,"url depth_1")]
     regExp: (.+)
