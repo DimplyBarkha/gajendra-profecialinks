@@ -35,6 +35,23 @@ module.exports = {
     };
     await new Promise((resolve, reject) => setTimeout(resolve, 1000));
     await applyScroll(context);
+    await context.evaluate(async function () {
+      const URL = window.location.href;
+      function addHiddenDiv (id, content, index) {
+        const newDiv = document.createElement('div');
+        newDiv.id = id;
+        newDiv.textContent = content;
+        newDiv.style.display = 'none';
+        const originalDiv = document.querySelectorAll('div.shelf-default.prateleira ul li.produtos-para-cabelos---epoca-cosmeticos')[index];
+        originalDiv.appendChild(newDiv);
+        console.log('child appended ' + index);
+      }
+      const product = document.querySelectorAll('div.shelf-default.prateleira ul li.produtos-para-cabelos---epoca-cosmeticos');
+      // select query selector and loop and add div
+      for (let i = 0; i < product.length; i++) {
+        addHiddenDiv('search_url', URL, i);
+      }
+    });
     return await context.extract(productDetails, { transform });
   },
 };
