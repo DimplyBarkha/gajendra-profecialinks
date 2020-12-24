@@ -64,3 +64,6 @@ fields:
   - name: manufacturerName
     singleValue: true
     xpath: //h1[contains(@class, 'product attribute manufacturer')]/a
+  - name: sku
+    singleValue: true
+    xpath: //div/form[contains(@id, 'product_addtocart_form')]/@data-product-sku
