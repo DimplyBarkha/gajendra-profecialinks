@@ -1,11 +1,11 @@
-const { transform } = require('../../../../shared');
+const { transform } = require('./format');
 
 module.exports = {
   implements: 'product/details/extract',
   parameterValues: {
     country: 'IE',
     store: 'soundstore',
-    transform: transform,
+    transform,
     domain: 'soundstore.ie',
     zipcode: '',
   },
