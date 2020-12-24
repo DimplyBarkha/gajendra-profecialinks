@@ -34,15 +34,16 @@ module.exports = {
         else result = elem ? elem.singleNodeValue : '';
         return result && result.trim ? result.trim() : result;
       };
-      var backgroundURL = getAllXpath('(//div[@class="small-12 medium-12 large-12 columns"])[1]//text()', 'nodeValue');
+      let selectElement3 = document.getElementsByClassName('mk-product-tech-specifications-item small-12 medium-6 large-6 columns float-left');
       var xyz = []
-      for(var i=0; i<backgroundURL.length ; i++){
-      if(backgroundURL[i].length > 1){
-      xyz.push(backgroundURL[i]);
-      }
-      }
-      var specification =xyz.join(" || ");
-      addElementToDocument('specification', specification);
+      for(var i=0; i<selectElement3.length ; i++){ 
+        let selectElement4 = document.getElementsByClassName('mk-product-tech-specifications-item small-12 medium-6 large-6 columns float-left')[i].innerHTML;
+        let value1 = selectElement4.replace(/<div[^>]*>|<\/div>/gi, "").replace(/\n/g, " ").replace(/<p[^>]*>|<\/p>/gi,'').replace(/<strong[^>]*>|<\/strong>/gi,'');
+        xyz.push(value1);
+        // let value1= selectElement4.getElementsByClassName('mk-product-tech-title');
+        }
+        var specification =xyz.join("||");
+        addElementToDocument('specification', specification);
       // @ts-ignore
       const rawdata = document.querySelectorAll('script[type="application/ld+json"]')[1].innerText;
       const jsondata = JSON.parse(rawdata);

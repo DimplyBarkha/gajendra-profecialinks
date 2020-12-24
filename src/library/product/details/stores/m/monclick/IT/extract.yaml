@@ -32,6 +32,7 @@ fields:
     singleValue: true
     description: The stated undiscounted price for the product
     xpath: (//span[@class="price-catalog"])[1]
+    type: CURRENCY
   - name: price
     singleValue: true
     description: The offered price for the selected product variant - if a user
@@ -72,6 +73,7 @@ fields:
   - name: weightNet
     singleValue: true
     description: Net weight as described on the page
+    xpath: (//strong[contains(text(),'Peso')]/following::div[1]/p)[1]
   - name: weightGross
     singleValue: true
     description: Gross weight as described on the page
@@ -112,7 +114,7 @@ fields:
   - name: aggregateRatingText
     singleValue: true
     description: The stated aggregate rating
-  - name: aggregateRating2
+  - name: aggregateRating
     singleValue: true
     description: The stated aggregate rating normalized to be out of 5
     xpath: //div[@id="aggregateRating"]
@@ -130,7 +132,7 @@ fields:
     singleValue: true
     description: Number of variants listed
     type: NUMBER
-    defaultValue: 1
+    defaultValue: 0
   - name: color
     singleValue: true
     description: A textual description of the colour
@@ -140,9 +142,11 @@ fields:
   - name: manufacturerDescription
     singleValue: false
     description: The extended description of the product supplied by the lister
+    xpath: //*[contains(@class,'wc-rich-content-header wc-feature-main-header ')]/following::div[1][@class="wc-rich-content-description"]//text()
   - name: manufacturerImages
     singleValue: false
     description: Images within the third party description
+    xpath: //ul/li/div[@class="wc-media-wrap"]/div/img/@src
   - name: videos
     singleValue: false
     description: URLs of videos on page
@@ -407,6 +411,7 @@ fields:
   - name: warranty
     singleValue: true
     description: Guarantee associated with the product
+    xpath: (//strong[contains(text(),'Garanzia')]/following::div[1]/p)[1]
   - name: storage
     singleValue: true
     description: Suggested storage location for product
@@ -431,11 +436,11 @@ fields:
   - name: pricePerUnit
     singleValue: true
     description: Price of the product split into certain units
-    xpath: (//div[@class="big mk-award price offer"])[1]
+    # xpath: (//div[@class="big mk-award price offer"])[1]
   - name: pricePerUnitUom
     singleValue: true
     description: The unit of measurement used in price_per_unit
-    xpath: (//span[@class="price-catalog"])[1]
+    # xpath: (//span[@class="price-catalog"])[1]
   - name: promotion
     singleValue: true
     description: promotion text on product page
