@@ -80,7 +80,7 @@ fields:
       e.g. "Visit the Gillette Store"
     xpath: //div[@id='mz_titlePrice']//h1
     regExp: (Dyson)
-    regExpReplace: $1 
+    regExpReplace: $1
     #xpath: //div[@itemprop='brand']//span
   - name: manufacturer
     singleValue: true
@@ -559,10 +559,10 @@ fields:
     defaultValue: No
   - name: inTheBoxText
     singleValue: false
-    xpath: //div[@class='eky-accesory-container']/div[@class='eky-accessory']/div[@class='eky-accesory-title']
+    xpath: //div[@class='eky-accesory-container']/div[@class='eky-accessory']/div[@class='eky-accesory-title']|//div[@class='inpage_selector_InTheBox']//div[contains(@class,'flix-std-desc')]
   - name: inTheBoxUrl
     singleValue: false
-    xpath: //div[@class='eky-accesory-container']/div[@class='eky-accessory']/img/@src
+    xpath: //div[@class='eky-accesory-container']/div[@class='eky-accessory']/img/@src|//div[@class='inpage_selector_InTheBox']//div[@class='flix-background-image']/img/@data-flixsrcset
   - name: hasComparisonTable
     singleValue: true
     defaultValue: No
