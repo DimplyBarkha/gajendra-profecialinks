@@ -27,6 +27,11 @@ const transform = (data) => {
           itemDescription.text = itemDescription.text.replace('Brand details', '');
         });
       }
+      if (row.price) {
+        row.price.forEach(priceItem => {
+          priceItem.text = priceItem.text.replace('$', '');
+        });
+      }
       if (row.quantity) {
         row.quantity.forEach(quantityItem => {
           quantityItem.text = quantityItem.text.replace('(', '').replace(')', '');

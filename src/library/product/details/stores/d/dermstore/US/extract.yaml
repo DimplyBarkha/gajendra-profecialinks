@@ -23,15 +23,15 @@ fields:
     xpath: //meta[@property="og:title"]/@content
   - name: price
     singleValue: false
-    xpath: //div[@id="pricing"]/meta[@itemprop="price"]/@content
+    xpath: //div[@id="pricing"]/meta[@itemprop="price"]/@content | //div[contains(@id,"soldOut")]//p//strong
     description: The offered price for the selected product variant - if a user
       clicks add to basket this is the price they would be charged
   - name: availabilityText
     singleValue: false
     xpath: //button[@id="addBtn"]
     regExp: (.+)
-    regExpReplace: In Stock
-    defaultValue: Out of Stock
+    regExpReplace: In stock
+    defaultValue: Out of stock
   - name: description
     singleValue: false
     xpath: //div[@id="Added_description"]
@@ -74,7 +74,7 @@ fields:
     description: Identifier for a variant from a store where variants share the same sku
   - name: mpc
     singleValue: false
-    xpath: //meta[contains(@itemprop,"mpn")]/@content
+    xpath: (//meta[contains(@itemprop,"mpn")]/@content)[1]
     description: The manufacturer model code (unique) of the product
   - name: packSize
     singleValue: false
@@ -91,14 +91,14 @@ fields:
     description: Content under "warnings" header
   - name: ratingCount
     singleValue: false
-    xpath: //meta[contains(@itemprop,"reviewCount")]/@content
+    xpath: (//meta[contains(@itemprop,"reviewCount")]/@content)[1]
     description: The number of ratings
   - name: aggregateRatingText
     singleValue: false
     description: The stated aggregate rating
   - name: aggregateRating
     singleValue: false
-    xpath: //meta[contains(@itemprop,"ratingValue")]/@content
+    xpath: (//meta[contains(@itemprop,"ratingValue")]/@content)[1]
     description: The stated aggregate rating normalized to be out of 5
   - name: shippingInfo
     singleValue: false
