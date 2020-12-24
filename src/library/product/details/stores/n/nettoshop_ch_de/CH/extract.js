@@ -39,7 +39,7 @@ module.exports = {
         // @ts-ignore
         var brand = window.utag_data;
         allElement('brand', brand._cbrand[0], 0);
-        allElement('quantity', brand.product_attributes_quantity[0], 0);
+        // allElement('quantity', brand.product_attributes_quantity[0], 0);
       } catch (error) {
 
       }
