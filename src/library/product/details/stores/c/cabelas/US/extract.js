@@ -132,6 +132,13 @@ module.exports = {
         addElementToDocument('varinfo', varinfo);
       }
 
+      var brand = getXpath('(//a[@class="logo-size"]/img)[1]/@alt', 'nodeValue');
+      if(brand != null){
+        brand = brand.split(" ")[0];
+        addElementToDocument('brand', brand);
+      }
+
+
     });
     await context.extract(productDetails);
   },
