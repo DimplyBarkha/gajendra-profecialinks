@@ -30,16 +30,10 @@ fields:
   - name: price
     singleValue: false
     xpath: //span[@class="d-block price__por"]
-  - name: online_price
-    singleValue: false
-    xpath: //span[@class="d-block price__por"]
-  - name: online_price_currency
-    singleValue: false
-    xpath: //meta[@name="currency"]/@content
-  - name: shipping_details
+  - name: shippingInfo
     singleValue: false
     xpath: //div[@class="seller__info d-none d-sm-block mt-4"]/p
-  - name: variant_information
+  - name: variantInformation
     singleValue: false
     xpath: //div[@class="sku__selected js-sku-selected"]
   - name: availabilityText
