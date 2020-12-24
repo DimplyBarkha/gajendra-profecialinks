@@ -248,6 +248,7 @@ fields:
 - name: secondaryImageTotal
   singleValue: true
   description: 
+  xpath: count(//div[contains(@class, "gallery-carousel")]//div[@class="owl-stage"]/div[contains(@class,"owl-item")][position()>1])
 - name: news
   singleValue: true
   description: 
