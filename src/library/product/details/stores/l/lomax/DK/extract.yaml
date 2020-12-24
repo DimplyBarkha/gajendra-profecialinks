@@ -26,9 +26,11 @@ fields:
   - name: listPrice
     singleValue: true
     xpath: //meta[@property="product:pretax_price:amount"]/@content
+    type: CURRENCY
   - name: price
     singleValue: true
     xpath: //meta[@property="product:price:amount"]/@content
+    type: CURRENCY
   - name: availabilityText
     singleValue: true
     xpath: //div[@class="container productcard"]/@data-gtm-stock-status  
@@ -61,6 +63,7 @@ fields:
     xpath: //div[@class="container productcard"]/@data-rr-product-id
   - name: variantId
     singleValue: true
+    xpath: //div[@class="container productcard"]/@data-rr-product-id
   - name: mpc
     singleValue: true
     xpath: //table[@class="table mb-0"]/tbody/tr/th[contains(text(),'Producentvarenr.')]/following-sibling::td
@@ -80,6 +83,7 @@ fields:
   - name: aggregateRating
     singleValue: true
     xpath: //div[@class="container productcard"]/@data-gtm-rating
+    type: NUMBER
   - name: shippingInfo
     singleValue: true
   - name: shippingDimensions
