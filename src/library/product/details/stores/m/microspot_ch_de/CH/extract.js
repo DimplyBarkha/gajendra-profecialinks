@@ -10,9 +10,13 @@ module.exports = {
   },
   implementation: async ({ inputstring }, { country, domain }, context, { productDetails }) => {
     await context.evaluate(async () => {
-      // @ts-ignore
-      document.querySelector('div[class="_3BsNnh"]').click()
-      await new Promise(r => setTimeout(r, 6000));
+      try {
+        // @ts-ignore
+        document.querySelector('div[class="_3BsNnh"]').click()
+        await new Promise(r => setTimeout(r, 6000));
+      } catch (error) {
+
+      }
 
       function addElementToDocument(key, value) {
         const catElement = document.createElement('div');
@@ -48,93 +52,95 @@ module.exports = {
         });
       }
 
-        // removing duplicates url from alternateImage
-        // var alt = getAllXpath('(//div[@class="_165CLk"]/img/@src)[position()>1]', 'nodeValue');
-        // if (alt != null) {
-        //   var altImg = uniq(alt);
-        //   addElementToDocument('altImg', altImg);
+      // removing duplicates url from alternateImage
+      // var alt = getAllXpath('(//div[@class="_165CLk"]/img/@src)[position()>1]', 'nodeValue');
+      // if (alt != null) {
+      //   var altImg = uniq(alt);
+      //   addElementToDocument('altImg', altImg);
+      // }
+
+      // removing duplicates url from alternateImage
+      var alt = getAllXpath('(//div[@class="_165CLk"]/img/@src)[position()>1]', 'nodeValue');
+      if (alt != null) {
+        var altImg = uniq(alt);
+        altImg.pop();
+        var len = altImg.length;
+        addElementToDocument('len', len);
+        // if(altImg.length > 1 ){
+        var sec_img = altImg.join(" | ");
+        addElementToDocument('sec_img', sec_img);
         // }
+      }
 
-        // removing duplicates url from alternateImage
-        var alt = getAllXpath('(//div[@class="_165CLk"]/img/@src)[position()>1]', 'nodeValue');
-        if (alt != null) {
-          var altImg = uniq(alt);
-          altImg.pop();
-          var len = altImg.length;
-          addElementToDocument('len', len);
-          // if(altImg.length > 1 ){
-            var sec_img = altImg.join(" | ");
-          addElementToDocument('sec_img', sec_img);
-          // }
-        }
-
-        //specication
-        var css1 = document.querySelectorAll('div[data-test-1="true"]>div[class="_1k-W7f"]>table>tbody>tr');
-        if(css1 != null){
-          var final_spec = "";
-          for(var i=0; i<css1.length; i++){
-            for(var j=0; j<2; j++){
-              final_spec = final_spec + css1[i].childNodes[j].textContent;
-              if(j%2 == 1){
-                final_spec = final_spec + " || ";
-              }else{
-                final_spec = final_spec + ":";
-              }
+      //specication
+      var css1 = document.querySelectorAll('div[data-test-1="true"]>div[class="_1k-W7f"]>table>tbody>tr');
+      if (css1 != null) {
+        var final_spec = "";
+        for (var i = 0; i < css1.length; i++) {
+          for (var j = 0; j < 2; j++) {
+            final_spec = final_spec + css1[i].childNodes[j].textContent;
+            if (j % 2 == 1) {
+              final_spec = final_spec + " || ";
+            } else {
+              final_spec = final_spec + ":";
             }
           }
-          final_spec = final_spec.slice(0,-3);
-          addElementToDocument('final_spec', final_spec);
         }
+        final_spec = final_spec.slice(0, -3);
+        addElementToDocument('final_spec', final_spec);
+      }
 
-        // aggregateRating 
-        var txt = getXpath('//script[@id="INITIAL_STATE"]/text()', 'nodeValue');
-        if(txt != null){
-          var rating = txt.split('ratingAvg":')[1];
-          rating = rating.split(",")[0];
-          addElementToDocument('rating', rating);
+      // aggregateRating 
+      var txt = getXpath('//script[@id="INITIAL_STATE"]/text()', 'nodeValue');
+      if (txt != null) {
+        var rating = txt.split('ratingAvg":')[1];
+        rating = rating.split(",")[0];
+        addElementToDocument('rating', rating);
+      }
+
+      //rating count
+      if (txt != null) {
+        var reviews = txt.split('ratingCount":')[1];
+        reviews = reviews.split(",")[0];
+        addElementToDocument('reviews', reviews);
+      }
+
+      // availability
+      if (txt != null) {
+        var aval = txt.split('availability":')[1];
+        aval = aval.split(",")[0];
+        aval = aval.slice(1, -1);
+        if (aval.includes("in")) {
+          aval = "In Stock"
+        } else {
+          aval = "Out of Stock"
         }
+        addElementToDocument('aval', aval);
+      }
 
-        //rating count
-        if(txt != null){
-          var reviews = txt.split('ratingCount":')[1];
-          reviews = reviews.split(",")[0];
-          addElementToDocument('reviews', reviews);
-        }
-
-        // availability
-        if(txt != null){
-          var aval = txt.split('availability":')[1];
-          aval = aval.split(",")[0];
-          aval = aval.slice(1,-1);
-          if(aval.includes("in")){
-            aval = "In Stock"
-          }else{
-            aval = "Out of Stock"
-          }
-          addElementToDocument('aval', aval);
-        }
-
-        //uan 
-        if(txt != null){
-          if(txt.includes("ean")){
-            var uan = txt.split('ean":')[1];
+      //uan 
+      if (txt != null) {
+        if (txt.includes("ean")) {
+          var uan = txt.split('ean":')[1];
+          if(uan != undefined){
             uan = uan.split(",")[0];
-            uan = uan.slice(1,-1);
+            uan = uan.slice(1, -1);
             addElementToDocument('uan', uan);
           }
         }
+      }
 
-        //ppu
-        var ppp = 0;
-        addElementToDocument('ppp', ppp);
+      //ppu
+      var ppp = 0;
+      addElementToDocument('ppp', ppp);
 
-        var ship = getXpath('//meta[@name="application-name"]/@content', 'nodeValue');
-        if(ship != null){
-          ship = "Sold by: "+ ship;
-          addElementToDocument('ship', ship);
-        }
+      var ship = getXpath('//meta[@name="application-name"]/@content', 'nodeValue');
+      if (ship != null) {
+        ship = "Sold by: " + ship;
+        addElementToDocument('ship', ship);
+      }
 
-      });
+    });
     await context.extract(productDetails);
   },
 };
