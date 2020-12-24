@@ -1,8 +1,11 @@
-extends: ../shared 
+singleRecord: true
+regionsSelector: null
+recordSelector: null
+recordxpath: null
 fields:
   - name: image
     description: URL of the main product image
-    xpath: //div[@class="hgroup__main-image"]/img/@src|//div[@class="image image--stretch"]/picture/img/@src
+    xpath: //div[@class="hgroup__main-image"]/img/@src | //div[@class="image image--stretch"]/picture/img/@src
   - name: pageTimeStamp
     xpath: //div[@id="pageTimeStamp"]
   - name: productUrl
