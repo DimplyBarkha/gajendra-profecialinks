@@ -1,3 +1,4 @@
+// @ts-nocheck
 const { transform } = require('../transform');
 
 module.exports = {
@@ -42,6 +43,26 @@ module.exports = {
     popUps();
 
     try {
+      await context.evaluate(async () => {
+        // document.querySelector('section#description').scrollIntoView({ behavior: 'smooth' });
+        // const desc = Boolean(document.querySelector('div[class*="FallbackDescription"]'));
+        // if (desc) {
+        //   document.querySelector('div[class*="FallbackDescription"]').scrollIntoView({ behavior: 'smooth' });
+        // }
+        async function infiniteScroll () {
+          let prevScroll = document.documentElement.scrollTop;
+          while (true) {
+            window.scrollBy(0, document.documentElement.clientHeight);
+            await new Promise(resolve => setTimeout(resolve, 2000));
+            const currentScroll = document.documentElement.scrollTop;
+            if (currentScroll === prevScroll) {
+              break;
+            }
+            prevScroll = currentScroll;
+          }
+        }
+        await infiniteScroll();
+      });
       await context.waitForSelector('div[class^="RichProductDescription"] button', { timeout: 45000 });
     } catch (error) {
       console.log('Not loading manufacturer button');
@@ -88,7 +109,7 @@ module.exports = {
         const iframeURLLink = await context.evaluate(async function () {
           return document.querySelector('iframe[id^="loadbee"]').getAttribute('src');
         });
-        const obj = await sharedhelpers.goToiFrameLink(iframeURLLink, link, 'body img', 'data-src', null, null, '.in-the-box', '.compare-headline');
+        const obj = await sharedhelpers.goToiFrameLink(iframeURLLink, link, 'body img', 'src', null, null, '.in-the-box', '.compare-headline');
         image = obj.image;
         content = obj.content;
         inBoxText = obj.inBoxText;
@@ -106,7 +127,43 @@ module.exports = {
         await sharedhelpers.addHiddenInfo('manufContent', content);
         await sharedhelpers.addHiddenInfo('manufImg', image.join(' || '));
       } catch (err) {
-        console.log('Looks like the website may not have manufacturer content');
+        try {
+          await context.click('div[class^="RichProductDescription"] button');
+          const delay = t => new Promise(resolve => setTimeout(resolve, t));
+          await delay(2000);
+          await context.waitForSelector('#inpage_container', { timeout: 30000 });
+          await context.waitForSelector('.flix-feature-image img', { timeout: 30000 });
+          await context.evaluate(() => {
+            const imgs = [...document.querySelectorAll('.flix-feature-image img')];
+            const images = [];
+            imgs.forEach(img => {
+              const src = img.dataset.srcset;
+              const value = src.includes('https:') ? src : 'https:' + src;
+              images.push(value);
+            });
+            const manuImages = images.join(' || ');
+            const div = document.createElement('div');
+            div.id = 'manufImg';
+            div.innerText = manuImages;
+            document.body.append(div);
+          });
+          await context.evaluate(() => {
+            const desc = document.evaluate(
+              '//div[@class="flix-std-title"] | //div[contains(@class,"showlesscontent")]/text() | //div[contains(@class,"showlesscontent")]//span[@class="flix-sec"]',
+              document, null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
+            const des = [];
+            for (let i = 0; i < desc.snapshotLength; i++) {
+              des.push(desc.snapshotItem(i).textContent);
+            }
+            const manuContent = des.join('');
+            const div = document.createElement('div');
+            div.id = 'manufContent';
+            div.innerText = manuContent;
+            document.body.append(div);
+          });
+        } catch (e) {
+          console.log('Looks like the website may not have manufacturer content');
+        }
       }
     }
 
@@ -115,47 +172,13 @@ module.exports = {
     const productID = await sharedhelpers.getEleByXpath('(//span[contains(@class, "DetailsHeader__")]//span)[1]');
 
     async function graphQLCallObj (productID) {
-      const obj = await context.evaluate(async function (productID) {
-        function addHiddenDiv (id, content) {
-          const newDiv = document.createElement('div');
-          newDiv.id = id;
-          newDiv.textContent = content;
-          newDiv.style.display = 'none';
-          document.body.appendChild(newDiv);
-        }
-
-        async function getData (url) {
-          let data = {};
-
-          const response = await fetch(url, {
-            accept: 'application/json, text/plain, */*',
-            referrer: window.location.href,
-            referrerPolicy: 'no-referrer-when-downgrade',
-            body: null,
-            method: 'GET',
-            mode: 'cors',
-          });
-
-          if (response && response.status === 404) {
-            console.log('Product Not Found!!!!');
-            return data;
-          }
-
-          if (response && response.status === 200) {
-            console.log('Product Found!!!!');
-            data = await response.json();
-            return data;
-          }
-        };
-
-        console.log(productID);
-
+      const upc = await context.evaluate(async function (productID) {
         const productIDText = productID.replace('| Art.-Nr. ', '').replace(' | ', '').trim();
         const graphQLCall = `GraphqlProduct:${productIDText}`;
         console.log(graphQLCall);
-        // eslint-disable-next-line prefer-const
-        let videos = [];
+        const videos = [];
         let ean = null;
+        let allVideos = '';
         if (window.__PRELOADED_STATE__ && window.__PRELOADED_STATE__.apolloState && window.__PRELOADED_STATE__.apolloState[graphQLCall]) {
           console.log(window.__PRELOADED_STATE__.apolloState[graphQLCall]);
           if (window.__PRELOADED_STATE__.apolloState[graphQLCall].ean) {
@@ -164,40 +187,129 @@ module.exports = {
           if (window.__PRELOADED_STATE__.apolloState[graphQLCall].assets) {
             const totalAssets = window.__PRELOADED_STATE__.apolloState[graphQLCall].assets;
             totalAssets.forEach(async function (element) {
-              if (window.__PRELOADED_STATE__.apolloState[element.id].usageType === 'Video') {
-                const url = window.__PRELOADED_STATE__.apolloState[element.id].link;
-                const result = await getData(url);
-                console.log(result);
-                if (result !== null && Object.keys(result).length) {
-                  console.log(result);
-                  result.forEach((element) => {
-                    console.log(element);
-                    const videosResults = element.videos !== null ? element.videos : [];
-                    console.log(videosResults);
-                    videosResults.forEach(async function (video) {
-                      console.log(video);
-                      const videoText = video.links[0].location;
-                      videos.push(videoText.replace('/thumb/', '/vm/'));
-                    });
-                  });
+              if (element.usageType === 'Video') {
+                const url = element.link;
+                const response = await fetch(url, {
+                  accept: 'application/json, text/plain, */*',
+                  referrer: window.location.href,
+                  referrerPolicy: 'no-referrer-when-downgrade',
+                  body: null,
+                  method: 'GET',
+                  mode: 'cors',
+                });
+
+                if (response && response.status === 404) {
+                  console.log('Product Not Found!!!!');
                 }
-                addHiddenDiv('ii_videos', videos.join(' || '));
+
+                if (response && response.status === 200) {
+                  console.log('Product Found!!!!');
+                  const data = await response.json();
+                  console.log(data);
+                  if (data.length === 1) {
+                    const vids = data[0].videos;
+                    vids.forEach(vid => {
+                      let link = vid.links[0].location;
+                      link = link.replace('/thumb/', '/vm/');
+                      videos.push(link);
+                    });
+                    allVideos = videos.join(' | ');
+                    console.log('ALL VIDEOS: ' + allVideos);
+                    const div = document.createElement('div');
+                    div.id = 'all-videos';
+                    div.innerText = allVideos;
+                    document.body.append(div);
+                  }
+                }
               }
             });
           }
         }
-        console.log('{ videos: videos, ean: ean }');
-        console.log({ videos: videos, ean: ean });
-        return { videos: videos, ean: ean };
+        return ean;
       }, productID);
-      return obj;
+      return upc;
     }
-    const graphQLObj = await graphQLCallObj(productID);
+    const UPC = await graphQLCallObj(productID);
 
-    if (graphQLObj !== null) {
-      await sharedhelpers.addHiddenInfo('ii_ean', graphQLObj.ean);
-      await sharedhelpers.addHiddenInfo('ii_videos1', graphQLObj.videos.join(' || '));
+    if (UPC !== null) {
+      await sharedhelpers.addHiddenInfo('ii_ean', UPC);
     }
+
+    // For alternate images
+    try {
+      await context.evaluate(() => {
+        const next = document.querySelector('div[data-test="mms-th-gallery"] div[direction="next"][style*="block"]');
+        if (next) {
+          next.click();
+        }
+      });
+    } catch (e) {
+      console.log(e.message);
+    }
+
+    // For additional description
+    try {
+      await context.evaluate(() => {
+        const desc = document.evaluate(
+          '//section[@id="description"]//div[@data-test="mms-accordion-description"]/*',
+          document, null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null,
+        );
+        let text = '';
+        let counter = 0;
+        for (let i = 0; i < desc.snapshotLength; i++) {
+          const item = desc.snapshotItem(i);
+          let t = '';
+          if (item.querySelector('a')) {
+            item.querySelector('a').innerText = '';
+          }
+          if (item.querySelector('button')) {
+            item.querySelector('button').innerText = '';
+          }
+          if (item.nodeName === 'UL' || item.querySelector('ul')) {
+            const lis = [...item.querySelectorAll('li')];
+            lis.forEach(li => {
+              counter++;
+              t = t + (t ? ' || ' : '') + li.innerText;
+            });
+            item.innerText = ' || ' + t + ' | ';
+          }
+          text = text + (text ? ' ' : '') + item.innerText;
+        }
+        if (text === '' || text === null) {
+          text = document.querySelector('div[class*="FallbackDescription"]').innerText;
+        }
+        text = text.replace(/(\|\s?)$/, '');
+        const div = document.createElement('div');
+        div.id = 'additional-description';
+        div.innerText = text;
+        document.body.append(div);
+        document.body.setAttribute('bullets', counter);
+      });
+    } catch (e) {
+      console.log(e.message);
+    }
+
+    await context.evaluate(() => {
+      const moreFeatures = document.querySelector('button[class*="ProductFeatures"]');
+      if (moreFeatures) {
+        moreFeatures.click();
+      }
+    });
+
+    // For unInterruptedPDP
+    try {
+      await context.evaluate(async () => {
+        const scrollDiv = document.querySelector('#accessories');
+        if (scrollDiv) {
+          console.log('SCROLL DIV EXISTS');
+          scrollDiv.scrollIntoView({ behavior: 'smooth' });
+        }
+      });
+      await context.waitForXPath('//div[contains(@class, "RecommendationSlider")]//p[@data-test="product-title"] | //div[contains(@class, "slick-slide")]//p[@data-test="product-title"]');
+    } catch (e) {
+      console.log(e.message);
+    }
+
     await context.extract(productDetails, { transform });
   },
 };

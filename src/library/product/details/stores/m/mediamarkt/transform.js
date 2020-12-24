@@ -106,27 +106,27 @@ const transform = (data, context) => {
         });
       }
 
-      if (row.manufacturerDescription) {
-        let text = '';
-        console.log(row.manufacturerDescription);
-        row.manufacturerDescription.forEach(item => {
-          text += item.text.replace(/\s{2,}/g, ' ').replace(/\n/g, ' ').trim() + ' ';
-        });
-        row.manufacturerDescription = [
-          {
-            text: text,
-          },
-        ];
-      }
-      console.log('row.videos');
-      console.log(row.videos);
+      // if (row.manufacturerDescription) {
+      //   let text = '';
+      //   console.log(row.manufacturerDescription);
+      //   row.manufacturerDescription.forEach(item => {
+      //     text += item.text.replace(/\s{2,}/g, ' ').replace(/\n/g, ' ').trim() + ' ';
+      //   });
+      //   row.manufacturerDescription = [
+      //     {
+      //       text: text,
+      //     },
+      //   ];
+      // }
+      // console.log('row.videos');
+      // console.log(row.videos);
 
-      if (row.videos) {
-        console.log(row.videos);
-        row.videos.forEach(item => {
-          item.text = (item.text.includes('http')) ? item.text : 'https:' + item.text;
-        });
-      }
+      // if (row.videos) {
+      //   console.log(row.videos);
+      //   row.videos.forEach(item => {
+      //     item.text = (item.text.includes('http')) ? item.text : 'https:' + item.text;
+      //   });
+      // }
 
       if (row.availabilityText) {
         row.availabilityText.forEach(item => {
@@ -143,14 +143,6 @@ const transform = (data, context) => {
           text.push(item.text);
         });
         row.legalDisclaimer[0].text = text.join(' ');
-      }
-
-      if (row.uninterruptedPDP) {
-        const text = [];
-        row.uninterruptedPDP.forEach(item => {
-          text.push(item.text);
-        });
-        row.uninterruptedPDP[0].text = text.join(' ');
       }
 
       if (row.variantInformation) {
@@ -172,35 +164,12 @@ const transform = (data, context) => {
           },
         ];
       }
-      if (row.description) {
-        let ignoreSinglePip = false;
-        row.description.forEach(item => {
-          if (item.text.includes('mms-accordion-description')) {
-            item.text = '';
-            ignoreSinglePip = true;
-          }
-        });
-        const textArr = [];
-        row.description.forEach(item => {
-          textArr.push(item.text.replace('Descripción', ''));
-        });
-        row.description = [
-          {
-            text: ignoreSinglePip ? textArr.join(' || ') : textArr.join(' | '),
-          },
-        ];
 
-        row.description = [{ text: clean(row.description[0].text) }];
-      }
       if (row.aggregateRating) {
         row.aggregateRating[0].text = row.aggregateRating[0].text.replace('.', ',');
       }
 
-      console.log('row.price');
-      console.log(row.price);
       if (row.price) {
-        console.log('row.price');
-        console.log(row.price);
         row.price[0].text = row.price[0].text.replace('.', ',');
       }
       if (row.listPrice) {
@@ -239,12 +208,25 @@ const transform = (data, context) => {
             item.text = imgText;
           }
         });
-      }
 
-      if (row.image && row.image[0]) {
-        if (row.image[0].text.includes('fee_325_225_png')) {
-          row.image[0].text = row.image[0].text.replace('fee_325_225_png', 'fee_800_800_png');
+        if (row.manufacturerImages.length === 1) {
+          const images = row.manufacturerImages[0].text.split(' || ');
+          const image = [];
+          for (let i = 0; i < images.length; i++) {
+            if (images[i].includes('base64')) {
+              continue;
+            } else {
+              if (!images[i].includes('http') && !images[i].includes('https')) {
+                images[i] = 'https:' + images[i];
+              }
+              image.push(images[i]);
+            }
+          }
+          const text = image.join(' || ');
+          row.manufacturerImages = [{ text }];
         }
+
+        row.manufacturerImages[0].text = row.manufacturerImages[0].text.includes('.gif') ? row.manufacturerImages[0].text.replace(/\.gif/g, '') : row.manufacturerImages[0].text;
       }
     }
   }

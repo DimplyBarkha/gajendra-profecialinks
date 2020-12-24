@@ -13,7 +13,7 @@ module.exports = {
     await context.setLoadAllResources(true);
     await context.setLoadImages(true);
     const lastResponseData = await context.goto(url, {
-      timeout: 100000,
+      timeout: 60000,
       waitUntil: 'load',
       checkBlocked: true,
       js_enabled: true,
