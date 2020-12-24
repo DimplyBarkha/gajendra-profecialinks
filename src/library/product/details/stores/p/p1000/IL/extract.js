@@ -133,6 +133,22 @@ module.exports = {
           break;
         }
       }
+
+        const getInTheBox = document.querySelector('#MainContent_Properties_productDetails').childNodes;
+        if (getInTheBox) {
+
+	    const getAllProducts = Array.from(getInTheBox).filter(elem=>elem.nodeType===3)
+            let takeTextFlag=false;
+            for (let i = 0; i < getAllProducts.length; i++) {
+                if(getAllProducts[i].textContent.includes("מה בקופסא")){
+                  takeTextFlag=true;
+                }else if(takeTextFlag){
+                  addElementToDocument(`inTheBoxText-${i}`, getAllProducts[i].textContent);
+                }
+                
+            }
+        }
+
     });
     await context.extract(productDetails, { transform: transformParam });
   },
