@@ -16,10 +16,16 @@ async function implementation(
     }
   }
   await context.evaluate(() => {
+    const clickButton = document.querySelector('button[class="btn green js-accept-all"]');
+    if (clickButton) {
+      clickButton.click();
+    }
+  })
+  await context.evaluate(() => {
     const scriptElements = document.querySelectorAll('script[type="application/ld+json"]');
     const informationScript = [...scriptElements].find((element) => element.innerText.includes('availability'));
 
-    const jsonData = informationScript.innerText && JSON.parse(informationScript.innerText);
+    const jsonData = informationScript && informationScript.innerText && JSON.parse(informationScript.innerText);
     const availabilityStatus = jsonData && jsonData.offers && jsonData.offers.availability;
     const availabilityDiv = document.createElement('div');
     availabilityDiv.id = 'availabilitystatus';
