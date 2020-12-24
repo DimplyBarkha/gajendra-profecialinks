@@ -1,0 +1,21 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: //div[@data-box-name="Items Container"]//article[@data-item="true"]
+fields:
+  - name: productUrl
+    xpath: //h2/a/@href
+  - name: thumbnail
+    xpath: //div[contains(@class,"mpof_ki")]/a/img/@src|//div[contains(@class,"msts_9u")]/a/ul/li[1]/img/@src
+  - name: name
+    xpath: //h2/a
+  - name: price
+    xpath: //span[contains(@class,"_1svub")]
+    regExp: (\d+,\d+|\d+)
+    regExpReplace: $1
+  - name: rank
+  - name: rankOrganic
+  - name: id
+    xpath: //@data-analytics-view-value
+  - name: sponsored
+    xpath: //div[contains(@class,"m7er_k4")]//div[contains(text(),"sponsorowana")]
