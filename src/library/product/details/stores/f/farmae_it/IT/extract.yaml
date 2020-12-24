@@ -32,18 +32,20 @@ fields:
     singleValue: false
     xpath: //span[text()="Disponibile"]/text()
     regExp: (.+)
-    regExpReplace: In Stock
-    defaultValue: Out of Stock
+    regExpReplace: In stock
+    defaultValue: Out of stock
   - name: description
     singleValue: false
+    xpath: (//dd[contains(@class,"tab-container")])[1]/div/br[(following::strong[contains(text(),"Caratteristiche")])]
     # xpath: (//div[@class="tab-content"])[1]//p[following::strong[contains(.,"Formato")]] |(//div[@class="tab-content"])[1]//p[contains(.,"Avvertenze")]/strong[1] | (//div[@class="tab-content"])[1]//p/strong[contains(.,"Avvertenze")]//../following::text()[1]
-    xpath: (//dd[contains(@class,"tab-container")])[1]/div 
+    # xpath: (//dd[contains(@class,"tab-container")])[1]/div 
   - name: descriptionBullets
     singleValue: false
     description: Number of ul > li tags in the description
     type: NUMBER
   - name: brandText
     singleValue: false
+    # xpath: (//meta[@itemprop="name"]/@content)[2] | //div[@class="block-title"]/span
     xpath: //script[contains(.,"brand") and (contains(.,"price"))]/text()
     regExp: brand":"([^"]+)
     regExpReplace: $1
@@ -77,7 +79,7 @@ fields:
     xpath: //meta[@itemprop="sku"]/@content
   - name: variantId
     singleValue: false
-    xpath: //meta[@itemprop="sku"]/@content
+    xpath: //b[contains(text(), "Cod.")]//../following-sibling::text()[1]
   - name: mpc
     singleValue: false
     description: The manufacturer model code (unique) of the product
@@ -90,10 +92,10 @@ fields:
     description: Content under "legal disclaimer" header
   - name: directions
     singleValue: false
-    xpath: //strong[contains(text(),"Modalità ")]//../following-sibling::text()
+    xpath: //strong[contains(text(),"Modalità ")]//../following-sibling::text()[1]
   - name: warnings
     singleValue: false
-    xpath: //p[contains(text(),"AVVERTENZE:")]/text()[position()>1] |//strong[contains(text(),"AVVERTENZE")]//../following-sibling::text()[1]| //strong[contains(text(),"Avvertenze")]//../following-sibling::text()[1]
+    xpath: //p[contains(text(),"AVVERTENZE:")]//text() | //strong[contains(text(),"AVVERTENZE")]//../following-sibling::text() | //strong[contains(text(),"Avvertenze")]//../following-sibling::text()
   - name: ratingCount
     singleValue: false
     # xpath: //span[@itemprop="reviewCount"]/text()
@@ -139,7 +141,7 @@ fields:
     description: Images within the third party description
   - name: videos
     singleValue: false
-    description: URLs of videos on page
+    xpath: //div[@class="rwdprofar-video"]/iframe/@src
   - name: name
     singleValue: false
     xpath: //div[@class="product-shop"]//h1/text() | (//span[@itemprop="title"])[last()]

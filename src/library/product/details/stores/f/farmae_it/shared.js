@@ -108,7 +108,7 @@ const transform = (data) => {
       if (row.description1) {
         let text = '';
         row.description1.forEach(item => {
-          text += `|| ${item.text.replace(/\n \n/g, ':')}  `;
+          text += `|| ${item.text.replace(/\n \n/g, ':')} `;
         });
         row.description1 = [
           {
@@ -125,7 +125,7 @@ const transform = (data) => {
       if (row.description) {
         let text = '';
         row.description.forEach(item => {
-          text += `${item.text.replace('pokaż więcej ...', '')}  `;
+          text += `${item.text.replace('pokaż więcej ...', '')} `;
         });
         row.description = [
           {
@@ -147,7 +147,7 @@ const transform = (data) => {
       if (row.ageSuitability) {
         let text = '';
         row.ageSuitability.forEach(item => {
-          text += `${item.text.replace(/\n \n/g, ':')}  `;
+          text += `${item.text.replace(/\n \n/g, ':')} `;
         });
         row.ageSuitability = [
           {
@@ -158,7 +158,7 @@ const transform = (data) => {
       if (row.directions) {
         let text = '';
         row.directions.forEach(item => {
-          text += `${item.text.replace(/\n \n/g, ':')}  `;
+          text += `${item.text.replace(/\n \n/g, ':')} `;
         });
         row.directions = [
           {
@@ -169,7 +169,7 @@ const transform = (data) => {
       if (row.manufacturer) {
         let text = '';
         row.manufacturer.forEach(item => {
-          text += `${item.text.replace(/\n \n/g, ':')}  `;
+          text += `${item.text.replace(/\n \n/g, ':')} `;
         });
         row.manufacturer = [
           {
@@ -180,7 +180,7 @@ const transform = (data) => {
       if (row.ingredientsList) {
         let text = '';
         row.ingredientsList.forEach(item => {
-          text += `${item.text.replace(/\n \n/g, ':')}  `;
+          text += `${item.text.replace(/\n \n/g, ':')} `;
         });
         row.ingredientsList = [
           {
@@ -191,7 +191,7 @@ const transform = (data) => {
       if (row.warnings) {
         let text = '';
         row.warnings.forEach(item => {
-          text += `${item.text.replace(/\n \n/g, ':')}  `;
+          text += `${item.text.replace(/\n \n/g, ':')} `;
         });
         row.warnings = [
           {
@@ -202,7 +202,7 @@ const transform = (data) => {
       if (row.shippingInfo) {
         let text = '';
         row.shippingInfo.forEach(item => {
-          text += `${item.text.replace(/\n \n/g, ':')}  `;
+          text += `${item.text.replace(/\n \n/g, ':')} `;
         });
         row.shippingInfo = [
           {
