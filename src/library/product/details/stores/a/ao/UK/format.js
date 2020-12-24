@@ -128,6 +128,20 @@ const transform = (data, context) => {
           ];
         }
 
+        if (row.videos) {
+          const videoArr = [];
+          const items = [];
+          row.videos.forEach(item => {
+            if (videoArr.indexOf(item.text) < 0) {
+              videoArr.push(item.text);
+              items.push({
+                text: item.text,
+              });
+            }
+          });
+          row.videos = items;
+        }
+
         row = clean(row);
       } catch (exception) {
         console.log(exception);

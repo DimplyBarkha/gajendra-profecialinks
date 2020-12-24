@@ -218,7 +218,7 @@ module.exports = {
           newDiv.style.display = 'none';
           document.body.appendChild(newDiv);
         }
-        var vidDiv = document.querySelectorAll('div[data-video]');
+        var vidDiv = document.querySelectorAll('*[data-video]');
         if (vidDiv && vidDiv.length > 0) {
           for (var p = 0; p < vidDiv.length; p++) {
             var dataVideoId = vidDiv[p].getAttribute('data-video');
