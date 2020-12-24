@@ -94,8 +94,8 @@ fields:
     defaultValue: 'No'
   - name: brandText
     singleValue: false
-    xpath: //script[contains(text(),"brand") and contains(text(), "DOMContentLoaded")]
-    regExp: brand":"([^"]+)
+    xpath: //div[contains(@class,"details-main-container")]//a[contains(@href,"/shop-by-brand")]/@href
+    regExp: shop-by-brand\/([^\/]+)
     regExpReplace: $1
   - name: productUrl
     singleValue: false
