@@ -33,12 +33,20 @@ async function implementation(
   
   var url = await context.evaluate(async ()=> {
     await new Promise((resolve, reject) => setTimeout(resolve, 3000));
+    try{
       GlobalE.ShippingSwitcher.Show()
-      await new Promise((resolve, reject) => setTimeout(resolve, 1000));
-      var gle_selectedCountry = document.querySelector("#gle_selectedCountry");
-      gle_selectedCountry.value = "GB";
+    }catch(e){
+      console.log('GlobalE not defined', e.message)
+    }
+    await new Promise((resolve, reject) => setTimeout(resolve, 1000));
+    var gle_selectedCountry = document.querySelector("#gle_selectedCountry");
+    gle_selectedCountry.value = "GB";
+    try{
       GlobalE.ShippingSwitcher.SaveAndClose();
-      return window.location.href;
+    }catch(e){
+      console.log('GlobalE not defined', e.message)
+    }
+    return window.location.href;
     }); 
   var variantLength = await context.evaluate(async () => {
     return (document.querySelectorAll("div.mobile-hidden div.cd-product-kits-opts a")) ? document.querySelectorAll("div.mobile-hidden div.cd-product-kits-opts a").length || 1 : 1;
