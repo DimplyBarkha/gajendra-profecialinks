@@ -100,6 +100,10 @@ fields:
   - name: manufacturer
     singleValue: false
     xpath: //*[@id="Characteristics"]//dt[contains(text(),"Fabricante")]//following-sibling::*
+  - name: manufacturerDescription
+    xpath: //div[@id='enhancedContent']/text()
+  - name: manufacturerImages
+    xpath: //div[@id='aplusImage']/text()
   - name: promotion
     singleValue: false
   - name: energyEfficiency
@@ -107,7 +111,7 @@ fields:
     xpath: //dt[contains(text(), "Eficiência")]/following-sibling::*
   - name: videos
     singleValue: false  
-    xpath: //meta[@itemprop="contentURL"]/@content
+    xpath: //meta[@itemprop="contentURL"]/@content | //div[@id='vidLink']/text()
   - name: countryOfOrigin
     singleValue: false  
     xpath: //*[contains(text(), "de expedição")]/following-sibling::dd[1]
