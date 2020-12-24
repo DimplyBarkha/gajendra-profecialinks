@@ -68,54 +68,6 @@ module.exports = {
           addElementToDocument('brand', brand);
         }
 
-        // Using the old code to extract alternate images
-        var initImg = '';
-        var initImgAlt = '';
-        var initImgNode = document.querySelector('ul[data-testid="c-carousel"] li#carousel-centre-image img');
-        // @ts-ignore
-        if (initImgNode && initImgNode.src) {
-          // @ts-ignore
-          initImg = initImgNode.src.replace(/https:\/\//g, '//').replace(/\/\//g, 'https://');
-          // @ts-ignore
-          initImgAlt = initImgNode.alt;
-        } else {
-          // @ts-ignore
-          initImg = document.querySelector('ul.product-gallery__thumbnail-items li#thumbnailItem[data-media-type="hero"] img').src.replace(/https:\/\//g, '//').replace(/\/\//g, 'https://');
-          // @ts-ignore
-          initImgAlt = document.querySelector('ul.product-gallery__thumbnail-items li#thumbnailItem[data-media-type="hero"] img').alt;
-        }
-        addElementToDocument('initImg', initImg);
-        addElementToDocument('initImgAlt', initImgAlt);
-        const jsonScript = !!document.querySelector('script[id="mediaData"]');
-        if (jsonScript && document.querySelector('script[id="mediaData"]')) {
-          const jsonInfo = JSON.parse(document.querySelector('script[id="mediaData"]').innerText);
-          const imgArr = jsonInfo.images || [];
-          for (let i = 1; i < imgArr.length; i++) {
-            addDivClass('altImages', 'https:' + imgArr[i].large);
-          }
-          const vidArr = jsonInfo.videos || [];
-          for (let i = 0; i < vidArr.length; i++) {
-            addDivClass('galleryVideos', vidArr[i].playerUrl);
-          }
-        } else {
-          var chkCond = '';
-          if (initImg && document.getElementById('mediaGalleryNext')) {
-            do {
-              var nextButt = document.getElementById('mediaGalleryNext');
-              await new Promise((resolve, reject) => setTimeout(resolve, 4000));
-              if (nextButt) {
-                nextButt.click();
-                var currImg = document.evaluate("//li[@id='carousel-right-image' and @data-media-type='image']//img/@src", document, null, XPathResult.STRING_TYPE, null);
-              }
-              if (currImg && currImg.stringValue.replace(/https:\/\//g, '//').replace(/\/\//g, 'https://') !== initImg) {
-                addDivClass('altImages', currImg.stringValue.replace(/https:\/\//g, '//').replace(/\/\//g, 'https://'));
-              }
-              chkCond = currImg.stringValue.replace(/https:\/\//g, '//').replace(/\/\//g, 'https://').replace(/ /g, '%20') ? currImg.stringValue.replace(/https:\/\//g, '//').replace(/\/\//g, 'https://').replace(/ /g, '%20') : initImg;
-            }
-            while (chkCond !== initImg);
-          }
-        }
-
         const productObj = window.digitalData.page.product;
         const reviewsString = productObj.reviewsInfo !== '0|0' ? productObj.reviewsInfo : '';
         const ratingCount = reviewsString.match(/(.+)\|(\d+)/) ? reviewsString.match(/(.+)\|(\d+)/)[2] : '';
@@ -156,6 +108,56 @@ module.exports = {
           }
           addElementToDocument('enhCont', allEnhancedContent);
         }
+
+          // Using the old code to extract alternate images
+          var initImg = '';
+          var initImgAlt = '';
+          var initImgNode = document.querySelector('ul[data-testid="c-carousel"] li#carousel-centre-image img');
+          // @ts-ignore
+          if (initImgNode && initImgNode.src) {
+            // @ts-ignore
+            initImg = initImgNode.src.replace(/https:\/\//g, '//').replace(/\/\//g, 'https://');
+            // @ts-ignore
+            initImgAlt = initImgNode.alt;
+          } else if(document.querySelector('ul.product-gallery__thumbnail-items li#thumbnailItem[data-media-type="hero"] img')) {
+            // @ts-ignore
+
+            initImg = document.querySelector('ul.product-gallery__thumbnail-items li#thumbnailItem[data-media-type="hero"] img').src.replace(/https:\/\//g, '//').replace(/\/\//g, 'https://');
+            // @ts-ignore
+            initImgAlt = document.querySelector('ul.product-gallery__thumbnail-items li#thumbnailItem[data-media-type="hero"] img').alt;
+          }
+          addElementToDocument('initImg', initImg);
+          addElementToDocument('initImgAlt', initImgAlt);
+          const jsonScript = !!document.querySelector('script[id="mediaData"]');
+          if (jsonScript && document.querySelector('script[id="mediaData"]')) {
+            const jsonInfo = JSON.parse(document.querySelector('script[id="mediaData"]').innerText);
+            const imgArr = jsonInfo.images || [];
+            for (let i = 1; i < imgArr.length; i++) {
+              addDivClass('altImages', 'https:' + imgArr[i].large);
+            }
+            const vidArr = jsonInfo.videos || [];
+            for (let i = 0; i < vidArr.length; i++) {
+              addDivClass('galleryVideos', vidArr[i].playerUrl);
+            }
+          } else {
+            var chkCond = '';
+            if (initImg && document.getElementById('mediaGalleryNext')) {
+              do {
+                var nextButt = document.getElementById('mediaGalleryNext');
+                await new Promise((resolve, reject) => setTimeout(resolve, 4000));
+                if (nextButt) {
+                  nextButt.click();
+                  var currImg = document.evaluate("//li[@id='carousel-right-image' and @data-media-type='image']//img/@src", document, null, XPathResult.STRING_TYPE, null);
+                }
+                if (currImg && currImg.stringValue.replace(/https:\/\//g, '//').replace(/\/\//g, 'https://') !== initImg) {
+                  addDivClass('altImages', currImg.stringValue.replace(/https:\/\//g, '//').replace(/\/\//g, 'https://'));
+                }
+                chkCond = currImg.stringValue.replace(/https:\/\//g, '//').replace(/\/\//g, 'https://').replace(/ /g, '%20') ? currImg.stringValue.replace(/https:\/\//g, '//').replace(/\/\//g, 'https://').replace(/ /g, '%20') : initImg;
+              }
+              while (chkCond !== initImg);
+            }
+          }
+
       });
     } catch (err) {
       console.log('Error while fetching enhanced content' + JSON.stringify(err));
