@@ -129,7 +129,7 @@ module.exports = {
           initImg = initImgNode.src.replace(/https:\/\//g, '//').replace(/\/\//g, 'https://');
           // @ts-ignore
           initImgAlt = initImgNode.alt;
-        } else {
+        } else if (document.querySelector('ul.product-gallery__thumbnail-items li#thumbnailItem[data-media-type="hero"] img')) {
           // @ts-ignore
           initImg = document.querySelector('ul.product-gallery__thumbnail-items li#thumbnailItem[data-media-type="hero"] img').src.replace(/https:\/\//g, '//').replace(/\/\//g, 'https://');
           // @ts-ignore
