@@ -28,7 +28,7 @@ fields:
   - name: listPrice
     description: The stated undiscounted price for the product
     #xpath: (//div[@class='product-hero__price-top']/div[1])[1]
-    xpath: //span[@class='price']
+    # xpath: //span[@class='price']
     #regExp: ([^a-zA-Z:\s]{3,})
     #regExpReplace: $1
   - name: price
@@ -137,7 +137,7 @@ fields:
     xpath: //div[@id='videos']
   - name: name
     description: The product name
-    xpath: //div[@class="hgroup__main-image"]/img/@alt|//h2[@class="hgroup__title "]
+    xpath: (//div[@class="hgroup__main-image"]/img/@alt|//h2[@class="hgroup__title "])[1]
   - name: inStorePrice #missing
     description: Price in the selected store
   - name: asin #missing
