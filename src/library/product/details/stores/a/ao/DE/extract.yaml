@@ -55,10 +55,11 @@ fields:
     "In Stock"
   xpath: //div[@id="availability"]
 - name: description
-  singleValue: false
   description: Product description supplied by website - may be concatenanted from
     multiple places; specifically not the manufacturer description
-  xpath: (//div[@itemprop="description"])[last()]/*[not(name()="h2")] | //div[contains(@class, "topRight")]//ul[contains(@class, "featureBullets")]//li | //section[@id='discontinuedProductNoAlt']//ul[contains(@class, "feature-bullets-discontinued")]//li/div[@class='font-regular']
+  xpath: (//div[@itemprop="description"])[last()]/*[not(name()="h2")]
+- name: descriptionAdd
+  xpath:  //div[contains(@class, "topRight")]//ul[contains(@class, "featureBullets")]//li | //section[@id='discontinuedProductNoAlt']//ul[contains(@class, "feature-bullets-discontinued")]//li/div[@class='font-regular']
 - name: descriptionBullets
   singleValue: true
   description: Number of ul > li tags in the description

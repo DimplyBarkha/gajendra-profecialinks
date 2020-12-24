@@ -69,6 +69,35 @@ const transform = (data, context) => {
           row.mpc = [{ text }];
         }
 
+        if (row.descriptionAdd) {
+          let text = '';
+          row.descriptionAdd.forEach(item => {
+            text += `|| ${item.text}`;
+          });
+
+          row.descriptionAdd = [
+            {
+              text: text,
+            },
+          ];
+        }
+
+        if (row.description) {
+          let text = '';
+          row.description.forEach(item => {
+            text += `${item.text} `;
+          });
+
+          if (row.descriptionAdd) {
+            text += row.descriptionAdd[0].text
+          }
+          row.description = [
+            {
+              text: text,
+            },
+          ];
+        }
+
         row = clean(row);
       } catch (exception) {
         console.log(exception);
