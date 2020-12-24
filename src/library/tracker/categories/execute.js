@@ -1,18 +1,14 @@
 /**
  *
- * @param { { url?: string,  id?: string, zipcode?: any, storeId?:any} } inputs
+ * @param { { url?: string, zipcode?: any} } inputs
  * @param { { url: string, loadedSelector?: string, noResultsXPath: string } } parameters
  * @param { ImportIO.IContext } context
  * @param { { goto: ImportIO.Action, createUrl: ImportIO.Action} } dependencies
  */
 const implementation = async (inputs, { loadedSelector, noResultsXPath }, context, dependencies) => {
-  const { url, id } = inputs;
-  let builtUrl;
-  if (!url) {
-    if (!id) throw new Error('No id provided');
-    else builtUrl = await dependencies.createUrl(inputs);
-  }
-  await dependencies.goto({ ...inputs, url: builtUrl || url });
+  const { url } = inputs;
+  const builtUrl = url || await dependencies.createUrl(inputs);
+  await dependencies.goto({ ...inputs, url: builtUrl });
 
   if (loadedSelector) {
     await context.waitForFunction(
@@ -59,27 +55,15 @@ module.exports = {
       optional: true,
     },
     {
-      name: 'id',
-      description: 'unique identifier for product',
-      type: 'string',
-      optional: true,
-    },
-    {
       name: 'zipcode',
       description: 'set location',
-      type: 'string',
-      optional: true,
-    },
-    {
-      name: 'storeId',
-      description: 'storeId for product',
       type: 'string',
       optional: true,
     },
   ],
   dependencies: {
     goto: 'action:navigation/goto',
-    createUrl: 'action:product/details/createUrl',
+    createUrl: 'action:tracker/categories/createUrl',
   },
   path: './stores/${store[0:1]}/${store}/${country}/execute',
   implementation,
