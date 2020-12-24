@@ -36,6 +36,12 @@ module.exports = {
       console.log('Not loading alternative products');
     }
 
+    try {
+      await context.waitForSelector('section.richContent article', { timeout: 45000 });
+    } catch (error) {
+      console.log('Not loading enhanced content');
+    }
+
     async function scrollToRec (node) {
       await context.evaluate(async (node) => {
         const element = document.querySelector(node) || null;
@@ -49,6 +55,8 @@ module.exports = {
     }
     await scrollToRec('div.dy-recommendations__slider');
     await scrollToRec('section.alternative-products');
+    await scrollToRec('section.richContent article');
+
     try {
       await context.evaluate(async function () {
         function addElementToDocument (key, value) {
