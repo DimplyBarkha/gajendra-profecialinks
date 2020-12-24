@@ -60,7 +60,7 @@ const transform = (data) => {
       //   }
       // // console.log(altImages+' are images transformed');
       // }
-      if (row.availabilityText && row.availabilityText[0] && row.availabilityText[0].text) {
+      if (row.availabilityText && row.availabilityText[0] && row.availabilityText[0].text=='true') {
         row.availabilityText = [
           { text: 'In Stock' },
         ];

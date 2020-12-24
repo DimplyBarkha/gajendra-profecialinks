@@ -1,8 +1,8 @@
-extends: ../shared 
+extends: ../shared
 fields:
   # - name: availabilityText
   #   # Add no default value, being take care in transform.js
-  #   xpath: //div[contains(concat(' ',normalize-space(@class),' '),' product-hero ')]//form//*[contains(text(),'Warenkorb') or contains(text(),'auswählen')]//text() | //div[contains(concat(' ',normalize-space(@class),' '),' product-hero ')]//form//*[contains(text(),'panier')]//text() | //div[contains(concat(' ',normalize-space(@class),' '),' product-hero ')]//form//button[contains(text(),'carrello')]//text() 
+  #   xpath: //div[contains(concat(' ',normalize-space(@class),' '),' product-hero ')]//form//*[contains(text(),'Warenkorb') or contains(text(),'auswählen')]//text() | //div[contains(concat(' ',normalize-space(@class),' '),' product-hero ')]//form//*[contains(text(),'panier')]//text() | //div[contains(concat(' ',normalize-space(@class),' '),' product-hero ')]//form//button[contains(text(),'carrello')]//text()
   #   # xpath: //script[contains(@type,"application/ld+json")]
   #   # regExp: /+(\w+Stock)
   #   # regExpReplace: $1
@@ -16,9 +16,9 @@ fields:
     singleValue: true
     xpath: (//div[contains(concat(' ',normalize-space(@class),' '),' reasons-to-buy__overlay-content-container ')][.//*[contains(text(),' Garantie')]])[1] | (//div[contains(concat(' ',normalize-space(@class),' '),' reasons-to-buy__overlay-content-container ')][.//*[contains(text(),'arantie ')]])[1] | (//div[contains(concat(' ',normalize-space(@class),' '),' reasons-to-buy__overlay-content-container ')][.//*[contains(text(),'garanzia ')]])[1]
   - name: availabilityText
-    singleValue: true
+    singleValue: false
     description: Availability as described on page for the selected variant. If there is no availability but the product can be added to cart, this field should be "In Stock"
-    xpath: //div[@id="availabilityText"]
-    regExp: (.+)
-    regExpReplace: In Stock
-    defaultValue: Out of Stock
+    xpath: boolean(//div[contains(@class,'product-hero__text')]//button[contains(@class,'add-to-basket__form-button')])
+    # regExp: (.+)
+    # regExpReplace: In Stock
+    # defaultValue: Out of Stock
