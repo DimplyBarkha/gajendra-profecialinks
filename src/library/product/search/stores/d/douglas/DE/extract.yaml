@@ -25,7 +25,7 @@ fields:
   - name: id
     singleValue: false
     xpath: //script[@type="application/ld+json"]
-    regExp: '"image":\s*"https://media.douglas.de/([^\/]+)'
+    regExp: '"image":\s*"https://media.douglas.[^\/]+/([^\/]+)'
     regExpReplace: $1
   - name: rank 
   - name: rankOrganic
