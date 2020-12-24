@@ -24,9 +24,9 @@ fields:
     regExpReplace: $2
   - name: id
     singleValue: false
-    xpath: //div[@class="rd__product-list"]/a/@href
-    regExp: (.+)(_product_|productbrand_)(.+)(\.html)(.+)?
-    regExpReplace: $3
+    xpath: //script[@type="application/ld+json"]
+    regExp: '"image":\s*"https://media.douglas.de/([^\/]+)'
+    regExpReplace: $1
   - name: rank 
   - name: rankOrganic
 
