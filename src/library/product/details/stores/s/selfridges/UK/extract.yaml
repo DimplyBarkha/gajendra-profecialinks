@@ -1,7 +1,7 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: //section[contains(@class,"multi-size")]//div[@data-ts-select-label="Size"]//div[contains(@class,"c-select__dropdown-item-container")]//span[contains(@class,"c-select__dropdown-item")]
+recordXPath: //section[@data-js-variant-type="multi-size"]//div[@data-ts-select-label="Size"]//div[contains(@class,"c-select__dropdown-item-container")]//span[contains(@class,"c-select__dropdown-item")]
 fields:
 - name: inTheBoxUrl
 - name: inTheBoxText
@@ -26,7 +26,7 @@ fields:
 - name: category
   xpath: ancestor::html//ul[@class="c-breadcrumbs"]/li/a/span[1]
 - name: nameExtended
-  xpath: ancestor::html//section[@data-js-component="productHero"]//h1
+  xpath: //@nameextended
 - name: listPrice
   xpath: ancestor::html//span[@data-js-action="updateWasPrice"]
 - name: price
@@ -34,7 +34,7 @@ fields:
 - name: availabilityText
   xpath: ancestor::html//section[@data-js-component="productHero"] | //@availability
 - name: description
-  xpath: ancestor::html//div[@id="descriptionBull"] | ancestor::html//div[@id="description"]
+  xpath: ancestor::html//ancestor::html//article[@id="content1"]
 - name: descriptionBullets
   xpath: count(//div[@class="c-tabs__copy"]//li)
 - name: brandText
@@ -93,6 +93,7 @@ fields:
 - name: secondaryImageTotal
   xpath: count(//div[@class='c-image-gallery__images']//picture[not(@imageindex='1')])
 - name: ingredientsList
+  xpath: ancestor::html//li[contains(.,"Ingredients:")]
 - name: dietaryInformation
 - name: specifications
 - name: warranty
@@ -115,20 +116,20 @@ fields:
 - name: newAsin
 - name: newDescription
 - name: variantInformation
-  xpath: ancestor::html//div[@data-js-action="selectContainer"][contains(text(), "Size")]/following-sibling::div/span/@data-js-action | //section[contains(@data-js-variant-type,"multi-colour")]//div[@data-select-count-text="Colours"]//span[contains(@class,"c-select__dropdown-item")]/@data-js-action
+  xpath: ancestor::html//section[@data-js-variant-type="multi-colour"]//div[@data-select-count-text="Colours"]//span[contains(@class,"c-select__dropdown-item")][contains(@class,"--selected")]/@data-js-action | ancestor::html//section[@data-js-variant-type="multi-size"]//div[@data-ts-select-label="Size"]//div[contains(@class,"c-select__dropdown-item-container")]//span[contains(@class,"c-select__dropdown-item")]/@data-js-action
 - name: firstVariant
   xpath: ancestor::html//section[@data-js-component="productHero"]/@firstvariant
 - name: variants
   xpath: ancestor::html//section[@data-js-component="productHero"]/@variants
 - name: additionalDescBulletInfo
-  xpath: ancestor::html//div[@id="descriptionBull"]
+  xpath: ancestor::html//div[@class="c-tabs__copy"]//li
 - name: prop65Warning
 - name: ageSuitability
 - name: energyEfficiency
 - name: technicalInformationPdfPresent
   defaultValue: false
 - name: termsAndConditions
-  xpath: //span[contains(.,'Terms & Conditions')]
+  xpath: ancestor::html//span[contains(.,'Terms & Conditions')]
   regExp: (.*)
   regExpReplace: Yes
   defaultValue: No
@@ -140,5 +141,5 @@ fields:
 - name: Image360Present
   defaultValue: false
 - name: imageZoomFeaturePresent
-  xpath: //div[@id="isImgZoom"]
-  defaultValue: false
+  xpath: ancestor::html//div[@id="isImgZoom"]
+  defaultValue: No

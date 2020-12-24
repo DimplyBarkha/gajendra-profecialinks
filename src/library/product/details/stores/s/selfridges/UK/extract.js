@@ -35,38 +35,61 @@ async function implementation (inputs, parameters, context, dependencies) {
   }
   await new Promise((resolve) => setTimeout(resolve, 8000));
 
+  try {
+    await context.waitForXPath('//div[contains(@class,"--video")]//source/@src', { timeout: 30000 });
+  } catch (e) {
+    console.log(`There was an error while running the loading images ${e}`);
+  }
+
   await context.evaluate(async () => {
     await new Promise((resolve, reject) => setTimeout(resolve, 3000));
 
-    const isVariants = document.querySelector('section.multi-size div[data-ts-select-label="Size"] div.c-select__dropdown-item-container span.c-select__dropdown-item');
+    const isVariants = document.querySelector('section[data-js-variant-type="multi-size"] div[data-ts-select-label="Size"] div.c-select__dropdown-item-container span.c-select__dropdown-item');
+    await new Promise((resolve, reject) => setTimeout(resolve, 3000));
+    const rpc = [];
     if (isVariants) {
-      const variants = document.querySelectorAll('section.multi-size div[data-ts-select-label="Size"] div.c-select__dropdown-item-container span.c-select__dropdown-item');
-      const rpc = [];
-      const sizeVariants = JSON.parse(document.querySelector('script[data-component="pdp-semantic-data"]').textContent);
-      for (let i = 0; i < sizeVariants.model.length; i++) {
-        rpc.push(sizeVariants.model[i].sku);
-      }
-      for (let i = 0; i < sizeVariants.model.length; i++) {
-        variants[i].setAttribute('variantId', rpc[i]);
-        variants[i].setAttribute('availability', sizeVariants.model[i].offers[0].availability);
+      const variants = document.querySelectorAll('section[data-js-variant-type="multi-size"] div[data-ts-select-label="Size"] div.c-select__dropdown-item-container span.c-select__dropdown-item');
+      var len = document.querySelectorAll('section[data-js-variant-type="multi-size"] div[data-ts-select-label="Size"] div.c-select__dropdown-item-container span.c-select__dropdown-item').length;
+      var length = JSON.parse(document.querySelector('script[data-component="pdp-semantic-data"]').textContent).model.length;
+      if (len === length) {
+        const sizeVariants = JSON.parse(document.querySelector('script[data-component="pdp-semantic-data"]').textContent);
+        for (let i = 0; i < sizeVariants.model.length; i++) {
+          rpc.push(sizeVariants.model[i].sku);
+        }
+        for (let i = 0; i < sizeVariants.model.length; i++) {
+          variants[i].setAttribute('variantId', rpc[i]);
+          variants[i].setAttribute('availability', sizeVariants.model[i].offers[0].availability);
+          variants[i].setAttribute('nameExtended', sizeVariants.model[i].name);
+        }
+      } else {
+        const variants1 = document.querySelectorAll('section[data-js-variant-type="multi-size"] div[data-ts-select-label="Size"] div.c-select__dropdown-item-container span[class="c-select__dropdown-item"]');
+        const sizeVariants1 = JSON.parse(document.querySelector('script[data-component="pdp-semantic-data"]').textContent);
+        for (let i = 0; i < sizeVariants1.model.length; i++) {
+          rpc.push(sizeVariants1.model[i].sku);
+        }
+        for (let i = 0; i < sizeVariants1.model.length; i++) {
+          variants1[i].setAttribute('variantId', rpc[i]);
+          variants1[i].setAttribute('availability', sizeVariants1.model[i].offers[0].availability);
+          variants1[i].setAttribute('nameExtended', sizeVariants1.model[i].name);
+        }
       }
       document.querySelector('section[data-js-component="productHero"]').setAttribute('firstVariant', rpc[0]);
     } else {
       var newSection = document.createElement('section');
-      newSection.className = 'multi-size';
+      newSection.setAttribute('data-js-variant-type', 'multi-size');
       document.querySelector('section[data-js-component="productHero"]').append(newSection);
 
       var newDiv1 = document.createElement('div');
       newDiv1.setAttribute('data-ts-select-label', 'Size');
-      document.querySelector('section[data-js-component="productHero"] section.multi-size').append(newDiv1);
+      document.querySelector('section[data-js-component="productHero"] section[data-js-variant-type="multi-size"]').append(newDiv1);
 
       var newDiv = document.createElement('div');
       newDiv.className = 'c-select__dropdown-item-container';
-      document.querySelector('section[data-js-component="productHero"] section.multi-size div[data-ts-select-label="Size"]').append(newDiv);
+      document.querySelector('section[data-js-component="productHero"] section[data-js-variant-type="multi-size"] div[data-ts-select-label="Size"]').append(newDiv);
 
       var newSpan = document.createElement('span');
       newSpan.className = 'c-select__dropdown-item';
-      document.querySelector('section[data-js-component="productHero"] section.multi-size div[data-ts-select-label="Size"] div.c-select__dropdown-item-container').appendChild(newSpan);
+      document.querySelector('section[data-js-component="productHero"] section[data-js-variant-type="multi-size"] div[data-ts-select-label="Size"] div.c-select__dropdown-item-container').appendChild(newSpan);
 
       const availability = document.querySelector('button[data-action="add-to-bag"].--disabled');
       if (availability) {
@@ -74,19 +97,28 @@ async function implementation (inputs, parameters, context, dependencies) {
       } else {
         document.querySelector('section[data-js-component="productHero"]').setAttribute('availability', 'In Stock');
       }
-      const isSku = JSON.parse(document.querySelector('script[data-component="pdp-semantic-data"]').textContent).model;
-      if (isSku) {
-        document.querySelector('section.multi-size div[data-ts-select-label="Size"] div.c-select__dropdown-item-container span.c-select__dropdown-item').setAttribute('variantId', JSON.parse(document.querySelector('script[data-component="pdp-semantic-data"]').textContent).model[0].sku);
+
+      const sku = document.evaluate('//span[@data-js-action="updateSKU"]/text()', document).iterateNext().textContent.trim();
+      if (sku) {
+        document.querySelector('section[data-js-variant-type="multi-size"] div[data-ts-select-label="Size"] div.c-select__dropdown-item-container span.c-select__dropdown-item').setAttribute('variantId', document.evaluate('//span[@data-js-action="updateSKU"]/text()', document).iterateNext().textContent.trim());
+        document.querySelector('section[data-js-variant-type="multi-size"] div[data-ts-select-label="Size"] div.c-select__dropdown-item-container span.c-select__dropdown-item').setAttribute('nameExtended', `${document.querySelector('div[data-js-action="productHeroDescription"] h1').textContent}`);
       } else {
-        const sku = document.querySelector('span[data-js-action="updateSKU"]');
-        if (sku) {
-          document.querySelector('section.multi-size div[data-ts-select-label="Size"] div.c-select__dropdown-item-container span.c-select__dropdown-item').setAttribute('variantId', sku.textContent);
+        const isSku = JSON.parse(document.querySelector('script[data-component="pdp-semantic-data"]').textContent).model;
+        if (isSku) {
+          document.querySelector('section[data-js-variant-type="multi-size"] div[data-ts-select-label="Size"] div.c-select__dropdown-item-container span.c-select__dropdown-item').setAttribute('variantId',
+            JSON.parse(document.querySelector('script[data-component="pdp-semantic-data"]').textContent).model[0].sku);
+          document.querySelector('section[data-js-variant-type="multi-size"] div[data-ts-select-label="Size"] div.c-select__dropdown-item-container span.c-select__dropdown-item').setAttribute('nameExtended', `${document.querySelector('div[data-js-action="productHeroDescription"] h1').textContent}`);
         }
       }
       const size = document.querySelector('section[data-js-variant-type="single-size"] div[data-select-name="Size"] span.c-select__dropdown-item');
+      const color = document.querySelector('div.--colour span.--selected');
       if (size) {
         const singleSize = size.getAttribute('data-js-action');
-        document.querySelector('section.multi-size div[data-ts-select-label="Size"] div.c-select__dropdown-item-container span.c-select__dropdown-item').setAttribute('data-js-action', singleSize);
+        document.querySelector('section[data-js-variant-type="multi-size"] div[data-ts-select-label="Size"] div.c-select__dropdown-item-container span.c-select__dropdown-item').setAttribute('data-js-action', singleSize);
+        document.querySelector('section[data-js-variant-type="multi-size"] div[data-ts-select-label="Size"] div.c-select__dropdown-item-container span.c-select__dropdown-item').setAttribute('nameExtended', `${document.querySelector('div[data-js-action="productHeroDescription"] h1').textContent}`);
+      }
+      if (color) {
+        document.querySelector('section[data-js-variant-type="multi-size"] div[data-ts-select-label="Size"] div.c-select__dropdown-item-container span.c-select__dropdown-item').setAttribute('nameExtended', `${document.querySelector('div[data-js-action="productHeroDescription"] h1').textContent} ${document.querySelector('div.--colour span.--selected').getAttribute('data-js-action')}`);
       }
     }
 
@@ -108,24 +140,26 @@ async function implementation (inputs, parameters, context, dependencies) {
       addElementToDocument('isImgZoom', 'No', 'No');
     }
 
-    const description1 = document.querySelector('#content1 div.c-tabs__copy')
-      ? document.querySelector('#content1 div.c-tabs__copy').innerText : '';
-    const description2 = document.querySelectorAll('#content1 div.c-tabs__copy ul li')
-      ? document.querySelectorAll('#content1 div.c-tabs__copy li') : '';
-    if (description2) {
-      console.log(description2);
-      const bulletsArr = [description2];
-      const bulletsArrSliced = bulletsArr.slice(1);
-      // @ts-ignore
-      description2.forEach(e => bulletsArrSliced.push(e.textContent));
-      let concatDesc = bulletsArrSliced.join(' || ');
-      if (concatDesc) { concatDesc = '|| ' + concatDesc; }
-      addElementToDocument('descriptionBull', concatDesc);
-      console.log(concatDesc);
-    } else if (description1) {
-      addElementToDocument('description', description1);
-      console.log(description1);
-    }
+    document.querySelectorAll('#content1 div.c-tabs__copy li').forEach((ele) => ele.textContent = (` || ${ele.textContent}`));
+
+    // const description1 = document.querySelector('#content1 div.c-tabs__copy')
+    //   ? document.querySelector('#content1 div.c-tabs__copy').innerText : '';
+    // const description2 = document.querySelectorAll('#content1 div.c-tabs__copy ul li')
+    //   ? document.querySelectorAll('#content1 div.c-tabs__copy li') : '';
+    // if (description2) {
+    //   console.log(description2);
+    //   const bulletsArr = [description2];
+    //   const bulletsArrSliced = bulletsArr.slice(1);
+    //   // @ts-ignore
+    //   description2.forEach(e => bulletsArrSliced.push(e.textContent));
+    //   let concatDesc = bulletsArrSliced.join(' || ');
+    //   if (concatDesc) { concatDesc = '|| ' + concatDesc; }
+    //   addElementToDocument('descriptionBull', concatDesc);
+    //   console.log(concatDesc);
+    // } else if (description1) {
+    //   addElementToDocument('description', description1);
+    //   console.log(description1);
+    // }
 
     // function getElementsByXPath (xpath, parent) {
     //   const results = [];

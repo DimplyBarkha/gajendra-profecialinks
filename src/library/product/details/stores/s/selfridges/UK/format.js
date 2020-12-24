@@ -7,14 +7,6 @@ const transform = (data) => {
   for (const { group }
     of data) {
     for (const row of group) {
-      if (row.variantInformation) {
-        let text = '';
-        row.variantInformation.forEach(item => {
-          text = text + (text ? ' | ' : ' ') + item.text;
-        });
-        row.variantInformation = [{ text }];
-      }
-
       if (row.variants) {
         let text = '';
         row.variants.forEach(item => {
