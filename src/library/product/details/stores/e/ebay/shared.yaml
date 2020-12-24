@@ -60,7 +60,7 @@ fields:
     singleValue: false
   - name: weightNet
     singleValue: false
-    xpath: //div[span[contains(@class,"title") and contains(text(),'Weight')]]/@data-title | //td[contains(translate(text(),'WEIGHT','weight'),'weight')]/following-sibling::td 
+    xpath: //div[span[contains(@class,"title") and contains(text(),'Weight')]]/@data-title | //td[contains(translate(text(),'WEIGHT','weight'),'weight')]/following-sibling::td
   - name: weightGross
     singleValue: false
     xpath: normalize-space(//td[contains(text(), 'Box Weight:')]/following-sibling::td)
@@ -109,7 +109,7 @@ fields:
   - name: termsAndConditions
     singleValue: false
   - name: unInterruptedPDP
-    xpath: //div[contains(@id,'nume_html') and not(contains(.,'from this seller'))]//div[contains(@class,"mfe-reco")]//li
+    xpath: //div[contains(@id,'nume_html') and not(contains(.,'from this seller'))]//div[contains(@class,"mfe-reco")]//li|//div[@class="updp_item"]
   - name: inTheBoxText
     xpath: //p[contains(.,'In the Box')]/..//ul//li | //h1[contains(.,'In the box')]/..//span[@class="title"] | //div[contains(@class,'inthebox')]//span | //div[@id='inTheBoxText']|//td[contains(text(),'Included Accessories')]/following-sibling::td
   - name: inTheBoxUrl
