@@ -513,5 +513,6 @@ fields:
     singleValue: false
     xpath: //div[@id="productDetailRecommendations"]//div[@class="c-product-grid-item__title"] | //h3[@class="c-product-grid-item-2__product-name"]
     description: Titles of products in the sections 'you may also like' or 'sponsored products'. Combine results from Max 3 sections
-
-    
+  - name: inTheBoxText
+    singleValue: false
+    xpath: //th[contains(.,'Lieferumfang')]/following-sibling::td/span
