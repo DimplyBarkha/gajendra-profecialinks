@@ -278,8 +278,8 @@ fields:
     description: Nutritional Information for Total Fat content - Usually based on
       per 100g serving
     # type: NUMBER
-    xpath: //u[contains(text(),'Nährwertangaben pro 100 ml')]/following::text()[3]
-    regExp: :\s(.+\d)
+    xpath: //html//div[@id="txt"]
+    regExp: (~.+\d)
     # regExpReplace: $1
   - name: totalFatPerServingUom
     singleValue: true
@@ -290,8 +290,8 @@ fields:
     singleValue: true
     description: Nutritional Information for Saturated Fat content - Usually based
       on per 100g serving
-    xpath: //u[contains(text(),'Nährwertangaben pro 100 ml')]/following::text()[4]
-    regExp: :\s(.+\d)
+    xpath: //html//div[@id="txt1"]
+    regExp: (~.+\d)
     # type: NUMBER
   - name: saturatedFatPerServingUom
     singleValue: true
@@ -327,8 +327,8 @@ fields:
     description: Nutritional Information for Total Carbohydrate content - Usually
       based on per 100g serving
     # type: NUMBER
-    xpath: //u[contains(text(),'Nährwertangaben pro 100 ml')]/following::text()[5]
-    regExp: :\s(.+\d)
+    xpath: //html//div[@id="txt2"]
+    regExp: (~.+\d)
   - name: totalCarbPerServingUom
     singleValue: true
     description: Unit of Measure Data for Total Carbohydrate content
@@ -347,8 +347,8 @@ fields:
     description: Nutritional Information for Total Sugar content - Usually based on
       per 100g serving
     # type: NUMBER
-    xpath: //u[contains(text(),'Nährwertangaben pro 100 ml')]/following::text()[6]
-    regExp: :\s(.+\d)
+    xpath: //html//div[@id="txt3"]
+    regExp: (~.+\d)
   - name: totalSugarsPerServingUom
     singleValue: true
     description: Unit of Measure Data for Total Sugar content
@@ -359,8 +359,8 @@ fields:
     description: Nutritional Information for Protein content - Usually based on per
       100g serving
     # type: NUMBER
-    xpath: //u[contains(text(),'Nährwertangaben pro 100 ml')]/following::text()[7]
-    regExp: :\s(.+\d)
+    xpath: //html//div[@id="txt4"]
+    regExp: (~.+\d)
   - name: proteinPerServingUom
     singleValue: true
     description: Unit of Measure Data for Protein
@@ -414,8 +414,8 @@ fields:
     description: Nutritional Information for Salt content - Usually based on per
       100g serving
     # type: NUMBER
-    xpath: //u[contains(text(),'Nährwertangaben pro 100 ml')]/following::text()[8]
-    regExp: :\s(.+\d)
+    xpath: //html//div[@id="txt5"]
+    regExp: (~.+\d)
   - name: saltPerServingUom
     singleValue: true
     description: Unit of Measure Data for Salt
