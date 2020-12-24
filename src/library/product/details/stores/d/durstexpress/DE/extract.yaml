@@ -279,7 +279,7 @@ fields:
       per 100g serving
     # type: NUMBER
     xpath: //html//div[@id="txt"]
-    regExp: (~.+\d)
+    regExp: (~*.+\d)
     # regExpReplace: $1
   - name: totalFatPerServingUom
     singleValue: true
@@ -291,7 +291,7 @@ fields:
     description: Nutritional Information for Saturated Fat content - Usually based
       on per 100g serving
     xpath: //html//div[@id="txt1"]
-    regExp: (~.+\d)
+    regExp: (~*.+\d)
     # type: NUMBER
   - name: saturatedFatPerServingUom
     singleValue: true
@@ -328,7 +328,7 @@ fields:
       based on per 100g serving
     # type: NUMBER
     xpath: //html//div[@id="txt2"]
-    regExp: (~.+\d)
+    regExp: (~*.+\d)
   - name: totalCarbPerServingUom
     singleValue: true
     description: Unit of Measure Data for Total Carbohydrate content
@@ -348,7 +348,7 @@ fields:
       per 100g serving
     # type: NUMBER
     xpath: //html//div[@id="txt3"]
-    regExp: (~.+\d)
+    regExp: (~*.+\d)
   - name: totalSugarsPerServingUom
     singleValue: true
     description: Unit of Measure Data for Total Sugar content
@@ -360,7 +360,7 @@ fields:
       100g serving
     # type: NUMBER
     xpath: //html//div[@id="txt4"]
-    regExp: (~.+\d)
+    regExp: (~*.+\d)
   - name: proteinPerServingUom
     singleValue: true
     description: Unit of Measure Data for Protein
@@ -415,7 +415,7 @@ fields:
       100g serving
     # type: NUMBER
     xpath: //html//div[@id="txt5"]
-    regExp: (~.+\d)
+    regExp: (~*.+\d)
   - name: saltPerServingUom
     singleValue: true
     description: Unit of Measure Data for Salt
