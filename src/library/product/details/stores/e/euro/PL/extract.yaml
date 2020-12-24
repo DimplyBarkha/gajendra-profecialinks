@@ -53,16 +53,16 @@ fields:
     #regExpReplace: $1
   - name: listPrice
     singleValue: false
-    xpath: //div[@id='product-top']//div[@class='price-old'] | //ul[@class="price-tabs"]//li[@data-context="standard"]//div[@class="price-old"]
+    xpath: //div[@id='product-top']//div[@class='price-old'] | //ul[@class="price-tabs"]/li/a[count(*)>1]/*[last()]/div | //ul[@class="price-tabs"]/li/a[count(*)=1]
   - name: price
     singleValue: false
     xpath: //script[@type='application/ld+json'][contains(., 'offers')]
     regExp: price". "((\d+)\.(\d+))"
-    regExpReplace: $1
+    regExpReplace: $2,$3
   - name: availabilityText
     singleValue: false
     xpath: //script[@type='application/ld+json'][contains(., 'offers')]
-    regExp: availability". "http:\/\/schema.org\/(InStock|InStore)
+    regExp: availability". "http:\/\/schema.org\/(InStock|Instock|InStore)
     regExpReplace: In Stock
     defaultValue: Out of Stock
   # - name: descriptionBullets
@@ -92,7 +92,7 @@ fields:
   - name: manufacturerDescription
     singleValue: false
     xpath:
-      normalize-space(//div[@id='description-text'])
+      normalize-space(//div[@class='description-content-inner'])
       #
     # xpath: //div[contains(@class,"col-xs-12")] | //div[contains(@class,"esm-col")]/div/span  | //div[contains(@class,"esm-col")]/div/p | //div[@class="col-desc"] | //p[@class='small']/text() | //p[@class="margin-t-sm-12 font-weight-sm-300"]/text()  | //div[contains(@class,"description-col")]/p | //div[@class="display-desktop"]//text() | //div[@class="e-text e-widget"] |  //div[@id="description-text"]
     # xpath:  //div[contains(@class,"esm-col")]//div//span  | //div[contains(@class,"e-text")] |//div[@class="col-desc"] |//p[@class='small']/text() | //p[@class="margin-t-sm-12 font-weight-sm-300"]/text()  | //div[contains(@class,"description-col")]/p | //div[contains(@class,"col-xs-12")]
@@ -113,9 +113,13 @@ fields:
     # singleValue: false
     # xpath: //div[@id="description-videos"]//iframe/@src | //a[contains(@class,"ytp-title-link")]/@href | //div[@class="ytp-title-expanded-heading"]//a/@href | //button[contains(@class,'video-preview')]/@data-src | //h2[@class="ytp-title-expanded-title"]//a/@href | //div[@class="video-container"]/iframe/@src
     xpath: //import-video/@data
+    regExp: (\/\/.*)
+    regExpReplace: https:$1
     # //button[@class='video-preview js-video-preview']/@data-src
   - name: galleryVideos
     xpath: //import-video/@data
+    regExp: (\/\/.*)
+    regExpReplace: https:$1
   - name: weightNet
     singleValue: false
     xpath: normalize-space(//td[contains(text(),"Waga") and not(contains(text(),"opakowaniem"))]//following-sibling::td)

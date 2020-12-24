@@ -52,12 +52,17 @@ module.exports = {
     }
 
     await context.evaluate(async () => {
-      const descEl = document.querySelector('#description-text');
+      const descEl = document.querySelector('.description-content-inner');
 
       if (descEl) {
         const styleEl = descEl.querySelectorAll('style');
+        const scriptEl = descEl.querySelectorAll('script');
 
         for (const el of styleEl) {
+          el.remove();
+        }
+
+        for (const el of scriptEl) {
           el.remove();
         }
       }
@@ -76,6 +81,7 @@ module.exports = {
           document.body.appendChild(newEl);
         }
       }
+
     });
 
     // const cssProduct1 = 'div#description';
