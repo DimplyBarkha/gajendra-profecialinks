@@ -120,7 +120,7 @@ fields:
     xpath: //div[contains(@class, "f-productPage") and @data-prid]/@data-prid
   - name: unInterruptedPDP
     singleValue: false
-    xpath: //div[contains(@class,"relatedArticles__sliderWrapper")]//div[@class="slick-track"]/article//img/@alt
+    xpath: //div[contains(@class,"relatedArticles__sliderWrapper") or contains(@class,"relatedArticles__slider")]//div[@class="slick-track"]//article//img/@alt
   - name: hasComparisonTable
     defaultValue: No
   - name: inTheBoxText
