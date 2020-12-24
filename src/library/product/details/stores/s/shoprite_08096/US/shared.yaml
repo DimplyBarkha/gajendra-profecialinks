@@ -6,11 +6,12 @@ fields:
   - name: image
     singleValue: true
     description: URL of the main product image
-    xpath: //div[@class='productImage__wrapper']/a/img/@src
+    #xpath: //div[@class='productImage__wrapper']/a/img/@src
+    xpath: //div[@class="productPage__column"]//div[@class='productImage__wrapper']/a/img/@src
   - name: imageAlt
     singleValue: true
     description: Alt text of the main product image
-    xpath: //div[@class='productImage__wrapper']/a/img/@alt
+    xpath: //div[@class="productPage__column"]//div[@class='productImage__wrapper']/a/img/@alt
   - name: alternateImages
     singleValue: false
     description: Other product images (not in manufacturer description)
@@ -33,13 +34,13 @@ fields:
     description: The offered price for the selected product variant - if a user
       clicks add to basket this is the price they would be charged
     #xpath: //span[@class="productPriceInfo__salePrice"]
-    xpath: //div[@class="productImage__wrapper"]/a[@class="product__imageLink"]/@data-price
+    xpath: //div[@class="productPage__column"]//div[@class="productImage__wrapper"]/a[@class="product__imageLink"]/@data-price
   - name: availabilityText
     singleValue: true
     description: Availability as described on page for the selected variant. If
       there is no availability but the product can be added to cart, this field
       should be "In Stock"
-    xpath: //button//span/@aria-label
+    xpath: //div[@class="productPage__actions"]//button//span/@aria-label
     regExp: (Add to Cart)
     regExpReplace: In Stock
     defaultValue: Out of Stock
@@ -56,7 +57,7 @@ fields:
     singleValue: true
     description: Product brand shown - this may actually NOT be just a brand name,
       e.g. "Visit the Gillette Store"
-    xpath: //div[@class="productImage__wrapper"]/a[@class="product__imageLink"]/@data-brandname
+    xpath: //div[@class="productPage__column"]//div[@class="productImage__wrapper"]/a[@class="product__imageLink"]/@data-brandname
   - name: manufacturer
     singleValue: true
     description: Product manufacturer
@@ -65,7 +66,7 @@ fields:
     description: Quantity as described on the page
     #regExp: (?:\s?([\d\.]+\s?)([bB]ar[s]?|[cC]ount|[cC]t|[fF][lL][\.]?\s?[oO][zZ][\.]?|FO|[mM][lL]|[oO][zZ][\.]?|pc|[pP]int|[pP]ops|qt|[wW]ipe[s]?).?)$|(?:\s?([\d\.]+\s?)([bB]ar[s]?|[cC]ount|[cC]|[fF][lL][\.]?\s?[oO][zZ][\.]?|FO|[mM][lL]|[oO][zZ][\.]?|pc|[pP]int|[pP]ops|qt|[wW]ipe[s]?).?\s?[\&\-\w\s]+)$
     #regExpReplace: $1$2$3$4
-    xpath: //div[@class="productImage__wrapper"]/a[@class="product__imageLink"]/@data-weightcurrent
+    xpath: //div[@class="productPage__column"]//div[@class="productImage__wrapper"]/a[@class="product__imageLink"]/@data-weightcurrent
   - name: weightNet
     singleValue: true
     description: Net weight as described on the page
@@ -82,7 +83,7 @@ fields:
   - name: variantId
     singleValue: true
     description: Identifier for a variant from a store where variants share the same sku
-    xpath: //div[@class="productImage__wrapper"]/a[@class="product__imageLink"]/@data-productid
+    xpath: //div[@class="productPage__column"]//div[@class="productImage__wrapper"]/a[@class="product__imageLink"]/@data-productid
   - name: mpc
     singleValue: true
     description: The manufacturer model code (unique) of the product
@@ -357,38 +358,38 @@ fields:
     singleValue: true
     description: Nutritional Information for Vitamin A content - Usually based on
       per 100g serving
-    xpath: //div[@id="added_vitamin_a_per_serving"]
+    # xpath: //div[@id="added_vitamin_a_per_serving"]
   - name: vitaminAPerServingUom
     singleValue: true
     description: Unit of Measure Data for Vitamin A
-    xpath: //div[@id="added_vitamin_a_per_serving_uom"]
+    # xpath: //div[@id="added_vitamin_a_per_serving_uom"]
   - name: vitaminCPerServing
     singleValue: true
     description: Nutritional Information for Vitamin C content - Usually based on
       per 100g serving
-    xpath: //div[@id="added_vitamin_c_per_serving"]
+    # xpath: //div[@id="added_vitamin_c_per_serving"]
   - name: vitaminCPerServingUom
     singleValue: true
     description: Unit of Measure Data for Vitamin C
-    xpath: //div[@id="added_vitamin_c_per_serving_uom"]
+    # xpath: //div[@id="added_vitamin_c_per_serving_uom"]
   - name: calciumPerServing
     singleValue: true
     description: Nutritional Information for Calcium content - Usually based on per
       100g serving
-    xpath: //div[@id="added_calcium_per_serving"]
+    # xpath: //div[@id="added_calcium_per_serving"]
   - name: calciumPerServingUom
     singleValue: true
     description: Unit of Measure Data for Calcium
-    xpath: //div[@id="added_calcium_per_serving_uom"]
+    # xpath: //div[@id="added_calcium_per_serving_uom"]
   - name: ironPerServing
     singleValue: true
     description: Nutritional Information for Iron content - Usually based on per
       100g serving
-    xpath: //div[@id="added_iron_per_serving"]
+    # xpath: //div[@id="added_iron_per_serving"]
   - name: ironPerServingUom
     singleValue: true
     description: Unit of Measure Data for Iron
-    xpath: //div[@id="added_iron_per_serving_uom"]
+    # xpath: //div[@id="added_iron_per_serving_uom"]
   - name: dietarySymbols
     singleValue: true
     description: Information related to the dietary symbols of a specific product
