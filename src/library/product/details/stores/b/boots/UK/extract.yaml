@@ -70,9 +70,8 @@ fields:
     xpath: ancestor::html//*[@id="productManufacturerName"]/@value
   - name: quantity
     description: Quantity as described on the page
-    xpath: ancestor::html//div[@class="details details_redesign"]
+    xpath: normalize-space(ancestor::html//div[@class="details details_redesign"])
     regExp: '^[^|]+'
-    regExpReplace: $1
   - name: weightNet
     xpath: ancestor::html//p[@id="product_long_description"]/text()[contains(.,"Weight")]
     regExp: '[^\s]+$'
@@ -98,7 +97,7 @@ fields:
   - name: legalDisclaimer
     description: Content under "legal disclaimer" header
   - name: directions
-    xpath: ancestor::html//*[@id="product_how_to_use"]/following-sibling::* | ancestor::html//*[@id="estore_product_longdesc"]//text()[preceding-sibling::span[1][contains(text(),"How to")]] | ancestor::html//*[@id="estore_product_longdesc"]//ul[preceding-sibling::span[1][contains(text(),"How to")]]
+    xpath: ancestor::html//*[@id="product_how_to_use"]/following-sibling::* | ancestor::html//*[@id="estore_product_longdesc"]//text()[preceding-sibling::span[1][contains(text(),"How to")]] | ancestor::html//*[@id="estore_product_longdesc"]//ul[preceding-sibling::span[1][contains(text(),"How to")]] | ancestor::html//*[@id="estore_product_longdesc"]//ul[preceding::span[1][contains(text(),"How to")]]
     description: Content under "directions" header
   - name: warnings
     xpath: ancestor::html//*[@id="product_hazardous"]/following-sibling::* | ancestor::html//*[@id="estore_product_longdesc"]//text()[preceding-sibling::span[1][contains(text(),"Hazardous")]]
@@ -213,7 +212,7 @@ fields:
     description: null
   - name: ingredientsList
     # xpath: ancestor::html//*[@id="product_ingredients"][not(following-sibling::ul)]/following-sibling::p/br[following-sibling::br[position()=1]][not(preceding-sibling::br)]/preceding-sibling::span | //*[@id="product_ingredients"][not(following-sibling::ul)]/following-sibling::p/br[following-sibling::br[position()=1]][not(preceding-sibling::br)]/preceding-sibling::text() | //*[@id="product_ingredients"][not(following-sibling::ul)]/following-sibling::p[not(br)] | //*[@id="product_ingredients"]/following-sibling::ul/li
-    xpath: ancestor::html//*[@id="product_ingredients"]/following-sibling::ul | ancestor::html//*[@id="product_ingredients"]/following-sibling::p | ancestor::html//*[@id="estore_product_longdesc"]//text()[preceding-sibling::span[1][contains(text(),"Ingredients")]]
+    xpath: ancestor::html//*[@id="product_ingredients"]/following-sibling::div/text() | ancestor::html//*[@id="product_ingredients"]/following-sibling::ul | ancestor::html//*[@id="product_ingredients"]/following-sibling::p | ancestor::html//*[@id="estore_product_longdesc"]//text()[preceding-sibling::span[1][contains(text(),"Ingredients")]] | ancestor::html//*[@id="estore_product_longdesc"]//text()[preceding-sibling::span[contains(text(),"Ingredients")]]
     description: List of Ingredients from site - can be string of data if no
       discernible start/end point
   - name: backupIngredients
