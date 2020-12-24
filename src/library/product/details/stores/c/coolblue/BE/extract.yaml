@@ -14,19 +14,21 @@ fields:
   - name: alternateImages
     singleValue: false
     description: Other product images (not in manufacturer description)
-    xpath: //ul[contains(@class,'product-media-gallery-thumbnails__wrapper')]//li[position() > 1]//img/@src
+    # xpath: //ul[contains(@class,'product-media-gallery-thumbnails__wrapper')]//li[position() > 1]//img/@src
+    xpath: //div[@id='addedSecondaryImageUrl']
   - name: metaKeywords
     singleValue: true
     description: The <meta> keywords content
   - name: category
     singleValue: false
     description: The categories (e.g. from breadcrumbs)
-    xpath: //ol[contains(@class,'breadcrumbs')]//li[(position() > 1)]//a/text()
+    xpath: //ol[contains(@class,'breadcrumbs')]//li//a/text()[normalize-space(.)]
   - name: nameExtended
     singleValue: true
     description: The product name, prefixing "${brand} - " if not included in "name"
       and appending " - ${variantType}" if necessary (fixed per feed)
-    xpath: //div[@id='product-content']//h1/text() | //h1//span/text()
+    # xpath: //div[@id='product-content']//h1/text() | //h1//span/text()
+    xpath: concat(//h1//text()[normalize-space(.)], '-', //div[contains(@class,'collection-entrance__wrapper')]//span[@class="overflow--ellipsis"]/text())
   - name: listPrice
     singleValue: true
     description: The stated undiscounted price for the product
@@ -36,12 +38,18 @@ fields:
     description: The offered price for the selected product variant - if a user
       clicks add to basket this is the price they would be charged
     xpath: //div[@class='product-order'][1]//div[@class='js-desktop-order-block']//span[contains(@class,'sales-price')]//*[contains(@class,'sales-price__current')]/text()
+  # - name: availabilityText
+  #   singleValue: true
+  #   description: Availability as described on page for the selected variant. If
+  #     there is no availability but the product can be added to cart, this field
+  #     should be "In Stock"
+  #   xpath: //div[@id='addedAvailability']
   - name: availabilityText
     singleValue: true
-    description: Availability as described on page for the selected variant. If
-      there is no availability but the product can be added to cart, this field
-      should be "In Stock"
-    xpath: //div[@id='addedAvailability']
+    xpath: //script[@type="application/ld+json"][contains(text(),'http://schema.org/InStock')]
+    regExp: (.+)
+    regExpReplace: In Stock
+    defaultValue: Out Of Stock
   - name: description
     singleValue: false
     description: Product description supplied by website - may be concatenanted from
@@ -124,8 +132,7 @@ fields:
     singleValue: true
     description: Number of variants listed
     type: NUMBER
-    xpath: count(//div[contains(@class,"product-order")]//div[contains(@class,'collection-entrance__dropdown')]//div[contains(@class,'selectable-card--emphasised')] | //div[contains(@class,'product-order')]//div/@data-multi-discriminant-preview-property-id)
-    defaultValue: 0
+    xpath: //div[@id='addedVariantCount']
   - name: color
     singleValue: true
     description: A textual description of the colour
@@ -146,7 +153,7 @@ fields:
   - name: name
     singleValue: true
     description: The product name
-    xpath: //div[@id='product-content']//h1/text() | //h1//span/text()
+    xpath: concat(//h1//text()[normalize-space(.)], '-', //div[contains(@class,'collection-entrance__wrapper')]//span[@class="overflow--ellipsis"]/text())
   - name: inStorePrice
     singleValue: true
     description: Price in the selected store
@@ -238,7 +245,7 @@ fields:
     singleValue: true
     description: null
     type: NUMBER
-    xpath: count(//ul[contains(@class,'product-media-gallery-thumbnails__wrapper')]//li[contains(@class,'product-media-gallery-thumbnails__thumbnail') and position() > 1])
+    xpath: //div[@id='addedSecondaryImageCount']
   - name: news
     singleValue: true
     description: null
@@ -454,6 +461,7 @@ fields:
   - name: variantInformation
     singleValue: true
     description: colour / scent / flavour / other
+    xpath:  //div[contains(@class,'collection-entrance__wrapper')]//span[@class="overflow--ellipsis"]/text()
   - name: firstVariant
     singleValue: true
     description: Unique identifier for a collection of variants. For a subset of
@@ -465,13 +473,15 @@ fields:
       all variants of a product, this rpc becomes the common link between other
       variants. method 3 = apply some logic to determine link between variants,
       this will need analysis
+    xpath: //div[@id='addedFirstVariant']
   - name: variants
     singleValue: false
     description: null
-    # xpath: //div[@id='addedVariantInfo']
+    xpath: //div[@id='addedVariants']
   - name: additionalDescBulletInfo
     singleValue: false
     description: null
+    xpath: //div[@id='additionalDescriptionBulletInfo']
   - name: prop65Warning
     singleValue: true
     description: null

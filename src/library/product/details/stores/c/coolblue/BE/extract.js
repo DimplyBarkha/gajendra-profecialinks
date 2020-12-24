@@ -9,7 +9,13 @@ module.exports = {
     domain: 'coolblue.be',
     zipcode: '',
   },
-  implementation: async ({ inputString }, { country, domain }, context, { productDetails }) => {
+  implementation: async ({ inputString }, { country, domain, transform: transformParam }, context, { productDetails }) => {
+    const doesPopupExist = await context.evaluate(function () {
+      return Boolean(document.querySelector('div.cookie button[name="accept_cookie"]'));
+    });
+    if (doesPopupExist) {
+      await context.click('div.cookie button[name="accept_cookie"]');
+    }
     await context.evaluate(async function () {
       function addElementToDocument (key, value) {
         const catElement = document.createElement('div');
@@ -47,34 +53,16 @@ module.exports = {
         return result;
       };
 
-      // Single Pipe Concatenation
-      const pipeSeparatorSingle = (id, data) => {
-        var singleSeparatorText = data.join(' | ');
-        addElementToDocument(id, singleSeparatorText);
-      };
-
-      // Double Pipe Concatenation
-      // @ts-ignore
-      // const pipeSeparatorDouble = (id, data) => {
-      //   var doubleSeparatorText = data.join(' || ');
-      //   addElementToDocument(id, doubleSeparatorText);
-      // };
-
-      const spaceSeparator = (id, data) => {
-        var spaceSeparatorText = data.join(' ');
-        addElementToDocument(id, spaceSeparatorText);
-      };
-
       // XPATH Data Extraction For Warranty
       const warrantyNodes = getAllXpath("//dl[@data-property-name='Warranty']//dd/text() | //dl[@data-property-name='Warranty type']//dd/text() | //dl[@data-property-name='Garantie']//dd/text() | //dl[@data-property-name='Garantietype']//dd/text()", 'nodeValue');
       addElementToDocument('addedWarranty', warrantyNodes);
 
-      var availabilityStatus = Boolean(document.querySelector('div.product-order form button.button--order'));
-      var availabilityStatusValue = 'Out of Stock';
-      if (availabilityStatus) {
-        availabilityStatusValue = 'In stock';
-      }
-      addElementToDocument('addedAvailability', availabilityStatusValue);
+      // var availabilityStatus = Boolean(document.querySelector('div.product-order form button.button--order'));
+      // var availabilityStatusValue = 'Out of Stock';
+      // if (availabilityStatus) {
+      //   availabilityStatusValue = 'In stock';
+      // }
+      // addElementToDocument('addedAvailability', availabilityStatusValue);
 
       // availabilityText = (availabilityText === 'temporary-out-of-stock') ? 'Out of Stock' : 'In stock';
       // addElementToDocument('addedAvailability', availabilityText);
@@ -96,15 +84,20 @@ module.exports = {
         }
       }
 
-      const specificationsList = getAllXpath("//div[contains(@class,'js-specifications-content')]//div[contains(@class,'product-specs')]//dt/text()[normalize-space(.)] | //div[contains(@class,'js-specifications-content')]//div[contains(@class,'product-specs')]//dt//span[contains(@class,'product-specs__help-title')]/text()[normalize-space(.)] | //div[contains(@class,'js-specifications-content')]//div[contains(@class,'product-specs')]//dd/text()[normalize-space(.)] | //div[contains(@class,'js-specifications-content')]//div[contains(@class,'product-specs')]//dd//span[@class='screen-reader-only']/text()[normalize-space(.)]", 'nodeValue');
+      const specificationsList = getAllXpath("//div[contains(@class,'js-specifications-content')]//h3/text() | //div[contains(@class,'js-specifications-content')]//div[contains(@class,'product-specs')]//dt/text()[normalize-space(.)] | //div[contains(@class,'js-specifications-content')]//div[contains(@class,'product-specs')]//dt//span[contains(@class,'product-specs__help-title')]/text()[normalize-space(.)] | //div[contains(@class,'js-specifications-content')]//div[contains(@class,'product-specs')]//dd/text()[normalize-space(.)] | //div[contains(@class,'js-specifications-content')]//div[contains(@class,'product-specs')]//dd//span[@class='screen-reader-only']/text()[normalize-space(.)]", 'nodeValue');
       if (specificationsList !== null && specificationsList.length > 0) {
-        spaceSeparator('addedSpecification', specificationsList);
+        addElementToDocument('addedSpecification', specificationsList.join(' || '));
       }
 
-      const additionalDescription = getAllXpath("//div[contains(@class,'grid-section-xs--gap-1')]//ul[@class='list']//li//div[@class='icon-with-text__text']/text() | //div[@class='cms-content is-hidden-until-size-m']//p/text() | //div[contains(@class,'js-pros-and-cons')]//ul//li//div//div[2]/text() | //div[contains(@class,'js-product-description-content')]//p/text()", 'nodeValue');
-      // addElementToDocument('addedAdditionalDescription', additionalDescription);
+      const additionalDescriptionBulletInfo = getAllXpath("//div[@id='product-information']//ul[@class='list']//li//div[@class='icon-with-text__text']/text()", 'nodeValue');
+      if (additionalDescriptionBulletInfo !== null && additionalDescriptionBulletInfo.length > 0) {
+        addElementToDocument('additionalDescriptionBulletInfo', additionalDescriptionBulletInfo.join(' || '));
+      }
+
+      const additionalDescription = getAllXpath("//div[@id='product-information']//div[contains(@class,'cms-content')][position() < 2]//text()[normalize-space(.)]", 'nodeValue');
       if (additionalDescription !== null && additionalDescription.length > 0) {
-        pipeSeparatorSingle('addedAdditionalDescription', additionalDescription);
+        const finalContent = (additionalDescriptionBulletInfo != null) ? additionalDescriptionBulletInfo.join(' || ') + ' | ' + additionalDescription.join(' | ') : additionalDescription.join(' | ');
+        addElementToDocument('addedAdditionalDescription', finalContent);
       }
 
       const technicalDocument = getXpath("//div[@class='js-product-in-the-box-container']//ul[contains(@class,'bullet-list')]//li[1]//a[contains(@href,'manuals')]/@href", 'nodeValue');
@@ -121,6 +114,33 @@ module.exports = {
       // var variantsList = variantInfo.join('|');
       // addElementToDocument('addedVariantInfo', variantsList);
 
+      const imageListObject = getXpath('//div[contains(@class,"product-media-gallery") and contains(@class,"js-media-gallery")]/@data-component', 'nodeValue');
+      if (imageListObject != null) {
+        var imageList = JSON.parse(imageListObject);
+        var imageArray = [];
+        var imageObject = imageList[3].options.thumbnails;
+        for (let i = 1; i < imageObject.length; i++) {
+          if (imageObject[i].image_url.includes('/75x75/products/')) {
+            imageArray.push(imageObject[i].image_url.replace(/75x75\/products/g, 'max/500x500/products'));
+          }
+        }
+        addElementToDocument('addedSecondaryImageUrl', imageArray.join(' | '));
+        addElementToDocument('addedSecondaryImageCount', imageArray.length);
+      }
+
+      const variantObjectInfo = getXpath("//div[@class='product-order']//div[contains(@data-component,'\"name\":\"trackEventImmediate\"')]/@data-component | //div[@class='product-order']//span[contains(@data-component,'\"name\":\"trackEventImmediate\"')]/@data-component", 'nodeValue');
+
+      if (variantObjectInfo != null) {
+        const variantObject = JSON.parse(variantObjectInfo);
+        const variantsDetails = (variantObject[0].options.ga.label).split('|');
+        const variants = variantsDetails[1].split(',');
+        addElementToDocument('addedVariantCount', variants.length);
+        addElementToDocument('addedFirstVariant', variants[0]);
+        addElementToDocument('addedVariants', variants.join(' | '));
+      } else {
+        addElementToDocument('addedVariantCount', 0);
+      }
+
       let scrollTop = 500;
       while (true) {
         window.scroll(0, scrollTop);
@@ -131,13 +151,6 @@ module.exports = {
         }
       };
     });
-    const doesPopupExist = await context.evaluate(function () {
-      return Boolean(document.querySelector('div.cookie button[name="accept_cookie"]'));
-    });
-
-    if (doesPopupExist) {
-      await context.click('div.cookie button[name="accept_cookie"]');
-    }
-    await context.extract(productDetails);
+    await context.extract(productDetails, { transform: transformParam });
   },
 };
