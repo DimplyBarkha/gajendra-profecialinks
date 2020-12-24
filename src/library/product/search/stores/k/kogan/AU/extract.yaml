@@ -4,8 +4,8 @@ recordSelector: null
 recordXPath: //div[contains(@class,'_3dbuB _2TkM7')]
 fields:
   - name: id
-    xpath: //figure[contains(@class,'wyCdD')]//img/@src
-    regExp: "[A-Z0-9-]{7,}"
+    xpath: //div[@id="sku"]
+    # regExp: "[A-Z0-9-]{7,}"
   - name: name
     xpath: //div[contains(@class,'_2_1T4')]/h2
     singleValue: false
