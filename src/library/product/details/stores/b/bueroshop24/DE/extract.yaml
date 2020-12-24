@@ -26,7 +26,7 @@ fields:
     singleValue: true
     description: The product name, prefixing "${brand} - " if not included in "name"
       and appending " - ${variantType}" if necessary (fixed per feed)
-    xpath: //h1[@itemprop="name"]/text()
+    xpath: concat(//h1[@itemprop="name"]/text()[normalize-space(.)], '-', //div[contains(@class,'family-area')]//a[@itemprop='isSimilarTo' and contains(@class,'active')][1]/@data-family-attribute-value)
   - name: listPrice
     singleValue: true
     description: The stated undiscounted price for the product
@@ -149,7 +149,7 @@ fields:
   - name: name
     singleValue: true
     description: The product name
-    xpath: //h1[@itemprop="name"]/text()
+    xpath: concat(//h1[@itemprop="name"]/text()[normalize-space(.)], '-', //div[contains(@class,'family-area')]//a[@itemprop='isSimilarTo' and contains(@class,'active')][1]/@data-family-attribute-value)
   - name: inStorePrice
     singleValue: true
     description: Price in the selected store
@@ -459,7 +459,8 @@ fields:
   - name: variantInformation
     singleValue: true
     description: colour / scent / flavour / other
-    xpath: //div[contains(@class,'family-area')]//p[@data-family-name='Farbe']//span/text()[normalize-space(.)]
+    # xpath: //div[contains(@class,'family-area')]//p[@data-family-name='Farbe']//span/text()[normalize-space(.)]
+    xpath: //div[contains(@class,'family-area')]//a[@itemprop='isSimilarTo' and contains(@class,'active')][1]/@data-family-attribute-value
   - name: firstVariant
     singleValue: true
     description: Unique identifier for a collection of variants. For a subset of

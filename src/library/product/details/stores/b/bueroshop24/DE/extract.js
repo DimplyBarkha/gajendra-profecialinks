@@ -140,6 +140,6 @@ module.exports = {
         }
       };
     });
-    await context.extract(productDetails);
+    await context.extract(productDetails, { transform: transformParam });
   },
 };
