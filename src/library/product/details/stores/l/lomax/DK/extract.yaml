@@ -26,11 +26,9 @@ fields:
   - name: listPrice
     singleValue: true
     xpath: //meta[@property="product:pretax_price:amount"]/@content
-    type: CURRENCY
   - name: price
     singleValue: true
     xpath: //meta[@property="product:price:amount"]/@content
-    type: CURRENCY
   - name: availabilityText
     singleValue: true
     xpath: //div[@class="container productcard"]/@data-gtm-stock-status  
@@ -80,10 +78,9 @@ fields:
     xpath: //div[@class="container productcard"]/@data-gtm-rating-count
   - name: aggregateRatingText
     singleValue: true
-  - name: aggregateRating
+  - name: aggregateRating2
     singleValue: true
     xpath: //div[@class="container productcard"]/@data-gtm-rating
-    type: NUMBER
   - name: shippingInfo
     singleValue: true
   - name: shippingDimensions
