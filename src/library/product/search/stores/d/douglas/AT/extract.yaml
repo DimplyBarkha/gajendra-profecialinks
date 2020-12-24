@@ -4,13 +4,15 @@ recordSelector: null
 recordXPath: //td[@class="products depth_0"]//tbody/tr
 fields:
   - name: name
-    xpath: //td[@class="classifications depth_1"]//td[@class="name depth_2"] | //td[@class="brandPath depth_1"]//tr[3]//td[@class="name depth_2"] | //td[@class="baseProductName depth_1"] 
+    xpath: //td[@class="brandPath depth_1"]//tr[1]//td[contains(@class,"name depth_2")] | //td[@class="brandPath depth_1"]//tr[3]//td[@class="name depth_2"] | //td[@class="baseProductName depth_1"] 
   - name: id
     xpath: //td[contains(@class,"code depth_1")]
   - name: thumbnail
     xpath: //td[contains(@class,"url depth_2")]
   - name: price
-    xpath: //td[@class="priceData depth_2"]//td[@class="value depth_3"]
+    xpath: //td[@class="priceData depth_2"]//td[@class="formattedValue depth_3"]
+    regExp: €\s(\d+,\d+)
+    regExpReplace: $1
   # - name: searchUrl
   #   xpath: '@search-url'
   - name: productUrl
@@ -27,6 +29,6 @@ fields:
   - name: gtin
     xpath: //td[contains(@class,"code depth_1")]
   - name: manufacturer
-    xpath: //td[contains(@class,"name depth_2")]
+    xpath: //td[@class="brandPath depth_1"]//tr[1]//td[contains(@class,"name depth_2")]
   - name: rank
   - name: rankOrganic
