@@ -4,10 +4,10 @@ recordSelector: null
 recordXPath: null
 fields:
   - name: image
-    xpath: (//div[@class='simple-slider']//ul//li//a/@href)[1]
+    xpath: //img[@class="product-image"]/@src
     description: URL of the main product image
   - name: imageAlt
-    xpath: (//div[@class='simple-slider']//ul//li//a//img/@alt)[1]
+    xpath: //img[@class="product-image"]/@alt
     description: Alt text of the main product image
   - name: alternateImages
     singleValue: false
@@ -56,7 +56,7 @@ fields:
     xpath: //th[contains(text(), "Dimensions")]/following-sibling::td
     description: Quantity as described on the page
   - name: weightNet
-    xpath: //caption[contains(text(),'GENERAL')]/following-sibling::tbody//th[contains(text(), "Weight")]/following-sibling::td
+    xpath: //caption[contains(text(),'GENERAL')]/following-sibling::tbody//th[contains(text(), "Weight")]/following-sibling::td | //caption[contains(text(),'INSTALLATION')]/following-sibling::tbody//th[contains(text(), "Weight")]/following-sibling::td |//caption[contains(text(),'General')]/following-sibling::tbody//th[contains(text(), "Weight")]/following-sibling::td | //caption[contains(text(),'FEATURES')]/following-sibling::tbody//th[contains(text(), "Weight")]/following-sibling::td
     description: Net weight as described on the page
   - name: weightGross
     description: Gross weight as described on the page
@@ -70,7 +70,8 @@ fields:
     xpath: //td[@class="sku"]
     description: Identifier for a variant from a store where variants share the same sku
   - name: mpc
-    xpath: //*[@id="added-table"]/table/tbody/tr/td[@class="id"] | //th[contains(text(), "odel number")]/following-sibling::td
+    xpath: //p[@class="prd-code"]
+    regExp: (\d+)
     description: The manufacturer model code (unique) of the product
   - name: packSize
     description: The number of packs in the product offer (if stated separately on
@@ -97,7 +98,7 @@ fields:
   - name: shippingInfo
     description: Shipping information for the product
   - name: shippingDimensions
-    xpath: //th[contains(text(), "Boxed dimensions")]/following-sibling::td | //th[contains(text(), "Dimensions")]/following-sibling::td
+    xpath: //th[contains(text(), "Dimensions")]/following-sibling::td
     description: Stated shipping dimensions
   - name: shippingWeight
     xpath: //th[contains(text(), "Boxed weight")]/following-sibling::td
@@ -120,13 +121,13 @@ fields:
     xpath: //div[@id="product-info"]
   - name: manufacturerImages
     singleValue: false
-    xpath: //div[@id="product-info"]/following-sibling::div/div[@id="richmedia-container"]//div[@id="inpage_container"]//img/@srcset
-    regExp: (.+)
-    regExpReplace: https:$1
+    xpath: //div[@id="richmedia-container"]//div[@id="inpage_container"]//img/@data-flixsrcset | /html[not(//div[@id="richmedia-container"]//div[@id="inpage_container"]//img/@data-flixsrcset)]//div[@id="richmedia-container"]//div[@id="inpage_container"]//img/@src
+    regExp: ^[^?]+
+    # regExpReplace: https:$1
     description: Images within the third party description
   - name: videos
     singleValue: false
-    xpath: //td[@class="videoUrl"] | //iframe[contains(@title, 'COVID')]/@src
+    xpath: //td[@class="videoUrl"] | (//iframe[contains(@src,'isitetv') and not(contains(@src,'html'))]/@src)[1]
     description: URLs of videos on page
   - name: name
     xpath: //h1[contains(@class, "page-title")]
