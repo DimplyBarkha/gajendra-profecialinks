@@ -9,9 +9,9 @@ module.exports = {
     nextLinkXpath: null,
     mutationSelector: null,
     spinnerSelector: null,
-    loadedSelector: 'div.b5y1',
+    loadedSelector: 'div.ao4',
     loadedXpath: null,
-    noResultsXPath: '//div[@class="b6q3"]',
+    noResultsXPath: "//div[@class='b6q3']",
     stopConditionSelectorOrXpath: null,
     resultsDivSelector: null,
     openSearchDefinition: {

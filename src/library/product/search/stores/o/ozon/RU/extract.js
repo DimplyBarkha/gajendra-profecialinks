@@ -31,7 +31,7 @@ module.exports = {
       // rank
       const cardsItems = document.querySelectorAll('.ao4>div');
       const currentPageNumber = + document.querySelector('.b9g0.b9g2').textContent - 1;
-      console.log(cardsItems);
+
       if(cardsItems){
         cardsItems.forEach((item, index) => {
           const itemRank = (index + 1) + (36 * currentPageNumber);
