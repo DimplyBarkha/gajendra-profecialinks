@@ -138,7 +138,7 @@ fields:
     singleValue: false
     description: Images within the third party description
   - name: videos
-    xpath: //body/@video-url
+    xpath: //a[@class='videos']/@href
     description: URLs of videos on page
   - name: name
     description: The product name
@@ -437,4 +437,4 @@ fields:
   - name: inTheBoxUrl
     xpath: //div[contains(@class,"in-the-box")]//img//@data-src
   - name: galleryVideos
-    xpath: //body/@video-url
+    xpath: //a[@class='videos']/@href

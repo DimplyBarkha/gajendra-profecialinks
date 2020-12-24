@@ -75,54 +75,77 @@ async function implementation(inputs, parameters, context, dependencies) {
   const gDelay = t => new Promise(resolve => setTimeout(resolve, t));
 
   await context.evaluate(async () => {
-    const delay = t => new Promise(resolve => setTimeout(resolve, t));
-    async function clickImages (image) {
-      const videos = Array.from(document.querySelectorAll(image));
-      try {
-        // Get the Videos to scope
-        for (const video of videos) {
-          console.log('clicking on play button:');
-          video.click();
-          await delay(2000);
-        }
-      } catch (err) {
-        console.log('Video Loading issues');
-      }
-    }
-    // Call the function to get the images
-    await clickImages('div > div > picture > img[alt]');
+    // const delay = t => new Promise(resolve => setTimeout(resolve, t));
+    // async function clickImages (image) {
+    //   const videos = Array.from(document.querySelectorAll(image));
+    //   try {
+    //     // Get the Videos to scope
+    //     for (const video of videos) {
+    //       console.log('clicking on play button:');
+    //       video.click();
+    //       await delay(2000);
+    //     }
+    //   } catch (err) {
+    //     console.log('Video Loading issues');
+    //   }
+    // }
+    // // Call the function to get the images
+    // await clickImages('div > div > picture > img[alt]');
 
 
     var clickArrow = document.querySelector('div[ data-test="mms-th-gallery"] div[direction="next"]');
     if (clickArrow) {
       clickArrow.click();
     }
+
+    var userAction = async () => {
+      var sku = document.evaluate('//link[@rel="canonical"]/@href', document, null, XPathResult.ANY_TYPE, null).iterateNext().textContent.replace(/(.+-)(.+)(.html)/g, '$2');
+      var skuNumber = 'GraphqlProduct:' + sku
+      var allAsset = window.__PRELOADED_STATE__.apolloState[skuNumber].assets;
+      var VideoApi = allAsset.find(e => !e.pixelboxxId);
+      var api = VideoApi.link
+      var response = await fetch(api);
+      var myJson = await response.json(); //extract JSON from the http response
+      if (myJson && myJson.length) {
+          var videoUrls = myJson && myJson[0] && myJson && myJson[0].videos.map(e => {
+              return e.links[0].location.replace('thumb', 'deliverVideo');
+          });
+          videoUrls.map(elm => {
+              let newlink = document.createElement('a');
+              newlink.setAttribute('class', 'videos');
+              newlink.setAttribute('href', elm);
+              document.body.appendChild(newlink);
+          })
+      }
+  }
+  
+  await userAction()
   });
 
   await gDelay(2000);
   await context.waitForNavigation({ timeout: 15000, waitUntil: 'networkidle0' });
   // await context.searchForRequest('https://mycliplister.com/jplist.*', 'GET');
-  const requests = await context.searchAllRequests('https://mycliplister.com/jplist.*', 'GET');
-  // console.log(request);
-  // const requests = [request];
-  const videoUrls = [];
-  for (const request of requests) {
-    if (request && request.responseBody && request.responseBody.body) {
-      const inf = JSON.parse(request.responseBody.body);
-      const vidUrl = inf.cliplist.clip.clipurl;
-      videoUrls.push(vidUrl);
-      console.log("Got video");
-      console.log(videoUrls.length);
-      console.log('VIDEO URL :  ', vidUrl);
-    }
-  }
+  // const requests = await context.searchAllRequests('https://mycliplister.com/jplist.*', 'GET');
+  // // console.log(request);
+  // // const requests = [request];
+  // const videoUrls = [];
+  // for (const request of requests) {
+  //   if (request && request.responseBody && request.responseBody.body) {
+  //     const inf = JSON.parse(request.responseBody.body);
+  //     const vidUrl = inf.cliplist.clip.clipurl;
+  //     videoUrls.push(vidUrl);
+  //     console.log("Got video");
+  //     console.log(videoUrls.length);
+  //     console.log('VIDEO URL :  ', vidUrl);
+  //   }
+  // }
 
-  await context.evaluate(function (urls) {
-    const videosAll = urls.join(' | ');
+  // await context.evaluate(function (urls) {
+  //   const videosAll = urls.join(' | ');
     
-    document.body.setAttribute('video-url', videosAll);
-  }, videoUrls);
-
+  //   document.body.setAttribute('video-url', videosAll);
+  // }, videoUrls);
+ 
   return await context.extract(productDetails, { transform });
 }
 
