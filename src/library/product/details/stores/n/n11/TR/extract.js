@@ -17,6 +17,8 @@ module.exports = {
   ) => {
     const { transform } = parameters;
     const { productDetails } = dependencies;
+    await context.waitForSelector('#view');
+    await context.clickAndWaitForNavigation(`#p-${inputs.id}`, {}, {});
     await context.evaluate(() => {
       function addElementToDocument (key, value) {
         const catElement = document.createElement('div');

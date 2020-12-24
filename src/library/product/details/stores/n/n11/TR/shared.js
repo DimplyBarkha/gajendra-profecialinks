@@ -14,6 +14,8 @@ const transform = (data) => {
   data.forEach(el => {
     el.group.forEach(gr => {
       try {
+        gr.price[0].text = gr.price[0].text.replace(',', '.');
+        gr.listPrice[0].text = gr.listPrice[0].text.replace(',', '.');
         gr['_url'] = gr.url;
         gr['_input'] = gr.input;
         if (gr && gr.category && gr.category.length) gr.category.shift();
