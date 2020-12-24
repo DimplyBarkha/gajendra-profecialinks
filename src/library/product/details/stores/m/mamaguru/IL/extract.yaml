@@ -526,5 +526,5 @@ fields:
     xpath: //div[@class="owl-wrapper"]//div[@class="TextDetails"]//a[@class="Title"]/@title
   - name: inTheBoxText
     singleValue: false
-    xpath: //strong[contains(text(),"אביזרים")]/ancestor::p/following-sibling::ul[1]//li
+    xpath: //strong[contains(text(),"אביזרים")]/ancestor::p/following-sibling::ul[1]//li | //span[contains(text(),"מה באריזה")]/ancestor::p/following-sibling::ul[1]//li
     description: Must include text to show the accessories/tools which come with the product
