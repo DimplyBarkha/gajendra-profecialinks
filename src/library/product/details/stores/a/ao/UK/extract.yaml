@@ -62,12 +62,13 @@ fields:
     singleValue: false
     description: Product description supplied by website - may be concatenanted from
       multiple places; specifically not the manufacturer description
-    xpath: (//*[@data-tag-section='product overview']//div[@itemprop='description']//p)[1] | //div[contains(@class, "topRight")]//ul[contains(@class, "featureBullets")]//li | //section[@id='discontinuedProductNoAlt']//ul[contains(@class, "feature-bullets-discontinued")]//li/div[@class='font-regular']
+    xpath: (//*[@data-tag-section='product overview']//div[@itemprop='description']//p)[1]
+  - name: descriptionAdd
+    xpath: //div[contains(@class, "topRight")]//ul[contains(@class, "featureBullets")]//li | //section[@id='discontinuedProductNoAlt']//ul[contains(@class, "feature-bullets-discontinued")]//li/div[@class='font-regular']
     # xpath: //div[contains(@class,'topRight')]//div[@data-tag-section='product overview']//div[@itemprop='description']//p|//div[@id='bulletInfoText']
   - name: descriptionBullets
-    singleValue: true
     description: Number of ul > li tags in the description
-    xpath: count(//div[contains(@class,'topRight')]//div[contains(@class,'keyFeatures')]//ul[@class="featureBullets"]/li)
+    xpath: //div[contains(@class, "topRight")]//ul[contains(@class, "featureBullets")]//li | //section[@id='discontinuedProductNoAlt']//ul[contains(@class, "feature-bullets-discontinued")]//li/div[@class='font-regular']
   - name: brandText
     singleValue: true
     description: Product brand shown - this may actually NOT be just a brand name,

@@ -85,14 +85,45 @@ const transform = (data, context) => {
             text: row.aggregateRatingOther[0].text.replace(/(.)\/(.+)/, '$1'),
           }];
         }
+
+        if (row.descriptionAdd) {
+          let text = '';
+          row.descriptionAdd.forEach(item => {
+            text += `|| ${item.text} `;
+          });
+
+          row.descriptionAdd = [
+            {
+              text: text.trim(),
+            },
+          ];
+        }
+
         if (row.description) {
           let text = '';
           row.description.forEach(item => {
-            text += `${item.text.replace(/\n \n/g, ':')} || `;
+            text += `${item.text} `;
           });
+
+          if (row.descriptionAdd) {
+            text += row.descriptionAdd[0].text;
+          }
+
           row.description = [
             {
-              text: text.slice(0, -4),
+              text: text.trim(),
+            },
+          ];
+        }
+
+        if (!row.description && row.descriptionAdd) {
+          row.description = row.descriptionAdd;
+        }
+
+        if (row.descriptionBullets) {
+          row.descriptionBullets = [
+            {
+              text: row.descriptionBullets.length,
             },
           ];
         }
