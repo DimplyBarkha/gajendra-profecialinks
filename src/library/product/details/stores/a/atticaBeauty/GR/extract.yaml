@@ -1,0 +1,116 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: //div[contains(@class,'container')]
+fields:
+  - name: image
+    singleValue: false
+    xpath: //div[contains(@class,'container')]//section[contains(@class,'mainContent')]//div[contains(@class,'productView')]//div[contains(@class,'productImg')]//div[contains(@class,'wrap')]//figure[contains(@class,'product__img product__img--featured')]//a//picture/img[contains(@class,'product__img__image')]//@src
+    regExp: (^.*)
+    regExpReplace: https://www.atticadps.gr$1
+  - name: brandLink
+    singleValue: false
+    xpath: //div[contains(@class,'container')]//section[contains(@class,'mainContent')]//div[contains(@class,'productView')]//div[contains(@class,'productDetails')]//a[contains(@class,'brand')]/@href
+  - name: alternateImages
+    singleValue: false
+    xpath: //div[contains(@class,'productView')]//div[contains(@class,'productImg')]//div[contains(@class,'wrap')]//figure[contains(@class,'product__img')]//a//img/@src
+  - name: category
+    singleValue: false
+    xpath: //div[contains(@class,'container')]//ul[contains(@class,'breadcrumb')]//li[position()>1 and position()<last()]
+  - name: brandText
+    singleValue: false
+    xpath: //div[contains(@class,'container')]//section[contains(@class,'mainContent')]//div[contains(@class,'productView')]//div[contains(@class,'productDetails')]//a[contains(@class,'brand')]
+  - name: priceCurrency
+    singleValue: false
+    defaultValue: €
+  - name: variantId
+    singleValue: false
+    xpath: //div[contains(@class,'container')]//section[contains(@class,'mainContent')]//div[contains(@class,'productView')]//div[contains(@class,'productDetails')]//div[contains(@class,'tools')]//a/@data-dataadd
+    regExp: ("ProductID":(\d+))
+    regExpReplace: $2
+  - name: nameExtended
+    singleValue: false
+    xpath: //div[contains(@class,'container')]//section[contains(@class,'mainContent')]//div[contains(@class,'productView')]//div[contains(@class,'productDetails')]//h1|//div[contains(@class,'container')]//section[contains(@class,'mainContent')]//div[contains(@class,'productView')]//div[contains(@class,'productDetails')]//a[contains(@class,'brand')]|//div[contains(@class,'container')]//section[contains(@class,'mainContent')]//div[contains(@class,'productView')]//div[contains(@class,'productDetails')]//div[contains(@class,'prStatus')]//span[contains(@class,'quant')]
+  - name: name
+    singleValue: false
+    xpath: //div[contains(@class,'container')]//section[contains(@class,'mainContent')]//div[contains(@class,'productView')]//div[contains(@class,'productDetails')]//h1
+  - name: color
+    singleValue: false
+    xpath: //div[contains(@class,'container')]//section[contains(@class,'mainContent')]//div[contains(@class,'productView')]//div[contains(@class,'productDetails')]//div[contains(@class,'formRow')]//div[contains(@class,'dd')]//div[contains(@class,'selected')]
+  - name: colorCode
+    singleValue: false
+    xpath: //div[contains(@class,'container')]//section[contains(@class,'mainContent')]//div[contains(@class,'productView')]//div[contains(@class,'productDetails')]//div[contains(@class,'colors')]//ul[contains(@class,'colors')]//li[1]//a/@style
+    regExp: (background-color:(.+?);)
+    regExpReplace: $2
+  - name: listPrice
+    singleValue: false
+    xpath: //div[contains(@class,'container')]//section[contains(@class,'mainContent')]//div[contains(@class,'productView')]//div[contains(@class,'productDetails')]//div[contains(@class,'prStatus')]//span[contains(@class,'deleted')]
+  - name: price
+    singleValue: false
+    xpath: //div[contains(@class,'container')]//section[contains(@class,'mainContent')]//div[contains(@class,'productView')]/@data-ga-product-details
+    regExp: ("price":(\d+(\.\d{1,5})?))
+    regExpReplace: $2 €
+  - name: availabilityText
+    singleValue: false
+    xpath: //div[contains(@class,'container')]//section[contains(@class,'mainContent')]//div[contains(@class,'productView')]//div[contains(@class,'productDetails')]//div[contains(@class,'tools')]//div[contains(@class,'right')]//a[contains(@class,'button')]
+    regExp: (ΠΡΟΣΘΗΚΗ ΣΤΟ ΚΑΛΑΘΙ)
+    regExpReplace: In Stock
+    defaultValue: Out Of Stock
+  - name: directions
+    singleValue: false
+    xpath: //div[contains(@class,'container')]//section[contains(@class,'mainContent')]/@data-luceneprod
+    regExp: ("UseCase"\s*:\s*"(.+?)")
+    regExpReplace: $2
+  - name: description
+    singleValue: false
+    xpath: //div[contains(@class,'container')]//section[contains(@class,'mainContent')]//div[contains(@class,'productView')]//div[contains(@class,'productDetails')]//div[contains(@class,'accInfo')]//div[contains(@class,'item')][1]//div[contains(@class,'accContent')]
+  - name: promotion
+    singleValue: false
+    xpath: //div[contains(@class,'container')]//section[contains(@class,'mainContent')]//div[contains(@class,'productView')]//div[contains(@class,'productImg')]//span[contains(@class,'tag sale')]
+    regExp: (-.*)
+    regExpReplace: $1
+  - name: variantInformation
+    singleValue: false
+    xpath: //div[contains(@class,'container')]//section[contains(@class,'mainContent')]//div[contains(@class,'productView')]//div[contains(@class,'productDetails')]//div[contains(@class,'formRow')]//div[contains(@class,'dd')]//div[contains(@class,'selected')] | //div[contains(@class,'container')]//section[contains(@class,'mainContent')]//div[contains(@class,'productView')]//div[contains(@class,'productDetails')]//div[contains(@class,'prStatus')]//span[contains(@class,'quant')]
+  - name: ingredientsList
+    singleValue: false
+    xpath: //div[contains(@class,'container')]//section[contains(@class,'mainContent')]/@data-luceneprod
+    regExp: ("Ingredients"\s*:\s*"(.+?)\s*")
+    regExpReplace: $2
+  - name: url
+    singleValue: false
+    xpath: //div[contains(@class,'container')]//section[contains(@class,'mainContent')]//div[contains(@class,'productView')]/@data-moosend-product
+    regExp: ({"itemCode":"[^"]+","itemPrice":\d+\.\d{1,4}?,"itemUrl":"([^"]+)")
+    regExpReplace: $2
+  - name: quantity
+    singleValue: false
+    xpath: //div[contains(@class,'container')]//section[contains(@class,'mainContent')]//div[contains(@class,'productView')]//div[contains(@class,'productDetails')]//div[contains(@class,'prStatus')]//span[contains(@class,'quant')]
+    regExp: (\d+.*)
+    regExpReplace: $1
+  - name: sku
+    singleValue: false
+    xpath: //div[contains(@class,'container')]//section[contains(@class,'mainContent')]/@data-luceneprod
+    regExp: ("SKU":"(\d+))
+    regExpReplace: $2
+  - name: videos
+    singleValue: false
+    xpath: //div[contains(@class,'container')]//section[contains(@class,'mainContent')]//figure/a/@data-video
+    regExp: (src\s*=\s*"(.+?)")
+    regExpReplace: $2
+  - name: firstVariant
+    singleValue: false
+    xpath: //div[contains(@class,'productDetails')]//div[contains(@class,'tools')]//div[contains(@class,'right')]//a/@data-dataremove
+  - name: variantCount
+    singleValue: false
+    xpath: //div[contains(@class,'productDetails')]//div[contains(@class,'colors')]//ul//li/a/@data-productid | //div[contains(@class,'productDetails')]//div[contains(@class,'ml')]//a/@data-sku
+  - name: variants
+    singleValue: false
+    xpath: //div[contains(@class,'productDetails')]//div[contains(@class,'colors')]//ul//li/a/@data-productid | //div[contains(@class,'productDetails')]//div[contains(@class,'ml')]//a/@data-sku
+  - name: imageZoomFeaturePresent
+    singleValue: false
+    xpath: //div[contains(@class,'container')]//section[contains(@class,'mainContent')]//div[contains(@class,'productView')]//div[contains(@class,'productImg')]//div[contains(@class,'wrap')]//figure[contains(@class,'product__img product__img--featured')]//div[contains(@class,'product__img__zoom')]/span[contains(@class,'product__img__zoom__text')]
+    regExp: (^.*)
+    regExpReplace: "Yes"
+    defaultValue: "No"
+
+  

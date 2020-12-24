@@ -1,0 +1,11 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: sku
+    singleValue: false
+    xpath: //div[contains(@class,'ml')]//a/@data-sku | //div[contains(@class,'formRow')]//a/@data-sku
+  - name: variantUrl
+    singleValue: false
+    xpath: //div[contains(@class,'ml')]//a/@href | //div[contains(@class,'formRow')]//a/@href

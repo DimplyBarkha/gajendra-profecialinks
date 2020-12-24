@@ -15,7 +15,7 @@ module.exports = {
       const countryOfOriginText = document.querySelector('ul.origins___1t3R-') ? document.querySelector('ul.origins___1t3R-').innerText.replace(/[\r\n]+/gm, ' ') : ' ';
       document.querySelector('body').setAttribute('country_of_origin', countryOfOriginText);
 
-      const warningText = document.evaluate('//div[@id="sectproductDetails"]//h3[contains(.,"Warning")]/../ul', document, null, XPathResult.UNORDERED_NODE_ITERATOR_TYPE, null).iterateNext() ? document.evaluate('//div[@id="sectproductDetails"]//h3[contains(.,"Warning")]/../ul', document, null, XPathResult.UNORDERED_NODE_ITERATOR_TYPE, null).iterateNext().textContent.replace(/[\r<br>]+/gm, ' ') : ' ';
+      const warningText = document.evaluate('//div[@id="sectproductDetails"]//h3[contains(.,"Warning")]/../ul', document, null, XPathResult.UNORDERED_NODE_ITERATOR_TYPE, null).iterateNext() ? document.evaluate('//div[@id="sectproductDetails"]//h3[contains(.,"Warning")]/../ul', document, null, XPathResult.UNORDERED_NODE_ITERATOR_TYPE, null).iterateNext().textContent.replace('<br>', ' ') : ' ';
       document.querySelector('body').setAttribute('warnings', warningText);
 
       const allergyAdviceText = document.evaluate('//div[@id="sectproductDetails"]//h3[contains(.,"Allergy advice")]/../ul', document, null, XPathResult.UNORDERED_NODE_ITERATOR_TYPE, null).iterateNext() ? document.evaluate('//div[@id="sectproductDetails"]//h3[contains(.,"Allergy advice")]/../ul', document, null, XPathResult.UNORDERED_NODE_ITERATOR_TYPE, null).iterateNext().textContent.replace(/[\r\n]+/gm, ' ') : ' ';

@@ -1,0 +1,27 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: //div[contains(@class,'tab')]//div[contains(@class,'productList')]//div[contains(@class,'product')]
+fields:
+  - name: id
+    xpath: //div[contains(@class,'tab')]//div[contains(@class,'productList')]//div[contains(@class,'product')]//div[contains(@class,'prLInk')]//div[contains(@class,'heart')]//div[contains(@class,'trigerTool')]//@data-productid
+    singleValue: false
+  - name: rank
+  - name: rankOrganic
+  - name: price
+    xpath: //div[contains(@class,'tab')]//div[contains(@class,'productList')]//div[contains(@class,'product')]/@data-ga-product
+    singleValue: false
+    regExp: ("price":(\d+.\d+))
+    regExpReplace: $2
+  - name: name
+    xpath: //div[contains(@class,'tab')]//div[contains(@class,'productList')]//div[contains(@class,'product')]//div[contains(@class,'prLInk')]//div[contains(@class,'heart')]//@data-name
+    singleValue: false
+  - name: productUrl
+    xpath: //div[contains(@class,'tab')]//div[contains(@class,'productList')]//div[contains(@class,'product')]//a[contains(@class,'quickBuy')]/@href
+    singleValue: false
+  - name: thumbnail
+    xpath: //div[contains(@class,'tab')]//div[contains(@class,'productList')]//div[contains(@class,'product')]//div[contains(@class,'prLInk')]//a/img/@src
+    singleValue: false
+  - name: manufacturer
+    xpath: //div[contains(@class,'tab')]//div[contains(@class,'productList')]//div[contains(@class,'product')]//div[contains(@class,'prLInk')]//div[contains(@class,'info')]//div[contains(@class,'heightHolder')]//a[contains(@class,'brand')]
+    singleValue: false
