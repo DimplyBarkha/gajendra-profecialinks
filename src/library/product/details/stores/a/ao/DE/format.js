@@ -72,12 +72,12 @@ const transform = (data, context) => {
         if (row.descriptionAdd) {
           let text = '';
           row.descriptionAdd.forEach(item => {
-            text += `|| ${item.text}`;
+            text += `|| ${item.text} `;
           });
 
           row.descriptionAdd = [
             {
-              text: text,
+              text: text.trim(),
             },
           ];
         }
@@ -89,11 +89,24 @@ const transform = (data, context) => {
           });
 
           if (row.descriptionAdd) {
-            text += row.descriptionAdd[0].text
+            text += row.descriptionAdd[0].text;
           }
+
           row.description = [
             {
-              text: text,
+              text: text.trim(),
+            },
+          ];
+        }
+
+        if (!row.description && row.descriptionAdd) {
+          row.description = row.descriptionAdd;
+        }
+
+        if (row.descriptionBullets) {
+          row.descriptionBullets = [
+            {
+              text: row.descriptionBullets.length,
             },
           ];
         }

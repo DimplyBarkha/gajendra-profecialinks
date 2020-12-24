@@ -19,7 +19,7 @@ const implementation = async ({ url, id, zipcode, storeId }, { loadedSelector, n
 
   // Check if we are on results page
   const productLink = await context.evaluate(function () {
-    const ele = document.evaluate(`(//div[@data-testid='product-card-list-view']//a[@itemprop='url'])[1]`, document, null, XPathResult.ANY_UNORDERED_NODE_TYPE, null).singleNodeValue;
+    const ele = document.evaluate('(//div[@data-testid=\'product-card-list-view\']//a[@itemprop=\'url\'])[1]', document, null, XPathResult.ANY_UNORDERED_NODE_TYPE, null).singleNodeValue;
     if (!ele) {
       return false;
     }
@@ -27,7 +27,7 @@ const implementation = async ({ url, id, zipcode, storeId }, { loadedSelector, n
   });
 
   if (productLink) {
-    await dependencies.goto({ url, zipcode, storeId });
+    await dependencies.goto({ url: productLink, zipcode, storeId });
     if (loadedSelector) {
       await context.waitForFunction(
         (selector, xpath) => {

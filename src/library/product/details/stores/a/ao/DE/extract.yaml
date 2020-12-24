@@ -63,7 +63,7 @@ fields:
 - name: descriptionBullets
   singleValue: true
   description: Number of ul > li tags in the description
-  xpath: count(//section[@id="productSpecification"]//ul[@class='featureBullets']/li)
+  xpath: //div[contains(@class, "topRight")]//ul[contains(@class, "featureBullets")]//li | //section[@id='discontinuedProductNoAlt']//ul[contains(@class, "feature-bullets-discontinued")]//li/div[@class='font-regular']
 - name: brandText
   singleValue: true
   description: Product brand shown - this may actually NOT be just a brand name, e.g.
