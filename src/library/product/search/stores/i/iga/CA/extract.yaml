@@ -1,0 +1,22 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: id
+    singleValue: false
+    xpath: //html//div[@id="id")]
+  - name: name
+    singleValue: false
+    xpath: //h3[@class="h4-like  text--brand"]/a/text()
+  - name: productUrl
+    singleValue: false
+    xpath: //div[@class="media-overlay js-overlay-controls"]/a/@href
+    regExp: (/.*)
+    regExpReplace: https://www.iga.net$1
+  - name: thumbnail
+    singleValue: false
+    xpath: //div[@class="media-overlay js-overlay-controls"]/a/img/@src
+  - name: price
+    singleValue: false
+    xpath: //div[@class="item-product__price--sale"]/span/span/text() | //div[@class="item-product__price push--bottom"]/span/text()
