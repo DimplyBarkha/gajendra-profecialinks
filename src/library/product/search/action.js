@@ -60,6 +60,7 @@ module.exports = {
   implementation: async (inputs, { country, store, domain, zipcode }, context, { execute, extract, paginate }) => {
     let { keywords, Keywords, results, Brands } = inputs;
     results = 150;
+    const inputKeywords = Keywords || keywords || Brands;
     // TODO: consider moving this to a reusable function
     const length = (results) => results.reduce((acc, { group }) => acc + (Array.isArray(group) ? group.length : 0), 0);
     zipcode = inputs.zipcode || zipcode;

@@ -40,7 +40,6 @@ async function implementation(
     };
     var desc1 = getAllXpath('//span[@class="a-price-whole"]/text()', 'nodeValue');
     var desc2 = getAllXpath('//span[@class="a-price-symbol"]/text()', 'nodeValue');
-    var desc3 = getAllXpath('//a[@class="a-popover-trigger a-declarative"]/i/span/text()', 'nodeValue');
 
     if (desc1 != null) {
       for (var i = 0; i < desc1.length; i++) {
@@ -49,17 +48,25 @@ async function implementation(
         addHiddenDiv('price', desc1[i], i);
       }
     }
-    if (desc3 != null) {
-      for (var i = 0; i < desc3.length; i++) {
-        desc3[i] = desc3[i].split(" ")[0]
-        if (desc3[i].includes(",")) {
-          desc3[i] = desc3[i].replace(",", ".")
-        }
-        addHiddenDiv('pqr', desc3[i], i);
-        addHiddenDiv('added-searchurl', url, i);
-      }
-    }
 
+    var temp, aggregate;
+    const products = document.querySelectorAll('div[class="sg-col-4-of-12 s-result-item s-asin sg-col-4-of-16 sg-col sg-col-4-of-20"]');
+    for (let i = 0; i < products.length; i++) {
+      temp = products[i].querySelector('a span[class="a-size-base"]');
+      aggregate = products[i].querySelector('a[class="a-popover-trigger a-declarative"] i span');
+      if (temp != null) {
+        // @ts-ignore
+        temp = temp.innerText;
+        temp = temp.replace('.', ',');
+        addHiddenDiv('rating', temp, i);
+      }
+      if (aggregate != null) {
+        // @ts-ignore
+        aggregate = aggregate.innerText.split(' ')[0].replace(',', '.');
+        addHiddenDiv('aggregate', aggregate, i);
+      }
+      addHiddenDiv('added-searchurl', url, i);
+    }
   });
   return await context.extract(productDetails, { transform });
 };

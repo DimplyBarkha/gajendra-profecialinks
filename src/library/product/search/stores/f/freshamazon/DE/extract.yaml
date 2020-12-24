@@ -1,7 +1,7 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: //div[@class="s-main-slot s-result-list s-search-results sg-row"]/div[contains(string-length(@data-asin),'1')]
+recordXPath: null
 fields: 
   - name: id
     singleValue: false
@@ -19,14 +19,17 @@ fields:
     xpath: //div[@class="a-section aok-relative s-image-square-aspect"]/img/@src
   - name: aggregateRating
     singleValue: false
-    xpath: //div[@id='pqr']
+    xpath: //html//div[@id='aggregate']
   - name: reviewCount
     singleValue: false
-    xpath: //a/span[@class="a-size-base"]
+    xpath: //html//div[@id='rating']
   - name: price
     singleValue: false
     xpath: //div[@id='price']
-  # - name: searchUrl
-  #   singleValue: false
-  #   xpath: //html//div[@id='added-searchurl']
+  - name: searchUrl
+    singleValue: false
+    xpath: //html//div[@id='added-searchurl']
+  - name: soldBy
+    singleValue: false
+    defaultValue: 'AmazonFresh'
 
