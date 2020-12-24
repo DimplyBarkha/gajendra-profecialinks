@@ -70,8 +70,8 @@ fields:
     xpath: ancestor::html//*[@id="productManufacturerName"]/@value
   - name: quantity
     description: Quantity as described on the page
-    xpath: ancestor::html//div[@class="details details_redesign"] 
-    regExp: (\d+ \w+)( [|])
+    xpath: ancestor::html//div[@class="details details_redesign"]
+    regExp: '^[^|]+'
     regExpReplace: $1
   - name: weightNet
     xpath: ancestor::html//p[@id="product_long_description"]/text()[contains(.,"Weight")]
@@ -98,10 +98,10 @@ fields:
   - name: legalDisclaimer
     description: Content under "legal disclaimer" header
   - name: directions
-    xpath: ancestor::html//*[@id="product_how_to_use"]/following-sibling::* | / ancestor::html//p[@dir="ltr"]//span[contains(.,"How")]/following-sibling::text()[not(contains(.,"Water"))]
+    xpath: ancestor::html//*[@id="product_how_to_use"]/following-sibling::* | ancestor::html//*[@id="estore_product_longdesc"]//text()[preceding-sibling::span[1][contains(text(),"How to")]] | ancestor::html//*[@id="estore_product_longdesc"]//ul[preceding-sibling::span[1][contains(text(),"How to")]]
     description: Content under "directions" header
   - name: warnings
-    xpath: ancestor::html//*[@id="product_hazardous"]/following-sibling::*
+    xpath: ancestor::html//*[@id="product_hazardous"]/following-sibling::* | ancestor::html//*[@id="estore_product_longdesc"]//text()[preceding-sibling::span[1][contains(text(),"Hazardous")]]
     description: Content under "warnings" header
   - name: ratingCount
     description: The number of ratings
@@ -135,9 +135,9 @@ fields:
   - name: manufacturerImages
     description: Images within the third party description
   - name: videos
-    xpath: //body/@video-links
-    regExp: (.+)
-    regExpReplace: https:$1
+    xpath: ancestor::html/body/@video-links
+    regExp: '[^|]+'
+    # regExpReplace: https:$1
     description: URLs of videos on page
   - name: name
     description: The product name
@@ -213,7 +213,7 @@ fields:
     description: null
   - name: ingredientsList
     # xpath: ancestor::html//*[@id="product_ingredients"][not(following-sibling::ul)]/following-sibling::p/br[following-sibling::br[position()=1]][not(preceding-sibling::br)]/preceding-sibling::span | //*[@id="product_ingredients"][not(following-sibling::ul)]/following-sibling::p/br[following-sibling::br[position()=1]][not(preceding-sibling::br)]/preceding-sibling::text() | //*[@id="product_ingredients"][not(following-sibling::ul)]/following-sibling::p[not(br)] | //*[@id="product_ingredients"]/following-sibling::ul/li
-    xpath: ancestor::html//*[@id="product_ingredients"]/following-sibling::ul | ancestor::html//*[@id="product_ingredients"]/following-sibling::p | ancestor::html//p[@dir="ltr"]//span[contains(.,"Ingredients")]/following-sibling::text()
+    xpath: ancestor::html//*[@id="product_ingredients"]/following-sibling::ul | ancestor::html//*[@id="product_ingredients"]/following-sibling::p | ancestor::html//*[@id="estore_product_longdesc"]//text()[preceding-sibling::span[1][contains(text(),"Ingredients")]]
     description: List of Ingredients from site - can be string of data if no
       discernible start/end point
   - name: backupIngredients
@@ -430,8 +430,8 @@ fields:
   - name: countryOfOrigin
     xpath: ancestor::html//span[contains(text(),"Country of Origin:")]/following-sibling::text()[1] | //h3[@id="product_important_info"]/following-sibling::p//span[contains(.,"Made in")]
     description: The country from which the product originates
-  # - name: allergyAdvice
-  #   xpath: ancestor::html//text()[contains(.,"Allergy advice")] | //text()[contains(.,"Allergy advice")]/following-sibling::span[not(following-sibling::br[position()=1][not(following-sibling::span)])]
+  - name: allergyAdvice
+    xpath: ancestor::html//*[@id="product_ingredients"]/following-sibling::p/span[contains(@style,"bold")][not(contains(.,":") or contains(.,"ngredients") or contains(.,"Active"))]
   #   description: Allergy information associated with the product
   - name: recyclingInformation
     description: Recycling information associated with the product
