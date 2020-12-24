@@ -115,8 +115,8 @@ fields:
   - name: inTheBoxUrl
     xpath: //h1[contains(.,'In the box')]/..//span[@class="image"]//img/@src | //div[contains(@class,'inthebox')]//img/@src | //div[@id='inTheBoxUrl']
   - name: hasComparisonTable
-    singleValue: true
-    xpath: (//div[@id="compare"]//h1)[1] | //div[@id="hasComparisionTable"]
+    singleValue: false
+    xpath: //div[@class="aplus-module-wrapper"]//table[@class="apm-tablemodule-table"]//tr[2]
     regExp: (.+)
     regExpReplace: Yes
     default: No
