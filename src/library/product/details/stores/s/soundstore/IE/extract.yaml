@@ -535,9 +535,14 @@ fields:
     regExpReplace: https:$1
   - name: inTheBoxUrl2
     singleValue: false
-    xpath: //div[@id="iframe_data"]//video/@src
+    xpath: //div[@id="iframe_data"]//div[contains(@id,'customize-item')]//div[contains(@class,'eky-header-video-container')]//video/@src
     regExp: (.+)
     regExpReplace: https://media.flixfacts.com/eyekandy/dyson/v11/en/$1
+  - name: inTheBoxUrl2
+    singleValue: false
+    xpath: //div[@id="iframe_data"]//div[@id="accessories"]//div[@class="eky-accessory"]/img/@src
+    regExp: (.+)
+    regExpReplace: https://media.flixfacts.com/eyekandy/dyson/v11/en/$1    
     description: Must include image url to show the accessories/tools which come with the product
   - name: inTheBoxText
     singleValue: false
@@ -547,6 +552,9 @@ fields:
     singleValue: false
     xpath: //div[@id="iframe_data"]//div[contains(@id,'customize-item')]//div[@class='lax eky-overlay-text']
     description: Must include text to show the accessories/tools which come with the product
+  - name: inTheBoxText2
+    singleValue: false
+    xpath: //div[@id="iframe_data"]//div[@id="accessories"]//div[@class="eky-accesory-title"] 
   - name: hasComparisonTable
     singleValue: true
     xpath: boolean(//div[@class="inpage_selector_comparison"])
