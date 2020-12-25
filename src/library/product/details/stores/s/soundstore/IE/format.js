@@ -26,9 +26,15 @@ const transform = (data) => {
     for (const row of group) {
       if (row.inTheBoxText2) {
         if (!row.inTheBoxText) {
-          row.inTheBoxText = [{ text: row.inTheBoxText2[0].text }];
+          row.inTheBoxText = row.inTheBoxText2;
         }
         delete row.inTheBoxText2;
+      }
+      if (row.inTheBoxUrl2) {
+        if (!row.inTheBoxUrl) {
+          row.inTheBoxUrl = row.inTheBoxUrl2;
+        }
+        delete row.inTheBoxUrl2;
       }
       // if (row.alternateImages) {
       //   row.alternateImages.splice(0, 1);

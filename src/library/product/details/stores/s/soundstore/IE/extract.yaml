@@ -530,17 +530,20 @@ fields:
     defaultValue: Yes
   - name: inTheBoxUrl
     singleValue: false
+    xpath: //div[contains(@class, "inpage_selector_InTheBox")]//img/@src
+  - name: inTheBoxUrl2
+    singleValue: false
     xpath: //div[@id="iframe_data"]//video/@src
     regExp: (.+)
     regExpReplace: https://media.flixfacts.com/eyekandy/dyson/v11/en/$1
     description: Must include image url to show the accessories/tools which come with the product
   - name: inTheBoxText
     singleValue: false
-    xpath: //div[@id="iframe_data"]/div
+    xpath: //div[contains(@class, "inpage_selector_InTheBox")]//span
     description: Must include text to show the accessories/tools which come with the product
   - name: inTheBoxText2
     singleValue: false
-    xpath: //div[@class='eky-row tools-included-section divider-line']//div[contains(@id,'customize-item')]//div[@class='lax eky-overlay-text']
+    xpath: //div[@id="iframe_data"]//div[contains(@id,'customize-item')]//div[@class='lax eky-overlay-text']
     description: Must include text to show the accessories/tools which come with the product
   - name: hasComparisonTable
     singleValue: true
