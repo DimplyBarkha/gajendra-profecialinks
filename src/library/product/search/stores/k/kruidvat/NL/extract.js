@@ -29,15 +29,16 @@ async function implementation(
 // })
   await context.evaluate(async function () {
     let scrollTop = 0;
-    while (scrollTop !== 10000) {
+    while (scrollTop !== 1000) {
       await stall(500);
       scrollTop += 500;
       window.scroll(0, scrollTop);
-      if (scrollTop === 10000) {
+      if (scrollTop === 1000) {
         await stall(500);
         break;
       }
     }
+
     function stall(ms) {
       return new Promise((resolve, reject) => {
         setTimeout(() => {
