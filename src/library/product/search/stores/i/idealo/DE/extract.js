@@ -16,6 +16,17 @@ module.exports = {
   ) => {
     const { transform } = parameters;
     const { productDetails } = dependencies;
+    try {
+      await context.waitForSelector('div[id*=sp_message_container]');
+      await context.evaluate(async () => {
+        const elem = document.querySelector('div[id*=sp_message_container]');
+        if (elem.getAttribute('style').includes('block')) {
+          elem && elem.setAttribute('style', '');
+        }
+      });
+    } catch (error) {
+      console.log('failed to close iframe popup');
+    }
     await context.evaluate(async function () {
       function addDataToDocument (key, value, mainNode) {
         const catElement = document.createElement('div');

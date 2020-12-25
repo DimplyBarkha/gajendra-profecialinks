@@ -6,18 +6,9 @@ parameters:
   zipcode: ""
 proxy:
   zone: DEU
-  type: RESIDENTIAL
-policy:
-  numberRetries: 6
-  priority: MEDIUM
-  retryDelay: 60
-  backoffPolicy: EXPONENTIAL
-  retryWithResidentialProxyAfter: 99
+  type: DATA_CENTER
 meta:
   branches:
     dev:
       extractor: d87ea92a-137b-4c2f-b696-628c3fc7f986
-      legacyAccountId: 0e78a773-3cff-48d2-902d-473fb46c535b
-    test_syn:
-      extractor: b62c450f-acb8-4b35-aecf-d8df5cff5f07
       legacyAccountId: 0e78a773-3cff-48d2-902d-473fb46c535b

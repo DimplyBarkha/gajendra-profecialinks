@@ -5,7 +5,7 @@ module.exports = {
     store: 'idealo',
     domain: 'idealo.de',
     url: 'https://www.idealo.de/preisvergleich/MainSearchProductCategory.html?q={searchTerms}',
-    loadedSelector: 'div[class*="resultlist"] *[class="offerList-item"]',
+    loadedSelector: null,
     noResultsXPath: '//div[contains(@class,"no-result-SuggestionText")]',
     zipcode: '',
   },

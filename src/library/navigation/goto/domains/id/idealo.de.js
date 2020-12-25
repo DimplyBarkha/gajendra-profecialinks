@@ -3,18 +3,14 @@ module.exports = {
   implements: 'navigation/goto',
   parameterValues: {
     domain: 'idealo.de',
-    timeout: '40000',
+    timeout: '25000',
     country: 'DE',
     store: 'idealo',
     zipcode: '',
   },
-  implementation: async (
-    { url },
-    parameters,
-    context,
-    dependencies,
-  ) => {
+  implementation: async (inputs, parameters, context, dependencies) => {
     const timeout = parameters.timeout ? parameters.timeout : 10000;
+    const { url, zipcode, storeId } = inputs;
 
     await context.setBlockAds(false);
     await context.setLoadAllResources(true);
@@ -34,6 +30,13 @@ module.exports = {
     });
     console.log('Status :', responseStatus.status);
     console.log('URL :', responseStatus.url);
+
+    const captchaFrame = 'iframe[_src*="captcha"]:not([title]), iframe[src*="captcha"]:not([title]), div.g-recaptcha';
+    try {
+      await context.waitForSelector(captchaFrame);
+    } catch (error) {
+      console.log('error: without undescore ', error);
+    }
 
     const ifThereClickOnIt = async (selector) => {
       try {
@@ -60,83 +63,44 @@ module.exports = {
       }
       return false;
     };
-    try {
-      await ifThereClickOnIt('div[class*="container-accept-all"] button[class*="btn-accept-all"]');
-    } catch (error) {
-      console.log('failed to close iframe popup');
-    }
 
-    const captchaFrame = 'iframe[_src*="captcha"]:not([title]), iframe[src*="captcha"]:not([title]), div.g-recaptcha';
-    const maxRetries = 3;
-    let numberOfCaptchas = 0;
-
-    try {
-      await context.waitForSelector(captchaFrame);
-    } catch (e) {
-      console.log("Didn't find Captcha.");
-    }
-
+    console.log('captchaFrame', captchaFrame);
     const checkExistance = async (selector) => {
       return await context.evaluate(async (captchaSelector) => {
         return Boolean(document.querySelector(captchaSelector));
       }, selector);
     };
-
-    const checkRedirection = async () => {
-      try {
-        await context.waitForSelector('div[class="offerList-item-imageWrapper"] img', { timeout });
-        console.log('Redirected to another page.');
-        return true;
-      } catch (e) {
-        console.log('Redirection did not happen.');
-        return false;
-      }
-    };
-
-    let isCaptchaFramePresent = await checkExistance(captchaFrame);
-    console.log('isCaptcha:' + isCaptchaFramePresent);
-
-    while (isCaptchaFramePresent && numberOfCaptchas < maxRetries) {
-      console.log('isCaptcha', true);
-      ++numberOfCaptchas;
-      await context.waitForNavigation({ timeout });
-      try {
-        console.log(`Trying to solve captcha - count [${numberOfCaptchas}]`);
-        // @ts-ignore
-        // eslint-disable-next-line no-undef
-        await context.solveCaptcha({
+    try {
+      const isCaptchaFramePresent = await checkExistance(captchaFrame);
+      if (isCaptchaFramePresent) {
+        console.log('isCaptcha', true);
+        const captchaRes = await context.solveCaptcha({
           type: 'RECAPTCHA',
           inputElement: '.g-recaptcha',
-        //   autoSubmit: true,
+          autoSubmit: true,
         });
+        console.log('captcha response----->', captchaRes);
         console.log('solved captcha, waiting for page change');
-        await context.waitForNavigation({ timeout });
-        const redirectionSuccess = await checkRedirection();
-
-        if (redirectionSuccess) {
-          await context.evaluate((url) => {
-            window.location.href = url;
-          }, url);
-          await context.waitForNavigation({ timeout, waitUntil: 'networkidle0' });
-          break;
-        } else {
-          await context.evaluate((url) => {
-            // eslint-disable-next-line no-unused-expressions
-            window.location.reload;
+        try {
+          await context.evaluate(async () => {
+            const elem = document.querySelector('div[id*=sp_message_container]');
+            if (elem.getAttribute('style').includes('block')) {
+              elem && elem.setAttribute('style', '');
+            }
           });
-          await context.waitForNavigation({ timeout, waitUntil: 'networkidle0' });
+        } catch (error) {
+          console.log('failed to close iframe popup');
         }
-
-        isCaptchaFramePresent = await checkExistance(captchaFrame);
-      } catch (e) {
-        console.log('Captcha did not load');
+        await ifThereClickOnIt('main div[class="captcha"] > form > input');
+        await context.waitForNavigation({ timeout });
       }
+    } catch (error) {
+      console.log('captcha code failed');
     }
 
-    isCaptchaFramePresent = await checkExistance(captchaFrame);
-
-    if (isCaptchaFramePresent) {
-      throw new Error('Failed to solve captcha');
+    console.log(zipcode);
+    if (zipcode || storeId) {
+      await dependencies.setZipCode(inputs);
     }
   },
 };
