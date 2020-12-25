@@ -1,9 +1,11 @@
+const { transform } = require('../../../../shared');
+
 module.exports = {
   implements: 'product/details/extract',
   parameterValues: {
     country: 'NL',
     store: 'mediamarkt',
-    transform: null,
+    transform: transform,
     domain: 'mediamarkt.nl',
     zipcode: '',
   },
