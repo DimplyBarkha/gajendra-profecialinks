@@ -129,4 +129,7 @@ fields:
     xpath: //tr[contains(.,"Ingredient")]//td[position()>1]
   - name: descriptionBullets
     singleValue: false
-    xpath: //div[@id='descriptionBulletCount']/text()  
+    xpath: //div[@id='descriptionBulletCount']/text()
+  - name: inTheBoxText
+    singleValue: false
+    xpath: //table//tr//td[contains(text(),'Set Includes')]/following-sibling::td
