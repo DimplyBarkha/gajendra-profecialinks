@@ -20,7 +20,7 @@ module.exports = {
     await context.setJavaScriptEnabled(true);
     await context.setLoadAllResources(true);
     await context.setLoadImages(true);
-    await new Promise((resolve, reject) => setTimeout(resolve, 3000));
+    // await new Promise((resolve, reject) => setTimeout(resolve, 1000));
     context.evaluate(async() => {
       function addElementToDocument (key, value) {
         const catElement = document.createElement('div');
@@ -31,6 +31,17 @@ module.exports = {
       }
      
 
+      // rank
+      // const cardsItems = document.querySelectorAll('.spex-productList__products .spex-productList__item');
+      // const currentPageNumber = + document.querySelector('.spex-pagination__item--current').textContent - 1;
+      // console.log(cardsItems);
+      // if(cardsItems){
+      //   cardsItems.forEach((item, index) => {
+      //     const itemRank = (index + 1) + (36 * currentPageNumber);
+      //     item.setAttribute('rank', itemRank.toString());
+      //   });
+      // }
+
       // _url + _input
       const pageUrl = window.location.href;
       const cardsItems = document.querySelectorAll('.spex-productList__products .spex-productList__item');
@@ -40,6 +51,8 @@ module.exports = {
           item.setAttribute('ms-url', pageUrl);
         });
       }
+      addElementToDocument('pageUrl', pageUrl);
+
       addElementToDocument('pageUrl', pageUrl);
     })
     return await context.extract(productDetails, {transform});
