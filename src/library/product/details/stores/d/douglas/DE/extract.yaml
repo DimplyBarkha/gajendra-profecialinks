@@ -98,7 +98,7 @@ fields:
   - name: promotion
     xpath: //div[@class='rd__product-details-gallery__sale-badge']//span[@class='rd__eye-catcher__text']
   - name: videos
-    xpath: //video/source[@type='video/mp4']/@src
+    xpath: //video/source[starts-with(@type,'video/')]/@src
   - name: manufacturerDescription
     xpath: //div[contains(@class, 'intro')] | //div[contains(@class, 'boxed')]//div[contains(@class, 'text-box')]//*[not(contains(@class,'number-circle'))]
   - name: manufacturerImages
