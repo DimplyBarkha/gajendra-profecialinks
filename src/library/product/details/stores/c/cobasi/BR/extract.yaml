@@ -20,7 +20,7 @@ fields:
     xpath: concat(//div[@class="bread-crumb"]//li[3]//a//span[@itemprop="name"], " > ", //div[@class="bread-crumb"]//li[@class="last"]//a//span[@itemprop="name"])
   - name: nameExtended
     singleValue: false
-    xpath: //h1[@class="product__name"]
+    xpath: concat(//div[@class="product__brand"]//a, ' - ', //h1[@class="product__name"])
   - name: upc
     singleValue: false
     xpath: //script[contains(., "productEans")]
@@ -41,7 +41,7 @@ fields:
     defaultValue: "In Stock"
   - name: description
     singleValue: false
-    xpath: concat(//div[@class="product__brand"]//a, ' - ', //h1[@class="product__name"], ' - ', //div[@class="productDescription"])
+    xpath: concat(//h1[@class="product__name"], ' - ', //div[@class="productDescription"])
   - name: brandText
     singleValue: false
     xpath: //div[@class="product__brand"]//a
