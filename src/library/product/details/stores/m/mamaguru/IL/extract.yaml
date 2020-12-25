@@ -523,8 +523,8 @@ fields:
     singleValue: false
     description: Titles of products in the sections 'you may also like' or 'sponsored products'. Combine results from Max 3 sections
     #xpath: //div[@class="descr"]/p[1] | //div[@class="container-fluid"]//div[@id="news-container"]//div[contains(@class,"news-item")]
-    xpath: //div[@class="owl-wrapper"]//div[@class="TextDetails"]//a[@class="Title"]/@title
+    xpath: //div[@class="owl-wrapper"]//div[@class="TextDetails"]//a[@class="Title"]/@title | //div[@id="news-container"]//div[contains(@class,"news-item   has-link__ ")]//div[@class="descr"]//p[not(@class)]
   - name: inTheBoxText
     singleValue: false
-    xpath: //strong[contains(text(),"אביזרים")]/ancestor::p/following-sibling::ul[1]//li | //span[contains(text(),"מה באריזה")]/ancestor::p/following-sibling::ul[1]//li
+    xpath: //strong[contains(text(),"אביזרים")]/ancestor::p/following-sibling::ul[1]//li | //span[contains(text(),"מה באריזה")]/ancestor::p/following-sibling::ul[1]//li | //strong[contains(text(),"אביזרי העיצוב של דייסון Airwrap:")]/ancestor::p/following-sibling::ul[1]//li 
     description: Must include text to show the accessories/tools which come with the product
