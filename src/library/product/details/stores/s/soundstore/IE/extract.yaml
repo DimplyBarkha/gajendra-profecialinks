@@ -530,7 +530,9 @@ fields:
     defaultValue: Yes
   - name: inTheBoxUrl
     singleValue: false
-    xpath: //div[contains(@class, "inpage_selector_InTheBox")]//img/@src
+    xpath: //div[contains(@class, "inpage_selector_InTheBox")]//img/@srcset
+    regExp: (.+)
+    regExpReplace: https:$1
   - name: inTheBoxUrl2
     singleValue: false
     xpath: //div[@id="iframe_data"]//video/@src
