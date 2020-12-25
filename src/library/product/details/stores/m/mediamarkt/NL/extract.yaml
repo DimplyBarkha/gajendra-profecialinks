@@ -51,10 +51,8 @@ fields:
     xpath: //aside[@id='product-sidebar']/h1
   - name: listPrice
     xpath: //div[@id='product-wrapper']//div[contains(@class, 'old-price-block')]/div[contains(@class, 'price-xs')]
-    regExp: \d+,\d+
   - name: price
     xpath: //div[@id='mm_price']
-    regExp: \d+,\d+
   - name: availabilityText
     regExp: (.+)
     regExpReplace: In Stock
