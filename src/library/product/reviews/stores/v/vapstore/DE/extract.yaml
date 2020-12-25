@@ -1,0 +1,105 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: div.review.panel
+recordXPath: //div[contains(@class, 'review panel')]
+fields:
+  - name: brand
+    singleValue: false
+    description: Product brand shown - this may actually NOT be just a brand name e.g. "Visit the Gillette Store"
+    xpath: ancestor::html//div[@class='product-headline']//span[contains(@class, h1)][1]
+  - name: productRange
+    singleValue: false
+    description: Product range
+  - name: productFamily
+    singleValue: false
+    description: Product family
+  - name: colour
+    singleValue: false
+    description: Product colour
+  - name: flavour
+    singleValue: false
+    description: Product flavour
+  - name: sku
+    singleValue: false
+    description: The store-specific product identifier
+    xpath: ancestor::html//div[@class='product-headline']//span[contains(@class, sublime)][2]
+  - name: reviewText
+    singleValue: false
+    description: The text of the review
+    xpath: //p[@itemprop='reviewBody']
+  - name: reviewTitle
+    singleValue: false
+    description: The title of the review
+    xpath: //span[@itemprop='reviewRating']//strong
+  - name: mediaURL
+    singleValue: false
+    description: product media url
+    xpath: ancestor::html//div[@id='gallery']//meta[@itemprop='image']/@content
+  - name: location
+    singleValue: false
+    description: reviewer location
+    defaultValue: DE
+  - name: helpful
+    singleValue: true
+    type: NUMBER
+    description: Number of people who said the review was helpful
+    xpath: //span[@itemprop='bestRating']
+  - name: verifiedPurchase
+    singleValue: false
+    type: BOOLEAN
+    description: Whether this of an item the reviewer purchased. "Yes" if true else ""
+    defaultValue: true
+  - name: aggregateRating
+    singleValue: false
+    description: The product rating
+    xpath: ancestor::html//div[@class='rating-wrapper']//span[@class='rating pr']/@title
+  - name: pageTitle
+    singleValue: false
+    description: The url of the page title
+    xpath: ancestor::html[@id]//head/title
+  - name: sourceUrl
+    singleValue: false
+    description: The url of the product url
+    xpath: ancestor::html//link[@rel="canonical"]/@href
+  - name: name
+    singleValue: false
+    description: The product name
+    xpath: ancestor::html//div[@class='product-headline']//span[contains(@class, sublime)][2]
+  - name: commentCount
+    singleValue: false
+    type: NUMBER
+    description: Number of comments on the review
+  - name: reviewDate
+    singleValue: false
+    type: DATETIME
+    description: Date the review was made
+    xpath: //meta[@itemprop='datePublished']/@content
+  - name: rating
+    type: NUMBER
+    singleValue: false
+    description: Rating normalized to be out of 5
+    xpath: //span[@itemprop='ratingValue']
+  - name: reviewerTags
+    singleValue: false
+    description: The tags a reviewer has
+  - name: gtin
+    singleValue: false
+    description: GTIN code (includes UPC/EAN)
+  - name: manufacturerResponse
+    singleValue: false
+    description: The response of the manufacturer (if any)
+  - name: syndicatedFrom
+    singleValue: false
+    description: Stated place the review was syndicated from
+  - name: reviewUrl
+    singleValue: false
+    description: A direct link to the review
+  - name: reviewedSku
+    singleValue: false
+    description: The SKU of the item that was reviewed (may be different from the
+      sku the review was shown on). 1 if sku == reviewedSku else 0. Get sku
+      value, transform will handle the value.
+  - name: user
+    singleValue: false
+    description: The user name of the reviewer
+    xpath: //span[@itemprop='author']
