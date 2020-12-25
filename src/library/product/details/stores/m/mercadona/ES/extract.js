@@ -29,6 +29,10 @@ module.exports = {
 
     await context.waitForSelector('.private-product-detail');
     await context.evaluate(() => {
+      const currentProduct = document.querySelector('.private-product-detail__content');
+      const headLinesOfProduct = document.querySelectorAll('.headline1-r');
+      const pricePerUnit = headLinesOfProduct[headLinesOfProduct.length - 1];
+
       function addHiddenDiv (className, content, node) {
         const newDiv = document.createElement('div');
         newDiv.className = className;
@@ -38,22 +42,36 @@ module.exports = {
         node.appendChild(newDiv);
       }
 
-      const currentProduct = document.querySelector('.private-product-detail__content');
-      const headLinesOfProduct = document.querySelectorAll('.headline1-r');
-      const pricePerUnit = headLinesOfProduct[headLinesOfProduct.length - 1];
-      const packSize = headLinesOfProduct[headLinesOfProduct.length - 2]
-        .textContent
-        .match(/\d{0,} ud./);
+      function getPackSize () {
+        const pack = headLinesOfProduct[headLinesOfProduct.length - 2]
+          .textContent
+          .match(/\d{0,} ud./);
+
+        const packSelector = document.querySelector('p.product-price__extra-price.title1-r').textContent;
+        if (packSelector.includes('/pack')) {
+          return parseInt(headLinesOfProduct[0].textContent);
+        };
+        if (pack) {
+          return pack[0].replace(/[^0-9]/g, '');
+        };
+
+        return 'null';
+      }
+      // const packSize = headLinesOfProduct[headLinesOfProduct.length - 2]
+      //   .textContent
+      //   .match(/\d{0,} ud./);
 
       const skuNumber = location.href.match(/\/product\/(.*?)\//)[1];
 
       if (currentProduct) {
-        if (packSize) {
-          const size = packSize[0].replace(/[^0-9]/g, '');
-          addHiddenDiv('helper-pack-size', size, currentProduct);
-        } else {
-          addHiddenDiv('helper-pack-size', 'null', currentProduct);
-        }
+        // if (packSize) {
+        //   const size = packSize[0].replace(/[^0-9]/g, '');
+        //   addHiddenDiv('helper-pack-size', size, currentProduct);
+        // } else {
+        //   addHiddenDiv('helper-pack-size', 'null', currentProduct);
+        // }
+        const size = getPackSize();
+        addHiddenDiv('helper-pack-size', size, currentProduct);
         addHiddenDiv('helper-product-url', location.href, currentProduct);
         addHiddenDiv('price-per-unit', pricePerUnit.textContent, currentProduct);
         addHiddenDiv('helper-sku', skuNumber, currentProduct);

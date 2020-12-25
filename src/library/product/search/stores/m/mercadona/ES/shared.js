@@ -11,6 +11,7 @@ const transform = (data) => {
         gr['rank'] = [{ text: index + 1 }];
         // if (gr && gr.input && gr.input.length) gr['_input'] = gr.input;
         // if (gr && gr.url && gr.url.length) gr['_url'] = gr.url;
+        gr.price[0].text = gr.price[0].text.replace(',', '.');
       } catch (e) {
         console.log(e);
       }
