@@ -14,14 +14,28 @@ const transform = (data) => {
           gr.sku = [{ text: mainInfo.sku }];
           gr.variantId = [{ text: mainInfo.productID }];
           gr.weightNet = [{ text: mainInfo.weight }];
-          gr.ratingCount = [{ text: mainInfo.aggregateRating.reviewCount }];
-          gr.aggregateRating = [{ text: mainInfo.aggregateRating.ratingValue }];
+          try {
+            gr.ratingCount = [{ text: mainInfo.aggregateRating.reviewCount }];
+          } catch (e) {
+            gr.ratingCount = [];
+          }
+          try {
+            gr.aggregateRating = [{ text: mainInfo.aggregateRating.ratingValue }];
+          } catch (e) {
+            gr.aggregateRating = [];
+          }
         }
         if (gr && gr.gtin) {
           const text = gr.gtin[0].text;
           const start = text.indexOf('SKU: ');
           if (start !== -1) {
-            gr.gtin[0].text = text.substring(start + 5, text.length);
+            const t = text.substring(start + 5, text.length);
+            try {
+              const a = t.indexOf('\n');
+              gr.gtin[0].text = t.substring(0, a);
+            } catch (e) {
+              gr.gtin[0].text = t;
+            }
           } else {
             gr.gtin = [];
           }
