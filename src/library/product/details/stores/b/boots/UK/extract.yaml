@@ -70,7 +70,7 @@ fields:
     xpath: ancestor::html//*[@id="productManufacturerName"]/@value
   - name: quantity
     description: Quantity as described on the page
-    xpath: normalize-space(ancestor::html//div[@class="details details_redesign"])
+    xpath: normalize-space(ancestor::html//div[@class="details details_redesign" or @class="details"])
     regExp: '^[^|]+'
   - name: weightNet
     xpath: ancestor::html//p[@id="product_long_description"]/text()[contains(.,"Weight")]
