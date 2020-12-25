@@ -24,8 +24,36 @@ module.exports = {
       }
     });
 
+    const applyScroll = async function (context) {
+      await context.evaluate(async function () {
+        let scrollTop = 0;
+        let documentScrollHeight = document.body.scrollHeight;
+        while (scrollTop < documentScrollHeight) {
+          await stall(2000);
+          scrollTop += 500;
+          window.scroll(0, scrollTop);
+          documentScrollHeight = document.body.scrollHeight;
+        }
+        function stall (ms) {
+          return new Promise((resolve, reject) => {
+            setTimeout(() => {
+              resolve();
+            }, ms);
+          });
+        }
+      });
+    };
+
+    await applyScroll(context);
+
     try {
-      await context.waitForSelector('div.dy-recommendations__slider', { timeout: 45000 });
+      await context.waitForSelector('section.richContent article', { timeout: 15000 });
+    } catch (error) {
+      console.log('Not loading enhanced content');
+    }
+
+    try {
+      await context.waitForSelector('div.dy-recommendations__slider', { timeout: 15000 });
     } catch (error) {
       console.log('Not loading recommended products');
     }
@@ -35,27 +63,6 @@ module.exports = {
     } catch (error) {
       console.log('Not loading alternative products');
     }
-
-    try {
-      await context.waitForSelector('section.richContent article', { timeout: 45000 });
-    } catch (error) {
-      console.log('Not loading enhanced content');
-    }
-
-    async function scrollToRec (node) {
-      await context.evaluate(async (node) => {
-        const element = document.querySelector(node) || null;
-        if (element) {
-          element.scrollIntoView({ behavior: 'smooth', block: 'end', inline: 'nearest' });
-          await new Promise((resolve) => {
-            setTimeout(resolve, 5000);
-          });
-        }
-      }, node);
-    }
-    await scrollToRec('div.dy-recommendations__slider');
-    await scrollToRec('section.alternative-products');
-    await scrollToRec('section.richContent article');
 
     try {
       await context.evaluate(async function () {
