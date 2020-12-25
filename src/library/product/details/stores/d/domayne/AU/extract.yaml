@@ -518,8 +518,6 @@ fields:
   - name: inTheBoxUrl
     singleValue: false
     xpath: //div[contains(.,'In the box')]/following-sibling::div[1]//div[@class="flix-background-image"]//img[@class="flix-img-responsive"]//@data-flixsrcset
-    regExp: (.+800w,\s)(.+.jpg)(.+)
-    regExpReplace: $2
   - name: inTheBoxText
     singleValue: false
     xpath: //div[contains(.,'In the box')]/following-sibling::div[1]//div[@class="flix-std-content"]//div[contains(@class,"flix-std-desc")] | //h3[contains(.,'In The Box')]//following-sibling::div[1]/ul//li
