@@ -68,8 +68,10 @@ module.exports = {
       addElementToDocument('mm_retailerProductCode', sku);
 
       // Getting number of customer reviews
-      const reviews = document.querySelector('.bv_numReviews_text').innerText.replace(/\(|\)/g, '');
-      addElementToDocument('mm_numberOfCustomerReviews', reviews);
+      const reviewsElement = document.querySelector('.bv_numReviews_text');
+      if (reviewsElement) {
+        addElementToDocument('mm_numberOfCustomerReviews', reviewsElement.innerText.replace(/\(|\)/g, ''));
+      }
 
       // Gets aggregate rating
       if (document.querySelector('div[itemprop=ratingValue]')) {
