@@ -52,7 +52,7 @@ fields:
   - name: listPrice
     xpath: //div[@id='product-wrapper']//div[contains(@class, 'old-price-block')]/div[contains(@class, 'price-xs')]
   - name: price
-    xpath: concat('EUR ', //div[@id='product-wrapper']//div[contains(@class, 'price-details')]/div[contains(@class, 'big')])
+    xpath: //div[@id='product-wrapper']//div[contains(@class, 'price-details')]/div[contains(@class, 'big')]
   - name: availabilityText
     regExp: (.+)
     regExpReplace: In Stock
