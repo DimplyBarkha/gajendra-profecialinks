@@ -13,7 +13,7 @@ async function implementation (
   // Without such high wait when you search by brand name site will often not have enough time to load.
   await new Promise((resolve, reject) => setTimeout(resolve, 5000));
 
-  //Real work
+  // Real work
   await context.evaluate(async () => {
     function stall (ms) {
       return new Promise((resolve, reject) => {
@@ -62,7 +62,7 @@ async function implementation (
         const percentage = rating.style.width;
         const re = /\d+.?\d+(?=%)/;
         const valuePercent = re.exec(percentage);
-        const value = (Math.round((valuePercent/100*5 + Number.EPSILON)*100)/100).toFixed(2);
+        const value = (Math.round((valuePercent / 100 * 5 + Number.EPSILON) * 100) / 100).toFixed(2);
         product.setAttribute('rating', value);
       }
     });
