@@ -20,8 +20,8 @@ module.exports = {
     await context.setJavaScriptEnabled(true);
     await context.setLoadAllResources(true);
     await context.setLoadImages(true);
-    // await new Promise((resolve, reject) => setTimeout(resolve, 1000));
-    context.evaluate(async() => {
+    await new Promise((resolve, reject) => setTimeout(resolve, 1000));
+    context.evaluate(() => {
       function addElementToDocument (key, value) {
         const catElement = document.createElement('div');
         catElement.id = key;
@@ -29,7 +29,8 @@ module.exports = {
         catElement.style.display = 'none';
         document.body.appendChild(catElement);
       }
-     
+      // scrolling
+
 
       // rank
       const cardsItems = document.querySelectorAll('.spex-productList__products .spex-productList__item');

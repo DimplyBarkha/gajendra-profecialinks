@@ -29,7 +29,24 @@ module.exports = {
         catElement.style.display = 'none';
         document.body.appendChild(catElement);
       }
-     
+      // scrolling
+      // let scrollTop = 0;
+      // while (scrollTop <= 20000) {
+      //   await stall(500);
+      //   scrollTop += 1000;
+      //   window.scroll(0, scrollTop);
+      //   if (scrollTop === 20000) {
+      //     await stall(2000);
+      //     break;
+      //   }
+      // }
+      // function stall (ms) {
+      //   return new Promise(resolve => {
+      //     setTimeout(() => {
+      //       resolve();
+      //     }, ms);
+      //   });
+      // }
 
       // rank
       const cardsItems = document.querySelectorAll('.spex-productList__products .spex-productList__item');
