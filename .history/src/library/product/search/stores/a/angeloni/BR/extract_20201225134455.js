@@ -32,7 +32,7 @@ module.exports = {
       const itemPrices = document.querySelectorAll('.box-produto__preco');
       itemPrices.forEach(itemPrice => {
         const firstPricePart = itemPrice.querySelector('.box-produto__preco__valor').textContent.replace(/,/, '.');
-        const secondPricePart = itemPrice.querySelector('.box-produto__preco__centavos').textContent || '';
+        const secondPricePart = itemPrice.querySelector('.box-produto__preco__centavos').textContent;
         itemPrice.setAttribute('generated-pirce', `${firstPricePart}${secondPricePart}`);
       })
     })

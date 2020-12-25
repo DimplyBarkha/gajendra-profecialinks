@@ -1,11 +1,11 @@
 
 module.exports = {
-  implements: 'navigation/goto',
+  implements: 'product/search/extract',
   parameterValues: {
-    domain: 'angeloni.com.br/super',
-    timeout: 20000,
     country: 'BR',
     store: 'angeloni',
+    transform: null,
+    domain: 'angeloni.com.br/super',
     zipcode: '',
   },
 };

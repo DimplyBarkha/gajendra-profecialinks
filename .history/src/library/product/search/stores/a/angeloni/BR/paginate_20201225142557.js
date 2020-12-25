@@ -12,7 +12,7 @@ module.exports = {
     loadedSelector: null,
     loadedXpath: null,
     noResultsXPath: null,
-    stopConditionSelectorOrXpath: null,
+    stopConditionSelectorOrXpath: '//a[@class="disabled-paginacao"]',
     resultsDivSelector: null,
     openSearchDefinition: {
       offset: 24,

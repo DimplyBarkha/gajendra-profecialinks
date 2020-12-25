@@ -6,17 +6,10 @@ fields:
   - name: _input
   - name: _url
   - name: _pageTimestamp
-    singleValue: true
+  singleValue: true
   - name: id
     xpath: //div[@class="box-produto p-relative"]//div//a/@href
-  - name: name
-    xpath: //h2[@class='box-produto__desc-prod text-center']
-  - name: productUrl
-    xpath: //div[@class="box-produto p-relative"]//div//a/@href
-  - name: thumbnail
-    xpath: //div[contains(@class, "box-produto__content-img")]//img/@data-src
-  - name: price
-    xpath: //div[contains(@class, "box-produto__preco")]/@generated-pirce
+  # xpath: //h1[@class='banner-titulo']
   # - name: brand
   #   singleValue: true
   #   description: The brand name

@@ -12,11 +12,11 @@ module.exports = {
     loadedSelector: null,
     loadedXpath: null,
     noResultsXPath: null,
-    stopConditionSelectorOrXpath: null,
+    stopConditionSelectorOrXpath: '//a[@class="disabled-paginacao"]',
     resultsDivSelector: null,
     openSearchDefinition: {
       offset: 24,
-      template: 'https://www.angeloni.com.br/super/busca?No={offset}&Nr=AND%28product.store%3A14%2Cproduct.siteId%3Asuper%2Cprop.product.indexableSuper%3A1%2CNOT%28dim.product.type%3Aproduct-recipe%29%29&Nrpp=12&Ntt={searchTerms}',
+      template: 'https://www.angeloni.com.br/super/busca?Nrpp={offset}&Ntt={searchTerms}'
     },
     domain: 'angeloni.com.br/super',
     zipcode: '',

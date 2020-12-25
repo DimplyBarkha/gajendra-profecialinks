@@ -5,7 +5,7 @@ module.exports = {
     country: 'BR',
     store: 'angeloni',
     domain: 'angeloni.com.br/super',
-    url: 'https://www.angeloni.com.br/super/busca?Nrpp=12&Ntt={searchTerms}',
+    url: null,
     loadedSelector: null,
     noResultsXPath: null,
     zipcode: '',
