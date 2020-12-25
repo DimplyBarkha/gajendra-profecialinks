@@ -41,11 +41,6 @@ const transform = (data) => {
                 item.text = item.text.replace(/[Por: | à vista]/g, '').trim();
             });
         }
-        if (row.online_price) {
-            row.online_price.forEach(item => {                    
-                item.text = item.text.replace(/[Por: | à vista]/g, '').trim();
-            });
-        }
         if (row.retailerProductCode) {
             row.retailerProductCode.forEach(item => {                    
                 item.text = item.text.replace("ts-js-shelf-", '').trim();

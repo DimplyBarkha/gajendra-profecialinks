@@ -50,7 +50,7 @@ fields:
     xpath: //div[@class="quantity__selector"]//input[@type="number"]/@value
   - name: weightNet
     singleValue: false
-    xpath: //span[@class="js-sku-selected"]
+    xpath: //span[@class="js-sku-selected"] | //div[@class="sku__selected js-sku-selected"]
   - name: size
     singleValue: false
     xpath: //div[@class="quantity__selector"]//input[@type="number"]/@value
@@ -86,4 +86,4 @@ fields:
     defaultValue: "yes"
   - name: variantCount
     singleValue: false
-    defaultValue: '0'
+    xpath: count(//div[@class="sku__options"]/div[@class="sku__list"])
