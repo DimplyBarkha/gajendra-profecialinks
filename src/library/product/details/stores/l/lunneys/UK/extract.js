@@ -111,6 +111,7 @@ module.exports = {
         }
       };
     });
+    await context.waitForSelector('div[data-gallery-role="gallery"]', {timeout: 20000});
     await context.extract(productDetails, { transform: transformParam });
   },
 };
