@@ -13,7 +13,7 @@ async function implementation (
   // Without such high wait when you search by brand name site will often not have enough time to load.
   await new Promise((resolve, reject) => setTimeout(resolve, 5000));
 
-  //Real work
+  // Real work
   await context.evaluate(async () => {
     function stall (ms) {
       return new Promise((resolve, reject) => {
@@ -22,41 +22,45 @@ async function implementation (
         }, ms);
       });
     }
+    const addProp = (selector, iterator, propName, value) => {
+      document.querySelectorAll(selector)[iterator].setAttribute(propName, value);
+    };
+
+    let productsBeforeUploading = 0;
 
     const loadAllProducts = async (howMuch) => {
       const moreProductsButton = document.querySelector('button#btnVerMais');
       const productsOnPage = document.querySelectorAll('div.col.active').length;
       var check = howMuch === undefined ? true : (productsOnPage < howMuch);
-      console.log(productsOnPage);
-      if (moreProductsButton && check) {
+      const currentUrl = window.location.href;
+      // since the searchurl changes after loading more records and the old records become assigned to the newest url, it is neceaary to link the urls before the click event
+      for (let i = productsBeforeUploading; i < productsOnPage; i++) {
+        addProp('div.col.active', i, 'searchurl', currentUrl);
+      }
+      productsBeforeUploading = productsOnPage;
+      if (moreProductsButton.style.display !== 'none' && check) {
         moreProductsButton.click();
-        console.log('click done')
         await stall(5000);
         loadAllProducts(howMuch);
       }
     };
-
     // if you want to load
     await loadAllProducts(150);
-
-    await new Promise((resolve, reject) => setTimeout(resolve, 3000));
-
-    const addProp = (selector, iterator, propName, value) => {
-      document.querySelectorAll(selector)[iterator].setAttribute(propName, value);
-    };
-
-    const curentUrl = window.location.href;
-
+    // it is necessary to set such a big wait time - shorter time limits numer of collected records and there is a lot of epmty searchurls
+    await new Promise((resolve, reject) => setTimeout(resolve, 20000));
+    // rating
     const allProducts = document.querySelectorAll('div.col.active');
-    console.log(allProducts.length)
-    for (let i = 0; i < allProducts.length; i++) {
-      console.log(`All products length is ${allProducts.length}`);
-      addProp('div.col.active', i, 'searchurl', curentUrl);
-      // addProp('span.c3-product__name', i, 'searchurl', curentUrl);
-    }
+    allProducts.forEach((product) => {
+      const rating = product.querySelector(':scope .star-ratings-css-top');
+      if (rating) {
+        const percentage = rating.style.width;
+        const re = /\d+.?\d+(?=%)/;
+        const valuePercent = re.exec(percentage);
+        const value = (Math.round((valuePercent / 100 * 5 + Number.EPSILON) * 100) / 100).toFixed(2);
+        product.setAttribute('rating', value);
+      }
+    });
   });
-
-  await new Promise((resolve, reject) => setTimeout(resolve, 3000));
 
   return await context.extract(productDetails, { transform });
 }
@@ -66,7 +70,7 @@ module.exports = {
   parameterValues: {
     country: 'PT',
     store: 'perfumesecompanhia',
-    transform: null,
+    transform: transform,
     domain: 'perfumesecompanhia.pt',
     zipcode: '',
   },

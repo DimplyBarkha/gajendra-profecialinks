@@ -1,7 +1,7 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: null #//div[contains(@class, 'col ')][contains(@class, ' active')]
+recordXPath: //div[contains(@class, 'col ')][contains(@class, ' active')]
 fields:
   - name: id
     singleValue: false
@@ -24,8 +24,9 @@ fields:
     xpath: //div[contains(@class, 'col ')][contains(@class, ' active')]//div[@class="preview-img"]/img/@src
     regExp: (.+)
     regExpReplace: https://www.perfumesecompanhia.pt/$1
-  - name: aggregateRating #- nead to code in //div[contains(@class, 'col ')][contains(@class, ' active')]//div[@class="star-ratings-css-top"]/@style
+  - name: aggregateRating 
     singleValue: false
+    xpath: //div[contains(@class, 'col ')][contains(@class, ' active')]/@rating
   - name: aggregateRating2
     singleValue: false
   - name: reviewCount
