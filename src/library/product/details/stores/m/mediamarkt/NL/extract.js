@@ -104,6 +104,12 @@ module.exports = {
       if (window) {
         addElementToDocument('mm_baseUrl', window.location.href.replace(/\?ga_query=\d{7}/, ''));
       }
+
+      // Getting price
+      const priceElement = document.querySelector('.price-details .big');
+      if (priceElement) {
+        addElementToDocument('mm_price', priceElement.innerText.replace(/\s/g, '').replace('€', ''));
+      }
     });
     await context.extract(productDetails);
   },
