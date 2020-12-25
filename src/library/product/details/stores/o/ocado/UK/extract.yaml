@@ -6,6 +6,7 @@ fields:
   - name: image
     description: URL of the main product image
     xpath: //div[contains(@class,'bop-gallery__item--chosen')]/img/@src
+    #xpath: //div[contains(@class,'bop-gallery__item bop-gallery__item--chosen bop-gallery__itemImage')]/img/@src
     regExp: (.+)
     regExpReplace: http://www.ocado.com$1
   - name: metaKeywords
@@ -395,6 +396,10 @@ fields:
   - name: highQualityImages
     singleValue: false
     description: Other product images (not in manufacturer description)
-    xpath: //div[contains(@class,'bop-gallery__item  bop-gallery__itemImage')]/img/@src
-    regExp: (.+)_640x640.jpg
+    xpath: //div[contains(@class,'bop-gallery__miniatures')]/img/@src
+    regExp: (.+)_75x75.jpg
     regExpReplace: http://www.ocado.com$1_1280x1280.jpg
+    #xpath: //div[contains(@class,'bop-gallery__miniatures')]/img/@src
+    #xpath: //div[contains(@class,'bop-gallery__item  bop-gallery__itemImage')]/img/@src
+   # regExp: (.+)_640x640.jpg
+   #regExpReplace: http://www.ocado.com$1_1280x1280.jpg
