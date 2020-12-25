@@ -7,6 +7,7 @@ fields:
     singleValue: true
     xpath: //article/@data-code
   - name: thumbnail
+    # avdav
     xpath: //a[@class="ClickSearchResultEvent_Class tile__product-slide-link"]/img/@src
     regExp: (.+)
     regExpReplace: https://www.kruidvat.nl$1
