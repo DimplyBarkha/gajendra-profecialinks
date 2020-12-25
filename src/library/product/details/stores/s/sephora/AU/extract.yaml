@@ -194,3 +194,9 @@ fields:
     example: https://www.zalando.de/adidas-neo-sneaker-low-blackwhite-a4315i002-q11.html
     defaultValue: No
     xpath: boolean(//*[contains(@class, "zoom-icon")])
+  - name: inTheBoxText
+    singleValue: false
+    xpath: //div[@id="product-description"]/div/div/p/b[text()="What it includes:"]/parent::*/following-sibling::*/li/text()[following::p/b[text()="What else you need to know:"]]
+  - name: unInterruptedPDP
+    singleValue: false
+    xpath: //div[@id="recommendations_carousel-sephoracollection"]//ul[@class="products_expanded"]/li//img[@class="ga-image-ready"]/@alt | //div[@id="recommendations_carousel-pdp"]//ul[@class="products_expanded"]/li//img[@class="ga-image-ready"]/@alt
