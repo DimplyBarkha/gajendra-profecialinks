@@ -50,9 +50,9 @@ fields:
   - name: nameExtended
     xpath: //aside[@id='product-sidebar']/h1
   - name: listPrice
-    xpath: //div[@id='product-wrapper']//div[contains(@class, 'old-price-block')]/div[contains(@class, 'price-xs')]
+    xpath: concat('€ ', //div[@id='product-wrapper']//div[contains(@class, 'old-price-block')]/div[contains(@class, 'price-xs')])
   - name: price
-    xpath: //div[@id='product-wrapper']//div[contains(@class, 'price-details')]/div[contains(@class, 'big')]
+    xpath: concat('€ ', //div[@id='product-wrapper']//div[contains(@class, 'price-details')]/div[contains(@class, 'big')])
   - name: availabilityText
     regExp: (.+)
     regExpReplace: In Stock
