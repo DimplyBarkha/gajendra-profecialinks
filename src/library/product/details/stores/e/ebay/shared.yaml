@@ -109,7 +109,7 @@ fields:
   - name: termsAndConditions
     singleValue: false
   - name: unInterruptedPDP
-    xpath: //div[contains(@id,'nume_html') and not(contains(.,'from this seller'))]//div[contains(@class,"mfe-reco")]//li|//div[@class="updp_item"]
+    xpath: //div[contains(@id,'nume_html') and not(contains(.,'from this seller'))]//div[contains(@class,"mfe-reco")]//li|//div[@class="updp_item"] | //div[@class="similaritems"]//h3[@class="title"] | //h2[text()="Prodotto più venduto in Aspirapolvere"]/parent::*/following::*//ul/li//img/@alt | //h2[text()="Risparmia su Aspirapolvere"]/parent::*/following::*//ul/li//img/@alt | //h2[text()="Altri oggetti che ti potrebbero interessare"]/parent::*/following::*//ul/li//img/@alt
   - name: inTheBoxText
     xpath: //p[contains(.,'In the Box')]/..//ul//li | //h1[contains(.,'In the box')]/..//span[@class="title"] | //div[contains(@class,'inthebox')]//span | //div[@id='inTheBoxText']|//td[contains(text(),'Included Accessories')]/following-sibling::td
   - name: inTheBoxUrl
