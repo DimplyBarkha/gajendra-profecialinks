@@ -446,7 +446,7 @@ fields:
   - name: promotion
     singleValue: false
     description: promotion text on product page
-    xpath: //span[@class='productDetails__availability availability']
+    xpath: (//span[@class='productCard__promo productCard__promo--sale'])[1] | (//span[@class='productCard__promo'])[1] | //span[@class='productDetails__availability availability']
   - name: alcoholContent
     singleValue: true
     description: Alcohol content information
