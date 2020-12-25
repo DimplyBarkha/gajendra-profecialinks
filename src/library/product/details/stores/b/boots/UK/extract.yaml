@@ -38,7 +38,7 @@ fields:
       The product name, prefixing "${brand} - " if not included in "name"
       and appending " - ${variantType}" if necessary (fixed per feed)
   - name: listPrice
-    xpath: ancestor::html//div[contains(concat(' ',@class,' ')," was_price ")] | ancestor::html//div[@id="estore_product_price_widget"]//div[@class="was_prices_holder"])[1]
+    xpath: (ancestor::html//div[contains(concat(' ',@class,' ')," was_price ")] | ancestor::html//div[@id="estore_product_price_widget"]//div[@class="was_prices_holder"])[1]
     description: The stated undiscounted price for the product
   - name: price
     xpath: ancestor::html//div[@id="PDP_productPrice"]
