@@ -1,3 +1,4 @@
+const { transform } = require('../../../../shared');
 
 module.exports = {
   implements: 'product/details/extract',
@@ -8,7 +9,9 @@ module.exports = {
     domain: 'euronics.it',
     zipcode: '',
   },
-  implementation: async ({ inputString }, { country, domain }, context, { productDetails }) => {
+  implementation: async (inputs, parameters, context, dependencies) => {
+    const { transform } = parameters;
+    const { productDetails } = dependencies;
     await context.evaluate(() => {
       function addHiddenDiv (id, text) {
         const div = document.createElement('div');
@@ -31,6 +34,6 @@ module.exports = {
         console.log('match', match);
       });
     });
-    return await context.extract(productDetails);
+    return await context.extract(productDetails, { transform });
   },
 };
