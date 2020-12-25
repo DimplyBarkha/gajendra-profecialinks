@@ -88,9 +88,9 @@ const transform = (data) => {
           delete row.variants;
           row.variantCount = [{ text: 0 }];
         }
-        if (vInfo.length) {
-          row.variantInformation = [{ text: vInfo.join(' | ') }];
-        }
+      }
+      if (row.color && row.quantity) {
+        row.variantInformation = [{ text: row.color[0].text + ' ' + row.quantity[0].text }];
       }
     }
   }
