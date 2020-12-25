@@ -100,7 +100,7 @@ fields:
   - name: inTheBoxText   
     singleValue: false    
     description: Must include text to show the accessories/tools which come with the
-    xpath: //b[contains(text(),'This Set Contains')]/following::text()[position()<4]
+    xpath: //div[@class="product-description-box"]//b[contains(text(),'Tools')]//following-sibling::b|//div[@class="product-description-box"]//span[contains(text(),'Tools')]/ancestor::div[1]//following-sibling::div[not(br)][position() mod 2 = 1]
   - name: unInterruptedPDP    
     singleValue: false   
     description: Titles of products in the sections 'you may also like' or 'sponsored products'. Combine results from Max 3 sections
