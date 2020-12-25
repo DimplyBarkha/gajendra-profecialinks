@@ -38,7 +38,7 @@ async function implementation (inputs, parameters, context, dependencies) {
     await context.evaluate(
       async ({ i, variantsArr }) => {
         // @ts-ignore
-        const colors = [...document.querySelectorAll('ul.ppOption--colour li label')].map((ele) => ele.getAttribute('rel'));
+        const colors = [...document.querySelectorAll('ul.ppOption--colour li label, ul.customerSelection label[rel]')].map((ele) => ele.getAttribute('rel'));
         const addedVariant = document.createElement('div');
         addedVariant.id = `addedVariant${i}`;
         addedVariant.id = `added_variant${i}`;
@@ -143,10 +143,10 @@ async function implementation (inputs, parameters, context, dependencies) {
       description2.forEach(e => bulletsArrSliced.push(e.textContent));
       let concatDesc = bulletsArrSliced.join(' || ');
       if (concatDesc) { concatDesc = '|| ' + concatDesc; }
-      addElementToDocument('descriptionBull', concatDesc);
+      // addElementToDocument('descriptionBull', concatDesc);
       console.log(concatDesc);
     } else if (description1) {
-      addElementToDocument('description', description1);
+      // addElementToDocument('description', description1);
       console.log(description1);
     }
   });

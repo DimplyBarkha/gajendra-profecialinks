@@ -9,11 +9,11 @@ fields:
   xpath: ancestor::html//link[@rel="canonical"]/@href
 - name: _pageTimeStamp
 - name: image
-  xpath: ancestor::html//li[1]//div[@class="amp-zoom-overflow"]/img/@data-pin-media | ancestor::html//li[contains(@class, 'selected')]//img/@data-pin-media
+  xpath: ancestor::html//li[1]//div[@class="amp-zoom-overflow"]/img/@data-pin-media | ancestor::html//li[contains(@class, 'selected')]//img/@data-pin-media | ancestor::html//div[@id="amp-originalImage"]/img/@src
 - name: imageAlt
   description: Alt text of the main product image
 - name: alternateImages
-  xpath: ancestor::html//div[@class="amp-anim-container"]/li[position()>1]/img/@src
+  xpath: ancestor::html//div[@class="amp-anim-container"]/li[position()>1]/img/@src | ancestor::html//ul/li[@class="productImageItem"][position()>1]/a/@href
   regExp: (.+)(\$\d+)
   regExpReplace: $1
   description: Other product images (not in manufacturer description)
@@ -40,7 +40,8 @@ fields:
     is no availability but the product can be added to cart, this field should be
     "In Stock"
 - name: description
-  xpath: concat(ancestor::html//tr[1]//span[@itemprop="description"], ancestor::html//div[@id="descriptionBull"])
+  xpath: ancestor::html//span[@itemprop="description"]
+  html: true
   description: Product description supplied by website - may be concatenanted from
     multiple places; specifically not the manufacturer description
 - name: descriptionBullets
