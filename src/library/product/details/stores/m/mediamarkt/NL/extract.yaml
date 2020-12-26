@@ -24,9 +24,9 @@ fields:
   - name: warranty
     xpath: //div[@id='mm_warranty']
   - name: eangtin
-    xpath: substring-before(substring-after(//body/script[contains(text(),'gtmServiceProduct')], '"ean":"'), '",')
+    xpath: substring-before(substring-after(//body/script[contains(text(),'var product')], '"ean":"'), '",')
   - name: gtin
-    xpath: substring-before(substring-after(//body/script[contains(text(),'gtmServiceProduct')], '"ean":"'), '",')
+    xpath: substring-before(substring-after(//body/script[contains(text(),'var product')], '"ean":"'), '",')
   - name: sku
     xpath: //div[@id='mm_skuCode']
   - name: variantId
