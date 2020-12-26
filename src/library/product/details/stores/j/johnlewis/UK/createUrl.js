@@ -12,7 +12,16 @@ async function implementation (
   if (parameters.url) {
     url = parameters.url.replace('{id}', encodeURIComponent(id));
     await goto({ url });
-  } 
+  }
+  const noResults = await context.evaluate(() => {
+  if(document.querySelector('[data-test="heading-num-results"]')) {
+    if(document.querySelector('[data-test="heading-num-results"]').innerText.match(/\d+/)[0] == '0') {
+    return true;
+   } else {
+     return false;
+   }
+  }})
+  if(noResults) return url;
   const prodUrl = await context.evaluate(() => {
     return document.querySelector('a[class^="product-card"]') ? document.querySelector('a[class^="product-card"]').href : false;
   })
@@ -68,7 +77,7 @@ async function implementation (
     const productId = window.location.pathname.match(/[^\/]+$/)[0].split(/^p/)[1];
     return await findProductById(productId, code)
   }
-  return await context.evaluate(getUrlFromCode, id);
+  return (await context.evaluate(getUrlFromCode, id)) || url;
 }
 module.exports = {
   implements: 'product/details/createUrl',
