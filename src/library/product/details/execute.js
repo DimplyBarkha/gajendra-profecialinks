@@ -19,7 +19,7 @@ const implementation = async (inputs, { loadedSelector, noResultsXPath }, contex
       (selector, xpath) => {
         return !!(document.querySelector(selector) || document.evaluate(xpath, document, null, XPathResult.BOOLEAN_TYPE, null).booleanValue);
       },
-      { timeout: 10000 },
+      { timeout: 30000 },
       loadedSelector,
       noResultsXPath,
     );
