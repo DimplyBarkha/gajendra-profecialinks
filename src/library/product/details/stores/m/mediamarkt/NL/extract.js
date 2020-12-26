@@ -94,7 +94,8 @@ module.exports = {
       addElementToDocument('mm_category', breadcrumbs[1].innerText);
 
       // Getting subcategory
-      addElementToDocument('mm_subCategory', `${breadcrumbs[2].innerText}${breadcrumbs[3] && ' > ' + breadcrumbs[3].innerText}`);
+      const subcategories = breadcrumbs.reduce((accumulator, category, i) => i > 1 ? accumulator + `${i > 2 ? ' > ' : ''}${category.innerText}` : '', '');
+      addElementToDocument('mm_subCategory', subcategories);
 
       // Checking if in stock
       if (document.querySelector('.label-instock')) {
