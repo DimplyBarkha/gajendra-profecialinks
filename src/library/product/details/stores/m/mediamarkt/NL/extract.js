@@ -103,9 +103,7 @@ module.exports = {
       }
 
       // Getting base url
-      if (window) {
-        addElementToDocument('mm_baseUrl', window.location.href.replace(/\?ga_query=\d{7}/, ''));
-      }
+      addElementToDocument('mm_baseUrl', document.querySelector('link[rel=canonical]').href);
     });
     await context.extract(productDetails);
   },
