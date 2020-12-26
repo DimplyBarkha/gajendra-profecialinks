@@ -10,7 +10,6 @@ module.exports = {
     zipcode: '',
   },
   implementation: async ({ inputString }, { country, domain }, context, { productDetails }) => {
-    await context.click('.js-toggle-collapsed');
     await context.evaluate(async function () {
       function addElementToDocument (key, value) {
         const catElement = document.createElement('div');
@@ -21,6 +20,11 @@ module.exports = {
       }
 
       const urlParams = new URLSearchParams(window.location.search);
+
+      const specificationsButton = document.querySelector('.js-toggle-collapsed');
+      if (specificationsButton) {
+        specificationsButton.click();
+      }
 
       // Getting specifications, size
       let specifications = '';
