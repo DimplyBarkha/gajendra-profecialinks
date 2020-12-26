@@ -530,6 +530,6 @@ fields:
   - name: hasComparisonTable
     defaultValue: No
   - name: inTheBoxText
-    xpath: //p[contains(.,"מה בערכה")]/strong/following-sibling::text()|//strong[contains(.,"אביזרים")]/../following-sibling::div[following-sibling::div[contains(.,"מפרט")]]|//strong[contains(.,"אביזרים ")]/ancestor::p|//strong[contains(.,"אביזרים")]/parent::node()/parent::node()/following-sibling::div[1]/text()
+    xpath: //p[contains(.,"מה בערכה")]/strong/following-sibling::text()|//strong[contains(.,"אביזרים")]/../following-sibling::div[following-sibling::div[contains(.,"מפרט")]]|//strong[contains(.,"אביזרים ")]/ancestor::p|//strong[contains(.,"אביזרים")]/parent::node()/parent::node()/following-sibling::div[1]/text()|//div[contains(text(),'אביזרים')]/following-sibling::div/img/following-sibling::text()
   - name: inTheBoxUrl
-    xpath: //*[contains(.,"אביזרים")]/../following-sibling::div[following-sibling::div[contains(.,"מפרט")]]/img/@src|//*[contains(.,"בערכה")]/following-sibling::div//img[contains(@src, "olsale")]/@src|//*[contains(.,"בערכה")]/following-sibling::p//img[contains(@src, "olsale")]/@src
+    xpath: //*[contains(.,"אביזרים")]/../following-sibling::div[following-sibling::div[contains(.,"מפרט")]]/img/@src|//*[contains(.,"בערכה")]/following-sibling::div//img[contains(@src, "olsale")]/@src|//*[contains(.,"בערכה")]/following-sibling::p//img[contains(@src, "olsale")]/@src|//div[contains(text(),'אביזרים')]/following-sibling::div/img/@src
