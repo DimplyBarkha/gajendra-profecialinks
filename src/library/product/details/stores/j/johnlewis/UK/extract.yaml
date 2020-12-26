@@ -1,4 +1,4 @@
-singleRecord: false
+singleRecord: true
 regionsSelector: null
 recordSelector: null
 recordXPath: null
@@ -39,7 +39,9 @@ fields:
     xpath: count(//div[contains(@class, "product-detail__description")]//li)
     type: NUMBER
   - name: brandText
-    xpath: //span[@id="brand-link-app"]/@data-brand-name
+    xpath: (//span[@id="brand-link-app"]/@data-brand-name | /html[not(//span[@id="brand-link-app"]/@data-brand-name)]//*[@type="application/json"][contains(text(),"brandName")])[1]
+    regExp: brandName":\s*"([^"]+)|(.+)
+    regExpReplace: $1$2
   - name: manufacturer
     description: Product manufacturer
   - name: quantity
@@ -53,7 +55,9 @@ fields:
   - name: gtin
     description: GTIN code (includes UPC/EAN)
   - name: sku
-    xpath: (//header[contains(@class, "product-header")]/@content)[1]
+    xpath: ((//header[contains(@class, "product-header")]/@content)[1] | ((//li[@data-carousel="productCarousel"]/img/@src)[1]|(//li[@class="slick-active"]/img/@src)[1])[1])[1]
+    regExp: image\/JohnLewis\/([^?]+)|(.+)
+    regExpReplace: $1$2
     # xpath: //script[@id="jsonPageData"]
     # regExp: productId":"(.*?)"
     # regExpReplace: $1
