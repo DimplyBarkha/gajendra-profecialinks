@@ -508,7 +508,7 @@ fields:
     xpath: //div[@class="tabbed-container-content std"]//p[contains(.,'•')]
     regExp: (\w.+)
   - name: hasComparisonTable
-    xpath: boolean(//div[@id='more-from-category']//div[@class='product_grid_container related-products'])
+    defaultValue: No
   - name: unInterruptedPDP
     singleValue: false
     xpath: //div[contains(@class,'related-products')]//div[@class='product-name']/a/@title | //div[contains(@class,'carousel-product-outer')]//div[@class='product-name']/a/@title
