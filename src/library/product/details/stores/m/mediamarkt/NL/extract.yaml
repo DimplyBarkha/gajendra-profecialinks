@@ -53,8 +53,6 @@ fields:
     xpath: //div[@id='product-wrapper']//div[contains(@class, 'old-price-block')]/div[contains(@class, 'price-xs')]
   - name: price
     xpath: //div[@id='product-wrapper']//div[contains(@class, 'price-details')]/div[contains(@class, 'big')]
-    regExp: >-
-      [^$]+
   - name: availabilityText
     regExp: (.+)
     regExpReplace: In Stock
