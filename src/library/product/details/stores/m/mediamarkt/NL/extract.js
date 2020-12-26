@@ -27,12 +27,12 @@ module.exports = {
       }
 
       // Getting specifications, size
-      let specifications = '';
       let weight = '';
       let color = '';
       let warranty = '';
       let mpc = '';
       let energy = '';
+      let shippingDimensions = '';
       document.querySelectorAll('dl.specification').forEach(specificationGroup => {
         var specificationsItems = Array.from(specificationGroup.children);
         specificationsItems.forEach((item, index) => {
@@ -56,6 +56,10 @@ module.exports = {
           if (item.innerText === 'Energie-efficiëntieklasse:') {
             energy = specificationsItems[index + 1].innerText;
           }
+          // Getting shipping dimensions
+          if (item.innerText === 'Verpakkingsvolume B x H x D (m):') {
+            shippingDimensions = specificationsItems[index + 1].innerText;
+          }
         });
       });
       addElementToDocument('mm_weight', weight);
@@ -63,6 +67,7 @@ module.exports = {
       addElementToDocument('mm_warranty', warranty);
       addElementToDocument('mm_mpc', mpc);
       addElementToDocument('mm_energy', energy);
+      addElementToDocument('mm_shippingDimensions', shippingDimensions);
 
       // Gets all specifications
       const specificationsElement = document.querySelector('#features');
