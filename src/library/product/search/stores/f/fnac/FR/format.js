@@ -29,7 +29,7 @@ const transform = (data, context) => {
       }
       if (row.price) {
         row.price.forEach(item => {
-          item.text = item.text.replace('€', ',');
+          item.text = item.text.replace('€', ',') + '€';
         });
       }
       if (row.ratingCount) {

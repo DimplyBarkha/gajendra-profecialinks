@@ -43,3 +43,9 @@ fields:
   - name: id
     singleValue: false
     xpath: //div[@class="thumbnail-toolbar"]//button[contains(@class, "wishlist")]/@data-prid
+  - name: manufacturer
+    singleValue: false
+    xpath: //ul[@class="moreInfos-list"]//span[@itemprop="manufacturer"]
+  - name: soldBy
+    singleValue: false
+    xpath: //a[@class="Mp-link js-tooltipMpLink"]
