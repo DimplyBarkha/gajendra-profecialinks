@@ -136,16 +136,44 @@ module.exports = {
 
         const getInTheBox = document.querySelector('#MainContent_Properties_productDetails').childNodes;
         if (getInTheBox) {
-
-	    const getAllProducts = Array.from(getInTheBox).filter(elem=>elem.nodeType===3)
+	          const getAllProducts = Array.from(getInTheBox).filter(elem=>elem.nodeType===3 || elem.nodeType===1)
             let takeTextFlag=false;
             for (let i = 0; i < getAllProducts.length; i++) {
-                if(getAllProducts[i].textContent.includes("מה בקופסא")){
+                if(getAllProducts[i].textContent.includes("מה בקופסא") || getAllProducts[i].textContent.includes("אביזר לפינות ומסילות") || getAllProducts[i].textContent.includes("מה מגיע בערכה")){
                   takeTextFlag=true;
                 }else if(takeTextFlag){
+                  if(getAllProducts[i].textContent!="")
                   addElementToDocument(`inTheBoxText-${i}`, getAllProducts[i].textContent);
                 }
                 
+            }
+            if(!takeTextFlag){
+              const getInTheBox2 = document.querySelector('#MainContent_Properties_pFreeText').childNodes;
+              if(getInTheBox2){
+                let brCountFlag=0;
+                const getAllProducts2 = Array.from(getInTheBox2).filter(elem=>elem.nodeType===3 || elem.nodeType===1)
+                for (let i = 0; i < getAllProducts2.length; i++) {
+                  if(getAllProducts2[i].textContent.includes("אביזרים נלווים:") || getAllProducts2[i].textContent.includes('אביזר ייבוש: מכין את השיער לעיצוב') || getAllProducts2[i].textContent.includes("הערכה כוללת:") || getAllProducts2[i].textContent.includes("אביזרים")){
+                    takeTextFlag=true;
+                  }else if(takeTextFlag){
+                    if(getAllProducts2[i].textContent.trim().endsWith(":")){
+                      takeTextFlag=false;
+                    }else{
+                      //Here we have to check if two continue text Content are blank then false the flag
+                      if(brCountFlag===2){
+                        takeTextFlag=false;
+                      }else if(getAllProducts2[i].textContent!=""){
+                        brCountFlag=0;
+                        addElementToDocument(`inTheBoxText-${i}`, getAllProducts2[i].textContent);
+                      }else{
+                        brCountFlag++;
+                      }
+                      
+                    }
+                    
+                  }
+                }
+              }
             }
         }
 
