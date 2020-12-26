@@ -34,7 +34,6 @@ module.exports = {
       let mpc = '';
       let energy = '';
       document.querySelectorAll('dl.specification').forEach(specificationGroup => {
-        specifications += `${specificationGroup.innerText}\n`;
         var specificationsItems = Array.from(specificationGroup.children);
         specificationsItems.forEach((item, index) => {
           // Getting weight
@@ -59,12 +58,17 @@ module.exports = {
           }
         });
       });
-      addElementToDocument('mm_specifications', specifications);
       addElementToDocument('mm_weight', weight);
       addElementToDocument('mm_color', color);
       addElementToDocument('mm_warranty', warranty);
       addElementToDocument('mm_mpc', mpc);
       addElementToDocument('mm_energy', energy);
+
+      // Gets all specifications
+      const specificationsElement = document.querySelector('#features');
+      if (specificationsElement) {
+        addElementToDocument('mm_specifications', specificationsElement.textContent.replace(/\r?\n/g, ' ').slice(0, -1).replace(/\s+|\s+/g, ' ').trim());
+      }
 
       // Getting sku code
       const sku = urlParams.get('ga_query');
