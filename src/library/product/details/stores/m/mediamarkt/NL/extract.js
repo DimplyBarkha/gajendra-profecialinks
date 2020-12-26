@@ -80,8 +80,8 @@ module.exports = {
 
       // Getting images
       const images = Array.from(document.querySelectorAll('ul.thumbs li a:not(.thumb--play-video-btn)'));
-      const image = `https:${images[0].dataset.magnifier}`;
-      const alternativeImages = images.reduce((accumulator, link, i) => i > 0 ? accumulator + `${i !== 1 ? ' | ' : ''}https:${link.dataset.magnifier}` : '', '');
+      const image = `https:${images[0].dataset.preview}`;
+      const alternativeImages = images.reduce((accumulator, link, i) => i > 0 ? accumulator + `${i !== 1 ? ' | ' : ''}https:${link.dataset.preview}` : '', '');
       addElementToDocument('mm_image', image);
       addElementToDocument('mm_alternateImages', alternativeImages);
 
