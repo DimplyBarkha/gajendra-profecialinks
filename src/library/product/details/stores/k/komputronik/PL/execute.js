@@ -5,7 +5,7 @@ module.exports = {
     country: 'PL',
     store: 'komputronik',
     domain: 'komputronik.pl',
-    loadedSelector: null,
+    loadedSelector: 'div#p-inner',
     noResultsXPath: '//h2[contains(text(),"404")] | //*[@id="products-list"]', // treating redirected page to product listing page as no result',
     zipcode: "''",
   },

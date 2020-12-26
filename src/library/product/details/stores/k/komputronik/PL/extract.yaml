@@ -59,7 +59,7 @@ fields:
     singleValue: false    
     xpath: //div[@class='full-specification']//table//tr
   - name: promotion
-    singleValue: false    
+    singleValue: false
     xpath: //div[@class='promotions-block']//div[@class='content']/span
   - name: listPrice
     singleValue: false    
@@ -79,3 +79,15 @@ fields:
   - name: availabilityText
     singleValue: false    
     defaultValue: 'In Stock'
+  - name: inTheBoxUrl
+    singleValue: false    
+    defaultValue: "false"
+  - name: inTheBoxText
+    singleValue: false    
+    xpath: //div[@class="full-specification"]//th[contains(text(), "Wyposażenie standardowe")]/../td
+  - name: hasComparisonTable
+    singleValue: false    
+    defaultValue: "false"
+  - name: unInterruptedPDP
+    singleValue: false
+    xpath: //div[@class="snrs-reco-slider"]//div[@class="product-box"]//a/span[@class="name"]
