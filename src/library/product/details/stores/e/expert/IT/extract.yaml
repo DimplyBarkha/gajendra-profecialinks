@@ -164,9 +164,11 @@ fields:
     description: Must include text to show the accessories/tools which come with the product
   - name: hasComparisonTable
     singleValue: true
-    xpath: boolean(//*[contains(text(), "comparazione")])
-    description: Compare the range table or matrix must be present for all vacuum cleaners & air treatment. This is not required for personal care or lighting. As a minimum the comparison table will compare against 1 additional Dyson product.
+    manualSelector: div.flix-comp-mainTitle>div
+    regExp: (.*)
+    regExpReplace: "true"
+    defaultValue: "false"
   - name: unInterruptedPDP
     singleValue: false
-    # xpath: //div[contains(@class, "product-item-desc")]//a
     description: Titles of products in the sections 'you may also like' or 'sponsored products'. Combine results from Max 3 sections
+    xpath: //div[@class="owl-stage-outer"]//div[@class="skywalker_quadro_nome"]/a/h3

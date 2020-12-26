@@ -270,5 +270,15 @@ await context.goto(productUrl, { timeout: 50000, waitUntil: 'load', checkBlocked
   } catch (error) {
     console.log('error: ', error);
   }
+  await context.evaluate(() => {
+    var elmt = document.getElementById("flix-comp-mainTitle");
+    elmt && elmt.scrollIntoView(true);
+  });
+  
+  await context.waitForSelector('div.flix-comp-mainTitle');
+  await context.evaluate(() => {
+    const imgSelelctor = document.querySelector('div.flix-comp-mainTitle');
+    console.log('~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~', !!imgSelelctor);
+  });  
   return await context.extract(productDetails, { transform });
 }
