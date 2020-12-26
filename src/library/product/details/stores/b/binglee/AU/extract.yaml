@@ -511,4 +511,4 @@ fields:
     defaultValue: No
   - name: unInterruptedPDP
     singleValue: false
-    xpath: //div[@class='product-name']/a[@class] | //div[contains(.,'You Might Also Like')][contains(@class,'tabbed-container-title')]/following-sibling::div[contains(@class,'tabbed-container-content')]//div[@class="slick-track"]/div[contains(@class,"slick-slide") and (not(contains(@class,'slick-cloned')))]
+    xpath: //div[contains(@class,'related-products')]//div[@class='product-name']/a/@title | //div[contains(@class,'carousel-product-outer')]//div[@class='product-name']/a/@title
