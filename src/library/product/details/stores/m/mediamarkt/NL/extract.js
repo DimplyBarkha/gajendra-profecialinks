@@ -109,6 +109,12 @@ module.exports = {
 
       // Getting base url
       addElementToDocument('mm_baseUrl', document.querySelector('link[rel=canonical]').href);
+
+      // Getting description
+      const descriptionElement = Array.from(document.querySelectorAll('#omschrijving p'));
+      if (descriptionElement) {
+        addElementToDocument('mm_description', descriptionElement.map(element => element.innerText.replace(/\r?\n/g, ' ').slice(0, -1)).join(' '));
+      }
     });
     await context.extract(productDetails);
   },
