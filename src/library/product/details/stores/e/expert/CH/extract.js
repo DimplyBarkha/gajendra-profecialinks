@@ -140,6 +140,13 @@ async function implementation (
     });
     addHiddenDiv('ii_video', videoArr.join(' | '));
   });
+  await context.waitForSelector('div#recommender');
+  await context.evaluate(() => {
+    var imgSelelctor = document.querySelectorAll('div#recommender');
+    // @ts-ignore
+    imgSelelctor = imgSelelctor[imgSelelctor.length -1]
+    console.log('~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~', !!imgSelelctor);
+  });
   return await context.extract(productDetails, { transform });
 }
 module.exports = {

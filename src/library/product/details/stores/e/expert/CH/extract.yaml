@@ -133,3 +133,9 @@ fields:
     xpath: //div[contains(@id,'ii_video')]
     singleValue: false
     description: null
+  - name: unInterruptedPDP
+    singleValue: false
+    xpath: //div[@id="recommender"]//div[contains(@class,"productName")]
+  - name: inTheBoxText
+    singleValue: false
+    xpath: //h3[@id="specifications"]/..//td[contains(text(), "Lieferumfang")]/following-sibling::td 

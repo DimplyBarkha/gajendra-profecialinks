@@ -3,7 +3,7 @@ module.exports = {
   implements: 'navigation/goto',
   parameterValues: {
     domain: 'digitec.ch',
-    timeout: 60000,
+    timeout: 240000,
     country: 'CH',
     store: 'expert',
     zipcode: '',
