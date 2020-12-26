@@ -1,0 +1,19 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: //button[contains(@class,"MuiButton-containedPrimary") and  contains(@class,"MuiButton-fullWidth")]/parent::*/parent::div
+fields:
+  - name: name
+    singleValue: false
+    xpath: //button[@class="MuiButtonBase-root"]/div[@class="lazyload-wrapper"]/img/@alt
+  - name: thumbnail
+    singleValue: false
+    xpath: //button[@class="MuiButtonBase-root"]/div[@class="lazyload-wrapper"]/img/@src
+  - name: productUrl
+    singleValue: false
+    xpath: //a[contains(@class,"MuiButton-textPrimary") and not(contains(@class,"gtm-nav")) ]/@href
+    regExp: (.+)
+    regExpReplace: https://www.carrefour.pl$1
+  - name: price
+    singleValue: false
+    xpath: //button[contains(@class,"MuiButton-containedPrimary") and  contains(@class,"MuiButton-fullWidth")]/parent::*//div[contains(@class,"MuiTypography-colorError") or contains(@class,"MuiTypography-h3")]
