@@ -20,7 +20,7 @@ async function implementation(
     const urlParams = new URLSearchParams(window.location.search);
     const custom_sku = urlParams.get('productId');
     var url = window.location.href;
-    addHiddenDiv("custom_sku", 'sainsburys_' + custom_sku);
+    addHiddenDiv("custom_sku", custom_sku);
     addHiddenDiv("product_custom_url", url);
   });
   return await context.extract(productDetails, { transform });

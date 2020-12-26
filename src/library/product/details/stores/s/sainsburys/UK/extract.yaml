@@ -33,12 +33,12 @@ fields:
       should be "In Stock"
     xpath: //div[@class='pt-button']/button[contains(@class,'pt__add-button')]
   - name: priceCurrency
-    xpath: //script[@type="application/Id+Json"][contains(text(), "priceCurrency")]
+    defaultValue: GBP
   - name: description
     singleValue: false
     description: Product description supplied by website - may be concatenanted from
       multiple places; specifically not the manufacturer description
-    xpath: string(//div[@class="itemTypeGroup"]/div[@class="memo"])
+    xpath: //div[@class="itemTypeGroup"]/div[@class="memo"]
   - name: product_enhanced_content_available
     singleValue: true
     defaultValue: false
@@ -83,7 +83,7 @@ fields:
   - name: packaging
     singleValue: true
     xpath: //div[contains(@class,"itemTypeGroupContainer productText")]/h3[text()="Packaging"]/parent::*/div[@class="itemTypeGroup"]
-  - name: ingredientsList
+  - name: product_grocery_ingredients
     singleValue: true
     xpath: //div[contains(@class,"itemTypeGroupContainer productText")]//ul[@class="productIngredients"]//li
   - name: storage
@@ -112,9 +112,15 @@ fields:
     singleValue: true
     xpath: //table[@class="nutritionTable"]//th[contains(text(),"Carbohydrate")]/parent::tr/td
     type: NUMBER
-  - name: legalDisclaimer
+  - name: product_grocery_disclaimer
     singleValue: true
     xpath: //div[contains(@class,"ln-c-card pd__disclaimer ln-c-card--soft")]//following-sibling::p
   - name: productUrl
     singleValue: true
     xpath: //div[@class="product_custom_url"]
+  - name: product_grocery_allergens
+    singleValue: true
+    xpath: //div[@id="mainPart"]/div[@class="itemTypeGroupContainer productText"]//*[contains( text(), 'Dietary Information')]/parent::div
+  - name: product_grocery_calories_per_serving
+    singleValue: true
+    xpath: //table[@class="nutritionTable"]/tbody/tr/th[contains(text(), 'Energy')]/following-sibling::td

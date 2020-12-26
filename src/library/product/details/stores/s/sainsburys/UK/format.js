@@ -45,21 +45,29 @@ const url1 = require('url');
             let text = '';
             let element = '';
             let images = [];
-            row.shownImages.forEach(item => {
+            row.shownImages.forEach( (item, index ) => {
               element = item.text.split(',');
-              text = element[element.length-1].trim().split(' ')[0];
+              if( 0 == index ) {
+                text = element[element.length-2].trim().split(' ')[0];
+              } else {
+                text = element[element.length-1].trim().split(' ')[0];
+              }
+
               images.push({text:text });
             });
             row.shownImages = images;
           }
           if (row.highQualityImages) {
-            console.log('HighQualityImages=>', row.highQualityImages);
             let text1 = '';
             let element1 = '';
             let images1 = [];
-            row.highQualityImages.forEach(item => {
+            row.highQualityImages.forEach((item, index) => {
               element1 = item.text.split(',');
-              text1 = element1[element1.length-1].trim().split(' ')[0];
+              if( 0 == index ) {
+                text1 = element1[element1.length-2].trim().split(' ')[0];
+              } else {
+                text1 = element1[element1.length-1].trim().split(' ')[0];
+              }
               images1.push({text:text1 });
             });
             row.highQualityImages = images1;
@@ -79,6 +87,16 @@ const url1 = require('url');
             row.countryOfOrigin.forEach(item => {
               item.text = item.text.replace(/\s*/g, '');
               item.text = item.text.replace('Countryoforigin:', '');
+            });
+          }
+          if (row.product_grocery_allergens ) {
+            row.product_grocery_allergens.forEach(item => {
+              item.text = item.text.replace('Dietary Information', '');
+            });
+          }
+          if (row.product_grocery_calories_per_serving ) {
+            row.product_grocery_calories_per_serving.forEach(item => {
+              item.text = item.text.split('/')[1];
             });
           }
         }
