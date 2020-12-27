@@ -226,7 +226,9 @@ async function implementation (
           addHiddenDiv('added-inBox-Text-',manContentObj.inBoxTextArray[i]);
         }
 
-        addHiddenDiv('checkhasComparisionTable', manContentObj.hasComparisionTable);
+        if(manContentObj.hasComparisionTable){
+          addHiddenDiv('checkhasComparisionTable', manContentObj.hasComparisionTable);
+        }
 
       }
       if (videoLink) {
