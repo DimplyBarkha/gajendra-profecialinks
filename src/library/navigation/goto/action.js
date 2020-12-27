@@ -35,9 +35,12 @@ module.exports = {
   path: './goto/domains/${domain[0:2]}/${domain}',
   implementation: async ({ url, zipcode, storeId }, parameters, context, dependencies) => {
     const timeout = parameters.timeout ? parameters.timeout : 10000;
+    console.log(url);
+    console.log(storeId);
+    console.log(`zipcode: ${zipcode}`);
     await context.goto(url, { timeout: timeout, waitUntil: 'load', checkBlocked: true });
-    console.log(zipcode);
     if (zipcode) {
+      console.log(`Setting zipcode: ${zipcode}`);
       await dependencies.setZipCode({ url: url, zipcode: zipcode, storeId });
     }
   },

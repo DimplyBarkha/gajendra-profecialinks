@@ -5,6 +5,6 @@ module.exports = {
     country: 'AU',
     store: 'shopmylocal',
     domain: 'shopmylocal.com.au',
-    zipcode: '',
+    zipcode: '2075',
   },
 };

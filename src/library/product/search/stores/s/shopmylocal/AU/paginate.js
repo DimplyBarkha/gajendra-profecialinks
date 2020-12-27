@@ -11,11 +11,11 @@ module.exports = {
     spinnerSelector: null,
     loadedSelector: null,
     loadedXpath: '//a[contains(@class,"AdvertTile-imageBoxContainer")]/div[contains(@class,"AdvertTile-imageBox")]/@style',
-    noResultsXPath: '//div[@class="AdvertResults-results"]/div[@class="AdvertSearch-noResults"]/h2',
+    noResultsXPath: null,
     stopConditionSelectorOrXpath: null,
     resultsDivSelector: null,
     openSearchDefinition: null,
     domain: 'shopmylocal.com.au',
-    zipcode: '',
+    zipcode: '2075'
   },
 };

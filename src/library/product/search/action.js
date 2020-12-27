@@ -59,10 +59,12 @@ module.exports = {
     // TODO: consider moving this to a reusable function
     const length = (results) => results.reduce((acc, { group }) => acc + (Array.isArray(group) ? group.length : 0), 0);
 
-    const resultsReturned = await execute({
+    const executeParam = {
       keywords: inputKeywords,
       zipcode: inputs.zipcode || zipcode,
-    });
+    };
+    console.log(`executeParam: ${JSON.stringify(executeParam)}`);
+    const resultsReturned = await execute(executeParam);
 
     // do the search
 

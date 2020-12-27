@@ -6,6 +6,6 @@ module.exports = {
     store: 'shopmylocal',
     transform,
     domain: 'shopmylocal.com.au',
-    zipcode: '',
+    zipcode: '2075',
   },
 };
