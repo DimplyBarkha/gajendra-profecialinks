@@ -211,4 +211,4 @@ fields:
     xpath: //div[contains(@class,'product productData')]/@data-id
   - name: materials
     singleValue: false
-    xpath: //div//*[contains(text(),'Material:')]//following::div[1]//span
+    xpath: //div[contains(text(),'Material:')]/following::div[contains(@class,'details-item')][1]
