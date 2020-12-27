@@ -27,7 +27,9 @@ fields:
   - name: availabilityText
     singleValue: false
     defaultValue: Out of Stock
-    xpath: //span[contains(@class,"bold delivery") and (normalize-space(.)!='')]
+    xpath: //span[contains(@class,"bold delivery")]//following-sibling::*
+    regExp: (.+)
+    regExpReplace: In Stock
   - name: brandText
     singleValue: false
     xpath: //script[@type="application/ld+json"][contains(text(),"brand")]
@@ -99,7 +101,7 @@ fields:
     # regExp: ((.+)( 200w))
     # regExpReplace: $2
   - name: brandLink
-    singleValue: true
+    # singleValue: true
     xpath: //div[contains(@class,"pdp-title-zone")]/div/a/@href
     regExp: ([^()]+)
     regExpReplace: https://www.laredoute.fr$1

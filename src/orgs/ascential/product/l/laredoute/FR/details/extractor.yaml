@@ -4,6 +4,9 @@ parameters:
   domain: laredoute.fr
   store: laredoute
   zipcode: ""
+proxy:
+  zone: FRA
+  type: DATA_CENTER
 meta:
   branches:
     dev:
@@ -11,4 +14,7 @@ meta:
       legacyAccountId: 0e78a773-3cff-48d2-902d-473fb46c535b
     techops_testing:
       extractor: 3e5e616c-485e-4fdd-a54b-0699d2c8ed75
+      legacyAccountId: f94246b4-2d86-4803-9d39-25905b37f013
+    techops_laredoute_fr_core_test:
+      extractor: e9254568-5c88-4de8-ae3a-b7c47351b3eb
       legacyAccountId: f94246b4-2d86-4803-9d39-25905b37f013
