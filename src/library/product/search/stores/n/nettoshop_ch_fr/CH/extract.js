@@ -37,6 +37,20 @@ module.exports = {
         splitURLLength = splitURL.length;
         allElement('productID', splitURL[splitURLLength - 1], i);
       }
+      // Method to Retrieve Xpath content of a Multiple Nodes
+      const getAllXpath = (xpath, prop) => {
+        const nodeSet = document.evaluate(xpath, document, null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
+        const result = [];
+        for (let index = 0; index < nodeSet.snapshotLength; index++) {
+          const element = nodeSet.snapshotItem(index);
+          if (element) result.push(prop ? element[prop] : element.nodeValue);
+        }
+        return result;
+      };
+      const aggregateRating = getAllXpath("//div[@class='c-rating c-rating--read-only ember-view']/@title", 'nodeValue');
+      for (let i = 0; i < aggregateRating.length; i++) {
+        allElement('aggregateRating', aggregateRating[i].split('/')[0], i);
+      }
     });
     return await context.extract(productDetails, { transform });
   },

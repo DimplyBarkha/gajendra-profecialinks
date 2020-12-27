@@ -27,7 +27,7 @@ fields:
     xpath: //div[@class="c-product-grid-item__price-total"]
   - name: aggregateRating
     singleValue: false
-    xpath: //div[@class="c-rating c-rating--read-only ember-view"]/@title
+    xpath: //html//div[@id='aggregateRating']
   - name: manufacturer
     singleValue: false
     xpath: //img[@class="c-product-grid-item__brand-img"]/@alt
