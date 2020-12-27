@@ -170,6 +170,8 @@ async function implementation (
     }
     return await context.evaluate(async function () {
 
+      const hasComparisionTable = document.querySelector('div.table-responsve');
+
       const inBoxTextArray = [];
       const inBoxImageText = document.querySelectorAll('div.description-row > div.description-col-md-3');
       for (let i = 0; i < inBoxImageText.length; i++) {
@@ -194,7 +196,7 @@ async function implementation (
         const imgUrl = manufacturerImagesList[i].getAttribute('src');
         imgUrl && manufacturerImageArray.push(imgUrl);
       }
-      return { manufacturerImageArray, manufacturerDescription, inBoxImageArray , inBoxTextArray };
+      return { manufacturerImageArray, manufacturerDescription, inBoxImageArray , inBoxTextArray , hasComparisionTable };
     });
   }
   // Function to add manufacturer content and description to DOM
@@ -223,6 +225,8 @@ async function implementation (
         for (let i = 0; i < manContentObj.inBoxTextArray.length; i++) {
           addHiddenDiv('added-inBox-Text-',manContentObj.inBoxTextArray[i]);
         }
+
+        addHiddenDiv('checkhasComparisionTable', manContentObj.hasComparisionTable);
 
       }
       if (videoLink) {
