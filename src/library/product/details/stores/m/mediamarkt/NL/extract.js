@@ -88,7 +88,7 @@ module.exports = {
 
       // Gets aggregate rating
       if (document.querySelector('div[itemprop=ratingValue]')) {
-        addElementToDocument('mm_aggregateRating', document.querySelector('div[itemprop=ratingValue]').innerText);
+        addElementToDocument('mm_aggregateRating', document.querySelector('div[itemprop=ratingValue]').innerText.replace('.', ','));
       }
 
       // Getting images
