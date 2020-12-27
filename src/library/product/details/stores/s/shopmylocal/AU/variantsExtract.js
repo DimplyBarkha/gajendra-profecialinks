@@ -1,4 +1,4 @@
-async function implementation(
+async function implementation (
   inputs,
   parameters,
   context,
@@ -13,10 +13,10 @@ async function implementation(
     variantUrls.forEach((element, index) => {
       const variantDataElement = document.createElement('div');
       variantDataElement.className = 'varianturl';
-      variantDataElement.setAttribute('varianturl', variantUrls[index])
+      variantDataElement.setAttribute('varianturl', variantUrls[index]);
       document.body.append(variantDataElement);
-    })
-  })
+    });
+  });
   return await context.extract(variants, { transform });
 }
 module.exports = {

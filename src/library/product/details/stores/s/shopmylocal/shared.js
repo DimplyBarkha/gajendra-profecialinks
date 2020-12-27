@@ -20,11 +20,11 @@ const cleanUp = (data, context) => {
     for (const row of group) {
       if (row.name && row.nameExtended && row.appendPart && row.variantInformationAppend) {
         if (row.variantInformationAppend[0].text === ' ') {
-          row.variantInformationAppend[0].text = ''
+          row.variantInformationAppend[0].text = '';
         }
-        let text = `${row.name[0].text} ${row.variantInformationAppend[0].text} - ${row.appendPart[0].text}`;
-        row.name = [{ text: text.trim() }]
-        row.nameExtended = [{ text: text.trim() }]
+        const text = `${row.name[0].text} ${row.variantInformationAppend[0].text} - ${row.appendPart[0].text}`;
+        row.name = [{ text: text.trim() }];
+        row.nameExtended = [{ text: text.trim() }];
       }
     }
   }

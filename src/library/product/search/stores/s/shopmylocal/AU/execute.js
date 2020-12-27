@@ -41,5 +41,5 @@ module.exports = {
     noResultsXPath: null,
     zipcode: '2075',
   },
-  implementation
+  implementation,
 };

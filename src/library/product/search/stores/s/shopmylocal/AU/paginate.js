@@ -16,6 +16,6 @@ module.exports = {
     resultsDivSelector: null,
     openSearchDefinition: null,
     domain: 'shopmylocal.com.au',
-    zipcode: '2075'
+    zipcode: '2075',
   },
 };
