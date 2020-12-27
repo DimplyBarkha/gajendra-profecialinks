@@ -15,6 +15,7 @@ async function implementation (
   }
   const noResults = await context.evaluate(() => {
   if(document.querySelector('[data-test="heading-num-results"]')) {
+    if(document.querySelector('[data-test="heading-num-results"]').innerText.length == 0) return true;
     if(document.querySelector('[data-test="heading-num-results"]').innerText.match(/\d+/)[0] == '0') {
     return true;
    } else {
