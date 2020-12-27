@@ -15,12 +15,6 @@ module.exports = {
   ) => {
     await context.evaluate(async function () {
 
-      try {
-        await context.waitForSelector('section#cbar_widget0', { timeout: 10000 });
-      } catch (e) {
-        console.log('related products not found');
-      }
-
       const allScriptNodes = document.querySelectorAll('script[type="application/ld+json"]');
       let scriptText = "";
       allScriptNodes.forEach(q => {
@@ -35,6 +29,11 @@ module.exports = {
         }
       }
     });
+    try {
+      await context.waitForSelector('section#cbar_widget0', { timeout: 100000 });
+    } catch (e) {
+      console.log('related products not found');
+    }
     const { transform } = parameters;
     const { productDetails } = dependencies;
     return await context.extract(productDetails, { transform });
