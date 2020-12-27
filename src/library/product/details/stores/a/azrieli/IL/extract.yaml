@@ -34,7 +34,7 @@ fields:
   - name: price
     singleValue: true
     description: The offered price for the selected product variant - if a user
-      clicks add to basket this is the price they would be charged 
+      clicks add to basket this is the price they would be charged
     xpath: //div[@id='added_price']
   - name: availabilityText
     singleValue: true
@@ -522,10 +522,9 @@ fields:
       carousel,['Yes','No']
     example: https://www.zalando.de/adidas-neo-sneaker-low-blackwhite-a4315i002-q11.html
     defaultValue: No
-
   - name: inTheBoxText
-    # xpath: //*[contains(.,"מה בערכה")]/following-sibling::ul/li
-    xpath: //*[contains(.,"מה בערכה")]/following-sibling::ul/li | //span//strong[contains(.,"הערכה כוללת")]/ancestor::p/following-sibling::p | //div[@class="finePrint"]//div[contains(.,"אביזרים:")]/following-sibling::div[@dir="rtl"] | //strong[contains(.,"הערכה המלאה לקבלת עיצובים לסוגי שיער שונים מכילה:")]/following-sibling::text() | //*[contains(.,"מה מגיע בערכה")]/following-sibling::ul[1]/li
+    #xpath: //*[contains(.,"מה בערכה")]/following-sibling::ul/li
+    xpath: //*[contains(.,"מה בערכה")]/following-sibling::ul/li | //span//strong[contains(.,"הערכה כוללת")]/ancestor::p/following-sibling::p | //div[@class="finePrint"]//div[contains(.,"אביזרים:")]/following-sibling::div[@dir="rtl"] | //strong[contains(.,"הערכה המלאה לקבלת עיצובים לסוגי שיער שונים מכילה:")]/following-sibling::text() | //*[contains(.,"מה מגיע בערכה")]/following-sibling::ul[1]/li | //div[@id="inTheBoxTextHere"] | //div[@id="inTheBoxText"]
   - name: hasComparisonTable
     xpath: //div[@class="finePrint"]//*[contains(.,"השוואות ")]//a
   - name: unInterruptedPDP

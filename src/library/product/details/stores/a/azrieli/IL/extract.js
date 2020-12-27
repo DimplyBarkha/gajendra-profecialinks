@@ -17,7 +17,8 @@ module.exports = {
         catElement.style.display = 'none';
         document.body.appendChild(catElement);
       }
-
+      // var a=document.querySelector('#finePrint').childNodes;
+       //console.log("here is nodes",a);
       const getXpath = (xpath, prop) => {
         const elem = document.evaluate(xpath, document, null, XPathResult.ANY_UNORDERED_NODE_TYPE, null);
         let result;
@@ -65,6 +66,50 @@ module.exports = {
       const specifications = getAllXpath("//div[@class='finePrint']/descendant::strong[text()='מפרט טכני']/following::div/ul//li//text() | //div[@class='finePrint']/descendant::strong[text()='מפרט טכני']/following::ul[1]//li//text() | //div[@class='finePrint']/descendant::strong[text()='מפרט טכני:']/following::text()[position()<9] | //div[@class='finePrint']/descendant::strong[text()='מפרט טכני:']/following::div[position()<9]", 'nodeValue').join('|');
       addElementToDocument('added_specifications', specifications);
 
+       const getInTheBoxx = document.querySelector('.finePrint').children;
+       let startFlag =false;
+       var setBoxHere = "" ;
+       for(let i =0; i< getInTheBoxx.length; i++)
+       {
+         if(getInTheBoxx[i].textContent.includes("פרטים נוספים")){
+          startFlag=false;
+         }
+        if(startFlag == true){
+          setBoxHere += getInTheBoxx[i].textContent;
+        }
+        if(getInTheBoxx[i].textContent == "הערכה כוללת:"){
+          startFlag=true;
+         }
+       }
+      addElementToDocument(`inTheBoxTextHere`,setBoxHere);
+
+      const getInTheBox = document.querySelector('.finePrint').children;
+       console.log("getInBoxChild....",getInTheBox);
+       console.log("here is length", getInTheBox.length)
+       let start =false;
+       var setBox = "" ;
+       for(let i =0; i< getInTheBox.length; i++)
+       {
+        // console.log("here is your divvssss..",getInTheBox[i].textContent);
+         if(getInTheBox[i].textContent.includes("מפרט טכני")){
+           console.log("not found .........")
+          start=false;
+         }
+
+        if(start == true){
+          console.log("in box elements ........",getInTheBox[i].textContent);
+          setBox += getInTheBox[i].textContent;
+          console.log("here is the data of my.....",setBox);
+        }
+
+        if(getInTheBox[i].textContent == "אביזרים:"){
+
+           console.log("found my data .........")
+          start=true;
+         }
+       }
+      addElementToDocument(`inTheBoxText`,setBox);
+
       let netWeight = getXpath("//div[@class='finePrint']//p/text()[preceding-sibling::br and contains(.,'משקל') and not(contains(.,'קל-משקל'))] | //div[@class='finePrint']//p//following-sibling::ul[@dir='rtl']//li/text()[contains(.,'משקל')] | //div[@class='finePrint']//div//ul//li/text()[contains(.,'משקל')] | //div[@class='finePrint']//div/text()[contains(.,'משקל כולל:')]", 'nodeValue');
       if (netWeight != null && netWeight.includes(':')) {
         netWeight = netWeight.split(':')[1];
@@ -96,6 +141,8 @@ module.exports = {
       addElementToDocument('added_technicalDoc', technicalDoc);
 
       addElementToDocument('added_variantCount', 0);
+
+
     });
     await context.extract(productDetails, { transform: transformParam });
   },

@@ -11,21 +11,21 @@ const transform = (data, context) => {
       } else {
         row.hasComparisonTable = [{ text: 'No' }];
       }
-    
-      if (row.inTheBoxText) {
+
+if (row.inTheBoxText) {
         let indx1;
         let indx2;
         let info=[];
         row.inTheBoxText.forEach(item => {
-            
+
             info.push(item.text)
-            
+
        });
        indx1 = info.indexOf('מפרט טכני:');
        if(indx1>0){
         info.splice(indx1)
        }
-       row.inTheBoxText = [{'text': info.join('||')}] 
+       row.inTheBoxText = [{'text': info.join('||')}]
     }
     }
   }
