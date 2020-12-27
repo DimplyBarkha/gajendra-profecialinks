@@ -37,7 +37,6 @@ const url1 = require('url');
           }
           if (row.availabilityText) {
             row.availabilityText.forEach(item => {
-              console.log('Availa', item.text);
               item.text = ('Add' === item.text ) ? 'In stock' : 'Out of stock';
             });
           }
@@ -78,7 +77,6 @@ const url1 = require('url');
             });
           }
           if (row.ratingCount ) {
-            // console.log('ratingCount=>', row.ratingCount);
             row.ratingCount.forEach(item => {
               item.text = parseInt( item.text.replace(/[^\d-]/g, '') );
             });

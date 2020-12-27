@@ -33,12 +33,13 @@ fields:
       should be "In Stock"
     xpath: //div[@class='pt-button']/button[contains(@class,'pt__add-button')]
   - name: priceCurrency
+    singleValue: true
     defaultValue: GBP
   - name: description
-    singleValue: false
+    singleValue: true
     description: Product description supplied by website - may be concatenanted from
       multiple places; specifically not the manufacturer description
-    xpath: //div[@class="itemTypeGroup"]/div[@class="memo"]
+    xpath: //div[@class="itemTypeGroupContainer productText"]/h3[contains(text(),'Description')]/following-sibling::div[@class='itemTypeGroup']
   - name: product_enhanced_content_available
     singleValue: true
     defaultValue: false
