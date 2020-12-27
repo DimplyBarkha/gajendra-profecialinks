@@ -10,7 +10,12 @@ const { transform } = require('../format');
 async function implementation (inputs, parameters, context, dependencies) {
   const { transform } = parameters;
   const { productDetails } = dependencies;
-
+  try {
+  await context.waitForXPath("//div[@class='slick-track']//article",{ timeout:10000 });
+  }
+  catch(error){
+    console.log('loading');
+  }
   await context.evaluate(async function () {
     function addHiddenDiv (id, content) {
       const newDiv = document.createElement('div');

@@ -114,8 +114,8 @@ fields:
   - name: variantId
     singleValue: false  
     xpath: //div[contains(@class, "f-productPage") and @data-prid]/@data-prid
-
   - name: unInterruptedPDP
+    singleValue: false  
     xpath: //div[contains(@class,"relatedArticles")]//div[@class="slick-track"]//article
   - name: hasComparisonTable
     defaultValue: No
