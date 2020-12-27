@@ -11,13 +11,11 @@ async function implementation (inputs, parameters, context, dependencies) {
   const { transform } = parameters;
   const { productDetails } = dependencies;
   try {
-  await context.waitForXPath("//div[@class='slick-track']//article",{ timeout:10000 });
-  }
-  catch(error){
-    console.log('loading');
-  }
-  await context.evaluate(async function () {
+    await context.waitForXPath("//div[@class='slick-track']//article",{ timeout:10000 });
 
+  } catch(error) {
+
+  }
   const prodUrl = await context.evaluate(async function() {
     return document.URL;
   })
@@ -34,7 +32,7 @@ async function implementation (inputs, parameters, context, dependencies) {
 
   let enhancedContent = null;
   if(enhancedContentUrl) {
-    await context.goto(enhancedContentUrl, { timeout: 10000, waitUntil: 'load', checkBlocked: true });
+    await context.goto(enhancedContentUrl, { timeout: 100000, waitUntil: 'load', checkBlocked: true });
     enhancedContent = await context.evaluate(async function() {
       const flixRows = document.querySelectorAll('div.flix-std-row');
       let content = {};
@@ -81,7 +79,7 @@ async function implementation (inputs, parameters, context, dependencies) {
     })
   }
 
-  await context.goto(prodUrl, { timeout: 30000, waitUntil: 'load', checkBlocked: true });
+  await context.goto(prodUrl, { timeout: 300000, waitUntil: 'load', checkBlocked: true });
 
   await context.evaluate(async function (enhancedContent) {
     function addHiddenDiv (id, content) {
