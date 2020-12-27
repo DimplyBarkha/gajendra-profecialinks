@@ -6,19 +6,19 @@ fields:
   - name: name
     singleValue: false
     xpath: //h1/@title
-  
+
   - name: metaKeywords
     singleValue: false
     xpath: //meta[@name='keywords']/@content
-  
+
   - name: category
     singleValue: false
     xpath: //ul[@class='ul_breadcrumb']//li[position() mod 2 = 1 and position() > 1 and position() < last()]
-  
+
   - name: price
     singleValue: false
     xpath: //span[contains(@class,'lbl_priceProductFinalPrice')]
-  
+
   - name: listPrice
     singleValue: false
     xpath: //span[contains(@class,'lbl_priceProduct crossedPrice')]
@@ -30,13 +30,13 @@ fields:
 
   - name: availabilityText
     singleValue: false
-    xpath: //product-stock-label/span 
+    xpath: //product-stock-label/span
     defaultValue: Out of Stock
 
   - name: description
     singleValue: false
     xpath : //div[contains(@id,'frameDescProductContent')]
-  
+
   - name: specifications
     singleValue: false
     xpath : //tr[contains(.,'Dimension') and not(contains(.,'carton')) and not(contains(.,"l'emballage")) and not(contains(.,"emballé"))]/td | //tr[contains(.,'Poids') and not(contains(.,'Poids du produit emballé')) and not(contains(.,'carton')) and not(contains(.,"l'emballage"))]/td | //div[@class='row']//table[contains(@class,'specificationsTable')]//td
@@ -52,7 +52,7 @@ fields:
   - name: weightGross
     singleValue: false
     xpath: //tr[contains(.,'Poids') and (contains(.,'carton') or contains(., "l'emballage")  or contains(., "emballé"))]/td[2]
-  
+
   - name: warranty
     singleValue: false
     xpath: //div[contains(@id,'frameDescProductContent')]//p[contains(.,'Garantie')]
@@ -68,7 +68,7 @@ fields:
   - name: shippingDimensions
     singleValue: false
     xpath: //tr[contains(.,"Dimension") and contains(.,"l'emballage")]/td[2] | //tr[contains(.,'Dimension') and (contains(.,'carton'))]/td[2] | //tr[contains(.,"Dimension") and contains(.,"emballé")]/td[2]
-  
+
   - name: shippingWeight
     singleValue: false
     xpath: //tr[contains(.,'Poids') and (contains(.,'carton') or contains(., "l'emballage")  or contains(., "emballé"))]/td[2]
@@ -88,11 +88,11 @@ fields:
   - name: mpc
     singleValue: false
     xpath : //script[@data-flix-language='fr']/@data-flix-mpn
-  
+
   - name: sku
     singleValue: false
     xpath : //script[@data-flix-language='fr']/@data-flix-sku
-    
+
 
   # - name: productOtherInformation
   #   singleValue: false
@@ -105,15 +105,15 @@ fields:
   - name: variantCount
     singleValue: false
     defaultValue: 1
- 
+
   - name: imageAlt
     singleValue: false
     xpath: //div[@id='mainImgProduct']/img[@class='img-responsive ng-scope']/@alt
-  
+
   - name: color
     singleValue: false
     xpath : //ul[@class="characteristicsProduct"]/li[contains(.,"- Couleur")]
-  
+
   - name: energyEfficiency
     singleValue: false
     xpath: //div[@class='row']//table[contains(@class,'specificationsTable')]//tr[contains(.,"d'efficacité énergétique")]/td[2]
@@ -123,4 +123,4 @@ fields:
     xpath: //div[@class="procie-container-widget"]//h2[@class="ng-binding"]
   - name: inTheBoxText
     singleValue: false
-    xpath: //h3[text()="Caractéristiques techniques"]/parent::*/parent::*/following::table//tr
+    xpath: //h3[contains(text(),"ACCESSOIRES INCLUS")]//following-sibling::h4/text()|//strong[contains(text(),"ACCESSOIRES INCLUS")]/ancestor::h3//following-sibling::h4
