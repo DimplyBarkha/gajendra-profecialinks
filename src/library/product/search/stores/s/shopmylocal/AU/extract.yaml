@@ -1,27 +1,34 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: //div[@class="AdvertResults"]//div[@class="AdvertTilesContainer-inner"]/div[contains(@class,"AdvertTile")]
+recordXPath: null
+# //div[@class="AdvertResults"]//div[@class="AdvertTilesContainer-inner"]/div[contains(@class,"AdvertTile")]
 fields:
   - name: productUrl
-    xpath: //a[contains(@class,"AdvertTile-imageBoxContainer")]/@href
-    regExp: (.+)
-    regExpReplace: https://www.shopmylocal.com.au$1
+    # xpath: //a[contains(@class,"AdvertTile-imageBoxContainer")]/@href
+    xpath: //div[contains(@id,"prod-")]/@produrl
+    # regExp: (.+)
+    # regExpReplace: https://www.shopmylocal.com.au$1
   - name: thumbnail
-    xpath: //a[contains(@class,"AdvertTile-imageBoxContainer")]/div[contains(@class,"AdvertTile-imageBox")]/@style
+  # xpath: //a[contains(@class,"AdvertTile-imageBoxContainer")]/div[contains(@class,"AdvertTile-imageBox")]/@style
+    xpath: //div[contains(@id,"prod-")]/@prodImage
     regExp: url\((.+)\)
     regExpReplace: $1
   - name: name
-    xpath: //div[@class="AdvertTile-priceTitleLogo"]//a[@class="AdvertTile-title"]
-  - name: price
-    xpath: //div[@class="AdvertTile-priceTitleLogo"]/div[@class="AdvertTile-price"]/span[1]
+    xpath: //div[contains(@id,"prod-")]/@prodName
+    # xpath: //div[@class="AdvertTile-priceTitleLogo"]//a[@class="AdvertTile-title"]
+  - name: price 
+    xpath: //div[contains(@id,"prod-")]/@price
+    # xpath: //div[@class="AdvertTile-priceTitleLogo"]/div[@class="AdvertTile-price"]/span[1]
     regExp: (\d+.\d+|\d+)
     regExpReplace: $1
   - name: soldBy
-    xpath: //div[@class="AdvertTile-content"]/div[@class="AdvertTile-seller"]/a
-  - name: rank
-  - name: rankOrganic
+    xpath: //div[contains(@id,"prod-")]/@prodBrand
+  #   xpath: //div[@class="AdvertTile-content"]/div[@class="AdvertTile-seller"]/a
+  # - name: rank
+  # - name: rankOrganic
   - name: id
-    xpath: //div[@data-react-class="LegacyAddToWishlistButton"]/@data-react-props
-    regExp: (\d+)
+    xpath: //div[contains(@id,"prod-")]/@produrl
+    # xpath: //div[@data-react-class="LegacyAddToWishlistButton"]/@data-react-props
+    regExp: \/(\d+)
     regExpReplace: $1
