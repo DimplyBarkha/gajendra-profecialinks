@@ -121,7 +121,8 @@ fields:
     xpath: //div[@id="product-info"]
   - name: manufacturerImages
     singleValue: false
-    xpath: //div[@id="richmedia-container"]//div[@id="inpage_container"]//img/@data-flixsrcset | /html[not(//div[@id="richmedia-container"]//div[@id="inpage_container"]//img/@data-flixsrcset)]//div[@id="richmedia-container"]//div[@id="inpage_container"]//img/@src
+    xpath: (//div[@id="inpage_container"]/div//img/@data-flixsrcset | //div[@id="inpage_container"]/div//img[not(@data-flixsrcset)]/@src[not(contains(.,"loading."))])[not(contains(.,".png"))][contains(.,"flixcar")]
+    # xpath: //div[@id="richmedia-container"]//div[@id="inpage_container"]//img/@data-flixsrcset | /html[not(//div[@id="richmedia-container"]//div[@id="inpage_container"]//img/@data-flixsrcset)]//div[@id="richmedia-container"]//div[@id="inpage_container"]//img/@src
     # xpath: //*[@id="richmedia-container"]//img/@srcset | //*[@id="richmedia-container"]//img[not(srcset)]/@src[not(contains(.,"loading"))]
     regExp: ^[^?]+
     # regExpReplace: https:$2

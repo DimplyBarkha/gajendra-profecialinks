@@ -29,6 +29,23 @@ const transform = (data) => {
           },
         ];
       }
+      if (row.manufacturerImages) {
+        let text = '';
+        row.manufacturerImages.forEach(item => {
+          let val = item.text.match('http');
+          if (!val) {
+            val = item.text.match('200w');
+            if (val) {
+              text = item.text.replace(/^(.+)\s200w/g, 'https:$1');
+            } else {
+              text = item.text.replace(/(.+)/g, 'https:$1');
+            }
+            const arr = text.split(',');
+            text = arr[0];
+            item.text = text;
+          }
+        });
+      }
 
       if (row.inTheBoxUrl && row.inTheBoxUrl[0]) {
         const images = Array.from(new Set(row.inTheBoxUrl.map(elm => elm.text.trim())));
