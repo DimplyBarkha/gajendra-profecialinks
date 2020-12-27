@@ -1,6 +1,6 @@
 
 module.exports = {
-  implements: 'navigation/goto',
+  extends: 'navigation/goto/domains/am/amazon',
   parameterValues: {
     domain: 'freshamazon.de',
     timeout: 60000,
