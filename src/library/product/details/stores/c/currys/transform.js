@@ -21,30 +21,13 @@ const transform = (data) => {
       if (row.aggregateRating) {
         let text = '';
         row.aggregateRating.forEach(item => {
-          text = (Number(item.text)/10*5).toFixed(1);
+          text = Math.round(Number(item.text) * 10 / 2) / 10;
         });
         row.aggregateRating = [
           {
             text: text,
           },
         ];
-      }
-      if (row.manufacturerImages) {
-        let text = '';
-        row.manufacturerImages.forEach(item => {
-          let val = item.text.match('http');
-          if (!val) {
-            val = item.text.match('200w');
-            if (val) {
-              text = item.text.replace(/^(.+)\s200w/g, 'https:$1');
-            } else {
-              text = item.text.replace(/(.+)/g, 'https:$1');
-            }
-            const arr = text.split(',');
-            text = arr[0];
-            item.text = text;
-          }
-        });
       }
 
       if (row.inTheBoxUrl && row.inTheBoxUrl[0]) {
@@ -53,7 +36,7 @@ const transform = (data) => {
       }
 
       if (row.inTheBoxText && row.inTheBoxText[0]) {
-        row.inTheBoxText.forEach(item => { item = item.text.replace("-","")});       
+        row.inTheBoxText.forEach(item => { item = item.text.replace('-', ''); });
       }
       if (row.coupon) {
         let text = '';

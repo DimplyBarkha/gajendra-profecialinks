@@ -122,8 +122,9 @@ fields:
   - name: manufacturerImages
     singleValue: false
     xpath: //div[@id="richmedia-container"]//div[@id="inpage_container"]//img/@data-flixsrcset | /html[not(//div[@id="richmedia-container"]//div[@id="inpage_container"]//img/@data-flixsrcset)]//div[@id="richmedia-container"]//div[@id="inpage_container"]//img/@src
+    # xpath: //*[@id="richmedia-container"]//img/@srcset | //*[@id="richmedia-container"]//img[not(srcset)]/@src[not(contains(.,"loading"))]
     regExp: ^[^?]+
-    # regExpReplace: https:$1
+    # regExpReplace: https:$2
     description: Images within the third party description
   - name: videos
     singleValue: false
