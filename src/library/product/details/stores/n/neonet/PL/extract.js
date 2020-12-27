@@ -16,6 +16,8 @@ async function implementation (
     }, cssSelector);
   };
 
+
+
   for (let cnt = 0; cnt < 30; cnt++) {
     try {
       await context.waitForSelector(cssBtn, { timeout: 2000 });
@@ -43,11 +45,11 @@ async function implementation (
       let videoThumbnail = document.querySelectorAll('button[class*="commonCss-thumb-Dw9"] button[class*="playIcon"]');
       if(videoThumbnail.length > 0) {
         videoThumbnail[0].parentElement.parentElement.parentElement.click();
-        await timeout(3000);
+        await timeout(50000);
       } else {
         console.log('we do not have any thumbnail for video');
       }
-     
+
       const videoSelector = document.evaluate('//iframe[@title="movie"]', document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
       let videoSrc = '';
       if(videoSelector && videoSelector.hasAttribute('src')) {
@@ -111,13 +113,13 @@ async function implementation (
       if(b.snapshotLength > 0 && b.snapshotItem(0).textContent) {
         videoPlayable = !(b.snapshotItem(0).textContent.trim().includes("Video unavailable"));
       }
-  
+
       console.log('is video playable - ' + videoPlayable);
       return videoPlayable;
     });
   }
-  
-  
+
+
 
   let videoLink = await checkVideo(productUrl);
   // console.log('videoLink ....', videoLink);
@@ -167,15 +169,39 @@ async function implementation (
     } catch (err) {
     }
     return await context.evaluate(async function () {
+      const hasComparisonTable = document.querySelector('div.table-responsve');
+      if(hasComparisonTable){
+        return true;
+      }
+      else{
+        return false;
+
+      }
+      const inBoxTextArray = [];
+      const inBoxImageText = document.querySelectorAll('div.description-row > div.description-col-md-3');
+      for (let i = 0; i < inBoxImageText.length; i++) {
+        const imgText = inBoxImageText[i].innerText;
+        imgText && inBoxTextArray.push(imgText);
+      }
+      console.log("inBoxTextArray >>>>>>", JSON.stringify(inBoxTextArray));
+
       const manufacturerDescription = document.body.innerText;
       const manufacturerImagesList = document.querySelectorAll('img');
       const manufacturerImageArray = [];
+      const inBoxImageArray = [];
+      const inBoxImagesList =  document.querySelectorAll('div.description-row > div.description-col-md-3 img')
+
+      for (let i = 0; i < inBoxImagesList.length; i++) {
+        const imgUrl1 = inBoxImagesList[i].getAttribute('src');
+        imgUrl1 && inBoxImageArray.push(imgUrl1);
+      }
+      console.log("inBoxImageArray >>>>>>", JSON.stringify(inBoxImageArray));
 
       for (let i = 1; i < manufacturerImagesList.length; i++) {
         const imgUrl = manufacturerImagesList[i].getAttribute('src');
         imgUrl && manufacturerImageArray.push(imgUrl);
       }
-      return { manufacturerImageArray, manufacturerDescription };
+      return { manufacturerImageArray, manufacturerDescription, inBoxImageArray , inBoxTextArray };
     });
   }
   // Function to add manufacturer content and description to DOM
@@ -188,6 +214,7 @@ async function implementation (
         newDiv.style.display = 'none';
         document.body.appendChild(newDiv);
       }
+      // addHiddenDiv('hasComparisonTable11', manContentObj.hasComparisonTable1 );
       if (manufacturerContentLink) {
         const imageUrlSfx = manufacturerContentLink.replace('index.html', '');
         // Adding manufacturer images to DOM
@@ -195,6 +222,15 @@ async function implementation (
           addHiddenDiv('added-manufacturer-images-' + i, imageUrlSfx + manContentObj.manufacturerImageArray[i]);
         }
         addHiddenDiv('added-manufacturer-description', manContentObj.manufacturerDescription);
+
+        for (let i = 0; i < manContentObj.inBoxImageArray.length; i++) {
+          addHiddenDiv('added-inBox-images-' + i, imageUrlSfx + manContentObj.inBoxImageArray[i]);
+        }
+
+        for (let i = 0; i < manContentObj.inBoxTextArray.length; i++) {
+          addHiddenDiv('added-inBox-Text-',manContentObj.inBoxTextArray[i]);
+        }
+
       }
       if (videoLink) {
         addHiddenDiv('added-video', videoLink);
