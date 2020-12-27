@@ -5,7 +5,7 @@ module.exports = {
     country: 'UA',
     store: 'metro',
     domain: 'metro.ua',
-    loadedSelector: null,
+    loadedSelector: 'div.main',
     noResultsXPath: null,
     zipcode: '',
   },
