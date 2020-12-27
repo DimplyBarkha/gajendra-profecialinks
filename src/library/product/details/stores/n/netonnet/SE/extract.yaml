@@ -141,7 +141,7 @@ fields:
     description: Must include image url to show the accessories/tools which come with the product
   - name: inTheBoxText
     singleValue: false
-    xpath: //div[contains(@class,"productSpec")]//div[contains(@class,"cPromotionItem")]//div[@class="name"]/a | //div[contains(@class,"productSpec")]//div/h2[contains(text(), "Produktbeskrivning")]/../following-sibling::div//h2
+    xpath: //div[contains(@class,"productSpec")]//div[contains(@class,"cPromotionItem")]//div[@class="name"]/a | //h2[contains(text(),'I förpackningen')]/ancestor::div/following-sibling::div/div/ul[@class='bulletList']/li |//tr//td[contains(.,'Medföljande verktyg')]/ancestor::tr//td[@class="plValue"]/text()|//tr//td[contains(.,'Medföljande tillbehör')]/ancestor::tr//td[@class="plValue"]/text()
   - name: hasComparisonTable
     singleValue: false
     xpath: boolean(//div[@class="matrix-heading"])
