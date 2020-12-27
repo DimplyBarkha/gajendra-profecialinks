@@ -82,7 +82,7 @@ module.exports = {
         const aggregateRating = reviewsString.match(/(.+)\|(\d+)/) ? reviewsString.match(/(.+)\|(\d+)/)[1] : '';
 
         addElementToDocument('product_url', window.location.href);
-        addElementToDocument('availability', productObj.isInStock ? 'In stock' : 'Out of stock');
+        addElementToDocument('availability', productObj.isInStock ? 'In Stock' : 'Out of stock');
         addElementToDocument('sku', productObj.sku);
         addElementToDocument('rating_count', ratingCount);
         addElementToDocument('aggregate_rating', aggregateRating.replace('.', ','));
