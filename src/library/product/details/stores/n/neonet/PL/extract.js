@@ -169,14 +169,7 @@ async function implementation (
     } catch (err) {
     }
     return await context.evaluate(async function () {
-      const hasComparisonTable = document.querySelector('div.table-responsve');
-      if(hasComparisonTable){
-        return true;
-      }
-      else{
-        return false;
 
-      }
       const inBoxTextArray = [];
       const inBoxImageText = document.querySelectorAll('div.description-row > div.description-col-md-3');
       for (let i = 0; i < inBoxImageText.length; i++) {
