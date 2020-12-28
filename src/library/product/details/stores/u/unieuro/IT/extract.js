@@ -109,10 +109,16 @@ module.exports = {
             final = final.slice(0,-3);
             addElementToDocument('desc', final);
       }
-      // @ts-ignore
+      try {
+        
+        // @ts-ignore
       var man = document.querySelector('div[id="inpage_container"]').innerText
       addElementToDocument('manu', man);
 
+      } catch (error) {
+        
+      }
+      
 
     });
     await context.extract(productDetails);
