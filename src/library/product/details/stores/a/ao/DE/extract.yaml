@@ -451,7 +451,7 @@ fields:
 - name: variantInformation
   singleValue: true
   description: colour / scent / flavour / other
-  xpath: //h3[contains(@class,'colour-options-title')]
+  xpath: //h3[contains(@class,'colour-options-title')]/following-sibling::ul//li[@data-current="True"]
 - name: firstVariant
   singleValue: true
   description: Unique identifier for a collection of variants. For a subset of core
