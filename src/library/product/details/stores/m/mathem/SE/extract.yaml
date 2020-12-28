@@ -62,6 +62,8 @@ fields:
   - name: gtin
     singleValue: true
     description: GTIN code (includes UPC/EAN)
+    xpath: //div[@class="title pull-left half-width"]//mh-product-quantity/mh-quantity/div[@class="add-to-cart"]//button[@class="decrease"]/@aria-controls
+    regExp: \d+
   - name: sku
     singleValue: true
     description: The store-specific product identifier
