@@ -21,6 +21,12 @@ async function implementation(
     const aggregateRating = document.querySelectorAll("div[class='full-width'] i[class='fa fa-star']").length
       addHiddenDiv('aggregateRating',aggregateRating ,0);
     // }
+    // const rawdata = document.querySelectorAll('script[type="application/ld+json"]')[0].innerText;
+    // const jsondata = JSON.parse(rawdata);
+    // const url = jsondata.offers.availability;
+
+
+      // addHiddenDiv('url',url);
   });
   //rank end
   return await context.extract(productDetails, { transform });
