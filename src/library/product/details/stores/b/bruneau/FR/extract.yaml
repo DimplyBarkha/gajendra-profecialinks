@@ -122,11 +122,11 @@ fields:
 - name: aggregateRatingText 
   singleValue: true
   description: The stated aggregate rating
-  xpath: //div[@class='rating']/span/@title
+  xpath: //div[@class='rating']/span/@title | //div[@class='rating-container']/span/@title
 - name: aggregateRating 
   singleValue: true
   description: The stated aggregate rating normalized to be out of 5
-  xpath: //div[@class='rating']/span/@title
+  xpath: //div[@class='rating']/span/@title | //div[@class='rating-container']/span/@title
 - name: shippingInfo
   singleValue: true
   description: Shipping information for the product
@@ -430,7 +430,7 @@ fields:
   description: The unit of measurement used in price_per_unit
 - name: promotion
   singleValue: true
-  xpath: //span[@class='pack-offer-text']/font/font
+  xpath: //span[@class='pack-offer-text']/font/font/text() | //span[@class='pack-offer-text']/text()
   description: promotion text on product page
 - name: alcoholContent
   singleValue: true
