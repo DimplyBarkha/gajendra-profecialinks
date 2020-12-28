@@ -1,11 +1,11 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: null
+recordXPath: //div[@data-test="component-grid-container"]//section[@data-test="product-card"]
 fields:
   - name: id
     singleValue: false
-    xpath: //div[@data-test="component-grid-column"]/section/@data-product-id
+    xpath: //@product-code
     # regExp: (\d+)
   - name: rankOrganic
     singleValue: true

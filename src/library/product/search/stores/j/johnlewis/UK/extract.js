@@ -25,6 +25,23 @@ const implementation = async function (
     });
   };
   await applyScroll(context);
+  async function addProductCode () {
+    async function getProductCodeFromUrl (url) {
+      const response = await fetch(url);
+      const html = await response.text();
+      const code = html.match(/(data-product-code=|"code":)"([^"]+)/)[2];
+      return code;
+    }
+    const nodes = Array.from(document.querySelectorAll('a[class^="product-card_c-product-card__link"]'));
+    const urls = nodes.map(elm => elm.href);
+    const promises = urls.map(url => getProductCodeFromUrl(url));
+    const productCodes = await Promise.all(promises);
+    await Promise.all(promises);
+    for (let index = 0; index < nodes.length; index++) {
+      nodes[index].setAttribute('product-code', productCodes[index]);
+    }
+  }
+  await context.evaluate(addProductCode);
   return await context.extract(productDetails, { transform });
 };
 module.exports = {
