@@ -23,18 +23,7 @@ const transform = (data) => {
   }))));
 
   for (const { group } of data) {
-    for (const row of group) {
-      if (row.description) {
-        let desc = '';
-        row.description.forEach(item => {
-          desc += `${item.text} `;
-        });
-        row.description = [
-          {
-            text: desc.replace(/\s\n/g, ' || ').replace(/\n/g, ' ').replace(/([\|\s]{5,}\s*)/g, ' || ').slice(0, -4).trim(),
-          },
-        ];
-      }
+    for (const row of group) {      
       if (row.image) {
         const img = [];
         row.image.forEach(item => {
@@ -90,7 +79,7 @@ const transform = (data) => {
         });
         row.description1 = [
           {
-            text: text.slice(0, -1),
+            text: text.slice(0, -2),
           },
         ];
         descTxt = `${descTxt} ${text.slice(0, -3)}`;
@@ -154,7 +143,7 @@ const transform = (data) => {
       if (row.brandText) {
         let text = '';
         row.brandText.forEach(item => {
-          text += `${item.text.replace('bz', '')}  `;
+          text += `${item.text.replace('bz', '')} `;
         });
         row.brandText = [
           {
@@ -187,6 +176,22 @@ const transform = (data) => {
         console.log('quantity3',row.quantity3);
         row.quantity = row.quantity3;
         console.log("quantity", row.quantity);
+      }
+      if ((!row.quantity || !row.quantity.length) && row.quantity5) {
+        console.log('quantity5',row.quantity5);
+        row.quantity = row.quantity5;
+        console.log("quantity", row.quantity);
+      }
+      if ((!row.quantity || !row.quantity.length) && row.quantity4) {
+        console.log('quantity4',row.quantity4);
+        row.quantity = row.quantity4;
+        console.log("quantity", row.quantity);
+      }
+      if (row.quantity && row.quantity[0]) {
+        row.quantity[0].text = row.quantity[0].text.replace(/\s/g, '');
+      }
+      if (row.quantity && row.quantity[0]) {
+        row.quantity[0].text = row.quantity[0].text.replace('stick', 'stick(s)');
       }
       if (row.saltPerServing) {
         let text = '';

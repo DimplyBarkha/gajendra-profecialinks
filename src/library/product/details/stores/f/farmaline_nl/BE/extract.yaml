@@ -21,7 +21,10 @@ fields:
     # xpath: //ul[@class="breadcrumb"]//li/a/span/font/font//text()
   - name: nameExtended
     singleValue: false
-    xpath: //h1/font//text() | //h1/text()     
+    xpath: //h1[contains(@class,"text-md-primary")]
+  # - name: nameExtended
+  #   singleValue: false
+  #   xpath: //h1/font//text() | //h1/text()     
   - name: listPrice
     singleValue: false
     xpath: //div[@class="pricing"]/s
@@ -37,7 +40,8 @@ fields:
     defaultValue: In Stock
   - name: description
     singleValue: false
-    xpath: (//h2[contains(text(),"Omschrijving")]//../following-sibling::div)[1]/div/text() | //h2[contains(text(),"Omschrijving")]//../following-sibling::div[1]/text() |//h2[contains(text(),"Omschrijving")]//../following-sibling::div[1]/p/text() | (//div[@class="content mb-3"])[1]//strong/text()
+    xpath: (//div[@class="content mb-3"])[1]//text()
+    # xpath: (//h2[contains(text(),"Omschrijving")]//../following-sibling::div)[1]/div/text() | //h2[contains(text(),"Omschrijving")]//../following-sibling::div[1]/text() | //h2[contains(text(),"Omschrijving")]//../following-sibling::div[1]/p/text() | (//div[@class="content mb-3"])[1]//strong/text()
     # xpath: (//div[@class="content mb-3"])[1]//text()
     # xpath: //div[@class="content"]
   - name: description1
@@ -59,24 +63,36 @@ fields:
     xpath: //script[contains(.,"brand")]/text()
     regExp: manufacturer\W+([^"]+)
     regExpReplace: $1
+  - name: quantity4
+    singleValue: false
+    xpath: //h1/font//text() | //h1/text() 
+    regExp: (([0-9]+)\W+([a-zA-Z]+)|stick(s))
+  - name: quantity5
+    singleValue: false
+    xpath: //h1/font//text() | //h1/text() 
+    regExp: (([0-9]+)([a-zA-Z]+))
   - name: quantity3
     singleValue: false
-    xpath: //h1/font//text() | //h1/text()  
-    regExp: (\d{1,}\W)(g|G|L|Kg|Mg|Ml|ml|Oz|stucks|l|EA|GR|stuks|tabletten|kauwtabletten|condoms|zuigtabletten|pathch|stucks|pen|par|capsules|zakjes|zetpillen|pièces|crÃ¨me|ml roller|ampoules| ml spray|stick(s)|dragees|zak|zakjes|mg|ampoules|paar|patch| ml tube| préservatifs|pansements|set|sachet|pleisters)
+    xpath: //h1/font//text() | //h1/text() 
+    # regExp: (([0-9]+)\W+([a-zA-Z]+)) 
+    regExp: (\d{1,}\W)(g|G|L|Kg|Mg|Ml|ml|Oz|stick(s)|stucks|l|EA|GR|stuks|tabletten|kauwtabletten|condoms|zuigtabletten|pathch|stuck|pen|par|capsules|zakjes|zetpillen|pièces|crÃ¨me|ml roller|ampoules| ml spray|stick(s)|dragees|zak|zakjes|mg|ampoules|paar|patch| ml tube| préservatifs|pansements|set|sachet|pleisters)
     # regExpReplace:
   - name: quantity2
     singleValue: false
     xpath: //h1/font//text() | //h1/text() 
-    regExp: ([0-9]+x\d+)\W+(g|G|L|Kg|Mg|Ml|ml|Oz|stucks|l|EA|GR|stuks|tabletten|kauwtabletten|condoms|zuigtabletten|pathch|stucks|pen|par|capsules|zakjes|zetpillen|pièces|crÃ¨me|ml roller|ampoules| ml spray|stick(s)|dragees|zak|zakjes|mg|ampoules|paar|patch| ml tube| préservatifs|pansements|set|sachet|pleisters)
+    # regExp: (([0-9]+)([a-zA-Z]+))
+    regExp: ([0-9]+x\d+)\W+(g|G|L|Kg|Mg|Ml|stick(s)|ml|Oz|stucks|l|EA|GR|stuks|tabletten|kauwtabletten|condoms|zuigtabletten|pathch|stuck|pen|par|capsules|zakjes|zetpillen|pièces|crÃ¨me|ml roller|ampoules| ml spray|stick(s)|dragees|zak|zakjes|mg|ampoules|paar|patch| ml tube| préservatifs|pansements|set|sachet|pleisters)
   - name: quantity
     singleValue: false
     xpath: //h1/font//text() | //h1/text() 
+    # regExp: (([0-9]+)([a-zA-Z]+))$
     # regExp: \d+(.+)
-    regExp: ([0-9]+x\d+)\W+\d+\W+(g|G|L|Kg|Mg|Ml|ml|Oz|stucks|l|EA|GR|stuks|tabletten|kauwtabletten|condoms|zuigtabletten|pathch|stucks|pen|par|capsules|zakjes|zetpillen|pièces|crÃ¨me|ml roller|ampoules| ml spray|stick(s)|dragees|zak|zakjes|mg|ampoules|paar|patch| ml tube| préservatifs|pansements|set|sachet|pleisters)
-  - name: quantity1
-    singleValue: false
-    xpath: //h1/font//text() | //h1/text() 
-    regExp: ([0-9]+\W\d+)\W+(g|G|L|Kg|Mg|Ml|ml|Oz|stucks|l|EA|GR|stuks|tabletten|kauwtabletten|condoms|zuigtabletten|pathch|stucks|pen|par|capsules|zakjes|zetpillen|pièces|crÃ¨me|ml roller|ampoules| ml spray|stick(s)|dragees|zak|zakjes|mg|ampoules|paar|patch| ml tube| préservatifs|pansements|set|sachet|pleisters)
+    regExp: ([0-9]+x\d+)\W+\d+\W+(g|G|L|Kg|Mg|Ml|ml|stick(s)|Oz|stucks|l|EA|GR|stuks|tabletten|kauwtabletten|condoms|zuigtabletten|pathch|stuck|pen|par|capsules|zakjes|zetpillen|pièces|crÃ¨me|ml roller|ampoules| ml spray|stick(s)|dragees|zak|zakjes|mg|ampoules|paar|patch| ml tube| préservatifs|pansements|set|sachet|pleisters)
+  # - name: quantity1
+  #   singleValue: false
+  #   xpath: //h1/font//text() | //h1/text() 
+  #   # regExp: (([0-9]+)\W+([a-zA-Z]+))$
+  #   regExp: ([0-9]+\W\d+)\W+(g|G|L|Kg|Mg|mg|Ml|ml|Oz|stucks|l|EA|GR|stuks|tabletten|kauwtabletten|condoms|zuigtabletten|pathch|stuck|pen|par|capsules|zakjes|zetpillen|pièces|crÃ¨me|ml roller|ampoules| ml spray|stick(s)|dragees|zak|zakjes|mg|ampoules|paar|patch| ml tube| préservatifs|pansements|set|sachet|pleisters)
   - name: weightNet
     singleValue: false
     description: Net weight as described on the page
@@ -91,9 +107,11 @@ fields:
     description: The store-specific product identifier
   - name: variantId
     singleValue: false
-    xpath: //label[@class="sr-only"]/@for
-    regExp: quantity\W(.+)
+    xpath: //script[contains(.,"brand")]/text()
+    regExp: productId\W+([^,]+)
     regExpReplace: $1
+    # regExp: quantity\W(.+)
+    # regExpReplace: $1
   - name: mpc
     singleValue: false
     description: The manufacturer model code (unique) of the product
@@ -159,7 +177,7 @@ fields:
     description: URLs of videos on page
   - name: name
     singleValue: false
-    xpath: //h1/font//text() | //h1/text() 
+    xpath: //h1[contains(@class,"text-md-primary")]
   - name: inStorePrice
     singleValue: false
     description: Price in the selected store
@@ -261,7 +279,7 @@ fields:
     description: null
   - name: ingredientsList
     singleValue: false 
-    xpath: //h2[contains(.,"Ingrédients")]/following::div[1]/div/text() | //h2[contains(.,"Ingrediënten")]/following::div[1]/div/text()
+    xpath: //h2[contains(.,"Ingrédients")]/following::div[1]/div/text() | //h2[contains(.,"Ingrediënten")]/following::div[1]/div/text() | //h2[contains(.,"Ingrediënten")]/following::div[1]
   - name: servingSize
     singleValue: false
     xpath: //strong[contains(.,"nutritionnelle")]/text()
@@ -456,7 +474,9 @@ fields:
     description: The unit of measurement used in price_per_unit
   - name: promotion
     singleValue: false
-    xpath: //strong[@class="text-lowercase font-size-sm badge badge-light"]
+    xpath: normalize-space(concat(//span[contains(.," Promotie")]/../text()[2], " ",//strong[@class="text-lowercase font-size-sm badge badge-light"]))
+    # regExp: \W(.+)
+    # regExpReplace: $1
   - name: alcoholContent
     singleValue: false
     description: Alcohol content information
