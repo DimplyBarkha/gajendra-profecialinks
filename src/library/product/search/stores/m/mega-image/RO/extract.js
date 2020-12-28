@@ -14,6 +14,13 @@ module.exports = {
     const { productDetails } = dependencies;
     // Extractor fails to correctly extract data using pagination so we get data by api call
     await context.evaluate(async function () {
+      function addElementToDocument (key, value) {
+        const catElement = document.createElement('div');
+        catElement.id = key;
+        catElement.textContent = value;
+        catElement.style.display = 'none';
+        document.body.appendChild(catElement);
+      }
       function addHiddenDivs (products) {
         const newDiv = document.createElement('div');
         newDiv.className = 'extra-info';
@@ -37,6 +44,7 @@ module.exports = {
       }
       const fetchProducts = async function () {
         const refURL = window.location.href;
+        addElementToDocument('searchUrl', refURL);
         const page = 0;
         const searchQuery = decodeURIComponent(refURL.match(/q=(.*):/)[1]);
         const response = await fetch('https://api.mega-image.ro/', {
