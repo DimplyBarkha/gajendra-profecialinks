@@ -1,7 +1,7 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: //li[contains(@class, "grid-tile")] | //li[@class="col-xs-6 col-sm-4 col-md-3 grid-product"]
+recordXPath: //li[contains(@class, "grid-tile")] | //div[@class="grid-product-wrap"]
 fields:
   - name: id
     singleValue: false
@@ -45,12 +45,12 @@ fields:
     singleValue: false
   - name: rank
     singleValue: true
-    xpath: //div[@class="product-tile"]/@rank | //li[@class="col-xs-6 col-sm-4 col-md-3 grid-product"]/@rank
+    xpath: //li[contains(@class, "grid-tile")]/@rank | //div[@class="grid-product-wrap"]/@rank
     description: search/listing rank
     type: NUMBER
   - name: rankOrganic
     singleValue: true
-    xpath: //div[@class="product-tile"]/@rank | //li[@class="col-xs-6 col-sm-4 col-md-3 grid-product"]/@rank
+    xpath: //li[contains(@class, "grid-tile")]/@rank | //div[@class="grid-product-wrap"]/@rank
     description: The position (rank) within the list excluding sponsored/paid results
     type: NUMBER
   - name: sponsored
