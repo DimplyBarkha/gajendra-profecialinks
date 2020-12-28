@@ -3,9 +3,9 @@ module.exports = {
   implements: 'product/details/extract',
   parameterValues: {
     country: 'US',
-    store: '1800petmeds',
+    store: 'finishline',
     transform: transform,
-    domain: '1800petmeds.com',
+    domain: 'finishline.com',
     zipcode: '',
   },
 

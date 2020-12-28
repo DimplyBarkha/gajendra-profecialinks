@@ -9,6 +9,4 @@ fields:
   - name: variantUrl
     singleValue: false
     description: variant Url
-    xpath: //div[@class="product-detail-container"]//div[@class="colorway"]//@data-productid
-    regExp: ([^_]*)_(\d+)
-    regExpReplace: https://www.finishline.com/store/product/men%27s%20adidas%20nmd%20r1%20casual%20shoes/prod2763986?styleId=$1&colorId=$2
+    xpath: //div[contains(@class,"selectable-card")]//input/@value
