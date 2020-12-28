@@ -20,7 +20,8 @@ fields:
     xpath: //html//div[@id="abc"]
   - name: id
     singleValue: false
-    xpath: //div[@class="price-box"]/span[@class="regular-price"]/@id | //div[@class="price-box"]/p[@class="special-price"]/span[@class="price"]/@id
+    xpath: //html//div[@id="id"] 
+      # //div[@class="price-box"]/span[@class="regular-price"]/@id | //div[@class="price-box"]/p[@class="special-price"]/span[@class="price"]/@id
     regExp: \d+
   - name: reviewCount
     singleValue: true

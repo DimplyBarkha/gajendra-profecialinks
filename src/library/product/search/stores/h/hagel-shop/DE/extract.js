@@ -71,6 +71,20 @@ async function implementation(
       }
     }
 
+    var id = getAllXpath('//ul[@class="products-grid thumbnails"]/li//div[@class="visible"]/a/img/@src', 'nodeValue');
+    if( id != null){
+      for (var i = 0; i < id.length; i++) {
+        if(id[i].includes("/")){
+          var data = id[i].split("/");
+          var sup = data[data.length - 1];
+          if(sup.includes(".")){
+            sup = sup.split(".")[0]
+            addHiddenDiv('id', sup, i);
+          }
+        }
+      }
+    }
+
   });
   return await context.extract(productDetails, { transform });
 };
