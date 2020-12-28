@@ -96,14 +96,13 @@ catch(error){
   return await context.extract(productDetails, { transform });
 }
 
-const { transform } = require('../../../../shared');
-
+const {  cleanUp } = require('../../../../shared');
 module.exports = {
   implements: 'product/details/extract',
   parameterValues: {
     country: 'FR',
     store: 'marionnaud',
-    transform: transform,
+    transform: cleanUp,
     domain: 'marionnaud.fr',
   },
   inputs: [ 
