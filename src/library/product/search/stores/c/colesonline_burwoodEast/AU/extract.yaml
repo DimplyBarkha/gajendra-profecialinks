@@ -5,3 +5,5 @@ fields:
     description: Unique id (within this extractor)
     regExp: (.*?)P$
     regExpReplace: $1
+  - name: name
+    xpath: //h3[contains(@class, "product-title")]
