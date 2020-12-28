@@ -141,7 +141,7 @@ fields:
     xpath: //div[contains(.,'Customer Also Viewed')]/following-sibling::div//div[contains(@class,'swiper-wrapper')]/div[contains(@class,'swiper-slide')]//div[@class="productImage"]//img//@alt
   - name: inTheBoxText
     singleValue: false
-    xpath: //tbody/tr/td[contains(.,'Set Includes')]/following-sibling::td
+    xpath: //tbody/tr/td[contains(.,'Set Includes')]/following-sibling::td | //strong[contains(text(),'Includes')]/ancestor::p/following-sibling::p[1]/text()
   - name: hasComparisonTable
     singleValue: true
     defaultValue: No

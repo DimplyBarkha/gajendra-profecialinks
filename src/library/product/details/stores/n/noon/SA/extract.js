@@ -30,6 +30,21 @@ module.exports = {
     }catch(err){
       console.log('No video present')
     }
+    try {
+      await context.waitForXpath('//div[contains(.,"Customer Also Viewed")]/following-sibling::div//div[contains(@class,"swiper-wrapper")]/div[contains(@class,"swiper-slide")]//div[@class="productImage"]//img//@alt', { timeout: 10000 });
+    } catch (e) {
+      console.log('related products not found');
+    }
+    try {
+      await context.waitForXpath('//strong[contains(text(),"Includes")]/ancestor::p/following-sibling::p[1]/text()', { timeout: 10000 });
+    } catch (e) {
+      console.log('loading');
+    }
+    try {
+      await context.waitForXpath(' //tbody/tr/td[contains(.,"Set Includes")]/following-sibling::td', { timeout: 10000 });
+    } catch (e) {
+      console.log('loading');
+    }
     await context.evaluate(function (xp) {
       const r = document.evaluate(xp, document, null, XPathResult.UNORDERED_NODE_ITERATOR_TYPE, null);
       console.log(xp, r);
