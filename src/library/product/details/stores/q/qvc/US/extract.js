@@ -16,31 +16,28 @@ module.exports = {
     });
     // add video information
     await context.evaluate(async function () {
-      const addElementToDOM = (link, length) => {
+      const addElementToDOM = (link, time) => {
         const element = document.createElement('a');
-        const parent = document.querySelector('div[class="photoWrapper"]');
         element.id = 'videoInfo';
         element.href = link;
-        element.title = length;
+        element.title = time;
         element.style.display = 'none';
-        parent.appendChild(element);
+        document.body.appendChild(element);
       };
       const videoArray = document.querySelectorAll('div[class="videoThumb"]');
       if (videoArray.length !== 0) {
         if (videoArray.length === 1) {
-          videoArray[0].click();
-          await new Promise((resolve) => setTimeout(resolve, 4000));
           const link = document.querySelector('div[class="ssmp-container"] video').src;
-          const length = document.querySelector('span[class="vjs-duration-display"]').innerText;
-          addElementToDOM(link, length);
+          const time = document.querySelector('span[class="vjs-duration-display"]').innerText;
+          addElementToDOM(link, time);
         }
         if (videoArray.length !== 1) {
-          for (let i = 1; i < videoArray.length; i++) {
+          for (let i = 0; i < videoArray.length; i++) {
             videoArray[i].click();
             await new Promise((resolve) => setTimeout(resolve, 4000));
             const link = document.querySelector('div[class="ssmp-container"] video').src;
-            const length = document.querySelector('span[class="vjs-duration-display"]').innerText;
-            addElementToDOM(link, length);
+            const time = document.querySelector('span[class="vjs-duration-display"]').innerText;
+            addElementToDOM(link, time);
           }
         }
       }
@@ -58,7 +55,7 @@ module.exports = {
         }
         if ('ingredientsList' in data[k].group[i]) {
           for (let j = 1; j < data[k].group[i].ingredientsList.length; j++) {
-            data[k].group[i].ingredientsList[0].text += data[k].group[i].ingredientsList[j].text;
+            data[k].group[i].ingredientsList[0].text += ' ' + data[k].group[i].ingredientsList[j].text;
           }
           data[k].group[i].ingredientsList = data[k].group[i].ingredientsList.slice(0, 1);
         }

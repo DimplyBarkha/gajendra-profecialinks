@@ -14,7 +14,7 @@ fields:
   singleValue: false
 - name: image
   singleValue: true
-  xpath: //div[@class="photoWrapper"]//img[@class="photo"]/@src
+  xpath: //div[@class="imageList"]/a[contains(@class, "defaultThumb")]/@href
   regExp: (.+)
   regExpReplace: https:$1
   description: URL of the main product image
@@ -24,7 +24,7 @@ fields:
   description: Alt text of the main product image
 - name: alternateImages
   singleValue: false
-  xpath: //img[@class="thumb"]/@src
+  xpath: //div[@class="imageList"]/a[not(contains(@class, "defaultThumb"))]/@href
   regExp: (.+)
   regExpReplace: https:$1
   description: Other product images (not in manufacturer description)
@@ -87,7 +87,9 @@ fields:
   description: GTIN code (includes UPC/EAN)
 - name: sku
   singleValue: true
-  xpath: //div[@class="itemNo"]
+  xpath: //div[@class="hidden"]/script[@type="application/ld+json"]/text()
+  regExp: (\"sku\":)\"(.*?)\"
+  regExpReplace: $2
   description: The store-specific product identifier
 - name: variantId
   singleValue: true
@@ -151,7 +153,8 @@ fields:
   description: Images within the third party description
 - name: videos
   singleValue: false
-  xpath: //div[@class="photoWrapper"]/a[@id="videoInfo"]/@href
+  xpath: //a[@id="videoInfo"]/@href
+  regExp: (?<=blob:)(.+)
   description: URLs of videos on page
 - name: name
   singleValue: true
@@ -206,7 +209,7 @@ fields:
   description: Parent asin
 - name: videoLength
   singleValue: false
-  xpath: //div[@class="photoWrapper"]/a[@id="videoInfo"]/@title
+  xpath: //a[@id="videoInfo"]/@title
   description: 
 - name: ingredientImagePresent
   singleValue: true
@@ -247,6 +250,7 @@ fields:
   description: 
 - name: secondaryImageTotal
   singleValue: true
+  xpath: count(//img[@class="thumb"]/@src)
   description: 
 - name: news
   singleValue: true
@@ -259,7 +263,7 @@ fields:
   description: 
 - name: ingredientsList
   singleValue: false
-  xpath: //div[contains(@class, "accIngredients ")]//div[@class="accordionText"]/span
+  xpath: //div[contains(@class, "accIngredients ")]//div[@class="accordionText"]/span | //p[contains(strong,'Ingredients')]/strong/following-sibling::text()
   description: List of Ingredients from site - can be string of data if no discernible
     start/end point
 - name: servingSize

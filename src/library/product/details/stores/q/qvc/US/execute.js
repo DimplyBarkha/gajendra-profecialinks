@@ -6,7 +6,7 @@ module.exports = {
     store: 'qvc',
     domain: 'qvc.com',
     loadedSelector: 'div[id="pageContent"]',
-    noResultsXPath: '//div[@class=" col-tn-12"]',
+    noResultsXPath: '//div[@class="col-tn-12"]/ul/li',
     zipcode: '',
   },
 };
