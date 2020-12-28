@@ -94,6 +94,9 @@ const transform = (data) => {
         });
         row.servingSizeUom = [{ text: servingSizeUomArr.join('|'), xpath: row.servingSizeUom[0].xpath }];
       }
+      if (row.sku) {
+        row.sku[0].text = row.sku[0].text.match(/(.*)([a-z])(\d+)(.html)/)[3];
+      }
       if (row.variantId) {
         row.variantId[0].text = row.variantId[0].text.match(/(.*)([a-z])(\d+)(.html)/)[3];
       }
