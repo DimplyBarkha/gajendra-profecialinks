@@ -32,6 +32,12 @@ const transform = (data) => {
           priceItem.text = priceItem.text.replace('$', '');
         });
       }
+      if (row.nameExtended) {
+        const brandText = row.brandText[0].text;
+        row.nameExtended.forEach(nameExtendedItem => {
+          nameExtendedItem.text = nameExtendedItem.text.includes(brandText) ? nameExtendedItem.text : brandText + ' ' + nameExtendedItem.text;
+        });
+      }
       if (row.quantity) {
         row.quantity.forEach(quantityItem => {
           quantityItem.text = quantityItem.text.replace('(', '').replace(')', '');
