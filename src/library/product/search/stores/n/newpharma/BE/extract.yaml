@@ -12,9 +12,7 @@ fields:
     singleValue: true
   - name: name
     singleValue: false
-    xpath: //div[@class="product js-product-row product--desktop "]/@data-google-360
-    regExp: '"name":"(\w.*?)"'
-    regExpReplace: $1
+    xpath: //a[contains(@class, "details__title")] 
   - name: productUrl
     singleValue: false
     xpath: //div[@class="details"]/a/@producturl
