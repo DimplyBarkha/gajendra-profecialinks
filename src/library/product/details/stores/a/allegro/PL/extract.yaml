@@ -45,13 +45,13 @@ fields:
     xpath: //div[@itemprop='aggregateRating']/meta[@itemprop='ratingValue']/@content
   - name: manufacturerImages
     xpath: //a[@name='description']/following-sibling::div//img[contains(@class, 'lazyloaded')]/@data-src
-  - name: manufacturerImagesLovela
+  - name: manufacturerImages
     xpath: //div[@class='description']//section[contains(@class, 'section')]//img/@srcset
     regExp: (.+),(.+)
     regExpReplace: $2
   - name: shippingInfo
     xpath: concat(//a[contains(@data-analytics-click-value, 'sellerLogin')] , '-', //a[contains(@data-analytics-click-value, 'sellerRating')])
-  - name: shippingInfoLovela
+  - name: shippingInfo
     xpath: //span[contains(., 'Sprzedane przez')]
     regExp: (.+)\"(.+)\"
     regExpReplace: $2

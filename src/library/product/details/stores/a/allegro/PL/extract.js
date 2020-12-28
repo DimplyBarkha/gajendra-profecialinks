@@ -9,7 +9,12 @@ module.exports = {
     domain: 'allegro.pl',
     zipcode: '',
   },
-  implementation: async ({ inputString }, { country, domain, transform: transformParam }, context, { productDetails }) => {
+  implementation: async (inputs, { country, domain, transform: transformParam }, context, { productDetails }) => {
+    console.log(inputs.id + ' is input url');
+    if (inputs.url && inputs.url.includes('null')) {
+      const newurl = `https://allegro.pl/listing?string=${inputs.id}`;
+      await context.goto(newurl, { timeout: 10000, waitUntil: 'load', checkBlocked: true });
+    }
     const applyScroll = async function (context) {
       await context.evaluate(async function () {
         function addHiddenDiv (id, content) {
@@ -29,6 +34,7 @@ module.exports = {
             break;
           }
         }
+        // if(document.URL.includes('archiwum.allegro'))
         function stall (ms) {
           return new Promise((resolve, reject) => {
             setTimeout(() => {
@@ -40,6 +46,14 @@ module.exports = {
       });
     };
     await applyScroll(context);
-    return await context.extract(productDetails, { transform: transformParam });
+    const stopExtraction = await context.evaluate(async function () {
+      if (document.querySelector('div.opbox-listing p')) {
+        if (document.querySelector('div.opbox-listing p').innerText === 'Czy na pewno szukasz') {
+          return true;
+        }
+      }
+      return false;
+    });
+    if (stopExtraction !== true) { return await context.extract(productDetails, { transform: transformParam }); }
   },
 };
