@@ -4,10 +4,6 @@ async function implementation (inputs, parameters, context, dependencies) {
   const { transform } = parameters;
 
   await context.evaluate(async () => {
-    function addProp (selector, iterator, name, value) {
-      document.querySelectorAll(selector)[iterator].setAttribute(name, value);
-    }
-
     function stall (ms) {
       return new Promise((resolve, reject) => {
         setTimeout(() => {
@@ -27,18 +23,11 @@ async function implementation (inputs, parameters, context, dependencies) {
       await stall(1000);
     }
 
-    const priceSelector = document.querySelectorAll('div.mq-product-prices>h3');
-    let price;
 
-    for (let i = 0; i < priceSelector.length; i++) {
-      price = priceSelector[i].textContent;
-      price = price.replace('.', '');
-      addProp('div.mq-product-img>div>a', i, 'rank', `${i + 1}`);
-      addProp('div.mq-product-prices>h3', i, 'price', price);
-    }
+
   });
 
-  return await context.extract(productDetails, { transform });
+  return await context.extract(productDetails, { transform }, 'MERGE_ROWS');
 }
 module.exports = {
   implements: 'product/search/extract',
