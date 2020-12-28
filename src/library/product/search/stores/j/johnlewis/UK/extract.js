@@ -29,8 +29,9 @@ const implementation = async function (
     async function getProductCodeFromUrl (url) {
       const response = await fetch(url);
       const html = await response.text();
-      const code = html.match(/(data-product-code=|"code":)"([^"]+)/)[2];
-      return code;
+      const code = html.match(/(data-product-code=|"code":)"([^"]+)/);
+      if (!code) return '';
+      return code[2];
     }
     const nodes = Array.from(document.querySelectorAll('a[class^="product-card_c-product-card__link"]'));
     const urls = nodes.map(elm => elm.href);
