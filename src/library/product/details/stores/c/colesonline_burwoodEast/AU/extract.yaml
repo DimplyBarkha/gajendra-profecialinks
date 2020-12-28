@@ -1,4 +1,14 @@
 extends: ../../colesonline/AU/extract
+singleRecord: true
 fields:
   - name: variantId
     xpath: //div[@id='ii_sku']
+  - name: description
+    singleValue: false
+    xpath: //div[contains(@id,'ii_desc')]
+    description: Product description supplied by website - may be concatenanted from
+      multiple places; specifically not the manufacturer description
+  - name: specifications
+    singleValue: false
+    xpath: //div[contains(@class,'long-desc-container')]/@content 
+    defaultValue: ''
