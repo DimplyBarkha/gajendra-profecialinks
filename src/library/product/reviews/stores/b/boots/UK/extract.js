@@ -60,6 +60,11 @@ module.exports = {
       }
     }
 
+    try {
+      await context.waitForSelector('input[id*="ProductId"]');
+    } catch (err) {
+      console.log('input[id*="ProductId"]');
+    }
     await context.evaluate(() => {
       const addHiddenDiv = (id, content) => {
         const newDiv = document.createElement('div');
@@ -70,6 +75,16 @@ module.exports = {
       };
 
       addHiddenDiv('ii_productUrl', window.location.href);
+
+      const productIdElement = document.querySelector('input[id*="ProductId"]');
+      if (productIdElement) {
+        const value = productIdElement.getAttribute('value');
+        const pattern = /([0-9]+)\.P/;
+        const results = value.match(pattern);
+        if (results && results.length > 0) {
+          addHiddenDiv('ii_sku', results[1]);
+        }
+      }
     });
 
     const { transform } = parameters;

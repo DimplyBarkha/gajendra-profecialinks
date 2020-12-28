@@ -23,9 +23,7 @@ fields:
   - name: sku
     singleValue: true
     description: The store-specific product identifier
-    xpath: ancestor::html//input[contains(@id, "ProductId")]/@value
-    regExp: ([0-9]+)\.P
-    regExpReplace: $1
+    xpath: ancestor::html//div[@id="ii_sku"]
   - name: reviewDate
     singleValue: true
     type: DATETIME
