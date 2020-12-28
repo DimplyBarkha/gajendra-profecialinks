@@ -23,7 +23,7 @@ fields:
 - name: alternateImages
   singleValue: false
   description: Other product images (not in manufacturer description)
-  xpath: //img[@class="h-fluid-img js_product_thumb"]/@src
+  xpath: (//img[@class="h-fluid-img js_product_thumb"]/@src)[position()>1]
 - name: metaKeywords
   singleValue: true
   description: The <meta> keywords content
@@ -56,44 +56,45 @@ fields:
   singleValue: false
   description: Product description supplied by website - may be concatenanted from
     multiple places; specifically not the manufacturer description
-  xpath: //div[@class="product-description"]
+  xpath: //div[@id="description"]
 - name: descriptionBullets
   singleValue: true
   description: Number of ul > li tags in the description
-  xpath: count(//div[@class="product-description"]//li)
+  xpath: //div[@id="bulletsCount"]
 - name: brandText
   singleValue: true
   description: Product brand shown - this may actually NOT be just a brand name, e.g.
     "Visit the Gillette Store"
-  xpath: //div[@class="specs"]//img/@alt
+  xpath: //a[@data-analytics-tag="brand"]
 - name: manufacturer
   singleValue: true
   description: Product manufacturer
-  xpath: //a[@class="px_pdp_brand_click"]//text()
+  # xpath: //a[@class="px_pdp_brand_click"]//text()
 - name: quantity
   singleValue: true
   description: Quantity as described on the page
+  xpath: //dt[normalize-space(text())='Inhoud']/following-sibling::dd[1]
 - name: weightNet
   singleValue: true
   description: Net weight as described on the page
-  xpath: //dt[normalize-space(text())='Gewicht']/following-sibling::dd
+  xpath: //dt[normalize-space(text())='Gewicht']/following-sibling::dd[1]
 - name: weightGross
   singleValue: true
   description: Gross weight as described on the page
-  xpath: //dt[normalize-space(text())='Verpakkingsgewicht']/following-sibling::dd
+  xpath: //dt[normalize-space(text())='Verpakkingsgewicht']/following-sibling::dd[1]
 - name: gtin
   singleValue: true
   description: GTIN code (includes UPC/EAN)
-  xpath: //dt[normalize-space(text())='EAN']/following-sibling::dd
+  xpath: //dt[normalize-space(text())='EAN']/following-sibling::dd[1]
 - name: sku
   singleValue: true
   description: The store-specific product identifier
-  xpath: //wsp-wishlist-button[@class="c-btn-quaternary--large"]/@global-id
+  # xpath: //div[@class="buy-block"]//a/@data-product-id | //div[@class="buy-block"]//div/@data-global-id
 - name: variantId
   singleValue: true
   description: Identifier for a variant from a store where variants share the same
     sku
-  xpath: //wsp-wishlist-button[@class="c-btn-quaternary--large"]/@global-id
+  xpath: //div[@class="buy-block"]//a/@data-product-id | //div[@class="buy-block"]//div/@data-global-id
 - name: mpc
   singleValue: true
   description: The manufacturer model code (unique) of the product
@@ -108,6 +109,7 @@ fields:
 - name: directions
   singleValue: true
   description: Content under "directions" header
+  xpath: //div[@class="product-description"]/*[text()="Hoe te gebruiken"]/following-sibling::text()
 - name: warnings
   singleValue: true
   description: Content under "warnings" header
@@ -125,7 +127,7 @@ fields:
 - name: shippingInfo
   singleValue: true
   description: Shipping information for the product
-  xpath: //div[@class="buy-block__delivery-text"]//div/span[1]
+  xpath: normalize-space(//div[contains(@class,"product-seller")])
 - name: shippingDimensions
   singleValue: true
   description: Stated shipping dimensions
@@ -146,14 +148,14 @@ fields:
 - name: manufacturerDescription
   singleValue: false
   description: The extended description of the product supplied by the lister
-  xpath: //div[contains(@class,"js_specifications_content")]
 - name: manufacturerImages
   singleValue: false
   description: Images within the third party description
-  xpath: //div[contains(@class, "js_show-more-gallery")]//img[@class="skeleton-image__img"]/@src
+  xpath: //div[@data-test="gallery"]//img[@class="skeleton-image__img"]/@src
 - name: videos
   singleValue: false
   description: URLs of videos on page
+  xpath: //video//source/@src
 - name: name
   singleValue: true
   description: The product name
@@ -249,6 +251,7 @@ fields:
 - name: secondaryImageTotal
   singleValue: true
   description: 
+  # xpath: count(//div[@data-test="gallery"]//img[@class="skeleton-image__img"]/@src)
 - name: news
   singleValue: true
   description: 
@@ -262,6 +265,7 @@ fields:
   singleValue: true
   description: List of Ingredients from site - can be string of data if no discernible
     start/end point
+  xpath: //dt[normalize-space(text())='Ingrediënten']/following-sibling::dd[1]
 - name: servingSize
   singleValue: true
   description: The size of serving Nutritional information is based on.
@@ -275,6 +279,7 @@ fields:
   singleValue: true
   description: Nutritional Information for Calories Per Serving content - Usually
     based on per 100g serving
+  xpath: //div[@id="energy"]
 - name: caloriesFromFatPerServing
   singleValue: true
   description: Nutritional Information for Calories From Fat content - Usually based
@@ -325,6 +330,7 @@ fields:
   singleValue: true
   description: Nutritional Information for Dietary Fibre content - Usually based on
     per 100g serving
+  xpath: //div[@id="fiber"]
 - name: dietaryFibrePerServingUom
   singleValue: true
   description: Unit of Measure Data for Dietary Fibre content
@@ -332,6 +338,7 @@ fields:
   singleValue: true
   description: Nutritional Information for Total Sugar content - Usually based on
     per 100g serving
+  xpath: //div[@id="sugars"]
 - name: totalSugarsPerServingUom
   singleValue: true
   description: Unit of Measure Data for Total Sugar content
@@ -339,6 +346,7 @@ fields:
   singleValue: true
   description: Nutritional Information for Protein content - Usually based on per
     100g serving
+  xpath: //div[@id="protein"]
 - name: proteinPerServingUom
   singleValue: true
   description: Unit of Measure Data for Protein
@@ -392,8 +400,7 @@ fields:
   description: 
 - name: specifications
   singleValue: true
-  description: The physical dimensions of the product including packaging.
-  xpath: //dt[normalize-space(text())='Afmetingen product']/following-sibling::dd
+  xpath: //div[@id="specifications"]
 - name: warranty
   singleValue: true
   description: Guarantee associated with the product
@@ -406,6 +413,7 @@ fields:
 - name: allergyAdvice
   singleValue: true
   description: Allergy information associated with the product
+  xpath: //dt[normalize-space(text())='Allergeneninformatie']/following-sibling::dd[1]
 - name: recyclingInformation
   singleValue: true
   description: Recycling information associated with the product
@@ -421,13 +429,15 @@ fields:
 - name: pricePerUnit
   singleValue: true
   description: Price of the product split into certain units
+  xpath: //span[contains(@class,"price-block__unit")]
 - name: pricePerUnitUom
   singleValue: true
   description: The unit of measurement used in price_per_unit
+  xpath: //div[@id="pricePerUnitUom"]
 - name: promotion
   singleValue: true
   description: promotion text on product page
-  xpath: //span[@class="promo-text"]
+  xpath: //div[@data-test="discount"] | //div[@class="multibundle__discount"]
 - name: alcoholContent
   singleValue: true
   description: Alcohol content information
@@ -445,6 +455,7 @@ fields:
 - name: variantInformation
   singleValue: true
   description: colour / scent / flavour / other
+  xpath: //a[@class="feature-option feature-option--image is-active"]//@title | //a[@class="feature-option feature-option--btn  is-active"]/@title
 - name: firstVariant
   singleValue: true
   description: Unique identifier for a collection of variants. For a subset of core
@@ -455,13 +466,15 @@ fields:
     to populate "first_variant" for all variants of a product, this rpc becomes the
     common link between other variants. method 3 = apply some logic to determine link
     between variants, this will need analysis
+  xpath: (//a[contains(@class,"feature-option")]/img/@title)[1] | (//div[@data-test="feature-options"]/a/@title)[1]
 - name: variants
   singleValue: false
   description: 
-  xpath: //a[contains(@class,"feature-option")]/img/@title
+  xpath: //a[contains(@class,"feature-option")]/img/@title | //div[@data-test="feature-options"]/a/@title
 - name: additionalDescBulletInfo
   singleValue: false
   description: 
+  xpath: //div[@id="additionalDescBulletInfo"]
 - name: prop65Warning
   singleValue: true
   description: 
@@ -503,4 +516,4 @@ fields:
   singleValue: true
   description: If Zoom feature is available for Main image or images in the carousel,['Yes','No']
   example: https://www.zalando.de/adidas-neo-sneaker-low-blackwhite-a4315i002-q11.html
-  defaultValue: false
+  defaultValue: 'Yes'
