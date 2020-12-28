@@ -5,7 +5,7 @@ module.exports = {
     country: 'AU',
     store: 'joycemayne',
     domain: 'joycemayne.com.au',
-    loadedSelector: null,
+    loadedSelector: '#product-view-container',
     noResultsXPath: null,
     zipcode: '',
   },
