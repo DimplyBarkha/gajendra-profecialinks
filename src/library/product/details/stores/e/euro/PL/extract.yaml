@@ -125,7 +125,7 @@ fields:
     xpath: normalize-space(//td[contains(text(),"Waga") and not(contains(text(),"opakowaniem"))]//following-sibling::td)
   - name: manufacturerImages
     singleValue: false
-    xpath: //div[@id='description-text']//img/@src
+    xpath: //div[@class='description-content-inner']//img/@src
     # //div[@class="col-img"]/img/@src | //div[@class="description-py5"][2]//following-sibling::div//img/@src |
     # //div[@class='margin-t-lg-32']//div[@class='tct']//img[@class='lazy loaded']/@src
     regExp: (.+)
