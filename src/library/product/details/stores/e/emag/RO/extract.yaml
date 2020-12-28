@@ -450,8 +450,9 @@ fields:
   description: In product page, information about a new version of the product - new
     desription info
 - name: variantInformation
-  singleValue: true
+  singleValue: false
   description: colour / scent / flavour / other
+  xpath: //div[@class="product-highlights-wrapper"]//div[@class="product-highlight"][contains(.,"Alege Marime")]//p[@class="text-label"] | //div[@class="product-highlights-wrapper"]//div[@class="product-highlight"][contains(.,"Alege Marime")]//a[contains(@class,"active")]//span[contains(@class,"product-option-label")]
 - name: firstVariant
   singleValue: true
   description: Unique identifier for a collection of variants. For a subset of core
@@ -465,6 +466,9 @@ fields:
 - name: variants
   singleValue: false
   description: 
+  xpath: //div[@class="product-highlights-wrapper"]//ul[@class="page-product-options-group list-inline"]//a/@href
+  regExp: pd\/(.+)\/
+  regExpReplace: $1
 - name: additionalDescBulletInfo
   singleValue: false
   description: 

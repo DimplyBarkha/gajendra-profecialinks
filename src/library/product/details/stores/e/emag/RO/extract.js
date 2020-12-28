@@ -60,6 +60,8 @@ module.exports = {
     reduceInfoToOneField(description);
     const directions = dataRef[0].group[0].directions;
     reduceInfoToOneField(directions);
+    const variants = dataRef[0].group[0].variants;
+    reduceInfoToOneField(variants, ' | ');
     if (dataRef[0].group[0].listPrice) {
       if (dataRef[0].group[0].listPrice[0].text === '.') {
         delete dataRef[0].group[0].listPrice;
