@@ -4,9 +4,9 @@ recordSelector: null
 recordXPath: null
 fields:
   - name: variantId
-    xpath: //div[@id="product-variants"]
-    regExp: (.+-)(\d+)(\??.+)
-    regExpReplace: $2
+    xpath: //div[@id="product-variants"]/text()
+    # regExp: (.+-)(\d+)(\??.+)
+    # regExpReplace: $2
   - name: variantUrl.
     xpath: //div[contains(@class, '_9a071')][count(//div[contains(@class, '_9a071')]) > 0]//div[@data-analytics-view-label='offerVariants']//a[@data-analytics-click-label="itemVariantClick"]/@href | //div[contains(@class, '_9a071')][count(//div[contains(@class, '_9a071_1M8Xc _9a071_2sZmp')]) = 0]//ancestor::html//div[@itemprop='offers']//meta[@itemprop='url']/@content
 
