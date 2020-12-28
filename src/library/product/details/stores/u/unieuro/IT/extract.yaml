@@ -63,8 +63,8 @@ fields:
   regExp: (/.+)
   regExpReplace: https:$1  
 - name: manufacturerDescription
-  singleValue: false
-  xpath: //div[@id="inpage_container"] 
+  singleValue: true
+  xpath: //div[@id="manu"] 
 # - name: shippingInfo
 #   singleValue: false
 #   xpath: (//div[@class="navigation-panel__service__content"][3]/a/span/b/text())[1]
@@ -80,9 +80,6 @@ fields:
 - name: specifications
   singleValue: true
   xpath: //div[@id='specs']
-- name: descriptionBullets
-  singleValue: true
-  xpath: count(//div[@class="descriptions"]//ul/li)
 - name: additionalDescBulletInfo
   singleValue: true
   xpath: //div[@id='desc']
@@ -100,7 +97,7 @@ fields:
   xpath: (//div[@class='techs']//span[(text()="Peso dell'imballo")]/following-sibling::span | //table[@class="flix-std-specs-table"]//td[(text()='Peso con Imballaggio')]/following-sibling::td)[1]
 - name: videos
   singleValue: false
-  xpath: (//iframe[@class="youtube-container"]/@src | //div[@class="flix-std-row"]//iframe//@src) 
+  xpath: (//div[@class="flix-std-row"]//iframe//@src | //iframe[@class="youtube-container"]/@src ) 
 - name: listPrice
   singleValue: true
   type: CURRENCY

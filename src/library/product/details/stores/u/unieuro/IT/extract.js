@@ -92,7 +92,7 @@ module.exports = {
           }
           abc = abc.slice(0,-3);
           addElementToDocument('specs', abc);
-      }
+      }      
       var pq = getAllXpath('//div[@class="descriptions"]//ul/li/span/text()', 'nodeValue');
       var pqr = getAllXpath('//div[@class="descriptions"]//ul/li/text()', 'nodeValue');
       if(pqr != null){
@@ -109,6 +109,10 @@ module.exports = {
             final = final.slice(0,-3);
             addElementToDocument('desc', final);
       }
+      // @ts-ignore
+      var man = document.querySelector('div[id="inpage_container"]').innerText
+      addElementToDocument('manu', man);
+
 
     });
     await context.extract(productDetails);
