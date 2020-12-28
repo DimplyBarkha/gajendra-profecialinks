@@ -42,7 +42,7 @@ module.exports = {
         const div = document.createElement('div');
         div.id = 'product-variants';
         div.innerText = url;
-        document.body.append(div);
+        if(!url.includes('listing?string')) document.body.append(div);
       });
     } catch (e) {
       console.log(e.message);
