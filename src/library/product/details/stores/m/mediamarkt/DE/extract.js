@@ -44,11 +44,6 @@ module.exports = {
 
     try {
       await context.evaluate(async () => {
-        // document.querySelector('section#description').scrollIntoView({ behavior: 'smooth' });
-        // const desc = Boolean(document.querySelector('div[class*="FallbackDescription"]'));
-        // if (desc) {
-        //   document.querySelector('div[class*="FallbackDescription"]').scrollIntoView({ behavior: 'smooth' });
-        // }
         async function infiniteScroll () {
           let prevScroll = document.documentElement.scrollTop;
           while (true) {
@@ -100,9 +95,6 @@ module.exports = {
       let inBoxUrls = null;
       let comparisionText = null;
       await context.click('div[class^="RichProductDescription"] button');
-      // await context.evaluate(async function () {
-      //   document.querySelector('div[class^="RichProductDescription"] button').click();
-      // });
 
       try {
         await context.waitForSelector('iframe[id^="loadbee"]', { timeout: 55000 });
@@ -125,13 +117,15 @@ module.exports = {
         sharedhelpers.addHiddenInfo('ii_comparisionText', comparisionText);
 
         await sharedhelpers.addHiddenInfo('manufContent', content);
-        await sharedhelpers.addHiddenInfo('manufImg', image.join(' || '));
+        await sharedhelpers.addHiddenInfo('manufImg', image.join(' | '));
       } catch (err) {
         try {
           await context.click('div[class^="RichProductDescription"] button');
-          const delay = t => new Promise(resolve => setTimeout(resolve, t));
-          await delay(2000);
           await context.waitForSelector('#inpage_container', { timeout: 30000 });
+          const loadMore = await context.evaluate(() => document.querySelector('div.flix-more'));
+          if (loadMore) {
+            await context.click('div.flix-more');
+          }
           await context.waitForSelector('.flix-feature-image img', { timeout: 30000 });
           await context.evaluate(() => {
             const imgs = [...document.querySelectorAll('.flix-feature-image img')];
@@ -141,7 +135,7 @@ module.exports = {
               const value = src.includes('https:') ? src : 'https:' + src;
               images.push(value);
             });
-            const manuImages = images.join(' || ');
+            const manuImages = images.join(' | ');
             const div = document.createElement('div');
             div.id = 'manufImg';
             div.innerText = manuImages;
@@ -164,6 +158,35 @@ module.exports = {
         } catch (e) {
           console.log('Looks like the website may not have manufacturer content');
         }
+      }
+    } else {
+      try {
+        await context.waitForSelector('div[class*="PDPSpecialImageAndText"]');
+        await context.evaluate(() => {
+          const manDesc = [...document.querySelectorAll('div[class*="PDPSpecialImageAndText"] div[class*="StyledText"] *')];
+          let text = '';
+          manDesc.forEach(item => {
+            text = text + (text ? ' ' : '') + item.innerText;
+          });
+          const div = document.createElement('div');
+          div.id = 'manufContent';
+          div.innerText = text;
+          document.body.append(div);
+        });
+
+        await context.evaluate(() => {
+          const manImage = [...document.querySelectorAll('div[class*="PDPSpecialImageAndText"] div[class*="StyledImage"] img')];
+          let imgSrc = '';
+          manImage.forEach(img => {
+            imgSrc = imgSrc + (imgSrc ? ' | ' : '') + img.getAttribute('src');
+          });
+          const div = document.createElement('div');
+          div.id = 'manufImg';
+          div.innerText = imgSrc;
+          document.body.append(div);
+        });
+      } catch (e) {
+        console.log(e.message);
       }
     }
 
@@ -259,26 +282,59 @@ module.exports = {
         for (let i = 0; i < desc.snapshotLength; i++) {
           const item = desc.snapshotItem(i);
           let t = '';
+          let z = '';
+          if (item.querySelector('style')) {
+            const styles = [...item.querySelectorAll('style')];
+            styles.forEach(style => style.remove());
+          }
           if (item.querySelector('a')) {
             item.querySelector('a').innerText = '';
-          }
-          if (item.querySelector('button')) {
+            z = item.innerText;
+          } else if (item.querySelector('button')) {
             item.querySelector('button').innerText = '';
-          }
-          if (item.nodeName === 'UL' || item.querySelector('ul')) {
+          } else if (item.nodeName === 'UL') {
             const lis = [...item.querySelectorAll('li')];
             lis.forEach(li => {
               counter++;
               t = t + (t ? ' || ' : '') + li.innerText;
             });
-            item.innerText = ' || ' + t + ' | ';
+            z = ' || ' + t + ' | ';
+          } else if (item.querySelector('ul')) {
+            let temp1 = '';
+            let temp2 = '';
+            const y = [...item.querySelectorAll('*')];
+            for (let i = 0; i < y.length; i++) {
+              if (y[i].nodeName === 'UL') {
+                continue;
+              }
+              if (y[i].nodeName === 'LI') {
+                counter++;
+                temp1 = temp1 + (temp1 ? ' || ' : '') + y[i].innerText;
+              } else {
+                temp1 = temp1 + ' | ' + y[i].innerText;
+              }
+            }
+            const tmp = temp1.match(/^(\s?\|)/g);
+            if (tmp) {
+              temp2 = temp1;
+            } else {
+              temp2 = ' || ' + temp1;
+            }
+            z = temp2;
+          } else if (item.className.includes('PDPSpecialImageAndText') || item.querySelector('div[class*="specials-gallery"]') || item.querySelector('div[class*="PDPSpecialImageAndText"]')) {
+            z = '';
+          } else {
+            z = item.innerText;
           }
-          text = text + (text ? ' ' : '') + item.innerText;
+          text = text + (text ? ' ' : '') + z;
         }
         if (text === '' || text === null) {
-          text = document.querySelector('div[class*="FallbackDescription"]').innerText;
+          const d = document.querySelector('div[class*="FallbackDescription"]');
+          if (d) {
+            text = d.innerText;
+          }
         }
-        text = text.replace(/(\|\s?)$/, '');
+        text = text.replace(/(\|\s?)$/, '').replace(/^(\s?\|)/, '').replace(/\|\s{1,}\|/g, '');
         const div = document.createElement('div');
         div.id = 'additional-description';
         div.innerText = text;
