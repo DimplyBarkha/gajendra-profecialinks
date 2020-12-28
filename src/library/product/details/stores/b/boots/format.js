@@ -139,6 +139,13 @@ const transform = (data, context) => {
           },
         ];
       }
+      if (row.directions) {
+        let text = '';
+        row.directions.forEach(item => {
+          text = text + (text ? ' ' : '') + item.text;
+        });
+        row.directions = [{ text }];
+      }
       if (row.description) {
         const text = row.description.map(elm => elm.text.replace('...read more', '').replace('...read less', '')).join(' ');
         row.description = [
