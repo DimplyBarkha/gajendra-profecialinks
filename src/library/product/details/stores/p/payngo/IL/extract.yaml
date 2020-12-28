@@ -89,3 +89,7 @@ fields:
     singleValue: false
     xpath: //div[@id="cbar_widget1"]//div[@class="name"]//a/@title | //div[@id="cbar_w0_items_s"]//div[@class="name"]//a/@title
     description: Titles of products in the sections 'you may also like' or 'sponsored products'. Combine results from Max 3 sections
+  - name: inTheBoxText
+    singleValue: false
+    xpath: //div[contains(@class,"collapse tab-content description in")]//p//strong[(contains(text(),'אביזרים נלווים'))]/parent::*
+    description: Titles of products in the sections 'you may also like' or 'sponsored products'. Combine results from Max 3 sections
