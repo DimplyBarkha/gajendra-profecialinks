@@ -25,7 +25,7 @@ const transform = (data) => {
       try {
         if (row.availabilityText) {
           const availabilityTextArr = row.availabilityText.map((item) => {
-            return (typeof (item.text) === 'string') && (item.text.includes('en stock')) ? 'In Stock' : 'Out Of Stock';
+            return (typeof (item.text) === 'string') && (item.text.trim() === '0') ? 'Out Of Stock' : 'In Stock';
           });
           row.availabilityText = [{ text: availabilityTextArr.join(), xpath: row.availabilityText[0].xpath }];
         }
