@@ -45,7 +45,7 @@ fields:
   - name: manufacturer
     description: Product manufacturer
   - name: quantity
-    xpath: //dl[@class="product-specifications-list"]/dt[contains(text(),'Pack Size')]/following-sibling::dd[1]/text() | //dl[@class="product-specifications-list"]/dt[contains(text(),'Size (g)')]/following-sibling::dd[1]/text() | //dl[@class="product-specifications-list"]/dt[contains(text(),'Volume')]/following-sibling::dd[1]/text() | //dl[@class="product-specifications-list"]/dt[contains(text(),'Size ')]/following-sibling::dd[1]/text()
+    xpath: (//a/@data-selected-size | //dl[@class="product-specifications-list"]/dt[contains(text(),'Pack Size')]/following-sibling::dd[1]/text() | //dl[@class="product-specifications-list"]/dt[contains(text(),'Size (g)')]/following-sibling::dd[1]/text() | //dl[@class="product-specifications-list"]/dt[contains(text(),'Volume')]/following-sibling::dd[1]/text() | //dl[@class="product-specifications-list"]/dt[contains(text(),'Size ')]/following-sibling::dd[1]/text())[1]
   - name: quantity2
     xpath: //ul[contains(@class,'size-list')]//li[1]/*/text()
   - name: weightNet
@@ -55,9 +55,9 @@ fields:
   - name: gtin
     description: GTIN code (includes UPC/EAN)
   - name: sku
-    xpath: ((//header[contains(@class, "product-header")]/@content)[1] | ((//li[@data-carousel="productCarousel"]/img/@src)[1]|(//li[@class="slick-active"]/img/@src)[1])[1])[1]
-    regExp: image\/JohnLewis\/([^?]+)|(.+)
-    regExpReplace: $1$2
+    xpath: (((//li[@data-carousel="productCarousel"]/img/@src)[1]|(//li[@class="slick-active"]/img/@src)[1])[1])[1]
+    regExp: image\/JohnLewis\/(\d+)
+    regExpReplace: $1
     # xpath: //script[@id="jsonPageData"]
     # regExp: productId":"(.*?)"
     # regExpReplace: $1
