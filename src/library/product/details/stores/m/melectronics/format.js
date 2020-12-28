@@ -32,12 +32,22 @@ const transform = (data) => {
       if (row.description) {
         let desc = [];
         row.description.forEach(item => {
+          if (row.inTheBoxText) {
+            row.inTheBoxText.forEach(itemTemp => {
+              item.text = item.text.replace(itemTemp.text.trim(),"");
+            });
+          }
           item.text = item.text.replace(/(\s*\n\s*)+/g, ' ').trim();
           desc.push(item.text);
         });
         let bullet_info = [];
         if (row.descriptionBullets) {
           row.descriptionBullets.forEach(item => {
+            if (row.inTheBoxText) {
+              row.inTheBoxText.forEach(itemTemp => {
+                item.text = item.text.replace(itemTemp.text.trim(),"");
+              });
+            }
             bullet_info.push(item.text);
           });
         }
@@ -54,12 +64,23 @@ const transform = (data) => {
       }
       if (row.specifications) {
         let info = [];
+    
         if (row.specification1) {
           row.specification1.forEach(item => {
+            if (row.inTheBoxText) {
+              row.inTheBoxText.forEach(itemTemp => {
+                item.text = item.text.replace(itemTemp.text.trim(),"");
+              });
+            }
             info.push(item.text.replace(/(\s*\n\s*)+/g, ' : ').trim());
           });
         }
         row.specifications.forEach(item => {
+          if (row.inTheBoxText) {
+            row.inTheBoxText.forEach(itemTemp => {
+              item.text = item.text.replace(itemTemp.text.trim(),"");
+            });
+          }
           info.push(item.text.replace(/(\s*\n\s*)+/g, ' : ').trim());
         });
         row.specifications = [{ 'text': info.join(' || '), 'xpath': row.specifications[0].xpath }];
@@ -160,7 +181,10 @@ const transform = (data) => {
                 row.inTheBoxText.push({ 'text': item });
             });
         }
+        
     }
+
+   
     }
   }
   return cleanUp(data);
