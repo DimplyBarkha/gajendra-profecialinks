@@ -35,11 +35,24 @@ module.exports = {
         catElement.style.display = 'none';
         mainNode.appendChild(catElement);
       }
-      const productListSelector = document.querySelectorAll('div[class*="resultlist"] div[class="offerList-item"]');
-      for (let i = 0; i < productListSelector.length; i++) {
-        const dataObj = JSON.parse(productListSelector[i].getAttribute('data-gtm-payload'));
-        addDataToDocument('pd_id', dataObj.productId, productListSelector[i]);
-        dataObj.productPrice && addDataToDocument('pd_price', dataObj.productId, productListSelector[i]);
+      try {
+        const productListSelector = document.evaluate('//div[contains(@class,"offerList--tileview")]/*[not(.//div[contains(@class,"offerList-item-shopName")])]', document, null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
+        for (let i = 0; i < productListSelector.snapshotLength; i++) {
+          // @ts-ignore
+          const dataObj = JSON.parse(productListSelector.snapshotItem(i).getAttribute('data-gtm-payload'));
+          if (dataObj) {
+            if (dataObj.productId) {
+              addDataToDocument('pd_id', dataObj.productId, productListSelector.snapshotItem(i));
+              addDataToDocument('pd_url', `https://www.idealo.de/preisvergleich/OffersOfProduct/${dataObj.productId}`, productListSelector.snapshotItem(i));
+            } else {
+              dataObj.clusterId && addDataToDocument('pd_id', dataObj.clusterId, productListSelector.snapshotItem(i));
+              dataObj.clusterId && addDataToDocument('pd_url', `https://www.idealo.de/preisvergleich/Typ/${dataObj.clusterId}`, productListSelector.snapshotItem(i));
+            }
+            dataObj.productPrice && addDataToDocument('pd_price', dataObj.productPrice, productListSelector.snapshotItem(i));
+          }
+        }
+      } catch (error) {
+        console.log('Failed to add element in the dom');
       }
       const url = window.location.href;
       const newDiv = document.createElement('div');

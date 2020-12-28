@@ -1,13 +1,11 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: //div[contains(@class,"resultlist")]//div[@class="offerList-item"]
+recordXPath: //div[contains(@class,"offerList--tileview")]/*[not(.//div[contains(@class,"offerList-item-shopName")])]
 fields:
   - name: productUrl
     singleValue: false
-    xpath: //a[contains(@class,"offerList-itemWrapper")]/@href
-    regExp: (.+)
-    regExpReplace: https://www.idealo.de$1
+    xpath: //div[@id="pd_url"]
   - name: thumbnail
     singleValue: false
     xpath: //noscript
