@@ -84,27 +84,19 @@ module.exports = {
       addElementToDocument(`inTheBoxTextHere`,setBoxHere);
 
       const getInTheBox = document.querySelector('.finePrint').children;
-       console.log("getInBoxChild....",getInTheBox);
-       console.log("here is length", getInTheBox.length)
        let start =false;
        var setBox = "" ;
        for(let i =0; i< getInTheBox.length; i++)
        {
-        // console.log("here is your divvssss..",getInTheBox[i].textContent);
          if(getInTheBox[i].textContent.includes("מפרט טכני")){
-           console.log("not found .........")
           start=false;
          }
 
         if(start == true){
-          console.log("in box elements ........",getInTheBox[i].textContent);
           setBox += getInTheBox[i].textContent;
-          console.log("here is the data of my.....",setBox);
         }
 
         if(getInTheBox[i].textContent == "אביזרים:"){
-
-           console.log("found my data .........")
           start=true;
          }
        }
