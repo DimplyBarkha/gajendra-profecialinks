@@ -65,7 +65,7 @@ fields:
   - name: manufacturer
     singleValue: true
     description: Product manufacturer
-    xpath: //div[@class="e2-checkmark"]
+    # xpath: //div[@class="e2-checkmark"]
   - name: quantity
     singleValue: true
     description: Quantity as described on the page
@@ -92,7 +92,7 @@ fields:
   - name: mpc
     singleValue: true
     description: The manufacturer model code (unique) of the product
-    # xpath: //p[@class="product-information__text product-information__ean"]
+    xpath: //span[@itemprop="mpn"]
     type: NUMBER
   - name: packSize
     singleValue: true
@@ -458,6 +458,7 @@ fields:
   - name: variantInformation
     singleValue: true
     description: colour / scent / flavour / other
+    xpath: //span[@class="select__selected-option"]
   - name: firstVariant
     singleValue: true
     description: Unique identifier for a collection of variants. For a subset of
