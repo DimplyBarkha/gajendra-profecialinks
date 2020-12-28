@@ -38,6 +38,8 @@ const transform = (data) => {
       if(row.thumbnail){
         row.thumbnail.forEach(item=>{
           tmpImgUrl=item.text;
+          let tmpp=tmpImgUrl.split(' ');
+          item.text=tmpp[0];
         })
       }
       if(tmpId==''){
@@ -47,7 +49,16 @@ const transform = (data) => {
       }else{
         row.productUrl=[{"text":"https://www.bestbuy.ca"+tmpProductURL}];
       }
-
+      if(row.price){
+        row.price.forEach(item=>{
+          item.text=item.text.replace('.',',');
+        })
+      }
+      if(row.aggregateRating){
+        row.aggregateRating.forEach(item=>{
+          item.text=parseInt(item.text.replace('.',',')).toFixed(1).toString();
+        })
+      }
       row.rank = [{ "text": rank }];
       row.rankOrganic = [{ "text": rank }];
       rank++;
