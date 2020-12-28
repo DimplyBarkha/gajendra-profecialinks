@@ -16,7 +16,7 @@ fields:
     singleValue: false
     xpath: //div[contains(@class,'swiper-slide')][1]/following-sibling::div/a/@href
     #//div[contains(@class,'swiper-slide')]/a/@href
-  - name: metaKeywords  
+  - name: metaKeywords
     singleValue: false
     xpath: //meta[contains(@name,"keyword")]/@content
   - name: category
@@ -40,7 +40,7 @@ fields:
     regExpReplace: OutOfStock
     defaultValue: InStock
   - name: description
-    singleValue: false 
+    singleValue: false
     #xpath: //ul[@class='featureList js__backlightingClick']//li
     xpath: //div[@class="descriptionText_cover richcontent__cover"]
   - name: descriptionBullets
@@ -73,7 +73,7 @@ fields:
   - name: packSize
     singleValue: false
     xpath: //li//span[contains(text(), 'Кол-во в упаковке:')]/../text() |//li[@class='featureList__item state_click']
-    regExp: ([0-9]+)   
+    regExp: ([0-9]+)
   - name: legalDisclaimer
     singleValue: false
   - name: specifications
@@ -115,7 +115,7 @@ fields:
     singleValue: false
   - name: manufacturerDescription
     singleValue: false
-    xpath: 
+    xpath:
   - name: manufacturerImages
     singleValue: false
   - name: videos
@@ -127,11 +127,11 @@ fields:
     singleValue: false
     xpath: //div[contains(@class,'descr__techicalBrand__item')][1]//span/a/text()
   - name: variants
-    singleValue: false  
+    singleValue: false
     xpath: //select[@id="modelModeSelector_page"]//option//@value
     #regExp: ([0-9]+)
   - name: _url
-    singleValue: false  
+    singleValue: false
     xpath: //meta[contains(@property,"og:url")]/@content
   - name: promotion
     singleValue: false
@@ -140,9 +140,21 @@ fields:
     singleValue:  false
     xpath: //meta[contains(@itemprop,"sku")]/@content
     # //div[contains(@class,'catalog__displayedItem__storeCode')]
-    # regExp: ([0-9]+) 
+    # regExp: ([0-9]+)
   - name: storage
     singleValue:  false
     xpath:   //div[contains(@class,'oldContent')]//p//span[contains(text(),'хранения')]/text()/following::br[1]
   - name: additionalDescBulletInfo
-    xpath: //div[@class="descriptionText_cover richcontent__cover"]//ul 
+    xpath: //div[@class="descriptionText_cover richcontent__cover"]//ul
+  - name: inTheBoxUrl
+    singleValue: false
+    description: Must include image url to show the accessories/tools which come with the product
+  - name: inTheBoxText
+    singleValue: false
+    description: Must include text to show the accessories/tools which come with the product
+    xpath: //div[contains(@class,'list__checkPassedHere')]
+  - name: unInterruptedPDP
+    singleValue: false
+    description: Titles of products in the sections 'you may also like' or 'sponsored products'. Combine results from Max 3 sections
+    #xpath: //div[contains(@class,'indexGoods__item')]/text()
+    xpath: //a[contains(@class,'indexGoods__item__name')]//text()
