@@ -176,7 +176,7 @@ fields:
   - name: name
     singleValue: true
     description: The product name
-    xpath: //div[contains(@class,"product-name")]
+    xpath: //h1[@class="content-header__title-text"]
   - name: inStorePrice #missing
     singleValue: true
     description: Price in the selected store
