@@ -17,6 +17,7 @@ module.exports = {
     const { productDetails } = dependencies;
     await context.evaluate(async () => {
       while (!!document.querySelector('#ahl-product-list-app > div > div >button')) {
+        // @ts-ignore
         document.querySelector('#ahl-product-list-app > div > div >button').click()
         await new Promise(r => setTimeout(r, 6000));
         function addElementToDocument(key, value) {
@@ -53,7 +54,7 @@ module.exports = {
         }
         return result;
       };     
-      var rating = getAllXpath("//*[contains(@class,'MuiCardContent-root')]//div/div//span[1]/text()");
+      var rating = getAllXpath("//*[contains(@class,'MuiCardContent-root')]//div/div//span[contains(text(),'kr')][1]/text()");
       for (let index = 0; index < rating.length; index++) {        
         if (rating[index].includes(":")) {
           var temp = rating[index].replace(":", ".");
@@ -62,7 +63,7 @@ module.exports = {
         } else {
           temp = rating[index].replace(":-", ".");
         }           
-        addHiddenDivPrice('altImage2', temp, index);
+        addHiddenDivPrice('price', temp, index);
       }
 
     });
