@@ -6,7 +6,7 @@ module.exports = {
     prefix: null,
     suffix: null,
     subdomain: null,
-    url: null,
+    url: 'https://fd5-courses.leclercdrive.fr/magasin-069401-Vitry-sur-Seine.aspx',
     country: 'FR',
     store: 'leclercdrive',
     zipcode: '',
