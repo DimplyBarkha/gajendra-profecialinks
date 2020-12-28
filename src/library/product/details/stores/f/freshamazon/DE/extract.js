@@ -152,6 +152,69 @@ module.exports = {
       } catch (error) {
 
       }
+      try {
+        const brand = getAllXpath("//table[@id='productDetails_techSpec_section_1']/tbody/tr/th[contains(text(),'Marke')]/following-sibling::td/text() | //span[@class='a-size-base a-text-bold' and contains(text(),'Marke')]/parent::td/following-sibling::td/span/text() | //div[@class='a-section a-spacing-none' and contains(text(),'Marke')]/text() | //div[@class='a-section a-spacing-none']/a[contains(text(),'Marke')]/text()", 'nodeValue');
+        let brandFinal = brand[0].replace('Marke:', '');
+        addElementToDocument('brandFinal', brandFinal);
+      } catch (error) {
+
+      }
+      try {
+        const fat = getAllXpath("//*[normalize-space(text()) = 'Fett']/following-sibling::td/text()", 'nodeValue');
+        addElementToDocument('fatFinal', fat);
+        let fatFinal = fat[0].replace(/[^\w\s]/gi, '');
+        fatFinal = fatFinal.replace(/[0-9]/g, '');
+        addElementToDocument('fatFinalUOM', fatFinal);
+      } catch (error) {
+
+      }
+      try {
+        const carb = getAllXpath("//*[contains(text(),'Kohlenhydrate')]/following-sibling::td/text()", 'nodeValue');
+        addElementToDocument('carbFinal', carb);
+        let carbFinal = carb[0].replace(/[^\w\s]/gi, '');
+        carbFinal = carbFinal.replace(/[0-9]/g, '');
+        addElementToDocument('carbFinalUOM', carbFinal);
+      } catch (error) {
+
+      }
+      try {
+        const sugar = getAllXpath("//*[contains(text(),'Zucker')]/following-sibling::td/text()", 'nodeValue');
+        addElementToDocument('sugarFinal', sugar);
+        let sugarFinal = sugar[0].replace(/[^\w\s]/gi, '');
+        sugarFinal = sugarFinal.replace(/[0-9]/g, '');
+        addElementToDocument('sugarFinalUOM', sugarFinal);
+      } catch (error) {
+
+      }
+      try {
+        const protien = getAllXpath("//*[contains(text(),'Eiweiß')]/following-sibling::td/text()", 'nodeValue');
+        addElementToDocument('protienFinal', protien);
+        let protienFinal = protien[0].replace(/[^\w\s]/gi, '');
+        protienFinal = protienFinal.replace(/[0-9]/g, '');
+        addElementToDocument('protienFinalUOM', protienFinal);
+      } catch (error) {
+
+      }
+      try {
+        const altImages = getAllXpath("//div[@id='imageBlock']/following-sibling::script[contains(text(),'data')]/text()", 'nodeValue');
+        let altImagesFInal = altImages[0].split('colorImages\': { \'initial\': ')[1].split('}]')[0] + '}]';
+        altImagesFInal = JSON.parse(altImagesFInal);
+        for (let i = 1; i < altImagesFInal.length; i++) {
+          // @ts-ignore
+          addElementToDocument('altImagesFInal', altImagesFInal[i].hiRes);
+        }
+      } catch (error) {
+
+      }
+      try {
+        const salt = getAllXpath("//*[contains(text(),'Salz')]/following-sibling::td/text()", 'nodeValue');
+        addElementToDocument('saltFinal', salt);
+        let saltFinal = salt[0].replace(/[^\w\s]/gi, '');
+        saltFinal = saltFinal.replace(/[0-9]/g, '');
+        addElementToDocument('saltFinalUOM', saltFinal);
+      } catch (error) {
+
+      }
     });
     return await context.extract(productDetails, { transform });
   },

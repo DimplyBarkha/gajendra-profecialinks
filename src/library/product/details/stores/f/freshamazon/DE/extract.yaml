@@ -11,7 +11,7 @@ fields:
     xpath: //div[@id="imgTagWrapperId"]/img/@alt
   - name: alternateImages
     singleValue: false
-    xpath: //li[contains(@class,'imageThumbnail ')]/span/span[not(contains(@class,'selected'))]/span/span/img/@src
+    xpath: //html//div[@id='altImagesFInal']
   - name: metaKeywords
     singleValue: true
     xpath: //meta[@name="keywords"]/@content
@@ -39,13 +39,10 @@ fields:
     type: NUMBER
   - name: brandText
     singleValue: true
-    xpath: //div[@class="a-section a-spacing-none"]/a
+    xpath: //html//div[@id='brandFinal']
   - name: quantity
     singleValue: true
     xpath: //label[contains(text(),'Größe')]/following-sibling::span[@class="selection"] | //label[contains(text(),'Größe')]/parent::div/following-sibling::span/span/select/option[@class="dropdownAvailable"]
-  - name: directions
-    singleValue: true
-    xpath: //div[contains(@class,"a-section content")]//h4[contains(text(),'Gebrauchsanweisung')]/parent::div/*[not(self::h4)]
   - name: warnings
     singleValue: true
     xpath: //div[contains(@class,"a-section content")]//h4[contains(text(),'Warnhinweise')]/parent::div/*[not(self::h4)]
@@ -58,7 +55,7 @@ fields:
     xpath: //html//div[@id='finalratingNumber']
   - name: shippingInfo
     singleValue: true
-    xpath: //span[@class="a-size-medium a-color-success"]
+    xpath: //div[@id="fresh-merchant-info"]
   - name: manufacturerDescription
     singleValue: false
     xpath: //html//div[@id='manufacturerDescription']
@@ -117,3 +114,60 @@ fields:
   - name: imageZoomFeaturePresent
     singleValue: true
     defaultValue: Yes
+  - name: manufacturer
+    singleValue: true
+    xpath: //table[@id="productDetails_techSpec_section_1"]/tbody/tr/th[normalize-space(text()) = 'Hersteller']/following-sibling::td | //div[@id="detailBullets_feature_div"]/ul/li/span/span[normalize-space(text()) = 'Hersteller :']/following-sibling::span
+  - name: mpc
+    singleValue: true
+    xpath: //*[contains(text(),'Modellnummer')]/following-sibling::td | //span[@class="a-text-bold" and contains(text(),'Modellnummer')]/following-sibling::span
+  - name: weightNet
+    singleValue: true
+    xpath: //*[contains(text(),'Netto-Gewicht')]/following-sibling::td | //*[contains(text(),'Item Weight')]/following-sibling::td
+  - name: weightGross
+    singleValue: true
+    xpath: //*[contains(text(),'Package Weight')]/following-sibling::td
+  - name: totalFatPerServing
+    singleValue: true
+    xpath: //html//div[@id='fatFinal']
+  - name: totalFatPerServingUom
+    singleValue: true
+    xpath: //html//div[@id='fatFinalUOM']
+  - name: totalCarbPerServing
+    singleValue: true
+    xpath: //html//div[@id='carbFinal']
+  - name: totalCarbPerServingUom
+    singleValue: true
+    xpath: //html//div[@id='carbFinalUOM']
+  - name: totalSugarsPerServing
+    singleValue: true
+    xpath: //html//div[@id='sugarFinal']
+  - name: totalSugarsPerServingUom
+    singleValue: true
+    xpath: //html//div[@id='sugarFinalUOM']
+  - name: proteinPerServing
+    singleValue: true
+    xpath: //html//div[@id='protienFinal']
+  - name: proteinPerServingUom
+    singleValue: true
+    xpath: //html//div[@id='protienFinalUOM']
+  - name: storage
+    singleValue: true
+    xpath: //*[contains(text(),'Aufbewahrung')]/following-sibling::td
+  - name: saltPerServing
+    singleValue: true
+    xpath: //html//div[@id='saltFinal']
+  - name: saltPerServingUom
+    singleValue: true
+    xpath: //html//div[@id='saltFinalUOM']
+  - name: variantCount
+    singleValue: true
+    defaultValue: '0'
+  - name: countryOfOrigin
+    singleValue: true
+    xpath: //*[contains(text(),'Ursprungsland')]/following-sibling::td
+  - name: ingredientImagePresent
+    singleValue: true
+    regExp: (.+)
+    regExpReplace: Yes
+    defaultValue: No
+    xpath: //h3[contains(text(),'Zutaten')]
