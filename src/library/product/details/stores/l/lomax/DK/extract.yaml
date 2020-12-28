@@ -23,12 +23,9 @@ fields:
   - name: nameExtended
     singleValue: true
     xpath: //meta[@itemprop="description"]/@content  
-  - name: listPrice
-    singleValue: true
-    xpath: //meta[@property="product:pretax_price:amount"]/@content
   - name: price
     singleValue: true
-    xpath: //meta[@property="product:price:amount"]/@content
+    xpath: //div[@class="text-right price-container"]/span/text()
   - name: availabilityText
     singleValue: true
     xpath: //div[@class="container productcard"]/@data-gtm-stock-status  
@@ -81,6 +78,7 @@ fields:
   - name: aggregateRating
     singleValue: true
     xpath: //div[@class="container productcard"]/@data-gtm-rating
+    type: NUMBER
   - name: shippingInfo
     singleValue: true
   - name: shippingDimensions
