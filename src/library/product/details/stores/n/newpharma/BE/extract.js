@@ -11,6 +11,7 @@ module.exports = {
     zipcode: "''",
   },
   implementation: async ({ inputString }, { transform }, context, { productDetails }) => {
+    await new Promise(resolve => setTimeout(resolve, 3000));
     await context.evaluate(async () => {
       const addElementToDocument = (key, value) => {
         const catElement = document.createElement('div');
@@ -33,27 +34,65 @@ module.exports = {
         return document.evaluate(xp, document, null, XPathResult.STRING_TYPE, null).stringValue.trim();
       }
 
-      function searchDescription (description, header, nextHeader) {
-        const re = new RegExp(`${header}(.+)${nextHeader}`);
-        if (description.match(re)) return description.match(re)[1];
+      function searchDescription (description, header) {
+        const descriptionSplit = description.split('^');
+        const match = descriptionSplit.find(el => el.includes(header));
+        if (match) return match.split(header)[1];
         return '';
       }
 
-      function extractParagraph (header) {
-        const description = getTextByXpath('(//div[contains(@class,"text-description-content")]/div)[1]');
-        let nextHeader = getTextByXpath(`//*[contains(.,"${header}")]/following-sibling::strong[1]`);
-        if (!nextHeader.match(/\w+/)) nextHeader = '';
-        return searchDescription(description, header, nextHeader).replace(/\s:/g, '').trim();
+      function extractParagraph (headerText, description, headers) {
+        let result = '';
+        const headerMatches = headers.filter(el => el.includes(headerText));
+        for (let i = 0; i < headerMatches.length; i++) {
+          const header = headerMatches[i];
+          if (result) result += ' ';
+          result += searchDescription(description, header).replace(/\s:/g, '').trim();
+        }
+        return result;
+      }
+      if (document.querySelector('#js-cookie-policy-popup')) {
+        document.querySelector('#js-cookie-policy-popup').remove();
+        await new Promise(resolve => setTimeout(resolve, 3000));
       }
 
       const data = {};
+      // @ts-ignore
+      data.manufacturerDescription = [...document.querySelectorAll('div[class=text-description] > div.text-description-content')].map(el => el.innerText).join(' ');
+      const descHeaders = document.querySelectorAll('div.text-description-content strong');
+      const headersArr = [];
+      let lastHeader;
+      for (let i = 0; i < descHeaders.length; i++) {
+        const header = descHeaders[i];
+        if (lastHeader) header.textContent = lastHeader + header.textContent;
+        if (!header.textContent.includes(':')) {
+          lastHeader = header.textContent;
+          header.textContent = '';
+        } else {
+          headersArr.push(`#${header.textContent}#`);
+          header.textContent = `^#${header.textContent}#`;
+          lastHeader = '';
+        }
+      }
+      // @ts-ignore
+      const description = [...document.querySelectorAll('div[class=text-description] > div.text-description-content')].map(el => el.innerText).join(' ');
+      data.color = description.match(/Teinte\s?:\s?(\w+)/) ? description.match(/Teinte\s?:\s?(\w+)/)[1] : '';
+      if (!data.color) {
+        const color = getTextByXpath('//div[@class="text-description-content"]/div//text()[contains(.,"Couleur")]');
+        if (color) data.color = data.color.match(/Couleur (.+)/)[1];
+      }
       data.url = window.location.href;
       data.brandLink = document.querySelector('div.subtitle-brand > a')
         ? `https://www.newpharma.be${document.querySelector('div.subtitle-brand > a').getAttribute('href')}` : '';
-      data.quantity = extractParagraph('Présentation');
-      data.directions = extractParagraph('Conseils d’utilisation');
-      data.warnings = extractParagraph('Précautions');
-      data.ingredients = extractParagraph('Ingrédients');
+      data.quantity = extractParagraph('Présentation', description, headersArr);
+      data.directions = extractParagraph('Conseils d’utilisation', description, headersArr);
+      data.warnings = extractParagraph('Précautions', description, headersArr);
+      data.ingredients = extractParagraph('Ingrédients', description, headersArr);
+      if (document.querySelector('div.c-price__unit span')) {
+        data.pricePer = document.querySelector('div.c-price__unit span').textContent;
+        data.pricePerUnit = document.querySelector('div.c-price__unit').textContent.match((/\/\s?(.+)\)/))
+          ? document.querySelector('div.c-price__unit').textContent.match((/\/\s?(.+)\)/))[1] : '';
+      }
       appendData(data);
     });
     await context.extract(productDetails, { transform });

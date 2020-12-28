@@ -2,113 +2,117 @@ input:
   id: 628506
   _url: http://newpharma.be
 extractions:
-  - html: https://workbench.import.io/html/run=2e130244-45ad-47c5-b0ae-46a811a48687/task=4ec31a87-4f99-4b08-8cca-5668fd698c65/aeb29336-5592-4e79-b069-30380a4a5cea.html
+  - html: https://workbench.import.io/html/run=fa77063d-3c26-4e18-9728-cba3d070e881/task=df1e2fc3-1e1c-4acf-a3c6-b671e6a697db/599bf8f4-be0d-44d2-a1ab-d06bc3c24d5e.html
     extractionConfigId: product/details/stores/n/newpharma/BE/extract
     data:
       - group:
           - productUrl:
               - text: https://www.newpharma.be/pharmacie/cerave/628506/cerave-lait-hydratant-peaux-seches-a-tres-seches-flacon-pompe-473ml.html
-                xpath: /html/body/div[12]
+                xpath: /html/body/div[13]
             image:
               - text: https://img.newpharma.net/images/products/fr/500/cerave-lait-hydratant-peaux-seches-a-tres-seches-flacon-pompe-473ml.2000.jpg
-                xpath: /html/body/div[6]/div[1]/div[1]/div[2]/div[1]/a[1]/img[1]/@src
+                xpath: /html/body/div[7]/div[1]/div[1]/div[2]/div[1]/a[1]/img[1]/@src
             imageAlt:
               - text: Cerave Lait Hydratant Peaux Sèches À Très Sèches Flacon Pompe 473ml
-                xpath: /html/body/div[6]/div[1]/div[1]/div[2]/div[1]/a[1]/img[1]/@alt
+                xpath: /html/body/div[7]/div[1]/div[1]/div[2]/div[1]/a[1]/img[1]/@alt
             category:
               - text: Accueil
-                xpath: /html/body/div[3]/div[1]/div[1]/ul[1]/li[1]
+                xpath: /html/body/div[4]/div[1]/div[1]/ul[1]/li[1]
               - text: Beauté - Cosmétiques
-                xpath: /html/body/div[3]/div[1]/div[1]/ul[1]/li[2]
+                xpath: /html/body/div[4]/div[1]/div[1]/ul[1]/li[2]
               - text: Soins du corps
-                xpath: /html/body/div[3]/div[1]/div[1]/ul[1]/li[3]
+                xpath: /html/body/div[4]/div[1]/div[1]/ul[1]/li[3]
               - text: Soins hydratants
-                xpath: /html/body/div[3]/div[1]/div[1]/ul[1]/li[4]
+                xpath: /html/body/div[4]/div[1]/div[1]/ul[1]/li[4]
             nameExtended:
               - text: Cerave Lait Hydratant Peaux Sèches À Très Sèches Flacon Pompe 473ml
-                xpath: /html/body/div[6]/div[1]/div[1]/div[1]/h1[1]
+                xpath: /html/body/div[7]/div[1]/div[1]/div[1]/h1[1]
             listPrice:
               - text: 15,95
-                xpath: /html/body/div[6]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]
+                xpath: /html/body/div[7]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]
             price:
-              - text: 11,50
-                xpath: /html/body/div[6]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[2]/div[1]/div[2]
+              - text: 12,29
+                xpath: /html/body/div[7]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[2]/div[1]/div[2]
             availabilityText:
               - text: En stock !
-                xpath: /html/body/div[6]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[3]/div[1]/form[1]/div[1]/div[1]
+                xpath: /html/body/div[7]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[3]/div[1]/form[1]/div[1]/div[1]
             description:
               - text: Hydrate efficacement tout en aidant à restaurer la barrière protectrice de
                   la peau.
-                xpath: /html/body/div[6]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[1]
-            manufacturer:
+                xpath: /html/body/div[7]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[1]
+            brandText:
               - text: CeraVe
-                xpath: /html/body/div[6]/div[1]/div[1]/div[1]/div[1]/a[1]
+                xpath: /html/body/div[7]/div[1]/div[1]/div[1]/div[1]/a[1]
             quantity:
               - text: Flacon pompe 473 ml
-                xpath: /html/body/div[14]
+                xpath: /html/body/div[15]
             weightNet:
               - text: 533 gr
-                xpath: /html/body/div[6]/div[1]/div[1]/div[4]/div[2]/div[1]/div[2]/div[2]/table[1]/tbody[1]/tr[5]/td[1]
+                xpath: /html/body/div[7]/div[1]/div[1]/div[4]/div[2]/div[1]/div[2]/div[2]/table[1]/tbody[1]/tr[5]/td[1]
             sku:
               - text: "628506"
-                xpath: /html/body/div[6]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[3]/@data-productid
+                xpath: /html/body/div[7]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[3]/@data-productid
+            mpc:
+              - text: "628506"
+                xpath: /html/body/div[7]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[3]/@data-productid
             directions:
               - text: Appliquer aussi souvent que nécessaire.
-                xpath: /html/body/div[15]
+                xpath: /html/body/div[16]
             ratingCount:
-              - text: "15"
-                xpath: /html/body/div[6]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/a[1]
+              - text: "17"
+                xpath: /html/body/div[7]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/a[1]
             aggregateRating:
               - text: 4,7
-                xpath: /html/body/div[6]/div[1]/div[1]/div[4]/div[2]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]
+                xpath: /html/body/div[7]/div[1]/div[1]/div[4]/div[2]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]
             shippingInfo:
               - text: Commandé avant 16h, livré chez vous demain ou en 24h en point relais
-                xpath: /html/body/div[6]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[3]/div[3]
+                xpath: /html/body/div[7]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[3]/div[3]
             manufacturerDescription:
-              - text: >-
-                  Propriétés :
-                   Développé par des dermatologues, le Lait Hydratant Cerave hydrate efficacement tout en aidant à restaurer la barrière protectrice de la peau.
-                   Ce Lait est léger et non gras.
-                   Aux 3 céramides essentiels et à l'acide hyaluronique, assure une hydratation toute la journée après une seule application, sans résidus gras.
-                   Formule sans parfum, convient aux peaux sensibles.
-                   Teste sous contrôle dermatologique
-                   
-                   Bénéfices clés :
-                   - 3 céramides essentiels - tous les produits Cerave contiennent les 3 céramides essentiels (1, 3 et 6-II) dont une peau saine a besoin pour restaurer et maintenir sa barrière protectrice naturelle.
-                   - Technologie de diffusion MVE - libération contrôlée d'actifs pour une hydratation toute la journée
-                   - Acide hyaluronique - pour maintenir l'hydratation de la peau
-                   - Formule non comédogène - n’obstrue pas les pores.
-                   - Formule légère - texture agréable sur la peau
-
-                   
-                  Saviez-vous que Cerave avait gagné le prix « Best Budget » aux Belgian Beauty Awards ?
-                   Indications :
-                   - Peaux sèches à très sèches
-                   - Peaux normales à sèches
-                   - Peaux sensibles
-                   - Adultes et enfants
-                   
-                   Ingrédients :
-                   Aqua/ water, glycerin, caprylic/ capric triglyceride, cetearyl alcohol, cetyl alcohol, dimethicone, phenoxyethanol, polysorbate 20, ceteareth-20, behentrimonium methosulfate, polyglyceryl-3 diisostearate, sodium lauroyl lactylate, ethylhexylglycerin, potassium phosphate, disodium EDTA, dipotassium phosphate, ceramide NP, ceramide AP, phytosphingosine, cholesterol, xanthan gum, carbomer, sodium hyaluronate, tocopherol, ceramide EOP
-                   
-                   Conseils d’utilisation :
-                   Appliquer aussi souvent que nécessaire.
-                   
-                   Présentation :
-                   Flacon pompe 473 ml
-                xpath: /html/body/div[6]/div[1]/div[1]/div[4]/div[2]/div[1]/div[2]/div[1]
+              - text: "Cerave Lait Hydratant Peaux Sèches À Très Sèches Flacon Pompe 473ml
+                  Propriétés : Développé par des dermatologues, le Lait
+                  Hydratant Cerave hydrate efficacement tout en aidant à
+                  restaurer la barrière protectrice de la peau. Ce Lait est
+                  léger et non gras. Aux 3 céramides essentiels et à l'acide
+                  hyaluronique, assure une hydratation toute la journée après
+                  une seule application, sans résidus gras. Formule sans parfum,
+                  convient aux peaux sensibles. Teste sous contrôle
+                  dermatologique Bénéfices clés : - 3 céramides essentiels -
+                  tous les produits Cerave contiennent les 3 céramides
+                  essentiels (1, 3 et 6-II) dont une peau saine a besoin pour
+                  restaurer et maintenir sa barrière protectrice naturelle. -
+                  Technologie de diffusion MVE - libération contrôlée d'actifs
+                  pour une hydratation toute la journée - Acide hyaluronique -
+                  pour maintenir l'hydratation de la peau - Formule non
+                  comédogène - n’obstrue pas les pores. - Formule légère -
+                  texture agréable sur la peau Saviez-vous que Cerave avait
+                  gagné le prix « Best Budget » aux Belgian Beauty Awards ?
+                  Indications : - Peaux sèches à très sèches - Peaux normales à
+                  sèches - Peaux sensibles - Adultes et enfants Ingrédients :
+                  Aqua/ water, glycerin, caprylic/ capric triglyceride, cetearyl
+                  alcohol, cetyl alcohol, dimethicone, phenoxyethanol,
+                  polysorbate 20, ceteareth-20, behentrimonium methosulfate,
+                  polyglyceryl-3 diisostearate, sodium lauroyl lactylate,
+                  ethylhexylglycerin, potassium phosphate, disodium EDTA,
+                  dipotassium phosphate, ceramide NP, ceramide AP,
+                  phytosphingosine, cholesterol, xanthan gum, carbomer, sodium
+                  hyaluronate, tocopherol, ceramide EOP Conseils d’utilisation :
+                  Appliquer aussi souvent que nécessaire. Présentation : Flacon
+                  pompe 473 ml Caractéristiques : Marque CeraVe Catégorie Soins
+                  hydratants pour le corps Prix 12,29 Avis 4.7/5 (17 avis) Poids
+                  533 gr"
+                xpath: /html/body/div[11]
             manufacturerImages:
               - text: https://img.newpharma.net/img/notices/belgian-beauty-award.jpg
-                xpath: /html/body/div[6]/div[1]/div[1]/div[4]/div[2]/div[1]/div[2]/div[1]/img[1]/@src
+                xpath: /html/body/div[7]/div[1]/div[1]/div[4]/div[2]/div[1]/div[2]/div[1]/img[1]/@src
             videos:
               - text: https://www.youtube.com/embed/KYkFtfgV9_o?rel=0
-                xpath: /html/body/div[6]/div[1]/div[1]/div[4]/div[2]/div[1]/div[2]/div[1]/iframe[1]/@src
+                xpath: /html/body/div[7]/div[1]/div[1]/div[4]/div[2]/div[1]/div[2]/div[1]/iframe[1]/@src
             name:
               - text: Cerave Lait Hydratant Peaux Sèches À Très Sèches Flacon Pompe 473ml
-                xpath: /html/body/div[6]/div[1]/div[1]/div[1]/h1[1]
+                xpath: /html/body/div[7]/div[1]/div[1]/div[1]/h1[1]
             brandLink:
               - text: https://www.newpharma.be/pharmacie/brands/cerave/04795.html
-                xpath: /html/body/div[13]
+                xpath: /html/body/div[14]
             ingredientsList:
               - text: Aqua/ water, glycerin, caprylic/ capric triglyceride, cetearyl alcohol,
                   cetyl alcohol, dimethicone, phenoxyethanol, polysorbate 20,
@@ -118,8 +122,15 @@ extractions:
                   ceramide NP, ceramide AP, phytosphingosine, cholesterol,
                   xanthan gum, carbomer, sodium hyaluronate, tocopherol,
                   ceramide EOP
-                xpath: /html/body/div[17]
+                xpath: /html/body/div[18]
+            pricePerUnit:
+              - text: 2,60
+                xpath: /html/body/div[19]
+            pricePerUnitUom:
+              - text: 100 ml
+                xpath: /html/body/div[20]
             imageZoomFeaturePresent:
-              - text: "true"
+              - text: Yes
+                xpath: /html/body/div[7]/div[1]/div[1]/div[2]/div[1]/a[2]/@class
         xpath: /
-    timestamp: 1607078015106
+    timestamp: 1609162232295

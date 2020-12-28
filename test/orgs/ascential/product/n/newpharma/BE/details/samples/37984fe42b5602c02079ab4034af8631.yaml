@@ -2,75 +2,119 @@ input:
   id: 188302
   _url: http://newpharma.be
 extractions:
-  - html: https://workbench.import.io/html/run=2e130244-45ad-47c5-b0ae-46a811a48687/task=f2d18477-8b1d-48c4-b8c9-6a4cdabc0d60/0c12f627-be78-4b77-95b0-fd1f2c0d420f.html
+  - html: https://workbench.import.io/html/run=fa77063d-3c26-4e18-9728-cba3d070e881/task=a78291bf-9c9e-44cc-acdc-ce10372f7a47/ea5cc208-53c0-4a5e-bf48-fd4b6aad08e5.html
     extractionConfigId: product/details/stores/n/newpharma/BE/extract
     data:
       - group:
           - productUrl:
               - text: https://www.newpharma.be/pharmacie/gaviscon/188302/gaviscon-menthe-suspension-buvable-500ml.html
-                xpath: /html/body/div[11]
+                xpath: /html/body/div[12]
             image:
               - text: https://img.newpharma.net/images/products/fr/500/gaviscon-menthe-suspension-buvable-500ml.2002.jpg
-                xpath: /html/body/div[5]/div[1]/div[1]/div[2]/div[1]/a[1]/img[1]/@src
+                xpath: /html/body/div[6]/div[1]/div[1]/div[2]/div[1]/a[1]/img[1]/@src
             imageAlt:
               - text: Gaviscon Menthe Suspension Buvable 500ml
-                xpath: /html/body/div[5]/div[1]/div[1]/div[2]/div[1]/a[1]/img[1]/@alt
+                xpath: /html/body/div[6]/div[1]/div[1]/div[2]/div[1]/a[1]/img[1]/@alt
             category:
               - text: Accueil
-                xpath: /html/body/div[2]/div[1]/div[1]/ul[1]/li[1]
+                xpath: /html/body/div[3]/div[1]/div[1]/ul[1]/li[1]
               - text: Médicaments (sans prescription)
-                xpath: /html/body/div[2]/div[1]/div[1]/ul[1]/li[2]
+                xpath: /html/body/div[3]/div[1]/div[1]/ul[1]/li[2]
               - text: Acidité gastrique - Digestion
-                xpath: /html/body/div[2]/div[1]/div[1]/ul[1]/li[3]
+                xpath: /html/body/div[3]/div[1]/div[1]/ul[1]/li[3]
               - text: Liquides
-                xpath: /html/body/div[2]/div[1]/div[1]/ul[1]/li[4]
+                xpath: /html/body/div[3]/div[1]/div[1]/ul[1]/li[4]
             nameExtended:
               - text: Gaviscon Menthe Suspension Buvable 500ml
-                xpath: /html/body/div[5]/div[1]/div[1]/div[1]/h1[1]
+                xpath: /html/body/div[6]/div[1]/div[1]/div[1]/h1[1]
             price:
               - text: 13,44
-                xpath: /html/body/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]
-            availabilityText:
-              - text: En stock !
-                xpath: /html/body/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[2]/div[1]/form[1]/div[1]/div[1]
-            manufacturer:
+                xpath: /html/body/div[6]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]
+            brandText:
               - text: Gaviscon
-                xpath: /html/body/div[5]/div[1]/div[1]/div[1]/div[1]/a[1]
+                xpath: /html/body/div[6]/div[1]/div[1]/div[1]/div[1]/a[1]
             weightNet:
               - text: 846 gr
-                xpath: /html/body/div[5]/div[1]/div[1]/div[4]/div[2]/div[1]/div[2]/div[2]/table[1]/tbody[1]/tr[4]/td[1]
+                xpath: /html/body/div[6]/div[1]/div[1]/div[4]/div[2]/div[1]/div[2]/div[2]/table[1]/tbody[1]/tr[4]/td[1]
             sku:
               - text: "188302"
-                xpath: /html/body/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[2]/@data-productid
+                xpath: /html/body/div[6]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[2]/@data-productid
+            mpc:
+              - text: "188302"
+                xpath: /html/body/div[6]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[2]/@data-productid
+            warnings:
+              - text: En cas de régime désodé strict, comme lors de certaines pathologies
+                  rénales et cardiovasculaires, il faut tenir compte de la
+                  présence de sodium qui est de 145 mg (6,3 mmol)/10 ml. La
+                  prise de suspension sera évitée. Chez les enfants, en raison
+                  de la teneur en sodium élevée de la suspension buvable, il est
+                  important de respecter la posologie recommandée. Une dose de
+                  10 ml de suspension buvable contient 160 mg de carbonate de
+                  calcium. La prudence est de rigueur lors du traitement de
+                  patients qui souffrent d'hypercalcémie, de néphrocalcinose et
+                  de calculs rénaux récurrents contenant du calcium. Une
+                  efficacité réduite est possible chez les patients dont les
+                  teneurs en acide gastrique sont très faibles. Si les symptômes
+                  ne s'améliorent pas après sept jours, il faut réexaminer la
+                  situation clinique.
+                xpath: /html/body/div[16]
             ratingCount:
               - text: "0"
-                xpath: /html/body/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/a[1]
-            shippingInfo:
-              - text: Commandé avant 16h, livré chez vous demain ou en 24h en point relais
-                xpath: /html/body/div[5]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[2]/div[3]
+                xpath: /html/body/div[6]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/a[1]
             manufacturerDescription:
-              - text: >-
-                  Indications:
-
-                  Traitement des symptômes du reflux gastro-oesophagien tels que la régurgitation acide, les brûlures d'estomac, l'indigestion, qui se produisent lors du reflux du contenu gastrique, par exemple après une intervention chirurgicale gastrique, lors d'une hernie hiatale, pendant la grossesse, ou suite à une oesophagite par reflux.
-                   
-                  Composition:
-
-                  Alginate de sodium 500 mg — Bicarbonate de sodium 267 mg — Carbonate de calcium — Carbomère — Parahydroxybenzoate de méthyle — Parahydroxybenzoate de propyle — Saccharinate de sodium — Essence de menthe — Hydroxyde de sodium — Eau purifiée ad 10 ml.
-                   
-                  Posologie et mode d'emploi: Bien agiter avant l'emploi.
-
-                  Adultes et enfants de plus de 12 ans: 10 à 20 ml (2 à 4 cuillerées à café) après les repas et au coucher.
-
-                  Enfants de moins de 12 ans : 5 à 10 ml après les repas et au coucher. Si on le désire, ces doses peuvent être diluées dans de l'eau, mais il est conseillé de ne pas ajouter plus d'une quantité égale d'eau. Bien mélanger.
-                xpath: /html/body/div[5]/div[1]/div[1]/div[4]/div[2]/div[1]/div[2]/div[1]
+              - text: "Gaviscon Menthe Suspension Buvable 500ml Indications: Traitement des
+                  symptômes du reflux gastro-oesophagien tels que la
+                  régurgitation acide, les brûlures d'estomac, l'indigestion,
+                  qui se produisent lors du reflux du contenu gastrique, par
+                  exemple après une intervention chirurgicale gastrique, lors
+                  d'une hernie hiatale, pendant la grossesse, ou suite à une
+                  oesophagite par reflux. Composition: Alginate de sodium 500 mg
+                  — Bicarbonate de sodium 267 mg — Carbonate de calcium —
+                  Carbomère — Parahydroxybenzoate de méthyle —
+                  Parahydroxybenzoate de propyle — Saccharinate de sodium —
+                  Essence de menthe — Hydroxyde de sodium — Eau purifiée ad 10
+                  ml. Posologie et mode d'emploi: Bien agiter avant l'emploi.
+                  Adultes et enfants de plus de 12 ans: 10 à 20 ml (2 à 4
+                  cuillerées à café) après les repas et au coucher. Enfants de
+                  moins de 12 ans : 5 à 10 ml après les repas et au coucher. Si
+                  on le désire, ces doses peuvent être diluées dans de l'eau,
+                  mais il est conseillé de ne pas ajouter plus d'une quantité
+                  égale d'eau. Bien mélanger. Caractéristiques : Marque Gaviscon
+                  Catégorie Liquides et sirops anti acide et digestion difficile
+                  Prix 13,44 Poids 846 gr Contre-indications: Hypersensibilité à
+                  un des constituants, y compris les esters d'hydroxybenzoate
+                  (parahydroxybenzoates). Précautions particulières: En cas de
+                  régime désodé strict, comme lors de certaines pathologies
+                  rénales et cardiovasculaires, il faut tenir compte de la
+                  présence de sodium qui est de 145 mg (6,3 mmol)/10 ml. La
+                  prise de suspension sera évitée. Chez les enfants, en raison
+                  de la teneur en sodium élevée de la suspension buvable, il est
+                  important de respecter la posologie recommandée. Une dose de
+                  10 ml de suspension buvable contient 160 mg de carbonate de
+                  calcium. La prudence est de rigueur lors du traitement de
+                  patients qui souffrent d'hypercalcémie, de néphrocalcinose et
+                  de calculs rénaux récurrents contenant du calcium. Une
+                  efficacité réduite est possible chez les patients dont les
+                  teneurs en acide gastrique sont très faibles. Si les symptômes
+                  ne s'améliorent pas après sept jours, il faut réexaminer la
+                  situation clinique. Grossesse et lactation: Ce médicament peut
+                  être utilisé tel qu'indiqué en cas de grossesse et
+                  d'allaitement. Effets indésirables: Dans de très rares cas,
+                  les patients sensibles à certains constituants peuvent
+                  présenter des manifestations allergiques telles qu'urticaire
+                  ou bronchospasme. Surdosage: En cas de surdosage, on
+                  administrera un traitement symptomatique. Le patient peut
+                  éprouver un ballonnement abdominal. Interactions: Aucune
+                  interaction médicamenteuse n'est à ce jour connue avec le
+                  Gaviscon."
+                xpath: /html/body/div[10]
             name:
               - text: Gaviscon Menthe Suspension Buvable 500ml
-                xpath: /html/body/div[5]/div[1]/div[1]/div[1]/h1[1]
+                xpath: /html/body/div[6]/div[1]/div[1]/div[1]/h1[1]
             brandLink:
               - text: https://www.newpharma.be/pharmacie/brands/gaviscon/04903.html
-                xpath: /html/body/div[12]
+                xpath: /html/body/div[13]
             imageZoomFeaturePresent:
-              - text: "true"
+              - text: No
         xpath: /
-    timestamp: 1607078010667
+    timestamp: 1609162226124

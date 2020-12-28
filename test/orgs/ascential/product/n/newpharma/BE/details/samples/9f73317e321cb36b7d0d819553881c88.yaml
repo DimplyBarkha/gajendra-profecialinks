@@ -2,124 +2,133 @@ input:
   id: 101167
   _url: http://newpharma.be
 extractions:
-  - html: https://workbench.import.io/html/run=2e130244-45ad-47c5-b0ae-46a811a48687/task=8000dd5b-8cba-4dd5-97bb-a8f9bbea7d05/d980b54e-eb00-4d6a-90ad-9f10b2511895.html
+  - html: https://workbench.import.io/html/run=fa77063d-3c26-4e18-9728-cba3d070e881/task=09e0ac79-f326-49d9-8645-9ca4c829f3ca/7f36f3c9-592b-4ed4-8ff0-aea3c543cfb9.html
     extractionConfigId: product/details/stores/n/newpharma/BE/extract
     data:
       - group:
           - productUrl:
               - text: https://www.newpharma.be/pharmacie/vichy/101167/vichy-capital-soleil-auto-bronzant-lait-hydratant-visage-et-corps-tube-100ml.html
-                xpath: /html/body/div[12]
+                xpath: /html/body/div[13]
             image:
               - text: https://img.newpharma.net/images/products/fr/500/vichy-capital-soleil-auto-bronzant-lait-hydratant-visage-et-corps-tube-100ml.2004.jpg
-                xpath: /html/body/div[6]/div[1]/div[1]/div[2]/div[1]/a[1]/img[1]/@src
+                xpath: /html/body/div[7]/div[1]/div[1]/div[2]/div[1]/a[1]/img[1]/@src
             imageAlt:
               - text: Vichy Capital Soleil Auto Bronzant Lait Hydratant Visage Et Corps Tube
                   100ml
-                xpath: /html/body/div[6]/div[1]/div[1]/div[2]/div[1]/a[1]/img[1]/@alt
+                xpath: /html/body/div[7]/div[1]/div[1]/div[2]/div[1]/a[1]/img[1]/@alt
             category:
               - text: Accueil
-                xpath: /html/body/div[3]/div[1]/div[1]/ul[1]/li[1]
+                xpath: /html/body/div[4]/div[1]/div[1]/ul[1]/li[1]
               - text: Beauté - Cosmétiques
-                xpath: /html/body/div[3]/div[1]/div[1]/ul[1]/li[2]
+                xpath: /html/body/div[4]/div[1]/div[1]/ul[1]/li[2]
               - text: Produits solaires
-                xpath: /html/body/div[3]/div[1]/div[1]/ul[1]/li[3]
+                xpath: /html/body/div[4]/div[1]/div[1]/ul[1]/li[3]
               - text: Autobronzants
-                xpath: /html/body/div[3]/div[1]/div[1]/ul[1]/li[4]
+                xpath: /html/body/div[4]/div[1]/div[1]/ul[1]/li[4]
               - text: Visage
-                xpath: /html/body/div[3]/div[1]/div[1]/ul[1]/li[5]
+                xpath: /html/body/div[4]/div[1]/div[1]/ul[1]/li[5]
             nameExtended:
               - text: Vichy Capital Soleil Auto Bronzant Lait Hydratant Visage Et Corps Tube
                   100ml
-                xpath: /html/body/div[6]/div[1]/div[1]/div[1]/h1[1]
+                xpath: /html/body/div[7]/div[1]/div[1]/div[1]/h1[1]
             listPrice:
               - text: 13,94
-                xpath: /html/body/div[6]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]
+                xpath: /html/body/div[7]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]
             price:
-              - text: 10,45
-                xpath: /html/body/div[6]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[2]/div[1]/div[2]
+              - text: 12,29
+                xpath: /html/body/div[7]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[2]/div[1]/div[2]
             availabilityText:
               - text: En stock !
-                xpath: /html/body/div[6]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[3]/div[1]/form[1]/div[1]/div[1]
+                xpath: /html/body/div[7]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[3]/div[1]/form[1]/div[1]/div[1]
             description:
               - text: Reproduit un bronzage naturel et uniforme dès 1h et hydrate la peau
                   pendant 8h.
-                xpath: /html/body/div[6]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[1]
-            manufacturer:
+                xpath: /html/body/div[7]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[1]
+            brandText:
               - text: Vichy
-                xpath: /html/body/div[6]/div[1]/div[1]/div[1]/div[1]/a[1]
+                xpath: /html/body/div[7]/div[1]/div[1]/div[1]/div[1]/a[1]
             quantity:
               - text: Tube 100 ml
-                xpath: /html/body/div[14]
+                xpath: /html/body/div[15]
             weightNet:
               - text: 131 gr
-                xpath: /html/body/div[6]/div[1]/div[1]/div[4]/div[2]/div[1]/div[2]/div[2]/table[1]/tbody[1]/tr[5]/td[1]
+                xpath: /html/body/div[7]/div[1]/div[1]/div[4]/div[2]/div[1]/div[2]/div[2]/table[1]/tbody[1]/tr[5]/td[1]
             sku:
               - text: "101167"
-                xpath: /html/body/div[6]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[3]/@data-productid
+                xpath: /html/body/div[7]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[3]/@data-productid
+            mpc:
+              - text: "101167"
+                xpath: /html/body/div[7]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[3]/@data-productid
             directions:
               - text: Appliquer 2 à 4 fois par semaine en fonction du résultat souhaité.
                   Appliquer uniformément en estompant à la racine des cheveux,
-                  autour des sourcils, chevilles, genoux et coudes. Précautions
-                  d’emploi Eviter d'appliquer près des yeux. Bien se laver les
-                  mains après utilisation. PrésentationTube 100 ml
-                xpath: /html/body/div[15]
-            warnings:
-              - text: d’emploi Eviter d'appliquer près des yeux. Bien se laver les mains après
-                  utilisation.
+                  autour des sourcils, chevilles, genoux et coudes.
                 xpath: /html/body/div[16]
+            warnings:
+              - text: Eviter d'appliquer près des yeux. Bien se laver les mains après
+                  utilisation.
+                xpath: /html/body/div[17]
             ratingCount:
-              - text: "287"
-                xpath: /html/body/div[6]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/a[1]
+              - text: "289"
+                xpath: /html/body/div[7]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/a[1]
             aggregateRating:
               - text: 4,5
-                xpath: /html/body/div[6]/div[1]/div[1]/div[4]/div[2]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]
+                xpath: /html/body/div[7]/div[1]/div[1]/div[4]/div[2]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]
             shippingInfo:
               - text: Commandé avant 16h, livré chez vous demain ou en 24h en point relais
-                xpath: /html/body/div[6]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[3]/div[3]
+                xpath: /html/body/div[7]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[3]/div[3]
             manufacturerDescription:
-              - text: >-
-                  Propriétés :
-
-                  L’autobronzant Capital Soleil de Vichy est un lait hydratant adapté au visage et au corps. Grâce à sa formule enrichie en DHA et en vitamine E, il vous offre un hâle uniforme et une parfaite hydratation pendant 8 heures. Cet autobronzant est adapté à tous les types de peaux même sensibles. Il pénètre facilement sans laisser de film gras et donne à la peau un toucher velours.
-                   
-                  Idéal Soleil - la protection solaire pour la vie réelle
-
-                  Plusieurs facteurs externes menacent votre protection solaire, c'est pourquoi Vichy propose une gamme solaire pour la vie réelle afin de protéger la peau des dégâts causés par les rayons UVA/ UVB du soleil et de préserver durablement sa vitalité.
-
-                  Les UV peuvent provoquer un vieillissement, des taches sombres, un teint terne et une texture de peau irrégulière.
-                   L'autobronzant naturel, hydratant 8h
-                   Reproduit un bronzage naturel et uniforme dès 1h et hydrate la peau pendant 8h.
-                   Sa formule enrichie en DHC confère à la peau un hâle naturel et uniforme.
-                   La vitamine E préserve la fraîcheur du bronzage.
-                   Sa formule hypoallergénique a été testée sur peaux sensibles sous contrôle dermatologique.
-                   Sa texture fondante laisse un fini velouté qui hydrate votre peau pendant 8h sans aucune sensation de film gras.
-                   Dès la première utilisation, le teint de la peau est rehaussé, sans trace.
-                   Application après application, la peau se pare d'un joli hâle doré qui ne ternit pas et reste rayonnant.
-                   
-                   Indications :
-                   Pour les femmes à la recherche d'un autobronzant naturel et hydratant
-                   
-                   Ingrédients :
-                   Aqua, glycerin, cetearyl alcohol, paraffinum liquidum, dihydroxyacetone, dimethicone, alcohol denat., propylene glycol, butyrospermum parkii butter, cetearyl glucoside, caprylyl glycol, disodium EDTA, isohexadecane, phenoxyethanol, polysorbate 80, salix alba bark extract, sodium polyacryloyldimethyl taurate, sorbitan oleate, tocopherol, tri-C14-15 alkyl citrate, xanthan gum, parfum
-                   
-                   Conseils d’utilisation :
-                   Appliquer 2 à 4 fois par semaine en fonction du résultat souhaité.
-                   Appliquer uniformément en estompant à la racine des cheveux, autour des sourcils, chevilles, genoux et coudes.
-                   
-                   Précautions d’emploi :
-                   Eviter d'appliquer près des yeux.
-                   Bien se laver les mains après utilisation.
-                   
-                   Présentation :
-                  Tube 100 ml
-                xpath: /html/body/div[6]/div[1]/div[1]/div[4]/div[2]/div[1]/div[2]/div[1]
+              - text: "Vichy Capital Soleil Auto Bronzant Lait Hydratant Visage Et Corps Tube
+                  100ml Propriétés : L’autobronzant Capital Soleil de Vichy est
+                  un lait hydratant adapté au visage et au corps. Grâce à sa
+                  formule enrichie en DHA et en vitamine E, il vous offre un
+                  hâle uniforme et une parfaite hydratation pendant 8 heures.
+                  Cet autobronzant est adapté à tous les types de peaux même
+                  sensibles. Il pénètre facilement sans laisser de film gras et
+                  donne à la peau un toucher velours. Idéal Soleil - la
+                  protection solaire pour la vie réelle Plusieurs facteurs
+                  externes menacent votre protection solaire, c'est pourquoi
+                  Vichy propose une gamme solaire pour la vie réelle afin de
+                  protéger la peau des dégâts causés par les rayons UVA/ UVB du
+                  soleil et de préserver durablement sa vitalité. Les UV peuvent
+                  provoquer un vieillissement, des taches sombres, un teint
+                  terne et une texture de peau irrégulière. L'autobronzant
+                  naturel, hydratant 8h Reproduit un bronzage naturel et
+                  uniforme dès 1h et hydrate la peau pendant 8h. Sa formule
+                  enrichie en DHC confère à la peau un hâle naturel et uniforme.
+                  La vitamine E préserve la fraîcheur du bronzage. Sa formule
+                  hypoallergénique a été testée sur peaux sensibles sous
+                  contrôle dermatologique. Sa texture fondante laisse un fini
+                  velouté qui hydrate votre peau pendant 8h sans aucune
+                  sensation de film gras. Dès la première utilisation, le teint
+                  de la peau est rehaussé, sans trace. Application après
+                  application, la peau se pare d'un joli hâle doré qui ne ternit
+                  pas et reste rayonnant. Indications : Pour les femmes à la
+                  recherche d'un autobronzant naturel et hydratant Ingrédients :
+                  Aqua, glycerin, cetearyl alcohol, paraffinum liquidum,
+                  dihydroxyacetone, dimethicone, alcohol denat., propylene
+                  glycol, butyrospermum parkii butter, cetearyl glucoside,
+                  caprylyl glycol, disodium EDTA, isohexadecane, phenoxyethanol,
+                  polysorbate 80, salix alba bark extract, sodium
+                  polyacryloyldimethyl taurate, sorbitan oleate, tocopherol,
+                  tri-C14-15 alkyl citrate, xanthan gum, parfum Conseils
+                  d’utilisation : Appliquer 2 à 4 fois par semaine en fonction
+                  du résultat souhaité. Appliquer uniformément en estompant à la
+                  racine des cheveux, autour des sourcils, chevilles, genoux et
+                  coudes. Précautions d’emploi : Eviter d'appliquer près des
+                  yeux. Bien se laver les mains après utilisation. Présentation
+                  : Tube 100 ml Caractéristiques : Marque Vichy Catégorie
+                  Autobronzants visage, Autobronzants corps, Vichy solaire,
+                  Vichy cheveux, Vichy teint ideal Prix 12,29 Avis 4.5/5 (289
+                  avis) Poids 131 gr"
+                xpath: /html/body/div[11]
             name:
               - text: Vichy Capital Soleil Auto Bronzant Lait Hydratant Visage Et Corps Tube
                   100ml
-                xpath: /html/body/div[6]/div[1]/div[1]/div[1]/h1[1]
+                xpath: /html/body/div[7]/div[1]/div[1]/div[1]/h1[1]
             brandLink:
               - text: https://www.newpharma.be/pharmacie/brands/vichy/04001.html
-                xpath: /html/body/div[13]
+                xpath: /html/body/div[14]
             ingredientsList:
               - text: Aqua, glycerin, cetearyl alcohol, paraffinum liquidum, dihydroxyacetone,
                   dimethicone, alcohol denat., propylene glycol, butyrospermum
@@ -128,8 +137,15 @@ extractions:
                   alba bark extract, sodium polyacryloyldimethyl taurate,
                   sorbitan oleate, tocopherol, tri-C14-15 alkyl citrate, xanthan
                   gum, parfum
-                xpath: /html/body/div[17]
+                xpath: /html/body/div[18]
+            pricePerUnit:
+              - text: 12,29
+                xpath: /html/body/div[19]
+            pricePerUnitUom:
+              - text: 100 ml
+                xpath: /html/body/div[20]
             imageZoomFeaturePresent:
-              - text: "true"
+              - text: Yes
+                xpath: /html/body/div[7]/div[1]/div[1]/div[2]/div[1]/a[2]/@class
         xpath: /
-    timestamp: 1607078011831
+    timestamp: 1609162227259

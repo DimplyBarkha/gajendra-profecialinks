@@ -2,161 +2,158 @@ input:
   id: 479422
   _url: http://newpharma.be
 extractions:
-  - html: https://workbench.import.io/html/run=2e130244-45ad-47c5-b0ae-46a811a48687/task=46c5874f-e75f-4d89-83d1-33c5f522e95a/09ce08e5-8a8f-4cd5-bd67-f26e1b0c036f.html
+  - html: https://workbench.import.io/html/run=fa77063d-3c26-4e18-9728-cba3d070e881/task=b5229a9d-ee45-4307-858a-9054c48d7356/ab5f5103-f4b8-4331-a6e0-5aacb5235385.html
     extractionConfigId: product/details/stores/n/newpharma/BE/extract
     data:
       - group:
           - productUrl:
               - text: https://www.newpharma.be/pharmacie/vichy/479422/vichy-liftactiv-serum-10-yeux-et-cils-flacon-15ml.html
-                xpath: /html/body/div[12]
+                xpath: /html/body/div[13]
             image:
               - text: https://img.newpharma.net/images/products/fr/500/vichy-liftactiv-serum-10-yeux-et-cils-flacon-15ml.2003.jpg
-                xpath: /html/body/div[6]/div[1]/div[1]/div[3]/div[1]/a[1]/img[1]/@src
+                xpath: /html/body/div[7]/div[1]/div[1]/div[2]/div[1]/a[1]/img[1]/@src
             imageAlt:
               - text: Vichy Liftactiv Sérum 10 Yeux Et Cils Flacon 15ml
-                xpath: /html/body/div[6]/div[1]/div[1]/div[3]/div[1]/a[1]/img[1]/@alt
+                xpath: /html/body/div[7]/div[1]/div[1]/div[2]/div[1]/a[1]/img[1]/@alt
             category:
               - text: Accueil
-                xpath: /html/body/div[3]/div[1]/div[1]/ul[1]/li[1]
+                xpath: /html/body/div[4]/div[1]/div[1]/ul[1]/li[1]
               - text: Beauté - Cosmétiques
-                xpath: /html/body/div[3]/div[1]/div[1]/ul[1]/li[2]
+                xpath: /html/body/div[4]/div[1]/div[1]/ul[1]/li[2]
               - text: Soins du visage
-                xpath: /html/body/div[3]/div[1]/div[1]/ul[1]/li[3]
+                xpath: /html/body/div[4]/div[1]/div[1]/ul[1]/li[3]
               - text: Antirides - Anti-âge
-                xpath: /html/body/div[3]/div[1]/div[1]/ul[1]/li[4]
+                xpath: /html/body/div[4]/div[1]/div[1]/ul[1]/li[4]
             nameExtended:
               - text: Vichy Liftactiv Sérum 10 Yeux Et Cils Flacon 15ml
-                xpath: /html/body/div[6]/div[1]/div[1]/div[1]/h1[1]
+                xpath: /html/body/div[7]/div[1]/div[1]/div[1]/h1[1]
             listPrice:
               - text: 31,76
-                xpath: /html/body/div[6]/div[1]/div[1]/div[3]/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]
+                xpath: /html/body/div[7]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]
             price:
-              - text: 21,99
-                xpath: /html/body/div[6]/div[1]/div[1]/div[3]/div[2]/div[1]/div[2]/div[2]/div[1]/div[2]
+              - text: 23,09
+                xpath: /html/body/div[7]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[2]/div[1]/div[2]
             availabilityText:
               - text: En stock !
-                xpath: /html/body/div[6]/div[1]/div[1]/div[3]/div[2]/div[1]/div[2]/div[3]/div[1]/form[1]/div[1]/div[1]
+                xpath: /html/body/div[7]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[3]/div[1]/form[1]/div[1]/div[1]
             description:
               - text: Corrige les rides, illumine le regard et fortifie les cils pour un regard
                   plus grand.
-                xpath: /html/body/div[6]/div[1]/div[1]/div[3]/div[2]/div[1]/div[2]/div[1]
-            manufacturer:
+                xpath: /html/body/div[7]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[1]
+            brandText:
               - text: Vichy
-                xpath: /html/body/div[6]/div[1]/div[1]/div[1]/div[1]/a[1]
+                xpath: /html/body/div[7]/div[1]/div[1]/div[1]/div[1]/a[1]
             quantity:
               - text: Flacon 15 ml
-                xpath: /html/body/div[14]
+                xpath: /html/body/div[15]
             weightNet:
               - text: 34 gr
-                xpath: /html/body/div[6]/div[1]/div[1]/div[5]/div[2]/div[1]/div[2]/div[2]/table[1]/tbody[1]/tr[5]/td[1]
+                xpath: /html/body/div[7]/div[1]/div[1]/div[4]/div[2]/div[1]/div[2]/div[2]/table[1]/tbody[1]/tr[5]/td[1]
             sku:
               - text: "479422"
-                xpath: /html/body/div[6]/div[1]/div[1]/div[3]/div[2]/div[1]/div[2]/div[3]/@data-productid
+                xpath: /html/body/div[7]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[3]/@data-productid
+            mpc:
+              - text: "479422"
+                xpath: /html/body/div[7]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[3]/@data-productid
             directions:
-              - text: Déposez puis étalez une goutte de Sérum sur le bout de vos doigts.Fermez
+              - text: Déposez puis étalez une goutte de Sérum sur le bout de vos doigts. Fermez
                   les yeux puis appliquez en pressions légères sur l’ensemble du
-                  contour de l’oeil.Appliquez par lissages, yeux fermés, sur
+                  contour de l’oeil. Appliquez par lissages, yeux fermés, sur
                   toute la zone du regard du coin interne des yeux au coin
-                  externe y compris les cils.Terminez yeux fermés en plaçant
+                  externe y compris les cils. Terminez yeux fermés en plaçant
                   l’index sous la frange des cils et remontez vers la paupière
                   pour un effet «recourbe cils».
-                xpath: /html/body/div[15]
+                xpath: /html/body/div[16]
             ratingCount:
-              - text: "226"
-                xpath: /html/body/div[6]/div[1]/div[1]/div[3]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/a[1]
+              - text: "228"
+                xpath: /html/body/div[7]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/a[1]
             aggregateRating:
               - text: 4,5
-                xpath: /html/body/div[6]/div[1]/div[1]/div[5]/div[2]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]
+                xpath: /html/body/div[7]/div[1]/div[1]/div[4]/div[2]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]
             shippingInfo:
               - text: Commandé avant 16h, livré chez vous demain ou en 24h en point relais
-                xpath: /html/body/div[6]/div[1]/div[1]/div[3]/div[2]/div[1]/div[2]/div[3]/div[3]
+                xpath: /html/body/div[7]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[3]/div[3]
             manufacturerDescription:
-              - text: >-
-                  Propriétés :
-
-                  Le sérum visage préserve la jeunesse de votre peau. Vichy vous propose une gamme de sérums capables de restructurer la peau de votre visage et d’ouvrir votre regard.
-
-                  La cure désoxydante apporte un effet peau neuve, le sérum puissant répare les peaux fortement déshydratées et les redynamise, Total sérum est un antirides ultra raffermissant. Véritable lisseur de rides, Liftactiv Serum 10 Yeux Et Cils permet de transformer visiblement le regard grâce à son effet lifting et redensifie les cils.
-                   
-                  Donnez à votre peau le pouvoir de combattre les signes du vieillissement cutané.
-
-                  Composé d'actifs dermatologiques naturels puissants, Liftactiv apporte la force nécessaire à votre peau pour combattre progressivement les signes du vieillissement cutané.
-
-                  La jeunesse du regard a son sérum.
-
-                  Un rituel de soin rien que pour vos yeux - appliquer un soin des yeux n'a jamais été aussi facile.
-
-                  Corrige les rides, même profondes, illumine le regard et fortifie les cils pour un regard plus grand.
-
-                  - Rhamnose : après 10 ans de Recherche, Vichy découvre le pouvoir du Derme Source, la couche du derme qui commande à elle seule la régénération de toute la peau.
-
-                  Après un screening de plus de 50 molécules anti-âge, la Recherche Vichy a sélectionné le Rhamnose, un actif d'origine végétale hautement concentré à une dose exceptionnelle de 10% pour cibler le Derme Source. Son efficacité anti-âge a été démontrée grâce à un protocole de tests (test in vitro) inspiré par la recherche médicale et couronnée par 7 brevets.
-
-                  Une avancée majeure contre le vieillissement cutané concentrée dans Sérum 10 Yeux et Cils
-
-                  - Enlumineurs : des nacres fines aux reflets blancs-lumière pour une illumination instantanée du regard, Vichy les a choisies pour leur parfaite innocuité avec la zone fragile du contour de l'œil.
-
-                  - Ceramides : ce sont les constituants naturels des cils jeunes.
-
-                  Vichy a sélectionné des céramides aux propriétés réparatrices et anti-inflammatoires pour une parfaite fortification des cils.
-
-                  Formule hypoallergénique, testée ophtalmologiquement et dermatologiquement sur yeux sensibles
-
-                  Enrichie en Eau Thermale de Vichy, apaisante, et régénérante
-
-                  Texture sérum-lumière fraîche et fondante
-
-                  Efficacité :
-
-                  - Instantanément, les zones d’ombres sont illuminées. En 10 minutes, les rides sont lissées*.
-
-                  - Jour après jour, les cils paraissent plus denses, comme démultipliés à 1 mois**.
-
-                  - En 1 mois, le regard est 42% plus grand***.
-
-                  - Contour yeux visiblement lissé, illumination du regard, les cils sont comme fortifiés****.
-
-                  *Test instrumental sur 42 personnes
-
-                  **Auto-évaluation - 128 femmes - 1 mois
-
-                  ***Test clinique, 41 femmes sous contrôle ophtalmologique, amélioration moyenne du score, après 4 semaines
-
-                  ****Auto-évaluation sur 51 femmes, après 4 semaines
-
-                  Indications :
-
-                  - Pour toutes les femmes, dès 35 ans, qui veulent une transformation visible du regard jusqu'au bout des cils
-
-                  - Aussi pour les yeux sensibles
-
-                  Ingrédients :
-
-                  Aqua, rhamnose, glycerin, alcohol denat., dimethicone, hydroxyethylpiperazine ethane sulfonic acid, PEG-20 methyl glucose sesquistearate, CI 77891, mica, triethanolamine, sodium hyaluronate, salicyloyl phytosphingosine, palmitoyl oligopeptide, palmitoyl tetrapeptide-7, phenoxyethanol, adenosine, ammonium polyacryldimethyltauramide, chlorphenesin, disodium EDTA, xanthan gum, octyldodecanol, acrylates/ C10-30 alkyl acrylate crosspolymer, N-hydroxysuccinimide, chrysin
-
-                  Conseils d’utilisation :
-
-                  Déposez puis étalez une goutte de Sérum sur le bout de vos doigts.
-
-                  Fermez les yeux puis appliquez en pressions légères sur l’ensemble du contour de l’oeil.
-
-                  Appliquez par lissages, yeux fermés, sur toute la zone du regard du coin interne des yeux au coin externe y compris les cils.
-
-                  Terminez yeux fermés en plaçant l’index sous la frange des cils et remontez vers la paupière pour un effet «recourbe cils».
-
-                  Présentation :
-
-                  Flacon 15 ml
-                xpath: /html/body/div[6]/div[1]/div[1]/div[5]/div[2]/div[1]/div[2]/div[1]
+              - text: "Vichy Liftactiv Sérum 10 Yeux Et Cils Flacon 15ml Propriétés : Le sérum
+                  visage préserve la jeunesse de votre peau. Vichy vous propose
+                  une gamme de sérums capables de restructurer la peau de votre
+                  visage et d’ouvrir votre regard. La cure désoxydante apporte
+                  un effet peau neuve, le sérum puissant répare les peaux
+                  fortement déshydratées et les redynamise, Total sérum est un
+                  antirides ultra raffermissant. Véritable lisseur de rides,
+                  Liftactiv Serum 10 Yeux Et Cils permet de transformer
+                  visiblement le regard grâce à son effet lifting et redensifie
+                  les cils. Donnez à votre peau le pouvoir de combattre les
+                  signes du vieillissement cutané. Composé d'actifs
+                  dermatologiques naturels puissants, Liftactiv apporte la force
+                  nécessaire à votre peau pour combattre progressivement les
+                  signes du vieillissement cutané. La jeunesse du regard a son
+                  sérum. Un rituel de soin rien que pour vos yeux - appliquer un
+                  soin des yeux n'a jamais été aussi facile. Corrige les rides,
+                  même profondes, illumine le regard et fortifie les cils pour
+                  un regard plus grand. - Rhamnose : après 10 ans de Recherche,
+                  Vichy découvre le pouvoir du Derme Source, la couche du derme
+                  qui commande à elle seule la régénération de toute la peau.
+                  Après un screening de plus de 50 molécules anti-âge, la
+                  Recherche Vichy a sélectionné le Rhamnose, un actif d'origine
+                  végétale hautement concentré à une dose exceptionnelle de 10%
+                  pour cibler le Derme Source. Son efficacité anti-âge a été
+                  démontrée grâce à un protocole de tests (test in vitro)
+                  inspiré par la recherche médicale et couronnée par 7 brevets.
+                  Une avancée majeure contre le vieillissement cutané concentrée
+                  dans Sérum 10 Yeux et Cils - Enlumineurs : des nacres fines
+                  aux reflets blancs-lumière pour une illumination instantanée
+                  du regard, Vichy les a choisies pour leur parfaite innocuité
+                  avec la zone fragile du contour de l'œil. - Ceramides : ce
+                  sont les constituants naturels des cils jeunes. Vichy a
+                  sélectionné des céramides aux propriétés réparatrices et
+                  anti-inflammatoires pour une parfaite fortification des cils.
+                  Formule hypoallergénique, testée ophtalmologiquement et
+                  dermatologiquement sur yeux sensibles Enrichie en Eau Thermale
+                  de Vichy, apaisante, et régénérante Texture sérum-lumière
+                  fraîche et fondante Efficacité : - Instantanément, les zones
+                  d’ombres sont illuminées. En 10 minutes, les rides sont
+                  lissées*. - Jour après jour, les cils paraissent plus denses,
+                  comme démultipliés à 1 mois**. - En 1 mois, le regard est 42%
+                  plus grand***. - Contour yeux visiblement lissé, illumination
+                  du regard, les cils sont comme fortifiés****. *Test
+                  instrumental sur 42 personnes **Auto-évaluation - 128 femmes -
+                  1 mois ***Test clinique, 41 femmes sous contrôle
+                  ophtalmologique, amélioration moyenne du score, après 4
+                  semaines ****Auto-évaluation sur 51 femmes, après 4 semaines
+                  Indications : - Pour toutes les femmes, dès 35 ans, qui
+                  veulent une transformation visible du regard jusqu'au bout des
+                  cils - Aussi pour les yeux sensibles Ingrédients : Aqua,
+                  rhamnose, glycerin, alcohol denat., dimethicone,
+                  hydroxyethylpiperazine ethane sulfonic acid, PEG-20 methyl
+                  glucose sesquistearate, CI 77891, mica, triethanolamine,
+                  sodium hyaluronate, salicyloyl phytosphingosine, palmitoyl
+                  oligopeptide, palmitoyl tetrapeptide-7, phenoxyethanol,
+                  adenosine, ammonium polyacryldimethyltauramide, chlorphenesin,
+                  disodium EDTA, xanthan gum, octyldodecanol, acrylates/ C10-30
+                  alkyl acrylate crosspolymer, N-hydroxysuccinimide, chrysin
+                  Conseils d’utilisation : Déposez puis étalez une goutte de
+                  Sérum sur le bout de vos doigts. Fermez les yeux puis
+                  appliquez en pressions légères sur l’ensemble du contour de
+                  l’oeil. Appliquez par lissages, yeux fermés, sur toute la zone
+                  du regard du coin interne des yeux au coin externe y compris
+                  les cils. Terminez yeux fermés en plaçant l’index sous la
+                  frange des cils et remontez vers la paupière pour un effet
+                  «recourbe cils». Présentation : Flacon 15 ml Caractéristiques
+                  : Marque Vichy Catégorie Antirides - Anti-âge, Soins du visage
+                  pour seniors - effet lifting, Contour des yeux, Soins des cils
+                  et des sourcils, Sérum Vichy Prix 23,09 Avis 4.5/5 (228 avis)
+                  Poids 34 gr"
+                xpath: /html/body/div[11]
             videos:
               - text: https://www.youtube.com/embed/_pxGi9PgNW4?rel=0
-                xpath: /html/body/div[6]/div[1]/div[1]/div[5]/div[2]/div[1]/div[2]/div[1]/iframe[1]/@src
+                xpath: /html/body/div[7]/div[1]/div[1]/div[4]/div[2]/div[1]/div[2]/div[1]/iframe[1]/@src
             name:
               - text: Vichy Liftactiv Sérum 10 Yeux Et Cils Flacon 15ml
-                xpath: /html/body/div[6]/div[1]/div[1]/div[1]/h1[1]
+                xpath: /html/body/div[7]/div[1]/div[1]/div[1]/h1[1]
             brandLink:
               - text: https://www.newpharma.be/pharmacie/brands/vichy/04001.html
-                xpath: /html/body/div[13]
+                xpath: /html/body/div[14]
             ingredientsList:
               - text: Aqua, rhamnose, glycerin, alcohol denat., dimethicone,
                   hydroxyethylpiperazine ethane sulfonic acid, PEG-20 methyl
@@ -166,13 +163,15 @@ extractions:
                   adenosine, ammonium polyacryldimethyltauramide, chlorphenesin,
                   disodium EDTA, xanthan gum, octyldodecanol, acrylates/ C10-30
                   alkyl acrylate crosspolymer, N-hydroxysuccinimide, chrysin
-                xpath: /html/body/div[17]
-            promotion:
-              - text: "CADEAU : Vichy : GRATUIT 1 Mini Mineral 89 10ml à l'achat d'un soin
-                  visage Vichy (max.1/pers) (ou jusqu’à la fin du stock
-                  promotionnel)"
-                xpath: /html/body/div[6]/div[1]/div[1]/div[2]/div[2]
+                xpath: /html/body/div[18]
+            pricePerUnit:
+              - text: 15,39
+                xpath: /html/body/div[19]
+            pricePerUnitUom:
+              - text: 10 ml
+                xpath: /html/body/div[20]
             imageZoomFeaturePresent:
-              - text: "true"
+              - text: Yes
+                xpath: /html/body/div[7]/div[1]/div[1]/div[2]/div[1]/a[2]/@class
         xpath: /
-    timestamp: 1607078011200
+    timestamp: 1609162229166

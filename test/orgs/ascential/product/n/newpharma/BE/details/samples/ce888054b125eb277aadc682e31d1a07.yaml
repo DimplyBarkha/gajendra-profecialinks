@@ -2,100 +2,110 @@ input:
   id: 512802
   _url: http://newpharma.be
 extractions:
-  - html: https://workbench.import.io/html/run=2e130244-45ad-47c5-b0ae-46a811a48687/task=9d3cfacd-f2d1-4f07-adc6-6c23b62d1af2/fe002cee-0d4f-4709-ae99-dad7575a6814.html
+  - html: https://workbench.import.io/html/run=fa77063d-3c26-4e18-9728-cba3d070e881/task=ee7d564b-92d3-4d0a-ad17-9823470ce79b/bf1eb245-eefb-43c0-8a0d-f6a031aa1703.html
     extractionConfigId: product/details/stores/n/newpharma/BE/extract
     data:
       - group:
           - productUrl:
               - text: https://www.newpharma.be/pharmacie/tena/512802/tena-pants-normal-extra-large-120-160cm-pieces-15-791715.html
-                xpath: /html/body/div[12]
+                xpath: /html/body/div[13]
             image:
               - text: https://img.newpharma.net/images/products/fr/500/tena-pants-normal-extra-large-120-160cm-pieces-15-791715.2001.jpg
-                xpath: /html/body/div[6]/div[1]/div[1]/div[2]/div[1]/a[1]/img[1]/@src
+                xpath: /html/body/div[7]/div[1]/div[1]/div[2]/div[1]/a[1]/img[1]/@src
             imageAlt:
               - text: Tena Pants Normal Extra-Large 120-160cm Pièces 15 (791715)
-                xpath: /html/body/div[6]/div[1]/div[1]/div[2]/div[1]/a[1]/img[1]/@alt
+                xpath: /html/body/div[7]/div[1]/div[1]/div[2]/div[1]/a[1]/img[1]/@alt
             category:
               - text: Accueil
-                xpath: /html/body/div[3]/div[1]/div[1]/ul[1]/li[1]
+                xpath: /html/body/div[4]/div[1]/div[1]/ul[1]/li[1]
               - text: Premiers soins - Soins à domicile
-                xpath: /html/body/div[3]/div[1]/div[1]/ul[1]/li[2]
+                xpath: /html/body/div[4]/div[1]/div[1]/ul[1]/li[2]
               - text: Matériel hygiénique
-                xpath: /html/body/div[3]/div[1]/div[1]/ul[1]/li[3]
+                xpath: /html/body/div[4]/div[1]/div[1]/ul[1]/li[3]
               - text: Incontinence - Fuites urinaires
-                xpath: /html/body/div[3]/div[1]/div[1]/ul[1]/li[4]
+                xpath: /html/body/div[4]/div[1]/div[1]/ul[1]/li[4]
               - text: Langes Complets
-                xpath: /html/body/div[3]/div[1]/div[1]/ul[1]/li[5]
+                xpath: /html/body/div[4]/div[1]/div[1]/ul[1]/li[5]
             nameExtended:
               - text: Tena Pants Normal Extra-Large 120-160cm Pièces 15 (791715)
-                xpath: /html/body/div[6]/div[1]/div[1]/div[1]/h1[1]
+                xpath: /html/body/div[7]/div[1]/div[1]/div[1]/h1[1]
             listPrice:
               - text: 31,99
-                xpath: /html/body/div[6]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]
+                xpath: /html/body/div[7]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]
             price:
               - text: 20,99
-                xpath: /html/body/div[6]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[2]/div[1]/div[2]
+                xpath: /html/body/div[7]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[2]/div[1]/div[2]
             availabilityText:
               - text: En stock !
-                xpath: /html/body/div[6]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[3]/div[1]/form[1]/div[1]/div[1]
+                xpath: /html/body/div[7]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[3]/div[1]/form[1]/div[1]/div[1]
             description:
               - text: Offre une protection plus fine tout en garantissant la sécurité Tena
                   habituelle.
-                xpath: /html/body/div[6]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[1]
-            manufacturer:
+                xpath: /html/body/div[7]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[1]
+            brandText:
               - text: Tena
-                xpath: /html/body/div[6]/div[1]/div[1]/div[1]/div[1]/a[1]
+                xpath: /html/body/div[7]/div[1]/div[1]/div[1]/div[1]/a[1]
             quantity:
               - text: 15 pièces
-                xpath: /html/body/div[14]
+                xpath: /html/body/div[15]
             weightNet:
               - text: 816 gr
-                xpath: /html/body/div[6]/div[1]/div[1]/div[4]/div[2]/div[1]/div[2]/div[2]/table[1]/tbody[1]/tr[5]/td[1]
+                xpath: /html/body/div[7]/div[1]/div[1]/div[4]/div[2]/div[1]/div[2]/div[2]/table[1]/tbody[1]/tr[5]/td[1]
             sku:
               - text: "512802"
-                xpath: /html/body/div[6]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[3]/@data-productid
+                xpath: /html/body/div[7]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[3]/@data-productid
+            mpc:
+              - text: "512802"
+                xpath: /html/body/div[7]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[3]/@data-productid
             ratingCount:
               - text: "10"
-                xpath: /html/body/div[6]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/a[1]
+                xpath: /html/body/div[7]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/a[1]
             aggregateRating:
               - text: 4,4
-                xpath: /html/body/div[6]/div[1]/div[1]/div[4]/div[2]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]
+                xpath: /html/body/div[7]/div[1]/div[1]/div[4]/div[2]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]
             shippingInfo:
               - text: Commandé avant 16h, livré chez vous demain ou en 24h en point relais
-                xpath: /html/body/div[6]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[3]/div[3]
+                xpath: /html/body/div[7]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[3]/div[3]
             manufacturerDescription:
-              - text: >-
-                  Propriétés :
-                   Les culottes de protection anti-fuites garantissent à vos proches sécurité, fraîcheur et confiance, tout au long de la journée. 
-                   Tena Pants Normal 20% plus fins, confortables et sûrs garantissant la qualité Tena habituelle Plus de confort pour une meilleure qualité de vie.
-                   Grâce à ce nouveau concept, les matériaux absorbants ne sont placés que là où ils sont vraiment nécessaires.
-                   Les Tena Pants s'étirent pour s'ajuster aux formes du corps, comme un sous-vêtement classique.
-                   La culotte suit parfaitement les formes du corps, ce qui permet le maintien en place de la protection procurant confort et sécurité.
-                   Le système Odour Neutralizer diminue l'odeur d'urine, ce qui procure un sentiment de fraîcheur et dignité.
-                   Les Tena Pants disposent de barrières anti-fuites ultra efficaces, pour une protection renforcée, que votre proche se trouve debout, assis ou couché.
-                   La technologie FeelDry absorbe rapidement l'urine, même en grande quantité, et la retient dans le noyau de la protection.
-                   L'urine reste enfermée dans le noyau, même lorsque la protection est soumise à une pression.
-                   La peau reste ainsi au sec, pour un confort accru.
-                   Un premier pas important vers une peau saine
-                   Les produits Tena Pants sont aussi faciles à enlever qu'à enfiler. 
-                   Il suffit de déchirer les coutures latérales.
-                   Les Tena Pants sont composées d'une matière extérieure aérée qui permet à l'air de circuler.
-                   Pas d'humidité inutile, une peau saine et tout le confort que mérite votre proche.
-                   Tour de hanches : 120 à 160 cm
-                   
-                   Indications :
-                   Pour des fuites urinaires modérées à fortes
-                   
-                   Présentation :
-                   15 pièces
-                xpath: /html/body/div[6]/div[1]/div[1]/div[4]/div[2]/div[1]/div[2]/div[1]
+              - text: "Tena Pants Normal Extra-Large 120-160cm Pièces 15 (791715) Propriétés :
+                  Les culottes de protection anti-fuites garantissent à vos
+                  proches sécurité, fraîcheur et confiance, tout au long de la
+                  journée. Tena Pants Normal 20% plus fins, confortables et sûrs
+                  garantissant la qualité Tena habituelle Plus de confort pour
+                  une meilleure qualité de vie. Grâce à ce nouveau concept, les
+                  matériaux absorbants ne sont placés que là où ils sont
+                  vraiment nécessaires. Les Tena Pants s'étirent pour s'ajuster
+                  aux formes du corps, comme un sous-vêtement classique. La
+                  culotte suit parfaitement les formes du corps, ce qui permet
+                  le maintien en place de la protection procurant confort et
+                  sécurité. Le système Odour Neutralizer diminue l'odeur
+                  d'urine, ce qui procure un sentiment de fraîcheur et dignité.
+                  Les Tena Pants disposent de barrières anti-fuites ultra
+                  efficaces, pour une protection renforcée, que votre proche se
+                  trouve debout, assis ou couché. La technologie FeelDry absorbe
+                  rapidement l'urine, même en grande quantité, et la retient
+                  dans le noyau de la protection. L'urine reste enfermée dans le
+                  noyau, même lorsque la protection est soumise à une pression.
+                  La peau reste ainsi au sec, pour un confort accru. Un premier
+                  pas important vers une peau saine Les produits Tena Pants sont
+                  aussi faciles à enlever qu'à enfiler. Il suffit de déchirer
+                  les coutures latérales. Les Tena Pants sont composées d'une
+                  matière extérieure aérée qui permet à l'air de circuler. Pas
+                  d'humidité inutile, une peau saine et tout le confort que
+                  mérite votre proche. Tour de hanches : 120 à 160 cm
+                  Indications : Pour des fuites urinaires modérées à fortes
+                  Présentation : 15 pièces Caractéristiques : Marque Tena
+                  Catégorie Couches adultes - Fuites urinaires Prix 20,99 Avis
+                  4.4/5 (10 avis) Poids 816 gr"
+                xpath: /html/body/div[11]
             name:
               - text: Tena Pants Normal Extra-Large 120-160cm Pièces 15 (791715)
-                xpath: /html/body/div[6]/div[1]/div[1]/div[1]/h1[1]
+                xpath: /html/body/div[7]/div[1]/div[1]/div[1]/h1[1]
             brandLink:
               - text: https://www.newpharma.be/pharmacie/brands/tena/01822.html
-                xpath: /html/body/div[13]
+                xpath: /html/body/div[14]
             imageZoomFeaturePresent:
-              - text: "true"
+              - text: Yes
+                xpath: /html/body/div[7]/div[1]/div[1]/div[2]/div[1]/a[2]/@class
         xpath: /
-    timestamp: 1607078012061
+    timestamp: 1609162229197
