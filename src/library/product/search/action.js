@@ -17,6 +17,12 @@ module.exports = {
       description: 'to set location',
       optional: true,
     },
+    {
+      name: 'storeID',
+      description: 'Id of the store',
+      type: 'string',
+      optional: true,
+    },
   ],
   inputs: [
     {
@@ -30,30 +36,47 @@ module.exports = {
       type: 'string',
     },
     {
+      name: 'id',
+      description: 'keywords to search for',
+      type: 'string',
+    },
+    {
+      name: 'Brands',
+      description: 'brands to search for',
+      type: 'string',
+    },
+    {
       name: 'results',
       description: 'the minimum number of results required',
       type: 'number',
     },
     {
-      name: 'id',
-      description: 'keywords to search for',
+      name: 'Brands',
+      description: 'brands to search for',
       type: 'string',
     },
   ],
   dependencies: {
     execute: 'action:product/search/execute',
-    paginate: 'action:product/search/paginate',
+    paginate: 'action:navigation/paginate',
     extract: 'action:product/search/extract',
   },
   path: './search/stores/${store[0:1]}/${store}/${country}/search',
-  implementation: async ({ keywords, Keywords, results = 150, id }, { country, store, domain, zipcode }, context, { execute, extract, paginate }) => {
+  implementation: async (inputs, { country, store, domain, zipcode }, context, { execute, extract, paginate }) => {
+    const { keywords, Keywords, id, results = 150, Brands } = inputs;
+
+    const inputKeywords = Keywords || keywords || Brands || id;
+
     // TODO: consider moving this to a reusable function
     const length = (results) => results.reduce((acc, { group }) => acc + (Array.isArray(group) ? group.length : 0), 0);
 
-    keywords = (Keywords) || (keywords) || (id);
+    const resultsReturned = await execute({
+      ...inputs,
+      keywords: inputKeywords,
+      zipcode: inputs.zipcode || zipcode,
+    });
 
     // do the search
-    const resultsReturned = await execute({ keywords, zipcode });
 
     if (!resultsReturned) {
       console.log('No results were returned');
@@ -68,20 +91,13 @@ module.exports = {
     console.log('Got initial number of results', collected);
 
     // check we have some data
-    if (collected === 0) {
-      return;
-    }
+    if (collected === 0) return;
 
     let page = 2;
-    //maxPage hard coded because category should only  paginates max 2  pages
-    let maxPage = 2;
-    while (page <= maxPage &&  collected < results && await paginate({ keywords, page, offset: collected })) {
+    while (collected < results && await paginate({ keywords: inputKeywords, page, offset: collected })) {
       const data = await extract({});
       const count = length(data);
-      if (count === 0) {
-        // no results
-        break;
-      }
+      if (count === 0) break; // no results
       collected += count;
       console.log('Got more results', collected);
       page++;

@@ -27,7 +27,7 @@ example commit message command:
 
 ## Communication Notes
 - Before sending the dev team a question, ask someone on your team whether they have dealt with the issue, and google the error
-- If there’s still an issue, instead of DMing the dev team, put it on the Slack `#marketshare_ext_dsd` channel or on stack overflow
+- If there’s still an issue, instead of DMing the dev team, put it on the Slack `#ascential-mse-dsd` channel or on stack overflow
 - If adding a bug or asking for help on Slack, please add the steps needed to reproduce and a link to this issue and a reference to the code commit where you are seeing the problem. Also please make sure to push up your latest changes.
 
 ------
@@ -66,42 +66,17 @@ https://import-io.github.io/import-io-cli-public/#import-io-actionrunremote
 - [ ] Remove `Testing` Label
 
 
-#### Internal Deployment
-- [ ] Promote Source to `Internal Deployment` in Project Dash
-- [ ] Add `Development` Label
-- [ ] Create a Workbench source in the Development(internal) collection
-- [ ] Deploy to `development` branch
-https://import-io.github.io/import-io-cli-public/#import-io-extractordeploy
-- [ ] Link `development` extractor GUID to Development(internal) collection > source in workbench
-- [ ] Confirm source params are set up properly in workbench. Source `state` should be `development`
-- [ ] Scale/High Volume run
-- [ ] Commit latest code changes to local branch with a commit message that includes the issue# (`#{:number}`) and a reference to this build step
-
-#### Peer Review
-- [ ] Promote Source to `Peer Review` in Project Dash
-- [ ] Add `Peer Review Requested` Label
-- [ ] Confirm that a reviewer has been assigned to this issue
-- [ ] Peer Review QA Complete (must be checked by reviewer)
-- [ ] Commit latest code changes to local branch with a commit message that includes the issue# (`#{:number}`) and a reference to this build step
-- [ ] Remove `Peer Review Requested` Label
-
 #### Staging Deployment
-- [ ] Promote Source to `Staging Deployment` in Project Dash
-- [ ] Remove `Development` Label
+- [ ] Promote Source to `Staging` in Project Dash
 - [ ] Add `Staging` Label
-- [ ] Create a Workbench source in the Production(external) collection
-- [ ] Deploy to `staging` branch
+- [ ] Deploy to `ms-staging` branch
 https://import-io.github.io/import-io-cli-public/#import-io-extractordeploy
-- [ ] Link `staging` extractor GUID to Production(external) collection > source in workbench
+- [ ] Link `ms-staging` extractor GUID to MarketShare (POC) project > {collection}_raw_parquet > source in workbench
+[**ascential/projects/marketshare_extensions/collections**](https://workbench.import.io/orgs/ascential/projects/marketshare_extensions/collections)
 - [ ] Confirm source params are set up properly in workbench. Source `state` should be `staging`
 - [ ] Scale/High Volume test
 - [ ] Commit latest code changes to local branch with a commit message that includes the issue# (`#{:number}`) and a reference to this build step
 
-#### Final Review
-- [ ] Promote Source to `Final Review` in Project Dash
-- [ ] Add `Final Review Requested` Label
-- [ ] SA QA approval Complete
-- [ ] Remove `Final Review Requested` Label
 
 #### Pull Request
 - [ ] Promote Source to `Pull Request` in Project Dash
@@ -121,6 +96,6 @@ https://import-io.github.io/import-io-cli-public/#import-io-extractordeploy
 #### Production
 - [ ] Promote Source to `Production` in Project Dash
 - [ ] Add `Production` Label
-- [ ] Ensure extractor gets deployed to the `production` branch in the daily production deployment
+- [ ] Ensure extractor gets deployed to the `ms-production` branch in the daily production deployment
 - [ ] Link production extractor GUID to production source in workbench
 - [ ] Confirm source params are set up properly in workbench. Source `state` should be `production`
