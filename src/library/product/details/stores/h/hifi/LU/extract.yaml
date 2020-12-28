@@ -221,4 +221,4 @@ fields:
   - name: hasComparisonTable
     defaultValue: No
   - name: unInterruptedPDP
-    xpath: //section[contains(@class,"alt-product-slider")]//h2[contains(text(),'Derniers produits consultés')]//ancestor::section//div[@class="product"]//div[@class='top-content']//h3[@class='product-title h-style-5']
+    xpath: //section[contains(@class,"alt-product-slider")]//h2[contains(text(),'Derniers produits consultés')]//ancestor::section//div[@class="product"]//div[@class='top-content']//h3[@class='product-title h-style-5'] | //section[contains(@class,"alt-product-slider")]//h2[contains(text(),'Produits alternatifs')]/ancestor::section//div[@class="product"]//div[@class='top-content']//h3[@class='product-title h-style-5']
