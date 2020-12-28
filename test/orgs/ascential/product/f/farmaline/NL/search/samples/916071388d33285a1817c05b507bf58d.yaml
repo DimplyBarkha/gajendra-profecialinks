@@ -1,0 +1,25 @@
+input:
+  keywords: Allesreiniger
+  _url: http://farmaline.nl
+extractions:
+  - html: https://workbench.import.io/html/run=71d561d1-4ee8-497e-91b9-8b24cfd7846e/task=8fd72db5-d7b1-4db6-9d75-144757fb9b1f/ee0ba26b-fe02-4247-b993-d0adc04a2090.html
+    extractionConfigId: product/search/stores/f/farmaline/NL/extract
+    data:
+      - group:
+          - id:
+              - text: "96640"
+                xpath: /html/body/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/ul[1]/li[1]/article[1]/div[1]/input[1]/@id
+            name:
+              - text: Aromed Styraxa Klovenolie
+                xpath: /html/body/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/ul[1]/li[1]/article[1]/div[1]/a[1]/header[1]/h2[1]
+            productUrl:
+              - text: https://www.farmaline.nl/drogisterij/bestellen/styraxa-huidolie/
+                xpath: /html/body/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/ul[1]/li[1]/article[1]/div[1]/a[1]/@href
+            thumbnail:
+              - text: https://imgcdn.farmaline.be/web/cache/thumbs/9/7/1/0/2/0/3/files/NL167788_styraxa-huidolie_nl-thumb-1_200x200.webp
+                xpath: /html/body/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/ul[1]/li[1]/article[1]/div[1]/a[1]/div[1]/div[1]/img[1]/@src
+            price:
+              - text: € 8,33
+                xpath: /html/body/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/ul[1]/li[1]/article[1]/div[1]/a[1]/div[1]/div[2]/div[1]/div[2]
+        xpath: /html
+    timestamp: 1607093839140

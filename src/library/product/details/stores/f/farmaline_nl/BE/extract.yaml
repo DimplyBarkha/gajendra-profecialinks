@@ -73,26 +73,43 @@ fields:
     regExp: (([0-9]+)([a-zA-Z]+))
   - name: quantity3
     singleValue: false
+<<<<<<< HEAD
     xpath: //h1/font//text() | //h1/text() 
     # regExp: (([0-9]+)\W+([a-zA-Z]+)) 
     regExp: (\d{1,}\W)(g|G|L|Kg|Mg|Ml|ml|Oz|stick(s)|stucks|l|EA|GR|stuks|tabletten|kauwtabletten|condoms|zuigtabletten|pathch|stuck|pen|par|capsules|zakjes|zetpillen|pièces|crÃ¨me|ml roller|ampoules| ml spray|stick(s)|dragees|zak|zakjes|mg|ampoules|paar|patch| ml tube| préservatifs|pansements|set|sachet|pleisters)
+=======
+    xpath: //h1/font//text() | //h1/text()  
+    regExp: (\d{1,}\W)(g|L|Kg|Mg|Ml|ml|Oz|stucks|l|EA|GR|stuks|tabletten|kauwtabletten|condoms|zuigtabletten|pathch|stucks|pen|par|capsules|zakjes|zetpillen|pièces|crÃ¨me|ml roller|ampoules| ml spray|stick(s)|dragees|zak|zakjes|mg|ampoules|paar|patch| ml tube| préservatifs|pansements|set|sachet|pleisters)
+>>>>>>> 9236ffe4f44c06fd4eee3845c08b6af0cd1e26cf
     # regExpReplace:
   - name: quantity2
     singleValue: false
     xpath: //h1/font//text() | //h1/text() 
+<<<<<<< HEAD
     # regExp: (([0-9]+)([a-zA-Z]+))
     regExp: ([0-9]+x\d+)\W+(g|G|L|Kg|Mg|Ml|stick(s)|ml|Oz|stucks|l|EA|GR|stuks|tabletten|kauwtabletten|condoms|zuigtabletten|pathch|stuck|pen|par|capsules|zakjes|zetpillen|pièces|crÃ¨me|ml roller|ampoules| ml spray|stick(s)|dragees|zak|zakjes|mg|ampoules|paar|patch| ml tube| préservatifs|pansements|set|sachet|pleisters)
+=======
+    regExp: ([0-9]+x\d+)\W+(g|L|Kg|Mg|Ml|ml|Oz|stucks|l|EA|GR|stuks|tabletten|kauwtabletten|condoms|zuigtabletten|pathch|stucks|pen|par|capsules|zakjes|zetpillen|pièces|crÃ¨me|ml roller|ampoules| ml spray|stick(s)|dragees|zak|zakjes|mg|ampoules|paar|patch| ml tube| préservatifs|pansements|set|sachet|pleisters)
+>>>>>>> 9236ffe4f44c06fd4eee3845c08b6af0cd1e26cf
   - name: quantity
     singleValue: false
     xpath: //h1/font//text() | //h1/text() 
     # regExp: (([0-9]+)([a-zA-Z]+))$
     # regExp: \d+(.+)
+<<<<<<< HEAD
     regExp: ([0-9]+x\d+)\W+\d+\W+(g|G|L|Kg|Mg|Ml|ml|stick(s)|Oz|stucks|l|EA|GR|stuks|tabletten|kauwtabletten|condoms|zuigtabletten|pathch|stuck|pen|par|capsules|zakjes|zetpillen|pièces|crÃ¨me|ml roller|ampoules| ml spray|stick(s)|dragees|zak|zakjes|mg|ampoules|paar|patch| ml tube| préservatifs|pansements|set|sachet|pleisters)
   # - name: quantity1
   #   singleValue: false
   #   xpath: //h1/font//text() | //h1/text() 
   #   # regExp: (([0-9]+)\W+([a-zA-Z]+))$
   #   regExp: ([0-9]+\W\d+)\W+(g|G|L|Kg|Mg|mg|Ml|ml|Oz|stucks|l|EA|GR|stuks|tabletten|kauwtabletten|condoms|zuigtabletten|pathch|stuck|pen|par|capsules|zakjes|zetpillen|pièces|crÃ¨me|ml roller|ampoules| ml spray|stick(s)|dragees|zak|zakjes|mg|ampoules|paar|patch| ml tube| préservatifs|pansements|set|sachet|pleisters)
+=======
+    regExp: ([0-9]+x\d+)\W+\d+\W+(g|L|Kg|Mg|Ml|ml|Oz|stucks|l|EA|GR|stuks|tabletten|kauwtabletten|condoms|zuigtabletten|pathch|stucks|pen|par|capsules|zakjes|zetpillen|pièces|crÃ¨me|ml roller|ampoules| ml spray|stick(s)|dragees|zak|zakjes|mg|ampoules|paar|patch| ml tube| préservatifs|pansements|set|sachet|pleisters)
+  - name: quantity1
+    singleValue: false
+    xpath: //h1/font//text() | //h1/text() 
+    regExp: ([0-9]+\W\d+)\W+(g|L|Kg|Mg|Ml|ml|Oz|stucks|l|EA|GR|stuks|tabletten|kauwtabletten|condoms|zuigtabletten|pathch|stucks|pen|par|capsules|zakjes|zetpillen|pièces|crÃ¨me|ml roller|ampoules| ml spray|stick(s)|dragees|zak|zakjes|mg|ampoules|paar|patch| ml tube| préservatifs|pansements|set|sachet|pleisters)
+>>>>>>> 9236ffe4f44c06fd4eee3845c08b6af0cd1e26cf
   - name: weightNet
     singleValue: false
     description: Net weight as described on the page
@@ -174,7 +191,9 @@ fields:
     xpath: //strong//img/@src
   - name: videos
     singleValue: false
-    description: URLs of videos on page
+    xpath: //section[contains(@class,"product-detail-content-grid")]//iframe/@src
+    # regExp: VIDEO_ID\W+([^"]+).*
+    # regExpReplace: https://youtu.be/$1
   - name: name
     singleValue: false
     xpath: //h1[contains(@class,"text-md-primary")]
