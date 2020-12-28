@@ -37,6 +37,7 @@ async function implementation (inputs, parameters, context, dependencies) {
 
   try {
     await context.waitForXPath('//div[contains(@class,"--video")]//source/@src', { timeout: 30000 });
+    await context.waitForXPath('//picture[@class="c-image-gallery__img"][1]//img[@class="c-image-gallery__img"]/@src', { timeout: 30000 });
   } catch (e) {
     console.log(`There was an error while running the loading images ${e}`);
   }
@@ -57,9 +58,10 @@ async function implementation (inputs, parameters, context, dependencies) {
           rpc.push(sizeVariants.model[i].sku);
         }
         for (let i = 0; i < sizeVariants.model.length; i++) {
-          variants[i].setAttribute('variantId', rpc[i]);
+          variants[i].setAttribute('variantId', sizeVariants.model[i].sku);
           variants[i].setAttribute('availability', sizeVariants.model[i].offers[0].availability);
           variants[i].setAttribute('nameExtended', sizeVariants.model[i].name);
+          variants[i].setAttribute('data-js-action', sizeVariants.model[i].name.replace(/(.+)(\s)(.+)/g, '$3'));
         }
       } else {
         const variants1 = document.querySelectorAll('section[data-js-variant-type="multi-size"] div[data-ts-select-label="Size"] div.c-select__dropdown-item-container span[class="c-select__dropdown-item"]');
@@ -68,9 +70,10 @@ async function implementation (inputs, parameters, context, dependencies) {
           rpc.push(sizeVariants1.model[i].sku);
         }
         for (let i = 0; i < sizeVariants1.model.length; i++) {
-          variants1[i].setAttribute('variantId', rpc[i]);
+          variants1[i].setAttribute('variantId', sizeVariants1.model[i].sku);
           variants1[i].setAttribute('availability', sizeVariants1.model[i].offers[0].availability);
           variants1[i].setAttribute('nameExtended', sizeVariants1.model[i].name);
+          variants1[i].setAttribute('data-js-action', sizeVariants1.model[i].name.replace(/(.+)(\s)(.+)/g, '$3'));
         }
       }
       document.querySelector('section[data-js-component="productHero"]').setAttribute('firstVariant', rpc[0]);
@@ -110,16 +113,24 @@ async function implementation (inputs, parameters, context, dependencies) {
           document.querySelector('section[data-js-variant-type="multi-size"] div[data-ts-select-label="Size"] div.c-select__dropdown-item-container span.c-select__dropdown-item').setAttribute('nameExtended', `${document.querySelector('div[data-js-action="productHeroDescription"] h1').textContent}`);
         }
       }
-      const size = document.querySelector('section[data-js-variant-type="single-size"] div[data-select-name="Size"] span.c-select__dropdown-item');
+      const size = document.querySelector('div[data-select-name="Size"] span.c-select__dropdown-item');
       const color = document.querySelector('div.--colour span.--selected');
+      if (color) {
+        document.querySelector('section[data-js-variant-type="multi-size"] div[data-ts-select-label="Size"] div.c-select__dropdown-item-container span.c-select__dropdown-item').setAttribute('nameExtended', `${document.querySelector('div[data-js-action="productHeroDescription"] h1').textContent} ${document.querySelector('div.--colour span.--selected').getAttribute('data-js-action')}`);
+      }
       if (size) {
         const singleSize = size.getAttribute('data-js-action');
         document.querySelector('section[data-js-variant-type="multi-size"] div[data-ts-select-label="Size"] div.c-select__dropdown-item-container span.c-select__dropdown-item').setAttribute('data-js-action', singleSize);
         document.querySelector('section[data-js-variant-type="multi-size"] div[data-ts-select-label="Size"] div.c-select__dropdown-item-container span.c-select__dropdown-item').setAttribute('nameExtended', `${document.querySelector('div[data-js-action="productHeroDescription"] h1').textContent}`);
       }
-      if (color) {
-        document.querySelector('section[data-js-variant-type="multi-size"] div[data-ts-select-label="Size"] div.c-select__dropdown-item-container span.c-select__dropdown-item').setAttribute('nameExtended', `${document.querySelector('div[data-js-action="productHeroDescription"] h1').textContent} ${document.querySelector('div.--colour span.--selected').getAttribute('data-js-action')}`);
+      if (color && size) {
+        document.querySelector('section[data-js-variant-type="multi-size"] div[data-ts-select-label="Size"] div.c-select__dropdown-item-container span.c-select__dropdown-item').setAttribute('nameExtended', `${document.querySelector('div[data-js-action="productHeroDescription"] h1').textContent} ${color.getAttribute('data-js-action')}`);
       }
+    }
+
+    const image = document.evaluate('//picture[@class="c-image-gallery__img"][1]//img[@class="c-image-gallery__img"]/@src', document).iterateNext();
+    if (!image) {
+      document.querySelector('div.c-image-gallery__images picture.c-image-gallery__img').setAttribute('mainimage', document.querySelector('div.--colour span.--selected img').getAttribute('src').replace(/(.+)(_.+)(\?.+)/g, '$1_M'));
     }
 
     function addElementToDocument (id, value, key) {

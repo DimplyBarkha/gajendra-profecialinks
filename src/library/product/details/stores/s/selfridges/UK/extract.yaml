@@ -11,11 +11,9 @@ fields:
   xpath: ancestor::html//span[@class="c-prod-card__cta-box-description"]
 - name: _input
 - name: _url
-- name: productUrl
-  xpath: ancestor::html//link[@rel="canonical"]/@href
 - name: _pageTimeStamp
 - name: image
-  xpath: ancestor::html//picture[@class="c-image-gallery__img"][1]//img[@class="c-image-gallery__img"]/@src | ancestor::html//meta[@name="twitter:image"]/@content
+  xpath: ancestor::html//picture[@class="c-image-gallery__img"][1]//img[@class="c-image-gallery__img"]/@src | ancestor::html//picture[@class="c-image-gallery__img"][1]/@mainimage
   regExp: (.+)
   regExpReplace: https:$1
 - name: imageAlt
@@ -30,7 +28,7 @@ fields:
 - name: listPrice
   xpath: ancestor::html//span[@data-js-action="updateWasPrice"]
 - name: price
-  xpath: ancestor::html//span[@data-js-action="updatePrice"]/parent::p[contains(@class,"o-price")]
+  xpath: ancestor::html//span[@data-js-action="updatePrice"]
 - name: availabilityText
   xpath: ancestor::html//section[@data-js-component="productHero"] | //@availability
 - name: description
