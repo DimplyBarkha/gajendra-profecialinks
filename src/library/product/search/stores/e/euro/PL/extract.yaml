@@ -21,13 +21,13 @@ fields:
     regExpReplace: https://www.euro.com.pl$1
   - name: aggregateRating2
     singleValue: false
-    xpath: //div[@class="product-row"]//a[@class="js-save-keyword js-scroll-by-hash"]/@title  
-    regExp: (?:^|(?:[.!?]\s))(\d+)
+    xpath: //div[@class="product-header"]//div[@class="stars-rating"]//a[contains(@class,"js-save-keyword")]/@title  
+    regExp: (.+)(\sna)(.+)
     regExpReplace: $1
   - name: reviewCount
     singleValue: false
-    xpath: //div[@class="product-row"]//a[@class="js-save-keyword js-scroll-by-hash"]//following-sibling::a
-    regExp: ([0-9]+) 
+    xpath: //div[@class="product-row"]//a[contains(@class,"js-save-keyword")]//following-sibling::a
+    regExp: (\d+) 
     #regExpReplace: $1
   - name: price
     singleValue: false
