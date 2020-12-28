@@ -1,6 +1,6 @@
 fields:
   - name: image
-    xpath: //img[@id='initialProductImage']/@src
+    xpath: //img[contains(@id,"RICHFXViewerContainer___richfx_id_0_zoomImage")]/@src
   - name: imageAlt
     xpath: //img[@id='initialProductImage']/@alt
   - name: alternateImages
@@ -17,7 +17,7 @@ fields:
   - name: price
     xpath: //div[contains(@class,'your-price')]//span[@class='value']
   - name: listPrice
-    xpath: //div[contains(@class,"online-price")]//span[@class="op-value"] | //div[contains(@class,'online-price active')]//span[@class='op-value']
+    xpath: //div[contains(@class,"online-price")]//span[@class="op-value"] | //div[contains(@class,'online-price active')]//span[@class='op-value'] | //meta[@property="product:price:amount"]/@content
   - name: priceCurrency
   - name: availability
     xpath: //meta[@property="og:availability"]/@content
@@ -56,6 +56,9 @@ fields:
   - name: warnings
   - name: ratingCount
     xpath: //span[@itemprop="reviewCount"]
+    regExp: (.+)
+    regExpReplace: $1
+    defaultValue: ' '
   - name: aggregateRatingText
   - name: aggregateRating
     xpath: //span[@itemprop="ratingValue"]
@@ -65,7 +68,7 @@ fields:
   - name: color
   - name: colorCode
   - name: manufacturerDescription
-    xpath: //h1[@class="wc-ppp-caption"]
+    xpath: //div[@id="descriptionMenu"]
   - name: manufacturerImages
     xpath: //div[@class="wc-reset"]//ul//li//img[@data-asset-type="image"]/@src
   - name: videos

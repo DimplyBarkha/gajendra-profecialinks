@@ -46,13 +46,13 @@ const transform = (data) => {
       }
       if (row.price && (!row.price[0].text.includes('$'))) {
         row.price[0].text = '$'.concat(row.price[0].text);
-        if (row.price[0].text.includes('_')) {
+        if (row.price[0].text.includes('-')) {
           row.price[0].text = '';
         }
       }
       if (row.listPrice && (!row.listPrice[0].text.includes('$'))) {
         row.listPrice[0].text = '$'.concat(row.listPrice[0].text);
-        if (row.price[0].text.includes('_')) {
+        if (row.price[0].text.includes('-')) {
           row.price[0].text = '';
         }
         if (row.price[0].text === row.listPrice[0].text) {
@@ -78,7 +78,7 @@ const transform = (data) => {
         }
       }
       if (row.pricePerUnitUom) {
-        if (row.pricePerUnitUom[0].text.includes('_')) {
+        if (row.pricePerUnitUom[0].text.includes('-')) {
           row.pricePerUnitUom[0].text = '';
         }
       }
@@ -90,6 +90,11 @@ const transform = (data) => {
           }
         });
         row.fastTrack[0].text = fastText;
+      }
+      if (row.ratingCount) {
+        row.ratingCount.forEach(item => {
+          item.text = item.text.replace(/s/, '').trim();
+        });
       }
     }
   }

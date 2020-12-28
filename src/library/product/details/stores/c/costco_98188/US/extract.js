@@ -69,6 +69,29 @@ module.exports = {
         addHiddenDiv('costco-product-desc', descText.concat(' ' + detailsDesc));
       };
 
+      function addHiddenDiv(id, content) {
+        const newDiv = document.createElement('div');
+        newDiv.id = id;
+        newDiv.textContent = content;
+        newDiv.style.display = 'none';
+        document.body.appendChild(newDiv);
+      }
+    });
+
+    await new Promise(resolve => setTimeout(resolve, 11000));
+    await context.evaluate(async () => {
+      const parentNode1 = document.querySelector('div.syndi_powerpage');
+      await new Promise(resolve => setTimeout(resolve, 2000));
+      if (parentNode1 && parentNode1.shadowRoot) {
+        let manuFacturerDesc = '';
+        const fetchNode = parentNode1.shadowRoot.firstChild;
+        var text = fetchNode.innerText;
+        text = text.replace(/\n{1,}"/g, ' ').replace(/\s{1,}"/g, ' ').trim();
+        manuFacturerDesc = manuFacturerDesc + text;
+        if (manuFacturerDesc) {
+          addHiddenDiv('descriptionMenu', manuFacturerDesc);
+        }
+      }
       function addHiddenDiv (id, content) {
         const newDiv = document.createElement('div');
         newDiv.id = id;
