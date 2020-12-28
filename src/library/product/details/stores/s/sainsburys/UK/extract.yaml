@@ -25,6 +25,9 @@ fields:
     description: The offered price for the selected product variant - if a user
       clicks add to basket this is the price they would be charged
     xpath: //div[@class='pd__cost']/div[contains(@class,'pd__cost__total')]
+  - name: priceCurrency
+    singleValue: true
+    defaultValue: GBP
   - name: availabilityText
     singleValue: true
     defaultValue: Out of Stock
@@ -32,10 +35,12 @@ fields:
       there is no availability but the product can be added to cart, this field
       should be "In Stock"
     xpath: //div[@class='pt-button']/button[contains(@class,'pt__add-button')]
-  - name: priceCurrency
-    singleValue: true
-    defaultValue: GBP
   - name: description
+    singleValue: true
+    description: Product description supplied by website - may be concatenanted from
+      multiple places; specifically not the manufacturer description
+    xpath: //div[@class="itemTypeGroupContainer productText"]/h3[contains(text(),'Description')]/following-sibling::div[@class='itemTypeGroup']
+  - name: shortDescription
     singleValue: true
     description: Product description supplied by website - may be concatenanted from
       multiple places; specifically not the manufacturer description
@@ -113,15 +118,15 @@ fields:
     singleValue: true
     xpath: //table[@class="nutritionTable"]//th[contains(text(),"Carbohydrate")]/parent::tr/td
     type: NUMBER
-  - name: product_grocery_disclaimer
+  - name: legalDisclaimer
     singleValue: true
     xpath: //div[contains(@class,"ln-c-card pd__disclaimer ln-c-card--soft")]//following-sibling::p
   - name: productUrl
     singleValue: true
     xpath: //div[@class="product_custom_url"]
-  - name: product_grocery_allergens
+  - name: allergens
     singleValue: true
     xpath: //div[@id="mainPart"]/div[@class="itemTypeGroupContainer productText"]//*[contains( text(), 'Dietary Information')]/parent::div
-  - name: product_grocery_calories_per_serving
+  - name: caloriesPerServing
     singleValue: true
     xpath: //table[@class="nutritionTable"]/tbody/tr/th[contains(text(), 'Energy')]/following-sibling::td

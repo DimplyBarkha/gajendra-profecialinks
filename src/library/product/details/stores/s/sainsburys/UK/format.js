@@ -36,9 +36,12 @@ const url1 = require('url');
             });
           }
           if (row.availabilityText) {
+            let availability;
             row.availabilityText.forEach(item => {
-              item.text = ('Add' === item.text ) ? 'In stock' : 'Out of stock';
+               availability =  ('Add' === item.text ) ? 'in stock' : 'Out of stock';
+               item.text = availability;
             });
+            row.otherSellersAvailability = [ { text: ( 'in stock' == availability ) ? 'Available':''} ]
           }
           if (row.shownImages) {
             let text = '';
