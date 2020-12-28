@@ -47,8 +47,21 @@ module.exports = {
 
     await applyScroll(context);
 
+    async function scrollToRec (node) {
+      await context.evaluate(async (node) => {
+        const element = document.querySelector(node) || null;
+        if (element) {
+          element.scrollIntoView({ behavior: 'smooth', block: 'end', inline: 'nearest' });
+          await new Promise((resolve) => {
+            setTimeout(resolve, 5000);
+          });
+        }
+      }, node);
+    }
+    await scrollToRec('section.productSpecification');
+
     try {
-      await context.waitForSelector('section.richContent article', { timeout: 15000 });
+      await context.waitForSelector('section.richContent article', { timeout: 35000 });
     } catch (error) {
       console.log('Not loading enhanced content');
     }
