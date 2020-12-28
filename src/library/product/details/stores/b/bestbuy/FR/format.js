@@ -41,6 +41,11 @@ const transform = (data) => {
           item.text=item.text.replace('/100x100/','/1500x1500/');
         })
       }
+      if(row.aggregateRating){
+        row.aggregateRating.forEach(item=>{
+          item.text=item.text.replace('.',',');
+        })
+      }
     }
   }
   return cleanUp(data);

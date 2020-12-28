@@ -12,6 +12,9 @@ fields:
   - name: alternateImages
     singleValue: false
     xpath: //div[@class="slick-slide slick-active"]//img[@class="productImage_AMBPT"]/@src
+  - name: secondary_image_total
+    singleValue: false
+    xpath: count(//div[@class="slick-slide slick-active"]//img[@class="productImage_AMBPT"]/@src)
   - name: category
     singleValue: false
     xpath: //ol[@typeof="BreadcrumbList"]/li[position()>1]/a/span
@@ -23,10 +26,10 @@ fields:
     description: The stated undiscounted price for the product
   - name: price
     singleValue: false
-    xpath: //div[@class="pricingContainer_25k3c"]//meta[@itemprop="price"]
+    xpath: //div[@class="pricingContainer_25k3c"]//span[@class="screenReaderOnly_3anTj large_3aP7Z"]
   - name: availabilityText
-    singleValue: true
-    xpath: //div[@class="pricingContainer_25k3c"]//link[@itemprop="availability" and @href="http://schema.org/InStock"]/@href
+    singleValue: false
+    xpath: //div[@class="pricingContainer_25k3c"]//link[@itemprop="availability" and (@href="http://schema.org/InStock" or @href="http://schema.org/OnlineOnly")]/@href
     regExp: (.+)
     regExpReplace: In Stock
     defaultValue: Out of Stock
@@ -90,7 +93,7 @@ fields:
     xpath: //label[@class="ratings_I_BnL"]/strong
   - name: shippingInfo
     singleValue: false
-    xpath: //span[@class="marketplaceNameLink_5u9Yw"]
+    xpath: //span[@class="marketplaceNameLink_5u9Yw"] | //div[@class="soldByBestBuy_1hMn-"]
   - name: shippingDimensions
     singleValue: true
     description: Stated shipping dimensions
@@ -373,8 +376,8 @@ fields:
     singleValue: true
     description: The physical dimensions of the product including packaging.
   - name: warranty
-    singleValue: true
-    description: Guarantee associated with the product
+    singleValue: false
+    xpath: //div[@class="primaryContent_2dj-c"]/div[@id="detailsAndSpecs"]//div[@class="itemName_37zd4" and text()="Garantie du vendeur - Pièces"]/parent::*/div[@class="itemValue_XPfaq"]
   - name: storage
     singleValue: true
     description: Suggested storage location for product
