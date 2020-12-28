@@ -1,11 +1,10 @@
 
 module.exports = {
-  implements: 'product/search/execute',
+  implements: 'product/details/execute',
   parameterValues: {
     country: 'ES',
-    store: 'perfumesclub',
+    store: 'Perfumesclub',
     domain: 'perfumesclub.com',
-    url: 'https://www.perfumesclub.com/es/{searchTerms}',
     loadedSelector: null,
     noResultsXPath: null,
     zipcode: '',
