@@ -5,7 +5,7 @@ module.exports = {
     template: null,
     country: 'MX',
     store: 'farmaciasanpablo',
-    nextLinkSelector: 'div.row.section-footer ul.pagination.pull-right',
+    nextLinkSelector: 'div.row.section-footer ul.pagination.pull-right>li>a.next',
     // nextLinkXpath: '(//a[@class="next"])[0]',
     mutationSelector: null,
     spinnerSelector: null,
