@@ -5,7 +5,7 @@ module.exports = {
     country: 'PL',
     store: 'ceneo',
     nextLinkSelector: 'div.pagination-top a',
-    loadedSelector: 'div.category-list-body.js_category-list-body.js_search-results div.cat-prod-row.js_category-list-item',
+    loadedSelector: 'div.category-list-body.js_category-list-body.js_search-results div.cat-prod-row.js_category-list-item, div.grid-row div[class*="grid-item__container"]',
     noResultsXPath: '//div[@class="not-found"]',
     domain: 'ceneo.pl',
     // openSearchDefinition: {
