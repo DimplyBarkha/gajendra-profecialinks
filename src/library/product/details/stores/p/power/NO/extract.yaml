@@ -159,7 +159,7 @@ fields:
   - name: manufacturerImages
     singleValue: false
     description: Images within the third party description
-    xpath: //div[contains(@class, "inpage_block")]//img/@data-flixsrcset | //div[@id="product-tab-description"]//img/@data-flixsrcset| //div[contains(@id, "product-tab-description-panel")]//img/@data-flixsrcset
+    xpath: //div[contains(@class, "inpage_block")]//img/@data-flixsrcset | //div[@id="product-tab-description"]//img/@data-flixsrcset | //div[contains(@id, "product-tab-description-panel")]//img/@data-flixsrcset
     regExp: (\/\/.*)200w
     regExpReplace: https:$1
   - name: videos
