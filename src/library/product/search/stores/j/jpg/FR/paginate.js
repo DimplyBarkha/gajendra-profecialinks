@@ -4,12 +4,14 @@ module.exports = {
   parameterValues: {
     country: 'FR',
     store: 'jpg',
-    nextLinkSelector: 'a[class="js-pagination-next-button pagination-button__next "]',
+    nextLinkSelector: null,
     mutationSelector: null,
     spinnerSelector: null,
     loadedSelector: 'body',
-    noResultsXPath: null,
-    openSearchDefinition: null,
+    noResultsXPath: '//header[@class="search-noresult my-3"]/h3/text()',
+    openSearchDefinition: {
+      template: 'https://www.jpg.fr/INTERSHOP/web/WFS/RAJA-JPG-Site/fr_FR/-/EUR/ViewParametricSearch-ProductPaging?PageNumber={page}&PageSize=20&SortingAttribute=&ViewType=1&SearchTerm={searchTerms}&SearchParameter=',
+      },
     domain: 'jpg.fr',
     zipcode: '',
   },

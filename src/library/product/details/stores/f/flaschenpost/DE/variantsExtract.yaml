@@ -1,0 +1,158 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: image
+    singleValue: true    
+    xpath: //div[@class='fp-productList_image']/img/@src  
+  - name: imageAlt
+    singleValue: true
+    xpath: //div[@class='fp-productList_image']/img/@alt  
+  - name: category
+    singleValue: false
+    xpath: //div[@class='fp-pagination']/a[position() >= 2 and position()<last()]/text()
+  - name: nameExtended
+    singleValue: true
+    xpath: //div[@class='fp-productList_info']/h5[@class='fp-productList_productName']/text()  
+  - name: availabilityText
+    singleValue: true
+    defaultValue: In Stock
+  - name: description
+    singleValue: false
+    xpath: //div[@class="fp-switcher_item active"][contains(text(),'Produktbeschreibung')]//following::p[1]
+  - name: brandText
+    singleValue: true
+    xpath: //div[@class="fp-pagination"]/@data-brand-name
+  - name: quantity
+    singleValue: false
+    xpath: //div[@class="fp-productList_bottleInfo"]/text()  
+  - name: variantInformation
+    singleValue: false
+    xpath: //div[@class="fp-productList_bottleInfo"]/text()
+  - name: variantCount
+    singleValue: true
+    type: NUMBER
+    xpath: count(//div[@class='fp-productList_bottleDetails'])
+  - name: name
+    singleValue: true
+    description: The product name
+    xpath: //div[@class='fp-productList_info']/h5[@class='fp-productList_productName']
+  - name: price
+    singleValue: false
+    type: CURRENCY
+    xpath: //b[@class="fp-price-is-special-offer"]/text()
+  - name: ingredientsList
+    singleValue: true
+    xpath: //div[@class="swiper-wrapper"]//p[2]/text()
+  - name: manufacturer
+    singleValue: false
+    xpath: //div[@class="swiper-wrapper"]//p[1][contains(text(),'Hersteller')]/text()
+  - name: caloriesPerServing
+    singleValue: false
+    xpath: //tbody//tr//td[contains(text(),'Brennwert')]/following-sibling::td[1]
+    regExp: ([^a-zA-Z]+)
+  - name: totalFatPerServing
+    singleValue: false
+    xpath: //tbody//tr//td[normalize-space(text())='Fett']/following-sibling::td[1]
+    regExp: ([^a-zA-Z]+)
+  - name: totalFatPerServingUom
+    singleValue: false
+    xpath: //tbody//tr//td[normalize-space(text())='Fett']/following-sibling::td[1]
+    regExp: ([^0-9, ]+)
+  - name: sodiumPerServing
+    singleValue: false
+    xpath: //tbody//tr//td[normalize-space(text())='Natrium']/following-sibling::td[1]
+    regExp: ([^a-zA-Z]+)
+  - name: sodiumPerServingUom
+    singleValue: false
+    xpath: //tbody//tr//td[normalize-space(text())='Natrium']/following-sibling::td[1]
+    regExp: ([^0-9, ]+)
+  - name: calciumPerServing
+    singleValue: false
+    xpath: //tbody//tr//td[normalize-space(text())='Calcium']/following-sibling::td[1]
+    regExp: ([^a-zA-Z]+)
+  - name: calciumPerServingUom
+    singleValue: false
+    xpath: //tbody//tr//td[normalize-space(text())='Calcium']/following-sibling::td[1]
+    regExp: ([^0-9, ]+)
+  - name: magnesiumPerServing
+    singleValue: false
+    xpath: //tbody//tr//td[normalize-space(text())='Magnesium']/following-sibling::td[1]
+    regExp: ([^a-zA-Z]+)
+  - name: magnesiumPerServingUom
+    singleValue: false
+    xpath: //tbody//tr//td[normalize-space(text())='Magnesium']/following-sibling::td[1]
+    regExp: ([^0-9, ]+)
+  - name: totalCarbPerServing
+    singleValue: false
+    xpath: //tbody//tr//td[contains(text(),'Kohlenhydrate')]/following-sibling::td[1]
+    regExp: ([^a-zA-Z]+)
+  - name: totalCarbPerServingUom
+    singleValue: false
+    xpath: //tbody//tr//td[contains(text(),'Kohlenhydrate')]/following-sibling::td[1]
+    regExp: ([^0-9, ]+)
+  - name: saturatedFatPerServing
+    singleValue: false   
+    xpath: //tbody//tr//td[contains(text(),'Gesättigte Fettsäuren')]/following-sibling::td[1]
+    regExp: ([^a-zA-Z]+)
+  - name: saturatedFatPerServingUom
+    singleValue: false   
+    xpath: //tbody//tr//td[contains(text(),'Gesättigte Fettsäuren')]/following-sibling::td[1]
+    regExp: ([^0-9, ]+)
+  - name: totalSugarsPerServing
+    singleValue: false
+    xpath: //tbody//tr//td[contains(text(),'Zucker')]/following-sibling::td[1]
+    regExp: ([^a-zA-Z]+)
+  - name: totalSugarsPerServingUom
+    singleValue: false
+    xpath: //tbody//tr//td[contains(text(),'Zucker')]/following-sibling::td[1]
+    regExp: ([^0-9, ]+)
+  - name: proteinPerServing
+    singleValue: false    
+    xpath: //tbody//tr//td[contains(text(),'Eiweiß')]/following-sibling::td[1]
+    regExp: ([^a-zA-Z]+)
+  - name: proteinPerServingUom
+    singleValue: false    
+    xpath: //tbody//tr//td[contains(text(),'Eiweiß')]/following-sibling::td[1]
+    regExp: ([^0-9, ]+)
+  - name: saltPerServing
+    singleValue: false
+    xpath: //tbody//tr//td[contains(text(),'Salz')]/following-sibling::td[1]
+    regExp: ([^a-zA-Z]+)
+  - name: saltPerServingUom
+    singleValue: false
+    xpath: //tbody//tr//td[contains(text(),'Salz')]/following-sibling::td[1]
+    regExp: ([^0-9, ]+)
+  - name: technicalInformationPdfPresent
+    singleValue: true
+    defaultValue: No
+  - name: termsAndConditions
+    singleValue: true
+    description: Terms and conditions information text ['Yes','No']
+    defaultValue: No
+  - name: privacyPolicy
+    singleValue: true
+    description: Privacy Policy information text ['Yes','No']
+    defaultValue: No
+  - name: customerServiceAvailability
+    singleValue: true
+    description: Information related to customer service availability (text), ['Yes','No']
+    defaultValue: No
+  - name: materials
+    singleValue: true
+    description: Materials used to make the product
+    example: https://www.jdsports.co.uk/product/blue-adidas-linear-20-reversible-wind-breaker-jacket/15988125/
+  - name: Image360Present
+    singleValue: true
+    description: If 360 image is present in the carousel ['Yes','No']
+    example: https://www.amazon.com/Trinsic-Single-Handle-Magnetic-Champagne-9159-CZ-DST/dp/B0050EN8E6
+    defaultValue: No
+  - name: imageZoomFeaturePresent
+    singleValue: true
+    description: If Zoom feature is available for Main image or images in the
+      carousel,['Yes','No']
+    example: https://www.zalando.de/adidas-neo-sneaker-low-blackwhite-a4315i002-q11.html
+    defaultValue: No
+
+

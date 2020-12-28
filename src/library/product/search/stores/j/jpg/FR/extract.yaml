@@ -5,7 +5,7 @@ recordXPath: null
 fields:
   - name: id
     singleValue: false
-    xpath: //div[@id="toolbar__all_anchor"]//figcaption//span[contains(text(),'WW')]   
+    xpath: //div[@class="product-card__price-container"]//button/@data-ref   
   - name: _url
     singleValue: false
     xpath: ancestor::html//div[@id="pd_url"]
@@ -14,7 +14,7 @@ fields:
     xpath: //div[@id="toolbar__all_anchor"]//span//@title
   - name: productUrl
     singleValue: false 
-    xpath: //div[@id="toolbar__all_anchor"]//article/a[@title]/@href
+    xpath: //div[@id="toolbar__all_anchor"]//figcaption//a/@href
   - name: thumbnail
     singleValue: false
     xpath: //div[@id="toolbar__all_anchor"]//figure//img//@src  
