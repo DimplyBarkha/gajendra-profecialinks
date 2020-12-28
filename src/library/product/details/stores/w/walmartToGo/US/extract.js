@@ -81,14 +81,14 @@ module.exports = {
           const istfat = (data.nutritionFacts.key_nutrients.children[0].nutrient_amount.displayValue);
           const tfat = (istfat) ? (data.nutritionFacts.key_nutrients.children[0].nutrient_amount.displayValue) : '';
           addElementToDocument('iio_nutrient_totalFat', tfat);
-          console.log('edddtttttttttt');
+          // console.log('edddtttttttttt');
           try {
             var optData = data.nutritionFacts.key_nutrients.children[0].children[0];
           } catch (e) {
             optData = undefined;
           }
           if (optData !== undefined) {
-            console.log('eddd');
+            // console.log('eddd');
             const tfatPer = (data.nutritionFacts.key_nutrients.children[0].children[0].nutrient_amount.displayValue);
             addElementToDocument('iio_nutrient_saturatedFat', tfatPer);
             const issodium = (data.nutritionFacts.key_nutrients.children[2].nutrient_amount.displayValue);
@@ -111,8 +111,12 @@ module.exports = {
             addElementToDocument('iio_nutrient_servingsPerContainer', scounter);
           }
         }
-        const qunt = (data.store.price.salesQuantity) ? data.store.price.salesQuantity : '';
-        addElementToDocument('iio_quantity', qunt);
+        if (data.store.price.salesQuantity !== undefined) {
+          // const qunt = (data.store.price.salesQuantity) ? data.store.price.salesQuantity : '';
+          const qunt = data.store.price.salesQuantity;
+          console.log('---------------' + qunt);
+          addElementToDocument('iio_quantity', (qunt ? (data.store.price.salesQuantity) : ''));
+        }
         addElementToDocument('iio_available', (available ? 'In Stock' : 'Out of Stock'));
         addElementToDocument('iio_product_url', `https://grocery.walmart.com/product/${pid}`);
         // return;

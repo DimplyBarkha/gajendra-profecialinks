@@ -22,7 +22,8 @@ fields:
   regExpReplace: $1
 - name: quantity
   singleValue: false
-  xpath: (//section[contains(@data-automation-id,"productPage")]//h1[contains(@data-automation-id,"name")]|//*[@id="iio_quantity"])[1]
+  xpath: //*[@id="iio_quantity"]
+  #xpath: (//section[contains(@data-automation-id,"productPage")]//h1[contains(@data-automation-id,"name")]|//*[@id="iio_quantity"])[1]
 - name: secondaryImageTotal
   singleValue: false
   description: 
