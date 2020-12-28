@@ -1,6 +1,6 @@
 const { transform } = require('../format');
 
-async function implementation(
+async function implementation (
   inputs,
   parameters,
   context,
@@ -10,12 +10,18 @@ async function implementation(
   const { productDetails } = dependencies;
 
   await context.evaluate(async () => {
-    function addHiddenDiv(id, content) {
+    function addHiddenDiv (id, content) {
       const newDiv = document.createElement('div');
       newDiv.id = id;
       newDiv.textContent = content;
       newDiv.style.display = 'none';
       document.body.appendChild(newDiv);
+    }
+    if (document.querySelector('span.price-old span[id*="sec_list_price"]')) {
+      const newPrice = document.querySelector('span.price span[id*="sec_discounted_price"]').innerText;
+      const oldPrice = document.querySelector('span.price-old span[id*="sec_list_price"]').innerText;
+      const promotion = 'Save € ' + (oldPrice - newPrice) + ' today';
+      addHiddenDiv('promotionText', promotion);
     }
     let description = document.querySelector('div#content_description > div.product-tab-wrapper');
 

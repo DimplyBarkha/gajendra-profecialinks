@@ -103,6 +103,8 @@ fields:
   - name: mpc
     singleValue: false
     xpath: //*[@data-flix-mpn]/@data-flix-mpn | //script[contains(text(),'"mpn"')]
+  - name: promotion
+    xpath: //div[@id='promotionText']/text()
   - name: inTheBoxUrl
     xpath: //div[contains(@class,'InTheBox')]//img/@src
     regExp: (.+)
