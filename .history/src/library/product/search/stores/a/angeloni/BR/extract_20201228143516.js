@@ -32,14 +32,9 @@ module.exports = {
 
       const siteUrl = window.location.href;
       const items = document.querySelectorAll('.box-produto');
-      console.log(items);
       items.forEach(item => {
-        const firstPricePart = item.querySelector('.box-produto__preco__valor')
-                              ? item.querySelector('.box-produto__preco__valor').textContent
-                              : '';
-        const secondPricePart = item.querySelector('.box-produto__preco__centavos')
-                                ? item.querySelector('.box-produto__preco__centavos').textContent
-                                : '';
+        const firstPricePart = item.querySelector('.box-produto__preco__valor').textContent;
+        const secondPricePart = item.querySelector('.box-produto__preco__centavos').textContent || '';
         item.setAttribute('generated-pirce', `${firstPricePart}${secondPricePart}`);
         item.setAttribute('generated-url', siteUrl);
       })

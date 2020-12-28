@@ -38,23 +38,23 @@ const transform = (data, context) => {
     context.setState({ productCodes });
 
 
-    function findKeyValue(key, data){
-        let result = [];
-        data.forEach(dataObj=> {
-            dataObj.group.forEach(dataObjElem => {
-                if(dataObjElem[key]){
-                    result = dataObjElem[key];
-                }
-            });
-        });
-        return result;
-    } 
+    // function findKeyValue(key, data){
+    //     let result = [];
+    //     data.forEach(dataObj=> {
+    //         dataObj.group.forEach(dataObjElem => {
+    //             if(dataObjElem[key]){
+    //                 result = dataObjElem[key];
+    //             }
+    //         });
+    //     });
+    //     return result;
+    // } 
 
     // function cleanText (str) {
     //     return str.replace(/(\r\n|\n|\r)/gm, '').replace(/\s+/g, ' ').trim();
     // }
 
-    const urlFieldValue = findKeyValue('url', data);
+    // const mainUrl = 'https://www.ozon.ru';
 
     data.forEach(dataObj => {
         dataObj.group.forEach((fieldName, index) => {
@@ -69,9 +69,6 @@ const transform = (data, context) => {
                 }
             }
 
-            // _url
-            fieldName['_url'] = urlFieldValue;
-
             //thumbnail
             if(fieldName.thumbnail){
                 fieldName.thumbnail[0].text = `https:${fieldName.thumbnail[0].text}`;
@@ -79,7 +76,7 @@ const transform = (data, context) => {
 
 
             // url
-
+            
         });
     });
 

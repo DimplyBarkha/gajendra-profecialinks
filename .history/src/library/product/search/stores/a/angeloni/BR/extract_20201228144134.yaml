@@ -5,7 +5,7 @@ recordXPath: null
 fields:
   - name: _input
   - name: url
-    xpath: //div[@class="box-produto p-relative"]/@generated-url
+    xpath: //div[contains(@class, "box-produto")]/@generated-url
   - name: _pageTimestamp
     singleValue: true
   - name: id
@@ -19,4 +19,4 @@ fields:
   - name: thumbnail
     xpath: //div[contains(@class, "box-produto__content-img")]//img/@data-src
   - name: price
-    xpath: //div[@class="box-produto p-relative"]/@generated-pirce
+    xpath: //div[contains(@class, "box-produto")]/@generated-pirce

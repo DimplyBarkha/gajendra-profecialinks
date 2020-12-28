@@ -31,17 +31,12 @@ module.exports = {
 
 
       const siteUrl = window.location.href;
-      const items = document.querySelectorAll('.box-produto');
-      console.log(items);
-      items.forEach(item => {
-        const firstPricePart = item.querySelector('.box-produto__preco__valor')
-                              ? item.querySelector('.box-produto__preco__valor').textContent
-                              : '';
-        const secondPricePart = item.querySelector('.box-produto__preco__centavos')
-                                ? item.querySelector('.box-produto__preco__centavos').textContent
-                                : '';
-        item.setAttribute('generated-pirce', `${firstPricePart}${secondPricePart}`);
-        item.setAttribute('generated-url', siteUrl);
+      const itemPrices = document.querySelectorAll('.box-produto__preco');
+      itemPrices.forEach(itemPrice => {
+        const firstPricePart = itemPrice.querySelector('.box-produto__preco__valor').textContent;
+        const secondPricePart = itemPrice.querySelector('.box-produto__preco__centavos').textContent || '';
+        itemPrice.setAttribute('generated-pirce', `${firstPricePart}${secondPricePart}`);
+        itemPrice.setAttribute('generatedUrl', siteUrl);
       })
     })
     return await context.extract(productDetails, {transform});

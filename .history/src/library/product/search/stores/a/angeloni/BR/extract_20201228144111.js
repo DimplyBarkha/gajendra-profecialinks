@@ -34,14 +34,14 @@ module.exports = {
       const items = document.querySelectorAll('.box-produto');
       console.log(items);
       items.forEach(item => {
-        const firstPricePart = item.querySelector('.box-produto__preco__valor')
+        const firstPricePart = item.querySelector('.box-produto__preco__valor').textContent
                               ? item.querySelector('.box-produto__preco__valor').textContent
                               : '';
-        const secondPricePart = item.querySelector('.box-produto__preco__centavos')
+        const secondPricePart = item.querySelector('.box-produto__preco__centavos').textContent 
                                 ? item.querySelector('.box-produto__preco__centavos').textContent
                                 : '';
-        item.setAttribute('generated-pirce', `${firstPricePart}${secondPricePart}`);
-        item.setAttribute('generated-url', siteUrl);
+        // item.setAttribute('generated-pirce', `${firstPricePart}${secondPricePart}`);
+        // item.setAttribute('generated-url', siteUrl);
       })
     })
     return await context.extract(productDetails, {transform});

@@ -69,9 +69,6 @@ const transform = (data, context) => {
                 }
             }
 
-            // _url
-            fieldName['_url'] = urlFieldValue;
-
             //thumbnail
             if(fieldName.thumbnail){
                 fieldName.thumbnail[0].text = `https:${fieldName.thumbnail[0].text}`;
