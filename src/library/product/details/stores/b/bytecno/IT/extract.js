@@ -82,8 +82,9 @@ module.exports = {
                 const {inBoxText=[],inBoxUrls=[]} = witbData;
   
                 for(let i=0;i<inBoxText.length;i++){
-                  if(inBoxText[i]){
                   addHiddenDiv(`inTheBoxText-${i}`, inBoxText[i]);
+                  if(inBoxUrls[i]){                 
+                    addHiddenDiv(`inTheBoxUrl-${i}`, inBoxUrls[i]);
                   }
                 }
               },witbData);
