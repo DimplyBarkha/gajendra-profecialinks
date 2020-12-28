@@ -12,13 +12,20 @@ module.exports = {
   implementation: async function implementation (inputs, parameters, context, dependencies) {
     const { transform } = parameters;
     const { productDetails } = dependencies;
-    function reduceInfoToOneField (field) {
+    await context.evaluate(async () => {
+      const bulletTextElements = document.querySelectorAll('div#description-body li');
+      bulletTextElements.forEach(el => {
+        el.textContent = `|| ${el.textContent}`;
+      });
+    });
+
+    function reduceInfoToOneField (field, separator = ' ') {
       if (field && field.length > 1) {
         let fieldText = '';
         field.forEach(element => {
-          fieldText += ' -' + element.text;
+          fieldText += element.text + separator;
         });
-        field[0].text = fieldText.replace(/\n/g, ': ');
+        field[0].text = fieldText.slice(0, -separator.length);
         return field.splice(1);
       }
     }
@@ -53,9 +60,6 @@ module.exports = {
     reduceInfoToOneField(description);
     const directions = dataRef[0].group[0].directions;
     reduceInfoToOneField(directions);
-    if (dataRef[0].group[0].sku) {
-      dataRef[0].group[0].variantId = dataRef[0].group[0].sku;
-    }
     if (dataRef[0].group[0].listPrice) {
       if (dataRef[0].group[0].listPrice[0].text === '.') {
         delete dataRef[0].group[0].listPrice;

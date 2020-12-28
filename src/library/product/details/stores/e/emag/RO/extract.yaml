@@ -51,15 +51,16 @@ fields:
   description: Availability as described on page for the selected variant. If there
     is no availability but the product can be added to cart, this field should be
     "In Stock"
-  xpath: //div[@class="product-highlight product-page-pricing"]//span[@class="label label-in_stock"] | //div[@class="product-highlight product-page-pricing"]//span[@class="label label-unavailable"]
+  xpath: //div[@class="product-highlight product-page-pricing"]//span[@class="label label-in_stock"] | //div[@class="product-highlight product-page-pricing"]//span[@class="label label-unavailable"] | //div[@class="product-highlight product-page-pricing"]//span[@class="label label-out_of_stock"]
 - name: description
   singleValue: false
   description: Product description supplied by website - may be concatenanted from
     multiple places; specifically not the manufacturer description
-  xpath: //div[@class="product-page-description-text"]
+  xpath: //div[@id="description-body"]/*[not(.//video)][not(contains(.,"Ingrediente"))][not(contains(.,"Informatii nutritionale"))] | //div[@id="description-body"][not(*)]/text()
 - name: descriptionBullets
   singleValue: true
   description: Number of ul > li tags in the description
+  xpath: count(//section[@class="page-section page-section-light gtm_product-page-description"]//li)
 - name: brandText
   singleValue: true
   description: Product brand shown - this may actually NOT be just a brand name, e.g.
@@ -72,10 +73,11 @@ fields:
 - name: quantity
   singleValue: true
   description: Quantity as described on the page
-  xpath: //td[contains(.,"Cantitate")]/following-sibling::td
+  xpath: //td[.="Marime"]/following-sibling::td | //td[contains(.,"Cantitate")]/following-sibling::td
 - name: weightNet
   singleValue: true
   description: Net weight as described on the page
+  xpath: //td[.="Greutate"]/following-sibling::td
 - name: weightGross
   singleValue: true
   description: Gross weight as described on the page
@@ -85,13 +87,14 @@ fields:
 - name: sku
   singleValue: true
   description: The store-specific product identifier
-  xpath: //span[@class="product-code-display pull-left"]
-  regExp: ': (\w+)'
-  regExpReplace: $1
+  xpath: //div[@class="product-review-item js-review-item row"]/@data-product-pnk
 - name: variantId
   singleValue: true
   description: Identifier for a variant from a store where variants share the same
     sku
+  xpath: //span[@class="product-code-display pull-left"]
+  regExp: ': (\w+)'
+  regExpReplace: $1
 - name: mpc
   singleValue: true
   description: The manufacturer model code (unique) of the product
@@ -99,14 +102,16 @@ fields:
   singleValue: true
   description: The number of packs in the product offer (if stated separately on the
     site to quantity)
+  xpath: //td[contains(.,"pachet")]/following-sibling::td
+  regExp: (\d+)
+  regExpReplace: $1
 - name: legalDisclaimer
   singleValue: true
   description: Content under "legal disclaimer" header
-  xpath: //div[@class="disclaimer-section"]/p[last()]
 - name: directions
   singleValue: false
   description: Content under "directions" header
-  xpath: //p[contains(.,"Informatii Dozaj:")]/following-sibling::p[starts-with(.,"-")]
+  xpath: //p[contains(.,"Informatii Dozaj:")]/following-sibling::p[starts-with(.,"-")] | //div[@id="description-body"]//b[.="Utilizare"]/following-sibling::text()[1]
 - name: warnings
   singleValue: true
   description: Content under "warnings" header
@@ -126,6 +131,7 @@ fields:
 - name: shippingInfo
   singleValue: true
   description: Shipping information for the product
+  xpath: //div[@class="product-highlights-wrapper"]//div[@class="product-highlight"][.//span[contains(.,"Vândut și livrat de")]]
 - name: shippingDimensions
   singleValue: true
   description: Stated shipping dimensions
@@ -135,21 +141,25 @@ fields:
 - name: variantCount
   singleValue: true
   description: Number of variants listed
+  xpaht: count(//div[@class="product-highlights-wrapper"]//ul[@class="page-product-options-group list-inline"]/li)
 - name: color
   singleValue: true
   description: A textual description of the colour
+  xpath: //td[.="Culoare"]/following-sibling::td
 - name: colorCode
   singleValue: true
   description: A code description of the color (e.g. RGB hex)
 - name: manufacturerDescription
   singleValue: false
   description: The extended description of the product supplied by the lister
+  xpath: //div[@id="description-body"]//img//@src
 - name: manufacturerImages
   singleValue: false
   description: Images within the third party description
 - name: videos
   singleValue: false
   description: URLs of videos on page
+  xpath: //div[@id="description-body"]//video/source/@src
 - name: name
   singleValue: true
   description: The product name
@@ -257,6 +267,7 @@ fields:
   singleValue: true
   description: List of Ingredients from site - can be string of data if no discernible
     start/end point
+  xpath: //div[@id="description-body"]//p[contains(.,"Ingrediente")] | //div[@id="description-body"]//b[contains(.,"Ingrediente")]/following-sibling::text()[position()=1]
 - name: servingSize
   singleValue: true
   description: The size of serving Nutritional information is based on.
@@ -410,6 +421,7 @@ fields:
 - name: packaging
   singleValue: true
   description: Packaging information
+  xpath: //td[.="Tip ambalaj"]/following-sibling::td
 - name: additives
   singleValue: true
   description: List of additives in the product
@@ -463,6 +475,7 @@ fields:
   singleValue: true
   description: Recommended age displayed on the product page. https://www.amazon.com/LEGO-Classic-Medium-Creative-Brick/dp/B00NHQFA1I
   example: 4 - 99 years
+  xpath: //td[.="Varsta"]/following-sibling::td
 - name: energyEfficiency
   singleValue: true
   description: Energy rating of a product. https://www.amazon.de/Siemens-WM16W541-Waschmaschine-Schnellwaschprogramm-Nachlegefunktion/dp/B015FJFK14
