@@ -2,7 +2,7 @@ input:
   id: 710546
   _url: http://bruneau.fr
 extractions:
-  - html: https://workbench.import.io/html/run=a9a3c3dc-e863-4ceb-a579-af67e7f4580b/task=d98a8580-4309-40b1-b729-ed6ddca0cd35/3ed8491c-4ec7-465b-8e5f-85373a752a2a.html
+  - html: https://workbench.import.io/html/run=8b5da314-c204-48d2-a467-11bd09345803/task=1f97c5c5-b6a6-48d4-b637-360636d3bc60/04364ca0-596c-463e-b305-43f6f7022eda.html
     extractionConfigId: product/details/stores/b/bruneau/FR/extract
     data:
       - group:
@@ -60,6 +60,12 @@ extractions:
             mpc:
               - text: "710546"
                 xpath: /html/body/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[2]/div[1]/p[1]/span[1]
+            aggregateRatingText:
+              - text: 4,8
+                xpath: /html/body/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[5]/div[4]/div[1]/div[1]/ul[1]/li[1]/div[1]/div[2]/span[1]/@title
+            aggregateRating:
+              - text: 4,8
+                xpath: /html/body/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[5]/div[4]/div[1]/div[1]/ul[1]/li[1]/div[1]/div[2]/span[1]/@title
             shippingInfo:
               - text: Livraison sous 24 heures
                 xpath: /html/body/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/span[1]
@@ -93,4 +99,4 @@ extractions:
             variantCount:
               - text: "1"
         xpath: /
-    timestamp: 1608719237522
+    timestamp: 1609156275981
