@@ -75,7 +75,7 @@ async function implementation (
   }
   const { pager } = dependencies;
 
-  const success = openSearchDefinition ? false : await pager({ ...inputs, nextLinkSelector: nextLink, loadedSelector, loadedXpath, mutationSelector, spinnerSelector });
+  const success = await pager({ ...inputs, nextLinkSelector: nextLink, loadedSelector, loadedXpath, mutationSelector, spinnerSelector });
 
   if (success) {
     return true;
