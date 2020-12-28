@@ -29,6 +29,7 @@ fields:
   - name: reviewCount
     singleValue: false
     xpath: //div[@class="reviews_1KIjQ"]/span/span/text()
+    regExp: \d{1,}
   - name: rankOrganic
     singleValue: false
   - name: rank

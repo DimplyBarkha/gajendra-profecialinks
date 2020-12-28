@@ -5,7 +5,7 @@ module.exports = {
     domain: 'bestbuy.ca',
     timeout: 50000,
     country: 'CA',
-    store: 'bestbuy',
+    //store: 'bestbuy',
     zipcode: '',
   },
 };
