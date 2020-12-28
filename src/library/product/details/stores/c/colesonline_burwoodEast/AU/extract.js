@@ -84,7 +84,7 @@ async function implementation (
     let name = findXpathArr("//h1[@class='product-title']//span[@class='product-brand'] | //h1[@class='product-title']//span[@class='product-name']");
     const size = document.querySelector("span[data-ng-if='::productDisplayVM.product.showOnlineSizeDesc']") ? document.querySelector("span[data-ng-if='::productDisplayVM.product.showOnlineSizeDesc']").innerText : '';
     name = name.join(' ');
-    addHiddenDiv('ii_name', name + ' ' + size.trim());
+    addHiddenDiv('ii_name', name + '- ' + size.trim());
     let specifications = findXpath("//div[contains(@class,'product-specific')]");
     specifications = specifications.replace(/\n|\t|\s{2,}/gm, ' ').trim().indexOf('Details') === 0 ? specifications.replace(/Details/, '') : specifications;
     addHiddenDiv('ii_specifications', specifications);
@@ -97,6 +97,8 @@ async function implementation (
       pricePerUnit = val[0].trim() + ' per ' + val[1].match(/([\d]{1,})/)[0].trim();
       pricePerUnitUom = val[1].replace(/.*(?:[\d]+(?:.[\d]+)?)\s{0,}(.*)/, '$1');
     }
+    let ii_desc = document.querySelector('div.long-desc-container') && document.querySelector('div.long-desc-container').innerText;
+    addHiddenDiv('ii_desc', ii_desc);
     addHiddenDiv('ii_pricePerUnit', pricePerUnit);
     addHiddenDiv('ii_pricePerUnitUom', pricePerUnitUom);
   });
