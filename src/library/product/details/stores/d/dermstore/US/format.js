@@ -24,12 +24,18 @@ const transform = (data) => {
       }
       if (row.description) {
         row.description.forEach(itemDescription => {
-          itemDescription.text = itemDescription.text.replace('Brand details', '');
+          itemDescription.text = itemDescription.text.replace(' Brand details', '');
         });
       }
       if (row.price) {
         row.price.forEach(priceItem => {
           priceItem.text = priceItem.text.replace('$', '');
+        });
+      }
+      if (row.nameExtended) {
+        const brandText = row.brandText[0].text;
+        row.nameExtended.forEach(nameExtendedItem => {
+          nameExtendedItem.text = nameExtendedItem.text.includes(brandText) ? nameExtendedItem.text : brandText + ' ' + nameExtendedItem.text;
         });
       }
       if (row.quantity) {
