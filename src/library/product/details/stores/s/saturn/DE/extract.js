@@ -32,9 +32,20 @@ async function implementation(inputs, parameters, context, dependencies) {
     const rating = json.data && json.data.reviews && json.data.reviews.rating;
     if (rating) {
       document.body.setAttribute('rating-count', rating.count);
+    } else {
+      const ratingCountXpth = document.evaluate('//script[@type="application/ld+json"][contains(text(),"ratingCount")]', document, null, XPathResult.STRING_TYPE, null);
+      if (ratingCountXpth && ratingCountXpth.stringValue) {
+        document.body.setAttribute('rating-count', ratingCountXpth.stringValue.match(/(?<=ratingCount)(.*)(?=review")/) ? ratingCountXpth.stringValue.match(/(?<=ratingCount)(.*)(?=review")/)[0] : '');
+      }
     }
   }
   await context.evaluate(getRating);
+
+  try {
+    await context.waitForSelector('button[class*="ProductFeatures"]', { timeout: 25000 });
+  } catch (error) {
+    console.log('Not loading product features yet');
+  }
   await context.evaluate(() => {
     if (document.querySelector('button[class*="ProductFeatures"]')) {
       document
