@@ -4,15 +4,16 @@ async function implementation (inputs, parameters, context, dependencies) {
   const { productDetails } = dependencies;
   const { transform } = parameters;
 
-  const nextLinkSelector = await context.evaluate(() => {
+  if (await context.evaluate(() => {
     return document.querySelector('span.d-xs-inline.d-l-none');
-  });
-
-  if (nextLinkSelector !== null) {
+  }) !== null) {
     do {
       if (await context.evaluate(() => {
         return document.querySelector('span.d-xs-inline.d-l-none');
-      }) === null) {
+      }) === null || await context.evaluate(() => {
+        const offSet = window.location.href.match('offSet=([0-9]+)');
+        return parseInt(offSet[1]) >= 150;
+      })) {
         return await context.extract(productDetails, { transform });
       } else {
         await context.extract(productDetails, { transform });
