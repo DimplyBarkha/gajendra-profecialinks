@@ -1,23 +1,27 @@
-const { transform } = require('../../../../shared');
-
 module.exports = {
   implements: 'product/details/extract',
   parameterValues: {
     country: 'NL',
     store: 'mediamarkt',
-    transform: transform,
+    transform: null,
     domain: 'mediamarkt.nl',
     zipcode: '',
   },
   implementation: async ({ inputString }, { country, domain }, context, { productDetails }) => {
     await context.evaluate(async function () {
-      function addElementToDocument (key, value) {
+      function addElementToDocument(key, value) {
         const catElement = document.createElement('div');
         catElement.id = key;
         catElement.textContent = value;
         catElement.style.display = 'none';
         document.body.appendChild(catElement);
       }
+      const scripts = document.querySelectorAll('script');
+      const eanScript = scripts && [...scripts].find(element => element.innerText.includes('ean'));
+      const gtinData = eanScript && eanScript.innerText && eanScript.innerText.trim() && eanScript.innerText.trim().split('=')[1] && eanScript.innerText.trim().split('=')[1].trim();
+      const gtinObj = JSON.parse(gtinData.substring(0, gtinData.lastIndexOf(';')));
+      const gtin = gtinObj && gtinObj.ean;
+      addElementToDocument('gtinvalue', gtin);
 
       const urlParams = new URLSearchParams(window.location.search);
 
@@ -57,7 +61,7 @@ module.exports = {
             energy = specificationsItems[index + 1].innerText;
           }
           // Getting shipping dimensions
-          if (item.innerText === 'Verpakkingsvolume B x H x D (m):') {
+          if (item.innerText.includes('Verpakkingsvolume') | item.innerText.includes('Afmetingen')) {
             shippingDimensions = specificationsItems[index + 1].innerText;
           }
         });
@@ -94,17 +98,17 @@ module.exports = {
       // Getting images
       const images = Array.from(document.querySelectorAll('ul.thumbs li a:not(.thumb--play-video-btn)'));
       const image = `https:${images[0].dataset.preview}`;
-      const alternativeImages = images.reduce((accumulator, link, i) => i > 0 ? accumulator + `${i !== 1 ? ' | ' : ''}https:${link.dataset.preview}` : '', '');
+      // const alternativeImages = images.reduce((accumulator, link, i) => i > 0 ? accumulator + `${i !== 1 ? ' | ' : ''}https:${link.dataset.preview}` : '', '');
       addElementToDocument('mm_image', image);
-      addElementToDocument('mm_alternateImages', alternativeImages);
+      // addElementToDocument('mm_alternateImages', alternativeImages);
 
       // Getting category
-      const breadcrumbs = Array.from(document.querySelectorAll('ul.breadcrumbs li a'));
-      addElementToDocument('mm_category', breadcrumbs[1].innerText);
+      // const breadcrumbs = Array.from(document.querySelectorAll('ul.breadcrumbs li a'));
+      // addElementToDocument('mm_category', breadcrumbs[1].innerText);
 
       // Getting subcategory
-      const subcategories = breadcrumbs.reduce((accumulator, category, i) => i > 1 ? accumulator + `${i > 2 ? ' > ' : ''}${category.innerText}` : '', '');
-      addElementToDocument('mm_subCategory', subcategories);
+      // const subcategories = breadcrumbs.reduce((accumulator, category, i) => i > 1 ? accumulator + `${i > 2 ? ' > ' : ''}${category.innerText}` : '', '');
+      // addElementToDocument('mm_subCategory', subcategories);
 
       // Checking if in stock
       if (document.querySelector('.label-instock')) {

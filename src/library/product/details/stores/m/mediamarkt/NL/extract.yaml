@@ -12,11 +12,15 @@ fields:
   - name: imageAlt
     xpath: //img[@class='img-preview']/@alt
   - name: alternateImages
-    xpath: //div[@id='mm_alternateImages']
+    # xpath: //div[@id='mm_alternateImages']
+    xpath: //ul[contains(@class,"thumbs")]/li[position()>1]/a/@data-magnifier
+    regExp: (.+)
+    regExpReplace: https:$1
   - name: category
-    xpath: //div[@id='mm_category']
-  - name: category
-    xpath: //div[@id='mm_subCategory']
+    # xpath: //div[@id='mm_category']
+    xpath: //ul[contains(@class,"breadcrumbs")]/li[position()>1]/a
+  # - name: category
+  #   xpath: //div[@id='mm_subCategory']
   - name: quantity
     xpath: //div[@id='mm_size']
   - name: weightNet
@@ -24,15 +28,18 @@ fields:
   - name: warranty
     xpath: //div[@id='mm_warranty']
   - name: eangtin
-    xpath: substring-before(substring-after(//body/script[contains(text(),'var product')], '"ean":"'), '",')
+    # xpath: substring-before(substring-after(//body/script[contains(text(),'var product')], '"ean":"'), '",')
+    xpath: //div[@id="gtinvalue"]
   - name: gtin
-    xpath: substring-before(substring-after(//body/script[contains(text(),'var product')], '"ean":"'), '",')
+    # xpath: substring-before(substring-after(//body/script[contains(text(),'var product')], '"ean":"'), '",')
+    xpath: //div[@id="gtinvalue"]
   - name: sku
     xpath: //div[@id='mm_skuCode']
   - name: variantId
     xpath: //div[@id="product-wrapper"]/@data-modelnumber
   - name: ratingCount
-    xpath: //div[@id='mm_numberOfCustomerReviews']
+    # xpath: //div[@id='mm_numberOfCustomerReviews']
+    xpath: //meta[@itemprop="reviewCount"]/@content
   - name: mpc
     xpath: //div[@id='mm_mpc']
   - name: color
@@ -40,9 +47,11 @@ fields:
   - name: energyEfficiency
     xpath: //div[@id='mm_energy']
   - name: aggregateRating2
-    xpath: //div[@id='mm_aggregateRating']
+    # xpath: //div[@id='mm_aggregateRating']
+    xpath: //div[@itemprop="ratingValue"]
   - name: aggregateRating
-    xpath: //div[@id='mm_aggregateRating']
+    # xpath: //div[@id='mm_aggregateRating']
+    xpath: //div[@itemprop="ratingValue"]
   - name: promotion
     xpath: //div[@class='product-promobox']/h4
   - name: secondaryImageTotal
