@@ -6,7 +6,7 @@ module.exports = {
     store: 'mecca',
     domain: 'mecca.com.au',
     url: 'https://www.mecca.com.au/search?q={searchTerms}',
-    loadedSelector: 'body',
+    loadedSelector: 'div[class="search-result-content"], div[class="shop-grid"]',
     noResultsXPath: '//div[@class="no-hits-help"]',
     zipcode: '',
   },
