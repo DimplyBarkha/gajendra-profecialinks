@@ -29,6 +29,15 @@ async function implementation (
       // await preparePage(j, variantLength);
       if (j !== variantLength - 1) { await context.extract(productDetails, { transform }, { type: 'APPEND' }); }
     }
+  } else {
+    await context.evaluate(async () => {
+      const skuDiv = document.createElement('div');
+      skuDiv.id = 'selectedSKU';
+      document.body.appendChild(skuDiv);
+      const sku = document.querySelector('meta[itemprop="sku"]').getAttribute('content');
+      console.log('sku====>', sku);
+      document.querySelector('#selectedSKU').setAttribute('data-sku', sku);
+    });
   }
   return await context.extract(productDetails, { transform });
 }
