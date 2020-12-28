@@ -34,6 +34,24 @@ const transform = (data) => {
           },
         ];
       }
+      if (row.description) {
+        let finalDesc = '';
+        for (let i = 0; i < row.description.length; i++) {
+          if (row.description[i].xpath.includes('p')) {
+            finalDesc = finalDesc + row.description[i].text + ' || ';
+          } else {
+            finalDesc = finalDesc + row.description[i].text + ' ';
+          }
+        }
+        if (finalDesc.trim().endsWith('||')) {
+          finalDesc = finalDesc.trim().substring(0, finalDesc.length-2);
+        }
+        row.description = [
+          {
+            text: finalDesc.trim(),
+          },
+        ];
+      }
       row = cleanUp(row);
     }
   }
