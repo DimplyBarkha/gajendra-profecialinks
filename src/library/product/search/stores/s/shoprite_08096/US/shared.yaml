@@ -1,0 +1,22 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: id
+    singleValue: false
+    xpath: //div[contains(@class,'twoColumnLayout__main--minWidth')]//div[@class="productImage__wrapper"]//a/@data-gtin
+  - name: thumbnail
+    singleValue: false
+    xpath: //div[contains(@class,'twoColumnLayout__main--minWidth')]//div[@class="productImage__wrapper"]//img/@src
+  - name: name
+    singleValue: false
+    xpath: //div[contains(@class,'twoColumnLayout__main--minWidth')]//a[@class="product__detailsLink"]
+  - name: productUrl
+    singleValue: false
+    xpath: //div[contains(@class,'twoColumnLayout__main--minWidth')]//div[@class="productImage__wrapper"]//a/@href
+    regExp: [^(.*)$]
+    regExpReplace: 'https://shop.shoprite.com$1'
+  - name: price
+    singleValue: false
+    xpath: //div[contains(@class,'twoColumnLayout__main--minWidth')]//div[@class="productImage__wrapper"]//a/@data-price
