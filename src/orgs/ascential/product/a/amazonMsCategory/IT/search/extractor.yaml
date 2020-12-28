@@ -1,0 +1,26 @@
+robot: product/search
+parameters:
+  country: IT
+  domain: amazon.it
+  store: amazonMsCategory
+  zipcode: ""
+proxy:
+  zone: ZIT
+  type: DATA_CENTER
+meta:
+  branches:
+    ms_ext_amazon_it_category:
+      extractor: 173ae6ac-533e-4a9e-b1df-7457a16ade25
+      legacyAccountId: f94246b4-2d86-4803-9d39-25905b37f013
+    ms-staging:
+      extractor: f716ae2a-019e-4316-8f9c-8af2b5dcac29
+      legacyAccountId: 39255e08-8495-481b-9eba-0eb99bc49e94
+    mse-demo:
+      extractor: 34722d6a-a43e-4031-9be7-e87ae8024b9e
+      legacyAccountId: 05436d0a-af0c-409d-aa11-f70cf017146
+    mse-staging:
+      extractor: a9dd5632-3f01-425e-b6df-83a13e499599
+      legacyAccountId: 39255e08-8495-481b-9eba-0eb99bc49e94
+    mse-production:
+      extractor: a9e196a5-aa5b-47f1-9edc-1eb95f09ee6f
+      legacyAccountId: 39255e08-8495-481b-9eba-0eb99bc49e94
