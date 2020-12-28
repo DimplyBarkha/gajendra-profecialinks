@@ -15,7 +15,7 @@ fields:
     xpath: //img[starts-with(@class,'GA')]/@src | //img[starts-with(@class,' GA')]/@src | //a[@class="link"]/img/@data-retina 
   - name: aggregateRating    
     singleValue: false
-    xpath: //div[@id='ratings']  
+    xpath: //div[@id='aggregateRating']  
   - name: reviewCount
     singleValue: false
     xpath: //span[@class="text-container left-spacer-small pf-color-gray"]/span
@@ -25,7 +25,5 @@ fields:
   - name: id
     singleValue: true
     xpath: //div[@class="col-sm-6 col-md-4 col-lg-3 item-container"]/article/@data-id
-  - name: endorsementText
-    singleValue: true
-    defaultValue: amazon
+  
   
