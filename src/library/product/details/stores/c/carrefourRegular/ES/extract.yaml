@@ -160,6 +160,6 @@ fields:
   - name: directions
     singleValue: false
     xpath: //p[contains(text(), 'Modo de empleo')]/following-sibling::*
-  - name: largeImageCount
+  - name: secondaryImageTotal
     singleValue: false
     xpath: count(//ul[@class='pics-slider__thumbnails']//li[position()>1]//img/@src)
