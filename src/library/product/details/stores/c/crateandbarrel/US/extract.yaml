@@ -31,7 +31,7 @@ fields:
     regExpReplace: $1
   - name: price
     singleValue: false
-    xpath: (//div[contains(@class,"header-container")]//span[contains(@class,"shop-bar-price-area")])//span[contains(@class,"regPrice")] | (//div[contains(@class,"header-container")]//div[contains(@class,"shop-bar-price-area")])[2]//span[contains(@class,"salePriceDetail")]| (//div[contains(@class,"header-container")]//div[contains(@class,"shop-bar-price-area")])[2]//span[contains(@class,"regPrice")]
+    xpath: ((//div[contains(@class,"header-container")]//span[contains(@class,"shop-bar-price-area")])//span[contains(@class,"salePrice") or contains(@class,"regPrice")] | (//div[contains(@class,"header-container")]//div[contains(@class,"shop-bar-price-area")])[2]//span[contains(@class,"salePriceDetail")]| (//div[contains(@class,"header-container")]//div[contains(@class,"shop-bar-price-area")])[2]//span[contains(@class,"salePrice") or contains(@class,"regPrice")])[1]
     regExp: (\$.*)
     regExpReplace: $1
   - name: availabilityText
