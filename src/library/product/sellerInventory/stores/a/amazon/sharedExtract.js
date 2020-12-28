@@ -1,4 +1,4 @@
-const getStockFunc = async function ({ context, sellerId, id }) {
+const getStockFunc = async function ({ context, sellerId, id, url }) {
   
   const pageContext = async () => {
     return await context.evaluate(() => {
@@ -50,6 +50,8 @@ const getStockFunc = async function ({ context, sellerId, id }) {
       return elementChecks;
     });
   };
+
+  let captchas = 0;
 
   const pageContextCheck = async (page) => {
     console.log('pageContextCheck', page);
@@ -166,7 +168,7 @@ const getStockFunc = async function ({ context, sellerId, id }) {
       await new Promise(r => setTimeout(r, 2000));
 
       console.log('Going back to desired page');
-      lastResponseData = await context.goto(gotoInput.url, {
+      lastResponseData = await context.goto(url, {
         checkBlocked: true,
       });
       lastResponseCode = lastResponseData.status;
@@ -265,7 +267,7 @@ const getStockFunc = async function ({ context, sellerId, id }) {
         await new Promise(resolve => setTimeout(resolve, 2000));
       }
     });
-    await new Promise(resolve => setTimeout(resolve, 1000));
+    await new Promise(resolve => setTimeout(resolve, 2000));
     page = await handlePage(await pageContext(), null);
   }
 
@@ -275,6 +277,7 @@ const getStockFunc = async function ({ context, sellerId, id }) {
       await context.click('input[type=submit][aria-labelledby*="cart"]');
     } else if (page.isCartTransitionPage) {
       await context.click('#hlb-view-cart-announce');
+      await new Promise(resolve => setTimeout(resolve, 3000));
     } else if (!page.hasToCartFromModal && !page.hasAdOnModal && page.hasItemsInCart) {
       await context.click('#nav-cart');
     }
@@ -286,7 +289,6 @@ const getStockFunc = async function ({ context, sellerId, id }) {
 
   if (page.isCartPage) {
     if(await productFound(id)){
-      console.log('successssss')
       await context.waitForSelector('span.quantity span span,input.sc-quantity-textfield');
       if (await productSellerFound(sellerId, id)) {
         while (await artifactCartItems()) {

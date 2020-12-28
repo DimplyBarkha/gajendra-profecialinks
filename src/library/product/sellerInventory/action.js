@@ -25,7 +25,7 @@ async function implementation (
     return;
   }
 
-  await extract({ id, sellerId });
+  await extract({ id, sellerId, url });
 }
 
 module.exports = {

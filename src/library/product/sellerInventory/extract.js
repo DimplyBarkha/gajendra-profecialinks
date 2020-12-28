@@ -18,7 +18,7 @@ async function implementation (
       return Boolean(document.querySelector(sel) || document.evaluate(xp, document, null, XPathResult.UNORDERED_NODE_ITERATOR_TYPE, null).iterateNext());
     }, { timeout: 10000 }, parameters.loadedSelector, parameters.noResultsXPath);
   }
-  await parameters.getStockFunc({ context, sellerId: inputs.sellerId, id: inputs.id });
+  await parameters.getStockFunc({ context, sellerId: inputs.sellerId, id: inputs.id, url: inputs.url });
   return await context.extract(sellerInventory, { transform });
 }
 
