@@ -5,7 +5,6 @@ async function implementation (
   context,
   dependencies,
 ) {
-  console.log('params', parameters);
   const url = parameters.url.replace('{searchTerms}', encodeURIComponent(inputs.keywords));
   await context.goto(url, { timeout: 30000, waitUntil: 'load', checkBlocked: true });
   if (parameters.loadedSelector) {
