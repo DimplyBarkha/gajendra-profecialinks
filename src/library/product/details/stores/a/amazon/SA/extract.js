@@ -26,9 +26,9 @@ module.exports = {
       }
       const a = document.querySelectorAll('#feature-bullets > ul > li');
       const b = document.querySelectorAll('.a-row.a-expander-container.a-expander-inline-container > div > ul > li');
-      if (a && b) addElementToDocument('descriptionBullets', a.length - 1 + b.length);
-      else if (a) addElementToDocument('descriptionBullets', a.length - 1);
-      else if (b) addElementToDocument('descriptionBullets', b.length);
+      if (a.length && b.length) addElementToDocument('descriptionBullets', a.length - 1 + b.length);
+      else if (a.length) addElementToDocument('descriptionBullets', a.length - 1);
+      else if (b.length) addElementToDocument('descriptionBullets', b.length);
       else addElementToDocument('descriptionBullets', '');
       const text = document.querySelector('#availability span').innerText;
       if (text === 'In Stock.' || text.includes('Availability') || text.includes('in stock')) addElementToDocument('Availability', 'In Stock');

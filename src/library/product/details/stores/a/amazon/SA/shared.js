@@ -6,17 +6,19 @@
 const transform = (data) => {
   const numberPattern = /\d+/g;
 
-  function cleanText (str) {
+  function cleanText(str) {
     return str.replace(/(\r\n|\n|\r)/gm, '').replace(/\s+/g, ' ').trim();
   }
-  function findField (key, value) {
+
+  function findField(key, value) {
     try {
       const obj = value.find(e => e.text.includes(key));
-      return [{ text: cleanText(obj.text.replace(key, '').replace(':', '')) }];
+      return [{text: cleanText(obj.text.replace(key, '').replace(':', ''))}];
     } catch (e) {
       return false;
     }
   }
+
   data.forEach(el => {
     el.group.forEach((gr, index) => {
       try {
@@ -32,11 +34,12 @@ const transform = (data) => {
             const start = text.indexOf('Pack');
             const cutText = text.slice(start, 200);
             const end = cutText.indexOf(',');
-            gr['packSize'] = [{ text: cutText.slice(0, end).match(numberPattern).join('') }];
+            gr['packSize'] = [{text: cutText.slice(0, end).match(numberPattern).join('')}];
           }
         }
-        if (gr && gr.secondaryImageTotal && gr.secondaryImageTotal.length) gr.secondaryImageTotal = [{ text: gr.secondaryImageTotal.length - 1 }];
-        if (gr && gr.quantity && gr.quantity.length) gr.quantity[0].text = gr.quantity[0].text.match(numberPattern).join('');
+        if (gr && gr.secondaryImageTotal && gr.secondaryImageTotal.length) gr.secondaryImageTotal = [{text: gr.secondaryImageTotal.length - 1}];
+        if (gr && gr.quantity && gr.quantity.length) gr.quantity[0].text = gr.quantity[0].text.replace('Size:', '').trim();
+        else gr.quantity = [];
         if (gr && gr.specifications && gr.specifications.length) gr.specifications[0].text = cleanText(gr.specifications[0].text);
         if (gr && gr.aggregateRating && gr.aggregateRating.length) {
           const end = gr.aggregateRating[0].text.indexOf(' ');
@@ -55,9 +58,9 @@ const transform = (data) => {
         }
         if (text) {
           const start = text.indexOf(';');
-          gr.weightGross = [{ text: text.slice(start, 50).replace(';', '') }];
-          gr.shippingWeight = [{ text: text.slice(start, 50).replace(';', '') }];
-          gr.shippingDimensions = [{ text: cleanText(text.slice(0, start)).replace(';', '') }];
+          gr.weightGross = [{text: text.slice(start, 50).replace(';', '')}];
+          gr.shippingWeight = [{text: text.slice(start, 50).replace(';', '')}];
+          gr.shippingDimensions = [{text: cleanText(text.slice(0, start)).replace(';', '')}];
         } else {
           gr.weightGross = [];
           gr.shippingWeight = [];
@@ -65,24 +68,25 @@ const transform = (data) => {
         }
         if (gr && gr.mpc && gr.mpc.length) gr.mpc = findField('Item model number', gr.mpc);
         if (gr && gr.manufacturer && gr.manufacturer.length) gr.manufacturer = findField('Manufacturer', gr.manufacturer);
+        if (gr && gr.descriptionBullets && gr.descriptionBullets.length) gr.descriptionBullets[0].text = +gr.descriptionBullets[0].text;
+        else gr.descriptionBullets = [];
         if (gr && gr.salesRankCategory && gr.salesRankCategory.length) {
           let rank = findField('Best Sellers Rank', gr.salesRankCategory);
           if (rank.length) {
             rank = rank[0].text;
             const categoryEnd = rank.indexOf(' in ');
             const rankEnd = rank.indexOf('(');
-            gr.salesRank = [{ text: rank.slice(0, categoryEnd).replace('#', '') }];
+            gr.salesRank = [{text: rank.slice(0, categoryEnd).replace('#', '')}];
             gr.salesRank[0].text = +gr.salesRank[0].text.replace(',', '').replace('.', '');
-            gr.salesRankCategory = [{ text: cleanText(rank.slice(categoryEnd, rankEnd).replace('in', '')) }];
+            gr.salesRankCategory = [{text: cleanText(rank.slice(categoryEnd, rankEnd).replace('in', ''))}];
           } else {
             gr.salesRank = [];
             gr.salesRankCategory = [];
           }
-          gr.descriptionBullets[0].text = +gr.descriptionBullets[0].text;
+          // gr.descriptionBullets[0].text = +gr.descriptionBullets[0].text;
         } else {
           gr.salesRank = [];
           gr.salesRankCategory = [];
-          gr.descriptionBullets = [];
         }
         gr['_input'] = gr.input;
       } catch (e) {
@@ -92,4 +96,4 @@ const transform = (data) => {
   });
   return data;
 };
-module.exports = { transform };
+module.exports = {transform};
