@@ -79,11 +79,12 @@ const transform = (data) => {
       //   row.category = row.category.slice(1);
       //   row.category.pop();
       // }
-      if (row.manufacturerDescription1) {
-        if (!row.manufacturerDescription) {
-          row.manufacturerDescription = [{ text: row.manufacturerDescription1[0].text }];
-        }
-        delete row.manufacturerDescription1;
+      if (row.manufacturerDescription) {
+        let text = '';
+        row.manufacturerDescription.forEach(item => {
+          text = item.text.replace(/Prev|Next|Show More|Show Less/g, '').trim();
+        });
+        row.manufacturerDescription = [{ text }];
       }
       if (row.manufacturerImages) {
         const images = Array.from(new Set(row.manufacturerImages.map(elm => elm.text.trim())));
