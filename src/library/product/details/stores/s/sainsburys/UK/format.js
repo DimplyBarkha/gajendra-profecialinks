@@ -26,9 +26,12 @@ const url1 = require('url');
         for (const row of group) {
 
           if (row.price) {
+            let currency = '';
             row.price.forEach(item => {
+              currency = (item.text).includes('£'); 
               item.text = item.text.replace('£', ' ').trim();
             });
+            row.priceCurrency = [ { text: ( currency ) ? 'GBP':''} ]
           }
           if (row.listPrice) {
             row.listPrice.forEach(item => {
@@ -36,12 +39,9 @@ const url1 = require('url');
             });
           }
           if (row.availabilityText) {
-            let availability;
             row.availabilityText.forEach(item => {
-               availability =  ('Add' === item.text ) ? 'in stock' : 'Out of stock';
-               item.text = availability;
+              item.text =  ('Add' === item.text ) ? 'in stock' : 'Out of stock';
             });
-            row.otherSellersAvailability = [ { text: ( 'in stock' == availability ) ? 'Available':''} ]
           }
           if (row.shownImages) {
             let text = '';
