@@ -25,20 +25,28 @@ const transform = (data) => {
         const attributesNotesCustomArray = row.attributesNotesCustom.map((item) => {
           return item.text.trim();
         });
-        const descriptionArray = row.description.map((item) => {
-          return item.text.trim();
-        });
-        const description = descriptionArray.join(' | ');
+        let description = '';
+        if (row.description) {
+          const descriptionArray = row.description.map((item) => {
+            return item.text.trim();
+          });
+          description = descriptionArray.join(' | ');
+        }
         const des = row.description2 ? ' | ' + row.description2[0].text.trim() : '';
-        row.description = [{ text: description + des + ' | ' + attributesNotesCustomArray.join(' | '), xpath: row.description[0].xpath }];
+        row.description = [{ text: description + des + ' | ' + attributesNotesCustomArray.join(' | '), xpath: row.attributesNotesCustom[0].xpath }];
       }
       if (row.description) {
         const descriptionArray = row.description.map((item) => {
           return item.text.trim();
         });
-        const description = descriptionArray.join(' | ');
+        let description = descriptionArray.join(' | ');
+        if (description.startsWith('| ')) {
+          description = description.substring(2);
+        }
+        let des = row.description2 ? ' | ' + row.description2[0].text.trim() : '';
+        des = description.includes(des) ? '' : des;
         // description = row.description2 ? description + '| ' + row.description2[0].text.trim() : description;
-        row.description = [{ text: description, xpath: row.description[0].xpath }];
+        row.description = [{ text: description + des, xpath: row.description[0].xpath }];
       }
       if (row.descriptionBullets) {
         const descriptionBullets = row.descriptionBullets2 ? row.descriptionBullets2.length + row.descriptionBullets.length : row.descriptionBullets.length;
