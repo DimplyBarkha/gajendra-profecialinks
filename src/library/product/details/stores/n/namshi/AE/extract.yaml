@@ -18,9 +18,6 @@ fields:
   - name: category
     singleValue: false
     xpath: //ul[@class="product__breadcrumb flex-container"]
-  - name: nameExtended
-    singleValue: false
-    xpath: //div[@id="name_extended"]
   - name: listPrice
     singleValue: false
     xpath: //p[@class="product__price"]/span[@class="pre-reduction"]
@@ -29,7 +26,8 @@ fields:
     xpath: //script[@id="__serverData"]
   - name: sku
     singleValue: false
-    xpath: //button[@class="wishlist-button"]/@data-sku
+    # xpath: //button[@class="wishlist-button"]/@data-sku
+    xpath: //div[@id='skuDiv']/text()
   - name: variantId
     singleValue: false
   - name: ratingCount
@@ -42,7 +40,14 @@ fields:
     xpath: //span[@class="ratings-stat__avg-rating"]
   - name: description
     singleValue: false
-    xpath: //div[contains(@class,"product_description")]//div[contains(@class,"info_shortdescription")]//li
+    # xpath: //div[contains(@class,"product_description")]//div[contains(@class,"info_shortdescription")]//li
+    # xpath: concat(//h1[@class="product__name"]/text(),' ',//meta[@property="product:color"]/@content,' ',//ul[@id="product_size"]//label[contains(@class,'available')]//span/text())
+    xpath: //div[@id='currentDiv']/text()
+  - name: nameExtended
+    # xpath: concat(//h1[@class="product__name"]/text(),' ',//meta[@property="product:color"]/@content)
+    xpath: concat(//meta[@property="product:color"]/@content,' ',//div[@id='currentDiv']/text())
+    regExp: (.+\s)(.+\s)([a-z]+)$
+    regExpReplace: $1$3 $2
   - name: additionalDescBulletInfo
     singleValue: false
     xpath: //div[contains(@class,"product_description")]//div[contains(@class,"info_shortdescription")]//li
@@ -61,18 +66,20 @@ fields:
     singleValue: false
     xpath: //div[@class="info_content"]
   - name: variantInformation
-    singleValue: false
-    xpath: //div[@id="variant_information"]
+    xpath: concat(//meta[@property="product:color"]/@content,' ',//div[@id='currentDiv']/text())
+    regExp: ^([a-z]+)(\s.+\s)(.+)
+    regExpReplace: $1 $3
   - name: variantId
     singleValue: false
-    xpath: //button[@class="wishlist-button"]/@data-sku
+    xpath: //div[@id='currentDiv']/@retailerProdCode
   - name: availabilityText
     singleValue: false
-    xpath: //div[@id="sizeSelector"]//p[@class="outofstock__cta"]
-    defaultValue: 'In Stock'
+    # xpath: //div[@id="sizeSelector"]//p[@class="outofstock__cta"]
+    xpath: //div[@id='currentDiv']/@availability
   - name: quantity
     singleValue: false
-    xpath: //table[@class="product_attributes"]//th[contains(.,'Size')]/following-sibling::th | (//ul[@id="product_size"]//label[contains(@class,'available')])[1]
+    xpath: //div[@id='currentDiv']/text()
+    regExp: '[a-z,A-Z,/]+$'
   - name: unInterruptedPDP
     singleValue: false
     xpath: //div[@class="recommendations"]//h4[@class="product-name"]

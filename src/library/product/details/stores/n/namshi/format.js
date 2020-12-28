@@ -52,6 +52,15 @@ const transform = (data) => {
           item.text = item.text.replace(/cart\./g, 'zoom-desktop.').trim();
         });
       }
+      if (row.unInterruptedPDP) {
+        var arrTemp = [];
+        row.unInterruptedPDP.forEach(item => {
+          arrTemp.push(item.text);
+        });
+        if (arrTemp.length) {
+          row.unInterruptedPDP = [{ text: arrTemp.join(' || ') }];
+        }
+      }
       if (row.variants) {
         const variations = [];
         const vInfo = [];
@@ -79,9 +88,9 @@ const transform = (data) => {
           delete row.variants;
           row.variantCount = [{ text: 0 }];
         }
-        if (vInfo.length) {
-          row.variantInformation = [{ text: vInfo.join(' | ') }];
-        }
+      }
+      if (row.color && row.quantity) {
+        row.variantInformation = [{ text: row.color[0].text + ' ' + row.quantity[0].text }];
       }
     }
   }
