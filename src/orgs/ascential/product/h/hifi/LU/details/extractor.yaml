@@ -5,8 +5,14 @@ parameters:
   store: hifi
   zipcode: ""
 proxy:
-  zone: ZUK
+  zone: GBR
   type: DATA_CENTER
+policy:
+  numberRetries: 4
+  priority: MEDIUM
+  retryDelay: 120
+  backoffPolicy: EXPONENTIAL
+  retryWithResidentialProxyAfter: 3
 meta:
   branches:
     dev:

@@ -103,7 +103,7 @@ module.exports = {
     // navigate to iframe src if available
     if (src) {
       try {
-        await context.goto(src, { timeout: 30000, waitUntil: 'load', checkBlocked: true });
+        await context.goto(src, { timeout: 300000, waitUntil: 'load', checkBlocked: true });
         await context.waitForSelector('div.wrapper.preview');
         enhancedContent = await context.evaluate(async function () {
           let enhancedContent = '';
@@ -155,7 +155,7 @@ module.exports = {
     }
 
     // checking if page already navigated to src/iframe url, if not no need to reload/naviagate
-    if (src) await context.goto(prodUrl, { timeout: 30000, waitUntil: 'load', checkBlocked: true });
+    if (src) await context.goto(prodUrl, { timeout: 300000, waitUntil: 'load', checkBlocked: true });
     await context.evaluate(async function (enhancedContent, aplusImages, videos) {
       function addElementToDocument (key, value) {
         const catElement = document.createElement('div');
