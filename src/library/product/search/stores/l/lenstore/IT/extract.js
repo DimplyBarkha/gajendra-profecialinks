@@ -53,6 +53,21 @@ async function implementation(
       }
     }
 
+    //product ID 
+    var id = getAllXpath('//picture[@class="c-product-list__figure"]/source[1]/@srcset', 'nodeValue');
+    if( id != null){
+      for (var i = 0; i < id.length; i++) {
+        if(id[i].includes("/")){
+          var data = id[i].split("/");
+          var sup = data[data.length - 1];
+          if(sup.includes(".")){
+            sup = sup.split(".")[0]
+            addHiddenDiv('id', sup, i);
+          }
+        }
+      }
+    }
+
   });
   return await context.extract(productDetails, { transform });
 };

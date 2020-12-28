@@ -14,8 +14,9 @@ fields:
     xpath: //ul[@id="ProductList"]/li//a[@class="u-fill-container"]/@href
   - name: id
     singleValue: false
-    xpath: //ul[@id="ProductList"]/li/@data-ga-id
-    regExp: \d+
+    xpath: //html//div[@id="id"] 
+    # //ul[@id="ProductList"]/li/@data-ga-id
+    # regExp: \d+
   - name: price
     singleValue: false
     xpath: //html//div[@id="price"]
