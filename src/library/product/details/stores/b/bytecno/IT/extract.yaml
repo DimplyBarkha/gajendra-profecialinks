@@ -101,7 +101,7 @@ fields:
     regExpReplace: $2
   - name: inTheBoxText
     singleValue: false
-    xpath: //div[contains(@class,"InTheBox")]//div[contains(@class,"flix-std-content")]
+    xpath: //div[contains(@class,"InTheBox")]//div[contains(@class,"flix-std-content")]|//div[starts-with(@id,"inTheBoxText-")]
   - name: hasComparisonTable
     singleValue: true
     xpath: (//div[contains(@class,'flix-comp-h2')])[1]

@@ -16,6 +16,96 @@ module.exports = {
   ) => {
     const { transform } = parameters;
     const { productDetails } = dependencies;
+
+    const link = await context.evaluate(function () {
+      return window.location.href;
+    });
+  
+    const src = await context.evaluate(async function () {
+      const iframe = document.querySelector('#eky-dyson-iframe');
+      // const src = iframe ? (iframe.src||iframe._src) : '';
+      let src = '';
+      if (iframe) {
+          if (iframe.hasAttribute('src')) {
+              src = iframe.getAttribute('src');
+          } else if (iframe.hasAttribute('_src')) {
+              src = iframe.getAttribute('_src');
+          } else {
+              console.log('we do not have any src in iframe');
+          }
+      } else {
+          console.log('we do not have the iframe');
+      }
+      console.log('iframe src to go to - ' + src);
+  
+      return src;
+  });
+  //let content = null;
+      if (src) {
+          try {
+              await context.goto(src, { timeout: 50000, waitUntil: 'load', checkBlocked: true });
+  
+              const witbData = await context.evaluate(async () => {
+                  const getInTheBox = document.querySelector('div.eky-accesory-container img');
+                  const getAccessories = document.querySelector('div.my-slider');
+                  const inBoxUrls = [];
+                  const inBoxurlsAccessories = [];
+                  let inBoxText = [];
+                  if(getAccessories){
+                    const getAllAccessories = document.querySelectorAll('div.my-slider>div.eky-relative-wrapper.tns-normal>div.eky-overlay>div.lax');
+                      for (let i = 0; i < getAllAccessories.length; i++) {
+                          inBoxText.push(getAllAccessories[i].querySelector('h1').innerText);
+                      }
+                  }
+                  if (getInTheBox) {
+                      const getAllProducts = document.querySelectorAll('div.eky-accesory-container > div.eky-accessory');
+                      for (let i = 0; i < getAllProducts.length; i++) {
+                          inBoxUrls.push(getAllProducts[i].querySelector('img').getAttribute('src'));
+                          inBoxText.push(getAllProducts[i].querySelector('div').innerText);
+                      }
+                  }
+                  return { inBoxText, inBoxUrls };
+              });
+  
+              await context.goto(link, { timeout: 15000 });
+              await context.waitForSelector('#inpage_container', { timeout: 10000 });
+  
+              await context.evaluate(async (witbData) => {
+                function addHiddenDiv (id, content) {
+                  const newDiv = document.createElement('div');
+                  newDiv.id = id;
+                  newDiv.textContent = content;
+                  newDiv.style.display = 'none';
+                  document.body.appendChild(newDiv);
+                }
+  
+                const {inBoxText=[],inBoxUrls=[]} = witbData;
+  
+                for(let i=0;i<inBoxText.length;i++){
+                  if(inBoxText[i]){
+                  addHiddenDiv(`inTheBoxText-${i}`, inBoxText[i]);
+                  }
+                }
+              },witbData);
+              //await context.waitForSelector('div#main-section', { timeout: 45000 });
+  
+  
+          } catch (error) {
+              try {
+                  await context.evaluate(async function (src) {
+                      window.location.assign(src);
+                  }, src);
+                  await context.waitForSelector('div.eky-container-full');
+                  return await context.extract(productDetails, { type: 'MERGE_ROWS', transform });
+              } catch (err) {
+                  console.log(err);
+              }
+          }
+          // return await context.extract(productDetails, { transform });
+      } else {
+          console.log('we do not have the src for iframe');
+      }
+
     const videoEle = await context.evaluate(async () => {
       const videoEle = document.querySelector('.demoupUI-playimage');
       if (videoEle) {
@@ -27,7 +117,7 @@ module.exports = {
       await context.waitForSelector('div.demoupUI-videocontainer video source');
     }
     const ImgaeEleNode = await context.evaluate(async () => {
-      const ImgaeEle = document.querySelectorAll('div#inpage_container img');
+      const ImgaeEle = document.querySelectorAll('div#inpage_container');
       if (ImgaeEle) {
         return ImgaeEle;
       }
@@ -108,6 +198,8 @@ module.exports = {
         document.body.appendChild(newDiv);
       }
     });
+
+
     return await context.extract(productDetails, { transform });
   },
 };
