@@ -63,7 +63,7 @@ async function implementation(
     }
 
     // price 
-    var price = getAllXpath('//div[@class="price-box"]/p[@class="special-price"]/span[@class="price"]/text()  |  //div[@class="price-box"]/span[@class="regular-price"]/span/span/text()', 'nodeValue');
+    var price = getAllXpath('//div[@class="price-box"]/p[@class="special-price"]/span[@class="price"]/text()  |  //div[@class="price-box"]/span[@class="regular-price"]/span/span/text() | //div[@class="price-box"]/span[@class="regular-price"]/span[@class="price"]/text()', 'nodeValue');
     if (price != null) {
       for (var i = 0; i < price.length; i++) {
         price[i] = price[i].replace(",",".")
