@@ -135,7 +135,7 @@ fields:
     description: null
   - name: unInterruptedPDP
     singleValue: false
-    xpath: //div[@id="recommender"]//div[contains(@class,"productName")]
+    xpath: //div[@id="recommender"]//div[contains(@class,"productName")] | //div[contains(@class,"productName ZZja")]
   - name: inTheBoxText
     singleValue: false
     xpath: //h3[@id="specifications"]/..//td[contains(text(), "Lieferumfang")]/following-sibling::td 
