@@ -22,5 +22,13 @@ fields:
   - name: price
     singleValue: false
     xpath: //div[@class="FamilyDetailsPanel_Price"]
+  - name: searchUrl
+    singleValue: false
+    xpath: ancestor::html//div[@id="added_search_url"]
   - name: rank
+    singleValue: false
+    type: NUMBER
   - name: rankOrganic
+    singleValue: false
+    type: NUMBER
+

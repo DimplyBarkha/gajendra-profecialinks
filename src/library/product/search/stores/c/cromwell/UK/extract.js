@@ -9,6 +9,15 @@ async function implementation (
   const { productDetails } = dependencies;
   const applyScroll = async function (context) {
     await context.evaluate(async function () {
+      function addHiddenDiv (id, content) {
+        const newDiv = document.createElement('div');
+        newDiv.id = id;
+        newDiv.textContent = content;
+        newDiv.style.display = 'none';
+        document.body.appendChild(newDiv);
+      }
+      const searchURL = window.location.href;
+      addHiddenDiv('added_search_url', searchURL+'&page=1');
       let scrollTop = 0;
       while (scrollTop !== 20000) {
         await stall(500);
