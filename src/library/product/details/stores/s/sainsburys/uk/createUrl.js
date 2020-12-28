@@ -5,7 +5,7 @@ module.exports = {
     domain: 'sainsburys.co.uk',
     prefix: null,
     url: null,
-    country: 'uk',
+    country: 'UK',
     store: 'sainsburys',
     zipcode: '',
   },
