@@ -1,0 +1,48 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: //div[contains(@class,"reviews-content-wrapper")]//ul/li[contains(@class,"review-item")]
+fields:
+  - name: name
+    singleValue: false
+    xpath: ancestor::html//h2[@class="heading-6 product-title"]
+    description: The product name
+  - name: sku
+    singleValue: false
+    xpath: ancestor::html//dt[contains(text(),"SKU")]/following-sibling::dd
+    description: The store-specific product identifier
+  - name: productUrl
+    singleValue: false
+    xpath: ancestor::html//h2[@class="heading-6 product-title"]/a/@href
+    description: The url of the product details page
+  - name: reviewUrl
+    singleValue: false
+    xpath: ancestor::html//div[@id='reviewUrl_value']
+    description: A direct link to the review
+  - name: reviewDate
+    singleValue: false
+    xpath: //div[@class="review-context"]/div[@class="disclaimer"]/time/@title
+    description: Date the review was made
+  - name: reviewRating
+    singleValue: false
+    regExp: ^([\s]*[\S]+[\s])(.+) out of (.)
+    regExpReplace: $2
+    xpath: //div[@class="review-rating"]
+    description: Rating normalized to be out of 5
+  - name: reviewText
+    singleValue: false
+    xpath: //div[contains(@class,"ugc-review-body")]
+    description: The text of the review
+  - name: reviewTitle
+    singleValue: false
+    xpath: //h4[contains(@class,"review-title")]
+    description: The title of the review
+  - name: verifiedPurchase
+    xpath: //div[@class="review-context"]//button[@data-track="Verified Purchase Badge"]
+    singleValue: false
+    description: Whether this of an item the reviewer purchased. "Yes" if true else ""
+  - name: brandText
+    singleValue: false
+    xpath: ancestor::html//script[@type="application/ld+json"][contains(text(),"brand")]
+    regExp: brand":{"@type":"Thing","name":"([^"]+)
+    regExpReplace: $1
