@@ -1,10 +1,9 @@
 
 module.exports = {
-  implements: 'navigation/goto',
+  implements: 'tracker/categories',
   parameterValues: {
-    domain: 'argos.co.uk',
-    timeout: 50000,
     country: 'UK',
+    domain: 'argos.co.uk',
     store: 'argos',
     zipcode: '',
   },
