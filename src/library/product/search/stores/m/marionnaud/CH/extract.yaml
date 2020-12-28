@@ -1,38 +1,40 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: //div[@data-component="MasonryGrid"]//div[contains(@class, "product-tile__wrapper")]
+recordXPath: //div[contains(@id,"productElement-")][position()<=150]
 fields:
   - name: id
     singleValue: false
-    xpath: //a[contains(@class, "product-tile__name")]/@href
-    regExp: ([A-Z]{2}_\d+)
+    xpath: //@product-tile-id
   - name: searchUrl
     singleValue: true
+    xpath: //@product-tile-search-url
   - name: name
+    xpath: //@product-tile-name
     singleValue: false
-    xpath: //a[contains(@class, "product-tile__name")]
   - name: productUrl
-    singleValue: false
-    xpath: //a[contains(@class, "product-tile__name")]/@href
+    xpath: //@product-tile-url
   - name: gtin
     singleValue: false
   - name: thumbnail
-    singleValue: false
-    xpath: //img[@class="product-tile__image"]/@src
+    xpath: //@product-tile-thumbnail
   - name: aggregateRating
     singleValue: false
   - name: aggregateRating2
+    xpath: //@product-tile-aggRating
+    regExp: (\d+)\.?,?(\d+)?
+    regExpReplace: $1,$2
     singleValue: false
   - name: reviewCount
     singleValue: false
+    xpath: //@product-tile-reviewCount
   - name: ratingCount
     singleValue: false
   - name: price
     singleValue: false
-    xpath: //a[contains(@class, "product-tile__price")]/span[1]
+    xpath: //@product-tile-price
   - name: manufacturer
-    singleValue: false
+    singleValue: true
   - name: soldBy
     singleValue: true
   - name: endorsementText
@@ -41,12 +43,10 @@ fields:
     singleValue: false
     description: search/listing rank
     type: NUMBER
-    xpath: //@rankorganic
   - name: rankOrganic
     singleValue: true
     description: The position (rank) within the list excluding sponsored/paid results
     type: NUMBER
-    xpath: //@rankorganic
   - name: sponsored
     singleValue: false
     description: Is sponsored/paid
