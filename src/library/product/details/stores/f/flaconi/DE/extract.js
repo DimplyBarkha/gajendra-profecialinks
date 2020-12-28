@@ -65,8 +65,16 @@ async function implementation(
     const { productDetails } = dependencies;
     await context.evaluate(async(parentInput) => {
 
-        // const dataMore = document.querySelectorAll('div[data-more-text="Mehr anzeigen"]');
-        // dataMore.forEach((b) => { b.textContent = "" });
+        let dataMore = document.querySelector('.instruction');
+        if (dataMore) {
+            let splits = dataMore.textContent.split('Mehr anzeigen');
+            let desc = splits[0];
+            if (splits[1]) {
+                desc = desc + splits[1]
+            }
+            document.body.setAttribute("desc", desc);
+        }
+
 
         function addElementToDocument(key, value) {
             const catElement = document.createElement('div');
@@ -104,15 +112,18 @@ async function implementation(
             }
         }
 
-        const addToCartBtn = document.querySelectorAll('button');
+
+        const addToCartBtn = document.querySelectorAll('div.add-to-cart button');
         let availability = 'In Stock';
-        let metaAvailability = document.querySelector('meta[itemprop="availability"]');
-        if (metaAvailability) {
-            let text = metaAvailability.getAttribute('content').match(/\w+$/g)[0];
-            if (text === "OutOfStock") {
+        if (addToCartBtn.length === 1) {
+            if (addToCartBtn[0].getAttribute('class').includes("not-available")) {
                 availability = "Out of Stock"
-            } else if (text === "LimitedAvailability") {
-                availability = "Limited Availability"
+            }
+
+        } else if (addToCartBtn.length > 1) {
+            const btn = document.evaluate('//div[contains(@class,"add-to-cart paragraph")and not(contains(@style,"none"))]//button[contains(@class,"not-available")] ', document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue
+            if (btn) {
+                availability = "Out of Stock"
             }
         }
         addElementToDocument('fl_availabilityText', availability);
