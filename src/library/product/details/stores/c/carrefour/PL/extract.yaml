@@ -1,23 +1,23 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: null
+recordXPath: /html
 fields:
   - name: image
     singleValue: false
-    xpath: //div[contains(@class,"snrs-social-proof")]/meta[@itemprop="image"]/@content
+    xpath: //div[@itemtype="http://schema.org/Product"]/meta[@itemprop="image"]/@content
   - name: imageAlt
     singleValue: false
-    xpath: //div[contains(@class,"snrs-social-proof")]/meta[@itemprop="name"]/@content
+    xpath: //div[@itemtype="http://schema.org/Product"]/meta[@itemprop="name"]/@content
   - name: alternateImages
     singleValue: false
-    xpath: //div[@class="react-swipeable-view-container"]/div[@data-swipeable="true"]/img/parent::*/parent::*/parent::*/following::*/button[position()>1]/img@src
+    xpath: //div[@class="react-swipeable-view-container"]/div[@data-swipeable="true"]/img/parent::*/parent::*/parent::*/following::*/button[position()>1]/img/@src
   - name: category
     singleValue: false
     xpath: //ol[@class="MuiBreadcrumbs-ol"]/li//a/span[@class="MuiButton-label" and not(contains(text(),"Strona główna"))]
   - name: nameExtended
     singleValue: false
-    xpath: //div[contains(@class,"snrs-social-proof")]/meta[@itemprop="name"]/@content
+    xpath: //div[@itemtype="http://schema.org/Product"]/meta[@itemprop="name"]/@content
   - name: listPrice
     singleValue: false
     xpath: //div[@itemprop="offers"]//div[contains(@class,"MuiTypography-h3 MuiTypography-colorTextSecondary")]
@@ -39,7 +39,7 @@ fields:
     type: NUMBER
   - name: brandText
     singleValue: true
-    xpath: //div[contains(@class,"snrs-social-proof")]/meta[@itemprop="brand"]/@content
+    xpath: //div[@itemtype="http://schema.org/Product"]/meta[@itemprop="brand"]/@content
   - name: manufacturer
     singleValue: true
     description: Product manufacturer
@@ -54,16 +54,16 @@ fields:
     description: Gross weight as described on the page
   - name: gtin
     singleValue: false
-    xpath: //div[contains(@class,"snrs-social-proof")]/meta[@itemprop="gtin13"]/@content
+    xpath: //div[@itemtype="http://schema.org/Product"]/meta[@itemprop="gtin13"]/@content
   - name: sku
     singleValue: true
     description: The store-specific product identifier
   - name: variantId
     singleValue: false
-    xpath: //div[contains(@class,"snrs-social-proof")]/meta[@itemprop="gtin13"]/@content
+    xpath: //div[@itemtype="http://schema.org/Product"]/meta[@itemprop="gtin13"]/@content
   - name: mpc
     singleValue: false
-    xpath: //div[contains(@class,"snrs-social-proof")]/meta[@itemprop="mpn"]/@content
+    xpath: //div[@itemtype="http://schema.org/Product"]/meta[@itemprop="mpn"]/@content
   - name: packSize
     singleValue: true
     description: The number of packs in the product offer (if stated separately on
@@ -117,7 +117,7 @@ fields:
     description: URLs of videos on page
   - name: name
     singleValue: false
-    xpath: //div[contains(@class,"snrs-social-proof")]/meta[@itemprop="name"]/@content
+    xpath: //div[@itemtype="http://schema.org/Product"]/meta[@itemprop="name"]/@content
   - name: inStorePrice
     singleValue: true
     description: Price in the selected store

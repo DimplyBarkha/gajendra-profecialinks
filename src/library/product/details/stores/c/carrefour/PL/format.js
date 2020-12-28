@@ -25,6 +25,7 @@ const transform = (data) => {
   };
   for (const { group } of data) {
     for (const row of group) {
+      let storageStr='',directionsStr='',ingredientsListStr='';
       if(row.directions){
         row.directions.forEach(item=>{
           let tmp=JSON.parse(item.text);
@@ -36,19 +37,27 @@ const transform = (data) => {
             let keyVal=tmp1[key];
             //console.log('keyVal:',keyVal);
             if(keyVal.name=='Przechowywanie'){
-              row.storage=keyVal.value;
+              storageStr=keyVal.value;
             }
             if(keyVal.name=='Przygotowanie i stosowanie'){
-              row.directions=keyVal.value;
+              directionsStr=keyVal.value;
             }
             if(keyVal.name="Składniki"){
-              row.ingredientsList=keyVal.value;
+              ingredientsListStr=keyVal.value;
             }
           }
         })
+        //row.ingredientsList=[{"text":ingredientsListStr}];
+        row.storage=[{"text":storageStr}];
+        row.directions=[{"text":directionsStr}];
+      }
+      if(row.alternateImages){
+        row.alternateImages.forEach(item=>{
+          item.text=item.text.replace('/90x90/','/900x900/');
+        })
       }
       if(row.caloriesPerServing){
-        row.caloriesPerServing=[{"text":"kal"}];
+        row.caloriesPerServingUom=[{"text":"kal"}];
       }
       if(row.totalFatPerServing){
         row.totalFatPerServingUom=[{"text":"g"}];
