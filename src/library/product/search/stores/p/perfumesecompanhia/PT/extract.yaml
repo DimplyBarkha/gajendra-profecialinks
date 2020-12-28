@@ -5,13 +5,15 @@ recordXPath: //div[contains(@class, 'col ')][contains(@class, ' active')]
 fields:
   - name: id
     singleValue: false
-    xpath: //div[contains(@class, 'col ')][contains(@class, ' active')]//@data-prod
+    xpath: //div[contains(@class, 'col ')][contains(@class, ' active')]//div[@class="preview-img"]/img/@src
+    regExp: (\d+)(_?.?)
+    regExpReplace: $1
   - name: searchUrl #todo
     singleValue: false
     xpath: //div[contains(@class, 'col ')][contains(@class, ' active')]/@searchurl
   - name: name
     singleValue: false
-    xpath: //div[contains(@class, 'col ')][contains(@class, ' active')]/h2
+    xpath: //div[contains(@class, 'col ')][contains(@class, ' active')]/@name
   - name: productUrl
     singleValue: false
     xpath: //div[contains(@class, 'col ')][contains(@class, ' active')]/a/@href
@@ -26,9 +28,9 @@ fields:
     regExpReplace: https://www.perfumesecompanhia.pt/$1
   - name: aggregateRating 
     singleValue: false
-    xpath: //div[contains(@class, 'col ')][contains(@class, ' active')]/@rating
   - name: aggregateRating2
     singleValue: false
+    xpath: //div[contains(@class, 'col ')][contains(@class, ' active')]/@rating
   - name: reviewCount
     singleValue: false
   - name: ratingCount

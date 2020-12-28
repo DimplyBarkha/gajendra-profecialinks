@@ -48,7 +48,7 @@ async function implementation (
     await loadAllProducts(150);
     // it is necessary to set such a big wait time - shorter time limits numer of collected records and there is a lot of epmty searchurls
     await new Promise((resolve, reject) => setTimeout(resolve, 20000));
-    // rating
+    // rating and name
     const allProducts = document.querySelectorAll('div.col.active');
     allProducts.forEach((product) => {
       const rating = product.querySelector(':scope .star-ratings-css-top');
@@ -57,7 +57,9 @@ async function implementation (
         const re = /\d+.?\d+(?=%)/;
         const valuePercent = re.exec(percentage);
         const value = (Math.round((valuePercent / 100 * 5 + Number.EPSILON) * 100) / 100).toFixed(2);
-        product.setAttribute('rating', value);
+        product.setAttribute('rating', value.replace('.', ','));
+        const name = product.querySelector('div.col.active h3').innerHTML.concat(' ', product.querySelector('div.col.active h2').innerHTML, ' ', product.querySelector('div.col.active .tipo').innerHTML);
+        product.setAttribute('name', name);
       }
     });
   });
