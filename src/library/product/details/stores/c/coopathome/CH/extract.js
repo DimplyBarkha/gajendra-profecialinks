@@ -11,7 +11,7 @@ async function implementation (
   let { url, id } = inputs;
   console.log('parameters:: ', parameters);
   if (id) {
-    await new Promise((resolve, reject) => setTimeout(resolve, 1000));
+    await new Promise((resolve, reject) => setTimeout(resolve, 3000));
 
     const prodUrl = await context.evaluate(() => {
       const urlSel = document.querySelector('div.productTile__wrapper a');
@@ -24,7 +24,7 @@ async function implementation (
     console.log('prodUrl is ', prodUrl);
 
     if (prodUrl && prodUrl.length > 0) {
-      await context.goto(prodUrl);
+      await context.goto(prodUrl, { timeout: 10000, waitUntil: 'load', checkBlocked: true });
       // await context.evaluate(() => {
       //   const doc = document.querySelectorAll('script[type="application/ld+json"]');
       //   let text = '';
