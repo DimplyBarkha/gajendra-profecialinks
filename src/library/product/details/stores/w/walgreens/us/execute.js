@@ -76,7 +76,7 @@ module.exports = {
     store: 'walgreens',
     domain: 'walgreens.com',
     loadedSelector: 'div.card__product',
-    noResultsXPath: '//h1[contains(@id, "zero-result-alert")]|//span[contains(text(), "This product is no longer available on our site.")]',
+    noResultsXPath: '//div[@name="wag-negative-container"]/div | //h1[contains(@id, "zero-result-alert")]|//span[contains(text(), "This product is no longer available on our site.")]',
   },
   dependencies: {
     goto: 'action:navigation/goto',
