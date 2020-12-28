@@ -4,7 +4,8 @@ module.exports = {
   parameterValues: {
     country: 'DE',
     store: 'lyreco',
-    nextLinkSelector: 'div[id="pagination"]>ul>li[class="next"]>a',
+    nextLinkSelector: '#ulpagination > li.next > a',
+    // 'div[id="pagination"]>ul>li[class="next"]>a',
     nextLinkXpath: null,
     mutationSelector: null,
     spinnerSelector: null,
