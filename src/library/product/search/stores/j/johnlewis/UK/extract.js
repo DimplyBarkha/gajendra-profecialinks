@@ -7,6 +7,11 @@ const implementation = async function (
 ) {
   const { transform } = parameters;
   const { productDetails } = dependencies;
+  try {
+    await context.click('div.pecr-cookie-banner-content__buttons-pG9aE button[data-test="allow-all"]');
+  } catch (e) {
+    console.log(e);
+  }
   const applyScroll = async function (context) {
     await context.evaluate(async function () {
       let scrollTop = 0;
