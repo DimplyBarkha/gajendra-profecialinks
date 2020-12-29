@@ -1,0 +1,17 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: category
+    singleValue: false
+    description: name of the category
+    # xpath: //div[@aria-level="3"]/following-sibling::div[@class="od-header-flyout-menu"]/ul/li/a
+    xpath: //div[@class="od-header-navigation-item"][.//span[text()="Products"]]//div[@aria-level="3"]/following-sibling::div[@class="od-header-flyout-menu"]/ul/li/a
+  - name: categoryUrl
+    singleValue: false
+    description: url of the category
+    # xpath: //div[@aria-level="3"]/following-sibling::div[@class="od-header-flyout-menu"]/ul/li/a/@href
+    xpath: //div[@class="od-header-navigation-item"][.//span[text()="Products"]]//div[@aria-level="3"]/following-sibling::div[@class="od-header-flyout-menu"]/ul/li/a/@href
+    regExp: (.+)
+    regExpReplace: https://www.officedepot.com$1
