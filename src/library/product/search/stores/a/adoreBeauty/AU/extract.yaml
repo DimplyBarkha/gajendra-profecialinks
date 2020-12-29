@@ -4,8 +4,7 @@ recordSelector: null
 recordXPath: //div[@class="ais-InfiniteHits"]//li[contains(@class,"ais-InfiniteHits-item")]
 fields:
   - name: id
-    SingleValue: false
-    xpath: //a[contains(@class,"border-neutral-600")]/@href
+    xpath: ancestor::html//a[contains(@class,"border-neutral-600")]/@product-code
   - name: productUrl
     SingleValue: false
     xpath: //a[contains(@class,"border-neutral-600")]/@href
