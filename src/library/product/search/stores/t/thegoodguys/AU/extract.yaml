@@ -9,7 +9,7 @@ fields:
     defaultValue: false
   - name: id
     singleValue: false
-    xpath: //div[starts-with(@class,"product-tile-model")]
+    xpath: //div[contains(@class,'product-tile-model')]/text()[../*]
   - name: name
     singleValue: false
     xpath: //*[@class="product-tile-name"]
