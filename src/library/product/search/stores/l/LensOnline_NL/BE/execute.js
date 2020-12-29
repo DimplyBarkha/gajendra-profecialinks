@@ -3,10 +3,10 @@ module.exports = {
   implements: 'product/search/execute',
   parameterValues: {
     country: 'BE',
-    store: 'lensonline.nl',
+    store: 'LensOnline_NL',
     domain: 'lensonline.nl',
     url: 'https://www.lensonline.be/nl/search/0/{searchTerms}/?s={searchTerms}&c=All',
-    loadedSelector: 'body',
+    loadedSelector: null,
     noResultsXPath: null,
     zipcode: '',
   },
@@ -36,3 +36,4 @@ async function implementation (
     return !e;
   }, noResultsXPath);
 }
+
