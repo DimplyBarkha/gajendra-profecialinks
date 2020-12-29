@@ -1,52 +1,31 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: '//div[@id="product-results"]/div//div'
+recordXPath: //div[@id="product-results"]//div[contains(@class,"grid-unit")]/div[contains(@class,"product-grid__card")]/div[contains(@class,"product-card")]
 fields: 
   - name: productUrl
-    xpath: //div[contains(@class,"product-grid__card")]//div[contains(@class,"product-card")]//div[contains(@class,"product-card__details")]//div[contains(@class,"grid-section")]//div[contains(@class,"product-card__title")]//a[@class="link"]/@href
+    xpath: //div[contains(@class,"product-card__details")]//div[contains(@class,"product-card__title")]//a[@class="link"]/@href
     regExp: (.+)
     regExpReplace: https://www.coolblue.nl$1
-    singleValue: false
   - name: thumbnail
-    singleValue: false
-    xpath: //figure[@class="fitted-product-image-box"]//picture[@class="picture"]//img[@class="picture__image"]/@src
+    xpath: //figure[contains(@class,"fitted-product-image-box")]//picture[@class="picture"]//img[@class="picture__image"]/@src
   - name: name
-    singleValue: false
     xpath: //div[@id="product-results"]//div[contains(@class,"product-card")]//div[contains(@class,"product-card__details")]//div[@class="product-card__title"]//h3[contains(@class,"text-color--link")]
   - name: price
-    singleValue: false
-    xpath: //div[@id="product-results"]/div/div//strong[@class="sales-price__current"]
-    regExp: (\d+)(\,?\.?)?(\d+)?(\,-?)?
-    regExpReplace: EUR $1,$3
+    xpath: //strong[@class="sales-price__current"]
+    regExp: (\d+[\,\.]?\d+)|(\d+)
+    regExpReplace: $1
   - name: rank
-    singleValue: false
-    description: search/listing rank
-    type: NUMBER
   - name: rankOrganic
-    singleValue: true
-    description: The position (rank) within the list excluding sponsored/paid results
-    type: NUMBER
   - name: sponsored
     xpath: //div[@class="product-label__promo-icon"]//div[@class="coolblues-choice-label"]
-    defaultValue: false
   - name: reviewCount
-    singleValue: false
     xpath: //div[@class="review-rating"]//span[contains(@class,"review-rating__reviews")]
     regExp: (\d+)
     regExpReplace: $1
-  - name: ratingCount
-    singleValue: false
-    xpath: //div[@class="review-rating"]//span[contains(@class,"review-rating__reviews")]
-  - name: endorsementText
-    singleValue: false
   - name: id
-    singleValue: false
-    xpath: //div[contains(@class,"product-grid__card")]//div[contains(@class,"product-card")]//div[contains(@class,"product-card__details")]//div[contains(@class,"grid-section")]//div[contains(@class,"product-card__title")]//a[@class="link"]/@href
+    xpath: //div[contains(@class,"product-card__details")]//div[contains(@class,"product-card__title")]//a[@class="link"]/@href
     regExp: (\/product\/)(\d+)
     regExpReplace: $2
   - name: aggregateRating2
-    singleValue: false
     xpath: //meter[@class="review-rating__score-meter"]/@value
-    regExp: (\d+)(\.)?(\d+)?
-    regExpReplace: $1,$3

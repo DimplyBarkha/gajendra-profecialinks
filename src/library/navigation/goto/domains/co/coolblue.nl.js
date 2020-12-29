@@ -3,26 +3,19 @@ module.exports = {
   implements: 'navigation/goto',
   parameterValues: {
     domain: 'coolblue.nl',
-    timeout: 50000,
+    timeout: 100000,
     country: 'NL',
     store: 'coolblue',
     zipcode: '',
   },
-  implementation: async ({ url }, { country, domain, timeout }, context, dependencies) => {
-    const newUrl = await context.evaluate(function (url) {
-      const searchTerm = url.split('query=')[1];
-      if (searchTerm &&
-        searchTerm.match(/[a-zA-Z]+/g) &&
-        searchTerm.match(/[a-zA-Z]+/g).length === 1 &&
-        searchTerm.toLowerCase().match(/dyson/i)
-      ) {
-        console.log('redirecting to dyson all products');
-        return 'https://www.coolblue.nl/zoeken?query=Dyson+*';
-      } else {
-        return false;
-      };
-    }, url);
-    url = newUrl || url;
-    await context.goto(url, { timeout, waitUntil: 'load', checkBlocked: true });
+  implementation: async ({ url, zipcode, storeId }, parameters, context, dependencies) => {
+    const timeout = parameters.timeout ? parameters.timeout : 1000000;
+    await context.setAntiFingerprint(false);
+    await context.setLoadAllResources(true);
+    await context.setBlockAds(false);
+    await context.goto(url, { timeout: timeout, waitUntil: 'load', checkBlocked: true });
+    if (zipcode) {
+      await dependencies.setZipCode({ url: url, zipcode: zipcode, storeId });
+    }
   },
 };
