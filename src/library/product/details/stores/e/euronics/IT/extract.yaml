@@ -68,11 +68,11 @@ fields:
   - name: weightNet
     singleValue: false
     description: Net weight as described on the page
-    xpath: //*[contains(text(), 'Peso lordo')]/following-sibling::*[1] | //*[contains(text(), 'Peso senza base-Kg')]/following-sibling::*[1]
+    xpath:  //*[contains(text(), 'Peso senza base-Kg')]/following-sibling::*[1]
   - name: weightGross
     singleValue: false
     description: Gross weight as described on the page
-    xpath: //*[contains(text(), 'Peso-Kg')]/following-sibling::*[1] | //*[contains(text(), 'Peso-gr')]/following-sibling::*[1]
+    xpath: //*[contains(text(), 'Peso lordo')]/following-sibling::*[1] | //*[contains(text(), 'Peso-Kg')]/following-sibling::*[1] | //*[contains(text(), 'Peso-gr')]/following-sibling::*[1]
   - name: gtin
     singleValue: true
     description: GTIN code (includes UPC/EAN) //script[contains(@src, flixfacts)]/@data-flix-ean
