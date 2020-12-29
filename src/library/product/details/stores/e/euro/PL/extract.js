@@ -51,6 +51,39 @@ module.exports = {
       }
     }
 
+    await context.evaluate(async () => {
+      const descEl = document.querySelector('.description-content-inner');
+
+      if (descEl) {
+        const styleEl = descEl.querySelectorAll('style');
+        const scriptEl = descEl.querySelectorAll('script');
+
+        for (const el of styleEl) {
+          el.remove();
+        }
+
+        for (const el of scriptEl) {
+          el.remove();
+        }
+      }
+
+      const videoThumbnailEl = document.querySelector('.miniatures-video a');
+
+      if (videoThumbnailEl) {
+        videoThumbnailEl.click();
+        const delay = ms => new Promise(res => setTimeout(res, ms));
+        await delay(6000);
+        const videoLoaded = document.querySelectorAll('#multimedia-preview li.video');
+
+        for (const item of videoLoaded) {
+          const newEl = document.createElement('import-video');
+          newEl.setAttribute('data', item.getAttribute('data-src'));
+          document.body.appendChild(newEl);
+        }
+      }
+
+    });
+
     // const cssProduct1 = 'div#description';
     // const cssProductDetails1 = 'button[data-read-more="Rozwiń pełny opis"]';
 
