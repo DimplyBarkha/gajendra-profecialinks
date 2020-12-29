@@ -1,5 +1,5 @@
-const { implementation } = require('../../../a/amazon/US/extract');
 const { transform } = require('../../../../sharedAmazon/transformNew');
+const { implementation } = require('../../amazon/DE/extract');
 
 
 module.exports = {
