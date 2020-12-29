@@ -80,8 +80,8 @@ module.exports = {
 
     // try gettings some search results
     const pageOne = await extract({});
-
-    let collected = length(pageOne);
+    // Check added for backward compatibility
+    let collected = pageOne.data ? length(pageOne.data) : length(pageOne);
 
     console.log('Got initial number of results', collected);
 
@@ -90,10 +90,14 @@ module.exports = {
 
     let page = 2;
     while (collected < results && await paginate({ keywords: inputKeywords, page, offset: collected })) {
-      const data = await extract({});
-      const count = length(data);
-      if (count === 0) break; // no results
-      collected += count;
+      const results = await extract({});
+      // Check added for backward compatibility
+      const count = results.data ? length(results.data) : length(results);
+      if (count === 0) {
+        // no results
+        break;
+      }
+      collected = (results.mergeType && (results.mergeType === 'MERGE_ROWS') && count) || (collected + count);
       console.log('Got more results', collected);
       page++;
     }

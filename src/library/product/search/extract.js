@@ -11,9 +11,11 @@ async function implementation (
   context,
   dependencies,
 ) {
-  const { transform } = parameters;
+  const { transform, mergeType } = parameters;
   const { productDetails } = dependencies;
-  return await context.extract(productDetails, { transform });
+  const mergeOptions = mergeType ? { transform, type: mergeType } : { transform };
+  const data = await context.extract(productDetails, mergeOptions);
+  return { data, mergeType };
 }
 
 module.exports = {
@@ -29,6 +31,10 @@ module.exports = {
     {
       name: 'transform',
       description: 'transform function for the extraction',
+      optional: true,
+    },
+    {
+      name: 'mergeType',
       optional: true,
     },
   ],
