@@ -24,7 +24,7 @@ const transform = (data) => {
       }
       if (row.description) {
         row.description.forEach(itemDescription => {
-          itemDescription.text = itemDescription.text.replace(' Brand details', '');
+          itemDescription.text = itemDescription.text.replace('Brand details', '').replace(/\s+$/, '');
         });
       }
       if (row.price) {
