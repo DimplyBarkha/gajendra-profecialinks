@@ -77,8 +77,9 @@ fields:
     singleValue: true
   - name: aggregateRating
     singleValue: true
-    xpath: //div[@class="container productcard"]/@data-gtm-rating
-    type: NUMBER
+    xpath: //html//div[@id='aggr']
+    # regExp: (\d).(\d)
+    # regExpReplace: $1,$2
   - name: shippingInfo
     singleValue: true
   - name: shippingDimensions
