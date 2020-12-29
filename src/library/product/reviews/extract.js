@@ -31,7 +31,7 @@ async function implementation (
     const currentPageDiv = document.querySelector('#currentPageUrl');
     currentPageDiv ? currentPageDiv.textContent = currentPageUrl : addElementToDocument('currentPageUrl', currentPageUrl);
   });
-  const mergeOptions = mergeType ? { transform } : { transform, type: mergeType };
+  const mergeOptions = !mergeType ? { transform } : { transform, type: mergeType };
   const data = await context.extract(productReviews, mergeOptions);
   let stop = false;
   // Fiter out reviews in case reviews outside limit is present in the page.
