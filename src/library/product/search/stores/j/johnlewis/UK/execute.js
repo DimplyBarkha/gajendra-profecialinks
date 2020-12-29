@@ -43,7 +43,7 @@ module.exports = {
     domain: 'johnlewis.com',
     url: 'https://www.johnlewis.com/search?search-term={searchTerms}',
     loadedSelector: '.PLP_plp__3vv2c',
-    noResultsXPath: '//h1[contains(text(),"Sorry, we couldn\'t find any results")]',
+    noResultsXPath: '/html[not(//title[contains(.,"Search results")])] | //h1[contains(text(),"Sorry, we couldn\'t find any results")]',
     zipcode: '',
   },
   implementation,
