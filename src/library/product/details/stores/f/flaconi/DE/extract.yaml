@@ -51,8 +51,9 @@ fields:
     xpath: translate(//meta[@itemprop="ratingCount"]/@content,',','.')
   - name: description
     singleValue: false
-    xpath: //div[contains(text(),"Produktdetails")]/../div[contains(@class,"tab-content")]/text() | //div[contains(text(),"Produktdetails")]/../div[contains(@class,"tab-content")]//div[contains(@class,"description-content")] | //div[contains(text(),"Produktdetails")]/../div[contains(@class,"tab-content")]/ul
+    # xpath: //div[contains(text(),"Produktdetails")]/../div[contains(@class,"tab-content")]/text() | //div[contains(text(),"Produktdetails")]/../div[contains(@class,"tab-content")]//div[contains(@class,"description-content")] | //div[contains(text(),"Produktdetails")]/../div[contains(@class,"tab-content")]/ul
     # xpath: //div[@id="bb_descriptionBullets"]
+    xpath: //div[@id="additional-description"]
   - name: descriptionBullets
     singleValue: false
     # xpath: //div[@id="bb_descriptionBulletsCount"]
@@ -105,7 +106,8 @@ fields:
   - name: additionalDescBulletInfo
     singleValue: false
     # xpath: //ul[@class="product-properties-list"]/li
-    xpath: //div[contains(@class,"product-description")]//ul//li
+    # xpath: //div[contains(@class,"product-description")]//ul//li
+    xpath: //div[@id="desc-bullets"]
   - name: name
     singleValue: false
     xpath: //div[@class="product-name"]/h1
@@ -120,11 +122,13 @@ fields:
   - name: sku
     singleValue: false
     # xpath: //ul[@class="product-list"]/li[@class="product-container variant visible"]/@data-sku | //ul[@class="product-list multiple-variants"]/li[@class="product-container variant"]/@data-sku
-    xpath: //ul[@class="product-list"]/li[@class="product-container variant visible"]/@data-sku | //ul[@class="product-list multiple-variants"]/li[contains(@class,"product-container variant selected")]/@data-sku | //ul[@class="product-list"]/li[@class="product-container variant active visible"]/@data-sku | //ul[@class="product-list multiple-variants"]/li[contains(@class,"product-container variant selected")]/@data-sku | //ul[@class="product-list multiple-variants"]/li[contains(@class,"product-container variant active selected")]/@data-sku | //ul[@class="product-list single-variant"]/li/meta[@itemprop="sku"]/@content
+    # xpath: //ul[@class="product-list"]/li[@class="product-container variant visible"]/@data-sku | //ul[@class="product-list multiple-variants"]/li[contains(@class,"product-container variant selected")]/@data-sku | //ul[@class="product-list"]/li[@class="product-container variant active visible"]/@data-sku | //ul[@class="product-list multiple-variants"]/li[contains(@class,"product-container variant selected")]/@data-sku | //ul[@class="product-list multiple-variants"]/li[contains(@class,"product-container variant active selected")]/@data-sku | //ul[@class="product-list single-variant"]/li/meta[@itemprop="sku"]/@content
+    xpath: //div[@id="product-sku"]
   - name: variantId
     singleValue: false
     # xpath: //ul[@class="product-list"]/li[@class="product-container variant visible"]/@data-sku | //ul[@class="product-list multiple-variants"]/li[@class="product-container variant"]/@data-sku
-    xpath: //ul[@class="product-list"]/li[@class="product-container variant visible"]/@data-sku | //ul[@class="product-list multiple-variants"]/li[contains(@class,"product-container variant selected")]/@data-sku | //ul[@class="product-list"]/li[@class="product-container variant active visible"]/@data-sku | //ul[@class="product-list multiple-variants"]/li[contains(@class,"product-container variant selected")]/@data-sku | //ul[@class="product-list multiple-variants"]/li[contains(@class,"product-container variant active selected")]/@data-sku 
+    # xpath: //ul[@class="product-list"]/li[@class="product-container variant visible"]/@data-sku | //ul[@class="product-list multiple-variants"]/li[contains(@class,"product-container variant selected")]/@data-sku | //ul[@class="product-list"]/li[@class="product-container variant active visible"]/@data-sku | //ul[@class="product-list multiple-variants"]/li[contains(@class,"product-container variant selected")]/@data-sku | //ul[@class="product-list multiple-variants"]/li[contains(@class,"product-container variant active selected")]/@data-sku 
+    xpath: //div[@id="product-sku"]
   - name: asin
     singleValue: false
     # xpath: //ul[@class="product-list"]/li[@class="product-container variant visible"]/@data-sku | //ul[@class="product-list multiple-variants"]/li[@class="product-container variant"]/@data-sku
