@@ -62,5 +62,5 @@ module.exports = {
     noResultsXPath: '//p[contains(text(),"Found 0 products")]',
     zipcode: "''",
   },
-  implementation,
+  // implementation,
 };
