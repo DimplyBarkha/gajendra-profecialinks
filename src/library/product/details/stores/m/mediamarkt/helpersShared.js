@@ -128,7 +128,15 @@ class SharedHelpers {
           imagesSrc.push(src);
         });
       }
-      return imagesSrc;
+      const allImages = [];
+      for (let i = 0; i < imagesSrc.length; i++) {
+        if (imagesSrc[i] === '' || imagesSrc[i] === null) {
+          continue;
+        } else {
+          allImages.push(imagesSrc[i]);
+        }
+      }
+      return allImages;
     }, imgSelector, getAttrImgSrc);
     image = images;
 

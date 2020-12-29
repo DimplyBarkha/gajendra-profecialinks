@@ -193,6 +193,11 @@ const transform = (data, context) => {
         }
       }
 
+      if (row.weightNet) {
+        const text = row.weightNet[0].text.includes('/') ? row.weightNet[0].text.split('/')[1] : row.weightNet[0].text;
+        row.weightNet = [{ text }];
+      }
+
       if (row.manufacturerImages && row.manufacturerImages[0]) {
         if ((row.manufacturerImages[0].text.includes('media.flixcar.com') || row.manufacturerImages[0].text.includes('syndication.flix360.com')) && row.manufacturerImages[0].text.includes('1000w')) {
           row.manufacturerImages.forEach(item => {
@@ -210,7 +215,7 @@ const transform = (data, context) => {
         });
 
         if (row.manufacturerImages.length === 1) {
-          const images = row.manufacturerImages[0].text.split(' || ');
+          const images = row.manufacturerImages[0].text.split(' | ');
           const image = [];
           for (let i = 0; i < images.length; i++) {
             if (images[i].includes('base64')) {
@@ -221,8 +226,9 @@ const transform = (data, context) => {
               }
               image.push(images[i]);
             }
+            console.log(`IMAGE ${i}: ${images[i]}`);
           }
-          const text = image.join(' || ');
+          const text = image.join(' | ');
           row.manufacturerImages = [{ text }];
         }
 
