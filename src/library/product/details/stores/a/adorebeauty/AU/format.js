@@ -24,6 +24,15 @@ const transform = (data) => {
   };
   for (const { group } of data) {
     for (const row of group) {
+      if (row.unInterruptedPDP) {
+        var arrTemp = [];
+        row.unInterruptedPDP.forEach(item => {
+          arrTemp.push(item.text);
+        });
+        if (arrTemp.length) {
+          row.unInterruptedPDP = [{ text: arrTemp.join(' || ') }];
+        }
+      }
       if (row.image) {
         row.image.forEach(item => {
           item.text = item.text.replace('width=120', 'width=600');
