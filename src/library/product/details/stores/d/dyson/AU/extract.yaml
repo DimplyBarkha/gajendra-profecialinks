@@ -439,3 +439,8 @@ fields:
   - name: enhancedContentHTML #todo
     xpath: //div[@id="hasEnhancedContent"]
     defaultValue: No
+  - name: inTheBoxUrl
+    xpath: //div[normalize-space(@class)="contents"]//img | //div[contains(@class,"whats-in-the-box")]//img | //div[@id="in-the-box"]/ul/li//img
+    type: IMAGE
+  - name: inTheBoxText
+    xpath: //div[normalize-space(@class)="contents"]//strong | //div[contains(@class,"whats-in-the-box")]//span[@class="whats-in-the-box__tool-name"] | //p[@class="whats-in-the-box__product-name"] | //div[@id="in-the-box"]/ul/li
