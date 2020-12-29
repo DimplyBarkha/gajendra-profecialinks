@@ -528,10 +528,10 @@ fields:
     example: https://www.zalando.de/adidas-neo-sneaker-low-blackwhite-a4315i002-q11.html
     defaultValue: No
   - name: inTheBoxUrl
-    xpath: //div[@id="descr"]//div[@class="row"]//strong[contains(.,'כלול באריזה')]/ancestor::p/following-sibling::table//img//@src | //p[contains(.,'מה בתיבה:') or (contains(.,'כלול באריזה'))]//img//@src | //div[@id="descr"]//p[(br)]//img[contains(@style,'width:350px')]/@src  | //div[@id="descr"]//p//img[contains(@alt,'סוללה נשלפת') or contains(@alt,'דייסון וי 11 החדש')]/@src
+    xpath: //div[@id="descr"]//div[@class="row"]//strong[contains(.,'כלול באריזה')]/ancestor::p/following-sibling::table//img//@src | //p[contains(.,'מה בתיבה:') or (contains(.,'כלול באריזה'))]//img//@src | //div[@id="descr"]//p[(br)]//img[contains(@style,'width:350px')]/@src  | //div[@id="descr"]//p//img[contains(@alt,'סוללה נשלפת') or contains(@alt,'דייסון וי 11 החדש')]/@src | //div[@id="descr"]//div[@class="row"]//strong[contains(.,'אביזרים בערכה')]/ancestor::p/following-sibling::table//img/@src
   - name: inTheBoxText
     # xpath: //*[contains(.,"מה בערכה")]/following-sibling::ul[1]/li|//*[contains(.,"מה מגיע בערכה")]/following-sibling::ul[1]/li|//*[contains(.,"כלול באריזה")]/ancestor::p/following-sibling::table//td/text()|//*[contains(., "אביזרים נלווים")]/ancestor::p/text()|//*[contains(., "כלול באריזה")]/ancestor::p/following-sibling::table//td//strong
-    xpath: //div[@id="descr"]//div[@class="row"]//strong[contains(.,'כלול באריזה')]/ancestor::p/following-sibling::table//td | //p[contains(.,'אביזרים נלווים')]//text() | //p[contains(.,'אביזרים בערכה')]/following-sibling::table//td | //div[@id="descr"]//p//strong[contains(text(),"באריזה")]/parent::*
+    xpath: //div[@id="descr"]//div[@class="row"]//strong[contains(.,'כלול באריזה')]/ancestor::p/following-sibling::table//td | //p[contains(.,'אביזרים נלווים')]//text() | //p[contains(.,'אביזרים בערכה')]/following-sibling::table//td | //div[@id="descr"]//p//strong[contains(text(),"באריזה")]/parent::* | //div[@id="descr"]//div[@class="row"]//strong[contains(.,'אביזרים בערכה')]/ancestor::p/following-sibling::table//td[1]
   - name: hasComparisonTable
     defaultValue: No
   - name: unInterruptedPDP
