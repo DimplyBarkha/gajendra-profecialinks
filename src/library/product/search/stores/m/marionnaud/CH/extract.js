@@ -18,6 +18,12 @@ module.exports = {
         prodEle.style.display = 'none';
         document.body.appendChild(prodEle);
       }
+
+      function capitalizeFirstChar (string) {
+        const rest = string.slice(1).toLowerCase();
+        return string.charAt(0) + rest;
+      }
+
       const numOfPages = Math.ceil(200 / 20);
 
       for (let i = 0; i < numOfPages; i++) {
@@ -54,7 +60,8 @@ module.exports = {
               const product = data.results[j];
               const productElemId = `div#productElement-${i * 20 + j}`;
               document.querySelector(productElemId).setAttribute('product-tile-id', product.defaultVariantCode);
-              document.querySelector(productElemId).setAttribute('product-tile-name', product.name);
+              const productBrand = product.brandData ? product.brandData.name ? capitalizeFirstChar(product.brandData.name) : '' : '';
+              document.querySelector(productElemId).setAttribute('product-tile-name', `${productBrand} ${product.name}`);
               const productUrl = product.url ? `https://www.marionnaud.ch${product.url}` : '';
               document.querySelector(productElemId).setAttribute('product-tile-url', productUrl);
               document.querySelector(productElemId).setAttribute('product-tile-search-url', searchUrl);
