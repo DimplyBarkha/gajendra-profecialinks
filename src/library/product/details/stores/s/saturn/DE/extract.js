@@ -42,7 +42,7 @@ async function implementation(inputs, parameters, context, dependencies) {
   await context.evaluate(getRating);
 
   try {
-    await context.waitForSelector('button[class*="ProductFeatures"]', { timeout: 25000 });
+    await context.waitForSelector('button[class*="ProductFeatures"]', { timeout: 15000 });
   } catch (error) {
     console.log('Not loading product features yet');
   }
