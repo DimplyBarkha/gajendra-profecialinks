@@ -39,7 +39,7 @@ fields:
     singleValue: true
     description: Availability as described on page for the selected variant. If  there is no availability but the product can be added to cart, this field should be "In Stock"
     regExp: (.+)
-    regExpReplace: In Stock
+    regExpReplace: In stock
     defaultValue: Out of Stock
     xpath: //span[@class='stock-switchcolor']/text()|//span[@class='stock-switchcolor']/font/font/text()
   - name: description
