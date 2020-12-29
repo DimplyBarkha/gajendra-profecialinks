@@ -59,6 +59,7 @@ module.exports = {
     let videos = '';
     let inTheBoxImage = '';
     let inTheBoxText = '';
+    let hasComparisionTable = '';
 
 
     await waitForIframeDiv(iframeIdCSS);
@@ -169,7 +170,12 @@ module.exports = {
           return inTheBoxText;
         });
 
-
+        hasComparisionTable = await context.evaluate(async function () {
+          let  hasComparisionTable = '';
+            const checkHasComparisonTable = document.querySelector('div.table-wrapper table') ? "true"  : "false";
+            hasComparisionTable += checkHasComparisonTable;
+          return  hasComparisionTable;
+        });
 
 
         videos = await context.evaluate(async function () {
@@ -186,7 +192,7 @@ module.exports = {
 
     // checking if page already navigated to src/iframe url, if not no need to reload/naviagate
     if (src) await context.goto(prodUrl, { timeout: 300000, waitUntil: 'load', checkBlocked: true });
-    await context.evaluate(async function (enhancedContent, aplusImages, videos,inTheBoxImage,inTheBoxText) {
+    await context.evaluate(async function (enhancedContent, aplusImages, videos,inTheBoxImage,inTheBoxText,hasComparisionTable) {
       function addElementToDocument (key, value) {
         const catElement = document.createElement('div');
         catElement.id = key;
@@ -199,11 +205,12 @@ module.exports = {
       addElementToDocument('inTheBoxImage',inTheBoxImage);
       addElementToDocument('inTheBoxText', inTheBoxText);
       addElementToDocument('videos', videos);
+      addElementToDocument('checkingHasComparisionTable', hasComparisionTable);
 
 
 
 
-    }, enhancedContent, aplusImages, videos,inTheBoxImage,inTheBoxText);
+    }, enhancedContent, aplusImages, videos,inTheBoxImage,inTheBoxText,hasComparisionTable);
 
     // videos and src
     const video = '';
