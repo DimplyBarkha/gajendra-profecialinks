@@ -1,0 +1,1435 @@
+input:
+  keywords: Nulo
+  _url: http://petsmart.ca
+extractions:
+  - html: https://workbench.import.io/html/run=a9091b7e-5744-4bf0-b0f6-004eed5c0cae/task=b2fbc898-8017-4efa-8055-24dbceb0a24a/20e2e635-821e-449b-b690-73392906d7cc.html
+    extractionConfigId: product/search/stores/p/petsmart/CA/extract
+    data:
+      - group:
+          - id:
+              - text: "5260050"
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[1]/a[1]/div[1]/div[2]/meta[1]/@content
+            name:
+              - text: Nulo MedalSeries Cat & Kitten Food
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[1]/a[1]/div[1]/div[3]/div[1]/h3[1]
+            productUrl:
+              - text: https://www.petsmart.ca/cat/food-and-treats/wet-food/nulo-medalseries-cat-and-kitten-food-40065.html
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[1]/a[1]/@href
+            thumbnail:
+              - text: https://s7d2.scene7.com/is/image/PetSmart/5260050?$sclp-prd-main_small$
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[1]/a[1]/div[1]/div[2]/div[1]/img[1]/@src
+            aggregateRating2:
+              - text: "4.2"
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[1]/@rating
+                type: STRING
+            price:
+              - text: $ 1.89
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[1]/a[1]/div[1]/div[3]/div[2]/div[1]/span[1]
+            rank:
+              - text: "1"
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[1]/@rankorganic
+                type: NUMBER
+                raw: "1"
+                locale: en
+                value: 1
+            rankOrganic:
+              - text: "1"
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[1]/@rankorganic
+                type: NUMBER
+                raw: "1"
+                locale: en
+                value: 1
+          - id:
+              - text: "5212676"
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[2]/a[1]/div[1]/div[2]/meta[1]/@content
+            name:
+              - text: Nulo MedalSeries Adult Dog Food - Grain Free
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[2]/a[1]/div[1]/div[3]/div[1]/h3[1]
+            productUrl:
+              - text: https://www.petsmart.ca/dog/food/dry-food/nulo-medalseries-adult-dog-food---grain-free-18306.html
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[2]/a[1]/@href
+            thumbnail:
+              - text: https://s7d2.scene7.com/is/image/PetSmart/5212676?$sclp-prd-main_small$
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[2]/a[1]/div[1]/div[2]/div[1]/img[1]/@src
+            aggregateRating2:
+              - text: "4.6"
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[2]/@rating
+                type: STRING
+            price:
+              - text: $ 19.99 - 63.99
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[2]/a[1]/div[1]/div[3]/div[2]/div[1]/span[1]
+            rank:
+              - text: "2"
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[2]/@rankorganic
+                type: NUMBER
+                raw: "2"
+                locale: en
+                value: 2
+            rankOrganic:
+              - text: "2"
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[2]/@rankorganic
+                type: NUMBER
+                raw: "2"
+                locale: en
+                value: 2
+          - id:
+              - text: "5212692"
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[3]/a[1]/div[1]/div[2]/meta[1]/@content
+            name:
+              - text: Nulo MedalSeries Dog Food - Grain Free, Salmon & Chickpeas
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[3]/a[1]/div[1]/div[3]/div[1]/h3[1]
+            productUrl:
+              - text: https://www.petsmart.ca/dog/food/canned-food/nulo-medalseries-dog-food---grain-free-salmon-and-chickpeas-18311.html
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[3]/a[1]/@href
+            thumbnail:
+              - text: https://s7d2.scene7.com/is/image/PetSmart/5212692?$sclp-prd-main_small$
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[3]/a[1]/div[1]/div[2]/div[1]/img[1]/@src
+            aggregateRating2:
+              - text: "4.8"
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[3]/@rating
+                type: STRING
+            price:
+              - text: $ 3.49
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[3]/a[1]/div[1]/div[3]/div[2]/div[1]/span[1]
+            rank:
+              - text: "3"
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[3]/@rankorganic
+                type: NUMBER
+                raw: "3"
+                locale: en
+                value: 3
+            rankOrganic:
+              - text: "3"
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[3]/@rankorganic
+                type: NUMBER
+                raw: "3"
+                locale: en
+                value: 3
+          - id:
+              - text: "5212688"
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[4]/a[1]/div[1]/div[2]/meta[1]/@content
+            name:
+              - text: Nulo MedalSeries Dog Food - Grain Free, Chicken, Carrots & Peas
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[4]/a[1]/div[1]/div[3]/div[1]/h3[1]
+            productUrl:
+              - text: https://www.petsmart.ca/dog/food/canned-food/nulo-medalseries-dog-food---grain-free-chicken-carrots-and-peas-37517.html
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[4]/a[1]/@href
+            thumbnail:
+              - text: https://s7d2.scene7.com/is/image/PetSmart/5212688?$sclp-prd-main_small$
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[4]/a[1]/div[1]/div[2]/div[1]/img[1]/@src
+            aggregateRating2:
+              - text: "5.0"
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[4]/@rating
+                type: STRING
+            price:
+              - text: $ 3.49
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[4]/a[1]/div[1]/div[3]/div[2]/div[1]/span[1]
+            rank:
+              - text: "4"
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[4]/@rankorganic
+                type: NUMBER
+                raw: "4"
+                locale: en
+                value: 4
+            rankOrganic:
+              - text: "4"
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[4]/@rankorganic
+                type: NUMBER
+                raw: "4"
+                locale: en
+                value: 4
+          - id:
+              - text: "5212689"
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[5]/a[1]/div[1]/div[2]/meta[1]/@content
+            name:
+              - text: Nulo MedalSeries Dog Food - Grain Free, Turkey & Sweet Potato
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[5]/a[1]/div[1]/div[3]/div[1]/h3[1]
+            productUrl:
+              - text: https://www.petsmart.ca/dog/food/canned-food/nulo-medalseries-dog-food---grain-free-turkey-and-sweet-potato-37516.html
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[5]/a[1]/@href
+            thumbnail:
+              - text: https://s7d2.scene7.com/is/image/PetSmart/5212689?$sclp-prd-main_small$
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[5]/a[1]/div[1]/div[2]/div[1]/img[1]/@src
+            aggregateRating2:
+              - text: "5.0"
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[5]/@rating
+                type: STRING
+            price:
+              - text: $ 3.49
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[5]/a[1]/div[1]/div[3]/div[2]/div[1]/span[1]
+            rank:
+              - text: "5"
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[5]/@rankorganic
+                type: NUMBER
+                raw: "5"
+                locale: en
+                value: 5
+            rankOrganic:
+              - text: "5"
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[5]/@rankorganic
+                type: NUMBER
+                raw: "5"
+                locale: en
+                value: 5
+          - id:
+              - text: "5212528"
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[6]/a[1]/div[1]/div[2]/meta[1]/@content
+            name:
+              - text: Nulo MedalSeries Puppy Food - Grain Free, Chicken & Sweet Potato
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[6]/a[1]/div[1]/div[3]/div[1]/h3[1]
+            productUrl:
+              - text: https://www.petsmart.ca/dog/food/dry-food/nulo-medalseries-puppy-food---grain-free-chicken-and-sweet-potato-18310.html
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[6]/a[1]/@href
+            thumbnail:
+              - text: https://s7d2.scene7.com/is/image/PetSmart/5212528?$sclp-prd-main_small$
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[6]/a[1]/div[1]/div[2]/div[1]/img[1]/@src
+            aggregateRating2:
+              - text: "4.7"
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[6]/@rating
+                type: STRING
+            price:
+              - text: $ 19.99 - 63.99
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[6]/a[1]/div[1]/div[3]/div[2]/div[1]/span[1]
+            rank:
+              - text: "6"
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[6]/@rankorganic
+                type: NUMBER
+                raw: "6"
+                locale: en
+                value: 6
+            rankOrganic:
+              - text: "6"
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[6]/@rankorganic
+                type: NUMBER
+                raw: "6"
+                locale: en
+                value: 6
+          - id:
+              - text: "5274349"
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[7]/a[1]/div[1]/div[2]/meta[1]/@content
+            name:
+              - text: Nulo MedalSeries Jerky Strips Dog Treat - Natural, Grain Free, Turkey
+                  Recipe
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[7]/a[1]/div[1]/div[3]/div[1]/h3[1]
+            productUrl:
+              - text: https://www.petsmart.ca/dog/treats/jerky/nulo-medalseries-jerky-strips-dog-treat---natural-grain-free-turkey-recipe-48078.html
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[7]/a[1]/@href
+            thumbnail:
+              - text: https://s7d2.scene7.com/is/image/PetSmart/5274349?$sclp-prd-main_small$
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[7]/a[1]/div[1]/div[2]/div[1]/img[1]/@src
+            price:
+              - text: $ 12.99
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[7]/a[1]/div[1]/div[3]/div[2]/div[1]/span[1]
+            rank:
+              - text: "7"
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[7]/@rankorganic
+                type: NUMBER
+                raw: "7"
+                locale: en
+                value: 7
+            rankOrganic:
+              - text: "7"
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[7]/@rankorganic
+                type: NUMBER
+                raw: "7"
+                locale: en
+                value: 7
+          - id:
+              - text: "5280848"
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[8]/a[1]/div[1]/div[2]/meta[1]/@content
+            name:
+              - text: Nulo MedalSeries Limited Ingredient Cat Food - Grain Free
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[8]/a[1]/div[1]/div[3]/div[1]/h3[1]
+            productUrl:
+              - text: https://www.petsmart.ca/cat/food-and-treats/dry-food/nulo-medalseries-limited-ingredient-cat-food---grain-free-48953.html
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[8]/a[1]/@href
+            thumbnail:
+              - text: https://s7d2.scene7.com/is/image/PetSmart/5280848?$sclp-prd-main_small$
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[8]/a[1]/div[1]/div[2]/div[1]/img[1]/@src
+            aggregateRating2:
+              - text: "5.0"
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[8]/@rating
+                type: STRING
+            price:
+              - text: $ 29.99 - 52.99
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[8]/a[1]/div[1]/div[3]/div[2]/div[1]/span[1]
+            rank:
+              - text: "8"
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[8]/@rankorganic
+                type: NUMBER
+                raw: "8"
+                locale: en
+                value: 8
+            rankOrganic:
+              - text: "8"
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[8]/@rankorganic
+                type: NUMBER
+                raw: "8"
+                locale: en
+                value: 8
+          - id:
+              - text: "5212687"
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[9]/a[1]/div[1]/div[2]/meta[1]/@content
+            name:
+              - text: Nulo MedalSeries Senior Dog Food - Grain Free, Chicken & Lentils
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[9]/a[1]/div[1]/div[3]/div[1]/h3[1]
+            productUrl:
+              - text: https://www.petsmart.ca/dog/food/dry-food/nulo-medalseries-senior-dog-food---grain-free-chicken-and-lentils-18308.html
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[9]/a[1]/@href
+            thumbnail:
+              - text: https://s7d2.scene7.com/is/image/PetSmart/5212687?$sclp-prd-main_small$
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[9]/a[1]/div[1]/div[2]/div[1]/img[1]/@src
+            aggregateRating2:
+              - text: "5.0"
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[9]/@rating
+                type: STRING
+            price:
+              - text: $ 63.99
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[9]/a[1]/div[1]/div[3]/div[2]/div[1]/span[1]
+            rank:
+              - text: "9"
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[9]/@rankorganic
+                type: NUMBER
+                raw: "9"
+                locale: en
+                value: 9
+            rankOrganic:
+              - text: "9"
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[9]/@rankorganic
+                type: NUMBER
+                raw: "9"
+                locale: en
+                value: 9
+          - id:
+              - text: "5212627"
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[10]/a[1]/div[1]/div[2]/meta[1]/@content
+            name:
+              - text: Nulo MedalSeries Adult Cat Food - Grain Free, Salmon & Lentils
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[10]/a[1]/div[1]/div[3]/div[1]/h3[1]
+            productUrl:
+              - text: https://www.petsmart.ca/cat/food-and-treats/dry-food/nulo-medalseries-adult-cat-food---grain-free-salmon-and-lentils-18361.html
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[10]/a[1]/@href
+            thumbnail:
+              - text: https://s7d2.scene7.com/is/image/PetSmart/5212627?$sclp-prd-main_small$
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[10]/a[1]/div[1]/div[2]/div[1]/img[1]/@src
+            aggregateRating2:
+              - text: "3.6"
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[10]/@rating
+                type: STRING
+            price:
+              - text: $ 29.99
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[10]/a[1]/div[1]/div[3]/div[2]/div[1]/span[1]
+            rank:
+              - text: "10"
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[10]/@rankorganic
+                type: NUMBER
+                raw: "10"
+                locale: en
+                value: 10
+            rankOrganic:
+              - text: "10"
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[10]/@rankorganic
+                type: NUMBER
+                raw: "10"
+                locale: en
+                value: 10
+          - id:
+              - text: "5252949"
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[11]/a[1]/div[1]/div[2]/meta[1]/@content
+            name:
+              - text: Nulo MedalSeries Cat & Kitten Food - Grain Free, Trout & Salmon
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[11]/a[1]/div[1]/div[3]/div[1]/h3[1]
+            productUrl:
+              - text: https://www.petsmart.ca/cat/food-and-treats/wet-food/nulo-medalseries-cat-and-kitten-food---grain-free-trout-and-salmon-36958.html
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[11]/a[1]/@href
+            thumbnail:
+              - text: https://s7d2.scene7.com/is/image/PetSmart/5252949?$sclp-prd-main_small$
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[11]/a[1]/div[1]/div[2]/div[1]/img[1]/@src
+            aggregateRating2:
+              - text: "5.0"
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[11]/@rating
+                type: STRING
+            price:
+              - text: $ 2.59
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[11]/a[1]/div[1]/div[3]/div[2]/div[1]/span[1]
+            rank:
+              - text: "11"
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[11]/@rankorganic
+                type: NUMBER
+                raw: "11"
+                locale: en
+                value: 11
+            rankOrganic:
+              - text: "11"
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[11]/@rankorganic
+                type: NUMBER
+                raw: "11"
+                locale: en
+                value: 11
+          - id:
+              - text: "5260125"
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[12]/a[1]/div[1]/div[2]/meta[1]/@content
+            name:
+              - text: Nulo MedalSeries Cat & Kitten Food - Grain Free, Turkey & Halibut
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[12]/a[1]/div[1]/div[3]/div[1]/h3[1]
+            productUrl:
+              - text: https://www.petsmart.ca/cat/food-and-treats/wet-food/nulo-medalseries-cat-and-kitten-food---grain-free-turkey-and-halibut-40070.html
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[12]/a[1]/@href
+            thumbnail:
+              - text: https://s7d2.scene7.com/is/image/PetSmart/5260125?$sclp-prd-main_small$
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[12]/a[1]/div[1]/div[2]/div[1]/img[1]/@src
+            aggregateRating2:
+              - text: "5.0"
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[12]/@rating
+                type: STRING
+            price:
+              - text: $ 1.89
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[12]/a[1]/div[1]/div[3]/div[2]/div[1]/span[1]
+            rank:
+              - text: "12"
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[12]/@rankorganic
+                type: NUMBER
+                raw: "12"
+                locale: en
+                value: 12
+            rankOrganic:
+              - text: "12"
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[12]/@rankorganic
+                type: NUMBER
+                raw: "12"
+                locale: en
+                value: 12
+          - id:
+              - text: "5252946"
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[13]/a[1]/div[1]/div[2]/meta[1]/@content
+            name:
+              - text: Nulo MedalSeries Cat & Kitten Food - Grain Free, Beef & Lamb
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[13]/a[1]/div[1]/div[3]/div[1]/h3[1]
+            productUrl:
+              - text: https://www.petsmart.ca/cat/food-and-treats/wet-food/nulo-medalseries-cat-and-kitten-food---grain-free-beef-and-lamb-36955.html
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[13]/a[1]/@href
+            thumbnail:
+              - text: https://s7d2.scene7.com/is/image/PetSmart/5252946?$sclp-prd-main_small$
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[13]/a[1]/div[1]/div[2]/div[1]/img[1]/@src
+            aggregateRating2:
+              - text: "5.0"
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[13]/@rating
+                type: STRING
+            price:
+              - text: $ 2.59
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[13]/a[1]/div[1]/div[3]/div[2]/div[1]/span[1]
+            rank:
+              - text: "13"
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[13]/@rankorganic
+                type: NUMBER
+                raw: "13"
+                locale: en
+                value: 13
+            rankOrganic:
+              - text: "13"
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[13]/@rankorganic
+                type: NUMBER
+                raw: "13"
+                locale: en
+                value: 13
+          - id:
+              - text: "5260054"
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[14]/a[1]/div[1]/div[2]/meta[1]/@content
+            name:
+              - text: Nulo MedalSeries Cat & Kitten Food - Grain Free, Chicken & Duck
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[14]/a[1]/div[1]/div[3]/div[1]/h3[1]
+            productUrl:
+              - text: https://www.petsmart.ca/cat/food-and-treats/wet-food/nulo-medalseries-cat-and-kitten-food---grain-free-chicken-and-duck-40069.html
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[14]/a[1]/@href
+            thumbnail:
+              - text: https://s7d2.scene7.com/is/image/PetSmart/5260054?$sclp-prd-main_small$
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[14]/a[1]/div[1]/div[2]/div[1]/img[1]/@src
+            aggregateRating2:
+              - text: "4.2"
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[14]/@rating
+                type: STRING
+            price:
+              - text: $ 1.89
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[14]/a[1]/div[1]/div[3]/div[2]/div[1]/span[1]
+            rank:
+              - text: "14"
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[14]/@rankorganic
+                type: NUMBER
+                raw: "14"
+                locale: en
+                value: 14
+            rankOrganic:
+              - text: "14"
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[14]/@rankorganic
+                type: NUMBER
+                raw: "14"
+                locale: en
+                value: 14
+          - id:
+              - text: "5252948"
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[15]/a[1]/div[1]/div[2]/meta[1]/@content
+            name:
+              - text: Nulo MedalSeries Cat & Kitten Food - Grain Free, Duck & Tuna
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[15]/a[1]/div[1]/div[3]/div[1]/h3[1]
+            productUrl:
+              - text: https://www.petsmart.ca/cat/food-and-treats/wet-food/nulo-medalseries-cat-and-kitten-food---grain-free-duck-and-tuna-36957.html
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[15]/a[1]/@href
+            thumbnail:
+              - text: https://s7d2.scene7.com/is/image/PetSmart/5252948?$sclp-prd-main_small$
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[15]/a[1]/div[1]/div[2]/div[1]/img[1]/@src
+            aggregateRating2:
+              - text: "5.0"
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[15]/@rating
+                type: STRING
+            price:
+              - text: $ 2.59
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[15]/a[1]/div[1]/div[3]/div[2]/div[1]/span[1]
+            rank:
+              - text: "15"
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[15]/@rankorganic
+                type: NUMBER
+                raw: "15"
+                locale: en
+                value: 15
+            rankOrganic:
+              - text: "15"
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[15]/@rankorganic
+                type: NUMBER
+                raw: "15"
+                locale: en
+                value: 15
+          - id:
+              - text: "5252947"
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[16]/a[1]/div[1]/div[2]/meta[1]/@content
+            name:
+              - text: Nulo MedalSeries Cat & Kitten Food - Grain Free, Chicken & Herring
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[16]/a[1]/div[1]/div[3]/div[1]/h3[1]
+            productUrl:
+              - text: https://www.petsmart.ca/cat/food-and-treats/wet-food/nulo-medalseries-cat-and-kitten-food---grain-free-chicken-and-herring-36956.html
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[16]/a[1]/@href
+            thumbnail:
+              - text: https://s7d2.scene7.com/is/image/PetSmart/5252947?$sclp-prd-main_small$
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[16]/a[1]/div[1]/div[2]/div[1]/img[1]/@src
+            aggregateRating2:
+              - text: "5.0"
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[16]/@rating
+                type: STRING
+            price:
+              - text: $ 2.59
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[16]/a[1]/div[1]/div[3]/div[2]/div[1]/span[1]
+            rank:
+              - text: "16"
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[16]/@rankorganic
+                type: NUMBER
+                raw: "16"
+                locale: en
+                value: 16
+            rankOrganic:
+              - text: "16"
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[16]/@rankorganic
+                type: NUMBER
+                raw: "16"
+                locale: en
+                value: 16
+          - id:
+              - text: "5252950"
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[17]/a[1]/div[1]/div[2]/meta[1]/@content
+            name:
+              - text: Nulo MedalSeries Cat & Kitten Food - Grain Free, Salmon & Mackerel
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[17]/a[1]/div[1]/div[3]/div[1]/h3[1]
+            productUrl:
+              - text: https://www.petsmart.ca/cat/food-and-treats/wet-food/nulo-medalseries-cat-and-kitten-food---grain-free-salmon-and-mackerel-36959.html
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[17]/a[1]/@href
+            thumbnail:
+              - text: https://s7d2.scene7.com/is/image/PetSmart/5252950?$sclp-prd-main_small$
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[17]/a[1]/div[1]/div[2]/div[1]/img[1]/@src
+            aggregateRating2:
+              - text: "4.5"
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[17]/@rating
+                type: STRING
+            price:
+              - text: $ 2.59
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[17]/a[1]/div[1]/div[3]/div[2]/div[1]/span[1]
+            rank:
+              - text: "17"
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[17]/@rankorganic
+                type: NUMBER
+                raw: "17"
+                locale: en
+                value: 17
+            rankOrganic:
+              - text: "17"
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[17]/@rankorganic
+                type: NUMBER
+                raw: "17"
+                locale: en
+                value: 17
+          - id:
+              - text: "5252951"
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[18]/a[1]/div[1]/div[2]/meta[1]/@content
+            name:
+              - text: Nulo MedalSeries Cat & Kitten Food - Grain Free, Turkey & Chicken
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[18]/a[1]/div[1]/div[3]/div[1]/h3[1]
+            productUrl:
+              - text: https://www.petsmart.ca/cat/food-and-treats/wet-food/nulo-medalseries-cat-and-kitten-food---grain-free-turkey-and-chicken-36960.html
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[18]/a[1]/@href
+            thumbnail:
+              - text: https://s7d2.scene7.com/is/image/PetSmart/5252951?$sclp-prd-main_small$
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[18]/a[1]/div[1]/div[2]/div[1]/img[1]/@src
+            aggregateRating2:
+              - text: "4.3"
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[18]/@rating
+                type: STRING
+            price:
+              - text: $ 2.59
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[18]/a[1]/div[1]/div[3]/div[2]/div[1]/span[1]
+            rank:
+              - text: "18"
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[18]/@rankorganic
+                type: NUMBER
+                raw: "18"
+                locale: en
+                value: 18
+            rankOrganic:
+              - text: "18"
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[18]/@rankorganic
+                type: NUMBER
+                raw: "18"
+                locale: en
+                value: 18
+          - id:
+              - text: "5260051"
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[19]/a[1]/div[1]/div[2]/meta[1]/@content
+            name:
+              - text: Nulo MedalSeries Cat & Kitten Food - Grain Free, Salmon & Turkey
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[19]/a[1]/div[1]/div[3]/div[1]/h3[1]
+            productUrl:
+              - text: https://www.petsmart.ca/cat/food-and-treats/wet-food/nulo-medalseries-cat-and-kitten-food---grain-free-salmon-and-turkey-40066.html
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[19]/a[1]/@href
+            thumbnail:
+              - text: https://s7d2.scene7.com/is/image/PetSmart/5260051?$sclp-prd-main_small$
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[19]/a[1]/div[1]/div[2]/div[1]/img[1]/@src
+            aggregateRating2:
+              - text: "5.0"
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[19]/@rating
+                type: STRING
+            price:
+              - text: $ 1.89
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[19]/a[1]/div[1]/div[3]/div[2]/div[1]/span[1]
+            rank:
+              - text: "19"
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[19]/@rankorganic
+                type: NUMBER
+                raw: "19"
+                locale: en
+                value: 19
+            rankOrganic:
+              - text: "19"
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[19]/@rankorganic
+                type: NUMBER
+                raw: "19"
+                locale: en
+                value: 19
+          - id:
+              - text: "5212629"
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[20]/a[1]/div[1]/div[2]/meta[1]/@content
+            name:
+              - text: Nulo MedalSeries Adult Cat Food - Grain Free, Chicken & Peas
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[20]/a[1]/div[1]/div[3]/div[1]/h3[1]
+            productUrl:
+              - text: https://www.petsmart.ca/cat/food-and-treats/dry-food/nulo-medalseries-adult-cat-food---grain-free-chicken-and-peas-18359.html
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[20]/a[1]/@href
+            thumbnail:
+              - text: https://s7d2.scene7.com/is/image/PetSmart/5212629?$sclp-prd-main_small$
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[20]/a[1]/div[1]/div[2]/div[1]/img[1]/@src
+            aggregateRating2:
+              - text: "4.8"
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[20]/@rating
+                type: STRING
+            price:
+              - text: $ 29.99 - 52.99
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[20]/a[1]/div[1]/div[3]/div[2]/div[1]/span[1]
+            rank:
+              - text: "20"
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[20]/@rankorganic
+                type: NUMBER
+                raw: "20"
+                locale: en
+                value: 20
+            rankOrganic:
+              - text: "20"
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[20]/@rankorganic
+                type: NUMBER
+                raw: "20"
+                locale: en
+                value: 20
+          - id:
+              - text: "5257823"
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[21]/a[1]/div[1]/div[2]/meta[1]/@content
+            name:
+              - text: Nulo MedalSeries Adult Cat Food - Grain Free, Salmon & Lentils
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[21]/a[1]/div[1]/div[3]/div[1]/h3[1]
+            productUrl:
+              - text: https://www.petsmart.ca/cat/food-and-treats/dry-food/nulo-medalseries-adult-cat-food---grain-free-salmon-and-lentils-38906.html
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[21]/a[1]/@href
+            thumbnail:
+              - text: https://s7d2.scene7.com/is/image/PetSmart/5257823?$sclp-prd-main_small$
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[21]/a[1]/div[1]/div[2]/div[1]/img[1]/@src
+            aggregateRating2:
+              - text: "3.7"
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[21]/@rating
+                type: STRING
+            price:
+              - text: $ 52.99
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[21]/a[1]/div[1]/div[3]/div[2]/div[1]/span[1]
+            rank:
+              - text: "21"
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[21]/@rankorganic
+                type: NUMBER
+                raw: "21"
+                locale: en
+                value: 21
+            rankOrganic:
+              - text: "21"
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[21]/@rankorganic
+                type: NUMBER
+                raw: "21"
+                locale: en
+                value: 21
+          - id:
+              - text: "5274352"
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[22]/a[1]/div[1]/div[2]/meta[1]/@content
+            name:
+              - text: Nulo MedalSeries Trainers Dog Treat - Natural, Grain Free, Turkey Recipe
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[22]/a[1]/div[1]/div[3]/div[1]/h3[1]
+            productUrl:
+              - text: https://www.petsmart.ca/dog/treats/training-treats/nulo-medalseries-trainers-dog-treat---natural-grain-free-turkey-recipe-48081.html
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[22]/a[1]/@href
+            thumbnail:
+              - text: https://s7d2.scene7.com/is/image/PetSmart/5274352?$sclp-prd-main_small$
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[22]/a[1]/div[1]/div[2]/div[1]/img[1]/@src
+            aggregateRating2:
+              - text: "5.0"
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[22]/@rating
+                type: STRING
+            price:
+              - text: $ 8.99
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[22]/a[1]/div[1]/div[3]/div[2]/div[1]/span[1]
+            rank:
+              - text: "22"
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[22]/@rankorganic
+                type: NUMBER
+                raw: "22"
+                locale: en
+                value: 22
+            rankOrganic:
+              - text: "22"
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[22]/@rankorganic
+                type: NUMBER
+                raw: "22"
+                locale: en
+                value: 22
+          - id:
+              - text: "5274351"
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[23]/a[1]/div[1]/div[2]/meta[1]/@content
+            name:
+              - text: Nulo MedalSeries Trainers Dog Treat - Natural, Grain Free, Salmon Recipe
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[23]/a[1]/div[1]/div[3]/div[1]/h3[1]
+            productUrl:
+              - text: https://www.petsmart.ca/dog/treats/training-treats/nulo-medalseries-trainers-dog-treat---natural-grain-free-salmon-recipe-48080.html
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[23]/a[1]/@href
+            thumbnail:
+              - text: https://s7d2.scene7.com/is/image/PetSmart/5274351?$sclp-prd-main_small$
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[23]/a[1]/div[1]/div[2]/div[1]/img[1]/@src
+            aggregateRating2:
+              - text: "5.0"
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[23]/@rating
+                type: STRING
+            price:
+              - text: $ 8.99
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[23]/a[1]/div[1]/div[3]/div[2]/div[1]/span[1]
+            rank:
+              - text: "23"
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[23]/@rankorganic
+                type: NUMBER
+                raw: "23"
+                locale: en
+                value: 23
+            rankOrganic:
+              - text: "23"
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[23]/@rankorganic
+                type: NUMBER
+                raw: "23"
+                locale: en
+                value: 23
+          - id:
+              - text: "5274350"
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[24]/a[1]/div[1]/div[2]/meta[1]/@content
+            name:
+              - text: Nulo MedalSeries Trainers Dog Treat - Natural, Grain Free, Duck Recipe
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[24]/a[1]/div[1]/div[3]/div[1]/h3[1]
+            productUrl:
+              - text: https://www.petsmart.ca/dog/treats/training-treats/nulo-medalseries-trainers-dog-treat---natural-grain-free-duck-recipe-48079.html
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[24]/a[1]/@href
+            thumbnail:
+              - text: https://s7d2.scene7.com/is/image/PetSmart/5274350?$sclp-prd-main_small$
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[24]/a[1]/div[1]/div[2]/div[1]/img[1]/@src
+            aggregateRating2:
+              - text: "3.0"
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[24]/@rating
+                type: STRING
+            price:
+              - text: $ 8.99
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[24]/a[1]/div[1]/div[3]/div[2]/div[1]/span[1]
+            rank:
+              - text: "24"
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[24]/@rankorganic
+                type: NUMBER
+                raw: "24"
+                locale: en
+                value: 24
+            rankOrganic:
+              - text: "24"
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[24]/@rankorganic
+                type: NUMBER
+                raw: "24"
+                locale: en
+                value: 24
+          - id:
+              - text: "5212675"
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[25]/a[1]/div[1]/div[2]/meta[1]/@content
+            name:
+              - text: Nulo MedalSeries Lamb & Lentils Adult Dog Food - Natural, Grain Free
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[25]/a[1]/div[1]/div[3]/div[1]/h3[1]
+            productUrl:
+              - text: https://www.petsmart.ca/dog/food/dry-food/nulo-medalseries-lamb-and-lentils-adult-dog-food---natural-grain-free-58936.html
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[25]/a[1]/@href
+            thumbnail:
+              - text: https://s7d2.scene7.com/is/image/PetSmart/5212675?$sclp-prd-main_small$
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[25]/a[1]/div[1]/div[2]/div[1]/img[1]/@src
+            aggregateRating2:
+              - text: "5.0"
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[25]/@rating
+                type: STRING
+            price:
+              - text: $ 19.99 - 63.99
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[25]/a[1]/div[1]/div[3]/div[2]/div[1]/span[1]
+            rank:
+              - text: "25"
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[25]/@rankorganic
+                type: NUMBER
+                raw: "25"
+                locale: en
+                value: 25
+            rankOrganic:
+              - text: "25"
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[25]/@rankorganic
+                type: NUMBER
+                raw: "25"
+                locale: en
+                value: 25
+          - id:
+              - text: "5256360"
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[26]/a[1]/div[1]/div[2]/meta[1]/@content
+            name:
+              - text: Nulo MedalSeries Cat & Kitten Food - Grain Free, Cod & Duck
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[26]/a[1]/div[1]/div[3]/div[1]/h3[1]
+            productUrl:
+              - text: https://www.petsmart.ca/cat/food-and-treats/dry-food/nulo-medalseries-cat-and-kitten-food---grain-free-cod-and-duck-37647.html
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[26]/a[1]/@href
+            thumbnail:
+              - text: https://s7d2.scene7.com/is/image/PetSmart/5256360?$sclp-prd-main_small$
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[26]/a[1]/div[1]/div[2]/div[1]/img[1]/@src
+            aggregateRating2:
+              - text: "4.5"
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[26]/@rating
+                type: STRING
+            price:
+              - text: $ 29.99
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[26]/a[1]/div[1]/div[3]/div[2]/div[1]/span[1]
+            rank:
+              - text: "26"
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[26]/@rankorganic
+                type: NUMBER
+                raw: "26"
+                locale: en
+                value: 26
+            rankOrganic:
+              - text: "26"
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[26]/@rankorganic
+                type: NUMBER
+                raw: "26"
+                locale: en
+                value: 26
+          - id:
+              - text: "5287114"
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[27]/a[1]/div[1]/div[2]/meta[1]/@content
+            name:
+              - text: Nulo MedalSeries ™ Dog Food Topper - Grain Free, Freeze Dried Raw
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[27]/a[1]/div[1]/div[3]/div[1]/h3[1]
+            productUrl:
+              - text: https://www.petsmart.ca/dog/food/canned-food/nulo-medalseries-andtrade-dog-food-topper---grain-free-freeze-dried-raw-52888.html
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[27]/a[1]/@href
+            thumbnail:
+              - text: https://s7d2.scene7.com/is/image/PetSmart/5287114?$sclp-prd-main_large$
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[27]/a[1]/div[1]/div[2]/div[1]/img[1]/@src
+            price:
+              - text: $ 17.99
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[27]/a[1]/div[1]/div[3]/div[2]/div[1]/span[1]
+            rank:
+              - text: "27"
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[27]/@rankorganic
+                type: NUMBER
+                raw: "27"
+                locale: en
+                value: 27
+            rankOrganic:
+              - text: "27"
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[27]/@rankorganic
+                type: NUMBER
+                raw: "27"
+                locale: en
+                value: 27
+          - id:
+              - text: "5212493"
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[28]/a[1]/div[1]/div[2]/meta[1]/@content
+            name:
+              - text: Nulo MedalSeries Cat & Kitten Food - Grain Free, Turkey & Cod
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[28]/a[1]/div[1]/div[3]/div[1]/h3[1]
+            productUrl:
+              - text: https://www.petsmart.ca/cat/food-and-treats/dry-food/nulo-medalseries-cat-and-kitten-food---grain-free-turkey-and-cod-18364.html
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[28]/a[1]/@href
+            thumbnail:
+              - text: https://s7d2.scene7.com/is/image/PetSmart/5212493?$sclp-prd-main_small$
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[28]/a[1]/div[1]/div[2]/div[1]/img[1]/@src
+            aggregateRating2:
+              - text: "4.7"
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[28]/@rating
+                type: STRING
+            price:
+              - text: $ 29.99 - 52.99
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[28]/a[1]/div[1]/div[3]/div[2]/div[1]/span[1]
+            rank:
+              - text: "28"
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[28]/@rankorganic
+                type: NUMBER
+                raw: "28"
+                locale: en
+                value: 28
+            rankOrganic:
+              - text: "28"
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[28]/@rankorganic
+                type: NUMBER
+                raw: "28"
+                locale: en
+                value: 28
+          - id:
+              - text: "5260053"
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[29]/a[1]/div[1]/div[2]/meta[1]/@content
+            name:
+              - text: Nulo MedalSeries Cat & Kitten Food - Grain Free, Beef & Rainbow Trout
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[29]/a[1]/div[1]/div[3]/div[1]/h3[1]
+            productUrl:
+              - text: https://www.petsmart.ca/cat/food-and-treats/wet-food/nulo-medalseries-cat-and-kitten-food---grain-free-beef-and-rainbow-trout-40068.html
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[29]/a[1]/@href
+            thumbnail:
+              - text: https://s7d2.scene7.com/is/image/PetSmart/5260053?$sclp-prd-main_small$
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[29]/a[1]/div[1]/div[2]/div[1]/img[1]/@src
+            aggregateRating2:
+              - text: "5.0"
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[29]/@rating
+                type: STRING
+            price:
+              - text: $ 1.89
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[29]/a[1]/div[1]/div[3]/div[2]/div[1]/span[1]
+            rank:
+              - text: "29"
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[29]/@rankorganic
+                type: NUMBER
+                raw: "29"
+                locale: en
+                value: 29
+            rankOrganic:
+              - text: "29"
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[29]/@rankorganic
+                type: NUMBER
+                raw: "29"
+                locale: en
+                value: 29
+          - id:
+              - text: "5212628"
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[30]/a[1]/div[1]/div[2]/meta[1]/@content
+            name:
+              - text: Nulo MedalSeries Indoor Adult Cat Food - Grain Free, Trout & Duck
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[30]/a[1]/div[1]/div[3]/div[1]/h3[1]
+            productUrl:
+              - text: https://www.petsmart.ca/cat/food-and-treats/dry-food/nulo-medalseries-indoor-adult-cat-food---grain-free-trout-and-duck-18360.html
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[30]/a[1]/@href
+            thumbnail:
+              - text: https://s7d2.scene7.com/is/image/PetSmart/5212628?$sclp-prd-main_small$
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[30]/a[1]/div[1]/div[2]/div[1]/img[1]/@src
+            aggregateRating2:
+              - text: "4.0"
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[30]/@rating
+                type: STRING
+            price:
+              - text: $ 29.99 - 52.99
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[30]/a[1]/div[1]/div[3]/div[2]/div[1]/span[1]
+            rank:
+              - text: "30"
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[30]/@rankorganic
+                type: NUMBER
+                raw: "30"
+                locale: en
+                value: 30
+            rankOrganic:
+              - text: "30"
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[30]/@rankorganic
+                type: NUMBER
+                raw: "30"
+                locale: en
+                value: 30
+          - id:
+              - text: "5274345"
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[31]/a[1]/div[1]/div[2]/meta[1]/@content
+            name:
+              - text: Nulo MedalSeries Jerky Strips Dog Treat - Natural, Grain Free, Beef Recipe
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[31]/a[1]/div[1]/div[3]/div[1]/h3[1]
+            productUrl:
+              - text: https://www.petsmart.ca/dog/treats/jerky/nulo-medalseries-jerky-strips-dog-treat---natural-grain-free-beef-recipe-48075.html
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[31]/a[1]/@href
+            thumbnail:
+              - text: https://s7d2.scene7.com/is/image/PetSmart/5274345?$sclp-prd-main_small$
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[31]/a[1]/div[1]/div[2]/div[1]/img[1]/@src
+            aggregateRating2:
+              - text: "5.0"
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[31]/@rating
+                type: STRING
+            price:
+              - text: $ 12.99
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[31]/a[1]/div[1]/div[3]/div[2]/div[1]/span[1]
+            rank:
+              - text: "31"
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[31]/@rankorganic
+                type: NUMBER
+                raw: "31"
+                locale: en
+                value: 31
+            rankOrganic:
+              - text: "31"
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[31]/@rankorganic
+                type: NUMBER
+                raw: "31"
+                locale: en
+                value: 31
+          - id:
+              - text: "5212534"
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[32]/a[1]/div[1]/div[2]/meta[1]/@content
+            name:
+              - text: Nulo MedalSeries Salmon & Sweet Potato Adult Dog Food - Natural, Grain
+                  Free
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[32]/a[1]/div[1]/div[3]/div[1]/h3[1]
+            productUrl:
+              - text: https://www.petsmart.ca/dog/food/dry-food/nulo-medalseries-salmon-and-sweet-potato-adult-dog-food---natural-grain-free-58937.html
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[32]/a[1]/@href
+            thumbnail:
+              - text: https://s7d2.scene7.com/is/image/PetSmart/5212534?$sclp-prd-main_small$
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[32]/a[1]/div[1]/div[2]/div[1]/img[1]/@src
+            aggregateRating2:
+              - text: "5.0"
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[32]/@rating
+                type: STRING
+            price:
+              - text: $ 19.99 - 63.99
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[32]/a[1]/div[1]/div[3]/div[2]/div[1]/span[1]
+            rank:
+              - text: "32"
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[32]/@rankorganic
+                type: NUMBER
+                raw: "32"
+                locale: en
+                value: 32
+            rankOrganic:
+              - text: "32"
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[32]/@rankorganic
+                type: NUMBER
+                raw: "32"
+                locale: en
+                value: 32
+          - id:
+              - text: "5275108"
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[33]/a[1]/div[1]/div[2]/meta[1]/@content
+            name:
+              - text: Nulo MedalSeries Puppy Food - Natural, Grain Free, Chicken, Salmon &
+                  Lentils Recipe
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[33]/a[1]/div[1]/div[3]/div[1]/h3[1]
+            productUrl:
+              - text: https://www.petsmart.ca/dog/food/canned-food/nulo-medalseries-puppy--food---natural-grain-free-chicken-salmon-and-lentils-recipe-48083.html
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[33]/a[1]/@href
+            thumbnail:
+              - text: https://s7d2.scene7.com/is/image/PetSmart/5275108?$sclp-prd-main_small$
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[33]/a[1]/div[1]/div[2]/div[1]/img[1]/@src
+            aggregateRating2:
+              - text: "5.0"
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[33]/@rating
+                type: STRING
+            price:
+              - text: $ 3.49
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[33]/a[1]/div[1]/div[3]/div[2]/div[1]/span[1]
+            rank:
+              - text: "33"
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[33]/@rankorganic
+                type: NUMBER
+                raw: "33"
+                locale: en
+                value: 33
+            rankOrganic:
+              - text: "33"
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[33]/@rankorganic
+                type: NUMBER
+                raw: "33"
+                locale: en
+                value: 33
+          - id:
+              - text: "5256496"
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[34]/a[1]/div[1]/div[2]/meta[1]/@content
+            name:
+              - text: Nulo MedalSeries Indoor Adult Cat Food - Grain Free, Duck & Cod
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[34]/a[1]/div[1]/div[3]/div[1]/h3[1]
+            productUrl:
+              - text: https://www.petsmart.ca/cat/food-and-treats/dry-food/nulo-medalseries-indoor-adult-cat-food---grain-free-duck-and-cod-37648.html
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[34]/a[1]/@href
+            thumbnail:
+              - text: https://s7d2.scene7.com/is/image/PetSmart/5256496?$sclp-prd-main_small$
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[34]/a[1]/div[1]/div[2]/div[1]/img[1]/@src
+            aggregateRating2:
+              - text: "4.1"
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[34]/@rating
+                type: STRING
+            price:
+              - text: $ 29.99 - 52.99
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[34]/a[1]/div[1]/div[3]/div[2]/div[1]/span[1]
+            rank:
+              - text: "34"
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[34]/@rankorganic
+                type: NUMBER
+                raw: "34"
+                locale: en
+                value: 34
+            rankOrganic:
+              - text: "34"
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[34]/@rankorganic
+                type: NUMBER
+                raw: "34"
+                locale: en
+                value: 34
+          - id:
+              - text: "5256359"
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[35]/a[1]/div[1]/div[2]/meta[1]/@content
+            name:
+              - text: Nulo MedalSeries Indoor Adult Cat Food - Grain Free, Turkey & Chicken
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[35]/a[1]/div[1]/div[3]/div[1]/h3[1]
+            productUrl:
+              - text: https://www.petsmart.ca/cat/food-and-treats/dry-food/nulo-medalseries-indoor-adult-cat-food---grain-free-turkey-and-chicken-37646.html
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[35]/a[1]/@href
+            thumbnail:
+              - text: https://s7d2.scene7.com/is/image/PetSmart/5256359?$sclp-prd-main_small$
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[35]/a[1]/div[1]/div[2]/div[1]/img[1]/@src
+            aggregateRating2:
+              - text: "4.3"
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[35]/@rating
+                type: STRING
+            price:
+              - text: $ 29.99 - 52.99
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[35]/a[1]/div[1]/div[3]/div[2]/div[1]/span[1]
+            rank:
+              - text: "35"
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[35]/@rankorganic
+                type: NUMBER
+                raw: "35"
+                locale: en
+                value: 35
+            rankOrganic:
+              - text: "35"
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[35]/@rankorganic
+                type: NUMBER
+                raw: "35"
+                locale: en
+                value: 35
+          - id:
+              - text: "5300077"
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[36]/a[1]/div[1]/div[2]/meta[1]/@content
+            name:
+              - text: Ancient Grains Nulo MedalSeries Adult Dog Food - Salmon, Oats & Haddock,
+                  With-Grain
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[36]/a[1]/div[1]/div[3]/div[1]/h3[1]
+            productUrl:
+              - text: https://www.petsmart.ca/dog/food/dry-food/ancient-grains-nulo-medalseries-adult-dog-food---salmon-oats-and-haddock-with-grain-58822.html
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[36]/a[1]/@href
+            thumbnail:
+              - text: https://s7d2.scene7.com/is/image/PetSmart/5300077?$sclp-prd-main_small$
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[36]/a[1]/div[1]/div[2]/div[1]/img[1]/@src
+            aggregateRating2:
+              - text: "5.0"
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[36]/@rating
+                type: STRING
+            price:
+              - text: $ 19.99 - 63.99
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[36]/a[1]/div[1]/div[3]/div[2]/div[1]/span[1]
+            rank:
+              - text: "36"
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[36]/@rankorganic
+                type: NUMBER
+                raw: "36"
+                locale: en
+                value: 36
+            rankOrganic:
+              - text: "36"
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[36]/@rankorganic
+                type: NUMBER
+                raw: "36"
+                locale: en
+                value: 36
+        xpath: /html
+    timestamp: 1609228561957
+  - html: https://workbench.import.io/html/run=a9091b7e-5744-4bf0-b0f6-004eed5c0cae/task=b2fbc898-8017-4efa-8055-24dbceb0a24a/32d74026-21d9-4298-ae05-1edae644c1d5.html
+    extractionConfigId: product/search/stores/p/petsmart/CA/extract
+    data:
+      - group:
+          - id:
+              - text: "5212686"
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[1]/a[1]/div[1]/div[2]/meta[1]/@content
+            name:
+              - text: Nulo MedalSeries Large Breed Adult Dog Food - Grain Free, Turkey & Peas
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[1]/a[1]/div[1]/div[3]/div[1]/h3[1]
+            productUrl:
+              - text: https://www.petsmart.ca/dog/food/dry-food/nulo-medalseries-large-breed-adult-dog-food---grain-free-turkey-and-peas-22920.html
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[1]/a[1]/@href
+            thumbnail:
+              - text: https://s7d2.scene7.com/is/image/PetSmart/5212686?$sclp-prd-main_small$
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[1]/a[1]/div[1]/div[2]/div[1]/img[1]/@src
+            aggregateRating2:
+              - text: "5.0"
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[1]/@rating
+                type: STRING
+            price:
+              - text: $ 63.99
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[1]/a[1]/div[1]/div[3]/div[2]/div[1]/span[1]
+            rank:
+              - text: "1"
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[1]/@rankorganic
+                type: NUMBER
+                raw: "1"
+                locale: en
+                value: 1
+            rankOrganic:
+              - text: "1"
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[1]/@rankorganic
+                type: NUMBER
+                raw: "1"
+                locale: en
+                value: 1
+          - id:
+              - text: "5280851"
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[2]/a[1]/div[1]/div[2]/meta[1]/@content
+            name:
+              - text: Nulo medalseries ™ Kitten Food - Grain Free, Limited Ingredient, Cod
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[2]/a[1]/div[1]/div[3]/div[1]/h3[1]
+            productUrl:
+              - text: https://www.petsmart.ca/cat/food-and-treats/dry-food/nulo-medalseries-andtrade-kitten-food---grain-free-limited-ingredient-cod-48956.html
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[2]/a[1]/@href
+            thumbnail:
+              - text: https://s7d2.scene7.com/is/image/PetSmart/5280851?$sclp-prd-main_small$
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[2]/a[1]/div[1]/div[2]/div[1]/img[1]/@src
+            aggregateRating2:
+              - text: "4.9"
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[2]/@rating
+                type: STRING
+            price:
+              - text: $ 29.99 - 52.99
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[2]/a[1]/div[1]/div[3]/div[2]/div[1]/span[1]
+            rank:
+              - text: "2"
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[2]/@rankorganic
+                type: NUMBER
+                raw: "2"
+                locale: en
+                value: 2
+            rankOrganic:
+              - text: "2"
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[2]/@rankorganic
+                type: NUMBER
+                raw: "2"
+                locale: en
+                value: 2
+          - id:
+              - text: "5280936"
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[3]/a[1]/div[1]/div[2]/meta[1]/@content
+            name:
+              - text: Nulo medalseries ™ Cat & Kitten Wet Food - Grain Free, Limited Ingredient
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[3]/a[1]/div[1]/div[3]/div[1]/h3[1]
+            productUrl:
+              - text: https://www.petsmart.ca/cat/food-and-treats/wet-food/nulo-medalseries-andtrade-cat-and-kitten-wet-food---grain-free-limited-ingredient-48949.html
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[3]/a[1]/@href
+            thumbnail:
+              - text: https://s7d2.scene7.com/is/image/PetSmart/5280936?$sclp-prd-main_small$
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[3]/a[1]/div[1]/div[2]/div[1]/img[1]/@src
+            aggregateRating2:
+              - text: "3.2"
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[3]/@rating
+                type: STRING
+            price:
+              - text: $ 2.79
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[3]/a[1]/div[1]/div[3]/div[2]/div[1]/span[1]
+            rank:
+              - text: "3"
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[3]/@rankorganic
+                type: NUMBER
+                raw: "3"
+                locale: en
+                value: 3
+            rankOrganic:
+              - text: "3"
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[3]/@rankorganic
+                type: NUMBER
+                raw: "3"
+                locale: en
+                value: 3
+          - id:
+              - text: "5280895"
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[4]/a[1]/div[1]/div[2]/meta[1]/@content
+            name:
+              - text: Nulo medalseries ™ Cat & Kitten Food - Grain Free, Limited Ingredient,
+                  Turkey
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[4]/a[1]/div[1]/div[3]/div[1]/h3[1]
+            productUrl:
+              - text: https://www.petsmart.ca/cat/food-and-treats/dry-food/nulo-medalseries-andtrade-cat-and-kitten-food---grain-free-limited-ingredient-turkey-48957.html
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[4]/a[1]/@href
+            thumbnail:
+              - text: https://s7d2.scene7.com/is/image/PetSmart/5280895?$sclp-prd-main_small$
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[4]/a[1]/div[1]/div[2]/div[1]/img[1]/@src
+            aggregateRating2:
+              - text: "3.8"
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[4]/@rating
+                type: STRING
+            price:
+              - text: $ 29.99
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[4]/a[1]/div[1]/div[3]/div[2]/div[1]/span[1]
+            rank:
+              - text: "4"
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[4]/@rankorganic
+                type: NUMBER
+                raw: "4"
+                locale: en
+                value: 4
+            rankOrganic:
+              - text: "4"
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[4]/@rankorganic
+                type: NUMBER
+                raw: "4"
+                locale: en
+                value: 4
+          - id:
+              - text: "5300083"
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[5]/a[1]/div[1]/div[2]/meta[1]/@content
+            name:
+              - text: Ancient Grains Nulo MedalSeries Small Breed Adult Dog Food - Salmon, Oats
+                  & Redfish, With-Grain
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[5]/a[1]/div[1]/div[3]/div[1]/h3[1]
+            productUrl:
+              - text: https://www.petsmart.ca/dog/food/dry-food/ancient-grains-nulo-medalseries-small-breed-adult-dog-food---salmon-oats-and-redfish-with-grain-58823.html
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[5]/a[1]/@href
+            thumbnail:
+              - text: https://s7d2.scene7.com/is/image/PetSmart/5300083?$sclp-prd-main_small$
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[5]/a[1]/div[1]/div[2]/div[1]/img[1]/@src
+            aggregateRating2:
+              - text: "5.0"
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[5]/@rating
+                type: STRING
+            price:
+              - text: $ 19.99 - 39.99
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[5]/a[1]/div[1]/div[3]/div[2]/div[1]/span[1]
+            rank:
+              - text: "5"
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[5]/@rankorganic
+                type: NUMBER
+                raw: "5"
+                locale: en
+                value: 5
+            rankOrganic:
+              - text: "5"
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[5]/@rankorganic
+                type: NUMBER
+                raw: "5"
+                locale: en
+                value: 5
+          - id:
+              - text: "5275107"
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[6]/a[1]/div[1]/div[2]/meta[1]/@content
+            name:
+              - text: Nulo MedalSeries Small Breed Puppy & Adult Dog Food - Natural, Grain Free,
+                  Turkey & Lentils Recipe
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[6]/a[1]/div[1]/div[3]/div[1]/h3[1]
+            productUrl:
+              - text: https://www.petsmart.ca/dog/food/canned-food/nulo-medalseries-small-breed-puppy-and-adult-dog-food---natural-grain-free-turkey-and-lentils-recipe-48082.html
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[6]/a[1]/@href
+            thumbnail:
+              - text: https://s7d2.scene7.com/is/image/PetSmart/5275107?$sclp-prd-main_small$
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[6]/a[1]/div[1]/div[2]/div[1]/img[1]/@src
+            aggregateRating2:
+              - text: "5.0"
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[6]/@rating
+                type: STRING
+            price:
+              - text: $ 2.79
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[6]/a[1]/div[1]/div[3]/div[2]/div[1]/span[1]
+            rank:
+              - text: "6"
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[6]/@rankorganic
+                type: NUMBER
+                raw: "6"
+                locale: en
+                value: 6
+            rankOrganic:
+              - text: "6"
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[6]/@rankorganic
+                type: NUMBER
+                raw: "6"
+                locale: en
+                value: 6
+          - id:
+              - text: "5274934"
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[7]/a[1]/div[1]/div[2]/meta[1]/@content
+            name:
+              - text: Nulo MedalSeries Small Breed Puppy & Adult Dog Food - Natural, Grain Free,
+                  Turkey & Chickpeas Recipe
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[7]/a[1]/div[1]/div[3]/div[1]/h3[1]
+            productUrl:
+              - text: https://www.petsmart.ca/dog/food/dry-food/nulo-medalseries-small-breed-puppy-and-adult-dog-food---natural-grain-free-turkey-and-chickpeas-recipe-47550.html
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[7]/a[1]/@href
+            thumbnail:
+              - text: https://s7d2.scene7.com/is/image/PetSmart/5274934?$sclp-prd-main_small$
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[7]/a[1]/div[1]/div[2]/div[1]/img[1]/@src
+            aggregateRating2:
+              - text: "5.0"
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[7]/@rating
+                type: STRING
+            price:
+              - text: $ 19.99 - 39.99
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[7]/a[1]/div[1]/div[3]/div[2]/div[1]/span[1]
+            rank:
+              - text: "7"
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[7]/@rankorganic
+                type: NUMBER
+                raw: "7"
+                locale: en
+                value: 7
+            rankOrganic:
+              - text: "7"
+                xpath: /html/body/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/ul[1]/li[7]/@rankorganic
+                type: NUMBER
+                raw: "7"
+                locale: en
+                value: 7
+        xpath: /html
+    timestamp: 1609228561957

@@ -5,7 +5,9 @@ recordXPath: //ul[@id="search-result-items"]//li
 fields:
   - name: id
     singleValue: false
-    xpath: //div[@class="product-tile"]/@data-itemid
+    xpath: //div[@class="product-tile"]//meta[@property="og:image"]/@content
+    regExp: PetSmart\/(\d+)
+    regExpReplace: $1
   - name: searchUrl
     singleValue: true
     xpath: //ancestor::body/@searchurl
