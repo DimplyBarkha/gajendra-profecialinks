@@ -8,7 +8,9 @@ fields:
   - name: baseUrl
     xpath: //div[@id='mm_baseUrl']
   - name: image
-    xpath: //div[@id='mm_image']
+    xpath: //ul[contains(@class,"thumbs")]/li[position()=1]/a/@data-magnifier
+    regExp: (.+)
+    regExpReplace: https:$1
   - name: imageAlt
     xpath: //img[@class='img-preview']/@alt
   - name: alternateImages

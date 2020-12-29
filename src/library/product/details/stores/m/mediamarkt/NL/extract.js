@@ -1,13 +1,32 @@
+const { cleanUp } = require('../shared');
 module.exports = {
   implements: 'product/details/extract',
   parameterValues: {
     country: 'NL',
     store: 'mediamarkt',
-    transform: null,
+    transform: cleanUp,
     domain: 'mediamarkt.nl',
     zipcode: '',
   },
-  implementation: async ({ inputString }, { country, domain }, context, { productDetails }) => {
+  implementation: async (inputs, parameters, context, dependencies) => {
+    const { transform } = parameters;
+    const { productDetails } = dependencies;
+    const checkSelector = async (selector) => {
+      return await context.evaluate((selector) => {
+        if (document.querySelector(selector)) {
+          return true;
+        } else {
+          return false;
+        }
+      }, selector)
+    }
+    const noResultSelector = `div[class="no_search_result_text"]`
+    const isPresent = await checkSelector(noResultSelector);
+    console.log(`this is the result for selector ${isPresent}`)
+    if (isPresent) {
+      console.log('no result xpath found hence no results returning')
+      return;
+    }
     await context.evaluate(async function () {
       function addElementToDocument(key, value) {
         const catElement = document.createElement('div');
@@ -16,10 +35,15 @@ module.exports = {
         catElement.style.display = 'none';
         document.body.appendChild(catElement);
       }
+      const clickButton = document.querySelector('button[class*="btn--submit--al"]');
+      if (clickButton) {
+        clickButton.click()
+      }
       const scripts = document.querySelectorAll('script');
-      const eanScript = scripts && [...scripts].find(element => element.innerText.includes('ean'));
-      const gtinData = eanScript && eanScript.innerText && eanScript.innerText.trim() && eanScript.innerText.trim().split('=')[1] && eanScript.innerText.trim().split('=')[1].trim();
-      const gtinObj = JSON.parse(gtinData.substring(0, gtinData.lastIndexOf(';')));
+      const eanScript = scripts && [...scripts].find(element => element.innerText.includes('"ean":'));
+      const gtinData1 = eanScript && eanScript.innerText && eanScript.innerText.split('var') && eanScript.innerText.split('var').find(element => element.includes('ean')).trim();
+      const gtinData = gtinData1 && gtinData1.trim() && gtinData1.trim().split('=') && gtinData1.trim().split('=')[1] && gtinData1.trim().split('=')[1].trim();
+      const gtinObj = JSON.parse(gtinData && gtinData.substring(0, gtinData.lastIndexOf(';')));
       const gtin = gtinObj && gtinObj.ean;
       addElementToDocument('gtinvalue', gtin);
 
@@ -53,7 +77,7 @@ module.exports = {
             warranty = specificationsItems[index + 1].innerText;
           }
           // Getting mpc
-          if (item.innerText === 'Manufacturer Part Number (MPN):') {
+          if (item.innerText === 'Manufacturer Part Number (MPN):' || item.innerText.includes('Modelnaam')) {
             mpc = specificationsItems[index + 1].innerText;
           }
           // Getting energy
@@ -61,7 +85,7 @@ module.exports = {
             energy = specificationsItems[index + 1].innerText;
           }
           // Getting shipping dimensions
-          if (item.innerText.includes('Verpakkingsvolume') | item.innerText.includes('Afmetingen')) {
+          if (item.innerText.includes('Verpakkingsvolume') || item.innerText.includes('Afmetingen')) {
             shippingDimensions = specificationsItems[index + 1].innerText;
           }
         });
@@ -85,21 +109,21 @@ module.exports = {
       addElementToDocument('mm_retailerProductCode', sku);
 
       // Getting number of customer reviews
-      const reviewsElement = document.querySelector('.bv_numReviews_text');
-      if (reviewsElement) {
-        addElementToDocument('mm_numberOfCustomerReviews', reviewsElement.innerText.replace(/\(|\)/g, ''));
-      }
+      // const reviewsElement = document.querySelector('.bv_numReviews_text');
+      // if (reviewsElement) {
+      //   addElementToDocument('mm_numberOfCustomerReviews', reviewsElement.innerText.replace(/\(|\)/g, ''));
+      // }
 
       // Gets aggregate rating
-      if (document.querySelector('div[itemprop=ratingValue]')) {
-        addElementToDocument('mm_aggregateRating', document.querySelector('div[itemprop=ratingValue]').innerText.replace('.', ','));
-      }
+      // if (document.querySelector('div[itemprop=ratingValue]')) {
+      //   addElementToDocument('mm_aggregateRating', document.querySelector('div[itemprop=ratingValue]').innerText.replace('.', ','));
+      // }
 
       // Getting images
-      const images = Array.from(document.querySelectorAll('ul.thumbs li a:not(.thumb--play-video-btn)'));
-      const image = `https:${images[0].dataset.preview}`;
+      // const images = Array.from(document.querySelectorAll('ul.thumbs li a:not(.thumb--play-video-btn)'));
+      // const image = `https:${images[0].dataset.preview}`;
       // const alternativeImages = images.reduce((accumulator, link, i) => i > 0 ? accumulator + `${i !== 1 ? ' | ' : ''}https:${link.dataset.preview}` : '', '');
-      addElementToDocument('mm_image', image);
+      // addElementToDocument('mm_image', image);
       // addElementToDocument('mm_alternateImages', alternativeImages);
 
       // Getting category
@@ -129,6 +153,6 @@ module.exports = {
         addElementToDocument('mm_description', descriptionElement.map(element => element.innerText.replace(/\r?\n/g, ' ').slice(0, -1)).join(' '));
       }
     });
-    await context.extract(productDetails);
+    return await context.extract(productDetails, { transform });
   },
 };
