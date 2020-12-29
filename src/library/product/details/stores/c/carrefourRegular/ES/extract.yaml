@@ -163,3 +163,8 @@ fields:
   - name: secondaryImageTotal
     singleValue: false
     xpath: count(//ul[@class='pics-slider__thumbnails']//li[position()>1]//img/@src)
+  - name: inTheBoxText
+    singleValue: false
+    xpath: //div[@id='checkInBoxText']
+  - name: hasComparisonTable
+    defaultValue: No

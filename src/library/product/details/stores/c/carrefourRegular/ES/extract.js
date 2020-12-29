@@ -34,6 +34,17 @@ module.exports = {
         }
       }
       await infiniteScroll();
+
+      let inBoxArray = [];
+      const inBoxText = document.querySelectorAll('div.product-details > div.product-details__features > div.product-details__feature-container > dl.product-details__section-contents > dt.product-details__content-title');
+      for (let i = 0; i < inBoxText.length; i++) {
+        if (inBoxText[i].innerText === 'Accesorios') {
+            inBoxArray.push(inBoxText[i].nextElementSibling.innerText);
+        }
+      }
+
+      addHiddenDiv('checkInBoxText', inBoxArray.join(' | '));
+
       const manufacturerDesc = document.querySelector('div.product-details > div.product-details__features')
         ? document.querySelector('div.product-details > div.product-details__features').innerText : '';
       if (manufacturerDesc) addHiddenDiv('manufacturerDesc', manufacturerDesc.replace(/\n{2,}/g, '').replace(/\s{2,}/g, ' '));
