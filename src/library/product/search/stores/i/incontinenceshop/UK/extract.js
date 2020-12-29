@@ -61,8 +61,18 @@ module.exports = {
       const currentProducts = getXpath("//p[@id='toolbar-amount']/span[2]/text()", 'nodeValue');
       const totalProducts = getXpath("//p[@id='toolbar-amount']/span[3]/text()", 'nodeValue');
       if (currentProducts == totalProducts) {
-        addElementToDocument('noResults','noResults')
+        addElementToDocument('noResults', 'noResults')
       }
+      // Method to Retrieve Xpath content of a Multiple Nodes
+      const getAllXpath = (xpath, prop) => {
+        const nodeSet = document.evaluate(xpath, document, null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
+        const result = [];
+        for (let index = 0; index < nodeSet.snapshotLength; index++) {
+          const element = nodeSet.snapshotItem(index);
+          if (element) result.push(prop ? element[prop] : element.nodeValue);
+        }
+        return result;
+      };
     });
     return await context.extract(productDetails, { transform });
   },
