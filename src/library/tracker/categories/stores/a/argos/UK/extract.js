@@ -33,46 +33,32 @@ async function implementation (inputs, parameters, context, dependencies) {
         }
         return newDiv;
       }
-      function getLeafCategoryValue (node, parentId, categoryList) {
-        let oldValues = [];
-        if (node.title && node.title.length > 0) {
-        // https://groceries.asda.com/shelf/summer/bbq/burgers-sausages/burgers/2942053576
-          for (let i = 0; i < node.title.length; i++) {
-            let category = categoryList.find(x => x.id === parentId);
-            if (!category) {
-              category = {};
-              category.values = oldValues.slice();
-              categoryList.push(category);
-            } if (i === 0) {
-              oldValues = category.values.slice();
-              console.log(category.values);
+      function getCategories(data) {
+        data.forEach(element => {
+    //         console.log(element.title);
+            if (element["columns"].length) {
+                element["columns"].forEach(element1 => {
+                    if (element1.length) {
+                        element1.forEach(element2 => {
+    //                         console.log(element.title + "/" + element2.title);
+                            if (element2["links"].length) {
+                                element2["links"].forEach(element3 => {
+                                    console.log(element.title + "/" + element2.title + "/" + element3.title);
+                                    const newDiv = addHiddenDiv('categories', '');
+                                    addHiddenDiv('category', element.title, newDiv)
+                                    addHiddenDiv('category', element2.title, newDiv)
+                                    addHiddenDiv('category', element3.title, newDiv)
+                                    addHiddenDiv('category', element3.link.replace(/\//g,'').split('c:')[1], newDiv)
+                                    addHiddenDiv('categoryUrl', 'https://www.argos.co.uk'+element3.link, newDiv)
+                                });
+                            }
+                        });
+                    }
+                });
             }
-            const newNode = node.title[i];
-            category.id = newNode.link;
-            category.values.push(newNode.displayName);
-            getLeafCategoryValue(newNode, newNode.link, categoryList);
-          }
-        } else {
-          const category = categoryList.find(x => x.id === parentId);
-          if (category) category.values.push(node.link);
-        }
-      }
-      function js_traverse(o) {
-        var type = typeof o 
-        if (type == "object") {
-            for (var key in o) {
-                console.log("key: ", key);
-                let newDiv = addHiddenDiv('categories', '');
-                addHiddenDiv('category', JSON.stringify(o[key].title), newDiv);
-                js_traverse(o[key])
-            }
-        } else {
-            console.log(o)
-        }
+        });
     }
-    
-    js_traverse(records);
-    console.log('records: ', records);
+    getCategories(records);
     }, json.body.data);
   } else {
     throw new Error('No categories found');
