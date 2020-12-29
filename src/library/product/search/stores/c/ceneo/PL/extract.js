@@ -18,16 +18,19 @@ module.exports = {
     const { productDetails } = dependencies;
     try {
       await context.waitForSelector('div[class*="page-tab-content products"] div[class*="cat-list-top"] div[class*="cat-list-nav"] *[class*="cat-view__list"]', {timeout: 10000});
-      let changeViewElm = document.querySelectorAll('div[class*="page-tab-content products"] div[class*="cat-list-top"] div[class*="cat-list-nav"] *[class*="cat-view__list"]')[0];
-      if(changeViewElm) {
-        if(!changeViewElm.className.includes("active")) {
-          await context.click('div[class*="page-tab-content products"] div[class*="cat-list-top"] div[class*="cat-list-nav"] *[class*="cat-view__list"]');
+      await context.evaluate(async () => {
+        let changeViewElm = document.querySelectorAll('div[class*="page-tab-content products"] div[class*="cat-list-top"] div[class*="cat-list-nav"] *[class*="cat-view__list"]')[0];
+        if(changeViewElm) {
+          if(!changeViewElm.className.includes("active")) {
+            changeViewElm.click();
+          } else {
+            console.log('we already have list view');
+          }
         } else {
-          console.log('we already have list view');
+          console.log('did not found any view chaging elment');
         }
-      } else {
-        console.log('did not found any view chaging elment');
-      }
+      });
+      
       
 
       async function stallOut ( ms ) {
