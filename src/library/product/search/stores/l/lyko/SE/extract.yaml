@@ -5,18 +5,18 @@ recordXPath: null
 fields:
   - name: productUrl
     description: The URL for the product details page
-    xpath: //div[@data-buyable-variant-code]/div/div[1]/a[@data-scope-link]/@href
-    regExp: (.+)
-    regExpReplace: https://lyko.com$1
+    xpath: concat('https://lyko.com',//div[@class="NNXRtF"]/div[@data-buyable-variant-code]/div/div[1]/a[@data-scope-link]/@href)
+    # regExp: (.+)
+    # regExpReplace: https://lyko.com$1
   - name: thumbnail
     description: The URL for the product thumbnail image
-    xpath: //div[contains(@class, 'link-product-page')]/picture/img/@src
+    xpath: //div[@class="NNXRtF"]//div/picture/img/@src
   - name: name
     description: The product name
-    xpath: //a[@data-scope-link]/h5
-  - name: skus
+    xpath: //div[@class="NNXRtF"]//a[@data-scope-link]/h5
+  - name: sku
     description: The store-specific product identifiera
-    xpath: //div[@class="gXdoAx"]/@data-buyable-variant-code
+    xpath: //div[@class="NNXRtF"]//div[@class="gXdoAx"]/@data-buyable-variant-code
   - name: ratingCount
     description: The number of ratings
     regExp: (\d+)
@@ -25,7 +25,7 @@ fields:
     regExp: (\d+)
   - name: price
     description: The offered price for the product
-    xpath: //div/a[@data-scope-link]/span/span[1]
+    xpath: //div[@class="NNXRtF"]//div/a[@data-scope-link]/span/span[1]
   - name: rank
     description: search/listing rank
     type: NUMBER
@@ -38,7 +38,7 @@ fields:
     type: BOOLEAN
   - name: id
     description: Unique id (within this extractor)
-    xpath: //div[@class="gXdoAx"]/@data-buyable-variant-code
+    xpath: //div[@class="NNXRtF"]//div[@class="gXdoAx"]/@data-buyable-variant-code
   - name: aggregateRating
     type: NUMBER
   - name: hasVariants
