@@ -41,10 +41,10 @@ fields:
     regExpReplace: $1
   - name:  description
     singleValue: false
-    xpath: //div[@id='product-info']  
+    xpath: //div[@class='m-productdescription__description js-desc']
   - name: brandText
     singleValue: false
-    xpath: //h1[contains(@class,'page-title')]//span[1]  
+    xpath: //div[@class='g-layout-productdetails g-row']//div[@class='o-productdetail-v-2-titleb']//div[@class='m-productdetailareaa__areaA__title-line g-col g-col-1']/h2
   - name: sku
     singleValue: false
     xpath: //div[contains(@data-t-name,'ProductdetailV2')]/@data-productid    
@@ -69,13 +69,13 @@ fields:
     xpath: //div[contains(@class,'tab-tech-specs')]//tr
   - name: warranty
     singleValue: false
-    xpath: //div[contains(@class,'tab-tech-specs')]//tr//th[contains(text(),'guarantee') or contains(text(),'Guarantee')]//following-sibling::td    
+    xpath: //div[contains(@class,'m-productfactslist')]//span[contains(text(),'guarantee') or contains(text(),'Garantie')]//following-sibling::div
   - name: ratingCount
     singleValue: false
-    xpath: //span[@itemprop="reviewCount"]    
+    xpath: //span[@itemprop="reviewCount"]
   - name: aggregateRating
     singleValue: false
-    xpath: //span[@itemprop="ratingValue"]    
+    xpath: //span[@itemprop="ratingValue"]
   - name: color
     singleValue: false
     xpath: //div[contains(@class,'tab-tech-specs')]//tr//th[text()='Colour']//following-sibling::td
@@ -90,7 +90,22 @@ fields:
     xpath: //div[contains(@class,'tab-tech-specs')]//tr//th[text()='Dimensions']//following-sibling::td
   - name: materials
     singleValue: false
-    xpath: //div[contains(@class,'tab-tech-specs')]//tr//th[text()='Material']//following-sibling::td
+    xpath: //div[@class="m-productfactslist"]//span[contains(.,'Material')]//following-sibling::div
   - name: energyEfficiency
     singleValue: false
     xpath: //div[contains(@class,'tab-tech-specs')]//tr//th[contains(text(),'Energy efficiency')]//following-sibling::td
+  - name: quantity
+    singleValue: false
+    xpath: (//div[contains(@class,"m-productsizeselect-v-2")])[1]/a[contains(@class,"m-productsizeselect-v-2__variant")][1]
+  - name: gtin
+    singleValue: false
+    xpath: //script[@data-flix-ean]/@data-flix-ean
+  - name: eangtin
+    singleValue: false
+    xpath: //script[@data-flix-ean]/@data-flix-ean
+  - name: additionalDescBulletInfo
+    singleValue: false
+    xpath: //div[@class="m-bulletpoints"]/ul//li
+  - name: imageZoomFeaturePresent
+    singleValue: false
+    defaultValue: 'Yes'
