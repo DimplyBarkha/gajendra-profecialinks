@@ -560,7 +560,8 @@ fields:
     singleValue: false
     xpath: //strong[contains(.,'in the box')]/../following-sibling::ul[1]/li | //strong[contains(text(),'In The Box?')]/../following-sibling::p
   - name: hasComparisonTable
-    singleValue: true
+    singleValue: false
     defaultValue: No
   - name: unInterruptedPDP
-    xpath: //div[@class="swiper-wrapper theme"]//div[contains(@class,'product-card')]//div[@class="product--title"]//h2[@class="product--title-text"]//a | //div[contains(@class,'grid-row product-flex')]//div[@class="product"]//div[@class="product--title"]//h2[@class="product--title-text"]//a | //div[@class="swiper-wrapper theme"]//div[contains(@class,'event--card')]//div[@class="event--info__main"]//div[@class="event--titles"]//a
+    singleValue: false
+    xpath: //div[@class="swiper-wrapper theme"]//div[contains(@class,"product-card")]//div[@class="product--title"]//h2[@class="product--title-text"]//a | //div[contains(@class,"grid-row product-flex")]//div[@class="product"]//div[@class="product--title"]//h2[@class="product--title-text"]//a | //div[@class="swiper-wrapper theme"]//div[contains(@class,"event--card")]//div[@class="event--info__main"]//div[@class="event--titles"]//a
