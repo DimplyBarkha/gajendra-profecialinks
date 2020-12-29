@@ -1,42 +1,40 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: null
+recordXPath: //div[contains(@id,"productElement-")][position()<=150]
 fields:
   - name: id
     singleValue: false
-    xpath: //a[contains(@class,'card__main')]/@data-dfid
-    regExp: (?<=@product@).*
+    xpath: //@product-tile-id
   - name: searchUrl
     singleValue: true
+    xpath: //@product-tile-search-url
   - name: name
+    xpath: //@product-tile-name
     singleValue: false
-    xpath: //div[contains(@class,'card__content')]//div[contains(@class,'card__title')]
   - name: productUrl
-    singleValue: false
-    xpath: //div[contains(@class, 'card')]//a[contains(@class,'card__main')]//@href
+    xpath: //@product-tile-url
   - name: gtin
     singleValue: false
   - name: thumbnail
-    singleValue: false
-    xpath: //div[contains(@class, 'card')]//figure[contains(@class,'card__image')]//img//@src
-    regExp: (.+)
-    regExpReplace: https:$1
+    xpath: //@product-tile-thumbnail
   - name: aggregateRating
     singleValue: false
   - name: aggregateRating2
+    xpath: //@product-tile-aggRating
+    regExp: (\d+)\.?,?(\d+)?
+    regExpReplace: $1,$2
     singleValue: false
   - name: reviewCount
     singleValue: false
+    xpath: //@product-tile-reviewCount
   - name: ratingCount
     singleValue: false
   - name: price
     singleValue: false
-    xpath: //div[contains(@class,'card__pricing')]//span[contains(@class,'card__price') and not(contains(@class,'--old'))]
-    regExp: ([^Desde]+)
+    xpath: //@product-tile-price
   - name: manufacturer
     singleValue: true
-    xpath: //div[contains(@class,'card__content')]//div[contains(@class,'card__brand')]
   - name: soldBy
     singleValue: true
   - name: endorsementText
