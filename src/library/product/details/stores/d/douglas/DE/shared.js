@@ -16,18 +16,23 @@ const transform = (data) => {
         row.gtin[0].text = upcObj.gtin13;
       }
 
-      if (row.variantId) {
-        const productInfo = row.variantId[0].text;
-        const referenceText = 'window.customExactagConfig =';
-        const productData = JSON.parse(productInfo.substring((productInfo.indexOf(referenceText) + referenceText.length), productInfo.indexOf('}') + 1));
-        row.variantId[0].text = productData.product_id;
+
+      if (row.variantId && row.variantId[0]) {
+        if (row.variantId[0].text.includes('product_id')) {
+          const productInfo = row.variantId[0].text;
+          const referenceText = 'window.customExactagConfig =';
+          const productData = JSON.parse(productInfo.substring((productInfo.indexOf(referenceText) + referenceText.length), productInfo.indexOf('}') + 1));
+          row.variantId[0].text = productData.product_id;
+        } else if (row.variantId[0].text.includes('Art-Nr.')){
+          row.variantId[0].text = row.variantId[0].text.replace('Art-Nr. ', '');
+        }
       }
 
       if (row.aggregateRating) {
         const aggregateRating2 = row.aggregateRating[0].text;
         const ratingValue = JSON.parse(aggregateRating2);
         if (ratingValue && ratingValue.aggregateRating && ratingValue.aggregateRating.ratingValue !== null) {
-          row.aggregateRating[0].text = JSON.parse(aggregateRating2).aggregateRating.ratingValue.toFixed(1).toString().replace('.', ',');
+          row.aggregateRating[0].text = ratingValue.aggregateRating.ratingValue.toFixed(1).toString().replace('.', ',');
         } else {
           delete row.aggregateRating;
         }
@@ -37,7 +42,7 @@ const transform = (data) => {
         const aggregateRating2 = row.aggregateRating2[0].text;
         const ratingValue = JSON.parse(aggregateRating2);
         if (ratingValue && ratingValue.aggregateRating && ratingValue.aggregateRating.ratingValue !== null) {
-          row.aggregateRating2[0].text = JSON.parse(aggregateRating2).aggregateRating.ratingValue.toFixed(1).toString().replace('.', ',');
+          row.aggregateRating2[0].text = ratingValue.aggregateRating.ratingValue.toFixed(1).toString().replace('.', ',');
         } else {
           delete row.aggregateRating2;
         }

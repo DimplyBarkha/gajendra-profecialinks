@@ -19,6 +19,26 @@ module.exports = {
   }, context, {
     productDetails,
   }) => {
+    try {
+      await context.waitForSelector('div.rd__product-details__description', {timeout: 15000});
+    } catch (error) {
+      console.log('Not loading product details section');
+    }
+
+    async function scrollToRec (node) {
+      await context.evaluate(async (node) => {
+        const element = document.querySelector(node) || null;
+        if (element) {
+          element.scrollIntoView({ behavior: 'smooth', block: 'end', inline: 'nearest' });
+          await new Promise((resolve) => {
+            setTimeout(resolve, 5000);
+          });
+        }
+      }, node);
+    }
+    await scrollToRec('footer');
+    await scrollToRec('div.rd__product-details__description');
+
     await context.evaluate(async function () {
       // const activeImageXpath = "//div[contains(@class,'rd__product-details-gallery__container is-active')]";
       // const activeImage = document.evaluate(activeImageXpath, document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;

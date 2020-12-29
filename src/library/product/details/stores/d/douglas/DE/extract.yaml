@@ -57,7 +57,9 @@ fields:
     regExpReplace: $2
   - name: variantId
     singleValue: true
-    xpath: //script[contains(.,"customExactagConfig")]
+    xpath: //ul[contains(@class, "rd__list")]//*[contains(text(), "Art-Nr.")]/ancestor::span|//script[contains(.,"customExactagConfig")]
+    # regExp: \"product_id\"\s*:\s*\"(.+?)\"
+    # regExpReplace: $1
   - name: directions
     singleValue: true
     xpath: //div[contains(.,"Anwendung")]/following-sibling::div[1]/span
