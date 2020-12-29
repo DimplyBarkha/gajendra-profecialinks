@@ -87,9 +87,7 @@ fields:
   description: GTIN code (includes UPC/EAN)
 - name: sku
   singleValue: true
-  xpath: //div[@class="hidden"]/script[@type="application/ld+json"]/text()
-  regExp: (\"sku\":)\"(.*?)\"
-  regExpReplace: $2
+  xpath: //div[@id="sku"]/@title | //div[@class="itemNo"]
   description: The store-specific product identifier
 - name: variantId
   singleValue: true
@@ -446,7 +444,7 @@ fields:
     desription info
 - name: variantInformation
   singleValue: false
-  xpath: //ul[@role="radiogroup"]/li[contains(@ats,"Y")]/@data-original-title
+  xpath: //span[@class="selectedColor"]
   description: colour / scent / flavour / other
 - name: firstVariant
   singleValue: true
