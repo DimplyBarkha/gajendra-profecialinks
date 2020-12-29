@@ -41,9 +41,16 @@ async function implementation (inputs, parameters, context, dependencies) {
   let storage = '';
   let gtin = '';
   let quantity = '';
+  let quantity2 = '';
   let calciumPerServing = '';
   let SodiumPerServing = '';
   let magnesiumPerServing = '';
+  let countryOfOrigin = '';
+  let packaging = '';
+  let dietaryFibrePerServing = '';
+  let vitaminAPerServing = '';
+  let vitaminCPerServing = '';
+  let allergyAdvice = '';
 
   console.log('url---->', url);
   if (url) {
@@ -67,31 +74,31 @@ async function implementation (inputs, parameters, context, dependencies) {
     }
     console.log('In second page');
     totalSugarsPerServing = await context.evaluate(() => {
-      const totalSugarsPerServingSelector = document.evaluate('//div[contains(@class,"value-left")]//span[contains(text(),"Suikers")]/following-sibling::span[contains(@class,"val-nbr")]', document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
+      const totalSugarsPerServingSelector = document.evaluate('(//span[contains(text(),"Suikers")]/following-sibling::span[contains(@class,"val-nbr")])[1]', document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
       return totalSugarsPerServingSelector ? totalSugarsPerServingSelector.innerText : '';
     });
     proteinPerServing = await context.evaluate(() => {
-      const proteinPerServingSelector = document.evaluate('//div[contains(@class,"value-left")]//span[contains(text(),"Eiwitten")]/following-sibling::span[contains(@class,"val-nbr")]', document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
+      const proteinPerServingSelector = document.evaluate('(//span[contains(text(),"Eiwitten")]/following-sibling::span[contains(@class,"val-nbr")])[1]', document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
       return proteinPerServingSelector ? proteinPerServingSelector.innerText : '';
     });
     totalCarbPerServing = await context.evaluate(() => {
-      const totalCarbPerServingSelector = document.evaluate('//div[contains(@class,"value-left")]//span[contains(text(),"Totaal koolhydraten")]/following-sibling::span[contains(@class,"val-nbr")]', document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
+      const totalCarbPerServingSelector = document.evaluate('(//span[contains(text(),"Totaal koolhydraten")]/following-sibling::span[contains(@class,"val-nbr")])[1]', document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
       return totalCarbPerServingSelector ? totalCarbPerServingSelector.innerText : '';
     });
     saturatedFatPerServing = await context.evaluate(() => {
-      const saturatedFatPerServingSelector = document.evaluate('//div[contains(@class,"value-left")]//span[contains(text(),"Verzadigde vetten")]/following-sibling::span[contains(@class,"val-nbr")]', document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
+      const saturatedFatPerServingSelector = document.evaluate('(//span[contains(text(),"Verzadigde vetten")]/following-sibling::span[contains(@class,"val-nbr")])[1]', document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
       return saturatedFatPerServingSelector ? saturatedFatPerServingSelector.innerText : '';
     });
     totalFatPerServing = await context.evaluate(() => {
-      const totalFatPerServingSelector = document.evaluate('//div[contains(@class,"value-left")]//span[contains(text(),"Totaal vetten")]/following-sibling::span[contains(@class,"val-nbr")]', document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
+      const totalFatPerServingSelector = document.evaluate('(//span[contains(text(),"Totaal vetten")]/following-sibling::span[contains(@class,"val-nbr")])[1]', document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
       return totalFatPerServingSelector ? totalFatPerServingSelector.innerText : '';
     });
     caloriesPerServing = await context.evaluate(() => {
-      const caloriesPerServingSelector = document.evaluate('//div[contains(@class,"value-left")]//span[contains(text(),"Energie kcal")]/following-sibling::span[contains(@class,"val-nbr")]', document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
+      const caloriesPerServingSelector = document.evaluate('(//span[contains(text(),"Energie kcal")]/following-sibling::span[contains(@class,"val-nbr")])[1]', document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
       return caloriesPerServingSelector ? caloriesPerServingSelector.innerText : '';
     });
     servingSize = await context.evaluate(() => {
-      const servingSizeSelector = document.evaluate('(//div[contains(@class,"value-left")]//p[contains(@class,"subtitle")])[1]', document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
+      const servingSizeSelector = document.evaluate('(//p[contains(@class,"subtitle")])[1]', document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
       return servingSizeSelector ? servingSizeSelector.innerText : '';
     });
     legalDisclaimer = await context.evaluate(() => {
@@ -103,7 +110,7 @@ async function implementation (inputs, parameters, context, dependencies) {
       return ingredientsListSelector ? ingredientsListSelector.innerText : '';
     });
     saltPerServing = await context.evaluate(() => {
-      const saltPerServingSelector = document.evaluate('(//div[contains(@class,"value-left")]//span[contains(text(),"Zout")]/following-sibling::span[contains(@class,"val-nbr")])[1]', document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
+      const saltPerServingSelector = document.evaluate('(//span[contains(text(),"Zout")]/following-sibling::span[contains(@class,"val-nbr")])[1]', document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
       return saltPerServingSelector ? saltPerServingSelector.innerText : '';
     });
     storage = await context.evaluate(() => {
@@ -130,6 +137,66 @@ async function implementation (inputs, parameters, context, dependencies) {
       const magnesiumPerServingSelector = document.evaluate('(//span[contains(text(),"Magnesium")]/following-sibling::span[contains(@class,"val-nbr")])[1]', document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
       return magnesiumPerServingSelector ? magnesiumPerServingSelector.innerText : '';
     });
+    countryOfOrigin = await context.evaluate(() => {
+      const countryOfOriginSelector = document.evaluate('//span[contains(text(),"Oorsprong")]/parent::*', document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
+      return countryOfOriginSelector ? countryOfOriginSelector.innerText : '';
+    });
+    packaging = await context.evaluate(() => {
+      const packagingSelector = document.evaluate('//span[contains(text(),"Verpakking")]/parent::*', document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
+      return packagingSelector ? packagingSelector.innerText : '';
+    });
+    dietaryFibrePerServing = await context.evaluate(() => {
+      const dietaryFibrePerServingSelector = document.evaluate('(//span[contains(text(),"Vezels")]/following-sibling::span[contains(@class,"val-nbr")])[1]', document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
+      return dietaryFibrePerServingSelector ? dietaryFibrePerServingSelector.innerText : '';
+    });
+    vitaminAPerServing = await context.evaluate(() => {
+      const vitaminAPerServingSelector = document.evaluate('(//span[contains(text(),"vitamine B1")]/following-sibling::span[contains(@class,"val-nbr")])[1]', document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
+      return vitaminAPerServingSelector ? vitaminAPerServingSelector.innerText : '';
+    });
+    vitaminCPerServing = await context.evaluate(() => {
+      const vitaminCPerServingSelector = document.evaluate('(//span[contains(text(),"C")]/following-sibling::span[contains(@class,"val-nbr")] | //span[contains(text(),"Niacine / Nicotinezuur")]/following-sibling::span[contains(@class,"val-nbr")])[1]', document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
+      return vitaminCPerServingSelector ? vitaminCPerServingSelector.innerText : '';
+    });
+    allergyAdvice = await context.evaluate(async function () {
+      const allegy = document.querySelector('div#allergenen div.item');
+      let allegy1 = '';
+      if (allegy) {
+        var allegyList1;
+        allegyList1 = document.querySelectorAll('div#allergenen div.item');
+        allegyList1.forEach((element) => {
+          console.log('element', element);
+          allegy1 +=
+            element.innerText + ',';
+        });
+      }
+      return allegy1;
+    });
+    console.log('allergyAdvice', allergyAdvice);
+    // await context.evaluate(async function () {
+    //   const allegy = document.querySelector('div#allergenen div.item');
+    //   if (allegy) {
+    //     var allegyList1;
+
+    //     allegyList1 = document.querySelectorAll('p.product__details');
+    //     allegyList1.forEach((element) => {
+    //       console.log('element', element);
+    //       allegy1 +=
+    //         element.innerText + ' ';
+    //     });
+    //   }
+    // });
+    // description = await context.evaluate(() => {
+    //   let descriptionSelector = document.evaluate('//div[contains(@id,"main-content")]//div[contains(@class,"row")][2]//p[position()>1]', document, null, XPathResult.
+    //     FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
+
+    //   descriptionSelector.forEach((element) => {
+    //     console.log('element', element);
+    //     description2 +=
+    //       element.innerHTML + " ";
+    //   });
+    //   return descriptionSelector ? descriptionSelector.innerText : '';
+    // });
+
     await context.setBlockAds(false);
     await context.setLoadAllResources(true);
     await context.setLoadImages(true);
@@ -145,7 +212,7 @@ async function implementation (inputs, parameters, context, dependencies) {
     }
   }
 
-  await context.evaluate(({ totalSugarsPerServing, proteinPerServing, totalCarbPerServing, saturatedFatPerServing, totalFatPerServing, caloriesPerServing, servingSize, legalDisclaimer, ingredientsList, saltPerServing, storage, gtin, quantity, calciumPerServing, SodiumPerServing, magnesiumPerServing }) => {
+  await context.evaluate(({ totalSugarsPerServing, proteinPerServing, totalCarbPerServing, saturatedFatPerServing, totalFatPerServing, caloriesPerServing, servingSize, legalDisclaimer, ingredientsList, saltPerServing, storage, gtin, calciumPerServing, quantity, SodiumPerServing, magnesiumPerServing, countryOfOrigin, packaging, dietaryFibrePerServing, vitaminAPerServing, vitaminCPerServing, allergyAdvice }) => {
     function addHiddenDiv (id, content) {
       const newDiv = document.createElement('div');
       newDiv.id = id;
@@ -153,6 +220,7 @@ async function implementation (inputs, parameters, context, dependencies) {
       newDiv.style.display = 'none';
       document.body.appendChild(newDiv);
     }
+
     // addHiddenDiv('servingSize_added', ingredients);
     addHiddenDiv('totalSugarsPerServing_added', totalSugarsPerServing);
     addHiddenDiv('proteinPerServing_added', proteinPerServing);
@@ -166,11 +234,56 @@ async function implementation (inputs, parameters, context, dependencies) {
     addHiddenDiv('saltPerServing_added', saltPerServing);
     addHiddenDiv('storage_added', storage);
     addHiddenDiv('gtin_added', gtin);
-    addHiddenDiv('quantity_added', quantity);
     addHiddenDiv('calciumPerServing_added', calciumPerServing);
     addHiddenDiv('SodiumPerServing_added', SodiumPerServing);
     addHiddenDiv('magnesiumPerServing_added', magnesiumPerServing);
-  }, { totalSugarsPerServing, proteinPerServing, totalCarbPerServing, saturatedFatPerServing, totalFatPerServing, caloriesPerServing, servingSize, legalDisclaimer, ingredientsList, saltPerServing, storage, gtin, quantity, calciumPerServing, SodiumPerServing, magnesiumPerServing });
+    addHiddenDiv('countryOfOrigin_added', countryOfOrigin);
+    addHiddenDiv('packaging_added', packaging);
+    addHiddenDiv('dietaryFibrePerServing_added', dietaryFibrePerServing);
+    addHiddenDiv('vitaminAPerServing_added', vitaminAPerServing);
+    addHiddenDiv('vitaminCPerServing_added', vitaminCPerServing);
+    addHiddenDiv('allergyAdvice_added', allergyAdvice);
+    let size = '';
+    const quantitySelector = document.querySelector('div.product__weight');
+    size = quantitySelector ? quantitySelector.innerText : '';
+    if (quantity) {
+      addHiddenDiv('quantity_added', quantity);
+    } else {
+      addHiddenDiv('quantity_added', size);
+    }
+    // description From main page
+    const desc = document.querySelector('p.product__details');
+    if (desc) {
+      var descList1;
+      let description1 = '';
+
+      descList1 = document.querySelectorAll('p.product__details');
+      console.log('descList1', descList1);
+      descList1.forEach((element) => {
+        console.log('element', element);
+        description1 +=
+          element.innerHTML + ' ';
+      });
+      addHiddenDiv('description1_added', description1);
+    }
+
+    let category = document.evaluate('//script[contains(text(),"page_cat1")]', document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
+    if (category) {
+      let category1;
+      category = category ? category.innerText : '';
+      // eslint-disable-next-line prefer-const
+      category1 = category.replace(/(.+)page_cat1\s:\s'([^,]+)'(.+)/ms, '$2');
+      addHiddenDiv('category_added', category1);
+    }
+    let subCategory = document.evaluate('//script[contains(text(),"page_cat2")]', document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
+    if (subCategory) {
+      let subCategory1;
+      subCategory = subCategory ? subCategory.innerText : '';
+      // eslint-disable-next-line prefer-const
+      subCategory1 = subCategory.replace(/(.+)page_cat2\s:\s'([^,]+)'(.+)/ms, '$2');
+      addHiddenDiv('category_added', subCategory1);
+    }
+  }, { totalSugarsPerServing, proteinPerServing, totalCarbPerServing, saturatedFatPerServing, totalFatPerServing, caloriesPerServing, servingSize, legalDisclaimer, ingredientsList, saltPerServing, storage, gtin, calciumPerServing, quantity, SodiumPerServing, magnesiumPerServing, countryOfOrigin, packaging, dietaryFibrePerServing, vitaminAPerServing, vitaminCPerServing, allergyAdvice });
 
   return await context.extract(productDetails, { transform });
 }

@@ -18,9 +18,8 @@ fields:
     singleValue: false
     description: The <meta> keywords content
   - name: category
+    xpath: //div[@id="category_added"]
     singleValue: false
-    xpath: //div[contains(@id,"treebody")]//div[contains(@id,"activetopbranch")] | //li[@class="leaf active"]
-    description: The categories (e.g. from breadcrumbs)
   - name: nameExtended
     singleValue: false
     xpath: concat(//h1[contains(@class,"product__name")]/text() ,' ', //div[contains(@class,"product__description")]/text())
@@ -45,7 +44,7 @@ fields:
     defaultValue: Out of Stock
   - name: description
     singleValue: false
-    xpath: concat(//p[contains(@class,"product__details")],' ',//div[contains(@class,"product__info")]//a)
+    xpath: //div[@id="description1_added"]
   - name: descriptionBullets
     singleValue: false
     description: Number of ul > li tags in the description
@@ -310,10 +309,12 @@ fields:
     description: Unit of Measure Data for Total Carbohydrate content
   - name: dietaryFibrePerServing
     singleValue: false
+    xpath: //div[@id="dietaryFibrePerServing_added"] 
     description: Nutritional Information for Dietary Fibre content - Usually based
       on per 100g serving
   - name: dietaryFibrePerServingUom
     singleValue: false
+    xpath: //div[@id="dietaryFibrePerServing_added"] 
     description: Unit of Measure Data for Dietary Fibre content
   - name: totalSugarsPerServing
     singleValue: false
@@ -335,17 +336,21 @@ fields:
     description: Unit of Measure Data for Protein
   - name: vitaminAPerServing
     singleValue: false
+    xpath: //div[@id="vitaminAPerServing_added"]
     description: Nutritional Information for Vitamin A content - Usually based on
       per 100g serving
   - name: vitaminAPerServingUom
     singleValue: false
+    xpath: //div[@id="vitaminAPerServing_added"]
     description: Unit of Measure Data for Vitamin A
   - name: vitaminCPerServing
     singleValue: false
+    xpath: //div[@id="vitaminCPerServing_added"]
     description: Nutritional Information for Vitamin C content - Usually based on
       per 100g serving
   - name: vitaminCPerServingUom
     singleValue: false
+    xpath: //div[@id="vitaminCPerServing_added"]
     description: Unit of Measure Data for Vitamin C
   - name: calciumPerServing
     singleValue: false
@@ -399,9 +404,11 @@ fields:
     description: Suggested storage location for product
   - name: countryOfOrigin
     singleValue: false
+    xpath: //div[@id="countryOfOrigin_added"]
     description: The country from which the product originates
   - name: allergyAdvice
     singleValue: false
+    xpath: //div[@id="allergyAdvice_added"]
     description: Allergy information associated with the product
   - name: recyclingInformation
     singleValue: false
@@ -411,6 +418,7 @@ fields:
     description: Any other product information
   - name: packaging
     singleValue: false
+    xpath: //div[@id="packaging_added"]
     description: Packaging information
   - name: additives
     singleValue: false
@@ -504,3 +512,4 @@ fields:
   - name: variantCount
     singleValue: false
     defaultValue: '0'
+  

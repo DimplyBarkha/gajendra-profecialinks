@@ -1,39 +1,39 @@
-
 const { transform } = require('../format.js');
 async function implementation (
-  inputs,
+  { results },
   parameters,
   context,
   dependencies,
 ) {
   const { transform } = parameters;
   const { productDetails } = dependencies;
-
-  await context.evaluate(async () => {
-    try {
-      await new Promise((resolve) => setTimeout(resolve, 6000));
-    } catch (error) {
-      console.log(error);
-    }
-    async function infiniteScroll () {
-      let prevScroll = document.documentElement.scrollTop;
-      while (true) {
-        window.scrollBy(0, document.documentElement.clientHeight);
-        await new Promise(resolve => setTimeout(resolve, 1000));
-        const currentScroll = document.documentElement.scrollTop;
-        if (currentScroll === prevScroll) {
-          break;
-        }
-        prevScroll = currentScroll;
+  await context.evaluate(async function () {
+    let scrollTop = 0;
+    while (scrollTop <= 20000) {
+      await stall(500);
+      scrollTop += 1000;
+      window.scroll(0, scrollTop);
+      if (scrollTop === 20000) {
+        await stall(8000);
+        break;
       }
     }
-    await infiniteScroll();
+    function stall (ms) {
+      return new Promise(resolve => {
+        setTimeout(() => {
+          resolve();
+        }, ms);
+      });
+    }
   });
-  try {
-    await new Promise((resolve) => setTimeout(resolve, 6000));
-  } catch (error) {
-    console.log('error: ', error);
-  }
+  await context.evaluate(async function (results) {
+    const productsCount = document.querySelectorAll('div[class*="product products__item"][data-productskuid]');
+    for (let i = 0; i < Number(results); i++) {
+      if (productsCount) {
+        productsCount[i] && productsCount[i].setAttribute("class", "product products__item bArticle pArticle fetch");
+      }
+    }
+  }, results);
   await context.evaluate(async function () {
     function addHiddenDiv (id, content) {
       const newDiv = document.createElement('div');
