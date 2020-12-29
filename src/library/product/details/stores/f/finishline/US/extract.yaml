@@ -3,12 +3,83 @@ regionsSelector: null
 recordSelector: null
 recordXPath: null
 fields:
+  - name: image
+    singleValue: true
+    description: URL of the main product image
+    xpath:  //div[@class="slick-slide slick-current slick-active"]//img/@src
+  - name: imageAlt
+    singleValue: true
+    description: Alt text of the main product image
+    xpath :  //div[@class="slick-slide slick-current slick-active"]//img/@alt
+  - name: alternateImages
+    singleValue: false
+    xpath : //div[@id="thumbSlides"]//div/@data-large
+  - name: metaKeywords
+    singleValue: true
+    description: The <meta> keywords content
+    xpath : //meta[@name='Keywords']/@content
+  - name: nameExtended
+    singleValue: true
+    xpath : //div[@id="description"]
+  - name: listPrice
+    singleValue: true
+    description: The stated undiscounted price for the product
+  - name: price
+    singleValue: true
+    xpath : //div[@class="productPrices"]//div[@class="productPrice"]//span[@class="fullPrice"]//text()
+  - name: availabilityText
+    singleValue: true
+    xpath : //div[@id='addedAvailibility']
+  - name: description
+    singleValue: false
+    xpath : //div[@id='prodDesc']
+  - name: descriptionBullets
+    singleValue: true
+    xpath : count(//*[@id="productDescription"]//ul//li)
+    type: NUMBER
+  - name: brandText
+    singleValue: true
+    xpath : //div[@class = 'row column mt-1']/h1/@data-vendor
+  - name: manufacturer
+    singleValue: true
+    description: Product manufacturer
+  - name: quantity
+    singleValue: false
+    xpath : //*[@id="productSizes"]/div//button[0]/@aria-label
+  - name: weightNet
+    singleValue: true
+    description: Net weight as described on the page
+  - name: weightGross
+    singleValue: true
+    description: Gross weight as described on the page
+  - name: gtin
+    singleValue: true
+    description: GTIN code (includes UPC/EAN)
+  - name: sku
+    singleValue: true
+    xpath : //div[@id="sku"]
   - name: variantId
+    singleValue: true
+    xpath : //*[@id="productItemId"]/@value
+  - name: name
+    singleValue: true
+    xpath : //div[@class="row column mt-1"]/h1/text()
+  - name: ingredientsList
+    singleValue: true
+  - name : secondaryImageTotal
+    singleValue: true
+    xpath : count(//div[contains(@class ,'thumbSlide')]//div/@data-thumb)
+  - name: category
     singleValue: false
-    description: variant id, to uniquely identify variant   
-  - name: variantUrl
-    singleValue: false
-    description: variant Url
-    xpath: //div[@class="product-detail-container"]//div[@class="colorway"]//@data-productid
-    regExp: ([^_]*)_(\d+)
-    regExpReplace: https://www.finishline.com/store/product/men%27s%20adidas%20nmd%20r1%20casual%20shoes/prod2763986?styleId=$1&colorId=$2
+    xpath: //nav//ul[@class='breadcrumbs']//li[position()>1]
+  - name: availabilityText
+    singleValue: true
+    xpath: //div[@id='addedAvailibility']
+  - name: ratingCount
+    singleValue: true
+    regExp: (\d+)
+    regExpReplace : $1
+    xpath: //span[@class="pr-snippet-review-count"]/text()
+  - name: aggregateRating
+    singleValue: true
+    xpath: //h1[@class="pr-review-snapshot-snippets-headline"]/text()
