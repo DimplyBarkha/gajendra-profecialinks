@@ -14,16 +14,16 @@ async function implementation (
       document.body.appendChild(newDiv);
       return newDiv;
     }
-    const scriptHTML = document.evaluate('//script[contains(text(),"skus")]', document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
-    // const scriptHTML = document.querySelectorAll('//div[@class="product-highlights-wrapper"]//ul[@class="page-product-options-group list-inline"]//a/@href');
-    const JSstring = scriptHTML && scriptHTML.textContent ? scriptHTML.textContent.split('var skus = ')[1].split(';')[0] : '';
-    const idArr = JSstring ? JSstring.match(/id:\s\d+/g) : '';
-    if (idArr.length !== 0) {
-      for (let i = 0; i < idArr.length; i++) {
-        const sku = idArr[i].replace(/[^\d+]/g, '');
-        const pagePrefixUrl = window.location.href.replace(/\d+$/g, '');
-        const variantUrl = pagePrefixUrl.concat(sku);
-        addHiddenDiv('variantUrl', variantUrl);
+
+    const skusElements = document.querySelectorAll('//div[@class="product-highlights-wrapper"]//ul[@class="page-product-options-group list-inline"]//a/@href');
+    const skuArr = [];
+    skusElements.forEach(element => {
+      skuArr.push(element.getAttribute('href').match(/pd\/(.+)\//)[1]);
+    });
+    if (skuArr.length !== 0) {
+      for (let i = 0; i < skuArr.length; i++) {
+        const pagePrefixUrl = window.location.href.replace(/pd\/.+\//g, `pd/${skuArr[i]}/`);
+        addHiddenDiv('variantUrl', pagePrefixUrl);
       }
     }
   }, createUrl);
