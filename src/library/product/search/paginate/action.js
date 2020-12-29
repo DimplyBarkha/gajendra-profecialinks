@@ -40,7 +40,7 @@ async function implementation (
 
   let url = await context.evaluate(function () {
     /** @type { HTMLLinkElement } */
-    const next = document.querySelector('head link[rel="next"]');
+    const next = document.querySelector('[rel="next"]');
     if (!next) {
       return false;
     }
