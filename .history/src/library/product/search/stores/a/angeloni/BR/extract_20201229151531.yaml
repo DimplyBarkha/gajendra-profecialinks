@@ -1,0 +1,22 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: _input
+  - name: _url
+    # xpath: //div[@class="box-produto p-relative"]/@generated-url
+  - name: _pageTimestamp
+    singleValue: true
+  - name: id
+    singleValue: true
+    xpath: //div[@class="box-produto p-relative"]//div//a/@href
+  - name: name
+    xpath: //h2[@class='box-produto__desc-prod text-center']
+  # - name: productUrl
+  #   singleValue: true
+  #   xpath: //div[@class="box-produto p-relative"]//div//a/@href
+  - name: thumbnail
+    xpath: //div[contains(@class, "box-produto__content-img")]//img/@data-src
+  - name: price
+    xpath: //div[@class="box-produto p-relative"]/@generated-pirce

@@ -44,7 +44,7 @@ module.exports = {
         // item.setAttribute('generated-url', siteUrl);
       })
     });
-    // await new Promise((resolve, reject) => setTimeout(resolve, 10000));
+    await new Promise((resolve, reject) => setTimeout(resolve, 10000));
     return await context.extract(productDetails, {transform});
   },
 };
