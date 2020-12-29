@@ -2,4 +2,18 @@ singleRecord: false
 regionsSelector: null
 recordSelector: null
 recordXPath: null
-fields: null
+fields:
+  - name: id
+    xpath: //div[@id='z']
+  - name: name
+    singleValue: true
+    xpath: //h2[@class="product-item__name"]
+  - name: productUrl
+    xpath: //h2[@class="product-item__name"]/a/@href
+  - name: thumbnail
+    xpath: //a[@class="product-item__image-link"]/img/@src
+  - name: price
+    xpath: //span[@class="product-prices__value product-prices__value--best-price"]
+  - name: rank
+  - name: rankOrganic
+

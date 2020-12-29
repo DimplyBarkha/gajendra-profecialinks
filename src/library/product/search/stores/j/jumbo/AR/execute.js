@@ -5,7 +5,7 @@ module.exports = {
     country: 'AR',
     store: 'jumbo',
     domain: 'jumbo.ar',
-    url: 'https://www.jumbo.com/zoeken?searchTerms=blend',
+    url: 'https://www.jumbo.com.ar/busca/?ft={searchTerms}',
     loadedSelector: null,
     noResultsXPath: null,
     zipcode: '',
