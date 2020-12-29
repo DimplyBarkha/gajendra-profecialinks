@@ -54,7 +54,7 @@ fields:
     description:
       Product description supplied by website - may be concatenanted from
       multiple places; specifically not the manufacturer description
-    xpath: //div[@id='descBulletInfo']
+    xpath: //div[@class='product-basic-info']//h3[contains(@class, 'webheader')] | //div[@id='descBulletInfo']
     regExpReplace: $1
   - name: descriptionBullets
     singleValue: false
@@ -160,7 +160,7 @@ fields:
     singleValue: false
     description: Images within the third party description
     xpath: //div[contains(@class, "inpage_block")]//img/@data-flixsrcset | //div[@id="product-tab-description"]//img/@data-flixsrcset | //div[contains(@id, "product-tab-description-panel")]//img/@data-flixsrcset
-    regExp: (\/\/.*)200w
+    regExp: (\/\/.*) 200w
     regExpReplace: https:$1
   - name: videos
     singleValue: false
