@@ -21,7 +21,12 @@ fields:
     description: The stated undiscounted price for the product
     xpath: //div[@class='pd__cost']/div[contains(@class,'pd__cost__total')]
   - name: price
-    singleValue: true
+    singleValue: false
+    description: The offered price for the selected product variant - if a user
+      clicks add to basket this is the price they would be charged
+    xpath: //div[@class='pd__cost']/div[contains(@class,'pd__cost__total')]
+  - name: priceCurrency
+    singleValue: false
     description: The offered price for the selected product variant - if a user
       clicks add to basket this is the price they would be charged
     xpath: //div[@class='pd__cost']/div[contains(@class,'pd__cost__total')]

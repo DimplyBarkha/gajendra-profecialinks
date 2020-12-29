@@ -31,13 +31,19 @@ const url1 = require('url');
               currency = (item.text).includes('£'); 
               item.text = item.text.replace('£', ' ').trim();
             });
-            row.priceCurrency = [ { text: ( currency ) ? 'GBP':''} ]
+         //   row.priceCurrency = [ { text: ( currency ) ? 'GBP':''} ]
           }
           if (row.listPrice) {
             row.listPrice.forEach(item => {
               item.text = item.text.replace('£', ' ').trim();
             });
           }
+          if (row.priceCurrency) {
+            row.priceCurrency.forEach(item => {
+              item.text = ((item.text).includes('£'))? 'GBP':'';
+            });
+          }
+
           if (row.availabilityText) {
             row.availabilityText.forEach(item => {
               item.text =  ('Add' === item.text ) ? 'in stock' : 'Out of stock';
