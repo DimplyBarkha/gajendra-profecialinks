@@ -6,7 +6,7 @@ module.exports = {
     store: 'elkjop',
     domain: 'elkjop.no',
     loadedSelector: 'div#site-wrapper',
-    noResultsXPath: null,
+    noResultsXPath: "//div[@id='searchProductsInfo']",
     zipcode: '',
   },
 };
