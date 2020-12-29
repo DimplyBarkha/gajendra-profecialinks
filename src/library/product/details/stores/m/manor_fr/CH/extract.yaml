@@ -1,0 +1,119 @@
+singleRecord: true
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: price
+    singleValue: false    
+    xpath: //div[@class="productpricecomponent js-price-section"]/div/span
+  - name: image
+    singleValue: false
+    regExp: (productimages/.*)
+    regExpReplace: https://www.manor.ch/$1
+    xpath: //html//div[@id='Images']
+  - name: imageAlt
+    singleValue: false
+    xpath: (//div[@class="slick-track"]//img[1]/@alt)[1]
+  - name: alternateImages
+    singleValue: false
+    regExp: (productimages/.*)
+    regExpReplace: https://www.manor.ch/$1
+    xpath: //html//div[@id='alternateImages']
+  - name: secondaryImageTotal
+    singleValue: true
+    xpath: count(//html//div[@id='alternateImages'])
+  - name: metaKeywords
+    singleValue: false
+    xpath: //meta[@name='keywords']
+  - name: category
+    singleValue: false
+    xpath: //div[@data-t-name='Breadcrumb']/a
+  - name: description
+    singleValue: false
+    xpath: //html//div[@id='desc']
+  - name: color
+    singleValue: false
+    xpath: //span[@class='m-productcolorselect-v-2__selector-title']
+  - name: availabilityText
+    singleValue: false
+    regExp: (.+)
+    regExpReplace: In Stock
+    defaultValue: Out of Stock
+    xpath: //form[@id="addToCartForm"]
+  - name: ratingCount
+    singleValue: false
+    xpath: //span[@itemprop='reviewCount']
+  - name: aggregateRating
+    singleValue: false
+    xpath: //span[@itemprop='ratingValue']
+  - name: manufacturerImages
+    singleValue: false
+    xpath: //img[@class="m-productdescription__logo lazy"]/@src
+  - name: brandLink
+    singleValue: false
+    xpath: //a[@class="m-productdescription__url"]/@href
+  - name: sku
+    singleValue: false
+    xpath: //div[@data-t-name="ProductdetailV2"]/@data-productid
+  - name: warranty
+    singleValue: false
+    xpath: //div[@class='m-productfacts_single_values']//span[contains(text(),'Garantie')]
+  - name: variants
+    singleValue: false
+    xpath: //html//div[@id='variants']
+  - name: variantInformation
+    singleValue: false
+    xpath: //span[@class="m-productcolorselect-v-2__selector-title"]
+  - name: brandText
+    singleValue: false
+    xpath: //div[contains(@class,"m-productdetailareaa__areaA__title-line")]//h2
+  - name: specifications
+    singleValue: false
+    xpath: //html//div[@id='specifications']
+  - name: variantId
+    singleValue: false 
+    xpath: //div[@data-t-name="ProductdetailV2"]/@data-productid
+  - name: variantCount
+    singleValue: false
+    xpath: count(//div[@class="m-productcolorselect-v-2__colors js-only-colors"]//a/@href)
+  - name: firstVariant
+    singleValue: false 
+    xpath: //span[@class="m-productcolorselect-v-2__selector-title"]
+  - name: quantity
+    singleValue: false 
+    xpath: //a[@class='m-productsizeselect-v-2__variant m-productsizeselect-v-2__variant__title js-size-selector-title']
+  - name: name
+    singleValue: false 
+    xpath: //html//div[@id='nameEmpty']
+  - name: nameExtended
+    singleValue: false 
+    xpath: //html//div[@id='name']
+  - name: countryOfOrigin
+    singleValue: false 
+  - name: gtin
+    singleValue: false
+    xpath: //html//div[@id='gtin']
+  - name: eangtin
+    singleValue: false
+    xpath: //html//div[@id='gtin']
+  - name: technicalInformationPdfPresent
+    singleValue: true
+    defaultValue: No
+  - name: termsAndConditions
+    singleValue: true
+    defaultValue: No
+  - name: privacyPolicy
+    singleValue: true
+    defaultValue: No
+  - name: customerServiceAvailability
+    singleValue: true
+    defaultValue: No
+  - name: Image360Present
+    singleValue: true
+    defaultValue: No
+  - name: imageZoomFeaturePresent
+    singleValue: true
+    defaultValue: Yes
+  - name: quantity
+    singleValue: true
+    xpath: //html//div[@id='size']
