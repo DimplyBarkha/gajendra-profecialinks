@@ -67,6 +67,15 @@ module.exports = {
           }
           data[k].group[i].legalDisclaimer.splice(1, data[k].group[i].legalDisclaimer.length - 1);
         }
+        if ('warnings' in data[k].group[i]) {
+          data[k].group[i].warnings[0].text = data[k].group[i].warnings[0].text.replace(/<br>/g,' ');
+        }
+        if ('price' in data[k].group[i] && data[k].group[i].price[0].text.includes('p')) {
+          data[k].group[i].price[0].text = (Number(data[k].group[i].price[0].text.replace(/p/g,''))/100).toString();
+        }
+        if ('pricePerUnit' in data[k].group[i] && data[k].group[i].pricePerUnit[0].text.includes('p')) {
+          data[k].group[i].pricePerUnit[0].text = (Number(data[k].group[i].pricePerUnit[0].text.replace(/p/g,''))/100).toString();
+        }
         if ('recyclingInformation' in data[k].group[i]) {
           for (let j = 0; j < data[k].group[i].recyclingInformation.length; j++) {
             data[k].group[i].recyclingInformation[k].text += ', ' + data[k].group[i].recyclingInformation[j].text;
