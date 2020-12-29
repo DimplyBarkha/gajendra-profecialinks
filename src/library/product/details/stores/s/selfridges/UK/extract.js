@@ -17,7 +17,7 @@ async function implementation (inputs, parameters, context, dependencies) {
       // if we're on search site we should click and select first item
       var detailsPage = await context.evaluate(async () => {
         await new Promise((resolve) => setTimeout(resolve, 8000));
-        const selector = document.querySelector('a.c-prod-card__images');
+        const selector = document.querySelector('div.listing-items a.c-prod-card__images');
         if (selector) {
           var productLink = selector.getAttribute('href');
         }
