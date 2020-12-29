@@ -89,8 +89,6 @@ fields:
   - name: totalFatPerServing
     singleValue: true
     xpath: (//button[@aria-label="Analytische Bestandteile"]/..//div[@data-dmid="product-detail-accordion-inner-content"])|(//td[text()='Fett']/following-sibling::td)
-    regExp: (Fettgehalt:(\s\d+\D\d+))|(?:([\d\.\,]+)\s?)
-    regExpReplace: $2
   - name: totalFatPerServingUom
     singleValue: true
     xpath: //td[text()="Fett"]/following-sibling::td

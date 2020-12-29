@@ -118,6 +118,23 @@ const transform = (data) => {
         });
         row.videos = [{ text: videosArr.join('|'), xpath: row.videos[0].xpath }];
       }
+      if (row.totalFatPerServing) {
+        const totalFatPerServingArr = row.totalFatPerServing.map((item) => {
+          const regExV1 = /(.+)(Fettgehalt:\s([\d]+[,.][\d]+))(.+)/;
+          const regExV2 = /(.+)(Fettgehalt\s([\d]+[,.][\d]+))(.+)/;
+          const regExV3 = /(?:([\d.,]+)\s?)(.+)/;
+          if (regExV1.test(item.text)) {
+            return typeof (item.text) === 'string' ? item.text.replace(/(.+)(Fettgehalt:\s([\d]+[,.][\d]+))(.+)/g, '$3') : '|';
+          } else if (regExV2.test(item.text)) {
+            return typeof (item.text) === 'string' ? item.text.replace(/(.+)(Fettgehalt\s([\d]+[,.][\d]+))(.+)/g, '$3') : '|';
+          } else if (regExV3.test(item.text)) {
+            return typeof (item.text) === 'string' ? item.text.replace(/(?:([\d.,]+)\s?)(.+)/g, '$1') : '|';
+          } else {
+            return '';
+          }
+        });
+        row.totalFatPerServing = [{ text: totalFatPerServingArr.join('|'), xpath: row.totalFatPerServing[0].xpath }];
+      }
     }
   }
   return data;
