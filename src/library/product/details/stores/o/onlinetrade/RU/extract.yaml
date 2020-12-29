@@ -1,7 +1,7 @@
 singleRecord: true
 regionsSelector: null
 recordSelector: null
-recordxpath: null
+recordXpath: null
 fields:
   - name: name
     singleValue: false
@@ -156,5 +156,5 @@ fields:
   - name: unInterruptedPDP
     singleValue: false
     description: Titles of products in the sections 'you may also like' or 'sponsored products'. Combine results from Max 3 sections
-    #xpath: //div[contains(@class,'indexGoods__item')]/text()
-    xpath: //a[contains(@class,'indexGoods__item__name')]//text()
+    #xpath: //div[contains(@class,'goods__items tiles oneline noPrint')]//a[contains(@class,'indexGoods__item__name')]//text() | //a[contains(@class,'indexGoods__item__name')]//text()
+    xpath: //a[contains(@class,'indexGoods__item__name')]

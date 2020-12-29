@@ -17,5 +17,9 @@ module.exports = {
     await context.setAntiFingerprint(false);
     await context.setUseRelayProxy(false);
     await context.goto(url, { timeout, waitUntil: 'load', checkBlocked: true });
+    console.log(zipcode);
+      if (zipcode) {
+      await dependencies.setZipCode({ url: url, zipcode: zipcode, storeId });
+      }
   }
 };
