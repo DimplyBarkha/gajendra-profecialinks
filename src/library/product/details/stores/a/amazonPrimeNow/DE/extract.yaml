@@ -1,0 +1,25 @@
+extends: ../../../../sharedAmazon/shared
+
+fields:
+  - name: image    
+    xpath: //div[@id='ivMain']/div[@id='ivStage']/div[@id='ivLargeImage']/img[@class='fullscreen']/@src
+  - name: ingredientsList    
+    xpath: //div[@id='productDescription_feature_div']/div[@id='productDescription']/p[2]
+  - name: manufacturer
+    singleValue: true
+    xpath: //table[@id='productDetails_techSpec_section_1']/tbody/tr[8]/td
+  - name: countryOfOrigin  
+    singleValue: true  
+    xpath: //div[@class='a-expander-content a-expander-section-content a-section-expander-inner']/table[@id='productDetails_techSpec_section_1']/tbody/tr[9]/td[@class='a-size-base']
+  - name: totalSugarsPerServingUom    
+    xpath: //table[@id='productDetails_techSpec_section_2']/tbody/tr[6]/td
+  - name: totalFatPerServing
+    singleValue: true    
+    xpath: //table[@id="productDetails_techSpec_section_2"]/tbody/tr/th[contains(.,"Fett")]/following-sibling::td
+  - name: totalCarbPerServing
+    singleValue: true
+    xpath: //table[@id='productDetails_techSpec_section_2']/tbody/tr[4]/td
+  - name: proteinPerServing
+    singleValue: true
+    xpath: //table[@id="productDetails_techSpec_section_2"]//tr[contains(.,"Eiweiß")]/td
+   
