@@ -40,6 +40,57 @@ async function implementation (
       document.body.appendChild(newDiv);
     }
     addHiddenDiv('ii_searchUrl', window.location.href);
+
+    const images = document.querySelectorAll('img[class="product-image-photo"]');
+    if (images && images.length > 0) {
+      for (let i = 0; i < images.length; i++) {
+        const imageUrl = images[i].getAttribute('src');
+        const pattern = /\/([0-9]+)_[0-9]+./;
+        const results = imageUrl.match(pattern);
+        if (results && results.length > 0) {
+          images[i].setAttribute('ii_sku', results[1]);
+        } else {
+          const refURL = window.location.href;
+          const productLink = images[i].parentNode.parentElement;
+          const fetchURL = productLink.getAttribute('href');
+          console.log('fetchURL: ', fetchURL);
+
+          const response = await fetch(fetchURL, {
+            headers: {
+              accept: '*/*',
+              'accept-language': 'it',
+              'sec-fetch-dest': 'document',
+              'sec-fetch-mode': 'no-cors',
+              'sec-fetch-site': 'cross-site',
+            },
+            referrer: refURL,
+            referrerPolicy: 'no-referrer-when-downgrade',
+            body: null,
+            method: 'GET',
+            mode: 'cors',
+          });
+
+          if (response && response.status === 400) {
+            throw new Error('Error when calling API');
+          }
+
+          if (response && response.status === 404) {
+            console.log('Product Not Found!!!!');
+          }
+
+          if (response && response.status === 200) {
+            console.log('Product Found!!!!');
+            const data = await response.text();
+            const parser = new DOMParser();
+            const doc = parser.parseFromString(data, 'text/html');
+            const skuDiv = doc.querySelector('div[itemprop="sku"]');
+            if (skuDiv) {
+              images[i].setAttribute('ii_sku', skuDiv.textContent);
+            }
+          }
+        }
+      }
+    }
   });
 
   await applyScroll(context);
