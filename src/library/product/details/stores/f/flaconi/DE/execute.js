@@ -4,8 +4,9 @@ module.exports = {
         country: 'DE',
         store: 'flaconi',
         domain: 'flaconi.de',
-        loadedSelector: null,
-        noResultsXPath: null,
+        loadedSelector: 'div.product-name',
+        noResultsXPath: '//div[contains(@class, "error")]//h1[contains(text(), "Sorry!")]|//div[contains(@class, "search-noresult")]//h2[contains(text(), "Ihre Suche ergab leider keine")]',
+        
     },
     implementation: async function(
         inputs, { loadedSelector, noResultsXPath },
