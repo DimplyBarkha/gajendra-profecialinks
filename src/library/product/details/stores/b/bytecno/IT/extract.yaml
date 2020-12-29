@@ -97,9 +97,6 @@ fields:
   - name: inTheBoxUrl
     singleValue: false
     xpath: //div[contains(@class, "InTheBox")]//img/@data-flixsrcset|//div[starts-with(@id,"inTheBoxUrl-")]
-    #regExp: (.+800w,\s)(.+(.png|.jpg))(.+)
-    regExp: (.+)
-    regExpReplace: https://media.flixfacts.com/eyekandy/dyson/v11/it/$1
   - name: inTheBoxText
     singleValue: false
     xpath: //div[contains(@class,"InTheBox")]//div[contains(@class,"flix-std-content")]|//div[starts-with(@id,"inTheBoxText-")]
