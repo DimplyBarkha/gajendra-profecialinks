@@ -8,10 +8,10 @@ fields:
     xpath: //div[@class='a-row a-size-base a-color-base']/div[@class='a-row']/div[@class='a-row']/a[@class='a-size-base a-link-normal s-no-hover a-text-normal']/span[@class='a-price']/span[2]
   - name: name
     singleValue: true
-    xpath: //h2
+    xpath: //h2[@class='a-size-mini a-spacing-none a-color-base s-line-clamp-4']/a[@class='a-link-normal a-text-normal']/span[@class='a-size-base-plus a-color-base a-text-normal']
   - name: productUrl
     singleValue: false
-    xpath: //h2/a/@href
+    xpath: //h2[@class='a-size-mini a-spacing-none a-color-base s-line-clamp-4']/a/@href
     regExp: (.+)
     regExpReplace: https://www.amazon.sa$1
   - name: thumbnail
@@ -22,7 +22,7 @@ fields:
     xpath: //a[@class='a-popover-trigger a-declarative']/i[@class='a-icon a-icon-star-small a-star-small-5 aok-align-bottom']
   - name: id
     singleValue: false
-    xpath: //div/../@data-asin
+    xpath: //div[@class='s-main-slot s-result-list s-search-results sg-row']/div[@data-component-type='s-search-result']/@data-asin
   - name: reviewCount
     singleValue: false
     xpath: //a[@class='a-link-normal']/span[@class='a-size-base']
