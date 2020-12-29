@@ -1,0 +1,13 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: category
+    singleValue: false
+    description: name of the category
+    xpath: //ol[@class="breadcrumb"]/li[position()>1]/a
+  - name: categoryUrl
+    singleValue: false
+    description: url of the category
+    xpath: //ol[@class="breadcrumb"]/li[position()>1]/a/@href
