@@ -30,7 +30,7 @@ async function implementation (
   var buttonNotFoundCount = 0;
   for (let i = 0; i < 20; i++) {
     try {
-      await context.click('button.flex.text-white.bg-black');
+      await context.click('div#wps_popup div[data-wps-popup-close-intent]');
       await new Promise((resolve, reject) => setTimeout(resolve, 2000));
     } catch (e) {
       console.log(e);
@@ -62,5 +62,5 @@ module.exports = {
     noResultsXPath: '//p[contains(text(),"Found 0 products")]',
     zipcode: "''",
   },
-  implementation,
+  // implementation,
 };
