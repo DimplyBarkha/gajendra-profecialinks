@@ -75,7 +75,46 @@ module.exports = {
     url = newUrl || url;
     await context.setBlockAds(false);
     url = `${url}#[!opt!]{"block_ads":false,"first_request_timeout":60,"load_timeout":60,"load_all_resources":true}[/!opt!]`;
-    await context.goto(url, { waitUntil: 'networkidle0', block_ads: false });
+    await context.goto(url, { waitUntil: 'networkidle0', block_ads: false, antiCaptchaOptions: { type: 'RECAPTCHA' } });
+    const captchaFrame = "iframe[_src*='captcha']:not([title]), iframe[src*='captcha']:not([title])";
+    try {
+      await context.waitForSelector(captchaFrame);
+    } catch (e) {
+      console.log('Captcha frame not found', e);
+    }
+    const checkExistance = async (selector) => {
+      return await context.evaluate(async (captchaSelector) => {
+        return Boolean(document.querySelector(captchaSelector));
+      }, selector);
+    };
+    const isCaptchaFramePresent = await checkExistance(captchaFrame);
+
+    if (isCaptchaFramePresent) {
+      console.log('isCaptcha', true);
+      await context.waitForNavigation({ timeout });
+      // @ts-ignore
+      // eslint-disable-next-line no-undef
+      // await context.evaluateInFrame('iframe', () => grecaptcha.execute());
+      // console.log('solved captcha, waiting for page change');
+      // await context.waitForNavigation({ timeout });
+      // try {
+      //   await context.waitForSelector('#corePage');
+      // } catch (e) {
+      //   console.log('Details page selector not found');
+      // }
+      const cssCaptcha = '.g-recaptcha';
+      const solveCaptcha = async () => {
+        console.log('..solveCaptcha..');
+        await context.solveCaptcha({
+          type: 'RECAPTCHA',
+          inputElement: cssCaptcha,
+        });
+        // await context.reload(); // This is optional based on the website behavior.
+        await new Promise(r => setTimeout(r, 500));
+      };
+      await solveCaptcha();
+    }
+
     async function autoScroll (page) {
       await page.evaluate(async () => {
         await new Promise((resolve, reject) => {
