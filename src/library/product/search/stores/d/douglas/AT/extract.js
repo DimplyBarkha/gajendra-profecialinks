@@ -1,17 +1,19 @@
 
-async function implementation(
+async function implementation (
   inputs,
   parameters,
   context,
   dependencies,
 ) {
-  await context.evaluate(async function(context) {
-  
-  const checkBlankPage = document.querySelector('td[class="code depth_1"]')
-  if (checkBlankPage === null) {
-    throw new Error('Blank Page')
-  }
-});
+  const { transform } = parameters;
+  const { productDetails } = dependencies;
+  await context.evaluate(async function (context) {
+    const checkBlankPage = document.querySelector('td[class="code depth_1"]');
+    if (checkBlankPage === null) {
+      throw new Error('Blank Page');
+    }
+  });
+  return await context.extract(productDetails, { transform });
 }
 const { transform } = require('./transform');
 module.exports = {
