@@ -26,8 +26,7 @@ fields:
   - name: nameExtended
     singleValue: true
     description: The product name, prefixing "${brand} - " if not included in "name"   and appending " - ${variantType}" if necessary (fixed per feed)
-    xpath: //title
-    regExp: .+?(?=. BIPA)
+    xpath: //meta[@property='og:title']/@content
   - name: listPrice
     singleValue: true
     description: The stated undiscounted price for the product
@@ -46,7 +45,7 @@ fields:
   - name: description
     singleValue: false
     description: Product description supplied by website - may be concatenanted from    multiple places; specifically not the manufacturer description
-    xpath: //p[@class='description']/text()
+    xpath: //p[@class='description']/text() | //ul[@class='detail-desc']/li/text()
   - name: descriptionBullets
     singleValue: true
     description: Number of ul > li tags in the description
@@ -59,7 +58,6 @@ fields:
   - name: manufacturer
     singleValue: true
     description: Product manufacturer
-    xpath: //a[@class='pdp__cockpit--pbrand-link']/text()|//a[@class='pdp__cockpit--pbrand-link']/font/font/text()
   - name: quantity
     singleValue: true
     description: Quantity as described on the page
@@ -78,13 +76,16 @@ fields:
   - name: sku
     singleValue: true
     description: The store-specific product identifier
-    xpath: //div[@class='pdp__cockpit-psku ']/text()
+    xpath: //div[@class='bv-shared bv-core-container-495']/@data-product-id 
   - name: variantId
     singleValue: true
     description: Identifier for a variant from a store where variants share the same sku
+    xpath: //div[@class='bv-shared bv-core-container-495']/@data-product-id
   - name: mpc
     singleValue: true
     description: The manufacturer model code (unique) of the product
+    xpath: //div[@id='content']/script
+    regExp: (?<=mpn":")\d+
   - name: packSize
     singleValue: true
     description: The number of packs in the product offer (if stated separately on the site to quantity)
