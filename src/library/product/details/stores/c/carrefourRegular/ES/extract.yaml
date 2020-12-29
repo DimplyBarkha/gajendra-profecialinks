@@ -165,6 +165,12 @@ fields:
     xpath: count(//ul[@class='pics-slider__thumbnails']//li[position()>1]//img/@src)
   - name: inTheBoxText
     singleValue: false
-    xpath: //div[@id='checkInBoxText']
+    xpath: //div[@id='checkInBoxText'] | //div[@class='inpage_selector_InTheBox']//div[@class='flix-std-desc flix-d-h3']/span
   - name: hasComparisonTable
     defaultValue: No
+  - name: inTheBoxText
+    singleValue: false
+    xpath: //div[@class='inpage_selector_InTheBox']//img/@src
+
+
+
