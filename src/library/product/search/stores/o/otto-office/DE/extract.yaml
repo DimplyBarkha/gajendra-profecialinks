@@ -23,6 +23,6 @@ fields:
   - name: price
     singleValue: false
     xpath: //div[contains(@class,'galleryOffer')]/div[1]/div/div[1]/p/span[1] | (//div[@class="galleryOffer_8_wrapper"]/div[2]/div//div[@class="oo-pricelabel big gallery-reduziert-platzhalter"]/div/p)[1]/span[1] | //div[@class="galleryOffer_8_wrapper"]/div[2]/div[@class="ooB-mb12 ooB-pr12"]/div[@class="oo-pricelabel big gallery-reduziert-platzhalter"]/div/p/span[contains(text(),'pro Pack')]/preceding-sibling::span
-    regExp: (\d),(\d.+)
-    regExReplace: $1.$2
+    # regExp: (\d),(\d.+)
+    # regExReplace: $1.$2
     type: CURRENCY
