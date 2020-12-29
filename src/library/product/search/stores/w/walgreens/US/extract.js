@@ -1,5 +1,6 @@
 const { transform } = require('../../../../shared');
 
+<<<<<<< HEAD
 // async function implementation (
 //   inputs,
 //   parameters,
@@ -67,62 +68,120 @@ const { transform } = require('../../../../shared');
 //         productCards.item(i).appendChild(newDiv);
 //       }
 //     }
+=======
+async function implementation (
+  inputs,
+  { transform: transformParam },
+  context,
+  dependencies,
+) {
+  const { productDetails } = dependencies;
 
-    const refURL = window.location.href;
-    let productInfo = null;
-    if (document.querySelector('.pagination') !== null) {
-      const pageNum = parseInt(document.querySelector('.pagination').querySelector('input').value);
+  // context.click don't work for this selector 'div.fsrAbandonButton'
+  // The statement above needs to be double checked
+  await context.evaluate(async () => {
+    const popUps = document.querySelector('div.fsrAbandonButton');
+    if (popUps) popUps.click();
+  });
 
-      const response = await fetch('https://www.walgreens.com/productsearch/v1/products/search', {
+  // scroll to the bottom of the page
+  await context.evaluate(async () => {
+    document.querySelector('footer') && document.querySelector('footer').scrollIntoView();
+  });
+
+  // Wait for sponsored products
+  await context.waitForSelector('div.card__product figure.sponsored', { timeout: 6000 })
+    .catch(() => console.log('No sponsored products were found.'));
+
+  await context.evaluate(async () => {
+    // Save url
+    const filteredUrl = window.location.href.replace(/%20/g, ' ');
+    const urlDiv = document.createElement('div');
+    urlDiv.id = 'filtered-url';
+    urlDiv.style.display = 'none';
+    urlDiv.textContent = filteredUrl;
+    document.body.appendChild(urlDiv);
+
+    // remove eventual pop ups
+    // TODO: Identify pop ups close button selector and move outside context evaluate
+    if (document.querySelector('div.fsrAbandonButton')) {
+      document.querySelector('div.fsrAbandonButton').click(); // context.click don't work for this selector 'div.fsrAbandonButton'
+    }
+    if (document.querySelector('button#fsrFocusFirst')) {
+      document.querySelector('button#fsrFocusFirst').click();
+      if (document.querySelector('div#fsrInvite') && document.querySelector('div#fsrFullScreenContainer')) {
+        document.querySelector('div#fsrFullScreenContainer').remove();
+      }
+    }
+
+    // read the initial state of the page
+    const init = window.getInitialState().searchResult.productList;
+    // get the prodID of all the products in the search results
+    const productClass = 'card__product';
+    const productCardSelector = `.${productClass}`;
+    const idPrefix = 'productcard';
+
+    const allProducts = [...document.querySelectorAll(productCardSelector)]
+      .map(elem => ({
+        elem,
+        id: (!elem.id ? elem.parentElement.parentElement : elem).id.replace(idPrefix, ''),
+        notDone: true,
+      }));
+    const processItem = objWithData => (item) => {
+      const { elem, id } = item;
+      // Try to match against the initial state
+      const infos = objWithData.find(({ productInfo }) => productInfo.prodId === id);
+      if (infos) {
+        elem.dataset.upc = infos.productInfo.gtin || infos.productInfo.upc;
+        elem.dataset.id = infos.productInfo.wic;
+        // remove from the list
+        item.notDone = false;
+      }
+    };
+    if (init.length > 0) allProducts.forEach(processItem(init));
+>>>>>>> ba1530b472d6acd392c50f4a7fc78f140e0bac06
+
+    const remainingProds = allProducts.filter(obj => obj.notDone);
+
+    if (remainingProds.length > 0) {
+      // Ask walgreens API for infos if there are any remaining ids
+      const response = await fetch('https://www.walgreens.com/productsearch/v1/products/productsInfo', {
+        credentials: 'include',
         headers: {
-          accept: 'application/json, text/plain, */*',
-          'accept-language': 'en-US,en;q=0.9',
-          'cache-control': 'no-cache',
-          'content-type': 'application/json; charset=UTF-8',
-          pragma: 'no-cache',
-          'sec-fetch-dest': 'empty',
-          'sec-fetch-mode': 'cors',
-          'sec-fetch-site': 'same-origin',
+          'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:82.0) Gecko/20100101 Firefox/82.0',
+          Accept: 'application/json, text/plain, */*',
+          'Accept-Language': 'en-GB,en;q=0.5',
+          'Content-Type': 'application/json; charset=utf-8',
+          'x-dtpc': '2$544687158_898h8vESUAATIKHCRLASDHFEIGQETKUNAAHRAR-0e4',
+          'Cache-Control': 'max-age=0',
         },
-        referrer: refURL,
-        referrerPolicy: 'no-referrer-when-downgrade',
-        body: '{"p":' + pageNum + ',"s":24,"view":"allView","geoTargetEnabled":false,"abtest":["tier2","showNewCategories"],"deviceType":"desktop","q":"' + window.__APP_INITIAL_STATE__.search.searchString + '","requestType":"search","sort":"relevance","couponStoreId":"4372"}',
+        referrer: 'https://www.walgreens.com/search/results.jsp?Ntt=mouth%20rinse',
+        body: JSON.stringify({ products: remainingProds.map(obj => obj.id) }),
         method: 'POST',
         mode: 'cors',
       });
 
       if (response && response.status === 404) {
-        console.log('Product Not Found!!!!');
+        console.log('The products %o were not found', remainingProds);
       }
 
       if (response && response.status === 200) {
-        console.log('Product Found!!!!');
+        console.log('The products %o were found', remainingProds);
         const data = await response.json();
-        console.log(data);
-        productInfo = data.products;
+        remainingProds.forEach(processItem(data.productList));
       }
-    } else {
-      productInfo = window.__APP_INITIAL_STATE__.searchResult.productList;
-    }
-
-    const productCards = document.getElementsByClassName('wag-product-card-details');
-    let i = 0;
-    while (i < productCards.length) {
-      if (productCards.item(i).querySelectorAll('.extra-info').length > 0) {
-        document.getElementById(i.toString()).remove();
-      }
-      addHiddenDiv(i, productCards, productInfo);
-      i++;
     }
   });
-  return await context.extract(productDetails, { transform });
+
+  return await context.extract(productDetails, { transform: transformParam });
 }
+
 module.exports = {
   implements: 'product/search/extract',
   parameterValues: {
     country: 'US',
     store: 'walgreens',
-    transform: transform,
+    transform,
     domain: 'walgreens.com',
   },
   implementation,
