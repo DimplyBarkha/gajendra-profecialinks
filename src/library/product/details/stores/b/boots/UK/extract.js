@@ -7,15 +7,26 @@ async function implementation (
 ) {
   const { transform } = parameters;
   const { productDetails } = dependencies;
+  /* '
+  *  @INFO Don't go to search page. Use sku as input id with the template https://www.boots.com/ProductDisplay?productId={id}.
+
+  const onSearchPage = await context.evaluate(() => {
+    return !!document.querySelector('.product_name_link');
+  });
+  if (onSearchPage) {
+    await context.clickAndWaitForNavigation('.product_name_link', { timeout: 15000 }, { waitUntil: 'load' });
+  }*/
+
   async function getVideoLinks () {
-    const iframe = document.querySelector('div.videoContainer iframe');
+    const selector = 'div.videoContainer iframe,.isitetv-video-container iframe';
+    const iframe = document.querySelector(selector);
     if (!iframe) return;
-    const response = await fetch(document.querySelector('div.videoContainer iframe').src);
+    const response = await fetch(document.querySelector(selector).src);
     const html = await response.text();
     const doc = new DOMParser().parseFromString(html, 'text/html');
     const videoElements = Array.from(doc.querySelectorAll('[id^=isitetv_nav_item_nav_ul] > li > a'));
-    const videoLinks = videoElements.map(elm => elm.getAttribute('onclick').match(/log_action\(\d+,\d+,\d+,\d+,\d+,(\d+)/)[1])
-      .map(elm => `http://flv.isitetv.com/media/video/1499/video_url_${elm}_1499.m4v`).join('|');
+    const videoLinks = videoElements.map(elm => ({ videoId: elm.getAttribute('onclick').match(/log_action\(\d+,\d+,\d+,\d+,\d+,(\d+)/)[1], folderId: elm.querySelector('img').src.match(/media\/video\/([^\/]+)/)[1]}))
+      .map(elm => `https://flv.isitetv.com/media/video/${elm.folderId}/video_url_${elm.videoId}_${elm.folderId}.m4v`).join('|');
     document.body.setAttribute('video-links', videoLinks);
     return videoLinks;
   }

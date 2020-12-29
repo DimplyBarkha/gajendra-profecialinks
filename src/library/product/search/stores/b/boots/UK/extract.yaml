@@ -41,19 +41,7 @@ fields:
     singleValue: false
     description: The stated undiscounted price for the product
   - name: rank
-    singleValue: false
-    xpath: count(./preceding-sibling::li) + 1
-    description: search/listing rank
-    type: NUMBER
   - name: rankOrganic
-    singleValue: false
-    xpath: count(./preceding-sibling::li) + 1
-    description: The position (rank) within the list excluding sponsored/paid results
-    type: NUMBER
-  - name: sponsored
-    singleValue: false
-    description: Is sponsored/paid
-    type: BOOLEAN
   - name: id
     singleValue: false
     xpath: //div[@class="product_listing_container"]//ul["grid_mode"]//li[@class="estore_product_container"]//div[@id="manufacturerModel"]
