@@ -24,6 +24,13 @@ module.exports = {
     } catch (error) {
       console.log('Not loading product details section');
     }
+    await context.evaluate(async () => {
+      const accCookie = document.querySelector('button#uc-btn-accept-banner');
+      if (accCookie) {
+        // @ts-ignore
+        accCookie.click();
+      }
+    });
 
     async function scrollToRec (node) {
       await context.evaluate(async (node) => {
