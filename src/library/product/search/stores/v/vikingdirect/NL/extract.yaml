@@ -5,7 +5,7 @@ recordXPath: //li[@class="search-results__result"]
 fields:
   - name: id
     singleValue: false
-    xpath: //div[contains(@class, "product-lister-item")]/@data-article-number
+    xpath: //div[contains(@class, "product-lister-item")]/@data-legacy-sku
   - name: searchUrl
     singleValue: true
     xpath: ancestor::html//div[@id="searchUrl"][last()]
