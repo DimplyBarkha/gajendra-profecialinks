@@ -44,6 +44,10 @@ fields:
     singleValue: false
     xpath: //span[@itemprop="price"]/text()
     # xpath: //dd[contains(@class,"price-value--red productBasicInfo")]/text()
+  - name: listPrice1
+    singleValue: false
+    xpath: //dd[contains(@class,"productBasicInfo__price-value-save")]/text()
+    regExp: \d+
   - name: price
     singleValue: false
     xpath: //span[@itemprop="price"]//text()
@@ -278,6 +282,16 @@ fields:
     # xpath: //span[@class="list--dotted-item__label"]//span[contains(text(),"Magnésium")]//following::span[1]/span
     regExp: (.+)
     regExpReplace: mg
+  - name: sodiumPerServing
+    singleValue: false
+    xpath: //span[@class="list--dotted-item__label"]//span[contains(text(),"Natrium")]//following::span[1]/span
+    regExp: (.+)mg
+    regExpReplace: $1
+  - name: sodiumPerServingUom
+    singleValue: false
+    xpath: //span[@class="list--dotted-item__label"]//span[contains(text(),"Natrium")]//following::span[1]/span
+    regExp: (.+)
+    regExpReplace: mg 
   - name: saltPerServing
     singleValue: false
     xpath: //span[@class="list--dotted-item__label"]//span[contains(text(),"Salz")]//following::span[1]/span

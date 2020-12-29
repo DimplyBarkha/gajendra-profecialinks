@@ -137,11 +137,22 @@ const transform = (data) => {
       if (row.allergyAdvice) {
         let text = '';
         row.allergyAdvice.forEach(item => {
-          text += `${item.text.replace(/\n \n/g, ':')} | `;
+          text += `${item.text.replace(/\n \n/g, ':')},`;
         });
         row.allergyAdvice = [
           {
-            text: text.slice(0, -3),
+            text: text.slice(0, -1),
+          },
+        ];
+      }
+      if (row.listPrice1) {
+        let text = '';
+        row.listPrice1.forEach(item => {
+          text += `${item.text.replace(/\n \n/g, ':')}.`;
+        });
+        row.listPrice1 = [
+          {
+            text: text.slice(0, -1),
           },
         ];
       }

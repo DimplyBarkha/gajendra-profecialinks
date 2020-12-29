@@ -24,7 +24,7 @@ async function implementation (
     console.log('prodUrl is ', prodUrl);
 
     if (prodUrl && prodUrl.length > 0) {
-      await context.goto(prodUrl, { timeout: 10000, waitUntil: 'load', checkBlocked: true });
+      await context.goto(prodUrl, { timeout: 20000, waitUntil: 'load', checkBlocked: true });
       // await context.evaluate(() => {
       //   const doc = document.querySelectorAll('script[type="application/ld+json"]');
       //   let text = '';
