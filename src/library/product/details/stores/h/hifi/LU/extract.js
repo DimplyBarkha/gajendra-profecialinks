@@ -60,6 +60,7 @@ module.exports = {
     let inTheBoxImage = '';
     let inTheBoxText = '';
 
+
     await waitForIframeDiv(iframeIdCSS);
     // get iframge link src
     src = await context.evaluate(async function (loadbeeIframeIdCSS) {
@@ -168,6 +169,9 @@ module.exports = {
           return inTheBoxText;
         });
 
+
+
+
         videos = await context.evaluate(async function () {
           let videos = '';
           if (document.querySelector('div[class="header-content desktop"] div[class="play-btn centered desktop"]')) {
@@ -195,6 +199,7 @@ module.exports = {
       addElementToDocument('inTheBoxImage',inTheBoxImage);
       addElementToDocument('inTheBoxText', inTheBoxText);
       addElementToDocument('videos', videos);
+
 
 
 
