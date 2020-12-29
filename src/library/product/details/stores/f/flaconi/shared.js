@@ -71,6 +71,33 @@ const transform = (data) => {
         // row.variantUrl = row.variantUrl+'#sku='+row.variantId[item].text;
         // });
       }
+      if (row.variantId) {
+        const length = row.variantId.length;
+        const firstEle = row.variantId[length - 1].text;
+        console.log('firstEle: ', firstEle);
+        row.variantId.forEach(item => {
+        // @ts-ignore
+          item.text = firstEle;
+        });
+        if (row.sku) {
+          row.sku.forEach(item => {
+          // @ts-ignore
+            item.text = firstEle;
+          });
+        }
+        
+        if (row.asin) {
+          row.asin.forEach(item => {
+            item.text = firstEle;
+          });
+        }
+        
+        if (row.gtin) {
+          row.gtin.forEach(item => {
+            item.text = firstEle;
+          });
+        }
+      }
       if (row.category) {
         row.category.pop();
       }
