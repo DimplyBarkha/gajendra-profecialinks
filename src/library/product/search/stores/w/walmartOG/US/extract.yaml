@@ -102,4 +102,7 @@ fields:
     description: Is sponsored/paid
     type: BOOLEAN
     selector: div[data-automation-id="sponsoredProductTile"]
+  - name: totalRecordCount
+    singleValue: true 
+    xpath: //p[@id="resultcount"]/strong
     
