@@ -28,6 +28,11 @@ fields:
   xpath: "(//*[@id='added_alternateImages']//text())[position()>1]"
   # xpath: "//*[@id='added_alternateImages']//text()"
   description: Other product images (not in manufacturer description)
+- name: shownImages
+  singleValue: false
+  xpath: "(//*[@id='added_alternateImages']//text())[position()>1]"
+  # xpath: "//*[@id='added_alternateImages']//text()"
+  description: Other product images (not in manufacturer description)
 - name: metaKeywords
   singleValue: true
   # xpath: "//*[@id='added_metaKeywords']//text()"
