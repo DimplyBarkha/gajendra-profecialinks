@@ -1,0 +1,38 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: //div[@class="page-product-view--review--content--item"]
+- name: aggregateRating
+  xpath: ancestor::html//div[@class="summary-inner"]//div[@class="star-rating"]/span/strong/text()
+- name: name
+  xpath: ancestor::html//h1[@class="page-product-view--title"]
+- name: commentCount
+- name: reviewDate
+  xpath: //p[@class="mb-0"]/text()
+- name: user
+  xpath: //p[@class="mb-0"]/strong/text()
+- name: brand
+  xpath: ancestor::html//div[@class="wb-posted_in"]/a
+- name: productRange
+- name: productFamily
+- name: colour
+- name: flavour
+- name: sku
+  xpath: ancestor::html//span[@class="d-none"]/text()[2]
+- name: reviewText
+  xpath: //p[@class="page-product-view--review--description"]
+- name: reviewTitle
+  defaultValue:  'N/A'
+- name: mediaURL
+  xpath: ancestor::html//meta[@property="og:image"]/@content
+- name: location
+  defaultValue: CA
+- name: helpful
+  defaultValue:  'N/A'
+- name: verifiedPurchase
+- name: rating
+  xpath: //div[@class="comment-text"]//strong[@class="rating"]
+- name: pageTitle
+  xpath: ancestor::html//meta[@property="og:title"]/@content
+- name: sourceUrl
+  xpath: ancestor::html//meta[@property="og:url"]/@content
