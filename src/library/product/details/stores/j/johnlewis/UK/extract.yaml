@@ -55,9 +55,9 @@ fields:
   - name: gtin
     description: GTIN code (includes UPC/EAN)
   - name: sku
-    xpath: (((//li[@data-carousel="productCarousel"]/img/@src)[1]|(//li[@class="slick-active"]/img/@src)[1])[1])[1]
-    regExp: image\/JohnLewis\/(\d+)
-    regExpReplace: $1
+    xpath: //div[@class="standard-product-container"]//input[@name="sku"]/@value
+    # regExp: image\/JohnLewis\/(\d+)
+    # regExpReplace: $1
     # xpath: //script[@id="jsonPageData"]
     # regExp: productId":"(.*?)"
     # regExpReplace: $1
