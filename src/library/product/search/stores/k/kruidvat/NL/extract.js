@@ -60,7 +60,11 @@ async function implementation(
   const aggregateRating = document.querySelectorAll("e2-rating")
   for (let k = 0; k < aggregateRating.length; k++) {
   // @ts-ignore
+<<<<<<< HEAD
   let singleRating = aggregateRating[k].getAttribute("rating");
+=======
+  let singleRating = aggregateRating[k].getAttribute("reviews-number");
+>>>>>>> 6fd9af89d2b10345ee9cf97a36d8df092ce07556
   console.log(singleRating,'=singleRating')
   addHiddenDiv('aggregateRating', singleRating, k);
   }
