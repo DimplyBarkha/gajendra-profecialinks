@@ -57,6 +57,8 @@ module.exports = {
     let enhancedContent = '';
     let aplusImages = '';
     let videos = '';
+    let inTheBoxImage = '';
+    let inTheBoxText = '';
 
     await waitForIframeDiv(iframeIdCSS);
     // get iframge link src
@@ -104,7 +106,7 @@ module.exports = {
     if (src) {
       try {
         await context.goto(src, { timeout: 300000, waitUntil: 'load', checkBlocked: true });
-        await context.waitForSelector('div.wrapper.preview');
+        await context.waitForSelector('div.wrapper.preview',{ timeout: 100000 });
         enhancedContent = await context.evaluate(async function () {
           let enhancedContent = '';
           if (document.querySelectorAll('div.pic-text')) {
@@ -142,6 +144,30 @@ module.exports = {
           }
           return aplusImages;
         });
+        inTheBoxImage = await context.evaluate(async function () {
+          let inTheBoxImage = '';
+          if (document.querySelectorAll('div.in-the-box img[src]')) {
+            const allInTheBoxImage = document.querySelectorAll('div.in-the-box img[src]');
+            for (let i = 0; i < allInTheBoxImage.length; i++) {
+              if (allInTheBoxImage[i].hasAttribute('src')) {
+                inTheBoxImage += allInTheBoxImage[i].getAttribute('src') + ' || ';
+              }
+            }
+          }
+          return inTheBoxImage;
+        });
+
+        inTheBoxText = await context.evaluate(async function () {
+          let inTheBoxText = '';
+          if (document.querySelectorAll('div.in-the-box p')) {
+            const allInTheBoxText = document.querySelectorAll('div.in-the-box p');
+            for (let i = 0; i < allInTheBoxText.length; i++) {
+                inTheBoxText += allInTheBoxText[i].innerText + ' || ';
+            }
+          }
+          return inTheBoxText;
+        });
+
         videos = await context.evaluate(async function () {
           let videos = '';
           if (document.querySelector('div[class="header-content desktop"] div[class="play-btn centered desktop"]')) {
@@ -156,7 +182,7 @@ module.exports = {
 
     // checking if page already navigated to src/iframe url, if not no need to reload/naviagate
     if (src) await context.goto(prodUrl, { timeout: 300000, waitUntil: 'load', checkBlocked: true });
-    await context.evaluate(async function (enhancedContent, aplusImages, videos) {
+    await context.evaluate(async function (enhancedContent, aplusImages, videos,inTheBoxImage,inTheBoxText) {
       function addElementToDocument (key, value) {
         const catElement = document.createElement('div');
         catElement.id = key;
@@ -166,8 +192,13 @@ module.exports = {
       }
       addElementToDocument('enhancedContent', enhancedContent);
       addElementToDocument('aplusImages', aplusImages);
+      addElementToDocument('inTheBoxImage',inTheBoxImage);
+      addElementToDocument('inTheBoxText', inTheBoxText);
       addElementToDocument('videos', videos);
-    }, enhancedContent, aplusImages, videos);
+
+
+
+    }, enhancedContent, aplusImages, videos,inTheBoxImage,inTheBoxText);
 
     // videos and src
     const video = '';
