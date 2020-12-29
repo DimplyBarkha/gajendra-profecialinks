@@ -93,4 +93,6 @@ fields:
     #videos_t_mv=["https:\u002F\u002Fwww.youtube.com\u002Fembed\u002FFyNenbFDccc"];
     regExp: videos_t_mv=(\[.+?\])
     regExpReplace: $1
-
+  - name: unInterruptedPDP
+    singleValue: false
+    xpath: //div[@id='scarab-nuxt-recommendations']//div[@class='product-info']//div[@class='product__heading__title']
