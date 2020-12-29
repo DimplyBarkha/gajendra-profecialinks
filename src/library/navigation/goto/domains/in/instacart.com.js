@@ -1,4 +1,3 @@
-
 module.exports = {
   implements: 'navigation/goto',
   parameterValues: {
@@ -8,89 +7,37 @@ module.exports = {
     store: 'instacart_publix',
     zipcode: null,
   },
-  implementation: async (
-    { url },
-    parameters,
-    context,
-    dependencies,
-  ) => {
+  implementation: async ({ url, zipcode }, parameters, context, dependencies) => {
     const timeout = parameters.timeout ? parameters.timeout : 10000;
-    await context.setBlockAds(false);
-    await context.setLoadAllResources(true);
-    await context.setLoadImages(true);
-    await context.setJavaScriptEnabled(true);
-    await context.setAntiFingerprint(false);
-    await context.setUseRelayProxy(false);
-    const responseStatus = await context.goto(url, {
-      firstRequestTimeout: 60000,
-      timeout: timeout,
-      waitUntil: 'load',
-      checkBlocked: false,
-      antiCaptchaOptions: {
-        type: 'RECAPTCHA',
-      },
-    });
-    console.log('Status :', responseStatus.status);
-    console.log('URL :', responseStatus.url);
-    const captchaFrame = "iframe[_src*='captcha']:not([title]), iframe[src*='captcha']:not([title])";
-    const maxRetries = 3;
-    let numberOfCaptchas = 0;
-
+    url = 'https://www.instacart.com/store/walmart/search_v3/';
+    context.goto(url, { first_request_timeout: 60000, timeout, waitUntil: 'load', checkBlocked: true });
+    var wantedZip = '33770';
+    const storeSelection = async () => {
+      await context.evaluate(function () {
+        console.log('my store');
+        const mystore = document.querySelector('.rmq-92e48e80:nth-child(1) .rmq-d9beaa7b');
+        if (mystore) mystore.click();
+      });
+    };
     try {
-      await context.waitForSelector(captchaFrame);
-    } catch (e) {
-      console.log("Didn't find Captcha.");
-    }
-    const checkExistance = async (selector) => {
-      return await context.evaluate(async (captchaSelector) => {
-        return Boolean(document.querySelector(captchaSelector));
-      }, selector);
-    };
-    const checkRedirection = async () => {
-      try {
-        await context.waitForSelector('#rc-imageselect', { timeout });
-        console.log('Redirected to another page.');
-        return true;
-      } catch (e) {
-        console.log('Redirection did not happen.');
-        return false;
-      }
-    };
-    let isCaptchaFramePresent = await checkExistance(captchaFrame);
-    console.log('isCaptcha:' + isCaptchaFramePresent);
-    while (isCaptchaFramePresent && numberOfCaptchas < maxRetries) {
-      console.log('isCaptcha', true);
-      ++numberOfCaptchas;
-      await context.waitForNavigation({ timeout });
-      try {
-        console.log(`Trying to solve captcha - count [${numberOfCaptchas}]`);
-        // @ts-ignore
-        // eslint-disable-next-line no-undef
-        await context.evaluateInFrame('iframe', () => grecaptcha.execute());
-        console.log('solved captcha, waiting for page change');
-        await context.waitForNavigation({ timeout });
-        const redirectionSuccess = await checkRedirection();
-        if (redirectionSuccess) {
-          await context.evaluate((url) => {
-            window.location.href = url;
-          }, url);
-          await context.waitForNavigation({ timeout, waitUntil: 'networkidle0' });
-          break;
-        } else {
-          await context.evaluate((url) => {
-            // eslint-disable-next-line no-unused-expressions
-            window.location.reload;
-          });
-          await context.waitForNavigation({ timeout, waitUntil: 'networkidle0' });
-        }
-        isCaptchaFramePresent = await checkExistance(captchaFrame);
-      } catch (e) {
-        console.log('Captcha did not load');
-      }
-    }
-    isCaptchaFramePresent = await checkExistance(captchaFrame);
-    if (isCaptchaFramePresent) {
-      throw new Error('Failed to solve captcha');
+      await context.waitForSelector('button[class="rmq-ffabcfb8"]');
+      await new Promise((resolve, reject) => setTimeout(resolve, 6000));
+      await context.click('button[class="rmq-ffabcfb8"]');
+      await new Promise((resolve, reject) => setTimeout(resolve, 6000));
+      console.log('button clicked');
+      await context.setInputValue("span[class='rmq-db5b060a']", wantedZip);
+      await new Promise((resolve, reject) => setTimeout(resolve, 6000));
+      console.log('input value is set');
+      await context.click('button div+ div');
+      await context.waitForSelector('.ReactModal__Content--after-open');
+      await context.click('.ReactModalPortal>div>div>button');
+      // await new Promise((resolve, reject) => setTimeout(resolve, 6000));
+      // await context.click('div+ button');
+      await new Promise((resolve, reject) => setTimeout(resolve, 6000));
+      await storeSelection();
+      await new Promise((resolve, reject) => setTimeout(resolve, 8000));
+    } catch (error) {
+      console.log('Element not visible');
     }
   },
 };

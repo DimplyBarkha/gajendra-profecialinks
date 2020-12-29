@@ -7,7 +7,7 @@ module.exports = {
     nextLinkSelector: null,
     mutationSelector: null,
     spinnerSelector: null,
-    loadedSelector: '#react-views-container > div > div > div > div:nth-child(1) > div > div > div > div',
+    loadedSelector: 'body',
     noResultsXPath: null,
     // openSearchDefinition: {
     //   offset: 50,
