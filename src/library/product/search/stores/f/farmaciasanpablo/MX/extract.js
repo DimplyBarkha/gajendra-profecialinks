@@ -26,7 +26,7 @@ async function implementation (inputs, parameters, context, dependencies) {
   });
 
   await context.evaluate(() => {
-    function stall(ms) {
+    function stall (ms) {
       return new Promise((resolve, reject) => {
         setTimeout(() => {
           resolve();
@@ -42,6 +42,10 @@ async function implementation (inputs, parameters, context, dependencies) {
       productUrl[i].setAttribute('url', productUrl[i].href);
       priceSelector[i].setAttribute('price', price);
     }
+
+    const searchUrl = window.location.href;
+
+    document.querySelector('body').setAttribute('url', searchUrl);
 
     stall(3000);
   });
