@@ -123,8 +123,17 @@ fields:
   - name: packSize
     description: null
     xpath: //div[@id='ii_packSize']
+  - name: inTheBoxUrl
+    singleValue: false
+    xpath: //div[starts-with(@id,"inTheBoxUrl-")]
+    regExp: (.+)
+    regExpReplace: https://media.flixfacts.com/eyekandy/dyson/v11/it/$1
+  - name: inTheBoxText
+    singleValue: false
+    xpath: //div[starts-with(@id,"inTheBoxText-")]
   - name: unInterruptedPDP
     xpath: //section[@class="scheda-prodotto__correlati"]//div[contains(@class,'slider-prodotti__slide slick-slide')]
   - name: hasComparisonTable
-    defaultValue: No
+    singleValue: false
+    xpath: boolean(//div[@class="inpage_selector_comparison"])
     
