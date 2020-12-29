@@ -13,7 +13,7 @@ fields:
     xpath: //div[@id="product-results"]//div[contains(@class,"product-card")]//div[contains(@class,"product-card__details")]//div[@class="product-card__title"]//h3[contains(@class,"text-color--link")]
   - name: price
     xpath: //strong[@class="sales-price__current"]
-    regExp: (\d+[\,\.]?\d+)|(\d+)
+    regExp: ((\d+\,\d+)|(\d+\.\d+)|(\d+))
     regExpReplace: $1
   - name: rank
   - name: rankOrganic
