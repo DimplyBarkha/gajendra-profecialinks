@@ -4,7 +4,7 @@ module.exports = {
   parameterValues: {
     country: 'PL',
     store: 'euro',
-    nextLinkSelector: 'a.paging-next.selenium-WC-paging-next-button',
+    nextLinkSelector: 'span[class*=paging-active]+a[class*=paging-number]',
     //nextLinkXPath:'//a[contains(@class,"selenium-WC-paging-next-button")]/@href', //'//a[contains(@class,"paging-next")]/@href',
     // mutationSelector: null,
     // spinnerSelector: 'div.search div.select3-selected-ietm',
