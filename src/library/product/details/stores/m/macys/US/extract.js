@@ -74,6 +74,13 @@ module.exports = {
       }
     });
 
+    await context.evaluate(async function () {
+      let iframe = document.querySelector("#syndi_powerpage > div");
+      if(iframe) {
+        document.body.setAttribute('enhancedcontent', 'True' );
+      }
+    });
+
     const { transform } = parameters;
     const { productDetails } = dependencies;
     await context.extract(productDetails, { transform });
