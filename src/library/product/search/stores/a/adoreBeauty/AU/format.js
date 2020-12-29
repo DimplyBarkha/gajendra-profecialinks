@@ -44,17 +44,17 @@ const transform = (data) => {
           }
         });
       }
-      if (row.id) {
-        row.id.forEach(item => {
-          var myRegexp = /.+?\/(.+?).html/g;
-          var match = myRegexp.exec(item.text);
-          if (match) {
-            item.text = match[1].trim();
-          } else {
-            delete row.id;
-          }
-        });
-      }
+      // if (row.id) {
+      //   row.id.forEach(item => {
+      //     var myRegexp = /.+?\/(.+?).html/g;
+      //     var match = myRegexp.exec(item.text);
+      //     if (match) {
+      //       item.text = match[1].trim();
+      //     } else {
+      //       delete row.id;
+      //     }
+      //   });
+      // }
       row.rank = row.rankOrganic = [{ text: rank }];
       rank++;
     }
