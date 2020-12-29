@@ -119,11 +119,11 @@ async function implementation (inputs, parameters, context, dependencies) {
       return quantitySelector ? quantitySelector.innerText : '';
     });
     calciumPerServing = await context.evaluate(() => {
-      const calciumPerServingSelector = document.evaluate('(//div[contains(@class,"value-left")]//span[contains(text(),"Calcium")]/following-sibling::span[contains(@class,"val-nbr")])[1]', document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
+      const calciumPerServingSelector = document.evaluate('(//span[contains(text(),"Calcium")]/following-sibling::span[contains(@class,"val-nbr")])[1]', document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
       return calciumPerServingSelector ? calciumPerServingSelector.innerText : '';
     });
     SodiumPerServing = await context.evaluate(() => {
-      const SodiumPerServingSelector = document.evaluate('(//div[contains(@class,"value-left")]//span[contains(text(),"Sodium")]/following-sibling::span[contains(@class,"val-nbr")])[1]', document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
+      const SodiumPerServingSelector = document.evaluate('(//span[contains(text(),"Sodium")]/following-sibling::span[contains(@class,"val-nbr")])[1]', document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
       return SodiumPerServingSelector ? SodiumPerServingSelector.innerText : '';
     });
     magnesiumPerServing = await context.evaluate(() => {

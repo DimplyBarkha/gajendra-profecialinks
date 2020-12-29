@@ -41,8 +41,8 @@ fields:
       there is no availability but the product can be added to cart, this field
       should be "In Stock"
     regExp: (.+)
-    regExpReplace: In Stock
-    defaultValue: Out of Stock
+    regExpReplace: In stock
+    defaultValue: Out Of stock
   - name: description
     singleValue: false
     xpath: concat(//p[contains(@class,"product__details")],' ',//div[contains(@class,"product__info")]//a)

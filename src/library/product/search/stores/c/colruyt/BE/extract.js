@@ -7,15 +7,30 @@ async function implementation (
 ) {
   const { transform } = parameters;
   const { productDetails } = dependencies;
+  await context.evaluate(async function () {
+    let scrollTop = 0;
+    while (scrollTop <= 20000) {
+      await stall(500);
+      scrollTop += 1000;
+      window.scroll(0, scrollTop);
+      if (scrollTop === 20000) {
+        await stall(8000);
+        break;
+      }
+    }
+    function stall (ms) {
+      return new Promise(resolve => {
+        setTimeout(() => {
+          resolve();
+        }, ms);
+      });
+    }
+  });
   await context.evaluate(async function (results) {
-    await new Promise(resolve => setTimeout(resolve, 2814));
-    const element = document.querySelector('div[class*="footer__logo"]');
-    if (element) {
-      while (true) {
-        const productsCount = document.querySelectorAll('div[class*="product products__item _bArticle _pArticle"]');
-        if (productsCount && productsCount.length > results) {
-          break;
-        }
+    const productsCount = document.querySelectorAll('div[class*="product products__item"][data-productskuid]');
+    for (let i = 0; i < Number(results); i++) {
+      if (productsCount) {
+        productsCount[i] && productsCount[i].setAttribute("class", "product products__item bArticle pArticle fetch");
       }
     }
   }, results);
