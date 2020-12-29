@@ -21,9 +21,8 @@ fields:
   - name: aggregateRating
     singleValue: false
   - name: aggregateRating2
+    type: STRING
     xpath: //@product-tile-aggRating
-    regExp: (\d+)\.?,?(\d+)?
-    regExpReplace: $1,$2
     singleValue: false
   - name: reviewCount
     singleValue: false
