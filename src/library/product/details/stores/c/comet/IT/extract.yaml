@@ -125,12 +125,10 @@ fields:
     xpath: //div[@id='ii_packSize']
   - name: inTheBoxUrl
     singleValue: false
-    xpath: //div[starts-with(@id,"inTheBoxUrl-")]
-    regExp: (.+)
-    regExpReplace: https://media.flixfacts.com/eyekandy/dyson/v11/it/$1
+    xpath: //div[contains(@class, "InTheBox")]//img/@data-flixsrcset|//div[starts-with(@id,"inTheBoxUrl-")]
   - name: inTheBoxText
     singleValue: false
-    xpath: //div[starts-with(@id,"inTheBoxText-")]
+    xpath: ///div[contains(@class,"InTheBox")]//div[contains(@class,"flix-std-content")]|//div[starts-with(@id,"inTheBoxText-")]
   - name: unInterruptedPDP
     xpath: //section[@class="scheda-prodotto__correlati"]//div[contains(@class,'slider-prodotti__slide slick-slide')]
   - name: hasComparisonTable
