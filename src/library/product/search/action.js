@@ -72,7 +72,7 @@ module.exports = {
       return;
     }
 
-    let page = 2;
+    let page = 1;
     while (collected < results && await paginate({ keywords, page, offset: collected })) {
       const data = await extract({});
       const count = length(data);
