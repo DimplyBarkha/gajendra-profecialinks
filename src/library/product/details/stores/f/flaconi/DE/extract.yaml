@@ -66,10 +66,12 @@ fields:
     xpath: //div[contains(@class,"lazyYoutube")]/a/@href 
   - name: quantity
     singleValue: false
-    xpath: concat(//span[@class="amount"] , //span[@class="unit"])
+    xpath: //div[contains(@class, "yotpo-main-widget")]/@data-name|//li[@class="product-container variant selected"]/@data-name
+    regExp: (?:\s?([\d\.]+\s{1}?)([gG]|[bB]ar[s]?|[cC]ount|[cC]t|[fF][lL][\.]?\s?[oO][zZ][\.]?|FO|[mM][lL]|[oO][zZ][\.]?|pc|[pP]int|[pP]ops|qt|[wW]ipe[s]?).?)$|(?:\s?([\d\.]+\s?)([gG]|[bB]ar[s]?|[cC]ount|[cC]|[fF][lL][\.]?\s?[oO][zZ][\.]?|FO|[mM][lL]|[oO][zZ][\.]?|pc|[pP]int|[pP]ops|qt|[wW]ipe[s]?).?\s)
+    regExpReplace: $1$2$3$4
   - name: weightNet
     singleValue: false
-    xpath: concat(//div[@class="size-box"]/span[@class="amount"],' ',//div[@class="size-box"]/span[@class="unit"])
+    xpath: concat(//li[contains(@class, "product-container variant active") or contains(@class, "product-container variant selected")]//div[@class="size-box"]/span[@class="amount"],' ',//div[@class="size-box"]/span[@class="unit"])
   # - name: weightGross
   #   singleValue: false
   # - name: productOtherInformation
