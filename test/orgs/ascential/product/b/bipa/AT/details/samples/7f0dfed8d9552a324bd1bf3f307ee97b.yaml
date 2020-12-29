@@ -2,12 +2,12 @@ input:
   id: 307335
   _url: http://bipa.at
 extractions:
-  - html: https://workbench.import.io/html/run=d05ee2c0-1af6-4e2d-911b-5cbe34041b20/task=6e51ff83-ba56-4ad0-8fb7-a70996f05c27/e954a118-0289-4e80-bbd7-fc3679d085cb.html
+  - html: https://workbench.import.io/html/run=607e408c-02a1-460f-9d25-c132293e5b0f/task=f0406fa3-807e-4900-a585-a105a9f4c5f9/78ff9cba-c171-4e72-b471-75f2773ff795.html
     extractionConfigId: product/details/stores/b/bipa/AT/extract
     data:
       - group:
           - image:
-              - text: https://www.bipa.at/dw/image/v2/AAFT_PRD/on/demandware.static/-/Sites-catalog/de_AT/v1603432533316/original/307335.png?sw=450&sfrm=png
+              - text: https://www.bipa.at/dw/image/v2/AAFT_PRD/on/demandware.static/-/Sites-catalog/de_AT/v1609224855647/original/307335.png?sw=450&sfrm=png
                 xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/img[1]/@src
             imageAlt:
               - text: HiPP Zauberriegel Traube Banane
@@ -22,12 +22,25 @@ extractions:
               - text: Snacks
                 xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/ol[1]/li[4]/a[1]/text()[1]
             nameExtended:
-              - text: "HiPP Zauberriegel Traube Banane günstig online kaufen. "
-                xpath: /html/head[1]/title[1]
+              - text: HiPP Zauberriegel Traube Banane
+                xpath: /html/head[1]/meta[10]/@content
+            listPrice:
+              - text: 0,99
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/form[1]/div[2]/div[2]/div[1]/div[1]/div[2]/div[2]/span[1]/text()[1]
             availabilityText:
               - text: In Stock
                 xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/form[1]/div[2]/div[1]/div[1]/div[1]/span[1]/text()[1]
             description:
+              - text: hochwertiger Bio-Früchte-Riegel
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[4]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[1]/text()[1]
+              - text: einzigartiger Traube-Bananengeschmack
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[4]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[2]/text()[1]
+              - text: mit köstlichen Knusperecken
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[4]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[3]/text()[1]
+              - text: ohne Zusatz von Zucker und Aromen
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[4]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[4]/text()[1]
+              - text: ideal für zwischendurch und unterwegs
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[4]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[5]/text()[1]
               - text: Der köstliche Zauberriegel Traube Banane von Hipp schmeckt nicht nur
                   hervorragend, sondern wurde auch ohne Zusatz von Zucker und
                   Aromen entwickelt. Dieser ausgezeichnete Bio-Früchte-Riegel
@@ -37,9 +50,6 @@ extractions:
                   für unterwegs.
                 xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[4]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/p[1]/text()[1]
             brandText:
-              - text: HiPP
-                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/a[1]/text()[1]
-            manufacturer:
               - text: HiPP
                 xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/a[1]/text()[1]
             quantity:
@@ -52,25 +62,20 @@ extractions:
               - text: "Bruttogewicht: 31 Gramm"
                 xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[4]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[11]/text()[1]
             sku:
-              - text: "#307335"
-                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/form[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/text()[1]
+              - text: B3-307335
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[5]/div[1]/div[2]/div[1]/div[1]/@data-product-id
+            variantId:
+              - text: B3-307335
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[5]/div[1]/div[2]/div[1]/div[1]/@data-product-id
+            mpc:
+              - text: "4062300346314"
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/script[1]
             ratingCount:
               - text: "1"
                 xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/dl[1]/dd[2]/span[1]/span[1]/span[1]/text()[1]
-                type: NUMBER
-                raw: "1"
-                locale: de_AT
-                value: 1
-            aggregateRatingText:
-              - text: "5.0"
-                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/dl[1]/dd[1]/div[1]/a[1]/span[1]/text()[1]
             aggregateRating:
-              - text: "50"
+              - text: 5,0
                 xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/dl[1]/dd[1]/div[1]/a[1]/span[1]/text()[1]
-                type: NUMBER
-                raw: "5.0"
-                locale: de_AT
-                value: 50
             name:
               - text: Zauberriegel Traube Banane
                 xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/h1[1]/text()[1]
@@ -166,7 +171,7 @@ extractions:
                   Erzeugnisse
                 xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[4]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[8]/div[2]/text()[2]
             pricePerUnit:
-              - text: 1 kg 33.00
+              - text: 1 kg 24.67
                 xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/form[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[2]/text()[1]
             pricePerUnitUom:
               - text: kg
@@ -196,7 +201,7 @@ extractions:
             Image360Present:
               - text: No
             price:
-              - text: "0.99"
+              - text: 0,74
             descriptionBullets:
               - text: "5"
                 type: NUMBER
@@ -210,4 +215,4 @@ extractions:
                 locale: de_AT
                 value: 0
         xpath: /
-    timestamp: 1603437461738
+    timestamp: 1609242799220

@@ -2,12 +2,12 @@ input:
   id: 372703
   _url: http://bipa.at
 extractions:
-  - html: https://workbench.import.io/html/run=9a35b845-29c4-4577-85c3-d3c00b33a35b/task=b43f2dc5-ddcb-42fc-beeb-245ac0224941/9726be65-9222-42bc-9ddf-e4815445c59e.html
+  - html: https://workbench.import.io/html/run=607e408c-02a1-460f-9d25-c132293e5b0f/task=4f59c21a-fbf4-4fac-b238-42046a23b790/04259ac1-6c57-409b-91d6-a3ac1e6bcfb7.html
     extractionConfigId: product/details/stores/b/bipa/AT/extract
     data:
       - group:
           - image:
-              - text: https://www.bipa.at/dw/image/v2/AAFT_PRD/on/demandware.static/-/Sites-catalog/de_AT/v1607669660668/original/372703.png?sw=450&sfrm=png
+              - text: https://www.bipa.at/dw/image/v2/AAFT_PRD/on/demandware.static/-/Sites-catalog/de_AT/v1609224855647/original/372703.png?sw=450&sfrm=png
                 xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/img[1]/@src
             imageAlt:
               - text: Fa Kahuna Duschgel
@@ -22,12 +22,23 @@ extractions:
               - text: Duschgel & Duschseife
                 xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/ol[1]/li[4]/a[1]/text()[1]
             nameExtended:
-              - text: "Fa Kahuna Duschgel günstig online bestellen. "
-                xpath: /html/head[1]/title[1]
+              - text: Fa Kahuna Duschgel
+                xpath: /html/head[1]/meta[10]/@content
             availabilityText:
               - text: In Stock
                 xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/form[1]/div[2]/div[1]/div[1]/div[1]/span[1]/text()[1]
             description:
+              - text: Mit purem Kukuinuss-Öl
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[4]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[1]/text()[1]
+              - text: Mit Hibiskusblüten-Duft
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[4]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[2]/text()[1]
+              - text: Leichte und pflegende Formel mit purem Öl
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[4]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[3]/text()[1]
+              - text: Verleiht dir ein zartes Hautgefühl, ganz ohne ölige Rückstände zu
+                  hinterlassen
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[4]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[4]/text()[1]
+              - text: pH-hautneutral & dermatologisch getestet, vegane Formel
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[4]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[5]/text()[1]
               - text: Kahuna ist ein besonders entspannendes Massage-Ritual aus Polynesien.
                   Entdecke den Zauber dieser geheimnisvollen Pflege nun auch
                   unter der Dusche. Mit purem Kukuinuss-Öl und
@@ -37,9 +48,6 @@ extractions:
                   Hautgefühl, ganz ohne ölige Rückstände zu hinterlassen.
                 xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[4]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/p[1]/text()[1]
             brandText:
-              - text: Fa
-                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/a[1]/text()[1]
-            manufacturer:
               - text: Fa
                 xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/a[1]/text()[1]
             quantity:
@@ -60,13 +68,19 @@ extractions:
               - text: "Biozid:"
                 xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[4]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/text()[1]
             sku:
-              - text: "#372703"
-                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/form[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/text()[1]
+              - text: B3-372703
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[5]/div[1]/div[2]/div[1]/div[1]/@data-product-id
+            variantId:
+              - text: B3-372703
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[5]/div[1]/div[2]/div[1]/div[1]/@data-product-id
+            mpc:
+              - text: "4015100305913"
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/script[1]
             name:
               - text: Kahuna Duschgel
                 xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/h1[1]/text()[1]
             pricePerUnit:
-              - text: 100 ml 0.52
+              - text: 100 ml 0.46
                 xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/form[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[2]/text()[1]
             pricePerUnitUom:
               - text: ml
@@ -97,7 +111,7 @@ extractions:
             Image360Present:
               - text: No
             price:
-              - text: 1,29
+              - text: 1,15
             descriptionBullets:
               - text: "5"
                 type: NUMBER
@@ -111,4 +125,4 @@ extractions:
                 locale: de_AT
                 value: 0
         xpath: /
-    timestamp: 1607676550857
+    timestamp: 1609242800098

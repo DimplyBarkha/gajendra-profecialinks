@@ -2,12 +2,12 @@ input:
   id: 284601
   _url: http://bipa.at
 extractions:
-  - html: https://workbench.import.io/html/run=9a35b845-29c4-4577-85c3-d3c00b33a35b/task=f6bf32f4-efbc-4dd2-9ffe-8273faaf1708/fdd26e4d-3289-4cdb-a379-cbf504505dd2.html
+  - html: https://workbench.import.io/html/run=607e408c-02a1-460f-9d25-c132293e5b0f/task=0658bcf8-f870-485c-9d2b-a96f0492eaeb/5d06edbf-6feb-4bd4-82ed-2b48683bd198.html
     extractionConfigId: product/details/stores/b/bipa/AT/extract
     data:
       - group:
           - image:
-              - text: https://www.bipa.at/dw/image/v2/AAFT_PRD/on/demandware.static/-/Sites-catalog/de_AT/v1607669660668/original/284601.png?sw=450&sfrm=png
+              - text: https://www.bipa.at/dw/image/v2/AAFT_PRD/on/demandware.static/-/Sites-catalog/de_AT/v1609224855647/original/284601.png?sw=450&sfrm=png
                 xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/img[1]/@src
             imageAlt:
               - text: B. Braun Promanum® pure Händedesinfektionsmittel
@@ -22,10 +22,22 @@ extractions:
               - text: Desinfektion
                 xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/ol[1]/li[4]/a[1]/text()[1]
             nameExtended:
-              - text: "B. Braun Promanum® pure Händedesinfektionsmittel günstig online
-                  bestellen. "
-                xpath: /html/head[1]/title[1]
+              - text: B. Braun Promanum® pure Händedesinfektionsmittel
+                xpath: /html/head[1]/meta[10]/@content
             description:
+              - text: 100ml
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[4]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[1]/text()[1]
+              - text: basierend auf einer Wirkstoffkombination aus Alkoholen
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[4]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[2]/text()[1]
+              - text: wirksam gegen Bakterien (inkl. MRSA), Pilze und viele Viren (inkl.
+                  Influenza-, Rota und Noroviren)
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[4]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[3]/text()[1]
+              - text: sehr hautverträglich & dermatologisch getestet
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[4]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[4]/text()[1]
+              - text: nur 15 Sekunden Einwirkzeit
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[4]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[5]/text()[1]
+              - text: rückfettendes Händedesinfektionsmittel
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[4]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[6]/text()[1]
               - text: Das hochwertige
                 xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[4]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/p[1]/text()[1]
               - text: kombiniert Hautpflege und effektive Desinfektion in einem Produkt.
@@ -39,9 +51,6 @@ extractions:
             brandText:
               - text: B. Braun
                 xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/a[1]/text()[1]
-            manufacturer:
-              - text: B. Braun
-                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/a[1]/text()[1]
             quantity:
               - text: 100 ml
                 xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[2]/text()[1]
@@ -52,8 +61,14 @@ extractions:
               - text: "Bruttogewicht: 109 Gramm"
                 xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[4]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[4]/text()[1]
             sku:
-              - text: "#284601"
-                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/form[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/text()[1]
+              - text: B3-284601
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[5]/div[1]/div[2]/div[1]/div[1]/@data-product-id
+            variantId:
+              - text: B3-284601
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[5]/div[1]/div[2]/div[1]/div[1]/@data-product-id
+            mpc:
+              - text: "7612449122750"
+                xpath: /html/body/div[1]/div[3]/div[1]/div[1]/script[1]
             warnings:
               - text: Biozide sicher verwenden. Vor Gebrauch stets Kennzeichnung und
                   Produktinformation lesen.
@@ -117,4 +132,4 @@ extractions:
                 locale: de_AT
                 value: 0
         xpath: /
-    timestamp: 1607676548149
+    timestamp: 1609242796719
