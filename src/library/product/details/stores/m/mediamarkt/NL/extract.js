@@ -66,27 +66,27 @@ module.exports = {
         specificationsItems.forEach((item, index) => {
           // Getting weight
           if (item && item.innerText === 'Gewicht:') {
-            weight = specificationsItems[index] && specificationsItems[index + 1].innerText;
+            weight = specificationsItems[index + 1] && specificationsItems[index + 1].innerText;
           }
           // Getting color
           if (item && item.innerText === 'Kleur:') {
-            color = specificationsItems[index] && specificationsItems[index + 1].innerText;
+            color = specificationsItems[index + 1] && specificationsItems[index + 1].innerText;
           }
           // Getting warranty
           if (item && item.innerText === 'Fabrieksgarantie:') {
-            warranty = specificationsItems[index] && specificationsItems[index + 1].innerText;
+            warranty = specificationsItems[index + 1] && specificationsItems[index + 1].innerText;
           }
           // Getting mpc
           if (item && item.innerText === 'Manufacturer Part Number (MPN):' || item.innerText.includes('Modelnaam')) {
-            mpc = specificationsItems[index] && specificationsItems[index + 1].innerText;
+            mpc = specificationsItems[index + 1] && specificationsItems[index + 1].innerText;
           }
           // Getting energy
           if (item && item.innerText === 'Energie-efficiëntieklasse:') {
-            energy = specificationsItems[index] && specificationsItems[index + 1].innerText;
+            energy = specificationsItems[index + 1] && specificationsItems[index + 1].innerText;
           }
           // Getting shipping dimensions
-          if (item && item.innerText.includes('Verpakkingsvolume') || item.innerText.includes('Afmetingen')) {
-            shippingDimensions = specificationsItems[index] && specificationsItems[index + 1].innerText;
+          if (item && item.innerText.includes('Verpakkingsvolume') || item && item.innerText.includes('Afmetingen')) {
+            shippingDimensions = specificationsItems[index + 1] && specificationsItems[index + 1].innerText;
           }
         });
       });
