@@ -1,27 +1,27 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: //div[@class="AdvertResults"]//div[@class="AdvertTilesContainer-inner"]/div[contains(@class,"AdvertTile")]
+recordXPath: //div[contains(@id,"advert_")]
 fields:
   - name: productUrl
-    xpath: //a[contains(@class,"AdvertTile-imageBoxContainer")]/@href
+    xpath: ./a/@href
     regExp: (.+)
     regExpReplace: https://www.shopmylocal.com.au$1
   - name: thumbnail
-    xpath: //a[contains(@class,"AdvertTile-imageBoxContainer")]/div[contains(@class,"AdvertTile-imageBox")]/@style
+    xpath: ./a/div[contains(@style,"image")]/@style
     regExp: url\((.+)\)
     regExpReplace: $1
   - name: name
-    xpath: //div[@class="AdvertTile-priceTitleLogo"]//a[@class="AdvertTile-title"]
+    xpath: .//a[contains(@class, "AdvertTile-title")]
   - name: price
-    xpath: //div[@class="AdvertTile-priceTitleLogo"]/div[@class="AdvertTile-price"]/span[1]
+    xpath: .//div[@class="AdvertTile-priceTitleLogo"]/div[@class="AdvertTile-price"]/span[1]
     regExp: (\d+.\d+|\d+)
     regExpReplace: $1
   - name: soldBy
-    xpath: //div[@class="AdvertTile-content"]/div[@class="AdvertTile-seller"]/a
+    xpath: .//div[@class="AdvertTile-content"]/div[@class="AdvertTile-seller"]/a
   - name: rank
   - name: rankOrganic
   - name: id
-    xpath: //div[@data-react-class="LegacyAddToWishlistButton"]/@data-react-props
+    xpath: .//div[@data-react-class="LegacyAddToWishlistButton"]/@data-react-props
     regExp: (\d+)
     regExpReplace: $1
