@@ -2,7 +2,7 @@ singleRecord: true
 regionsSelector: null
 recordSelector: null
 recordXPath: null
-fields:  
+fields:
   - name: category
     singleValue: false
     xpath: //div//tm-breadcrumbs//ol//li[position()>1]//a
@@ -13,33 +13,33 @@ fields:
     singleValue: false
     xpath: //div[@class="tm-markdown"]
   - name: price
-    singleValue: false 
+    singleValue: false
     xpath: //tm-buy-now-box/tg-box2//p[contains(@class,"p-h1")]//strong
   - name: sku
-    singleValue: false 
-    xpath: //tm-potential-r18-content//tg-row//tg-col/div/small[1]    
+    singleValue: false
+    xpath: //tm-potential-r18-content//tg-row//tg-col/div/small[1]
   - name: variantId
-    singleValue: false 
-    xpath: //tm-potential-r18-content//tg-row//tg-col/div/small[1]  
+    singleValue: false
+    xpath: //tm-potential-r18-content//tg-row//tg-col/div/small[1]
   - name: image
-    singleValue: false 
+    singleValue: false
     xpath: //tg-image-viewer2/div/div/tg-image-viewer-item[1]/tg-aspect-ratio/@style
   - name: alternateImages
-    singleValue: false 
+    singleValue: false
     xpath: //tg-content-slider2-item[position()>1]/tg-aspect-ratio/@style
   - name: shippingInfo
-    singleValue: false 
-    xpath: //section[@class="member-summary-box"]  
+    singleValue: false
+    xpath: //section[@class="member-summary-box"]
   - name: brandText
-    singleValue: false 
+    singleValue: false
     xpath: //tg-col[@class="l-col"]//h1
   - name: ratingcount
-    singleValue: false 
+    singleValue: false
     xpath: //*[@id="comments-animation"]/ktr-product-comments/div/ng-transclude/div[1]/div[1]/font/font
     defaultValue: 0
   - name: availabilityText
     singleValue: false
-    xpath: //form[@class='ng-untouched ng-valid ng-dirty']//button[contains(text(),'Buy Now')]    
+    xpath: //form[@class='ng-untouched ng-valid ng-dirty']//button[contains(text(),'Buy Now')]
   - name: weightNet
     singleValue: false
     xpath: //tg-col[@id='tm-marketplace-listing-body-item-description']//ul[@class='o-list2 o-list2--bullet']//li[contains (text(), 'Weight:')]
@@ -48,10 +48,19 @@ fields:
     defaultValue: 0
   - name: specifications
     singleValue: false
-    xpath: //tg-col[@id='tm-marketplace-listing-body-item-description']//p[contains(text(),'Specifications')]//following-sibling::ul  
+    xpath: //tg-col[@id='tm-marketplace-listing-body-item-description']//p[contains(text(),'Specifications')]//following-sibling::ul
   - name: additionalDescBulletInfo
     singleValue: false
     xpath: //tg-col[@id='tm-marketplace-listing-body-item-description']//li
   - name: nameExtended
     singleValue: false
     xpath: //div//tg-row/tg-col//tm-buyer-options//h1
+  - name: unInterruptedPDP
+    singleValue: false
+    xpath: //div[contains(@class,'tm-marketplace-search-card__title')]
+    #xpath: //div[contains(@class,'o-content-slider2__list')]//a
+  - name: inTheBoxText
+    singleValue: false
+    description: Must include text to show the accessories/tools which come with the product
+    xpath: //div[contains(@class,'tm-markdown')]//p[contains(.,'Package includes:')] | //p[contains(text(),'Packag includes:')]//following-sibling::ul/li
+    #xpath: //div[contains(@class,'tm-markdown')]//p[contains(.,'Package includes:')] | //p[contains(text(),'Packag includes:')]//following-sibling::ul/li | //p[contains(text(),'What’s in the box')]//following-sibling::p | //p[contains(text(),'Package Contents:')]//following-sibling::p[1] | //p[contains(text(),'Package Included:')]//following-sibling::p

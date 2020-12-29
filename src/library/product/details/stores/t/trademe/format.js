@@ -112,6 +112,15 @@ const transform = (data) => {
           item.text = item.text.toString().slice(0, -3);
         });
       }
+      if(row.inTheBoxText){
+        row.inTheBoxText.forEach(item => {
+           item.text = item.text.replace('Package includes:', '').trim();
+           item.text = item.text.replace('Specifications:', '').trim();
+           //item.text = item.text.split(":", '');
+          // item.text = item.text.replace('Package includes:','').trim;
+          // item.text = item.text.replace("Package includes", '  ').trim();
+        });
+      }
     }
   }
   return cleanUp(data);
