@@ -46,7 +46,7 @@ fields:
   - name: manufacturerImages
     xpath: //a[@name='description']/following-sibling::div//img[contains(@class, 'lazyloaded')]/@data-src
   - name: manufacturerImages
-    xpath: //div[@class='description']//section[contains(@class, 'section')]//img/@srcset
+    xpath: //div[@class='description']//section[contains(@class, 'section')]//img/@srcset | //div[contains(@data-box-name,'Description')]//img/@srcset
     regExp: (.+),(.+)
     regExpReplace: $2
   - name: shippingInfo
