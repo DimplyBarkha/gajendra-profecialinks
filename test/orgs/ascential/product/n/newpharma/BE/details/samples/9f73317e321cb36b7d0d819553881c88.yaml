@@ -2,7 +2,7 @@ input:
   id: 101167
   _url: http://newpharma.be
 extractions:
-  - html: https://workbench.import.io/html/run=fa77063d-3c26-4e18-9728-cba3d070e881/task=09e0ac79-f326-49d9-8645-9ca4c829f3ca/7f36f3c9-592b-4ed4-8ff0-aea3c543cfb9.html
+  - html: https://workbench.import.io/html/run=40dab36b-9548-4d97-9749-0ee21573ccb3/task=e510b1f5-0bbb-453e-8ede-2dbb01e669de/b0089dae-74a6-475a-bbf8-a944af6c2e4b.html
     extractionConfigId: product/details/stores/n/newpharma/BE/extract
     data:
       - group:
@@ -39,7 +39,7 @@ extractions:
                 xpath: /html/body/div[7]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[2]/div[1]/div[2]
             availabilityText:
               - text: En stock !
-                xpath: /html/body/div[7]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[3]/div[1]/form[1]/div[1]/div[1]
+                xpath: /html/body/div[21]
             description:
               - text: Reproduit un bronzage naturel et uniforme dès 1h et hydrate la peau
                   pendant 8h.
@@ -144,8 +144,11 @@ extractions:
             pricePerUnitUom:
               - text: 100 ml
                 xpath: /html/body/div[20]
+            promotion:
+              - text: -12% Réduction online
+                xpath: /html/body/div[22]
             imageZoomFeaturePresent:
               - text: Yes
                 xpath: /html/body/div[7]/div[1]/div[1]/div[2]/div[1]/a[2]/@class
         xpath: /
-    timestamp: 1609162227259
+    timestamp: 1609232951351

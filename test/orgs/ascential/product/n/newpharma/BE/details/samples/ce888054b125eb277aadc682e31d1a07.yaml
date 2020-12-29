@@ -2,7 +2,7 @@ input:
   id: 512802
   _url: http://newpharma.be
 extractions:
-  - html: https://workbench.import.io/html/run=fa77063d-3c26-4e18-9728-cba3d070e881/task=ee7d564b-92d3-4d0a-ad17-9823470ce79b/bf1eb245-eefb-43c0-8a0d-f6a031aa1703.html
+  - html: https://workbench.import.io/html/run=40dab36b-9548-4d97-9749-0ee21573ccb3/task=ccfc2917-5059-4423-9cfa-0e6531e0196a/05d4be13-ccb1-4d70-a97f-792ee8270357.html
     extractionConfigId: product/details/stores/n/newpharma/BE/extract
     data:
       - group:
@@ -37,7 +37,7 @@ extractions:
                 xpath: /html/body/div[7]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[2]/div[1]/div[2]
             availabilityText:
               - text: En stock !
-                xpath: /html/body/div[7]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[3]/div[1]/form[1]/div[1]/div[1]
+                xpath: /html/body/div[19]
             description:
               - text: Offre une protection plus fine tout en garantissant la sécurité Tena
                   habituelle.
@@ -104,8 +104,11 @@ extractions:
             brandLink:
               - text: https://www.newpharma.be/pharmacie/brands/tena/01822.html
                 xpath: /html/body/div[14]
+            promotion:
+              - text: -34% Réduction online
+                xpath: /html/body/div[20]
             imageZoomFeaturePresent:
               - text: Yes
                 xpath: /html/body/div[7]/div[1]/div[1]/div[2]/div[1]/a[2]/@class
         xpath: /
-    timestamp: 1609162229197
+    timestamp: 1609232949486

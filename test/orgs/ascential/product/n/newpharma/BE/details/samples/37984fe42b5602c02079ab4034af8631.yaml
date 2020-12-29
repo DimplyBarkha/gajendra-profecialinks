@@ -2,7 +2,7 @@ input:
   id: 188302
   _url: http://newpharma.be
 extractions:
-  - html: https://workbench.import.io/html/run=fa77063d-3c26-4e18-9728-cba3d070e881/task=a78291bf-9c9e-44cc-acdc-ce10372f7a47/ea5cc208-53c0-4a5e-bf48-fd4b6aad08e5.html
+  - html: https://workbench.import.io/html/run=40dab36b-9548-4d97-9749-0ee21573ccb3/task=66c713e1-27b2-4728-98e9-67677d73c599/d4e327d4-53ad-4952-8305-f91b90839733.html
     extractionConfigId: product/details/stores/n/newpharma/BE/extract
     data:
       - group:
@@ -30,6 +30,9 @@ extractions:
             price:
               - text: 13,44
                 xpath: /html/body/div[6]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]
+            availabilityText:
+              - text: Produit temporairement indisponible
+                xpath: /html/body/div[18]
             brandText:
               - text: Gaviscon
                 xpath: /html/body/div[6]/div[1]/div[1]/div[1]/div[1]/a[1]
@@ -115,6 +118,7 @@ extractions:
               - text: https://www.newpharma.be/pharmacie/brands/gaviscon/04903.html
                 xpath: /html/body/div[13]
             imageZoomFeaturePresent:
-              - text: No
+              - text: Yes
+                xpath: /html/body/div[6]/div[1]/div[1]/div[2]/div[1]/div[1]/a[1]/@class
         xpath: /
-    timestamp: 1609162226124
+    timestamp: 1609232933891

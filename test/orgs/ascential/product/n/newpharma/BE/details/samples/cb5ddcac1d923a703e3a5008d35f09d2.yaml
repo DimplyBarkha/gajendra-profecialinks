@@ -2,7 +2,7 @@ input:
   id: 479422
   _url: http://newpharma.be
 extractions:
-  - html: https://workbench.import.io/html/run=fa77063d-3c26-4e18-9728-cba3d070e881/task=b5229a9d-ee45-4307-858a-9054c48d7356/ab5f5103-f4b8-4331-a6e0-5aacb5235385.html
+  - html: https://workbench.import.io/html/run=40dab36b-9548-4d97-9749-0ee21573ccb3/task=f372eeea-e96f-467a-9485-063ea4c8adc6/92d9a0e9-830f-4702-8e3c-b981ba2c77f6.html
     extractionConfigId: product/details/stores/n/newpharma/BE/extract
     data:
       - group:
@@ -31,11 +31,11 @@ extractions:
               - text: 31,76
                 xpath: /html/body/div[7]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]
             price:
-              - text: 23,09
+              - text: 22,39
                 xpath: /html/body/div[7]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[2]/div[1]/div[2]
             availabilityText:
               - text: En stock !
-                xpath: /html/body/div[7]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[3]/div[1]/form[1]/div[1]/div[1]
+                xpath: /html/body/div[21]
             description:
               - text: Corrige les rides, illumine le regard et fortifie les cils pour un regard
                   plus grand.
@@ -142,7 +142,7 @@ extractions:
                   «recourbe cils». Présentation : Flacon 15 ml Caractéristiques
                   : Marque Vichy Catégorie Antirides - Anti-âge, Soins du visage
                   pour seniors - effet lifting, Contour des yeux, Soins des cils
-                  et des sourcils, Sérum Vichy Prix 23,09 Avis 4.5/5 (228 avis)
+                  et des sourcils, Sérum Vichy Prix 22,39 Avis 4.5/5 (228 avis)
                   Poids 34 gr"
                 xpath: /html/body/div[11]
             videos:
@@ -165,13 +165,16 @@ extractions:
                   alkyl acrylate crosspolymer, N-hydroxysuccinimide, chrysin
                 xpath: /html/body/div[18]
             pricePerUnit:
-              - text: 15,39
+              - text: 14,93
                 xpath: /html/body/div[19]
             pricePerUnitUom:
               - text: 10 ml
                 xpath: /html/body/div[20]
+            promotion:
+              - text: -30% Réduction online
+                xpath: /html/body/div[22]
             imageZoomFeaturePresent:
               - text: Yes
                 xpath: /html/body/div[7]/div[1]/div[1]/div[2]/div[1]/a[2]/@class
         xpath: /
-    timestamp: 1609162229166
+    timestamp: 1609232950833

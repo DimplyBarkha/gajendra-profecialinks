@@ -93,6 +93,11 @@ module.exports = {
         data.pricePerUnit = document.querySelector('div.c-price__unit').textContent.match((/\/\s?(.+)\)/))
           ? document.querySelector('div.c-price__unit').textContent.match((/\/\s?(.+)\)/))[1] : '';
       }
+      data.availability = document.querySelector('div.js-stock_message') ? document.querySelector('div.js-stock_message').textContent.trim() : 'Not In Stock';
+      if (document.querySelector('div.c-addToCart__product-unavailable')) data.availability = document.querySelector('div.c-addToCart__product-unavailable').textContent.trim();
+      const promotionText = document.querySelector('div.box-promo__content') ? `${document.querySelector('div.box-promo__content').textContent} ` : '';
+      const priceBadgeText = document.querySelector('div.c-price__badge') ? document.querySelector('div.c-price__badge').textContent : '';
+      data.promotion = `${promotionText}${priceBadgeText}`;
       appendData(data);
     });
     await context.extract(productDetails, { transform });

@@ -14,7 +14,7 @@ fields:
   singleValue: false
 - name: image
   description: URL of the main product image
-  xpath: //div[contains(@class,"product-details")]/a/img/@src
+  xpath: //div[@class="product-details"]/div/a/img[@alt]/@src
 - name: imageAlt
   description: Alt text of the main product image
   xpath: //div[contains(@class,"product-details")]/a/img/@alt
@@ -48,7 +48,7 @@ fields:
   description: Availability as described on page for the selected variant. If there
     is no availability but the product can be added to cart, this field should be
     "In Stock"
-  xpath: //div[contains(@class,"stock_message")]
+  xpath: //div[@id="product-availability"]
 - name: description
   singleValue: false
   description: Product description supplied by website - may be concatenanted from
@@ -389,7 +389,7 @@ fields:
 - name: promotion
   singleValue: true
   description: promotion text on product page
-  xpath: //div[@class="box-promo__content"]
+  xpath: //div[@id="product-promotion"]
 - name: alcoholContent
   singleValue: true
   description: Alcohol content information
@@ -464,6 +464,6 @@ fields:
   description: If Zoom feature is available for Main image or images in the carousel,['Yes','No']
   example: https://www.zalando.de/adidas-neo-sneaker-low-blackwhite-a4315i002-q11.html
   defaultValue: "No"
-  xpath: //div[contains(@class,"product-details")]/a[contains(@class,"zoom")]/@class
+  xpath: //div[contains(@class,"product-details")]/div/a[contains(@class,"zoom")]/@class
   regExp: (.*)
   regExpReplace: "Yes"
