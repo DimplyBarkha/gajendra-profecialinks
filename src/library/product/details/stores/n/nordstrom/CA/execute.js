@@ -4,7 +4,7 @@ module.exports = {
   parameterValues: {
     country: 'CA',
     store: 'nordstrom',
-    domain: 'nordstrom.com',
+    domain: 'nordstrom.ca',
     loadedSelector: 'div#root',
     noResultsXPath: '//h1[contains(.,"cannot be found")]',
   },

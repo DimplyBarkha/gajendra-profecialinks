@@ -1,9 +1,10 @@
 
 module.exports = {
-  implements: 'product/details',
+  implements: 'navigation/goto/setZipCode',
   parameterValues: {
     country: 'CA',
-    store: 'nordstrom',
     domain: 'nordstrom.ca',
+    store: 'nordstrom',
+    zipcode: '',
   },
 };
