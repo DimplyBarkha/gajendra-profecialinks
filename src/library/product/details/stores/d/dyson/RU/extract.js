@@ -138,6 +138,17 @@ async function implementation (
       }
     });
     addHiddenDiv('specifications', specifications.join(' | '));
+    let specsList=null;
+    if(document.querySelectorAll('div[class*="product-specification"]')){
+     specsList=document.querySelectorAll('div[class*="product-specification"] li');
+    let specsText='';
+    for(let i=0;i<specsList.length;i++) specsText+=specsList[i].querySelector('p:nth-child(1)').innerText+' | '+specsList[i].querySelector('p:nth-child(2)').innerText+' | ';
+    addHiddenDiv('specsText',specsText)
+    }
+    let prodImage=null;
+    if(document.querySelector('a[class*="gallery-thumbnail"]'))
+     prodImage=document.querySelector('a[class*="gallery-thumbnail"] img').getAttribute('src');
+    if(prodImage!==null)  addHiddenDiv('productImage',prodImage);
   });
 
   return await context.extract(productDetails, { transform });

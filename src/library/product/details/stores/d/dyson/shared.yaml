@@ -5,8 +5,9 @@ recordxpath: null
 fields:
   - name: image
     description: URL of the main product image
-    #xpath: (//div[contains(concat(' ',normalize-space(@class),' '),' product-hero ')]//img[@id])[1]/@src
-    xpath: (//meta[@property="og:image"]/@content)[1] | (//div[starts-with(@class,"responsive-image")]/link[@as="image"]/@href)[last()] | ((//div[contains(concat(' ',normalize-space(@class),' '),' product-hero ')]//img[@id])[1]/@src) | ((//div[contains(@class,"media-carousel")]//img//@src)[1])
+    # xpath: //div[@id='productImage']//text()
+    xpath: (//div[contains(concat(' ',normalize-space(@class),' '),' product-hero ')]//img[@id])[1]/@src|//div[@id='productImage']//text()
+    # xpath: (//meta[@property="og:image"]/@content)[1] | (//div[starts-with(@class,"responsive-image")]/link[@as="image"]/@href)[last()] | ((//div[contains(concat(' ',normalize-space(@class),' '),' product-hero ')]//img[@id])[1]/@src) | ((//div[contains(@class,"media-carousel")]//img//@src)[1]) | //div[@id='productImage']/text()
   - name: imageAlt
     description: Alt text of the main product image
     xpath: (//div[contains(concat(' ',normalize-space(@class),' '),' product-hero ')]//img[@id])[1]/@alt
@@ -29,18 +30,18 @@ fields:
   - name: nameExtended
     description: The product name, prefixing "${brand} - " if not included in "name"
       and appending " - ${variantType}" if necessary (fixed per feed)
-    xpath: //div[@id="added_nameExtended"]
+    xpath: //div[@id="added_nameExtended"]|//h1[contains(@class,"title-text")]
   - name: listPrice
     description: The stated undiscounted price for the product
     #xpath: (//div[@class='product-hero__price-top']/div[1])[1]
-    xpath: //div[@id='added_listPrice']
+    xpath: //div[@id='added_listPrice']|//div[contains(@id,"product_addtocart_form")]//span[contains(@id,'old-price')]/text()
     #regExp: ([^a-zA-Z:\s]{3,})
     #regExpReplace: $1
   - name: price
     description: The offered price for the selected product variant - if a user
       clicks add to basket this is the price they would be charged
     #xpath: (//div[@class='product-hero__price-top']/div[@data-product-price])[1]
-    xpath: //div[@id='added_price']
+    xpath: //div[@id='added_price']|//div[contains(@id,"product_addtocart_form")]//div[contains(@id,'product-price')]/text()
   - name: currencyOverride
     xpath: //div[@id='added_currency']
   - name: availabilityText #localedependent    
@@ -345,7 +346,7 @@ fields:
     description: null
   - name: specifications
     description: The physical dimensions of the product including packaging.
-    xpath: //div[contains(concat(' ',normalize-space(@class),' '),' product-specification__dimensions ')]/ul
+    xpath: //div[contains(concat(' ',normalize-space(@class),' '),' product-specification__dimensions ')]/ul|//div[@id='specsText']//text()
   - name: warranty #localedependent
     description: Guarantee associated with the product
     xpath: (//div[contains(concat(' ',normalize-space(@class),' '),' reasons-to-buy__overlay-content-container ')][.//*[contains(text(),'arranty ')] or .//*[contains(text(),'uarantee ')]])[1]
