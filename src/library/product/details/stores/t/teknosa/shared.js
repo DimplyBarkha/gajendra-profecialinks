@@ -12,13 +12,13 @@ const transform = (data) => {
     .replace(/&amp;#160/g, ' ')
     .replace(/\u00A0/g, ' ')
     .replace(/\s{2,}/g, ' ')
-    .replace(/"\s{1,}/g, '"')
+    .replace(/"\s{1,}/g, '" ')
     .replace(/\s{1,}"/g, '"')
     .replace(/^ +| +$|( )+/g, ' ')
   // eslint-disable-next-line no-control-regex
     .replace(/[\x00-\x1F]/g, '')
     .replace(/[\uD800-\uDBFF][\uDC00-\uDFFF]/g, ' ');
-    data.forEach((obj) =>
+  data.forEach((obj) =>
     obj.group.forEach((row) =>
       Object.keys(row).forEach((header) =>
         row[header].forEach((el) => {
@@ -30,9 +30,9 @@ const transform = (data) => {
   const concatFunction = (item, index) => {
     let text = '';
     if ((index + 1) % 2 === 0) {
-      text += `${item.text} || `;
+      text += ` ${item.text}`;
     } else {
-      text += `${item.text} `;
+      text += ` || ${item.text}`;
     }
     return text;
   };
@@ -45,32 +45,45 @@ const transform = (data) => {
         });
         row.specifications = [
           {
-            text: text,
+            text: text.replace(new RegExp('(\\s\\|\\|\\s)(.+)', 'g'), '$2'),
           },
         ];
       }
       if (row.description) {
         let text = '';
-        row.description.forEach((item, i) => {
-          text += concatFunction(item, i);
+        row.description.forEach(item => {
+          text = row.description.map(elm => elm.text).join(' ');
         });
-        row.description = [
-          {
-            text: text,
-          },
-        ];
+        row.description = [{ text }];
+      }
+      if (row.shippingDimensions) {
+        let text = '';
+        row.shippingDimensions.forEach(item => {
+          text = row.shippingDimensions.map(elm => elm.text).join(' ');
+        });
+        row.shippingDimensions = [{ text }];
       }
       if (row.manufacturerDescription) {
         let text = '';
-        row.manufacturerDescription.forEach((item, i) => {
-          text += concatFunction(item, i);
+        row.manufacturerDescription.forEach(item => {
+          text = row.manufacturerDescription.map(elm => elm.text).join(' ');
         });
-        row.manufacturerDescription = [
-          {
-            text: text,
-          },
-        ];
+        row.manufacturerDescription = [{ text }];
       }
+      if (row.price) {
+        let text = '';
+        row.price.forEach(item => {
+          text = row.price.map(elm => elm.text).join(' ').replace('.', ',');
+        });
+        row.price = [{ text }];
+      }
+      // if (row.videos) {
+      //   let text = '';
+      //   row.videos.forEach(item => {
+      //     text = row.videos.map(elm => elm.text).join(' ').replace(new RegExp('(.+file":"[^"])(.+mp4)(","image.+)', 'g'), '$2');
+      //   });
+      //   row.videos = [{ text }];
+      // }
       if (row.additionalDescBulletInfo) {
         let text = '';
         row.additionalDescBulletInfo.forEach((item, i) => {
@@ -78,7 +91,7 @@ const transform = (data) => {
         });
         row.additionalDescBulletInfo = [
           {
-            text: text,
+            text: text.replace(new RegExp('(\\s\\|\\|\\s)(.+)', 'g'), '$2'),
           },
         ];
       }
