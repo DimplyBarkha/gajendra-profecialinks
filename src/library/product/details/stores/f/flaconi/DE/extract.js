@@ -91,7 +91,7 @@ async function implementation (
     console.log('\nSKU\n' + sku);
     const sku2List = document.querySelectorAll('meta[itemprop="sku"]');
     let sku2;
-    if (sku2List) {
+    if (!sku && sku2List) {
       // @ts-ignore
       sku = sku2List[0].content;
     }
