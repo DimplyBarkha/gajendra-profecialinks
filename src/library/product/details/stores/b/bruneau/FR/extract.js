@@ -10,11 +10,19 @@ module.exports = {
     zipcode: '',
   },
   implementation: async (
-    { url },
+    inputs,
     { country, domain },
     context,
     dependencies,
   ) => {
+    const product = await context.evaluate(() =>
+      document.querySelector('#product-page'),
+    );
+    if (!product) {
+      await context.waitForSelector('.isg-item-slider');
+      await context.setInputValue('.isg-autocomplete-input', inputs.id);
+      await context.clickAndWaitForNavigation('#isg-header-search-submit');
+    }
     await context.evaluate(() => {
       const zoom = document.querySelector('a.cursor-zoom-in');
       if (zoom) {
@@ -37,14 +45,15 @@ module.exports = {
 
       if (rating) {
         if (rating.title.length === 1) {
-          rating.title =
-          rating.setAttribute('title', rating.title += ',0');
+          rating.title = rating.setAttribute('title', (rating.title += ',0'));
         }
       }
       if (ratingAlt) {
         if (ratingAlt.title.length === 1) {
-          ratingAlt.title =
-          ratingAlt.setAttribute('title', ratingAlt.title += ',0');
+          ratingAlt.title = ratingAlt.setAttribute(
+            'title',
+            (ratingAlt.title += ',0'),
+          );
         }
       }
     });
