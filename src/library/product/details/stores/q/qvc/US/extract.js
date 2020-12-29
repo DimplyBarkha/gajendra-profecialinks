@@ -32,7 +32,7 @@ module.exports = {
       if (videoArray.length !== 0) {
         if (videoArray.length === 1) {
           const link = document.querySelector('div[class="ssmp-container"] video').src;
-          const time = document.querySelector('span[class="vjs-duration-display"]').textContent;
+          const time = document.querySelector('span[class="vjs-duration-display"]').innerText ? document.querySelector('span[class="vjs-duration-display"]').innerText : '';
           addElementToDOM('videoInfo', link, time);
         }
         if (videoArray.length !== 1) {
@@ -40,7 +40,7 @@ module.exports = {
             videoArray[i].click();
             await new Promise((resolve) => setTimeout(resolve, 5000));
             const link = document.querySelector('div[class="ssmp-container"] video').src;
-            const time = document.querySelector('span[class="vjs-duration-display"]').innerText;
+            const time = document.querySelector('span[class="vjs-duration-display"]').innerText ? document.querySelector('span[class="vjs-duration-display"]').innerText : '';
             addElementToDOM('videoInfo', link, time);
           }
         }
