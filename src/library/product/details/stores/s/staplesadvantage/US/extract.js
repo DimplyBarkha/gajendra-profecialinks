@@ -35,22 +35,27 @@ async function implementation (inputs, parameters, context, dependencies) {
       const manufacturerDescription = document.querySelector('body').innerText;
       const manufacturerDescriptionBullets = document.querySelectorAll('body ul>li');
       let k = 0;
-      manufacturerDescriptionBullets.forEach(bullet => {
-        k++;
-      });
 
-      document.querySelector('body').setAttribute('bulletsnumber', `${k}`);
+      if (manufacturerDescriptionBullets.length !== 0 || manufacturerDescriptionBullets !== null) {
+        manufacturerDescriptionBullets.forEach(bullet => {
+          k++;
 
-      for (let i = 0; i < manufacturerImages.length; i++) {
-        const manufacturerDiv = document.createElement('div');
-        manufacturerDiv.className = 'manufacturer-info';
-        document.body.appendChild(manufacturerDiv);
-
-        image = manufacturerImages[i].src;
-
-        document.querySelectorAll('.manufacturer-info')[i].setAttribute('src', image);
+          document.querySelector('body').setAttribute('bulletsnumber', `${k}`);
+        });
       }
-      document.querySelector('.manufacturer-info').setAttribute('description', manufacturerDescription);
+
+      if (manufacturerImages.length !== 0 && manufacturerDescription !== '') {
+        for (let i = 0; i < manufacturerImages.length; i++) {
+          const manufacturerDiv = document.createElement('div');
+          manufacturerDiv.className = 'manufacturer-info';
+          document.body.appendChild(manufacturerDiv);
+
+          image = manufacturerImages[i].src;
+
+          document.querySelectorAll('.manufacturer-info')[i].setAttribute('src', image);
+        }
+        document.querySelector('.manufacturer-info').setAttribute('description', manufacturerDescription);
+      }
     });
 
     await context.evaluate(() => {

@@ -13,7 +13,7 @@ fields:
   singleValue: false
 - name: image
   singleValue: false
-  xpath: //img[@class="image-gallery-ux2dot0__image_element picture__img_resp"]/@alt
+  xpath: //div[@class="image-gallery-ux2dot0__image_element_wrapper active_hero_image slider_images"]/img/@alt
 - name: imageAlt
   singleValue: true
 - name: alternateImages
@@ -98,7 +98,7 @@ fields:
   singleValue: false
   type: STRING
   description: The stated aggregate rating normalized to be out of 5
-  xpath: //span[@class='rating__rating_label']
+  xpath: (//span[@class="rating__rating_label"])[1]
 - name: shippingInfo
   singleValue: true
   description: Shipping information for the product
