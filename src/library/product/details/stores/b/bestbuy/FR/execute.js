@@ -14,7 +14,7 @@ const implementation = async (inputs, { loadedSelector, noResultsXPath }, contex
   }
   await dependencies.goto({ ...inputs, url: builtUrl || url });
 
-  await new Promise((resolve, reject) => setTimeout(resolve, 28000));
+  await new Promise((resolve, reject) => setTimeout(resolve, 8000));
   
   if (loadedSelector) {
     await context.waitForFunction(
