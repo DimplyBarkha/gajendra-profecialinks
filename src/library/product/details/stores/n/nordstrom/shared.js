@@ -78,6 +78,18 @@ const transform = (data) => {
         ];
       }
 
+      if (row.unInterruptedPDP) {
+        let text = '';
+        row.unInterruptedPDP.forEach(item => {
+          text = row.unInterruptedPDP.map(elm => elm.text).join(' || ');
+        });
+        row.unInterruptedPDP = [
+          {
+            text: text,
+          },
+        ];
+      }
+
       if (row.variantInformation) {
         let text = '';
         row.variantInformation.forEach(item => {

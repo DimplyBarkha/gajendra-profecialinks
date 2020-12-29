@@ -96,6 +96,7 @@ fields:
     xpath: //table/tbody/tr[@class="append_variant"]//td[@class="variant"]
   - name: unInterruptedPDP
     singleValue: false
-    xpath: ancestor::html//div[contains(@id,"product-recommendations-shelf")]//section//ul//li | ancestor::html//h2[contains(text(),"Recently viewed")]//parent::header//following-sibling::section//li
+    # xpath:  //div[@class="_3Kq13 _3h4My"]//div | //div[@class="_3Kq13"]//div
+    xpath: ancestor::html//div[contains(@id,"product-recommendations-shelf")]//section//ul//li | //h2[contains(text(),"Recently viewed")]//parent::header//following-sibling::section//li//div[@class="_3Kq13 _1m773"]/div 
   - name: hasComparisonTable
     defaultValue: 'No'
