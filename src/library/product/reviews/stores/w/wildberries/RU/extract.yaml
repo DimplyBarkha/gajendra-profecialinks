@@ -4,34 +4,33 @@ recordSelector: null
 recordXPath: null
 fields:
   - name: helpfulCount
-    singleValue: true
+    singleValue: false
     type: NUMBER
-    description: Number of people who said the review was helpful
+    xpath: count(//div[@class="comments"]//div[@class="item-comment"])
   - name: commentCount
-    singleValue: true
+    singleValue: false
     type: NUMBER
-    description: Number of comments on the review
+    xpath: count(//div[@class="comments"]//div[@class="item-comment"])
   - name: brandText
-    singleValue: true
-    description: Product brand shown - this may actually NOT be just a brand name,
-      e.g. "Visit the Gillette Store"
+    singleValue: false
+    xpath: //span[@class="brand"]
   - name: name
-    singleValue: true
-    description: The product name
+    singleValue: false
+    xpath: //span[@class="name"]
   - name: sku
-    singleValue: true
-    description: The store-specific product identifier
+    singleValue: false
+    xpath: //input[@id="tbSrch"]/@data-nm-id
   - name: reviewDate
-    singleValue: true
+    singleValue: false
     type: DATETIME
-    description: Date the review was made
+    xpath: //div[@class="comment-content-user-and-time"]//div[@itemprop="datePublished"]/@content
   - name: reviewRating
     type: NUMBER
-    singleValue: true
-    description: Rating normalized to be out of 5
+    singleValue: false
+    xpath: //div[@class="product-rating"]/p/span
   - name: reviewText
-    singleValue: true
-    description: The text of the review
+    singleValue: false
+    xpath: //div[@class="comments"]//div[@class="item-comment"]
   - name: reviewTitle
     singleValue: true
     description: The title of the review
@@ -42,28 +41,15 @@ fields:
     singleValue: true
     description: GTIN code (includes UPC/EAN)
   - name: productUrl
-    singleValue: true
-    description: The url of the product details page
-  - name: verifiedPurchase
-    singleValue: true
-    type: BOOLEAN
-    description: Whether this of an item the reviewer purchased. "Yes" if true else ""
-  - name: manufacturerResponse
-    singleValue: true
-    description: The response of the manufacturer (if any)
-  - name: syndicatedFrom
-    singleValue: true
-    description: Stated place the review was syndicated from
-  - name: reviewUrl
-    singleValue: true
-    description: A direct link to the review
+    singleValue: false
+    xpath: //meta[@property="og:url"]/@content
   - name: reviewedSku
-    singleValue: true
-    description: The SKU of the item that was reviewed (may be different from the
-      sku the review was shown on). 1 if sku == reviewedSku else 0. Get sku
-      value, transform will handle the value.
+    singleValue: false 
+    xpath: //input[@id="tbSrch"]/@data-nm-id
   - name: user
-    description: The user name of the reviewer
+    singleValue: false
+    xpath: //div[@class="comment-content-user-and-time"]//div[@class="author"]//a
     type: TEXT
   - name: aggregateRating
-    description: The product rating
+    singleValue: false
+    xpath: //div[@class="product-rating"]/p/span
