@@ -5,16 +5,16 @@ recordXPath: /html
 fields:
   - name: image
     singleValue: false
-    xpath: //div[@class="slick-slide slick-active slick-current" and contains(@style,"806px")]//img[@class="productImage_AMBPT"]/@src
+    xpath: //div[contains(@class,"slick-slider") and not(contains(@class,"x-thumbnail-gallery-control"))]//div[@class="slick-slide slick-active slick-current"]//img[@class="productImage_AMBPT"]/@src
   - name: imageAlt
     singleValue: false
-    xpath: //div[@class="slick-slide slick-active slick-current" and contains(@style,"806px")]//img[@class="productImage_AMBPT"]/@alt
+    xpath: //div[contains(@class,"slick-slider") and not(contains(@class,"x-thumbnail-gallery-control"))]//div[@class="slick-slide slick-active slick-current"]//img[@class="productImage_AMBPT"]/@alt
   - name: alternateImages
     singleValue: false
-    xpath: //div[@class="slick-slide slick-active"]//img[@class="productImage_AMBPT"]/@src
+    xpath: //div[contains(@class,"x-thumbnail-gallery-control")]//div[contains(@class,"slick-slide") and not(contains(@class,"slick-current"))]//img[@class="productImage_AMBPT"]/@src
   - name: secondary_image_total
     singleValue: false
-    xpath: count(//div[@class="slick-slide slick-active"]//img[@class="productImage_AMBPT"]/@src)
+    xpath: count(//div[contains(@class,"x-thumbnail-gallery-control")]//div[contains(@class,"slick-slide") and not(contains(@class,"slick-current"))]//img[@class="productImage_AMBPT"]/@src)
   - name: category
     singleValue: false
     xpath: //ol[@typeof="BreadcrumbList"]/li[position()>1]/a/span

@@ -29,7 +29,7 @@ const transform = (data) => {
         row.additionalDescBulletInfo.forEach(item=>{
           inf.push(item.text);
         })
-        row.additionalDescBulletInfo=[{"text":inf.join(' || ')}];
+        row.additionalDescBulletInfo=[{"text":"|| "+inf.join(' || ')}];
       }
       if(row.image){
         row.image.forEach(item=>{
@@ -43,6 +43,11 @@ const transform = (data) => {
       }
       if(row.aggregateRating){
         row.aggregateRating.forEach(item=>{
+          item.text=item.text.replace('.',',');
+        })
+      }
+      if(row.price){
+        row.price.forEach(item=>{
           item.text=item.text.replace('.',',');
         })
       }
