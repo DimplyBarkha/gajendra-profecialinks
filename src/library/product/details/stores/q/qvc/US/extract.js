@@ -4,7 +4,7 @@ module.exports = {
   parameterValues: {
     country: 'US',
     store: 'qvc',
-    transform: cleanUp,
+    transform: null,
     domain: 'qvc.com',
     zipcode: '',
   },
@@ -15,7 +15,8 @@ module.exports = {
       if (buttonIngredients) buttonIngredients.click();
     });
     const sku = await context.evaluate(async function () {
-      let info = JSON.parse(document.querySelector('div[class="hidden"] script[type="application/ld+json"]').textContent);
+
+      const info = document.querySelector('div[class="hidden"] script[type="application/ld+json"]') ? JSON.parse(document.querySelector('div[class="hidden"] script[type="application/ld+json"]').textContent) : '';
       return info;
     });
     // add video information
