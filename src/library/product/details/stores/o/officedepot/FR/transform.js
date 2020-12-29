@@ -30,6 +30,17 @@ const transform = (data) => {
           },
         ];
       }
+      if (row.alternateImages) {
+        let text = '';
+        row.alternateImages.forEach(item => {
+          text += `${item.text.replace('hei=40', 'hei=153').replace('wid=40', 'wid=280')}|`;
+        });
+        row.alternateImages = [
+          {
+            text: cleanUp(text.slice(0, -1)),
+          },
+        ];
+      }
       if (row.specifications) {
         let text = '';
         row.specifications.forEach(item => {
@@ -42,9 +53,9 @@ const transform = (data) => {
         ];
       }
       if (row.mpc) {
-        const text = '';
+        let text = '';
         row.mpc.forEach(item => {
-          if (item.text.includes('(.+)')) { item.text = ''; }
+          if (item.text.includes('(.+)')) { text = ''; }
         });
         row.mpc = [
           {
