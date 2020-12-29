@@ -1,0 +1,27 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: //ul[@id="search-result-items"]//li//a[@class="name-link"]
+fields:
+  - name: productUrl
+    xpath: //@href
+    regExp: (.+)
+    regExpReplace: https://www.petsmart.com$1
+  - name: thumbnail
+    xpath: //div[@class="product-image-wrapper"]/div[@class="product-image"]/img/@src
+  - name: name
+    xpath: //div[@class="product-name"]/h3
+  - name: price
+    xpath: //div[@class="product-price"]/span[@class="price-regular"]|//div[@class="product-price"]/span[@class="price-sales"]
+    regExp: \$([0-9.\-\n\s]+)
+    regExpReplace: $1
+  - name: rank
+  - name: rankOrganic
+  - name: aggregateRating2
+    type: STRING
+    singleValue: false
+    xpath: //@rating
+  - name: id
+    xpath: //div[@class="product-image-wrapper"]/div[@class="product-image"]/img/@src
+    regExp: ((\d+){5,15})
+    regExpReplace: $1
