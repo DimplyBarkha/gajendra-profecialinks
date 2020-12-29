@@ -15,28 +15,25 @@ module.exports = {
         seeAllSelector.click();
       }
     });
-    const applyScroll = async function (context) {
-      await context.evaluate(async function () {
-        let scrollTop = 0;
-        while (scrollTop !== 20000) {
-          await stall(1000);
-          scrollTop += 500;
-          window.scroll(0, scrollTop);
-          if (scrollTop === 20000) {
-            await stall(5000);
-            break;
-          }
-        }
-        function stall(ms) {
-          return new Promise((resolve, reject) => {
-            setTimeout(() => {
+    async function autoScroll (page) {
+      await page.evaluate(async () => {
+        await new Promise((resolve, reject) => {
+          var totalHeight = 0;
+          var distance = 100;
+          var timer = setInterval(() => {
+            var scrollHeight = document.body.scrollHeight;
+            window.scrollBy(0, distance);
+            totalHeight += distance;
+
+            if (totalHeight >= scrollHeight) {
+              clearInterval(timer);
               resolve();
-            }, ms);
-          });
-        }
+            }
+          }, 100);
+        });
       });
-    };
-    await applyScroll(context);
+    }
+    await autoScroll(context);
     return await context.extract(productDetails, { transform });
   },
 };
