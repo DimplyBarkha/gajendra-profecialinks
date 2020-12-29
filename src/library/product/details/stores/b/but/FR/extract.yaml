@@ -130,7 +130,7 @@ fields:
   - name: inTheBoxUrl
     xpath: //div[contains(@class, "InTheBox")]//img/@data-flixsrcset
     regExp: (.+800w,\s)(.+(.png|.jpg))(.+)
-    regExpReplace: $2
+    regExpReplace: https:$2
   - name: inTheBoxText
     xpath: //div[contains(@class, "InTheBox")]//div[contains(@class, "flix-std-content")] | //ul[@class="details-heading-product"]//li/span[contains(.,'Accessoires') or (contains(.,'Brosses spécifiques'))]/following-sibling::span[((contains(.,' ')))]
   - name: hasComparisonTable
