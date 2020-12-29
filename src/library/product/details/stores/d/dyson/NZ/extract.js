@@ -140,12 +140,12 @@ async function implementation (
 
     const specifications = [];
     document.querySelectorAll('.spec').forEach(spec => {
-      if(spec.textContent) {
+      if (spec.textContent) {
         specifications.push(spec.textContent);
       }
       if (spec.textContent.includes('Weight')) {
-        let weightData = spec.querySelector('.spec__data');
-        if(weightData.textContent) {  
+        const weightData = spec.querySelector('.spec__data');
+        if (weightData.textContent) {
           addHiddenDiv('weight', weightData.textContent);
         }
       }

@@ -7,14 +7,6 @@ async function implementation (
   const { transform } = parameters;
   const { productDetails } = dependencies;
 
-  function stall (ms) {
-    return new Promise(resolve => {
-      setTimeout(() => {
-        resolve();
-      }, ms);
-    });
-  }
-
   await context.evaluate(async function () {
     function stall (ms) {
       return new Promise(resolve => {
@@ -38,13 +30,6 @@ async function implementation (
       await stall(250);
     }
 
-    function addHiddenDiv (el, id, text) {
-      const div = document.createElement('div');
-      div.innerHTML = text;
-      div.classList.add(id);
-      el.appendChild(div);
-    }
-
     let count = 0;
     if (document.querySelector('.card__inner')) {
       document.querySelectorAll('.card__inner').forEach((el, ind) => {
@@ -54,7 +39,6 @@ async function implementation (
         if (el.querySelector('h3')) {
           el.classList.add('productInfo');
           const name = el.querySelector('h3').innerText;
-          const id = ind + 1;
           const thumbnail = el.querySelector('img').getAttribute('src');
           const url = el.querySelector('a').getAttribute('href');
           const splitURL = url.split('-');
@@ -73,7 +57,6 @@ async function implementation (
         if (el.querySelector('h3')) {
           el.classList.add('productInfo');
           const name = el.querySelector('h3').innerText;
-          const id = ind + 1;
           const thumbnail = el.querySelector('img').getAttribute('src');
           const url = el.querySelector('a').getAttribute('href');
           const splitURL = url.split('-');

@@ -33,13 +33,13 @@ const transform = (data) => {
           }
         });
       }
-      if(row.alternateImages) {
+      if (row.alternateImages) {
         let a = [];
-        for(let i = 0 ; i < row.alternateImages.length ; i++) {
+        for (let i = 0; i < row.alternateImages.length; i++) {
           a.push(row.alternateImages[i].text);
         }
         a = [...new Set(a)];
-        let images = a.join(' | ');
+        const images = a.join(' | ');
         row.alternateImages[0].text = images;
         delete row.alternateImages[0].xpath;
         row.alternateImages.splice(1);
@@ -60,7 +60,7 @@ const transform = (data) => {
       //   }
       // // console.log(altImages+' are images transformed');
       // }
-      if (row.availabilityText && row.availabilityText[0] && row.availabilityText[0].text=='true') {
+      if (row.availabilityText && row.availabilityText[0] && row.availabilityText[0].text === 'true') {
         row.availabilityText = [
           { text: 'In Stock' },
         ];

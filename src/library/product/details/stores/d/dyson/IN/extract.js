@@ -32,14 +32,14 @@ module.exports = {
       }
       let specs = '';
       document.querySelectorAll('div.spec-set__item>span').forEach((element) => {
-        let spec__label = element.querySelector('.spec__label');
-        spec__label = spec__label ? spec__label.innerText.trim() : '';
-        let spec__value = element.querySelector('.spec__data');
-        spec__value = spec__value ? spec__value.innerText.trim() : '';
-        if (spec__label) {
+        let specLabel = element.querySelector('.spec__label');
+        specLabel = specLabel ? specLabel.innerText.trim() : '';
+        let specValue = element.querySelector('.spec__data');
+        specValue = specValue ? specValue.innerText.trim() : '';
+        if (specLabel) {
           specs = specs
-            ? `${specs} || ${spec__label}${spec__value ? `: ${spec__value}` : ''}`
-            : `${spec__label}${spec__value ? `: ${spec__value}` : ''}`;
+            ? `${specs} || ${specLabel}${specValue ? `: ${specValue}` : ''}`
+            : `${specLabel}${specValue ? `: ${specValue}` : ''}`;
         }
       });
       addElementToDocument('added_specs', specs);

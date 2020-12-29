@@ -15,50 +15,51 @@ async function implementation (
   const url = parameters.url.replace('{searchTerms}', encodeURIComponent(inputs.keywords));
   await dependencies.goto({ url, zipcode: inputs.zipcode });
 
-  async function timeout1(ms) {
+  async function timeout1 (ms) {
     console.log('waiting for ' + ms + ' millisecs');
     return new Promise((resolve) => setTimeout(resolve, ms));
   }
 
   await timeout1(5000);
 
-  await context.evaluate(async () => {
-    async function timeout(ms) {
-      console.log('waiting for ' + ms + ' millisecs');
-      return new Promise((resolve) => setTimeout(resolve, ms));
-    }
+  // await context.evaluate(async () => {
+  //   async function timeout(ms) {
+  //     console.log('waiting for ' + ms + ' millisecs');
+  //     return new Promise((resolve) => setTimeout(resolve, ms));
+  //   }
 
-    let loaderSel = 'span[data-search="product"][class*="search-results__loader"]';
-    let loaderElm = document.querySelectorAll(loaderSel);
-    let waitMax = 120000;
-    let checkAfter = 500;
-    let timeBeing = 0;
-    let isLoaderPresent = false;
-    if(loaderElm.length > 0) {
-      console.log('we have loader -- need to wait');
-      isLoaderPresent = true;
-      if(loaderElm.length === 1) {
-        while(isLoaderPresent) {
-          await timeout(checkAfter);
-          timeBeing = timeBeing + checkAfter;
-          if(timeBeing > waitMax) {
-            console.log('we have waited for too long - ' + timeBeing + ' Still the loader is there');
-            break;
-          }
-          loaderElm = document.querySelectorAll(loaderSel);
-          if(loaderElm.length === 0) {
-            isLoaderPresent = false;
-          }
-        }
-        console.log('do we still have the loader - ' + isLoaderPresent);
+  //   let loaderSel = 'span[data-search="product"][class*="search-results__loader"]';
+  //   let loaderElm = document.querySelectorAll(loaderSel);
+  //   let waitMax = 250000;
+  //   let checkAfter = 500;
+  //   let timeBeing = 0;
+  //   let isLoaderPresent = false;
+  //   if(loaderElm.length > 0) {
+  //     console.log('we have loader -- need to wait');
+  //     isLoaderPresent = true;
+  //     if(loaderElm.length === 1) {
+  //       while(isLoaderPresent) {
+  //         await timeout(checkAfter);
+  //         timeBeing = timeBeing + checkAfter;
+  //         console.log(`We have waited for ${timeBeing} ms`);
+  //         if(timeBeing > waitMax) {
+  //           console.log('we have waited for too long - ' + timeBeing + ' Still the loader is there');
+  //           break;
+  //         }
+  //         loaderElm = document.querySelectorAll(loaderSel);
+  //         if(loaderElm.length === 0) {
+  //           isLoaderPresent = false;
+  //         }
+  //       }
+  //       console.log('do we still have the loader - ' + isLoaderPresent);
 
-      } else {
-        console.log('we have many loaders - not sure what to do');
-      }
-    } else {
-      console.log('no loader found - can steer through');
-    }
-  });
+  //     } else {
+  //       console.log('we have many loaders - not sure what to do');
+  //     }
+  //   } else {
+  //     console.log('no loader found - can steer through');
+  //   }
+  // });
 
   if (parameters.loadedSelector) {
     await context.waitForFunction(function (sel, xp) {

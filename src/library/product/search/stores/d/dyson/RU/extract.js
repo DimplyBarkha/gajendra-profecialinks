@@ -7,30 +7,7 @@ async function implementation (
   const { transform } = parameters;
   const { productDetails } = dependencies;
 
-  function stall (ms) {
-    return new Promise(resolve => {
-      setTimeout(() => {
-        resolve();
-      }, ms);
-    });
-  }
-
   await context.evaluate(async function () {
-    function stall (ms) {
-      return new Promise(resolve => {
-        setTimeout(() => {
-          resolve();
-        }, ms);
-      });
-    }
-
-    function addHiddenDiv (el, id, text) {
-      const div = document.createElement('div');
-      div.innerHTML = text;
-      div.classList.add(id);
-      el.appendChild(div);
-    }
-
     function addHiddenDiv (el, id, text) {
       const div = document.createElement('div');
       div.innerHTML = text;

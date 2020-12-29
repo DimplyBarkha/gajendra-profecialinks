@@ -145,7 +145,7 @@ async function implementation (
       }
       const headerText = spec.querySelector('strong').innerText;
       const specText = spec.querySelector('.spec__text').innerText;
-        specifications.push(headerText + ' ' + specText);
+      specifications.push(headerText + ' ' + specText);
       if (headerText === 'Weight') {
         addHiddenDiv('weight', specText);
       }

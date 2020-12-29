@@ -9,43 +9,44 @@ module.exports.implementation = async function implementation (
   const { domain, country } = parameters;
   const { keywords } = inputs;
 
-  await context.evaluate(async () => {
-    async function timeout(ms) {
-      console.log('waiting for ' + ms + ' millisecs');
-      return new Promise((resolve) => setTimeout(resolve, ms));
-    }
+  // await context.evaluate(async () => {
+  //   async function timeout(ms) {
+  //     console.log('waiting for ' + ms + ' millisecs');
+  //     return new Promise((resolve) => setTimeout(resolve, ms));
+  //   }
 
-    let loaderSel = 'span[data-search="product"][class*="search-results__loader"]';
-    let loaderElm = document.querySelectorAll(loaderSel);
-    let waitMax = 60000;
-    let checkAfter = 500;
-    let timeBeing = 0;
-    let isLoaderPresent = false;
-    if(loaderElm.length > 0) {
-      console.log('we have loader -- need to wait');
-      isLoaderPresent = true;
-      if(loaderElm.length === 1) {
-        while(isLoaderPresent) {
-          await timeout(checkAfter);
-          timeBeing = timeBeing + checkAfter;
-          if(timeBeing > waitMax) {
-            console.log('we have waited for too long - ' + timeBeing + ' Still the loader is there');
-            break;
-          }
-          loaderElm = document.querySelectorAll(loaderSel);
-          if(loaderElm.length === 0) {
-            isLoaderPresent = false;
-          }
-        }
-        console.log('do we still have the loader - ' + isLoaderPresent);
+  //   let loaderSel = 'span[data-search="product"][class*="search-results__loader"]';
+  //   let loaderElm = document.querySelectorAll(loaderSel);
+  //   let waitMax = 60000;
+  //   let checkAfter = 500;
+  //   let timeBeing = 0;
+  //   let isLoaderPresent = false;
+  //   if(loaderElm.length > 0) {
+  //     console.log('we have loader -- need to wait');
+  //     isLoaderPresent = true;
+  //     if(loaderElm.length === 1) {
+  //       while(isLoaderPresent) {
+  //         await timeout(checkAfter);
+  //         timeBeing = timeBeing + checkAfter;
+  //         console.log(`We have waited for ${timeBeing} ms`);
+  //         if(timeBeing > waitMax) {
+  //           console.log('we have waited for too long - ' + timeBeing + ' Still the loader is there');
+  //           break;
+  //         }
+  //         loaderElm = document.querySelectorAll(loaderSel);
+  //         if(loaderElm.length === 0) {
+  //           isLoaderPresent = false;
+  //         }
+  //       }
+  //       console.log('do we still have the loader - ' + isLoaderPresent);
 
-      } else {
-        console.log('we have many loaders - not sure what to do');
-      }
-    } else {
-      console.log('no loader found - can steer through');
-    }
-  });
+  //     } else {
+  //       console.log('we have many loaders - not sure what to do');
+  //     }
+  //   } else {
+  //     console.log('no loader found - can steer through');
+  //   }
+  // });
 
   await context.evaluate(async (domain, country, keywords) => {
     function addElementToDocument (key, value) {
@@ -82,8 +83,12 @@ module.exports.implementation = async function implementation (
     };
 
     const fetchURL = `https://api.${domain}/apiman-gateway/dyson/search/1.0/${apiCoutryCodeMapping(country, 'cc')}/?query=${encodeURIComponent(keywords)}::documentType:range:documentType:ACCESSORIES:isLegacy:false:hideInOnsiteSearch:true&currentPage=0&pageSize=20&fields=DEFAULT&lang=${apiCoutryCodeMapping(country, 'lang')}`;
-    console.log(fetchURL);
     const referrer = `https://www.${domain}/search-results.html?searchText=${encodeURIComponent(keywords)}&from=product`;
+    console.log('Making API call');
+    console.log(JSON.stringify({
+      API_Url: fetchURL,
+      referrer: referrer,
+    }));
 
     const searchResults = await fetch(fetchURL, {
       credentials: 'omit',
@@ -93,7 +98,10 @@ module.exports.implementation = async function implementation (
       mode: 'cors',
     }).then(r => r.json());
 
-    if (!searchResults.products) return;
+    if (!searchResults.products) {
+      console.log('No results were found');
+      return;
+    };
 
     console.log(searchResults);
 

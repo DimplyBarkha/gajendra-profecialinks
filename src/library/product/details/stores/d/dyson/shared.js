@@ -143,7 +143,7 @@ async function implementation (
 
     // deal with the price
     const listPrice = getXpath("(//div[@class='product-hero__price-top']/div[1])[1]", 'innerText');
-    let price = getXpath("(//div[@class='product-hero__price-top']/div[@data-product-price])[1]", 'innerText');
+    const price = getXpath("(//div[@class='product-hero__price-top']/div[@data-product-price])[1]", 'innerText');
     // if (!price){
     //   let priceElm = document.evaluate('//script[contains(@type,"application/ld+json")][contains(.,"Product")]', document, null, 7, null);
     //   if(priceElm.snapshotLength>0){
@@ -163,7 +163,7 @@ async function implementation (
     //       if(scriptText.includes('USD')){
     //         code = "$"+(codeElm[0][1]);
     //       }
-          
+
     //       console.log(code);
     //       price= code;
     //       } else {
@@ -287,7 +287,7 @@ async function implementation (
     addElementToDocument('added_descBullets', descBullets);
 
     // get the videos
-    const videos = ` (//div[contains(concat(' ',normalize-space(@class),' '),' s7videoviewer ') and boolean(//div[contains(@class,"product-hero__button-container")]/a)])[1]/@data-video-src`;
+    const videos = ' (//div[contains(concat(\' \',normalize-space(@class),\' \'),\' s7videoviewer \') and boolean(//div[contains(@class,"product-hero__button-container")]/a)])[1]/@data-video-src';
     addElementToDocument('added_videos', getAllXpath(videos, 'nodeValue').map(v => `${window.location.hostname}${v}`));
   });
   return await context.extract(productDetails, { transform: parameters.transform });
