@@ -30,7 +30,9 @@ async function implementation (inputs, parameters, context, dependencies) {
         category = categorySelector[j].textContent;
         category = category.replace('Zurück zu:', '');
 
-        document.querySelectorAll('.row.breadcrumbs-section>ol>li')[j].setAttribute('category', category);
+        if (categorySelector[j + 1] !== undefined) {
+          document.querySelectorAll('.row.breadcrumbs-section>ol>li')[j].setAttribute('category', category);
+        }
       }
     }
 

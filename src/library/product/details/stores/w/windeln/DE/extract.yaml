@@ -53,7 +53,7 @@ fields:
   singleValue: false
   description: Product description supplied by website - may be concatenanted from
     multiple places; specifically not the manufacturer description
-  xpath: //div[@class='group-description']
+  xpath: //div[@itemprop="description"] | //div[@class="simple-description"]
 - name: descriptionBullets
   singleValue: true
   description: Number of ul > li tags in the description
@@ -105,6 +105,7 @@ fields:
 - name: directions
   singleValue: true
   description: Content under "directions" header
+  xpath: //p[contains(., 'Hinweise')]/following-sibling::p[1] | //h3[contains(., 'Zubereitung')]/following-sibling::p[1]
 - name: warnings
   singleValue: false
   description: Content under "warnings" header
@@ -124,7 +125,6 @@ fields:
 - name: shippingInfo
   singleValue: false
   description: Shipping information for the product
-  xpath: normalize-space(//div[@class='product-shipping'])
 - name: shippingDimensions
   singleValue: false
   description: Stated shipping dimensions
@@ -263,10 +263,13 @@ fields:
   singleValue: true
   description: List of Ingredients from site - can be string of data if no discernible
     start/end point
+  xpath: //p[contains(., "Zutaten")] //p[contains(., "Inhaltsstoffe")] | (//*[contains(., "Inhaltsstoffe")]/following-sibling::p)[1] | (//*[contains(., "Zutaten")]/following-sibling::p)[1]
 - name: servingSize
   singleValue: false
   description: The size of serving Nutritional information is based on.
   xpath: //div[@class='product-detail-description']/div[@class='product-lmiv']/table/tbody/tr[2]/th[2]
+  regExp: '([0-9]+)'
+  regExpReplace: $1
 - name: servingSizeUom
   singleValue: false
   description: Unit of measure of serving
@@ -289,6 +292,7 @@ fields:
   description: Nutritional Information for Total Fat content - Usually based on per
     100g serving
   xpath: //tr[contains(., 'Fett') and not(contains(., 'Fettsäuren'))]/td[2]
+  regExp: '[0-9.]+'
 - name: totalFatPerServingUom
   singleValue: true
   description: Unit of Measure Data for Total Fat content
@@ -299,6 +303,7 @@ fields:
   description: Nutritional Information for Saturated Fat content - Usually based on
     per 100g serving
   xpath: //tr[contains(., 'Fettsäuren') and contains(., ',')]/td[2]
+  regExp: '[0-9.]+'
 - name: saturatedFatPerServingUom
   singleValue: true
   description: Unit of Measure Data for Saturated Fat content
@@ -330,6 +335,7 @@ fields:
   description: Nutritional Information for Total Carbohydrate content - Usually based
     on per 100g serving
   xpath: //tr[contains(., 'Kohlenhydrate') and not(contains(., 'Zucker'))]/td[2]
+  regExp: '[0-9.]+'
 - name: totalCarbPerServingUom
   singleValue: true
   description: Unit of Measure Data for Total Carbohydrate content
@@ -340,6 +346,7 @@ fields:
   description: Nutritional Information for Dietary Fibre content - Usually based on
     per 100g serving
   xpath: //tr[contains(., 'Ballaststoffe')]/td[2]
+  regExp: '[0-9.]+'
 - name: dietaryFibrePerServingUom
   singleValue: true
   description: Unit of Measure Data for Dietary Fibre content
@@ -349,7 +356,8 @@ fields:
   singleValue: true
   description: Nutritional Information for Total Sugar content - Usually based on
     per 100g serving
-  xpath:  //tr[contains(., 'Kohlenhydrate') and contains(., ',')]/td[2] 
+  xpath:  //tr[contains(., 'Kohlenhydrate') and contains(., ',')]/td[2]
+  regExp: '[0-9.]+'
 - name: totalSugarsPerServingUom
   singleValue: true
   description: Unit of Measure Data for Total Sugar content
@@ -359,7 +367,8 @@ fields:
   singleValue: true
   description: Nutritional Information for Protein content - Usually based on per
     100g serving
-  xpath: //tr[contains(., 'Eiweiß')]/td[2] 
+  xpath: //tr[contains(., 'Eiweiß')]/td[2]
+  regExp: '[0-9.]+'
 - name: proteinPerServingUom
   singleValue: true
   description: Unit of Measure Data for Protein
@@ -369,7 +378,8 @@ fields:
   singleValue: true
   description: Nutritional Information for Vitamin A content - Usually based on per
     100g serving
-  xpath: //tr[contains(., 'Vitamin A') and not(contains(., ','))]/td[2] 
+  xpath: //tr[contains(., 'Vitamin A') and not(contains(., ','))]/td[2]
+  regExp: '[0-9.]+' 
 - name: vitaminAPerServingUom
   singleValue: true
   description: Unit of Measure Data for Vitamin A
@@ -379,7 +389,8 @@ fields:
   singleValue: true
   description: Nutritional Information for Vitamin C content - Usually based on per
     100g serving
-  xpath: //tr[contains(., 'Vitamin C')]/td[2] 
+  xpath: //tr[contains(., 'Vitamin C')]/td[2]
+  regExp: '[0-9.]+'
 - name: vitaminCPerServingUom
   singleValue: true
   description: Unit of Measure Data for Vitamin C
@@ -390,6 +401,7 @@ fields:
   description: Nutritional Information for Calcium content - Usually based on per
     100g serving
   xpath: //tr[contains(., 'Calcium')]/td[2] 
+  regExp: '[0-9.]+'
 - name: calciumPerServingUom
   singleValue: true
   description: Unit of Measure Data for Calcium
@@ -400,6 +412,7 @@ fields:
   description: Nutritional Information for Iron content - Usually based on per 100g
     serving
   xpath: //tr[contains(., 'Eisen')]/td[2]
+  regExp: '[0-9.]+'
 - name: ironPerServingUom
   singleValue: true
   description: Unit of Measure Data for Iron
@@ -413,6 +426,7 @@ fields:
   description: Nutritional Information for Magnesium content - Usually based on per
     100g serving
   xpath: //tr[contains(., 'Magnesium')]/td[2] 
+  regExp: '[0-9.]+'
 - name: magnesiumPerServingUom
   singleValue: true
   description: Unit of Measure Data for Magnesium
@@ -423,6 +437,7 @@ fields:
   description: Nutritional Information for Salt content - Usually based on per 100g
     serving
   xpath: //tr[contains(., 'Salz')]/td[2]
+  regExp: '[0-9.]+'
 - name: saltPerServingUom
   singleValue: true
   description: Unit of Measure Data for Salt
@@ -440,6 +455,7 @@ fields:
 - name: storage
   singleValue: true
   description: Suggested storage location for product
+  xpath: //p[contains(., 'Aufbewahrungshinweise')]/following-sibling::p
 - name: countryOfOrigin
   singleValue: true
   description: The country from which the product originates
@@ -501,7 +517,7 @@ fields:
 - name: variants
   singleValue: false
   description:
-  xpath: //div[@class='variant-2-panel active scroll-pane']/div
+  xpath: //div[contains(@id, "panel")]/div[not(contains(@class, "selected-row"))] | //li[@class="tab-title"]
 - name: additionalDescBulletInfo
   singleValue: false
   description: 
@@ -527,11 +543,11 @@ fields:
 - name: termsAndConditions
   singleValue: true
   description: Terms and conditions information text ['Yes','No']
-  defaultValue: false
+  defaultValue: "Yes"
 - name: privacyPolicy
   singleValue: true
   description: Privacy Policy information text ['Yes','No']
-  defaultValue: false
+  defaultValue: "Yes"
 - name: customerServiceAvailability
   singleValue: true
   description: Information related to customer service availability (text), ['Yes','No']
