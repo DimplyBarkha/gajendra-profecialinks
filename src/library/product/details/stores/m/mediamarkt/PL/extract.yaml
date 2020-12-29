@@ -143,8 +143,8 @@ fields:
   - name: manufacturerDescription
     xpath: //h2[contains(text(),"Opis i specyfikacja")]/following-sibling::div//div[contains(@class,"offerDescription")]
   - name: manufacturerImages
-    singleValue: false
-    xpath: //*[@class="description-product"]//img/@src
+    # xpath: //*[@class="description-product"]//img/@src | //div[@id="description_dyson"]//img/@src
+    xpath: //div[contains(@id,"description")]//img/@src
     description: Images within the third party description
   - name: videos
     xpath: //video/@src|//div[contains(@class, "m-slider_item")]//iframe/@src|//div[@id="description"]//a/@href | (//div[@data-media="yt"]/@data-yt)[1]
