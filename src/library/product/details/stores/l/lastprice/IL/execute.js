@@ -5,7 +5,7 @@ module.exports = {
     country: 'IL',
     store: 'lastprice',
     domain: 'lastprice.co.il',
-    loadedSelector: null,
+    loadedSelector: 'div.page-content',
     noResultsXPath: null,
     zipcode: '',
   },

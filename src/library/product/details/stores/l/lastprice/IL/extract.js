@@ -118,6 +118,20 @@ module.exports = {
       console.log('alternateImages fetched ' + finalArray);
       addElementToDocument('added_alternateImages', finalArray);
 
+
+      const inTheBoxUrl = getAllXpath("//div[@id='descr']//div[@class='row']//strong[contains(.,'כלול באריזה')]/ancestor::p/following-sibling::table//img//@src | //p[contains(.,'מה בתיבה:') or (contains(.,'כלול באריזה'))]//img//@src | //div[@id='descr']//p[(br)]//img[contains(@style,'width:350px')]/@src  | //div[@id='descr']//p//img[contains(@alt,'סוללה נשלפת') or contains(@alt,'דייסון וי 11 החדש')]/@src | //div[@id='descr']//div[@class='row']//strong[contains(.,'אביזרים בערכה')]/ancestor::p/following-sibling::table//td//img/@src", 'nodeValue').join('|');
+      const finalArray1 = [];
+      if (inTheBoxUrl != null && inTheBoxUrl.length > 0 && inTheBoxUrl.includes('|')) {
+        const alternateArray = inTheBoxUrl.split('|');
+        alternateArray.forEach(element => {
+          if (!element.includes(tempImage)) {
+            finalArray.push(element + '|');
+          }
+        });
+      }
+      console.log('alternateImages fetched ' + finalArray1);
+      addElementToDocument('added_alternateImages', finalArray1);
+
       const warranty = getXpath("//div[@id='WarrantyText']", 'innerText');
       console.log('warranty fetched ' + warranty);
       addElementToDocument('added_warranty', warranty);
