@@ -69,9 +69,8 @@ fields:
   singleValue: false
   description: Product brand shown - this may actually NOT be just a brand name, e.g.
     "Visit the Gillette Store"
-  xpath: //div[@data-jum-product-details]/@data-jum-product-details
-  regExp: '"brand":"(.+)",'
-  regExpReplace: $1
+  xpath: //div[@id="brand"]
+  regExpReplace: $2
 - name: manufacturer
   singleValue: false
   description: Product manufacturer
@@ -91,9 +90,6 @@ fields:
 - name: sku
   singleValue: true
   description: The store-specific product identifier
-  xpath: //section[contains(@class, 'jum-additional-info')]/div[@data-jum-product-details]/@data-jum-product-details
-  regExp: id":"(\w+)"
-  regExpReplace: $1
 - name: variantId
   singleValue: true
   description: Identifier for a variant from a store where variants share the same
@@ -139,6 +135,7 @@ fields:
 - name: variantCount
   singleValue: true
   description: Number of variants listed
+  defaultValue: '0'
 - name: color
   singleValue: true
   description: A textual description of the colour
@@ -248,6 +245,7 @@ fields:
 - name: secondaryImageTotal
   singleValue: true
   description: 
+  xpath: count(//div[@analytics-tag='product image']/ul/li/following-sibling::li/a/img/@src)
 - name: news
   singleValue: true
   description: 
@@ -287,7 +285,7 @@ fields:
   singleValue: true
   description: Nutritional Information for Total Fat content - Usually based on per
     100g serving
-  xpath: //th[contains(translate(., 'Vetten', 'vetten'), 'vetten')]/following-sibling::td[1][contains(.,'g')] | //th[contains(translate(., 'Vet', 'vet'), 'vet')]/following-sibling::td[last()]
+  xpath: //th[contains(translate(., 'Vet', 'vet'), 'vet')]/following-sibling::td[1][contains(.,'g')] | //th[contains(translate(., 'Vet', 'vet'), 'vet')]/following-sibling::td[last()]
   regExp: ^(<?\d+\.?\d*)
 - name: totalFatPerServingUom
   singleValue: true
@@ -516,6 +514,7 @@ fields:
   description: 
 - name: additionalDescBulletInfo
   singleValue: false
+  xpath: //section[@class='jum-additional-info row']//li/@bullet
 - name: prop65Warning
   singleValue: true
   description: 
