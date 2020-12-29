@@ -33,10 +33,10 @@ fields:
     description: The stated undiscounted price for the product
   - name: price
     singleValue: true
-    description: The offered price for the selected product variant - if a user
-      clicks add to basket this is the price they would be charged
     #xpath: //div[@class="display-price"]//span/text()| //div[@class="display-price sale-price"]/text()
-    xpath: //html//div[@id="price"]
+    #xpath: //html//div[@id="price"]
+    xpath: //div[@class="display-price"]
+    type: CURRENCY
   - name: availabilityText
     singleValue: true
     description: Availability as described on page for the selected variant. If
@@ -78,7 +78,7 @@ fields:
   - name: gtin
     singleValue: true
     description: GTIN code (includes UPC/EAN)
-    xpath: //div[@id="js-mperks-pdp-container"]/@data-ean
+    xpath: //a[@data-product_code]/@data-product_code
   - name: sku
     singleValue: true
     description: The store-specific product identifier

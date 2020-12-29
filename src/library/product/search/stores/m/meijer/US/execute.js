@@ -5,9 +5,9 @@ module.exports = {
     country: 'US',
     store: 'meijer',
     domain: 'meijer.com',
-    url: 'https://www.meijer.com/shop/en/search/?text={searchTerms}',
+    url: 'https://www.meijer.com/shop/en/search/?q={searchTerms}&page=0',
     loadedSelector: 'body',
-    noResultsXPath: null,
+    noResultsXPath: '//div[@class="search-empty row "]',
     zipcode: '',
   },
 };

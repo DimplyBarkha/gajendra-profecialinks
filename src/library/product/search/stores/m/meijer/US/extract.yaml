@@ -1,7 +1,7 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: //div[@class='product-item']
+recordXPath: null
 fields:
  - name: id
    singleValue: false
@@ -16,7 +16,7 @@ fields:
    singleValue: false
    xpath: //div[@class="tile-column details"]//a[@class="h7"]/@href
    regExp: (/.+)
-   regExpReplace: https://www.meijer.com$1
+   regExpReplace: http://www.meijer.com$1
  - name: gtin
    singleValue: false
    xpath: //div[@class="quickview-block"]//a/@data-ean

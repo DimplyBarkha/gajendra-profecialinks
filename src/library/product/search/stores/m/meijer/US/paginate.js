@@ -4,12 +4,15 @@ module.exports = {
   parameterValues: {
     country: 'US',
     store: 'meijer',
-    nextLinkSelector: 'div.product-grid.js-product-grid > div.page_count_pagination > div > div > a.arrows.js-right-last-arrow',
+    nextLinkSelector: null,//'div.product-grid.js-product-grid > div.page_count_pagination > div > div > a.arrows.js-right-last-arrow',
     mutationSelector: null,
     spinnerSelector: null,
-    loadedSelector: 'body',
+    loadedSelector: null,//'body',
     noResultsXPath: null,
-    openSearchDefinition: null,
+    openSearchDefinition: {
+      pageStartNb: 0,
+      template: 'https://www.meijer.com/shop/en/search/?q={searchTerms}&page={page}',
+    },
     domain: 'meijer.com',
     zipcode: '',
   },
