@@ -4,6 +4,14 @@ parameters:
   domain: frys.com
   store: frys
   zipcode: ""
+proxy:
+  zone: USA
+  type: DATA_CENTRE
+  numberRetries: 3
+  priority: MEDIUM
+  retryDelay: 120 
+  backoffPolicy: EXPONENTIAL
+  retryWithResidentialProxyAfter: 3
 meta:
   branches:
     devfrys:

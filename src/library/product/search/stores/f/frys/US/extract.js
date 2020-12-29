@@ -4,7 +4,7 @@ module.exports = {
   parameterValues: {
     country: 'US',
     store: 'frys',
-    transform,
+    transform : transform,
     domain: 'frys.com',
     zipcode: '',
   },
