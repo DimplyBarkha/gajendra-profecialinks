@@ -116,3 +116,11 @@ fields:
   - name: technicalInformationPdfPresent
     singleValue: false
     defaultValue: Yes
+  - name: inTheBoxText
+    singleValue: false  
+    xpath: //div[@class='inpage_selector_InTheBox']//div[@class='flix-std-table']//div[contains(@class,'content')]//span
+  - name: hasComparisonTable
+    defaultValue: Yes
+  - name: unInterruptedPDP
+    singleValue: false  
+    xpath: (//div[@class=' paTracker-widget-wrapper-for-tab tgg-paTracker-widget-wrapper-for-tab']//div[@id='pa-icc'])[1]//div[@class='paw__glide__slides']//div[contains(@class,'paw__glide__slide')]//div[contains(@class,'tgg-paTracker-product-compactName')]
