@@ -5,7 +5,7 @@ module.exports = {
     store: 'homedepot',
     domain: 'homedepot.ca',
     loadedSelector: 'div[class="hdca-product"],div[evtperfname="product-localized-container"]',
-    noResultsXPath: '//product-not-found-container[@evtperfname="product-not-found-container"]//div[contains(text(), "temporarily unavailable")]',
+    noResultsXPath: '//product-not-found-container[@evtperfname="product-not-found-container"]//div[contains(text(), "temporarily unavailable")] | //product-not-found-container[@evtperfname="product-not-found-container"]//h1[contains(text(), "temporarily unavailable")]',
     zipcode: '',
   },
 };

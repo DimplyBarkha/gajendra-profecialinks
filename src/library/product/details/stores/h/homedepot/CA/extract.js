@@ -10,12 +10,6 @@ module.exports = {
     zipcode: '',
   },
   implementation: async ({ url }, { country, domain, transform }, context, { productDetails }) => {
-    try {
-      await context.click('localization-confirmation div:nth-child(1)>button');
-      await new Promise(resolve => setTimeout(resolve, 30000));
-    } catch (error) {
-      console.log('no localized button found');
-    }
     await context.evaluate(async function () {
       let scrollTop = 0;
       while (scrollTop <= 20000) {
@@ -35,29 +29,47 @@ module.exports = {
         });
       }
     });
-    await new Promise(resolve => setTimeout(resolve, 50000));
+    await new Promise(resolve => setTimeout(resolve, 10000));
     try {
       await context.waitForSelector('.hdca-product__description');
     } catch (error) {
       console.log('product description is not loaded');
     }
-    await new Promise(resolve => setTimeout(resolve, 50000));
     try {
-      await context.click('div.hdca-product__gallery > acl-product-image > div > acl-icon');
-      await new Promise(resolve => setTimeout(resolve, 30000));
-      await context.click('div.zoom-gallery-container > div.carousel-container > hdca-carousel > div > div > ngu-carousel > div > button.arrow.arrow--next');
-      await new Promise(resolve => setTimeout(resolve, 30000));
-    } catch (error) {
-      console.log('no more images');
-    }
-    try {
-      await new Promise(resolve => setTimeout(resolve, 30000));
       await context.click('.hdca-video__play');
-      await new Promise(resolve => setTimeout(resolve, 30000));
+      await new Promise(resolve => setTimeout(resolve, 10000));
     } catch (error) {
       console.log('no localized button found');
     }
-    await new Promise(resolve => setTimeout(resolve, 50000));
+    await context.evaluate(async function () {
+      function addElementToDocument (key, value) {
+        const catElement = document.createElement('div');
+        catElement.id = key;
+        catElement.textContent = value;
+        catElement.style.display = 'none';
+        document.body.appendChild(catElement);
+      }
+      // @ts-ignore
+      const skuNumber = window.location.href;
+      if (skuNumber.match(/\/(\d+)/)) {
+        console.log('sku number match', skuNumber.match(/\/(\d+)/)[1]);
+        const response = await fetch(`https://www.homedepot.ca/homedepotcacommercewebservices/v2/homedepotca/products/${skuNumber.match(/\/(\d+)/)[1]}.json?fields=BASIC_SPA&lang=en`)
+          .then(response => response.json())
+          .catch(error => console.error('Error:', error));
+        console.log('response', response);
+        await new Promise(resolve => setTimeout(resolve, 10000));
+        if (response) {
+          if (response.alternateImages) {
+            response.alternateImages.forEach(image => {
+              image.url && addElementToDocument('pd_altimage', image.url);
+            });
+          }
+          if (response.price) {
+            response.price.formattedValue && addElementToDocument('pd_price', response.price.formattedValue);
+          }
+        }
+      }
+    });
     return await context.extract(productDetails, { transform });
   },
 };

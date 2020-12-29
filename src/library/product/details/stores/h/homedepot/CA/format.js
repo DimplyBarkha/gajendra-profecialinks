@@ -31,28 +31,15 @@ const transform = (data) => {
 
       if (row.manufacturerImages) {
         row.manufacturerImages.forEach(item => {
+          if (item.text.match(/(\/\/)(.*?)(,?)/g)) {
+            item.text = item.text.replace(/(\/\/)(.*?)(,?)/g, 'https:$1$2');
+          }
           item.text = item.text.startsWith('https:') ? item.text : `https:${item.text}`;
-        });
-      }
-
-      if (row.image) {
-        row.image.forEach(item => {
-          item.text = item.text.replace(/(wid=)(\d)*/g, '$1500').replace(/(hei=)(\d)*/g, '$1500');
-        });
-      }
-
-      if (row.alternateImages) {
-        row.alternateImages.forEach(item => {
-          item.text = item.text.replace(/(.*).jpg(.*)/g, '$1.jpg');
         });
       }
 
       if (row.imageAlt && row.imageAlt[0] && row.imageAlt[0].text === 'undefined HttpErrorResponse') {
         row.imageAlt = [{ text: '' }];
-      }
-
-      if (!row.image && row.image1 && row.image1[0]) {
-        row.image = [{ text: row.image1[0].text.replace(/(wid=)(\d)*/g, '$1500').replace(/(hei=)(\d)*/g, '$1500') }];
       }
 
       if (row.shippingDimensions) {
@@ -119,14 +106,6 @@ const transform = (data) => {
           row.availabilityText = [{ text: 'Out of Stock' }];
         }
       }
-      if (row.availabilityText && row.availabilityText[0] && row.availabilityText[0].text === 'In Stock' && !row.price && row.price1 && row.price1[0]) {
-        const price = Number(parseFloat(row.price1[0].text).toFixed(2)).toLocaleString('en', {
-          minimumFractionDigits: 2,
-        });
-        row.price = [{
-          text: `$${price}`,
-        }];
-      }
       if (row.warnings) {
         row.warnings.forEach(item => {
           item.text = item.text.replace(/see\s*/i, '').trim();
@@ -134,6 +113,11 @@ const transform = (data) => {
       }
       if (row.mpc) {
         row.mpc.forEach(item => {
+          item.text = item.text.replace(/.*?#/, '').trim();
+        });
+      }
+      if (row.gtin) {
+        row.gtin.forEach(item => {
           item.text = item.text.replace(/.*?#/, '').trim();
         });
       }

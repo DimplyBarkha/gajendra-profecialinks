@@ -17,5 +17,11 @@ module.exports = {
     await context.setLoadAllResources(true);
     const timeout = parameters.timeout ? parameters.timeout : 10000;
     await context.goto(url, { first_request_timeout: 60000, timeout, waitUntil: 'load', checkBlocked: true });
+    try {
+      await context.click('localization-confirmation div:nth-child(1)>button');
+      await new Promise(resolve => setTimeout(resolve, 10000));
+    } catch (error) {
+      console.log('no localized button found');
+    }
   },
 };

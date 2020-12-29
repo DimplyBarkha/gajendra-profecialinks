@@ -19,11 +19,11 @@ fields:
     xpath: //span[@itemprop="ratingValue"]
   - name: alternateImages
     singleValue: false
-    xpath: (//div[contains(@class,"zoom-gallery-container")]//div[contains(@class,"ngu-touch-container")]/div//img/@src)[position()>1]
+    xpath: //div[@id="pd_altimage"]
   - name: secondaryImageTotal
     singleValue: false
     description: null
-    xpath: count((//div[contains(@class,"zoom-gallery-container")]//div[contains(@class,"ngu-touch-container")]/div//img)[position()>1])
+    xpath: count(//div[@id="pd_altimage"])
   - name: availabilityText
     singleValue: false
     xpath: //link[@itemprop="availability"]/@href
@@ -67,10 +67,7 @@ fields:
     regExpReplace: $3
   - name: image
     singleValue: false
-    xpath: //div[contains(@evtperfname,"product-gallery-container")]/hdca-carousel//div[contains(@class,"selected")]//img/@src | //div[contains(@class,"hdca-product__gallery")]/img/@src
-  - name: image1
-    singleValue: false
-    xpath: ((//div[@class="ngu-touch-container"])[2]//img/@src)[1]
+    xpath: //meta[@property="og:image"]/@content
   - name: Image360Present
     singleValue: false
     xpath: //div[contains(@class,"zoomableContainer")]//img[contains(@alt,"360 Degree View")]/@alt
@@ -96,10 +93,13 @@ fields:
     xpath: //div[@id="wc-aplus"] | //div[@id="inpage_container"]
   - name: manufacturerImages
     singleValue: false
-    xpath: //div[@id="wc-aplus"]//img[contains(@src, ".jpg")]/@src | //div[@id="inpage_container"]//img[contains(@srcset, ".jpg")]/@srcset
+    xpath: //div[@id="wc-aplus"]//img[contains(@src, ".jpg")]/@src | //div[@id="inpage_container"]//img/@data-flixsrcset
   - name: metaKeywords
     singleValue: false
   - name: mpc
+    singleValue: false
+    xpath: //div[contains(@evtperfname, "product-info-component")]//span[contains(text(),"Model")]
+  - name: gtin
     singleValue: false
     xpath: //div[contains(@evtperfname, "product-info-component")]//span[contains(text(),"Model")]
   - name: name
@@ -117,10 +117,7 @@ fields:
     xpath: //dt[contains(text(), "Pack Size")]/following-sibling::dd[1]
   - name: price
     singleValue: false
-    xpath: //div[contains(@evtperfname,"product-localized-price-component")]//p//span[1]
-  - name: price1
-    singleValue: false
-    xpath: //span[@itemprop="price"]
+    xpath: //div[@id="pd_price"] | //div[contains(@evtperfname,"product-localized-price-component")]//p//span[contains(@class,"price-value")]
   - name: productOtherInformation
     singleValue: false
   - name: promotion
@@ -207,7 +204,4 @@ fields:
     xpath: //dt[contains(text(), "Assembled Weight")]/following-sibling::dd[1]
   - name: imageZoomFeaturePresent
     singleValue: false
-    xpath: //acl-product-image/@hdca-variant
-    regExp: magnifier
-    regExpReplace: Yes
-    defaultValue: No
+    defaultValue: Yes
