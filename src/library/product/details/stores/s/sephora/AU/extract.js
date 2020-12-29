@@ -13,7 +13,14 @@ module.exports = {
     await new Promise(resolve => setTimeout(resolve, 5000));
     await context.evaluate(function () {
       document.cookie = 'locale=au;';
+      let modalPopup = document.querySelector('modal');
+    if(modalPopup){
+      document.querySelector('.location-info-start-shopping').click();
+    }
+  
+
     });
+
 
     let scrollTop = 0;
     while (scrollTop !== 10000) {
