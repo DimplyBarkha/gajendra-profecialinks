@@ -119,34 +119,6 @@ module.exports.implementation = async ({ inputString }, { country, domain, trans
         addElementToDocument('added_protein_per_serving', ProteinPerServing);
         addElementToDocument('added_protein_per_serving_uom', ProteinPerServingUOM);
       }
-      // if (nutritionDetails[13] !== 'null' && nutritionDetails[13] !== null && nutritionDetails[13] !== '') {
-      //   // added_vitamin_a_per_serving
-      //   const VitaminAPerServing = nutritionDetails[13].replace(/[^\d.-]/g, '');
-      //   const VitaminAPerServingUOM = nutritionDetails[13].replace(/[^a-zA-Z%]/g, '');
-      //   addElementToDocument('added_vitamin_a_per_serving', VitaminAPerServing);
-      //   addElementToDocument('added_vitamin_a_per_serving_uom', VitaminAPerServingUOM);
-      // }
-      // if (nutritionDetails[14] !== 'null' && nutritionDetails[14] !== null && nutritionDetails[14] !== '') {
-      //   // added_vitamin_c_per_serving
-      //   const VitaminCPerServing = nutritionDetails[14].replace(/[^\d.-]/g, '');
-      //   const VitaminCPerServingUOM = nutritionDetails[14].replace(/[^a-zA-Z%]/g, '');
-      //   addElementToDocument('added_vitamin_c_per_serving', VitaminCPerServing);
-      //   addElementToDocument('added_vitamin_c_per_serving_uom', VitaminCPerServingUOM);
-      // }
-      // if (nutritionDetails[15] !== 'null' && nutritionDetails[15] !== null && nutritionDetails[15] !== '') {
-      //   // added_calcium_per_serving
-      //   const CalciumPerServing = nutritionDetails[15].replace(/[^\d.-]/g, '');
-      //   const CalciumPerServingUOM = nutritionDetails[15].replace(/[^a-zA-Z%]/g, '');
-      //   addElementToDocument('added_calcium_per_serving', CalciumPerServing);
-      //   addElementToDocument('added_calcium_per_serving_uom', CalciumPerServingUOM);
-      // }
-      // if (nutritionDetails[16] !== 'null' && nutritionDetails[16] !== null && nutritionDetails[16] !== '') {
-      //   // added_iron_per_serving
-      //   const IronPerServing = nutritionDetails[16].replace(/[^\d.-]/g, '');
-      //   const IronPerServingUOM = nutritionDetails[16].replace(/[^a-zA-Z%]/g, '');
-      //   addElementToDocument('added_iron_per_serving', IronPerServing);
-      //   addElementToDocument('added_iron_per_serving_uom', IronPerServingUOM);
-      // }
     }
   });
   await context.extract(productDetails, { transform: transformParam });
