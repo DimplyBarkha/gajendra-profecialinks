@@ -18,15 +18,6 @@ async function implementation(
 ) {
   const { transform } = parameters;
   const { productDetails } = dependencies;
-  // await context.waitForXPath('//div[@class="tile__product-slide-rating-wrapper"]');
-  // await context.waitForSelector('div[class="tile__product-slide-rating-wrapper"]');
-  // await context.waitForXPath('//div[@class="tile__product-slide-rating-wrapper"]');
-//   await context.evaluate(async () => {
-//     // while(!!document.querySelector('#search-grid_0 > div.col-12.bloom-load-wrapper > button')){
-//     // document.querySelector('#search-grid_0 > div.col-12.bloom-load-wrapper > button').click()
-    
-    
-// })
   await context.evaluate(async function () {
     let scrollTop = 0;
     while (scrollTop !== 1000) {
@@ -57,17 +48,15 @@ async function implementation(
     const originalDiv = document.querySelectorAll("div[class='tile__product-slide-image-container']")[index];
     originalDiv.parentNode.insertBefore(newDiv, originalDiv);
   }
-  const aggregateRating = document.querySelectorAll("e2-rating")
-  for (let k = 0; k < aggregateRating.length; k++) {
-  // @ts-ignore
-<<<<<<< HEAD
-  let singleRating = aggregateRating[k].getAttribute("rating");
-=======
-  let singleRating = aggregateRating[k].getAttribute("reviews-number");
->>>>>>> 6fd9af89d2b10345ee9cf97a36d8df092ce07556
-  console.log(singleRating,'=singleRating')
-  addHiddenDiv('aggregateRating', singleRating, k);
-  }
+  // const aggregateRating = document.querySelectorAll("e2-rating")
+//   for (let k = 0; k < aggregateRating.length; k++) {
+//   // @ts-ignore
+// // <<<<<<< HEAD
+//   let singleRating = aggregateRating[k].getAttribute("rating");
+//   // let singleRating = aggregateRating[k].getAttribute("reviews-number");
+//   console.log(singleRating,'=singleRating')
+//   addHiddenDiv('aggregateRating', singleRating, k);
+//   }
 
   try{
     // @ts-ignore
