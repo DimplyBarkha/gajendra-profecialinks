@@ -1,19 +1,15 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: //div[@class="prdct-cntnr-wrppr"]//div[contains(@class, "p-card-wrppr")]
+recordXPath: null
 fields:
-  - name: paid
-    singleValue: false
-    description: Whether this is a sponsored/paid result
-    type: BOOLEAN
   - name: brand
-    singleValue: false
     description: The brand name
+    xpath: //div[@id="added-table"]/table/tbody/tr/td[@class="brand"]//td[@class="name"]
     example: Panasonic
   - name: category
-    singleValue: false
     description: The categories (e.g. from breadcrumbs)
+    xpath: //div[@id="added-table"]/table/tbody/tr/td[@class="categoryHierarchy"]
     example:
       [
         "Dental Care",
@@ -23,65 +19,48 @@ fields:
         "Rotating",
       ]
   - name: productUrl
-    singleValue: false
     description: The URL for the product details page
-    xpath: //*[contains(@class,"p-card-wrppr")]//a//@href
+    xpath: //div[@id="added-table"]/table/tbody/tr/td[@class="url"]
   - name: thumbnail
-    singleValue: false
     description: The URL for the product thumbnail image
-    xpath: //*[contains(@class,"p-card-wrppr")]//*[@class="p-card-img"]//@src
+    xpath: //div[@id="added-table"]/table/tbody/tr/td[@class="images"]//tbody/tr[1]
   - name: name
     description: The product name
-    singleValue: false
-    xpath: //div[contains(@class, "prdct-desc-cntnr-ttl-w")]
+    xpath: //div[@id="added-table"]/table/tbody/tr/td[@class="name"]
   - name: sku
-    singleValue: false
     description: The store-specific product identifier
   - name: mpc
-    singleValue: false
     description: The model code of the product
   - name: gtin
-    singleValue: false
     description: GTIN code (includes UPC/EAN)
   - name: ratingCount
-    singleValue: false
     description: The number of ratings
-    xpath: //*[contains(@class,"p-card-wrppr")]//div[@class="ratings"]
+    xpath: //div[@id="added-table"]/table/tbody/tr/td[@class="ratingScore"]//td[@class="totalCount"]
   - name: reviewCount
-    singleValue: false
     description: The number of reviews
   - name: price
-    singleValue: false
     description: The offered price for the product
-    xpath: //div[contains(@class,'prc-box-sllng')]
+    xpath: //div[@id="added-table"]/table/tbody/tr/td[@class="price"]//td[@class="sellingPrice"]
   - name: listPrice
-    singleValue: false
     description: The stated undiscounted price for the product
-    xpath: //div[contains(@class,'prc-box-orgnl')]
+    xpath: //div[@id="added-table"]/table/tbody/tr/td[@class="price"]//td[@class="originalPrice"]
   - name: manufacturer
-    singleValue: false
     description: Product manufacturer
   - name: soldBy
-    singleValue: false
     description: The name of the seller of the item (if available)
   - name: rank
-    singleValue: false
     description: search/listing rank
     type: NUMBER
   - name: rankOrganic
-    singleValue: false
     description: The position (rank) within the list excluding sponsored/paid results
     type: NUMBER
   - name: sponsored
-    singleValue: false
     description: Is sponsored/paid
     type: BOOLEAN
   - name: id
-    singleValue: false
-    xpath: //div[contains(@class,"prdct-cntnr-wrppr")]/div[contains(@class,"p-card-wrppr")]/@data-id
+    xpath: //div[@id="added-table"]/table/tbody/tr/td[@class="id"]
   - name: aggregateRating2
-    singleValue: false
     description: The stated aggregate rating normalized to be out of 5
-    xpath: //div[@class="ratings"]/@rating
+    xpath: //div[@id="added-table"]/table/tbody/tr/td[@class="ratingScore"]//td[@class="averageRating"]
   - name: searchUrl
-    xpath: ancestor::html//body/@link
+    xpath: //body/@search-url

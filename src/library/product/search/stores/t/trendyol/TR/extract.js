@@ -1,4 +1,4 @@
-const { transform } = require('./transform');
+const { transform } = require('../TR/transform');
 module.exports = {
     implements: 'product/search/extract',
     parameterValues: {
@@ -15,45 +15,96 @@ module.exports = {
         dependencies,
     ) => {
         await context.evaluate(async() => {
-            document.body.setAttribute('link', window.location.href)
+            let apiData;
+            await fetch(window.location.href)
+                .then((response) => response.json())
+                .then((data) => {
+                    apiData = data;
+                })
 
-            function stall(ms) {
-                return new Promise((resolve, reject) => {
-                    setTimeout(() => {
-                        resolve();
-                    }, ms);
-                });
-            }
+            function addDynamicTable(jsonData, appendSelector) {
+                function generateDynamicTable(jsonData) {
+                    const dataLength = jsonData.length;
 
-            const applyScroll = async function(lengthToScroll) {
-                let scrollTop = 0;
-                while (scrollTop !== 30000) {
-                    await stall(500);
-                    scrollTop += lengthToScroll;
-                    window.scrollBy(0, lengthToScroll);
-                    if (document.querySelectorAll('div.p-card-wrppr').length === parseInt(document.querySelector('.dscrptn').innerHTML.match(/(?!<!--\s-->)(\d+)(?=<!--\s-->)/g)[0]) || document.querySelectorAll('div.p-card-wrppr').length >= 150) {
-                        await stall(1000);
-                        break;
+                    if (dataLength > 0) {
+                        const table = document.createElement("table");
+                        table.style.width = "100%";
+                        table.setAttribute("border", "1");
+                        table.setAttribute("cellspacing", "0");
+                        table.setAttribute("cellpadding", "5");
+
+                        const col = [];
+                        for (let i = 0; i < dataLength; i++) {
+                            for (const key in jsonData[i]) {
+                                if (col.indexOf(key) === -1) {
+                                    col.push(key);
+                                }
+                            }
+                        }
+                        const tHead = document.createElement("thead");
+                        tHead.setAttribute("bgcolor", "#CCC4F5");
+                        tHead.style.color = "black";
+                        const hRow = document.createElement("tr");
+
+                        for (let i = 0; i < col.length; i++) {
+                            const th = document.createElement("th");
+                            th.innerHTML = col[i];
+                            hRow.appendChild(th);
+                        }
+                        tHead.appendChild(hRow);
+                        table.appendChild(tHead);
+
+                        const tBody = document.createElement("tbody");
+
+                        for (let i = 0; i < dataLength; i++) {
+                            const bRow = document.createElement("tr");
+                            for (let j = 0; j < col.length; j++) {
+                                const td = document.createElement("td");
+                                table.style.padding = "5px";
+                                table.style.margin = "5px auto";
+                                td.setAttribute("class", col[j]);
+                                if (
+                                    jsonData[i][col[j]] &&
+                                    (jsonData[i][col[j]] !== "null" ||
+                                        jsonData[i][col[j]] !== "undefined")
+                                ) {
+                                    if (typeof jsonData[i][col[j]] === "object") {
+                                        if (Array.isArray(jsonData[i][col[j]])) {
+                                            const table = generateDynamicTable(jsonData[i][col[j]]);
+                                            table && td.append(table);
+                                        } else {
+                                            const table = generateDynamicTable([jsonData[i][col[j]]]);
+                                            table && td.append(table);
+                                        }
+                                    } else {
+                                        td.innerText = jsonData[i][col[j]];
+                                    }
+                                }
+                                bRow.appendChild(td);
+                                bRow.style.padding = "5px";
+                            }
+                            tBody.appendChild(bRow);
+                        }
+                        table.appendChild(tBody);
+                        return table;
                     }
                 }
-            };
-            await applyScroll(399);
-            console.log("lenght of produts: " + document.querySelectorAll('div.p-card-wrppr').length)
-            const cardsRating = document.querySelectorAll('div.p-card-wrppr div.ratings div.full');
-            cardsRating.forEach(element => {
-                element.setAttribute("rating", (parseInt(element.getAttribute("style").match(/(?!(width:))(\d+)(?:[%]?;)/g)[0].match(/\d+/g)[0]) / 100).toString())
-            });
-            const ratingDiv = document.querySelectorAll("div.ratings");
-            ratingDiv.forEach((element) => {
-                let rating = 0.0;
-                const nodes = element.childNodes;
-                for (let i = 0; i < 5; i++) {
-                    rating += parseFloat(nodes[i].childNodes[1].getAttribute("rating"));
-                };
-                element.setAttribute('rating', rating.toString())
-            })
 
-        });
+                const table = generateDynamicTable(jsonData);
+                const container = document.createElement("div");
+                container.setAttribute("id", "added-table");
+                container.setAttribute("style", "overflow:auto");
+                container.innerHTML = "";
+                container.appendChild(table);
+                document.querySelector(appendSelector).append(container);
+            }
+            if (apiData.result.products.length !== 0) {
+                document.body.setAttribute('search-url', window.location.href)
+                await addDynamicTable(apiData.result.products, 'body')
+            }
+
+
+        }, );
         const { transform } = parameters;
         const { productDetails } = dependencies;
         return await context.extract(productDetails, { transform });

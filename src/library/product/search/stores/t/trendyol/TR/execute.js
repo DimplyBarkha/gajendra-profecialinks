@@ -4,9 +4,9 @@ module.exports = {
         country: 'TR',
         store: 'trendyol',
         domain: 'trendyol.com',
-        url: 'https://www.trendyol.com/sr?q={searchTerms}&os=1',
-        loadedSelector: 'div.srch-prdcts-cntnr img',
-        noResultsXPath: '//*[contains(.,"bulunamadı")]',
+        url: 'https://api.trendyol.com/websearchgw/api/infinite-scroll/tum--urunler?q={searchTerms}&pi=1',
+        loadedSelector: 'body pre',
+        noResultsXPath: null,
         zipcode: '',
     },
 };
