@@ -67,7 +67,7 @@ module.exports = {
               document.querySelector(productElemId).setAttribute('product-tile-search-url', searchUrl);
               const thumbnail = product.primaryImageUrl ? `https://www.marionnaud.ch${product.primaryImageUrl}` : '';
               document.querySelector(productElemId).setAttribute('product-tile-thumbnail', thumbnail);
-              const productRating = product.averageRating ? String(product.averageRating).replace('.', ',') : '';
+              const productRating = product.averageRating ? String(product.averageRating) : '';
               document.querySelector(productElemId).setAttribute('product-tile-aggRating', productRating);
               document.querySelector(productElemId).setAttribute('product-tile-reviewCount', product.numberOfReviews);
               const price = product.price ? product.price.formattedValue : '';
