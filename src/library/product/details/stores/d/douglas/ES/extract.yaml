@@ -8,7 +8,8 @@ fields:
     xpath: //div[@class="rd__breadcrumbs__item"][position()>1][position()<last()]
   - name: nameExtended
     singleValue: false
-    xpath: //h1[@itemprop="name"]//div[@class="rd__col sd__no-float"]/text() | //h1[@id="product_title"]
+    xpath: //h1[@itemprop="name"]//div[@class="rd__col sd__no-float"]/text() 
+    # xpath: //h1[@itemprop="name"]//div[@class="rd__col sd__no-float"]/text() | //h1[@id="product_title"] | //h2[@class="rd__headline rd__headline--130"]/text() | //h2[@id="product_title"]/span[@itemprop="name"]/text()
   - name: image
     singleValue: false
     description: URL of the main product image
@@ -39,14 +40,14 @@ fields:
   - name: description
     singleValue: false
     #xpath: //div//span[contains(text(),"Información del producto")]//..//..//..//..//..//following-sibling::div[1]//div[@class="rd__checkout-details__section__description"] | //span[@class="rd__copytext rd__copytext--70"]
-    xpath: (//div[@class="rd__checkout-details__section__description"])[1] |  //span[@class="rd__headline rd__headline--80"]//text()
+    xpath: (//div[@class="rd__checkout-details__section__description"])[1] | //span[@class="rd__copytext rd__copytext--80"]/strong | //span/span[@class="rd__copytext rd__copytext--70"] #//span[@class="rd__headline rd__headline--80"]//text()
   - name: brandText
     singleValue: false
-    xpath: //div[@class="rd__product-header"]//img[contains(@class,'rd__img sd__img')]/@alt
+    xpath: //div[@class="rd__product-header"]//img[contains(@class,'rd__img sd__img')]/@alt | //div[@class="rd__global--hidden-sm"]//strong/text()
   - name: variantId
     singleValue: false
     description: Identifier for a variant from a store where variants share the same sku
-    xpath: //div[@id="my-variantId"] [last()]
+    xpath: //div[@id="my-variantId"] [last()] | //div[@data-vendor]/@data-product-id
     #xpath: //div[@class="rd__blob"]/img/@src
     regExp: \d{5,}
     # regExpReplace:
@@ -63,7 +64,11 @@ fields:
   - name: name
     singleValue: false
     description: The product name
-    xpath: //div[@class="rd__col sd__no-float"]  | //h1[@id="product_title"]
+    xpath: //div[@class="rd__col sd__no-float"]  | //h1[@id="product_title"] | //h2[@class="rd__headline rd__headline--130"]/text() | //h2[@id="product_title"]/span[@itemprop="name"]/text() | (//a[@class="rr-item-link"])[last()] 
+  - name: name1
+    singleValue: false
+    description: The product name
+    xpath:  //h2[contains(@class,"rd__headlline rd__headline--80")]/text() | //h1[@itemprop="name"]/div[1]  
     #regExp: (?<=\s).*
   # - name: packSize
   #   singleValue: false
@@ -131,7 +136,7 @@ fields:
     # xpath:  //ul[@class="rd__list--130"]/li
   - name: shippingInfo                
     singleValue: false
-    xpath: //a[@data-promo="promo | envio_gratis | slot"]/text()
+    # xpath: //a[@data-promo="promo | envio_gratis | slot"]/text()
   - name: variants
     singleValue: false
     xpath: //h2[@class="rd__headlline rd__headline--80 rd__list-services__headline"]/text()
