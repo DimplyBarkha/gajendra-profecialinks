@@ -44,9 +44,10 @@ async function implementation (
                 const inBoxurlsAccessories = [];
                 let inBoxText = [];
                 if(getAccessories){
-                  const getAllAccessories = document.querySelectorAll('div.my-slider>div.eky-relative-wrapper.tns-normal>div.eky-overlay>div.lax');
+                  const getAllAccessories = document.querySelectorAll('div.my-slider>div.eky-relative-wrapper.tns-normal');
                     for (let i = 0; i < getAllAccessories.length; i++) {
-                        inBoxText.push(getAllAccessories[i].querySelector('h1').innerText);
+                      inBoxUrls.push(getAllAccessories[i].querySelector('div.eky-header-video-container>video').getAttribute('src'));
+                        inBoxText.push(getAllAccessories[i].querySelector('div.eky-overlay>div.lax').innerText);
                     }
                 }
                 if (getInTheBox) {
