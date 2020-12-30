@@ -1,0 +1,15 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: variantId
+    singleValue: false
+    description: variant id, to uniquely identify variant
+    xpath: //*[@id='ii_variant']
+  - name: variantUrl
+    singleValue: false
+    description: variant Url
+    xpath: //*[@id='ii_variant']/text()
+    regExp: (.+)
+    regExpReplace: https://amazon.it/dp/$1

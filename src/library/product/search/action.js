@@ -11,18 +11,7 @@ module.exports = {
     {
       name: 'domain',
       description: 'The top private domain of the website (e.g. amazon.com)',
-    },
-    {
-      name: 'zipcode',
-      description: 'to set location',
-      optional: true,
-    },
-    {
-      name: 'storeID',
-      description: 'Id of the store',
-      type: 'string',
-      optional: true,
-    },
+    }
   ],
   inputs: [
     {
@@ -46,32 +35,35 @@ module.exports = {
       type: 'number',
     },
     {
-      name: 'Brands',
-      description: 'brands to search for',
+      name: 'id',
+      description: 'keywords to search for',
+      type: 'string',
+    },
+    {
+      name: '_date',
+      description: 'earliest date to extract a review',
+      type: 'string',
+    },
+    {
+      name: 'zipcode',
+      description: 'to set location',
       type: 'string',
     },
   ],
   dependencies: {
     execute: 'action:product/search/execute',
-    paginate: 'action:navigation/paginate',
+    paginate: 'action:product/search/paginate',
     extract: 'action:product/search/extract',
   },
   path: './search/stores/${store[0:1]}/${store}/${country}/search',
-  implementation: async (inputs, { country, store, domain, zipcode }, context, { execute, extract, paginate }) => {
-    const { keywords, Keywords, results = 150, Brands } = inputs;
-
-    const inputKeywords = Keywords || keywords || Brands;
-
+  implementation: async ({ keywords, Keywords, results = 50, id, _date = null, zipcode = null }, { country, store, domain }, context, { execute, extract, paginate }) => {
     // TODO: consider moving this to a reusable function
     const length = (results) => results.reduce((acc, { group }) => acc + (Array.isArray(group) ? group.length : 0), 0);
 
-    const resultsReturned = await execute({
-      ...inputs,
-      keywords: inputKeywords,
-      zipcode: inputs.zipcode || zipcode,
-    });
+    keywords = (Keywords) || (keywords) || (id);
 
     // do the search
+    const resultsReturned = await execute({ keywords, zipcode, _date, context });
 
     if (!resultsReturned) {
       console.log('No results were returned');
@@ -79,20 +71,25 @@ module.exports = {
     }
 
     // try gettings some search results
-    const pageOne = await extract({});
+    const pageOne = await extract({ _date });
 
     let collected = length(pageOne);
 
     console.log('Got initial number of results', collected);
 
     // check we have some data
-    if (collected === 0) return;
+    if (collected === 0) {
+      return;
+    }
 
     let page = 2;
-    while (collected < results && await paginate({ keywords: inputKeywords, page, offset: collected })) {
-      const data = await extract({});
+    while (collected < results && await paginate({ keywords, page, offset: collected, _date, context })) {
+      const data = await extract({ _date });
       const count = length(data);
-      if (count === 0) break; // no results
+      if (count === 0) {
+        // no results
+        break;
+      }
       collected += count;
       console.log('Got more results', collected);
       page++;

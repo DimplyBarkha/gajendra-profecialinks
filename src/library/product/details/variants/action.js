@@ -12,11 +12,16 @@ async function implementation (
   context,
   dependencies,
 ) {
-  const { URL, RPC, SKU } = inputs;
+  const { URL, RPC, SKU, rpc } = inputs;
   const { execute, extract } = dependencies;
   const url = URL;
-  const id = (RPC) || ((SKU) || inputs.id);
-  await execute({ url, id, zipcode: parameters.zipcode });
+  const id = (RPC) || ((SKU) || (rpc) || inputs.id);
+  const resultsReturned = await execute({ url, id, zipcode: parameters.zipcode });
+
+  if (!resultsReturned) {
+    console.log('No results returned');
+    return;
+  }
 
   await extract({ url, id });
 }
@@ -56,6 +61,12 @@ module.exports = {
     },
     {
       name: 'RPC',
+      description: 'rpc for product',
+      type: 'string',
+      optional: true,
+    },
+    {
+      name: 'rpc',
       description: 'rpc for product',
       type: 'string',
       optional: true,

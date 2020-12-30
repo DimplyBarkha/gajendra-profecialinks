@@ -1,0 +1,38 @@
+singleRecord: true
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: name
+    singleValue: true
+    description: reseller_name - Seller Name, if the website does not have sellers, put the website name as seller
+  - name: id
+    singleValue: false
+    description: reseller_id - Unique seller ID
+    regExpReplace: $1
+  - name: reviewCount
+    singleValue: true
+    description: reseller_reviews - Number of reviews the seller has
+  - name: aggregateRating
+    singleValue: false
+    description: Aggregate rating of seller (stars)
+  - name: feedbackPercent
+    singleValue: false
+    description: reseller_feedback_% - Seller feedback percentage poisitive or negative dont include percent if possible
+  - name: vat
+    description: reseller_vat - european marketplace specific (also EID/TEID)
+  - name: legalName
+    description: reseller_legal_name - Seller legal name
+  - name: phoneNumber
+    singleValue: true
+    description: reseller_phone_number - Seller phone number
+  - name: email
+    singleValue: true
+    description: reseller_email - Seller email address
+  - name: address
+    singleValue: false
+    description: reseller_address_field - Seller address field [] | Because address info is not standardized we collect each row and organize data after collection
+  - name: link
+    singleValue: false
+    type: LINK
+    description: reseller_link - Link to the seller page

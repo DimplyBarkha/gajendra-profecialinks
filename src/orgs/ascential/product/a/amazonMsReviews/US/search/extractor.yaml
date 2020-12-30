@@ -1,0 +1,26 @@
+robot: product/search
+parameters:
+  country: US
+  domain: amazon.com
+  store: amazonMsReviews
+  zipcode: null
+proxy:
+  zone: ZUS
+  type: DATA_CENTER
+meta:
+  branches:
+    staging:
+      extractor: e6cd1110-ac53-4458-81c4-f3482822d091
+      legacyAccountId: 39255e08-8495-481b-9eba-0eb99bc49e94
+    ms-staging:
+      extractor: 84724496-5d40-4345-85e8-2e187e3b5888
+      legacyAccountId: 39255e08-8495-481b-9eba-0eb99bc49e94
+    mse-staging:
+      extractor: a35c49b0-2932-4afa-82d4-cf2229a88ce4
+      legacyAccountId: 39255e08-8495-481b-9eba-0eb99bc49e94
+    mse-demo:
+      extractor: 0a90825d-5309-4b94-9d71-14c7b40fb4e7
+      legacyAccountId: 05436d0a-af0c-409d-aa11-f70cf0171466
+    mse-production:
+      extractor: 2b0f65ae-52e1-484f-8158-e34affdfdf72
+      legacyAccountId: 39255e08-8495-481b-9eba-0eb99bc49e94

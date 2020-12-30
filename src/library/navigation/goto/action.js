@@ -33,13 +33,11 @@ module.exports = {
     setZipCode: 'action:navigation/goto/setZipCode',
   },
   path: './goto/domains/${domain[0:2]}/${domain}',
-  implementation: async (inputs, parameters, context, dependencies) => {
+  implementation: async ({ url, zipcode, storeId }, parameters, context, dependencies) => {
     const timeout = parameters.timeout ? parameters.timeout : 10000;
-    const { url, zipcode, storeId } = inputs;
     await context.goto(url, { timeout: timeout, waitUntil: 'load', checkBlocked: true });
-    console.log(zipcode);
-    if (zipcode || storeId) {
-      await dependencies.setZipCode(inputs);
+    if (zipcode) {
+      await dependencies.setZipCode({ url: url, zipcode: zipcode, storeId });
     }
   },
 };

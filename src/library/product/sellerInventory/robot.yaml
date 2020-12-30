@@ -1,0 +1,19 @@
+proxy:
+  zone: ZUS
+  type: DATA_CENTER
+policy:
+  numberRetries: 3
+  priority: MEDIUM
+  retryDelay: 60
+  backoffPolicy: EXPONENTIAL
+  retryWithResidentialProxyAfter: 99
+honorRobots: false
+schema: product/sellerInventory
+parameters:
+  - domain
+  - country
+  - store
+  - zipcode
+entryPoint: product/sellerInventory
+pathTemplate: product/${store[0:1]}/${store}/${country}/sellerInventory
+authentication: navigation/auth/action

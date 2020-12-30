@@ -1,33 +1,32 @@
 /**
  *
- * @param { { keywords: string, zipcode: string, storeID: string } } inputs
+ * @param { { keywords: string, zipcode: string, _date: string } } inputs
  * @param { { url: string, loadedSelector?: string, noResultsXPath: string } } parameters
  * @param { ImportIO.IContext } context
  * @param { { goto: ImportIO.Action} } dependencies
  */
 async function implementation (
   inputs,
-  { url, loadedSelector, noResultsXPath },
+  parameters,
   context,
   dependencies,
 ) {
-  const { keywords } = inputs;
-  const destinationUrl = url.replace('{searchTerms}', encodeURIComponent(keywords));
-  await dependencies.goto({ ...inputs, url: destinationUrl });
-
-  if (loadedSelector) {
+  const zipcode = encodeURIComponent(inputs.zipcode)
+  const url = parameters.url.replace('{searchTerms}', encodeURIComponent(inputs.keywords));
+  await dependencies.goto({ url, zipcode: zipcode, inputs });
+  if (parameters.loadedSelector) {
     await context.waitForFunction(function (sel, xp) {
       return Boolean(document.querySelector(sel) || document.evaluate(xp, document, null, XPathResult.UNORDERED_NODE_ITERATOR_TYPE, null).iterateNext());
-    }, { timeout: 10000 }, loadedSelector, noResultsXPath);
+    }, { timeout: 10000 }, parameters.loadedSelector, parameters.noResultsXPath);
   }
-  console.log('Checking no results', noResultsXPath);
-  return await context.evaluate((xp) => {
+  console.log('Checking no results', parameters.noResultsXPath);
+  return await context.evaluate(function (xp) {
     const r = document.evaluate(xp, document, null, XPathResult.UNORDERED_NODE_ITERATOR_TYPE, null);
     console.log(xp, r);
     const e = r.iterateNext();
     console.log(e);
     return !e;
-  }, noResultsXPath);
+  }, parameters.noResultsXPath);
 }
 
 module.exports = {
@@ -65,15 +64,19 @@ module.exports = {
       type: 'string',
     },
     {
-      name: 'zipcode',
+      name: 'id',
       description: 'keywords to search for',
       type: 'string',
     },
     {
-      name: 'storeID',
-      description: 'Id of the store',
+      name: 'zipcode',
+      description: 'locale to search within',
       type: 'string',
-      optional: true,
+    },
+    {
+      name: '_date',
+      description: 'earliest date to extract a review',
+      type: 'string',
     },
   ],
   dependencies: {
