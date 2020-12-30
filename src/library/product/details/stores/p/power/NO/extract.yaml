@@ -160,6 +160,8 @@ fields:
     singleValue: false
     description: Images within the third party description
     xpath: //import-manufacturer-image
+    regExp: \/\/(.*)
+    regExpReplace: https://$1
   - name: videos
     singleValue: false
     description: URLs of videos on page
