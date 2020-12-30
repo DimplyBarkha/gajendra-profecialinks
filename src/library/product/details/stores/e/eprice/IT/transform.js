@@ -34,6 +34,11 @@ const transform = (data) => {
           text: cleanUp(text),
         }];
       }
+      if ((!row.inTheBoxText || !row.inTheBoxText.length) && row.inTheBoxText1) {
+        console.log('inTheBoxText1',row.inTheBoxText1);
+        row.inTheBoxText = row.inTheBoxText1;
+        console.log("inTheBoxText", row.inTheBoxText);
+      }
       if (row.manufacturerDescription) {
         let text = '';
         row.manufacturerDescription.forEach(manufacturerDescription => {
