@@ -29,6 +29,7 @@ fields:
     type: NUMBER
     singleValue: false
     description: Rating normalized to be out of 5
+    xpath: //div[contains(@id, 'aggregateRating')]
   - name: reviewText
     description: The text of the review
     xpath: //div[contains(@class, 'ow-opinion__texts')]
@@ -43,7 +44,7 @@ fields:
     description: GTIN code (includes UPC/EAN)
   - name: productUrl
     description: The url of the product details page
-    xpath: //meta[contains(@property, 'og:url')]/@content
+    xpath: ancestor::html//meta[contains(@property, 'og:url')]/@content
   - name: verifiedPurchase
     singleValue: false
     type: BOOLEAN

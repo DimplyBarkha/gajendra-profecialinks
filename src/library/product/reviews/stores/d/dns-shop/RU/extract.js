@@ -25,7 +25,7 @@ async function implementation (
       let isSelected;
       const ratingArr = [];
       for (let i = 0; i < 5; i++) {
-        isSelected = ratingSelector[i].getAttribute('data-state');
+        if (ratingSelector[i]) { isSelected = ratingSelector[i].getAttribute('data-state'); }
         if (isSelected === 'selected') { ratingArr.push(1); } else ratingArr.push(0);
       }
       const rating = ratingArr.reduce(function (a, b) {
