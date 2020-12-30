@@ -102,15 +102,35 @@ module.exports = {
       // } catch (e) {
       //   console.log('Details page selector not found');
       // }
-      const cssCaptcha = '.g-recaptcha';
+      // const solveCaptchaRetry = async () => {
+      //   console.log('..retrying solveCaptcha..');
+      //   await context.evaluateInFrame('iframe', () => grecaptcha.execute());
+      //   console.log('solved captcha, waiting for page change');
+      //   await context.waitForNavigation({ timeout });
+      //   try {
+      //     await context.waitForSelector('#corePage');
+      //   } catch (e) {
+      //     console.log('Details page selector not found');
+      //   }
+      // }
+      const cssCaptcha = '#challenge-container';
       const solveCaptcha = async () => {
         console.log('..solveCaptcha..');
         await context.solveCaptcha({
           type: 'RECAPTCHA',
           inputElement: cssCaptcha,
         });
+        console.log('solved captcha, waiting for page change');
+        context.waitForNavigation({ timeout });
         // await context.reload(); // This is optional based on the website behavior.
         await new Promise(r => setTimeout(r, 500));
+
+        try {
+          await context.waitForSelector('.row');
+        } catch (e) {
+          console.log('Details page selector not found');
+          // await solveCaptchaRetry();
+        }
       };
       await solveCaptcha();
     }
