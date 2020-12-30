@@ -1,7 +1,7 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: null
+recordXPath: //div[contains(@class,'product-wrapper')]
 fields:
   - name: paid
     singleValue: false
@@ -11,15 +11,19 @@ fields:
     singleValue: false
     description: The brand name
     example: Panasonic
-    xpath: //div[@class='product-wrapper']//a[contains(@class, 'manufacturer')]/img/@alt
+    xpath: //div[contains(@class,'product-wrapper')]//a[contains(@class, 'manufacturer')]/img/@alt
   - name: productUrl
     singleValue: false
     description: The URL for the product details page
-    xpath: //div[@class='product-wrapper']//div[@class='mm_productUrl']
+    xpath: //div[@class="content "]//h2/a/@href
+    regExp: (.+)
+    regExpReplace: https://www.mediamarkt.nl$1
   - name: thumbnail
     singleValue: false
     description: The URL for the product thumbnail image
-    xpath: //div[@class='product-wrapper']//div[@class='mm_thumbnail']
+    xpath: //a[@class="photo clickable"]/img/@src
+    regExp: (.+)
+    regExpReplace: https:$1
   - name: name
     singleValue: false
     description: The product name
@@ -27,32 +31,32 @@ fields:
   - name: rpc
     singleValue: false
     description: The rpc code of the product
-    xpath: //div[@class='product-wrapper']/@data-modelnumber
+    xpath: //div[contains(@class,'product-wrapper')]/@data-modelnumber
   - name: ratingCount
     singleValue: false
     description: The number of ratings
-    xpath: //div[@class='product-wrapper']//div[@class='mm_reviewCount']
+    xpath: //div[contains(@class,'product-wrapper')]//div[@class='mm_reviewCount']
   - name: reviewCount
     singleValue: false
     description: The number of reviews
-    xpath: //div[@class='product-wrapper']//div[@class='mm_reviewCount']
+    xpath: //div[contains(@class,'product-wrapper')]//div[@class='mm_reviewCount']
   - name: price
     singleValue: false
     description: The offered price for the product
-    xpath: //div[@class='product-wrapper']//div[contains(@class, 'price-box')]//div[contains(@class, 'price') and not(contains(@class, 'price-old'))]
+    xpath: //div[contains(@class,'product-wrapper')]//div[contains(@class, 'price-box')]//div[contains(@class, 'price') and not(contains(@class, 'price-old'))]
   - name: listPrice
     singleValue: false
     description: The stated undiscounted price for the product
-    xpath: //div[@class='product-wrapper']//div[contains(@class, 'price-box')]//div[contains(@class, 'price-old')]
+    xpath: //div[contains(@class,'product-wrapper')]//div[contains(@class, 'price-box')]//div[contains(@class, 'price-old')]
   - name: manufacturer
     singleValue: false
     description: Product manufacturer
-    xpath: //div[@class='product-wrapper']//a[contains(@class, 'manufacturer')]/img/@alt
+    xpath: //div[contains(@class,'product-wrapper')]//a[contains(@class, 'manufacturer')]/img/@alt
   - name: id
     singleValue: false
     description: Unique id (within this extractor)
-    xpath: //div[@class='product-wrapper']/@data-modelnumber
+    xpath: //div[contains(@class,'product-wrapper')]/@data-modelnumber
   - name: aggregateRating2
     singleValue: false
     description: The stated aggregate rating normalized to be out of 5
-    xpath: //div[@class='product-wrapper']//div[@class="mm_aggregateRating"]
+    xpath: //div[contains(@class,'product-wrapper')]//div[@class="mm_aggregateRating"]
