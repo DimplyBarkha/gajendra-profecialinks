@@ -115,6 +115,16 @@ const transform = (data) => {
         });
         row.inTheBoxText = [{ text }];
       }
+
+      if (row.manufacturerImages) {
+        let text = '';
+        row.manufacturerImages.forEach(item => {
+          item.text = item.text.split(',')[0];
+          item.text = item.text.split(' ')[0];
+          text = text + (text ? ' | ' : '') + item.text;
+        });
+        row.manufacturerImages = [{ text }];
+      }
     }
   }
 

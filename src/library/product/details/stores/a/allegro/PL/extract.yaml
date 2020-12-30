@@ -44,11 +44,11 @@ fields:
   - name: aggregateRating
     xpath: //div[@itemprop='aggregateRating']/meta[@itemprop='ratingValue']/@content
   - name: manufacturerImages
-    xpath: //a[@name='description']/following-sibling::div//img[contains(@class, 'lazyloaded')]/@data-src
-  - name: manufacturerImages
-    xpath: //div[@class='description']//section[contains(@class, 'section')]//img/@srcset
-    regExp: (.+),(.+)
-    regExpReplace: $2
+    xpath: //a[@name='description']/following-sibling::div//img[contains(@class, 'lazyloaded')]/@data-src | //div[@class='description']//section[contains(@class, 'section')]//img/@srcset
+  # - name: manufacturerImages
+  #   xpath: //div[@class='description']//section[contains(@class, 'section')]//img/@srcset
+  #   regExp: (.+),(.+)
+  #   regExpReplace: $2
   - name: shippingInfo
     xpath: concat(//a[contains(@data-analytics-click-value, 'sellerLogin')] , '-', //a[contains(@data-analytics-click-value, 'sellerRating')])
   - name: shippingInfo
