@@ -213,6 +213,24 @@ async function implementation (
       document.body.setAttribute('producturl', window.location.href);
     });
     await context.evaluate(addRating);
+    await context.evaluate(async () => {
+      await new Promise((resolve) => setTimeout(resolve, 5000));
+
+      async function infiniteScroll() {
+          let prevScroll = document.documentElement.scrollTop;
+          while (true) {
+              window.scrollBy(0, document.documentElement.clientHeight);
+              await new Promise(resolve => setTimeout(resolve, 1000));
+              const currentScroll = document.documentElement.scrollTop;
+              if (currentScroll === prevScroll) {
+                  break;
+              }
+              prevScroll = currentScroll;
+          }
+      }
+      await infiniteScroll();
+      await new Promise((resolve) => setTimeout(resolve, 8000));
+  });
     async function addSpecification () {
       await context.evaluate(async function () {
         window.scrollTo(0, document.body.scrollHeight);
@@ -220,7 +238,7 @@ async function implementation (
           console.log('waiting for ' + ms + ' millisecs');
           return new Promise((resolve) => setTimeout(resolve, ms));
         }
-        await timeout(3000);
+        await timeout(6000);
         const specificationElms = document.querySelectorAll('div[id*="wc-specs"] *[class*="row"]');
         if (specificationElms && specificationElms.length > 0) {
           console.log('we have the specification tab');
@@ -306,6 +324,7 @@ async function implementation (
       document.body.setAttribute('in-the-box-text', inTheBoxText);
       document.body.setAttribute('in-the-box-url', inTheBoxUrl);
     });
+
     // let promotionText='';
     // let priceDivs=document.querySelectorAll('div[class*="PDPPrice-inline"]');
     // for(let i=0;i<priceDivs.length;i++)
