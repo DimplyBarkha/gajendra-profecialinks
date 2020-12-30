@@ -146,7 +146,7 @@ fields:
     xpath: //div[@id="pd_firstVariant"]  
   - name: hasComparisonTable
     singleValue: true
-    xpath: boolean(//div[@id="formControl-productInfoMain-addToComparison-link"])
+    defaultValue: No
   - name: inTheBoxText
     singleValue: false
     xpath: //li[@class="_1PjuV8 _3uP8Qb"]/span[contains(text(),"Aufsätze")]/ancestor::li/span[2]
