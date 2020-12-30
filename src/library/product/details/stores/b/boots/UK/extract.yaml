@@ -82,7 +82,7 @@ fields:
     description: GTIN code (includes UPC/EAN)
   - name: sku
     description: The store-specific product identifier
-    xpath: ancestor::html//div[contains(@class,"bv-cleanslate")]//div/@data-product-id
+    xpath: ancestor::html//div[contains(@class,"bv-cleanslate")]//div/@data-product-id|ancestor::html//input[@id="productId"]/@value
   - name: variantId
     xpath: //div[@id="productId"] | //div[@class="productVarient"]/label/img/@src
     regExp: ([^/]+)\?[^?]+$|(^\d+$)
