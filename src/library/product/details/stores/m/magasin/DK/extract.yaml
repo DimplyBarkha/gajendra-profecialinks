@@ -156,4 +156,4 @@ fields:
     xpath: //div[@id="manuDesc"]
   - name: unInterruptedPDP
     singleValue: false
-    xpath: //div[@class="teaser-banner__inner"]//div[@class="product-tile__inner"]//div[@class="product-tile__content"]
+    xpath: //div[@class="teaser-banner__inner"]//div[@class="product-tile__inner"]//div[contains(@class,"product-tile__content")  and not(preceding::*=.)]
