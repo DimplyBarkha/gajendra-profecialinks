@@ -42,9 +42,12 @@ fields:
     xpath: //a[contains(@class,'BigProductCardTrademarkName')]
   - name: variantId
     singleValue: false
+  - name: variantCount
+    singleValue: false
+    defaultValue: 1
   - name: weightGross
     singleValue: false
-    xpath: //div[@data-marker='product_weight']
+    xpath: //div[@data-marker='product_weight'] | //div[@data-marker='product_volume']
   - name: name
     singleValue: false
     xpath: //h1[contains(@class,'big-product-card__title')]
@@ -60,6 +63,7 @@ fields:
     singleValue: false
   - name: totalFatPerServing
     singleValue: false
+    xpath: //div[@data-marker='product_fat']
   - name: totalCarbPerServing
     singleValue: false
   - name: legalDisclaimer

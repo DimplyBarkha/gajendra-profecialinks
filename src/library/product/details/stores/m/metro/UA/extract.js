@@ -1,4 +1,4 @@
-const {transform} = require('../UA/format')
+const { transform } = require('../UA/format')
 module.exports = {
   implements: 'product/details/extract',
   parameterValues: {
