@@ -5,7 +5,7 @@ module.exports = {
     country: 'US',
     store: 'bestbuy',
     nextLinkSelector: 'a.sku-list-page-next',
-    mutationSelector: "ol.paging-list",
+    mutationSelector: null, //"ol.paging-list",
     spinnerSelector: null,
     loadedSelector: null,
     noResultsXPath: "//div[contains(@class,'no-result')]",
