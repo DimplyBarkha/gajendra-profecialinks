@@ -109,6 +109,26 @@ async function implementation (
       }
     } else {
       console.log('we do not have the iframe');
+      const inBoxText = [];
+    const getInTheBoxTextOnly = document.querySelector('div.product-packcontents');
+    if(getInTheBoxTextOnly){
+      const getAllProductsTextOnly = document.querySelectorAll('div.product-packcontents > div.content >ul >li');
+      for (let i = 0; i < getAllProductsTextOnly.length; i++) {
+        inBoxText.push(getAllProductsTextOnly[i].innerText);
+      }
+    }
+    function addHiddenDiv (id, content) {
+      const newDiv = document.createElement('div');
+      newDiv.id = id;
+      newDiv.textContent = content;
+      newDiv.style.display = 'none';
+      document.body.appendChild(newDiv);
+    }
+    for (let i = 0; i < inBoxText.length; i++) {
+      if (inBoxText[i]) {
+        addHiddenDiv(`inTheBoxText-${i}`, inBoxText[i]);
+      }
+    }
     }
     console.log('iframe src to go to - ' + src);
 
@@ -154,13 +174,12 @@ async function implementation (
         }
 
         const { inBoxText = [], inBoxUrls = [] } = witbData;
-
         for (let i = 0; i < inBoxUrls.length; i++) {
           addHiddenDiv(`inTheBoxUrl-${i}`, inBoxUrls[i]);
           if (inBoxText[i]) {
             addHiddenDiv(`inTheBoxText-${i}`, inBoxText[i]);
           }
-        }
+        }      
       }, witbData);
       // await context.waitForSelector('div#main-section', { timeout: 45000 });
     } catch (error) {
@@ -177,6 +196,7 @@ async function implementation (
     // return await context.extract(productDetails, { transform });
   } else {
     console.log('we do not have the src for iframe');
+    
   }
 
   // Nar Code End

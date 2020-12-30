@@ -505,7 +505,7 @@ fields:
   - name: inTheBoxUrl
     xpath: //div[contains(@class, "InTheBox")]//img/@data-flixsrcset | //div[starts-with(@id,"inTheBoxUrl-")]
   - name: inTheBoxText
-    xpath: //div[contains(@class, "InTheBox")]//div[contains(@class, "flix-std-content")] | //h3[contains(.,'In The Box')]/following-sibling::div/ul/li | //div[starts-with(@id,"inTheBoxText-")]
+    xpath: //div[contains(@class, "InTheBox")]//div[contains(@class, "flix-std-content")] | //div[starts-with(@id,"inTheBoxText-")]
   - name: hasComparisonTable
     defaultValue: No
   - name: unInterruptedPDP
