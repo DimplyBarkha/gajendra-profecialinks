@@ -13,7 +13,10 @@ module.exports = {
     context,
     dependencies,
   ) => {
-    await context.evaluate(async function () {
+      await context.evaluate(async function () {
+      if(document.getElementById("PopinCloseModal")){
+        document.getElementById("PopinCloseModal").click();
+      }  
       const getColor = document.querySelector('li.item_description');
       let color = '';
       let dimension = '';
