@@ -21,6 +21,10 @@ async function implementation (
     const selector = 'div.videoContainer iframe,.isitetv-video-container iframe';
     const iframe = document.querySelector(selector);
     if (!iframe) return;
+    if (document.querySelector(selector).src.includes('www.youtube')) {
+      document.body.setAttribute('video-links', document.querySelector(selector).src);
+      return;
+    }
     const response = await fetch(document.querySelector(selector).src);
     const html = await response.text();
     const doc = new DOMParser().parseFromString(html, 'text/html');
