@@ -16,7 +16,7 @@ module.exports = {
   ) => {
     const userLogin = 'promotions.tennents@tennents.com';
     const userPassword = 'Supplierdemo1!';
-    const productUrl = await dependencies.createUrl(inputs);
+    const searchUrl = await dependencies.createUrl(inputs);
 
     await dependencies.goto({
       ...inputs,
@@ -50,6 +50,13 @@ module.exports = {
     }
 
     await context.waitForNavigation();
+    await dependencies.goto({ ...inputs, url: searchUrl });
+    await context.waitForNavigation();
+    const productUrl = await context.evaluate(async () => {
+      const productLinkElement = document.querySelector('div.product-card a.product-image');
+      return productLinkElement ? productLinkElement.getAttribute('href') : null;
+    });
+    if (!productUrl) throw new Error('No results!');
     await dependencies.goto({ ...inputs, url: productUrl });
 
     if (loadedSelector) {

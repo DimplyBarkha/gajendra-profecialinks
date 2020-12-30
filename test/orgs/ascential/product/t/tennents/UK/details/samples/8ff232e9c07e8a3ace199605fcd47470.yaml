@@ -2,12 +2,12 @@ input:
   _url: http://new.tennentsdirect.com
   URL: https://tennentsdirect.com/Catalogue/Search?term=KNO001
 extractions:
-  - html: https://workbench.import.io/html/run=5fc9a2b9-61c6-4508-8baf-e87f76024a9c/task=db96fc8e-c995-4e28-9bc1-c8c5af4337cb/55a16a18-306a-409f-b066-dc4bdcc64f55.html
+  - html: https://workbench.import.io/html/run=f386f051-1c9d-489d-995e-7e41d7575416/task=f870bcac-a51f-41c0-b858-2a8662990ed9/77f0dc2e-7fd4-4a53-8542-bc16808c37fb.html
     extractionConfigId: product/details/stores/t/tennents/UK/extract
     data:
       - group:
           - productUrl:
-              - text: https://new.tennentsdirect.com/products/KNO001_product
+              - text: https://new.tennentsdirect.com/products/kw/KNO001/Spirits/Whisky/Single-Malt/KNO001_Knockando-12-Year-Old-Malt-Whisky-430-70cl
                 xpath: /html/body/@url
             image:
               - text: https://new.tennentsdirect.com/netalogue/zoom/kno001_mcw.jpg
@@ -32,6 +32,9 @@ extractions:
             price:
               - text: --
                 xpath: /html/body/form[1]/div[5]/section[1]/div[1]/div[1]/div[2]/div[3]/div[2]/div[2]/input[1]/@value
+            availabilityText:
+              - text: Out of stock
+                xpath: /html/body/@availability
             description:
               - text: Charming and delicate, this 12-year-old single malt by Knockando has a
                   palate of honeyed sweetness and supple peat tastes. It has a
@@ -58,7 +61,7 @@ extractions:
                   Vegetarian: Yes
                 xpath: /html/body/form[1]/div[5]/section[1]/div[1]/div[1]/div[2]/div[3]/div[3]/div[2]/div[1]/div[2]/div[2]/div[1]
             alcoholContent:
-              - text: 43.0%
+              - text: "43.0"
                 xpath: /html/body/form[1]/div[5]/section[1]/div[1]/div[1]/div[2]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]
             technicalInformationPdfPresent:
               - text: No
@@ -75,4 +78,4 @@ extractions:
             descriptionBullets:
               - text: "0"
         xpath: /
-    timestamp: 1608631038677
+    timestamp: 1609330787146

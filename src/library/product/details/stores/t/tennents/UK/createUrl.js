@@ -19,7 +19,7 @@ module.exports = {
     const { domain } = parameters;
     if (!url) throw new Error('No id provided');
     const productId = url.match(/=(.+)/) ? url.match(/=(.+)/)[1] : '';
-    const gotoUrl = productId ? `https://${domain}/products/${productId}_product` : url;
+    const gotoUrl = productId ? `https://${domain}/products/kw/${productId}` : url;
 
     return gotoUrl;
   },

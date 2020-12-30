@@ -2,12 +2,12 @@ input:
   _url: http://new.tennentsdirect.com
   URL: https://tennentsdirect.com/Catalogue/Search?term=STE006
 extractions:
-  - html: https://workbench.import.io/html/run=5fc9a2b9-61c6-4508-8baf-e87f76024a9c/task=57314a75-5017-4ce1-b24f-e0ecd3da8dbb/7b60f095-7e7d-4f02-9660-3bb45b02eea4.html
+  - html: https://workbench.import.io/html/run=f386f051-1c9d-489d-995e-7e41d7575416/task=46701e67-d3c1-4a3e-9cb5-8efbfd52573e/684d0fc0-a4e9-4a72-bee5-8022f081a987.html
     extractionConfigId: product/details/stores/t/tennents/UK/extract
     data:
       - group:
           - productUrl:
-              - text: https://new.tennentsdirect.com/products/STE006_product
+              - text: https://new.tennentsdirect.com/products/kw/STE006/Beer/draught-Beer/lager/STE006_Stella-Artois-40-50l-KEG
                 xpath: /html/body/@url
             image:
               - text: https://new.tennentsdirect.com/netalogue/zoom/ste006_mcw.jpg
@@ -32,6 +32,9 @@ extractions:
             price:
               - text: --
                 xpath: /html/body/form[1]/div[5]/section[1]/div[1]/div[1]/div[2]/div[3]/div[2]/div[2]/input[1]/@value
+            availabilityText:
+              - text: Out of stock
+                xpath: /html/body/@availability
             description:
               - text: Brewed to perfection using the original Stella Artois yeast and only the
                   best ingredients, including the celebrated Saaz hops. It's the
@@ -60,7 +63,7 @@ extractions:
                   Vegetarian: Yes
                 xpath: /html/body/form[1]/div[5]/section[1]/div[1]/div[1]/div[2]/div[3]/div[3]/div[2]/div[1]/div[2]/div[2]/div[1]
             alcoholContent:
-              - text: 4.0%
+              - text: "4.0"
                 xpath: /html/body/form[1]/div[5]/section[1]/div[1]/div[1]/div[2]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]
             technicalInformationPdfPresent:
               - text: No
@@ -77,4 +80,4 @@ extractions:
             descriptionBullets:
               - text: "0"
         xpath: /
-    timestamp: 1608631078913
+    timestamp: 1609330781951
