@@ -6,6 +6,11 @@ fields:
   - name: category
     singleValue: false
     xpath: //div//tm-breadcrumbs//ol//li[position()>1]//a
+  - name: productUrl
+    singleValue: false
+    xpath: //section[contains(@class,"tm-marketplace-seller-trust__box")]/a/@href|//section[contains(@class,"tm-marketplace-seller-trust__box")]/a/@href
+    regExp: (.+)
+    regExpReplace: https://www.trademe.co.nz$1
   - name: name
     singleValue: false
     xpath: //div//tg-row/tg-col//tm-buyer-options//h1
@@ -14,7 +19,7 @@ fields:
     xpath: //div[@class="tm-markdown"]
   - name: price
     singleValue: false
-    xpath: //tm-buy-now-box/tg-box2//p[contains(@class,"p-h1")]//strong
+    xpath: //tm-buy-now-box/tg-box2//p[contains(@class,"p-h1")]//strong | //p[contains(@class,'h-text-align-center p-h1')]
   - name: sku
     singleValue: false
     xpath: //tm-potential-r18-content//tg-row//tg-col/div/small[1]
@@ -39,6 +44,7 @@ fields:
     defaultValue: 0
   - name: availabilityText
     singleValue: false
+    defaultValue: Out of Stock
     xpath: //form[@class='ng-untouched ng-valid ng-dirty']//button[contains(text(),'Buy Now')]
   - name: weightNet
     singleValue: false

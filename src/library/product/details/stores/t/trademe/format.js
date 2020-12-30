@@ -112,6 +112,12 @@ const transform = (data) => {
           item.text = item.text.toString().slice(0, -3);
         });
       }
+      if(row.price){
+        row.price.forEach(item => {
+           item.text = item.text.replace('$', '').trim();
+        }
+        )
+      }
       if(row.inTheBoxText){
         row.inTheBoxText.forEach(item => {
            item.text = item.text.replace('Package includes:', '').trim();
