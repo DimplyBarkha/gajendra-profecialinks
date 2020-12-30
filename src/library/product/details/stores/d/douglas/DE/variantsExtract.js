@@ -9,6 +9,7 @@ async function implementation(
     function addHiddenDiv(id, content) {
       const newDiv = document.createElement('div');
       newDiv.id = id;
+      content = content.replace(/(?<=html).+/gm, '');
       newDiv.title = content.substring(content.lastIndexOf('_') + 1, content.lastIndexOf('.'));
       newDiv.textContent = content;
       newDiv.style.display = 'none';
