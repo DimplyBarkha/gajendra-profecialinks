@@ -227,8 +227,7 @@ fields:
     singleValue: false
     xpath: //div[@id='inTheBoxImage']//text()
   - name: hasComparisonTable
-    xpath: //div[@id='checkingHasComparisionTable']/text()
-
+    xpath: boolean(//div[@id='checkingHasComparisionTable'])
 
 
 

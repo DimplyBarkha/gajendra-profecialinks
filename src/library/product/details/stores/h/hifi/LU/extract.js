@@ -174,8 +174,8 @@ module.exports = {
           let  hasComparisionTable = '';
             const checkHasComparisonTable = document.querySelector('div.table-wrapper table') ? true  : false ;
             console.log("checkHasComparisonTable",checkHasComparisonTable);
-            hasComparisionTable += checkHasComparisonTable;
-          return  hasComparisionTable;
+            // hasComparisionTable += checkHasComparisonTable;
+          return  checkHasComparisonTable;
         });
 
 
@@ -206,8 +206,11 @@ module.exports = {
       addElementToDocument('inTheBoxImage',inTheBoxImage);
       addElementToDocument('inTheBoxText', inTheBoxText);
       addElementToDocument('videos', videos);
-      addElementToDocument('checkingHasComparisionTable', hasComparisionTable);
 
+      console.log("checkHasComparisonTable >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> ",hasComparisionTable);
+      if(hasComparisionTable){
+      addElementToDocument('checkingHasComparisionTable', hasComparisionTable);
+      }
 
 
 
