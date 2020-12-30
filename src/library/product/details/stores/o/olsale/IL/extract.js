@@ -131,6 +131,27 @@ module.exports = {
 
       addElementToDocument('added_variantCount', 0);
 
+
+const getInTheBoxx = document.querySelector('#ProductText').children[1].childNodes;
+       let startFlag =false;
+       var setBoxHere = "" ;
+       console.log("here i am",getInTheBoxx);
+       for(let i =0; i< getInTheBoxx.length; i++)
+       {
+         if(getInTheBoxx[i].textContent.includes("מידות:")){
+           console.log("making condition false", getInTheBoxx[i]);
+          startFlag=false;
+         }
+        if(startFlag == true){
+          setBoxHere += getInTheBoxx[i].textContent;
+          console.log("line content.",getInTheBoxx[i].textContent);
+        }
+        if(getInTheBoxx[i].textContent == "אביזרים"){
+          startFlag=true;
+         }
+       }
+      addElementToDocument(`inTheBoxText`,setBoxHere);
+
       let scrollTop = 500;
       while (true) {
         window.scroll(0, scrollTop);
