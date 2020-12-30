@@ -39,6 +39,14 @@ async function implementation (
   }
   // End
   await context.evaluate(async () => {
+
+
+    while (!document.querySelector('button.slickArrow.slickNext.slickDisabled')) {
+      document.querySelector('button.slickArrow.slickNext').click();
+      await new Promise((resolve) => setTimeout(resolve, 1000));
+    }
+
+
     function addHiddenDiv (id, content) {
       const newDiv = document.createElement('div');
       newDiv.id = id;
