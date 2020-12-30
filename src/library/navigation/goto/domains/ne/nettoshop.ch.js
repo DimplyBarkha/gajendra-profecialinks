@@ -15,7 +15,7 @@ module.exports = {
     await context.setLoadImages(true);
     await context.setJavaScriptEnabled(true);
     await context.setAntiFingerprint(false);
-    await context.setUseRelayProxy(false);
+    // await context.setUseRelayProxy(false);
     
     const timeout = parameters.timeout ? parameters.timeout : 30000;
     await context.goto(url, { timeout: timeout, waitUntil: 'load', checkBlocked: true });

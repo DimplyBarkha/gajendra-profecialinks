@@ -141,9 +141,13 @@ fields:
     # //div[@class="flix-videodiv "]//@src
   - name: inTheBoxUrl
     singleValue: false
-    xpath: //div[@class="inpage_selector_InTheBox"]//img/@src
+    xpath: //div[@class="inpage_selector_InTheBox"]//img/@data-flixsrcset
     description: Must include image url to show the accessories/tools which come with the product
   - name: inTheBoxText
     singleValue: false
-    xpath: //th[text()='Lieferumfang']/following-sibling::td//span
+    xpath: //div[@class="inpage_selector_InTheBox"]//div//span
+      # //th[text()='Lieferumfang']/following-sibling::td//span
     description: Must include text to show the accessories/tools which come with the product
+  - name: unInterruptedPDP
+    singleValue: false
+    xpath: //div[@class="c-product-supplies__content"]//div[@class="c-product-grid-item-2__content"]//a/@title | //div[@class="c-product-grid-item-2__main-content"]

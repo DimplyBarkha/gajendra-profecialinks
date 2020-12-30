@@ -53,6 +53,14 @@ const transform = (data) => {
         });
         row.inTheBoxText = [{'text':info.join(' || '),'xpath':row.inTheBoxText[0].xpath}];
       }
+
+      if (row.inTheBoxUrl) {
+        row.inTheBoxUrl.forEach(item => {
+          const textArr = item.text.split(" ");
+          const url = textArr[0];
+          item.text = `https:${url}`;
+        });
+      }
     }
   }
   data.forEach(obj => obj.group.forEach(row => Object.keys(row).forEach(header => row[header].forEach(el => {
