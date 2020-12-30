@@ -11,7 +11,7 @@ async function implementation (inputs, parameters, context, dependencies) {
     return document.querySelectorAll('div[class="product-item__content"]')
       .length;
   });
-  while (isButtonPresent && productsAmount < 2000) {
+  while (isButtonPresent && productsAmount < 150) {
     await context.click('button.pagine__more');
     await new Promise((resolve, reject) => setTimeout(resolve, 1500));
     isButtonPresent = await context.evaluate(async () => {
