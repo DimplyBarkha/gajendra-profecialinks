@@ -1,11 +1,14 @@
 
+const { transform } = require('../sharedTransform');
+const { implementation } = require('../shared');
+
 module.exports = {
   implements: 'product/search/extract',
   parameterValues: {
     country: 'NL',
     store: 'amazon',
-    transform: null,
+    transform,
     domain: 'amazon.nl',
-    zipcode: '',
   },
+  implementation,
 };

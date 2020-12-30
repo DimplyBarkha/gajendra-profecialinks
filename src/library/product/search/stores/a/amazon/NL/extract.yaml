@@ -1,5 +1,24 @@
-singleRecord: false
-regionsSelector: null
-recordSelector: null
-recordXPath: null
-fields: null
+extends: ../shared
+fields:
+  - name: aggregateRating2
+    singleValue: false
+    xpath: //div[contains(@class,"_multi-card-creative-desktop_Rating_container")]/i | //span[contains(@aria-label,"stelle")]/@aria-label
+    regExp: ^([^\s]+)
+  - name: ratingCount
+    singleValue: false
+    xpath: //span[contains(@aria-label,"stelle")]/following-sibling::span[1]
+  - name: reviewCount
+    singleValue: false
+    xpath: //span[contains(@aria-label,"stelle")]/following-sibling::span[1]
+  - name: subscribe
+    xpath: //*[contains(@dir,"auto") and contains(text(), "scriviti")]/text()
+    # used in transform.
+  - name: sponsorReplace
+    defaultValue: '.|,'
+  - name: domain
+    defaultValue: 'amazon.it'
+  # - name: price
+  #   singleValue: false
+  #   xpath: //span[@data-a-color="price"]/span[@class="a-offscreen"] | //*[@data-click-el="price"]/@aria-label | //span[contains(@class,"a-price _multi-card-creative-desktop_Price")]/span[1] | //span[contains(@class, 'a-price') and @data-a-color="base"]/span[contains(@class, "a-offscreen")] | //span[@cel_widget_id="MAIN-SEARCH_RESULTS" and not(/div[contains(@class, "sg-col-inner")])]//div[contains(@class, "a-section") and //span[@class="a-price"]][1]//span[contains(@class, 'a-price') and @data-a-color="base"]/span[contains(@class, "a-offscreen")]
+  #   regExp: (^([^€]*))(\,)([^\€]*)($)
+  #   regExpReplace: $5 $2.$4    
