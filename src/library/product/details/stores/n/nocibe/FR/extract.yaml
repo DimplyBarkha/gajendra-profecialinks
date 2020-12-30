@@ -447,6 +447,7 @@ fields:
 - name: variantInformation
   singleValue: true
   description: colour / scent / flavour / other
+  xpath: //div[contains(@class,'prdct__sku-selected')]//span[@class='prdct__sku-name'] | //span[contains(@class,'prdct__bullets-link active')]
 - name: firstVariant
   singleValue: true
   description: Unique identifier for a collection of variants. For a subset of core
