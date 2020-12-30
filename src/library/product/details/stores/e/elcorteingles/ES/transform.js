@@ -23,6 +23,16 @@ const transform = (data, context) => {
         text = row.nutritionInfo.map(element => element.text.trim()).join(' ');
         row.nutritionInfo = [{ text }];
       }
+      if (row.mpc) {
+        let text = '';
+        text = row.mpc.map(element => element.text.trim());
+        row.mpc = [{ text }];
+      }
+      if (row.nameExtended) {
+        let text = '';
+        text = row.nameExtended.map(element => element.text.trim());
+        row.nameExtended = [{ text }];
+      }
     }
   }
   const state = context.getState();

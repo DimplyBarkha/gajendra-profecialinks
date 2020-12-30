@@ -185,7 +185,7 @@ module.exports = {
 
       if (productID) {
         // API
-        const productsData = `https://www.elcorteingles.es/api/product/${productID}?product_id=${productID}&skus=${sku}&store_id=${storeId}&original_store=0`;
+        const productsData = `https://www.elcorteingles.es/api/product/${productID}?product_id=${productID}`;
         const apiDataResponse = await makeApiCall(productsData, {});
 
         if (apiDataResponse) {

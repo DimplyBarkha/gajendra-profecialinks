@@ -10,7 +10,7 @@ fields:
     xpath: //div[contains(@class,'elements_slider-slide')]/img/@alt
   - name: category
     singleValue: false
-    xpath: //li[@class="breadcrumbs-item"]
+    xpath: //ol//li[@class="breadcrumbs-item"][position()>1]
   - name: name
     xpath: //div[@class="js-pdp pdp dataholder js-product"]/@data-product-description    
   - name: nameExtended
@@ -187,6 +187,8 @@ fields:
     xpath: //h3[normalize-space(text())="Ingredientes y alérgenos"]/following-sibling::ul[1]/li/b
   - name: warnings
     xpath: //h3[normalize-space(text())="Advertencia de seguridad"]/following-sibling::ul
+  - name: manufacturer
+    xpath: //span[contains(.,'Nombre del operador:')]/following-sibling::text()
 
     #Salsify fields
   - name: sku
