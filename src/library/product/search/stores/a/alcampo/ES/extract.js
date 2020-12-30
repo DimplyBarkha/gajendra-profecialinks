@@ -91,12 +91,24 @@ async function implementation (inputs, parameters, context, dependencies) {
 
     if (await context.evaluate(() => {
       return document.querySelector('div.productGrid.paginationBar.bottom.clearfix>div.right>ul.pagination>li.next>a');
-    }) === null) {
+    }) === null || await context.evaluate(() => {
+      const page = window.location.href.match('page=([0-9]+)');
+      if (page !== null) {
+        if ((parseInt(page[1]) + 1) * 48 <= 150) {
+          return false;
+        } else {
+          return true;
+        }
+      } else {
+        return false;
+      }
+    })) {
+      await new Promise((resolve, reject) => setTimeout(resolve, 3000));
       return await context.extract(productDetails);
     } else {
       await context.extract(productDetails);
 
-      await new Promise((resolve, reject) => setTimeout(resolve, 5000));
+      await new Promise((resolve, reject) => setTimeout(resolve, 3000));
       await context.evaluate(() => {
         document.querySelector('div.productGrid.paginationBar.bottom.clearfix>div.right>ul.pagination>li.next>a').click();
       });
