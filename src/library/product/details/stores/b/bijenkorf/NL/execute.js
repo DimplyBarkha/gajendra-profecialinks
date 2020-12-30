@@ -52,11 +52,7 @@ module.exports = {
         return noResults;
       });
       if (noProductsFound || noProductsFound === undefined) {
-        try {
-          throw new Error('Product not found for the given input');
-        } catch (e) {
-          console.log('Error while throwing custom error');
-        }
+        throw new Error('Product not found');
       }
     }
   },
