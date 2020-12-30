@@ -125,9 +125,10 @@ async function implementation (
         const inBoxUrls = [];
         const inBoxText = [];
         if(getInTheBoxVideo){
-          const getAllProductsVideo = document.querySelectorAll('div.tns-inner > div.my-slider>div.eky-relative-wrapper.tns-normal>div.eky-header-video-container');
+          const getAllProductsVideo = document.querySelectorAll('div.tns-inner > div.my-slider>div.eky-relative-wrapper.tns-normal');
           for (let i = 0; i < getAllProductsVideo.length; i++) {
-            inBoxUrls.push(getAllProductsVideo[i].querySelector('video').getAttribute('src'));
+            inBoxUrls.push(getAllProductsVideo[i].querySelector('div.eky-header-video-container>video').getAttribute('src'));
+            inBoxText.push(getAllProductsVideo[i].querySelector('div.eky-overlay>div.lax>h1').innerText);
           }
         }
         if (getInTheBox) {
