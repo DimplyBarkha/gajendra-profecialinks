@@ -22,27 +22,31 @@ module.exports = {
         catElement.style.display = 'none';
         document.body.appendChild(catElement);
       }
-      const getXpath = (xpath, prop) => {
-        const elem = document.evaluate(xpath, document, null, XPathResult.ANY_UNORDERED_NODE_TYPE, null);
-        let result;
-        if (prop && elem && elem.singleNodeValue) result = elem.singleNodeValue[prop];
-        else result = elem ? elem.singleNodeValue : '';
-        return result && result.trim ? result.trim() : result;
-      };
-      function ranking(rank) {
-        const abc = document.querySelectorAll('div[class="col-xs-6 col-sm-3 col-md-2"]');
-        for (let i = 1; i <= abc.length; i++) {
-          addElementToDocument('rank1', i);
-        }
+      function addHiddenDiv(id, content, index) {
+        const newDiv = document.createElement('div');
+        newDiv.id = id;
+        newDiv.textContent = content;
+        newDiv.style.display = 'none';
+        const originalDiv = document.querySelectorAll(' div.name-main.wrap-two-lines')[index];
+        originalDiv.parentNode.insertBefore(newDiv, originalDiv);
       }
-      const rank = getXpath('//h3[@class="name"]//div[@class="name-main wrap-two-lines"]', 'nodeValue');
-      //const productWeight = productWeightNode ? (productWeightNode.includes('Weight') ? productWeightNode.replace('Weight ', '') : productWeightNode) : '';
-      //addElementToDocument('addedProductWeight', productWeight);
-      // const abc = document.querySelectorAll('div[class="col-xs-6 col-sm-3 col-md-2"]');
-      // for (let i = 1; i <= abc.length; i++) {
-      //   addElementToDocument('rank1', i);
-      // }
-      ranking(rank);
+      const getAllXpath = (xpath, prop) => {
+        const nodeSet = document.evaluate(xpath, document, null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
+        const result = [];
+        for (let index = 0; index < nodeSet.snapshotLength; index++) {
+          const element = nodeSet.snapshotItem(index);
+          if (element) result.push(prop ? element[prop] : element.nodeValue);
+        }
+        return result;
+      };
+      //var price = getAllXpath('//div[@class="product-list-item "]//p[@class="price label label-price"]//text()', 'nodeValue');
+      var length = document.querySelectorAll(" p.price.label.label-price").length
+      for (let i = 0; i < length; i++) {
+        var price=document.querySelectorAll(" p.price.label.label-price")[i].innerText
+        // @ts-ignore
+        var price1 = price.replace(",", ".")
+        addHiddenDiv('price', price1, i);
+      }
       const URL = window.location.href;
       try {
         document.getElementById('pd_url').remove();

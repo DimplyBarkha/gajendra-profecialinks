@@ -4,11 +4,11 @@ module.exports = {
   parameterValues: {
     country: 'NO',
     store: 'kolonial',
-    nextLinkSelector: '#content > div > div > div > div.row.ws-xs > div.col-xs-12.col-sm-9.main-search-content.animated.fadeIn > ul > li:nth-child(8) > a',
+    nextLinkSelector: '#content > div > div > div > div.row.ws-xs > div.col-xs-12.col-sm-9.main-search-content.animated.fadeIn > ul > :last-child a',
     nextLinkXpath: null,
     mutationSelector: null,
     spinnerSelector: null,
-    loadedSelector: 'div.row.ws-xs',
+    loadedSelector: 'body',
     loadedXpath: null,
     noResultsXPath: null,
     stopConditionSelectorOrXpath: null,

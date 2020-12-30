@@ -45,7 +45,7 @@ fields:
   - name: price
     singleValue: false
     description: The offered price for the product
-    xpath: //div[@class="product-list-item "]//p[@class="price label label-price"]
+    xpath: //div[@id="price"]
   - name: manufacturer
     singleValue: true
     description: Product manufacturer
@@ -63,13 +63,6 @@ fields:
     singleValue: true
   - name: aggregateRating2
     singleValue: true
-  - name: rank
-    singleValue: false
-    description: search/listing rank   
-    xpath: //div[@id="rank1"]
-  - name: rankOrganic
-    singleValue: true  
-    xpath: //div[@id="rank1"]
   - name: sponsored
     singleValue: false
     description: Is sponsored/paid
