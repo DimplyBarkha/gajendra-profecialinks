@@ -1,5 +1,5 @@
 // @ts-nocheck
-const { cleanUp } = require('../../../../shared');
+const { cleanUp } = require('./transform');
 async function implementation (
   inputs,
   parameters,
@@ -44,14 +44,15 @@ async function implementation (
         if (data.ean) {
           document.querySelector(selectors.target).setAttribute('gtin', data.ean);
         }
-        if (data.url) {
-          const rpc = data.url.split('/');
-          if (rpc[3]) {
-            document.querySelector(selectors.target).setAttribute('rpc', rpc[3]);
-          }
+        if (data.baseProduct) {
+          document.querySelector(selectors.target).setAttribute('rpc', data.baseProduct);
         }
         if (data.name) {
           document.querySelector(selectors.target).setAttribute('variant-info', data.name);
+        }
+        if (data.url) {
+          const url = 'https://www.douglas.at' + data.url;
+          document.querySelector(selectors.target).setAttribute('product-url', url);
         }
         if (data.variantOptions) {
           let variantsCount;
@@ -63,11 +64,8 @@ async function implementation (
             data.variantOptions.forEach(variant => {
               variants = variants + (variants ? ' | ' : '') + variant.code;
             });
-            if (data.url) {
-              const rpc = data.url.split('/');
-              if (rpc[3]) {
-                document.querySelector(selectors.target).setAttribute('first-variant', rpc[3]);
-              }
+            if (data.baseProduct) {
+              document.querySelector(selectors.target).setAttribute('first-variant', data.baseProduct);
             }
           }
           document.querySelector(selectors.target).setAttribute('variants-count', variantsCount);

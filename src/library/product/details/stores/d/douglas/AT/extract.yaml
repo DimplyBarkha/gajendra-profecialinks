@@ -3,6 +3,8 @@ regionsSelector: null
 recordSelector: null
 recordXPath: /html/body//div[contains(@class,"product-detail-page")]
 fields:
+  - name: productUrl
+    xpath: '@product-url'
   - name: image
     description: URL of the main product image
     xpath: //div[@class="media-gallery__main-image"]/img/@src
@@ -142,6 +144,7 @@ fields:
     description: The unit of measurement used in price_per_unit
   - name: promotion
     description: promotion text on product page
+    xpath: //div[contains(@class,"eyecatcher--discount")]
   - name: alcoholContent
     description: Alcohol content information
   - name: variantInformation
@@ -197,4 +200,4 @@ fields:
     description: If Zoom feature is available for Main image or images in the
       carousel,['Yes','No']
     example: https://www.zalando.de/adidas-neo-sneaker-low-blackwhite-a4315i002-q11.html
-    defaultValue: No
+    defaultValue: Yes
