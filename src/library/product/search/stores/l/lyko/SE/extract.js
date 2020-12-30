@@ -14,12 +14,12 @@ async function implementation (
       await new Promise(r => setTimeout(r, 10000));
     }
       let scrollTop = 0;
-      while (scrollTop !== 100000) {
+      while (scrollTop !== 1000) {
         await stall(500);
         scrollTop += 1000;
         window.scroll(0, scrollTop);
-        if (scrollTop === 100000) {
-          await stall(5000);
+        if (scrollTop === 1000) {
+          await stall(500);
           break;
         }
       }
