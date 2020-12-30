@@ -110,25 +110,26 @@ async function implementation (
     } else {
       console.log('we do not have the iframe');
       const inBoxText = [];
-    const getInTheBoxTextOnly = document.querySelector('div.product-packcontents');
-    if(getInTheBoxTextOnly){
-      const getAllProductsTextOnly = document.querySelectorAll('div.product-packcontents > div.content >ul >li');
-      for (let i = 0; i < getAllProductsTextOnly.length; i++) {
-        inBoxText.push(getAllProductsTextOnly[i].innerText);
+      const getInTheBoxTextOnly = document.querySelector('div.product-packcontents');
+      const intheboxppresent = document.querySelector('div.inpage_selector_InTheBox');
+      if(getInTheBoxTextOnly && !intheboxppresent){
+        const getAllProductsTextOnly = document.querySelectorAll('div.product-packcontents > div.content >ul >li');
+        for (let i = 0; i < getAllProductsTextOnly.length; i++) {
+          inBoxText.push(getAllProductsTextOnly[i].innerText);
+        }
       }
-    }
-    function addHiddenDiv (id, content) {
-      const newDiv = document.createElement('div');
-      newDiv.id = id;
-      newDiv.textContent = content;
-      newDiv.style.display = 'none';
-      document.body.appendChild(newDiv);
-    }
-    for (let i = 0; i < inBoxText.length; i++) {
-      if (inBoxText[i]) {
-        addHiddenDiv(`inTheBoxText-${i}`, inBoxText[i]);
+      function addHiddenDiv (id, content) {
+        const newDiv = document.createElement('div');
+        newDiv.id = id;
+        newDiv.textContent = content;
+        newDiv.style.display = 'none';
+        document.body.appendChild(newDiv);
       }
-    }
+      for (let i = 0; i < inBoxText.length; i++) {
+        if (inBoxText[i]) {
+          addHiddenDiv(`inTheBoxText-${i}`, inBoxText[i]);
+        }
+      }
     }
     console.log('iframe src to go to - ' + src);
 
