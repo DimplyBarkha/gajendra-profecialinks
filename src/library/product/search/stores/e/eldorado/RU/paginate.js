@@ -8,7 +8,7 @@ module.exports = {
     mutationSelector: null,
     spinnerSelector: null,
     loadedSelector: 'body',
-    noResultsXPath: null,
+    noResultsXPath: '//div[@class="digi-not-found"]/p[2]',
     openSearchDefinition: null,
     domain: 'eldorado.ru',
     zipcode: '',

@@ -6,9 +6,8 @@ module.exports = {
     store: 'eldorado',
     domain: 'eldorado.ru',
     url: 'https://www.eldorado.ru/search/catalog.php?q={searchTerms}',
-    // url: 'https://www.eldorado.ru/search/catalog.php?q=dyson',
     loadedSelector: 'body',
-    noResultsXPath: null,
+    noResultsXPath: '//div[@class="digi-not-found"]/p[2]',
     zipcode: '',
   },
 };

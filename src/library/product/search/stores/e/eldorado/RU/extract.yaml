@@ -1,36 +1,24 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-# recordXPath: //ul[@data-dy="productsList"]/li[@data-dy]
+recordXPath: //ul[@data-dy="productsList"]/li[@data-dy="product"]
 fields:
   - name: productUrl
-    xpath: //div[@class="_2fFxlhy"]/a/@href
-    regExp: ^(.+)$
+    xpath: //div[contains(@class,"_2fFxlhy")]/a/@href
+    regExp: (.+)
     regExpReplace: https://www.eldorado.ru$1
-    description: The URL for the product details page
   - name: thumbnail
-    xpath: //a[@class="_1RaAPF1"]/@href
-    regExp: ^(.+)$
-    regExpReplace: https://www.eldorado.ru$1
-    description: The URL for the product thumbnail image
+    xpath: //a[contains(@class,"_1RaAPF1")]/img/@src
   - name: name
-    xpath: (//a[@data-dy="title"])
-    description: The product name
+    xpath: //a[@data-dy="title"]
   - name: id
-    xpath: //li[@class="_3uUsGGA"]/@data-id
-    description: The store-specific product identifier
-  - name: aggregateRating
-    xpath:  //html//div[@id="aggregateRating"]
+    xpath: //@data-id
+  - name: aggregateRating2
+    xpath:  //html//div[@id="aggregateRating2"]
   - name: reviewCount
-    xpath: //a[@class="_1_F55f-"]
+    xpath: //a[contains(@class,"_1_F55f-")]
     regExp: \d+
   - name: price
-    xpath: //span[@class="wcf6ic-1 sc-1nnsxdl-1 gILnXT"]
-    description: The offered price for the product
+    xpath: //span[contains(@class,"Q35hFri")]
   - name: rank
-    singleValue: false
   - name: rankOrganic
-    singleValue: false
-
-    
-

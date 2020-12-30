@@ -46,10 +46,10 @@ async function implementation(
     originalDiv.parentNode.insertBefore(newDiv, originalDiv);
   }
   let firstChildNode;
-  const aggregateRating = document.querySelectorAll("span[class='tevqf5-0 cbJQML']")
-  for (let k = 0; k < aggregateRating.length; k++) {
-    firstChildNode = aggregateRating[k].getElementsByClassName('tevqf5-2 fBryir').length
-    addHiddenDiv('aggregateRating', firstChildNode, k);
+  const aggregateRating2 = document.querySelectorAll("span[class='tevqf5-0 cbJQML']")
+  for (let k = 0; k < aggregateRating2.length; k++) {
+    firstChildNode = aggregateRating2[k].getElementsByClassName('tevqf5-2 fBryir').length
+    addHiddenDiv('aggregateRating2', firstChildNode, k);
   }
 });
   return await context.extract(productDetails, { transform });
