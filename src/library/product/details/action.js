@@ -1,6 +1,6 @@
 /**
  *
- * @param { { URL: string, id: any, RPC: string, UPC: any, SKU: string, zipcode: string, storeID: string, storeId: string } } inputs
+ * @param { { URL: string, parentInput: string, id: any, RPC: string, UPC: any, SKU: string, zipcode: string, storeID: string, storeId: string } } inputs
  * @param { { store: any, country: any, zipcode: any, storeId: any } } parameters
  * @param { ImportIO.IContext } context
  * @param { { execute: ImportIO.Action, extract: ImportIO.Action } } dependencies
@@ -79,6 +79,11 @@ module.exports = {
       name: 'zipcode',
       description: 'zipcode',
       type: 'string',
+      optional: true,
+    },
+    {
+      name: 'parentInput',
+      description: 'parent input value',
       optional: true,
     },
     {
