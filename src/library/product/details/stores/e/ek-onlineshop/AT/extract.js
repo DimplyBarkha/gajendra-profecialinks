@@ -53,8 +53,9 @@ async function implementation(
   // content = text;
 
   // going back to product page
-  await context.goto(pageUrl, { timeout: 20000, waitUntil: 'load', checkBlocked: true });
+  await context.goto(pageUrl, { timeout: 30000, waitUntil: 'load', checkBlocked: true });
   await applyScroll(context);
+  await context.waitForSelector('#flix-inpage', {timeout: 30000});
 
   return context.extract(productDetails, { transform });
 }
