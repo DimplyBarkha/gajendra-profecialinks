@@ -10,8 +10,9 @@ module.exports = {
   },
   implementation: async ({ url }, parameters, context, dependencies) => {
     await context.setBlockAds(false);
+    await context.setJavaScriptEnabled(true);
     url = `${url}#[!opt!]{"block_ads":false,"first_request_timeout":60,"load_timeout":60,"load_all_resources":true}[/!opt!]`;
-    await context.goto(url, { waitUntil: 'networkidle0', block_ads: false });
+    await context.goto(url, { waitUntil: 'networkidle0', block_ads: false, js_enabled: true });
     async function autoScroll (page) {
       await page.evaluate(async () => {
         await new Promise((resolve, reject) => {
