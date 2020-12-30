@@ -67,6 +67,18 @@ const transform = (data) => {
         prodOtherInfo = prodOtherInfo.substring(0, prodOtherInfo.lastIndexOf('|') - 1).trim();
         row.productOtherInformation = [{ text: prodOtherInfo }]
       }
+
+      if (row.manufacturerDescription) {
+        let contentString = [];
+        for (const item of row.manufacturerDescription) {
+          contentString.push(item.text.trim());
+        }
+
+        contentString = contentString.join(' || ');
+        contentString = contentString ? `${contentString} ||` : null;
+        delete row.manufacturerDescription;
+        row.manufacturerDescription = [{ text: contentString }];
+      }
     }
   }
 

@@ -79,9 +79,7 @@ fields:
   - name: specTitle
     xpath: //div[@data-test='specifications']/a[@id='product_specifications']/following-sibling::div[1]//div[@class='specs']/dl/dt/text()
   - name: manufacturerImages
-    xpath: //div[contains(@class,'product-image-gallery')]//noscript
-    regExp: src="(.+)"\s
-    regExpReplace: $1
+    xpath: //div[@data-test="main-specs"]//div[@class="media__img"]//img/@src
   - name: specValue
     xpath: //div[@data-test='specifications']/a[@id='product_specifications']/following-sibling::div[1]//div[@class='specs']/dl/dd
   - name: warranty
@@ -121,3 +119,5 @@ fields:
     reExpReplace: Yes
   - name: directions
     xpath: //import-direction
+  - name: manufacturerDescription
+    xpath: //ul[contains(@class, 'product-small-specs')]/li
