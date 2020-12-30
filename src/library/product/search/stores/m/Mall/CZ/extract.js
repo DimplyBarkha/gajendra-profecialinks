@@ -8,7 +8,6 @@ module.exports = {
     domain: 'mall.cz',
     zipcode: '',
   },
-  implementation,
 };
 async function implementation(
   inputs,
@@ -18,49 +17,38 @@ async function implementation(
 ) {
   const { transform } = parameters;
   const { productDetails } = dependencies;
-  await context.waitForFunction(function () {
-    return Boolean(document.querySelector('h3[class="lst-product-item-title text-collapse"]') || document.evaluate('//h3[@class="lst-product-item-title text-collapse"]', document, null, XPathResult.UNORDERED_NODE_ITERATOR_TYPE, null).iterateNext());
-  }, { timeout: 90000 });
   await context.evaluate(async function () {
-    let scrollTop = 0;
-    while (scrollTop !== 20000) {
-      await stall(500);
-      scrollTop += 1000;
-      window.scroll(0, scrollTop);
-      if (scrollTop === 20000) {
-        await stall(5000);
-        break;
+      let scrollTop = 0;
+      while (scrollTop !== 1000000) {
+          await stall(5000);
+          scrollTop += 50000;
+          window.scroll(0, scrollTop);
+          if (scrollTop === 1000000) {
+              await stall(5000);
+              break;
+          }
       }
-    }
-    function stall(ms) {
-      return new Promise((resolve, reject) => {
-        setTimeout(() => {
-          resolve();
-        }, ms);
-      });
-    }
-    function addHiddenDiv(id, content, index) {
-      const newDiv = document.createElement('div');
-      newDiv.id = id;
-      newDiv.textContent = content;
-      newDiv.style.display = 'none';
-      const originalDiv = document.querySelectorAll('h3[class="lst-product-item-title text-collapse"]')[index];
-      originalDiv.parentNode.insertBefore(newDiv, originalDiv);
-    }
-    let firstChildNode;
-    let secondChildNode = 0;
-    let thirdChildNode;
-    const aggregateRating = document.querySelectorAll("div[class='lst-product-item-body']>div>span[class='rat--small']");
-    for (let k = 0; k < aggregateRating.length; k++) {
-      secondChildNode = 0;
-      firstChildNode = aggregateRating[k].getElementsByClassName('rat-item rat-item--on').length;
-      secondChildNode = aggregateRating[k].getElementsByClassName('rat-item rat-item--half').length;
-      if (secondChildNode > 0) {
-        secondChildNode = secondChildNode - 0.5
+      function stall(ms) {
+          return new Promise((resolve, reject) => {
+              setTimeout(() => {
+                  resolve();
+              }, ms);
+          });
       }
-      thirdChildNode = firstChildNode + secondChildNode;
-      addHiddenDiv('aggregateRating', thirdChildNode, k);
-    }
   });
   return await context.extract(productDetails, { transform });
+  //return await context.extract(productDetails, { transform, type: 'MERGE_ROWS' });
+  const ratings = document.querySelectorAll('.prod-rating');
+
+Array.from(ratings).forEach(rating => {
+    const stars = rating.querySelectorAll('span.rat--small');
+    let ratingVal = 0;
+    
+    [...stars].forEach(star => {
+        if (star.getAttribute('class').includes('on')) ++ratingVal;
+        if (star.getAttribute('class').includes('half')) ratingVal += 0.5;
+    });
+
+    rating.setAttribute('rating', ratingVal);
+});
 }
