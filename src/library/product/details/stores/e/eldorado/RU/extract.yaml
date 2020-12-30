@@ -24,6 +24,9 @@ fields:
   - name: brandText
     singleValue: false
     xpath: //meta[@itemprop="brand"]/@content
+  - name: gtin
+    singleValue: true
+    xpath: //span[@itemprop="sku"]
   - name: variantId
     singleValue: false
     xpath: //span[@itemprop="sku"]
