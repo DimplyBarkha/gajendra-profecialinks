@@ -34,25 +34,27 @@ module.exports = {
       console.log('gtin not present');
     }
 
-
-    await context.evaluate(async () => {
-      await new Promise((resolve) => setTimeout(resolve, 5000));
-
-      async function infiniteScroll() {
+    try {
+      await context.evaluate(async () => {
+        // await new Promise((resolve) => setTimeout(resolve, 5000));
+        async function infiniteScroll() {
           let prevScroll = document.documentElement.scrollTop;
           while (true) {
-              window.scrollBy(0, document.documentElement.clientHeight);
-              await new Promise(resolve => setTimeout(resolve, 3000));
-              const currentScroll = document.documentElement.scrollTop;
-              if (currentScroll === prevScroll) {
-                  break;
-              }
-              prevScroll = currentScroll;
+            window.scrollBy(0, document.documentElement.clientHeight);
+            await new Promise(resolve => setTimeout(resolve, 1000));
+            const currentScroll = document.documentElement.scrollTop;
+            if (currentScroll === prevScroll) {
+              break;
+            }
+            prevScroll = currentScroll;
           }
-      }
-      await infiniteScroll();
-      await new Promise((resolve) => setTimeout(resolve, 8000));
-  });
+        }
+        await infiniteScroll();
+        await new Promise((resolve) => setTimeout(resolve, 5000));
+      });
+    } catch (e) {
+      console.log('error while scrolling');
+    }
 
     await context.extract(productDetails, { transform: transformParam });
   }
