@@ -30,6 +30,50 @@ const transform = (data) => {
         }
         delete row.inTheBoxText2;
       }
+      const boxUrl = [];
+      if (row.inTheBoxUrl1) {
+        row.inTheBoxUrl1.forEach(item => {
+          boxUrl.push(item.text);
+        });
+      }
+
+      if (row.inTheBoxUrl) {
+        row.inTheBoxUrl.forEach(item => {
+          boxUrl.push(item.text);
+        });
+        const txt = boxUrl.join(' || ');
+        row.inTheBoxUrl = [{ text: txt }];
+      }
+
+      // let descTxt = '';
+      // if (row.inTheBoxUrl) {
+      //   // let text = '';
+      //   row.inTheBoxUrl.forEach(item => {
+      //     descTxt = `${descTxt} ${text.slice(0, -1)}`;
+      //   });
+      //   row.inTheBoxUrl = [
+      //     {
+      //       text: descTxt,
+      //     },
+      //   ];
+      // }
+      // if (row.inTheBoxUrl1) {
+      //   let text = '';
+      //   row.inTheBoxUrl1.forEach(item => {
+      //     text += `${item.text.replace(/\n \n/g, ':')} || `;
+      //   });
+      //   row.inTheBoxUrl1 = [
+      //     {
+      //       text: text.slice(0, -1),
+      //     },
+      //   ];
+      //   descTxt = `${descTxt} ${text.slice(0, -1)}`;
+      //   row.inTheBoxUrl1 = [
+      //     {
+      //       text: descTxt,
+      //     },
+      //   ];
+      // }
       if (row.inTheBoxUrl2) {
         if (!row.inTheBoxUrl) {
           row.inTheBoxUrl = row.inTheBoxUrl2;

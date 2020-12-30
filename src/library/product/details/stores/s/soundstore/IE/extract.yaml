@@ -530,8 +530,13 @@ fields:
     defaultValue: Yes
   - name: inTheBoxUrl
     singleValue: false
-    xpath: //div[contains(@class, "inpage_selector_InTheBox")]//img/@srcset
-    regExp: (.+)
+    xpath: //div[@class="inpage_selector_InTheBox"]//img/@data-flixsrcset 
+    regExp: ([^ ]+).*
+    regExpReplace: https:$1
+  - name: inTheBoxUrl1
+    singleValue: false
+    xpath: (//div[@class="flix-std-table"]/div[position()=1]/div//img//@data-flixsrcset)[position()=1]
+    regExp: ([^ ]+).*
     regExpReplace: https:$1
   - name: inTheBoxUrl2
     singleValue: false
