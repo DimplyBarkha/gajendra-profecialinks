@@ -61,15 +61,22 @@ const transform = (data) => {
             });
           }
 
+          // if (row.brandText) {            
+          //   row.brandText.forEach(item => {
+          //       let data = JSON.parse(item.text);
+          //       if(data['brand']){
+          //           item.text = data['brand'];
+          //           brand = item.text;
+          //       }
+          //       else{
+          //           delete row.brandText;
+          //       }
+          //   });
+          // }
           if (row.brandText) {            
             row.brandText.forEach(item => {
-                let data = JSON.parse(item.text);
-                if(data['brand']){
-                    item.text = data['brand'];
+                if(item){
                     brand = item.text;
-                }
-                else{
-                    delete row.brandText;
                 }
             });
           }

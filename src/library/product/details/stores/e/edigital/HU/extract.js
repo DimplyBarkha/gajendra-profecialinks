@@ -31,9 +31,9 @@ async function implementation (
             if( y.innerHTML != undefined){
               if((y.innerHTML).trim() != ""){
             if(descriptionUl == "")
-            descriptionUl = y.innerHTML;
+            descriptionUl = y.innerText;
             else
-            descriptionUl += " || " + y.innerHTML;
+            descriptionUl += " || " + y.innerText;
             }
             }
           })
@@ -48,7 +48,14 @@ async function implementation (
       if(descriptionData == ""){
         descriptionData = document.querySelector(".product-desc-box__description .static-page__area") ? document.querySelector(".product-desc-box__description .static-page__area").innerHTML : "";
       }
+      console.log(descriptionUl);
       addHiddenDiv("page_description" , descriptionData);
+      addHiddenDiv("page_Adddescription" , descriptionUl);
+      var products = window.edTrackerConf.product;
+      console.log(products);
+      if(products){
+        addHiddenDiv("page_brand" , products.brand);
+      }
     }); 
       return await context.extract(productDetails, { transform });
     }
@@ -60,5 +67,6 @@ module.exports = {
     transform,
     domain: 'edigital.hu',
     zipcode: '',
-  },implementation
+  },
+  implementation
 };

@@ -5,13 +5,13 @@ recordXPath: null
 fields:
   - name: brandText
     singleValue: false
-    xpath: //article[@class="product-details"]/@data-ga-360-data
+    xpath: //div[@id='page_brand']
   - name: image
     singleValue: false
-    xpath: //div[@class='carousel-inner']//div[@class='item active']//a[@class='main-image-link']//img[@itemprop='contentUrl']/@src
+    xpath: //figure[contains(@class,'showed-image')]//a[@class='main-image-link']//img[@itemprop='contentUrl']/@src
   - name: imageAlt
     singleValue: false
-    xpath: //div[@class='carousel-inner']//div[@class='item active']//a[@class='main-image-link']//img[@itemprop='contentUrl']/@alt
+    xpath: //figure[contains(@class,'showed-image')]//a[@class='main-image-link']//img[@itemprop='contentUrl']/@alt
   - name: alternateImages
     singleValue: false
     xpath: (//div[@class='carousel-inner']//div[contains(@class,'item')]//a[contains(@class,'main-image-link')]//img[@itemprop='contentUrl']/@src)[position() > 1]
@@ -34,18 +34,12 @@ fields:
   - name: promotion
     singleValue: false
     xpath: //div[@itemprop='offers']//span[@class='price-wrapper']//strong[@data-vat-name='item-old-price']//span[@class='discount--old']
-  # - name: metaKeywords
-  #   singleValue: false
-  #   xpath: //title
   - name: listPrice
     singleValue: false
     xpath: //div[@itemprop='offers']//span[@class='price-wrapper']//strong[@data-vat-name='item-old-price']//s
   - name: weightNet
     singleValue: false
     xpath: //div[@class='product-desc-box__description']//div[contains(@class,'product-specification product-desc-box__long')]//dt[@title='Súly']/following-sibling::dd[1]//span
-  # - name: sku
-  #   singleValue: false
-  #   xpath: //article[@class="product-details" ]/@data-product-id
   - name: variantId
     singleValue: false
     xpath: //article[@class="product-details" ]/@data-product-id
@@ -57,7 +51,7 @@ fields:
     xpath: //div[@class='product-rating']//section[@class='rating-container']//span[@itemprop='ratingValue']
   - name: additionalDescBulletInfo
     singleValue: false
-    xpath: //div[@class='product-desc-box__description']//div[@class='static-page__area']//ul//li
+    xpath: //div[@id='page_Adddescription']
   - name: description
     singleValue: false
     xpath: //div[@id='page_description']
@@ -97,12 +91,6 @@ fields:
   - name: category
     singleValue: false
     xpath: //ul[contains(@class,'breadcrumb')]//li[contains(@class,'breadcrumb__item')][position() > 1]
-  # - name: manufacturerImages
-  #   singleValue: false
-  #   xpath: //div[@class='product-desc-box__description']//img//@src
-  # - name: manufacturerDescription
-  #   singleValue: false
-  #   xpath: string(//div[@id='product-description']//section[contains(@class,'col-sm-7')]//div[contains(@class,'product-description')]//*[not(contains(@class,'json') or self::script)])
   - name: secondaryImageTotal
     singleValue: false
     xpath: count((//div[@class='carousel-inner']//div[contains(@class,'item')]//a[contains(@class,'main-image-link')]//img[@itemprop='contentUrl']/@src)[position() > 1])
