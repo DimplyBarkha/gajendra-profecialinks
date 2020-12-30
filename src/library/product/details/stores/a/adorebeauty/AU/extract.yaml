@@ -61,4 +61,6 @@ fields:
     xpath: //script[contains(text(),'videos_t_mv')]
     regExp: videos_t_mv=(\[.+?\])
     regExpReplace: $1
-
+  - name: unInterruptedPDP
+    singleValue: false
+    xpath: //div[@id='scarab-nuxt-recommendations']//div[@class='product-info']//div[@class='product__heading__title']
