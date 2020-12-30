@@ -77,11 +77,15 @@ const transform = (data) => {
       }
       if (row.unInterruptedPDP) {
         const str = 'Add to Cart';
+        const str1 = 'Add to cart';
         row.unInterruptedPDP.forEach(item => {
           let txt = item.text;
 
           if (txt.indexOf(str) > -1) {
             txt = txt.substring(txt.indexOf(str) + str.length);
+          }
+          if (txt.indexOf(str1) > -1) {
+            txt = txt.substring(txt.indexOf(str1) + str1.length);
           }
           
           item.text = txt;
