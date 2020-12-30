@@ -172,7 +172,7 @@ module.exports = {
 
         hasComparisionTable = await context.evaluate(async function () {
           let  hasComparisionTable = '';
-            const checkHasComparisonTable = document.querySelector('div.table-wrapper table') ? "true"  : "false" ;
+            const checkHasComparisonTable = document.querySelector('div.table-wrapper table') ? true  : false ;
             console.log("checkHasComparisonTable",checkHasComparisonTable);
             hasComparisionTable += checkHasComparisonTable;
           return  hasComparisionTable;
