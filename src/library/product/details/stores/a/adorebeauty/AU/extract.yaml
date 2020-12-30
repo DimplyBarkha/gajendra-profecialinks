@@ -4,93 +4,61 @@ recordSelector: null
 recordXPath: null
 fields:
   - name: image
-    singleValue: false
-    xpath: //div[@class='image-container']//img[@lazy='loading']/@data-src
+    xpath: //ul[@class="glide__slides"]//li[position()=1]//div[@class='image-container']//img[@lazy='loading']/@data-src
+    regExp: (.+)(png|jpg)
   - name: imageAlt
-    singleValue: false
     xpath: //div[@class='image-container']//img[@lazy='loading']/@alt
   - name: nameExtended
-    singleValue: false
     xpath: //h1[(@itemprop='name')]
   - name: name
-    singleValue: false
     xpath: //h1[(@itemprop='name')]
   - name: alternateImages
-    singleValue: false
-    xpath: //div[@class='thumbnail-gallery__inner']//div[contains(@class,'thumbnail-gallery__item') and not(contains(@class,'is-current'))]//img/@src
+    xpath: //div[@class="thumbnail-gallery__inner"]/div[position()>1]//img[not(contains(@src,'product-loader')) and not(contains(@src,'ytimg'))]/@src
+    regExp: (.+)(png|jpg)
+  - name: secondaryImageTotal
+    xpath: count(//div[@class="thumbnail-gallery__inner"]/div[position()>1]//img[not(contains(@src,'product-loader')) and not(contains(@src,'ytimg'))]/@src)
   - name: sku
-    singleValue: false
     xpath: //meta[contains(@itemprop,'sku')]/@content
   - name: variantId
-    singleValue: false
     xpath: //meta[contains(@itemprop,'sku')]/@content
   - name: variantCount
-    singleValue: false
     defaultValue: '0'
   - name: brandText
-    singleValue: false
     xpath: (//ol[@class='vue-breadcrumb']//span[not(text()='Home') and not(text()='Brand')])[1]
   - name: brandLink
-    singleValue: false
     xpath: (//ol[@class='vue-breadcrumb']//span[not(text()='Home') and not(text()='Brand')])[1]//parent::a/@href
+    regExp: (.+)
+    regExpReplace: https://www.adorebeauty.com.au$1
   - name: price
-    singleValue: false
     xpath: //span[contains(@class,'live-price')]
   - name: listPrice
-    singleValue: false
     xpath: //span[@class='old-price']
   - name: termsAndConditions
-    singleValue: false
-    defaultValue: Yes
   - name: privacyPolicy
-    singleValue: false
     defaultValue: Yes
   - name: customerServiceAvailability
-    singleValue: false
     defaultValue: Yes
   - name: ratingCount
-    singleValue: false
     xpath: (//div[contains(@class,'main col1-layout')]//a[contains(@class,'review-summary__link')])[1]/text()
   - name: aggregateRating
-    singleValue: false
     xpath: //div[@class='product-info']//p[contains(@class,'review-summary__info')]//span[@class='review-summary__info-prefix']/strong
   - name: availabilityText
-    singleValue: false
-    xpath: //strong[contains(@class,'stock-message__info')]
-    # regExp: (.+)
-    # regExpReplace: In Stock
-    # defaultValue: Out of Stock
+    xpath: //h1[(@itemprop='name')]/@availability
   - name: description
-    singleValue: false
-    xpath: //div[@itemprop='description']//p
+    xpath: //div[@itemprop='description']
   - name: additionalDescBulletInfo
-    singleValue: false
     xpath: //div[@itemprop='description']//ul/li
   - name: descriptionBullets
-    singleValue: false  
   - name: ingredientsList
-    singleValue: false
-    xpath: //div[contains(@class,'product-tab__content')]//p[contains(text(),'Ingredients')]
+    xpath: //button[contains(.,'Ingredients')]/following-sibling::div[@class="product-tab__inner product-tab__inner--small"]
   - name: directions
-    singleValue: false
-    xpath: //section[@class="product-tabs"]//section[@class="product-tab"]/div[2]//p
-    #//div[contains(@class,'product-tab__content')]//p[contains(text(),'How To Use')]
+    xpath: //button[contains(.,'How to use')]/following-sibling::div[@class="product-tab__inner product-tab__inner--small"]
   - name: imageZoomFeaturePresent
-    singleValue: false
     defaultValue: Yes
-  # - name: productOtherInformation
-  #   singleValue: false
-  #   xpath: (//div[contains(@class,'product-tab__content wysiwyg')])[2]
-  # - name: ingredientsList
-  #   singleValue: fasle
-  #   xpath: (//div[contains(@class,'product-tab__content wysiwyg')])[3]
   - name: category
-    singleValue: false
-    xpath: //ol[@class='vue-breadcrumb']//span[not(text()='Home')]
+    xpath: //ol[@class='vue-breadcrumb']//li[position()<last()]
   - name: videos
-    singleValue: false
     xpath: //script[contains(text(),'videos_t_mv')]
-    #videos_t_mv=["https:\u002F\u002Fwww.youtube.com\u002Fembed\u002FFyNenbFDccc"];
     regExp: videos_t_mv=(\[.+?\])
     regExpReplace: $1
 

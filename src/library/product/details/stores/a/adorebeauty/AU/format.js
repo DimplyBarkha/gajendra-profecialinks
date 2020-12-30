@@ -24,23 +24,6 @@ const transform = (data) => {
   };
   for (const { group } of data) {
     for (const row of group) {
-      if (row.image) {
-        row.image.forEach(item => {
-          item.text = item.text.replace('width=120', 'width=600');
-          item.text = item.text.replace('height=120', 'height=600');
-        });
-      }
-      if (row.alternateImages) {
-        row.alternateImages.forEach(item => {
-          item.text = item.text.replace('width=120', 'width=600');
-          item.text = item.text.replace('height=120', 'height=600');
-        });
-      }
-      if (row.brandLink) {
-        row.brandLink.forEach(item => {
-          item.text = 'https://www.adorebeauty.com.au' + item.text;
-        });
-      }
       if (row.additionalDescBulletInfo) {
         var arrBullets = [];
         row.additionalDescBulletInfo.forEach(item => {
@@ -49,13 +32,17 @@ const transform = (data) => {
         row.additionalDescBulletInfo = [{ text: arrBullets.join(' || ') }];
         row.descriptionBullets = [{ text: arrBullets.length }];
       }
+      
       if (row.description) {
-        var arrDesc = [];
+        let text = '';
         row.description.forEach(item => {
-          arrDesc.push(item.text);
+          text += item.text.replace(/-\s/g, ' || ').trim();
         });
-        row.description = [{ text: arrDesc.join(' ') }];
+
+        row.description = [{ text }];
       }
+
+ 
       if (row.videos) {
         var arrVideos = [];
         var arrJsonVideo = JSON.parse(row.videos[0].text);
@@ -63,18 +50,6 @@ const transform = (data) => {
           arrVideos.push(vdoUrl);
         });
         row.videos = [{ text: arrVideos }];
-      }
-      if (row.category) {
-        row.category.splice(row.category.length - 1, 1);
-      }
-      if (row.availabilityText) {
-        row.availabilityText.forEach(item => {
-          if (item.text.toUpperCase() === 'IN STOCK') {
-            row.availabilityText = [{ text: 'In Stock' }];
-          } else {
-            row.availabilityText = [{ text: 'Out of Stock' }];
-          }
-        });
       }
     }
   }
