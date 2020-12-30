@@ -85,7 +85,7 @@ fields:
     xpath: //div[@class='pdp-sizeFitDesc']//h4[text()='Material & Care']/following-sibling::p[@class='pdp-sizeFitDescContent pdp-product-description-content']
   - name: ingredientsList
     singleValue: false
-    xpath: //p[@class='pdp-product-description-content']//b[text()='INGREDIENTS'][1]/following-sibling::text()[1]
+    xpath: //p[@class='pdp-product-description-content']//b[contains(text(),'INGREDIENTS') or contains(text(),'Ingredients') or contains(text(),'ingredient')][1]/following-sibling::text()[1]
   - name: manufacturer
     singleValue: false
     xpath: //script[contains(text(),'pdpData') and contains(text(),'manufacturer')]/text()
