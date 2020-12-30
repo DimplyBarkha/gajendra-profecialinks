@@ -53,7 +53,13 @@ fields:
     xpath: //span[@class='supplier-styleId']
   - name: variantId
     singleValue: false
-    xpath: //span[@class='supplier-styleId']  
+    xpath: //ul[@class='colors-shadeList colors-shadeListDesktop']//li//a/@href
+    regExp: \/(\d+)
+    regExpReplace: $1
+  - name: firstVariant
+    xpath: //ul[@class='colors-shadeList colors-shadeListDesktop']//li[1]//a/@href
+    regExp: \/(\d+)
+    regExpReplace: $1
   - name: ratingCount
     singleValue: false
     xpath: //div[@id='detailedRatingContainer']//div[@class='index-countDesc']
@@ -65,7 +71,8 @@ fields:
     xpath: //span[@class='supplier-productSellerName']
   - name: variantCount
     singleValue: false
-    defaultValue: '0'  
+    xpath: //ul[@class='colors-shadeList colors-shadeListDesktop']//li//span[@class='colors-shadeName']
+    defaultValue: '0'
   - name: name
     singleValue: false
     xpath: //div[@class='pdp-price-info']//h1[@class='pdp-name']
@@ -89,7 +96,7 @@ fields:
     xpath: //script[contains(text(),'pdpData') and contains(text(),'manufacturer')]/text()
   - name: variantInformation
     singleValue: false
-    xpath: //div[@id='sizeButtonsContainer']//div[@class='size-buttons-buttonContainer']//button//p[@class='size-buttons-unified-size']
+    xpath: //div[@id='sizeButtonsContainer']//div[@class='size-buttons-buttonContainer']//button//p[@class='size-buttons-unified-size'] | //ul[@class='colors-shadeList colors-shadeListDesktop']//li//span[@class='colors-shadeName']
   - name: imageZoomFeaturePresent
     singleValue: false
     defaultValue: Yes

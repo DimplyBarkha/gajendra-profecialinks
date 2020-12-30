@@ -38,6 +38,13 @@ const transform = (data) => {
               item.text = item.text.replace(/(\s*Verified\s+Buyers\s*)+/ig, '').trim();
             });            
           }
+          if (row.variantId) {
+            let info = [];          
+            row.variantId.forEach(item => {
+                info.push(item.text.trim());            
+            });
+            row.variantId = [{'text':info.join(' | '),'xpath':row.variantId[0].xpath}];          
+          }
           if (row.quantity) {
             let info = [];          
             row.quantity.forEach(item => {
@@ -62,6 +69,10 @@ const transform = (data) => {
             });          
             row.specifications = [{'text':info.join(' || '),'xpath':row.specifications[0].xpath}];          
           }
+          if (row.variantCount && row.variantCount[0].text != '0') {
+            row.variantCount = [{'text':row.variantCount.length,'xpath':row.variantCount[0].xpath}];          
+          }
+          
           if (row.variantInformation) {
             let info = [];          
             row.variantInformation.forEach(item => {
