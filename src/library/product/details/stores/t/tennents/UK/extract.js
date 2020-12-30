@@ -19,7 +19,7 @@ module.exports = {
 
       const addToBasketButton = document.querySelector('a.AddToBasket_Button');
       const isButtonDisabled = addToBasketButton.getAttribute('disabled') === 'disabled';
-      document.querySelector('body').setAttribute('availability', isButtonDisabled ? 'Out of stock' : 'In stock');
+      document.querySelector('body').setAttribute('availability', isButtonDisabled ? 'Out Of Stock' : 'In Stock');
     });
 
     var extractedData = await context.extract(productDetails, { transform });
