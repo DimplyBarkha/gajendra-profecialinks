@@ -2,13 +2,13 @@ input:
   _url: http://emag.ro
   URL: https://www.emag.ro/set-l-oreal-professionnel-serie-expert-volumetry-sampon-300-ml-tratament-200ml-10004/pd/D3VN1ZBBM/?X-Search-Id=2b2d71f030a971ba05d4&X-Product-Id=42546806&X-Search-Page=5&X-Search-Position=38&X-Section=search&X-MB=0&X-Search-Action=view
 extractions:
-  - html: https://workbench.import.io/html/run=101a0bdd-5579-4554-9b01-80aa6969442e/task=003d6396-d124-4f89-958e-1f78ff174c8c/b1120c6e-b8ed-48a5-b225-d375df8560c4.html
+  - html: https://workbench.import.io/html/run=c5df7b4e-ea32-4d63-adc0-7d7691abdf91/task=1f542913-4b5d-4fa5-ad7a-b72ce4b8e18f/37ee47d7-6f15-4cda-bd79-7295d9f15d28.html
     extractionConfigId: product/details/stores/e/emag/RO/extract
     data:
       - group:
           - productUrl:
               - text: https://www.emag.ro/trusa-l-oreal-professionnel-serie-expert-volumetry-sampon-profesional-pentru-volum-300-ml-balsam-profesional-pentru-volum-200-ml-5902503093129/pd/DL0P15BBM/?X-MB=0&X-Product-Id=42546806&X-Search-Action=view&X-Search-Id=2b2d71f030a971ba05d4&X-Search-Page=5&X-Search-Position=38&X-Section=search
-                xpath: /html/body/div[10]
+                xpath: /html/body/div[11]
             image:
               - text: https://s13emagst.akamaized.net/products/24709/24708602/images/res_ff1be6e1de8b3972e8d311e782ebddc6.jpg?width=450&height=450&hash=CA1780C1B9FB602EB1761B936EE97D6E
                 xpath: /html/body/div[4]/div[2]/div[1]/section[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/a[1]/img[1]/@src
@@ -50,10 +50,7 @@ extractions:
               - text: >-
                   Trusa L'Oreal Professionnel Serie Expert Volumetry: Sampon
                   profesional pentru volum, 300 ml + Balsam profesional pentru
-                  volum, 200 ml
-                   
-                   
-                   Sampon profesional pentru volum, 300 ml 
+                  volum, 200 ml Sampon profesional pentru volum, 300 ml 
                    
                    O combinatie unica de Acid Salicilic, care intensifica sustinerea fibrei capilare din interior, si Hydralight, ingredient cunoscut pentru proprietatile hidratante, fara a incarca. Aplicati uniform pe parul umed si masati pielea capului. Clatiti. In cazul contactului cu ochii clatiti imediat.
                    
@@ -62,13 +59,7 @@ extractions:
                    Balsam tratament pentru volum cu efect anti-gravitatie,par fin. Formula profesionala, o combinatie unica de nova pe baza de Intra-Cylane care intensifica sustinerea fibrei capilare din interior si Hydralight,ingredient cunoscut pentru proprietatile hidratante, fara a incarca fibra. Ofera consistenta parului, pentru un volum de durata.
                    
                    Mod de utilizare: Se aplica pe parul sampont si zvantat cu prosopul. Pieptanati, apoi lasati sa actioneze timp de 2-3 minute. Clatiti.In cazul contactului cu ochii,clatiti imediat.
-                   
-                   
-                   
-                   
-                   
-                   Vezi mai mult
-                xpath: /html/body/div[4]/div[2]/div[1]/section[5]/div[1]/div[1]/div[1]
+                xpath: /html/body/div[4]/div[2]/div[1]/section[5]/div[1]/div[1]/div[1]/div[1]/div[1]
             brandText:
               - text: L'Oreal Professionnel
                 xpath: /html/body/div[4]/div[2]/div[1]/section[8]/div[1]/div[1]/div[1]/div[2]/p[1]/a[1]
@@ -81,15 +72,9 @@ extractions:
             sku:
               - text: "5902503093129"
                 xpath: /html/body/div[4]/div[2]/div[1]/section[1]/div[1]/div[2]/div[1]/div[1]/div[2]/span[1]
-            legalDisclaimer:
-              - text: "eMAG.ro face eforturi permanente pentru a păstra acurateţea informaţiilor
-                  din acestă pagină. Rareori acestea pot conţine inadvertenţe:
-                  fotografia are caracter informativ şi poate conţine accesorii
-                  neincluse în pachetele standard, unele specificaţii pot fi
-                  modificate de catre producător fără preaviz sau pot conţine
-                  erori de operare. Toate promoţiile prezente în site sunt
-                  valabile în limita stocului."
-                xpath: /html/body/div[4]/div[2]/div[1]/section[8]/div[1]/div[1]/div[1]/div[2]/p[3]
+            variantId:
+              - text: DL0P15BBM
+                xpath: /html/body/div[4]/div[2]/div[1]/section[10]/div[1]/div[4]/div[1]/@data-product-pnk
             ratingCount:
               - text: "3"
                 xpath: /html/body/div[4]/div[2]/div[1]/section[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/p[2]/a[1]
@@ -99,6 +84,15 @@ extractions:
             aggregateRating:
               - text: "3.33"
                 xpath: /html/body/div[4]/div[2]/div[1]/section[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/a[1]/span[1]
+            shippingInfo:
+              - text: |-
+                  Vândut și livrat de: 
+                   
+                   eMAG
+                xpath: /html/body/div[4]/div[2]/div[1]/section[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[2]
+            manufacturerDescription:
+              - text: data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=
+                xpath: /html/body/div[4]/div[2]/div[1]/section[5]/div[1]/div[1]/div[1]/div[1]/div[3]/b[1]/img[1]/@src
             name:
               - text: "Trusa L'Oreal Professionnel Serie Expert Volumetry: Sampon profesional
                   pentru volum, 300 ml + Balsam profesional pentru volum, 200
@@ -111,8 +105,10 @@ extractions:
                   Gama Expert || Beneficii Regenerator Revitalizant Volum
                   Calmant Definire || Proprietati Hidratant Relaxant || Continut
                   pachet 1 x Sampon 1 x Masca de par || Cantitate 300 ml 200 ml
-                  ||
-                xpath: /html/body/div[11]
+                xpath: /html/body/div[12]
+            firstVariant:
+              - text: "5902503093129"
+                xpath: /html/body/div[4]/div[2]/div[1]/section[1]/div[1]/div[2]/div[1]/div[1]/div[2]/span[1]
             technicalInformationPdfPresent:
               - text: No
             termsAndConditions:
@@ -127,8 +123,7 @@ extractions:
               - text: Yes
             price:
               - text: .
-            variantId:
-              - text: "5902503093129"
-                xpath: /html/body/div[4]/div[2]/div[1]/section[1]/div[1]/div[2]/div[1]/div[1]/div[2]/span[1]
+            descriptionBullets:
+              - text: "0"
         xpath: /
-    timestamp: 1607470684032
+    timestamp: 1609332602885

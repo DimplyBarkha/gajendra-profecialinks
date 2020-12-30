@@ -1,0 +1,22 @@
+input:
+  _url: http://emag.ro
+  URL: https://www.emag.ro/scutece-huggies-ultra-comfort-virtual-pack-5-girl-12-22-kg-112-buc-5029054564769/pd/D536XYBBM/?X-Search-Id=a38677795e893f9c1f90&X-Product-Id=911374&X-Search-Page=2&X-Search-Position=3&X-Search-Action=view
+extractions:
+  - html: https://workbench.import.io/html/run=e405ce4e-81b9-425c-9292-974f18dce7f1/task=88ac11c1-8456-45eb-819a-e360c90926f5/9aba7ee4-d132-43f7-b9ca-230bec2aca1e.html
+    extractionConfigId: product/details/stores/e/emag/RO/variantsExtract
+    data:
+      - group:
+          - variantUrl:
+              - text: https://www.emag.ro/scutece-huggies-ultra-comfort-virtual-pack-5-girl-12-22-kg-112-buc-5029054564769/pd/D726XYBBM/?X-Search-Id=a38677795e893f9c1f90&X-Product-Id=911374&X-Search-Page=2&X-Search-Position=3&X-Search-Action=view
+                xpath: /html/body/div[10]
+            variantId:
+              - text: D726XYBBM
+                xpath: /html/body/div[11]
+          - variantUrl:
+              - text: https://www.emag.ro/scutece-huggies-ultra-comfort-virtual-pack-5-girl-12-22-kg-112-buc-5029054564769/pd/D536XYBBM/?X-Search-Id=a38677795e893f9c1f90&X-Product-Id=911374&X-Search-Page=2&X-Search-Position=3&X-Search-Action=view
+                xpath: /html/body/div[12]
+            variantId:
+              - text: D536XYBBM
+                xpath: /html/body/div[13]
+        xpath: /html/body
+    timestamp: 1609331851595

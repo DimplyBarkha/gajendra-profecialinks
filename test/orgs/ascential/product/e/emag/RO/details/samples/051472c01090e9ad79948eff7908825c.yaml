@@ -2,7 +2,7 @@ input:
   _url: http://emag.ro
   URL: https://www.emag.ro/odorizant-auto-areon-mon-mountain-fresh-ar287/pd/D17TWJBBM/?X-Search-Id=4e8ae81c4e47a58d6ac4&X-Product-Id=34581468&X-Search-Page=6&X-Search-Position=1&X-Section=search&X-MB=0&X-Search-Action=view
 extractions:
-  - html: https://workbench.import.io/html/run=101a0bdd-5579-4554-9b01-80aa6969442e/task=69b919d7-d16f-4849-a0bb-90257d450f2d/a20b20b1-47fc-4d3c-a72e-3dc16f388828.html
+  - html: https://workbench.import.io/html/run=c5df7b4e-ea32-4d63-adc0-7d7691abdf91/task=daebd4b0-b8c5-44e4-b991-8b8fd6968db4/bedf7e1f-debf-4df7-825a-96971d19ec87.html
     extractionConfigId: product/details/stores/e/emag/RO/extract
     data:
       - group:
@@ -33,39 +33,39 @@ extractions:
               - text: Odorizant Auto Areon Mon Mountain Fresh
                 xpath: /html/body/div[4]/div[2]/div[1]/section[1]/div[1]/div[1]/h1[1]
             availabilityText:
-              - text: În stoc
+              - text: Indisponibil
                 xpath: /html/body/div[4]/div[2]/div[1]/section[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[2]/form[1]/div[1]/span[1]
             description:
               - text: Viziunea contemporana a clasicului! Mon Areon este o linie contemporana de
                   parfumuri, care farmeca simturile cu arome proaspete si design
                   modern. Proiectate cu stil si atentie ele vor aduce un
                   sentiment de curatenie si confort in spatiul dumneavoastra.
-                xpath: /html/body/div[4]/div[2]/div[1]/section[4]/div[1]/div[1]/div[1]
+                xpath: /html/body/div[4]/div[2]/div[1]/section[5]/div[1]/div[1]/div[1]/div[1]/text()[1]
             brandText:
               - text: Areon
-                xpath: /html/body/div[4]/div[2]/div[1]/section[6]/div[1]/div[1]/div[1]/div[2]/p[1]/a[1]
+                xpath: /html/body/div[4]/div[2]/div[1]/section[7]/div[1]/div[1]/div[1]/div[2]/p[1]/a[1]
             manufacturer:
               - text: SAGANO LINE
                 xpath: /html/body/div[4]/div[2]/div[1]/section[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[2]/div[2]
             sku:
               - text: AR287
                 xpath: /html/body/div[4]/div[2]/div[1]/section[1]/div[1]/div[1]/div[2]/span[1]
-            legalDisclaimer:
-              - text: "eMAG.ro face eforturi permanente pentru a păstra acurateţea informaţiilor
-                  din acestă pagină. Rareori acestea pot conţine inadvertenţe:
-                  fotografia are caracter informativ şi poate conţine accesorii
-                  neincluse în pachetele standard, unele specificaţii pot fi
-                  modificate de catre producător fără preaviz sau pot conţine
-                  erori de operare. Toate promoţiile prezente în site sunt
-                  valabile în limita stocului."
-                xpath: /html/body/div[4]/div[2]/div[1]/section[6]/div[1]/div[1]/div[1]/div[2]/p[2]
+            shippingInfo:
+              - text: |-
+                  Vândut și livrat de: 
+                   
+                   SAGANO LINE
+                xpath: /html/body/div[4]/div[2]/div[1]/section[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[2]
             name:
               - text: Odorizant Auto Areon Mon Mountain Fresh
                 xpath: /html/body/div[4]/div[2]/div[1]/section[1]/div[1]/div[1]/h1[1]
             productOtherInformation:
               - text: Tip produs Odorizant || Tip ambalaj Carton || Tip Standard || Tip aplicare
-                  Oglinda retrovizoare || Parfum Mountain Fresh ||
+                  Oglinda retrovizoare || Parfum Mountain Fresh
                 xpath: /html/body/div[11]
+            packaging:
+              - text: Carton
+                xpath: /html/body/div[4]/div[2]/div[1]/section[7]/div[1]/div[1]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[2]/td[2]
             technicalInformationPdfPresent:
               - text: No
             termsAndConditions:
@@ -79,9 +79,8 @@ extractions:
             imageZoomFeaturePresent:
               - text: Yes
             price:
-              - text: 4.58 Lei
-            variantId:
-              - text: AR287
-                xpath: /html/body/div[4]/div[2]/div[1]/section[1]/div[1]/div[1]/div[2]/span[1]
+              - text: .
+            descriptionBullets:
+              - text: "0"
         xpath: /
-    timestamp: 1607470681439
+    timestamp: 1609332599917
