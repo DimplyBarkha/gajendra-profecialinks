@@ -1,0 +1,13 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: //li[contains(@aoly-child,"sub-menu")]//li[contains(@class,"main-navigation__fourth-level-nav-item")] | //ul[contains(@class,"main-navigation__first-level-left")]//li[contains(@class,"main-navigation__fourth-level-nav-item")]
+fields:
+  - name: category
+    singleValue: false
+    description: name of the category
+    xpath: //li[contains(@class,"main-navigation__fourth-level-nav-item")]/a
+  - name: categoryUrl
+    singleValue: false
+    description: url of the category
+    xpath: //li[contains(@class,"main-navigation__fourth-level-nav-item")]/a/@href
