@@ -32,29 +32,6 @@ const transform = (data) => {
         }
       }
 
-      if (row.sku) {
-        const prodInfo = JSON.parse(row.sku[0].text);
-        if (prodInfo && prodInfo.pdpTaxonomyObj && prodInfo.pdpTaxonomyObj.productInfo[0] && prodInfo.pdpTaxonomyObj.productInfo[0].productId) {
-          row.sku[0].text = prodInfo.pdpTaxonomyObj.productInfo[0].productId
-        } else {
-          delete row.sku
-        }
-      }
-
-      if (row.variantId) {
-        const prodInfo = JSON.parse(row.variantId[0].text);
-        if (prodInfo && prodInfo.pdpTaxonomyObj && prodInfo.pdpTaxonomyObj.productInfo) {
-          const prodData = prodInfo.pdpTaxonomyObj.productInfo[0];
-          prodData ? row.variantId[0].text = prodData.ean : delete row.variantId;
-        } else {
-          delete row.variantId
-        }
-      }
-
-      if (row.aggregateRating) {
-        row.aggregateRating[0].text = row.aggregateRating[0].text.replace('.', ',')
-      }
-
       if (row.shippingInfo) {
         row.shippingInfo[0].text = row.shippingInfo[0].text.replace('Verkoop door:', '')
       }
@@ -75,10 +52,6 @@ const transform = (data) => {
 
       if (row.technicalInformationPdfPresent && row.technicalInformationPdfPresent[0].text === 'Bekijk de handleiding') {
         row.technicalInformationPdfPresent = [{ text: 'Yes' }]
-      }
-
-      if (row.description && row.additionalDescBulletInfo) {
-        row.description = row.description.concat(row.additionalDescBulletInfo);
       }
 
       if (row.additionalDescBulletInfo) {

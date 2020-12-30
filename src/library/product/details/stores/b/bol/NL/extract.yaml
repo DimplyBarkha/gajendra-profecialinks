@@ -28,7 +28,7 @@ fields:
   - name: description
     xpath: //div[@data-test='description']
   - name: descriptionBullets
-    xpath: //div[@id='bulletCount']/@title
+    xpath: //body/@import-bullet-count
     defaultValue: 0
   - name: brandText
     xpath: //div[@data-test = 'brand']/a
@@ -41,15 +41,19 @@ fields:
   - name: eangtin
     xpath: //dt[contains(., 'EAN')]//following-sibling::dd[1]
   - name: sku
-    xpath: //div[@data-test='taxonomy_data']
+    xpath: //link[@rel='canonical']/@href
+    regExp: \/(\d+)\/
+    regExpReplace: $1
   - name: variantId
-    xpath: //div[@data-test='taxonomy_data']
+    xpath: //link[@rel='canonical']/@href
+    regExp: \/(\d+)\/
+    regExpReplace: $1
   - name: instructions
     xpath: //doubt
   - name: ratingCount
     xpath: //div[contains(@class, 'rating-horizontal__total-reviews')]/strong
   - name: aggregateRating
-    xpath: //div[contains(@class, 'rating-horizontal__average-score')]
+    xpath: translate(//div[contains(@class, 'rating-horizontal__average-score')], '.', ',')
   - name: shippingInfo
     xpath: //div[contains(@class, 'product-seller product-seller--l')]
   - name: shippingDimensions
@@ -68,9 +72,9 @@ fields:
     xpath: //h1[@class='page-heading']
   - name: videos
     xpath: //video[@data-test='wsp-video-element']/source/@src | | //p[contains(., 'youtube')]
-  - name : lbb
+  - name: lbb
     defaultValue: No
-  - name : specifications
+  - name: specifications
     xpath: //div[@data-test='specifications']/a[@id='product_specifications']/following-sibling::div[1]//div[@class='specs'][1]/dl
   - name: specTitle
     xpath: //div[@data-test='specifications']/a[@id='product_specifications']/following-sibling::div[1]//div[@class='specs']/dl/dt/text()
@@ -81,7 +85,7 @@ fields:
   - name: specValue
     xpath: //div[@data-test='specifications']/a[@id='product_specifications']/following-sibling::div[1]//div[@class='specs']/dl/dd
   - name: warranty
-    xpath: //dt[@class='specs__title' and contains(., 'garantie') and not(contains(., 'Taal garantiebewijs'))]/following-sibling::dd[1] 
+    xpath: //dt[@class='specs__title' and contains(., 'garantie') and not(contains(., 'Taal garantiebewijs'))]/following-sibling::dd[1]
   - name: mpc
     xpath: //div[@data-test='specifications']/a[@id='product_specifications']/following-sibling::div[1]//div[@class='specs'][1]/dl//dt[contains(.,'Model')]/following-sibling::dd[1]
   - name: quantity
@@ -115,3 +119,5 @@ fields:
     defaultValue: NO
     regExp: (.+)
     reExpReplace: Yes
+  - name: directions
+    xpath: //import-direction

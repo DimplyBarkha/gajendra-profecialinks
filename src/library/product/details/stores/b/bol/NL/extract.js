@@ -21,18 +21,44 @@ module.exports = {
 
     try {
       await context.evaluate(async function () {
-        const ulInDesc = "div[data-test='description']>ul";
-        const descBullets = document.querySelector(ulInDesc);
-        const body = document.querySelector('body');
+        const descEl = document.querySelector('.product-description');
+        let bulletCount = 0;
 
-        let liInDesc = document.querySelectorAll("div[data-test='description']>ul>li")
-        let divEle = document.createElement('div')
-        liInDesc.length > 0 ? body.appendChild(divEle) : false;
-        divEle.id = 'bulletCount';
-        divEle.title = liInDesc.length.toString();
-        
-        if (descBullets) {
-          body.appendChild(descBullets);
+        if (descEl) {
+          const listItem = descEl.querySelectorAll('li');
+          bulletCount = listItem.length;
+
+          for (const item of listItem) {
+            item.innerText = `||${item.innerText.trim()}`;
+          }
+
+          let descString = descEl.innerText ? descEl.innerText.trim() : '';
+          descString = descString.split('\n');
+
+          for (const str of descString) {
+            if (str.trim().startsWith('-') || str.trim().startsWith('•')) {
+              bulletCount++;
+            }
+          }
+        }
+
+        document.body.setAttribute('import-bullet-count', bulletCount);
+
+        const directionsEl = document.evaluate(`//div[@class='specs'][contains(., 'Gebruikswijze')]/dl`, document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
+
+        if (directionsEl) {
+          let contentString = '';
+          for (let i = 0; i < directionsEl.children.length; i += 2) {
+            if (i == 0) {
+              contentString = `${contentString}${directionsEl.children[i].innerText} ${directionsEl.children[i + 1].innerText}`;
+            } else {
+              contentString = `${contentString} | ${directionsEl.children[i].innerText} ${directionsEl.children[i + 1].innerText}`;
+            }
+          }
+
+          const newDirEl = document.createElement('import-direction');
+          newDirEl.innerText = contentString;
+          document.body.appendChild(newDirEl);
         }
       })
     } catch (err) {
