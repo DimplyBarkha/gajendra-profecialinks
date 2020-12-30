@@ -7,11 +7,10 @@ module.exports = {
     nextLinkXpath: null,
     mutationSelector: null,
     spinnerSelector: null,
-    loadedSelector: 'td[class="code depth_1"]',
+    loadedSelector: '',
     noResultsXPath: null, 
     openSearchDefinition: {
-      pageOffset: -1,
-      template: 'https://www.douglas.at/jsapi/v2/products/search?currentPage={page}&pageSize=50&query={searchTerms}&fields=FULL&crealyticsSpaEnabled=true#[!opt!]{"type":"json"}[/!opt!]',
+      template: 'https://www.douglas.at/de/search?q={searchTerms}&page={page}',
     },
     domain: 'douglas.at',
     zipcode: '',

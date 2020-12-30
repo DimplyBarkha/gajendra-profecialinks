@@ -1,34 +1,34 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: //td[@class="products depth_0"]//tbody/tr
+recordXPath: null
 fields:
   - name: name
-    xpath: //td[@class="brandPath depth_1"]//tr[1]//td[contains(@class,"name depth_2")] | //td[@class="brandPath depth_1"]//tr[3]//td[@class="name depth_2"] | //td[@class="baseProductName depth_1"] 
+    xpath: //*[@id="added-table"]/table/tbody/tr//td[@class="brandPath"]/table/tbody/tr[1]/td[@class="name"] | //*[@id="added-table"]/table/tbody/tr//td[@class="brandPath"]/table/tbody/tr[3]/td[@class="name"] | //*[@id="added-table"]/table/tbody/tr//td[@class="baseProductName"] 
   - name: id
-    xpath: //td[contains(@class,"code depth_1")]
+    xpath: //*[@id="added-table"]/table/tbody/tr/td[@class="code"]
   - name: thumbnail
-    xpath: //td[contains(@class,"url depth_2")]
+    xpath: //*[@id="added-table"]/table/tbody/tr/td[@class="images"]//td[@class="url"]
   - name: price
-    xpath: //td[@class="priceData depth_2"]//td[@class="formattedValue depth_3"]
+    xpath: //*[@id="added-table"]/table/tbody/tr/td[@class="price"]//td[@class="formattedValue"]
     regExp: €\s(\d+,\d+)
     regExpReplace: $1
-  - name: searchUrl
-    xpath: //td[@class="currentQuery depth_0"]//td[@class="url depth_1"]
+  # # - name: searchUrl
+  # #   xpath: ancestor::html//td[@class="currentQuery depth_0"]//td[@class="url depth_1"]
   - name: productUrl
-    xpath: //td[contains(@class,"url depth_1")]
+    xpath: //*[@id="added-table"]/table/tbody/tr/td[@class="url"]
     regExp: (.+)
     regExpReplace: https://www.douglas.at$1
   - name: reviewCount
-    xpath: //td[contains(@class,"numberOfReviews depth_1")]
-    regExp: \((\d+)\)
-    regExpReplace: $1
+    xpath: //*[@id="added-table"]/table/tbody/tr/td[@class="numberOfReviews"]
+    # regExp: \((\d+)\)
+    # regExpReplace: $1
   - name: aggregateRating2
-    xpath: //td[contains(@class,"ratingStars depth_1")]
-    regExp: (\d.\d+\s)|\d\s
-  - name: gtin
-    xpath: //td[contains(@class,"code depth_1")]
+    xpath: //*[@id="added-table"]/table/tbody/tr/td[@class="averageRating"]
+  #   # regExp: (\d.\d+\s)|\d\s
+  # # - name: gtin
+  # #   xpath: //td[contains(@class,"code depth_1")]
   - name: manufacturer
-    xpath: //td[@class="brandPath depth_1"]//tr[1]//td[contains(@class,"name depth_2")]
-  - name: rank
-  - name: rankOrganic
+    xpath: //*[@id="added-table"]/table/tbody/tr//td[@class="brandPath"]/table/tbody/tr[1]/td[@class="name"]
+  # # - name: rank
+  # # - name: rankOrganic
