@@ -121,8 +121,15 @@ async function implementation (
 
       const witbData = await context.evaluate(async () => {
         const getInTheBox = document.querySelector('div.eky-accesory-container img');
+        const getInTheBoxVideo = document.querySelector('div.eky-container-full');
         const inBoxUrls = [];
         const inBoxText = [];
+        if(getInTheBoxVideo){
+          const getAllProductsVideo = document.querySelectorAll('div.tns-inner > div.my-slider>div.eky-relative-wrapper.tns-normal>div.eky-header-video-container');
+          for (let i = 0; i < getAllProductsVideo.length; i++) {
+            inBoxUrls.push(getAllProductsVideo[i].querySelector('video').getAttribute('src'));
+          }
+        }
         if (getInTheBox) {
           const getAllProducts = document.querySelectorAll('div.eky-accesory-container > div.eky-accessory');
           for (let i = 0; i < getAllProducts.length; i++) {
