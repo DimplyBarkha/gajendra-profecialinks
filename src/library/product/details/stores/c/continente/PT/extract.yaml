@@ -54,3 +54,18 @@ fields:
   - name: imageZoomFeaturePresent
     singleValue: false
     defaultValue: Yes
+  - name: description
+    singleValue: false
+    xpath: //div[@class="productDetailSubArea"]/div[@class="body"]/p
+  - name: ingredientsList
+    singleValue: false
+    xpath: //div[@class="productDetailSubArea"]/div[@class="body"]/p/strong[contains(text(),"Ingredientes")]/parent::*/text()
+  - name: directions
+    singleValue: false
+    xpath: //div[@class="productDetailSubArea"]//div[@class="title" and text()="Dicas"]/parent::*/following::div[@class="body"]/p
+  - name: aggregateRating
+    singleValue: false
+    xpath: //div[@class="Rating"]/span/div[contains(@class,"star-rating-on")]/a
+  - name: promotion
+    singleValue: false
+    xpath: //div[@class="productPricingDescription"]/div[@class="largeIcon"]/div[@class="superPriceIconInner superPriceIconLarge25"]/@title

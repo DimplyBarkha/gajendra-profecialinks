@@ -59,6 +59,20 @@ const transform = (data) => {
             item.text=reviewCountData[0];
           });
         }
+        if(row.description){
+          let inf=[];
+          row.description.forEach(item=>{
+            inf.push(item.text);
+          })
+          row.description=[{"text":inf.join(' ')}];
+        }
+        if(row.aggregateRating){
+          let inf=[];
+          row.aggregateRating.forEach(item=>{
+            inf.push(item.text);
+          })
+          row.aggregateRating=[{"text":inf.length+".0"}];
+        }
         if(bText!=''){
           row.nameExtended=[{"text":bText+" - "+nText}];
         }
