@@ -130,7 +130,7 @@ fields:
     singleValue: false
     xpath: //div[contains(@class,"InTheBox")]//div[@class="flix-std-table"]/div//div[@class="flix-std-content"]|//div[starts-with(@id,"inTheBoxText-")]|//div[@class="scheda-prodotto__info__col-cx"]/ul/li[contains(text(),"dotazione:")]
   - name: unInterruptedPDP
-    xpath: //section[@class="scheda-prodotto__correlati"]//div[contains(@class,'slider-prodotti__slide slick-slide')][(@data-slick-index<=0)]
+    xpath: //div[contains(@class,"slider-prodotti__in-scheda-correlati")]//div[@class="slick-track"]/div[not(contains(@class,"slick-cloned"))]
   - name: hasComparisonTable
     singleValue: false
     xpath: boolean(//div[@class="inpage_selector_comparison"])
