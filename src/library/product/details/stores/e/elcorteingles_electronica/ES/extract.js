@@ -485,25 +485,32 @@ module.exports = {
                 console.log('either we do not have playlist -- or that playlist is not an array anymore');
               }
             }
-            console.log(jsonObj.playlist[0].file);
           } else {
             console.log('we do not have value');
           }
         }
         let videoJson = document.querySelector('input[value*="videos"]') && document.querySelector('input[value*="videos"]').hasAttribute('value') ? document.querySelector('input[value*="videos"]').getAttribute('value') : null;
-        let encodedUri = encodeURIComponent(videoJson);
-        let Produrl = document.URL.replace(/(https:\/\/)(.+)/g, "$2");
-        let gtin = document.querySelector('[data-flix-ean]') && document.querySelector('[data-flix-ean]').hasAttribute('data-flix-ean') ? document.querySelector('[data-flix-ean]').getAttribute('data-flix-ean') : null || document.querySelector('[data-product-gtin]') && document.querySelector('[data-product-gtin]').hasAttribute('data-product-gtin') ? document.querySelector('[data-product-gtin]').getAttribute('data-product-gtin') : null;
-        let videoUrl = "";
-        if(videoJson && gtin && Produrl) {
-          videoUrl = `https://media.flixcar.com/delivery/static/jwplayer/jwiframe.html?fjw=${encodedUri}&l=es&ean=${gtin}&sid=&base=//media.flixcar.com&pn=https|dub|for${Produrl}`
-          //addElementToDocumentAsync('galleryVideo', videoUrl);
+        if(videoJson) {
+          let encodedUri = encodeURIComponent(videoJson);
+          let Produrl = document.URL.replace(/(https:\/\/)(.+)/g, "$2");
+          let gtin = document.querySelector('[data-product-gtin]') && document.querySelector('[data-product-gtin]').hasAttribute('data-product-gtin') ? document.querySelector('[data-product-gtin]').getAttribute('data-product-gtin') : null;
+          let videoUrl = "";
+          if(videoJson && gtin && Produrl) {
+            videoUrl = `https://media.flixcar.com/delivery/static/jwplayer/jwiframe.html?fjw=${encodedUri}&l=es&ean=${gtin}&sid=&base=//media.flixcar.com&pn=https|dub|for${Produrl}`;
+            addElementToDocumentAsync('galleryVideo', videoUrl);
+          } else {
+            console.log("no gallery videos");
+          }
         } else {
-        console.log("no gallery videos")
+          console.log('we do not have any text in value');
         }
+        
+      } else {
+        console.log('we do not have any inputs where value attr contains video - hence no video');
       }
-       
-      //addElementToDocumentAsync('allVidLinks', allVidLinks.join(' || '));
+      let videoSet = new Set (allVidLinks);
+      allVidLinks = Array.from(videoSet);
+      addElementToDocumentAsync('allVidLinks', allVidLinks.join(' || '));
     });
 
     await context.extract(productDetails, { transform });
