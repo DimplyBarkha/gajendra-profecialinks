@@ -4,9 +4,9 @@ module.exports = {
     country: 'PL',
     store: 'mediamarkt',
     domain: 'mediamarkt.pl',
-    url: 'https://mediamarkt.pl/search?query%5Bmenu_item%5D=&query%5Bquerystring%5D={searchTerms}',
+    url: 'https://mediamarkt.pl/search?query[menu_item]=&query[querystring]={searchTerms}&page=1&limit=150',
     loadedSelector: null,
-    noResultsXPath: null,
+    noResultsXPath: `//div[@class="s-search_empty"]`,
     zipcode: '',
   },
 };
