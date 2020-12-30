@@ -7,52 +7,45 @@ fields:
     singleValue: true
     description: URL of the main product image
     xpath: //div[@id="product-gallery"]/div/div/div[2]/div[1]/div/div/img/@src
+  - name: imageAlt
+    singleValue: true
+    description: Alt text of the main product image
   - name: alternateImages
     singleValue: false
     description: Other product images (not in manufacturer description)
     xpath: //li[@class="xf-product-new-carousel__item"]/img/@src
   - name: metaKeywords
     singleValue: true
-    description: The <meta> keywords content
-  - name: category
-    singleValue: false
-    description: The categories (e.g. from breadcrumbs)
-    xpath: //ul[@class="xf-caption__breadcrumbs xf-product-new-breadcrumbs"]/li[2]/a/span
-  - name: sub_category
-    singleValue: false
-    description: The sub_categories
-    xpath: //ul[@class="xf-caption__breadcrumbs xf-product-new-breadcrumbs"]/li/*[(contains(@href, "/catalog/"))]     
+    description: The <meta> keywords content          
   - name: nameExtended
     singleValue: true
     description: The product name, prefixing "${brand} - " if not included in "name"
       and appending " - ${variantType}" if necessary (fixed per feed)
-    xpath:  //div[@class="xf-product-new__title-container"]/h1
+    xpath: //div[@class="xf-product-new__title-container"]/h1
   - name: listPrice
     singleValue: true
     description: The stated undiscounted price for the product
     xpath: //span[@class="js-product-cost__old-price "]/span/span[@class="js-old-price-rouble"]
+  - name: online_price_currency
+    singleValue: true
+    description: The stated price currency for the product
+    xpath: //div[@class="xf-product-new__price-text "]/span/span[@class="xf-product-new__rouble"]    
   - name: price
     singleValue: true
     description: The offered price for the selected product variant - if a user
       clicks add to basket this is the price they would be charged
     xpath: //div[@class="xf-product-new__price-text "]/span/span[@class="xf-product-new__price-main-text"]/span[1]
-  - name: online_price_currency
-    singleValue: True
-    description: price Currencyy
-    xpath: //span[@class="xf-product-new__cost js-product__cost "]//span[@class="xf-product-new__rouble"]
   - name: availabilityText
     singleValue: true
     description: Availability as described on page for the selected variant. If
       there is no availability but the product can be added to cart, this field
       should be "In Stock"
-    regExpReplace: In Stock
-    defaultValue: Out of Stock
-    xpath: //div[@id="ui-id-2"]/div[2]/div[2]/div[3]/div/div/div[2]/button/span
+    xpath: //div[@class="xf-product-new__add-to-cart-wrap" or @class="xf-product-new__temporarily-out-of-stock"]
   - name: description
     singleValue: false
     description: Product description supplied by website - may be concatenanted from
       multiple places; specifically not the manufacturer description
-    xpath: //div[@class="xf-product-new-about-section__content"]/span[@id="custom_css"] 
+    xpath: //div[@class="xf-product-new-about"]/div[@class='xf-product-new-about__left' or @class='xf-product-new-about__right']/div/div[@class="xf-product-new-about-section__content js-product-new-about-section__content"]/span[@class="xf-product-new-about-section__description"] 
   - name: descriptionBullets
     singleValue: true
     description: Number of ul > li tags in the description
@@ -61,15 +54,18 @@ fields:
     singleValue: true
     description: Product brand shown - this may actually NOT be just a brand name,
       e.g. "Visit the Gillette Store"
-    xpath:  //div[@class="xf-product-new-sections"]/div[@class="xf-product-new-about"]/div[2]/div[1]/div[2]/div[2]/span[3]/div 
+    xpath: //div[@class="xf-product-new-about"]/div/div[1]/div[2]/div[contains(., 'Торговая марка')]/span[3]
   - name: manufacturer
     singleValue: true
     description: Product manufacturer
-    xpath: //div[@class="xf-product-new-sections"]/div[@class="xf-product-new-about"]/div[2]/div[1]/div[2]/div[1]/span[3]
+    xpath: //div[@class="xf-product-new-about"]/div/div[1]/div[2]/div[contains(., 'Производитель')]/span[3]
   - name: quantity
     singleValue: true
     description: Quantity as described on the page
-    xpath: //div[@class="xf-product-new-sections"]/div[@class="xf-product-new-about"]/div[2]/div[1]/div[2]/div[5]/span[3]
+    xpath: //div[@class="xf-product-new-about"]/div/div[1]/div[2]/div[contains(., 'Кол-во в упаковке')]/span[3]
+  - name: weightNet
+    singleValue: true
+    description: Net weight as described on the page
   - name: weightGross
     singleValue: true
     description: Gross weight as described on the page
@@ -83,6 +79,7 @@ fields:
   - name: variantId
     singleValue: true
     description: Identifier for a variant from a store where variants share the same sku
+    xpath:  //div[@id="main-app"]/div[4]/meta[@itemprop="sku"]/@content
   - name: mpc
     singleValue: true
     description: The manufacturer model code (unique) of the product
@@ -107,15 +104,13 @@ fields:
   - name: aggregateRatingText
     singleValue: true
     description: The stated aggregate rating
-  - name: aggregateRating
+  - name: aggregateRating2
     singleValue: true
     description: The stated aggregate rating normalized to be out of 5
-    type: NUMBER
     xpath: //span[@class="xf-product-new-statistics__rating-value"] 
   - name: shippingInfo
     singleValue: true
     description: Shipping information for the product
-    xpath: //div[@id="ui-id-2"]/div[2]/div[2]/div[4]/div[2]/div/ul/li[1]/span
   - name: shippingDimensions
     singleValue: true
     description: Stated shipping dimensions
@@ -162,6 +157,9 @@ fields:
   - name: brandLink
     singleValue: true
     description: null
+    #regExp: (.*)$
+    regExp: (/.+)
+    regExpReplace: https://www.vprok.ru$1      
     xpath: //span[@class="xf-product-new__brand-text"]/a/@href   
   - name: internationalShipping
     singleValue: true
@@ -403,11 +401,13 @@ fields:
   - name: storage
     singleValue: true
     description: Suggested storage location for product
-    xpath: //div[@class="xf-product-new-about__right"]/div[3]/div[2]/div/span[3]/div
   - name: countryOfOrigin
     singleValue: true
     description: The country from which the product originates
-    xpath: //div[@class="xf-product-new-about__right"]/div[1]/div[2]/div[3]/span[3]
+    xpath: //div[@class="xf-product-new-about"]/div/div[1]/div[2]/div[contains(., 'Страна')]/span[3]
+  - name: category
+    singleValue: false
+    xpath: //section[@class="xf-caption xf-caption--product-view"]/ul/li[position()>1 and position()<last()]/a     
   - name: allergyAdvice
     singleValue: true
     description: Allergy information associated with the product
@@ -432,7 +432,7 @@ fields:
   - name: promotion
     singleValue: true
     description: promotion text on product page
-    xpath: //span[@class="xf-product-new__discount-text js-calculated-discount"]     
+    xpath: //span[@class="xf-product-new__discount-text js-calculated-discount"] 
   - name: alcoholContent
     singleValue: true
     description: Alcohol content information
@@ -513,4 +513,10 @@ fields:
       carousel,['Yes','No']
     example: https://www.zalando.de/adidas-neo-sneaker-low-blackwhite-a4315i002-q11.html
     defaultValue: No
-    xpath:  //div[@class="xf-product-new-view__image-wrapper"]/div/img/@src  
+    xpath: //div[@class="xf-product-new-view__image-wrapper"]/div/img/@src 
+  - name: drive
+    singleValue: true
+    xpath: //span[@class="js-address-data"]
+  - name: drive_id
+    singleValue: true
+    xpath: //span[@class="js-address-data"]/@data-region-id

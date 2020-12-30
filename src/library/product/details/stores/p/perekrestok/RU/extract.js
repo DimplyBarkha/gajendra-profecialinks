@@ -4,7 +4,7 @@ module.exports = {
   parameterValues: {
     country: 'RU',
     store: 'perekrestok',
-    transform: null,
+    transform: cleanUp,
     domain: 'vprok.ru',
     zipcode: '',
   },
