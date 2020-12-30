@@ -63,6 +63,8 @@ async function implementation (inputs, parameters, context, dependencies) {
     }
     const pricePerUnit = document.evaluate('//p[contains(@class,"pricing__per-item")]', document, null, XPathResult.STRING_TYPE, null).stringValue;
     if (pricePerUnit && pricePerUnit.match(/per\s?(.+)/)) addElementToDocument('added-price-uom', pricePerUnit.match(/per\s?(.+)/)[1]);
+    const availability = document.querySelector('span[itemprop=availability]') ? document.querySelector('span[itemprop=availability]').textContent : '';
+    addElementToDocument('added-availability', availability === 'inStock' ? 'In Stock' : 'Out Of Stock');
   });
   return await context.extract(productDetails, { transform });
 }
