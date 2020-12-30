@@ -446,11 +446,13 @@ fields:
 - name: privacyPolicy
   singleValue: true
   description: Privacy Policy information text ['Yes','No']
-  defaultValue: false
+  defaultValue: No
+  xpath: //div[@id="product-privacy-policy"]
 - name: customerServiceAvailability
   singleValue: true
   description: Information related to customer service availability (text), ['Yes','No']
-  defaultValue: false
+  defaultValue: No
+  xpath: //div[@id="product-cs"]
 - name: materials
   description: Materials used to make the product
   example: https://www.jdsports.co.uk/product/blue-adidas-linear-20-reversible-wind-breaker-jacket/15988125/
@@ -463,7 +465,5 @@ fields:
   singleValue: true
   description: If Zoom feature is available for Main image or images in the carousel,['Yes','No']
   example: https://www.zalando.de/adidas-neo-sneaker-low-blackwhite-a4315i002-q11.html
-  defaultValue: "No"
-  xpath: //div[contains(@class,"product-details")]/div/a[contains(@class,"zoom")]/@class
-  regExp: (.*)
-  regExpReplace: "Yes"
+  defaultValue: No
+  xpath: //div[@id="product-img-zoom"]

@@ -2,7 +2,7 @@ input:
   id: 479422
   _url: http://newpharma.be
 extractions:
-  - html: https://workbench.import.io/html/run=40dab36b-9548-4d97-9749-0ee21573ccb3/task=f372eeea-e96f-467a-9485-063ea4c8adc6/92d9a0e9-830f-4702-8e3c-b981ba2c77f6.html
+  - html: https://workbench.import.io/html/run=bafe619d-4053-44b7-a3b7-f013ac0a562f/task=b6d8f3bb-6231-4c89-8247-38f62637d16f/5dc4f7cb-7d0c-40ce-bc02-a392db9c10cb.html
     extractionConfigId: product/details/stores/n/newpharma/BE/extract
     data:
       - group:
@@ -31,7 +31,7 @@ extractions:
               - text: 31,76
                 xpath: /html/body/div[7]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]
             price:
-              - text: 22,39
+              - text: 23,09
                 xpath: /html/body/div[7]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[2]/div[1]/div[2]
             availabilityText:
               - text: En stock !
@@ -142,7 +142,7 @@ extractions:
                   «recourbe cils». Présentation : Flacon 15 ml Caractéristiques
                   : Marque Vichy Catégorie Antirides - Anti-âge, Soins du visage
                   pour seniors - effet lifting, Contour des yeux, Soins des cils
-                  et des sourcils, Sérum Vichy Prix 22,39 Avis 4.5/5 (228 avis)
+                  et des sourcils, Sérum Vichy Prix 23,09 Avis 4.5/5 (228 avis)
                   Poids 34 gr"
                 xpath: /html/body/div[11]
             videos:
@@ -165,16 +165,22 @@ extractions:
                   alkyl acrylate crosspolymer, N-hydroxysuccinimide, chrysin
                 xpath: /html/body/div[18]
             pricePerUnit:
-              - text: 14,93
+              - text: 15,39
                 xpath: /html/body/div[19]
             pricePerUnitUom:
               - text: 10 ml
                 xpath: /html/body/div[20]
             promotion:
-              - text: -30% Réduction online
+              - text: -27% Réduction online
                 xpath: /html/body/div[22]
+            privacyPolicy:
+              - text: Yes
+                xpath: /html/body/div[23]
+            customerServiceAvailability:
+              - text: Yes
+                xpath: /html/body/div[24]
             imageZoomFeaturePresent:
               - text: Yes
-                xpath: /html/body/div[7]/div[1]/div[1]/div[2]/div[1]/a[2]/@class
+                xpath: /html/body/div[25]
         xpath: /
-    timestamp: 1609232950833
+    timestamp: 1609333748874

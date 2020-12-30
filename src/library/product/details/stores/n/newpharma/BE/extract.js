@@ -11,7 +11,7 @@ module.exports = {
     zipcode: "''",
   },
   implementation: async ({ inputString }, { transform }, context, { productDetails }) => {
-    await new Promise(resolve => setTimeout(resolve, 3000));
+    await new Promise(resolve => setTimeout(resolve, 1500));
     await context.evaluate(async () => {
       const addElementToDocument = (key, value) => {
         const catElement = document.createElement('div');
@@ -53,7 +53,7 @@ module.exports = {
       }
       if (document.querySelector('#js-cookie-policy-popup')) {
         document.querySelector('#js-cookie-policy-popup').remove();
-        await new Promise(resolve => setTimeout(resolve, 3000));
+        await new Promise(resolve => setTimeout(resolve, 1500));
       }
 
       const data = {};
@@ -79,7 +79,7 @@ module.exports = {
       data.color = description.match(/Teinte\s?:\s?(\w+)/) ? description.match(/Teinte\s?:\s?(\w+)/)[1] : '';
       if (!data.color) {
         const color = getTextByXpath('//div[@class="text-description-content"]/div//text()[contains(.,"Couleur")]');
-        if (color) data.color = data.color.match(/Couleur (.+)/)[1];
+        if (color) data.color = color.match(/Couleur (.+)/) ? color.match(/Couleur (.+)/)[1].replace(':', '').trim() : '';
       }
       data.url = window.location.href;
       data.brandLink = document.querySelector('div.subtitle-brand > a')
@@ -98,6 +98,12 @@ module.exports = {
       const promotionText = document.querySelector('div.box-promo__content') ? `${document.querySelector('div.box-promo__content').textContent} ` : '';
       const priceBadgeText = document.querySelector('div.c-price__badge') ? document.querySelector('div.c-price__badge').textContent : '';
       data.promotion = `${promotionText}${priceBadgeText}`;
+      const isPrivacyPolicy = !!document.evaluate('//nav/a[text()="Politique en matière de vie privée"]', document, null, XPathResult.STRING_TYPE, null).stringValue;
+      const isCS = !!document.evaluate('//nav/a[text()="Service client"]', document, null, XPathResult.STRING_TYPE, null).stringValue;
+      const isImgZoom = !!document.querySelector('div.product-details a.zoom');
+      if (isPrivacyPolicy) data.privacyPolicy = 'Yes';
+      if (isCS) data.cs = 'Yes';
+      if (isImgZoom) data.imgZoom = 'Yes';
       appendData(data);
     });
     await context.extract(productDetails, { transform });

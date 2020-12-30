@@ -2,7 +2,7 @@ input:
   id: 101167
   _url: http://newpharma.be
 extractions:
-  - html: https://workbench.import.io/html/run=40dab36b-9548-4d97-9749-0ee21573ccb3/task=e510b1f5-0bbb-453e-8ede-2dbb01e669de/b0089dae-74a6-475a-bbf8-a944af6c2e4b.html
+  - html: https://workbench.import.io/html/run=bafe619d-4053-44b7-a3b7-f013ac0a562f/task=3a4fffb4-6432-4b04-be0a-45cda35805ce/d9497e5f-a662-42e6-87f8-6b26456ec1be.html
     extractionConfigId: product/details/stores/n/newpharma/BE/extract
     data:
       - group:
@@ -147,8 +147,14 @@ extractions:
             promotion:
               - text: -12% Réduction online
                 xpath: /html/body/div[22]
+            privacyPolicy:
+              - text: Yes
+                xpath: /html/body/div[23]
+            customerServiceAvailability:
+              - text: Yes
+                xpath: /html/body/div[24]
             imageZoomFeaturePresent:
               - text: Yes
-                xpath: /html/body/div[7]/div[1]/div[1]/div[2]/div[1]/a[2]/@class
+                xpath: /html/body/div[25]
         xpath: /
-    timestamp: 1609232951351
+    timestamp: 1609333748230
