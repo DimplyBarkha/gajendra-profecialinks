@@ -1,0 +1,117 @@
+singleRecord: true
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: image
+    xpath: //img[@class='js_product_img']/@data-zoom-src
+    description: URL of the main product image
+  - name: imageAlt
+    xpath: //img[@class='js_product_img']/@alt
+    description: Alt text of the main product image
+  - name: alternateImages
+    xpath: //li[contains(@class, 'nav--thumb')]/img/@src
+  - name: category
+    xpath: //span[contains(@class, 'breadcrumbs__item-content po_breadcrumb_category')]
+  - name: nameExtended
+    xpath: concat(//a[@data-role='BRAND'], ' - ', //h1[contains(@class,'page-heading')])
+  - name: listPrice
+    xpath: //del[@class='buy-block__list-price']
+  - name: price
+    xpath: concat(normalize-space(//span[@class='promo-price']/text()) , ',', //span[@class='promo-price']/sup)
+  - name: priceSufix
+    xpath: //span[@class='promo-price']/sup
+  - name: availabilityText
+    xpath: //script[@type='application/ld+json' and contains(., '"@id":"https://www.bol.com/')]
+  - name: description
+    xpath: //div[@data-test='description']
+  - name: descriptionBullets
+    xpath: //div[@id='bulletCount']/@title
+    defaultValue: 0
+  - name: brandText
+    xpath: //div[@data-test = 'brand']/a
+  - name: weightGross
+    xpath: //dt[contains(., 'Gewicht verpakking')]//following-sibling::dd[1]
+  - name: weightNet
+    xpath: //dt[normalize-space(text())='Gewicht']/following-sibling::dd[1]
+  - name: gtin
+    xpath: //script[@type='application/ld+json' and contains(., '"@id":"https://www.bol.com/')]
+  - name: eangtin
+    xpath: //dt[contains(., 'EAN')]//following-sibling::dd[1]
+  - name: sku
+    xpath: //div[@data-test='taxonomy_data']
+  - name: variantId
+    xpath: //div[@data-test='taxonomy_data']
+  - name: instructions
+    xpath: //doubt
+  - name: ratingCount
+    xpath: //div[contains(@class, 'rating-horizontal__total-reviews')]/strong
+  - name: aggregateRating
+    xpath: //div[contains(@class, 'rating-horizontal__average-score')]
+  - name: shippingInfo
+    xpath: //div[contains(@class, 'product-seller product-seller--l')]
+  - name: shippingDimensions
+    xpath: //dt[contains(., 'Afmetingen verpakking')]//following-sibling::dd[1]
+  - name: shippingDimensionsSplit
+    xpath: concat(//dt[contains(., 'Verpakking lengte')]/following-sibling::dd[1], 'x', //dt[contains(., 'Verpakking breedte')]/following-sibling::dd[1], 'x', //dt[contains(., 'Verpakking hoogte')]/following-sibling::dd[1])
+  - name: shippingWeight
+    xpath: //dt[contains(., 'Gewicht verpakking')]//following-sibling::dd[1]
+  - name: variantCount
+    xpath: count(//div[@class='feature-options']/a/@href | //div[contains(@class, 'feature-list__options')]/a/@href)
+  - name: color
+    xpath: //div[contains(@class, 'js_specifications_content')]//dt[contains(., 'Kleur')]/following-sibling::dd[1]
+  - name: variantInformation
+    xpath: //div[contains(@class, 'js_specifications_content')]//dt[contains(., 'Kleur')]/following-sibling::dd[1]
+  - name: name
+    xpath: //h1[@class='page-heading']
+  - name: videos
+    xpath: //video[@data-test='wsp-video-element']/source/@src | //p[contains(., 'youtube')]
+  - name : lbb
+    defaultValue: No
+  - name : specifications
+    xpath: //div[@data-test='specifications']/a[@id='product_specifications']/following-sibling::div[1]//div[@class='specs'][1]/dl
+  - name: specTitle
+    xpath: //div[@data-test='specifications']/a[@id='product_specifications']/following-sibling::div[1]//div[@class='specs']/dl/dt/text()
+  - name: specValue
+    xpath: //div[@data-test='specifications']/a[@id='product_specifications']/following-sibling::div[1]//div[@class='specs']/dl/dd
+  - name: warranty
+    xpath: (//dt[@class='specs__title' and contains(., 'garantie')]/following-sibling::dd)[1]
+  - name: mpc
+    xpath: //div[@data-test='specifications']/a[@id='product_specifications']/following-sibling::div[1]//div[@class='specs'][1]/dl//dt[contains(.,'Model') or contains(., 'MPN')]/following-sibling::dd[1]
+  - name: packSize
+    xpath: //dt[contains(.,'Aantal artikelen in verpakking') or contains(.,'Aantal stuks in verpakking')]/following-sibling::dd[1]
+  - name: quantity
+    xpath: //div[@class='multibundle__option']/a[contains(@class, 'selected')]
+    regExp: (.+)x(.+)
+    regExpReplace: $1
+  - name: productOtherInformation
+    xpath: //div[@class='specs' and contains(., 'Overige kenmerken')]/dl
+  - name: productOtherInformationDD
+    xpath: //div[@class='specs' and contains(., 'Overige kenmerken')]/dl/dd
+  - name: productOtherInformationDT
+    xpath: //div[@class='specs' and contains(., 'Overige kenmerken')]/dl/dt
+  - name: promotion
+    xpath: //div[@data-test='discount']
+  - name: variantInfo
+    xpath: //div[@class='feature-options']/a[contains(@class, 'is-active')]/img/@title | //div[@class='feature-list__item feature-list__item--current']/div[@class='feature-list__text']
+  - name: firstVariant
+    xpath: //div[@class='feature-options']/a/@href | //div[contains(@class, 'feature-list__options')]/a[1]/@href
+    regExp: \/(\d+)\/
+    regExpReplace: $1
+  - name: variants
+    xpath: //div[@class='feature-options']/a/@href | //div[contains(@class, 'feature-list__options')]/a/@href
+    regExp: \/(\d+)\/
+    regExpReplace: $1
+  - name: additionalDescBulletInfo
+    xpath: //body/ul/li
+  - name: technicalInformationPdfPresent
+    xpath: //a[@class='product-warning__link']
+    defaultValue: NO
+    regExp: (.+)
+    reExpReplace: Yes
+  - name: inTheBoxText
+    xpath: (//dt[contains(.,'Verpakkingsinhoud')]/following-sibling::dd[1])[1] | (//dt[contains(.,'In de doos')]/following-sibling::dd[1])[1]
+  - name: hasComparisonTable
+    defaultValue: No
+  - name: unInterruptedPDP
+    xpath: //ul[contains(@class,"sponsored-products-row")]//li | //div[contains(@class,"slot--recommended-products")]//li[contains(@class,"product-item")]
