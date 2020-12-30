@@ -34,7 +34,7 @@ module.exports = {
     else result = elem ? elem.singleNodeValue : '';
     return result && result.trim ? result.trim() : result;
     };
-    var backgroundURL = getAllXpath('//div[contains(@class,"projector_longdescription cm")]/p//text()', 'nodeValue');
+    var backgroundURL = getAllXpath('//div[contains(@class,"projector_longdescription cm")]//text()', 'nodeValue');
     var xyz = [];
     for(var i=0; i<backgroundURL.length ; i++){
       if(backgroundURL[i].length > 1){
@@ -44,7 +44,7 @@ module.exports = {
     // @ts-ignore
     xyz = xyz.join(" || ");
     addElementToDocument('xyz', xyz);
-    // console.log(xyz,'xyz------------')
+    console.log(xyz,'xyz------------')
     var backgroundURL1 = getAllXpath('//td/span[contains(text(),"Marka")]/following::td[1]//text()', 'nodeValue');
     var brandd;
     if (backgroundURL1.length > 0 ) {
