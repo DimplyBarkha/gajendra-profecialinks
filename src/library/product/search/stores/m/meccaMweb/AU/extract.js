@@ -1,14 +1,3 @@
-
-module.exports = {
-  implements: 'product/search/extract',
-  parameterValues: {
-    country: 'AU',
-    store: 'mecca',
-    transform: null,
-    domain: 'mecca.com.au',
-    zipcode: '',
-  },
-};
 const { transform } = require('../../../../shared');
 
 async function implementation (inputs, parameters, context, dependencies) {
@@ -17,7 +6,7 @@ async function implementation (inputs, parameters, context, dependencies) {
 
   await context.evaluate(async () => {
     // add rank attribute
-    var rank = document.querySelectorAll('div[class="product-tile"]');
+    var rank = document.querySelectorAll('li[class*="grid-tile"], div[class="grid-product-wrap"]')
 
     rank.forEach((element, index) => {
       element.setAttribute('rank', (index + 1).toString());
