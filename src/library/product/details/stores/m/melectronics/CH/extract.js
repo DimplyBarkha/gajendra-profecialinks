@@ -42,7 +42,7 @@ module.exports = {
           let prevScroll = document.documentElement.scrollTop;
           while (true) {
               window.scrollBy(0, document.documentElement.clientHeight);
-              await new Promise(resolve => setTimeout(resolve, 1000));
+              await new Promise(resolve => setTimeout(resolve, 3000));
               const currentScroll = document.documentElement.scrollTop;
               if (currentScroll === prevScroll) {
                   break;
