@@ -1,0 +1,18 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: variantId
+    singleValue: false
+    description: variant id, to uniquely identify variant
+    xpath: //div[@class="sizeVariantWrapper_2FRMM"]//a[@class="link_3hcyN"]/@href 
+    # regExp: en-ca/product/(.+)
+    # regExpReplace: $1
+  - name: variantUrl
+    singleValue: false    
+    xpath:  //div[@class="sizeVariantWrapper_2FRMM"]//a[@class="link_3hcyN"]/@href  
+    # regExp: (.+)
+    # regExp: https://www.bestbuy.ca$1
+    # regExpReplace: $1
+  

@@ -1,10 +1,10 @@
 
 module.exports = {
-  implements: 'navigation/goto/setZipCode',
+  implements: 'product/details/variants',
   parameterValues: {
     country: 'CA',
-    domain: 'bestbuy.ca',
     store: 'bestbuyCA',
+    domain: 'bestbuy.ca',
     zipcode: '',
   },
 };

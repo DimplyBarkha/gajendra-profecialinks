@@ -3,7 +3,7 @@ module.exports = {
   implements: 'product/search',
   parameterValues: {
     country: 'CA',
-    store: 'bestbuy',
+    store: 'bestbuyCA',
     domain: 'bestbuy.ca',
     zipcode: '',
   },

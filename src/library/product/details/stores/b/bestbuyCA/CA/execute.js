@@ -5,8 +5,8 @@ module.exports = {
     country: 'CA',
     store: 'bestbuyCA',
     domain: 'bestbuy.ca',
-    loadedSelector: null,
-    noResultsXPath: null,
+    // loadedSelector: null,
+    // noResultsXPath: null,
     zipcode: '',
   },
 };

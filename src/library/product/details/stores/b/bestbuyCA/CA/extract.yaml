@@ -35,14 +35,14 @@ fields:
     xpath: //img[contains(@alt,"product image")]/@src
   - name: description
     singleValue: false
-    xpath: //div[@class="row_1Rbqw"]//div[@itemprop="description"]//text()
+    xpath: //div[@class="row_1Rbqw"]//div[@itemprop="description"] |  //div[@class="productDescription_1F7nr"]//text()
   - name: videos
     singleValue: false
     # manualSelector: //div[@id="bb_videos"]
     xpath:  //div[@class="ytp-title-text"]/a/@href | //div[@id="bb_videos"]
   - name: descriptionBullets
     singleValue: false
-    xpath: count(//div[@class="productDescription_1F7nr"]//ul//li)
+    manualSelector: div.productDescription_ujYCD ul li
   - name: alternateImages
     singleValue: false
     # xpath: //div[@data-index="0"]//div[@class="productImageContainer_1V2HD touchActionManipulation_31CMi productImage_AMBPT applyResponsiveSquareTrick_35RAF"]/div/div[@class="displayingImage_3xp0y"]/img[@class="productImage_AMBPT" and @alt="product image"]/@src | //div[@class="thumbnailItemContainer_3jIDQ"]//div[@class="displayingImage_3xp0y"]/img[@class="productImage_AMBPT"]/@src 
@@ -53,9 +53,9 @@ fields:
   - name: sku
     singleValue: false 
     manualSelector: span[itemprop="sku"]
-  # - name: specifications
-  #   singleValue: false 
-  #   xpath: //div[@id="detailsAndSpecs"]/div/div
+  - name: specifications
+    singleValue: false 
+    xpath: //div[@id="detailsAndSpecs"]/div/div
   - name: variantId
     singleValue: false
     manualSelector: span[itemprop="sku"]
@@ -68,11 +68,11 @@ fields:
   - name: nameExtended
     singleValue: false
     xpath: //h1[@itemprop="name"]
-  # - name: listPrice
-  #   singleValue: false
-  #   xpath: concat("$", "",//span[@itemprop="offers"]/meta[@itemprop="price"]/@content)
-  #   regExp: (.+)
-  #   regExpReplace: $$1
+  - name: listPrice
+    singleValue: false
+    xpath: concat("$", "",//span[@itemprop="offers"]/meta[@itemprop="price"]/@content)
+    regExp: (.+)
+    regExpReplace: $$1
   - name: productOtherInformation
     singleValue: false
     manualSelector: div[id="bb_productOtherInformation"]
@@ -92,8 +92,6 @@ fields:
   - name: warranty
     singleValue: false
     xpath: //h3[text()="Warranty"]/parent::div/following-sibling::div | //h3[text()="Warranty"]/parent::div/following-sibling::div | //div[contains(.,"Manufacturer's Warranty - Parts")]/following-sibling::div[@class="itemValue_XPfaq"]
-    regExp: \d{1,}.+
-    # regExpReplace: $1
   - name: aggregateRating1
     singleValue: false
     xpath: //div[@class="marketplaceRating_oSU31"]/text()
@@ -113,16 +111,17 @@ fields:
     xpath: 
   - name: brandText
     singleValue: false
-    xpath: //h1[@itemprop="name"]
-    regExp: ^\w+
-  # - name: brandText2
-  #   singleValue: false
-  #   xpath: //h1[@itemprop="name"]
+    manualSelector: h1[itemprop="name"]
   - name: materials
     singleValue: false
     xpath: //p[contains(.,"Material")]/text()
     regExp: Material\W(.+)
     regExpReplace: $1
+  # - name: materials
+  #   singleValue: false
+  #   xpath: //p[contains(.,"Material")]/text()
+  #   regExp: Material\W(.+)
+  #   regExpReplace: $1
   - name: specifications
     singleValue: false
     xpath: //div[@id="detailsAndSpecs"]/div/div 
@@ -152,12 +151,12 @@ fields:
   - name: customerServiceAvailability
     singleValue: false
     defaultValue: Yes
-  - name: productUrl
-    singleValue: true
-    xpath: //link[@rel='canonical']/@href
-  - name: materials
-    singleValue: true
-    xpath: //table[@id="productDetails_techSpec_section_1"]//tr[contains(.,  "Material")]/td
+  # - name: productUrl
+  #   singleValue: true
+  #   xpath: //link[@rel='canonical']/@href
+  # - name: materials
+  #   singleValue: true
+  #   xpath: //table[@id="productDetails_techSpec_section_1"]//tr[contains(.,  "Material")]/td
   - name: Image360Present
     singleValue: false
     defaultValue: No
@@ -175,21 +174,3 @@ fields:
     xpath: h1[itemprop="name"]/text()
     regExp: \d{1,}(")
     regExpReplace: $1
-  - name: variantId
-    singleValue: false
-    description: variant id, to uniquely identify variant
-    xpath: //div[@class="sizeVariantWrapper_2FRMM"]//a[@class="link_3hcyN"]/@href 
-  - name: variantUrl
-    singleValue: false    
-    xpath:  //div[@class="sizeVariantWrapper_2FRMM"]//a[@class="link_3hcyN"]/@href  
-  - name: inTheBoxUrl
-    singleValue: false
-  - name: inTheBoxText
-    singleValue: false
-    xpath: //ul[contains(@class,'boxContents')]//li
-  - name: hasComparisonTable
-    singleValue: true
-    defaultValue: No
-  - name: unInterruptedPDP
-    singleValue: false
-    xpath: //*[contains(@class,'productItemContainer')]//a//div[@itemprop="name"]
