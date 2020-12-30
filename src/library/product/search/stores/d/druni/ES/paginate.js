@@ -10,7 +10,6 @@ module.exports = {
     mutationSelector: null,
     spinnerSelector: null,
     loadedSelector: 'figure img',
-    loadedXpath: null,
     noResultsXPath: '//div[contains(@class,"results")]//p[contains(@class,"no-results")]',
     stopConditionSelectorOrXpath: null,
     resultsDivSelector: null,
