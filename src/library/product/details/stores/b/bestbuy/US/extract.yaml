@@ -5,12 +5,14 @@ recordXPath: null
 fields:
   - name: image
     singleValue: false
-    xpath: concat(//img[@class="primary-image"]/@src,//div[@class="picture-wrapper"][1]/img/@src)
-    regExp: (.+?);.*
-    regExpReplace: $1
+    # xpath: concat(//img[@class="primary-image"]/@src,//div[@class="picture-wrapper"][1]/img/@src)
+    # regExp: (.+?);.*
+    # regExpReplace: $1
+    xpath: //img[contains(@class,"primary-image")]/@src
   - name: imageAlt
     singleValue: false
-    xpath: concat(//img[@class="primary-image"]/@alt,//div[@class="picture-wrapper"][1]/img/@alt)
+    # xpath: concat(//img[@class="primary-image"]/@alt,//div[@class="picture-wrapper"][1]/img/@alt)
+    xpath: //img[contains(@class,"primary-image")]/@alt
   - name: availabilityText
     singleValue: false
     xpath: //button[contains(text(),'Add to Cart')]
@@ -60,7 +62,8 @@ fields:
     xpath: //li[div[contains(@class,"title-container")]/div[contains(., "Product Weight")]]/div[contains(@class,"row-value")]
   - name: sku
     singleValue: false
-    xpath: //button/@data-sku-id
+    #xpath: //button/@data-sku-id
+    manualSelector: div.sku.product-data>span.product-data-value
   - name: gtin
     singleValue: false
     xpath: //li[div[contains(@class,"title-container")]/div[contains(., "UPC")]]/div[contains(@class,"row-value")]

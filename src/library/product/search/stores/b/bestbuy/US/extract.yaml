@@ -1,7 +1,7 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: //li[@class='sku-item']
+recordXPath: //li[@class='sku-item'] | //li[@class="embedded-sponsored-listing"]
 
 fields:
   - name: id
@@ -45,4 +45,9 @@ fields:
   - name: rank
     singleValue: false
   - name: rankOrganic
-    singleValue: true
+    singleValue: false
+  - name: sponsored
+    singleValue: false
+    type: BOOLEAN
+    xpath: //div[@class="is-sponsored"]
+  
