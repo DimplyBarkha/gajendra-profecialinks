@@ -20,9 +20,11 @@ const transform = (data) => {
     for (const row of group) {
       if (row.variantIdOne && !row.variantId) {
         row.variantId = row.variantIdOne;
+        delete row.variantIdOne;
       }
       if (row.variantUrlOne && !row.variantUrl) {
         row.variantUrl = row.variantUrlOne;
+        delete row.variantUrlOne;
       }
     }
   }

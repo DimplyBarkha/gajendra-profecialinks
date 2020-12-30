@@ -31,6 +31,8 @@ const transform = (data) => {
             return {
               text: item.text.trim(),
             };
+          } else {
+            return { text: `https://youtu.be/${item.text}` };
           }
         });
         row.videos = newAlternateImages;
@@ -84,7 +86,7 @@ const transform = (data) => {
   }
   data.forEach(obj => obj.group.forEach(row => Object.keys(row).forEach(header => row[header].forEach(el => {
     if (el) {
-      el.text = el.text ? clean(el.text) : '';
+      el.text = clean(el.text);
     }
   }))));
   return data;

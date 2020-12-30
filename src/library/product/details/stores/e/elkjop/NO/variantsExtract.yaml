@@ -1,19 +1,13 @@
-singleRecord: true
+singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: null
+recordXPath: //body[count(//div[contains(@class, 'variations-container')]/div[contains(@class, 'variation')])>0]//div[contains(@class, 'variations-container')]/div[contains(@class, 'variation')] | //body[count(//div[contains(@class, 'variations-container')]/div[contains(@class, 'variation')])=0]//ancestor::html
 fields:
   - name: variantId
-    singleValue: false
-    description: variant id, to uniquely identify variant
     xpath: //div[contains(@class,"variations-container")]/div/@data-variation-sku 
   - name: variantIdOne
-    singleValue: false
     xpath: //meta[@itemprop="sku"]/@content
   - name: variantUrl
-    singleValue: false
-    description: variant Url
     xpath: //div[contains(@class,"variations-container")]/div//a/@href
   - name: variantUrlOne
-    singleValue: false
     xpath: //link[contains(@rel,"canonical")]/@href
