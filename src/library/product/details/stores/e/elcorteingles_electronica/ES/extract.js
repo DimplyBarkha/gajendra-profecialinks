@@ -39,13 +39,22 @@ module.exports = {
 
         console.log('In Enhanced content areas');
 
-        const otherSellersTable = await context.evaluate(function () {
+        let enhancedContentPresent = false;
+        const otherSellersTable = await context.evaluate(function (enhancedContentPresent) {
           if (document.querySelector('h1') ? document.querySelector('h1').innerText.includes("isn't any digital profile available") : true) {
+            enhancedContentPresent = false;
             return '';
           } else {
+            enhancedContentPresent = true;
             return document.querySelector('body').innerHTML;
           }
-        });
+        }, enhancedContentPresent);
+
+        if(enhancedContentPresent) {
+          console.log('got the enhanced content');
+        } else {
+          console.log('enhanced content is not present - need to check if the video is present in gallery in prod page');
+        }
 
         console.log('Got otherSellersTable here');
 
@@ -323,7 +332,7 @@ module.exports = {
         }
       }
 
-      addElementToDocument('videos', videos);
+      //addElementToDocument('videos', videos);
       addElementToDocument('apluseImages', apluseImages);
       // Secondry Image
       const alternateImages = [];
@@ -409,6 +418,98 @@ module.exports = {
 
       textContent(document.querySelectorAll('div.pdp-info-container div.info')[1], 'ingredient');
     }, energyRating);
+
+    const applyScroll = async function (context) {
+      await context.evaluate(async function () {
+        async function stall ( ms ) {
+          return new Promise((resolve, reject) => {
+            setTimeout(() => {
+              console.log('waiting!!');
+              resolve();
+            }, ms);
+          });
+        }
+        let scrollTop = 0;
+        while (scrollTop !== 15000) {
+          await stall(1000);
+          scrollTop += 1000;
+          window.scroll(0, scrollTop);
+          console.log('scrolling now!!');
+          if (scrollTop === 15000) {
+            await stall(3000);
+            break;
+          }
+        }
+      });
+    };
+    
+    await applyScroll(context);
+
+    await context.evaluate(async () => {
+
+      async function addElementToDocumentAsync (key, value) {
+        const catElement = document.createElement('div');
+        catElement.id = key;
+        catElement.textContent = value;
+        document.body.appendChild(catElement);
+      }
+
+      let videoElms = document.querySelectorAll('input[value*="videos"]');
+      let allVidLinks = [];
+      if(videoElms && (videoElms.length > 0)) {
+        console.log('we have ' + videoElms.length + ' videos');
+        for(let i = 0; i < videoElms.length; i++) {
+          let link = '';
+          if(videoElms[i].hasAttribute('value')) {
+            let videoText = videoElms[i].getAttribute('value');
+            let jsonObj = [];
+            try {
+              jsonObj = JSON.parse(videoText);
+            } catch(err) {
+              console.log('got some error while parsing string to json - ' + err.message);
+            }
+            if(Array.isArray(jsonObj)) {
+              console.log('nothing can be done');
+            } else {
+              let thisObj = {...jsonObj};
+              if(thisObj.hasOwnProperty('playlist') && Array.isArray(thisObj.playlist)) {
+                if(thisObj['playlist'][0].hasOwnProperty('file')) {
+                  link = 'https:' + thisObj['playlist'][0].file;
+                  console.log(link);
+                  allVidLinks.push(link);
+                } else {
+                  console.log('we do not have file');
+                }
+                
+              } else {
+                console.log('either we do not have playlist -- or that playlist is not an array anymore');
+              }
+            }
+            console.log(jsonObj.playlist[0].file);
+          } else {
+            console.log('we do not have value');
+          }
+        }
+      } else {
+        console.log('we do not have any input elms where value attr had video');
+      }
+
+      let encodedUri = encodeURIComponent(document.querySelector('input[value*="videos"]').getAttribute('value'));
+      let Produrl = document.URL.replace(/(https:\/\/)(.+)/g, "$2");
+      let gtin = document.querySelector('[data-product-gtin]').getAttribute('data-product-gtin');
+      let videoUrl = `https://media.flixcar.com/delivery/static/jwplayer/jwiframe.html?fjw=${encodedUri}&l=es&ean=${gtin}&sid=&base=//media.flixcar.com&pn=https|dub|for${Produrl}`;
+      if(videoUrl) {
+        console.log(`galleryVideo is - ${videoUrl}`);
+        addElementToDocumentAsync('galleryVideo', videoUrl);
+      } else {
+        console.log('we could not create the galleryVideo url');
+      }
+
+      addElementToDocumentAsync('allVidLinks', allVidLinks.join(' || '));
+
+      
+
+    });
 
     await context.extract(productDetails, { transform });
   },

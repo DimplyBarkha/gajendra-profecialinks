@@ -55,7 +55,7 @@ fields:
   - name: videos
     singleValue: false
     # xpath : //div[@id="videos"]|//div[contains(@class,'video-slides')]/@data-url
-    xpath: //div[@class="image-layout-slides-group"]//img/@data-url | //div[@id="video"]
+    xpath: //div[@class="image-layout-slides-group"]//img/@data-url | //div[@id="video"] | //div[@id="allVidLinks"]
     # xpath: //div[contains(@class,'video-slides')]/@data-url
   - name: name
     xpath : //meta[@name="twitter:title"]/@content
@@ -133,7 +133,8 @@ fields:
   - name: galleryVideos
     singleValue: false
     # xpath : //div[@id="videos"]|//div[contains(@class,'video-slides')]/@data-url
-    xpath: //div[@class="image-layout-slides-group"]//img/@data-url
+    xpath: //div[@id="galleryVideo"]
+    # xpath: //div[@class="image-layout-slides-group"]//img/@data-url | 
   - name: inTheBoxUrl
     xpath: //div[contains(@class,'InTheBox')]//img/@src
     regExp: (.+)
