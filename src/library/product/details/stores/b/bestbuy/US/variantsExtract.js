@@ -27,10 +27,10 @@ async function implementation(
       });
     }
     const innerDiv = addHiddenDiv('variants_ul', '');
-    const sku = window.location.href;
+    const sku = window.location.href
     const skuId = sku.replace(/.*skuId=(.*)/, '$1');
     const skudiv = addHiddenDiv('sku_id', skuId);
-    var skuUrl = addHiddenDiv('sku_url', sku);
+    let skuUrl = addHiddenDiv('sku_url', sku)
     innerDiv.appendChild(skudiv);
     innerDiv.appendChild(skuUrl);
     outerDiv.appendChild(innerDiv);

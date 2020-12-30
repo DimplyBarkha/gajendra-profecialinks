@@ -1,5 +1,4 @@
-const { transform } = require('./format');
-
+const { transform } = require('../format');
 module.exports = {
   implements: 'product/search/extract',
   parameterValues: {
@@ -7,6 +6,6 @@ module.exports = {
     store: 'bestbuy',
     transform,
     domain: 'bestbuy.com',
-    zipcode: "''",
+    zipcode: '',
   },
 };

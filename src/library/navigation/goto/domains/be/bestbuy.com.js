@@ -6,6 +6,6 @@ module.exports = {
     timeout: null,
     country: 'US',
     store: 'bestbuy',
-    zipcode: "''",
+    zipcode: '',
   },
 };

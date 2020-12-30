@@ -5,6 +5,6 @@ module.exports = {
     country: 'US',
     domain: 'bestbuy.com',
     store: 'bestbuy',
-    zipcode: "''",
+    zipcode: '',
   },
 };

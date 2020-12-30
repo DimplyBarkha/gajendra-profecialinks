@@ -5,12 +5,12 @@ recordXPath: null
 fields:
   - name: image
     singleValue: false
-    xpath: //img[@class="primary-image"]/@src
+    xpath: concat(//img[@class="primary-image"]/@src,//div[@class="picture-wrapper"][1]/img/@src)
     regExp: (.+?);.*
     regExpReplace: $1
   - name: imageAlt
     singleValue: false
-    xpath: //img[@class="primary-image"]/@alt
+    xpath: concat(//img[@class="primary-image"]/@alt,//div[@class="picture-wrapper"][1]/img/@alt)
   - name: availabilityText
     singleValue: false
     xpath: //button[contains(text(),'Add to Cart')]
@@ -19,13 +19,15 @@ fields:
     defaultValue: Out of Stock
   - name: price
     singleValue: false
-    xpath: (//div[@class='priceView-hero-price priceView-customer-price']/span)[1]
-  - name: promotion
-    singleValue: false
-    manualSelector: div.pricing-price__savings
+    manualSelector: div.priceView-layout-large div.priceView-customer-price > span[aria-hidden]
   - name: alternateImages
     singleValue: false
     xpath: //li[@class="image-thumbnail" and position()>1]//img/@src
+    regExp: (.+?);.*
+    regExpReplace: $1
+  - name: secondaryImageTotal
+    singleValue: false
+    xpath: count(//div[contains(@class,"image-thumbnail-wrapper")]//li[@class="thumbnail-content" and position()>1]//img/@src)
     regExp: (.+?);.*
     regExpReplace: $1
   - name: alternateImages2
@@ -58,7 +60,7 @@ fields:
     xpath: //li[div[contains(@class,"title-container")]/div[contains(., "Product Weight")]]/div[contains(@class,"row-value")]
   - name: sku
     singleValue: false
-    manualSelector: div.sku.product-data>span.product-data-value
+    xpath: //button/@data-sku-id
   - name: gtin
     singleValue: false
     xpath: //li[div[contains(@class,"title-container")]/div[contains(., "UPC")]]/div[contains(@class,"row-value")]
@@ -70,22 +72,29 @@ fields:
     manualSelector: div.model.product-data>span.product-data-value
   - name: ratingCount
     singleValue: false
-    manualSelector: span.popover-wrapper span.c-total-reviews, span.popover-wrapper span.c-reviews-v4
+    xpath: //div[@class='reviews-and-stars']//p[@class="sr-only"]
+    regExp: (["\d"]+)\Wreviews
+    regExpReplace: $1   
   - name: aggregateRating
-    singleValue: false
-    manualSelector: span.popover-wrapper span.c-review-average, span.popover-wrapper span.ugc-c-review-average
+    xpath: //div[@class='reviews-and-stars']//p[@class="sr-only"]
+    regExp: (["\d.\d"]+)\Wout
+    regExpReplace: $1   
   - name: additionalDescBulletInfo
     singleValue: false
-    manualSelector: div.overview-accordion-content-wrapper li
+    # manualSelector: div.overview-accordion-content-wrapper li 
+    xpath: count(//div[@class="features-list all-features"]/div)
+  - name: promotion
+    singleValue: false
+    xpath: //div[@class='pricing-price__savings'] | //div[@class='special-offer']//li
   - name: description
     singleValue: false
-    manualSelector: div#ii_description
+    xpath: //div[@class='feature-body-container']
   - name: brandText
     singleValue: false
     manualSelector: a.btn-brand-link
   - name: color
     singleValue: false
-    xpath: //div[@class='shop-variation-wrapper']//label[@id='Electronics_Color_Category']/parent::*/parent::div//div[@class='hover-name']
+    xpath: //div[contains(@class,"hover-name")] | //div[div[contains(@class,"row-title") and contains(.,'Color')]]/following-sibling::div[contains(@class,'row-value')]
   - name: manufacturerDescription
     singleValue: false
     manualSelector: div#wc-power-page
@@ -106,9 +115,7 @@ fields:
     xpath: //li[div[contains(@class,"title-container")]/div[contains(., "Warranty")]] 
   - name: variantInformation
     singleValue: false
-    xpath: //div[@class='shop-variation-wrapper']//label[@id='Electronics_Color_Category']/parent::*/parent::div//div[@class='hover-name']
-    regExp: ([^\s]+)(\s.*)?
-    regExpReplace: $1 
+    xpath: //ul[@class="seo-list"]//li//a
   - name: technicalInformationPdfPresent
     singleValue: false
     manualSelector: div.shop-product-documentation a[href*='pdf']

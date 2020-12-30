@@ -1,21 +1,16 @@
 
 module.exports = {
-  implements: 'navigation/paginate',
+  implements: 'product/search/paginate',
   parameterValues: {
-    template: null,
     country: 'US',
     store: 'bestbuy',
-    nextLinkSelector: 'a.sku-list-page-next:not(.disabled)',
-    nextLinkXpath: null,
-    mutationSelector: null,
+    nextLinkSelector: 'a.sku-list-page-next',
+    mutationSelector: "ol.paging-list",
     spinnerSelector: null,
-    loadedSelector: 'li.sku-item[data-sku-id]',
-    loadedXpath: null,
-    noResultsXPath: '//h3[@class="no-results-message"]',
-    stopConditionSelectorOrXpath: null,
-    resultsDivSelector: null,
+    loadedSelector: null,
+    noResultsXPath: "//div[contains(@class,'no-result')]",
     openSearchDefinition: null,
     domain: 'bestbuy.com',
-    zipcode: "''",
+    zipcode: '',
   },
 };
