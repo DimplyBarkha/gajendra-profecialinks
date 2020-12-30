@@ -41,7 +41,7 @@ fields:
     defaultValue: Out of Stock
   - name: description
     singleValue: false
-    xpath: //div[contains(@class,"ui-tabs-panel")]/h3/text() | //h3[contains(text(),"Produktbeschreibung")]/../ul/li | //div[@id="tabs-1"]/p/text()
+    xpath: (//div[contains(@class,"ui-tabs-panel")]/h3/text())[1] | //h3[contains(text(),"Produktbeschreibung")]/../ul/li | //div[@id="tabs-1"]/p/text()
     # xpath: //h3[contains(text()," Produktbeschreibung")]/../../following-sibling::tr[position()>1] | //div[@id="tabs-1"]/ul/li | //h3[contains(text(),"Beschreibung")]/../../following-sibling::tr[position()>1]
     # xpath: //h3[contains(text()," Description ")]/../../following-sibling::tr[position()>1] | //div[@id="tabs-1"]/ul/li
     # xpath: //div[@id="description"]
@@ -134,9 +134,9 @@ fields:
   - name: customerServiceAvailability
     singleValue: false
     defaultValue: Yes 
-  # - name: promotion
-  #   singleValue: false
-  #   xpath: //span[@class="reduc"] | //div[@class="m_cart_confo"]/div/text()
+  - name: promotion
+    singleValue: false
+    xpath: //span[@class="reduc"] | //div[@class="m_cart_confo"]/div/text()
   - name: ageSuitability
     singleValue: false
     xpath: //strong[contains(text(), "enfants")]//..//following-sibling::td
