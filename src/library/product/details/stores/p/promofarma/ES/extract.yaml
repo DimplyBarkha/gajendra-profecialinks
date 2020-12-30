@@ -29,13 +29,13 @@ fields:
   regExp: (\w+$)
 - name: description
   singleValue: true
-  xpath: //div[@id="wrapper-description"]
+  xpath: //html//div[@id='manu']
 - name: brandText
   singleValue: false
   xpath: //meta[@itemprop="brand"]/@content
 - name: ingredientsList
   singleValue: true  
-  xpath: //div[@id='wrapper-description']/div[@id='content-composition']
+  xpath: //div[@id='wrapper-description']/div[@id='content-composition']//p/text()
 - name: quantity
   singleValue: true
   xpath: //div[@class='product-info']/p[@class='volume']
@@ -50,7 +50,7 @@ fields:
   xpath: //meta[@itemprop="sku"]/@content
 - name: video
   singleValue: true
-  xpath: //div[@id='description']/div[@id='wrapper-description']/div/iframe/@src
+  xpath: //html//div[@id='video'] | //div[@id="content-description"]//p//iframe/@src
 - name: variantId
   singleValue: true
   xpath: //div[@id="main"]/section/@data-product-id
