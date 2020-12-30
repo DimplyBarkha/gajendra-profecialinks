@@ -33,6 +33,11 @@ const transform = (data) => {
             });
             row.coupon = [{'text':info.join(' | '),'xpath':row.coupon[0].xpath}];          
           }
+          if (row.ratingCount) {            
+            row.ratingCount.forEach(item => {
+              item.text = item.text.replace(/(\s*Verified\s+Buyers\s*)+/ig, '').trim();
+            });            
+          }
           if (row.quantity) {
             let info = [];          
             row.quantity.forEach(item => {

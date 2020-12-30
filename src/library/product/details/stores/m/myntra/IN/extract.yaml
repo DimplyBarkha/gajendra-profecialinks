@@ -46,7 +46,7 @@ fields:
   - name: quantity
     singleValue: false
     xpath: //div[@class='pdp-price-info']//h1[@class='pdp-name']
-    regExp: (?:\s?([\d\.]+\s?)([bB]ar[s]?|[cC]ount|[cC]t|[fF][lL][\.]?\s?[oO][zZ][\.]?|FO|[mM][lL]|[oO][zZ][\.]?|pc|[pP]int|[pP]ops|qt|[wW]ipe[s]?).?)$|(?:\s?([\d\.]+\s?)([bB]ar[s]?|[cC]ount|[cC]|[fF][lL][\.]?\s?[oO][zZ][\.]?|FO|[mM][lL]|[oO][zZ][\.]?|pc|[pP]int|[pP]ops|qt|[wW]ipe[s]?).?\s?[\&\-\w\s]+)$
+    regExp: (?:\s?([\d\.]+\s?)([bB]ar[s]?|[cC]ount|[cC]t|[fF][lL][\.]?\s?[oO][zZ][\.]?|FO|[mM][lL]|[gG]|[oO][zZ][\.]?|pc|[pP]int|[pP]ops|qt|[wW]ipe[s]?).?)$|(?:\s?([\d\.]+\s?)([bB]ar[s]?|[cC]ount|[cC]|[fF][lL][\.]?\s?[oO][zZ][\.]?|FO|[mM][lL]|[gG]|[oO][zZ][\.]?|pc|[pP]int|[pP]ops|qt|[wW]ipe[s]?).?\s?[\&\-\w\s]+)$
     regExpReplace: $1$2$3$4
   - name: sku
     singleValue: false
@@ -59,12 +59,10 @@ fields:
     xpath: //div[@id='detailedRatingContainer']//div[@class='index-countDesc']
   - name: aggregateRating
     singleValue: false
-    xpath: //div[@id='detailedRatingContainer']//div[@class='index-flexRow index-averageRating']//span[not(@class)]
-    regExp: (.+)\s*Verified\s+Buyers.+
-    regExpReplace: $1  
+    xpath: //div[@id='detailedRatingContainer']//div[@class='index-flexRow index-averageRating']//span[not(@class)]    
   - name: shippingInfo
     singleValue: false
-    xpath: //span[@class='supplier-productSellerName']  
+    xpath: //span[@class='supplier-productSellerName']
   - name: variantCount
     singleValue: false
     defaultValue: '0'  
