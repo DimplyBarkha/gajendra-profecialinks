@@ -564,4 +564,5 @@ fields:
     defaultValue: No
   - name: unInterruptedPDP
     singleValue: false
-    xpath: //div[@class="swiper-wrapper theme"]//div[contains(@class,"product-card")]//div[@class="product--title"]//h2[@class="product--title-text"]//a | //div[contains(@class,"grid-row product-flex")]//div[@class="product"]//div[@class="product--title"]//h2[@class="product--title-text"]//a | //div[@class="swiper-wrapper theme"]//div[contains(@class,"event--card")]//div[@class="event--info__main"]//div[@class="event--titles"]//a
+    # xpath: //div[@class="swiper-wrapper theme"]//div[contains(@class,"product-card")]//div[@class="product--title"]//h2[@class="product--title-text"]//a | //div[contains(@class,"grid-row product-flex")]//div[@class="product"]//div[@class="product--title"]//h2[@class="product--title-text"]//a | //div[@class="swiper-wrapper theme"]//div[contains(@class,"event--card")]//div[@class="event--info__main"]//div[@class="event--titles"]//a
+    xpath: //div[@class="swiper-wrapper theme"]//div[contains(@class,"product--card")] | //div[@class="swiper-wrapper theme"]//div[contains(@class,"event--card")]

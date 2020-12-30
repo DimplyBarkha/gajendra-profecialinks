@@ -75,6 +75,19 @@ const transform = (data) => {
         });
         row.videos = [{ text }];
       }
+      if (row.unInterruptedPDP) {
+        const str = 'Add to Cart';
+        row.unInterruptedPDP.forEach(item => {
+          let txt = item.text;
+
+          if (txt.indexOf(str) > -1) {
+            txt = txt.substring(txt.indexOf(str) + str.length);
+          }
+          
+          item.text = txt;
+        });
+      }
+
     }
   }
 

@@ -14,7 +14,7 @@ module.exports = {
     context,
     dependencies,
   ) => {
-    
+    await new Promise(resolve => setTimeout(resolve, 5000));
     await context.evaluate(async function () {
 
       function getElementByXpath(path) {
@@ -31,6 +31,7 @@ module.exports = {
 
     const { transform } = parameters;
     const { productDetails } = dependencies;
+    await new Promise(resolve => setTimeout(resolve, 5000));
     await context.extract(productDetails, { transform });
   },
 };
