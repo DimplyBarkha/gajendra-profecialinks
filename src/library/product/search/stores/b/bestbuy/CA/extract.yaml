@@ -13,26 +13,27 @@ fields:
     xpath: //div[@class="productItemName_3IZ3c"]/text()
   - name: productUrl
     singleValue: false
-    xpath: //a[@itemprop="url"]/@href
-    regExp: (/.+)
-    regExpReplace: https://www.bestbuy.ca$1
+    xpath: //div[@class="col-xs-12_1GBy8 col-sm-4_NwItf col-lg-3_2V2hX x-productListItem productLine_2N9kG"]/div/a/@href
+    regExp: (.+)
+    regExpReplace: https://www.bestbuy.ca/en-ca
   - name: thumbnail
     singleValue: false
-    xpath: //img[@class="productItemImage_1en8J"]/@src
+    description: The URL for the product thumbnail image
+    xpath: //div[@class="displayingImage_3xp0y"]/img/@src
   - name: price
     singleValue: false
     description: The offered price for the product
     xpath: //span[@class="screenReaderOnly_3anTj large_3aP7Z"]/text()
-  - name: aggregateRating
+  - name: rating
     singleValue: false
     xpath: //div[@class="reviews_1KIjQ"]/span/meta/@content
-  - name: reviewCount
-    singleValue: false
+  - name: reviews
+    singleValue: true
     xpath: //div[@class="reviews_1KIjQ"]/span/span/text()
-  - name: rankOrganic
+  - name: shippinginfo1
     singleValue: false
-  - name: rank
+    xpath: //span[@class="container_3LC03"]/text()
+  - name: shippinginfo2
     singleValue: false
-  - name: soldBy
-    singleValue: false
-    xpath: //span[@class="marketplaceName_1acI5"]/text()
+    xpath: //p[@class="availabilityMessageSearchPickup_2eGze"]/text()
+  

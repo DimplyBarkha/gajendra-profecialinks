@@ -1,18 +1,14 @@
-const { transform } = require('../../../../shared');
 module.exports = {
   implements: 'product/search/paginate',
   parameterValues: {
     country: 'CA',
     store: 'bestbuy',
-    nextLinkSelector: null,
+    nextLinkSelector: '#root > div > div > div.x-page-content.container_3Sp8P > div.singleColumn_BCnZ4.singleColumn > div > main > div.loadMoreRow_1TEZj.loadMoreButtonContainer_35w02 > button > span',
     mutationSelector: null,
     spinnerSelector: null,
-    loadedSelector:null,
+    loadedSelector: 'body',
     noResultsXPath: null,
-    // openSearchDefinition: {
-    //   offset:30,
-    //   template: 'https://www.bestbuy.ca/en-ca/search?search={searchTerms}',
-    //  },
+    openSearchDefinition: null,
     domain: 'bestbuy.ca/en-ca',
     zipcode: '',
   },
