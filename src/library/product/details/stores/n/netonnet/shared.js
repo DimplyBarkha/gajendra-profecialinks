@@ -31,7 +31,7 @@ const transform = (data) => {
 				row.variantId = [{ text: newText }];
 			}
 
-			if (row.price) {
+			if (row.price && row.price[0] && row.price[1]) {
 				/*
 				let newText = "";
 				row.price.forEach(item => {
@@ -57,7 +57,7 @@ const transform = (data) => {
 				});
 				row.firstVariant = [{ text: newText }];
 			} */
-			if (row.aggregateRating) {
+			if (row.aggregateRating && row.aggregateRating[0]) {
 				let newText = '0';
 				var received_per = row.aggregateRating[0].text.replace("width: ", "")
 				var received_per = received_per.replace("%", "");
@@ -174,9 +174,9 @@ const transform = (data) => {
 				});
 			}
 
-			if (row.nameExtended) {
+			if (row.nameExtended && row.nameExtended[0]) {
 				var nameExtended = row.nameExtended[0].text;
-				if (row.brandText) {
+				if (row.brandText && row.brandText[0]) {
 					var brand = nameExtended.includes(row.brandText[0].text);
 					if (!brand) {
 						row.nameExtended[0].text = row.brandText[0].text + ' ' + nameExtended;
