@@ -132,7 +132,9 @@ fields:
     regExp: (.+800w,\s)(.+(.png|.jpg))(.+)
     regExpReplace: https:$2
   - name: inTheBoxText
-    xpath: //div[contains(@class, "InTheBox")]//div[contains(@class, "flix-std-content")] | //ul[@class="details-heading-product"]//li/span[contains(.,'Accessoires') or (contains(.,'Brosses spécifiques'))]/following-sibling::span[((contains(.,' ')))]
+    xpath: //div[contains(@class, "InTheBox")]//div[contains(@class, "flix-std-content")] 
+  - name: inTheBoxText1
+    xpath: //ul[@class="details-heading-product"]//li/span[contains(.,'Accessoires') or (contains(.,'Brosses spécifiques'))]/following-sibling::span[((contains(.,' ')))]
   - name: hasComparisonTable
     defaultValue: No
   - name: unInterruptedPDP
