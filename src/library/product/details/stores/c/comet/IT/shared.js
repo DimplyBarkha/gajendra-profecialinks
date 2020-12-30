@@ -35,6 +35,13 @@ const transform = (data) => {
         });
         
         }
+        if(row.inTheBoxText){         
+          if(row.inTheBoxText[0].text.startsWith("In dotazione")){
+            row.inTheBoxText.forEach(item => {
+              item.text = item.text.replace("In dotazione:","");
+            });
+          }
+        }
       if (row.aggregateRating) {
         row.aggregateRating.forEach(item => {
           item.text = item.text.replace(/\./gm, ',');
