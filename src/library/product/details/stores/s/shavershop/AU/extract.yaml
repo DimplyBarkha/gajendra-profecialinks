@@ -225,4 +225,10 @@ fields:
     description: Must include text to show the accessories/tools which come with the product
   - name: unInterruptedPDP
     singleValue: false
-    xpath: //div[contains(@class,"pdp-carousel clearfix owl-loaded owl-drag")]//div[@class="product-name"]//span[@class='desktop-only']
+    xpath: //div[@class="product-tile  "]/@data-product-brand
+  - name: unInterruptedPDP1
+    singleValue: false
+    xpath: //div[@class="product-tile  "]/@data-product-name 
+    # xpath: //div[@class="owl-stage-outer"]//span[@class="desktop-only"] | //div[@class="owl-stage-outer"]//div[@class="brand-name"]//a
+    # xpath: //div[@class="carousel-outline"]//div[@class="owl-stage-outer"]//div[@class="product-name"]//a
+    # xpath: //div[contains(@class,"pdp-carousel clearfix owl-loaded owl-drag")]//div[@class="product-name"]//span[@class='desktop-only']

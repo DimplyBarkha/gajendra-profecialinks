@@ -4,19 +4,16 @@
  * @returns {ImportIO.Group[]}
  */
 const transform = (data, context) => {
-
   for (const { group } of data) {
     for (const row of group) {
-
       try {
-
         if (row.Image360Present) {
           row.Image360Present = [{ text: row.Image360Present[0].text == 'true' ? 'YES' : 'NO' }];
         }
 
         // if (row.manufacturerImages) {
         //   row.manufacturerImages = [{ text: "https://www.shavershop.com.au"+row.manufacturerImages[0].text  }];
-        // } 
+        // }
 
         if (row.warranty) {
           var text = row.warranty[0].text.toString().split('/');
@@ -28,7 +25,7 @@ const transform = (data, context) => {
         if (row.description) {
           let text = '';
           row.description.forEach(item => {
-            text += item.text + "||"
+            text += item.text + '||';
           });
           text = text.substring(0, text.length - 2);
           row.description = [
@@ -41,7 +38,7 @@ const transform = (data, context) => {
         if (row.directions) {
           let text = '';
           row.directions.forEach(item => {
-            text += item.text + "|"
+            text += item.text + '|';
           });
           text = text.substring(0, text.length - 1);
           row.directions = [
@@ -54,7 +51,7 @@ const transform = (data, context) => {
         if (row.videos) {
           let text = '';
           row.videos.forEach(item => {
-            text += item.text + "|"
+            text += item.text + '|';
           });
           text = text.substring(0, text.length - 1);
           row.videos = [
@@ -76,7 +73,42 @@ const transform = (data, context) => {
             },
           ];
         }
+        const pdp1 = [];
+        if (row.unInterruptedPDP1) {
+          row.unInterruptedPDP1.forEach(item => {
+            pdp1.push(item.text);
+          });
+        }
+        if (row.unInterruptedPDP) {
+          row.unInterruptedPDP.forEach((item, idx) => {
+            item.text = item.text + ' ' + pdp1[idx];
+          });
+        }
+        if (row.unInterruptedPDP) {
+          const pdps = [];
 
+          row.unInterruptedPDP.forEach(item => {
+            console.log('item:: ', item.text);
+
+            if (pdps.indexOf(item.text) === -1) {
+              pdps.push(item.text);
+            }
+            // console.log("variantUrls:: ", pdps);
+            // if (urls && urls.length === 1) {
+            //   variantUrls.push(item);
+            // } else {
+            //   if (dupUrl !== item.text) {
+            //     dupUrl = item.text;
+            //     variantUrls.push(item);
+            //   }
+            // }
+          });
+          row.unInterruptedPDP = pdps.map((el) => {
+            return {
+              text: el,
+            };
+          });
+        }
       } catch (exception) { console.log('Error in transform', exception); }
     }
   }
