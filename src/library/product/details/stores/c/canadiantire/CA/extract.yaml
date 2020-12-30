@@ -11,7 +11,7 @@ fields:
     xpath: //noscript[contains(.,'fallback-image')]//text()
   - name: alternateImages
     singleValue: false
-    xpath: //div[contains(@class,"pdp-image-carousel")]//img/@src
+    xpath: //button[@class="pdp-image-carousel__item"]//img/@src
   - name: category
     singleValue: false
     xpath: //div[@class="global-breadcrumb__items-wrapper"]//li/a
@@ -38,7 +38,7 @@ fields:
     xpath: //div[@class="pdp-header__main"]/h1
   - name: nameExtended
     singleValue: false
-    xpath: //meta[@name="description"]/@content
+    xpath: //div[@class="pdp-header__main"]/h1
   - name: specifications
     singleValue: false
     xpath: //div[contains(@class,"pdp-details-wrapper pdp-details-wrapper--open")]//ul[@class="pdp-details-specifications__items clearfix"]/li
@@ -67,9 +67,12 @@ fields:
   - name: videos
     singleValue: false
     xpath: //div[contains(@class,"pdp-image-carousel")]//button[contains(@class,"pdp-image-carousel__item-video-thumbnail")]/@style
-  - name: _url
+  - name: productUrl
     singleValue: false
     xpath: //meta[@property="og:url"]/@content
+  - name: sku
+    singleValue: false
+    xpath: //div[@class="js-rating_summary"]/@data-bv-product-id
   - name: variantId
     singleValue: false
     xpath: //div[contains(@data-component,"PDPBuyBox")]/@data-config
