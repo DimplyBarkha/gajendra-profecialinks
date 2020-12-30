@@ -21,6 +21,9 @@ fields:
   - name: price
     singleValue: true
     description: The offered price for the product
+    xpath: //div[@class="kuPrice-wrapper"]
+    regExp: (.+)
+    regExpReplace: €$1
   - name: rankOrganic
     singleValue: true
   - name: rank

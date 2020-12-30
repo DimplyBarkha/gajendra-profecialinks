@@ -5,7 +5,7 @@ module.exports = {
     country: 'FI',
     store: 'tokmanni',
     domain: 'tokmanni.fi',
-    url: 'https://www.tokmanni.fi/search/?q={SearchTerms}',
+    url: 'https://www.tokmanni.fi/search/?q=Lotus',
     loadedSelector: '#kuLandingProductsListUl >li',
     noResultsXPath: null,
     zipcode: '',
