@@ -19,6 +19,15 @@ async function implementation(
   const { transform } = parameters;
   const { productDetails } = dependencies;
   await context.evaluate(async function () {
+    try{
+      document.querySelector('#coiPage-1 > div.coi-banner__page-footer > div.coi-button-group > button.coi-banner__accept').click()
+      await new Promise(r => setTimeout(r, 6000));
+      // }
+      }
+      catch(error)
+      {
+
+      }
     let scrollTop = 0;
     while (scrollTop !== 100000) {
       await stall(500);
@@ -29,6 +38,8 @@ async function implementation(
         break;
       }
     }
+    
+
     function stall(ms) {
       return new Promise((resolve, reject) => {
         setTimeout(() => {
