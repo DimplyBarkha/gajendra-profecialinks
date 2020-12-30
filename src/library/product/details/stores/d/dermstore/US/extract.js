@@ -33,7 +33,7 @@ async function implementation (inputs, parameters, context, dependencies) {
     try {
       scriptTagJSON = scriptTagData ? JSON.parse(scriptTagData) : '';
     } catch (e) {
-      console.log('Error in converting text to JSON....');
+      console.log('Error in converting to JSON....');
       scriptTagJSON = '';
     }
     // @ts-ignore
