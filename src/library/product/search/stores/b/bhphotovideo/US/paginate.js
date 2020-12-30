@@ -8,7 +8,7 @@ module.exports = {
     mutationSelector: null,
     spinnerSelector: null,
     loadedSelector: 'div[data-selenium="miniProductPage"]',
-    noResultsXPath: '//div[@class="message_FdUqQ7Ey65cURVJ_vVe-f"] | //h1[@class="title_2Tkgx8jFMHLoxqcKbZDI7v"]',
+    noResultsXPath: '//div[@class="message_FdUqQ7Ey65cURVJ_vVe-f"] | //h1[@class="title_2Tkgx8jFMHLoxqcKbZDI7v"] | //section[@class="body-404"]',
     openSearchDefinition: null,
     domain: 'bhphotovideo.com',
     zipcode: '',
