@@ -1,10 +1,10 @@
-const { cleanUp } = require('../../../../shared');
+const { transform } = require('../../../../shared');
 module.exports = {
   implements: 'product/search/extract',
   parameterValues: {
     country: 'CH',
     store: 'coopvitality',
-    transform: cleanUp,
+    transform: transform,
     domain: 'coopvitality.ch',
     zipcode: '',
   },
@@ -95,7 +95,20 @@ async function implementation(
     };
     var backgroundURL = getAllXpath('//a[@class="product-item-link"]', 'nodeValue');
     sliceURL(backgroundURL);
+
+    var id = getAllXpath('//div[@class="product photo product-item-photo"]/a/img/@data-src', 'nodeValue');
+    if(id != null){
+      for(var i=0; i<id.length; i++){
+        if(id[i].includes("-main_image")){
+          id[i] = id[i].split("-main_image")[0];
+          if(id[i].includes("-")){
+            id[i] = id[i].split("-")[1];
+            addHiddenDiv('id', id[i], i);
+          }
+        }
+      }
+    }
+  
   });
-  //rank end
 return await context.extract(productDetails, { transform });
 }
