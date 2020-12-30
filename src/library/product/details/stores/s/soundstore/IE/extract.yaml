@@ -533,6 +533,11 @@ fields:
     xpath: //div[@class="inpage_selector_InTheBox"]//img/@data-flixsrcset 
     regExp: ([^ ]+).*
     regExpReplace: https:$1
+  - name: inTheBoxUrl
+    singleValue: false
+    xpath: (//div[contains(@id,'customize-item')]//div[contains(@class,'eky-header-video-container')]//video)[1]/@src  
+    regExp: (.+)
+    regExpReplace: https://media.flixfacts.com/eyekandy/dyson/v11/en/$1  
   - name: inTheBoxUrl1
     singleValue: false
     xpath: (//div[@class="flix-std-table"]/div[position()=1]/div//img//@data-flixsrcset)[position()=1]
