@@ -277,7 +277,23 @@ async function implementation (
           hasComparisonTable = 'Yes';
         }
       } else {
-        const inTheBoxEls = Array.from(document.querySelectorAll('div[data-section-caption="In The Box"] ul>li'));
+
+
+        const table = document.querySelector('div[class*="comparison-table"] table');
+        if (table) {
+          hasComparisonTable = 'Yes';
+        }
+      
+       const inTheBoxEls1 = Array.from(document.querySelectorAll('[data-section-caption*="In the box"] > div> div> ul >li'));
+       
+        const inTheBoxEls2 = Array.from(document.querySelectorAll('div[data-section-caption="In the box"] ul>li'));
+      
+        let inTheBoxEls = []
+        if(inTheBoxEls1){
+          inTheBoxEls =  inTheBoxEls1
+        }else{
+          inTheBoxEls = inTheBoxEls2
+        }
         inTheBoxEls.forEach(el => {
           const image = el.querySelector('img').getAttribute('src');
           // @ts-ignore

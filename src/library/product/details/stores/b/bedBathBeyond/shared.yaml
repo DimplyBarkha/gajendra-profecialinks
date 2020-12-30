@@ -210,4 +210,4 @@ fields:
   - name: hasComparisonTable
     xpath: ancestor::html//body/@has-comparison-table
   - name: unInterruptedPDP
-    xpath: ancestor::html//h3[contains(.,"You May Also Like") or contains(.,"you may also like")]/following-sibling::div//div[contains(@class,"product-tile")] | ancestor::html//h3[@id="hl-sponsored-callout"]/following-sibling::div//div[contains(@class,"slick-slide")]/div | ancestor::html//h3[contains(.,"Like") and contains(.,"Love")]/following-sibling::div//div[contains(@class,"product-tile")]
+    xpath: ancestor::html//h3[contains(.,"You May Also Like") or contains(.,"you may also like")]/following-sibling::div//div[contains(@class,"product-tile")]//a[contains(@data-locator,'certona_pdp_fbw_producttitlelabel')] | ancestor::html//h3[@id="hl-sponsored-callout"]/following-sibling::div//div[contains(@class,"slick-slide")]/div | ancestor::html//h3[contains(.,"Like") and contains(.,"Love")]/following-sibling::div//div[contains(@class,"product-tile")]//a[contains(@data-locator,'certona_pdp_cav_producttitlelabel')] | //h3[@id="hl-sponsored-callout"]/following-sibling::div//div[contains(@class,"slick-slide")]/div//a[2] 
