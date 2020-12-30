@@ -9,6 +9,16 @@ async function implementation (
   const { transform } = parameters;
   const { productDetails } = dependencies;
   await new Promise((resolve, reject) => setTimeout(resolve, 6000));
+
+  const invalidUrl = await context.evaluate(() => {
+    return (window.location.href.indexOf('https://www.amicafarmacia.com/search?query=') < 0);
+  });
+
+  if (invalidUrl) {
+    console.log('Invalid URL');
+    return [];
+  }
+
   const applyScroll = async function (context) {
     await context.evaluate(async function () {
       let scrollTop = 0;
