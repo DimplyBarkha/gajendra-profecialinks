@@ -1,11 +1,10 @@
 
 module.exports = {
-  implements: 'navigation/goto',
+  implements: 'product/search',
   parameterValues: {
-    domain: 'bestbuy.ca/en-ca',
-    timeout: '80000',
     country: 'CA',
     store: 'bestbuy',
+    domain: 'bestbuy.ca',
     zipcode: '',
   },
 };
