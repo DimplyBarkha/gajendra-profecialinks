@@ -8,9 +8,6 @@ fields:
     xpath: //div[@class="description"]/text()[4]
     regExp: \:(.*)
     regExpReplace: $1
-  - name: rankOrganic
-    singleValue: false
-    xpath: //form/input[@name="fp"]/@value
   - name: name
     singleValue: false
     xpath: //span[@class="product-name"]
@@ -41,9 +38,6 @@ fields:
     xpath: //select[@id="sort"]//option[@value="manufacturer"]/text()
   - name: soldBy
     singleValue: false
-  - name: rank
-    singleValue: false
-    xpath: //form/input[@name="fp"]/@value
   - name: endorsementText
     singleValue: false
   - name: ratingCount

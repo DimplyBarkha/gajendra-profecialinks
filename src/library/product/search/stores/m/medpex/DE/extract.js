@@ -1,10 +1,10 @@
-const { cleanUp } = require('../../../../shared');
+const { transform } = require('../../../../shared');
 module.exports = {
   implements: 'product/search/extract',
   parameterValues: {
     country: 'DE',
     store: 'medpex',
-    transform: cleanUp,
+    transform: transform,
     domain: 'medpex.de',
   },
   implementation: async (inputs, parameters, context, dependencies) => {
