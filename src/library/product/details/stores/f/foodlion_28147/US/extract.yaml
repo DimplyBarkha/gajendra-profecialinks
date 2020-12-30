@@ -21,7 +21,7 @@ fields:
     description: The <meta> keywords content
   - name: category
     singleValue: false
-    xpath: //ul[contains(@class,"breadcrumbs")]/li/a[not(contains(@class,'active')) and not(contains(@class,'all'))]
+    xpath: //ul[contains(@class,"breadcrumbs")]/li/button[not(contains(@class,'active')) and not(contains(@class,'all'))] |  //ul[contains(@class,"breadcrumbs")]/li/a[not(contains(@class,'active')) and not(contains(@class,'all'))]
     description: The categories (e.g. from breadcrumbs)
   - name: nameExtended
     singleValue: false

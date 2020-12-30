@@ -18,10 +18,12 @@ module.exports = {
         newDiv.style.display = 'none';
         document.body.appendChild(newDiv);
       }
-      if (!document.getElementById('pd_sku')) {
-        const jsonData = JSON.parse((document.querySelector('script[type*="application/ld+json"]').innerText).trim());
-        jsonData && jsonData.sku && addHiddenDiv('pd_sku', jsonData.sku);
-        !document.getElementById('pd_brand') && jsonData && jsonData.brand && addHiddenDiv('pd_brand', jsonData.brand.name);
+      const jsonData = JSON.parse((document.querySelector('script[type*="application/ld+json"]').innerText).trim());
+      if (jsonData && !document.getElementById('pd_sku')) {
+        jsonData.sku && addHiddenDiv('pd_sku', jsonData.sku);
+      }
+      if (jsonData && !document.getElementById('pd_brand')) {
+        jsonData.brand && jsonData.brand.name && addHiddenDiv('pd_brand', jsonData.brand.name);
       }
       const imageCount = document.evaluate('//div[contains(@class,"product-image-thumbnails")]/button[position( ) > 1]/span[contains(@class,"product-image-thumbnail")]/@style', document, null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
       !document.getElementById('image_count') && imageCount.snapshotLength && addHiddenDiv('image_count', imageCount.snapshotLength);
@@ -55,6 +57,26 @@ module.exports = {
       await context.click('#tab-nutrition');
     } catch (error) {
       console.log('Nutrition button click failed');
+    }
+    try {
+      await context.evaluate(async function () {
+        function addHiddenDiv (id, content) {
+          const newDiv = document.createElement('div');
+          newDiv.id = id;
+          newDiv.textContent = content;
+          newDiv.style.display = 'none';
+          document.body.appendChild(newDiv);
+        }
+        const jsonData = JSON.parse((document.querySelector('script[type*="application/ld+json"]').innerText).trim());
+        if (jsonData && !document.getElementById('pd_sku')) {
+          jsonData.sku && addHiddenDiv('pd_sku', jsonData.sku);
+        }
+        if (jsonData && !document.getElementById('pd_brand')) {
+          jsonData.brand && jsonData.brand.name && addHiddenDiv('pd_brand', jsonData.brand.name);
+        }
+      });
+    } catch (error) {
+      console.log('Failed to add ID');
     }
     return await context.extract(productDetails, { transform: transformParam });
   },
