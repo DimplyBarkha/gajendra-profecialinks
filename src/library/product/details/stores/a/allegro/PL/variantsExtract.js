@@ -51,17 +51,21 @@ module.exports = {
       await context.evaluate(() => {
         // @ts-ignore
         const variants = [...document.querySelectorAll('div[data-analytics-view-label="offerVariants"] a')];
-        variants.forEach(variant => {
-          const variantUrl = document.createElement('div');
-          variantUrl.id = 'variants-url';
-          variantUrl.innerText = variant.getAttribute('href');
-          document.body.append(variantUrl);
+        for (let i = 0; i < variants.length; i++) {
+          if (variants[i].getAttribute('href').includes('allegro.pl')) {
+            const variantUrl = document.createElement('div');
+            variantUrl.id = 'variants-url';
+            variantUrl.innerText = variants[i].getAttribute('href');
+            document.body.append(variantUrl);
 
-          const variantId = document.createElement('div');
-          variantId.id = 'variants-id';
-          variantId.innerText = variant.getAttribute('href').replace(/(.+-)(\d+)(.+)?/, '$2');
-          document.body.append(variantId);
-        });
+            const variantId = document.createElement('div');
+            variantId.id = 'variants-id';
+            variantId.innerText = variants[i].getAttribute('href').replace(/(.+-)(\d+)(.+)?/, '$2');
+            document.body.append(variantId);
+          } else {
+            continue;
+          }
+        }
       });
     } catch (e) {
       await context.evaluate(() => {
@@ -73,22 +77,23 @@ module.exports = {
           null,
         );
         if (noResults.snapshotLength === 0) {
-          // let url = document.querySelector('meta[property="og:url"]').getAttribute('content');
           let url = window.location.href;
           url = url.split('?')[0];
-          const variantUrl = document.createElement('div');
-          variantUrl.id = 'variants-url';
-          variantUrl.innerText = url;
-          document.body.append(variantUrl);
+          if (url.includes('allegro.pl')) {
+            const variantUrl = document.createElement('div');
+            variantUrl.id = 'variants-url';
+            variantUrl.innerText = url;
+            document.body.append(variantUrl);
 
-          const variantId = document.createElement('div');
-          variantId.id = 'variants-id';
-          if (url.includes('.html')) {
-            variantId.innerText = url.replace(/(.+-i)([0-9]+)(.htm.+)/, '$2');
-          } else {
-            variantId.innerText = url.replace(/(.+-)(\d+)/, '$2');
+            const variantId = document.createElement('div');
+            variantId.id = 'variants-id';
+            if (url.includes('.html')) {
+              variantId.innerText = url.replace(/(.+-i)([0-9]+)(.htm.+)/, '$2');
+            } else {
+              variantId.innerText = url.replace(/(.+-)(\d+)/, '$2');
+            }
+            document.body.append(variantId);
           }
-          document.body.append(variantId);
         } else {
           throw new Error('Not a product page');
         }
