@@ -27,6 +27,7 @@ async function implementation (
   }
 
   // TODO: Check for not found?
+  return await context.evaluate((xpath) => !document.evaluate(xpath, document, null, XPathResult.BOOLEAN_TYPE, null).booleanValue, parameters.noResultsXPath);
 }
 
 module.exports = {

@@ -199,12 +199,6 @@ module.exports = {
       }
       addElementToDocument('description', descArr.join(' || '));
 
-      const manufacturerDesc = document.querySelector('div#product-tab-description')
-        ? document.querySelector('div#product-tab-description').innerText : '';
-      if (manufacturerDesc) {
-        addElementToDocument('manufacturerDesc', manufacturerDesc.replace(/\n{2,}/g, '').replace(/\s{2,}/g, ' '));
-      };
-
       const specifications = document.querySelectorAll('pwr-product-specifications > div');
       const specArr = [];
       if (specifications) {
@@ -227,8 +221,37 @@ module.exports = {
         });
       }
       addElementToDocument('descBulletInfo', descBulletInfo.join(' || '));
+      let additionalDescription =  descBulletInfo.join(' || ');
+      const header = document.querySelector('.product-basic-info .webheader') ? document.querySelector('.product-basic-info .webheader').innerText : null;
+      additionalDescription = header ?
+      (additionalDescription ? `${header} || ${additionalDescription}` : header) : additionalDescription;
+      const additionalDescEl = document.createElement('import-additional-description');
+      additionalDescEl.innerText = additionalDescription;
+      document.body.appendChild(additionalDescEl);
       const sku = document.querySelector(`meta[itemprop='sku']`) ? document.querySelector(`meta[itemprop='sku']`).content : null;
       const productName = document.querySelector('.old-product-page h1') ? document.querySelector('.old-product-page h1').innerText : null;
+      const manufacturerImages = document.evaluate(`//div[contains(@class, "inpage_block")]//img[not(contains(@data-flixsrcset, 'thumb'))] | //div[@id="product-tab-description"]//img[not(contains(@data-flixsrcset, 'thumb'))] | //div[contains(@id, "product-tab-description-panel")]//img[not(contains(@data-flixsrcset, 'thumb'))]`, document, null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null );
+      const manufacturerImagesArray = [];
+      
+      if (manufacturerImages.snapshotLength) {
+        for (let i = 0; i < manufacturerImages.snapshotLength; i++) {
+          const manufacturerImageEl = manufacturerImages.snapshotItem(i);
+
+          if (manufacturerImageEl.getAttribute('data-flixsrcset')) {
+            let imageUrl = manufacturerImageEl.getAttribute('data-flixsrcset');
+            imageUrl = imageUrl.split(' 200w,')[0];
+            manufacturerImagesArray.push(imageUrl);
+          } else {
+            manufacturerImagesArray.push(manufacturerImageEl.getAttribute('src'));
+          }
+        }
+      }
+
+      for (const el of manufacturerImagesArray) {
+        const newImageEl = document.createElement('import-manufacturer-image');
+        newImageEl.innerText = el;
+        document.body.appendChild(newImageEl);
+      }
 
       if (sku && productName) {
         const url = `https://dapi.videoly.co/1/videos/0/394?SKU=${sku}&productId=${sku}&productTitle=${productName}&hn=www.power.no`;
@@ -285,6 +308,17 @@ module.exports = {
         scrollLimit = scrollSelector ? scrollSelector.offsetTop : '';
         await new Promise(resolve => setTimeout(resolve, 3500));
       }
+    });
+
+    await context.evaluate(async function () {
+      const manufacturerDesc = document.querySelector('div#product-tab-description')
+        ? document.querySelector('div#product-tab-description').innerText : '';
+      if (manufacturerDesc) {
+        const divEl = document.createElement('div');
+        divEl.id = 'manufacturerDesc';
+        divEl.textContent = manufacturerDesc.replace(/\n{2,}/g, '').replace(/\s{2,}/g, ' ');
+        document.body.appendChild(divEl);
+      };
     });
     try {
       await context.waitForSelector('div.product-main-card div.product-image-container img');

@@ -30,7 +30,7 @@ fields:
     description:
       The product name, prefixing "${brand} - " if not included in "name"
       and appending " - ${variantType}" if necessary (fixed per feed)
-    xpath: //div[@id="fetchedNameExtended"]
+    xpath: //div[@class='product-header']//h1
   - name: listPrice
     singleValue: false
     description: The stated undiscounted price for the product
@@ -54,7 +54,7 @@ fields:
     description:
       Product description supplied by website - may be concatenanted from
       multiple places; specifically not the manufacturer description
-    xpath: //div[@class='product-basic-info']//h3[contains(@class, 'webheader')] | //div[@id='descBulletInfo']
+    xpath: //import-additional-description
     regExpReplace: $1
   - name: descriptionBullets
     singleValue: false
@@ -159,9 +159,7 @@ fields:
   - name: manufacturerImages
     singleValue: false
     description: Images within the third party description
-    xpath: //div[contains(@class, "inpage_block")]//img/@data-flixsrcset | //div[@id="product-tab-description"]//img/@data-flixsrcset | //div[contains(@id, "product-tab-description-panel")]//img/@data-flixsrcset
-    regExp: (\/\/.*) 200w
-    regExpReplace: https:$1
+    xpath: //import-manufacturer-image
   - name: videos
     singleValue: false
     description: URLs of videos on page
