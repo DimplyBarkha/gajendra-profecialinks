@@ -42,7 +42,7 @@ fields:
 - name: listPrice
   singleValue: true
   description: The stated undiscounted price for the product
-  xpath: concat(//span[@class='jum-product-price__old-price']/span[not(@class='visually-hidden')],//span[@class='jum-price-format-mnemonic'])
+  xpath: //div[@id="listPrice"]
 - name: price
   singleValue: true
   description: The offered price for the selected product variant - if a user clicks

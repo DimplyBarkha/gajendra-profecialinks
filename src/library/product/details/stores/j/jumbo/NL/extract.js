@@ -31,9 +31,17 @@ module.exports = {
         el.textContent = el.textContent.replace(/(•)/g, ' || $1');
       });
 
-      const brandNode = document.evaluate('//section[@class="jum-additional-info row"]//div[@data-jum-product-details]/@data-jum-product-details', document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
-      const brand = brandNode.textContent.match(/"brand":"(.+)",/)[1];
+      const brandNode = document.evaluate('//section[@class="jum-additional-info row"]//div[@data-jum-product-details]/@data-jum-product-details | (//div[@class="jum-column-main "]//*[@data-jum-brand]/@data-jum-brand)[1]', document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
+      const brand = brandNode.textContent.includes('brand') ? brandNode.textContent.match(/"brand":"(.+)",/)[1] : brandNode.textContent;
       addHiddenDiv('brand', brand);
+
+      const isListPrice = document.evaluate('//span[@class="jum-product-price__old-price"]/span[not(@class="visually-hidden")]', document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
+      if(isListPrice)
+      {
+        const listPrice = document.evaluate('concat(//span[@class="jum-product-price__old-price"]/span[not(@class="visually-hidden")],//span[@class="jum-price-format-mnemonic"])', document, null, XPathResult.STRING_TYPE, null);
+        addHiddenDiv('listPrice', listPrice.stringValue);
+      }
+     /*   */
     });
     const dataRef = await context.extract(productDetails, { transform });
     function reduceInfoToOneField (field, separator = ' ') {

@@ -2,7 +2,7 @@ input:
   id: 379784STK
   _url: http://jumbo.com
 extractions:
-  - html: https://workbench.import.io/html/run=a08759b2-7336-4b99-9a16-5960cc284ae2/task=9c059dbe-9887-4c22-bf81-a2e5c1b5e1f2/c817efcb-276c-416b-963f-3bfead2ad8e8.html
+  - html: https://workbench.import.io/html/run=5ce033ce-cc3b-4232-8665-643984a054bf/task=fdee55b4-9c36-47b9-ae72-6b4a8d1ebf1a/0906eb78-0b16-4be8-afff-77cf0249b7d5.html
     extractionConfigId: product/details/stores/j/jumbo/NL/extract
     data:
       - group:
@@ -26,6 +26,9 @@ extractions:
             nameExtended:
               - text: Zwitsal Luiers Midi Maat 3 Volumepak 213 stuks
                 xpath: /html/head[1]/meta[8]/@content
+            listPrice:
+              - text: 65,65€
+                xpath: /html/body/div[7]
             availabilityText:
               - text: In stock
                 xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[3]/div[1]/button[1]/span[1]
@@ -38,7 +41,7 @@ extractions:
                 xpath: /html/body/div[3]/div[5]/article[1]/div[1]/div[1]/section[1]/div[1]/div[1]/p[1]
             brandText:
               - text: Zwitsal
-                xpath: /html/body/div[7]
+                xpath: /html/body/div[6]
             quantity:
               - text: 213 stuks
                 xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/span[1]
@@ -79,8 +82,6 @@ extractions:
               - text: No
             imageZoomFeaturePresent:
               - text: No
-            listPrice:
-              - text: 65,65€
             price:
               - text: 32,82€
             descriptionBullets:
@@ -90,4 +91,4 @@ extractions:
             sku:
               - text: "379784"
         xpath: /
-    timestamp: 1609338169871
+    timestamp: 1609363590202

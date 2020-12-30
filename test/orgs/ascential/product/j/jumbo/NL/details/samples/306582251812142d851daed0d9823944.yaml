@@ -2,7 +2,7 @@ input:
   id: 344958STK
   _url: http://jumbo.com
 extractions:
-  - html: https://workbench.import.io/html/run=feaa6a0b-bc09-430d-b3d5-4038b1ebfb54/task=30aacf01-162c-4398-8e84-070c625c4b03/5fafd27d-3e5e-4e9c-8cb5-402d81fda49f.html
+  - html: https://workbench.import.io/html/run=5ce033ce-cc3b-4232-8665-643984a054bf/task=24daff97-1351-48a6-a660-80b348888a98/e8995356-577c-47f0-8cdf-494c22cec50a.html
     extractionConfigId: product/details/stores/j/jumbo/NL/extract
     data:
       - group:
@@ -21,6 +21,9 @@ extractions:
             nameExtended:
               - text: Pampers Baby-Dry Maat 6, 82 Luiers, Tot 12 Uur Bescherming, 13-18kg
                 xpath: /html/head[1]/meta[8]/@content
+            listPrice:
+              - text: 36,05€
+                xpath: /html/body/div[8]
             availabilityText:
               - text: In stock
                 xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[3]/div[1]/button[1]/span[1]
@@ -46,7 +49,7 @@ extractions:
                 xpath: /html/body/div[3]/div[5]/article[1]/div[1]/div[1]/section[1]/div[1]/div[1]/p[1]
             brandText:
               - text: Pampers
-                xpath: /html/body/div[6]
+                xpath: /html/body/div[7]
             quantity:
               - text: "82"
                 xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/span[1]
@@ -101,8 +104,6 @@ extractions:
               - text: No
             imageZoomFeaturePresent:
               - text: No
-            listPrice:
-              - text: 36,05€
             price:
               - text: 30,00€
             descriptionBullets:
@@ -112,4 +113,4 @@ extractions:
             sku:
               - text: "344958"
         xpath: /
-    timestamp: 1609337986507
+    timestamp: 1609363590307
