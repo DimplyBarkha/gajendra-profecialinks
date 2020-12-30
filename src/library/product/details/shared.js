@@ -20,6 +20,7 @@ const cleanUp = (data, context) => {
     el.text = clean(el.text);
   }))));
   return data;
+
 };
 
 module.exports = { cleanUp };

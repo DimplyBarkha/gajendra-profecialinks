@@ -1,11 +1,11 @@
-const { cleanUp } = require('../../../../shared');
-
+//const { cleanUp } = require('../../../../shared');
+const {transform} =require('../format')
 module.exports = {
   implements: 'product/details/extract',
   parameterValues: {
     country: 'IL',
     store: 'olsale',
-    transform: cleanUp,
+    transform: transform,
     domain: 'olsale.co.il',
     zipcode: '',
   },
