@@ -1,0 +1,115 @@
+input:
+  id: 344958STK
+  _url: http://jumbo.com
+extractions:
+  - html: https://workbench.import.io/html/run=feaa6a0b-bc09-430d-b3d5-4038b1ebfb54/task=30aacf01-162c-4398-8e84-070c625c4b03/5fafd27d-3e5e-4e9c-8cb5-402d81fda49f.html
+    extractionConfigId: product/details/stores/j/jumbo/NL/extract
+    data:
+      - group:
+          - productUrl:
+              - text: https://www.jumbo.com/pampers-baby-dry-maat-6,-82-luiers,-tot-12-uur-bescherming,-13-18kg/344958STK/
+                xpath: /html/head[1]/link[2]/@href
+            image:
+              - text: https://static-images.jumbo.com/product_images/120920200441_344958STK-1_360x360_2.png
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[1]/a[1]/img[1]/@src
+            imageAlt:
+              - text: Pampers Baby-Dry Maat 6, 82 Luiers, Tot 12 Uur Bescherming, 13-18kg
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/img[1]/@alt
+            category:
+              - text: Maxi 4
+                xpath: /html/head[1]/title[1]
+            nameExtended:
+              - text: Pampers Baby-Dry Maat 6, 82 Luiers, Tot 12 Uur Bescherming, 13-18kg
+                xpath: /html/head[1]/meta[8]/@content
+            availabilityText:
+              - text: In stock
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[3]/div[1]/button[1]/span[1]
+            description:
+              - text: "Terwijl je baby slaapt, kan hij tot twee keer zoveel bewegen als jij, wat
+                  lekken kan veroorzaken. Pampers Baby-Dry luiers bieden tot wel
+                  12 uur rondom bescherming tegen lekken dankzij het unieke
+                  3-voudige beschermingssysteem dat vocht onmiddellijk
+                  absorbeert en lekken ter hoogte van de taille en de beentjes
+                  voorkomt. 1) De superabsorberende kern absorbeert vocht
+                  onmiddellijk, 2) de beschermrandjes helpen lekken rond de
+                  beentjes voorkomen, 3) de rekbare zijkanten bieden een
+                  comfortabele pasvorm voor een optimale bescherming tegen
+                  lekken, dag en nacht, hoe vaak hij ook beweegt.De veiligheid
+                  van je baby komt bij Pampers op de eerste plaats. Pampers
+                  Baby-Dry luiers zijn 100% veilig: ze worden klinisch en
+                  dermatologisch getest en worden gecertificeerd door het
+                  onafhankelijke instituut OEKO-TEX. Wil je weten wat de
+                  bestanddelen zijn van Pampers luiers? Bezoek pampers.nl ||
+                  Petrolatum || Stearyl Alcohol || Paraffinum Liquidum || Aloe
+                  Barbadensis Leaf Extract || Land van oorsprong: Duitsland ||
+                  Verpakt in: Duitsland"
+                xpath: /html/body/div[3]/div[5]/article[1]/div[1]/div[1]/section[1]/div[1]/div[1]/p[1]
+            brandText:
+              - text: Pampers
+                xpath: /html/body/div[6]
+            quantity:
+              - text: "82"
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/span[1]
+            variantId:
+              - text: 344958STK
+                xpath: /html/body/div[3]/div[5]/article[1]/div[1]/div[1]/section[2]/div[1]/@data-jum-product-details
+            warnings:
+              - text: Houd, om wurging en/of verstikking te voorkomen, alle verpakkingsmateriaal
+                  buiten het bereik van baby's en kinderen.
+                xpath: /html/body/div[3]/div[5]/article[1]/div[1]/div[1]/section[2]/div[6]/p[1]
+            manufacturerImages:
+              - text: https://static-images.jumbo.com/product_images/120920200443_344958STK-244_180x180.png
+                xpath: /html/body/div[3]/div[5]/article[1]/div[1]/div[1]/section[2]/div[2]/div[1]/figure[1]/img[1]/@data-jum-src
+              - text: https://static-images.jumbo.com/product_images/120920200444_344958STK-245_180x180.png
+                xpath: /html/body/div[3]/div[5]/article[1]/div[1]/div[1]/section[2]/div[2]/div[1]/figure[2]/img[1]/@data-jum-src
+              - text: https://static-images.jumbo.com/product_images/120920200444_344958STK-246_180x180.png
+                xpath: /html/body/div[3]/div[5]/article[1]/div[1]/div[1]/section[2]/div[2]/div[1]/figure[3]/img[1]/@data-jum-src
+            name:
+              - text: Pampers Baby-Dry Maat 6, 82 Luiers, Tot 12 Uur Bescherming, 13-18kg
+                xpath: /html/head[1]/meta[8]/@content
+            ingredientsList:
+              - text: Petrolatum, Stearyl Alcohol, Paraffinum Liquidum, Aloe Barbadensis Leaf
+                  Extract
+                xpath: /html/body/div[3]/div[5]/article[1]/div[1]/div[1]/section[2]/div[4]/ul[1]/li[1]
+            countryOfOrigin:
+              - text: Duitsland
+                xpath: /html/body/div[3]/div[5]/article[1]/div[1]/div[1]/section[2]/div[7]/ul[1]/li[1]
+            pricePerUnit:
+              - text: 0,37/stuk
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/span[3]/span[2]
+            pricePerUnitUom:
+              - text: stuk
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/span[3]/span[2]
+            promotion:
+              - text: 1 voor 30,00 euro
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/ul[1]/li[1]/span[1]
+            additionalDescBulletInfo:
+              - text: "|| Petrolatum || Stearyl Alcohol || Paraffinum Liquidum || Aloe
+                  Barbadensis Leaf Extract || Land van oorsprong: Duitsland ||
+                  Verpakt in: Duitsland"
+            variantCount:
+              - text: "0"
+            technicalInformationPdfPresent:
+              - text: No
+            termsAndConditions:
+              - text: No
+            privacyPolicy:
+              - text: No
+            customerServiceAvailability:
+              - text: No
+            Image360Present:
+              - text: No
+            imageZoomFeaturePresent:
+              - text: No
+            listPrice:
+              - text: 36,05€
+            price:
+              - text: 30,00€
+            descriptionBullets:
+              - text: "6"
+            secondaryImageTotal:
+              - text: "0"
+            sku:
+              - text: "344958"
+        xpath: /
+    timestamp: 1609337986507

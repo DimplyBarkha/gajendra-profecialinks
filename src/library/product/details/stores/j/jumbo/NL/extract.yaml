@@ -42,6 +42,7 @@ fields:
 - name: listPrice
   singleValue: true
   description: The stated undiscounted price for the product
+  xpath: concat(//span[@class='jum-product-price__old-price']/span[not(@class='visually-hidden')],//span[@class='jum-price-format-mnemonic'])
 - name: price
   singleValue: true
   description: The offered price for the selected product variant - if a user clicks
@@ -54,8 +55,8 @@ fields:
     "In Stock"
   xpath: //div[@analytics-tag="add to cart"]//span[contains(.,"In winkelmandje")]
   regExp: (.+)
-  regExpReplace: In Stock
-  defaultValue: Out of Stock
+  regExpReplace: In stock
+  defaultValue: Out of stock
 - name: description
   singleValue: false
   description: Product description supplied by website - may be concatenanted from
@@ -482,6 +483,7 @@ fields:
 - name: promotion
   singleValue: true
   description: promotion text on product page
+  xpath: (//div[@data-testautomation="pdp-promotion"]//span[contains(@class,"jum-tag")])[1]
 - name: alcoholContent
   singleValue: true
   description: Alcohol content information

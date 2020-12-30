@@ -1,0 +1,93 @@
+input:
+  id: 379784STK
+  _url: http://jumbo.com
+extractions:
+  - html: https://workbench.import.io/html/run=a08759b2-7336-4b99-9a16-5960cc284ae2/task=9c059dbe-9887-4c22-bf81-a2e5c1b5e1f2/c817efcb-276c-416b-963f-3bfead2ad8e8.html
+    extractionConfigId: product/details/stores/j/jumbo/NL/extract
+    data:
+      - group:
+          - productUrl:
+              - text: https://www.jumbo.com/zwitsal-luiers-midi-maat-3-volumepak-213-stuks/379784STK/
+                xpath: /html/head[1]/link[2]/@href
+            image:
+              - text: https://static-images.jumbo.com/product_images/281020201014_379784STK-1_360x360_2.png
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[1]/a[1]/img[1]/@src
+            imageAlt:
+              - text: Zwitsal Luiers Midi Maat 3 Volumepak 213 stuks
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/img[1]/@alt
+            alternateImages:
+              - text: https://static-images.jumbo.com/product_images/250720200352_379784STK-5_360x360_2.png
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[2]/a[1]/img[1]/@src
+              - text: https://static-images.jumbo.com/product_images/250720200351_379784STK-4_360x360_2.png
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[3]/a[1]/img[1]/@src
+            category:
+              - text: Midi 3
+                xpath: /html/head[1]/title[1]
+            nameExtended:
+              - text: Zwitsal Luiers Midi Maat 3 Volumepak 213 stuks
+                xpath: /html/head[1]/meta[8]/@content
+            availabilityText:
+              - text: In stock
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[3]/div[1]/button[1]/span[1]
+            description:
+              - text: "Zwitsal luiers Midi Maat 3 Volumepak met comfortabele pasvorm.;Zacht en
+                  zeker.;Zwitsal luiers houden de babybilletjes
+                  droog.;Dermatologisch getest.;Ongeparfumeerde luiers met apart
+                  Zwitsal geurbuiltje.;Luiers met flexibele en zachte
+                  plakstrips. || Recycling: Doos: Recyclebaar"
+                xpath: /html/body/div[3]/div[5]/article[1]/div[1]/div[1]/section[1]/div[1]/div[1]/p[1]
+            brandText:
+              - text: Zwitsal
+                xpath: /html/body/div[7]
+            quantity:
+              - text: 213 stuks
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/span[1]
+            variantId:
+              - text: 379784STK
+                xpath: /html/body/div[3]/div[5]/article[1]/div[1]/div[1]/section[3]/div[1]/@data-jum-product-details
+            manufacturerDescription:
+              - text: Zwitsal
+                xpath: /html/body/div[3]/div[5]/article[1]/div[1]/div[1]/section[3]/div[6]/p[1]
+            name:
+              - text: Zwitsal Luiers Midi Maat 3 Volumepak 213 stuks
+                xpath: /html/head[1]/meta[8]/@content
+            recyclingInformation:
+              - text: "Recycling: Doos: Recyclebaar"
+                xpath: /html/body/div[3]/div[5]/article[1]/div[1]/div[1]/section[3]/div[4]/ul[1]/li[1]
+            pricePerUnit:
+              - text: 0,15/stuk
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/span[3]/span[2]
+            pricePerUnitUom:
+              - text: stuk
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/span[3]/span[2]
+            promotion:
+              - text: 50% korting
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/ul[1]/li[1]/span[1]
+            additionalDescBulletInfo:
+              - text: "|| Recycling: Doos: Recyclebaar"
+            variantCount:
+              - text: "0"
+            technicalInformationPdfPresent:
+              - text: No
+            termsAndConditions:
+              - text: No
+            privacyPolicy:
+              - text: No
+            customerServiceAvailability:
+              - text: No
+            Image360Present:
+              - text: No
+            imageZoomFeaturePresent:
+              - text: No
+            listPrice:
+              - text: 65,65€
+            price:
+              - text: 32,82€
+            descriptionBullets:
+              - text: "1"
+            secondaryImageTotal:
+              - text: "2"
+            sku:
+              - text: "379784"
+        xpath: /
+    timestamp: 1609338169871

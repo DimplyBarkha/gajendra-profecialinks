@@ -1,0 +1,112 @@
+input:
+  id: 200866STK
+  _url: http://jumbo.com
+extractions:
+  - html: https://workbench.import.io/html/run=a08759b2-7336-4b99-9a16-5960cc284ae2/task=410de709-e5b7-4225-8296-911841d3e1fd/0d278551-7ab3-460c-9da1-18383a38be3f.html
+    extractionConfigId: product/details/stores/j/jumbo/NL/extract
+    data:
+      - group:
+          - productUrl:
+              - text: https://www.jumbo.com/page-toiletpapier-kussenzacht-12-luxe-rollen/200866STK/
+                xpath: /html/head[1]/link[2]/@href
+            image:
+              - text: https://static-images.jumbo.com/product_images/280720202225_200866STK-1_360x360_2.png
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[1]/a[1]/img[1]/@src
+            imageAlt:
+              - text: Page Toiletpapier Kussenzacht 12 Luxe Rollen
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/img[1]/@alt
+            alternateImages:
+              - text: https://static-images.jumbo.com/product_images/280720202221_200866STK-5_360x360_2.png
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[2]/a[1]/img[1]/@src
+              - text: https://static-images.jumbo.com/product_images/110720191020_200866STK-9_360x360_2.png
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[3]/a[1]/img[1]/@src
+            category:
+              - text: Toiletpapier
+                xpath: /html/head[1]/title[1]
+            nameExtended:
+              - text: Page Toiletpapier Kussenzacht 12 Luxe Rollen
+                xpath: /html/head[1]/meta[8]/@content
+            availabilityText:
+              - text: In stock
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/button[1]/span[1]
+            description:
+              - text: "Toiletpapier kussenzacht || Land van oorsprong: Spanje"
+                xpath: /html/body/div[3]/div[5]/article[1]/div[1]/div[1]/section[3]/div[2]/text()[1]
+            brandText:
+              - text: Page
+                xpath: /html/body/div[6]
+            quantity:
+              - text: 12 luxe rollen
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/span[1]
+            variantId:
+              - text: 200866STK
+                xpath: /html/body/div[3]/div[5]/article[1]/div[1]/div[1]/section[3]/div[1]/@data-jum-product-details
+            directions:
+              - text: >-
+                  De Page Clean Routine
+
+                  1 Gebruik 3-4 velletjes per keer.
+
+                  2 Veeg van voor naar achter.
+
+                  3 Gebruik 1 tot 2 velletjes Page vochtig toiletpapier voor een ultiem schoon gevoel.
+
+                  4 Droog na met toiletpapier.
+
+                  5 Was uw handen met zeep.
+                xpath: /html/body/div[3]/div[5]/article[1]/div[1]/div[1]/section[3]/div[5]/p[1]
+            manufacturerDescription:
+              - text: >-
+                  De Nr.1 comfortabel & zacht van Page!
+
+                  Page producten zijn ontworpen met als belangrijkste doel iedereen een schoon en hygiënisch fris gevoel te geven.
+
+                  Wij adviseren Page droog toiletpapier altijd te gebruiken in combinatie met Page vochtig toiletpapier.
+                xpath: /html/body/div[3]/div[5]/article[1]/div[1]/div[1]/section[3]/div[8]/p[1]
+            name:
+              - text: Page Toiletpapier Kussenzacht 12 Luxe Rollen
+                xpath: /html/head[1]/meta[8]/@content
+            countryOfOrigin:
+              - text: Spanje
+                xpath: /html/body/div[3]/div[5]/article[1]/div[1]/div[1]/section[3]/div[7]/ul[1]/li[1]
+            productOtherInformation:
+              - text: FSC - Mix - www.fsc.org - Mix Papier van verantwoorde herkomst - FSC
+                  C013545 - Het FSC-keurmerk geeft u de zekerheid dat de
+                  grondstof voor dit toiletpapier afkomstig is uit verantwoord
+                  beheerde bossen met aandacht voor mens, dier en milieu. Kijk
+                  voor meer informatie op www.page.nl of www.fsc.nl.
+                xpath: /html/body/div[3]/div[5]/article[1]/div[1]/div[1]/section[3]/div[6]/p[1]
+            pricePerUnit:
+              - text: 0,44/stuk
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/span[2]/span[2]
+            pricePerUnitUom:
+              - text: stuk
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/span[2]/span[2]
+            additionalDescBulletInfo:
+              - text: "|| Land van oorsprong: Spanje"
+            variantCount:
+              - text: "0"
+            technicalInformationPdfPresent:
+              - text: No
+            termsAndConditions:
+              - text: No
+            privacyPolicy:
+              - text: No
+            customerServiceAvailability:
+              - text: No
+            Image360Present:
+              - text: No
+            imageZoomFeaturePresent:
+              - text: No
+            listPrice:
+              - text: €
+            price:
+              - text: 5,30€
+            descriptionBullets:
+              - text: "1"
+            secondaryImageTotal:
+              - text: "2"
+            sku:
+              - text: "200866"
+        xpath: /
+    timestamp: 1609338167692

@@ -1,0 +1,146 @@
+input:
+  id: 189108STK
+  _url: http://jumbo.com
+extractions:
+  - html: https://workbench.import.io/html/run=a08759b2-7336-4b99-9a16-5960cc284ae2/task=49574a6d-3efa-43fa-aa25-74893988574b/374decb3-9552-47a0-a4ab-1bf00379060b.html
+    extractionConfigId: product/details/stores/j/jumbo/NL/extract
+    data:
+      - group:
+          - productUrl:
+              - text: https://www.jumbo.com/olvarit-appel-banaan-zwarte-bes-bosbes-12-maanden-90g/189108STK/
+                xpath: /html/head[1]/link[2]/@href
+            image:
+              - text: https://static-images.jumbo.com/product_images/291220200209_189108STK-1_360x360_2.png
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[1]/a[1]/img[1]/@src
+            imageAlt:
+              - text: Olvarit Appel Banaan Zwarte Bes Bosbes 12+ Maanden 90g
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/img[1]/@alt
+            alternateImages:
+              - text: https://static-images.jumbo.com/product_images/291220200205_189108STK-20_360x360_2.png
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[2]/a[1]/img[1]/@src
+            category:
+              - text: Vanaf 8 maanden
+                xpath: /html/head[1]/title[1]
+            nameExtended:
+              - text: Olvarit Appel Banaan Zwarte Bes Bosbes 12+ Maanden 90g
+                xpath: /html/head[1]/meta[8]/@content
+            availabilityText:
+              - text: In stock
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[3]/div[1]/button[1]/span[1]
+            description:
+              - text: Babyvoeding || 51,8% appel || 29,5% banaan || 9% zwarte bes || 8% blauwe
+                  bes || 1,7% paarse wortel || geconcentreerd citroensap.
+                xpath: /html/body/div[3]/div[5]/article[1]/div[1]/div[1]/section[2]/div[2]/text()[1]
+            brandText:
+              - text: Olvarit
+                xpath: /html/body/div[7]
+            quantity:
+              - text: 12+ maanden
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/span[1]
+            variantId:
+              - text: 189108STK
+                xpath: /html/body/div[3]/div[5]/article[1]/div[1]/div[1]/section[2]/div[1]/@data-jum-product-details
+            directions:
+              - text: "Gebruiksaanwijzing: Knijp de gewenste hoeveelheid op een bordje. Bewaar
+                  resterende inhoud afgesloten in de koelkast en gebruik binnen
+                  24uur. Restjes niet opnieuw gebruiken."
+                xpath: /html/body/div[3]/div[5]/article[1]/div[1]/div[1]/section[2]/div[7]/p[1]
+            name:
+              - text: Olvarit Appel Banaan Zwarte Bes Bosbes 12+ Maanden 90g
+                xpath: /html/head[1]/meta[8]/@content
+            ingredientsList:
+              - text: 51,8% appel, 29,5% banaan, 9% zwarte bes, 8% blauwe bes, 1,7% paarse
+                  wortel, geconcentreerd citroensap.
+                xpath: /html/body/div[3]/div[5]/article[1]/div[1]/div[1]/section[2]/div[6]/ul[1]/li[1]
+            servingSize:
+              - text: Per 100g
+                xpath: /html/body/div[3]/div[5]/article[1]/div[1]/div[1]/section[2]/div[3]/table[1]/thead[1]/tr[1]/th[2]
+            servingSizeUom:
+              - text: g
+                xpath: /html/body/div[3]/div[5]/article[1]/div[1]/div[1]/section[2]/div[3]/table[1]/thead[1]/tr[1]/th[2]
+            caloriesPerServing:
+              - text: 225 kJ/53 kcal
+                xpath: /html/body/div[3]/div[5]/article[1]/div[1]/div[1]/section[2]/div[3]/table[1]/tbody[1]/tr[1]/td[2]
+            totalFatPerServing:
+              - text: "0.2"
+                xpath: /html/body/div[3]/div[5]/article[1]/div[1]/div[1]/section[2]/div[3]/table[1]/tbody[1]/tr[2]/td[1]
+            totalFatPerServingUom:
+              - text: g
+                xpath: /html/body/div[3]/div[5]/article[1]/div[1]/div[1]/section[2]/div[3]/table[1]/tbody[1]/tr[2]/td[1]
+            saturatedFatPerServing:
+              - text: "0"
+                xpath: /html/body/div[3]/div[5]/article[1]/div[1]/div[1]/section[2]/div[3]/table[1]/tbody[1]/tr[3]/td[1]
+            saturatedFatPerServingUom:
+              - text: g
+                xpath: /html/body/div[3]/div[5]/article[1]/div[1]/div[1]/section[2]/div[3]/table[1]/tbody[1]/tr[3]/td[1]
+            totalCarbPerServing:
+              - text: "12.5"
+                xpath: /html/body/div[3]/div[5]/article[1]/div[1]/div[1]/section[2]/div[3]/table[1]/tbody[1]/tr[4]/td[1]
+            totalCarbPerServingUom:
+              - text: g
+                xpath: /html/body/div[3]/div[5]/article[1]/div[1]/div[1]/section[2]/div[3]/table[1]/tbody[1]/tr[4]/td[1]
+            dietaryFibrePerServing:
+              - text: "2.0"
+                xpath: /html/body/div[3]/div[5]/article[1]/div[1]/div[1]/section[2]/div[3]/table[1]/tbody[1]/tr[6]/td[1]
+            dietaryFibrePerServingUom:
+              - text: g
+                xpath: /html/body/div[3]/div[5]/article[1]/div[1]/div[1]/section[2]/div[3]/table[1]/tbody[1]/tr[6]/td[1]
+            totalSugarsPerServing:
+              - text: "11.3"
+                xpath: /html/body/div[3]/div[5]/article[1]/div[1]/div[1]/section[2]/div[3]/table[1]/tbody[1]/tr[5]/td[1]
+            totalSugarsPerServingUom:
+              - text: g
+                xpath: /html/body/div[3]/div[5]/article[1]/div[1]/div[1]/section[2]/div[3]/table[1]/tbody[1]/tr[5]/td[1]
+            proteinPerServing:
+              - text: "0.5"
+                xpath: /html/body/div[3]/div[5]/article[1]/div[1]/div[1]/section[2]/div[3]/table[1]/tbody[1]/tr[7]/td[1]
+            proteinPerServingUom:
+              - text: g
+                xpath: /html/body/div[3]/div[5]/article[1]/div[1]/div[1]/section[2]/div[3]/table[1]/tbody[1]/tr[7]/td[1]
+            saltPerServing:
+              - text: "0.0"
+                xpath: /html/body/div[3]/div[5]/article[1]/div[1]/div[1]/section[2]/div[3]/table[1]/tbody[1]/tr[8]/td[1]
+            saltPerServingUom:
+              - text: g
+                xpath: /html/body/div[3]/div[5]/article[1]/div[1]/div[1]/section[2]/div[3]/table[1]/tbody[1]/tr[8]/td[1]
+            additives:
+              - text: Zonder Kunstmatige bewaarmiddelen
+                xpath: /html/body/div[3]/div[5]/article[1]/div[1]/div[1]/section[2]/div[8]/p[1]
+            pricePerUnit:
+              - text: 10,22/kilo
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/span[2]/span[2]
+            pricePerUnitUom:
+              - text: kilo
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/span[2]/span[2]
+            promotion:
+              - text: Gratis lepelset bij 10,00 euro
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/ul[1]/li[1]/span[1]
+            additionalDescBulletInfo:
+              - text: "|| 51,8% appel || 29,5% banaan || 9% zwarte bes || 8% blauwe bes || 1,7%
+                  paarse wortel || geconcentreerd citroensap."
+            variantCount:
+              - text: "0"
+            technicalInformationPdfPresent:
+              - text: No
+            termsAndConditions:
+              - text: No
+            privacyPolicy:
+              - text: No
+            customerServiceAvailability:
+              - text: No
+            Image360Present:
+              - text: No
+            imageZoomFeaturePresent:
+              - text: No
+            listPrice:
+              - text: €
+            price:
+              - text: 0,92€
+            descriptionBullets:
+              - text: "6"
+            secondaryImageTotal:
+              - text: "1"
+            sku:
+              - text: "189108"
+        xpath: /
+    timestamp: 1609338168935

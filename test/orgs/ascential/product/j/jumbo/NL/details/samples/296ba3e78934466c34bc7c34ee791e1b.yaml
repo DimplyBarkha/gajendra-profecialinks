@@ -1,0 +1,160 @@
+input:
+  id: 12425PAK
+  _url: http://jumbo.com
+extractions:
+  - html: https://workbench.import.io/html/run=a08759b2-7336-4b99-9a16-5960cc284ae2/task=0be7481b-c574-447e-b93f-5f6dc7502197/3266373e-b580-4ff5-899e-be237a86bd80.html
+    extractionConfigId: product/details/stores/j/jumbo/NL/extract
+    data:
+      - group:
+          - productUrl:
+              - text: https://www.jumbo.com/grolsch-puur-weizen-flessen-6-x-30cl/12425PAK/
+                xpath: /html/head[1]/link[2]/@href
+            image:
+              - text: https://static-images.jumbo.com/product_images/060520192321_12425PAK-1_360x360_2.png
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[1]/a[1]/img[1]/@src
+            imageAlt:
+              - text: Grolsch Puur Weizen Flessen 6 x 30cl
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/img[1]/@alt
+            alternateImages:
+              - text: https://static-images.jumbo.com/product_images/060520192323_12425PAK-9_360x360_2.png
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[2]/a[1]/img[1]/@src
+              - text: https://static-images.jumbo.com/product_images/060520192323_12425PAK-180_360x360_2.png
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[3]/a[1]/img[1]/@src
+            category:
+              - text: Weizen
+                xpath: /html/head[1]/title[1]
+            nameExtended:
+              - text: Grolsch Puur Weizen Flessen 6 x 30cl
+                xpath: /html/head[1]/meta[8]/@content
+            availabilityText:
+              - text: In stock
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[3]/div[1]/button[1]/span[1]
+            description:
+              - text: "Grolsch Puur Weizen is een natuurtroebel tarwebier gebrouwen volgens het
+                  Reinheitsgebot. Geniet van de volfrisse weizensmaak en de
+                  karakteristieke geuren van fruit en kruidnagel.- Gekroond tot
+                  beste Weizen bier ter wereld- Bier van hoge gisting-
+                  Alcoholpercentage: 5.1%- Lekker bij olijven, schaal- en
+                  schelpdieren en saladesGrolsch Puur Weizen is een
+                  natuurtroebel tarwebier gebrouwen volgens het Reinheitsgebot.
+                  Puur water uit eigen bron, originele Duitse gist en speciaal
+                  voor Grolsch geselecteerde tarwemout zorgen voor de volfrisse
+                  weizensmaak en de karakteristieke geuren van kruidnagel en
+                  fruit. Gekroond tot beste Weizen bier ter wereld. ||
+                  Alcoholpercentage: 5.1% Vol. Bier || Water || tarwemout ||
+                  gerstemout || gist || hop || Recycling: Fles: Glas - Doorgaans
+                  gerecycled || Bevat Tarwe || Bevat Gerst"
+                xpath: /html/body/div[3]/div[5]/article[1]/div[1]/div[1]/section[1]/div[1]/div[1]/p[1]
+            brandText:
+              - text: Grolsch
+                xpath: /html/body/div[6]
+            quantity:
+              - text: 6 x 30 cl
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/span[1]
+            variantId:
+              - text: 12425PAK
+                xpath: /html/body/div[3]/div[5]/article[1]/div[1]/div[1]/section[2]/div[1]/@data-jum-product-details
+            manufacturerDescription:
+              - text: Koninklijke Grolsch sinds 1615 vakmanschap is meesterschap.
+                xpath: /html/body/div[3]/div[5]/article[1]/div[1]/div[1]/section[2]/div[11]/p[1]
+            name:
+              - text: Grolsch Puur Weizen Flessen 6 x 30cl
+                xpath: /html/head[1]/meta[8]/@content
+            ingredientsList:
+              - text: Water, tarwemout, gerstemout, gist, hop
+                xpath: /html/body/div[3]/div[5]/article[1]/div[1]/div[1]/section[2]/div[6]/ul[1]/li[1]
+            servingSize:
+              - text: Per 100 ml
+                xpath: /html/body/div[3]/div[5]/article[1]/div[1]/div[1]/section[2]/div[3]/table[1]/thead[1]/tr[1]/th[2]
+            servingSizeUom:
+              - text: ml
+                xpath: /html/body/div[3]/div[5]/article[1]/div[1]/div[1]/section[2]/div[3]/table[1]/thead[1]/tr[1]/th[2]
+            caloriesPerServing:
+              - text: 178 kJ / 43 kcal
+                xpath: /html/body/div[3]/div[5]/article[1]/div[1]/div[1]/section[2]/div[3]/table[1]/tbody[1]/tr[1]/td[1]
+            totalFatPerServing:
+              - text: "0"
+                xpath: /html/body/div[3]/div[5]/article[1]/div[1]/div[1]/section[2]/div[3]/table[1]/tbody[1]/tr[2]/td[1]
+            totalFatPerServingUom:
+              - text: g
+                xpath: /html/body/div[3]/div[5]/article[1]/div[1]/div[1]/section[2]/div[3]/table[1]/tbody[1]/tr[2]/td[1]
+            saturatedFatPerServing:
+              - text: "0"
+                xpath: /html/body/div[3]/div[5]/article[1]/div[1]/div[1]/section[2]/div[3]/table[1]/tbody[1]/tr[3]/td[1]
+            saturatedFatPerServingUom:
+              - text: g
+                xpath: /html/body/div[3]/div[5]/article[1]/div[1]/div[1]/section[2]/div[3]/table[1]/tbody[1]/tr[3]/td[1]
+            totalCarbPerServing:
+              - text: "3.0"
+                xpath: /html/body/div[3]/div[5]/article[1]/div[1]/div[1]/section[2]/div[3]/table[1]/tbody[1]/tr[4]/td[1]
+            totalCarbPerServingUom:
+              - text: g
+                xpath: /html/body/div[3]/div[5]/article[1]/div[1]/div[1]/section[2]/div[3]/table[1]/tbody[1]/tr[4]/td[1]
+            totalSugarsPerServing:
+              - text: "0"
+                xpath: /html/body/div[3]/div[5]/article[1]/div[1]/div[1]/section[2]/div[3]/table[1]/tbody[1]/tr[5]/td[1]
+            totalSugarsPerServingUom:
+              - text: g
+                xpath: /html/body/div[3]/div[5]/article[1]/div[1]/div[1]/section[2]/div[3]/table[1]/tbody[1]/tr[5]/td[1]
+            proteinPerServing:
+              - text: "0.5"
+                xpath: /html/body/div[3]/div[5]/article[1]/div[1]/div[1]/section[2]/div[3]/table[1]/tbody[1]/tr[6]/td[1]
+            proteinPerServingUom:
+              - text: g
+                xpath: /html/body/div[3]/div[5]/article[1]/div[1]/div[1]/section[2]/div[3]/table[1]/tbody[1]/tr[6]/td[1]
+            saltPerServing:
+              - text: "0.01"
+                xpath: /html/body/div[3]/div[5]/article[1]/div[1]/div[1]/section[2]/div[3]/table[1]/tbody[1]/tr[7]/td[1]
+            saltPerServingUom:
+              - text: g
+                xpath: /html/body/div[3]/div[5]/article[1]/div[1]/div[1]/section[2]/div[3]/table[1]/tbody[1]/tr[7]/td[1]
+            storage:
+              - text: Staand, koel en donker bewaren.
+                xpath: /html/body/div[3]/div[5]/article[1]/div[1]/div[1]/section[2]/div[8]/p[1]
+            allergyAdvice:
+              - text: Bevat Tarwe
+                xpath: /html/body/div[3]/div[5]/article[1]/div[1]/div[1]/section[2]/div[9]/ul[1]/li[1]
+              - text: Bevat Gerst
+                xpath: /html/body/div[3]/div[5]/article[1]/div[1]/div[1]/section[2]/div[9]/ul[1]/li[2]
+            recyclingInformation:
+              - text: "Recycling: Fles: Glas - Doorgaans gerecycled"
+                xpath: /html/body/div[3]/div[5]/article[1]/div[1]/div[1]/section[2]/div[7]/ul[1]/li[1]
+            pricePerUnit:
+              - text: 3,55/liter
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/span[2]/span[2]
+            pricePerUnitUom:
+              - text: liter
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/span[2]/span[2]
+            promotion:
+              - text: 2e halve prijs
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/ul[1]/li[1]/span[1]
+            additionalDescBulletInfo:
+              - text: "|| Alcoholpercentage: 5.1% Vol. Bier || Water || tarwemout || gerstemout
+                  || gist || hop || Recycling: Fles: Glas - Doorgaans gerecycled
+                  || Bevat Tarwe || Bevat Gerst"
+            variantCount:
+              - text: "0"
+            technicalInformationPdfPresent:
+              - text: No
+            termsAndConditions:
+              - text: No
+            privacyPolicy:
+              - text: No
+            customerServiceAvailability:
+              - text: No
+            Image360Present:
+              - text: No
+            imageZoomFeaturePresent:
+              - text: No
+            listPrice:
+              - text: €
+            price:
+              - text: 6,39€
+            descriptionBullets:
+              - text: "9"
+            secondaryImageTotal:
+              - text: "2"
+            sku:
+              - text: "12425"
+        xpath: /
+    timestamp: 1609338163924

@@ -55,11 +55,8 @@ module.exports = {
     }
     if (dataRef[0].group[0].variantId) {
       dataRef[0].group[0].sku = [{
-        text: dataRef[0].group[0].variantId[0].text,
+        text: dataRef[0].group[0].variantId[0].text.match(/(\d+)/)[1],
       }];
-    }
-    if (dataRef[0].group[0].quantity) {
-      dataRef[0].group[0].quantity[0].text = dataRef[0].group[0].quantity[0].text.match(/(\d+\s?\w+)$/)[1];
     }
     if (dataRef[0].group[0].description && dataRef[0].group[0].description[0].text.includes('||')) {
       dataRef[0].group[0].additionalDescBulletInfo = [{

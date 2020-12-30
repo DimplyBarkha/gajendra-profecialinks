@@ -1,0 +1,162 @@
+input:
+  id: 196511STK
+  _url: http://jumbo.com
+extractions:
+  - html: https://workbench.import.io/html/run=a08759b2-7336-4b99-9a16-5960cc284ae2/task=d9517d8c-576b-4338-97ee-11d88048f86e/ae1a912b-e6e4-4b42-904d-f01725f28fb3.html
+    extractionConfigId: product/details/stores/j/jumbo/NL/extract
+    data:
+      - group:
+          - productUrl:
+              - text: https://www.jumbo.com/andrelon-men-shampoo-hair--body-300ml/196511STK/
+                xpath: /html/head[1]/link[2]/@href
+            image:
+              - text: https://static-images.jumbo.com/product_images/191120202340_196511STK-1_360x360_2.png
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[1]/a[1]/img[1]/@src
+            imageAlt:
+              - text: Andrelon Men Shampoo Hair & Body 300ml
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/img[1]/@alt
+            alternateImages:
+              - text: https://static-images.jumbo.com/product_images/191120202343_196511STK-5_360x360_2.png
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[2]/a[1]/img[1]/@src
+              - text: https://static-images.jumbo.com/product_images/191120202340_196511STK-4_360x360_2.png
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[3]/a[1]/img[1]/@src
+            category:
+              - text: Shampoo voor mannen
+                xpath: /html/head[1]/title[1]
+            nameExtended:
+              - text: Andrelon Men Shampoo Hair & Body 300ml
+                xpath: /html/head[1]/meta[8]/@content
+            availabilityText:
+              - text: In stock
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[3]/div[1]/button[1]/span[1]
+            description:
+              - text: "Andrélon Men Hair & Body, ontwikkeld voor mannen en geschikt voor het
+                  wassen van je en haar en lichaam. || •Andrélon Men Hair &
+                  Body, verzorg je haar en lichaam onder de douche || •Hair &
+                  Body shampoo verrijkt met eucalyptus en aloë vera || •Milde
+                  reiniging voor je haar met hydraterende bestanddelen voor je
+                  huid || •Speciaal ontwikkeld voor mannen, voor haar en lichaam
+                  || •Andrélon shampoo en douchegel biedt milde reiniging ||
+                  •Met deze 2 in 1 shampoo heb je niets anders meer
+                  nodigAndrélon Men Hair & Body shampoo is ontwikkeld voor
+                  mannen en geschikt voor het verzorgen van zowel je lichaam als
+                  je haar onder de douche. Deze 2 in 1 formule, verrijkt met
+                  eucalyptus en aloë vera, biedt milde reiniging voor je haar,
+                  en bevat hydraterende bestanddelen voor je huid. Met deze
+                  complete verzorging in 1 fles heb je niets anders meer nodig.
+                  Deze fles is 100% recyclebaar, gooi de fles dus weg bij het
+                  plasticafval.Andrélon Hair & Body is een product uit de
+                  Andrélon Men lijn, speciaal ontwikkeld voor mannen. Gebruik je
+                  regelmatig stylingsproducten? Probeer dan ook eens de Men
+                  Iedere Dag shampoo of, voor mannen met grijs haar de Men
+                  Zilver Care shampoo. Onhandelbare krullen? Geef je haar weer
+                  veerkracht met Andrélon Men Matt Clay.Andrélon is het meest
+                  verkochte haarverzorgingsmerk in Nederland. Met een uitgebreid
+                  assortiment shampoos, conditioners en stylingproducten biedt
+                  Andrélon je een uitgebreide verzorging voor elk type haar.
+                  Andrélon kent een rijke geschiedenis van meer dan 80 jaar:
+                  ooit maakte kapper André de Jong zijn eigen
+                  verzorgingsproducten in een klein fabriekje naast zijn winkel
+                  in Bodegraven. In 1940 registreerde hij zich bij de Kamer van
+                  Koophandel en Fabrieken in Bodegraven. Parfumerie Andrélon was
+                  geboren en in de daarop volgende 80 jaar ontwikkelde het zich
+                  als een landelijk bekend merk voor haarverzorging. Innovatie
+                  is voor Andrélon haarverzorgingsproducten altijd een
+                  belangrijke leidraad geweest. Van de introductie van de
+                  onderscheidende schubbenfles tot de steeds vernieuwende
+                  formules van de shampoos, conditioners en stylingproducten.
+                  Andrélon laat je haar stralen. Men Hair & Body || Recycling:
+                  Fles: Recyclebaar"
+                xpath: /html/body/div[3]/div[5]/article[1]/div[1]/div[1]/section[1]/div[1]/div[1]/p[1]
+            brandText:
+              - text: Andrélon
+                xpath: /html/body/div[6]
+            quantity:
+              - text: 300 ml
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/span[1]
+            variantId:
+              - text: 196511STK
+                xpath: /html/body/div[3]/div[5]/article[1]/div[1]/div[1]/section[3]/div[1]/@data-jum-product-details
+            manufacturerDescription:
+              - text: Andrelon
+                xpath: /html/body/div[3]/div[5]/article[1]/div[1]/div[1]/section[3]/div[8]/p[1]
+            name:
+              - text: Andrelon Men Shampoo Hair & Body 300ml
+                xpath: /html/head[1]/meta[8]/@content
+            recyclingInformation:
+              - text: "Recycling: Fles: Recyclebaar"
+                xpath: /html/body/div[3]/div[5]/article[1]/div[1]/div[1]/section[3]/div[5]/ul[1]/li[1]
+            productOtherInformation:
+              - text: Society of the Plastics Industry (SPI) - 2 HDPE
+                xpath: /html/body/div[3]/div[5]/article[1]/div[1]/div[1]/section[3]/div[6]/p[1]
+            pricePerUnit:
+              - text: 13,50/liter
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/span[2]/span[2]
+            pricePerUnitUom:
+              - text: liter
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/span[2]/span[2]
+            promotion:
+              - text: 1+1 gratis
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/ul[1]/li[1]/span[1]
+            additionalDescBulletInfo:
+              - text: "|| •Andrélon Men Hair & Body, verzorg je haar en lichaam onder de douche
+                  || •Hair & Body shampoo verrijkt met eucalyptus en aloë vera
+                  || •Milde reiniging voor je haar met hydraterende bestanddelen
+                  voor je huid || •Speciaal ontwikkeld voor mannen, voor haar en
+                  lichaam || •Andrélon shampoo en douchegel biedt milde
+                  reiniging || •Met deze 2 in 1 shampoo heb je niets anders meer
+                  nodigAndrélon Men Hair & Body shampoo is ontwikkeld voor
+                  mannen en geschikt voor het verzorgen van zowel je lichaam als
+                  je haar onder de douche. Deze 2 in 1 formule, verrijkt met
+                  eucalyptus en aloë vera, biedt milde reiniging voor je haar,
+                  en bevat hydraterende bestanddelen voor je huid. Met deze
+                  complete verzorging in 1 fles heb je niets anders meer nodig.
+                  Deze fles is 100% recyclebaar, gooi de fles dus weg bij het
+                  plasticafval.Andrélon Hair & Body is een product uit de
+                  Andrélon Men lijn, speciaal ontwikkeld voor mannen. Gebruik je
+                  regelmatig stylingsproducten? Probeer dan ook eens de Men
+                  Iedere Dag shampoo of, voor mannen met grijs haar de Men
+                  Zilver Care shampoo. Onhandelbare krullen? Geef je haar weer
+                  veerkracht met Andrélon Men Matt Clay.Andrélon is het meest
+                  verkochte haarverzorgingsmerk in Nederland. Met een uitgebreid
+                  assortiment shampoos, conditioners en stylingproducten biedt
+                  Andrélon je een uitgebreide verzorging voor elk type haar.
+                  Andrélon kent een rijke geschiedenis van meer dan 80 jaar:
+                  ooit maakte kapper André de Jong zijn eigen
+                  verzorgingsproducten in een klein fabriekje naast zijn winkel
+                  in Bodegraven. In 1940 registreerde hij zich bij de Kamer van
+                  Koophandel en Fabrieken in Bodegraven. Parfumerie Andrélon was
+                  geboren en in de daarop volgende 80 jaar ontwikkelde het zich
+                  als een landelijk bekend merk voor haarverzorging. Innovatie
+                  is voor Andrélon haarverzorgingsproducten altijd een
+                  belangrijke leidraad geweest. Van de introductie van de
+                  onderscheidende schubbenfles tot de steeds vernieuwende
+                  formules van de shampoos, conditioners en stylingproducten.
+                  Andrélon laat je haar stralen. Men Hair & Body || Recycling:
+                  Fles: Recyclebaar"
+            variantCount:
+              - text: "0"
+            technicalInformationPdfPresent:
+              - text: No
+            termsAndConditions:
+              - text: No
+            privacyPolicy:
+              - text: No
+            customerServiceAvailability:
+              - text: No
+            Image360Present:
+              - text: No
+            imageZoomFeaturePresent:
+              - text: No
+            listPrice:
+              - text: €
+            price:
+              - text: 4,05€
+            descriptionBullets:
+              - text: "1"
+            secondaryImageTotal:
+              - text: "2"
+            sku:
+              - text: "196511"
+        xpath: /
+    timestamp: 1609338166663
