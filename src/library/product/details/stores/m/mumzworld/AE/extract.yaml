@@ -97,3 +97,9 @@ fields:
   - name: packSize
     singleValue: false
     xpath: //div[@class='product-name']//h1
+  - name: unInterruptedPDP
+    singleValue: false
+    xpath: //*[contains(@data-type,"ProductDetail-Similar")]//ul/li//a[@data-event="recProductClick"]/@title
+  - name: inTheBoxText
+    singleValue: false
+    xpath: //div[@id="full-desc"]//text()[preceding-sibling::b[1][contains(text(),"In the box")]] | //div[@id="full-desc"]//b[contains(text(),"Box includes")]/following-sibling::b[not(contains(.,":"))]

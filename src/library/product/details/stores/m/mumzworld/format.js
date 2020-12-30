@@ -83,6 +83,10 @@ const transform = (data) => {
         });
         row.description = [{ text: info.join(' | '), xpath: row.description[0].xpath }];
       }
+      if (row.unInterruptedPDP) {
+        const titles = Array.from(new Set(row.unInterruptedPDP.map(elm => elm.text.trim())));
+        row.unInterruptedPDP = titles.map(text => ({ text }));
+      }
     }
   }
   return cleanUp(data);
