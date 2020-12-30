@@ -1,34 +1,32 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: null
+recordXPath: //*[@id="added-table"]/table/tbody/tr
 fields:
   - name: name
-    xpath: //*[@id="added-table"]/table/tbody/tr//td[@class="brandPath"]/table/tbody/tr[1]/td[@class="name"] | //*[@id="added-table"]/table/tbody/tr//td[@class="brandPath"]/table/tbody/tr[3]/td[@class="name"] | //*[@id="added-table"]/table/tbody/tr//td[@class="baseProductName"] 
+    xpath: td[@class="brandPath"]/table/tbody/tr[1]/td[@class="name"] | td[@class="brandPath"]/table/tbody/tr[3]/td[@class="name"] | td[@class="baseProductName"] 
   - name: id
-    xpath: //*[@id="added-table"]/table/tbody/tr/td[@class="code"]
+    xpath: td[@class="code"]
   - name: thumbnail
-    xpath: //*[@id="added-table"]/table/tbody/tr/td[@class="images"]//td[@class="url"]
+    xpath: td[@class="url"]
   - name: price
-    xpath: //*[@id="added-table"]/table/tbody/tr/td[@class="price"]//td[@class="formattedValue"]
-    regExp: €\s(\d+,\d+)
-    regExpReplace: $1
-  # # - name: searchUrl
-  # #   xpath: ancestor::html//td[@class="currentQuery depth_0"]//td[@class="url depth_1"]
+    xpath: td[@class="price"]//td[@class="formattedValue"]
+  - name: searchUrl
+    xpath: ancestor::html//@current-url
   - name: productUrl
-    xpath: //*[@id="added-table"]/table/tbody/tr/td[@class="url"]
+    xpath: td[@class="url"]
     regExp: (.+)
     regExpReplace: https://www.douglas.at$1
   - name: reviewCount
-    xpath: //*[@id="added-table"]/table/tbody/tr/td[@class="numberOfReviews"]
+    xpath: td[@class="numberOfReviews"]
     # regExp: \((\d+)\)
     # regExpReplace: $1
   - name: aggregateRating2
-    xpath: //*[@id="added-table"]/table/tbody/tr/td[@class="averageRating"]
+    xpath: td[@class="averageRating"]
   #   # regExp: (\d.\d+\s)|\d\s
   # # - name: gtin
   # #   xpath: //td[contains(@class,"code depth_1")]
   - name: manufacturer
-    xpath: //*[@id="added-table"]/table/tbody/tr//td[@class="brandPath"]/table/tbody/tr[1]/td[@class="name"]
+    xpath: td[@class="brandPath"]/table/tbody/tr[1]/td[@class="name"]
   # # - name: rank
   # # - name: rankOrganic

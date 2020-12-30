@@ -95,6 +95,7 @@ async function implementation(
   const { productDetails } = dependencies;
   const data = await context.evaluate(getObjData);
   await context.evaluate(addDynamicTable, data, 'footer');
+  await context.evaluate(() => document.body.setAttribute('current-url', window.location.href));
   return await context.extract(productDetails, { transform });
 }
 // async function implementation (
