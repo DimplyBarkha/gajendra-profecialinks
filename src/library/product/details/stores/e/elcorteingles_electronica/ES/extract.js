@@ -490,25 +490,22 @@ module.exports = {
             console.log('we do not have value');
           }
         }
+
+        let encodedUri = encodeURIComponent(document.querySelector('input[value*="videos"]').getAttribute('value'));
+        let Produrl = document.URL.replace(/(https:\/\/)(.+)/g, "$2");
+        let gtin = document.querySelector('[data-product-gtin]').getAttribute('data-product-gtin');
+        let videoUrl = `https://media.flixcar.com/delivery/static/jwplayer/jwiframe.html?fjw=${encodedUri}&l=es&ean=${gtin}&sid=&base=//media.flixcar.com&pn=https|dub|for${Produrl}`;
+        if(videoUrl) {
+          console.log(`galleryVideo is - ${videoUrl}`);
+          addElementToDocumentAsync('galleryVideo', videoUrl);
+        } else {
+          console.log('we could not create the galleryVideo url');
+        }
       } else {
         console.log('we do not have any input elms where value attr had video');
       }
 
-      let encodedUri = encodeURIComponent(document.querySelector('input[value*="videos"]').getAttribute('value'));
-      let Produrl = document.URL.replace(/(https:\/\/)(.+)/g, "$2");
-      let gtin = document.querySelector('[data-product-gtin]').getAttribute('data-product-gtin');
-      let videoUrl = `https://media.flixcar.com/delivery/static/jwplayer/jwiframe.html?fjw=${encodedUri}&l=es&ean=${gtin}&sid=&base=//media.flixcar.com&pn=https|dub|for${Produrl}`;
-      if(videoUrl) {
-        console.log(`galleryVideo is - ${videoUrl}`);
-        addElementToDocumentAsync('galleryVideo', videoUrl);
-      } else {
-        console.log('we could not create the galleryVideo url');
-      }
-
       addElementToDocumentAsync('allVidLinks', allVidLinks.join(' || '));
-
-      
-
     });
 
     await context.extract(productDetails, { transform });
