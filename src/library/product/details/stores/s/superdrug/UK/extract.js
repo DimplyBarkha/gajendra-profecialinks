@@ -40,6 +40,29 @@ async function implementation (inputs, parameters, context, dependencies) {
     } else {
       addElementToDocument('isImgZoom', 'No', 'No');
     }
+    // @ts-ignore
+    const variants = [...document.querySelectorAll('*[id=addToCartForm] div > a')].map(el => {
+      return `${el.innerText} - ${el.getAttribute('href').match(/(\d+)$/)[0]}`;
+    });
+    variants.forEach((variant, index) => {
+      addElementToDocument(`added-variant-${index}`, variant);
+    });
+    const terms = document.evaluate('//a[contains(@class,"footer")][text()="Terms & Conditions"][1]', document, null, XPathResult.STRING_TYPE, null).stringValue;
+    const privacy = document.evaluate('//a[contains(@class,"footer")][text()="Privacy Policy"][1]', document, null, XPathResult.STRING_TYPE, null).stringValue;
+    const customerService = document.evaluate('//h4[contains(@class,"footer")][text()="Customer Service"][1]', document, null, XPathResult.STRING_TYPE, null).stringValue;
+    if (terms) addElementToDocument('added-terms', 'Yes');
+    if (privacy) addElementToDocument('added-privacy', 'Yes');
+    if (customerService) addElementToDocument('added-customer-service', 'Yes');
+    // @ts-ignore
+    const secondaryImages = [...document.querySelectorAll('#thumbnails img')].map(el => 'https://www.superdrug.com' + el.getAttribute('src')).slice(1);
+    if (secondaryImages.length) {
+      addElementToDocument('added-total-sec-img', secondaryImages.length);
+      secondaryImages.forEach((img, index) => {
+        addElementToDocument(`added-sec-img-${index}`, img);
+      });
+    }
+    const pricePerUnit = document.evaluate('//p[contains(@class,"pricing__per-item")]', document, null, XPathResult.STRING_TYPE, null).stringValue;
+    if (pricePerUnit && pricePerUnit.match(/per\s?(.+)/)) addElementToDocument('added-price-uom', pricePerUnit.match(/per\s?(.+)/)[1]);
   });
   return await context.extract(productDetails, { transform });
 }

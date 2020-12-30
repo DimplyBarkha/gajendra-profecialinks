@@ -2,7 +2,7 @@ input:
   id: 101583
   _url: http://superdrug.com
 extractions:
-  - html: https://workbench.import.io/html/run=44236dfe-b2b1-43c5-b213-3e1817f610b3/task=189e0fd5-49b4-4c39-bfde-1ddcf7550d1c/9933b692-3c71-4f28-9bcb-68760b6576f4.html
+  - html: https://workbench.import.io/html/run=7b3add7e-1a10-4045-ac8e-c00960c83061/task=dd28c9ae-8a2e-4aba-b7d5-7c1cbaf41a68/378b7121-f2a7-46c3-badf-c4bb89c25abe.html
     extractionConfigId: product/details/stores/s/superdrug/UK/extract
     data:
       - group:
@@ -16,12 +16,10 @@ extractions:
               - text: Olay Regenerist Eye Lifting Serum 15ml
                 xpath: /html/body/div[26]/div[1]/section[1]/div[1]/div[2]/a[1]/div[1]/img[1]/@alt
             alternateImages:
-              - text: https://www.superdrug.com/medias/sys_master/front-prdthumb/front-prdthumb/hf1/hab/10298667761694/Olay-Regenerist-Eye-Lifting-Serum-15-Ml-101583.jpg
-                xpath: /html/body/div[26]/div[1]/section[1]/div[1]/div[1]/ul[1]/li[1]/a[1]/img[1]/@src
               - text: https://www.superdrug.com/medias/sys_master/back-prdthumb/back-prdthumb/h0b/hc7/9790573183006/Olay-Regenerist-Eye-Lifting-Serum-15-Ml-101583.jpg
-                xpath: /html/body/div[26]/div[1]/section[1]/div[1]/div[1]/ul[1]/li[2]/a[1]/img[1]/@src
+                xpath: /html/body/div[43]
               - text: https://www.superdrug.com/medias/sys_master/side-prdthumb/side-prdthumb/h8c/hde/9790747836446/Olay-Regenerist-Eye-Lifting-Serum-15-Ml-101583.jpg
-                xpath: /html/body/div[26]/div[1]/section[1]/div[1]/div[1]/ul[1]/li[3]/a[1]/img[1]/@src
+                xpath: /html/body/div[44]
             category:
               - text: Skin
                 xpath: /html/body/div[24]/a[2]
@@ -29,8 +27,6 @@ extractions:
                 xpath: /html/body/div[24]/a[3]
               - text: Eye Gels, Serums & Balms
                 xpath: /html/body/div[24]/a[4]
-              - text: Olay Regenerist Eye Lifting Serum 15ml
-                xpath: /html/body/div[24]/a[5]
             nameExtended:
               - text: Olay - Olay Regenerist Eye Lifting Serum 15ml
                 xpath: /html/body/div[36]
@@ -50,8 +46,8 @@ extractions:
               - text: Olay
                 xpath: /html/body/div[26]/div[1]/section[1]/header[1]/span[1]/a[1]
             quantity:
-              - text: 15ml
-                xpath: /html/body/div[26]/div[1]/section[1]/header[1]/h1[1]
+              - text: "15"
+                xpath: /html/body/div[26]/div[3]/div[1]/section[1]/article[4]/p[2]
             sku:
               - text: "101583"
                 xpath: /html/body/div[26]/div[3]/div[1]/section[1]/article[4]/p[3]
@@ -76,6 +72,9 @@ extractions:
             brandLink:
               - text: https://www.superdrug.com/b/Olay
                 xpath: /html/body/div[37]
+            secondaryImageTotal:
+              - text: "2"
+                xpath: /html/body/div[42]
             productOtherInformation:
               - text: Olay Regenerist Eye Lifting Serum is an eye cream serum specifically
                   designed to treat the the delicate skin around the eye area.
@@ -102,15 +101,25 @@ extractions:
             pricePerUnit:
               - text: £14.46 per 10ml
                 xpath: /html/body/div[26]/div[1]/div[1]/div[1]/div[1]/div[1]/p[1]
+            pricePerUnitUom:
+              - text: 10ml
+                xpath: /html/body/div[45]
             promotion:
-              - text: Buy 1 get 1 free mix and match on selected Olay
+              - text: Buy 1 get 1 free mix & match on selected Olay
                 xpath: /html/body/div[26]/div[1]/section[1]/div[3]/a[2]
+            termsAndConditions:
+              - text: Yes
+                xpath: /html/body/div[39]
+            privacyPolicy:
+              - text: Yes
+                xpath: /html/body/div[40]
+            customerServiceAvailability:
+              - text: Yes
+                xpath: /html/body/div[41]
             imageZoomFeaturePresent:
               - text: Yes
                 xpath: /html/body/div[38]
             variantCount:
               - text: "0"
-            secondaryImageTotal:
-              - text: "3"
         xpath: /
-    timestamp: 1607525184753
+    timestamp: 1609311266111

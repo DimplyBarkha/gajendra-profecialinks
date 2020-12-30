@@ -22,15 +22,13 @@ fields:
   xpath: //div[@class="pdp-gallery__zoom"]//img/@alt
 - name: alternateImages
   singleValue: false
-  xpath: //*[@id="thumbnails"]/li[not(@class="selected")]//img/@src
-  regExp: (.+)
-  regExpReplace: https://www.superdrug.com$1
+  xpath: //div[contains(@id, "added-sec-img-")]
 - name: metaKeywords
   singleValue: true
   description: The <meta> keywords content
 - name: category
   singleValue: false
-  xpath: //div[@id="breadcrumb"]/a[position()>1]
+  xpath: //div[@id="breadcrumb"]/a[position()>1 and position()<last()]
 - name: nameExtended
   singleValue: false
   xpath: //div[@id="nameextended"]
@@ -56,8 +54,8 @@ fields:
   singleValue: true
   description: Product manufacturer 
 - name: quantity
-  xpath: //h1[@class="pdp__productName"]
-  regExp: (\d+ml|gr)
+  xpath: //p[contains(text(), "Size (")]
+  regExp: Size \((\d+(.\d+)?)
   regExpReplace: $1
   singleValue: false
   description: Quantity as described on the page
@@ -210,6 +208,7 @@ fields:
   singleValue: true
   description: 
 - name: featureBullets
+  xpath: //h3[text()="Features"]/following-sibling::li|//h3[text()="Benefits"]/following-sibling::li
   singleValue: false
   description: 
 - name: otherSellersName
@@ -224,7 +223,7 @@ fields:
   singleValue: false
   description: 
 - name: secondaryImageTotal
-  xpath: count(//*[@id="thumbnails"]/li[not(@class="selected")]//img/@src)
+  xpath: //div[@id="added-total-sec-img"]
   singleValue: false
   description: 
 - name: news
@@ -389,6 +388,7 @@ fields:
   singleValue: true
   xpath: //p[contains(@class,"pricing__per-item")]
 - name: pricePerUnitUom
+  xpath: //div[@id="added-price-uom"]
   singleValue: true
 - name: promotion
   xpath: //a[@class="promotion__item"]
@@ -413,9 +413,7 @@ fields:
   singleValue: true
   description: colour / scent / flavour / other
 - name: firstVariant
-  xpath: //*[@id="addToCartForm"]//span[contains(@class,"selected")]/img/@src
-  regExp: -(\d+).jpg
-  regExpReplace: $1
+  xpath: //div[@id="added-variant-0"]
   singleValue: false
   description: Unique identifier for a collection of variants. For a subset of core
     feeds (43) we have a column "first_variant" that is populated with a common code
@@ -426,9 +424,7 @@ fields:
     common link between other variants. method 3 = apply some logic to determine link
     between variants, this will need analysis
 - name: variants
-  xpath: //*[@id="addToCartForm"]//div/a/@href
-  regExp: (\d+)$
-  regExpReplace: $1
+  xpath: //div[contains(@id,"added-variant-")]
   singleValue: false
   description: 
 - name: additionalDescBulletInfo
@@ -452,16 +448,19 @@ fields:
   defaultValue: false
 - name: termsAndConditions
   singleValue: true
+  xpath: //div[@id="added-terms"]
+  defaultValue: No
   description: Terms and conditions information text ['Yes','No']
-  defaultValue: false
 - name: privacyPolicy
   singleValue: true
+  xpath: //div[@id="added-privacy"]
+  defaultValue: No
   description: Privacy Policy information text ['Yes','No']
-  defaultValue: false
 - name: customerServiceAvailability
   singleValue: true
+  xpath: //div[@id="added-customer-service"]
+  defaultValue: No
   description: Information related to customer service availability (text), ['Yes','No']
-  defaultValue: false
 - name: materials
   singleValue: true
   description: Materials used to make the product

@@ -2,7 +2,7 @@ input:
   id: 113603
   _url: http://superdrug.com
 extractions:
-  - html: https://workbench.import.io/html/run=44236dfe-b2b1-43c5-b213-3e1817f610b3/task=09cb589a-2d99-466e-beca-d09b0db55e8e/8151b065-5139-4193-ac8a-29753b2769ae.html
+  - html: https://workbench.import.io/html/run=7b3add7e-1a10-4045-ac8e-c00960c83061/task=3b23b32f-3503-4631-af76-358414c88458/18b77ad6-4783-49e3-8b21-842ea909b10a.html
     extractionConfigId: product/details/stores/s/superdrug/UK/extract
     data:
       - group:
@@ -10,18 +10,16 @@ extractions:
               - text: https://www.superdrug.com/Hair/Hair-Colourants/Permanent-Hair-Dye/LIVE-Intense-Colour-090-Cosmic-Blue-Hair-Dye/p/113603
                 xpath: /html/head[1]/link[2]/@href
             image:
-              - text: https://www.superdrug.com/medias/sys_master/front-prd/front-prd/h54/ha2/11553889386526/LIVE-Intense-Colour-090-Cosmic-Blue-Hair-Dye-113603.jpg
+              - text: https://www.superdrug.com/medias/sys_master/front-prd/front-prd/h64/h12/11564098060318/LIVE-Intense-Colour-090-Cosmic-Blue-Hair-Dye-113603.jpg
                 xpath: /html/body/div[26]/div[1]/section[1]/div[1]/div[2]/a[1]/div[1]/img[1]/@src
             imageAlt:
               - text: LIVE Intense Colour 090 Cosmic Blue Hair Dye
                 xpath: /html/body/div[26]/div[1]/section[1]/div[1]/div[2]/a[1]/div[1]/img[1]/@alt
             alternateImages:
-              - text: https://www.superdrug.com/medias/sys_master/front-prdthumb/front-prdthumb/hd1/h89/11553889452062/LIVE-Intense-Colour-090-Cosmic-Blue-Hair-Dye-113603.jpg
-                xpath: /html/body/div[26]/div[1]/section[1]/div[1]/div[1]/ul[1]/li[1]/a[1]/img[1]/@src
-              - text: https://www.superdrug.com/medias/sys_master/back-prdthumb/back-prdthumb/h32/h60/11553889189918/LIVE-Intense-Colour-090-Cosmic-Blue-Hair-Dye-113603.jpg
-                xpath: /html/body/div[26]/div[1]/section[1]/div[1]/div[1]/ul[1]/li[2]/a[1]/img[1]/@src
-              - text: https://www.superdrug.com/medias/sys_master/side-prdthumb/side-prdthumb/h8e/hde/11553889976350/LIVE-Intense-Colour-090-Cosmic-Blue-Hair-Dye-113603.jpg
-                xpath: /html/body/div[26]/div[1]/section[1]/div[1]/div[1]/ul[1]/li[3]/a[1]/img[1]/@src
+              - text: https://www.superdrug.com/medias/sys_master/back-prdthumb/back-prdthumb/h04/h2a/11559218348062/LIVE-Intense-Colour-090-Cosmic-Blue-Hair-Dye-113603.jpg
+                xpath: /html/body/div[56]
+              - text: https://www.superdrug.com/medias/sys_master/side-prdthumb/side-prdthumb/h69/h5f/11559219068958/LIVE-Intense-Colour-090-Cosmic-Blue-Hair-Dye-113603.jpg
+                xpath: /html/body/div[57]
             category:
               - text: Hair
                 xpath: /html/body/div[24]/a[2]
@@ -29,20 +27,15 @@ extractions:
                 xpath: /html/body/div[24]/a[3]
               - text: Permanent Hair Dye
                 xpath: /html/body/div[24]/a[4]
-              - text: LIVE Intense Colour 090 Cosmic Blue Hair Dye
-                xpath: /html/body/div[24]/a[5]
             nameExtended:
               - text: LIVE - LIVE Intense Colour 090 Cosmic Blue Hair Dye
                 xpath: /html/body/div[36]
-            listPrice:
-              - text: was £5.79
-                xpath: /html/body/div[26]/div[1]/div[1]/div[1]/div[1]/div[1]/span[3]
             price:
-              - text: "4.79"
+              - text: "5.79"
                 xpath: /html/body/div[26]/div[1]/div[1]/div[1]/div[1]/div[1]/span[2]
             availabilityText:
               - text: inStock
-                xpath: /html/body/div[26]/div[1]/div[1]/div[1]/div[1]/div[1]/span[4]
+                xpath: /html/body/div[26]/div[1]/div[1]/div[1]/div[1]/div[1]/span[3]
             description:
               - text: Take your colour to the max with LIVE Color XXL for permanent, long
                   lasting and vibrant colour full of healthy shine.
@@ -50,6 +43,9 @@ extractions:
             brandText:
               - text: LIVE
                 xpath: /html/body/div[26]/div[1]/section[1]/header[1]/span[1]/a[1]
+            quantity:
+              - text: "0"
+                xpath: /html/body/div[26]/div[3]/div[1]/section[1]/article[4]/p[2]
             sku:
               - text: "113603"
                 xpath: /html/body/div[26]/div[3]/div[1]/section[1]/article[4]/p[3]
@@ -87,10 +83,10 @@ extractions:
                   We advise, and it is stated on the product instructions, everyone should perform a strand test before dyeing their hair, even if they have used the product before, as that ensures they will achieve the right result. So remember to buy the product 48 hours in advance.
                 xpath: /html/body/div[26]/div[3]/div[1]/section[1]/article[3]/p[1]
             ratingCount:
-              - text: "40"
+              - text: "41"
                 xpath: /html/body/div[26]/div[1]/div[1]/div[1]/div[1]/div[2]/a[1]/span[1]
             aggregateRating:
-              - text: "3.7"
+              - text: "3.6"
                 xpath: /html/body/div[26]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/dl[1]/dd[1]/div[1]/a[1]/span[1]
             shippingDimensions:
               - text: Height (16.8) Width (9) Depth (5.8)
@@ -101,6 +97,9 @@ extractions:
             brandLink:
               - text: https://www.superdrug.com/b/LIVE
                 xpath: /html/body/div[37]
+            secondaryImageTotal:
+              - text: "2"
+                xpath: /html/body/div[55]
             productOtherInformation:
               - text: From a subtle change to a bold all-out transformation, Schwarzkopf LIVE
                   Color XXL is a range of statement hair colours offering the
@@ -144,41 +143,52 @@ extractions:
                 xpath: /html/body/div[26]/div[3]/div[1]/section[1]/article[4]/p[2]
               - text: "Product code: 113603"
                 xpath: /html/body/div[26]/div[3]/div[1]/section[1]/article[4]/p[3]
-            promotion:
-              - text: Save £1 on selected LIVE
-                xpath: /html/body/div[26]/div[1]/section[1]/div[3]/a[2]
             variantInformation:
               - text: Cosmic Blue 90
                 xpath: /html/body/div[26]/div[1]/div[1]/div[1]/div[1]/div[3]/form[1]/div[1]/div[1]/a[2]/@title
+            firstVariant:
+              - text: Deep Black 99 - 113581
+                xpath: /html/body/div[39]
             variants:
-              - text: "99"
-                xpath: /html/body/div[26]/div[1]/div[1]/div[1]/div[1]/div[3]/form[1]/div[1]/div[1]/a[1]
-              - text: "90"
-                xpath: /html/body/div[26]/div[1]/div[1]/div[1]/div[1]/div[3]/form[1]/div[1]/div[1]/a[2]
-              - text: "89"
-                xpath: /html/body/div[26]/div[1]/div[1]/div[1]/div[1]/div[3]/form[1]/div[1]/div[1]/a[3]
-              - text: "87"
-                xpath: /html/body/div[26]/div[1]/div[1]/div[1]/div[1]/div[3]/form[1]/div[1]/div[1]/a[4]
-              - text: "46"
-                xpath: /html/body/div[26]/div[1]/div[1]/div[1]/div[1]/div[3]/form[1]/div[1]/div[1]/a[5]
-              - text: "35"
-                xpath: /html/body/div[26]/div[1]/div[1]/div[1]/div[1]/div[3]/form[1]/div[1]/div[1]/a[6]
-              - text: "76"
-                xpath: /html/body/div[26]/div[1]/div[1]/div[1]/div[1]/div[3]/form[1]/div[1]/div[1]/a[9]
-              - text: "880"
-                xpath: /html/body/div[26]/div[1]/div[1]/div[1]/div[1]/div[3]/form[1]/div[1]/div[1]/a[10]
-              - text: "101"
-                xpath: /html/body/div[26]/div[1]/div[1]/div[1]/div[1]/div[3]/form[1]/div[1]/div[1]/a[11]
-              - text: "086"
-                xpath: /html/body/div[26]/div[1]/div[1]/div[1]/div[1]/div[3]/form[1]/div[1]/div[1]/a[12]
-              - text: "88"
-                xpath: /html/body/div[26]/div[1]/div[1]/div[1]/div[1]/div[3]/form[1]/div[1]/div[1]/a[13]
+              - text: Deep Black 99 - 113581
+                xpath: /html/body/div[39]
+              - text: Cosmic Blue 90 - 113603
+                xpath: /html/body/div[40]
+              - text: Bitter Sweet Choc 89 - 113611
+                xpath: /html/body/div[41]
+              - text: Mystic Violet V87 - 113638
+                xpath: /html/body/div[42]
+              - text: Cyber Purple V46 - 113689
+                xpath: /html/body/div[43]
+              - text: Real Red 35 - 113808
+                xpath: /html/body/div[44]
+              - text: Absolut Platinum 00A - 113816
+                xpath: /html/body/div[45]
+              - text: Max Blonde 00B - 236368
+                xpath: /html/body/div[46]
+              - text: Ultra Violet L76 - 449539
+                xpath: /html/body/div[47]
+              - text: Tempting Chocolate 880 - 538027
+                xpath: /html/body/div[48]
+              - text: Cool Rosé 101 - 715644
+                xpath: /html/body/div[49]
+              - text: Pure Purple 086 - 759760
+                xpath: /html/body/div[50]
+              - text: Urban Brown 88 - 759762
+                xpath: /html/body/div[51]
+            termsAndConditions:
+              - text: Yes
+                xpath: /html/body/div[52]
+            privacyPolicy:
+              - text: Yes
+                xpath: /html/body/div[53]
+            customerServiceAvailability:
+              - text: Yes
+                xpath: /html/body/div[54]
             imageZoomFeaturePresent:
               - text: Yes
                 xpath: /html/body/div[38]
             variantCount:
               - text: "13"
-            secondaryImageTotal:
-              - text: "3"
         xpath: /
-    timestamp: 1607525186322
+    timestamp: 1609311270446

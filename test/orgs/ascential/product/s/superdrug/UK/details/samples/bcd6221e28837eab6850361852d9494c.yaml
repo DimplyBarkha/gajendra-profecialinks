@@ -2,7 +2,7 @@ input:
   id: 184209
   _url: http://superdrug.com
 extractions:
-  - html: https://workbench.import.io/html/run=44236dfe-b2b1-43c5-b213-3e1817f610b3/task=ee115a5b-8afc-4843-84da-3d910e3c6b87/78462c19-d747-4445-a19c-d35afa413967.html
+  - html: https://workbench.import.io/html/run=7b3add7e-1a10-4045-ac8e-c00960c83061/task=b3813c91-91b3-462f-ba13-5f7ef986e2aa/e5e73a32-484f-4c51-8792-3636bfb9ed7a.html
     extractionConfigId: product/details/stores/s/superdrug/UK/extract
     data:
       - group:
@@ -16,12 +16,10 @@ extractions:
               - text: Calpol Infant 2+ Months Sugar Free Suspension 100ml
                 xpath: /html/body/div[26]/div[1]/section[1]/div[1]/div[2]/a[1]/div[1]/img[1]/@alt
             alternateImages:
-              - text: https://www.superdrug.com/medias/sys_master/front-prdthumb/front-prdthumb/h1e/h84/10018798207006/-Calpol-Infant-Suspension-2-Months-Sugar-Free-100ml-184209.jpg
-                xpath: /html/body/div[26]/div[1]/section[1]/div[1]/div[1]/ul[1]/li[1]/a[1]/img[1]/@src
               - text: https://www.superdrug.com/medias/sys_master/back-prdthumb/back-prdthumb/ha2/h4b/10018797944862/-Calpol-Infant-Suspension-2-Months-Sugar-Free-100ml-184209.jpg
-                xpath: /html/body/div[26]/div[1]/section[1]/div[1]/div[1]/ul[1]/li[2]/a[1]/img[1]/@src
+                xpath: /html/body/div[43]
               - text: https://www.superdrug.com/medias/sys_master/side-prdthumb/side-prdthumb/hf7/h3c/9365175205918/DNR-Calpol-Infant-Suspension-2-Months-Sugar-Free-100ml-184209.jpg
-                xpath: /html/body/div[26]/div[1]/section[1]/div[1]/div[1]/ul[1]/li[3]/a[1]/img[1]/@src
+                xpath: /html/body/div[44]
             category:
               - text: Health
                 xpath: /html/body/div[24]/a[2]
@@ -29,8 +27,6 @@ extractions:
                 xpath: /html/body/div[24]/a[3]
               - text: Children's Pain Relief
                 xpath: /html/body/div[24]/a[4]
-              - text: Calpol Infant 2+ Months Sugar Free Suspension 100ml
-                xpath: /html/body/div[24]/a[5]
             nameExtended:
               - text: Calpol - Calpol Infant 2+ Months Sugar Free Suspension 100ml
                 xpath: /html/body/div[36]
@@ -50,8 +46,8 @@ extractions:
               - text: Calpol
                 xpath: /html/body/div[26]/div[1]/section[1]/header[1]/span[1]/a[1]
             quantity:
-              - text: 100ml
-                xpath: /html/body/div[26]/div[1]/section[1]/header[1]/h1[1]
+              - text: "100"
+                xpath: /html/body/div[26]/div[3]/div[1]/section[1]/article[4]/p[2]
             sku:
               - text: "184209"
                 xpath: /html/body/div[26]/div[3]/div[1]/section[1]/article[4]/p[3]
@@ -112,6 +108,9 @@ extractions:
             brandLink:
               - text: https://www.superdrug.com/b/Calpol
                 xpath: /html/body/div[37]
+            secondaryImageTotal:
+              - text: "2"
+                xpath: /html/body/div[42]
             productOtherInformation:
               - text: Pink oral liquid.
                 xpath: /html/body/div[26]/div[3]/div[1]/section[1]/article[1]/p[1]
@@ -127,12 +126,25 @@ extractions:
             pricePerUnit:
               - text: £3.49 per 100ml
                 xpath: /html/body/div[26]/div[1]/div[1]/div[1]/div[1]/div[1]/p[1]
+            pricePerUnitUom:
+              - text: 100ml
+                xpath: /html/body/div[45]
+            promotion:
+              - text: Get 300 points when you spend £20 across Healthcare!
+                xpath: /html/body/div[26]/div[1]/section[1]/div[3]/a[2]
+            termsAndConditions:
+              - text: Yes
+                xpath: /html/body/div[39]
+            privacyPolicy:
+              - text: Yes
+                xpath: /html/body/div[40]
+            customerServiceAvailability:
+              - text: Yes
+                xpath: /html/body/div[41]
             imageZoomFeaturePresent:
               - text: Yes
                 xpath: /html/body/div[38]
             variantCount:
               - text: "0"
-            secondaryImageTotal:
-              - text: "3"
         xpath: /
-    timestamp: 1607525187747
+    timestamp: 1609311270062

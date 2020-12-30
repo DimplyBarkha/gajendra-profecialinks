@@ -2,7 +2,7 @@ input:
   id: 156930
   _url: http://superdrug.com
 extractions:
-  - html: https://workbench.import.io/html/run=44236dfe-b2b1-43c5-b213-3e1817f610b3/task=4395d001-e414-4b60-af76-f14338f98aa5/8fcd74e5-a8ab-4c27-b73c-92559b410db1.html
+  - html: https://workbench.import.io/html/run=7b3add7e-1a10-4045-ac8e-c00960c83061/task=36365b73-9295-4a32-a2be-348a71feb84f/8e7aaa61-bd65-4fe2-88e7-581907d0b417.html
     extractionConfigId: product/details/stores/s/superdrug/UK/extract
     data:
       - group:
@@ -16,12 +16,10 @@ extractions:
               - text: Olay Total Effects 7in1 Smoothing Serum 50ml
                 xpath: /html/body/div[26]/div[1]/section[1]/div[1]/div[2]/a[1]/div[1]/img[1]/@alt
             alternateImages:
-              - text: https://www.superdrug.com/medias/sys_master/front-prdthumb/front-prdthumb/hb4/hc3/10601829203998/Olay-Total-Effects-7-Signs-Serum-50ml-156930.jpg
-                xpath: /html/body/div[26]/div[1]/section[1]/div[1]/div[1]/ul[1]/li[1]/a[1]/img[1]/@src
               - text: https://www.superdrug.com/medias/sys_master/back-prdthumb/back-prdthumb/9016487804958/Olay-Total-Effects-7-Signs-Serum-50ml-156930.jpg
-                xpath: /html/body/div[26]/div[1]/section[1]/div[1]/div[1]/ul[1]/li[2]/a[1]/img[1]/@src
+                xpath: /html/body/div[43]
               - text: https://www.superdrug.com/medias/sys_master/ls1-prdthumb/ls1-prdthumb/h43/h3e/10601882877982/Olay-Total-Effects-7-Signs-Serum-50ml-156930.jpg
-                xpath: /html/body/div[26]/div[1]/section[1]/div[1]/div[1]/ul[1]/li[3]/a[1]/img[1]/@src
+                xpath: /html/body/div[44]
             category:
               - text: Skin
                 xpath: /html/body/div[24]/a[2]
@@ -29,8 +27,6 @@ extractions:
                 xpath: /html/body/div[24]/a[3]
               - text: Face Serums
                 xpath: /html/body/div[24]/a[4]
-              - text: Olay Total Effects 7in1 Smoothing Serum 50ml
-                xpath: /html/body/div[24]/a[5]
             nameExtended:
               - text: Olay - Olay Total Effects 7in1 Smoothing Serum 50ml
                 xpath: /html/body/div[36]
@@ -53,8 +49,8 @@ extractions:
               - text: Olay
                 xpath: /html/body/div[26]/div[1]/section[1]/header[1]/span[1]/a[1]
             quantity:
-              - text: 50ml
-                xpath: /html/body/div[26]/div[1]/section[1]/header[1]/h1[1]
+              - text: "50"
+                xpath: /html/body/div[26]/div[3]/div[1]/section[1]/article[4]/p[2]
             sku:
               - text: "156930"
                 xpath: /html/body/div[26]/div[3]/div[1]/section[1]/article[4]/p[3]
@@ -79,6 +75,9 @@ extractions:
             brandLink:
               - text: https://www.superdrug.com/b/Olay
                 xpath: /html/body/div[37]
+            secondaryImageTotal:
+              - text: "2"
+                xpath: /html/body/div[42]
             productOtherInformation:
               - text: "Olay Total Effects Anti-Ageing 7in1 Instant Smoothing Serum fights the 7
                   signs of ageing for a radiant and fabulous skin that feels as
@@ -109,12 +108,22 @@ extractions:
             pricePerUnit:
               - text: £29.98 per 100ml
                 xpath: /html/body/div[26]/div[1]/div[1]/div[1]/div[1]/div[1]/p[1]
+            pricePerUnitUom:
+              - text: 100ml
+                xpath: /html/body/div[45]
+            termsAndConditions:
+              - text: Yes
+                xpath: /html/body/div[39]
+            privacyPolicy:
+              - text: Yes
+                xpath: /html/body/div[40]
+            customerServiceAvailability:
+              - text: Yes
+                xpath: /html/body/div[41]
             imageZoomFeaturePresent:
               - text: Yes
                 xpath: /html/body/div[38]
             variantCount:
               - text: "0"
-            secondaryImageTotal:
-              - text: "3"
         xpath: /
-    timestamp: 1607525189394
+    timestamp: 1609311267579
