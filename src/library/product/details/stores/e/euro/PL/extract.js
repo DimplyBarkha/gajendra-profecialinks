@@ -16,7 +16,13 @@ module.exports = {
   ) => {
     const cssProduct = '.product-header';
     const cssProductDetails = 'a[href*="opis"]';
-
+    await context.evaluate(async () => {
+      const noResults = document.querySelector('div#empty-search');
+      const noResultsSelector = document.querySelector('div.suggestion-try');
+      if (noResults || noResultsSelector) {
+        throw new Error('No Results found for SKU');
+      }
+    });
     const isSelectorAvailable = async (cssSelector) => {
       console.log(`Is selector available: ${cssSelector}`);
       return await context.evaluate(function (selector) {
@@ -46,6 +52,41 @@ module.exports = {
       }
     }
 
+    await context.evaluate(async () => {
+      const descEl = document.querySelector('.description-content-inner');
+
+      if (descEl) {
+        const readMoreText = document.querySelector('button[data-read-more="Rozwiń pełny opis"]');
+        if (readMoreText) {
+          readMoreText.remove();
+        }
+        const styleEl = descEl.querySelectorAll('style');
+        const scriptEl = descEl.querySelectorAll('script');
+
+        for (const el of styleEl) {
+          el.remove();
+        }
+
+        for (const el of scriptEl) {
+          el.remove();
+        }
+      }
+
+      const videoThumbnailEl = document.querySelector('.miniatures-video a');
+
+      if (videoThumbnailEl) {
+        videoThumbnailEl.click();
+        const delay = ms => new Promise(res => setTimeout(res, ms));
+        await delay(6000);
+        const videoLoaded = document.querySelectorAll('#multimedia-preview li.video');
+
+        for (const item of videoLoaded) {
+          const newEl = document.createElement('import-video');
+          newEl.setAttribute('data', item.getAttribute('data-src'));
+          document.body.appendChild(newEl);
+        }
+      }
+    });
     const { transform } = parameters;
     const { productDetails } = dependencies;
     await context.extract(productDetails, { transform });

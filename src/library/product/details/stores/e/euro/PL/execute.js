@@ -6,7 +6,7 @@ module.exports = {
     store: 'euro',
     domain: 'euro.com.pl',
     loadedSelector: null,
-    noResultsXPath: null,
+    noResultsXPath: '//div[@id="empty-search"] | //div[@class="suggestion-try"]',
     zipcode: '',
   },
 };

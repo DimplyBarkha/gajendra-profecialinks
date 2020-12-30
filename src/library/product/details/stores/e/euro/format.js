@@ -30,6 +30,7 @@ const transform = (data) => {
           console.log(item.text);
         });
       }
+
       if (row.specifications) {
         const specs = [];
         let newTxt = '';
@@ -46,6 +47,130 @@ const transform = (data) => {
         });
         row.specifications = specs;
       }
+      if (row.variantUrl) {
+        const variantUrls = [];
+        let dupUrl = '';
+        let urls = [];
+        row.variantUrl.forEach(item => {
+          console.log('item:: ', item.text);
+          urls = row.variantUrl.filter(it => item.text === it.text);
+          if (urls && urls.length === 1) {
+            variantUrls.push(item);
+          } else {
+            if (dupUrl !== item.text) {
+              dupUrl = item.text;
+              variantUrls.push(item);
+            }
+          }
+        });
+        row.variantUrl = variantUrls;
+      }
+
+      if (row.videos) {
+        const video = [];
+        let dupUrl = '';
+        let urls = [];
+        row.videos.forEach(item => {
+          console.log('item:: ', item.text);
+          urls = row.videos.filter(it => item.text === it.text);
+          if (urls && urls.length === 1) {
+            video.push(item);
+          } else {
+            if (dupUrl !== item.text) {
+              dupUrl = item.text;
+              video.push(item);
+            }
+          }
+        });
+        row.videos = video;
+      }
+
+      if (row.manufacturerDescription) {
+        const manufacturerDescriptions = [];
+        let dupUrl = '';
+        let urls = [];
+        row.manufacturerDescription.forEach(item => {
+          console.log('item:: ', item.text);
+          urls = row.manufacturerDescription.filter(it => item.text === it.text);
+          if (urls && urls.length === 1) {
+            manufacturerDescriptions.push(item);
+          } else {
+            if (dupUrl !== item.text) {
+              dupUrl = item.text;
+              manufacturerDescriptions.push(item);
+            }
+          }
+        });
+        row.manufacturerDescription = manufacturerDescriptions;
+      }
+
+      if (row.manufacturerImages) {
+        const manufacturerImage = [];
+        let dupUrl = '';
+        let urls = [];
+        row.manufacturerImages.forEach(item => {
+          console.log('item:: ', item.text);
+          urls = row.manufacturerImages.filter(it => item.text === it.text);
+          if (urls && urls.length === 1) {
+            manufacturerImage.push(item);
+          } else {
+            if (dupUrl !== item.text) {
+              dupUrl = item.text;
+              manufacturerImage.push(item);
+            }
+          }
+        });
+        row.manufacturerImages = manufacturerImage;
+      }
+
+      if (row.description) {
+        let text = '';
+        row.description.forEach(item => {
+          text = text + (text ? ' ' : ' ') + item.text;
+        });
+        row.description = [{ text }];
+      }
+
+      if (row.manufacturerDescription) {
+        let text = '';
+        row.manufacturerDescription.forEach(item => {
+          text = text + (text ? ' ' : ' ') + item.text;
+        });
+        row.manufacturerDescription = [{ text }];
+      }
+
+
+      if (row.variants) {
+        let text = '';
+        row.variants.forEach(item => {
+          text += `${item.text.replace(/\n \n/g, ' ')} | `;
+        });
+        row.variants = [
+          {
+            text: text.slice(0, -3),
+          },
+        ];
+      }
+
+      if (row.variantId) {
+        const variantIds = [];
+        let dup = '';
+        let urls = [];
+        row.variantId.forEach(item => {
+          // console.log('item:: ', item.text);
+          urls = row.variantId.filter(it => item.text === it.text);
+          if (urls && urls.length === 1) {
+            variantIds.push(item);
+          } else {
+            if (dup !== item.text) {
+              dup = item.text;
+              variantIds.push(item);
+            }
+          }
+        });
+        row.variantId = variantIds;
+      }
+
       if (row.description) {
         const descs = [];
         let newTxt = '';
@@ -62,17 +187,17 @@ const transform = (data) => {
         });
         row.description = descs;
       }
-      if (row.price) {
-        row.price = [
+      // if (row.price) {
+      //   row.price = [
+      //     {
+      //       text: row.price[0].text.replace(' ', ','),
+      //     },
+      //   ];
+      // }
+      if (row.aggregateRating) {
+        row.aggregateRating = [
           {
-            text: row.price[0].text.replace(' ', ''),
-          },
-        ];
-      }
-      if (row.listPrice) {
-        row.listPrice = [
-          {
-            text: row.listPrice[0].text.replace(' ', ''),
+            text: row.aggregateRating[0].text.replace('.', ','),
           },
         ];
       }
@@ -93,6 +218,7 @@ const transform = (data) => {
   // clean data
   data.forEach(obj => obj.group.forEach(row => Object.keys(row).forEach(header => row[header].forEach(el => {
     el.text = clean(el.text);
+    el.text = el.text.trim();
   }))));
 
   return data;
