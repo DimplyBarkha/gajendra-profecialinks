@@ -490,22 +490,20 @@ module.exports = {
             console.log('we do not have value');
           }
         }
-
-        let encodedUri = encodeURIComponent(document.querySelector('input[value*="videos"]').getAttribute('value'));
+        let videoJson = document.querySelector('input[value*="videos"]') && document.querySelector('input[value*="videos"]').hasAttribute('value') ? document.querySelector('input[value*="videos"]').getAttribute('value') : null;
+        let encodedUri = encodeURIComponent(videoJson);
         let Produrl = document.URL.replace(/(https:\/\/)(.+)/g, "$2");
-        let gtin = document.querySelector('[data-product-gtin]').getAttribute('data-product-gtin');
-        let videoUrl = `https://media.flixcar.com/delivery/static/jwplayer/jwiframe.html?fjw=${encodedUri}&l=es&ean=${gtin}&sid=&base=//media.flixcar.com&pn=https|dub|for${Produrl}`;
-        if(videoUrl) {
-          console.log(`galleryVideo is - ${videoUrl}`);
-          addElementToDocumentAsync('galleryVideo', videoUrl);
+        let gtin = document.querySelector('[data-flix-ean]') && document.querySelector('[data-flix-ean]').hasAttribute('data-flix-ean') ? document.querySelector('[data-flix-ean]').getAttribute('data-flix-ean') : null || document.querySelector('[data-product-gtin]') && document.querySelector('[data-product-gtin]').hasAttribute('data-product-gtin') ? document.querySelector('[data-product-gtin]').getAttribute('data-product-gtin') : null;
+        let videoUrl = "";
+        if(videoJson && gtin && Produrl) {
+          videoUrl = `https://media.flixcar.com/delivery/static/jwplayer/jwiframe.html?fjw=${encodedUri}&l=es&ean=${gtin}&sid=&base=//media.flixcar.com&pn=https|dub|for${Produrl}`
+          //addElementToDocumentAsync('galleryVideo', videoUrl);
         } else {
-          console.log('we could not create the galleryVideo url');
+        console.log("no gallery videos")
         }
-      } else {
-        console.log('we do not have any input elms where value attr had video');
       }
-
-      addElementToDocumentAsync('allVidLinks', allVidLinks.join(' || '));
+       
+      //addElementToDocumentAsync('allVidLinks', allVidLinks.join(' || '));
     });
 
     await context.extract(productDetails, { transform });
