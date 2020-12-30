@@ -3,17 +3,17 @@ regionsSelector: null
 recordSelector: null
 recordXPath: null
 fields:
-  - name: _url
-    singleValue: false
-    xpath: //link[@rel="canonical"]/@href
+  # - name: _url
+  #   singleValue: false
+  #   xpath: //link[@rel="canonical"]/@href
   - name: aggregateRating
     singleValue: false
     xpath: //div[@itemprop = "aggregateRating"]//span[@itemprop = "ratingValue"]//@content
   - name: alternateImages
     singleValue: false
-    xpath: //div[@class ="ImageGallery__nav"]//div[contains(@class, 'slick-slide')]//img/@src
-    regExp: (.*)_s.(.*)
-    regExpReplace: $1_b.$2
+    xpath: //div[@class ="ImageGallery__nav"]//div[@class = 'slick-slide slick-active']//img/@src | //div[@class ="ImageGallery__nav"]//div[@class = 'slick-slide']//img/@src 
+    # regExp: (.*)_s.(.*)
+    # regExpReplace: $1_b.$2
   - name: availabilityText
     singleValue: false
     xpath: //div[@id="import_availability_text"]
@@ -22,10 +22,10 @@ fields:
     xpath: //span[@itemprop = "brand"]/@content
   - name: category
     singleValue: false
-    xpath: //div[@class = "Breadcrumbs"]//a//span/text()
-  - name: subCategory
-    singleValue: false
-    xpath: //div[@class = "Breadcrumbs" and position() > 1]//a//span/text()
+    xpath: //div[@class='category']/@href
+  # - name: subCategory
+  #   singleValue: false
+  #   xpath: //div[@class = "Breadcrumbs" and position() > 1]//a//span/text()
   - name: color
     singleValue: false
     xpath: //table[@class = "product_features"]//span[contains(text(), "Цвет")]/parent::th/following-sibling::td
@@ -37,13 +37,13 @@ fields:
     xpath: //table[@class = "product_features"]//span[contains(text(), "Страна производитель")]/parent::th/following-sibling::td
   - name: description
     singleValue: false
-    xpath: //div[@class = "AboutTab__description-text"]
+    xpath: //div[@id="desList"]
   - name: image
     singleValue: false
-    xpath: (//div[@class ='ImageGallery__content']//img/@src)[2]
+    xpath: (//div[@class ='ImageGallery__content']//img/@src)[2] | //li/img[@itemprop="contentUrl"]/@src
   - name: imageAlt
     singleValue: false
-    xpath: (//div[@class ='ImageGallery__content']//img/@alt)[2]
+    xpath: (//div[@class ='ImageGallery__content']//img/@alt)[2] | //li/img[@itemprop="contentUrl"]/@alt
   - name: listPrice
     singleValue: false
     xpath: //div[@id="import_list_price2"]
@@ -55,10 +55,10 @@ fields:
     xpath: //div/@data-flix-mpn
   - name: name
     singleValue: false
-    xpath: //h1[contains(@class, "ProductHeader__title")]
+    xpath: //div[@id='name'] | //h1[contains(@class, 'Heading')]
   - name: nameExtended
     singleValue: false
-    xpath: //h1[contains(@class, "ProductHeader__title")]
+    xpath: //div[@id='name'] | //h1[contains(@class, 'Heading')]
   - name: price
     singleValue: false
     xpath: concat(//span[@class = "ProductHeader__price-default_current-price"], //span[contains(@class, "ProductHeader__price-default__rouble")])
