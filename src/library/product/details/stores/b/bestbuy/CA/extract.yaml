@@ -3,90 +3,36 @@ regionsSelector: null
 recordSelector: null
 recordXPath: null
 fields:
-  - name: image
-    singleValue: true
-    description: URL of the main product image
-    xpath: (//div[@class="displayingImage_3xp0y"]/img/@src)[1]
-  - name: imageAlt
-    singleValue: true
-    description: Alt text of the main product image
-    xpath: //img[@class="productImage_AMBPT"]/@src
-  - name: category
+  - name: id
     singleValue: false
-    description: The categories (e.g. from breadcrumbs)
-    xpath: (//span[@class="x-crumb"]/text())[4]
-  - name: nameExtended
-    singleValue: true
-    description: The product name, prefixing "${brand} - " if not included in "name"
-      and appending " - ${variantType}" if necessary (fixed per feed)
-    xpath: //h1[@class="productName_19xJx"]/text()  
-  - name: listPrice
-    singleValue: true
-    description: The stated undiscounted price for the product
-    xpath: (//div[@class="price_FHDfG large_3aP7Z salePrice_kTFZ3"]/text())[1]
-  - name: price
-    singleValue: true
-    description: The offered price for the selected product variant - if a user
-      clicks add to basket this is the price they would be charged
-    xpath: //span[@class="regularPrice_3hX9G "] 
-  - name: availabilityText
-    singleValue: true
-    description: Availability as described on page for the selected variant. If
-      there is no availability but the product can be added to cart, this field
-      should be "In Stock"
-    regExp: (.+)
-    regExpReplace: In Stock
-    defaultValue: Out of Stock
-    xpath: //span[@data-automation="pickup-store-list-item-store-name"]/text() 
-  - name: description
-    singleValue: false
-    description: Product description supplied by website - may be concatenanted from
-      multiple places; specifically not the manufacturer description
-    xpath: //div[@class="productDescription_1F7nr"]  
-  - name: sku
-    singleValue: true
-    description: The store-specific product identifier
-    xpath: //span[@itemprop="sku"]
-  - name: variantId
-    singleValue: true
-    description: Identifier for a variant from a store where variants share the same sku
-    xpath: //span[@itemprop="sku"]
-  - name: mpc
-    singleValue: true
-    description: The manufacturer model code (unique) of the product
-    xpath: //span[@itemprop="model"]
-  - name: ratingCount
-    singleValue: true
-    description: The number of ratings
-    xpath: //div[@class="overallScore_3kNUI"]/text()
-  - name: aggregateRatingText
-    singleValue: true
-    description: The stated aggregate rating
-    xpath: //span[@class="overallRatingCopy_2KcXK"]/text()
-  - name: aggregateRating
-    singleValue: true
-    description: The stated aggregate rating normalized to be out of 5
-    type: NUMBER
-    xpath: //div[@class="overallScore_3kNUI"]/text()
-  - name: shippingInfo
-    singleValue: true
-    description: Shipping information for the product
-    xpath: //div[@class="soldByBestBuy_1hMn-"]/text()
+    xpath: //a[@itemprop='url']/@href
+    regExp: \b[\w=.]+$
   - name: name
-    singleValue: true
+    singleValue: false
     description: The product name
-    xpath: //h1[@class="productName_19xJx"]/text()
-  - name: termsAndConditions
-    singleValue: true
-    description: Terms and conditions information text ['Yes','No']
-    regExp: (.+)
-    regExpReplace: 'https://www.bestbuy.ca/en-ca'
-    xpath: (//li[@class="secondaryLinks_1oZXB"]/a/@href)[1]
-    defaultValue: No
-  - name: privacyPolicy
-    singleValue: true
-    description: Privacy Policy information text ['Yes','No']
-    regExp: (.+)
-    regExpReplace: 'https://www.bestbuy.ca/en-ca'
-    xpath: (//li[@class="secondaryLinks_1oZXB"]/a/@href)[5]
-    defaultValue: No
+    xpath: //div[@class="productItemName_3IZ3c"]/text()
+  - name: productUrl
+    singleValue: false
+    xpath: //a[@itemprop="url"]/@href
+    regExp: (/.+)
+    regExpReplace: https://www.bestbuy.ca$1
+  - name: thumbnail
+    singleValue: false
+    xpath: //img[@class="productItemImage_1en8J"]@src
+  - name: price
+    singleValue: false
+    description: The offered price for the product
+    xpath: //span[@class="screenReaderOnly_3anTj large_3aP7Z"]/text()
+  - name: aggregateRating
+    singleValue: false
+    xpath: //div[@class="reviews_1KIjQ"]/span/meta/@content
+  - name: reviewCount
+    singleValue: false
+    xpath: //div[@class="reviews_1KIjQ"]/span/span/text()
+  - name: rankOrganic
+    singleValue: false
+  - name: rank
+    singleValue: false
+  - name: soldBy
+    singleValue: false
+    xpath: //span[@class="marketplaceName_1acI5"]/text()
