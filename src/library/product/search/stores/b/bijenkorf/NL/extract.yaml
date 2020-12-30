@@ -76,6 +76,8 @@ fields:
     singleValue: true
     description: Is sponsored/paid
     type: BOOLEAN
+  - name: searchUrl
+    xpath: ancestor::html//body/@search-url
 
 #  Should these be source specific formulas or in the extractor?
   - name: id
@@ -85,6 +87,7 @@ fields:
   - name: nameExtended
     singleValue: true
     description: The product name, prefixing "${brand} - " if not included in "name" and appending " - ${variantType}" if necessary (fixed per extractor)
+    xpath: //a//div[2]//div[concat(//h2,' ',//p)]
   - name: aggregateRating
     singleValue: true
     description: The stated aggregate rating normalized to be out of 5

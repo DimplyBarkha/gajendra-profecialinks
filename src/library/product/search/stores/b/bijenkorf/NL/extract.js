@@ -1,4 +1,4 @@
-const { transform } = require('../../../../shared');
+const { transform } = require('../NL/shared');
 async function implementation (
   inputs,
   parameters,
@@ -8,6 +8,7 @@ async function implementation (
   const { productDetails } = dependencies;
   const { transform } = parameters;
   await context.evaluate(async function (context) {
+    document.body.setAttribute('search-url', window.location.href);
     let scrollTop = 0;
     while (scrollTop !== 50000) {
       await stall(500);
