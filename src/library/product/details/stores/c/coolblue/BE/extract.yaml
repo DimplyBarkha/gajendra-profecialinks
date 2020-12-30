@@ -21,7 +21,7 @@ fields:
 - name: alternateImages
   singleValue: false
   description: Other product images (not in manufacturer description)
-  xpath: //ul[contains(@class,'product-media-gallery-thumbnails__wrapper')]//li[position() > 1]//img/@src
+  xpath: //body/@alt-image
   regExp: (\w.+.be/)(\d.+)([/][a-z]+[/]\w.+)
   regExpReplace: $1500x500$3
 - name: metaKeywords
@@ -39,7 +39,7 @@ fields:
 - name: listPrice
   singleValue: true
   description: The stated undiscounted price for the product
-  xpath: //div[@class="product-order"]//strong[@class="sales-price__former"]
+  xpath: //div[@class="product-order"]//span[contains(@class,"former-price")]
 - name: price
   singleValue: true
   description: The offered price for the selected product variant - if a user clicks
@@ -152,9 +152,11 @@ fields:
 - name: manufacturerDescription
   singleValue: false
   description: The extended description of the product supplied by the lister
+  xpath: //body/@enhanced-content
 - name: manufacturerImages
   singleValue: false
   description: Images within the third party description
+  xpath: //body/@iplus-image
 - name: videos
   singleValue: false
   description: URLs of videos on page

@@ -83,7 +83,88 @@ module.exports = {
       data.variants = variants;
       data.variantsCount = variants.length;
       appendData(data);
+      let altImages = '';
+      if (document.querySelector("div[class*='media-gallery-thumbnails'] button")){
+        document.querySelector("div[class*='media-gallery-thumbnails'] button").click();
+        let securls=[...document.querySelectorAll(".product-media-gallery-thumbnails ul li:nth-child(n+2) img")];
+        let secimages=[];
+        for( let i=0; i<securls.length;i++){
+          let imagesrc = securls[i].getAttribute('src');
+          imagesrc = imagesrc.replace(/(.+\/)(\d+x\d+)(.+)/,'$1500x500$3');
+          if (imagesrc.includes('content')){
+            continue;
+          }
+          secimages.push(imagesrc);
+        }
+        let uniqueImages = [...new Set(secimages)];
+        altImages = uniqueImages.join(' | ');
+        console.log('HELLO SEE HERE',secimages);
+        document.body.setAttribute('alt-image',altImages);
+      }
+      else{
+        let securls=[...document.querySelectorAll(".product-media-gallery-thumbnails ul li:nth-child(n+2) img")];
+        let secimages=[];
+        for( let i=0; i<securls.length;i++){
+          let imagesrc = securls[i].getAttribute('src');
+          imagesrc = imagesrc.replace(/(.+\/)(\d+x\d+)(.+)/,'$1500x500$3');
+          if (imagesrc.includes('content')){
+            continue;
+          }
+          secimages.push(imagesrc);
+        }
+        let uniqueImages = [...new Set(secimages)];
+        altImages = uniqueImages.join(' | ');
+        console.log('HELLO SEE HERE',secimages);
+        document.body.setAttribute('alt-image',altImages);
+      }
     });
+      try {
+        const currentUrl = await context.evaluate(() => {
+          return window.location.href;
+        });
+        const iframeUrl = await context.evaluate(() => {
+          const result = document.querySelector('#view-in-store a');
+          if (result) {
+            return document.querySelector('#view-in-store a').getAttribute('href');
+          }
+        });
+        if (iframeUrl) {
+          await context.goto(iframeUrl, { timeout: 60000, waitUntil: 'networkidle0', checkBlocked: true });
+          await context.waitForSelector('div[class*="grid-unit"] img');
+          const images = await context.evaluate(() => {
+            // @ts-ignore
+            const images = [...document.querySelectorAll("div[class*='grid-unit'] img[src*='content']")];
+            let text = '';
+            images.forEach(image => {
+              const imageSrc = image.attributes.src.value;
+              text = text + (text ? ' | ' : '') + imageSrc;
+            });
+            return text;
+          });
+          console.log("Images",images);
+          const description = await context.evaluate(() => {
+            // @ts-ignore
+            const descs = [...document.querySelectorAll('div[id*="id"]')];
+            let text = '';
+            descs.forEach(desc => {
+              
+              text = text + (text ? ' ' : '') + desc.innerText;
+            });
+            return text;
+          });
+          console.log("description", description);
+          await context.goto(currentUrl, { timeout: 60000, waitUntil: 'networkidle0', checkBlocked: true });
+          const variables = {img:images,desc:description};
+          await context.evaluate((variables) => {
+          document.body.setAttribute('enchanced-content',variables.desc);
+          document.body.setAttribute('iplus-image',variables.img);
+          },variables); 
+      }
+      } catch (e) {
+        console.log(e);
+      } 
+
+    
     await context.extract(productDetails, { transform });
   },
 };
