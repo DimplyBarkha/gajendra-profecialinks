@@ -72,7 +72,7 @@ fields:
   - name: category
     singleValue: false
     xpath: //ul[@class="breadcrumbs"]/li[position()>2 and position()<last()]/a
-  - name: upc
+  - name: metaUpc
     singleValue: true
     xpath: //meta[@itemprop="gtin"]/@content
     regExp: ([0-9]+)
@@ -102,7 +102,16 @@ fields:
     xpath: //*[contains(text(), 'Warnings' )]/following-sibling::*/text()
   - name: size
     xpath: //*[contains(text(), 'Size' )]/following-sibling::*/text()
+  - name: packSize
+    singleValue: true
+    xpath: //*[contains(text(), 'Size' )]/following-sibling::*/text()
   - name: metaKeywords
     xpath: //meta[@name="keywords"]/@content
   - name: enhancedContent
     xpath: (//div[@class="ccs-cc-inline-feature-content ccs-cc-inline-feature-description"])[1]
+  - name: mpc
+    singleValue: true
+    xpath: //span[@itemprop="productID"]
+  - name: shippingInfo
+    singleValue: true
+    xpath: //div[@id="pdp-specification"]/div/div/div/div[3]/div[@class="ccs-ds-extendedSpec-body"]/table/tbody/tr
