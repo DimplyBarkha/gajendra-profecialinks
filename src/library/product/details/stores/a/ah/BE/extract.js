@@ -15,15 +15,6 @@ module.exports = {
     context,
     dependencies,
   ) => {
-    await context.waitForSelector('#start-of-content');
-    // Check if cookies pop-up appeared
-    const doesPopupExist = await context.evaluate(function () {
-      return Boolean(document.querySelector('#cookie-popup'));
-    });
-    if (doesPopupExist) {
-      await context.click('#accept-cookies');
-    }
-    //
     await context.evaluate(async function () {
       function addElementToDocument (key, value) {
         const catElement = document.createElement('div');
@@ -33,10 +24,20 @@ module.exports = {
         document.body.appendChild(catElement);
       }
       try {
-        addElementToDocument('variantCount', document.getElementsByClassName('product-recommendations_link__1b2lR').length);
-        addElementToDocument('additional_desc_bullet_count', document.getElementsByClassName('product-info-description__list-item').length);
+        addElementToDocument('availabilityText', 'In stock');
       } catch (e) {
-        console.log(e);
+        addElementToDocument('availabilityText', 'In Store Only');
+      }
+      try {
+        const el = document.querySelector('address');
+        const end = el.innerHTML.indexOf('<br>');
+        const manufacture = el.innerText.slice(0, end);
+        addElementToDocument('manufacturer', manufacture);
+        const element = document.querySelector('.product-card-daily-price_dayPriceBlock__3gqLD > button').innerText;
+        const endText = element.indexOf(' ');
+        addElementToDocument('sizeContent', element.slice(0, endText));
+      } catch (e) {
+        addElementToDocument('manufacturer', '');
       }
     });
     const { transform } = parameters;
