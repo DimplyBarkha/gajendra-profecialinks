@@ -121,8 +121,9 @@ fields:
     singleValue: true
     description: Shipping information for the product
   - name: shippingDimensions
-    singleValue: true
+    singleValue: false
     description: Stated shipping dimensions
+    xpath: concat(//*[contains(text(), 'Altezza-mm')]/following-sibling::*[1], ' | ', //*[contains(text(), 'Larghezza-mm')]/following-sibling::*[1], ' | ', //*[contains(text(), 'Profondità-mm')]/following-sibling::*[1])
   - name: shippingWeight
     singleValue: true
     description: Stated shipping weight
@@ -139,7 +140,7 @@ fields:
   - name: manufacturerDescription
     singleValue: false
     description: The extended description of the product supplied by the lister //section[@class='page__section product__description']/div[@class='content__abstract']/div[@class='content__abstractText']
-    xpath: //*[contains(@class, 'inpage')]
+    xpath: //*[contains(@id, 'flix-inpage')]
   - name: manufacturerImages
     singleValue: false
     description: Images within the third party description
