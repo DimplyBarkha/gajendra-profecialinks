@@ -13,7 +13,7 @@ const implementation = async (inputs, { loadedSelector, noResultsXPath }, contex
     else builtUrl = await dependencies.createUrl(inputs);
   }
   await dependencies.goto({ ...inputs, url: builtUrl || url });
-  await new Promise((resolve, reject) => setTimeout(resolve, 8000));
+  await new Promise((resolve, reject) => setTimeout(resolve, 28000));
   if (loadedSelector) {
     await context.waitForFunction(
       (selector, xpath) => {
