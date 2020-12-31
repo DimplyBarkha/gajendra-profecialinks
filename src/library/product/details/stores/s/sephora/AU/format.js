@@ -117,7 +117,22 @@ const transform = (data, context) => {
           const videoStr = videoArray.join(' | ');
           row.videos[0].text = videoStr;
         }
-
+        if ((!row.inTheBoxText || !row.inTheBoxText.length) && row.inTheBoxText1) {
+          console.log('inTheBoxText1',row.inTheBoxText1);
+          row.inTheBoxText = row.inTheBoxText1;
+          console.log("inTheBoxText", row.inTheBoxText);
+        }
+        if (row.inTheBoxText) {
+          let text = '';
+          row.inTheBoxText.forEach(item => {
+            text += `${item.text.replace('||', ' ')} `;
+          });
+          row.inTheBoxText = [
+            {
+              text: text.slice(0, -1),
+            },
+          ];
+        }
         if (row.manufacturerImages) {
           const manufImageArray = [];
           row.manufacturerImages.forEach(manufImage => {
