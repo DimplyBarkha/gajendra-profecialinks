@@ -12,16 +12,16 @@ module.exports = {
 
   implementation: async (inputString, { country, domain, transform }, context, { productDetails }) => {
     const { id } = inputString;
-    if (id) {
-      await context.waitForSelector('a.product__link');
-      try {
-        await context.click('#declineButton');
-      } catch (error) {
-        console.log('Popup not present');
-      }
-      await context.waitForSelector('div.product-image-picture');
-      await context.click('a.product__link');
-    }
+    // if (id) {
+    //   await context.waitForSelector('a.product__link');
+    //   try {
+    //     await context.click('#declineButton');
+    //   } catch (error) {
+    //     console.log('Popup not present');
+    //   }
+    //   await context.waitForSelector('div.product-image-picture');
+    //   await context.click('a.product__link');
+    // }
 
     await context.waitForSelector('#product-information-tabs > div:nth-child(1) > div > i');
     await context.waitForSelector('#product-intro');
