@@ -504,6 +504,8 @@ fields:
     xpath: //*[contains(text(), "Instruction Manual")]
   - name: inTheBoxUrl
     xpath: //div[contains(@class, "InTheBox")]//img/@data-flixsrcset | //div[starts-with(@id,"inTheBoxUrl-")]
+    regExp: (.+)
+    regExpReplace: https:$1
   - name: inTheBoxText
     xpath: //div[contains(@class, "InTheBox")]//div[contains(@class, "flix-std-content")] | //div[starts-with(@id,"inTheBoxText-")]
   - name: hasComparisonTable
