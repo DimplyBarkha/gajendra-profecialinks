@@ -213,24 +213,7 @@ async function implementation (
       document.body.setAttribute('producturl', window.location.href);
     });
     await context.evaluate(addRating);
-    await context.evaluate(async () => {
-      await new Promise((resolve) => setTimeout(resolve, 5000));
-
-      async function infiniteScroll() {
-          let prevScroll = document.documentElement.scrollTop;
-          while (true) {
-              window.scrollBy(0, document.documentElement.clientHeight);
-              await new Promise(resolve => setTimeout(resolve, 1000));
-              const currentScroll = document.documentElement.scrollTop;
-              if (currentScroll === prevScroll) {
-                  break;
-              }
-              prevScroll = currentScroll;
-          }
-      }
-      await infiniteScroll();
-      await new Promise((resolve) => setTimeout(resolve, 8000));
-  });
+   
     async function addSpecification () {
       await context.evaluate(async function () {
         window.scrollTo(0, document.body.scrollHeight);
@@ -302,9 +285,9 @@ async function implementation (
           hasComparisonTable = 'Yes';
         }
       
-       const inTheBoxEls1 = Array.from(document.querySelectorAll('[data-section-caption*="In the box"] > div> div> ul >li'));
+       const inTheBoxEls1 = Array.from(document.querySelectorAll('[data-section-caption*="In the box"] > div> div> ul >li , [data-section-caption*="In The Box"] > div> div> ul >li'));
        
-        const inTheBoxEls2 = Array.from(document.querySelectorAll('div[data-section-caption="In the box"] ul>li'));
+        const inTheBoxEls2 = Array.from(document.querySelectorAll('div[data-section-caption="In the box"] ul>li , div[data-section-caption="In The Box"] ul>li'));
       
         let inTheBoxEls = []
         if(inTheBoxEls1){
@@ -325,6 +308,42 @@ async function implementation (
       document.body.setAttribute('in-the-box-url', inTheBoxUrl);
     });
 
+  //   await context.evaluate(async () => {
+  //     await new Promise((resolve) => setTimeout(resolve, 2000));
+
+  //     async function infiniteScroll() {
+  //         let prevScroll = document.documentElement.scrollTop;
+  //         while (true) {
+  //             window.scrollBy(0, document.documentElement.clientHeight);
+  //             await new Promise(resolve => setTimeout(resolve, 2000));
+  //             const currentScroll = document.documentElement.scrollTop;
+  //             if (currentScroll === prevScroll) {
+  //                 break;
+  //             }
+  //             prevScroll = currentScroll;
+  //         }
+  //     }
+  //     await infiniteScroll();
+  //     await new Promise((resolve) => setTimeout(resolve, 5000));
+  // });
+
+   await context.evaluate(async function () {
+   while (!document.querySelector('[certonaidentifier="recommendation_pdp_fbw"] [data-locator="certona_rightnavigationicon"]>[disabled]')) {
+     //@ts-ignore  
+     document.querySelector('[certonaidentifier="recommendation_pdp_fbw"] [data-locator="certona_rightnavigationicon"]> button').click();
+      await new Promise((resolve, reject) => setTimeout(resolve, 4000));
+    }
+  })
+
+  await context.evaluate(async function () {
+    while (!document.querySelector('[certonaidentifier="recommendation_pdp_cav"] [data-locator="certona_rightnavigationicon"] >[disabled]')) {
+      //@ts-ignore
+      document.querySelector('[certonaidentifier="recommendation_pdp_cav"] [data-locator="certona_rightnavigationicon"] >button').click();
+      await new Promise((resolve, reject) => setTimeout(resolve, 4000));
+    }
+  })
+
+ 
     // let promotionText='';
     // let priceDivs=document.querySelectorAll('div[class*="PDPPrice-inline"]');
     // for(let i=0;i<priceDivs.length;i++)
