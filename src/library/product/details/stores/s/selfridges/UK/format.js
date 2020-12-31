@@ -29,6 +29,14 @@ const transform = (data) => {
         if (row.variantCount[0].text == 1) { row.variantCount[0].text = 0; }
       }
 
+      if (row.varId && !row.variantId) {
+        row.variantId = [
+          {
+            text: row.varId[0].text,
+          },
+        ];
+      }
+
       if (row.availabilityText) {
         let text = '';
         row.availabilityText.forEach(item => {

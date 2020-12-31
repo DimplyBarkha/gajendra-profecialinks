@@ -51,85 +51,102 @@ async function implementation (inputs, parameters, context, dependencies) {
     if (isVariants) {
       const variants = document.querySelectorAll('section[data-js-variant-type="multi-size"] div[data-ts-select-label="Size"] div.c-select__dropdown-item-container span.c-select__dropdown-item');
       var len = document.querySelectorAll('section[data-js-variant-type="multi-size"] div[data-ts-select-label="Size"] div.c-select__dropdown-item-container span.c-select__dropdown-item').length;
-      var length = JSON.parse(document.querySelector('script[data-component="pdp-semantic-data"]').textContent).model.length;
+      const varData = document.querySelector('script[data-component="pdp-semantic-data"]');
+      var length = varData ? JSON.parse(varData.textContent).model.length : -1;
       if (len === length) {
-        const sizeVariants = JSON.parse(document.querySelector('script[data-component="pdp-semantic-data"]').textContent);
+        const sizeVariants = JSON.parse(varData.textContent);
         for (let i = 0; i < sizeVariants.model.length; i++) {
           rpc.push(sizeVariants.model[i].sku);
         }
         for (let i = 0; i < sizeVariants.model.length; i++) {
-          variants[i].setAttribute('variantId', sizeVariants.model[i].sku);
-          variants[i].setAttribute('availability', sizeVariants.model[i].offers[0].availability);
-          variants[i].setAttribute('nameExtended', sizeVariants.model[i].name);
-          variants[i].setAttribute('data-js-action', sizeVariants.model[i].name.replace(/(.+)(\s)(.+)/g, '$3'));
+          if (variants[i]) {
+            variants[i].setAttribute('variantId', sizeVariants.model[i].sku);
+            variants[i].setAttribute('availability', sizeVariants.model[i].offers[0].availability);
+            variants[i].setAttribute('nameExtended', sizeVariants.model[i].name);
+            variants[i].setAttribute('data-js-action', sizeVariants.model[i].name.replace(/(.+)(\s)(.+)/g, '$3'));
+          }
         }
       } else {
         const variants1 = document.querySelectorAll('section[data-js-variant-type="multi-size"] div[data-ts-select-label="Size"] div.c-select__dropdown-item-container span[class="c-select__dropdown-item"]');
-        const sizeVariants1 = JSON.parse(document.querySelector('script[data-component="pdp-semantic-data"]').textContent);
-        for (let i = 0; i < sizeVariants1.model.length; i++) {
-          rpc.push(sizeVariants1.model[i].sku);
-        }
-        for (let i = 0; i < sizeVariants1.model.length; i++) {
-          variants1[i].setAttribute('variantId', sizeVariants1.model[i].sku);
-          variants1[i].setAttribute('availability', sizeVariants1.model[i].offers[0].availability);
-          variants1[i].setAttribute('nameExtended', sizeVariants1.model[i].name);
-          variants1[i].setAttribute('data-js-action', sizeVariants1.model[i].name.replace(/(.+)(\s)(.+)/g, '$3'));
+        const sizeVariants1 = varData ? JSON.parse(varData.textContent) : null;
+        if (sizeVariants1) {
+          for (let i = 0; i < sizeVariants1.model.length; i++) {
+            rpc.push(sizeVariants1.model[i].sku);
+          }
+          for (let i = 0; i < sizeVariants1.model.length; i++) {
+            if (variants[i]) {
+              variants1[i].setAttribute('variantId', sizeVariants1.model[i].sku);
+              variants1[i].setAttribute('availability', sizeVariants1.model[i].offers[0].availability);
+              variants1[i].setAttribute('nameExtended', sizeVariants1.model[i].name);
+              variants1[i].setAttribute('data-js-action', sizeVariants1.model[i].name.replace(/(.+)(\s)(.+)/g, '$3'));
+            }
+          }
         }
       }
-      document.querySelector('section[data-js-component="productHero"]').setAttribute('firstVariant', rpc[0]);
+      if (document.querySelector('section[data-js-component="productHero"]')) {
+        document.querySelector('section[data-js-component="productHero"]').setAttribute('firstVariant', rpc[0]);
+      }
     } else {
       var newSection = document.createElement('section');
       newSection.setAttribute('data-js-variant-type', 'multi-size');
-      document.querySelector('section[data-js-component="productHero"]').append(newSection);
-
+      if (document.querySelector('section[data-js-component="productHero"]')) {
+        document.querySelector('section[data-js-component="productHero"]').append(newSection);
+      }
       var newDiv1 = document.createElement('div');
       newDiv1.setAttribute('data-ts-select-label', 'Size');
-      document.querySelector('section[data-js-component="productHero"] section[data-js-variant-type="multi-size"]').append(newDiv1);
-
+      if (document.querySelector('section[data-js-component="productHero"] section[data-js-variant-type="multi-size"]')) {
+        document.querySelector('section[data-js-component="productHero"] section[data-js-variant-type="multi-size"]').append(newDiv1);
+      }
       var newDiv = document.createElement('div');
       newDiv.className = 'c-select__dropdown-item-container';
-      document.querySelector('section[data-js-component="productHero"] section[data-js-variant-type="multi-size"] div[data-ts-select-label="Size"]').append(newDiv);
-
+      if (document.querySelector('section[data-js-component="productHero"] section[data-js-variant-type="multi-size"] div[data-ts-select-label="Size"]')) {
+        document.querySelector('section[data-js-component="productHero"] section[data-js-variant-type="multi-size"] div[data-ts-select-label="Size"]').append(newDiv);
+      }
       var newSpan = document.createElement('span');
       newSpan.className = 'c-select__dropdown-item';
-      document.querySelector('section[data-js-component="productHero"] section[data-js-variant-type="multi-size"] div[data-ts-select-label="Size"] div.c-select__dropdown-item-container').appendChild(newSpan);
-
+      if (document.querySelector('section[data-js-component="productHero"] section[data-js-variant-type="multi-size"] div[data-ts-select-label="Size"] div.c-select__dropdown-item-container')) {
+        document.querySelector('section[data-js-component="productHero"] section[data-js-variant-type="multi-size"] div[data-ts-select-label="Size"] div.c-select__dropdown-item-container').appendChild(newSpan);
+      }
       const availability = document.querySelector('button[data-action="add-to-bag"].--disabled');
-      if (availability) {
-        document.querySelector('section[data-js-component="productHero"]').setAttribute('availability', 'Out of Stock');
-      } else {
-        document.querySelector('section[data-js-component="productHero"]').setAttribute('availability', 'In Stock');
+      if (document.querySelector('section[data-js-component="productHero"]')) {
+        if (availability) {
+          document.querySelector('section[data-js-component="productHero"]').setAttribute('availability', 'Out of Stock');
+        } else {
+          document.querySelector('section[data-js-component="productHero"]').setAttribute('availability', 'In Stock');
+        }
       }
 
-      const sku = document.evaluate('//span[@data-js-action="updateSKU"]/text()', document).iterateNext().textContent.trim();
-      if (sku) {
-        document.querySelector('section[data-js-variant-type="multi-size"] div[data-ts-select-label="Size"] div.c-select__dropdown-item-container span.c-select__dropdown-item').setAttribute('variantId', document.evaluate('//span[@data-js-action="updateSKU"]/text()', document).iterateNext().textContent.trim());
-        document.querySelector('section[data-js-variant-type="multi-size"] div[data-ts-select-label="Size"] div.c-select__dropdown-item-container span.c-select__dropdown-item').setAttribute('nameExtended', `${document.querySelector('div[data-js-action="productHeroDescription"] h1').textContent}`);
+      const sku = document.evaluate('//span[@data-js-action="updateSKU"]/text()', document).iterateNext() ? document.evaluate('//span[@data-js-action="updateSKU"]/text()', document).iterateNext().textContent.trim() : null;
+      const productHeroDesc = document.querySelector('div[data-js-action="productHeroDescription"] h1') ? document.querySelector('div[data-js-action="productHeroDescription"] h1').textContent : '';
+      if (sku && document.querySelector('section[data-js-variant-type="multi-size"] div[data-ts-select-label="Size"] div.c-select__dropdown-item-container span.c-select__dropdown-item')) {
+        document.querySelector('section[data-js-variant-type="multi-size"] div[data-ts-select-label="Size"] div.c-select__dropdown-item-container span.c-select__dropdown-item').setAttribute('variantId', sku || '');
+        document.querySelector('section[data-js-variant-type="multi-size"] div[data-ts-select-label="Size"] div.c-select__dropdown-item-container span.c-select__dropdown-item').setAttribute('nameExtended', `${productHeroDesc}`);
       } else {
-        const isSku = JSON.parse(document.querySelector('script[data-component="pdp-semantic-data"]').textContent).model;
-        if (isSku) {
+        const varData = document.querySelector('script[data-component="pdp-semantic-data"]');
+        const isSku = varData ? JSON.parse(varData.textContent).model : null;
+        if (isSku && document.querySelector('section[data-js-variant-type="multi-size"] div[data-ts-select-label="Size"] div.c-select__dropdown-item-container span.c-select__dropdown-item')) {
           document.querySelector('section[data-js-variant-type="multi-size"] div[data-ts-select-label="Size"] div.c-select__dropdown-item-container span.c-select__dropdown-item').setAttribute('variantId',
-            JSON.parse(document.querySelector('script[data-component="pdp-semantic-data"]').textContent).model[0].sku);
-          document.querySelector('section[data-js-variant-type="multi-size"] div[data-ts-select-label="Size"] div.c-select__dropdown-item-container span.c-select__dropdown-item').setAttribute('nameExtended', `${document.querySelector('div[data-js-action="productHeroDescription"] h1').textContent}`);
+            JSON.parse(varData.textContent).model[0].sku);
+          document.querySelector('section[data-js-variant-type="multi-size"] div[data-ts-select-label="Size"] div.c-select__dropdown-item-container span.c-select__dropdown-item').setAttribute('nameExtended', `${productHeroDesc}`);
         }
       }
       const size = document.querySelector('div[data-select-name="Size"] span.c-select__dropdown-item');
       const color = document.querySelector('div.--colour span.--selected');
-      if (color) {
-        document.querySelector('section[data-js-variant-type="multi-size"] div[data-ts-select-label="Size"] div.c-select__dropdown-item-container span.c-select__dropdown-item').setAttribute('nameExtended', `${document.querySelector('div[data-js-action="productHeroDescription"] h1').textContent} ${document.querySelector('div.--colour span.--selected').getAttribute('data-js-action')}`);
+      if (color && document.querySelector('section[data-js-variant-type="multi-size"] div[data-ts-select-label="Size"] div.c-select__dropdown-item-container span.c-select__dropdown-item') && document.querySelector('div.--colour span.--selected')) {
+        document.querySelector('section[data-js-variant-type="multi-size"] div[data-ts-select-label="Size"] div.c-select__dropdown-item-container span.c-select__dropdown-item').setAttribute('nameExtended', `${productHeroDesc} ${document.querySelector('div.--colour span.--selected').getAttribute('data-js-action')}`);
       }
-      if (size) {
+      if (size && document.querySelector('section[data-js-variant-type="multi-size"] div[data-ts-select-label="Size"] div.c-select__dropdown-item-container span.c-select__dropdown-item')) {
         const singleSize = size.getAttribute('data-js-action');
         document.querySelector('section[data-js-variant-type="multi-size"] div[data-ts-select-label="Size"] div.c-select__dropdown-item-container span.c-select__dropdown-item').setAttribute('data-js-action', singleSize);
-        document.querySelector('section[data-js-variant-type="multi-size"] div[data-ts-select-label="Size"] div.c-select__dropdown-item-container span.c-select__dropdown-item').setAttribute('nameExtended', `${document.querySelector('div[data-js-action="productHeroDescription"] h1').textContent}`);
+        document.querySelector('section[data-js-variant-type="multi-size"] div[data-ts-select-label="Size"] div.c-select__dropdown-item-container span.c-select__dropdown-item').setAttribute('nameExtended', `${productHeroDesc}`);
       }
-      if (color && size) {
-        document.querySelector('section[data-js-variant-type="multi-size"] div[data-ts-select-label="Size"] div.c-select__dropdown-item-container span.c-select__dropdown-item').setAttribute('nameExtended', `${document.querySelector('div[data-js-action="productHeroDescription"] h1').textContent} ${color.getAttribute('data-js-action')}`);
+      if (color && size && document.querySelector('section[data-js-variant-type="multi-size"] div[data-ts-select-label="Size"] div.c-select__dropdown-item-container span.c-select__dropdown-item')) {
+        document.querySelector('section[data-js-variant-type="multi-size"] div[data-ts-select-label="Size"] div.c-select__dropdown-item-container span.c-select__dropdown-item').setAttribute('nameExtended', `${productHeroDesc}`);
       }
     }
 
     const image = document.evaluate('//picture[@class="c-image-gallery__img"][1]//img[@class="c-image-gallery__img"]/@src', document).iterateNext();
-    if (!image) {
+    if (!image && document.querySelector('div.c-image-gallery__images picture.c-image-gallery__img') && document.querySelector('div.--colour span.--selected img')) {
       document.querySelector('div.c-image-gallery__images picture.c-image-gallery__img').setAttribute('mainimage', document.querySelector('div.--colour span.--selected img').getAttribute('src').replace(/(.+)(_.+)(\?.+)/g, '$1_M'));
     }
 

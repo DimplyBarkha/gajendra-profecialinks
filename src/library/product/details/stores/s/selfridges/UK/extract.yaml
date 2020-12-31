@@ -1,7 +1,7 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: //section[@data-js-variant-type="multi-size"]//div[@data-ts-select-label="Size"]//div[contains(@class,"c-select__dropdown-item-container")]//span[contains(@class,"c-select__dropdown-item")]
+recordXPath: //section[@data-js-variant-type="multi-size"]//div[@data-ts-select-label="Size"]//div[contains(@class,"c-select__dropdown-item-container")]//span[contains(@class,"c-select__dropdown-item")]|//div[@id="container1"]
 fields:
 - name: inTheBoxUrl
 - name: inTheBoxText
@@ -13,7 +13,7 @@ fields:
 - name: _url
 - name: _pageTimeStamp
 - name: image
-  xpath: ancestor::html//picture[@class="c-image-gallery__img"][1]//img[@class="c-image-gallery__img"]/@src | ancestor::html//picture[@class="c-image-gallery__img"][1]/@mainimage
+  xpath: ancestor::html//picture[@class="c-image-gallery__img"][1]//img[@class="c-image-gallery__img"]/@src | ancestor::html//picture[@class="c-image-gallery__img"][1]/@mainimage | ancestor::html//div[contains(@class, "pdp-main-carousel")]//li[contains(@class, "slick-current slick-active")]//img/@src
   regExp: (.+)
   regExpReplace: https:$1
 - name: imageAlt
@@ -24,11 +24,11 @@ fields:
 - name: category
   xpath: ancestor::html//ul[@class="c-breadcrumbs"]/li/a/span[1]
 - name: nameExtended
-  xpath: //@nameextended
+  xpath: //@nameextended|//div[contains(@class, "composite-brand_and_description")]
 - name: listPrice
   xpath: ancestor::html//span[@data-js-action="updateWasPrice"]
 - name: price
-  xpath: ancestor::html//span[@data-js-action="updatePrice"]
+  xpath: ancestor::html//span[@data-js-action="updatePrice"]|ancestor::html//span[@class="now-price"]
 - name: availabilityText
   xpath: ancestor::html//section[@data-js-component="productHero"] | //@availability
 - name: description
@@ -36,15 +36,17 @@ fields:
 - name: descriptionBullets
   xpath: count(//div[@class="c-tabs__copy"]//li)
 - name: brandText
-  xpath: ancestor::html//span[@class="a-txt-brand-name"]
+  xpath: ancestor::html//span[@class="a-txt-brand-name"]|ancestor::html//div[@class="pl-trustmark"]/@data-brand
 - name: manufacturer
 - name: quantity
-  xpath: //@data-js-action
+  xpath: //@data-js-action|//li[contains(@class, "js-custom-select-option is-active")]/@data-value
 - name: weightNet
 - name: weightGross
 - name: gtin
 - name: variantId
   xpath: //@variantid
+- name: varId
+  xpath: ancestor::html//span[contains(@class, "product-code-value")]
 - name: sku
   xpath: ancestor::html//section[@class="c-product-info__sku"]//p[@class="o-fs-service-msg"][contains(.,"Ref")]/span
 - name: mpc
