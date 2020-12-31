@@ -29,7 +29,7 @@ const transform = (data, context) => {
       }
 
       if (row.listPrice) {
-        const text = row.listPrice.map(elm => elm.text.replace(/\s/g, '').trim());
+        const text = row.listPrice.map(elm => elm.text.replace(/\s/g, '').replace('UVP', '').trim());
         row.listPrice = [{ text }];
       }
       if (row.description) {
