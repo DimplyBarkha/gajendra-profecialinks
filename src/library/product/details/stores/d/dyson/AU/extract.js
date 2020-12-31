@@ -94,9 +94,9 @@ async function implementation (
     }
 
     if (document.querySelector('.hero__pricing__sold-out') || outOfStock) {
-      addHiddenDiv('availabilityText', 'Out of Stock');
+      addHiddenDiv('availabilityText', 'false');
     } else {
-      addHiddenDiv('availabilityText', 'In Stock');
+      addHiddenDiv('availabilityText', 'true');
     }
 
     const manufacturerImages = [];
