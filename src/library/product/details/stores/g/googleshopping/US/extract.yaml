@@ -152,12 +152,15 @@ fields:
   - name: addedDesc
     singleValue: false
     xpath: //div[contains(@id, "added-desc-")]
-  - name: addedDescCnt
+  - name: addedDescCntinTheBoxText
     singleValue: false
     xpath: count(//div[contains(@id, "added-desc-")])
   - name: inTheBoxText
     singleValue: false
-    xpath: //tr//td[contains(.,'Included')]/following-sibling::td
+    xpath: //tr//td[contains(.,'Included')]/following-sibling::td | //div[@class="XeRV0d NCgxDf"]
   - name: unInterruptedPDP 
     singleValue: false
-    xpath: //div[@class="sh-dc__carousel"]//div[@class="YmbeHb"]
+    xpath: //div[@class="sh-dc__carousel"]//div[@class="YmbeHb"]/text() | //div[@class="uHBBRe"]/text()
+  - name: hasComparisonTable
+    defaultValue: No
+  - name: inTheBoxUrl
