@@ -12,7 +12,8 @@ fields:
     regExpReplace: https://pacson.se$1
   - name: productUrl
     singleValue: false
-    xpath: //li[@class="product-list__item columns small-12 medium-2"]/figure/a/@href
+    xpath: //article[@class="product__info"]/a/@href
+    # //li[@class="product-list__item columns small-12 medium-2"]/figure/a/@href
     # xpath: (//figure[@class="product__figure"]/a)/@href
     # regExp: (sortiment/.*)
     regExp: (/.+)
