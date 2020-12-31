@@ -1,43 +1,34 @@
-singleRecord: false
+singleRecord: true
 regionsSelector: null
 recordSelector: null
 recordXPath: null
 fields:
   - name: image
-    singleValue: true
     description: URL of the main product image
     xpath: (//li[@class="img-viewer"]/img/@src)[1]
   - name: imageAlt
-    singleValue: true
     description: Alt text of the main product image
     xpath: (//li[@class="img-viewer"]/img/@alt)[1]
   - name: alternateImages
-    singleValue: false
     description: Other product images (not in manufacturer description)
-    xpath: (//img[@class='pdpthumb lazyloaded']/@src)[position()>1]
+    xpath: (//div[not(contains(@class,'pzlvideo'))]/img[@class='pdpthumb lazyloaded']/@src)[position()>1]
   - name: metaKeywords
-    singleValue: true
     description: The <meta> keywords content
   - name: category
-    singleValue: false
     description: The categories (e.g. from breadcrumbs)
     xpath: //a[@class="a-breadcrumb__label"][not(contains(text(),'Home'))]
   - name: nameExtended
-    singleValue: true
     description: The product name, prefixing "${brand} - " if not included in "name"
       and appending " - ${variantType}" if necessary (fixed per feed)
-    xpath: //h1[@class="a-product__information--title"]
+    xpath: (//h1[@class="a-product__information--title"]/text())[1]
   - name: listPrice
-    singleValue: true
     description: The stated undiscounted price for the product
     xpath: concat(//p[starts-with(@class,'a-product__paragraphRegularPrice')]/text()[1],'.',//p[starts-with(@class,'a-product__paragraphRegularPrice')]//sup//text())
   - name: price
-    singleValue: true
     description: The offered price for the selected product variant - if a user
       clicks add to basket this is the price they would be charged
     xpath: concat(//p[starts-with(@class,'a-product__paragraphDiscountPrice')]/text()[1],'.',//p[starts-with(@class,'a-product__paragraphDiscountPrice')]//sup//text())
   - name: availabilityText
-    singleValue: true
     description: Availability as described on page for the selected variant. If
       there is no availability but the product can be added to cart, this field
       should be "In Stock"
@@ -45,125 +36,105 @@ fields:
     regExpReplace: In Stock
     defaultValue: In Stock
   - name: description
-    singleValue: false
     description: Product description supplied by website - may be concatenanted from
       multiple places; specifically not the manufacturer description
+    xpath: //meta[@name='description']/@content
   - name: descriptionBullets
-    singleValue: true
     description: Number of ul > li tags in the description
     type: NUMBER
   - name: brandText
-    singleValue: true
     description: Product brand shown - this may actually NOT be just a brand name,
       e.g. "Visit the Gillette Store"
-    xpath: (//td[contains(., 'Marca')]/following-sibling::*)[1]
+    xpath: (//td[contains(., 'Marca')]/following-sibling::*)[1] | (//li[contains(.,'Marca:')])[1]
   - name: manufacturer
-    singleValue: true
     description: Product manufacturer
   - name: quantity
-    singleValue: true
     description: Quantity as described on the page
-    xpath: //ul[@class="p-0 m-0 m-product__size dBlock -noScroll"]
+    xpath: (//td[contains(.,'Contenido')]/following-sibling::td)[1] | (//li[contains(.,'Capacidad:')])[1]
   - name: weightNet
-    singleValue: true
     description: Net weight as described on the page
   - name: weightGross
-    singleValue: true
     description: Gross weight as described on the page
   - name: gtin
-    singleValue: true
     description: GTIN code (includes UPC/EAN)
   - name: sku
-    singleValue: true
     description: The store-specific product identifier
     xpath: //p[@class="m-product__information--code"]//span
     # xpath: //button[@class="a-btn a-btn--actionpdp active"]/@data-skuid
   - name: variantId
-    singleValue: true
     description: Identifier for a variant from a store where variants share the same sku
     xpath: //p[@class="m-product__information--code"]//span
   - name: mpc
-    singleValue: true
     description: The manufacturer model code (unique) of the product
     xpath: //p[@class="m-product__information--code"]//span
   - name: variantInformation
-    singleValue: true
     xpath: concat(//div[@class="m-product__colors"]//p[contains(text(),'Color')]//span/text(),//div[starts-with(@class,'m-product__size')]//li//button)
   - name: firstVariant
-    singleValue: true
     xpath: concat(//div[@class="m-product__colors"]//p[contains(text(),'Color')]//span/text(),//div[starts-with(@class,'m-product__size')]//li//button)
   - name: variants
-    singleValue: false
     xpath: concat(//div[@class="m-product__colors"]//p[contains(text(),'Color')]//span/text(),//div[starts-with(@class,'m-product__size')]//li//button)
   - name: variantCount
-    singleValue: true
     xpath: count(//ul[@class="p-0 m-0 m-product__size dBlock -noScroll"])
   - name: specifications
-    singleValue: true
-    xpath: (//div[@class="modal-content"])[2]
+    xpath: //div[@data-tab='description']//table[@class='table a-product__paragraphProductSpecs']//tr
+  - name: promotion
+    description: promotion text on product page
+    xpath: //div[contains(@class,'m-product__productPromoContent')]/ul/li
+  - name: videos
+    description: URLs of videos on page
+    xpath: //input[contains(@value,'/videos')]/@value
+    regExp: content.jwplatform.com\\\/videos\\\/(.+).mp4
+    regExpReplace: //content.jwplatform.com/videos/$1.mp4
+  - name: directions
+    description: Content under "directions" header
+    xpath: (//td[contains(.,'Recomendaciones')]/following-sibling::td)[1]
+  - name: ingredientsList
+    description: List of Ingredients from site - can be string of data if no discernible start/end point
+    xpath: (//td[contains(.,'Ingredientes')]/following-sibling::td)[1] | (//li[contains(.,'Ingredientes:')])[1]
   - name: packSize
-    singleValue: true
     description: The number of packs in the product offer (if stated separately on
       the site to quantity)
-  - name: name
-    singleValue: true
-    description: The product name, prefixing "${brand} - " if not included in "name"
-      and appending " - ${variantType}" if necessary (fixed per feed)
-    xpath: //h1[@class="a-product__information--title"]/text()
+    xpath: (//td[contains(.,'Número de piezas')]/following-sibling::td)[1] | (//li[contains(.,'Número de piezas:')])[1]
   - name: ratingCount
-    singleValue: true
     description: The number of ratings
-    xpath: //a[@class="TTreadReviews RRPLUS"]
+    xpath: //a[contains(@class,'TTreadReviews')]
     type: NUMBER
   - name: aggregateRating
-    singleValue: true
     description: The stated aggregate rating normalized to be out of 5
-    xpath: (//meta[@itemprop="ratingValue"]/@content)[1]
+    xpath: //script[contains(.,'"ratingValue"')]
+    regExp: \"ratingValue\":\"(.+)\",\"reviewCount
+    regExpReplace: $1
   - name: shippingInfo
-    singleValue: true
     description: Shipping information for the product
     xpath: //div[@class="m-product__freeShipping"]/p/text()
     # xpath: concat(//p[@class="a-productInfo_selledBy"]//text(),//p[@class="a-productInfo_selledBy"]//a/text())
   - name: shippingDimensions
-    singleValue: true
     description: Stated shipping dimensions
   - name: color
-    singleValue: true
     description: A textual description of the colour
     type: TEXT
     xpath: //p[contains(text(),'Color')]/span
   - name: name
-    singleValue: true
     description: The product name
-    xpath: //h1[@class="a-product__information--title"]/text()
+    xpath: (//h1[@class="a-product__information--title"]/text())[1]
   - name: secondaryImageTotal
-    singleValue: true
     description: null
-    xpath: count((//img[@class='pdpthumb lazyloaded']/@src)[position()>1])
+    xpath: count((//div[not(contains(@class,'pzlvideo'))]/img[@class='pdpthumb lazyloaded']/@src)[position()>1])
     type: NUMBER
-  - name: specifications
-    singleValue: true
-    description: The physical dimensions of the product including packaging.
   - name: warranty
-    singleValue: true
     description: Guarantee associated with the product
   - name: countryOfOrigin
-    singleValue: true
     description: The country from which the product originates
   - name: termsAndConditions
-    singleValue: true
     description: Terms and conditions information text ['Yes','No']
     defaultValue: Yes
   - name: privacyPolicy
-    singleValue: true
     description: Privacy Policy information text ['Yes','No']
     defaultValue: Yes
   - name: customerServiceAvailability
-    singleValue: true
     description: Information related to customer service availability (text), ['Yes','No']
     defaultValue: Yes
   - name: imageZoomFeaturePresent
-    singleValue: true
     description: If Zoom feature is available for Main image or images in the
       carousel,['Yes','No']
     example: https://www.zalando.de/adidas-neo-sneaker-low-blackwhite-a4315i002-q11.html

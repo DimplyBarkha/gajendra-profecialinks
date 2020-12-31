@@ -5,8 +5,8 @@ module.exports = {
     country: 'MX',
     store: 'liverpool',
     domain: 'liverpool.mx',
-    loadedSelector: null,
-    noResultsXPath: null,
+    loadedSelector: 'section.o-product__detail',
+    noResultsXPath: '//h1[@class="a-errorPage-title"]',
     zipcode: '',
   },
 };
