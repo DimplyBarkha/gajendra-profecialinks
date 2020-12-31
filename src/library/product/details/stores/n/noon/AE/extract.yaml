@@ -122,7 +122,7 @@ fields:
     regExpReplace: $2
   - name: unInterruptedPDP
     singleValue: false
-    xpath: //div[@class='swiper-container swiper-container-initialized swiper-container-horizontal']//div[@class='e3js0d-10 cyUANN']
+    xpath: //div[@class='swiper-container swiper-container-initialized swiper-container-horizontal']//a[contains(@id,'productBox')]//@title
     description: Titles of products in the sections 'you may also like' or 'sponsored products'. Combine results from Max 3 sections
   - name: ingredientsList
     singleValue: false
