@@ -41,7 +41,7 @@ fields:
     description: The offered price for the selected product variant - if a user
       clicks add to basket this is the price they would be charged
     #xpath: (//div[@class='product-hero__price-top']/div[@data-product-price])[1]
-    xpath: //div[@id='added_price']|//div[contains(@id,"product_addtocart_form")]//div[contains(@id,'product-price')]/text()
+    xpath: //div[@id='added_price'] | //div[contains(@id,"product_addtocart_form")]//div[contains(@id,'product-price')]/text() | (//div[contains(@id,"product_addtocart_form")]//div[contains(@id,'product-price')]/span)[1]
   - name: currencyOverride
     xpath: //div[@id='added_currency']
   - name: availabilityText #localedependent    
