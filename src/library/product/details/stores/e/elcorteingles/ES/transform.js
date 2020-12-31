@@ -25,12 +25,12 @@ const transform = (data, context) => {
       }
       if (row.mpc) {
         let text = '';
-        text = row.mpc.map(element => element.text.trim());
+        text = row.mpc[0].text.trim();
         row.mpc = [{ text }];
       }
       if (row.nameExtended) {
         let text = '';
-        text = row.nameExtended.map(element => element.text.trim());
+        text = row.nameExtended[0].text.trim();
         row.nameExtended = [{ text }];
       }
     }
