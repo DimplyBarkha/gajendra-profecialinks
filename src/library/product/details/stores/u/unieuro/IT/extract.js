@@ -88,7 +88,9 @@ module.exports = {
       if(arr!= null) {
         var abc = "";
         for(var j=0; j<arr.length;j=j+2){
-          abc = abc + arr[j].trim() +" : "+arr[j+1].trim() + " || ";
+          if (arr[j] != null && arr[j+1] != null){
+            abc = abc + arr[j].trim() +" : "+arr[j+1].trim() + " || ";
+          }          
           }
           abc = abc.slice(0,-3);
           addElementToDocument('specs', abc);
@@ -104,7 +106,10 @@ module.exports = {
           }
           var final = "";
           for(var k=0 ; k<pr.length; k++){
-            final = final + pr[k].trim() + pq[k].trim() + " || ";
+            if (pr[k] != null && pq[k] != null){
+              final = final + pr[k].trim() + pq[k].trim() + " || "; 
+            }
+            
             }
             final = final.slice(0,-3);
             addElementToDocument('desc', final);
