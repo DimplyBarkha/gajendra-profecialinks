@@ -5,22 +5,28 @@ recordXPath: //div[contains(@class,"main")] //div[@class="container pl16"]
 fields:
   - name: image
     singleValue: false
-    xpath: (//div[contains(@class,"slider-native slider-preview js-slider-with-preview-gallery")]//img[contains(@class, "slider-item-image")]/@data-src)[1]
+    xpath: (//div[contains(@class,"slider-native slider-preview js-slider-with-preview-gallery")]//img[contains(@class, "slider-item-image")]/@data-src | //div[contains(@class,"slider-native slider-preview js-slider-with-preview-gallery")]//img[contains(@class, "slider-item-image")]/@src)[1]
   - name: videos
     singleValue: false
     xpath: //div[@id="cont_description"]//iframe/@src
   - name: alternateImages
     singleValue: false
     xpath: //div[contains(@class,"slider-native slider-preview js-slider-with-preview-gallery")]//img[contains(@class, "slider-item-image")]/@data-src
+  - name: secondaryImageTotal
+    singleValue: false
+    xpath: count(//div[contains(@class,"slider-native slider-preview js-slider-with-preview-gallery")]/div/div[position()>1]//img[contains(@class, "slider-item-image")]/@data-src)
   - name: manufacturerImages
     singleValue: false
-    xpath: //div[contains(@class, "goodDescriptionText")]//img/@data-src
+    xpath: //div[contains(@class, "goodDescriptionText")]//img/@data-src | //div[@id="inpage_container"]//img//@src
   - name: manufacturerDescription
     singleValue: false
     xpath: //div[contains(@class, "goodDescriptionText")]//div[@id="info-cont"]//p
   - name: category
     singleValue: false
     xpath: (//div[@class="breadcrumbs qr-breadcrumbs"]/span/a)
+  - name: quantity
+    singleValue: true
+    xpath: //div[contains(@class,'q-specs-row')]/p[contains(.,'Диагональ')]/following-sibling::p
   - name: brandText
     singleValue: false
     xpath: //meta[@itemprop="brand"]/@content
@@ -41,10 +47,10 @@ fields:
     xpath: //h1[@class="catalogItemDetailHd"]
   - name: listPrice
     singleValue: false
-    xpath: //div[contains(@class,"priceContainer")]//div[@class="product-box__last-price"]//span[@class="product-box__last-price"]
+    xpath: //div[contains(@class,"priceContainer")]//div[contains(@class,"old")]//span[contains(@class,"old")]
   - name: price
     singleValue: false
-    xpath: //div[contains(@class,"priceContainer")]//div[@class="product-box-price__active"]
+    xpath: //div[contains(@class,"priceContainer")]//div[contains(@class,"product-box-price__active")]
   - name: availabilityText
     singleValue: false
     xpath: boolean(//div[@class="buyBox   buyBoxCorners"]//a[@class="addToCartBig cartButton"])
@@ -76,7 +82,7 @@ fields:
     xpath: //div[@id="disclaimerPopup"]//div[@class="disclaimer"]
   - name: promotion
     singleValue: false
-    xpath: //div[@class="product-promo-shield__title"]//text()
+    xpath: //div[contains(@class,"priceContainer")]//div[contains(@class,"old")]//span[@class="discount-value"]
   - name: aggregateRating
     singleValue: false
     xpath: (//span[@itemprop="aggregateRating"]//meta[@itemprop="ratingValue"]/@content)[1]
