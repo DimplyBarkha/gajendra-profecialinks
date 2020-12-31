@@ -30,11 +30,11 @@ fields:
   - name: quantity
     singleValue: true
     xpath: //h1[@data-dmid="detail-page-headline-product-title"]
-    regExp: (.*)\,\s(.*)([a-z]{1,2})
-    regExpReplace: $2$3
+    regExp: (.*)\,\s(\d+)(.*)
+    regExpReplace: $2
   - name: sku
     singleValue: true
-    xpath: //meta[@itemprop='sku']/@content
+    xpath: //meta[@property='og:url']/@content
   - name: variantId
     singleValue: true
     xpath: //meta[@property='og:url']/@content
@@ -88,8 +88,7 @@ fields:
     regExpReplace: $1
   - name: totalFatPerServing
     singleValue: true
-    xpath: //td[text()='Fett']/following-sibling::td
-    regExp: (?:([\d\.\,]+)\s?)
+    xpath: (//button[@aria-label="Analytische Bestandteile"]/..//div[@data-dmid="product-detail-accordion-inner-content"])|(//td[text()='Fett']/following-sibling::td)
   - name: totalFatPerServingUom
     singleValue: true
     xpath: //td[text()="Fett"]/following-sibling::td

@@ -94,6 +94,9 @@ const transform = (data) => {
         });
         row.servingSizeUom = [{ text: servingSizeUomArr.join('|'), xpath: row.servingSizeUom[0].xpath }];
       }
+      if (row.sku) {
+        row.sku[0].text = row.sku[0].text.match(/(.*)([a-z])(\d+)(.html)/)[3];
+      }
       if (row.variantId) {
         row.variantId[0].text = row.variantId[0].text.match(/(.*)([a-z])(\d+)(.html)/)[3];
       }
@@ -114,6 +117,23 @@ const transform = (data) => {
           return item.text;
         });
         row.videos = [{ text: videosArr.join('|'), xpath: row.videos[0].xpath }];
+      }
+      if (row.totalFatPerServing) {
+        const totalFatPerServingArr = row.totalFatPerServing.map((item) => {
+          const regExV1 = /(.+)(Fettgehalt:\s([\d]+[,.][\d]+))(.+)/;
+          const regExV2 = /(.+)(Fettgehalt\s([\d]+[,.][\d]+))(.+)/;
+          const regExV3 = /(?:([\d.,]+)\s?)(.+)/;
+          if (regExV1.test(item.text)) {
+            return typeof (item.text) === 'string' ? item.text.replace(/(.+)(Fettgehalt:\s([\d]+[,.][\d]+))(.+)/g, '$3') : '|';
+          } else if (regExV2.test(item.text)) {
+            return typeof (item.text) === 'string' ? item.text.replace(/(.+)(Fettgehalt\s([\d]+[,.][\d]+))(.+)/g, '$3') : '|';
+          } else if (regExV3.test(item.text)) {
+            return typeof (item.text) === 'string' ? item.text.replace(/(?:([\d.,]+)\s?)(.+)/g, '$1') : '|';
+          } else {
+            return '';
+          }
+        });
+        row.totalFatPerServing = [{ text: totalFatPerServingArr.join('|'), xpath: row.totalFatPerServing[0].xpath }];
       }
     }
   }
