@@ -61,6 +61,11 @@ const transform = (data) => {
           item.text = `https:${url}`;
         });
       }
+      if ((!row.inTheBoxText || !row.inTheBoxText.length) && row.inTheBoxText1) {
+        console.log('inTheBoxText1',row.inTheBoxText1);
+        row.inTheBoxText = row.inTheBoxText1;
+        console.log("inTheBoxText", row.inTheBoxText);
+      }
     }
   }
   data.forEach(obj => obj.group.forEach(row => Object.keys(row).forEach(header => row[header].forEach(el => {
