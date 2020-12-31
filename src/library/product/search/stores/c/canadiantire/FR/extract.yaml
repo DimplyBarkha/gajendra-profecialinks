@@ -8,7 +8,7 @@ fields:
     xpath: //div[@class="product-tile-srp__rate"]/div/@data-bv-product-id
   - name: name
     singleValue: false
-    xpath: //h3[@class="product-tile-srp__title grid--grid-view__item specialCss"]
+    xpath: //h3[contains(@class,"product-tile-srp__title grid--grid-view__item")]
   - name: productUrl
     singleValue: false
     xpath: //a[@class="product-tile-srp__main-link"]/@href
@@ -21,11 +21,9 @@ fields:
   - name: price
     singleValue: false
     manualSelector: section.product-tile__price, span.price__total-value, span.price__now--value-srp
-  - name: aggregateRating2
+  - name: aggregateRating
     singleValue: false
-    manualSelector: div.bv-off-screen
-    regExp: (\d.*?)(\so)
-    regExpReplace: $1
+    xpath: //div[@data-bv-show="inline_rating"]//div[@class="bv-off-screen"]
   - name: reviewCount
     singleValue: false
     xpath: //meta[@itemprop='reviewCount']/@content

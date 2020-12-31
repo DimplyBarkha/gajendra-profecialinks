@@ -45,6 +45,11 @@ const transform = (data) => {
                     item.text = "https:" + item.text;
                 });
             }
+            if (row.aggregateRating) {
+                row.aggregateRating.forEach(item => {                    
+                    item.text = item.text.substring(0, item.text.indexOf('étoile')-1);
+                });
+            }
         }
     }
     return cleanUp(data);
