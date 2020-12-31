@@ -56,9 +56,9 @@ module.exports = {
       var desc2 = getXpath("(//h1[@class='product-page__title'])/text()[2]", 'nodeValue');
       if (desc2 != null){
         desc = desc + " " + desc2;
-        if(brand != null) {
-            desc = brand+"-"+desc;
-        }
+        // if(brand != null) {
+        //     desc = brand+"-"+desc;
+        // }
       }
       if(desc != null){
         addElementToDocument('desc', desc);
