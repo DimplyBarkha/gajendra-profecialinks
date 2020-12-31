@@ -24,11 +24,11 @@ const transform = (data) => {
         console.log('transform specs now');
         let text = '';
         row.specifications.forEach(item => {
-          text += item.text.replace(/\s{2,}/g, ' ').replace(/\n{1,}/g, ' ').trim() + ' || ';
+          text += item.text.replace(/\s{2,}/g, ' ').replace(/\n{1,}/g, ' ').trim() + ' ';
         });
         row.specifications = [
           {
-            text: text,
+            text: text.trim(),
           },
         ];
       }
@@ -92,9 +92,9 @@ const transform = (data) => {
             item.text = item.text.replace(/[0-9]\s/g, ' ').trim();
             text += `${item.text} | `;
           });
-          row.variantInformation = [ {text: text.slice(0, -3), }, ];
+          row.variantInformation = [{ text: text.slice(0, -3) }];
         } else {
-          row.variantInformation = [ {text: "", }, ];
+          row.variantInformation = [{ text: '' }];
         }
         row.variants = [
           {
@@ -117,12 +117,12 @@ const transform = (data) => {
       if (row.myPrice) {
         row.price = row.myPrice;
       } else {
-        if (row.price && row.price.length == 2) {
+        if (row.price && row.price.length === 2) {
           let text = '';
           row.price.forEach(item => {
             text = text + item.text;
           });
-          row.price = [{text: text, },];
+          row.price = [{ text: text }];
         }
       }
 
@@ -144,7 +144,7 @@ const transform = (data) => {
           text = text + ' ' + item.text.replace(/\s{2,}/g, ' ').replace(/\n \n \n/g, ' ').replace(/\n \n/g, ' ').trim();
           // text = text + (text ? ' ' : '') + item.text;
         });
-        row.manufacturerDescription = [{ text }];
+        row.manufacturerDescription = [{ text: text.trim() }];
       }
       if (row.specifications) {
         const nDesc = [];
@@ -153,7 +153,7 @@ const transform = (data) => {
         row.specifications.forEach(item => {
           nDesc[0] = item;
           if (idx > 0) {
-            newDesc = newDesc + '||';
+            newDesc = newDesc + ' ';
           }
           newDesc = newDesc + item.text;
           idx++;
@@ -162,6 +162,16 @@ const transform = (data) => {
           item.text = newDesc;
         });
         row.specifications = nDesc;
+      }
+      if (row.listPrice) {
+        let text = '';
+        row.listPrice.forEach(item => {
+          text += item.text + '';
+        });
+        row.listPrice = [{ text: text.trim() }];
+        if (row.listPrice[0].text === row.price[0].text) {
+          row.listPrice.pop();
+        }
       }
     }
   }

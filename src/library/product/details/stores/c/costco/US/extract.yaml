@@ -30,7 +30,7 @@ fields:
   - name: listPrice
     singleValue: false
     # xpath: //div[@class="math-table"][not(@style)]//div[@id="pull-right-price"]
-    # xpath: //div[@class="online-price active"]//span[@class="op-value"] | //div[@class="online-price active"]//span[@class="currency"]
+    xpath: //div[@class="online-price active"]//span[@class="op-value"] | //div[@class="online-price active"]//span[@class="currency"]
   - name: myPrice
     singleValue: false
     xpath: //div[@class="math-table"][not(@style)]//div[@id="pull-right-price"]
@@ -165,8 +165,8 @@ fields:
   #   singleValue: false
   - name: specifications
     singleValue: false
-    xpath: //div[@class="product-info-specs body-copy"]//div[@class="row"] | //div[contains(@class,"product-info-specs")]//div[contains(@class,'spec-name')] |//div[contains(@class,"product-info-specs")]//div[contains(@class,'spec-name')]/following-sibling::div
-    #xpath: //h2[contains(.,'Specifications')]/../div//table//tbody | //div[@class="product-info-specs body-copy"]//div[@class="row"]
+    # xpath: //div[@class="product-info-specs body-copy"]//div[@class="row"] | //div[contains(@class,"product-info-specs")]//div[contains(@class,'spec-name')] |//div[contains(@class,"product-info-specs")]//div[contains(@class,'spec-name')]/following-sibling::div
+    xpath: //h2[contains(.,'Specifications')]/../div//table//tbody | //div[@class="product-info-specs body-copy"]//div[@class="row"]
   - name: warranty
     singleValue: false
     xpath: //div[@class='a-column a-span6 a-span-last']//div[contains(.,'Warranty')]/div | //figure[@class="product-concierge"]/ul/li/p 
