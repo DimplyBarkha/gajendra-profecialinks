@@ -12,18 +12,11 @@ module.exports = {
   implementation: async ({ inputString }, { country, domain, transform }, context, { productDetails }) => {
     const applyScroll = async function (context) {
       await context.evaluate(async function () {
-        const scrollBox = document.querySelector('body');
-        const elemClick = scrollBox.querySelector('div#product-list-load-more button');
         let scrollTop = 0;
-        while (scrollTop !== 30000 || elemClick) {
-          await stall(1000);
-          scrollTop += 1000;
+        while (scrollTop !== 20000) {
+          scrollTop += 500;
           window.scroll(0, scrollTop);
-          if (elemClick) elemClick.click();
-          if (scrollTop === 30000) {
-            await stall(1000);
-            break;
-          }
+          await stall(1000);
         }
         function stall (ms) {
           return new Promise((resolve, reject) => {
@@ -34,6 +27,46 @@ module.exports = {
         }
       });
     };
+    await context.evaluate(async function(context) {
+      const seeAllSelector = document.querySelector('.coi-banner__maintext>a');
+      if(seeAllSelector) {
+        seeAllSelector.click();
+      }
+    });
+    await context.evaluate(async function(context) {
+      const seeAllSelector = document.querySelector('#coiPage-3 > div.coi-banner__page-footer > div > button.coi-banner__accept');
+      if(seeAllSelector) {
+        seeAllSelector.click();
+      }
+    });
+    await applyScroll(context);  
+    async function getProductsCount (context) {
+      return context.evaluate(async function () {
+        const products = document.evaluate('//div[@class="product-image-picture"]//img/@data-src', document.body, null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
+        return products.snapshotLength;
+      });
+    }
+    let productsCount = 0;
+    while (productsCount < 150) {
+      const doesLoadMoreExists = await context.evaluate(function () {
+        return Boolean(document.querySelector('div#product-list-load-more button'));
+      });
+      if (doesLoadMoreExists) {
+        await context.evaluate(async function () {
+          console.log('Clicking on load more button');
+          document.querySelector('div#product-list-load-more button').click();
+          await new Promise((resolve, reject) => setTimeout(resolve, 10000));
+        });
+        productsCount = await getProductsCount(context);
+        console.log('productsCount' + productsCount);
+        if (productsCount >= 150) {
+          break;
+        }
+        await applyScroll(context);
+      } else {
+        break;
+      }
+    }
     await applyScroll(context);
     await context.evaluate(() => {
       function addElementToDocument (elem, id, value) {

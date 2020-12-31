@@ -8,7 +8,7 @@ module.exports = {
     mutationSelector: null,
     spinnerSelector: null,
     loadedSelector: 'div#product-section',
-    noResultsXPath: '//h2[@class="product-qty-header ng-star-inserted"]/span[@class="total-qty"][text()=" 0"]',
+    noResultsXPath: '//h2[contains(@class,"product-qty-header")]/span[@class="total-qty" and text()=" 0"]',
     openSearchDefinition: null,
     domain: 'power.no',
     zipcode: '',
