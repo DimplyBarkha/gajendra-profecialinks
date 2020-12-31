@@ -5,28 +5,29 @@ recordXPath: null
 fields:
   - name: id
     singleValue: false
-    xpath: //section[@class="ln-o-section ln-o-section"]/ul[@class="ln-o-grid ln-o-grid--matrix ln-o-grid--equal-height"]//div[@class="ln-c-card pt"]/@data-test-id
+    xpath: //div[@class="pricingAndTrolleyOptions"]/div/@id
     # type: NUMBER
     regExp: \d+
     # regExpReplace: ''
   - name: name
     singleValue: false
-    xpath: //section[@class="ln-o-section ln-o-section"]/ul[@class="ln-o-grid ln-o-grid--matrix ln-o-grid--equal-height"]//h2[@class="pt__info__description"]/a/text()
+    xpath: //div[@class="productNameAndPromotions"]/h3/a
   - name: productUrl
     singleValue: false
-    xpath: //section[@class="ln-o-section ln-o-section"]/ul[@class="ln-o-grid ln-o-grid--matrix ln-o-grid--equal-height"]//a[@class="pt__link"]/@href
+    xpath: //div[@class="productNameAndPromotions"]/h3/a/@href
   - name: thumbnail
     singleValue: false
-    xpath: //section[@class="ln-o-section ln-o-section"]/ul[@class="ln-o-grid ln-o-grid--matrix ln-o-grid--equal-height"]//img[@class="pt-image pt-image__product"]/@src
-  - name: url
+    xpath: //div[@class="productNameAndPromotions"]/h3/a/img/@src
+  - name: searchUrl
     singleValue: false
     xpath: //html//div[@id='URL']
   - name: reviewCount
     singleValue: false
-    xpath: //section[@class="ln-o-section ln-o-section"]/ul[@class="ln-o-grid ln-o-grid--matrix ln-o-grid--equal-height"]//span[@class="reviews"]
+    xpath: //a[@class="numberOfReviews"]
+    regExp: \d+
   - name: price
     singleValue: false
-    xpath: //section[@class="ln-o-section ln-o-section"]/ul[@class="ln-o-grid ln-o-grid--matrix ln-o-grid--equal-height"]//div[@data-test-id="pt-retail-price"]
+    xpath: //div[@class="pricing"]/p[@class="pricePerUnit"]
   - name: rankOrganic
     singleValue: false
     # xpath: //div[@id="rankOrganic"]/text()
@@ -36,5 +37,5 @@ fields:
     # type: NUMBER
   - name: aggregateRating
     singleValue: false
-    xpath: //html//div[@id="aggregateRating"]
+    xpath: //a[@class="numberOfReviews"]/img/@alt
     
