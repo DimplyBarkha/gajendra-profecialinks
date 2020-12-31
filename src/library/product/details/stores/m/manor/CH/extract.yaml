@@ -4,7 +4,7 @@ recordSelector: null
 recordXPath: null
 fields:
   - name: price
-    singleValue: false    
+    singleValue: false
     xpath: //div[@class="productpricecomponent js-price-section"]/div/span
   - name: image
     singleValue: false
@@ -21,7 +21,7 @@ fields:
     xpath: //html//div[@id='alternateImages']
   - name: metaKeywords
     singleValue: false
-    xpath: //meta[@name='keywords'] 
+    xpath: //meta[@name='keywords']
   - name: category
     singleValue: false
     xpath: //div[@data-t-name='Breadcrumb']/a
@@ -60,33 +60,33 @@ fields:
     xpath: //html//div[@id='variants']
   - name: variantInformation
     singleValue: false
-    xpath: //span[@class="m-productcolorselect-v-2__selector-title"]
+    xpath: normalize-space(//span[@class="m-productcolorselect-v-2__selector-title"]/text()[last()])
   - name: brandText
     singleValue: false
     xpath: //div[contains(@class,"m-productdetailareaa__areaA__title-line")]//h2
   - name: specifications
     singleValue: false
-    xpath: //div[@class='m-productfactslist'] 
+    xpath: //div[@class='m-productfactslist']
   - name: variantId
-    singleValue: false 
+    singleValue: false
     xpath: //div[@data-t-name="ProductdetailV2"]/@data-productid
   - name: variantCount
     singleValue: false
     xpath: count(//div[@class="m-productcolorselect-v-2__colors js-only-colors"]//a/@href)
   - name: firstVariant
-    singleValue: false 
+    singleValue: false
     xpath: //span[@class="m-productcolorselect-v-2__selector-title"]
   - name: quantity
-    singleValue: false 
+    singleValue: false
     xpath: //a[@class='m-productsizeselect-v-2__variant m-productsizeselect-v-2__variant__title js-size-selector-title']
   - name: name
-    singleValue: false 
+    singleValue: false
     xpath: //html//div[@id='nameEmpty']
   - name: nameExtended
-    singleValue: false 
+    singleValue: false
     xpath: //html//div[@id='name']
   - name: countryOfOrigin
-    singleValue: false 
+    singleValue: false
   - name: gtin
     singleValue: false
     xpath: //html//div[@id='gtin']
@@ -114,3 +114,9 @@ fields:
   - name: quantity
     singleValue: true
     xpath: //html//div[@id='size']
+  - name: promotion
+    xpath: //div[contains(@class, 'js-productdetail')]//span[@class='m-productpricev-2__percentage']
+  - name: listPrice
+    xpath: normalize-space(//div[contains(@class, 'productpricecomponent')]/div[count(*)=1]/span/span | //div[contains(@class, 'productpricecomponent')]/div[count(*)>1]/*[last()]/span[1])
+    regExp: (\d.*)
+    regExpReplace: $1
