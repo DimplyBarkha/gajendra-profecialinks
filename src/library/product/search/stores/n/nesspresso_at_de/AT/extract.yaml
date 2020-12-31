@@ -1,0 +1,10 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: //li[@class="'sitemap__element"]
+fields:
+  - name: productUrl
+    singleValue: false
+    xpath: //li[@class="'sitemap__element"]/a/@href
+    regExp: (.+)
+    regExpReplace: https://www.nespresso.com$1
