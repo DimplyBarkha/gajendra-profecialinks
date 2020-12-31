@@ -21,13 +21,9 @@ fields:
   - name: aggregateRating
     singleValue: false
   - name: aggregateRating2
-    xpath: //@product-tile-aggRating
-    regExp: (\d+)\.?,?(\d+)?
-    regExpReplace: $1,$2
     singleValue: false
   - name: reviewCount
     singleValue: false
-    xpath: //@product-tile-reviewCount
   - name: ratingCount
     singleValue: false
   - name: price

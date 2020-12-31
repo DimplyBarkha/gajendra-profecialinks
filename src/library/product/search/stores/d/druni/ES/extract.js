@@ -29,7 +29,7 @@ module.exports = {
       for (let i = 1; i < numOfPages; i++) {
         const currentUrl = window.location.href;
         const keywords = currentUrl.match(/query=(.+)&/) ? currentUrl.match(/query=(.+)&/)[1] : '';
-        const fetchUrlTemplate = `https://eu1-search.doofinder.com/5/search?hashid=8ed7450f44117ffe10dedbb105484e0e&query_counter=1&page=1&rpp=17&transformer=&query_name=match_or&query=${keywords}`;
+        const fetchUrlTemplate = `https://eu1-search.doofinder.com/5/search?hashid=8ed7450f44117ffe10dedbb105484e0e&query_counter=3&page=1&rpp=17&transformer=&query=${keywords}`;
         const searchUrl = fetchUrlTemplate.replace(/page=1/g, `page=${i}`);
         const searchTemp = `https://www.druni.es/#/dfclassic/query=${keywords}`;
         const response = await fetch(searchUrl, {
