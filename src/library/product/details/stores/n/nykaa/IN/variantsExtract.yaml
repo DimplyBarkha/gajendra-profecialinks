@@ -7,4 +7,4 @@ fields:
   #   xpath: //div[contains(@class,"variantinfos")]/@variantid
   #   regExpReplace: $2
   - name: variantUrl 
-    xpath: //div[contains(@class,"variantinfos")]/@varianturl | //link[@rel="canonical"]/@href
+    xpath: //div[contains(@class,"variantinfos")]/@varianturl | //div[contains(@class,"variantinfo")]/@varianturl 

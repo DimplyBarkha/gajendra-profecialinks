@@ -34,29 +34,16 @@ const cleanUp = (data, context) => {
                     },
                 ];
             }
-            // if (row.description) {
-            //     row.description.forEach((element) => {
-            //         if (element.xpath.endsWith('ul[1]')) {
-            //             element.text = element.text.replace(/(\.|)\s{1,}/g, '. || ');
-            //         }
-            //     })
-            //     let text = ''
-            //     row.description.forEach((element) => {
-            //         if (element.xpath.endsWith('ul[1]')) {
-            //             text += ` || ${element.text}`
-            //         } else {
-            //             text += ` ${element.text}`
-            //         }
-            //     })
-            //     row.description = [{ text: text.trim() }]
-            // }
-            if(row.secondparagraph) {
-                let text = row.secondparagraph.map((element)=> element.text.trim()).join(" ")
-                row.secondparagraph = [{text}]
+            if (row.secondparagraph) {
+                let text = row.secondparagraph.map((element) => element.text.trim()).join(" ")
+                row.secondparagraph = [{ text }]
             }
-            if(row.description) {
-                let text = row.description.map((element)=> element.text.trim()).join(" ")
-                row.description = [{text}]
+            if (row.description) {
+                let text = row.description.map((element) => element.text.trim()).join(" ")
+                row.description = [{ text }]
+            }
+            if(row.description[0].text=="||") {
+                row.description[0].text = ""
             }
             if (row.manufacturerDescription) {
                 let text1 = ''
@@ -70,12 +57,23 @@ const cleanUp = (data, context) => {
                 row.additionalDescBulletInfo.forEach((element) => {
                     bulletString += `|| ${element.text}`;
                 })
-                row.additionalDescBulletInfo = [{ text: bulletString }];
+                row.additionalDescBulletInfo = [{ text: bulletString.trim() }];
             }
-            if(row.description && row.secondparagraph && row.additionalDescBulletInfo){
-                let text = `${row.description[0].text} ${row.additionalDescBulletInfo[0].text} ${row.secondparagraph[0].text}`
-                row.description = [{text: text.trim()}];
+            if(row.additionalDescBulletInfo[0].text=="||") {
+                row.additionalDescBulletInfo[0].text = ""
             }
+
+            if (row.description && row.secondparagraph && row.additionalDescBulletInfo) {
+                let text = '';
+                if (row.description[0].text == "" && row.secondparagraph[0].text == "") {
+                    text = row.thirdparagraph[0].text;
+                } else {
+                    text = `${row.description[0].text} ${row.additionalDescBulletInfo[0].text} ${row.secondparagraph[0].text}`
+
+                }
+                row.description = [{ text: text.trim() }];
+            }
+
 
         }
     }

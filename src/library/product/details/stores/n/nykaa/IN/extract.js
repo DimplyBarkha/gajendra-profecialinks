@@ -84,6 +84,8 @@ module.exports = {
           }
         })
       })
+
+
       const imgurl = document.querySelector('div[class*="post-card__img"]>div>img') && document.querySelector('div[class*="post-card__img"]>div>img').getAttribute('src');
       const id1 = imgurl && imgurl.match(/\d{4,}/g) && imgurl.match(/\d{4,}/g)[0];
       let sku = ''
@@ -100,7 +102,14 @@ module.exports = {
 
       var appendElement = document.querySelector('div[class*="post-card__img-wrap1"] img');
       appendElement.setAttribute('finalInagredientData', finalInagredientData);
-
+      const link = window.location.href
+      let rpc = link.match(/skuId=\d+/g) && link.match(/skuId=\d+/g)[0]
+      let finalRpc = rpc && rpc.match(/\d+/g) && rpc.match(/\d+/g)[0]
+      if (rpc == null) {
+        let temp = link.match(/p\/\d+/g) && link.match(/p\/\d+/g)[0]
+        finalRpc = temp && temp.match(/\d+/g) && temp.match(/\d+/g)[0]
+      }
+      appendElement.setAttribute('rpcvalue', finalRpc);
 
     });
 

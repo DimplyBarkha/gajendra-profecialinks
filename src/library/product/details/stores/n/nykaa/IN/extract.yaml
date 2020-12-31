@@ -518,7 +518,7 @@ fields:
   - name: category
     xpath: //ol[contains(@class,"breadcrumb product_des-breadcrumb")]//li[position()>1]
   - name: nameExtended
-    xpath: //h1[@itemprop="name"]
+    xpath: //div/h1/text()
   - name: listPrice
     xpath: //div[@class="m-content__product-des__details"]//span[@class="mrp-price"]
   - name: price
@@ -544,9 +544,9 @@ fields:
     # regExp: p/(\d+)
     regExpReplace: $1
   - name: variantId
-    xpath: //link[@rel="canonical"]/@href
-    regExp: p/(\d+)
-    regExpReplace: $1
+    xpath: //div[contains(@class,"post-card__img-wrap1")]//img/@rpcvalue
+    # regExp: p/(\d+)
+    # regExpReplace: $1
   - name: ratingCount
     xpath: //div[@data-target="review-target"]/span[contains(text(),'Review')]
     regExp: (\d+)
@@ -576,13 +576,13 @@ fields:
   - name: privacyPolicy
     defaultValue: No
   - name: customerServiceAvailability
-    defaultValue: No
+    defaultValue: Yes
   - name: materials
   - name: Image360Present
     defaultValue: No
   - name: imageZoomFeaturePresent
     example: https://www.zalando.de/adidas-neo-sneaker-low-blackwhite-a4315i002-q11.html
-    defaultValue: No
+    defaultValue: Yes
   - name: specifications
     xpath: //b[contains(text(),"Specifications")]/parent::p/following::dd
   - name: directions
@@ -598,7 +598,7 @@ fields:
     regExp: (\d+)(-Years)
     regExpReplace: $1-Years
   - name: description 
-    xpath: //div[contains(@class,"pdp-description-tab-item description")]/div/p[following-sibling::ul] | //div[contains(@class,"pdp-description-tab-item description")]/div/p
+    xpath: //div[contains(@class,"pdp-description-tab-item description")]/div/p[following-sibling::ul] 
     singleValue: false
     defaultValue: " "
   - name: quantity
@@ -614,7 +614,6 @@ fields:
     defaultValue: " "
   - name: secondaryImageTotal
     description: null
-    type: NUMBER
     xpath: count(//div[@class="slick-thumb"]//div[@class="slick-track"]/div[position()>1]//img/@src)
   - name: descriptionBullets
     xpath: count(//div[@class="pdp-description-tab-item description-expand"]//ul//li)
@@ -623,7 +622,7 @@ fields:
     xpath: //div[contains(@class,'pdp-description-tab-item')]//p[contains(.,'Additional')]/text()
   - name: manufacturerDescription
     description: The extended description of the product supplied by the lister
-    xpath: //div[@class="AzIndex"] | //div[@class="pdp-description-tab-item description-expand"]//p[contains(.,'Explore')]
+    xpath: //div[@class="AzIndex"] | //div[@class="pdp-description-tab-item description-expand"]//p[contains(.,'Explore')] | //div[@class="pdp-description-tab-item description-expand"]/div/p[1] | //div[@class="pdp-description-tab-item description-expand"]/div/strong[1]
   - name: ingredientsList
     description: List of Ingredients from site - can be string of data if no discernible start/end point
     xpath: //div[contains(@class,"post-card__img-wrap1")]//img/@finalinagredientdata
@@ -633,3 +632,8 @@ fields:
   - name: secondparagraph
     xpath: //div[contains(@class,"pdp-description-tab-item description")]/div/p[preceding-sibling::ul]
     defaultValue: " "
+  - name: thirdparagraph
+    xpath: //div[contains(@class,"pdp-description-tab-item description")]/div
+    defaultValue: " "
+  
+  

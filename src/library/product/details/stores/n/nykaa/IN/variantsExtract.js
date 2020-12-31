@@ -34,20 +34,25 @@ module.exports = {
         })
       }
       const wholeVariants = [...variantColorArr, ...sizeArr];
-
-      const variantId = [];
-      wholeVariants.forEach((element) => {
-        let skuId = element.match(/(skuId=)(\d+)/g)[0];
-        let id = skuId.match(/(\d+)/g)[0];
-        variantId.push(id);
-      })
-      variantId.forEach((element, index) => {
+      if(wholeVariants.length==0){
         const appendDiv = document.querySelector('div');
-        appendDiv.className = 'variantinfos';
-        appendDiv.setAttribute('variantid', variantId[index]);
-        appendDiv.setAttribute('varianturl', wholeVariants[index]);
-        document.body.append(appendDiv);
-      })
+        appendDiv.className = 'variantinfo';
+        appendDiv.setAttribute('varianturl', window.location.href);
+      }else{
+        const variantId = [];
+        wholeVariants.forEach((element) => {
+          let skuId = element.match(/(skuId=)(\d+)/g)[0];
+          let id = skuId.match(/(\d+)/g)[0];
+          variantId.push(id);
+        })
+        variantId.forEach((element, index) => {
+          const appendDiv = document.querySelector('div');
+          appendDiv.className = 'variantinfos';
+          appendDiv.setAttribute('variantid', variantId[index]);
+          appendDiv.setAttribute('varianturl', wholeVariants[index]);
+          document.body.append(appendDiv);
+        })
+      }
     });
     return await context.extract(variants , { transform });
   }
