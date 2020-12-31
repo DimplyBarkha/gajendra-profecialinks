@@ -8,7 +8,7 @@ module.exports = {
     domain: 'bestbuy.ca',
     zipcode: '',
   },
-  implementation
+  implementation,
 };
 async function implementation (
   inputs,
@@ -32,8 +32,8 @@ async function implementation (
     try {
       await new Promise((resolve) => setTimeout(resolve, 6000));
       // await context.waitForSelector('div[data-test="product-thumb"] a div img');
-    }catch(error){
-      console.log(error)
+    } catch (error) {
+      console.log(error);
     }
     async function infiniteScroll () {
       let prevScroll = document.documentElement.scrollTop;
@@ -48,36 +48,14 @@ async function implementation (
       }
     }
     await infiniteScroll();
-  })
+  });
 
   try {
     await new Promise((resolve) => setTimeout(resolve, 6000));
-    // await context.waitForSelector('div[data-test="product-thumb"] a div img');
+    await context.waitForSelector('div[data-test="product-thumb"] a div img');
+    await new Promise((resolve) => setTimeout(resolve, 10000));
   } catch (error) {
     console.log('error: ', error);
-    
   }
-  return await context.extract(productDetails, { transform });
+  return await context.extract(productDetails, { transform, type: 'MERGE_ROWS' });
 }
-
-// async function implementation (
-//   inputs,
-//   parameters,
-//   context,
-//   dependencies,
-// ) {
-//   const { transform } = parameters;
-//   const { productDetails } = dependencies;
-//   await context.evaluate(async () => {
-//     const loadMore = (document.querySelector('button.loadMore_3AoXT'));
-//     // const endOfResult = document.querySelector('div.endOfList_b04RG');
-//     if(loadMore){
-//      while(loadMore){
-//       // @ts-ignore
-//       loadMore.click();
-//       await new Promise((resolve, reject) => setTimeout(resolve, 2000));
-//      }
-//     }
-//   });
-//   return await context.extract(productDetails, { transform });
-// }

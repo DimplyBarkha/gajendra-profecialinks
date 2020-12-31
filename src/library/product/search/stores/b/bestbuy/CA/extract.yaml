@@ -4,54 +4,32 @@ recordSelector: null
 recordXPath: null
 fields:
   - name: nameExtended
-    singleValue: false
-    description: The product name, prefixing "${brand} - " if not included in "name"
-      and appending " - ${variantType}" if necessary (fixed per extractor)
     manualSelector: div[data-automation="productItemName"]
   - name: thumbnail
-    singleValue: false
-    description: The URL for the product thumbnail image
     xpath: //div[@class="displayingImage_3xp0y"]/img[@class="productItemImage_1en8J"]/@srcset
   - name: name
-    singleValue: false
-    description: The product name
     manualSelector: div[data-automation="productItemName"]
   - name: aggregateRating2
-    singleValue: false
-    description: The stated aggregate rating
     xpath: //meta[@itemprop="ratingValue"]/@content
   - name: reviewCount
-    singleValue: false
-    description: The number of reviews
     manualSelector: span[itemprop="ratingCount"]
     regExp: ([0-9]{1,}) Review
     regExpReplace: $1
   - name: ratingCount
-    singleValue: false
-    description: The number of ratings
     manualSelector: span[itemprop="ratingCount"]
     regExp: ([0-9]{1,}) Review
     regExpReplace: $1
   - name: price
-    singleValue: false
     xpath: //div[@class="productPricingContainer_3gTS3"]//meta[@itemprop="price"]/@content
   - name: listPrice
-    singleValue: false
     xpath: //div[@class="productPricingContainer_3gTS3"]//meta[@itemprop="price"]/@content
   - name: rank
-    singleValue: false
-    description: search/listing rank
-    type: NUMBER
   - name: rankOrganic
-    singleValue: false
-    description: The position (rank) within the list excluding sponsored/paid results
-    type: NUMBER
   - name: productUrl
-    singleValue: false
     xpath: //a[@itemprop="url"]/@href
     regExp: (.+)
     regExpReplace: https://www.bestbuy.ca$1
   - name: id
-    singleValue: false
     xpath: //a[@itemprop="url"]/@href
-    
+    regExp: (.+/)(.+)
+    regExpReplace: $2

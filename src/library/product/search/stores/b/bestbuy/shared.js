@@ -1,4 +1,4 @@
-  /**
+/**
  *
  * @param {ImportIO.Group[]} data
  * @returns {ImportIO.Group[]}
@@ -35,16 +35,16 @@ const transform = (data, context) => {
       }));
       if (row.thumbnail) {
         row.thumbnail.forEach(item => {
-          item.text= item.text.split(" ")[0];
+          item.text = item.text.split(' ')[0];
         });
       }
-      if (row.id) {
-        row.id.forEach(item => {
-          item.text= item.text.split('/');
-          let length = item.text.length;
-          item.text = item.text[length -1];
-        });
-      } 
+      // if (row.id) {
+      //   row.id.forEach(item => {
+      //     item.text = item.text.split('/');
+      //     const length = item.text.length;
+      //     item.text = item.text[length - 1];
+      //   });
+      // }
     }
   }
   return data;
