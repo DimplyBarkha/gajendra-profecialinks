@@ -61,7 +61,7 @@ fields:
   singleValue: false
   description: Product description supplied by website - may be concatenanted from
     multiple places; specifically not the manufacturer description
-  xpath: //div[contains(@class, 'jum-nutritional-info')]/text()|//div[@class='jum-summary-description']/p|//section[@class='jum-additional-info row']//li/@bullet
+  xpath: //div[@class='jum-summary-description']/p|//section[@class='jum-additional-info row']//li/@bullet
 - name: descriptionBullets
   singleValue: true
   description: Number of ul > li tags in the description
@@ -264,11 +264,11 @@ fields:
 - name: servingSize
   singleValue: true
   description: The size of serving Nutritional information is based on.
-  xpath: //thead/tr/th[2]
+  xpath: //thead/tr/th[contains(.,"g") or contains(.,"ml")]
 - name: servingSizeUom
   singleValue: true
   description: Unit of measure of serving
-  xpath: //thead/tr/th[2]
+  xpath: //thead/tr/th[contains(.,"g") or contains(.,"ml")]
   regExp: (ml|g)
 - name: numberOfServingsInPackage
   singleValue: true
@@ -277,7 +277,7 @@ fields:
   singleValue: true
   description: Nutritional Information for Calories Per Serving content - Usually
     based on per 100g serving
-  xpath: //th[contains(translate(., 'Energie', 'energie'), 'energie')]/parent::tr/following-sibling::tr[1]/th[not(text())]/following-sibling::td[1][contains(.,'k')] | //th[contains(translate(., 'Energie', 'energie'), 'energie')]/following-sibling::td[last()][contains(text(),'kcal')]
+  xpath: //th[contains(translate(., 'Energie', 'energie'), 'energie')]/parent::tr/following-sibling::tr[1]/th[not(text())]/following-sibling::td[contains(.,'k')] | //th[contains(translate(., 'Energie', 'energie'), 'energie')]/following-sibling::td[contains(text(),'kcal')]
 - name: caloriesFromFatPerServing
   singleValue: true
   description: Nutritional Information for Calories From Fat content - Usually based
@@ -286,23 +286,23 @@ fields:
   singleValue: true
   description: Nutritional Information for Total Fat content - Usually based on per
     100g serving
-  xpath: //th[contains(translate(., 'Vet', 'vet'), 'vet')]/following-sibling::td[1][contains(.,'g')] | //th[contains(translate(., 'Vet', 'vet'), 'vet')]/following-sibling::td[last()]
+  xpath: (//th[contains(translate(., 'Vet', 'vet'), 'vet')]/following-sibling::td[contains(.,'g')])[1]
   regExp: ^(<?\d+\.?\d*)
 - name: totalFatPerServingUom
   singleValue: true
   description: Unit of Measure Data for Total Fat content
-  xpath: //th[contains(translate(., 'Vetten', 'vetten'), 'vetten')]/following-sibling::td[1][contains(.,'g')] | //th[contains(translate(., 'Vet', 'vet'), 'vet')]/following-sibling::td[last()]
+  xpath: (//th[contains(translate(., 'Vet', 'vet'), 'vet')]/following-sibling::td[contains(.,'g')])[1]
   regExp: ([a-zA-Z]+)
 - name: saturatedFatPerServing
   singleValue: true
   description: Nutritional Information for Saturated Fat content - Usually based on
     per 100g serving
-  xpath: //th[contains(translate(., 'Verzadigd', 'verzadigd'), 'verzadigd')]/following-sibling::td[1][contains(.,'g')] | //th[contains(translate(., 'Verzadigd', 'verzadigd'), 'verzadigd')]/following-sibling::td[last()]
+  xpath: //th[contains(translate(., 'Verzadigd', 'verzadigd'), 'verzadigd')]/following-sibling::td[contains(.,'g')] | //th[contains(translate(., 'Verzadigd', 'verzadigd'), 'verzadigd')]/following-sibling::td[last()]
   regExp: ^(<?\d+\.?\d*)
 - name: saturatedFatPerServingUom
   singleValue: true
   description: Unit of Measure Data for Saturated Fat content
-  xpath: //th[contains(translate(., 'Verzadigd', 'verzadigd'), 'verzadigd')]/following-sibling::td[1][contains(.,'g')] | //th[contains(translate(., 'Verzadigd', 'verzadigd'), 'verzadigd')]/following-sibling::td[last()]
+  xpath: //th[contains(translate(., 'Verzadigd', 'verzadigd'), 'verzadigd')]/following-sibling::td[contains(.,'g')] | //th[contains(translate(., 'Verzadigd', 'verzadigd'), 'verzadigd')]/following-sibling::td[last()]
   regExp: ([a-zA-Z]+)
 - name: transFatPerServing
   singleValue: true
@@ -329,78 +329,78 @@ fields:
   singleValue: true
   description: Nutritional Information for Total Carbohydrate content - Usually based
     on per 100g serving
-  xpath: //th[contains(translate(., 'Koolhydraten', 'koolhydraten'), 'koolhydraten')]/following-sibling::td[1][contains(.,'g')] | //th[contains(translate(., 'Koolhydraten', 'koolhydraten'), 'koolhydraten')]/following-sibling::td[last()]
+  xpath: //th[contains(translate(., 'Koolhydraten', 'koolhydraten'), 'koolhydraten')]/following-sibling::td[contains(.,'g')] | //th[contains(translate(., 'Koolhydraten', 'koolhydraten'), 'koolhydraten')]/following-sibling::td[last()]
   regExp: ^(<?\d+\.?\d*)
 - name: totalCarbPerServingUom
   singleValue: true
   description: Unit of Measure Data for Total Carbohydrate content
-  xpath: //th[contains(translate(., 'Koolhydraten', 'koolhydraten'), 'koolhydraten')]/following-sibling::td[1][contains(.,'g')] | //th[contains(translate(., 'Koolhydraten', 'koolhydraten'), 'koolhydraten')]/following-sibling::td[last()]
+  xpath: //th[contains(translate(., 'Koolhydraten', 'koolhydraten'), 'koolhydraten')]/following-sibling::td[contains(.,'g')] | //th[contains(translate(., 'Koolhydraten', 'koolhydraten'), 'koolhydraten')]/following-sibling::td[last()]
   regExp: ([a-zA-Z]+)
 - name: dietaryFibrePerServing
   singleValue: true
   description: Nutritional Information for Dietary Fibre content - Usually based on
     per 100g serving
-  xpath: //th[contains(translate(., 'Vezels', 'vezels'), 'vezels')]/following-sibling::td[1][contains(.,'g')] | //th[contains(translate(., 'Vezels', 'vezels'), 'vezels')]/following-sibling::td[last()]
+  xpath: //th[contains(translate(., 'Vezels', 'vezels'), 'vezels')]/following-sibling::td[contains(.,'g')] | //th[contains(translate(., 'Vezels', 'vezels'), 'vezels')]/following-sibling::td[last()]
   regExp: ^(<?\d+\.?\d*)
 - name: dietaryFibrePerServingUom
   singleValue: true
   description: Unit of Measure Data for Dietary Fibre content
-  xpath: //th[contains(translate(., 'Vezels', 'vezels'), 'vezels')]/following-sibling::td[1][contains(.,'g')] | //th[contains(translate(., 'Vezels', 'vezels'), 'vezels')]/following-sibling::td[last()]
+  xpath: //th[contains(translate(., 'Vezels', 'vezels'), 'vezels')]/following-sibling::td[contains(.,'g')] | //th[contains(translate(., 'Vezels', 'vezels'), 'vezels')]/following-sibling::td[last()]
   regExp: ([a-zA-Z]+)
 - name: totalSugarsPerServing
   singleValue: true
   description: Nutritional Information for Total Sugar content - Usually based on
     per 100g serving
-  xpath: //th[contains(translate(., 'Suiker', 'suiker'), 'suiker')]/following-sibling::td[1][contains(.,'g')] | //th[contains(translate(., 'Suiker', 'suiker'), 'suiker')]/following-sibling::td[last()] 
+  xpath: //th[contains(translate(., 'Suiker', 'suiker'), 'suiker')]/following-sibling::td[contains(.,'g')] | //th[contains(translate(., 'Suiker', 'suiker'), 'suiker')]/following-sibling::td[last()] 
   regExp: ^(<?\d+\.?\d*)
 - name: totalSugarsPerServingUom
   singleValue: true
   description: Unit of Measure Data for Total Sugar content
-  xpath: //th[contains(translate(., 'Suiker', 'suiker'), 'suiker')]/following-sibling::td[1][contains(.,'g')] | //th[contains(translate(., 'Suiker', 'suiker'), 'suiker')]/following-sibling::td[last()] 
+  xpath: //th[contains(translate(., 'Suiker', 'suiker'), 'suiker')]/following-sibling::td[contains(.,'g')] | //th[contains(translate(., 'Suiker', 'suiker'), 'suiker')]/following-sibling::td[last()] 
   regExp: ([a-zA-Z]+)
 - name: proteinPerServing
   singleValue: true
   description: Nutritional Information for Protein content - Usually based on per
     100g serving
-  xpath: //th[contains(translate(., 'Eiwit', 'eiwit'), 'eiwit')]/following-sibling::td[1][contains(.,'g')] | //th[contains(translate(., 'Eiwit', 'eiwit'), 'eiwit')]/following-sibling::td[last()] 
+  xpath: //th[contains(translate(., 'Eiwit', 'eiwit'), 'eiwit')]/following-sibling::td[contains(.,'g')] | //th[contains(translate(., 'Eiwit', 'eiwit'), 'eiwit')]/following-sibling::td[last()] 
   regExp: ^(<?\d+\.?\d*)
 - name: proteinPerServingUom
   singleValue: true
   description: Unit of Measure Data for Protein
-  xpath: //th[contains(translate(., 'Eiwit', 'eiwit'), 'eiwit')]/following-sibling::td[1][contains(.,'g')] | //th[contains(translate(., 'Eiwit', 'eiwit'), 'eiwit')]/following-sibling::td[last()] 
+  xpath: //th[contains(translate(., 'Eiwit', 'eiwit'), 'eiwit')]/following-sibling::td[contains(.,'g')] | //th[contains(translate(., 'Eiwit', 'eiwit'), 'eiwit')]/following-sibling::td[last()] 
   regExp: ([a-zA-Z]+)
 - name: vitaminAPerServing
   singleValue: true
   description: Nutritional Information for Vitamin A content - Usually based on per
     100g serving
-  xpath: //th[contains(translate(., 'Vitamine A', 'vitamine a'), 'vitamine a')]/following-sibling::td[1][contains(.,'g')] | //th[contains(translate(., 'Vitamine A', 'vitamine a'), 'vitamine a')]/following-sibling::td[last()] 
+  xpath: //th[contains(translate(., 'Vitamine A', 'vitamine a'), 'vitamine a')]/following-sibling::td[contains(.,'g')] | //th[contains(translate(., 'Vitamine A', 'vitamine a'), 'vitamine a')]/following-sibling::td[last()] 
   regExp: ^(<?\d+\.?\d*)
 - name: vitaminAPerServingUom
   singleValue: true
   description: Unit of Measure Data for Vitamin A
-  xpath: //th[contains(translate(., 'Vitamine A', 'vitamine a'), 'vitamine a')]/following-sibling::td[1][contains(.,'g')] | //th[contains(translate(., 'Vitamine A', 'vitamine a'), 'vitamine a')]/following-sibling::td[last()]
+  xpath: //th[contains(translate(., 'Vitamine A', 'vitamine a'), 'vitamine a')]/following-sibling::td[contains(.,'g')] | //th[contains(translate(., 'Vitamine A', 'vitamine a'), 'vitamine a')]/following-sibling::td[last()]
   regExp: (µg|mg)
 - name: vitaminCPerServing
   singleValue: true
   description: Nutritional Information for Vitamin C content - Usually based on per
     100g serving
-  xpath: //th[contains(translate(., 'Vitamine C', 'vitamine c'), 'vitamine c')]/following-sibling::td[1][contains(.,'g')] | //th[contains(translate(., 'Vitamine C', 'vitamine c'), 'vitamine c')]/following-sibling::td[last()]
+  xpath: //th[contains(translate(., 'Vitamine C', 'vitamine c'), 'vitamine c')]/following-sibling::td[contains(.,'g')] | //th[contains(translate(., 'Vitamine C', 'vitamine c'), 'vitamine c')]/following-sibling::td[last()]
   regExp: ^(<?\d+\.?\d*)
 - name: vitaminCPerServingUom
   singleValue: true
   description: Unit of Measure Data for Vitamin C
-  xpath: //th[contains(translate(., 'Vitamine C', 'vitamine c'), 'vitamine c')]/following-sibling::td[1][contains(.,'g')] | //th[contains(translate(., 'Vitamine C', 'vitamine c'), 'vitamine c')]/following-sibling::td[last()]
+  xpath: //th[contains(translate(., 'Vitamine C', 'vitamine c'), 'vitamine c')]/following-sibling::td[contains(.,'g')] | //th[contains(translate(., 'Vitamine C', 'vitamine c'), 'vitamine c')]/following-sibling::td[last()]
   regExp: (µg|mg)
 - name: calciumPerServing
   singleValue: true
   description: Nutritional Information for Calcium content - Usually based on per
     100g serving
-  xpath: //th[contains(translate(., 'Calcium', 'calcium'), 'calcium')]/following-sibling::td[1][contains(.,'g')] | //th[contains(translate(., 'Calcium', 'calcium'), 'calcium')]/following-sibling::td[last()]
+  xpath: //th[contains(translate(., 'Calcium', 'calcium'), 'calcium')]/following-sibling::td[contains(.,'g')] | //th[contains(translate(., 'Calcium', 'calcium'), 'calcium')]/following-sibling::td[last()]
   regExp: ^(<?\d+\.?\d*)
 - name: calciumPerServingUom
   singleValue: true
   description: Unit of Measure Data for Calcium
-  xpath: //th[contains(translate(., 'Calcium', 'calcium'), 'calcium')]/following-sibling::td[1][contains(.,'g')] | //th[contains(translate(., 'Calcium', 'calcium'), 'calcium')]/following-sibling::td[last()]
+  xpath: //th[contains(translate(., 'Calcium', 'calcium'), 'calcium')]/following-sibling::td[contains(.,'g')] | //th[contains(translate(., 'Calcium', 'calcium'), 'calcium')]/following-sibling::td[last()]
   regExp: ([a-zA-Z]+)
 - name: ironPerServing
   singleValue: true
@@ -416,23 +416,23 @@ fields:
   singleValue: true
   description: Nutritional Information for Magnesium content - Usually based on per
     100g serving
-  xpath: //th[contains(translate(., 'Magnesium', 'magnesium'), 'magnesium')]/following-sibling::td[1][contains(.,'g')] | //th[translate(., 'Magnesium', 'magnesium'), 'magnesium')]/following-sibling::td[last()]
+  xpath: //th[contains(translate(., 'Magnesium', 'magnesium'), 'magnesium')]/following-sibling::td[contains(.,'g')] | //th[translate(., 'Magnesium', 'magnesium'), 'magnesium')]/following-sibling::td[last()]
   regExp: ^(<?\d+\.?\d*)
 - name: magnesiumPerServingUom
   singleValue: true
   description: Unit of Measure Data for Magnesium
-  xpath: //th[contains(translate(., 'Magnesium', 'magnesium'), 'magnesium')]/following-sibling::td[1][contains(.,'g')] | //th[translate(., 'Magnesium', 'magnesium'), 'magnesium')]/following-sibling::td[last()]
+  xpath: //th[contains(translate(., 'Magnesium', 'magnesium'), 'magnesium')]/following-sibling::td[contains(.,'g')] | //th[translate(., 'Magnesium', 'magnesium'), 'magnesium')]/following-sibling::td[last()]
   regExp: ([a-zA-Z]+)
 - name: saltPerServing
   singleValue: true
   description: Nutritional Information for Salt content - Usually based on per 100g
     serving
-  xpath: //th[contains(translate(., 'Zout', 'zout'), 'zout')]/following-sibling::td[1][contains(.,'g')] | //th[contains(translate(., 'Zout', 'zout'), 'zout')]/following-sibling::td[last()]
+  xpath: //th[contains(translate(., 'Zout', 'zout'), 'zout')]/following-sibling::td[contains(.,'g')] | //th[contains(translate(., 'Zout', 'zout'), 'zout')]/following-sibling::td[last()]
   regExp: ^(<?\d+\.?\d*)
 - name: saltPerServingUom
   singleValue: true
   description: Unit of Measure Data for Salt
-  xpath: //th[contains(translate(., 'Zout', 'zout'), 'zout')]/following-sibling::td[1][contains(.,'g')] | //th[contains(translate(., 'Zout', 'zout'), 'zout')]/following-sibling::td[last()]
+  xpath: //th[contains(translate(., 'Zout', 'zout'), 'zout')]/following-sibling::td[contains(.,'g')] | //th[contains(translate(., 'Zout', 'zout'), 'zout')]/following-sibling::td[last()]
   regExp: ([a-zA-Z]+)
 - name: dietaryInformation
   singleValue: true
@@ -487,6 +487,8 @@ fields:
 - name: alcoholContent
   singleValue: true
   description: Alcohol content information
+  xpath: //li[.//text()[contains(.,"Alcoholpercentage:")]]/text()
+  regExp: (\d.+)
 - name: newVersion
   singleValue: true
   description: In product page, information about a new version of the product (https://www.amazon.es/DODOT-Sensitive-Pa%C3%B1ales-Talla-240/dp/B01ELA8U0Q/ref=sr_1_4?__mk_es_ES=%C3%85M%C3%85%C5%BD%C3%95%C3%91&dchild=1&keywords=dodot%2B-%2Bpa%C3%B1ales%2Bpara%2Bni&qid=1589984387&sr=8-4&th=1)
