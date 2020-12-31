@@ -517,3 +517,7 @@ fields:
     regExp: >-
       (.+)
     regExpReplace: 'Yes'
+  - name: unInterruptedPDP    
+    singleValue: false   
+    description: Titles of products in the sections 'you may also like' or 'sponsored products'. Combine results from Max 3 sections
+    xpath: //div[@class="product"]//h3[@class="product-title h-style-5"]
