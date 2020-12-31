@@ -57,11 +57,14 @@ module.exports = {
         return noResults;
       });
       if (noProductsFound || noProductsFound === undefined) {
-        try {
-          throw new Error('Product not found for the given input');
-        } catch (e) {
-          console.log('Error while throwing custom error');
-        }
+        console.log('Checking no results', parameters.noResultsXPath);
+        return await context.evaluate(function (xp) {
+          const r = document.evaluate(xp, document, null, XPathResult.UNORDERED_NODE_ITERATOR_TYPE, null);
+          console.log(xp, r);
+          const e = r.iterateNext();
+          console.log(e);
+          return !e;
+        }, parameters.noResultsXPath);
       }
     }
     await context.waitForNavigation({ timeout: 60000, waitUntil: 'networkidle0' });
