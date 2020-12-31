@@ -67,6 +67,10 @@ module.exports = {
     if (dataRef[0].group[0].variantId) {
       dataRef[0].group[0].variantId[0].text = dataRef[0].group[0].variantId[0].text.match(/:"(\w+)"/)[1];
     }
+    if (dataRef[0].group[0].category) {
+      dataRef[0].group[0].category[0].text = dataRef[0].group[0].category[0].text.match(/\/(.+)\//)[1];
+      dataRef[0].group[0].category[0].text = dataRef[0].group[0].category[0].text.replace(/\//g, ' > ');
+    }
     if (dataRef[0].group[0].variantId) {
       dataRef[0].group[0].sku = [{
         text: dataRef[0].group[0].variantId[0].text.match(/(\d+)/)[1],

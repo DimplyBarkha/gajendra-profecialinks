@@ -29,10 +29,10 @@ fields:
   description: The <meta> keywords content
   xpath: //meta[@name='keywords']
 - name: category
-  singleValue: false
+  singleValue: true
   description: The categories (e.g. from breadcrumbs)
-  xpath: //title
-  regExp: '- (.+)$'
+  xpath: //a[contains(@href,"categorieen")]/@href
+  regExp: categorieen\/(.+)
   regExpReplace: $1
 - name: nameExtended
   singleValue: true
@@ -264,12 +264,14 @@ fields:
 - name: servingSize
   singleValue: true
   description: The size of serving Nutritional information is based on.
-  xpath: //thead/tr/th[contains(.,"g") or contains(.,"ml")]
+  xpath: //thead/tr/th[contains(translate(., "ML", "ml"), "ml") or contains(translate(., "G", "g"), "g")]
+  defaultValue: '100'
 - name: servingSizeUom
   singleValue: true
   description: Unit of measure of serving
   xpath: //thead/tr/th[contains(.,"g") or contains(.,"ml")]
   regExp: (ml|g)
+  defaultValue: 'g'
 - name: numberOfServingsInPackage
   singleValue: true
   description: Suggested number of servings of the product.
@@ -286,12 +288,12 @@ fields:
   singleValue: true
   description: Nutritional Information for Total Fat content - Usually based on per
     100g serving
-  xpath: (//th[contains(translate(., 'Vet', 'vet'), 'vet')]/following-sibling::td[contains(.,'g')])[1]
+  xpath: (//th[contains(translate(., 'Vet', 'vet'), 'vet')]/following-sibling::td[contains(.,'g')])[1] | //th[contains(translate(., 'Vet', 'vet'), 'vet')]/following-sibling::td[last()]
   regExp: ^(<?\d+\.?\d*)
 - name: totalFatPerServingUom
   singleValue: true
   description: Unit of Measure Data for Total Fat content
-  xpath: (//th[contains(translate(., 'Vet', 'vet'), 'vet')]/following-sibling::td[contains(.,'g')])[1]
+  xpath: (//th[contains(translate(., 'Vet', 'vet'), 'vet')]/following-sibling::td[contains(.,'g')])[1] | //th[contains(translate(., 'Vet', 'vet'), 'vet')]/following-sibling::td[last()]
   regExp: ([a-zA-Z]+)
 - name: saturatedFatPerServing
   singleValue: true
@@ -322,9 +324,13 @@ fields:
   singleValue: true
   description: Nutritional Information for Sodium content - Usually based on per 100g
     serving
+  xpath: (//th[contains(translate(., 'Natrium', 'natrium'), 'natrium')]/following-sibling::td[contains(.,'g')])[1] | //th[contains(translate(., 'Natrium', 'natrium'), 'natrium')]/following-sibling::td[last()]
+  regExp: ^(<?\d+\.?\d*)
 - name: sodiumPerServingUom
   singleValue: true
   description: Unit of Measure Data for Sodium content
+  xpath: (//th[contains(translate(., 'Natrium', 'natrium'), 'natrium')]/following-sibling::td[contains(.,'g')])[1] | //th[contains(translate(., 'Natrium', 'natrium'), 'natrium')]/following-sibling::td[last()]
+  regExp: ([a-zA-Z]+)
 - name: totalCarbPerServing
   singleValue: true
   description: Nutritional Information for Total Carbohydrate content - Usually based
@@ -362,12 +368,12 @@ fields:
   singleValue: true
   description: Nutritional Information for Protein content - Usually based on per
     100g serving
-  xpath: //th[contains(translate(., 'Eiwit', 'eiwit'), 'eiwit')]/following-sibling::td[contains(.,'g')] | //th[contains(translate(., 'Eiwit', 'eiwit'), 'eiwit')]/following-sibling::td[last()] 
+  xpath: //th[contains(translate(., 'Eiwit', 'eiwit'), 'eiwit')]/following-sibling::td[contains(.,'g')] | //th[contains(translate(., 'Eiwit', 'eiwit'), 'eiwit')]/following-sibling::td[last()] | //th[contains(translate(., 'Proteïnen', 'proteïnen'), 'proteïnen')]/following-sibling::td[contains(.,'g')]
   regExp: ^(<?\d+\.?\d*)
 - name: proteinPerServingUom
   singleValue: true
   description: Unit of Measure Data for Protein
-  xpath: //th[contains(translate(., 'Eiwit', 'eiwit'), 'eiwit')]/following-sibling::td[contains(.,'g')] | //th[contains(translate(., 'Eiwit', 'eiwit'), 'eiwit')]/following-sibling::td[last()] 
+  xpath: //th[contains(translate(., 'Eiwit', 'eiwit'), 'eiwit')]/following-sibling::td[contains(.,'g')] | //th[contains(translate(., 'Eiwit', 'eiwit'), 'eiwit')]/following-sibling::td[last()] | //th[contains(translate(., 'Proteïnen', 'proteïnen'), 'proteïnen')]/following-sibling::td[contains(.,'g')] 
   regExp: ([a-zA-Z]+)
 - name: vitaminAPerServing
   singleValue: true
