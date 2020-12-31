@@ -370,7 +370,7 @@ fields:
 - name: specifications
   singleValue: false
   description: The physical dimensions of the product including packaging.
-  xpath: //div[@id="ProdSpecSection"]/descendant::tbody
+  xpath: normalize-space(//div[@id="ProdSpecSection"]/descendant::tbody)
 - name: warranty
   singleValue: true
   xpath: (//td[contains(., 'Warranty')]/following-sibling::td)[1]
