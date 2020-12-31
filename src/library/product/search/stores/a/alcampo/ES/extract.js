@@ -1,6 +1,10 @@
 /* eslint-disable no-unmodified-loop-condition */
+
+const { transform } = require('../../../../shared');
+
 async function implementation (inputs, parameters, context, dependencies) {
   const { productDetails } = dependencies;
+  const { transform } = parameters;
 
   const nextLink = await context.evaluate(() => {
     const nextSelector = document.querySelector('div.productGrid.paginationBar.bottom.clearfix>div.right>ul.pagination>li.next>a');
@@ -104,9 +108,9 @@ async function implementation (inputs, parameters, context, dependencies) {
       }
     })) {
       await new Promise((resolve, reject) => setTimeout(resolve, 3000));
-      return await context.extract(productDetails);
+      return await context.extract(productDetails, { transform });
     } else {
-      await context.extract(productDetails);
+      await context.extract(productDetails, { transform });
 
       await new Promise((resolve, reject) => setTimeout(resolve, 3000));
       await context.evaluate(() => {
@@ -122,7 +126,7 @@ module.exports = {
   parameterValues: {
     country: 'ES',
     store: 'alcampo',
-    transform: null,
+    transform,
     domain: 'alcampo.es',
     zipcode: '',
   },
