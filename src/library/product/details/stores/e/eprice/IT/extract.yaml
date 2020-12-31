@@ -211,7 +211,7 @@ fields:
   - name: inTheBoxText
     xpath: //h2[contains(.,"In dotazione")]/../div/div | //h2[contains(.,"In dotazione")]/../following-sibling::div/div/div
   - name: inTheBoxText1
-    xpath: //h4[contains(.,"Contenuto dell'imballo")]/following-sibling::ul[preceding-sibling::h4[1][contains(.,"Contenuto dell'imballo")]]/li/span[1]
+    xpath: //h4[contains(.,"Contenuto dell'imballo")]/following-sibling::ul[preceding-sibling::h4[1][contains(.,"Contenuto dell'imballo")]]//li | //h4[contains(.,"Dati su imballaggio")]/../ul[preceding-sibling::h4[1][contains(.,"Dati su imballaggio")]]//li
   - name: inTheBoxUrl
     xpath: //h2[contains(.,"In dotazione")]/../div/div//img/@src | //h2[contains(.,"In dotazione")]/../following-sibling::div/div/div//img/@src
   

@@ -10,8 +10,8 @@ const transform = (data) => {
     .replace(/&amp;#160/g, ' ')
     .replace(/\u00A0/g, ' ')
     .replace(/\s{2,}/g, ' ')
-    .replace(/"\s{1,}/g, '"')
-    .replace(/\s{1,}"/g, '"')
+    .replace(/"\s{2,}/g, '"')
+    .replace(/\s{2,}"/g, '"')
     .replace(/^ +| +$|( )+/g, ' ')
   // eslint-disable-next-line no-control-regex
     .replace(/[\x00-\x1F]/g, '')
@@ -38,6 +38,7 @@ const transform = (data) => {
         console.log('inTheBoxText1',row.inTheBoxText1);
         row.inTheBoxText = row.inTheBoxText1;
         console.log("inTheBoxText", row.inTheBoxText);
+        //row.inTheBoxText = inTheBoxText.text.replace('Quantità1', '');
       }
       if (row.manufacturerDescription) {
         let text = '';
