@@ -87,7 +87,7 @@ const transform = (data, context) => {
 
         if (row.brandText) {          
           let tempbrandText=row.brandText[0].text.split(':')          
-          row.brandText = [{ text: tempbrandText[1].replace(/\\u002D/g,'-').replace(/\\u0022/g,'').replace(',','').trim() }];
+          row.brandText = [{ text: tempbrandText[1]?tempbrandText[1].replace(/\\u002D/g,'-').replace(/\\u0022/g,'').replace(',','').trim():'' }];
         }
 
         
