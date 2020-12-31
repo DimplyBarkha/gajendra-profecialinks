@@ -1,0 +1,25 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: thumbnail
+    xpath: //td[@class="products depth_0"]//td[@class="thumbnailImage depth_1"]
+  - name: name
+    xpath: //td[@class="products depth_0"]//td[@class="name depth_1"]
+  - name: aggregateRating2
+    xpath: //td[@class="customerRating depth_1"]
+  - name: reviewCount
+    xpath: //td[@class="products depth_0"]//td[@class="customerRatingCount depth_1"]
+  - name: ratingCount
+    xpath: //td[@class="products depth_0"]//td[@class="customerRatingCount depth_1"]
+  - name: price
+    xpath: //td[@class="products depth_0"]//td[@class="salePrice depth_1"]
+  - name: rank
+  - name: rankOrganic
+  - name: productUrl
+    xpath: //td[@class="products depth_0"]//td[@class="productUrl depth_1"]
+    regExp: (.+)
+    regExpReplace: https://www.bestbuy.ca$1
+  - name: id
+    xpath: //td[@class="products depth_0"]//td[@class="sku depth_1"]
