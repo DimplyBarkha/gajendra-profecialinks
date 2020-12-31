@@ -1,12 +1,12 @@
 singleRecord: false
 regionsSelector: null
-recordSelector: 'li[id^="size_combo_button_pdp"][onclick],html>body.no-variants'
-recordXpath: null
+recordSelector: '#added-table > table > tbody > tr > td,html > body.no-variants'
+# recordXpath: '//*[@id="added-table"]/table/tbody/tr/td | //body[contains(@class,"no-variants")]'
 fields:
   - name: image
     description: URL of the main product image
-    xpath: ancestor::html//img[@itemprop="image"]/@src
-    regExp: "(^[^?]+)"
+    xpath: //td[@class="productCode"] | //img[@itemprop="image"]/@src
+    regExp: ^([^?]+)
     # Added custom height nd width values.
     regExpReplace: $1?wid=1920&hei=1080&op_sharpen=1
   - name: inTheBoxUrl
@@ -45,12 +45,10 @@ fields:
     description: The offered price for the selected product variant - if a user
       clicks add to basket this is the price they would be charged
   - name: availabilityText
-    xpath: //span[contains(@class,'OutofStock')]
+    xpath: //td[@class="stock"]
     description: Availability as described on page for the selected variant. If
       there is no availability but the product can be added to cart, this field
       should be "In Stock"
-    regExp: (.+)
-    regExpReplace: Out of Stock
     defaultValue: In Stock
   - name: description
     xpath: ancestor::html//*[@id="estore_product_longdesc"]//div[@dir="ltr"]
@@ -82,11 +80,9 @@ fields:
     description: GTIN code (includes UPC/EAN)
   - name: sku
     description: The store-specific product identifier
-    xpath: ancestor::html//div[contains(@class,"bv-cleanslate")]//div/@data-product-id|ancestor::html//input[@id="productId"]/@value|ancestor::html//input[@id="product_ID"]/@value
+    xpath: //td[@class="variantId"] | (//div[contains(@class,"bv-cleanslate")][not(ancestor::html//*[@id="added-table"])]//div/@data-product-id|//input[not(ancestor::html//*[@id="added-table"])][@id="product_ID"]/@value)[1]
   - name: variantId
-    xpath: //div[@id="productId"] | //div[@class="productVarient"]/label/img/@src
-    regExp: ([^/]+)\?[^?]+$|(^\d+$)
-    regExpReplace: $1$2
+    xpath: //div[@id="productId"] | //td[@class="productCode"]
     description: Identifier for a variant from a store where variants share the same sku
   - name: mpc
     description: The manufacturer model code (unique) of the product
@@ -122,10 +118,10 @@ fields:
   - name: shippingWeight
     description: Stated shipping weight
   - name: variantCount
-    xpath: count(//div[@id="sizeComboButton_dropdown"]/ul/li[@onclick])
+    xpath: count(ancestor::html//*[@id="added-table"]/table/tbody/tr/td)
     description: Number of variants listed
   - name: color
-    xpath: div[@class="productVarient"]/label/img/@alt
+    xpath: //td[@class="colorName"]
     description: A textual description of the colour
   - name: colorCode
     description: A code description of the color (e.g. RGB hex)
@@ -470,7 +466,7 @@ fields:
     description: colour / scent / flavour / other
     xpath: ancestor::html//li[@id="size_combo_button_pdp_1"]//div[@class="productVarient"]//label//div//span
   - name: firstVariant
-    xpath: //input[contains(@id, 'cvosSkuID')]/@value
+    xpath: ancestor::html//input[contains(@id, 'cvosSkuID')]/@value
     description: Unique identifier for a collection of variants. For a subset of
       core feeds (43) we have a column "first_variant" that is populated with a
       common code to link all variants for a product. method 1 (Preferred) = use
@@ -481,9 +477,7 @@ fields:
       variants. method 3 = apply some logic to determine link between variants,
       this will need analysis
   - name: variants
-    xpath: ancestor::html//div[@id="sizeComboButton_dropdown"]/ul/li[@onclick]//img/@src
-    regExp: (\/(\d+)?.wid)
-    regExpReplace: $2
+    xpath: //td[@class="productCode"]
     description: null
   - name: additionalDescBulletInfo
     xpath: ancestor::html//*[@id="estore_product_longdesc"]//ul/li
