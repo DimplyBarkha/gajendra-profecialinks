@@ -168,7 +168,7 @@ fields:
   - name: inTheBoxText
     singleValue: false
     description: Must include text to show the accessories/tools which come with the product
-    xpath: //span[contains(text(),"Załączone wyposażenie")]//following-sibling::span | //div[contains(@id, "added-inBox-Text")]
+    xpath: //div[contains(@id, "added-inBox-Text")]  |   //div[contains(@id, "checkInBoxText1111111")]
   - name: hasComparisonTable
     singleValue: false
     xpath: boolean(//div[@id = 'checkhasComparisionTable'])
