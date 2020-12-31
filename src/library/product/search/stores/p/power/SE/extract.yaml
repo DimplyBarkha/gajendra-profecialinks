@@ -5,7 +5,8 @@ recordXPath: //div[contains(@class,"product-container")]
 fields:
   - name: id
     singleValue: false
-    xpath: //div[contains(@class,"product-container")]//a[@class="product__link"]/@href
+    # xpath: //div[contains(@class,"product-container")]//a[@class="product__link"]/@href
+    xpath: //div[contains(@class,"product-container")]//a[contains(@class,"product__link product-item-top")]/@href
     regExp: (.*)p-(\d+)
     regExpReplace: $2
   - name: price
