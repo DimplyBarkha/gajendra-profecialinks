@@ -1,4 +1,4 @@
-const { transform } = require('../../../../shared');
+const { transform } = require('../TR/shared');
 async function implementation (
   inputs,
   parameters,
@@ -7,6 +7,21 @@ async function implementation (
 ) {
   const { transform } = parameters;
   const { productDetails } = dependencies;
+  const isAdultPresent = await context.evaluate(() => {
+    const adultDiv = document.querySelector('div[class="adult-product"]');
+    if (adultDiv) {
+      const currentUrl = window.location.href;
+      adultDiv.click();
+      return currentUrl;
+    }
+    return null;
+  });
+  if (isAdultPresent) {
+    await context.waitForSelector('button[data-bind="click: adultAnswer.bind($data, 1)"]');
+    await context.click('button[data-bind="click: adultAnswer.bind($data, 1)"]');
+    await context.goto(isAdultPresent);
+    await context.waitForSelector('ul.product-list.results-container.do-flex.list');
+  }
   await context.evaluate(async function () {
     function timeout (ms) {
       return new Promise((resolve) => setTimeout(resolve, ms));
