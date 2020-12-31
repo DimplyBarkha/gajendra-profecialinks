@@ -9,7 +9,6 @@ module.exports = {
     zipcode: '',
   },
   implementation: async ({ url, zipcode, storeId }, parameters, context, dependencies) => {
-   
     await context.setAntiFingerprint(false);
     await context.setBlockAds(false);
     await context.setLoadImages(true);

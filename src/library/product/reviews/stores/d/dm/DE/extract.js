@@ -8,7 +8,7 @@ module.exports = {
     domain: 'dm.de',
     zipcode: '',
   },
-  implementation
+  implementation,
 };
 async function implementation (
   inputs,
@@ -16,7 +16,6 @@ async function implementation (
   context,
   dependencies,
 ) {
-  const { transform } = parameters;
   const { productReviews } = dependencies;
   await context.evaluate(async function () {
     let scrollTop = 0;
@@ -38,12 +37,11 @@ async function implementation (
     }
   });
   await context.evaluate(async function () {
-  let xpath = document.querySelector('span.bv-content-btn-pages-next');
-  if(xpath){
-    xpath.click();
-  }
-});
-
+    const xpath = document.querySelector('span.bv-content-btn-pages-next');
+    if (xpath) {
+      xpath.click();
+    }
+  });
 
   return await context.extract(productReviews);
 }
