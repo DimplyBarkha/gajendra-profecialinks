@@ -6,7 +6,7 @@ fields:
   - name: image
     singleValue: false
     description: URL of the main product image
-    xpath: //div[@id='product-image-carousel']//div[contains(@class, 'owl-item')][1]//img/@data-src
+    xpath: //body/@import-primary-image
   - name: imageAlt
     singleValue: false
     description: Alt text of the main product image
@@ -27,12 +27,14 @@ fields:
     xpath: //*[@class="breadcrumb"]/li[position() > 1]
   - name: nameExtended
     singleValue: false
-    description: The product name, prefixing "${brand} - " if not included in "name"
+    description:
+      The product name, prefixing "${brand} - " if not included in "name"
       and appending " - ${variantType}" if necessary (fixed per feed)
-    xpath: //div[@id="fetchedNameExtended"]
+    xpath: //div[@class='product-header']//h1
   - name: listPrice
     singleValue: false
     description: The stated undiscounted price for the product
+    xpath: //div[@id="fullPrice"]
   - name: price
     singleValue: false
     description: The offered price for the selected product variant - if a user
@@ -49,18 +51,20 @@ fields:
     defaultValue: In Stock
   - name: description
     singleValue: false
-    description: Product description supplied by website - may be concatenanted from
+    description:
+      Product description supplied by website - may be concatenanted from
       multiple places; specifically not the manufacturer description
-    xpath: //div[@id='descBulletInfo']
+    xpath: //import-additional-description
     regExpReplace: $1
   - name: descriptionBullets
     singleValue: false
     description: Number of ul > li tags in the description
     type: NUMBER
-    xpath: count(//*[@id="product-intro"]//ul[contains(@class, 'product-description-bullets')]/li)
+    xpath: count(//*[@id="product-intro"]//ul[contains(@class, 'product-description-bullets')]/li[not(descendant::*[local-name() = 'a'])])
   - name: brandText
     singleValue: false
-    description: Product brand shown - this may actually NOT be just a brand name,
+    description:
+      Product brand shown - this may actually NOT be just a brand name,
       e.g. "Visit the Gillette Store"
     xpath: //div[@id='brand']
   - name: manufacturer
@@ -73,6 +77,8 @@ fields:
     singleValue: false
     description: Net weight as described on the page
     xpath: //div[@id="weightNet"] | //div[contains(text(), 'Nettovekt')]/following-sibling::*
+    regExp: (\d+),(\d+)
+    regExpReplace: $1.$2
   - name: weightGross
     singleValue: false
     description: Gross weight as described on the page
@@ -92,16 +98,15 @@ fields:
   - name: variantId
     singleValue: false
     description: Identifier for a variant from a store where variants share the same sku
-    xpath: //meta[@itemprop="productId"]/@content
+    xpath: //meta[@itemprop="sku"]/@content
   - name: mpc
     singleValue: false
     description: The manufacturer model code (unique) of the product
-    xpath: //p[contains(@class, 'product-ids ng-star-inserted')]
-    regExp: (.+) /
-    regExpReplace: $1
+    xpath: //script[@data-flix-mpn]/@data-flix-mpn
   - name: packSize
     singleValue: false
-    description: The number of packs in the product offer (if stated separately on
+    description:
+      The number of packs in the product offer (if stated separately on
       the site to quantity)
   - name: legalDisclaimer
     singleValue: false
@@ -139,7 +144,7 @@ fields:
   - name: variantCount
     singleValue: false
     description: Number of variants listed
-    defaultValue: '0'
+    defaultValue: "0"
   - name: color
     singleValue: false
     description: A textual description of the colour
@@ -154,13 +159,13 @@ fields:
   - name: manufacturerImages
     singleValue: false
     description: Images within the third party description
-    xpath: //div[contains(@class, "inpage_block")]//img/@srcset | //div[@id="product-tab-description"]/div/div[@class="image-wrapper"]/img/@srcset | //div[contains(@id, "product-tab-description-panel")]//img/@srcset
-    regExp: (.+)
-    RegExpReplace: https:$1
+    xpath: //import-manufacturer-image
+    regExp: \/\/(.*)
+    regExpReplace: https://$1
   - name: videos
     singleValue: false
     description: URLs of videos on page
-    xpath: //div[@id="urlsForVideos"]
+    xpath: //import-video/@data | //div[@id='product-image-carousel']//div[contains(@class, 'owl-item')][1]/following-sibling::*//iframe/@src | //section[@id='product-content']//div[contains(@class, 'flix-videodiv')]/iframe/@src | //section[@id='product-content']//div[contains(@class, 'video-wrapper')]/iframe/@src
   - name: name
     singleValue: false
     description: The product name
@@ -203,7 +208,8 @@ fields:
     description: promotion text on product page
   - name: newDescription
     singleValue: false
-    description: In product page, information about a new version of the product -
+    description:
+      In product page, information about a new version of the product -
       new desription info
   - name: variantInformation
     singleValue: false
@@ -238,7 +244,7 @@ fields:
     defaultValue: "No"
     xpath: //a[contains(@title, 'Instruction Manual')]
     regExp: (.+)
-    RegExpReplace: 'Yes'
+    RegExpReplace: "Yes"
   - name: termsAndConditions
     singleValue: false
     description: Terms and conditions information text ['Yes','No']
@@ -247,4 +253,14 @@ fields:
     singleValue: false
     description: If 360 image is present in the carousel ['Yes','No']
     example: https://www.amazon.com/Trinsic-Single-Handle-Magnetic-Champagne-9159-CZ-DST/dp/B0050EN8E6
-    defaultValue: "No" 
+    defaultValue: "No"
+  - name: parentInput
+    xpath: //meta[@itemprop="sku"]/@content
+  - name: galleryVideos
+    singleValue: false
+    description: URLs of videos on page
+    xpath: //import-video/@data | //div[@id='product-image-carousel']//div[contains(@class, 'owl-item')][1]/following-sibling::*//iframe/@src
+    regExp: \/\/(.*)
+    regExpReplace: https://$1
+  - name: currencyOverride
+    defaultValue: NOK

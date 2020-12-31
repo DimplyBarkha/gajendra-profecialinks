@@ -1,6 +1,3236 @@
-exampleInput:
-  URL: https://www.power.no/hjem-og-fritid/stoevsuger-og-rengjoering/tilbehoer-til-stoevsuger-og-rengjoering/annet-tilbehoer/dyson-tilbehoerssett-for-stoevsuger/p-260083/
-exampleInput1:
-  URL: https://www.power.no/hjem-og-fritid/stoevsuger-og-rengjoering/tilbehoer-til-stoevsuger-og-rengjoering/annet-tilbehoer/dyson-v781011-tilbehoerspakke/p-616295/
-exampleInput2:
-  URL: https://www.power.no/hjem-og-fritid/stoevsuger-og-rengjoering/haandstoevsuger/dyson-v11-absolute-extra-pro-ledningsfri-stoevsuger/p-1076190/
+# exampleInput:
+#   SKU: 1003814
+# exampleInput1:
+#   SKU: 1003816
+# exampleInput2:
+#   SKU: 1003817
+# exampleInput3:
+#   SKU: 1003818
+# exampleInput4:
+#   SKU: 1003819
+# exampleInput5:
+#   SKU: 1003820
+# exampleInput6:
+#   SKU: 1004240
+# exampleInput7:
+#   SKU: 1004258
+# exampleInput8:
+#   SKU: 1004529
+# exampleInput9:
+#   SKU: 1004634
+# exampleInput10:
+#   SKU: 1004640
+# exampleInput11:
+#   SKU: 1005420
+# exampleInput12:
+#   SKU: 1006221
+# exampleInput13:
+#   SKU: 1006437
+# exampleInput14:
+#   SKU: 1006441
+# exampleInput15:
+#   SKU: 1006686
+# exampleInput16:
+#   SKU: 1006687
+# exampleInput17:
+#   SKU: 1006717
+# exampleInput18:
+#   SKU: 1006718
+# exampleInput19:
+#   SKU: 1007320
+# exampleInput20:
+#   SKU: 1007322
+# exampleInput21:
+#   SKU: 1007324
+# exampleInput22:
+#   SKU: 1007328
+# exampleInput23:
+#   SKU: 1008143
+# exampleInput24:
+#   SKU: 1008208
+# exampleInput25:
+#   SKU: 1008210
+# exampleInput26:
+#   SKU: 1008212
+# exampleInput27:
+#   SKU: 1008214
+# exampleInput28:
+#   SKU: 1008216
+# exampleInput29:
+#   SKU: 1008218
+# exampleInput30:
+#   SKU: 1009781
+# exampleInput31:
+#   SKU: 1009824
+# exampleInput32:
+#   SKU: 1010215
+# exampleInput33:
+#   SKU: 1010221
+# exampleInput34:
+#   SKU: 1012032
+# exampleInput35:
+#   SKU: 1012033
+# exampleInput36:
+#   SKU: 1012399
+# exampleInput37:
+#   SKU: 1012698
+# exampleInput38:
+#   SKU: 1013634
+# exampleInput39:
+#   SKU: 1015852
+# exampleInput40:
+#   SKU: 1016267
+# exampleInput41:
+#   SKU: 1016268
+# exampleInput42:
+#   SKU: 1016269
+# exampleInput43:
+#   SKU: 1016270
+# exampleInput44:
+#   SKU: 1016271
+# exampleInput45:
+#   SKU: 1016272
+# exampleInput46:
+#   SKU: 1016273
+# exampleInput47:
+#   SKU: 1016274
+# exampleInput48:
+#   SKU: 1016275
+# exampleInput49:
+#   SKU: 1016276
+# exampleInput50:
+#   SKU: 1016277
+# exampleInput51:
+#   SKU: 1018095
+# exampleInput52:
+#   SKU: 1018096
+# exampleInput53:
+#   SKU: 1018527
+# exampleInput54:
+#   SKU: 1018529
+# exampleInput55:
+#   SKU: 1018530
+# exampleInput56:
+#   SKU: 1018531
+# exampleInput57:
+#   SKU: 1018848
+# exampleInput58:
+#   SKU: 1019328
+# exampleInput59:
+#   SKU: 1019330
+# exampleInput60:
+#   SKU: 1019349
+# exampleInput61:
+#   SKU: 1019351
+# exampleInput62:
+#   SKU: 1019367
+# exampleInput63:
+#   SKU: 1019378
+# exampleInput64:
+#   SKU: 1019567
+# exampleInput65:
+#   SKU: 1019568
+# exampleInput66:
+#   SKU: 1019710
+# exampleInput67:
+#   SKU: 1019718
+# exampleInput68:
+#   SKU: 1019796
+# exampleInput69:
+#   SKU: 1020042
+# exampleInput70:
+#   SKU: 1020043
+# exampleInput71:
+#   SKU: 1020411
+# exampleInput72:
+#   SKU: 1020412
+# exampleInput73:
+#   SKU: 1020450
+# exampleInput74:
+#   SKU: 1021110
+# exampleInput75:
+#   SKU: 1021111
+# exampleInput76:
+#   SKU: 1021112
+# exampleInput77:
+#   SKU: 1021113
+# exampleInput78:
+#   SKU: 1021114
+# exampleInput79:
+#   SKU: 1021115
+# exampleInput80:
+#   SKU: 1021116
+# exampleInput81:
+#   SKU: 1021117
+# exampleInput82:
+#   SKU: 1021118
+# exampleInput83:
+#   SKU: 1021119
+# exampleInput84:
+#   SKU: 1021120
+# exampleInput85:
+#   SKU: 1021762
+# exampleInput86:
+#   SKU: 1022413
+# exampleInput87:
+#   SKU: 1023105
+# exampleInput88:
+#   SKU: 1023106
+# exampleInput89:
+#   SKU: 1023260
+# exampleInput90:
+#   SKU: 1024604
+# exampleInput91:
+#   SKU: 1025980
+# exampleInput92:
+#   SKU: 1026105
+# exampleInput93:
+#   SKU: 1029371
+# exampleInput94:
+#   SKU: 1029374
+# exampleInput95:
+#   SKU: 1029375
+# exampleInput96:
+#   SKU: 1029970
+# exampleInput97:
+#   SKU: 1029983
+# exampleInput98:
+#   SKU: 1030363
+# exampleInput99:
+#   SKU: 1031489
+# exampleInput100:
+#   SKU: 1031491
+# exampleInput101:
+#   SKU: 1032427
+# exampleInput102:
+#   SKU: 1032430
+# exampleInput103:
+#   SKU: 1032871
+# exampleInput104:
+#   SKU: 1032875
+# exampleInput105:
+#   SKU: 1032883
+# exampleInput106:
+#   SKU: 1032885
+# exampleInput107:
+#   SKU: 1032986
+# exampleInput108:
+#   SKU: 1033495
+# exampleInput109:
+#   SKU: 1034932
+# exampleInput110:
+#   SKU: 1034945
+# exampleInput111:
+#   SKU: 1035313
+# exampleInput112:
+#   SKU: 1035991
+# exampleInput113:
+#   SKU: 1035993
+# exampleInput114:
+#   SKU: 1036776
+# exampleInput115:
+#   SKU: 1036777
+# exampleInput116:
+#   SKU: 1036778
+# exampleInput117:
+#   SKU: 1036779
+# exampleInput118:
+#   SKU: 1036783
+# exampleInput119:
+#   SKU: 1036784
+# exampleInput120:
+#   SKU: 1036785
+# exampleInput121:
+#   SKU: 1036786
+# exampleInput122:
+#   SKU: 1040878
+# exampleInput123:
+#   SKU: 1042488
+# exampleInput124:
+#   SKU: 1042502
+# exampleInput125:
+#   SKU: 1042518
+# exampleInput126:
+#   SKU: 1042530
+# exampleInput127:
+#   SKU: 1042544
+# exampleInput128:
+#   SKU: 1042562
+# exampleInput129:
+#   SKU: 1042574
+# exampleInput130:
+#   SKU: 1042589
+# exampleInput131:
+#   SKU: 1042601
+# exampleInput132:
+#   SKU: 1044003
+# exampleInput133:
+#   SKU: 1044007
+# exampleInput134:
+#   SKU: 1044556
+# exampleInput135:
+#   SKU: 1045014
+# exampleInput136:
+#   SKU: 1045016
+# exampleInput137:
+#   SKU: 1045047
+# exampleInput138:
+#   SKU: 1045070
+# exampleInput139:
+#   SKU: 1045126
+# exampleInput140:
+#   SKU: 1050045
+# exampleInput141:
+#   SKU: 1050046
+# exampleInput142:
+#   SKU: 1050047
+# exampleInput143:
+#   SKU: 1051237
+# exampleInput144:
+#   SKU: 1051935
+# exampleInput145:
+#   SKU: 1051936
+# exampleInput146:
+#   SKU: 1051937
+# exampleInput147:
+#   SKU: 1051938
+# exampleInput148:
+#   SKU: 1051939
+# exampleInput149:
+#   SKU: 1051940
+# exampleInput150:
+#   SKU: 1051941
+# exampleInput151:
+#   SKU: 1051942
+# exampleInput152:
+#   SKU: 1051943
+# exampleInput153:
+#   SKU: 1051949
+# exampleInput154:
+#   SKU: 1051950
+# exampleInput155:
+#   SKU: 1051951
+# exampleInput156:
+#   SKU: 1051952
+# exampleInput157:
+#   SKU: 1051959
+# exampleInput158:
+#   SKU: 1051962
+# exampleInput159:
+#   SKU: 1051978
+# exampleInput160:
+#   SKU: 1051979
+# exampleInput161:
+#   SKU: 1052244
+# exampleInput162:
+#   SKU: 1052276
+# exampleInput163:
+#   SKU: 1052308
+# exampleInput164:
+#   SKU: 1052366
+# exampleInput165:
+#   SKU: 1052371
+# exampleInput166:
+#   SKU: 1052382
+# exampleInput167:
+#   SKU: 1053066
+# exampleInput168:
+#   SKU: 1055137
+# exampleInput169:
+#   SKU: 1055138
+# exampleInput170:
+#   SKU: 1055141
+# exampleInput171:
+#   SKU: 1055142
+# exampleInput172:
+#   SKU: 1055143
+# exampleInput173:
+#   SKU: 1055144
+# exampleInput174:
+#   SKU: 1055145
+# exampleInput175:
+#   SKU: 1055366
+# exampleInput176:
+#   SKU: 1055455
+# exampleInput177:
+#   SKU: 1056668
+# exampleInput178:
+#   SKU: 1056669
+# exampleInput179:
+#   SKU: 1056672
+# exampleInput180:
+#   SKU: 1056673
+# exampleInput181:
+#   SKU: 1058223
+# exampleInput182:
+#   SKU: 1060206
+# exampleInput183:
+#   SKU: 1060494
+# exampleInput184:
+#   SKU: 1060496
+# exampleInput185:
+#   SKU: 1061642
+# exampleInput186:
+#   SKU: 1062424
+# exampleInput187:
+#   SKU: 1062843
+# exampleInput188:
+#   SKU: 1064016
+# exampleInput189:
+#   SKU: 1064699
+# exampleInput190:
+#   SKU: 1064700
+# exampleInput191:
+#   SKU: 1064701
+# exampleInput192:
+#   SKU: 1064762
+# exampleInput193:
+#   SKU: 1064783
+# exampleInput194:
+#   SKU: 1064784
+# exampleInput195:
+#   SKU: 1064785
+# exampleInput196:
+#   SKU: 1064786
+# exampleInput197:
+#   SKU: 1064787
+# exampleInput198:
+#   SKU: 1064788
+# exampleInput199:
+#   SKU: 1064789
+# exampleInput200:
+#   SKU: 1064790
+# exampleInput201:
+#   SKU: 1064791
+# exampleInput202:
+#   SKU: 1064792
+# exampleInput203:
+#   SKU: 1064793
+# exampleInput204:
+#   SKU: 1064794
+# exampleInput205:
+#   SKU: 1064795
+# exampleInput206:
+#   SKU: 1064796
+# exampleInput207:
+#   SKU: 1064797
+# exampleInput208:
+#   SKU: 1064798
+# exampleInput209:
+#   SKU: 1064799
+# exampleInput210:
+#   SKU: 1064800
+# exampleInput211:
+#   SKU: 1064801
+# exampleInput212:
+#   SKU: 1064802
+# exampleInput213:
+#   SKU: 1064803
+# exampleInput214:
+#   SKU: 1064804
+# exampleInput215:
+#   SKU: 1064805
+# exampleInput216:
+#   SKU: 1064806
+# exampleInput217:
+#   SKU: 1064807
+# exampleInput218:
+#   SKU: 1064808
+# exampleInput219:
+#   SKU: 1064810
+# exampleInput220:
+#   SKU: 1064811
+# exampleInput221:
+#   SKU: 1064812
+# exampleInput222:
+#   SKU: 1064813
+# exampleInput223:
+#   SKU: 1064814
+# exampleInput224:
+#   SKU: 1064815
+# exampleInput225:
+#   SKU: 1064816
+# exampleInput226:
+#   SKU: 1064817
+# exampleInput227:
+#   SKU: 1064818
+# exampleInput228:
+#   SKU: 1064819
+# exampleInput229:
+#   SKU: 1064820
+# exampleInput230:
+#   SKU: 1064821
+# exampleInput231:
+#   SKU: 1064822
+# exampleInput232:
+#   SKU: 1064823
+# exampleInput233:
+#   SKU: 1064826
+# exampleInput234:
+#   SKU: 1064827
+# exampleInput235:
+#   SKU: 1064828
+# exampleInput236:
+#   SKU: 1064830
+# exampleInput237:
+#   SKU: 1064831
+# exampleInput238:
+#   SKU: 1065257
+# exampleInput239:
+#   SKU: 1065267
+# exampleInput240:
+#   SKU: 1065627
+# exampleInput241:
+#   SKU: 1066603
+# exampleInput242:
+#   SKU: 1066604
+# exampleInput243:
+#   SKU: 1066605
+# exampleInput244:
+#   SKU: 1066606
+# exampleInput245:
+#   SKU: 1066607
+# exampleInput246:
+#   SKU: 1066608
+# exampleInput247:
+#   SKU: 1066610
+# exampleInput248:
+#   SKU: 1066611
+# exampleInput249:
+#   SKU: 1066612
+# exampleInput250:
+#   SKU: 1066613
+# exampleInput251:
+#   SKU: 1066614
+# exampleInput252:
+#   SKU: 1066615
+# exampleInput253:
+#   SKU: 1066616
+# exampleInput254:
+#   SKU: 1066723
+# exampleInput255:
+#   SKU: 1066724
+# exampleInput256:
+#   SKU: 1066725
+# exampleInput257:
+#   SKU: 1066726
+# exampleInput258:
+#   SKU: 1066727
+# exampleInput259:
+#   SKU: 1066728
+# exampleInput260:
+#   SKU: 1066754
+# exampleInput261:
+#   SKU: 1067584
+# exampleInput262:
+#   SKU: 1067586
+# exampleInput263:
+#   SKU: 1067702
+# exampleInput264:
+#   SKU: 1067823
+# exampleInput265:
+#   SKU: 1067826
+# exampleInput266:
+#   SKU: 1067862
+# exampleInput267:
+#   SKU: 1067924
+# exampleInput268:
+#   SKU: 1067925
+# exampleInput269:
+#   SKU: 1067926
+# exampleInput270:
+#   SKU: 1067927
+# exampleInput271:
+#   SKU: 1067928
+# exampleInput272:
+#   SKU: 1067929
+# exampleInput273:
+#   SKU: 1067930
+# exampleInput274:
+#   SKU: 1067931
+# exampleInput275:
+#   SKU: 1067933
+# exampleInput276:
+#   SKU: 1067934
+# exampleInput277:
+#   SKU: 1067936
+# exampleInput278:
+#   SKU: 1067937
+# exampleInput279:
+#   SKU: 1067938
+# exampleInput280:
+#   SKU: 1067939
+# exampleInput281:
+#   SKU: 1067940
+# exampleInput282:
+#   SKU: 1067941
+# exampleInput283:
+#   SKU: 1067943
+# exampleInput284:
+#   SKU: 1067944
+# exampleInput285:
+#   SKU: 1067945
+# exampleInput286:
+#   SKU: 1067946
+# exampleInput287:
+#   SKU: 1067948
+# exampleInput288:
+#   SKU: 1067949
+# exampleInput289:
+#   SKU: 1067950
+# exampleInput290:
+#   SKU: 1067953
+# exampleInput291:
+#   SKU: 1067954
+# exampleInput292:
+#   SKU: 1067955
+# exampleInput293:
+#   SKU: 1067956
+# exampleInput294:
+#   SKU: 1067957
+# exampleInput295:
+#   SKU: 1067958
+# exampleInput296:
+#   SKU: 1067959
+# exampleInput297:
+#   SKU: 1067960
+# exampleInput298:
+#   SKU: 1067961
+# exampleInput299:
+#   SKU: 1067962
+# exampleInput300:
+#   SKU: 1067963
+# exampleInput301:
+#   SKU: 1067964
+# exampleInput302:
+#   SKU: 1067965
+# exampleInput303:
+#   SKU: 1067966
+# exampleInput304:
+#   SKU: 1067967
+# exampleInput305:
+#   SKU: 1067968
+# exampleInput306:
+#   SKU: 1067969
+# exampleInput307:
+#   SKU: 1067970
+# exampleInput308:
+#   SKU: 1068575
+# exampleInput309:
+#   SKU: 1068828
+# exampleInput310:
+#   SKU: 1068829
+# exampleInput311:
+#   SKU: 1068830
+# exampleInput312:
+#   SKU: 1068831
+# exampleInput313:
+#   SKU: 1068832
+# exampleInput314:
+#   SKU: 1068833
+# exampleInput315:
+#   SKU: 1068834
+# exampleInput316:
+#   SKU: 1069114
+# exampleInput317:
+#   SKU: 1069115
+# exampleInput318:
+#   SKU: 1069116
+# exampleInput319:
+#   SKU: 1069117
+# exampleInput320:
+#   SKU: 1069692
+# exampleInput321:
+#   SKU: 1069693
+# exampleInput322:
+#   SKU: 1069736
+# exampleInput323:
+#   SKU: 1069737
+# exampleInput324:
+#   SKU: 1069738
+# exampleInput325:
+#   SKU: 1069745
+# exampleInput326:
+#   SKU: 1069746
+# exampleInput327:
+#   SKU: 1069747
+# exampleInput328:
+#   SKU: 1069748
+# exampleInput329:
+#   SKU: 1069749
+# exampleInput330:
+#   SKU: 1069750
+# exampleInput331:
+#   SKU: 1069753
+# exampleInput332:
+#   SKU: 1069755
+# exampleInput333:
+#   SKU: 1069899
+# exampleInput334:
+#   SKU: 1070002
+# exampleInput335:
+#   SKU: 1070438
+# exampleInput336:
+#   SKU: 1070534
+# exampleInput337:
+#   SKU: 1070535
+# exampleInput338:
+#   SKU: 1070536
+# exampleInput339:
+#   SKU: 1070543
+# exampleInput340:
+#   SKU: 1070544
+# exampleInput341:
+#   SKU: 1070545
+# exampleInput342:
+#   SKU: 1070548
+# exampleInput343:
+#   SKU: 1070549
+# exampleInput344:
+#   SKU: 1070885
+# exampleInput345:
+#   SKU: 1070886
+# exampleInput346:
+#   SKU: 1071023
+# exampleInput347:
+#   SKU: 1072238
+# exampleInput348:
+#   SKU: 1072249
+# exampleInput349:
+#   SKU: 1072323
+# exampleInput350:
+#   SKU: 1072412
+# exampleInput351:
+#   SKU: 1072444
+# exampleInput352:
+#   SKU: 1072461
+# exampleInput353:
+#   SKU: 1072462
+# exampleInput354:
+#   SKU: 1072463
+# exampleInput355:
+#   SKU: 1072464
+# exampleInput356:
+#   SKU: 1072514
+# exampleInput357:
+#   SKU: 1072524
+# exampleInput358:
+#   SKU: 1072525
+# exampleInput359:
+#   SKU: 1072632
+# exampleInput360:
+#   SKU: 1072633
+# exampleInput361:
+#   SKU: 1073167
+# exampleInput362:
+#   SKU: 1073169
+# exampleInput363:
+#   SKU: 1073998
+# exampleInput364:
+#   SKU: 1075533
+# exampleInput365:
+#   SKU: 1075534
+# exampleInput366:
+#   SKU: 1075535
+# exampleInput367:
+#   SKU: 1075537
+# exampleInput368:
+#   SKU: 1075546
+# exampleInput369:
+#   SKU: 1075657
+# exampleInput370:
+#   SKU: 1075800
+# exampleInput371:
+#   SKU: 1076189
+# exampleInput372:
+#   SKU: 1076190
+# exampleInput373:
+#   SKU: 1076282
+# exampleInput374:
+#   SKU: 1076597
+# exampleInput375:
+#   SKU: 1076598
+# exampleInput376:
+#   SKU: 1076599
+# exampleInput377:
+#   SKU: 1076600
+# exampleInput378:
+#   SKU: 1076602
+# exampleInput379:
+#   SKU: 1076603
+# exampleInput380:
+#   SKU: 1076604
+# exampleInput381:
+#   SKU: 1076605
+# exampleInput382:
+#   SKU: 1076708
+# exampleInput383:
+#   SKU: 1076811
+# exampleInput384:
+#   SKU: 1076812
+# exampleInput385:
+#   SKU: 1077762
+# exampleInput386:
+#   SKU: 1077763
+# exampleInput387:
+#   SKU: 1077764
+# exampleInput388:
+#   SKU: 1077765
+# exampleInput389:
+#   SKU: 1077766
+# exampleInput390:
+#   SKU: 1077767
+# exampleInput391:
+#   SKU: 1077768
+# exampleInput392:
+#   SKU: 1077769
+# exampleInput393:
+#   SKU: 1077770
+# exampleInput394:
+#   SKU: 1077771
+# exampleInput395:
+#   SKU: 1077772
+# exampleInput396:
+#   SKU: 1077773
+# exampleInput397:
+#   SKU: 1077774
+# exampleInput398:
+#   SKU: 1077862
+# exampleInput399:
+#   SKU: 1078281
+# exampleInput400:
+#   SKU: 1083223
+# exampleInput401:
+#   SKU: 1084658
+# exampleInput402:
+#   SKU: 1084992
+# exampleInput403:
+#   SKU: 1084993
+# exampleInput404:
+#   SKU: 1084994
+# exampleInput405:
+#   SKU: 1084995
+# exampleInput406:
+#   SKU: 1084996
+# exampleInput407:
+#   SKU: 1084997
+# exampleInput408:
+#   SKU: 1084998
+# exampleInput409:
+#   SKU: 1084999
+# exampleInput410:
+#   SKU: 1085000
+# exampleInput411:
+#   SKU: 1085001
+# exampleInput412:
+#   SKU: 1085002
+# exampleInput413:
+#   SKU: 1085005
+# exampleInput414:
+#   SKU: 1085007
+# exampleInput415:
+#   SKU: 1085008
+# exampleInput416:
+#   SKU: 1085009
+# exampleInput417:
+#   SKU: 1085276
+# exampleInput418:
+#   SKU: 1085737
+# exampleInput419:
+#   SKU: 1085738
+# exampleInput420:
+#   SKU: 1085739
+# exampleInput421:
+#   SKU: 1085867
+# exampleInput422:
+#   SKU: 1085868
+# exampleInput423:
+#   SKU: 1085897
+# exampleInput424:
+#   SKU: 1086068
+# exampleInput425:
+#   SKU: 1086069
+# exampleInput426:
+#   SKU: 1086759
+# exampleInput427:
+#   SKU: 1086763
+# exampleInput428:
+#   SKU: 1087040
+# exampleInput429:
+#   SKU: 1087042
+# exampleInput430:
+#   SKU: 1100756
+# exampleInput431:
+#   SKU: 1101074
+# exampleInput432:
+#   SKU: 1101075
+# exampleInput433:
+#   SKU: 1101076
+# exampleInput434:
+#   SKU: 1101077
+# exampleInput435:
+#   SKU: 1101078
+# exampleInput436:
+#   SKU: 1101626
+# exampleInput437:
+#   SKU: 1101634
+# exampleInput438:
+#   SKU: 1105044
+# exampleInput439:
+#   SKU: 1105045
+# exampleInput440:
+#   SKU: 1105046
+# exampleInput441:
+#   SKU: 1105047
+# exampleInput442:
+#   SKU: 1105048
+# exampleInput443:
+#   SKU: 1105049
+# exampleInput444:
+#   SKU: 1105050
+# exampleInput445:
+#   SKU: 1105051
+# exampleInput446:
+#   SKU: 1105052
+# exampleInput447:
+#   SKU: 1105148
+# exampleInput448:
+#   SKU: 1107045
+# exampleInput449:
+#   SKU: 1107046
+# exampleInput450:
+#   SKU: 1107047
+# exampleInput451:
+#   SKU: 1107048
+# exampleInput452:
+#   SKU: 1107049
+# exampleInput453:
+#   SKU: 1107050
+# exampleInput454:
+#   SKU: 1108016
+# exampleInput455:
+#   SKU: 1108017
+# exampleInput456:
+#   SKU: 1108018
+# exampleInput457:
+#   SKU: 1108019
+# exampleInput458:
+#   SKU: 1108044
+# exampleInput459:
+#   SKU: 1108045
+# exampleInput460:
+#   SKU: 1108715
+# exampleInput461:
+#   SKU: 1108732
+# exampleInput462:
+#   SKU: 1108919
+# exampleInput463:
+#   SKU: 1108920
+# exampleInput464:
+#   SKU: 1108921
+# exampleInput465:
+#   SKU: 1108922
+# exampleInput466:
+#   SKU: 1108923
+# exampleInput467:
+#   SKU: 1109148
+# exampleInput468:
+#   SKU: 1109149
+# exampleInput469:
+#   SKU: 1109150
+# exampleInput470:
+#   SKU: 1109151
+# exampleInput471:
+#   SKU: 1109152
+# exampleInput472:
+#   SKU: 1109153
+# exampleInput473:
+#   SKU: 1109154
+# exampleInput474:
+#   SKU: 1109156
+# exampleInput475:
+#   SKU: 1109582
+# exampleInput476:
+#   SKU: 1109583
+# exampleInput477:
+#   SKU: 1109584
+# exampleInput478:
+#   SKU: 1109585
+# exampleInput479:
+#   SKU: 1109586
+# exampleInput480:
+#   SKU: 1109587
+# exampleInput481:
+#   SKU: 1109588
+# exampleInput482:
+#   SKU: 1109589
+# exampleInput483:
+#   SKU: 1109590
+# exampleInput484:
+#   SKU: 1109591
+# exampleInput485:
+#   SKU: 1109592
+# exampleInput486:
+#   SKU: 1109593
+# exampleInput487:
+#   SKU: 1109594
+# exampleInput488:
+#   SKU: 1109595
+# exampleInput489:
+#   SKU: 1109596
+# exampleInput490:
+#   SKU: 1109597
+# exampleInput491:
+#   SKU: 1109598
+# exampleInput492:
+#   SKU: 1109599
+# exampleInput493:
+#   SKU: 1110483
+# exampleInput494:
+#   SKU: 1111543
+# exampleInput495:
+#   SKU: 1111544
+# exampleInput496:
+#   SKU: 1111547
+# exampleInput497:
+#   SKU: 1111781
+# exampleInput498:
+#   SKU: 1111888
+# exampleInput499:
+#   SKU: 1111889
+# exampleInput500:
+#   SKU: 1111890
+# exampleInput501:
+#   SKU: 1111891
+# exampleInput502:
+#   SKU: 1111892
+# exampleInput503:
+#   SKU: 1111893
+# exampleInput504:
+#   SKU: 1111894
+# exampleInput505:
+#   SKU: 1111895
+# exampleInput506:
+#   SKU: 1111896
+# exampleInput507:
+#   SKU: 1112374
+# exampleInput508:
+#   SKU: 1112518
+# exampleInput509:
+#   SKU: 1112519
+# exampleInput510:
+#   SKU: 1112520
+# exampleInput511:
+#   SKU: 1112521
+# exampleInput512:
+#   SKU: 1113276
+# exampleInput513:
+#   SKU: 1113277
+# exampleInput514:
+#   SKU: 1113278
+# exampleInput515:
+#   SKU: 1113279
+# exampleInput516:
+#   SKU: 1113694
+# exampleInput517:
+#   SKU: 1113934
+# exampleInput518:
+#   SKU: 1114213
+# exampleInput519:
+#   SKU: 1114214
+# exampleInput520:
+#   SKU: 1114215
+# exampleInput521:
+#   SKU: 1114216
+# exampleInput522:
+#   SKU: 1114217
+# exampleInput523:
+#   SKU: 1114218
+# exampleInput524:
+#   SKU: 1114219
+# exampleInput525:
+#   SKU: 1114220
+# exampleInput526:
+#   SKU: 1114221
+# exampleInput527:
+#   SKU: 1114702
+# exampleInput528:
+#   SKU: 1114787
+# exampleInput529:
+#   SKU: 1115878
+# exampleInput530:
+#   SKU: 1115879
+# exampleInput531:
+#   SKU: 1115919
+# exampleInput532:
+#   SKU: 1115944
+# exampleInput533:
+#   SKU: 1115945
+# exampleInput534:
+#   SKU: 1115946
+# exampleInput535:
+#   SKU: 1116191
+# exampleInput536:
+#   SKU: 1116208
+# exampleInput537:
+#   SKU: 1116209
+# exampleInput538:
+#   SKU: 1116210
+# exampleInput539:
+#   SKU: 1116211
+# exampleInput540:
+#   SKU: 1116212
+# exampleInput541:
+#   SKU: 1116213
+# exampleInput542:
+#   SKU: 1116214
+# exampleInput543:
+#   SKU: 1116215
+# exampleInput544:
+#   SKU: 1116216
+# exampleInput545:
+#   SKU: 1116217
+# exampleInput546:
+#   SKU: 1116218
+# exampleInput547:
+#   SKU: 1116221
+# exampleInput548:
+#   SKU: 1116222
+# exampleInput549:
+#   SKU: 1116223
+# exampleInput550:
+#   SKU: 1116224
+# exampleInput551:
+#   SKU: 1116225
+# exampleInput552:
+#   SKU: 1116227
+# exampleInput553:
+#   SKU: 1116228
+# exampleInput554:
+#   SKU: 1116229
+# exampleInput555:
+#   SKU: 1116230
+# exampleInput556:
+#   SKU: 1116231
+# exampleInput557:
+#   SKU: 1116232
+# exampleInput558:
+#   SKU: 1116234
+# exampleInput559:
+#   SKU: 1116235
+# exampleInput560:
+#   SKU: 1116236
+# exampleInput561:
+#   SKU: 1116237
+# exampleInput562:
+#   SKU: 1116238
+# exampleInput563:
+#   SKU: 1116239
+# exampleInput564:
+#   SKU: 1116240
+# exampleInput565:
+#   SKU: 1116244
+# exampleInput566:
+#   SKU: 1117152
+# exampleInput567:
+#   SKU: 1117587
+# exampleInput568:
+#   SKU: 1118990
+# exampleInput569:
+#   SKU: 1119011
+# exampleInput570:
+#   SKU: 1119024
+# exampleInput571:
+#   SKU: 1119025
+# exampleInput572:
+#   SKU: 1119026
+# exampleInput573:
+#   SKU: 1119027
+# exampleInput574:
+#   SKU: 1119028
+# exampleInput575:
+#   SKU: 1119029
+# exampleInput576:
+#   SKU: 1119030
+# exampleInput577:
+#   SKU: 1119031
+# exampleInput578:
+#   SKU: 1119906
+# exampleInput579:
+#   SKU: 1119909
+# exampleInput580:
+#   SKU: 1119986
+# exampleInput581:
+#   SKU: 1120315
+# exampleInput582:
+#   SKU: 1120316
+# exampleInput583:
+#   SKU: 1120317
+# exampleInput584:
+#   SKU: 1120318
+# exampleInput585:
+#   SKU: 1120320
+# exampleInput586:
+#   SKU: 1120322
+# exampleInput587:
+#   SKU: 1120323
+# exampleInput588:
+#   SKU: 1120324
+# exampleInput589:
+#   SKU: 1120325
+# exampleInput590:
+#   SKU: 1121900
+# exampleInput591:
+#   SKU: 1122134
+# exampleInput592:
+#   SKU: 1122135
+# exampleInput593:
+#   SKU: 1122199
+# exampleInput594:
+#   SKU: 1123543
+# exampleInput595:
+#   SKU: 1123564
+# exampleInput596:
+#   SKU: 1123571
+# exampleInput597:
+#   SKU: 1123823
+# exampleInput598:
+#   SKU: 1123942
+# exampleInput599:
+#   SKU: 1123943
+# exampleInput600:
+#   SKU: 1123944
+# exampleInput601:
+#   SKU: 1123945
+# exampleInput602:
+#   SKU: 1123946
+# exampleInput603:
+#   SKU: 1123947
+# exampleInput604:
+#   SKU: 1125192
+# exampleInput605:
+#   SKU: 1125193
+# exampleInput606:
+#   SKU: 1128831
+# exampleInput607:
+#   SKU: 116911
+# exampleInput608:
+#   SKU: 125852
+# exampleInput609:
+#   SKU: 125868
+# exampleInput610:
+#   SKU: 130889
+# exampleInput611:
+#   SKU: 179850
+# exampleInput612:
+#   SKU: 185612
+# exampleInput613:
+#   SKU: 196324
+# exampleInput614:
+#   SKU: 197386
+# exampleInput615:
+#   SKU: 197600
+# exampleInput616:
+#   SKU: 198516
+# exampleInput617:
+#   SKU: 198624
+exampleInput618:
+  SKU: 199138
+exampleInput619:
+  SKU: 203155
+exampleInput620:
+  SKU: 204323
+exampleInput621:
+  SKU: 204787
+exampleInput622:
+  SKU: 205165
+exampleInput623:
+  SKU: 206020
+exampleInput624:
+  SKU: 207417
+exampleInput625:
+  SKU: 207437
+exampleInput626:
+  SKU: 207489
+exampleInput627:
+  SKU: 208487
+exampleInput628:
+  SKU: 208636
+exampleInput629:
+  SKU: 208795
+exampleInput630:
+  SKU: 208796
+exampleInput631:
+  SKU: 209534
+exampleInput632:
+  SKU: 209537
+exampleInput633:
+  SKU: 212042
+exampleInput634:
+  SKU: 212143
+exampleInput635:
+  SKU: 212198
+exampleInput636:
+  SKU: 212237
+exampleInput637:
+  SKU: 212539
+exampleInput638:
+  SKU: 212553
+exampleInput639:
+  SKU: 212554
+exampleInput640:
+  SKU: 212556
+exampleInput641:
+  SKU: 212586
+exampleInput642:
+  SKU: 212590
+exampleInput643:
+  SKU: 212761
+exampleInput644:
+  SKU: 212762
+exampleInput645:
+  SKU: 212852
+exampleInput646:
+  SKU: 213372
+exampleInput647:
+  SKU: 213480
+exampleInput648:
+  SKU: 213485
+exampleInput649:
+  SKU: 213581
+exampleInput650:
+  SKU: 213583
+exampleInput651:
+  SKU: 214069
+exampleInput652:
+  SKU: 214280
+exampleInput653:
+  SKU: 214335
+exampleInput654:
+  SKU: 215491
+exampleInput655:
+  SKU: 215559
+exampleInput656:
+  SKU: 215672
+exampleInput657:
+  SKU: 215815
+exampleInput658:
+  SKU: 217158
+exampleInput659:
+  SKU: 217161
+exampleInput660:
+  SKU: 217201
+exampleInput661:
+  SKU: 217275
+exampleInput662:
+  SKU: 217754
+exampleInput663:
+  SKU: 217765
+exampleInput664:
+  SKU: 218101
+exampleInput665:
+  SKU: 218136
+exampleInput666:
+  SKU: 218148
+exampleInput667:
+  SKU: 218162
+exampleInput668:
+  SKU: 218515
+exampleInput669:
+  SKU: 218518
+exampleInput670:
+  SKU: 219778
+exampleInput671:
+  SKU: 219780
+exampleInput672:
+  SKU: 219814
+exampleInput673:
+  SKU: 219867
+exampleInput674:
+  SKU: 220755
+exampleInput675:
+  SKU: 220778
+exampleInput676:
+  SKU: 220795
+exampleInput677:
+  SKU: 220796
+exampleInput678:
+  SKU: 221553
+exampleInput679:
+  SKU: 222617
+exampleInput680:
+  SKU: 222903
+exampleInput681:
+  SKU: 223308
+exampleInput682:
+  SKU: 223611
+exampleInput683:
+  SKU: 223994
+exampleInput684:
+  SKU: 223995
+exampleInput685:
+  SKU: 228327
+exampleInput686:
+  SKU: 228603
+exampleInput687:
+  SKU: 228780
+exampleInput688:
+  SKU: 228874
+exampleInput689:
+  SKU: 229323
+exampleInput690:
+  SKU: 229353
+exampleInput691:
+  SKU: 229369
+exampleInput692:
+  SKU: 229371
+exampleInput693:
+  SKU: 229450
+exampleInput694:
+  SKU: 229463
+exampleInput695:
+  SKU: 229590
+exampleInput696:
+  SKU: 229650
+exampleInput697:
+  SKU: 230830
+exampleInput698:
+  SKU: 237452
+exampleInput699:
+  SKU: 237623
+exampleInput700:
+  SKU: 238528
+exampleInput701:
+  SKU: 238880
+exampleInput702:
+  SKU: 239486
+exampleInput703:
+  SKU: 240340
+exampleInput704:
+  SKU: 240341
+exampleInput705:
+  SKU: 240343
+exampleInput706:
+  SKU: 240346
+exampleInput707:
+  SKU: 240347
+exampleInput708:
+  SKU: 240348
+exampleInput709:
+  SKU: 240349
+exampleInput710:
+  SKU: 240350
+exampleInput711:
+  SKU: 240353
+exampleInput712:
+  SKU: 240366
+exampleInput713:
+  SKU: 240367
+exampleInput714:
+  SKU: 240368
+exampleInput715:
+  SKU: 240372
+exampleInput716:
+  SKU: 240454
+exampleInput717:
+  SKU: 240457
+exampleInput718:
+  SKU: 245436
+exampleInput719:
+  SKU: 245984
+exampleInput720:
+  SKU: 245986
+exampleInput721:
+  SKU: 245988
+exampleInput722:
+  SKU: 245992
+exampleInput723:
+  SKU: 246530
+exampleInput724:
+  SKU: 246586
+exampleInput725:
+  SKU: 246618
+exampleInput726:
+  SKU: 246623
+exampleInput727:
+  SKU: 246651
+exampleInput728:
+  SKU: 246656
+exampleInput729:
+  SKU: 246880
+exampleInput730:
+  SKU: 246889
+exampleInput731:
+  SKU: 246890
+exampleInput732:
+  SKU: 246893
+exampleInput733:
+  SKU: 246895
+exampleInput734:
+  SKU: 246897
+exampleInput735:
+  SKU: 246898
+exampleInput736:
+  SKU: 246901
+exampleInput737:
+  SKU: 246906
+exampleInput738:
+  SKU: 247458
+exampleInput739:
+  SKU: 247662
+exampleInput740:
+  SKU: 247772
+exampleInput741:
+  SKU: 247841
+exampleInput742:
+  SKU: 247842
+exampleInput743:
+  SKU: 247949
+exampleInput744:
+  SKU: 247960
+exampleInput745:
+  SKU: 248073
+exampleInput746:
+  SKU: 248092
+exampleInput747:
+  SKU: 248226
+exampleInput748:
+  SKU: 248246
+exampleInput749:
+  SKU: 248250
+exampleInput750:
+  SKU: 248251
+exampleInput751:
+  SKU: 248478
+exampleInput752:
+  SKU: 248529
+exampleInput753:
+  SKU: 248545
+exampleInput754:
+  SKU: 248583
+exampleInput755:
+  SKU: 248709
+exampleInput756:
+  SKU: 248710
+exampleInput757:
+  SKU: 248972
+exampleInput758:
+  SKU: 249031
+exampleInput759:
+  SKU: 249051
+exampleInput760:
+  SKU: 249116
+exampleInput761:
+  SKU: 249121
+exampleInput762:
+  SKU: 249123
+exampleInput763:
+  SKU: 249125
+exampleInput764:
+  SKU: 249127
+exampleInput765:
+  SKU: 249199
+exampleInput766:
+  SKU: 249214
+exampleInput767:
+  SKU: 249349
+exampleInput768:
+  SKU: 249496
+exampleInput769:
+  SKU: 249497
+exampleInput770:
+  SKU: 249512
+exampleInput771:
+  SKU: 249649
+exampleInput772:
+  SKU: 249670
+exampleInput773:
+  SKU: 249683
+exampleInput774:
+  SKU: 249687
+exampleInput775:
+  SKU: 249689
+exampleInput776:
+  SKU: 249736
+exampleInput777:
+  SKU: 249737
+exampleInput778:
+  SKU: 249817
+exampleInput779:
+  SKU: 249911
+exampleInput780:
+  SKU: 249912
+exampleInput781:
+  SKU: 249914
+exampleInput782:
+  SKU: 249915
+exampleInput783:
+  SKU: 249916
+exampleInput784:
+  SKU: 249918
+exampleInput785:
+  SKU: 249957
+exampleInput786:
+  SKU: 250014
+exampleInput787:
+  SKU: 250019
+exampleInput788:
+  SKU: 250040
+exampleInput789:
+  SKU: 250051
+exampleInput790:
+  SKU: 251192
+exampleInput791:
+  SKU: 251204
+exampleInput792:
+  SKU: 251305
+exampleInput793:
+  SKU: 251806
+exampleInput794:
+  SKU: 252347
+exampleInput795:
+  SKU: 252749
+exampleInput796:
+  SKU: 253080
+exampleInput797:
+  SKU: 253081
+exampleInput798:
+  SKU: 253178
+exampleInput799:
+  SKU: 253204
+exampleInput800:
+  SKU: 253460
+exampleInput801:
+  SKU: 253899
+exampleInput802:
+  SKU: 253977
+exampleInput803:
+  SKU: 254709
+exampleInput804:
+  SKU: 254787
+exampleInput805:
+  SKU: 254942
+exampleInput806:
+  SKU: 254966
+exampleInput807:
+  SKU: 255063
+exampleInput808:
+  SKU: 255106
+exampleInput809:
+  SKU: 255165
+exampleInput810:
+  SKU: 255167
+exampleInput811:
+  SKU: 255439
+exampleInput812:
+  SKU: 255440
+exampleInput813:
+  SKU: 255587
+exampleInput814:
+  SKU: 255668
+exampleInput815:
+  SKU: 255678
+exampleInput816:
+  SKU: 255702
+exampleInput817:
+  SKU: 255823
+exampleInput818:
+  SKU: 255906
+exampleInput819:
+  SKU: 255930
+exampleInput820:
+  SKU: 255944
+exampleInput821:
+  SKU: 255954
+exampleInput822:
+  SKU: 255979
+exampleInput823:
+  SKU: 258935
+exampleInput824:
+  SKU: 258944
+exampleInput825:
+  SKU: 258945
+exampleInput826:
+  SKU: 259010
+exampleInput827:
+  SKU: 259011
+exampleInput828:
+  SKU: 259012
+exampleInput829:
+  SKU: 260020
+exampleInput830:
+  SKU: 260087
+exampleInput831:
+  SKU: 260175
+exampleInput832:
+  SKU: 260178
+exampleInput833:
+  SKU: 260185
+exampleInput834:
+  SKU: 260193
+exampleInput835:
+  SKU: 260725
+exampleInput836:
+  SKU: 260728
+exampleInput837:
+  SKU: 260818
+exampleInput838:
+  SKU: 260848
+exampleInput839:
+  SKU: 260872
+exampleInput840:
+  SKU: 260994
+exampleInput841:
+  SKU: 261109
+exampleInput842:
+  SKU: 261298
+exampleInput843:
+  SKU: 261352
+exampleInput844:
+  SKU: 261355
+exampleInput845:
+  SKU: 261357
+exampleInput846:
+  SKU: 261358
+exampleInput847:
+  SKU: 386215
+exampleInput848:
+  SKU: 386506
+exampleInput849:
+  SKU: 387601
+exampleInput850:
+  SKU: 389178
+exampleInput851:
+  SKU: 389214
+exampleInput852:
+  SKU: 389234
+exampleInput853:
+  SKU: 389529
+exampleInput854:
+  SKU: 389936
+exampleInput855:
+  SKU: 394643
+exampleInput856:
+  SKU: 396443
+exampleInput857:
+  SKU: 396445
+exampleInput858:
+  SKU: 401325
+exampleInput859:
+  SKU: 412033
+exampleInput860:
+  SKU: 412441
+exampleInput861:
+  SKU: 412453
+exampleInput862:
+  SKU: 414147
+exampleInput863:
+  SKU: 414194
+exampleInput864:
+  SKU: 418263
+exampleInput865:
+  SKU: 425302
+exampleInput866:
+  SKU: 425337
+exampleInput867:
+  SKU: 425340
+exampleInput868:
+  SKU: 425354
+exampleInput869:
+  SKU: 425368
+exampleInput870:
+  SKU: 425381
+exampleInput871:
+  SKU: 429467
+exampleInput872:
+  SKU: 436457
+exampleInput873:
+  SKU: 436459
+exampleInput874:
+  SKU: 436460
+exampleInput875:
+  SKU: 436461
+exampleInput876:
+  SKU: 436462
+exampleInput877:
+  SKU: 436463
+exampleInput878:
+  SKU: 443162
+exampleInput879:
+  SKU: 451836
+exampleInput880:
+  SKU: 451838
+exampleInput881:
+  SKU: 455202
+exampleInput882:
+  SKU: 458530
+exampleInput883:
+  SKU: 471831
+exampleInput884:
+  SKU: 483564
+exampleInput885:
+  SKU: 484400
+exampleInput886:
+  SKU: 489671
+exampleInput887:
+  SKU: 490416
+exampleInput888:
+  SKU: 490418
+exampleInput889:
+  SKU: 492377
+exampleInput890:
+  SKU: 494077
+exampleInput891:
+  SKU: 494942
+exampleInput892:
+  SKU: 498377
+exampleInput893:
+  SKU: 500457
+exampleInput894:
+  SKU: 501443
+exampleInput895:
+  SKU: 501471
+exampleInput896:
+  SKU: 502563
+exampleInput897:
+  SKU: 505113
+exampleInput898:
+  SKU: 505910
+exampleInput899:
+  SKU: 509977
+exampleInput900:
+  SKU: 510896
+exampleInput901:
+  SKU: 512491
+exampleInput902:
+  SKU: 512503
+exampleInput903:
+  SKU: 512505
+exampleInput904:
+  SKU: 518176
+exampleInput905:
+  SKU: 518178
+exampleInput906:
+  SKU: 518406
+exampleInput907:
+  SKU: 521608
+exampleInput908:
+  SKU: 521909
+exampleInput909:
+  SKU: 521959
+exampleInput910:
+  SKU: 521961
+exampleInput911:
+  SKU: 522919
+exampleInput912:
+  SKU: 522955
+exampleInput913:
+  SKU: 523009
+exampleInput914:
+  SKU: 523029
+exampleInput915:
+  SKU: 523767
+exampleInput916:
+  SKU: 524168
+exampleInput917:
+  SKU: 524172
+exampleInput918:
+  SKU: 524174
+exampleInput919:
+  SKU: 526057
+exampleInput920:
+  SKU: 533493
+exampleInput921:
+  SKU: 536808
+exampleInput922:
+  SKU: 538113
+exampleInput923:
+  SKU: 538124
+exampleInput924:
+  SKU: 538131
+exampleInput925:
+  SKU: 538142
+exampleInput926:
+  SKU: 538315
+exampleInput927:
+  SKU: 538430
+exampleInput928:
+  SKU: 539500
+exampleInput929:
+  SKU: 539502
+exampleInput930:
+  SKU: 539549
+exampleInput931:
+  SKU: 539613
+exampleInput932:
+  SKU: 539615
+exampleInput933:
+  SKU: 541032
+exampleInput934:
+  SKU: 541832
+exampleInput935:
+  SKU: 541948
+exampleInput936:
+  SKU: 541960
+exampleInput937:
+  SKU: 542671
+exampleInput938:
+  SKU: 543703
+exampleInput939:
+  SKU: 544033
+exampleInput940:
+  SKU: 544046
+exampleInput941:
+  SKU: 544050
+exampleInput942:
+  SKU: 544969
+exampleInput943:
+  SKU: 544974
+exampleInput944:
+  SKU: 544977
+exampleInput945:
+  SKU: 547432
+exampleInput946:
+  SKU: 547435
+exampleInput947:
+  SKU: 547438
+exampleInput948:
+  SKU: 548438
+exampleInput949:
+  SKU: 549236
+exampleInput950:
+  SKU: 549244
+exampleInput951:
+  SKU: 549316
+exampleInput952:
+  SKU: 550328
+exampleInput953:
+  SKU: 550450
+exampleInput954:
+  SKU: 550790
+exampleInput955:
+  SKU: 550820
+exampleInput956:
+  SKU: 551307
+exampleInput957:
+  SKU: 552275
+exampleInput958:
+  SKU: 552318
+exampleInput959:
+  SKU: 552319
+exampleInput960:
+  SKU: 552328
+exampleInput961:
+  SKU: 552341
+exampleInput962:
+  SKU: 552345
+exampleInput963:
+  SKU: 552380
+exampleInput964:
+  SKU: 552393
+exampleInput965:
+  SKU: 552410
+exampleInput966:
+  SKU: 552429
+exampleInput967:
+  SKU: 552451
+exampleInput968:
+  SKU: 553766
+exampleInput969:
+  SKU: 553830
+exampleInput970:
+  SKU: 553862
+exampleInput971:
+  SKU: 553878
+exampleInput972:
+  SKU: 554752
+exampleInput973:
+  SKU: 554854
+exampleInput974:
+  SKU: 554871
+exampleInput975:
+  SKU: 556187
+exampleInput976:
+  SKU: 556450
+exampleInput977:
+  SKU: 556466
+exampleInput978:
+  SKU: 556665
+exampleInput979:
+  SKU: 557489
+exampleInput980:
+  SKU: 559288
+exampleInput981:
+  SKU: 559291
+exampleInput982:
+  SKU: 559333
+exampleInput983:
+  SKU: 559395
+exampleInput984:
+  SKU: 559401
+exampleInput985:
+  SKU: 559633
+exampleInput986:
+  SKU: 561176
+exampleInput987:
+  SKU: 563416
+exampleInput988:
+  SKU: 564072
+exampleInput989:
+  SKU: 564249
+exampleInput990:
+  SKU: 564768
+exampleInput991:
+  SKU: 566127
+exampleInput992:
+  SKU: 566134
+exampleInput993:
+  SKU: 566164
+exampleInput994:
+  SKU: 566498
+exampleInput995:
+  SKU: 566500
+exampleInput996:
+  SKU: 566709
+exampleInput997:
+  SKU: 566741
+exampleInput998:
+  SKU: 566777
+exampleInput999:
+  SKU: 566792
+exampleInput1000:
+  SKU: 566846
+exampleInput1001:
+  SKU: 566878
+exampleInput1002:
+  SKU: 566985
+exampleInput1003:
+  SKU: 567658
+exampleInput1004:
+  SKU: 567993
+exampleInput1005:
+  SKU: 569289
+exampleInput1006:
+  SKU: 569292
+exampleInput1007:
+  SKU: 569456
+exampleInput1008:
+  SKU: 570432
+exampleInput1009:
+  SKU: 571769
+exampleInput1010:
+  SKU: 572801
+exampleInput1011:
+  SKU: 573375
+exampleInput1012:
+  SKU: 573754
+exampleInput1013:
+  SKU: 573756
+exampleInput1014:
+  SKU: 573774
+exampleInput1015:
+  SKU: 574032
+exampleInput1016:
+  SKU: 574039
+exampleInput1017:
+  SKU: 574537
+exampleInput1018:
+  SKU: 574814
+exampleInput1019:
+  SKU: 574879
+exampleInput1020:
+  SKU: 576358
+exampleInput1021:
+  SKU: 576824
+exampleInput1022:
+  SKU: 578213
+exampleInput1023:
+  SKU: 581039
+exampleInput1024:
+  SKU: 581118
+exampleInput1025:
+  SKU: 581409
+exampleInput1026:
+  SKU: 582482
+exampleInput1027:
+  SKU: 586539
+exampleInput1028:
+  SKU: 587078
+exampleInput1029:
+  SKU: 587082
+exampleInput1030:
+  SKU: 587086
+exampleInput1031:
+  SKU: 587109
+exampleInput1032:
+  SKU: 587111
+exampleInput1033:
+  SKU: 587212
+exampleInput1034:
+  SKU: 587213
+exampleInput1035:
+  SKU: 587798
+exampleInput1036:
+  SKU: 588496
+exampleInput1037:
+  SKU: 590353
+exampleInput1038:
+  SKU: 590357
+exampleInput1039:
+  SKU: 591110
+exampleInput1040:
+  SKU: 591114
+exampleInput1041:
+  SKU: 591120
+exampleInput1042:
+  SKU: 591765
+exampleInput1043:
+  SKU: 591767
+exampleInput1044:
+  SKU: 592356
+exampleInput1045:
+  SKU: 599566
+exampleInput1046:
+  SKU: 601242
+exampleInput1047:
+  SKU: 601670
+exampleInput1048:
+  SKU: 602894
+exampleInput1049:
+  SKU: 602896
+exampleInput1050:
+  SKU: 602898
+exampleInput1051:
+  SKU: 603033
+exampleInput1052:
+  SKU: 603055
+exampleInput1053:
+  SKU: 603057
+exampleInput1054:
+  SKU: 603715
+exampleInput1055:
+  SKU: 603771
+exampleInput1056:
+  SKU: 606302
+exampleInput1057:
+  SKU: 606364
+exampleInput1058:
+  SKU: 607717
+exampleInput1059:
+  SKU: 607719
+exampleInput1060:
+  SKU: 609111
+exampleInput1061:
+  SKU: 610288
+exampleInput1062:
+  SKU: 613227
+exampleInput1063:
+  SKU: 613275
+exampleInput1064:
+  SKU: 616198
+exampleInput1065:
+  SKU: 616314
+exampleInput1066:
+  SKU: 616325
+exampleInput1067:
+  SKU: 616332
+exampleInput1068:
+  SKU: 616339
+exampleInput1069:
+  SKU: 616421
+exampleInput1070:
+  SKU: 617422
+exampleInput1071:
+  SKU: 617493
+exampleInput1072:
+  SKU: 618673
+exampleInput1073:
+  SKU: 620057
+exampleInput1074:
+  SKU: 620816
+exampleInput1075:
+  SKU: 620818
+exampleInput1076:
+  SKU: 621009
+exampleInput1077:
+  SKU: 621011
+exampleInput1078:
+  SKU: 621022
+exampleInput1079:
+  SKU: 622974
+exampleInput1080:
+  SKU: 622976
+exampleInput1081:
+  SKU: 623200
+exampleInput1082:
+  SKU: 623780
+exampleInput1083:
+  SKU: 628537
+exampleInput1084:
+  SKU: 628700
+exampleInput1085:
+  SKU: 632406
+exampleInput1086:
+  SKU: 633481
+exampleInput1087:
+  SKU: 635596
+exampleInput1088:
+  SKU: 635598
+exampleInput1089:
+  SKU: 635600
+exampleInput1090:
+  SKU: 655746
+exampleInput1091:
+  SKU: 655748
+exampleInput1092:
+  SKU: 655750
+exampleInput1093:
+  SKU: 666092
+exampleInput1094:
+  SKU: 666096
+exampleInput1095:
+  SKU: 666685
+exampleInput1096:
+  SKU: 666769
+exampleInput1097:
+  SKU: 667815
+exampleInput1098:
+  SKU: 667840
+exampleInput1099:
+  SKU: 671356
+exampleInput1100:
+  SKU: 678241
+exampleInput1101:
+  SKU: 679299
+exampleInput1102:
+  SKU: 716780
+exampleInput1103:
+  SKU: 719250
+exampleInput1104:
+  SKU: 719252
+exampleInput1105:
+  SKU: 719254
+exampleInput1106:
+  SKU: 719261
+exampleInput1107:
+  SKU: 719263
+exampleInput1108:
+  SKU: 719267
+exampleInput1109:
+  SKU: 732838
+exampleInput1110:
+  SKU: 733415
+exampleInput1111:
+  SKU: 733487
+exampleInput1112:
+  SKU: 733547
+exampleInput1113:
+  SKU: 733571
+exampleInput1114:
+  SKU: 733619
+exampleInput1115:
+  SKU: 733663
+exampleInput1116:
+  SKU: 733704
+exampleInput1117:
+  SKU: 733725
+exampleInput1118:
+  SKU: 733794
+exampleInput1119:
+  SKU: 735091
+exampleInput1120:
+  SKU: 736290
+exampleInput1121:
+  SKU: 736300
+exampleInput1122:
+  SKU: 736302
+exampleInput1123:
+  SKU: 736307
+exampleInput1124:
+  SKU: 737887
+exampleInput1125:
+  SKU: 737890
+exampleInput1126:
+  SKU: 737925
+exampleInput1127:
+  SKU: 737954
+exampleInput1128:
+  SKU: 737991
+exampleInput1129:
+  SKU: 740865
+exampleInput1130:
+  SKU: 745351
+exampleInput1131:
+  SKU: 745367
+exampleInput1132:
+  SKU: 745386
+exampleInput1133:
+  SKU: 745390
+exampleInput1134:
+  SKU: 747751
+exampleInput1135:
+  SKU: 747774
+exampleInput1136:
+  SKU: 749932
+exampleInput1137:
+  SKU: 749935
+exampleInput1138:
+  SKU: 749952
+exampleInput1139:
+  SKU: 749969
+exampleInput1140:
+  SKU: 750470
+exampleInput1141:
+  SKU: 750506
+exampleInput1142:
+  SKU: 753881
+exampleInput1143:
+  SKU: 753887
+exampleInput1144:
+  SKU: 761445
+exampleInput1145:
+  SKU: 761447
+exampleInput1146:
+  SKU: 764321
+exampleInput1147:
+  SKU: 764322
+exampleInput1148:
+  SKU: 764323
+exampleInput1149:
+  SKU: 764324
+exampleInput1150:
+  SKU: 767849
+exampleInput1151:
+  SKU: 767852
+exampleInput1152:
+  SKU: 767859
+exampleInput1153:
+  SKU: 767876
+exampleInput1154:
+  SKU: 767879
+exampleInput1155:
+  SKU: 767936
+exampleInput1156:
+  SKU: 773840
+exampleInput1157:
+  SKU: 773862
+exampleInput1158:
+  SKU: 773930
+exampleInput1159:
+  SKU: 773952
+exampleInput1160:
+  SKU: 773956
+exampleInput1161:
+  SKU: 776197
+exampleInput1162:
+  SKU: 778000
+exampleInput1163:
+  SKU: 780037
+exampleInput1164:
+  SKU: 780041
+exampleInput1165:
+  SKU: 780042
+exampleInput1166:
+  SKU: 780043
+exampleInput1167:
+  SKU: 780044
+exampleInput1168:
+  SKU: 780045
+exampleInput1169:
+  SKU: 780100
+exampleInput1170:
+  SKU: 780143
+exampleInput1171:
+  SKU: 782155
+exampleInput1172:
+  SKU: 782175
+exampleInput1173:
+  SKU: 782177
+exampleInput1174:
+  SKU: 782179
+exampleInput1175:
+  SKU: 782199
+exampleInput1176:
+  SKU: 782300
+exampleInput1177:
+  SKU: 782313
+exampleInput1178:
+  SKU: 782323
+exampleInput1179:
+  SKU: 782325
+exampleInput1180:
+  SKU: 782391
+exampleInput1181:
+  SKU: 782393
+exampleInput1182:
+  SKU: 789158
+exampleInput1183:
+  SKU: 789203
+exampleInput1184:
+  SKU: 790415
+exampleInput1185:
+  SKU: 792509
+exampleInput1186:
+  SKU: 794215
+exampleInput1187:
+  SKU: 794240
+exampleInput1188:
+  SKU: 794315
+exampleInput1189:
+  SKU: 794335
+exampleInput1190:
+  SKU: 794337
+exampleInput1191:
+  SKU: 794339
+exampleInput1192:
+  SKU: 794351
+exampleInput1193:
+  SKU: 795879
+exampleInput1194:
+  SKU: 795901
+exampleInput1195:
+  SKU: 795902
+exampleInput1196:
+  SKU: 795937
+exampleInput1197:
+  SKU: 795969
+exampleInput1198:
+  SKU: 795982
+exampleInput1199:
+  SKU: 796071
+exampleInput1200:
+  SKU: 796084
+exampleInput1201:
+  SKU: 796097
+exampleInput1202:
+  SKU: 796100
+exampleInput1203:
+  SKU: 796113
+exampleInput1204:
+  SKU: 796119
+exampleInput1205:
+  SKU: 796132
+exampleInput1206:
+  SKU: 796135
+exampleInput1207:
+  SKU: 796173
+exampleInput1208:
+  SKU: 796180
+exampleInput1209:
+  SKU: 796232
+exampleInput1210:
+  SKU: 797576
+exampleInput1211:
+  SKU: 797578
+exampleInput1212:
+  SKU: 797580
+exampleInput1213:
+  SKU: 797582
+exampleInput1214:
+  SKU: 797584
+exampleInput1215:
+  SKU: 803139
+exampleInput1216:
+  SKU: 805435
+exampleInput1217:
+  SKU: 812087
+exampleInput1218:
+  SKU: 812113
+exampleInput1219:
+  SKU: 812144
+exampleInput1220:
+  SKU: 816549
+exampleInput1221:
+  SKU: 816550
+exampleInput1222:
+  SKU: 816551
+exampleInput1223:
+  SKU: 816805
+exampleInput1224:
+  SKU: 816806
+exampleInput1225:
+  SKU: 816810
+exampleInput1226:
+  SKU: 816812
+exampleInput1227:
+  SKU: 816814
+exampleInput1228:
+  SKU: 817095
+exampleInput1229:
+  SKU: 818260
+exampleInput1230:
+  SKU: 818280
+exampleInput1231:
+  SKU: 823196
+exampleInput1232:
+  SKU: 825253
+exampleInput1233:
+  SKU: 825437
+exampleInput1234:
+  SKU: 825574
+exampleInput1235:
+  SKU: 825635
+exampleInput1236:
+  SKU: 826003
+exampleInput1237:
+  SKU: 826035
+exampleInput1238:
+  SKU: 835905
+exampleInput1239:
+  SKU: 838159
+exampleInput1240:
+  SKU: 846452
+exampleInput1241:
+  SKU: 846454
+exampleInput1242:
+  SKU: 846514
+exampleInput1243:
+  SKU: 848106
+exampleInput1244:
+  SKU: 848340
+exampleInput1245:
+  SKU: 848362
+exampleInput1246:
+  SKU: 856827
+exampleInput1247:
+  SKU: 858728
+exampleInput1248:
+  SKU: 861080
+exampleInput1249:
+  SKU: 861081
+exampleInput1250:
+  SKU: 861085
+exampleInput1251:
+  SKU: 861096
+exampleInput1252:
+  SKU: 861233
+exampleInput1253:
+  SKU: 861303
+exampleInput1254:
+  SKU: 861304
+exampleInput1255:
+  SKU: 861305
+exampleInput1256:
+  SKU: 861306
+exampleInput1257:
+  SKU: 861307
+exampleInput1258:
+  SKU: 861560
+exampleInput1259:
+  SKU: 861589
+exampleInput1260:
+  SKU: 861609
+exampleInput1261:
+  SKU: 861611
+exampleInput1262:
+  SKU: 861619
+exampleInput1263:
+  SKU: 861622
+exampleInput1264:
+  SKU: 861627
+exampleInput1265:
+  SKU: 861628
+exampleInput1266:
+  SKU: 861629
+exampleInput1267:
+  SKU: 861634
+exampleInput1268:
+  SKU: 861639
+exampleInput1269:
+  SKU: 861640
+exampleInput1270:
+  SKU: 861642
+exampleInput1271:
+  SKU: 861653
+exampleInput1272:
+  SKU: 861654
+exampleInput1273:
+  SKU: 861659
+exampleInput1274:
+  SKU: 861665
+exampleInput1275:
+  SKU: 861666
+exampleInput1276:
+  SKU: 861667
+exampleInput1277:
+  SKU: 861670
+exampleInput1278:
+  SKU: 861672
+exampleInput1279:
+  SKU: 861674
+exampleInput1280:
+  SKU: 861757
+exampleInput1281:
+  SKU: 861759
+exampleInput1282:
+  SKU: 861765
+exampleInput1283:
+  SKU: 861766
+exampleInput1284:
+  SKU: 861767
+exampleInput1285:
+  SKU: 861768
+exampleInput1286:
+  SKU: 861770
+exampleInput1287:
+  SKU: 861790
+exampleInput1288:
+  SKU: 862518
+exampleInput1289:
+  SKU: 862533
+exampleInput1290:
+  SKU: 862539
+exampleInput1291:
+  SKU: 862577
+exampleInput1292:
+  SKU: 862581
+exampleInput1293:
+  SKU: 862587
+exampleInput1294:
+  SKU: 862590
+exampleInput1295:
+  SKU: 862888
+exampleInput1296:
+  SKU: 862931
+exampleInput1297:
+  SKU: 862934
+exampleInput1298:
+  SKU: 862943
+exampleInput1299:
+  SKU: 862946
+exampleInput1300:
+  SKU: 862947
+exampleInput1301:
+  SKU: 862952
+exampleInput1302:
+  SKU: 863217
+exampleInput1303:
+  SKU: 863287
+exampleInput1304:
+  SKU: 863288
+exampleInput1305:
+  SKU: 863294
+exampleInput1306:
+  SKU: 863311
+exampleInput1307:
+  SKU: 863364
+exampleInput1308:
+  SKU: 863368
+exampleInput1309:
+  SKU: 863376
+exampleInput1310:
+  SKU: 863842
+exampleInput1311:
+  SKU: 865311
+exampleInput1312:
+  SKU: 865313
+exampleInput1313:
+  SKU: 866235
+exampleInput1314:
+  SKU: 866239
+exampleInput1315:
+  SKU: 866430
+exampleInput1316:
+  SKU: 866438
+exampleInput1317:
+  SKU: 866458
+exampleInput1318:
+  SKU: 866768
+exampleInput1319:
+  SKU: 866770
+exampleInput1320:
+  SKU: 866773
+exampleInput1321:
+  SKU: 866775
+exampleInput1322:
+  SKU: 867619
+exampleInput1323:
+  SKU: 867623
+exampleInput1324:
+  SKU: 867627
+exampleInput1325:
+  SKU: 868982
+exampleInput1326:
+  SKU: 870176
+exampleInput1327:
+  SKU: 870181
+exampleInput1328:
+  SKU: 870345
+exampleInput1329:
+  SKU: 870359
+exampleInput1330:
+  SKU: 870364
+exampleInput1331:
+  SKU: 871264
+exampleInput1332:
+  SKU: 871272
+exampleInput1333:
+  SKU: 871274
+exampleInput1334:
+  SKU: 871276
+exampleInput1335:
+  SKU: 871280
+exampleInput1336:
+  SKU: 871292
+exampleInput1337:
+  SKU: 871359
+exampleInput1338:
+  SKU: 871370
+exampleInput1339:
+  SKU: 871588
+exampleInput1340:
+  SKU: 871620
+exampleInput1341:
+  SKU: 871865
+exampleInput1342:
+  SKU: 871867
+exampleInput1343:
+  SKU: 873282
+exampleInput1344:
+  SKU: 873290
+exampleInput1345:
+  SKU: 873347
+exampleInput1346:
+  SKU: 873380
+exampleInput1347:
+  SKU: 873390
+exampleInput1348:
+  SKU: 873411
+exampleInput1349:
+  SKU: 873461
+exampleInput1350:
+  SKU: 873740
+exampleInput1351:
+  SKU: 873755
+exampleInput1352:
+  SKU: 873757
+exampleInput1353:
+  SKU: 873773
+exampleInput1354:
+  SKU: 873781
+exampleInput1355:
+  SKU: 873783
+exampleInput1356:
+  SKU: 873916
+exampleInput1357:
+  SKU: 873930
+exampleInput1358:
+  SKU: 873932
+exampleInput1359:
+  SKU: 873942
+exampleInput1360:
+  SKU: 874571
+exampleInput1361:
+  SKU: 874572
+exampleInput1362:
+  SKU: 874599
+exampleInput1363:
+  SKU: 874626
+exampleInput1364:
+  SKU: 874635
+exampleInput1365:
+  SKU: 874642
+exampleInput1366:
+  SKU: 874680
+exampleInput1367:
+  SKU: 874689
+exampleInput1368:
+  SKU: 874698
+exampleInput1369:
+  SKU: 874707
+exampleInput1370:
+  SKU: 874842
+exampleInput1371:
+  SKU: 874845
+exampleInput1372:
+  SKU: 874880
+exampleInput1373:
+  SKU: 874886
+exampleInput1374:
+  SKU: 875038
+exampleInput1375:
+  SKU: 875147
+exampleInput1376:
+  SKU: 875848
+exampleInput1377:
+  SKU: 875850
+exampleInput1378:
+  SKU: 875852
+exampleInput1379:
+  SKU: 875854
+exampleInput1380:
+  SKU: 875856
+exampleInput1381:
+  SKU: 875858
+exampleInput1382:
+  SKU: 876280
+exampleInput1383:
+  SKU: 876478
+exampleInput1384:
+  SKU: 876616
+exampleInput1385:
+  SKU: 876632
+exampleInput1386:
+  SKU: 876831
+exampleInput1387:
+  SKU: 876939
+exampleInput1388:
+  SKU: 876957
+exampleInput1389:
+  SKU: 877100
+exampleInput1390:
+  SKU: 877135
+exampleInput1391:
+  SKU: 877147
+exampleInput1392:
+  SKU: 877161
+exampleInput1393:
+  SKU: 877295
+exampleInput1394:
+  SKU: 877427
+exampleInput1395:
+  SKU: 877467
+exampleInput1396:
+  SKU: 877739
+exampleInput1397:
+  SKU: 879596
+exampleInput1398:
+  SKU: 879619
+exampleInput1399:
+  SKU: 879633
+exampleInput1400:
+  SKU: 880134
+exampleInput1401:
+  SKU: 880276
+exampleInput1402:
+  SKU: 880767
+exampleInput1403:
+  SKU: 880769
+exampleInput1404:
+  SKU: 881118
+exampleInput1405:
+  SKU: 881408
+exampleInput1406:
+  SKU: 882408
+exampleInput1407:
+  SKU: 882422
+exampleInput1408:
+  SKU: 882742
+exampleInput1409:
+  SKU: 882996
+exampleInput1410:
+  SKU: 883034
+exampleInput1411:
+  SKU: 883037
+exampleInput1412:
+  SKU: 883040
+exampleInput1413:
+  SKU: 883047
+exampleInput1414:
+  SKU: 883193
+exampleInput1415:
+  SKU: 883197
+exampleInput1416:
+  SKU: 883496
+exampleInput1417:
+  SKU: 883831
+exampleInput1418:
+  SKU: 884809
+exampleInput1419:
+  SKU: 885234
+exampleInput1420:
+  SKU: 885238
+exampleInput1421:
+  SKU: 885240
+exampleInput1422:
+  SKU: 886633
+exampleInput1423:
+  SKU: 886634
+exampleInput1424:
+  SKU: 886636
+exampleInput1425:
+  SKU: 886638
+exampleInput1426:
+  SKU: 886640
+exampleInput1427:
+  SKU: 887434
+exampleInput1428:
+  SKU: 887448
+exampleInput1429:
+  SKU: 887450
+exampleInput1430:
+  SKU: 889425
+exampleInput1431:
+  SKU: 889440
+exampleInput1432:
+  SKU: 889443
+exampleInput1433:
+  SKU: 889482
+exampleInput1434:
+  SKU: 889498
+exampleInput1435:
+  SKU: 889501
+exampleInput1436:
+  SKU: 889509
+exampleInput1437:
+  SKU: 889515
+exampleInput1438:
+  SKU: 889517
+exampleInput1439:
+  SKU: 891155
+exampleInput1440:
+  SKU: 891165
+exampleInput1441:
+  SKU: 891171
+exampleInput1442:
+  SKU: 891976
+exampleInput1443:
+  SKU: 891980
+exampleInput1444:
+  SKU: 891983
+exampleInput1445:
+  SKU: 891984
+exampleInput1446:
+  SKU: 891991
+exampleInput1447:
+  SKU: 891994
+exampleInput1448:
+  SKU: 891997
+exampleInput1449:
+  SKU: 893778
+exampleInput1450:
+  SKU: 894224
+exampleInput1451:
+  SKU: 894252
+exampleInput1452:
+  SKU: 894263
+exampleInput1453:
+  SKU: 894275
+exampleInput1454:
+  SKU: 894768
+exampleInput1455:
+  SKU: 894945
+exampleInput1456:
+  SKU: 894946
+exampleInput1457:
+  SKU: 894947
+exampleInput1458:
+  SKU: 894948
+exampleInput1459:
+  SKU: 894949
+exampleInput1460:
+  SKU: 894950
+exampleInput1461:
+  SKU: 894951
+exampleInput1462:
+  SKU: 894952
+exampleInput1463:
+  SKU: 894953
+exampleInput1464:
+  SKU: 894954
+exampleInput1465:
+  SKU: 894955
+exampleInput1466:
+  SKU: 894956
+exampleInput1467:
+  SKU: 894957
+exampleInput1468:
+  SKU: 894958
+exampleInput1469:
+  SKU: 894959
+exampleInput1470:
+  SKU: 894960
+exampleInput1471:
+  SKU: 894961
+exampleInput1472:
+  SKU: 894963
+exampleInput1473:
+  SKU: 894964
+exampleInput1474:
+  SKU: 894965
+exampleInput1475:
+  SKU: 894968
+exampleInput1476:
+  SKU: 894969
+exampleInput1477:
+  SKU: 894970
+exampleInput1478:
+  SKU: 895429
+exampleInput1479:
+  SKU: 895435
+exampleInput1480:
+  SKU: 897146
+exampleInput1481:
+  SKU: 899452
+exampleInput1482:
+  SKU: 899657
+exampleInput1483:
+  SKU: 900363
+exampleInput1484:
+  SKU: 900365
+exampleInput1485:
+  SKU: 901410
+exampleInput1486:
+  SKU: 901705
+exampleInput1487:
+  SKU: 903863
+exampleInput1488:
+  SKU: 903890
+exampleInput1489:
+  SKU: 903949
+exampleInput1490:
+  SKU: 903951
+exampleInput1491:
+  SKU: 905817
+exampleInput1492:
+  SKU: 906943
+exampleInput1493:
+  SKU: 907063
+exampleInput1494:
+  SKU: 908269
+exampleInput1495:
+  SKU: 909462
+exampleInput1496:
+  SKU: 909646
+exampleInput1497:
+  SKU: 909647
+exampleInput1498:
+  SKU: 909648
+exampleInput1499:
+  SKU: 909649
+exampleInput1500:
+  SKU: 909650
+exampleInput1501:
+  SKU: 912028
+exampleInput1502:
+  SKU: 917419
+exampleInput1503:
+  SKU: 917421
+exampleInput1504:
+  SKU: 928472
+exampleInput1505:
+  SKU: 937706
+exampleInput1506:
+  SKU: 939589
+exampleInput1507:
+  SKU: 939633
+exampleInput1508:
+  SKU: 939679
+exampleInput1509:
+  SKU: 939729
+exampleInput1510:
+  SKU: 939735
+exampleInput1511:
+  SKU: 939830
+exampleInput1512:
+  SKU: 940812
+exampleInput1513:
+  SKU: 941159
+exampleInput1514:
+  SKU: 942315
+exampleInput1515:
+  SKU: 942335
+exampleInput1516:
+  SKU: 943641
+exampleInput1517:
+  SKU: 943645
+exampleInput1518:
+  SKU: 943647
+exampleInput1519:
+  SKU: 943652
+exampleInput1520:
+  SKU: 944227
+exampleInput1521:
+  SKU: 945888
+exampleInput1522:
+  SKU: 948627
+exampleInput1523:
+  SKU: 948630
+exampleInput1524:
+  SKU: 948631
+exampleInput1525:
+  SKU: 949428
+exampleInput1526:
+  SKU: 950498
+exampleInput1527:
+  SKU: 950518
+exampleInput1528:
+  SKU: 950519
+exampleInput1529:
+  SKU: 950520
+exampleInput1530:
+  SKU: 950521
+exampleInput1531:
+  SKU: 950522
+exampleInput1532:
+  SKU: 950523
+exampleInput1533:
+  SKU: 950524
+exampleInput1534:
+  SKU: 950525
+exampleInput1535:
+  SKU: 950526
+exampleInput1536:
+  SKU: 950527
+exampleInput1537:
+  SKU: 950528
+exampleInput1538:
+  SKU: 950529
+exampleInput1539:
+  SKU: 950530
+exampleInput1540:
+  SKU: 951433
+exampleInput1541:
+  SKU: 951435
+exampleInput1542:
+  SKU: 952406
+exampleInput1543:
+  SKU: 953347
+exampleInput1544:
+  SKU: 953388
+exampleInput1545:
+  SKU: 953799
+exampleInput1546:
+  SKU: 957920
+exampleInput1547:
+  SKU: 959548
+exampleInput1548:
+  SKU: 960856
+exampleInput1549:
+  SKU: 963300
+exampleInput1550:
+  SKU: 965993
+exampleInput1551:
+  SKU: 966573
+exampleInput1552:
+  SKU: 969695
+exampleInput1553:
+  SKU: 971470
+exampleInput1554:
+  SKU: 972374
+exampleInput1555:
+  SKU: 974856
+exampleInput1556:
+  SKU: 983516
+exampleInput1557:
+  SKU: 983622
+exampleInput1558:
+  SKU: 986534
+exampleInput1559:
+  SKU: 986537
+exampleInput1560:
+  SKU: 986539
+exampleInput1561:
+  SKU: 986569
+exampleInput1562:
+  SKU: 986570
+exampleInput1563:
+  SKU: 986571
+exampleInput1564:
+  SKU: 986572
+exampleInput1565:
+  SKU: 986573
+exampleInput1566:
+  SKU: 986739
+exampleInput1567:
+  SKU: 987305
+exampleInput1568:
+  SKU: 987324
+exampleInput1569:
+  SKU: 987332
+exampleInput1570:
+  SKU: 987334
+exampleInput1571:
+  SKU: 987336
+exampleInput1572:
+  SKU: 987863
+exampleInput1573:
+  SKU: 987870
+exampleInput1574:
+  SKU: 987872
+exampleInput1575:
+  SKU: 987874
+exampleInput1576:
+  SKU: 987876
+exampleInput1577:
+  SKU: 987878
+exampleInput1578:
+  SKU: 987880
+exampleInput1579:
+  SKU: 987882
+exampleInput1580:
+  SKU: 987884
+exampleInput1581:
+  SKU: 987886
+exampleInput1582:
+  SKU: 987888
+exampleInput1583:
+  SKU: 987890
+exampleInput1584:
+  SKU: 987892
+exampleInput1585:
+  SKU: 989294
+exampleInput1586:
+  SKU: 990996
+exampleInput1587:
+  SKU: 990998
+exampleInput1588:
+  SKU: 991005
+exampleInput1589:
+  SKU: 991007
+exampleInput1590:
+  SKU: 991526
+exampleInput1591:
+  SKU: 991636
+exampleInput1592:
+  SKU: 992403
+exampleInput1593:
+  SKU: 992759
+exampleInput1594:
+  SKU: 992838
+exampleInput1595:
+  SKU: 992839
+exampleInput1596:
+  SKU: 992840
+exampleInput1597:
+  SKU: 992841
+exampleInput1598:
+  SKU: 993166
+exampleInput1599:
+  SKU: 993174
+exampleInput1600:
+  SKU: 994026
+exampleInput1601:
+  SKU: 994196
+exampleInput1602:
+  SKU: 996480
+exampleInput1603:
+  SKU: 996483
+exampleInput1604:
+  SKU: 996486
+exampleInput1605:
+  SKU: 996489
+exampleInput1606:
+  SKU: 996492
+exampleInput1607:
+  SKU: 996495
+exampleInput1608:
+  SKU: 996502
+exampleInput1609:
+  SKU: 996505
+exampleInput1610:
+  SKU: 996759
+exampleInput1611:
+  SKU: 996772
+exampleInput1612:
+  SKU: 996802
+exampleInput1613:
+  SKU: 997618
+exampleInput1614:
+  SKU: 997935
+exampleInput1615:
+  SKU: 998986
+exampleInput1616:
+  SKU: 999071
+exampleInput1617:
+  SKU: 999078

@@ -12,19 +12,19 @@ module.exports = {
 
   implementation: async (inputString, { country, domain, transform }, context, { productDetails }) => {
     const { id } = inputString;
-    if (id) {
-      await context.waitForSelector('a.product__link');
-      try {
-        await context.click('#declineButton');
-      } catch (error) {
-        console.log('Popup not present');
-      }
-      await context.waitForSelector('div.product-image-picture');
-      await context.click('a.product__link');
-    }
+    // if (id) {
+    //   await context.waitForSelector('a.product__link');
+    //   try {
+    //     await context.click('#declineButton');
+    //   } catch (error) {
+    //     console.log('Popup not present');
+    //   }
+    //   await context.waitForSelector('div.product-image-picture');
+    //   await context.click('a.product__link');
+    // }
 
     await context.waitForSelector('#product-information-tabs > div:nth-child(1) > div > i');
-    await context.waitForSelector('#product-intro pwr-product-stock-label');
+    await context.waitForSelector('#product-intro');
     await context.click('#product-information-tabs > div:nth-child(1) > div > i');
     await new Promise((resolve, reject) => setTimeout(resolve, 8000));
 
@@ -199,12 +199,6 @@ module.exports = {
       }
       addElementToDocument('description', descArr.join(' || '));
 
-      const manufacturerDesc = document.querySelector('div#product-tab-description')
-        ? document.querySelector('div#product-tab-description').innerText : '';
-      if (manufacturerDesc) {
-        addElementToDocument('manufacturerDesc', manufacturerDesc.replace(/\n{2,}/g, '').replace(/\s{2,}/g, ' '));
-      };
-
       const specifications = document.querySelectorAll('pwr-product-specifications > div');
       const specArr = [];
       if (specifications) {
@@ -215,24 +209,74 @@ module.exports = {
       addElementToDocument('specifications', specArr.join(' || '));
 
       const bulletInfo = document.querySelectorAll('div.product-intro-details ul.product-description-bullets li');
-      const descBulletInfo = [''];
+      const descBulletInfo = [];
       if (bulletInfo) {
         bulletInfo.forEach(e => {
-          descBulletInfo.push(e.innerText);
+          const childEl = e.querySelector('a');
+
+          if (!childEl) {
+            descBulletInfo.push(e.innerText);
+          }
+
         });
       }
       addElementToDocument('descBulletInfo', descBulletInfo.join(' || '));
+      let additionalDescription =  descBulletInfo.join(' || ');
+      const header = document.querySelector('.product-basic-info .webheader') ? document.querySelector('.product-basic-info .webheader').innerText : null;
+      additionalDescription = header ?
+      (additionalDescription ? `${header} || ${additionalDescription}` : header) : additionalDescription;
+      const additionalDescEl = document.createElement('import-additional-description');
+      additionalDescEl.innerText = additionalDescription;
+      document.body.appendChild(additionalDescEl);
+      const sku = document.querySelector(`meta[itemprop='sku']`) ? document.querySelector(`meta[itemprop='sku']`).content : null;
+      const productName = document.querySelector('.old-product-page h1') ? document.querySelector('.old-product-page h1').innerText : null;
+      const manufacturerImages = document.evaluate(`//div[contains(@class, "inpage_block")]//img[not(contains(@data-flixsrcset, 'thumb'))] | //div[@id="product-tab-description"]//img[not(contains(@data-flixsrcset, 'thumb'))] | //div[contains(@id, "product-tab-description-panel")]//img[not(contains(@data-flixsrcset, 'thumb'))]`, document, null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null );
+      const manufacturerImagesArray = [];
+      
+      if (manufacturerImages.snapshotLength) {
+        for (let i = 0; i < manufacturerImages.snapshotLength; i++) {
+          const manufacturerImageEl = manufacturerImages.snapshotItem(i);
 
-      const iframe = document.querySelector('iframe.videoly-box');
-      if (iframe) {
-        const videos = iframe.contentDocument ? iframe.contentDocument.querySelectorAll('li.b-video-item div.b-video-item-tile') : [];
-        videos.forEach(el =>
-          addElementToDocument('urlsForVideos', `https://www.youtube.com/watch?v=${el.getAttribute('data-videoid')}`));
-      };
-      const videoWrapper = getElementByXpath('//div[@class="video-wrapper"]//iframe/@src')
-        ? getElementByXpath('//div[@class="video-wrapper"]//iframe/@src').textContent
-        : '';
-      addElementToDocument('urlsForVideos', videoWrapper);
+          if (manufacturerImageEl.getAttribute('data-flixsrcset')) {
+            let imageUrl = manufacturerImageEl.getAttribute('data-flixsrcset');
+            imageUrl = imageUrl.split(' 200w,')[0];
+            manufacturerImagesArray.push(imageUrl);
+          } else {
+            manufacturerImagesArray.push(manufacturerImageEl.getAttribute('src'));
+          }
+        }
+      }
+
+      for (const el of manufacturerImagesArray) {
+        const newImageEl = document.createElement('import-manufacturer-image');
+        newImageEl.innerText = el;
+        document.body.appendChild(newImageEl);
+      }
+
+      if (sku && productName) {
+        const url = `https://dapi.videoly.co/1/videos/0/394?SKU=${sku}&productId=${sku}&productTitle=${productName}&hn=www.power.no`;
+        const response = await fetch(url);
+
+        if (response.ok) {
+          const json = await response.json();
+
+          for (const item of json.items) {
+            const videoId = item.videoId;
+            const newEl = document.createElement('import-video');
+            newEl.setAttribute('data', `https://www.youtube.com/watch?v=${videoId}`);
+            document.body.appendChild(newEl);
+          }
+        }
+      }
+
+      const imageEl =document.evaluate(`//div[@id='product-image-carousel']//div[contains(@class, 'owl-item')][1]//source[last()]/@srcset`, document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
+
+      if (imageEl) {
+        let productImageUrl = imageEl.textContent;
+        productImageUrl = productImageUrl.split(', ');
+        productImageUrl = productImageUrl[productImageUrl.length - 1].split(' ')[0];
+        document.body.setAttribute('import-primary-image', productImageUrl)
+      }
 
       const cookies = document.querySelector('button#cookie-notification-accept');
       if (cookies) {
@@ -264,6 +308,17 @@ module.exports = {
         scrollLimit = scrollSelector ? scrollSelector.offsetTop : '';
         await new Promise(resolve => setTimeout(resolve, 3500));
       }
+    });
+
+    await context.evaluate(async function () {
+      const manufacturerDesc = document.querySelector('div#product-tab-description')
+        ? document.querySelector('div#product-tab-description').innerText : '';
+      if (manufacturerDesc) {
+        const divEl = document.createElement('div');
+        divEl.id = 'manufacturerDesc';
+        divEl.textContent = manufacturerDesc.replace(/\n{2,}/g, '').replace(/\s{2,}/g, ' ');
+        document.body.appendChild(divEl);
+      };
     });
     try {
       await context.waitForSelector('div.product-main-card div.product-image-container img');
