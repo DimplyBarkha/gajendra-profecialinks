@@ -201,10 +201,12 @@ module.exports = {
           // @ts-ignore
           let videoLink = element.replace(/https:\/\/i1\.ytimg\.com\/vi\/(.*)\/default.jpg/, '$1');
           videoLink = 'https://www.youtube.com/watch?v=' + videoLink;
-          videoLinkArr.push(videoLink);
+          if (videoLinkArr.indexOf(videoLink) === -1) {
+            videoLinkArr.push(videoLink);
+          }
         }
       }
-      // @ts-ignore
+
       videoLinkArr = videoLinkArr.join(' | ');
       addElementToDocument('bb_videos', videoLinkArr);
     });

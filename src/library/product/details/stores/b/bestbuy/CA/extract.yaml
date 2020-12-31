@@ -10,10 +10,10 @@ fields:
     # regExp: (.+)
     # regExpReplace: $1
   - name: availabilityText
-    xpath: //link[@itemprop="availability"]/@href
-    regExp: InStock
-    regExpReplace: In Stock
-    defaultValue: Out of Stock
+    xpath: //div[contains(@class,"product-unavailable-message")]
+    regExp: (.+)
+    regExpReplace: Out of Stock
+    defaultValue: In Stock
   - name: shippingInfo
     xpath: //div[contains(@class,"soldByBestBuy")]
   - name: weightNet
