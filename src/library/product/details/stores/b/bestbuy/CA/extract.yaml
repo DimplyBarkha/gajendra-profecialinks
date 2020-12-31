@@ -10,8 +10,8 @@ fields:
     # regExp: (.+)
     # regExpReplace: $1
   - name: availabilityText
-    xpath: //div[contains(@class,"product-unavailable-message")]
-    regExp: (.+)
+    xpath: //link[@itemprop="availability"]/@href
+    regExp: (.+/)(OutOfStock)
     regExpReplace: Out of Stock
     defaultValue: In Stock
   - name: shippingInfo
