@@ -60,6 +60,36 @@ module.exports = {
               variantsList[i].appendChild(availabilityEle);
             }
 
+            const priceInfo = document.querySelector('div.product-element__container span[data-at= "final-price"]');
+            if (priceInfo) {
+              const priceEle = document.createElement('div');
+              priceEle.setAttribute('id', 'priceText');
+              priceEle.textContent = priceInfo.textContent;
+              priceEle.style.visibility = 'hidden';
+
+              variantsList[i].appendChild(priceEle);
+            }
+
+            const listPriceInfo = document.querySelector('div.product-element__container span[data-at="list-price"]');
+            if (listPriceInfo) {
+              const priceEle = document.createElement('div');
+              priceEle.setAttribute('id', 'listPriceText');
+              priceEle.textContent = listPriceInfo.textContent;
+              priceEle.style.visibility = 'hidden';
+
+              variantsList[i].appendChild(priceEle);
+            }
+
+            const promotionInfo = document.querySelector('span[data-at="discount-percentage"]');
+            if (promotionInfo) {
+              const priceEle = document.createElement('div');
+              priceEle.setAttribute('id', 'promotionText');
+              priceEle.textContent = promotionInfo.textContent;
+              priceEle.style.visibility = 'hidden';
+
+              variantsList[i].appendChild(priceEle);
+            }
+
             const images = document.querySelectorAll('div.dbk-image-gallery--display ul.dbk-image-carousel--list > li  img');
             const secondaryImageCountDiv = document.createElement('div');
             secondaryImageCountDiv.setAttribute('id', 'secondaryImageCount');
@@ -112,7 +142,6 @@ module.exports = {
           await new Promise((resolve, reject) => setTimeout(resolve, 3000));
         }
         await context.select('div[data-dbk-size-selector] div[class="product-element__container form-element type-select"] select', variantSkus[i]);
-        // await appendRequiredData();
         console.log('do something');
         await context.evaluate(async function () {
           const variantUl = document.querySelector('ul.dbk-product-carousel--list');
@@ -148,6 +177,36 @@ module.exports = {
             availabilityEle.style.visibility = 'hidden';
 
             li.appendChild(availabilityEle);
+          }
+
+          const priceInfo = document.querySelector('div.product-element__container span[data-at= "final-price"]');
+          if (priceInfo) {
+            const priceEle = document.createElement('div');
+            priceEle.setAttribute('id', 'priceText');
+            priceEle.textContent = priceInfo.textContent;
+            priceEle.style.visibility = 'hidden';
+
+            li.appendChild(priceEle);
+          }
+
+          const listPriceInfo = document.querySelector('div.product-element__container span[data-at="list-price"]');
+          if (listPriceInfo) {
+            const priceEle = document.createElement('div');
+            priceEle.setAttribute('id', 'listPriceText');
+            priceEle.textContent = listPriceInfo.textContent;
+            priceEle.style.visibility = 'hidden';
+
+            li.appendChild(priceEle);
+          }
+
+          const promotionInfo = document.querySelector('span[data-at="discount-percentage"]');
+          if (promotionInfo) {
+            const priceEle = document.createElement('div');
+            priceEle.setAttribute('id', 'promotionText');
+            priceEle.textContent = promotionInfo.textContent;
+            priceEle.style.visibility = 'hidden';
+
+            li.appendChild(priceEle);
           }
 
           const images = document.querySelectorAll('div.dbk-image-gallery--display ul.dbk-image-carousel--list > li  img');

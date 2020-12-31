@@ -22,9 +22,11 @@ const transform = (data) => {
       }
 
       if (row.specifications) {
+        let specString = '';
         for (let i = 0; i < row.specifications.length; i++) {
-          row.specifications[i].text = `| ${row.specifications[i].text}`;
+          specString += ` | ${row.specifications[i].text}`;
         }
+        row.specifications = [{ text: specString }];
       }
 
       if (!row.image && row.singleProductimage) {
@@ -53,6 +55,26 @@ const transform = (data) => {
 
       if (!row.imageAlt && row.singleProductImageAlt) {
         row.imageAlt = row.singleProductImageAlt;
+      }
+
+      if (!row.price && row.singleProductPriceText) {
+        row.price = row.singleProductPriceText;
+      }
+
+      if (!row.variantCount && row.variantCountFromDropdown) {
+        row.variantCount = row.variantCountFromDropdown;
+      }
+
+      if (!row.listPrice && row.singleProductListPrice) {
+        if (row.variantCount && row.variantCount[0].text == 0) {
+          row.listPrice = row.singleProductListPrice;
+        }
+      }
+
+      if (!row.promotion && row.singleProductPromotionText) {
+        if (row.variantCount && row.variantCount[0].text == 0) {
+          row.promotion = row.singleProductPromotionText;
+        }
       }
 
       if (row.availabilityText && row.availabilityText[0].text === 'Out of stock' && row.singleProdAvailabilityText) {

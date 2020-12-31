@@ -25,8 +25,10 @@ fields:
     xpath: ancestor::html//a[contains(@class, 'product-heading__brand--anchor')]
   - name: name
     xpath : ancestor::html//div[contains(@class, 'dbk-product-summary product-element__container')]//p[contains(@class, 'description')]
-  - name: price
+  - name: singleProductPriceText
     xpath: ancestor::html//div[contains(@class, 'product-element__container')]//span[contains(@data-at, 'final-price')]
+  - name: price
+    xpath: //div[@id='priceText']
   - name: singleProdAvailabilityText
     xpath: ancestor::html//link[contains(@itemprop, 'availability')]/@href
     regExp: (.+)
@@ -55,9 +57,13 @@ fields:
     regExpReplace: cdn$1
   - name: specifications
     xpath: ancestor::html//h3[contains(., 'Samenstelling')]/following-sibling::ul/li
-  - name: promotion
+  - name: singleProductPromotionText
     xpath: ancestor::html//span[contains(@data-at, 'discount-percentage')]
+  - name: promotion
+    xpath: //div[@id='promotionText']
   - name: listPrice
+    xpath: //div[@id='listPriceText']
+  - name: singleProductListPrice
     xpath: ancestor::html//div[contains(@class, 'product-element__container')]//span[contains(@data-at, 'list-price')]
   - name: secondaryImageTotal
     xpath: //div[contains(@id, 'secondaryImageCount')]
@@ -68,4 +74,6 @@ fields:
   - name: sku
     xpath: //div[@id='skuInfo']
   - name: variantCount
-    xpath: count(ancestor::html//ul[contains(@class, 'dbk-product-carousel--list')]/li)-1
+    xpath: count(ancestor::html//ul[contains(@class, 'dbk-product-carousel--list')]/li)-1 
+  - name: variantCountFromDropdown
+    xpath: count(ancestor::html//div[@data-dbk-size-selector]//select[@data-testid="selectbox-size"]/option[@data-testid])
