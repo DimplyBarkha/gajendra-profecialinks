@@ -1,0 +1,40 @@
+input:
+  StoreID: PAK'nSAVE Dunedin
+  _url: http://paknsave.co.nz
+  Postcode: 9012
+  URL: https://www.paknsaveonline.co.nz/product/5000855_ea_000pns?name=soft-drink
+extractions:
+  - html: https://workbench.import.io/html/run=6a038317-7faa-473e-a729-800d36933a51/task=11603f48-e4db-4326-8dfe-869deebb2e96/6661d71d-6722-458a-b60a-3124d5e9d407.html
+    extractionConfigId: product/details/stores/p/paknsave/NZ/extract
+    data:
+      - group:
+          - image:
+              - text: https://a.fsimg.co.nz/product/retail/fan/image/400x400/5000855.png
+                xpath: /html/body/div[2]/section[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/@style
+            countryOfOrigin:
+              - text: New Zealand
+                xpath: /html/body/div[2]/section[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[4]/div[1]/p[2]/span[1]
+            drive:
+              - text: 45 King Street, Whakatane, 3120
+                xpath: /html/body/script[1]
+            retailer_id:
+              - text: 50b1216b-d066-4457-b88b-9bccf97bf6d3
+                xpath: /html/body/script[1]
+            availabilityText:
+              - text: Out of Stock
+            variantCount:
+              - text: "0"
+                type: NUMBER
+                raw: "0"
+                locale: en
+                value: 0
+            imageZoomFeaturePresent:
+              - text: Yes
+            Image360Present:
+              - text: No
+            termsAndConditions:
+              - text: No
+            privacyPolicy:
+              - text: No
+        xpath: /html
+    timestamp: 1609407061940
