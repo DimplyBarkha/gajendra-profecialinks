@@ -148,7 +148,7 @@ fields:
   - name: videos
     singleValue: false
     description: URLs of videos on page
-    xpath: (//iframe[contains(@id, 'flix-iframe')]/@src | //*[contains(@class, 'flix_jw_videoid')]/@data-jw)
+    xpath: //iframe[contains(@id, 'flix-iframe')]/@src | //*[contains(@class, 'flix_jw_videoid')]/@data-jw
   - name: name
     singleValue: true
     description: The product nameexit
@@ -249,8 +249,9 @@ fields:
     singleValue: false
     description: null
   - name: secondaryImageTotal
-    singleValue: true
+    singleValue: false
     description: null
+    xpath: count(//div[@class='owl-item']//div[@class='productDetail__image  j-carouselItem']/img/@src)
     type: NUMBER
   - name: news
     singleValue: true
@@ -413,7 +414,7 @@ fields:
   - name: specifications
     singleValue: false
     description: The physical dimensions of the product including packaging.
-    xpath: //div[contains(@class, 'product__specificationsContent--wrapper')]
+    xpath: //section[@id='product__specifications']/div[@class='content__header']/h2[@class='content__title'] | //div[contains(@class, 'product__specificationsContent--wrapper')]
   - name: warranty
     singleValue: true
     description: Guarantee associated with the product
