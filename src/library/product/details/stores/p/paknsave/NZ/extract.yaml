@@ -64,3 +64,9 @@ fields:
   - name: privacyPolicy
     singleValue: false
     defaultValue: No
+  - name: drive
+    xpath: //script
+    regExp: (?<=address":").+?(?=")
+  - name: retailer_id
+    xpath: //script
+    regExp: (?<= = {"id":").+?(?=")
