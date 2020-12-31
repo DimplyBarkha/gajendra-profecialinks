@@ -17,7 +17,11 @@ const transform = (data) => {
     .replace(/[\x00-\x1F]/g, '')
     .replace(/[\uD800-\uDBFF][\uDC00-\uDFFF]/g, ' ')
     .trim();
-
+  function escapeUnicode(str) {
+    return str.replace(/[^\0-~]/g, function(ch) {
+        return "\\u" + ("0000" + ch.charCodeAt().toString(16)).slice(-4);
+    });
+  }
   for (const { group } of data) {
     for (const row of group) {
       if (row.category) {
@@ -36,7 +40,7 @@ const transform = (data) => {
       }
 
       if (row.productData) {
-        let prodData = JSON.parse(row.productData[0].text)['@graph'];
+        let prodData = JSON.parse(escapeUnicode(row.productData[0].text))['@graph'];
         if (prodData) {
           prodData = prodData[0];
           if (prodData) {
