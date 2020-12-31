@@ -5,30 +5,30 @@ recordXPath: null
 fields:
   - name: id
     singleValue: false
-    xpath: //a[@itemprop='url']/@href
+    xpath: //div[@class="productsRow_DcaXn row_1Rbqw"]//a[@itemprop="url"]/@href
     regExp: \b[\w=.]+$
   - name: name
     singleValue: false
     description: The product name
-    xpath: //div[@class="productItemName_3IZ3c"]/text()
+    xpath: //div[@class="productsRow_DcaXn row_1Rbqw"]//a/div/div/div[2]/div/text()
   - name: productUrl
     singleValue: false
-    xpath: //a[@itemprop="url"]/@href
+    xpath: //div[@class="productsRow_DcaXn row_1Rbqw"]//a[@itemprop="url"]/@href
     regExp: (/.+)
     regExpReplace: https://www.bestbuy.ca$1
   - name: thumbnail
     singleValue: false
-    xpath: //img[@class="productItemImage_1en8J"]/@src
+    xpath: //div[@class="productsRow_DcaXn row_1Rbqw"]//img[@class="productItemImage_1en8J"]/@src
   - name: price
     singleValue: false
     description: The offered price for the product
-    xpath: //span[@class="screenReaderOnly_3anTj large_3aP7Z"]/text()
+    xpath: //div[@class="productsRow_DcaXn row_1Rbqw"]//span[@class="screenReaderOnly_3anTj large_3aP7Z"]/text()
   - name: aggregateRating
     singleValue: false
-    xpath: //div[@class="reviews_1KIjQ"]/span/meta/@content
+    xpath: //div[@class="productsRow_DcaXn row_1Rbqw"]//div[@class="reviews_1KIjQ"]/span/meta/@content
   - name: reviewCount
     singleValue: false
-    xpath: //div[@class="reviews_1KIjQ"]/span/span/text()
+    xpath: //div[@class="productsRow_DcaXn row_1Rbqw"]//div[@class="reviews_1KIjQ"]/span/span/text()
   - name: rankOrganic
     singleValue: false
   - name: rank
