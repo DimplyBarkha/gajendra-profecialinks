@@ -7,8 +7,9 @@ fields:
     singleValue: false
   - name: _pageTimestamp
     singleValue: false
-  - name: _url
+  - name: productUrl
     singleValue: false
+    xpath: //div[@id="pd_url"]
   - name: additionalDescBulletInfo
     singleValue: false
   - name: aggregateRatingText
@@ -62,9 +63,7 @@ fields:
     singleValue: false
   - name: firstVariant
     singleValue: false
-    xpath: (//div[@evtperfname="super-sku-swatch-variants-pip"]//acl-swatch/a/@href)[1]
-    regExp: (.*)(\/)(\d+$)
-    regExpReplace: $3
+    xpath: (//div[@id="pd_variants"])[1]
   - name: image
     singleValue: false
     xpath: //meta[@property="og:image"]/@content
@@ -122,7 +121,7 @@ fields:
     singleValue: false
   - name: promotion
     singleValue: false
-    xpath: //div[contains(@evtperfname,"product-localized-promotions-component")]//span
+    xpath: //div[contains(@evtperfname,"product-localized-promotions-component")]//span | //div[@id="pd_promotion"]
   - name: quantity
     singleValue: false
   - name: ratingCount
@@ -170,27 +169,25 @@ fields:
     defaultValue: No
   - name: variantCount
     singleValue: false
-    xpath: count(//div[@evtperfname="super-sku-swatch-variants-pip"]//acl-swatch/a/@href | //div[@evtperfname="super-sku-swatch-variants-component"]//ul[contains(@class,"hdca-swatch-group")]//a/@href)
+    xpath: count(//div[@id="pd_variants"])
     defaultValue: '0'
   - name: variantId
     singleValue: false
     xpath: //nav[@id="breadcrumbs"]//ol//li[@itemscope="false"]
   - name: variantInformation
     singleValue: false
-    xpath: //div[@evtperfname="super-sku-swatch-variants-pip"]//label[contains(@class,"acl-swatch-group__label")] | //div[@evtperfname="super-sku-swatch-variants-component"]//div[@class="hdca-swatch-group__label"]
+    xpath: //div[@id="pd_variantInfo"]
   - name: variants
     singleValue: false
-    xpath: //div[@evtperfname="super-sku-swatch-variants-pip"]//acl-swatch/a/@href | //div[@evtperfname="super-sku-swatch-variants-component"]//ul[contains(@class,"hdca-swatch-group")]//a/@href
-    regExp: (.*)(\/)(\d+$)
-    regExpReplace: $3
+    xpath: //div[@id="pd_variants"]
   - name: videos
     singleValue: false
     xpath: //*[contains(@title,"Flix-media-video")]/@src
   - name: videos1
     singleValue: false
-    xpath: //*[contains(@class,"hdca-product-video__frame")]/@src
+    xpath: //div[@id="pd_video"]
     regExp: (.+)
-    regExpReplace: https:$1
+    regExpReplace: https://players.brightcove.net/602043299001/B1gUI6kJWz_default/index.html?videoId=$1&autoplay=true&playsinline=false
   - name: warnings
     singleValue: false
   - name: warranty

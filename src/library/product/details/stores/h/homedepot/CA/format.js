@@ -128,9 +128,6 @@ const transform = (data) => {
           row.videos = row.videos1;
         }
       }
-      if (row.variantInformation) {
-        row.variantInformation = [{ text: row.variantInformation[0].text.replace(/(.*):(.*)/, '$2') }];
-      }
     }
   }
   data.forEach(obj => obj.group.forEach(row => Object.keys(row).forEach(header => row[header].forEach(el => {

@@ -29,34 +29,20 @@ module.exports = {
         });
       }
     });
-    await new Promise(resolve => setTimeout(resolve, 10000));
-    try {
-      await context.waitForSelector('.hdca-product__description');
-    } catch (error) {
-      console.log('product description is not loaded');
-    }
-    try {
-      await context.click('.hdca-video__play');
-      await new Promise(resolve => setTimeout(resolve, 10000));
-    } catch (error) {
-      console.log('no localized button found');
-    }
     await context.evaluate(async function () {
       function addElementToDocument (key, value) {
         const catElement = document.createElement('div');
         catElement.id = key;
         catElement.textContent = value;
         catElement.style.display = 'none';
-        document.body.appendChild(catElement);
+        document.querySelector('.hdca-product') && document.querySelector('.hdca-product').appendChild(catElement);
       }
+      const url = window.location.href;
       // @ts-ignore
-      const skuNumber = window.location.href;
-      if (skuNumber.match(/\/(\d+)/)) {
-        console.log('sku number match', skuNumber.match(/\/(\d+)/)[1]);
-        const response = await fetch(`https://www.homedepot.ca/homedepotcacommercewebservices/v2/homedepotca/products/${skuNumber.match(/\/(\d+)/)[1]}.json?fields=BASIC_SPA&lang=en`)
+      if (url && url.match(/q=(\d+)/) && url.match(/q=(\d+)/)[1]) {
+        const response = await fetch(`https://www.homedepot.ca/homedepotcacommercewebservices/v2/homedepotca/products/${url.match(/q=(\d+)/)[1]}.json?fields=BASIC_SPA&lang=en`)
           .then(response => response.json())
           .catch(error => console.error('Error:', error));
-        console.log('response', response);
         await new Promise(resolve => setTimeout(resolve, 10000));
         if (response) {
           if (response.alternateImages) {
@@ -67,9 +53,39 @@ module.exports = {
           if (response.price) {
             response.price.formattedValue && addElementToDocument('pd_price', response.price.formattedValue);
           }
+          if (response.urls) {
+            response.urls.en && addElementToDocument('pd_url', response.urls.en);
+          }
+          if (response.videoTags) {
+            response.videoTags.forEach(video => {
+              addElementToDocument('pd_video', video);
+            });
+          }
+          if (response.variantOptionsSorted) {
+            response.variantOptionsSorted.forEach(variants => {
+              variants.variantOptionQualifiers && variants.variantOptionQualifiers.forEach(variant => {
+                variant.code && addElementToDocument('pd_variants', variant.code);
+                variant.selected && variant.value && addElementToDocument('pd_variantInfo', variant.value);
+              });
+            });
+          }
+          if (response.promotionMessages) {
+            response.promotionMessages.pipMessage && addElementToDocument('pd_promotion', response.promotionMessages.pipMessage);
+          }
+          if (!document.querySelector('#wc-aplus,#inpage_container')) {
+            if (response.modelNumber) {
+              const catElement1 = document.createElement('script');
+              catElement1.async = true;
+              catElement1.type = 'text/javascript';
+              catElement1.src = `https://media.flixcar.com/delivery/js/inpage/7202/b5/mpn/${response.modelNumber}?&=7202&=b5&mpn=${response.modelNumber}&ssl=1&ext=.js`;
+              catElement1.crossOrigin = 'true';
+              document.querySelector('.hdca-product') && document.querySelector('.hdca-product').appendChild(catElement1);
+            }
+          }
         }
       }
     });
+    await new Promise(resolve => setTimeout(resolve, 10000));
     return await context.extract(productDetails, { transform });
   },
 };
