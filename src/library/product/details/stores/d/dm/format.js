@@ -17,6 +17,18 @@ const transform = (data) => {
 
   for (const { group } of data) {
     for (const row of group) {
+      if (row.availabilityText) {
+        const availabilityTextArr = row.availabilityText.map((item) => {
+          return typeof (item.text) === 'string' && item.text.trim().includes('Nicht mehr im Verkauf') ? 'In Stock' : 'Out Of Stock';
+        });
+        row.availabilityText = [{ text: availabilityTextArr, xpath: row.availabilityText[0].xpath }];
+      }
+      if (row.quantity) {
+        const quantityArr = row.quantity.map((item) => {
+          return typeof (item.text) === 'string' ? item.text.trim() : '';
+        });
+        row.quantity = [{ text: quantityArr, xpath: row.quantity[0].xpath }];
+      }
       if (row.description) {
         const descriptionArr = row.description.map((item) => {
           return typeof (item.text) === 'string' ? item.text.replace(/\n/gm, ' ').replace(/\//g, '') : '|';

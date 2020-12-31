@@ -30,7 +30,7 @@ fields:
   - name: quantity
     singleValue: true
     xpath: //h1[@data-dmid="detail-page-headline-product-title"]
-    regExp: (.*)\,\s(\d+)(.*)
+    regExp: (.*)\,\s((\d+)(.*))\D+
     regExpReplace: $2
   - name: sku
     singleValue: true
