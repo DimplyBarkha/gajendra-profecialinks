@@ -96,7 +96,7 @@ const transform = (data) => {
       }
       if (row.totalCarbPerServing) {
         row.totalCarbPerServing.forEach((totalCarbPerServingItem) => {
-          totalCarbPerServingItem.text = totalCarbPerServingItem.text.replace(/[A-Za-z]/gm, '').replace('<', '').trim();
+          totalCarbPerServingItem.text = totalCarbPerServingItem.text.replace(/[A-Za-z]/gm, '').trim();
         });
       }
       if (row.totalCarbPerServingUom) {
@@ -106,7 +106,7 @@ const transform = (data) => {
       }
       if (row.totalSugarsPerServing) {
         row.totalSugarsPerServing.forEach((totalSugarsPerServingItem) => {
-          totalSugarsPerServingItem.text = totalSugarsPerServingItem.text.replace(/[A-Za-z]/gm, '').replace('<', '').trim();
+          totalSugarsPerServingItem.text = totalSugarsPerServingItem.text.replace(/[A-Za-z]/gm, '').trim();
         });
       }
       if (row.totalSugarsPerServingUom) {
@@ -116,7 +116,7 @@ const transform = (data) => {
       }
       if (row.proteinPerServing) {
         row.proteinPerServing.forEach((proteinPerServingItem) => {
-          proteinPerServingItem.text = proteinPerServingItem.text.replace(/[A-Za-z]/gm, '').replace('<', '').trim();
+          proteinPerServingItem.text = proteinPerServingItem.text.replace(/[A-Za-z]/gm, '').trim();
         });
       }
       if (row.proteinPerServingUom) {
@@ -161,7 +161,17 @@ const transform = (data) => {
       }
       if (row.description) {
         row.description.forEach((descriptionItem) => {
-          descriptionItem.text = descriptionItem.text.replace(/\s+$/, '').trim();
+          descriptionItem.text = descriptionItem.text.replace(/[*]/gm, ' *').trim();
+        });
+      }
+      if (row.ingredientsList) {
+        row.ingredientsList.forEach((ingredientsListItem) => {
+          ingredientsListItem.text = ingredientsListItem.text.replace('Ingrédients', '').trim();
+        });
+      }
+      if (row.name) {
+        row.description.forEach((nameItem) => {
+          nameItem.text = nameItem.text.replace(/[*]/gm, ' *').trim();
         });
       }
       data.forEach(obj => obj.group.forEach(row => Object.keys(row).forEach(header => row[header].forEach(el => {
