@@ -70,7 +70,7 @@ module.exports = {
     if (videoImage) {
         videoImage.click();
         await timeout(2000);
-        const videoUrls = getElementsByXPath('//div[@class="demoupUI-playlist"]//div[@class="demoupUI-item"]//img/@src|//meta[contains(@content,"360p")]/@content');
+        const videoUrls = getElementsByXPath('(//meta[contains(@content,"//video")]/@content)[1] | //div[@class="demoupUI-playlist"]//div[@class="demoupUI-item"][position()>1]//img/@src');
         let removeDuplicatevideos = [...new Set(videoUrls)];
         const videos = removeDuplicatevideos.join(' | ')
         console.log(videos);
@@ -86,7 +86,7 @@ module.exports = {
     });
 
     try {
-      await context.waitForSelector('#flixmediaInsert', { timeout: 10000 });
+      await context.waitForSelector('#flixmediaInsert', { timeout: 30000 });
     } catch (err) {
       console.log('Enhanced content did not load');
     }

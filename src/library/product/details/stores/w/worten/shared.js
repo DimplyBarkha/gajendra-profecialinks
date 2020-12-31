@@ -24,7 +24,7 @@ const transform = (data) => {
       }
 
       if (row.description) {
-        const text = row.description[0].text.replace(/<br> -|;<br>-/g, ' || ').replace(/(<([^>]+)>)/ig, '').trim();
+        const text = row.description[0].text.replace(/<br> -|;<br>-/g, ' || ').replace(/(<([^>]+)>)/ig, '').replace(/Ver Tudo/g, '').trim();
         row.description = [{ text }];
       }
 
