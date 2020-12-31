@@ -59,7 +59,7 @@ async function implementation (inputs, parameters, context, dependencies) {
           rpc.push(sizeVariants.model[i].sku);
         }
         for (let i = 0; i < sizeVariants.model.length; i++) {
-          if (variants[i]) {
+          if (variants[i] && variants[i] !== undefined && sizeVariants) {
             variants[i].setAttribute('variantId', sizeVariants.model[i].sku);
             variants[i].setAttribute('availability', sizeVariants.model[i].offers[0].availability);
             variants[i].setAttribute('nameExtended', sizeVariants.model[i].name);
@@ -74,7 +74,7 @@ async function implementation (inputs, parameters, context, dependencies) {
             rpc.push(sizeVariants1.model[i].sku);
           }
           for (let i = 0; i < sizeVariants1.model.length; i++) {
-            if (variants[i]) {
+            if (variants1[i] && variants1[i] !== undefined && sizeVariants1) {
               variants1[i].setAttribute('variantId', sizeVariants1.model[i].sku);
               variants1[i].setAttribute('availability', sizeVariants1.model[i].offers[0].availability);
               variants1[i].setAttribute('nameExtended', sizeVariants1.model[i].name);
