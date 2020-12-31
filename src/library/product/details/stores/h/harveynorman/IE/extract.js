@@ -54,6 +54,9 @@ async function implementation (
       }
     }
     addHiddenDiv('ii_description', finalDescription);
+    if (document.querySelector('button#onetrust-accept-btn-handler')) {
+      document.querySelector('button#onetrust-accept-btn-handler').click();
+    }
   });
   const delay = t => new Promise(resolve => setTimeout(resolve, t));
   await delay(10000);

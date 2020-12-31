@@ -117,4 +117,6 @@ fields:
     regExpReplace: Yes
     defaultValue: No
   - name: unInterruptedPDP
-    xpath: //div[@class="product-col"]
+    singleValue: false
+    xpath: //div[contains(@id,'cbar_widget0')]//div[@class="product-info"]/a[contains(@class,'product-title')] | //div[contains(@id,'cbar_widget1')]//div[@class="product-info"]/a[contains(@class,'product-title')]
+    #xpath: //a[contains(@class,'product-title')] | //div[contains(@class,'owl-stage-outer')]//div[contains(@class,'product-info')]//a
