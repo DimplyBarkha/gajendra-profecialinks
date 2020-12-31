@@ -17,7 +17,7 @@ fields:
   - name: price
     xpath: //div[contains(@class,'your-price')]//span[@class='value']
   - name: listPrice
-    xpath: //div[contains(@class,"online-price")]//span[@class="op-value"] | //div[contains(@class,'online-price active')]//span[@class='op-value'] | //meta[@property="product:price:amount"]/@content
+    xpath: //div[contains(@class,"online-price")]//span[@class="op-value"] | //div[contains(@class,'online-price active')]//span[@class='op-value']
   - name: priceCurrency
   - name: availability
     xpath: //meta[@property="og:availability"]/@content
@@ -33,7 +33,7 @@ fields:
     singleValue: false
     xpath: //ul[@class="pdp-features"]//li | //div[@class="product-info-description"]/ul/li
   - name: description
-    xpath: //div[@id='costco-product-desc']
+    xpath: //div[@class="features-container form-group"] | //div[@id="manufacturer-descr"]
   - name: descriptionBullets
     xpath: count(//ul[@class="pdp-features"]//li)
   - name: brandText
@@ -72,7 +72,7 @@ fields:
   - name: manufacturerImages
     xpath: //div[@class="wc-reset"]//ul//li//img[@data-asset-type="image"]/@src
   - name: videos
-    xpath: //div[@id='product-video']
+    xpath: //div[@class="wc-player-outer-wrap wc-vp"]//video/@src | //meta[@itemprop="contentUrl"]/@content | //body/@videos | //meta//@content[contains(.,'.mp4')] | //head/@*[contains(.,'http')] | //head/@video | //head/@*[contains(.,'http')]
   - name: name
     xpath: //h1[@itemprop="name"]
   - name: inStorePrice

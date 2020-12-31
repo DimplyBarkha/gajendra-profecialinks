@@ -82,6 +82,18 @@ const transform = (data) => {
           row.pricePerUnitUom[0].text = '';
         }
       }
+      if (row.pricePerUnit) {
+        if (row.pricePerUnit[0].text.includes('-')) {
+          row.pricePerUnit[0].text = '';
+        }
+      }
+      if (row.videos) {
+        row.videos.forEach(item => {
+          if (item.text.includes('.hls.m3u8')) {
+            item.text = item.text.replace('.hls.m3u8', '.mp4.480.mp4');
+          }
+        });
+      }
       if (row.fastTrack) {
         var fastText = '';
         row.fastTrack.forEach((ele) => {
@@ -95,6 +107,18 @@ const transform = (data) => {
         row.ratingCount.forEach(item => {
           item.text = item.text.replace(/s/, '').trim();
         });
+      }
+
+      if (row.description) {
+        let text = '';
+        row.description.forEach(item => {
+          text += item.text.replace(/\n \n/g, ' || ');
+        });
+        row.description = [
+          {
+            text: text,
+          },
+        ];
       }
     }
   }
