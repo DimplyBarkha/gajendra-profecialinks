@@ -33,6 +33,13 @@ const transform = (data) => {
                 p_count = p_count + 1;
             }    
 
+             if (row.price) {
+                row.price.forEach(item => {  
+                  item.text = item.text.replace(/\€/g,'')  
+                  item.text = ''+ Number(item.text) + '€';
+                });
+            } 
+
             //  if (row.aggregateRating2) {
             //     row.aggregateRating2.forEach(item => {  
             //     item.text = parseFloat(item.text.replace(/\D/g,'')) / 20;

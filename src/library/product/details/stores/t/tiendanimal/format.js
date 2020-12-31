@@ -52,7 +52,7 @@ const transform = (data) => {
         if (row.price) {
           let total_price = ''
            row.price.forEach(item => {
-            item.text =  item.text + '€' ;
+            item.text =  Number(item.text) + '€' ;
           });
           
         }
