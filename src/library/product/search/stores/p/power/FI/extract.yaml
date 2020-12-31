@@ -5,7 +5,8 @@ recordXPath: null
 fields:
   - name: id
     description: Unique id (within this extractor)
-    xpath: //a[@class="product__link"]/@href
+    # xpath: //a[@class="product__link"]/@href
+    xpath: //a[contains(@class,"product__link product-item-top")]/@href
     regExp: (\/.*)\/p-(.+)\/$
     regExpReplace: $2
   - name: rankOrganic
