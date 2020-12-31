@@ -31,6 +31,7 @@ module.exports = {
         type: 'RECAPTCHA',
       },
     });
+    console.log('url we are going to is - ' + url);
     await new Promise((resolve) => setTimeout(resolve, 10000));
     console.log('Status :', responseStatus.status);
     console.log('URL :', responseStatus.url);
@@ -54,7 +55,20 @@ module.exports = {
       await context.waitForNavigation({ timeout });
       // @ts-ignore
       // eslint-disable-next-line no-undef
-      await context.evaluateInFrame('iframe', () => grecaptcha.execute());
+      try {
+        await context.evaluateInFrame('iframe', () => grecaptcha.execute());
+        await new Promise((resolve) => setTimeout(resolve, 8000));
+      } catch(err) {
+        console.log('got some error - ', err.message);
+        console.log('retrying!!');
+        try {
+          await context.evaluateInFrame('iframe', () => grecaptcha.execute());
+          await new Promise((resolve) => setTimeout(resolve, 8000));
+        } catch(err) {
+          console.log('re-tried that - still error - ', err.message);
+          throw Error ('grecaptcha is not working!!');
+        }
+      }
       console.log('solved captcha, waiting for page change');
       await context.waitForNavigation({ timeout });
       await context.waitForXPath('//div[@id="product-detail-page"]', { timeout });
