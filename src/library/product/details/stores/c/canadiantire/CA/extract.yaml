@@ -107,9 +107,15 @@ fields:
   - name: quantity
     singleValue: false
     xpath: //div[@class="pdp-details-features__items"]//ul//li[contains(.,'Size:')] | //section[@class="pdp-details-specifications "]//ul//li[contains(.,'Size')]
+  - name: packSize
+    singleValue: false
+    xpath: //div[@class="pdp-details-features__items"]//ul//li[contains(.,'Size:')] | //section[@class="pdp-details-specifications "]//ul//li[contains(.,'Size')]
   - name: ingredientsList
     singleValue: false
     xpath: //div[@class="pdp-details-features__items"]//ul//li[contains(.,'Ingredient')] | //section[@class="pdp-details-specifications "]//ul//li[contains(.,'Ingredient')]
   - name: secondaryImageTotal
     singleValue: false
     xpath: //div[contains(@class,"pdp-image-carousel")]//img/@src
+  - name: shippingInfo
+    singleValue: false
+    xpath: //section[@class="delivery-option__item"]/p

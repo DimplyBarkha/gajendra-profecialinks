@@ -212,6 +212,13 @@ const transform = (data) => {
                 });
                 row.materials = [{ 'text': info.join(' | ') }];
             }
+            if (row.shippingInfo) {
+                let info=[];
+                row.shippingInfo.forEach(item => {
+                    info.push(item.text);
+                });
+                row.shippingInfo = [{ 'text': info.join(' | ') }];
+            }
             if (row.sku) {
                 row.sku.forEach(item => {
                     item.text = item.text.substring(0, item.text.length-1);
