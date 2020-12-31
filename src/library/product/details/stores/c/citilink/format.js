@@ -50,11 +50,7 @@ const transform = (data) => {
           item.text = item.text.replace('undefined', '');
         });
       }
-      if (row.category) {
-        row.category.map(item => {
-          item.text = item.text.replace(' /', '');
-        });
-      }
+   
     }
   }
 

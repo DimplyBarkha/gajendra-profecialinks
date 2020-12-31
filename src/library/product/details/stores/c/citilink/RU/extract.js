@@ -50,10 +50,12 @@ module.exports = {
     }
 
     let desList;
-    let desc = document.querySelectorAll('div.AboutTab__description-text > *');
+    let desc = document.querySelectorAll('div.AboutTab__description-text');
     if(desc) {
       desc.forEach((element) => {
-        desList += element.textContent;
+        element.childNodes.forEach((ele) => {
+          desList+=ele.textContent
+        });
 
       });
       addHiddenDiv('desList', desList);

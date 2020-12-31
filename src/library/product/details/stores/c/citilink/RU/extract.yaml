@@ -22,7 +22,7 @@ fields:
     xpath: //span[@itemprop = "brand"]/@content
   - name: category
     singleValue: false
-    xpath: //div[@class='category']/@href
+    xpath: //div[@class="Breadcrumbs"]/@data-breadcrumb-name
   # - name: subCategory
   #   singleValue: false
   #   xpath: //div[@class = "Breadcrumbs" and position() > 1]//a//span/text()
@@ -40,7 +40,7 @@ fields:
     xpath: //div[@id="desList"]
   - name: image
     singleValue: false
-    xpath: (//div[@class ='ImageGallery__content']//img/@src)[2] | //li/img[@itemprop="contentUrl"]/@src
+    xpath: (//div[@class ='ImageGallery__content']//img/@src)[2] | //li/img[@itemprop="contentUrl"]/@src | //meta[@property="og:image"]/@content
   - name: imageAlt
     singleValue: false
     xpath: (//div[@class ='ImageGallery__content']//img/@alt)[2] | //li/img[@itemprop="contentUrl"]/@alt
