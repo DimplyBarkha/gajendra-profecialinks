@@ -61,6 +61,16 @@ const transform = (data) => {
           row.unInterruptedPDP = [{ text: arrTemp.join(' || ') }];
         }
       }
+      // if(row.inTheBoxText) {
+      //   row.inTheBoxText.forEach(inTheBoxText => {
+      //     inTheBoxText.text = inTheBoxText.text.replace(/[\,]/g, ' || ');
+      //   });
+      // }
+      if (row.inTheBoxText) {
+        row.inTheBoxText.forEach(item => {
+          item.text = item.text.replace(/,/g,' || ')
+        });
+}
       if (row.variants) {
         const variations = [];
         const vInfo = [];
