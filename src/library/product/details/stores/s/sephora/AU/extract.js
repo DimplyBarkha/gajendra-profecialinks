@@ -10,7 +10,7 @@ module.exports = {
     zipcode: '',
   },
   implementation: async ({ parentInput }, { country, domain, transform: transformParam }, context, { productDetails }) => {
-    await new Promise(resolve => setTimeout(resolve, 5000));
+    await new Promise(resolve => setTimeout(resolve, 20000));
     await context.evaluate(function () {
       document.cookie = 'locale=au;';
       let modalPopup = document.querySelector('modal');
@@ -185,7 +185,37 @@ module.exports = {
       }
     }, parentInput, videoSources);
 
-    // await new Promise(resolve => setTimeout(resolve, 10000));
+    await context.evaluate(function () {
+      function addHiddenDiv (id, content) {
+        const newDiv = document.createElement('div');
+        newDiv.id = id;
+        newDiv.textContent = content;
+        newDiv.style.display = 'none';
+        document.body.appendChild(newDiv);
+      }
+      // addHiddenDiv (`myupdp-text`, "testing");
+      const pdp1 = document.querySelectorAll('div[id="recommendations_carousel-pdp"] ul.products_expanded li');
+      if (pdp1 && pdp1.length > 0) {
+        for (let i = 0; i < pdp1.length; i++) {
+          const element = pdp1[i];
+          const text = element.innerText;
+          addHiddenDiv (`myupdp-i`, text);
+        }
+      }
+
+      const pdp2 = document.querySelectorAll('div[id="recommendations_carousel-sephoracollection"] ul.products_expanded li');
+      if (pdp2 && pdp2.length > 0) {
+        for (let i = 0; i < pdp2.length; i++) {
+          const element = pdp2[i];
+          let text = element.innerText;
+          text = text.replace(/\n{1,}/g, ' ').replace(/\s{2,}/g, '');;
+          addHiddenDiv (`myupdp-2-i`, text);
+        }
+      }
+
+    });
+
+    await new Promise(resolve => setTimeout(resolve, 5000));
     return await context.extract(productDetails, { transform: transformParam });
   },
 };

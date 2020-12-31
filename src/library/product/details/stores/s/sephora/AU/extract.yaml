@@ -196,10 +196,11 @@ fields:
     xpath: boolean(//*[contains(@class, "zoom-icon")])
   - name: inTheBoxText1
     singleValue: false
-    xpath: //b[text()="What it includes:"]/ancestor::p[1]/following-sibling::ul[1]/li/text()
+    xpath: //b[text()="What it includes:"]/ancestor::p[1]/following-sibling::ul[1]/li
   - name: inTheBoxText
     singleValue: false
-    xpath: //div[@id="product-description"]/div/div/p/b[text()="What it includes:"]/parent::*/following-sibling::*/li/text()[following::p/b[text()="What else you need to know:"]]
+    xpath: //div[@id="product-description"]/div/div/p/b[text()="What it includes:"]/parent::*/following-sibling::*/li[following::p/b[text()="What else you need to know:"]]
   - name: unInterruptedPDP
     singleValue: false
-    xpath: //div[@id="recommendations_carousel-sephoracollection"]//ul[@class="products_expanded"]/li//img[@class="ga-image-ready"]/@alt | //div[@id="recommendations_carousel-pdp"]//ul[@class="products_expanded"]/li//img[@class="ga-image-ready"]/@alt
+    xpath: //div[contains(@id, "myupdp")]
+      # //div[@id="recommendations_carousel-sephoracollection"]//ul[@class="products_expanded"]/li | //div[@id="recommendations_carousel-pdp"]//ul[@class="products_expanded"]/li
