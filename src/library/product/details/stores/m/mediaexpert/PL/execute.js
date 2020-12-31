@@ -15,6 +15,7 @@ module.exports = {
     context,
     dependencies,
   ) {
+    
     const searchUrl = `https://www.mediaexpert.pl/search?query[menu_item]=&query[querystring]=${inputs.id}`;
     await context.goto(searchUrl, {
       timeout: 30000,
@@ -24,7 +25,8 @@ module.exports = {
       css_enabled: false,
       random_move_mouse: true,
     });
-
+    
+    
     const productDetailsLink = await context.evaluate(function (inputs) {
       const productList = document.querySelectorAll('div.c-grid_col.is-grid-col-1');
       for (let i = 0; i < productList.length; i++) {
@@ -63,5 +65,6 @@ module.exports = {
       }
     }
     await context.waitForNavigation({ timeout: 60000, waitUntil: 'networkidle0' });
+    
   },
 };

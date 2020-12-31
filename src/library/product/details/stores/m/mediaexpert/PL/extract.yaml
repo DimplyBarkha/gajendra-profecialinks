@@ -117,3 +117,11 @@ fields:
     xpath: //meta[@property="og:url"]/@content
   - name: galleryVideos
     xpath: //div[contains(@class, 'is-magnifier')]//iframe[@data-component='youtube']/@data-src
+  - name: aggregateRating
+    xpath: //script[contains(., 'rating')]
+    regExp: ratingValue":\s\"(\d(\.?)(\d)?)",
+    regExpReplace: $1
+  - name: gtin
+    xpath: //script[contains(., 'gtin')]
+    regExp: gtin13":\s\"([A-Z] |\w+)",
+    regExpReplace: $1

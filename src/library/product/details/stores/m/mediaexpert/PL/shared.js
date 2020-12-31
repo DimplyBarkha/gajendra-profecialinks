@@ -39,17 +39,17 @@ const transform = (data) => {
         }
       }
 
-      if (row.productData) {
-        let prodData = JSON.parse(escapeUnicode(row.productData[0].text))['@graph'];
-        if (prodData) {
-          prodData = prodData[0];
-          if (prodData) {
-            row.aggregateRating = prodData.aggregateRating && prodData.aggregateRating.ratingValue ? [{ text: prodData.aggregateRating.ratingValue }] : [];
-            prodData.sku ? row.variantId = [{ text: prodData.sku }] : row.variantId = [];
-            prodData.gtin13 ? row.eangtin = [{ text: prodData.gtin13 }] : row.eangtin = [];
-          }
-        }
-      }
+      // if (row.productData) {
+      //   let prodData = JSON.parse(escapeUnicode(row.productData[0].text))['@graph'];
+      //   if (prodData) {
+      //     prodData = prodData[0];
+      //     if (prodData) {
+      //       row.aggregateRating = prodData.aggregateRating && prodData.aggregateRating.ratingValue ? [{ text: prodData.aggregateRating.ratingValue }] : [];
+      //       prodData.sku ? row.variantId = [{ text: prodData.sku }] : row.variantId = [];
+      //       prodData.gtin13 ? row.eangtin = [{ text: prodData.gtin13 }] : row.eangtin = [];
+      //     }
+      //   }
+      // }
 
       if (row.videos) {
         for (let i = 0; i < row.videos.length; i++) {
