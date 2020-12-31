@@ -20,8 +20,8 @@ fields:
   - name: availabilityText
     xpath: //span[@class='is-starred']
     regExp: (.+)
-    regExpReplace: Out of stock
-    defaultValue: In stock
+    regExpReplace: Out of Stock
+    defaultValue: In Stock
   - name: description
     xpath: //div[@data-zone="OFFERBOX_ATTRIBUTES"]
   - name: brandText
@@ -106,10 +106,14 @@ fields:
   - name: skuSecondary
     xpath: //input[@name='enp_product_offer_availability_notification_type[productId]']/@value
   - name: sku
-    xpath: //a[@data-zone='OFFERBOX_AVAILABILITY']/@data-product-id | //div[contains(@class, 'is-warrantyTabs')]/div[1]//meta[1]/@data-product-id
+    xpath: //meta[@property="product:retailer_part_no"]/@content
   - name: mpc
     xpath: //script[contains(., 'ecomm_model')]
-    regExp: (.+)ecomm_model:\s'(.+)\',\sid2(.+)
-    regExpReplace: $2
+    regExp: ecomm_model:\s\'([A-Z] |\w+)
+    regExpReplace: $1
   - name: videoFromEnhancedContent
     xpath: //div[@id='videoFromEnhancedContent']
+  - name: productUrl
+    xpath: //meta[@property="og:url"]/@content
+  - name: galleryVideos
+    xpath: //div[contains(@class, 'is-magnifier')]//iframe[@data-component='youtube']/@data-src
