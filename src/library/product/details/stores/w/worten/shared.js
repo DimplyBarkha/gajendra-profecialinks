@@ -7,50 +7,28 @@
 const transform = (data) => {
   for (const { group } of data) {
     for (const row of group) {
-      if (row.nameExtended) {
-        let text = '';
-        row.nameExtended.forEach(item => {
-          text = row.nameExtended.map(elm => elm.text).reverse().join(' - ');
+      if (row.shippingDimensions) {
+       let text= ''
+        row.shippingDimensions.forEach(item => {
+          text = row.shippingDimensions.map(elm => elm.text).join(' x ');
         });
-        row.nameExtended = [{ text }];
+        row.shippingDimensions = [
+          {
+            text: text,
+          },
+        ];
+      }
+      if (row.specifications) {
+        const text = row.specifications[0].text.replace(/Ver Tudo/g, '').trim();
+        row.specifications = [{ text }];
       }
 
-      if (row.specifications) {
-        let text = '';
-        let count = 0;
-        row.specifications.forEach(item => {
-          count++;
-          const val = (count % 2);
-          if (val === 0) {
-            text += `: ${item.text}`;
-          } else {
-            text += ` | ${item.text}`;
-          }
-        });
-        row.specifications = [
-          {
-            text: text.replace(new RegExp('(\\s\\||\\s)(.+)', 'g'), '$2'),
-          },
-        ];
+      if (row.description) {
+        const text = row.description[0].text.replace(/<br> -|;<br>-/g, ' || ').replace(/(<([^>]+)>)/ig, '').trim();
+        row.description = [{ text }];
       }
-      if (row.productOtherInformation) {
-        let text = '';
-        let count = 0;
-        row.productOtherInformation.forEach(item => {
-          count++;
-          const val = (count % 2);
-          if (val === 0) {
-            text += `: ${item.text}`;
-          } else {
-            text += ` | ${item.text}`;
-          }
-        });
-        row.productOtherInformation = [
-          {
-            text: text.replace(new RegExp('(\\s\\|\\s)(.+)', 'g'), '$2'),
-          },
-        ];
-      }
+
+  
     }
   }
   const clean = text => text.toString()

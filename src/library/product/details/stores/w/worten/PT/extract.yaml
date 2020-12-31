@@ -13,7 +13,7 @@ fields:
     description: The categories (e.g. from breadcrumbs)
     xpath: //section[@data-module-template="breadcrumbs"]//li
   - name: nameExtended
-    xpath: //ul//li//span[contains(text(),'Marca')]/../span[position()>last()-1] | //h1
+    xpath: //h1
   - name: listPrice
     xpath: //span[@class="w-product__price__old"]
   - name: price
@@ -29,7 +29,8 @@ fields:
   - name: description
     description: Product description supplied by website - may be concatenanted from
       multiple places; specifically not the manufacturer description
-    xpath: //div[@class="w-product-about__info"]//div
+    xpath: //div[contains(@class,"w-product-about-container")]
+    html: true
   - name: brandText
     description: Product brand shown - this may actually NOT be just a brand name,
       e.g. "Visit the Gillette Store"
@@ -68,7 +69,7 @@ fields:
     xpath: //p[contains(text(),"Características Físicas")]/following-sibling::ul//li//span[contains(text(),'Cor')]/../span[position()>last()-1]
   - name: manufacturerDescription
     description: The extended description of the product supplied by the lister
-    xpath: //div[@id="inpage_container"]//div[@class="inpage_block inpage_selector_feature"]
+    xpath: //div[@id="flix-inpage"]
   - name: manufacturerImages
     description: Images within the third party description
     xpath: //div[@id="flix-std-inpage"]//img//@srcset | //div[@id="inpage_container"]//img//@srcset
@@ -76,7 +77,7 @@ fields:
     regExpReplace: http:$1
   - name: videos
     description: URLs of videos on page
-    xpath: //meta[@itemprop="contentURL"]//@content | //iframe[contains(@id,'youtube')]//@src
+    xpath: //h1/@videos
   - name: warranty
     description: Guarantee associated with the product
     xpath: //div[@class="w-section__wrapper"]//ul//li//span[contains(text(),'Garantia')]/../span[position()>last()-1]
@@ -101,4 +102,18 @@ fields:
     xpath: //h1
   - name: specifications
     description: The physical dimensions of the product including packaging.
-    xpath: //p[contains(text(),'Características Físicas')]/following-sibling::ul[1]/li[not (contains(.,'Cor'))]/span/text()
+    xpath: //section[contains(@class,'w-product-details')]//div[contains(@class,'w-product-details__wrapper')]//*[not(self::ul)]
+  - name: promotion
+    xpath: //div[@class="w-product-gallery"]//span[contains(@class,'discount-value')]
+  - name: descriptionBullets
+    xpath: //h1/@bullet-point
+  - name: otherSellersPrice
+    xpath: //div[@class="marketplace-product__offers"]//span[@class="product-offers__price-title"]
+  - name: secondaryImageTotal
+    xpath: count(//div[contains(@class,"product-gallery__thumbs")]//div[contains(@class,"swiper-slide")][position()>1]//a//@data-zoom-image)
+  - name: otherSellersName
+    xpath: //div[@class="marketplace-product__offers"]//span[@class="product-offers__title-title"]
+  - name: otherSellersShipping2
+    xpath: //div[@class="marketplace-product__offers"]//span[@class="product-offers__price-description"]/b
+  - name: shippingDimensions
+    xpath: //span[contains(text(),'Altura')]/following-sibling::span[1] | //span[contains(text(),'Largura')]/following-sibling::span[1] | //span[contains(text(),'Profundidade')]/following-sibling::span[1]
