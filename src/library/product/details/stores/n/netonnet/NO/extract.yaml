@@ -534,7 +534,7 @@ fields:
   - name: unInterruptedPDP
     singleValue: false
     description: Titles of products in the sections 'you may also like' or 'sponsored products'. Combine results from Max 3 sections
-    xpath: //div[contains(@class,"personalization")]//div[contains(@class,"name")]
+    xpath: //div[contains(@class,"personalization")]//div[contains(@class,"name")] | //div[contains(@class,"singleProductContainer cPromotionItem")]//div[contains(@class,"name")] | //div[contains(@class,"productsContainerItem cPromotionItem boxTwoProducts")]//div[contains(@class,"name")] |  //div[@class="panel panel-main productsContainer "]//div[contains(@class,"name")]
   - name: inTheBoxText
     singleValue: false
     xpath: //h2[contains(.,'Inkludert i pakken')]//parent::*//parent::*/following-sibling::div[1]//ul//li | //h2[contains(.,'Inkludert i pakken')]//following-sibling::ul//li
