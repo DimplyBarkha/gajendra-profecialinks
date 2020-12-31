@@ -1,7 +1,10 @@
 extends: ../shared
-# fields:
-#   - name: aggregateRating
-#     singleValue: true
-#     xpath: //div[@class='a-row a-size-small']//span[@class='a-declarative']//a/i[1]
+fields:
+  - name: aggregateRating
+    singleValue: false
+    xpath: //div[@class='a-row a-size-small']/span[contains(@aria-label,"estrelas")]/@aria-label
+    regExp: ^([^\s]+)
+  - name: reviewCount
+    singleValue: false
+    xpath: //span[contains(@aria-label,"estrelas")]/following-sibling::span[1]
 
-# number_of_reviews
