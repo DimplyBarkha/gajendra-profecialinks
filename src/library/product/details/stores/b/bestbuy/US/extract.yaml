@@ -67,7 +67,9 @@ fields:
     manualSelector: div.sku.product-data>span.product-data-value
   - name: gtin
     singleValue: false
-    xpath: //li[div[contains(@class,"title-container")]/div[contains(., "UPC")]]/div[contains(@class,"row-value")]
+    xpath: //script[contains(text(),"gtin13")]
+    regExp: gtin13":"(.+)?","m
+    regExpReplace: $1
   - name: variantId
     singleValue: false
     manualSelector: div.sku.product-data>span.product-data-value
@@ -76,9 +78,9 @@ fields:
     manualSelector: div.model.product-data>span.product-data-value
   - name: ratingCount
     singleValue: false
-    xpath: //div[@class='reviews-and-stars']//p[@class="sr-only"]
-    regExp: (["\d"]+)\Wreviews
-    regExpReplace: $1   
+    xpath: //div[@class='reviews-and-stars']//span[contains(@class, "c-reviews")]
+    regExp: (\d+)
+    regExpReplace: $1
   - name: aggregateRating
     xpath: //div[@class='reviews-and-stars']//p[@class="sr-only"]
     regExp: (["\d.\d"]+)\Wout
@@ -92,7 +94,7 @@ fields:
     xpath: //div[@class='pricing-price__savings'] | //div[@class='special-offer']//li
   - name: description
     singleValue: false
-    xpath: concat(//div[@class='long-description-container body-copy '],' ',//div[@class='feature-body-container'])
+    xpath: //div[@class='long-description-container body-copy '] | //div[@class='feature-body-container']
     #xpath: //div[@class='list-row']
   - name: brandText
     singleValue: false

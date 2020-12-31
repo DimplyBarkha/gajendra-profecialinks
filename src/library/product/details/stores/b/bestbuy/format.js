@@ -11,6 +11,16 @@ const transform = (data, context) => {
           text: row.specifications.reduce((item, currItem) => item ? `${item} || ${currItem.text.replace(/(\s*\n\s*)+/, ': ')}` : currItem.text.replace(/(\s*\n\s*)+/, ': '), ''),
         }];
       }
+      if (row.description) {
+        let text = '';
+        row.description.forEach(item => {
+          text += `${item.text} `;
+        });
+        row.description =
+          [{
+            text: text.slice(0, -1),
+          }];
+      }
       if (row.additionalDescBulletInfo) {
         row.descriptionBullets = [{
           text: row.additionalDescBulletInfo.length,
