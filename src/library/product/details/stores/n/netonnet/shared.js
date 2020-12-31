@@ -186,7 +186,9 @@ const transform = (data) => {
 
 			if (row.inTheBoxUrl) {
 				row.inTheBoxUrl.forEach(item => {
-				  item.text = 'https://www.netonnet.se'+ item.text
+					if (item.text.startsWith('/')) {
+						item.text = 'https://www.netonnet.se' + item.text;
+					}
 				});
 			}
 
