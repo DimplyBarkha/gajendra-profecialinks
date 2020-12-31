@@ -5,7 +5,7 @@ recordSelector: '#added-table > table > tbody > tr > td,html > body.no-variants'
 fields:
   - name: image
     description: URL of the main product image
-    xpath: //td[@class="productCode"] | //img[@itemprop="image"]/@src
+    xpath: //td[@class="image"] | //img[@itemprop="image"]/@src
     regExp: ^([^?]+)
     # Added custom height nd width values.
     regExpReplace: $1?wid=1920&hei=1080&op_sharpen=1
@@ -45,11 +45,13 @@ fields:
     description: The offered price for the selected product variant - if a user
       clicks add to basket this is the price they would be charged
   - name: availabilityText
-    xpath: //td[@class="stock"]
+    xpath: //td[@class="stock"] | //div[@id="productPageAdd2Cart"]/@id
     description: Availability as described on page for the selected variant. If
       there is no availability but the product can be added to cart, this field
       should be "In Stock"
-    defaultValue: In Stock
+    regExp: (In Stock|productPageAdd2Cart)
+    regExpReplace: In Stock
+    defaultValue: Out of Stock
   - name: description
     xpath: ancestor::html//*[@id="estore_product_longdesc"]//div[@dir="ltr"]
     description:
