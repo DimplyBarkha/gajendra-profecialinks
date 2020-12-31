@@ -40,6 +40,30 @@ const transform = (data) => {
           },
         ];
       }
+      if (row.sku) {
+        row.sku.forEach(item => {
+          let data = JSON.parse(item.text);
+          if(data['sku']){
+            if(data['sku']){
+              item.text = data['sku'];
+            }
+          }else{
+            item.text = "";
+          }           
+        });
+      }
+      if (row.gtin) {
+        row.gtin.forEach(item => {
+          let data = JSON.parse(item.text);
+          if(data['gtin13']){
+            if(data['gtin13']){
+              item.text = data['gtin13'];
+            }
+          }else{
+            item.text = "";
+          }           
+        });
+      }
     }
   }
   const clean = text => text.toString()
