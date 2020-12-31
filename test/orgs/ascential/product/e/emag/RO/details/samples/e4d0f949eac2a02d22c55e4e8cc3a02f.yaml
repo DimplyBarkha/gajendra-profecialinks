@@ -1,0 +1,87 @@
+input:
+  _url: http://emag.ro
+  URL: https://www.emag.ro/balsam-de-rufe-semana-purple-1900-ml-balsam4/pd/D05M26BBM/?X-Search-Id=5508e42762b71fea880b&X-Product-Id=57625280&X-Search-Page=1&X-Search-Position=27&X-Section=search&X-MB=0&X-Search-Action=view
+extractions:
+  - html: https://workbench.import.io/html/run=f238f14b-a60a-4486-9878-e82d5d1eebcd/task=3753f394-bfc8-435e-88ad-480703996823/0aac29ef-8b85-4721-bd7a-a2e49f8e357a.html
+    extractionConfigId: product/details/stores/e/emag/RO/extract
+    data:
+      - group:
+          - productUrl:
+              - text: https://www.emag.ro/balsam-de-rufe-semana-purple-1900-ml-balsam4/pd/D05M26BBM/?X-Search-Id=5508e42762b71fea880b&X-Product-Id=57625280&X-Search-Page=1&X-Search-Position=27&X-Section=search&X-MB=0&X-Search-Action=view
+                xpath: /html/body/div[10]
+            image:
+              - text: https://s13emagst.akamaized.net/products/25057/25056008/images/res_057234fac2e80f974133eb7c70b9e90e.jpg?width=450&height=450&hash=A7C0060983F89D7EA48AB909D2BBD1B1
+                xpath: /html/body/div[4]/div[2]/div[1]/section[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/a[1]/img[1]/@src
+            imageAlt:
+              - text: Balsam de rufe Semana Purple 1900 ml
+                xpath: /html/body/div[4]/div[2]/div[1]/section[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/a[1]/img[1]/@alt
+            metaKeywords:
+              - text: balsam, rufe, semana, purple, 1900, emag.ro
+                xpath: /html/head[1]/meta[4]/@content
+            category:
+              - text: Bacanie
+                xpath: /html/body/div[4]/div[2]/div[1]/section[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/ol[1]/li[1]
+              - text: Curatenie & Intretinere
+                xpath: /html/body/div[4]/div[2]/div[1]/section[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/ol[1]/li[2]
+              - text: Spalare si intretinere rufe
+                xpath: /html/body/div[4]/div[2]/div[1]/section[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/ol[1]/li[3]
+              - text: Balsam de rufe
+                xpath: /html/body/div[4]/div[2]/div[1]/section[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/ol[1]/li[4]
+              - text: Balsam de rufe Semana
+                xpath: /html/body/div[4]/div[2]/div[1]/section[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/ol[1]/li[5]
+            nameExtended:
+              - text: Balsam de rufe Semana Purple 1900 ml
+                xpath: /html/body/div[4]/div[2]/div[1]/section[1]/div[1]/div[2]/div[1]/div[1]/h1[1]
+            availabilityText:
+              - text: În stoc
+                xpath: /html/body/div[4]/div[2]/div[1]/section[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[2]/form[1]/div[1]/span[1]
+            brandText:
+              - text: Semana
+                xpath: /html/body/div[4]/div[2]/div[1]/section[6]/div[1]/div[1]/div[1]/div[2]/p[1]/a[1]
+            manufacturer:
+              - text: Red Mall
+                xpath: /html/body/div[4]/div[2]/div[1]/section[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[2]/div[2]
+            quantity:
+              - text: 1900 ml
+                xpath: /html/body/div[4]/div[2]/div[1]/section[6]/div[1]/div[1]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[5]/td[2]
+            sku:
+              - text: D05M26BBM
+                xpath: /html/body/div[4]/div[2]/div[1]/section[1]/div[1]/div[2]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/input[1]/@data-id
+            variantId:
+              - text: "57625280"
+                xpath: /html/head[1]/script[5]
+            shippingInfo:
+              - text: |-
+                  Vândut și livrat de: 
+                   
+                   Red Mall
+                xpath: /html/body/div[4]/div[2]/div[1]/section[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[2]
+            name:
+              - text: Balsam de rufe Semana Purple 1900 ml
+                xpath: /html/body/div[4]/div[2]/div[1]/section[1]/div[1]/div[2]/div[1]/div[1]/h1[1]
+            productOtherInformation:
+              - text: Forma/Textura Lichid || Tip rufe Colorate || Utilizare Rufe umede || Numar
+                  spalari 43 || Cantitate 1900 ml || Proprietati Faciliteaza
+                  calcatul
+                xpath: /html/body/div[11]
+            firstVariant:
+              - text: Balsam4
+                xpath: /html/body/div[4]/div[2]/div[1]/section[1]/div[1]/div[2]/div[1]/div[1]/div[2]/span[1]
+            technicalInformationPdfPresent:
+              - text: No
+            termsAndConditions:
+              - text: No
+            privacyPolicy:
+              - text: No
+            customerServiceAvailability:
+              - text: No
+            Image360Present:
+              - text: No
+            imageZoomFeaturePresent:
+              - text: Yes
+            price:
+              - text: 19.99 Lei
+            descriptionBullets:
+              - text: "0"
+        xpath: /
+    timestamp: 1609426339065
