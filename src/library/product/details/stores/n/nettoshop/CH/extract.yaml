@@ -145,7 +145,7 @@ fields:
     description: Must include image url to show the accessories/tools which come with the product
   - name: inTheBoxText
     singleValue: false
-    xpath: //div[@class="inpage_selector_InTheBox"]//div//span
+    xpath: //div[@class="inpage_selector_InTheBox"]//div//span | //th[@class="c-product-specifications__th"][contains(.,"Lieferumfang")]/../td
       # //th[text()='Lieferumfang']/following-sibling::td//span
     description: Must include text to show the accessories/tools which come with the product
   - name: unInterruptedPDP
