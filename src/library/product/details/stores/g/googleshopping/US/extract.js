@@ -7,12 +7,12 @@ const { transform } = require('../format');
  * @param { ImportIO.IContext } context
  * @param { Record<string, any> } dependencies
  */
-async function implementation(inputs, parameters, context, dependencies) {
+async function implementation (inputs, parameters, context, dependencies) {
   const { transform } = parameters;
   const { productDetails } = dependencies;
   // Function to check whether manufacturer content exists
 
-  async function moreFromManufacturer() {
+  async function moreFromManufacturer () {
     return await context.evaluate(async function () {
       const imgSelector = document.evaluate('//a[@class="Lx5QBd internal-link"]', document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
       const manImg = imgSelector ? imgSelector.href : '';
@@ -24,7 +24,7 @@ async function implementation(inputs, parameters, context, dependencies) {
     });
   }
 
-  async function checkmanufacturerContent() {
+  async function checkmanufacturerContent () {
     return await context.evaluate(async function () {
       const dtlSelector = document.evaluate('//a[@class="internal-link VXlrBe"]', document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
       const dtlSrc = dtlSelector ? dtlSelector.href : '';
@@ -37,7 +37,7 @@ async function implementation(inputs, parameters, context, dependencies) {
   }
 
   // Function to fetch manufacturer content and mnufacturer images after visiting iframe URL
-  async function fetchSpecs(url) {
+  async function fetchSpecs (url) {
     await context.goto(url, { timeout: 15000, waitUntil: 'load', checkBlocked: true });
     return await context.evaluate(async function () {
       const weightNetPath = "//div[contains(text(),'Weight')]//..//following-sibling::td/text()";
@@ -90,7 +90,7 @@ async function implementation(inputs, parameters, context, dependencies) {
         if (gtinText) gtin = gtinText;
       } catch (err) { }
 
-      let specifications = [];
+      const specifications = [];
       try {
         // const specifiTextPath = "//tr[@class='vm91i']";
         // const specIterator = document.evaluate(specifiTextPath, document, null, XPathResult.ANY_TYPE, null);
@@ -116,7 +116,7 @@ async function implementation(inputs, parameters, context, dependencies) {
       return { brandText, weightNet, color, warranty, shippingDimensions, Dimensions, shippingWeight, gtin, specifications };
     });
   }
-  async function fetchManImg(url) {
+  async function fetchManImg (url) {
     await context.goto(url, { timeout: 15000, waitUntil: 'load', checkBlocked: true });
     return await context.evaluate(async function () {
       const imageArray = [];
@@ -134,13 +134,36 @@ async function implementation(inputs, parameters, context, dependencies) {
           imagUrl && imageArray.push(imagUrl);
         }
       } catch (err) { }
-      return { imageArray, manufacturerDescription };
+
+      const boxImgSel = '(//span[contains(.,"In the Box")])[2]/../../..//img';
+      const boxImgs = [];
+      try {
+        const boxImgIterator = document.evaluate(boxImgSel, document, null, XPathResult.ANY_TYPE, null);
+        let testNode = boxImgIterator.iterateNext();
+        while (testNode) {
+          boxImgs.push(testNode.src);
+          testNode = boxImgIterator.iterateNext();
+        }
+      } catch (err) { }
+      /// start
+      const boxTxtSel = '//div[@id="sg-product__pdp-container"]//div/span[contains(.,"In the Box")]/../following-sibling::div/div/div';
+      const boxTxts = [];
+      try {
+        const boxTxtIterator = document.evaluate(boxTxtSel, document, null, XPathResult.ANY_TYPE, null);
+        let textNode = boxTxtIterator.iterateNext();
+        while (textNode) {
+          boxTxts.push(textNode.textContent);
+          textNode = boxTxtIterator.iterateNext();
+        }
+      } catch (err) { }
+      /// end
+      return { imageArray, manufacturerDescription, boxImgs, boxTxts };
     });
   }
   // Function to add manufacturer content and description to DOM
-  async function addContentToDOM(manContentObj, manufacturerContentLink) {
+  async function addContentToDOM (manContentObj, manufacturerContentLink) {
     await context.evaluate(async function ([manContentObj, manufacturerContentLink]) {
-      function addHiddenDiv(id, content) {
+      function addHiddenDiv (id, content) {
         const newDiv = document.createElement('div');
         newDiv.id = id;
         newDiv.textContent = content;
@@ -180,6 +203,13 @@ async function implementation(inputs, parameters, context, dependencies) {
           addHiddenDiv('added-manufacturerImages-' + i, manImageObj.imageArray[i]);
         }
         addHiddenDiv('added-manufacturer-description', manImageObj.manufacturerDescription);
+
+        for (let i = 0; i < manImageObj.boxImgs.length; i++) {
+          addHiddenDiv('mybox-img-' + i, manImageObj.boxImgs[i]);
+        }
+        for (let i = 0; i < manImageObj.boxTxts.length; i++) {
+          addHiddenDiv('mybox-txt-' + i, manImageObj.boxTxts[i]);
+        }
       }
     }, [manImageObj, imageLink]);
   }
@@ -189,18 +219,18 @@ async function implementation(inputs, parameters, context, dependencies) {
   console.log('imageLink ...', imageLink);
   if (specsLink) {
     manContentObj = await fetchSpecs(specsLink);
-    console.log('manContentObj', manContentObj);
+    console.log('manContentObj ==== ', manContentObj);
     await context.goto(inputs.url, { timeout: 15000, waitUntil: 'load', checkBlocked: true });
   }
   let manImageObj;
   if (imageLink) {
     manImageObj = await fetchManImg(imageLink);
-    console.log('manImageObj', manImageObj);
+    console.log('manImageObj===', manImageObj);
     await context.goto(inputs.url, { timeout: 15000, waitUntil: 'load', checkBlocked: true });
   }
 
   // add desc
-  async function getDescLink() {
+  async function getDescLink () {
     return await context.evaluate(async function () {
       const dtlSelector = document.evaluate('//a[contains(text(), "View all highlights")]', document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
       const dtlSrc = dtlSelector ? dtlSelector.href : '';
@@ -213,15 +243,15 @@ async function implementation(inputs, parameters, context, dependencies) {
   }
 
   // Function to fetch desc
-  async function fetchDesc(url) {
+  async function fetchDesc (url) {
     await context.goto(url, { timeout: 15000, waitUntil: 'load', checkBlocked: true });
     return await context.evaluate(async function () {
-      let descs = [];
+      const descs = [];
       let desc;
-      let descCnt = 0;
+      const descCnt = 0;
       try {
         // const descTextPath = '//ul//li/span';
-        const descIterator = document.evaluate("//ul//li/span", document, null, XPathResult.ANY_TYPE, null);
+        const descIterator = document.evaluate('//ul//li/span', document, null, XPathResult.ANY_TYPE, null);
         // document.evaluate(descTextPath, document, null, XPathResult.ANY_UNORDERED_NODE_TYPE, null).singleNodeValue;
         // const arr = descIterator.innerText.split('\n\n');
         // for (let cnt = 0; cnt < arr.length; cnt++) {
@@ -234,15 +264,15 @@ async function implementation(inputs, parameters, context, dependencies) {
           descs.push(thisNode.textContent);
           thisNode = descIterator.iterateNext();
         }
-        //descCnt = descs.length;
-        //desc = descs.join(' || ');
+        // descCnt = descs.length;
+        // desc = descs.join(' || ');
       } catch (err) { }
       return { descs };
     });
   }
-  async function addDescToDOM(descObj, addDescLink) {
+  async function addDescToDOM (descObj, addDescLink) {
     await context.evaluate(async function ([descObj, addDescLink]) {
-      function addHiddenDiv(id, content) {
+      function addHiddenDiv (id, content) {
         const newDiv = document.createElement('div');
         newDiv.id = id;
         newDiv.textContent = content;

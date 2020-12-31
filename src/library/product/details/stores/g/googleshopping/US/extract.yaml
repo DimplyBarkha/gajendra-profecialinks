@@ -157,10 +157,16 @@ fields:
     xpath: count(//div[contains(@id, "added-desc-")])
   - name: inTheBoxText
     singleValue: false
-    xpath: //tr//td[contains(.,'Included')]/following-sibling::td | //div[@class="XeRV0d NCgxDf"]
+    xpath: //div[contains(@id, "mybox-txt-")]  
   - name: unInterruptedPDP 
     singleValue: false
     xpath: //div[@class="sh-dc__carousel"]//div[@class="YmbeHb"]/text() | //div[@class="uHBBRe"]/text()
   - name: hasComparisonTable
     defaultValue: No
   - name: inTheBoxUrl
+  # name: myBoxImgUrl 
+    singleValue: false
+    xpath: //div[contains(@id, "mybox-img-")]
+  - name: myinTheBoxTxt
+    singleValue: false
+    xpath: //div[contains(@id, "mybox-txt-")]    
