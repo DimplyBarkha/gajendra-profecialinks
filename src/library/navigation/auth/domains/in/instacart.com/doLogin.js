@@ -4,8 +4,9 @@ async function implementation(
   context,
   dependencies,
 ) {
-  const { username, password } = inputs;
+  const { username, password, zipcode, storeId } = inputs;
   const { usernameSelector, passwordSelector, buttonSelector, loggedInSelector } = parameters;
+
   if (context.click('button[type="button"]')) {
     await new Promise((resolve, reject) => setTimeout(resolve, 8000));
     await context.waitForNavigation({ timeout: 50000, waitUntil: 'load' });
@@ -17,9 +18,11 @@ async function implementation(
     }
   }
   await context.click('button[type="submit"]');
-        
+
   await context.waitForNavigation({ timeout: 50000, waitUntil: 'load' });
   await context.evaluate(function () {
+    //context.setInputValue(zipcode).value="32821";
+    //context.setInputValue(storeId).value="57";
     document.forms[0].submit();
   });
   if (loggedInSelector) {
