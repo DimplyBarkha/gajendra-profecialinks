@@ -8,14 +8,19 @@ module.exports = {
     domain: 'krefel.be',
     zipcode: '',
   },
-  implementation: async ({ inputString }, { country, domain }, context, { productDetails }) => {
+  implementation: async ({ inputString }, { country, domain, transform }, context, { productDetails }) => {
     const needToSelectLanguage = await context.evaluate(() => {
       return !!document.querySelector('a[class*="select-language"]');
     });
 
     if (needToSelectLanguage) {
-      await context.click('a[href="/nl"]', { timeout: 5000 })
-        .catch((err) => console.log(`Click failed: ${err}`));
+      const urlSuffix = await context.evaluate(() => {
+        const currentUrl = window.location.href;
+        const filter = new RegExp('(?=\/p)(.*)');
+        return currentUrl.match(filter)[0]
+      });
+      // https://www.krefel.be/nl/p/21004082-elektrische-tandenborstel-stages-power
+      await context.goto(`https://www.krefel.be/nl${urlSuffix}`, { timeout: 20000, waitUntil: 'load' });
     }
 
     await context.evaluate(async function () {
@@ -94,6 +99,6 @@ module.exports = {
       .catch(() => console.log('No extra brand info'));
 
     await new Promise((resolve, reject) => setTimeout(resolve, 6000));
-    return await context.extract(productDetails);
+    return await context.extract(productDetails, { transform });
   },
 };

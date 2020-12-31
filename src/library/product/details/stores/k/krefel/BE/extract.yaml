@@ -508,7 +508,8 @@ fields:
   - name: inTheBoxText
     singleValue: false
     description: Must include text to show the accessories/tools which come with the product
-    xpath: //div[@class="in-the-box"] | //h4[contains(text(),"Meegeleverde accessoires")]/..//following-sibling::div//li
+    # xpath: //div[@class="in-the-box"] | //h4[contains(text(),"Meegeleverde accessoires")]/..//following-sibling::div//li
+    xpath: //h4[contains(text(),"Meegeleverde accessoires")]/..//following-sibling::div//li//span[@class="value"]//*[name()="svg" and not(contains(@class,"cross-red"))]/../../../span[@class="name"] | //h4[contains(text(),"Meegeleverde accessoires")]/..//following-sibling::div//li//span[@class="value"]/span/span/../../../span[@class="name"] | //h4[contains(text(),"Meegeleverde accessoires")]/..//following-sibling::div//li//span[@class="value"]/span/span
   - name: hasComparisonTable
     singleValue: true
     description: Compare the range table or matrix must be present for all vacuum cleaners & air treatment. This is not required for    personal care or lighting. As a minimum the comparison table will compare against 1 additional Dyson product.
@@ -517,7 +518,6 @@ fields:
     regExp: >-
       (.+)
     regExpReplace: 'Yes'
-  - name: unInterruptedPDP    
-    singleValue: false   
-    description: Titles of products in the sections 'you may also like' or 'sponsored products'. Combine results from Max 3 sections
-    xpath: //div[@class="product"]//h3[@class="product-title h-style-5"]
+  - name: unInterruptedPDP
+    singleValue: false
+    xpath: //*[contains(text(),"Recent bekeken producten")]//parent::header//following-sibling::div//div[@class="product"] | //*[contains(text(),"Anderen bekeken ook")]//following-sibling::div//li | //*[contains(text(),"Anderen kochten ook")]//following-sibling::div//li | //*[contains(text(),"Accessoires")]//parent::header//following-sibling::div//div[@class="product"] | //div[@class="product"]//h3| //div[@class="product"]//h3[@class="product-title h-style-5"]
