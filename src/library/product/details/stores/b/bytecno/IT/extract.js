@@ -199,8 +199,7 @@ module.exports = {
         document.body.appendChild(newDiv);
       }
     });
-
-
+    context.click('body')
     return await context.extract(productDetails, { transform });
   },
 };
