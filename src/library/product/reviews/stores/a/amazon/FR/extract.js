@@ -22,13 +22,11 @@ const transform = (data, context) => {
       if (row.rating) {
         let rating = row.rating[0].text;
         rating = rating.split(' ');
-        console.log(rating[0]);
         row.rating[0].text = rating[0].replace(',', '.');
       }
       if (row.aggregateRating) {
         let aggregateRating = row.aggregateRating[0].text;
         aggregateRating = aggregateRating.split(' ');
-        console.log(aggregateRating[0]);
         row.aggregateRating[0].text = aggregateRating[0].replace(',', '.');
       }
       if(row.helpful){

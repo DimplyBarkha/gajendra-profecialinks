@@ -1,5 +1,8 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: null
-fields: null
+recordXpath: //div[contains(@data-component-type, 's-search-result')]
+fields:
+  - name: productUrl
+    singleValue: false
+    xpath: //span[@data-component-type='s-product-image']//a/@href
