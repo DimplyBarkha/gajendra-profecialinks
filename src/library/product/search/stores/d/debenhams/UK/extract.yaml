@@ -8,12 +8,10 @@ fields:
     xpath: //div[contains(@class, 't-product-list__container')]//div[contains(@class, 't-product-list__product')]//h2
   - name: productUrl
     singleValue: false
-    xpath: //div[contains(@class, 't-product-list__container')]//div[contains(@class, 't-product-list__product')]//h2/../@href
+    xpath: //div[contains(@class, 't-product-list__container')]//div[contains(@class, 't-product-list__product')]//div[@class='custom-attr-product-url']/text()
   - name: id
     singleValue: false
-    xpath: //div[contains(@class, 't-product-list__container')]//div[contains(@class, 't-product-list__product')]//h2/../@href
-    regExp: .*_(\d+)_-1.*
-    regExpReplace: $1
+    xpath: //div[contains(@class, 't-product-list__container')]//div[contains(@class, 't-product-list__product')]//div[@class='custom-attr-product-sku']/text()
   - name: price
     singleValue: false
     xpath: //div[contains(@class, 't-product-list__container')]//div[contains(@class, 't-product-list__product')]//div[contains(@class, 'dbh-price') or contains(@class, 'dbh-now')]
@@ -24,4 +22,4 @@ fields:
     xpath: //div[contains(@class, 't-product-list__container')]//div[contains(@class, 't-product-list__product')]//div[contains(@class, 'dbh-image')]//img/@src
   - name: searchUrl
     singleValue: false
-    xpath: //div[contains(@class, 't-product-list__product')]//div[@class='custom-attr-product-search-url']/text()
+    xpath: //div[contains(@class, 't-product-list__container')]//div[contains(@class, 't-product-list__product')]//div[@class='custom-attr-product-search-url']/text()

@@ -28,7 +28,9 @@ const transform = (data, context) => {
         }
         if (row.productUrl) {
           row.productUrl.map(product => {
-            product.text = 'https://debenhams.com' + product.text;
+            if (product && product.text && !product.text.includes("debenhams.com")) {
+              product.text = 'https://debenhams.com' + product.text;
+            }
           });
         }
         row.rank = [{ text: rankCounter }];
