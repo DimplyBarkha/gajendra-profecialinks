@@ -1,0 +1,67 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+# recordXPath: null
+recordXPath: //ul[contains(@class,'ts-reviews-list')]/li
+fields:
+  - name: helpfulCount
+    singleValue: false
+    xpath: //button[contains(@class,"ts-thumb-up")]/span[contains(@class,"ts-count")]
+    type: NUMBER
+    description: Number of people who said the review was helpful
+  # - name: commentCount
+  #   singleValue: true
+  #   type: NUMBER
+  #   description: Number of comments on the review
+  - name: name
+    singleValue: true
+    # xpath: ancestor::html//div[contains(@class,"product-comum")]//div[contains(@class,"product-name")]
+    #  xpath: ancestor::html//meta[contains(@property,"og:title")]/@content
+    xpath: ancestor::html//*[@id="product_addtocart_form"]/div[2]/div/div[2]/div/div[4]/div[1]/div[1]/h1/span
+    # xpath: ancestor::html//div[contains(@class,"product-name")]//span[contains(@property,"name")]
+    description: The product name
+  - name: sku
+    singleValue: true
+    xpath:  ancestor::html//*[@id="product_addtocart_form"]/div[2]/div/div[2]/div[1]//div/@data-product-sku
+    description: The store-specific product identifier
+  - name: reviewDate
+    singleValue: false
+    xpath: //span[contains(@itemprop,"datePublished")]
+    type: DATETIME
+    description: Date the review was made
+  - name: reviewRating
+    type: NUMBER
+    singleValue: false
+    xpath: //li[contains(@class,"ts-product-reviews-list-item")]//span[contains(@itemprop,"ratingValue")]
+    description: Rating normalized to be out of 5
+  - name: reviewText
+    singleValue: false
+    xpath: //li[contains(@class,"ts-product-reviews-list-item")]//div[contains(@class,"ts-review")]
+    description: The text of the review
+  - name: gtin
+    singleValue: true
+    xpath: ancestor::html//*[@id="product-attribute-specs-table"]/tbody/tr[2]/td
+    description: GTIN code (includes UPC/EAN)
+  - name: productUrl
+    singleValue: true
+    xpath: //link[contains(@rel,"canonical")]/@href
+    description: The url of the product details page
+  - name: verifiedPurchase
+    singleValue: true
+    type: BOOLEAN
+    description: Whether this of an item the reviewer purchased. "Yes" if true else ""
+  - name: manufacturerResponse
+    singleValue: false
+    xpath: //li[(contains(@itemprop,"review"))]//div[contains(@class,"ts-reply")]
+    description: The response of the manufacturer (if any)
+  - name: user
+    singleValue: false
+    description: The user name of the reviewers
+    xpath: //*[@id="_sincero_widget"]//span[contains(@itemprop,"author")]
+    # xpath:  ancestor::html//script[contains(text(), 'author')]
+    type: TEXT
+  - name: aggregateRating
+    xpath: ancestor::html//*[@id="_sincero_widget"]/div/section[1]/section/div[1]/div[1]/span[1]
+    # xpath: //span[contains(@class,"ts-shelf-rate-count")] //span[contains(@itemprop,"ratingValue")]
+    description: The product rating
+
