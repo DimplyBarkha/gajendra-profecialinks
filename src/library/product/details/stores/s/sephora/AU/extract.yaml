@@ -20,7 +20,8 @@ fields:
   - name: alternateImages
     singleValue: false
     description: Other product images (not in manufacturer description)
-    xpath: (//div[@class='product-images']//img/@src)
+    # xpath: //div[@class='product-images']//img/@src|//div[@id='tns1-ow']//following-sibling::ul[contains(@class,'thumbnails-navigation')]//img/@src
+    xpath: //div[@id='tns1-ow']//following-sibling::ul[contains(@class,'thumbnails-navigation')]/li[position()>1]//img/@src
   - name: category
     singleValue: false
     description: The categories (e.g. from breadcrumbs)
