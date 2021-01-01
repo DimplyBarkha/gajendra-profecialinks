@@ -11,7 +11,8 @@ fields:
   - name: image
     singleValue: false
     description: URL of the main product image
-    xpath: (//div[@class='product-images']//img/@src)[1]
+    #xpath: (//div[@class='product-images']//img/@src)[1]
+    xpath: (//div[contains(@class,'product-images')]//img/@src)[1]
   - name: imageAlt
     singleValue: false
     description: Alt text of the main product image
@@ -73,13 +74,19 @@ fields:
   - name: sku
     singleValue: false
     description: The store-specific product identifier
-    xpath: //div[contains(@class, "variant-selector")]//li[contains(@class, "active")]/@class
-    regExp: (([0-9]+)$)
+    #xpath: //div[contains(@class, "variant-selector")]//li[contains(@class, "active")]/@class
+    #regExp: (([0-9]+)$)
+    xpath: (//a[contains(@class,"add-to-wish-list")])[last()]/@href
+    regExp: \?wishlist=(.+)#authentication
+    regExpReplace: $1
   - name: variantId
     singleValue: false
     description: Identifier for a variant from a store where variants share the same sku
-    xpath: //div[contains(@class, "variant-selector")]//li[contains(@class, "active")]/@class
-    regExp: (([0-9]+)$)
+    #xpath: //div[contains(@class, "variant-selector")]//li[contains(@class, "active")]/@class
+    #regExp: (([0-9]+)$)
+    xpath: (//a[contains(@class,"add-to-wish-list")])[last()]/@href
+    regExp: \?wishlist=(.+)#authentication
+    regExpReplace: $1
   - name: legalDisclaimer
     singleValue: false
     description: Content under "legal disclaimer" header
