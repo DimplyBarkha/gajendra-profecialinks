@@ -15,9 +15,12 @@ fields:
   - name: thumbnail
     SingleValue: false
     xpath: //div[@class="product"]//img/@data-src
+  - name: nameBeg
+    SingleValue: false
+    xpath: //div[@class="product"]//div[@class="title-wrapper"]//a/span[@class="producer"]
   - name: name
     SingleValue: false
-    xpath: //div[@class="product"]//div[@class="title-wrapper"]//a
+    xpath: //div[@class="product"]//div[@class="title-wrapper"]//a/span[@class="product-title"]
   - name: rankOrganic
     SingleValue: true
   - name: rank

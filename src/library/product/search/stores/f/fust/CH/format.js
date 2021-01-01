@@ -30,6 +30,12 @@ const transform = (data) => {
           item.text = 'https://www.fust.ch' + item.text;
         });
       }
+      if (row.name) {
+        if (row.nameBeg) {
+          row.name = [{ text: (row.nameBeg[0].text + ' ' + row.name[0].text).trim() }];
+          delete row.nameBeg;
+        }
+      }
       if (row.thumbnail) {
         row.thumbnail.forEach(item => {
           if (item.text.indexOf('fust.ch') < 0) {
