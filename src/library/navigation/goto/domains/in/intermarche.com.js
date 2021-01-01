@@ -3,7 +3,7 @@ module.exports = {
   implements: 'navigation/goto',
   parameterValues: {
     domain: 'intermarche.com',
-    timeout: 60000,
+    timeout: 80000,
     country: 'FR',
     store: 'intermarche',
   },
@@ -18,7 +18,7 @@ module.exports = {
     await context.setUseRelayProxy(false);
 
     const responseStatus = await context.goto(url, {
-      firstRequestTimeout: 60000,
+      firstRequestTimeout: 80000,
       timeout: timeout,
       waitUntil: 'load',
       checkBlocked: false,
