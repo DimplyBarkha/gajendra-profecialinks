@@ -57,7 +57,16 @@ async function implementation (inputs, parameters, context, dependencies) {
     fetchRatingFromScript();
   });
   await new Promise((resolve) => setTimeout(resolve, 10000));
-  return await context.extract(productDetails, { transform });
+  const noResults = await context.evaluate(async function () {
+    let noRes = false;
+    if (document.querySelector('div.container div.cfx h1')) {
+      if (document.querySelector('div.container div.cfx h1').innerText.includes('0 items found for')) {
+        noRes = true;
+      }
+    }
+    return noRes;
+  });
+  if (noResults === false) return await context.extract(productDetails, { transform });
 }
 
 module.exports = {

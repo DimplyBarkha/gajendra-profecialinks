@@ -66,6 +66,15 @@ const transform = (data) => {
         });
       }
 
+      if (row.inTheBoxUrl) {
+        row.inTheBoxUrl.forEach((inTheBoxUrlItem) => {
+          inTheBoxUrlItem.text = inTheBoxUrlItem.text.replace(/,.*/, '');
+          inTheBoxUrlItem.text = inTheBoxUrlItem.text.replace('200w', '');
+          inTheBoxUrlItem.text = 'I' + inTheBoxUrlItem.text;
+          inTheBoxUrlItem.text = inTheBoxUrlItem.text.slice(1, -1);
+        });
+      }
+
       if (row.aggregateRating) {
         row.aggregateRating.forEach((aggregateRatingItem) => {
           if (aggregateRatingItem.text.includes('no rating')) {
