@@ -108,8 +108,8 @@ fields:
   - name: variantInformation
     singleValue: false  
     xpath: //div[@class="ProductSwatches__Cell"]//img[contains(@alt,'selected')]/@alt | //div[@class="ProductSwatches__Cell"]//div[contains(@class,'ProductSwatchImage__Rectangle--selected')]/span/text()
-    regExp: ([^\s]+)(\s.*)?
-    regExpReplace: $1 
+    #regExp: ([^\s]+)(\s.*)?
+    #regExpReplace: $1 
   - name: directions
     singleValue: false  
     manualSelector: div.ProductDetail__howToUse > div.Collapsible
@@ -118,7 +118,7 @@ fields:
     manualSelector: div.wc-specifications-responsive >  table > tbody > tr 
   - name: quantity
     singleValue: false 
-    xpath: //p[contains(.,'Size')]/text() | //div[@class="ProductDetail__colorPanel"]
+    xpath: //div[@class="ProductMainSection__itemNumber"]/p[contains(.,'Size')]/text() | //div[@class="ProductDetail__colorPanel"]
   - name: ingredientsList
     singleValue: false
     xpath: //div[@class='ProductDetail__ingredients']//div[@class="ProductDetail__productContent"]

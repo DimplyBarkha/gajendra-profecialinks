@@ -45,7 +45,15 @@ const transform = (data) => {
           item.text = item.text.replace('$', ' ').trim();
         });
       }
-
+      if (row.nameExtended) {
+        row.nameExtended.forEach(item => {
+          if(row.variantInformation){
+            if(row.variantInformation[0].text != ''){
+              item.text = item.text + ' - ' + row.variantInformation[0].text;
+            }
+          }
+        });
+      }
       if (row.quantity) {
         row.quantity.forEach(item => {
           item.text = item.text.slice(5);
