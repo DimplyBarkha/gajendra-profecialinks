@@ -285,14 +285,15 @@ async function implementation (
           hasComparisonTable = 'Yes';
         }
       
-       const inTheBoxEls1 = Array.from(document.querySelectorAll('[data-section-caption*="In the box"] > div> div> ul >li , [data-section-caption*="In The Box"] > div> div> ul >li'));
+       const inTheBoxEls1 = Array.from(document.querySelectorAll('[data-section-tag*="in-the-box"] > div> div> ul >li,[data-section-caption*="In the box"] > div> div> ul >li , [data-section-caption*="In The Box"] > div> div> ul >li'));
        
         const inTheBoxEls2 = Array.from(document.querySelectorAll('div[data-section-caption="In the box"] ul>li , div[data-section-caption="In The Box"] ul>li'));
       
         let inTheBoxEls = []
         if(inTheBoxEls1){
           inTheBoxEls =  inTheBoxEls1
-        }else{
+        }
+        else{
           inTheBoxEls = inTheBoxEls2
         }
         inTheBoxEls.forEach(el => {
