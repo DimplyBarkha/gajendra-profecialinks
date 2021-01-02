@@ -120,10 +120,10 @@ module.exports = {
         else {
 
           if(onlyText){
-            addHiddenDivForIframe('added-inBox-Text', onlyText.join('  |  '));
+            addHiddenDivForIframe('added-inBox-Text', onlyText.join('  || '));
           }
           if(inTheBoxImage){
-            addHiddenDivForIframe('added-inBox-images', inTheBoxImage.join('  |  '));
+            addHiddenDivForIframe('added-inBox-images', inTheBoxImage.join('  || '));
           }
         }
       }, [manContentObj, onlyText, inTheBoxImage]);
