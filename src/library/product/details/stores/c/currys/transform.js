@@ -347,7 +347,11 @@ const transform = (data) => {
       } */
       if (row.manufacturerDescription && row.manufacturerDescription[0]) {
         const regexIgnoreText = /(Prev|Next|Show More|Show Less)/g;
-        const text = row.manufacturerDescription[0].text.replace(/<(style|script|noscript)\b[^<]*(?:(?!<\/(style|script|noscript)>)<[^<]*)*<\/(style|script|noscript)>/g, '').replace(/(<([^>]+)>)/ig, '').replace(regexIgnoreText, '').trim();
+        let text = '';
+        row.manufacturerDescription.forEach(item => {
+          text = text + (text ? ' ' : '') + item.text;
+        });
+        text = text.replace(/<(style|script|noscript)\b[^<]*(?:(?!<\/(style|script|noscript)>)<[^<]*)*<\/(style|script|noscript)>/g, '').replace(/(<([^>]+)>)/ig, '').replace(regexIgnoreText, '').trim();
         row.manufacturerDescription = [{ text: decode(text) }];
       }
       if (row.manufacturerImages) {

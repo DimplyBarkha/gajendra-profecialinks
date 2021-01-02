@@ -115,7 +115,7 @@ fields:
   - name: manufacturerDescription
     singleValue: false
     # xpath: //div[@id="product-info"]/following-sibling::div/div[@id="richmedia-container"]//div[@id="inpage_container"]/div[not(contains(@class,'inpage_selector_specification')) and not(contains(@class,'inpage_selector_download')) and not(contains(@class,'inpage_selector_gallery')) and not(contains(@class,'inpage_selector_video'))  and not(contains(@id,'flix_selector_3d'))] | //div[@id="product-info"]/following-sibling::div/div[@id="richmedia-container"]//div[@id="inpage_responsive"]
-    xpath: //div[@id="inpage_container"]
+    xpath: //div[@id="inpage_container"] | //div[@id="inpage_responsive"]//div[contains(@class, 'inpage_selector')]
     html: true
     description: The extended description of the product supplied by the lister
   # - name: manufacturerDescription1
