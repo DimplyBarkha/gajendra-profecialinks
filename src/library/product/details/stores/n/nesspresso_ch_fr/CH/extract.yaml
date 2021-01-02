@@ -84,9 +84,9 @@ fields:
   - name: gtin
     singleValue: false
     description: GTIN code (includes UPC/EAN)
-  - name: sku
-    singleValue: false
-    xpath: //div[@class="ProductDetails"]/@id
+  # - name: sku
+  #   singleValue: false
+  #   xpath: //div[@class="ProductDetails"]/@id
     # xpath: //script[contains(.,"sku") and (contains(.,"energyProfile"))]/text()
     regExp: prod\W+(.+)
     regExpReplace: $1
@@ -425,10 +425,10 @@ fields:
   - name: storage
     singleValue: false
     description: Suggested storage location for product
-  - name: countryOfOrigin
-    singleValue: false
-    xpath: //h4[contains(text(), "Fabriqué")]/text()
-    regExp: \b(\w+)$
+  # - name: countryOfOrigin
+  #   singleValue: false
+  #   xpath: //h4[contains(text(), "Fabriqué")]/text()
+  #   regExp: \b(\w+)$
   - name: allergyAdvice1
     singleValue: false
     xpath: //div[contains(text(), "Ingrédients & allergènes")]//../following-sibling::div
