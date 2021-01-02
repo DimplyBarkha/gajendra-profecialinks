@@ -61,16 +61,30 @@ const transform = (data) => {
           row.unInterruptedPDP = [{ text: arrTemp.join(' || ') }];
         }
       }
-      // if(row.inTheBoxText) {
-      //   row.inTheBoxText.forEach(inTheBoxText => {
-      //     inTheBoxText.text = inTheBoxText.text.replace(/[\,]/g, ' || ');
-      //   });
-      // }
       if (row.inTheBoxText) {
-        row.inTheBoxText.forEach(item => {
-          item.text = item.text.replace(/,/g,' || ')
-        });
-}
+        var temp = '';
+        //console.log(row.inTheBoxText)
+          row.inTheBoxText.forEach(item => {
+            
+              if(item.text.indexOf(':')>0){
+                console.log('If: ' + item.text)
+                temp = item.text.split(':')[1]
+                temp = temp.split('.')[0]
+                item.text = temp.replace(/,/g,' || ')
+              }else{
+                console.log('else: ' + item.text)
+
+                temp = item.text.split('.')[0]
+                item.text = temp.replace(/,/g,' || ')
+              }
+            })
+          }
+      // if (row.inTheBoxText) {
+      //   row.inTheBoxText.forEach(item => {
+      //     item.text = item.text.replace(/,/g,' || ')
+      //   })
+      // }
+      
       if (row.variants) {
         const variations = [];
         const vInfo = [];
