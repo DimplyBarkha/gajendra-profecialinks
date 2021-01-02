@@ -167,7 +167,7 @@ fields:
   - name: manufacturerImages
     singleValue: false
     description: Images within the third party description
-    xpath: //section[contains(@class,'richContent')]/article//img/@src
+    xpath: //section[contains(@class,'richContent')]/article//img[not(@data-video)]/@src
   - name: videos
     singleValue: false
     description: URLs of videos on page
