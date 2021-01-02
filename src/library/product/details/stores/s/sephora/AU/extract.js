@@ -33,7 +33,7 @@ module.exports = {
           const prodsWithImg = document.querySelectorAll('a[data-comp="ProductItem "] img');
         }, { timeout: 1000 }, scrollTop);
       } catch (err) {
-        console.log('Failed');
+        console.log('Failed', err.message);
       }
       if (scrollTop === 10000) {
         break;
@@ -45,6 +45,45 @@ module.exports = {
     //   await new Promise(resolve => setTimeout(resolve, 5000));
     //   await context.click('button[aria-label="Close"]');
     // }
+
+    await new Promise(resolve => setTimeout(resolve, 20000));
+    let altImagesArray = [];
+    try {
+      let altImagesXpath = '//div[contains(@class,"row product-show")]//div[contains(@class, "product-images-container")]//div[contains(@class,"pdp-image-carousel")]/div[not(contains(@class,"active"))]/img/@src | //div[contains(@class,"row product-show")]//div[contains(@class, "product-images-container")]//div[contains(@class,"product-image-viewport")]//div[not(contains(@class,"selected"))]/img/@src';
+      await context.waitForXPath(altImagesXpath);
+            
+      altImagesArray = await context.evaluate(async (altImagesXpath) => {
+        
+        console.log('altimges xpath - ' + altImagesXpath);
+        let allAltImgsElms = document.evaluate(altImagesXpath, document, null, 7, null);
+        let allAltImagesArr = [];
+        if(allAltImgsElms.snapshotLength === 0) {
+          console.log('we do not have altimages for this prod - if you see some - check with altImagesXpath');
+          return allAltImagesArr;
+        }
+        for(let i = 0; i < allAltImgsElms.snapshotLength; i++) {
+          let thisImageUrl = allAltImgsElms.snapshotItem(i).textContent.trim();
+          console.log(thisImageUrl);
+          allAltImagesArr.push(thisImageUrl);
+        }
+        return allAltImagesArr;
+
+      }, altImagesXpath);
+    } catch(err) {
+      console.log('we got some error while dealing with altimages - ', err.message);
+    }
+
+    await context.evaluate(async (altImagesArray) => {
+      async function addElementToDocumentAsync (key, value) {
+        const catElement = document.createElement('div');
+        catElement.id = key;
+        catElement.textContent = value;
+        document.body.appendChild(catElement);
+      }
+
+      await addElementToDocumentAsync('altImages', altImagesArray.join(' || '));
+    }, altImagesArray);
+    
 
     const videoSources = await context.evaluate(async function (selectorClick) {
       const videoSrcArr = [];

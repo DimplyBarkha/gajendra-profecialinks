@@ -75,7 +75,7 @@ const transform = (data, context) => {
             const joins = oneLess.join(' | ');
             row.alternateImages = [{ text: joins }];
           } else {
-            row.alternateImages = [{ text: '' }];
+            // row.alternateImages = [{ text: '' }];
           }
         }
 
