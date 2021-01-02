@@ -1,29 +1,20 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: null
+recordXPath: //div[@class="items-container"]/section[@class="hits"]/section[@class="collapsed"]
 fields:
   - name: price
-    singleValue: false
-    description: price of the product
-    type: CURRENCY
-    xpath: //div[@class='item-container product-tile__container']/div[@class='info product-tile__info']/div[@class='prices product-tile__prices']/div[@class='product-tile__price-container']/a[@class='prices__price product-tile__price']
-  - name: productUrl
-    singleValue: false
-    description: The URL for the product details page 
-    xpath: //section[@class="collapsed"]/article/@data-product-tile-url
-    regExp: (online/.*)
-    regExpReplace: https://www.unieuro.it/$1
+    xpath: //div[contains(@class,'item-container')]//div[@class='product-tile__price-container']/a[contains(@class,'prices__price')]
+    regExp: ((\d+\,\d+)|(\d+\.\d+)|(\d+))
+    regExpReplace: $1
+  - name: productUrl 
+    xpath: //div[contains(@class,'item-container')]//div[@class='product-tile__price-container']/a[contains(@class,'prices__price')]/@href
+    regExp: (.+)
+    regExpReplace: https://www.unieuro.it$1
   - name: thumbnail
-    singleValue: false
-    description: The URL for the product thumbnail image
-    xpath: //div[@class="info product-tile__info"]//a//img/@src
+    xpath: //div[contains(@class,'item-container')]//div[contains(@class,'product-img-container')]//img[contains(@class,'product-img')]/@src
   - name: id
-    singleValue: false
-    description: The store-specific product identifier
-    xpath: //section[@class="collapsed"]/article/@data-product-tile-sku 
+    xpath: //@data-product-tile-sku
   - name: name
-    singleValue: false
-    description: The product name
-    xpath: //div[@class='item-container product-tile__container']/div[@class='info product-tile__info']/div[@class='title product-tile__title']/a/text()
+    xpath: //div[contains(@class,'item-container')]/div[contains(@class,'product-tile__info')]/div[contains(@class,'tile__title')]/a
   

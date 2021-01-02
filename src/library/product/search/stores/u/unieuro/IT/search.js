@@ -1,9 +1,11 @@
+
 module.exports = {
   implements: 'product/search',
   parameterValues: {
     country: 'IT',
-    store: 'unieuro',
+    store: 'Unieuro',
     domain: 'unieuro.it',
     zipcode: '',
+    storeID: null,
   },
 };
