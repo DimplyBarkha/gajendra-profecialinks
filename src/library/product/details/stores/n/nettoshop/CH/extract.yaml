@@ -149,7 +149,7 @@ fields:
     # //th[text()='Lieferumfang']/following-sibling::td//span
   - name: inTheBoxText1
     singleValue: false
-    xpath: //th[@class="c-product-specifications__th"][contains(.,"Lieferumfang")]/../td
+    xpath: //th[@class="c-product-specifications__th"][contains(.,"Lieferumfang")]/../td/span
     description: Must include text to show the accessories/tools which come with the product
   - name: unInterruptedPDP
     singleValue: false
