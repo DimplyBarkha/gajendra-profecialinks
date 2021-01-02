@@ -141,7 +141,7 @@ fields:
     singleValue: false
     description: A code description of the color (e.g. RGB hex)
   - name: manufacturerDescription
-    xpath: //h2[contains(text(),"Opis i specyfikacja")]/following-sibling::div//div[contains(@class,"offerDescription")]
+    xpath: //h2[contains(text(),"Opis i specyfikacja")]/following-sibling::div//div[contains(@class,"offerDescription")] | //div[contains(@id,"description")]//p
   - name: manufacturerImages
     # xpath: //*[@class="description-product"]//img/@src | //div[@id="description_dyson"]//img/@src
     xpath: //div[contains(@id,"description")]//img/@src

@@ -42,7 +42,7 @@ module.exports = {
   parameterValues: {
     country: 'PL',
     store: 'mediamarkt',
-    transform: transform,
+    transform,
     domain: 'mediamarkt.pl',
     zipcode: '',
   },
