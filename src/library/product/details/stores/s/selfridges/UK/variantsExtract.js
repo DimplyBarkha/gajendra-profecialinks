@@ -8,7 +8,7 @@ module.exports = {
     domain: 'selfridges.com',
     zipcode: '',
   },
-  implementation: async function implementation (
+  implementation: async function implementation(
     inputs,
     parameters,
     context,
@@ -45,7 +45,7 @@ module.exports = {
         console.log('Stopped at search page');
       }
     }
-    await context.evaluate(() => {
+    /* await context.evaluate(() => {
       function addElementToDocument (key, value) {
         const catElement = document.createElement('div');
         catElement.id = key;
@@ -73,7 +73,8 @@ module.exports = {
       }
 
     });
-    /* await new Promise((resolve) => setTimeout(resolve, 8000));
+ */
+    await new Promise((resolve) => setTimeout(resolve, 8000));
     await context.evaluate(() => {
       const isColor = document.querySelector('section[data-js-variant-type="multi-colour"]');
       if (isColor) {
@@ -89,7 +90,7 @@ module.exports = {
         document.querySelector('section[data-js-component="productHero"]').setAttribute('variantUrl', oneUrl);
       }
     });
- */
+
     return await context.extract(variants);
   },
 };
