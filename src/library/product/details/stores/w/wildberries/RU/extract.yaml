@@ -17,7 +17,7 @@ fields:
     xpath: //ul[@class="bread-crumbs"]/li[not(contains(position(),'1')) and not(contains(position(),last()))]//a
   - name: nameExtended
     singleValue: false
-    xpath: //div[@class="brand-and-name j-product-title"]//span/text()
+    xpath: //div[@class="brand-and-name j-product-title"]
   - name: listPrice
     singleValue: false
     xpath: //span[@class="old-price"]/del[@class="c-text-base"]
@@ -93,6 +93,9 @@ fields:
   - name: secondaryImageTotal
     singleValue: false
     xpath: count(//div[@id="scrollImage"]//ul//li//a[not(contains(@class,'current')) and contains(@class,'j-carousel-image')]//@href)
-  
-  
-  
+  - name: shippingInfo
+    singleValue: false
+    xpath: //div[@class="about-advantages"]//ul//li[(contains(@class,'about-advantages-item about-advantages-item-delivery c-text-base'))]
+  - name: quantity
+    singleValue: false
+    xpath: //div[@class="params"]//div[@class="pp"]//span/b[text()="Объем товара"]/parent::*/parent::*/span[2]
