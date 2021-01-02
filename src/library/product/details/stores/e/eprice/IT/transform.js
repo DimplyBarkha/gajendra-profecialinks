@@ -34,6 +34,11 @@ const transform = (data) => {
           text: cleanUp(text),
         }];
       }
+      if (row.inTheBoxText1 && row.inTheBoxText1[0]) {
+        row.inTheBoxText1.forEach(item => {
+          item.text = item.text.replace(/,/g, ' || ');
+        });
+      }
       if ((!row.inTheBoxText || !row.inTheBoxText.length) && row.inTheBoxText1) {
         console.log('inTheBoxText1',row.inTheBoxText1);
         row.inTheBoxText = row.inTheBoxText1;
