@@ -18,7 +18,7 @@ async function implementation (
 ) {
   const { transform } = parameters;
   const { productDetails } = dependencies;
-  //await context.waitForSelector('div[class*="snrs-reco"]');
+  await context.waitForSelector('div[class*="snrs-reco"]');
   await context.evaluate(() => {
     var elmt = document.getElementsByClassName('snrs-reco-slider')[0];
     elmt && elmt.scrollIntoView(true);
