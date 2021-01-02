@@ -20,8 +20,10 @@ const transform = (data) => {
       }
 
       if (row.inTheBoxText) {
+
         if (row.inTheBoxText[0].text === 'System.Object[]') {
           delete row.inTheBoxText;
+
         }
       }
 
@@ -60,6 +62,12 @@ const transform = (data) => {
         } else {
           delete row.variantId;
         }
+      }
+      if(row.inTheBoxText){
+          row.inTheBoxText.forEach(el => {
+          el.text = el.text.replace("<br/>-", '');
+          el.text= el.text.replace("-",'');
+        });
       }
 
       if (row.aggregateRating) {
