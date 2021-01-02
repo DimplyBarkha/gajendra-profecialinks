@@ -1,0 +1,20 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: //div[@class="items-container"]/section[@class="hits"]/section[@class="collapsed"]
+fields:
+  - name: price
+    xpath: //div[contains(@class,'item-container')]//div[@class='product-tile__price-container']/a[contains(@class,'prices__price')]
+    regExp: ((\d+\,\d+)|(\d+\.\d+)|(\d+))
+    regExpReplace: $1
+  - name: productUrl 
+    xpath: //div[contains(@class,'item-container')]//div[@class='product-tile__price-container']/a[contains(@class,'prices__price')]/@href
+    regExp: (.+)
+    regExpReplace: https://www.unieuro.it$1
+  - name: thumbnail
+    xpath: //div[contains(@class,'item-container')]//div[contains(@class,'product-img-container')]//img[contains(@class,'product-img')]/@src
+  - name: id
+    xpath: //@data-product-tile-sku
+  - name: name
+    xpath: //div[contains(@class,'item-container')]/div[contains(@class,'product-tile__info')]/div[contains(@class,'tile__title')]/a
+  

@@ -10,7 +10,7 @@ const transform = (data, context) => {
     .replace(/&amp;#160/g, ' ')
     .replace(/\u00A0/g, ' ')
     .replace(/\s{2,}/g, ' ')
-    .replace(/"\s{1,}/g, '"')
+    // .replace(/"\s{1,}/g, '"')
     .replace(/\s{1,}"/g, '"')
     .replace(/^ +| +$|( )+/g, ' ')
     // eslint-disable-next-line no-control-regex
@@ -26,6 +26,11 @@ const transform = (data, context) => {
       if (!row.sponsored) {
         orgRankCounter += 1;
         row.rankOrganic = [{ text: orgRankCounter }];
+      }
+      if (row.price) {
+        row.price.forEach(item => {
+          item.text = item.text.replace(',', '.');
+        });
       }
       row.rank = [{ text: rankCounter }];
       Object.keys(row).forEach(header => row[header].forEach(el => {
