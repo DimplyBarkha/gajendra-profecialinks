@@ -288,8 +288,8 @@ fields:
     defaultValue: No
   - name: inTheBoxText
     singleValue: false
-    # xpath: //div[@class="inpage_selector_box"]//div[@class="flix-std-row"]
-    xpath: //div[@class="inpage_selector_box"]//div[contains(@class,"flix-std-desc flix-std-margintop"]  | //div[@class="inpage_selector_box"]//text()
+    # xpath: //div[@class="inpage_selector_box"]//div[@class="flix-std-row"]//text()
+    xpath: //div[@class="inpage_selector_box"]//text()  | //div[@class="inpage_selector_box"]//div[@class="flix-std-row"]//text()
    #   xpath: //h4[contains(.,"Contenuto dell'imballo")]/following-sibling::ul[preceding-sibling::h4[1][contains(.,"Contenuto dell'imballo")]]//li | //h4[contains(.,"Dati su imballaggio")]/../ul[preceding-sibling::h4[1][contains(.,"Dati su imballaggio")]]//li
   - name: inTheBoxUrl
     singleValue: false
