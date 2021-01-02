@@ -54,6 +54,9 @@ const transform = (data) => {
         if (row.category[0].text.includes('Home')) {
           row.category.shift();
         }
+        if (row.category[0].text.includes('Home')) {
+          row.category.shift();
+        }
       }
       if (row.quantity) {
         row.quantity.forEach(quantity => {
