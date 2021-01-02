@@ -5,9 +5,9 @@ module.exports = {
     country: 'CH',
     store: 'manor',
     domain: 'manor.ch',
-    url: 'https://search.epoq.de/inbound-servletapi/getSearchResult?full&tenantId=manor-ch&sessionId=e4d65ffc818d529604652f9cb7725&orderBy=&order=desc&limit=24&offset=0&locakey=de&style=compact&format=json&nrf=&query={searchTerms}',
-    loadedSelector: null,
-    noResultsXPath: null,
+    url: 'https://www.manor.ch/search/text#/q/{searchTerms}?offset=0',
+    loadedSelector: 'div[id="epoq_resultrows"]>div',
+    noResultsXPath: '//div[@class="m-textcomponent"]/p',
     zipcode: '',
   },
 };

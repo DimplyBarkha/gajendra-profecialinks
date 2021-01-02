@@ -1,13 +1,17 @@
 
 module.exports = {
-  implements: 'product/search/paginate',
+  implements: 'navigation/paginate',
   parameterValues: {
     country: 'CH',
     store: 'manor',
-    noResultsXPath: '//html//div[@id="noresults"]',
+    noResultsXPath: '//div[@class="m-textcomponent"]/p',
+    nextLinkSelector: null,
+    mutationSelector: null,
+    spinnerSelector: null,
+    loadedSelector: 'div[id="epoq_resultrows"]>div',
     openSearchDefinition: {
       offset: 24,
-      template: 'https://search.epoq.de/inbound-servletapi/getSearchResult?full&tenantId=manor-ch&sessionId=e4d65ffc818d529604652f9cb7725&orderBy=&order=desc&limit=24&offset={offset}&locakey=de&style=compact&format=json&nrf=&query={searchTerms}',
+      template: 'https://www.manor.ch/search/text#/q/{searchTerms}?offset={offset}',
     },
     domain: 'manor.ch',
     zipcode: '',

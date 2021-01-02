@@ -1,29 +1,31 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: null
+recordXPath: //div[@id="epoq_searchresult"]//div[@id="epoq_resultrows"]//div[contains(@class,"epoq_resultrow epoq_grid o-producttile js-product-tile")]
 fields: 
   - name: id
     singlevalue: false
-    xpath: //html//div[@id='id']
+    xpath: //a[contains(@class,"o-producttile__link js-prediggo-notification")]/@pid
+    regExp: base-(.+)
+    regExpReplace: $1
   - name: thumbnail
     singlevalue: false
-    xpath: //html//div[@id='image']
+    xpath: //a[contains(@class,"o-producttile__link js-prediggo-notification")]//div[contains(@class,"o-producttile__image js-product-image")]//div//img[@class="epoq_prodimg"]/@src
   - name: name
     singlevalue: false
-    xpath: //html//div[@id='name']
+    xpath: //div[contains(@class,"epoq_title o-producttile__title")] | //div[contains(@class,"epoq_title o-producttile__copy2")]
   - name: price
     singlevalue: false
-    xpath: //html//div[@id='price']
+    xpath: //span[contains(@class,"js-productprice")]
   - name: aggregateRating
     singlevalue: false
-    xpath: //html//div[@id='rating']
+    xpath: //dd[contains(@class,"bv-rating-ratio-number")]//span[contains(@class,"bv-rating")]//span
   - name: productUrl
     singlevalue: false
-    xpath: //html//div[@id='productURL']
-  - name: searchUrl
-    singlevalue: false
-    xpath: //html//div[@id='added-searchurl']
+    xpath: //a[contains(@class,"o-producttile__link js-prediggo-notification")]/@href
+  # - name: searchUrl
+  #   singlevalue: false
+  #   xpath: //html//div[@id='added-searchurl']
 
 
 
