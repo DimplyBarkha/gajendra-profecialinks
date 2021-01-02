@@ -101,7 +101,7 @@ fields:
     description: URL of the main product page
   - name: inTheBoxUrl
     singleValue: false
-    xpath: //div[@class="inpage_selector_InTheBox"]//img/@src
+    xpath: //div[@class="inpage_selector_InTheBox"]//img/@data-flixsrcset
     description: Must include image url to show the accessories/tools which come with the product
   - name: inTheBoxText
     singleValue: false
