@@ -15,9 +15,15 @@ async function implementation (
   await dependencies.goto({ url: destinationUrl, zipcode });
 
   if (loadedSelector) {
-    await context.waitForFunction(function (sel, xp) {
-      return Boolean(document.querySelector(sel) || document.evaluate(xp, document, null, XPathResult.UNORDERED_NODE_ITERATOR_TYPE, null).iterateNext());
-    }, { timeout: 10000 }, loadedSelector, noResultsXPath);
+    try {
+      await context.waitForFunction(function (sel, xp) {
+        return Boolean(document.querySelector(sel) || document.evaluate(xp, document, null, XPathResult.UNORDERED_NODE_ITERATOR_TYPE, null).iterateNext());
+      }, { timeout: 10000 }, loadedSelector, noResultsXPath);
+    } catch (error) {
+      console.log('Probably Loaded selector || no-result-xpath, both not found');
+      console.log(`Loaded selector: ${loadedSelector}`);
+      console.log(`noResultsXPath: ${noResultsXPath}`);
+    }
   }
   console.log('Checking no results', noResultsXPath);
   return await context.evaluate((xp) => {
