@@ -45,8 +45,35 @@ module.exports = {
         console.log('Stopped at search page');
       }
     }
+    await context.evaluate(() => {
+      function addElementToDocument (key, value) {
+        const catElement = document.createElement('div');
+        catElement.id = key;
+        catElement.textContent = value;
+        catElement.style.display = 'none';
+        document.body.appendChild(catElement);
+      }
+      function findJsonObj (scriptXPath) {
+        try {
+          const element = document.evaluate(scriptXPath, document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
+          let jsonStr = element.textContent;
+          jsonStr = jsonStr.trim();
+          return JSON.parse(jsonStr);
+        } catch (error) {
+          console.log(error.message);
+        }
+      }
+ 
+      const dataObj = findJsonObj('//script[@data-component="pdp-semantic-data"]');
+      if (dataObj && dataObj.model) {
+        dataObj.model.forEach(element => {
+          addElementToDocument('added-variantId', element.sku);
+        });
+        
+      }
 
-    await new Promise((resolve) => setTimeout(resolve, 8000));
+    });
+    /* await new Promise((resolve) => setTimeout(resolve, 8000));
     await context.evaluate(() => {
       const isColor = document.querySelector('section[data-js-variant-type="multi-colour"]');
       if (isColor) {
@@ -62,7 +89,7 @@ module.exports = {
         document.querySelector('section[data-js-component="productHero"]').setAttribute('variantUrl', oneUrl);
       }
     });
-
+ */
     return await context.extract(variants);
   },
 };
