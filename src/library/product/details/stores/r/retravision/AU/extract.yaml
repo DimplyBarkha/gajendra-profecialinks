@@ -4,11 +4,11 @@ recordSelector: null
 recordXPath: null
 fields:
   - name: image
-    singleValue: true
+    singleValue: false
     description: URL of the main product image
     xpath: //meta[@property="og:image"]//@content
   - name: imageAlt
-    singleValue: true
+    singleValue: false
     description: Alt text of the main product image
     xpath: //img[contains(@class,'etalage_source_image')]//@alt
   - name: alternateImages
@@ -16,7 +16,7 @@ fields:
     description: Other product images (not in manufacturer description)
     xpath: //img[contains(@class,'etalage_small_thumb')]//@src
   - name: metaKeywords
-    singleValue: true
+    singleValue: false
     description: The <meta> keywords content
     # xpath: //meta[@property="og:title"]//@content
   - name: category
@@ -26,25 +26,25 @@ fields:
     description: The categories (e.g. from breadcrumbs)
     # xpath: //div[contains(@class,'breadcrumbs')]//ul//li[position()>1 and position()<last()]    
   - name: nameExtended
-    singleValue: true
+    singleValue: false
     description: The product name, prefixing "${brand} - " if not included in "name"
       and appending " - ${variantType}" if necessary (fixed per feed)
     xpath: //meta[@property="og:title"]//@content   
   - name: listPrice
-    singleValue: true
+    singleValue: false
     description: The stated undiscounted price for the product
     xpath: //p[contains(@class,'old-price')]//span[@class='price']
   - name: price
-    singleValue: true
+    singleValue: false
     description: The offered price for the selected product variant - if a user
       clicks add to basket this is the price they would be charged
     xpath: //meta[@property="product:price:amount"]//@content
     type: CURRENCY
   - name: onlinePriceCurrency 
-    singleValue: true    
+    singleValue: false    
     xpath: //meta[@property="product:price:currency"]//@content
   - name: availabilityText
-    singleValue: true
+    singleValue: false
     description: Availability as described on page for the selected variant. If
       there is no availability but the product can be added to cart, this field
       should be "In Stock"
@@ -58,95 +58,94 @@ fields:
       multiple places; specifically not the manufacturer description
     xpath: //div[@id='tab_description_tabbed_contents']//div//li
   - name: descriptionBullets
-    singleValue: true
+    singleValue: false
     description: Number of ul > li tags in the description
     xpath: count(//div[@id='tab_description_tabbed_contents']//div//li)
     type: NUMBER
   - name: brandText
-    singleValue: true
+    singleValue: false
     description: Product brand shown - this may actually NOT be just a brand name,
       e.g. "Visit the Gillette Store"
     xpath: //script[@src="//media.flixfacts.com/js/loader.js"]//@data-flix-brand
   - name: manufacturer
-    singleValue: true
+    singleValue: false
     description: Product manufacturer
     xpath: //*[contains(text(), "Manufacturer")]/following::td[1]
   - name: quantity
-    singleValue: true
+    singleValue: false
     description: Quantity as described on the page
     regExp: (?:\s?([\d\.]+\s?)([bB]ar[s]?|[cC]ount|[cC]t|[fF][lL][\.]?\s?[oO][zZ][\.]?|FO|[mM][lL]|[oO][zZ][\.]?|pc|[pP]int|[pP]ops|qt|[wW]ipe[s]?).?)$|(?:\s?([\d\.]+\s?)([bB]ar[s]?|[cC]ount|[cC]|[fF][lL][\.]?\s?[oO][zZ][\.]?|FO|[mM][lL]|[oO][zZ][\.]?|pc|[pP]int|[pP]ops|qt|[wW]ipe[s]?).?\s?[\&\-\w\s]+)$
     regExpReplace: $1$2$3$4
   - name: weightNet
-    singleValue: true
+    singleValue: false
     description: Net weight as described on the page
   - name: weightGross
-    singleValue: true
+    singleValue: false
     description: Gross weight as described on the page
   - name: gtin
-    singleValue: true
+    singleValue: false
     description: GTIN code (includes UPC/EAN)
     xpath: //script[@src="//media.flixfacts.com/js/loader.js"]//@data-flix-ean
   - name: sku
-    singleValue: true
+    singleValue: false
     description: The store-specific product identifier
     xpath: //script[@src="//media.flixfacts.com/js/loader.js"]//@data-flix-sku
-    regExp: \/(.*)
-    regExpReplace: $1
+    # regExp: \/(.*)
+    # regExpReplace: $1
   - name: variantId
-    singleValue: true
+    singleValue: false
     description: Identifier for a variant from a store where variants share the same sku
     xpath: //script[@src="//media.flixfacts.com/js/loader.js"]//@data-flix-sku
-    regExp: \/(.*)
-    regExpReplace: $1
+    # regExp: \/(.*)
+    # regExpReplace: $1
   - name: mpc
     singleValue: false
     description: The manufacturer model code (unique) of the product
     xpath: //table[@id='product-attribute-specs-table']//tr//th[contains(text(),'Model')][1]//following-sibling::td[1]
   - name: packSize
-    singleValue: true
+    singleValue: false
     description: The number of packs in the product offer (if stated separately on
       the site to quantity)
   - name: legalDisclaimer
-    singleValue: true
+    singleValue: false
     description: Content under "legal disclaimer" header
   - name: directions
-    singleValue: true
+    singleValue: false
     description: Content under "directions" header
-  - name: warnings
-    singleValue: true
-    description: Content under "warnings" header
-  - name: ratingCount
-    singleValue: true
-    description: The number of ratings
-    type: NUMBER
-  - name: aggregateRatingText
-    singleValue: true
-    description: The stated aggregate rating
+  - name: URL
+    singleValue: false
+    xpath: //a[@class="breadcrumb__link"][2]/@href
+  - name: url
+    singleValue: false
+    xpath: //a[@class="breadcrumb__link"][2]/@href
+  - name: _url
+    singleValue: false
+    description: //a[@class="breadcrumb__link"][2]/@href
   - name: aggregateRating
-    singleValue: true
+    singleValue: false
     description: The stated aggregate rating normalized to be out of 5
     type: NUMBER
   - name: shippingInfo
-    singleValue: true
+    singleValue: false
     description: Shipping information for the product
   - name: shippingDimensions
-    singleValue: true
+    singleValue: false
     description: Stated shipping dimensions
   - name: shippingWeight
-    singleValue: true
+    singleValue: false
     description: Stated shipping weight
   - name: variantCount
-    singleValue: true
+    singleValue: false
     description: Number of variants listed
     xpath: count(//div[contains(@class,'testvariantCount')])
     type: NUMBER
     defaultValue: 0
   - name: color
-    singleValue: true
+    singleValue: false
     description: A textual description of the colour
     xpath: //th[contains(text(), "Colour")]/following::td[1]
   - name: colorCode
-    singleValue: true
+    singleValue: false
     description: A code description of the color (e.g. RGB hex)
   - name: manufacturerDescription
     singleValue: false
@@ -158,14 +157,14 @@ fields:
     singleValue: false
     description: URLs of videos on page
   - name: name
-    singleValue: true
+    singleValue: false
     description: The product name
     xpath: //meta[@property='og:title']//@content  
   - name: url
-    singleValue: true    
+    singleValue: false    
     xpath: //meta[@property="og:url"]//@content
   - name: coupon
-    singleValue: true
+    singleValue: false
     description: Text of any coupon offer                         
   - name: specifications
     singleValue: false
@@ -176,50 +175,50 @@ fields:
     description: Guarantee associated with the product
     xpath: //table[@id='product-attribute-specs-table']//tr//th[contains(text(),'Guarantee')][1]//following-sibling::td[1]
   - name: countryOfOrigin
-    singleValue: true
+    singleValue: false
     description: The country from which the product originates  
   - name: recyclingInformation
-    singleValue: true
+    singleValue: false
     description: Recycling information associated with the product
   - name: productOtherInformation
     singleValue: false
     description: Any other product information
     xpath: //table[@id="product-attribute-specs-table"]//tbody//tr
   - name: packaging
-    singleValue: true
+    singleValue: false
     description: Packaging information
   - name: additives
-    singleValue: true
+    singleValue: false
     description: List of additives in the product
   - name: pricePerUnit
-    singleValue: true
+    singleValue: false
     description: Price of the product split into certain units
   - name: pricePerUnitUom
-    singleValue: true
+    singleValue: false
     description: The unit of measurement used in price_per_unit
   - name: promotion
-    singleValue: true
+    singleValue: false
     description: promotion text on product page
   - name: alcoholContent
-    singleValue: true
+    singleValue: false
     description: Alcohol content information
   - name: newVersion
-    singleValue: true
+    singleValue: false
     description: In product page, information about a new version of the product
       (https://www.amazon.es/DODOT-Sensitive-Pa%C3%B1ales-Talla-240/dp/B01ELA8U0Q/ref=sr_1_4?__mk_es_ES=%C3%85M%C3%85%C5%BD%C3%95%C3%91&dchild=1&keywords=dodot%2B-%2Bpa%C3%B1ales%2Bpara%2Bni&qid=1589984387&sr=8-4&th=1)
   - name: newAsin
-    singleValue: true
+    singleValue: false
     description: In product page, information about a new version of the product -
       new asin info
   - name: newDescription
-    singleValue: true
+    singleValue: false
     description: In product page, information about a new version of the product -
       new desription info
   - name: variantInformation
-    singleValue: true
+    singleValue: false
     description: colour / scent / flavour / other
   - name: firstVariant
-    singleValue: true
+    singleValue: false
     description: Unique identifier for a collection of variants. For a subset of
       core feeds (43) we have a column "first_variant" that is populated with a
       common code to link all variants for a product. method 1 (Preferred) = use
@@ -237,47 +236,47 @@ fields:
     description: null
     xpath: //div[@id='tab_description_tabbed_contents']//div//li
   - name: prop65Warning
-    singleValue: true
+    singleValue: false
     description: null
   - name: ageSuitability
-    singleValue: true
+    singleValue: false
     description: Recommended age displayed on the product page.
       https://www.amazon.com/LEGO-Classic-Medium-Creative-Brick/dp/B00NHQFA1I
     example: 4 - 99 years
   - name: energyEfficiency
-    singleValue: true
+    singleValue: false
     description: Energy rating of a product.
       https://www.amazon.de/Siemens-WM16W541-Waschmaschine-Schnellwaschprogramm-Nachlegefunktion/dp/B015FJFK14
     example: A+, A+++, B
     xpath: //div[@class='is-widget-container-energy_rating']//div[@class="currently-selected"]
   - name: technicalInformationPdfPresent
-    singleValue: true
+    singleValue: false
     description: If there is for example a manual in pdf format on the website. ['Yes','No']
     example: https://www.amazon.de/Hasbro-Spiele-44220100-Mastermind-Kinderspiel/dp/B0007OHUG6
     defaultValue: No
   - name: termsAndConditions
-    singleValue: true
+    singleValue: false
     description: Terms and conditions information text ['Yes','No']
     defaultValue: No
   - name: privacyPolicy
-    singleValue: true
+    singleValue: false
     description: Privacy Policy information text ['Yes','No']
     defaultValue: No
   - name: customerServiceAvailability
-    singleValue: true
+    singleValue: false
     description: Information related to customer service availability (text), ['Yes','No']
     defaultValue: No
   - name: materials
-    singleValue: true
+    singleValue: false
     description: Materials used to make the product
     example: https://www.jdsports.co.uk/product/blue-adidas-linear-20-reversible-wind-breaker-jacket/15988125/
   - name: Image360Present
-    singleValue: true
+    singleValue: false
     description: If 360 image is present in the carousel ['Yes','No']
     example: https://www.amazon.com/Trinsic-Single-Handle-Magnetic-Champagne-9159-CZ-DST/dp/B0050EN8E6
     xpath: count(//li[@class="etalage_magnifier"])    
   - name: imageZoomFeaturePresent
-    singleValue: true
+    singleValue: false
     description: If Zoom feature is available for Main image or images in the
       carousel,['Yes','No']
     example: https://www.zalando.de/adidas-neo-sneaker-low-blackwhite-a4315i002-q11.html
@@ -289,8 +288,8 @@ fields:
   - name: inTheBoxText
     singleValue: false
     # xpath: //div[@class="inpage_selector_box"]//div[@class="flix-std-row"]//text()
-    xpath: //div[@class="inpage_selector_box"]//text()  | //div[@class="inpage_selector_box"]//div[@class="flix-std-row"]//text()
+    xpath: //div[@class="flix-std-content"]//text()
    #   xpath: //h4[contains(.,"Contenuto dell'imballo")]/following-sibling::ul[preceding-sibling::h4[1][contains(.,"Contenuto dell'imballo")]]//li | //h4[contains(.,"Dati su imballaggio")]/../ul[preceding-sibling::h4[1][contains(.,"Dati su imballaggio")]]//li
   - name: inTheBoxUrl
     singleValue: false
-    xpath: //div[@class="inpage_selector_box"]//img/@data-flixsrcset
+    xpath: //div[@class="inpage_selector_box"]//img/@srcset
