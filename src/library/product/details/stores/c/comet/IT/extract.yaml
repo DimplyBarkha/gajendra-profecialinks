@@ -133,5 +133,5 @@ fields:
     xpath: //div[contains(@class,"slider-prodotti__in-scheda-correlati")]//div[@class="slick-track"]/div[not(contains(@class,"slick-cloned"))]
   - name: hasComparisonTable
     singleValue: false
-    xpath: boolean(//div[@class="inpage_selector_comparison"])
+    xpath: boolean(//div[@class="inpage_selector_comparison"]/div[contains(@class,'flix-compare')]) 
     
