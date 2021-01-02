@@ -14,7 +14,8 @@ module.exports = {
     dependencies,
   ) {
     const url = `${inputs.url}`;
-    await context.goto(url, { timeout: 10000, waitUntil: 'load', checkBlocked: true });
+    //await context.setCookies();
+    await context.goto(url, { timeout: 10000, waitUntil: 'load', checkBlocked: true, cookies: [] });
     // Check if cookies pop-up appeared
     await context.waitForSelector('#uc-banner-centered');
     const doesPopupExist = await context.evaluate(function () {
