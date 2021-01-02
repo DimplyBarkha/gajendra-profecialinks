@@ -1,29 +1,22 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: //div[@class="ProductListElementFilter"]
+recordXPath: //li[@class="'sitemap__element"]
 fields:
   - name: productUrl
-    xpath: //div[@class="ProductListElementFilter"]/article[@class]//a[@class="AccessibleLink ProductListElement__link track-product-click"]/@href
-    regExp: (.+)
-    regExpReplace: https://www.nespresso.com/$1
     description: The URL for the product details page
-  - name: thumbnail
-    xpath: //div[@class="ProductListElementFilter"]/article[@class]//img/@src
+    xpath: //a[@class="sitemap__link"]/@href
     regExp: (.+)
-    regExpReplace: https://www.nespresso.com/$1
+    regExpReplace: https://www.nespresso.com$1
+  - name: thumbnail
     description: The URL for the product thumbnail image
   - name: name
-    singleValue: true
-    xpath: //div[@class="ProductListElementFilter"]/article[@class]/@data-ta-product-name
     description: The product name
   - name: id
     singleValue: true
-    xpath: //div[@class="ProductListElementFilter"]/article[@class]/@data-product-item-id
     description: The store-specific product identifier
   - name: price
     singleValue: true
-    xpath: //div[@class="ProductListElementFilter"]/article[@class]//span[@class="ProductListElement__price ProductListElement__price-accessory"]/text()
     description: The offered price for the product
   - name: rankOrganic
     singleValue: true

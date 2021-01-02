@@ -42,6 +42,11 @@ const transform = (data) => {
           }
         });
       }
+      if (row.nameExtended) {
+        row.nameExtended.forEach(item => {
+          item.text = `Nespresso-${item.text}`;
+        });
+      }
       if (row.manufacturerDescription) {
         let text = '';
         row.manufacturerDescription.forEach(item => {
