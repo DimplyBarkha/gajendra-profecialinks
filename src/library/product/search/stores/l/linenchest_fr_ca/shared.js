@@ -43,6 +43,17 @@ const transform = (data, context) => {
       if (row.aggregateRating2 && row.aggregateRating2[0]) {
         row.aggregateRating2[0].text = row.aggregateRating2[0].text.replace(/\./g, ',');
       }
+      if (row.price) {
+        let text = '';
+        row.price.forEach(item => {
+          text += `${item.text.replace('-', '')}`;
+        });
+        row.price = [
+          {
+            text: text.slice(0, -1),
+          },
+        ];
+      }
     }
   }
   context.setState({ rankCounter });

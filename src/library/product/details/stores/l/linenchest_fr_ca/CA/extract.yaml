@@ -62,7 +62,7 @@ fields:
     # regExpReplace: $1
   - name: mpc
     singleValue: false
-    xpath: //script[contains(.,"gtin")]/text()
+    xpath:  //script[contains(.,"gtin") or (contains(.,"mpn"))]/text()
     regExp: mpn":"([^"]+)
     regExpReplace: $1
   - name: weightNet
