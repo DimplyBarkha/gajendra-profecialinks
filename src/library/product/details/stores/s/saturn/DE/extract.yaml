@@ -6,6 +6,9 @@ fields:
   - name: image
     xpath: //li[@data-index-number="0"]//source/@srcset
     description: URL of the main product image
+  - name: _url
+  - name: productUrl
+    xpath: (//link[@rel="canonical"]/@href)[1]
   - name: imageAlt
     xpath: //li[@data-index-number="0"]//img/@alt
     description: Alt text of the main product image
@@ -13,14 +16,12 @@ fields:
     xpath: //ul//li[position()>1]//div[@data-test="mms-image-thumbnail"]//picture//img/@src
     regExp: (.+)194_131(.+)
     regExpReplace: $1786_587$2
-    singleValue: false
     description: Other product images (not in manufacturer description)
   - name: metaKeywords
     xpath: //meta[@name="keywords"]/@content
     description: The <meta> keywords content
   - name: category
     xpath: //ul[starts-with(@class,"Breadcrumbstyled")]/li/a
-    singleValue: false
     description: The categories (e.g. from breadcrumbs)
   - name: nameExtended
     xpath: //div[@data-test="mms-select-details-header"]/h1
@@ -42,7 +43,6 @@ fields:
     regExpReplace: Out of Stock
     defaultValue: In Stock
   - name: description
-    singleValue: false
     xpath: //div[@data-test="mms-accordion-description"]
     html: true
     description: Product description supplied by website - may be concatenanted from
@@ -93,7 +93,7 @@ fields:
     description: The number of packs in the product offer (if stated separately on
       the site to quantity)
     xpath: //td[contains(@class,'TableCell')]//span[contains(.,"Verkaufsmenge")]/../following-sibling::td
-    regExp: (\d+)  
+    regExp: (\d+)
   - name: legalDisclaimer
     xpath: //div[contains(@class,"FooterLegal__StyledFooterLegal")]//p[@font-size="xxs"]/..
     description: Content under "legal disclaimer" header
@@ -129,13 +129,11 @@ fields:
     description: A code description of the color (e.g. RGB hex)
   - name: manufacturerDescription
     xpath: //div[@id="enhanced-content"]//div[@class="wrapper preview"]
-    singleValue: false
     description: The extended description of the product supplied by the lister
   - name: manufacturerImages
     xpath: //div[@id="enhanced-content"]//div[@class="wrapper preview"]//img/@data-src | //div[@id="enhanced-content"]//div[@class="wrapper preview"]//img[not(@data-src)]/@src
     regExp: (https:)?//(.+)
     regExpReplace: https://$2
-    singleValue: false
     description: Images within the third party description
   - name: videos
     xpath: //a[@class='videos']/@href
@@ -158,11 +156,9 @@ fields:
   - name: internationalShipping
     description: Text next to bullet point
   - name: salesRank
-    singleValue: false
     description: Amazon best selling rank from product details (linked back) - needs
       to be collapsed
   - name: salesRankCategory
-    singleValue: false
     description: Amazon best selling rank from product details (linked back) - needs
       to be collapsed
   - name: subscriptionPrice
@@ -178,7 +174,6 @@ fields:
   - name: pasin
     description: Parent asin
   - name: videoLength
-    singleValue: false
     description: null
   - name: ingredientImagePresent
     description: null
@@ -199,16 +194,12 @@ fields:
   - name: lbbPrice
     description: null
   - name: featureBullets
-    singleValue: false
     description: null
   - name: otherSellersName
-    singleValue: false
     description: null
   - name: otherSellersPrice
-    singleValue: false
     description: null
   - name: otherSellersShipping
-    singleValue: false
     description: null
   - name: secondaryImageTotal
     description: null
@@ -347,7 +338,6 @@ fields:
   - name: recyclingInformation
     description: Recycling information associated with the product
   - name: productOtherInformation
-    singleValue: false
     description: Any other product information
   - name: packaging
     description: Packaging information
@@ -387,11 +377,9 @@ fields:
       this will need analysis
   - name: variants
     xpath: //body/@variants
-    singleValue: false
     description: null
   - name: additionalDescBulletInfo
     xpath: //div[@data-test="mms-accordion-description"]/div[starts-with(@class,"ProductDescription")]/ul/li | //div[@data-test="mms-accordion-description"]/ul/li
-    singleValue: false
     description: null
   - name: prop65Warning
     description: null

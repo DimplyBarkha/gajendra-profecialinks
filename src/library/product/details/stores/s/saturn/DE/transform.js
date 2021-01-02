@@ -20,7 +20,7 @@ const transform = (data, context) => {
   for (const { group } of data) {
     for (const row of group) {
       if (row.specifications) {
-        const text = row.specifications.map(elm => elm.text.trim().replace(/\n/, ' - ')).join(' || ');
+        const text = row.specifications.map(elm => elm.text.trim().replace(/\n/, ' : ')).join(' || ');
         row.specifications = [{ text }];
       }
       if (row.promotion) {

@@ -1,7 +1,7 @@
 // @ts-nocheck
 const { transform } = require('./transform');
 
-async function implementation(inputs, parameters, context, dependencies) {
+async function implementation (inputs, parameters, context, dependencies) {
   const { transform } = parameters;
   const { productDetails } = dependencies;
   const privacySelector = '#privacy-layer-accept-all-button';
@@ -24,7 +24,7 @@ async function implementation(inputs, parameters, context, dependencies) {
   }
 
   // adding rating count with API since value seems to vary during run.
-  async function getRating() {
+  async function getRating () {
     const productId = window.location.pathname.match(/([^-]+).html$/)[1];
     const API = `https://www.saturn.de/api/v1/graphql?operationName=GetSelectProduct&variables={"hasMarketplace":false,"id":"${productId}"}&extensions={"pwa":{"salesLine":"Saturn","country":"DE","language":"de"},"persistedQuery":{"version":1,"sha256Hash":"bf21cd23afefaf0e92d339815ffe1da9ed05b7fdbeb5f00dcf5478e5abdfee89"}}`;
     const response = await fetch(API);
@@ -107,7 +107,6 @@ async function implementation(inputs, parameters, context, dependencies) {
     // // Call the function to get the images
     // await clickImages('div > div > picture > img[alt]');
 
-
     var clickArrow = document.querySelector('div[ data-test="mms-th-gallery"] div[direction="next"]');
     if (clickArrow) {
       clickArrow.click();
@@ -115,26 +114,26 @@ async function implementation(inputs, parameters, context, dependencies) {
 
     var userAction = async () => {
       var sku = document.evaluate('//link[@rel="canonical"]/@href', document, null, XPathResult.ANY_TYPE, null).iterateNext().textContent.replace(/(.+-)(.+)(.html)/g, '$2');
-      var skuNumber = 'GraphqlProduct:' + sku
+      var skuNumber = 'GraphqlProduct:' + sku;
       var allAsset = window.__PRELOADED_STATE__.apolloState[skuNumber].assets;
       var VideoApi = allAsset.find(e => !e.pixelboxxId);
-      var api = VideoApi.link
+      var api = VideoApi.link;
       var response = await fetch(api);
-      var myJson = await response.json(); //extract JSON from the http response
+      var myJson = await response.json(); // extract JSON from the http response
       if (myJson && myJson.length) {
-          var videoUrls = myJson && myJson[0] && myJson && myJson[0].videos.map(e => {
-              return e.links[0].location.replace('thumb', 'deliverVideo');
-          });
-          videoUrls.map(elm => {
-              let newlink = document.createElement('a');
-              newlink.setAttribute('class', 'videos');
-              newlink.setAttribute('href', elm);
-              document.body.appendChild(newlink);
-          })
+        var videoUrls = myJson && myJson[0] && myJson && myJson[0].videos.map(e => {
+          return e.links[0].location.replace('thumb', 'deliverVideo');
+        });
+        videoUrls.map(elm => {
+          const newlink = document.createElement('a');
+          newlink.setAttribute('class', 'videos');
+          newlink.setAttribute('href', elm);
+          document.body.appendChild(newlink);
+        });
       }
-  }
-  
-  await userAction()
+    };
+
+    await userAction();
   });
 
   await gDelay(2000);
@@ -157,10 +156,10 @@ async function implementation(inputs, parameters, context, dependencies) {
 
   // await context.evaluate(function (urls) {
   //   const videosAll = urls.join(' | ');
-    
+
   //   document.body.setAttribute('video-url', videosAll);
   // }, videoUrls);
- 
+
   return await context.extract(productDetails, { transform });
 }
 
