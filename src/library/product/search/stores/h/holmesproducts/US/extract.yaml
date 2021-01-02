@@ -1,41 +1,45 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: //li[contains(@class,'grid-tile')]
+# recordXPath: //li[contains(@class,'grid-tile')] | //html[not(//li[contains(@class,'grid-tile')])]//div[@id='appendedData']
+recordXPath: //li[contains(@class,'grid-tile')] | //div[contains(@class, 'product-tile')]
 fields:
   - name: brand
     singleValue: false
-    xpath: //div[contains(@class,'product-tile')]/@data-itembrand
+    xpath: //div[contains(@class,'product-tile')]/@data-itembrand | //div[@id='brand']
   - name: category
     singleValue: false
-    xpath: //div[contains(@class,'product-tile')]/@data-category
+    xpath: //div[contains(@class,'product-tile')]/@data-category | //div[@id='category']
   - name: productUrl
     singleValue: false
-    xpath: //a[contains(@class,'thumb-link')]/@href
+    xpath: //a[contains(@class,'thumb-link')]/@href | //a[contains(@class, 'product-tile-link')]/@href
+    regExp: ((.*)holmesproducts.com)?(.*)
+    regExpReplace: https://www.holmesproducts.com$3
   - name: thumbnail
     singleValue: false
-    xpath: //picture//source[2]/@srcset
+    xpath: //picture//source[2]/@srcset | //img[@class="tile-image"]/@src
   - name: name
     singleValue: false
-    xpath: //a[contains(@class,'name-link')]
+    xpath: //a[contains(@class,'name-link')] | //div[@id='name']
   - name: searchUrl
     singleValue: false
-    xpath: //div[@id="added-searchurl"]
+    xpath: //div[@id="added-searchurl"] # This is not in the script
   - name: id
     singleValue: false
-    xpath: //div[contains(@class,'product-tile')]/@id
+    xpath: //div[contains(@class,'product-tile')]/@id  | //div[@id='id']
   - name: sku
     singleValue: false
-    xpath: //div[contains(@class,'product-tile')]/@data-itemsku
+    xpath: //div[contains(@class,'product-tile')]/@data-itemsku  | //div[@id='sku']
   - name: aggregateRating2
     singleValue: false
-    xpath: //span[contains(@class,'bv-off-screen')]
-    regExp: ^([0-9\.]{1,})
-    regExpReplace: $1
+    xpath: //span[contains(@class,'bv-off-screen')] | //div[contains(@class,'averageRating')]//meta/@content
+    # regExp: ^([0-9\.]{1,})
+    # regExpReplace: $1
     defaultValue: '0'
   - name: ratingCount
     singleValue: false
-    xpath: //dd[contains(@class,'bv-rating-ratio-count')]
+    # Second xpath is of number of reviews, this is what are were fetching earlier using 1st xpath
+    xpath: //dd[contains(@class,'bv-rating-ratio-count')] | //div[contains(@class,'numReviews')]/*[contains(@class,'bv_text')]
     regExp: ([0-9\.]{1,})
-    regExpReplace: $1
+    # regExpReplace: $1
     defaultValue: '0'
