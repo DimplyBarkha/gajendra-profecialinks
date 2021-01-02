@@ -9,7 +9,7 @@ async function implementation (inputs, parameters, context, dependencies) {
       return await Boolean(document.querySelector(currentSelector));
     }, selector);
   };
-
+  await context.waitForSelector('h1[itemprop="name"]', 3000);
   const name = await checkExistance('h1[itemprop="name"]');
   if (name) {
     const sku = 'span[itemprop="productID"]';
@@ -52,6 +52,14 @@ async function implementation (inputs, parameters, context, dependencies) {
       }, iframeSelector);
     }
 
+    try {
+      await context.waitForXPath('//div[@id="ccs-ext-spec"]/ul/li', 3000);
+      await context.waitForXPath('//div[@id="ccs-ext-spec"]//tr', 3000);
+      await context.waitForXPath('//*[@id="ccs-in-the-box"]//ul/li', 3000);
+    } catch (error) {
+      console.log('selector not found' + error);
+    }
+
     const zoomContainer = '.zoomContainer';
     const zoomFeature = await checkExistance(zoomContainer);
     if (zoomFeature) {
@@ -70,16 +78,22 @@ async function implementation (inputs, parameters, context, dependencies) {
         const videoLink = dataVideo.match(/(https:.+)\?/g);
         const body = document.querySelector('body');
         let videos = '';
-        videoLink.forEach(video => {
-          videos = videos + (videos ? ' | ' : '') + video;
-        });
+        if (videoLink) {
+          videoLink.forEach(video => {
+            videos = videos + (videos ? ' | ' : '') + video;
+          });
+        }
         body.setAttribute('prod-video', videos);
       });
     }
 
     const enContent = await checkExistance('#wc-power-page>div');
     if (enContent) {
-      await context.waitForXPath('//ul[contains(@class,"wc-rich-features")]//li[not(contains(@class,"wc-has-no-caption"))]//img', 50000);
+      try {
+        await context.waitForXPath('//ul[contains(@class,"wc-rich-features")]//li[not(contains(@class,"wc-has-no-caption"))]//img', 50000);
+      } catch (e) {
+        console.log('selector not found in time ' + e);
+      }
     }
 
     return await context.extract(productDetails, { transform });

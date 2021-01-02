@@ -37,13 +37,15 @@ fields:
     description: Availability as described on page for the selected variant. If
       there is no availability but the product can be added to cart, this field
       should be "In Stock"
-    xpath: //p[contains(@class,"in-stock availability")]
+    xpath: //p[contains(@class,"in-stock availability")] | //p[contains(@class, 'availability')] | //div[contains(@class, 'delivery-method__title')]
     defaultValue: Out of Stock
   - name: description
     description:
       Product description supplied by website - may be concatenanted from
       multiple places; specifically not the manufacturer description
     xpath: //div[@itemprop="description"]/div[not(@id)]/b | //div[@itemprop="description"]/div[not(@id)]/text() | //div[@itemprop="description"]/div[not(@id)]/p | //div[@itemprop="description"]/div[not(@id)]/span
+  - name: moreDescription
+    xpath: //div[@id="ccs-ext-spec"]//ul/text()
   - name: descriptionBullets
     description: Number of ul > li tags in the description
     type: NUMBER
@@ -57,6 +59,9 @@ fields:
     description: Product manufacturer
   - name: quantity
     description: Quantity as described on the page
+    xpath: //h1[@itemprop="name"]
+    regExp: (.*)-(.*)
+    regExpReplace: $2
   - name: weightNet
     description: Net weight as described on the page
     xpath: //h3[contains(text(), 'Weight')]/following-sibling::p | //td[contains(text(), 'Weight')]/following-sibling::td
@@ -86,6 +91,7 @@ fields:
     description: Content under "directions" header
   - name: warnings
     description: Content under "warnings" header
+    xpath: //*[contains(text(), 'Warnings')]/following::*[1]
   - name: ratingCount
     description: The number of ratings
     type: NUMBER
@@ -112,7 +118,7 @@ fields:
     description: A code description of the color (e.g. RGB hex)
   - name: manufacturerDescription
     description: The extended description of the product supplied by the lister
-    xpath: //ul[contains(@class,"wc-rich-features")]//li[not(contains(@class,"wc-has-no-caption"))]//h3 | //ul[contains(@class,"wc-rich-features")]//li[not(contains(@class,"wc-has-no-caption"))]//div[@class="wc-rich-content-description"] | //*[@class="wc-specifications-table"]//tr | //*[@class="ccs-ds-textFeatures"] | //*[@data-section-tag="other"]
+    xpath: //ul[contains(@class,"wc-rich-features")]//li[not(contains(@class,"wc-has-no-caption"))]//h3 | //div[@class="wc-rich-content-description"] | //*[@class="wc-specifications-table"]//tr | //*[@class="ccs-ds-textFeatures"] | //*[@data-section-tag="other"]
   - name: manufacturerImages
     description: Images within the third party description
     xpath: //ul[contains(@class,"wc-rich-features")]//li[not(contains(@class,"wc-has-no-caption"))]//img/@src
@@ -127,6 +133,7 @@ fields:
     xpath: //h3[contains(@class,"price-sales")]
   - name: asin
     description: null
+    xpath: //*[contains(text(), 'Model')]/following::*[1]
   - name: coupon
     description: Text of any coupon offer
     xpath: //*[@class="ld-sg-promo"]/div
@@ -198,6 +205,7 @@ fields:
   - name: ingredientsList
     description: List of Ingredients from site - can be string of data if no
       discernible start/end point
+    xpath: //h3[contains(text(), 'Ingredients')]/following::*[1]
   - name: servingSize
     description: The size of serving Nutritional information is based on.
   - name: servingSizeUom

@@ -34,25 +34,33 @@ const transform = (data) => {
         row.variantInformation = [{ text }];
       }
 
-      if (row.description || row.additionalDescBulletInfo) {
-        let text = '';
-        if (row.description) {
-          row.description.forEach(item => {
-            text = text + (text ? ' ' : '') + item.text;
+      if (row.description || row.additionalDescBulletInfo || row.moreDescription) {
+        if (row.moreDescription) {
+          let text = '';
+          row.moreDescription.forEach(item => {
+            text = item.text;
           });
-        }
-        let text2 = '';
-        if (row.additionalDescBulletInfo) {
-          row.additionalDescBulletInfo.forEach(item => {
-            text2 = text2 + (text2 ? ' || ' : '') + item.text;
-          });
-          if (text !== '') {
-            text = '|| ' + text2 + ' | ' + text;
-          } else {
-            text = '|| ' + text2;
+          row.description = [{ text }];
+        } else {
+          let text = '';
+          if (row.description) {
+            row.description.forEach(item => {
+              text = text + (text ? ' ' : '') + item.text;
+            });
           }
+          let text2 = '';
+          if (row.additionalDescBulletInfo) {
+            row.additionalDescBulletInfo.forEach(item => {
+              text2 = text2 + (text2 ? ' || ' : '') + item.text;
+            });
+            if (text !== '') {
+              text = '|| ' + text2 + ' | ' + text;
+            } else {
+              text = '|| ' + text2;
+            }
+          }
+          row.description = [{ text }];
         }
-        row.description = [{ text }];
       }
     }
   }
