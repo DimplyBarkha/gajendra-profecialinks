@@ -109,7 +109,5 @@ fields:
     description: Must include text to show the accessories/tools which come with the product
   - name: unInterruptedPDP
     singleValue: false
-    xpath: //p[contains(text(),"DERNIERS PRODUITS VUS")]//ancestor::div[2]/following-sibling::div//a//div[contains(@class,'product-label')]
+    xpath: //p[contains(text(),"LES BEST-SELLERS DE LA MARQUE")]//ancestor::div[2]/following-sibling::div//a//div[contains(@class,'product-label')]
     description: Titles of products in the sections 'you may also like' or 'sponsored products'. Combine results from Max 3 sections
-
-
