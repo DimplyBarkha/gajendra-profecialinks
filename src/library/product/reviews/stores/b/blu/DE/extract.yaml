@@ -1,0 +1,42 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: //div[@data-testid="review-post"]
+fields:
+- name: aggregateRating
+  xpath: ancestor::html//span[@itemprop="ratingValue"]
+- name: name
+  xpath: ancestor::html//h1[@data-testid="details-product-title"]
+- name: commentCount
+- name: reviewDate
+  xpath: //span[@class="sc-1tgo8i-29 sc-1tgo8i-30 caTpNQ"]
+- name: user
+  xpath: //span[contains(@class,"fSWjYM"]
+- name: brand
+  defaultValue:  'Blu'
+- name: productRange
+- name: productFamily
+- name: colour
+- name: flavour
+- name: sku
+  xpath: ancestor::html//h1[@data-testid="details-product-title"]
+- name: reviewText
+  xpath: //div[@class="sc-1kezeo0-6 sc-1tgo8i-2 fsUjpc"]/text()
+- name: reviewTitle
+  xpath: //p[@class="sc-1kezeo0-5 lkuUYl"]
+- name: mediaURL
+  xpath: ancestor::html//meta[@property="og:image"]/@content
+- name: location
+  defaultValue: DE
+- name: helpful
+  xpath: //div[contains(@class,"dwVfVo")][1]/text()
+- name: verifiedPurchase
+- name: rating
+  singleValue: true
+  xpath: //*[name()='svg' and @aria-labelledby='star-icon-title'][1]/*[name()='title' and @id='star-icon-title'][1]/*[name()='span'][1]
+  regExp: (.*) von 5 Sternen
+  regExpReplace: $1
+- name: pageTitle
+  xpath: ancestor::html//title/text()
+- name: sourceUrl
+  xpath: ancestor::html//link[@rel="canonical"]/@href

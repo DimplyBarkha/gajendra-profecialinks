@@ -1,0 +1,10 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: //div[@class="product-item"]
+fields:
+  - name: productUrl
+    type: STRING
+    xpath: //div[@class="product-item__img"]/a/@href
+    regExp: (.+)
+    regExpReplace: 'https://www.blu.com$1'
