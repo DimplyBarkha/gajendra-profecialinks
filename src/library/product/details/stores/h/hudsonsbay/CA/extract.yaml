@@ -31,13 +31,13 @@ fields:
   - name: listPrice
     singleValue: false
     description: The stated undiscounted price for the product
-    manualSelector: span.list.strike-through
+    manualSelector: div.product-secondary-section span.list.strike-through
     regExp: \$\d+.\d+
   - name: price
     singleValue: false
     description: The offered price for the selected product variant - if a user
       clicks add to basket this is the price they would be charged
-    manualSelector: span.value.bfx-price
+    manualSelector: div.product-secondary-section span.value.bfx-price span
   - name: availabilityText
     singleValue: false
     description: Availability as described on page for the selected variant. If
