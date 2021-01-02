@@ -4,6 +4,15 @@ parameters:
   domain: placedestendances.com/fr/fr
   store: placedestendances
   zipcode: ""
+proxy:
+  zone: GBR
+  type: DATA_CENTER
+policy:
+  numberRetries: 4
+  priority: MEDIUM
+  retryDelay: 120
+  backoffPolicy: EXPONENTIAL
+  retryWithResidentialProxyAfter: 3
 meta:
   branches:
     DS_PlacedesTendances_France_Core:
