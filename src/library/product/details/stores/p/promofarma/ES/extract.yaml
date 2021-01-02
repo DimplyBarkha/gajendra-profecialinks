@@ -1,0 +1,130 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: image
+    singleValue: true
+    description: URL of the main product image
+    xpath: //div[@class='boximg']/img[@class='img-fluid']/@src
+  - name: imageAlt
+    singleValue: true
+    description: Alt text of the main product image
+    xpath: (//div[@class="boximg"])/img/@alt
+  - name: url
+    singleValue: true
+    description: URL of the main product image
+    xpath: (//meta[@itemprop="url"])[1]/@content
+  - name: metaKeywords
+    singleValue: true
+    description: The <meta> keywords content
+  - name: category
+    singleValue: false
+    description: The categories (e.g. from breadcrumbs)
+    xpath: //ol[@class='breadcrumb ml-1 ml-md-0 my-1']/li[2]/a/span/text()
+  - name: sub-category
+    singleValue: false
+    description: The Sub-categories 
+    xpath: //li[position() >= 3 and position()<last()]/a/span    
+  - name: nameExtended
+    singleValue: true
+    description: The product name, prefixing "${brand} - " if not included in "name"
+      and appending " - ${variantType}" if necessary (fixed per feed)
+    xpath: //h1[@class='h3 font-weight-normal px-4 pt-2 mb-3']/text()
+  - name: listPrice
+    singleValue: true
+    description: The stated undiscounted price for the product
+    xpath: (//div[@class='prices text-center']/del[@class='old-price'])[1]
+  - name: price
+    singleValue: true
+    description: The offered price for the selected product variant - if a user
+      clicks add to basket this is the price they would be charged
+    xpath: (//div[@class='prices text-center']/span[@id='price'])[1]
+  - name: availabilityText
+    singleValue: true
+    description: Availability as described on page for the selected variant. If
+      there is no availability but the product can be added to cart, this field
+      should be "In Stock"
+    regExp: (.+)
+    regExpReplace: In Stock
+    defaultValue: Available
+  - name: description
+    singleValue: false
+    description: Product description supplied by website - may be concatenanted from
+      multiple places; specifically not the manufacturer description
+    xpath: //div[@id="content-description"]/p
+  - name: brandText
+    singleValue: true
+    description: Product brand shown - this may actually NOT be just a brand name,
+      e.g. "Visit the Gillette Store"
+    xpath: //meta[@itemprop="brand"]/@content
+  - name: manufacturer
+    singleValue: true
+    description: Product manufacturer
+  - name: quantity
+    singleValue: true
+    description: Quantity as described on the page    
+    xpath: (//select[@class='form-control form-control-lg EA_event-slctlanding']/option)[1]
+  - name: gtin
+    singleValue: true
+    description: GTIN code (includes UPC/EAN)
+  - name: sku
+    singleValue: true
+    description: The store-specific product identifier
+    xpath: //meta[@itemprop="sku"]/@content
+  - name: packSize
+    singleValue: true
+    description: The number of packs in the product offer (if stated separately on
+      the site to quantity)
+    xpath: (//select[@class='form-control form-control-lg EA_event-slctlanding']/option[last()])[1]
+  - name: legalDisclaimer
+    singleValue: true
+    description: Content under "legal disclaimer" header
+    xpath: //p[@class='fsize-11 pt-1']/text()
+  - name: ratingCount
+    singleValue: true
+    description: The number of ratings
+    type: NUMBER
+    xpath: //div[@class='mt-4 rating-box']/div/span[@class='text-container left-spacer-small']/span
+  - name: aggregateRating
+    singleValue: true
+    description: The stated aggregate rating normalized to be out of 5
+    xpath: (//meta[@itemprop="ratingValue"])[1]/@content
+  - name: videos
+    singleValue: false
+    description: URLs of videos on page
+    xpath: //div[@id='wrapper-description']/div[@id='content-description']/p/strong/iframe/@src
+  - name: name
+    singleValue: true
+    description: The product name
+    xpath: //section[@id='productSheetCont']/h1[@class='h3 font-weight-normal px-4 pt-2 mb-3']
+  - name: coupon
+    singleValue: true
+    description: Text of any coupon offer
+    xpath: //p[@data-qa-ta="couponInfo"]/text()
+  - name: specifications
+    singleValue: true
+    description: The physical dimensions of the product including packaging.
+  - name: termsAndConditions
+    singleValue: true
+    description: Terms and conditions information text ['Yes','No']
+    defaultValue: No
+  - name: privacyPolicy
+    singleValue: true
+    description: Privacy Policy information text ['Yes','No']
+    defaultValue: No
+  - name: customerServiceAvailability
+    singleValue: true
+    description: Information related to customer service availability (text), ['Yes','No']
+    defaultValue: No
+  - name: Image360Present
+    singleValue: true
+    description: If 360 image is present in the carousel ['Yes','No']
+    example: https://www.amazon.com/Trinsic-Single-Handle-Magnetic-Champagne-9159-CZ-DST/dp/B0050EN8E6
+    defaultValue: No
+  - name: imageZoomFeaturePresent
+    singleValue: true
+    description: If Zoom feature is available for Main image or images in the
+      carousel,['Yes','No']
+    example: https://www.zalando.de/adidas-neo-sneaker-low-blackwhite-a4315i002-q11.html
+    defaultValue: No
