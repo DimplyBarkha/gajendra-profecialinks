@@ -114,5 +114,8 @@ fields:
   - name: hasComparisonTable
     defaultValue: No
   - name: unInterruptedPDP
-    xpath: //ul[contains(@class,"sponsored-products-row")]//li | //div[contains(@class,"slot--recommended-products")]//li[contains(@class,"product-item")] | //div[contains(@class,'product-item__content')]//span[contains(@class,'truncate')]
-   #xpath: //div[contains(@class,'product-item__content')]//a
+    xpath: //div[contains(@class,"product-item__content")]//a
+    #xpath: //div[contains(@class,"product-item__image js_product_item h-boxedbottom--xs")]//a
+    #xpath:  //ul[contains(@class,"sponsored-products-row")]//li | //div[contains(@class,"slot--recommended-products")]//li[contains(@class,"product-item")] //a[contains(@class,'product-title product-title--placeholder js_sponsored-products_title')] | //span[contains(@class,'truncate')]
+    #xpath: //ul[contains(@class,"sponsored-products-row")]//li | //div[contains(@class,"slot--recommended-products")]//li[contains(@class,"product-item")]
+    #xpath: //div[contains(@class,"slot slot--sponsored-products js_slot-sponsored-products slot--seperated")]//li[contains(@class,"product-item")]
