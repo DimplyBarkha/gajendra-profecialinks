@@ -114,7 +114,10 @@ fields:
   - name: hasComparisonTable
     defaultValue: No
   - name: unInterruptedPDP
-    xpath: //ul[contains(@class,"sponsored-products-row")]//li | //div[contains(@class,"slot--recommended-products")]//li[contains(@class,"product-item")] | //div[contains(@class,'product-item__content')]//span[contains(@class,'truncate')]
+    #xpath: //div[contains(@class,'slot slot--recommended-products js_slot-recommended-products js_recommendations_slot slot--seperated  po_pie_product_product.sidebar')]//span[contains(@class,'truncate')] |//div[contains(@class,'slot slot--series js_slot-series js_serie_slot slot--seperated  po_pdp_meeruitserie')]//span[contains(@class,'truncate')] | //div[contains(@class,'slot slot--sponsored-products js_slot-sponsored-products slot--seperated')]//span[contains(@class,'truncate')] | //div[contains(@class,'slot slot--additional-products js_slot-additional-products js_product_accessories_slot slot--seperated  po_pdp_geraccchunkrefinement')]//span[contains(@class,'truncate')]
+    xpath: //div[contains(@class,'fluid-grid__item  one-half')]//span[contains(@class,'truncate')]
+    #xpath: //div[contains(@class,'product-item__content')]//span[contains(@class,'truncate')]
+    #xpath: //ul[contains(@class,"sponsored-products-row")]//li | //div[contains(@class,"slot--recommended-products")]//li[contains(@class,"product-item")] | //div[contains(@class,'product-item__content')]//span[contains(@class,'truncate')] | //div[contains(@class,"product-item__content")]//a[contains(@class,"product-title product-title--placeholder")]
     #xpath: //div[contains(@class,"product-item__content")]//a
     #xpath: //div[contains(@class,"product-item__image js_product_item h-boxedbottom--xs")]//a
     #xpath:  //ul[contains(@class,"sponsored-products-row")]//li | //div[contains(@class,"slot--recommended-products")]//li[contains(@class,"product-item")] //a[contains(@class,'product-title product-title--placeholder js_sponsored-products_title')] | //span[contains(@class,'truncate')]
