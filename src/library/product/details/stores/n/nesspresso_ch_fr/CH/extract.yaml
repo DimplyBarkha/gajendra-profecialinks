@@ -19,10 +19,10 @@ fields:
   - name: metaKeywords
     singleValue: false
     xpath: //meta[@name="keywords"]/@content
-  - name: category
-    singleValue: false
-    description: The categories (e.g. from breadcrumbs)
-    xpath: //span[contains(@class,'ProductDetails__link-text')]
+  # - name: category
+  #   singleValue: false
+  #   description: The categories (e.g. from breadcrumbs)
+  #   xpath: //span[contains(@class,'ProductDetails__link-text')]
   - name: nameExtended
     singleValue: false
     xpath: //div[@itemprop="name"]/text() | //div[contains(@class,'ProductDetails__name')]
