@@ -1,0 +1,28 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: //ul[@name="itemsGrid"]//li
+fields:
+  - name: id
+    singleValue: false
+    xpath: //ul[@name="itemsGrid"]//li//a/@href
+    regExp: (\d+$)
+    regExpReplace: $1
+  - name: rank
+  - name: name
+    singleValue: false
+    xpath: //ul[@name="itemsGrid"]//li//h4
+  - name: productUrl
+    singleValue: false
+    xpath: //ul[@name="itemsGrid"]//li//a/@href
+    regExp: (.+)
+    regExpReplace: https://www.fravega.com$1
+  - name: thumbnail
+    singleValue: false
+    xpath: //ul[@name="itemsGrid"]//li//img[contains(@class,"PieceFigure__Img")]/@src
+  - name: price
+    singleValue: false
+    xpath: //ul[@name="itemsGrid"]//li//span[contains(@class, "SalePrice")]
+  - name: searchUrl
+    singleValue: false
+    xpath: //ul[@name="itemsGrid"]//li//div[@id="page_url"]
