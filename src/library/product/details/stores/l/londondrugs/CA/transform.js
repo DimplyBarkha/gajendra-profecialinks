@@ -38,7 +38,7 @@ const transform = (data) => {
         if (row.moreDescription) {
           let text = '';
           row.moreDescription.forEach(item => {
-            text = item.text;
+            text = text + (text ? ' ' : '') + item.text;
           });
           row.description = [{ text }];
         } else {
@@ -81,6 +81,7 @@ const transform = (data) => {
 
   data.forEach(obj => obj.group.forEach(row => Object.keys(row).forEach(header => row[header].forEach(el => {
     el.text = clean(el.text);
+    el.text = el.text.trim();
   }))));
 
   return data;
