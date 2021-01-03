@@ -1,23 +1,25 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: //div[@id="epoq_searchresult"]//div[@id="epoq_resultrows"]//div[contains(@class,"epoq_resultrow epoq_grid o-producttile js-product-tile")]
+recordXPath: //div[@id="epoq_searchresult"]//div[@id="epoq_resultrows"]//div[contains(@class,"epoq_resultrow epoq_grid o-producttile js-product-tile")] | //div[contains(@class,"o-productlist__all js-product-list-all")]//div[contains(@class,"o-producttile js-product-tile")]
 fields: 
   - name: id
     singlevalue: false
-    xpath: //a[contains(@class,"o-producttile__link js-prediggo-notification")]/@pid
-    regExp: base-(.+)
+    xpath: //a[contains(@class,"o-producttile__link js-prediggo-notification")]/@href
+    regExp: \/p\/(.+)
     regExpReplace: $1
   - name: thumbnail
     singlevalue: false
-    xpath: //a[contains(@class,"o-producttile__link js-prediggo-notification")]//div[contains(@class,"o-producttile__image js-product-image")]//div//img[@class="epoq_prodimg"]/@src
+    xpath: //a[contains(@class,"o-producttile__link js-prediggo-notification")]//div[contains(@class,"o-producttile__image js-product-image")]//div//img[@class="epoq_prodimg"]/@src | //img[contains(@class,"lazy")]/@data-lazy
+    regExp: (\/productimages\/.+)
+    regExpReplace: https://www.manor.ch$1
   - name: name
     singlevalue: false
-    xpath: //div[contains(@class,"epoq_title o-producttile__title")] | //div[contains(@class,"epoq_title o-producttile__copy2")]
+    xpath: //div[contains(@class,"epoq_title o-producttile__title")] | //div[@class="epoq_title o-producttile__copy"] | //div[contains(@class,"epoq_title o-producttile__copy2")]
   - name: price
     singlevalue: false
     xpath: //span[contains(@class,"js-productprice")]
-  - name: aggregateRating
+  - name: aggregateRating2
     singlevalue: false
     xpath: //dd[contains(@class,"bv-rating-ratio-number")]//span[contains(@class,"bv-rating")]//span
   - name: productUrl
