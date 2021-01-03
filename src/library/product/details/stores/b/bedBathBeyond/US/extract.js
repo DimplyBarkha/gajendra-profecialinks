@@ -330,17 +330,21 @@ async function implementation (
 
    await context.evaluate(async function () {
    while (!document.querySelector('[certonaidentifier="recommendation_pdp_fbw"] [data-locator="certona_rightnavigationicon"]>[disabled]')) {
+     if(document.querySelector('[certonaidentifier="recommendation_pdp_fbw"] [data-locator="certona_rightnavigationicon"]> button')){
      //@ts-ignore  
      document.querySelector('[certonaidentifier="recommendation_pdp_fbw"] [data-locator="certona_rightnavigationicon"]> button').click();
-      await new Promise((resolve, reject) => setTimeout(resolve, 4000));
+     }
+      await new Promise((resolve, reject) => setTimeout(resolve, 1000));
     }
   })
 
   await context.evaluate(async function () {
     while (!document.querySelector('[certonaidentifier="recommendation_pdp_cav"] [data-locator="certona_rightnavigationicon"] >[disabled]')) {
+      if( document.querySelector('[certonaidentifier="recommendation_pdp_cav"] [data-locator="certona_rightnavigationicon"] >button')){
       //@ts-ignore
       document.querySelector('[certonaidentifier="recommendation_pdp_cav"] [data-locator="certona_rightnavigationicon"] >button').click();
-      await new Promise((resolve, reject) => setTimeout(resolve, 4000));
+      }
+      await new Promise((resolve, reject) => setTimeout(resolve, 1000));
     }
   })
 
