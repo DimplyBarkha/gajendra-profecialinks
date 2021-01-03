@@ -66,5 +66,7 @@ module.exports = {
     const { transform } = parameters;
     const { productDetails } = dependencies;
     await context.extract(productDetails, { transform });
+
+    await context.waitForXPath('//h3[@class="_3L3q2V _3ZjYJW _2zLas_"]/div');
   },
 };
