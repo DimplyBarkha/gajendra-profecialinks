@@ -118,11 +118,13 @@ fields:
     type: NUMBER
   - name: aggregateRatingText
     singleValue: true
-    xpath: //span[@itemprop="ratingValue"]
+    # xpath: //span[@itemprop="ratingValue"]
+    xpath: //span[@itemprop="ratingValue"] | //div[@itemprop="ratingValue"]
     description: The stated aggregate rating
   - name: aggregateRating
     singleValue: true
-    xpath: //span[@itemprop="ratingValue"]
+    # xpath: //span[@itemprop="ratingValue"]
+    xpath: //span[@itemprop="ratingValue"] | //div[@itemprop="ratingValue"]
     description: The stated aggregate rating normalized to be out of 5
   - name: shippingInfo
     singleValue: false

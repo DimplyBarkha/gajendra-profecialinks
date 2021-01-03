@@ -54,8 +54,7 @@ const { transform } = require('../shared');
 //   return await context.extract(productDetails, { transform });
 // }
 
-
-async function implementation(
+async function implementation (
   inputs,
   parameters,
   context,
@@ -116,7 +115,7 @@ async function implementation(
           break;
         }
       }
-      function stall(ms) {
+      function stall (ms) {
         return new Promise((resolve, reject) => {
           setTimeout(() => {
             resolve();
@@ -141,9 +140,9 @@ async function implementation(
   await context.evaluate(() => {
     const defaultNextlinkSelector = document.querySelector('head link[rel="next"]');
     if (defaultNextlinkSelector) {
-      defaultNextlinkSelector.remove()
+      defaultNextlinkSelector.remove();
     }
-  })
+  });
   // await context.evaluate(async () => {
   //   let images = document.querySelectorAll('div[data-test*="mms-search-srp-productlist-item"]');
   //   for (let i = 0; i < images.length; i++) {

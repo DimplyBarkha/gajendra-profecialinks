@@ -77,8 +77,8 @@ const transform = (data) => {
         });
       }
       if (row.aggregateRating) {
-        let text = parseFloat(row.aggregateRating[0].text).toFixed(1).replace('.', ',');
-        row.aggregateRating = [{ text }]
+        const text = parseFloat(row.aggregateRating[0].text).toFixed(1).replace('.', ',');
+        row.aggregateRating = [{ text }];
       }
       if (row.listPrice) {
         row.listPrice.forEach((listPriceItem) => {
@@ -106,8 +106,8 @@ const transform = (data) => {
         });
       }
       if (row.manufacturerDescription) {
-        let text = row.manufacturerDescription.map(element => element.text.trim()).join(' ');
-        row.manufacturerDescription = [{ text: text.trim() }]
+        const text = row.manufacturerDescription.map(element => element.text.trim()).join(' ');
+        row.manufacturerDescription = [{ text: text.trim() }];
       }
     }
   }
