@@ -27,6 +27,25 @@ const transform = (data) => {
         });
       }
 
+      if (row.inTheBoxUrl) {
+        let manuImages = row.inTheBoxUrl;
+        row.inTheBoxUrl = [];
+        manuImages.forEach(ele => {
+          let extractfirsturl = ele.text.split(',');
+          var obj = {};
+          let extracturlbeforeExtn = extractfirsturl[0].split(" ");          
+          obj.text = extracturlbeforeExtn[0];     
+          if(obj.text.startsWith("//media")){
+            row.inTheBoxUrl.push(obj);
+          }else{
+            obj.text = "//media.flixfacts.com/eyekandy/dyson/v11/au/" + extracturlbeforeExtn[0];
+            row.inTheBoxUrl.push(obj);           
+          }
+          
+        });
+        
+        }
+
       if (row.warranty) {
         row.warranty.forEach((warrantyItem) => {
           warrantyItem.text = warrantyItem.text.replace(/(\n\s*){2,}/g, ' : ');

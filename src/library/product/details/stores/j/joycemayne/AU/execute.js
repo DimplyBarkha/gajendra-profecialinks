@@ -5,8 +5,8 @@ module.exports = {
     country: 'AU',
     store: 'joycemayne',
     domain: 'joycemayne.com.au',
-    loadedSelector: null,
-    noResultsXPath: null,
+    loadedSelector: '#category-grid [class="product-item"],#product-view-price',
+    noResultsXPath: '//h1[contains(.,"0 items found")]',
     zipcode: '',
   },
 };
