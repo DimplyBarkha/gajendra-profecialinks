@@ -60,10 +60,8 @@ module.exports = {
       addHiddenDiv('ii_aplusImages', finalImages.join(' | '));
     });
 
-
     async function checkIframeContent() {
       return await context.evaluate(async function () {
-
         const manufacturerIFrameSelector = document.evaluate('//div[@class="eky-container-full"]//iframe[@id="eky-dyson-iframe"]', document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
         const manufacturerIFrameSrc = manufacturerIFrameSelector ? manufacturerIFrameSelector.src : '';
         if (manufacturerIFrameSrc) {
@@ -80,22 +78,31 @@ module.exports = {
       } catch (err) {
       }
       return await context.evaluate(async function () {
-
+        const inBoxTextVideoArray = [];
+        const inBoxVideoText = document.querySelectorAll('div.tns-inner > div.my-slider>div.eky-relative-wrapper.tns-normal h1');
+        for (let i = 0; i < inBoxVideoText.length; i++) {
+          const imgUrl2 = inBoxVideoText[i].innerText;
+          imgUrl2 && inBoxTextVideoArray.push(imgUrl2);
+        }
+        const inBoxImgVideoArray = [];
+        const inBoxImgVideo = document.querySelectorAll('div.tns-inner > div.my-slider>div.eky-relative-wrapper.tns-normal video');
+        for (let i = 0; i < inBoxImgVideo.length; i++) {
+          const imgText2 = "https://media.flixfacts.com/eyekandy/dyson/v11/es/" + inBoxImgVideo[i].getAttribute('src');
+          imgText2 && inBoxImgVideoArray.push(imgText2);
+        }
         const inBoxTextArray = [];
         const inBoxImageText = document.querySelectorAll('div.eky-accesory-title');
         for (let i = 0; i < inBoxImageText.length; i++) {
           const imgText = inBoxImageText[i].innerText;
           imgText && inBoxTextArray.push(imgText);
         }
-
         const inBoxImageArray = [];
         const inBoxImagesList = document.querySelectorAll('div.eky-accessory img');
         for (let i = 0; i < inBoxImagesList.length; i++) {
           const imgUrl1 = "https://media.flixfacts.com/eyekandy/dyson/v11/es/" + inBoxImagesList[i].getAttribute('src');
           imgUrl1 && inBoxImageArray.push(imgUrl1);
         }
-
-        return { inBoxImageArray, inBoxTextArray };
+        return { inBoxTextVideoArray, inBoxImgVideoArray, inBoxImageArray, inBoxTextArray };
       });
     }
 
@@ -109,20 +116,24 @@ module.exports = {
           document.body.appendChild(newDiv);
         }
         if (manContentObj) {
-
           for (let i = 0; i < manContentObj.inBoxImageArray.length; i++) {
             addHiddenDivForIframe('added-inBox-images', manContentObj.inBoxImageArray[i]);
           }
           for (let i = 0; i < manContentObj.inBoxTextArray.length; i++) {
             addHiddenDivForIframe('added-inBox-Text', manContentObj.inBoxTextArray[i]);
           }
+          for (let i = 0; i < manContentObj.inBoxImgVideoArray.length; i++) {
+            addHiddenDivForIframe('added-inBox-images-for-Video', manContentObj.inBoxImgVideoArray[i]);
+          }
+          for (let i = 0; i < manContentObj.inBoxTextVideoArray.length; i++) {
+            addHiddenDivForIframe('added-inBox-Text-for-Video', manContentObj.inBoxTextVideoArray[i]);
+          }
         }
         else {
-
-          if(onlyText){
+          if (onlyText) {
             addHiddenDivForIframe('added-inBox-Text', onlyText.join('  || '));
           }
-          if(inTheBoxImage){
+          if (inTheBoxImage) {
             addHiddenDivForIframe('added-inBox-images', inTheBoxImage.join('  || '));
           }
         }
@@ -167,10 +178,7 @@ module.exports = {
       } catch (err) {
       }
     }
-
     await addContentToDOM(manContentObj, onlyText, inTheBoxImage);
-
-
 
     const { transform } = parameters;
     const { productDetails } = dependencies;
