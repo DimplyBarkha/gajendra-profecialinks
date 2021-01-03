@@ -108,7 +108,7 @@ const implementation = async({ id },
         }
     };
 
-    await context.waitForSelector('#flix-comp');
+    await optionalWaitForSelector('#flix-comp');
     await optionalWaitForSelector('.shopList .product');
 
     const readMore = await optionalWaitForSelector('div[data-open-label="Read more"] ~ .long-text-ctl a');
@@ -347,6 +347,11 @@ const implementation = async({ id },
         addElement('productId', productId);
         const description = buildDescription();
         addElement('description', description);
+
+        const comparasionText = document.evaluate(`//div[contains(., "Compare with similar")][contains(@class,'flix-comp-h2')]`, document).iterateNext();
+        if (comparasionText) {
+            addElement('comparasionText', 'Yes');
+        }
     }, parameters.zipcode, parameters.country);
     const { transform } = parameters;
     const { productDetails } = dependencies;

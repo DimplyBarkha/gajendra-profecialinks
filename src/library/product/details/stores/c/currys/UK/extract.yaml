@@ -435,7 +435,7 @@ fields:
     description: Must include text to show the accessories/tools which come with the product
   - name: hasComparisonTable
     singleValue: true
-    xpath: //div[contains(., "Compare with similar")][contains(@class,'flix-comp-h2')]
+    xpath: //div[@id="comparasionText"]
     regExp: (.+)
     regExpReplace: Yes
     defaultValue: No
