@@ -111,34 +111,35 @@ async function implementation(
                 }
             }
         }
-        await context.evaluate(() => {
-            const updp = document.evaluate(
-                '//div[contains(@class,"related-products")]//a',
-                document,
-                null,
-                XPathResult.ORDERED_NODE_SNAPSHOT_TYPE,
-                null
-            );
-            let text = '';
-            const brandText = []
-            const nameExt = []
-            const type = []
-            for (let i = 0; i < updp.snapshotLength; i++) {
-                const z = updp.snapshotItem(i);
-                // @ts-ignore
-                const p = z.querySelector('span.brand').innerText;
-                // @ts-ignore
-                const q = z.querySelector('span.series').innerText;
-                // @ts-ignore
-                const r = z.querySelector('span.type').innerText;
-                brandText.push(p);
-                nameExt.push(q);
-                type.push(r);
-                text += text ? ` || ${brandText[i]} ${nameExt[i]} ${type[i]}` : `${brandText[i]} ${nameExt[i]} ${type[i]}`;
+        //Code for updp
+        // await context.evaluate(() => {
+        //     const updp = document.evaluate(
+        //         '//div[contains(@class,"related-products")]//a',
+        //         document,
+        //         null,
+        //         XPathResult.ORDERED_NODE_SNAPSHOT_TYPE,
+        //         null
+        //     );
+        //     let text = '';
+        //     const brandText = []
+        //     const nameExt = []
+        //     const type = []
+        //     for (let i = 0; i < updp.snapshotLength; i++) {
+        //         const z = updp.snapshotItem(i);
+        //         // @ts-ignore
+        //         const p = z.querySelector('span.brand').innerText;
+        //         // @ts-ignore
+        //         const q = z.querySelector('span.series').innerText;
+        //         // @ts-ignore
+        //         const r = z.querySelector('span.type').innerText;
+        //         brandText.push(p);
+        //         nameExt.push(q);
+        //         type.push(r);
+        //         text += text ? ` || ${brandText[i]} ${nameExt[i]} ${type[i]}` : `${brandText[i]} ${nameExt[i]} ${type[i]}`;
 
-            }
-            document.body.setAttribute("updp-name", text);
-        })
+        //     }
+        //     document.body.setAttribute("updp-name", text);
+        // })
         const addToCartBtn = document.querySelectorAll('div.add-to-cart button');
         let availability = 'In Stock';
         if (addToCartBtn.length === 1) {
