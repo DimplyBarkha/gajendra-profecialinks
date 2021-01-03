@@ -138,6 +138,7 @@ async function implementation (inputs, parameters, context, dependencies) {
 
   await gDelay(2000);
   await context.waitForNavigation({ timeout: 15000, waitUntil: 'networkidle0' });
+  
   // await context.searchForRequest('https://mycliplister.com/jplist.*', 'GET');
   // const requests = await context.searchAllRequests('https://mycliplister.com/jplist.*', 'GET');
   // // console.log(request);
@@ -159,7 +160,36 @@ async function implementation (inputs, parameters, context, dependencies) {
 
   //   document.body.setAttribute('video-url', videosAll);
   // }, videoUrls);
+  await context.evaluate(async function (context) {
+    const seeAllSelector = document.querySelector('[class*="Modalstyled__StyledModalInnerWrapper"]>div>div');
+    if (seeAllSelector) {
+      seeAllSelector.click();
+    }
+  });
+  async function autoScroll (page) {
+    await page.evaluate(async () => {
+      await new Promise((resolve, reject) => {
+        var totalHeight = 0;
+        var distance = 100;
+        var timer = setInterval(() => {
+          var scrollHeight = document.body.scrollHeight;
+          window.scrollBy(0, distance);
+          totalHeight += distance;
 
+          if (totalHeight >= scrollHeight) {
+            clearInterval(timer);
+            resolve();
+          }
+        }, 100);
+      });
+    });
+  }
+  await autoScroll(context);
+  try {
+    await context.waitForSelector('ul[class="module__k-sc-1unnn6u-5 cTVddx"]', { timeout: 15000 });
+  } catch (error) {
+    console.log('Not loading the recomended page');
+  }
   return await context.extract(productDetails, { transform });
 }
 

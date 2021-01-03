@@ -41,6 +41,11 @@ const transform = (data, context) => {
         videos = Array.from(new Set(videos)).map(elm => ({ text: elm }));
         row.videos = videos;
       }
+      // if (row.unInterruptedPDP) {
+      //   for (let i = 0; i < row.unInterruptedPDP.length; i++) {
+      //   row.unInterruptedPDP[i].text = `|| ${row.unInterruptedPDP[i].text}`;
+      //   }
+      //   }
       if (row.variantInformation) {
         const variant = row.variantInformation[0].text.split(':');
         let text = '';
