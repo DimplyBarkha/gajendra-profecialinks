@@ -4,7 +4,7 @@ module.exports = {
   parameterValues: {
     domain: 'armani.com',
     prefix: null,
-    url: null,
+    url: 'https://www.armani.com/au/armanicom/{id}',
     country: 'AU',
     store: 'armani',
     zipcode: '',
