@@ -65,9 +65,7 @@ async function implementation(inputs, parameters, context, dependencies) {
         });
         const productCode = await context.evaluate(async function () {
           const productCode = (
-            (window.tagData &&
-              window.tagData.product &&
-              window.tagData.product.childSku) ||
+            (window.utag_data && window.utag_data.product_sku) ||
             ""
           ).split("|");
           return productCode && productCode.length
