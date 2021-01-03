@@ -6,7 +6,7 @@ const { transform } = require('./format');
 * @param { ImportIO.IContext } context
 * @param { Record<string, any> } dependencies
 */
-async function implementation(
+async function implementation (
   inputs,
   parameters,
   context,
@@ -16,7 +16,7 @@ async function implementation(
   const { productDetails } = dependencies;
 
   await context.evaluate(async function () {
-    function addHiddenDiv(id, content) {
+    function addHiddenDiv (id, content) {
       const newDiv = document.createElement('div');
       newDiv.id = id;
       newDiv.textContent = content;

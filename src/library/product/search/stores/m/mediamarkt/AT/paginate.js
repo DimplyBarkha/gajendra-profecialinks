@@ -10,7 +10,7 @@ module.exports = {
     loadedSelector: null,
     noResultsXPath: null,
     openSearchDefinition: {
-      template: 'https://www.mediamarkt.at/de/search.html?page={page}&query={searchTerms}'
+      template: 'https://www.mediamarkt.at/de/search.html?page={page}&query={searchTerms}',
     },
     domain: 'mediamarkt.at',
     zipcode: '',

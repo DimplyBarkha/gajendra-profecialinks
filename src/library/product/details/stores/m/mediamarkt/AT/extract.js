@@ -16,7 +16,7 @@ module.exports = {
   },
   implementation: async ({ inputString }, { country, domain, transform: transformParam }, context, { productDetails, Helpers, SharedHelpers }) => {
     const sharedhelpers = new SharedHelpers(context);
-    
+
     await context.waitForFunction(function (sel) {
       return Boolean(document.querySelector(sel));
     }, { timeout: 15000 }, 'body');
@@ -33,40 +33,35 @@ module.exports = {
     const avail = await sharedhelpers.getEleByXpath('//button[contains(text(), "In den Warenkorb")]');
 
     await sharedhelpers.addHiddenInfo('ii_availText', avail ? 'In Stock' : 'Out of Stock');
-    try{     
+    try {
       await context.waitForSelector('button[class*=ProductFeatures] span');
       await context.click('button[class*=ProductFeatures] span');
-    }catch(err){
+    } catch (err) {
       console.log('no load more button for specification');
     }
     await context.evaluate(function () {
-      
-      if(document.querySelector('div[data-test="mms-accordion-features"] a[class*="ProductFeatures__StyledExpand"]')){
-        let accordionClicker=document.querySelector('div[data-test="mms-accordion-features"] a[class*="ProductFeatures__StyledExpand"]');
+      if (document.querySelector('div[data-test="mms-accordion-features"] a[class*="ProductFeatures__StyledExpand"]')) {
+        const accordionClicker = document.querySelector('div[data-test="mms-accordion-features"] a[class*="ProductFeatures__StyledExpand"]');
         accordionClicker.click();
       }
-      if(document.querySelector('div[class*="ProductFeatures__StyledFeatureContainer"]')){
-        let specsData=document.querySelectorAll('div[class*="ProductFeatures__StyledFeatureContainer"] table tbody td');
-        let specsAppended='';
-        for(let i=0;i<specsData.length;i++){
-          if(i!==specsData.length-1)
-            specsAppended+=specsData[i].innerText+" || ";
-          else
-            specsAppended+=specsData[i].innerText;
+      if (document.querySelector('div[class*="ProductFeatures__StyledFeatureContainer"]')) {
+        const specsData = document.querySelectorAll('div[class*="ProductFeatures__StyledFeatureContainer"] table tbody td');
+        let specsAppended = '';
+        for (let i = 0; i < specsData.length; i++) {
+          if (i !== specsData.length - 1) { specsAppended += specsData[i].innerText + ' || '; } else { specsAppended += specsData[i].innerText; }
         }
-        let newDiv = document.createElement('div');
+        const newDiv = document.createElement('div');
         newDiv.id = 'specs';
         newDiv.textContent = specsAppended;
         newDiv.style.display = 'none';
         document.body.appendChild(newDiv);
       }
-//div[contains(@class,'ProductFeatures__StyledFeatureContainer')]//table//tbody//td//text()
-        
+      // div[contains(@class,'ProductFeatures__StyledFeatureContainer')]//table//tbody//td//text()
+
       if (document.querySelector('div[class^="ProductFeatures"] a[class^="Linkstyled"]')) {
         document.querySelector('div[class^="ProductFeatures"] a[class^="Linkstyled"]').click();
       }
     });
-
 
     // let moreInfoSelector=null;
     // moreInfoSelector=await context.evaluate(async function () {
@@ -89,12 +84,11 @@ module.exports = {
     //     // let playBtn=document.querySelector('div[id="player"] button[class*="play-button"]');
     //     // playBtn.click();
     //   });
-    
-        try{
-        await context.waitForSelector('div[class*="flix-std-row"]', { timeout: 95000 });
-        //div[@id="player"]//button[contains(@class,'play-button')|//div[contains(@class,'ProductDescription')]//iframe
-        
-        }catch(e){console.log('videos not loaded')}
+
+    try {
+      await context.waitForSelector('div[class*="flix-std-row"]', { timeout: 95000 });
+      // div[@id="player"]//button[contains(@class,'play-button')|//div[contains(@class,'ProductDescription')]//iframe
+    } catch (e) { console.log('videos not loaded'); }
     // if(moreInfoSelector!==null){
     //   // await context.waitForSelector
     //   // try{
@@ -120,14 +114,13 @@ module.exports = {
     //   addHiddenDiv('enhancedContent',enhancedContent);
     //   });
     // }
-    try{
+    try {
       await context.waitForSelector('div.Foldable__StyledFoldable-sc-1e6f7m3-0.bTXMvT >div > div > div > div:nth-child(2) > div > button > span', { timeout: 10000 });
-        await context.click('div.Foldable__StyledFoldable-sc-1e6f7m3-0.bTXMvT >div > div > div > div:nth-child(2) > div > button > span');
-        await context.waitForSelector('#flix-inpage',{ timeout: 10000 });
-      }
-     catch(err){
-       console.log('got some err',err.message)
-     }  
+      await context.click('div.Foldable__StyledFoldable-sc-1e6f7m3-0.bTXMvT >div > div > div > div:nth-child(2) > div > button > span');
+      await context.waitForSelector('#flix-inpage', { timeout: 10000 });
+    } catch (err) {
+      console.log('got some err', err.message);
+    }
 
     await context.extract(productDetails, { transform: transformParam });
   },
