@@ -106,7 +106,9 @@ fields:
   - name: promotion
     xpath: //div[@id='promotionText']/text()
   - name: inTheBoxUrl
-    xpath: //div[contains(@class,'InTheBox')]//img/@src
+    #xpath: //div[contains(@class,'inpage_selector_InTheBox')]//img/@srcset
+    #xpath: //div[contains(@class,'flix-std-table')]//div/img/@srcset
+    xpath: //div[contains(@class,'inpage_selector_InTheBox')]//img/@srcset
     regExp: (.+)
     regExpReplace: https:$1
   - name: inTheBoxText
