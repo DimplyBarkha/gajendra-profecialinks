@@ -23,25 +23,29 @@ const transform = (data) => {
         manuImages.forEach(ele => {
           let extractfirsturl = ele.text.split(',');
           var obj = {};
-          let extracturlbeforeExtn = extractfirsturl[0].split(" ");          
-          obj.text = extracturlbeforeExtn[0];     
-          if(obj.text.startsWith("//media")){
+          let extracturlbeforeExtn = extractfirsturl[0].split(" ");
+          obj.text = extracturlbeforeExtn[0];
+          if (obj.text.startsWith("//media")) {
             row.inTheBoxUrl.push(obj);
-          }else{
+          } else {
             obj.text = "//media.flixfacts.com/eyekandy/dyson/v11/it/" + extracturlbeforeExtn[0];
-            row.inTheBoxUrl.push(obj);           
+            row.inTheBoxUrl.push(obj);
           }
-          
+
         });
-        
+
+      }
+      if (row.inTheBoxText) {
+        if (row.inTheBoxText[0].text.startsWith("In dotazione")) {
+          row.inTheBoxText.forEach(item => {
+            let str = item.text.replace("In dotazione:", "");
+            item.text = str.split(',').join(' || ')
+          });
         }
-        if(row.inTheBoxText){         
-          if(row.inTheBoxText[0].text.startsWith("In dotazione")){
-            row.inTheBoxText.forEach(item => {
-              item.text = item.text.replace("In dotazione:","");
-            });
-          }
-        }
+      }
+      if (row.unInterruptedPDP) {
+        row.unInterruptedPDP = getUniqueListBy(row.unInterruptedPDP, 'text')
+      }
       if (row.aggregateRating) {
         row.aggregateRating.forEach(item => {
           item.text = item.text.replace(/\./gm, ',');
@@ -101,6 +105,10 @@ const transform = (data) => {
   data.forEach(obj => obj.group.forEach(row => Object.keys(row).forEach(header => row[header].forEach(el => {
     el.text = clean(el.text);
   }))));
+
+  function getUniqueListBy(arr, key) {
+    return [...new Map(arr.map(item => [item[key], item])).values()]
+  }
 
   return data;
 };
