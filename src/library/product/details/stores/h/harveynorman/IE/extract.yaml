@@ -107,6 +107,8 @@ fields:
     xpath: //div[@id='promotionText']/text()
   - name: inTheBoxUrl
     #xpath: //div[contains(@class,'inpage_selector_InTheBox')]//img/@srcset
+    singleValue: false
+    #xpath: //div[contains(@class,'inpage_selector_InTheBox')]//img/@srcset
     #xpath: //div[contains(@class,'flix-std-table')]//div/img/@srcset
     xpath: //div[contains(@class,'inpage_selector_InTheBox')]//img/@srcset
     regExp: (.+)
