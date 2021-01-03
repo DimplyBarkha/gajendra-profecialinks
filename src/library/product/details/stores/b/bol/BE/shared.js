@@ -65,8 +65,9 @@ const transform = (data) => {
       }
       if(row.inTheBoxText){
           row.inTheBoxText.forEach(el => {
-          el.text = el.text.replace("<br/>-", '');
-          el.text= el.text.replace("-",'');
+          //el.text = el.text.replaceAll("<br />-", " || ");
+          el.text = el.text.split("<br />-").join(" || ");
+          el.text= el.text.replace("-"," ");
         });
       }
 
