@@ -96,11 +96,11 @@ const transform = (data) => {
         row.additionalDescBulletInfo[0].text = `|| ${row.additionalDescBulletInfo[0].text}`;
       }
 
-      if (row.unInterruptedPDP) {
-        for (let i = 0; i < row.unInterruptedPDP.length; i++) {
-          row.unInterruptedPDP[i].text = `|| ${row.unInterruptedPDP[i].text}`;
-        }
-      }
+      // if (row.unInterruptedPDP) {
+      //   for (let i = 0; i < row.unInterruptedPDP.length; i++) {
+      //     row.unInterruptedPDP[i].text = `|| ${row.unInterruptedPDP[i].text}`;
+      //   }
+      // }
 
       if (row.variantInformation) {
         if (row.color) {
