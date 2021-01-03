@@ -92,10 +92,10 @@ fields:
   - name: url
     singleValue: false
   - name: specifications
-    singleValue: false  
+    singleValue: false
     xpath: //div[contains(@class, "productStrate characteristicsStrate")]
   - name: shippingDimensions
-    singleValue: false  
+    singleValue: false
     xpath: //dt[contains(text(), "Dimensões")]/following-sibling::*
   - name: manufacturer
     singleValue: false
@@ -110,17 +110,17 @@ fields:
     singleValue: false
     xpath: //dt[contains(text(), "Eficiência")]/following-sibling::*
   - name: videos
-    singleValue: false  
+    singleValue: false
     xpath: //meta[@itemprop="contentURL"]/@content | //div[@id='vidLink']/text()
   - name: countryOfOrigin
-    singleValue: false  
+    singleValue: false
     xpath: //*[contains(text(), "de expedição")]/following-sibling::dd[1]
   - name: variantId
-    singleValue: false  
+    singleValue: false
     xpath: //div[contains(@class, "f-productPage") and @data-prid]/@data-prid
   - name: unInterruptedPDP
     singleValue: false
-    xpath: //div[contains(@class,"relatedArticles__sliderWrapper") or contains(@class,"relatedArticles__slider")]//div[@class="slick-track"]//article//img/@alt
+    xpath: //div[contains(@class,"relatedArticles__sliderWrapper") or contains(@class,"relatedArticles__slider")]//div[@class="slick-track"]//span[@class="miniFA__title  "]
   - name: hasComparisonTable
     defaultValue: No
   - name: inTheBoxText
