@@ -90,6 +90,12 @@ async function implementation (inputs, parameters, context, dependencies) {
         if (gtinText) gtin = gtinText;
       } catch (err) { }
 
+      let acces = '';
+      try {
+        const accesPath = "//div[text()='Included Accessories']/../following-sibling::td";
+        const accesText = document.evaluate(accesPath, document, null, XPathResult.STRING_TYPE, null).stringValue;
+        if (accesText) acces = accesText;
+      } catch (err) { }
       const specifications = [];
       try {
         // const specifiTextPath = "//tr[@class='vm91i']";
@@ -113,7 +119,7 @@ async function implementation (inputs, parameters, context, dependencies) {
       const colorPath = "//div[contains(text(),'Color')]//..//following-sibling::td/text()";
       const color = document.evaluate(colorPath, document, null, XPathResult.STRING_TYPE, null).stringValue;
 
-      return { brandText, weightNet, color, warranty, shippingDimensions, Dimensions, shippingWeight, gtin, specifications };
+      return { brandText, weightNet, color, warranty, shippingDimensions, Dimensions, shippingWeight, gtin, acces, specifications };
     });
   }
   async function fetchManImg (url) {
@@ -135,7 +141,7 @@ async function implementation (inputs, parameters, context, dependencies) {
         }
       } catch (err) { }
 
-      const boxImgSel = '(//span[contains(.,"In the Box")])[2]/../../..//img';
+      const boxImgSel = '(//span[contains(.,"In the Box")])[2]/../../..//img | (//span[contains(.,"In the box")])[2]/../../..//img';
       const boxImgs = [];
       try {
         const boxImgIterator = document.evaluate(boxImgSel, document, null, XPathResult.ANY_TYPE, null);
@@ -146,7 +152,7 @@ async function implementation (inputs, parameters, context, dependencies) {
         }
       } catch (err) { }
       /// start
-      const boxTxtSel = '//div[@id="sg-product__pdp-container"]//div/span[contains(.,"In the Box")]/../following-sibling::div/div/div';
+      const boxTxtSel = '//div[@id="sg-product__pdp-container"]//div/span[contains(.,"In the Box")]/../following-sibling::div/div/div | //div[@id="sg-product__pdp-container"]//div/span[contains(.,"In the box")]/../following-sibling::div/div/div';
       const boxTxts = [];
       try {
         const boxTxtIterator = document.evaluate(boxTxtSel, document, null, XPathResult.ANY_TYPE, null);
@@ -180,6 +186,7 @@ async function implementation (inputs, parameters, context, dependencies) {
         }
         addHiddenDiv('added-shippingWeight', manContentObj.shippingWeight);
         addHiddenDiv('added-gtin', manContentObj.gtin);
+        addHiddenDiv('added-acces', manContentObj.acces);
         addHiddenDiv('added-Dimensions', manContentObj.Dimensions);
         for (let i = 0; i < manContentObj.specifications.length; i++) {
           addHiddenDiv('added-spec-' + i, manContentObj.specifications[i]);

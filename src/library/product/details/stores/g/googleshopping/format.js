@@ -103,6 +103,20 @@ const transform = (data) => {
           item.text = txt;
         });
       }
+      if (row.inTheBoxText) {
+        const specs = [];
+        let txt = '';
+        row.inTheBoxText.forEach(item => {
+          specs[0] = item;
+          if (txt.length > 0) {
+            txt = txt + ' || ';
+          }
+          txt = txt + item.text;
+          specs[0].text = txt;
+          // item.text = item.text.replace(/(\s?\n)+/g, ' || ').trim();
+        });
+        row.inTheBoxText = specs;
+      }
       if (row.shippingInfo) {
         const vars = [];
         let cnt = 0;
@@ -123,6 +137,7 @@ const transform = (data) => {
           item.text = item.text.split(',')[0];
         });
       }
+
       // if (row.inTheBoxText) {
       //   const info = [];
       //   row.inTheBoxText.forEach(item => {
