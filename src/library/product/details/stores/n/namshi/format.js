@@ -62,29 +62,33 @@ const transform = (data) => {
         }
       }
       if (row.inTheBoxText) {
-        var temp = '';
-        //console.log(row.inTheBoxText)
-          row.inTheBoxText.forEach(item => {
-            
-              if(item.text.indexOf(':')>0){
-                console.log('If: ' + item.text)
-                temp = item.text.split(':')[1]
-                temp = temp.split('.')[0]
-                item.text = temp.replace(/,/g,' || ')
-              }else{
-                console.log('else: ' + item.text)
-
-                temp = item.text.split('.')[0]
-                item.text = temp.replace(/,/g,' || ')
-              }
-            })
+        if (row.inTheBoxText[0].text == 'Attachments included:') {
+          let imageArray = [];
+          for (let i = 0; i < row.inTheBoxText.length; i++) {
+            let text = row.inTheBoxText[i].text
+            let splits = text.split(":");
+            let str = splits[0];
+            if (splits[0].substr(0, 1) == "-") {
+              str = splits[0].substring(1);
+            }
+            imageArray.push(`${str}`);
           }
-      // if (row.inTheBoxText) {
-      //   row.inTheBoxText.forEach(item => {
-      //     item.text = item.text.replace(/,/g,' || ')
-      //   })
-      // }
-      
+          let oneLess = imageArray.slice(1);
+          let joins = oneLess.join(" || ");
+          row.inTheBoxText = [{ text: joins }]
+        }
+        else if (row.inTheBoxText[0].text.indexOf('In the box:') > 0) {
+          let intheboxtext = row.inTheBoxText[0].text.split("In the box:");
+          let boxtext = intheboxtext[1];
+          let textArray = boxtext.substr(0, boxtext.indexOf('.'));
+          row.inTheBoxText[0].text = textArray.split(",").join(" || ");
+        }
+        else if (row.inTheBoxText[0].text.indexOf('limited time') > 0) {
+          let boxtext = row.inTheBoxText[0].text;
+          let validText = boxtext.substr(0, boxtext.indexOf('.'));
+          row.inTheBoxText[0].text = validText.replace(' For a limited time only', '').split(',').join(' || ');
+        }
+      }
       if (row.variants) {
         const variations = [];
         const vInfo = [];
@@ -116,9 +120,9 @@ const transform = (data) => {
       if (row.color && row.quantity) {
         row.variantInformation = [{ text: row.color[0].text + ' ' + row.quantity[0].text }];
       }
-    }
-  }
-  return cleanUp(data);
-};
 
+    }
+    return cleanUp(data);
+  };
+}
 module.exports = { transform };
