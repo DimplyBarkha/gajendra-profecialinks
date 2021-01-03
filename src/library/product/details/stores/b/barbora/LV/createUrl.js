@@ -4,7 +4,7 @@ module.exports = {
   parameterValues: {
     domain: 'barbora.lv',
     prefix: null,
-    url: null,
+    url: 'https://www.barbora.lv/produkti/{id}',
     country: 'LV',
     store: 'barbora',
     zipcode: '',
