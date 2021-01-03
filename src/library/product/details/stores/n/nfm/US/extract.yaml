@@ -140,7 +140,8 @@ fields:
     defaultValue: No
   - name: inTheBoxText
     singleValue: false
-    xpath: //h3[contains(text(),"In The Box")]//following-sibling::li | //p[@id="DT_Include"]/li|//div[@id='ii_inTheBoxText']
+    xpath:  //p[@id="DT_Include"]/li|//div[@id='ii_inTheBoxText'] | //div[@id='iii_inTheBoxText']
+    #xpath: //h3[contains(text(),"In The Box")]//following-sibling::li | //p[@id="DT_Include"]/li|//div[@id='ii_inTheBoxText']
     description: Must include text to show the accessories/tools which come with the product
   - name: inTheBoxUrl
     singleValue: false

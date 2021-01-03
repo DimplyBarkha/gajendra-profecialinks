@@ -83,6 +83,8 @@ module.exports = {
       addHiddenDiv('videosExtracted', src);
 
       const inTheBoxNode = document.querySelector('div.syndi_powerpage');
+      let inTheWITB = false;
+
       if (inTheBoxNode) {
         const inTheBox = inTheBoxNode.shadowRoot ? inTheBoxNode.shadowRoot : null;
         if (inTheBox) {
@@ -97,9 +99,34 @@ module.exports = {
               const inTheBoxText = inTheBoxContent.querySelectorAll('h3.syndigo-featureset-feature-caption');
               [...inTheBoxText].forEach((element) => {
                 if (element.innerText.length) {
+                  let inTheWITB = true;
+
                   addHiddenDiv('ii_inTheBoxText', element.innerText);
+                  console.log("here the output uddp.....",element.innerText)
                 }
               });
+
+            if (inTheWITB){
+
+
+              const all_h3 = document.querySelector('#DT_Features').children;
+              let start = false
+              for(let i =0; i< all_h3.length; i++)
+              {
+                 if( all_h3[i].textContent.includes('In The Box:') )
+                 {
+                    start = true;
+                 }
+                 if (start)
+                 {
+                    addHiddenDiv('iii_inTheBoxText', all_h3[i].textContent);
+
+                 }
+
+              }
+            }
+
+
             }
           });
         }
