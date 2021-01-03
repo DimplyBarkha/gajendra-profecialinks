@@ -39,7 +39,7 @@ fields:
     # regExpReplace: In Stock
     defaultValue: Out of Stock
   - name: description
-    xpath: //div[contains(@id,'ii_desc')] 
+    xpath: //div[contains(@id,'ii_desc')]
     description: Product description supplied by website - may be concatenanted from
       multiple places; specifically not the manufacturer description
   - name: descriptionBullets
@@ -71,7 +71,7 @@ fields:
   - name: ratingCount
     xpath: //div[contains(@id,'ii_review')]
     description: The number of ratings
-  - name: aggregateRating 
+  - name: aggregateRating
     xpath: //div[contains(@id,'ii_rating')]
     description: The stated aggregate rating normalized to be out of 5
   - name: shippingDimensions
@@ -130,8 +130,7 @@ fields:
     singleValue: false
     xpath: //div[contains(@class,"InTheBox")]//div[@class="flix-std-table"]/div//div[@class="flix-std-content"]|//div[starts-with(@id,"inTheBoxText-")]|//div[@class="scheda-prodotto__info__col-cx"]/ul/li[contains(text(),"dotazione:")]
   - name: unInterruptedPDP
-    xpath: //div[contains(@class,"slider-prodotti__in-scheda-correlati")]//div[@class="slick-track"]/div[not(contains(@class,"slick-cloned"))]
+    xpath: //h3[@class='slider-prodotti__slide__caption__product']
   - name: hasComparisonTable
     singleValue: false
-    xpath: boolean(//div[@class="inpage_selector_comparison"]/div[contains(@class,'flix-compare')]) 
-    
+    xpath: boolean(//div[@class="inpage_selector_comparison"]/div[contains(@class,'flix-compare')])
