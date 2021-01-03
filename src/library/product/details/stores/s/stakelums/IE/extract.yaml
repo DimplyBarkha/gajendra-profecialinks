@@ -559,10 +559,10 @@ fields:
     defaultValue: No
   - name: inTheBoxText
     singleValue: false
-    xpath: //div[@class='eky-accesory-container']/div[@class='eky-accessory']/div[@class='eky-accesory-title']|//div[@class='inpage_selector_InTheBox']//div[contains(@class,'flix-std-desc')]
+    xpath: (//div[@class='eky-accesory-container']/div[@class='eky-accessory']/div[@class='eky-accesory-title'] | (//div[@class='inpage_selector_InTheBox'])[1]//div[contains(@class,'flix-std-desc')])[*] | //p[contains(text(),'In the Box')]/text()[preceding-sibling::br]
   - name: inTheBoxUrl
     singleValue: false
-    xpath: //div[@class='eky-accesory-container']/div[@class='eky-accessory']/img/@src|//div[@class='inpage_selector_InTheBox']//div[@class='flix-background-image']/img/@data-flixsrcset
+    xpath: //div[@id="added_inTheBoxUrl"]
   - name: hasComparisonTable
     singleValue: false
     xpath: boolean(//div[@class='inpage_selector_comparison']//div[contains(text(),'Comparison Table')])

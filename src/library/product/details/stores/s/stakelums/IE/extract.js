@@ -120,13 +120,28 @@ module.exports = {
       if (productInformation.length > 0) {
         const specificationOption2 = productInformation.join('||');
         addHiddenDiv('added_productInformation', productInformation.join('|'));
-        if (specificationsStr === null || specificationsStr === '') {
-          const specificationString = specificationOption2.toLowerCase();
-          addHiddenDiv('added_specifications', specificationString.substring(specificationString.lastIndexOf('specifications'), specificationString.lastIndexOf('mm')));
-        } else {
-          addHiddenDiv('added_specifications', specificationsStr);
-        }
+     
       }
+
+      const inTheBoxUrlArr = [];
+      findXpathArr("//div[@class='eky-accesory-container']/div[@class='eky-accessory']/img/@src|//div[@class='inpage_selector_InTheBox']//div[@class='flix-background-image']/img/@srcset").forEach(item => {
+        console.log("inTheBoxUrl: ", item)
+        const links = item.split(' ')[0];
+        inTheBoxUrlArr.push(links);
+      });
+       addHiddenDiv('added_inTheBoxUrl', inTheBoxUrlArr.join(' || '));
+    
+      function findXpathArr (xpath) {
+        const element = document.evaluate(xpath, document, null, XPathResult.ANY_TYPE, null);
+        let node = element.iterateNext();
+        const value = [];
+        while (node) {
+          value.push(node.textContent);
+          node = element.iterateNext();
+        }
+        return value;
+      }
+
     });
     await context.extract(productDetails, { transform: transformParam });
   },
