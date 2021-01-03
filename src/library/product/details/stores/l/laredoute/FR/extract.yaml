@@ -146,7 +146,6 @@ fields:
     # xpath: //*[contains(text(), 'Garantie')]
     # regExp: (Garantie.*?)<
     # regExpReplace: $1
-
   - name: unInterruptedPDP
     xpath: //div[contains(@class,"catalog-block")]//div[contains(@class,"lslide")]/div
   - name: hasComparisonTable
@@ -154,6 +153,6 @@ fields:
   - name: inTheBoxText
     xpath: //div[contains(@class,"InTheBox")]//div[@class="flix-std-content"]
   - name: inTheBoxUrl
-    xpath: //div[contains(@class,"InTheBox")]//div[@class="flix-background-image"]//img/@data-flixsrcset
-    regExp: (.+)(\s?200w)(.+)
-    regExpReplace: https:$1
+    xpath: //div[contains(@class,"InTheBox")]//div[@class="flix-background-image"]//img/@srcset
+    #regExp: (.+)(\s?200w)(.+)
+    #regExpReplace: https:$1
