@@ -22,7 +22,6 @@ const transform = (data) => {
       }))));
       return data;
     };
-    
     for (const { group } of data) {
       for (let row of group) {
         let tmp_desc = '';
@@ -41,6 +40,5 @@ const transform = (data) => {
       }
     }
     return cleanUp(data);
-  };
-  
-  module.exports = { transform };
+  }; 
+module.exports = { transform };
