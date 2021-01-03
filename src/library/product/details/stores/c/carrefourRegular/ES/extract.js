@@ -81,14 +81,14 @@ module.exports = {
         const inBoxTextVideoArray = [];
         const inBoxVideoText = document.querySelectorAll('div.tns-inner > div.my-slider>div.eky-relative-wrapper.tns-normal h1');
         for (let i = 0; i < inBoxVideoText.length; i++) {
-          const imgUrl2 = inBoxVideoText[i].innerText;
-          imgUrl2 && inBoxTextVideoArray.push(imgUrl2);
+          const imgText2 = inBoxVideoText[i].innerText;
+          imgText2 && inBoxTextVideoArray.push(imgText2);
         }
         const inBoxImgVideoArray = [];
         const inBoxImgVideo = document.querySelectorAll('div.tns-inner > div.my-slider>div.eky-relative-wrapper.tns-normal video');
         for (let i = 0; i < inBoxImgVideo.length; i++) {
-          const imgText2 = "https://media.flixfacts.com/eyekandy/dyson/v11/es/" + inBoxImgVideo[i].getAttribute('src');
-          imgText2 && inBoxImgVideoArray.push(imgText2);
+          const imgUrl2 = "https://media.flixfacts.com/eyekandy/dyson/v11/es/" + inBoxImgVideo[i].getAttribute('src');
+          imgUrl2 && inBoxImgVideoArray.push(imgUrl2);
         }
         const inBoxTextArray = [];
         const inBoxImageText = document.querySelectorAll('div.eky-accesory-title');
