@@ -4,7 +4,7 @@ module.exports = {
   parameterValues: {
     domain: 'zalando.fr',
     prefix: null,
-    url: null,
+    url: 'https://www.zalando.fr/{id}',
     country: 'FR',
     store: 'zalando',
     zipcode: '',
