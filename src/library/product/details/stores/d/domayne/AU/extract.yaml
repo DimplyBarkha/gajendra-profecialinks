@@ -517,10 +517,10 @@ fields:
     example: https://www.zalando.de/adidas-neo-sneaker-low-blackwhite-a4315i002-q11.html
   - name: inTheBoxUrl
     singleValue: false
-    xpath: //div[contains(.,'In the box')]/following-sibling::div[1]//div[@class="flix-background-image"]//img[@class="flix-img-responsive"]//@data-flixsrcset 
+    xpath: //div[starts-with(@id,"inTheBoxUrl-")]
   - name: inTheBoxText
     singleValue: false
-    xpath: //div[contains(.,'In the box')]/following-sibling::div[1]//div[@class="flix-std-content"]//div[contains(@class,"flix-std-desc")] | //h3[contains(.,'In The Box')]//following-sibling::div[1]/ul//li  
+    xpath: //div[starts-with(@id,"inTheBoxText-")]
   - name: hasComparisonTable
     singleValue: true
     defaultValue: No

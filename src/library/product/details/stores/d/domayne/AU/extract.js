@@ -57,6 +57,80 @@ async function implementation (inputs, parameters, context, dependencies) {
     }
     fetchRatingFromScript();
   });
+
+  try{
+    //await context.goto(src, { timeout: 50000, waitUntil: 'load', checkBlocked: true });
+    
+    const witbData = await context.evaluate(async () => {
+      await new Promise((resolve, reject) => setTimeout(resolve, 30000));
+      const iframe = document.querySelector('div.inpage_selector_InTheBox');
+      console.log("0========>");
+     const inBoxText = [];
+     const inBoxUrls = [];
+        const getInTheBoxTextOnly = document.querySelector('div.product-packcontents');
+        const intheboxppresent = document.querySelector('div#flix-inpage > div:last-child>div#flix-dyson-new-inpage>div#flix-std-inpage>div#inpage_container');
+        if(getInTheBoxTextOnly && !intheboxppresent){
+          console.log("1========>");
+          const getAllProductsTextOnly = document.querySelectorAll('div.product-packcontents > div.content >ul >li');
+          for (let i = 0; i < getAllProductsTextOnly.length; i++) {
+            inBoxText.push(getAllProductsTextOnly[i].innerText);
+          }
+        }else{
+          if(intheboxppresent){
+            console.log("2========>");
+            //await context.waitForSelector('#inpage_container', { timeout: 5000 });
+            const getAllProductsWithImg = document.querySelectorAll('div#flix-inpage > div:last-child>div#flix-dyson-new-inpage>div#flix-std-inpage>div#inpage_container>div.inpage_selector_feature>div.flix-std-container-fluid>div.inpage_selector_InTheBox>  div.flix-std-container-fluid >div.flix-std-table>div.flix-box-modules>div.flix-std-table>div');
+            for (let i = 0; i < getAllProductsWithImg.length; i++) {
+              inBoxText.push(getAllProductsWithImg[i].querySelector('div.flix-std-content>div>span').innerText);
+              inBoxUrls.push(getAllProductsWithImg[i].querySelector('div.flix-background-image>img').getAttribute('data-flixsrcset'));
+              
+            }
+            const getAllProductsWithImgLeft = document.querySelectorAll('div#flix-inpage > div:last-child>div#flix-dyson-new-inpage>div#flix-std-inpage>div#inpage_container>div.inpage_selector_feature>div.flix-std-container-fluid>div.inpage_selector_InTheBox>  div.flix-std-container-fluid >div.flix-std-table>div.flix-box-image');
+            for (let i = 0; i < getAllProductsWithImgLeft.length; i++) {
+              inBoxText.push(getAllProductsWithImgLeft[i].querySelector('div.flix-std-content>div>span').innerText);
+              inBoxUrls.push(getAllProductsWithImgLeft[i].querySelector('div.flix-background-image>img').getAttribute('data-flixsrcset'));
+              
+            }
+          }
+        }     
+    
+      return { inBoxText, inBoxUrls };
+      });
+     
+      
+  
+      await context.evaluate(async (witbData) => {
+        function addHiddenDiv (id, content) {
+          const newDiv = document.createElement('div');
+          newDiv.id = id;
+          newDiv.textContent = content;
+          newDiv.style.display = 'none';
+          document.body.appendChild(newDiv);
+        }
+  
+        const { inBoxText = [], inBoxUrls = [] } = witbData;
+        for (let i = 0; i < inBoxText.length; i++) {
+          addHiddenDiv(`inTheBoxText-${i}`, inBoxText[i]);
+          if (inBoxUrls[i]) {
+           
+            addHiddenDiv(`inTheBoxUrl-${i}`, inBoxUrls[i]);
+          }
+        }      
+      }, witbData);
+      // await context.waitForSelector('div#main-section', { timeout: 45000 });
+    } catch (error) {
+      try {
+        // await context.evaluate(async function (src) {
+        //   window.location.assign(src);
+        // }, src);
+        await context.waitForSelector('div.eky-container-full');
+        return await context.extract(productDetails, { type: 'MERGE_ROWS', transform });
+      } catch (err) {
+        console.log(err);
+      }
+    }
+  
+      //await context.waitForSelector('.inpage_selector_InTheBox', { timeout: 5000 });
   await new Promise((resolve) => setTimeout(resolve, 10000));
   return await context.extract(productDetails, { transform });
 }
