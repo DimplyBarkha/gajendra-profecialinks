@@ -14,7 +14,7 @@ fields:
     xpath: //div[contains(@class,"product-container")]//div[@class="price-container"]//pwr-price[@type="integer"]
   - name: productUrl
     singleValue: false
-    xpath: //div[contains(@class,"product-container")]//a[@class="product__link"]/@href
+    xpath: //div[contains(@class,"product-container")]//div[contains(@class,"product-item-container")]/a/@href
     regExp: (.+)
     regExpReplace: https://www.power.se$1
     description: The URL for the product details page
