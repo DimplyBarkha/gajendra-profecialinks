@@ -110,7 +110,6 @@ fields:
   - name: energyEfficiency
     singleValue: false
     xpath: //*[contains(text(), 'Energiklass')]/following::td[1]
-      https://www.amazon.de/Siemens-WM16W541-Waschmaschine-Schnellwaschprogramm-Nachlegefunktion/dp/B015FJFK14
     example: A+, A+++, B
   - name: packSize
     singleValue: false
@@ -137,14 +136,16 @@ fields:
     xpath: //td[contains(text(), "Vikt")]/following::td[1]
   - name: inTheBoxUrl
     singleValue: false
-    xpath: //div[contains(@class,"productSpec")]//div[contains(@class,"cPromotionItem")]//img/@src | //div[contains(@class,"productSpec")]//div/h2[contains(text(), "Produktbeskrivning")]/../following-sibling::div//img/@src
+    xpath: //div[@id ='inTheBoxUrl']
+    # xpath: //div[contains(@class,"productSpec")]//div[contains(@class,"cPromotionItem")]//img/@src | //div[contains(@class,"productSpec")]//div/h2[contains(text(), "Produktbeskrivning")]/../following-sibling::div//img/@src
     description: Must include image url to show the accessories/tools which come with the product
   - name: inTheBoxText
     singleValue: false
-    xpath: //div[contains(@class,"productSpec")]//div[contains(@class,"cPromotionItem")]//div[@class="name"]/a | //h2[contains(text(),'I förpackningen')]/ancestor::div/following-sibling::div/div/ul[@class='bulletList']/li |//tr//td[contains(.,'Medföljande verktyg')]/ancestor::tr//td[@class="plValue"]/text()|//tr//td[contains(.,'Medföljande tillbehör')]/ancestor::tr//td[@class="plValue"]/text()
+    xpath: //div[@id ='inTheBoxText']
+    # xpath: //div[contains(@class,"productSpec")]//div[contains(@class,"cPromotionItem")]//div[@class="name"]/a | //h2[contains(text(),'I förpackningen')]/ancestor::div/following-sibling::div/div/ul[@class='bulletList']/li |//tr//td[contains(.,'Medföljande verktyg')]/ancestor::tr//td[@class="plValue"]/text()|//tr//td[contains(.,'Medföljande tillbehör')]/ancestor::tr//td[@class="plValue"]/text()
   - name: hasComparisonTable
     singleValue: false
     xpath: boolean(//div[@class="matrix-heading"])
   - name: unInterruptedPDP
     singleValue: false
-    xpath: //div[contains(@class,"personalization")]//div[contains(@class,"name")]/a
+    xpath: //div[contains(@class,"personalization")]//div[contains(@class,"name")]
