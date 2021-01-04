@@ -17,10 +17,14 @@ fields:
     singleValue: true
     description: Alt text of the main product image
     xpath: (//div[@class="c-media-container__image-wrapper"]//img)/@alt
-  - name: alternateImages
-    singleValue: false
+  - name: alternateImages1
     description: Other product images (not in manufacturer description)
-    xpath: //div[@data-init="pdp-carousel"]//div[@class="slick-track"]//a[position()>1]//@data-src
+    xpath: //div[@data-init="pdp-carousel"]//div[@class="slick-track"]//a[@class="c-carousel__item slick-slide"]//@data-src | //div[@data-init="pdp-carousel"]//div[@class="slick-track"]//a[@class="c-carousel__item slick-slide slick-active"]//@data-src
+    regExp: (.+)
+    regExpReplace: https:$1
+  - name: alternateImages
+    description: Other product images (not in manufacturer description)
+    xpath: //div[@data-init="pdp-carousel"]//div[@class="slick-track"]//a[@class="c-carousel__item slick-slide"]//@data-src | //div[@data-init="pdp-carousel"]//div[@class="slick-track"]//a[@class="c-carousel__item slick-slide slick-active"]//@data-src
     regExp: (.+)
     regExpReplace: https:$1
   - name: metaKeywords
@@ -59,7 +63,7 @@ fields:
     singleValue: false
     description: Product description supplied by website - may be concatenanted from
       multiple places; specifically not the manufacturer description
-    xpath: //div//h1[@class="e-h1 sel-product-title"]
+    xpath: //div//h1[@class="e-h1 sel-product-title"] | //body//@description | //body//@specification
   - name: descriptionBullets
     singleValue: true
     description: Number of ul > li tags in the description
@@ -85,8 +89,8 @@ fields:
     singleValue: true
     description: Gross weight as described on the page
   - name: gtin
-    singleValue: true
     description: GTIN code (includes UPC/EAN)
+    xpath: //div//p[@class="c-product-code"]
   - name: sku
     singleValue: true
     description: The store-specific product identifier
@@ -127,14 +131,13 @@ fields:
   - name: aggregateRating2
     singleValue: true
     description: The stated aggregate rating normalized to be out of 5
-    xpath: //div[@class='review-ext-stars-ratings-all']/span[@itemprop="ratingValue"]
+    xpath: //div[@class='review-ext-stars-ratings-all']/span[@itemprop="ratingValue"] | //span[@itemprop="aggregateRating"]//meta[@itemprop="ratingValue"]//@content
   - name: shippingInfo
     singleValue: true
     description: Shipping information for the product
   - name: shippingDimensions
-    singleValue: true
     description: Stated shipping dimensions
-    xpath: //table[@class="table table-striped product-details-table"]/tbody//td//span[contains(text(),"Диаметр")]/ancestor::*[position()=2]//td[2]/span/text()
+    xpath: //table[@class="table table-striped product-details-table"]/tbody//td//span[contains(text(),"Диаметр")]/ancestor::*[position()=2]//td[2]/span/text() | //body//@shipping
   - name: shippingWeight
     singleValue: true
     description: Stated shipping weight
@@ -156,9 +159,9 @@ fields:
     singleValue: false
     description: Images within the third party description
   - name: videos
-    singleValue: false
     description: URLs of videos on page
-    xpath: //div[@data-init="add-youtube-video-statistic"]//iframe[@id="media-container-player"]/@src
+    xpath: //div[@data-init="add-youtube-video-statistic"]//iframe[@id="media-container-player"]/@src | //a[@data-type='video']//@data-src
+    regExp: (www.+)
   - name: nameExtended
     singleValue: true
     description: The product name
@@ -417,7 +420,7 @@ fields:
   - name: specifications
     singleValue: true
     description: The physical dimensions of the product including packaging.
-    xpath: //div//div[@class="o-pdp-about-product-specification"]
+    xpath: //body//@productspecification
   - name: warranty
     singleValue: true
     description: Guarantee associated with the product

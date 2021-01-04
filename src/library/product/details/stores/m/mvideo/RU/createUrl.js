@@ -3,7 +3,7 @@ module.exports = {
   implements: 'product/details/createUrl',
   parameterValues: {
     domain: 'mvideo.ru',
-    prefix: null,
+    prefix: 'products',
     url: null,
     country: 'RU',
     store: 'mvideo',
