@@ -50,14 +50,6 @@ const transform = (data) => {
           row.variantUrl.shift();
         }
       }
-      if (row.category) {
-        if (row.category[0].text.includes('Home')) {
-          row.category.shift();
-        }
-        if (row.category[0].text.includes('Home')) {
-          row.category.shift();
-        }
-      }
       if (row.quantity) {
         row.quantity.forEach(quantity => {
           quantity.text = quantity.text.replace('Product dimensions:', '').trim();

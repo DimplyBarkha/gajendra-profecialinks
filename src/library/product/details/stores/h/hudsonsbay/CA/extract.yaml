@@ -22,7 +22,7 @@ fields:
   - name: category
     singleValue: false
     description: The categories (e.g. from breadcrumbs)
-    manualSelector: div.product-breadcrumb.col ol li
+    xpath: //div[contains(@class, 'product-breadcrumb col hidden-md-down')]//ol[contains(@class, 'breadcrumb adobelaunch__breadcrumb')]/li[position()>2]
   - name: nameExtended
     singleValue: false
     description: The product name, prefixing "${brand} - " if not included in "name"
