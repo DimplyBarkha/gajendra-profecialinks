@@ -28,12 +28,6 @@ module.exports = {
         document.body.appendChild(catElement);
       }
       try {
-        const shippingInfo = JSON.parse(document.evaluate('//div[contains(@class,"leadoutbox-price")]/a[@data-gtm-payload]', document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue.getAttribute('data-gtm-payload'));
-        shippingInfo && shippingInfo.shop_name && addElementToDocument('pd_shipping_info', shippingInfo.shop_name);
-      } catch (error) {
-        console.log('Failed to fetch shipping info');
-      }
-      try {
         // @ts-ignore
         const dataObj = JSON.parse(document.querySelector('script[type="application/ld+json"]').innerText.trim());
         if (dataObj) {
@@ -52,6 +46,25 @@ module.exports = {
         }
       } catch (error) {
         console.log('json two not present');
+      }
+      try {
+        const checkIfId = document.querySelector('div[id="pd_variant_id"]');
+        const dataObjThree = JSON.parse(document.evaluate('//div[contains(@class,"oopStage-details")]//span[contains(@data-gtm-payload,"productId")]', document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue.getAttribute('data-gtm-payload'));
+        if (!checkIfId && dataObjThree) {
+          dataObjThree && dataObjThree.productId && addElementToDocument('pd_variant_id', dataObjThree.productId);
+        }
+      } catch (error) {
+        console.log('json three not present');
+      }
+      try {
+        const checkIfPrice = document.querySelector('div[id="pd_price"]');
+        const shippingInfo = JSON.parse(document.evaluate('(//ul[contains(@class,"productOffers-list")]//a[contains(@class,"productOffers-listItemTitle")])[1]', document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue.getAttribute('data-gtm-payload'));
+        shippingInfo && shippingInfo.shop_name && addElementToDocument('pd_shipping_info', shippingInfo.shop_name);
+        if (!checkIfPrice && shippingInfo) {
+          shippingInfo && shippingInfo.product_price && addElementToDocument('pd_price', shippingInfo.product_price);
+        }
+      } catch (error) {
+        console.log('Failed to fetch shipping info');
       }
     });
     const { transform } = parameters;
