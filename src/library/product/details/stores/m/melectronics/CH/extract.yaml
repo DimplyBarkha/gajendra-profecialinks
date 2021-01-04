@@ -27,7 +27,7 @@ fields:
     xpath: //div[@name='specification']//div[@class='detail-navigation-section--specification-item']//div[text()='Artikelnummer']/parent::*/div[@class='detail-navigation-section--specification-item-tx']
   - name: image
     singleValue: false
-    xpath: //div[@class='detail-showcase--main-img-container']//img/@src
+    xpath: //meta[@property="og:image"]/@content | //div[@class='detail-showcase--main-img-container']//img/@src
   - name: imageAlt
     singleValue: false
     xpath: //div[@class='detail-showcase--main-img-container']//img/@alt
@@ -107,4 +107,5 @@ fields:
     singleValue: false
     description: Must include text to show the accessories/tools which come with the product
     xpath: //div[contains(text(),"Enthaltenes Zubehör")]/following-sibling::div/span
+    regExp: '[^,]+'
   
