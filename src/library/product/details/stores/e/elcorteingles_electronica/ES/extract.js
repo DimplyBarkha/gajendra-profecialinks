@@ -20,6 +20,7 @@ module.exports = {
       console.log('main URL');
       return document.URL;
     });
+    let manufacturerDesc = [];
     const energyRating = '';
     try {
       const navigateLink = await context.evaluate(function () {
@@ -39,16 +40,38 @@ module.exports = {
 
         console.log('In Enhanced content areas');
 
-        let enhancedContentPresent = false;
-        const otherSellersTable = await context.evaluate(function (enhancedContentPresent) {
-          if (document.querySelector('h1') ? document.querySelector('h1').innerText.includes("isn't any digital profile available") : true) {
-            enhancedContentPresent = false;
+        let enhancedContentPresent = await context.evaluate(async () => {
+          return !(document.querySelector('body').innerText.includes("isn't any digital profile available"));
+        });
+        console.log('do we have enhanced content - ' + enhancedContentPresent);
+
+        const otherSellersTable = await context.evaluate(function () {
+          if (document.querySelector('body').innerText.includes("isn't any digital profile available")) {
+            // document.querySelector('h1') ? document.querySelector('h1').innerText.includes("isn't any digital profile available") : true
             return '';
           } else {
-            enhancedContentPresent = true;
             return document.querySelector('body').innerHTML;
           }
-        }, enhancedContentPresent);
+        });
+
+        if(enhancedContentPresent) {
+          manufacturerDesc = await context.evaluate(async () => {
+            let manufacDesc = document.querySelectorAll('body>*:not(script)');
+            let arr = [];
+            if((!manufacDesc) || (manufacDesc.length === 0)) {
+              console.log('we do not have anything in the body');
+              return arr;
+            } 
+            
+            for(let i = 0; i < manufacDesc.length; i++) {
+              console.log(manufacDesc[i].textContent.replace(/^\s*\n/gm, ''));
+              arr.push(manufacDesc[i].textContent.replace(/^\s*\n/gm, '').trim());
+            }
+            console.log('manufacturerDesc is as follows - ');
+            console.log(manufacDesc);
+            return arr;
+          });
+        }
 
         if(enhancedContentPresent) {
           console.log('got the enhanced content');
@@ -445,7 +468,7 @@ module.exports = {
     
     await applyScroll(context);
 
-    await context.evaluate(async () => {
+    await context.evaluate(async (manufacturerDesc) => {
 
       async function addElementToDocumentAsync (key, value) {
         const catElement = document.createElement('div');
@@ -497,7 +520,7 @@ module.exports = {
           let videoUrl = "";
           if(videoJson && gtin && Produrl) {
             videoUrl = `https://media.flixcar.com/delivery/static/jwplayer/jwiframe.html?fjw=${encodedUri}&l=es&ean=${gtin}&sid=&base=//media.flixcar.com&pn=https|dub|for${Produrl}`;
-            addElementToDocumentAsync('galleryVideo', videoUrl);
+            await addElementToDocumentAsync('galleryVideo', videoUrl);
           } else {
             console.log("no gallery videos");
           }
@@ -510,8 +533,9 @@ module.exports = {
       }
       let videoSet = new Set (allVidLinks);
       allVidLinks = Array.from(videoSet);
-      addElementToDocumentAsync('allVidLinks', allVidLinks.join(' || '));
-    });
+      await addElementToDocumentAsync('allVidLinks', allVidLinks.join(' || '));
+      await addElementToDocumentAsync('manufacdesc', manufacturerDesc.join(' || '));
+    }, manufacturerDesc);
 
     await context.extract(productDetails, { transform });
   },
