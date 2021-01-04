@@ -145,23 +145,15 @@ const transform = (data) => {
         }
       }
       if (row.inTheBoxText) {
-        let info = [];
+        let arrInTheBox = [];
         row.inTheBoxText.forEach(item => {
-            info.push(item.text.trim());
+            arrInTheBox.push(item.text);
         });
-        function removeDuplicates(data)
-       {
-         return data.filter((value, index) => data.indexOf(value)===index);
-       }
-       let itm1= removeDuplicates(info);
-        if (itm1.length) {
-            row.inTheBoxText= [];
-            itm1.forEach(item => {
-                row.inTheBoxText.push({ 'text': item });
-            });
-            console.log(" row.inTheBoxText: ",  itm1)
-        }
-    }
+        let arrUniqueText =  [...new Set(arrInTheBox)];
+        row.inTheBoxText = [ 
+          { text: arrUniqueText.toString().replace(/,/g, '||').replace(/und\b/g, '||') }
+        ]
+      }
     }
   }
   return cleanUp(data);
