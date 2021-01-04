@@ -27,6 +27,7 @@ const transform = (data) => {
           }
         });
       }
+
       if (row.manufacturerImages) {
         row.manufacturerImages.forEach(image => {
           const allImages = image.text.split(', ').map(img => img.trim());
@@ -80,10 +81,12 @@ const transform = (data) => {
       }
       if (row.inTheBoxUrl) {
         row.inTheBoxUrl.forEach(image => {
+          let count = 10;
           const allImages = image.text.split(', ').map(img => img.trim());
           let mainImage;
           mainImage = allImages[0].replace(/(.*?)\s.*/, '$1').trim();
           image.text = mainImage;
+          console.log("here i am ", count);
         });
       }
     }
