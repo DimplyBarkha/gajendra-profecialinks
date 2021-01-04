@@ -559,13 +559,13 @@ fields:
     defaultValue: No
   - name: inTheBoxText
     singleValue: false
-    xpath: (//div[@class='eky-accesory-container']/div[@class='eky-accessory']/div[@class='eky-accesory-title'] | (//div[@class='inpage_selector_InTheBox'])[1]//div[contains(@class,'flix-std-desc')])[*] | //p[contains(text(),'In the Box')]/text()[preceding-sibling::br]
+    xpath: (//div[@class='eky-accesory-container']/div[@class='eky-accessory']/div[@class='eky-accesory-title'] | (//div[@class='inpage_selector_InTheBox'])[1]//div[contains(@class,'flix-std-desc')])[*] | //p[contains(text(),'In the Box')]/text()[preceding-sibling::br] | //div[starts-with(@id,"inTheBoxText-")]
   - name: inTheBoxUrl
     singleValue: false
-    xpath: //div[@id="added_inTheBoxUrl"]
+    xpath: //div[@id="added_inTheBoxUrl"] | //div[starts-with(@id,"inTheBoxUrl-")]
   - name: hasComparisonTable
     singleValue: false
-    xpath: boolean(//div[@class='inpage_selector_comparison']//div[contains(text(),'Comparison Table')])
+    xpath:  //div[starts-with(@id,"isCompareTable-")]
     defaultValue: No
     description: Compare the range table or matrix must be present for all vacuum cleaners & air treatment. This is not required for personal care or lighting. As a minimum the comparison table will compare against 1 additional Dyson product.
   - name: unInterruptedPDP
