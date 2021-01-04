@@ -46,7 +46,6 @@ fields:
     xpath: //td[contains(.,'Couleur')]/following-sibling::td
 
   - name: price
-    singleValue: true
     xpath: //meta[@itemprop='price']/@content | //div[@id='price']
 
   - name: category
@@ -82,12 +81,10 @@ fields:
     singleValue: false
     xpath: //span[contains(text(),'Télécharger la fiche produit')]
 
-  - name: url
-    singleValue: true
+  - name: productUrl
     xpath: //div[@id='product_url_page']
 
   - name: videos
-    singleValue: true
     xpath: //video/@src
 
   - name: manufacturerImages
@@ -103,7 +100,6 @@ fields:
     xpath: //tr[contains(.,'Dimensions')]/td | //tr[contains(.,'Poids')]/td | //tr[contains(.,'Largeur')]/td | //tr[contains(.,'Hauteur')]/td | //tr[contains(.,'Profondeur')]/td
 
   - name: variantCount
-    singleValue: true
     defaultValue: 1
 
   - name: alternateImages
@@ -128,9 +124,11 @@ fields:
 
   - name: hasComparisonTable
     singleValue: false
-    xpath: boolean(//div[@class="inner"])
+    xpath: boolean(//h3[contains(text(),"Tableau comparatif")])
 
   - name: unInterruptedPDP
     singleValue: false
     xpath: //div[contains(@class,'row accordion-body')]//article[@itemprop="itemListElement"]//span[@itemprop="name"]
 
+  - name: inTheBoxText
+    xpath: //tr[preceding-sibling::tr[th][1][contains(.,"EQUIPEMENTS")]][td[2][contains(.,"Oui")]]/td[1] | //tr[preceding-sibling::tr[th][1][contains(.,"ACCESSOIRES")]][td[2][contains(.,"Oui")]]/td[1]
