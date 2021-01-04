@@ -29,6 +29,16 @@ const transform = (data) => {
       //     item.text = item.text.replace(/(\s?\n)+/g, ' | ').trim();
       //   });
       // }
+      if (row.shippingInfo) {
+        let text = "";
+        let xpath = row.shippingInfo[0].xpath;
+        row.shippingInfo.forEach(item => {
+          text += item.text;
+        });
+        text = text.replace('Marketplace','');
+        row.shippingInfo = [{text: text, xpath: xpath}];
+      }
+
       if (row.videos) {
         row.videos = row.videos.filter((video) => {
           return video.text;

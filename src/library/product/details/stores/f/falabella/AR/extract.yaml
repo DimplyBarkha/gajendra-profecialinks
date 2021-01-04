@@ -78,7 +78,7 @@ fields:
     xpath: //div/@data-id
   - name: shippingInfo
     singleValue: false
-    xpath: //p[contains(@class,'sellerInfo')]
+    xpath: //p[contains(@class,'sellerInfo')] | //p[contains(@class,'market-place-tag-text')]
   - name: ratingCount
     singleValue: false
     xpath: //meta[@itemprop='reviewCount']/@content
