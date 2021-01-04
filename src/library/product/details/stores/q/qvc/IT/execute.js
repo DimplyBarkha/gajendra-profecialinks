@@ -6,7 +6,7 @@ module.exports = {
     store: 'qvc',
     domain: 'qvc.it',
     loadedSelector: 'div[class*="product-gallery"] img',
-    noResultsXPath: '//div[@class="title-header"]//h3[contains(text(),"Login")]',
+    noResultsXPath: '/html[not(body[contains(@class,"product-detail-page")])] | //body[contains(@class,"login-page")] | //div[@class="title-header"]//h3[contains(text(),"Login")]',
     zipcode: '',
   },
 };

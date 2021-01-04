@@ -1,0 +1,58 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: div.p-products__list-item
+recordXPath: null
+fields:
+  - name: id
+    singleValue: false
+    xpath: //div[@class='extra-info']/@data-productid
+  - name: name
+    singleValue: false
+    xpath: //div[contains(@class, 'c-product-card__title')]//a/text()
+  - name: productUrl
+    singleValue: false
+    xpath: //a/@href
+    regExp: >- 
+      ^(.*)$
+    regExpReplace: >-
+      https://www.foodservicedirect.com/$1
+  - name: searchUrl
+    singleValue: false
+    xpath: ancestor::html//div[@id='search-url']
+  - name: gtin
+    singleValue: false
+  - name: thumbnail
+    singleValue: false
+    xpath: //div[@class='extra-info']/@data-thumbnail
+  - name: aggregateRating
+    singleValue: false
+  - name: aggregateRating2
+    singleValue: false
+  - name: reviewCount
+    singleValue: false
+  - name: price
+    singleValue: false
+    xpath: //span[contains(@class, 'c-product-card__price-current')]//text()
+  - name: manufacturer
+    singleValue: false
+  - name: soldBy
+    singleValue: false
+  - name: endorsementText
+    singleValue: false
+  - name: rank
+    singleValue: false
+    description: search/listing rank
+    type: NUMBER
+  - name: rankOrganic
+    singleValue: false
+    description: The position (rank) within the list excluding sponsored/paid results
+    type: NUMBER
+  - name: sponsored
+    singleValue: false
+    description: Is sponsored/paid
+    type: BOOLEAN
+  - name: totalRecordCount
+    singleValue: false
+    xpath: ancestor::html//div[contains(@class, 'c-list-view-settings__list-info')]//span/text()[2]
+    type: NUMBER
+
