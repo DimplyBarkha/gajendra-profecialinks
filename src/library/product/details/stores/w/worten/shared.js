@@ -18,6 +18,11 @@ const transform = (data) => {
           },
         ];
       }
+      if (row.manufacturerDescription) {
+        const text = row.manufacturerDescription[0].text.replace(/more/g, '').trim();
+        row.manufacturerDescription = [{ text }];
+      }
+
       if (row.specifications) {
         const text = row.specifications[0].text.replace(/Ver Tudo/g, '').trim();
         row.specifications = [{ text }];
