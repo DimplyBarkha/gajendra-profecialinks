@@ -4,7 +4,7 @@ module.exports = {
   parameterValues: {
     domain: 'semprefarmacia.it',
     prefix: null,
-    url: null,
+    url: 'https://www.semprefarmacia.it/Prodotti/{id}',
     country: 'IT',
     store: 'semprefarmacia',
     zipcode: '',
