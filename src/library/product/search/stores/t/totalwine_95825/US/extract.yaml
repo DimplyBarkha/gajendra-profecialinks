@@ -27,7 +27,7 @@ fields:
     regExp: (\d+)(.)(\d+)
   - name: sponsored
   - name: searchUrl
-    xpath: //article[@class="productCard__2nWxIKmi"]/@searchurl
+    xpath: ancestor::html//body/@current_page_url
   - name: reviewCount
     xpath: //span[@class="reviewsCount__2mDVDm54"]
     regExp: (\d+)
