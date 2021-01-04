@@ -51,7 +51,7 @@ fields:
   - name: aggregateRating
     singleValue: false
     description: The product rating
-    xpath: ancestor::html//div[@itemprop='aggregateRating']/div[2]//div[2]//span[@itemprop='ratingValue']
+    xpath: ancestor::html//span[@itemprop='ratingValue']
   - name: pageTitle
     singleValue: false
     description: The url of the page title
@@ -72,6 +72,7 @@ fields:
     singleValue: false
     type: DATETIME
     description: Date the review was made
+    xpath: //span[@class='sc-1tgo8i-11 iEjqbJ']/span/following-sibling::text()
   - name: rating
     type: NUMBER
     singleValue: false
