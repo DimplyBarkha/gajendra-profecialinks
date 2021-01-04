@@ -13,6 +13,7 @@ async function implementation (
 ) {
   const url = parameters.url.replace('{searchTerms}', encodeURIComponent(inputs.keywords));
   await dependencies.goto({ url, zipcode: inputs.zipcode });
+  await new Promise(resolve => setTimeout(resolve, 10000));
   return await context.evaluate(function (xp, inputs) {
     localStorage.setItem('keywords', `${inputs.keywords}`);
     const rows = document.evaluate(xp, document, null, XPathResult.UNORDERED_NODE_ITERATOR_TYPE, null);
