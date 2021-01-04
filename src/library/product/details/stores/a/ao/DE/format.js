@@ -52,10 +52,17 @@ const transform = (data, context) => {
           }];
         }
 
+        // if (row.manufacturerDescription) {
+        //   let text = '';
+        //   row.manufacturerDescription.forEach(item => {
+        //     text = text + (text ? ' ' : '') + item.text;
+        //   });
+        //   row.manufacturerDescription = [{ text }];
+        // }
         if (row.manufacturerDescription) {
           let text = '';
           row.manufacturerDescription.forEach(item => {
-            text = text + (text ? ' ' : '') + item.text;
+            text = row.manufacturerDescription.map(elm => elm.text).join(' ');
           });
           row.manufacturerDescription = [{ text }];
         }
