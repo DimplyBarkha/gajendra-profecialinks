@@ -1,9 +1,8 @@
 extends: ../shared 
 fields:
   - name: availabilityText #localedependent
-    singleValue: true
     description: Availability as described on page for the selected variant. If
       there is no availability but the product can be added to cart, this field
       should be "In Stock"
-    xpath: //div[contains(concat(' ',normalize-space(@class),' '),' product-hero ')]//form//*[contains(text(),'Add to basket')]//text()
+    xpath: boolean(//div[contains(concat(' ',normalize-space(@class),' '),' product-hero ')]//form//*[contains(text(),'Add to basket')]/text())
     # Add no default value, being take care in transform.js
