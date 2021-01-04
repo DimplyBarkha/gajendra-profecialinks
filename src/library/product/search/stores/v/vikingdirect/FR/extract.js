@@ -10,7 +10,7 @@ module.exports = {
     zipcode: '',
   },
   implementation: async ({ inputString }, { country, domain, transform }, context, { productDetails }) => {
-    await new Promise((resolve, reject) => setTimeout(resolve, 3000));
+    await new Promise((resolve) => setTimeout(resolve, 3000));
 
     await context.evaluate(async function () {
       const body = document.body;
@@ -25,15 +25,6 @@ module.exports = {
       }
     });
     await new Promise((resolve, reject) => setTimeout(resolve, 2000));
-    await context.evaluate(async function () {
-      const lastProductPosition = localStorage.getItem('prodCount') ? Number(localStorage.getItem('prodCount')) : 1;
-      const products = document.querySelectorAll('div.skuListSku');
-      for (let i = 0; i < products.length; i++) {
-        products[i].setAttribute('rank', `${lastProductPosition + i}`);
-      }
-      localStorage.setItem('prodCount', `${lastProductPosition + products.length}`);
-    });
-    await new Promise((resolve, reject) => setTimeout(resolve, 3000));
     return await context.extract(productDetails, { transform });
   },
 };

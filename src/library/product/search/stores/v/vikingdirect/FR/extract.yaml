@@ -1,28 +1,27 @@
 singleRecord: false
 regionsSelector: null
-recordSelector: div.skuListSku
+recordSelector: div.skuListSku, div.skuTopDetailsContainer
 recordXPath: null
 fields:
   - name: id
-    singleValue: false
-    xpath: //div[@class="skuListSkuNumber"]/text()
-    regExp: Référence :\s+(.+)
-    regExpReplace: $1
+    singleValue: true
+    xpath: (//input[contains(@name, "sku_withoutEffortCode")]/@value|//input[@name="recordSpecValue"]/@value)[1]
   - name: searchUrl
     singleValue: true
   - name: name
     singleValue: false
-    xpath: //div[@class="skuListSkuImg photo"]//img/@title
+    xpath: (//div[@class="skuListSkuImg photo"]//img/@title|//h1[@class="sku_Title"])[1]
   - name: productUrl
     singleValue: false
     xpath: //div[@class="skuListSkuImg photo"]//a/@href
     regExp: (.+)
     regExpReplace: https://www.vikingdirect.fr$1
   - name: gtin
-    singleValue: false
+    singleValue: true
+    xpath: (//input[contains(@name, "sku_withoutEffortCode")]/@value|//input[@name="recordSpecValue"]/@value)[1]
   - name: thumbnail
     singleValue: false
-    xpath: //div[@class="skuListSkuImg photo"]//img/@src
+    xpath: (//div[@class="skuListSkuImg photo"]//img/@src|//div[@id="mixedmediaviewer_flyout"]/div/img[1]/@src)[1]
   - name: aggregateRating
     singleValue: false
   - name: aggregateRating2
@@ -33,7 +32,7 @@ fields:
     singleValue: false
   - name: price
     singleValue: false
-    xpath: //div[@class="skuListPriceCol"]//div[@class="skuPricing"]/div[@class="skuNewPricing"]/span[@class="bigPrice"]
+    xpath: (//div[@class="skuListPriceCol"]//div[@class="skuPricing"]/div[@class="skuNewPricing"]/span[@class="bigPrice"]|//div[@class="skuPricing"]//span[@class="bigPrice"])[1]
   - name: manufacturer
     singleValue: true
   - name: soldBy
@@ -43,17 +42,16 @@ fields:
   - name: rank
     singleValue: false
     description: search/listing rank
-    xpath: //@rank
     type: NUMBER
   - name: rankOrganic
     singleValue: true
     description: The position (rank) within the list excluding sponsored/paid results
     type: NUMBER
-    xpath: //@rank
   - name: sponsored
     singleValue: false
     description: Is sponsored/paid
     type: BOOLEAN
+    defaultValue: false
   # - name: totalRecordCount
   #   singleValue: true 
   #   type: NUMBER

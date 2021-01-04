@@ -2,156 +2,45 @@ input:
   Keywords: Recharge de savon pour les mains
   _url: http://vikingdirect.fr
 extractions:
-  - html: https://workbench.import.io/html/run=81db6d56-eed5-47fc-9be3-7fe71fb41208/task=0191a5bf-8519-4460-a702-4c2fcd79ae70/493ebc9f-a643-4fdc-b4b0-344e8443cf9d.html
+  - html: https://workbench.import.io/html/run=2e417f88-5794-4d4d-8920-7de7aa61e3bc/task=6491d58e-e902-49a9-94ff-134536fafbfb/a8f9cc8f-0d5a-425b-9f8f-c79e0c224675.html
     extractionConfigId: product/search/stores/v/vikingdirect/FR/extract
     data:
       - group:
-          - id:
-              - text: Q20-1574107
-                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[3]/div[1]/div[1]/form[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/text()[1]
-            name:
-              - text: Recharge savon mains Kleenex Frais 1 l Fresh Luxury Liquide 6 Unités de 1
-                  L
-                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[3]/div[1]/div[1]/form[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/a[1]/img[1]/@title
-            productUrl:
-              - text: https://www.vikingdirect.fr/a/pb/Recharge-savon-mains-Kleenex-Frais-1-l-Fresh-Luxury-Liquide-6-Unites-de-1-L/id=1574107/?pr=Q20
+          - productUrl:
+              - text: https://www.vikingdirect.fr/a/pb/Recharge-savon-a-mains-PROP-389480-Bleu-6-Unites/id=8540848/?pr=Q41
                 xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[3]/div[1]/div[1]/form[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/a[1]/@href
-            thumbnail:
-              - text: https://odeu.scene7.com/is/image/odeu11/1574107?$md$
-                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[3]/div[1]/div[1]/form[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/a[1]/img[1]/@src
-            price:
-              - text: 61,59 €
-                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[3]/div[1]/div[1]/form[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[2]/span[1]
-            rank:
-              - text: "1"
-                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[3]/div[1]/div[1]/form[1]/div[3]/div[1]/div[1]/div[1]/@rank
-                type: NUMBER
-                raw: "1"
-                locale: fr_FR
-                value: 1
-            rankOrganic:
-              - text: "1"
-                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[3]/div[1]/div[1]/form[1]/div[3]/div[1]/div[1]/div[1]/@rank
-                type: NUMBER
-                raw: "1"
-                locale: fr_FR
-                value: 1
-          - id:
-              - text: Q20-5377236
-                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[3]/div[1]/div[1]/form[1]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/text()[1]
-            name:
-              - text: Recharge savon mains Kleenex Huile de théier et extrait de citron 1 l
-                  Energy Luxury Liquide 6 Unités de 1 L
-                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[3]/div[1]/div[1]/form[1]/div[3]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/a[1]/img[1]/@title
-            productUrl:
-              - text: https://www.vikingdirect.fr/a/pb/Recharge-savon-mains-Kleenex-Huile-de-theier-et-extrait-de-citron-1-l-Energy-Luxury-Liquide-6-Unites-de-1-L/id=5377236/?pr=Q20
-                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[3]/div[1]/div[1]/form[1]/div[3]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/a[1]/@href
-            thumbnail:
-              - text: https://odeu.scene7.com/is/image/odeu11/5377236?$md$
-                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[3]/div[1]/div[1]/form[1]/div[3]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/a[1]/img[1]/@src
-            price:
-              - text: 61,59 €
-                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[3]/div[1]/div[1]/form[1]/div[3]/div[1]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[2]/span[1]
-            rank:
-              - text: "2"
-                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[3]/div[1]/div[1]/form[1]/div[3]/div[1]/div[1]/div[2]/@rank
-                type: NUMBER
-                raw: "2"
-                locale: fr_FR
-                value: 2
-            rankOrganic:
-              - text: "2"
-                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[3]/div[1]/div[1]/form[1]/div[3]/div[1]/div[1]/div[2]/@rank
-                type: NUMBER
-                raw: "2"
-                locale: fr_FR
-                value: 2
-          - id:
-              - text: Q20-2377282
-                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[3]/div[1]/div[1]/form[1]/div[3]/div[1]/div[1]/div[3]/div[1]/div[2]/div[1]/div[1]/text()[1]
-            name:
-              - text: Recharge savon mains Kleenex Frais 1 l Luxury Joy Liquide 6 Unités de 1 L
-                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[3]/div[1]/div[1]/form[1]/div[3]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/a[1]/img[1]/@title
-            productUrl:
-              - text: https://www.vikingdirect.fr/a/pb/Recharge-savon-mains-Kleenex-Frais-1-l-Luxury-Joy-Liquide-6-Unites-de-1-L/id=2377282/?pr=Q20
-                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[3]/div[1]/div[1]/form[1]/div[3]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/a[1]/@href
-            thumbnail:
-              - text: https://odeu.scene7.com/is/image/odeu11/2377282?$md$
-                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[3]/div[1]/div[1]/form[1]/div[3]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/a[1]/img[1]/@src
-            price:
-              - text: 61,59 €
-                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[3]/div[1]/div[1]/form[1]/div[3]/div[1]/div[1]/div[3]/div[1]/div[3]/div[1]/div[1]/div[2]/span[1]
-            rank:
-              - text: "3"
-                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[3]/div[1]/div[1]/form[1]/div[3]/div[1]/div[1]/div[3]/@rank
-                type: NUMBER
-                raw: "3"
-                locale: fr_FR
-                value: 3
-            rankOrganic:
-              - text: "3"
-                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[3]/div[1]/div[1]/form[1]/div[3]/div[1]/div[1]/div[3]/@rank
-                type: NUMBER
-                raw: "3"
-                locale: fr_FR
-                value: 3
-          - id:
-              - text: Q20-8540848
-                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[3]/div[1]/div[1]/form[1]/div[3]/div[1]/div[1]/div[4]/div[1]/div[2]/div[1]/div[1]/text()[1]
+            id:
+              - text: "8540848"
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[3]/div[1]/div[1]/form[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/input[3]/@value
             name:
               - text: Recharge savon à mains PROP 389480 Bleu 6 Unités
-                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[3]/div[1]/div[1]/form[1]/div[3]/div[1]/div[1]/div[4]/div[1]/div[1]/div[1]/a[1]/img[1]/@title
-            productUrl:
-              - text: https://www.vikingdirect.fr/a/pb/Recharge-savon-a-mains-PROP-389480-Bleu-6-Unites/id=8540848/?pr=Q20
-                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[3]/div[1]/div[1]/form[1]/div[3]/div[1]/div[1]/div[4]/div[1]/div[1]/div[1]/a[1]/@href
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[3]/div[1]/div[1]/form[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/a[1]/img[1]/@title
+            gtin:
+              - text: "8540848"
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[3]/div[1]/div[1]/form[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/input[3]/@value
             thumbnail:
               - text: https://odeu.scene7.com/is/image/odeu11/8540848?$md$
-                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[3]/div[1]/div[1]/form[1]/div[3]/div[1]/div[1]/div[4]/div[1]/div[1]/div[1]/a[1]/img[1]/@src
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[3]/div[1]/div[1]/form[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/a[1]/img[1]/@src
             price:
-              - text: 35,10 €
-                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[3]/div[1]/div[1]/form[1]/div[3]/div[1]/div[1]/div[4]/div[1]/div[3]/div[1]/div[1]/div[2]/span[1]
-            rank:
-              - text: "4"
-                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[3]/div[1]/div[1]/form[1]/div[3]/div[1]/div[1]/div[4]/@rank
-                type: NUMBER
-                raw: "4"
-                locale: fr_FR
-                value: 4
-            rankOrganic:
-              - text: "4"
-                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[3]/div[1]/div[1]/form[1]/div[3]/div[1]/div[1]/div[4]/@rank
-                type: NUMBER
-                raw: "4"
-                locale: fr_FR
-                value: 4
-          - id:
-              - text: Q20-400501-50
-                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[3]/div[1]/div[1]/form[1]/div[3]/div[1]/div[3]/div[1]/div[1]/div[2]/div[1]/div[1]/text()[1]
+              - text: 28,00 €
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[2]/div[3]/div[3]/div[1]/div[1]/ul[1]/li[1]/form[1]/div[1]/div[2]/span[1]
+          - productUrl:
+              - text: https://www.vikingdirect.fr/a/pb/Recharge-de-savon-liquide-S1-doux-Tork-Premium-1-L/id=400501-50/?pr=Q41
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[3]/div[1]/div[1]/form[1]/div[3]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/a[1]/@href
+            id:
+              - text: "8540848"
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[3]/div[1]/div[1]/form[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/input[3]/@value
             name:
-              - text: Recharge de savon liquide S1 Tork Premium 1 L
-                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[3]/div[1]/div[1]/form[1]/div[3]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/a[1]/img[1]/@title
-            productUrl:
-              - text: https://www.vikingdirect.fr/a/pb/Recharge-de-savon-liquide-S1-Tork-Premium-1-L/id=400501-50/?pr=Q20
-                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[3]/div[1]/div[1]/form[1]/div[3]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/a[1]/@href
+              - text: Recharge savon à mains PROP 389480 Bleu 6 Unités
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[3]/div[1]/div[1]/form[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/a[1]/img[1]/@title
+            gtin:
+              - text: "8540848"
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[3]/div[1]/div[1]/form[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/input[3]/@value
             thumbnail:
-              - text: https://odeu.scene7.com/is/image/odeu11/400501-50?$md$
-                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[3]/div[1]/div[1]/form[1]/div[3]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/a[1]/img[1]/@src
+              - text: https://odeu.scene7.com/is/image/odeu11/8540848?$md$
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[3]/div[1]/div[1]/form[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/a[1]/img[1]/@src
             price:
-              - text: 11,99 €
-                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[3]/div[1]/div[1]/form[1]/div[3]/div[1]/div[3]/div[1]/div[1]/div[3]/div[1]/div[1]/div[2]/span[1]
-            rank:
-              - text: "5"
-                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[3]/div[1]/div[1]/form[1]/div[3]/div[1]/div[3]/div[1]/@rank
-                type: NUMBER
-                raw: "5"
-                locale: fr_FR
-                value: 5
-            rankOrganic:
-              - text: "5"
-                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[3]/div[1]/div[1]/form[1]/div[3]/div[1]/div[3]/div[1]/@rank
-                type: NUMBER
-                raw: "5"
-                locale: fr_FR
-                value: 5
+              - text: 28,00 €
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[2]/div[3]/div[3]/div[1]/div[1]/ul[1]/li[1]/form[1]/div[1]/div[2]/span[1]
         xpath: /html
-    timestamp: 1605256532171
+    timestamp: 1609763167290
