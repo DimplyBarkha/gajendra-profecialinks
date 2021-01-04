@@ -43,9 +43,14 @@ module.exports = {
       });
 
       const firstPartDesc = document.evaluate('//div[@class="jum-summary-description"]/p', document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
-      const secondPartDesc = document.evaluate('//div[contains(@class, "jum-nutritional-info")]/text()', document, null, XPathResult.STRING_TYPE, null);
+      const secondPartDesc = document.evaluate('//div[contains(@class, "jum-nutritional-info")]/text()', document, null, XPathResult.STRING_TYPE, null).stringValue;
       if (firstPartDesc && secondPartDesc) {
-        firstPartDesc.textContent = firstPartDesc.textContent.replace(/( )(\|\|)/, ` ${secondPartDesc.stringValue} $2`);
+        if (firstPartDesc.textContent.length !== 0) {
+          firstPartDesc.textContent.includes('||') ? firstPartDesc.textContent = firstPartDesc.textContent.replace(/( )(\|\|)/, ` ${secondPartDesc} $2`) : firstPartDesc.textContent += ` ${secondPartDesc}`;
+          console.log(secondPartDesc);
+        } else {
+          firstPartDesc.textContent = secondPartDesc;
+        }
       }
 
       const brandNode = document.evaluate('//section[@class="jum-additional-info row"]//div[@data-jum-product-details]/@data-jum-product-details | (//div[@class="jum-column-main "]//*[@data-jum-brand]/@data-jum-brand)[1]', document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
