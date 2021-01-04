@@ -33,25 +33,31 @@ const transform = (data) => {
       }
       if (row.addedDesc) {
         const descs = [];
-        let txt = '';
+        const txt = '';
         row.addedDesc.forEach(item => {
-          descs[0] = item;
-          if (txt.length > 0) {
-            txt = txt + ' || ';
-          }
-          txt = txt + item.text;
-          descs[0].text = txt;
+          descs.push(item.text);
+          // descs[0] = item;
+          // if (txt.length > 0) {
+          //   txt = txt + ' || ';
+          // }
+          // txt = txt + item.text;
+          // console.log('..........descs[0] ', descs[0]);
+          // descs[0].text = txt;
         });
-        row.description = descs;
-
-        let cntObj;
-        row.addedDescCnt.forEach(item => {
-          cntObj = item;
-        });
-        row.descriptionBullets.forEach(item => {
-          item.text = cntObj.text;
-        });
+        console.log('..........txt ', txt);
+        row.description = [{ text: descs.join(' || ') }];
+        console.log('row.description = ', row.description);
       }
+      //   let cntObj;
+      //   if (row.addedDescCnt) {
+      //     row.addedDescCnt.forEach(item => {
+      //       cntObj = item;
+      //     });
+      //   }
+      //   row.descriptionBullets.forEach(item => {
+      //     item.text = cntObj.text;
+      //   });
+      // }
 
       if (row.specifications) {
         const specs = [];
@@ -85,6 +91,8 @@ const transform = (data) => {
           params[cnt] = txt;
           cnt++;
         });
+        console.log('params:', params);
+        console.log('vars:', vars);
         vars.forEach(item => {
           item.text = params.join('|');
         });
