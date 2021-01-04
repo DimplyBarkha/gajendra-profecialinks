@@ -117,3 +117,16 @@ fields:
     xpath: //div[@class="marketplace-product__offers"]//span[@class="product-offers__price-description"]/b
   - name: shippingDimensions
     xpath: //span[contains(text(),'Altura')]/following-sibling::span[1] | //span[contains(text(),'Largura')]/following-sibling::span[1] | //span[contains(text(),'Profundidade')]/following-sibling::span[1]
+  - name: inTheBoxUrl
+    xpath: //div[contains(@class, "InTheBox")]//img/@data-flixsrcset
+    regExp: (.+800w,\s)(.+(.png|.jpg))(.+)
+    regExpReplace: https:$2
+  - name: inTheBoxText
+    xpath: //div[contains(@class, "InTheBox")]//div[contains(@class, "flix-std-content")]
+  - name: hasComparisonTable
+    xpath: //div[contains(@class,'flix-comp-h2')][contains(text(), "Tabela de comparação")]
+    regExp: (.+)
+    regExpReplace: Yes
+    defaultValue: No
+  - name: unInterruptedPDP
+    xpath: //h2[contains(text(),'Quem comprou esta máquina, também comprou')]/parent::header/following-sibling::div[1]//h3
