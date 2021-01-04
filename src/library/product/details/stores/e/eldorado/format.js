@@ -38,7 +38,7 @@ const transform = (data) => {
         // row.manufacturerImages.shift();
         row.manufacturerImages.forEach((str) => {
           if (str.text.includes('upload')) {
-            str.text = 'https://static.eldorado.ru/' + str.text;
+            str.text = 'https://www.eldorado.ru' + str.text;
           } else if (str.text.includes('syndication')) {
             str.text = 'https:' + str.text;
           }
@@ -62,15 +62,22 @@ const transform = (data) => {
         row.description.push({ text: '' });
         row.description[0].text = description;
       }
+      // if (row.manufacturerDescription) {
+      //   const manufacturerDescription = row.manufacturerDescription
+      //     .map((str, index) => {
+      //       str.text = str.text.replace(/\n/g, ' ');
+      //       return index == row.manufacturerDescription.length - 1 ? str.text : str.text + ' | ';
+      //     })
+      //     .join('');
+      //   row.manufacturerDescription = [{ text: '' }];
+      //   row.manufacturerDescription[0].text = manufacturerDescription;
+      // }
       if (row.manufacturerDescription) {
-        const manufacturerDescription = row.manufacturerDescription
-          .map((str, index) => {
-            str.text = str.text.replace(/\n/g, ' ');
-            return index == row.manufacturerDescription.length - 1 ? str.text : str.text + ' | ';
-          })
-          .join('');
-        row.manufacturerDescription = [{ text: '' }];
-        row.manufacturerDescription[0].text = manufacturerDescription;
+        let text = '';
+        row.manufacturerDescription.forEach(item => {
+          text = row.manufacturerDescription.map(elm => elm.text).join(' ');
+        });
+        row.manufacturerDescription = [{ text }];
       }
       if (row.shippingInfo) {
         const shippingInfo = row.shippingInfo.map((str) => {

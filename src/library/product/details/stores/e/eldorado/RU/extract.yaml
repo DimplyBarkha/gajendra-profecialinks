@@ -20,12 +20,12 @@ fields:
     xpath: //div[contains(@class, "goodDescriptionText")]//img/@data-src | //div[@id="inpage_container"]//img//@src
   - name: manufacturerDescription
     singleValue: false
-    xpath: //div[contains(@class, "goodDescriptionText")]//div[@id="info-cont"]//p
+    xpath: //div[contains(@class, "goodDescriptionText")]//text()[not(contains(.,'}'))]
   - name: category
     singleValue: false
     xpath: (//div[@class="breadcrumbs qr-breadcrumbs"]/span/a)
   - name: quantity
-    singleValue: true
+    singleValue: false
     xpath: //div[contains(@class,'q-specs-row')]/p[contains(.,'Диагональ')]/following-sibling::p
   - name: brandText
     singleValue: false
@@ -101,3 +101,15 @@ fields:
   - name: manufacturer
     singleValue: false
     xpath: //meta[@itemprop="brand"]/@content
+  - name: inTheBoxUrl
+    singleValue: false
+    xpath: //table[@class="complection"]//tr/td//img//@src | //div[contains(@class,'pul-left-up')]//img//@src
+    regExp: (.+)
+    regExpReplace: https://www.eldorado.ru$1
+  - name: inTheBoxText
+    singleValue: false
+    xpath: //table[@class="complection"]//tr/td | //div[contains(@class,'pul-left-up')]//p | //td[contains(.,'Насадки')]/following-sibling::td/text()[1]
+  - name: hasComparisonTable
+    defaultValue: "No"
+  - name: unInterruptedPDP
+    xpath: //div[contains(@class,'retailrocket-items')]//div[contains(@class,"slick-list draggable")]/div[@role="listbox"]/div[contains(@class,'slick-slide')]//div[contains(@class,"item-name-block")]/a
