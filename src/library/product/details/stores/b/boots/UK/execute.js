@@ -1,24 +1,24 @@
-async function implementation (
-  inputs,
-  parameters,
-  context,
-  dependencies,
-) {
-  await context.goto(`https://www.boots.com/sitesearch?searchTerm=${inputs.id}`, {
-    timeout: 100000,
-    waitUntil: 'load',
-    checkBlocked: true,
-    js_enabled: true,
-    css_enabled: false,
-    random_move_mouse: true,
-  });
-  await new Promise((resolve, reject) => setTimeout(resolve, 10000));
-  await context.waitForNavigation({ waitUntil: 'load' });
-  // document.querySelector('div.login-details input.input-login').click();
-  await context.click('.product_name_link');
-  await new Promise((resolve, reject) => setTimeout(resolve, 50000));
-  return await context.evaluate((xpath) => !document.evaluate(xpath, document, null, XPathResult.BOOLEAN_TYPE, null).booleanValue, parameters.noResultsXPath);
-}
+// async function implementation (
+//   inputs,
+//   parameters,
+//   context,
+//   dependencies,
+// ) {
+//   await context.goto(`https://www.boots.com/sitesearch?searchTerm=${inputs.id}`, {
+//     timeout: 100000,
+//     waitUntil: 'load',
+//     checkBlocked: true,
+//     js_enabled: true,
+//     css_enabled: false,
+//     random_move_mouse: true,
+//   });
+//   await new Promise((resolve, reject) => setTimeout(resolve, 10000));
+//   await context.waitForNavigation({ waitUntil: 'load' });
+//   // document.querySelector('div.login-details input.input-login').click();
+//   await context.click('.product_name_link');
+//   await new Promise((resolve, reject) => setTimeout(resolve, 50000));
+//   return await context.evaluate((xpath) => !document.evaluate(xpath, document, null, XPathResult.BOOLEAN_TYPE, null).booleanValue, parameters.noResultsXPath);
+// }
 module.exports = {
   implements: 'product/details/execute',
   parameterValues: {
