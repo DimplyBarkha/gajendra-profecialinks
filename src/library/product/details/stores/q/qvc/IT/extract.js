@@ -89,7 +89,9 @@ async function implementation (
           }
         }
       }
-
+   if (document.querySelector('a.btn.btn-primary')) {
+      document.querySelector('a.btn.btn-primary').click();
+    }
       function addFields (index) {
         addHiddenDiv('brandText', productVariable.brand.name);
         if (productVariable.sku.length > 1) {
