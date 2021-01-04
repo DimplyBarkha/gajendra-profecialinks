@@ -14,9 +14,14 @@ module.exports = {
     dependencies,
   ) => {
     await context.evaluate(async function () {
-      document.querySelector('ul#size-filter-product-page-option-list li') && document.querySelector('ul#size-filter-product-page-option-list li').click();
-      document.querySelector('ul#product-page-swatches li button') && document.querySelector('ul#product-page-swatches li button').click();
-      document.querySelector('div#size-filter-product-page-anchor') && document.querySelector('div#size-filter-product-page-anchor').click();
+      var checkPriceRange = document.querySelector('span#current-price-string').textContent;
+      if(checkPriceRange.includes('–')) {
+       document.querySelector('ul#size-filter-product-page-option-list li') && document.querySelector('ul#size-filter-product-page-option-list li').click();
+       document.querySelector('ul#product-page-swatches li button') && document.querySelector('ul#product-page-swatches li button').click();
+       document.querySelector('div#size-filter-product-page-anchor') && document.querySelector('div#size-filter-product-page-anchor').click();
+      }else {
+      console.log('not clicked')
+      }
       function timeout (ms) {
         return new Promise((resolve) => setTimeout(resolve, ms));
       }

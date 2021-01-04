@@ -9,9 +9,9 @@ fields:
     regExpReplace: $1&w=780&h=1196
     singleValue: true
   - name: alternateImages
-    xpath: //td[@class="images"]/img[position()>1]//@src
+    xpath: ancestor::html//ul[@class="slider-list"]//li[1]//button[position()>1]//img/@src | //ul[@class="slider-list"]//li[2]//button//img/@src
     regExp: (.+jpeg)(\?.+)
-    regExpReplace: $1?crop=pad&pad_color=FFF&format=jpeg&w=1660&h=2546
+    regExpReplace: $1
   - name: nameExtended
     xpath: ancestor::html//section//span[@itemprop="name"] | //h1[@itemprop="name"]
   - name: listPrice
