@@ -62,8 +62,10 @@ module.exports = {
     }
     const ingredientsList = dataRef[0].group[0].ingredientsList;
     const description = dataRef[0].group[0].description;
+    const allergyAdvice = dataRef[0].group[0].allergyAdvice;
     reduceInfoToOneField(description);
-    reduceInfoToOneField(ingredientsList, ', ');
+    reduceInfoToOneField(allergyAdvice);
+    reduceInfoToOneField(ingredientsList);
     if (dataRef[0].group[0].variantId) {
       dataRef[0].group[0].variantId[0].text = dataRef[0].group[0].variantId[0].text.match(/:"(\w+)"/)[1];
     }
