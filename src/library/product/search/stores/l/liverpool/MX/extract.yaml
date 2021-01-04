@@ -1,38 +1,39 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: null
+recordXPath: //li[@class="m-product__card card-masonry"]
 fields:
   - name: productUrl
     description: The URL for the product details page
-    xpath: //div[@id="url"]
+    xpath: //div[@class="o-listing__products"]//li[@class="m-product__card card-masonry"]//a//@href
+    regExp: (.+)
+    regExpReplace: https://www.liverpool.com.mx$1
   - name: thumbnail
     description: The URL for the product thumbnail image
-    xpath: //div[@class="o-card__image__container"]/img/@src
+    xpath: //url[@id='url']
+    regExp: (.+)=(.+)
+    regExpReplace: https://ss706.liverpool.com.mx/lg/$2.jpg
   - name: name
-    singleValue: true
     description: The product name
     xpath: //article[@class="d-flex ipod-d-block"]
   - name: id
-    singleValue: true
     description: The product id
-    xpath: //div[@id="url"]
-    regExp: (.+)=(.+)
+    xpath: //div[@class="o-listing__products"]//li[@class="m-product__card card-masonry"]//a//@href
+    regExp: (\/)(\d+)
     regExpReplace: $2
   - name: sku
-    singleValue: true
-    description: The store-specific product identifier
-    xpath: //div[@id="url"]
-    regExp: (.+)=(.+)
+    description: The product id
+    xpath: //div[@class="o-listing__products"]//li[@class="m-product__card card-masonry"]//a//@href
+    regExp: (\/)(\d+)
     regExpReplace: $2
   - name: price
-    singleValue: true
     description: The offered price for the product
-    xpath: //p[@class="a-card-discount"]
-    type: CURRENCY
+    xpath: //div[@id="price"]
+    # regExp: (\d+)(\d{2})
+    # regExpReplace: $1.$2
   - name: aggregateRating2
     description: The rating of the product
-    xpath: //div[@id="finalValue"]
+    xpath: //div[@id="rating"]
   - name: reviewCount
     description: The number of ratings for the product
     xpath: //li[@class="ratings-number aaa"]
