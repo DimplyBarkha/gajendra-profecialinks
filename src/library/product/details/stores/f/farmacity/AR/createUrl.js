@@ -4,7 +4,7 @@ module.exports = {
   parameterValues: {
     domain: 'farmacity.com',
     prefix: null,
-    url: null,
+    url: 'https://www.farmacity.com/{id}',
     country: 'AR',
     store: 'farmacity',
     zipcode: '',
