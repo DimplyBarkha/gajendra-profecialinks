@@ -6,8 +6,8 @@ fields:
   - name: name
     singleValue: false
     description: URL of the main product image
-    xpath: //*[contains(@class, "accrocheProduitFicheProduit")]
-    # xpath: //*[contains(@class, "accrocheProduitFicheProduit")] | //div[@class="name"]/h1
+    # xpath: //*[contains(@class, "accrocheProduitFicheProduit")]
+    xpath: //*[contains(@class, "accrocheProduitFicheProduit")] | //div[@class="name"]/h1
   - name: image
     singleValue: false
     xpath: //div[@class="productPics"]/a/img[1]/@src
@@ -75,13 +75,14 @@ fields:
     xpath: //div[@class='loadbeeTabContent']/@data-loadbee-gtin | //@data-loadbee-gtin
   - name: sku
     singleValue: false
-    xpath: //@data-flix-sku
+    # xpath: //@data-flix-sku
     # xpath: //@data-flix-sku | //span[@class='normal product-ref sous-pointFort']
     # regExp: \"sku\"\:\s\"(.*)\"\,\s
     # regExpReplace: $1
     # xpath: //script[contains(text(), '"sku":')]
     # regExp: \"sku\"\:\s\"(.*)\"\,\s
     # regExpReplace: $1
+    xpath: //div[@id='added_sku']
   - name: ratingCount
     singleValue: false
     description: The number of ratings
