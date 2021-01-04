@@ -98,6 +98,150 @@ module.exports = {
     await context.click('a[href*="brand-info"]', { timeout: 7000 })
       .catch(() => console.log('No extra brand info'));
 
+      // await context.click('a.brand-content-link', { timeout: 30000 })
+      // .catch(() => console.log('No brand-content'));
+
+      
+      const link = await context.evaluate(function () {
+        return window.location.href;
+      });
+    
+      const src = await context.evaluate(async function () {
+        const accCookie = document.querySelector('a.brand-content-link');
+      if (accCookie) accCookie.click();
+      await new Promise((resolve, reject) => setTimeout(resolve, 30000));
+        const iframe = document.querySelector('div #loadbeeIframeId');
+        // const src = iframe ? (iframe.src||iframe._src) : '';
+        let src = '';
+        if (iframe) {
+          if (iframe.hasAttribute('src')) {
+            src = iframe.getAttribute('src');
+          } else if (iframe.hasAttribute('_src')) {
+            src = iframe.getAttribute('_src');
+          } else {
+            console.log('we do not have any src in iframe');
+          }
+        } else {
+          console.log('we do not have the iframe');
+          const inBoxText = [];
+          const getInTheBoxTextOnly = document.querySelector('div #product-specifications');
+          const intheboxppresent = document.querySelector('div#brand-info');
+          if(getInTheBoxTextOnly && !intheboxppresent){
+            const getAllProductsTextOnly = document.evaluate('//h4[contains(text(),"Meegeleverde accessoires")]/..//following-sibling::div//li//span[@class="value"]//*[name()="svg" and not(contains(@class,"cross-red"))]/../../../span[@class="name"] |  //h4[contains(text(),"Meegeleverde accessoires")]/..//following-sibling::div//li//span[@class="value"]/span/span/../../../span[@class="name" and not (contains(text(),"Extra accessoires")) and not (contains(text(),"Overige accessoires")) and not (contains(text(),"Type oplader")) and not (contains(text(),"In de doos"))]|//h4[contains(text(),"Meegeleverde accessoires")]/..//following-sibling::div//li//span[@class="name"]/span/span|//h4[contains(text(),"Meegeleverde accessoires")]/ancestor::div[1]//following-sibling::div//li//span[contains(text(),"Type oplader") or contains(text(),"In de doos") or contains(text(),"Overige accessoires")or contains(text(),"Extra accessoires")]/ancestor::li//span[@class="value"]', document, null, XPathResult.ORDERED_NODE_ITERATOR_TYPE, null);
+            
+            let description = [];
+            try {
+              var thisNode = getAllProductsTextOnly.iterateNext();
+            
+              while (thisNode) {
+                description.push( thisNode.textContent );
+                console.log("description",description);
+                thisNode = getAllProductsTextOnly.iterateNext();
+              }
+            }
+            catch (e) {
+              alert( 'Error: Document tree modified during iteration ' + e );
+            }
+                   
+              addHiddenDiv('inTheBoxText', description);          
+        
+          }
+          function addHiddenDiv (id, content) {
+            const newDiv = document.createElement('div');
+            newDiv.id = id;
+            newDiv.textContent = content;
+            newDiv.style.display = 'none';
+            document.body.appendChild(newDiv);
+          }
+          for (let i = 0; i < inBoxText.length; i++) {
+            if (inBoxText[i]) {
+              addHiddenDiv(`inTheBoxText-${i}`, inBoxText[i]);
+            }
+          }
+        }
+        console.log('iframe src to go to - ' + src);
+    
+        return src;
+      });
+      // let content = null;
+      if (src) {
+        try {
+          await context.goto(src, { timeout: 50000, waitUntil: 'load', checkBlocked: true });
+          const witbData = await context.evaluate(async () => {
+            const getInTheBox = document.querySelector('div.in-the-box>div.side-pics');
+            const getInTheBoxVideo = document.querySelector('div.in-the-box>div.main-pic');
+            const getInTheBoxComparison = document.querySelector('h1.next-chapter.compare-headline');
+           
+            const inBoxUrls = [];
+            const inBoxText = [];
+            const inComparison =[];
+            if(getInTheBoxVideo){
+              const getAllProductsVideo = document.querySelectorAll('div.in-the-box>div.main-pic');
+              for (let i = 0; i < getAllProductsVideo.length; i++) {
+                inBoxUrls.push(getAllProductsVideo[i].querySelector('img').getAttribute('src'));
+                inBoxText.push(getAllProductsVideo[i].querySelector('p>b').innerText);
+              }
+            }
+            if (getInTheBox) {
+              const getAllProducts = document.querySelectorAll('div.in-the-box>div.side-pics>div.item');
+              for (let i = 0; i < getAllProducts.length; i++) {
+                inBoxUrls.push(getAllProducts[i].querySelector('img').getAttribute('src'));
+                inBoxText.push(getAllProducts[i].querySelector('p>b').innerText);
+              }
+            }
+            if(getInTheBoxComparison){
+              const getAllProductsComparison = document.querySelectorAll('h1.next-chapter.compare-headline');
+              for (let i = 0; i < getAllProductsComparison.length; i++) {
+                inComparison.push(getAllProductsComparison[i].innerText);
+              }
+            }
+            return { inBoxText, inBoxUrls, inComparison };
+          });
+         
+    
+          await context.goto(link, { timeout: 15000 });
+          await context.waitForSelector('div.page-content', { timeout: 5000 });
+        
+          await context.evaluate(async (witbData) => {
+            function addHiddenDiv (id, content) {
+              const newDiv = document.createElement('div');
+              newDiv.id = id;
+              newDiv.textContent = content;
+              newDiv.style.display = 'none';
+              document.body.appendChild(newDiv);
+            }
+    
+            const { inBoxText = [], inBoxUrls = [], inComparison=[] } = witbData;
+            for (let i = 0; i < inBoxUrls.length; i++) {
+              addHiddenDiv(`inTheBoxUrl-${i}`, inBoxUrls[i]);
+               if (inBoxText[i]) {
+                addHiddenDiv(`inTheBoxText-${i}`, inBoxText[i]);
+              }
+              if(inComparison[i]){
+                addHiddenDiv(`hasComparisonTable-${i}`, inComparison[i]);
+              }
+            }
+
+          }, witbData);
+          // await context.waitForSelector('div#main-section', { timeout: 45000 });
+        } catch (error) {
+          try {
+            await context.evaluate(async function (src) {
+              window.location.assign(src);
+            }, src);
+            await context.waitForSelector('div.page-content');
+            return await context.extract(productDetails, { type: 'MERGE_ROWS', transform });
+          } catch (err) {
+            console.log(err);
+          }
+        }
+        // return await context.extract(productDetails, { transform });
+      } else {
+        console.log('we do not have the src for iframe');
+        
+      }
+    
+
     await new Promise((resolve, reject) => setTimeout(resolve, 6000));
     return await context.extract(productDetails, { transform });
   },

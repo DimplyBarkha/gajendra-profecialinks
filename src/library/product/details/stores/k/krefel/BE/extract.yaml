@@ -504,17 +504,17 @@ fields:
   - name: inTheBoxUrl
     singleValue: false
     description: Must include image url to show the accessories/tools which come with the product
-    xpath: //div[@class="in-the-box"]//img/@src
+    xpath: //div[starts-with(@id,"inTheBoxUrl-")]
   - name: inTheBoxText
     singleValue: false
     description: Must include text to show the accessories/tools which come with the product
     # xpath: //div[@class="in-the-box"] | //h4[contains(text(),"Meegeleverde accessoires")]/..//following-sibling::div//li
-    xpath: //h4[contains(text(),"Meegeleverde accessoires")]/..//following-sibling::div//li//span[@class="value"]//*[name()="svg" and not(contains(@class,"cross-red"))]/../../../span[@class="name"] |  //h4[contains(text(),"Meegeleverde accessoires")]/..//following-sibling::div//li//span[@class="value"]/span/span/../../../span[@class="name" and not (contains(text(),'Extra accessoires')) and not (contains(text(),'Overige accessoires')) and not (contains(text(),'Type oplader')) and not (contains(text(),'In de doos'))]|   //h4[contains(text(),"Meegeleverde accessoires")]/..//following-sibling::div//li//span[@class="name"]/span/span|    //h4[contains(text(),"Meegeleverde accessoires")]/ancestor::div[1]//following-sibling::div//li//span[contains(text(),"Type oplader") or contains(text(),"In de doos") or contains(text(),"Overige accessoires")or contains(text(),"Extra accessoires")]/ancestor::li//span[@class="value"]
+    xpath:  //div[starts-with(@id,"inTheBoxText")]
   - name: hasComparisonTable
     singleValue: true
     description: Compare the range table or matrix must be present for all vacuum cleaners & air treatment. This is not required for    personal care or lighting. As a minimum the comparison table will compare against 1 additional Dyson product.
     defaultValue: 'No'
-    xpath: //*[contains(text(),"Vergelijkingstabel")] | //div[@data-section-tag="compare"]
+    xpath: //*[contains(text(),"Vergelijkingstabel")] | //div[@data-section-tag="compare"]| //div[starts-with(@id,"hasComparisonTable")]
     regExp: >-
       (.+)
     regExpReplace: 'Yes'
