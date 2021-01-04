@@ -18,7 +18,7 @@ fields:
     xpath: //span[@class="product-name"]
   - name: productUrl
     description: The URL for the product details page
-    xpath: //a[@class="product__link"]/@href
+    xpath: //div[contains(@class,"product-item-container")]/a/@href
     regExp: (\/.*)
     regExpReplace: https://www.power.fi$1
   - name: gtin
