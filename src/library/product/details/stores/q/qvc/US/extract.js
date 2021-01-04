@@ -65,6 +65,9 @@ module.exports = {
             }
             data[k].group[i].ingredientsList = data[k].group[i].ingredientsList.slice(0, 1);
           }
+          if ('description' in data[k].group[i]) {
+            data[k].group[i].description[0].text = data[k].group[i].description[0].text.replace(/[\r\n]+/g, ' ').replace(/\s\s+/g, ' ');
+          }
           if (sku !== null && 'variantId' in data[k].group[i]) {
             data[k].group[i].variantId[0].text = sku;
           }
