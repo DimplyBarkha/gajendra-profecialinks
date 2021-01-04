@@ -1,42 +1,42 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: //li[@class="m-product__card card-masonry"]
+recordXPath: //li[@class="m-product__card card-masonry"] | //div[@class="alert-top-defult"]
 fields:
   - name: productUrl
     description: The URL for the product details page
-    xpath: //div[@class="o-listing__products"]//li[@class="m-product__card card-masonry"]//a//@href
+    xpath: //div[@class="o-listing__products"]//li[@class="m-product__card card-masonry"]//a//@href | //@url
     regExp: (.+)
     regExpReplace: https://www.liverpool.com.mx$1
   - name: thumbnail
     description: The URL for the product thumbnail image
-    xpath: //url[@id='url']
+    xpath: //url[@id='url'] | //@url
     regExp: (.+)=(.+)
     regExpReplace: https://ss706.liverpool.com.mx/lg/$2.jpg
   - name: name
     description: The product name
-    xpath: //article[@class="d-flex ipod-d-block"]
+    xpath: //h1 | //article[@class="d-flex ipod-d-block"]
   - name: id
     description: The product id
-    xpath: //div[@class="o-listing__products"]//li[@class="m-product__card card-masonry"]//a//@href
+    xpath: //div[@class="o-listing__products"]//li[@class="m-product__card card-masonry"]//a//@href | //@url
     regExp: (\/)(\d+)
     regExpReplace: $2
   - name: sku
     description: The product id
-    xpath: //div[@class="o-listing__products"]//li[@class="m-product__card card-masonry"]//a//@href
+    xpath: //div[@class="o-listing__products"]//li[@class="m-product__card card-masonry"]//a//@href | //@url
     regExp: (\/)(\d+)
     regExpReplace: $2
   - name: price
     description: The offered price for the product
-    xpath: //div[@id="price"]
+    xpath: //div[@id="price"] | //@price
     # regExp: (\d+)(\d{2})
     # regExpReplace: $1.$2
   - name: aggregateRating2
     description: The rating of the product
-    xpath: //div[@id="rating"]
+    xpath: //div[@id="rating"] | (//meta[@itemprop="ratingValue"]/@content)[1] | //@rating
   - name: reviewCount
     description: The number of ratings for the product
-    xpath: //li[@class="ratings-number aaa"]
+    xpath: //li[@class="ratings-number aaa"] | (//meta[@itemprop="reviewCount"]/@content)[1]
     type: NUMBER
   - name: sponsored
     singleValue: true
