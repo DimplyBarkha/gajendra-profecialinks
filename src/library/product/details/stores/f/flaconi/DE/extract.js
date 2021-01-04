@@ -278,8 +278,15 @@ async function implementation (
   } catch (err) {
     console.log('Error adding recommended products');
   }
+    const cookiesPopupPresent = await context.evaluate(()=>{
+        return !!document.querySelector('button#uc-btn-accept-banner');
+    });
 
-    await context.waitForXPath('//div[contains(@class,"related-products")]/div[contains(@class,"tab-content")]//div[@role="option"]', { timeout:10000 })
+    if (cookiesPopupPresent){
+        await context.click('button#uc-btn-accept-banner',{ timeout:6000 });
+    }
+
+    await context.waitForXPath('//div[contains(@class,"related-products")]/div[contains(@class,"tab-content")]//div[@role="option"]', { timeout:15000 })
         .catch(() => console.log('No uninterruptedPDP for item'))
 
   return await context.extract(productDetails, { transform });
