@@ -30,62 +30,6 @@ module.exports = {
       }
     });
 
-    await context.evaluate(async function () {
-
-      const inBoxImageArray = [];
-
-      const inBoxUrl = document.querySelectorAll('div.productSpec div.panel-default div#collapseFour img');
-      if (inBoxUrl.length > 0) {
-        for (let i = 0; i < inBoxUrl.length; i++) {
-          const imgUrl = 'https://www.netonnet.se' + inBoxUrl[i].getAttribute('data-src');
-          imgUrl && inBoxImageArray.push(imgUrl);
-        }
-
-      }
-      const inBoxTextArray = [];
-      const inBoxText = document.querySelectorAll('div.productSpec div.panel-default div#collapseFour div.name');
-      if (inBoxText.length > 0) {
-        for (let i = 0; i < inBoxText.length; i++) {
-          const imgText = inBoxText[i].innerText;
-          imgText && inBoxTextArray.push(imgText);
-        }
-      }
-      else {
-        const onlyText1 = document.querySelectorAll('div#collapseOne div.panel-body table.table-striped tr td')
-        if (onlyText1) {
-          console.log("case 1")
-          for (let i = 0; i < onlyText1.length; i++) {
-            if (onlyText1[i].innerText === 'Medföljande tillbehör') {
-              const imgText2 = onlyText1[i].nextElementSibling.innerText;
-              imgText2 && inBoxTextArray.push(imgText2);
-            }
-          }
-
-        }
-      }
-
-
-      function addHiddenDiv(id, content) {
-        const newDiv = document.createElement('div');
-        newDiv.id = id;
-        newDiv.textContent = content;
-        newDiv.style.display = 'none';
-        document.body.appendChild(newDiv);
-      }
-
-
-      console.log('inTheBoxText', JSON.stringify(inBoxTextArray));
-      console.log('inBoxImageArray', JSON.stringify(inBoxImageArray));
-      addHiddenDiv('inTheBoxUrl', inBoxImageArray.join(' || '));
-      addHiddenDiv('inTheBoxText', inBoxTextArray.join(' || '));
-
-
-
-
-    }
-    );
-
-
     try {
       await context.waitForSelector('iframe[id^="quchbox-videolist"]', { timeout: 45000 });
     } catch (error) {
