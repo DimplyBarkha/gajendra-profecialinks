@@ -28,6 +28,69 @@ module.exports = {
     await context.click('#product-information-tabs > div:nth-child(1) > div > i');
     await new Promise((resolve, reject) => setTimeout(resolve, 8000));
 
+    const mainURL = await context.evaluate(function () {
+      console.log('main URL');
+      return document.URL;
+    });
+
+    try {
+      const navigateLink = await context.evaluate(function () {
+        console.log('getting navlink for Iframe');
+        const frame = document.querySelector('#product-tab-description-panel #loadbeeIframeId') ? document.querySelector('#product-tab-description-panel #loadbeeIframeId').src : null;
+        return frame;
+      });
+  
+      if (navigateLink) {
+        console.log(navigateLink, 'Iframe Details');
+        console.log('Nagivating to Enahnced content');
+  
+        await context.goto(navigateLink, {
+          timeout: 20000, waitUntil: 'load', checkBlocked: true,
+        });
+  
+        console.log('In Enhanced content areas');
+  
+        const enhancedContentEl = await context.evaluate(function() {
+          return document.querySelector('body').innerHTML;
+        });
+  
+        // await context.goto(mainURL, {
+        //   timeout: 10000,
+        //   waitUntil: 'load',
+        //   checkBlocked: true,
+        //   js_enabled: true,
+        //   css_enabled: false,
+        //   random_move_mouse: true,
+        //   load_all_resources: true,
+        //   images_enabled: true,
+        // });
+
+        await context.setAntiFingerprint(false);
+        await context.setLoadAllResources(true);
+        await context.setBlockAds(false);
+        await context.setFirstRequestTimeout(60000);
+        await context.goto(mainURL, { timeout: 600000, waitUntil: 'load', load_all_resources: true, images_enabled: true, checkBlocked: true });
+  
+        await context.evaluate(function (el) {
+          const cloneNode = document.createElement('import-enhanced-content');
+          cloneNode.innerHTML = el;
+          document.body.appendChild(cloneNode);
+        }, enhancedContentEl);
+      }
+    } catch (err) {
+      console.log('error whiel loading enhanced content');
+      await context.setAntiFingerprint(false);
+      await context.setLoadAllResources(true);
+      await context.setBlockAds(false);
+      await context.setFirstRequestTimeout(60000);
+      await context.goto(mainURL, { timeout: 600000, waitUntil: 'load', load_all_resources: true, images_enabled: true, checkBlocked: true });
+    }
+
+    await context.waitForSelector('#product-information-tabs > div:nth-child(1) > div > i');
+    await context.waitForSelector('#product-intro');
+    await context.click('#product-information-tabs > div:nth-child(1) > div > i');
+    await new Promise((resolve, reject) => setTimeout(resolve, 8000));
+
     try {
       await context.waitForSelector('pwr-product-specifications > div');
     } catch (err) {
@@ -108,6 +171,9 @@ module.exports = {
         }
       }
 
+      let nameExtendedString = document.querySelector('.product-header h1') ? document.querySelector('.product-header h1').innerText : null;
+      nameExtendedString = nameExtendedString ? nameExtendedString.split('"').join('\"') : null;
+      document.body.setAttribute('import-name-extended', nameExtendedString);
       const price = document.querySelector('meta[property="product:price:amount"]')
         ? document.querySelector('meta[property="product:price:amount"]').getAttribute('content') : '';
       const currency = document.querySelector('meta[property="product:price:currency"]')
