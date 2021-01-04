@@ -3,367 +3,42 @@ regionsSelector: null
 recordSelector: null
 recordXPath: null
 fields:
-  - name: parentInput
-    xpath: //div[@id='added-parentInput']
-  - name: image
-    xpath: //meta[@property='og:image']/@content
-  - name: imageAlt
-    xpath: //*[contains(@class,'slider')]//div[@data-tl-id='ProductPage-alt-image0']/img/@alt
-  - name: alternateImages
-    singleValue: false
-    xpath: (//div[contains(@class,"prod-alt-image")]/img/@src)[position()!=1]
-  - name: metaKeywords
-    xpath: //meta[@name="keywords"]/@content
-  - name: category
-    singleValue: false
-    xpath: //li[contains(@class,"breadcrumb")]/*[name()="a" or name()="h1"][not(.="Home")]
-  - name: name
-    xpath: (//h1[@itemprop='name'])[1] | (//h2[@itemprop='name'])[1]  
+  ### PRICE ONLY  
+  - name: upc
+    xpath: //*[contains(@itemprop,'gtin')]/@content
+  - name: sku
+    xpath: //*[@itemprop="sku"]/@content
+  - name: brandText
+    xpath: //span[@itemprop='brand']
   - name: nameExtended
     xpath: (//h1[@itemprop='name'])[1] | (//h2[@itemprop='name'])[1] | //*[@class="varslabel__content"]
+  - name: category
+    xpath: //li[contains(@class,"breadcrumb")]/*[name()="a" or name()="h1"][not(.="Home")]
   - name: listPrice
     xpath: //section[contains(@class,'prod-PriceSection')]//span[contains(@class,'price--strikethrough')]//span[contains(@class,'price-group')]
   - name: price
-    manualSelector: script[id='item']
+    xpath: //script[@id='item']
     regExp: ("price":)([\d+,.]+)(,"pre)
     regExpReplace: $2
-    # xpath: //span[@itemprop="highPrice"]/@content|//*[@class="prod-PriceHero"]//span[contains(@class,'price--stylized')]/span[contains(@class,'price-group')]
-  - name: outOfStockMsg
-    xpath: //span[contains(text(),"Out of stock")] | //span[contains(text(),"Get in-stock alert")]
-  - name: shippingPrice
-    xpath: //div[@id='added-sprice']  
-  - name: availabilityMessage
-    xpath: //div[@class='prod-fulfillment']//div[@class='fulfillment-text'] | //div[contains(@class,'unavailableBOT')] |//h2[contains(@class,'prod-InvalidPromptMsg')]
-  - name: manufacturer
-    manualSelector: script[id='item'], script[id='product']
-    regExp: (\"manufacturer\"\:\")([^"]+)(",")
+  - name: promoPrice
+    xpath: /html[not(//section[contains(@class,'prod-PriceSection')]//span[contains(@class,'price--strikethrough')]//span[contains(@class,'price-group')])]//script[@id='item']
+    regExp: ("price":)([\d+,.]+)(,"pre)
     regExpReplace: $2
+  - name: supplierType
+    xpath: //a[@class="seller-name"]
+  - name: deliveryDate
+    xpath: //*[@class="fulfillment-shipping-text"]/p
+    type: DATETIME
+    regExp: Arrives by(.+)
+    regExpReplace: $1
+  - name: deliveryDateText
+    xpath: //*[@class="fulfillment-shipping-text"]/p
+  - name: shippingSpeed
+    xpath: //*[@data-tl-id="shipping-message-tile-shippingMessage"]
+  - name: image
+    xpath: //meta[@property='og:image']/@content
   - name: description
-    singleValue: false
-    xpath: //div[contains(@class,'about-desc')] | //div[contains(@class,'DetailedHeroImage-ShortDescription')] | //div[contains(@class,'AboutThisBundle-description')] | //div[contains(@class,'about-item')]/div
-    # xpath: //div[@id="my-desc"]
-  - name: descriptionBullets
-    xpath: count((//div[contains(@class,'about-desc')] | //div[contains(@class,'DetailedHeroImage-ShortDescription')] | //div[contains(@class,'AboutThisBundle-description')] | //div[contains(@class,'about-item')]/div)//li)
-  - name: ingredientsList
-    manualSelector: p.Ingredients
-  - name: brandText
-    xpath: //span[@itemprop='brand']
-  - name: quantity
-    xpath: //div[contains(@id,"Size")]//span[contains(@class, "content")]
-  - name: weightNet
-    xpath: //*[@id="about-product-section"]//li[contains(.,"Net Weight:")] | /html[not(//*[@id="about-product-section"]//li[contains(.,"Net Weight:")])]//*[@id="Size"]//span[@class="varslabel__content"][contains(.,"oz") or contains(.,"Oz")]
-    regExp: '[^:]+$'
-  - name: weightGross
-    xpath: //td[contains(text(),"Assembled Product Weight")]/following-sibling::td[1]
-  - name: productDimension
-    xpath: //td[contains(text(),"Assembled Product Dimensions")]/following-sibling::td[1]
-  - name: gtin
-    xpath: //*[contains(@itemprop,'gtin')]/@content
-  - name: sku
-    xpath: //script[@id='item'] | //script[id='product']
-    regExp: primaryProductId\"\s?:\s?\"([^\"]+)
-    # regExp: (","primaryProductId":\")(\w+)(",")?
-    regExpReplace: $1
-  - name: asin
-    singleValue: false
-    xpath: //div[contains(@class,'wm-item-number')]
-  - name: variantId
-    singleValue: false
-    xpath: //div[@id='added-sku']
-  - name: variantIdOverRide
-    xpath: //link[@itemprop="url"]/@href
-  - name: firstVariant
-    manualSelector: script[id='item'], script[id='product']
-    regExp: ("primaryProductId":")([^"]+)(","primary)
-  - name: mpc
-    xpath: //td[contains(text(),"Model")]/parent::tr/td/div | //b[contains(.,"Model Number:")]/following-sibling::text()[1]
-    regExpReplace: $2
-  - name: mpn
-    xpath: //td[contains(text(),"Manufacturer Part Number")]/parent::tr/td/div | //td[contains(text(),"manufacturer_part_number")]/following-sibling::*[1]
-    regExpReplace: $2
-  - name: packSize
-  - name: legalDisclaimer
-  - name: directions
-    xpath: //p[@class='Directions']
-  - name: warnings
-    xpath: (//p[@class='Warnings'] | //div[@class='LegalBadge-description'][contains(.,'arning')])[1]
-  - name: warranty
-    xpath: //div[contains(@id,'card-warranty')]//span[contains(text(),'Warranty Information')]/following-sibling::span  | //div[contains(@title,'Warranty')]//span[contains(text(),'Warranty Information')]/following-sibling::span 
-  
-  - name: ratingCount
-    xpath: //*[@itemprop="reviewCount"]   
-    defaultValue: '0' 
-  - name: aggregateRating
-    xpath: //script[@id='item'][contains(.,"roundedAverageOverallRating")]
-    regExp: roundedAverageOverallRating":\s*([^,]+)
-    regExpReplace: $1
-  - name: agRatingFromPage
-    xpath: //button[contains(@class,"rating button")]//span[@itemprop="ratingValue"]
-  - name: shippingInfo 
-    xpath: //section[contains(@class, 'prod-SellerSection')]//*[@data-tl-id="ProductSellerInfo-SellerName"] | //div[contains(@class, 'seller-info-container')]//a[contains(@class,'seller-name')]
-  - name: shippingInfo1
-    singleValue: false
-    xpath: //script[@id='item'][contains(.,"sellerDisplayName")] | //script[@id='product'][contains(.,"sellerDisplayName")]
-    #regExp: \"sellerDisplayName\"\:\"([^"]+)(\"\,\"showSold) 
-    regExp: sellerDisplayName\"\s?:\s?\"([^\"]+) 
-    regExpReplace: $1
-  - name: shippingDimensions
-    xpath: //td[contains(text(),'Product Dimensions')]/following-sibling::td[@class='s-padding-ends s-padding-sides'] | //td[contains(text(),"Assembled Product Dimensions")]/following-sibling::td/div
-  - name: specifications
-    xpath: //table[contains(@class,"product-specification")]
-  - name: shippingWeight
-    xpath: //td[contains(text(),'Product Weight')]/following-sibling::td[@class='s-padding-ends s-padding-sides']
-  - name: variantCount
-  - name: variantInformation
-    singleValue: false 
-    xpath: //script[@id='item'] | //script[@id='product']
-    regExp: '{"name":"\w*_?\w*","value":"(\w*_?\w*-[^\"]*)"}'
-
-  - name: variants
-    singleValue: false
-    manualSelector: script[id='item'], script[id='product']
-    regExp: ("productId":")(\w+)(","usItem)
-    regExpReplace: $2
-  - name: unavailableMsg
-    manualSelector: 'h2[class*="Price--unavailable"]'
-  - name: color 
-    manualSelector: script[id='item'], script[id='product']
-    regExp: \{\"name\"\:\"actual_color\",\"value\"\:\"actual_color-([^\"]*)\"\}
-    regExpReplace: $1
-  - name: colorCode
-  - name: manufacturerDescription
-    singleValue: false
-    xpath: //div[@id='added-marketing']
-  - name: myEnhancedContent
-    xpath: //div[@id="my_enh_content"]
-  - name: manufacturerContent
-    xpath: //div[@id="my_enh_content"]
-  - name: manufacturerImages
-    singleValue: false
-    xpath: //div[@id="my_manufact_images"]
-    regExp: '[^|]+'
-  - name: manufacturerImagesFromPage
-    xpath: //div[@id="my_manufact_images"]
-  - name: videos
-    singleValue: false
-    manualSelector: script[id='item'], script[id='product']
-    regExp: ("versions":{"\w+":")(http[^"]+mp4)(\")
-    regExpReplace: $2
-  - name: otherSellersName
-    singleValue: false
-    xpath: //div[@id='added-sellers']//*[@data-tl-id="ProductSellerCardSellerInfo-SellerName"]
-    
-  - name: otherSellersPrice
-    singleValue: false
-    xpath: //div[@id='added-sellers']//div[contains(@class,'seller-offer')]//div[contains(@class,'prod-PriceHero')]//span[contains(@class,'price--stylized')]//span[@class='visuallyhidden']
-  
-  - name: otherSellersShipping2
-    singleValue: false
-    xpath: //div[@id='added-sellers']//div[contains(@class,'product-shipping-price')]//span[contains(@class,'price price')] | //div[@id='added-sellers']//div[contains(@class,'product-shipping-price')]//span[contains(@class,'font-semibold')]
-    regExp: ([Free]?\d*\.?\d*))
-    defaultValue: 0
-  - name: lbb  
-    xpath: //div[@class='SellerInfo']//a[@class='seller-name']
-  
-  - name: lbbPrice  
-  - name: additionalDescBulletInfo
-    singleValue: false 
-    xpath: (//div[contains(@class,'about-desc')] | //div[contains(@class,'DetailedHeroImage-ShortDescription')] | //div[contains(@class,'AboutThisBundle-description')] | //div[contains(@class,'about-item')]/div)//li | //div[contains(@class,'about-desc') and contains(text(),'•')] | //div[contains(@class,'about-desc')]/div[contains(text(),'•')]
-  - name: promotion
-    singleValue: false
-    # xpath: //div[@class='container-flags']//span[@class='flag-angle__content']
-  - name: ageSuitability
-    singleValue: false
-    xpath: //td[contains(text(),'Age Range')]/following-sibling::td[@class='s-padding-ends s-padding-sides']
-  - name: energyEfficiency
-    singleValue: false  
-  - name: technicalInformationPdfPresent  
-    defaultValue: No
-    xpath: (//div[@class='ManualsAndGuides'])[1]
-    regExp: (.*)
-    regExpReplace: Yes
-  - name: termsAndConditions
-    singleValue: false  
-    defaultValue: No
-  - name: privacyPolicy
-    singleValue: false
-    defaultValue: No
-  - name: customerServiceAvailability
-    singleValue: false 
-    defaultValue: No
-  - name: materials
-    singleValue: false
-    xpath: //td[contains(text(),'Material')]/following-sibling::td[@class='s-padding-ends s-padding-sides']|//td[contains(text(),'Fabric Content')]/following-sibling::td[@class='s-padding-ends s-padding-sides']
-  - name: Image360Present
-    singleValue: false
-    defaultValue: No
-  - name: imageZoomFeaturePresent
-    singleValue: false
-    xpath: //div[contains(@class,'hover-zoom-hero-image-container')]/@class
-    regExp: (.*)
-    regExpReplace: Yes
-    defaultValue: No
-  - name: nutritionInfo
-    manualSelector: script[id='item'], script[id='product']
-    regExp: ("nutritionFacts":{"calorieInfo(.*)}})(,"legalBadges")
-    regExpReplace: $1
-  - name: carbsPerServing
-    xpath: //div[@id="my-carbs"]
-  - name: servingSize
-    xpath: //div[contains(@class,"fact")]/span[contains(.,"Serving Size")]/following-sibling::span[1]
-    singleValue: false
-      
-  - name: servingSizeUom
-    xpath: //div[contains(@class,"fact")]/span[contains(.,"Serving Size")]/following-sibling::span[1]
-    regExp: '[^\s\d]+$'
-
-  - name: numberOfServingsInPackage
-    xpath: //*[@class="nutrition-facts-all-facts-servingSize"]/p/text()[contains(.,"ervings per")]
-    regExp: \d+
-    singleValue: false
-
-  - name: caloriesPerServing
-    singleValue: false
-    
-  - name: caloriesFromFatPerServing
-    singleValue: false
-
-  - name: totalFatPerServing
-    xpath: //div[contains(@class,"fact")]/span[contains(.,"Total Fat")]/following-sibling::span[1]
-    singleValue: false
-
-  - name: totalFatPerServingUom
-    singleValue: false
-
-  - name: saturatedFatPerServing
-    singleValue: false
-
-  - name: saturatedFatPerServingUom
-    singleValue: false
-
-  - name: transFatPerServing
-    singleValue: false
-
-  - name: transFatPerServingUom
-    singleValue: false
-
-  - name: cholesterolPerServing
-    singleValue: false 
-  - name: cholesterolPerServingUom
-    singleValue: false
-  - name: saltPerServing   
-  - name: saltPerServingUom   
-  - name: sodiumPerServing
-    singleValue: false
-  - name: sodiumPerServingUom
-    singleValue: false
-  - name: totalCarbPerServing
-    singleValue: false
-  - name: totalCarbPerServingUom
-    singleValue: false
-
-  - name: dietaryFibrePerServing
-    singleValue: false
-
-  - name: dietaryFibrePerServingUom
-    singleValue: false
-
-  - name: totalSugarsPerServing
-    singleValue: false
-    
-  - name: totalSugarsPerServingUom
-    singleValue: false
-
-  - name: proteinPerServingUom
-    singleValue: false  
-
-  - name: vitaminAPerServing
-    singleValue: false
-
-  - name: vitaminAPerServingUom
-    singleValue: false
-  
-  - name: vitaminCPerServing
-    singleValue: false
-
-  - name: vitaminCPerServingUom
-    singleValue: false
-
-  - name: calciumPerServing
-    singleValue: false
-
-  - name: calciumPerServingUom
-    singleValue: false
-
-  - name: ironPerServing
-    singleValue: false
-
-  - name: ironPerServingUom
-    singleValue: false
-
-  - name: productUrl
-
-  # # # Profitero
-  - name: addonItem
-    xpath: //li[@class="AddOnServicesModule-optionList"]/a
-  - name: alsoViewedProducts
-    xpath: //h2[contains(text(),"Customers also viewed these products")]/../following-sibling::div//ul[@class="slider-list"]/li//div[@class="tile-title"] | //h2[contains(text(),"Customers also considered")]/../following-sibling::div//ul[@class="slider-list"]/li//div[@class="tile-title"]
-  - name: inTheBox  
-    xpath: //div[@id='in_the_box']
-    regExp: '[^|]+'
-  - name: astm
-    xpath: (//h1[@itemprop='name'])[1] | (//h2[@itemprop='name'])[1]
-    regExp: ASTM-certified
-    regExpReplace: 'Yes'
-  - name: batteryInfo
-    # battery life
-    xpath: //table[contains(@class,"product-specification-table")]//td[contains(.,"Battery Life")]/following-sibling::*[1]
-  - name: careInstructions
-    xpath: //*[@id="accordion-card-content-accordion-card-care-instructions"]
-  - name: flags
-    xpath: //div[@class="prod-FlagList-container"]//span[@class="flag-angle__content"]
-  - name: boughtTogether
-    xpath: //div[@id="btv-container"]//input[@class="input-toggle__input"]/@aria-label
-  - name: dynamicComparisionChart
-    xpath: //span[contains(.,"Comparison Chart")]
-    regExp: (.+)
-    regExpReplace: 'Yes'
-    defaultValue: 'No'
-  - name: aplusComparisionMatrix
-    xpath: //span[contains(.,"Comparison Chart")]
-    regExp: (.+)
-    regExpReplace: 'Yes'
-    defaultValue: 'No'
-  - name: imageCount
-    xpath: count(//meta[@property='og:image']/@content | (//div[contains(@class,"prod-alt-image")]/img/@src)[position()!=1])
-  - name: maxHeight
-    xpath: //*[@id="about-product-section"]//li[contains(text(),"Maximum") or contains(text(),"maximum") or contains(text()," to ")][contains(text(),"Height") or contains(text(),"height")]
-  - name: maxWeight
-    xpath:
-  - name: minAge
-    xpath: (//span[@class="aboutModuleText"][contains(text(),"Min Age")][1] | //div[@id="about-product-section"]//text()[contains(.,"Min Age")])[1]
-    # regExp: 'Min Age Recommended ([^;]+)|Min Age: ([^\s]+\s*[^\s]+)'
-    # regExpReplace: $1$2
-  - name: nutritionImage
-    xpath: //div[@id='nutrition-image']
-  - name: patent
-    xpath: //*[@id="about-product-section"]//li[contains(.,"Product patent number")]
-    regExp: '[^:]+$'
-  - name: proteinPerServing
-    xpath: //div[contains(@class,"fact")]/span[contains(.,"Protein")]/following-sibling::span[1]
-  - name: ratingScale
-    xpath: (//*[@itemprop="bestRating"])[1]
-    defaultValue: '5'
-  - name: ratingDistribution
-    xpath: //div[starts-with(@class,"RatingFilter")]/@aria-label
-  - name: reviewCount
-    xpath: //*[@itemprop="reviewCount"]
-    defaultValue: '0'
-  - name: variantsInfo
-    xpath: //div[@id='variants-info']
-    regExp: '[^|]+'
-  - name: sellerCount
-    xpath: //a[contains(@class,"btn-compare")]//*[@class="offerCount"]
+    xpath: //div[contains(@class,'about-desc')]/text() | //div[contains(@class,'DetailedHeroImage-ShortDescription')] | //div[contains(@class,'AboutThisBundle-description')] | //div[contains(@class,'about-item')]/div/div/text() 
   - name: pricePerUnit
     xpath: //div[contains(@class,"prod-ProductOffer-ppu")]
     regExp: '\(([^/]+)/([^/]+)\)'
@@ -372,16 +47,111 @@ fields:
     xpath: //div[contains(@class,"prod-ProductOffer-ppu")]
     regExp: '\(([^/]+)/([^/]+)\)'
     regExpReplace: $2
-  - name: indications
-    xpath: //*[@class="Indications"]
-  - name: indications
-    xpath: //*[@class="Indications"]
-  - name: nutritionHtml
-    xpath: //div[@class="nutrition-facts Grid"]
-    html: true
-  - name: specObject
-    xpath: //div[@id="specs"]
-  
-  # profitero
-  - name: profiteroDescription
-    xpath: //div[contains(@class,'about-desc')]/text() | //div[contains(@class,'DetailedHeroImage-ShortDescription')] | //div[contains(@class,'AboutThisBundle-description')] | //div[contains(@class,'about-item')]/div/div/text() 
+
+
+  ## FOR DETAILS
+  - name: name
+    xpath: (//h1[@itemprop='name'])[1] | (//h2[@itemprop='name'])[1]
+  - name: multiproductBlockTitle
+    xpath: //*[@class="varslabel"]/@id
+  - name: multiproductBlockCount
+    xpath: count(//*[@class="varslabel"]/@id)
+  - name: alternateImages
+    xpath: (//div[contains(@class,"prod-alt-image")]/img/@src)[position()!=1]
+  - name: videos
+    manualSelector: script[id='item'], script[id='product']
+    regExp: ("versions":{"\w+":")(http[^"]+mp4)(\")
+    regExpReplace: $2
+   - name: Image360Present
+    defaultValue: No
+  - name: imageZoomFeaturePresent
+    xpath: //div[contains(@class,'hover-zoom-hero-image-container')]/@class
+    regExp: (.*)
+    regExpReplace: Yes
+    defaultValue: No
+  - name: bullets
+    xpath: (//div[contains(@class,'about-desc')] | //div[contains(@class,'DetailedHeroImage-ShortDescription')] | //div[contains(@class,'AboutThisBundle-description')] | //div[contains(@class,'about-item')]/div)//li
+  - name: enhancedContent
+    xpath: //div[@id='added-marketing']
+  - name: enhancedContentImages
+    xpath: //div[@id="my_manufact_images"]
+    regExp: '[^|]+'
+  - name: directions
+    xpath: //p[@class='Directions']
+  - name: warnings
+    xpath: (//p[@class='Warnings'] | //div[@class='LegalBadge-description'][contains(.,'arning')])[1]
+  - name: nutrition
+    xpath: //*[@id="nutrition"]
+  - name: servingSize
+    xpath: //div[contains(@class,"fact")]/span[contains(.,"Serving Size")]/following-sibling::span[1]
+  - name: servingSizePerContainer
+    xpath: //*[@class="nutrition-facts-all-facts-servingSize"]
+    regExp: (\d+) servings per container
+    regExpReplace: $1
+  - name: sugarPerServing
+    xpath: //div[contains(@class,"fact")]/span[text()="Sugars"]/following-sibling::span[1]
+  - name: proteinPerServing
+    xpath: //div[contains(@class,"fact")]/span[text()="Protein"]/following-sibling::span[1]
+  - name: totalFatPerServing
+    xpath: //div[contains(@class,"fact")]/span[text()="Total Fat"]/following-sibling::span[1]
+  - name: caloriesPerServing
+    xpath: //span[text()="Calories"]/following-sibling::span[1]
+  - name: alsoOrderedProducts
+    xpath: //h2[contains(text(),"Customers also bought these products")]/../following-sibling::div//ul[@class="slider-list"]/li//div[@class="tile-title"]
+  - name: manufacturer
+    manualSelector: script[id='item'], script[id='product']
+    regExp: (\"manufacturer\"\:\")([^"]+)(",")
+    regExpReplace: $2
+  - name: variantsInfo
+    xpath: //div[@id='variants-info']
+    regExp: '[^|]+'
+  - name: countryOfOrigin
+    xpath: //td[contains(.,"Country of Origin")]/following-sibling::td[1]
+  - name: ratingCount
+    xpath: //*[@itemprop="reviewCount"]   
+    defaultValue: '0' 
+  - name: aggregateRating
+    xpath: //script[@id='item'][contains(.,"roundedAverageOverallRating")]
+    regExp: roundedAverageOverallRating":\s*([^,]+)
+    regExpReplace: $1
+  - name: productDimension
+    xpath: //td[contains(text(),"Assembled Product Dimensions")]/following-sibling::td[1]
+  - name: height
+    xpath: //td[text()="Height"]/following-sibling::td[1]
+  - name: length
+    xpath: //td[text()="Length" or text()="Depth"]/following-sibling::td[1]
+  - name: width
+    xpath: //td[text()="Width"]/following-sibling::td[1]
+  - name: weightGross
+    xpath: //td[contains(text(),"Assembled Product Weight")]/following-sibling::td[1]
+  - name: weightNet
+    xpath: //*[@id="about-product-section"]//li[contains(.,"Net Weight:")] | /html[not(//*[@id="about-product-section"]//li[contains(.,"Net Weight:")])]//*[@id="Size"]//span[@class="varslabel__content"][contains(.,"oz") or contains(.,"Oz")]
+  - name: weightCapacity
+    xpath: //td[contains(text(),"Maximum Weight")]/following-sibling::td[1]
+  - name: numberOfQuestions
+    xpath: //div[@id="questions-answers"]//div[@class="ReviewList-content"]/div[1]/span[2]
+  - name: mpc
+    xpath: //td[contains(text(),"Model")]/parent::tr/td/div | //b[contains(.,"Model Number:")]/following-sibling::text()[1]
+  - name: mpn
+    xpath: //td[contains(text(),"Manufacturer Part Number")]/parent::tr/td/div | //td[contains(text(),"manufacturer_part_number")]/following-sibling::*[1]
+  - name: warranty
+    xpath: //div[contains(@id,'card-warranty')]//span[contains(text(),'Warranty Information')]/following-sibling::span  | //div[contains(@title,'Warranty')]//span[contains(text(),'Warranty Information')]/following-sibling::span
+  - name: productManual  
+    defaultValue: No
+    xpath: (//div[@class='ManualsAndGuides'])[1]
+    regExp: (.*)
+    regExpReplace: Yes
+  - name: patent
+    xpath: //*[@id="about-product-section"]//li[contains(.,"Product patent number")]
+    regExp: '[^:]+$'
+  - name: minAge
+    xpath: (//span[@class="aboutModuleText"][contains(text(),"Min Age")][1] | //div[@id="about-product-section"]//text()[contains(.,"Min Age")])[1]
+  - name: metaKeywords
+    xpath: //meta[@name="keywords"]/@content
+  - name: dynamicComparisionChart
+    xpath: //span[contains(.,"Comparison Chart")]
+    regExp: (.+)
+    regExpReplace: 'Yes'
+    defaultValue: 'No'
+  - name: claims
+    xpath: //td[contains(text(),"Nutrient Content Claims")]/following-sibling::td[1]

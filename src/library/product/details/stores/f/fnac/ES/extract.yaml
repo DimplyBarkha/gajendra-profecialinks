@@ -3,142 +3,74 @@ regionsSelector: null
 recordSelector: null
 recordXPath: null
 fields:
-  - name: batteryInfo
-    xpath: //tr[contains(.,'Potencia')]//b
-  - name: promotion
-    singleValue: false
-    # xpath: //span[@class="f-alertOfferLabel"][not(ancestor::span[contains(@class,"f-alertOffer--standard")])]
+  ### PRICE ONLY  
+  - name: sku
+    xpath: //div[contains(@class, "js-articleView")]/@data-prid
+  - name: ean
+    xpath: (//div[contains(@class, "js-articleView")]/@data-ean13 | //script/@data-flix-ean | //div[@class="characteristicsStrate__item"]/dt[contains(text(),'EAN')]//parent::div/dd/p | //dl[contains(.,'EAN')]//dd//p)[1]
+  - name: brandText
+    manualSelector: div#brandText
+  - name: nameExtendted
+    manualSelector: h1.f-productHeader-Title
+    # Used for promotion  
   - name: discount
     xpath: //span[@class="f-alertOfferLabel"]/following-sibling::span
-    singleValue: false
-  - name: _input
-    xpath: //link[@rel="canonical"]/@href
-  - name: clearProductName
-    singleValue: false
-    manualSelector: h1.f-productHeader-Title
-  - name: imageUrl
-    singleValue: false
-    xpath: //img[contains(@class,"f-productVisuals-mainMedia")]/@src
-  - name: imageCount
-    xpath: count((//div[@class="slick-track"])[1]//div[@data-type="image"][contains(@class,'slick-slide') and not(contains(@class,'slick-cloned'))]/@data-src)
-  - name: videoCount
-    xpath: count(//meta[@itemprop="contentURL"]/@content[1] | //iframe[contains(@id,'flix-iframe')]/@src)
-    # xpath: count(//div[@class="slick-track"]//div[contains(@class,'f-productVisuals-thumbnail--video')][contains(@class,'slick-slide') and not(contains(@class,'slick-cloned'))])
-  - name: ratingScale
-    defaultValue: 5
-  - name: ratingDistribution
-    xpath: //ul[@class="customerReviewChart__list"]//li//span[@class="customerReviewChart__value"]
-  - name: shippingDimensions
-    xpath: //dl[contains(.,'Dimensiones')]//dd//p
-  - name: reviewCount
-    singleValue: false
-    xpath: //div[contains(@class,"f-productHeader-review")]//span[contains(@class, "f-productHeader-reviewLabel")]
-    type: NUMBER
-  - name: productDescriptionLength
-  - name: productDescriptionWordCount
-  - name: image
-    singleValue: false
-    xpath: //img[contains(@class,"f-productVisuals-mainMedia")]/@src
-  - name: imageAlt
-    singleValue: false
-    xpath: //img[contains(@class,"f-productVisuals-mainMedia")]/@alt
-  - name: alternateImages
-    singleValue: false
-    #xpath: //div[contains(@class, "js-productVisuals-thumbnails")]//div[contains(@class,"slick-active") and not(contains(@class, "slick-current"))]/@data-src-zoom
-    xpath: (//div[@class="slick-track"])[1]//div[@data-type="image"][contains(@class,'slick-slide') and not(contains(@class,'slick-cloned'))]/@data-src
-  - name: category
-    singleValue: false
-    xpath: //ul[@class="f-breadcrumb"]/li[position() > 1]
-  - name: nameExtended
-    singleValue: false
-    manualSelector: h1.f-productHeader-Title
   - name: price
-    singleValue: false
     xpath: //div[contains(@class,"f-productOffer-priceBox")]/div/span[contains(@class, "checked")]
+  - name: promoPrice
+    xpath: /html[//span[contains(@class,"f-priceBox-price--old")]]//div[contains(@class,"f-productOffer-priceBox")]/div/span[contains(@class, "checked")]
   - name: listPrice
-    singleValue: false
     xpath: //span[contains(@class,"f-priceBox-price--old")]
+  - name: category
+    xpath: //ul[@class="f-breadcrumb"]/li[position() > 1]  
+  - name: description
+    manualSelector: div#desc
   - name: availabilityText
-    singleValue: false
-    xpath: //span[@class="f-buyBox-availabilityStatus-available"]|//p[contains(string(), "en stock")] | //span[@class="f-buyBox-availabilityStatus-available"]|//p[contains(string(), "En stock")]
+    xpath: //span[contains(text(),"Añadir a la cesta")]
     regExp: (.+)
     regExpReplace: In Stock
     defaultValue: Out of Stock
-  - name: description
-    singleValue: false
-    manualSelector: div#desc
-  - name: descriptionBullets
-    singleValue: false
-    xpath: count(//div[contains(@class,"summaryStrate__raw")]//ul/li)
-  - name: brandText
-    singleValue: false
-    manualSelector: div#brandText
-  - name: manufacturer
-    singleValue: false
-    manualSelector: div#brandText
-  - name: weightNet
-    singleValue: false
-    #xpath: //div[@class="characteristicsStrate__item"]//dl[contains(text(),'Peso')]//parent::div/dd/p
-    xpath: //dl[contains(.,'Peso')]//dd//p
-    regExp: '[^/]+$'
-  - name: gtin
-    singleValue: false
-    # xpath: //div[contains(@class, "js-articleView")]/@data-ean13
-    xpath: (//div[contains(@class, "js-articleView")]/@data-ean13 | //script/@data-flix-ean | //div[@class="characteristicsStrate__item"]/dt[contains(text(),'EAN')]//parent::div/dd/p | //dl[contains(.,'EAN')]//dd//p)[1]
+  - name: image
+    xpath: //img[contains(@class,"f-productVisuals-mainMedia")]/@src
   - name: mpc
-    singleValue: false
-    # xpath: (//script/@data-flix-mpn | //div[@class="characteristicsStrate__item"]/dt[contains(text(),'Modelo')]//parent::div/dd/p)[1] | //h1[contains(@class, "f-productHeader-Title")] 
-    # regExp: (\s\d+-?\d+)
-    # regExpReplace: $1
     xpath: //dl[contains(.,'Modelo')]//dd
-  - name: ratingCount
-    singleValue: false
-    xpath: //div[contains(@class,"f-productHeader-review")]//span[contains(@class, "f-productHeader-reviewLabel")]
-    type: NUMBER
-  - name: aggregateRating
-    singleValue: false
-    xpath: //div[contains(@class,"f-productHeader-review")]//span[contains(@class, "f-star--large")]    
-  - name: variantCount
-    singleValue: false
-    defaultValue: "0"
-  - name: color
-    singleValue: false
-    xpath: //div[@class="characteristicsStrate__item"]/dt[contains(text(),'Color')]//parent::div/dd/p
-  - name: videos
-    singleValue: false
-    xpath: //meta[@itemprop="contentURL"]/@content[1] | //iframe[contains(@id,'flix-iframe')]/@src
+
+  ## FOR DETAILS
   - name: name
-    singleValue: false
     manualSelector: h1.f-productHeader-Title
-  - name: secondaryImageTotal
-    singleValue: false
-    xpath: count(//div[contains(@class, "js-productVisuals-thumbnails")]//div[contains(@class,"slick-active") and not(contains(@class, "slick-current"))]/@data-src-zoom)
-    type: NUMBER
-  - name: specifications
-    singleValue: false
-    xpath: //section[@id="Characteristics"]//div[@class="characteristicsStrate__lists"]
-  - name: additionalDescBulletInfo
-    singleValue: false
-    xpath: //div[contains(@class,"summaryStrate__raw")]//ul/li
-  - name: additionalDescBulletInfoCount
-    singleValue: false
-    xpath: count(//div[contains(@class,"summaryStrate__raw")]//ul/li)
-    type: NUMBER
   - name: imageZoomFeaturePresent
-    singleValue: false
     manualSelector: div.f-productVisuals-mainIconZoom > svg.f-icon
     defaultValue: No
-  - name: sku
-    singleValue: false
-    xpath: //div[contains(@class, "js-articleView")]/@data-ean13
-  - name: variantId
-    singleValue: false
-    xpath: //div[contains(@class, "js-articleView")]/@data-ean13
-  - name: shippingInfo
-    singleValue: false
-    xpath: //dd[contains(@class, "f-shopBox-MPInfoSellerStatus")]
+  - name: imageCount
+    xpath: count((//div[@class="slick-track"])[1]//div[@data-type="image"][contains(@class,'slick-slide') and not(contains(@class,'slick-cloned'))]/@data-src)
+  - name: alternateImages
+    xpath: (//div[@class="slick-track"])[1]//div[@data-type="image"][contains(@class,'slick-slide') and not(contains(@class,'slick-cloned'))]/@data-src
+  - name: videos
+    xpath: //meta[@itemprop="contentURL"]/@content[1] | //iframe[contains(@id,'flix-iframe')]/@src
+  - name: bullets
+    xpath: //div[contains(@class,"summaryStrate__raw")]//ul/li
+  - name: specifications
+    xpath: //section[@id="Characteristics"]//div[@class="characteristicsStrate__lists"]
+  - name: enhancedContent
+    xpath: //*[@id="flix-inpage"]
+    html: true
+  - name: enhancedContentImages
+    xpath: //*[@id="flix-inpage"]//img/@src
+    regExp: (.+)
+    regExpReplace: https:$1
+  - name: weightNet
+    xpath: //dl[contains(.,'Peso')]//dd//p
+    regExp: '[^/]+$'
+  - name: brandText
+    manualSelector: div#brandText
+  - name: manufacturer
+    manualSelector: div#brandText
   - name: sellerCount
     xpath: normalize-space(//li[@data-track-click='{"action":"MpAllOffer"}']/span[1])
     regExp: ^[^\s]+
   - name: attributes
     xpath: //div[@class="characteristicsStrate__list"]/dl
+  - name: reviewCount
+    xpath: //div[contains(@class,"f-productHeader-review")]//span[contains(@class, "f-productHeader-reviewLabel")]
+  - name: aggregateRating
+    xpath: //div[contains(@class,"f-productHeader-review")]//span[contains(@class, "f-star--large")]  

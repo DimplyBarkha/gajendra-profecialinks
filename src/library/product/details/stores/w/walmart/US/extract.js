@@ -166,6 +166,13 @@ module.exports = {
             addHiddenDiv('added-sprice', price);
           }
         }
+        if (node.innerText.match(/"nutritionFacts":({.+)(,"legalBadges")/)) {
+          const nutrition = node.innerText.match(/"nutritionFacts":({.+)(,"legalBadges")/)[1];
+          const div = document.createElement('div');
+          div.id = 'nutrition';
+          div.innerHTML = nutrition;
+          document.body.append(div);
+        }
       }
       const id = window.location.pathname.split('/').filter(wd => wd).slice(-1)[0];
       addHiddenDiv('added-sku', id);
@@ -192,13 +199,18 @@ module.exports = {
     try {
       await context.evaluate(async () => {
         const alsoViewedSection = Array.from(document.querySelectorAll('h2')).find(elm => elm.innerText.includes('Customers also viewed these products'));
-        while (alsoViewedSection.parentElement.nextElementSibling.querySelector('[data-tl-id="contentZoneBottom1-DefaultItemCarousel-PersonalizationModule-rightArrow"]')) {
-          alsoViewedSection.parentElement.nextElementSibling.querySelector('[data-tl-id="contentZoneBottom1-DefaultItemCarousel-PersonalizationModule-rightArrow"]').click();
+        while (alsoViewedSection.parentElement.nextElementSibling.querySelector('button.paginator-hairline-btn.elc-icon-angle-right')) {
+          alsoViewedSection.parentElement.nextElementSibling.querySelector('button.paginator-hairline-btn.elc-icon-angle-right').click();
           await new Promise((r) => setTimeout(r, 1000));
         }
         const alsoConsideredSection = Array.from(document.querySelectorAll('h2')).find(elm => elm.innerText.includes('Customers also considered'));
-        while (alsoConsideredSection.parentElement.nextElementSibling.querySelector('[data-tl-id="contentZoneMiddle2-DefaultItemCarousel-PersonalizationModule-rightArrow"]')) {
-          alsoConsideredSection.parentElement.nextElementSibling.querySelector('[data-tl-id="contentZoneMiddle2-DefaultItemCarousel-PersonalizationModule-rightArrow"]').click();
+        while (alsoConsideredSection.parentElement.nextElementSibling.querySelector('button.paginator-hairline-btn.elc-icon-angle-right')) {
+          alsoConsideredSection.parentElement.nextElementSibling.querySelector('button.paginator-hairline-btn.elc-icon-angle-right').click();
+          await new Promise((r) => setTimeout(r, 1000));
+        }
+        const alsoBoughtSection = Array.from(document.querySelectorAll('h2')).find(elm => elm.innerText.includes('Customers also bought these products'));
+        while (alsoBoughtSection.parentElement.nextElementSibling.querySelector('button.paginator-hairline-btn.elc-icon-angle-right')) {
+          alsoBoughtSection.parentElement.nextElementSibling.querySelector('button.paginator-hairline-btn.elc-icon-angle-right').click();
           await new Promise((r) => setTimeout(r, 1000));
         }
       });

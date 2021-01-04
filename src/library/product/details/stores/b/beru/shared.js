@@ -29,6 +29,10 @@ const transform = (data) => {
       }
       if (row.attributes) {
         row.attributes.forEach(elm => { elm.text = elm.text.replace(/\n/, ' : '); });
+        row.specifications = row.attributes;
+      }
+      if (!row.packSize && row.packSize2) {
+        row.packSize = row.packSize2;
       }
       Object.keys(row).forEach(header => row[header].forEach(el => {
         el.text = el.text ? clean(el.text) : el.text;

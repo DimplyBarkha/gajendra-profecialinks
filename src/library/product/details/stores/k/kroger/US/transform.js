@@ -20,6 +20,10 @@ const transform = (data, context) => {
 
   for (const { group } of data) {
     for (const row of group) {
+      if (!row.promotion && row.listPrice) {
+        row.promotion = [{ text: `Was ${row.listPrice[0].text}` }];
+        row.promoPrice = row.price;
+      }
       Object.keys(row).forEach(header => row[header].forEach(el => {
         el.text = el.text ? clean(el.text) : el.text;
       }));

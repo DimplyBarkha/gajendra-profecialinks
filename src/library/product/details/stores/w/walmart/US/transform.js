@@ -317,9 +317,31 @@ const transform = (data, context) => {
         }
         if (row.specObject) {
           row.attributes = JSON.parse(row.specObject[0].text).map(elm => ({ text: `${Object.keys(elm)[0]} : ${Object.values(elm)[0]}` }));
+          row.specifications = row.attributes;
         }
         if (row.nameExtended) {
           row.nameExtended = [{ text: row.nameExtended.map(elm => elm.text.trim()).join(', ') }];
+        }
+        if (row.variantInfo) {
+          if (row.variantInfo.length > 1) {
+            row.multiproduct = [{ text: 'Yes' }];
+          } else {
+            row.multiproduct = [{ text: 'No' }];
+          }
+        }
+        if (row.supplierType) {
+          const text = row.supplierType[0].text.toLowerCase().includes('walmart') ? '1P' : '3P';
+          row.supplierType = [{ text }];
+        }
+        if (row.productDimension) {
+          try {
+            const [length, width, height] = row.productDimension[0].text.split(' x ').map(elm => elm.trim().match(/^[^\s]+/)[0]);
+            row.length = row.length ? row.length : [{ text: length }];
+            row.width = row.width ? row.width : [{ text: width }];
+            row.height = row.height ? row.height : [{ text: height }];
+          } catch (err) {
+            console.log('Error exracting dimension values');
+          }
         }
         Object.keys(row).forEach(header => row[header].forEach(el => {
           el.text = el.text ? clean(el.text) : el.text;

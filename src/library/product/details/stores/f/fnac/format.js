@@ -24,6 +24,9 @@ const transform = (data) => {
         console.log('#########Checking transform#########');
         row.description[0].text = cleanUp(row.description[0].text);
       }
+      if (row.enhancedContent) {
+        row.enhancedContent[0].text = row.enhancedContent[0].text.replace(/<(style|script|noscript)\b[^<]*(?:(?!<\/(style|script|noscript)>)<[^<]*)*<\/(style|script|noscript)>/g, '').replace(/(<([^>]+)>)/ig, '').replace(/&nbsp;/g, '').trim();
+      }
 
       if (row.specifications) {
         row.specifications = row.specifications.map((specification) => {

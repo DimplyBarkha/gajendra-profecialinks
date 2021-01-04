@@ -3,145 +3,97 @@ regionsSelector: null
 recordSelector: null
 recordXPath: null
 fields:
-  - name: image
-    xpath: //meta[@property="og:image"]/@content| //ul[@data-tid="2c199bef"]//li[position()=1]//img/@src
-    regExp: (.+)
-    regExpReplace: https:$1
-  - name: url
-    xpath: //link[@rel="canonical"]/@href
-  - name: category
-    xpath: (//div[contains(@data-auto,"breadcrumb-item")])[position()>1]
-    singleValue: false
-  - name: nameExtended
-    xpath: //div[@data-zone-name="summary"]//h1
-    singleValue: false
-  - name: name
-    xpath: //div[@data-zone-name="summary"]//h1
-    singleValue: false
-  - name: description
-    xpath: //div[@data-zone-name="specs"]//div[@data-auto="sku-specs"]//div
-  - name: profiteroDescription
-    xpath: //*[@data-tid="7735417f"]
-    singleValue: false
-  - name: ingredientsList
-    xpath: //span[contains(.,'Состав')]/../..//span[@data-tid]
-    singleValue: false
-  - name: ingredients
-    xpath: boolean(//span[contains(.,'Состав')]/../..//span[@data-tid])
-  - name: brandText
-    xpath: (//div[contains(@itemtype,"BreadcrumbList")]//div[last()]//a/@title)[last()]
-    # xpath: //div[@data-zone-name="offerConditions"]/@data-zone-data
-    # regExp: brandName":"([^"]+)
-    # regExpReplace: $1
+  ### PRICE ONLY  
   - name: sku
     xpath: (//div/@data-zone-data[contains(.,"skuId")])[1]
     regExp: skuId":"([^"]+)
     regExpReplace: $1
-  - name: variantId
-    xpath: (//div/@data-zone-data[contains(.,"skuId")])[1]
-    regExp: skuId":"([^"]+)
-    regExpReplace: $1
-  - name: warnings
+  - name: nameExtendted
+    xpath: //div[@data-zone-name="summary"]//h1
+  - name: brandText
+    xpath: (//div[contains(@itemtype,"BreadcrumbList")]//div[last()]//a/@title)[last()]
+  - name: price
+    xpath: //div[@data-zone-name="offer-cart"]//div[@data-auto="price"]
+  - name: promoPrice
+    xpath: /html[//div[@data-zone-name="offer-cart"]//div[@data-auto="old-price"]]//div[@data-zone-name="offer-cart"]//div[@data-auto="price"]
+  - name: pricePerUnit
+    xpath: //div[@class="buybox__price-per-unit"]/span
+    regExp: '^[^/]+'
+  - name: pricePerUnitUom
+    xpath: //div[@class="buybox__price-per-unit"]/span[last()]
+    regExp: '[^/]+$'
+  - name: description
+    xpath: //div[@data-zone-name="specs"]//div[@data-auto="sku-specs"]//div[@data-tid="7735417f"]
+  - name: category
+    xpath: (//div[contains(@data-auto,"breadcrumb-item")])[position()>1]
+  - name: image
+    xpath: //meta[@property="og:image"]/@content| //ul[@data-tid="2c199bef"]//li[position()=1]//img/@src
+    regExp: (.+)
+    regExpReplace: https:$1
+  - name: availabilityText
+    xpath: //button/span[contains(.,"Добавить в корзину")]
+    regExp: (.+)
+    regExpReplace: In Stock
+    defaultValue: Unavailable
+  - name: supplierType
+    xpath: //a[@href="/supplier/465852"]
+    regExp: (.+)
+    regExpReplace: 1P
+    defaultValue: 3P
+  - name: multiproduct
+    xpath: (//div[@data-zone-name="filter"]//input/@value)[1]
+    regExp: (.+)
+    regExpReplace: 'Yes'
+    defaultValue: 'No'
+
+  ## FOR DETAILS
+  - name: name
+    xpath: //div[@data-zone-name="summary"]//h1
   - name: alternateImages
     xpath: //ul[@data-tid="2c199bef"]//li[position()>1]//img/@src
     regExp: (.*)/(.*)
     regExpReplace: https:$1/orig
-    singleValue: false
-  - name: secondaryImageTotal
-    xpath: count(//ul[@data-tid="2c199bef"]//li[position()>1]//img/@src)
-    singleValue: false
-  - name: allergyAdvice
-    xpath: //div[@class="nutrition-allergens"]//span[@class="nutrition-allergens__contain"]
-  - name: packaging
-    xpath: //span[contains(.,'Упаковка')]/../..//span[@data-tid]
-    singleValue: false
-  - name: pricePerUnit
-    xpath: //div[@class="buybox__price-per-unit"]/span
-    regExp: '^[^/]+'
-    singleValue: false
-  - name: pricePerUnitUom
-    xpath: //div[@class="buybox__price-per-unit"]/span[last()]
-    regExp: '[^/]+$'
-    singleValue: false
-  - name: imageAlt
-    xpath: (//div[@class="product-pics__container"]//img/@alt)[1]
-  - name: secondaryImageTotal
-    xpath: //body/@secondary_image_total
-    singleValue: false
-  - name: alcoholContent
-    xpath: //span[contains(text(),"Porcentaje de alcohol:")]/following-sibling::span
-    singleValue: false
-  - name: totalFatPerServing
-    xpath: //span[contains(.,'Жиры в 100 г')]/../..//span[@data-tid]
-    regExp: ^[^\s]+
-    singleValue: false
-  - name: totalFatPerServingUom
-    xpath: //span[contains(.,'Жиры в 100 г')]/../..//span[@data-tid]
-    regExp: '[^\s]$'
-    singleValue: false
-  - name: totalCarbPerServing
-    xpath: //span[contains(.,'Углеводы')]/../..//span[@data-tid]
-    regExp: ^[^\s]+
-    singleValue: false
-  - name: totalCarbPerServingUom
-    xpath: //span[contains(.,'Углеводы')]/../..//span[@data-tid]
-    regExp: '[^\s]$'
-    singleValue: false
-  - name: proteinPerServing
-    xpath: //span[contains(.,'Белки')]/../..//span[@data-tid]
-    regExp: ^[^\s]+
-    singleValue: false
-  - name: proteinPerServingUom
-    xpath: //span[contains(.,'Белки')]/../..//span[@data-tid]
-    regExp: '[^\s]$'
-    singleValue: false
-  - name: price
-    xpath: //div[@data-zone-name="offer-cart"]//div[@data-auto="price"]
-  - name: ratingCount
-    xpath: //div[@data-zone-name="summary"]//span[contains(.,'отзывов')]
-    regExp: (\d+)
-  - name: additionalDescBulletInfo
-    xpath: //div[@data-zone-name="specs"]//ul//li
-  - name: aggregateRating
-    xpath: //meta[@itemprop="ratingValue"]/@content
-    singleValue: false
-  - name: availabilityText
-    # xpath: //meta[@itemprop="availability"]/@content
-    # xpath: (//div[@data-zone-name="skuAvailability"]//span|//div[contains(@class, "tabulator-row")]//div[@tabulator-field="availabilityText"]//div[1]|//meta[@itemprop="availability"]/@content)[1]
-    xpath: //button/span[contains(.,"Добавить в корзину")]
-    regExp: (.+)
-    regExpReplace: In Stock
-    defaultValue: Out of Stock
-    singleValue: false
-  - name: listPrice
-    xpath: //div[@data-zone-name="offer-cart"]//div[@data-auto="old-price"]
-  - name:  descriptionBullets
-    xpath: count(//div[@data-zone-name="specs"]//ul//li)
-  - name: boughtTogether
-    xpath: //div[@data-zone-name="ScrollBox" and (contains(.,'С этим товаром покупают'))]//div[@data-tid="518f5fc0"]/span
-  - name: imageZoomFeaturePresent
-    defaultValue: 'Yes' 
   - name: imageCount
     xpath: count(//ul[@data-tid="2c199bef"]//li//img/@src | /html[not(//ul[@data-tid="2c199bef"]//li//img/@src)]//meta[@property="og:image"]/@content)
+  - name: bullets
+    xpath: //div[@data-zone-name="specs"]//ul//li
+  - name: packSize
+    xpath: //div[@data-zone-name="summary"]//h1
+    regExp: ([^\s]+)\s*шт
+    regExpReplace: $1
+  - name: packSize2
+    xpath: //span[contains(text(),"Количество в упаковке")]/following-sibling::span[1]
+  - name: ingredients
+    xpath: //span[contains(.,'Состав')]/../..//span[@data-tid]
+  - name: directions
+    xpath: //span[contains(.,'Способ применения')]/../..//span[@data-tid]
+  - name: recommendedProducts
+    xpath: //div[@data-apiary-widget-id="/AlsoViewed"]//div[@data-auto="item"]//img[@class="b_3ifiYhxrvQ"]/@title
+  - name: alsoOrderedProducts
+    xpath: //div[@data-apiary-widget-id="/ProductAccessories"]//div[@data-auto="item"]//img[@class="b_3ifiYhxrvQ"]/@title
   - name: manufacturer
     xpath: //div[@data-zone-name="productVendor"]//div[2]|//div[@data-apiary-widget-name="@marketplace/SkuVendorInfo"]//a[2]
-  - name: productDescriptionLength
-  - name: productDescriptionWordCount  
-  - name: ratingScale
-    defaultValue: '5'
-  - name: reviewCount
-    xpath: //meta[@itemprop="reviewCount"]/@content
-  - name: image360Present
-    defaultValue: No
-  - name: minAge
-    xpath: //span[contains(text(), "Рекомендуемый возраст")]//ancestor::div[1]/following-sibling::div
-  - name: variantCount
-    xpath: count(//div[@data-zone-name="filter"]//input/@value)
   - name: variantsInfo
     xpath: //*[@class="b_18ouxBEWKA"]
-  - name: boughtTogether
-    xpath: //div[@data-apiary-widget-id="/ProductAccessories"]//div[@data-auto="item"]//img[@class="b_3ifiYhxrvQ"]/@title
-  - name: attributes
-    xpath: //div[@data-auto="sku-specs"]//h3[@data-tid-prop="4b145b4d"]/following-sibling::div/div
-  - name: alsoViewedProducts
-    xpath: //div[@data-apiary-widget-id="/AlsoViewed"]//div[@data-auto="item"]//img[@class="b_3ifiYhxrvQ"]/@title
+  - name: multiproductBlockCount
+    xpath: count(//*[@data-tid="970f4a48"])
+  - name: multiproductBlockTitle
+    xpath: //*[@data-tid="970f4a48"]//span[@class="b_g0ReZMPjA0"]/text()[1]
+  - name: allergyAdvice
+    xpath: //div[@class="nutrition-allergens"]//span[@class="nutrition-allergens__contain"]
+  - name: countryOfOrigin
+    xpath: //span[contains(.,'Страна производства')]/../..//span[@data-tid]
+  - name: weightGross
+    xpath: //span[.='Вес']/../..//span[@data-tid]
+  - name: minAge
+    xpath: //span[contains(text(), "Рекомендуемый возраст")]//ancestor::div[1]/following-sibling::div
+  - name: reviewCount
+    xpath: //meta[@itemprop="reviewCount"]/@content
+  - name: imageZoomFeaturePresent
+    defaultValue: 'Yes'
+  - name: image360Present
+    defaultValue: 'No'
+  - name: variantCount
+    xpath: count(//div[@data-zone-name="filter"]//input/@value)
+  - name: productUrl
+    xpath: //link[@rel="canonical"]/@href

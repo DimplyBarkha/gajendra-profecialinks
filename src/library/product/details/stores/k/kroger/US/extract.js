@@ -31,62 +31,6 @@ const implementation = async (
       document.body.appendChild(newDiv);
     }
 
-    const skuCode = id || url.slice(-13);
-    addHiddenDiv('my-sku', skuCode);
-
-    const myUrl = window.location.href;
-    addHiddenDiv('ii_url', myUrl.split('#')[0]);
-
-    // name logic, only 45255 to include size in nameExtended:
-    let nameExtended;
-    if (zipcode !== '45255') {
-      nameExtended = document.evaluate('//div[@class="ProductDetails-header"]/h1', document, null, XPathResult.STRING_TYPE, null).stringValue;
-    } else {
-      nameExtended = document.evaluate('concat(//div[@class="ProductDetails-header"]/h1," ",//span[@id="ProductDetails-sellBy-unit"])', document, null, XPathResult.STRING_TYPE, null).stringValue;
-    }
-    addHiddenDiv('my-name-ext', nameExtended);
-
-    const productDetailsButton = document.getElementsByClassName('kds-Tabs-tab')[0];
-
-    if (productDetailsButton && productDetailsButton.textContent === 'Product Details') {
-      productDetailsButton.click();
-    }
-
-    const descriptionItem = document.querySelector('.RomanceDescription.overflow-x-hidden');
-    if (descriptionItem) {
-      let descriptionText = '';
-
-      const mainDesc = descriptionItem.querySelectorAll('p');
-      if (mainDesc) {
-        mainDesc.forEach((txtEl, index) => {
-          if (txtEl.textContent) {
-            index === 0 ? descriptionText += txtEl.textContent : descriptionText += ' ' + txtEl.textContent;
-          }
-        });
-      }
-
-      const bullets = descriptionItem.querySelectorAll('ul li');
-      let bulletCount;
-      let bulletInfo = '';
-
-      if (bullets && bullets.length > 0) {
-        bulletCount = bullets.length;
-
-        bullets.forEach((bullet) => {
-          if (bullet.textContent) {
-            bulletInfo += ' || ' + bullet.textContent;
-          }
-        });
-      } else {
-        bulletCount = '';
-      }
-      descriptionText += bulletInfo;
-
-      addHiddenDiv('bullet-info', bulletInfo.replace(/ \|\| /g, '|').trim());
-      addHiddenDiv('bulletCount', bulletCount);
-      addHiddenDiv('description', descriptionText);
-    }
-
     const nutritionButton = document.evaluate('//span[@class="kds-Text--m" and contains(text(),"Nutrition Info")]', document, null, XPathResult.UNORDERED_NODE_ITERATOR_TYPE, null).iterateNext();
     if (nutritionButton) {
       nutritionButton.click();

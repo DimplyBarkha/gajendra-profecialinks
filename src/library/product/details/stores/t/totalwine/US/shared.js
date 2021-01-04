@@ -64,7 +64,15 @@ const transform = (data) => {
         row.ratingDistribution = new Array(5).fill().map(() => ({ text: 0 }));
       }
       if (row.attributes) {
-        row.attributes.forEach(elm => { elm.text = elm.text.replace('\n', ' : ') });
+        row.attributes.forEach(elm => { elm.text = elm.text.replace('\n', ' : '); });
+      }
+      if (row.promotion && row.listPrice && row.price) {
+        row.promoPrice = row.price;
+      }
+      if (row.variantInfo) {
+        if (row.variantInfo.length > 1) {
+          row.multiproduct = [{ text: 'Yes' }];
+        }
       }
       Object.keys(row).forEach(header => row[header].forEach(el => {
         el.text = el.text ? clean(el.text) : el.text;
