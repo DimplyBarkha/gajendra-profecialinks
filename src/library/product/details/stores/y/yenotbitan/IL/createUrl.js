@@ -4,7 +4,7 @@ module.exports = {
   parameterValues: {
     domain: 'ybitan.co.il',
     prefix: null,
-    url: null,
+    url: 'https://www.ybitan.co.il/?catalogProduct={id}',
     country: 'IL',
     store: 'yenotbitan',
     zipcode: '',
