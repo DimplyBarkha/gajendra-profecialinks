@@ -14,6 +14,7 @@ module.exports = {
   ) => {
     const { transform } = parameters;
     const { productDetails } = dependencies;
+    await new Promise((resolve, reject) => setTimeout(resolve, 6000));
     await context.evaluate(() => {
       // function addHiddenDiv(id, content, index) {
       //     const newDiv = document.createElement('div');
@@ -46,7 +47,7 @@ module.exports = {
       //     // var finalValue = itemList[i].item.url
       //     // console.log("test" + finalValue)
       // }
-      if (itemList.length) {
+      if (itemList && itemList.length) {
         for (let i = 0; i < itemList.length; i++) {
           if (Object.keys(itemList[i].item.aggregateRating).length > 1) {
             const finalValue = itemList[i].item.aggregateRating.ratingValue
@@ -115,9 +116,8 @@ module.exports = {
       if(!rating && pUrl){
         document.querySelector("#__next > div.alert-top-defult").setAttribute('rating', '0');
       }
-
     });
-
+    
     const applyScroll = async function (context) {
       await context.evaluate(async function () {
         let scrollTop = 0;
