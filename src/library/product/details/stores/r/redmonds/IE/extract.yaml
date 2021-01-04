@@ -118,10 +118,10 @@ fields:
     xpath: //div[contains(@class,'box-catalog.product.video')]//div[@class='video']//iframe/@src
   - name: inTheBoxText
     singleValue: false
-    xpath: //div[@id='added_intheboxtext']
+    xpath: //div[@class='product-collateral']//div[@class='inpage_selector_InTheBox']//div[@class='flix-std-content']/div/span
   - name: inTheBoxUrl
     singleValue: false
-    xpath: //div[@id='added_intheboxurl']
+    xpath: //div[@class='product-collateral']//div[@class='inpage_selector_InTheBox']//img/@srcset
   - name: name
     singleValue: true
     xpath: //div[@class='product-shop-content']//div[@class='product-name']/h1/text()
