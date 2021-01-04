@@ -569,6 +569,9 @@ fields:
     singleValue: false
     xpath: //*[contains(text(), "in the box")]//ancestor::div[1]//p
     description: Must include text to show the accessories/tools which come with the product
+  - name: backUpInTheBoxText
+    singleValue: false
+    xpath: //header[@data-tag-value="What's In The Box"]/following-sibling::div//th[@class="second"]
   - name: hasComparisonTable
     singleValue: true
     xpath: //h2[contains(text(), "How about one of these")]/following-sibling::div//div[contains(@class, "trade-up-app-features")]

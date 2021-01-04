@@ -139,6 +139,10 @@ const transform = (data, context) => {
           row.videos = items;
         }
 
+        if (!row.inTheBoxText && row.backUpInTheBoxText) {
+          row.inTheBoxText = row.backUpInTheBoxText;
+        }
+
         row = clean(row);
       } catch (exception) {
         console.log(exception);
