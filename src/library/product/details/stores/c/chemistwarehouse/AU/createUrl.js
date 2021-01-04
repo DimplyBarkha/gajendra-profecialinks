@@ -4,7 +4,7 @@ module.exports = {
   parameterValues: {
     domain: 'chemistwarehouse.com.au',
     prefix: null,
-    url: null,
+    url: 'https://chemistwarehouse.com.au/buy/{id}',
     country: 'AU',
     store: 'chemistwarehouse',
     zipcode: '',
