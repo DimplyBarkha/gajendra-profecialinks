@@ -38,7 +38,11 @@ fields:
       clicks add to basket this is the price they would be charged
   - name: availabilityText
     singleValue: false
-    xpath: //div[@id="added_availability"]
+    # xpath: //div[@id="added_availability"]
+    xpath: //script[@type="application/ld+json"][contains(text(),'availability":"https:\/\/schema.org\/InStock"')]
+    regExp: (.+)
+    regExpReplace: In Stock
+    defaultValue: Out Of Stock
     description: Availability as described on page for the selected variant. If
       there is no availability but the product can be added to cart, this field
       should be "In Stock"
@@ -436,7 +440,8 @@ fields:
   - name: promotion
     singleValue: false
     description: promotion text on product page
-    xpath: //div[@id="product-view-price"]//li[@class="offer-item"]
+    # xpath: //div[@id="product-view-price"]//li[@class="offer-item"]
+    xpath: //div[@id="product-view-price"]//li[@class="offer-item"] | //div[@id="product-view-price"]//div[contains(@class,'special-price')]/span[contains(@class,'special-text label')]
   - name: alcoholContent
     singleValue: false
     description: Alcohol content information

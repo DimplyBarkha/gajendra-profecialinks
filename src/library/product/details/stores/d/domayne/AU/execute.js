@@ -7,7 +7,7 @@ module.exports = {
     domain: 'domayne.com.au',
     // loadedSelector: null,
     loadedSelector: 'div#category-grid',
-    noResultsXPath: null,
+    noResultsXPath: '//h1[contains(.,"0 items found")]',
     zipcode: '',
   },
 };

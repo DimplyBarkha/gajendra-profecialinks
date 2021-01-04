@@ -37,12 +37,12 @@ async function implementation (inputs, parameters, context, dependencies) {
     }
 
     // Function to fetch sku number and gtin from script tag as not available directly on DOM.
-    function fetchRatingFromScript () {
-      const scriptDataTagSelector = document.evaluate('//script[@type="application/ld+json"]', document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
-      const scriptTagData = scriptDataTagSelector ? scriptDataTagSelector.innerText : '';
-      const availability = scriptTagData.includes('InStock') ? 'In Stock' : 'Out of Stock'; // checking for schemaOrg
-      addHiddenDiv('added_availability', availability);
-    }
+    // function fetchRatingFromScript () {
+    //   const scriptDataTagSelector = document.evaluate('//script[@type="application/ld+json"]', document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
+    //   const scriptTagData = scriptDataTagSelector ? scriptDataTagSelector.innerText : '';
+    //   const availability = scriptTagData.includes('InStock') ? 'In Stock' : 'Out of Stock'; // checking for schemaOrg
+    //   addHiddenDiv('added_availability', availability);
+    // }
 
     // If images are present in description then add to manufacturerDescription else add to description
     const descriptionSelector = document.evaluate('//*[@id="productDescription"] | //span[contains(text(), "Description")]/parent::*/following-sibling::* |  //div[contains(@class, "product-short-description short-description")]/p | //div[contains(@id,"dyson_jump_features")]', document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
@@ -54,7 +54,7 @@ async function implementation (inputs, parameters, context, dependencies) {
     } else {
       addHiddenDiv('added-description', description);
     }
-    fetchRatingFromScript();
+    //fetchRatingFromScript();
   });
   await new Promise((resolve) => setTimeout(resolve, 10000));
   const noResults = await context.evaluate(async function () {
