@@ -13,7 +13,7 @@ const transform = (data) => {
     .replace(/"\s{1,}/g, '"')
     .replace(/\s{1,}"/g, '"')
     .replace(/^ +| +$|( )+/g, ' ')
-  // eslint-disable-next-line no-control-regex
+    // eslint-disable-next-line no-control-regex
     .replace(/[\x00-\x1F]/g, '')
     .replace(/[\uD800-\uDBFF][\uDC00-\uDFFF]/g, ' ');
 
@@ -33,23 +33,44 @@ const transform = (data) => {
         row.Image360Present = [{ text: newText }];
       }
 
-      if (row.availabilityText) {
-        let newText = 'Out Of Stock';
-        row.availabilityText.forEach(item => {
-          if (item.text.trim() === 'instock') {
-            newText = 'In Stock';
+      // if (row.availabilityText) {
+      //   let newText = 'Out Of Stock';
+      //   row.availabilityText.forEach(item => {
+      //     if (item.text.trim() === 'instock') {
+      //       newText = 'In Stock';
+      //     }
+      //   });
+      //   row.availabilityText = [{ text: newText }];
+      // }
+      if (row.customerServiceAvailability) {
+        let value = '';
+        row.customerServiceAvailability.forEach(item => {
+          if (item.text.trim() === 'true') {
+            value = 'Yes'
           }
-        });
-        row.availabilityText = [{ text: newText }];
+          else {
+            value = 'No'
+          }
+        })
+        row.customerServiceAvailability = [{ text: value }]
       }
-
-	  if (row.description) {
+      if (row.description) {
         let newText = '';
         row.description.forEach(item => {
           newText = newText + item.text + '||';
         });
         newText = newText.substring(0, newText.length - 2);
         row.description = [{ text: newText }];
+      }
+
+      if (row.image) {
+        let images = '';
+        let mainUrl = 'https://www.retravision.com.au';
+        row.image.forEach(item => {
+          item.text = mainUrl + item.text;
+          images = images + item.text + '|';
+        })
+        row.image = [{ text: images }];
       }
 
       if (row.specifications) {

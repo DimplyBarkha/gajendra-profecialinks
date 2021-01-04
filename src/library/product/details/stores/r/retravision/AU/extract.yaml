@@ -6,7 +6,7 @@ fields:
   - name: image
     singleValue: false
     description: URL of the main product image
-    xpath: //meta[@property="og:image"]//@content
+    xpath: //div[contains(@class,"swiper-container swiper-product relative z-10 swiper-container-initialized swiper-container-horizontal")]/div/div/img/@src | //div[contains(@class,"swiper-container swiper-product relative z-10")]/div/div/img/@src
   - name: imageAlt
     singleValue: false
     description: Alt text of the main product image
@@ -14,7 +14,7 @@ fields:
   - name: alternateImages
     singleValue: false
     description: Other product images (not in manufacturer description)
-    xpath: //img[contains(@class,'etalage_small_thumb')]//@src
+    #xpath: //div[contains(@class,"swiper-container swiper-product relative z-10 swiper-container-initialized swiper-container-horizontal")]/div/div/img/@src | //div[contains(@class,"swiper-container swiper-product relative z-10")]/div/div/img/@src
   - name: metaKeywords
     singleValue: false
     description: The <meta> keywords content
@@ -22,27 +22,21 @@ fields:
   - name: category
     singleValue: false
     # xpath: //div[contains(@class,'col-sm-12 a-left')]//ul/li[position()>1]
-    xpath: //meta[@property="og:category"]//@content
+    #xpath: //meta[@property="og:category"]//@content  //a[@class='breadcrumb__link']
+    xpath: //a[@class='breadcrumb__link']
     description: The categories (e.g. from breadcrumbs)
     # xpath: //div[contains(@class,'breadcrumbs')]//ul//li[position()>1 and position()<last()]    
   - name: nameExtended
     singleValue: false
     description: The product name, prefixing "${brand} - " if not included in "name"
       and appending " - ${variantType}" if necessary (fixed per feed)
-    xpath: //meta[@property="og:title"]//@content   
-  - name: listPrice
-    singleValue: false
-    description: The stated undiscounted price for the product
-    xpath: //p[contains(@class,'old-price')]//span[@class='price']
+    xpath: //div[@class="flex justify-between"]/h1   
   - name: price
     singleValue: false
     description: The offered price for the selected product variant - if a user
       clicks add to basket this is the price they would be charged
-    xpath: //meta[@property="product:price:amount"]//@content
+    xpath: //div[@class="leading-none"]/p/div
     type: CURRENCY
-  - name: onlinePriceCurrency 
-    singleValue: false    
-    xpath: //meta[@property="product:price:currency"]//@content
   - name: availabilityText
     singleValue: false
     description: Availability as described on page for the selected variant. If
@@ -51,16 +45,16 @@ fields:
     xpath: //meta[@property="og:availability"]/@content
     # regExp: (.+)
     # regExpReplace: In Stock
-    # defaultValue: Out of Stock
+    defaultValue: "In Stock"
   - name: description
     singleValue: false
     description: Product description supplied by website - may be concatenanted from
       multiple places; specifically not the manufacturer description
-    xpath: //div[@id='tab_description_tabbed_contents']//div//li
+    xpath: //div[@id="details"]/li
   - name: descriptionBullets
     singleValue: false
     description: Number of ul > li tags in the description
-    xpath: count(//div[@id='tab_description_tabbed_contents']//div//li)
+    xpath: count(//div[@id="details"]/li)
     type: NUMBER
   - name: brandText
     singleValue: false
@@ -112,15 +106,6 @@ fields:
   - name: directions
     singleValue: false
     description: Content under "directions" header
-  - name: URL
-    singleValue: false
-    xpath: //a[@class="breadcrumb__link"][2]/@href
-  - name: url
-    singleValue: false
-    xpath: //a[@class="breadcrumb__link"][2]/@href
-  - name: _url
-    singleValue: false
-    description: //a[@class="breadcrumb__link"][2]/@href
   - name: aggregateRating
     singleValue: false
     description: The stated aggregate rating normalized to be out of 5
@@ -143,7 +128,7 @@ fields:
   - name: color
     singleValue: false
     description: A textual description of the colour
-    xpath: //th[contains(text(), "Colour")]/following::td[1]
+    xpath: //table[contains(@class,"table-auto")]/tbody/tr/td[contains(text(),'Colour')]/following::td[1]
   - name: colorCode
     singleValue: false
     description: A code description of the color (e.g. RGB hex)
@@ -265,7 +250,8 @@ fields:
   - name: customerServiceAvailability
     singleValue: false
     description: Information related to customer service availability (text), ['Yes','No']
-    defaultValue: No
+    xpath: boolean(//i[@class="icon icon-delivery text-2xl lg:text-3xl xl:text-4xl mr-1 lg:mr-2"])
+    #defaultValue: No
   - name: materials
     singleValue: false
     description: Materials used to make the product
@@ -282,7 +268,8 @@ fields:
     example: https://www.zalando.de/adidas-neo-sneaker-low-blackwhite-a4315i002-q11.html
     defaultValue: No
   - name: unInterruptedPDP
-    xpath: //h2[@class="product-listing__content-name"]
+    #xpath: //h2[@class="product-listing__content-name"]
+    xpath: //div[@class="product-listing__content"]   
   - name: hasComparisonTable
     defaultValue: No
   - name: inTheBoxText
