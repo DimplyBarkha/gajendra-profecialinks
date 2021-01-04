@@ -10,8 +10,8 @@ const transform = (data) => {
     .replace(/&amp;#160/g, ' ')
     .replace(/\u00A0/g, ' ')
     .replace(/\s{2,}/g, ' ')
-    .replace(/"\s{1,}/g, '"')
-    .replace(/\s{1,}"/g, '"')
+    .replace(/"\s{1,}/g, '" ')
+    .replace(/\s{1,}"/g, ' "')
     .replace(/^ +| +$|() + /g, ' ')
     // eslint-disable-next-line no-control-regex
     .replace(/[\x00-\x1F]/g, '')
@@ -19,12 +19,6 @@ const transform = (data) => {
 
   for (const { group } of data) {
     for (const row of group) {
-      if (row.aggregateRating) {
-        row.aggregateRating.forEach(item => {
-          item.text = (+item.text).toFixed(1);
-        });
-      }
-
       if (row.manufacturerDescription && row.manufacturerDescription[0]) {
         row.manufacturerDescription[0].text = row.manufacturerDescription[0].text.replace(/\{.*\}/, '').replace(/^\d+\s/, '').trim();
       }

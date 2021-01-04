@@ -72,6 +72,9 @@ module.exports = {
           if (response.promotionMessages) {
             response.promotionMessages.pipMessage && addElementToDocument('pd_promotion', response.promotionMessages.pipMessage);
           }
+          if (response.averageRating) {
+            addElementToDocument('pd_aggregate', response.averageRating);
+          }
           if (!document.querySelector('#wc-aplus,#inpage_container')) {
             if (response.modelNumber) {
               const catElement1 = document.createElement('script');

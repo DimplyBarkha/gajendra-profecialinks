@@ -17,7 +17,7 @@ fields:
     xpath: //button[@id="avg-rating-button"]/@aria-label
   - name: aggregateRating
     singleValue: false
-    xpath: //span[@itemprop="ratingValue"]
+    xpath: //div[@id="pd_aggregate"]
   - name: alternateImages
     singleValue: false
     xpath: //div[@id="pd_altimage"]
@@ -190,6 +190,7 @@ fields:
     regExpReplace: https://players.brightcove.net/602043299001/B1gUI6kJWz_default/index.html?videoId=$1&autoplay=true&playsinline=false
   - name: warnings
     singleValue: false
+    xpath: //h3[text()="Warranty / Certifications"]/following-sibling::div
   - name: warranty
     singleValue: false
     xpath: //h3[text()="Warranty / Certifications"]/following-sibling::div
