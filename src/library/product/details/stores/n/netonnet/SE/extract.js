@@ -20,6 +20,7 @@ module.exports = {
       const inTheBox = document.getElementById('headingFour');
       if (inTheBox && inTheBox !== undefined) {
         inTheBox.click();
+       new Promise((resolve, reject) => setTimeout(resolve, 2000));
       }
 
 
@@ -27,6 +28,7 @@ module.exports = {
       const overlay = document.getElementById('headingOne');
       if (overlay && overlay !== undefined) {
         overlay.click();
+        new Promise((resolve, reject) => setTimeout(resolve, 2000));
       }
     });
 
