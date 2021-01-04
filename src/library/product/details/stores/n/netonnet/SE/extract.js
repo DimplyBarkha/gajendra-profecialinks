@@ -39,7 +39,7 @@ module.exports = {
       const inBoxUrl = document.querySelectorAll('div.productSpec div.panel-default div#collapseFour img');
       if (inBoxUrl.length > 0) {
       for (let i = 0; i < inBoxUrl.length; i++) {
-        const imgUrl = 'https://www.netonnet.se' + inBoxUrl[i].getAttribute('src');
+        const imgUrl = 'https://www.netonnet.se' + inBoxUrl[i].getAttribute('data-src');;
         imgUrl && inBoxImageArray.push(imgUrl);
       }
 
