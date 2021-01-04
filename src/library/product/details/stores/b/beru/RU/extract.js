@@ -96,8 +96,8 @@ await context.evaluate(async () => {
         bulletList += element.innerText;
         bulletListTemp += element.innerText;
       } else {
-        bulletList += element.innerText+'||';
-        bulletListTemp += element.innerText+'||';
+        bulletList += element.innerText+' || ';
+        bulletListTemp += element.innerText+' || ';
       }
     });
     console.log(document.querySelectorAll('div.b_1xQdt6zCoE'));
@@ -252,7 +252,7 @@ await context.evaluate(async () => {
         fatDataUOM = fatData.split(' ')[1];
       }
     }
-    addHiddenDiv('fatData', fatData);
+    addHiddenDiv('fatData', fatData.split(' ')[0]);
     addHiddenDiv('fatDataUOM', fatDataUOM);
 
     var xpath =
@@ -272,7 +272,7 @@ await context.evaluate(async () => {
         carbsDataUOM = carbsData.split(' ')[1];
       }
     }
-    addHiddenDiv('carbsData', carbsData);
+    addHiddenDiv('carbsData', carbsData.split(' ')[0]);
     addHiddenDiv('carbsDataUOM', carbsDataUOM);
 
     var xpath =
@@ -292,7 +292,7 @@ await context.evaluate(async () => {
         proteinDataUOM = proteinData.split(' ')[1];
       }
     }
-    addHiddenDiv('proteinData', proteinData);
+    addHiddenDiv('proteinData', proteinData.split('')[0]);
     addHiddenDiv('proteinDataUOM', proteinDataUOM);
 
     var xpath =
@@ -325,7 +325,7 @@ if(spec.length === 0) {
   specificationList = document.querySelectorAll('div.b_3_bNW20rUd');
   specificationList.forEach((element, index, array) => {
     specification +=
-      element.children[0].innerText +':'+element.children[2].innerText+'||';
+      element.children[0].innerText +':'+element.children[2].innerText+' || ';
   });
   addHiddenDiv('specification', specification);
 }
@@ -334,7 +334,7 @@ if(spec.length === 0) {
 if(variantInfo) {
   let variantList = '';
   variantInfo.forEach((element, index, array) => {
-    variantList +=  element.innerText +'|';
+    variantList +=  element.innerText +' | ';
   });
   addHiddenDiv('variantList', variantList.slice(0 , -1));
 }

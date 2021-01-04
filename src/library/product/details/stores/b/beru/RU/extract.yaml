@@ -79,6 +79,10 @@ fields:
     singleValue: false
     description: Net weight as described on the page
     xpath: //*[contains(text() , 'Вес')]//../following-sibling::* | //div[@id='weightText']
+  - name: shippingDimensions
+    singleValue: false
+    description: Net weight as described on the page
+    xpath: //*[contains(text() , 'Вес')]//../following-sibling::* | //div[@id='weightText']
   - name: weightGross
     singleValue: false
     description: Gross weight as described on the page
@@ -117,17 +121,13 @@ fields:
     xpath: //meta[@itemprop="ratingValue"]/@content
   - name: reviewCount
     singleValue: false
-    xpath: //span[@class='b_2Wc288IN4J']
-    regExp: (\d+)
-    regExpReplace: $1
+    xpath: //div[@itemprop="aggregateRating"]//meta[@itemprop="reviewCount"]/@content
   - name: ratingCount
     singleValue: false
-    xpath: //span[@class='b_2Wc288IN4J']
-    regExp: (\d+)
-    regExpReplace: $1
+    xpath: //div[@itemprop="aggregateRating"]//meta[@itemprop="reviewCount"]/@content
   - name: shippingInfo
     singleValue: false
-    xpath: //div[@class="b_uVsMNUmFEf"]//a | //div[@id='shippingInfos']
+    xpath: //div[@id='shippingInfos']
     description: Shipping information for the product
   - name: shippingWeight
     singleValue: false
@@ -270,11 +270,9 @@ fields:
     description: Suggested number of servings of the product.
   - name: caloriesPerServing
     singleValue: false
-    xpath: //span[contains(text() , 'Энергетическая ценность в 100 г')]/../following-sibling::div/span | //div[@id='calorieData'] | //div[@id='calories_added']
+    xpath: //div[@id='calorieData'] | //div[@id='calories_added']
     description: Nutritional Information for Calories Per Serving content - Usually
       based on per 100g serving
-    regExp: (\d+)
-    regExpReplace: $1
   - name: caloriesFromFatPerServing
     singleValue: false
     description: Nutritional Information for Calories From Fat content - Usually
@@ -283,11 +281,9 @@ fields:
     regExpReplace: $1
   - name: totalFatPerServing
     singleValue: false
-    xpath: //span[contains(text() , 'Жиры в 100 г')]/../following-sibling::div/span | //div[@id='fatData'] | //div[@id='fatServing_added']
+    xpath: //div[@id='fatData'] | //div[@id='fatServing_added']
     description: Nutritional Information for Total Fat content - Usually based on
       per 100g serving
-    regExp: (\d+)
-    regExpReplace: $1
   - name: totalFatPerServingUom
     singleValue: false
     xpath: //div[@id='fatDataUOM'] |//div[@id='fatUOM_added']
@@ -322,11 +318,9 @@ fields:
     description: Unit of Measure Data for Sodium content
   - name: totalCarbPerServing
     singleValue: false
-    xpath: //span[contains(text() , 'Углеводы в 100 г')]/../following-sibling::div/span | //div[@id='carbsData'] | //div[@id='carbsServing_added']
+    xpath: //div[@id='carbsData'] | //div[@id='carbsServing_added']
     description: Nutritional Information for Total Carbohydrate content - Usually
       based on per 100g serving
-    regExp: (\d+)
-    regExpReplace: $1
   - name: totalCarbPerServingUom
     singleValue: false
     xpath: //div[@id='carbsDataUOM'] | //div[@id='carbsServingUOM_added']
@@ -350,8 +344,6 @@ fields:
     xpath: //div[@id='proteinData'] | //div[@id='protine_added']
     description: Nutritional Information for Protein content - Usually based on per
       100g serving
-    regExp: (\d+)
-    regExpReplace: $1
   - name: proteinPerServingUom
     singleValue: false
     xpath: //div[@id='proteinDataUOM'] | //div[@id='proteinUOM_added']

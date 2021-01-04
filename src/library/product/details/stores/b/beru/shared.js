@@ -12,8 +12,8 @@ const transform = (data) => {
       .replace(/&amp;#160/g, ' ')
       .replace(/\u00A0/g, ' ')
       .replace(/\s{2,}/g, ' ')
-      .replace(/"\s{1,}/g, '"')
-      .replace(/\s{1,}"/g, '"')
+      // .replace(/"\s{1,}/g, '"')
+      // .replace(/\s{1,}"/g, '"')
       .replace(/^ +| +$|( )+/g, ' ')
       // eslint-disable-next-line no-control-regex
       .replace(/[\x00-\x1F]/g, '')
@@ -61,6 +61,13 @@ const transform = (data) => {
             },
           ];
         }
+        if (row.availabilityText) {
+          let text = '';
+          row.availabilityText.forEach(item => {
+            row.availabilityText = [{ text: row.availabilityText[0].text === 'InStock' ? 'In Stock' : 'Out of Stock' }];
+          })
+         }
+ 
         // if (row.variantInformation) {
         //   let text = '';
         //   row.variantInformation.forEach(item => {
