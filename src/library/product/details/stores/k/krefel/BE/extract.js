@@ -143,7 +143,7 @@ module.exports = {
               alert( 'Error: Document tree modified during iteration ' + e );
             }
                    
-              addHiddenDiv('inTheBoxText', description);          
+              addHiddenDiv('inTheBoxText', description.join(',').replace(/,/g, ' || ').split());          
         
           }
           function addHiddenDiv (id, content) {
