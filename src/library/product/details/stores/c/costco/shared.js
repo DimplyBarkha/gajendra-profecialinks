@@ -117,7 +117,7 @@ const transform = (data) => {
       if (row.myPrice) {
         row.price = row.myPrice;
       } else {
-        if (row.price && row.price.length === 2) {
+        if (row.price && row.price.length) {
           let text = '';
           row.price.forEach(item => {
             text = text + item.text;
@@ -166,9 +166,9 @@ const transform = (data) => {
       if (row.listPrice && row.listPrice.length) {
         let text = '';
         row.listPrice.forEach(item => {
-          text += item.text + '';
+          text += item.text;
         });
-        row.listPrice = [{ text: text.trim() }];
+        row.listPrice = [{ text }];
         if (row.listPrice && row.listPrice.length && row.price && row.price.length) {
           if (row.listPrice[0].text === row.price[0].text) {
             row.listPrice.pop();
