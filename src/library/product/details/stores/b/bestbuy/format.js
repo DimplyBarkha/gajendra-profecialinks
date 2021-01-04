@@ -21,17 +21,17 @@ const transform = (data, context) => {
             text: text.slice(0, -1),
           }];
       }
-      if (row.additionalDescBulletInfo) {
-        row.descriptionBullets = [{
-          text: row.additionalDescBulletInfo.length,
-        }];
-      }
+      // if (row.additionalDescBulletInfo) {
+      //   row.descriptionBullets = [{
+      //     text: row.additionalDescBulletInfo.length,
+      //   }];
+      // }
       if (row.alternateImages2) {
         row.alternateImages = [...row.alternateImages2];
       }
-      if(row.secondaryImageTotal && row.alternateImages){
-        row.secondaryImageTotal[0].text = row.alternateImages.length;
-      }
+      // if(row.secondaryImageTotal && row.alternateImages){
+      //   row.secondaryImageTotal[0].text = row.alternateImages.length;
+      // }
       if (row.warranty) {
         row.warranty = [{
           text: row.warranty.reduce((item, currItem) => item ? `${item} || ${currItem.text.replace(/(\s*\n\s*)+/, ': ')}` : currItem.text.replace(/(\s*\n\s*)+/, ': '), ''),
@@ -79,9 +79,13 @@ const transform = (data, context) => {
     // eslint-disable-next-line no-control-regex
     .replace(/[\x00-\x1F]/g, '')
     .replace(/[\uD800-\uDBFF][\uDC00-\uDFFF]/g, ' ');
-  data.forEach(obj => obj.group.forEach(row => Object.keys(row).forEach(header => row[header].forEach(el => {
-    el.text = clean(el.text);
-  }))));
+  data.forEach(obj => obj.group.forEach(row => {
+    if (!(row.nameExtended)) {
+      Object.keys(row).forEach(header => row[header].forEach(el => {
+        el.text = clean(el.text);
+      }));
+    }
+  }));
   return data;
 };
 

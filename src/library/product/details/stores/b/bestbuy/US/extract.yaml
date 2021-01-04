@@ -30,9 +30,9 @@ fields:
     regExpReplace: $1
   - name: secondaryImageTotal
     singleValue: false
-    xpath: count(//div[contains(@class,"image-thumbnail-wrapper")]//li[@class="thumbnail-content" and position()>1]//img/@src)
-    regExp: (.+?);.*
-    regExpReplace: $1
+    xpath: count(//div[contains(@class,"shop-media-gallery")]//li[@class="image-thumbnail" and position()>1]//img/@src)
+    # regExp: (.+?);.*
+    # regExpReplace: $1
   - name: alternateImages2
     singleValue: false
     xpath: //div[contains(@class,"image-thumbnail-wrapper")]//li[@class="thumbnail-content" and position()>1]//img/@src
@@ -85,6 +85,9 @@ fields:
     xpath: //div[@class='reviews-and-stars']//p[@class="sr-only"]
     regExp: (["\d.\d"]+)\Wout
     regExpReplace: $1   
+  - name: descriptionBullets
+    singleValue: false
+    xpath: count(//div[contains(@class, 'features-list all-features')]/div)
   - name: additionalDescBulletInfo
     singleValue: false
     manualSelector: div.overview-accordion-content-wrapper li 
@@ -94,7 +97,7 @@ fields:
     xpath: //div[@class='pricing-price__savings'] | //div[@class='special-offer']//li
   - name: description
     singleValue: false
-    xpath: //div[@class='long-description-container body-copy '] | //div[@class='feature-body-container']
+    xpath: //div[contains(@class, 'long-description-container body-copy')] | //div[@class='feature-body-container']
     #xpath: //div[@class='list-row']
   - name: brandText
     singleValue: false
