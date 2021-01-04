@@ -109,7 +109,7 @@ const transform = (data) => {
       if (row.videos) {
         const videos = [];
         row.videos.forEach(item => {
-          !item.text.startsWith('https') ? videos.push({ text: item.text.replace(/(.*)(\/)(.*).mp4(.*)/, 'https://content.jwplatform.com/videos/$3.mp4') }) : videos.push({ text: item.text });
+          !item.text.startsWith('https') ? item.text.match(/(.*)(\/)(.*).mp4(.*)/) && videos.push({ text: item.text.replace(/(.*)(\/)(.*).mp4(.*)/, 'https://content.jwplatform.com/videos/$3.mp4') }) : videos.push({ text: item.text });
         });
         row.videos = videos;
       }
@@ -132,12 +132,19 @@ const transform = (data) => {
       if (row.manufacturerImages) {
         const manufacturerImages = [];
         row.manufacturerImages.forEach(item => {
-          manufacturerImages.push({ text: `https:${item.text}` });
+          !item.text.startsWith('https') ? manufacturerImages.push({ text: `https:${item.text}` }) : manufacturerImages.push({ text: item.text });
         });
         row.manufacturerImages = manufacturerImages;
       }
       if (!row.mpc && row.mpc1) {
         row.mpc = [{ text: row.mpc1[0].text }];
+      }
+      if (row.warranty) {
+        let text = '';
+        row.warranty.forEach(item => {
+          text += `${item.text} | `;
+        });
+        row.warranty = [{ text: text.match(/(.*)\s\|\s$/) ? text.replace(/(.*)\s\|\s$/, '$1') : text }];
       }
     }
   }

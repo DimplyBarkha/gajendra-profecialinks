@@ -22,11 +22,22 @@ module.exports = {
       console.log('No Pop up was present');
     }
     await context.evaluate(async function () {
-      await new Promise(resolve => setTimeout(resolve, 2814));
-      const element = document.getElementById('product-manufacturer-content');
-      if (element) {
-        element.scrollIntoView({ behavior: 'smooth' });
-        await new Promise(resolve => setTimeout(resolve, 2197));
+      let scrollTop = 0;
+      while (scrollTop <= 20000) {
+        await stall(500);
+        scrollTop += 1000;
+        window.scroll(0, scrollTop);
+        if (scrollTop === 20000) {
+          await stall(8000);
+          break;
+        }
+      }
+      function stall (ms) {
+        return new Promise(resolve => {
+          setTimeout(() => {
+            resolve();
+          }, ms);
+        });
       }
     });
     await context.evaluate(() => {

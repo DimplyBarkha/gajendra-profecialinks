@@ -5,45 +5,45 @@ recordXPath: null
 fields:
   - name: image
     singleValue: false
-    xpath: //button[contains(@class,'product-image')]/img/@src
+    xpath: //button[contains(@class,'product-image') or contains(@class,'imgWrapper')]//img/@src
   - name: imageAlt
     singleValue: false
-    xpath: //button[contains(@class,'product-image')]/img/@alt
+    xpath: //h1[contains(@class,'product-name') or contains(@class,'Heading')]
   - name: alternateImages
     singleValue: false
-    xpath: (//button[contains(@class,'product-image')]/img)[position()>1]/@src
+    xpath: (//div[contains(@class,"galleryWrapper")]//li//img[@alt="image"]/@src)[position()>1]
   - name: metaKeywords
     singleValue: false
     xpath: //meta[contains(@name, "keywords")]/@content
   - name: category
     singleValue: false
-    xpath: (//ol[@class='breadcrumb']//li)[position()<last()]
+    xpath: (//*[contains(@class,'breadcrumb')]//li)[position()<last()]
     description: The categories (e.g. from breadcrumbs)
   - name: nameExtended
     singleValue: false
-    xpath: //h1[@class='product-name']
+    xpath: //h1[contains(@class,'product-name') or contains(@class,'Heading')]
   - name: listPrice
     singleValue: false
     xpath: //div[@id='product-header']//div[@class="price-old"]
   - name: price
     singleValue: false
-    xpath: //div[@id='product-header']//div[@class="price-actual"]
+    xpath: //div[@id='product-header']//div[@class="price-actual"] | //div[@id='product-header']//span[contains(@class,'price-text')]
   - name: availabilityText
     singleValue: false
-    xpath: //div[@id="product-header"]//div[@class="add-to-cart-button"]
+    xpath: //div[@id="product-header"]//div[contains(@class,"add-to-cart")]/button
     regExp: Add to Cart
     regExpReplace: In Stock
     defaultValue: Out of Stock
   - name: description
     singleValue: false
-    xpath: //div[contains(@class,"product-overview")]//div[contains(@class,"product-description")]
+    xpath: //div[contains(@class,"product-overview") or contains(@id,"productOverview")]//div[contains(@class,"product-description") or contains(@class,"romance-copy")]
   - name: descriptionBulletsLiTags
     singleValue: false
-    xpath: //div[contains(@class,"product-overview")]//ul//li
+    xpath: //div[contains(@class,"product-overview") or contains(@id,"productOverview")]//ul//li
   - name: descriptionBullets
-    xpath: count(//div[contains(@class,"product-overview")]/descendant::li)
+    xpath: count(//div[contains(@class,"product-overview") or contains(@id,"productOverview")]/descendant::li)
   - name: brandText
-    xpath: //h3[@class='product-brand']
+    xpath: //h3[@class='product-brand'] | //div[contains(@class,'brand')]/a
   - name: manufacturer
     singleValue: false
     description: Product manufacturer
@@ -51,7 +51,7 @@ fields:
     singleValue: false
     xpath: 
   - name: weightNet
-    xpath: //section[@class='product-specifications']//table//tr//td[2]/*[not(name()='i')]/ancestor::tr/td[1][contains(text(),'Weight (')]/parent::tr/td/span
+    xpath: //*[contains(@class,'product-specifications') or contains(@id,"specifications")]//table//tr//td[2]/*[not(name()='i')]/ancestor::tr/td[1][contains(text(),'Weight (')]/parent::tr/td/span
   - name: weightGross
     singleValue: false
     description: Gross weight as described on the page
@@ -62,23 +62,23 @@ fields:
   - name: sku
     singleValue: false
     description: The store-specific product identifier
-    xpath: //span[contains(text(),'Item#')]/analytics
+    xpath: //span[contains(text(),'Item#')]/analytics | //span[contains(.,'Item#:')]/span[@class="value"]
   - name: variantId
     singleValue: false
-    xpath: //span[contains(text(),'Item#')]/analytics
+    xpath: //span[contains(text(),'Item#')]/analytics | //span[contains(.,'Item#:')]/span[@class="value"]
     description: Identifier for a variant from a store where variants share the same sku
   - name: mpc
     singleValue: false
     description: The manufacturer model code (unique) of the product
-    xpath: //span[contains(text(),'MFR#')]/analytics
+    xpath: //span[contains(text(),'MFR#')]/analytics | //span[contains(.,'MFR#')]//span[@class='value']
   - name: mpc1
     singleValue: false
-    xpath: (//section[@class='product-specifications']//table//tr//td[contains(text(),"Complete The Set Model Ids")]/following-sibling::td)[1]
+    xpath: (//*[contains(@class,'product-specifications') or contains(@id,"specifications")]//table//tr//td[contains(text(),"Complete The Set Model Ids")]/following-sibling::td)[1]
   - name: packSize
     singleValue: false
     description: The number of packs in the product offer (if stated separately on
       the site to quantity)
-    xpath: //section[@class='product-specifications']//table//tr//td[contains(text(),'Package Quantity')][1]/following-sibling::td
+    xpath: //*[contains(@class,'product-specifications') or contains(@id,"specifications")]//table//tr//td[contains(text(),'Package Quantity')][1]/following-sibling::td
   - name: legalDisclaimer
     singleValue: false
     description: Content under "legal disclaimer" header
@@ -124,11 +124,11 @@ fields:
     manualSelector: div[id="product-manufacturer-content"]:nth-child(2) div[class="collapse show"]
   - name: manufacturerImages
     singleValue: false
-    xpath: //div[@id="product-manufacturer-content"]//img/@srcset
+    xpath: //div[@id="product-manufacturer-content"]//img/@data-flixsrcset | //div[@id="product-manufacturer-content"]//img[contains(@class,'wc-image')]/@src
     description: Images within the third party description
   - name: videos
     singleValue: false
-    xpath: //div[@id="pd_videos"] | //input[@class="flix-jw"]/@value
+    xpath: //div[@id="pd_videos"] | //input[@class="flix-jw"]/@value | //div[contains(@itemprop,"video")]/@wcobj
   - name: videos1
     singleValue: false
     type: NUMBER
@@ -226,6 +226,7 @@ fields:
     singleValue: false
     description: null
     type: NUMBER
+    xpath: count((//div[contains(@class,"galleryWrapper")]//li//img[@alt="image"]/@src)[position()>1])
   - name: news
     singleValue: false
     description: null
@@ -386,9 +387,9 @@ fields:
     description: null
   - name: specifications
     singleValue: false
-    xpath: //section[@class='product-specifications']//table//tr
+    xpath: //*[contains(@class,'product-specifications') or contains(@id,"specifications")]//table//tr
   - name: warranty
-    xpath:  //section[@class='product-specifications']//table//tr//td[contains(text(),"Manufacturer's Warranty")][1]/following-sibling::td
+    xpath:  //*[contains(@class,'product-specifications') or contains(@id,"specifications")]//table//tr//td[contains(text(),"Manufacturer's Warranty")][1]/following-sibling::td
     description: Guarantee associated with the product
   - name: storage
     singleValue: false
@@ -454,7 +455,7 @@ fields:
     description: null
   - name: additionalDescBulletInfo
     singleValue: false
-    xpath: //div[contains(@class,"product-overview")]//ul//li
+    xpath: //div[contains(@class,"product-overview") or contains(@id,"productOverview")]//ul//li
   - name: prop65Warning
     singleValue: false
     description: null
