@@ -54,6 +54,7 @@ module.exports = {
       if (noProductsFound || noProductsFound === undefined) {
         throw new Error('Product not found');
       }
+      // throw new Error('Product not found');
     }
     return await context.evaluate(function (xp) {
       const r = document.evaluate(xp, document, null, XPathResult.UNORDERED_NODE_ITERATOR_TYPE, null);
