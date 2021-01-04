@@ -22,6 +22,16 @@ module.exports = {
         return newDiv;
       }
 
+      const categories = document.evaluate('//a[contains(@href,"categorieen")]/@href', document, null, XPathResult.STRING_TYPE, null).stringValue;
+      if (categories) {
+        const categoriesArray = categories.match(/categorieen\/(.+)/)[1].split('/');
+        if (categories.length > 0) {
+          categoriesArray.forEach(category => {
+            addHiddenDiv('category', category);
+          });
+        }
+      }
+
       const liTextElements = document.querySelectorAll('section.jum-additional-info.row li');
       liTextElements.forEach(el => {
         el.setAttribute('bullet', `|| ${el.textContent}`);
@@ -63,15 +73,13 @@ module.exports = {
     const ingredientsList = dataRef[0].group[0].ingredientsList;
     const description = dataRef[0].group[0].description;
     const allergyAdvice = dataRef[0].group[0].allergyAdvice;
+    const manufacturer = dataRef[0].group[0].manufacturer;
     reduceInfoToOneField(description);
     reduceInfoToOneField(allergyAdvice);
     reduceInfoToOneField(ingredientsList);
+    reduceInfoToOneField(manufacturer);
     if (dataRef[0].group[0].variantId) {
       dataRef[0].group[0].variantId[0].text = dataRef[0].group[0].variantId[0].text.match(/:"(\w+)"/)[1];
-    }
-    if (dataRef[0].group[0].category) {
-      dataRef[0].group[0].category[0].text = dataRef[0].group[0].category[0].text.match(/\/(.+)\//)[1];
-      dataRef[0].group[0].category[0].text = dataRef[0].group[0].category[0].text.replace(/\//g, ' > ');
     }
     if (dataRef[0].group[0].variantId) {
       dataRef[0].group[0].sku = [{
