@@ -233,6 +233,9 @@ await context.evaluate(async () => {
     let calorieData = '';
     if (calories) {
       calorieData = calories.textContent;
+      if(calorieData.includes('/100')) {
+        calorieData = calorieData.split('/')[0]
+      }
     }
     addHiddenDiv('calorieData', calorieData);
     var xpath =
