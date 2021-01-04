@@ -4,7 +4,7 @@ module.exports = {
   parameterValues: {
     domain: 'ochkarik.ru',
     prefix: null,
-    url: null,
+    url: 'https://ochkarik.ru/{id}',
     country: 'RU',
     store: 'ochkarik',
     zipcode: '',
