@@ -24,6 +24,12 @@ module.exports = {
     } catch (error) {
       console.log('no more specification');
     }
+    try {
+      await context.click('._2EBsf2');
+      await context.click('._3BsNnh');
+    } catch (error) {
+      console.log('details missing');
+    }
     await context.evaluate(async function () {
       function addElementToDocument (key, value) {
         const catElement = document.createElement('div');

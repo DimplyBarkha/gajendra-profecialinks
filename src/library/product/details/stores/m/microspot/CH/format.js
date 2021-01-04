@@ -61,6 +61,18 @@ const transform = (data) => {
             },
           ];
         }
+
+        if (row.inTheBoxText) {
+          let text, arrInTheBox = [];
+          row.inTheBoxText.forEach(item => {
+              arrInTheBox.push(item.text);
+          });
+          let arrUniqueText =  [...new Set(arrInTheBox)];
+          row.inTheBoxText = [ 
+            { text: arrUniqueText.toString().replace(/,/g, '||').replace(/und\b/g, '||') }
+          ]
+        }
+
         if (descriptionOne) {
           desc = `${descriptionOne} | ${desc}`;
         }
