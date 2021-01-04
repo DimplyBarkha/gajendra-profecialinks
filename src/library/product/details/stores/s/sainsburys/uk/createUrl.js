@@ -6,7 +6,7 @@ module.exports = {
     prefix: null,
     url: null,
     country: 'UK',
-    store: 'sainsburys',
+    store: 'Sainsburys',
     zipcode: '',
   },
 };

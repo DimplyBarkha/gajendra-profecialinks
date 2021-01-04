@@ -3,7 +3,7 @@ module.exports = {
   implements: 'product/details',
   parameterValues: {
     country: 'UK',
-    store: 'sainsburys',
+    store: 'Sainsburys',
     domain: 'sainsburys.co.uk',
     zipcode: '',
   },

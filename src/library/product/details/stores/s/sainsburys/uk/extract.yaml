@@ -1,4 +1,3 @@
-
 singleRecord: false
 regionsSelector: null
 recordSelector: null
@@ -8,23 +7,46 @@ fields:
     singleValue: true
     description: URL of the main product image
     xpath: (//div[@class="pd__left skipto-content"]/img/@src)[1]
+  - name: imageAlt
+    singleValue: true
+    description: Alt text of the main product image
+    xpath: (//div[@class="pd__left skipto-content"]//@alt)[1]
   - name: alternateImages
     singleValue: false
-    description: Other product images (not in manufacturer description) 
+    description: Other product images (not in manufacturer description)
     xpath: //img[@class="pd__additional__image pd__additional__image__active"]/@srcset
+  - name: metaKeywords
+    singleValue: true
+    description: The <meta> keywords content
   - name: category
     singleValue: false
     description: The categories (e.g. from breadcrumbs)
     xpath: //ol[@class="ln-c-breadcrumbs ln-o-inline-list"]//li
+  - name: nameExtended
+    singleValue: true
+    description: The product name, prefixing "${brand} - " if not included in "name"
+      and appending " - ${variantType}" if necessary (fixed per feed)  
   - name: listPrice
     singleValue: true
     description: The stated undiscounted price for the product
     xpath: //div[@class='pd__cost__total undefined']/text()
+  - name: price
+    singleValue: true
+    description: The offered price for the selected product variant - if a user
+      clicks add to basket this is the price they would be charged
+    xpath: //div[@class='pd__cost__total undefined']/text()  
+  - name: availabilityText
+    singleValue: true
+    xpath: //html//div[@id='availabilityText']
+    regExp: \w+$
+    # defaultValue: Out of Stock
   - name: description
     singleValue: false
-    description: Product description supplied by website - may be concatenanted from
-      multiple places; specifically not the manufacturer description
-    xpath: //div[@class="ln-c-card pd-details ln-c-card--soft"]//div[@id="mainPart"][1]//div[@class="itemTypeGroupContainer productText"][1]
+    xpath: //div[@class="ln-c-card pd-details ln-c-card--soft"]//div[@id="mainPart"][1]//div[@class="itemTypeGroupContainer productText"][1]  
+  - name: brandText
+    singleValue: true
+    xpath: //html//div[@id="brandText"] 
+    # defaultValue: Sainsburys  
   - name: manufacturer
     singleValue: true
     description: Product manufacturer
@@ -33,10 +55,23 @@ fields:
     singleValue: true
     description: The store-specific product identifier
     xpath: //span[@id="productSKU"]
+  - name: mpc
+    singleValue: true
+    description: The manufacturer model code (unique) of the product
+    xpath: //span[@id="productSKU"]
+  - name: packSize
+    singleValue: true
+    description: The number of packs in the product offer (if stated separately on
+      the site to quantity)
+    xpath: //*[contains(text(),'Size')]/following-sibling::*[1]  
   - name: legalDisclaimer
     singleValue: true
     description: Content under "legal disclaimer" header
     xpath: //div[@class="ln-c-card pd__disclaimer ln-c-card--soft"]
+  - name: directions
+    singleValue: true
+    description: Content under "directions" header
+    xpath: //*[contains(text(),'Preparation')]/following-sibling::*[1]
   - name: warnings
     singleValue: true
     description: Content under "warnings" header
@@ -44,27 +79,76 @@ fields:
   - name: aggregateRating
     singleValue: true
     description: The stated aggregate rating normalized to be out of 5
-    xpath: //html//div[@id='aggregateRating']
     type: NUMBER
+    xpath: //html//div[@id="aggregateRating"]
+  - name: shippingInfo
+    singleValue: true
+    description: Shipping information for the product
+    xpath: //*[contains(text(),'Packaging')]/following-sibling::*[1]
   - name: name
     singleValue: true
     description: The product name
-    xpath: //h1[@data-test-id="pd-product-title"]/text() 
-  - name: availabilityText
-    singleValue: true
-    xpath: //html//div[@id='availabilityText']
-    regExp: \w+$
-  - name: brandText
-    singleValue: true
-    description: Product brand shown - this may actually NOT be just a brand name,
-      e.g. "Visit the Gillette Store"
-    xpath: //html//div[@id='brandText']
+    xpath: //h1[@data-test-id="pd-product-title"]/text()
   - name: ingredientsList
     singleValue: true
-    xpath: //*[contains(text(),'Ingredients')]/following-sibling::*[1]|//*[contains(text(),'Dietary Information')]/following-sibling::*[1]
-  - name: directions
+    description: List of Ingredients from site - can be string of data if no
+      discernible start/end point
+    xpath: //*[contains(text(),'Ingredients')]/following-sibling::*[1]   
+  - name: caloriesFromFatPerServing
     singleValue: true
-    xpath: //*[contains(text(),'Preparation')]/following-sibling::*[1]
-
-    
-
+    description: Nutritional Information for Calories From Fat content - Usually
+      based on per 100g serving
+    xpath: //li[@class="lozenge medium fat"]//div[@class="lozengeHeaderSection"] 
+    regExp: \d.+
+    # type: NUMBER
+  - name: totalSugarsPerServing
+    singleValue: true
+    description: Nutritional Information for Total Sugar content - Usually based on
+      per 100g serving
+    # type: NUMBER
+    xpath: //li[@class="lozenge medium sugars"]//div[@class="lozengeHeaderSection"]
+    regExp: \d.+
+  - name: saltPerServing
+    singleValue: true
+    description: Nutritional Information for Salt content - Usually based on per
+      100g serving
+    # type: NUMBER
+    xpath: //li[@class="lozenge low salt"]//div[@class="lozengeHeaderSection"]
+    regExp: \d.+
+  - name: dietaryInformation
+    singleValue: true
+    description: null
+    xpath: //*[contains(text(),'Dietary Information')]/following-sibling::*[1]
+  - name: storage
+    singleValue: true
+    description: Suggested storage location for product
+    xpath: //*[contains(text(),'Storage')]/following-sibling::*[1]
+  - name: countryOfOrigin
+    singleValue: true
+    description: The country from which the product originates
+    xpath: //*[contains(text(),'Country of Origin')]/following-sibling::*[1]
+  - name: packaging
+    singleValue: true
+    description: Packaging information
+    xpath: //*[contains(text(),'packaging')]/following-sibling::*[1]
+  - name: alcoholContent
+    singleValue: true
+    description: Alcohol content information
+    xpath: //p[@data-test-id="pd-alcohol-warning"]
+ 
+  - name: termsAndConditions
+    singleValue: true
+    description: Terms and conditions information text ['Yes','No']
+    xpath: //a[@data-test-id="footer-link-terms-and-conditions"]/@href
+    defaultValue: No
+  - name: privacyPolicy
+    singleValue: true
+    description: Privacy Policy information text ['Yes','No']
+    xpath: //a[@data-test-id="footer-link-privacy"]/@href
+    defaultValue: No
+  - name: gtin
+    singleValue: true
+    description: Privacy Policy information text ['Yes','No']
+    xpath: //html//div[@id="gtin"]
+    # defaultValue: No  
+ 
