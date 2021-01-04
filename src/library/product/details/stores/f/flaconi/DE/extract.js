@@ -278,5 +278,9 @@ async function implementation (
   } catch (err) {
     console.log('Error adding recommended products');
   }
+
+    await context.waitForXPath('//div[contains(@class,"related-products")]/div[contains(@class,"tab-content")]//div[@role="option"]', { timeout:10000 })
+        .catch(() => console.log('No uninterruptedPDP for item'))
+
   return await context.extract(productDetails, { transform });
 }
