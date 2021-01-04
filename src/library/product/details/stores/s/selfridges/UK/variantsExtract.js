@@ -76,11 +76,11 @@ module.exports = {
  */
     await new Promise((resolve) => setTimeout(resolve, 8000));
     await context.evaluate(() => {
-      const isColor = document.querySelector('section[data-js-variant-type="multi-colour"]');
+      const isColor = document.querySelector('section[data-js-variant-type*="multi-colour"]');
       if (isColor) {
         const variantUrls = [];
-        [...document.querySelectorAll('section[data-js-variant-type="multi-colour"] div[data-select-count-text="Colours"] span.c-select__dropdown-item')].map((ele) => variantUrls.push(ele.getAttribute('data-js-action')));
-        const array = document.querySelectorAll('section[data-js-variant-type="multi-colour"] div[data-select-count-text="Colours"] span.c-select__dropdown-item');
+        [...document.querySelectorAll('section[data-js-variant-type*="multi-colour"] div[data-select-count-text="Colours"] span.c-select__dropdown-item')].map((ele) => variantUrls.push(ele.getAttribute('data-js-action')));
+        const array = document.querySelectorAll('section[data-js-variant-type*="multi-colour"] div[data-select-count-text="Colours"] span.c-select__dropdown-item');
         for (let i = 0; i < variantUrls.length; i++) {
           const currentUrl = document.querySelector('link[rel="canonical"]').getAttribute('href');
           array[i].setAttribute('variantUrl', `${currentUrl}?previewAttribute=${variantUrls[i]}`);
