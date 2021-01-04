@@ -134,7 +134,8 @@ fields:
   - name: inTheBoxText
     xpath: //div[contains(@class, "InTheBox")]//div[contains(@class, "flix-std-content")] 
   - name: inTheBoxText1
-    xpath: //ul[@class="details-heading-product"]//li/span[contains(.,'Accessoires') or (contains(.,'Brosses spécifiques'))]/following-sibling::span[((contains(.,' ')))]
+    xpath: //li[@class="titre"][contains(.,"Accessoires")]/following-sibling::li[position()<6] | //span[contains(.,"Accessoires inclus")]/following-sibling::span
+    # xpath: //ul[@class="details-heading-product"]//li/span[contains(.,'Accessoires') or (contains(.,'Brosses spécifiques'))]/following-sibling::span[((contains(.,' ')))]
   - name: hasComparisonTable
     defaultValue: No
   - name: unInterruptedPDP
