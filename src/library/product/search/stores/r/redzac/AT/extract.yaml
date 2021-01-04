@@ -15,7 +15,7 @@ fields:
     xpath: //div[contains(@class,"product_box_name")]
   - name: productUrl
     description: The URL for the product details page
-    xpath: //div[@class='module_product_teaser']/a/@href
+    xpath: //div[contains(@class,"main_link")]//a//@href
   - name: gtin
     description: GTIN code (includes UPC/EAN)
   - name: thumbnail
