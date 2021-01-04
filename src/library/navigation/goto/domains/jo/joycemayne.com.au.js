@@ -24,7 +24,7 @@ module.exports = {
       block_ads: false,
       load_all_resources: true,
       images_enabled: true,
-      timeout: 80000,
+      timeout: 800000,
       waitUntil: 'load',
     });
   },

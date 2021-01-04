@@ -90,12 +90,28 @@ async function implementation (
     } else {
       console.log('we do not have the iframe');
       const inBoxText = [];
+      const inBoxUrls = [];
       const getInTheBoxTextOnly = document.querySelector('div.product-packcontents');
       const intheboxppresent = document.querySelector('div.inpage_selector_InTheBox');
       if(getInTheBoxTextOnly && !intheboxppresent){
         const getAllProductsTextOnly = document.querySelectorAll('div.product-packcontents > div.content >ul >li');
         for (let i = 0; i < getAllProductsTextOnly.length; i++) {
           inBoxText.push(getAllProductsTextOnly[i].innerText);
+        }
+      } else {
+        const getInTheBoxWB = document.querySelector('div.inpage_selector_InTheBox');
+        if(getInTheBoxWB){
+          const getAllProductsWB = document.querySelectorAll('div.inpage_selector_InTheBox>div.flix-std-container-fluid>div.flix-std-table>div.flix-box-modules>div.flix-std-table>div.flix-std-table-cell');
+          const getAllProductsWBLeft = document.querySelectorAll('div.inpage_selector_InTheBox>div.flix-std-container-fluid>div.flix-std-table');
+
+          for (let i = 0; i < getAllProductsWB.length; i++) {
+            inBoxUrls.push(getAllProductsWB[i].querySelector('div.flix-background-image>img').getAttribute('data-flixsrcset'));
+            inBoxText.push(getAllProductsWB[i].querySelector('div.flix-std-content>div.flix-std-desc>span').innerText);
+          }
+          for (let i = 0; i < getAllProductsWBLeft.length; i++) {
+            inBoxUrls.push(getAllProductsWBLeft[i].querySelector('div.flix-background-image>img').getAttribute('data-flixsrcset'));
+            inBoxText.push(getAllProductsWBLeft[i].querySelector('div.flix-std-content>div.flix-std-desc>span').innerText);
+          }
         }
       }
       function addHiddenDiv (id, content) {
@@ -106,8 +122,9 @@ async function implementation (
         document.body.appendChild(newDiv);
       }
       for (let i = 0; i < inBoxText.length; i++) {
-        if (inBoxText[i]) {
-          addHiddenDiv(`inTheBoxText-${i}`, inBoxText[i]);
+        addHiddenDiv(`inTheBoxText-${i}`, inBoxText[i]);
+        if (inBoxUrls[i]) {
+          addHiddenDiv(`inTheBoxUrl-${i}`, inBoxUrls[i]);
         }
       }
     }
@@ -122,6 +139,7 @@ async function implementation (
 
       const witbData = await context.evaluate(async () => {
         const getInTheBox = document.querySelector('div.eky-accesory-container img');
+        // const getInTheBoxWB = document.querySelector('div.inpage_selector_InTheBox');
         const getInTheBoxVideo = document.querySelector('div.eky-container-full');
         const inBoxUrls = [];
         const inBoxText = [];
@@ -139,6 +157,13 @@ async function implementation (
             inBoxText.push(getAllProducts[i].querySelector('div').innerText);
           }
         }
+        // if(getInTheBoxWB){
+        //   const getAllProductsWB = document.querySelectorAll('div.inpage_selector_InTheBox>div.flix-std-container-fluid>div.flix-std-table>div.flix-box-modules>div.flix-std-table>div.flix-std-table-cell');
+        //   for (let i = 0; i < getAllProductsWB.length; i++) {
+        //     inBoxUrls.push(getAllProductsWB[i].querySelector('div.flix-background-image>img').getAttribute('data-flixsrcset'));
+        //     inBoxText.push(getAllProductsWB[i].querySelector('div.flix-std-content>div.flix-std-desc>span').innerText);
+        //   }
+        // }
         return { inBoxText, inBoxUrls };
       });
 
