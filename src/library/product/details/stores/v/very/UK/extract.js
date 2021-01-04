@@ -18,7 +18,7 @@ async function implementation(inputs, parameters, context, dependencies) {
   });
 
   try {
-    await context.waitForXPath('//div[@class="amp-anim-container"]/li[position()>1]/img/@src', { timeout: 30000 });
+    await context.waitForXPath('//div[@class="amp-anim-container"]/li[position()>1]/img/@src', { timeout: 60000 });
     await context.waitForXPath('//li[1]//div[@class="amp-zoom-overflow"]/img/@data-pin-media | //li[contains(@class, "selected")]//img/@data-pin-media', { timeout: 30000 });
   } catch (e) {
     console.log(`There was an error while running the loading images ${e}`);
