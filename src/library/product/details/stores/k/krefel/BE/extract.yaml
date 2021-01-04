@@ -520,4 +520,4 @@ fields:
     regExpReplace: 'Yes'
   - name: unInterruptedPDP
     singleValue: false
-    xpath: //*[contains(text(),"Recent bekeken producten")]//parent::header//following-sibling::div//div[@class="product"] | //*[contains(text(),"Anderen bekeken ook")]//following-sibling::div//li | //*[contains(text(),"Anderen kochten ook")]//following-sibling::div//li | //*[contains(text(),"Accessoires")]//parent::header//following-sibling::div//div[@class="product"]//h3
+    xpath: //*[contains(text(),"Recent bekeken producten")]//parent::header//following-sibling::div//div[@class="product"] | //*[contains(text(),"Anderen bekeken ook")]//following-sibling::div//li | //*[contains(text(),"Anderen kochten ook")]//following-sibling::div//li | //*[contains(text(),"Accessoires")]//parent::header//following-sibling::div//div[@class="product"]|//*[contains(text(),"Alternatieve producten")]//parent::header//following-sibling::div//div[@class="product"]
