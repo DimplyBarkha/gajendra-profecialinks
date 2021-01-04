@@ -1,0 +1,13 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: //ul[contains(@class, 'rnk-spacer')]/li/a | //ul[@class='rnk-best-category']/li/a | //ul[contains(@class, 'rnk-list-category')]/li[@class='rnk-n3']/a | //ul[@class='rnk-best-category rnk-best-brands-desktop']/li/a
+fields:
+  - name: category
+    singleValue: false
+    description: name of the category
+    xpath: //@categoryName
+  - name: categoryUrl
+    singleValue: false
+    description: url of the category
+    xpath: //@categoryUrl
