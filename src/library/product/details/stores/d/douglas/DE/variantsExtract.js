@@ -18,9 +18,10 @@ async function implementation(
     }
     let url = window.location.href;
     addHiddenDiv('variantUrl', url);
-    const variantContainer = document.querySelector('div.rd__product-details__picker__list');
+    const variantContainer = document.querySelector('div.rd__product-details__picker__list') || document.querySelector('div.rd__product-details__options');
     if (variantContainer) {
-      const variants = variantContainer.querySelectorAll('div.rd__product-details__picker__list__item');
+      let variants = variantContainer.querySelectorAll('div.rd__product-details__picker__list__item');
+      if(variants.length == 0) variants = document.querySelectorAll('div.rd__product-details__options__price__item');
       for (var i = 0; i < variants.length; i++) {
         variants[i].click();
         addHiddenDiv('variantUrl', window.location.href)
