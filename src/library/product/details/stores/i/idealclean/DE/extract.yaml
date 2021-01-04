@@ -115,14 +115,14 @@ fields:
   - name: ratingCount
     singleValue: true
     description: The number of ratings
-    type: NUMBER
+    xpath: //div[@class='ts-rating-light ts-rating de_DE productreviewsSummary']//span[@class='ts-stars-reviewCount']//text()
   - name: aggregateRatingText
     singleValue: true
     description: The stated aggregate rating
-  - name: aggregateRating
+  - name: aggregateRating2
     singleValue: true
     description: The stated aggregate rating normalized to be out of 5
-    type: NUMBER
+    xpath: //div[@class='ts-reviewSummary-averageRating']//span[@class='ts-reviewSummary-ratingValue']//text()
   - name: shippingInfo
     singleValue: true
     description: Shipping information for the product
@@ -130,9 +130,11 @@ fields:
   - name: shippingDimensions
     singleValue: true
     description: Stated shipping dimensions
+    xpath: //td[contains(text(),'Abmessung')]/following-sibling::td//text()
   - name: shippingWeight
     singleValue: true
     description: Stated shipping weight
+    xpath: //td[contains(text(),'Gewicht')]/following-sibling::td//text()
   - name: variantCount
     singleValue: true
     description: Number of variants listed
