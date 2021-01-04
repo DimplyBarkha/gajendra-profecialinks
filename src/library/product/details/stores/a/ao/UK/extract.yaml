@@ -135,7 +135,7 @@ fields:
   - name: aggregateRating
     singleValue: true
     description: The stated aggregate rating normalized to be out of 5
-    xpath: (//span[@itemprop='ratingValue'])[position()=last()]
+    xpath: //h1/@rating
   - name: aggregateRatingOther
     description: The stated aggregate rating
     xpath: //section[@id='discontinuedProductNoAlt']//a[@data-tag-name='review score']
@@ -171,7 +171,7 @@ fields:
   - name: videos
     singleValue: false
     description: URLs of videos on page
-    xpath:  //video/@src | //div[@data-vidurl='vidURL']
+    xpath: //video/@src | //div[@data-vidurl='vidURL']
   - name: galleryVideos
     singleValue: false
     xpath: //div[contains(@class, "galleryVideos")]

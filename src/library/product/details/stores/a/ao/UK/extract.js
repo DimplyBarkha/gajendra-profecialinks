@@ -34,7 +34,7 @@ module.exports = {
           window.scroll(0, scrollTop);
           documentScrollHeight = document.body.scrollHeight;
         }
-        function stall (ms) {
+        function stall(ms) {
           return new Promise((resolve, reject) => {
             setTimeout(() => {
               resolve();
@@ -45,7 +45,7 @@ module.exports = {
     };
 
     await applyScroll(context);
-    async function scrollToRec (node) {
+    async function scrollToRec(node) {
       await context.evaluate(async (node) => {
         const element = document.querySelector(node) || null;
         if (element) {
@@ -77,14 +77,14 @@ module.exports = {
 
     try {
       await context.evaluate(async function () {
-        function addElementToDocument (key, value) {
+        function addElementToDocument(key, value) {
           const catElement = document.createElement('div');
           catElement.id = key;
           catElement.textContent = value;
           catElement.style.display = 'none';
           document.body.appendChild(catElement);
         }
-        function addDivClass (divClass, content) {
+        function addDivClass(divClass, content) {
           const newDiv = document.createElement('div');
           newDiv.className = divClass;
           newDiv.textContent = content;
@@ -163,13 +163,59 @@ module.exports = {
         }
         addElementToDocument('initImg', initImg);
         addElementToDocument('initImgAlt', initImgAlt);
+
+        function timeout(ms) {
+          return new Promise((resolve) => setTimeout(resolve, ms));
+        }
+        var imageArr = [];
+        var rightArrow = document.querySelector('div#mediaGalleryNext');
+        var flag = 1;
+        while (flag) {
+          if (rightArrow) {
+            rightArrow.click();
+            await timeout(2000);
+            var imageUrl = document.evaluate('//li[@id="carousel-right-image"][contains(@data-media-type,"image")]//img/@src', document, null, XPathResult.ANY_TYPE, null).iterateNext() && document.evaluate('//li[@id="carousel-right-image"][contains(@data-media-type,"image")]//img/@src', document, null, XPathResult.ANY_TYPE, null).iterateNext().textContent;
+            console.log('imageUrl', imageUrl);
+            if (imageUrl !== null) {
+              if (imageArr.indexOf(imageUrl) === -1) {
+                imageArr.push(imageUrl);
+              } else {
+                break;
+              }
+            }
+          }
+        }
+
+        var getRatingDiv = document.querySelectorAll('#reviews-content-current > div');
+        if (getRatingDiv.length) {
+          getRatingDiv.forEach(e => {
+            if (e.clientHeight) {
+              var rating = e.querySelector('span.avgRating.text-title-lg span') && e.querySelector('span.avgRating.text-title-lg span').textContent;
+              if (rating) {
+                document.querySelector('h1').setAttribute('rating', rating);
+              }
+            }
+          });
+        }
+
+
+        var checkThumbnail = document.querySelector('ul.product-gallery__thumbnail-items');
+        if (!checkThumbnail) {
+          console.log('removed', imageArr.pop());
+        } else {
+          console.log('final Array', imageArr);
+        }
+
+
+        for (let i = 0; i < imageArr.length; i++) {
+          addDivClass('altImages', imageArr[i]);
+        }
+
+
+
         const jsonScript = !!document.querySelector('script[id="mediaData"]');
         if (jsonScript && document.querySelector('script[id="mediaData"]')) {
           const jsonInfo = JSON.parse(document.querySelector('script[id="mediaData"]').innerText);
-          const imgArr = jsonInfo.images || [];
-          for (let i = 1; i < imgArr.length; i++) {
-            addDivClass('altImages', 'https:' + imgArr[i].large);
-          }
           const vidArr = jsonInfo.videos || [];
           for (let i = 0; i < vidArr.length; i++) {
             addDivClass('galleryVideos', vidArr[i].playerUrl);
@@ -236,8 +282,8 @@ module.exports = {
     }
 
     try {
-      await context.evaluate(async function getDataFromAPI (id) {
-        function addHiddenDiv (vidurl, content) {
+      await context.evaluate(async function getDataFromAPI(id) {
+        function addHiddenDiv(vidurl, content) {
           const newDiv = document.createElement('div');
           newDiv.setAttribute('data-vidurl', vidurl);
           newDiv.textContent = content;
