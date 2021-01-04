@@ -30,7 +30,8 @@ fields:
   - name: listPrice
     singleValue: false
     # xpath: //div[@class="math-table"][not(@style)]//div[@id="pull-right-price"]
-    xpath: //div[@class="online-price active"]//span[@class="op-value"] | //div[@class="online-price active"]//span[@class="currency"]
+    # xpath: //div[@class="online-price active"]//span[@class="op-value"] | //div[@class="online-price active"]//span[@class="currency"]
+    manualSelector: div#listPrice
   - name: myPrice
     singleValue: false
     xpath: //div[@class="math-table"][not(@style)]//div[@id="pull-right-price"]

@@ -163,18 +163,18 @@ const transform = (data) => {
         });
         row.specifications = nDesc;
       }
-      if (row.listPrice && row.listPrice.length) {
-        let text = '';
-        row.listPrice.forEach(item => {
-          text += item.text;
-        });
-        row.listPrice = [{ text }];
-        if (row.listPrice && row.listPrice.length && row.price && row.price.length) {
-          if (row.listPrice[0].text === row.price[0].text) {
-            row.listPrice.pop();
-          }
-        }
-      }
+    //   if (row.listPrice && row.listPrice.length) {
+    //     let text = '';
+    //     row.listPrice.forEach(item => {
+    //       text += item.text;
+    //     });
+    //     row.listPrice = [{ text }];
+    //   }
+    //   if (row.listPrice && row.listPrice.length && row.price && row.price.length) {
+    //     if (row.listPrice[0].text === row.price[0].text) {
+    //       row.listPrice.pop();
+    //     }
+    //   }
     }
   }
   data.forEach(obj => obj.group.forEach(row => Object.keys(row).forEach(header => row[header].forEach(el => {

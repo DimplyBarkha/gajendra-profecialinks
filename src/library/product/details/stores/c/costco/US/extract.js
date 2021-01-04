@@ -167,6 +167,30 @@ module.exports = {
       } catch (err) {}
     }
 
+    try {
+      await context.evaluate(async () => {
+        function addHiddenDiv (id, content) {
+          const newDiv = document.createElement('div');
+          newDiv.id = id;
+          newDiv.textContent = content;
+          newDiv.style.display = 'none';
+          document.body.appendChild(newDiv);
+        }
+        const listPrice = Array.from(document.querySelectorAll('div[class="online-price active"] span[class*="op-value"], div[class="online-price active"] span[class*="currency"]'));
+        const myPrice = Array.from(document.querySelectorAll('div[class="math-table"] div[id="pull-right-price"] span[class="value"], div[class="math-table"] div[id="pull-right-price"] span[class="currency"]'));
+        if (listPrice && listPrice.length > 0 && myPrice && myPrice.length) {
+          const newListPrice = listPrice[0].innerHTML + listPrice[1].innerHTML;
+          const newMyPrice = myPrice[0].innerHTML + myPrice[1].innerHTML;
+          console.log('newListPrice--->', newListPrice);
+          console.log('newMyPrice-->', newMyPrice);
+          if (newListPrice !== newMyPrice && (newMyPrice.includes('-') === false)) {
+            addHiddenDiv('listPrice', newListPrice);
+          }
+        }
+      });
+    } catch (e) {
+      console.log(e);
+    };
     // async function clickBtn(index) {
     //   await context.evaluate(async (index) => {
     //     console.log('clicking btn for variants', index);
