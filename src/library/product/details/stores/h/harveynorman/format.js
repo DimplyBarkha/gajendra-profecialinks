@@ -78,6 +78,14 @@ const transform = (data) => {
           }
         }
       }
+      if (row.inTheBoxUrl) {
+        row.inTheBoxUrl.forEach(image => {
+          const allImages = image.text.split(', ').map(img => img.trim());
+          let mainImage;
+          mainImage = allImages[0].replace(/(.*?)\s.*/, '$1').trim();
+          image.text = mainImage;
+        });
+      }
     }
   }
   const clean = text => text.toString()
