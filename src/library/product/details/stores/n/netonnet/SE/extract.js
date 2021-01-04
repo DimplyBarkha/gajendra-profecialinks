@@ -20,10 +20,8 @@ module.exports = {
       const inTheBox = document.getElementById('headingFour');
       if (inTheBox && inTheBox !== undefined) {
         inTheBox.click();
-       new Promise((resolve, reject) => setTimeout(resolve, 2000));
+        new Promise((resolve, reject) => setTimeout(resolve, 2000));
       }
-
-
 
       const overlay = document.getElementById('headingOne');
       if (overlay && overlay !== undefined) {
@@ -38,10 +36,10 @@ module.exports = {
 
       const inBoxUrl = document.querySelectorAll('div.productSpec div.panel-default div#collapseFour img');
       if (inBoxUrl.length > 0) {
-      for (let i = 0; i < inBoxUrl.length; i++) {
-        const imgUrl = 'https://www.netonnet.se' + inBoxUrl[i].getAttribute('data-src');;
-        imgUrl && inBoxImageArray.push(imgUrl);
-      }
+        for (let i = 0; i < inBoxUrl.length; i++) {
+          const imgUrl = 'https://www.netonnet.se' + inBoxUrl[i].getAttribute('data-src');
+          imgUrl && inBoxImageArray.push(imgUrl);
+        }
 
       }
       const inBoxTextArray = [];
@@ -53,21 +51,9 @@ module.exports = {
         }
       }
       else {
-
-
-        const onlyText = document.querySelectorAll('div#collapseFive div.panel-body div.row')
-        if (onlyText) {
-          for (let i = 0; i < onlyText.length; i++) {
-            if (onlyText[i].innerText === 'I förpackningen') {
-              const imgText = onlyText[i].nextElementSibling.innerText;
-              imgText && inBoxTextArray.push(imgText);
-            }
-          }
-
-        }
         const onlyText1 = document.querySelectorAll('div#collapseOne div.panel-body table.table-striped tr td')
         if (onlyText1) {
-            console.log("case 1")
+          console.log("case 1")
           for (let i = 0; i < onlyText1.length; i++) {
             if (onlyText1[i].innerText === 'Medföljande tillbehör') {
               const imgText2 = onlyText1[i].nextElementSibling.innerText;
@@ -76,7 +62,7 @@ module.exports = {
           }
 
         }
-    }
+      }
 
 
       function addHiddenDiv(id, content) {
