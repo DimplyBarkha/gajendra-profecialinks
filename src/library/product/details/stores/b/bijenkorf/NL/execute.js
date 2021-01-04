@@ -5,7 +5,7 @@ module.exports = {
     country: 'NL',
     store: 'bijenkorf',
     domain: 'debijenkorf.nl',
-    loadedSelector: null,
+    loadedSelector: 'div.dbk-productdetail__container',
     noResultsXPath: '//div[contains(@class, "div.dbk-search-empty")]',
     zipcode: '',
   },
@@ -47,15 +47,24 @@ module.exports = {
         random_move_mouse: true,
       });
     } else {
-      const noProductsFound = await context.evaluate(function (inputs) {
-        const noResults = document.querySelector('div.dbk-search-empty');
-        return noResults;
-      });
-      if (noProductsFound || noProductsFound === undefined) {
-        throw new Error('Product not found');
-      }
+      // const noProductsFound = await context.evaluate(function () {
+      //   const noResults = document.querySelector('div.dbk-search-empty');
+      //   const bool = noResults ? true : false;
+      //   return bool;
+      // });
+      // if (noProductsFound) {
+      //   throw new Error('Product not found');
+      // }
       // throw new Error('Product not found');
+      return false;
     }
+
+    if (parameters.loadedSelector) {
+      await context.waitForFunction(function (sel, xp) {
+        return document.querySelector(sel) || document.evaluate(xp, document, null, XPathResult.UNORDERED_NODE_ITERATOR_TYPE, null).iterateNext();
+      }, { timeout: 10000 }, parameters.loadedSelector, parameters.noResultsXPath);
+    }
+
     return await context.evaluate(function (xp) {
       const r = document.evaluate(xp, document, null, XPathResult.UNORDERED_NODE_ITERATOR_TYPE, null);
       console.log(xp, r);
