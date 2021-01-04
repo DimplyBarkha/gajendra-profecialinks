@@ -30,10 +30,20 @@ const transform = (data) => {
           item.text = item.text.replace(/\s\n/g, '').slice();
         });
       }
-      if(row.inTheBoxText){
-        row.inTheBoxText.forEach(item => {
-           item.text = item.text.replace('אביזרים:', '').trim();
+      if (row.inTheBoxText) {
+        row.inTheBoxText.forEach(item => { 
+          item.text = item.text.replace('אביזרים:', '').trim();
         });
+      }
+      if (row.inTheBoxText) {
+        row.inTheBoxText.forEach(item => { 
+          item.text = item.text.replace('אביזר החלקה STYLING להחלקה ועיצוב השיער.', '').trim();
+        });
+      }
+      if ((!row.inTheBoxText || !row.inTheBoxText.length) && row.inTheBoxText1) {
+        console.log('inTheBoxText1',row.inTheBoxText1);
+        row.inTheBoxText = row.inTheBoxText1;
+        console.log("inTheBoxText", row.inTheBoxText);
       }
     }
   }
