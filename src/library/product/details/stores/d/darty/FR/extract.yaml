@@ -1,0 +1,127 @@
+singleRecord: true
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: image
+    singleValue: false
+    xpath: //div[contains(@class,"_new_product_page_sizes")]/img[not(contains(@src,"/static/"))]/@src
+  - name: imageAlt
+    singleValue: false
+    xpath: //div[contains(@class,"_new_product_page_sizes")]/img[not(contains(@src,"/static/"))]/@alt
+  - name: alternateImages
+    singleValue: false
+    xpath: //div[contains(@class,"_new_product_page_sizes")]/img[contains(@src,"/static/")]/@data-src
+  - name: category
+    singleValue: false
+    xpath: //div[@id="header-breadcrumb-zone"]/ul//a[text()]
+  - name: nameExtended
+    singleValue: false
+    xpath: //div[@class="product_head"]//h1
+  - name: listPrice
+    singleValue: false
+    manualSelector: div.product_price_infos div > span
+  - name: price
+    singleValue: false
+    manualSelector: div.product_price > span
+  - name: availabilityText
+    singleValue: false
+    manualSelector: div.column.column-left form.form-add-basket button.btn-add-basket[data-tracking-name]:not(disabled)
+    regExp: (.+)
+    regExpReplace: In Stock
+    defaultValue: Out of Stock
+  - name: description
+    singleValue: false
+    xpath: //div[@class="strong-points"]
+    #xpath: //div[contains(@class,"product_bloc_content")]
+    #manualSelector: div.product_bloc_content
+  - name: descriptionBullets
+    singleValue: false
+    xpath: count(//div[@class="strong-points"]//ul//li)
+  - name: brandText
+    singleValue: false
+    xpath: //meta[@itemprop="brand"]/@content
+  - name: gtin
+    singleValue: false
+    xpath: //meta[@itemprop="gtin13"]/@content
+  - name: sku
+    singleValue: false
+    xpath: //meta[@itemprop="sku"]/@content
+  - name: variantId
+    singleValue: false
+    xpath: //meta[@itemprop="sku"]/@content
+  - name: ratingCount
+    singleValue: false
+    manualSelector: span.rating span.rating_avis > u
+    regExp: ^(\d+)
+    regExpReplace: $1
+  - name: aggregateRating
+    singleValue: false
+    manualSelector: span.rating span.rating_avis
+    regExp: ^(.*?)\/
+    regExpReplace: $1
+  - name: shippingInfo
+    singleValue: false
+    xpath: //meta[@itemprop="seller"]/@content
+    #manualSelector: span.product-mkp-seller
+  - name: shippingDimensions
+    singleValue: false
+    xpath: //div[@id="product_caracteristics"]//tr[contains(translate(string(), 'Dimensions', 'Dimensions'), 'Dimensions')]/td
+  - name: color
+    singleValue: false
+    xpath: //div[@id="product_caracteristics"]//tr[contains(translate(string(), 'Couleur', 'Couleur'), 'Couleur')]/td
+  - name: videos
+    singleValue: false
+    xpath: //div[contains(@class,"no_flag_picture")]//iframe/@src | //input[@class="flix-jw"]/@value
+  - name: name
+    singleValue: false
+    xpath: //div[contains(@class, "product_head")]
+  - name: warranty
+    singleValue: false
+    xpath: //p[contains(text(), 'Garantie')] | //div[@class="product-sale-actions"]//li[contains(text(),"arantie") or a[contains(text(),"arantie")]]
+  - name: countryOfOrigin
+    singleValue: false
+    xpath: //div[@id="product_caracteristics"]//tr[contains(translate(string(), 'Origine de fabrication', 'Origine de fabrication'), 'Origine de fabrication')]/td
+  - name: additionalDescBulletInfo
+    singleValue: false
+    xpath: //div[@class="strong-points"]//ul[contains(@class,"product_details_items")]//li
+    #manualSelector: div.strong-points > ul > li
+  - name: technicalInformationPdfPresent
+    singleValue: false
+    xpath: //a[*[contains(text(),"Télécharger la notice")]]/@href
+    regExp: (.+)
+    regExpReplace: Yes
+    defaultValue: No
+  - name: termsAndConditions
+    singleValue: false
+    defaultValue: No
+  - name: specifications
+    singleValue: false
+    # manualSelector: div#product_caracteristics
+    xpath: //div[@id="product_caracteristics"]//table
+  - name: manufacturerDescription
+    singleValue: false
+    xpath: //div[@id="product_brand"]//div[@class="inpage_content_block"]//div[contains(@class, "bloc ombre")]
+    #manualSelector: div#product_brand div.flix-inpage
+  - name: manufacturerImages
+    singleValue: false
+    xpath: //img[@class="dpro"]/@src | //div[@class="inpage_selector_feature"]//img/@srcset | //div[@class="inpage_selector_gallery"]//img/@srcset | //ul[contains(@class,"inpage_block_inner ")]//li//img/@srcset
+    manualSelector: div#product_brand img
+  - name: variantCount
+    singleValue: false
+  - name: secondaryImageTotal
+    singleValue: false
+    xpath: count(//li[contains(@class,"rr_item")]//img/@src) -1
+  - name: energyEfficiency
+    singleValue: false
+    xpath: //div[@id="product_caracteristics"]//tr[contains(translate(string(), 'Classe énergétique', 'Classe énergétique'), 'Classe énergétique')]/td
+  - name: imageZoomFeaturePresent
+    singleValue: false
+    defaultValue: 'Yes'
+  - name: quantity
+    singleValue: false
+    xpath: //tr[th[contains(text(),"pouces")]]//li
+  - name: promotion
+    singleValue: false
+    xpath: //span[contains(@class,"product-offer-ripost-text-marketing")]
+  
