@@ -47,16 +47,15 @@ module.exports = {
       if (firstPartDesc && secondPartDesc) {
         if (firstPartDesc.textContent.length !== 0) {
           firstPartDesc.textContent.includes('||') ? firstPartDesc.textContent = firstPartDesc.textContent.replace(/( )(\|\|)/, ` ${secondPartDesc} $2`) : firstPartDesc.textContent += ` ${secondPartDesc}`;
-          console.log(secondPartDesc);
-        } else {
-          firstPartDesc.textContent = secondPartDesc;
         }
+      } else if (secondPartDesc) {
+        addHiddenDiv('secondDesc', secondPartDesc);
       }
 
       const brandNode = document.evaluate('//section[@class="jum-additional-info row"]//div[@data-jum-product-details]/@data-jum-product-details | (//div[@class="jum-column-main "]//*[@data-jum-brand]/@data-jum-brand)[1]', document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
-      const brand = brandNode.textContent.includes('brand') ? brandNode.textContent.match(/"brand":"(.+)",/)[1] : brandNode.textContent;
-      addHiddenDiv('brand', brand);
-
+      if (brandNode.textContent.includes('brand')) {
+        addHiddenDiv('brand', brandNode.textContent.match(/"brand":"(.+)",/)[1]);
+      }
       const isListPrice = document.evaluate('//span[@class="jum-product-price__old-price"]/span[not(@class="visually-hidden")]', document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
       if (isListPrice) {
         const listPrice = document.evaluate('concat(//span[@class="jum-product-price__old-price"]/span[not(@class="visually-hidden")],//span[@class="jum-price-format-mnemonic"])', document, null, XPathResult.STRING_TYPE, null);

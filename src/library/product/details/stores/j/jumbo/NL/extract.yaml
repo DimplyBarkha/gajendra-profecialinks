@@ -59,7 +59,7 @@ fields:
   singleValue: false
   description: Product description supplied by website - may be concatenanted from
     multiple places; specifically not the manufacturer description
-  xpath: //div[@class='jum-summary-description']/p|//section[@class='jum-additional-info row']//li/@bullet
+  xpath: //div[@class='jum-summary-description']/p|//div[@id="secondDesc"]|//section[@class='jum-additional-info row']//li/@bullet
 - name: descriptionBullets
   singleValue: true
   description: Number of ul > li tags in the description
