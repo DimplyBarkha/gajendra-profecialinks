@@ -1,0 +1,17 @@
+robot: product/reviews
+parameters:
+  country: UK
+  domain: boots.com
+  store: boots
+  zipcode: ""
+policy:
+  numberRetries: 3
+  priority: MEDIUM
+  retryDelay: 60
+  backoffPolicy: EXPONENTIAL
+  retryWithResidentialProxyAfter: 1
+meta:
+  branches:
+    dev:
+      extractor: ae89be65-7143-4383-8b61-bbd9fef489c4
+      legacyAccountId: 0e78a773-3cff-48d2-902d-473fb46c535b

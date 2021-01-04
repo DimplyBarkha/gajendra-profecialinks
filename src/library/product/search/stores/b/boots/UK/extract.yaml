@@ -1,0 +1,55 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: //div[@class="plp_gridView_redesign"]//ul[@class="grid_mode grid"]//li[@class="estore_product_container"]
+fields:
+  - name: productUrl
+    singleValue: false
+    xpath: //div[normalize-space(@class)="product_name"]/a/@href
+    description: The URL for the product details page
+  - name: thumbnail
+    singleValue: false
+    xpath: //img[normalize-space(@class)="product_img"]/@src
+    regExp: "(^[^?]+)"
+    # Added custom height nd width values.
+    regExpReplace: $1?wid=1920&hei=1080&op_sharpen=1
+    description: The URL for the product thumbnail image
+  - name: name
+    singleValue: false
+    xpath: //div[@class="product_name"]/a/@title
+    description: The product name
+  - name: aggregateRatingText
+    singleValue: false
+    xpath: //div[contains(@class,"product_rating")]/span/@title
+    regExp: '^[^\s]+'
+    description: The stated aggregate rating
+  - name: ratingCount
+    singleValue: false
+    xpath: //a[normalize-space(@id)="product_rating"]/@aria-label
+    regExp: '[^\s]+$'
+    description: The number of ratings
+  - name: reviewCount
+    singleValue: false
+    xpath: //a[normalize-space(@id)="product_rating"]/@aria-label
+    regExp: '[^\s]+$'
+    description: The number of reviews
+  - name: price
+    singleValue: false
+    xpath: //div[normalize-space(@class)="product_price"]
+    description: The offered price for the product
+  - name: listPrice
+    singleValue: false
+    description: The stated undiscounted price for the product
+  - name: rank
+  - name: rankOrganic
+  - name: id
+    singleValue: false
+    xpath: //div[@class="product_listing_container"]//ul["grid_mode"]//li[@class="estore_product_container"]//div[@id="manufacturerModel"]
+  - name: aggregateRating2
+    singleValue: false
+    xpath: //div[contains(@class,"product_rating")]/span/@title
+    regExp: ^[^\s]+
+    description: The stated aggregate rating normalized to be out of 5
+  - name: gtin
+    singleValue: false
+    xpath: //div[@class="product_listing_container"]//ul["grid_mode"]//li[@class="estore_product_container"]//div[@id="upc"]

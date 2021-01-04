@@ -23,6 +23,11 @@ module.exports = {
       type: 'string',
       optional: true,
     },
+    {
+      name: 'defaultResults',
+      description: 'default results value.',
+      optional: true,
+    },
   ],
   inputs: [
     {
