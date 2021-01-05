@@ -36,7 +36,10 @@ fields:
     xpath: (//div[contains(@class,'product-price-lg')]//span[contains(@class,'price-main-md')])[1]
   - name: availabilityText
     singleValue: false
-    defaultValue: 'In Stock'
+    xpath: //*[@itemprop="availability"]/@href
+    regExp: http://schema.org/InStock
+    regExpReplace: 'In Stock'
+    defaultValue: 'Out of Stock'
   - name: description
     singleValue: false
     xpath: //div[contains(@class,'features-box-section')] | //div[contains(@itemprop,'description')]
