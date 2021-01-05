@@ -1,11 +1,58 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: //div[contains(@class,"findastic-content")]//div[contains(@class,"views-row--product-teaser views-row")]
-fields: 
-  - name: productUrl
-    singlgeValue: false
-    xpath: //div[contains(@class,"findastic-content")]//a[contains(@class,"product-link")]/@href
+recordXPath: //div[@class='findastic-content']/div[contains(@class, 'views')]
+fields:
   - name: id
-    singlgeValue: false
-    xpath: //div[contains(@class,"findastic-content")]//div[@class="field__item"]//form/@data-variation-id
+    singleValue: false
+    xpath: //form[@data-variation-id]/@data-variation-id
+  - name: searchUrl
+    singleValue: true
+  - name: name
+    singleValue: false
+    xpath: //h3[@class='product-title']
+  - name: productUrl
+    singleValue: false
+    xpath: //a[@class='product-link']/@href
+    regExp: (.+)
+    regExpReplace: https://eshop.mymarket.gr$1
+  - name: gtin
+    singleValue: false
+    xpath: //div[@class='facebook-pixel-sku']
+  - name: thumbnail
+    singleValue: false
+    xpath: //div[@class='product-image']/img/@src
+  - name: aggregateRating
+    singleValue: false
+  - name: aggregateRating2
+    singleValue: false
+  - name: reviewCount
+    singleValue: false
+  - name: ratingCount
+    singleValue: false
+  - name: price
+    singleValue: false
+    xpath: //span[@class='price final-price']
+  - name: manufacturer
+    singleValue: true
+  - name: soldBy
+    singleValue: true
+  - name: endorsementText
+    singleValue: false
+  - name: rank
+    singleValue: false
+    description: search/listing rank
+    type: NUMBER
+    xpath: //div[@rank]/@rank
+  - name: rankOrganic
+    singleValue: true
+    description: The position (rank) within the list excluding sponsored/paid results
+    type: NUMBER
+    xpath: //div[@rank]/@rank
+  - name: sponsored
+    singleValue: false
+    description: Is sponsored/paid
+    type: BOOLEAN
+  # - name: totalRecordCount
+  #   singleValue: true 
+  #   type: NUMBER

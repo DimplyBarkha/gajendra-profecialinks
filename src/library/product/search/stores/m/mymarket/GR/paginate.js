@@ -4,13 +4,14 @@ module.exports = {
   parameterValues: {
     country: 'GR',
     store: 'mymarket',
-    nextLinkSelector: null,
+    nextLinkSelector: 'a[rel="next"]:not([class="disabled"])',
     mutationSelector: null,
     spinnerSelector: null,
-    loadedSelector: 'div.findastic-content',
-    noResultsXPath: null,
+    loadedSelector: 'div.views-row--product-teaser.views-row',
+    noResultsXPath: '//div[@class="findastic-no-results"]',
+    resultsDivSelector: null,
     openSearchDefinition: null,
     domain: 'mymarket.gr',
-    zipcode: "''",
+    zipcode: '',
   },
 };
