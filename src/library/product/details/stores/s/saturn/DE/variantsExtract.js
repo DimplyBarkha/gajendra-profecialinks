@@ -31,7 +31,7 @@ module.exports = {
             const div = document.createElement('a');
             div.className = 'variants-id';
             div.innerText = variant.productId;
-            div.href= `https://www.saturn.de/de/product/-${variant.productId}.html`;
+            div.href = `https://www.saturn.de/de/product/-${variant.productId}.html`;
             body.append(div);
           });
         } else {
