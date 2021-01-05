@@ -8,6 +8,10 @@ fields:
   xpath: ancestor::html//a[@id="bylineInfo"]
   regExp: Brand:(.*) 
   regExpReplace: $1
+- name: reviewDate
+  xpath: //span[@data-hook="review-date"]
+  regExp: >-
+    [0-9]+(.*)
 - name: productRange
   description: Product Range
   xpath: ancestor::html//meta[@name="description"]/@content
