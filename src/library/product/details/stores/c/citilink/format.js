@@ -47,7 +47,17 @@ const transform = (data) => {
       }
       if (row.description) {
         row.description.map(item => {
-          item.text = item.text.replace('undefined', '');
+          item.text = item.text.replace('undefined', '').replace(/^\s+|\s+$/g,'').replace(/"\s{1,}/g, '"  ');
+        });
+      }
+      if (row.name) {
+        row.name.map(item => {
+          item.text = item.text.replace(/"\s{1,}/g, '"  ')
+        });
+      }
+      if (row.nameExtended) {
+        row.nameExtended.map(item => {
+          item.text = item.text.replace(/"\s{1,}/g, '"  ')
         });
       }
    
