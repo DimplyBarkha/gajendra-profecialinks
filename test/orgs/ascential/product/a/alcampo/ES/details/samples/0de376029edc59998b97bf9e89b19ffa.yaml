@@ -1,0 +1,92 @@
+input:
+  _url: http://alcampo.es
+  storeId: 6
+  Postcode: 46120
+  URL: https://www.alcampo.es/compra-online/cuidado-personal/perfumeria/higiene-intima/incontinencia/tena-lady-compresas-incontinencia-12-uds/p/20628
+extractions:
+  - html: https://workbench.import.io/html/run=7c2fdc33-a8f9-4485-b93a-ca425c0839ea/task=ac83297a-b7df-4772-9b8b-1dc517a039c1/7b1c6c9d-8e5c-4140-acca-abf0a6813b56.html
+    extractionConfigId: product/details/stores/a/alcampo/ES/extract
+    data:
+      - group:
+          - productUrl:
+              - text: https://www.alcampo.es/compra-online/cuidado-personal/perfumeria/higiene-intima/incontinencia/tena-discreet-compresas-incontinencia-12-uds/p/20628
+                xpath: /html/head[1]/link[2]/@href
+            image:
+              - text: https://www.alcampo.es/media/h6f/h5a/9911788568606.jpg
+                xpath: /html/body/div[3]/div[2]/div[8]/div[6]/div[1]/div[1]/div[1]/div[1]/a[1]/img[1]/@src
+            imageAlt:
+              - text: Compresas incontinencia maxi noche para pérdidas severas de orina TENA
+                  Discreet 12 uds.
+                xpath: /html/body/div[3]/div[2]/div[8]/div[6]/div[1]/div[1]/div[1]/div[1]/a[1]/img[1]/@alt
+            category:
+              - text: Cuidado Personal
+                xpath: /html/body/div[3]/div[2]/div[8]/div[3]/ul[1]/li[3]/a[1]
+              - text: Perfumeria
+                xpath: /html/body/div[3]/div[2]/div[8]/div[3]/ul[1]/li[4]/a[1]
+              - text: Higiene íntima
+                xpath: /html/body/div[3]/div[2]/div[8]/div[3]/ul[1]/li[5]/a[1]
+              - text: Incontinencia
+                xpath: /html/body/div[3]/div[2]/div[8]/div[3]/ul[1]/li[6]/a[1]
+            nameExtended:
+              - text: Compresas incontinencia maxi noche para pérdidas severas de orina TENA
+                  Discreet 12 uds.
+                xpath: /html/body/div[3]/div[2]/div[8]/div[6]/div[2]/div[1]/div[2]/div[1]/h1[1]
+            price:
+              - text: 6,29 €
+                xpath: /html/body/div[3]/div[2]/div[8]/div[6]/div[2]/div[1]/div[8]/div[1]/div[1]/span[1]
+            description:
+              - text: >-
+                  Especialmente diseñada para protegerte cuando estás tumbada ya
+                  que te ofrece triple protección ante los escapes, el olor y la
+                  humedad. 
+                   
+                  Es más larga y ancha en la parte posterior para proporcionar mayor protección.
+                xpath: /html/body/div[3]/div[2]/div[8]/section[1]/div[1]/div[2]/div[2]/div[1]
+            brandText:
+              - text: TENA
+                xpath: /html/head[1]/script[8]
+            variantId:
+              - text: "20628"
+                xpath: /html/head[1]/link[2]/@href
+            name:
+              - text: Compresas incontinencia maxi noche para pérdidas severas de orina TENA
+                  Discreet 12 uds.
+                xpath: /html/body/div[3]/div[2]/div[8]/div[6]/div[2]/div[1]/div[2]/div[1]/h1[1]
+            pricePerUnit:
+              - text: 0,52 €
+                xpath: /html/body/div[3]/div[2]/div[8]/div[6]/div[2]/div[1]/div[5]/div[1]/div[1]/div[1]/span[1]/span[1]
+            pricePerUnitUom:
+              - text: Unidad
+                xpath: /html/body/div[3]/div[2]/div[8]/div[6]/div[2]/div[1]/div[8]/div[1]/div[1]/span[1]/span[1]
+            drive:
+              - text: Autovía V-21, salida Alboraya
+                xpath: /html/body/div[3]/div[2]/div[5]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/span[2]
+              - text: 46120 Playa de Alboraya
+                xpath: /html/body/div[3]/div[2]/div[5]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/span[3]
+            retailer_id:
+              - text: Autovía V-21, salida Alboraya
+                xpath: /html/body/div[3]/div[2]/div[5]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/span[2]
+              - text: 46120 Playa de Alboraya
+                xpath: /html/body/div[3]/div[2]/div[5]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/span[3]
+            availabilityText:
+              - text: In Stock
+            variantCount:
+              - text: 1
+            technicalInformationPdfPresent:
+              - text: No
+            termsAndConditions:
+              - text: Yes
+            privacyPolicy:
+              - text: Yes
+            customerServiceAvailability:
+              - text: Yes
+            Image360Present:
+              - text: Yes
+            imageZoomFeaturePresent:
+              - text: Yes
+            descriptionBullets:
+              - text: "0"
+            secondaryImageTotal:
+              - text: "0"
+        xpath: /
+    timestamp: 1609847559565
