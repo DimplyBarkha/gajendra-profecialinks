@@ -92,7 +92,7 @@ fields:
     xpath: //div[@id="wc-aplus"] | //div[@id="inpage_container"]
   - name: manufacturerImages
     singleValue: false
-    xpath: //div[@id="wc-aplus"]//img[contains(@src, ".jpg")]/@src | //div[@id="inpage_container"]//img/@data-flixsrcset
+    xpath: //div[@id="wc-aplus"]//img[contains(@src, ".jpg")]/@src | //div[@id="inpage_container"]//li//img/@data-flixsrcset
   - name: metaKeywords
     singleValue: false
   - name: mpc

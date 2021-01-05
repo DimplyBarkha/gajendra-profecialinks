@@ -19,6 +19,15 @@ const transform = (data) => {
 
   for (const { group } of data) {
     for (const row of group) {
+      if (row.aggregateRating) {
+        row.aggregateRating.forEach(item => {
+          item.text = (+item.text).toFixed(1);
+        });
+      } else {
+        if (!row.aggregateRating && row.nameExtended) {
+          row.aggregateRating = [{ text: '0' }];
+        }
+      }
       if (row.manufacturerDescription && row.manufacturerDescription[0]) {
         row.manufacturerDescription[0].text = row.manufacturerDescription[0].text.replace(/\{.*\}/, '').replace(/^\d+\s/, '').trim();
       }
@@ -27,6 +36,9 @@ const transform = (data) => {
         row.manufacturerImages.forEach(item => {
           if (item.text.match(/(\/\/)(.*?)(,?)/g)) {
             item.text = item.text.replace(/(\/\/)(.*?)(,?)/g, 'https:$1$2');
+          }
+          if (item.text.match(/(.*).jpg 200w,(.*)/)) {
+            item.text = item.text.replace(/(.*).jpg 200w,(.*)/, '$1.jpg');
           }
           item.text = item.text.startsWith('https:') ? item.text : `https:${item.text}`;
         });
