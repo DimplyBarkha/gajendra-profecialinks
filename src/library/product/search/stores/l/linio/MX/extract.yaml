@@ -1,0 +1,86 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: //div[contains(@itemtype,"http://schema.org/Product")]
+fields:
+  - name: paid
+    singleValue: false
+    xpath: //span[contains(@class,'sponsored-text')]
+    type: BOOLEAN
+    defaultValue: false
+  - name: brand
+    singleValue: false
+    xpath: //meta[contains(@itemprop,'brand')]/@content
+  - name: productUrl
+    singleValue: false
+    xpath: //meta[contains(@itemprop,'url')]/@content
+    regExp: (.+)
+    regExpReplace: https://www.linio.com.mx$1
+  - name: thumbnail
+    singleValue: false
+    xpath: //meta[contains(@itemprop,'image')]/@content
+    regExp: (.+)
+    regExpReplace: https:$1
+  - name: name
+    singleValue: false
+    xpath: //meta[contains(@itemprop,'name')]/@content
+  - name: sku
+    singleValue: false
+    xpath: //meta[contains(@itemprop,'sku')]/@content
+  - name: nameExtended
+    singleValue: false
+    xpath: //meta[contains(@itemprop,'name')]/@content
+  - name: price
+    singleValue: false
+    xpath: //meta[contains(@itemprop,'price')]/@content
+  - name: mpc
+    singleValue: false
+    xpath: //meta[contains(@itemprop,'model')]/@content
+  - name: id
+    singleValue: false
+    xpath: //meta[contains(@itemprop,'sku')]/@content
+  - name: listPrice
+    singleValue: false
+    xpath: //div[contains(@itemprop,'offers')]//span[contains(@class,'original-price')]
+  - name: sponsored
+    singleValue: false
+    xpath: //span[contains(@class,'sponsored-text')]
+    type: BOOLEAN
+    defaultValue: false
+  - name: reviewCount
+    singleValue: false
+    xpath: //meta[contains(@itemprop,'reviewCount')]/@content
+  - name: ratingCount
+    singleValue: false
+    xpath: //meta[contains(@itemprop,'reviewCount')]/@content
+  - name: aggregateRating
+    singleValue: false
+    xpath: //meta[contains(@itemprop,'ratingValue')]/@content
+    type: NUMBER
+  - name: searchUrl
+    singleValue: false
+    xpath: //div[@id="searchUrl"]
+  - name: input
+    singleValue: false
+    xpath: //div[@id="searchTerm"]
+  # - name: searchUrl
+  #   singleValue: false
+  #   xpath: //div[@id="added-searchurl"]
+  # - name: gtin
+  #   singleValue: true
+  #   description: GTIN code (includes UPC/EAN)
+  # - name: aggregateRatingText
+  #   singleValue: true
+  #   description: The stated aggregate rating
+  # - name: manufacturer
+  #   singleValue: true
+  #   description: Product manufacturer
+  # - name: soldBy
+  #   singleValue: true
+  #   description: The name of the seller of the item (if available)
+  # - name: endorsementText
+  #   singleValue: true
+  #   description: The text that signifies that a product is endorsed
+  # - name: shippingInfo
+  #   singleValue: true
+  #   description: Shipping information for the product
