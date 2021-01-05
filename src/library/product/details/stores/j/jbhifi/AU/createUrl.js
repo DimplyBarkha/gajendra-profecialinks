@@ -4,7 +4,7 @@ module.exports = {
   parameterValues: {
     domain: 'jbhifi.com.au',
     prefix: null,
-    url: null,
+    url: 'https://www.jbhifi.com.au/products/?q={id}',
     country: 'AU',
     store: 'jbhifi',
     zipcode: '',
