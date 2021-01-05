@@ -11,7 +11,7 @@ fields:
     xpath: //h1[contains(@class,'product-name') or contains(@class,'Heading')]
   - name: alternateImages
     singleValue: false
-    xpath: (//*[contains(@class,"product-carousel-item") or contains(@aria-label,"arrow down")]//img/@src)[position()>1]
+    xpath: (//*[contains(@class,"product-carousel-item")]//img/@src)[position()>1]
   - name: alternateImages1
     singleValue: false
     xpath: (//ul[contains(@class,"gal-thumbnail")]//button[contains(@aria-label,"arrow down")]//img/@src)[position()>2]
@@ -229,7 +229,7 @@ fields:
     singleValue: false
     description: null
     type: NUMBER
-    xpath: count((//*[contains(@class,"product-carousel-item") or contains(@aria-label,"arrow down")]//img/@src)[position()>1])
+    xpath: count((//*[contains(@class,"product-carousel-item")]//img/@src)[position()>1])
   - name: news
     singleValue: false
     description: null
