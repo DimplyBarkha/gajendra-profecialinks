@@ -37,13 +37,22 @@ module.exports = {
     const { productReviews } = dependencies;
 
     await context.evaluate(async () => {
-      console.log('++++++++++++++++++++++++++++++++++++++')
       var review = document.querySelector('div#article-tabs div#tab-votes div.panel-heading span');
       if(review){
       	review.click();
       }
+      await new Promise((resolve, reject) => setTimeout(resolve, 5000));
+      var select = document.querySelector('#ratings_nItemsPerPage');
+      if(select){
+            select.value = -1;
+         //   select.dispatchEvent(new Event('change'));
+               select.addEventListener('change',function(){
+                  console.log('changed');
+                });
+               
+      }     
     });
-
+    await context.waitForNavigation();
     return await context.extract(productReviews);
   },
 };
