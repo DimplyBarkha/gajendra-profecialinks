@@ -41,7 +41,7 @@ module.exports = {
             console.log("case 1")
             for (let i = 0; i < onlyText.length; i++) {
               const header = onlyText[i].querySelector('td.plHeader')
-              if ((header && header.innerText === 'Medföljande tillbehör') || (header && header.innerText === 'Medföljande verktyg')) {
+              if (header && header.innerText === 'Medföljande tillbehör' || header && header.innerText === 'Medföljande verktyg') {
                 const imgText2 = onlyText[i].querySelector('td.plValue');
                 imgText2 && inBoxTextArray.push(imgText2.innerText);
               }
