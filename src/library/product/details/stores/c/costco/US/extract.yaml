@@ -143,7 +143,8 @@ fields:
     singleValue: false
     # //div[@id="product-desc"] | 
     # xpath: (//div[@class="product-info-description"])[1] | //div[@class="wc-rich-content-description"] | //div[@id="wc-power-page"] | //h2[contains(@Class,"wc-first-header")]//following-sibling::div
-    xpath: //div[@id="manufacturer-desc"] | //h2[contains(@Class,"wc-first-header")]//following-sibling::div
+    xpath: //div[@id="manufacturer-desc"] 
+    # | //h2[contains(@Class,"wc-first-header")]//following-sibling::div
     #| (//div[@class="product-info-description"])[1]//*[not(contains(@class,'wc-json-data'))]
   - name: manufacturerImages
     singleValue: false
@@ -151,7 +152,7 @@ fields:
     # xpath: //div[@class="wc-aplus-body"]//img/@src | //div[@class="product-info-description"]//img//@src[contains(.,'img/') or (contains(.,'http') and contains(.,'.jpg'))] 
   - name: videos
     singleValue: false
-    xpath: //div[@class="wc-player-outer-wrap wc-vp"]//video/@src | //meta[@itemprop="contentUrl"]/@content | //body/@videos | //meta//@content[contains(.,'.mp4')] | //head/@*[contains(.,'http')] | //head/@video | //head/@*[contains(.,'http')]
+    xpath: //div[@class="wc-player-outer-wrap wc-vp"]//video/@src | //meta[@itemprop="contentUrl"]/@content | //body/@videos | //meta//@content[contains(.,'.mp4')] | //head/@*[contains(.,'http')] | //head/@video | //head/@*[contains(.,'http')] | div[@id='videos']
   - name: name
     singleValue: false
     xpath: //h1[@itemprop="name"]

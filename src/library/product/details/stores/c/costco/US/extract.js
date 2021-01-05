@@ -50,7 +50,7 @@ module.exports = {
 
     await new Promise(resolve => setTimeout(resolve, 3000));
     await context.evaluate(async () => {
-      const descNode = document.querySelector('div.product-info-description');
+      const descNode = document.querySelector('div.product-info-description div#wc-aplus');
       let manuFacturerDesc = '';
       const images = [];
       if (descNode) {
@@ -117,6 +117,13 @@ module.exports = {
     //   }
     // });
     await context.evaluate(async function () {
+      function addHiddenDiv (id, content) {
+        const newDiv = document.createElement('div');
+        newDiv.id = id;
+        newDiv.textContent = content;
+        newDiv.style.display = 'none';
+        document.body.appendChild(newDiv);
+      }
       try {
         const iframe = document.querySelector('[title="Product Videos"]');
         if (iframe) {
@@ -124,8 +131,10 @@ module.exports = {
           const videoUrls = [...video].map(elm => elm.src);
           document.querySelector('head').setAttribute('video', videoUrls.join(''));
         } else {
-          const id = document.querySelector('#product-body-item-number') ? document.querySelector('#product-body-item-number').textContent.match(/(\d+)/g) : '';
-          const url = `https://cors-anywhere.herokuapp.com/https://sc.liveclicker.net/service/api?method=liveclicker.widget.getList&account_id=69&dim5=${id}&format=json`;
+          let id = document.querySelector('p[id="product-body-item-number"]') ? document.querySelector('p[id="product-body-item-number"]').textContent.match(/(\d+)/g) : '';
+          id = id[0];
+          const url = 'https://cors-anywhere.herokuapp.com/https://sc.liveclicker.net/service/api?method=liveclicker.widget.getList&account_id=69&dim5=' + id + '&format=json';
+          // const url = `https://cors-anywhere.herokuapp.com/https://sc.liveclicker.net/service/api?method=liveclicker.widget.getList&account_id=69&dim5=${id}&format=json`;
           const data = await fetch(url);
           if (data.status === 200) {
             const json = await data.json();
@@ -142,6 +151,7 @@ module.exports = {
               document.querySelector('head').setAttribute(`vid${count}`, item);
               count++;
             });
+            addHiddenDiv('videos', arr[0]);
           }
         }
       } catch (err) {}
@@ -181,8 +191,6 @@ module.exports = {
         if (listPrice && listPrice.length > 0 && myPrice && myPrice.length) {
           const newListPrice = listPrice[0].innerHTML + listPrice[1].innerHTML;
           const newMyPrice = myPrice[0].innerHTML + myPrice[1].innerHTML;
-          console.log('newListPrice--->', newListPrice);
-          console.log('newMyPrice-->', newMyPrice);
           if (newListPrice !== newMyPrice && (newMyPrice.includes('-') === false)) {
             addHiddenDiv('listPrice', newListPrice);
           }
