@@ -10,6 +10,7 @@ fields:
     regExpReplace: $1
   - name: searchUrl
     singleValue: true
+    xpath: ancestor::html//div[@id="searchUrl"][last()]
   - name: name
     xpath: //div[@class="prod_img_block"]//img/@title
     singleValue: false
