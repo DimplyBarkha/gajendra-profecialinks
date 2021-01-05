@@ -29,9 +29,9 @@ const transform = (data, context) => {
       if (row.alternateImages2) {
         row.alternateImages = [...row.alternateImages2];
       }
-      // if(row.secondaryImageTotal && row.alternateImages){
-      //   row.secondaryImageTotal[0].text = row.alternateImages.length;
-      // }
+      if(row.secondaryImageTotal && row.alternateImages){
+        row.secondaryImageTotal[0].text = row.alternateImages.length;
+      }
       if (row.warranty) {
         row.warranty = [{
           text: row.warranty.reduce((item, currItem) => item ? `${item} || ${currItem.text.replace(/(\s*\n\s*)+/, ': ')}` : currItem.text.replace(/(\s*\n\s*)+/, ': '), ''),

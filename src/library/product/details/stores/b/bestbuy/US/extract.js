@@ -162,6 +162,25 @@ async function implementation(
         }
       }
     }, Array.from(videos))
+
+    await context.evaluate(async function () {
+      document.querySelector('button.has-text.image-button') ? document.querySelector('button.has-text.image-button').click() : document.querySelector('button.see-more-images-button') ? document.querySelector('button.see-more-images-button').click() : '';
+      function addHiddenDiv (id, content) {
+        const newDiv = document.createElement('div');
+        newDiv.id = id;
+        newDiv.textContent = content;
+        newDiv.style.display = 'none';
+        document.body.appendChild(newDiv);
+      }
+      let secondaryImages = document.querySelectorAll('li.thumbnail-content img');
+      let secondaryImagesArr = [];
+      if (secondaryImages) {
+        for (let i = 1; i < secondaryImages.length; i++) {
+          secondaryImagesArr.push(secondaryImages[i].src);
+          addHiddenDiv('secImages', secondaryImagesArr[i]);
+        }
+      }
+    })
   } catch (error) {
     console.log(error);
   }

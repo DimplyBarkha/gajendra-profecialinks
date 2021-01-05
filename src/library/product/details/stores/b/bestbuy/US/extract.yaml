@@ -25,9 +25,10 @@ fields:
     manualSelector: div.priceView-layout-large div.priceView-customer-price > span[aria-hidden]
   - name: alternateImages
     singleValue: false
-    xpath: //li[@class="image-thumbnail" and position()>1]//img/@src
-    regExp: (.+?);.*
-    regExpReplace: $1
+    xpath: //div[contains(@id, 'secImages')]
+    # xpath: //li[@class="image-thumbnail" and position()>1]//img/@src
+    # regExp: (.+?);.*
+    # regExpReplace: $1
   - name: secondaryImageTotal
     singleValue: false
     xpath: count(//div[contains(@class,"shop-media-gallery")]//li[@class="image-thumbnail" and position()>1]//img/@src)
@@ -87,7 +88,7 @@ fields:
     regExpReplace: $1   
   - name: descriptionBullets
     singleValue: false
-    xpath: count(//div[contains(@class, 'features-list all-features')]/div)
+    xpath: count(//div[contains(@class, 'features-list all-features')]/div/h4)
   - name: additionalDescBulletInfo
     singleValue: false
     manualSelector: div.overview-accordion-content-wrapper li 
