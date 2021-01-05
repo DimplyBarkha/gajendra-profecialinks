@@ -427,7 +427,7 @@ fields:
       (.*)
     regExpReplace: 'Yes'
   - name: inTheBoxText
-    xpath: //div[contains(@class,"in-the-box")]//p//text()
+    xpath: //div[contains(@class,"in-the-box")]//p/b
   - name: inTheBoxUrl
     xpath: //div[contains(@class,"in-the-box")]//img//@data-src
   - name: galleryVideos
