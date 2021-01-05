@@ -16,13 +16,13 @@ fields:
     regExp: \/\/cdn(.+)
     regExpReplace: cdn$1
   - name: category
-    xpath: ancestor::html//ul[contains(@class, 'dbk-breadcrumb-group')]/li/a
+    xpath: ancestor::html//ul[contains(@class, 'dbk-breadcrumb-group')]/li[position()>1]/a
   - name: singleProductVariantInformation
     xpath: ancestor::html//div[contains(@class, 'productdetail__column-container')]//div[contains(@class, 'product-size-selector')]//select/option[contains(@data-at,"selectbox-size-available")][1] | //p[contains(@class, 'dbk-product-indicator')]/span[contains(@class, 'dbk-product-indicator--value')] | //div[contains(@class, 'productdetail__column-container')]//span[contains(@class, 'dbk-product-indicator--value')]
   - name: variantInformation
     xpath: //div[@id='variantInfo']
   - name: brandText
-    xpath: ancestor::html//a[contains(@class, 'product-heading__brand--anchor')]
+    xpath: ancestor::html//a[contains(@class, 'product-heading__brand--anchor')] | ancestor::html//h1[contains(@class, 'product-heading__brand')]
   - name: name
     xpath : ancestor::html//div[contains(@class, 'dbk-product-summary product-element__container')]//p[contains(@class, 'description')]
   - name: singleProductPriceText
@@ -47,6 +47,8 @@ fields:
     xpath: ancestor::html//div[contains(@class, 'productdetail__column-container')]//div[contains(@class, 'product-size-selector')]//select/option[contains(@data-at,"selectbox-size-available")][1]
   - name: directions
     xpath: ancestor::html//p[contains(., 'Gebruikstips:')]
+  - name: directionsFromFollowingP
+    xpath: ancestor::html//p[contains(., 'Gebruikstips:')]/following-sibling::p
   - name: alternateImages
     xpath: //div[contains(@id, 'variantImages') and not(contains(@position, '0'))]/@href
     regExp: \/\/cdn(.+)
@@ -77,3 +79,5 @@ fields:
     xpath: count(ancestor::html//ul[contains(@class, 'dbk-product-carousel--list')]/li)-1 
   - name: variantCountFromDropdown
     xpath: count(ancestor::html//div[@data-dbk-size-selector]//select[@data-testid="selectbox-size"]/option[@data-testid])
+  - name: productUrl
+    xpath: //link[@rel='canonical']/@href

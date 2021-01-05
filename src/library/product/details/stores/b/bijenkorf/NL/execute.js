@@ -15,27 +15,37 @@ module.exports = {
     context,
     dependencies,
   ) {
-    const searchUrl = `https://www.debijenkorf.nl/product-lister-page.html?SearchTerm=${inputs.id}`;
-    await context.goto(searchUrl, {
-      timeout: 30000,
-      waitUntil: 'load',
-      checkBlocked: true,
-      js_enabled: true,
-      css_enabled: false,
-      random_move_mouse: true,
-    });
-    const productDetailsLink = await context.evaluate(async function (inputs) {
-      const productList = document.querySelectorAll('ul.productlist__list > li a');
-      for (let i = 0; i < productList.length; i++) {
-        const productRpc = productList[i].getAttribute('name');
-        if (productRpc.includes(inputs.id) || productList.length === 1) {
-          return productList[i].getAttribute('href');
+    const searchUrl = `https://ceres-catalog.debijenkorf.nl/catalog/product/show?productVariantCode=${inputs.id}&cached=false&locale=nl_NL&api-version=2.34`;
+    try {
+      await context.goto(searchUrl, {
+        timeout: 30000,
+        waitUntil: 'load',
+        checkBlocked: true,
+        js_enabled: true,
+        css_enabled: false,
+        random_move_mouse: true,
+      });
+    } catch (e) {
+      console.log(e);
+    }
+
+    const productDetailsLink = await context.evaluate(function () {
+      let url = null;
+      let htmlContent = document.querySelector('pre').textContent;
+      if (htmlContent) {
+        htmlContent = JSON.parse(htmlContent);
+        if (htmlContent.data && htmlContent.data.product && htmlContent.data.product.currentVariantProduct) {
+          console.log(htmlContent.data.product.currentVariantProduct.url);
+          url = htmlContent.data.product.currentVariantProduct.url;
+          return url;
+        } else if (htmlContent.data && htmlContent.data.product) {
+          console.log(htmlContent.data && htmlContent.data.product.url);
+          url = htmlContent.data && htmlContent.data.product.url;
         }
       }
-      return null;
-    }, inputs);
-    console.log('product details link');
-    console.log(productDetailsLink);
+      return url;
+    });
+    console.log("product url", productDetailsLink);
     if (productDetailsLink) {
       const url = productDetailsLink;
       await context.goto(url, {
@@ -58,12 +68,55 @@ module.exports = {
       // throw new Error('Product not found');
       return false;
     }
+    // const searchUrl = `https://www.debijenkorf.nl/product-lister-page.html?SearchTerm=${inputs.id}`;
+    // await context.goto(searchUrl, {
+    //   timeout: 30000,
+    //   waitUntil: 'load',
+    //   checkBlocked: true,
+    //   js_enabled: true,
+    //   css_enabled: false,
+    //   random_move_mouse: true,
+    // });
+    // const productDetailsLink = await context.evaluate(async function (inputs) {
+    //   const productList = document.querySelectorAll('ul.productlist__list > li a');
+    //   for (let i = 0; i < productList.length; i++) {
+    //     const productRpc = productList[i].getAttribute('name');
+    //     if (productRpc.includes(inputs.id) || productList.length === 1) {
+    //       return productList[i].getAttribute('href');
+    //     }
+    //   }
+    //   return null;
+    // }, inputs);
+    // console.log('product details link');
+    // console.log(productDetailsLink);
+    // if (productDetailsLink) {
+    //   const url = productDetailsLink;
+    //   await context.goto(url, {
+    //     timeout: 30000,
+    //     waitUntil: 'load',
+    //     checkBlocked: true,
+    //     js_enabled: true,
+    //     css_enabled: false,
+    //     random_move_mouse: true,
+    //   });
+    // } else {
+    //   // const noProductsFound = await context.evaluate(function () {
+    //   //   const noResults = document.querySelector('div.dbk-search-empty');
+    //   //   const bool = noResults ? true : false;
+    //   //   return bool;
+    //   // });
+    //   // if (noProductsFound) {
+    //   //   throw new Error('Product not found');
+    //   // }
+    //   // throw new Error('Product not found');
+    //   return false;
+    // }
 
-    if (parameters.loadedSelector) {
-      await context.waitForFunction(function (sel, xp) {
-        return document.querySelector(sel) || document.evaluate(xp, document, null, XPathResult.UNORDERED_NODE_ITERATOR_TYPE, null).iterateNext();
-      }, { timeout: 10000 }, parameters.loadedSelector, parameters.noResultsXPath);
-    }
+    // if (parameters.loadedSelector) {
+    //   await context.waitForFunction(function (sel, xp) {
+    //     return document.querySelector(sel) || document.evaluate(xp, document, null, XPathResult.UNORDERED_NODE_ITERATOR_TYPE, null).iterateNext();
+    //   }, { timeout: 10000 }, parameters.loadedSelector, parameters.noResultsXPath);
+    // }
 
     return await context.evaluate(function (xp) {
       const r = document.evaluate(xp, document, null, XPathResult.UNORDERED_NODE_ITERATOR_TYPE, null);

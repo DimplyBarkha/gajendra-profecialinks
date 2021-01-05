@@ -149,16 +149,17 @@ module.exports = {
           li.setAttribute('class', 'canFetch');
 
           await new Promise((resolve, reject) => setTimeout(resolve, 3000));
-          const variantInfoSpan = document.querySelector('p.dbk-product-indicator span.dbk-product-indicator--value, span.dbk-product-indicator--value');
+          const skuInfoSpan = document.querySelector('span[itemprop="sku"]');
+          const currentSku = skuInfoSpan ? skuInfoSpan.textContent : '';
+
+          const variantInfoSpan = document.querySelector(`div[data-dbk-size-selector] div[class="product-element__container form-element type-select"] select option[value="${currentSku}"]`);
           if (variantInfoSpan) {
             const variantInfoEle = document.createElement('div');
             variantInfoEle.setAttribute('id', 'variantInfo');
-            variantInfoEle.textContent = variantInfoSpan.textContent;
+            variantInfoEle.textContent = variantInfoSpan.textContent.replace('(Online uitverkocht)', '');
             variantInfoEle.style.visibility = 'hidden';
             li.appendChild(variantInfoEle);
           }
-
-          const skuInfoSpan = document.querySelector('span[itemprop="sku"]');
 
           if (skuInfoSpan) {
             const skuInfoEle = document.createElement('div');

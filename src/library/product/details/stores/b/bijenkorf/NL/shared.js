@@ -7,18 +7,31 @@
 const transform = (data) => {
   for (const { group } of data) {
     for (const row of group) {
-      if (row.name && row.brandText) {
-        let nameExtended = `${row.brandText[0].text} - ${row.name[0].text}`;
+      // if (row.name && row.brandText) {
+      //   let nameExtended = `${row.brandText[0].text} - ${row.name[0].text}`;
+      //   if (row.variantInformation) {
+      //     nameExtended = `${nameExtended} - ${row.variantInformation[0].text}`;
+      //   } else if (row.singleProductVariantInformation) {
+      //     nameExtended = `${nameExtended} - ${row.singleProductVariantInformation[0].text}`;
+      //   }
+      //   row.nameExtended = [{ text: nameExtended }];
+      // }
+      if (row.brandText) {
+        let nameExtended = `${row.brandText[0].text}`;
         if (row.variantInformation) {
-          nameExtended = `${nameExtended} - ${row.variantInformation[0].text}`;
+          nameExtended = `${nameExtended}  ${row.variantInformation[0].text}`;
         } else if (row.singleProductVariantInformation) {
-          nameExtended = `${nameExtended} - ${row.singleProductVariantInformation[0].text}`;
+          nameExtended = `${nameExtended}  ${row.singleProductVariantInformation[0].text}`;
         }
         row.nameExtended = [{ text: nameExtended }];
       }
 
       if (row.directions) {
         row.directions[0].text = row.directions[0].text.replace('Gebruikstips:', '');
+      }
+
+      if (!row.directions && row.directionsFromFollowingP) {
+        row.directions = row.directionsFromFollowingP;
       }
 
       if (row.specifications) {
@@ -96,7 +109,8 @@ const transform = (data) => {
     .replace(/^ +| +$|( )+/g, ' ')
     // eslint-disable-next-line no-control-regex
     .replace(/[\x00-\x1F]/g, '')
-    .replace(/[\uD800-\uDBFF][\uDC00-\uDFFF]/g, ' ');
+    .replace(/[\uD800-\uDBFF][\uDC00-\uDFFF]/g, ' ')
+    .trim();
 
   data.forEach(obj => obj.group.forEach(row => Object.keys(row).forEach(header => row[header].forEach(el => {
     el.text = clean(el.text);
