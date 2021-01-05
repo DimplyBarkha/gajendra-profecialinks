@@ -5,8 +5,8 @@ module.exports = {
     country: 'CA',
     store: 'costco',
     domain: 'costco.ca',
-    loadedSelector: null,
-    noResultsXPath: null,
+    loadedSelector: 'h1[itemprop*="name"]',
+    noResultsXPath: '//div[contains(@id,"not_found_body")]//h1 | //div[contains(@id,"not_found_body")]//div[contains(text(),"Sorry")]',
     zipcode: '',
   },
 };

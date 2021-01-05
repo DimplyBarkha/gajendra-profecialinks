@@ -46,6 +46,7 @@ fields:
       should be "In Stock"
     xpath: //div[@id="availabilityText"]/text()
     #xpath: //meta[@property='og:availability']/@content
+    #xpath: //input[@id='add-to-cart-btn']/@value
   - name: description
     singleValue: false
     description: Product description supplied by website - may be concatenanted from
