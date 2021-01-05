@@ -23,9 +23,7 @@ fields:
   - name: rank
   - name: rankOrganic
   - name: id
-    xpath: //div[@class="fl-product-tile--basic"]/a/@href
-    regExp: =(\d+)
-    regExpReplace: $1
+    xpath: //div//input[@name="SKU"]/@value
   - name: aggregateRating2
     xpath: //div[@data-testid="fl-rating"]/@class
     regExp: (\d+)(\d+)
