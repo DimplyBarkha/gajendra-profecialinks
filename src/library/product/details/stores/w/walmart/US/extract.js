@@ -131,6 +131,11 @@ module.exports = {
           }
 
           addHiddenDiv('my_enh_content', setText.join(' '));
+          const witb = Array.from(document.querySelectorAll('[data-section-caption="In the box"] .wc-aplus-body ul > li img[title]')).map(img => ({img: img.src, title: img.title}));
+          const witbText = witb.map(elm => elm.title).join('|');
+          const witbUrl = witb.map(elm => elm.img).join('|');
+          witbText.length && addHiddenDiv('witb_text', witbText);
+          witbUrl.length && addHiddenDiv('witb_url', witbUrl);
           return true;
         }
 
@@ -172,6 +177,11 @@ module.exports = {
           if (content.idmlSections && content.idmlSections.marketingContent) {
             const marketingDiv = addHiddenDiv('added-marketing', '');
             marketingDiv.innerHTML = unescape(jsonObj.item.product.buyBox.products[0].idmlSections.marketingContent);
+            const witb = Array.from(marketingDiv.querySelectorAll('[data-section-caption="In the box"] .wc-aplus-body ul > li img[title]')).map(img => ({img: img.src, title: img.title}));
+            const witbText = witb.map(elm => elm.title).join('|');
+            const witbUrl = witb.map(elm => elm.img).join('|');
+            witbText.length && addHiddenDiv('witb_text', witbText);
+            witbUrl.length && addHiddenDiv('witb_url', witbUrl);
           }
           if (content.shippingOptions && content.shippingOptions[0] && content.shippingOptions[0].fulfillmentPrice) {
             let price = '0';

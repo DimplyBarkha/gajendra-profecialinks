@@ -346,5 +346,14 @@ fields:
   defaultValue: No 
 - name: unInterruptedPDP
   xpath: //div[contains(@class,"persistent-controls")]//ul[@class="slider-list"]//li//div[@class="tile-title"]
+- name: inTheBoxUrl
+  singleValue: false
+  xpath: //div[@id="witb_url"]
+  regExp: '[^|]+'
+  description: Must include image url to show the accessories/tools which come with the product
+- name: inTheBoxText
+  singleValue: false
+  xpath: //div[@id="witb_text"]
+  regExp: '[^|]+'
 
 
