@@ -1,0 +1,145 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: //section[@data-js-variant-type="multi-size"]//div[@data-ts-select-label="Size"]//div[contains(@class,"c-select__dropdown-item-container")]//span[contains(@class,"c-select__dropdown-item")]|//div[@id="container1"]
+fields:
+- name: inTheBoxUrl
+- name: inTheBoxText
+- name: hasComparisonTable
+  defaultValue: No
+- name: unInterruptedPDP
+  xpath: ancestor::html//span[@class="c-prod-card__cta-box-description"]
+- name: _input
+- name: _url
+- name: _pageTimeStamp
+- name: image
+  xpath: ancestor::html//picture[@class="c-image-gallery__img"][1]//img[@class="c-image-gallery__img"]/@src | ancestor::html//picture[@class="c-image-gallery__img"][1]/@mainimage | ancestor::html//div[contains(@class, "pdp-main-carousel")]//li[contains(@class, "slick-current slick-active")]//img/@src
+  regExp: (.+)
+  regExpReplace: https:$1
+- name: imageAlt
+  xpath: ancestor::html//img[@class="c-image-gallery__img"][not(contains(@alt,"undefined"))]/@alt
+- name: alternateImages
+  xpath: ancestor::html//div[@class='c-image-gallery__images']//picture[position()>1]/@src
+- name: metaKeywords
+- name: category
+  xpath: ancestor::html//ul[@class="c-breadcrumbs"]/li/a/span[1]
+- name: nameExtended
+  xpath: //@nameextended|//div[contains(@class, "composite-brand_and_description")]
+- name: listPrice
+  xpath: ancestor::html//span[@data-js-action="updateWasPrice"]
+- name: price
+  xpath: ancestor::html//span[@data-js-action="updatePrice"]|ancestor::html//span[@class="now-price"]
+- name: availabilityText
+  xpath: ancestor::html//section[@data-js-component="productHero"] | //@availability
+- name: description
+  xpath: ancestor::html//ancestor::html//article[@id="content1"]
+- name: descriptionBullets
+  xpath: count(//div[@class="c-tabs__copy"]//li)
+- name: brandText
+  xpath: ancestor::html//span[@class="a-txt-brand-name"]|ancestor::html//div[@class="pl-trustmark"]/@data-brand
+- name: manufacturer
+- name: quantity
+  xpath: //@data-js-action|//li[contains(@class, "js-custom-select-option is-active")]/@data-value
+- name: weightNet
+- name: weightGross
+- name: gtin
+- name: variantId
+  xpath: //@variantid
+- name: varId
+  xpath: ancestor::html//span[contains(@class, "product-code-value")]
+- name: sku
+  xpath: ancestor::html//section[@class="c-product-info__sku"]//p[@class="o-fs-service-msg"][contains(.,"Ref")]/span
+- name: mpc
+  xpath: ancestor::html//section[@class="c-product-info__sku"]//p[@class="o-fs-service-msg"][contains(.,"Ref")]/span
+- name: packSize
+- name: legalDisclaimer
+  xpath: ancestor::html//article[@id="content1"]//span
+  regExp: (You must be over.+)
+  regExpReplace: $1
+- name: directions
+  xpath: ancestor::html//li[contains(.,"Application:")]
+- name: warnings
+  xpath: ancestor::html//li[contains(.,"Warning:")]
+- name: ratingCount
+- name: aggregateRatingText
+- name: aggregateRating
+- name: shippingInfo
+- name: shippingDimensions
+- name: shippingWeight
+- name: variantCount
+  xpath: count(//div[@data-select-name="Size"]//span[contains(@class,"c-select__dropdown-item")]|//div[@data-select-name="BeautyColour"]//span[contains(@class,"c-select__dropdown-item")])
+  defaultValue: 0
+- name: color
+  xpath: ancestor::html//section[@data-js-variant-type="multi-colour"]//div[@data-select-count-text="Colours"]//span[contains(@class,"c-select__dropdown-item")][contains(@class,"--selected")]/@data-js-action
+- name: colorCode
+- name: manufacturerDescription
+  xpath: ancestor::html//*[@id="content1"]//div//p[@class="c-tabs__header"]/parent::div
+- name: manufacturerImages
+- name: videos
+  xpath: ancestor::html//div[contains(@class,"--video")]//source/@src
+  regExp: (.+)
+  regExpReplace: https:$1
+- name: name
+  xpath: ancestor::html//div[@data-js-action="productHeroDescription"]//span[@class="a-txt-product-description"]
+- name: inStorePrice
+- name: asin
+- name: coupon
+- name: amazonChoice
+- name: amazonChoiceCategory
+- name: brandLink
+  xpath: ancestor::html//span[@class="a-txt-brand-name"]/a/@href
+  regExp: (.+)
+  regExpReplace: https://www.selfridges.com$1
+- name: secondaryImageTotal
+  xpath: count(//div[@class='c-image-gallery__images']//picture[not(@imageindex='1')])
+- name: ingredientsList
+  xpath: ancestor::html//li[contains(.,"Ingredients:")]
+- name: dietaryInformation
+- name: specifications
+- name: warranty
+- name: storage
+- name: countryOfOrigin
+- name: allergyAdvice
+- name: recyclingInformation
+- name: productOtherInformation
+  xpath: ancestor::html//q[@class="c-self-says__content"]
+- name: packaging
+- name: additives
+- name: pricePerUnit
+- name: pricePerUnitUom
+- name: promotion
+- name: alcoholContent
+  xpath: ancestor::html//article[@id="content1"]//span
+  regExp: ABV(.+%)
+  regExpReplace: $1
+- name: newVersion
+- name: newAsin
+- name: newDescription
+- name: variantInformation
+  xpath: ancestor::html//section[@data-js-variant-type="multi-colour"]//div[@data-select-count-text="Colours"]//span[contains(@class,"c-select__dropdown-item")][contains(@class,"--selected")]/@data-js-action | ancestor::html//section[@data-js-variant-type="multi-size"]//div[@data-ts-select-label="Size"]//div[contains(@class,"c-select__dropdown-item-container")]//span[contains(@class,"c-select__dropdown-item")]/@data-js-action
+- name: firstVariant
+  xpath: ancestor::html//section[@data-js-component="productHero"]/@firstvariant
+- name: variants
+  xpath: ancestor::html//section[@data-js-component="productHero"]/@variants
+- name: additionalDescBulletInfo
+  xpath: ancestor::html//div[@class="c-tabs__copy"]//li
+- name: prop65Warning
+- name: ageSuitability
+- name: energyEfficiency
+- name: technicalInformationPdfPresent
+  defaultValue: false
+- name: termsAndConditions
+  xpath: ancestor::html//span[contains(.,'Terms & Conditions')]
+  regExp: (.*)
+  regExpReplace: Yes
+  defaultValue: No
+- name: privacyPolicy
+  defaultValue: false
+- name: customerServiceAvailability
+  defaultValue: false
+- name: materials
+- name: Image360Present
+  defaultValue: false
+- name: imageZoomFeaturePresent
+  xpath: ancestor::html//div[@id="isImgZoom"]
+  defaultValue: No

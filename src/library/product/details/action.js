@@ -1,27 +1,29 @@
 /**
  *
- * @param { { URL: string, parentInput: string, id: any, RPC: string, UPC: any, SKU: string, zipcode: string, storeID: string, storeId: string } } inputs
- * @param { { store: any, country: any, zipcode: any, storeId: any } } parameters
+ * @param { { URL: string, id: any, RPC: string, SKU: string, zipcode: string } } inputs
+ * @param { { store: any, country: any, zipcode: any } } parameters
  * @param { ImportIO.IContext } context
  * @param { { execute: ImportIO.Action, extract: ImportIO.Action } } dependencies
  */
-async function implementation (inputs, parameters, context, dependencies) {
-  const { URL, RPC, SKU, UPC, storeID } = inputs;
+async function implementation (
+  inputs,
+  parameters,
+  context,
+  dependencies,
+) {
+  const { URL, RPC, SKU } = inputs;
   const { execute, extract } = dependencies;
   const url = URL;
-  const id = RPC || SKU || UPC || inputs.id;
+  const id = (RPC) || ((SKU) || inputs.id);
   const zipcode = inputs.zipcode || parameters.zipcode;
-  const storeId = inputs.storeId || storeID || parameters.storeId;
+  let resultsReturned = await execute({ url, id, zipcode });
 
-  const newInput = { ...inputs, storeId, zipcode, url, id };
-
-  const resultsReturned = await execute(newInput);
-  if (!resultsReturned) {
-    console.log('No results were returned');
+  if (!resultsReturned){
+    console.log('No results returned');
     return;
   }
 
-  await extract(newInput);
+  await extract({ url, id });
 }
 
 module.exports = {
@@ -64,12 +66,6 @@ module.exports = {
       optional: true,
     },
     {
-      name: 'UPC',
-      description: 'UPC for product',
-      type: 'string',
-      optional: true,
-    },
-    {
       name: 'SKU',
       description: 'sku for product',
       type: 'string',
@@ -78,17 +74,6 @@ module.exports = {
     {
       name: 'zipcode',
       description: 'zipcode',
-      type: 'string',
-      optional: true,
-    },
-    {
-      name: 'parentInput',
-      description: 'parent input value',
-      optional: true,
-    },
-    {
-      name: 'storeID',
-      description: 'Id of the store',
       type: 'string',
       optional: true,
     },

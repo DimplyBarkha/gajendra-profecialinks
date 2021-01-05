@@ -1,0 +1,65 @@
+input:
+  _url: http://selfridges.com
+  URL: https://www.selfridges.com/US/en/cat/escentric-molecules-escentric-01-eau-de-toilette-100ml_496-3004556-MOLEC13/
+extractions:
+  - html: https://workbench.import.io/html/run=ff791512-91a1-4605-95ff-7dcb817aa287/task=5922177f-892f-425c-9d72-163f09a04544/a849076a-86c2-48a1-b8ee-a1aadc2f28bb.html
+    extractionConfigId: product/details/stores/s/selfridges/UK/extract
+    data:
+      - group:
+          - productUrl:
+              - text: https://www.selfridges.com/US/en/cat/escentric-molecules-escentric-01-eau-de-toilette-100ml_496-3004556-MOLEC13/
+                xpath: /html/head[1]/link[4]/@href
+            image:
+              - text: https://images.selfridges.com/is/image/selfridges/496-3004556-MOLEC13_M?$PDP_M_ZOOM$
+                xpath: /html/body/section[1]/section[1]/div[2]/div[1]/picture[1]/img[1]/@src
+            imageAlt:
+              - text: "ESCENTRIC MOLECULES: Escentric 01 eau de toilette 100ml"
+                xpath: /html/body/section[1]/section[1]/div[2]/div[1]/picture[1]/img[1]/@alt
+            category:
+              - text: Beauty
+                xpath: /html/body/section[1]/section[3]/ul[1]/li[1]/a[1]/span[1]
+              - text: Womens perfume
+                xpath: /html/body/section[1]/section[3]/ul[1]/li[2]/a[1]/span[1]
+              - text: Eau de toilette
+                xpath: /html/body/section[1]/section[3]/ul[1]/li[3]/a[1]/span[1]
+            listPrice:
+              - text: "83.00"
+                xpath: /html/body/section[1]/section[1]/div[1]/div[2]/p[1]/span[2]
+            price:
+              - text: "83.00"
+                xpath: /html/body/section[1]/section[1]/div[1]/div[2]/p[1]/span[2]
+            availabilityText:
+              - text: In Stock
+                xpath: /html/body/section[1]/section[2]/button[1]
+            brandText:
+              - text: ESCENTRIC MOLECULES
+                xpath: /html/body/section[1]/section[1]/div[1]/div[2]/h1[1]/span[1]/a[1]
+            manufacturer:
+              - text: ESCENTRIC MOLECULES
+                xpath: /html/body/section[1]/section[1]/div[1]/div[2]/h1[1]/span[1]/a[1]
+            sku:
+              - text: 496-3004556-MOLEC13
+                xpath: /html/body/section[1]/div[2]/section[2]/p[2]/span[1]
+            variantId:
+              - text: 496-3004556-MOLEC13
+                xpath: /html/body/section[1]/div[2]/section[2]/p[2]/span[1]
+            name:
+              - text: ESCENTRIC MOLECULES - Escentric 01 eau de toilette 100ml
+                xpath: /html/head[1]/title[1]
+            promotion:
+              - text: Save up to 10% with the code SELFCCE(now $74.70)
+                xpath: /html/body/section[1]/section[1]/div[1]/div[4]/div[1]/p[1]
+            description:
+              - text: >-2
+                  
+                            
+                              Escentric Molecules Escentric 01 eau de toilette100mlMade in UK
+                            
+                            
+                          The Escentric 01 eau de toilette uses Iso E Super – a key ingredient that has made Escentric Molecules a ground-breaking fragrance and beauty brand for both men and women. Crafted in the UK, it contains spicy pink pepper, a zing of lime peel, balsamic notes and fresh musk to create a multifaceted fragrance.
+            descriptionBullets:
+              - text: "3"
+            variantCount:
+              - text: "11"
+        xpath: /
+    timestamp: 1606225933454

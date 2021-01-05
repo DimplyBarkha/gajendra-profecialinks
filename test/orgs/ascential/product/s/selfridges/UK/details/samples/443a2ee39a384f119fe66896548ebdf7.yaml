@@ -1,0 +1,65 @@
+input:
+  _url: http://selfridges.com
+  URL: https://www.selfridges.com/US/en/cat/maison-francis-kurkdjian-gentle-fluidity-silver-edition-eau-de-parfum_147-83022651-MFK1022902/
+extractions:
+  - html: https://workbench.import.io/html/run=ff791512-91a1-4605-95ff-7dcb817aa287/task=2414f8d4-c29f-41cc-b573-d713035dd7e9/2339f635-74e8-445e-a54c-f3f412fb14cf.html
+    extractionConfigId: product/details/stores/s/selfridges/UK/extract
+    data:
+      - group:
+          - productUrl:
+              - text: https://www.selfridges.com/US/en/cat/maison-francis-kurkdjian-gentle-fluidity-silver-edition-eau-de-parfum_147-83022651-MFK1022902/
+                xpath: /html/head[1]/link[4]/@href
+            image:
+              - text: https://images.selfridges.com/is/image/selfridges/147-83022651-MFK1022902_M?defaultImage=147-83022651-MFK1022902_M&$PDP_M_ZOOM$
+                xpath: /html/body/section[1]/section[1]/div[2]/div[1]/picture[1]/img[1]/@src
+            imageAlt:
+              - text: "MAISON FRANCIS KURKDJIAN: Gentle Fluidity Silver Edition eau de parfum"
+                xpath: /html/body/section[1]/section[1]/div[2]/div[1]/picture[1]/img[1]/@alt
+            category:
+              - text: Beauty
+                xpath: /html/body/section[1]/section[3]/ul[1]/li[1]/a[1]/span[1]
+              - text: Womens perfume
+                xpath: /html/body/section[1]/section[3]/ul[1]/li[2]/a[1]/span[1]
+              - text: Eau de parfum
+                xpath: /html/body/section[1]/section[3]/ul[1]/li[3]/a[1]/span[1]
+            nameExtended:
+              - text: MAISON FRANCIS KURKDJIAN Gentle Fluidity Silver Edition eau de parfum
+                xpath: /html/body/section[1]/section[1]/div[1]/div[2]/h1[1]
+            listPrice:
+              - text: "189.00"
+                xpath: /html/body/section[1]/section[1]/div[1]/div[2]/p[1]/span[2]
+            price:
+              - text: "189.00"
+                xpath: /html/body/section[1]/section[1]/div[1]/div[2]/p[1]/span[2]
+            brandText:
+              - text: MAISON FRANCIS KURKDJIAN
+                xpath: /html/body/section[1]/section[1]/div[1]/div[2]/h1[1]/span[1]/a[1]
+            manufacturer:
+              - text: MAISON FRANCIS KURKDJIAN
+                xpath: /html/body/section[1]/section[1]/div[1]/div[2]/h1[1]/span[1]/a[1]
+            sku:
+              - text: 147-83022651-MFK1022902
+                xpath: /html/body/section[1]/div[2]/section[2]/p[2]/span[1]
+            variantId:
+              - text: 147-83022651-MFK1022902
+                xpath: /html/body/section[1]/div[2]/section[2]/p[2]/span[1]
+            name:
+              - text: MAISON FRANCIS KURKDJIAN - Gentle Fluidity Silver Edition eau de parfum
+                xpath: /html/head[1]/title[1]
+            promotion:
+              - text: Save up to 10% with the code SELFCCE(now $170.10)
+                xpath: /html/body/section[1]/section[1]/div[1]/div[4]/div[1]/p[1]
+            description:
+              - text: >-2
+                  
+                            
+                              Maison Francis Kurkdjian eau de parfumNotes:Top notes: Juniper berriesHeart notes: Nutmeg, CorianderBase notes: Musks, Ambery woods, Vanilla70ml
+                            
+                            
+                          French Fragrance house Maison Francis Kurkdjian was established in 2009, by Francis Kurkdjian and Marc Chaya - together they sought to create a “sensual, generous and multi-facetted landscape of olfactory free expression.” Created from spicy nutmeg, fragrant coriander and warm ambery woods, Gentle Fluidity is a luminous fragrance that will wrap itself around you, lifting your mood and calming your senses.
+            descriptionBullets:
+              - text: "6"
+            variantCount:
+              - text: "9"
+        xpath: /
+    timestamp: 1606225925229

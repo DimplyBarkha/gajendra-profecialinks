@@ -1,0 +1,72 @@
+input:
+  _url: http://selfridges.com
+  URL: https://www.selfridges.com/US/en/cat/tom-ford-neroli-portofino-all-over-body-spray-150ml_453-3001058-T1LG01/
+extractions:
+  - html: https://workbench.import.io/html/run=ff791512-91a1-4605-95ff-7dcb817aa287/task=d1c6f15c-c12e-49de-b216-6e0857082ac8/66d953e1-b06f-4391-9a58-f832652151cb.html
+    extractionConfigId: product/details/stores/s/selfridges/UK/extract
+    data:
+      - group:
+          - productUrl:
+              - text: https://www.selfridges.com/US/en/cat/tom-ford-neroli-portofino-all-over-body-spray-150ml_453-3001058-T1LG01/
+                xpath: /html/head[1]/link[4]/@href
+            image:
+              - text: https://images.selfridges.com/is/image/selfridges/453-3001058-T1LG01_M?defaultImage=453-3001058-T1LG01_M&$PDP_M_ZOOM$
+                xpath: /html/body/section[1]/section[1]/div[2]/div[1]/picture[1]/img[1]/@src
+            imageAlt:
+              - text: "TOM FORD: Neroli Portofino all-over body spray 150ml"
+                xpath: /html/body/section[1]/section[1]/div[2]/div[1]/picture[1]/img[1]/@alt
+            category:
+              - text: Beauty
+                xpath: /html/body/section[1]/section[3]/ul[1]/li[1]/a[1]/span[1]
+              - text: Mens aftershave
+                xpath: /html/body/section[1]/section[3]/ul[1]/li[2]/a[1]/span[1]
+              - text: Body
+                xpath: /html/body/section[1]/section[3]/ul[1]/li[3]/a[1]/span[1]
+            nameExtended:
+              - text: TOM FORD Neroli Portofino all-over body spray 150ml
+                xpath: /html/body/section[1]/section[1]/div[1]/div[2]/h1[1]
+            listPrice:
+              - text: "63.00"
+                xpath: /html/body/section[1]/section[1]/div[1]/div[2]/p[1]/span[2]
+            price:
+              - text: "63.00"
+                xpath: /html/body/section[1]/section[1]/div[1]/div[2]/p[1]/span[2]
+            brandText:
+              - text: TOM FORD
+                xpath: /html/body/section[1]/section[1]/div[1]/div[2]/h1[1]/span[1]/a[1]
+            manufacturer:
+              - text: TOM FORD
+                xpath: /html/body/section[1]/section[1]/div[1]/div[2]/h1[1]/span[1]/a[1]
+            sku:
+              - text: 453-3001058-T1LG01
+                xpath: /html/body/section[1]/div[2]/section[2]/p[2]/span[1]
+            variantId:
+              - text: 453-3001058-T1LG01
+                xpath: /html/body/section[1]/div[2]/section[2]/p[2]/span[1]
+            name:
+              - text: TOM FORD - Neroli Portofino all-over body spray 150ml
+                xpath: /html/head[1]/title[1]
+            promotion:
+              - text: Save up to 10% with the code SELFCCE(now $56.70)
+                xpath: /html/body/section[1]/section[1]/div[1]/div[4]/div[1]/p[1]
+            description:
+              - text: >-2
+                  
+                            
+                              Tom Ford Neroli Portofino all-over body spray150ml
+                            
+                            
+                              
+                                
+                                
+                                Specifications
+                                Vibrant. Sparkling. Transportive. To Tom Ford, this scent perfectly captures the cool breezes, sparkling clear water and lush foliage of the Italian Rivera. His reinvention of a classic eau de cologne features crisp citrus oils, surprising floral notes and amber undertones to leave a splashy yet substantive impression. Experience the new invigorating All Over Body Spray lightly scented with Neroli Portofino, adding a new dimension to the Neroli Portofino Bath & Body Collection.Tom Ford Neroli Portofino all-over body spray150ml
+                              
+                            
+                          Vibrant. Sparkling. Transportive. To Tom Ford, this scent perfectly captures the cool breezes, sparkling clear water and lush foliage of the Italian Rivera. His reinvention of a classic eau de cologne features crisp citrus oils, surprising floral notes and amber undertones to leave a splashy yet substantive impression. Experience the new invigorating All Over Body Spray lightly scented with Neroli Portofino, adding a new dimension to the Neroli Portofino Bath & Body Collection.
+            descriptionBullets:
+              - text: "2"
+            variantCount:
+              - text: "7"
+        xpath: /
+    timestamp: 1606225925586
