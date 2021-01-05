@@ -20,6 +20,25 @@ module.exports = {
     }
 
     await context.waitForNavigation({ timeout: 50000, waitUntil: 'networkidle0' });
+
+    await context.evaluate(async () => {
+      await new Promise((resolve) => setTimeout(resolve, 5000));
+
+      async function infiniteScroll () {
+        let prevScroll = document.documentElement.scrollTop;
+        while (true) {
+          window.scrollBy(0, document.documentElement.clientHeight);
+          await new Promise(resolve => setTimeout(resolve, 1000));
+          const currentScroll = document.documentElement.scrollTop;
+          if (currentScroll === prevScroll) {
+            break;
+          }
+          prevScroll = currentScroll;
+        }
+      }
+      await infiniteScroll();
+    });
+
     await context.evaluate(function () {
       console.log('Scrolling to the bottom of page.');
       if (document.querySelector('.footer__bar')) {

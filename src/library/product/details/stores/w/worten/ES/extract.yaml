@@ -115,8 +115,7 @@ fields:
     xpath: //div[contains(@class,'InTheBox')]//div[@class="flix-std-content"]
   - name: hasComparisonTable
     singleValue: true
-    xpath: //div[contains(@class,"flix-compare")]
-    regExp: (.*)
-    regExpReplace: Yes
+    xpath: boolean(//div[contains(@class,"flix-compare")])
+    # regExpReplace: Yes
     defaultValue: No
   - name: unInterruptedPDP
