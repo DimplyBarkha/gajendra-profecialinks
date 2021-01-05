@@ -50,7 +50,7 @@ module.exports = {
         // @ts-ignore
         for (let i = 0; i < data.finding.length; i++) {
           addEmptyDiv(i);
-          addHiddenDiv('id', data["finding"][i]["match-item"]["e:epoq_search_id"]["$"], i);
+          addHiddenDiv('id', data["finding"][i]["match-item"]["e:epoq_search_id"]["$"].replace(' ','-'), i);
           addHiddenDiv('image', data["finding"][i]["match-item"]["c:imagelink"]["$"], i);
           try {
             if (data["finding"][i]["match-item"]["c:productTitleFirstLine"]["$"]) {
