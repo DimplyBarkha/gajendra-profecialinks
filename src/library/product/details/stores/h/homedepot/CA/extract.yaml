@@ -17,7 +17,7 @@ fields:
     xpath: //button[@id="avg-rating-button"]/@aria-label
   - name: aggregateRating
     singleValue: false
-    xpath: //div[@id="pd_aggregate"]
+    xpath: //div[@id="pd_aggregate"] | //span[@itemprop="ratingValue"]
   - name: alternateImages
     singleValue: false
     xpath: //div[@id="pd_altimage"]
