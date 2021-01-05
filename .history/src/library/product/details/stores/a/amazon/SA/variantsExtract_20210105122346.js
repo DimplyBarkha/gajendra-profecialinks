@@ -8,5 +8,10 @@ module.exports = {
     domain: 'amazon.sa',
     zipcode: '',
   },
+  dependencies: {
+    Helpers: 'module:helpers/helpers',
+    AmazonHelp: 'module:helpers/amazonHelp',
+    variants: 'extraction:product/details/stores/${store[0:1]}/${store}/${country}/variantsExtract',
+  },
   implementation,
 };
