@@ -32,7 +32,7 @@ fields:
     defaultValue: Out of Stock
   - name: description
     singleValue: false
-    xpath: //div[@class="strong-points"]
+    xpath: //div[@class="strong-points"] | //div[contains(@id, 'product_description')]
     #xpath: //div[contains(@class,"product_bloc_content")]
     #manualSelector: div.product_bloc_content
   - name: descriptionBullets
@@ -101,8 +101,9 @@ fields:
     xpath: //div[@id="product_caracteristics"]//table
   - name: manufacturerDescription
     singleValue: false
-    xpath: //div[@id="product_brand"]//div[@class="inpage_content_block"]//div[contains(@class, "bloc ombre")]
-    #manualSelector: div#product_brand div.flix-inpage
+    # xpath: //div[@id="product_brand"]//div[@class="inpage_content_block"]//div[contains(@class, "bloc ombre")]
+    xpath: //div[contains(@id, 'inpage_container')]
+    # manualSelector: div#product_brand div.flix-inpage
   - name: manufacturerImages
     singleValue: false
     xpath: //img[@class="dpro"]/@src | //div[@class="inpage_selector_feature"]//img/@srcset | //div[@class="inpage_selector_gallery"]//img/@srcset | //ul[contains(@class,"inpage_block_inner ")]//li//img/@srcset
@@ -111,7 +112,7 @@ fields:
     singleValue: false
   - name: secondaryImageTotal
     singleValue: false
-    xpath: count(//li[contains(@class,"rr_item")]//img/@src) -1
+    xpath: count(//div[contains(@class, 'rr_extra_small rr_items_container')]//li[contains(@class,"rr_item")][position()>1]//img/@src)
   - name: energyEfficiency
     singleValue: false
     xpath: //div[@id="product_caracteristics"]//tr[contains(translate(string(), 'Classe énergétique', 'Classe énergétique'), 'Classe énergétique')]/td
