@@ -11,7 +11,10 @@ fields:
     xpath: //h1[contains(@class,'product-name') or contains(@class,'Heading')]
   - name: alternateImages
     singleValue: false
-    xpath: (//*[contains(@class,"product-carousel-item")]//img/@src)[position()>1]
+    xpath: (//*[contains(@class,"product-carousel-item") or contains(@aria-label,"arrow down")]//img/@src)[position()>1]
+  - name: alternateImages1
+    singleValue: false
+    xpath: (//ul[contains(@class,"gal-thumbnail")]//button[contains(@aria-label,"arrow down")]//img/@src)[position()>2]
   - name: metaKeywords
     singleValue: false
     xpath: //meta[contains(@name, "keywords")]/@content
@@ -121,7 +124,7 @@ fields:
     description: A code description of the color (e.g. RGB hex)
   - name: manufacturerDescription
     singleValue: false
-    manualSelector: div[id="product-manufacturer-content"]:nth-child(2) div[class="collapse show"]
+    manualSelector: div[id="product-manufacturer-content"]
   - name: manufacturerImages
     singleValue: false
     xpath: //div[@id="product-manufacturer-content"]//img/@data-flixsrcset | //div[@id="product-manufacturer-content"]//img[contains(@class,'wc-image')]/@src
@@ -226,7 +229,7 @@ fields:
     singleValue: false
     description: null
     type: NUMBER
-    xpath: count((//*[contains(@class,"product-carousel-item")]//img/@src)[position()>1])
+    xpath: count((//*[contains(@class,"product-carousel-item") or contains(@aria-label,"arrow down")]//img/@src)[position()>1])
   - name: news
     singleValue: false
     description: null

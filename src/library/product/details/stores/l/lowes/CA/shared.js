@@ -92,7 +92,7 @@ const transform = (data) => {
       if (row.manufacturerDescription) {
         let text = '';
         row.manufacturerDescription.forEach(item => {
-          text += item.text.replace(/\n \n/g, ' ').replace('Content from the Manufacturer', '').replace(/(.*)This content uses cookies to improve your experience. By continuing, you agree to this use(.*)/, '$1').replace(/\{.*\}/g, '');
+          text += item.text.replace(/\n \n/g, ' ').replace('Content from the Manufacturer', '').replace(/(.*)This content uses cookies to improve your experience. By continuing, you agree to this use(.*)/, '$1').replace(/\{.*\}/g, '').trim();
         });
         row.manufacturerDescription = [
           {
@@ -159,6 +159,18 @@ const transform = (data) => {
           text += `${item.text} | `;
         });
         row.warranty = [{ text: text.match(/(.*)\s\|\s$/) ? text.replace(/(.*)\s\|\s$/, '$1') : text }];
+      }
+      if (!row.alternateImages && row.alternateImages1) {
+        row.alternateImages1.forEach(item => {
+          if (item.text.match(/(.*)_s.jpg/)) {
+            item.text = item.text.replace(/(.*)_s.jpg/, '$1_m.jpg');
+          }
+          if (item.text.match(/(.*)_l.jpg/)) {
+            item.text = item.text.replace(/(.*)_l.jpg/, '$1_m.jpg');
+          }
+        });
+        row.alternateImages = row.alternateImages1;
+        row.secondaryImageTotal = [{ text: row.alternateImages1.length }];
       }
     }
   }
