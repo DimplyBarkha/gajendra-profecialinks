@@ -51,10 +51,11 @@ async function implementation (
     const jsondata = JSON.parse(rawdata);
     const gtin = jsondata.gtin13;
     const availabilityText = jsondata.offers.availability;
+    const url=jsondata.url;
     // const price= jsondata.offers.price;
     const aggregateRating = jsondata.review.reviewRating.ratingValue;
     const brand = jsondata.brand.name;
-    addHiddenDiv('gtin', gtin,);
+    addHiddenDiv('url', url,);
     addHiddenDiv('availabilityText',availabilityText);
     addHiddenDiv('aggregateRating', aggregateRating);
     addHiddenDiv('brandText',brand);
