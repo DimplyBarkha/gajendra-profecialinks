@@ -401,7 +401,7 @@ fields:
     example: https://www.zalando.de/adidas-neo-sneaker-low-blackwhite-a4315i002-q11.html
     defaultValue: Yes
   - name: unInterruptedPDP
-    xpath: //div[@data-test="alternatives-product-card"]//a[contains(@data-test, "alternatives-product-card-title")]
+    xpath: //div[@data-test="alternatives-product-card"]//a[contains(@data-test, "alternatives-product-card-title")] | //div[@data-test="featured-products-product-card-brand"]/following-sibling::a/text()
     # xpath: //div[@data-test="alternatives-product-card"]//a[contains(@data-test, "alternatives-product-card-title")] | //section[@data-test="product-alternatives"]//img/@alt | //div[contains(@class,"MatchingAccessories")]//p
   - name: hasComparisonTable
     xpath: (//div[contains(@id,"comparisontable")])[position()=1]
