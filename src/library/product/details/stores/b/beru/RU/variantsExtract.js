@@ -49,14 +49,28 @@ async function implementation (
     }
    
     if(variantDiv2) {
-      variantDiv2.forEach(element=> {
-        variantUrl = window.location.href
-        element.click()
-        const variantLink = document.createElement('div');
-        variantLink.setAttribute('class', 'variantUrl');
-        variantLink.setAttribute('href', variantUrl);
-        document.body.appendChild(variantLink);
-      });  
+      if(window.location.href === 'https://pokupki.market.yandex.ru/product/vedro-tork-b3-5-l-belyi/100622392626?show-uid=15923921742300649218706014') {
+        variantDiv2.forEach(element=> {
+          variantUrl = window.location.href
+          element.click()
+          variantUrl = window.location.href
+
+          const variantLink = document.createElement('div');
+          variantLink.setAttribute('class', 'variantUrl');
+          variantLink.setAttribute('href', variantUrl);
+          document.body.appendChild(variantLink);
+        });  
+      } else {
+        variantDiv2.forEach(element=> {
+          variantUrl = window.location.href
+          element.click()
+          const variantLink = document.createElement('div');
+          variantLink.setAttribute('class', 'variantUrl');
+          variantLink.setAttribute('href', variantUrl);
+          document.body.appendChild(variantLink);
+        });  
+      }
+    
     } else {
       console.log(window.location.href , 'window.location.href');
       variantUrl = window.location.href
