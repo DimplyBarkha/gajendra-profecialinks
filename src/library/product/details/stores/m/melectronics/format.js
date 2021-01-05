@@ -29,6 +29,15 @@ const transform = (data) => {
           item.text = item.text.replace(/(\/fm-sm\/)/g, '/fm-xl/').trim();
         });
       }
+
+      if (row.unInterruptedPDP) {
+        let brand = ''
+        row.unInterruptedPDP.forEach( (item, index ) => {
+          brand = ( row.productBrand[index].text ) ? row.productBrand[index].text : '';
+          item.text = brand + ' ' + item.text.replace(/(\/fm-sm\/)/g, '/fm-xl/').trim();
+        });
+      }
+
       if (row.description) {
         let desc = [];
         row.description.forEach(item => {
