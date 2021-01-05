@@ -55,12 +55,13 @@ fields:
   description: Availability as described on page for the selected variant. If there
     is no availability but the product can be added to cart, this field should be
     "In Stock"
-  xpath: //td[@class="stock"]//span
+  xpath: //script[contains(text(), "availability")]
+  regExp: ("availability"[:] )"(.+)"
 - name: description
   singleValue: false
   description: Product description supplied by website - may be concatenanted from
     multiple places; specifically not the manufacturer description
-  xpath: //div[@class="productStage__infoText"]
+  xpath: //body/@description
 - name: descriptionBullets
   singleValue: true
   description: Number of ul > li tags in the description
@@ -88,7 +89,7 @@ fields:
 - name: gtin
   singleValue: true
   description: GTIN code (includes UPC/EAN)
-  xpath: //th[text()="Herstellernummer"]/following-sibling::td[1]
+  # xpath: //th[text()="Herstellernummer"]/following-sibling::td[1]
 - name: sku
   singleValue: true
   description: The store-specific product identifier
@@ -152,7 +153,7 @@ fields:
 - name: manufacturerDescription
   singleValue: false
   description: The extended description of the product supplied by the lister
-  xpath: //div[@id="description-block"]/@productdesc
+  # xpath: //div[@id="description-block"]/@manufacturerdesc
 - name: manufacturerImages
   singleValue: false
   description: Images within the third party description
@@ -271,7 +272,7 @@ fields:
   singleValue: true
   description: List of Ingredients from site - can be string of data if no discernible
     start/end point
-  xpath: //h3[text()="Zutaten"]/following-sibling::p[1] | //th[text()="Inhaltsstoffe"]/following-sibling::td[1]
+  xpath: //th[text()="Inhaltsstoffe"]/following-sibling::td[1]
 - name: servingSize
   singleValue: true
   description: The size of serving Nutritional information is based on

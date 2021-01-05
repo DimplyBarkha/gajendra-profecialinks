@@ -16,29 +16,38 @@ module.exports = {
     { productDetails },
   ) => {
     await context.evaluate(async () => {
-      const descriptionBox = document.querySelector('div#description-block');
-      if (descriptionBox) {
-        const descSubtitles = descriptionBox.querySelectorAll('div.pdp__contentSection-leftSide > h3');
-        const descTexts = descriptionBox.querySelectorAll('div.pdp__contentSection-leftSide > p');
-        let descData = [];
-        let productDesc = '';
+      const topDescriptionBullets = document.querySelectorAll('div.productStage__infoText li');
+      let generalDescription = '';
+      if (topDescriptionBullets && topDescriptionBullets.length > 0) {
+        topDescriptionBullets.forEach(descBullet => {
+          generalDescription += '||' + descBullet.textContent;
+        });
+      }
+      const bottomDescriptionBox = document.querySelector('div#description-block');
+      if (bottomDescriptionBox) {
+        const descSubtitles = bottomDescriptionBox.querySelectorAll('div.pdp__contentSection-leftSide > h3');
+        const descTexts = bottomDescriptionBox.querySelectorAll('div.pdp__contentSection-leftSide > p');
+        let bottomDescData = [];
+        let manufacturerDesc = '';
         descSubtitles.forEach((subtitle, index) => {
-          descData = [
-            ...descData,
+          bottomDescData = [
+            ...bottomDescData,
             {
               title: subtitle.innerHTML,
               text: descTexts[index] ? descTexts[index].innerHTML : '',
             },
           ];
         });
-        descData = descData.filter(desc => {
+        bottomDescData = bottomDescData.filter(desc => {
           return (!desc.title.includes('Zutaten') && !desc.title.includes('Zubereitung'));
         });
-        descData.forEach(desc => {
-          productDesc += desc.text + ' ';
+        bottomDescData.forEach(desc => {
+          manufacturerDesc += desc.title + ' ' + desc.text + ' ';
         });
-        descriptionBox.setAttribute('productdesc', productDesc);
+        bottomDescriptionBox.setAttribute('manufacturerdesc', manufacturerDesc);
+        generalDescription += '|' + manufacturerDesc;
       }
+      document.querySelector('body').setAttribute('description', generalDescription);
     });
 
     const dataRef = await context.extract(productDetails, { transform });
@@ -48,6 +57,11 @@ module.exports = {
       alternateImages.forEach(image => {
         image.text = 'https:' + image.text.replace('xs3', 'xxl');
       });
+    }
+
+    const availability = dataRef[0].group[0].availabilityText;
+    if (availability) {
+      availability[0].text = availability[0].text.includes('InStock') ? 'In Stock' : 'Out Of Stock';
     }
 
     const servingSizeUom = dataRef[0].group[0].servingSizeUom;
@@ -64,16 +78,6 @@ module.exports = {
       if (field.includes('PerServingUom')) {
         unitFormatter(dataRef[0].group[0][field]);
       }
-    }
-
-    const allergyAdvice = dataRef[0].group[0].allergyAdvice;
-    if (allergyAdvice && allergyAdvice.length > 1) {
-      let adviceText = '';
-      allergyAdvice.forEach(advice => {
-        adviceText += ' -' + advice.text;
-      });
-      allergyAdvice[0].text = adviceText.replace(/\n/g, ': ');
-      allergyAdvice.splice(1, 1);
     }
   },
 };
