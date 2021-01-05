@@ -24,9 +24,8 @@ fields:
     xpath: ancestor::html//div[@id='cm_cr-product_info']//div[contains(@class, 'product-image')]//img/@src
   - name: location
     description:: reviewer location
-    defaultValue: Germany
+    defaultValue: DE
   - name: helpful
-    type: NUMBER
     description: Number of people who said the review was helpful
     xpath: //span[@data-hook='helpful-vote-statement']
   - name: verifiedPurchase
