@@ -289,11 +289,14 @@ module.exports = {
         }
 
         function variantInformation (variantsData) {
-          if (variantsData.variant[1]) {
+          if (variantsData && variantsData.variant && variantsData.variant[1]) {
             if (variantsData.variant[0]) {
-              console.log(`${variantsData.variant[1].value[0]} (${variantsData.variant[1].value[1]}) ${variantsData.variant[0].value}`);
-              return (`${variantsData.variant[1].value[0]} (${variantsData.variant[1].value[1]}) ${variantsData.variant[0].value}`);
-              // return variantsData.variant[0].value + '-' + variantsData.variant[1].value;
+              let currentVariant = '';
+              if (variantsData.variant[1].value && variantsData.variant[1].value[0]) currentVariant = currentVariant + variantsData.variant[1].value[0];
+              if (variantsData.variant[1].value && variantsData.variant[1].value[1]) currentVariant = `${currentVariant} (${variantsData.variant[1].value[1]})`;
+              if (variantsData.variant[0].value) currentVariant = `${currentVariant} ${variantsData.variant[0].value}`;
+              return currentVariant;
+              // return (`${variantsData.variant[1].value[0]} (${variantsData.variant[1].value[1]}) ${variantsData.variant[0].value}`);
             }
           } else {
             return variantsData.variant[1] ? variantsData.variant[1].value : '' + '' + variantsData.variant[0] ? variantsData.variant[0].value : '';
