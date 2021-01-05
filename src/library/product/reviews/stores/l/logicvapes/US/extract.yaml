@@ -54,8 +54,8 @@ fields:
     xpath: //div[@class="product-view-form"]//meta[@itemprop="sku"]/@content
   - name: reviewDate
     singleValue: false
-    type: DATETIME
     description: Date the review was made
+    defaultValue: '0'
   - name: reviewRating
     type: NUMBER
     singleValue: false
