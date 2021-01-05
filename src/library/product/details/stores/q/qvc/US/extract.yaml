@@ -50,8 +50,9 @@ fields:
     add to basket this is the price they would be charged
 - name: availabilityText
   singleValue: true
+  defaultValue: "Out of stock"
   type: STRING
-  xpath: //div[@class="buyBoxSelect buyBoxAvailibility"]/p[contains(@style, "block")] | //ul[@role="radiogroup"]/li[contains(@ats,"Y")][1]//input/@aria-label
+  xpath: //p[@class="status instock" and contains(@style, 'block')]
   description: Availability as described on page for the selected variant. If there
     is no availability but the product can be added to cart, this field should be
     "In Stock"

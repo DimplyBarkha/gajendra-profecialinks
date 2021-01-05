@@ -31,7 +31,7 @@ module.exports = {
       const videoArray = document.querySelectorAll('div[class="videoThumb"]');
       if (videoArray.length !== 0) {
         if (videoArray.length === 1) {
-          const link = document.querySelector('div[class="ssmp-container"] video').src;
+          const link = document.querySelector('div[class="ssmp-container"] video').src ? document.querySelector('div[class="ssmp-container"] video').src : '';;
           const time = document.querySelector('span[class="vjs-duration-display"]').innerText ? document.querySelector('span[class="vjs-duration-display"]').innerText : '';
           addElementToDOM('videoInfo', link, time);
         }
@@ -39,7 +39,7 @@ module.exports = {
           for (let i = 0; i < videoArray.length; i++) {
             videoArray[i].click();
             await new Promise((resolve) => setTimeout(resolve, 5000));
-            const link = document.querySelector('div[class="ssmp-container"] video').src;
+            const link = document.querySelector('div[class="ssmp-container"] video').src ? document.querySelector('div[class="ssmp-container"] video').src : '';
             const time = document.querySelector('span[class="vjs-duration-display"]').innerText ? document.querySelector('span[class="vjs-duration-display"]').innerText : '';
             addElementToDOM('videoInfo', link, time);
           }
@@ -50,14 +50,6 @@ module.exports = {
     const dataConversion = (data, sku = null) => {
       for (let k = 0; k < data.length; k++) {
         for (let i = 0; i < data[k].group.length; i++) {
-          if ('availabilityText' in data[k].group[i]) {
-            if (data[k].group[i].availabilityText[0].text.includes('In Stock')) {
-              data[k].group[i].availabilityText[0].text = 'In Stock';
-            }
-            if (data[k].group[i].availabilityText[0].text.includes('not available')) {
-              data[k].group[i].availabilityText[0].text = 'Out of Stock';
-            }
-          }
           if ('ingredientsList' in data[k].group[i]) {
             for (let j = 1; j < data[k].group[i].ingredientsList.length; j++) {
               data[k].group[i].ingredientsList[0].text += ' ' + data[k].group[i].ingredientsList[j].text;
@@ -75,7 +67,7 @@ module.exports = {
       return data;
     };
 
-    const variants = await context.evaluate(() => { return document.querySelectorAll('ul[role="radiogroup"] li').length; });
+    const variants = await context.evaluate(() => { return document.querySelectorAll('ul[role="radiogroup"] li:not([state="disabled"])').length; });
     if (variants !== 0) {
       for (let i = 0; i < variants; i++) {
         await context.evaluate((i) => {
