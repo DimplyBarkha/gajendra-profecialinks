@@ -5,7 +5,7 @@ module.exports = {
     country: 'FR',
     store: 'amazon',
     domain: 'amazon.fr',
-    loadedSelector: null,
+    loadedSelector: '[data-hook="review"]',
     noResultsXPath: null,
     reviewUrl: null,
     sortButtonSelectors: null,
