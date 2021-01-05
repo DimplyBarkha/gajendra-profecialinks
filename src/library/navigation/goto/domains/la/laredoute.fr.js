@@ -3,7 +3,7 @@ module.exports = {
   implements: 'navigation/goto',
   parameterValues: {
     domain: 'laredoute.fr',
-    timeout: 60000,
+    timeout: 68000,
     country: 'FR',
     store: 'laredoute',
     zipcode: '',
