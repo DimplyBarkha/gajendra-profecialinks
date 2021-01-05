@@ -123,7 +123,9 @@ fields:
     xpath: //div[@id="specifications"]
   - name: warranty
     singleValue: true
-    xpath: //div[@id="warranty"]
+    xpath: //div[@id="warranty"] | //div[@class="warranty-highlight panel"]//p
+    regExp: (\d+\-year | \d+\syear)
+    regExpReplace: $1
   #- name: storage
   #  singleValue: true
   #  xpath: //div[@id="storageInfo"]
