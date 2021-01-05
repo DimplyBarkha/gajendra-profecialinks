@@ -22,7 +22,7 @@ fields:
   - name: sku
     singleValue: false
     description: The store-specific product identifier
-    xpath: ancestor::html//meta[@itemprop='sku']
+    xpath: ancestor::html//meta[@itemprop='sku']/@content
   - name: reviewText
     singleValue: false
     description: The text of the review
@@ -71,7 +71,7 @@ fields:
     singleValue: false
     type: DATETIME
     description: Date the review was made
-    xpath: //span[@class='AV_rating_date']//font
+    xpath: //span[@class='AV_rating_date']
   - name: rating
     type: NUMBER
     singleValue: false

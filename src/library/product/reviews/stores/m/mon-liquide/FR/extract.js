@@ -21,20 +21,6 @@ const transform = (data) => {
   return cleanUp(data);
 };
 
-async function implementation (
-  inputs,
-  parameters,
-  context,
-  dependencies,
-) {
-  const { transform, mergeType } = parameters;
-  const { productReviews } = dependencies;
-
-  await new Promise(resolve => setTimeout(resolve, 10000));
-
-  return await context.extract(productReviews);
-}
-
 module.exports = {
   implements: 'product/reviews/extract',
   parameterValues: {
@@ -44,5 +30,4 @@ module.exports = {
     domain: 'mon-liquide.fr',
     zipcode: "''",
   },
-  implementation,
 };
