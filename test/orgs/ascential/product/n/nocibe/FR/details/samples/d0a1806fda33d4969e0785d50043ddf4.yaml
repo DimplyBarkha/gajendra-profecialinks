@@ -2,7 +2,7 @@ input:
   _url: http://nocibe.fr
   URL: https://www.nocibe.fr/police-police-to-be-coffret-edt-75ml-shampooing-gel-douche-100ml-s228536
 extractions:
-  - html: https://workbench.import.io/html/run=5fdd2e53-07c5-4024-8304-ec8750e23849/task=998fc0f6-5035-47d8-8739-fc9eba835c6c/28c21b00-09ce-4282-9038-bb427bfbb62c.html
+  - html: https://workbench.import.io/html/run=fca45f09-b114-4e20-97dc-07afa2c375db/task=18eaeb74-12cc-4c9b-a47c-94b46bb50517/3303ec27-f369-430d-871f-49d29ccce11e.html
     extractionConfigId: product/details/stores/n/nocibe/FR/extract
     data:
       - group:
@@ -10,15 +10,12 @@ extractions:
               - text: https://www.nocibe.fr/police-police-to-be-coffret-edt-75ml-shampooing-gel-douche-100ml-s228536
                 xpath: /html/head[1]/link[10]/@href
             image:
-              - text: https://www.nocibe.fr/medias/produits/228536/228536-police-coffret-to-be-edt-75ml-shampoing-cheveux-et-corps-100ml-1000x1000.jpg?frz-v=3164
+              - text: https://www.nocibe.fr/medias/produits/228536/228536-police-coffret-to-be-edt-75ml-shampoing-cheveux-et-corps-100ml-1000x1000.jpg?frz-v=3214
                 xpath: /html/body/div[1]/div[2]/section[1]/div[1]/div[1]/div[1]/div[1]/img[1]/@src
             imageAlt:
               - text: Police POLICE TO BE Coffret EDT 75ml + Shampooing Gel Douche 100ml Eau de
                   Toilette Vapo 75ml
                 xpath: /html/body/div[1]/div[2]/section[1]/div[1]/div[1]/div[1]/div[1]/img[1]/@alt
-            listPrice:
-              - text: 43,50 €
-                xpath: /html/body/div[1]/div[2]/section[1]/div[1]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]
             availabilityText:
               - text: Out of Stock
                 xpath: /html/body/div[1]/div[2]/section[1]/div[1]/div[2]/div[1]/div[1]/div[3]
@@ -38,10 +35,10 @@ extractions:
               - text: "0"
                 xpath: /html/body/div[5]
             brandText:
-              - text: "POLICE "
+              - text: Police
                 xpath: /html/head[1]/title[1]
             manufacturer:
-              - text: "POLICE "
+              - text: Police
                 xpath: /html/head[1]/title[1]
             sku:
               - text: "228536"
@@ -49,6 +46,13 @@ extractions:
             variantId:
               - text: "228536"
                 xpath: /html/body/div[1]/div[2]/section[1]/input[2]/@value
+            ratingCount:
+              - text:
+                  - "2"
+                xpath: /html/body/div[1]/div[2]/section[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[3]/span[1]
+            aggregateRating:
+              - text: 5,0
+                xpath: /html/body/div[1]/div[2]/section[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[2]/div[2]/div[1]/span[2]
             name:
               - text: |-
                   Police
@@ -60,16 +64,13 @@ extractions:
             brandLink:
               - text: https://www.nocibe.fr/police/C-47524
                 xpath: /html/body/div[6]/@src
-            promotion:
-              - text: -19%
-                xpath: /html/body/div[1]/div[2]/section[1]/div[1]/div[2]/div[1]/div[1]/div[2]/div[1]/div[2]
             nameExtended:
               - text: "Police POLICE TO BE Coffret EDT 75ml + Shampooing Gel Douche 100ml "
             price:
-              - text: 35,00 €
+              - text: 43,50 €
             variantCount:
               - text: "0"
             secondaryImageTotal:
               - text: "0"
         xpath: /
-    timestamp: 1607684384086
+    timestamp: 1609834031490

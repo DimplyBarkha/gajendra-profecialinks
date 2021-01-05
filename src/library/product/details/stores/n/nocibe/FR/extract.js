@@ -162,12 +162,12 @@ module.exports = {
     dataRef[0].group.forEach((row) => {
       if (row.brandText) {
         row.brandText.forEach(item => {
-          item.text = item.text ? item.text.split('|').shift().toUpperCase() : '';
+          item.text = item.text ? item.text.split('|').shift().trim() : '';
         });
       }
       if (row.manufacturer) {
         row.manufacturer.forEach(item => {
-          item.text = item.text ? item.text.split('|').shift().toUpperCase() : '';
+          item.text = item.text ? item.text.split('|').shift().trim() : '';
         });
       }
       if (row.description) {
@@ -180,7 +180,16 @@ module.exports = {
           }
         });
       }
-
+      if (row.sku) {
+        row.sku.forEach(item => {
+          item.text = item.text ? item.text.replace(/^0+/, '') : '';
+        });
+      }
+      if (row.variantId) {
+        row.variantId.forEach(item => {
+          item.text = item.text ? item.text.replace(/^0+/, '') : '';
+        });
+      }
       if (row.ratingCount) {
         row.ratingCount.forEach(item => {
           if (item.text.includes('avis ')) {

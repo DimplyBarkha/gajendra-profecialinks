@@ -2,7 +2,7 @@ input:
   _url: http://nocibe.fr
   URL: https://www.nocibe.fr/kylie-skin-serum-a-la-vitamine-c-serum-20ml-flacon-pompe-s242127
 extractions:
-  - html: https://workbench.import.io/html/run=5fdd2e53-07c5-4024-8304-ec8750e23849/task=60349958-699b-4819-9208-c23cdfd20a51/cadd3205-32a9-4366-a7a3-35c767cde5f4.html
+  - html: https://workbench.import.io/html/run=fca45f09-b114-4e20-97dc-07afa2c375db/task=b67b0386-ee5e-46e6-acfc-0256ef11ba1e/063eafb8-4846-4f2f-a52d-cc417ba3921e.html
     extractionConfigId: product/details/stores/n/nocibe/FR/extract
     data:
       - group:
@@ -10,17 +10,17 @@ extractions:
               - text: https://www.nocibe.fr/kylie-skin-serum-a-la-vitamine-c-serum-20ml-flacon-pompe-s242127
                 xpath: /html/head[1]/link[10]/@href
             image:
-              - text: https://www.nocibe.fr/medias/produits/242127/242127-kylie-skin-serum-a-la-vitamine-c-serum-20ml-flacon-pompe-1000x1000.jpg?frz-v=3164
+              - text: https://www.nocibe.fr/medias/produits/242127/242127-kylie-skin-serum-a-la-vitamine-c-serum-20ml-flacon-pompe-1000x1000.jpg?frz-v=3214
                 xpath: /html/body/div[1]/div[2]/section[1]/div[1]/div[1]/div[2]/div[1]/img[1]/@src
             imageAlt:
               - text: Kylie Skin Sérum à la vitamine C Sérum 20ml
                 xpath: /html/body/div[1]/div[2]/section[1]/div[1]/div[1]/div[2]/div[1]/img[1]/@alt
             alternateImages:
-              - text: https://www.nocibe.fr/medias/produits/242127/242127-kylie-skin-serum-a-la-vitamine-c-serum-20ml-flacon-pompe-autre1-1000x1000.jpg?frz-v=3164
+              - text: https://www.nocibe.fr/medias/produits/242127/242127-kylie-skin-serum-a-la-vitamine-c-serum-20ml-flacon-pompe-autre1-1000x1000.jpg?frz-v=3214
                 xpath: /html/body/div[1]/div[2]/section[1]/div[1]/div[1]/div[2]/div[2]/img[1]/@src
-              - text: https://www.nocibe.fr/medias/produits/242127/242127-kylie-skin-serum-a-la-vitamine-c-serum-20ml-flacon-pompe-autre2-1000x1000.jpg?frz-v=3164
+              - text: https://www.nocibe.fr/medias/produits/242127/242127-kylie-skin-serum-a-la-vitamine-c-serum-20ml-flacon-pompe-autre2-1000x1000.jpg?frz-v=3214
                 xpath: /html/body/div[1]/div[2]/section[1]/div[1]/div[1]/div[2]/div[3]/img[1]/@src
-              - text: https://www.nocibe.fr/medias/produits/242127/242127-kylie-skin-serum-a-la-vitamine-c-serum-20ml-flacon-pompe-autre3-1000x1000.jpg?frz-v=3164
+              - text: https://www.nocibe.fr/medias/produits/242127/242127-kylie-skin-serum-a-la-vitamine-c-serum-20ml-flacon-pompe-autre3-1000x1000.jpg?frz-v=3214
                 xpath: /html/body/div[1]/div[2]/section[1]/div[1]/div[1]/div[2]/div[4]/img[1]/@src
             description:
               - text: 20ml Sérum à la vitamine C qui nourrit la peau en vitamines et
@@ -39,10 +39,10 @@ extractions:
               - text: "2"
                 xpath: /html/body/div[6]
             brandText:
-              - text: "KYLIE SKIN "
+              - text: Kylie Skin
                 xpath: /html/head[1]/title[1]
             manufacturer:
-              - text: "KYLIE SKIN "
+              - text: Kylie Skin
                 xpath: /html/head[1]/title[1]
             quantity:
               - text: 20 ml
@@ -61,7 +61,7 @@ extractions:
                 xpath: /html/body/div[1]/div[2]/section[1]/div[4]/div[1]/div[1]/ul[1]/li[2]/a[1]/@directions
             ratingCount:
               - text:
-                  - "170"
+                  - "173"
                 xpath: /html/body/div[1]/div[2]/section[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/button[1]/div[3]/meta[1]/@content
             aggregateRating:
               - text: 4,2
@@ -89,6 +89,9 @@ extractions:
                   Panthenol, Ferulic Acid, Ethylhexylglycerin, Sodium Hydroxide,
                   Camellia Sinensis Leaf Extract.
                 xpath: /html/body/div[1]/div[2]/section[1]/div[4]/div[1]/div[1]/div[1]/p[1]
+            variantInformation:
+              - text: Flacon pompe 20 ml
+                xpath: /html/body/div[1]/div[2]/section[1]/div[1]/div[2]/div[1]/div[1]/div[3]/ul[1]/li[1]/span[1]
             availabilityText:
               - text: In Stock
             nameExtended:
@@ -100,4 +103,4 @@ extractions:
             secondaryImageTotal:
               - text: "3"
         xpath: /
-    timestamp: 1607684402878
+    timestamp: 1609834056836
