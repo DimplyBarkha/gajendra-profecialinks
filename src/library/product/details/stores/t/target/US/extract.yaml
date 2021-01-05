@@ -294,3 +294,7 @@ fields:
   - name: technicalInformationPdfPresent
     singleValue: false
     xpath: //div[@class="pdf"]
+  - name: unInterruptedPDP
+    xpath: ancestor::html//ul[@class="h-whiteSpace-nowrap"]//li//p[contains(@class,"ProductRecsHeading")] |ancestor::html //h3[contains(.,'Featured products')]/..//ul//li//p[contains(@class,"ProductRecsHeading")] |ancestor::html //h2[contains(.,'Featured products')]/..//ul//li//p[contains(@class,"ProductRecsHeading")]
+  - name: hasComparisonTable
+    defaultValue: No
