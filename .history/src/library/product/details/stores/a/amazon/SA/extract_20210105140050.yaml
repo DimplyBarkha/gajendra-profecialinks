@@ -1,0 +1,100 @@
+<<<<<<< HEAD
+singleRecord: true
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: image
+    singleValue: true
+    xpath: //div[@id='imgTagWrapperId']/img/@src
+  - name: imageAlt
+    singleValue: true
+    xpath: //div[@id='imgTagWrapperId']/img/@alt
+  - name: category
+    singleValue: false
+    xpath: //ul[@class='a-unordered-list a-horizontal a-size-small']/li/span[@class='a-list-item']/a
+  - name: nameExtended
+    singleValue: true
+    xpath: //div[@id='titleSection']/h1
+  - name: price
+    singleValue: true
+    xpath: //span[@id='priceblock_ourprice']
+  - name: availabilityText
+    singleValue: true
+    xpath: //div[@id='Availability']
+  - name: description
+    singleValue: false
+    xpath: //ul[@class='a-unordered-list a-vertical a-spacing-mini']/li
+  - name: brandText
+    singleValue: true
+    xpath: //a[@id='bylineInfo']
+  - name: asin
+    singleValue: false
+    xpath: //div[@id='detailBullets_feature_div']/ul/li/span[@class='a-list-item']
+  - name: shippingDimensions
+    singleValue: false
+    xpath: //div[@id='detailBullets_feature_div']/ul/li/span[@class='a-list-item']
+  - name: alternateImages
+    singleValue: false
+    xpath: //ul[@class='a-unordered-list a-nostyle a-button-list a-vertical a-spacing-top-micro']/li[@class='a-spacing-small item imageThumbnail a-declarative']/span/span/span/span/img/@src
+  - name: shippingInfo
+    singleValue: true
+    xpath: //div[@id='merchant-info']
+  - name: descriptionBullets
+    xpath: //div[@id='descriptionBullets']
+  - name: secondaryImageTotal
+    singleValue: false
+    xpath: //ul[@class='a-unordered-list a-nostyle a-button-list a-vertical a-spacing-top-micro']/li[@class='a-spacing-small item imageThumbnail a-declarative']/span/span/span/span/img/@src
+  - name: aggregateRating
+    singleValue: true
+    xpath: //span[@id='acrPopover']
+  - name: specifications
+    singleValue: true
+    xpath: //table[@id='productDetails_techSpec_section_1']/tbody
+  - name: variantInformation
+    singleValue: false
+    xpath: //form[@id='twister']/div[@id='variation_size_name']/div[@class='a-row a-spacing-micro singleton']/span[@class='selection']
+  - name: manufacturer
+    singleValue: false
+    xpath: //ul[@class='a-unordered-list a-nostyle a-vertical a-spacing-none detail-bullet-list']/li
+  - name: quantity
+    xpath: //div[@id='variation_size_name']/div[@class='a-row']/span
+  - name: weightGross
+    singleValue: false
+    xpath: //ul[@class='a-unordered-list a-nostyle a-vertical a-spacing-none detail-bullet-list']/li
+  - name: salesRankCategory
+    singleValue: false
+    xpath: //ul[@class='a-unordered-list a-nostyle a-vertical a-spacing-none detail-bullet-list']/li
+  - name: mpc
+    singleValue: false
+    xpath: //ul[@class='a-unordered-list a-nostyle a-vertical a-spacing-none detail-bullet-list']/li
+  - name: imageZoomFeaturePresent
+    singleValue: true
+    defaultValue: Yes
+  - name: metaKeywords
+    singleValue: true
+    xpath: //meta[contains(@name, "keywords")]/@content
+  - name: _url
+    singleValue: true
+    xpath: //link[@rel='canonical']/@href
+  - name: manufacturerDescription
+    singleValue: true
+    xpath: //div[@id="productDescription"]/p[text()]/text()
+  - name: manufacturerImages
+    singleValue: false
+    xpath: //div[@cel_widget_id="aplus"]//img/@src
+  - name: brandLink
+    singleValue: false
+    xpath: //a[@id="bylineInfo"]/@href
+    regExp: (.+)
+    regExpReplace: https://www.amazon.com$1
+  - name: 360ImagePresent
+    singleValue: true
+    xpath: //div[@id="ppd"]//script[contains(@type,"text/javascript") and contains(text(), "colorImages") and contains(text(), "360")]
+
+
+
+
+=======
+extends: ../../../../sharedAmazon/shared
+>>>>>>> origin/merged-amazon-sources
