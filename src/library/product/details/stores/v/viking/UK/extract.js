@@ -40,12 +40,16 @@ module.exports = {
       const zoomIn = document.querySelector('div#s7viewer_container_inner div[data-component="ZoomInButton"]') ? 'Yes' : 'No';
       addElementToDocument('zoomIn', zoomIn);
 
+      const introDescription = document.querySelector('div.product__intro') ? document.querySelector('div.product__intro').textContent.replace(/\s+/g, ' ') : '';
+      const additionalDescription = document.querySelector('div[itemprop="description"]') ? document.querySelector('div[itemprop="description"]').textContent.replace(/\s+/g, ' ') : '';
+      addElementToDocument('concatdescription', `${introDescription} ${additionalDescription}`);
+
       const image = document.querySelector('div[class="s7thumb"]')
-        ? document.querySelector('div[class="s7thumb"]').getAttribute('style').replace(/.*((?<=url\(").+(?=_)).*/g, '$1') : '';
+        ? document.querySelector('div[class="s7thumb"]').getAttribute('style').replace(/.*((?<=\/is\/image).+(?=_)).*/g, 'http://odeu.scene7.com/is/image$1') : '';
       const alternateImages = document.querySelectorAll('div#s7viewer_swatches_listbox div.s7thumb div[type="image"]');
       for (let i = 1; i < alternateImages.length; i++) {
         if (image && alternateImages[i]) {
-          const imgUrl = `${image}_alt${i}?`;
+          const imgUrl = `${image}_alt${i}?fit=constrain,1&wid=400&hei=400&fmt=png`;
           addElementToDocument('alternateImg', imgUrl);
         }
       }

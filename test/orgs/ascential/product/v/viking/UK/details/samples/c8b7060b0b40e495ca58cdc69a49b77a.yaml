@@ -2,12 +2,15 @@ input:
   _url: http://viking-direct.co.uk
   SKU: 1102075
 extractions:
-  - html: https://workbench.import.io/html/run=4cd6570b-c81c-4ebc-ad8c-993699908929/task=72b651b1-a64d-4aab-9d38-f74f67484a30/b4c6fbef-c041-4b85-b5f8-06bab7712a85.html
+  - html: https://workbench.import.io/html/run=d3b8f643-5ae3-4abc-ba79-d448fd547d98/task=d132af2d-dc58-4f67-a250-225b8745b7f8/175bb780-55e4-4a96-8bc4-38e8fc4ddca8.html
     extractionConfigId: product/details/stores/v/viking/UK/extract
     data:
       - group:
-          - image:
-              - text: https://static.viking-direct.co.uk/is/image/odeu13/1102075?
+          - productUrl:
+              - text: https://www.viking-direct.co.uk/en/kimberly-clark-professional-toilet-paper-hostess-2-ply-36-rolls-of-320-sheets-p-1102075
+                xpath: /html/head[1]/link[3]/@href
+            image:
+              - text: https://static.viking-direct.co.uk/is/image/odeu13/1102075?wid=400&hei=400&fmt=jpg&qlt=75&resMode=sharp2&op_usm=1.2,0.3,10,0
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[4]/picture[1]/img[1]/@src
             imageAlt:
               - text: Kimberly-Clark Professional Toilet Rolls Hostess 2 Ply 36 Rolls of 320
@@ -36,11 +39,17 @@ extractions:
               - text: In Stock
                 xpath: /html/body/div[4]/main[1]/div[3]/div[2]
             description:
-              - text: Improve bathroom hygiene with Kimberly-Clark Professional
-                xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[1]/div[1]/div[2]/h2[1]/text()[1]
-              - text: There's no need for continuous restocking with this large pack of
-                  Kimberly-Clark Professional toilet rolls.
-                xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[1]/div[1]/div[2]/p[1]/text()[1]
+              - text: Improve bathroom hygiene with Kimberly-Clark Professional There's no need
+                  for continuous restocking with this large pack of
+                  Kimberly-Clark Professional toilet rolls. With their hygienic
+                  white colour and 2-ply structure, Kimberly-Clark Professional
+                  Hostess toilet rolls will give every washroom, no matter how
+                  busy, a professional touch. These toilet rolls come 36 to a
+                  pack so you have a large quantity at your disposal, which
+                  means you don't have to worry about re-ordering in a hurry.
+                  Each roll of Kimberly-Clark Professional Hostess toilet paper
+                  consists of 320 sheets of soft, absorbent paper.
+                xpath: /html/body/div[4]/main[1]/div[3]/div[8]
             brandText:
               - text: Kimberly-Clark Professional
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/span[3]/a[1]
@@ -61,7 +70,7 @@ extractions:
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/section[3]/div[1]/div[1]/table[1]/tbody[1]/tr[4]/td[2]
             videos:
               - text: https://odeu.scene7.com/is/content/odeu13/%211102075_v1
-                xpath: /html/body/div[4]/main[1]/div[3]/div[8]
+                xpath: /html/body/div[4]/main[1]/div[3]/div[9]
             name:
               - text: Kimberly-Clark Professional Toilet Rolls Hostess 2 Ply 36 Rolls of 320
                   Sheets
@@ -73,18 +82,18 @@ extractions:
                   Number Hostess || Number of Layers 2 Ply || Packaged Quantity
                   Roll 36 || Pack Quantity 36 Rolls 320 Sheets || Product Type
                   Toilet Rolls || Unit Roll
-                xpath: /html/body/div[4]/main[1]/div[3]/div[9]
+                xpath: /html/body/div[4]/main[1]/div[3]/div[10]
             productOtherInformation:
-              - text: With their hygienic white colour and 2-ply structure, Kimberly-Clark
-                  Professional Hostess toilet rolls will give every washroom, no
-                  matter how busy, a professional touch. These toilet rolls come
-                  36 to a pack so you have a large quantity at your disposal,
-                  which means you don't have to worry about re-ordering in a
-                  hurry.
-                xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/section[1]/div[1]/div[1]/div[1]/p[1]/text()[1]
-              - text: Each roll of Kimberly-Clark Professional Hostess toilet paper consists of
-                  320 sheets of soft, absorbent paper.
-                xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/section[1]/div[1]/div[1]/div[1]/p[2]/text()[1]
+              - text: >-
+                  With their hygienic white colour and 2-ply structure,
+                  Kimberly-Clark Professional Hostess toilet rolls will give
+                  every washroom, no matter how busy, a professional touch.
+                  These toilet rolls come 36 to a pack so you have a large
+                  quantity at your disposal, which means you don't have to worry
+                  about re-ordering in a hurry.
+                   
+                  Each roll of Kimberly-Clark Professional Hostess toilet paper consists of 320 sheets of soft, absorbent paper.
+                xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/section[1]/div[1]/div[1]/div[1]
             technicalInformationPdfPresent:
               - text: No
                 xpath: /html/body/div[4]/main[1]/div[3]/div[3]
@@ -105,4 +114,4 @@ extractions:
             variantCount:
               - text: "0"
         xpath: /html
-    timestamp: 1608208174233
+    timestamp: 1609847222148

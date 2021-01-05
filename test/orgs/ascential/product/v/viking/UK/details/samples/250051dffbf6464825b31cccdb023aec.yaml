@@ -2,12 +2,15 @@ input:
   _url: http://viking-direct.co.uk
   SKU: 2895198
 extractions:
-  - html: https://workbench.import.io/html/run=4cd6570b-c81c-4ebc-ad8c-993699908929/task=f57d5c3e-921a-4a75-a31c-0c9c7c5c8582/99cda879-d390-4b1e-a789-c0acf6674f6f.html
+  - html: https://workbench.import.io/html/run=d3b8f643-5ae3-4abc-ba79-d448fd547d98/task=a61b4076-555e-4d0c-8afd-537aa6eab55f/fd52c601-98f8-4d13-bc1d-33d36980931d.html
     extractionConfigId: product/details/stores/v/viking/UK/extract
     data:
       - group:
-          - image:
-              - text: https://static.viking-direct.co.uk/is/image/odeu13/2895198?
+          - productUrl:
+              - text: https://www.viking-direct.co.uk/en/nescafe-100-arabica-instant-coffee-collections-cap-colombie-500-g-p-2895198
+                xpath: /html/head[1]/link[3]/@href
+            image:
+              - text: https://static.viking-direct.co.uk/is/image/odeu13/2895198?wid=400&hei=400&fmt=jpg&qlt=75&resMode=sharp2&op_usm=1.2,0.3,10,0
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[4]/picture[1]/img[1]/@src
             imageAlt:
               - text: NESCAFÉ Gold Origins Collection Cap Colombia Instant Ground Coffee Tin
@@ -36,14 +39,28 @@ extractions:
               - text: In Stock
                 xpath: /html/body/div[4]/main[1]/div[3]/div[2]
             description:
-              - text: Smooth and fruity coffee produced with 100% Arabica beans
-                xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[1]/div[1]/div[2]/h2[1]/text()[1]
-              - text: Smooth, fruity and absolutely delicious, NESCAFÉ Cap Colombia is a lightly
+              - text: Smooth and fruity coffee produced with 100% Arabica beans Smooth, fruity
+                  and absolutely delicious, NESCAFÉ Cap Colombia is a lightly
                   roasted luxury coffee with a wonderful flavour. Our expert
                   team of roasters take 100% Arabica beans, grown in the finest
                   coffee regions of South America and lightly roast them,
-                  releasing a juicy, fruity flavour.
-                xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[1]/div[1]/div[2]/p[1]/text()[1]
+                  releasing a juicy, fruity flavour. Let your taste buds sample
+                  the delicate flavours as you savour the fruity notes of
+                  NESCAFÉ Cap Colombia and its naturally sweet aromas. This is a
+                  wonderfully exquisite coffee, ideal for coffee connoisseurs
+                  everywhere.With a hinged lid and 'Click-to-Close' technology
+                  it makes for simple and secure re-sealing, making it easy to
+                  serve from and simple to reach every last granule of coffee.
+                  The Simply Better Tin is space efficient and easy to store
+                  back of house or on a counter top. NESCAFÉ works with local
+                  coffee farmers in growing regions around the world to help
+                  develop more sustainable farming practices through the NESCAFÉ
+                  Plan. By providing farmers with training support through our
+                  network of agronomists and higher yielding, disease resistant
+                  plants, we are able to ensure you get to enjoy NESCAFÉ coffee
+                  with the knowledge that it has been produced with care and
+                  quality in every cup.
+                xpath: /html/body/div[4]/main[1]/div[3]/div[8]
             brandText:
               - text: Nescafé
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/span[3]/a[1]
@@ -66,11 +83,11 @@ extractions:
               - text: "1"
                 xpath: /html/body/div[4]/main[1]/div[3]/div[1]/span[2]/a[1]/@data-review-count
             aggregateRatingText:
-              - text: Overall, average rating value is 4 of 5.
-                xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/section[4]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[2]/div[2]/div[1]/span[3]
+              - text: 4 out of 5 stars
+                xpath: /html/body/div[4]/main[1]/div[3]/div[1]/span[2]/a[1]/div[1]/div[1]/@title
             aggregateRating:
-              - text: "4.0"
-                xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/section[4]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[2]/div[2]/div[1]/span[2]
+              - text: "4"
+                xpath: /html/body/div[4]/main[1]/div[3]/div[1]/span[2]/a[1]/div[1]/div[1]/@title
             name:
               - text: NESCAFÉ Gold Origins Collection Cap Colombia Instant Ground Coffee Tin
                   500g
@@ -86,28 +103,20 @@ extractions:
                   No. 12284223 || Model Number GOLD Origins Cap Colombia ||
                   Number of Portions 277 || Package Type Tin || Pack Quantity
                   500 g || Product Type Coffee || Unit Each
-                xpath: /html/body/div[4]/main[1]/div[3]/div[8]
+                xpath: /html/body/div[4]/main[1]/div[3]/div[9]
             productOtherInformation:
-              - text: Let your taste buds sample the delicate flavours as you savour the fruity
-                  notes of NESCAFÉ Cap Colombia and its naturally sweet aromas.
-                  This is a wonderfully exquisite coffee, ideal for coffee
-                  connoisseurs everywhere.With a hinged lid and 'Click-to-Close'
-                  technology it makes for simple and secure re-sealing, making
-                  it easy to serve from and simple to reach every last granule
-                  of coffee. The Simply Better Tin is space efficient and easy
-                  to store back of house or on a counter top.
-                xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/section[1]/div[1]/div[1]/div[1]/p[1]/text()[1]
-              - text: NESCAFÉ works with local coffee farmers in growing regions around the
-                  world to help develop more sustainable farming practices
-                  through the NESCAFÉ Plan. By providing farmers with training
-                  support through our network of agronomists and higher
-                  yielding, disease resistant plants, we are able to ensure you
-                  get to enjoy NESCAFÉ coffee with the knowledge that it has
-                  been produced with care and quality in every cup.
-                xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/section[1]/div[1]/div[1]/div[1]/p[2]/text()[1]
-            promotion:
-              - text: Cashback
-                xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/span[1]
+              - text: >-
+                  Let your taste buds sample the delicate flavours as you savour
+                  the fruity notes of NESCAFÉ Cap Colombia and its naturally
+                  sweet aromas. This is a wonderfully exquisite coffee, ideal
+                  for coffee connoisseurs everywhere.With a hinged lid and
+                  'Click-to-Close' technology it makes for simple and secure
+                  re-sealing, making it easy to serve from and simple to reach
+                  every last granule of coffee. The Simply Better Tin is space
+                  efficient and easy to store back of house or on a counter top.
+                   
+                  NESCAFÉ works with local coffee farmers in growing regions around the world to help develop more sustainable farming practices through the NESCAFÉ Plan. By providing farmers with training support through our network of agronomists and higher yielding, disease resistant plants, we are able to ensure you get to enjoy NESCAFÉ coffee with the knowledge that it has been produced with care and quality in every cup.
+                xpath: /html/body/div[4]/main[1]/div[3]/div[1]/div[2]/div[1]/section[1]/div[1]/div[1]/div[1]
             technicalInformationPdfPresent:
               - text: No
                 xpath: /html/body/div[4]/main[1]/div[3]/div[3]
@@ -128,4 +137,4 @@ extractions:
             variantCount:
               - text: "0"
         xpath: /html
-    timestamp: 1608208169989
+    timestamp: 1609847219795

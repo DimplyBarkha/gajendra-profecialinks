@@ -9,12 +9,13 @@ fields:
   singleValue: false
 - name: productUrl
   singleValue: false
+  xpath: //link[@rel='canonical']/@href
 - name: _pageTimeStamp
   singleValue: false
 - name: image
   description: URL of the main product image
   xpath: //div[@class="image-viewer__pre-load-image"]//img[@itemprop="image"]/@src
-  regExp: (\/\/static.*\?).*
+  regExp: (\/\/static.*\?.*)
   regExpReplace: https:$1
 - name: imageAlt
   description: Alt text of the main product image
@@ -52,7 +53,7 @@ fields:
   singleValue: false
   description: Product description supplied by website - may be concatenanted from
     multiple places; specifically not the manufacturer description
-  xpath: //div[@class="product__intro"]/*/text()
+  xpath: //div[@id="concatdescription"]
 - name: descriptionBullets
   singleValue: true
   description: Number of ul > li tags in the description
@@ -112,10 +113,11 @@ fields:
   xpath: //a[@id='productRating']/@data-review-count
 - name: aggregateRatingText
   description: The stated aggregate rating
-  xpath: //div[@class="bv-secondary-rating-summary-list bv-table"]//span[@class="bv-off-screen"]
+  xpath: //a[@id='productRating']//div[@class='stars']/@title
 - name: aggregateRating
   description: The stated aggregate rating normalized to be out of 5
-  xpath: //span[@class="bv-secondary-rating-summary-rating bv-table-cell"]
+  xpath: //a[@id='productRating']//div[@class='stars']/@title
+  regExp: ^\d+\.?(\d+)?
 - name: shippingInfo
   description: Shipping information for the product
 - name: shippingDimensions
@@ -402,7 +404,7 @@ fields:
 - name: productOtherInformation
   singleValue: false
   description: Any other product information
-  xpath: //div[@itemprop="description"]/*/text()
+  xpath: //div[@itemprop="description"]
 - name: packaging
   singleValue: true
   description: Packaging information
