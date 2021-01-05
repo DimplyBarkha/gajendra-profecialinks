@@ -5,7 +5,9 @@ recordXPath: //ul[@class='col-md-12 product-listing product-grid product-grid']/
 fields:
   - name: id
     singleValue: false
-    xpath: //input[@name='productCodePost']/@value
+    xpath: //div[@class='productCarouselItem js-product-carousel-item']/div/@data-pdt-code
+    regExp: ([\d]+_[A-Z]+)
+    regExpReplace: $1
   - name: searchUrl
     singleValue: true
     xpath: //div/@searchurl
@@ -19,7 +21,9 @@ fields:
     regExpReplace: https://www.pnp.co.za$1
   - name: gtin
     singleValue: false
-    xpath: //input[@name='productCodePost']/@value
+    xpath: //div[@class='productCarouselItem js-product-carousel-item']/div/@data-pdt-code
+    regExp: ([\d]+_[A-Z]+)
+    regExpReplace: $1
   - name: thumbnail
     singleValue: false
     xpath: //div[@class='thumb']/img/@src
