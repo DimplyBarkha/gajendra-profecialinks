@@ -102,12 +102,13 @@ fields:
   - name: manufacturerDescription
     singleValue: false
     # xpath: //div[@id="product_brand"]//div[@class="inpage_content_block"]//div[contains(@class, "bloc ombre")]
-    xpath: //div[contains(@id, 'inpage_container')]
+    xpath: //div[@id="wc-aplus"] | //div[@id="inpage_container"]
     # manualSelector: div#product_brand div.flix-inpage
   - name: manufacturerImages
     singleValue: false
-    xpath: //img[@class="dpro"]/@src | //div[@class="inpage_selector_feature"]//img/@srcset | //div[@class="inpage_selector_gallery"]//img/@srcset | //ul[contains(@class,"inpage_block_inner ")]//li//img/@srcset
-    manualSelector: div#product_brand img
+    xpath: //div[@class="inpage_selector_feature"]//img/@srcset | //div[@class="inpage_selector_gallery"]//img/@srcset | //ul[contains(@class,"inpage_block_inner ")]//li//img/@srcset | //div[@id="inpage_container"]//img/@data-flixsrcset
+    # xpath: //img[@class="dpro"]/@src | //div[@class="inpage_selector_feature"]//img/@srcset | //div[@class="inpage_selector_gallery"]//img/@srcset | //ul[contains(@class,"inpage_block_inner ")]//li//img/@srcset
+    # manualSelector: div#product_brand img
   - name: variantCount
     singleValue: false
   - name: secondaryImageTotal

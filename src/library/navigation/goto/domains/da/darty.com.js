@@ -19,6 +19,7 @@ module.exports = {
     await context.setLoadAllResources(true);
     await context.setLoadImages(true);
     await context.setBlockAds(false);
+    await context.setAntiFingerprint(false);
 
     const responseStatus = await context.goto(url, {
       antiCaptchaOptions: {

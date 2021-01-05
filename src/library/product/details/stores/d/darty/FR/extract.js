@@ -37,6 +37,35 @@ async function implementation (
         }, ms);
       });
     }
+
+    const allMeta = document.querySelectorAll('meta');
+    let ean = '';
+    let brand = '';
+    if (allMeta) {
+      for (let i = 0; i < allMeta.length; i++) {
+        if (allMeta[i].hasAttribute('itemprop')) {
+          if (allMeta[i].getAttribute('itemprop') === 'gtin13') {
+            ean = allMeta[i].getAttribute('content');
+          }
+          if (allMeta[i].getAttribute('itemprop') === 'brand') {
+            brand = allMeta[i].getAttribute('content');
+          }
+        }
+      }
+      console.log('-----EAN-----', ean);
+      console.log('-----BRAND-----', brand);
+    }
+
+    if (!document.querySelector('#wc-aplus,#inpage_container')) {
+      if (ean && brand) {
+        const catElement1 = document.createElement('script');
+        catElement1.async = true;
+        catElement1.type = 'text/javascript';
+        catElement1.src = `https://media.flixcar.com/delivery/js/inpage/2754/fr/ean/${ean}?&=2754&=fr&ean=${ean}&brand=${brand}&ssl=1&ext=.js`;
+        catElement1.crossOrigin = 'true';
+        document.querySelector('.hdca-product') && document.querySelector('.hdca-product').appendChild(catElement1);
+      }
+    }
   });
   return await context.extract(productDetails, { transform });
 }
