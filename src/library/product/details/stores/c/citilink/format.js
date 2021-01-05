@@ -10,8 +10,8 @@ const transform = (data) => {
     .replace(/&amp;#160/g, ' ')
     .replace(/\u00A0/g, ' ')
     .replace(/\s{2,}/g, ' ')
-    // .replace(/"\s{1,}/g, ' "')
-    // .replace(/\s{1,}"/g, ' "')
+    // .replace(/"\s{1,}/g, '"')
+    // .replace(/\s{1,}"/g, '"')
     .replace(/^ +| +$|( )+/g, ' ')
     // eslint-disable-next-line no-control-regex
     .replace(/[\x00-\x1F]/g, '')
@@ -47,17 +47,7 @@ const transform = (data) => {
       }
       if (row.description) {
         row.description.map(item => {
-          item.text = item.text.replace('undefined', '').replace(/^\s+|\s+$/g,'').replace(/"\s{1,}/g, '"  ');
-        });
-      }
-      if (row.name) {
-        row.name.map(item => {
-          item.text = item.text.replace(/"\s{1,}/g, '"  ')
-        });
-      }
-      if (row.nameExtended) {
-        row.nameExtended.map(item => {
-          item.text = item.text.replace(/"\s{1,}/g, '"  ')
+          item.text = item.text.replace('undefined', '').replace(/^\s+|\s+$/g,'');
         });
       }
    
