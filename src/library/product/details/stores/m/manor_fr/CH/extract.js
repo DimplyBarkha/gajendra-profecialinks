@@ -56,18 +56,12 @@ async function implementation(
     addElementToDocument('gtin', scriptData.transactionProducts[0].ean);
     const variants = getAllXpath('//div[@class="m-productcolorselect-v-2__colors js-only-colors"]/div/a/@title', 'nodeValue');
     pipeSeparatorSingle('variants', variants);
-    try {
-      const desc = getAllXpath('//div[@class="m-productdescription__description js-desc"]//text()', 'nodeValue');
-      spaceSeparatorSingle('desc', desc);
-    } catch (error) {
 
-    }
-    const finalName = [];
     try {
       // @ts-ignore
       const name = document.querySelectorAll('div[class="m-productdetailareaa__areaA__title-line g-col g-col-1"]')[0].innerText;
       if (name !== null && name.length > 0) {
-        finalName.push(name);
+        addElementToDocument('name', name);
       }
     } catch (error) {
 
@@ -76,28 +70,17 @@ async function implementation(
       // @ts-ignore
       let size = document.querySelector('span[class="m-productsizeselect-v-2__title"]').outerText.replace(/INHALT: /g, '')
       if (size !== null && size.length > 0 && !size.includes('INHALT')) {
-        finalName.push(size);
         addElementToDocument('size', size);
       }
       else {
         // @ts-ignore
         size = document.querySelector('a[class="m-productsizeselect-v-2__variant m-productsizeselect-v-2__variant__title js-size-selector-title"]').outerText
         if (size !== null && size.length > 0) {
-          finalName.push(size);
           addElementToDocument('size', size);
         }
       }
     } catch (error) {
     }
-    try {
-      // @ts-ignore
-      const color = document.querySelector('span[class="m-productcolorselect-v-2__selector-title').outerText.replace(/FARBE: /g, '')
-      if (color !== null && color.length > 0 && !color.includes('FARBE')) {
-        finalName.push(color);
-      }
-    } catch (error) {
-    }
-    spaceSeparatorSingle('name', finalName);
     let alternateImages = [];
     let temp;
     try {
