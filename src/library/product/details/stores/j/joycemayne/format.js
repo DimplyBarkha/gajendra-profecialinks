@@ -38,7 +38,7 @@ const transform = (data) => {
           if(obj.text.startsWith("//media")){
             row.inTheBoxUrl.push(obj);
           }else{
-            obj.text = "//media.flixfacts.com/eyekandy/dyson/v11/au/" + extracturlbeforeExtn[0];
+            obj.text = extracturlbeforeExtn[0];
             row.inTheBoxUrl.push(obj);           
           }
           

@@ -105,11 +105,21 @@ async function implementation (
           const getAllProductsWBLeft = document.querySelectorAll('div.inpage_selector_InTheBox>div.flix-std-container-fluid>div.flix-std-table');
 
           for (let i = 0; i < getAllProductsWB.length; i++) {
-            inBoxUrls.push(getAllProductsWB[i].querySelector('div.flix-background-image>img').getAttribute('data-flixsrcset'));
+            if(getAllProductsWB[i].querySelector('div.flix-background-image>img').getAttribute('data-flixsrcset')){
+              inBoxUrls.push(getAllProductsWB[i].querySelector('div.flix-background-image>img').getAttribute('data-flixsrcset'));
+            }else{
+              inBoxUrls.push(getAllProductsWB[i].querySelector('div.flix-background-image>img').getAttribute('src'));
+            }
+            
             inBoxText.push(getAllProductsWB[i].querySelector('div.flix-std-content>div.flix-std-desc>span').innerText);
           }
           for (let i = 0; i < getAllProductsWBLeft.length; i++) {
-            inBoxUrls.push(getAllProductsWBLeft[i].querySelector('div.flix-background-image>img').getAttribute('data-flixsrcset'));
+            if(getAllProductsWBLeft[i].querySelector('div.flix-background-image>img').getAttribute('data-flixsrcset')){
+              inBoxUrls.push(getAllProductsWBLeft[i].querySelector('div.flix-background-image>img').getAttribute('data-flixsrcset'));
+            }else{
+              inBoxUrls.push(getAllProductsWBLeft[i].querySelector('div.flix-background-image>img').getAttribute('src'));
+            }
+            
             inBoxText.push(getAllProductsWBLeft[i].querySelector('div.flix-std-content>div.flix-std-desc>span').innerText);
           }
         }
