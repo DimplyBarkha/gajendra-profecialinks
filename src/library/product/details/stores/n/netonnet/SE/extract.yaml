@@ -136,7 +136,8 @@ fields:
     xpath: //td[contains(text(), "Vikt")]/following::td[1]
   - name: inTheBoxText
     singleValue: false
-    xpath:  //h2[contains(text(),'I förpackningen')]/ancestor::div/following-sibling::div/div/ul[@class='bulletList']/li
+    xpath: //div[@id ='inTheBoxText']
+    # xpath:  //h2[contains(text(),'I förpackningen')]/ancestor::div/following-sibling::div/div/ul[@class='bulletList']/li
     # xpath: //div[contains(@class,"productSpec")]//div[contains(@class,"cPromotionItem")]//div[@class="name"]/a | //h2[contains(text(),'I förpackningen')]/ancestor::div/following-sibling::div/div/ul[@class='bulletList']/li |//tr//td[contains(.,'Medföljande verktyg')]/ancestor::tr//td[@class="plValue"]/text()|//tr//td[contains(.,'Medföljande tillbehör')]/ancestor::tr//td[@class="plValue"]/text()
   - name: hasComparisonTable
     singleValue: false
