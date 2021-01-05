@@ -55,6 +55,12 @@ module.exports = {
           }
           data[k].group[i].additives = data[k].group[i].additives.slice(0, 1);
         }
+        if ('nameExtended' in data[k].group[i] && data[k].group[i].nameExtended.length > 1) {
+          for (let j = 1; j < data[k].group[i].nameExtended.length; j++) {
+            data[k].group[i].nameExtended[0].text += ' ' + data[k].group[i].nameExtended[j].text;
+          }
+          data[k].group[i].nameExtended = data[k].group[i].nameExtended.slice(0, 1);
+        }
         if ('availabilityText' in data[k].group[i] && data[k].group[i].availabilityText[0].text !== 'Out of Stock') {
           data[k].group[i].availabilityText[0].text = 'In Stock';
         }

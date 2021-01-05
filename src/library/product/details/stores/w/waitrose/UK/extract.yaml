@@ -32,11 +32,13 @@ fields:
   xpath: //section[@class="wrapper___2WIo4"]//li[@class="crumb___gkCdp"]/a
   description: The categories (e.g. from breadcrumbs)
 - name: nameExtended
-  singleValue: true
-  xpath: //h1[@id="productName"]/span[@itemprop="name"]
+  singleValue: false
+  xpath: //h1[@id="productName"]/span
   description: The product name, prefixing "${brand} - " if not included in "name"
     and appending " - ${variantType}" if necessary (fixed per feed)
 - name: listPrice
+  xpath: //span[contains(@class, "offerDescription")]
+  regExp: .\d+.\d+$
   singleValue: true
   description: The stated undiscounted price for the product
 - name: price
@@ -487,6 +489,7 @@ fields:
   regExpReplace: $1
   description: The unit of measurement used in price_per_unit
 - name: promotion
+  xpath: //span[contains(@class, "offerDescription")]/text()
   singleValue: true
   description: promotion text on product page
 - name: alcoholContent
