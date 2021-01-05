@@ -138,7 +138,7 @@ const getInTheBoxx = document.querySelector('#ProductText').children[1].childNod
        console.log("here i am",getInTheBoxx);
        for(let i =0; i< getInTheBoxx.length; i++)
        {
-         if(getInTheBoxx[i].textContent.includes("מידות:")){
+         if(getInTheBoxx[i].textContent.includes("מתאים לכל סוגי המשטחים - ניקוי מלא של רצפות, שטיחים ופרקטים ולבתים עם חיות מחמד")){
            console.log("making condition false", getInTheBoxx[i]);
           startFlag=false;
          }
@@ -151,6 +151,7 @@ const getInTheBoxx = document.querySelector('#ProductText').children[1].childNod
          }
        }
       addElementToDocument(`inTheBoxText`,setBoxHere);
+      console.log("here is the text for in the boxx......", setBoxHere);
 
       let scrollTop = 500;
       while (true) {

@@ -529,12 +529,12 @@ fields:
     defaultValue: No
   - name: hasComparisonTable
     defaultValue: No
-  - name: inTheBoxText1
-    xpath: //span[contains(@id,'ProductText')]//div[(contains(.,'אביזרים:'))] | //strong[contains(.,"אביזרים")]/../following-sibling::div[1]
+   #name: inTheBoxText1
+  #xpath: //span[contains(@id,'ProductText')]//div[(contains(.,'אביזרים:'))] | //strong[contains(.,"אביזרים")]/../following-sibling::div[1]
   - name: inTheBoxText
-    xpath: //span[@id="ProductText"]//img/../following::div[(following::*[contains(text(),"מפרט טכני")])]//text() | //span[@id="ProductText"]//img/..//text() | //strong[contains(.,"מפרט טכני")]/../text()[following::strong[contains(.,"מפרט טכני")]]
+    xpath: //div[@id="inTheBoxText"]| //span[contains(@id,'ProductText')]//div//strong[contains(.,'אביזרים:')]/following-sibling::text() | //span[contains(@id,'ProductText')]//div//img/following-sibling::text() |//*[@id="ProductText"]/div[8] | //strong[contains(.,"אביזרים")]/../following-sibling::div[1] | //span[contains(@id,'ProductText')]//span[contains(.,"אביזרים:")]/../following-sibling::div[1] | //span[contains(@id,'ProductText')]//div//img/../following-sibling::div[2] | //span[contains(@id,'ProductText')]//div//img/../following-sibling::div[3] | //span[contains(@id,'ProductText')]//div//img/../following-sibling::div[1]
+    #xpath: //span[@id="ProductText"]//img/../following::div[(following::*[contains(text(),"מפרט טכני")])]//text() | //span[@id="ProductText"]//img/..//text() | //strong[contains(.,"מפרט טכני")]/../text()[following::strong[contains(.,"מפרט טכני")]]
     # xpath: //p[contains(.,"מה בערכה")]/strong/following-sibling::text()|//strong[contains(.,"אביזרים")]/../following-sibling::div[following-sibling::div[contains(.,"מפרט")]]|//strong[contains(.,"אביזרים ")]/ancestor::p|//strong[contains(.,"אביזרים")]/parent::node()/parent::node()/following-sibling::div[1]/text()|//div[contains(text(),'אביזרים')]/following-sibling::div/img/following-sibling::text() | //div[@id="inTheBoxText"]
   - name: inTheBoxUrl
-    xpath: //span[@id="ProductText"]//img/@src
+    xpath: //span[@id="ProductText"]//img/@src | //span[contains(@id,'ProductText')]//em//img/@src
     # xpath: //*[contains(.,"אביזרים")]/../following-sibling::div[following-sibling::div[contains(.,"מפרט")]]/img/@src|//*[contains(.,"בערכה")]/following-sibling::div//img[contains(@src, "olsale")]/@src|//*[contains(.,"בערכה")]/following-sibling::p//img[contains(@src, "olsale")]/@src|//div[contains(text(),'אביזרים')]/following-sibling::div/img/@src
-    
