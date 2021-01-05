@@ -19,7 +19,7 @@ fields:
     xpath: //meta[@name="keywords"]/@content
   - name: category
     singleValue: false
-    xpath: //ol[@class="breadcrumb"]/li/a[not(contains(text(),'Home'))]
+    xpath: //ol[@class="breadcrumb"]/li/a[not(text()="Home")]
   - name: nameExtended
     singleValue: true
     xpath: //html//div[@class="addProductDescInfo"]
