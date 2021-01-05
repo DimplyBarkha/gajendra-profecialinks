@@ -11,7 +11,7 @@ fields:
     xpath: ancestor::html//div[@id="searchUrl"][last()]
   - name: name
     singleValue: false
-    xpath: //a[@class="product-name"]
+    xpath: //a[@class="product-name"]/@title
   - name: productUrl
     singleValue: false
     xpath: //a[@class="product-name"]/@href
@@ -24,10 +24,11 @@ fields:
     singleValue: false
   - name: aggregateRating2
     singleValue: false
-    xpath: //div[@class="ratingInner"]/@rating
+    xpath: //div[@class="ratingWrapper"]/@rating
     type: STRING
   - name: reviewCount
     singleValue: false
+    xpath: //div[@class="ratingWrapper"]/@reviews-num
   - name: ratingCount
     singleValue: false
   - name: price

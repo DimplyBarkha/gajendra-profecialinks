@@ -6,7 +6,7 @@ module.exports = {
     store: 'pharmasimple',
     domain: 'pharmasimple.com',
     url: 'https://pharmasimple.com/module/ambjolisearch/jolisearch?search_query={searchTerms}',
-    loadedSelector: 'ul[class="product_list grid row"]',
+    loadedSelector: 'ul[class="product_list grid row"] div.product-container',
     noResultsXPath: '//p[@class="alert alert-warning"]',
     zipcode: '',
   },

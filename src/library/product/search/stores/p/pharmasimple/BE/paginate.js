@@ -4,10 +4,10 @@ module.exports = {
   parameterValues: {
     country: 'BE',
     store: 'pharmasimple',
-    nextLinkSelector: 'li[id="pagination_next_bottom"]',
+    nextLinkSelector: 'li:not([class*="disabled"]) i.icon-angle-right',
     mutationSelector: null,
     spinnerSelector: null,
-    loadedSelector: 'ul[class="product_list grid row"]',
+    loadedSelector: 'ul[class="product_list grid row"] div.product-container',
     noResultsXPath: '//p[@class="alert alert-warning"]',
     resultsDivSelector: null,
     openSearchDefinition: null,
