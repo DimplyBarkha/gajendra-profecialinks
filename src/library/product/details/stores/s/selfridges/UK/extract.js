@@ -128,7 +128,7 @@ async function implementation (inputs, parameters, context, dependencies) {
       } else {
         const varData = document.querySelector('script[data-component="pdp-semantic-data"]');
         const isSku = varData ? JSON.parse(varData.textContent).model : null;
-        if (isSku && document.querySelector('section[data-js-variant-type="multi-size"] div[data-ts-select-label="Size"] div.c-select__dropdown-item-container span.c-select__dropdown-item')) {
+        if (isSku && isSku.length === 1 && document.querySelector('section[data-js-variant-type="multi-size"] div[data-ts-select-label="Size"] div.c-select__dropdown-item-container span.c-select__dropdown-item')) {
           document.querySelector('section[data-js-variant-type="multi-size"] div[data-ts-select-label="Size"] div.c-select__dropdown-item-container span.c-select__dropdown-item').setAttribute('variantId',
             JSON.parse(varData.textContent).model[0].sku);
           document.querySelector('section[data-js-variant-type="multi-size"] div[data-ts-select-label="Size"] div.c-select__dropdown-item-container span.c-select__dropdown-item').setAttribute('nameExtended', `${productHeroDesc}`);
