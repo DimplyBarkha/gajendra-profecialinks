@@ -12,8 +12,10 @@ async function implementation (
   await context.evaluate(async () => {
     window.scroll(0, 1000);
     if (document.querySelector('li#brand_navigation_item a')) {
+      // @ts-ignore
       document.querySelector('li#brand_navigation_item a').click();
       if (document.querySelector('button.btn-expand.btn-reset img[src]')) {
+        // @ts-ignore
         document.querySelector('button.btn-expand.btn-reset img[src]').click();
         await new Promise(resolve => setTimeout(resolve, 500));
         let scrollTop = 0;
@@ -63,7 +65,7 @@ async function implementation (
         catElement1.type = 'text/javascript';
         catElement1.src = `https://media.flixcar.com/delivery/js/inpage/2754/fr/ean/${ean}?&=2754&=fr&ean=${ean}&brand=${brand}&ssl=1&ext=.js`;
         catElement1.crossOrigin = 'true';
-        document.querySelector('.hdca-product') && document.querySelector('.hdca-product').appendChild(catElement1);
+        document.body.appendChild(catElement1);
       }
     }
   });
