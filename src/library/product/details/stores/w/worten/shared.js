@@ -19,7 +19,7 @@ const transform = (data) => {
         ];
       }
       if (row.manufacturerDescription) {
-        const text = row.manufacturerDescription[0].text.replace(/more/g, '').trim();
+        const text = row.manufacturerDescription[0].text.replace(/more |Prev Next/g, '').trim();
         row.manufacturerDescription = [{ text }];
       }
 

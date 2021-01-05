@@ -32,7 +32,10 @@ module.exports = {
       }
 
       const descEl = document.querySelector('#flix-inpage');
-
+      const paginationText =  document.querySelector('p.fl1xcarousel-pagination')
+      if(paginationText){
+        paginationText.remove();
+      }
       if (descEl) {
         const styleEl = descEl.querySelectorAll('style');
         const scriptEl = descEl.querySelectorAll('script');
@@ -53,21 +56,21 @@ module.exports = {
       }
       function timeout(ms) {
         return new Promise((resolve) => setTimeout(resolve, ms));
-    }
-    
-    function getElementsByXPath(xpath, parent) {
+      }
+
+      function getElementsByXPath(xpath, parent) {
         const results = [];
         const query = document.evaluate(xpath, parent || document,
-            null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
+          null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
         for (let i = 0, length = query.snapshotLength; i < length; ++i) {
-            const node = query.snapshotItem(i) && query.snapshotItem(i).textContent && query.snapshotItem(i).textContent.replace(/(.+)(videos.+)(-1.+)/g, 'https://$2.mp4').trim();
-            results.push(node);
+          const node = query.snapshotItem(i) && query.snapshotItem(i).textContent && query.snapshotItem(i).textContent.replace(/(.+)(videos.+)(-(\d+))(-thumb.+)/g, 'https://$2.mp4').trim();
+          results.push(node);
         }
         return results.filter(e => e);
-    }
-    
-    var videoImage = document.querySelector('div.w-container-full--product div.demoupUI-playimage');
-    if (videoImage) {
+      }
+
+      const videoImage = document.querySelector('div.w-container-full--product div.demoupUI-playimage');
+      if (videoImage) {
         videoImage.click();
         await timeout(2000);
         const videoUrls = getElementsByXPath('(//meta[contains(@content,"//video")]/@content)[1] | //div[@class="demoupUI-playlist"]//div[@class="demoupUI-item"][position()>1]//img/@src');
@@ -75,22 +78,47 @@ module.exports = {
         const videos = removeDuplicatevideos.join(' | ')
         console.log(videos);
         document.querySelector('h1').setAttribute('videos', videos);
-    }
+      }
 
-    const bulletCount = document.querySelector('div.w-product-about-container') && document.querySelector('div.w-product-about-container').innerHTML.replace(/<br> -/g, ' || ').replace(/(<([^>]+)>)/ig, '').trim().split('||').length -1;
-    
-    if(bulletCount) {
-      const bullets = bulletCount.toString();
-     document.querySelector('h1').setAttribute('bullet-point', bullets);
-    }
+      const youtubeVideos = getElementsByXPath('//img/@data-plyr-embed-id');
+      const youtubeVideosArr = [];
+      youtubeVideos.forEach(e => {
+        const video = e.replace(/(.+)/g, 'https://www.youtube.com/watch?v=$1');
+        youtubeVideosArr.push(video);
+      });
+
+      const allYoutubeVideos = youtubeVideosArr.join(' | ');
+      document.querySelector('h1').setAttribute('youtube-videos', allYoutubeVideos);
+
+      const bulletCount = document.querySelector('div.w-product-about-container') && document.querySelector('div.w-product-about-container').innerHTML.replace(/<br> -/g, ' || ').replace(/(<([^>]+)>)/ig, '').trim().split('||').length - 1;
+
+      if (bulletCount) {
+        const bullets = bulletCount.toString();
+        document.querySelector('h1').setAttribute('bullet-point', bullets);
+      }
     });
 
     try {
-      await context.waitForSelector('#flixmediaInsert', { timeout: 30000 });
+      await context.waitForSelector('div#flixmediaInsert', { timeout: 60000 });
     } catch (err) {
       console.log('Enhanced content did not load');
     }
-
+    await context.evaluate(async function () {
+      const enhanceContentVideos = [];
+      const getVideoList = document.querySelector('div.fullJwPlayerWarp input');
+      if (getVideoList) {
+        const list = getVideoList.getAttribute('value');
+        const videoObj = JSON.parse(list);
+        if (videoObj && videoObj.playlist) {
+          videoObj.playlist.forEach(element => {
+            const video = element.file.replace(/(.+)/g, 'http:$1');
+            enhanceContentVideos.push(video);
+          });
+        }
+      }
+      const allVideos = enhanceContentVideos.join(' | ');
+      document.querySelector('h1').setAttribute('enhance-videos', allVideos);
+    })
     await context.extract(productDetails, { transform });
   },
 };

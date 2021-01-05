@@ -77,7 +77,7 @@ fields:
     regExpReplace: http:$1
   - name: videos
     description: URLs of videos on page
-    xpath: //h1/@videos
+    xpath: //h1/@videos | //h1/@enhance-videos | //h1/@youtube-videos
   - name: warranty
     description: Guarantee associated with the product
     xpath: //div[@class="w-section__wrapper"]//ul//li//span[contains(text(),'Garantia')]/../span[position()>last()-1]
