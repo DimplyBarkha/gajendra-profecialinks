@@ -1,5 +1,3 @@
-const { transform } = require('../shared');
-
 async function implementation (
   inputs,
   parameters,
@@ -21,10 +19,10 @@ module.exports = {
   parameterValues: {
     country: 'DE',
     store: 'blu',
-    transform,
+    transform: null,
     domain: 'blu.com',
     zipcode: '',
   },
-  // implementation,
+  implementation,
 };
 
