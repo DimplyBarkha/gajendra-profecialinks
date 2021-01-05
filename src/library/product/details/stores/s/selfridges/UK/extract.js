@@ -121,6 +121,10 @@ async function implementation (inputs, parameters, context, dependencies) {
       if (sku && document.querySelector('section[data-js-variant-type="multi-size"] div[data-ts-select-label="Size"] div.c-select__dropdown-item-container span.c-select__dropdown-item')) {
         document.querySelector('section[data-js-variant-type="multi-size"] div[data-ts-select-label="Size"] div.c-select__dropdown-item-container span.c-select__dropdown-item').setAttribute('variantId', sku || '');
         document.querySelector('section[data-js-variant-type="multi-size"] div[data-ts-select-label="Size"] div.c-select__dropdown-item-container span.c-select__dropdown-item').setAttribute('nameExtended', `${productHeroDesc}`);
+      }
+      else if (sku && document.querySelector('section[data-js-variant-type="multi-colour"] div[data-ts-select-label="Colour"] div.c-select__dropdown-item-container span.c-select__dropdown-item')) {
+        document.querySelector('section[data-js-variant-type="multi-colour"] div[data-ts-select-label="Colour"] div.c-select__dropdown-item-container span.c-select__dropdown-item').setAttribute('variantId', sku || '');
+        document.querySelector('section[data-js-variant-type="multi-colour"] div[data-ts-select-label="Colour"] div.c-select__dropdown-item-container span.c-select__dropdown-item').setAttribute('nameExtended', `${productHeroDesc}`);
       } else {
         const varData = document.querySelector('script[data-component="pdp-semantic-data"]');
         const isSku = varData ? JSON.parse(varData.textContent).model : null;
