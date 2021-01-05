@@ -55,10 +55,10 @@ fields:
     xpath: //div/@data-flix-mpn
   - name: name
     singleValue: false
-    xpath: //div[@id='name'] | //h1[contains(@class, 'Heading')]
+    xpath: //div[@id='name'] | //h1[contains(@class, 'Heading')] | //div[contains(@class,'product_header')]/h1
   - name: nameExtended
     singleValue: false
-    xpath: //div[@id='name'] | //h1[contains(@class, 'Heading')]
+    xpath: //div[@id='name'] | //h1[contains(@class, 'Heading')] | //div[contains(@class,'product_header')]/h1
   - name: price
     singleValue: false
     xpath: concat(//span[@class = "ProductHeader__price-default_current-price"], //span[contains(@class, "ProductHeader__price-default__rouble")])
