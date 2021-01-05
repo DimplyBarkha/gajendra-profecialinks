@@ -44,7 +44,6 @@ fields:
     xpath: //div[@data-at="sku_size"]/text()
   - name: directions
     singleValue: false
-    xpath: //div[@data-at="product_tabs_section"]/div[@role="tabpanel" and @id="tabpanel1"]/div/text()
   - name: ratingCount
     singleValue: false
     xpath: //span[@data-at="number_of_reviews"]
@@ -72,3 +71,6 @@ fields:
   - name: variants
     singleValue: false
     xpath: //div[contains(@data-comp,"ProductSwatchItem")]//img/@src
+  - name: ingredientsList
+    singleValue: false
+    xpath: //div[@data-at="product_tabs_section"]/div[@role="tabpanel" and @id="tabpanel1"]/div/text()
