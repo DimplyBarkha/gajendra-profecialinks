@@ -339,7 +339,12 @@ fields:
 
 - name: productUrl
   singleValue: true
-- name: unInterruptedPDP
-  xpath: //div[@class="persistent-controls"]//ul//li
 - name: hasComparisonTable
-  defaultValue: No
+  xpath: //span[contains(.,'Comparison Chart')]
+  regExp: (.*)
+  regExpReplace: Yes
+  defaultValue: No 
+- name: unInterruptedPDP
+  xpath: //div[contains(@class,"persistent-controls")]//ul[@class="slider-list"]//li//div[@class="tile-title"]
+
+
