@@ -30,7 +30,7 @@ if( specXpath) {
   specificationList = document.querySelectorAll('div.b_3_bNW20rUd');
   specificationList.forEach((element) => {
     specification +=
-      element.children[0].innerText+':'+element.children[2].innerText+'||';
+      element.children[0].innerText+':'+element.children[2].innerText+' || ';
   });
   const specifications = [];
    specifications.push(specification.slice(0 , -1))
@@ -295,7 +295,7 @@ await context.evaluate(async () => {
         proteinDataUOM = proteinData.split(' ')[1];
       }
     }
-    addHiddenDiv('proteinData', proteinData.split('')[0]);
+    addHiddenDiv('proteinData', proteinData.split(' ')[0]);
     addHiddenDiv('proteinDataUOM', proteinDataUOM);
 
     var xpath =
